@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F15EC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 17:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED8CC47073
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 17:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OKg+TUD1840ZIvLquVJuJklhtRhZ7ykOckRDaJVnmu4=; b=Vgu/mshX0HhgBh5qUlo28cHSoq
-	6Tucu7Tx5JolCT3pyzc96mpTtlpVIiwotg26QG7MF23A2EO66XIXIL6R1SSPDTT3T9Efus1n6Y9yB
-	poEglZmhsDRy6/HqrPfZIAwkSRk1p9BRtCoaFdjborJK3jhDTxT5ljnMDqEDgwM/dOVAj1BnzOBts
-	Gh/9yAv+hlwkbxR1fZV5dpjUcmOqer00nT75ps/5gmPndojUk5Bcku5NYvVSk91+MZMsYJv6eh3en
-	hEFCSPrJqGUxUtIQcjeUqwZMWCagp1qbX4i8BEkxDa2Y5MR/EjzBss47lk1WKk8m3KuCGBxltasX6
-	+Bnv8rHA==;
+	bh=9A/j+ncxyMw4p7V1A/LdEO21vm5LAPJKKniCa+KvJC0=; b=Xs3yNjPFWVZ/5saLnP9Ykc2ehY
+	waxwkAN4Pd36CNjoebfnBDguA7DqtZvoJOkGmvgndW7s4Qi5dGXUJOaLK/svZAeozovFwMPBqGXya
+	udO8/sPECDs6Ld7mb0tGmqkZM7y2HI7WjPu+f4A0Qjmx+qlcX8yt+N0HLMOVW+92Rh+8Wi0N08HeC
+	2Yyjdn/YADAsjlV76XNha4HpSU6kcUKm11MwH5qRnAeaNmodr2wRF2Aht1KXyaASps2EZXK0S9hLB
+	ZkzuKWM6eG3BFKMX0Q97mOx9tPAGJ1U7GoUSGX2BETNZUpWww3zbGDbE5sr5mJdvePdA4gjXa0Ba1
+	wsvPoI0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMtTF-005l2n-1a;
-	Mon, 08 Jan 2024 17:31:29 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rMtW7-005lNI-2K;
+	Mon, 08 Jan 2024 17:34:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMtTD-005l2J-0n
+	id 1rMtW5-005lMY-0O
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jan 2024 17:31:28 +0000
+	Mon, 08 Jan 2024 17:34:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7FB4CCE130F;
-	Mon,  8 Jan 2024 17:31:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB9E7C433C8;
-	Mon,  8 Jan 2024 17:31:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 631AE60F91;
+	Mon,  8 Jan 2024 17:34:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19C6BC433C7;
+	Mon,  8 Jan 2024 17:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704735083;
-	bh=TpcI3dIuWNjlKbiZdSsWqC4HAoWP9zhHwULpZ+JjExE=;
+	s=k20201202; t=1704735264;
+	bh=WxF3mMEMLyJMj2C6OKuTs7PD9Vj4XTLWmmz+TPw4bh0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=un01cIWsY2l7ec12fbUWfb1qr8tZmvTjPeOHQAZJDN7e8roSZWeXC8LHNqMgPmpt/
-	 OSJq5FkZWjL4xVuyHSbSu7PnsXNvasjfv2Fewr2IM4Kn9JwVTcO+e8Atyi9TiwW0TE
-	 2xCNujZTg4R/G6UpksnYomw7qHgAQ+vTmtoLzh4k+sBUjltbXgHCuwUabRygiYJh63
-	 ZgkmEgfsZIbiXJaHkMiwJxqdY1kSPBHIcaKcQb5VU33KHe7SQSHhGtUqHxXc9VX8dI
-	 V4xdKwwTFgLcd5t635lQSRPyblLOgmp1KqPriyffLCc/wFGfI/YcwXKFK+C8BhEkxH
-	 BRzEyAvcqb7XQ==
-Date: Mon, 8 Jan 2024 17:31:17 +0000
+	b=PMTO9m5jCUZETuKErYC+dV7OLZJ+YU4xfDxmzZiT58AzrzQQ9lIAx5+fwI7pfZFLv
+	 qjZ4HVEJzOmsn6XaBD910G62BsXIy/BDmmbj2K8ic1r049YzHl3wggXHNqL/ghQcHE
+	 7N7o97BvHDTIUyIVv77sZh+tusVjRUNIqf3hy967MLWxQr+O0OgGwzg0YbjowKS3VF
+	 dTYMO5I3buWvcTk5GrQTQGD3JAwAehjIc3mFgy41AFSPdkdehALdnhCMex7BkSzvMs
+	 OHC5W3Bq4MM0n0F/VnYEnDtwyF4BmhmJRxUaPzIWNe8S+56BZJwH5JBJS5pgGFa30U
+	 KnM9gSl54vojQ==
+Date: Mon, 8 Jan 2024 17:34:18 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	William Qiu <william.qiu@starfivetech.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
-	Emil Renner Berthing <kernel@esmil.dk>,
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Linus Walleij <linus.walleij@linaro.org>,
 	Rob Herring <robh+dt@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v10 3/4] riscv: dts: starfive: jh7100: Add PWM node and
- pins configuration
-Message-ID: <20240108-hubcap-stubble-ecf6ea34afb9@spud>
-References: <20231222094548.54103-1-william.qiu@starfivetech.com>
- <20231222094548.54103-4-william.qiu@starfivetech.com>
- <CAJM55Z9tyrR7emEBrY0+Fnc_LUFQHkqYHLQ4ptL=XQMy52qtVw@mail.gmail.com>
- <xd2ryic6mr6d6cbljjbhmr56mfpchfzkmc3lnznhmoiwyzip2a@6bhbho267e7c>
- <CAJM55Z9DgFCwXjQGhe+urnOg-AkJMbQUR+biXKONQsRcup1GXw@mail.gmail.com>
+	Drew Fustini <dfustini@baylibre.com>
+Subject: Re: [PATCH v2 3/8] riscv: dts: thead: Add TH1520 pin control nodes
+Message-ID: <20240108-majorette-overtly-4ec65d0a15e9@spud>
+References: <20240103132852.298964-1-emil.renner.berthing@canonical.com>
+ <20240103132852.298964-4-emil.renner.berthing@canonical.com>
 MIME-Version: 1.0
-In-Reply-To: <CAJM55Z9DgFCwXjQGhe+urnOg-AkJMbQUR+biXKONQsRcup1GXw@mail.gmail.com>
+In-Reply-To: <20240103132852.298964-4-emil.renner.berthing@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240108_093127_659836_E23064E6 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20240108_093425_259829_C1183634 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,74 +75,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1323958351873910126=="
+Content-Type: multipart/mixed; boundary="===============8282584721327023285=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1323958351873910126==
+--===============8282584721327023285==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="uwSZRLPC3LWeYwWV"
+	protocol="application/pgp-signature"; boundary="8Qj2RGfy2RprKGUu"
 Content-Disposition: inline
 
 
---uwSZRLPC3LWeYwWV
-Content-Type: text/plain; charset=iso-8859-1
+--8Qj2RGfy2RprKGUu
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Jan 05, 2024 at 05:18:45AM -0800, Emil Renner Berthing wrote:
-> Uwe Kleine-K=F6nig wrote:
-> > Hello Emil,
-> >
-> > On Sun, Dec 24, 2023 at 02:49:34AM -0800, Emil Renner Berthing wrote:
-> > > William Qiu wrote:
-> > > > Add OpenCores PWM controller node and add PWM pins configuration
-> > > > on VisionFive 1 board.
-> > > >
-> > > > Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> > >
-> > > Sorry, I thought I already sent my review. This looks good.
-> > >
-> > > Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> >
-> > Is this also an implicit Ack to take this patch via the pwm tree once
-> > the earlier patches are ready? Or do you want to take it via your tree?
-> > (Maybe already now together with the binding? If so, you can assume my
-> > Reviewed-by to be an implicit Ack for that.)
+On Wed, Jan 03, 2024 at 02:28:40PM +0100, Emil Renner Berthing wrote:
+> Add nodes for pin controllers on the T-Head TH1520 RISC-V SoC.
 >=20
-> Yes, sorry. This is also meant to be an Ack from me.
+> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> ---
+>  .../boot/dts/thead/th1520-beaglev-ahead.dts   |  4 ++++
+>  .../dts/thead/th1520-lichee-module-4a.dtsi    |  4 ++++
+>  arch/riscv/boot/dts/thead/th1520.dtsi         | 24 +++++++++++++++++++
+>  3 files changed, 32 insertions(+)
 >=20
-> I imagined the dt patches would go through Conor's riscv-dt-for-next bran=
-ch,
-> but the pwm tree is certainly also fine by.
+> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/ri=
+scv/boot/dts/thead/th1520-beaglev-ahead.dts
+> index 70e8042c8304..6c56318a8705 100644
+> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> @@ -44,6 +44,10 @@ &osc_32k {
+>  	clock-frequency =3D <32768>;
+>  };
+> =20
+> +&aonsys_clk {
+> +	clock-frequency =3D <73728000>;
+> +};
+> +
+>  &apb_clk {
+>  	clock-frequency =3D <62500000>;
+>  };
+> diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arc=
+h/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> index a802ab110429..9865925be372 100644
+> --- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> @@ -25,6 +25,10 @@ &osc_32k {
+>  	clock-frequency =3D <32768>;
+>  };
+> =20
+> +&aonsys_clk {
+> +	clock-frequency =3D <73728000>;
+> +};
+> +
+>  &apb_clk {
+>  	clock-frequency =3D <62500000>;
+>  };
+> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/=
+thead/th1520.dtsi
+> index ba4d2c673ac8..e65a306ff575 100644
+> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> @@ -134,6 +134,12 @@ osc_32k: 32k-oscillator {
+>  		#clock-cells =3D <0>;
+>  	};
+> =20
+> +	aonsys_clk: aonsys-clk {
+> +		compatible =3D "fixed-clock";
+> +		clock-output-names =3D "aonsys_clk";
+> +		#clock-cells =3D <0>;
+> +	};
 
-idk, I prefer things to go as MAINTAINERS indicates, in case something
-is determined to be wrong in the cycle where the patch is in the "wrong"
-tree.
+Did this stuff sneak into this commit accidentally?
 
-I suppose I could take the binding though, since I am CCed on every
-binding patch under the sun... I'd rather an explicit ack in that case
-though.
-
-Cheers,
-Conor.
-
---uwSZRLPC3LWeYwWV
+--8Qj2RGfy2RprKGUu
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZZwxZQAKCRB4tDGHoIJi
-0nUqAP9yJe3WrgYMWXpHjBz60+ar3t/qeJkOfk0Jf5wV3nSGKQEA/+BcCFymlJ3W
-7iVCVwtlZAqIdUtOXuLEG5keZjo0kwI=
-=7uiV
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZZwyGgAKCRB4tDGHoIJi
+0rwgAP97KBxIGWgOemMO6hdqRmD/8ZxeJ0E6JqevM07cpZ+KvgD/UbJ+65Y7gDdm
+xrA0pClmQVdKxcDVsF7lpqNgBw4K4As=
+=LWOW
 -----END PGP SIGNATURE-----
 
---uwSZRLPC3LWeYwWV--
+--8Qj2RGfy2RprKGUu--
 
 
---===============1323958351873910126==
+--===============8282584721327023285==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -161,5 +175,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1323958351873910126==--
+--===============8282584721327023285==--
 
