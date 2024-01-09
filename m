@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6488CC46CD2
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 03:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B74F1C46CD2
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 06:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bb/qAsUq20AUnspCW5HnjjK6saSyETmJg+kw/y9nov8=; b=OQjttEZdg5vLmd
-	L+/mlMx3Qa9tj6VPu57rqU48Qi5CbfQyOQWO1dAVHQt5dCisBDOWflUE7XkjKLBnFKwWu4XflbEZH
-	rJZEmYMS/mDPUetfh+pwcfjJz0LbGE9G11BmN95QA8ujAgJjVWPGesNPZmumKAd9oFtxcJJaU1oe4
-	nWAs4ObVo3/HSk1LgwlUYHHhE4k/KQp9uUdIc0HNaIYDkatTYfdl9iZ6kIp19JX8WmO6TAajhDYcB
-	x1LpN4wzpYnxLel93QOpKoXi4NUUT2FGzqGdGwD4RpkQ7VAo9i4dtnWHq4f9LXWWg/WO5HRMKcrbP
-	L8GWrkqvWQZHT7fGfNGA==;
+	List-Owner; bh=GHfs+je2YHcgdrrzRqt66GiqfaMQNzaiyAhuj57WnGE=; b=YINpUa9lNSHtv9
+	7vhcaIlnZ0aXmUZX7Ufj7LuVAOyp58GQ5i2n8Y+/QP/9gzq0pOf90HmQYzk2pgdwImn3y1nC8vHyA
+	+cYhacjZQB55iXdLekD2q87dUSWbP+f1K/6dHSjCbR/HeTAh90udag00ma4vK8kPHb+x65XrPWhfl
+	HIMWayf/5LqyrexKTIWq7L3WEzLc9IsrTYvyt/4QX7gup3/5X+vRx0uPKzhp07uTH714dW/zvO1B4
+	5ng3E0RqkuWQNXA9T47mKeKuDGTQXp2iYUq3ktwUQdGlNyLCJAjZT59mps+EFAkFKXCVQAOxyFrkd
+	8DK8SGS8P51T89P2ic9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rN382-006pnt-35;
-	Tue, 09 Jan 2024 03:50:14 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rN5Bu-0072M5-2J;
+	Tue, 09 Jan 2024 06:02:22 +0000
+Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rN37y-006plB-0z
+	id 1rN5Br-0072Kz-19
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jan 2024 03:50:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1704772209;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=a0GQAZNSgQ9NYel79tdKOQqcnL4ZPX5GxjXGFUqL5FQ=;
-	b=e13/v2wN/YcjrNNSSG5Ws0edv9GxRJ5hmbbIjKYM+rasZOLO/xX95m6xCTvKEd11fbCj0O
-	LL7YRqtg7jeCESCj3P1mDTV2/S2h4nF6vmGL0dpg6Z25lYMMZ1Oe2Y8GlWOhNaVTzFvfm+
-	Gp/L0bG51h/n0ow9Y/bEJQpVzhue9/o=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-445-z2OS85ljPFq20Ze8WhKemQ-1; Mon, 08 Jan 2024 22:50:00 -0500
-X-MC-Unique: z2OS85ljPFq20Ze8WhKemQ-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 29B0285A588;
-	Tue,  9 Jan 2024 03:49:59 +0000 (UTC)
-Received: from localhost (unknown [10.72.116.129])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4FFC53C4F;
-	Tue,  9 Jan 2024 03:49:57 +0000 (UTC)
-Date: Tue, 9 Jan 2024 11:49:54 +0800
-From: Baoquan He <bhe@redhat.com>
-To: kernel test robot <lkp@intel.com>
-Cc: linux-kernel@vger.kernel.org, oe-kbuild-all@lists.linux.dev,
-	akpm@linux-foundation.org, kexec@lists.infradead.org,
-	hbathini@linux.ibm.com, arnd@arndb.de, ignat@cloudflare.com,
-	eric_devolder@yahoo.com, viro@zeniv.linux.org.uk,
-	ebiederm@xmission.com, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 5/5] crash: clean up CRASH_DUMP
-Message-ID: <ZZzCYr7t0FrMWafB@MiWiFi-R3L-srv>
-References: <20240105103305.557273-6-bhe@redhat.com>
- <ZZqk+AnXbqnJuMdF@rli9-mobl>
+	Tue, 09 Jan 2024 06:02:20 +0000
+Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3606e69ec67so22243195ab.2
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Jan 2024 22:02:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1704780136; x=1705384936; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SC3vgopQgjhiGDVg61h7B4FeTMOwECveBgS++xiO8eY=;
+        b=qxbB3M596S9P3ITpuShRIYWoKDp3cw5qanZx4YtjbEShSzpCu8dp1wzNS7aP5yYXZY
+         pCstxE2gzY70jjlZ/ZBXs/KtGscCwCZF7GgVUSfnNT0qjGPiCaN0TUXGw6vwNhX0eETS
+         o67z6q5lL+v+r03pOfry0SrvI89c0yY57tnbMehxGaSx4bZ0GjRlcYYidZMLxL2SgC08
+         2mjPpCdzuG1hh0NnIVyCNSK9UJh+vhpe7hvBwCp00u8R2LIAxDqX5XzIshWsoNNFAECR
+         LXfZcw+NmAS+o/fiRyKbS3BpmIpKQQwZ+4U+LZDNB0gnootPRepwxsst1gF6qEurvVn0
+         bq1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704780136; x=1705384936;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SC3vgopQgjhiGDVg61h7B4FeTMOwECveBgS++xiO8eY=;
+        b=druvGkp453/BeAjV1ZuG7ZIK0oiX9hXXG2C2zxGjO21KGm1KgH3E/sDVmaFyx6eMuQ
+         DovWYPszluJRpP7XmG76r6edXqI/iv4GLdpULz/DwWrQSleFAybmS4MdvDFrp4HTCgQT
+         OjBJxR4e/Kcs4qpQGUhPYb3CyZ0ptFSQQFfM3DtSQ3F5CK8ZMn1KcbEodB7FWChSab1+
+         IPepJtc7Ts3fLOyUfIysXrb3ZEVQgbgS2it0QNGboDCt9IyLLFFGW7nRNhK8AqtVWTqj
+         k2v62vs+tKSnA5VOWiwCqGwOiObwF2wD7E1TVVJSuMQKMMuVAX2xDKO5iKP3k70sgxNr
+         kVyg==
+X-Gm-Message-State: AOJu0Yzq0MCd5G7uNYXoo7zUK1jvZMlES6Eiac3EUFJwpRqlJX2Fqx4z
+	DK2CrHHg0mtYcRd+0u/EGH2Ykp2KIE7Ww48Yc/uvV0BV3R/vUA==
+X-Google-Smtp-Source: AGHT+IFA0x43cfGZLFFEgvDfSne2HckKcDx43xjiVRe/8xM5bLM0cMYAEPSjP4WKy2beNi8IBKBA4NKXiFrZYks/3V4=
+X-Received: by 2002:a05:6e02:17c6:b0:360:976f:d0b8 with SMTP id
+ z6-20020a056e0217c600b00360976fd0b8mr1218628ilu.44.1704780135686; Mon, 08 Jan
+ 2024 22:02:15 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZZqk+AnXbqnJuMdF@rli9-mobl>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
+References: <CAAhSdy1QsMuAmr+DFxjkf3a2Ur91AX9AnddRnBHGM6+exkAn1g@mail.gmail.com>
+ <CABgObfZN4_xvOHr8aukZZGZj5teWZ7rt5RJU5Y0YFewQk19FRw@mail.gmail.com>
+ <20240102-c07d32a585f11ee80bd7b70b@orel> <CAAhSdy2_STfVNb6PB0o-hW+rn-K+U5BcYJWJO3m8vbeQEQ9BFw@mail.gmail.com>
+In-Reply-To: <CAAhSdy2_STfVNb6PB0o-hW+rn-K+U5BcYJWJO3m8vbeQEQ9BFw@mail.gmail.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 9 Jan 2024 11:32:05 +0530
+Message-ID: <CAAhSdy0GO=5N2Fz0O-=xMqJ1ZK3GoqsW76kt8UevxhJRbEYmtw@mail.gmail.com>
+Subject: Re: Re: [GIT PULL] KVM/riscv changes for 6.8 part #1
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, 
+	Atish Patra <atishp@rivosinc.com>, KVM General <kvm@vger.kernel.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240108_195010_413017_2709DEE5 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20240108_220219_389122_1912B00E 
+X-CRM114-Status: GOOD (  24.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,98 +88,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 01/07/24 at 09:19pm, kernel test robot wrote:
-> Hi Baoquan,
-> 
-> kernel test robot noticed the following build errors:
-> 
-> [auto build test ERROR on linus/master]
-> [also build test ERROR on v6.7-rc8]
-> [cannot apply to powerpc/next powerpc/fixes tip/x86/core arm64/for-next/core next-20240105]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Baoquan-He/kexec_core-move-kdump-related-codes-from-crash_core-c-to-kexec_core-c/20240105-223735
-> base:   linus/master
-> patch link:    https://lore.kernel.org/r/20240105103305.557273-6-bhe%40redhat.com
-> patch subject: [PATCH 5/5] crash: clean up CRASH_DUMP
-> :::::: branch date: 2 days ago
-> :::::: commit date: 2 days ago
-> config: x86_64-randconfig-122-20240106 (https://download.01.org/0day-ci/archive/20240107/202401071326.52yn9Ftd-lkp@intel.com/config)
-> compiler: ClangBuiltLinux clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240107/202401071326.52yn9Ftd-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/r/202401071326.52yn9Ftd-lkp@intel.com/
-
-Thanks for reporting.
-
-I have reproduced these linking errors, will consier how to rearrange
-code change and fix them. The thing splitting kdump out could be more
-complicated than I thought.
-
-> 
-> All errors (new ones prefixed by >>):
-> 
-> >> ld.lld: error: undefined symbol: crashk_res
->    >>> referenced by initramfs.c:638 (init/initramfs.c:638)
->    >>>               init/initramfs.o:(kexec_free_initrd) in archive vmlinux.a
->    >>> referenced by initramfs.c:638 (init/initramfs.c:638)
->    >>>               init/initramfs.o:(kexec_free_initrd) in archive vmlinux.a
->    >>> referenced by initramfs.c:0 (init/initramfs.c:0)
->    >>>               init/initramfs.o:(kexec_free_initrd) in archive vmlinux.a
->    >>> referenced 77 more times
-> --
-> >> ld.lld: error: undefined symbol: parse_crashkernel
->    >>> referenced by setup.c:479 (arch/x86/kernel/setup.c:479)
->    >>>               arch/x86/kernel/setup.o:(arch_reserve_crashkernel) in archive vmlinux.a
-> --
-> >> ld.lld: error: undefined symbol: crashk_low_res
->    >>> referenced by machine_kexec_64.c:539 (arch/x86/kernel/machine_kexec_64.c:539)
->    >>>               arch/x86/kernel/machine_kexec_64.o:(kexec_mark_crashkres) in archive vmlinux.a
->    >>> referenced by machine_kexec_64.c:539 (arch/x86/kernel/machine_kexec_64.c:539)
->    >>>               arch/x86/kernel/machine_kexec_64.o:(kexec_mark_crashkres) in archive vmlinux.a
->    >>> referenced by machine_kexec_64.c:539 (arch/x86/kernel/machine_kexec_64.c:539)
->    >>>               arch/x86/kernel/machine_kexec_64.o:(kexec_mark_crashkres) in archive vmlinux.a
->    >>> referenced 36 more times
-> --
-> >> ld.lld: error: undefined symbol: crash_update_vmcoreinfo_safecopy
->    >>> referenced by kexec_core.c:522 (kernel/kexec_core.c:522)
->    >>>               kernel/kexec_core.o:(kimage_crash_copy_vmcoreinfo) in archive vmlinux.a
->    >>> referenced by kexec_core.c:610 (kernel/kexec_core.c:610)
->    >>>               kernel/kexec_core.o:(kimage_free) in archive vmlinux.a
-> --
-> >> ld.lld: error: undefined symbol: crash_save_vmcoreinfo
->    >>> referenced by kexec_core.c:1053 (kernel/kexec_core.c:1053)
->    >>>               kernel/kexec_core.o:(__crash_kexec) in archive vmlinux.a
-> --
-> >> ld.lld: error: undefined symbol: paddr_vmcoreinfo_note
->    >>> referenced by kexec_core.c:1148 (kernel/kexec_core.c:1148)
->    >>>               kernel/kexec_core.o:(crash_prepare_elf64_headers) in archive vmlinux.a
-> --
-> >> ld.lld: error: undefined symbol: append_elf_note
->    >>> referenced by kexec_core.c:1390 (kernel/kexec_core.c:1390)
->    >>>               kernel/kexec_core.o:(crash_save_cpu) in archive vmlinux.a
-> --
-> >> ld.lld: error: undefined symbol: final_note
->    >>> referenced by kexec_core.c:1392 (kernel/kexec_core.c:1392)
->    >>>               kernel/kexec_core.o:(crash_save_cpu) in archive vmlinux.a
-> 
-> -- 
-> 0-DAY CI Kernel Test Service
-> https://github.com/intel/lkp-tests/wiki
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgUGFvbG8sCgpPbiBUaHUsIEphbiA0LCAyMDI0IGF0IDExOjAw4oCvQU0gQW51cCBQYXRlbCA8
+YW51cEBicmFpbmZhdWx0Lm9yZz4gd3JvdGU6Cj4KPiBIaSBQYW9sbywKPgo+IE9uIFdlZCwgSmFu
+IDMsIDIwMjQgYXQgMTo1NeKAr0FNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5j
+b20+IHdyb3RlOgo+ID4KPiA+IE9uIFR1ZSwgSmFuIDAyLCAyMDI0IGF0IDA3OjI0OjI2UE0gKzAx
+MDAsIFBhb2xvIEJvbnppbmkgd3JvdGU6Cj4gPiA+IE9uIFN1biwgRGVjIDMxLCAyMDIzIGF0IDY6
+MzPigK9BTSBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPiB3cm90ZToKPiA+ID4gPgo+
+ID4gPiA+IEhpIFBhb2xvLAo+ID4gPiA+Cj4gPiA+ID4gV2UgaGF2ZSB0aGUgZm9sbG93aW5nIEtW
+TSBSSVNDLVYgY2hhbmdlcyBmb3IgNi44Ogo+ID4gPiA+IDEpIEtWTV9HRVRfUkVHX0xJU1QgaW1w
+cm92ZW1lbnQgZm9yIHZlY3RvciByZWdpc3RlcnMKPiA+ID4gPiAyKSBHZW5lcmF0ZSBJU0EgZXh0
+ZW5zaW9uIHJlZ19saXN0IHVzaW5nIG1hY3JvcyBpbiBnZXQtcmVnLWxpc3Qgc2VsZnRlc3QKPiA+
+ID4gPiAzKSBTdGVhbCB0aW1lIGFjY291bnQgc3VwcG9ydCBhbG9uZyB3aXRoIHNlbGZ0ZXN0Cj4g
+PiA+Cj4gPiA+IEp1c3Qgb25lIHNtYWxsIHRoaW5nIEkgbm90aWNlZCBvbiAoMyksIGRvIHlvdSBy
+ZWFsbHkgbmVlZCBjcHVfdG9fbGU2NAo+ID4gPiBhbmQgbGU2NF90b19jcHUgb24gUklTQy1WPyBJ
+dCBzZWVtcyB0aGF0IGl0IHdhcyBjb3BpZWQgZnJvbSBhYXJjaDY0Lgo+ID4gPiBObyBuZWVkIHRv
+IHJlc2VuZCB0aGUgUFIgYW55d2F5LCBvZiBjb3Vyc2UuCj4gPgo+ID4gV2hpbGUgTGludXgvS1ZN
+IGlzIG9ubHkgTEUsIHRoZSBhcmNoIGRvZXNuJ3QgcHJvaGliaXQgUy1tb2RlIGJlaW5nCj4gPiBj
+b25maWd1cmVkIHRvIHVzZSBCRSBtZW1vcnkgYWNjZXNzZXMsIHNvIEkga2VwdCB0aGUgY29udmVy
+c2lvbnMuIFRoZXkKPiA+IGF0IGxlYXN0IHByb3ZpZGUgc29tZSBzZWxmLWRvY3VtZW50aW5nIG9m
+IHRoZSBjb2RlLiBUaGUgYmlnZ2VzdAo+ID4gcHJvYmxlbSB3aXRoIHRoZW0sIHRob3VnaCwgaXMg
+dGhhdCBJIGRpZG4ndCB1c2UgX19sZTY0IHR5cGVzIGFuZCBub3cKPiA+IHNwYXJzZSBpcyB5ZWxs
+aW5nIGF0IG1lLiBJIHBhdGNoZWQgdGhhdCB0aGlzIG1vcm5pbmcsIGJ1dCBkaWRuJ3QgZ2V0Cj4g
+PiBhIGNoYW5jZSB0byBwb3N0IHlldC4gSSBjb3VsZCBpbnN0ZWFkIHJpcCBvdXQgdGhlIGNvbnZl
+cnNpb25zIHRvCj4gPiBxdWlldCBzcGFyc2UsIGlmIHRoYXQgd291bGQgYmUgcHJlZmVycmVkLgo+
+Cj4gVGhlIFNCSSBzcGVjIGlzIHF1aXRlIGV4cGxpY2l0IGFib3V0IGVuZGlhbm5lc3Mgb2YgZGF0
+YSBpbiBzaGFyZWQKPiBtZW1vcnkuIEFsc28sIHRoZSBSSVNDLVYgcHJpdiBzcGVjIGFsbG93cyBC
+RSBsb2FkL3N0b3JlIG9wZXJhdGlvbnMKPiBzbyBldmVudHVhbGx5IHdlIG1pZ2h0IHNlZSBCRSBw
+bGF0Zm9ybXMuIEkgc3VnZ2VzdCBrZWVwaW5nIHRoZSBMRQo+IGNvbnZlcnNpb24gbWFjcm9zIGFu
+ZCBfX2xlMzIvX19sZTY0IGRhdGEgdHlwZXMuCj4KPiBSZWdhcmRpbmcgdGhlIHNwYXJzZSBlcnJv
+cnMsIERyZXcgY2FuIHNlbmQgZml4IHBhdGNoZXMgd2hpY2ggSQo+IHdpbGwgaW5jbHVkZSBpbiB0
+aGUgc2Vjb25kIFBSIGZvciA2LjguCj4KPiBJIGhvcGUgdGhpcyBpcyBva2F5Lgo+CgpGcmllbmRs
+eSBwaW5nID8KClJlZ2FyZHMsCkFudXAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
