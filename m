@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D99E4C46CD2
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 18:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDC2C4707B
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 19:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=J8JoIPMooK+njwOkzD8hORDt63JhY8zfytQ6Z/pytIE=; b=aakzRecqf3arp3
-	ROyRZUpX4HoijZHSiFOfrCZWyeIOMiPd7YKoqVWIjbgfyk2rLJvewTRWHHL+XvmjDc0zQGvIVwBgh
-	cxE6w9Fe93kICulbqt3HBIecepxtFMxPWkamme0NB0mUrI++5ZxernYMPyhO9ZHzHxjyT7vD5exDa
-	Ns01Z7X9y6Bb3qaRvIQHmurLIM9BDrJmJDujthKoiSwcKaPPbi3G80KdF5/bogNu6ZOB0QBAm4kyB
-	0APZzQnur42MLh2WtbIwNeaT6dqXzeZm/xO2OGRX1/1TfxhB6QxGrDMDARGeNMHom5ntg6aIzyb7A
-	em8YrTe4FxCt4KA1KaZA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=E3uFUeR3qpRCTZXoZ9E249e06lU6IOsJAkcE0eqANKU=; b=qNe9u/S+/mpW/C
+	EWwM1kRdBbR7TE0rpLmTpNVEIf2LtJc50TZCoApBbzw/7xF77GGdfTtwakoU4GGwyB9OFRKA8sYDV
+	Vi+/kkOQwFtqimtGg/A+91YMid92Vb4/iXmhTbP74iA//zp0UHY2g8KSHxKeyI4kpmRUnVLdRHhAZ
+	SOH4GkPFqjaLlrotsZM/4NMpIugecN6kxHarHrMgOHR/CQ0rP2kPdhe7ISR+eZcDUyQ+RLsGRSwbL
+	CDKCZY3DkBlzi75Eqa4UNuJvPk+zCLcng9N/APr7kqws4jiKHpkfNZWVrI/yqnVoXIAWFxIXwIfRs
+	zVwdIyRZo13FErrujQ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNHG6-009DJJ-0Z;
-	Tue, 09 Jan 2024 18:55:30 +0000
-Received: from out162-62-57-49.mail.qq.com ([162.62.57.49])
+	id 1rNHlK-009HNe-2l;
+	Tue, 09 Jan 2024 19:27:46 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNHG1-009DIc-2g
-	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jan 2024 18:55:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1704826207; bh=DmGo0slP1Ax+f+6LBWpdzqWeIFagteLk84bt6YYhxSo=;
-	h=From:To:Cc:Subject:Date;
-	b=Pv3kSkEQeCoe/kbuOwwDLcE41Dri9PZGznv+HZJFaLmTep0IhJgqbNy14+/CEk2sY
-	 B55M3XBASH0UxdDapwauyn/cafUqFeVgzbVoaMFmEvB2wW3qZruENj8mqevEDlP/V2
-	 i5btftN7KqbRPJ0sJw/EvH/bnGB3qvtAjBSFy6ZI=
-Received: from cyy-pc.lan ([218.70.255.58])
-	by newxmesmtplogicsvrsza7-0.qq.com (NewEsmtp) with SMTP
-	id C803E83D; Wed, 10 Jan 2024 02:50:00 +0800
-X-QQ-mid: xmsmtpt1704826200t8xep9519
-Message-ID: <tencent_6D851035F6F2FD0B5A69FB391AE39AC6300A@qq.com>
-X-QQ-XMAILINFO: OZZSS56D9fAjwbIh/j+boLSJHX0auiYjrweTADFbG4MJ95HYOrcj5mqN5GslSk
-	 gur438jdm2YbxWUFSONaraHqL/MaWpfDIWZuc8uzkHLeOjY5S+OwSlAlVJPOnKDQhPzgFqbEYYu6
-	 WC1XzwINxKL0fGO1huOKjvNV9SJMgyyzzmbTGsvYhqi4UT00fNw6YI5lMDP0L2pWsFz+ir5PPFBl
-	 NtXjpodLTGipJkpi7kGWufV/XQ+e3HhWeDq4TwOkEHi7fuouDx4WApcFVVO2FG9w7yPo5LeKRZRy
-	 fI1V/siWgnTj0nDO+fxYksksU6Mv0AdHK8F9Hhihe6NkHcrNDKnUfkpX1l2lYjupn1xXWgKuHFHR
-	 0fBadkJoPP85v/n2ha588yKqIly+6+9B2qCFvwQxqwaoQKNoZQy1VzyUrqlRReAZTDPqFw6abMjB
-	 HC6xogbgGlnuHYnNioCYESuem3yQzmRd9EWmcjx8NmWcBqSNW1DqXQrsTKMmOOYcrTFHq9ZUM76H
-	 D2HZACHyM8k6Z1xIzXYDAI8M4u6YFVd3TVVPDDQC9WXW7bkDiXdqDAgwE2t2ncYZ7S3IU/IzVAgx
-	 oL3CNFWOrtVoRt1guvlKqyvfEedvydfvLW1BCceFB4vu1kROuJ/2DAjX5RbZRtftbeOWlbxgJ7GS
-	 PsozfzUN9ICbAHq7Jor5ej0PAb/oE2urUL+dqYEV1Cf8FRkeI5ICzgXt8n5DuQml7B0J3t6i2HFB
-	 lTR+VjG/bAZISOJNbTKHxTeA3u8jEVgiY+TsIaG6yKrawmsCcWg1kYuU1PZVh2YTnK8C40D0s3xL
-	 JHoxQjcl24d8eT8bPebaFqX0uSRQZM7ETOlMqQ7V43NiWWicN7k3J9AjF9bEUSQHiFSVZ+sBTKL/
-	 chv0IM6P0Egm04RrIIIG1cFJXvghlGmRGP7web+cfzx3B09sbOLSySdmUkuD2k9Wh/oUiCfFEUsr
-	 Y1v2LJ0NSy+wdKEP01LD/AX3iKTDkmAXDAkp11mTaYNM7OmSOJ31oRab19Yp6XoAlT8v9NRQk=
-X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
-From: Yangyu Chen <cyy@cyyself.name>
-To: linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Andrew Waterman <andrew@sifive.com>,
-	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH] RISC-V: only flush icache when it has VM_EXEC set
-Date: Wed, 10 Jan 2024 02:48:59 +0800
-X-OQ-MSGID: <20240109184859.379050-1-cyy@cyyself.name>
-X-Mailer: git-send-email 2.43.0
+	id 1rNHlG-009HMM-1e;
+	Tue, 09 Jan 2024 19:27:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=L5q9G4EH+GvNtL+Wb8XKMCOl8tTep7D40VZuegMyoOA=; b=MU44z6maYlvs7GL6v/GT26fHEs
+	JywflQgaRGHzndkpt+lSurBg+ao2mQxU+/oGRSPRiPNkKcdcrWFvi+6rItnyaLc7f+FPAYo7I83W5
+	d2s5ZugUXxshlJZGVGdrzrlIPCvqO/paJ1S3aBQEm5m9WcY0LPaxU5tR2kGwmEZzaY4deEjqCqu4u
+	DArVZFITrAPbLhv9xLhr/UgPtS73DxSn0SkJEK4PDTSMy+YZBXGTEYK/DtGROgF9J5QMkTF/3HvTA
+	umaXB+rcdQQpV3GgnIh74H38yrte9HF9bmmSsTVhQfTau7kl/lzJA4JTLkbtSQEyuHbASkLLoClqJ
+	gOO/RXgQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56366)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1rNHkv-0004Ud-0B;
+	Tue, 09 Jan 2024 19:27:21 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1rNHku-0004Wn-DT; Tue, 09 Jan 2024 19:27:20 +0000
+Date: Tue, 9 Jan 2024 19:27:20 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, acpica-devel@lists.linuxfoundation.org,
+	linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org,
+	Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com,
+	James Morse <james.morse@arm.com>
+Subject: Re: [PATCH RFC v3 14/21] irqchip/gic-v3: Don't return errors from
+ gic_acpi_match_gicc()
+Message-ID: <ZZ2eGLwlkqZrh0In@shell.armlinux.org.uk>
+References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
+ <E1rDOgx-00Dvkv-Bb@rmk-PC.armlinux.org.uk>
+ <20231215163301.0000183a@Huawei.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231215163301.0000183a@Huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240109_105526_416095_8DC013AE 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20240109_112742_830740_704EECF4 
+X-CRM114-Status: GOOD (  38.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,41 +89,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As I-Cache flush on current RISC-V needs to send IPIs to every CPU cores
-in the system is very costly, limiting flush_icache_mm to be called only
-when vma->vm_flags has VM_EXEC can help minimize the frequency of these
-operations. It improves performance and reduces disturbances when
-copy_from_user_page is needed such as profiling with perf.
+On Fri, Dec 15, 2023 at 04:33:01PM +0000, Jonathan Cameron wrote:
+> On Wed, 13 Dec 2023 12:50:23 +0000
+> Russell King (Oracle) <rmk+kernel@armlinux.org.uk> wrote:
+> 
+> > From: James Morse <james.morse@arm.com>
+> > 
+> > gic_acpi_match_gicc() is only called via gic_acpi_count_gicr_regions().
+> > It should only count the number of enabled redistributors, but it
+> > also tries to sanity check the GICC entry, currently returning an
+> > error if the Enabled bit is set, but the gicr_base_address is zero.
+> > 
+> > Adding support for the online-capable bit to the sanity check
+> > complicates it, for no benefit. The existing check implicitly
+> > depends on gic_acpi_count_gicr_regions() previous failing to find
+> > any GICR regions (as it is valid to have gicr_base_address of zero if
+> > the redistributors are described via a GICR entry).
+> > 
+> > Instead of complicating the check, remove it. Failures that happen
+> > at this point cause the irqchip not to register, meaning no irqs
+> > can be requested. The kernel grinds to a panic() pretty quickly.
+> > 
+> > Without the check, MADT tables that exhibit this problem are still
+> > caught by gic_populate_rdist(), which helpfully also prints what
+> > went wrong:
+> > | CPU4: mpidr 100 has no re-distributor!
+> > 
+> > Signed-off-by: James Morse <james.morse@arm.com>
+> > Reviewed-by: Gavin Shan <gshan@redhat.com>
+> > Tested-by: Miguel Luis <miguel.luis@oracle.com>
+> > Tested-by: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
+> > Tested-by: Jianyong Wu <jianyong.wu@arm.com>
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > ---
+> >  drivers/irqchip/irq-gic-v3.c | 18 ++++++------------
+> >  1 file changed, 6 insertions(+), 12 deletions(-)
+> > 
+> > diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> > index 98b0329b7154..ebecd4546830 100644
+> > --- a/drivers/irqchip/irq-gic-v3.c
+> > +++ b/drivers/irqchip/irq-gic-v3.c
+> > @@ -2420,21 +2420,15 @@ static int __init gic_acpi_match_gicc(union acpi_subtable_headers *header,
+> >  
+> >  	/*
+> >  	 * If GICC is enabled and has valid gicr base address, then it means
+> > -	 * GICR base is presented via GICC
+> > +	 * GICR base is presented via GICC. The redistributor is only known to
+> > +	 * be accessible if the GICC is marked as enabled. If this bit is not
+> > +	 * set, we'd need to add the redistributor at runtime, which isn't
+> > +	 * supported.
+> >  	 */
+> > -	if (acpi_gicc_is_usable(gicc) && gicc->gicr_base_address) {
+> > +	if (gicc->flags & ACPI_MADT_ENABLED && gicc->gicr_base_address)
+> 
+> I was very vague in previous review.  I think the reasons you are switching
+> from acpi_gicc_is_useable(gicc) to the gicc->flags & ACPI_MADT_ENABLED
+> needs calling out as I'm fairly sure that this point in the series at least
+> acpi_gicc_is_usable is same as current upstream:
+> 
+> static inline bool acpi_gicc_is_usable(struct acpi_madt_generic_interrupt *gicc)
+> {
+> 	return gicc->flags & ACPI_MADT_ENABLED;
+> }
 
-For I-D coherence concerns, it will not fail if such a page adds VM_EXEC
-flags in the future since we have checked it in the __set_pte_at function.
+In a previous patch adding acpi_gicc_is_usable() c54e52f84d7a ("arm64,
+irqchip/gic-v3, ACPI: Move MADT GICC enabled check into a helper") this
+was:
 
-Signed-off-by: Yangyu Chen <cyy@cyyself.name>
----
- arch/riscv/include/asm/cacheflush.h | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+-       if ((gicc->flags & ACPI_MADT_ENABLED) && gicc->gicr_base_address) {
++       if (acpi_gicc_is_usable(gicc) && gicc->gicr_base_address) {
 
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index 3cb53c4df27c..915f532dc336 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -33,8 +33,11 @@ static inline void flush_dcache_page(struct page *page)
-  * so instead we just flush the whole thing.
-  */
- #define flush_icache_range(start, end) flush_icache_all()
--#define flush_icache_user_page(vma, pg, addr, len) \
--	flush_icache_mm(vma->vm_mm, 0)
-+#define flush_icache_user_page(vma, pg, addr, len)	\
-+do {							\
-+	if (vma->vm_flags & VM_EXEC)			\
-+		flush_icache_mm(vma->vm_mm, 0);		\
-+} while (0)
- 
- #ifdef CONFIG_64BIT
- #define flush_cache_vmap(start, end)	flush_tlb_kernel_range(start, end)
+so effectively this is undoing that particular change, which raises in
+my mind why the change was made in the first place if it's just going
+to be reverted in a later patch (because in a following patch,
+acpi_gicc_is_usable() has an additional condition added to it that
+isn't applicable here.) which effectively makes acpi_gicc_is_usable()
+return true if either ACPI_MADT_ENABLED _or_
+ACPI_MADT_GICC_ONLINE_CAPABLE (as it is now known) are set.
+
+However, if ACPI_MADT_GICC_ONLINE_CAPABLE is set, does that actually
+mean that the GICC is usable? I'm not sure it does. ACPI v6.5 says that
+this bit indicates that the system supports enabling this processor
+later. Is the GICC of a currently disabled processor "usable"...
+
+Clearly, the intention of this change is not to count this GICC entry
+if it is marked ACPI_MADT_GICC_ONLINE_CAPABLE, but I feel that isn't
+described in the commit message.
+
+Moreover, I am getting the feeling that there are _two_ changes going
+on here - there's the change that's talked about in the commit message
+(the complex validation that seems unnecessary) and then there's the
+preparation for the change to acpi_gicc_is_usable() - which maybe
+should be in the following patch where it would be less confusing.
+
+Would you agree?
+
 -- 
-2.43.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
