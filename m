@@ -4,74 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55990C4707B
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 22:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD96BC4706C
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 22:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ICRmZzKqDeZVA76mkgZP61ts6q5tVSBfTkM5/vSTufo=; b=nDfmWjX9xYZ97O
-	XTXIwCohbRDe0pl9bcvNPiQtjCC+XGqwyO4Ax60Pl0W6P/TixHfOdE5KcCDoVB07R1kDP0aG9ipXD
-	JcFLVRA8SHYT5Uudeg+tYIg4OxLZQrWZDSvLTYFUQ9CpYOY5PBiNSC9Q8DGogT4VrOUxSSWucnD2A
-	5cCg6lOdmlIuXc5SClP6gkyYvVyG1ih18xqCEb7EEXfF0mPOkXkr9oe1M9A/LFCUl07jiz5nlBaRV
-	NzdFmVwR8jDNK91mcPBy4h3nvZanmE/MDqSm23g5Rdtlb94TcnsxCbdSXzDIvwAjpBR9+gaZZ4lw5
-	zeZ6QOLzsA+z7swqFMuQ==;
+	List-Owner; bh=sWqUyHbEstQF9T4bv3cT+9hxNEBu2AleSMKj3TJ9RfE=; b=0hmYLNBmKoNBjN
+	kj11MBLxGRJsf3lIsAQgPD8S9aGGOmbfuWXuHk1rITjDO/ySCja7ze2eBvU6R4kBz+wmbtOiUoRRl
+	vjFGkZR9Diy58mXEsQOMoiPfcwvfZreZOUO6O9XO+ZAtP/5/L1XuwRMik6hNJUFdQpzRlcfZqv8A4
+	IlfeqzDRzSBfI30fT/WhR6ezgJY2Zgrf2icLkdkexdPoyst5iRSqmu/zhFI7BZSWrnLitQLYjEd7c
+	1pVl2cpDuZkiNEa14t4i1Vpfqu6Y2RfNBWbOc4dn7FsRzrkniHyyA4bS51zMaTFBccOpiftDY2C5C
+	K/6Ng0ZQukPRDSAkQU8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNKPD-009gLc-1I;
-	Tue, 09 Jan 2024 22:17:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rNKjU-009jqu-1w;
+	Tue, 09 Jan 2024 22:38:04 +0000
+Received: from mx08-001d1705.pphosted.com ([185.183.30.70])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNKP1-009gDK-1o;
-	Tue, 09 Jan 2024 22:16:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DD333615A4;
-	Tue,  9 Jan 2024 22:16:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7695CC4163A;
-	Tue,  9 Jan 2024 22:16:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704838614;
-	bh=WEn5lTrzAXiM29oFJTOtG7WGsQHyaE8VVcpnTQ825es=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Zq8ocN8Gt1fqJMhJwOXYGLVh0X0nGl41KS8W4md+yRdfItGW8fNnP0aRYm/3H6lAl
-	 RS27Py+YNnR5kRSt+po4oAHAEWb8VCZ4plTxJ9tHH89qCRyg2dtoAWNC5e5An5dSZU
-	 +JzvfWbNjxCnZsb1JPhcCIyg8HTq07RwbIKmHE5PbUgHpl62LhEW99qTUmRwlC4XUj
-	 tFxwc5+m00o10eK3MDOXqDhJvrk7QWYLW9omp+MinaN9zQ5+dIOI1juTAcz3K/C2/p
-	 3/ZPyl9rbEDTjpogg6clozkMlc/fZuaj5iit9sPEM6FYdXPBAs73lpQUDVYHldIsnX
-	 4xjPgJS1qq3mQ==
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Tue, 09 Jan 2024 15:16:31 -0700
-Subject: [PATCH 3/3] treewide: Update LLVM Bugzilla links
+	id 1rNKjR-009jqR-1R;
+	Tue, 09 Jan 2024 22:38:03 +0000
+Received: from pps.filterd (m0209321.ppops.net [127.0.0.1])
+	by mx08-001d1705.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 409MU61p002548;
+	Tue, 9 Jan 2024 22:37:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sony.com; h=from : to : cc :
+ subject : date : message-id : references : in-reply-to : mime-version :
+ content-type : content-transfer-encoding; s=S1;
+ bh=JXzGxs6Stn5IBMnrNbACinWYPG1iyEmivXZPCbRsS6A=;
+ b=iqcRV0oWM9+S2ybp2514u10l2/4vfU+nGAsWou/PuQ/UqX6rOXTzjSUE8gf4+zBRHxLe
+ lIMgMQCpO4LM96STKf7URqmW3GhE2oX6z8CZ1L0o8whsJrKBPmOHAV1jrHk3S9jCZ2Wk
+ KZPS5OyrM15ZDcgDEkSDe4kncyU/pyrmddZg5G2EHJOWpFFD4KKjsjiF/pF10E30p8tl
+ 8VwyRSPACBKvAklzG1cDtMFVcdQocymO5+Z/jViy7+/t50nTrPLLCOnFqJqq2GddfwZr
+ ZVQe927MM0mD/rNcWjN93EnnDY4kZWYoUlAFVTtx0gcmGMVB/23/ZbiUvH9L59OsgFwa kg== 
+Received: from nam02-bn1-obe.outbound.protection.outlook.com (mail-bn1nam02lp2040.outbound.protection.outlook.com [104.47.51.40])
+	by mx08-001d1705.pphosted.com (PPS) with ESMTPS id 3vf23w32gq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 09 Jan 2024 22:37:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=FRmuIQVDpPYgQDwONAnObnsxHwFNNJk8qQb5W351KGYqtaFVMn2k/BR6cpp0ACiXXtcTloPeR8x0yKY02IK1dK0knUcxif8mvroaDnSwtl+z3rfxnxFYYGGyOjewx6dPJNKDqDrk6qT1m4U/z3sSYeXt9oQc7jViMrBL5XDy0fSnqVQg6RSBbgzMyDD/bKGYYJwuOUWwlr3QYfyKrPOMlRjkBlFSg/k6xYBlvfzvpfhnNz8kjF0efaCq7reGeb83u2Jr8R08joqW55n0zW3rn77pEEN2MYIFUQMapHpXPCpFeujXxKT+Z1yrkgdPu0dixpvw3rk2LNsduShcbRsyIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JXzGxs6Stn5IBMnrNbACinWYPG1iyEmivXZPCbRsS6A=;
+ b=Wwqv9ydyF0rlRwpcUS3S2Xvd7WdNUZBnIo+iawznlenl0wW3ggdDIE4p8Y/80JbdvNXCRa/5G2Mj/WI4mQQDSc2xk8brUa7VzsJ3K2dcrpz9XJa3mnTzghOLQ8QFFvGE8C1uRqNuRD8ooPsyjKWZWVsMli82JYYogjnCKqDaYthdCnux31uTeMG4tKqJHoqf5HJpEHLMFK4vFe+S+YCXyl7vO6fJWuUFa5+HE/r6fHK0eSKw8mtZSOhCY0FLeF0OZJwGDNolL1lmQTvbUSggQM5Ty5ZCU9OihYHQjA9Isp0gQszQns8jj91zbIQ7noiWLzRzUSeU2W4TwgVpmpIhHg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=sony.com; dmarc=pass action=none header.from=sony.com;
+ dkim=pass header.d=sony.com; arc=none
+Received: from SA3PR13MB6372.namprd13.prod.outlook.com (2603:10b6:806:37d::13)
+ by MW4PR13MB5459.namprd13.prod.outlook.com (2603:10b6:303:182::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7159.23; Tue, 9 Jan
+ 2024 22:37:38 +0000
+Received: from SA3PR13MB6372.namprd13.prod.outlook.com
+ ([fe80::ca00:2b32:e9c0:805c]) by SA3PR13MB6372.namprd13.prod.outlook.com
+ ([fe80::ca00:2b32:e9c0:805c%4]) with mapi id 15.20.7159.020; Tue, 9 Jan 2024
+ 22:37:38 +0000
+From: "Bird, Tim" <Tim.Bird@sony.com>
+To: Cyril Hrubis <chrubis@suse.cz>, Petr Vorel <pvorel@suse.cz>
+CC: Rob Landley <rob@landley.net>, Geert Uytterhoeven <geert@linux-m68k.org>,
+        "ltp@lists.linux.it" <ltp@lists.linux.it>, Li Wang <liwang@redhat.com>,
+        Andrea Cervesato <andrea.cervesato@suse.com>,
+        Greg Ungerer
+	<gerg@linux-m68k.org>, Jonathan Corbet <corbet@lwn.net>,
+        Randy Dunlap
+	<rdunlap@infradead.org>,
+        John Paul Adrian Glaubitz
+	<glaubitz@physik.fu-berlin.de>,
+        Christophe Lyon <christophe.lyon@linaro.org>,
+        "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        Linux ARM
+	<linux-arm-kernel@lists.infradead.org>,
+        linux-riscv
+	<linux-riscv@lists.infradead.org>,
+        Linux-sh list <linux-sh@vger.kernel.org>,
+        "automated-testing@lists.yoctoproject.org"
+	<automated-testing@lists.yoctoproject.org>,
+        "buildroot@buildroot.org"
+	<buildroot@buildroot.org>,
+        Niklas Cassel <niklas.cassel@wdc.com>
+Subject: RE: [Automated-testing] Call for nommu LTP maintainer [was: Re:
+ [PATCH 00/36] Remove UCLINUX from LTP]
+Thread-Topic: [Automated-testing] Call for nommu LTP maintainer [was: Re:
+ [PATCH 00/36] Remove UCLINUX from LTP]
+Thread-Index: AQHaP9i+nPde0Zv90kmfJ6SqZmE5/rDPo4mBgAARuoCAAl6a8A==
+Date: Tue, 9 Jan 2024 22:37:37 +0000
+Message-ID: <SA3PR13MB6372498CC6372F8B16237244FD6A2@SA3PR13MB6372.namprd13.prod.outlook.com>
+References: <20240103015240.1065284-1-pvorel@suse.cz>
+ <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
+ <20240103114957.GD1073466@pevik>
+ <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
+ <ZZVOhlGPg5KRyS-F@yuki> <5a1f1ff3-8a61-67cf-59a9-ce498738d912@landley.net>
+ <20240105131135.GA1484621@pevik>
+ <90c1ddc1-c608-30fc-d5aa-fdf63c90d055@landley.net>
+ <20240108090338.GA1552643@pevik> <ZZvJXTshFUYSaMVH@yuki>
+In-Reply-To: <ZZvJXTshFUYSaMVH@yuki>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA3PR13MB6372:EE_|MW4PR13MB5459:EE_
+x-ms-office365-filtering-correlation-id: 4b4df69d-774e-4cb1-ccde-08dc11639512
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: c9G8MZ20E7QAmhxdz4gs5WCazPqAiejWDa6XVNVANQp2ch/lLMHm0H5CxgEE2GCB6N01JXF1fsaJTRzHK44aQ405KQKXMzEBTCLt5IvhcGB7uLjnRw1T8FfhB11USHoNGtFRmiUINY6raeAxl+kF5eyYiziljzCy+s/ePu59ieqJasuqagQRJO79rmWd47B0p10++imEJVBVy9sHtts9kpsGygmg0w9ZGvw9/VtUZPJzF+o1NjS5p0Tp8etJdfdmytWyMFPytjxp4eTFuVcQhY4gKP5FaeVD+0lhkARMPnsi2xgXqMaRfgee6g6mh3+PD4DTaFKpix9R+pZvaTgqMU8OjpkFQWDcdN7gCoZoS3c5jTufw9MYicPgPcBpwA8y1cLymn/YLJGrNyXeKAdt48doiO6iPrF7dHPYiGT+4N10jkJmZXs/t7ToOaYBC1fk5a6NvgDMFhbc/dULvaCoXRLI32txZDrE2FFLROdC5IHFl4k02nKBvw+sN5PSK1BzanLKwM3JS+GbT67/U+euxV+XowLoS+jkJi8PYMR5MhvrETvUglrN8NVxJRLWuQ4Wf7He5ikg4I2OLnN3EpG3IJRvI+ZHcX56zC5otfvcIPAnG2djcx1F0CqYiALGRWl8F5PRXqxncozSQ/fS07hUx2ObatYRsxj+0wzLyJMEwnw=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA3PR13MB6372.namprd13.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(366004)(376002)(136003)(39860400002)(346002)(396003)(230922051799003)(451199024)(1800799012)(64100799003)(186009)(5660300002)(2906002)(7416002)(33656002)(86362001)(38100700002)(478600001)(82960400001)(83380400001)(7696005)(26005)(122000001)(9686003)(38070700009)(71200400001)(6506007)(8936002)(8676002)(316002)(4326008)(52536014)(76116006)(41300700001)(110136005)(54906003)(64756008)(66476007)(66446008)(66946007)(66556008)(55016003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?UK1HE9hrBxsfhaV2n1sECNOAATGeaZ8RkhXQbdBZp4jmMFkeWqcTLGgggOj3?=
+ =?us-ascii?Q?zvyPtUCXvYvytWuMzjJFgL9t1mFFHNO7c+EA1y6zR0OUpt/uKqHzIh+y4CQj?=
+ =?us-ascii?Q?KwpZCyzJGxKfcQ0IYZCs8xBIpxy7EQvEW+2DX7fhk64QE0LMEI1es1L3t+TF?=
+ =?us-ascii?Q?7793i94Qc3pqi4NDBAxrJBLXsM6rKPTR5d4eYA7aPrVhBRRkFl0BohENJBIO?=
+ =?us-ascii?Q?pMxGwZVMRhoWEmqWE/0AABkwfM1frpwmMX+thUo2m2eygIJsmtOR8MdAQtbJ?=
+ =?us-ascii?Q?9QdNmGg1YM0IhNjO80ybC1pc2mVuOdLEiVYyMAuWzcTjUDgRd+m2jb+vFg/o?=
+ =?us-ascii?Q?SbcJUnyRPWlbJYOscZgFGzdHnd9Kh1z4Pvm7earSY7Vqfgs1h7rzuDcjR9Xf?=
+ =?us-ascii?Q?ZbJ3xJlh+hSaPEgR0R8uX+Fu+P1GEqMvejcwDW0OtNS2W9iDSfgWWPWp2zrk?=
+ =?us-ascii?Q?ieY2HaahAow5KnCCfcfebeeAn1X//aTSsKiOf7fe/UgcPXm/Q4qIr5Ous9Q2?=
+ =?us-ascii?Q?mSwlpeCIxAEz3lZCnIujlxh6s7NvSjrTwpn2YyA9HB7Ap7DWhffZWFxxoMHY?=
+ =?us-ascii?Q?IZSICToj9xCuq7ONok7eSDbWes7tqSKr4VbRr1LOWl82hE+5akufvVYlZl7I?=
+ =?us-ascii?Q?S5LSWPvN3fZXx+zv4Vn0NpSAVg5d8HmO/PMq4qzlunDpEkdmcGB7I9R9sGRf?=
+ =?us-ascii?Q?N6Vcq2lkRJBnNV5PUb1fWYjm4oi2Qf0xbB9FF2D+BA2nDT+33uyr2Dg+o4iC?=
+ =?us-ascii?Q?J6FN27IpX9DG3bRC+y7TjIr5N7cxFtHT22Vsp+fcm2nEJM6tGSU/q4BMXI6O?=
+ =?us-ascii?Q?rQUHs9H7g3Lr3/wBIcZpYChAHmXjW7LfxKZJP7x16x2t6k+0M+WiHk5qp7UO?=
+ =?us-ascii?Q?kLyrLnRKvkLFJVG1/H9y9kJkYF/3HigM3szyI9Mh5U/bzqC9jDvRu/EXJKhN?=
+ =?us-ascii?Q?4W0GpY1tA4z7Fw7fUndKih6Cxm3sxM5mnsO4c6fGSYudsh/q/E7RsHE7cgFA?=
+ =?us-ascii?Q?7xcVDqxZ8Fm2kSTHeAEu2EHI6978U6pXdrmw43qC9vf5InAv6KX/KFxO1Ggn?=
+ =?us-ascii?Q?V0knSaKDm41iL04y2XqwZ5hh5sSdVWo98JHEuL8m6r2AOxGi0E+yvda+akXf?=
+ =?us-ascii?Q?DxouUgGRErgQfVG5eu7O83w+ojldGs9OTdlya61LhOZcFUQDxag/Mn7SBEJb?=
+ =?us-ascii?Q?GzjRNyg11vvJJSwmGtDAEazkLroO9EFWhLg1TR6+Ib9CIvpKHMPEuGYUe7K2?=
+ =?us-ascii?Q?sXcXXtEX2zdQ34D44OEPBIcZWlXGSnFnyYyGWkct0h5k2M60TAzJriQSzv7J?=
+ =?us-ascii?Q?h9HorrQQUQmd4gUZBvRuKa7bTH8m4nx2dGFRP+iOAtGozM7h0XrJ4ZlUNqkR?=
+ =?us-ascii?Q?zkC+IM5F4UzugvuIcRrmywrbWHPTMuzzn/GzFoIflmsR5jr0qKTY0U2G6gAc?=
+ =?us-ascii?Q?+Nd68dsXoXWmyo3knIeuVDreiM4l+ih6l/5yu9F0jM+iQu+5AJJrvdgEuV8B?=
+ =?us-ascii?Q?J2sdH6sN6GY3/5UnJ+V5ABDdsxNq9yJDwH8A+ai25UW4JR26+ANPs9wHrJpU?=
+ =?us-ascii?Q?OJtLMjJH6GsTOUNQU0I=3D?=
 MIME-Version: 1.0
-Message-Id: <20240109-update-llvm-links-v1-3-eb09b59db071@kernel.org>
-References: <20240109-update-llvm-links-v1-0-eb09b59db071@kernel.org>
-In-Reply-To: <20240109-update-llvm-links-v1-0-eb09b59db071@kernel.org>
-To: akpm@linux-foundation.org
-Cc: llvm@lists.linux.dev, patches@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
- linux-s390@vger.kernel.org, linux-pm@vger.kernel.org, 
- linux-crypto@vger.kernel.org, linux-efi@vger.kernel.org, 
- amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
- linux-media@vger.kernel.org, linux-arch@vger.kernel.org, 
- kasan-dev@googlegroups.com, linux-mm@kvack.org, bridge@lists.linux.dev, 
- netdev@vger.kernel.org, linux-security-module@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>
-X-Mailer: b4 0.13-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11357; i=nathan@kernel.org;
- h=from:subject:message-id; bh=WEn5lTrzAXiM29oFJTOtG7WGsQHyaE8VVcpnTQ825es=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDKlzj16w1Pj8I8RGNGpqStpeL/2Ss7Fckxj+MQn8ummhc
- f/e3puMHaUsDGJcDLJiiizVj1WPGxrOOct449QkmDmsTCBDGLg4BWAipzgZ/mcpXDN6n369Z2Vr
- 7IPwnTz2R5dYJN5v++9iM3XOfBYtOU5GhuM55jNe+5/7H/HicGe1b2CLnMlqaZtVrzg+6Dfn1Hg
- YcwMA
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: hTdxRjf+lC3ldsIG39e6r5UhPevNALKJoEmIGyixVyrBrOMajlFeDCPID14KEdmoZk3dZH8YvV3vuG5LSpbSotF1LGyW01edVt1WzH1d3eic5RmX0ZmXwY/wprEJbSc7aiU4K7044jcUSfkUMTWn83mnJGlaojFCXMPUJ/6Q5mdyU9tbhaBjHF9gTQ3I0msUnUabcjgzdJ6pojDw4JlCpe8VmfmtkZwdY1c8BXrf32JKN6H7QjY2Kk3dY5aZfvkjUt8zp+UXC+z/2KUH9l8jc2JcY9/M3KLotzswEJhyeRioKm7AQ3NjGiVZSRJeOiKC0HF2YKoVeGZaOeQRDSiNZtjnWDO0h2BoXbPrJDcMVjtto9gdwBCrshZY99RjGVdAJIAUt9QKo5FgkMmF4xs2QpAPnKGdcELubchCMxYNt8uR7NlWilpeMI24WR5pxYYt4ri4FDrvEyY4kZ0Jvh7Vxqd8X9K7gre5Db1dc/gWuqTlMvofFGFxmI9PCpBfR5wC131bKNzbS3fNSAbD0Ne+nGEZBEIHtf8nXoOHn2h0/g40+6qx+e9bA3+vbD+H8qNvYTlmEtZu9cDmV1L73By1uS8sCLkOFsK7SoRsJiwxp9ngcCbPUvb/hmTuPf6Ni9F4
+X-OriginatorOrg: sony.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA3PR13MB6372.namprd13.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4b4df69d-774e-4cb1-ccde-08dc11639512
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Jan 2024 22:37:37.9824
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 66c65d8a-9158-4521-a2d8-664963db48e4
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: NwzkhAudYNNDNf3XbiQJ2XoMWjptUSH9/J20xglEQQe/soX6y1VWgk4dkm2zw7hESDbr/Md5mlazz40zUqJ06g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR13MB5459
+X-Proofpoint-ORIG-GUID: XNttZybjFJ9vBXk87idEj1148j8TZufP
+X-Proofpoint-GUID: XNttZybjFJ9vBXk87idEj1148j8TZufP
+X-Sony-Outbound-GUID: XNttZybjFJ9vBXk87idEj1148j8TZufP
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.997,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-01-09_11,2024-01-09_02,2023-05-22_02
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240109_141655_731563_C6582809 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20240109_143801_785332_42A7654B 
+X-CRM114-Status: GOOD (  29.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,259 +180,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-LLVM moved their issue tracker from their own Bugzilla instance to
-GitHub issues. While all of the links are still valid, they may not
-necessarily show the most up to date information around the issues, as
-all updates will occur on GitHub, not Bugzilla.
+> -----Original Message-----
+> From: automated-testing@lists.yoctoproject.org <automated-testing@lists.yoctoproject.org> On Behalf Of Cyril Hrubis
+> Hi!
+> > But as I said, if anybody from nommu decides to maintain it in LTP, I'll try to
+> > support him in my free time (review patches, give advices). And if nobody
+> > stands, this patchset which removes the support in the old API will be merged
+> > after next LTP release (in the end of January).
+> 
+> Let me highlight this part, we are eager to help anybody who is willing
+> to pick the nommu work, but we do not have resources to drive it.
 
-Another complication is that the Bugzilla issue number is not always the
-same as the GitHub issue number. Thankfully, LLVM maintains this mapping
-through two shortlinks:
+I have a couple of comments here.
 
-  https://llvm.org/bz<num> -> https://bugs.llvm.org/show_bug.cgi?id=<num>
-  https://llvm.org/pr<num> -> https://github.com/llvm/llvm-project/issues/<mapped_num>
+I think it would be good to give a little bit more time to try to find a helper/maintainer
+for this.  As Rob pointed out, a lot of embedded Linux developers are using very old
+kernels (and, if they are using LTP, likely very old versions of LTP).  They are also
+notorious for not being active on the mailing lists.  So this might take some active
+outreach to find helpers.  (I realize that this thread is part of this
+outreach effort).  For this reason, I'd like a few more weeks to try to advertise this
+need within the embedded Linux community.
 
-Switch all "https://bugs.llvm.org/show_bug.cgi?id=<num>" links to the
-"https://llvm.org/pr<num>" shortlink so that the links show the most up
-to date information. Each migrated issue links back to the Bugzilla
-entry, so there should be no loss of fidelity of information here.
+I am not using nommu systems myself, so I'm in a similar position as Petr in terms
+of it not making much sense for me to be the maintainer.  However, having said that,
+I have had for a few years now an idea for a background project related to LTP
+that might make this a more interesting fit for me.  Sony uses NuttX, and is considering
+using Zephyr in some of our low-end processor systems.  This includes some nommu
+systems.  For some time now, I have wanted to experiment with using LTP to test
+the compatibility of those systems with the Linux system APIs.  In full disclosure,
+I have no idea if this is a feasible or useful idea or not.  But it's something I'd like
+to investigate.
 
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
- arch/powerpc/Makefile                           | 4 ++--
- arch/powerpc/kvm/book3s_hv_nested.c             | 2 +-
- arch/s390/include/asm/ftrace.h                  | 2 +-
- arch/x86/power/Makefile                         | 2 +-
- crypto/blake2b_generic.c                        | 2 +-
- drivers/firmware/efi/libstub/Makefile           | 2 +-
- drivers/gpu/drm/amd/amdgpu/sdma_v4_4_2.c        | 2 +-
- drivers/media/test-drivers/vicodec/codec-fwht.c | 2 +-
- drivers/regulator/Kconfig                       | 2 +-
- include/asm-generic/vmlinux.lds.h               | 2 +-
- lib/Kconfig.kasan                               | 2 +-
- lib/raid6/Makefile                              | 2 +-
- lib/stackinit_kunit.c                           | 2 +-
- mm/slab_common.c                                | 2 +-
- net/bridge/br_multicast.c                       | 2 +-
- security/Kconfig                                | 2 +-
- 16 files changed, 17 insertions(+), 17 deletions(-)
+I realize that testing non-Linux RTOSes is out-of-scope for LTP.  But given that that is
+something I would like to do, and that it might be relevant to the Linux nommu tests,
+I would humbly request a few weeks to investigate this before the nommu code is removed.
+This delay would be to see if it would make sense for me to volunteer to help out with
+maintaining this otherwise abandoned code.
 
-diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
-index f19dbaa1d541..cd6aaa45f355 100644
---- a/arch/powerpc/Makefile
-+++ b/arch/powerpc/Makefile
-@@ -133,11 +133,11 @@ CFLAGS-$(CONFIG_PPC64)	+= $(call cc-option,-mno-pointers-to-nested-functions)
- CFLAGS-$(CONFIG_PPC64)	+= $(call cc-option,-mlong-double-128)
- 
- # Clang unconditionally reserves r2 on ppc32 and does not support the flag
--# https://bugs.llvm.org/show_bug.cgi?id=39555
-+# https://llvm.org/pr39555
- CFLAGS-$(CONFIG_PPC32)	:= $(call cc-option, -ffixed-r2)
- 
- # Clang doesn't support -mmultiple / -mno-multiple
--# https://bugs.llvm.org/show_bug.cgi?id=39556
-+# https://llvm.org/pr39556
- CFLAGS-$(CONFIG_PPC32)	+= $(call cc-option, $(MULTIPLEWORD))
- 
- CFLAGS-$(CONFIG_PPC32)	+= $(call cc-option,-mno-readonly-in-sdata)
-diff --git a/arch/powerpc/kvm/book3s_hv_nested.c b/arch/powerpc/kvm/book3s_hv_nested.c
-index 3b658b8696bc..3f5970f74c6b 100644
---- a/arch/powerpc/kvm/book3s_hv_nested.c
-+++ b/arch/powerpc/kvm/book3s_hv_nested.c
-@@ -55,7 +55,7 @@ void kvmhv_save_hv_regs(struct kvm_vcpu *vcpu, struct hv_guest_state *hr)
- 	hr->dawrx1 = vcpu->arch.dawrx1;
- }
- 
--/* Use noinline_for_stack due to https://bugs.llvm.org/show_bug.cgi?id=49610 */
-+/* Use noinline_for_stack due to https://llvm.org/pr49610 */
- static noinline_for_stack void byteswap_pt_regs(struct pt_regs *regs)
- {
- 	unsigned long *addr = (unsigned long *) regs;
-diff --git a/arch/s390/include/asm/ftrace.h b/arch/s390/include/asm/ftrace.h
-index 5a82b08f03cd..621f23d5ae30 100644
---- a/arch/s390/include/asm/ftrace.h
-+++ b/arch/s390/include/asm/ftrace.h
-@@ -9,7 +9,7 @@
- #ifndef __ASSEMBLY__
- 
- #ifdef CONFIG_CC_IS_CLANG
--/* https://bugs.llvm.org/show_bug.cgi?id=41424 */
-+/* https://llvm.org/pr41424 */
- #define ftrace_return_address(n) 0UL
- #else
- #define ftrace_return_address(n) __builtin_return_address(n)
-diff --git a/arch/x86/power/Makefile b/arch/x86/power/Makefile
-index 379777572bc9..e0cd7afd5302 100644
---- a/arch/x86/power/Makefile
-+++ b/arch/x86/power/Makefile
-@@ -5,7 +5,7 @@
- CFLAGS_cpu.o	:= -fno-stack-protector
- 
- # Clang may incorrectly inline functions with stack protector enabled into
--# __restore_processor_state(): https://bugs.llvm.org/show_bug.cgi?id=47479
-+# __restore_processor_state(): https://llvm.org/pr47479
- CFLAGS_REMOVE_cpu.o := $(CC_FLAGS_LTO)
- 
- obj-$(CONFIG_PM_SLEEP)		+= cpu.o
-diff --git a/crypto/blake2b_generic.c b/crypto/blake2b_generic.c
-index 6704c0355889..32e380b714b6 100644
---- a/crypto/blake2b_generic.c
-+++ b/crypto/blake2b_generic.c
-@@ -102,7 +102,7 @@ static void blake2b_compress_one_generic(struct blake2b_state *S,
- 	ROUND(10);
- 	ROUND(11);
- #ifdef CONFIG_CC_IS_CLANG
--#pragma nounroll /* https://bugs.llvm.org/show_bug.cgi?id=45803 */
-+#pragma nounroll /* https://llvm.org/pr45803 */
- #endif
- 	for (i = 0; i < 8; ++i)
- 		S->h[i] = S->h[i] ^ v[i] ^ v[i + 8];
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index 06964a3c130f..a223bd10564b 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -105,7 +105,7 @@ lib-y				:= $(patsubst %.o,%.stub.o,$(lib-y))
- # Even when -mbranch-protection=none is set, Clang will generate a
- # .note.gnu.property for code-less object files (like lib/ctype.c),
- # so work around this by explicitly removing the unwanted section.
--# https://bugs.llvm.org/show_bug.cgi?id=46480
-+# https://llvm.org/pr46480
- STUBCOPY_FLAGS-y		+= --remove-section=.note.gnu.property
- 
- STUBCOPY_RELOC-$(CONFIG_X86_32)	:= R_386_32
-diff --git a/drivers/gpu/drm/amd/amdgpu/sdma_v4_4_2.c b/drivers/gpu/drm/amd/amdgpu/sdma_v4_4_2.c
-index 0f24af6f2810..265fa028b121 100644
---- a/drivers/gpu/drm/amd/amdgpu/sdma_v4_4_2.c
-+++ b/drivers/gpu/drm/amd/amdgpu/sdma_v4_4_2.c
-@@ -610,7 +610,7 @@ static uint32_t sdma_v4_4_2_rb_cntl(struct amdgpu_ring *ring, uint32_t rb_cntl)
- 	/* Set ring buffer size in dwords */
- 	uint32_t rb_bufsz = order_base_2(ring->ring_size / 4);
- 
--	barrier(); /* work around https://bugs.llvm.org/show_bug.cgi?id=42576 */
-+	barrier(); /* work around https://llvm.org/pr42576 */
- 	rb_cntl = REG_SET_FIELD(rb_cntl, SDMA_GFX_RB_CNTL, RB_SIZE, rb_bufsz);
- #ifdef __BIG_ENDIAN
- 	rb_cntl = REG_SET_FIELD(rb_cntl, SDMA_GFX_RB_CNTL, RB_SWAP_ENABLE, 1);
-diff --git a/drivers/media/test-drivers/vicodec/codec-fwht.c b/drivers/media/test-drivers/vicodec/codec-fwht.c
-index 1ce682e1b85c..fd75457d03b2 100644
---- a/drivers/media/test-drivers/vicodec/codec-fwht.c
-+++ b/drivers/media/test-drivers/vicodec/codec-fwht.c
-@@ -49,7 +49,7 @@ static const uint8_t zigzag[64] = {
- 
- /*
-  * noinline_for_stack to work around
-- * https://bugs.llvm.org/show_bug.cgi?id=38809
-+ * https://llvm.org/pr38809
-  */
- static int noinline_for_stack
- rlc(const s16 *in, __be16 *output, int blocktype)
-diff --git a/drivers/regulator/Kconfig b/drivers/regulator/Kconfig
-index f3ec24691378..f537e78478ef 100644
---- a/drivers/regulator/Kconfig
-+++ b/drivers/regulator/Kconfig
-@@ -278,7 +278,7 @@ config REGULATOR_CROS_EC
- config REGULATOR_DA903X
- 	tristate "Dialog Semiconductor DA9030/DA9034 regulators"
- 	depends on PMIC_DA903X
--	depends on !CC_IS_CLANG # https://bugs.llvm.org/show_bug.cgi?id=38789
-+	depends on !CC_IS_CLANG # https://llvm.org/pr38789
- 	help
- 	  Say y here to support the BUCKs and LDOs regulators found on
- 	  Dialog Semiconductor DA9030/DA9034 PMIC.
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index bae0fe4d499b..c425a1e2edee 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -977,7 +977,7 @@
-  * -fsanitize=thread produce unwanted sections (.eh_frame
-  * and .init_array.*), but CONFIG_CONSTRUCTORS wants to
-  * keep any .init_array.* sections.
-- * https://bugs.llvm.org/show_bug.cgi?id=46478
-+ * https://llvm.org/pr46478
-  */
- #ifdef CONFIG_UNWIND_TABLES
- #define DISCARD_EH_FRAME
-diff --git a/lib/Kconfig.kasan b/lib/Kconfig.kasan
-index fdca89c05745..de3e9e4803af 100644
---- a/lib/Kconfig.kasan
-+++ b/lib/Kconfig.kasan
-@@ -163,7 +163,7 @@ config KASAN_STACK
- 	  out-of-bounds bugs in stack variables.
- 
- 	  With Clang, stack instrumentation has a problem that causes excessive
--	  stack usage, see https://bugs.llvm.org/show_bug.cgi?id=38809. Thus,
-+	  stack usage, see https://llvm.org/pr38809. Thus,
- 	  with Clang, this option is deemed unsafe.
- 
- 	  This option is always disabled when compile-testing with Clang to
-diff --git a/lib/raid6/Makefile b/lib/raid6/Makefile
-index 1c5420ff254e..385a94aa0b99 100644
---- a/lib/raid6/Makefile
-+++ b/lib/raid6/Makefile
-@@ -21,7 +21,7 @@ altivec_flags += -isystem $(shell $(CC) -print-file-name=include)
- ifdef CONFIG_CC_IS_CLANG
- # clang ppc port does not yet support -maltivec when -msoft-float is
- # enabled. A future release of clang will resolve this
--# https://bugs.llvm.org/show_bug.cgi?id=31177
-+# https://llvm.org/pr31177
- CFLAGS_REMOVE_altivec1.o  += -msoft-float
- CFLAGS_REMOVE_altivec2.o  += -msoft-float
- CFLAGS_REMOVE_altivec4.o  += -msoft-float
-diff --git a/lib/stackinit_kunit.c b/lib/stackinit_kunit.c
-index 05947a2feb93..7a10e1d17258 100644
---- a/lib/stackinit_kunit.c
-+++ b/lib/stackinit_kunit.c
-@@ -404,7 +404,7 @@ static noinline int leaf_switch_2_none(unsigned long sp, bool fill,
-  * These are expected to fail for most configurations because neither
-  * GCC nor Clang have a way to perform initialization of variables in
-  * non-code areas (i.e. in a switch statement before the first "case").
-- * https://bugs.llvm.org/show_bug.cgi?id=44916
-+ * https://llvm.org/pr44916
-  */
- DEFINE_TEST_DRIVER(switch_1_none, uint64_t, SCALAR, ALWAYS_FAIL);
- DEFINE_TEST_DRIVER(switch_2_none, uint64_t, SCALAR, ALWAYS_FAIL);
-diff --git a/mm/slab_common.c b/mm/slab_common.c
-index 8d431193c273..105ba974854c 100644
---- a/mm/slab_common.c
-+++ b/mm/slab_common.c
-@@ -656,7 +656,7 @@ static struct kmem_cache *__init create_kmalloc_cache(const char *name,
- 
- struct kmem_cache *
- kmalloc_caches[NR_KMALLOC_TYPES][KMALLOC_SHIFT_HIGH + 1] __ro_after_init =
--{ /* initialization for https://bugs.llvm.org/show_bug.cgi?id=42570 */ };
-+{ /* initialization for https://llvm.org/pr42570 */ };
- EXPORT_SYMBOL(kmalloc_caches);
- 
- #ifdef CONFIG_RANDOM_KMALLOC_CACHES
-diff --git a/net/bridge/br_multicast.c b/net/bridge/br_multicast.c
-index d7d021af1029..523f72ac9633 100644
---- a/net/bridge/br_multicast.c
-+++ b/net/bridge/br_multicast.c
-@@ -5043,7 +5043,7 @@ void br_multicast_uninit_stats(struct net_bridge *br)
- 	free_percpu(br->mcast_stats);
- }
- 
--/* noinline for https://bugs.llvm.org/show_bug.cgi?id=45802#c9 */
-+/* noinline for https://llvm.org/pr45802#c9 */
- static noinline_for_stack void mcast_stats_add_dir(u64 *dst, u64 *src)
- {
- 	dst[BR_MCAST_DIR_RX] += src[BR_MCAST_DIR_RX];
-diff --git a/security/Kconfig b/security/Kconfig
-index 52c9af08ad35..606a87c29a01 100644
---- a/security/Kconfig
-+++ b/security/Kconfig
-@@ -142,7 +142,7 @@ config HARDENED_USERCOPY
- config FORTIFY_SOURCE
- 	bool "Harden common str/mem functions against buffer overflows"
- 	depends on ARCH_HAS_FORTIFY_SOURCE
--	# https://bugs.llvm.org/show_bug.cgi?id=41459
-+	# https://llvm.org/pr41459
- 	depends on !CC_IS_CLANG || CLANG_VERSION >= 120001
- 	# https://github.com/llvm/llvm-project/issues/53645
- 	depends on !CC_IS_CLANG || !X86_32
+I can't promise anything, but I'd like to find out more about:
+1) what parts of the current LTP are not supporting nommu (what's currently broken),
+2) how much code we're talking about, and
+3) what the desired roadmap going forward would be, to continue to support this code.
 
--- 
-2.43.0
+Thanks,
+ -- Tim
 
 
 _______________________________________________
