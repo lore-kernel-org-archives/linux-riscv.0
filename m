@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CE3C46CD2
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 12:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B74C5C47073
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 13:06:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7y1Mdu+4Xd6Tg1pPDmno9eRy9PXQXa9ONiUmzLEZkO0=; b=EDKcemugimOYzI
-	rIPXUaJx31CPfweuYH3kGAnWmvUN5qwpIqhCqNn2GgSdSuy0jPjKpILdznu3pLyRB/7TYdB6IbI8Q
-	NJLHnf9qNc1e2MgqAmltEeWeZcu7CA6b38js1ZGpIzWV1L2NZRbO0mMYKGM7gNgDzEL3MGZbb8GCS
-	9PGBJaizJn4uQpYhzeIPlJ+5ioNxQ5+vlTWUKy1/TA5QUwawsLaqOE9oq+s8OycWaPxNOXP5ARPTf
-	LPXgV3/BK55WHAQ8IqxaPAdeQjvSJ1pKt60o9tgKD4q2t7CXC4oBI7WQdlRVM1mqd9FaUWJqoDfi5
-	e5H/LxkzmBM+izg36iBg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PpFDuSi4vHkDm1qO4E3eZJZ4XZAVzXwxwrDESlp4Vw0=; b=fpHaEji2Cg41gTu2iKRjT4kP8L
+	1aFgY8EjPoBvvzBnRFpzSMn76rwDNC1QykiLhwMyBds/sFLiTVGarRLOBsrsqT4DSlKHjNxzKBy54
+	c37JjQFLmBDHoz8Xx+ehbLg0hKZDXRUUVuDg7zLOPr1YvXxgMz3u7y7LaKXLZPaqwDOVy/hD20ATL
+	spj/YEVXx2NxGsilj8tpCxAygZCffatpLm1Byg4uhqWFgRrBNUi+xzlUcgBbzv1BVSq9CELMC94p5
+	u1NIYtk994KK7WB5N81EXcXYaSUaHes+o6YEJaqbC6CXs7dW3hrvQojm7tJxsLwhDBeBC4Ab7MX23
+	6DuElbXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNBdB-008HmR-14;
-	Tue, 09 Jan 2024 12:54:57 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1rNBo3-008KY8-2R;
+	Tue, 09 Jan 2024 13:06:11 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNBd6-008HjD-1E;
-	Tue, 09 Jan 2024 12:54:54 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 019D5FF813;
-	Tue,  9 Jan 2024 12:54:38 +0000 (UTC)
-Message-ID: <955d3fda-fe94-44c1-8479-d1b46e2f1140@ghiti.fr>
-Date: Tue, 9 Jan 2024 13:54:38 +0100
+	id 1rNBo0-008KXC-0c
+	for linux-riscv@lists.infradead.org;
+	Tue, 09 Jan 2024 13:06:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1704805568; x=1736341568;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xpBv9CLJKeH2ktyG75BQLyQVSsvCPHK4QXybdij5Pio=;
+  b=prEKb8cr8nvfpOBhqv5+4BmpBHNOqOH4r/T3BZYcarSBhDPHOpmhPTL/
+   3XP7TOZsS0O1Q7Yd5FEZwtjZJCisV3dp5/EF2m9KhOxS6XCH+YxY49j8i
+   rLRK2M0qkzMhBsf37Uk2q+XGLhGzHRZSTjCFccybHqVr6MOQjLEVhvCE2
+   ka+4j673nZraysFV13Dhy/ijGh5ap1d+FlvoOlWVZWDCQGkemDk7Gol2n
+   VUddsPg7SXwqkH6sODGahrLHjPmtHl7jvCT18raCJW/OiA3ky4pnFnII9
+   7h+ZhpeQ8wCoITtruXpiFpjsP22NB9z162QJlPS9o5zYsYFWUPolrxjjj
+   w==;
+X-CSE-ConnectionGUID: z9oYC0TYRhSMRpXWHeg5bw==
+X-CSE-MsgGUID: iYtnSFXNRk2uY32sOXE+VQ==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.04,182,1695711600"; 
+   d="asc'?scan'208";a="14904599"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Jan 2024 06:06:01 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 9 Jan 2024 06:05:29 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Tue, 9 Jan 2024 06:05:27 -0700
+Date: Tue, 9 Jan 2024 13:04:52 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: Conor Dooley <conor@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
+	<wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Drew Fustini <dfustini@baylibre.com>
+Subject: Re: [PATCH v2 3/8] riscv: dts: thead: Add TH1520 pin control nodes
+Message-ID: <20240109-tiptoeing-twirl-ebb943e17a29@wendy>
+References: <20240103132852.298964-1-emil.renner.berthing@canonical.com>
+ <20240103132852.298964-4-emil.renner.berthing@canonical.com>
+ <20240108-majorette-overtly-4ec65d0a15e9@spud>
+ <CAJM55Z_2zhELW3E7p94J05We17xTC2Rejs5AigNJOHCGHVr_zg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] arm64, powerpc, riscv, s390, x86: Refactor
- CONFIG_DEBUG_WX
-Content-Language: en-US
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
- linux-hardening@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Kees Cook <keescook@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-mm@kvack.org, steven.price@arm.com,
- Phong Tran <tranmanphong@gmail.com>, mark.rutland@arm.com,
- Greg KH <greg@kroah.com>
-References: <cover.1704800524.git.christophe.leroy@csgroup.eu>
- <b1e2171587806648500fd305918bc7e90abdeeb5.1704800524.git.christophe.leroy@csgroup.eu>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <b1e2171587806648500fd305918bc7e90abdeeb5.1704800524.git.christophe.leroy@csgroup.eu>
-X-GND-Sasl: alex@ghiti.fr
+In-Reply-To: <CAJM55Z_2zhELW3E7p94J05We17xTC2Rejs5AigNJOHCGHVr_zg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240109_045452_706283_B7EDA9CD 
-X-CRM114-Status: GOOD (  30.74  )
+X-CRM114-CacheID: sfid-20240109_050608_413832_03C4F6BE 
+X-CRM114-Status: GOOD (  27.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,379 +90,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============4298664616186865828=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe,
+--===============4298664616186865828==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="XthaSr7XjsnpG3pO"
+Content-Disposition: inline
 
-On 09/01/2024 13:14, Christophe Leroy wrote:
-> All architectures using the core ptdump functionality also implement
-> CONFIG_DEBUG_WX, and they all do it more or less the same way, with a
-> function called debug_checkwx() that is called by mark_rodata_ro(),
-> which is a substitute to ptdump_check_wx() when CONFIG_DEBUG_WX is
-> set and a no-op otherwise.
->
-> Refactor by centraly defining debug_checkwx() in linux/ptdump.h and
-> call debug_checkwx() immediately after calling mark_rodata_ro()
-> instead of calling it at the end of every mark_rodata_ro().
->
-> On x86_32, mark_rodata_ro() first checks __supported_pte_mask has
-> _PAGE_NX before calling debug_checkwx(). Now the check is inside the
-> callee ptdump_walk_pgd_level_checkwx().
->
-> On powerpc_64, mark_rodata_ro() bails out early before calling
-> ptdump_check_wx() when the MMU doesn't have KERNEL_RO feature. The
-> check is now also done in ptdump_check_wx() as it is called outside
-> mark_rodata_ro().
->
-> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> ---
->   arch/arm64/include/asm/ptdump.h |  7 -------
->   arch/arm64/mm/mmu.c             |  2 --
->   arch/powerpc/mm/mmu_decl.h      |  6 ------
->   arch/powerpc/mm/pgtable_32.c    |  4 ----
->   arch/powerpc/mm/pgtable_64.c    |  3 ---
->   arch/powerpc/mm/ptdump/ptdump.c |  3 +++
->   arch/riscv/include/asm/ptdump.h | 22 ----------------------
->   arch/riscv/mm/init.c            |  3 ---
->   arch/riscv/mm/ptdump.c          |  1 -
->   arch/s390/include/asm/ptdump.h  | 14 --------------
->   arch/s390/mm/dump_pagetables.c  |  1 -
->   arch/s390/mm/init.c             |  2 --
->   arch/x86/include/asm/pgtable.h  |  3 +--
->   arch/x86/mm/dump_pagetables.c   |  3 +++
->   arch/x86/mm/init_32.c           |  2 --
->   arch/x86/mm/init_64.c           |  2 --
->   include/linux/ptdump.h          |  7 +++++++
->   init/main.c                     |  2 ++
->   18 files changed, 16 insertions(+), 71 deletions(-)
->   delete mode 100644 arch/riscv/include/asm/ptdump.h
->   delete mode 100644 arch/s390/include/asm/ptdump.h
->
-> diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-> index 581caac525b0..5b1701c76d1c 100644
-> --- a/arch/arm64/include/asm/ptdump.h
-> +++ b/arch/arm64/include/asm/ptdump.h
-> @@ -29,13 +29,6 @@ void __init ptdump_debugfs_register(struct ptdump_info *info, const char *name);
->   static inline void ptdump_debugfs_register(struct ptdump_info *info,
->   					   const char *name) { }
->   #endif
-> -void ptdump_check_wx(void);
->   #endif /* CONFIG_PTDUMP_CORE */
->   
-> -#ifdef CONFIG_DEBUG_WX
-> -#define debug_checkwx()	ptdump_check_wx()
-> -#else
-> -#define debug_checkwx()	do { } while (0)
-> -#endif
-> -
->   #endif /* __ASM_PTDUMP_H */
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 15f6347d23b6..e011beb2e5e3 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -635,8 +635,6 @@ void mark_rodata_ro(void)
->   	section_size = (unsigned long)__init_begin - (unsigned long)__start_rodata;
->   	update_mapping_prot(__pa_symbol(__start_rodata), (unsigned long)__start_rodata,
->   			    section_size, PAGE_KERNEL_RO);
-> -
-> -	debug_checkwx();
->   }
->   
->   static void __init map_kernel_segment(pgd_t *pgdp, void *va_start, void *va_end,
-> diff --git a/arch/powerpc/mm/mmu_decl.h b/arch/powerpc/mm/mmu_decl.h
-> index 72341b9fb552..90dcc2844056 100644
-> --- a/arch/powerpc/mm/mmu_decl.h
-> +++ b/arch/powerpc/mm/mmu_decl.h
-> @@ -171,12 +171,6 @@ static inline void mmu_mark_rodata_ro(void) { }
->   void __init mmu_mapin_immr(void);
->   #endif
->   
-> -#ifdef CONFIG_DEBUG_WX
-> -void ptdump_check_wx(void);
-> -#else
-> -static inline void ptdump_check_wx(void) { }
-> -#endif
-> -
->   static inline bool debug_pagealloc_enabled_or_kfence(void)
->   {
->   	return IS_ENABLED(CONFIG_KFENCE) || debug_pagealloc_enabled();
-> diff --git a/arch/powerpc/mm/pgtable_32.c b/arch/powerpc/mm/pgtable_32.c
-> index 5c02fd08d61e..12498017da8e 100644
-> --- a/arch/powerpc/mm/pgtable_32.c
-> +++ b/arch/powerpc/mm/pgtable_32.c
-> @@ -153,7 +153,6 @@ void mark_rodata_ro(void)
->   
->   	if (v_block_mapped((unsigned long)_stext + 1)) {
->   		mmu_mark_rodata_ro();
-> -		ptdump_check_wx();
->   		return;
->   	}
->   
-> @@ -166,9 +165,6 @@ void mark_rodata_ro(void)
->   		   PFN_DOWN((unsigned long)_stext);
->   
->   	set_memory_ro((unsigned long)_stext, numpages);
-> -
-> -	// mark_initmem_nx() should have already run by now
-> -	ptdump_check_wx();
->   }
->   #endif
->   
-> diff --git a/arch/powerpc/mm/pgtable_64.c b/arch/powerpc/mm/pgtable_64.c
-> index 5ac1fd30341b..1b366526f4f2 100644
-> --- a/arch/powerpc/mm/pgtable_64.c
-> +++ b/arch/powerpc/mm/pgtable_64.c
-> @@ -150,9 +150,6 @@ void mark_rodata_ro(void)
->   		radix__mark_rodata_ro();
->   	else
->   		hash__mark_rodata_ro();
-> -
-> -	// mark_initmem_nx() should have already run by now
-> -	ptdump_check_wx();
->   }
->   
->   void mark_initmem_nx(void)
-> diff --git a/arch/powerpc/mm/ptdump/ptdump.c b/arch/powerpc/mm/ptdump/ptdump.c
-> index 2313053fe679..620d4917ebe8 100644
-> --- a/arch/powerpc/mm/ptdump/ptdump.c
-> +++ b/arch/powerpc/mm/ptdump/ptdump.c
-> @@ -343,6 +343,9 @@ void ptdump_check_wx(void)
->   		}
->   	};
->   
-> +	if (IS_ENABLED(CONFIG_PPC_BOOK3S_64) && !mmu_has_feature(MMU_FTR_KERNEL_RO))
-> +		return;
-> +
->   	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
->   
->   	if (st.wx_pages)
-> diff --git a/arch/riscv/include/asm/ptdump.h b/arch/riscv/include/asm/ptdump.h
-> deleted file mode 100644
-> index 3c9ea6dd5af7..000000000000
-> --- a/arch/riscv/include/asm/ptdump.h
-> +++ /dev/null
-> @@ -1,22 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -/*
-> - * Copyright (C) 2019 SiFive
-> - */
-> -
-> -#ifndef _ASM_RISCV_PTDUMP_H
-> -#define _ASM_RISCV_PTDUMP_H
-> -
-> -void ptdump_check_wx(void);
-> -
-> -#ifdef CONFIG_DEBUG_WX
-> -static inline void debug_checkwx(void)
-> -{
-> -	ptdump_check_wx();
-> -}
-> -#else
-> -static inline void debug_checkwx(void)
-> -{
-> -}
-> -#endif
-> -
-> -#endif /* _ASM_RISCV_PTDUMP_H */
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 2e011cbddf3a..55c4deb1b332 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -29,7 +29,6 @@
->   #include <asm/io.h>
->   #include <asm/numa.h>
->   #include <asm/pgtable.h>
-> -#include <asm/ptdump.h>
->   #include <asm/sections.h>
->   #include <asm/soc.h>
->   #include <asm/tlbflush.h>
-> @@ -720,8 +719,6 @@ void mark_rodata_ro(void)
->   	if (IS_ENABLED(CONFIG_64BIT))
->   		set_kernel_memory(lm_alias(__start_rodata), lm_alias(_data),
->   				  set_memory_ro);
-> -
-> -	debug_checkwx();
->   }
->   #else
->   static __init pgprot_t pgprot_from_va(uintptr_t va)
-> diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-> index 657c27bc07a7..075265603313 100644
-> --- a/arch/riscv/mm/ptdump.c
-> +++ b/arch/riscv/mm/ptdump.c
-> @@ -9,7 +9,6 @@
->   #include <linux/seq_file.h>
->   #include <linux/ptdump.h>
->   
-> -#include <asm/ptdump.h>
->   #include <linux/pgtable.h>
->   #include <asm/kasan.h>
->   
+--XthaSr7XjsnpG3pO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jan 09, 2024 at 04:02:01AM -0800, Emil Renner Berthing wrote:
+> Conor Dooley wrote:
+> > On Wed, Jan 03, 2024 at 02:28:40PM +0100, Emil Renner Berthing wrote:
+> > > Add nodes for pin controllers on the T-Head TH1520 RISC-V SoC.
+> > >
+> > > Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.c=
+om>
+> > > ---
+> > >  .../boot/dts/thead/th1520-beaglev-ahead.dts   |  4 ++++
+> > >  .../dts/thead/th1520-lichee-module-4a.dtsi    |  4 ++++
+> > >  arch/riscv/boot/dts/thead/th1520.dtsi         | 24 +++++++++++++++++=
+++
+> > >  3 files changed, 32 insertions(+)
+> > >
+> > > diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arc=
+h/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > index 70e8042c8304..6c56318a8705 100644
+> > > --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > @@ -44,6 +44,10 @@ &osc_32k {
+> > >  	clock-frequency =3D <32768>;
+> > >  };
+> > >
+> > > +&aonsys_clk {
+> > > +	clock-frequency =3D <73728000>;
+> > > +};
+> > > +
+> > >  &apb_clk {
+> > >  	clock-frequency =3D <62500000>;
+> > >  };
+> > > diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b=
+/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> > > index a802ab110429..9865925be372 100644
+> > > --- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> > > +++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> > > @@ -25,6 +25,10 @@ &osc_32k {
+> > >  	clock-frequency =3D <32768>;
+> > >  };
+> > >
+> > > +&aonsys_clk {
+> > > +	clock-frequency =3D <73728000>;
+> > > +};
+> > > +
+> > >  &apb_clk {
+> > >  	clock-frequency =3D <62500000>;
+> > >  };
+> > > diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/=
+dts/thead/th1520.dtsi
+> > > index ba4d2c673ac8..e65a306ff575 100644
+> > > --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> > > +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> > > @@ -134,6 +134,12 @@ osc_32k: 32k-oscillator {
+> > >  		#clock-cells =3D <0>;
+> > >  	};
+> > >
+> > > +	aonsys_clk: aonsys-clk {
+> > > +		compatible =3D "fixed-clock";
+> > > +		clock-output-names =3D "aonsys_clk";
+> > > +		#clock-cells =3D <0>;
+> > > +	};
+> >
+> > Did this stuff sneak into this commit accidentally?
+>=20
+> Not really by accident no. It turns out the clock tree has gates for the =
+bus
+> clock of each pinctrl block and I think it's better to add this clock
+> dependency to the bindings and driver up front.
+
+Maybe if I had looked a wee bit more deeply I would've noticed that it
+was used there, but it's always good to mention the rationale in the
+commit message so that it's more obvious why you're doin it.
+
+> Since there is not yet any clock driver the initial device tree for the T=
+H1520
+> included the dummy apb_clk that two of the pinctrl blocks derive their cl=
+ock
+> from, but not the "aonsys" clock needed by the "always-on" pinctrl. I tho=
+ught
+> it was better to add this dummy clock with the only (so far) user of it, =
+but if
+> you have a better idea, let me know.
+
+No, that's fine. I was just wondering why there was an unmentioned set
+of clocks being added. If they're stubbed fixed clocks I dunno if it
+makes sense to add them to the board.dts/module.dtsi files though. Where
+do the initial values come from for the rates? Out of reset values or
+set by firmware that may vary from board to board?
+
+Cheers,
+Conor.
+
+--XthaSr7XjsnpG3pO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZZ1EdAAKCRB4tDGHoIJi
+0ttJAPsEUXEE+T2o1HyH4EYifCCIDWdJZg4jidJGk2a0Yy+zNQD/UmU1FXzzcPlx
+B6tqiO1KUss7XC5DTIAZ9oVaxy5K9gU=
+=cRuY
+-----END PGP SIGNATURE-----
+
+--XthaSr7XjsnpG3pO--
 
 
-For riscv, you can add:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
-
-
-> diff --git a/arch/s390/include/asm/ptdump.h b/arch/s390/include/asm/ptdump.h
-> deleted file mode 100644
-> index f960b2896606..000000000000
-> --- a/arch/s390/include/asm/ptdump.h
-> +++ /dev/null
-> @@ -1,14 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -
-> -#ifndef _ASM_S390_PTDUMP_H
-> -#define _ASM_S390_PTDUMP_H
-> -
-> -void ptdump_check_wx(void);
-> -
-> -static inline void debug_checkwx(void)
-> -{
-> -	if (IS_ENABLED(CONFIG_DEBUG_WX))
-> -		ptdump_check_wx();
-> -}
-> -
-> -#endif /* _ASM_S390_PTDUMP_H */
-> diff --git a/arch/s390/mm/dump_pagetables.c b/arch/s390/mm/dump_pagetables.c
-> index d37a8f607b71..8dcb4e0c71bd 100644
-> --- a/arch/s390/mm/dump_pagetables.c
-> +++ b/arch/s390/mm/dump_pagetables.c
-> @@ -6,7 +6,6 @@
->   #include <linux/mm.h>
->   #include <linux/kfence.h>
->   #include <linux/kasan.h>
-> -#include <asm/ptdump.h>
->   #include <asm/kasan.h>
->   #include <asm/abs_lowcore.h>
->   #include <asm/nospec-branch.h>
-> diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-> index 43e612bc2bcd..d2e5eff9d1de 100644
-> --- a/arch/s390/mm/init.c
-> +++ b/arch/s390/mm/init.c
-> @@ -37,7 +37,6 @@
->   #include <asm/pgalloc.h>
->   #include <asm/ctlreg.h>
->   #include <asm/kfence.h>
-> -#include <asm/ptdump.h>
->   #include <asm/dma.h>
->   #include <asm/abs_lowcore.h>
->   #include <asm/tlb.h>
-> @@ -109,7 +108,6 @@ void mark_rodata_ro(void)
->   
->   	__set_memory_ro(__start_ro_after_init, __end_ro_after_init);
->   	pr_info("Write protected read-only-after-init data: %luk\n", size >> 10);
-> -	debug_checkwx();
->   }
->   
->   int set_memory_encrypted(unsigned long vaddr, int numpages)
-> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-> index 57bab91bbf50..036ce63f3b95 100644
-> --- a/arch/x86/include/asm/pgtable.h
-> +++ b/arch/x86/include/asm/pgtable.h
-> @@ -32,6 +32,7 @@ void ptdump_walk_pgd_level(struct seq_file *m, struct mm_struct *mm);
->   void ptdump_walk_pgd_level_debugfs(struct seq_file *m, struct mm_struct *mm,
->   				   bool user);
->   void ptdump_walk_pgd_level_checkwx(void);
-> +#define ptdump_check_wx() ptdump_walk_pgd_level_checkwx()
->   void ptdump_walk_user_pgd_level_checkwx(void);
->   
->   /*
-> @@ -41,10 +42,8 @@ void ptdump_walk_user_pgd_level_checkwx(void);
->   #define pgprot_decrypted(prot)	__pgprot(cc_mkdec(pgprot_val(prot)))
->   
->   #ifdef CONFIG_DEBUG_WX
-> -#define debug_checkwx()		ptdump_walk_pgd_level_checkwx()
->   #define debug_checkwx_user()	ptdump_walk_user_pgd_level_checkwx()
->   #else
-> -#define debug_checkwx()		do { } while (0)
->   #define debug_checkwx_user()	do { } while (0)
->   #endif
->   
-> diff --git a/arch/x86/mm/dump_pagetables.c b/arch/x86/mm/dump_pagetables.c
-> index e1b599ecbbc2..0008524eebe9 100644
-> --- a/arch/x86/mm/dump_pagetables.c
-> +++ b/arch/x86/mm/dump_pagetables.c
-> @@ -433,6 +433,9 @@ void ptdump_walk_user_pgd_level_checkwx(void)
->   
->   void ptdump_walk_pgd_level_checkwx(void)
->   {
-> +	if (!(__supported_pte_mask & _PAGE_NX))
-> +		return;
-> +
->   	ptdump_walk_pgd_level_core(NULL, &init_mm, INIT_PGD, true, false);
->   }
->   
-> diff --git a/arch/x86/mm/init_32.c b/arch/x86/mm/init_32.c
-> index b63403d7179d..5c736b707cae 100644
-> --- a/arch/x86/mm/init_32.c
-> +++ b/arch/x86/mm/init_32.c
-> @@ -800,6 +800,4 @@ void mark_rodata_ro(void)
->   	set_pages_ro(virt_to_page(start), size >> PAGE_SHIFT);
->   #endif
->   	mark_nxdata_nx();
-> -	if (__supported_pte_mask & _PAGE_NX)
-> -		debug_checkwx();
->   }
-> diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
-> index a190aae8ceaf..16e248769338 100644
-> --- a/arch/x86/mm/init_64.c
-> +++ b/arch/x86/mm/init_64.c
-> @@ -1412,8 +1412,6 @@ void mark_rodata_ro(void)
->   				(void *)text_end, (void *)rodata_start);
->   	free_kernel_image_pages("unused kernel image (rodata/data gap)",
->   				(void *)rodata_end, (void *)_sdata);
-> -
-> -	debug_checkwx();
->   }
->   
->   /*
-> diff --git a/include/linux/ptdump.h b/include/linux/ptdump.h
-> index 2a3a95586425..c10513739bf9 100644
-> --- a/include/linux/ptdump.h
-> +++ b/include/linux/ptdump.h
-> @@ -19,5 +19,12 @@ struct ptdump_state {
->   };
->   
->   void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd);
-> +void ptdump_check_wx(void);
-> +
-> +static inline void debug_checkwx(void)
-> +{
-> +	if (IS_ENABLED(CONFIG_DEBUG_WX))
-> +		ptdump_check_wx();
-> +}
->   
->   #endif /* _LINUX_PTDUMP_H */
-> diff --git a/init/main.c b/init/main.c
-> index e24b0780fdff..749a9f8d2c9b 100644
-> --- a/init/main.c
-> +++ b/init/main.c
-> @@ -99,6 +99,7 @@
->   #include <linux/init_syscalls.h>
->   #include <linux/stackdepot.h>
->   #include <linux/randomize_kstack.h>
-> +#include <linux/ptdump.h>
->   #include <net/net_namespace.h>
->   
->   #include <asm/io.h>
-> @@ -1408,6 +1409,7 @@ static void mark_readonly(void)
->   		 */
->   		rcu_barrier();
->   		mark_rodata_ro();
-> +		debug_checkwx();
->   		rodata_test();
->   	} else
->   		pr_info("Kernel memory protection disabled.\n");
+--===============4298664616186865828==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4298664616186865828==--
+
