@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 370E2C47073
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 12:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F3AC47073
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 12:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Wb16NT90hrcZ08k8RwDvusIjd6nWdMeq+prlvDyU318=; b=3Nwh8bCQ5ltKoy
-	s8+fj6YK1dPEEklE88xjXYo18yyI3pUwqi/xvXkUf36dsBaH9bfMsiVhv++1Yz2d5C0ol7g/seiNb
-	MF2IE4/GlEs8FY4ET8QlRZgcfubdpTdX7dRAj2obPRDgvzfYZek3dhxVVE0ytDM7yGN9dpOs2u8jV
-	cqtx8h6MmsnsPYeRijhvpHa6MuxK2xww8ftiEJYPeFP1qmoAY0rP8lD1qX4wj8iTrxjOtI0oaCqcq
-	pS0b41qrL1vpZaGsOlRSEvd0qQUTwWDw0MRZim0DBxFn+CawxKjC3SClEivG8XBiKuDRbpWJLhanR
-	Epg+IQgfdzi6xKL9r7Wg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=V3E4BzQ6zRgyAgoNVAa39KufcnSOTdL9y7pBOFW+BNM=; b=VBxhqFLEWq2ovz
+	B8RiLUGadYgvrX9snD42VOiQV817mUpVqkri5D2payZ/1aBjb2rulu50KNYmQQrVQarr5067ibwRY
+	aNEBX+1cL+W5RWVpqh+PnYi/NObEg0KOHnea3bRN8Y+YhiPvpUQNFAe7rTOxKaYsmM8Azw4ZFEoCF
+	9s3DL+kQmFJuegWqL6fSo3xepyXG+R6BFQjb3GvzwVRBBAl3uBk8DQbAAJ0um/GR55yheMdK77j0n
+	TiZpVGNvhvtXe8fCM/0r4MJe2FCFwT3qUYULefJS9kLJJBb4SFZ9+vecH/uws/UHRxuFTC8OBhzSE
+	Ks1reGl0Zlgx6JMSI2mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNB0e-008CZh-1g;
-	Tue, 09 Jan 2024 12:15:08 +0000
+	id 1rNB0j-008Ccu-0n;
+	Tue, 09 Jan 2024 12:15:13 +0000
 Received: from pegase1.c-s.fr ([93.17.236.30])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNB0b-008CXi-0Q;
-	Tue, 09 Jan 2024 12:15:06 +0000
+	id 1rNB0e-008CZ4-2Z;
+	Tue, 09 Jan 2024 12:15:10 +0000
 Received: from localhost (mailhub3.si.c-s.fr [192.168.12.233])
-	by localhost (Postfix) with ESMTP id 4T8VHN1DB7z9v5M;
-	Tue,  9 Jan 2024 13:14:56 +0100 (CET)
+	by localhost (Postfix) with ESMTP id 4T8VHS157Qz9v6Y;
+	Tue,  9 Jan 2024 13:15:00 +0100 (CET)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from pegase1.c-s.fr ([192.168.12.234])
 	by localhost (pegase1.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 3UZY3QTji_ou; Tue,  9 Jan 2024 13:14:56 +0100 (CET)
+	with ESMTP id jdK_Jc1jqNjy; Tue,  9 Jan 2024 13:15:00 +0100 (CET)
 Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase1.c-s.fr (Postfix) with ESMTP id 4T8VHN0Hfvz9v2V;
-	Tue,  9 Jan 2024 13:14:56 +0100 (CET)
+	by pegase1.c-s.fr (Postfix) with ESMTP id 4T8VHS0HC2z9v2V;
+	Tue,  9 Jan 2024 13:15:00 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 003308B77D;
-	Tue,  9 Jan 2024 13:14:55 +0100 (CET)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id F1DFE8B77D;
+	Tue,  9 Jan 2024 13:14:59 +0100 (CET)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from messagerie.si.c-s.fr ([127.0.0.1])
 	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id HBR04NexVvw3; Tue,  9 Jan 2024 13:14:55 +0100 (CET)
+	with ESMTP id 7pM4OD5n-ewz; Tue,  9 Jan 2024 13:14:59 +0100 (CET)
 Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.233.126])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 6EFF18B774;
-	Tue,  9 Jan 2024 13:14:54 +0100 (CET)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 26ACE8B774;
+	Tue,  9 Jan 2024 13:14:58 +0100 (CET)
 From: Christophe Leroy <christophe.leroy@csgroup.eu>
 To: linux-hardening@vger.kernel.org,
 	Russell King <linux@armlinux.org.uk>,
@@ -85,16 +85,18 @@ Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
 	Phong Tran <tranmanphong@gmail.com>,
 	mark.rutland@arm.com,
 	Greg KH <greg@kroah.com>
-Subject: [PATCH 0/4] Refactor CONFIG_DEBUG_WX and check_wx_pages debugfs attribute
-Date: Tue,  9 Jan 2024 13:14:34 +0100
-Message-ID: <cover.1704800524.git.christophe.leroy@csgroup.eu>
+Subject: [PATCH 1/4] arm: ptdump: Rename CONFIG_DEBUG_WX to CONFIG_ARM_DEBUG_WX
+Date: Tue,  9 Jan 2024 13:14:35 +0100
+Message-ID: <d651269a681150f9bdca8103434fb3f4b509f784.1704800524.git.christophe.leroy@csgroup.eu>
 X-Mailer: git-send-email 2.41.0
+In-Reply-To: <cover.1704800524.git.christophe.leroy@csgroup.eu>
+References: <cover.1704800524.git.christophe.leroy@csgroup.eu>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1704802473; l=2144; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=Rosrc8SJ5lP3rVnXrjZMc3fjClOukQO/LV2fzgZVpQs=; b=s3Okt6I7tVLtHH9cIsW0wOp8leAGxF9lRsidic0YqOYcxb/GPUWk/wsLaGOrOrDVlBeQJRl4d A3TZyNi11uFDTOsNtgCv9Dd/0t2LrUpaUdzKjfrAy93UgJ/oTqyg9E5
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1704802473; l=1302; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=SZmJpW4kyN4zUs+MdMT6CDyMhbW9dyNyADl5ScxgQbU=; b=ZRUK6aNuwLf82oScWI/2o5V02OBwPHgNwHRpA6tH0OpUPTRtOVcXbXukUs0gIeW4L5Tm9Mi8E t1ySRzRI5ipD9FZVb5uHd+bEWidm7yIlzdJbDqOzk/F2uTz/mSpvamx
 X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240109_041505_359853_5291023C 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20240109_041509_002772_73E0253A 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,54 +113,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Refer old discussion at https://lore.kernel.org/lkml/20200422152656.GF676@willie-the-truck/T/#m802eaf33efd6f8d575939d157301b35ac0d4a64f
-And https://github.com/KSPP/linux/issues/35
+CONFIG_DEBUG_WX is a core option defined in mm/Kconfig.debug
 
-This series refactors CONFIG_DEBUG_WX for the 5 architectures
-implementing CONFIG_GENERIC_PTDUMP
+To avoid any future conflict, rename ARM version
+into CONFIG_ARM_DEBUG_WX.
 
-First rename stuff in ARM which uses similar names while not
-implementing CONFIG_GENERIC_PTDUMP.
+Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+---
+ arch/arm/Kconfig.debug        | 2 +-
+ arch/arm/include/asm/ptdump.h | 6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-Then define a generic version of debug_checkwx() that calls
-ptdump_check_wx() when CONFIG_DEBUG_WX is set. Call it immediately
-after calling mark_rodata_ro() instead of calling it at the end of
-every mark_rodata_ro().
-
-Then implement a debugfs attribute that can be used to trigger
-a W^X test at anytime and regardless of CONFIG_DEBUG_WX
-
-Christophe Leroy (4):
-  arm: ptdump: Rename CONFIG_DEBUG_WX to CONFIG_ARM_DEBUG_WX
-  arm64, powerpc, riscv, s390, x86: Refactor CONFIG_DEBUG_WX
-  powerpc,s390: Define ptdump_check_wx() regardless of CONFIG_DEBUG_WX
-  ptdump: add check_wx_pages debugfs attribute
-
- arch/arm/Kconfig.debug          |  2 +-
- arch/arm/include/asm/ptdump.h   |  6 +++---
- arch/arm64/include/asm/ptdump.h |  7 -------
- arch/arm64/mm/mmu.c             |  2 --
- arch/powerpc/mm/mmu_decl.h      |  6 ------
- arch/powerpc/mm/pgtable_32.c    |  4 ----
- arch/powerpc/mm/pgtable_64.c    |  3 ---
- arch/powerpc/mm/ptdump/ptdump.c | 10 ++++++----
- arch/riscv/include/asm/ptdump.h | 22 ----------------------
- arch/riscv/mm/init.c            |  3 ---
- arch/riscv/mm/ptdump.c          |  1 -
- arch/s390/include/asm/ptdump.h  | 14 --------------
- arch/s390/mm/dump_pagetables.c  |  8 ++------
- arch/s390/mm/init.c             |  2 --
- arch/x86/include/asm/pgtable.h  |  3 +--
- arch/x86/mm/dump_pagetables.c   |  3 +++
- arch/x86/mm/init_32.c           |  2 --
- arch/x86/mm/init_64.c           |  2 --
- include/linux/ptdump.h          |  7 +++++++
- init/main.c                     |  2 ++
- mm/ptdump.c                     | 19 +++++++++++++++++++
- 21 files changed, 44 insertions(+), 84 deletions(-)
- delete mode 100644 arch/riscv/include/asm/ptdump.h
- delete mode 100644 arch/s390/include/asm/ptdump.h
-
+diff --git a/arch/arm/Kconfig.debug b/arch/arm/Kconfig.debug
+index fc2b41d41447..141151d632f6 100644
+--- a/arch/arm/Kconfig.debug
++++ b/arch/arm/Kconfig.debug
+@@ -17,7 +17,7 @@ config ARM_PTDUMP_DEBUGFS
+ 	  kernel.
+ 	  If in doubt, say "N"
+ 
+-config DEBUG_WX
++config ARM_DEBUG_WX
+ 	bool "Warn on W+X mappings at boot"
+ 	depends on MMU
+ 	select ARM_PTDUMP_CORE
+diff --git a/arch/arm/include/asm/ptdump.h b/arch/arm/include/asm/ptdump.h
+index aad1d034136c..46a4575146ee 100644
+--- a/arch/arm/include/asm/ptdump.h
++++ b/arch/arm/include/asm/ptdump.h
+@@ -32,10 +32,10 @@ void ptdump_check_wx(void);
+ 
+ #endif /* CONFIG_ARM_PTDUMP_CORE */
+ 
+-#ifdef CONFIG_DEBUG_WX
+-#define debug_checkwx() ptdump_check_wx()
++#ifdef CONFIG_ARM_DEBUG_WX
++#define arm_debug_checkwx() ptdump_check_wx()
+ #else
+-#define debug_checkwx() do { } while (0)
++#define arm_debug_checkwx() do { } while (0)
+ #endif
+ 
+ #endif /* __ASM_PTDUMP_H */
 -- 
 2.41.0
 
