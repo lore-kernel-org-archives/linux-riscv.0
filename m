@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD4BC4707B
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 22:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 627D1C4706C
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 22:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BZdNO3zRhl7vz8ZpFIii/gz8jJLemQfBvn0vHR4jun4=; b=eyeeSb64I9dyJw
-	h+cSP/A7kAiDFkngz5SP/Y/F+YEJgEzgeyM+b97tm2Kk1QkURNa6D/IQpwt2Pl8/Tm/6E8Qayvrs9
-	Z180FGvc8HvKnMVTJF3Wj8XbEyrkzC47oagKZckzAKhKz4aM6hQqVPA5FleZqKtjKgy5qKsTb5pj/
-	m83OnqPQaY6bsyIIPe3OJcdtH8uke4YEDJJnnjnSdM/0BXh0BS8UiFmbYGeLvcEWPebVfj+FMU0GS
-	ZhmU6LPMid6ioa7Br7GtemPM7lsSCCYeLmjrIasVvTWwp6MQZdHhfjr5XoyqdGp8k11JzEa70v7Vv
-	Wk+OqVCIkQYchOSHNp6g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VXzsergFBSSj7Q/HuaY67R1ST7YuTqZcirRDpLA9gUE=; b=vuVgOZHPy3ohe7
+	HDYjqfMG0OMsjPIBZg/1X3zfw0i8hEvG9tp0ECPoWfB89gS64F4TZIPkeUPeuzXdhN8g1UymQTkib
+	l/1HlW6wABCM9szg4Ja/kinNTzaHQ8knIwPPNn0q8RhfxyuDakNVVGTja8UO4ghK0jjAQ8IlW5fZW
+	Lc3l4iPiyrok+8TatH8hedWTfX/B+leCOcQb/b+UYZmEal7LnqNBJJVHn3vYCGelIEnbhlHn2ISmY
+	qsVLauMJTsfjp1k5u+0iIJsbr6xqWmCUbgVaL+dTM99H4YMD3yNJVoWP5ZoknE30WJ7LUpPtGx9EH
+	53VUvSXMAUbB8h6f9ryA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNKPA-009gK0-30;
-	Tue, 09 Jan 2024 22:17:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rNKP1-009gDJ-0q;
+	Tue, 09 Jan 2024 22:16:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNKP0-009gCj-1S;
-	Tue, 09 Jan 2024 22:16:56 +0000
+	id 1rNKOx-009gC4-0i;
+	Tue, 09 Jan 2024 22:16:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DDA6C6153B;
-	Tue,  9 Jan 2024 22:16:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 123A1C3277D;
-	Tue,  9 Jan 2024 22:16:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 902D461578;
+	Tue,  9 Jan 2024 22:16:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA61FC433F1;
+	Tue,  9 Jan 2024 22:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704838613;
-	bh=FqUV9XbJobSbmU63Vc9OUMUQcPG9O3IVnKnVxKihgqg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=DcHElP8752uyAsMVCQ9k3+715C2jIK4g14tGotfDJ8U38bRblNG/AwFYta/n5LoQG
-	 LpV8+bXv7FtW/SUluAkK6SJlStsaYCU3zH4HvblRDr91qAIYBiQOC3/W2UTWgJ1kRp
-	 GbrNfFIJNjfOdc23+OlnmB/PTzxp7bE2RSj3T2FzFdBlBnmXZCikPdLw9yHssj4mFr
-	 m6ZSKQG3Nd+HtcvSORAmZa/N0vc16PcFvKuV782vl/tGde85StEGLfiO5CA6NT4IMm
-	 iDK+5HVkluEYBHetuLhGlho3xKaEgxI6WVWeqqRcIxbmFYNGbaRQOlT40dp51jolLc
-	 fu27RYeGMMNpQ==
+	s=k20201202; t=1704838610;
+	bh=EHvco0VkqOSJGuxdue1TEtXAL00jI8VZrVZxCAuX2+E=;
+	h=From:Subject:Date:To:Cc:From;
+	b=qB46A5SpFD/NpmrZNfvwVgTddKr4FozL/Nm6NTWqjJuavIDeYbyWj8WbTz/AJAYAd
+	 rCq1xH2+lrNbAzymhVqtxXCmJQYKKBtigLbuskx+y07oOM7Fuhn5KtE5lAQldU86ff
+	 zsHlTOsJZDWVdq5RMMJKOsWvG0Sf8ZHgtVjZur4CTnnCh2KmHRiE+g9IYh0N3JSxTK
+	 HD8CBIbqmmGPG+MOnwgxTifgp44rGjZZFXk0l6vXeduRl6TLk9LScel7oWlPR5uz1g
+	 UsvtcwNt/LBd82QaDZxv1VzpZC3HDPVzq86WEch1mZNDSm/ODiPUOVtCeJtXC34hlE
+	 7d2vmCHDFTLIQ==
 From: Nathan Chancellor <nathan@kernel.org>
-Date: Tue, 09 Jan 2024 15:16:30 -0700
-Subject: [PATCH 2/3] arch and include: Update LLVM Phabricator links
+Subject: [PATCH 0/3] Update LLVM Phabricator and Bugzilla links
+Date: Tue, 09 Jan 2024 15:16:28 -0700
+Message-Id: <20240109-update-llvm-links-v1-0-eb09b59db071@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20240109-update-llvm-links-v1-2-eb09b59db071@kernel.org>
-References: <20240109-update-llvm-links-v1-0-eb09b59db071@kernel.org>
-In-Reply-To: <20240109-update-llvm-links-v1-0-eb09b59db071@kernel.org>
+X-B4-Tracking: v=1; b=H4sIALzFnWUC/x3MQQqAIBBA0avErBtQi8CuEi0kpxoyCy0JwrsnL
+ d/i/xciBaYIffVCoMSRD18g6wqm1fiFkG0xKKFaIYXG+7TmInQu7ejYbxGtaGZtu1aTJCjdGWj
+ m538OY84fszs+Z2MAAAA=
 To: akpm@linux-foundation.org
 Cc: llvm@lists.linux.dev, patches@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -59,19 +60,22 @@ Cc: llvm@lists.linux.dev, patches@lists.linux.dev,
  linux-media@vger.kernel.org, linux-arch@vger.kernel.org, 
  kasan-dev@googlegroups.com, linux-mm@kvack.org, bridge@lists.linux.dev, 
  netdev@vger.kernel.org, linux-security-module@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>
+ linux-kselftest@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>, 
+ ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, mykolal@fb.com, 
+ bpf@vger.kernel.org
 X-Mailer: b4 0.13-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3768; i=nathan@kernel.org;
- h=from:subject:message-id; bh=FqUV9XbJobSbmU63Vc9OUMUQcPG9O3IVnKnVxKihgqg=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDKlzj14wLXz9bOkxsYsrTGYdLPdQyNrnvz59Sf7hWSzS5
- avzyrO5O0pZGMS4GGTFFFmqH6seNzScc5bxxqlJMHNYmUCGMHBxCsBEuHQYGY67OxucPlmQ4Skk
- bzsxKZ793GXTxU+kr3sE7umaHJ1xyIeR4V+622l/ZUP3AsYOg2ahGcz/dlh+redryHGc4DIv7X4
- mHwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2460; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=EHvco0VkqOSJGuxdue1TEtXAL00jI8VZrVZxCAuX2+E=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDKlzj17YHOFbeqmmzSTv+Yl3Dvc2pO2+wn2gftPWtOlmz
+ ZFzErc87ShlYRDjYpAVU2Spfqx63NBwzlnGG6cmwcxhZQIZwsDFKQATcYlj+J+VsOtwv+FtLr6v
+ L2ptJLoTJ1xwvPM+afI7W55fz9vnRocyMsxLsi56rXP33S6VMzNvVJ4tXR/xeu4ma9Zvvc8ruWO
+ PdPIDAA==
 X-Developer-Key: i=nathan@kernel.org; a=openpgp;
  fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240109_141654_588268_476DDCB6 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20240109_141651_373172_924BDF9D 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,90 +92,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-reviews.llvm.org was LLVM's Phabricator instances for code review. It
-has been abandoned in favor of GitHub pull requests. While the majority
-of links in the kernel sources still work because of the work Fangrui
-has done turning the dynamic Phabricator instance into a static archive,
-there are some issues with that work, so preemptively convert all the
-links in the kernel sources to point to the commit on GitHub.
+This series updates all instances of LLVM Phabricator and Bugzilla links
+to point to GitHub commits directly and LLVM's Bugzilla to GitHub issue
+shortlinks respectively.
 
-Most of the commits have the corresponding differential review link in
-the commit message itself so there should not be any loss of fidelity in
-the relevant information.
+I split up the Phabricator patch into BPF selftests and the rest of the
+kernel in case the BPF folks want to take it separately from the rest of
+the series, there are obviously no dependency issues in that case. The
+Bugzilla change was mechanical enough and should have no conflicts.
 
-Link: https://discourse.llvm.org/t/update-on-github-pull-requests/71540/172
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+I am aiming this at Andrew and CC'ing other lists, in case maintainers
+want to chime in, but I think this is pretty uncontroversial (famous
+last words...).
+
 ---
- arch/arm64/Kconfig              | 4 ++--
- arch/riscv/Kconfig              | 2 +-
- arch/riscv/include/asm/ftrace.h | 2 +-
- include/linux/compiler-clang.h  | 2 +-
- 4 files changed, 5 insertions(+), 5 deletions(-)
+Nathan Chancellor (3):
+      selftests/bpf: Update LLVM Phabricator links
+      arch and include: Update LLVM Phabricator links
+      treewide: Update LLVM Bugzilla links
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 7b071a00425d..3304ba7c6c2a 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -380,7 +380,7 @@ config BROKEN_GAS_INST
- config BUILTIN_RETURN_ADDRESS_STRIPS_PAC
- 	bool
- 	# Clang's __builtin_return_adddress() strips the PAC since 12.0.0
--	# https://reviews.llvm.org/D75044
-+	# https://github.com/llvm/llvm-project/commit/2a96f47c5ffca84cd774ad402cacd137f4bf45e2
- 	default y if CC_IS_CLANG && (CLANG_VERSION >= 120000)
- 	# GCC's __builtin_return_address() strips the PAC since 11.1.0,
- 	# and this was backported to 10.2.0, 9.4.0, 8.5.0, but not earlier
-@@ -2202,7 +2202,7 @@ config STACKPROTECTOR_PER_TASK
- 
- config UNWIND_PATCH_PAC_INTO_SCS
- 	bool "Enable shadow call stack dynamically using code patching"
--	# needs Clang with https://reviews.llvm.org/D111780 incorporated
-+	# needs Clang with https://github.com/llvm/llvm-project/commit/de07cde67b5d205d58690be012106022aea6d2b3 incorporated
- 	depends on CC_IS_CLANG && CLANG_VERSION >= 150000
- 	depends on ARM64_PTR_AUTH_KERNEL && CC_HAS_BRANCH_PROT_PAC_RET
- 	depends on SHADOW_CALL_STACK
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index cd4c9a204d08..f7453eba0b62 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -291,7 +291,7 @@ config AS_HAS_INSN
- 	def_bool $(as-instr,.insn r 51$(comma) 0$(comma) 0$(comma) t0$(comma) t0$(comma) zero)
- 
- config AS_HAS_OPTION_ARCH
--	# https://reviews.llvm.org/D123515
-+	# https://github.com/llvm/llvm-project/commit/9e8ed3403c191ab9c4903e8eeb8f732ff8a43cb4
- 	def_bool y
- 	depends on $(as-instr, .option arch$(comma) +m)
- 	depends on !$(as-instr, .option arch$(comma) -i)
-diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index 2b2f5df7ef2c..3f526404a718 100644
---- a/arch/riscv/include/asm/ftrace.h
-+++ b/arch/riscv/include/asm/ftrace.h
-@@ -15,7 +15,7 @@
- 
- /*
-  * Clang prior to 13 had "mcount" instead of "_mcount":
-- * https://reviews.llvm.org/D98881
-+ * https://github.com/llvm/llvm-project/commit/ef58ae86ba778ed7d01cd3f6bd6d08f943abab44
-  */
- #if defined(CONFIG_CC_IS_GCC) || CONFIG_CLANG_VERSION >= 130000
- #define MCOUNT_NAME _mcount
-diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
-index ddab1ef22bee..f0a47afef125 100644
---- a/include/linux/compiler-clang.h
-+++ b/include/linux/compiler-clang.h
-@@ -9,7 +9,7 @@
-  * Clang prior to 17 is being silly and considers many __cleanup() variables
-  * as unused (because they are, their sole purpose is to go out of scope).
-  *
-- * https://reviews.llvm.org/D152180
-+ * https://github.com/llvm/llvm-project/commit/877210faa447f4cc7db87812f8ed80e398fedd61
-  */
- #undef __cleanup
- #define __cleanup(func) __maybe_unused __attribute__((__cleanup__(func)))
+ arch/arm64/Kconfig                                 |  4 +--
+ arch/powerpc/Makefile                              |  4 +--
+ arch/powerpc/kvm/book3s_hv_nested.c                |  2 +-
+ arch/riscv/Kconfig                                 |  2 +-
+ arch/riscv/include/asm/ftrace.h                    |  2 +-
+ arch/s390/include/asm/ftrace.h                     |  2 +-
+ arch/x86/power/Makefile                            |  2 +-
+ crypto/blake2b_generic.c                           |  2 +-
+ drivers/firmware/efi/libstub/Makefile              |  2 +-
+ drivers/gpu/drm/amd/amdgpu/sdma_v4_4_2.c           |  2 +-
+ drivers/media/test-drivers/vicodec/codec-fwht.c    |  2 +-
+ drivers/regulator/Kconfig                          |  2 +-
+ include/asm-generic/vmlinux.lds.h                  |  2 +-
+ include/linux/compiler-clang.h                     |  2 +-
+ lib/Kconfig.kasan                                  |  2 +-
+ lib/raid6/Makefile                                 |  2 +-
+ lib/stackinit_kunit.c                              |  2 +-
+ mm/slab_common.c                                   |  2 +-
+ net/bridge/br_multicast.c                          |  2 +-
+ security/Kconfig                                   |  2 +-
+ tools/testing/selftests/bpf/README.rst             | 32 +++++++++++-----------
+ tools/testing/selftests/bpf/prog_tests/xdpwall.c   |  2 +-
+ .../selftests/bpf/progs/test_core_reloc_type_id.c  |  2 +-
+ 23 files changed, 40 insertions(+), 40 deletions(-)
+---
+base-commit: 0dd3ee31125508cd67f7e7172247f05b7fd1753a
+change-id: 20240109-update-llvm-links-d03f9d649e1e
 
+Best regards,
 -- 
-2.43.0
+Nathan Chancellor <nathan@kernel.org>
 
 
 _______________________________________________
