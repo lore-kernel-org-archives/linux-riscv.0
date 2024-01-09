@@ -4,88 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C4AAC46CD2
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 11:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2245DC46CD2
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 12:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fjgdDK3tgplO/UQQNi8VDGqk3T/kW59ohJNeEQM++II=; b=jLyqSYcdYlAN0r
-	E7rfLQupEHbH783XuoZPR8irqyAO8BDHnOwBZnuBKZC/w0IEJUOrsYbaIMY1i19fgeyFg2B5J7lsY
-	I1guJjPUmW6OSWc5doPd+c2bw45bPU9JYaL4BZFiGFHvhwmIZUT1wXGP1ntXSCQuY1rTJ2cIDnE2c
-	XgToKQe34K0Fn6pDGYBvcqV9q6yb5W2pjEhvd8UEmdXz5T5NI4rmorQdg94HEHDkSk3MJkPwX6DuF
-	ezOPmQ8UuvUt0D05YCbwQJoNEQXOjU5pKwdFHygZJGcU7a5dTXXzs64qlHTVzpmKIYA/u9FvlR2aA
-	G1W5yNotrkVGzy6RkMFQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=uyQ6+bpfQSluYbD350rpOyzbI5QmQ8lJMxKSf4k8VrA=; b=aoEcIq0rQbYaWlJ2O5IXaw9Sel
+	yvk5zx0dJaaPkRODsBWwqZuDnfrgIBBwgao7NT6kNxUlVEYjaLFEA0dRYLBFG6DCtriZlzFYj7Uv3
+	PsVIrOy1scAmPCo5eRZyvbuBVQtAWBGCRarLMo9vc3HdJthh383SNsS6KcpJK7OoyO3kr3K6KRgPF
+	5acbiwMlYvQwi/drStu7bMKT7SGXiEF6XJnPaBjJaO9RYypARTmt9C/TKIsLSg6vx1rR5lnpG094V
+	Vs52wdBHEIoDKAZSMC+e2ZDFBr1Hw+e+esrX5iegn4j4zXi2Y44ScGmrLO+w5HAX2f/y2IJv0uZkL
+	iKGKngDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNANc-007vXQ-2c;
-	Tue, 09 Jan 2024 11:34:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rNAoA-008BAg-22;
+	Tue, 09 Jan 2024 12:02:14 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNANa-007vUg-1P
+	id 1rNAo7-008B93-1j
 	for linux-riscv@lists.infradead.org;
-	Tue, 09 Jan 2024 11:34:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1704800085;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GUN+/Kn6FQWRmlqVv9nbikCrbachpkInN5wWcNO9XHM=;
-	b=aArYvIKPakj0xNjdQ4UhYnfb9lEYPu68fTgmwddKdf8CInb3dUAAh/VPcX8SlpOQGKssEV
-	0gXG73lRbmSDH6Ta05+gQAtxWSqV7HjX2Vm5rS4v8uDUXmq9PmVI+vRtEh2W/t5GZaduJ8
-	3O8V7SYMPHnlLd2C0QWVsJCmBEJZl1U=
-Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com
- [209.85.128.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-209-NPZ5S74HMAuXZauI0gyN-A-1; Tue, 09 Jan 2024 06:34:43 -0500
-X-MC-Unique: NPZ5S74HMAuXZauI0gyN-A-1
-Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-5e9a02c6d49so48446017b3.2
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Jan 2024 03:34:43 -0800 (PST)
+	Tue, 09 Jan 2024 12:02:13 +0000
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 74C493F5B0
+	for <linux-riscv@lists.infradead.org>; Tue,  9 Jan 2024 12:02:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1704801723;
+	bh=L1elb+jQDH8Ds4j0H9TwFb8qhYJOMk8842XOLWCtnwk=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=bd+ciOEX3IPwfxFJXjKV2I/Wv0gx06Q0MgSrKjmYirIHn77p623UrjLpSVLPXRE1I
+	 rANAJOicubM2wq/Qq2+rrQ0uiCxQHE0eDP56OECPD45MJb5s+i2kH66rCt5Ec4sSqV
+	 ehvzHdqPp2eVtdTuTYk/k1QO5RDH87k75qnI69VXIEplLzxMDQs9Zr0TNhWfsdzLNt
+	 mawJEVix2+AfIJsnEK4Kkm0K76nBCZaYK3SWFrR4oreI1EbPgIHS4CIADuQqDYGjdV
+	 5uIz15/gX6M4Ez7DTP00UO2XN8hV9VK21vEn+0D+82QFu2itT3qkI6/sr9BQ4kOiU5
+	 6/LiI2KwYqA5A==
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-429a05fd0b7so9796431cf.3
+        for <linux-riscv@lists.infradead.org>; Tue, 09 Jan 2024 04:02:03 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704800083; x=1705404883;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GUN+/Kn6FQWRmlqVv9nbikCrbachpkInN5wWcNO9XHM=;
-        b=Xt1fRa8ZHt8OwrAyTLiIiMte+yE2WBBRL4rbKsyUqEJNYVvAu8x+++MF17ehqpdiC1
-         BHzRdlAEw/Zn0n8jx9q5Jc/zDyl1OhSXFkCVSDajnYrUHWLd4eSoZmVSq0fqxcwG0Qu7
-         e6wVvag0r3FZMzdb3cIBXikQyvJGMdf0/37v5rXccbD68m3/rvG4w5pVlcZZ7wQRRE5k
-         qBtgrRuOYG6rvEOwIsa64xOYW5qSukdTRI563Tbbrupv1HaNi6krUIsmCVYDjmgu8td9
-         2QpVLDHmfpaXPy9WzVNgZxQN8sKH4LOJjj9HdaOVQXDBhHWuoATfACIbeKk0xPq1TEi8
-         iu1w==
-X-Gm-Message-State: AOJu0YxN9qUuFTY+u2i8ftj/vbfPZBr6USWYkiVoEe+82h88pE818Rch
-	fUR7TBLasBi0ytRJXWchePVqXzE3AhySlqDTid7kkYTdgRtpBCnN4ZUXOEtqi3OmBKK0GTr5lfR
-	YOGQEEKpz9qaXznM4vHCApw9gfwcuR/fQlkuKVizOKqBlHOdjXR7X
-X-Received: by 2002:a81:a151:0:b0:5ea:5573:78d6 with SMTP id y78-20020a81a151000000b005ea557378d6mr3086092ywg.33.1704800083406;
-        Tue, 09 Jan 2024 03:34:43 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IF1hcgt6oRHbR/RjEpDAqM7iEdTO4DnRabG9ZjF0lgirNmr9/Bpj6VCQkN0AmvDDe5uKzdDfwgU9scOEoBOq1g=
-X-Received: by 2002:a81:a151:0:b0:5ea:5573:78d6 with SMTP id
- y78-20020a81a151000000b005ea557378d6mr3086079ywg.33.1704800083167; Tue, 09
- Jan 2024 03:34:43 -0800 (PST)
-MIME-Version: 1.0
-References: <CAAhSdy1QsMuAmr+DFxjkf3a2Ur91AX9AnddRnBHGM6+exkAn1g@mail.gmail.com>
- <CABgObfZN4_xvOHr8aukZZGZj5teWZ7rt5RJU5Y0YFewQk19FRw@mail.gmail.com>
- <20240102-c07d32a585f11ee80bd7b70b@orel> <CAAhSdy2_STfVNb6PB0o-hW+rn-K+U5BcYJWJO3m8vbeQEQ9BFw@mail.gmail.com>
- <CAAhSdy0GO=5N2Fz0O-=xMqJ1ZK3GoqsW76kt8UevxhJRbEYmtw@mail.gmail.com>
-In-Reply-To: <CAAhSdy0GO=5N2Fz0O-=xMqJ1ZK3GoqsW76kt8UevxhJRbEYmtw@mail.gmail.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Tue, 9 Jan 2024 12:34:30 +0100
-Message-ID: <CABgObfZnTRGYcACubYyjNesaiQD_6rE_utusbFANyvE3F6R7Sw@mail.gmail.com>
-Subject: Re: Re: [GIT PULL] KVM/riscv changes for 6.8 part #1
-To: Anup Patel <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, 
-	Atish Patra <atishp@rivosinc.com>, KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+        d=1e100.net; s=20230601; t=1704801722; x=1705406522;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=L1elb+jQDH8Ds4j0H9TwFb8qhYJOMk8842XOLWCtnwk=;
+        b=G1ZmPSDtc4zD6a0aUy3HWhv8WIBujbSEZzncOkevLZ1Gu7aqIWM9B9uiu74rp+IemC
+         V1aYBbc2Gi9b9D/EmOYNBYJEqpLsciv/Xq6ramvOTgREJUvOdyOGaSSFenofQL2wAuFB
+         vGnF/LQVDW96VU0E/SZoJW+7l4VnVrrmGbG3+uOdW2GMvHMjmapdiPOL2tpzU3Osq9EO
+         5p7m9juCuI1CdYJ2vtnpAvj72PMTJh//F6/v9ua5fQgSfkH9hZzsd8ICl/7HG4n24Rr2
+         2/6Zv70rD1dAnUmQwR4Kt+W+sz02eVRHOe3ma03YkkvpQe2hn8wi5IntZVGCVwoiRBH6
+         3kxQ==
+X-Gm-Message-State: AOJu0Yy+8fIUIrE7OWBxzhgbZtN3TXaC599Var3h3A1TvlsF2Z+bD/0s
+	DjhIzRIESd728GVkN28T8QvyHRGaLA8vm8OTIt1mgQ5+RYW0phCIRQNsnIAAzAACRZcWo2ZMUZd
+	1Arx0UT4lqc2Az9fRugj0No7N5+ZYVr+CXVzMPXcsnc8ycbLNo0dyu+pH4deHTsaDLBzrfElFMG
+	n/
+X-Received: by 2002:a05:622a:296:b0:429:8c55:4a47 with SMTP id z22-20020a05622a029600b004298c554a47mr3134583qtw.49.1704801722311;
+        Tue, 09 Jan 2024 04:02:02 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHMPXlm4YerbG4iFFrjePx491jhh9/Le2ba+OtVW+O9m5xRSQ0+oOgEThByi2GFboNj49o1lT5y0Tt5RnHjosQ=
+X-Received: by 2002:a05:622a:296:b0:429:8c55:4a47 with SMTP id
+ z22-20020a05622a029600b004298c554a47mr3134568qtw.49.1704801722008; Tue, 09
+ Jan 2024 04:02:02 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 9 Jan 2024 04:02:01 -0800
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20240108-majorette-overtly-4ec65d0a15e9@spud>
+References: <20240103132852.298964-1-emil.renner.berthing@canonical.com>
+ <20240103132852.298964-4-emil.renner.berthing@canonical.com> <20240108-majorette-overtly-4ec65d0a15e9@spud>
+Mime-Version: 1.0
+Date: Tue, 9 Jan 2024 04:02:01 -0800
+Message-ID: <CAJM55Z_2zhELW3E7p94J05We17xTC2Rejs5AigNJOHCGHVr_zg@mail.gmail.com>
+Subject: Re: [PATCH v2 3/8] riscv: dts: thead: Add TH1520 pin control nodes
+To: Conor Dooley <conor@kernel.org>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Drew Fustini <dfustini@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240109_033446_543787_CFED8D70 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20240109_040211_710916_0E71EA02 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,27 +101,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKYW4gOSwgMjAyNCBhdCA3OjAy4oCvQU0gQW51cCBQYXRlbCA8YW51cEBicmFpbmZh
-dWx0Lm9yZz4gd3JvdGU6Cj4gPiA+IE9uIFR1ZSwgSmFuIDAyLCAyMDI0IGF0IDA3OjI0OjI2UE0g
-KzAxMDAsIFBhb2xvIEJvbnppbmkgd3JvdGU6Cj4gPiA+ID4gT24gU3VuLCBEZWMgMzEsIDIwMjMg
-YXQgNjozM+KAr0FNIEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+IHdyb3RlOgo+ID4g
-PiA+ID4gV2UgaGF2ZSB0aGUgZm9sbG93aW5nIEtWTSBSSVNDLVYgY2hhbmdlcyBmb3IgNi44Ogo+
-ID4gPiA+ID4gMSkgS1ZNX0dFVF9SRUdfTElTVCBpbXByb3ZlbWVudCBmb3IgdmVjdG9yIHJlZ2lz
-dGVycwo+ID4gPiA+ID4gMikgR2VuZXJhdGUgSVNBIGV4dGVuc2lvbiByZWdfbGlzdCB1c2luZyBt
-YWNyb3MgaW4gZ2V0LXJlZy1saXN0IHNlbGZ0ZXN0Cj4gPiA+ID4gPiAzKSBTdGVhbCB0aW1lIGFj
-Y291bnQgc3VwcG9ydCBhbG9uZyB3aXRoIHNlbGZ0ZXN0Cj4gPiA+ID4KPiA+ID4gPiBKdXN0IG9u
-ZSBzbWFsbCB0aGluZyBJIG5vdGljZWQgb24gKDMpLCBkbyB5b3UgcmVhbGx5IG5lZWQgY3B1X3Rv
-X2xlNjQKPiA+ID4gPiBhbmQgbGU2NF90b19jcHUgb24gUklTQy1WPyBJdCBzZWVtcyB0aGF0IGl0
-IHdhcyBjb3BpZWQgZnJvbSBhYXJjaDY0Lgo+ID4gPiA+IE5vIG5lZWQgdG8gcmVzZW5kIHRoZSBQ
-UiBhbnl3YXksIG9mIGNvdXJzZS4KPgo+IEZyaWVuZGx5IHBpbmcgPwoKSGksIEkgaGFkIGFscmVh
-ZHkgcHVsbGVkIGJ1dCBJIHdhcyB3YWl0aW5nIGZvciB0aGUgbGFzdCB4ODYgdGVzdHMgdG8KZmlu
-aXNoLiBFdmVyeXRoaW5nIGlzIG5vdyBpbiBrdm0uZ2l0LgoKSSdsbCBzZW5kIHRoZSBQUiB0byBM
-aW51cyBvbmNlIGEgYnVuY2ggb2YgY29uZmxpY3RpbmcgdHJlZXMgaGF2ZSBiZWVuIHB1bGxlZC4K
-ClBhb2xvCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Conor Dooley wrote:
+> On Wed, Jan 03, 2024 at 02:28:40PM +0100, Emil Renner Berthing wrote:
+> > Add nodes for pin controllers on the T-Head TH1520 RISC-V SoC.
+> >
+> > Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> > ---
+> >  .../boot/dts/thead/th1520-beaglev-ahead.dts   |  4 ++++
+> >  .../dts/thead/th1520-lichee-module-4a.dtsi    |  4 ++++
+> >  arch/riscv/boot/dts/thead/th1520.dtsi         | 24 +++++++++++++++++++
+> >  3 files changed, 32 insertions(+)
+> >
+> > diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > index 70e8042c8304..6c56318a8705 100644
+> > --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > @@ -44,6 +44,10 @@ &osc_32k {
+> >  	clock-frequency = <32768>;
+> >  };
+> >
+> > +&aonsys_clk {
+> > +	clock-frequency = <73728000>;
+> > +};
+> > +
+> >  &apb_clk {
+> >  	clock-frequency = <62500000>;
+> >  };
+> > diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> > index a802ab110429..9865925be372 100644
+> > --- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> > +++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> > @@ -25,6 +25,10 @@ &osc_32k {
+> >  	clock-frequency = <32768>;
+> >  };
+> >
+> > +&aonsys_clk {
+> > +	clock-frequency = <73728000>;
+> > +};
+> > +
+> >  &apb_clk {
+> >  	clock-frequency = <62500000>;
+> >  };
+> > diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> > index ba4d2c673ac8..e65a306ff575 100644
+> > --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> > +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> > @@ -134,6 +134,12 @@ osc_32k: 32k-oscillator {
+> >  		#clock-cells = <0>;
+> >  	};
+> >
+> > +	aonsys_clk: aonsys-clk {
+> > +		compatible = "fixed-clock";
+> > +		clock-output-names = "aonsys_clk";
+> > +		#clock-cells = <0>;
+> > +	};
+>
+> Did this stuff sneak into this commit accidentally?
+
+Not really by accident no. It turns out the clock tree has gates for the bus
+clock of each pinctrl block and I think it's better to add this clock
+dependency to the bindings and driver up front.
+
+Since there is not yet any clock driver the initial device tree for the TH1520
+included the dummy apb_clk that two of the pinctrl blocks derive their clock
+from, but not the "aonsys" clock needed by the "always-on" pinctrl. I thought
+it was better to add this dummy clock with the only (so far) user of it, but if
+you have a better idea, let me know.
+
+/Emil
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
