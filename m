@@ -4,94 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD414C4707B
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 19:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB925C47073
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 21:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DXAV+ZcOHCPZofP/sd8tTl/eJEds4fmqYTdZuvROR7s=; b=x9vnSfubWI0ImO
-	9J8HZhrc4YlL7NzcfSsp510nocNituLRYvnG6RXEf2Qkio0vFVHNY+Bo3fTRMj3eYe2jvU6zjr4l2
-	y9F67+xUMVRhk3BciRnY5znmLtW38jTS+/tvvd42mBN7EP1eCquIX/jjQ5eM5NdbXxEBQRIPw0dms
-	Wosf6KeClIyG37RL+gvd9HLxzmbrTqF2GZUpsiTZ85DuQuIWIQGJN/TeAVEK5/i/Nxdk4dFbTo4A9
-	kE5FWJyNBo1H3/X41pvL6DEFS3127h6GZRtNLjSx4yw5zglQ24taaX1BuSapZxtdNMTMJ50LTK73O
-	918lbvX0zY7DIQyd9UnQ==;
+	List-Owner; bh=TE73USH6KeXj0lJ87S+B99xQAwrX650STwYBxo5GwkQ=; b=HGwzRWIcFt58Qi
+	vwMzzwJCZ2KtM65GnoH5BIfqRQbdtIQoI+zom0E/byHH88rWnJFGOY+GJ8/wRT7fP9eb3vHnxJsOH
+	obO8QLN8El7/+5ZcvSpwOfLCeTFdd2MxP7+pTuKKIjebWZ6ubzT9CA7gP4+9saAWRK1oGdG6KAB7F
+	LwM+AJ6d/jNoiEMYv7/wyEohQvc+We8QwRySAyxg/AcoDUjlDNbJJbkw6Rk4Hp5QUvu9tjGgvvIc/
+	RwihVNpY+Df8g9W3xm5pN+V3ALWHd2r+AgSPRmwz58mlLpzZjrHMgGrxyl2pf7+jOuKWuT+wXUP/Z
+	d77zIQJhyBWRAXq3CRfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNeFq-00DhUL-2C;
-	Wed, 10 Jan 2024 19:28:46 +0000
-Received: from out2-smtp.messagingengine.com ([66.111.4.26])
+	id 1rNfxP-00EDqU-0U;
+	Wed, 10 Jan 2024 21:17:51 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNeFm-00DhPp-2D
-	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jan 2024 19:28:44 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailout.nyi.internal (Postfix) with ESMTP id E74DE5C0148;
-	Wed, 10 Jan 2024 14:28:35 -0500 (EST)
-Received: from imap50 ([10.202.2.100])
-  by compute3.internal (MEProxy); Wed, 10 Jan 2024 14:28:35 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
-	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1704914915; x=1705001315; bh=NfoIIOwm5D
-	N8HwySWxVOPW2RCyuUbKrQT1Wiw7ASY/s=; b=zrX31dRvmNLuUjljQFx2p/nf16
-	jKUsjijNpfTV8Tr87iPusUu6Rf4AyWD8QoYYKDj3DLs/GaT9DWzGrCrL7Plo+3Cg
-	485Fe8Ei5keLtPh61BbJ4YbtFaBccQfESKe5EZz2BJbzeLBESpzk7wRPxCBHk1Ps
-	/KvVzaTLm8ZlzO+kEfq+s+OHnC1DsTriSd7ze/ALtf2D4rasUfT1qkqmm6rqQFCP
-	F+xVV+vA+VVXX8MRl07kenq5kgSQ4RqpCUvwnIBXYDvd8ZKCchGgNUJgP1AnKDd1
-	jdKsIjbFsnhPW0viCKMNGRlgSpoeZ3rIDU8IBdQk3QPbuTYnteNXboB41Aeg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1704914915; x=1705001315; bh=NfoIIOwm5DN8HwySWxVOPW2RCyuU
-	bKrQT1Wiw7ASY/s=; b=wPFeV1XW7VwQ07gqSP0wkKrg2oX1fXnA8ZcjEMX52OHl
-	bW2ukaryhgH4IdlmnhViI0ghVz8/JfyVREsbklr1cJ2FVS9UL0ITxlUaomissc/j
-	wnWnHbkDZtmXViln40s5NTKCMZxAubJUGZsvQ04CeuVEw2faXJ2b0LdnQluPlFNM
-	zrgD+cdTF1PXZlnBGCsNZN53NNGTA/F9q7HpyO3ikTQhLO+X0xw8PDIVkgWrFmzt
-	vkBx4q9//fVWKn3Ii474tQm+fOmCdnuDi2cuM+wGjvSeApFElL6lRAVWNUV5LVmq
-	RbBqiU9LmGdTktDGIStZjYvsnZeCTm6YP7KgLAgcjA==
-X-ME-Sender: <xms:4--eZfXD-KiuPP5MsTrt3u8UFkNBGnRXq17P-BWcoVwQeQn1Wawh8g>
-    <xme:4--eZXmpy9XwxiWcC7cocnC8kfijvDcPQ8530FWdNdkL1IsVEwHdtLoOAVoeciZ3V
-    6cW9gEjIMqXA-1oFA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrvdeiuddguddvfecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdfu
-    thgvfhgrnhcuqfdktfgvrghrfdcuoehsohhrvggrrhesfhgrshhtmhgrihhlrdgtohhmqe
-    enucggtffrrghtthgvrhhnpeefudejvdejuddvjeejudekgfeikeevveevleeitddvtedu
-    jeegjeejgfeugfeiudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrih
-    hlfhhrohhmpehsohhrvggrrhesfhgrshhtmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:4--eZbY25iKZ1M5QHgAqmoplCAsGHpIbaUJVPruU1T-BMDw_6rsqCw>
-    <xmx:4--eZaU72Dm_HpH5TJ5GUkQFGKGgz7bC4IM3n79KY8ojJGTPUzPnPg>
-    <xmx:4--eZZlnBzWvfxue6eOASH3EtgTPAu0ENcug-h_R-181AsBBIPvEjg>
-    <xmx:4--eZc-yBs-6T3quhWUCn5eKcOeodzsryJd-D_aJeTFZVQmL_ao5kQ>
-Feedback-ID: i84414492:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 259251700096; Wed, 10 Jan 2024 14:28:35 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-1374-gc37f3abe3d-fm-20240102.001-gc37f3abe
+	id 1rNfxL-00EDo8-0G;
+	Wed, 10 Jan 2024 21:17:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+  t=1704921466; x=1736457466;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=b3/x+NVwIv4zyU9+V7EOtGVmS1MiBfeSBIDXCUFJYNY=;
+  b=K+5oIJBHoriUe3v5yX+aWLEdkSNbeCiZFXYzdd7Jt7udXvvG/lQ1K1bF
+   vmwfU/vCaIaUI6gGsWShsql/VT/xaa3HqyPQ5BkVNBrHBLnO3vdmebGfi
+   txImBETs5PA/pNdVUz+jCd9+QDrkaMp12aJgNCse9qeoEHOf73X8HdrS2
+   ACqjrv50Dxw8DB3h1YLRavfKRvQi3PhoMxaRF7cba3nB3W2hFxbsCNkn1
+   dMrV4nNgE4xlaweuVs4fkaRlha7wlkmUHPVc46ZkWUFumVc751EMRFKmX
+   ebCLWc8F8HI3kodrQsoBw0HCgr5ETu53ZT0L8iH2fKojwCGFCicLJ6ung
+   A==;
+X-CSE-ConnectionGUID: FJl8ZIHhTF+so6h/iXswdQ==
+X-CSE-MsgGUID: i9boEqsqS1iE+3bIXWv0RA==
+X-IronPort-AV: E=Sophos;i="6.04,184,1695657600"; 
+   d="scan'208";a="7068361"
+Received: from mail-co1nam11lp2169.outbound.protection.outlook.com (HELO NAM11-CO1-obe.outbound.protection.outlook.com) ([104.47.56.169])
+  by ob1.hgst.iphmx.com with ESMTP; 11 Jan 2024 05:17:36 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=iWqqOp8ca60lTyJy7isrvApIB2rS3hXZWt/sb/qMC2jnkJF08zTD8yxPVzATlgtvXp7DyTzsdBq67sEQEiiXhDvaj1ppH2dSvhJePxFG8TxGpBRxA2aSYY4eCc4kee17JcVsZr41yGjPA6iTd5cgytXJahtBxU/um+lipf/lQjUr3wtWtpgzwp1ECnvgYwRfSWNvaV61+zBzb7iTYrDXz3e7lwzp074jkC7Tu/1ihmybVzmdCHwPsacN4LxnXdmBsjQpKdgrUSuAU7rSUzBza5IsI6lbHzCVqQ6w4CdNEu3hABKDwO5N1KM3W3CdVpl/JR5kYgfc1bd3ivVivDkwsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=b3/x+NVwIv4zyU9+V7EOtGVmS1MiBfeSBIDXCUFJYNY=;
+ b=TUu05vIM3onw5ShQbuFOI1RgY28nQaZwyyAWfwTDnO+0EHS9hpbOEbspuoGHbjUq6h6w4kNx8FL8vrVpblbnWmL/Gmltodadtumyga/GlWfMA81sMTsag/3tLgfxdQyL8a/B6EnrCalpVi8gK6ufcqlI8Tj6I9A3WOqusmGNWuthb4D7xkT0YihpBEllPCWj+LU0yapMd6JPRmAnfIoQ06r0kdiYpKGiEtXoG7FwsjvAlY3hiSw+oVPbijtdmS0WIqCrPn0XD9WnPBgrQGuB6uN8+2K/9pinUNONbdenJ9F6/FoNWVB7lrSMg/lXYnhftJK1YoeXy6TWmSOB1m2ZkQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=b3/x+NVwIv4zyU9+V7EOtGVmS1MiBfeSBIDXCUFJYNY=;
+ b=Apx2R6UA9psyo6qiQ8okAERk1tdfio4DQkQvl7hB6TYjvO3OjTsFb1NwoNBiKePbWppq89IN9EcKsEmSvZe0LPCKohR2ani1nwbcXrczoblB3dJnNKCFGqjjPV0xM603AOQG/NDQEfxQTWTft7Wr+B1OhD6DCCVKnmsAasKayBw=
+Received: from BL0PR04MB4850.namprd04.prod.outlook.com (2603:10b6:208:5f::14)
+ by BN0PR04MB8205.namprd04.prod.outlook.com (2603:10b6:408:15c::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7181.17; Wed, 10 Jan
+ 2024 21:17:33 +0000
+Received: from BL0PR04MB4850.namprd04.prod.outlook.com
+ ([fe80::56e9:30a:5826:79fa]) by BL0PR04MB4850.namprd04.prod.outlook.com
+ ([fe80::56e9:30a:5826:79fa%4]) with mapi id 15.20.7181.018; Wed, 10 Jan 2024
+ 21:17:33 +0000
+From: Niklas Cassel <Niklas.Cassel@wdc.com>
+To: Rob Landley <rob@landley.net>
+CC: Petr Vorel <pvorel@suse.cz>, Tim Bird <tim.bird@sony.com>, Cyril Hrubis
+	<chrubis@suse.cz>, Geert Uytterhoeven <geert@linux-m68k.org>,
+	"ltp@lists.linux.it" <ltp@lists.linux.it>, Li Wang <liwang@redhat.com>,
+	Andrea Cervesato <andrea.cervesato@suse.com>, Greg Ungerer
+	<gerg@linux-m68k.org>, Jonathan Corbet <corbet@lwn.net>, Randy Dunlap
+	<rdunlap@infradead.org>, John Paul Adrian Glaubitz
+	<glaubitz@physik.fu-berlin.de>, Christophe Lyon <christophe.lyon@linaro.org>,
+	"linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Linux ARM
+	<linux-arm-kernel@lists.infradead.org>, linux-riscv
+	<linux-riscv@lists.infradead.org>, Linux-sh list <linux-sh@vger.kernel.org>,
+	"automated-testing@lists.yoctoproject.org"
+	<automated-testing@lists.yoctoproject.org>, "buildroot@buildroot.org"
+	<buildroot@buildroot.org>
+Subject: Re: [Automated-testing] Call for nommu LTP maintainer [was: Re:
+ [PATCH 00/36] Remove UCLINUX from LTP]
+Thread-Topic: [Automated-testing] Call for nommu LTP maintainer [was: Re:
+ [PATCH 00/36] Remove UCLINUX from LTP]
+Thread-Index: AQHaQhGbMR/7MaUknku9yjrZLvyb+bDPsNGAgAO+XIiAACGIAA==
+Date: Wed, 10 Jan 2024 21:17:33 +0000
+Message-ID: <ZZ8JbCPd3rq4u7iG@x1-carbon>
+References: <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
+ <ZZVOhlGPg5KRyS-F@yuki> <5a1f1ff3-8a61-67cf-59a9-ce498738d912@landley.net>
+ <20240105131135.GA1484621@pevik>
+ <90c1ddc1-c608-30fc-d5aa-fdf63c90d055@landley.net>
+ <20240108090338.GA1552643@pevik> <ZZvJXTshFUYSaMVH@yuki>
+ <SA3PR13MB6372498CC6372F8B16237244FD6A2@SA3PR13MB6372.namprd13.prod.outlook.com>
+ <20240110141455.GC1698252@pevik>
+ <40996ea1-3417-1c2f-ddd2-e6ed45cb6f4b@landley.net>
+In-Reply-To: <40996ea1-3417-1c2f-ddd2-e6ed45cb6f4b@landley.net>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=wdc.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BL0PR04MB4850:EE_|BN0PR04MB8205:EE_
+x-ms-office365-filtering-correlation-id: 5335a178-577a-4fd1-6f39-08dc12218fbc
+wdcipoutbound: EOP-TRUE
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 2AGQOBr5hNUb8tiBxtQ5GOq9maAvTLTndTo6bZT9iOc8dokGOH+mkm2WadUmYfC9vCIXqruubLSUIvDJL6nmohm1CIfmTgR0ILnqHYk1S0cYe9fWkjf4jkq/r4xzk7x94uia0LpK/TogjgGnl3/OZ7VuqaFUkxjauxs5axIym4MAHc4MPprkF3isGwZheGQ54YQ97LAD5NgGiy0IcJgaAhjWz/1ETpt2FOx59VyKRoX3Ofxbc2fgOdsYr0Q+DUo9tey9sV8ktY5olOF+K6YPmAHBM1Fk1LE9UiGrjmbT4gHwPCzt41uF2/bCv0CinY0Qek5TtIPl9ro0dpbjCHfj99taeKAIEAvOmibhdTsKgTo9ltI0+s1SqCRH8IIwW/fXB+8nbOm/r7d8DG9H/J1bdev8A87tuBf9fQhT5vwn/yojMBWARKYSx3OCA3JSGqLJxGR9ktdM/lfWLLkKmTNaW/dCT7gMdoDTPSTINkLIjeZIgYlvK9c5IQ0OFkmOqHw68SvxqHxU8Gts4rLWav5S3UNr4lt7Vg312FvFB6ng81Hm1WGffDT7vu/HD6p7yYJn9wmtxX61BfQcGIAt4T138cvkJx47L2ArmVXjWDhU3FzYdlvl2Sh09P7NUGy+gWDW
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR04MB4850.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(7916004)(39860400002)(136003)(366004)(346002)(376002)(396003)(230922051799003)(1800799012)(451199024)(186009)(64100799003)(7416002)(5660300002)(4744005)(8936002)(8676002)(38070700009)(4326008)(2906002)(41300700001)(33716001)(478600001)(38100700002)(122000001)(26005)(76116006)(71200400001)(6512007)(9686003)(91956017)(66946007)(66556008)(6916009)(66446008)(66476007)(6506007)(316002)(54906003)(64756008)(86362001)(6486002)(82960400001);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?E28fibFmwXdzfjbvsy3NJ70Ss2vpnTk7fX7fdEvcjNQCO8rtnwxN7uhKwxIi?=
+ =?us-ascii?Q?Tyus+PcGD33hKuQ0wjvGMKGht0riS693mz/SdJheYma83Z+A7w2EGmvTZXpc?=
+ =?us-ascii?Q?N4QzAZWrdy0pcXsdjpGPBmQvTbrXD4QXbDSGDgnteZyLLG6y4vOUJw0SjvCC?=
+ =?us-ascii?Q?x2OafVEBr04vMLUDW1MtKBgG6UPJqb4HNzCXEeUH/DUTE7pes5eRGXhmbYoj?=
+ =?us-ascii?Q?KnpGGmAhXjb4V3itYCN5tDQhpmR9TvRmyNRPc61nZRaurPEhleeZPmDy5t3/?=
+ =?us-ascii?Q?RZQfZOaumSqWw9eJ0FIPVW/v6JQ6fDq82R8qYW20cJAgBRixnwW7PBaF9bQK?=
+ =?us-ascii?Q?ZGCCi4RxBLGwK1w2D8Dd2anAgpYI4tStnNP3el6i5mXxqHA5rFC6eua/dwBg?=
+ =?us-ascii?Q?lLkcxxIFiBf3N4M6jefswyh0AAGYrA47OYq1wWEvkrLrqBtmpLHPiBUwrO3B?=
+ =?us-ascii?Q?oBFE1bH0ij0JVXaBDEtNsMjHKuvFnEqX8oPN8bU4zHIPJAeOSP3Y8i+meaVa?=
+ =?us-ascii?Q?FAIcIwdhMDWnwrSC9ipRzhZPOL4UG3egeo7XumTAf/2HcNz+7p5w9TrZocak?=
+ =?us-ascii?Q?EbDQRzBRPsbLZrnO464ngQlHuTeAWn7AV+gho5wmuoYLNNehtV4hWoMx0aE1?=
+ =?us-ascii?Q?6w5E3USoAAD4PBX6SrG5dZGo+dqk4T9As3qJwZ59nRwVm2g312OXdZ7YDj54?=
+ =?us-ascii?Q?jlk9Y8KapQ7SIIlBJBao9N4Yi0U2vpz1wpLqXLUiVwFgf56pOQRYa+L4vIBK?=
+ =?us-ascii?Q?iTwu4z8yCARkkhSiGcOwx2D2z9N+hcOvMCfGVBjl6oA3iDWs85keNZbXyF5e?=
+ =?us-ascii?Q?3UGaR4ulIxggbGoUFMqVLS0EzcAQ3gZoayx9x5P5bZyZ888PMliscUhWxgyn?=
+ =?us-ascii?Q?H8ygWqr2yGF1HL50OzY+3Rb5HjNto3ZMbziXnnPRvoMnu0hdy3WVWgTDrEFf?=
+ =?us-ascii?Q?0x3LE66sLM1IETWArasxMnSWYBY0Oaq/uEGrKmUk5Iiwu+UwoboF95OUatZc?=
+ =?us-ascii?Q?Aik//akhIZ0TaQpvadVZCw4x6jy56R7fTSFozlKwq7Qq2ulJmXLM7N0Enzcy?=
+ =?us-ascii?Q?pQgkmI+rhgHAuZeJ6Ye/3Q9U2ldqrhD68ZB3ks48ep+IcuQeeNkeE8/Ur2mf?=
+ =?us-ascii?Q?BWJayDkqArQ679iVuQ9yr/305s/kzW7dFPlbfIUATzNvMgX7YWY5sbzgiQR+?=
+ =?us-ascii?Q?HISMBMRGHgRnVV94pFq58K/VD7o3m2yZIaugz7PiTAXtGTI45rFi8ukq6g2V?=
+ =?us-ascii?Q?Bge2YKMN9eeS55c71eQBmPV91LgCNr4eP2AvHWFPyL34eoBkl/UX7CPEfdHG?=
+ =?us-ascii?Q?lz0HaWe3P0SBC9YENzcCPomHmHgMlY8QN53+9+RF4udFRV/L+ZArTvPUzbz6?=
+ =?us-ascii?Q?HHOiFdJyulIWV3F6Ff3wJPyAQ+3Awr7ATeI98qoNu7U81GfckMu3tnj48Ht0?=
+ =?us-ascii?Q?TZtk2SzG8FhdVfF/1gmDtf15v1/Hh8t/Lp0KEyN1cX3DchLnrXIcZBey2EQ9?=
+ =?us-ascii?Q?ASi4oQ3kO0JRYaaxhjhyk+TvyAAOZe+uTg70XonMgGnQmNenkrF31xHQv1jW?=
+ =?us-ascii?Q?BEav9VRJkojbDe3XHHSUpPHCB6ZCkcU6NWxJ4k5Yp4ytsfM17Ll1tU/ni2cO?=
+ =?us-ascii?Q?pA=3D=3D?=
+Content-ID: <D0EE684CEEEBCB4F9B30529F4622F2BC@namprd04.prod.outlook.com>
 MIME-Version: 1.0
-Message-Id: <add243df-47ea-4956-99c5-7bcf19dd2679@app.fastmail.com>
-In-Reply-To: <20240110145533.60234-5-parri.andrea@gmail.com>
-References: <20240110145533.60234-1-parri.andrea@gmail.com>
- <20240110145533.60234-5-parri.andrea@gmail.com>
-Date: Wed, 10 Jan 2024 14:27:51 -0500
-From: "Stefan O'Rear" <sorear@fastmail.com>
-To: "Andrea Parri" <parri.andrea@gmail.com>, paul.walmsley@sifive.com,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- mathieu.desnoyers@efficios.com, paulmck@kernel.org,
- "Jonathan Corbet" <corbet@lwn.net>
-Cc: mmaas@google.com, "Hans Boehm" <hboehm@google.com>, striker@us.ibm.com,
- charlie@rivosinc.com, rehn@rivosinc.com, linux-riscv@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/4] membarrier: riscv: Provide core serializing command
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: KxJ6n7KptPQC0IsWWxLkAi5SKHDASz8X4e2/XRkPKViPutqtSzW+6HTW4wirjNJnYvmjwdx2XP5oejDJAFahISxlwOHT6EzqKu8TZY1uEc0EMl/54cWBu//GmML1edA0tOZlByb3+zJlXG2DQs59paddfSHsHQf8lAVSFZ0EkxiOBe2bvtA/jepi7bzd6WLyuRyY8PMjvHU0IMqVwOy7f8WBvT/xw4ImOoZHOl7CaoBfDUEhLTYzli/0UTu2O/Lu4Ed94PoKdGAK5VJ8c5SYReFieeZMZHHUlWjYq4oCKOwR6Z9vdqIWLqvYkEY4WNZmK+kQTn1o7nvH4TcL/HviUapOck6ad2Yn61YXOdtnTuBBIxcyEAbH0djms7bcyz/+N7xuZFuEASkWVW/GYETXsg1tidcSh66po/XiB3Qb42vj9bNwI0zPr8QedL80/pTdM/y9iZ+vzGgxr+2m3WIX4bo85QBxyiLX3I5EYed1jgOMzOhOKoX1mpG9jkwrNXzfvnc3c8x5ItpK2Li3kmnJxauiDYtUtYrpBnd+7ELTAgIZ55BnOPo2jJrRo3e2lpyYEEKIEMZVZx82pQC7aiCfpH87c8TxxxklV+7go5EGIs2h2fztUWXRkfjWXHM+QGHc
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB4850.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5335a178-577a-4fd1-6f39-08dc12218fbc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Jan 2024 21:17:33.3934
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: RCiK2NIFFVcpTKzw/4XxnJbcNdCPegZHqth4w6rgSbiPQTvBBtfJvZySDNcvEJmLSnXl0wrYZvSJseQh723M/Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR04MB8205
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240110_112843_143216_67D5DC66 
-X-CRM114-Status: GOOD (  34.63  )
+X-CRM114-CacheID: sfid-20240110_131747_128010_10CAC0D3 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,230 +180,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 10, 2024, at 9:55 AM, Andrea Parri wrote:
-> RISC-V uses xRET instructions on return from interrupt and to go back
-> to user-space; the xRET instruction is not core serializing.
->
-> Use FENCE.I for providing core serialization as follows:
->
->  - by calling sync_core_before_usermode() on return from interrupt (cf.
->    ipi_sync_core()),
->
->  - via switch_mm() and sync_core_before_usermode() (respectively, for
->    uthread->uthread and kthread->uthread transitions) to go back to
->    user-space.
->
-> On RISC-V, the serialization in switch_mm() is activated by resetting
-> the icache_stale_mask of the mm at prepare_sync_core_cmd().
->
-> Suggested-by: Palmer Dabbelt <palmer@dabbelt.com>
-> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-> ---
->  .../membarrier-sync-core/arch-support.txt     | 18 +++++++++++-
->  MAINTAINERS                                   |  1 +
->  arch/riscv/Kconfig                            |  3 ++
->  arch/riscv/include/asm/membarrier.h           | 19 ++++++++++++
->  arch/riscv/include/asm/sync_core.h            | 29 +++++++++++++++++++
->  kernel/sched/core.c                           |  4 +++
->  kernel/sched/membarrier.c                     |  4 +++
->  7 files changed, 77 insertions(+), 1 deletion(-)
->  create mode 100644 arch/riscv/include/asm/sync_core.h
->
-> diff --git 
-> a/Documentation/features/sched/membarrier-sync-core/arch-support.txt 
-> b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-> index d96b778b87ed8..a163170fc0f48 100644
-> --- a/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-> +++ b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-> @@ -10,6 +10,22 @@
->  # Rely on implicit context synchronization as a result of exception 
-> return
->  # when returning from IPI handler, and when returning to user-space.
->  #
-> +# * riscv
-> +#
-> +# riscv uses xRET as return from interrupt and to return to user-space.
-> +#
-> +# Given that xRET is not core serializing, we rely on FENCE.I for 
-> providing
-> +# core serialization:
+On Wed, Jan 10, 2024 at 01:23:51PM -0600, Rob Landley wrote:
+> UCLINUX is a long-dead distro. Linaro died in the dot-com crash and its founder
+> Jeff Dionne moved to Japan for his next gig and never came back. On the way out
+> he handed uclinux off to someone else, who didn't do a lot of work maintaining
+> it. Most of the actual support went "upstream" into various packages (linux and
+> busybox and gcc and so on) before the handoff, so you didn't NEED uclinux anymore.
 
-"core serialization" is a meaningless sequence of words for RISC-V users,
-and an extremely strange way to describe running fence.i on all remote
-cores.  fence.i is a _fence_; it is not required to affect a core pipeline
-beyond what is needed to ensure that all instruction fetches after the
-barrier completes see writes performed before the barrier.
+s/Linaro/Lineo/
 
-The feature seems useful, but it should document what it does using
-terminology actually used in the RISC-V specifications.
 
-> +#
-> +#  - by calling sync_core_before_usermode() on return from interrupt 
-> (cf.
-> +#    ipi_sync_core()),
-> +#
-> +#  - via switch_mm() and sync_core_before_usermode() (respectively, for
-> +#    uthread->uthread and kthread->uthread transitions) to go back to
-> +#    user-space.
-> +#
-> +#  The serialization in switch_mm() is activated by 
-> prepare_sync_core_cmd().
-> +#
->  # * x86
->  #
->  # x86-32 uses IRET as return from interrupt, which takes care of the 
-> IPI.
-> @@ -43,7 +59,7 @@
->      |    openrisc: | TODO |
->      |      parisc: | TODO |
->      |     powerpc: |  ok  |
-> -    |       riscv: | TODO |
-> +    |       riscv: |  ok  |
->      |        s390: |  ok  |
->      |          sh: | TODO |
->      |       sparc: | TODO |
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 6bce0aeecb4f2..e4ca6288ea3d1 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -13817,6 +13817,7 @@ L:	linux-kernel@vger.kernel.org
->  S:	Supported
->  F:	Documentation/scheduler/membarrier.rst
->  F:	arch/*/include/asm/membarrier.h
-> +F:	arch/*/include/asm/sync_core.h
->  F:	include/uapi/linux/membarrier.h
->  F:	kernel/sched/membarrier.c
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 33d9ea5fa392f..2ad63a216d69a 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -28,14 +28,17 @@ config RISCV
->  	select ARCH_HAS_GIGANTIC_PAGE
->  	select ARCH_HAS_KCOV
->  	select ARCH_HAS_MEMBARRIER_CALLBACKS
-> +	select ARCH_HAS_MEMBARRIER_SYNC_CORE
->  	select ARCH_HAS_MMIOWB
->  	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
->  	select ARCH_HAS_PMEM_API
-> +	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
->  	select ARCH_HAS_PTE_SPECIAL
->  	select ARCH_HAS_SET_DIRECT_MAP if MMU
->  	select ARCH_HAS_SET_MEMORY if MMU
->  	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
->  	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
-> +	select ARCH_HAS_SYNC_CORE_BEFORE_USERMODE
->  	select ARCH_HAS_SYSCALL_WRAPPER
->  	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
->  	select ARCH_HAS_UBSAN_SANITIZE_ALL
-> diff --git a/arch/riscv/include/asm/membarrier.h 
-> b/arch/riscv/include/asm/membarrier.h
-> index 6c016ebb5020a..47b240d0d596a 100644
-> --- a/arch/riscv/include/asm/membarrier.h
-> +++ b/arch/riscv/include/asm/membarrier.h
-> @@ -22,6 +22,25 @@ static inline void membarrier_arch_switch_mm(struct 
-> mm_struct *prev,
->  	/*
->  	 * The membarrier system call requires a full memory barrier
->  	 * after storing to rq->curr, before going back to user-space.
-> +	 *
-> +	 * This barrier is also needed for the SYNC_CORE command when
-> +	 * switching between processes; in particular, on a transition
-> +	 * from a thread belonging to another mm to a thread belonging
-> +	 * to the mm for which a membarrier SYNC_CORE is done on CPU0:
-> +	 *
-> +	 *   - [CPU0] sets all bits in the mm icache_stale_mask (in
-> +	 *     prepare_sync_core_cmd());
-> +	 *
-> +	 *   - [CPU1] stores to rq->curr (by the scheduler);
-> +	 *
-> +	 *   - [CPU0] loads rq->curr within membarrier and observes
-> +	 *     cpu_rq(1)->curr->mm != mm, so the IPI is skipped on
-> +	 *     CPU1; this means membarrier relies on switch_mm() to
-> +	 *     issue the sync-core;
-> +	 *
-> +	 *   - [CPU1] switch_mm() loads icache_stale_mask; if the bit
-> +	 *     is zero, switch_mm() may incorrectly skip the sync-core.
-> +	 *
->  	 * Matches a full barrier in the proximity of the membarrier
->  	 * system call entry.
->  	 */
-> diff --git a/arch/riscv/include/asm/sync_core.h 
-> b/arch/riscv/include/asm/sync_core.h
-> new file mode 100644
-> index 0000000000000..9153016da8f14
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/sync_core.h
-> @@ -0,0 +1,29 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_RISCV_SYNC_CORE_H
-> +#define _ASM_RISCV_SYNC_CORE_H
-> +
-> +/*
-> + * RISC-V implements return to user-space through an xRET instruction,
-> + * which is not core serializing.
-> + */
-> +static inline void sync_core_before_usermode(void)
-> +{
-> +	asm volatile ("fence.i" ::: "memory");
-> +}
-
-Not standard terminology.
-
-> +
-> +#ifdef CONFIG_SMP
-> +/*
-> + * Ensure the next switch_mm() on every CPU issues a core serializing
-> + * instruction for the given @mm.
-> + */
-> +static inline void prepare_sync_core_cmd(struct mm_struct *mm)
-> +{
-> +	cpumask_setall(&mm->context.icache_stale_mask);
-> +}
-> +#else
-> +static inline void prepare_sync_core_cmd(struct mm_struct *mm)
-> +{
-> +}
-> +#endif /* CONFIG_SMP */
-> +
-> +#endif /* _ASM_RISCV_SYNC_CORE_H */
-> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-> index b51bc86f8340c..82de2b7d253cd 100644
-> --- a/kernel/sched/core.c
-> +++ b/kernel/sched/core.c
-> @@ -6682,6 +6682,10 @@ static void __sched notrace __schedule(unsigned 
-> int sched_mode)
->  		 *
->  		 * The barrier matches a full barrier in the proximity of
->  		 * the membarrier system call entry.
-> +		 *
-> +		 * On RISC-V, this barrier pairing is also needed for the
-> +		 * SYNC_CORE command when switching between processes, cf.
-> +		 * the inline comments in membarrier_arch_switch_mm().
->  		 */
->  		++*switch_count;
-> 
-> diff --git a/kernel/sched/membarrier.c b/kernel/sched/membarrier.c
-> index 6d1f31b3a967b..703e8d80a576d 100644
-> --- a/kernel/sched/membarrier.c
-> +++ b/kernel/sched/membarrier.c
-> @@ -342,6 +342,10 @@ static int membarrier_private_expedited(int flags, 
-> int cpu_id)
->  	/*
->  	 * Matches memory barriers after rq->curr modification in
->  	 * scheduler.
-> +	 *
-> +	 * On RISC-V, this barrier pairing is also needed for the
-> +	 * SYNC_CORE command when switching between processes, cf.
-> +	 * the inline comments in membarrier_arch_switch_mm().
->  	 */
->  	smp_mb();	/* system call entry is not a mb. */
-> 
-> -- 
-> 2.34.1
-
--s
-
+Kind regards,
+Niklas
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
