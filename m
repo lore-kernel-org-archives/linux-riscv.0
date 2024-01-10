@@ -4,122 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EDADC47077
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 00:06:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87925C4706C
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 00:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
 	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=72xBlqA5fMajaZAZpH2xi8M8Xp8K7pa+SeJ9USfOA+8=; b=C9+QrVf6egoKPoXRLaT6g52Tsu
-	XTE1AM1Gn9hCiGfOIY6OeLQr+5VmWAe3ZC3p6Wf6hXYtb2JyPs1q9iJEjXXjeTrbXD9Zoq1kMare9
-	6wY48/t63KJzURSjAIaCKpYMGfuJlLPPbDVN7H+cXsSkRPSgBk4OeA9Tnu1faiIjts88raZGfcIzB
-	7vnQAZEZM5mTR7kYfHE0mL//l6xfbobICco6VNVos2I0FF2r+6ZtUPLvrPRe9yj418iLGZv86H/73
-	oNj8r7OM5foKiuptS3tVnMPS6u0H6QTOXXvO/LbploD/2WWkyedSwjlBAejXC+nncD5VrBcVvS9SG
-	wd9xmlQg==;
+	bh=BkzJRnywiyogsj+BOaNQUXaujZCPdEivYCSLOp+C9Ic=; b=H0oOB3wXmnSmPFR6Yg89Wb1qr1
+	Xha5S+/wgorqCZ/ArDcBkBeGGWbe1XXQHHLUxY4i6kp7xh5f213qoTsOFGGnmPsX3JuzZnGsXNdIF
+	Yb4Gd4aGDqQp60SdMazvl3k1vAQvzWTfHLJLMMTK1/IKPsrxea9Sfv1MiJCSL8ipazfP9N3ZXUBKB
+	14Xb8cAmyNsuEYWBLi2DkXIldX5yGJXyz+7acBscGqIjlxCA8yJyiAOEMaiY7uDFjRtrCyHvPv151
+	XmHdk2xo6Mwwp4UVEUiHoeQ+v+6lrC1Ly+MuxySukq5Q6xynf0Bgs/hqxg4Bk00nMySg5ePKJPgKP
+	B1tClRxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNM73-009uh4-0E;
-	Wed, 10 Jan 2024 00:06:29 +0000
-Received: from mail-bmxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281c::801] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1rNMiA-009zWn-1d;
+	Wed, 10 Jan 2024 00:44:50 +0000
+Received: from mail-maxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281b::801] helo=IND01-MAX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNM70-009uff-1f
+	id 1rNMi7-009zVS-1C
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jan 2024 00:06:28 +0000
+	Wed, 10 Jan 2024 00:44:49 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=bFG4MVsSdK6LO0wHO9kK3oT6qAotre/x1QStKsHZhFw/ObcqONo3QVgPGLJP6rK1AEYR0YR9EuwZ8xeB9eLEgX6ZVHLExEMWYkdbX+w3F8PBp0yAl7QTjLn0WGlvVNHbo/1PG0+6DaAQewiJ074LfFRh9/nEkWczQbWz080aZLu2/3CbaZT52TpdmyPKNPzMk2O0/8TIXpKIH3Zd/CENsxmEYo9caOPKohlxsn1epghKz6Ox7nUadWXGgDAEJXZrC08EPkktfEbvvaMcAnq9fPeCkIP4J+AF0SvPZ+UfDr71RXUtA8gD3lyVCa5woNGfNI1p22YLub41uVpD3PJS1g==
+ b=egqP6ObkvJSAX96Uq0blMo2/NYXcIgBSLvJ2W2oK64X6Q1EC+Ihd2P02FHm/HpxbIW/zwjfTF40By/srLI2eDt024Br7GziIWeEu5oc74ZboWMf+blQ/uq0j5YOxu5EGeVJiE4rb9kbVI3nSWI8D0eNOQk2tsK3dc2iG9tFPJAReQqQizpd+02O2LOP7glNyYkL/u/k9p1getKbp5lZhDd2hw5Mwh0euK/Vk5tMg/YBuAPEBKvQ+/gx7sTvekjM5valBsEFqdFH/CdjmygzwbU2s9dvORqHD3re51e+/pZw/JZ+a08Nf72Rc9BjFbWwRo2ek/E3oE6A67r1x4hcvCw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fLX0Y9YH1/XJdTwYr7OPASZHZRGTOTNDObSBZBW9Qj0=;
- b=cah/JdzOODDPGCOsmDS0XJEznVyAeWThUEP+X3gnobNnW0s/83jCCkKfZsv53guPIw+9lraNwDD/9D8oLS3PwR1ydNqfNTjjVxpl+lwZ6QkIDJF+w3P2LcPLo1P/f+LFVySzRPbfKyoE6YjQ3d+6euT1axhug98w2t6bqNKftZJk4GWRKbgzyuFAvxunIl/KZARd/pXC58tnNPNwFPmEvhRdIZzxaJpNcQFkwCnf5RSjLeg0fJhflMiw4oP7YBWAbBT1sD21Zdk8GMs7q85n1L4PUQwXWW+Hjyta3wXqjwrbAHXEfIYUXX7ts88G/ZVBIPxU5ehSGRUsiWnoYLUaHA==
+ bh=S1VuauG0cMc9sxG48xp+zU6+ooo5HVTi7SaXCW2sSdc=;
+ b=dU4UQB8BIjrokWRtlhBfc4QWthay1abKQ/jVuwTvz7/l38xOaDrJakZ/7eBp+gnQNKuDrxKiqE7nMbTG4cRjNatsKSV15ohXegMiShL2hLZanE7yQNHRPDuGd3dE5aXOflsRxf4juhbPwKrEWXpEbebNMiy2K/f1x7ofO+DpSMvjWHi25qHfkAxO42+Ovf/K91xT6S2iqVIxsKfnkmfn99Wrs/YK8J4Y/2Iz6IoDe18RkQpiN2HwSntAh9V0QEtDq/xA/GOZVLOWaimT8zZBahsWo5pXxVKG5R4dtlJU+x63jbQRhZlKOXXg3FV6hSRisyWYAXcJnqNFSSjpO3qEqw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fLX0Y9YH1/XJdTwYr7OPASZHZRGTOTNDObSBZBW9Qj0=;
- b=MwSBEFMIqLOU2dlWtgG8jDKqdYJonrslpegxVTMbGdrR7s7PzBsNCLmixs29gif3u/PftasS78LouA1VCOj1SE/D7TpnOAfMAFV9OWaagqKl+swBKVrSh1iiEid2N+SNfxfYdoec6uyn/d3hSG87cjMwDJJCJSHKOSNBRcPtUCnKsFQhGonuJ0gAPCJ4EBERtqbvv/nhLHukDYrCfamVGJ96JOzRUUvT+DGVBDy9Xi/IyI/AjNJaqxjXR6/hFPgWu9wQtyllbExFRHTLkuhrdV94Da/P4UivvBJRzkJip4gIeN/LmGCgQ4bOsL9e4saEFrxEQgAzSCPrqg4JixQ/iA==
+ bh=S1VuauG0cMc9sxG48xp+zU6+ooo5HVTi7SaXCW2sSdc=;
+ b=rTT0JthNKfiCYr053pcMAZ1kfrPjkfdt84EPSwt9zk1XLYdVAcVCqRphAhRpV82kpbCdhbvECMyVUA8rFsX7SpP+uukH6W1aPf2QBmxedToIPAJLcX8SEH2O6saq0RGFj8zPvEkVteyQJOhZjzxvcYAnlCayK5kybyFHpYcij0xSS7iTFDtR1648jKOUbFbs6iBy1sL5G7Mu854qD40UQrvzmyVoxKic3hv1G3O0hUjFUGwC9ieVvN7F/1sG1nCiPhB6ztL8xvLu5TjWuIchtI9JD+in3W/Ekv+Nn8vaHMyFQA9GwqVsv1VP5a75Vx+7CzhJ47SYhfHZVOYlXI75nw==
 Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by MA0P287MB1836.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:f7::7) with
+ by PN1P287MB2616.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:210::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7181.17; Wed, 10 Jan
- 2024 00:06:09 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7159.23; Wed, 10 Jan
+ 2024 00:44:30 +0000
 Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
  ([fe80::6e80:69e1:f2e7:d70d]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
  ([fe80::6e80:69e1:f2e7:d70d%3]) with mapi id 15.20.7181.015; Wed, 10 Jan 2024
- 00:06:09 +0000
-Message-ID: <MA0P287MB2822D73E1E63ED48D0B1A271FE692@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Wed, 10 Jan 2024 08:06:03 +0800
+ 00:44:29 +0000
+Message-ID: <MA0P287MB28223C0D5BD8E2A6A042A7BEFE692@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Wed, 10 Jan 2024 08:44:26 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: reset: sophgo: support SG2042
+Subject: Re: [PATCH v7 1/4] dt-bindings: soc: sophgo: Add Sophgo system
+ control module
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
  Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu, chao.wei@sophgo.com,
- conor@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, robh+dt@kernel.org, devicetree@vger.kernel.org,
+ conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ richardcochran@gmail.com, robh+dt@kernel.org, sboyd@kernel.org,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, guoren@kernel.org,
- jszhang@kernel.org, inochiama@outlook.com
-References: <cover.1704790558.git.unicorn_wang@outlook.com>
- <9798e2ea0c4e339717cc5c411e0db0188befdc58.1704790558.git.unicorn_wang@outlook.com>
- <5f724f59-8643-4f30-8cfb-8e3213b50118@linaro.org>
+ jszhang@kernel.org, inochiama@outlook.com, samuel.holland@sifive.com
+References: <cover.1704694903.git.unicorn_wang@outlook.com>
+ <acebc88db3e5fcd2a2607b56842af7443a6e1289.1704694903.git.unicorn_wang@outlook.com>
+ <cc7cc943-7242-4fd1-9b56-3ece0a418e05@linaro.org>
+ <MA0P287MB2822E54A6DD36F914DB56E98FE6B2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+ <1e1ef0a0-6639-4a4d-9b4e-50bcee3fb3c5@linaro.org>
+ <MA0P287MB2822C1F51E9F03137EF42093FE6A2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+ <60abfdcc-3d61-4df1-b77b-23d4a5d26a46@linaro.org>
 From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <5f724f59-8643-4f30-8cfb-8e3213b50118@linaro.org>
-X-TMN: [AOzC5R6TViePh7MEX26hmm70Gr8Q7138]
-X-ClientProxiedBy: SG2PR06CA0227.apcprd06.prod.outlook.com
- (2603:1096:4:68::35) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+In-Reply-To: <60abfdcc-3d61-4df1-b77b-23d4a5d26a46@linaro.org>
+X-TMN: [6xfKtfKUaY9H4hRvKBn/6tWn9UQHkpyt]
+X-ClientProxiedBy: SG2PR01CA0136.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:8f::16) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
  (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <35b58b98-3992-4a12-afbd-c33c0ace6f60@outlook.com>
+X-Microsoft-Original-Message-ID: <0cbf6438-7f9c-4010-bec6-543f4010133d@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|MA0P287MB1836:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e2c4781-51ac-4160-0929-08dc116ff14e
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN1P287MB2616:EE_
+X-MS-Office365-Filtering-Correlation-Id: 60f192a5-439d-4e16-74de-08dc11754dc1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 7kaG/L7pMhLsEZrxE9zXiJ0Zp6J+QfHiIGmD1I03onOwkkezZcU2CjhfK8MVe9A0t/H83xdXUpu4N9BA/09D6vFMI5PUR3HXYtTUUjxHb6fgvBmhLh2uFI+2xeuLvjOERQ6L08J5c5O7R4US0+oGeLeg2ICr3nMH3bVzwpgp4su4PXRre98ZcmP57VgDe4z9Jp6Y2EQ5t9t0jpgKi16pQ+UFWMfYjx0sWy4ogfXPl2mgCetEJgSLR+XkLOUeX4w3iQpCsvU4CMTY6pAg9tbBBUx2qmNNNBblcAyP1atRMNMCBjp1QPzw9/gWhh/HCaz8BOCpGV41cHKEW3T/qZnj8ghI9gHeWFEjw/FY9Psi49vf0EpgLeFmjIHxuCxjqLHlis0DR+j1pSScyqGaTbX+7IYBjVkY3mCxWQgMZbRROM0oge9m+r2/jkJ2tOgOAmOHnpWHnU5LZUGZbrF++MNGiwSlkzE8zbjU1+Gy4qGCh5NteVlkJNYg12MPVIECMUjR7Bt68nT8Dvn3N4ev4kmB6siW3tcqqROS6JwwFZhCUr0KI4iwsgIsgQhdTwyRBYOnTrWPyL2sqQr/wG7UKoqDNaRAjpUiX1+TmVY89dlInXg=
+X-Microsoft-Antispam-Message-Info: G8xKHnSOJxfvjcPJCQadhaYNdVa4UwZblys8OXiB8M+93ujtfju2TOH/BWiG+0BkSFWGzDYNNTrelPXnBtgEgs9QNH0cEkY77kkdGrnrBti0BSbRV50idTfBJRUDrh8t3499YPqiRDZTwVKWXbklHsceRDf0+AIXJBEc9HMsu3EikO7g1v6B6ng+xMpp2T1rZzLrooWRwp7CkFByjc882DtPLJZt85RLkngnFVsvabSYjGgqQkBPhUWKcYVRFyBDdDYZle3TMRBZptLgDkI//h3tmWPQnDQ14jzq7L3HWDqfp4uVGPGVHDS4LQWxCj7E9CAiYE4mcpjWlsdDK2Wvg08ipdd+y7ugB8nnCntNuyIPeJdP6LhihuKOrEv6lLS8bYVH4v52wCW/rHiq+ywb+B47+ZEpnoJ5yqu4b6sMEoDFeSU80cKj+nVEGcOY8lhY/gvjYI7HBGTg60M2qAk3qxT/tRag21QfSaqV4ETqRMDhROi3v6m/5qjRZwOqOBJGoEzK2iSMryS6ChsE1coVrFyY2d34AHBdHxNqr4+oNWC5eCt2P1BuodnScDjZBDZxSqEV5AeEl2SuN/G/22YTgEBrfpZ7o3SvIwrF0qWPR3uIJK0Zniv++6/dBui6sc+DFJz9GQKp9BOnbCz+/uuwOA==
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RGV6TEd0U1pScVJVbndvSWNUc1ZwVHBxYUI2ei9OYkR6d2ZibElkZ0tyLzI2?=
- =?utf-8?B?c29VLzdqUXdzWjM3N2ZtdGVOZ1J3T2FZOUg0NEwwOFR6SUhRVldFRVBGK3JR?=
- =?utf-8?B?TzRyeEprdmZPd0lTT2RiOW4wOU9sVk45Rm9Jb1IwN0VmZkJ1NEdtQXhPQUJG?=
- =?utf-8?B?b3pjSThxU25TTGZHR3dORUIreFNlRkZ1aDJXUGhsYVFFdXFsZkhCZ3VPenJr?=
- =?utf-8?B?TDUxYXllWWV2SVBrS1o5dFVjSUE3SDQvaWJaampiYTU1d2wrcTNPN0Y0MUNu?=
- =?utf-8?B?T055UUNObHZYUzdHblY3Wk02OVUyUDBxa05VODlIaHYyTTdzZC9FR3VxZUJ5?=
- =?utf-8?B?WFg1UzZUZVlyTElmS1huMTZFdDd1YUJTTnpsRGxDYnRIcFpyNFNYdzVHMllW?=
- =?utf-8?B?Y2ppVUJPd1JyWTBkM2g3RWllZzA0dUFZSGsvRTNkTWcvNUx4S3J0Y0pDY1Z6?=
- =?utf-8?B?T2RtUXZiOGVXVVRXQ1JuNVN3TVFQaHpCUjN6ckZSdjR3VjIyeDlVSUhYSTZs?=
- =?utf-8?B?RUZUSEVObjJJT0RidnJuSXBsOFI5RUZuTkdQVzhMOVRrWHJpaitNSk5jNTRD?=
- =?utf-8?B?a1orMjc0eWZiN0hQdTlSSjlvQWNNaHBKOHRXSWhwT0x6dXF1NVJzelErOWt0?=
- =?utf-8?B?K3hrOE82YkxSNGpXZC90OHlwWGpCaGY1dVVGMExEVHZUTkxGYTYySFd1UmNW?=
- =?utf-8?B?dVhpUHpOVlZhWGtrZHd4S3FNS1lyemRZUm9teWgvc1JzNlQ1aDBPRGQrbUMw?=
- =?utf-8?B?UWlQSzhIbzVYWmZ6ZDFIMjNxam5FSFl4OVI2UVI4RDdDcjZnNk1vM1dxWURw?=
- =?utf-8?B?VFowc1EvSkg2blJ2UzlXaGMvQjRYdkV3ZkRGVXI2R1cyemJERFBUL255c1B2?=
- =?utf-8?B?SktCQkxwY1B0dVpDQ0tqVTErMTRHK25SUnNOQnU2YTVUWkhjWjh6N0NvK0dD?=
- =?utf-8?B?b3hVUzA4ZHlxd1hFQ0xwYU1PM085WWJhYlFYSlZlVWF3SCtoY0RiVW54NlI1?=
- =?utf-8?B?UTRGUkpObmZpbXJsUEx0N0RIWnJUQ2l6VFVlRmFLU3RoZ1UxcXQvQ2JLdnk3?=
- =?utf-8?B?V1RZT1ZCaGpYQXB2RGxZdmtzY01DaHMrZDlOS3ZtQ3REL0l3YXc2Y1A4MTVk?=
- =?utf-8?B?MTE1WGdka0JhV1JhTnQ0cTVXMDJFYmt1VFRCMEY2MG1XTm1sTTdtMUFqbldS?=
- =?utf-8?B?U2htZThESFRkREJJaGdqRlZCcWpNY1lzOVlwL2ZXbWN5cjBBSkYrMFlEQkt4?=
- =?utf-8?B?L3Q1eW1HYjhnRHBLZW5CRVpEZW5oVXhJNlhBZjhKWGt1Vk5LTVJscGNYWlFk?=
- =?utf-8?B?c1hZa0dVRHpKYWhTeVc1cTgyTTA2VWhYYjg4bVZOaVg4Z01oUGk2U2g0MjN5?=
- =?utf-8?B?MUJkRTZOdytmMTNzcFRaQlVMZ0wwSVdqWXVSQkkrVm9oVXVXeUNhNjRRSjAw?=
- =?utf-8?B?R1NKYzBMKzh0c1VFQkVaY2NjZk00QWFXazkyT1kvZ3g4YndWVVMzK0lFYnhp?=
- =?utf-8?B?amlaWkJCUDFGL0JENlNvUkwrUmNuQUZ2bktzR3NIZDIwYWMzZDBLQXNkc0Ri?=
- =?utf-8?B?N1N6RGFhYVZHbXdXMXltUFJxd3dOVzZyVXdWT1JRZkxMM2lHSWhwVER1bUxm?=
- =?utf-8?Q?nKOn0W6K/U2oHf+Q4r8u1sMVhrENI+/DGZ0D+uKJevM8=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YnV6RG9KdTJ4a1lTNzgwZmZvTnNyU2xEazhabFNTd0tUa01pOVh2RFdjL1Jt?=
+ =?utf-8?B?RDlyMW5BV2lneHpGcWxRRUhlRFlMb1NaRzdrWFUyT2dxWXVadE1vR1o2bEla?=
+ =?utf-8?B?NGZnZ0RyQk1laUJhQ1dVRnh3alZMa0hGT21RT3J2YzFsd3ErM1ZvYkV0L0lo?=
+ =?utf-8?B?eFpjUE1BOUxRWFB3bTk1NURQbUpDSEI2SXdQWU1CNG1XVW94Y0tYZ3AvcUtk?=
+ =?utf-8?B?eUdONTVscGFMU1drY3R2QzlSNmUvcXEvRlpJQW45Q0dkR2tJV1RhZmJXQUNO?=
+ =?utf-8?B?UHQrS1UyMTRkUFZTVUdnSWI1MmsyeVordEpDU2V5eXdqTTk2VGNlZ2V2QUFq?=
+ =?utf-8?B?eklMUHZmRXY3QzVvS0lNd2RDM0xWKy9UVmR1RzJLN1VqWFlmbCthYnkvR3pw?=
+ =?utf-8?B?RGVvbnF4OVlZd3c2ak9DelJrRi9IZ24rdldNbmE5VWRyRTlubEZBS3gxVWRs?=
+ =?utf-8?B?TzNqTUU0c3E2Y0RETEZ5RFI4UzNXUlVxNGl3Y1Bxcy9EOFJzRVRXRWtlV2k2?=
+ =?utf-8?B?b0xiak4wVmRmbWF4bWNiUTRCaWprWjVySGVlYXh1SU12RVBhMnNFYWZBdmxS?=
+ =?utf-8?B?ekJCdG1jeVZ6QTBmZ09CV2pNTGMxWjBsMFFUVWY3dktVNzBKZ0ZHeDVDbmxn?=
+ =?utf-8?B?STAxSG1BRC9zQ05MNjU1NmVkU0cyNmxiL0FubE9SOUpSM0g3RXRBa1puMGhj?=
+ =?utf-8?B?VUhiM21XaWxkK2dUbUVMNmlRMEx5M3U1SWxjQnhCOWplT2lPRFJYcVFZSmd2?=
+ =?utf-8?B?ZjhhN3lsdytvSlJsdm9KRGV1eG84MXJNWHY5WjlEay9TbExRbUxXRzh1QVJW?=
+ =?utf-8?B?NURySFkvazVhMTl4MW81YkwzdWVaQkJaTHVwY0p1VC9LNHU4N1RMUVhCVzNM?=
+ =?utf-8?B?Q1hWcEZjdjYvdVVOTjI0MjhWZmRVTkZITWVhbDFQUjhVVklZNFN0RHA3SXVV?=
+ =?utf-8?B?WnpET3hmbzNJYUM5bWNoSjdjY1kxZDFqODhOdU5Kd2YyVFVVRTNmSElONldR?=
+ =?utf-8?B?SjZENk5IR0RxYk1KbVJreUtjQ3RqZ3MwVGYwQ08vbFNIdTBWL3ZlNHZsWkZT?=
+ =?utf-8?B?cG5wTW4rRW1jYjQrNU5UTjk0cmNGVHVPQWlhNDhWS0M0VU5lN1NySGFlTEV0?=
+ =?utf-8?B?Q1R6ZTNWMHAvMStjSkJLamhsRmdaZXViRVo1UDBKbEErVHhwYlJKVEZOYzNT?=
+ =?utf-8?B?N0w2bU1hNzdNR0trZFhRYmYzZ1REYXkraVIzbEMvcWZ6NExGK3A2V0lWamxW?=
+ =?utf-8?B?RExDQlZNYWxSMnMyKzIvenNKeHdNNGEvQVFxWDU1SGhGL0ZMQjROT2Z0bzcy?=
+ =?utf-8?B?T0F3QlpZT3NnRk5QUWQ5ckQrMWVUaHpzcE5WWW5SWHdMbkpPZXZNVm1mNlZG?=
+ =?utf-8?B?WXh1OTJQRnowSmZ3NDVKU3EyMTArM2tDc1JtT0pLK1N5TG5ydy9oOUJCdDNv?=
+ =?utf-8?B?OGNwM1Ruc3lDVkt3Nk01ZGN1aHVRN09DSFJnK1RVc2VBSUtRejYyalkwdWw3?=
+ =?utf-8?B?RmRVcURZOVpsQzR5anpRNm9qblQyUzRDanRTNlZYdExBNjVsdnc2U3p3RFVD?=
+ =?utf-8?B?bEgrd3o2d3hsV1NhVXpoQzg0S09MS0pqOEhkNGtKaTNKY1VPVmZWMzE4OHJq?=
+ =?utf-8?Q?jXGqwR6gS6+rLR3nX1hUT53tyUREQtakw/ClID3Y5rp0=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e2c4781-51ac-4160-0929-08dc116ff14e
+X-MS-Exchange-CrossTenant-Network-Message-Id: 60f192a5-439d-4e16-74de-08dc11754dc1
 X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2024 00:06:08.8293
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2024 00:44:29.6913
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB1836
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN1P287MB2616
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240109_160626_576073_24772654 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20240109_164447_411532_2A4EB3AB 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,43 +144,80 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 2024/1/9 23:19, Krzysztof Kozlowski wrote:
-> On 09/01/2024 10:16, Chen Wang wrote:
->> From: Chen Wang <unicorn_wang@outlook.com>
+On 2024/1/9 16:56, Krzysztof Kozlowski wrote:
+> On 09/01/2024 09:52, Chen Wang wrote:
+>> On 2024/1/9 3:36, Krzysztof Kozlowski wrote:
+>>> On 08/01/2024 08:20, Chen Wang wrote:
+>>>> On 2024/1/8 15:03, Krzysztof Kozlowski wrote:
+>>>>> On 08/01/2024 07:48, Chen Wang wrote:
+>>>>>> From: Chen Wang <unicorn_wang@outlook.com>
+>>>>>>
+>>>>>> Add documentation to describe Sophgo System Controller for SG2042.
+>>>>>>
+>>>>>> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+>>>>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>>>>> ---
+>>>>>>     .../soc/sophgo/sophgo,sg2042-sysctrl.yaml     | 34 +++++++++++++++++++
+>>>>>>     1 file changed, 34 insertions(+)
+>>>>>>     create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
+>>>>>>
+>>>>>> diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
+>>>>>> new file mode 100644
+>>>>>> index 000000000000..1ec1eaa55598
+>>>>>> --- /dev/null
+>>>>>> +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
+>>>>>> @@ -0,0 +1,34 @@
+>>>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>>>>>> +%YAML 1.2
+>>>>>> +---
+>>>>>> +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,sg2042-sysctrl.yaml#
+>>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>>> +
+>>>>>> +title: Sophgo SG2042 SoC system controller
+>>>>>> +
+>>>>>> +maintainers:
+>>>>>> +  - Chen Wang <unicorn_wang@outlook.com>
+>>>>>> +
+>>>>>> +description:
+>>>>>> +  The Sophgo SG2042 SoC system controller provides register information such
+>>>>>> +  as offset, mask and shift that can be used by other modules, such as clocks.
+>>>>> "offset, mask and shift" is not a register information stored in
+>>>>> syscons. Are you really sure, that your system controller hardware
+>>>>> stores offsets of some other registers?
+>>>>>
+>>>>> Show as some example of such offsets, masks and shifts provided by this
+>>>>> hardware.
+>>>> The system control module is defined here:
+>>>> https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/system-control.rst.
+>>>> It contains some registers related to pll and gates.
+>>> I do not see there registers providing shifts and offsets... just values.
+>>>
+>>>> Some other clocks registars are defined in
+>>>> https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/clock.rst.
+>>>>
+>>>> memory-map is defined in
+>>>> https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/mmap.rst
+>>> Please fix the wording because it does not make sense. System controller
+>>> does not provide register information. Your datasheet provides register
+>>> information.
+>> Could it be that what I said "that can be used by other modules, such as
+> modules as Linux modules should not be involved in this description.
+>
+>> clocks." may cause misunderstanding. I plan to change it to "The Sophgo
+>> SG2042 SoC system controller provides register information such as
+>> offset, mask and shift to configure related modules such as clock." Is
+>> this better?
 >>
->> Add bindings for the reset generator on the SOPHGO SG2042 RISC-V SoC.
->>
->> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> ...
->
->> +#define RST_UART2			31
->> +
->> +#define RST_UART3			32
-> No need for blank line above UART3. If there is going to be new
-> version/resend, please fix it.
-Ok, let's wait a while for other review comments, then I will fix it in 
-next version.
->
-> Anyway:
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->
->
-> ---
->
-> This is an automated instruction, just in case, because many review tags
-> are being ignored. If you know the process, you can skip it (please do
-> not feel offended by me posting it here - no bad intentions intended).
-> If you do not know the process, here is a short explanation:
->
-> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-> versions, under or above your Signed-off-by tag. Tag is "received", when
-> provided in a message replied to you on the mailing list. Tools like b4
-> can help here. However, there's no need to repost patches *only* to add
-> the tags. The upstream maintainer will do that for tags received on the
-> version they apply.
->
-> https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
+> Still does not make sense. To provide "offset" means that some other
+> hardware reads sophgo module to get the value of offset. That's not the
+> case here.
+
+I'm probably starting to understand what you mean. How about changing it 
+to the following?
+
+The Sophgo system controller is a registers block, providing multiple 
+low level platform functions like chip configuration, clock control, etc.
+
 >
 > Best regards,
 > Krzysztof
