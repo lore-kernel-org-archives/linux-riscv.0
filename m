@@ -4,67 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C21C47077
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Jan 2024 23:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EDADC47077
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 00:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XdITmBnO9A9bYpoyNJM4/7LhaRd6XX2rM/I6PNWJCxo=; b=qQ+IcdYlGVWaCn
-	QagfrCO5MjWmdCDbBfYuHfqgzU+k4TEj3rmKXQFmCCgumx8n5XKGT8HJh1c2OMjVuIy/OUQdSScCx
-	tFSibUDglX4wCfEpk9YSlvb4jiCcPIc2itgbirU77/f+UGJLJofJFnUONB9sGJQte6RnHd4EtgoxS
-	msrBijtQeeejCm06POEx/CvCkVUMWEchEcj+dRgZolgItuHHMyweGFJBxNC9WSuymLdwoJ7rbE0yF
-	EIFsdRYWHIAEwWebG8bhSJ60Xb5s16qwmahV1XAPbLpBX3JCgjZQjybwAwGnVJmCVWwyEVvVTMo4J
-	G5WvtHeQjfGCWjzNxybA==;
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=72xBlqA5fMajaZAZpH2xi8M8Xp8K7pa+SeJ9USfOA+8=; b=C9+QrVf6egoKPoXRLaT6g52Tsu
+	XTE1AM1Gn9hCiGfOIY6OeLQr+5VmWAe3ZC3p6Wf6hXYtb2JyPs1q9iJEjXXjeTrbXD9Zoq1kMare9
+	6wY48/t63KJzURSjAIaCKpYMGfuJlLPPbDVN7H+cXsSkRPSgBk4OeA9Tnu1faiIjts88raZGfcIzB
+	7vnQAZEZM5mTR7kYfHE0mL//l6xfbobICco6VNVos2I0FF2r+6ZtUPLvrPRe9yj418iLGZv86H/73
+	oNj8r7OM5foKiuptS3tVnMPS6u0H6QTOXXvO/LbploD/2WWkyedSwjlBAejXC+nncD5VrBcVvS9SG
+	wd9xmlQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNLMB-009pHm-1g;
-	Tue, 09 Jan 2024 23:18:03 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1rNM73-009uh4-0E;
+	Wed, 10 Jan 2024 00:06:29 +0000
+Received: from mail-bmxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281c::801] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNLM7-009pGd-0T;
-	Tue, 09 Jan 2024 23:18:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id B178BB81B6E;
-	Tue,  9 Jan 2024 23:17:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2313DC433C7;
-	Tue,  9 Jan 2024 23:17:51 +0000 (UTC)
-Message-ID: <461a6556-8f24-48f5-811a-498cb44f2d64@linux-m68k.org>
-Date: Wed, 10 Jan 2024 09:17:48 +1000
-MIME-Version: 1.0
+	id 1rNM70-009uff-1f
+	for linux-riscv@lists.infradead.org;
+	Wed, 10 Jan 2024 00:06:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=bFG4MVsSdK6LO0wHO9kK3oT6qAotre/x1QStKsHZhFw/ObcqONo3QVgPGLJP6rK1AEYR0YR9EuwZ8xeB9eLEgX6ZVHLExEMWYkdbX+w3F8PBp0yAl7QTjLn0WGlvVNHbo/1PG0+6DaAQewiJ074LfFRh9/nEkWczQbWz080aZLu2/3CbaZT52TpdmyPKNPzMk2O0/8TIXpKIH3Zd/CENsxmEYo9caOPKohlxsn1epghKz6Ox7nUadWXGgDAEJXZrC08EPkktfEbvvaMcAnq9fPeCkIP4J+AF0SvPZ+UfDr71RXUtA8gD3lyVCa5woNGfNI1p22YLub41uVpD3PJS1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fLX0Y9YH1/XJdTwYr7OPASZHZRGTOTNDObSBZBW9Qj0=;
+ b=cah/JdzOODDPGCOsmDS0XJEznVyAeWThUEP+X3gnobNnW0s/83jCCkKfZsv53guPIw+9lraNwDD/9D8oLS3PwR1ydNqfNTjjVxpl+lwZ6QkIDJF+w3P2LcPLo1P/f+LFVySzRPbfKyoE6YjQ3d+6euT1axhug98w2t6bqNKftZJk4GWRKbgzyuFAvxunIl/KZARd/pXC58tnNPNwFPmEvhRdIZzxaJpNcQFkwCnf5RSjLeg0fJhflMiw4oP7YBWAbBT1sD21Zdk8GMs7q85n1L4PUQwXWW+Hjyta3wXqjwrbAHXEfIYUXX7ts88G/ZVBIPxU5ehSGRUsiWnoYLUaHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fLX0Y9YH1/XJdTwYr7OPASZHZRGTOTNDObSBZBW9Qj0=;
+ b=MwSBEFMIqLOU2dlWtgG8jDKqdYJonrslpegxVTMbGdrR7s7PzBsNCLmixs29gif3u/PftasS78LouA1VCOj1SE/D7TpnOAfMAFV9OWaagqKl+swBKVrSh1iiEid2N+SNfxfYdoec6uyn/d3hSG87cjMwDJJCJSHKOSNBRcPtUCnKsFQhGonuJ0gAPCJ4EBERtqbvv/nhLHukDYrCfamVGJ96JOzRUUvT+DGVBDy9Xi/IyI/AjNJaqxjXR6/hFPgWu9wQtyllbExFRHTLkuhrdV94Da/P4UivvBJRzkJip4gIeN/LmGCgQ4bOsL9e4saEFrxEQgAzSCPrqg4JixQ/iA==
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+ by MA0P287MB1836.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:f7::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7181.17; Wed, 10 Jan
+ 2024 00:06:09 +0000
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::6e80:69e1:f2e7:d70d]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::6e80:69e1:f2e7:d70d%3]) with mapi id 15.20.7181.015; Wed, 10 Jan 2024
+ 00:06:09 +0000
+Message-ID: <MA0P287MB2822D73E1E63ED48D0B1A271FE692@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Wed, 10 Jan 2024 08:06:03 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: Call for nommu LTP maintainer [was: Re: [PATCH 00/36] Remove
- UCLINUX from LTP]
-Content-Language: en-US
-To: Rob Landley <rob@landley.net>, Petr Vorel <pvorel@suse.cz>
-Cc: Cyril Hrubis <chrubis@suse.cz>, Geert Uytterhoeven
- <geert@linux-m68k.org>, ltp@lists.linux.it, Li Wang <liwang@redhat.com>,
- Andrea Cervesato <andrea.cervesato@suse.com>,
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Christophe Lyon <christophe.lyon@linaro.org>,
- linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux-sh list <linux-sh@vger.kernel.org>,
- automated-testing@lists.yoctoproject.org, buildroot@buildroot.org,
- Niklas Cassel <niklas.cassel@wdc.com>
-References: <20240103015240.1065284-1-pvorel@suse.cz>
- <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
- <20240103114957.GD1073466@pevik>
- <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
- <ZZVOhlGPg5KRyS-F@yuki> <5a1f1ff3-8a61-67cf-59a9-ce498738d912@landley.net>
- <20240105131135.GA1484621@pevik>
- <90c1ddc1-c608-30fc-d5aa-fdf63c90d055@landley.net>
- <20240108090338.GA1552643@pevik>
- <a3d7f5ae-56c6-9cd8-2cda-2d50d12be9c4@landley.net>
-From: Greg Ungerer <gerg@linux-m68k.org>
-In-Reply-To: <a3d7f5ae-56c6-9cd8-2cda-2d50d12be9c4@landley.net>
+Subject: Re: [PATCH 1/4] dt-bindings: reset: sophgo: support SG2042
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu, chao.wei@sophgo.com,
+ conor@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, robh+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, guoren@kernel.org,
+ jszhang@kernel.org, inochiama@outlook.com
+References: <cover.1704790558.git.unicorn_wang@outlook.com>
+ <9798e2ea0c4e339717cc5c411e0db0188befdc58.1704790558.git.unicorn_wang@outlook.com>
+ <5f724f59-8643-4f30-8cfb-8e3213b50118@linaro.org>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <5f724f59-8643-4f30-8cfb-8e3213b50118@linaro.org>
+X-TMN: [AOzC5R6TViePh7MEX26hmm70Gr8Q7138]
+X-ClientProxiedBy: SG2PR06CA0227.apcprd06.prod.outlook.com
+ (2603:1096:4:68::35) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <35b58b98-3992-4a12-afbd-c33c0ace6f60@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|MA0P287MB1836:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4e2c4781-51ac-4160-0929-08dc116ff14e
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 7kaG/L7pMhLsEZrxE9zXiJ0Zp6J+QfHiIGmD1I03onOwkkezZcU2CjhfK8MVe9A0t/H83xdXUpu4N9BA/09D6vFMI5PUR3HXYtTUUjxHb6fgvBmhLh2uFI+2xeuLvjOERQ6L08J5c5O7R4US0+oGeLeg2ICr3nMH3bVzwpgp4su4PXRre98ZcmP57VgDe4z9Jp6Y2EQ5t9t0jpgKi16pQ+UFWMfYjx0sWy4ogfXPl2mgCetEJgSLR+XkLOUeX4w3iQpCsvU4CMTY6pAg9tbBBUx2qmNNNBblcAyP1atRMNMCBjp1QPzw9/gWhh/HCaz8BOCpGV41cHKEW3T/qZnj8ghI9gHeWFEjw/FY9Psi49vf0EpgLeFmjIHxuCxjqLHlis0DR+j1pSScyqGaTbX+7IYBjVkY3mCxWQgMZbRROM0oge9m+r2/jkJ2tOgOAmOHnpWHnU5LZUGZbrF++MNGiwSlkzE8zbjU1+Gy4qGCh5NteVlkJNYg12MPVIECMUjR7Bt68nT8Dvn3N4ev4kmB6siW3tcqqROS6JwwFZhCUr0KI4iwsgIsgQhdTwyRBYOnTrWPyL2sqQr/wG7UKoqDNaRAjpUiX1+TmVY89dlInXg=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RGV6TEd0U1pScVJVbndvSWNUc1ZwVHBxYUI2ei9OYkR6d2ZibElkZ0tyLzI2?=
+ =?utf-8?B?c29VLzdqUXdzWjM3N2ZtdGVOZ1J3T2FZOUg0NEwwOFR6SUhRVldFRVBGK3JR?=
+ =?utf-8?B?TzRyeEprdmZPd0lTT2RiOW4wOU9sVk45Rm9Jb1IwN0VmZkJ1NEdtQXhPQUJG?=
+ =?utf-8?B?b3pjSThxU25TTGZHR3dORUIreFNlRkZ1aDJXUGhsYVFFdXFsZkhCZ3VPenJr?=
+ =?utf-8?B?TDUxYXllWWV2SVBrS1o5dFVjSUE3SDQvaWJaampiYTU1d2wrcTNPN0Y0MUNu?=
+ =?utf-8?B?T055UUNObHZYUzdHblY3Wk02OVUyUDBxa05VODlIaHYyTTdzZC9FR3VxZUJ5?=
+ =?utf-8?B?WFg1UzZUZVlyTElmS1huMTZFdDd1YUJTTnpsRGxDYnRIcFpyNFNYdzVHMllW?=
+ =?utf-8?B?Y2ppVUJPd1JyWTBkM2g3RWllZzA0dUFZSGsvRTNkTWcvNUx4S3J0Y0pDY1Z6?=
+ =?utf-8?B?T2RtUXZiOGVXVVRXQ1JuNVN3TVFQaHpCUjN6ckZSdjR3VjIyeDlVSUhYSTZs?=
+ =?utf-8?B?RUZUSEVObjJJT0RidnJuSXBsOFI5RUZuTkdQVzhMOVRrWHJpaitNSk5jNTRD?=
+ =?utf-8?B?a1orMjc0eWZiN0hQdTlSSjlvQWNNaHBKOHRXSWhwT0x6dXF1NVJzelErOWt0?=
+ =?utf-8?B?K3hrOE82YkxSNGpXZC90OHlwWGpCaGY1dVVGMExEVHZUTkxGYTYySFd1UmNW?=
+ =?utf-8?B?dVhpUHpOVlZhWGtrZHd4S3FNS1lyemRZUm9teWgvc1JzNlQ1aDBPRGQrbUMw?=
+ =?utf-8?B?UWlQSzhIbzVYWmZ6ZDFIMjNxam5FSFl4OVI2UVI4RDdDcjZnNk1vM1dxWURw?=
+ =?utf-8?B?VFowc1EvSkg2blJ2UzlXaGMvQjRYdkV3ZkRGVXI2R1cyemJERFBUL255c1B2?=
+ =?utf-8?B?SktCQkxwY1B0dVpDQ0tqVTErMTRHK25SUnNOQnU2YTVUWkhjWjh6N0NvK0dD?=
+ =?utf-8?B?b3hVUzA4ZHlxd1hFQ0xwYU1PM085WWJhYlFYSlZlVWF3SCtoY0RiVW54NlI1?=
+ =?utf-8?B?UTRGUkpObmZpbXJsUEx0N0RIWnJUQ2l6VFVlRmFLU3RoZ1UxcXQvQ2JLdnk3?=
+ =?utf-8?B?V1RZT1ZCaGpYQXB2RGxZdmtzY01DaHMrZDlOS3ZtQ3REL0l3YXc2Y1A4MTVk?=
+ =?utf-8?B?MTE1WGdka0JhV1JhTnQ0cTVXMDJFYmt1VFRCMEY2MG1XTm1sTTdtMUFqbldS?=
+ =?utf-8?B?U2htZThESFRkREJJaGdqRlZCcWpNY1lzOVlwL2ZXbWN5cjBBSkYrMFlEQkt4?=
+ =?utf-8?B?L3Q1eW1HYjhnRHBLZW5CRVpEZW5oVXhJNlhBZjhKWGt1Vk5LTVJscGNYWlFk?=
+ =?utf-8?B?c1hZa0dVRHpKYWhTeVc1cTgyTTA2VWhYYjg4bVZOaVg4Z01oUGk2U2g0MjN5?=
+ =?utf-8?B?MUJkRTZOdytmMTNzcFRaQlVMZ0wwSVdqWXVSQkkrVm9oVXVXeUNhNjRRSjAw?=
+ =?utf-8?B?R1NKYzBMKzh0c1VFQkVaY2NjZk00QWFXazkyT1kvZ3g4YndWVVMzK0lFYnhp?=
+ =?utf-8?B?amlaWkJCUDFGL0JENlNvUkwrUmNuQUZ2bktzR3NIZDIwYWMzZDBLQXNkc0Ri?=
+ =?utf-8?B?N1N6RGFhYVZHbXdXMXltUFJxd3dOVzZyVXdWT1JRZkxMM2lHSWhwVER1bUxm?=
+ =?utf-8?Q?nKOn0W6K/U2oHf+Q4r8u1sMVhrENI+/DGZ0D+uKJevM8=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4e2c4781-51ac-4160-0929-08dc116ff14e
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2024 00:06:08.8293
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB1836
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240109_151759_548948_21BC36E6 
-X-CRM114-Status: GOOD (  29.80  )
+X-CRM114-CacheID: sfid-20240109_160626_576073_24772654 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,93 +137,47 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 10/1/24 06:24, Rob Landley wrote:
-> On 1/8/24 03:03, Petr Vorel wrote:
->> Hi Rob, all,
+On 2024/1/9 23:19, Krzysztof Kozlowski wrote:
+> On 09/01/2024 10:16, Chen Wang wrote:
+>> From: Chen Wang <unicorn_wang@outlook.com>
 >>
->> [ Added Niklas Cassel, who is maintainer of qemu_riscv64_nommu_virt_defconfig in
->> buildroot ]
-> 
-> Hi Niklas!
-> 
->>> Buildroot also apparently has an LTP package selectable in menuconfig:
+>> Add bindings for the reset generator on the SOPHGO SG2042 RISC-V SoC.
 >>
->>> https://github.com/buildroot/buildroot/tree/master/package/ltp-testsuite
->>
->>> But I haven't tried it...
->>
->> I'm the maintainer of the LTP package in buildroot in my private time.
->> BTW I spent quite a lot of time fixing LTP (and some other system packages,
->> e.g. nfs-utils) compilation on some old legacy architectures reported via
->> http://autobuild.buildroot.net/ I've never used in the reality.
->> But I certainly don't have time to drive nommu support in my private time.
->> I don't even have an interest, I don't use any nommu device.
-> 
-> I do, but I've never done much with LTP, and I have my hands full with toybox
-> and mkroot already.
-> 
->> Therefore nobody who is not involved in nommu will not find a time to support it
->> in LTP (support does not mean just to add the functionality to the new C API,
->> but run tests on nommu and fix failing bugs). I suppose nobody is paid to work
->> on nommu platforms, it would have to be a hobby project, right?
-> 
-> A bunch of people are paid to work on nommu platforms, and I've worked with them
-> a bunch, but none of them talk to linux-kernel. They find the culture toxic,
-> insular, and categorically dismissive of their interests.
-
-I have been involved in the kernel nommu space for 20 years, and sure, there is
-some of that. But mostly spending some time and effort to get involved pays off.
-I have seen potential contributors show up with some arrogant attitudes too,
-so it cuts both ways here.
-
-The m68k community I have been part of has been nothing but welcoming. The mm
-people have tried hard to keep nommu support up-to-date where almost none of them
-actually have a vested interest in doing so.
-
-What I have seen is that many companies working in this space just don't want
-to spend the time and effort to go mainline. That is a business decision they
-make, and that is fine. Heck my work in actual mainline has never really been
-paid for by any company and I have sunk a _lot_ of time into it. (Full disclosure
-I did get paid to work on early porting and support - just not geting it into
-mainline and maintain it there).
-
-
-> For example, cortex-m is a large nommu platform on which vendors support Linux
-> BSPs, but notice how page 8 of
-> https://www.microsemi.com/document-portal/doc_view/132181-linux-cortex-m-users-manual
-> points at a cross compiler toolchain from _2010_ and page 4 says they're booting
-> a 2.6.33 kernel?
-
-Any company/person who follows the route of not working with the linux kernel
-community to get their work included is going to inevitably get stuck on older
-versions of everything.
-
-
-> I'm a bit weird in that I try to get CURRENT stuff to work on nommu, and a lot
-> of people have been happy to consume my work, but getting any of them to post
-> directly to linux-kernel is like pulling teeth.
-
-I regularly test nommu configurations (as in every kernel rc and release) on m68k
-and at least every release on other architectures like arm(*) and recently on
-riscv as well.
-
-(*) somewhat annoyingly needing a minor patch to run the versatile qemu platform
-     I like to test with. But hey, that is on me :-)
-
-Regards
-Greg
-
-
-
->> But as I said, if anybody from nommu decides to maintain it in LTP, I'll try to
->> support him in my free time (review patches, give advices). And if nobody
->> stands, this patchset which removes the support in the old API will be merged
->> after next LTP release (in the end of January).
-> 
-> What does the API migration do? Is there a page on it ala OABI vs EABI in arm or
-> something?
-> 
-> Rob
+>> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ...
+>
+>> +#define RST_UART2			31
+>> +
+>> +#define RST_UART3			32
+> No need for blank line above UART3. If there is going to be new
+> version/resend, please fix it.
+Ok, let's wait a while for other review comments, then I will fix it in 
+next version.
+>
+> Anyway:
+>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>
+>
+> ---
+>
+> This is an automated instruction, just in case, because many review tags
+> are being ignored. If you know the process, you can skip it (please do
+> not feel offended by me posting it here - no bad intentions intended).
+> If you do not know the process, here is a short explanation:
+>
+> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+> versions, under or above your Signed-off-by tag. Tag is "received", when
+> provided in a message replied to you on the mailing list. Tools like b4
+> can help here. However, there's no need to repost patches *only* to add
+> the tags. The upstream maintainer will do that for tags received on the
+> version they apply.
+>
+> https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
+>
+> Best regards,
+> Krzysztof
+>
 
 _______________________________________________
 linux-riscv mailing list
