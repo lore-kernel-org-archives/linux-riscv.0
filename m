@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B61B5C4707B
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 23:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 821DDC4725D
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 23:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kxZ8rpKDojI8nYf3E5REO3qJzb7szBvdhy0i0qtT9K8=; b=igYgw+HOhkfZr4
-	gXX1XHqsjBnlBvWJhIdPAc1xCwV+7I9z8wrpGyRSus3FP24PCUWfx7D3qZvZSZdBH4zw0asNozezr
-	SKR4d5okvzSzB6A6eYP1ZyHP9blyQsxS2RxjupWJ3x2UZl8G0A7kljPmmGy59PfgmM1AIOTtBQR8H
-	QXhww3ErTDqs+usr1bzLUTkv9vjneXpu5PeWGbs3TyGiAW22l7dzpnsmUG86KL3SwTQDyUtlbBMlC
-	9XbutrhPBsw6U1Vjt89SuZSdiODuRy8If0f8rheIW0zkPaUek8+tT761gwj0eF+ois4GVpE3vXqJG
-	C1GdVh46jKiFFgAYAiKw==;
+	List-Owner; bh=74g6h1lAryNwN2w6ftaVxS9vEtaA0bX5HXSmCuvLK4o=; b=L9Vp6Rr8TnAbt9
+	toMafvXhDzSEWoSfniLv78Oi+/rbopRqRksX/lY5nYmnYGvbU1g8NCC/rbPXtoLLvPoHcCHw8BWbj
+	sT0OTyIA0m0biVOQ5MkLxAFxvQWmcb6ss1mUvuAUZQPj+Ceov/yTFL/LMaXlyUX44HVQ/tjVwpNTG
+	u35mWj9aHGiYUaspm2h1wHH592W/3J0OTbZv7H5dTxI8duY1m+S7b58ajcK/+f5r+erY1Ekd+oGW+
+	VqLg7gR3gY/5LYTVhpHrGe/C2D/lapGigoP6j5oQbSu9TQNuDuX56QuksMrVAoY5RF2yrWqT9u9ZA
+	KOwoAn4OtdYO4aO95WbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNhmW-00EdQi-1u;
-	Wed, 10 Jan 2024 23:14:44 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1rNhmi-00EddS-2t;
+	Wed, 10 Jan 2024 23:14:56 +0000
+Received: from mail-io1-xd32.google.com ([2607:f8b0:4864:20::d32])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNhmT-00EdNS-2N
+	id 1rNhmb-00EdT4-15
 	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jan 2024 23:14:43 +0000
-Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-7bb0af58134so217779739f.3
-        for <linux-riscv@lists.infradead.org>; Wed, 10 Jan 2024 15:14:40 -0800 (PST)
+	Wed, 10 Jan 2024 23:14:52 +0000
+Received: by mail-io1-xd32.google.com with SMTP id ca18e2360f4ac-7bee3761bb4so91507539f.0
+        for <linux-riscv@lists.infradead.org>; Wed, 10 Jan 2024 15:14:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704928480; x=1705533280; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704928487; x=1705533287; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EzYVT3U62jOpimrVBwbFtsr3YzUGPIXyIVj0onyqTs4=;
-        b=ZL7H/nErA57NB0Pl1tGtC2czBtnoMktqyqz+lFRaiFS19bG6QAI+NYDzRti8V+PFfd
-         Vhx3FV/W6OVI83yqzGIgRYSr5MmTnR1lcfHgmts5S0W+Ari4/adVRAFCwlu9PXY0FCma
-         x0OZht7CinmM9xkD4WnL7R7DJf+ugSNUBi0zNyekmo5+ZWZWluKvE9aHtG0x5nu7RDif
-         zezvqeNubs79Y6ibNUODERSSTYmkKq/1/WFsCBRhPdobMe97dx2nRSkW1fN1R6ZLmBoA
-         YlHQz0JyCZVKUBqHANhQKKXVNawqaeBmO73ILAxpLG3e2wWZGk4ApelDMqk34xY5QlSp
-         /ckg==
+        bh=QezjoA6tUvS/5tHzC/r6igb3Gn0pDkI0esE0F/349nk=;
+        b=SJ5Qc1GRGQBYBI6Z6CeALGHqMMHAsiteh4F1yxuuBRt9ArZ1pyXf4sGHDh9DJcEi0X
+         UtdaXJRKqD+h7JMZaaX67Q275E5o4ctvsP7PeNr1q5sTdNsg/PGw1bSMfPWEIoWe8L9v
+         O8Ik3Dtxp4i2NdAVaZDpY8mKcrZ9ejk0Ycib8RF/cDBfFWSawYN84wiv1/pCXOPMkxZ0
+         eOKYCZ8CMHfhy2DZPvFBn2ClDTd+TnyENgn8Mrfoq//M2blZ7X/dZrrUxxNPLGnOrmC0
+         Qs+VwjeKE3FWJRtEPvFRhVxTa3hosVG+2K0upCNXiopw2E56RbZLgCo47T6jqUikzT9t
+         9X3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704928480; x=1705533280;
+        d=1e100.net; s=20230601; t=1704928487; x=1705533287;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EzYVT3U62jOpimrVBwbFtsr3YzUGPIXyIVj0onyqTs4=;
-        b=ObkcQd43x0m00+jsqhMOaKiv2pg0jWy4m9EFvIK3If1QViWPZCPu1W3yDUVw9M90w8
-         8hK0BBjJo+VTM7Au9wlpr3u9rZkLZ7jmuQUfmfWsWrQvvlNewiRxjJY25PP217DLOnz8
-         kl3F/666t6K08aKdMOv7WduRMcxn0tvYYQK97H47ui5fKWaQGg8Nff6fbpACLQZQLKs7
-         SaMtpeNVDedzCvAVPheD3nb81ypdW2UTuWXJUkVcXZEe1ou6MfRWvk5UUHbANLdnxV3r
-         Q4XXHKtgpzZee0O9ASGiHCzi0QpAc0/3jFzcTYy6n9Fv/svbCjrhmakQDaVsI856fWOe
-         slAg==
-X-Gm-Message-State: AOJu0YxWjUdFboYUJqbUYG8Ct2cYtxwobqe4NSiTMa9+yBfTlnCybcrJ
-	A74TrkiSjByyE9FX6PzYeEZFbNNP3fXNWQ==
-X-Google-Smtp-Source: AGHT+IHBtYFpa0Fm4UJ7oZUXxQPb/ffVF39Gpk3+VL2e9dxmW6edwLnfASayEBNATNo0KU8KYSyH6A==
-X-Received: by 2002:a5e:dc44:0:b0:7ba:77f3:b7e2 with SMTP id s4-20020a5edc44000000b007ba77f3b7e2mr364158iop.42.1704928479976;
-        Wed, 10 Jan 2024 15:14:39 -0800 (PST)
+        bh=QezjoA6tUvS/5tHzC/r6igb3Gn0pDkI0esE0F/349nk=;
+        b=wGerHBnAZzwGjCd0RywqDQ4OlQ7jdL0MeXcUq0qXgzPqD+HWCbNKnXtQsAd1QviP2O
+         NOGlfbb3KvLfGjWoAJ8ZxFya+2DIqddsj9RFa9mntJvsHGb7mjfmH4u0FYCmMivlZXCD
+         4ro1yTtzxjL0tOANBIpDtTcQRJZVJVvZGUDnBPoNMOsN6raHOi6ZcVQB4m2YgzNCiK8W
+         72fqRhhgxHM50xinluJ/N9EG6RSN6n2tFJHn1KfKjgDxgR7P6uLVdx2lQ75r5Ja1Zkzv
+         0VimCj0YBj5M816I4JjtBtlqKfGlK0Sypg3EG+ksmLq4clAW/eRPTeMPoaxZ1ohlDxCU
+         UROQ==
+X-Gm-Message-State: AOJu0YzxD4zmu1WcniJmEz3dR9fxfprvpMJRekUKqbsNWRhBPaFAszit
+	hGZIOPtrPJVgbUu34kA1cjDj/slJPQ33fA==
+X-Google-Smtp-Source: AGHT+IEDUT17GMF4Ey0i/oYBIUhinUi3IYTlxkvNGgesi1C9N3qaiFERFQSZ9E+my76bd2GnH6ne4g==
+X-Received: by 2002:a5e:890c:0:b0:7bb:df90:6936 with SMTP id k12-20020a5e890c000000b007bbdf906936mr380036ioj.41.1704928487361;
+        Wed, 10 Jan 2024 15:14:47 -0800 (PST)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id co13-20020a0566383e0d00b0046e3b925818sm1185503jab.37.2024.01.10.15.14.38
+        by smtp.gmail.com with ESMTPSA id co13-20020a0566383e0d00b0046e3b925818sm1185503jab.37.2024.01.10.15.14.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jan 2024 15:14:39 -0800 (PST)
+        Wed, 10 Jan 2024 15:14:47 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [v3 01/10] RISC-V: Fix the typo in Scountovf CSR name
-Date: Wed, 10 Jan 2024 15:13:50 -0800
-Message-Id: <20240110231359.1239367-2-atishp@rivosinc.com>
+Subject: [v3 06/10] RISC-V: KVM: No need to update the counter value during reset
+Date: Wed, 10 Jan 2024 15:13:55 -0800
+Message-Id: <20240110231359.1239367-7-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240110231359.1239367-1-atishp@rivosinc.com>
 References: <20240110231359.1239367-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240110_151441_776194_8A009CEF 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20240110_151449_393746_89CAC563 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +91,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The counter overflow CSR name is "scountovf" not "sscountovf".
+The virtual counter value is updated during pmu_ctr_read. There is no need
+to update it in reset case. Otherwise, it will be counted twice which is
+incorrect.
 
-Fix the csr name.
-
-Fixes: 4905ec2fb7e6 ("RISC-V: Add sscofpmf extension support")
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Fixes: 0cb74b65d2e5 ("RISC-V: KVM: Implement perf support without sampling")
 Reviewed-by: Anup Patel <anup@brainfault.org>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/csr.h         | 2 +-
- arch/riscv/include/asm/errata_list.h | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/kvm/vcpu_pmu.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 306a19a5509c..88cdc8a3e654 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -281,7 +281,7 @@
- #define CSR_HPMCOUNTER30H	0xc9e
- #define CSR_HPMCOUNTER31H	0xc9f
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index 86391a5061dd..b1574c043f77 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -397,7 +397,6 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+ {
+ 	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+ 	int i, pmc_index, sbiret = 0;
+-	u64 enabled, running;
+ 	struct kvm_pmc *pmc;
+ 	int fevent_code;
  
--#define CSR_SSCOUNTOVF		0xda0
-+#define CSR_SCOUNTOVF		0xda0
+@@ -432,12 +431,9 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+ 				sbiret = SBI_ERR_ALREADY_STOPPED;
+ 			}
  
- #define CSR_SSTATUS		0x100
- #define CSR_SIE			0x104
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 83ed25e43553..7026fba12eeb 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -152,7 +152,7 @@ asm volatile(ALTERNATIVE_2(						\
- 
- #define ALT_SBI_PMU_OVERFLOW(__ovl)					\
- asm volatile(ALTERNATIVE(						\
--	"csrr %0, " __stringify(CSR_SSCOUNTOVF),			\
-+	"csrr %0, " __stringify(CSR_SCOUNTOVF),				\
- 	"csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),		\
- 		THEAD_VENDOR_ID, ERRATA_THEAD_PMU,			\
- 		CONFIG_ERRATA_THEAD_PMU)				\
+-			if (flags & SBI_PMU_STOP_FLAG_RESET) {
+-				/* Relase the counter if this is a reset request */
+-				pmc->counter_val += perf_event_read_value(pmc->perf_event,
+-									  &enabled, &running);
++			if (flags & SBI_PMU_STOP_FLAG_RESET)
++				/* Release the counter if this is a reset request */
+ 				kvm_pmu_release_perf_event(pmc);
+-			}
+ 		} else {
+ 			sbiret = SBI_ERR_INVALID_PARAM;
+ 		}
 -- 
 2.34.1
 
