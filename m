@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914C9C4707B
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 14:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A39C4707C
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 14:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RWfnFoz741Wy/p1H5fx94a7sZaIVuBOinVzeLc4XHB8=; b=FwYLWxqosxQd0/
-	wcaSCT7PjVtKicxMSAG0+r2ghc2TjP9b9e9L/5VMC1JRb81k80jfZ6nETo+4lB0TUhozgd8VL4R/c
-	0kb6X3sp4EENHutczbIDJnLKuj5hL/E2nm0inEPFX3QzAPUUoZQ3vWJDhgMUHhhBtf91mZeDlMAL+
-	1QlT3RmMcW9I3065l6SlOKjCzD+eE1Xoe/DV2fw+gV9M8rMrHEnjpzYFwp+Um+D0mp8hPN2cjzMT/
-	x8GIVu3LOeFzGk6Iq+6FeThOgQcQjEqX1VtdxwgiV7jofrz6ajhUFKRTDv8B5mz6bpR9H5Nw3XtWE
-	GWWAYYQ1U1bDwNiYnssw==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=7KG97wn1vp5swqEU2xxLM7Fxghnfn0PWSmm9jkKVA4g=; b=teIpAXuU70rYDc8vd2aY0C4DU0
+	ptwNMZiSkUKuJb+CCmYS3YVyM3QXUZVt29hoSh23qZauLYjpNOLIpSEuuRdgD/h9U5t9rKoH/CEId
+	CA4zxfjzAv0GSrSjTEuAmeYhtGstHb42Is37KzcQL+R5ywS4VYGjx+aOAnUREw6/pX+Hpd4dTcFlF
+	xPErrpwVlhuPWd6iGPj45P0I7aAqpw1Rm5aC/V0zTeeLjlxqUtIEIwVQs8cxfGK+KD4cITdhJCbfc
+	inSHIc8FX8vYdLjcuy21UmDLaOxN17x7if6gqD3hz5+WVJ6oZnQ1asnEjlPp626+G2u0QOKwS+pfu
+	jcxpCTpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNZrM-00CObD-0b;
-	Wed, 10 Jan 2024 14:47:12 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rNZvl-00CPhU-2I;
+	Wed, 10 Jan 2024 14:51:45 +0000
+Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNZrI-00COZZ-0K;
-	Wed, 10 Jan 2024 14:47:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7BA53CE1B5F;
-	Wed, 10 Jan 2024 14:46:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0237C433F1;
-	Wed, 10 Jan 2024 14:46:37 +0000 (UTC)
-Message-ID: <aef3568c-7894-49c9-a7aa-b3c58b822b91@linux-m68k.org>
-Date: Thu, 11 Jan 2024 00:46:35 +1000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Call for nommu LTP maintainer [was: Re: [PATCH 00/36] Remove
- UCLINUX from LTP]
-Content-Language: en-US
-To: Rob Landley <rob@landley.net>, Petr Vorel <pvorel@suse.cz>
-Cc: Cyril Hrubis <chrubis@suse.cz>, Geert Uytterhoeven
- <geert@linux-m68k.org>, ltp@lists.linux.it, Li Wang <liwang@redhat.com>,
- Andrea Cervesato <andrea.cervesato@suse.com>,
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Christophe Lyon <christophe.lyon@linaro.org>,
- linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux-sh list <linux-sh@vger.kernel.org>,
- automated-testing@lists.yoctoproject.org, buildroot@buildroot.org,
- Niklas Cassel <niklas.cassel@wdc.com>
-References: <20240103015240.1065284-1-pvorel@suse.cz>
- <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
- <20240103114957.GD1073466@pevik>
- <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
- <ZZVOhlGPg5KRyS-F@yuki> <5a1f1ff3-8a61-67cf-59a9-ce498738d912@landley.net>
- <20240105131135.GA1484621@pevik>
- <90c1ddc1-c608-30fc-d5aa-fdf63c90d055@landley.net>
- <20240108090338.GA1552643@pevik>
- <a3d7f5ae-56c6-9cd8-2cda-2d50d12be9c4@landley.net>
- <461a6556-8f24-48f5-811a-498cb44f2d64@linux-m68k.org>
- <b3a8b9db-86ee-47c6-96e2-baa2cba61404@landley.net>
-From: Greg Ungerer <gerg@linux-m68k.org>
-In-Reply-To: <b3a8b9db-86ee-47c6-96e2-baa2cba61404@landley.net>
+	id 1rNZvi-00CPer-0D
+	for linux-riscv@lists.infradead.org;
+	Wed, 10 Jan 2024 14:51:43 +0000
+Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-7beda6a274bso57671839f.2
+        for <linux-riscv@lists.infradead.org>; Wed, 10 Jan 2024 06:51:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1704898299; x=1705503099; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UlRr87AfARWxTIrPYo3v1voc73TzaNkp96EPHRmj2xU=;
+        b=0k7cjErvTpsMfq1tUks8luIED3aQ+1lq2xrcRfOaX59gtGtoldj1g5sD3fYqrhkFH7
+         xJ2aBUVVm5ppJfkO8x7elHkqr55CbsDU1NozVIudp2yAEK8n9IhZkb7+yipVmCzrQX0d
+         YfA9dQj01x7M036ILjHJo7xAvxoLpvNt9AbGcKB0hmQoTB3q7yU3Nq+ZZvownpXjMoXN
+         KTEgLmKkwj3oJ9T3mvfPoFRFfbxkvLQH8FFkoIJfJ7SjZPvVQjtDUwn1AULHMHsukeTv
+         XGY1VWgpy5kJW5EhA+D5IX+1+RBzfjQEdWzhBSd4o7VTP/OeX3nkqblzwRivutXNF44K
+         Zq/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704898299; x=1705503099;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UlRr87AfARWxTIrPYo3v1voc73TzaNkp96EPHRmj2xU=;
+        b=C0V2hUhkn1PYiX/eqfbsnaKVw0VTuXnIs0cIvlY4pTnPTNIXqYv0McqZAuFRW4P1e/
+         +8SWVeBnyH/gg/8edGmUlxfa3NxM/laEDFIdU7Vu2kiSytho+z2JXbghvuo+9oROQfei
+         HYyJteZvslNxJfhxTwG7y11/bPHPlIfoUpSXRFZiInFIzLSr0iyK1dvtbssuRUmhwqGY
+         JFflg/vjob4LhkZfpA6kmmi4XgdOXlE6SBxjc/0Z2WpmfB1LdCyvcUfrOHfvgrEgtFLn
+         MVkF4IgrpytIo5rh3hWrML3T3MnI9n8gqCyhofFSSaCYW991AfL4D9aO0tTqOZ2DMlB5
+         ZY/g==
+X-Gm-Message-State: AOJu0YxRrFnJHWrcLaVsyt4FblRithZG2/shCvjwGnJIyPiDMuWvs4lY
+	NVeHO4ZKj2VlfE0jwZhDM/DopKavdhwRX+pqUYPY8R65gdU=
+X-Google-Smtp-Source: AGHT+IESMcbobMlRjbgJYfocjXsZ0yo/qo6i1dK8eo1VFgWRNLIDb9r8HTjU5OKJKjNYljfVT1tLPg==
+X-Received: by 2002:a05:6602:131d:b0:7bc:838:6665 with SMTP id h29-20020a056602131d00b007bc08386665mr986219iov.28.1704898299159;
+        Wed, 10 Jan 2024 06:51:39 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id k12-20020a02c64c000000b0046e304dc641sm1319869jan.95.2024.01.10.06.51.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Jan 2024 06:51:38 -0800 (PST)
+Date: Wed, 10 Jan 2024 06:51:38 -0800 (PST)
+X-Google-Original-Date: Wed, 10 Jan 2024 06:51:33 PST (-0800)
+Subject: Re: [PATCH v2 10/14] riscv: Add support for kernel-mode FPU
+In-Reply-To: <20231228014220.3562640-11-samuel.holland@sifive.com>
+CC: linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+  x86@kernel.org, linux-riscv@lists.infradead.org, Christoph Hellwig <hch@lst.de>,
+  loongarch@lists.linux.dev, linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+  linux-arch@vger.kernel.org, samuel.holland@sifive.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: samuel.holland@sifive.com
+Message-ID: <mhng-3e4b97f6-8310-487e-9f9a-1d19d6e42a1e@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240110_064708_503315_1C777837 
-X-CRM114-Status: GOOD (  29.40  )
+X-CRM114-CacheID: sfid-20240110_065142_324587_58C90430 
+X-CRM114-Status: GOOD (  24.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,78 +93,128 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 27 Dec 2023 17:42:00 PST (-0800), samuel.holland@sifive.com wrote:
+> This is motivated by the amdgpu DRM driver, which needs floating-point
+> code to support recent hardware. That code is not performance-critical,
+> so only provide a minimal non-preemptible implementation for now.
+>
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
+>
+> Changes in v2:
+>  - Remove RISC-V architecture-specific preprocessor check
+>
+>  arch/riscv/Kconfig                  |  1 +
+>  arch/riscv/Makefile                 |  3 +++
+>  arch/riscv/include/asm/fpu.h        | 16 ++++++++++++++++
+>  arch/riscv/kernel/Makefile          |  1 +
+>  arch/riscv/kernel/kernel_mode_fpu.c | 28 ++++++++++++++++++++++++++++
+>  5 files changed, 49 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/fpu.h
+>  create mode 100644 arch/riscv/kernel/kernel_mode_fpu.c
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 24c1799e2ec4..4d4d1d64ce34 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -27,6 +27,7 @@ config RISCV
+>  	select ARCH_HAS_GCOV_PROFILE_ALL
+>  	select ARCH_HAS_GIGANTIC_PAGE
+>  	select ARCH_HAS_KCOV
+> +	select ARCH_HAS_KERNEL_FPU_SUPPORT if FPU
+>  	select ARCH_HAS_MMIOWB
+>  	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+>  	select ARCH_HAS_PMEM_API
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index a74be78678eb..2e719c369210 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -81,6 +81,9 @@ KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64i
+>
+>  KBUILD_AFLAGS += -march=$(riscv-march-y)
+>
+> +# For C code built with floating-point support, exclude V but keep F and D.
+> +CC_FLAGS_FPU  := -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)([^v_]*)v?/\1\2/')
+> +
+>  KBUILD_CFLAGS += -mno-save-restore
+>  KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
+>
+> diff --git a/arch/riscv/include/asm/fpu.h b/arch/riscv/include/asm/fpu.h
+> new file mode 100644
+> index 000000000000..91c04c244e12
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/fpu.h
+> @@ -0,0 +1,16 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2023 SiFive
+> + */
+> +
+> +#ifndef _ASM_RISCV_FPU_H
+> +#define _ASM_RISCV_FPU_H
+> +
+> +#include <asm/switch_to.h>
+> +
+> +#define kernel_fpu_available()	has_fpu()
+> +
+> +void kernel_fpu_begin(void);
+> +void kernel_fpu_end(void);
+> +
+> +#endif /* ! _ASM_RISCV_FPU_H */
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index fee22a3d1b53..662c483e338d 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -62,6 +62,7 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
+>
+>  obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_misaligned.o
+>  obj-$(CONFIG_FPU)		+= fpu.o
+> +obj-$(CONFIG_FPU)		+= kernel_mode_fpu.o
+>  obj-$(CONFIG_RISCV_ISA_V)	+= vector.o
+>  obj-$(CONFIG_SMP)		+= smpboot.o
+>  obj-$(CONFIG_SMP)		+= smp.o
+> diff --git a/arch/riscv/kernel/kernel_mode_fpu.c b/arch/riscv/kernel/kernel_mode_fpu.c
+> new file mode 100644
+> index 000000000000..0ac8348876c4
+> --- /dev/null
+> +++ b/arch/riscv/kernel/kernel_mode_fpu.c
+> @@ -0,0 +1,28 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2023 SiFive
+> + */
+> +
+> +#include <linux/export.h>
+> +#include <linux/preempt.h>
+> +
+> +#include <asm/csr.h>
+> +#include <asm/fpu.h>
+> +#include <asm/processor.h>
+> +#include <asm/switch_to.h>
+> +
+> +void kernel_fpu_begin(void)
+> +{
+> +	preempt_disable();
+> +	fstate_save(current, task_pt_regs(current));
+> +	csr_set(CSR_SSTATUS, SR_FS);
+> +}
+> +EXPORT_SYMBOL_GPL(kernel_fpu_begin);
+> +
+> +void kernel_fpu_end(void)
+> +{
+> +	csr_clear(CSR_SSTATUS, SR_FS);
+> +	fstate_restore(current, task_pt_regs(current));
+> +	preempt_enable();
+> +}
+> +EXPORT_SYMBOL_GPL(kernel_fpu_end);
 
-On 10/1/24 15:47, Rob Landley wrote:
-> On 1/9/24 17:17, Greg Ungerer wrote:
->> On 10/1/24 06:24, Rob Landley wrote:
->>> I'm a bit weird in that I try to get CURRENT stuff to work on nommu, and a lot
->>> of people have been happy to consume my work, but getting any of them to post
->>> directly to linux-kernel is like pulling teeth.
->>
->> I regularly test nommu configurations (as in every kernel rc and release) on m68k
->> and at least every release on other architectures like arm(*) and recently on
->> riscv as well.
-> 
-> Sigh, I should start caring about riscv. I added or1k support, I should do
-> riscv. (Except I did or1k because I found it in actual hardware, the Orange Pi
-> 3b's power controller is an or1k asic so I needed an or1k toolchain to build
-> some of u-boot's firmware or else the board couldn't reboot, and there was a
-> qemu-system-or1k already, which turned into adding it to mkroot via a long
-> https://lore.kernel.org/openrisc/ZX1xbs_AGdgLgcx7@antec/ thread with its
-> developers. Alas I still can't get qemu to exit (I.E. virtually reboot or power
-> off), apparently I need to reinstall my laptop to have a new enough version of
-> python 3 to build a newer qemu with. It's on the todo list...)
-> 
-> I still have a hard time considering riscv anything other than open source's
-> version of Itanium. Promises of ubiquity, but even a 28 nanometer mask is still
-> 6 figures before you run any wafers and your mask build process is sucking in
-> all the black box libraries the fab can sell you, so what does "open" really get
-> you here? Cortex-m got cheap when the superh patents expired so Arm didn't have
-> to pay royalties to hitachi (renesas?) for the thumb instruction set anymore,
-> and they belt those suckers en masse amortizing the up-front costs over ENORMOUS
-> volume.
-> 
-> And yes, j-core was trying to fix the closed source library and toolchain issues
-> back when I was still working with them. Among other things fishing
-> Google/skywater's openlane toolchain build out of their magic docker and
-> reproducing it under a vanilla debootstrap, ala
-> https://github.com/j-core/openlane-vhdl-build (As with most corporate
-> clusterfscks, once you dig far enough it turns out you can throw over 90% of it
-> out...)
-> 
-> But these days I'm trying to get toybox to 1.0...
-> 
->> (*) somewhat annoyingly needing a minor patch to run the versatile qemu platform
->>       I like to test with. But hey, that is on me :-)
-> 
-> I would very much like to add more nommu targets to mkroot, can I get your
-> build/config info offline? (I tried fishing configs out of buildroot a couple
-> years ago, but after the THIRD one where the secret was "use very old versions
-> of packages, the current stuff is broken"... And the problems were things like
-> "the conversion to device tree deleted a huge chunk of this infrastructure", not
-> simple fixes.)
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-Maybe getting a little off-topic here, but I'll just send links here.
-Who knows it might be useful to others.
+assuming you want to keep these together -- it touches a lot of stuff, 
+so LMK if you want me to pick something up.
 
-Recently I have been experimenting with minimal builds, this is a bunch of
-scripts, configs and a couple of patches I currently have:
-
-     https://github.com/gregungerer/simple-linux
-
-Mostly the kernel builds use the architecture defconfigs, but for armnommu
-versatile it was easier to use a dedicated config and patch:
-
-     https://github.com/gregungerer/simple-linux/blob/master/configs/linux-6.6-armnommu-versatile.config
-     https://github.com/gregungerer/simple-linux/blob/master/patches/linux-6.6-armnommu-versatile.patch
-
-Anyway the scripting uses the newest package versions of everything
-(binutils, gcc, linux, uClibc, busybox).
-
-Regards
-Greg
-
-
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
