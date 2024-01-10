@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7936EC47422
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 14:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914C9C4707B
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 14:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z0ODb2AuLrfecxrl7o3mo2izEgpNhd/oO++ShqFs1LU=; b=efEfT7d1UogNTS3QJIKtHHGDnz
-	dXSBE+IZsN8DY6I3phkim/nYn753XnQ+6CpVIZeOmR49M7twCcYNR4isJWJI5FIo1CxQaNW7gIrAx
-	ShX3cU+HT+E4g1fffN55XAIorVC1WYVjBptm/Gv1EKUan+4RyadGxD0mRD3X93jdq2IUEI7c56/mU
-	kek8g7YBzA/E/Fy/zfa1xl8OMJ71FWm1BtKLI1XcJom/JS9CVLLLOwgDoIYLCrkmtesWUHg0WdIsk
-	BdNL/05XvbKc0sa8TOXyDIotlWJrxquGouBD4IzpJ+uoNIpaCuUZRWaB585M6xO21y16GWh3BWmAm
-	EMkjeRJA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RWfnFoz741Wy/p1H5fx94a7sZaIVuBOinVzeLc4XHB8=; b=FwYLWxqosxQd0/
+	wcaSCT7PjVtKicxMSAG0+r2ghc2TjP9b9e9L/5VMC1JRb81k80jfZ6nETo+4lB0TUhozgd8VL4R/c
+	0kb6X3sp4EENHutczbIDJnLKuj5hL/E2nm0inEPFX3QzAPUUoZQ3vWJDhgMUHhhBtf91mZeDlMAL+
+	1QlT3RmMcW9I3065l6SlOKjCzD+eE1Xoe/DV2fw+gV9M8rMrHEnjpzYFwp+Um+D0mp8hPN2cjzMT/
+	x8GIVu3LOeFzGk6Iq+6FeThOgQcQjEqX1VtdxwgiV7jofrz6ajhUFKRTDv8B5mz6bpR9H5Nw3XtWE
+	GWWAYYQ1U1bDwNiYnssw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNZnN-00CNZd-0N;
-	Wed, 10 Jan 2024 14:43:05 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rNZrM-00CObD-0b;
+	Wed, 10 Jan 2024 14:47:12 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNZnJ-00CNYn-13
-	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jan 2024 14:43:03 +0000
+	id 1rNZrI-00COZZ-0K;
+	Wed, 10 Jan 2024 14:47:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id B2FF5B81CD2;
-	Wed, 10 Jan 2024 14:42:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAAE3C433C7;
-	Wed, 10 Jan 2024 14:42:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704897779;
-	bh=AFSkkbHfhrMGjKTObrS4+Az4PqGEZgeRydKAgna01yk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hgFa3wsSXiUDfIW7lYT0djmbRxf2uNVnXqdkxdJHIeOrC4YLzwi9Nzq2b+zQyzF18
-	 rROYUHZrVoVjfykVIEA8HFIhh7E1gKE7b/XMr5KrXdsdOXoLgIGarIr2jc6sTan67i
-	 Ev2nnfgEnks9zWeWHaaktLClEAdPyaU/CNAe1XESVqj381sV9rqpWdOQGqWOyWXhZ3
-	 +IE2NkSFy+mh7xVC47KUBk9RZhTKGmpae+UWiX/qH5SGCyKd6ld3Y3xZWHDyZLsV1u
-	 UMiISJ9YK9o+SI/EIaLTSPw12j+230fkDPI27TXIn15rWfD5YmDLe/4BVgVZQwCE4/
-	 8bPxCcAGHadEA==
-Date: Wed, 10 Jan 2024 14:42:52 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Chen Wang <unicorn_wang@outlook.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com, krzysztof.kozlowski+dt@linaro.org,
-	mturquette@baylibre.com, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, richardcochran@gmail.com,
-	robh+dt@kernel.org, sboyd@kernel.org, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com, guoren@kernel.org, jszhang@kernel.org,
-	inochiama@outlook.com, samuel.holland@sifive.com,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v7 2/4] dt-bindings: clock: sophgo: support SG2042
-Message-ID: <20240110-untoasted-underfed-fe81479506f6@spud>
-References: <cover.1704694903.git.unicorn_wang@outlook.com>
- <925d99d5b4ece01337cb3389aaea4b631894dd1d.1704694903.git.unicorn_wang@outlook.com>
- <f88b79c3-e44b-4136-ae56-10e1f2502e2d@linaro.org>
- <MA0P287MB2822C7A3C1DC7786708E860BFE692@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+	by sin.source.kernel.org (Postfix) with ESMTP id 7BA53CE1B5F;
+	Wed, 10 Jan 2024 14:46:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0237C433F1;
+	Wed, 10 Jan 2024 14:46:37 +0000 (UTC)
+Message-ID: <aef3568c-7894-49c9-a7aa-b3c58b822b91@linux-m68k.org>
+Date: Thu, 11 Jan 2024 00:46:35 +1000
 MIME-Version: 1.0
-In-Reply-To: <MA0P287MB2822C7A3C1DC7786708E860BFE692@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+User-Agent: Mozilla Thunderbird
+Subject: Re: Call for nommu LTP maintainer [was: Re: [PATCH 00/36] Remove
+ UCLINUX from LTP]
+Content-Language: en-US
+To: Rob Landley <rob@landley.net>, Petr Vorel <pvorel@suse.cz>
+Cc: Cyril Hrubis <chrubis@suse.cz>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, ltp@lists.linux.it, Li Wang <liwang@redhat.com>,
+ Andrea Cervesato <andrea.cervesato@suse.com>,
+ Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Christophe Lyon <christophe.lyon@linaro.org>,
+ linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ automated-testing@lists.yoctoproject.org, buildroot@buildroot.org,
+ Niklas Cassel <niklas.cassel@wdc.com>
+References: <20240103015240.1065284-1-pvorel@suse.cz>
+ <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
+ <20240103114957.GD1073466@pevik>
+ <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
+ <ZZVOhlGPg5KRyS-F@yuki> <5a1f1ff3-8a61-67cf-59a9-ce498738d912@landley.net>
+ <20240105131135.GA1484621@pevik>
+ <90c1ddc1-c608-30fc-d5aa-fdf63c90d055@landley.net>
+ <20240108090338.GA1552643@pevik>
+ <a3d7f5ae-56c6-9cd8-2cda-2d50d12be9c4@landley.net>
+ <461a6556-8f24-48f5-811a-498cb44f2d64@linux-m68k.org>
+ <b3a8b9db-86ee-47c6-96e2-baa2cba61404@landley.net>
+From: Greg Ungerer <gerg@linux-m68k.org>
+In-Reply-To: <b3a8b9db-86ee-47c6-96e2-baa2cba61404@landley.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240110_064301_659186_A0803792 
-X-CRM114-Status: GOOD (  30.85  )
+X-CRM114-CacheID: sfid-20240110_064708_503315_1C777837 
+X-CRM114-Status: GOOD (  29.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,185 +78,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1326135591137855340=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1326135591137855340==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="oKRhGC3CUc0pW3v5"
-Content-Disposition: inline
+On 10/1/24 15:47, Rob Landley wrote:
+> On 1/9/24 17:17, Greg Ungerer wrote:
+>> On 10/1/24 06:24, Rob Landley wrote:
+>>> I'm a bit weird in that I try to get CURRENT stuff to work on nommu, and a lot
+>>> of people have been happy to consume my work, but getting any of them to post
+>>> directly to linux-kernel is like pulling teeth.
+>>
+>> I regularly test nommu configurations (as in every kernel rc and release) on m68k
+>> and at least every release on other architectures like arm(*) and recently on
+>> riscv as well.
+> 
+> Sigh, I should start caring about riscv. I added or1k support, I should do
+> riscv. (Except I did or1k because I found it in actual hardware, the Orange Pi
+> 3b's power controller is an or1k asic so I needed an or1k toolchain to build
+> some of u-boot's firmware or else the board couldn't reboot, and there was a
+> qemu-system-or1k already, which turned into adding it to mkroot via a long
+> https://lore.kernel.org/openrisc/ZX1xbs_AGdgLgcx7@antec/ thread with its
+> developers. Alas I still can't get qemu to exit (I.E. virtually reboot or power
+> off), apparently I need to reinstall my laptop to have a new enough version of
+> python 3 to build a newer qemu with. It's on the todo list...)
+> 
+> I still have a hard time considering riscv anything other than open source's
+> version of Itanium. Promises of ubiquity, but even a 28 nanometer mask is still
+> 6 figures before you run any wafers and your mask build process is sucking in
+> all the black box libraries the fab can sell you, so what does "open" really get
+> you here? Cortex-m got cheap when the superh patents expired so Arm didn't have
+> to pay royalties to hitachi (renesas?) for the thumb instruction set anymore,
+> and they belt those suckers en masse amortizing the up-front costs over ENORMOUS
+> volume.
+> 
+> And yes, j-core was trying to fix the closed source library and toolchain issues
+> back when I was still working with them. Among other things fishing
+> Google/skywater's openlane toolchain build out of their magic docker and
+> reproducing it under a vanilla debootstrap, ala
+> https://github.com/j-core/openlane-vhdl-build (As with most corporate
+> clusterfscks, once you dig far enough it turns out you can throw over 90% of it
+> out...)
+> 
+> But these days I'm trying to get toybox to 1.0...
+> 
+>> (*) somewhat annoyingly needing a minor patch to run the versatile qemu platform
+>>       I like to test with. But hey, that is on me :-)
+> 
+> I would very much like to add more nommu targets to mkroot, can I get your
+> build/config info offline? (I tried fishing configs out of buildroot a couple
+> years ago, but after the THIRD one where the secret was "use very old versions
+> of packages, the current stuff is broken"... And the problems were things like
+> "the conversion to device tree deleted a huge chunk of this infrastructure", not
+> simple fixes.)
+
+Maybe getting a little off-topic here, but I'll just send links here.
+Who knows it might be useful to others.
+
+Recently I have been experimenting with minimal builds, this is a bunch of
+scripts, configs and a couple of patches I currently have:
+
+     https://github.com/gregungerer/simple-linux
+
+Mostly the kernel builds use the architecture defconfigs, but for armnommu
+versatile it was easier to use a dedicated config and patch:
+
+     https://github.com/gregungerer/simple-linux/blob/master/configs/linux-6.6-armnommu-versatile.config
+     https://github.com/gregungerer/simple-linux/blob/master/patches/linux-6.6-armnommu-versatile.patch
+
+Anyway the scripting uses the newest package versions of everything
+(binutils, gcc, linux, uClibc, busybox).
+
+Regards
+Greg
 
 
---oKRhGC3CUc0pW3v5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey,
-
-On Wed, Jan 10, 2024 at 08:53:42AM +0800, Chen Wang wrote:
-> On 2024/1/8 15:04, Krzysztof Kozlowski wrote:
-> > On 08/01/2024 07:49, Chen Wang wrote:
-> > > From: Chen Wang <unicorn_wang@outlook.com>
-> > >=20
-> > > Add bindings for the clock generator on the SG2042 RISC-V SoC.
-> > >=20
-> > > Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > ---
-> > >   .../bindings/clock/sophgo,sg2042-clkgen.yaml  |  53 ++++++
-> > >   .../dt-bindings/clock/sophgo,sg2042-clkgen.h  | 169 +++++++++++++++=
-+++
-> > >   2 files changed, 222 insertions(+)
-> > >   create mode 100644 Documentation/devicetree/bindings/clock/sophgo,s=
-g2042-clkgen.yaml
-> > >   create mode 100644 include/dt-bindings/clock/sophgo,sg2042-clkgen.h
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/clock/sophgo,sg2042-cl=
-kgen.yaml b/Documentation/devicetree/bindings/clock/sophgo,sg2042-clkgen.ya=
-ml
-> > > new file mode 100644
-> > > index 000000000000..f9935e66fc95
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/clock/sophgo,sg2042-clkgen.ya=
-ml
-> > > @@ -0,0 +1,53 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/clock/sophgo,sg2042-clkgen.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: Sophgo SG2042 Clock Generator
-> > > +
-> > > +maintainers:
-> > > +  - Chen Wang <unicorn_wang@outlook.com>
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    const: sophgo,sg2042-clkgen
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > > +
-> > > +  sophgo,system-ctrl:
-> > > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > > +    description:
-> > > +      Phandle to SG2042 System Controller node. On SG2042, part of c=
-ontrol
-> > > +      registers of Clock Controller are defined in System controller=
-=2E Clock
-> > > +      driver will use this phandle to get the register map base to p=
-lus the
-> > > +      offset of the registers to access them.
-> > Do not describe the driver, but hardware. What registers are in
-> > system-ctrl? What are their purpose? Why this hardware needs them?
-> Understood, will fix the words in revision, thanks.
-
-I hope that I am not misunderstanding things, but I got a bit suspicious
-of this binding and look at the driver, and saw that there are clocks
-registered like:
-
-| static int sg2042_clk_register_gates(struct sg2042_clk_data *clk_data,
-| 				     const struct sg2042_gate_clock gate_clks[],
-| 				     int num_gate_clks)
-| {
-| 	struct clk_hw *hw;
-| 	const struct sg2042_gate_clock *gate;
-| 	int i, ret =3D 0;
-| 	void __iomem *reg;
-|=20
-| 	for (i =3D 0; i < num_gate_clks; i++) {
-| 		gate =3D &gate_clks[i];
-| 		if (gate->flag_sysctrl)
-| 			reg =3D clk_data->iobase_syscon + gate->offset_enable;
-| 		else
-| 			reg =3D clk_data->iobase + gate->offset_enable;
-
-iobase_syscon is the base address of the system controller that this
-property points at & iobase is the base address of the clock controller
-itself.
-
-| 		hw =3D clk_hw_register_gate(NULL,
-| 					  gate->name,
-| 					  gate->parent_name,
-| 					  gate->flags,
-| 					  reg,
-| 					  gate->bit_idx,
-| 					  0,
-| 					  &sg2042_clk_lock);
-
-As far as I can tell, in this particular case, for any gate clock that
-flag_sysctrl is set, none of the registers actually lie inside the
-clkgen region, but instead are entirely contained in the sysctrl region.
-
-I think that this is because your devicetree does not correctly define
-the relationship between clocks, and these clocks are actually provided
-by the system controller block and are inputs to the clkgen block.
-
-| 		if (IS_ERR(hw)) {
-| 			pr_err("failed to register clock %s\n", gate->name);
-| 			ret =3D PTR_ERR(hw);
-| 			break;
-| 		}
-|=20
-| 		clk_data->onecell_data.hws[gate->id] =3D hw;
-| 	}
-|=20
-| 	/* leave unregister to outside if failed */
-| 	return ret;
-| }
-
-I had a much briefer look at the `sg2042_pll_clock`s that make use of
-the regmap, and it doesn't seem like they "mix and match" registers
-between both blocks, and instead only have registers in the system
-controller? If so, it doesn't seem like this clkgen block should be
-providing the PLL clocks either, but instead be taking them as inputs.
-
-Reading stuff like
-https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/system-con=
-trol.rst#pll_stat-offset-0x0c0
-(and onwards) makes it seem like those PLLs are fully contained within
-the system controller register space.
-
-It seems like
-https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/clock-reg.=
-rst
-is the register map for the clkgen region? It seems like that region
-only contains gates and divider clocks, but no PLLs.
-
-Am I missing something, or is this description of the clock controllers
-on the soc incomplete?
-
-Cheers,
-Conor.
-
---oKRhGC3CUc0pW3v5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZZ6s7AAKCRB4tDGHoIJi
-0jF+AP9U7Ip0sysdDHuU+lFng6/5u2ae4C0Zbk+jM2PBGR7HbAEA0T6L0+7y1+bA
-lUN9qeJRKWXmmXuVZl3nwSez1T3RUAU=
-=tbPZ
------END PGP SIGNATURE-----
-
---oKRhGC3CUc0pW3v5--
-
-
---===============1326135591137855340==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1326135591137855340==--
-
