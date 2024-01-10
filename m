@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D226C4707B
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 13:48:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946C9C4707C
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 13:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ah6SgMK0+RwgZw4cAUWFerkZbV9hAIaZ9l02zjhHHw4=; b=1/ZLt1kJXYUrVrsIgtUn2IGnYy
-	lFfmSUam8uX3/dPBGcaYSMp65He7CwQD5UlRYqg11Kj9LWC4EbzUN7fZod18yKokZUNrhOfjz7h7D
-	LAYWGoUnzVa9hoDAd1siVUckbhD7aj6Q9J17KfbV4NatcUgruFNg3gWaEalgms4e214Cv3Ddc1HfR
-	KMivWUyNVkTxfZct8Nct96UZW64KBjHaW+lc8GClIsz/jliZnUVqg5yC4ryZLcFF7IfPr8wpAE3BF
-	KK0FcJ+u6xVG68JQPslv0GYz/IgvVfpnjcbo4SSwuTIy8kwxEwBQVBYLt09sl85DeYPJSkoHuo/o0
-	X9cxHLkQ==;
+	bh=M4rq4GsXPQBa/lNX1Lya3+iFfPAGer2zWUfwBY77HsY=; b=jAEgE+yu1Prm18UMTTLU/G2W83
+	G+XN8FyYRt7hiWh/x229INiCogEHPGjF+dLcJVh7pHjI47XlnNnpkUMmpDcNqdE21xOnv6Yjei1/7
+	cjnHjp2hWTtEw25IKvtrYhwp9Tc/0bzH5i/09GWploRW5d8RxJ8BEUO4r6trglqJjU2rsJ+kBIkBS
+	NdgYtlDEaLWNDaeEbkxR+fALRf/9Q+NFYrhOlYeNI4syTHA1ic9tjhm/2vb70zY/eWqM72KPaQRUK
+	oLEZbqd5un/eHXXIJcQAN4ISR9tdhpUmJFzVB8MTEyNZb0lpmIT6f5dpfqMe+n+wRhHFR0x4Mstbs
+	mJqABKXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNYwa-00C5bP-2b;
-	Wed, 10 Jan 2024 13:48:32 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rNZ1G-00C7WC-0q;
+	Wed, 10 Jan 2024 13:53:22 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNYwX-00C5Z6-2F;
-	Wed, 10 Jan 2024 13:48:31 +0000
+	id 1rNZ1C-00C7Um-2I
+	for linux-riscv@lists.infradead.org;
+	Wed, 10 Jan 2024 13:53:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 2A253B81D6A;
-	Wed, 10 Jan 2024 13:48:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14496C433C7;
-	Wed, 10 Jan 2024 13:48:22 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 25073B81D6E;
+	Wed, 10 Jan 2024 13:53:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41C05C433C7;
+	Wed, 10 Jan 2024 13:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704894507;
-	bh=Mpj9MmpWsZ0QXa3z+JG9y8iO9570kyRUme6G8UyY3ns=;
+	s=k20201202; t=1704894796;
+	bh=jlMp/lpi2wGBwS24WgYMjKdamYROtFScTQ27uHssC90=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V1jPPPfbtZjWicjR/pXvV3fvfEd+WTpUYKesK1ver/unl0yUXsY4TkjQIutQjBRsP
-	 rP/Oz0q/0h14UEjOgFaxFG624+eWlJ/AO+ivv3TYC1sZnL+hL4/+Alo/46tP000hXg
-	 zplNZ64lLrfkj8J9hOzdzzP2smKm7MeEZ/IYISeNp94tvvX509RdtM1WHeyhjMm5jx
-	 6PVp6J9lR2f0adpYnosG4kNDW+C6yKAzSmFoUpH39oONuTUSb402zXo2PYbzqdDyDw
-	 8BKfIvBQaR2VfeSzJy9k28uur98lcaUtFQRjhOYk1Xziu9Q+q1jecwOjEuD67FrH9y
-	 AnuUlci6GEj1Q==
-Date: Wed, 10 Jan 2024 13:48:20 +0000
+	b=p1LOsVQsdC6C0Ev+AVzJ6qcas/m9YtdmXZwSJirqRWZMAASZHZJSzm7BmlZbb3LdO
+	 A/+bAeG0/3+OvM5+cG3kismKx4ZWGKn9JGzIXmqx/+uWOLXL5stNY1cFlhmF+/XbPm
+	 G46Ip3Z39F6OLqeeTO3FPoUDZZ1nTvXcuaAIw0oinmOzZnKy7lr6UCFQbldsJR1fiy
+	 43crXl/NLmVHV8fhegmrW9mp4Do+WkH8a8emgIkguxqtP88veZRVVeRBN7psiKffOz
+	 DPaDY6BBtVBeUr3JrbJvvBYkIt6SH2Sh6V9ecRAT38GHi1JHQJ5At/sogKFLzig3So
+	 PapKmX/sgVHoQ==
+Date: Wed, 10 Jan 2024 13:53:11 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: akpm@linux-foundation.org, llvm@lists.linux.dev,
-	patches@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-efi@vger.kernel.org, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org,
-	linux-arch@vger.kernel.org, kasan-dev@googlegroups.com,
-	linux-mm@kvack.org, bridge@lists.linux.dev, netdev@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 2/3] arch and include: Update LLVM Phabricator links
-Message-ID: <20240110-apostle-trident-533d4c2c9c97@spud>
-References: <20240109-update-llvm-links-v1-0-eb09b59db071@kernel.org>
- <20240109-update-llvm-links-v1-2-eb09b59db071@kernel.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] riscv: dts: starfive: add Milkv Mars board device
+ tree
+Message-ID: <20240110-eternal-proofing-8a33201ff727@spud>
+References: <20231202153353.635-1-jszhang@kernel.org>
+ <CAJM55Z-9Y=QitvAX+z=XTTMM0CGRzGMD5z0H_Bzv=Q85b49rpQ@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20240109-update-llvm-links-v1-2-eb09b59db071@kernel.org>
+In-Reply-To: <CAJM55Z-9Y=QitvAX+z=XTTMM0CGRzGMD5z0H_Bzv=Q85b49rpQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240110_054829_892223_40699571 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20240110_055319_080951_69674C61 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,62 +73,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1058759810892293456=="
+Content-Type: multipart/mixed; boundary="===============3030111271730376909=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1058759810892293456==
+--===============3030111271730376909==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="p6SYI+U6gP5vpK1M"
+	protocol="application/pgp-signature"; boundary="ggN6li4P/Qv8olF8"
 Content-Disposition: inline
 
 
---p6SYI+U6gP5vpK1M
+--ggN6li4P/Qv8olF8
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Jan 09, 2024 at 03:16:30PM -0700, Nathan Chancellor wrote:
-> reviews.llvm.org was LLVM's Phabricator instances for code review. It
-> has been abandoned in favor of GitHub pull requests. While the majority
-> of links in the kernel sources still work because of the work Fangrui
-> has done turning the dynamic Phabricator instance into a static archive,
-> there are some issues with that work, so preemptively convert all the
-> links in the kernel sources to point to the commit on GitHub.
+On Sat, Dec 02, 2023 at 02:07:50PM -0800, Emil Renner Berthing wrote:
+> Jisheng Zhang wrote:
+> > The Milkv Mars is a development board based on the Starfive JH7110 SoC.
+> > The board features:
+> >
+> > - JH7110 SoC
+> > - 1/2/4/8 GiB LPDDR4 DRAM
+> > - AXP15060 PMIC
+> > - 40 pin GPIO header
+> > - 3x USB 3.0 host port
+> > - 1x USB 2.0 host port
+> > - 1x M.2 E-Key
+> > - 1x eMMC slot
+> > - 1x MicroSD slot
+> > - 1x QSPI Flash
+> > - 1x 1Gbps Ethernet port
+> > - 1x HDMI port
+> > - 1x 2-lane DSI and 1x 4-lane DSI
+> > - 1x 2-lane CSI
+> >
+> > patch1 adds 'cpus' label
+> > patch2 adds "milkv,mars" board dt-binding
+> > patch3 adds the devicetree file describing the currently supported
+> > features:
+> > Namely PMIC, UART, I2C, GPIO, SD card, QSPI Flash, eMMC and Ethernet.
+> >
+> > Since v1:
+> >  - add two new patches which add "cpus" label and board dt-binding
+> >  - adopt Krzysztof's suggestions, thanks
+> >
+> > Hi Conor,
+> >
+> > I see you have sent a patch which moves the timebase-frequency property
+> > to soc dtsi, but this series doesn't rebase on that. I can update it
+> > once your patch is merged.
 >=20
-> Most of the commits have the corresponding differential review link in
-> the commit message itself so there should not be any loss of fidelity in
-> the relevant information.
+> Hi Jisheng,
 >=20
-> Link: https://discourse.llvm.org/t/update-on-github-pull-requests/71540/1=
-72
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
+> Thanks for working on this! On the JH7110 the mtime derives almost direct=
+ly
+> from the external oscillator like this:
+>=20
+> osc (24MHz) -> rtc_toggle (div 6) -> mtime (4MHz)
+>=20
+> So to me it makes sense to define the timebase-frequency in the same file=
+ as
+> the frequency of the external oscillator.
+>=20
+> In general it looks good, but if you do
+>=20
+>   diff -Naur jh7110-{starfive-visionfive-2.dtsi,milkv-mars.dts}
+>=20
+> you'll see that those two files are almost identical. Even external clock
+> speeds and all the pin configuration are the same. I'd strongly prefer to=
+ have
+> all that factored out in a common .dtsi so fixes don't get out of sync.
 
->  arch/riscv/Kconfig              | 2 +-
->  arch/riscv/include/asm/ftrace.h | 2 +-
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+I'm gonna mark this as changes requested on patchwork because of this
+comment. LMK if you don't think this is worth another version Emil.
 
 Cheers,
 Conor.
 
---p6SYI+U6gP5vpK1M
+--ggN6li4P/Qv8olF8
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZZ6gJAAKCRB4tDGHoIJi
-0mIlAQCj5ZP6QEhEswWYjX38obn/p3pF8mt+Ve+vlBnVEhAW8QD8ClRvKxDiajR5
-Zp8ES/FLDyH/QJ5QjGuYLP5PATLeFAY=
-=SqXc
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZZ6hRwAKCRB4tDGHoIJi
+0ogBAP4x6iIaTIAS0a/hkKmtjptbBiq1ANLlQfOZxqAPiMlsUwEA5dWpLAZgdPrE
+K8VcCEsLp5nb905zt+fOFYC1bPFoEQY=
+=aqtW
 -----END PGP SIGNATURE-----
 
---p6SYI+U6gP5vpK1M--
+--ggN6li4P/Qv8olF8--
 
 
---===============1058759810892293456==
+--===============3030111271730376909==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -142,5 +177,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1058759810892293456==--
+--===============3030111271730376909==--
 
