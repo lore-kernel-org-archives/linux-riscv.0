@@ -4,137 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADDF1C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 07:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF89C47073
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 07:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WebVU/xKZFvDZTYNadF68NunEmTezeIydDEDySE3YYk=; b=e8IieMilbfL55m
-	aMGICog2ncVnZFxem9it39LJBwio60AZZojnAB6c3gPWxtvP3nB61gtz/PCYJO6PvStMY/WzuHTn1
-	3XgPDdxk8kCvBYl4lDFofyHMGw1U2yhDyFGqRySFveUecj11nlli7XQTw/UgFBrjpCNLylsEeP5G0
-	GXTfSdZXeosORTUc2BaK5z5EfVU6zN5hK4jOkIeh97snu7i/NyiEegNdvaYYFaXpiVdylaQl0wBBG
-	punFhGcE7ah3S8WoGMH8JNjEmrnMlEBlrZnEgNqbTa1hHxJHJBCxV0qAbukpsVOnf1imT1ZbctKTy
-	a4JSpt9EKAu1qOABW8PQ==;
+	List-Owner; bh=mHVi8LwSw3XntvyRzPblDyjuH3Gv+PJlhZzBG0aO+RY=; b=b1V/Mcpp3WdW9v
+	bJAKLqASiXjt8whIkQJd8J2FRGYet8hFi85rTpFYa/n2+UYozQcl28G3aJFfA1i2NfZYXkDU3MxR7
+	R5LCf7NLhdj7SxCxYKY5i3duse8JchaxsELFc6AfEZru8pr0K2PRsWUnCvRbY97Gc3SrlM9GGQuAG
+	ZrmvI6IxQfIzi5gYx1YuMnMRkmvaXhUIMhIkq9L/bhLrXYKQXqRNMnK+MctSRXQsd6U2c40Q7HbSJ
+	z/ot9996EffSjashEI9gns2TsimFIK8Qd7XkCqgX59ebzPaYSZaNTzx53nKTNhTVZ5tKhmFHkguaO
+	M76hy7UsB+Jwam72F1mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNSwt-00AbAW-1X;
-	Wed, 10 Jan 2024 07:24:27 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1rNTDG-00AdOm-1U;
+	Wed, 10 Jan 2024 07:41:22 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNSwq-00Ab9x-1J
-	for linux-riscv@lists.infradead.org;
-	Wed, 10 Jan 2024 07:24:25 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-557bfc7f7b4so4523307a12.0
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Jan 2024 23:24:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1704871460; x=1705476260; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Azmp4KYfdL3dOyr5tehq9G4ZZFHnH/CcRj4pQ5xag0A=;
-        b=UGLn4ZvB4g9BZYev5dr7eTUPOiBeaMpiKPQARrHZxOx4HvAWatSrIKzABBBqgBC5st
-         2eQ29Yo1svzETUzSGvcAyQbpDfwot8e1sH/qbIgtemj8P4z/5UYNaxFZG7DUXZbCuhuD
-         vre2/cU8pkSXM9EqvT7l/1Qx0mS4DTneMASolOKmAiLXugYlVs8mo6zGdHMgddGL2u1r
-         XiHeQR982faoYrIK5ExE58LGdUXU/v85DnrLFjCW15Qa+CL/f3BQQ9D3TT6h5/6PPDH4
-         8rh75b7y4koITD0tnOmXlEBVYecvE5nJ6LgcJb4+ee47bEWym3JLmx5d1g9VCnOcIKht
-         7blA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704871460; x=1705476260;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Azmp4KYfdL3dOyr5tehq9G4ZZFHnH/CcRj4pQ5xag0A=;
-        b=LqF68rPbEqViD+ncP5awweYYl9Da/oeaXKGl4GPFuvUmIBuH8SBMLbT6n+kn36J13P
-         /5qeTzlaPORZelOBqzWwihpCWq7qoss4JTzm8dlDFpB/1BnsFxfB9Sug8a6/ml8GQJDo
-         5S+mdTrC3cb7DNfn9bwyofeDKFSJ+ar7eRfZjROmP+87Y1M4BndK++6BmMJ5xce5cNfl
-         T2s53xgfuLI/dAFq/M1pZfJ0j/oBFvmyHzVX9yA9vF+Kd7kxr3E3vs6h46Ska5dknK1J
-         NqmR5nKSuHzOfn2UUl92txol5f+rfXiF/rZiPToHusL06zxXKKfSzIo4PqJZkCd6xcyV
-         EX0g==
-X-Gm-Message-State: AOJu0YzovYJnBumF32cO6f2yKBdnwJuTKw0rgr36tzAdt0RwrhPG4YMq
-	j4wW6rbSgeQfrghINrFSslJHHoVE8u9FYQ==
-X-Google-Smtp-Source: AGHT+IFkVQyE5+aFuxGwgRFAAjNGnDl/rHG5MuVqbRusqX4yFBREGEWzFohuKpqGHIN4f7vgEZ4+aA==
-X-Received: by 2002:a17:907:77c1:b0:a2a:19eb:9144 with SMTP id kz1-20020a17090777c100b00a2a19eb9144mr2067875ejc.1.1704871460370;
-        Tue, 09 Jan 2024 23:24:20 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.223.112])
-        by smtp.gmail.com with ESMTPSA id p11-20020a170906140b00b00a26b3f29f3dsm1801270ejc.43.2024.01.09.23.24.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Jan 2024 23:24:19 -0800 (PST)
-Message-ID: <36531917-7319-40d5-a5d9-1b5977be7849@linaro.org>
-Date: Wed, 10 Jan 2024 08:24:17 +0100
+	id 1rNTD8-00AdJJ-1N;
+	Wed, 10 Jan 2024 07:41:16 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 40A7dvTS086483;
+	Wed, 10 Jan 2024 15:39:57 +0800 (+08)
+	(envelope-from peterlin@andestech.com)
+Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Wed, 10 Jan 2024
+ 15:39:53 +0800
+From: Yu Chien Peter Lin <peterlin@andestech.com>
+To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
+        <alexander.shishkin@linux.intel.com>, <andre.przywara@arm.com>,
+        <anup@brainfault.org>, <aou@eecs.berkeley.edu>,
+        <atishp@atishpatra.org>, <conor+dt@kernel.org>,
+        <conor.dooley@microchip.com>, <conor@kernel.org>,
+        <devicetree@vger.kernel.org>, <dminus@andestech.com>,
+        <evan@rivosinc.com>, <geert+renesas@glider.be>, <guoren@kernel.org>,
+        <heiko@sntech.de>, <irogers@google.com>, <jernej.skrabec@gmail.com>,
+        <jolsa@kernel.org>, <jszhang@kernel.org>,
+        <krzysztof.kozlowski+dt@linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-perf-users@vger.kernel.org>,
+        <linux-renesas-soc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-sunxi@lists.linux.dev>, <locus84@andestech.com>,
+        <magnus.damm@gmail.com>, <mark.rutland@arm.com>, <mingo@redhat.com>,
+        <n.shubin@yadro.com>, <namhyung@kernel.org>, <palmer@dabbelt.com>,
+        <paul.walmsley@sifive.com>, <peterlin@andestech.com>,
+        <peterz@infradead.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <rdunlap@infradead.org>, <robh+dt@kernel.org>, <samuel@sholland.org>,
+        <sunilvl@ventanamicro.com>, <tglx@linutronix.de>,
+        <tim609@andestech.com>, <uwu@icenowy.me>, <wens@csie.org>,
+        <will@kernel.org>, <ycliang@andestech.com>, <inochiama@outlook.com>,
+        <chao.wei@sophgo.com>, <unicorn_wang@outlook.com>, <wefu@redhat.com>
+Subject: [PATCH v7 06/16] perf: RISC-V: Eliminate redundant interrupt enable/disable operations
+Date: Wed, 10 Jan 2024 15:39:07 +0800
+Message-ID: <20240110073917.2398826-7-peterlin@andestech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240110073917.2398826-1-peterlin@andestech.com>
+References: <20240110073917.2398826-1-peterlin@andestech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/4] dt-bindings: soc: sophgo: Add Sophgo system
- control module
-Content-Language: en-US
-To: Chen Wang <unicorn_wang@outlook.com>, Chen Wang <unicornxw@gmail.com>,
- aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, mturquette@baylibre.com,
- palmer@dabbelt.com, paul.walmsley@sifive.com, richardcochran@gmail.com,
- robh+dt@kernel.org, sboyd@kernel.org, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com,
- xiaoguang.xing@sophgo.com, guoren@kernel.org, jszhang@kernel.org,
- inochiama@outlook.com, samuel.holland@sifive.com
-References: <cover.1704694903.git.unicorn_wang@outlook.com>
- <acebc88db3e5fcd2a2607b56842af7443a6e1289.1704694903.git.unicorn_wang@outlook.com>
- <cc7cc943-7242-4fd1-9b56-3ece0a418e05@linaro.org>
- <MA0P287MB2822E54A6DD36F914DB56E98FE6B2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
- <1e1ef0a0-6639-4a4d-9b4e-50bcee3fb3c5@linaro.org>
- <MA0P287MB2822C1F51E9F03137EF42093FE6A2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
- <60abfdcc-3d61-4df1-b77b-23d4a5d26a46@linaro.org>
- <MA0P287MB28223C0D5BD8E2A6A042A7BEFE692@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <MA0P287MB28223C0D5BD8E2A6A042A7BEFE692@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+X-Originating-IP: [10.0.15.183]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 40A7dvTS086483
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240109_232424_444513_E8F0B7FD 
-X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-CacheID: sfid-20240109_234114_917113_F253D170 
+X-CRM114-Status: UNSURE (   8.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -152,27 +87,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/01/2024 01:44, Chen Wang wrote:
+The interrupt enable/disable operations are already performed by the
+IRQ chip functions riscv_intc_irq_unmask()/riscv_intc_irq_mask() during
+enable_percpu_irq()/disable_percpu_irq(). It can be done only once.
 
->>> clocks." may cause misunderstanding. I plan to change it to "The Sophgo
->>> SG2042 SoC system controller provides register information such as
->>> offset, mask and shift to configure related modules such as clock." Is
->>> this better?
->>>
->> Still does not make sense. To provide "offset" means that some other
->> hardware reads sophgo module to get the value of offset. That's not the
->> case here.
-> 
-> I'm probably starting to understand what you mean. How about changing it 
-> to the following?
-> 
-> The Sophgo system controller is a registers block, providing multiple 
-> low level platform functions like chip configuration, clock control, etc.
+Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+---
+This patch allows us to drop unnecessary ALT_SBI_PMU_OVF_{DISABLE,ENABLE}
+in the initial PATCH3 [1].
 
-Yes, that sounds good.
+[1] https://patchwork.kernel.org/project/linux-riscv/patch/20230907021635.1002738-4-peterlin@andestech.com/
 
-Best regards,
-Krzysztof
+Changes v1 -> v2:
+  - New patch
+Changes v2 -> v3:
+  - No change
+Changes v3 -> v4:
+  - No change
+Changes v4 -> v5:
+  - No change
+Changes v5 -> v6:
+  - No change
+Changes v6 -> v7:
+  - No change
+---
+ drivers/perf/riscv_pmu_sbi.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 16acd4dcdb96..2edbc37abadf 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -781,7 +781,6 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ 	if (riscv_pmu_use_irq) {
+ 		cpu_hw_evt->irq = riscv_pmu_irq;
+ 		csr_clear(CSR_IP, BIT(riscv_pmu_irq_num));
+-		csr_set(CSR_IE, BIT(riscv_pmu_irq_num));
+ 		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
+ 	}
+ 
+@@ -792,7 +791,6 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
+ {
+ 	if (riscv_pmu_use_irq) {
+ 		disable_percpu_irq(riscv_pmu_irq);
+-		csr_clear(CSR_IE, BIT(riscv_pmu_irq_num));
+ 	}
+ 
+ 	/* Disable all counters access for user mode now */
+-- 
+2.34.1
 
 
 _______________________________________________
