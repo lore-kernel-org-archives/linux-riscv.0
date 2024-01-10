@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E6B5C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 07:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98727C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Jan 2024 07:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P4VjaJvUpWwBjIXXjLPBF54VNvYk0trr9oRxufeMiqk=; b=hHB8a9WHsFuNQd
-	nQVXwFu6s5CAdaciBx3p39VeDN9f3flCXL3buvx9r0xSSHym2xu2IvgwVM01TCZ9lu/vS0ZwPBSSA
-	nHQuY38v8RMTgODSf1bqwbPRJF7hx02JnxfZL9tuMyaeMtGxEWQAbMx3W6j5e/UkQKHDvAEEl1wq8
-	au4Xp/eNDM9NeCIjIw/TgNuy8uy6sfLYV2OeA0DmFmQGLL+n8hR8XZ9mYxPXAqzZohcg3TekTMmr5
-	jwak/seIPsbcX+g+uoa4N8Y6sad9zVzjq2PX1NUw1oID2jeuSBuh0m1rs3PjC30zVBudizN3wOL2s
-	kwv3xDphXeujUCCguAyg==;
+	List-Owner; bh=mCsc7D3zC71FGHl/CkhTUpFTHQg+4nC/JJG8fAFxDjg=; b=o3WRgmsappxxlU
+	4/zrVJvcn1oChkk3ieF1Ds/PjkAU9p81UAqXDAgHqXXegj1JWOHQrLVtAWTBHT5MdGxTsJeh7jxdT
+	8lszHtOWiFWr6x93VRf6Edd4l2Dk2pu4hFF/RI0W4zCZD77kC53Z05PpN2jSNeXd+wU3WB8fwtnuc
+	XvVA+mTWiSkGZ0z8ZI8y9m6870YHopK+zOt1ChJGoU4Ig8sL6I5zEnkNx/tiRofO4vJ5JuhTWozpN
+	gA6efiu9HxIZ4BPiF9vBoEVNa2ac/wdUyBn7C0Chf/3AziD8v90siEXqcO6FI7TIAZqAw383lZ5Dz
+	gCDLWP4N4T+TvJ5Ta6fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNTDD-00AdNy-1t;
-	Wed, 10 Jan 2024 07:41:19 +0000
+	id 1rNTDK-00AdPl-1i;
+	Wed, 10 Jan 2024 07:41:26 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNTD7-00AdJ5-0O;
-	Wed, 10 Jan 2024 07:41:15 +0000
+	id 1rNTD8-00AdJF-1M;
+	Wed, 10 Jan 2024 07:41:16 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 40A7e3gj086670;
-	Wed, 10 Jan 2024 15:40:03 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 40A7dWRX086371;
+	Wed, 10 Jan 2024 15:39:32 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Wed, 10 Jan 2024
- 15:39:58 +0800
+ 15:39:28 +0800
 From: Yu Chien Peter Lin <peterlin@andestech.com>
 To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <alexander.shishkin@linux.intel.com>, <andre.przywara@arm.com>,
@@ -57,19 +57,19 @@ To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <tim609@andestech.com>, <uwu@icenowy.me>, <wens@csie.org>,
         <will@kernel.org>, <ycliang@andestech.com>, <inochiama@outlook.com>,
         <chao.wei@sophgo.com>, <unicorn_wang@outlook.com>, <wefu@redhat.com>
-Subject: [PATCH v7 07/16] RISC-V: Move T-Head PMU to CPU feature alternative framework
-Date: Wed, 10 Jan 2024 15:39:08 +0800
-Message-ID: <20240110073917.2398826-8-peterlin@andestech.com>
+Subject: [PATCH v7 01/16] riscv: errata: Rename defines for Andes
+Date: Wed, 10 Jan 2024 15:39:02 +0800
+Message-ID: <20240110073917.2398826-2-peterlin@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240110073917.2398826-1-peterlin@andestech.com>
 References: <20240110073917.2398826-1-peterlin@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 40A7e3gj086670
+X-MAIL: Atcsqr.andestech.com 40A7dWRX086371
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240109_234113_615356_B34A359E 
-X-CRM114-Status: GOOD (  18.62  )
+X-CRM114-CacheID: sfid-20240109_234114_935988_1285086D 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,223 +86,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The custom PMU extension aims to support perf event sampling prior
-to the ratification of Sscofpmf. Instead of diverting the bits and
-register reserved for future standard, a set of custom registers is
-added.  Hence, we may consider it as a CPU feature rather than an
-erratum.
-
-T-Head cores need to append "xtheadpmu" to the riscv,isa-extensions
-for each cpu node in device tree, and enable CONFIG_THEAD_CUSTOM_PMU
-for proper functioning as of this commit.
+Use "ANDES" rather than "ANDESTECH" to unify the naming
+convention with directory, file names, Kconfig options
+and other definitions.
 
 Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
-Reviewed-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Charles Ci-Jyun Wu <dminus@andestech.com>
+Reviewed-by: Leo Yu-Chi Liang <ycliang@andestech.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
 Changes v1 -> v2:
-  - New patch
-Changes v2 -> v3:
-  - Removed m{vendor/arch/imp}id checks in pmu_sbi_setup_irqs()
-Changes v3 -> v4:
   - No change
+Changes v2 -> v3:
+  - Rewrite commit message (suggested by Conor)
+Changes v3 -> v4:
+  - Include Conor's Acked-by tag
 Changes v4 -> v5:
-  - Include Guo's Reviewed-by
-  - Let THEAD_CUSTOM_PMU depend on ARCH_THEAD
+  - Include Prabhakar's RB tag
 Changes v5 -> v6:
-  - Include Conor's Reviewed-by
+  - No change
 Changes v6 -> v7:
   - No change
 ---
- arch/riscv/Kconfig.errata            | 13 -------------
- arch/riscv/errata/thead/errata.c     | 19 -------------------
- arch/riscv/include/asm/errata_list.h | 15 +--------------
- arch/riscv/include/asm/hwcap.h       |  1 +
- arch/riscv/kernel/cpufeature.c       |  1 +
- drivers/perf/Kconfig                 | 13 +++++++++++++
- drivers/perf/riscv_pmu_sbi.c         | 19 ++++++++++++++-----
- 7 files changed, 30 insertions(+), 51 deletions(-)
+ arch/riscv/errata/andes/errata.c       | 10 +++++-----
+ arch/riscv/include/asm/errata_list.h   |  4 ++--
+ arch/riscv/include/asm/vendorid_list.h |  2 +-
+ arch/riscv/kernel/alternative.c        |  2 +-
+ 4 files changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-index e2c731cfed8c..0d19f47d1018 100644
---- a/arch/riscv/Kconfig.errata
-+++ b/arch/riscv/Kconfig.errata
-@@ -86,17 +86,4 @@ config ERRATA_THEAD_CMO
+diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes/errata.c
+index 17a904869724..f2708a9494a1 100644
+--- a/arch/riscv/errata/andes/errata.c
++++ b/arch/riscv/errata/andes/errata.c
+@@ -18,9 +18,9 @@
+ #include <asm/sbi.h>
+ #include <asm/vendorid_list.h>
  
- 	  If you don't know what to do here, say "Y".
+-#define ANDESTECH_AX45MP_MARCHID	0x8000000000008a45UL
+-#define ANDESTECH_AX45MP_MIMPID		0x500UL
+-#define ANDESTECH_SBI_EXT_ANDES		0x0900031E
++#define ANDES_AX45MP_MARCHID		0x8000000000008a45UL
++#define ANDES_AX45MP_MIMPID		0x500UL
++#define ANDES_SBI_EXT_ANDES		0x0900031E
  
--config ERRATA_THEAD_PMU
--	bool "Apply T-Head PMU errata"
--	depends on ERRATA_THEAD && RISCV_PMU_SBI
--	default y
--	help
--	  The T-Head C9xx cores implement a PMU overflow extension very
--	  similar to the core SSCOFPMF extension.
--
--	  This will apply the overflow errata to handle the non-standard
--	  behaviour via the regular SBI PMU driver and interface.
--
--	  If you don't know what to do here, say "Y".
--
- endmenu # "CPU errata selection"
-diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-index 0554ed4bf087..5de5f7209132 100644
---- a/arch/riscv/errata/thead/errata.c
-+++ b/arch/riscv/errata/thead/errata.c
-@@ -53,22 +53,6 @@ static bool errata_probe_cmo(unsigned int stage,
- 	return true;
- }
+ #define ANDES_SBI_EXT_IOCP_SW_WORKAROUND	1
  
--static bool errata_probe_pmu(unsigned int stage,
--			     unsigned long arch_id, unsigned long impid)
--{
--	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_PMU))
--		return false;
--
--	/* target-c9xx cores report arch_id and impid as 0 */
--	if (arch_id != 0 || impid != 0)
--		return false;
--
--	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
--		return false;
--
--	return true;
--}
--
- static u32 thead_errata_probe(unsigned int stage,
- 			      unsigned long archid, unsigned long impid)
- {
-@@ -80,9 +64,6 @@ static u32 thead_errata_probe(unsigned int stage,
- 	if (errata_probe_cmo(stage, archid, impid))
- 		cpu_req_errata |= BIT(ERRATA_THEAD_CMO);
+@@ -32,7 +32,7 @@ static long ax45mp_iocp_sw_workaround(void)
+ 	 * ANDES_SBI_EXT_IOCP_SW_WORKAROUND SBI EXT checks if the IOCP is missing and
+ 	 * cache is controllable only then CMO will be applied to the platform.
+ 	 */
+-	ret = sbi_ecall(ANDESTECH_SBI_EXT_ANDES, ANDES_SBI_EXT_IOCP_SW_WORKAROUND,
++	ret = sbi_ecall(ANDES_SBI_EXT_ANDES, ANDES_SBI_EXT_IOCP_SW_WORKAROUND,
+ 			0, 0, 0, 0, 0, 0);
  
--	if (errata_probe_pmu(stage, archid, impid))
--		cpu_req_errata |= BIT(ERRATA_THEAD_PMU);
--
- 	return cpu_req_errata;
- }
+ 	return ret.error ? 0 : ret.value;
+@@ -50,7 +50,7 @@ static void errata_probe_iocp(unsigned int stage, unsigned long arch_id, unsigne
  
+ 	done = true;
+ 
+-	if (arch_id != ANDESTECH_AX45MP_MARCHID || impid != ANDESTECH_AX45MP_MIMPID)
++	if (arch_id != ANDES_AX45MP_MARCHID || impid != ANDES_AX45MP_MIMPID)
+ 		return;
+ 
+ 	if (!ax45mp_iocp_sw_workaround())
 diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 4ed21a62158c..9bccc2ba0eb5 100644
+index 83ed25e43553..4ed21a62158c 100644
 --- a/arch/riscv/include/asm/errata_list.h
 +++ b/arch/riscv/include/asm/errata_list.h
-@@ -25,8 +25,7 @@
- #ifdef CONFIG_ERRATA_THEAD
- #define	ERRATA_THEAD_PBMT 0
- #define	ERRATA_THEAD_CMO 1
--#define	ERRATA_THEAD_PMU 2
--#define	ERRATA_THEAD_NUMBER 3
-+#define	ERRATA_THEAD_NUMBER 2
+@@ -12,8 +12,8 @@
+ #include <asm/vendorid_list.h>
+ 
+ #ifdef CONFIG_ERRATA_ANDES
+-#define ERRATA_ANDESTECH_NO_IOCP	0
+-#define ERRATA_ANDESTECH_NUMBER		1
++#define ERRATA_ANDES_NO_IOCP 0
++#define ERRATA_ANDES_NUMBER 1
  #endif
  
- #ifdef __ASSEMBLY__
-@@ -147,18 +146,6 @@ asm volatile(ALTERNATIVE_2(						\
- 	    "r"((unsigned long)(_start) + (_size))			\
- 	: "a0")
+ #ifdef CONFIG_ERRATA_SIFIVE
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index e55407ace0c3..2f2bb0c84f9a 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -5,7 +5,7 @@
+ #ifndef ASM_VENDOR_LIST_H
+ #define ASM_VENDOR_LIST_H
  
--#define THEAD_C9XX_RV_IRQ_PMU			17
--#define THEAD_C9XX_CSR_SCOUNTEROF		0x5c5
--
--#define ALT_SBI_PMU_OVERFLOW(__ovl)					\
--asm volatile(ALTERNATIVE(						\
--	"csrr %0, " __stringify(CSR_SSCOUNTOVF),			\
--	"csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),		\
--		THEAD_VENDOR_ID, ERRATA_THEAD_PMU,			\
--		CONFIG_ERRATA_THEAD_PMU)				\
--	: "=r" (__ovl) :						\
--	: "memory")
--
- #endif /* __ASSEMBLY__ */
+-#define ANDESTECH_VENDOR_ID	0x31e
++#define ANDES_VENDOR_ID		0x31e
+ #define SIFIVE_VENDOR_ID	0x489
+ #define THEAD_VENDOR_ID		0x5b7
  
+diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+index 319a1da0358b..0128b161bfda 100644
+--- a/arch/riscv/kernel/alternative.c
++++ b/arch/riscv/kernel/alternative.c
+@@ -43,7 +43,7 @@ static void riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info
+ 
+ 	switch (cpu_mfr_info->vendor_id) {
+ #ifdef CONFIG_ERRATA_ANDES
+-	case ANDESTECH_VENDOR_ID:
++	case ANDES_VENDOR_ID:
+ 		cpu_mfr_info->patch_func = andes_errata_patch_func;
+ 		break;
  #endif
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 5340f818746b..480f9da7fba7 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -80,6 +80,7 @@
- #define RISCV_ISA_EXT_ZFA		71
- #define RISCV_ISA_EXT_ZTSO		72
- #define RISCV_ISA_EXT_ZACAS		73
-+#define RISCV_ISA_EXT_XTHEADPMU		74
- 
- #define RISCV_ISA_EXT_MAX		128
- #define RISCV_ISA_EXT_INVALID		U32_MAX
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index e32591e9da90..4aded5bf8fc3 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -303,6 +303,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
- 	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
- 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-+	__RISCV_ISA_EXT_DATA(xtheadpmu, RISCV_ISA_EXT_XTHEADPMU),
- };
- 
- const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
-diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-index 273d67ecf6d2..6cef15ec7c25 100644
---- a/drivers/perf/Kconfig
-+++ b/drivers/perf/Kconfig
-@@ -86,6 +86,19 @@ config RISCV_PMU_SBI
- 	  full perf feature support i.e. counter overflow, privilege mode
- 	  filtering, counter configuration.
- 
-+config THEAD_CUSTOM_PMU
-+	bool "T-Head custom PMU support"
-+	depends on ARCH_THEAD && RISCV_ALTERNATIVE && RISCV_PMU_SBI
-+	default y
-+	help
-+	  The T-Head C9xx cores implement a PMU overflow extension very
-+	  similar to the core SSCOFPMF extension.
-+
-+	  This will patch the overflow CSR and handle the non-standard
-+	  behaviour via the regular SBI PMU driver and interface.
-+
-+	  If you don't know what to do here, say "Y".
-+
- config ARM_PMU_ACPI
- 	depends on ARM_PMU && ACPI
- 	def_bool y
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 2edbc37abadf..31ca79846399 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -20,10 +20,21 @@
- #include <linux/cpu_pm.h>
- #include <linux/sched/clock.h>
- 
--#include <asm/errata_list.h>
- #include <asm/sbi.h>
- #include <asm/cpufeature.h>
- 
-+#define THEAD_C9XX_RV_IRQ_PMU		17
-+#define THEAD_C9XX_CSR_SCOUNTEROF	0x5c5
-+
-+#define ALT_SBI_PMU_OVERFLOW(__ovl)					\
-+asm volatile(ALTERNATIVE(						\
-+	"csrr %0, " __stringify(CSR_SSCOUNTOVF),			\
-+	"csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),		\
-+		0, RISCV_ISA_EXT_XTHEADPMU,				\
-+		CONFIG_THEAD_CUSTOM_PMU)				\
-+	: "=r" (__ovl) :						\
-+	: "memory")
-+
- #define SYSCTL_NO_USER_ACCESS	0
- #define SYSCTL_USER_ACCESS	1
- #define SYSCTL_LEGACY		2
-@@ -808,10 +819,8 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
- 	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
- 		riscv_pmu_irq_num = RV_IRQ_PMU;
- 		riscv_pmu_use_irq = true;
--	} else if (IS_ENABLED(CONFIG_ERRATA_THEAD_PMU) &&
--		   riscv_cached_mvendorid(0) == THEAD_VENDOR_ID &&
--		   riscv_cached_marchid(0) == 0 &&
--		   riscv_cached_mimpid(0) == 0) {
-+	} else if (riscv_isa_extension_available(NULL, XTHEADPMU) &&
-+		   IS_ENABLED(CONFIG_THEAD_CUSTOM_PMU)) {
- 		riscv_pmu_irq_num = THEAD_C9XX_RV_IRQ_PMU;
- 		riscv_pmu_use_irq = true;
- 	}
 -- 
 2.34.1
 
