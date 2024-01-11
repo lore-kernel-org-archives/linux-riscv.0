@@ -4,62 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35B36C47077
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 11:12:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 741A2C47077
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 11:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=42PgETVLFBmFADJO1cGfLgIQNJTlesO11ejR1R4ubTg=; b=Ogfx51aJ4HjjrwHHDvM/S7mYlZ
-	kj7vefU/RgWS6HojoVY3f/2OTpdUfHrhpCVedaiaSAm2p6CeplRfy9ZwvZgeQYsQKQT/7f9eXh+P9
-	IZNDEjg54jzMvr6gsi6DstoRpXPFJa89HK/Ij3JQHOC8ku+Pp8Iwyjo02wYlUIkwY8wVt7sQa5itE
-	/4CI0cqiKl1Sbw/G8fxsxL8AS36eXpIP3w0dYKapRz7KznKl+rOpwvoB5CcSlNqSbkj1wtAsvsaW2
-	p6Yz+eL6deLlYV5TrhNtrSfobLOr2ROpZ8VnbUaTFT3cQjdJD/dgm+erSvOsWcR6iAqtAKCrGQQyl
-	raCU7sCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pvP8ANhRNDab1WGm64dQUZ+hsTVgLgAhGZ5VPuvOFkM=; b=YxLSHK9v2jYJ6+
+	RE8fcDKIxeR38kgGAvEBbyd3QsDR0Vg76CraAFWRYxvt5Q98A4Ey+EJgKQVJ2YUAGV0EbLmfHrzPK
+	Iy3PWgI5GFBRcMD+4Wzu7QtFPEpOFgqBwTCGSQt6z7IH4lzTlXWj0j5LbRMvNP+uj8m4VzcwLj99e
+	lCwp4e5J3cXvJpcxyGHahN9LLtg+sc7GcUZzP2wcXBAQnUTxMcA+NezIC7uHV+nVs5g30snGgAfl+
+	5ySF77U+DUdmO4dQqTlHQXyF5qpuZpMqsHVahkxwqERLC2J4xJymDfBHsCf7Q/Gf3MzJ+90HgEwIJ
+	29Kn4F8f1lc3+FVWT6yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNszM-00HCF4-2U;
-	Thu, 11 Jan 2024 11:12:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rNtG7-00HLEP-1A;
+	Thu, 11 Jan 2024 11:30:03 +0000
+Received: from mail-oo1-xc2c.google.com ([2607:f8b0:4864:20::c2c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNszJ-00HCDK-1Z
+	id 1rNtG4-00HL9s-3B
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jan 2024 11:12:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0EEBD61A85;
-	Thu, 11 Jan 2024 11:12:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95D4EC433C7;
-	Thu, 11 Jan 2024 11:12:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704971559;
-	bh=YP720qY+V6lat6L4rh1Qgia2UZoDpEKIiI/Bz0OXSVw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RdWzFpeSXepCJ4igfnit4t7299ra1ncWtXVC3dDdjyyB9X8zF14Vj444iFzOG4cvy
-	 Wnft3x8iyXos5ecyW/LuiUW49j1LTDLySn1MRRbrjRZmoXgrpORdbA64BzRkj381sf
-	 jC2GIcEA2cQMFkE9QF4bnPoTlLsdjp67eBSq9DP0v4vZhqx0H8aUuJnZMGr/qOlIM8
-	 2N6ycsf0ArkJ9SwO1qtqe5N97E/FUoBmg1Bm9ICwj+jfiutkx1ang+XAjAEItm72v/
-	 QHLSSicxa3pNsGCCx1OnUHP8pGD4l6DLujftEZX8f1XZOlQwQRVdXDa3wgdRAXOxjB
-	 8vKw7QKXlR0lQ==
-Date: Thu, 11 Jan 2024 11:12:33 +0000
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Subject: Re: [PATCH V2 1/3] riscv: Add Zicbop instruction definitions &
- cpufeature
-Message-ID: <20240111-populate-sterilize-8e241ead0b00@spud>
-References: <20231231082955.16516-1-guoren@kernel.org>
- <20231231082955.16516-2-guoren@kernel.org>
- <6bce1adb-6808-40df-8dd7-b0b2c6031547@rivosinc.com>
- <20240103-77f6b0856efb7a9f4591c53b@orel>
- <331610f6-9987-4d1b-8d57-f21311a43f5d@rivosinc.com>
- <20240111-416377ebfcaff924b71fb419@orel>
- <78afc7ce-c6ce-4edd-b91a-1f8a94ce298a@rivosinc.com>
+	Thu, 11 Jan 2024 11:30:02 +0000
+Received: by mail-oo1-xc2c.google.com with SMTP id 006d021491bc7-598a0063134so801349eaf.0
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Jan 2024 03:29:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1704972596; x=1705577396; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=L1/9OBgUnbI4qV6pkGpalRcx7MgtwXi8Ekel0WOHXQs=;
+        b=myrCV7vZP2PnaFoQKEs6T4rTXeUL5IvyVuyeZ4FOgrUL5gpmQpt92MiKeSnB71ZICL
+         D6lHIzvCxKUdobM8Cq2/6frTBPGGBdJmpZK+Prko0Dm3hhHho4rFuQKJXJskiCriGaik
+         M9mZLPn+aaG+9agL+VlZmj3/6rM5gCJ5O+ZVoGFUTebcCqVKItTQfyyZxCRlC2JMvmP3
+         mMEkHjTsYI4Vb+5ZBlEKOd/Xxk6n/wh+LptZRieKG3axxOAgJQyytRXd4udfQmnbRcGL
+         W1tA1qQLShBXH/cOdWLvcZp5+NmRDy2cuMdg9V+7TdMMLO1hbusgOGNTZjr8qgsW1cHP
+         Wz0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704972596; x=1705577396;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L1/9OBgUnbI4qV6pkGpalRcx7MgtwXi8Ekel0WOHXQs=;
+        b=wUB3UOSo/O6JP0ggg1Su5Ew1xlH+f0/EL2TBv7WLqOROp4blE938GSMkniitVa549P
+         U4gu/mLb2Mn355gJ2GMPgw0XnR4nF5Oh26Eh6nKlMeNL4af2h6uzuKD16Wje2SRN1bj7
+         zKdNzozQFkU+Rynmv1BP55rqwpfG3gAkOnwXtrvf5E3s09XNmsUJsuWWojQj/UtAw7vG
+         wbMnlzH0mq1dxiXZUfOrU1ZJ3mfJkG5+blb4285fo2trwL2UVXcjRw4kPIoAlMxXaYtV
+         h9lXipMwJvA3hoDf2S4yWUgUgqdQwn0bJt8K//K1KOwszNorvQS+QXgqU7u+jgvoQkyN
+         r3Eg==
+X-Gm-Message-State: AOJu0YxbI37N/GJf1DWGC0VheH/69GdPW5GLvt0lnTOa5k1tTmFKCHsw
+	VP68BIbonVA7G/kz2jbsjSSqqFZLlmO6Gg==
+X-Google-Smtp-Source: AGHT+IFCKZdtwrnCuFg7TdR7AtliYvHu3SQxC/Xbm2j8wl2ATuGO1M0kBIaUI9ISibSbZ6dp+SrhvA==
+X-Received: by 2002:a05:6358:d39d:b0:175:9bfc:1b34 with SMTP id mp29-20020a056358d39d00b001759bfc1b34mr1332658rwb.22.1704972596331;
+        Thu, 11 Jan 2024 03:29:56 -0800 (PST)
+Received: from sunil-laptop ([106.51.188.200])
+        by smtp.gmail.com with ESMTPSA id nb1-20020a17090b35c100b0028d804ef772sm3504720pjb.25.2024.01.11.03.29.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Jan 2024 03:29:55 -0800 (PST)
+Date: Thu, 11 Jan 2024 16:59:47 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Anup Patel <anup@brainfault.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+	Atish Kumar Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH -next 1/2] ACPI: Enable ACPI_PROCESSOR for RISC-V
+Message-ID: <ZZ/RK49zoFtSt4Ed@sunil-laptop>
+References: <20240111093058.121838-1-sunilvl@ventanamicro.com>
+ <20240111093058.121838-2-sunilvl@ventanamicro.com>
+ <20240111-bb411d2dd39eb859dd049fa0@orel>
 MIME-Version: 1.0
-In-Reply-To: <78afc7ce-c6ce-4edd-b91a-1f8a94ce298a@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20240111-bb411d2dd39eb859dd049fa0@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240111_031241_629405_1DFAA0A1 
-X-CRM114-Status: GOOD (  37.12  )
+X-CRM114-CacheID: sfid-20240111_033001_028427_3C93EC64 
+X-CRM114-Status: GOOD (  25.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,161 +95,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: panqinglin2020@iscas.ac.cn, Guo Ren <guoren@linux.alibaba.com>, keescook@chromium.org, wefu@redhat.com, peterz@infradead.org, unicorn_wang@outlook.com, atishp@atishpatra.org, chao.wei@sophgo.com, linux-kernel@vger.kernel.org, bjorn@rivosinc.com, xiaoguang.xing@sophgo.com, conor.dooley@microchip.com, leobras@redhat.com, guoren@kernel.org, jszhang@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, linux-riscv@lists.infradead.org, wuwei2016@iscas.ac.cn, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: multipart/mixed; boundary="===============2874379205980505238=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jan 11, 2024 at 11:00:12AM +0100, Andrew Jones wrote:
+> On Thu, Jan 11, 2024 at 03:00:57PM +0530, Sunil V L wrote:
+> > The ACPI processor driver is not currently enabled for RISC-V.
+> > This is required to enable CPU related functionalities like
+> > LPI and CPPC. Hence, enable ACPI_PROCESSOR for RISC-V.
+> > 
+> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > ---
+> >  drivers/acpi/Kconfig | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+> > index f819e760ff19..9a920752171c 100644
+> > --- a/drivers/acpi/Kconfig
+> > +++ b/drivers/acpi/Kconfig
+> > @@ -282,7 +282,7 @@ config ACPI_CPPC_LIB
+> >  
+> >  config ACPI_PROCESSOR
+> >  	tristate "Processor"
+> > -	depends on X86 || ARM64 || LOONGARCH
+> > +	depends on X86 || ARM64 || LOONGARCH || RISCV
+> >  	select ACPI_PROCESSOR_IDLE
+> >  	select ACPI_CPU_FREQ_PSS if X86 || LOONGARCH
+> >  	select THERMAL
+> > -- 
+> > 2.34.1
+> >
+> 
+> Hi Sunil,
+> 
+> Typically we'll want the Kconfig changes to come at the end of a series,
+> or squashed into the patch that adds support for it, otherwise there's
+> risk of build breakage during bisection. In this case, we're safe because
+> the two new functions (I looked ahead) have __weak versions when they're
+> not present.
+> 
+Sure. Let me swap the order of the patches.
 
---===============2874379205980505238==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Vus9tltaRDvMwieT"
-Content-Disposition: inline
+> Also, interestingly, it looks like this ancient line
+> 
+>  obj-$(CONFIG_ACPI_PROCESSOR)    += processor.o
+> 
+> in drivers/acpi/Makefile should be removed, since there's no
+> drivers/acpi/processor.c file. I guess the make process silently
+> filters object files which don't have corresponding source files?
+> Maybe we should write a Makefile analyzer to see what other lines
+> can be removed...
+>
+Interesting. 
 
+Hi Rafael, any thoughts?
+ 
+> Anyway, for this patch, which I'd prefer to be swapped in order with
+> the other patch, or just squashed into the other patch,
+>
+I prefer to keep as 2 separate patches. I will swap the order.
 
---Vus9tltaRDvMwieT
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Jan 11, 2024 at 11:49:48AM +0100, Cl=E9ment L=E9ger wrote:
->=20
->=20
-> On 11/01/2024 11:45, Andrew Jones wrote:
-> > On Thu, Jan 11, 2024 at 11:31:32AM +0100, Cl=E9ment L=E9ger wrote:
-> >>
-> >>
-> >> On 03/01/2024 13:00, Andrew Jones wrote:
-> >>> On Wed, Jan 03, 2024 at 10:31:37AM +0100, Cl=E9ment L=E9ger wrote:
-> >>>>
-> >>>>
-> >>>> On 31/12/2023 09:29, guoren@kernel.org wrote:
-> >>>>> From: Guo Ren <guoren@linux.alibaba.com>
-> >>>>>
-> >>>>> Cache-block prefetch instructions are HINTs to the hardware to
-> >>>>> indicate that software intends to perform a particular type of
-> >>>>> memory access in the near future. This patch adds prefetch.i,
-> >>>>> prefetch.r and prefetch.w instruction definitions by
-> >>>>> RISCV_ISA_EXT_ZICBOP cpufeature.
-> >>>>>
-> >>>>> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> >>>>> Signed-off-by: Guo Ren <guoren@kernel.org>
-> >>>>> ---
-> >>>>>  arch/riscv/Kconfig                | 15 ++++++++
-> >>>>>  arch/riscv/include/asm/hwcap.h    |  1 +
-> >>>>>  arch/riscv/include/asm/insn-def.h | 60 +++++++++++++++++++++++++++=
-++++
-> >>>>>  arch/riscv/kernel/cpufeature.c    |  1 +
-> >>>>>  4 files changed, 77 insertions(+)
-> >>>>>
-> >>>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> >>>>> index 24c1799e2ec4..fcbd417d65ea 100644
-> >>>>> --- a/arch/riscv/Kconfig
-> >>>>> +++ b/arch/riscv/Kconfig
-> >>>>> @@ -579,6 +579,21 @@ config RISCV_ISA_ZICBOZ
-> >>>>> =20
-> >>>>>  	   If you don't know what to do here, say Y.
-> >>>>> =20
-> >>>>> +config RISCV_ISA_ZICBOP
-> >>>>> +	bool "Zicbop extension support for cache block prefetch"
-> >>>>> +	depends on MMU
-> >>>>> +	depends on RISCV_ALTERNATIVE
-> >>>>> +	default y
-> >>>>> +	help
-> >>>>> +	  Adds support to dynamically detect the presence of the ZICBOP
-> >>>>> +	  extension (Cache Block Prefetch Operations) and enable its
-> >>>>> +	  usage.
-> >>>>> +
-> >>>>> +	  The Zicbop extension can be used to prefetch cache block for
-> >>>>> +	  read/write fetch.
-> >>>>> +
-> >>>>> +	  If you don't know what to do here, say Y.
-> >>>>> +
-> >>>>>  config TOOLCHAIN_HAS_ZIHINTPAUSE
-> >>>>>  	bool
-> >>>>>  	default y
-> >>>>> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/as=
-m/hwcap.h
-> >>>>> index 06d30526ef3b..77d3b6ee25ab 100644
-> >>>>> --- a/arch/riscv/include/asm/hwcap.h
-> >>>>> +++ b/arch/riscv/include/asm/hwcap.h
-> >>>>> @@ -57,6 +57,7 @@
-> >>>>>  #define RISCV_ISA_EXT_ZIHPM		42
-> >>>>>  #define RISCV_ISA_EXT_SMSTATEEN		43
-> >>>>>  #define RISCV_ISA_EXT_ZICOND		44
-> >>>>> +#define RISCV_ISA_EXT_ZICBOP		45
-> >>>>
-> >>>> Hi Guo,
-> >>>>
-> >>>> Since you are adding support for the Zicbop extension, you could
-> >>>> probably also allow to probe it from userspace using hwprobe. Add a =
-few
-> >>>> definitions to sys_riscv.c/hwprobe.h and it will be fine.
-> >>>
-> >>> To expose to userspace, we should also start parsing the block size,
-> >>> so it can also be exposed to userspace. Starting to parse the block
-> >>> size first requires that we decide we need to parse the block size
-> >>> (see [1]).
-> >>
-> >> Hi Andrew, thanks for the thread.
-> >>
-> >> I read it (and the other ones that are related to it) and basically, it
-> >> seems there was a first decision (expose Zicbop block size indivudally)
-> >> due to the fact the specification did not mentioned anything specific
-> >> about clock sizes  but then after that, there was a clarification in t=
-he
-> >> spec stating that Zicbop and Zicbom have the same block size so the
-> >> first decision was questioned again.
-> >>
-> >> From a user coherency point of view, I think it would make more sense =
-to
-> >> expose it individually in hwprobe  so that zicboz, zicbop and zicbom
-> >> have their "own" block size (even though zicbop and zicbom would use t=
-he
-> >> same one). Moreover, it would allow us for future evolution easily
-> >> without breaking any userspace later if zicbop and zicbom block size a=
-re
-> >> decoupled.
-> >=20
-> > I agree and QEMU has already headed down the road of generating
-> > riscv,cbop-block-size (I guess Conor's ack on [1] was interpreted as
-> > being sufficient to merge the QEMU bits), so we can add the Linux
-> > support and test with QEMU now. The work could probably be a separate
-> > series to this one, though.
->=20
-> Yes, it QEMU had it merged. and agreed, since this requires a bit more
-> plumbing, it can probably be left out of this series. I could probably
-> take care of that later.
-
-I think some crack slippage happened with that patch. I pinged Palmer
-about it on irc.
-
-
-
---Vus9tltaRDvMwieT
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZZ/NCwAKCRB4tDGHoIJi
-0twzAQCwvEXASDogfPIZYSCzU6w1F/dvowWIaUiGrKqzVB85bQEAh1XD/90MeTCu
-cO3AjtTsut9bSC6xTI2xH2/0/JPVxwU=
-=iM4A
------END PGP SIGNATURE-----
-
---Vus9tltaRDvMwieT--
-
-
---===============2874379205980505238==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> 
+Thanks!
+Sunil 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2874379205980505238==--
-
