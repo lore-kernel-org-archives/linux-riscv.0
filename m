@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D44C47DB0
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 14:51:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE70C47258
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 14:51:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/1iBQZiyH/Mrj0W42TljwwCZWGffEirA+ngAea2+Ank=; b=4zDnt9ingwTL2y
-	ZPR0tRNw6TR9irBmUzbdxUUUM1l6Jsnqe/qoGM/ywnwCWS8bEHr3OQMursDpZt0Ck2kqN+HreDZNe
-	+019+xmZIQDAJcuGNJoCJmGB5VvaqxDPNaLUGkc2kXApOxKA8rdF2Brpx3mBJmgKYVhc0rZiiIU0h
-	B6KiXVYYoVV+dRASZgeSsxyCQtBxykcSL3CBaceDBvAHUTb42xsqUFUVexk5V5c2fjwaEaLjsxEf6
-	KutSekKAftLoJtIPbbB6bh2u3xN4cLWpjf7tYS1u/rOlkYycunqZXR/nRrSVcHR+tfBYMF9kp239d
-	98MnMW8mF2BMmMI5cezg==;
+	List-Owner; bh=KhZAdOSnnRjMagYRUOJRmTObG1kHyj4tKx3ENUGtvK8=; b=rQSBHgXj8YtOo7
+	FyEuJx0eUc9aChJLonWQXcUyXW/TNScJx0suza+/9SyT8qrvW1L4CPlApy6QWgdsVJz26bmS4qiLS
+	wsK3Kdl3oZchS3/BSH8Z2F7CMJXjoVfq/9OIA8Pj2bu1QJ4nfikR8XCxsBwWjKyc/rk6i+grdjDXc
+	2P3jJgOMkEVstHsoNkkRHYGsn6fjLzz/yYGINFh6g9haUGisE3+SXTnfEft6hiN9tZ6gZeLICHJXx
+	rmjmiozTfreHvu+Riq25Z/Sdl5nhVXYbECrctXjZA/I6HgiOcnBvwcVdCg3FEXOi3Rn/sFCwd3qn6
+	Leoo7a5FI3TzaVE6D25w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNwOU-000KQS-22;
-	Thu, 11 Jan 2024 14:50:54 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1rNwOS-000KOk-0H;
+	Thu, 11 Jan 2024 14:50:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNwOJ-000KJv-1y
+	id 1rNwOH-000KIm-0X
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jan 2024 14:50:45 +0000
+	Thu, 11 Jan 2024 14:50:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 76FBEB82063;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 32BEB61AFD;
 	Thu, 11 Jan 2024 14:50:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id ED2CEC4166B;
-	Thu, 11 Jan 2024 14:50:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0C818C4167E;
+	Thu, 11 Jan 2024 14:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1704984638;
-	bh=QWatFqK+FZtSrigvY3VYuU2+QMxyML/XXXBrhQ7Moh8=;
+	bh=iGnhSFR4oy8vML/vLeOSYSO2FOyqacVWkaXJJeDyNUM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=IyfmibMmfWFE9VNHB3wbJEXlRYEUBGsWAjvujFbU0flIiCwiSO4o85MURxgEF7iUC
-	 8umdxZWRYV/Tn5pdwiaPK6hlrvseibDY6nHq93ewD9LoLMQcIXah6zThpSZmJITNVa
-	 CV6GZlrUKjvLtu+9+4dJSYCChQMiApeSj1yVFYpCLj3KUSEgECJUjfLf/LgIuGPpo7
-	 NPQ0ss/LL3+9EqP2vzf4tXKiHs/Qvz8RyxivJy98NauVnrvx+Jm4W28o0Z9Pwqnm7O
-	 aFE0OdtKOlUOmo97KGDLsOb6ODc2g63/XhwK4T2U2dNxKUlHT3WpMVWu1vNsiGOdD5
-	 zqag26HoHLv7w==
+	b=i/3EBLIOo6blQ/RTham11oq8xEbA+ix9e1GUFP3qr5Km+lP4dFbNgj8zfhJWUc6wn
+	 Gw6IIhtXLXdCmd8hKsAR80QhMetUXYHI2tA9Dy5/1Y3GPw5zywjjHLSPOogx3QW8OY
+	 4W6TqQByS4uC2WiNITnApAg1Hi647lv+u1b7Hd8VeQ8fVwtkRaAMLmSMcEsOHz6Tsh
+	 0/oqIa6vmzPmxY4Ud8xRbNUD/nbafrwlkRkYXd7YKnrg/GRn1yXayYYatPaqksCbGj
+	 HDt+A9yiXCY6tBVw0Ee2oN6kRT9p3Tc5Rn7RUJt1kvXoQo9t4Pfqz7K7SniATUKiVZ
+	 GQRYFXvMmcYWg==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D84CDD8C96D;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id ED18FD8C975;
 	Thu, 11 Jan 2024 14:50:37 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v1] dt-bindings: riscv: permit numbers in "riscv,isa"
+Subject: Re: [PATCH] riscv; fix __user annotation in save_v_state()
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170498463788.20080.14469126182221973580.git-patchwork-notify@kernel.org>
+Message-Id: <170498463796.20080.14961218265938269771.git-patchwork-notify@kernel.org>
 Date: Thu, 11 Jan 2024 14:50:37 +0000
-References: <20231208-uncolored-oxidant-5ab37dd3ab84@spud>
-In-Reply-To: <20231208-uncolored-oxidant-5ab37dd3ab84@spud>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- conor.dooley@microchip.com, robh+dt@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
+References: <20231123142708.261733-1-ben.dooks@codethink.co.uk>
+In-Reply-To: <20231123142708.261733-1-ben.dooks@codethink.co.uk>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240111_065043_799069_C6F4263B 
-X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-CacheID: sfid-20240111_065041_274720_89F58171 
+X-CRM114-Status: UNSURE (   8.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,19 +80,22 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Fri,  8 Dec 2023 16:06:51 +0000 you wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Thu, 23 Nov 2023 14:27:08 +0000 you wrote:
+> The save_v_state() is technically sending a __user pointer through
+> __put_user() and thus is generating a sparse warning so force the
+> value to be "void *" to fix:
 > 
-> There are some extensions that contain numbers, such as Zve32f, which
-> are enabled by the "max" cpu type in QEMU.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> arch/riscv/kernel/signal.c:94:16: warning: incorrect type in initializer (different address spaces)
+> arch/riscv/kernel/signal.c:94:16:    expected void *__val
+> arch/riscv/kernel/signal.c:94:16:    got void [noderef] __user *[assigned] datap
+> Fixes:  8ee0b41898fa26f66e32 ("riscv: signal: Add sigcontext save/restore for vector")
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 > 
 > [...]
 
 Here is the summary with links:
-  - [v1] dt-bindings: riscv: permit numbers in "riscv,isa"
-    https://git.kernel.org/riscv/c/baa04909d100
+  - riscv; fix __user annotation in save_v_state()
+    https://git.kernel.org/riscv/c/869436dae72a
 
 You are awesome, thank you!
 -- 
