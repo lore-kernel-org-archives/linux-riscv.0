@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB13C47DB1
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 14:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D44C47DB0
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 14:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rT4y7amtfXNWuDM8WR1Dm3LffAWO+XR5wKV6nBmIAys=; b=auz4GX1B68CxI3
-	MoFa1NxVBZ3gKa0LVWZDLtX9HKvpKi9KhJLGIscNXQaJ3uVaRg/PHVByNo8H4OZ2FkDBmNtox12uP
-	YLf+cTauZY7ZIvI8wb1CcK3SA5MSHIzixqO/Y/WWcX4yQsCH6wcwqCyfcMLSxCd6znvD+OiXnQVHj
-	2StDneEK0xts4324Q0HLfsfo26m5mMRm4OUVci7GIvm3MUNiBMp6D72v2q+Dhsgdi1mnzscteM1Lh
-	ojyQw7oDAq4a3sE4r8aYOo59eXuEiMpnUNH4+x9i+XV+5gRu/PBfJ45zhesEEANAvMyPndOoUTTU7
-	Gg9fXi4uFWU+XUomcRQA==;
+	List-Owner; bh=/1iBQZiyH/Mrj0W42TljwwCZWGffEirA+ngAea2+Ank=; b=4zDnt9ingwTL2y
+	ZPR0tRNw6TR9irBmUzbdxUUUM1l6Jsnqe/qoGM/ywnwCWS8bEHr3OQMursDpZt0Ck2kqN+HreDZNe
+	+019+xmZIQDAJcuGNJoCJmGB5VvaqxDPNaLUGkc2kXApOxKA8rdF2Brpx3mBJmgKYVhc0rZiiIU0h
+	B6KiXVYYoVV+dRASZgeSsxyCQtBxykcSL3CBaceDBvAHUTb42xsqUFUVexk5V5c2fjwaEaLjsxEf6
+	KutSekKAftLoJtIPbbB6bh2u3xN4cLWpjf7tYS1u/rOlkYycunqZXR/nRrSVcHR+tfBYMF9kp239d
+	98MnMW8mF2BMmMI5cezg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNwOR-000KOM-1V;
-	Thu, 11 Jan 2024 14:50:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rNwOU-000KQS-22;
+	Thu, 11 Jan 2024 14:50:54 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNwOH-000KIn-0e
+	id 1rNwOJ-000KJv-1y
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jan 2024 14:50:44 +0000
+	Thu, 11 Jan 2024 14:50:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3783361AFE;
+	by ams.source.kernel.org (Postfix) with ESMTP id 76FBEB82063;
 	Thu, 11 Jan 2024 14:50:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 16038C32778;
-	Thu, 11 Jan 2024 14:50:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id ED2CEC4166B;
+	Thu, 11 Jan 2024 14:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1704984638;
-	bh=sxh40JJQMoRZqXunjJmrdXyyxH+F75rmhC8LiUGqhE0=;
+	bh=QWatFqK+FZtSrigvY3VYuU2+QMxyML/XXXBrhQ7Moh8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=kRPkfA0lip75TvmCFQUcSzqgumSiQtZ+YPmRhQRBD/E10A8e4L30WM/Mm70ctz+uM
-	 nJ5Aq2dEBNBVVPwuxppzz6EXd1lLlPGhwV4s32x/P+SeOfpwOY/SSK23ArBxSOh5Mr
-	 TL5sWbLVYLboYp1J1fnVCLjyDKOl2noLagjJuAX3Xvhkmn7yWvuZUWtLoaTpVVXYHm
-	 74iIsYZIVhlJ/w6rO6xe1IKghnmsbgk+fmmZZpGFZXHGe9O+REHc8/M/5s5/mih030
-	 MEP1KsEo8LHPYIZvaoMJzLSPewDrsnBlfmkqCp2bY4G+E6kl0mXNjGQIg33UqoP5/a
-	 sMI0u3IaBOkNQ==
+	b=IyfmibMmfWFE9VNHB3wbJEXlRYEUBGsWAjvujFbU0flIiCwiSO4o85MURxgEF7iUC
+	 8umdxZWRYV/Tn5pdwiaPK6hlrvseibDY6nHq93ewD9LoLMQcIXah6zThpSZmJITNVa
+	 CV6GZlrUKjvLtu+9+4dJSYCChQMiApeSj1yVFYpCLj3KUSEgECJUjfLf/LgIuGPpo7
+	 NPQ0ss/LL3+9EqP2vzf4tXKiHs/Qvz8RyxivJy98NauVnrvx+Jm4W28o0Z9Pwqnm7O
+	 aFE0OdtKOlUOmo97KGDLsOb6ODc2g63/XhwK4T2U2dNxKUlHT3WpMVWu1vNsiGOdD5
+	 zqag26HoHLv7w==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 0222AD8C96C;
-	Thu, 11 Jan 2024 14:50:38 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D84CDD8C96D;
+	Thu, 11 Jan 2024 14:50:37 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: fix __user annotation in traps_misaligned.c
+Subject: Re: [PATCH v1] dt-bindings: riscv: permit numbers in "riscv,isa"
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170498463800.20080.16588164711212512128.git-patchwork-notify@kernel.org>
-Date: Thu, 11 Jan 2024 14:50:38 +0000
-References: <20231123141617.259591-1-ben.dooks@codethink.co.uk>
-In-Reply-To: <20231123141617.259591-1-ben.dooks@codethink.co.uk>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
+Message-Id: <170498463788.20080.14469126182221973580.git-patchwork-notify@kernel.org>
+Date: Thu, 11 Jan 2024 14:50:37 +0000
+References: <20231208-uncolored-oxidant-5ab37dd3ab84@spud>
+In-Reply-To: <20231208-uncolored-oxidant-5ab37dd3ab84@spud>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ conor.dooley@microchip.com, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240111_065041_296433_4231323E 
-X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-CacheID: sfid-20240111_065043_799069_C6F4263B 
+X-CRM114-Status: UNSURE (   8.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,19 +83,19 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu, 23 Nov 2023 14:16:17 +0000 you wrote:
-> The instruction reading code can read from either user or kernel addresses
-> and thus the use of __user on pointers to instructions depends on which
-> context. Fix a few sparse warnings by using __user for user-accesses and
-> remove it when not.
+On Fri,  8 Dec 2023 16:06:51 +0000 you wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Fixes:
+> There are some extensions that contain numbers, such as Zve32f, which
+> are enabled by the "max" cpu type in QEMU.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: fix __user annotation in traps_misaligned.c
-    https://git.kernel.org/riscv/c/ca0e433b41a6
+  - [v1] dt-bindings: riscv: permit numbers in "riscv,isa"
+    https://git.kernel.org/riscv/c/baa04909d100
 
 You are awesome, thank you!
 -- 
