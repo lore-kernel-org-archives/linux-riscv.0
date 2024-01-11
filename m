@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C9EC47077
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 08:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF125C47077
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 08:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hC2IJfsOG6j+gsU5aXZrCuR6PAKvvsDfFYnGfn0sNW8=; b=GWkB8Jf2/0hfTu
-	dfPmX6TrF6Sj8vyZSP/y8nRKJ+xfltWadWLEyclTAC0YEjYQ0i+e8gN3j6AhMmaxLatbF4uNHUYxO
-	xh/ShOIBym2qmP1aSvJ8AS3ovcgiRip5uZ0qk1cCVTdD8hl7gfEWBq3RzhfGOghW6bb9uZc30FowD
-	0ehKKztY913IgDC+Zp6HYBPLZzE/WN/ZHoRdtqw29tJuKEAYu7rIa3crD1j0gaRDbopIp1cx/uZEd
-	T+6lPCcTenIKUZfECI/XJQXZYFRzAPcHHORk99xqGZoNJzlIUVHw8PzJ4MngANcMRJPAZLd9XT04W
-	2RbxSyAexGqea/91PNTQ==;
+	List-Owner; bh=IqWp7rII6j4kHdlr0VAzQ0G7fD3aAG4HyD5v28fbrXw=; b=gsaf/y/w1bizSw
+	cgy32Buok9BGab+c2ATX50ZYGch+rU2hFXjN7fsgSaC+vBYLuto6AyvVf9xMAF1DLAE+isAbN3XxS
+	xZBFytj6y6TB2QrvZfo4r8I3/g0kEpANDvUasz4gkFPt5I/Y+J6bmL+KUp37e52TErKn901Bbg+qD
+	omLsqql+Xslni+S0ilnQLDA7aHA0Pa/FmF/XF7EOqYO24FSlrRiHHiGgkg8uMhlBPzZTU0hWahTv4
+	4MH/TIzAKewsOD4B5Oa13D6oIng9ZsFJrZ8CXL1hlf51ci6Q126cd+wKDt7s9c/eYxRxRR6QksJmG
+	WJ5eVWQbqDaIJXambUrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNq22-00GP6y-1f;
-	Thu, 11 Jan 2024 08:03:18 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1rNq2v-00GPQM-0P;
+	Thu, 11 Jan 2024 08:04:13 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNq1z-00GP40-0p
+	id 1rNq2s-00GPOm-0c
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jan 2024 08:03:16 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2cd0f4797aaso54915121fa.0
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Jan 2024 00:03:14 -0800 (PST)
+	Thu, 11 Jan 2024 08:04:11 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-40e5f3b390fso2938105e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Jan 2024 00:04:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1704960193; x=1705564993; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:references:cc:to
-         :from:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=pcKGnulWg1x9xGacYURYT9ojLBDWsl47Nhd+rQGtKAo=;
-        b=PDvgg4rNPlKeaTJbD2TgwURXWiCcpMPRT3B2oBtB3UCWyVGsXczeuVnbxIwGKBbSvM
-         nePDIF3UlEklsSy61VFrj5/uoAQgVIe5rxswAqnxELPIAHB+xzWCoIXDGupMst0dOlHm
-         WjOJXctxTVMDty4Z6y8UYX7J60nZ3KStdW42yfChWZOq5wTuvN3jZy0UBHozlWQOM3PJ
-         UEaBAhEHZX2iQ1c0RMy39jPJSCXMK70+WhtqJJY+qf+b+KxZ8Wk4k5qJIzTKKHmd6Rjd
-         2wyacq1DiJC6BKs79hsnI7Gpj05SYnkXVpR3BF4oLCSLwmlNglNxyKL37RMJTEZrylXR
-         kUlg==
+        d=linaro.org; s=google; t=1704960246; x=1705565046; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=U74e1ijHtTH8InQnKcjIP9QbuX78AQg3OH6n+b2QGz8=;
+        b=fWAi55kqmLuKJenGIBe9fU7BK/3I1JuRBt/ldAp/bTSG4BeMmcWXBaISGFPQ2Qnaap
+         E0/DrVtpg1jqTQNG4k7YsXhl5rnYWlkDfwAdxuaBqv1rmiwgWFqu132jH2qZmMHZ/Lci
+         PDdd7BpOCMOCiHZLRwlsudyDfU5fzF2cv7xUa6VuTrTYHoP7x6w6WyFrh/YwjbNAq2SQ
+         Og5o5KILn9s0eoNXXwPBo4bnNXbU+13tlqqXuiMrQDHwGmG1X+eXuJWa5ziFmNclB/QR
+         EvnLmQ7a6s9jEQ+VIQCKK496iQt+GA0Zo0mFfn9ujIwft2AF4FOWE9ymc1hByPs42vPI
+         I8iA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704960193; x=1705564993;
-        h=content-transfer-encoding:in-reply-to:autocrypt:references:cc:to
-         :from:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pcKGnulWg1x9xGacYURYT9ojLBDWsl47Nhd+rQGtKAo=;
-        b=Ts8013pqGxtRAIdvqllXH0RLGAEceU1xwjMyLVOy0UtDmgSmIQRpfDbDobxG70NZKF
-         oqr/Ai+l8JRSpFlpUNg4XDEqsjQoedYVl3T49+JE5cfi7iyEmzoIfnSNr7UA3J2qlJ8y
-         M3aJPHKgdXZzXs0pSOddJIeIu3+SwnbrG9WNGUUuyg7lMf6xi0WihSO2KjXCCdoT7xDG
-         n9xJZfl7LhmH0IEWf+QHsa5O6dwVQluRWHiCkNDK29ciVF9DMF2H/AhLHMsV+1aXitSR
-         YKyJFNszv/jASAAqld1M04XtabjIySuzJRrbBO+w+OWBBZlBXYrwRBX+4zH10wGTOUZT
-         p8Zg==
-X-Gm-Message-State: AOJu0YzJxDvv8KQgmIauqSgMhZbeejuvHwdl6tDDB/SYLzhauE3PIRSR
-	W6a2RiWE/sWnl0uDL08g14qqCCcPOmV+bQ==
-X-Google-Smtp-Source: AGHT+IEihIhJwQ+dHFEqxuvf7GI4SFNX+Ex6fA9F/yNRbmrRi4mHHjOHjMsU5Vuixh684HDMrtQbgg==
-X-Received: by 2002:a2e:3010:0:b0:2cc:df53:5321 with SMTP id w16-20020a2e3010000000b002ccdf535321mr141627ljw.3.1704960192689;
-        Thu, 11 Jan 2024 00:03:12 -0800 (PST)
+        d=1e100.net; s=20230601; t=1704960246; x=1705565046;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=U74e1ijHtTH8InQnKcjIP9QbuX78AQg3OH6n+b2QGz8=;
+        b=MRuW/4zKOoLUhvM56oTpv9Ckjd0ORMYm+HMntyybP9W0eYYFOm4uAPVL+ifJwwAtwz
+         k6QiOTdNIb1LzbtZHfHj8Fem4q7o6Kk4i/LN8AKJXcfilKGwM5TletQ3qYWDhRfuKgJP
+         sKwhx3t4Qzlz1oKOFoRvvIxNJFJ8uHHmnupHiCOf/owPgafpm/BF1W2OyqTR64Aqg0Dz
+         EsDopiTJaPiok8Ke4FpwTEM4tZ4FcUS+OUe1aExKyBspedO7dgUhIYjawBL6713DCcVK
+         RlD/6U+zZRo+MnVPkH0mH4oWAlFY8q3lPS7CyxtL8wpaFpcH4YVBRUMkXzvavwt2quaQ
+         CjUA==
+X-Gm-Message-State: AOJu0YyqWxvCBbsERCJXOUpE2nuG+GxCX2FUZJ4AWPcQg7E/N0A7MHdg
+	8/ul9aNp1JnsGTtzJ+tQDygCS1ppJxRaUA==
+X-Google-Smtp-Source: AGHT+IHQOnmU3Dl3sGSfhXaer7R+VMPRxfXyFSrG7FGfr035G2YxObprjUZh2+2zoGcP1kWgwH7fbg==
+X-Received: by 2002:a05:600c:2295:b0:40d:5fcc:3a62 with SMTP id 21-20020a05600c229500b0040d5fcc3a62mr151683wmf.80.1704960246475;
+        Thu, 11 Jan 2024 00:04:06 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.223.112])
-        by smtp.gmail.com with ESMTPSA id a8-20020a5d5088000000b003364a0e6983sm508176wrt.62.2024.01.11.00.03.09
+        by smtp.gmail.com with ESMTPSA id a8-20020a5d5088000000b003364a0e6983sm508176wrt.62.2024.01.11.00.04.03
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Jan 2024 00:03:12 -0800 (PST)
-Message-ID: <7a25ce75-e4da-42b5-92ca-3e46b8e1ffba@linaro.org>
-Date: Thu, 11 Jan 2024 09:03:09 +0100
+        Thu, 11 Jan 2024 00:04:05 -0800 (PST)
+Message-ID: <228db99e-ddd2-4d3f-adfb-f6573c19e675@linaro.org>
+Date: Thu, 11 Jan 2024 09:04:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/1] Add StarFive JH8100 dwmac support
+Subject: Re: [PATCH v2 1/1] dt-bindings: net: starfive,jh7110-dwmac: Add
+ StarFive JH8100 support
 Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Tan Chun Hau <chunhau.tan@starfivetech.com>,
  "David S . Miller" <davem@davemloft.net>, Eric Dumazet
  <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
@@ -90,7 +89,8 @@ Cc: Ley Foon Tan <leyfoon.tan@starfivetech.com>,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
 References: <20240111025531.2875-1-chunhau.tan@starfivetech.com>
- <5e2b83c5-8b13-4d95-8346-1ad36a937129@linaro.org>
+ <20240111025531.2875-2-chunhau.tan@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -135,11 +135,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <5e2b83c5-8b13-4d95-8346-1ad36a937129@linaro.org>
+In-Reply-To: <20240111025531.2875-2-chunhau.tan@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240111_000315_296549_CDBD8F92 
-X-CRM114-Status: UNSURE (   7.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240111_000410_233301_5B298B93 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,17 +155,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/01/2024 09:02, Krzysztof Kozlowski wrote:
-> On 11/01/2024 03:55, Tan Chun Hau wrote:
->> Add StarFive JH8100 dwmac support.
->> JH8100 dwmac has one reset signal instead of 2 resets as in JH7110.
->>
->> Changes in v2:
->> - Drop driver patch.
+On 11/01/2024 03:55, Tan Chun Hau wrote:
+> Add StarFive JH8100 dwmac support.
+> JH8100 dwmac has one reset signal instead of 2 resets as in JH7110.
 > 
-> ? But devices are not compatible, so how can it work?
+> Signed-off-by: Tan Chun Hau <chunhau.tan@starfivetech.com>
+> ---
+>  .../devicetree/bindings/net/snps,dwmac.yaml   |  1 +
+>  .../bindings/net/starfive,jh7110-dwmac.yaml   | 50 +++++++++++++------
+>  2 files changed, 37 insertions(+), 14 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> index 5c2769dc689a..350b3d76630f 100644
+> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> @@ -96,6 +96,7 @@ properties:
+>          - snps,dwxgmac
+>          - snps,dwxgmac-2.10
+>          - starfive,jh7110-dwmac
+> +        - starfive,jh8100-dwmac
 
-Wait, your select confused me... later you made them compatible.
+Drop, not needed.
+
+>  
+>    reg:
+>      minItems: 1
+> diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+> index 5e7cfbbebce6..7e4547961bab 100644
+> --- a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+> @@ -17,15 +17,23 @@ select:
+>        contains:
+>          enum:
+>            - starfive,jh7110-dwmac
+> +          - starfive,jh8100-dwmac
+
+Drop, not needed.
+
+>    required:
+>      - compatible
+>  
+>  properties:
+>    compatible:
+> -    items:
+> -      - enum:
+> -          - starfive,jh7110-dwmac
+> -      - const: snps,dwmac-5.20
+
 
 Best regards,
 Krzysztof
