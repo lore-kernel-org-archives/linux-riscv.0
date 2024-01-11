@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C07A3C47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 13:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217F1C47258
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 13:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qjuiNZhNght2I8vPegFxAX2TvPGQ41OV+URzW6TtB2g=; b=1BvdFC9+mKNcgA
-	6DgY9dfP2aORjf/lK2um0EGXDOdqIfsIeYeawTYmXaUdeui1zYjseaPpBrpC/CaFHGP864p1rd/Yd
-	f23zWXKjfOMMYBsarhVn1iDBY+ACimbyLAnKE0wB93pItRLBihItrIyxPjJEn/58EekvJx/+MFYX0
-	31REFXmW2aKvvSJNa0KsM3J5avWAAjllBABFCQL1QtntzzW/HAOuc4SYv07b+IM/VCRVN/fr/FVF4
-	auJo29JRaE4ITdpbkNB9LzKL6cmwaT8tl0KsoniOngtiWS1Ae1x1tgnQnGGkAQ30h9AgGsVTPOK9l
-	tlOyDDmGSiDz9b6ZCHOQ==;
+	List-Owner; bh=Xaq2TRk3wXbQZSmYt3X3wTn1lW/bK0rQJZnzB7U/D/M=; b=bhwAkwghgJMmld
+	XFRPEGbzL1tpvm7cKcWtPbvl5rPg+ms04LnxQIx8URBICEvsbrwk8R5PskweaMNWsSesJfcXYcXs0
+	z9RqsypTSfSYHrhJHlKWDW/WSaGMm50r4vPKMy4/xGoPC0/IuBqnhtumk2OpChXB8skfdRI40mmj9
+	oZ9RWBze0xKWcCEipjvAnQ2NzGeQ8NuvdVXRRh9EBfAKgbl2xvqGNdnVhdJe9GWAlIvXsk8jjwwi1
+	5dCVZNhxTR6TEInnFwQI+JF0cHzleQjk7FiJ+mxQPyyKdoqZFrLgn6F1EaDeqXyvroUbKY9M+8J4b
+	nfw7uROi/Pch40oMZm2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNuvD-0007MC-0l;
-	Thu, 11 Jan 2024 13:16:35 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1rNuvL-0007O0-0G;
+	Thu, 11 Jan 2024 13:16:43 +0000
+Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNuvA-0007KE-0b
+	id 1rNuvI-0007N3-0P
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jan 2024 13:16:33 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-6d9bba6d773so4551718b3a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Jan 2024 05:16:29 -0800 (PST)
+	Thu, 11 Jan 2024 13:16:41 +0000
+Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-3bbd1fab03cso4500809b6e.1
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Jan 2024 05:16:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1704978988; x=1705583788; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1704978998; x=1705583798; darn=lists.infradead.org;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=/AayJx6bpS+I1BggTfh/rgvG078upYWdo73wc6SmWTY=;
-        b=FrKT5XesFyJW6ZwDVwvJ4gqAMr8JYge3Ha17oRJNI4iKVr07hW0WcjY2UAhHS5nDpK
-         VfgFP6rNUlCrdW9+Ukw0yaJWjm5BqRjDJsA/YrbV57X0AFTseXWggYzaiKGG0birzIWd
-         3EGhoYBUq4/Ep7gWGXK4WDHQzMpCS+At+4Xjpgp33v/kO4iC8JSDHMbNScrRDOFvCYjV
-         n21OqLDhR0DFGBIbR8vyr2hzaDtlhGz8dg72NQ5WDCn3zK18I77QEmZ2N30GZpiQZ/Rt
-         wTfOkNGydb4bkESpwQiAhQSMKjOtPuVw4Qvmsins7zSHOC483UEh7tVY5nKYX9FMurh9
-         wh1w==
+        bh=NFnYzFltuLxaA5kymfUv4YQXh/w1s0UKs0KJQeLv+3U=;
+        b=gL14Ao0fkNxQU7V6bK2Zydep5qTzCOETQzaf+xoHCWmkBvYdR9vYZb226hmQWHCvUC
+         JhOqGH9Wi7gAZTBW1cEfW22u/wr2VzCivpeKL96SM6aaw2bdFlfVDdUd36mYCn9fpfCf
+         9AkapgEIEOGI2ex9W9xNBgjNukPhRR1+rvLBQmZwgkOywaZ/hlRUj0+KyUl1ZXuqfojE
+         MFeg5LIg0fUJB5LW47rX8CBjCsrkLscROrc/QCF+NsJWw8oIwLzBlFzi7t0zU+1LDWiW
+         EGPfm4qc0Jw7HawpR9yjSPC7Slh+rcch0qt1pCnc54qhfoBayAL0kHpreR1A5dQ2SEIY
+         K7Jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704978988; x=1705583788;
+        d=1e100.net; s=20230601; t=1704978998; x=1705583798;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/AayJx6bpS+I1BggTfh/rgvG078upYWdo73wc6SmWTY=;
-        b=EwX/8u1N6JCVx4dSOrP2sWDumxJ0CJtS1+eEETkhCefh8WEyYWogJ/DAZ5cAHQ7h9f
-         JISwMwuaFpcERdzvofn1PETNTleMj+5q4p2d0sCNU5qaCwgBN1D41nv4mfZBS3z/aiwE
-         iGaLoSWA3Jmo9ARZigB5hu8WAbfw8oHjth4R5BOpGNx9woBPymXT9CZUloDU7iDr6iW7
-         2fHM2aoHfaiyFNC0LoFKUx8723xmmMPqseRchGrgT8H5eGe7964LBkmjIU5hppOks2SM
-         jr8ksUdtSMTBnsYbZ5X9rwt2hCsK2nFiRHKI3EZDEgN72hfB843L+3BdxytngA7KP+ya
-         hq8w==
-X-Gm-Message-State: AOJu0YzriAg5aGDeuMP3MEjRHF5NGbKflXXIUZTUWAfQhbPeixpbaL79
-	mnZvQH6fhUjSryV5rCw2ppZXt467YNesEj3TPuwIao6mP5TT2Ho+0erISwbLH9BamViCmEGhA1E
-	sLksZKc4dL6AaDlueGichj96ZopGPIpn1ylsLSx9w6Z3XCTVja7tmB9OEQH+XUbIohgEyaw10Y8
-	+CqYVP0Jq1Nu8NXE6B0TjY
-X-Google-Smtp-Source: AGHT+IGJTKDtmqKwqgbQ8aWFmBbPW6yB2oFvRvgOMEU1BOVghxEqjH8ukA4NLJn7eNaf9pOD+aYvIA==
-X-Received: by 2002:aa7:8c51:0:b0:6d9:be3e:19a0 with SMTP id e17-20020aa78c51000000b006d9be3e19a0mr1039194pfd.48.1704978988046;
-        Thu, 11 Jan 2024 05:16:28 -0800 (PST)
+        bh=NFnYzFltuLxaA5kymfUv4YQXh/w1s0UKs0KJQeLv+3U=;
+        b=EVmIeh7oopA7J2r9Nyj/nKm2gWTb3nXPutLLu1WiHm+44+dy2Z5J/ZKcmOhXgJxbLO
+         aF832zUIz4mrYhQUK1uSHsVDME13S2FM4SGd1zf18hbqrSf1ofIRgr6RuMnYPvvqfJen
+         UzePtxpSIP7CeKXTEzmp4XL7eBC0OR1pUUQGi0X3MSQX21tSjt2yKUE1IrBOtBt2evUE
+         wMO7wyevec/7v5Z3Zo6y2s0m6SFx59UKfoau3pkuWzYWzfmRjO/cYd7+h0EEWkJDdjqh
+         RRZIW/ni6buRGknXro6ldgZQ3bT02rEGQGp5BhX+6zsQnw0Qfjx/8dpcC9eCyL/2zfNs
+         FN1w==
+X-Gm-Message-State: AOJu0YyXKxG0WGfUuNPM0CMWam1IwhNV09aR9w7ZcNZFLcV4tobD54n/
+	18BKmCPNB74BUKR0yRvpMjGQHXdm2POWPQAuQhBDsC1t9kD5NTJvsihrVFQwWWQYFEqsmQ2O6Zb
+	LZW7z3+DRjUbICwz+8cCfgBIxrJP6CjQa2yq7saHxUu007Cl/EW2EZDEEni36BKVP8NSmr88PYb
+	pdhu7u3p0Hft/b8zfefdu2
+X-Google-Smtp-Source: AGHT+IF8RgoZv9jwxLFD9efuNWQJgdPFQg3Isn/QsVJzMq7RxrIrbBpw9hhknAExTyQKGXMZbtx1nw==
+X-Received: by 2002:a05:6358:63a5:b0:174:fdd1:9eec with SMTP id k37-20020a05635863a500b00174fdd19eecmr1060460rwh.8.1704978998108;
+        Thu, 11 Jan 2024 05:16:38 -0800 (PST)
 Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id ei30-20020a056a0080de00b006d9a6a9992dsm1103202pfb.123.2024.01.11.05.16.24
+        by smtp.gmail.com with ESMTPSA id ei30-20020a056a0080de00b006d9a6a9992dsm1103202pfb.123.2024.01.11.05.16.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jan 2024 05:16:27 -0800 (PST)
+        Thu, 11 Jan 2024 05:16:37 -0800 (PST)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -75,23 +75,24 @@ Cc: paul.walmsley@sifive.com,
 	peterz@infradead.org,
 	tglx@linutronix.de,
 	ebiggers@kernel.org,
+	Han-Kuan Chen <hankuan.chen@sifive.com>,
 	Andy Chiu <andy.chiu@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Baoquan He <bhe@redhat.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [v10, 02/10] riscv: vector: make Vector always available for softirq context
-Date: Thu, 11 Jan 2024 13:15:50 +0000
-Message-Id: <20240111131558.31211-3-andy.chiu@sifive.com>
+	Guo Ren <guoren@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Subject: [v10, 03/10] riscv: Add vector extension XOR implementation
+Date: Thu, 11 Jan 2024 13:15:51 +0000
+Message-Id: <20240111131558.31211-4-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20240111131558.31211-1-andy.chiu@sifive.com>
 References: <20240111131558.31211-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240111_051632_220600_3D69B3DE 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20240111_051640_166453_C91C08B8 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,99 +110,231 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The goal of this patch is to provide full support of Vector in kernel
-softirq context. So that some of the crypto alogrithms won't need scalar
-fallbacks.
+From: Greentime Hu <greentime.hu@sifive.com>
 
-By disabling bottom halves in active kernel-mode Vector, softirq will
-not be able to nest on top of any kernel-mode Vector. So, softirq
-context is able to use Vector whenever it runs.
+This patch adds support for vector optimized XOR and it is tested in
+qemu.
 
-After this patch, Vector context cannot start with irqs disabled.
-Otherwise local_bh_enable() may run in a wrong context.
-
-Disabling bh is not enough for RT-kernel to prevent preeemption. So
-we must disable preemption, which also implies disabling bh on RT.
-
-Related-to: commit 696207d4258b ("arm64/sve: Make kernel FPU protection RT friendly")
-Related-to: commit 66c3ec5a7120 ("arm64: neon: Forbid when irqs are disabled")
+Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Reviewed-by: Eric Biggers <ebiggers@google.com>
 ---
 Changelog v8:
- - refine comments, fix typos (Eric)
-Changelog v4:
- - new patch since v4
+ - wrap xor function prototypes with CONFIG_RISCV_ISA_V
+Changelog v7:
+ - fix build warning message and use proper entry/exit macro for
+   assembly. Drop Conor's A-b
+Changelog v2:
+ - 's/rvv/vector/' (Conor)
 ---
- arch/riscv/include/asm/processor.h     |  3 ++-
- arch/riscv/include/asm/simd.h          |  6 +++++-
- arch/riscv/kernel/kernel_mode_vector.c | 14 ++++++++++++--
- 3 files changed, 19 insertions(+), 4 deletions(-)
+ arch/riscv/include/asm/asm-prototypes.h | 18 ++++++
+ arch/riscv/include/asm/xor.h            | 68 +++++++++++++++++++++
+ arch/riscv/lib/Makefile                 |  1 +
+ arch/riscv/lib/xor.S                    | 81 +++++++++++++++++++++++++
+ 4 files changed, 168 insertions(+)
+ create mode 100644 arch/riscv/include/asm/xor.h
+ create mode 100644 arch/riscv/lib/xor.S
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 4809f20a2053..55ace554f202 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -78,7 +78,8 @@ struct pt_regs;
-  * following meaning:
-  *
-  *  - bit 0: indicates whether the in-kernel Vector context is active. The
-- *    activation of this state disables the preemption.
-+ *    activation of this state disables the preemption. On a non-RT kernel, it
-+ *    also disable bh.
-  */
- #define RISCV_KERNEL_MODE_V	0x1
+diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
+index 36b955c762ba..6db1a9bbff4c 100644
+--- a/arch/riscv/include/asm/asm-prototypes.h
++++ b/arch/riscv/include/asm/asm-prototypes.h
+@@ -9,6 +9,24 @@ long long __lshrti3(long long a, int b);
+ long long __ashrti3(long long a, int b);
+ long long __ashlti3(long long a, int b);
  
-diff --git a/arch/riscv/include/asm/simd.h b/arch/riscv/include/asm/simd.h
-index ef8af413a9fc..4d699e16c9a9 100644
---- a/arch/riscv/include/asm/simd.h
-+++ b/arch/riscv/include/asm/simd.h
-@@ -28,8 +28,12 @@ static __must_check inline bool may_use_simd(void)
- 	/*
- 	 * RISCV_KERNEL_MODE_V is only set while preemption is disabled,
- 	 * and is clear whenever preemption is enabled.
-+	 *
-+	 * Kernel-mode Vector temporarily disables bh. So we must not return
-+	 * true on irq_disabled(). Otherwise we would fail the lockdep check
-+	 * calling local_bh_enable()
- 	 */
--	return !in_hardirq() && !in_nmi() && !(riscv_v_flags() & RISCV_KERNEL_MODE_V);
-+	return !in_hardirq() && !in_nmi() && !irqs_disabled() && !(riscv_v_flags() & RISCV_KERNEL_MODE_V);
- }
++#ifdef CONFIG_RISCV_ISA_V
++
++void xor_regs_2_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2);
++void xor_regs_3_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3);
++void xor_regs_4_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3,
++		 const unsigned long *__restrict p4);
++void xor_regs_5_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3,
++		 const unsigned long *__restrict p4,
++		 const unsigned long *__restrict p5);
++
++#endif /* CONFIG_RISCV_ISA_V */
  
- #else /* ! CONFIG_RISCV_ISA_V */
-diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
-index 114cf4f0a0eb..2fc145edae3d 100644
---- a/arch/riscv/kernel/kernel_mode_vector.c
-+++ b/arch/riscv/kernel/kernel_mode_vector.c
-@@ -46,7 +46,14 @@ static inline void riscv_v_stop(u32 flags)
-  */
- void get_cpu_vector_context(void)
- {
--	preempt_disable();
-+	/*
-+	 * disable softirqs so it is impossible for softirqs to nest
-+	 * get_cpu_vector_context() when kernel is actively using Vector.
-+	 */
-+	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-+		local_bh_disable();
-+	else
-+		preempt_disable();
+ #define DECLARE_DO_ERROR_INFO(name)	asmlinkage void name(struct pt_regs *regs)
  
- 	riscv_v_start(RISCV_KERNEL_MODE_V);
- }
-@@ -62,7 +69,10 @@ void put_cpu_vector_context(void)
- {
- 	riscv_v_stop(RISCV_KERNEL_MODE_V);
+diff --git a/arch/riscv/include/asm/xor.h b/arch/riscv/include/asm/xor.h
+new file mode 100644
+index 000000000000..96011861e46b
+--- /dev/null
++++ b/arch/riscv/include/asm/xor.h
+@@ -0,0 +1,68 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2021 SiFive
++ */
++
++#include <linux/hardirq.h>
++#include <asm-generic/xor.h>
++#ifdef CONFIG_RISCV_ISA_V
++#include <asm/vector.h>
++#include <asm/switch_to.h>
++#include <asm/asm-prototypes.h>
++
++static void xor_vector_2(unsigned long bytes, unsigned long *__restrict p1,
++			 const unsigned long *__restrict p2)
++{
++	kernel_vector_begin();
++	xor_regs_2_(bytes, p1, p2);
++	kernel_vector_end();
++}
++
++static void xor_vector_3(unsigned long bytes, unsigned long *__restrict p1,
++			 const unsigned long *__restrict p2,
++			 const unsigned long *__restrict p3)
++{
++	kernel_vector_begin();
++	xor_regs_3_(bytes, p1, p2, p3);
++	kernel_vector_end();
++}
++
++static void xor_vector_4(unsigned long bytes, unsigned long *__restrict p1,
++			 const unsigned long *__restrict p2,
++			 const unsigned long *__restrict p3,
++			 const unsigned long *__restrict p4)
++{
++	kernel_vector_begin();
++	xor_regs_4_(bytes, p1, p2, p3, p4);
++	kernel_vector_end();
++}
++
++static void xor_vector_5(unsigned long bytes, unsigned long *__restrict p1,
++			 const unsigned long *__restrict p2,
++			 const unsigned long *__restrict p3,
++			 const unsigned long *__restrict p4,
++			 const unsigned long *__restrict p5)
++{
++	kernel_vector_begin();
++	xor_regs_5_(bytes, p1, p2, p3, p4, p5);
++	kernel_vector_end();
++}
++
++static struct xor_block_template xor_block_rvv = {
++	.name = "rvv",
++	.do_2 = xor_vector_2,
++	.do_3 = xor_vector_3,
++	.do_4 = xor_vector_4,
++	.do_5 = xor_vector_5
++};
++
++#undef XOR_TRY_TEMPLATES
++#define XOR_TRY_TEMPLATES           \
++	do {        \
++		xor_speed(&xor_block_8regs);    \
++		xor_speed(&xor_block_32regs);    \
++		if (has_vector()) { \
++			xor_speed(&xor_block_rvv);\
++		} \
++	} while (0)
++#endif
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 26cb2502ecf8..494f9cd1a00c 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -11,3 +11,4 @@ lib-$(CONFIG_64BIT)	+= tishift.o
+ lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
  
--	preempt_enable();
-+	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-+		local_bh_enable();
-+	else
-+		preempt_enable();
- }
- 
- /*
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
++lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
+diff --git a/arch/riscv/lib/xor.S b/arch/riscv/lib/xor.S
+new file mode 100644
+index 000000000000..b28f2430e52f
+--- /dev/null
++++ b/arch/riscv/lib/xor.S
+@@ -0,0 +1,81 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2021 SiFive
++ */
++#include <linux/linkage.h>
++#include <linux/export.h>
++#include <asm/asm.h>
++
++SYM_FUNC_START(xor_regs_2_)
++	vsetvli a3, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a3
++	vxor.vv v16, v0, v8
++	add a2, a2, a3
++	vse8.v v16, (a1)
++	add a1, a1, a3
++	bnez a0, xor_regs_2_
++	ret
++SYM_FUNC_END(xor_regs_2_)
++EXPORT_SYMBOL(xor_regs_2_)
++
++SYM_FUNC_START(xor_regs_3_)
++	vsetvli a4, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a4
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a4
++	vxor.vv v16, v0, v16
++	add a3, a3, a4
++	vse8.v v16, (a1)
++	add a1, a1, a4
++	bnez a0, xor_regs_3_
++	ret
++SYM_FUNC_END(xor_regs_3_)
++EXPORT_SYMBOL(xor_regs_3_)
++
++SYM_FUNC_START(xor_regs_4_)
++	vsetvli a5, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a5
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a5
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a5
++	vxor.vv v16, v0, v24
++	add a4, a4, a5
++	vse8.v v16, (a1)
++	add a1, a1, a5
++	bnez a0, xor_regs_4_
++	ret
++SYM_FUNC_END(xor_regs_4_)
++EXPORT_SYMBOL(xor_regs_4_)
++
++SYM_FUNC_START(xor_regs_5_)
++	vsetvli a6, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a6
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a6
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a6
++	vxor.vv v0, v0, v24
++	vle8.v v8, (a5)
++	add a4, a4, a6
++	vxor.vv v16, v0, v8
++	add a5, a5, a6
++	vse8.v v16, (a1)
++	add a1, a1, a6
++	bnez a0, xor_regs_5_
++	ret
++SYM_FUNC_END(xor_regs_5_)
++EXPORT_SYMBOL(xor_regs_5_)
 -- 
 2.17.1
 
