@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22176C47077
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 18:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF281C47077
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 19:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gy49y7zSIZU1Ad9QVdAtqVbVICmysX1lmmwk5eyc2d0=; b=DXZ5zqGAVyarMo
-	6eTmF5yfYPtkVfVma0/P9/xOPbcUOdNVHVR6ige/1NGZLEoQsHSDlvMqYdpSVki0X5r3uignOmo6e
-	28l5+DauE5QrhSuv596d8yPefiF9bWIfRgU6AsR4ps8kmXoU2KIV8KevNKcPLkVzkHyKMO0FaHMKI
-	pkzGP6iHbGb7wSMGJKLh8pOBFqweLpF/K6zlQZ7jsku03YZNkGuRh58FuKtWrZecZli4TOOvju0Oh
-	k6Ug4lLEyWXhmrUuypJ94W+YvxvVUG2/s+Hmgj2qi4f3CaOHDLdS3CzhMb5wAx0XU7ci3oLHzo9pJ
-	1ITH/HPi1UgI+B/DPISQ==;
+	List-Owner; bh=y0LTDdlYn9+TP1Kvt3I0Ajo7rrgiJGBWEQDQKT45Qgw=; b=jowmc/jlwSGpB5
+	9zDRrKK0VIsf0mzSzIeJgasOtAMbragi3a2Bb4lonRmIrZkEstkw0MHwh9SkfE14YxhHpWUXZPcKi
+	QHhzQk4evdFgv9iY05aHFSm1lTf8PwWPJhU1UwXy4b1M5mHqcWBcL1M5IEkl1HrHutQj06fOWFz8j
+	5KZ8yif3aqv83uoECVmVtZAlUB0hTc4rs4Odv3b3q27e2IHazSO72FyIUTsTmYQ+lvoL62fIVRqr7
+	4dje0G7cZzHko2d78/SjGziW1Dt4AJHZO9+0PmtqchVt18xU5LkLeGBlJawkMfvMVulwPxkxMsVrw
+	VBKcefHQB2GK5SnvGTgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rO05E-000xEU-11;
-	Thu, 11 Jan 2024 18:47:16 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1rO0uR-0010kB-2v;
+	Thu, 11 Jan 2024 19:40:11 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rO058-000xBT-0n;
-	Thu, 11 Jan 2024 18:47:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=sG0vta/K25cX+m3KWmJQGIOyHDu76/qWE53sJiW1pFo=; b=QdyXNbVgAPkw53YLTW5MFLAwGd
-	JSmyBJYT187WJ9+lEgwFU4PhK1dNACRkVKJfr68Vrl3dvWbrfDcajsyxvDC+L+X9FlhxRdzkHifJ7
-	Nyxxyw4E6rhW4a9StvHd/8k0K7cZ2ejK8wWeAxlnWB3EXAqRbexHDSm2Ym+JznIMwLMETkZI1EOBF
-	aFTVH+8Oirspf3X8ccXVNUEcwyl/yFabJZJG4kbTOUGr9HGQnWzceum2L980kdwneZgFV/2GpF9u7
-	+ZMQvD6P6lp8CqjbYvw2rm5IOxMyXQjXa+F/gD8ocRGtER1nVEgTt8Q6I3eYKL9yLoSjoGENQ2Kyy
-	yStOVlHw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54562)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1rO04n-0006t8-0R;
-	Thu, 11 Jan 2024 18:46:49 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1rO04l-0006ah-8R; Thu, 11 Jan 2024 18:46:47 +0000
-Date: Thu, 11 Jan 2024 18:46:47 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, acpica-devel@lists.linuxfoundation.org,
-	linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org,
-	Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com,
-	James Morse <james.morse@arm.com>
-Subject: Re: [PATCH RFC v3 02/21] ACPI: processor: Add support for processors
- described as container packages
-Message-ID: <ZaA3l4yjgCXxSiVg@shell.armlinux.org.uk>
-References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
- <E1rDOfx-00Dvje-MS@rmk-PC.armlinux.org.uk>
- <CAJZ5v0iB0bS6nmjQ++pV1zp5YSGuigbffK5VD3wsX+8bY9MA5w@mail.gmail.com>
- <20240111175908.00002f46@Huawei.com>
+	id 1rO0uO-0010hp-0D;
+	Thu, 11 Jan 2024 19:40:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A7724617A3;
+	Thu, 11 Jan 2024 19:40:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFE49C433C7;
+	Thu, 11 Jan 2024 19:40:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1705002004;
+	bh=DmkLUwPO5pHCJHvVcwPy1P4sgjTzQNNak+Eq1cUdG4A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SPPtBjPT+YAd4ocTNd3PGbSKeEby62sm5DsaPgCv2HqVIW9AA61WpCKjUG1nFowUj
+	 3KfWsd59L33mr3lPW1pODJ4DxPp3c0FvcL65M+M43Xd0dsozkiXoWTzMQXYyp+ok+1
+	 Cb30aWs3Sxk5AodiSlMI4eMG+NABT1HgniB893pjpYDswpLiHA/yPSOP9UoGeJLbKt
+	 bnTkQNlGsDQqy8YOmI7KSXeLlghLdU+zlsbZoTu+RaMYkcWjxf+xdeMOQ8myzu+KXS
+	 4DFQ7cH+eAqKWFGmhszUBwC2NDKu/wiPRUDEP+5/MhjNc4xXnfccYuJTOa5a8NwKDV
+	 Z7nFRX4xsl/qg==
+Date: Thu, 11 Jan 2024 12:40:01 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Yonghong Song <yonghong.song@linux.dev>, akpm@linux-foundation.org
+Cc: llvm@lists.linux.dev, patches@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-crypto@vger.kernel.org, linux-efi@vger.kernel.org,
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	linux-media@vger.kernel.org, linux-arch@vger.kernel.org,
+	kasan-dev@googlegroups.com, linux-mm@kvack.org,
+	bridge@lists.linux.dev, netdev@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, ast@kernel.org,
+	daniel@iogearbox.net, andrii@kernel.org, mykolal@fb.com,
+	bpf@vger.kernel.org
+Subject: Re: [PATCH 1/3] selftests/bpf: Update LLVM Phabricator links
+Message-ID: <20240111194001.GA3805856@dev-arch.thelio-3990X>
+References: <20240109-update-llvm-links-v1-0-eb09b59db071@kernel.org>
+ <20240109-update-llvm-links-v1-1-eb09b59db071@kernel.org>
+ <6a655e9f-9878-4292-9d16-f988c4bdfc73@linux.dev>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240111175908.00002f46@Huawei.com>
+In-Reply-To: <6a655e9f-9878-4292-9d16-f988c4bdfc73@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240111_104710_283302_2422F0BE 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20240111_114008_187693_8576F339 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +80,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKYW4gMTEsIDIwMjQgYXQgMDU6NTk6MDhQTSArMDAwMCwgSm9uYXRoYW4gQ2FtZXJv
-biB3cm90ZToKPiBPbiBNb24sIDE4IERlYyAyMDIzIDIxOjE3OjM0ICswMTAwCj4gIlJhZmFlbCBK
-LiBXeXNvY2tpIiA8cmFmYWVsQGtlcm5lbC5vcmc+IHdyb3RlOgo+IAo+ID4gT24gV2VkLCBEZWMg
-MTMsIDIwMjMgYXQgMTo0OeKAr1BNIFJ1c3NlbGwgS2luZyA8cm1rK2tlcm5lbEBhcm1saW51eC5v
-cmcudWs+IHdyb3RlOgo+ID4gPgo+ID4gPiBGcm9tOiBKYW1lcyBNb3JzZSA8amFtZXMubW9yc2VA
-YXJtLmNvbT4KPiAKPiBEb25lIHNvbWUgZGlnZ2luZyArIG1hY2hpbmUgZmFraW5nLiAgVGhpcyBp
-cyBtaWQgc3RhZ2UgcmVzdWx0cyBhdCBiZXN0Lgo+IAo+IFN1bW1hcnk6IEkgZG9uJ3QgdGhpbmsg
-dGhpcyBwYXRjaCBpcyBuZWNlc3NhcnkuICBJZiBhbnlvbmUgaGFwcGVucyB0byBiZSBpbgo+IHRo
-ZSBtb29kIGZvciB0ZXN0aW5nIG9uIHZhcmlvdXMgcGxhdGZvcm1zLCBjYW4geW91IGRyb3AgdGhp
-cyBwYXRjaCBhbmQKPiBzZWUgaWYgZXZlcnl0aGluZyBzdGlsbCB3b3Jrcy4KPiAKPiBXaXRoIHRo
-aXMgcGF0Y2ggaW4gcGxhY2UsIGFuZCBhIHByb2Nlc3NvciBjb250YWluZXIgY29udGFpbmluZwo+
-IFByb2Nlc3NvcigpIG9iamVjdHMgYWNwaV9wcm9jZXNzX2FkZCBpcyBjYWxsZWQgdHdpY2UgLSBv
-bmNlIHZpYQo+IHRoZSBwYXRoIGFkZGVkIGhlcmUgYW5kIG9uY2UgdmlhIGFjcGlfYnVzX2F0dGFj
-aCBldGMuCj4gCj4gTWF5YmUgaXQncyBhIGxlZnQgb3ZlciBmcm9tIGVhcmxpZXIgYXBwcm9hY2hl
-cyB0byBzb21lIG9mIHRoaXM/CgpGcm9tIHdoYXQgeW91J3JlIHNheWluZywgaXQgc2VlbXMgdGhh
-dCB3YXkuIEl0IHdvdWxkIGJlIHJlYWxseSBnb29kIHRvCmdldCBhIHJlcGx5IGZyb20gSmFtZXMg
-dG8gc2VlIHdoZXRoZXIgaGUgYWdyZWVzIC0gb3IgYXQgbGVhc3QgZ2V0IHRoZQpyZWFzb24gd2h5
-IHRoaXMgcGF0Y2ggaXMgaW4gdGhlIHNlcmllcy4uLiBidXQgSSBzdXNwZWN0IHRoYXQgd2lsbCBu
-ZXZlcgpjb21lLgoKPiBCb3RoIGNhc2VzIGFyZSBjb3ZlcmVkIGJ5IHRoZSBleGlzdGluZyBoYW5k
-bGluZyB3aXRob3V0IHRoaXMuCj4gCj4gSSdtIGZhciBmcm9tIGNsZWFyIG9uIHdoeSB3ZSBuZWVk
-IHRoaXMgcGF0Y2guICBQcmVzdW1hYmx5Cj4gaXQncyB0aGUgcmVmZXJlbmNlIGluIHRoZSBkZXNj
-cmlwdGlvbiBvbiBpdCBicmVha2luZyBmb3IKPiBQcm9jZXNzb3IgUGFja2FnZSBjb250YWluaW5n
-IFByb2Nlc3NvcigpIG9iamVjdHMgdGhhdCBtYXR0ZXJzCj4gYWZ0ZXIgYSBtb3ZlLi4uIEknbSBz
-dHJ1Z2dsaW5nIHRvIGZpbmQgdGhhdCBtb3ZlIHRob3VnaCEKCkkgZG8ga25vdyB0aGF0IEphbWVz
-IGRpZCBhIGxvdCBvZiB0ZXN0aW5nLCBzbyBtYXliZSBoZSBmb3VuZCBzb21lCmNvcm5lciBjYXNl
-IHNvbWV3aGVyZSB3aGljaCBtYWRlIHRoaXMgbmVjZXNzYXJ5IC0gYnV0IHdpdGhvdXQgaW5wdXQK
-ZnJvbSBKYW1lcywgd2UgY2FuJ3Qga25vdyB0aGF0LgoKU28sIG1heWJlIHRoZSByaWdodCB3YXkg
-Zm9yd2FyZCBvbiB0aGlzIGlzIHRvIHJlLXRlc3QgdGhlIHNlcmllcwp3aXRoIHRoaXMgcGF0Y2gg
-ZHJvcHBlZCwgYW5kIHNlZSB3aGV0aGVyIHRoZXJlJ3MgYW55IGlsbCBlZmZlY3RzLgpJdCBzaG91
-bGQgYmUgcG9zc2libGUgdG8gcmVzdXJlY3QgdGhlIHBhdGNoIGlmIGl0IGRvZXMgdHVybiBvdXQg
-dG8KYmUgbmVjZXNzYXJ5LgoKRG9lcyB0aGF0IHNvdW5kIGxpa2UgYSBnb29kIHdheSBmb3J3YXJk
-PwoKVGhhbmtzLgoKLS0gClJNSydzIFBhdGNoIHN5c3RlbTogaHR0cHM6Ly93d3cuYXJtbGludXgu
-b3JnLnVrL2RldmVsb3Blci9wYXRjaGVzLwpGVFRQIGlzIGhlcmUhIDgwTWJwcyBkb3duIDEwTWJw
-cyB1cC4gRGVjZW50IGNvbm5lY3Rpdml0eSBhdCBsYXN0IQoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Yonghong,
+
+On Wed, Jan 10, 2024 at 08:05:36PM -0800, Yonghong Song wrote:
+> 
+> On 1/9/24 2:16 PM, Nathan Chancellor wrote:
+> > reviews.llvm.org was LLVM's Phabricator instances for code review. It
+> > has been abandoned in favor of GitHub pull requests. While the majority
+> > of links in the kernel sources still work because of the work Fangrui
+> > has done turning the dynamic Phabricator instance into a static archive,
+> > there are some issues with that work, so preemptively convert all the
+> > links in the kernel sources to point to the commit on GitHub.
+> > 
+> > Most of the commits have the corresponding differential review link in
+> > the commit message itself so there should not be any loss of fidelity in
+> > the relevant information.
+> > 
+> > Additionally, fix a typo in the xdpwall.c print ("LLMV" -> "LLVM") while
+> > in the area.
+> > 
+> > Link: https://discourse.llvm.org/t/update-on-github-pull-requests/71540/172
+> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> 
+> Ack with one nit below.
+> 
+> Acked-by: Yonghong Song <yonghong.song@linux.dev>
+
+<snip>
+
+> > @@ -304,6 +304,6 @@ from running test_progs will look like:
+> >   .. code-block:: console
+> > -  test_xdpwall:FAIL:Does LLVM have https://reviews.llvm.org/D109073? unexpected error: -4007
+> > +  test_xdpwall:FAIL:Does LLVM have https://github.com/llvm/llvm-project/commit/ea72b0319d7b0f0c2fcf41d121afa5d031b319d5? unexpected error: -4007
+> > -__ https://reviews.llvm.org/D109073
+> > +__ https://github.com/llvm/llvm-project/commit/ea72b0319d7b0f0c2fcf41d121afa5d031b319d
+> 
+> To be consistent with other links, could you add the missing last alnum '5' to the above link?
+
+Thanks a lot for catching this and providing an ack. Andrew, could you
+squash this update into selftests-bpf-update-llvm-phabricator-links.patch?
+
+diff --git a/tools/testing/selftests/bpf/README.rst b/tools/testing/selftests/bpf/README.rst
+index b9a493f66557..e56034abb3c2 100644
+--- a/tools/testing/selftests/bpf/README.rst
++++ b/tools/testing/selftests/bpf/README.rst
+@@ -306,4 +306,4 @@ from running test_progs will look like:
+ 
+   test_xdpwall:FAIL:Does LLVM have https://github.com/llvm/llvm-project/commit/ea72b0319d7b0f0c2fcf41d121afa5d031b319d5? unexpected error: -4007
+ 
+-__ https://github.com/llvm/llvm-project/commit/ea72b0319d7b0f0c2fcf41d121afa5d031b319d
++__ https://github.com/llvm/llvm-project/commit/ea72b0319d7b0f0c2fcf41d121afa5d031b319d5
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
