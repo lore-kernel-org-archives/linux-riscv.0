@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D1BC47DA6
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 14:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A2CAC47DA9
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 14:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vvKnIWNNF4pLGLaOhr/Qde7De3qknBwhf5DksUkwElE=; b=JiKK/c78Mwvvk6
-	aYb02h+erBFRXu50BA+hOwWB4Xjh/mdu67H6HcZxDbZX/qUofOWlejDk5F+JDxCHiuxDxS0oA7xdz
-	7FLXoYwH0yKoccJ0HaAd+bh/xvcOFidjva9wQj+SXNNu4Lpy1h2VkGFZqvqAZslCgTmm7jFzwYTeR
-	Pl8QeNoN2E61+0txmz1qlpJYi3WMj9EB+mF38/Ut7wycs2vtc0Ly6b2zlC7fW9xDZUwRlzBOmRK7s
-	eP4EGiJBE5/P59zjGQhYjMPisvEa2QtldYu8O4U11p2NLP8sXkYyEa9eyyE9jUjQLZa6pa9TWnT1G
-	ZS3phZZSnZPfeDzD0fow==;
+	List-Owner; bh=Mw2AaYg63yTpIBDei4ADKi1XDoO0RNWz5xBUiLXabcc=; b=zyRUwSsB/MgJE0
+	r40l2PORNYmAP4TdL/4vZVl1StSEKyFyp8EZGTLU8CJEvjZdo6P6N4Hr6DubpcnzQ5Ig5vOHDYcZv
+	HsfwwPfC+0IqZm3HA8YzTXBKZgvyFxd/i8H/9yFLlZFYdF2SFLEHXEIRNbMc7j9R1UKscqFtj8LWr
+	49TFxVgpezKQjhxtigW8PChS20jy5RhwvPJzihVVIjzqFjVx75ZsJdN+MEKolKn3X01d3ULqtD534
+	OYFkqyq41T+pFK/HUGqT9V+dgH4+o4O9SPHZi//keACNfAcHQjQh26L+ghsBRma+vGJIOOU3rrhLZ
+	Vx3rIlajFv7UNey1NV/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNwON-000KMq-38;
-	Thu, 11 Jan 2024 14:50:47 +0000
+	id 1rNwOT-000KQ7-2n;
+	Thu, 11 Jan 2024 14:50:53 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNwOF-000KGg-2Z
+	id 1rNwOH-000KIv-1f
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jan 2024 14:50:42 +0000
+	Thu, 11 Jan 2024 14:50:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B910A61AE9;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5DDC961B07;
+	Thu, 11 Jan 2024 14:50:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 202A5C41613;
 	Thu, 11 Jan 2024 14:50:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C7DA3C433B2;
-	Thu, 11 Jan 2024 14:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704984637;
-	bh=gdgtNpyL3iGYpN5fWGoWRuJ8Tt8QZwxXPQpw0xnUJ6g=;
+	s=k20201202; t=1704984638;
+	bh=8CFIvlUjGt8QuBBa8Tb8VwbjhIkC8KrpqfYFhCv5K2M=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Aq36s6XHWAapk7vNTgj1jWLUkf2EPJwSCz2dwnb24J+GQlMIe0827n+P+ELynHfdU
-	 O5NtyLaHcUK8fP5GsyOU73TJNwxr8DChoQRYNi8NS1lgcnqmORtXclWor8WWvzi0kR
-	 gLasGPPMysgi02WkD4SYV6Vy0+SePqrcaszLe94uoPhoZCtcRqWtsNs+w47NeKeDAG
-	 cPAnFYoNOTSZjNK93f6YYamQ82/wwmz8GKNIsDr4Ds2RgfQvdMjvI5N1aBNmyMPVix
-	 DFUIGwwxhtsr6Z6LX0J7IQbINGUA3FPplzFUFnxuf/sfMfPPrtDQUW44oua91/eI4Q
-	 nk8CURcV3E/Wg==
+	b=CpGQWbIj1uskVJ7lEG9iK0nGpDTR9n0fGvpAQ2p/nlqtR4Uxcb2SFeiqkbYLu/cGj
+	 NOxhZWAHvUqIvcR/oo2NCvFeI7/vn0c5kBkMm2TipC8WZTinDydm6bcy7NWm6EAD5N
+	 ICzCoQhUfL6Jc+SXuOeztQfIF3vW6CyvCDr0dvjFT8D/CpesXqLUO0s5AFjjyBOTsA
+	 gdHdvj3RJ4U0qZtrkQNf9Z86COGWSL0iky984fGmMofk4SifP/wye8NDI2sgdLDKnx
+	 FRRhrygIEkjcdrHFHGc89Kinl+YNcWU1/LEMDfvQw3ovx+iaojrYiomzKS7W7TOYcy
+	 opK2acU/E8BYA==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id B20BFD8C96C;
-	Thu, 11 Jan 2024 14:50:37 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 0A954D8C976;
+	Thu, 11 Jan 2024 14:50:38 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/6] riscv: hwprobe: add Zicond, Zacas and Ztso support
+Subject: Re: [PATCH v3 0/1] riscv: Introduce system suspend support
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170498463772.20080.16524587804054627963.git-patchwork-notify@kernel.org>
-Date: Thu, 11 Jan 2024 14:50:37 +0000
-References: <20231220155723.684081-1-cleger@rivosinc.com>
-In-Reply-To: <20231220155723.684081-1-cleger@rivosinc.com>
-To: =?utf-8?b?Q2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPg==?=@ci.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, corbet@lwn.net,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- conor@kernel.org, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- rehn@rivosinc.com, gianluca@rivosinc.com
+Message-Id: <170498463804.20080.18088597793409481961.git-patchwork-notify@kernel.org>
+Date: Thu, 11 Jan 2024 14:50:38 +0000
+References: <20231206110807.35882-3-ajones@ventanamicro.com>
+In-Reply-To: <20231206110807.35882-3-ajones@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, leyfoon.tan@starfivetech.com,
+ jeeheng.sia@starfivetech.com, conor.dooley@microchip.com,
+ apatel@ventanamicro.com, samuel.holland@sifive.com,
+ songshuaishuai@tinylab.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240111_065039_909755_90A38E87 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240111_065041_595345_9AB45434 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,32 +79,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
+This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed, 20 Dec 2023 16:57:16 +0100 you wrote:
-> This series add support for a few more extensions that are present in
-> the RVA22U64/RVA23U64 (either mandatory or optional) and that are useful
-> for userspace:
-> - Zicond
-> - Zacas
-> - Ztso
+On Wed,  6 Dec 2023 12:08:08 +0100 you wrote:
+> OpenSBI v1.3 and later supports the SUSP SBI extension which has recently
+> been frozen with the freezing of SBI 2.0. This one patch series adds
+> system suspend support to Linux, which implements "suspend-to-RAM". To
+> use it, build the kernel with CONFIG_SUSPEND, boot on a platform which
+> supports system suspend, and then issue 'echo mem > /sys/power/state'.
+> It's also possible to test this Linux support on a platform without
+> system suspend by using OpenSBI's system suspend test support. To enable
+> test support add
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/6] riscv: add ISA extension parsing for Ztso
-    https://git.kernel.org/riscv/c/1ec9f381e848
-  - [v2,2/6] riscv: hwprobe: export Ztso ISA extension
-    https://git.kernel.org/riscv/c/5b4d64a819c0
-  - [v2,3/6] dt-bindings: riscv: add Zacas ISA extension description
-    https://git.kernel.org/riscv/c/cd7be4d02f41
-  - [v2,4/6] riscv: add ISA extension parsing for Zacas
-    https://git.kernel.org/riscv/c/188a2122c827
-  - [v2,5/6] riscv: hwprobe: export Zacas ISA extension
-    https://git.kernel.org/riscv/c/154a37061229
-  - [v2,6/6] riscv: hwprobe: export Zicond extension
-    https://git.kernel.org/riscv/c/3359866b40a9
+  - [v3,1/1] riscv: sbi: Introduce system suspend support
+    https://git.kernel.org/riscv/c/99cc514d444c
 
 You are awesome, thank you!
 -- 
