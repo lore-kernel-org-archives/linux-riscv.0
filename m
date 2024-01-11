@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7358AC47DB3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB13C47DB1
 	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 14:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,54 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yf2kF9ZKxQcPi45ma313vDmIV1Zy3PFxBzmjYMizK/I=; b=CuFAmJsrf8avxE
-	9GvQOBeEryRnGrASi87ZugxrZ3bxLfmfifbLDCLLPAJXUr8vnVvZP+e16IXW7bn5PqYlHcysHZX99
-	PDhqnJ9Fsf99/qGDx7pwL3VRjJfqRv6Iar8pDsSg+GGI5HHOS0qvdz3b1QDcecmnWEOPJKm1Bv6oh
-	D4jbf/Ph1WCOGkFTBZ+S/xPrylHAJYKIAY8vUCGyLp1Sn/KwJXn1Fn4GY6vYTkwGSiQAOKEY0r1+K
-	tYjidBcYgPw3XMn3i32wr4NchPS0Xxh2YLcJ/hrbq60J+5BzzVvffweVRUaSvG0STPdbyjxZlHlNL
-	TVmXlzDpAHEoVB6vAaYg==;
+	List-Owner; bh=rT4y7amtfXNWuDM8WR1Dm3LffAWO+XR5wKV6nBmIAys=; b=auz4GX1B68CxI3
+	MoFa1NxVBZ3gKa0LVWZDLtX9HKvpKi9KhJLGIscNXQaJ3uVaRg/PHVByNo8H4OZ2FkDBmNtox12uP
+	YLf+cTauZY7ZIvI8wb1CcK3SA5MSHIzixqO/Y/WWcX4yQsCH6wcwqCyfcMLSxCd6znvD+OiXnQVHj
+	2StDneEK0xts4324Q0HLfsfo26m5mMRm4OUVci7GIvm3MUNiBMp6D72v2q+Dhsgdi1mnzscteM1Lh
+	ojyQw7oDAq4a3sE4r8aYOo59eXuEiMpnUNH4+x9i+XV+5gRu/PBfJ45zhesEEANAvMyPndOoUTTU7
+	Gg9fXi4uFWU+XUomcRQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNwOS-000KP2-2f;
-	Thu, 11 Jan 2024 14:50:52 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rNwOR-000KOM-1V;
+	Thu, 11 Jan 2024 14:50:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNwOG-000KGv-1g
+	id 1rNwOH-000KIn-0e
 	for linux-riscv@lists.infradead.org;
 	Thu, 11 Jan 2024 14:50:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 2D605B82061;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3783361AFE;
 	Thu, 11 Jan 2024 14:50:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CEFDCC43330;
-	Thu, 11 Jan 2024 14:50:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 16038C32778;
+	Thu, 11 Jan 2024 14:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704984637;
-	bh=9FCkSsWMxgSl2xN45f2zMDQn+WFyj8ygw9+oME9RILw=;
+	s=k20201202; t=1704984638;
+	bh=sxh40JJQMoRZqXunjJmrdXyyxH+F75rmhC8LiUGqhE0=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=kDDG1Idg184euvVFC9dvpy+WY3Dbc5IuDz1ZOQAtAh7ZQo+fCVzD69aJEOXx4Kma/
-	 TXOoG+hLZVttYmgEWGPbG6IZG2t2Ox6NroG9sT5ccnIdMCs5JJW5IsevZE5oS/3qko
-	 1IRyAGcL2un6j0C4GYzbQzJ/3DYk+aRhYOX/z8ayXTyQhjh7UXHgZrvsD3lpDjS3a4
-	 SKkxtURMJBNVu+1NCb/G0fmxpSfJ3jplaSq0iOkSewlI8wkUUTsvQAWh4dOC2czXWj
-	 N8byp1bKmhW2OtAvovnOIPkjBxUBgX6pwfuJD2LpWvJzbWbV52qoruXPX9y5DwDcgj
-	 J9zSBwq0yZtMQ==
+	b=kRPkfA0lip75TvmCFQUcSzqgumSiQtZ+YPmRhQRBD/E10A8e4L30WM/Mm70ctz+uM
+	 nJ5Aq2dEBNBVVPwuxppzz6EXd1lLlPGhwV4s32x/P+SeOfpwOY/SSK23ArBxSOh5Mr
+	 TL5sWbLVYLboYp1J1fnVCLjyDKOl2noLagjJuAX3Xvhkmn7yWvuZUWtLoaTpVVXYHm
+	 74iIsYZIVhlJ/w6rO6xe1IKghnmsbgk+fmmZZpGFZXHGe9O+REHc8/M/5s5/mih030
+	 MEP1KsEo8LHPYIZvaoMJzLSPewDrsnBlfmkqCp2bY4G+E6kl0mXNjGQIg33UqoP5/a
+	 sMI0u3IaBOkNQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id BAE18D8C976;
-	Thu, 11 Jan 2024 14:50:37 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 0222AD8C96C;
+	Thu, 11 Jan 2024 14:50:38 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 0/2] riscv: enable EFFICIENT_UNALIGNED_ACCESS and
- DCACHE_WORD_ACCESS
+Subject: Re: [PATCH] riscv: fix __user annotation in traps_misaligned.c
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170498463776.20080.6132478533788411387.git-patchwork-notify@kernel.org>
-Date: Thu, 11 Jan 2024 14:50:37 +0000
-References: <20231225044207.3821-1-jszhang@kernel.org>
-In-Reply-To: <20231225044207.3821-1-jszhang@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
- ebiggers@kernel.org, conor.dooley@microchip.com, dqfext@gmail.com
+Message-Id: <170498463800.20080.16588164711212512128.git-patchwork-notify@kernel.org>
+Date: Thu, 11 Jan 2024 14:50:38 +0000
+References: <20231123141617.259591-1-ben.dooks@codethink.co.uk>
+In-Reply-To: <20231123141617.259591-1-ben.dooks@codethink.co.uk>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240111_065040_694300_04794A5C 
-X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-CacheID: sfid-20240111_065041_296433_4231323E 
+X-CRM114-Status: UNSURE (   9.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,28 +77,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
+This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Mon, 25 Dec 2023 12:42:05 +0800 you wrote:
-> Some riscv implementations such as T-HEAD's C906, C908, C910 and C920
-> support efficient unaligned access, for performance reason we want
-> to enable HAVE_EFFICIENT_UNALIGNED_ACCESS on these platforms. To
-> avoid performance regressions on non efficient unaligned access
-> platforms, HAVE_EFFICIENT_UNALIGNED_ACCESS can't be globally selected.
+On Thu, 23 Nov 2023 14:16:17 +0000 you wrote:
+> The instruction reading code can read from either user or kernel addresses
+> and thus the use of __user on pointers to instructions depends on which
+> context. Fix a few sparse warnings by using __user for user-accesses and
+> remove it when not.
 > 
-> To solve this problem, runtime code patching based on the detected
-> speed is a good solution. But that's not easy, it involves lots of
-> work to modify vairous subsystems such as net, mm, lib and so on.
-> This can be done step by step.
+> Fixes:
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4,1/2] riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
-    https://git.kernel.org/riscv/c/b6da6cbe13eb
-  - [v4,2/2] riscv: select DCACHE_WORD_ACCESS for efficient unaligned access HW
-    https://git.kernel.org/riscv/c/d0fdc20b0429
+  - riscv: fix __user annotation in traps_misaligned.c
+    https://git.kernel.org/riscv/c/ca0e433b41a6
 
 You are awesome, thank you!
 -- 
