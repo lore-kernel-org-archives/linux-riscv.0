@@ -4,134 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA46C47422
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 02:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3564AC47077
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 04:06:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Zm5MzxXQAIa0/CtLzBIOmZRyRNiRcPMKwMPYGWGK74I=; b=xMb7zjSB8mE2Hj
-	n8pvhfWPQW4sAeo19lvUtwxLRO1R4SopOEsVB2ZUaD4/O4F6iZE07veyFuq/eeLuHXSTWzOr6eEy5
-	D25j/js6ivCaDEL1lubZXDE2eY0Wgs1L0/EzN6kA//emNN+oNN2Y0HasaAZcvgURUDvzYMjicTH8f
-	12CKD7BejYvkXfDLL2zDnfAYb/QK2/ecswumrj/auYoPSXlJrhNMMhiQyTsJLvTDlsPXLfzBljdUJ
-	uaZMbML7MeLoo7wfuBIUsO6ILK8dP7r3IpBslpca+FBsecDjS95UryhR4adqK6W1uRsAV0eTfRSBA
-	jFUjT/wv99Lli3VA4fPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bFAutg5lggo4E0wuMxlTZzzOC3ivJkqWceF0MlBOy4g=; b=eFkNZ3zyd+/WQE
+	Cd74V0KGuPd8dz+26n7b8/P/9/f0PyRJDPngahSM5kO4fjIDCLyPoQZ2pSTnsJe7O1JnDvaB7bVb5
+	5TpwP+rc9u8JFhFNgqe/C1Q6DCeaLY0SuWiIx87VfeOGu6pVK3uAmCoBCCy9xilpf6PyYUOHpIoFM
+	OupKrqmO6qQ9tuPZ6GpHzjEzpvpdP7h24owRc4jDH9c967xtwlC2xzHI/H6nMzmMbmwuJmTMf/4WE
+	mZCKUa0ouM3lB9SMuNLfp/hdu688vN6Rg2nsCJEDEkzD9fK6XUP9campHxPWgddSPqPUGPszn5Gvz
+	FY5NoZcho79arS1mEwxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNlEg-00FWvb-1T;
-	Thu, 11 Jan 2024 02:56:02 +0000
-Received: from mail-bjschn02on2060c.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::60c] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1rNmKQ-00FilL-2P;
+	Thu, 11 Jan 2024 04:06:02 +0000
+Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNlEb-00FWt4-0H;
-	Thu, 11 Jan 2024 02:55:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Ww4igYk6QENc6wCtfajSrI0F1Q4/NL2iaVXvEjsfM9CG/5aITYYVuCGDsdHuR6m3JJ6s2wSWH5tVOyOn7OmONM5FhTbrJlfRgKW7ilz5cGtIptG57QCWRXKyW+yln3v2tbY/K3eUHvcMLv+MD0ZbqVJyAFtWNwpQ1ROq/Q0lpnaN56CQxi0k8mIUcNnG50UVAfih9BV828MZeQLfOt80p3A1kwT4XED4h2TO8h6nTshIzFEzhYkyKdGBlYKfW7TEegtZ+Y+kevFn0JP4L7yhFriMPX0WtoNzHC50FvPN5dgOla6JeZKlSD2mfqYfwN0mPTk9x5l9ECxOW4+mSK8aXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PwwDBu0gXSi7M/F3xxe9Thhq9p3oLgAJoRlVEKQgPJA=;
- b=RawMjEYiC8qGZRTdeNr6RcvAeVWrHOJa0fS5oi4y2tqTLdJU/jqS+BCG1lisV6NFsLIq7T9WItGOiMfFOnuYhkNsk0JL4Qvcuo0OoYQJO0Pcyup2PPnpPIjEZSXSNojdzp2cvYPvXH/bdBEfoxvvYBKp/kqMoShYs6JNF0Zqdd6npBJ1SqFNwkEo8trWwcX974UkhPc2qDJS1QYCaSPDunAj8fx/93RzkWGbPIu+zGrI7bhsZ0uB4TAVXNtXQJ8ccvQxVYW6GLVy/HXy6taeX7BRmro4Ne9XXpqfSKwG2itBldf1ELA0iWbsKo8W7JYvjRAf1QFvjbrrb4ir9bPtYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:e::20) by BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:f::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7135.33; Thu, 11 Jan
- 2024 02:55:43 +0000
-Received: from BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
- ([fe80::9fb5:b2ec:ed6f:b0a4]) by
- BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn ([fe80::9fb5:b2ec:ed6f:b0a4%3])
- with mapi id 15.20.7135.032; Thu, 11 Jan 2024 02:55:43 +0000
-From: Tan Chun Hau <chunhau.tan@starfivetech.com>
-To: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Russell King <rmk+kernel@armlinux.org.uk>
-Cc: Ley Foon Tan <leyfoon.tan@starfivetech.com>,
-	Jee Heng Sia <jeeheng.sia@starfivetech.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 0/1] Add StarFive JH8100 dwmac support
-Date: Wed, 10 Jan 2024 18:55:30 -0800
-Message-Id: <20240111025531.2875-1-chunhau.tan@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-X-ClientProxiedBy: BJXPR01CA0064.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:12::31) To BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:e::20)
+	id 1rNmKM-00Fij6-1x
+	for linux-riscv@lists.infradead.org;
+	Thu, 11 Jan 2024 04:06:01 +0000
+Message-ID: <6a655e9f-9878-4292-9d16-f988c4bdfc73@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1704945949;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oe8y6rx2nxJCVb5v6A3KEWIfmf39eOlQDxZDCZDQpSs=;
+	b=q90eKb7K7E7fJPyeOkcWuuQTXMX/wft3oCBjOBhlyiFmrgkyKMUJJweJzGZ7ubFNp8EHyV
+	GcPbNwdLXwLn7SNydULG8Gy/XrORJnr8NctjugZkNqq03qyefn2lSAbUGAAVNkmDZdUytt
+	a026lbDO23xBpkhnXEJJxhDMfDKiHMo=
+Date: Wed, 10 Jan 2024 20:05:36 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BJSPR01MB0595:EE_|BJSPR01MB0561:EE_
-X-MS-Office365-Filtering-Correlation-Id: ce8d7af1-5342-4f3a-28e3-08dc1250cd1f
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: VCwKSiEpkl5zZeCr4l6L29KBI83xVHGRZ7vAeTFnVhLDICL39/CbLN6XT2pzyFDfgoU1EQAIvBEkqJjwgEA96wXwG2wxBcx9H7E+opXawWbW77wb1PqbANkm9Ns+MbmBKCj19Khb19v699TlX0SjckXmI0we5sEJenPlPSD+wEsuWRhQ0SRGURr6FxvN+VoHmLYEqxliapkV3soD5NjG6nVDE5kizsj1unkooZ/00DBUmR6RTPGsQwRAFUQoWHBwHrYQZlGNkXEsN52DqESA5ApvvJJAJTI+m9saE4n0HmcV8kQuLCO/Z/pZp6gVwLdVeFXPfJ5kl2H1GuQWt8NiF+kppNZldLwkTawxgxDcUOxzVIzWwf4OsDvtCrcQTEPELfe9p8eQsxO7ijR9E2ihiJkB4wSSUZNthDRyJvQ+2jfaQn9hWpKlIUI3STqfRATgFpZRUicvJzu/quCxqmXIKW5N0ZhtI1FIr+83Su8VqKN+lObDFH+JvkMgChe2NNv9t85G166hgJ5wuU/UG/RSSma/mbK9n2q0YrVn6aRQvpZS76mQ0XuzIbdVgaDvMsWy+xqm1e5+nqWU7wu9vQ4dpA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(136003)(366004)(39830400003)(396003)(346002)(230922051799003)(64100799003)(1800799012)(451199024)(186009)(921011)(38100700002)(8676002)(8936002)(6666004)(508600001)(4326008)(26005)(2616005)(1076003)(66946007)(66556008)(40160700002)(110136005)(54906003)(66476007)(52116002)(83380400001)(41300700001)(2906002)(86362001)(7416002)(5660300002)(4744005)(40180700001)(38350700005)(36756003)(41320700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bRKKB0PNmIM1k2pc1kvGixo8Tx1YYxsonn4BdcvipIxOMz4OwhZczm2ypSx1?=
- =?us-ascii?Q?ID5i8i7gCvgT79Z0QwY0j2ZLEn7LQoOAIeadZwzlXuM5U5pT5znn8O816kKZ?=
- =?us-ascii?Q?TE47a5CVnxv67yw64mWpVuvS9PTZbIw3BHqtDTlb0ekKQ5BwVBNh+LAVzAzE?=
- =?us-ascii?Q?UKYQqrphGfI7mfBD8jdmgM+hX5R/BfzD2llRgGrJLMLh4YhfyLv19H1tFhv9?=
- =?us-ascii?Q?/YDXaUZ1rS8G8risKRnEIbFBUcvDssWslggmJdnpN/uI1a15eXbrQYn4SeqL?=
- =?us-ascii?Q?/SZ1xwwbNp20huZfeHUklsFZdhuH8j0qMM4E8ybe/0Yst5i7ytS+QLbycmNr?=
- =?us-ascii?Q?jcJBTeIwP5ziStCuHjjR/8JYodFI9PENcJvBkBb7lOTL2CaswokLVDuEP1yN?=
- =?us-ascii?Q?ZwEzTg6Xug6ZTg/TiZDYkVrLo/y7e2MWWYbrPpjEPwyxwstjXy6D0RQY/weP?=
- =?us-ascii?Q?1/qisnXokfocG6EGJDkctIhnZff75pg3IDTb26/MApGlqvr1AsWf6RqXz+iH?=
- =?us-ascii?Q?WxUkPciJeFAPvy7oMw4gjVFtQVqeM8+3oA/6781dPr/hIQM6ek4ZmCkjSZ33?=
- =?us-ascii?Q?s6MW1DpppepAuRaVqBg8McN/D2Fcaj6mU0jGFr9OVFIr8hNxJO91rne4v4Hd?=
- =?us-ascii?Q?qrlXBJ5bM+kA8eFoZ937Ob8hyLXWw+/iHCRNt1y3jECrRD+2u4l5spqLja7A?=
- =?us-ascii?Q?+fYbVO55kiNBIwptX+Bl3MFe2thIiTBO2y2cT1e1YPBenCsouKly6REgstyn?=
- =?us-ascii?Q?nfpwJqhkBAFEavFQFnPSNJu1ZgosymHoFUQq9Ti9K2+BDWlaerADLbxmxKoA?=
- =?us-ascii?Q?J/uVTmmp8fbuDd1p4GJpT/ehcwU+wA+Uayu1NIPaLfQ+Cfinn7wJQfhA8uQh?=
- =?us-ascii?Q?o45xdnuZB7Ei99BYQ1x/HDy/gV8//vD4n3p59j4Vs3p5YXcD2/28Z/Cbpx63?=
- =?us-ascii?Q?GL8pTVk9eo71MFbECYOySzfSYSN5PuINAbJYGuacJUDSTmNT3wWHYNGeDcf+?=
- =?us-ascii?Q?hDkwmJQhAp88d0FDQiqk1V+gIH3MBCqQC2zW2zUu9+1CvTrg3yGHKxDNXqDd?=
- =?us-ascii?Q?yfbH4qDQw1b7dEIpP05TATLYpHnflGF95uWhykviGVNEMzLcCauJ6R3VSuz5?=
- =?us-ascii?Q?BThNQPNwpsDpzIyvOdT29c7PXdID2qFbbF5SInNhKHKRhN0kWW5pVPWy3VFM?=
- =?us-ascii?Q?7CMw+ILqrXYv/sUwFPn77mYW9D/uIEE7i+iFSrwaFaRtxxnhPGfjYZjIrS3c?=
- =?us-ascii?Q?WBBJ0P675/j8FN4KoeHiXQOwi6mTXwVTFcqkk8qn5BO0lvM/n+wSw0cgK349?=
- =?us-ascii?Q?GBPrZqqvmwXUHf4UmDOUTJ0Ja5YRrrzod1sghaanENjV7ZgOouWsYAAWiPw4?=
- =?us-ascii?Q?KYrrBUhGIahNSvQGOWUs5m2MScuyBHhKmSh/r60ff7C0+3t0ZRvk6nw+ajfl?=
- =?us-ascii?Q?/LW08EqRwfkXEjSrCNve18qwttHkRO2wG577RKe8xKTlDGkNfxo2GRPptAe1?=
- =?us-ascii?Q?0GocD0zzjomLGk2/K+WXC5KUJo+sVqwv9NwTc6Ta8rVt8Ce4QU7M2B84tgm0?=
- =?us-ascii?Q?LNjImjmKlAn7DCmD11WtiC4cuDOjvQF+ec+beJC0R/+BJ5RMU26tcyK5umU0?=
- =?us-ascii?Q?1Q=3D=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ce8d7af1-5342-4f3a-28e3-08dc1250cd1f
-X-MS-Exchange-CrossTenant-AuthSource: BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jan 2024 02:55:43.0745
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zVdMeuuvY2FBAeRuZn8H4s4yFxMfmHTgpwXjwDEuOJFHwQVAlfzY4vG5cNaL30YtXfDl/ts04vCYUS2RD+l72isL0l1Z2hJOtfo+2OTHsIw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJSPR01MB0561
+Subject: Re: [PATCH 1/3] selftests/bpf: Update LLVM Phabricator links
+Content-Language: en-GB
+To: Nathan Chancellor <nathan@kernel.org>, akpm@linux-foundation.org
+Cc: llvm@lists.linux.dev, patches@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-crypto@vger.kernel.org, linux-efi@vger.kernel.org,
+ amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ linux-media@vger.kernel.org, linux-arch@vger.kernel.org,
+ kasan-dev@googlegroups.com, linux-mm@kvack.org, bridge@lists.linux.dev,
+ netdev@vger.kernel.org, linux-security-module@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, ast@kernel.org, daniel@iogearbox.net,
+ andrii@kernel.org, mykolal@fb.com, bpf@vger.kernel.org
+References: <20240109-update-llvm-links-v1-0-eb09b59db071@kernel.org>
+ <20240109-update-llvm-links-v1-1-eb09b59db071@kernel.org>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yonghong Song <yonghong.song@linux.dev>
+In-Reply-To: <20240109-update-llvm-links-v1-1-eb09b59db071@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240110_185557_147933_8170521F 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240110_200558_808032_5313FFDF 
+X-CRM114-Status: GOOD (  28.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,30 +75,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add StarFive JH8100 dwmac support.
-JH8100 dwmac has one reset signal instead of 2 resets as in JH7110.
 
-Changes in v2:
-- Drop driver patch.
-- Add missing "starfive,jh8100-dwmac" to snps,dwmac
-- Add handling resets for starfive,jh8100-dwmac and provide an else condition for others.
+On 1/9/24 2:16 PM, Nathan Chancellor wrote:
+> reviews.llvm.org was LLVM's Phabricator instances for code review. It
+> has been abandoned in favor of GitHub pull requests. While the majority
+> of links in the kernel sources still work because of the work Fangrui
+> has done turning the dynamic Phabricator instance into a static archive,
+> there are some issues with that work, so preemptively convert all the
+> links in the kernel sources to point to the commit on GitHub.
+>
+> Most of the commits have the corresponding differential review link in
+> the commit message itself so there should not be any loss of fidelity in
+> the relevant information.
+>
+> Additionally, fix a typo in the xdpwall.c print ("LLMV" -> "LLVM") while
+> in the area.
+>
+> Link: https://discourse.llvm.org/t/update-on-github-pull-requests/71540/172
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
----
-Tan Chun Hau (1):
-  dt-bindings: net: starfive,jh7110-dwmac: Add StarFive JH8100 support
+Ack with one nit below.
 
- .../devicetree/bindings/net/snps,dwmac.yaml   |  1 +
- .../bindings/net/starfive,jh7110-dwmac.yaml   | 50 +++++++++++++------
- 2 files changed, 37 insertions(+), 14 deletions(-)
+Acked-by: Yonghong Song <yonghong.song@linux.dev>
 
--- 
-2.25.1
+> ---
+> Cc: ast@kernel.org
+> Cc: daniel@iogearbox.net
+> Cc: andrii@kernel.org
+> Cc: mykolal@fb.com
+> Cc: bpf@vger.kernel.org
+> Cc: linux-kselftest@vger.kernel.org
+> ---
+>   tools/testing/selftests/bpf/README.rst             | 32 +++++++++++-----------
+>   tools/testing/selftests/bpf/prog_tests/xdpwall.c   |  2 +-
+>   .../selftests/bpf/progs/test_core_reloc_type_id.c  |  2 +-
+>   3 files changed, 18 insertions(+), 18 deletions(-)
+>
+> diff --git a/tools/testing/selftests/bpf/README.rst b/tools/testing/selftests/bpf/README.rst
+> index cb9b95702ac6..b9a493f66557 100644
+> --- a/tools/testing/selftests/bpf/README.rst
+> +++ b/tools/testing/selftests/bpf/README.rst
+> @@ -115,7 +115,7 @@ the insn 20 undoes map_value addition. It is currently impossible for the
+>   verifier to understand such speculative pointer arithmetic.
+>   Hence `this patch`__ addresses it on the compiler side. It was committed on llvm 12.
+>   
+> -__ https://reviews.llvm.org/D85570
+> +__ https://github.com/llvm/llvm-project/commit/ddf1864ace484035e3cde5e83b3a31ac81e059c6
+>   
+>   The corresponding C code
+>   
+> @@ -165,7 +165,7 @@ This is due to a llvm BPF backend bug. `The fix`__
+>   has been pushed to llvm 10.x release branch and will be
+>   available in 10.0.1. The patch is available in llvm 11.0.0 trunk.
+>   
+> -__  https://reviews.llvm.org/D78466
+> +__  https://github.com/llvm/llvm-project/commit/3cb7e7bf959dcd3b8080986c62e10a75c7af43f0
+>   
+>   bpf_verif_scale/loop6.bpf.o test failure with Clang 12
+>   ======================================================
+> @@ -204,7 +204,7 @@ r5(w5) is eventually saved on stack at insn #24 for later use.
+>   This cause later verifier failure. The bug has been `fixed`__ in
+>   Clang 13.
+>   
+> -__  https://reviews.llvm.org/D97479
+> +__  https://github.com/llvm/llvm-project/commit/1959ead525b8830cc8a345f45e1c3ef9902d3229
+>   
+>   BPF CO-RE-based tests and Clang version
+>   =======================================
+> @@ -221,11 +221,11 @@ failures:
+>   - __builtin_btf_type_id() [0_, 1_, 2_];
+>   - __builtin_preserve_type_info(), __builtin_preserve_enum_value() [3_, 4_].
+>   
+> -.. _0: https://reviews.llvm.org/D74572
+> -.. _1: https://reviews.llvm.org/D74668
+> -.. _2: https://reviews.llvm.org/D85174
+> -.. _3: https://reviews.llvm.org/D83878
+> -.. _4: https://reviews.llvm.org/D83242
+> +.. _0: https://github.com/llvm/llvm-project/commit/6b01b465388b204d543da3cf49efd6080db094a9
+> +.. _1: https://github.com/llvm/llvm-project/commit/072cde03aaa13a2c57acf62d79876bf79aa1919f
+> +.. _2: https://github.com/llvm/llvm-project/commit/00602ee7ef0bf6c68d690a2bd729c12b95c95c99
+> +.. _3: https://github.com/llvm/llvm-project/commit/6d218b4adb093ff2e9764febbbc89f429412006c
+> +.. _4: https://github.com/llvm/llvm-project/commit/6d6750696400e7ce988d66a1a00e1d0cb32815f8
+>   
+>   Floating-point tests and Clang version
+>   ======================================
+> @@ -234,7 +234,7 @@ Certain selftests, e.g. core_reloc, require support for the floating-point
+>   types, which was introduced in `Clang 13`__. The older Clang versions will
+>   either crash when compiling these tests, or generate an incorrect BTF.
+>   
+> -__  https://reviews.llvm.org/D83289
+> +__  https://github.com/llvm/llvm-project/commit/a7137b238a07d9399d3ae96c0b461571bd5aa8b2
+>   
+>   Kernel function call test and Clang version
+>   ===========================================
+> @@ -248,7 +248,7 @@ Without it, the error from compiling bpf selftests looks like:
+>   
+>     libbpf: failed to find BTF for extern 'tcp_slow_start' [25] section: -2
+>   
+> -__ https://reviews.llvm.org/D93563
+> +__ https://github.com/llvm/llvm-project/commit/886f9ff53155075bd5f1e994f17b85d1e1b7470c
+>   
+>   btf_tag test and Clang version
+>   ==============================
+> @@ -264,8 +264,8 @@ Without them, the btf_tag selftest will be skipped and you will observe:
+>   
+>     #<test_num> btf_tag:SKIP
+>   
+> -.. _0: https://reviews.llvm.org/D111588
+> -.. _1: https://reviews.llvm.org/D111199
+> +.. _0: https://github.com/llvm/llvm-project/commit/a162b67c98066218d0d00aa13b99afb95d9bb5e6
+> +.. _1: https://github.com/llvm/llvm-project/commit/3466e00716e12e32fdb100e3fcfca5c2b3e8d784
+>   
+>   Clang dependencies for static linking tests
+>   ===========================================
+> @@ -274,7 +274,7 @@ linked_vars, linked_maps, and linked_funcs tests depend on `Clang fix`__ to
+>   generate valid BTF information for weak variables. Please make sure you use
+>   Clang that contains the fix.
+>   
+> -__ https://reviews.llvm.org/D100362
+> +__ https://github.com/llvm/llvm-project/commit/968292cb93198442138128d850fd54dc7edc0035
+>   
+>   Clang relocation changes
+>   ========================
+> @@ -292,7 +292,7 @@ Here, ``type 2`` refers to new relocation type ``R_BPF_64_ABS64``.
+>   To fix this issue, user newer libbpf.
+>   
+>   .. Links
+> -.. _clang reloc patch: https://reviews.llvm.org/D102712
+> +.. _clang reloc patch: https://github.com/llvm/llvm-project/commit/6a2ea84600ba4bd3b2733bd8f08f5115eb32164b
+>   .. _kernel llvm reloc: /Documentation/bpf/llvm_reloc.rst
+>   
+>   Clang dependencies for the u32 spill test (xdpwall)
+> @@ -304,6 +304,6 @@ from running test_progs will look like:
+>   
+>   .. code-block:: console
+>   
+> -  test_xdpwall:FAIL:Does LLVM have https://reviews.llvm.org/D109073? unexpected error: -4007
+> +  test_xdpwall:FAIL:Does LLVM have https://github.com/llvm/llvm-project/commit/ea72b0319d7b0f0c2fcf41d121afa5d031b319d5? unexpected error: -4007
+>   
+> -__ https://reviews.llvm.org/D109073
+> +__ https://github.com/llvm/llvm-project/commit/ea72b0319d7b0f0c2fcf41d121afa5d031b319d
 
+To be consistent with other links, could you add the missing last alnum '5' to the above link?
+
+> diff --git a/tools/testing/selftests/bpf/prog_tests/xdpwall.c b/tools/testing/selftests/bpf/prog_tests/xdpwall.c
+> index f3927829a55a..4599154c8e9b 100644
+> --- a/tools/testing/selftests/bpf/prog_tests/xdpwall.c
+> +++ b/tools/testing/selftests/bpf/prog_tests/xdpwall.c
+> @@ -9,7 +9,7 @@ void test_xdpwall(void)
+>   	struct xdpwall *skel;
+>   
+>   	skel = xdpwall__open_and_load();
+> -	ASSERT_OK_PTR(skel, "Does LLMV have https://reviews.llvm.org/D109073?");
+> +	ASSERT_OK_PTR(skel, "Does LLVM have https://github.com/llvm/llvm-project/commit/ea72b0319d7b0f0c2fcf41d121afa5d031b319d5?");
+>   
+>   	xdpwall__destroy(skel);
+>   }
+> diff --git a/tools/testing/selftests/bpf/progs/test_core_reloc_type_id.c b/tools/testing/selftests/bpf/progs/test_core_reloc_type_id.c
+> index 22aba3f6e344..6fc8b9d66e34 100644
+> --- a/tools/testing/selftests/bpf/progs/test_core_reloc_type_id.c
+> +++ b/tools/testing/selftests/bpf/progs/test_core_reloc_type_id.c
+> @@ -80,7 +80,7 @@ int test_core_type_id(void *ctx)
+>   	 * to detect whether this test has to be executed, however strange
+>   	 * that might look like.
+>   	 *
+> -	 *   [0] https://reviews.llvm.org/D85174
+> +	 *   [0] https://github.com/llvm/llvm-project/commit/00602ee7ef0bf6c68d690a2bd729c12b95c95c99
+>   	 */
+>   #if __has_builtin(__builtin_preserve_type_info)
+>   	struct core_reloc_type_id_output *out = (void *)&data.out;
+>
 
 _______________________________________________
 linux-riscv mailing list
