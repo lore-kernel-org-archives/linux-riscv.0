@@ -4,66 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3564AC47077
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 04:06:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C86A4C47077
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 07:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bFAutg5lggo4E0wuMxlTZzzOC3ivJkqWceF0MlBOy4g=; b=eFkNZ3zyd+/WQE
-	Cd74V0KGuPd8dz+26n7b8/P/9/f0PyRJDPngahSM5kO4fjIDCLyPoQZ2pSTnsJe7O1JnDvaB7bVb5
-	5TpwP+rc9u8JFhFNgqe/C1Q6DCeaLY0SuWiIx87VfeOGu6pVK3uAmCoBCCy9xilpf6PyYUOHpIoFM
-	OupKrqmO6qQ9tuPZ6GpHzjEzpvpdP7h24owRc4jDH9c967xtwlC2xzHI/H6nMzmMbmwuJmTMf/4WE
-	mZCKUa0ouM3lB9SMuNLfp/hdu688vN6Rg2nsCJEDEkzD9fK6XUP9campHxPWgddSPqPUGPszn5Gvz
-	FY5NoZcho79arS1mEwxA==;
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iM+DPtDr5pMmwUa+uPKFHpnR6fVdNIv1yvq9Sv+/IPY=; b=B8cydROFDwRWQN3A13aB9V920r
+	1STlZuK78a/k3omm/7SuWTy0MIkWFkpHKKq2Z0st9oh7JoblASvvLm3jP1QjxtZK57YjsgplPiCok
+	NGnoqPAGl3wll6izKm/fWWjEdwUQvz36Lb/FKBxZTDfZmGfgtaYjlYVUasfe7yGgyc+yAv9zubPwV
+	us7KggxtlZTooV1Yp/6nT0QazPCYpgVSCjDwQ7wSK2N+146MPwNSo5FI0pdJni1lICWoCekJ4vzBU
+	Jm2ygTUtraAQ7idbOMIGrpGkNaecgMdK80+gOSd8N+Bk+DbHtGErFxRXGWECND0RCZrQfIwvswm1a
+	H/yg/9Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNmKQ-00FilL-2P;
-	Thu, 11 Jan 2024 04:06:02 +0000
-Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
+	id 1rNprC-00GMvM-39;
+	Thu, 11 Jan 2024 07:52:06 +0000
+Received: from mail-maxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281b::800] helo=IND01-MAX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNmKM-00Fij6-1x
+	id 1rNprA-00GMrR-06
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jan 2024 04:06:01 +0000
-Message-ID: <6a655e9f-9878-4292-9d16-f988c4bdfc73@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1704945949;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oe8y6rx2nxJCVb5v6A3KEWIfmf39eOlQDxZDCZDQpSs=;
-	b=q90eKb7K7E7fJPyeOkcWuuQTXMX/wft3oCBjOBhlyiFmrgkyKMUJJweJzGZ7ubFNp8EHyV
-	GcPbNwdLXwLn7SNydULG8Gy/XrORJnr8NctjugZkNqq03qyefn2lSAbUGAAVNkmDZdUytt
-	a026lbDO23xBpkhnXEJJxhDMfDKiHMo=
-Date: Wed, 10 Jan 2024 20:05:36 -0800
+	Thu, 11 Jan 2024 07:52:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=WmhJFUmlu6cG9g+elP7yEVzRY7aJnXKpRbD3KSSQVTO6Lzl2pVFPoKEW0PsJHOH7uacQ4/jg0ZQz5NkVXE4rugUWAfQTCA6p5CnAqYyj4+Q6y0NFY7R/YghrTrZeBGCgBt3SSMV6GDINltugwJUU4nvOFBNYMWIbDsaaVZUjXBNMBtxz0qxpgNpqK6mwrNI5ob43WMl/4HSzKvcveY4oU72qZY/I6SA3Q9KGc4oRjnSmgiFBRyfWpwdKoikCtm6AxaBQSTXHk1GDo1utXO83xGP3rGxT2UTMZzy/Z3NMdfEWI5VLgIU3qYDFVrMdltrrfmexwCTOQhbkCg8C3Sc4Rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V5Q2CXAzo8QXxBCjIDZ+PmHrEaVTmtdHIJmr3i9eM/0=;
+ b=PUyDWkXy2dZr4G7eGTQlBlKPZdMgv1VEDpikywVe6nNBGkUgoDJ4Xfk0RFcYnXW8fARfaP6BJvhW3rwNIb0ZSlMdqgFwoUt2NxZBxbzBTfKYy6Y1yOVcsVXS/zqfl8lFRfw/2fTJbK6KaoikX416GR6NgSAzcfqFmMXAnsYrJHhdpe6iV/la0vyXNsVjkW7Mv+TVy9kXaNeB7V79+8uDmC+6cKtEDi+kgt4/AtcXavhuXQ4+EyFZ6zUpRViyjFIz0MeDHNjecOQnFW85OffLj1goEVkJQK83cFD2RjlwIn241+92hX0b7FZvCKMR0xYiT+vpcpRienPlosJYMkv+3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V5Q2CXAzo8QXxBCjIDZ+PmHrEaVTmtdHIJmr3i9eM/0=;
+ b=Gpujpq8UsDNW8H6xDrxjr8cn/1WWsoBvwDPbvf1nOVx9Fw2eUuNwirTANp+g+Ywihq1JggsjiWWvWR0QeQO4dOGbVuBB6TUCUh3m6my/JZ4P0aq0WLx3M7P4TiKZmGxxot0gluK2L+W5SfZ0+LD6u1ciX46cSfJhZD2xc9mxwTKAjTN7X6lQ4huVX+9sLvPTmEHh81VGSWyn+rlNJ0GtlH7TbCIwkhusV7hg/rhzvGfiJUD9Bpr2P4w3OLU18Rie111MjTOZRIvNZvUXesv44YwpFTGf5jUwIQEwHrSfbJ/378HZxUwEZDUzoXVD2pUlPnvo1OvBnv7gW6oZRrvLtQ==
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+ by PN3P287MB0836.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:17c::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7181.18; Thu, 11 Jan
+ 2024 07:51:36 +0000
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::6e80:69e1:f2e7:d70d]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::6e80:69e1:f2e7:d70d%3]) with mapi id 15.20.7181.019; Thu, 11 Jan 2024
+ 07:51:36 +0000
+Message-ID: <MA0P287MB2822494916A3B8C32C91A668FE682@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Thu, 11 Jan 2024 15:51:24 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 2/4] dt-bindings: clock: sophgo: support SG2042
+To: Conor Dooley <conor@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu, chao.wei@sophgo.com,
+ krzysztof.kozlowski+dt@linaro.org, mturquette@baylibre.com,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, richardcochran@gmail.com,
+ robh+dt@kernel.org, sboyd@kernel.org, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com,
+ xiaoguang.xing@sophgo.com, guoren@kernel.org, jszhang@kernel.org,
+ inochiama@outlook.com, samuel.holland@sifive.com,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <cover.1704694903.git.unicorn_wang@outlook.com>
+ <925d99d5b4ece01337cb3389aaea4b631894dd1d.1704694903.git.unicorn_wang@outlook.com>
+ <f88b79c3-e44b-4136-ae56-10e1f2502e2d@linaro.org>
+ <MA0P287MB2822C7A3C1DC7786708E860BFE692@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+ <20240110-untoasted-underfed-fe81479506f6@spud>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20240110-untoasted-underfed-fe81479506f6@spud>
+X-TMN: [kRAWShPlY8lgkfwV8Wm3FMqtYrkzL/pa]
+X-ClientProxiedBy: SE2P216CA0067.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:118::9) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <450739f1-e82d-4ce7-9158-5d464bfeebce@outlook.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/3] selftests/bpf: Update LLVM Phabricator links
-Content-Language: en-GB
-To: Nathan Chancellor <nathan@kernel.org>, akpm@linux-foundation.org
-Cc: llvm@lists.linux.dev, patches@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-crypto@vger.kernel.org, linux-efi@vger.kernel.org,
- amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- linux-media@vger.kernel.org, linux-arch@vger.kernel.org,
- kasan-dev@googlegroups.com, linux-mm@kvack.org, bridge@lists.linux.dev,
- netdev@vger.kernel.org, linux-security-module@vger.kernel.org,
- linux-kselftest@vger.kernel.org, ast@kernel.org, daniel@iogearbox.net,
- andrii@kernel.org, mykolal@fb.com, bpf@vger.kernel.org
-References: <20240109-update-llvm-links-v1-0-eb09b59db071@kernel.org>
- <20240109-update-llvm-links-v1-1-eb09b59db071@kernel.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yonghong Song <yonghong.song@linux.dev>
-In-Reply-To: <20240109-update-llvm-links-v1-1-eb09b59db071@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN3P287MB0836:EE_
+X-MS-Office365-Filtering-Correlation-Id: 02fbad9d-0526-4a23-5f22-08dc127a21de
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: CShyUm4nf3tqBy7sOj/48semb6zcFDH0MFcympdSKqQzCi1biGtSnwC5r6CpUCLP35sd7KcjZ+hv5nNwM+t1d4kbbckJ1eitDcof17P5YGD3pVbC0b1h+X2SR2WD0ut/IxYom+i3tX1YTYQYHYqkxm7zN7FocQyaSymKu21paNuFuYR40U0r+DlDttLLqoRU1rIfv+qLHn6yFsP0E/EAHoI6/7tlEOstVaBBHZltjVLowkUGafVJ79iY3MxSDyui3kQ/KyCTDlFUNcg6F3C8Sj84ju85grQmHxZ6e8cHDxKQlPauRN6klCOm2XoJX7WiDV6Ndbstct5vnUfV13yt0vvj+yC0WN3MADOQO2rvwh2cQLwNEIlhNPEZxkwGyCYW767Ne2eQ+LvnJFMjeePJlyDXw58FX6cOX6Sn9gbdvJR/iF+41TgBFFDVWZ+/vP0+mfRZOTprVtwKYtbS25eeAEx38IH73Ig8LS4fiJQP2CYZpLnwGm2Okomw5LQvfhctUi+sHT4GcTzFlChpjG1e1TOMpW6ZTFj2bjGIQ6de2edQ80FERY8nx4MbQUDLIxpsF+l/FnuyPaposgNH8LtFBqEqQi5i/XX1QzPD7zewwt2VbL+bepsBZQv5AxKLUwEFdWnTgFNL3jK1w2J+5bY6hA==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Zkl5YWVsTVlFQkcyU1V3Q3pTVU5RbGwwZmhTaW1oT3RiRGVPL2VURnpFRzNr?=
+ =?utf-8?B?eFByVlJFakY4VmN6UW92MjZhUDVONDRzQUgrV0gyVnUveGM3eU1uZHdvVitG?=
+ =?utf-8?B?Um4xVWo5c2dkZEFLVkZJMXNkNG9LNjR6ZXFVdXZ1Z3A1aWo4SkFxY1ordDdW?=
+ =?utf-8?B?SFdJREhwVS9tMERjNWNlTjBsR0xGQkZ1VTIwc1J5ay9TbDBLOTZVQkpmcng1?=
+ =?utf-8?B?eVZwdzZPaE92MnNmSzQxTGdjem5kUkRId3RydlJ0VlBXZWpwRGRGc3NvclAr?=
+ =?utf-8?B?SitzSVo4RVlhSnhLMlJxaUtJZlE5QU81OHdkRnd6aTZxdGtON0N4RWNQNW1m?=
+ =?utf-8?B?LzB1WFhBT21wMm1wTnl4RTJNNWozL1BrT3NsUUxmM0syN3A2ZHg2dGU5RUo3?=
+ =?utf-8?B?T1VDeVl0THRXcDE1dHBDeUNVRnRWYnlzMmVpRE1LSnlwTFdUU0RYV0h4RjBx?=
+ =?utf-8?B?RDZYOWg2VFhzMUFLRXdqZmU1WE13YXBSclJ0Qy85eVdXMFJnVDNoMmxPMVEy?=
+ =?utf-8?B?TC9HNHVJdXFhNUNpL0NUNHZoVUh1TklxM2JMRSsxakVwVmQvanJyQXlJaVFH?=
+ =?utf-8?B?VFRDNVJMUzRMT3FtdFVST1A4V3I1N1krbk15b2xkRVFVc2k4V0E2U0ZWQWxC?=
+ =?utf-8?B?YU90Q1NoK2pBV3YveGszR2NYR1Z2QWNJZURFNktJcmt3YjR5dXRSL20vSDhw?=
+ =?utf-8?B?OGRWellvdTZjQUZIS0RSSG5kTjRYQU9PVG5aSlhxaXBLUVV5OEpIVGhhT3Rv?=
+ =?utf-8?B?bHdlUGU4OWF1Znk4K2grRzNCNE1FUHFnUVMwUzg1YWFPTklvaVpkVFR3d1pr?=
+ =?utf-8?B?d25wZ0p4eS9WZnBvTXR1V2k1d29PblhOQnpPRGhVRTZiT1g3Y3JNajlHS3NU?=
+ =?utf-8?B?TGhTOERxazBjcnVmSXZyWjdsODhudlJIT1V5b2ZkT29BSHRaSytOQ1diOFZ2?=
+ =?utf-8?B?UmZZZGN6MEhpTWIxeWFvZTRjZnVxNWg4dUlQWHZjRURlV2Fnb1RnMzkyOXIy?=
+ =?utf-8?B?akVDY29QUGJrQjJBUXJ5QWxBcEpranQ1RGUyd3kzSzZYT2NLWmxSWklJdjc0?=
+ =?utf-8?B?cDExYnMwK3pXdllLY2lDTXEyY2JrVEd0ZkY5UGhCbGZ5UHpORGlGNFRBY0VZ?=
+ =?utf-8?B?YWFGeTJ4QkxLVVY0eFdMVVA1UDVEQmxpcSt5eVR3Z3NCZW9vNHNHUFRkdHJ3?=
+ =?utf-8?B?UDBFemtiRzd5TmwzdWtra3F3b05GZGJ1NVBRSk43dThGWDRXMUNZeDFZbi9T?=
+ =?utf-8?B?M25PMWw3YUlteUttNG9WR05xOWM1aURheEV1VW1sWDdudGZpanI0VUpDUCto?=
+ =?utf-8?B?RXNjTFpOYWpOTUYyMU1ibi9MZGI5alZHL0VtbkZlelJuZ1RXbjJha0JWRzRZ?=
+ =?utf-8?B?SE55R1BMeG9iMGVPelpva21yV2hMT01JbFF0dmZwR3QvL3NNTEJ3V2Foc3h6?=
+ =?utf-8?B?YnJjb3FnRW5paG5NWFNoVjBGQzF0bGhQZmpBWTE2SXB5Nk5La0ptQThUY3dx?=
+ =?utf-8?B?YTNLdWF0dGhodGl3OWpLRVZWMlhiVmUvR3E4Wkl1QUV1WFRQWkFuZUdWQmVw?=
+ =?utf-8?B?Q1ZiQlYrbnNSMEJQL25FN2RRUVkxdDJMUVBraGx5TGhuR0JPWS9yR2J5MDNi?=
+ =?utf-8?Q?kUEtNwtBlVsA3bBytV52C8Chl2alMlwf7ghvXGh+Dmws=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 02fbad9d-0526-4a23-5f22-08dc127a21de
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jan 2024 07:51:36.3029
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3P287MB0836
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240110_200558_808032_5313FFDF 
-X-CRM114-Status: GOOD (  28.86  )
+X-CRM114-CacheID: sfid-20240110_235204_298811_E311A722 
+X-CRM114-Status: GOOD (  34.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,183 +137,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 1/9/24 2:16 PM, Nathan Chancellor wrote:
-> reviews.llvm.org was LLVM's Phabricator instances for code review. It
-> has been abandoned in favor of GitHub pull requests. While the majority
-> of links in the kernel sources still work because of the work Fangrui
-> has done turning the dynamic Phabricator instance into a static archive,
-> there are some issues with that work, so preemptively convert all the
-> links in the kernel sources to point to the commit on GitHub.
->
-> Most of the commits have the corresponding differential review link in
-> the commit message itself so there should not be any loss of fidelity in
-> the relevant information.
->
-> Additionally, fix a typo in the xdpwall.c print ("LLMV" -> "LLVM") while
-> in the area.
->
-> Link: https://discourse.llvm.org/t/update-on-github-pull-requests/71540/172
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-
-Ack with one nit below.
-
-Acked-by: Yonghong Song <yonghong.song@linux.dev>
-
-> ---
-> Cc: ast@kernel.org
-> Cc: daniel@iogearbox.net
-> Cc: andrii@kernel.org
-> Cc: mykolal@fb.com
-> Cc: bpf@vger.kernel.org
-> Cc: linux-kselftest@vger.kernel.org
-> ---
->   tools/testing/selftests/bpf/README.rst             | 32 +++++++++++-----------
->   tools/testing/selftests/bpf/prog_tests/xdpwall.c   |  2 +-
->   .../selftests/bpf/progs/test_core_reloc_type_id.c  |  2 +-
->   3 files changed, 18 insertions(+), 18 deletions(-)
->
-> diff --git a/tools/testing/selftests/bpf/README.rst b/tools/testing/selftests/bpf/README.rst
-> index cb9b95702ac6..b9a493f66557 100644
-> --- a/tools/testing/selftests/bpf/README.rst
-> +++ b/tools/testing/selftests/bpf/README.rst
-> @@ -115,7 +115,7 @@ the insn 20 undoes map_value addition. It is currently impossible for the
->   verifier to understand such speculative pointer arithmetic.
->   Hence `this patch`__ addresses it on the compiler side. It was committed on llvm 12.
->   
-> -__ https://reviews.llvm.org/D85570
-> +__ https://github.com/llvm/llvm-project/commit/ddf1864ace484035e3cde5e83b3a31ac81e059c6
->   
->   The corresponding C code
->   
-> @@ -165,7 +165,7 @@ This is due to a llvm BPF backend bug. `The fix`__
->   has been pushed to llvm 10.x release branch and will be
->   available in 10.0.1. The patch is available in llvm 11.0.0 trunk.
->   
-> -__  https://reviews.llvm.org/D78466
-> +__  https://github.com/llvm/llvm-project/commit/3cb7e7bf959dcd3b8080986c62e10a75c7af43f0
->   
->   bpf_verif_scale/loop6.bpf.o test failure with Clang 12
->   ======================================================
-> @@ -204,7 +204,7 @@ r5(w5) is eventually saved on stack at insn #24 for later use.
->   This cause later verifier failure. The bug has been `fixed`__ in
->   Clang 13.
->   
-> -__  https://reviews.llvm.org/D97479
-> +__  https://github.com/llvm/llvm-project/commit/1959ead525b8830cc8a345f45e1c3ef9902d3229
->   
->   BPF CO-RE-based tests and Clang version
->   =======================================
-> @@ -221,11 +221,11 @@ failures:
->   - __builtin_btf_type_id() [0_, 1_, 2_];
->   - __builtin_preserve_type_info(), __builtin_preserve_enum_value() [3_, 4_].
->   
-> -.. _0: https://reviews.llvm.org/D74572
-> -.. _1: https://reviews.llvm.org/D74668
-> -.. _2: https://reviews.llvm.org/D85174
-> -.. _3: https://reviews.llvm.org/D83878
-> -.. _4: https://reviews.llvm.org/D83242
-> +.. _0: https://github.com/llvm/llvm-project/commit/6b01b465388b204d543da3cf49efd6080db094a9
-> +.. _1: https://github.com/llvm/llvm-project/commit/072cde03aaa13a2c57acf62d79876bf79aa1919f
-> +.. _2: https://github.com/llvm/llvm-project/commit/00602ee7ef0bf6c68d690a2bd729c12b95c95c99
-> +.. _3: https://github.com/llvm/llvm-project/commit/6d218b4adb093ff2e9764febbbc89f429412006c
-> +.. _4: https://github.com/llvm/llvm-project/commit/6d6750696400e7ce988d66a1a00e1d0cb32815f8
->   
->   Floating-point tests and Clang version
->   ======================================
-> @@ -234,7 +234,7 @@ Certain selftests, e.g. core_reloc, require support for the floating-point
->   types, which was introduced in `Clang 13`__. The older Clang versions will
->   either crash when compiling these tests, or generate an incorrect BTF.
->   
-> -__  https://reviews.llvm.org/D83289
-> +__  https://github.com/llvm/llvm-project/commit/a7137b238a07d9399d3ae96c0b461571bd5aa8b2
->   
->   Kernel function call test and Clang version
->   ===========================================
-> @@ -248,7 +248,7 @@ Without it, the error from compiling bpf selftests looks like:
->   
->     libbpf: failed to find BTF for extern 'tcp_slow_start' [25] section: -2
->   
-> -__ https://reviews.llvm.org/D93563
-> +__ https://github.com/llvm/llvm-project/commit/886f9ff53155075bd5f1e994f17b85d1e1b7470c
->   
->   btf_tag test and Clang version
->   ==============================
-> @@ -264,8 +264,8 @@ Without them, the btf_tag selftest will be skipped and you will observe:
->   
->     #<test_num> btf_tag:SKIP
->   
-> -.. _0: https://reviews.llvm.org/D111588
-> -.. _1: https://reviews.llvm.org/D111199
-> +.. _0: https://github.com/llvm/llvm-project/commit/a162b67c98066218d0d00aa13b99afb95d9bb5e6
-> +.. _1: https://github.com/llvm/llvm-project/commit/3466e00716e12e32fdb100e3fcfca5c2b3e8d784
->   
->   Clang dependencies for static linking tests
->   ===========================================
-> @@ -274,7 +274,7 @@ linked_vars, linked_maps, and linked_funcs tests depend on `Clang fix`__ to
->   generate valid BTF information for weak variables. Please make sure you use
->   Clang that contains the fix.
->   
-> -__ https://reviews.llvm.org/D100362
-> +__ https://github.com/llvm/llvm-project/commit/968292cb93198442138128d850fd54dc7edc0035
->   
->   Clang relocation changes
->   ========================
-> @@ -292,7 +292,7 @@ Here, ``type 2`` refers to new relocation type ``R_BPF_64_ABS64``.
->   To fix this issue, user newer libbpf.
->   
->   .. Links
-> -.. _clang reloc patch: https://reviews.llvm.org/D102712
-> +.. _clang reloc patch: https://github.com/llvm/llvm-project/commit/6a2ea84600ba4bd3b2733bd8f08f5115eb32164b
->   .. _kernel llvm reloc: /Documentation/bpf/llvm_reloc.rst
->   
->   Clang dependencies for the u32 spill test (xdpwall)
-> @@ -304,6 +304,6 @@ from running test_progs will look like:
->   
->   .. code-block:: console
->   
-> -  test_xdpwall:FAIL:Does LLVM have https://reviews.llvm.org/D109073? unexpected error: -4007
-> +  test_xdpwall:FAIL:Does LLVM have https://github.com/llvm/llvm-project/commit/ea72b0319d7b0f0c2fcf41d121afa5d031b319d5? unexpected error: -4007
->   
-> -__ https://reviews.llvm.org/D109073
-> +__ https://github.com/llvm/llvm-project/commit/ea72b0319d7b0f0c2fcf41d121afa5d031b319d
-
-To be consistent with other links, could you add the missing last alnum '5' to the above link?
-
-> diff --git a/tools/testing/selftests/bpf/prog_tests/xdpwall.c b/tools/testing/selftests/bpf/prog_tests/xdpwall.c
-> index f3927829a55a..4599154c8e9b 100644
-> --- a/tools/testing/selftests/bpf/prog_tests/xdpwall.c
-> +++ b/tools/testing/selftests/bpf/prog_tests/xdpwall.c
-> @@ -9,7 +9,7 @@ void test_xdpwall(void)
->   	struct xdpwall *skel;
->   
->   	skel = xdpwall__open_and_load();
-> -	ASSERT_OK_PTR(skel, "Does LLMV have https://reviews.llvm.org/D109073?");
-> +	ASSERT_OK_PTR(skel, "Does LLVM have https://github.com/llvm/llvm-project/commit/ea72b0319d7b0f0c2fcf41d121afa5d031b319d5?");
->   
->   	xdpwall__destroy(skel);
->   }
-> diff --git a/tools/testing/selftests/bpf/progs/test_core_reloc_type_id.c b/tools/testing/selftests/bpf/progs/test_core_reloc_type_id.c
-> index 22aba3f6e344..6fc8b9d66e34 100644
-> --- a/tools/testing/selftests/bpf/progs/test_core_reloc_type_id.c
-> +++ b/tools/testing/selftests/bpf/progs/test_core_reloc_type_id.c
-> @@ -80,7 +80,7 @@ int test_core_type_id(void *ctx)
->   	 * to detect whether this test has to be executed, however strange
->   	 * that might look like.
->   	 *
-> -	 *   [0] https://reviews.llvm.org/D85174
-> +	 *   [0] https://github.com/llvm/llvm-project/commit/00602ee7ef0bf6c68d690a2bd729c12b95c95c99
->   	 */
->   #if __has_builtin(__builtin_preserve_type_info)
->   	struct core_reloc_type_id_output *out = (void *)&data.out;
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDIwMjQvMS8xMCAyMjo0MiwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+IEhleSwKPgo+IE9uIFdl
+ZCwgSmFuIDEwLCAyMDI0IGF0IDA4OjUzOjQyQU0gKzA4MDAsIENoZW4gV2FuZyB3cm90ZToKPj4g
+T24gMjAyNC8xLzggMTU6MDQsIEtyenlzenRvZiBLb3psb3dza2kgd3JvdGU6Cj4+PiBPbiAwOC8w
+MS8yMDI0IDA3OjQ5LCBDaGVuIFdhbmcgd3JvdGU6Cj4+Pj4gRnJvbTogQ2hlbiBXYW5nIDx1bmlj
+b3JuX3dhbmdAb3V0bG9vay5jb20+Cj4+Pj4KPj4+PiBBZGQgYmluZGluZ3MgZm9yIHRoZSBjbG9j
+ayBnZW5lcmF0b3Igb24gdGhlIFNHMjA0MiBSSVNDLVYgU29DLgo+Pj4+Cj4+Pj4gU2lnbmVkLW9m
+Zi1ieTogQ2hlbiBXYW5nIDx1bmljb3JuX3dhbmdAb3V0bG9vay5jb20+Cj4+Pj4gUmV2aWV3ZWQt
+Ynk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4+Pj4gLS0tCj4+
+Pj4gICAgLi4uL2JpbmRpbmdzL2Nsb2NrL3NvcGhnbyxzZzIwNDItY2xrZ2VuLnlhbWwgIHwgIDUz
+ICsrKysrKwo+Pj4+ICAgIC4uLi9kdC1iaW5kaW5ncy9jbG9jay9zb3BoZ28sc2cyMDQyLWNsa2dl
+bi5oICB8IDE2OSArKysrKysrKysrKysrKysrKysKPj4+PiAgICAyIGZpbGVzIGNoYW5nZWQsIDIy
+MiBpbnNlcnRpb25zKCspCj4+Pj4gICAgY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRpb24v
+ZGV2aWNldHJlZS9iaW5kaW5ncy9jbG9jay9zb3BoZ28sc2cyMDQyLWNsa2dlbi55YW1sCj4+Pj4g
+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGluY2x1ZGUvZHQtYmluZGluZ3MvY2xvY2svc29waGdvLHNn
+MjA0Mi1jbGtnZW4uaAo+Pj4+Cj4+Pj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNl
+dHJlZS9iaW5kaW5ncy9jbG9jay9zb3BoZ28sc2cyMDQyLWNsa2dlbi55YW1sIGIvRG9jdW1lbnRh
+dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Nsb2NrL3NvcGhnbyxzZzIwNDItY2xrZ2VuLnlhbWwK
+Pj4+PiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+Pj4+IGluZGV4IDAwMDAwMDAwMDAwMC4uZjk5MzVl
+NjZmYzk1Cj4+Pj4gLS0tIC9kZXYvbnVsbAo+Pj4+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNl
+dHJlZS9iaW5kaW5ncy9jbG9jay9zb3BoZ28sc2cyMDQyLWNsa2dlbi55YW1sCj4+Pj4gQEAgLTAs
+MCArMSw1MyBAQAo+Pj4+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiAoR1BMLTIuMCBPUiBC
+U0QtMi1DbGF1c2UpCj4+Pj4gKyVZQU1MIDEuMgo+Pj4+ICstLS0KPj4+PiArJGlkOiBodHRwOi8v
+ZGV2aWNldHJlZS5vcmcvc2NoZW1hcy9jbG9jay9zb3BoZ28sc2cyMDQyLWNsa2dlbi55YW1sIwo+
+Pj4+ICskc2NoZW1hOiBodHRwOi8vZGV2aWNldHJlZS5vcmcvbWV0YS1zY2hlbWFzL2NvcmUueWFt
+bCMKPj4+PiArCj4+Pj4gK3RpdGxlOiBTb3BoZ28gU0cyMDQyIENsb2NrIEdlbmVyYXRvcgo+Pj4+
+ICsKPj4+PiArbWFpbnRhaW5lcnM6Cj4+Pj4gKyAgLSBDaGVuIFdhbmcgPHVuaWNvcm5fd2FuZ0Bv
+dXRsb29rLmNvbT4KPj4+PiArCj4+Pj4gK3Byb3BlcnRpZXM6Cj4+Pj4gKyAgY29tcGF0aWJsZToK
+Pj4+PiArICAgIGNvbnN0OiBzb3BoZ28sc2cyMDQyLWNsa2dlbgo+Pj4+ICsKPj4+PiArICByZWc6
+Cj4+Pj4gKyAgICBtYXhJdGVtczogMQo+Pj4+ICsKPj4+PiArICBzb3BoZ28sc3lzdGVtLWN0cmw6
+Cj4+Pj4gKyAgICAkcmVmOiAvc2NoZW1hcy90eXBlcy55YW1sIy9kZWZpbml0aW9ucy9waGFuZGxl
+Cj4+Pj4gKyAgICBkZXNjcmlwdGlvbjoKPj4+PiArICAgICAgUGhhbmRsZSB0byBTRzIwNDIgU3lz
+dGVtIENvbnRyb2xsZXIgbm9kZS4gT24gU0cyMDQyLCBwYXJ0IG9mIGNvbnRyb2wKPj4+PiArICAg
+ICAgcmVnaXN0ZXJzIG9mIENsb2NrIENvbnRyb2xsZXIgYXJlIGRlZmluZWQgaW4gU3lzdGVtIGNv
+bnRyb2xsZXIuIENsb2NrCj4+Pj4gKyAgICAgIGRyaXZlciB3aWxsIHVzZSB0aGlzIHBoYW5kbGUg
+dG8gZ2V0IHRoZSByZWdpc3RlciBtYXAgYmFzZSB0byBwbHVzIHRoZQo+Pj4+ICsgICAgICBvZmZz
+ZXQgb2YgdGhlIHJlZ2lzdGVycyB0byBhY2Nlc3MgdGhlbS4KPj4+IERvIG5vdCBkZXNjcmliZSB0
+aGUgZHJpdmVyLCBidXQgaGFyZHdhcmUuIFdoYXQgcmVnaXN0ZXJzIGFyZSBpbgo+Pj4gc3lzdGVt
+LWN0cmw/IFdoYXQgYXJlIHRoZWlyIHB1cnBvc2U/IFdoeSB0aGlzIGhhcmR3YXJlIG5lZWRzIHRo
+ZW0/Cj4+IFVuZGVyc3Rvb2QsIHdpbGwgZml4IHRoZSB3b3JkcyBpbiByZXZpc2lvbiwgdGhhbmtz
+Lgo+IEkgaG9wZSB0aGF0IEkgYW0gbm90IG1pc3VuZGVyc3RhbmRpbmcgdGhpbmdzLCBidXQgSSBn
+b3QgYSBiaXQgc3VzcGljaW91cwo+IG9mIHRoaXMgYmluZGluZyBhbmQgbG9vayBhdCB0aGUgZHJp
+dmVyLCBhbmQgc2F3IHRoYXQgdGhlcmUgYXJlIGNsb2Nrcwo+IHJlZ2lzdGVyZWQgbGlrZToKPgo+
+IHwgc3RhdGljIGludCBzZzIwNDJfY2xrX3JlZ2lzdGVyX2dhdGVzKHN0cnVjdCBzZzIwNDJfY2xr
+X2RhdGEgKmNsa19kYXRhLAo+IHwgCQkJCSAgICAgY29uc3Qgc3RydWN0IHNnMjA0Ml9nYXRlX2Ns
+b2NrIGdhdGVfY2xrc1tdLAo+IHwgCQkJCSAgICAgaW50IG51bV9nYXRlX2Nsa3MpCj4gfCB7Cj4g
+fCAJc3RydWN0IGNsa19odyAqaHc7Cj4gfCAJY29uc3Qgc3RydWN0IHNnMjA0Ml9nYXRlX2Nsb2Nr
+ICpnYXRlOwo+IHwgCWludCBpLCByZXQgPSAwOwo+IHwgCXZvaWQgX19pb21lbSAqcmVnOwo+IHwK
+PiB8IAlmb3IgKGkgPSAwOyBpIDwgbnVtX2dhdGVfY2xrczsgaSsrKSB7Cj4gfCAJCWdhdGUgPSAm
+Z2F0ZV9jbGtzW2ldOwo+IHwgCQlpZiAoZ2F0ZS0+ZmxhZ19zeXNjdHJsKQo+IHwgCQkJcmVnID0g
+Y2xrX2RhdGEtPmlvYmFzZV9zeXNjb24gKyBnYXRlLT5vZmZzZXRfZW5hYmxlOwo+IHwgCQllbHNl
+Cj4gfCAJCQlyZWcgPSBjbGtfZGF0YS0+aW9iYXNlICsgZ2F0ZS0+b2Zmc2V0X2VuYWJsZTsKPgo+
+IGlvYmFzZV9zeXNjb24gaXMgdGhlIGJhc2UgYWRkcmVzcyBvZiB0aGUgc3lzdGVtIGNvbnRyb2xs
+ZXIgdGhhdCB0aGlzCj4gcHJvcGVydHkgcG9pbnRzIGF0ICYgaW9iYXNlIGlzIHRoZSBiYXNlIGFk
+ZHJlc3Mgb2YgdGhlIGNsb2NrIGNvbnRyb2xsZXIKPiBpdHNlbGYuCj4KPiB8IAkJaHcgPSBjbGtf
+aHdfcmVnaXN0ZXJfZ2F0ZShOVUxMLAo+IHwgCQkJCQkgIGdhdGUtPm5hbWUsCj4gfCAJCQkJCSAg
+Z2F0ZS0+cGFyZW50X25hbWUsCj4gfCAJCQkJCSAgZ2F0ZS0+ZmxhZ3MsCj4gfCAJCQkJCSAgcmVn
+LAo+IHwgCQkJCQkgIGdhdGUtPmJpdF9pZHgsCj4gfCAJCQkJCSAgMCwKPiB8IAkJCQkJICAmc2cy
+MDQyX2Nsa19sb2NrKTsKPgo+IEFzIGZhciBhcyBJIGNhbiB0ZWxsLCBpbiB0aGlzIHBhcnRpY3Vs
+YXIgY2FzZSwgZm9yIGFueSBnYXRlIGNsb2NrIHRoYXQKPiBmbGFnX3N5c2N0cmwgaXMgc2V0LCBu
+b25lIG9mIHRoZSByZWdpc3RlcnMgYWN0dWFsbHkgbGllIGluc2lkZSB0aGUKPiBjbGtnZW4gcmVn
+aW9uLCBidXQgaW5zdGVhZCBhcmUgZW50aXJlbHkgY29udGFpbmVkIGluIHRoZSBzeXNjdHJsIHJl
+Z2lvbi4KPgo+IEkgdGhpbmsgdGhhdCB0aGlzIGlzIGJlY2F1c2UgeW91ciBkZXZpY2V0cmVlIGRv
+ZXMgbm90IGNvcnJlY3RseSBkZWZpbmUKPiB0aGUgcmVsYXRpb25zaGlwIGJldHdlZW4gY2xvY2tz
+LCBhbmQgdGhlc2UgY2xvY2tzIGFyZSBhY3R1YWxseSBwcm92aWRlZAo+IGJ5IHRoZSBzeXN0ZW0g
+Y29udHJvbGxlciBibG9jayBhbmQgYXJlIGlucHV0cyB0byB0aGUgY2xrZ2VuIGJsb2NrLgo+Cj4g
+fCAJCWlmIChJU19FUlIoaHcpKSB7Cj4gfCAJCQlwcl9lcnIoImZhaWxlZCB0byByZWdpc3RlciBj
+bG9jayAlc1xuIiwgZ2F0ZS0+bmFtZSk7Cj4gfCAJCQlyZXQgPSBQVFJfRVJSKGh3KTsKPiB8IAkJ
+CWJyZWFrOwo+IHwgCQl9Cj4gfAo+IHwgCQljbGtfZGF0YS0+b25lY2VsbF9kYXRhLmh3c1tnYXRl
+LT5pZF0gPSBodzsKPiB8IAl9Cj4gfAo+IHwgCS8qIGxlYXZlIHVucmVnaXN0ZXIgdG8gb3V0c2lk
+ZSBpZiBmYWlsZWQgKi8KPiB8IAlyZXR1cm4gcmV0Owo+IHwgfQo+Cj4gSSBoYWQgYSBtdWNoIGJy
+aWVmZXIgbG9vayBhdCB0aGUgYHNnMjA0Ml9wbGxfY2xvY2tgcyB0aGF0IG1ha2UgdXNlIG9mCj4g
+dGhlIHJlZ21hcCwgYW5kIGl0IGRvZXNuJ3Qgc2VlbSBsaWtlIHRoZXkgIm1peCBhbmQgbWF0Y2gi
+IHJlZ2lzdGVycwo+IGJldHdlZW4gYm90aCBibG9ja3MsIGFuZCBpbnN0ZWFkIG9ubHkgaGF2ZSBy
+ZWdpc3RlcnMgaW4gdGhlIHN5c3RlbQo+IGNvbnRyb2xsZXI/IElmIHNvLCBpdCBkb2Vzbid0IHNl
+ZW0gbGlrZSB0aGlzIGNsa2dlbiBibG9jayBzaG91bGQgYmUKPiBwcm92aWRpbmcgdGhlIFBMTCBj
+bG9ja3MgZWl0aGVyLCBidXQgaW5zdGVhZCBiZSB0YWtpbmcgdGhlbSBhcyBpbnB1dHMuCj4KPiBS
+ZWFkaW5nIHN0dWZmIGxpa2UKPiBodHRwczovL2dpdGh1Yi5jb20vc29waGdvL3NvcGhnby1kb2Mv
+YmxvYi9tYWluL1NHMjA0Mi9UUk0vc291cmNlL3N5c3RlbS1jb250cm9sLnJzdCNwbGxfc3RhdC1v
+ZmZzZXQtMHgwYzAKPiAoYW5kIG9ud2FyZHMpIG1ha2VzIGl0IHNlZW0gbGlrZSB0aG9zZSBQTExz
+IGFyZSBmdWxseSBjb250YWluZWQgd2l0aGluCj4gdGhlIHN5c3RlbSBjb250cm9sbGVyIHJlZ2lz
+dGVyIHNwYWNlLgo+Cj4gSXQgc2VlbXMgbGlrZQo+IGh0dHBzOi8vZ2l0aHViLmNvbS9zb3BoZ28v
+c29waGdvLWRvYy9ibG9iL21haW4vU0cyMDQyL1RSTS9zb3VyY2UvY2xvY2stcmVnLnJzdAo+IGlz
+IHRoZSByZWdpc3RlciBtYXAgZm9yIHRoZSBjbGtnZW4gcmVnaW9uPyBJdCBzZWVtcyBsaWtlIHRo
+YXQgcmVnaW9uCj4gb25seSBjb250YWlucyBnYXRlcyBhbmQgZGl2aWRlciBjbG9ja3MsIGJ1dCBu
+byBQTExzLgo+Cj4gQW0gSSBtaXNzaW5nIHNvbWV0aGluZywgb3IgaXMgdGhpcyBkZXNjcmlwdGlv
+biBvZiB0aGUgY2xvY2sgY29udHJvbGxlcnMKPiBvbiB0aGUgc29jIGluY29tcGxldGU/Cgpoae+8
+jENvbm9y77yMCgpUaGVyZSBhcmUgZm91ciB0eXBlcyBvZiBjbG9ja3MgZm9yIFNHMjA0MiBhbmQg
+Zm9sbG93aW5nIGFyZSB3aGVyZSB0aGVpciAKY29udHJvbCByZWdpc3RlcnMgYXJlIGRlZmluZWQg
+aW46CgpQTEzvvJphbGwgaW4gU1lTX0NUUkwKRElWOiBhbGwgaW4gQ0xPQ0sKR0FURTogc29tZSBh
+cmUgaW4gU1lTX0NUUkwsIHNvbWUgb3RoZXJzIGFyZSBpbiBDTE9DSwpNVVg6IGFsbCBpbiBDTE9D
+SwoKRm9yIFBMTHMsIHllcywgdGhleSBhcmUgYWxsIGNvbnRyb2xsZWQgYnkgcmVnaXN0ZXJzIGRl
+ZmluZWQgaW4gU1lTX0NUUkwuIApBYm91dCB3aGF0IHlvdSBzYWlkICJpdCBkb2Vzbid0IHNlZW0g
+bGlrZSB0aGlzIGNsa2dlbiBibG9jayBzaG91bGQgYmUgCnByb3ZpZGluZyB0aGUgUExMIGNsb2Nr
+cyBlaXRoZXIsIGJ1dCBpbnN0ZWFkIGJlIHRha2luZyB0aGVtIGFzIGlucHV0cy4iLCAKSSBhbSBu
+b3QgdmVyeSBzdXJlIHdoYXQgeW91ciBtZWFuaW5nIG9mICJpbnB1dHMiLiBJIHRyeSB0byB3cml0
+ZSBEVFMgCndpdGggbXkgdW5kcnN0YWRuaW5nLCBwbGVhc2UgaGVscCBtZSBzZWUgaWYgaXQgZml0
+cyB3aGF0IHlvdSBtZWFuLgoKYGBgZHRzCgpzeXNfY3RybDogc3lzdGVtLWNvbnRyb2xsZXJANzAz
+MDAxMDAwMCB7IGNvbXBhdGlibGUgPSAKInNvcGhnbyxzZzIwNDItc3lzY3RybCI7IHJlZyA9IDww
+eDcwIDB4MzAwMTAwMDAgMHgwIDB4MTAwMD47IHBsbGNsazogCmNsb2NrLWNvbnRyb2xsZXIgeyBj
+b21wYXRpYmxlID0gInNvcGhnbyxzZzIwNDItcGxsIjsgI2Nsb2NrLWNlbGxzID0gPDE+OyAKY2xv
+Y2tzID0gPCZjZ2k+OyB9OyB9OyBjbGtnZW46IGNsb2NrLWNvbnRyb2xsZXJANzAzMDAxMjAwMCB7
+IGNvbXBhdGlibGUgCj0gInNvcGhnbyxzZzIwNDItY2xrZ2VuIjsgcmVnID0gPDB4NzAgMHgzMDAx
+MjAwMCAweDAgMHgxMDAwPjsgCiNjbG9jay1jZWxscyA9IDwxPjsgY2xvY2tzID0gPCZwbGxjbGsg
+TVBMTF9DTEs+LCA8JnBsbGNsayBGUExMX0NMSz4sIAo8JnBsbGNsayBEUExMMF9DTEs+LCA8JnBs
+bGNsayBEUExMMV9DTEs+LDsgY2xvY2stbmFtZXMgPSAiY2dpIiwgIm1wbGwiLCAKImZwbGwiLCAi
+ZHBsbDAiLCAiZHBsbDEiOyB9OwoKYGBgCgpXaXRoIHRoaXMgY2hhbmdlLCB3ZSBkZXNjcmliZSB0
+aGUgcGxscyBkZWZpbmVkIGluIHN5c3RlbSBjb250cm9sIGFzIApwbGxjbGssIGFzIGEgY2hpbGQg
+bm9kZSBvZiBzeXN0ZW0gY29udHJvbGxlci4gY2xrZ2VuIHdpbGwgdXNlIHBsbGNsayBhcyAKImlu
+cHV0IiBiZWNhdXNlIHBsbCBjbG9ja3MgYXJlIHBhcmVudCBvZiBkaXYgY2xvY2tzIC4KCkJ1dCB0
+aGVyZSBpcyBhbm90aGVyIHJlbWFpbmluZyBxdWVzdGlvbiBhYm91dCB0aGUgZ2F0ZSBjbG9jay4g
+Rm9yIHRob3NlIApnYXRlIGNsb2NrcyBjb250cm9sbGVkIGJ5IENMT0NLLCBubyBwcm9ibGVtIHdl
+IHdpbGwgcHJvdmlkZSB0aGVuIGluIApjbGtnZW4sIGJ1dMKgIGZvciB0aG9zZSBnYXRlIGNsb2Nr
+cyBjb250cm9sbGVkIGJ5IHJlZ2lzdGVycyBpbsKgU1lTX0NUUkwsIAp0aGV5IGFyZSBjaGlsZCBn
+YXRlIG9mIHRoZSAiY2xrX2dhdGVfcnBfY3B1X25vcm1hbCIsIHdoaWNoIGlzIGEgZ2F0ZSAKY2xv
+Y2sgcHJvdmlkZWQgYnkgY2xrZ2VuLiBJZiBJIGV4dHJhY3RlZCB0aG9zZSBTWVNfQ1RSTCBnYXRl
+IGNsb2NrcyBhbmQgCmRlZmluZSB0aGVtIGluIHN5c3RlbSBjb250cm9sbGVyIGR0cyBub2RlLCBJ
+IG1heSBoYXZlIHRvIHVzZSAKImNsa19nYXRlX3JwX2NwdV9ub3JtYWwiIGFzIHRoZWlyIGlucHV0
+LCBpdCBsb29rcyBhIGJpdCB3aWVyZCBiZWNhc3VlIAp0aGVyZSBhcmUgY2FzZXMgd2hlcmUgZWFj
+aCBvdGhlciBzZXJ2ZXMgYXMgaW5wdXQuIEkgdHJ5IHRvIGRyYWZ0IGJlbG93IApEVFMgdG8gZXhw
+bGFuIHdoYXQgSSBtZWFudC4gSSdtIG5vdCBzdXJlIGlmIGl0IGNhbiB3b3JrIGFuZCBJJ2QgbG92
+ZSB0byAKaGVhciB5b3VyIGd1aWRhbmNlLgoKYGBgZHRzCgpzeXNfY3RybDogc3lzdGVtLWNvbnRy
+b2xsZXJANzAzMDAxMDAwMCB7CiDCoMKgIMKgY29tcGF0aWJsZSA9ICJzb3BoZ28sc2cyMDQyLXN5
+c2N0cmwiOwogwqDCoCDCoHJlZyA9IDwweDcwIDB4MzAwMTAwMDAgMHgwIDB4MTAwMD47CgogwqDC
+oCDCoHBsbGNsazogY2xvY2stY29udHJvbGxlciB7CiDCoMKgIMKgwqDCoMKgIGNvbXBhdGlibGUg
+PSAic29waGdvLHNnMjA0Mi1wbGwiOwogwqDCoCDCoMKgwqDCoCAjY2xvY2stY2VsbHMgPSA8MT47
+CiDCoMKgIMKgwqDCoMKgIGNsb2NrcyA9IDwmY2dpPjsKIMKgwqAgwqB9OwoKIMKgwqDCoCBzb21l
+Z2F0ZWNsazogY2xvY2stY29udHJvbGxlcjIgewogwqDCoCDCoMKgwqDCoCBjb21wYXRpYmxlID0g
+InNvcGhnbyxzZzIwNDItc29tZWdhdGUiOwogwqDCoCDCoMKgwqDCoCAjY2xvY2stY2VsbHMgPSA8
+MT47CiDCoMKgIMKgwqDCoMKgIGNsb2NrcyA9IDwmY2xrZ2VuIEdBVEVfQ0xLX1JQX0NQVV9OT1JN
+QUw+OwogwqDCoCDCoMKgwqDCoCBjbG9jay1uYW1lcyA9ICJjbGtfZ2F0ZV9ycF9jcHVfbm9ybWFs
+IjsKIMKgwqAgwqB9Owp9OwoKY2xrZ2VuOiBjbG9jay1jb250cm9sbGVyQDcwMzAwMTIwMDAgewog
+wqDCoCDCoGNvbXBhdGlibGUgPSAic29waGdvLHNnMjA0Mi1jbGtnZW4iOwogwqDCoCDCoHJlZyA9
+IDwweDcwIDB4MzAwMTIwMDAgMHgwIDB4MTAwMD47CiDCoMKgIMKgI2Nsb2NrLWNlbGxzID0gPDE+
+OwogwqDCoCDCoGNsb2NrcyA9IMKgwqDCoCDCoDwmcGxsY2xrIE1QTExfQ0xLPiwKIMKgwqAgwqDC
+oMKgwqAgwqDCoMKgIMKgPCZwbGxjbGsgRlBMTF9DTEs+LAogwqDCoCDCoMKgwqDCoCDCoMKgwqAg
+wqA8JnBsbGNsayBEUExMMF9DTEs+LAogwqDCoCDCoMKgwqDCoCDCoMKgwqAgwqA8JnBsbGNsayBE
+UExMMV9DTEs+LDsKIMKgwqAgwqBjbG9jay1uYW1lcyA9ICJjZ2kiLCAibXBsbCIsICJmcGxsIiwg
+ImRwbGwwIiwgImRwbGwxIjsKfTsKCmBgYAoKU28sIGNhbiB3ZSBwdXQgYWxsIGdhdGUgY2xvY2tz
+IGluIGNsa2dlbiB0byBzaW1wbGlmeSB0aGlzPwoKVGhhbmtzCgpDaGVuCgo+IENoZWVycywKPiBD
+b25vci4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
