@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36203C47077
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 09:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 543D4C4725D
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 09:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gbpfkZFWrmBjM4YzzLJ1aW+d4fLyH++6aH28FWimP4I=; b=KU2/a1DaotWlMZ
-	FRHN7PlymJw5bjvaWSec6MG8PJX73XJbfMIGaXWfzWLMEZo3CfSA3nEwl/fL5W+FbYOUzSffIABM1
-	ktKMbFjEJwy1lphS0t9JxxevPjstggtvtgATjU1kFsyEm3xUOW7/ZVnFwzVtByqppdNtiQBOjArYQ
-	oUMA1bWn+a0B+lCWLnV2Edv9fmdq/reguSPIF8iXTVemYPiIGiMNhWrTW5Cr0GaY4yxqebsaPIPw7
-	cXd5KRfVDzQz9Dkis7ZQROx1sFd67s1SdEIwpaMGHQpl9matNQa6z0uvZKmaurteDyjlhvT7ProqC
-	u/jLcL1oG2AzYrzjXD9A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GrOJR4iFqXtAFw9Ch6A94zbbYeO5PDJqOhBwF+E3Hik=; b=u8ka2HG88jYws2
+	VmAYe/HNwiQGtomFVNALjSa+aKcvKvXzUG/Ne//XHenSn23n/hea+paRvk0E9D73Q/09DiNVmJwOj
+	HwKB813stUx7xdAx9KwdRPZCN/7zKFxhPpuYHMC7I1PD2ZAehlHq9fZF8HqeOZS9ULux3G80BjbJm
+	eYunvGxoboxe6pcdmIGNOI/FvL5RQizYroehnt9BhRxbBzeLLlJHGE6yjVNEujRRhYU0uBJxy+lAw
+	hn3kDjvyonDek2zn7DYAvdps0uIM9iOolEOJB7WnWorjno/+jL2Y2CGm22jFYZcZpgs/uHiJE8xqn
+	YG44fVCEqLD2msaH2MEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNrP7-00GmHt-2S;
-	Thu, 11 Jan 2024 09:31:13 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1rNrPB-00GmJ9-1U;
+	Thu, 11 Jan 2024 09:31:17 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNrP5-00GmG4-0e
+	id 1rNrP8-00GmHX-3A
 	for linux-riscv@lists.infradead.org;
-	Thu, 11 Jan 2024 09:31:12 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1d54b765414so28360525ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Jan 2024 01:31:08 -0800 (PST)
+	Thu, 11 Jan 2024 09:31:16 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-28d2c1389e8so4315803a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Jan 2024 01:31:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1704965467; x=1705570267; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0u2ZqaYTukKS/ErfsgIWqLBT0BekDb7tY/EUWordXcQ=;
-        b=Y3DqP8tF7XO9oSaw0i+VHR+w3QeQhHqxHWtJBWo+OauZ/t6fdxFOlco9sO0T/+heEH
-         /uOIsUgHGu0/siL6Qe38d2FytNSq8Tcin4qg8VWhuxv1OF9n6jgdX2duJjE8LeUpXxG/
-         u7v6LbgVknhMGVrgjU8+baW20xk7Uzyc7NKYo70wFfs55WNMiWV40m1NeromcEEpVhIX
-         GONhreDl0vqBFV235kzgEb5Nkz63elESE8me6B5pAgXsx9GaEQyhZ2+U9gfqgU1xQ0Kf
-         5irJq25vEgw1LGBjpOWFmoqMx3iBrIbfepi7lwfIixaaAd8kSl60LDd+R0IEz7a8kxSv
-         DbOw==
+        d=ventanamicro.com; s=google; t=1704965472; x=1705570272; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3co2sOHjGX4HJhNcpLPUh7fyfRHhZQUX9e33G8U5XOw=;
+        b=o6+nmgMwRhru86xBrCre7HEPrpFnczmWX9kU23mYCpwjayAUWEh3BTrtTMEdehfL9C
+         M8k9Gh+tdSBPNfcHVcXDHrK7UZB51m2J1ZnG10Nyovb0EGvSJZATAgNAnZe7+j/KKqFt
+         CMEt8G7sZezhIKpERVL0aRiujbH+AFpp2x31Q5XCjJvyMcb9WFLL43/esIDP5X5TTEi8
+         q3rYcJQIq0Kgxpd7rzpRNZo3Qg7Z8rGjXC63/YXAPn2bEqHXopR5Bb+AiBPjwJWiE+g2
+         rLdGRbRAbV5N+rpCmkweHaPjXm/cqk8Pe8WyhuvCI5M0mUURRX7nwBPTpZA0UlL5xj+2
+         tVrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704965467; x=1705570267;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0u2ZqaYTukKS/ErfsgIWqLBT0BekDb7tY/EUWordXcQ=;
-        b=BI2BXiHNFuox5cP0q541x0Pi4tErhZo4wW/aEWzl2d7pPCGQ28M+xxLBTBFPlLBkEo
-         3wMwZwrixzk9syPSX8Xcmaj5uFoanixx917sDAfOQE1eT9o+0DWyU3duXQK1fVjfDRJf
-         Bz5JrR0ImPK6p+/Ocdd/am8wPP4oDOU+XDO9bYkoOZ2eFyvqtK4u3DlcV/8NAgBa1Vn0
-         WmJilD43fYOVNwNaCl9hd6SbhmeusEyoFj3/8YLgdl149uPAduECxXsGltfNDyc2Whmy
-         hiXT0Z0HqMgSpXUWhDdESkhbRzfmw9xLSsC8smKvZz9POgSLUjwVDsRhQQgVcL7UN4m/
-         Fosw==
-X-Gm-Message-State: AOJu0YxlLNF0nUStoKqkL4rCiq6WeyyvuOr7JcOG2MhAnjWpTQrV4BVD
-	GFCBxiNdr/jh9EqqDeevheGZNnu1HQTmyQ==
-X-Google-Smtp-Source: AGHT+IFdmA3NHb1ER4UFaUxR1jSr/olfCSoHwNY32G7qcH3iYgX8OKA4O85XbeUboGgxDYYmHv1L3Q==
-X-Received: by 2002:a17:902:bb16:b0:1d4:e208:9b0 with SMTP id im22-20020a170902bb1600b001d4e20809b0mr880703plb.44.1704965466610;
-        Thu, 11 Jan 2024 01:31:06 -0800 (PST)
+        d=1e100.net; s=20230601; t=1704965472; x=1705570272;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3co2sOHjGX4HJhNcpLPUh7fyfRHhZQUX9e33G8U5XOw=;
+        b=qwzr67tdjGukN4aSSZdNzMz9TXqX9baai5iANw5pxHLaOPbjmvJ5pqt+BfPD0IN1Pk
+         sERNsTeL/efh39ec9/hPDpI/SNWdcPfkOLzkLBEYY2CXpOy8rrsC38wpR6xq6CCc1zQw
+         5HwpEbqdnvx5ACQopsZU8vCtSianpGEENjtHltSKaNKQp4Z0iAnLMmLMMsQ4cLKj21F0
+         eA+nOfZx2DzB/Moje+GQn9zqbXUsw5LbcTNj74pMUmTHbI+plqJ50WHtbyF4sFjyVGqn
+         R1JW4WLdRo+I6/6tbGq9n9cRPknZLLCdTAERUN+YL8eGmEiFnqR4nHzXVJk+zZIjVtkc
+         xzTA==
+X-Gm-Message-State: AOJu0YwPl3QRZ9BkmWvWnuWCxIwdns9RD4eZytLOVjWzhISY2bEeaoyj
+	e/fOvwFxYDr3pgE+tDu38bhJ26mAdPxZNA==
+X-Google-Smtp-Source: AGHT+IFssiCK0JYjvHueFW2PMxwnkSqT3RYbMAUksprK2TkSi5cy8rguDn4ZmzMpW2QBoaX72pMGgA==
+X-Received: by 2002:a17:90a:2e82:b0:28c:134d:fca1 with SMTP id r2-20020a17090a2e8200b0028c134dfca1mr786132pjd.16.1704965471988;
+        Thu, 11 Jan 2024 01:31:11 -0800 (PST)
 Received: from sunil-laptop.. ([106.51.188.200])
-        by smtp.gmail.com with ESMTPSA id jd2-20020a170903260200b001d4a7cf0673sm730566plb.117.2024.01.11.01.31.02
+        by smtp.gmail.com with ESMTPSA id jd2-20020a170903260200b001d4a7cf0673sm730566plb.117.2024.01.11.01.31.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jan 2024 01:31:06 -0800 (PST)
+        Thu, 11 Jan 2024 01:31:11 -0800 (PST)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-acpi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH -next 0/2] RISC-V: ACPI: Add LPI support
-Date: Thu, 11 Jan 2024 15:00:56 +0530
-Message-Id: <20240111093058.121838-1-sunilvl@ventanamicro.com>
+Subject: [PATCH -next 1/2] ACPI: Enable ACPI_PROCESSOR for RISC-V
+Date: Thu, 11 Jan 2024 15:00:57 +0530
+Message-Id: <20240111093058.121838-2-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240111093058.121838-1-sunilvl@ventanamicro.com>
+References: <20240111093058.121838-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240111_013111_240787_EFFDB972 
-X-CRM114-Status: UNSURE (   6.74  )
+X-CRM114-CacheID: sfid-20240111_013115_019954_A2167016 
+X-CRM114-Status: UNSURE (   9.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,23 +95,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for Low Power Idle (LPI) on ACPI based
-platforms. 
+The ACPI processor driver is not currently enabled for RISC-V.
+This is required to enable CPU related functionalities like
+LPI and CPPC. Hence, enable ACPI_PROCESSOR for RISC-V.
 
-LPI is described in the ACPI spec [1]. RISC-V FFH spec required to
-enable this is available at [2].
+Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+---
+ drivers/acpi/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-[1] - https://uefi.org/specs/ACPI/6.5/08_Processor_Configuration_and_Control.html#lpi-low-power-idle-states 
-[2] - https://github.com/riscv-non-isa/riscv-acpi-ffh/releases/download/v/riscv-ffh.pdf
-
-Sunil V L (2):
-  ACPI: Enable ACPI_PROCESSOR for RISC-V
-  cpuidle: RISC-V: Add ACPI LPI support
-
- drivers/acpi/Kconfig                |  2 +-
- drivers/cpuidle/cpuidle-riscv-sbi.c | 78 +++++++++++++++++++++++++++++
- 2 files changed, 79 insertions(+), 1 deletion(-)
-
+diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+index f819e760ff19..9a920752171c 100644
+--- a/drivers/acpi/Kconfig
++++ b/drivers/acpi/Kconfig
+@@ -282,7 +282,7 @@ config ACPI_CPPC_LIB
+ 
+ config ACPI_PROCESSOR
+ 	tristate "Processor"
+-	depends on X86 || ARM64 || LOONGARCH
++	depends on X86 || ARM64 || LOONGARCH || RISCV
+ 	select ACPI_PROCESSOR_IDLE
+ 	select ACPI_CPU_FREQ_PSS if X86 || LOONGARCH
+ 	select THERMAL
 -- 
 2.34.1
 
