@@ -4,72 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86DF6C4707B
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 02:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E8EC4707C
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Jan 2024 02:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7suc5hbGJLqmgRGsx5ul7AUgaZZWVFtOGsc2KzzFVkU=; b=rFw3aZ6QNuAcFP
-	h8rqHpZvL0ZV9UuaOLz4EDkTDpAlJ8QOFeI4kcfAdXGSvCmJCIaLD2lVj/qmtldNBgMUROk+u/Ye+
-	uO7fNtgRq5lFcHgCHetqkFoZ37x/pC0Y5A9NXR2eNdndv+iXX2nOiYLjeQpUXCi+NmrBt9GBSqsDq
-	zfk4GMJylqxj4B9fAHaT4HrDSx91hRot6l1nI2jqcEd52UuGSPpdJp8FmHXudPvHnXN6ORQfqHiAy
-	OH9J5NWQjzU/6t+b9diUPwKFVocT/iJ2T2qd/+IYUqQFIObLmZqJTY3SKJo1AEx7tWUi/sxUiTG4H
-	nQr8Ie8JWBtPtJoOqmcw==;
+	List-Owner; bh=w8zaS4DGJnMSYCxATe67Jw9boiY+ySmBGdZ0jNGh70Q=; b=xVVwra1AYr8I1K
+	QoD1emWmhuLsEWyRpOsjBzBvrxrnvDHr6IsY/CZp1P0aut+oO13fz9gQKeIChVxDYh03Cn8z4IyyA
+	yNNdsnBUP4ir03Nga86CPmNaBONMHhUDRUU/3DwEtlr9DkFUMlhrwG3nhVP3C+45BbKv5mgKl3si3
+	q8TFic0/s3k92fm3nWNDFVLOMFcNccEqhprE2bHRegypr37xqPUjNrPGuPCrD//VN/+AQf/boonIA
+	AVKfYAg3rHzbxitXaPnjYIpaqwWLjhPCA13eCcO1M4js5rPyg86A4a9g7oisZiVXNqCnydje3IOns
+	fw9R1UWjIhoh+MpsB0Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNkmy-00FSND-3D;
-	Thu, 11 Jan 2024 02:27:25 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rNlEi-00FWw1-2I;
+	Thu, 11 Jan 2024 02:56:04 +0000
+Received: from mail-bjschn02on2060c.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::60c] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rNkml-00FRxk-19;
-	Thu, 11 Jan 2024 02:27:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 78E86CE1E59;
-	Thu, 11 Jan 2024 02:25:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 720CAC433C7;
-	Thu, 11 Jan 2024 02:25:48 +0000 (UTC)
-Message-ID: <81c07a13-305a-404b-b14c-3aff8fde3f67@linux-m68k.org>
-Date: Thu, 11 Jan 2024 12:25:45 +1000
+	id 1rNlEd-00FWt4-0H;
+	Thu, 11 Jan 2024 02:56:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Af/+2rkbzCPORC2PLJixD617P/EVsDxV6C+5myuYIbNxZAkuzlI3tcwob0GhLL5HyGlLqDQaAqwu5m/DEIAXyX0s6fLyfBONasA9PIzhEK0VPB0LNSaVLAPMKCsR99kNiLK5v8hgo8RZRlxSnT2pQbu+UDT+kO9JceU5WzN6wWHJcYRgVzAUHU59UMw01Ms4lRmJ1+3KRj0o6cYhBnDaGXEyOym8D+8nuS36eO0ouwswlFeVhH0TY8wQMQSDVFMPTEjgjzJPkXzT3uu/efViN4rjVG4g7S2qQO2KSfmmI89dhj+2yzoVUCy6+J/86hbKbLH4BnmjolutCKz/vwe1wA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5C7fXcc5/xoz1o5mDbxfzZ01KRU11HK/v8e/O8SQlBw=;
+ b=E2GiiyFWDyecrnm86F4t0bR/52NRyu8USxYW9z1T/PikQgs/giOe9orrpI7fxG28gRrSUu5ZWU9/9TPEXJiSUCM6BbxEvojFmhJY+kz9p2T1xHwikAX8RQCVTMZ9w25JgQAthEO6IbiStee2g+cTigjiSoFgb4jjsYHZQVrd3MJNwXEThMsQ2jYzQBEmLj6eWrQOpDS1XH0hNO4rq0d642VoNSuyXKFUXCFN2GxQS9+92M6TEhdVp+rIG6DFRGLo5EJBDdx8lw7/GVwXdkMJC4rcF7p8ToAYQ6qWH3Rhsx97tEC+8brdAADMRlEH7rFIpoaa6f78SkNKlCL5Qsv2OQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:e::20) by BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:f::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7135.33; Thu, 11 Jan
+ 2024 02:55:47 +0000
+Received: from BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
+ ([fe80::9fb5:b2ec:ed6f:b0a4]) by
+ BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn ([fe80::9fb5:b2ec:ed6f:b0a4%3])
+ with mapi id 15.20.7135.032; Thu, 11 Jan 2024 02:55:47 +0000
+From: Tan Chun Hau <chunhau.tan@starfivetech.com>
+To: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Simon Horman <horms@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Andrew Halaney <ahalaney@redhat.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Russell King <rmk+kernel@armlinux.org.uk>
+Cc: Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Jee Heng Sia <jeeheng.sia@starfivetech.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 1/1] dt-bindings: net: starfive,jh7110-dwmac: Add StarFive JH8100 support
+Date: Wed, 10 Jan 2024 18:55:31 -0800
+Message-Id: <20240111025531.2875-2-chunhau.tan@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20240111025531.2875-1-chunhau.tan@starfivetech.com>
+References: <20240111025531.2875-1-chunhau.tan@starfivetech.com>
+X-ClientProxiedBy: BJXPR01CA0064.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:12::31) To BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:e::20)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Automated-testing] Call for nommu LTP maintainer [was: Re:
- [PATCH 00/36] Remove UCLINUX from LTP]
-Content-Language: en-US
-To: Rob Landley <rob@landley.net>, Petr Vorel <pvorel@suse.cz>,
- Tim Bird <tim.bird@sony.com>
-Cc: Cyril Hrubis <chrubis@suse.cz>, Geert Uytterhoeven
- <geert@linux-m68k.org>, "ltp@lists.linux.it" <ltp@lists.linux.it>,
- Li Wang <liwang@redhat.com>, Andrea Cervesato <andrea.cervesato@suse.com>,
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Christophe Lyon <christophe.lyon@linaro.org>,
- "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux-sh list <linux-sh@vger.kernel.org>,
- "automated-testing@lists.yoctoproject.org"
- <automated-testing@lists.yoctoproject.org>,
- "buildroot@buildroot.org" <buildroot@buildroot.org>,
- Niklas Cassel <niklas.cassel@wdc.com>
-References: <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
- <20240103114957.GD1073466@pevik>
- <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
- <ZZVOhlGPg5KRyS-F@yuki> <5a1f1ff3-8a61-67cf-59a9-ce498738d912@landley.net>
- <20240105131135.GA1484621@pevik>
- <90c1ddc1-c608-30fc-d5aa-fdf63c90d055@landley.net>
- <20240108090338.GA1552643@pevik> <ZZvJXTshFUYSaMVH@yuki>
- <SA3PR13MB6372498CC6372F8B16237244FD6A2@SA3PR13MB6372.namprd13.prod.outlook.com>
- <20240110141455.GC1698252@pevik>
- <40996ea1-3417-1c2f-ddd2-e6ed45cb6f4b@landley.net>
-From: Greg Ungerer <gerg@linux-m68k.org>
-In-Reply-To: <40996ea1-3417-1c2f-ddd2-e6ed45cb6f4b@landley.net>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BJSPR01MB0595:EE_|BJSPR01MB0561:EE_
+X-MS-Office365-Filtering-Correlation-Id: a0907861-d30c-47ee-01aa-08dc1250cfaa
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: B55cUnE2eXWZs/M5Le5EYcfM15/IF8/uK1cc5u6ivCcCuIT87XZR42bGBpZhXG19SB/aLvI6L6NalMquhUzAXw3UAP89wN1d2dCEUPJiHQ2DCCpI1QA/Z9DgynXoYKy8DGK/vVDsrhoT67RLQnK/fvZfkrIk1HBZ8HheC4ex/jOKVBM0n1acsy2UU4TKQ1OQpwvNKS3AtOa+YekHnYviHoDDAR/NlqS+vHnsb42cDA/t8ibYQKIMBKaJmylxzGr2nT78Qub3+0/NshHTsXwEkCXx1eeehIIJVyuK7QPpxNkEtA1jq8KCo+S73HC1EdoxCSwCYQ9b8Y2YkUst3Oxyl9mmpqn6XwO68dorCXjN0wJjs+8QAMjwbwivwKzaBT6amsmnFeCoxzSoJFBjvhGMBL95sMpwyWZu3HnpzmLT01L8vQLulwq45rf2HABPw+0Qz485x0gFn1NdYULuMArj0GaMTb3tyNuG/sazuCdydXjA2iikSYCZLPdOR00FLup6X2ZFmtfbBHT4tuGMeKYywFyrVXCBuBlmpXmrFLNDjvtB9+aiPGX8aI5lUg05XQ/Xa2czf0NkNBRILuAFJUplSKwlCeK5IpCGxG6AMvtUWDC0KXdP3haRbOnjB8PKvSK5
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(136003)(366004)(39830400003)(396003)(346002)(230273577357003)(230173577357003)(230922051799003)(64100799003)(1800799012)(451199024)(186009)(921011)(38100700002)(8676002)(8936002)(6666004)(508600001)(4326008)(26005)(2616005)(1076003)(66946007)(66556008)(40160700002)(110136005)(54906003)(66476007)(52116002)(83380400001)(41300700001)(2906002)(86362001)(7416002)(5660300002)(40180700001)(38350700005)(36756003)(41320700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hrUqtO2Xv9eLkR7fwzv0InkvfVHufr+C1vpTp3H4tRQ1YqD/gUQ2ykIJZTiC?=
+ =?us-ascii?Q?S5vgX8HGVzFMSmpbV/Za8E7NTptGG3rBtiucf3l54QVhuM74/bDgMtKOZ+uB?=
+ =?us-ascii?Q?GSU7xesZ8KOXLtpLJ+XhxjuTSOlrXikjwoLBlvW+jTABq5ZHosaYywQcjIz9?=
+ =?us-ascii?Q?Aupjv9MRxaDL07SyEY2IYPkkUSwUJC0fknhegIJdnCaP54ZeEF8nyRXFcEmg?=
+ =?us-ascii?Q?i9fhRCQkvq79xHIKqqywL248ivGBeUMPufKYM0I5pJFfuGC8gmnsHBZK8AQW?=
+ =?us-ascii?Q?8blh0ddVwAvzeXfxb+BgQ6WKkc/b9HD1DDkps83fZf5JP9pk9NUUkNug6JVy?=
+ =?us-ascii?Q?w1/Gdy/eR8f4vcamQiJidxCAo9rEssU3Z91uR4M4qNDSygZZbSE+Yvu/+hnR?=
+ =?us-ascii?Q?B4kBNj8ufgyC5YpG5SsJWGzyMwgi+65naipYFjwTho7jYq7ez3zJ2LgNcVmJ?=
+ =?us-ascii?Q?7SooX8MUAVdW+7BgFHdpwPCpIqixVTWtNi0whRxhgNAWilRvtrA3nJ7UVPiW?=
+ =?us-ascii?Q?c+m9Kco5CO9xZSg/uFa/rc2LwTZGsKl7bPc/J+yq1rMTttfthyrT+Nn5Fw8a?=
+ =?us-ascii?Q?dIATlteGXH0uTYLVTg66SuTrwI3/vcB2AMEM2PRZvzXqAXsZUektheYvekP2?=
+ =?us-ascii?Q?wlVksNdAJG3YlR/C/gFH/7LY9EFTSmpv9rVkI4dbJqqrLmEtVYgvZ/TgPduf?=
+ =?us-ascii?Q?UXcw8VOMCvuAECZaBgqMTxb8EFoRMnWZT86x/+eY3ZmWBDw7XLY0VxYNEWEt?=
+ =?us-ascii?Q?CQBNpfrG2ytTwvxAdzeiiJww1L8kgaMsNCvT9MuZEHYIXj9uGK39YsTgYuBi?=
+ =?us-ascii?Q?Ll73UJMTsxPFqUi3UYaEEkwP+IcMWXHJzIJfC3eSYJKPdje9BJxkx0Ibee16?=
+ =?us-ascii?Q?32diJeUINJs9AK6YzZ0ntP8BAk6GdG5P6WeB3d1YU6b5/CYKiZnVh76FweAY?=
+ =?us-ascii?Q?7qG9W8g4KEl/itKWhjFAO0CHGUENsxkwIDBpSbPdKCEx7F8XJFS+fdWQoHtV?=
+ =?us-ascii?Q?KuEqMG481JKCpEl9XwCNlJ1SuHRI+3rsTZzbZG/pzG6OsJCFutNUeFftQcrV?=
+ =?us-ascii?Q?dCdg5OLpQgV3a0SduLQpT4LeWtaabx2v/YastH46kN7ZgRwWw8s6WyFBqYZh?=
+ =?us-ascii?Q?GXVJj6gGIITL2EQlAoIKjEo1rF2CDogyJBUgS0b7Aq5/elVLcIUUslP93r22?=
+ =?us-ascii?Q?RroGRDYs3uSu1VQLXtUthThN7m0iY81050H0UGYg6j6gkou8Pbj7bYOWwoPX?=
+ =?us-ascii?Q?9UkeFBcKH/YieJQwKc7ruttzQTYP9NqKZUWkxMESUkYgsMDmfrTpd7YKit6m?=
+ =?us-ascii?Q?JzQ1eLLoFPbhTO6/Ybuoo0XQD72YPGlwPpvbVapvcMppB7zKkLOUwQXcdQSm?=
+ =?us-ascii?Q?quKXRviP42GrNG3szuRhVassJ/iRjz4H2QdbHjOpCGi0SIFRGTsTRa/iaaK0?=
+ =?us-ascii?Q?3zHosOtBrO901FhOWtyrumqUA2uU/1I0J2lyMJrpNfdu31vs4dTbXFvMHATl?=
+ =?us-ascii?Q?PnQrauM/wZ5yB6GXGBMeKbwOIkDSaPu+mfMJ0fI3jX1Uoc3xqQsLwIqMYIJg?=
+ =?us-ascii?Q?wGcmYsVNNlkWft879rCmxdF+FKV2faOAGpV6aPYnI2rvabwDddPNUSZcmd+z?=
+ =?us-ascii?Q?kQ=3D=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0907861-d30c-47ee-01aa-08dc1250cfaa
+X-MS-Exchange-CrossTenant-AuthSource: BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jan 2024 02:55:47.2995
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /biaylpyOB4uP/6MCD4kReVjit6/ggXAXLPbt6/8ybyV+sx5gRS8WwBuaPs1QuZD7O5jEpjtyyJLbNL9xhdottVXKGuc4FJ0YI4PvUsuQ1E=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJSPR01MB0561
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240110_182711_747182_18DBF331 
-X-CRM114-Status: GOOD (  66.83  )
+X-CRM114-CacheID: sfid-20240110_185559_133283_B4547E2C 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,214 +145,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sorry Rob, but I think you are wrong about a number of things here.
-I know, I was there at the coal face so to speak during the early
-years of uClinux and right up today. I feel I have to correct some of
-the things you claim.
+Add StarFive JH8100 dwmac support.
+JH8100 dwmac has one reset signal instead of 2 resets as in JH7110.
 
+Signed-off-by: Tan Chun Hau <chunhau.tan@starfivetech.com>
+---
+ .../devicetree/bindings/net/snps,dwmac.yaml   |  1 +
+ .../bindings/net/starfive,jh7110-dwmac.yaml   | 50 +++++++++++++------
+ 2 files changed, 37 insertions(+), 14 deletions(-)
 
-On 11/1/24 05:23, Rob Landley wrote:
-> On 1/10/24 08:14, Petr Vorel wrote:
->> There is MAP_PRIVATE_EXCEPT_UCLINUX constant to avoid using MAP_PRIVATE on
->> uClinux, who knows if this is relevant on nommu?
-> 
-> MAP_PRIVATE creates a copy-on-write mapping, and doing copy-on-write requires an
-> MMU. (You mark it read only in the page table, take a fault when they try to
-> write, the fault handler allocates a new physical page, copies the old contents
-> to it, marks it writeable, and returns allowing the write to complete to the new
-> page.)
-> 
-> On NOMMU you can MAP_SHARED and MAP_ANON, but not MAP_PRIVATE.
-> 
-> Swap is implemented kind of similarly, except when you recycle pages you mark
-> them as neither readable nor writeable in the page table, schedule the page's
-> contents to be written to disk, suspend the process so the scheduler can go run
-> something else, and then when you get the I/O completion interrupt you mark the
-> page free so whatever else needed a page can use it. And then when the process
-> tries to access the page the fault handler reverses the process, allocating a
-> new physical page and load in the contents back in while the process is
-> suspended waiting for that to finish. Can't do that without an MMU either.
-> 
->>> 3) what the desired roadmap going forward would be, to continue to support this code.
->>
->> All LTP tests are being rewritten to use new API since 2016 (new API was
->> introduced in 20160510), thus we are loosing the support with old API going
->> away. Sure, I can hold on this patchset and we continue removing the
->> functionality tests manually. But sooner or later it's gone.
-> 
-> You can't fork() on nommu because copies of the mappings have different
-> addresses, meaning any pointers in the copied mappings would point into the OLD
-> mappings (belonging to the parent process), and fixing them up is 100%
-> equivalent to the "garbage collection in C" problem. (It's AI-complete. Of the
-> C3PO kind, not the "autocorrect with syntax checking" kind.) People get hung up
-> on the "it would be very inefficient to do that because no copy-on-write"
-> problem and miss the "the child couldn't FUNCTION because its pointer variables
-> all contain parent addresses" problem.
-> 
-> So instead vfork() creates a child with all the same memory mappings (a bit like
-> a thread) and freezes the parent process until that child discards those
-> mappings, either by calling exec() or _exit(). (At which point the parent gets
-> un-suspended.)
-
-Just to be clear, vfork is not a uClinux invention. It dates way back to the
-early BSD UNIX days. It just so happens that it fits in very nicely with
-the no-MMU model of the world.
-
-
-> The child can do quite a lot of setup before calling exec, it already has its
-> own filehandle table for example, but it has to be really careful about MEMORY.
-> Anything it writes to global variables the parent will see, any changes to the
-> heap persist in the parent, and anything it writes to local variables the parent
-> MAY see. (Systems have historically differed about whether the vfork() child
-> gets a new stack like a thread would, or keeps using the parent's mapping since
-> the new stack would be quickly discarded anyway. If you call into a new setup()
-> function after vfork() it doesn't matter much either way, but do NOT return from
-> the function that called vfork(): either your new stack hasn't got anything to
-> return to or you'll corrupt the parent's stack by overwriting its return address
-> so when the parent exits from its current function it jumps to la-la land.)
-> 
-> The OTHER fun thing about nommu is you can't run conventional ELF binaries,
-> because everything is linked at fixed address. So you might be able to run ONE
-> instance of the program as your init task, assuming those addresses were
-> available even then, but as soon as you try to run a second one it's a conflict.
-> 
-> The quick and dirty work around is to make PIE binaries, which can relocate
-> everything into available space, which works but doesn't scale. The problem with
-> ELF PIE is that everything is linked contiguously from a single base pointer,
-> meaning your text, rodata, data, and bss segments are all one linear blob. So if
-> you run two instances of bash, you've loaded two copies of the test and the
-> rodoata. This fills up your memory fast.
-> 
-> AND PIE requires contiguous memory, which nommu is bad at providing because it
-> has no page tables to remap stuff. With an mmu it can coalesce scattered
-> physical pages into a virtually contiguous range, but without an mmu you can
-> have plenty of memory free but in tiny chunks, none big enough to satisfy an
-> allocation request.
-> 
-> So they invented FDPIC, which is ELF with FOUR base pointers. Each major section
-> (rodata, text, data, and bss) has its own base pointer, so you need to find
-> smaller chunks of memory to load them into (and thus it can work on a more
-> fragmented system), AND it means that two instances of the same program can
-> share the read-only sections (rodata and text) so you only need new copies of
-> the writeable segments (data and bss. And the heap. And the stack.)
-
-It is worth noting that to run PIE style ELF binaries on no-MMU systems you
-actually use the FDPIC ELF loader - not the traditional linux ELF loader (binfmt_elf).
-Using this setup is going to become much easier now that uClibc has native
-support for generating a relevant library and ld.so for noMMU linux (certainly
-for m68k, arm and riscv at least) - as of version 1.0.45.
-
-
-> (The earlier binflt format is an a.out variant with 4 base pointers. FDPIC is
-> the ELF version of the same idea. Since a.out went bye-bye binflt is obsolete,
-> but not everybody's moved off it yet because so many nommu people are still
-> using 2.6 or even earlier, and also using gcc 3.x or 2.x toolchains.)
-
-Flat format (binfmt_flat) is in no way related to a.out. It is not derived from
-it and shares nothing with it. A.out being removed from the kernel in no way affects
-flat format. It doesn't magically make it obsolete. It isn't going anywhere.
-
-I don't see how this is related to versions of kernel or gcc or toolchains either.
-Flat format works on every kernel up to todays v6.7. The conversion tool works
-with the latest gcc and binutils (gcc-13.2 and bintuils-2.41 as of today) and many
-versions going back for the best part of 20 years. Sure that elf2flt tool has been
-forked a lot it has a spotty history of getting updated. But, hey, as of today it
-looks pretty up to date across most architectures.
-
-
-> Oh, the OTHER thing is none of this is deferred allocation, it's all up front.
-> On systems with mmu you can populate large empty virtual mappings that read as
-> zeroed but it's actually redundant copy-on-write instances of the zero page, and
-> when you write to them it takes a soft fault and the fault handler allocates the
-> page you dirtied when you dirty it. On nommu, if you want a 4 megabyte mapping
-> you have to find 4 contiguous megabyte and allocate it immediately, or else the
-> mmap() or malloc() returns failure. (On systems with mmu malloc() almost never
-> returns NULL, because you've got virtual address space coming out of your ears
-> and if you ACTUALLY run out of memory that's happens way later, the OOM killer
-> triggers long after malloc() returned success. But on a nommu system, malloc()
-> returns NULL all the time, even if you THINK you have enough memory, because
-> what's left is too fragmented to contain a free chunk THAT BIG...)
-> 
-> This impacts the stack. On MMU Linux, the default stack size is 8 megs but it's
-> seldom all used. On nommu linux, that would be RIDICULOUS because A) it would
-> always be allocated to its full size right up front, B) you'd need contiguous
-> memory for it. So instead you set the default stack size when building the
-> linker (you can also set it on the ld command line), and common sizes range from
-> 8k to maybe 256k depending on what you expect to be running. Toybox tries not to
-> use more than 16k stack, although I usually test it with 32k on nommu. (There's
-> no guard page to tell you when you went off the edge, because no MMU so no page
-> faults, but you can check that the stack page at end-16k is still clean at exit
-> if you like. Some nommu hardware has range registers, but Linux has never
-> supported them that I'm aware of.)
-> 
-> There's not THAT much to learn about NOMMU. It could all be covered in an hour
-> presentation at a conference, I expect?
-> 
->> One can check files which had special handling in the old API:
->>
->> $ git grep -l UCLINUX 20160126 -- testcases/ | wc -l
->> 173
->>
->> What is supported now:
->>
->> $ git grep -l UCLINUX  -- testcases/  |wc -l
->> 55
-> 
-> UCLINUX is a long-dead distro. Linaro died in the dot-com crash and its founder
-> Jeff Dionne moved to Japan for his next gig and never came back. On the way out
-> he handed uclinux off to someone else, who didn't do a lot of work maintaining
-> it. Most of the actual support went "upstream" into various packages (linux and
-> busybox and gcc and so on) before the handoff, so you didn't NEED uclinux anymore.
-
-Why do you keep claiming that "UCLINUX" (why all caps?) is a distro?
-That is just not the case. uClinux has been used as an umbrella term for
-patches, tools, packages relating to running Linux on a CPU with no MMU.
-
-There was a build package called uclinux-dist that you might consider a distro.
-But it has always been cleanly named as "uclinux-dist". For a long time that
-was the goto starting point for anyone wanting to use Linux with no-MMU.
-The collection of patches to the toolchains, kernel, libraries and application
-packages was a pretty high mountain to climb to get started in those early
-days (late 90's and early 2000's). But through the work of a _lot_ of people
-much of that change has made its way into relevant packages across the board
-(from gcc to kernel to creation of uClibc, etc).
-
-But lets face it once no-MMU support was integrated into mainline linux as off
-v2.5.46 it is really now just "Linux". The no-MMU support outgrew that trade marked
-term. But the name has stubbornly stuck around.
-
-
-> The real nail in the coffin is the inheritor of uclinux never migrated it off
-> CVS, and then the disk holding the CVS archive crashed with no backup. He came
-> out with a couple more releases after that by monkey-patching the last release's
-> filesystem, but the writing was on the wall and it rolled to a stop.
-
-No, the public facing CVS was never the master sources for the uclinux-dist.
-The public facing CVS was only ever a copy of the tar ball releases.
-Its loss was annoying to some who used it but had no real impact on the
-development. Its development model was kind of "internal" and published
-at random points in time. Today that is what probably most people would
-call the "vendor" distro model.
-
-That work was slowing down due to fact that it just wasn't really
-needed any more. There are way more popular build systems (eg build-root)
-for building complete firmware images from scratch.
-
-
-> I did a triage of its last release (from 2014) as part of my toybox roadmap:
-
-No, the last release was in 2016, see it archived at:
-https://sourceforge.net/projects/uclinux/files/uClinux%20Stable/
-
-But that is all kind of archeological now, relegated to history.
-
-Regards
-Greg
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 5c2769dc689a..350b3d76630f 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -96,6 +96,7 @@ properties:
+         - snps,dwxgmac
+         - snps,dwxgmac-2.10
+         - starfive,jh7110-dwmac
++        - starfive,jh8100-dwmac
+ 
+   reg:
+     minItems: 1
+diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+index 5e7cfbbebce6..7e4547961bab 100644
+--- a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+@@ -17,15 +17,23 @@ select:
+       contains:
+         enum:
+           - starfive,jh7110-dwmac
++          - starfive,jh8100-dwmac
+   required:
+     - compatible
+ 
+ properties:
+   compatible:
+-    items:
+-      - enum:
+-          - starfive,jh7110-dwmac
+-      - const: snps,dwmac-5.20
++    oneOf:
++      - items:
++          - enum:
++              - starfive,jh7110-dwmac
++          - const: snps,dwmac-5.20
++
++      - items:
++          - enum:
++              - starfive,jh8100-dwmac
++          - const: starfive,jh7110-dwmac
++          - const: snps,dwmac-5.20
+ 
+   reg:
+     maxItems: 1
+@@ -54,16 +62,6 @@ properties:
+     minItems: 3
+     maxItems: 3
+ 
+-  resets:
+-    items:
+-      - description: MAC Reset signal.
+-      - description: AHB Reset signal.
+-
+-  reset-names:
+-    items:
+-      - const: stmmaceth
+-      - const: ahb
+-
+   starfive,tx-use-rgmii-clk:
+     description:
+       Tx clock is provided by external rgmii clock.
+@@ -93,6 +91,30 @@ required:
+ 
+ allOf:
+   - $ref: snps,dwmac.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - starfive,jh8100-dwmac
++    then:
++      properties:
++        resets:
++          items:
++            - description: MAC Reset signal.
++        resets-names:
++          items:
++            - const: stmmaceth
++    else:
++      properties:
++        resets:
++          items:
++            - description: MAC Reset signal.
++            - description: AHB Reset signal.
++        resets-names:
++          items:
++            - const: stmmaceth
++            - const: ahb
+ 
+ unevaluatedProperties: false
+ 
+-- 
+2.25.1
 
 
 _______________________________________________
