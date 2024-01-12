@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D67C4707C
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jan 2024 11:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B6A9C4706C
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jan 2024 14:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t+qkrzxscC/An3Gl1p6gn9gJZRKbeON6+9y6tIPeVi0=; b=hRbpRE4ltQzxL5
-	xddxcm1UO9Y2wMDxWV4aDs7NKLoY8+9dU1QJCDNEUhsR5Wzxoir0Ec4CKucUohrn3cIoSyJdwXHKT
-	hDLyK3gUAacWw6AbLFg5/lVl0/8J1X1wepP51h+uPpCSpfneXBwmsshdym1dj3kR4K5W4nMKcq0iS
-	0V2lSxbR1Abt5kSkqzD14BlnR4V2O7xwPIYYZ5or6GiEIaxdzuI/HR8SKO54yDuU6c0zld+1RaX5+
-	8LEcIBTO/t11GLky6iDx+GTqiwVtP8tkbjx4Yl7oJtrdNLGXd1TUnDUNiOe1OU/1BJ5Xf1ul4MsZ9
-	lQDut8Uqr6izyKZlpy2w==;
+	List-Owner; bh=F6ZUfZTq/sJIJ/friVA/k2S6dexgbgwK+Dbfz5SXmow=; b=ew9rU1Da2aVySV
+	I1sjjLN3JIcsWr0AIsVIbhgq2gXqUaZj1ArXHCMqrhfnU+xqkj7JCyJ8lwOk+TSzTWT2EoiWdM+/e
+	ouLx0nazAqYo+LqbSuwv01U1x1qYDwe2dpwVunwc0w3JZ1tFxQi9+Ys29tjDvn6zlxyuW8G4tabuv
+	lVyGu+37CgclYK8AHUQOtNr8LviNVkl5w5oJ+Syf+2lhSa0vOyjDmQfhpPzQfGrn535jf9JANrEaH
+	FsxVeX3t/QnmpzR6AYOC15kI7YnJq3tYgNGV7c4qjZ7ip90TasAwyMO2loHQS0tqF/LI7+a1G4+zG
+	swge9wgcyMEZoOKv167Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOG5Q-002g7c-1J;
-	Fri, 12 Jan 2024 11:52:32 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1rOIUY-0031yH-0e;
+	Fri, 12 Jan 2024 14:26:38 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOG5K-002fvr-1F;
-	Fri, 12 Jan 2024 11:52:29 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4TBKZd3vRHz6K8Xc;
-	Fri, 12 Jan 2024 19:49:29 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id 350581408FF;
-	Fri, 12 Jan 2024 19:52:08 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Fri, 12 Jan
- 2024 11:52:07 +0000
-Date: Fri, 12 Jan 2024 11:52:05 +0000
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-CC: "Rafael J. Wysocki" <rjw@rjwysocki.net>, "Rafael J. Wysocki"
-	<rafael@kernel.org>, <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<x86@kernel.org>, <acpica-devel@lists.linuxfoundation.org>,
-	<linux-csky@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-ia64@vger.kernel.org>, <linux-parisc@vger.kernel.org>, Salil Mehta
-	<salil.mehta@huawei.com>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	<jianyong.wu@arm.com>, <justin.he@arm.com>, James Morse <james.morse@arm.com>
-Subject: Re: [PATCH RFC v3 01/21] ACPI: Only enumerate enabled (or
- functional) devices
-Message-ID: <20240112115205.000043b0@Huawei.com>
-In-Reply-To: <ZZ/CR/6Voec066DR@shell.armlinux.org.uk>
-References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
-	<ZXxxa+XZjPZtNfJ+@shell.armlinux.org.uk>
-	<20231215161539.00000940@Huawei.com>
-	<5760569.DvuYhMxLoT@kreacher>
-	<20240102143925.00004361@Huawei.com>
-	<20240111101949.000075dc@Huawei.com>
-	<ZZ/CR/6Voec066DR@shell.armlinux.org.uk>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1rOIUT-0031wA-0d
+	for linux-riscv@lists.infradead.org;
+	Fri, 12 Jan 2024 14:26:35 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-40e5a5b0fb5so26175835e9.3
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Jan 2024 06:26:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1705069591; x=1705674391; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Kdyg0V8UXWHJnHyjJWow9MZ/XKXVEw7F8X1cJyMmX+4=;
+        b=cTj2cl6/wfoLr8wQcBeE9q130+I3IG3JFhyg6kttFy1lq/HdIR2OXvdVXQ/4qKkTVV
+         64DAd+oInKwXF4TAiOx77g8PYf9SFB7JdPjgq4X4xljswd6nSVr7ov4aFjIPZ/ncFa6k
+         +PyXZTq+Vq4xWYD7y3xemGlAshNTuLSXnz0ML/+8D9+ltUg4dr54sqEmhrilYKLK7JMd
+         MAYtUuUkGpzR6VGdI3O1iJ8nWDXvmg2mUYkeB7NvMGX7TBX9h/gnMCMC70NVo7iJ6kTk
+         SS8N2jJJu7K0hTbnEYHdv+jlszPW0UyL7bre59aocbzJ58Hgfqrh/c8ovMSeAwrLgrOf
+         Bl8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705069591; x=1705674391;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Kdyg0V8UXWHJnHyjJWow9MZ/XKXVEw7F8X1cJyMmX+4=;
+        b=WjnqEeuJxihGuLIci9TjzP6sf/il98BPu8OJNLL4dcDThgT19IJ2HFxgYuH9W6QaDx
+         2NvIzlykRQkKjZips6WYwumBegMsNX3wgsNVvlrqscZmhBrybHv8mIzwKmvW/+YnbYDM
+         MXVrOXDA6Q383flQM4RiCIDGSkaT2LLv4lwgllF+j9F1n07X7JSAo9Fz8sCKit/zRiBe
+         Qrqt+zinDWa6RLKVt0jbT0RCIXHBM3TzqjnPTD331qoNwYAj6bN0Xe5YmyclufN+cggb
+         oJZUc6L/z+O1V6F1xPJm4riBul4k91OZ1s7WSHdkO66AIOxoCqYMNeXZr1BYQICpicW9
+         9nOA==
+X-Gm-Message-State: AOJu0YwP2crpVZ5NizuSmBYW7x8gxaP7zevMoJtIOz6OM5KBetwWEU7o
+	zMq0crsy3MR1XK/yzYifckk=
+X-Google-Smtp-Source: AGHT+IG5dESW3dbyFu5JQy50WMZ1coBXDzwM2eeJkjDUdePm4/NhAG1KsvMjg75R0UdAXJ7D+zy6vA==
+X-Received: by 2002:a05:600c:5108:b0:40c:258d:2f01 with SMTP id o8-20020a05600c510800b0040c258d2f01mr802638wms.105.1705069590668;
+        Fri, 12 Jan 2024 06:26:30 -0800 (PST)
+Received: from prasmi.home ([2a00:23c8:2500:a01:494d:c489:3d96:1b15])
+        by smtp.gmail.com with ESMTPSA id f6-20020a5d4dc6000000b00336a2566aa2sm4021219wru.61.2024.01.12.06.26.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Jan 2024 06:26:30 -0800 (PST)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v4 3/4] pinctrl: renesas: pinctrl-rzg2l: Add the missing port pins P19 to P28
+Date: Fri, 12 Jan 2024 14:26:20 +0000
+Message-Id: <20240112142621.13525-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240112142621.13525-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20240112142621.13525-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml100006.china.huawei.com (7.191.160.224) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240112_035226_748171_237C629F 
-X-CRM114-Status: GOOD (  58.43  )
+X-CRM114-CacheID: sfid-20240112_062633_234309_95F3EA03 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,254 +100,332 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAxMSBKYW4gMjAyNCAxMDoyNjoxNSArMDAwMAoiUnVzc2VsbCBLaW5nIChPcmFjbGUp
-IiA8bGludXhAYXJtbGludXgub3JnLnVrPiB3cm90ZToKCj4gT24gVGh1LCBKYW4gMTEsIDIwMjQg
-YXQgMTA6MTk6NDlBTSArMDAwMCwgSm9uYXRoYW4gQ2FtZXJvbiB3cm90ZToKPiA+IE9uIFR1ZSwg
-MiBKYW4gMjAyNCAxNDozOToyNSArMDAwMAo+ID4gSm9uYXRoYW4gQ2FtZXJvbiA8Sm9uYXRoYW4u
-Q2FtZXJvbkBIdWF3ZWkuY29tPiB3cm90ZToKPiA+ICAgCj4gPiA+IE9uIEZyaSwgMTUgRGVjIDIw
-MjMgMjA6NDc6MzEgKzAxMDAKPiA+ID4gIlJhZmFlbCBKLiBXeXNvY2tpIiA8cmp3QHJqd3lzb2Nr
-aS5uZXQ+IHdyb3RlOgo+ID4gPiAgIAo+ID4gPiA+IE9uIEZyaWRheSwgRGVjZW1iZXIgMTUsIDIw
-MjMgNToxNTozOSBQTSBDRVQgSm9uYXRoYW4gQ2FtZXJvbiB3cm90ZTogICAgCj4gPiA+ID4gPiBP
-biBGcmksIDE1IERlYyAyMDIzIDE1OjMxOjU1ICswMDAwCj4gPiA+ID4gPiAiUnVzc2VsbCBLaW5n
-IChPcmFjbGUpIiA8bGludXhAYXJtbGludXgub3JnLnVrPiB3cm90ZToKPiA+ID4gPiA+ICAgICAg
-IAo+ID4gPiA+ID4gPiBPbiBUaHUsIERlYyAxNCwgMjAyMyBhdCAwNzozNzoxMFBNICswMTAwLCBS
-YWZhZWwgSi4gV3lzb2NraSB3cm90ZTogICAgICAKPiA+ID4gPiA+ID4gPiBPbiBUaHUsIERlYyAx
-NCwgMjAyMyBhdCA3OjE24oCvUE0gUmFmYWVsIEouIFd5c29ja2kgPHJhZmFlbEBrZXJuZWwub3Jn
-PiB3cm90ZTogICAgICAgIAo+ID4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiA+IE9uIFRodSwg
-RGVjIDE0LCAyMDIzIGF0IDc6MTDigK9QTSBSdXNzZWxsIEtpbmcgKE9yYWNsZSkKPiA+ID4gPiA+
-ID4gPiA+IDxsaW51eEBhcm1saW51eC5vcmcudWs+IHdyb3RlOiAgICAgICAgCj4gPiA+ID4gPiA+
-ID4gPiA+IEkgZ3Vlc3Mgd2UgbmVlZCBzb21ldGhpbmcgbGlrZToKPiA+ID4gPiA+ID4gPiA+ID4K
-PiA+ID4gPiA+ID4gPiA+ID4gICAgICAgICBpZiAoZGV2aWNlLT5zdGF0dXMucHJlc2VudCkKPiA+
-ID4gPiA+ID4gPiA+ID4gICAgICAgICAgICAgICAgIHJldHVybiBkZXZpY2UtPmRldmljZV90eXBl
-ICE9IEFDUElfQlVTX1RZUEVfUFJPQ0VTU09SIHx8Cj4gPiA+ID4gPiA+ID4gPiA+ICAgICAgICAg
-ICAgICAgICAgICAgICAgZGV2aWNlLT5zdGF0dXMuZW5hYmxlZDsKPiA+ID4gPiA+ID4gPiA+ID4g
-ICAgICAgICBlbHNlCj4gPiA+ID4gPiA+ID4gPiA+ICAgICAgICAgICAgICAgICByZXR1cm4gZGV2
-aWNlLT5zdGF0dXMuZnVuY3Rpb25hbDsKPiA+ID4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiA+
-ID4gc28gd2Ugb25seSBjaGVjayBkZXZpY2UtPnN0YXR1cy5lbmFibGVkIGZvciBwcm9jZXNzb3It
-dHlwZSBkZXZpY2VzPyAgICAgICAgCj4gPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+ID4gWWVz
-LCBzb21ldGhpbmcgbGlrZSB0aGlzLiAgICAgICAgCj4gPiA+ID4gPiA+ID4gCj4gPiA+ID4gPiA+
-ID4gSG93ZXZlciwgdGhhdCBpcyBub3Qgc3VmZmljaWVudCwgYmVjYXVzZSB0aGVyZSBhcmUKPiA+
-ID4gPiA+ID4gPiBBQ1BJX0JVU19UWVBFX0RFVklDRSBkZXZpY2VzIHJlcHJlc2VudGluZyBwcm9j
-ZXNzb3JzLgo+ID4gPiA+ID4gPiA+IAo+ID4gPiA+ID4gPiA+IEknbSBub3Qgc3VyZSBhYm91dCBh
-IGNsZWFuIHdheSB0byBkbyBpdCBBVE0uICAgICAgICAKPiA+ID4gPiA+ID4gCj4gPiA+ID4gPiA+
-IE9rLCBob3cgYWJvdXQ6Cj4gPiA+ID4gPiA+IAo+ID4gPiA+ID4gPiBzdGF0aWMgYm9vbCBhY3Bp
-X2Rldl9pc19wcm9jZXNzb3IoY29uc3Qgc3RydWN0IGFjcGlfZGV2aWNlICpkZXZpY2UpCj4gPiA+
-ID4gPiA+IHsKPiA+ID4gPiA+ID4gCXN0cnVjdCBhY3BpX2hhcmR3YXJlX2lkICpod2lkOwo+ID4g
-PiA+ID4gPiAKPiA+ID4gPiA+ID4gCWlmIChkZXZpY2UtPmRldmljZV90eXBlID09IEFDUElfQlVT
-X1RZUEVfUFJPQ0VTU09SKQo+ID4gPiA+ID4gPiAJCXJldHVybiB0cnVlOwo+ID4gPiA+ID4gPiAK
-PiA+ID4gPiA+ID4gCWlmIChkZXZpY2UtPmRldmljZV90eXBlICE9IEFDUElfQlVTX1RZUEVfREVW
-SUNFKQo+ID4gPiA+ID4gPiAJCXJldHVybiBmYWxzZTsKPiA+ID4gPiA+ID4gCj4gPiA+ID4gPiA+
-IAlsaXN0X2Zvcl9lYWNoX2VudHJ5KGh3aWQsICZkZXZpY2UtPnBucC5pZHMsIGxpc3QpCj4gPiA+
-ID4gPiA+IAkJaWYgKCFzdHJjbXAoQUNQSV9QUk9DRVNTT1JfT0JKRUNUX0hJRCwgaHdpZC0+aWQp
-IHx8Cj4gPiA+ID4gPiA+IAkJICAgICFzdHJjbXAoQUNQSV9QUk9DRVNTT1JfREVWSUNFX0hJRCwg
-aHdpZC0+aWQpKQo+ID4gPiA+ID4gPiAJCQlyZXR1cm4gdHJ1ZTsKPiA+ID4gPiA+ID4gCj4gPiA+
-ID4gPiA+IAlyZXR1cm4gZmFsc2U7Cj4gPiA+ID4gPiA+IH0KPiA+ID4gPiA+ID4gCj4gPiA+ID4g
-PiA+IGFuZCB0aGVuOgo+ID4gPiA+ID4gPiAKPiA+ID4gPiA+ID4gCWlmIChkZXZpY2UtPnN0YXR1
-cy5wcmVzZW50KQo+ID4gPiA+ID4gPiAJCXJldHVybiAhYWNwaV9kZXZfaXNfcHJvY2Vzc29yKGRl
-dmljZSkgfHwgZGV2aWNlLT5zdGF0dXMuZW5hYmxlZDsKPiA+ID4gPiA+ID4gCWVsc2UKPiA+ID4g
-PiA+ID4gCQlyZXR1cm4gZGV2aWNlLT5zdGF0dXMuZnVuY3Rpb25hbDsKPiA+ID4gPiA+ID4gCj4g
-PiA+ID4gPiA+ID8KPiA+ID4gPiA+ID4gICAgICAgCj4gPiA+ID4gPiBDaGFuZ2luZyBpdCB0byBD
-UFUgb25seSBmb3Igbm93IG1ha2VzIHNlbnNlIHRvIG1lIGFuZCBJIHRoaW5rIHRoaXMgY29kZSBz
-bmlwcGV0IHNob3VsZCBkbyB0aGUKPiA+ID4gPiA+IGpvYi4gIE5pY2UgYW5kIHNpbXBsZS4gICAg
-ICAKPiA+ID4gPiAKPiA+ID4gPiBXZWxsLCBleGNlcHQgdGhhdCBpdCBkb2VzIGNoZWNrcyB0aGF0
-IGFyZSBkb25lIGVsc2V3aGVyZSBzbGlnaHRseQo+ID4gPiA+IGRpZmZlcmVudGx5LCB3aGljaCBm
-cm9tIHRoZSBtYWludGVuYW5jZSBQT1YgaXMgbm90IG5pY2UuCj4gPiA+ID4gCj4gPiA+ID4gTWF5
-YmUgc29tZXRoaW5nIGxpa2UgdGhlIGFwcGVuZGVkIHBhdGNoICh1bnRlc3RlZCkuICAgIAo+ID4g
-PiAKPiA+ID4gSGkgUmFmYWVsLAo+ID4gPiAKPiA+ID4gQXMgZmFyIGFzIEkgY2FuIHNlZSB0aGF0
-J3MgZnVuY3Rpb25hbGx5IGVxdWl2YWxlbnQsIHNvIGxvb2tzIGdvb2QgdG8gbWUuCj4gPiA+IEkn
-bSBub3Qgc2V0IHVwIHRvIHRlc3QgdGhpcyB0b2RheSB0aG91Z2gsIHNvIHdpbGwgZGVmZXIgdG8g
-UnVzc2VsbCBvbiB3aGV0aGVyCj4gPiA+IHRoZXJlIGlzIGFueXRoaW5nIG1pc3NpbmcKPiA+ID4g
-Cj4gPiA+IFRoYW5rcyBmb3IgcHV0dGluZyB0aGlzIHRvZ2V0aGVyLiAgCj4gPiAKPiA+IFRoaXMg
-aXMgcmF0aGVyIGVtYmFycmFzc2luZy4uLgo+ID4gCj4gPiBJIHNwYW4gdGhpcyB1cCBvbiBhIFFF
-TVUgaW5zdGFuY2Ugd2l0aCBzb21lIHByaW50cyB0byBmaW5kIG91dCB3ZSBuZWVkCj4gPiB0aGUg
-IWFjcGlfZGV2aWNlX2lzX3Byb2Nlc3NvcigpIHJlc3RyaWN0aW9uLgo+ID4gT24gbXkgJ3JhbmRv
-bScgdGVzdCBzZXR1cCBpdCBmYWlscyBvbiBvbmUgZGV2aWNlLiBBQ1BJMDAxNyAtIHdoaWNoIEkK
-PiA+IGhhcHBlbiB0byBrbm93IHJhdGhlciB3ZWxsLiBJdCdzIHRoZSB3ZWlyZCBwc2V1ZG8gZGV2
-aWNlIHRoYXQgbGV0cwo+ID4gYSBDWEwgYXdhcmUgT1Mga25vdyB0aGVyZSBpcyBhIENFRFQgdGFi
-bGUgdG8gcHJvYmUuCj4gPiAKPiA+IFdoaWxzdCBJIHJlYWxseSBkb24ndCBsaWtlIHRoYXQgaGFj
-ayAoaXQgaXMgYWxsIGFib3V0IG1ha2luZyBzb2Z0d2FyZQo+ID4gZGlzdHJpYnV0aW9uIG9mIG91
-dCBvZiB0cmVlIG1vZHVsZXMgZWFzaWVyIHJhdGhlciB0aGFuIHNvbWV0aGluZwo+ID4gZnVuZGFt
-ZW50YWwpLCBJJ20gdGhlIENYTCBRRU1VIG1haW50YWluZXIgOigKPiA+IAo+ID4gV2lsbCBmaXgg
-dGhhdCwgYnV0IGl0IHNob3dzIHRoZXJlIGlzIGF0IGxlYXN0IG9uZSBicm9rZW4gZmlybXdhcmUg
-b3V0Cj4gPiB0aGVyZS4KPiA+IAo+ID4gT24gcGx1cyBzaWRlLCBSYWZhZWwncyBjb2RlIHNlZW1z
-IHRvIHdvcmsgYXMgZXhwZWN0ZWQgYW5kIGxldHMgdGhhdAo+ID4gYnVnZ3kgZmlyd21hcmUgY2Fy
-cnkgb24gd29ya2luZyA6KSBTbyBsZXRzIHByZXRlbmQgdGhlIGJ1ZyBpbiBxZW11Cj4gPiBpcyBh
-IGRlbGliZXJhdGUgdGVzdCBjYXNlISAgCj4gCj4gTG9sLCB0aGFua3MgZm9yIGEgdGVzdCBjYXNl
-IGFuZCBzaG93aW5nIHRoYXQgUmFmYWVsJ3MgYXBwcm9hY2ggaXMKPiBpbmRlZWQgbmVjZXNzYXJ5
-Lgo+IAo+IFdvdWxkIHlvdXIgdGVzdCBxdWFsaXR5IGZvciBhIHRlc3RlZC1ieSBmb3IgdGhpcz8g
-Rm9yIHJlZmVyZW5jZSwgdGhpcwo+IGlzIG15IGN1cnJlbnQgdmVyc2lvbiBiZWxvdyB3aXRoIFJh
-ZmFlbCdzIHVwZGF0ZToKClN1cmUuIFRoaXMgbWF0Y2hlcyB3aGF0IEkgaGF2ZS4KClRlc3RlZC1i
-eTogSm9uYXRoYW4gQ2FtZXJvbiA8Sm9uYXRoYW4uQ2FtZXJvbkBodWF3ZWkuY29tPgpSZXZpZXdl
-ZC1ieTogSm9uYXRoYW4gQ2FtZXJvbiA8Sm9uYXRoYW4uQ2FtZXJvbkBodWF3ZWkuY29tPgoKCj4g
-Cj4gODw9PT09Cj4gRnJvbTogUnVzc2VsbCBLaW5nIChPcmFjbGUpIDxybWsra2VybmVsQGFybWxp
-bnV4Lm9yZy51az4KPiBTdWJqZWN0OiBbUEFUQ0hdIEFDUEk6IE9ubHkgZW51bWVyYXRlIGVuYWJs
-ZWQgKG9yIGZ1bmN0aW9uYWwpIHByb2Nlc3Nvcgo+ICBkZXZpY2VzCj4gCj4gRnJvbTogSmFtZXMg
-TW9yc2UgPGphbWVzLm1vcnNlQGFybS5jb20+Cj4gCj4gVG9kYXkgdGhlIEFDUEkgZW51bWVyYXRp
-b24gY29kZSAndmlzaXRzJyBhbGwgZGV2aWNlcyB0aGF0IGFyZSBwcmVzZW50Lgo+IAo+IFRoaXMg
-aXMgYSBwcm9ibGVtIGZvciBhcm02NCwgd2hlcmUgQ1BVcyBhcmUgYWx3YXlzIHByZXNlbnQsIGJ1
-dCBub3QKPiBhbHdheXMgZW5hYmxlZC4gV2hlbiBhIGRldmljZS1jaGVjayBvY2N1cnMgYmVjYXVz
-ZSB0aGUgZmlybXdhcmUtcG9saWN5Cj4gaGFzIGNoYW5nZWQgYW5kIGEgQ1BVIGlzIG5vdyBlbmFi
-bGVkLCB0aGUgZm9sbG93aW5nIGVycm9yIG9jY3VyczoKPiB8IGFjcGkgQUNQSTAwMDc6NDg6IEVu
-dW1lcmF0aW9uIGZhaWx1cmUKPiAKPiBUaGlzIGlzIHVsdGltYXRlbHkgYmVjYXVzZSBhY3BpX2Rl
-dl9yZWFkeV9mb3JfZW51bWVyYXRpb24oKSByZXR1cm5zCj4gdHJ1ZSBmb3IgYSBkZXZpY2UgdGhh
-dCBpcyBub3QgZW5hYmxlZC4gVGhlIEFDUEkgUHJvY2Vzc29yIGRyaXZlcgo+IHdpbGwgbm90IHJl
-Z2lzdGVyIHN1Y2ggQ1BVcyBhcyB0aGV5IGFyZSBub3QgJ2RlY29kaW5nIHRoZWlyIHJlc291cmNl
-cycuCj4gCj4gQUNQSSBhbGxvd3MgYSBkZXZpY2UgdG8gYmUgZnVuY3Rpb25hbCBpbnN0ZWFkIG9m
-IG1haW50YWluaW5nIHRoZQo+IHByZXNlbnQgYW5kIGVuYWJsZWQgYml0LCBidXQgd2UgY2FuJ3Qg
-c2ltcGx5IGNoZWNrIHRoZSBlbmFibGVkIGJpdAo+IGZvciBhbGwgZGV2aWNlcyBzaW5jZSBmaXJt
-d2FyZSBjYW4gYmUgYnVnZ3kuCj4gCj4gSWYgQUNQSSBpbmRpY2F0ZXMgdGhhdCB0aGUgZGV2aWNl
-IGlzIHByZXNlbnQgYW5kIGVuYWJsZWQsIHRoZW4gYWxsIHdlbGwKPiBhbmQgZ29vZCwgd2UgY2Fu
-IGVudW1hdGUgaXQuIEhvd2V2ZXIsIGlmIHRoZSBkZXZpY2UgaXMgcHJlc2VudCBhbmQgbm90Cj4g
-ZW5hYmxlZCwgdGhlbiB3ZSBhbHNvIGNoZWNrIHdoZXRoZXIgdGhlIGRldmljZSBpcyBhIHByb2Nl
-c3NvciBkZXZpY2UKPiB0byBsaW1pdCB0aGUgaW1wYWN0IG9mIHRoaXMgbmV3IGNoZWNrIHRvIGp1
-c3QgcHJvY2Vzc29yIGRldmljZXMuCj4gCj4gVGhpcyBhdm9pZHMgZW51bWVyYXRpbmcgcHJlc2Vu
-dCAmJiBmdW5jdGlvbmFsIHByb2Nlc3NvciBkZXZpY2VzIHRoYXQKPiBhcmUgbm90IGVuYWJsZWQu
-Cj4gCj4gU2lnbmVkLW9mZi1ieTogSmFtZXMgTW9yc2UgPGphbWVzLm1vcnNlQGFybS5jb20+Cj4g
-Q28tZGV2ZWxvcGVkLWJ5OiBSYWZhZWwgSi4gV3lzb2NraSA8cmp3QHJqd3lzb2NraS5uZXQ+Cj4g
-U2lnbmVkLW9mZi1ieTogUnVzc2VsbCBLaW5nIChPcmFjbGUpIDxybWsra2VybmVsQGFybWxpbnV4
-Lm9yZy51az4KPiAtLS0KPiBDaGFuZ2VzIHNpbmNlIFJGQyB2MjoKPiAgKiBJbmNvcnBvcmF0ZSBj
-b21tZW50IHN1Z2dlc3Rpb24gYnkgR2F2aW4gU2hhbi4KPiBDaGFuZ2VzIHNpbmNlIFJGQyB2MzoK
-PiAgKiBGaXhlZCAic2VydCIgdHlwby4KPiBDaGFuZ2VzIHNpbmNlIFJGQyB2MyAoc21hbGxlciBz
-ZXJpZXMpOgo+ICAqIFJlc3RyaWN0IGNoZWNraW5nIHRoZSBlbmFibGVkIGJpdCB0byBwcm9jZXNz
-b3IgZGV2aWNlcywgdXBkYXRlCj4gICAgY29tbWl0IGNvbW1lbnRzLgo+ICAqIFVzZSBSYWZhZWwn
-cyBzdWdnZXN0aW9uIGluCj4gICAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci81NzYwNTY5LkR2
-dVloTXhMb1RAa3JlYWNoZXIKPiAtLS0KPiAgZHJpdmVycy9hY3BpL2FjcGlfcHJvY2Vzc29yLmMg
-fCAxMSArKysrKysrKwo+ICBkcml2ZXJzL2FjcGkvZGV2aWNlX3BtLmMgICAgICB8ICAyICstCj4g
-IGRyaXZlcnMvYWNwaS9kZXZpY2Vfc3lzZnMuYyAgIHwgIDIgKy0KPiAgZHJpdmVycy9hY3BpL2lu
-dGVybmFsLmggICAgICAgfCAgNCArKy0KPiAgZHJpdmVycy9hY3BpL3Byb3BlcnR5LmMgICAgICAg
-fCAgMiArLQo+ICBkcml2ZXJzL2FjcGkvc2Nhbi5jICAgICAgICAgICB8IDQ5ICsrKysrKysrKysr
-KysrKysrKysrKysrKysrKystLS0tLS0tCj4gIDYgZmlsZXMgY2hhbmdlZCwgNTYgaW5zZXJ0aW9u
-cygrKSwgMTQgZGVsZXRpb25zKC0pCj4gCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvYWNwaS9hY3Bp
-X3Byb2Nlc3Nvci5jIGIvZHJpdmVycy9hY3BpL2FjcGlfcHJvY2Vzc29yLmMKPiBpbmRleCA0ZmUy
-ZWY1NDA4OGMuLmNmN2MxY2NhNjlkZCAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2FjcGkvYWNwaV9w
-cm9jZXNzb3IuYwo+ICsrKyBiL2RyaXZlcnMvYWNwaS9hY3BpX3Byb2Nlc3Nvci5jCj4gQEAgLTYy
-Niw2ICs2MjYsMTcgQEAgc3RhdGljIHN0cnVjdCBhY3BpX3NjYW5faGFuZGxlciBwcm9jZXNzb3Jf
-aGFuZGxlciA9IHsKPiAgCX0sCj4gIH07Cj4gIAo+ICtib29sIGFjcGlfZGV2aWNlX2lzX3Byb2Nl
-c3Nvcihjb25zdCBzdHJ1Y3QgYWNwaV9kZXZpY2UgKmFkZXYpCj4gK3sKPiArCWlmIChhZGV2LT5k
-ZXZpY2VfdHlwZSA9PSBBQ1BJX0JVU19UWVBFX1BST0NFU1NPUikKPiArCQlyZXR1cm4gdHJ1ZTsK
-PiArCj4gKwlpZiAoYWRldi0+ZGV2aWNlX3R5cGUgIT0gQUNQSV9CVVNfVFlQRV9ERVZJQ0UpCj4g
-KwkJcmV0dXJuIGZhbHNlOwo+ICsKPiArCXJldHVybiBhY3BpX3NjYW5fY2hlY2tfaGFuZGxlcihh
-ZGV2LCAmcHJvY2Vzc29yX2hhbmRsZXIpOwo+ICt9Cj4gKwo+ICBzdGF0aWMgaW50IGFjcGlfcHJv
-Y2Vzc29yX2NvbnRhaW5lcl9hdHRhY2goc3RydWN0IGFjcGlfZGV2aWNlICpkZXYsCj4gIAkJCQkJ
-ICAgY29uc3Qgc3RydWN0IGFjcGlfZGV2aWNlX2lkICppZCkKPiAgewo+IGRpZmYgLS1naXQgYS9k
-cml2ZXJzL2FjcGkvZGV2aWNlX3BtLmMgYi9kcml2ZXJzL2FjcGkvZGV2aWNlX3BtLmMKPiBpbmRl
-eCAzYjRkMDQ4YzQ5NDEuLmUzYzgwZjNiM2I1NyAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2FjcGkv
-ZGV2aWNlX3BtLmMKPiArKysgYi9kcml2ZXJzL2FjcGkvZGV2aWNlX3BtLmMKPiBAQCAtMzEzLDcg
-KzMxMyw3IEBAIGludCBhY3BpX2J1c19pbml0X3Bvd2VyKHN0cnVjdCBhY3BpX2RldmljZSAqZGV2
-aWNlKQo+ICAJCXJldHVybiAtRUlOVkFMOwo+ICAKPiAgCWRldmljZS0+cG93ZXIuc3RhdGUgPSBB
-Q1BJX1NUQVRFX1VOS05PV047Cj4gLQlpZiAoIWFjcGlfZGV2aWNlX2lzX3ByZXNlbnQoZGV2aWNl
-KSkgewo+ICsJaWYgKCFhY3BpX2Rldl9yZWFkeV9mb3JfZW51bWVyYXRpb24oZGV2aWNlKSkgewo+
-ICAJCWRldmljZS0+ZmxhZ3MuaW5pdGlhbGl6ZWQgPSBmYWxzZTsKPiAgCQlyZXR1cm4gLUVOWElP
-Owo+ICAJfQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2FjcGkvZGV2aWNlX3N5c2ZzLmMgYi9kcml2
-ZXJzL2FjcGkvZGV2aWNlX3N5c2ZzLmMKPiBpbmRleCAyMzM3M2ZhYTM1ZWMuLmEwMjU2ZDI0OTNh
-NyAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2FjcGkvZGV2aWNlX3N5c2ZzLmMKPiArKysgYi9kcml2
-ZXJzL2FjcGkvZGV2aWNlX3N5c2ZzLmMKPiBAQCAtMTQxLDcgKzE0MSw3IEBAIHN0YXRpYyBpbnQg
-Y3JlYXRlX3BucF9tb2RhbGlhcyhjb25zdCBzdHJ1Y3QgYWNwaV9kZXZpY2UgKmFjcGlfZGV2LCBj
-aGFyICptb2RhbGlhCj4gIAlzdHJ1Y3QgYWNwaV9oYXJkd2FyZV9pZCAqaWQ7Cj4gIAo+ICAJLyog
-QXZvaWQgdW5uZWNlc3NhcmlseSBsb2FkaW5nIG1vZHVsZXMgZm9yIG5vbiBwcmVzZW50IGRldmlj
-ZXMuICovCj4gLQlpZiAoIWFjcGlfZGV2aWNlX2lzX3ByZXNlbnQoYWNwaV9kZXYpKQo+ICsJaWYg
-KCFhY3BpX2Rldl9yZWFkeV9mb3JfZW51bWVyYXRpb24oYWNwaV9kZXYpKQo+ICAJCXJldHVybiAw
-Owo+ICAKPiAgCS8qCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvYWNwaS9pbnRlcm5hbC5oIGIvZHJp
-dmVycy9hY3BpL2ludGVybmFsLmgKPiBpbmRleCA4NjZjN2M0ZWQyMzMuLjkzODhkNGM4Njc0YSAx
-MDA2NDQKPiAtLS0gYS9kcml2ZXJzL2FjcGkvaW50ZXJuYWwuaAo+ICsrKyBiL2RyaXZlcnMvYWNw
-aS9pbnRlcm5hbC5oCj4gQEAgLTYyLDYgKzYyLDggQEAgdm9pZCBhY3BpX3N5c2ZzX2FkZF9ob3Rw
-bHVnX3Byb2ZpbGUoc3RydWN0IGFjcGlfaG90cGx1Z19wcm9maWxlICpob3RwbHVnLAo+ICBpbnQg
-YWNwaV9zY2FuX2FkZF9oYW5kbGVyX3dpdGhfaG90cGx1ZyhzdHJ1Y3QgYWNwaV9zY2FuX2hhbmRs
-ZXIgKmhhbmRsZXIsCj4gIAkJCQkgICAgICAgY29uc3QgY2hhciAqaG90cGx1Z19wcm9maWxlX25h
-bWUpOwo+ICB2b2lkIGFjcGlfc2Nhbl9ob3RwbHVnX2VuYWJsZWQoc3RydWN0IGFjcGlfaG90cGx1
-Z19wcm9maWxlICpob3RwbHVnLCBib29sIHZhbCk7Cj4gK2Jvb2wgYWNwaV9zY2FuX2NoZWNrX2hh
-bmRsZXIoY29uc3Qgc3RydWN0IGFjcGlfZGV2aWNlICphZGV2LAo+ICsJCQkgICAgIHN0cnVjdCBh
-Y3BpX3NjYW5faGFuZGxlciAqaGFuZGxlcik7Cj4gIAo+ICAjaWZkZWYgQ09ORklHX0RFQlVHX0ZT
-Cj4gIGV4dGVybiBzdHJ1Y3QgZGVudHJ5ICphY3BpX2RlYnVnZnNfZGlyOwo+IEBAIC0xMDcsNyAr
-MTA5LDYgQEAgaW50IGFjcGlfZGV2aWNlX3NldHVwX2ZpbGVzKHN0cnVjdCBhY3BpX2RldmljZSAq
-ZGV2KTsKPiAgdm9pZCBhY3BpX2RldmljZV9yZW1vdmVfZmlsZXMoc3RydWN0IGFjcGlfZGV2aWNl
-ICpkZXYpOwo+ICB2b2lkIGFjcGlfZGV2aWNlX2FkZF9maW5hbGl6ZShzdHJ1Y3QgYWNwaV9kZXZp
-Y2UgKmRldmljZSk7Cj4gIHZvaWQgYWNwaV9mcmVlX3BucF9pZHMoc3RydWN0IGFjcGlfZGV2aWNl
-X3BucCAqcG5wKTsKPiAtYm9vbCBhY3BpX2RldmljZV9pc19wcmVzZW50KGNvbnN0IHN0cnVjdCBh
-Y3BpX2RldmljZSAqYWRldik7Cj4gIGJvb2wgYWNwaV9kZXZpY2VfaXNfYmF0dGVyeShzdHJ1Y3Qg
-YWNwaV9kZXZpY2UgKmFkZXYpOwo+ICBib29sIGFjcGlfZGV2aWNlX2lzX2ZpcnN0X3BoeXNpY2Fs
-X25vZGUoc3RydWN0IGFjcGlfZGV2aWNlICphZGV2LAo+ICAJCQkJCWNvbnN0IHN0cnVjdCBkZXZp
-Y2UgKmRldik7Cj4gQEAgLTExOSw2ICsxMjAsNyBAQCBpbnQgYWNwaV9idXNfcmVnaXN0ZXJfZWFy
-bHlfZGV2aWNlKGludCB0eXBlKTsKPiAgY29uc3Qgc3RydWN0IGFjcGlfZGV2aWNlICphY3BpX2Nv
-bXBhbmlvbl9tYXRjaChjb25zdCBzdHJ1Y3QgZGV2aWNlICpkZXYpOwo+ICBpbnQgX19hY3BpX2Rl
-dmljZV91ZXZlbnRfbW9kYWxpYXMoY29uc3Qgc3RydWN0IGFjcGlfZGV2aWNlICphZGV2LAo+ICAJ
-CQkJICBzdHJ1Y3Qga29ial91ZXZlbnRfZW52ICplbnYpOwo+ICtib29sIGFjcGlfZGV2aWNlX2lz
-X3Byb2Nlc3Nvcihjb25zdCBzdHJ1Y3QgYWNwaV9kZXZpY2UgKmFkZXYpOwo+ICAKPiAgLyogLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0KPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFBvd2Vy
-IFJlc291cmNlCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvYWNwaS9wcm9wZXJ0eS5jIGIvZHJpdmVy
-cy9hY3BpL3Byb3BlcnR5LmMKPiBpbmRleCA2OTc5YTNmOWY5MGEuLjE0ZDY5NDhmZDg4YSAxMDA2
-NDQKPiAtLS0gYS9kcml2ZXJzL2FjcGkvcHJvcGVydHkuYwo+ICsrKyBiL2RyaXZlcnMvYWNwaS9w
-cm9wZXJ0eS5jCj4gQEAgLTE0MjAsNyArMTQyMCw3IEBAIHN0YXRpYyBib29sIGFjcGlfZndub2Rl
-X2RldmljZV9pc19hdmFpbGFibGUoY29uc3Qgc3RydWN0IGZ3bm9kZV9oYW5kbGUgKmZ3bm9kZSkK
-PiAgCWlmICghaXNfYWNwaV9kZXZpY2Vfbm9kZShmd25vZGUpKQo+ICAJCXJldHVybiBmYWxzZTsK
-PiAgCj4gLQlyZXR1cm4gYWNwaV9kZXZpY2VfaXNfcHJlc2VudCh0b19hY3BpX2RldmljZV9ub2Rl
-KGZ3bm9kZSkpOwo+ICsJcmV0dXJuIGFjcGlfZGV2X3JlYWR5X2Zvcl9lbnVtZXJhdGlvbih0b19h
-Y3BpX2RldmljZV9ub2RlKGZ3bm9kZSkpOwo+ICB9Cj4gIAo+ICBzdGF0aWMgY29uc3Qgdm9pZCAq
-Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvYWNwaS9zY2FuLmMgYi9kcml2ZXJzL2FjcGkvc2Nhbi5j
-Cj4gaW5kZXggMDJiYjJjY2U0MjNmLi5mOTRkMWY3NDRiY2MgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVy
-cy9hY3BpL3NjYW4uYwo+ICsrKyBiL2RyaXZlcnMvYWNwaS9zY2FuLmMKPiBAQCAtMzA0LDcgKzMw
-NCw3IEBAIHN0YXRpYyBpbnQgYWNwaV9zY2FuX2RldmljZV9jaGVjayhzdHJ1Y3QgYWNwaV9kZXZp
-Y2UgKmFkZXYpCj4gIAlpbnQgZXJyb3I7Cj4gIAo+ICAJYWNwaV9idXNfZ2V0X3N0YXR1cyhhZGV2
-KTsKPiAtCWlmIChhY3BpX2RldmljZV9pc19wcmVzZW50KGFkZXYpKSB7Cj4gKwlpZiAoYWNwaV9k
-ZXZfcmVhZHlfZm9yX2VudW1lcmF0aW9uKGFkZXYpKSB7Cj4gIAkJLyoKPiAgCQkgKiBUaGlzIGZ1
-bmN0aW9uIGlzIG9ubHkgY2FsbGVkIGZvciBkZXZpY2Ugb2JqZWN0cyBmb3Igd2hpY2gKPiAgCQkg
-KiBtYXRjaGluZyBzY2FuIGhhbmRsZXJzIGV4aXN0LiAgVGhlIG9ubHkgc2l0dWF0aW9uIGluIHdo
-aWNoCj4gQEAgLTMzOCw3ICszMzgsNyBAQCBzdGF0aWMgaW50IGFjcGlfc2Nhbl9idXNfY2hlY2so
-c3RydWN0IGFjcGlfZGV2aWNlICphZGV2LCB2b2lkICpub3RfdXNlZCkKPiAgCWludCBlcnJvcjsK
-PiAgCj4gIAlhY3BpX2J1c19nZXRfc3RhdHVzKGFkZXYpOwo+IC0JaWYgKCFhY3BpX2RldmljZV9p
-c19wcmVzZW50KGFkZXYpKSB7Cj4gKwlpZiAoIWFjcGlfZGV2X3JlYWR5X2Zvcl9lbnVtZXJhdGlv
-bihhZGV2KSkgewo+ICAJCWFjcGlfc2Nhbl9kZXZpY2Vfbm90X2VudW1lcmF0ZWQoYWRldik7Cj4g
-IAkJcmV0dXJuIDA7Cj4gIAl9Cj4gQEAgLTE5MTMsMTEgKzE5MTMsNiBAQCBzdGF0aWMgYm9vbCBh
-Y3BpX2RldmljZV9zaG91bGRfYmVfaGlkZGVuKGFjcGlfaGFuZGxlIGhhbmRsZSkKPiAgCXJldHVy
-biB0cnVlOwo+ICB9Cj4gIAo+IC1ib29sIGFjcGlfZGV2aWNlX2lzX3ByZXNlbnQoY29uc3Qgc3Ry
-dWN0IGFjcGlfZGV2aWNlICphZGV2KQo+IC17Cj4gLQlyZXR1cm4gYWRldi0+c3RhdHVzLnByZXNl
-bnQgfHwgYWRldi0+c3RhdHVzLmZ1bmN0aW9uYWw7Cj4gLX0KPiAtCj4gIHN0YXRpYyBib29sIGFj
-cGlfc2Nhbl9oYW5kbGVyX21hdGNoaW5nKHN0cnVjdCBhY3BpX3NjYW5faGFuZGxlciAqaGFuZGxl
-ciwKPiAgCQkJCSAgICAgICBjb25zdCBjaGFyICppZHN0ciwKPiAgCQkJCSAgICAgICBjb25zdCBz
-dHJ1Y3QgYWNwaV9kZXZpY2VfaWQgKiptYXRjaGlkKQo+IEBAIC0xOTM4LDYgKzE5MzMsMTggQEAg
-c3RhdGljIGJvb2wgYWNwaV9zY2FuX2hhbmRsZXJfbWF0Y2hpbmcoc3RydWN0IGFjcGlfc2Nhbl9o
-YW5kbGVyICpoYW5kbGVyLAo+ICAJcmV0dXJuIGZhbHNlOwo+ICB9Cj4gIAo+ICtib29sIGFjcGlf
-c2Nhbl9jaGVja19oYW5kbGVyKGNvbnN0IHN0cnVjdCBhY3BpX2RldmljZSAqYWRldiwKPiArCQkJ
-ICAgICBzdHJ1Y3QgYWNwaV9zY2FuX2hhbmRsZXIgKmhhbmRsZXIpCj4gK3sKPiArCXN0cnVjdCBh
-Y3BpX2hhcmR3YXJlX2lkICpod2lkOwo+ICsKPiArCWxpc3RfZm9yX2VhY2hfZW50cnkoaHdpZCwg
-JmFkZXYtPnBucC5pZHMsIGxpc3QpCj4gKwkJaWYgKGFjcGlfc2Nhbl9oYW5kbGVyX21hdGNoaW5n
-KGhhbmRsZXIsIGh3aWQtPmlkLCBOVUxMKSkKPiArCQkJcmV0dXJuIHRydWU7Cj4gKwo+ICsJcmV0
-dXJuIGZhbHNlOwo+ICt9Cj4gKwo+ICBzdGF0aWMgc3RydWN0IGFjcGlfc2Nhbl9oYW5kbGVyICph
-Y3BpX3NjYW5fbWF0Y2hfaGFuZGxlcihjb25zdCBjaGFyICppZHN0ciwKPiAgCQkJCQljb25zdCBz
-dHJ1Y3QgYWNwaV9kZXZpY2VfaWQgKiptYXRjaGlkKQo+ICB7Cj4gQEAgLTIzODEsMTYgKzIzODgs
-MzggQEAgRVhQT1JUX1NZTUJPTF9HUEwoYWNwaV9kZXZfY2xlYXJfZGVwZW5kZW5jaWVzKTsKPiAg
-ICogYWNwaV9kZXZfcmVhZHlfZm9yX2VudW1lcmF0aW9uIC0gQ2hlY2sgaWYgdGhlIEFDUEkgZGV2
-aWNlIGlzIHJlYWR5IGZvciBlbnVtZXJhdGlvbgo+ICAgKiBAZGV2aWNlOiBQb2ludGVyIHRvIHRo
-ZSAmc3RydWN0IGFjcGlfZGV2aWNlIHRvIGNoZWNrCj4gICAqCj4gLSAqIENoZWNrIGlmIHRoZSBk
-ZXZpY2UgaXMgcHJlc2VudCBhbmQgaGFzIG5vIHVubWV0IGRlcGVuZGVuY2llcy4KPiArICogQ2hl
-Y2sgaWYgdGhlIGRldmljZSBpcyBmdW5jdGlvbmFsIG9yIGVuYWJsZWQgYW5kIGhhcyBubyB1bm1l
-dCBkZXBlbmRlbmNpZXMuCj4gICAqCj4gLSAqIFJldHVybiB0cnVlIGlmIHRoZSBkZXZpY2UgaXMg
-cmVhZHkgZm9yIGVudW1lcmF0aW5vLiBPdGhlcndpc2UsIHJldHVybiBmYWxzZS4KPiArICogUmV0
-dXJuIHRydWUgaWYgdGhlIGRldmljZSBpcyByZWFkeSBmb3IgZW51bWVyYXRpb24uIE90aGVyd2lz
-ZSwgcmV0dXJuIGZhbHNlLgo+ICAgKi8KPiAgYm9vbCBhY3BpX2Rldl9yZWFkeV9mb3JfZW51bWVy
-YXRpb24oY29uc3Qgc3RydWN0IGFjcGlfZGV2aWNlICpkZXZpY2UpCj4gIHsKPiAgCWlmIChkZXZp
-Y2UtPmZsYWdzLmhvbm9yX2RlcHMgJiYgZGV2aWNlLT5kZXBfdW5tZXQpCj4gIAkJcmV0dXJuIGZh
-bHNlOwo+ICAKPiAtCXJldHVybiBhY3BpX2RldmljZV9pc19wcmVzZW50KGRldmljZSk7Cj4gKwkv
-Kgo+ICsJICogQUNQSSA2LjUncyA2LjMuNyAiX1NUQSAoRGV2aWNlIFN0YXR1cykiIGFsbG93cyBm
-aXJtd2FyZSB0byByZXR1cm4KPiArCSAqICghcHJlc2VudCAmJiBmdW5jdGlvbmFsKSBmb3IgY2Vy
-dGFpbiB0eXBlcyBvZiBkZXZpY2VzIHRoYXQgc2hvdWxkIGJlCj4gKwkgKiBlbnVtZXJhdGVkLiBO
-b3RlIHRoYXQgdGhlIGVuYWJsZWQgYml0IHNob3VsZCBub3QgYmUgc2V0IHVubGVzcyB0aGUKPiAr
-CSAqIHByZXNlbnQgYml0IGlzIHNldC4KPiArCSAqCj4gKwkgKiBIb3dldmVyLCBsaW1pdCB0aGlz
-IG9ubHkgdG8gcHJvY2Vzc29yIGRldmljZXMgdG8gcmVkdWNlIHBvc3NpYmxlCj4gKwkgKiByZWdy
-ZXNzaW9ucyB3aXRoIGZpcm13YXJlLgo+ICsJICovCj4gKwlpZiAoZGV2aWNlLT5zdGF0dXMuZnVu
-Y3Rpb25hbCkKPiArCQlyZXR1cm4gdHJ1ZTsKPiArCj4gKwlpZiAoIWRldmljZS0+c3RhdHVzLnBy
-ZXNlbnQpCj4gKwkJcmV0dXJuIGZhbHNlOwo+ICsKPiArCS8qCj4gKwkgKiBGYXN0IHBhdGggLSBp
-ZiBlbmFibGVkIGlzIHNldCwgYXZvaWQgdGhlIG1vcmUgZXhwZW5zaXZlIHRlc3QgdG8KPiArCSAq
-IGNoZWNrIHdoZXRoZXIgdGhpcyBkZXZpY2UgaXMgYSBwcm9jZXNzb3IuCj4gKwkgKi8KPiArCWlm
-IChkZXZpY2UtPnN0YXR1cy5lbmFibGVkKQo+ICsJCXJldHVybiB0cnVlOwo+ICsKPiArCXJldHVy
-biAhYWNwaV9kZXZpY2VfaXNfcHJvY2Vzc29yKGRldmljZSk7Cj4gIH0KPiAgRVhQT1JUX1NZTUJP
-TF9HUEwoYWNwaV9kZXZfcmVhZHlfZm9yX2VudW1lcmF0aW9uKTsKPiAgCgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+
+Add the missing port pins P19 to P28 for RZ/Five SoC. These additional
+pins provide expanded capabilities and are exclusive to the RZ/Five SoC.
+
+Couple of port pins have different configuration and are not identical for
+the complete port so introduce struct rzg2l_variable_pin_cfg to handle
+such cases and introduce the PIN_CFG_VARIABLE macro. The actual pin config
+is then assigned in rzg2l_pinctrl_get_variable_pin_cfg().
+
+Add an additional check in rzg2l_gpio_get_gpioint() to only allow GPIO pins
+which support interrupt facility.
+
+While at define RZG2L_GPIO_PORT_PACK() using RZG2L_GPIO_PORT_SPARSE_PACK().
+
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+ drivers/pinctrl/renesas/pinctrl-rzg2l.c | 213 +++++++++++++++++++++++-
+ 1 file changed, 204 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/pinctrl/renesas/pinctrl-rzg2l.c b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
+index 8b8644d2c355..04bb21d564d4 100644
+--- a/drivers/pinctrl/renesas/pinctrl-rzg2l.c
++++ b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
+@@ -57,6 +57,8 @@
+ #define PIN_CFG_IOLH_C			BIT(13)
+ #define PIN_CFG_SOFT_PS			BIT(14)
+ #define PIN_CFG_OEN			BIT(15)
++#define PIN_CFG_VARIABLE		BIT(16)
++#define PIN_CFG_NOGPIO_INT		BIT(17)
+ 
+ #define RZG2L_MPXED_COMMON_PIN_FUNCS(group) \
+ 					(PIN_CFG_IOLH_##group | \
+@@ -76,17 +78,23 @@
+ 					 PIN_CFG_FILNUM | \
+ 					 PIN_CFG_FILCLKSEL)
+ 
+-/*
+- * n indicates number of pins in the port, a is the register index
+- * and f is pin configuration capabilities supported.
+- */
+ #define PIN_CFG_PIN_MAP_MASK		GENMASK(35, 28)
+ #define PIN_CFG_PIN_REG_MASK		GENMASK(27, 20)
+ #define PIN_CFG_MASK			GENMASK(19, 0)
+ 
+-#define RZG2L_GPIO_PORT_PACK(n, a, f)	((((1ULL << (n)) - 1) << 28) | \
+-					 FIELD_PREP_CONST(PIN_CFG_PIN_REG_MASK, (a)) | \
+-					 FIELD_PREP_CONST(PIN_CFG_MASK, (f)))
++/*
++ * m indicates the bitmap of supported pins, a is the register index
++ * and f is pin configuration capabilities supported.
++ */
++#define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)	(FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
++						 FIELD_PREP_CONST(PIN_CFG_PIN_REG_MASK, (a)) | \
++						 FIELD_PREP_CONST(PIN_CFG_MASK, (f)))
++
++/*
++ * n indicates number of pins in the port, a is the register index
++ * and f is pin configuration capabilities supported.
++ */
++#define RZG2L_GPIO_PORT_PACK(n, a, f)	RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+ 
+ /*
+  * BIT(63) indicates dedicated pin, p is the register index while
+@@ -200,6 +208,18 @@ struct rzg2l_dedicated_configs {
+ 	u64 config;
+ };
+ 
++/**
++ * struct rzg2l_variable_pin_cfg - pin data cfg
++ * @cfg: port pin configuration
++ * @port: port number
++ * @pin: port pin
++ */
++struct rzg2l_variable_pin_cfg {
++	u32 cfg:20;
++	u8 port:5;
++	u8 pin:5;
++};
++
+ struct rzg2l_pinctrl_data {
+ 	const char * const *port_pins;
+ 	const u64 *port_pin_configs;
+@@ -208,6 +228,8 @@ struct rzg2l_pinctrl_data {
+ 	unsigned int n_port_pins;
+ 	unsigned int n_dedicated_pins;
+ 	const struct rzg2l_hwcfg *hwcfg;
++	const struct rzg2l_variable_pin_cfg *variable_pin_cfg;
++	unsigned int n_variable_pin_cfg;
+ };
+ 
+ /**
+@@ -243,6 +265,143 @@ struct rzg2l_pinctrl {
+ 
+ static const u16 available_ps[] = { 1800, 2500, 3300 };
+ 
++#ifdef CONFIG_RISCV
++static u64 rzg2l_pinctrl_get_variable_pin_cfg(struct rzg2l_pinctrl *pctrl,
++					      u64 pincfg,
++					      unsigned int port,
++					      u8 pin)
++{
++	unsigned int i;
++
++	for (i = 0; i < pctrl->data->n_variable_pin_cfg; i++) {
++		if (pctrl->data->variable_pin_cfg[i].port == port &&
++		    pctrl->data->variable_pin_cfg[i].pin == pin)
++			return (pincfg & ~PIN_CFG_VARIABLE) | pctrl->data->variable_pin_cfg[i].cfg;
++	}
++
++	return 0;
++}
++
++static const struct rzg2l_variable_pin_cfg r9a07g043f_variable_pin_cfg[] = {
++	{
++		.port = 20,
++		.pin = 0,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_FILONOFF | PIN_CFG_FILNUM | PIN_CFG_FILCLKSEL |
++		       PIN_CFG_IEN | PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 20,
++		.pin = 1,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_FILONOFF | PIN_CFG_FILNUM | PIN_CFG_FILCLKSEL |
++		       PIN_CFG_IEN | PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 20,
++		.pin = 2,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_FILONOFF | PIN_CFG_FILNUM | PIN_CFG_FILCLKSEL |
++		       PIN_CFG_IEN  | PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 20,
++		.pin = 3,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_IEN | PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 20,
++		.pin = 4,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_IEN | PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 20,
++		.pin = 5,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_IEN | PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 20,
++		.pin = 6,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_IEN | PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 20,
++		.pin = 7,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_IEN | PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 23,
++		.pin = 1,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_NOGPIO_INT
++	},
++	{
++		.port = 23,
++		.pin = 2,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 23,
++		.pin = 3,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 23,
++		.pin = 4,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 23,
++		.pin = 5,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 24,
++		.pin = 0,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 24,
++		.pin = 1,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 24,
++		.pin = 2,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 24,
++		.pin = 3,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 24,
++		.pin = 4,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_NOGPIO_INT,
++	},
++	{
++		.port = 24,
++		.pin = 5,
++		.cfg = PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++		       PIN_CFG_FILONOFF | PIN_CFG_FILNUM | PIN_CFG_FILCLKSEL |
++		       PIN_CFG_NOGPIO_INT,
++	},
++};
++#endif
++
+ static void rzg2l_pinctrl_set_pfc_mode(struct rzg2l_pinctrl *pctrl,
+ 				       u8 pin, u8 off, u8 func)
+ {
+@@ -1446,6 +1605,25 @@ static const u64 r9a07g043_gpio_configs[] = {
+ 	RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
+ 	RZG2L_GPIO_PORT_PACK(4, 0x21, RZG2L_MPXED_PIN_FUNCS),
+ 	RZG2L_GPIO_PORT_PACK(6, 0x22, RZG2L_MPXED_PIN_FUNCS),
++#ifdef CONFIG_RISCV
++	/* Below additional port pins (P19 - P28) are exclusively available on RZ/Five SoC only */
++	RZG2L_GPIO_PORT_SPARSE_PACK(0x2, 0x06, PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++				    PIN_CFG_FILONOFF | PIN_CFG_FILNUM | PIN_CFG_FILCLKSEL |
++				    PIN_CFG_IEN | PIN_CFG_NOGPIO_INT),			/* P19 */
++	RZG2L_GPIO_PORT_PACK(8, 0x07, PIN_CFG_VARIABLE),				/* P20 */
++	RZG2L_GPIO_PORT_SPARSE_PACK(0x2, 0x08, PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++				    PIN_CFG_IEN | PIN_CFG_NOGPIO_INT),			/* P21 */
++	RZG2L_GPIO_PORT_PACK(4, 0x09, PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_PUPD |
++			     PIN_CFG_IEN | PIN_CFG_NOGPIO_INT),				/* P22 */
++	RZG2L_GPIO_PORT_SPARSE_PACK(0x3e, 0x0a, PIN_CFG_VARIABLE),			/* P23 */
++	RZG2L_GPIO_PORT_PACK(6, 0x0b, PIN_CFG_VARIABLE),				/* P24 */
++	RZG2L_GPIO_PORT_SPARSE_PACK(0x2, 0x0c, PIN_CFG_IOLH_B | PIN_CFG_SR | PIN_CFG_FILONOFF |
++				    PIN_CFG_FILNUM | PIN_CFG_FILCLKSEL |
++				    PIN_CFG_NOGPIO_INT),				/* P25 */
++	0x0,										/* P26 */
++	0x0,										/* P27 */
++	RZG2L_GPIO_PORT_PACK(6, 0x0f, RZG2L_MPXED_PIN_FUNCS | PIN_CFG_NOGPIO_INT),	/* P28 */
++#endif
+ };
+ 
+ static const u64 r9a08g045_gpio_configs[] = {
+@@ -1606,12 +1784,18 @@ static const struct rzg2l_dedicated_configs rzg3s_dedicated_pins[] = {
+ 						       PIN_CFG_IO_VMC_SD1)) },
+ };
+ 
+-static int rzg2l_gpio_get_gpioint(unsigned int virq, const struct rzg2l_pinctrl_data *data)
++static int rzg2l_gpio_get_gpioint(unsigned int virq, struct rzg2l_pinctrl *pctrl)
+ {
++	const struct pinctrl_pin_desc *pin_desc = &pctrl->desc.pins[virq];
++	const struct rzg2l_pinctrl_data *data = pctrl->data;
++	u64 *pin_data = pin_desc->drv_data;
+ 	unsigned int gpioint;
+ 	unsigned int i;
+ 	u32 port, bit;
+ 
++	if (*pin_data & PIN_CFG_NOGPIO_INT)
++		return -EINVAL;
++
+ 	port = virq / 8;
+ 	bit = virq % 8;
+ 
+@@ -1721,7 +1905,7 @@ static int rzg2l_gpio_child_to_parent_hwirq(struct gpio_chip *gc,
+ 	unsigned long flags;
+ 	int gpioint, irq;
+ 
+-	gpioint = rzg2l_gpio_get_gpioint(child, pctrl->data);
++	gpioint = rzg2l_gpio_get_gpioint(child, pctrl);
+ 	if (gpioint < 0)
+ 		return gpioint;
+ 
+@@ -1907,6 +2091,13 @@ static int rzg2l_pinctrl_register(struct rzg2l_pinctrl *pctrl)
+ 		if (i && !(i % RZG2L_PINS_PER_PORT))
+ 			j++;
+ 		pin_data[i] = pctrl->data->port_pin_configs[j];
++#ifdef CONFIG_RISCV
++		if (pin_data[i] & PIN_CFG_VARIABLE)
++			pin_data[i] = rzg2l_pinctrl_get_variable_pin_cfg(pctrl,
++									 pin_data[i],
++									 j,
++									 i % RZG2L_PINS_PER_PORT);
++#endif
+ 		pins[i].drv_data = &pin_data[i];
+ 	}
+ 
+@@ -2058,6 +2249,10 @@ static struct rzg2l_pinctrl_data r9a07g043_data = {
+ 	.n_port_pins = ARRAY_SIZE(r9a07g043_gpio_configs) * RZG2L_PINS_PER_PORT,
+ 	.n_dedicated_pins = ARRAY_SIZE(rzg2l_dedicated_pins.common),
+ 	.hwcfg = &rzg2l_hwcfg,
++#ifdef CONFIG_RISCV
++	.variable_pin_cfg = r9a07g043f_variable_pin_cfg,
++	.n_variable_pin_cfg = ARRAY_SIZE(r9a07g043f_variable_pin_cfg),
++#endif
+ };
+ 
+ static struct rzg2l_pinctrl_data r9a07g044_data = {
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
