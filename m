@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E8BC4725D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D91C47DA2
 	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jan 2024 14:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8GkgXxVl13NIA95btKt7FOJcK34TUOxFNIB+t/qUqWI=; b=aLTxFTHNrDjgcs
-	u5ToXcz/lngZ6Gfg9tyVSsUsEECpGa6kaszaopeF58nVKO8kBPzBGwKJ5ivHIWKvz14aMcM1pJgnD
-	bacD6WloDyfrRTP48uQefRbQSTpVIbC7FQPvgHYrgAfLWn81kqPSTyV2sIwl+VzKnpLMJ0f9GZVfa
-	TirnpI/DUM6VGaOFoPQM9ZKrw5YD3abYQCnKpGTCfrJJ9DgUPexJBcB+Kw20xirYFI4WL1zJQ2gQ1
-	iuJX1xYKYodrzN4gIAt+ZLC59JKBg2u2Y2bMJpyHHoMk7lQ7mck0ZakX+PqIO5SdYD8adKFro9N8B
-	EnLp9L0riFnQzWUdMVHg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Jpjv2wH2yKs/HjOPIU0drZaE8XK0SJIAcqK2faK2VaY=; b=ScmuYb9BMK1aJj
+	hqaRZTH84lTzz4Mt5IpsXNWZmhcoqHAs2tPHNokFtRYtNxGbeuNROuVuCWGXzQj5npipgJIPozhYp
+	7O36RNNNlQiz3zGKnQ9wjK+mc26J2a7OajCE3kcDZXdIw0GWgg/quCRiBC9HAzkSrLcMy0syPW/uz
+	Ztps3/LYRaKe+2vB3jpkQ4U2oUCSqiBuBnz4zEekSuPYUmWHjGY/bbA7yl0h/1oF7RoDe8xWyGNQ5
+	ginfOUE5W4Huh6NfYmZr7XNJ7mmydQUpphwojN3x1XXhepyo/nZjPz4DVxw8d1f/3qqJ2cjnUDYwl
+	N7WFfUujaKTsmPp2HzjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOIUU-0031xG-0N;
-	Fri, 12 Jan 2024 14:26:34 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1rOIUZ-0031z0-0R;
+	Fri, 12 Jan 2024 14:26:39 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOIUQ-0031vP-2g
+	id 1rOIUT-0031wE-2i
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Jan 2024 14:26:32 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-40e63ceb775so8616215e9.3
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Jan 2024 06:26:28 -0800 (PST)
+	Fri, 12 Jan 2024 14:26:35 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-33770772136so3226678f8f.3
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Jan 2024 06:26:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1705069587; x=1705674387; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4K3qORjCWw+gkht7BR5kJjl56gwELapPIu5KXg30nNo=;
-        b=mvZpHuhgbDUn6iTds8edTLx/lpk8l0nx1zk7dsP43UmfrGjegeLVW+mo8doE6ugre5
-         GIiPyLSzfgzTrROndqJw1IMN8vyt0Jp866KQnlZ45bY8HKw+5fCht9vX2jStd7xcfA6u
-         noQoa2Yvf4digYDog0j7Un6JqZNB/yQ2Xny/ZpWPW0qPPxFIlWEsE5D/iK+fa2CWnY2y
-         xyyBCjLeLDuLMm7b1b9LM/8Fldt04NSF29/POFU8oXvDkpSUDTXR61wVy2NqVy3ZAQQC
-         GqmfYLbx1mwX5aJLxH/egg3lWQ/AMBtZTMnwLjPJ1apJs3fJYBX7AVlxu5wyM9euJ5cU
-         eQCQ==
+        d=gmail.com; s=20230601; t=1705069591; x=1705674391; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WclvSvESBcB1ccyxeqjrdGj+frspJc0esD0QtgwrkCo=;
+        b=VrmQc9mk3BZjbFv8Yo/Y7sOPHepmfya6A7o7PNbdmipzMpJfk2tn78nKvz1IcN6cle
+         ISY/Pz/oSdm6l4GEj7PM/5voLJwXUuuxGlaiuaDI3DfW2LW2x/QLgxMmo3PTWSd8Bioo
+         eeIY97pTIojgcKDFfh9y1SjPWok0VQGSM0dNfeKghL38ROCCFkbzirronJSdZRuRppk6
+         zSP7nfTIB9OMMdkXNGFoT1hcA3O1EL5WV1HG6NCQzbL+HuwLWHGWYwvZd8h8PHoFXw3x
+         U3MsgyAtLlOBJ+VdppmRJVfr2cfLP5jeYiYkwByFiJPFWbEoud2+O+V9vRPVmxgcTxrG
+         bxYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705069587; x=1705674387;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4K3qORjCWw+gkht7BR5kJjl56gwELapPIu5KXg30nNo=;
-        b=WOe3E3/3jir99XVNTrgfUC2BbDQExFFlkHu3RaA4cKRkkjL48Vxi4D/Cq/aOEHlgDQ
-         AamSC13SO+TjFNQQyA7YItkoprJx6PCF260CZwQJsmFrTSebcbIPXeqUuMAm7qlQnkO+
-         pl63hMtrKZX4lmfeFJ1U0rOLFClmF6yXI+90/hxX2rzswJAf/HL3nhjp9ZGRU/xXpLMU
-         DwN1Flq+fku5+h6puBUjVAaJYyFcMwyQ0TqgBlLDKlgQe7RIi6ay4O5Ogt5UNgcrlv4N
-         VF3yY1J++XLyJfHMVZQHHNXHU4FlmgDnC01yAoA3OlTgavjpkFW7sT+OnvBpRStlx0QZ
-         r/Dg==
-X-Gm-Message-State: AOJu0Yzxg3qVIAjFxI0Blkf8yxf8TLvEc3Uxs6oVM32uGO8UpiMxc7Nb
-	KwdKJn+nyH6Sq8U8GaKuyBo=
-X-Google-Smtp-Source: AGHT+IHpajvBOFzp7zZrUTgb2u+zy2CCRsm5VcWjvelFGJ7z8i1+xpL84mVdNyt0hzeNAVRCV+krjg==
-X-Received: by 2002:a05:600c:2202:b0:40e:66cc:46e6 with SMTP id z2-20020a05600c220200b0040e66cc46e6mr257214wml.181.1705069587239;
-        Fri, 12 Jan 2024 06:26:27 -0800 (PST)
+        d=1e100.net; s=20230601; t=1705069591; x=1705674391;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WclvSvESBcB1ccyxeqjrdGj+frspJc0esD0QtgwrkCo=;
+        b=U1i1Y6BWGHfAuW+nodlje+4ZqQFbz5HAUHmk0SIfQE6S6KKrXW3/owNV/IKbStJFUr
+         DaWXPyQwDjWBzIBJ3O3soBbyqKEe6JaMc4+5sARN45UKkmvfcWQA5BNnVqqQDgWHGOwH
+         Tck3oM+2aoqRcwPs9szFXSzvfqenx3oO5cKHCFi1+IbzMZyuOs2GSnUUZFiUiFPpSP0s
+         O5va1QjWykV784lY0FllW2ATUiGS83Y7S8qSjx4wkC5OYf8knwC92H6kGd4I61ltvlee
+         zw7fx5YLOnogZS4vY4/LFvOytwwtQGDFHsUzYBWHhZs9Ug0dsdFOmGB3Iu8Nm6a3Rpgo
+         S/Aw==
+X-Gm-Message-State: AOJu0YzE7DerN4KCj2bARBHbbJwTrrSMayrh7bXgY2NNlVlJy6IIP0+T
+	fU0yoTGifsZX+pD8Fz151Xo=
+X-Google-Smtp-Source: AGHT+IHVtC639FZXHSGXUI4wjXAd7RHB12n7+GICuZHzambNk3DzkW0+DuDqNWSh+t2v9ArOYbiv9A==
+X-Received: by 2002:adf:fa51:0:b0:336:c3c7:75e8 with SMTP id y17-20020adffa51000000b00336c3c775e8mr697221wrr.45.1705069591670;
+        Fri, 12 Jan 2024 06:26:31 -0800 (PST)
 Received: from prasmi.home ([2a00:23c8:2500:a01:494d:c489:3d96:1b15])
-        by smtp.gmail.com with ESMTPSA id f6-20020a5d4dc6000000b00336a2566aa2sm4021219wru.61.2024.01.12.06.26.26
+        by smtp.gmail.com with ESMTPSA id f6-20020a5d4dc6000000b00336a2566aa2sm4021219wru.61.2024.01.12.06.26.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Jan 2024 06:26:26 -0800 (PST)
+        Fri, 12 Jan 2024 06:26:31 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -78,14 +79,17 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v4 0/4] Add missing port pins for RZ/Five SoC
-Date: Fri, 12 Jan 2024 14:26:17 +0000
-Message-Id: <20240112142621.13525-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v4 4/4] riscv: dts: renesas: r9a07g043f: Update gpio-ranges property
+Date: Fri, 12 Jan 2024 14:26:21 +0000
+Message-Id: <20240112142621.13525-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240112142621.13525-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20240112142621.13525-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240112_062630_865558_AF9161EE 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20240112_062633_892675_E8691530 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +108,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Hi All,
+On RZ/Five we have additional pins compared to the RZ/G2UL SoC so update
+the gpio-ranges property in RZ/Five SoC DTSI.
 
-This patch series intends to incorporate the absent port pins P19 to P28,
-which are exclusively available on the RZ/Five SoC.
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+ arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Cheers,
-Prabhakar
-
-v3->v4:
-* Rebased the changes on top Claudiu's patches
-* patch 1/4 is new patch for using FIELD_PREP_CONST/FIELD_GET as
-  suggested by Geert
-* patch 2/4 adjusted the code again using FIELD_PREP_CONST/FIELD_GET
-* patch 3/4 fixed rzg2l_pinctrl_get_variable_pin_cfg() as pointed by Geert
-* patch 4/4 is unchanged
-* patches 1-3 have been boot tested on g2l family
-
-v2->v3:
-* Fixed build warnings for m68k as reported by Kernel test robot.
-
-RFC -> v2:
-* Fixed review comments pointed by Geert & Biju
-
-RFC:
-Link: https://lore.kernel.org/lkml/20230630120433.49529-3-prabhakar.mahadev-lad.rj@bp.renesas.com/T/
-
-Lad Prabhakar (4):
-  pinctrl: renesas: rzg2l: Improve code for readability
-  pinctrl: renesas: rzg2l: Include pinmap in RZG2L_GPIO_PORT_PACK()
-    macro
-  pinctrl: renesas: pinctrl-rzg2l: Add the missing port pins P19 to P28
-  riscv: dts: renesas: r9a07g043f: Update gpio-ranges property
-
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi |   4 +
- drivers/pinctrl/renesas/pinctrl-rzg2l.c     | 284 +++++++++++++++++---
- 2 files changed, 248 insertions(+), 40 deletions(-)
-
+diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+index d2272a0bfb61..aa3b1d2b999d 100644
+--- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
++++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+@@ -46,6 +46,10 @@ cpu0_intc: interrupt-controller {
+ 	};
+ };
+ 
++&pinctrl {
++	gpio-ranges = <&pinctrl 0 0 232>;
++};
++
+ &soc {
+ 	dma-noncoherent;
+ 	interrupt-parent = <&plic>;
 -- 
 2.34.1
 
