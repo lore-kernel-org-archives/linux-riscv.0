@@ -4,77 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D2F2C4706C
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jan 2024 16:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA55C47258
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jan 2024 17:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HrRF/X9breTjZG3C8mUS5bLMYyw3qcR4LmrzaMRjHWw=; b=dJ0yvvFFtRPLCZ
-	uwMaZEodiKh1kAlCP0nMkRVYfGhgWyCHBwRq2/si8/LAmx7ggohF+oN/Yo2GW20z19b7xYjOnr2sX
-	sLooEwoJV4+M5b0ncyUSMbsr7cMMYrt5GwO+Vl9lmzf13umHAgsR9v18ksC6i6IB9goYGv/kDLwVY
-	BqpmqlUrtR0v/0zYgQPwZXXM9xkXgfroTGihlMs4e4owZPh2T+sTFpBfmQnAvoRQGzQT6o9iBY1gk
-	3EOmSa1A5jbCJ66rQvM9KjZgrWlGaFFgf/1AnPIOT+QQlwAP+C38nKgN6p+mVUxW3yAAkFeqoDPP5
-	cky/1XfI8EA33Fn/uTmg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=XzlNhYZ/L6iGY6pcDWaBmvY0HfhyoifH8ssaXHQ2rDs=; b=G3l
+	WVvVQvZaR9AWEKDoXQ07Ec0fFN8wBLWxKMKIEQBihduLSIirQ8A2u3SSAxut+9TUwHM+NRsyk+cD4
+	vdCSt4WAinnhGS9LS/yT0dOFpNPpsZV1fiUybIe6Bg2f/4IP+XWLAYAmaGZzlSa3WUsq5aF6KaIN1
+	SQyV1I3xwoIniBx+/MFyY4IGztbn1BY7g54sLIBTGy8Mx3Wa0sJeYuQ/C05vWQiwNPDk/38N5Fz82
+	0Pp7WU4NKXzktpceZLMRx/U+qVrgYsMKt/uuWNCPZnMRCLBzmSIUBL+mt8cSKwo2TdK8iO2VMj0z/
+	1o2YoNN0gEPxlfwMuZGIHJVCsM3aM5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOK0T-003FrD-1B;
-	Fri, 12 Jan 2024 16:03:41 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1rOKvh-003O4E-07;
+	Fri, 12 Jan 2024 17:02:49 +0000
+Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOK0P-003Fq6-2S
+	id 1rOKvd-003O35-2w
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Jan 2024 16:03:39 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-50e7e55c0f6so8005999e87.0
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Jan 2024 08:03:37 -0800 (PST)
+	Fri, 12 Jan 2024 17:02:47 +0000
+Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-3bd4f062aa2so1013953b6e.1
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Jan 2024 09:02:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1705075416; x=1705680216; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1705078963; x=1705683763; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zlcumRuo3yPkbSOFFixN83g3X5t6YCh0ouJJ+9wMhrI=;
-        b=V4d+agXR6Fs30FleQtahF74qUxIJ2zD9d3K42CjLeOof5PJXxe+LWUZLobpJDi1R68
-         yLk4qPNgwO7xVuJtIyYaFqq6kXg0lZaN+6lRuSbECgM7XJ8y0BCRPbmVfFVWjNaWdEeq
-         6S2C7PiUlCIwT9URJD8tymUGsJnmKWnai3pNY6RB9QkdejiZ+fopdqNNiI4xNAA9e66a
-         iHht1eDe59Vr/APWPX7TNSth+YORc6g7GHPMGkDpXYZBNniNYg3Z1qU1UNgWkXg6Yv7F
-         T9RgGPhpkGuP1LO+rn0o+tP5hYydzUM8p8Y+JhT/1t9kXSy93ZSGSDn6UXfxJ/9Py2Qa
-         N1yA==
+        bh=FZqWdlUl0XQlF086prusk+6ID238UceJ2KU8wzc+35M=;
+        b=mod+sp7xPvLja8yDrEJA+9CDlxIuUL+IKN/yCBPdIrOEwniyYqiRUt7atkbvp0zXQV
+         X8nQ03Yi0VvPGuqxAD5CRnUmAZEO2s+YgV/L97RC95AIT+wv/2YMqpPm02ExLX2Wldct
+         XuXLhPdBAGW/fAFGzS2ELI1AHPkl07t6LcIdJhsK1OYR8U5q4Yf2+yO+p35Cec+OND1X
+         dL950CnSAJiUN/PqmI67l5QdbBf9HRelvjGK/1RroqLaIzuBWiRdg+Czo/1QlpnCd9vF
+         AVkZsBlSJ5SM3phOkT+nehxWB5L27aqvjDi599v3t5Ykj9GsapJKD9g51zJqD6JqRN6h
+         ugdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705075416; x=1705680216;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1705078963; x=1705683763;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zlcumRuo3yPkbSOFFixN83g3X5t6YCh0ouJJ+9wMhrI=;
-        b=ncEOPfHlf7keNK5bkKSAw4rOr18vdt5k6WfhLhFRl8wb3vh/3m5FmJ8TXs2FrIQ1ls
-         jkp9Fe4Ch/Va5cDPDHCbDYbEoqee3lKFKwMXmq5AhwqD1prMb3tyv30tzlhCa+ERvfWp
-         BOVyxT8XENmSgz19R+OPpaIpTax/w/pBF8RLZguKGhx+wX0Smj/LurXni0WUVrRvxoPS
-         gTFPXawbIchT+DoC4u3iiU0i9divFg0i3fNyO1JDt+M5s91jKvOONMttQCZsUGr8mkZU
-         NcPp3Kd6LKE400du1dvyHDkSaj3tCPi3EciJaZns3NYh0wSga3os3PM4v6E3GhUa7HDb
-         p+WA==
-X-Gm-Message-State: AOJu0YyrZJi9+uceoOvTnN309VoIAqd71//7gDGWWY3amI9Eps9dXvOz
-	vJ83S0f6Wf8Pv8wKoLEyqBiwEdcqUVR8VhoXQ1HAgoNvaO+zZ6yLgiZMwBp9Ass=
-X-Google-Smtp-Source: AGHT+IEpgcpHLz9s49n5cCw5A/94fzWtAO8abbMFi1uga19CZdsKzOR19wfmGw1R9rTy/IWbJKP6UN4vASGV/yBzrRE=
-X-Received: by 2002:a05:6512:3f2a:b0:50e:b2ac:829a with SMTP id
- y42-20020a0565123f2a00b0050eb2ac829amr562791lfa.32.1705075415595; Fri, 12 Jan
- 2024 08:03:35 -0800 (PST)
-MIME-Version: 1.0
-References: <20240111131558.31211-1-andy.chiu@sifive.com> <170504103075.17535.16233182023874920613.git-patchwork-notify@kernel.org>
- <87o7dqsh80.fsf@all.your.base.are.belong.to.us>
-In-Reply-To: <87o7dqsh80.fsf@all.your.base.are.belong.to.us>
-From: Andy Chiu <andy.chiu@sifive.com>
-Date: Sat, 13 Jan 2024 00:03:24 +0800
-Message-ID: <CABgGipXYeE4J3226yoAU9J25eeP+vWofqL1mMYoD9axthJrk2Q@mail.gmail.com>
-Subject: Re: [v10, 00/10] riscv: support kernel-mode Vector
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, greentime.hu@sifive.com, guoren@linux.alibaba.com, 
-	charlie@rivosinc.com, ardb@kernel.org, arnd@arndb.de, peterz@infradead.org, 
-	tglx@linutronix.de, ebiggers@kernel.org, aou@eecs.berkeley.edu
+        bh=FZqWdlUl0XQlF086prusk+6ID238UceJ2KU8wzc+35M=;
+        b=kHkabGsTzNGZyqkxBOcPXMV2w/XOJRpKPCjGuFcv1IIwXjWSB0xtCyMaNo6SW0A+kf
+         s87gZ+ezXkGHezeOZ34dvc0PxdrlfEUWZpnR6bBu26gzjigZ9Of1UzBLYUkjldLDNftf
+         r7hlEos8DrSc7VKPUKIP8ctzqSp4HKItdMTZA8t+SwZtm94Z+mo4tjB+Oybq44YcgLda
+         +LzRElkGlw9OomlDu3uiW00gqm/qWIfeISmY81mXT4/ZcAHGnniRDOtuCo5JxQ80y9tH
+         6nROA9uvlCYf+Fb4hlZvzxICIl3nKA7vWQFXvGrUNCxEujrvlazdPeIZ1N3MRFf1KMs3
+         BM/Q==
+X-Gm-Message-State: AOJu0YwQ4A+l4WCD7/G/7mBx+8sO6HXcUj0L6jIBJC9CqeUpYwSWiYuY
+	sz9tCXvmRt/HIfh1cxdK6FavxB7YsJ3acQ==
+X-Google-Smtp-Source: AGHT+IFuC+zwXcADuq8BSizVhLjVJBZlQOVtFMCknLiKckAuGQAEOwlTFcPndv1twUuxlAN0zeTb0Q==
+X-Received: by 2002:a05:6808:13ca:b0:3bd:61ba:6333 with SMTP id d10-20020a05680813ca00b003bd61ba6333mr500205oiw.13.1705078963541;
+        Fri, 12 Jan 2024 09:02:43 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id db14-20020a056808408e00b003bd5aa5397asm472673oib.11.2024.01.12.09.02.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Jan 2024 09:02:42 -0800 (PST)
+Date: Fri, 12 Jan 2024 09:02:42 -0800 (PST)
+X-Google-Original-Date: Fri, 12 Jan 2024 09:02:21 PST (-0800)
+Subject: [GIT PULL] RISC-V Patches for the 6.8 Merge Window, Part 1
+CC: linux-kernel@subspace.kernel.org,         linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-9a7c8503-91d4-4b92-a594-964a5983ecab@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240112_080337_809776_44FE19F5 
-X-CRM114-Status: GOOD (  22.27  )
+X-CRM114-CacheID: sfid-20240112_090245_955588_82929BAE 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,79 +81,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============2903766211896570246=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKYW4gMTIsIDIwMjQgYXQgMTE6MjnigK9QTSBCasO2cm4gVMO2cGVsIDxiam9ybkBr
-ZXJuZWwub3JnPiB3cm90ZToKPgo+IEFuZHksCj4KPiA+IEhlbGxvOgo+ID4KPiA+IFRoaXMgc2Vy
-aWVzIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZm9yLW5leHQpCj4gPiBieSBQYWxt
-ZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT46Cj4gPgo+Cj4gSSdtIGdldHRpbmcgc29t
-ZSBib290IGlzc3VlcyB3aXRoIHRoaXMgc2VyaWVzIGFwcGxpZWQgdG8gcmlzY3YvZm9yLW5leHQu
-Cj4KPiBUaGUgZnVsbCBydW5zICh3aXRoIGxvZ3MpIGlzIGhlcmU6Cj4gaHR0cHM6Ly9naXRodWIu
-Y29tL2xpbnV4LXJpc2N2L2xpbnV4LXJpc2N2L2FjdGlvbnMvcnVucy83NDk4NzA2MzI2Cj4KPiBU
-eXBpY2FsbHkgaXQgZmFpbHMgaW4gdHdvIHdheXM6Cj4gVWJ1bnR1IHJvb3RmczoKPiAtLTg8LS0K
-PiBbIDQuMzQ2NDE0XSAoc2QtZ2VucylbNjhdOiBGYWlsZWQgdG8gZXh0cmFjdCBmaWxlIG5hbWUg
-ZnJvbSAnJzogSW52YWxpZCBhcmd1bWVudAo+IFsgNC4zOTA4MzJdIHN5c3RlbWRbMV06IEZhaWxl
-ZCB0byBmb3JrIG9mZiBzYW5kYm94aW5nIGVudmlyb25tZW50IGZvciBleGVjdXRpbmcgZ2VuZXJh
-dG9yczogUHJvdG9jb2wgZXJyb3IKPiBbRVNDWzA7MTszMW0hISEhISFFU0NbMG1dIEZhaWxlZCB0
-byBzdGFydCB1cCBtYW5hZ2VyLgo+IFsgNC40NDAxNjRdIHN5c3RlbWRbMV06IEZyZWV6aW5nIGV4
-ZWN1dGlvbi4KPiAtLTg8LS0KPgo+IG9yOgo+IC0tODwtLQo+IFsgICAxNC45MDk5MTJdIChzZC1n
-ZW5zKVs3MV06IEFzc2VydGlvbiAnIXN0cnZfaXNlbXB0eShkaXJzKScgZmFpbGVkIGF0IHNyYy9z
-aGFyZWQvZXhlYy11dGlsLmM6MjExLCBmdW5jdGlvbiBleGVjdXRlX2RpcmVjdG9yaWVzKCkuIEFi
-b3J0aW5nLgo+IFsgICAxNS4wMDg0ODBdIHN5c3RlbWRbMV06IEZhaWxlZCB0byBmb3JrIG9mZiBz
-YW5kYm94aW5nIGVudmlyb25tZW50IGZvciBleGVjdXRpbmcgZ2VuZXJhdG9yczogUHJvdG9jb2wg
-ZXJyb3IKPiBbRVNDWzA7MTszMW0hISEhISFFU0NbMG1dIEZhaWxlZCB0byBzdGFydCB1cCBtYW5h
-Z2VyLgo+IFsgICAxNS4xMTE5ODldIHN5c3RlbWRbMV06IEZyZWV6aW5nIGV4ZWN1dGlvbi4KPiAt
-LTg8LS0KPgo+IGFuZCBBbHBpbmUgd2l0aDoKPiAtLTg8LS0KPiBbIDAuMDM2NzAzXSBLZXJuZWwg
-cGFuaWMgLSBub3Qgc3luY2luZzoga21lbV9jYWNoZV9jcmVhdGVfdXNlcmNvcHk6IEZhaWxlZCB0
-byBjcmVhdGUgc2xhYiAncmlzY3ZfdmVjdG9yX2N0eCcuIEVycm9yIC0yMgo+IFsgMC4wMzkxOTVd
-IENQVTogMCBQSUQ6IDAgQ29tbTogc3dhcHBlci8wIE5vdCB0YWludGVkIDYuNy4wLXJjMS1kZWZj
-b25maWdfcGxhaW4tZ2RmOTQ0NzA0MTgyZSAjMQo+IFsgMC4wNDA3NDRdIEhhcmR3YXJlIG5hbWU6
-IHJpc2N2LXZpcnRpbyxxZW11IChEVCkKPiBbIDAuMDQxOTc1XSBDYWxsIFRyYWNlOgo+IFsgMC4w
-NDI4MTNdIFs8ZmZmZmZmZmY4MDAwNjdhND5dIGR1bXBfYmFja3RyYWNlKzB4MWMvMHgyNAo+IFsg
-MC4wNDQ4MzJdIFs8ZmZmZmZmZmY4MDk0NTk4MD5dIHNob3dfc3RhY2srMHgyYy8weDM4Cj4gWyAw
-LjA0NTcyNF0gWzxmZmZmZmZmZjgwOTUyMjE0Pl0gZHVtcF9zdGFja19sdmwrMHgzYy8weDU0Cj4g
-WyAwLjA0Njg0MV0gWzxmZmZmZmZmZjgwOTUyMjQwPl0gZHVtcF9zdGFjaysweDE0LzB4MWMKPiBb
-IDAuMDQ3NDI4XSBbPGZmZmZmZmZmODA5NDVlN2M+XSBwYW5pYysweDEwNi8weDI5ZQo+IFsgMC4w
-NDc5OThdIFs8ZmZmZmZmZmY4MDE1ZjE0Yz5dIGttZW1fY2FjaGVfY3JlYXRlX3VzZXJjb3B5KzB4
-MjBlLzB4MjU4Cj4gWyAwLjA0ODc4Nl0gWzxmZmZmZmZmZjgwYTA0NGRjPl0gcmlzY3Zfdl9zZXR1
-cF9jdHhfY2FjaGUrMHgyYy8weDNjCj4gWyAwLjA0OTUyMV0gWzxmZmZmZmZmZjgwYTAzYTQ4Pl0g
-YXJjaF90YXNrX2NhY2hlX2luaXQrMHgxMC8weDE4Cj4gWyAwLjA1NzgzMl0gWzxmZmZmZmZmZjgw
-YTA3MDZjPl0gZm9ya19pbml0KzB4NDIvMHgxNjgKPiBbIDAuMDU4NzM3XSBbPGZmZmZmZmZmODBh
-MDBkNzA+XSBzdGFydF9rZXJuZWwrMHg2YmEvMHg3M2EKPiAtLTg8LS0KPgo+IFRoZSBBbHBpbmUg
-Ym9vdCBjYW4gYmUgZml4ZWQgd2l0aCBzb21ldGhpbmcgbGlrZToKPiAtLTg8LS0KPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdmVjdG9yLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC92ZWN0
-b3IuYwo+IGluZGV4IGY5NzY5NzAzZmQzOS4uMGFjNzlhOWNkYmE1IDEwMDY0NAo+IC0tLSBhL2Fy
-Y2gvcmlzY3Yva2VybmVsL3ZlY3Rvci5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmVjdG9y
-LmMKPiBAQCAtNTMsNiArNTMsOSBAQCBpbnQgcmlzY3Zfdl9zZXR1cF92c2l6ZSh2b2lkKQo+Cj4g
-IHZvaWQgX19pbml0IHJpc2N2X3Zfc2V0dXBfY3R4X2NhY2hlKHZvaWQpCj4gIHsKPiArICAgICAg
-IGlmICghcmlzY3Zfdl92c2l6ZSkKPiArICAgICAgICAgICAgICAgcmV0dXJuOwo+ICsKPiAgICAg
-ICAgIHJpc2N2X3ZfdXNlcl9jYWNoZXAgPSBrbWVtX2NhY2hlX2NyZWF0ZV91c2VyY29weSgicmlz
-Y3ZfdmVjdG9yX2N0eCIsCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgcmlzY3Zfdl92c2l6ZSwgMTYsIFNMQUJfUEFOSUMsCj4gICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMCwgcmlz
-Y3Zfdl92c2l6ZSwgTlVMTCk7Cj4gLS04PC0tCgpTb3JyeSBmb3IgdGhhdCEgSSBmb3Jnb3QgdG8g
-ZG8gYSBoYXNfdmVjdG9yKCkgY2hlY2sgYmVmb3JlIGNyZWF0aW5nCnRoZSBjYWNoZS4gSSBhbSBn
-b2luZyB0byBzZW5kIGEgcGF0Y2ggdG8gZml4IGl0LgoKPgo+IGJ1dCB3aXRoIHRoaXMgImZpeCIg
-aW4gcGxhY2UgSSBzdGlsbCBnZXQgVWJ1bnR1IGJvb3QgZmFpbHVyZXMuIFRvCj4gcmVwcm9kdWNl
-IHRoZSBDSSBsb2NhbGx5Ogo+Cj4gICB8IGdpdCBmZXRjaCBodHRwczovL2dpdGh1Yi5jb20vbGlu
-dXgtcmlzY3YvbGludXgtcmlzY3YgZTJhYWQ3NWIzNDBkNjViMGJlNGQxYTY4OWRiM2UxMGM2ZWQz
-ZjE4ZQo+ICAgfCBnaXQgY2hlY2tvdXQgRkVUQ0hfSEVBRAo+ICAgfCBkb2NrZXIgcHVsbCBnaGNy
-LmlvL2xpbnV4LXJpc2N2L3B3LWJ1aWxkZXItbXVsdGk6bGF0ZXN0Cj4gICB8IGRvY2tlciBydW4g
-LWl0IC0tdm9sdW1lICRQV0Q6L2J1aWxkL215LWxpbnV4IGdoY3IuaW8vbGludXgtcmlzY3YvcHct
-YnVpbGRlci1tdWx0aTpsYXRlc3QgYmFzaAo+ICAgfCAjIEluIGNvbnRhaW5lcgo+ICAgfCBiYXNo
-IC1sCj4gICB8IG1rZGlyIC1wIC9idWlsZC9rZXJuZWxzL2xvZ3MKPiAgIHwgLmdpdGh1Yi9zY3Jp
-cHRzL3Nlcmllcy9wcmVwYXJlX3Rlc3RzLnNoCj4gICB8IGNkIC9idWlsZC9teS1saW51eAo+ICAg
-fCAuZ2l0aHViL3NjcmlwdHMvc2VyaWVzL2tlcm5lbF9idWlsZGVyLnNoIHJ2NjQgZGVmY29uZmln
-IHBsYWluIGdjYwo+ICAgfCAuZ2l0aHViL3NjcmlwdHMvc2VyaWVzL3Rlc3RfcnVubmVyLnNoIHJ2
-NjQgZGVmY29uZmlnIHBsYWluIGdjYyB1YnVudHUKPiAgIHwgLmdpdGh1Yi9zY3JpcHRzL3Nlcmll
-cy90ZXN0X3J1bm5lci5zaCBydjY0IGRlZmNvbmZpZyBwbGFpbiBnY2MgYWxwaW5lCgpJdCdzIHdl
-aXJkIHRoYXQgdGhlc2UgZXJyb3JzIGRvIG5vdCBzaG93IHVwIGluIG15IHRlc3QgZW52aXJvbm1l
-bnQuIEkKd2lsbCB0cnkgdG8gcmVwcm9kdWNlIGl0IHdpdGggdGhlIHNjcmlwdCBhYm92ZS4KCj4K
-PiBMb2dzIGluIC9idWlsZC90ZXN0cy9ydW5fdGVzdCoKPgo+IEknbGwgY29udGludWUgdG8gZGVi
-dWcgaW4gdGhlIG1lYW50aW1lLgo+Cj4KPiBCasO2cm4KClRoYW5rcywKQW5keQoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+--===============2903766211896570246==
+Content-Type: text/plain
+
+The following changes since commit ed5b7cfd7839f9280a63365c1133482b42d0981f:
+
+  riscv: errata: andes: Probe for IOCP only once in boot stage (2023-12-06 07:18:58 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.8-mw1
+
+for you to fetch changes up to cb51bfee7f62a8e26b694f9d84c0041b3e3ccc71:
+
+  Merge patch series "riscv: hwprobe: add Zicond, Zacas and Ztso support" (2024-01-09 20:14:51 -0800)
+
+----------------------------------------------------------------
+RISC-V Patches for the 6.8 Merge Window, Part 1
+
+* Support for many new extensions in hwprobe, along with a handful of
+  cleanups.
+* Various cleanups to our page table handling code, so we alwayse use
+  {READ,WRITE}_ONCE.
+* Support for the which-cpus flavor of hwprobe.
+* Support for XIP kernels has been resurrected.
+
+----------------------------------------------------------------
+There will almost certainly be a part 2 next week, I've already got a few
+things in for-next and there's some more on the mailing lists to get through.
+
+I think the only odd thing here is that I merged in my fixes branch, which I
+don't usually do.  I just ended up not being very productive over the holidays
+and missed the last few RCs, so I figured it'd be best to just merge them in
+rather than cherry pick them over.
+
+----------------------------------------------------------------
+Al Viro (1):
+      use linux/export.h rather than asm-generic/export.h
+
+Alexandre Ghiti (8):
+      riscv: Use WRITE_ONCE() when setting page table entries
+      mm: Introduce pudp/p4dp/pgdp_get() functions
+      riscv: mm: Only compile pgtable.c if MMU
+      riscv: Use accessors to page table entries instead of direct dereference
+      riscv: Check if the code to patch lies in the exit section
+      riscv: Fix wrong usage of lm_alias() when splitting a huge linear mapping
+      riscv: Fix module_alloc() that did not reset the linear mapping permissions
+      riscv: Fix set_direct_map_default_noflush() to reset _PAGE_EXEC
+
+Andrew Jones (4):
+      RISC-V: hwprobe: Clarify cpus size parameter
+      RISC-V: Move the hwprobe syscall to its own file
+      RISC-V: hwprobe: Introduce which-cpus flag
+      RISC-V: selftests: Add which-cpus hwprobe test
+
+Ben Dooks (2):
+      riscv: fix __user annotation in traps_misaligned.c
+      riscv; fix __user annotation in save_v_state()
+
+Clément Léger (25):
+      riscv: add ISA extension parsing for Zbc
+      riscv: hwprobe: export missing Zbc ISA extension
+      riscv: hwprobe: add support for scalar crypto ISA extensions
+      dt-bindings: riscv: add scalar crypto ISA extensions description
+      riscv: add ISA extension parsing for vector crypto
+      riscv: hwprobe: export vector crypto ISA extensions
+      dt-bindings: riscv: add vector crypto ISA extensions description
+      riscv: add ISA extension parsing for Zfh/Zfh[min]
+      riscv: hwprobe: export Zfh[min] ISA extensions
+      dt-bindings: riscv: add Zfh[min] ISA extensions description
+      riscv: add ISA extension parsing for Zihintntl
+      riscv: hwprobe: export Zhintntl ISA extension
+      dt-bindings: riscv: add Zihintntl ISA extension description
+      riscv: add ISA extension parsing for Zvfh[min]
+      riscv: hwprobe: export Zvfh[min] ISA extensions
+      dt-bindings: riscv: add Zvfh[min] ISA extension description
+      riscv: add ISA extension parsing for Zfa
+      riscv: hwprobe: export Zfa ISA extension
+      dt-bindings: riscv: add Zfa ISA extension description
+      riscv: add ISA extension parsing for Ztso
+      riscv: hwprobe: export Ztso ISA extension
+      dt-bindings: riscv: add Zacas ISA extension description
+      riscv: add ISA extension parsing for Zacas
+      riscv: hwprobe: export Zacas ISA extension
+      riscv: hwprobe: export Zicond extension
+
+Evan Green (1):
+      riscv: add ISA extension parsing for scalar crypto
+
+Frederik Haxel (3):
+      riscv: Make XIP bootable again
+      riscv: Fixed wrong register in XIP_FIXUP_FLASH_OFFSET macro
+      riscv: Allow disabling of BUILTIN_DTB for XIP
+
+Jisheng Zhang (1):
+      riscv: Select ARCH_WANTS_NO_INSTR
+
+Michal Simek (1):
+      dt-bindings: riscv: cpus: Add AMD MicroBlaze V compatible
+
+Palmer Dabbelt (8):
+      Merge patch series "riscv: report more ISA extensions through hwprobe"
+      Merge patch series "riscv: Use READ_ONCE()/WRITE_ONCE() for pte accesses"
+      RISC-V: Remove the removed single-letter extensions
+      Merge patch series "RISC-V: hwprobe: Introduce which-cpus"
+      Merge patch series "riscv: CPU operations cleanup"
+      Merge remote-tracking branch 'palmer/fixes' into for-next
+      Merge patch series "Fix XIP boot and make XIP testable in QEMU"
+      Merge patch series "riscv: hwprobe: add Zicond, Zacas and Ztso support"
+
+Samuel Holland (4):
+      riscv: Deduplicate code in setup_smp()
+      riscv: Remove unused members from struct cpu_operations
+      riscv: Use the same CPU operations for all CPUs
+      riscv: Remove obsolete rv32_defconfig file
+
+Song Shuai (1):
+      riscv: Remove SHADOW_OVERFLOW_STACK_SIZE macro
+
+ Documentation/arch/riscv/hwprobe.rst               | 122 +++++-
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
+ .../devicetree/bindings/riscv/extensions.yaml      | 219 +++++++++++
+ arch/arm/include/asm/pgtable.h                     |   2 +
+ arch/riscv/Kconfig                                 |   7 +-
+ arch/riscv/configs/rv32_defconfig                  | 139 -------
+ arch/riscv/include/asm/cpu_ops.h                   |  14 +-
+ arch/riscv/include/asm/cpufeature.h                |   4 +-
+ arch/riscv/include/asm/hwcap.h                     |  38 +-
+ arch/riscv/include/asm/hwprobe.h                   |  24 ++
+ arch/riscv/include/asm/kfence.h                    |   4 +-
+ arch/riscv/include/asm/pgtable-64.h                |  22 +-
+ arch/riscv/include/asm/pgtable.h                   |  33 +-
+ arch/riscv/include/asm/sections.h                  |   1 +
+ arch/riscv/include/asm/thread_info.h               |   1 -
+ arch/riscv/include/asm/xip_fixup.h                 |   2 +-
+ arch/riscv/include/uapi/asm/hwprobe.h              |  32 ++
+ arch/riscv/kernel/Makefile                         |   1 +
+ arch/riscv/kernel/cpu-hotplug.c                    |  19 +-
+ arch/riscv/kernel/cpu_ops.c                        |  14 +-
+ arch/riscv/kernel/cpu_ops_sbi.c                    |  19 -
+ arch/riscv/kernel/cpu_ops_spinwait.c               |  11 -
+ arch/riscv/kernel/cpufeature.c                     | 195 ++++++++--
+ arch/riscv/kernel/efi.c                            |   2 +-
+ arch/riscv/kernel/head.S                           |   6 +-
+ arch/riscv/kernel/mcount-dyn.S                     |   2 +-
+ arch/riscv/kernel/mcount.S                         |   2 +-
+ arch/riscv/kernel/module.c                         |   3 +-
+ arch/riscv/kernel/patch.c                          |  11 +-
+ arch/riscv/kernel/setup.c                          |   1 -
+ arch/riscv/kernel/signal.c                         |   2 +-
+ arch/riscv/kernel/smp.c                            |   2 +-
+ arch/riscv/kernel/smpboot.c                        |  38 +-
+ arch/riscv/kernel/sys_hwprobe.c                    | 411 +++++++++++++++++++++
+ arch/riscv/kernel/sys_riscv.c                      | 285 --------------
+ arch/riscv/kernel/traps_misaligned.c               |   6 +-
+ arch/riscv/kernel/vdso/hwprobe.c                   |  86 ++++-
+ arch/riscv/kernel/vmlinux-xip.lds.S                |   2 +
+ arch/riscv/kernel/vmlinux.lds.S                    |   2 +
+ arch/riscv/kvm/mmu.c                               |  22 +-
+ arch/riscv/lib/clear_page.S                        |   2 +-
+ arch/riscv/lib/tishift.S                           |   2 +-
+ arch/riscv/lib/uaccess.S                           |   2 +-
+ arch/riscv/mm/Makefile                             |   3 +-
+ arch/riscv/mm/fault.c                              |  16 +-
+ arch/riscv/mm/hugetlbpage.c                        |  12 +-
+ arch/riscv/mm/init.c                               |   8 +-
+ arch/riscv/mm/kasan_init.c                         |  45 +--
+ arch/riscv/mm/pageattr.c                           |  55 +--
+ arch/riscv/mm/pgtable.c                            |  51 ++-
+ include/linux/pgtable.h                            |  21 ++
+ tools/testing/selftests/riscv/hwprobe/Makefile     |   5 +-
+ tools/testing/selftests/riscv/hwprobe/hwprobe.c    |   2 +-
+ tools/testing/selftests/riscv/hwprobe/hwprobe.h    |   2 +-
+ tools/testing/selftests/riscv/hwprobe/which-cpus.c | 154 ++++++++
+ .../testing/selftests/riscv/vector/vstate_prctl.c  |  10 +-
+ 56 files changed, 1471 insertions(+), 726 deletions(-)
+ delete mode 100644 arch/riscv/configs/rv32_defconfig
+ create mode 100644 arch/riscv/kernel/sys_hwprobe.c
+ create mode 100644 tools/testing/selftests/riscv/hwprobe/which-cpus.c
+
+
+--===============2903766211896570246==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2903766211896570246==--
