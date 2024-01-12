@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 354A1C4706C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72866C4707C
 	for <linux-riscv@archiver.kernel.org>; Fri, 12 Jan 2024 06:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TckahNhu3YQ0jPaLJ/FZYI7u7ujZDqhG57Jp7yZ1PrM=; b=LklP+CbPbipwm+
-	UkYqmrDjQ9oINbjAmEZbHYXvo4RrFHsl9GT2/802co66JS8En95VDP2XKTfhuqFQ6/7KjDfgzPkXn
-	DNKttZC0n2IITVqRMur3Mq74HhRyoL6v1oFgmkoV6e1WLvfJtDEy3r+f6KH51laW426O8XkIiVfFC
-	nUjk5NaeI6opnXiBbLbLIf46Ny35A93b5Cc3hKUlI95F3miBNW1Md8SfVdbY408Kc0qjFb+eSIqgZ
-	5BI9N1fkp9g82X8apeld7qBrI4zzfHQMQZW7h9fpXYYbLnFDZ+9p3YGM/88mX/ADqUYkqGpX2odvA
-	yo4gZDCseopXDSwxJr3g==;
+	List-Owner; bh=BZaVeKzPfS2T4+17EeyLC5pWkl/cDQYue+CxSTxT7s8=; b=ursc9lI1N8KVFK
+	SQF9kktRlxZpe0uBIiHoQKEGoVBAP/GJV/Gw8OnkSFyCVd60B3hfTgoBSX6SJMAh7B3KH+2P59mLb
+	tZLFqWuYqk/Gvu96+04Q4ozoK3aOKVqLr3M06Jl01ntF1JyQVYysSUjuRDjzQhLXN1v0TnEtMVhfy
+	cXqIJIkZuWrxdQ1uJmLOtJkmKY6Q0bNDliLxw5d5swHCfn7fnsk0bEcjbgep5og6+1RC1SGN2cSDX
+	32G9C4s+xn4u4Yx1BjxbrxyeENMckuMlE0giYK7YnvSLBWc2Is3HDEoeCGT0yflWhH2aLC8psIaBY
+	rXSe51qMJTLriInL6q1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOB3t-0020uH-2b;
-	Fri, 12 Jan 2024 06:30:37 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rOB3v-0020vF-2p;
+	Fri, 12 Jan 2024 06:30:39 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOB3p-0020sD-0n
+	id 1rOB3s-0020sT-0x
 	for linux-riscv@lists.infradead.org;
-	Fri, 12 Jan 2024 06:30:34 +0000
+	Fri, 12 Jan 2024 06:30:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 9F87EB82255;
+	by ams.source.kernel.org (Postfix) with ESMTP id 7315CB8225D;
+	Fri, 12 Jan 2024 06:30:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0F3B4C433B2;
 	Fri, 12 Jan 2024 06:30:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DD15BC43394;
-	Fri, 12 Jan 2024 06:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705041030;
-	bh=nTCKlP8E3w3r918DPScqNt0w2ZJX7f1RmOrFs37dgR4=;
+	s=k20201202; t=1705041031;
+	bh=jekUb0FSVZPvWCqMLLEnDhCHnUsUC5IyzrcXtmJkoMQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=OGAcbI0VhUEpVkGS4VG3jEOGk3GqOPOr+EdWGx53BE+NE4KQR/yFHpjBuYEL9tKCw
-	 RXn26BLLp8IiJIb7iuDuj6N5E4GJhTUJh0yPN8uuE9tw/3OgjDaH59M5YmL8zzC/T8
-	 decxw1LmqoBxpIOEmmjyfVxkrIX6+gZI8AWGjtVcBO3I/cTN21lZSwJNMkgiWcMiim
-	 2HS/etH3Txt6vLZBk+c8n6O4DuKtgeL16zHL6AEw1oKaaDGzko6j62Ry/IE0rIBT+d
-	 CJO9GG4QqwYUIw+Bv/VBVzOTSID0bLM5iQwnPW9AF2umzhuD/AyFbLUCvR63YiquM8
-	 lYe+SGt6KVtKw==
+	b=ZoKOZ9IuihzHcwrt/9jW7znjgqOmpCDPTWVGhMBu0568Xac3cCsUNuuX8bVv2JwUd
+	 xzb1otYyIhe3EtzEe4kPVfjeqXy51k6sJSGXTnuIJogGmya4bW2JUn3MLIc7OO9TvF
+	 BrS8tcj1RJfZrvpcriWUGrdxKBWH9b/oWYJVyPIHNyWrtz+42/nfCW9VBtz9UVIf8a
+	 oxLTDHk4EVyakeEZ/C025+5Q1HGsOUJYQkl+OMjJgJd1UpNBtRA3qBezowVSQjoy9Y
+	 shZv2Kw1qPkckk9gyNznM+MzacDcN16R+IPb6SpkQAAhzl7aLsMR8fPwGoBGG9HqzN
+	 clSGzXxLo2zBA==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id C34F1D8C96D;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id E8B73DFC697;
 	Fri, 12 Jan 2024 06:30:30 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/5] tools: selftests: riscv: Fix compiler warnings
+Subject: Re: [PATCH V3 0/4] riscv: mm: Fixup & Optimize COMPAT code
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170504103079.17535.4478051835218795004.git-patchwork-notify@kernel.org>
+Message-Id: <170504103094.17535.18254228443220727646.git-patchwork-notify@kernel.org>
 Date: Fri, 12 Jan 2024 06:30:30 +0000
-References: <20231123185821.2272504-1-christoph.muellner@vrull.eu>
-In-Reply-To: <20231123185821.2272504-1-christoph.muellner@vrull.eu>
-To: =?utf-8?q?Christoph_M=C3=BCllner_=3Cchristoph=2Emuellner=40vrull=2Eeu=3E?=@ci.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, shuah@kernel.org, philipp.tomsich@vrull.eu,
- ajones@ventanamicro.com, evan@rivosinc.com, xiao.w.wang@intel.com,
- alexghiti@rivosinc.com, andy.chiu@sifive.com, bjorn@rivosinc.com,
- charlie@rivosinc.com
+References: <20231222115703.2404036-1-guoren@kernel.org>
+In-Reply-To: <20231222115703.2404036-1-guoren@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, alexghiti@rivosinc.com,
+ charlie@rivosinc.com, xiao.w.wang@intel.com, david@redhat.com,
+ panqinglin2020@iscas.ac.cn, rick.p.edgecombe@intel.com, willy@infradead.org,
+ bjorn@rivosinc.com, conor.dooley@microchip.com, cleger@rivosinc.com,
+ leobras@redhat.com, guoren@linux.alibaba.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240111_223033_413296_AD805B20 
-X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-CacheID: sfid-20240111_223036_510804_14566F97 
+X-CRM114-Status: UNSURE (   8.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,32 +74,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHNlcmllcyB3YXMgYXBwbGllZCB0byByaXNjdi9saW51eC5naXQgKGZvci1u
-ZXh0KQpieSBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT46CgpPbiBUaHUsIDIz
-IE5vdiAyMDIzIDE5OjU4OjE2ICswMTAwIHlvdSB3cm90ZToKPiBGcm9tOiBDaHJpc3RvcGggTcO8
-bGxuZXIgPGNocmlzdG9waC5tdWVsbG5lckB2cnVsbC5ldT4KPiAKPiBXaGVuIGJ1aWxkaW5nIHRo
-ZSBSSVNDLVYgc2VsZnRlc3RzIHdpdGggYSByaXNjdjMyIGNvbXBpbGVyIEkgcmFuIGludG8KPiBh
-IGNvdXBsZSBvZiBjb21waWxlciB3YXJuaW5ncy4gV2hpbGUgcmlzY3YzMiBzdXBwb3J0IGZvciB0
-aGVzZSB0ZXN0cyBpcwo+IHF1ZXN0aW9uYWJsZSwgdGhlIGZpeGVzIGFyZSBzbyB0cml2aWFsIHRo
-YXQgaXQgaXMgcHJvYmFibHkgYmVzdCB0byBzaW1wbHkKPiBhcHBseSB0aGVtLgo+IAo+IFsuLi5d
-CgpIZXJlIGlzIHRoZSBzdW1tYXJ5IHdpdGggbGlua3M6CiAgLSBbMS81XSB0b29sczogc2VsZnRl
-c3RzOiByaXNjdjogRml4IGNvbXBpbGUgd2FybmluZ3MgaW4gaHdwcm9iZQogICAgaHR0cHM6Ly9n
-aXQua2VybmVsLm9yZy9yaXNjdi9jL2I5MWMyNmZkYjBlOAogIC0gWzIvNV0gdG9vbHM6IHNlbGZ0
-ZXN0czogcmlzY3Y6IEZpeCBjb21waWxlIHdhcm5pbmdzIGluIGNibwogICAgaHR0cHM6Ly9naXQu
-a2VybmVsLm9yZy9yaXNjdi9jL2FjN2IyYTAyZDYyZgogIC0gWzMvNV0gdG9vbHM6IHNlbGZ0ZXN0
-czogcmlzY3Y6IEFkZCBtaXNzaW5nIGluY2x1ZGUgZm9yIHZlY3RvciB0ZXN0CiAgICBodHRwczov
-L2dpdC5rZXJuZWwub3JnL3Jpc2N2L2MvYjI1MGM5MDg5ODQxCiAgLSBbNC81XSB0b29sczogc2Vs
-ZnRlc3RzOiByaXNjdjogRml4IGNvbXBpbGUgd2FybmluZ3MgaW4gdmVjdG9yIHRlc3RzCiAgICBo
-dHRwczovL2dpdC5rZXJuZWwub3JnL3Jpc2N2L2MvZTFiYWY1ZTY4ZWQxCiAgLSBbNS81XSB0b29s
-czogc2VsZnRlc3RzOiByaXNjdjogRml4IGNvbXBpbGUgd2FybmluZ3MgaW4gbW0gdGVzdHMKICAg
-IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcmlzY3YvYy8xMmMxNjkxOTY1MmIKCllvdSBhcmUgYXdl
-c29tZSwgdGhhbmsgeW91IQotLSAKRGVldC1kb290LWRvdCwgSSBhbSBhIGJvdC4KaHR0cHM6Ly9r
-b3JnLmRvY3Mua2VybmVsLm9yZy9wYXRjaHdvcmsvcHdib3QuaHRtbAoKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hello:
+
+This series was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Fri, 22 Dec 2023 06:56:59 -0500 you wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> When the task is in COMPAT mode, the TASK_SIZE should be 2GB, so
+> STACK_TOP_MAX and arch_get_mmap_end must be limited to 2 GB. This series
+> fixes the problem made by commit: add2cc6b6515 ("RISC-V: mm: Restrict
+> address space for sv39,sv48,sv57") and optimizes the related coding
+> convention of TASK_SIZE.
+> 
+> [...]
+
+Here is the summary with links:
+  - [V3,1/4] riscv: mm: Fixup compat mode boot failure
+    https://git.kernel.org/riscv/c/5f449e245e5b
+  - [V3,2/4] riscv: mm: Fixup compat arch_get_mmap_end
+    https://git.kernel.org/riscv/c/97b7ac69be2e
+  - [V3,3/4] riscv: mm: Remove unused TASK_SIZE_MIN
+    (no matching commit)
+  - [V3,4/4] riscv: mm: Optimize TASK_SIZE definition
+    (no matching commit)
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
