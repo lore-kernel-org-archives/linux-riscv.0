@@ -4,57 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8F8C47077
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 00:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0A1C47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 01:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fI4tAIPot80I6fgciHp9UBBJiadGM2oYIXlE2Zh6OXI=; b=owLZZiFC4srRMwaxp2cXZqqIgr
-	CSMhAZzCsVm3EJK0BH4hxCczieEHKS3NCalZa95SH+3TLb5Q0428nubxk11zohb/c9IChYSFZ4Z5k
-	sUOoECCzlKZJd7DO5++Xw5XqdV9YQAzHhiuXsRfG8sxToQmHmCA+wDa/05X3fNdA+pPlXWiJU4L+b
-	8I6G5qWXQSjLrzcXjluvQ1+NiMc+7IZ9jhc635KD9MiC1OQHDKdiH8r1gZqK8ROodC60uNI8BJAZK
-	Ttf7uVUtQ1ppZI/gdNSn+/hS2d5p2Tc6OsasJIxFkAOMF44ucy66HRTXNAUmnCXS+dbqFUVNv7BmW
-	hVJkivWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2sehv8A3+Qh4f7GPJXvYEq8ykNIOI3CvM2QJc3XSR0Y=; b=upSZ0bgzUHBetV
+	NG4jfsMYx5oG2UEzc8INB2v5SaKrWGJH3mSUirWFlmy9icyfRe1x1zk/IGtgUpjeyRoGjXdTFF6Eb
+	blav5BEZXSUuBUbq4ddKOjO9CLGu9SX/PJuAXQ3O3CA/6gP40v+5RZTtDPop2l/VACf9dNM2uo2N+
+	5FbKO3yKDPDbAre8fekh/ZIggVtVIuoW+PsSlkCMECKHuhvbDzsaU/d8VJ3f6l20SIljaGLBYkOaM
+	5qEdB6Fn8v9HBmuYR2X4IRu+863L9foMC/qjAiMB4KN9FWw3CMWyqkmOl4Ffb14LG7qhj/KZewm3t
+	7iZz8Ml4KNW2C/UfTVUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPtbS-00E3vf-1t;
-	Wed, 17 Jan 2024 00:16:22 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rPunC-00E9sU-0f;
+	Wed, 17 Jan 2024 01:32:34 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPtbO-00E3vA-0x;
-	Wed, 17 Jan 2024 00:16:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 3F8C2CE1B8A;
-	Wed, 17 Jan 2024 00:16:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F4B0C433F1;
-	Wed, 17 Jan 2024 00:16:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705450575;
-	bh=kJ+3QD+8rJuaqWPfNZqBAEGz53Een08dtx5nqhngH34=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B3hv6iL7rThGsk1Tg6o4AfzxvjZ/XqJTNKv6YT/d/sGsmEmmAjKoHppJuPK+SRjPH
-	 gSgG4wFra8+DT4Un4e0PH3dJ1taY08GjkG62acK6iWHPFOXSj8WGVvTGuXUir1xe4u
-	 Tpxv6qy7TvDYCdnV19cmHNAfIeH65xBY/8CGKZAeeTXdEm109SDek9cb7fRb3KXfcn
-	 dsMkqGDX1shZvDBHKNhjTb3oxHsworI3LTVrGn+C/dVrpowg16J7wSuRfpPzykQCj2
-	 sW049hlhYKNPNpdh9hauJfNWrush+FWxZpM3u/nxoE8uTpMxv8qJUAu5BI/BvEAdOl
-	 bolDbDBX9Onfg==
-Date: Wed, 17 Jan 2024 00:16:03 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Atish Patra <atishp@atishpatra.org>
-Subject: Re: [PATCH v7 07/16] RISC-V: Move T-Head PMU to CPU feature
- alternative framework
-Message-ID: <20240116-cherub-revival-5d32cc5f1fd0@spud>
-References: <20240110073917.2398826-1-peterlin@andestech.com>
- <20240110073917.2398826-8-peterlin@andestech.com>
- <CAOnJCUKY8H+pvgTWW5zkfm8O4WR-OWOKmyPTcMjUZBCC5RaLWQ@mail.gmail.com>
+	id 1rOfUL-005H5P-3C
+	for linux-riscv@lists.infradead.org;
+	Sat, 13 Jan 2024 15:00:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1705157998; x=1736693998;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=74bLiqGHu8v7WR007fIT7Ya/IZKeJiUm7m5omNigiM8=;
+  b=O5MGaQTjEAG7asiv4w/LBxvTfKxD5+N2nqsEh3TLLMg/Jz3DQamsFusK
+   EPRfYjN45X5atTTWj4gFWEf6ui6KZAipShxmWM+IJbUzgJlghfWhq2LPV
+   zugF0m8jfmXdBdIZ1QfApf291o/oAhkG3BFju0h7CkovUgv+W4sHmwGx6
+   nLvq7N1/IMgUD+8Lvf15b+RS4bT7UaYiLiNrBDVhPHwqB5pHh42XA4U7C
+   N5LVAJtmOiLcRa604lgDxsuH7n111xrXjRFsfTgMLoz23O28wZVxYOcTW
+   hKaskI3SM9S9KoYQbNbtp5B0fclRggAIdEGTze3azohTrsc4QNHfG/Nty
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10952"; a="6102262"
+X-IronPort-AV: E=Sophos;i="6.04,192,1695711600"; 
+   d="scan'208";a="6102262"
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2024 06:59:49 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10952"; a="926683481"
+X-IronPort-AV: E=Sophos;i="6.04,192,1695711600"; 
+   d="scan'208";a="926683481"
+Received: from lkp-server02.sh.intel.com (HELO b07ab15da5fe) ([10.239.97.151])
+  by fmsmga001.fm.intel.com with ESMTP; 13 Jan 2024 06:59:44 -0800
+Received: from kbuild by b07ab15da5fe with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1rOfU4-000AbY-2v;
+	Sat, 13 Jan 2024 14:59:41 +0000
+Date: Sat, 13 Jan 2024 22:59:06 +0800
+From: kernel test robot <lkp@intel.com>
+To: Prabhakar <prabhakar.csengg@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: oe-kbuild-all@lists.linux.dev, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH v4 3/4] pinctrl: renesas: pinctrl-rzg2l: Add the missing
+ port pins P19 to P28
+Message-ID: <202401132220.aTrR8ckA-lkp@intel.com>
+References: <20240112142621.13525-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-In-Reply-To: <CAOnJCUKY8H+pvgTWW5zkfm8O4WR-OWOKmyPTcMjUZBCC5RaLWQ@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240116_161618_716833_6294C9B7 
-X-CRM114-Status: GOOD (  47.86  )
+Content-Disposition: inline
+In-Reply-To: <20240112142621.13525-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailman-Approved-At: Tue, 16 Jan 2024 17:32:33 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,357 +89,2365 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, irogers@google.com, heiko@sntech.de, geert+renesas@glider.be, alexander.shishkin@linux.intel.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, guoren@kernel.org, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, will@kernel.org, linux-renesas-soc@vger.kernel.org, tim609@andestech.com, Yu Chien Peter Lin <peterlin@andestech.com>, samuel@sholland.org, anup@brainfault.org, dminus@andestech.com, magnus.damm@gmail.com, jernej.skrabec@gmail.com, peterz@infradead.org, wens@csie.org, mingo@redhat.com, jszhang@kernel.org, inochiama@outlook.com, linux-sunxi@lists.linux.dev, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, andre.przywara@arm.com, locus84@andestech.com, acme@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, paul.walmsley@sifive.com, namhyung@kernel.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, ycliang@andestech.com, n.shubin@yadro.com, rdunlap@infradead.org, chao.wei@sophgo.com, adrian.hunter@intel.com, linux-perf-users@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com, jolsa@kernel.org, unicorn_wang@outlook.com, wefu@redhat.com
-Content-Type: multipart/mixed; boundary="===============5464972558899100522=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Prabhakar,
 
---===============5464972558899100522==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Ja0AtvSzsJhuxWGO"
-Content-Disposition: inline
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on geert-renesas-drivers/renesas-pinctrl]
+[cannot apply to geert-renesas-devel/next linusw-pinctrl/devel linusw-pinctrl/for-next linus/master v6.7 next-20240112]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Prabhakar/pinctrl-renesas-rzg2l-Improve-code-for-readability/20240112-222833
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-drivers.git renesas-pinctrl
+patch link:    https://lore.kernel.org/r/20240112142621.13525-4-prabhakar.mahadev-lad.rj%40bp.renesas.com
+patch subject: [PATCH v4 3/4] pinctrl: renesas: pinctrl-rzg2l: Add the missing port pins P19 to P28
+config: openrisc-allyesconfig (https://download.01.org/0day-ci/archive/20240113/202401132220.aTrR8ckA-lkp@intel.com/config)
+compiler: or1k-linux-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240113/202401132220.aTrR8ckA-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202401132220.aTrR8ckA-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:730:31: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+     730 |         u8 pinmap = FIELD_GET(PIN_CFG_PIN_MAP_MASK, cfg);
+         |                               ^~~~~~~~~~~~~~~~~~~~
+   In file included from include/linux/bitfield.h:10:
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c: At top level:
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1537:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1537 |         RZG2L_GPIO_PORT_PACK(2, 0x10, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1537:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1537 |         RZG2L_GPIO_PORT_PACK(2, 0x10, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1537:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1537 |         RZG2L_GPIO_PORT_PACK(2, 0x10, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1537:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1537 |         RZG2L_GPIO_PORT_PACK(2, 0x10, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1537:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1537 |         RZG2L_GPIO_PORT_PACK(2, 0x10, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1537:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1537 |         RZG2L_GPIO_PORT_PACK(2, 0x10, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[0]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1537:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1537 |         RZG2L_GPIO_PORT_PACK(2, 0x10, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1538:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1538 |         RZG2L_GPIO_PORT_PACK(2, 0x11, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1538:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1538 |         RZG2L_GPIO_PORT_PACK(2, 0x11, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1538:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1538 |         RZG2L_GPIO_PORT_PACK(2, 0x11, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1538:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1538 |         RZG2L_GPIO_PORT_PACK(2, 0x11, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1538:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1538 |         RZG2L_GPIO_PORT_PACK(2, 0x11, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1538:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1538 |         RZG2L_GPIO_PORT_PACK(2, 0x11, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[1]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1538:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1538 |         RZG2L_GPIO_PORT_PACK(2, 0x11, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1539:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1539 |         RZG2L_GPIO_PORT_PACK(2, 0x12, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1539:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1539 |         RZG2L_GPIO_PORT_PACK(2, 0x12, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1539:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1539 |         RZG2L_GPIO_PORT_PACK(2, 0x12, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1539:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1539 |         RZG2L_GPIO_PORT_PACK(2, 0x12, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1539:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1539 |         RZG2L_GPIO_PORT_PACK(2, 0x12, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1539:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1539 |         RZG2L_GPIO_PORT_PACK(2, 0x12, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[2]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1539:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1539 |         RZG2L_GPIO_PORT_PACK(2, 0x12, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1540:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1540 |         RZG2L_GPIO_PORT_PACK(2, 0x13, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1540:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1540 |         RZG2L_GPIO_PORT_PACK(2, 0x13, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1540:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1540 |         RZG2L_GPIO_PORT_PACK(2, 0x13, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1540:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1540 |         RZG2L_GPIO_PORT_PACK(2, 0x13, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1540:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1540 |         RZG2L_GPIO_PORT_PACK(2, 0x13, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1540:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1540 |         RZG2L_GPIO_PORT_PACK(2, 0x13, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[3]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1540:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1540 |         RZG2L_GPIO_PORT_PACK(2, 0x13, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1541:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1541 |         RZG2L_GPIO_PORT_PACK(2, 0x14, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1541:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1541 |         RZG2L_GPIO_PORT_PACK(2, 0x14, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1541:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1541 |         RZG2L_GPIO_PORT_PACK(2, 0x14, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1541:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1541 |         RZG2L_GPIO_PORT_PACK(2, 0x14, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1541:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1541 |         RZG2L_GPIO_PORT_PACK(2, 0x14, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1541:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1541 |         RZG2L_GPIO_PORT_PACK(2, 0x14, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[4]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1541:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1541 |         RZG2L_GPIO_PORT_PACK(2, 0x14, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1542:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1542 |         RZG2L_GPIO_PORT_PACK(3, 0x15, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1542:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1542 |         RZG2L_GPIO_PORT_PACK(3, 0x15, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1542:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1542 |         RZG2L_GPIO_PORT_PACK(3, 0x15, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1542:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1542 |         RZG2L_GPIO_PORT_PACK(3, 0x15, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1542:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1542 |         RZG2L_GPIO_PORT_PACK(3, 0x15, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1542:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1542 |         RZG2L_GPIO_PORT_PACK(3, 0x15, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[5]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1542:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1542 |         RZG2L_GPIO_PORT_PACK(3, 0x15, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1543:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1543 |         RZG2L_GPIO_PORT_PACK(2, 0x16, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1543:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1543 |         RZG2L_GPIO_PORT_PACK(2, 0x16, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1543:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1543 |         RZG2L_GPIO_PORT_PACK(2, 0x16, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1543:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1543 |         RZG2L_GPIO_PORT_PACK(2, 0x16, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1543:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1543 |         RZG2L_GPIO_PORT_PACK(2, 0x16, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1543:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1543 |         RZG2L_GPIO_PORT_PACK(2, 0x16, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[6]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1543:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1543 |         RZG2L_GPIO_PORT_PACK(2, 0x16, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1544:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1544 |         RZG2L_GPIO_PORT_PACK(3, 0x17, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1544:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1544 |         RZG2L_GPIO_PORT_PACK(3, 0x17, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1544:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1544 |         RZG2L_GPIO_PORT_PACK(3, 0x17, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1544:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1544 |         RZG2L_GPIO_PORT_PACK(3, 0x17, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1544:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1544 |         RZG2L_GPIO_PORT_PACK(3, 0x17, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1544:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1544 |         RZG2L_GPIO_PORT_PACK(3, 0x17, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[7]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1544:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1544 |         RZG2L_GPIO_PORT_PACK(3, 0x17, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1545:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1545 |         RZG2L_GPIO_PORT_PACK(3, 0x18, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1545:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1545 |         RZG2L_GPIO_PORT_PACK(3, 0x18, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1545:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1545 |         RZG2L_GPIO_PORT_PACK(3, 0x18, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1545:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1545 |         RZG2L_GPIO_PORT_PACK(3, 0x18, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1545:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1545 |         RZG2L_GPIO_PORT_PACK(3, 0x18, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1545:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1545 |         RZG2L_GPIO_PORT_PACK(3, 0x18, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[8]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1545:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1545 |         RZG2L_GPIO_PORT_PACK(3, 0x18, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1546:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1546 |         RZG2L_GPIO_PORT_PACK(2, 0x19, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1546:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1546 |         RZG2L_GPIO_PORT_PACK(2, 0x19, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1546:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1546 |         RZG2L_GPIO_PORT_PACK(2, 0x19, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1546:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1546 |         RZG2L_GPIO_PORT_PACK(2, 0x19, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1546:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1546 |         RZG2L_GPIO_PORT_PACK(2, 0x19, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1546:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1546 |         RZG2L_GPIO_PORT_PACK(2, 0x19, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[9]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1546:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1546 |         RZG2L_GPIO_PORT_PACK(2, 0x19, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1547:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1547 |         RZG2L_GPIO_PORT_PACK(2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1547:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1547 |         RZG2L_GPIO_PORT_PACK(2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1547:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1547 |         RZG2L_GPIO_PORT_PACK(2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1547:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1547 |         RZG2L_GPIO_PORT_PACK(2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1547:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1547 |         RZG2L_GPIO_PORT_PACK(2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1547:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1547 |         RZG2L_GPIO_PORT_PACK(2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[10]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1547:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1547 |         RZG2L_GPIO_PORT_PACK(2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1548:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1548 |         RZG2L_GPIO_PORT_PACK(2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1548:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1548 |         RZG2L_GPIO_PORT_PACK(2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1548:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1548 |         RZG2L_GPIO_PORT_PACK(2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1548:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1548 |         RZG2L_GPIO_PORT_PACK(2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1548:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1548 |         RZG2L_GPIO_PORT_PACK(2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1548:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1548 |         RZG2L_GPIO_PORT_PACK(2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[11]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1548:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1548 |         RZG2L_GPIO_PORT_PACK(2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1549:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1549 |         RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1549:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1549 |         RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1549:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1549 |         RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1549:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1549 |         RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1549:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1549 |         RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1549:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1549 |         RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[12]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1549:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1549 |         RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1550:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1550 |         RZG2L_GPIO_PORT_PACK(3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1550:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1550 |         RZG2L_GPIO_PORT_PACK(3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1550:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1550 |         RZG2L_GPIO_PORT_PACK(3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1550:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1550 |         RZG2L_GPIO_PORT_PACK(3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1550:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1550 |         RZG2L_GPIO_PORT_PACK(3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1550:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1550 |         RZG2L_GPIO_PORT_PACK(3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[13]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1550:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1550 |         RZG2L_GPIO_PORT_PACK(3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1551:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1551 |         RZG2L_GPIO_PORT_PACK(2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1551:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1551 |         RZG2L_GPIO_PORT_PACK(2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1551:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1551 |         RZG2L_GPIO_PORT_PACK(2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1551:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1551 |         RZG2L_GPIO_PORT_PACK(2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1551:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1551 |         RZG2L_GPIO_PORT_PACK(2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1551:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1551 |         RZG2L_GPIO_PORT_PACK(2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[14]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1551:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1551 |         RZG2L_GPIO_PORT_PACK(2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1552:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1552 |         RZG2L_GPIO_PORT_PACK(2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1552:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1552 |         RZG2L_GPIO_PORT_PACK(2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1552:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1552 |         RZG2L_GPIO_PORT_PACK(2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1552:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1552 |         RZG2L_GPIO_PORT_PACK(2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1552:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1552 |         RZG2L_GPIO_PORT_PACK(2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1552:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1552 |         RZG2L_GPIO_PORT_PACK(2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[15]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1552:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1552 |         RZG2L_GPIO_PORT_PACK(2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1553:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1553 |         RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1553:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1553 |         RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1553:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1553 |         RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1553:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1553 |         RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1553:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1553 |         RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1553:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1553 |         RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[16]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1553:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1553 |         RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1554:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1554 |         RZG2L_GPIO_PORT_PACK(3, 0x21, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1554:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1554 |         RZG2L_GPIO_PORT_PACK(3, 0x21, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1554:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1554 |         RZG2L_GPIO_PORT_PACK(3, 0x21, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1554:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1554 |         RZG2L_GPIO_PORT_PACK(3, 0x21, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1554:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1554 |         RZG2L_GPIO_PORT_PACK(3, 0x21, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1554:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1554 |         RZG2L_GPIO_PORT_PACK(3, 0x21, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[17]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1554:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1554 |         RZG2L_GPIO_PORT_PACK(3, 0x21, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1555:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1555 |         RZG2L_GPIO_PORT_PACK(2, 0x22, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1555:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1555 |         RZG2L_GPIO_PORT_PACK(2, 0x22, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1555:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1555 |         RZG2L_GPIO_PORT_PACK(2, 0x22, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1555:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1555 |         RZG2L_GPIO_PORT_PACK(2, 0x22, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1555:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1555 |         RZG2L_GPIO_PORT_PACK(2, 0x22, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1555:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1555 |         RZG2L_GPIO_PORT_PACK(2, 0x22, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[18]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1555:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1555 |         RZG2L_GPIO_PORT_PACK(2, 0x22, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1556:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1556 |         RZG2L_GPIO_PORT_PACK(2, 0x23, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1556:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1556 |         RZG2L_GPIO_PORT_PACK(2, 0x23, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1556:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1556 |         RZG2L_GPIO_PORT_PACK(2, 0x23, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1556:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1556 |         RZG2L_GPIO_PORT_PACK(2, 0x23, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1556:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1556 |         RZG2L_GPIO_PORT_PACK(2, 0x23, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: error: initializer element is not constant
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1556:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1556 |         RZG2L_GPIO_PORT_PACK(2, 0x23, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:49: note: (near initialization for 'r9a07g044_gpio_configs[19]')
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                 ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1556:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1556 |         RZG2L_GPIO_PORT_PACK(2, 0x23, RZG2L_MPXED_PIN_FUNCS),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:135:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     135 |                 BUILD_BUG_ON_ZERO((_mask) == 0) +                       \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1557:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1557 |         RZG2L_GPIO_PORT_PACK(3, 0x24, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:137:17: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     137 |                 BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+         |                 ^~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1557:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1557 |         RZG2L_GPIO_PORT_PACK(3, 0x24, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                   ^
+   include/linux/bitfield.h:118:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
+     118 | #define __BF_CHECK_POW2(n)      BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
+         |                                 ^~~~~~~~~~~~~~~~~
+   include/linux/bitfield.h:139:17: note: in expansion of macro '__BF_CHECK_POW2'
+     139 |                 __BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +  \
+         |                 ^~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1557:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1557 |         RZG2L_GPIO_PORT_PACK(3, 0x24, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
+      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+         |                                      ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:50: note: in expansion of macro 'FIELD_PREP_CONST'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                  ^~~~~~~~~~~~~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+         |                                         ^~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:67: note: in expansion of macro 'PIN_CFG_PIN_MAP_MASK'
+      89 | #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+         |                                                                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:41: note: in expansion of macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+      97 | #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1557:9: note: in expansion of macro 'RZG2L_GPIO_PORT_PACK'
+    1557 |         RZG2L_GPIO_PORT_PACK(3, 0x24, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:35:18: warning: right shift count is negative [-Wshift-count-negative]
+      35 |          (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+         |                  ^~
+   include/linux/bitfield.h:141:64: note: in definition of macro 'FIELD_PREP_CONST'
+     141 |                 (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+         |                                                                ^~~~~
+   include/linux/bits.h:37:38: note: in expansion of macro '__GENMASK'
+      37 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+         |                                      ^~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:41: note: in expansion of macro 'GENMASK'
+      81 | #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
 
 
---Ja0AtvSzsJhuxWGO
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+vim +89 drivers/pinctrl/renesas/pinctrl-rzg2l.c
 
-On Tue, Jan 16, 2024 at 12:55:41PM -0800, Atish Patra wrote:
-> On Tue, Jan 9, 2024 at 11:40=E2=80=AFPM Yu Chien Peter Lin
-> <peterlin@andestech.com> wrote:
-> >
-> > The custom PMU extension aims to support perf event sampling prior
-> > to the ratification of Sscofpmf. Instead of diverting the bits and
-> > register reserved for future standard, a set of custom registers is
-> > added.  Hence, we may consider it as a CPU feature rather than an
-> > erratum.
-> >
->=20
-> I don't think we should do that. Any custom implementation that
-> violates the standard RISC-V spec should
-> be an errata not a feature.
-> As per my understanding, a vendor can call an extension custom ISA
-> extension if the same feature is not available
-> in the standard ISA extensions or the mechanism is completely
-> different. It must also not violate any standard spec as well.
->=20
-> In this case, a standard sscofpmf is already available. Moreover, both
-> Andes and T-head extensions violate the standard
-> spec by reusing local interrupt numbers (17(Thead) & 18(Andes)) which
-> are clearly specified as reserved for standard local interrupts
-> in the AIA specification.
+    84	
+    85	/*
+    86	 * m indicates the bitmap of supported pins, a is the register index
+    87	 * and f is pin configuration capabilities supported.
+    88	 */
+  > 89	#define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)	(FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+    90							 FIELD_PREP_CONST(PIN_CFG_PIN_REG_MASK, (a)) | \
+    91							 FIELD_PREP_CONST(PIN_CFG_MASK, (f)))
+    92	
 
-I disagree with you here. The Andes implementation predated (IIRC that
-is what was said in replies to an earlier revision) the Sscofpmf
-extension and certainly predates the AIA specification. I would be on
-board with this line of thinking if someone comes along in 2030 with
-"Zbb but with this one tweak" or where something flies entirely in the
-face of the standard (like the IOCP cache stuff). The relevant section
-in the AIA spec seems to say:
-| Interrupt causes that are standardized by the Privileged Architecture
-| have major identities in the range 0=E2=80=9315, while numbers 16 and hig=
-her are
-| officially available for platform standards or for custom use.
-| The Advanced Interrupt Architecture claims further authority over
-| identity numbers in the ranges 16=E2=80=9323 and 32=E2=80=9347, leaving n=
-umbers in the
-| range 24=E2=80=9331 and all major identities 48 and higher still free for=
- custom
-| use.
-I don't see how that can be problematic given the Andes implemtation
-dates from before AIA was a thing. It would be silly to say that because
-an optional extension later came along and took over something previously
-allowed for indiscriminate custom use, that support for that custom
-extension is not permitted.
-
-I may well be missing something here though, you clearly know these
-specs better than I do, but from what I have read I disagree.
-
-> Please implementation Andes PMU support as an errata as well similar to T=
--head
-
-I certainly _do not_ want to see things like this detected via lookup
-tables of marchid and co in the kernel unless it is absolutely required.
-We have standard probing mechanisms for feature detection (because to me
-this _is_ a feature) and they should be used. Additionally, we define what
-entries in the DT properties mean, and if it is convenient to put
-"psuedo" extensions into the DT, then we should do so. Getting away from
-being tied to what RVI decrees was one of the goals of the new
-properties after all, so that we could use a standard mechanism of DT
-probing for things like this.
-
-Thanks,
-Conor.
-
-> > T-Head cores need to append "xtheadpmu" to the riscv,isa-extensions
-> > for each cpu node in device tree, and enable CONFIG_THEAD_CUSTOM_PMU
-> > for proper functioning as of this commit.
-> >
-> > Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
-> > Reviewed-by: Guo Ren <guoren@kernel.org>
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> > Changes v1 -> v2:
-> >   - New patch
-> > Changes v2 -> v3:
-> >   - Removed m{vendor/arch/imp}id checks in pmu_sbi_setup_irqs()
-> > Changes v3 -> v4:
-> >   - No change
-> > Changes v4 -> v5:
-> >   - Include Guo's Reviewed-by
-> >   - Let THEAD_CUSTOM_PMU depend on ARCH_THEAD
-> > Changes v5 -> v6:
-> >   - Include Conor's Reviewed-by
-> > Changes v6 -> v7:
-> >   - No change
-> > ---
-> >  arch/riscv/Kconfig.errata            | 13 -------------
-> >  arch/riscv/errata/thead/errata.c     | 19 -------------------
-> >  arch/riscv/include/asm/errata_list.h | 15 +--------------
-> >  arch/riscv/include/asm/hwcap.h       |  1 +
-> >  arch/riscv/kernel/cpufeature.c       |  1 +
-> >  drivers/perf/Kconfig                 | 13 +++++++++++++
-> >  drivers/perf/riscv_pmu_sbi.c         | 19 ++++++++++++++-----
-> >  7 files changed, 30 insertions(+), 51 deletions(-)
-> >
-> > diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> > index e2c731cfed8c..0d19f47d1018 100644
-> > --- a/arch/riscv/Kconfig.errata
-> > +++ b/arch/riscv/Kconfig.errata
-> > @@ -86,17 +86,4 @@ config ERRATA_THEAD_CMO
-> >
-> >           If you don't know what to do here, say "Y".
-> >
-> > -config ERRATA_THEAD_PMU
-> > -       bool "Apply T-Head PMU errata"
-> > -       depends on ERRATA_THEAD && RISCV_PMU_SBI
-> > -       default y
-> > -       help
-> > -         The T-Head C9xx cores implement a PMU overflow extension very
-> > -         similar to the core SSCOFPMF extension.
-> > -
-> > -         This will apply the overflow errata to handle the non-standard
-> > -         behaviour via the regular SBI PMU driver and interface.
-> > -
-> > -         If you don't know what to do here, say "Y".
-> > -
-> >  endmenu # "CPU errata selection"
-> > diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead=
-/errata.c
-> > index 0554ed4bf087..5de5f7209132 100644
-> > --- a/arch/riscv/errata/thead/errata.c
-> > +++ b/arch/riscv/errata/thead/errata.c
-> > @@ -53,22 +53,6 @@ static bool errata_probe_cmo(unsigned int stage,
-> >         return true;
-> >  }
-> >
-> > -static bool errata_probe_pmu(unsigned int stage,
-> > -                            unsigned long arch_id, unsigned long impid)
-> > -{
-> > -       if (!IS_ENABLED(CONFIG_ERRATA_THEAD_PMU))
-> > -               return false;
-> > -
-> > -       /* target-c9xx cores report arch_id and impid as 0 */
-> > -       if (arch_id !=3D 0 || impid !=3D 0)
-> > -               return false;
-> > -
-> > -       if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
-> > -               return false;
-> > -
-> > -       return true;
-> > -}
-> > -
-> >  static u32 thead_errata_probe(unsigned int stage,
-> >                               unsigned long archid, unsigned long impid)
-> >  {
-> > @@ -80,9 +64,6 @@ static u32 thead_errata_probe(unsigned int stage,
-> >         if (errata_probe_cmo(stage, archid, impid))
-> >                 cpu_req_errata |=3D BIT(ERRATA_THEAD_CMO);
-> >
-> > -       if (errata_probe_pmu(stage, archid, impid))
-> > -               cpu_req_errata |=3D BIT(ERRATA_THEAD_PMU);
-> > -
-> >         return cpu_req_errata;
-> >  }
-> >
-> > diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/=
-asm/errata_list.h
-> > index 4ed21a62158c..9bccc2ba0eb5 100644
-> > --- a/arch/riscv/include/asm/errata_list.h
-> > +++ b/arch/riscv/include/asm/errata_list.h
-> > @@ -25,8 +25,7 @@
-> >  #ifdef CONFIG_ERRATA_THEAD
-> >  #define        ERRATA_THEAD_PBMT 0
-> >  #define        ERRATA_THEAD_CMO 1
-> > -#define        ERRATA_THEAD_PMU 2
-> > -#define        ERRATA_THEAD_NUMBER 3
-> > +#define        ERRATA_THEAD_NUMBER 2
-> >  #endif
-> >
-> >  #ifdef __ASSEMBLY__
-> > @@ -147,18 +146,6 @@ asm volatile(ALTERNATIVE_2(                       =
-                         \
-> >             "r"((unsigned long)(_start) + (_size))                     =
- \
-> >         : "a0")
-> >
-> > -#define THEAD_C9XX_RV_IRQ_PMU                  17
-> > -#define THEAD_C9XX_CSR_SCOUNTEROF              0x5c5
-> > -
-> > -#define ALT_SBI_PMU_OVERFLOW(__ovl)                                   =
- \
-> > -asm volatile(ALTERNATIVE(                                             =
- \
-> > -       "csrr %0, " __stringify(CSR_SSCOUNTOVF),                       =
- \
-> > -       "csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),            =
- \
-> > -               THEAD_VENDOR_ID, ERRATA_THEAD_PMU,                     =
- \
-> > -               CONFIG_ERRATA_THEAD_PMU)                               =
- \
-> > -       : "=3Dr" (__ovl) :                                             =
-   \
-> > -       : "memory")
-> > -
-> >  #endif /* __ASSEMBLY__ */
-> >
-> >  #endif
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hw=
-cap.h
-> > index 5340f818746b..480f9da7fba7 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -80,6 +80,7 @@
-> >  #define RISCV_ISA_EXT_ZFA              71
-> >  #define RISCV_ISA_EXT_ZTSO             72
-> >  #define RISCV_ISA_EXT_ZACAS            73
-> > +#define RISCV_ISA_EXT_XTHEADPMU                74
-> >
-> >  #define RISCV_ISA_EXT_MAX              128
-> >  #define RISCV_ISA_EXT_INVALID          U32_MAX
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeat=
-ure.c
-> > index e32591e9da90..4aded5bf8fc3 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -303,6 +303,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D=
- {
-> >         __RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> >         __RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
-> >         __RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> > +       __RISCV_ISA_EXT_DATA(xtheadpmu, RISCV_ISA_EXT_XTHEADPMU),
-> >  };
-> >
-> >  const size_t riscv_isa_ext_count =3D ARRAY_SIZE(riscv_isa_ext);
-> > diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-> > index 273d67ecf6d2..6cef15ec7c25 100644
-> > --- a/drivers/perf/Kconfig
-> > +++ b/drivers/perf/Kconfig
-> > @@ -86,6 +86,19 @@ config RISCV_PMU_SBI
-> >           full perf feature support i.e. counter overflow, privilege mo=
-de
-> >           filtering, counter configuration.
-> >
-> > +config THEAD_CUSTOM_PMU
-> > +       bool "T-Head custom PMU support"
-> > +       depends on ARCH_THEAD && RISCV_ALTERNATIVE && RISCV_PMU_SBI
-> > +       default y
-> > +       help
-> > +         The T-Head C9xx cores implement a PMU overflow extension very
-> > +         similar to the core SSCOFPMF extension.
-> > +
-> > +         This will patch the overflow CSR and handle the non-standard
-> > +         behaviour via the regular SBI PMU driver and interface.
-> > +
-> > +         If you don't know what to do here, say "Y".
-> > +
-> >  config ARM_PMU_ACPI
-> >         depends on ARM_PMU && ACPI
-> >         def_bool y
-> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> > index 2edbc37abadf..31ca79846399 100644
-> > --- a/drivers/perf/riscv_pmu_sbi.c
-> > +++ b/drivers/perf/riscv_pmu_sbi.c
-> > @@ -20,10 +20,21 @@
-> >  #include <linux/cpu_pm.h>
-> >  #include <linux/sched/clock.h>
-> >
-> > -#include <asm/errata_list.h>
-> >  #include <asm/sbi.h>
-> >  #include <asm/cpufeature.h>
-> >
-> > +#define THEAD_C9XX_RV_IRQ_PMU          17
-> > +#define THEAD_C9XX_CSR_SCOUNTEROF      0x5c5
-> > +
-> > +#define ALT_SBI_PMU_OVERFLOW(__ovl)                                   =
- \
-> > +asm volatile(ALTERNATIVE(                                             =
- \
-> > +       "csrr %0, " __stringify(CSR_SSCOUNTOVF),                       =
- \
-> > +       "csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),            =
- \
-> > +               0, RISCV_ISA_EXT_XTHEADPMU,                            =
- \
-> > +               CONFIG_THEAD_CUSTOM_PMU)                               =
- \
-> > +       : "=3Dr" (__ovl) :                                             =
-   \
-> > +       : "memory")
-> > +
-> >  #define SYSCTL_NO_USER_ACCESS  0
-> >  #define SYSCTL_USER_ACCESS     1
-> >  #define SYSCTL_LEGACY          2
-> > @@ -808,10 +819,8 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pm=
-u, struct platform_device *pde
-> >         if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
-> >                 riscv_pmu_irq_num =3D RV_IRQ_PMU;
-> >                 riscv_pmu_use_irq =3D true;
-> > -       } else if (IS_ENABLED(CONFIG_ERRATA_THEAD_PMU) &&
-> > -                  riscv_cached_mvendorid(0) =3D=3D THEAD_VENDOR_ID &&
-> > -                  riscv_cached_marchid(0) =3D=3D 0 &&
-> > -                  riscv_cached_mimpid(0) =3D=3D 0) {
-> > +       } else if (riscv_isa_extension_available(NULL, XTHEADPMU) &&
-> > +                  IS_ENABLED(CONFIG_THEAD_CUSTOM_PMU)) {
-> >                 riscv_pmu_irq_num =3D THEAD_C9XX_RV_IRQ_PMU;
-> >                 riscv_pmu_use_irq =3D true;
-> >         }
-> > --
-> > 2.34.1
-> >
->=20
->=20
-> --
-> Regards,
-> Atish
-
---Ja0AtvSzsJhuxWGO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZaccQwAKCRB4tDGHoIJi
-0p9LAP4lKt2fPkjiqgNc9uaPp+mBmBRmTvk2mZYXXudRmZ9KLQEA76er2vGFoSCY
-Pk+BW+aC3iayHMkG/y+YBALKLHJc3g8=
-=aiVi
------END PGP SIGNATURE-----
-
---Ja0AtvSzsJhuxWGO--
-
-
---===============5464972558899100522==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5464972558899100522==--
-
