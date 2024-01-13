@@ -4,97 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A860C4706C
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Jan 2024 17:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27A1C4706C
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Jan 2024 20:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U6LkHceS2Urk+VcFej9NPqU+3TV1X0ydcNTEg+JZSAk=; b=fzcuV7wX6HKJ5x
-	7H2S/FG9llVSaF/O/NfVCKazFFMfD5fejT14VFGYI3nydacb2Bc8EoSTHpxfkSz+ZvnJ4IQDbef8H
-	h+DMivQSU40DDS2lVWaL2y3ipVbUG29i6qV4W63MKAzLATfkk8RiUnh5+fEskVaoEVrFoO0UqEezA
-	JnBPVFIKSjjTcmD4dVpqnixo1ctPbFQ/qHkHywmOjFv3rI2zBSX36ErtUBMy8qzw0m7ggFGNZkEUg
-	d05ATVqmzjU6If9IRmchloDOO+hMg81cbrkltR5YIEUQyVlZMUONubWLaQlgrl3A2poBYZ1pl8DYC
-	KJH9xEhipBlT6Sl0AJjQ==;
+	List-Owner; bh=p2UGvHIQyfOc+TeMnLpxi1b3Va2L1Ee1MT+XPWEhpA0=; b=L9Y2fTbhBHNYdx
+	TcPoHrwi7epTFR60Ywqcsvmf/D3BMRh1u8GtsXS9m1AkW2hWZ1JWoy8a5jzJG21p78Jx4pc4E83Z6
+	HDMcHCDZOrfwxnL1I/00xPR3fpV3cyUkEmFON8LTfMeCeEIcC+BxwyBBZX34IIew6D8+uqM+RIVY2
+	QgWWPHVKOzQP6Y58BiVjNmIvJjm96FRKBdjxm7q6U4UUaR05LZdFYivZpqRY6Ziq+EQxdrLzVKf0W
+	oKyzeWcTWspNrSNeemN9/rVH5Y/fYf34ljfjrZfvh8cRN6shAueUAh9ibh/p+Z24R6bgs8R8l6ZBr
+	kTgvSVQrXYdpJ3H8aDXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOhs1-005SWj-15;
-	Sat, 13 Jan 2024 17:32:33 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
+	id 1rOkoz-005ffz-2i;
+	Sat, 13 Jan 2024 20:41:37 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOhrz-005SWX-22
-	for linux-riscv@bombadil.infradead.org;
-	Sat, 13 Jan 2024 17:32:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=9n72WKKKGYhqMdswP9Jj7VEaJwHs3IyzRS4xEll9rYI=; b=WjEYYCAw3qxmaO4t7+gueXxISt
-	4es+EosncHh62DW41RHNpXa8q3l4i2FT+OOqUeftQ+BC3AD1jZHqiB9oBm6BtTq57Ak7S1vy8jknN
-	iV1GwMzCKGBn/mqp+2JRA61dp23smrxw7fYXYy8HPFmiKV602LCSwL+kY0OLeKiBzNkTtTpuDgymJ
-	iWUO0sKHaiFQZ+dmJSK4F4S12v7EuHar9/N184C5NxL29xPsXwGuHiY7SYdEJQifK1JkDEsFq9823
-	UnuUEKx51q+fY43shb+ppzPJMygQUeC29JqriP1BkkJhMEH6rbMrMN0/T/nrjfpdmdVo2v/sn80ir
-	rqcbJC9Q==;
-Received: from out162-62-57-210.mail.qq.com ([162.62.57.210])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOhpj-00BvBR-1i
+	id 1rOkov-005feY-2C
 	for linux-riscv@lists.infradead.org;
-	Sat, 13 Jan 2024 17:30:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1705166999; bh=9n72WKKKGYhqMdswP9Jj7VEaJwHs3IyzRS4xEll9rYI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bxNEiju7nvWR9Qk87tm3ETTK/lZzB+bkbS5zuNwyb6n1/h8UW4l1gnjwIQI59L8LW
-	 4ntUS4tk+WQpeSN8vQHUO840Lm84oYsAyFaJ0VySn1a6Jgug5XfzY2MI8E/2uIgpd9
-	 mqYIu8sU/poXoVkDKDlTVsFrH6DH7F9atuk3Ngs8=
-Received: from cyy-pc.lan ([218.70.255.58])
-	by newxmesmtplogicsvrszc5-1.qq.com (NewEsmtp) with SMTP
-	id 6B9BD474; Sun, 14 Jan 2024 01:26:57 +0800
-X-QQ-mid: xmsmtpt1705166817tpw8s6zxo
-Message-ID: <tencent_F9568C6D8872E30EDFAF20ADF686A31D6E06@qq.com>
-X-QQ-XMAILINFO: MpYZqmNm/7vMFQChzuZcNMPEZCicAYxwA3bgPt5oBo3Izruh5SDSD1/vjfZIJe
-	 7IBevBAJJvXhgU9B+SMnjtsigosK99wXz45XosSRmglerB4jvY07z2ypp/fWsmUwQLZ3rc4lgw08
-	 0I7c4e9ssoe0Ldzh7aDfnOwg3ItEwflH/BF3rnY12bJD7xRo/M9ZSFqZABHgOKsvejN9E8BhUm2D
-	 boo2oTfkaKEQcLeunqTCbSyoFYN07nmPJtRl8ODOOCFEIFDrcTWZHY0wX7tuAYx6PuS1SJSjXYS2
-	 bOEVhUBovGWI01NTW0yrPLyhFe33CdafAdJAf1SrjfgmRNyBqHdsDLZz7UlH9vHjFxvMrmU3dy5N
-	 45B3OLgeNOTV6WEfUAL3IRazwMFr8aKB9LH+gkUjByXzXtwcrFHxXmMsjpssUiAlF1duH66p4Avr
-	 84W1XexcvjfBXHBgXn5BFW2+ogGmclzTetljdN04BAku6PGLStHt7Vs8LRhxh82ARYq6o+Md+kgL
-	 NJxin6UVnpDBzYjg39bVX6PvJK3U699wPbe+uQtu79mMUgZ8WzO3iGxiOmirlrq0y8rVSXD7t5iM
-	 GYsxJ8FGK+3+d6K/ILCMvSeHJKdwbCtWTtAdunvZubJwOzaynOeC1geHeMxH34ZZztsMnz79vLpe
-	 YGChZ7mLTbp5fUDptY+VCdcdL4Fy7KWDgIBg7MTpy9RLjNazovEqG5960r71+VO+2pza3/A/dviG
-	 n0++0sT/QAFpxAF7w8YGMItABROQoWSr+xES2srhGGf311gs4BzoOgOKZhvP5I3hexb4JG++/Bt2
-	 OrIfwjVtIS7Tr5jYRQvXT+uKYpMsexCp3J8Xip53EB0io7BHq+H8zipn5FRMnuzONGJrAQAd9WC+
-	 I81SztmB19m/xMFkY6qEQ5yrj6ENCd3r8gON2zNjMQDmvw7Tdjfni3yzimGkBOehL2PYtcjs/KFk
-	 RJDRSTS7yAifSWQWUnc3KxIF9qzMRd
-X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
-From: Yangyu Chen <cyy@cyyself.name>
-To: charlie@rivosinc.com
-Cc: alexghiti@rivosinc.com,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	conor@kernel.org,
-	jrtc27@jrtc27.com,
-	konstantin@linuxfoundation.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	mick@ics.forth.gr,
-	palmer@rivosinc.com,
-	paul.walmsley@sifive.com,
-	rdunlap@infradead.org
-Subject: Re: [PATCH v10 0/4] RISC-V: mm: Make SV48 the default address space
-Date: Sun, 14 Jan 2024 01:26:57 +0800
-X-OQ-MSGID: <20240113172657.997104-1-cyy@cyyself.name>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20230809232218.849726-1-charlie@rivosinc.com>
-References: <20230809232218.849726-1-charlie@rivosinc.com>
+	Sat, 13 Jan 2024 20:41:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1705178494; x=1736714494;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Q9huzpE1di9IOGQ1NV6QRQVDnPfRGatTVLcIU4u648M=;
+  b=lbwEYRXjkfDXjNtE0ZlYXnl5R2Pk2Hr9FUnxZfb5eoCbidRySO99M0iU
+   /C2AY33jt//0nAF1HKQQ8E+4uqENGTcUggGi7peJ0dxTgnDkUA0iWs32+
+   v9P6Iwt1nnUNOyiT+XR3pnTUp1o1MOHnjB1+40booS5atInS/SEAHwkfk
+   zq3WACRSJgibEbnW5y9qV14IOgP168cxtH1s7fnpWaV0KrnJZUWYdC3sy
+   +LD7ccF7SYta6uGc0hRz++6u40lJF9MUYMsLbHpqi/kkaXCMtmUJVPCaT
+   8azhN/3Sb6Sz11nc0JkQ443ojGuq3s3MpzWysP39z7kIjJPfuDIum0teV
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10952"; a="6763320"
+X-IronPort-AV: E=Sophos;i="6.04,192,1695711600"; 
+   d="scan'208";a="6763320"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2024 12:41:30 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10952"; a="786705813"
+X-IronPort-AV: E=Sophos;i="6.04,192,1695711600"; 
+   d="scan'208";a="786705813"
+Received: from lkp-server02.sh.intel.com (HELO b07ab15da5fe) ([10.239.97.151])
+  by fmsmga007.fm.intel.com with ESMTP; 13 Jan 2024 12:41:26 -0800
+Received: from kbuild by b07ab15da5fe with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1rOkoj-000At4-1k;
+	Sat, 13 Jan 2024 20:41:21 +0000
+Date: Sun, 14 Jan 2024 04:40:55 +0800
+From: kernel test robot <lkp@intel.com>
+To: Prabhakar <prabhakar.csengg@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: oe-kbuild-all@lists.linux.dev, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH v4 3/4] pinctrl: renesas: pinctrl-rzg2l: Add the missing
+ port pins P19 to P28
+Message-ID: <202401140457.dWlCUkuN-lkp@intel.com>
+References: <20240112142621.13525-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240112142621.13525-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240113_173013_087447_1689DF59 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20240113_124133_806614_FE4923B3 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,37 +96,293 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Charlie
+Hi Prabhakar,
 
-Although this patchset has been merged I still have some questions about
-this patchset. Because it breaks regular mmap if address >= 38 bits on
-sv48 / sv57 capable systems like qemu. For example, If a userspace program
-wants to mmap an anonymous page to addr=(1<<45) on an sv48 capable system,
-it will fail and kernel will mmaped to another sv39 address since it does
-not meet the requirement to use sv48 as you wrote:
+kernel test robot noticed the following build errors:
 
->	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
->		mmap_end = VA_USER_SV48;			\
->	else							\
->		mmap_end = VA_USER_SV39;			\
+[auto build test ERROR on geert-renesas-drivers/renesas-pinctrl]
+[cannot apply to geert-renesas-devel/next linusw-pinctrl/devel linusw-pinctrl/for-next linus/master v6.7 next-20240112]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Then, How can a userspace program create a mmap with a hint if the address
->= (1<<38) after your patch without MAP_FIXED? The only way to do this is
-to pass a hint >= (1<<47) on mmap syscall then kernel will return a random
-address in sv48 address space but the hint address gets lost. I think this
-violate the principle of mmap syscall as kernel should take the hint and
-attempt to create the mapping there.
+url:    https://github.com/intel-lab-lkp/linux/commits/Prabhakar/pinctrl-renesas-rzg2l-Improve-code-for-readability/20240112-222833
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-drivers.git renesas-pinctrl
+patch link:    https://lore.kernel.org/r/20240112142621.13525-4-prabhakar.mahadev-lad.rj%40bp.renesas.com
+patch subject: [PATCH v4 3/4] pinctrl: renesas: pinctrl-rzg2l: Add the missing port pins P19 to P28
+config: powerpc-randconfig-r081-20240113 (https://download.01.org/0day-ci/archive/20240114/202401140457.dWlCUkuN-lkp@intel.com/config)
+compiler: clang version 16.0.4 (https://github.com/llvm/llvm-project.git ae42196bc493ffe877a7e3dff8be32035dea4d07)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240114/202401140457.dWlCUkuN-lkp@intel.com/reproduce)
 
-I don't think patching in this way is right. However, if we only revert
-this patch, some programs relying on mmap to return address with effective
-bits <= 48 will still be an issue and it might expand to other ISAs if
-they implement larger virtual address space like RISC-V sv57. A better way
-to solve this might be adding a MAP_48BIT flag to mmap like MAP_32BIT has
-been introduced for decades.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202401140457.dWlCUkuN-lkp@intel.com/
 
-Thanks,
-Yangyu Chen
+All errors (new ones prefixed by >>):
 
+   #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:31: note: expanded from macro 'PIN_CFG_PIN_MAP_MASK'
+   #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+                                           ^
+   include/linux/bits.h:37:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   include/linux/bits.h:35:11: note: expanded from macro '__GENMASK'
+            (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+                    ^
+   include/linux/bitfield.h:141:50: note: expanded from macro 'FIELD_PREP_CONST'
+                   (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+                                                                  ^~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1577:2: warning: shift count is negative [-Wshift-count-negative]
+           RZG2L_GPIO_PORT_PACK(3, 0x38, RZG2L_MPXED_PIN_FUNCS),
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:39: note: expanded from macro 'RZG2L_GPIO_PORT_PACK'
+   #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:64: note: expanded from macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+   #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:31: note: expanded from macro 'PIN_CFG_PIN_MAP_MASK'
+   #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+                                           ^
+   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/bits.h:35:11: note: expanded from macro '__GENMASK'
+            (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+                    ^
+   include/linux/bitfield.h:141:39: note: expanded from macro 'FIELD_PREP_CONST'
+                   (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+                                              ~~~~~~~~~^~~~~~
+   include/linux/bitfield.h:45:38: note: expanded from macro '__bf_shf'
+   #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+                                        ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1577:2: warning: shift count is negative [-Wshift-count-negative]
+           RZG2L_GPIO_PORT_PACK(3, 0x38, RZG2L_MPXED_PIN_FUNCS),
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:39: note: expanded from macro 'RZG2L_GPIO_PORT_PACK'
+   #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:64: note: expanded from macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+   #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:31: note: expanded from macro 'PIN_CFG_PIN_MAP_MASK'
+   #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+                                           ^
+   include/linux/bits.h:37:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   include/linux/bits.h:35:11: note: expanded from macro '__GENMASK'
+            (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+                    ^
+   include/linux/bitfield.h:141:50: note: expanded from macro 'FIELD_PREP_CONST'
+                   (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+                                                                  ^~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1578:2: warning: shift count is negative [-Wshift-count-negative]
+           RZG2L_GPIO_PORT_PACK(2, 0x39, RZG2L_MPXED_PIN_FUNCS),
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:39: note: expanded from macro 'RZG2L_GPIO_PORT_PACK'
+   #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:64: note: expanded from macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+   #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:31: note: expanded from macro 'PIN_CFG_PIN_MAP_MASK'
+   #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+                                           ^
+   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/bits.h:35:11: note: expanded from macro '__GENMASK'
+            (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+                    ^
+   include/linux/bitfield.h:141:39: note: expanded from macro 'FIELD_PREP_CONST'
+                   (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+                                              ~~~~~~~~~^~~~~~
+   include/linux/bitfield.h:45:38: note: expanded from macro '__bf_shf'
+   #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+                                        ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1578:2: warning: shift count is negative [-Wshift-count-negative]
+           RZG2L_GPIO_PORT_PACK(2, 0x39, RZG2L_MPXED_PIN_FUNCS),
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:39: note: expanded from macro 'RZG2L_GPIO_PORT_PACK'
+   #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:64: note: expanded from macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+   #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:31: note: expanded from macro 'PIN_CFG_PIN_MAP_MASK'
+   #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+                                           ^
+   include/linux/bits.h:37:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   include/linux/bits.h:35:11: note: expanded from macro '__GENMASK'
+            (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+                    ^
+   include/linux/bitfield.h:141:50: note: expanded from macro 'FIELD_PREP_CONST'
+                   (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+                                                                  ^~~~~
+>> drivers/pinctrl/renesas/pinctrl-rzg2l.c:1579:2: error: anonymous bit-field has negative width (-1)
+           RZG2L_GPIO_PORT_PACK(5, 0x3a, RZG2L_MPXED_PIN_FUNCS),
+           ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:39: note: expanded from macro 'RZG2L_GPIO_PORT_PACK'
+   #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+                                           ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:47: note: expanded from macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+   #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+                                                    ^
+   include/linux/bitfield.h:137:3: note: expanded from macro 'FIELD_PREP_CONST'
+                   BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
+                   ^
+   include/linux/build_bug.h:16:53: note: expanded from macro 'BUILD_BUG_ON_ZERO'
+   #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+                                                       ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1579:2: warning: shift count is negative [-Wshift-count-negative]
+           RZG2L_GPIO_PORT_PACK(5, 0x3a, RZG2L_MPXED_PIN_FUNCS),
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:39: note: expanded from macro 'RZG2L_GPIO_PORT_PACK'
+   #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:64: note: expanded from macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+   #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:31: note: expanded from macro 'PIN_CFG_PIN_MAP_MASK'
+   #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+                                           ^
+   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/bits.h:35:11: note: expanded from macro '__GENMASK'
+            (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+                    ^
+   include/linux/bitfield.h:141:39: note: expanded from macro 'FIELD_PREP_CONST'
+                   (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+                                              ~~~~~~~~~^~~~~~
+   include/linux/bitfield.h:45:38: note: expanded from macro '__bf_shf'
+   #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+                                        ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1579:2: warning: shift count is negative [-Wshift-count-negative]
+           RZG2L_GPIO_PORT_PACK(5, 0x3a, RZG2L_MPXED_PIN_FUNCS),
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:39: note: expanded from macro 'RZG2L_GPIO_PORT_PACK'
+   #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:64: note: expanded from macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+   #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:31: note: expanded from macro 'PIN_CFG_PIN_MAP_MASK'
+   #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+                                           ^
+   include/linux/bits.h:37:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   include/linux/bits.h:35:11: note: expanded from macro '__GENMASK'
+            (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+                    ^
+   include/linux/bitfield.h:141:50: note: expanded from macro 'FIELD_PREP_CONST'
+                   (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+                                                                  ^~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1580:2: warning: shift count is negative [-Wshift-count-negative]
+           RZG2L_GPIO_PORT_PACK(4, 0x3b, RZG2L_MPXED_PIN_FUNCS),
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:39: note: expanded from macro 'RZG2L_GPIO_PORT_PACK'
+   #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:64: note: expanded from macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+   #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:31: note: expanded from macro 'PIN_CFG_PIN_MAP_MASK'
+   #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+                                           ^
+   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/bits.h:35:11: note: expanded from macro '__GENMASK'
+            (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+                    ^
+   include/linux/bitfield.h:141:39: note: expanded from macro 'FIELD_PREP_CONST'
+                   (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+                                              ~~~~~~~~~^~~~~~
+   include/linux/bitfield.h:45:38: note: expanded from macro '__bf_shf'
+   #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+                                        ^
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:1580:2: warning: shift count is negative [-Wshift-count-negative]
+           RZG2L_GPIO_PORT_PACK(4, 0x3b, RZG2L_MPXED_PIN_FUNCS),
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:97:39: note: expanded from macro 'RZG2L_GPIO_PORT_PACK'
+   #define RZG2L_GPIO_PORT_PACK(n, a, f)   RZG2L_GPIO_PORT_SPARSE_PACK((1ULL << (n)) - 1, (a), (f))
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:89:64: note: expanded from macro 'RZG2L_GPIO_PORT_SPARSE_PACK'
+   #define RZG2L_GPIO_PORT_SPARSE_PACK(m, a, f)    (FIELD_PREP_CONST(PIN_CFG_PIN_MAP_MASK, (m)) | \
+                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pinctrl/renesas/pinctrl-rzg2l.c:81:31: note: expanded from macro 'PIN_CFG_PIN_MAP_MASK'
+   #define PIN_CFG_PIN_MAP_MASK            GENMASK(35, 28)
+                                           ^
+   include/linux/bits.h:37:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   include/linux/bits.h:35:11: note: expanded from macro '__GENMASK'
+            (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+                    ^
+   include/linux/bitfield.h:141:50: note: expanded from macro 'FIELD_PREP_CONST'
+                   (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))  \
+                                                                  ^~~~~
+
+
+vim +1579 drivers/pinctrl/renesas/pinctrl-rzg2l.c
+
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1535  
+943be6806bed3f Lad Prabhakar 2024-01-12  1536  static const u64 r9a07g044_gpio_configs[] = {
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1537  	RZG2L_GPIO_PORT_PACK(2, 0x10, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1538  	RZG2L_GPIO_PORT_PACK(2, 0x11, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1539  	RZG2L_GPIO_PORT_PACK(2, 0x12, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1540  	RZG2L_GPIO_PORT_PACK(2, 0x13, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1541  	RZG2L_GPIO_PORT_PACK(2, 0x14, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1542  	RZG2L_GPIO_PORT_PACK(3, 0x15, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1543  	RZG2L_GPIO_PORT_PACK(2, 0x16, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1544  	RZG2L_GPIO_PORT_PACK(3, 0x17, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1545  	RZG2L_GPIO_PORT_PACK(3, 0x18, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1546  	RZG2L_GPIO_PORT_PACK(2, 0x19, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1547  	RZG2L_GPIO_PORT_PACK(2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1548  	RZG2L_GPIO_PORT_PACK(2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1549  	RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1550  	RZG2L_GPIO_PORT_PACK(3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1551  	RZG2L_GPIO_PORT_PACK(2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1552  	RZG2L_GPIO_PORT_PACK(2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1553  	RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
+fcfb63148c241a Biju Das      2021-09-22  1554  	RZG2L_GPIO_PORT_PACK(3, 0x21, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1555  	RZG2L_GPIO_PORT_PACK(2, 0x22, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1556  	RZG2L_GPIO_PORT_PACK(2, 0x23, RZG2L_MPXED_PIN_FUNCS),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1557  	RZG2L_GPIO_PORT_PACK(3, 0x24, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1558  	RZG2L_GPIO_PORT_PACK(2, 0x25, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1559  	RZG2L_GPIO_PORT_PACK(2, 0x26, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1560  	RZG2L_GPIO_PORT_PACK(2, 0x27, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1561  	RZG2L_GPIO_PORT_PACK(2, 0x28, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1562  	RZG2L_GPIO_PORT_PACK(2, 0x29, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1563  	RZG2L_GPIO_PORT_PACK(2, 0x2a, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1564  	RZG2L_GPIO_PORT_PACK(2, 0x2b, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1565  	RZG2L_GPIO_PORT_PACK(2, 0x2c, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1566  	RZG2L_GPIO_PORT_PACK(2, 0x2d, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1567  	RZG2L_GPIO_PORT_PACK(2, 0x2e, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1568  	RZG2L_GPIO_PORT_PACK(2, 0x2f, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1569  	RZG2L_GPIO_PORT_PACK(2, 0x30, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1570  	RZG2L_GPIO_PORT_PACK(2, 0x31, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1571  	RZG2L_GPIO_PORT_PACK(2, 0x32, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1572  	RZG2L_GPIO_PORT_PACK(2, 0x33, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1573  	RZG2L_GPIO_PORT_PACK(2, 0x34, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
+22972a2d5bc4ba Lad Prabhakar 2021-11-10  1574  	RZG2L_GPIO_PORT_PACK(3, 0x35, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1575  	RZG2L_GPIO_PORT_PACK(2, 0x36, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1576  	RZG2L_GPIO_PORT_PACK(3, 0x37, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1577  	RZG2L_GPIO_PORT_PACK(3, 0x38, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1578  	RZG2L_GPIO_PORT_PACK(2, 0x39, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27 @1579  	RZG2L_GPIO_PORT_PACK(5, 0x3a, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1580  	RZG2L_GPIO_PORT_PACK(4, 0x3b, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1581  	RZG2L_GPIO_PORT_PACK(4, 0x3c, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1582  	RZG2L_GPIO_PORT_PACK(4, 0x3d, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1583  	RZG2L_GPIO_PORT_PACK(4, 0x3e, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1584  	RZG2L_GPIO_PORT_PACK(4, 0x3f, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1585  	RZG2L_GPIO_PORT_PACK(5, 0x40, RZG2L_MPXED_PIN_FUNCS),
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1586  };
+c4c4637eb57f2a Lad Prabhakar 2021-07-27  1587  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
