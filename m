@@ -4,53 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEC63C47077
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Jan 2024 16:05:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE94DC47077
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Jan 2024 19:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LdlqYFQVS6unx65nd3wIfsVvHH70mnfDv+7ia5QjRDQ=; b=EMB5Fj/uMIy4eA
-	NLncejIMY3OaoYda/hij5sIPJgEnLw9sc/JylWzaDUPtMHrLWi8LwLZMQvN6z96/EjhaltdvrO5ky
-	EYlyZbz2yw/Q2CPosW3N64nGVPbwSNGqNaEeiuQeMkc9bcftd9SVfo8u4A8muEUniRxFAzRQe/CHR
-	Z1u4r6VlG2vXu4xaFaMVZP0RheeANMjpOPDO4kOxAqH/GHS1DIV+QQBwTHBadi6f8bhN2vIU7m09m
-	Nsk/0FsBtC+4tETjjdcHmdWovA5Kule27NrSYF+EpBEzWA6qpi4bTEStHINOZdT6H37sBsgTjeuun
-	u0MRc0pUIIZ++Jn0CdUQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9cDaLITOlm/UIKt5gmjEbom8CaGPfmhqOVli/7yUasM=; b=ryDhfmcs+rzSlr
+	J6R9n3b2+pWd5rrcqBw30lWNI/eSbiFh8Pbm8Ebi4d92HP1uH/ijmT9zdKclP5yJTMBCynZ5eZxx8
+	Io657UaB+iN6Y5ir3hqhQAkWduQTV/UPDIGeHOJdSnT+owsCdsLLFLc/1dsHph7FKZiRLwjVo17oo
+	YyjskUo1g3rhiP468rPYitKz78JMhl6fM+e60GHB518xsJSS8CwDFOYTVUAJm4JeKu9R2CQ9BIXg/
+	vosb3MYvB9Cib8wTpao3R8cyFBLndPfi5p7q+iZLZLi/Wd2HUIWPsieRyhN6kPO6/y68w9LOYeeQk
+	G90cyXSuVuEUbdtS/sHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rP2zQ-006wct-28;
-	Sun, 14 Jan 2024 16:05:36 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1rP6b4-007F7O-19;
+	Sun, 14 Jan 2024 19:56:42 +0000
+Received: from out162-62-58-211.mail.qq.com ([162.62.58.211])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rP2zN-006wac-0X
+	id 1rP6az-007F6W-2f
 	for linux-riscv@lists.infradead.org;
-	Sun, 14 Jan 2024 16:05:35 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DC5841BF206;
-	Sun, 14 Jan 2024 16:05:20 +0000 (UTC)
-Message-ID: <a75ed906-7dd5-44aa-8809-f1758de188e4@ghiti.fr>
-Date: Sun, 14 Jan 2024 17:05:20 +0100
+	Sun, 14 Jan 2024 19:56:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1705262185; bh=p9Bu5tHe0FzPhQq4mnG4EqMw8nkniS9fHhWhaNF5cVw=;
+	h=From:To:Cc:Subject:Date;
+	b=rF+dbXRILjAuVUJfUfbLlOWfhKqA1O79/iKLGW1QA9Rl1d6p4k4dsNd6OvhgcSGLl
+	 gSr6tC+MJzKRQqJ0WbLGANm4vh1piFJE57mDZQMEv01BACleBK9MRI5C6RgFQjZ8nP
+	 Uel8mEsVxYf0txP3iCHg+r6ap/mbVXfVFAp6r95Q=
+Received: from cyy-pc.lan ([218.70.255.58])
+	by newxmesmtplogicsvrszb9-0.qq.com (NewEsmtp) with SMTP
+	id E112FC12; Mon, 15 Jan 2024 03:56:17 +0800
+X-QQ-mid: xmsmtpt1705262177tqrr4biqc
+Message-ID: <tencent_F3B3B5AB1C9D704763CA423E1A41F8BE0509@qq.com>
+X-QQ-XMAILINFO: NQR8mRxMnur9qJqW6WlkeAfDDZIHIUWFf62lHXj5+7j9b/4lnmECzz+d7Pbxhp
+	 75Wr185z4svs6HRiLa3p3mJVWnQzxP160GOB0oaXzlRXNc9TzstTyZ2GcYMWa9/Sw3Odq1Wd0HDD
+	 rTb9U4a1HGvMYxKR1ook+0b7PZaPR2KIaocoY3BOFz6Roz/GA0QCq5eZ12/QEYDd/id7WNvWx/Sa
+	 mHcRNdc4y3QYltZSWPLLKYm9y/ljZzWuxQ8uofE/kKHsuctCmJus4VuaTH/+Ybkxf/eL5Pq7CNI2
+	 XZJG2BBQYA01RBqMcOZ9ON+svdxhv5Douh5K8sfhez7NZ4tbQb0Mh5ygn+oKwduoL+eThyuKjaA+
+	 dIE6VA+gLXeAgG8mNMm7Et+ZFAmJ/fdwK3/bD7SGTNzsrGt7lsWbM3RMft1qk8cljGRlf3MUfbBb
+	 gxA1gaSAUHiZStaL3W1m4w6HI9PlpEJSYR0am7Vho89bsvxGIXytzgaLMZUDTnjyHXEAYmZIq99+
+	 TR9Pey2zvQZlH+7gIPdPXzaHYIix/F9Efsfil56PBoUAXa59z5CzIjFXWhfFgXQpNHc/fRvJZ5fq
+	 xBiBdujTd/V2z4vnG3rYQKZ+BYIH8BTULUBDRodKKcxE81NIaaSTWO7m7bgQgkZ6W3C/lcQVwaHa
+	 dfDVIJdjKS2C5EDWi7Ba0vqtO1/Zpo4LXkEBkqk6vrbU2gISbRA0zk5wGWaX6R42YoIoFOi5tMfR
+	 MXG3Pkm80ZLLK6Jx17e8d/b4c5wUUhsAIAIawIsXO0PZtsMVnwOelPUbWrQUK44B48Y8bBB8G7M7
+	 c8Mnf1od80ULkU/CICmf9JDuTKEIJd3Oi/ZcrKEZHXDyT2m11X/DjAXu0XUs/mpv8LAo2If/uWm9
+	 z2V5/sdIBedcRBxu0Bzu2bb0ixM+VYkaq998jA0miSiwsEb9fwIgoS96g+rIPEN7pJzZlUwVF/MS
+	 e9p2wzu+vbiXMs5SqlMyi02PdvcitZYtLuRhYh6+sjWfpsqJb+A2tzpY/bqwtG6NWv0pqr6mI=
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+From: Yangyu Chen <cyy@cyyself.name>
+To: linux-riscv@lists.infradead.org
+Cc: Charlie Jenkins <charlie@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-kernel@vger.kernel.org,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [PATCH 0/3] RISC-V: mm: correct mmap behavior in sv48 address space
+Date: Mon, 15 Jan 2024 03:55:41 +0800
+X-OQ-MSGID: <20240114195541.275148-1-cyy@cyyself.name>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/2] riscv: Include riscv_set_icache_flush_ctx prctl
-Content-Language: en-US
-To: Charlie Jenkins <charlie@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Jonathan Corbet <corbet@lwn.net>, Conor Dooley <conor.dooley@microchip.com>,
- =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Atish Patra <atishp@atishpatra.org>, Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
-References: <20240112-fencei-v7-0-78f0614e1db0@rivosinc.com>
- <20240112-fencei-v7-1-78f0614e1db0@rivosinc.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240112-fencei-v7-1-78f0614e1db0@rivosinc.com>
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240114_080533_487147_5D7852D7 
-X-CRM114-Status: GOOD (  33.48  )
+X-CRM114-CacheID: sfid-20240114_115638_529540_A10B80AA 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,231 +83,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Charlie,
+Previous patch series [1] violates the principle of mmap syscall as it uses
+hint address as the largest address space to use rather than where to
+create the mapping, thus broke the possibility to mmap in sv48, sv57
+address space without a MAP_FIXED flag. This patchset corrects the behavior
+of mmap syscall and use the behavior of x86 5-stage-paging as a reference.
 
-On 13/01/2024 00:56, Charlie Jenkins wrote:
-> Support new prctl with key PR_RISCV_SET_ICACHE_FLUSH_CTX to enable
-> optimization of cross modifying code. This prctl enables userspace code
-> to use icache flushing instructions such as fence.i with the guarantee
-> that the icache will continue to be clean after thread migration.
->
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> ---
->   arch/riscv/include/asm/mmu.h       |  2 ++
->   arch/riscv/include/asm/processor.h |  6 ++++
->   arch/riscv/mm/cacheflush.c         | 67 ++++++++++++++++++++++++++++++++++++++
->   arch/riscv/mm/context.c            |  8 +++--
->   include/uapi/linux/prctl.h         |  6 ++++
->   kernel/sys.c                       |  6 ++++
->   6 files changed, 92 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-> index 355504b37f8e..60be458e94da 100644
-> --- a/arch/riscv/include/asm/mmu.h
-> +++ b/arch/riscv/include/asm/mmu.h
-> @@ -19,6 +19,8 @@ typedef struct {
->   #ifdef CONFIG_SMP
->   	/* A local icache flush is needed before user execution can resume. */
->   	cpumask_t icache_stale_mask;
-> +	/* Force local icache flush on all migrations. */
-> +	bool force_icache_flush;
->   #endif
->   #ifdef CONFIG_BINFMT_ELF_FDPIC
->   	unsigned long exec_fdpic_loadmap;
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index f19f861cda54..7eda6c75e0f2 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -84,6 +84,9 @@ struct thread_struct {
->   	unsigned long vstate_ctrl;
->   	struct __riscv_v_ext_state vstate;
->   	unsigned long align_ctl;
-> +#ifdef CONFIG_SMP
-> +	bool force_icache_flush;
-> +#endif
->   };
->   
->   /* Whitelist the fstate from the task_struct for hardened usercopy */
-> @@ -145,6 +148,9 @@ extern int set_unalign_ctl(struct task_struct *tsk, unsigned int val);
->   #define GET_UNALIGN_CTL(tsk, addr)	get_unalign_ctl((tsk), (addr))
->   #define SET_UNALIGN_CTL(tsk, val)	set_unalign_ctl((tsk), (val))
->   
-> +#define RISCV_SET_ICACHE_FLUSH_CTX(arg1, arg2)	riscv_set_icache_flush_ctx(arg1, arg2)
-> +extern int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread);
-> +
->   #endif /* __ASSEMBLY__ */
->   
->   #endif /* _ASM_RISCV_PROCESSOR_H */
-> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> index 55a34f2020a8..ff545f19f07a 100644
-> --- a/arch/riscv/mm/cacheflush.c
-> +++ b/arch/riscv/mm/cacheflush.c
-> @@ -5,6 +5,7 @@
->   
->   #include <linux/acpi.h>
->   #include <linux/of.h>
-> +#include <linux/prctl.h>
->   #include <asm/acpi.h>
->   #include <asm/cacheflush.h>
->   
-> @@ -152,3 +153,69 @@ void __init riscv_init_cbo_blocksizes(void)
->   	if (cboz_block_size)
->   		riscv_cboz_block_size = cboz_block_size;
->   }
-> +
-> +/**
-> + * riscv_set_icache_flush_ctx() - Enable/disable icache flushing instructions in
-> + * userspace.
-> + * @ctx: Set the type of icache flushing instructions permitted/prohibited in
-> + *	 userspace. Supported values described below.
-> + *
-> + * Supported values for ctx:
-> + *
-> + * * %PR_RISCV_CTX_SW_FENCEI_ON: Allow fence.i in userspace.
-> + *
-> + * * %PR_RISCV_CTX_SW_FENCEI_OFF: Disallow fence.i in userspace. When ``scope ==
-> + *   PR_RISCV_SCOPE_PER_PROCESS``, this will effect all threads in a process.
-> + *   Therefore, caution must be taken -- only use this flag when you can
-> + *   guarantee that no thread in the process will emit fence.i from this point
-> + *   onward.
-> + *
-> + * @scope: Set scope of where icache flushing instructions are allowed to be
-> + *	   emitted. Supported values described below.
-> + *
-> + * Supported values for scope:
-> + *
-> + * * PR_RISCV_SCOPE_PER_PROCESS: Ensure the icache of any thread in this process
-> + *                               is coherent with instruction storage upon
-> + *                               migration.
-> + *
-> + * * PR_RISCV_SCOPE_PER_THREAD: Ensure the icache of the current thread is
-> + *                              coherent with instruction storage upon
-> + *                              migration.
-> + *
-> + * When ``scope == PR_RISCV_SCOPE_PER_PROCESS``, all threads in the process are
-> + * permitted to emit icache flushing instructions. Whenever any thread in the
-> + * process is migrated, the corresponding hart's icache will be guaranteed to be
-> + * consistent with instruction storage. Note this does not enforce any
-> + * guarantees outside of migration. If a thread modifies an instruction that
-> + * another thread may attempt to execute, the other thread must still emit an
-> + * icache flushing instruction before attempting to execute the potentially
-> + * modified instruction. This must be performed by the userspace program.
-> + *
-> + * In per-thread context (eg. ``scope == PR_RISCV_SCOPE_PER_THREAD``), only the
-> + * thread calling this function is permitted to emit icache flushing
-> + * instructions. When the thread is migrated, the corresponding hart's icache
-> + * will be guaranteed to be consistent with instruction storage.
-> + *
-> + * On kernels configured without SMP, this function is a nop as migrations
-> + * across harts will not occur.
-> + */
-> +int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long scope)
-> +{
-> +#ifdef CONFIG_SMP
-> +	switch (ctx) {
-> +	case PR_RISCV_CTX_SW_FENCEI_ON:
-> +		switch (scope) {
-> +		case PR_RISCV_SCOPE_PER_PROCESS:
-> +			current->mm->context.force_icache_flush = true;
-> +			break;
-> +		case PR_RISCV_SCOPE_PER_THREAD:
-> +			current->thread.force_icache_flush = true;
-> +			break;
-> +		default:
-> +			return -EINVAL;
-> +		}
-> +	}
-> +#endif
-> +	return 0;
-> +}
-> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> index 217fd4de6134..0146c61be0ab 100644
-> --- a/arch/riscv/mm/context.c
-> +++ b/arch/riscv/mm/context.c
-> @@ -297,12 +297,14 @@ static inline void set_mm(struct mm_struct *prev,
->    *
->    * The "cpu" argument must be the current local CPU number.
->    */
-> -static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu)
-> +static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu,
-> +					 struct task_struct *task)
->   {
->   #ifdef CONFIG_SMP
->   	cpumask_t *mask = &mm->context.icache_stale_mask;
->   
-> -	if (cpumask_test_cpu(cpu, mask)) {
-> +	if (cpumask_test_cpu(cpu, mask) || mm->context.force_icache_flush ||
-> +	    (task && task->thread.force_icache_flush)) {
+I first noticed this issue when I was trying to run box64 on a sv48 system
+with commit previous than [2]. Then I reported this through private
+communication, then a box64 contributor did some investigation and found
+that trying to mmap in sv48 address space without MAP_FIXED flag will
+always return a random address in sv39. I review the changelog with some
+tests on qemu and found this issue was introduced from [1]. After reviewing
+the code, tests and docs, I think the original author might misunderstand
+the meaning of hint address in mmap syscall. Then I did some investigation
+on other ISAs like x86 which has 5-stage-paging and found that it has
+addressed the same issue if some userspace software assumes the pointer
+size should smaller than 47 bits and also solved in kernel by limiting the
+mmap in maximum 47 bits address space by default.
+
+Finally I correct the behavior of mmap syscall as x86 5-stage-paging does,
+and migreate the documentation from x86-64 kernel to riscv kernel.
 
 
-IIUC, if a process/thread enables force_icache_flush, at every context 
-switch, the process/thread will flush the local icache but, as you said, 
-that's actually only needed in case of a migration. So we should check 
-that there has been a migration before flushing the icache. Maybe by 
-storing the last cpu the process/thread executed on and checking when it 
-is scheduled back if the current cpu if different from the last cpu, WDYT?
+[1]. https://lore.kernel.org/linux-riscv/20230809232218.849726-1-charlie@rivosinc.com/
+[2]. https://github.com/ptitSeb/box64/commit/5b700cb6e6f397d2074c49659f7f9915f4a33c5f
 
-Thanks,
+Yangyu Chen (3):
+  RISC-V: mm: fix mmap behavior in sv48 address space
+  RISC-V: mm: only test mmap without hint
+  Documentation: riscv: correct sv57 kernel behavior
 
-Alex
+ Documentation/arch/riscv/vm-layout.rst        | 48 +++++++++++--------
+ arch/riscv/include/asm/processor.h            | 39 ++++-----------
+ .../selftests/riscv/mm/mmap_bottomup.c        | 12 -----
+ .../testing/selftests/riscv/mm/mmap_default.c | 12 -----
+ tools/testing/selftests/riscv/mm/mmap_test.h  | 30 ------------
+ 5 files changed, 36 insertions(+), 105 deletions(-)
 
+-- 
+2.43.0
 
->   		cpumask_clear_cpu(cpu, mask);
->   		/*
->   		 * Ensure the remote hart's writes are visible to this hart.
-> @@ -332,5 +334,5 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
->   
->   	set_mm(prev, next, cpu);
->   
-> -	flush_icache_deferred(next, cpu);
-> +	flush_icache_deferred(next, cpu, task);
->   }
-> diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-> index 370ed14b1ae0..524d546d697b 100644
-> --- a/include/uapi/linux/prctl.h
-> +++ b/include/uapi/linux/prctl.h
-> @@ -306,4 +306,10 @@ struct prctl_mm_map {
->   # define PR_RISCV_V_VSTATE_CTRL_NEXT_MASK	0xc
->   # define PR_RISCV_V_VSTATE_CTRL_MASK		0x1f
->   
-> +#define PR_RISCV_SET_ICACHE_FLUSH_CTX	71
-> +# define PR_RISCV_CTX_SW_FENCEI_ON	0
-> +# define PR_RISCV_CTX_SW_FENCEI_OFF	1
-> +# define PR_RISCV_SCOPE_PER_PROCESS	0
-> +# define PR_RISCV_SCOPE_PER_THREAD	1
-> +
->   #endif /* _LINUX_PRCTL_H */
-> diff --git a/kernel/sys.c b/kernel/sys.c
-> index 420d9cb9cc8e..e806a8a67c36 100644
-> --- a/kernel/sys.c
-> +++ b/kernel/sys.c
-> @@ -146,6 +146,9 @@
->   #ifndef RISCV_V_GET_CONTROL
->   # define RISCV_V_GET_CONTROL()		(-EINVAL)
->   #endif
-> +#ifndef RISCV_SET_ICACHE_FLUSH_CTX
-> +# define RISCV_SET_ICACHE_FLUSH_CTX(a, b)	(-EINVAL)
-> +#endif
->   
->   /*
->    * this is where the system-wide overflow UID and GID are defined, for
-> @@ -2739,6 +2742,9 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
->   	case PR_RISCV_V_GET_CONTROL:
->   		error = RISCV_V_GET_CONTROL();
->   		break;
-> +	case PR_RISCV_SET_ICACHE_FLUSH_CTX:
-> +		error = RISCV_SET_ICACHE_FLUSH_CTX(arg2, arg3);
-> +		break;
->   	default:
->   		error = -EINVAL;
->   		break;
->
 
 _______________________________________________
 linux-riscv mailing list
