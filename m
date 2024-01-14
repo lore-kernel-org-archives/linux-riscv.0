@@ -4,128 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F061C47077
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Jan 2024 04:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE640C47077
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Jan 2024 13:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2MW2+gIXiUGz+wXJNIRKXZgHP9YFn8WNbaNFSjG4L6w=; b=wkmyNfVu48TeNt
-	785w3/ofm+a9mL1uwhAGeN+ZyBA6T+ONEFZL5pLAJXkMb0u9rHK2VDJrIJLkK4OCiQiutBqJI5R+Z
-	NzdpCumiALj7eZgnDWG6GH8I6oar7XQwC+YqhAQIFoYrmj550NPagc2l45Tn90oI68SoqdHvYYtRS
-	gALzXtLaKJvv+DV0f1/xbnZ6vcXaBXUxfblUTO1cmRfLDP9L3VaXJTYSMcKm+DS9QPO6Zrg53u0gr
-	Bev6zVRPiY6nGmdz1QlWH9yD1hN9Q3xKYEli0tClXlNpTn3V33p4Mm1D7tIc/ikiJWwDj+f/vV/RC
-	zBa/ZHtXgdQahOglhPGw==;
+	List-Owner; bh=Vc7JV44KEdDScwUaX6PH2T9GNUsc50A+SrSZSc9KJXM=; b=X6gVVHsAjEFWRg
+	jp+XjcqJAwygL0T2qavnv94MkkDuvhCqkTuBzOH7pCAYtTljD+Jui4kKXHA4K0TXJEkx/qXqe0+xd
+	wjK1Q9FUnQZMJmoTdbTmSGg2E3wC/g7vmpAM6j1BSmIaKpwISTD5KLMupidhlKQ/LeD062R+tnUCT
+	1QGOiYkLCbKkojf/74gPLdGfXgikB3Lok8b/M7slCrm5V7trWkSqYIbgutQTdKG4jeJt0pVfaLKp/
+	wFp9Suv+8YHQ+3HDSvaymjzt4/p8RplNvhvPUr+9jIzr2Eh1c9eSUvhJRy4ykWrORWuFRCV1OELhE
+	Q+jZGxfc2ldBFACYY+ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOrwV-0069uv-2b;
-	Sun, 14 Jan 2024 04:17:51 +0000
-Received: from mail-bn1nam02olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2c07::800] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1rP07I-006kyz-2S;
+	Sun, 14 Jan 2024 13:01:32 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rOrwT-0069rW-0l
-	for linux-riscv@lists.infradead.org;
-	Sun, 14 Jan 2024 04:17:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=bLjztI1Rto0skkrE1znHj40rQBP9tMTDFyNS1P1qtCGPyUl6eop+klW/aBRXwxSMxExXQI30/zXYgLXLqtwWTX4fiJEXKZuMhUQFhSwDBFtcTNtO+yiLp/EZVwnyFNc5MYa82Mcdc21QKC7ayxMbZsbw3Kh3iWHFhDJHFwuGveV+cyHt1M3oiM+D/fG2/DJJLuUXT4HdKyrfdNNejdBdSzRQ9PwX+HSwBO9sjd3jbyE5mp0DJmxVUUSvFoCMZrUQN+Y1VQXx0LkHxJgtMxvdEzW/HUHF0O6to8GpOHlBT0PqeTmiccyhSIdMFywWeFuWyNjSjKfnUKlw2LoloYVnqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=17Dd8QdpA37Jpc7mSipR9eXHTYF8toGN16/maDcL1Hg=;
- b=Oy1nwOkudFPYqe0PwTtM7C+ViBRAg8dEGydB/8Dy1JGoUuv3euM7AY251Hm8bixX/9Wts/7JE5HM0iv0l1RSM91CCKk1Qb9ZhgdXzbQ9GCbAOqFWCDqKkvDS7Qf2hmVVnELL70lRoaR8EHTRIToNypDpyZvT3M+NNULYaNswsMAfPIk/W/ml7Y5rcMZeornldtwFC8VSJwDhHkaI1wxxc4AQbCpSylMq5pETLVQskh4CiM1v2ifYyhhrJMTFtRSr0n5X+MPD17KUFJqY6PdATDGv+YVcNtVltzPmFNOwwPRTQVFKcF0KlWHQW9RBvy9jH/jDNG9KUcwxl8TF/9nqmw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=17Dd8QdpA37Jpc7mSipR9eXHTYF8toGN16/maDcL1Hg=;
- b=eaCQ3oLCMQ1KvcYFi/ei4kMeyvdKAgbcBK76/AyVAIf6vs6CAz38lBSdNFIXoyDNYIS1Dxa+peYog9yyj2iVkYOYbeNRmpNNU1rZXxkmZDqUcGY2Spfp3YgGmkZiLqui3MP0L2RMEC7yHcj4PQp1q3HG+12oUkb5EpGpu6eWI2tEi/UKQvKsTxR7TMyJqs8/KWRMIGX1d8WYhZZREnggJdd6jIs+ByEOPhGfXTwtVRtFg9G78MCFIv9rxARjhSw97RX8hA36ONSBTfR4aJgSnfqBZlLuGIVzK1VL6XktqU1b2q07tm0E8iDEkR4IQWkoeMBG1Cz8uLfMRjRukZABmA==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by MN2PR20MB3477.namprd20.prod.outlook.com (2603:10b6:208:265::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7181.23; Sun, 14 Jan
- 2024 04:17:35 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::406a:664b:b8bc:1e6b]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::406a:664b:b8bc:1e6b%2]) with mapi id 15.20.7181.020; Sun, 14 Jan 2024
- 04:17:35 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Inochi Amaoto <inochiama@outlook.com>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	Liu Gui <kenneth.liu@sophgo.com>,
-	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
-	dlan@gentoo.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v6 3/4] riscv: dts: sophgo: add clock generator for Sophgo CV1800 series SoC
-Date: Sun, 14 Jan 2024 12:17:00 +0800
-Message-ID: <IA1PR20MB4953355805F79ABDD7FE9129BB6D2@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <IA1PR20MB4953C774D41EDF1EADB6EC18BB6D2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB4953C774D41EDF1EADB6EC18BB6D2@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [zMDYVGIIl1o1QqKYb/scl9vRUsBEbU9KkdzikBF7UjIh48GD7tAblqpIqTOwxoxY]
-X-ClientProxiedBy: SI2PR06CA0018.apcprd06.prod.outlook.com
- (2603:1096:4:186::8) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20240114041702.644522-3-inochiama@outlook.com>
+	id 1rP07C-006kwi-1q;
+	Sun, 14 Jan 2024 13:01:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 5557BCE09B1;
+	Sun, 14 Jan 2024 13:01:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55C77C433F1;
+	Sun, 14 Jan 2024 13:01:04 +0000 (UTC)
+Message-ID: <857232c3-f16a-4e34-960f-89e606aae6ae@linux-m68k.org>
+Date: Sun, 14 Jan 2024 23:01:01 +1000
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|MN2PR20MB3477:EE_
-X-MS-Office365-Filtering-Correlation-Id: f3cee96a-7784-4be8-71de-08dc14b7bc69
-X-MS-Exchange-SLBlob-MailProps: cn60g5V53KP/kCS/T0mZoXNrli/jQ6UVRjP/c438xNbhfkhj8W1HjKXZePxI+WF9N9lAWIazJ61IjwIB9e3CocLrLGcpfpgqSl4Ecpe2HBqAfgFldwvMktAlx/SGhRNGrVAzJgPQBXHZvQQI2KqZJajR3VlOOP6pWOZ4CMW7KH1AnJJYUhhJFSt8xsHMUmmmCAbhzcTiUUwow6WX1irHNO+YkHmK5jzV7KJkW+5a0RuDbIs1m0ZSmxb6SWZJXYTqf9t2tYqy3zgwwOUqDI8Gx5c4eLpOd+PomnB+V6KKTS1/Nb6gnaxsmD0iCuc7EbwbrBnkh76KP121Y2f7U1xu7C4WnPhiPP9PkI/TOu2GENqGd26+dyIF7RgFxscAA1d3tY2DfqnIW/76yLZplJSy2nNBBTIQ7cTu98Sr6Jxksp17YGEo1jZ95pZ0Hz4fIqBQIh+GFyrnr7BOCrZl4zdOZJPRJQv9foFs044tKAQk+02JshFD9EPDLNgu9jH7I6loQlU84Bk+9v4XkL0C8PyCLLBdZHX2unMmcJpWNISbNNV6GiRn9ui80WK6JUoJc/74uWYXx70OrEZ6xFtThjCdy5pDx7BpoRwvLKeETu5rppgltnd+tMiHf1fW7ydxF4O5fOnP02raFPyEEGptaOxAguCwrRl/OM81F0BwBCXIZTx45mDx5p+oXLy1k6v8ZWmozk74+ySRqHAAGzREvAmpIjD9ldnhiiPaVYiOY0iYEcxzFgM9h6TlwS62r2rTB8o5xyUL5mktKNUWvxYBdIHG9+Qm82SOe/1XidY07jzIQxgw6YBIwZg/8NjiT7hnfAMyaDQenpcDjhvWNDI1kYXrdLg9MHxvR2smLDjYf62JLAmu4RGMTpnVxw==
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: w7iAoH1O/vESRe6gbQk1gG1JudTri+xIeBx3Mrs/qPGZ4MGJyNgK0sbChoNAmATr5bo8SXZEjWpfe2z/V0T0cv8kLSv+Y6Xw/BCk7GCTxJ2o0G9Jzkt98LQscLQWs3KypoXqcioFLqmGhv671Cae6BFSXVm3N654CMVsyIENc5QtSwUGpS42bI/LGl2wQCAJMZ0cUEPhywxGyb/tbqyMr2ly8jHDlYizUq1WvgxtsfyMy39amIlrPYC1P9yBpljMavpSCGfPousQ1k3jeX6qd31AuHUrHckDGDq7r4Dmqka5uXyLGf8ntW+1XpYzyDROA3uB1z9xAgMy06LkGIJfbDv8bePqUGftV4CFgv08vj8FZ6qpKe+FJH+nDdOYlyGa0J8LDJyrVWk5eK/0YxA5bZWYelKyNAoHN6z0EoAkpIX5IXJeq0ZOoQgnrLLVCgBg8qtM5xHNU7hbu50gyg2pde3d1kFdywU374aZTa/b5R7buEgZfEOZpeVMJ0aNMmw5TIjaA7OHOhbHVbSB433l5CsM6+sh/Cs/WTvCNTkvL54wGB02tnuTtcdR2W+0vJcVD5Y/JxT4Ya0YgNLDJc4oCjzXao8cNVLmmLL9STUxcXvFWucj8XQycsQcBwjcIbgf5v1fmj2UACcBWAF300qhpIYt4TV21vF0vz7vCKPVczA=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tDlMNqzVUCV1oCve6qYTZWzr7cPYqBGOyD9bv9wc34ggoKGwMozQSNomTiXq?=
- =?us-ascii?Q?vZ/2nDc20iX3oX3PsAAjV7zCem5UVDJyj4ETN/T5O3nhMlouOZFyB/lHr+G/?=
- =?us-ascii?Q?K7TY5lRG3weRGusk6gxI9FCodAp8o5cI8xP1pfTDkmPmV3LJK49JDXpY2voX?=
- =?us-ascii?Q?qnfQwVa/werXOdjWe2TuZeqDRAPOWZ19Czte8KCq3zadutr+lZqZR1eFIecY?=
- =?us-ascii?Q?VSMGMr2OXGWAfmb2RT0MIJwY54Ggajchw4iw3ky8H5vPQth8EeRksLm/d0wc?=
- =?us-ascii?Q?fTqmHH5UPV4YJXRqE62Did7/rVUlMd/Vv2mXFYks8OBF7foELdmuJk8AUPKe?=
- =?us-ascii?Q?JJo1N31XlLsHUEVUeAe2xHrukKZ6GRISMjcJQkuwVBuoxFTIuDGLPZizpndS?=
- =?us-ascii?Q?olAChSoYRbsX2miKWr6yObFTy7DiTXrw8XJ5KXtX55qr5i6sjFQuwlJc58gt?=
- =?us-ascii?Q?BoBZwiNj0Ce5X/qeNnKIqa1w815lif8CXpT3Y2y9dyz2EiQ1jLIlwV1ndS5W?=
- =?us-ascii?Q?JtVUQwaipyacwhYur27j3f/nDcPCcSAxDKXOE6TQW5TOteHpZ1DOFdyDrzzO?=
- =?us-ascii?Q?00l7O0KfzyqXNIj7a+QJ2/ny+AkUCWMkzMqyPCTsZgua+Ad1x7AqfjhKci9s?=
- =?us-ascii?Q?NxH2gssqiazynSJVGPJevkx6EjBrj4661XSiY/qObnNdaaLBF6cWcQ5h8xP9?=
- =?us-ascii?Q?Z1mMH3fWUWPnY1yXRbOjGuMHLCQw7sLHLA5YoY+jI0MRF8fQJJmPppFQGDzs?=
- =?us-ascii?Q?eGGiyasAIw7GmcDv4h5COOm4u2jO6vBku1ljDqUd6UEITQGv3k/5WsHYxGMa?=
- =?us-ascii?Q?VmDkhkqC3fC12BhtnGK4vafWEXomVYos0kOJ+m9g/o6PkQIDwAzrI5zVIFGb?=
- =?us-ascii?Q?vf5Zi1JmroMW0XdZkIR3PSlEgRL8Oupp4hnL8V8bCU9/Oo7QfLXQrmjXb1zX?=
- =?us-ascii?Q?08jBu+P+MHRUs0pUpO1LR5vZyAbzyjTTMzqxy3FO2Gent/mQIJeICAzyjw/1?=
- =?us-ascii?Q?l+13OoaPqopFQIBgxUJYBSsfvfvaE91eZAneRDKIoZItHa4NKaH3S9PDgjSz?=
- =?us-ascii?Q?o9GuaK//1cHqISCfdqIe5GFwwi/gB+kYlpUT4VsOIuTEd1fVGn8uA07fTi0R?=
- =?us-ascii?Q?Yt1MHTWYK00eQKd58lWMkEfuCkwm0nOxgTzhtUD/yu7frOU1EViYXLJCgfxR?=
- =?us-ascii?Q?n+z9hmXpNV72DsiLvZ3+GKo3fmxOD64OibcyS5xVoGt4w4dXp/IYMpY8Bdj8?=
- =?us-ascii?Q?ySrkrR8YVePSlZJMcXliferE5FAKVxwQ0gAvXk0NaQ=3D=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f3cee96a-7784-4be8-71de-08dc14b7bc69
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2024 04:17:35.4531
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR20MB3477
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Automated-testing] Call for nommu LTP maintainer [was: Re:
+ [PATCH 00/36] Remove UCLINUX from LTP]
+Content-Language: en-US
+To: Rob Landley <rob@landley.net>, Petr Vorel <pvorel@suse.cz>,
+ Tim Bird <tim.bird@sony.com>
+Cc: Cyril Hrubis <chrubis@suse.cz>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, "ltp@lists.linux.it" <ltp@lists.linux.it>,
+ Li Wang <liwang@redhat.com>, Andrea Cervesato <andrea.cervesato@suse.com>,
+ Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Christophe Lyon <christophe.lyon@linaro.org>,
+ "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ "automated-testing@lists.yoctoproject.org"
+ <automated-testing@lists.yoctoproject.org>,
+ "buildroot@buildroot.org" <buildroot@buildroot.org>,
+ Niklas Cassel <niklas.cassel@wdc.com>
+References: <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
+ <20240103114957.GD1073466@pevik>
+ <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
+ <ZZVOhlGPg5KRyS-F@yuki> <5a1f1ff3-8a61-67cf-59a9-ce498738d912@landley.net>
+ <20240105131135.GA1484621@pevik>
+ <90c1ddc1-c608-30fc-d5aa-fdf63c90d055@landley.net>
+ <20240108090338.GA1552643@pevik> <ZZvJXTshFUYSaMVH@yuki>
+ <SA3PR13MB6372498CC6372F8B16237244FD6A2@SA3PR13MB6372.namprd13.prod.outlook.com>
+ <20240110141455.GC1698252@pevik>
+ <40996ea1-3417-1c2f-ddd2-e6ed45cb6f4b@landley.net>
+ <81c07a13-305a-404b-b14c-3aff8fde3f67@linux-m68k.org>
+ <d3a26b8e-8823-8f3c-b815-4396cbac1dc3@landley.net>
+From: Greg Ungerer <gerg@linux-m68k.org>
+In-Reply-To: <d3a26b8e-8823-8f3c-b815-4396cbac1dc3@landley.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240113_201749_275197_1CEA0292 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240114_050126_984250_D101A622 
+X-CRM114-Status: GOOD (  69.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,70 +83,502 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add clock generator node for CV1800B and CV1812H.
+Hey Rob,
 
-Until now, It uses DT override to minimize duplication. This may
-change in the future. See the last link for the discussion on
-maintaining DT of CV1800 series.
+Reading your emails can be exhausting :-)
 
-Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-Link: https://github.com/milkv-duo/duo-files/blob/6f4e9b8ecb459e017cca1a8df248a19ca70837a3/duo/datasheet/CV1800B-CV1801B-Preliminary-Datasheet-full-en.pdf
-Link: https://lore.kernel.org/all/IA1PR20MB495373158F3B690EF3BF2901BB8BA@IA1PR20MB4953.namprd20.prod.outlook.com/
----
- arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 4 ++++
- arch/riscv/boot/dts/sophgo/cv1812h.dtsi | 4 ++++
- arch/riscv/boot/dts/sophgo/cv18xx.dtsi  | 6 ++++++
- 3 files changed, 14 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-index 165e9e320a8c..baf641829e72 100644
---- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-@@ -16,3 +16,7 @@ &plic {
- &clint {
- 	compatible = "sophgo,cv1800b-clint", "thead,c900-clint";
- };
-+
-+&clk {
-+	compatible = "sophgo,cv1800-clk";
-+};
-diff --git a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-index 3e7a942f5c1a..7fa4c1e2d1da 100644
---- a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-@@ -22,3 +22,7 @@ &plic {
- &clint {
- 	compatible = "sophgo,cv1812h-clint", "thead,c900-clint";
- };
-+
-+&clk {
-+	compatible = "sophgo,cv1810-clk";
-+};
-diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-index 2d6f4a4b1e58..6ea1b2784db9 100644
---- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-@@ -53,6 +53,12 @@ soc {
- 		dma-noncoherent;
- 		ranges;
+On 13/1/24 06:16, Rob Landley wrote:
+> On 1/10/24 20:25, Greg Ungerer wrote:
+>> Sorry Rob, but I think you are wrong about a number of things here.
+> 
+> Happy to be corrected. I learned most of this stuff by people pointing things
+> out I didn't know. But I _have_ been trying to collect this info for about 15
+> years now...
+> 
+>> I know, I was there at the coal face so to speak during the early
+>> years of uClinux and right up today. I feel I have to correct some of
+>> the things you claim.
+> 
+> I only heard about the politics long after the fact, and the stories have a lot
+> of elisions because what happens in Utah sadly does NOT stay in Utah.
 
-+		clk: clock-controller@3002000 {
-+			reg = <0x03002000 0x1000>;
-+			clocks = <&osc>;
-+			#clock-cells = <1>;
-+		};
-+
- 		gpio0: gpio@3020000 {
- 			compatible = "snps,dw-apb-gpio";
- 			reg = <0x3020000 0x1000>;
---
-2.43.0
+I came to Lineo through the Moreton Bay acquisition, and I worked with
+Jeff, Tim and Erik. Actually I had been collaborating with Jeff when still at
+RT-control before that as well. Lineo was a wild ride, to say the least.
 
+
+> I didn't get involved in busybox until either 2002 or 2003 depending how you
+> want to count it. After the dot com crash, around the time of the SCO trial.
+> Erik Andersen having once worked there was about as relevant as Linus' day job
+> at Transmeta, or busybox having started life years earlier as Debian's answer to
+> Red Hat Nash before being abandoned for 3 years before Erik picked it up. I
+> heard that this stuff was used in uClinux, but its use in linksys routers was
+> far more immediately relevant.
+> 
+> Shortly after the dot-com crash Ray Noorda went senile and got elder abused into
+> allowing the SCO lawsuits run by the canopy group (his personal money managers,
+> gone rogue), by which time Erik Andersen and Jeff Dionne and Tim Bird and so on
+> had all gone on to other employers. Tim heading to Sony, Jeff moved to Japan to
+> do hardware and leaving uClinux behind, and Erik continued busybox and uclibc as
+> personal projects from a server connected to the DSL line in his basement.
+> 
+> By the time I showed up uclinux never came up on the mailing list, the IRC
+> channel, or in private email. I was introduced to busybox+uclibc by tomsrtbt,
+> and the highest profile consumer of Erik's output was Linksys routers.
+> 
+> My goal with busybox was making it work in a development environment, initially
+> to replace most of the the 110 megabytes of gnu bloatware in Linux From Scratch
+> with the 1.7 megabytes of tomsrtbt to free up some of the 700 megabyte budget of
+> knoppix CDs. Making that actually _work_ took long enough to accomplish that
+> "knoppix" stopped being "the bootable CD" and every distro had one now (usually
+> as their install CD: try it live then install from the desktop you'd booted into
+> if you want to keep it).
+> 
+> After I finally got it all working (https://landley.net/aboriginal/news.html
+> either the 1.0 release rebuilding itself under itself on September 5, 2010 or
+> the 1.1 release building Linux From Scratch 6.7 under the result on October 2,
+> 2011 depending how you want to measure), I moved on to focusing on toybox
+> development instead (trying to get it into Android so THAT could become
+> self-hosting and provide a real development environment with a USB
+> keyboard+mouse and chromecast to a big TV), and other people took over creating
+> Adelie Linux and Alpine Linux and so on based on busybox instead of gnu tools.
+> 
+> I didn't get into nommu development full-time until 2014 when Jeff Dionne hired
+> me to work on his j-core project. I'd heard the name, but never spoken to him
+> before he reached out to me by email, then phone interview, then flew me to Japan.
+> 
+> While working for Jeff I asked various computer history questions because it's a
+> hobby of mine, but there's been a pandemic between then and now. I wasn't there,
+> the details of the answers I _did_ get are fuzzy by now, and there were some...
+> stories. Let's just say a canadian who moved to Utah and then moved to LITERALLY
+> THE OTHER SIDE OF THE PLANET may may have seen some stuff. I've also bumped into
+> Tim Bird on and off since 2006 (through CELF/ELC and the Linux Jamboree at
+> Nakano Sun Plaza in Tokyo and
+> https://elinux.org/CELF_Project_Proposal/Combine_tcg_with_tcc and so on) and
+> he's never spoken of Lineo once.
+> 
+> The work I did helped kill the old uclinux distro, although I didn't realize it
+
+I think you are giving yourself a little bit too much credit here...
+
+
+> at the time. The various package patches it had carried were already pushed
+> upstream into linux and gcc and so on, and busybox worked as a nommu userspace.
+> By making "build a busybox+uclibc system with a vanilla kernel" easier to do and
+> more powerful by itself, uclinux became less relevant. Various people sent me
+> nommu fixes when I was maintaining busybox, which was like sending me fixes for
+> running busybox on linksys (or openwrt) routers. I didn't have that hardware,
+> but I knew the _general_ theory and tried not to break it. Don't do unaligned
+> access, be careful of endianness, and here's what's necessary for nommu:
+
+Surely this is the end goal though?
+Build systems should not have to carry patches in a perfect world.
+  
+
+> https://git.busybox.net/busybox/commit/?id=b1b3cee831bc
+> https://git.busybox.net/busybox/commit/?id=03628c8f75ba
+> https://git.busybox.net/busybox/commit/?id=b21837714a37
+> 
+> When buildroot metastasized from uclibc's test suite (what packages build under
+> uclibc? Let's regression test them and slot them together into a testable root
+> filesystem) into a new distro (the first post to its mailing list in 2006 is
+> from me because I abused my busybox maintainer root access to the shared server
+> to set up a third list, because buildroot discussion was smothering uclibc
+> development on that list), buildroot became the logical base point for nommu
+> systems. If you wanted a busybox+uclibc root filesystem, buildroot provided an
+> up to date actively developed one with build recipes for hundreds of packages,
+> and a busy community where you could ask questions.
+> 
+> Meaning there was already no reason to install uclinux in 2006. It had been
+> replaced by either a simple busybox+uclibc root filesystem, or buildroot.
+> 
+> So "me noticing this area in 2002", "me accidentally helping finish off uclinux
+> in passing in 2006", and "me getting involved in nommu development in 2014
+> because Jeff Dionne flew me to Japan and personally explained it to me" does not
+> give me any direct experience with what went on at lineo before that, true. Just
+> like I never visited transmeta.
+> 
+>>> You can't fork() on nommu because copies of the mappings have different
+>>> addresses, meaning any pointers in the copied mappings would point into the OLD
+>>> mappings (belonging to the parent process), and fixing them up is 100%
+>>> equivalent to the "garbage collection in C" problem. (It's AI-complete. Of the
+>>> C3PO kind, not the "autocorrect with syntax checking" kind.) People get hung up
+>>> on the "it would be very inefficient to do that because no copy-on-write"
+>>> problem and miss the "the child couldn't FUNCTION because its pointer variables
+>>> all contain parent addresses" problem.
+>>>
+>>> So instead vfork() creates a child with all the same memory mappings (a bit like
+>>> a thread) and freezes the parent process until that child discards those
+>>> mappings, either by calling exec() or _exit(). (At which point the parent gets
+>>> un-suspended.)
+>>
+>> Just to be clear, vfork is not a uClinux invention.
+> 
+> I never said vfork() was a uClinux invention. I'm describing how Linux does
+> nommu. Doing nommu on linux hasn't had anything to do with uclinux for 20 years.
+> 
+> Confusing "uclinux" with "nommu" is like confusing "knoppix" with "Linux Live
+> CD". We've moved on a bit since one magic distro pioneered the technique literal
+> decades ago, there are other options now.
+> 
+> I first looked at uClinux itself in 2015 because Jeff Dionne asked me to see if
+> there was anything left to salvage out of it, resulting in
+> https://github.com/landley/toybox/commit/469d7f11b66d and the answer "no, there
+> isn't" nine years ago.
+> 
+>> It dates way back to the
+>> early BSD UNIX days.
+> 
+> I know.
+> 
+>> It just so happens that it fits in very nicely with
+>> the no-MMU model of the world.
+> 
+> Ken and Dennis' ported Unix from a PDP-7 to a PDP-11/20, which didn't have an
+> MMU. Dennis wrote about it here:
+> 
+> https://www.bell-labs.com/usr/dmr/www/odd.html
+> 
+> The PDP-11/45 the upgraded to did, and the system call sematics changed quite a
+> bit in those early years before stabilizing with Unix v7 (largely because AT&T
+> stopped allowing Bell Labs releases to go out to the public after that one, so
+> v8, v9, and v10 saw almost no use, and then they started over with Plan 9.)
+> 
+> So yeah I knew about BSD coming up with the name, but I thought "vfork()" was
+> just "what fork() used to do circa Unix v3 or similar"?
+> 
+> I was trying to explain why vfork() is still in use NOW. It's not just nommu
+> either, it's also useful when forking from heavily threaded processes, because
+> normal fork() will freeze all the threads in the process causing a latency spike
+> and potentially quite large allocation because in that case it breaks all
+> copy-on-write up front rather than trying to untangle the layers of sharing. But
+> vfork() will only freeze the one thread that called it, and doesn't allocate new
+> memory before the exec() or _exit() of the new child process. (You may hit a vma
+> lock if other threads try to tear down the mappings, I haven't tried. But if you
+> DON'T do something stupid, you don't get a latency spike on the other threads.)
+> 
+>>> So they invented FDPIC,
+> 
+> "They" being the blackfin devs, I think.
+
+No, I believe it was David Howells that did it originally for the Fujitsu FRV architecture.
+
+
+>>> which is ELF with FOUR base pointers. Each major section
+>>> (rodata, text, data, and bss) has its own base pointer, so you need to find
+>>> smaller chunks of memory to load them into (and thus it can work on a more
+>>> fragmented system), AND it means that two instances of the same program can
+>>> share the read-only sections (rodata and text) so you only need new copies of
+>>> the writeable segments (data and bss. And the heap. And the stack.)
+>>
+>> It is worth noting that to run PIE style ELF binaries on no-MMU systems you
+>> actually use the FDPIC ELF loader - not the traditional linux ELF loader (binfmt_elf).
+> 
+> Yup. Although that's mostly because binfmt_elf refuses to build without
+> CONFIG_MMU due to some stupid #ifdefs and assumptions.
+> 
+> My understanding (mostly from making puppy eyes at Rich Felker) is that the
+> bimfmt_fdpic loader can load conventional ELF binaries just fine, the way the
+> ext4 driver can mount ext3 or ext2. Unfortunately, my attempts to build
+> bimfmt_fdpic on i386 and arm64 and mips and powerpc and so on to TRY that hit
+> the same "kconfig and the #ifdefs really dowanna allow this" nonsense.
+> 
+> I note that qemu's application emulation handles conventional ELF, static PIE,
+> and fdpic pretty much interchangeably. THEY didn't see the need to have two
+> redundant loaders doing the same thing, with only one understanding some fairly
+> minor extensions. But the linux-kernel community seems to segregate out nommu
+> support and quarrantine it, for no obvious reason. (And then make the nommu
+> stuff build ONLY in one mode and the with-mmu stuff build ONLY in the other mode
+> and NEVER THE TWAIN SHALL MEET, again for no obvious reason.)>
+>> Using this setup is going to become much easier now that uClibc has native
+>> support for generating a relevant library and ld.so for noMMU linux (certainly
+>> for m68k, arm and riscv at least) - as of version 1.0.45.
+> 
+> I haven't followed buildroot's uclibc fork since uclibc.org died, I switched to
+> musl instead.
+> 
+>>> (The earlier binflt format is an a.out variant with 4 base pointers. FDPIC is
+>>> the ELF version of the same idea. Since a.out went bye-bye binflt is obsolete,
+>>> but not everybody's moved off it yet because so many nommu people are still
+>>> using 2.6 or even earlier, and also using gcc 3.x or 2.x toolchains.)
+>>
+>> Flat format (binfmt_flat) is in no way related to a.out. It is not derived from
+>> it and shares nothing with it. A.out being removed from the kernel in no way affects
+>> flat format. It doesn't magically make it obsolete. It isn't going anywhere.
+> 
+> *shrug* I'll take your word for it.
+> 
+> Back when I tried to make it work circa
+> https://landley.net/notes-2014.html#07-12-2014 the binflt plumbing was so
+> bit-rotted that A) there was no official repository for it, B) it was
+> implemented as a weird post-processing step where you ran an "elf2flt" binary
+> but it could not actually digest a normal ELF file, instead you made a SPECIAL
+> elf file with various compiler flags, which the postprocessing tool then
+> converted to a flat file.
+> 
+> (This is another variant of "embedded devs get something to work and then keep
+> using the old version FOREVER". I could download 10 year old binflt toolchains
+> that produced binaries, but nobody seemed to have built a NEW one in years.)
+> 
+> So I shoehorned basic elf2flt support into my build system:
+> 
+> https://github.com/landley/aboriginal/commit/50d139530dd4
+> 
+> And then I asked Yoshinori Sato what version _he'd_ used when adding h8300
+> support to Linux (since that was nommu) and switched to his version, which he'd
+> fixed a lot of stuff in and which worked with newer compiler versions and had
+> commits less than a year old in the tree:
+> 
+> https://github.com/landley/aboriginal/commit/247ee063028f
+> 
+> And around that time I emailed various people who had once been interested in
+> this, and they started a new binflt tree (merging the various trees I'd found)
+> and switched buildroot over to use it. But I didn't track it much beyond that
+> because instead Jeff paid Rich Felker to add fdpic support to musl and we
+> switched j-core over to that instead.
+> 
+> What little I know about binflt comes from reading the code and from Jeff Dionne
+> trying to explain it to me back in 2014 and 2015, and mostly he was concerned
+> that you had to use older versions of gcc (despite sato-san's upgrades) because
+> current versions of gcc could do some pointer range thing that broke design
+> assumptions in elf2flt, which apparently weren't fixable because information had
+> already been discarded when the .o file was generated, so the thing consuming
+> that output didn't have all the information it needed to link. (You'd have to
+> ask Jeff, I never quite wrapped my head around what the specific issue was and
+> it's a decade ago now. My impression was you'd _mostly_ get lucky and it would
+> usually work with modern gcc, but you rolled the dice with every code change...)
+> 
+>> I don't see how this is related to versions of kernel or gcc or toolchains either.
+>> Flat format works on every kernel up to todays v6.7. The conversion tool works
+>> with the latest gcc and binutils (gcc-13.2 and bintuils-2.41 as of today)
+> 
+> Again, I'll take your word for it.
+>
+>> and many
+>> versions going back for the best part of 20 years. Sure that elf2flt tool has been
+>> forked a lot it has a spotty history of getting updated. But, hey, as of today it
+>> looks pretty up to date across most architectures.
+> 
+> Um, yes. Check your back email for a message from me September 4, 2015, title
+> "elf2flt upstream repo". You were cc'd on it.
+> 
+> I created a website that tried to act as a uclinux.org replacement for the
+> social aspect of "where devs can learn about nommu development for linux, and
+> come together to talk about it":
+> 
+> https://web.archive.org/web/20160425072007/http://nommu.org/
+> 
+> Alas, I was busy with a half-dozen other things and handed it off to "official
+> web people" when the company got some, and I wasn't supposed to do "community
+> outreach" anymore because we had specific staff for that now. The discussion on
+> the mailing list about elf2flt petered out, but it DID result in people setting
+> up a new repo and merging some forks and buildroot switching over to the new one.
+> 
+> Sadly, archive.org only spidered the TOP page, not the actual months:
+> 
+> https://web.archive.org/web/20160416102445/http://lists.nommu.org/pipermail/nommu/
+> 
+> I can probably fish it out of my old mbox files if anybody cares. But the point
+> is, elf2flt got maintained again (not by me, I didn't have the expertise), and I
+> switched over to fdpic anyway.
+
+My point is that the elf2flt tool was very widely forked. At the very least
+pretty much every architecture port has its own, and in many cases many vendors
+had their own as well. So, yeah, its development and progress got messy.
+
+But I did get involved in that effort to get elf2flt centered and restored
+to some semblance of being maintained. The git hub repository is now the main focus,
+https://github.com/uclinux-dev/elf2flt. It is maintained and pretty much up to
+date. So I think we can notch that up as a win.
+
+Of course the flat format itself has issues, it is far from perfect. But for the
+most part it works fine for its intended purpose. elf-fdpic is superior in many
+respects, but requires much more invasive compiler support - that takes a lot
+more effort to create for a new architecture.
+
+
+
+> Alas reliance of fdpic means that trying to do cortex-m in mkroot, I was stuck
+> using https://github.com/mickael-guene/fdpic_manifest and waiting for it to go
+> upstream, which is _why_ I was doing the static pie toolchain for that
+> architecture until such time as gcc+binutils+linux caught up with the group. (I
+> think I saw arm fdpic support go into the kernel. Rich said that musl should
+> work, last I asked him. I haven't checked upstream gcc or binutils recently,
+> mostly because Rich won't update musl-cross-make and redoing my
+> https://github.com/landley/toybox/blob/master/scripts/mcm-buildall.sh to build
+> without it is nontrivial. For one thing I don't think
+> https://github.com/richfelker/musl-cross-make/blob/master/patches/binutils-2.33.1/0001-j2.diff
+> ever went upstream either...)
+
+Elf-fdpic on ARM works fine, I test it regularly. You don't need any patches
+for current versions of binutils, gcc, or linux kernel. Oh, I test with uClibc-ng,
+don't know about other libraries.
+
+And PIE style ELF works at least on ARM, M68K, RISCV and XTENSA nommu configurations.
+Again with uClibc-ng at least.
+
+
+>>> UCLINUX is a long-dead distro. Linaro died in the dot-com crash and its founder
+>>> Jeff Dionne moved to Japan for his next gig and never came back. On the way out
+>>> he handed uclinux off to someone else, who didn't do a lot of work maintaining
+>>> it. Most of the actual support went "upstream" into various packages (linux and
+>>> busybox and gcc and so on) before the handoff, so you didn't NEED uclinux anymore.
+>>
+>> Why do you keep claiming that "UCLINUX" (why all caps?) is a distro?
+> 
+> Because it was. Full of obsolete crap, which had its last release in 2014.
+> 
+>> That is just not the case. uClinux has been used as an umbrella term for
+>> patches, tools, packages relating to running Linux on a CPU with no MMU.
+> 
+> Which is why so many people are convinced nommu linux is dead because
+> http://uclinux.org/ was long-dead before it went down. Because of exactly that
+> confusion.
+
+I am very confused by this. Who thinks nommu linux is dead?
+
+I am continually surprised by how many people still use it.
+
+
+>> There was a build package called uclinux-dist that you might consider a distro.
+>> But it has always been cleanly named as "uclinux-dist".
+> 
+> Cleanly. Uh-huh:
+> 
+> https://web.archive.org/web/20150219205915/http://www.uclinux.org/
+> 
+> https://web.archive.org/web/20181202164812/http://www.uclinux.org/description/
+> 
+> Here are two entries from cut and pasted from
+> https://web.archive.org/web/20181204132729/http://www.uclinux.org/status/
+> 
+> 12 April 2000
+> The release of uClinux version 2.0.38.1pre7 announced today. Download the .diff NOW!
+> 
+> 10 January 2000
+> The latest release of uClinux, 2.0.38.1pre5, is announced today. The uClinux CD
+> contains the popular uClinux System Builder Kit. This new version supports a
+> broad spectrum of chip sets. Order the CD!
+
+More than anything they point out the continual overloading of the term and
+general confusion on what the term actually covers.
+
+It is trivial to find examples of its use that are clearly not related to a distribution.
+Grep for it in the Linux kernel sources one, there is plenty, eg:
+
+mm/nommu.c: * handle mapping creation for uClinux
+arch/m68k/include/asm/flat.h: * flat.h -- uClinux flat-format executables
+fs/Kconfig.binfmt:	  Support uClinux FLAT format binaries.
+fs/binfmt_elf_fdpic.c:	 * - on uClinux the holes between may actually be filled with system
+...
+
+Despite what you think my experience is that most people simply equate
+uClinux with no-mmu linux. And I for one am pretty comfortable with that.
+
+
+>> For a long time that
+>> was the goto starting point for anyone wanting to use Linux with no-MMU.
+>> The collection of patches to the toolchains, kernel, libraries and application
+>> packages was a pretty high mountain to climb to get started in those early
+>> days (late 90's and early 2000's). But through the work of a _lot_ of people
+>> much of that change has made its way into relevant packages across the board
+>> (from gcc to kernel to creation of uClibc, etc).
+> 
+> It was introduced to me as a distro at the first ELC I attended in 2006. (I
+> attended as the new busybox maintainer, there were two "uclinux developers" who
+> wanted to say hi, we spoke for about 30 seconds. One of them wore a t-shirt with
+> "uclinux" on it?)
+> 
+> As I said, I never used it. I just heard about it. You're the first person to
+> tell me it _didn't_ consider itself a distro.
+> 
+>> But lets face it once no-MMU support was integrated into mainline linux as off
+>> v2.5.46 it is really now just "Linux". The no-MMU support outgrew that trade marked
+>> term. But the name has stubbornly stuck around.
+> 
+> My successor as busybox maintainer was already ripping _uclinux_ #defines out of
+> that codebase a dozen years ago.
+> 
+> https://git.busybox.net/busybox/commit/?id=153fcaa6c171
+> 
+>>> The real nail in the coffin is the inheritor of uclinux never migrated it off
+>>> CVS, and then the disk holding the CVS archive crashed with no backup. He came
+>>> out with a couple more releases after that by monkey-patching the last release's
+>>> filesystem, but the writing was on the wall and it rolled to a stop.
+>>
+>> No, the public facing CVS was never the master sources for the uclinux-dist.
+>> The public facing CVS was only ever a copy of the tar ball releases.
+> 
+> All I know is I emailed Michael Durrant in February 2015 to see if I could get a
+> copy of the repo (preparatory for doing my triage of what was actually IN
+> uclinux for Jeff) and he replied:
+> 
+>> Are you are talking about the dead cvs.uclinux.org (CVS) machine or the
+>> the uClibc website? (http://www.uclibc.org/)
+>>
+>> If so .. that machine is very very dead .. nothing from the harddrive was
+>> salvageable. I will look and see if we have a CD or DVD backup but it is very
+>> very doubtful.
+>>
+>> I did replace the http://mailman.uclinux.org machine a few years ago after it
+>> had a catastrophic fail.
+> 
+> I sent a follow-up email but didn't get a further reply.
+> 
+> Thank you for clarifying that the stuff I was interested in was apparently never
+> tracked under source control in the first place.
+
+I didn't say it was not tracked under source control, it was.
+But that was an internal company vendor tree. The external public facing CVS
+tree on uclinux.org was simply not a copy of that internal working tree.
+It was not much more than a dump of the tar ball releases (and occasionally
+direct fix updates).
+
+
+>> That work was slowing down due to fact that it just wasn't really
+>> needed any more. There are way more popular build systems (eg build-root)
+>> for building complete firmware images from scratch.
+> 
+> Agreed, yes.
+> 
+>>> I did a triage of its last release (from 2014) as part of my toybox roadmap:
+>>
+>> No, the last release was in 2016, see it archived at:
+>> https://sourceforge.net/projects/uclinux/files/uClinux%20Stable/
+> 
+> They did another one after my triage then. I hadn't noticed.
+> 
+> In early 2015 I went to
+> https://web.archive.org/web/20150219205915/http://www.uclinux.org/ which had a
+> cvs archive link on the left (which was dead, hence the email exchange), a page
+> on bflt in the same nav bar (first link on that page went to the dead CVS
+> archive, the beyondlogic page was 404, and vapier's stuff was still there but
+> several years old, I tracked down the newer forks later), and then the "http
+> download" link at the end of the list led to
+> https://web.archive.org/web/20150206052300/http://www.uclinux.org/pub/uClinux/
+> the newest date in which was 2004.
+> 
+> The resulting first impression was "this project is VERY DEAD". And then my
+> email exchange with the contact info link got back "cvs archive died with no
+> backup" and no reply to a follow-up email.
+> 
+>> But that is all kind of archeological now, relegated to history.
+> 
+> Agreed.
+> 
+>> Regards
+>> Greg
+> 
+> Rob
+
+Regards
+Greg
 
 _______________________________________________
 linux-riscv mailing list
