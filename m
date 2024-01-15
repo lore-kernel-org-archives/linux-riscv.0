@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B7DC3DA79
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 15:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F71AC47258
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 15:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xQjYpNvP1jDi0TBcsV6cUKVz9af9pIafV6E4CLyGhN4=; b=1pmfIWk/iMC5+P
-	xKrRoQnYaeqShqxFuanAQECJJoUuYU7DfbBsSM5wo+F3X74KMz8MtV2MU+8hRtoVfe2ubjrBg0PDs
-	vrVQ1qTusckaY1X+bUtxfLVCFuYVRYCcFVZlWZJgIu1A844OhCoxeqnet+2jbEeucBEwcmQ0WqTKO
-	+1lf/rv4FX+T9vaVljGU/vjADbKvJ7ITbPNEvwhzsZTMCpT5fqAIT97MIvvDPk506dn57u5RDN8a4
-	RDQu7AlPQJ4ufMGmyGXg8TwBGhe3j1INXHfXqnNNa+POO67aFYwY8KBzavA+UlEPQsT8tv1SworDF
-	QV0o45y3r0A3JYdqiwlg==;
+	List-Owner; bh=Zre2msqZI68T6udhC/AVbEwBbHdC/c7B7wbOzYaKUPc=; b=yy+6lRnv1GGETt
+	4EoIsnfY84UFlTghW/rZkayX92a6jK00GEFBWc/Drtkbu5qWQLA1EruzKVlioCbayLf/vh/TpF6zB
+	mfbsTjWqSKl+A2s/uf4myqP2JtI2saDllhH7IduqPS/HvrAfBzyu671+9hP6lf+bEwlA3irUqr5I9
+	DqSDZoxdcY+piVgBySe8ufyyaXe+e+FY9lI/gw3usUfkxJ0N2DKAaIp6tUoYAw2pyMwQKbOXKtfoE
+	MJi4SXep/7oZiPPiPJzoInL10G+9hxUSVCja3R/E56BmdGIZy3pl0SFwg5VY6CfrM7dJQsCUVDNuZ
+	bZWD4/siRzf7UEYkCSrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPPJX-009Uq7-1y;
-	Mon, 15 Jan 2024 15:55:51 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1rPPJg-009UtR-2G;
+	Mon, 15 Jan 2024 15:56:00 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPPJU-009Up1-2j
+	id 1rPPJe-009UrV-0w
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jan 2024 15:55:50 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-a29058bb2ceso950694566b.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Jan 2024 07:55:44 -0800 (PST)
+	Mon, 15 Jan 2024 15:55:59 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-554fe147ddeso9956096a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Jan 2024 07:55:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1705334143; x=1705938943; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1705334156; x=1705938956; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DMrg2ftiySODP1utRQcg6FAO055EYrzqcviBe8d027c=;
-        b=abPnFj6AyIrSYmtnpAcx5IJtSEZIsnA4MpMlp3ipc0fjTVQfVxSzHqd6f5R7W0+PCR
-         BYRoHgLQS8RJwaW4xFQTFbnjP8PQVGZxr51OZGZU8qTZChcjXW3LEtEb6ae8YxF6Mjpv
-         RWNfckzjQK17G28n5YHIvGBBjJvs4jnI4GOctyyyRxNc4DaHcmOcfAAciPei+w7iTxLN
-         o5yPNJsaLlPjzt/2FUqF0CVlyjAcA5lOYG/wYslEz8ErjgIFK5wabElzsUMSI3DCX+PK
-         o14VS2/hpDg+UOkSR/QS7mJgVmkKJ46x4ZkHP4LrKub3oauORusHBmZNTFRUujaLIZ42
-         MUDw==
+        bh=H+xTwuofjQl5aKgUIjY8NZTzaNnDkG+zx3D4vMfYK3I=;
+        b=EkDxsldacLnGhJur9kd4EytVxC1XfrVnpjGbwahDuwaN4UBsAG+iRJdk/N6omhxB5j
+         kZTYnYOGBbbaNc1OenPfNYzMoC3I1sYkC+2ncFE9BLPWIkHntk6XkNQWWQrekwoyUr2t
+         2o+8hNa3H91LJBlix2WVHwjtvMdVkmFwlTfdMJFTCXPT+IzuYBHZg0EkbIevFXCkCKy3
+         f02C4R0lmHwOh8S0GcQpGT71usPoH88/xFbzJCIypdPbWEYPtAK9JmzDVytoXhMgx9ND
+         ybcZfKD68KyCGvHqc2goMecP/q5osofABg9XAaGH6af/9bfaxAbkUetLSu+KZ7fi9HzD
+         BLCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705334143; x=1705938943;
+        d=1e100.net; s=20230601; t=1705334156; x=1705938956;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DMrg2ftiySODP1utRQcg6FAO055EYrzqcviBe8d027c=;
-        b=FqKjzzpPB1yptiL/IfeGsPqjrTreSYjV3UOlFUotPwwg+tQct9/iDuDmGr0/9r9mi2
-         FYvvWyEWma45eg/rScDsw/M0jGA42hkbYDz827P+XXiNN/VL6+b36l8Sy6dhQb/Yd14F
-         jKUTVKJyMKXGm64CRUcChQw78BzOvwsLLBSDfBQcJEge35GOVsZ/l9B2QrkMediiydCj
-         YFBcMLc9PXW+QrutkdHXyKHLE4XE+Y0enoMbp5dNz/wrecEYJVI9qYlmcKtLzWa3Z6d3
-         IXWcxP5Uz6+DnD9P41mBcaP1WAvkU+vvWoufYtbqreXu5nWumLCAa+t5asGSIQ4WgjqM
-         Y/Ag==
-X-Gm-Message-State: AOJu0Yyb8lnNNAwJUO5UMbtxLezWe/g0w8+jZDQzoM1QKy0QNx9RZ8eP
-	Nwy3eqfzw52V0rR7VGSzhjqY96NU/PWSfw==
-X-Google-Smtp-Source: AGHT+IGPRILw6QZUdJm8bg28ZEaLAG0BKzFK5hzPlkBnp7yvq4KUBRiZDFadwrpsjQbzjOOl7WxqQw==
-X-Received: by 2002:a17:906:fc10:b0:a2c:43d:3fa with SMTP id ov16-20020a170906fc1000b00a2c043d03famr1870560ejb.122.1705334143308;
-        Mon, 15 Jan 2024 07:55:43 -0800 (PST)
+        bh=H+xTwuofjQl5aKgUIjY8NZTzaNnDkG+zx3D4vMfYK3I=;
+        b=TGhwP+CHE7eY7jNcg30Lm9hB+mHoO2rww+VDnce7FbsZlbs5bcsXoJiLp+lcOuzdlz
+         5RDsZmuGD2EH5fwDFmahfg6TVLadjCIhVySR4zNlVYu+isZBjroUT13p4BWC/Dz9AvWV
+         rK3TscAxRO5uhEBiyUo3Jfhs3TWmxfNZ1xrmEZi+C2shvxNiQbjMmQvOcB+RmEJnj/nB
+         JNZ1JSR0+R1zEBK4Mgk5S/zwSddbp9xzKjln02WoFfI2yBJ/DPjOhpiTnvQwiNwjMeS0
+         snZI+vgnOgRRcg9n18v7zR7zkr39opcjyN+K25lcr+dHDuvbleZboyGt/rSFrrcKiEbD
+         tT9g==
+X-Gm-Message-State: AOJu0Yy8OZR1ys22RmkhQHKtdfUJfC3VTIwx+LsrJwvuX1naHJ/v7dxy
+	czsyvoDKj7hrOJlmM5Wh9pLao4ZNuInZvA==
+X-Google-Smtp-Source: AGHT+IFoM24h3CeGlI4z1Wf7BKBwwl23upM286tKeBN01c44mvVDI4K8ywmNnWZGwLdbFaiQlu6pcA==
+X-Received: by 2002:a05:6402:b52:b0:559:79a4:f104 with SMTP id bx18-20020a0564020b5200b0055979a4f104mr47138edb.74.1705334156089;
+        Mon, 15 Jan 2024 07:55:56 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id v1-20020a17090606c100b00a2a04754eb1sm5430467ejb.8.2024.01.15.07.55.42
+        by smtp.gmail.com with ESMTPSA id bo13-20020a0564020b2d00b0055627eeb8b9sm5581547edb.32.2024.01.15.07.55.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jan 2024 07:55:42 -0800 (PST)
-Date: Mon, 15 Jan 2024 16:55:42 +0100
+        Mon, 15 Jan 2024 07:55:55 -0800 (PST)
+Date: Mon, 15 Jan 2024 16:55:54 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, 
@@ -69,16 +69,18 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>, Shuah Khan <shuah@kernel.org>, Anup Patel <anup@brainfault.org>, 
 	devicetree@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 08/15] RISC-V: KVM: Allow Zfh[min] extensions for Guest/VM
-Message-ID: <20240115-a20755a0a5fe14b342814b16@orel>
+Subject: Re: [PATCH 09/15] KVM: riscv: selftests: Add Zfh[min] extensions to
+ get-reg-list test
+Message-ID: <20240115-8c3ba83f0b3036bfef72b786@orel>
 References: <20231128145357.413321-1-apatel@ventanamicro.com>
- <20231128145357.413321-9-apatel@ventanamicro.com>
+ <20231128145357.413321-10-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231128145357.413321-9-apatel@ventanamicro.com>
+In-Reply-To: <20231128145357.413321-10-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_075548_891229_7577A2DF 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20240115_075558_328404_9F6F8D06 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,15 +97,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 28, 2023 at 08:23:50PM +0530, Anup Patel wrote:
-> We extend the KVM ISA extension ONE_REG interface to allow KVM
-> user space to detect and enable Zfh[min] extensions for Guest/VM.
+On Tue, Nov 28, 2023 at 08:23:51PM +0530, Anup Patel wrote:
+> The KVM RISC-V allows Zfh[min] extensions for Guest/VM so let us
+> add these extensions to get-reg-list test.
 > 
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  arch/riscv/include/uapi/asm/kvm.h | 2 ++
->  arch/riscv/kvm/vcpu_onereg.c      | 4 ++++
->  2 files changed, 6 insertions(+)
+>  tools/testing/selftests/kvm/riscv/get-reg-list.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
 >
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
