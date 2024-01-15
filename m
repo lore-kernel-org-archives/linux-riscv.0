@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE02C3DA79
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 10:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A3FC3DA79
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 10:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hqzhythGRHSVxf7fsOt5OlFA2T2X0gwBuWeQu65TJ/I=; b=04DXqJHeJhK/d8
-	DIxurMgKLH/CX5Kw3kmg/b46MhvFZcTWxZmItmH5m6eOMqXDeOIpsoNbE9tfziKJNfdinVfwNsx+u
-	PlH2srzhufUbll4FMjMroTFPkSln50HmO7REksXEHVS8m1cLB8EUheFaZqi6kIGfNlmwPSDI4+n1w
-	ZopRDmfT3Ulm7yQY50H8c9XEz0XXuFZjSk4ailN1jDrg5dXa6A2hmrO1hleEP2lNuXKzbQD0vJfrp
-	3VqGGPa+itdvGdxCmVQvdWSCFABwfCCRLbLNDgfT+eXflz5dF9NeF4F3OA37W53D2s15efR9YuFAq
-	/WzOt9QJVH6Goi7/vaow==;
+	List-Owner; bh=4NRtEHWLL4EGC4BRVAwrlAuo6+3jVTfVY5iDnngWFQc=; b=OXRAEoTIWl95Sc
+	gaM7K/a0ASx/ToJHNHMqHiapJWuQWuI+ZHnYka8hojUk85YGzPSHTHK2IHtFNWGib/fY8qmV1pJPn
+	FV8okzPubJ1YKQPP3svDqkhyaSFzlw5f6URLOZHTDUjOJiNmHJ+Hmu7o1zx3bj0QKLszoakPq9YPI
+	LaMpItGB+PjE12gY8lYIc5xA8jE5sKzVe0PdV3MNzHt/GUjhIBlJ0tHQ2Ubo1McSURaKE/tbdY8jc
+	4Wb4L/iOtRfVGs665k754V6178ckRVmA9BNACUvKc57urjK0uH2509wEw3izzM2aGWHrWLytXbKPe
+	JoId56HGX6X3A24sf9nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPJw9-008XVO-2G;
-	Mon, 15 Jan 2024 10:11:21 +0000
-Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
+	id 1rPJwE-008XXn-1O;
+	Mon, 15 Jan 2024 10:11:26 +0000
+Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPJw7-008XUR-1T
+	id 1rPJwB-008XVQ-0w
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jan 2024 10:11:20 +0000
-Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-3bba50cd318so7691331b6e.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Jan 2024 02:11:17 -0800 (PST)
+	Mon, 15 Jan 2024 10:11:24 +0000
+Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-598cf18b259so611891eaf.1
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Jan 2024 02:11:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1705313476; x=1705918276; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1705313481; x=1705918281; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FKR76xvkppExc7Ae5ic+6mPrVpT9dqve2Cn1Oe/qHYw=;
-        b=eV9P8MsoiNbfAH+jefx7T/1xs7BByzxUccpIQSJ11ZlLlAhO1syxtMNqgdqgCPEf4h
-         nC4OJ3pRJlQxXmzlgm0w8OkCs8tX3NkLKcKKRwPYQDAJNkZqoq3eyl1Is82jQQmDlaq8
-         TlevL9IPy7P4V7sZUtZLngmkZNNQscKCwWSqYAprSS6/bXqINw3OrF68cOH3YScChnfF
-         GJ77e67aiOMDOgupAa/X30f5ffju+AXRTUS6TPhxz+Xz+oVgigUY1pTUUiQzRytJIHSx
-         uvCtGUpIJSmTuSL9tmx6mUig7SP62iYwduptgtiptUTNSU5TdDYEVGFGMQDQICtJERRH
-         mwLg==
+        bh=QtA1yi7bJhENd0OSwZZPO3/DRQ+e8frz78vUteV9MTU=;
+        b=khVNA+jc1Cw6rOQH5jiVbRD8OpzaELx5xS093ncNoiJZdovK9wGxJ/jdOoJPXYWmYi
+         0O2YxqdDZsJFHUJ0Vt4EGNmn4UtAsm8xw6jHN6JCCIddRvPZfHzbyRagi9fSlx2N7dq2
+         3hrX1qWO2p9iU5qKrJC7NNgtsxkRzlE+q88HNzyFS4zFS+dXoHGdnlwp/spa2cHWtKHz
+         WptRsEwNLKCbU76DPo5OqlIMv8qcghorciDtcDLJ3hwUJNoMV6r14CKSTGSpiZtMWogo
+         m6NmTrjCPvK8asMtosJAvTwOeUIS4rmC8HC9af3pxY5BvW7Ou1wFjxIr6e6PAp2Y6uNX
+         72Jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705313476; x=1705918276;
+        d=1e100.net; s=20230601; t=1705313481; x=1705918281;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FKR76xvkppExc7Ae5ic+6mPrVpT9dqve2Cn1Oe/qHYw=;
-        b=B+E93CJCbiJJB2i6SysV4PaKAdghv3Kgn7jRNE0fRoD74Sov6RhP9JHzuntm21luyG
-         fCNe67CunmBPWO4pPY0hnaaYrru/A/nt0QQbwA6pzaVD6MKwfGRh0UenAe2W5vxMJz16
-         j/FeuOHAas1DC5pavXHRAfg7S29J1krBWgAnP2+MvOnjZu3doHcBzky/+xmipE1MxbPE
-         lRh4EGOMFCqww8ymaPzB+JIkhGsrLfUEEslCgzuMs5lVDpZGuyxZPVk2G1xgm2s1+rj7
-         cU89IYqRlSazxbQdEnrUqmHfv8lL7UxwJRdj8GVOOzcIzMdU187VV6TW48mQwsqWLohA
-         HPvg==
-X-Gm-Message-State: AOJu0YxGvQlINtHcyF8vvzzoQrv7kuzrDdi4KCitRwvZ5EBk8PdXWk4s
-	gV5134niVC5r/pHyCqy8DnDfP+z31kDy2w==
-X-Google-Smtp-Source: AGHT+IGWojS8RsJT/iDe5Ctvj5HBEJFzGZS/l46ZI7pdhdk1JBFy+CjL4CsRK1CYjAHvPpRJ4by1hw==
-X-Received: by 2002:a05:6808:152b:b0:3bb:edf8:c497 with SMTP id u43-20020a056808152b00b003bbedf8c497mr7585343oiw.71.1705313476617;
-        Mon, 15 Jan 2024 02:11:16 -0800 (PST)
+        bh=QtA1yi7bJhENd0OSwZZPO3/DRQ+e8frz78vUteV9MTU=;
+        b=DUFVpeXt8Qg+tsVgbddSlgFlO7xh+VGE+Xpn4Frmdcaijvu/DdMfE1SHa0oMc2w8Nk
+         1kBMxLPDjk9P1dG/mZ3VSri4QZBGYqhDqCZHYVo/ov4cvYnbLQt6BZGsN7uBHNsUfpzg
+         s647/jF7G2MCpl5HM+5o/auJAMhJT8jB+WgYaxzVXuxLzif1xnfqmciLXezlud4/JgAf
+         Exicm2Fjf7IiMwYhtlwch9gj+fsgNbErAR/LPTi/lRSQlDK7TKzRZFNkiDg4kDs8oy2L
+         hqOS6hHOpycZln3qerOmqQLa87tvUVCF8L1u+EsuqaFqQlYhCcBMFaUdeaOZk303rLhJ
+         6VXg==
+X-Gm-Message-State: AOJu0YwQ+H8fJQ9ekcm99/kdd9MDHSnTGGSmxG8NtA4AIUJkwoE7GOlQ
+	loQnM3wVWR6iI7YJYR8lXBSwF8cezbLpr2V3rWsGb3dQ+CHWPQ==
+X-Google-Smtp-Source: AGHT+IEKOzlQXK85GuUQTpMoHri2twLXfd45mzkf3PZf+G55H8FBWt+pX+2+cyIqrJVcLKFALAXomQ==
+X-Received: by 2002:a05:6358:7689:b0:175:4f3e:bd4d with SMTP id e9-20020a056358768900b001754f3ebd4dmr2404643rwg.49.1705313481257;
+        Mon, 15 Jan 2024 02:11:21 -0800 (PST)
 Received: from localhost.localdomain ([106.51.188.200])
-        by smtp.gmail.com with ESMTPSA id u5-20020aa78385000000b006d9b8572e77sm7348256pfm.120.2024.01.15.02.11.11
+        by smtp.gmail.com with ESMTPSA id u5-20020aa78385000000b006d9b8572e77sm7348256pfm.120.2024.01.15.02.11.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jan 2024 02:11:16 -0800 (PST)
+        Mon, 15 Jan 2024 02:11:20 -0800 (PST)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-acpi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 -next 2/3] ACPI: RISC-V: Add LPI driver
-Date: Mon, 15 Jan 2024 15:40:55 +0530
-Message-Id: <20240115101056.429471-3-sunilvl@ventanamicro.com>
+Subject: [PATCH v2 -next 3/3] ACPI: Enable ACPI_PROCESSOR for RISC-V
+Date: Mon, 15 Jan 2024 15:40:56 +0530
+Message-Id: <20240115101056.429471-4-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240115101056.429471-1-sunilvl@ventanamicro.com>
 References: <20240115101056.429471-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_021119_490643_594164DC 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20240115_021123_329002_4CAE19C3 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,112 +94,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable Low Power Idle (LPI) based cpuidle driver for RISC-V platforms.
-It depends on SBI HSM calls for idle state transitions.
+The ACPI processor driver is not currently enabled for RISC-V.
+This is required to enable CPU related functionalities like
+LPI and CPPC. Hence, enable ACPI_PROCESSOR for RISC-V.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- drivers/acpi/riscv/Makefile  |  3 +-
- drivers/acpi/riscv/cpuidle.c | 81 ++++++++++++++++++++++++++++++++++++
- 2 files changed, 83 insertions(+), 1 deletion(-)
- create mode 100644 drivers/acpi/riscv/cpuidle.c
+ drivers/acpi/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
-index 8b3b126e0b94..7309d92dd477 100644
---- a/drivers/acpi/riscv/Makefile
-+++ b/drivers/acpi/riscv/Makefile
-@@ -1,2 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0-only
--obj-y 	+= rhct.o
-+obj-y					+= rhct.o
-+obj-$(CONFIG_ACPI_PROCESSOR_IDLE)	+= cpuidle.o
-diff --git a/drivers/acpi/riscv/cpuidle.c b/drivers/acpi/riscv/cpuidle.c
-new file mode 100644
-index 000000000000..052ec3942902
---- /dev/null
-+++ b/drivers/acpi/riscv/cpuidle.c
-@@ -0,0 +1,81 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2024, Ventana Micro Systems Inc
-+ *	Author: Sunil V L <sunilvl@ventanamicro.com>
-+ *
-+ */
-+
-+#include <linux/acpi.h>
-+#include <acpi/processor.h>
-+#include <linux/cpu_pm.h>
-+#include <linux/cpuidle.h>
-+#include <linux/suspend.h>
-+#include <asm/cpuidle.h>
-+#include <asm/sbi.h>
-+#include <asm/suspend.h>
-+
-+#define RISCV_FFH_LPI_TYPE_MASK	GENMASK_ULL(63, 60)
-+#define RISCV_FFH_LPI_RSVD_MASK	GENMASK_ULL(59, 32)
-+
-+#define RISCV_FFH_LPI_TYPE_SBI	BIT_ULL(60)
-+
-+static int acpi_cpu_init_idle(unsigned int cpu)
-+{
-+	int i;
-+	struct acpi_lpi_state *lpi;
-+	struct acpi_processor *pr = per_cpu(processors, cpu);
-+
-+	if (unlikely(!pr || !pr->flags.has_lpi))
-+		return -EINVAL;
-+
-+	if (!is_sbi_hsm_supported())
-+		return -ENODEV;
-+
-+	if (pr->power.count <= 1)
-+		return -ENODEV;
-+
-+	for (i = 1; i < pr->power.count; i++) {
-+		u32 state;
-+
-+		lpi = &pr->power.lpi_states[i];
-+
-+		/*
-+		 * Validate Entry Method as per FFH spec.
-+		 * bits[63:60] should be 0x1
-+		 * bits[59:32] should be 0x0
-+		 * bits[31:0] represent a SBI power_state
-+		 */
-+		if (((lpi->address & RISCV_FFH_LPI_TYPE_MASK) != RISCV_FFH_LPI_TYPE_SBI) ||
-+		    (lpi->address & RISCV_FFH_LPI_RSVD_MASK)) {
-+			pr_warn("Invalid LPI entry method %#llx\n", lpi->address);
-+			return -EINVAL;
-+		}
-+
-+		state = lpi->address;
-+		if (!sbi_suspend_state_is_valid(state)) {
-+			pr_warn("Invalid SBI power state %#x\n", state);
-+			return -EINVAL;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+int acpi_processor_ffh_lpi_probe(unsigned int cpu)
-+{
-+	return acpi_cpu_init_idle(cpu);
-+}
-+
-+int acpi_processor_ffh_lpi_enter(struct acpi_lpi_state *lpi)
-+{
-+	u32 state = lpi->address;
-+
-+	if (state & SBI_HSM_SUSP_NON_RET_BIT)
-+		return CPU_PM_CPU_IDLE_ENTER_PARAM(sbi_suspend,
-+						   lpi->index,
-+						   state);
-+	else
-+		return CPU_PM_CPU_IDLE_ENTER_RETENTION_PARAM(sbi_suspend,
-+							     lpi->index,
-+							     state);
-+}
+diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+index f819e760ff19..9a920752171c 100644
+--- a/drivers/acpi/Kconfig
++++ b/drivers/acpi/Kconfig
+@@ -282,7 +282,7 @@ config ACPI_CPPC_LIB
+ 
+ config ACPI_PROCESSOR
+ 	tristate "Processor"
+-	depends on X86 || ARM64 || LOONGARCH
++	depends on X86 || ARM64 || LOONGARCH || RISCV
+ 	select ACPI_PROCESSOR_IDLE
+ 	select ACPI_CPU_FREQ_PSS if X86 || LOONGARCH
+ 	select THERMAL
 -- 
 2.34.1
 
