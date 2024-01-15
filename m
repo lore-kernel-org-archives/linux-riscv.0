@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889F9C47258
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 16:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FD2C3DA79
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 16:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JEHXSQ/qa4nIKXaiIXofTzNFizKu9u9woR7/ApMTGc4=; b=fuzFS0L0SF083A
-	2rl8YqPsypNUUI3mmVLC42PjnwAUyxORupNOJjwob9f9yqP4pa/pwPY5TT4Gz63Yfyzi/8e/7K/DU
-	wTc/ab1MDcWDzjwnChouZd24AYCMD1Quq8Bl8MBRCIH5Ea2rYLHlcKDI8yWMEi9hZhN1x/xBibKvJ
-	rd/RU4sL2bTkjsfkuHGRoLIQtn81ALAvQrIuUD6RX5wadyfIM8U7u0kAfDSqeSGT7632wQE9auC18
-	SNfFlvlVbVy5ftRTJFVYD7FHsFxIc55XHAbxQUh+RXAU5FhvBgcVBmlxvpCiX72SBAlcvlHN9k0fX
-	pUcGOv4fcq8ARRCbR7tg==;
+	List-Owner; bh=AIsu9VwUatKRa51SK6XHGXXhkOpMOFP+iK6viZo741Q=; b=sJfmapi5stzicQ
+	Es7TVxKD3OVRB042duGEhsBQQVr7eAw7fmJPP+f4o1iTFJE5NJrKhWgHfNjHxmKig7A7238xTCBjL
+	eCNmoK9ibCIojnL151l+wFnZSZZ6wayNVjadRTJes9vogT33qZSRbYTUZhDrIwfZInlF7j15T8QTW
+	XxMwGuYmtJr/b9tioL3iWFcuVxqePLF6L50Q3WDsLjdcr4hpZR/nIjatkX+2bv/GznjXVO3sSufHd
+	Kz4mF/yRfOwUHlmxhLNPepYajccE4NVc+k0icBja3p8JxspWtjdPXxAvmAag3u28MwXaaVMPxeExd
+	y/0hbbsJaIPnE1m6C6+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPPTc-009Y0y-2w;
-	Mon, 15 Jan 2024 16:06:16 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1rPPTj-009Y4M-2L;
+	Mon, 15 Jan 2024 16:06:23 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPPTZ-009XzL-0M
+	id 1rPPTg-009Y1I-0s
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jan 2024 16:06:15 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6dac8955af0so5146728b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Jan 2024 08:06:11 -0800 (PST)
+	Mon, 15 Jan 2024 16:06:22 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1d3eb299e2eso52710135ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Jan 2024 08:06:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1705334771; x=1705939571; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1705334777; x=1705939577; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ixPkXzb9IeR/hF0U1QATiBKY+/dWLZ8JkGr38j+7Zxk=;
-        b=i3FTih+AvdOAVXWoEqsCnO07rXESN4Z5tV7X3fK9ZBx91fIP81vxR64FPh1cE/WVFo
-         LEW1g+9bxnti02v8ANgMM42QNjcF4jx5ocYrsZpHxtgIvn+1gkTvcZM/dTNYZzQSyVf9
-         CwrUMogAZRuEMXSCQtsLKa1mZ22QKtmdfdHzL5xF1xFcXf2hPCQQT4NZp5Dts2DiDtvK
-         29lAItKdNibCnZYlSECDWWy/aoP7T1ALg7WvJMNxS7kVMK/LGxs3jOIwFzWHWBIhBJWc
-         NqN96qTSfF6B+V3oSR2GCwmbwPgxdzbw3HoganH7niFyCcIifgCKP0imUi9wmeYKuyYf
-         CpoA==
+        bh=cdyaIvxmmOjRunOX/oOw4o3WkHS+fs6RCTmeYumhAog=;
+        b=nNjxk8Zi/qhOAhjERxdzBFNsUCXO2ico9Ol1DwuQxxcQ+tS8Gt4d30DV9/2WrD8gwz
+         zHJRPWmc1SPBwyw8lst0UjA4RAwcLocbL3Y//4RKL4+u7K/ssUo6pRTnFQMtRrgjjGJ0
+         8FEM9usoh97FT5XWQOxyvP1i3z+FijmduMOHMRG7UxOrKle/8UcKcFdBillL13gYQvsy
+         XWjwYjwunFEPk6Vv2LPzNsN13v6/oLgmD/xa2RvmmzVuEqb/M9zEf2/ViEvaVRSgGlxu
+         CjCkjf+y0+zkFK46KGwcDNeiNLHQzYc5/k3+hesOJJRh36Ui9DWCl85zjhjUgbIswfzu
+         IKDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705334771; x=1705939571;
+        d=1e100.net; s=20230601; t=1705334777; x=1705939577;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ixPkXzb9IeR/hF0U1QATiBKY+/dWLZ8JkGr38j+7Zxk=;
-        b=fbZX9rgF5amN4d++Pqu+PDL70TvDilV+SxNVEFYo4gSIwkk4Ea4pX3X7ibdTMAJLo3
-         6RxcNPWxDiwjIAIvsVzCUdumg8x/7idmb3QQ9yL9Fwt2+h/G/vLcg7GrsJUeBecNuEwy
-         q4xyYlwmQNZ4Nu0QvdigYyXQAlWtBwyZU6QUN5uTEiVsG4RrD6R8DQj+/nB44hbzyHiB
-         1cSSI8JGUD3ah9OtBFBUubDnrCkw1X0V5XyocEYYtrlTklyf2xw0mTaGlJudTafC4gbd
-         EJtENPJAX/5rdS2VFMPFQzgzcAMI2p7W4brY3dsfdvHFa/aaUjI1FEw6aa6GzkhTPY2C
-         SrTw==
-X-Gm-Message-State: AOJu0YwSt5geeI3IuJtFFrkqVeJzJzu/WQnXVTzzKiANg8augnaJEE/2
-	Az9FZvXG98jqgFXU7S6WAWo=
-X-Google-Smtp-Source: AGHT+IH0W4dSfXX9ssa/rcWuTJ0eDaTBQ1lZ27m+dBLNlKjQeBamp8WPXApwM06MMIgXGOwRZw4JtQ==
-X-Received: by 2002:a05:6a20:2d29:b0:19a:bbd0:a314 with SMTP id g41-20020a056a202d2900b0019abbd0a314mr1679742pzl.23.1705334771009;
-        Mon, 15 Jan 2024 08:06:11 -0800 (PST)
+        bh=cdyaIvxmmOjRunOX/oOw4o3WkHS+fs6RCTmeYumhAog=;
+        b=DAqaATLXOU0FQFxPKm1quCPwiAfKrlYcEzySFM+1q/Xkc11/v8txeFPB+IP27SvrdB
+         Ug6o0G+0io96L1lTqBYGKZDeH1cwt9KpF1r6TuAAxnMIqcijNhdRynf1S7yy49Za87xr
+         3/P9Pa5tjNudZ9EdsAbHTQQ5+uEXoiIIIPu7lbJtBfVyakI4RCUvMxMECNRCwD6K1ead
+         4rkhOfv3CmeD0mo+17So/sHsUA85gVAiR3Q04LKsmsWQwoAVJ9goFL+1jqpMx+LAkW8r
+         IHXKOi2Z+VaXm0m0Xx98TaxsP+32twnTEKn7PevaJOdGL75SXqHiEopWbdw7mT1iG/EU
+         QZHw==
+X-Gm-Message-State: AOJu0YxDYl/O8WcrrBhRcEVWWSCdEdyL2f8Er/hqaETeU2rKTTQXsCDc
+	TkcnMXTLHGDqqPFg+m8J5tY=
+X-Google-Smtp-Source: AGHT+IGIW3TzoHc4UGPm+e1BbSQfHy2FtGkiV9wGvQ9hBSn4ADjSrXUPj0yHTaGgHhkuH07IRsDlOQ==
+X-Received: by 2002:a17:902:dac4:b0:1d3:45b7:bc26 with SMTP id q4-20020a170902dac400b001d345b7bc26mr3680287plx.54.1705334776899;
+        Mon, 15 Jan 2024 08:06:16 -0800 (PST)
 Received: from localhost ([124.131.233.112])
-        by smtp.gmail.com with ESMTPSA id fb10-20020a056a002d8a00b006d9bb4400f0sm7755351pfb.88.2024.01.15.08.06.09
+        by smtp.gmail.com with ESMTPSA id ml12-20020a17090334cc00b001d4f607ab24sm7793969plb.205.2024.01.15.08.06.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jan 2024 08:06:10 -0800 (PST)
+        Mon, 15 Jan 2024 08:06:16 -0800 (PST)
 From: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
 To: alexandre.belloni@bootlin.com,
 	robh+dt@kernel.org,
@@ -78,16 +78,16 @@ Cc: linux-rtc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	dlan@gentoo.org,
 	inochiama@outlook.com
-Subject: [PATCH v6 1/3] dt-bindings: rtc: sophgo: add RTC support for Sophgo CV1800 series SoC
-Date: Tue, 16 Jan 2024 00:05:58 +0800
-Message-ID: <20240115160600.5444-2-qiujingbao.dlmu@gmail.com>
+Subject: [PATCH v6 2/3] rtc: sophgo: add rtc support for Sophgo CV1800 SoC
+Date: Tue, 16 Jan 2024 00:05:59 +0800
+Message-ID: <20240115160600.5444-3-qiujingbao.dlmu@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240115160600.5444-1-qiujingbao.dlmu@gmail.com>
 References: <20240115160600.5444-1-qiujingbao.dlmu@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_080613_147407_398E2E4B 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20240115_080620_311335_3E78417F 
+X-CRM114-Status: GOOD (  25.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,76 +104,454 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add RTC devicetree binding for Sophgo CV1800 SoC.
+Implement the RTC driver for CV1800, which able to provide time alarm
+and calibrate functionality.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
 ---
- .../bindings/rtc/sophgo,cv1800-rtc.yaml       | 55 +++++++++++++++++++
- 1 file changed, 55 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml
 
-diff --git a/Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml b/Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml
+Depends on https://lore.kernel.org/all/IA1PR20MB4953C774D41EDF1EADB6EC18BB6D2@IA1PR20MB4953.namprd20.prod.outlook.com/
+
+---
+ drivers/rtc/Kconfig      |   7 +
+ drivers/rtc/Makefile     |   1 +
+ drivers/rtc/rtc-cv1800.c | 397 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 405 insertions(+)
+ create mode 100644 drivers/rtc/rtc-cv1800.c
+
+diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
+index 1ea9c7600150..3633f45c7fa0 100644
+--- a/drivers/rtc/Kconfig
++++ b/drivers/rtc/Kconfig
+@@ -1115,6 +1115,13 @@ config RTC_DRV_DS2404
+ 	  This driver can also be built as a module. If so, the module
+ 	  will be called rtc-ds2404.
+ 
++config RTC_DRV_CV1800
++	tristate "Sophgo CV1800 RTC"
++	depends on ARCH_SOPHGO || COMPILE_TEST
++	help
++	  If you say Y here you will get support for the RTC found on
++	  CV1800
++
+ config RTC_DRV_DA9052
+ 	tristate "Dialog DA9052/DA9053 RTC"
+ 	depends on PMIC_DA9052
+diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
+index 31c4606fd9bf..a5fc78ac0094 100644
+--- a/drivers/rtc/Makefile
++++ b/drivers/rtc/Makefile
+@@ -42,6 +42,7 @@ obj-$(CONFIG_RTC_DRV_CADENCE)	+= rtc-cadence.o
+ obj-$(CONFIG_RTC_DRV_CMOS)	+= rtc-cmos.o
+ obj-$(CONFIG_RTC_DRV_CPCAP)	+= rtc-cpcap.o
+ obj-$(CONFIG_RTC_DRV_CROS_EC)	+= rtc-cros-ec.o
++obj-$(CONFIG_RTC_DRV_CV1800)	+= rtc-cv1800.o
+ obj-$(CONFIG_RTC_DRV_DA9052)	+= rtc-da9052.o
+ obj-$(CONFIG_RTC_DRV_DA9055)	+= rtc-da9055.o
+ obj-$(CONFIG_RTC_DRV_DA9063)	+= rtc-da9063.o
+diff --git a/drivers/rtc/rtc-cv1800.c b/drivers/rtc/rtc-cv1800.c
 new file mode 100644
-index 000000000000..e54abd59c193
+index 000000000000..836f15a881e0
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml
-@@ -0,0 +1,55 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/rtc/sophgo,cv1800-rtc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/rtc/rtc-cv1800.c
+@@ -0,0 +1,397 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * rtc-cv1800.c: RTC driver for Sophgo cv1800 RTC
++ *
++ * Author: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
++ */
++#include <linux/kernel.h>
++#include <linux/clk.h>
++#include <linux/module.h>
++#include <linux/irq.h>
++#include <linux/delay.h>
++#include <linux/rtc.h>
++#include <linux/platform_device.h>
++#include <linux/mfd/syscon.h>
++#include <linux/regmap.h>
++#include <linux/of.h>
 +
-+title: Real Time Clock of the Sophgo CV1800 SoC
++#define ANA_CALIB                   0x1000
++#define SEC_PULSE_GEN               0x1004
++#define ALARM_TIME                  0x1008
++#define ALARM_ENABLE                0x100C
++#define SET_SEC_CNTR_VAL            0x1010
++#define SET_SEC_CNTR_TRIG           0x1014
++#define SEC_CNTR_VAL                0x1018
++#define APB_RDATA_SEL               0x103C
++#define POR_DB_MAGIC_KEY            0x1068
++#define EN_PWR_WAKEUP               0x10BC
 +
-+description:
-+  Real Time Clock (RTC) is an independently powered module
-+  within the chip, which includes a 32KHz oscillator and a
-+  Power On Reset/POR submodule. It can be used for time display
-+  and timed alarm generation. In addition, the hardware state
-+  machine provides triggering and timing control for chip
-+  power on, off, and reset.
++/*
++ * When in VDDBKUP domain, this MACRO register
++ * does not power down
++ */
++#define MACRO_DA_CLEAR_ALL          0x1480
++#define MACRO_DA_SOC_READY          0x148C
++#define MACRO_RO_T                  0x14A8
++#define MACRO_RG_SET_T              0x1498
++#define CTRL                        0x08
++#define FC_COARSE_EN                0x40
++#define FC_COARSE_CAL               0x44
++#define FC_FINE_EN                  0x48
++#define FC_FINE_CAL                 0x50
++#define CTRL_MODE_MASK              BIT(10)
++#define CTRL_MODE_OSC32K            0x00UL
++#define CTRL_MODE_XTAL32K           BIT(0)
++#define FC_COARSE_CAL_VAL_SHIFT     0
++#define FC_COARSE_CAL_VAL_MASK      GENMASK(15, 0)
++#define FC_COARSE_CAL_TIME_SHIFT    16
++#define FC_COARSE_CAL_TIME_MASK     GENMASK(31, 16)
++#define FC_FINE_CAL_VAL_SHIFT       0
++#define FC_FINE_CAL_VAL_MASK        GENMASK(23, 0)
++#define FC_FINE_CAL_TIME_SHIFT      24
++#define FC_FINE_CAL_TIME_MASK       GENMASK(31, 24)
++#define SEC_PULSE_GEN_INT_SHIFT     0
++#define SEC_PULSE_GEN_INT_MASK      GENMASK(7, 0)
++#define SEC_PULSE_GEN_FRAC_SHIFT    8
++#define SEC_PULSE_GEN_FRAC_MASK     GENMASK(24, 8)
++#define SEC_PULSE_GEN_SEL_SHIFT     31
++#define SEC_PULSE_GEN_SEL_MASK      GENMASK(30, 0)
++#define SEC_PULSE_SEL_INNER         BIT(31)
++#define CALIB_INIT_VAL              (BIT(8) || BIT(16))
++#define CALIB_SEL_FTUNE_MASK        GENMASK(30, 0)
++#define CALIB_SEL_FTUNE_INNER       0x00UL
++#define CALIB_OFFSET_INIT           128
++#define CALIB_OFFSET_SHIFT          BIT(0)
++#define CALIB_FREQ                  256000000000
++#define CALIB_FRAC_EXT              10000
++#define CALIB_FREQ_NS               40
++#define CALIB_FREQ_MULT             256
++#define CALIB_FC_COARSE_PLUS_OFFSET 770
++#define CALIB_FC_COARSE_SUB_OFFSET  755
++#define REG_ENABLE_FUN              BIT(0)
++#define REG_DISABLE_FUN             0x00UL
++#define REG_INIT_TIMEOUT            100
++#define SEC_MAX_VAL                 0xFFFFFFFF
++#define ALARM_ENABLE_MASK           BIT(0)
++#define SET_SEC_CNTR_VAL_INIT       (BIT(28) || BIT(29))
++#define DEALY_TIME_PREPARE          400
++#define DEALY_TIME_LOOP             100
 +
-+maintainers:
-+  - Jingbao Qiu <qiujingbao.dlmu@gmail.com>
++struct cv1800_rtc_priv {
++	struct rtc_device *rtc_dev;
++	struct device *dev;
++	struct regmap *rtc_map;
++	struct clk *clk;
++	int irq;
++};
 +
-+allOf:
-+  - $ref: rtc.yaml#
++static int cv1800_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
++{
++	struct cv1800_rtc_priv *info = dev_get_drvdata(dev);
 +
-+properties:
-+  compatible:
-+    items:
-+      - const: sophgo,cv1800-rtc
-+      - const: syscon
++	regmap_write(info->rtc_map, ALARM_ENABLE, enabled);
 +
-+  reg:
-+    maxItems: 1
++	return 0;
++}
 +
-+  interrupts:
-+    maxItems: 1
++static int cv1800_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alrm)
++{
++	struct cv1800_rtc_priv *info = dev_get_drvdata(dev);
++	unsigned long alarm_time;
 +
-+  clocks:
-+    maxItems: 1
++	alarm_time = rtc_tm_to_time64(&alrm->time);
 +
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
++	cv1800_rtc_alarm_irq_enable(dev, REG_DISABLE_FUN);
 +
-+unevaluatedProperties: false
++	regmap_write(info->rtc_map, ALARM_TIME, alarm_time);
 +
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
++	cv1800_rtc_alarm_irq_enable(dev, alrm->enabled);
 +
-+    rtc@5025000 {
-+        compatible = "sophgo,cv1800-rtc", "syscon";
-+        reg = <0x5025000 0x2000>;
-+        interrupts = <17 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&osc>;
-+    };
++	return 0;
++}
++
++static int cv1800_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alarm)
++{
++	struct cv1800_rtc_priv *info = dev_get_drvdata(dev);
++	uint32_t enabled;
++	uint32_t time;
++
++	regmap_read(info->rtc_map, ALARM_ENABLE, &enabled);
++
++	alarm->enabled = enabled & ALARM_ENABLE_MASK;
++
++	regmap_read(info->rtc_map, ALARM_TIME, &time);
++
++	rtc_time64_to_tm(time, &alarm->time);
++
++	return 0;
++}
++
++/**
++ * cv1800_rtc_32k_coarse_val_calib() - Using an external
++ * clock to coarse calibrate the crystal oscillator
++ * @info: the device of calibrated
++ *
++ * @return 0 on success, or -1 on fail
++ *
++ * This RTC has an independent 32KHz oscillator. However,
++ * the accuracy of this oscillator is easily affected by
++ * external environmental interference,resulting in lower
++ * accuracy than the internal oscillator.Therefore, a 25M
++ * crystal oscillator is used as a reference source to
++ * calibrate the RTC and improve its accuracy.Calibration
++ * is completed through two steps, namely rough calibration
++ * and fine calibration.
++ */
++static int cv1800_rtc_32k_coarse_val_calib(struct cv1800_rtc_priv *info)
++{
++	uint32_t calib_val = 0;
++	uint32_t coarse_val = 0;
++	uint32_t time_now = 0;
++	uint32_t time_next = 0;
++	uint32_t offset = CALIB_OFFSET_INIT;
++	uint32_t coarse_timeout = REG_INIT_TIMEOUT;
++	uint32_t get_val_timeout = 0;
++
++	regmap_write(info->rtc_map, ANA_CALIB, CALIB_INIT_VAL);
++
++	udelay(DEALY_TIME_PREPARE);
++
++	/* Select 32K OSC tuning val source from rtc_sys */
++	regmap_update_bits(info->rtc_map, SEC_PULSE_GEN,
++			   (unsigned int)(~SEC_PULSE_GEN_SEL_MASK),
++			   (unsigned int)(~SEC_PULSE_SEL_INNER));
++
++	regmap_read(info->rtc_map, ANA_CALIB, &calib_val);
++
++	regmap_write(info->rtc_map, FC_COARSE_EN, REG_ENABLE_FUN);
++
++	while (--coarse_timeout) {
++		regmap_read(info->rtc_map, FC_COARSE_CAL, &time_now);
++		time_now >>= FC_COARSE_CAL_TIME_SHIFT;
++
++		get_val_timeout = REG_INIT_TIMEOUT;
++
++		while (time_next <= time_now && --get_val_timeout) {
++			regmap_read(info->rtc_map, FC_COARSE_CAL, &time_next);
++			time_next >>= FC_COARSE_CAL_TIME_SHIFT;
++			udelay(DEALY_TIME_LOOP);
++		}
++
++		if (!get_val_timeout)
++			return -1;
++
++		udelay(DEALY_TIME_PREPARE);
++
++		regmap_read(info->rtc_map, FC_COARSE_CAL, &coarse_val);
++		coarse_val &= FC_COARSE_CAL_VAL_MASK;
++
++		if (coarse_val > CALIB_FC_COARSE_PLUS_OFFSET) {
++			calib_val += offset;
++			offset >>= CALIB_OFFSET_SHIFT;
++			regmap_write(info->rtc_map, ANA_CALIB, calib_val);
++		} else if (coarse_val < CALIB_FC_COARSE_SUB_OFFSET) {
++			calib_val -= offset;
++			offset >>= CALIB_OFFSET_SHIFT;
++			regmap_write(info->rtc_map, ANA_CALIB, calib_val);
++		} else {
++			regmap_write(info->rtc_map, FC_COARSE_EN,
++				     REG_DISABLE_FUN);
++			break;
++		}
++
++		if (offset == 0)
++			return -1;
++	}
++
++	return 0;
++}
++
++static int cv1800_rtc_32k_fine_val_calib(struct cv1800_rtc_priv *info)
++{
++	uint32_t val;
++	uint64_t freq = CALIB_FREQ;
++	uint32_t sec_cnt;
++	uint32_t timeout = REG_INIT_TIMEOUT;
++	uint32_t time_now = 0;
++	uint32_t time_next = 0;
++
++	regmap_write(info->rtc_map, FC_FINE_EN, REG_ENABLE_FUN);
++
++	regmap_read(info->rtc_map, FC_FINE_CAL, &time_now);
++	time_now >>= FC_FINE_CAL_TIME_SHIFT;
++
++	while (time_next <= time_now && --timeout) {
++		regmap_read(info->rtc_map, FC_FINE_CAL, &time_next);
++		time_next >>= FC_FINE_CAL_TIME_SHIFT;
++		udelay(DEALY_TIME_LOOP);
++	}
++
++	if (!timeout)
++		return -1;
++
++	regmap_read(info->rtc_map, FC_FINE_CAL, &val);
++	val &= FC_FINE_CAL_VAL_MASK;
++
++	do_div(freq, CALIB_FREQ_NS);
++	freq = freq * CALIB_FRAC_EXT;
++	do_div(freq, val);
++
++	sec_cnt = ((do_div(freq, CALIB_FRAC_EXT) * CALIB_FREQ_MULT) /
++			   CALIB_FRAC_EXT &
++		   SEC_PULSE_GEN_INT_MASK) +
++		  (freq << SEC_PULSE_GEN_FRAC_SHIFT);
++
++	regmap_write(info->rtc_map, SEC_PULSE_GEN, sec_cnt);
++	regmap_write(info->rtc_map, FC_FINE_EN, REG_DISABLE_FUN);
++
++	return 0;
++}
++
++static void rtc_enable_sec_counter(struct cv1800_rtc_priv *info)
++{
++	unsigned int sec_ro_t;
++	unsigned int sec;
++
++	/* select inner sec pulse and select reg set calibration val */
++	regmap_update_bits(info->rtc_map, SEC_PULSE_GEN,
++			   (unsigned int)(~SEC_PULSE_GEN_SEL_MASK),
++			   (unsigned int)(~SEC_PULSE_SEL_INNER));
++
++	regmap_update_bits(info->rtc_map, ANA_CALIB,
++			   (unsigned int)(~CALIB_SEL_FTUNE_MASK),
++			   CALIB_SEL_FTUNE_INNER);
++
++	sec = SET_SEC_CNTR_VAL_INIT;
++
++	/* load from MACRO register */
++	regmap_read(info->rtc_map, MACRO_RO_T, &sec_ro_t);
++	if (sec_ro_t > (SET_SEC_CNTR_VAL_INIT))
++		sec = sec_ro_t;
++
++	regmap_write(info->rtc_map, SET_SEC_CNTR_VAL, sec);
++	regmap_write(info->rtc_map, SET_SEC_CNTR_TRIG, REG_ENABLE_FUN);
++}
++
++static int cv1800_rtc_read_time(struct device *dev, struct rtc_time *tm)
++{
++	struct cv1800_rtc_priv *info = dev_get_drvdata(dev);
++	unsigned int sec;
++
++	regmap_read(info->rtc_map, SEC_CNTR_VAL, &sec);
++
++	rtc_time64_to_tm(sec, tm);
++
++	return 0;
++}
++
++static int cv1800_rtc_set_time(struct device *dev, struct rtc_time *tm)
++{
++	struct cv1800_rtc_priv *info = dev_get_drvdata(dev);
++	unsigned long sec;
++
++	sec = rtc_tm_to_time64(tm);
++
++	regmap_write(info->rtc_map, SET_SEC_CNTR_VAL, sec);
++	regmap_write(info->rtc_map, SET_SEC_CNTR_TRIG, REG_ENABLE_FUN);
++
++	regmap_write(info->rtc_map, MACRO_RG_SET_T, sec);
++
++	return 0;
++}
++
++static irqreturn_t cv1800_rtc_irq_handler(int irq, void *dev_id)
++{
++	struct rtc_device *rtc = dev_id;
++
++	rtc_update_irq(rtc, 1, RTC_IRQF | RTC_AF);
++
++	return IRQ_HANDLED;
++}
++
++static const struct rtc_class_ops cv800b_rtc_ops = {
++	.read_time = cv1800_rtc_read_time,
++	.set_time = cv1800_rtc_set_time,
++	.read_alarm = cv1800_rtc_read_alarm,
++	.set_alarm = cv1800_rtc_set_alarm,
++	.alarm_irq_enable = cv1800_rtc_alarm_irq_enable,
++};
++
++static int cv1800_rtc_probe(struct platform_device *pdev)
++{
++	struct cv1800_rtc_priv *rtc;
++	uint32_t ctrl_val;
++	int ret;
++
++	rtc = devm_kzalloc(&pdev->dev, sizeof(struct cv1800_rtc_priv),
++			   GFP_KERNEL);
++	if (!rtc)
++		return -ENOMEM;
++
++	rtc->dev = &pdev->dev;
++
++	rtc->rtc_map = syscon_node_to_regmap(rtc->dev->of_node->parent);
++	if (IS_ERR(rtc->rtc_map))
++		return PTR_ERR(rtc->rtc_map);
++
++	rtc->irq = platform_get_irq(pdev, 0);
++	if (rtc->irq < 0)
++		return rtc->irq;
++
++	ret = devm_request_irq(&pdev->dev, rtc->irq, cv1800_rtc_irq_handler,
++			       IRQF_TRIGGER_HIGH, "alarm", &pdev->dev);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "cannot register interrupt handler\n");
++
++	rtc->clk = devm_clk_get_enabled(&pdev->dev, NULL);
++	if (IS_ERR(rtc->clk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(rtc->clk),
++				     "clk not found\n");
++
++	platform_set_drvdata(pdev, rtc);
++
++	rtc->rtc_dev = devm_rtc_allocate_device(&pdev->dev);
++	if (IS_ERR(rtc->rtc_dev))
++		return PTR_ERR(rtc->rtc_dev);
++
++	rtc->rtc_dev->ops = &cv800b_rtc_ops;
++	rtc->rtc_dev->range_max = U32_MAX;
++
++	/* if use internal clk,so coarse calibrate rtc */
++	regmap_read(rtc->rtc_map, CTRL, &ctrl_val);
++	ctrl_val &= CTRL_MODE_MASK;
++
++	if (ctrl_val == CTRL_MODE_OSC32K) {
++		ret = cv1800_rtc_32k_coarse_val_calib(rtc);
++		if (ret)
++			dev_err(&pdev->dev, "failed to coarse RTC val !\n");
++
++		ret = cv1800_rtc_32k_fine_val_calib(rtc);
++		if (ret)
++			dev_err(&pdev->dev, "failed to fine RTC val !\n");
++
++		rtc_enable_sec_counter(rtc);
++	}
++
++	return devm_rtc_register_device(rtc->rtc_dev);
++}
++
++static const struct of_device_id cv1800_dt_ids[] = {
++	{ .compatible = "sophgo,cv1800b-rtc" },
++	{ /* sentinel */ },
++};
++MODULE_DEVICE_TABLE(of, cv1800_dt_ids);
++
++static struct platform_driver cv1800_rtc_driver = {
++	.driver = {
++		.name = "sophgo-cv800b-rtc",
++		.of_match_table = cv1800_dt_ids,
++	},
++	.probe = cv1800_rtc_probe,
++};
++
++module_platform_driver(cv1800_rtc_driver);
++MODULE_AUTHOR("Jingbao Qiu");
++MODULE_DESCRIPTION("Sophgo cv1800 RTC Driver");
++MODULE_LICENSE("GPL");
 -- 
 2.43.0
 
