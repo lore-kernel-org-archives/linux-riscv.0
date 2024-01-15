@@ -4,110 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9E1C47258
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 07:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A77EEC3DA79
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 07:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1HO743LQvYKySftn7m74260+utqE81yzv/hcE9W5LI0=; b=vf84dtjZm7uwLU
-	qcF3rMwNldDKBTpx0gk5pJM1qGdHQQfE+mxQjkZMQF5+ZTVHlu9FKbPgEigIuOVG+1Q4C5Yj9aPtp
-	B1LgevwApBJL4tKsntV4zHJd1+c+8qCBGTofq8JS0mIInGIzRUb7FmMwHltOyaboXawYc5YQTh6mE
-	qpgY3HpELnA8mQCzZDvMKkFNj8R+ouyRhAgNy/5F4R7XgZl6bu6jhnrOtjb9z5XGAOLDyIJt+JOms
-	CjeiFNuZzvl6ricqV4I/qqsiymAyUw/ImU/55BvubqYuB9M7xnde9wzb7C0lJNsxUg33BO33t9AC2
-	Kih6oYRaiMmM+dvGnIvQ==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ltqLOQDPKu/GA+NccH78TuSIofDP+O9vtJXpcDS1dyQ=; b=12cZElr8gKPDrT
+	5Ok2Xsma+eWmVh1t0RwxiLKbTt/hI6dU1rOGugjLLoSEtWH2rMMURTNPPQVHumZGyNWky34+HXnQu
+	vMBKSG6cokAXcphRFvf0kt3gKBdwY4yG7XjBQLitJiMQB98Fct7WbiePxiG+D1LMHilZ3dFFV5Cag
+	rtcuFbp+J4Wk9GzyaiTYTOj+iysTmqS+twivuAvtA+DpScN+8kTuhh0UNjHshcJJ+l+Gy5aGjkEfX
+	2a6N/EeHC3kJcZsYlrpYMwve21mxhic1lEW3B5Y8uoLLWtHryiL0ion/t3+dBCdHudLC2sKFkZhsi
+	7jQv+QzY/j5ILJo2iJSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPGxH-0081NQ-1v;
-	Mon, 15 Jan 2024 07:00:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rPH9V-0082wE-03;
+	Mon, 15 Jan 2024 07:12:57 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPG0z-007qGJ-0J
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 15 Jan 2024 06:00:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=PTE5s3JevRaI0ONcRbV59vdIOJW1xXVURdjLv83lPaQ=; b=EQqwwESHr/iQ5MdcQOT0eEVLoE
-	R2a2PJH6ASppMXlCs+O+y0j3VjSmG+m9iPFK8UC5N6A5YGshohKpjAK9QN4ZKTDYEf9bts0vERz7H
-	HNPEERSVRSLG0a6BqbqF58Acp52a2geSPj/kR39E/g6KIJ8nWmsYobmMr/bFeVJTrwM6NHiaO/JrL
-	jFwNmuZmiJrJJTPqh5L4h4eNcivC1HBgKL/umod3N9lHDnPGS+hKnaBomc+bxlDdopJDnz4oV2my3
-	DVB9LAb/Nl5PC+gPdc8cHItXMgWYcH3UZXGmKwgzAnRtliehZwLFDwVYISYWXTWz2VyYhYzAdvfwA
-	F4RXcxDQ==;
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPG0v-00D1Zs-0y
+	id 1rPH9T-0082vj-0Q
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jan 2024 06:00:03 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-5ce10b5ee01so5943742a12.1
-        for <linux-riscv@lists.infradead.org>; Sun, 14 Jan 2024 22:00:00 -0800 (PST)
+	Mon, 15 Jan 2024 07:12:56 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-28bc870c540so6937184a91.2
+        for <linux-riscv@lists.infradead.org>; Sun, 14 Jan 2024 23:12:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1705298398; x=1705903198; darn=lists.infradead.org;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=PTE5s3JevRaI0ONcRbV59vdIOJW1xXVURdjLv83lPaQ=;
-        b=m4TEWCTcEx391iFkauYeQ5rOuMTn3+IYDo4Z8hdxLbXyPtN6EIHkbxqfrNY9W9eydt
-         9/RnTXUF7HcOxjv9DKBcupmL1uVjR2juqBY3mBX22ZHTNtPAjQ6ESFYEdtoHV/BhBrxT
-         SqXA7VtaSqle7DMdFhMKURhNa2Jz1b5c+/LpuNKQ3RgV2pK77m2gEltUHPP7yTf5hU+C
-         G5WMr09EOov4GH35izfDbBgeal2thSbhSMV+YqTCsUffGoGgHkG1NIxFQxHqXpjJQ4qu
-         0s6pMLIS+FQsR1TU3PDDfOdXC9E/lwKrfABL4DscvBVThfHJUgfkw6HjprGNbe6JDDM/
-         JIPA==
+        d=sifive.com; s=google; t=1705302772; x=1705907572; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lOtRqa7rEwU1R9Xcu357qtlvryd8Tx4xNbEfyiqNWok=;
+        b=YFc+PCpLlkHTSjqAxc6OAirrGECOB8Ziv9KspqQHiZnKOjxG/0pC9j+s9Nt1hUCtei
+         8a+sFsDrlvqMepUKAG2OTtDjJOf0Dn6gjiqAso7Orgr82GrI1OeYQZD0skOhYFovNsbg
+         qOyg2C2kBIIStseGShl7oEmlbFoZlIU70a/voTjXTXvAmxzcr9k9PuvL143QX+Sz/mWY
+         d/IoUTtXq4OevF8+llAT+cF7oUr5JbgJuK1BNeR/OU4bTwMv7yV9tmfWVKQ5oVybGeEZ
+         3DAJtyBpfEFwDGqDodMryTt86yQGwjAeuWn4c95PdepcaEfVNqj5uWhtAMbnOrcX5TFR
+         hu3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705298398; x=1705903198;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PTE5s3JevRaI0ONcRbV59vdIOJW1xXVURdjLv83lPaQ=;
-        b=dWA6qjMmKPPQoavWfMkEMvZjdgFcTlBeC/y1cQswglavavCeGTOOvwN6Zaggn6A/1i
-         +eIIou8ItLHLIY4I1hGjLa/9XuZ9AdHagXUcD1fQ4clniVwkzrU24SOvyKz2wdVOWXxm
-         5H36vTjZQeRQ3DgSEpbN+AFBOlMN/c7TdZr0bNUQyD9c/tco5s6TmH7v09kt5kVQwC25
-         L1d/huyjVX70NecXnUsnx70+BHmnlJwpQOdm6VK//C3TPHy+8xD8W6ldKqJ/sigffW6o
-         HBxFweBxOLfaKjyoPdulrQMn4JzDSnJWRi06pyTS3RgnXYrR8eRjASnpZjfgAybajgTC
-         9tdA==
-X-Gm-Message-State: AOJu0Yw6f7NoepwN5Ee/Ia9mqeHeISwNw3sIvw8/YqjqGaB+xNxjCa5i
-	VbRp0nLiVWM4l6CjWCxwt7jM8OO61g+Tc+QOTIVr7fwvKg6EE8WGAOQ+5TRjXQzbE8jOHz9tjC3
-	O2fSCfiTajx3031cx6YSYRCMCIYDkCAiMWlh3z2ln2bR3iWu1lMd18nCKDV4aeQ9/oQK54XT6vs
-	+825qs7/g0kPicCeRi+5Sh
-X-Google-Smtp-Source: AGHT+IHBKxKSQEOhuPOiNKtgQJEchZSFIbGxPlE0dO0a1I8QijfgmZd4mZgMH/JMr0wHrp2g2UqPBQ==
-X-Received: by 2002:a05:6a20:918c:b0:19a:e201:3b1d with SMTP id v12-20020a056a20918c00b0019ae2013b1dmr2450560pzd.7.1705298397974;
-        Sun, 14 Jan 2024 21:59:57 -0800 (PST)
+        d=1e100.net; s=20230601; t=1705302772; x=1705907572;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lOtRqa7rEwU1R9Xcu357qtlvryd8Tx4xNbEfyiqNWok=;
+        b=Eyys6n4M19XKqwugJlTcK9/Wav5NG19jQlD2mu0JoHnlPDGIj92tWycyedkEY3SXHz
+         PVPNNqGTuI1pQJygJlH6lId8H2o7dVEqQ4ReNeCCjes29Vzr3inXkieCOJcHsEN0r9XH
+         9lSQoLpyFCqsZByY6G0ajmk6jUzhdanGr9JREoMRjIAptEHdzayzKt+6/i43VMkiR7bW
+         Knhwfs++CtjB0UKZiD5l0IMgbI7cnnIeQwDjoB29uqnYov4/tcpfNv1jbB7VwzBajtmO
+         uaGvu1Xv7kKTwvztbP3cH5ZD4SqTwjoyDbkuhb2YcopWbm9RxukbDk/hF7M6pIz2nCy0
+         ECeQ==
+X-Gm-Message-State: AOJu0Yyl2llfedxI1Nh3E1fJhY7jHV6w2hWYQUKzXzs8xgO6D7FuN2RC
+	mWNXBdbFwl/FnPPTBjMH3mqj2ipbQCZseeA67Zhd4X5NZuFfGEYDQI+trqX7Bsdkv+pcA9218HU
+	zNWEjhD99tIG6GL9SxcNWtv69HNCPVQjDpixBN9e2MZDh2WjntkdtSSoiUm6ymMDErj+N8I1mNv
+	zX9PqWKglIvFh+jZqjRPwytQm62Kx4
+X-Google-Smtp-Source: AGHT+IFn52n0aTLVx0IuHopQOFwKNNIX2e3zu7DgcMUSmIjqFSbJEWZdITvqr7wz6RoFDLZ50Pkb/w==
+X-Received: by 2002:a17:90a:fa8b:b0:28d:4db8:6d52 with SMTP id cu11-20020a17090afa8b00b0028d4db86d52mr3390977pjb.9.1705302772239;
+        Sun, 14 Jan 2024 23:12:52 -0800 (PST)
 Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id o18-20020a637e52000000b005b9083b81f0sm7392988pgn.36.2024.01.14.21.59.54
+        by smtp.gmail.com with ESMTPSA id pv11-20020a17090b3c8b00b0028e5fe0115asm458214pjb.36.2024.01.14.23.12.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Jan 2024 21:59:57 -0800 (PST)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com
-Cc: paul.walmsley@sifive.com,
-	greentime.hu@sifive.com,
-	guoren@linux.alibaba.com,
-	bjorn@kernel.org,
-	charlie@rivosinc.com,
-	ardb@kernel.org,
-	arnd@arndb.de,
-	peterz@infradead.org,
-	tglx@linutronix.de,
-	ebiggers@kernel.org,
-	Andy Chiu <andy.chiu@sifive.com>,
+        Sun, 14 Jan 2024 23:12:51 -0800 (PST)
+From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+To: linux-riscv@lists.infradead.org
+Cc: greentime.hu@sifive.com,
+	vincent.chen@sifive.com,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Guo Ren <guoren@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Baoquan He <bhe@redhat.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Eric Biggers <ebiggers@google.com>
-Subject: [v11, 02/10] riscv: vector: make Vector always available for softirq context
-Date: Mon, 15 Jan 2024 05:59:21 +0000
-Message-Id: <20240115055929.4736-3-andy.chiu@sifive.com>
+	Valentin Schneider <vschneid@redhat.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/1] RISC-V: add IPI tracepoints
+Date: Mon, 15 Jan 2024 07:12:40 +0000
+Message-Id: <20240115071246.32675-1-yongxuan.wang@sifive.com>
 X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20240115055929.4736-1-andy.chiu@sifive.com>
-References: <20240115055929.4736-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_060001_847717_178AB8AA 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20240114_231255_197353_EA4CD7B6 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,99 +101,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The goal of this patch is to provide full support of Vector in kernel
-softirq context. So that some of the crypto alogrithms won't need scalar
-fallbacks.
+The strings used to list IPIs in /proc/interrupts are reused for tracing
+purposes. Also slightly clean up the code by removing send_ipi_single().
 
-By disabling bottom halves in active kernel-mode Vector, softirq will
-not be able to nest on top of any kernel-mode Vector. So, softirq
-context is able to use Vector whenever it runs.
-
-After this patch, Vector context cannot start with irqs disabled.
-Otherwise local_bh_enable() may run in a wrong context.
-
-Disabling bh is not enough for RT-kernel to prevent preeemption. So
-we must disable preemption, which also implies disabling bh on RT.
-
-Related-to: commit 696207d4258b ("arm64/sve: Make kernel FPU protection RT friendly")
-Related-to: commit 66c3ec5a7120 ("arm64: neon: Forbid when irqs are disabled")
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Reviewed-by: Eric Biggers <ebiggers@google.com>
+Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
 ---
-Changelog v8:
- - refine comments, fix typos (Eric)
-Changelog v4:
- - new patch since v4
----
- arch/riscv/include/asm/processor.h     |  3 ++-
- arch/riscv/include/asm/simd.h          |  6 +++++-
- arch/riscv/kernel/kernel_mode_vector.c | 14 ++++++++++++--
- 3 files changed, 19 insertions(+), 4 deletions(-)
+ arch/riscv/kernel/smp.c | 38 +++++++++++++++++++++-----------------
+ 1 file changed, 21 insertions(+), 17 deletions(-)
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 3b59fc5c9545..27ceedf357bf 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -78,7 +78,8 @@ struct pt_regs;
-  * following meaning:
-  *
-  *  - bit 0: indicates whether the in-kernel Vector context is active. The
-- *    activation of this state disables the preemption.
-+ *    activation of this state disables the preemption. On a non-RT kernel, it
-+ *    also disable bh.
-  */
- #define RISCV_KERNEL_MODE_V	0x1
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 40420afbb1a0..32c653cd3433 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -26,6 +26,8 @@
+ #include <asm/cacheflush.h>
+ #include <asm/cpu_ops.h>
  
-diff --git a/arch/riscv/include/asm/simd.h b/arch/riscv/include/asm/simd.h
-index ef8af413a9fc..4d699e16c9a9 100644
---- a/arch/riscv/include/asm/simd.h
-+++ b/arch/riscv/include/asm/simd.h
-@@ -28,8 +28,12 @@ static __must_check inline bool may_use_simd(void)
- 	/*
- 	 * RISCV_KERNEL_MODE_V is only set while preemption is disabled,
- 	 * and is clear whenever preemption is enabled.
-+	 *
-+	 * Kernel-mode Vector temporarily disables bh. So we must not return
-+	 * true on irq_disabled(). Otherwise we would fail the lockdep check
-+	 * calling local_bh_enable()
- 	 */
--	return !in_hardirq() && !in_nmi() && !(riscv_v_flags() & RISCV_KERNEL_MODE_V);
-+	return !in_hardirq() && !in_nmi() && !irqs_disabled() && !(riscv_v_flags() & RISCV_KERNEL_MODE_V);
- }
++#include <trace/events/ipi.h>
++
+ enum ipi_message_type {
+ 	IPI_RESCHEDULE,
+ 	IPI_CALL_FUNC,
+@@ -36,6 +38,15 @@ enum ipi_message_type {
+ 	IPI_MAX
+ };
  
- #else /* ! CONFIG_RISCV_ISA_V */
-diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
-index 114cf4f0a0eb..2fc145edae3d 100644
---- a/arch/riscv/kernel/kernel_mode_vector.c
-+++ b/arch/riscv/kernel/kernel_mode_vector.c
-@@ -46,7 +46,14 @@ static inline void riscv_v_stop(u32 flags)
-  */
- void get_cpu_vector_context(void)
++static const char * const ipi_names[] __tracepoint_string = {
++	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
++	[IPI_CALL_FUNC]		= "Function call interrupts",
++	[IPI_CPU_STOP]		= "CPU stop interrupts",
++	[IPI_CPU_CRASH_STOP]	= "CPU stop (for crash dump) interrupts",
++	[IPI_IRQ_WORK]		= "IRQ work interrupts",
++	[IPI_TIMER]		= "Timer broadcast interrupts",
++};
++
+ unsigned long __cpuid_to_hartid_map[NR_CPUS] __ro_after_init = {
+ 	[0 ... NR_CPUS-1] = INVALID_HARTID
+ };
+@@ -96,18 +107,14 @@ static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
+ 
+ static void send_ipi_mask(const struct cpumask *mask, enum ipi_message_type op)
  {
--	preempt_disable();
-+	/*
-+	 * disable softirqs so it is impossible for softirqs to nest
-+	 * get_cpu_vector_context() when kernel is actively using Vector.
-+	 */
-+	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-+		local_bh_disable();
-+	else
-+		preempt_disable();
- 
- 	riscv_v_start(RISCV_KERNEL_MODE_V);
++	trace_ipi_raise(mask, ipi_names[op]);
+ 	__ipi_send_mask(ipi_desc[op], mask);
  }
-@@ -62,7 +69,10 @@ void put_cpu_vector_context(void)
+ 
+-static void send_ipi_single(int cpu, enum ipi_message_type op)
+-{
+-	__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
+-}
+-
+ #ifdef CONFIG_IRQ_WORK
+ void arch_irq_work_raise(void)
  {
- 	riscv_v_stop(RISCV_KERNEL_MODE_V);
+-	send_ipi_single(smp_processor_id(), IPI_IRQ_WORK);
++	send_ipi_mask(cpumask_of(smp_processor_id()), IPI_IRQ_WORK);
+ }
+ #endif
  
--	preempt_enable();
-+	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-+		local_bh_enable();
-+	else
-+		preempt_enable();
+@@ -115,6 +122,9 @@ static irqreturn_t handle_IPI(int irq, void *data)
+ {
+ 	int ipi = irq - ipi_virq_base;
+ 
++	if ((unsigned int)ipi < IPI_MAX)
++		trace_ipi_entry(ipi_names[ipi]);
++
+ 	switch (ipi) {
+ 	case IPI_RESCHEDULE:
+ 		scheduler_ipi();
+@@ -141,6 +151,9 @@ static irqreturn_t handle_IPI(int irq, void *data)
+ 		break;
+ 	}
+ 
++	if ((unsigned int)ipi < IPI_MAX)
++		trace_ipi_exit(ipi_names[ipi]);
++
+ 	return IRQ_HANDLED;
  }
  
- /*
+@@ -205,15 +218,6 @@ void riscv_ipi_set_virq_range(int virq, int nr, bool use_for_rfence)
+ 		static_branch_disable(&riscv_ipi_for_rfence);
+ }
+ 
+-static const char * const ipi_names[] = {
+-	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
+-	[IPI_CALL_FUNC]		= "Function call interrupts",
+-	[IPI_CPU_STOP]		= "CPU stop interrupts",
+-	[IPI_CPU_CRASH_STOP]	= "CPU stop (for crash dump) interrupts",
+-	[IPI_IRQ_WORK]		= "IRQ work interrupts",
+-	[IPI_TIMER]		= "Timer broadcast interrupts",
+-};
+-
+ void show_ipi_stats(struct seq_file *p, int prec)
+ {
+ 	unsigned int cpu, i;
+@@ -234,7 +238,7 @@ void arch_send_call_function_ipi_mask(struct cpumask *mask)
+ 
+ void arch_send_call_function_single_ipi(int cpu)
+ {
+-	send_ipi_single(cpu, IPI_CALL_FUNC);
++	send_ipi_mask(cpumask_of(cpu), IPI_CALL_FUNC);
+ }
+ 
+ #ifdef CONFIG_GENERIC_CLOCKEVENTS_BROADCAST
+@@ -329,6 +333,6 @@ bool smp_crash_stop_failed(void)
+ 
+ void arch_smp_send_reschedule(int cpu)
+ {
+-	send_ipi_single(cpu, IPI_RESCHEDULE);
++	send_ipi_mask(cpumask_of(cpu), IPI_RESCHEDULE);
+ }
+ EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
 -- 
 2.17.1
 
