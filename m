@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9CB1C3DA79
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 09:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55762C3DA79
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 09:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T3zwQHLE+q3CvKOSHnUBaKGV3kFc64iQsnnxGysxCG0=; b=Yk02pylM/Ro/k+
-	HwDTpmtx6B+JZ5cTi9/VvsscRuIsuKUgAKIvPTatw+YpvRpWPlxN3QS1MQApikEuQGTknKvhPP4HM
-	9ZlII2+HMiGMB3/LARuXcDPvP/stMt5f7ounnLg9Itz4O7rlcZk4u9YEPrdNz0uVyR/7f1vtfh6MY
-	JuVTD7dTBpKIKSEmZnWW3lDXaJ40nM5ZcrmOhPYPUZ5e1IGHV2B0sZ9gYSUOjf+AySI09NUm/34Zo
-	jXz5RsZN71aRXumiQgSePswJSyMwXjmstvhIDLZghGH9Ii5SmDkxOn3uGzFPHvPq53Ce8KpfaSyzQ
-	pKSAkj7GgK5mAtJrXFTA==;
+	List-Owner; bh=HTG3Bo5klOKiqMm3U8e6TNTKsWXGCiA32SPfiXyKcKU=; b=478pDWiHLrrF4r
+	01DilTHkzVWpPGk49RU1KqgcVvnnWU04Kvd2UtVRbzQ3wTFu+4KIvdlE43n46PkAcVoMjlrUTtzMa
+	sgsu/PUyjgSqa8x0lmxKaRuNDRSBvckkk756aBRC1R28OwymcOKUbUQy+MMi3y9g/J/A2mYzG1+Di
+	/WfKpIkaUwqMijdNCfBAOwfWaR97A2xh0fid+zkH9NMAnz9Oaphr+4eHfUyKxlZteTqu9sjRAXh6+
+	/A6EngTTIRGVE1HIPt2U0MtnQJA9Dodho1Z9WcM+siibhisME8cAOCnpbs6PyTPqOBV17o1LdMFYC
+	Nu0qoIJJ/y1pYzI47TNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPJSi-008SSC-1z;
-	Mon, 15 Jan 2024 09:40:56 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rPJTg-008Sej-2Q;
+	Mon, 15 Jan 2024 09:41:56 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPJSf-008SQZ-2D
+	id 1rPJTd-008Sdk-1u
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jan 2024 09:40:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id C5EC9B80223;
-	Mon, 15 Jan 2024 09:40:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5820FC433C7;
-	Mon, 15 Jan 2024 09:40:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705311651;
-	bh=+F7K07Y5fx0dIdwadJy3MnmnbVE+eGFHi4fQFk5p/hs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uRE/BSnY7551SxKY3LorlQ3CfD5bzcEiVuBHEQkOhH1W0kKzpggvZZHxYdTWOHz5N
-	 2Egz++9BrZVhXk2fgU+TD8v194sEvcx/z1WKinPt8ERZ16jAFXV4SFTSmNV8XVLYgT
-	 COpOPNP7O83+ofyZ4WOzcR/GsyfiTSGmeHXnFo4vLl5c/S+O4VCaq15ennUve1Y7WO
-	 8/B25fs4qFB1KfMCd9kbm4eMCJ3L5gKT9RpWNuX9SuWevSRm/+o2BcwV/LQzHD3wY6
-	 B8f+HYpfMOvWp+/qfazl8ywHuYtC1cua3EqhAr+M6WRtsrSTpVKOM07krn70BPIYug
-	 Qqvmrl23RT55Q==
-Date: Mon, 15 Jan 2024 17:27:59 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Waterman <andrew@sifive.com>
-Subject: Re: [PATCH] RISC-V: only flush icache when it has VM_EXEC set
-Message-ID: <ZaT6n+2lqTg0UFk5@xhacker>
-References: <tencent_6D851035F6F2FD0B5A69FB391AE39AC6300A@qq.com>
+	Mon, 15 Jan 2024 09:41:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1705311711;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=C+Jk1nbj3uW6migT2Vqo+VfpLTraUaZDdhQVwMiE/20=;
+	b=YwKhntSq3GMEKNkqqMJ7XPN9Mn9a2HY8KnyLs1RcyTBoaQFAhwvi4NRjR7GwleKX1tq313
+	cl4Hq3xdllG8aZxs3m/b1aw/wR4VMYPn0fjXPERGA3rQTDFaChilt6+Y/iA47sdGOye5rp
+	h5PIEWelyRMseV/HFfTO3kZybcslk8I=
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
+ [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-490-4r2ltl5MPsWeOzjRqvwu4Q-1; Mon, 15 Jan 2024 04:41:49 -0500
+X-MC-Unique: 4r2ltl5MPsWeOzjRqvwu4Q-1
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-680c88d31f6so143493036d6.0
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Jan 2024 01:41:49 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705311709; x=1705916509;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=C+Jk1nbj3uW6migT2Vqo+VfpLTraUaZDdhQVwMiE/20=;
+        b=SS40+MZMZQcaQdWd2ayaO2UDd9WGqRhsdQDOHGUF+0wPR3wDJx1Uj2HCDC1v2NEMz9
+         hNlOLyyIHZ/8WphufFdyQ3ptpN3I6qzbSdCmRSC78oYqm9A0sbjBQ6L4Xybpngz78u+0
+         ZCGaW0e722b1075Ux361NHsH+If3K2a4OoTgxf+WFil4Y2/LrEF7vJ+4UDaDS72ewKDr
+         VwwnkD6RKrc64sBNj6oNNO7a/ltlldKAsYMK8vFRbzBQeGmtz0/eCpqUbf2uT2zc1JH8
+         qh5P0y+EP59JLQZlBQ8W9mJB6fY++MJ4QdwxKu51V/5YlrwAFHdAwcQPr3V91/6ILYE4
+         Fn3g==
+X-Gm-Message-State: AOJu0YzRYI+ogdg2tF+0Iyu6Dr0WcLgIcSeGFePBzfvUym79yW5C6yBz
+	F6R/fDqTpRa7YwTetfnnmqwyc8NlqZ1JGkyqsruHDF69cFWgYV808llECe/7FTGEYl/xsRQJsv0
+	O4k4qeVGROLjF+uhCx/c6Ku/dY2xWu9zemLt3
+X-Received: by 2002:ad4:5ba9:0:b0:681:656f:4990 with SMTP id 9-20020ad45ba9000000b00681656f4990mr301097qvq.4.1705311709523;
+        Mon, 15 Jan 2024 01:41:49 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHAOOoM1Bm+v8qEYAvYKrGoQCl6CNZBl4IdAdptOpUkzfuoO62Z5TqjIUAbKxWrq0EP1glzaQ==
+X-Received: by 2002:ad4:5ba9:0:b0:681:656f:4990 with SMTP id 9-20020ad45ba9000000b00681656f4990mr301089qvq.4.1705311709206;
+        Mon, 15 Jan 2024 01:41:49 -0800 (PST)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-141-166.abo.bbox.fr. [213.44.141.166])
+        by smtp.gmail.com with ESMTPSA id x19-20020ad44593000000b0067f678747ffsm3189342qvu.50.2024.01.15.01.41.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jan 2024 01:41:48 -0800 (PST)
+From: Valentin Schneider <vschneid@redhat.com>
+To: Yong-Xuan Wang <yongxuan.wang@sifive.com>, linux-riscv@lists.infradead.org
+Cc: greentime.hu@sifive.com, vincent.chen@sifive.com, Yong-Xuan Wang
+ <yongxuan.wang@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Marc Zyngier <maz@kernel.org>, Anup Patel <apatel@ventanamicro.com>, Atish
+ Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>,
+ Samuel Holland <samuel.holland@sifive.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] RISC-V: add IPI tracepoints
+In-Reply-To: <20240115071246.32675-1-yongxuan.wang@sifive.com>
+References: <20240115071246.32675-1-yongxuan.wang@sifive.com>
+Date: Mon, 15 Jan 2024 10:41:44 +0100
+Message-ID: <xhsmhh6jfhr1j.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <tencent_6D851035F6F2FD0B5A69FB391AE39AC6300A@qq.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_014053_871591_CD34286C 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20240115_014153_719732_D4D9728F 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,50 +102,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 10, 2024 at 02:48:59AM +0800, Yangyu Chen wrote:
-> As I-Cache flush on current RISC-V needs to send IPIs to every CPU cores
-> in the system is very costly, limiting flush_icache_mm to be called only
-> when vma->vm_flags has VM_EXEC can help minimize the frequency of these
-> operations. It improves performance and reduces disturbances when
-> copy_from_user_page is needed such as profiling with perf.
+On 15/01/24 07:12, Yong-Xuan Wang wrote:
+> The strings used to list IPIs in /proc/interrupts are reused for tracing
+> purposes. Also slightly clean up the code by removing send_ipi_single().
+>
 
-Hi Yangyu,
+So this is adding trace events for sending & receiving IPIs.
 
-Since this is for "performance", can you please add the benchmark, test
-platform and performance numbers in your commit msg?
+Regarding reception, AFAICT arm/arm64 had that historically because IPIs
+were handled directly by the irqchip (see rambling on the first part of the
+cover letter at [1]), but now that this is no longer the case they are
+obsolete: they show up in trace_irq_handler* events.
 
-thanks
+I don't know riscv IRQ handling, but riscv_ipi_set_virq_range() looks
+awfully similar to arm64's set_smp_ipi_range() and does a "proper"
+request_percpu_irq() for handle_IPI(). So if one wants a trace footprint of
+IPI reception, there already is infrastructure for it.
 
-> 
-> For I-D coherence concerns, it will not fail if such a page adds VM_EXEC
-> flags in the future since we have checked it in the __set_pte_at function.
-> 
-> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-> ---
->  arch/riscv/include/asm/cacheflush.h | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-> index 3cb53c4df27c..915f532dc336 100644
-> --- a/arch/riscv/include/asm/cacheflush.h
-> +++ b/arch/riscv/include/asm/cacheflush.h
-> @@ -33,8 +33,11 @@ static inline void flush_dcache_page(struct page *page)
->   * so instead we just flush the whole thing.
->   */
->  #define flush_icache_range(start, end) flush_icache_all()
-> -#define flush_icache_user_page(vma, pg, addr, len) \
-> -	flush_icache_mm(vma->vm_mm, 0)
-> +#define flush_icache_user_page(vma, pg, addr, len)	\
-> +do {							\
-> +	if (vma->vm_flags & VM_EXEC)			\
-> +		flush_icache_mm(vma->vm_mm, 0);		\
-> +} while (0)
->  
->  #ifdef CONFIG_64BIT
->  #define flush_cache_vmap(start, end)	flush_tlb_kernel_range(start, end)
-> -- 
-> 2.43.0
-> 
+Regarding sending IPIs, there now is trace_ipi_send_cpu{mask} which is in
+the core kernel and thus benefits all architectures, though it
+only covers IPI_RESCHEDULE, IPI_CALL_FUNC and IPI_IRQ_WORK.
+
+Long story short, I know the ipi_raise and ipi_{entry_exit} TPs already
+exist and we can't remove them, but IMO they're not that helpful because
+they just give a string rather than an actual function pointer, *and* they
+have to be manually added to the right place in each architecture. I'd
+rather see trace_ipi_send_cpu{mask} extended to cover the missing cases.
+
+[1]: https://lore.kernel.org/lkml/20230307143558.294354-1-vschneid@redhat.com/
+
 
 _______________________________________________
 linux-riscv mailing list
