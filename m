@@ -4,88 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55762C3DA79
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 09:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64522C47258
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 09:45:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HTG3Bo5klOKiqMm3U8e6TNTKsWXGCiA32SPfiXyKcKU=; b=478pDWiHLrrF4r
-	01DilTHkzVWpPGk49RU1KqgcVvnnWU04Kvd2UtVRbzQ3wTFu+4KIvdlE43n46PkAcVoMjlrUTtzMa
-	sgsu/PUyjgSqa8x0lmxKaRuNDRSBvckkk756aBRC1R28OwymcOKUbUQy+MMi3y9g/J/A2mYzG1+Di
-	/WfKpIkaUwqMijdNCfBAOwfWaR97A2xh0fid+zkH9NMAnz9Oaphr+4eHfUyKxlZteTqu9sjRAXh6+
-	/A6EngTTIRGVE1HIPt2U0MtnQJA9Dodho1Z9WcM+siibhisME8cAOCnpbs6PyTPqOBV17o1LdMFYC
-	Nu0qoIJJ/y1pYzI47TNA==;
+	List-Owner; bh=So45En+R8hJjoEaVbdHe5nfonP+bmXCNeUzmnLT968M=; b=YDQOOoVNOzfCcx
+	ZEJVl3149vDjbejzUpa0cixpawSnkjf1sk5kug/wfiRN1UYySxviKFaAkA8hiBenYiyXJyHNxv1c2
+	fQTanLI26LcTm1eWrbFbFS9EGPQJyiWXyn+HJDNwYrvsDKuO//4LNJt3dVcyTXMTkRN4+AgiTcrSC
+	iiZbsLQEvKRKdfPGiafiVZWNDqmUOR9bML4KdbaFk32wLoRPcNbwZVdd5OqC0XQEqhhrJUUICw/0H
+	dCryUzQkgoFWfIRMxOSljeKtwhwC+3rbClH0WfNL5fxp0j1t7H2MVRsb128mDWgZSC7JLy+6Hr8rf
+	bnplps3HRvHxT246O0+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPJTg-008Sej-2Q;
-	Mon, 15 Jan 2024 09:41:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rPJWt-008T7X-2b;
+	Mon, 15 Jan 2024 09:45:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPJTd-008Sdk-1u
+	id 1rPJWr-008T6u-1A
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jan 2024 09:41:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1705311711;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=C+Jk1nbj3uW6migT2Vqo+VfpLTraUaZDdhQVwMiE/20=;
-	b=YwKhntSq3GMEKNkqqMJ7XPN9Mn9a2HY8KnyLs1RcyTBoaQFAhwvi4NRjR7GwleKX1tq313
-	cl4Hq3xdllG8aZxs3m/b1aw/wR4VMYPn0fjXPERGA3rQTDFaChilt6+Y/iA47sdGOye5rp
-	h5PIEWelyRMseV/HFfTO3kZybcslk8I=
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
- [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-490-4r2ltl5MPsWeOzjRqvwu4Q-1; Mon, 15 Jan 2024 04:41:49 -0500
-X-MC-Unique: 4r2ltl5MPsWeOzjRqvwu4Q-1
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-680c88d31f6so143493036d6.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Jan 2024 01:41:49 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705311709; x=1705916509;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=C+Jk1nbj3uW6migT2Vqo+VfpLTraUaZDdhQVwMiE/20=;
-        b=SS40+MZMZQcaQdWd2ayaO2UDd9WGqRhsdQDOHGUF+0wPR3wDJx1Uj2HCDC1v2NEMz9
-         hNlOLyyIHZ/8WphufFdyQ3ptpN3I6qzbSdCmRSC78oYqm9A0sbjBQ6L4Xybpngz78u+0
-         ZCGaW0e722b1075Ux361NHsH+If3K2a4OoTgxf+WFil4Y2/LrEF7vJ+4UDaDS72ewKDr
-         VwwnkD6RKrc64sBNj6oNNO7a/ltlldKAsYMK8vFRbzBQeGmtz0/eCpqUbf2uT2zc1JH8
-         qh5P0y+EP59JLQZlBQ8W9mJB6fY++MJ4QdwxKu51V/5YlrwAFHdAwcQPr3V91/6ILYE4
-         Fn3g==
-X-Gm-Message-State: AOJu0YzRYI+ogdg2tF+0Iyu6Dr0WcLgIcSeGFePBzfvUym79yW5C6yBz
-	F6R/fDqTpRa7YwTetfnnmqwyc8NlqZ1JGkyqsruHDF69cFWgYV808llECe/7FTGEYl/xsRQJsv0
-	O4k4qeVGROLjF+uhCx/c6Ku/dY2xWu9zemLt3
-X-Received: by 2002:ad4:5ba9:0:b0:681:656f:4990 with SMTP id 9-20020ad45ba9000000b00681656f4990mr301097qvq.4.1705311709523;
-        Mon, 15 Jan 2024 01:41:49 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHAOOoM1Bm+v8qEYAvYKrGoQCl6CNZBl4IdAdptOpUkzfuoO62Z5TqjIUAbKxWrq0EP1glzaQ==
-X-Received: by 2002:ad4:5ba9:0:b0:681:656f:4990 with SMTP id 9-20020ad45ba9000000b00681656f4990mr301089qvq.4.1705311709206;
-        Mon, 15 Jan 2024 01:41:49 -0800 (PST)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-141-166.abo.bbox.fr. [213.44.141.166])
-        by smtp.gmail.com with ESMTPSA id x19-20020ad44593000000b0067f678747ffsm3189342qvu.50.2024.01.15.01.41.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jan 2024 01:41:48 -0800 (PST)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>, linux-riscv@lists.infradead.org
-Cc: greentime.hu@sifive.com, vincent.chen@sifive.com, Yong-Xuan Wang
- <yongxuan.wang@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Marc Zyngier <maz@kernel.org>, Anup Patel <apatel@ventanamicro.com>, Atish
- Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>,
- Samuel Holland <samuel.holland@sifive.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] RISC-V: add IPI tracepoints
-In-Reply-To: <20240115071246.32675-1-yongxuan.wang@sifive.com>
-References: <20240115071246.32675-1-yongxuan.wang@sifive.com>
-Date: Mon, 15 Jan 2024 10:41:44 +0100
-Message-ID: <xhsmhh6jfhr1j.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	Mon, 15 Jan 2024 09:45:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1240D60C84;
+	Mon, 15 Jan 2024 09:45:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AD4DC433C7;
+	Mon, 15 Jan 2024 09:45:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1705311911;
+	bh=9TfclVxenwhLNqqbdWKDJ6r7w6xibtjyrmpBf389HBo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ip6EgncIonnMjh4DWPhEZNCM9CBa6b26cayPDOiKD1GdFdIxUVfTWSYtYD30rv8E6
+	 1T6lBUoykAvfmpXP6wRDCEcSxYlMKPWjAzLnlkh2qjfJf2wFLYBO/wizlJVnI2XUNy
+	 zBScSjHfZytimxRZBeNA6QxHqx0fW2dggJYZVzCD5mIVXU1zBhE/JCryjI/o02vhMt
+	 h0m3JQGLg0L0xQCGQPhE6MA4jCN/duW0N7FCBSmkX/FJa6k929yQnX7P4EgAH0dSWu
+	 JRkP4pSZmJwoegcc6yGFoh7QVDMAd4tGjzzlZo01tBo97mZSGA2Lh90cNrDKP3BJZm
+	 N1L+pnBnRU2+A==
+Date: Mon, 15 Jan 2024 17:32:20 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH v2] riscv: select ARCH_HAS_FAST_MULTIPLIER
+Message-ID: <ZaT7pNjWS3faGjv9@xhacker>
+References: <20231202135202.4071-1-jszhang@kernel.org>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <20231202135202.4071-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_014153_719732_D4D9728F 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240115_014513_462536_8CBD2F7C 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,35 +74,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/01/24 07:12, Yong-Xuan Wang wrote:
-> The strings used to list IPIs in /proc/interrupts are reused for tracing
-> purposes. Also slightly clean up the code by removing send_ipi_single().
->
+On Sat, Dec 02, 2023 at 09:52:02PM +0800, Jisheng Zhang wrote:
+> Currently, riscv linux requires at least IMA, so all platforms have a
+> multiplier. And I assume the 'mul' efficiency is comparable or better
+> than a sequence of five or so register-dependent arithmetic
+> instructions. Select ARCH_HAS_FAST_MULTIPLIER to get slightly nicer
+> codegen. Refer to commit f9b4192923fa ("[PATCH] bitops: hweight()
+> speedup") for more details.
+> 
+> In a simple benchmark test calling hweight64() in a loop, it got:
+> about 14% performance improvement on JH7110, tested on Milkv Mars.
+> 
+> about 23% performance improvement on TH1520 and SG2042, tested on
+> Sipeed LPI4A and SG2042 platform.
+> 
+> a slight performance drop on CV1800B, tested on milkv duo. Among all
+> riscv platforms in my hands, this is the only one which sees a slight
+> performance drop. It means the 'mul' isn't quick enough. However, the
+> situation exists on x86 too, for example, P4 doesn't have fast
+> integer multiplies as said in the above commit, x86 also selects
+> ARCH_HAS_FAST_MULTIPLIER. So let's select ARCH_HAS_FAST_MULTIPLIER
+> which can benefit almost riscv platforms.
+> 
+> Samuel also provided some performance numbers:
+> On Unmatched: 20% speedup for __sw_hweight32 and 30% speedup for
+> __sw_hweight64.
+> On D1: 8% speedup for __sw_hweight32 and 8% slowdown for
+> __sw_hweight64.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+> Tested-by: Samuel Holland <samuel.holland@sifive.com>
 
-So this is adding trace events for sending & receiving IPIs.
+Hi @Palmer,
 
-Regarding reception, AFAICT arm/arm64 had that historically because IPIs
-were handled directly by the irqchip (see rambling on the first part of the
-cover letter at [1]), but now that this is no longer the case they are
-obsolete: they show up in trace_irq_handler* events.
+I saw this simple patch is missed in your for-next tree, could you
+please pick it up?
 
-I don't know riscv IRQ handling, but riscv_ipi_set_virq_range() looks
-awfully similar to arm64's set_smp_ipi_range() and does a "proper"
-request_percpu_irq() for handle_IPI(). So if one wants a trace footprint of
-IPI reception, there already is infrastructure for it.
+Thanks in advance
 
-Regarding sending IPIs, there now is trace_ipi_send_cpu{mask} which is in
-the core kernel and thus benefits all architectures, though it
-only covers IPI_RESCHEDULE, IPI_CALL_FUNC and IPI_IRQ_WORK.
-
-Long story short, I know the ipi_raise and ipi_{entry_exit} TPs already
-exist and we can't remove them, but IMO they're not that helpful because
-they just give a string rather than an actual function pointer, *and* they
-have to be manually added to the right place in each architecture. I'd
-rather see trace_ipi_send_cpu{mask} extended to cover the missing cases.
-
-[1]: https://lore.kernel.org/lkml/20230307143558.294354-1-vschneid@redhat.com/
-
+> ---
+> 
+> since v1:
+>  - fix typo in commit msg
+>  - add some performance numbers provided by Samuel
+>  - collect Reviewed-by and Tested-by tag
+> 
+>  arch/riscv/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 95a2a06acc6a..e4834fa76417 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -23,6 +23,7 @@ config RISCV
+>  	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+>  	select ARCH_HAS_DEBUG_VM_PGTABLE
+>  	select ARCH_HAS_DEBUG_WX
+> +	select ARCH_HAS_FAST_MULTIPLIER
+>  	select ARCH_HAS_FORTIFY_SOURCE
+>  	select ARCH_HAS_GCOV_PROFILE_ALL
+>  	select ARCH_HAS_GIGANTIC_PAGE
+> -- 
+> 2.42.0
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
