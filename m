@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C34C3DA79
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 12:57:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EEA6C4707B
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 13:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hFDcY6t50Ibib270ztIDOrWC1E9HJZVhIei9lhKuHV4=; b=4Noh6ykw7dWntz
-	g49FCUjcVQ/c8bqLtE2KHuMsdUwoCgyDXNKDFnOYx8yneM2E9uIwCYd63Kb5ofQ9VF5G+91ujPPEi
-	r8RZSbPIxevAkCYDUzHlejqp3mm4kbT6qrrsgiJVJdzQXIf/D9Ky4RuXpWBjKiMAPE8Ky185s+DeA
-	ho+N4Ea9C23HovIm/cStfSxHvAONjD28Bb1uKQolDPu9mZjaR/un0OKZPjKHHSL3wDKuHltKJ8rCo
-	lDGAJKJ/f2y8mOMAY9qphoqdTFUXXScElrCbibGC92jopl2ZCyJt6oxmhaoJgMKinBgVrtwL7p4PG
-	puX7ivIEuxNqu/BOGVgg==;
+	List-Owner; bh=BYA0irOlwumt/C6wVlUhIDpi5rBYJ0VdM8SFev5EICE=; b=PckUMEYis8y/yM
+	jNzGWDYbfHb3EFD6rGr3dIherH9E7jeXXRHtfs93rktTktEHc76R8eym14fPOYnj4zwzx0Hffhf2a
+	1eipICV1h7AXczVv1I5AEOMjYV5LGUveeMGiVCUBOiO7Vv8J9rJinyjbSU1iJ8rhx69g2oDV8Jprx
+	guSXSpio7hfeD9sTR6sAnW7l8ZxNNL0Xa8691+oPxbOi50pEV5lqGvVgGJaDMse5CKzJn0Zp3+fzA
+	zL8NqcTw5kt9gc5kW1KEIuY3Z8OLx6JnnkNyh/QhdRekEATrffMHBiMb4I/9Yj7hTnW9XOpFI48GC
+	0+VTatojQC2MBS5SZiiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPMWy-008yCh-2C;
-	Mon, 15 Jan 2024 12:57:32 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1rPMdI-008zSY-3D;
+	Mon, 15 Jan 2024 13:04:04 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPMWu-008yBN-0V
+	id 1rPMdF-008zRm-2I
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jan 2024 12:57:30 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-559565a3008so759249a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Jan 2024 04:57:25 -0800 (PST)
+	Mon, 15 Jan 2024 13:04:04 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-50e7c6f0487so9852642e87.3
+        for <linux-riscv@lists.infradead.org>; Mon, 15 Jan 2024 05:03:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1705323444; x=1705928244; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1705323837; x=1705928637; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=iVzF8C/6HG6CFkGeWOtmqNfxcQ/XO75kr+E1fd0CXSc=;
-        b=bZG5zQoBr4yxh6Ji9INxTAQEPwpeJu8jEEhNEFIDFIVo6aAKF19Z9/7GayatTh0fez
-         WDavW7WQwy3SEYb6M//QC9P0EFRilWTWES+SFy1K1hnTkMlu8hMFeNlwfBHwf3EdFlOI
-         TmNEJhQQ031S/Kw00lIZIOi6KFcp11S8cKhVuWw5NU6gTtPQmhG0LgVh91RhplBnXrDp
-         xv8N5ykOZei5DHFB1Okpeb4PE+VM6uZQtomkfDden1+b0NE2MmU2eY7OjrD4HThOH/KA
-         IRu8H70tJIFaYmhIEZGniRjOKWan2uO6oEmD+j6/2diAsin/MaFrp5FpK/Q3jvilAObk
-         lyxg==
+        bh=SRHOavHhoKFNhf7tWS0sueLbIcvZac7GafUBIAgGQY4=;
+        b=YnawBHKVla0CQKBLuUveyWyMSH9y+Hq5W/TWHXqN74jqFQnLaQJqYpPWlBMo21Qbxc
+         Wlg+2Yw0WrqYWVFLRg7Q7NxzUU9IvmgvG7ic/nmXH2aKR/rf2E85y2jGUaoZrXQ4hfWj
+         zSwJkGyyxoLhuNYn+3Il7gMnEAvYsSkJAwXLc5dUxSuGAdF0hrMfE4Dj+B6ccRM8/Qx8
+         irjJnjUeSUhQYvYDeKesqqWeGssXidhTjTHNB6oqIX0DAn5OV98fY6etBlnfHAZzROO/
+         TdGERt972XfF4D/lsXGx9J5eqkxfcEGSayYI3+tFSmpDWnWp/s+fR7/Pfc7Hr77rZFG1
+         Cy+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705323444; x=1705928244;
+        d=1e100.net; s=20230601; t=1705323837; x=1705928637;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iVzF8C/6HG6CFkGeWOtmqNfxcQ/XO75kr+E1fd0CXSc=;
-        b=tZzWpE2CVvTJAMyV1LtlvK7SNMWpzFPDaG+SvXcY8d+yMzSNup5RKKcdJlHqbUtbIX
-         Gi4R0KFNYRYCY33v8mtzAS8OuctUclrtMHNuNO8N5fOOJWuQ0Mfcjr66+b+6YBiHidN/
-         MTMDOb/agtwEBtLsTQ96RzZBDgr4kUxdvZT+osPVx5jb0MdO1oC/m6jwjyGdkxLeQXGg
-         enHgAgTJVGlfz1tgWIg5DvJWHyiLhSnWugQqytUPuk+selrGhz37jrZlE8MJTaG1VVqW
-         0cS+nnLmc40LCNseaIRYdBaEGFMEUJXu7lmbEyhRNVXbJ/qFQKZ042OFJeiHnx0N1zSx
-         HAgw==
-X-Gm-Message-State: AOJu0YynFzf/ffrb9BwuqaW3frVDK8IxziVLWSCxtvG9+2JRwCGlAQFU
-	TDBJjZzK1D980Sq+ziZsEgfvDyLJw7CPfg==
-X-Google-Smtp-Source: AGHT+IEvbCXbHuEd5QzN4ARJ83ctVC27a0o1jy67k1ZrTNbg+gD4msqicIzEv35JzQ/q0N/Kdteqig==
-X-Received: by 2002:a05:6402:948:b0:558:30df:b183 with SMTP id h8-20020a056402094800b0055830dfb183mr2439321edz.22.1705323444057;
-        Mon, 15 Jan 2024 04:57:24 -0800 (PST)
+        bh=SRHOavHhoKFNhf7tWS0sueLbIcvZac7GafUBIAgGQY4=;
+        b=rQTr7whifrv+efOTFRuwPvYkf1p426glJXgNkbZv9aZBB5IESDeU+Hf7m/TZlmlt5D
+         CGQnNp3QPw7nkIs1nwX6hrMvyBaclfhzI+ZQlk2TEPoW9SeR0DQD6kQ/zfh5YEp6L3bC
+         +V7/HpEZQJUVzhAi6VJJE46mHprZbnyeJ70tugLUJCvsUKJYDSE9lJpxYyEuH2sGflWL
+         2+IafZS8udtuv4kF0ZeUi7tELDYPYK9Lol5FEAVTcReDazMFoYlTpzUzZ1k3hB3poB7Q
+         zOC4C2JqJwJzo+zaGwdVK7+Ku/w6eAyN6N96yHOKu1MR5V68/UO7WBWfHMWK/Mhd/f52
+         o/Qg==
+X-Gm-Message-State: AOJu0YycbdIVIMOkvSH8DFXSrktAvvxgmyk4ZcJGDKs5H9MnF4u18c7q
+	ypRvcKeaSYTnAHtoQWGRamUFYkv2j6a5vA==
+X-Google-Smtp-Source: AGHT+IE1uBHWdY4lkQHV7/J1ucpvPGIgdX7FrlFz687TWtq4/BiKPsOVmezsrnPeUYwzVpK78N7AmQ==
+X-Received: by 2002:a05:6512:6d0:b0:50e:8e75:3eb7 with SMTP id u16-20020a05651206d000b0050e8e753eb7mr1810521lff.51.1705323836875;
+        Mon, 15 Jan 2024 05:03:56 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.215.66])
-        by smtp.gmail.com with ESMTPSA id q8-20020a056402040800b0055703db2c9fsm5468958edv.1.2024.01.15.04.57.21
+        by smtp.gmail.com with ESMTPSA id s23-20020a170906455700b00a2c70ec1533sm5070925ejq.66.2024.01.15.05.03.54
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Jan 2024 04:57:23 -0800 (PST)
-Message-ID: <7b0a4e42-6d34-491a-9ec2-0df61dbe2b19@linaro.org>
-Date: Mon, 15 Jan 2024 13:57:21 +0100
+        Mon, 15 Jan 2024 05:03:56 -0800 (PST)
+Message-ID: <c2e17393-6983-4eb9-9929-3de7f066626e@linaro.org>
+Date: Mon, 15 Jan 2024 14:03:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH RFC 2/3] dt-bindings: clock: Document T-Head TH1520 AP
@@ -130,8 +130,9 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  D2GYIS41Kv4Isx2dEFh+/Q==
 In-Reply-To: <20240110-clk-th1520-v1-2-8b0682567984@tenstorrent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_045728_213430_A0C0CC04 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20240115_050401_776235_4F04A37B 
+X-CRM114-Status: UNSURE (   5.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,87 +160,11 @@ On 10/01/2024 17:35, Drew Fustini wrote:
 > [fixed dt_binding_check warnings]
 > [revised commit description]
 > Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
-> ---
->  .../bindings/clock/thead,th1520-clk-ap.yaml        | 65 ++++++++++++++++++++++
->  MAINTAINERS                                        |  1 +
->  2 files changed, 66 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-> new file mode 100644
-> index 000000000000..53e7802a4ad7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
 
-
-If this is for the header, then two patches should be squashed and you
-should use the same name for the header.
-
-> @@ -0,0 +1,65 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/thead,th1520-clk-ap.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: T-HEAD TH1520 AP sub-system clock controller
-> +
-> +description: |
-> +  The T-HEAD TH1520 AP sub-system clock controller configures the
-> +  CPU, DPU, GMAC and TEE PLLs.
-> +
-> +  SoC reference manual
-> +  https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-> +
-> +maintainers:
-> +  - Jisheng Zhang <jszhang@kernel.org>
-> +  - Wei Fu <wefu@redhat.com>
-> +  - Yangtao Li <frank.li@vivo.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: thead,th1520-clk-ap
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: main oscillator (24MHz)
-> +
-> +  clock-names:
-> +    items:
-> +      - const: osc
-> +
-> +  "#clock-cells":
-> +    const: 1
-> +    description:
-> +      See <dt-bindings/clock/thead,th1520-clk.h> for valid indices.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - "#clock-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/thead,th1520-clk.h>
-> +    soc {
-> +
-
-Drop redundant blank line.
-
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      clk: clock-controller@ffef010000 {
-
-Drop unused label.
-
-
+Emails bounced:
+"Your message wasn't delivered to dfustini@tenstorrent.org because the
+domain tenstorrent.org couldn't be found. Check for typos or unnecessary
+spaces and try again."
 
 Best regards,
 Krzysztof
