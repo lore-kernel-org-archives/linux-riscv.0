@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B128C3DA79
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 12:54:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30381C4707B
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Jan 2024 12:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZwCzvB3T40fZ93fx5b5JDc3sipTCIFwq44VDiaS6LR0=; b=oeWBKbEPx2Utgy
-	QDYDip7QDnn0UoQl8O9GI81XajrQcdyGqBLVLgdA1Q30EYpQqwbbG8g4Fw5PUotEFKQ3dtoqsBzZy
-	tjWqx6CbsdrnfEj7sNbTTl0AiQoexgFTXWGIssrEx19XEEzAqMaiK7KaLukjstbobESX38xDtJaTy
-	Z1RMsPebyOFp4uqHUosClxwqNM+F1KM5uJzm3z1L1qFEwnKLg8CPVib4fFCBOO2xI7y8NZpcBgcVJ
-	pq6vGQ1EBcYuz1i9pfe2RWteuQN5eVc/X8rzpP2w/g7bafy/p/DY09LeHzKDwCKxLCTgGXcOatuP9
-	qGQFyN8KEdR5WzdgCUKA==;
+	List-Owner; bh=c+BZW2p9qk+OrQYcKFGp15BSkuXnU/DSuXHzv3kkh9A=; b=4G+Eb5BdZsUttJ
+	BRxaEHhfFXmQrCjVryqFiG65WrJM/gk4KlXt++wXHj2O1COzSm0nLQOEBxdVBCXaQkRYxuiAoMGye
+	eTfdIGxwA0S4KtHdjZYAjmcUA3QhB2YnTQRxQqxc9etDPefM4LXq1xuf33k4hWjOhpIKDbtaq2Tsf
+	+DNPRA6Gc2VZ2+9N4K3HU2S7hEvTfLW8w6zpN8b9gknE07WSLm4xDrBSI3EdGhiOlvHafyOO15zpQ
+	YnVTSVuNjvWEEJThzZYesOmcJRMVe91ufeqtsD0vpgbRsZ8Wf7teMkU2TLQ1C3L98O3xGvn8v8Wb8
+	J6jErq5jcqlAMZRlndzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPMUI-008xDh-38;
-	Mon, 15 Jan 2024 12:54:46 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1rPMUX-008xLz-2H;
+	Mon, 15 Jan 2024 12:55:01 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPMUF-008xAx-0r
+	id 1rPMUU-008xJj-15
 	for linux-riscv@lists.infradead.org;
-	Mon, 15 Jan 2024 12:54:45 +0000
+	Mon, 15 Jan 2024 12:54:59 +0000
 Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4TDBsL5byRzWmh9;
-	Mon, 15 Jan 2024 20:53:42 +0800 (CST)
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4TDBsB0xSTzvTsF;
+	Mon, 15 Jan 2024 20:53:34 +0800 (CST)
 Received: from kwepemd100009.china.huawei.com (unknown [7.221.188.135])
-	by mail.maildlp.com (Postfix) with ESMTPS id AB8F914051C;
-	Mon, 15 Jan 2024 20:54:26 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id B893414011F;
+	Mon, 15 Jan 2024 20:54:41 +0800 (CST)
 Received: from ultra.huawei.com (10.90.53.71) by
  kwepemd100009.china.huawei.com (7.221.188.135) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -49,9 +49,9 @@ CC: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>, Alexei Starovoitov
 	Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Luke
  Nelson <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>, Pu Lehui
 	<pulehui@huaweicloud.com>
-Subject: [PATCH bpf-next v3 3/6] riscv, bpf: Simplify sext and zext logics in branch instructions
-Date: Mon, 15 Jan 2024 12:54:24 +0000
-Message-ID: <20240115125427.2914015-4-pulehui@huawei.com>
+Subject: [PATCH bpf-next v3 4/6] riscv, bpf: Add necessary Zbb instructions
+Date: Mon, 15 Jan 2024 12:54:25 +0000
+Message-ID: <20240115125427.2914015-5-pulehui@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240115125427.2914015-1-pulehui@huawei.com>
 References: <20240115125427.2914015-1-pulehui@huawei.com>
@@ -60,8 +60,9 @@ X-Originating-IP: [10.90.53.71]
 X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
  kwepemd100009.china.huawei.com (7.221.188.135)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_045443_635391_27E87BD1 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20240115_045458_542658_0E94253F 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,135 +79,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are many extension helpers in the current branch instructions, and
-the implementation is a bit complicated. We simplify this logic through
-two simple extension helpers with alternate register.
+Add necessary Zbb instructions introduced by [0] to reduce code size and
+improve performance of RV64 JIT. Meanwhile, a runtime deteted helper is
+added to check whether the CPU supports Zbb instructions.
 
+Link: https://github.com/riscv/riscv-bitmanip/releases/download/1.0.0/bitmanip-1.0.0-38-g865e7a7.pdf [0]
 Signed-off-by: Pu Lehui <pulehui@huawei.com>
 ---
- arch/riscv/net/bpf_jit_comp64.c | 79 +++++++++++++--------------------
- 1 file changed, 31 insertions(+), 48 deletions(-)
+ arch/riscv/net/bpf_jit.h | 32 ++++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 20deb906e495..d90784674677 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -141,6 +141,19 @@ static bool in_auipc_jalr_range(s64 val)
- 		val < ((1L << 31) - (1L << 11));
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index e30501b46f8f..51f6d214086f 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -18,6 +18,11 @@ static inline bool rvc_enabled(void)
+ 	return IS_ENABLED(CONFIG_RISCV_ISA_C);
  }
  
-+/* Modify rd pointer to alternate reg to avoid corrupting original reg */
-+static void emit_sextw_alt(u8 *rd, u8 ra, struct rv_jit_context *ctx)
++static inline bool rvzbb_enabled(void)
 +{
-+	emit_sextw(ra, *rd, ctx);
-+	*rd = ra;
++	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
 +}
 +
-+static void emit_zextw_alt(u8 *rd, u8 ra, struct rv_jit_context *ctx)
-+{
-+	emit_zextw(ra, *rd, ctx);
-+	*rd = ra;
-+}
-+
- /* Emit fixed-length instructions for address */
- static int emit_addr(u8 rd, u64 addr, bool extra_pass, struct rv_jit_context *ctx)
- {
-@@ -399,38 +412,6 @@ static void init_regs(u8 *rd, u8 *rs, const struct bpf_insn *insn,
- 		*rs = bpf_to_rv_reg(insn->src_reg, ctx);
+ enum {
+ 	RV_REG_ZERO =	0,	/* The constant value 0 */
+ 	RV_REG_RA =	1,	/* Return address */
+@@ -730,6 +735,33 @@ static inline u16 rvc_swsp(u32 imm8, u8 rs2)
+ 	return rv_css_insn(0x6, imm, rs2, 0x2);
  }
  
--static void emit_zext_32_rd_rs(u8 *rd, u8 *rs, struct rv_jit_context *ctx)
--{
--	emit_mv(RV_REG_T2, *rd, ctx);
--	emit_zextw(RV_REG_T2, RV_REG_T2, ctx);
--	emit_mv(RV_REG_T1, *rs, ctx);
--	emit_zextw(RV_REG_T1, RV_REG_T1, ctx);
--	*rd = RV_REG_T2;
--	*rs = RV_REG_T1;
--}
--
--static void emit_sext_32_rd_rs(u8 *rd, u8 *rs, struct rv_jit_context *ctx)
--{
--	emit_sextw(RV_REG_T2, *rd, ctx);
--	emit_sextw(RV_REG_T1, *rs, ctx);
--	*rd = RV_REG_T2;
--	*rs = RV_REG_T1;
--}
--
--static void emit_zext_32_rd_t1(u8 *rd, struct rv_jit_context *ctx)
--{
--	emit_mv(RV_REG_T2, *rd, ctx);
--	emit_zextw(RV_REG_T2, RV_REG_T2, ctx);
--	emit_zextw(RV_REG_T1, RV_REG_T2, ctx);
--	*rd = RV_REG_T2;
--}
--
--static void emit_sext_32_rd(u8 *rd, struct rv_jit_context *ctx)
--{
--	emit_sextw(RV_REG_T2, *rd, ctx);
--	*rd = RV_REG_T2;
--}
--
- static int emit_jump_and_link(u8 rd, s64 rvoff, bool fixed_addr,
- 			      struct rv_jit_context *ctx)
- {
-@@ -1418,10 +1399,13 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 		rvoff = rv_offset(i, off, ctx);
- 		if (!is64) {
- 			s = ctx->ninsns;
--			if (is_signed_bpf_cond(BPF_OP(code)))
--				emit_sext_32_rd_rs(&rd, &rs, ctx);
--			else
--				emit_zext_32_rd_rs(&rd, &rs, ctx);
-+			if (is_signed_bpf_cond(BPF_OP(code))) {
-+				emit_sextw_alt(&rs, RV_REG_T1, ctx);
-+				emit_sextw_alt(&rd, RV_REG_T2, ctx);
-+			} else {
-+				emit_zextw_alt(&rs, RV_REG_T1, ctx);
-+				emit_zextw_alt(&rd, RV_REG_T2, ctx);
-+			}
- 			e = ctx->ninsns;
- 
- 			/* Adjust for extra insns */
-@@ -1432,8 +1416,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 			/* Adjust for and */
- 			rvoff -= 4;
- 			emit_and(RV_REG_T1, rd, rs, ctx);
--			emit_branch(BPF_JNE, RV_REG_T1, RV_REG_ZERO, rvoff,
--				    ctx);
-+			emit_branch(BPF_JNE, RV_REG_T1, RV_REG_ZERO, rvoff, ctx);
- 		} else {
- 			emit_branch(BPF_OP(code), rd, rs, rvoff, ctx);
- 		}
-@@ -1462,18 +1445,18 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 	case BPF_JMP32 | BPF_JSLE | BPF_K:
- 		rvoff = rv_offset(i, off, ctx);
- 		s = ctx->ninsns;
--		if (imm) {
-+		if (imm)
- 			emit_imm(RV_REG_T1, imm, ctx);
--			rs = RV_REG_T1;
--		} else {
--			/* If imm is 0, simply use zero register. */
--			rs = RV_REG_ZERO;
--		}
-+		rs = imm ? RV_REG_T1 : RV_REG_ZERO;
- 		if (!is64) {
--			if (is_signed_bpf_cond(BPF_OP(code)))
--				emit_sext_32_rd(&rd, ctx);
--			else
--				emit_zext_32_rd_t1(&rd, ctx);
-+			if (is_signed_bpf_cond(BPF_OP(code))) {
-+				emit_sextw_alt(&rd, RV_REG_T2, ctx);
-+				/* rs has been sign extended */
-+			} else {
-+				emit_zextw_alt(&rd, RV_REG_T2, ctx);
-+				if (imm)
-+					emit_zextw(rs, rs, ctx);
-+			}
- 		}
- 		e = ctx->ninsns;
- 
++/* RVZBB instrutions. */
++static inline u32 rvzbb_sextb(u8 rd, u8 rs1)
++{
++	return rv_i_insn(0x604, rs1, 1, rd, 0x13);
++}
++
++static inline u32 rvzbb_sexth(u8 rd, u8 rs1)
++{
++	return rv_i_insn(0x605, rs1, 1, rd, 0x13);
++}
++
++static inline u32 rvzbb_zexth(u8 rd, u8 rs)
++{
++	if (IS_ENABLED(CONFIG_64BIT))
++		return rv_i_insn(0x80, rs, 4, rd, 0x3b);
++
++	return rv_i_insn(0x80, rs, 4, rd, 0x33);
++}
++
++static inline u32 rvzbb_rev8(u8 rd, u8 rs)
++{
++	if (IS_ENABLED(CONFIG_64BIT))
++		return rv_i_insn(0x6b8, rs, 5, rd, 0x13);
++
++	return rv_i_insn(0x698, rs, 5, rd, 0x13);
++}
++
+ /*
+  * RV64-only instructions.
+  *
 -- 
 2.34.1
 
