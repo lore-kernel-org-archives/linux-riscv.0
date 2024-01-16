@@ -4,143 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C88C47077
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 07:49:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514BEC4706C
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 08:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rjFhUeUOe7YUeBOd7gIXGJC7j+f+/uXbFmlUOFeqR0I=; b=2eHTrSnWpqK0W0
-	w+/ns+xRDZG8YnEaOJG+CiBNIN3AUUvKmnNgOMjr9LY9YDZRaBK2dW/PN4WiHc1VmyFF7Ia2fSmHq
-	mzBPvH2SV8cp2Ukuo7dXo10j8hAYnzeS1wW8zO3sCJpJTlaSeXNZpY34ZLC50jDXbSpT6H94ymKPs
-	3M99jnHCdfZb0KK9ChkYqw/yIbBanAFaKg8y3EZ6aNpw7Kr/cCQkxVbC6zvOyIsLf6oFK+F+BOC4g
-	akw7krM1/2d1whx54hWIvixBOeP58X7/HsFiIhnaTWKKnenJEKVZ/ZbwMARnamVB9nK7ctgX/asih
-	6+bRYUzlLzEhAM8L7HRg==;
+	List-Owner; bh=rW+MMmBT3Gl613eIPQ+65lKCW+Ktp+fu5gdCdkatFbs=; b=SD3krZNTbTFwUE
+	Vn9lfoyL3P6AjcWD0yabMa8WozLp3QREPOrTSIUBfoMJT+wa6Q4ES7MAAcvsv8w37610rRBNXMBP2
+	tMgVh9/JDNe6iGYyvIhhP11vOPdYiuR4YDaytYUXV2gkiXkOgrFK3bSyFo+/lPhuhgad/MYCzBgkU
+	fCAeAgHB1+lYG3SSRA677/5aykMSRDP2EAUubWoZMM8GD0dP0IxaQaYHjGzQ7Y2K8W0xexfc7dXiF
+	5xyE4WvlMqEuJS6hJEe792QiwwMhDJqxq6dwzjqIEKk+XcBWOI4YOTX/0xZrw9OWfWFf9yV04hGUu
+	sTmeZJespEFAXeESZzww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPeCR-00BIFV-2G;
-	Tue, 16 Jan 2024 07:49:31 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
+	id 1rPeNj-00BKwb-0p;
+	Tue, 16 Jan 2024 08:01:11 +0000
+Received: from mail-mw2nam12olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2805::800] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPeCP-00BIEk-2x
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 16 Jan 2024 07:49:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=D14SLbjX1GLnHuhrFGkm5qKGMOubngFldvMxw9TZU/8=; b=S3DkldkGyxTTNmGxrtONYOIGTv
-	Himxf9tlGYanGrHtK7yXjdlPPxx24gLmpDCZgXdmzeT5wyifOVD+5Z6VKXltVbqQzXj4mqovTgFT/
-	S5M5M8hfCK4TNcd5DdjebW8VVC01NYgwWPR0OchezkXJrva++8EZOj9sb9AhTI9kmAIYob8cl+XBy
-	yMgUYBO+lTBBTqGUUzPY7wRO0ftB3AbF1YUd0nQlkDRPVRsF2/PesK8NaTnC6GXWQAPEbPjzrfWGv
-	pwJVTkI21tTgRNGIKcdWGFI9khAprgZN8coNPlljILobrPjg1ZZarKGa/mugy0ubrWbRdsY3yBdRg
-	YVu/dMbQ==;
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPeAH-00DpsO-0B
+	id 1rPeNg-00BKut-2O
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jan 2024 07:47:19 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5534dcfdd61so16826476a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 15 Jan 2024 23:47:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1705391175; x=1705995975; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=D14SLbjX1GLnHuhrFGkm5qKGMOubngFldvMxw9TZU/8=;
-        b=K+EQxj1azR0HNIc7+sXN8NI04TXvNR+/PWMblHZpakiv6jnz4nxlWMG3iMMvFbynsI
-         W4X/RjGEB+8fXefyDqbV9i6LDetDHKUq6O9cS8NEBsQH9rZmTHFwvL44ROgpMZFGnS8D
-         UOqkq7Oq7jgkSeSCS5xY0v7YP8Z1JIvu9AeJJVzrThwaA/q9pzJkzYjR6QZ3UAzUmmbt
-         kDUuHkRvevdyhNuWnuhN2ZtyTAYiq9L3z7kLBc/lRBh80+r/10hXE4hLEVlZYu29z1g/
-         FgNAV3IIYCvXV+4R3svXa4dfnJFpyRQiS6HvBi+hyJgEut/ezdsx0+g7W3kSrf0ZTZak
-         kNxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705391175; x=1705995975;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=D14SLbjX1GLnHuhrFGkm5qKGMOubngFldvMxw9TZU/8=;
-        b=iVKjGNJOzBRpaP0hPfR2XAJQv4dAdp+Bh+TFYSOBgQBiE+MByaXGfmE8Rcoz/wgp/U
-         23U7iLD9MhhCgf72kozrrPg7n1ZDnTlj2cb9YYcRxjsdTIg2k1Ry/AErovZKga4xSduB
-         X6fRHbtAYh6TL8Ldb5QawQNXMIy51QWn4LhEfkV6wzmQ159ddmeIFd3VFJc0wtkz2ska
-         0pMAJwMHMTopYW+UQBFrQHhaKLvrkbl3FO7GWYevnzVKgoaAcNbCkBSsfjK55waCARh3
-         8ix5kNEn/zOE0Ec6SB/MUwJkh5fCYiiefE88GZWI8sxPrspj+l6gQXFArifoxza2jS/H
-         I84Q==
-X-Gm-Message-State: AOJu0Yx7DQhBIGmsY5xHXYjzukdTgxoPCSo9QgUiAxfJqYAJIbA1IHoI
-	ZUAEYMOq9/me29lBbByOZoMCmyIoaqU7vg==
-X-Google-Smtp-Source: AGHT+IGtwjltligbfM9m1nCKR0fW9XHrubE+D9XLK0jeUszKhMCwmkXedDYerKE6e9uiM0EAUNvozw==
-X-Received: by 2002:aa7:d5c7:0:b0:557:2be5:6620 with SMTP id d7-20020aa7d5c7000000b005572be56620mr7141794eds.23.1705391174991;
-        Mon, 15 Jan 2024 23:46:14 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.215.66])
-        by smtp.gmail.com with ESMTPSA id n13-20020a05640204cd00b0055971af7a23sm1159774edw.95.2024.01.15.23.46.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Jan 2024 23:46:14 -0800 (PST)
-Message-ID: <9a1c77f8-bcf9-4cbf-ab51-694353dd0ef3@linaro.org>
-Date: Tue, 16 Jan 2024 08:46:12 +0100
+	Tue, 16 Jan 2024 08:01:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=fP/dCO8ny2HRG5pI2NHyZugN2vsG0La5QzxDkl8BtH5mwRrwpcuc0fSz54IE5x1R0n+pKERjiHbqo5FGLKII/za5HqnRc0oBQ+tQgb0gvUXJzeh5lPNtPRtkWqBVStdjm9xFEVJeesVb4aQvDhoOROpwJSfV+O7I8Fvnap3d3A8Elb5woHiT4+hROOMor7veUQu9DUzvTAbArhDLwRbFg2gTTM4EnN3x5QFa9Bsz0YVU8NVMmFhDA+NozQWSema/BFMZ0BlQ0XXQkpGGzdOlpVzMn7jnocIITDqt5P/qZxmpnNSI1z+Z0ZxU2VAGcyTf9cS+eYRYcDzrNNgCVjxKbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Q2s7tA/VJo+HAjI4XzO53a3JP19aUUFxXLh8/UIBsBs=;
+ b=lHMu7ZyKn8NjGlpMOzA+WhWRr7j0AMxqYN2Y8rLR+S6q7rI9G/x4ApPMRDPm7quvh6Fhk+5g5bVXp63cqozmOMthAvEetf+Wo8P+gvPqVWRDJEocds9wbshELoYHegtADgrc4qisVIHJOL0lAgzT9/wPdWszdbkge3xz1NIQfeWqTifb6jCMUfsWuRleuLCPnGf07xuJhe7wx1tzw4V/En4uExo9fV4efIcSrCuT1Wpnzph77/FZJL/F4p4fWYEFEohxpPTTqG8/TM06vxYFZ91yUB2sqvmUfjh/sgGOC4TMs0uJk9UAHqNh9RB5DcIVPhPO16GPgu0JddRz3XhCRw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Q2s7tA/VJo+HAjI4XzO53a3JP19aUUFxXLh8/UIBsBs=;
+ b=rLZqB0AUxYM2wqsHNsw0p3UlJR9M1EW6t2tiOpFkqVTM9rj7s0zItx0kwmNiyfye/vpfZeLJ611MhI54vhaVa69d2k9hdxaA2DDl2u/90TN4ADahnVGoSSTFh3xi00GO5ynF8gPH3ksmlevTEoY+WmdduaXopG6Hp6jGXQcOU9kKVgql+SKLRHx66UOe+0o20FZF/qlh6xjPVx9Y1pg/FGsv9/aXhAnevb0+PfVAAUgKgt+SbGW88guogNNUlyWnu2giSkrygat2QnaI7wdnvpgP1s/TYcYy4TvnbOGI5Is7DmF4OHIFA2gGcTWm3TjyHjGFfCVWRgpT3gVDdqjnNg==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by PH7PR20MB5258.namprd20.prod.outlook.com (2603:10b6:510:1b4::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7181.21; Tue, 16 Jan
+ 2024 08:00:55 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b%2]) with mapi id 15.20.7181.020; Tue, 16 Jan 2024
+ 08:00:54 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Conor Dooley <conor@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	dlan@gentoo.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v6 1/4] dt-bindings: clock: sophgo: Add clock controller of SG2000 series SoC
+Date: Tue, 16 Jan 2024 16:00:45 +0800
+Message-ID: <IA1PR20MB49535AA4F070E70BB5C9848ABB732@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240116-doubling-fanning-2a46405942ae@wendy>
+References: <20240116-doubling-fanning-2a46405942ae@wendy>
+X-TMN: [hGYXQUDUu9jb6LcZazFs9LEIN7e42KpMIxH9PZX0KPirQfNN5mOuUgHURxhKdMSk]
+X-ClientProxiedBy: TYAPR01CA0115.jpnprd01.prod.outlook.com
+ (2603:1096:404:2a::31) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240116080046.756811-1-inochiama@outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/3] rtc: sophgo: add rtc support for Sophgo CV1800 SoC
-Content-Language: en-US
-To: Jingbao Qiu <qiujingbao.dlmu@gmail.com>, alexandre.belloni@bootlin.com,
- robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
- chao.wei@sophgo.com, unicorn_wang@outlook.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- dlan@gentoo.org, inochiama@outlook.com
-References: <20240115160600.5444-1-qiujingbao.dlmu@gmail.com>
- <20240115160600.5444-3-qiujingbao.dlmu@gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20240115160600.5444-3-qiujingbao.dlmu@gmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH7PR20MB5258:EE_
+X-MS-Office365-Filtering-Correlation-Id: fd79d720-0eca-43d0-1f5a-08dc166943df
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: WoZtlgRkTEUrgvl4Kk1QBrL4CgkDbtl29ONpeaGU/2wO6mhYfBZkBfkhnXqGgiFiros5MTXAjpHAJgDl7JI1EFT0Qq9JP2W+4OtxdzCz9bG08qu1n2MeHy3dNJ2dZIbtvpAKN+EafQ2WfbiyjSxzmaf5mFARBIzShLvHjshi4GZ6viqhRkEZdZrR5mJOVi7W7nk9e8Hpt9+IQRm1p5KtiPcXsRVyuhlmcCZyTSbiJj0sN1GUJMM15fsYMolqEogQAsD0FCAHAeibwKTPwp49sQXFhwKDS7Agtagcm1YoTApYGNG1vIPmTZqY8UAXhXyJh/CRiGTTDwgJj2Nn65ZH6YFxzaN396Vxmn1BGN6UGyjDy8x3f9UHHu5pmoXk/rfMRcG1LM38d5hVcnR5m5Q98p62fWIF7qDKCunL3jeU+LPMHLVNinrM8jTsS6akyNYb1YLmv/Yh1+V1bFBb/KNHFbBLBlxFtI4EzVPN6o1YatYycSG4AZyd73whCrhMaVlwhRn37NGQ5182Luh5nThP2TMqsEpU9ENxKfKTd5e0nqngvnt8NBNMSj50Obk3sGbzBzxwDyb8nV+RAJqTHQETUlorjH3nzY6wwMJwdza+38MolC5J/OEQD9+ARJiFaPO2zOeYmH1+MrZkcwnm0EvlY5FE4Hn212zJfjWdDcspxcI=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qQ8lEXL28JPy7spIFwibE//eEU+RZoUVrQurKyUfMOX9PC6i3fzGkVE31WKe?=
+ =?us-ascii?Q?NxgdBtZymTWxgvJlSCR4XCORaJ5A3aj901/CdMUBNxFxivEs8x6TLVAcRwV7?=
+ =?us-ascii?Q?wsfqVjgoP2uIQwDFrqW+PwEY9Qlfq8r5Oc3HssDArRlJ7M0M8Bk+htKt+aET?=
+ =?us-ascii?Q?OOP185/9EVneENYtOyFcNAh6ONHLPopoSvQlAuQQSEstfJiuHQjT0RjHm2g+?=
+ =?us-ascii?Q?hbEJ/wtnG1N2VM2jDE4oWyNgCd57/cO7JZHP7FVKffGLCKwxg32BZ9qNZXp1?=
+ =?us-ascii?Q?STqLjvqC1B2Y1xOVxw/GpLGh2OoByGzftRUx1uGPS5MzlR1CM5+cdqZM/NLi?=
+ =?us-ascii?Q?1gaUDUitb21wiII+dnypMkSfHxJX3XIu+VTjP/GOHsprbGbDp3WZSoaqp3gt?=
+ =?us-ascii?Q?t1B3IrVJgcAR3qq1joQJOf2BaJ/e+oKHGU8ta/BcJUsPUWHJ4hiAArIwekSL?=
+ =?us-ascii?Q?qwA0aHz+sDYe74EUMF0PpeJ9zobxtw9pZOTwvV9DekHsVHOxkYxdr9yjF/Q2?=
+ =?us-ascii?Q?tfvBt7qCga1hz05mC+DFScbjTAdBaC5G7U/acQKQIZYqE3YKaN4qMXGvMQZV?=
+ =?us-ascii?Q?8o8MkdViSlkhfWOnTS6rF+zm/JJLSnx6fYPIicv11srHsWVE5lcCdWBQdc1M?=
+ =?us-ascii?Q?GQBlY3ipBDJpjMwbTJl7GxIGIynqzxMx5KfUJYRjYcwQwCxZC/c9FuBX9AS+?=
+ =?us-ascii?Q?EiKyPBF5I1mcLCDZOBVNNTATEaefgWr45XZmkrF+SUyAAVpc9/9TY2PpVIlq?=
+ =?us-ascii?Q?EzaNFlcU3D7TRuvFhzuKTjO0O68Qn4Nu4nQ+PhhF9zlAIJ9P8IzXWVl86jEZ?=
+ =?us-ascii?Q?9e+B5DtjgwwIPMesZpocrRGuStg/M9x39K0f/efn0PS9/Lnhryc/anA7PbGI?=
+ =?us-ascii?Q?Ai2d9BW6yqvVgaTkmqKp+imen8cW0RWXnhRqEGTM5JSPGKPQ0TS2J8pBDpnE?=
+ =?us-ascii?Q?Z8HIScuv2WiitstwpO6tIcEuB8pFBcWlywKsr9w2d+MqBwGVQwy2CfzKCR/6?=
+ =?us-ascii?Q?IiandtdTCoCE2vJNLhwdmwz0MPhFWb7SuqI1YWhKKEk8g8cTVE10aiv3vYya?=
+ =?us-ascii?Q?WiizkS8GT1QiZ9U/i0qbFocDobsGPoXS4L0jeL3nyXvR/morfkfMmgMa7xRp?=
+ =?us-ascii?Q?BVRpU0/qCdzpYIRhsj6ZgGGx6uuWAaLOCw4dMyuzGJUFib9GDC6WrO+NGErW?=
+ =?us-ascii?Q?/QL0dsFPn6pb83XIpixoy7EsD4ta0wt+0GKTFDNEiEXF2YusbbYfd0Bnt0/H?=
+ =?us-ascii?Q?bk5Yd8BjEVl62wKjfD9VCFR35CxUES7Jlv971e3gog=3D=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fd79d720-0eca-43d0-1f5a-08dc166943df
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2024 08:00:54.8166
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR20MB5258
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240116_074717_386419_E872A4E9 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20240116_000108_793059_BD63AB0E 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,37 +142,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/01/2024 17:05, Jingbao Qiu wrote:
-> Implement the RTC driver for CV1800, which able to provide time alarm
-> and calibrate functionality.
-> 
-> Signed-off-by: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
-> ---
+>On Tue, Jan 16, 2024 at 08:27:59AM +0800, Inochi Amaoto wrote:
+>>> On Sun, Jan 14, 2024 at 12:16:58PM +0800, Inochi Amaoto wrote:
+>>>> SG2000 series SoC has the same clock as CV1810 series, but the clock
+>>>> related to A53 is functional in SG2000 series. So a new compatible
+>>>> string is needed for the new SoC.
+>>>>
+>>>> Add definition for the clock controller of the SG2000 series SoC.
+>>>>
+>>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>>>> Link: https://github.com/sophgo/sophgo-doc/releases/tag/sg2000-datasheet-v1.0-alpha
+>>>> ---
+>>>>  Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml | 3 ++-
+>>>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
+>>>> index c1dc24673c0d..59ef41adb539 100644
+>>>> --- a/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
+>>>> +++ b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
+>>>> @@ -4,7 +4,7 @@
+>>>>  $id: http://devicetree.org/schemas/clock/sophgo,cv1800-clk.yaml#
+>>>>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>
+>>>> -title: Sophgo CV1800 Series Clock Controller
+>>>> +title: Sophgo CV1800/SG2000 Series Clock Controller
+>>>>
+>>>>  maintainers:
+>>>>    - Inochi Amaoto <inochiama@outlook.com>
+>>>> @@ -14,6 +14,7 @@ properties:
+>>>>      enum:
+>>>>        - sophgo,cv1800-clk
+>>>>        - sophgo,cv1810-clk
+>>>> +      - sophgo,sg2000-clk
+>>>
+>>> I recall before you mentioned that the Sophgo folks were considering
+>>> renaming one of their devices. Is the sg2000 the renamed one, or a
+>>> different chip?
+>
+>> The sg2000/sg2002 SoCs have one A53 core which cv1812/cv1813 SoCs
+>> don't have. I prefer sg2000/sg2002 are different chips, or at least
+>> an enhanced version of existed cv1812/cv1813. It is not a simple
+>> rename.
+>>
+>> For this patch, the sg2000 doesn't need to disable A53 related clocks
+>> like cv18xx series. So this compatible is needed to bind to this new
+>> logic.
+>
+>I'm not disputing the unique compatible - you previously mentioned that
+>Sophgo were considering rebranding the cvXXXX series of chips going
+>forward and that one particular chip might undergo a name change.
+>I was wondering if this was that chip or just another device in the
+>series.
+>
+>Thanks,
+>Conor.
 
-> +
-> +static int cv1800_rtc_probe(struct platform_device *pdev)
-> +{
-> +	struct cv1800_rtc_priv *rtc;
-> +	uint32_t ctrl_val;
-> +	int ret;
-> +
-> +	rtc = devm_kzalloc(&pdev->dev, sizeof(struct cv1800_rtc_priv),
-> +			   GFP_KERNEL);
-> +	if (!rtc)
-> +		return -ENOMEM;
-> +
-> +	rtc->dev = &pdev->dev;
-> +
-> +	rtc->rtc_map = syscon_node_to_regmap(rtc->dev->of_node->parent);
-> +	if (IS_ERR(rtc->rtc_map))
-> +		return PTR_ERR(rtc->rtc_map);
+For your question, this is the rename chip I mentioned.
 
-Why do you take the parent? Your bindings say this device is the syscon,
-not parent. Your DTS shows there is no parent syscon! This wasn't tested.
-
-Best regards,
-Krzysztof
-
+This is the name mapping I have known:
+cv1812cp -> sg2000
+cv1813h -> sg2002
 
 _______________________________________________
 linux-riscv mailing list
