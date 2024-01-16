@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3281AC47077
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 14:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF8DC47077
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 15:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6xRfp0Kd7Z05HB5vcqqnkvIHTCEXLHvQDRPtP9BX4AM=; b=ZbGjDzTznxuZ2q
-	e6gb2MA2VLDb2OvLIATVIw3QrMtJ+eKXxTxumAZysAoghzWaHzoS205t1CgVsWU4zWZkWQwGsfRj3
-	lDdi4jRbguMjqMNn7fmYNjOd6BIen/89WPxZzAnVZ2hh7nTANBfDeP5sTfPwYRoYgPY/hqWn6FEDp
-	f5lOsesXuKeweewEWOU5BQnbAHZZ8dDDfYDo1j+etMvVFzbfCoDfKsm9/FxAYlhen7Dj+t6+Oefxo
-	C86+PA0Y8ww+QPeod1b2cNuTslClNZVGan2Mpdpwk4wOV+QgCz3Fyyi0OmmnAqMgjod+cIN/dQPQg
-	6f2s0a+I2Yggkz7Ed3Zg==;
+	List-Owner; bh=HNcKfKjmy/LkgOSEUnhZt3bC1PzVcpVcF8seaLyb23Y=; b=de47jc0FggJixf
+	76ForqYdaXS73WKhva4JlymUN+WhPJbQ3j64zZMbX/GLs96AYDWf2eJ4V28+vAPewb7lDC0ICQ0qU
+	pHd2c1j+nPjjwvM+h5QrLlfj4aqjG1JQo2mQ1RoYsDQUKzxAuCK4MIDqvrbWZcrlW2RKoY7tqo3PV
+	36QmgAxPsuqnn6Zu+0XNKmmmguz+VXruuzfiLq8a+I1XeyNzSOZ/ZJag8jGIWVftX5EY4xxrBwlrm
+	Cj0hXJ3dgzmoMdt+vYCb9e9qPwqv/9Ayl1DNvAxyatfahCsCgpyBzrcjtghm/kPBZ1O7leLp2zNoA
+	HShJCdBi78hGrD0dcJnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPkea-00CJUB-0u;
-	Tue, 16 Jan 2024 14:43:00 +0000
-Received: from mail-oi1-f182.google.com ([209.85.167.182])
+	id 1rPkzC-00CLnh-1i;
+	Tue, 16 Jan 2024 15:04:18 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPkeX-00CJTl-2Y
+	id 1rPkz8-00CLn7-1h
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jan 2024 14:42:59 +0000
-Received: by mail-oi1-f182.google.com with SMTP id 5614622812f47-3bd562d17dcso3470246b6e.3
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 06:42:56 -0800 (PST)
+	Tue, 16 Jan 2024 15:04:16 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2cd880ceaf2so59076541fa.2
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 07:04:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1705416116; x=1706020916; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AQ4d+SlUG6im65swBc/lE81/JJeu4tSZ2OjB3i8zM48=;
-        b=ciE7K0zNWi5hzjPeP1XdrP5nhM9Bx5WWjSXuGw/IcYNAkI34G5oUXpDHQRtz1NwVrG
-         0NY8kjvjYzgbhozLG+yEgi7WgDAL/yVUF64YZXAUR71cYcORQVtdBEWAX56e07Hl60HT
-         ZXwZmBOWih6+Vfy0z3GTodOzMKmAxVfB4CQgeFcg11ia7UfTiS7pzy188CRgq3DHKPIr
-         YdjwS3/lQxvBH88Vv7AOZtH75R+WZ1ZbNG4YBfKrzxinQu4WF5U+0AIRAO0tw/L+dV0s
-         2ECQWB2w8BOeASZCQ0GQpbtjWYAzdp06C/K2SjC6OY3ZQ6SQ+kv6wBzKBHyVMiRpEJ1E
-         vtfw==
+        d=ventanamicro.com; s=google; t=1705417450; x=1706022250; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KZObLbH50jWGDNCNNEMPuR9WvYua1JEOsUGWqN7w/1c=;
+        b=OYkU3cLXCHmzqeqRji8TtXUfK4odS2HtcEqwI46wnI0In0aA/Atk3SCyPhYbX4qI3R
+         bL9onV8pUaHpIj+fe3KVylskH/haJvlVIFXwtqy8cj/YG4oNAdYokxYtGpeAqsuJCbmi
+         iDE7fqTIvUKZx3lMwdHHKzuD3EiroH5DI/zrBEXFsN/SpCW7pxIBXl0CJpkrEbUlOB73
+         vGtT5aGUTWCNWzk+veB6NHSyzh/wNxa8X/Z2phnmSBNHjDzGVBBoXrrUXIxe0JftBcB4
+         tXA8YMha6+tHA0ItifF2LrlXbfyv1I0zJ5/Wrxgbn0mbRd66DQKIeOE+Bg/diViSLkzQ
+         6Dnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705416116; x=1706020916;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AQ4d+SlUG6im65swBc/lE81/JJeu4tSZ2OjB3i8zM48=;
-        b=fZtg76hzfB0hRL/4wHGeY5ZyneCJkeetUtyjt3qpxgrX8dzHwY2cSUgvoAizQqfLHc
-         TXECCPdwOTF7auwRUmfb/TX/QtGJHrWKSOhrktF1LfizE3RCdqYBgvI+JLTtTgi5qWQX
-         QCSFDpwmdtFj/zvmG4wzzcusaJ35lmPaSNX+1P5V19RymwqBCNIUFJhOwbN1YiO2yykn
-         4dXia3mUyv8PMN7NyU9+rX3UFQCKVyNnjbz8kpFiRem+3ClDJngeD6cxq2NTZ91v92MS
-         WtUc6hkwiTPMWgYuFSYtvNSpp67uoPLPGmsWu7101R/JIJBefAkUeeVNEJ1kCsGqsxW1
-         tifw==
-X-Gm-Message-State: AOJu0YzMy/4mQmwx/QzU955q7Mz544Kh92Rgtk660JzetuVwhu54KV4R
-	Ledm4MUAwZeuSqfycn9sP7LtCMMEi/IZVCWJNl8=
-X-Google-Smtp-Source: AGHT+IGdN42iTr1pjIYzZRVPqpOkdba/69EuP+xiL6yzLztkZqhXPgykIy6zP7S0/jTHm/ia2tFzbofM6OSceHK7xBE=
-X-Received: by 2002:a05:6870:1687:b0:203:8474:e84b with SMTP id
- j7-20020a056870168700b002038474e84bmr10287293oae.24.1705416115534; Tue, 16
- Jan 2024 06:41:55 -0800 (PST)
+        d=1e100.net; s=20230601; t=1705417450; x=1706022250;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KZObLbH50jWGDNCNNEMPuR9WvYua1JEOsUGWqN7w/1c=;
+        b=OxNnt21OIK4TO2/pw4TwBub5aCuBDTthkAdnKTRPpTnZRM/Uwn4LGsQbhPNMMleM5n
+         a6DGnFIqpaAwMqLW/PEqfjv0To4+iHX6KXzLerTZgtcYeV/9aJPyTjQPDVP20+3wusto
+         8D0ZmGj5tG/dIM2J4JaCBJWWxSKR4Wisa8UTOp3n4NkJPidUw2r+4Z1vWLY6tCnXRuB2
+         cSkOmLgaM4zmsMUFl8CUl46Y0ZtObkNALPNERaqrB/qFC/zvvMA90OIwM6+sGXD5qH83
+         WfK3jeN64ybDVaZVHwxNU5N99II9MWXc0VhabLdjU608k4T+nStclgr+I0cqdveXU29c
+         9Xdw==
+X-Gm-Message-State: AOJu0Yxh1uLkAXx7l7ns5noTURBjYIjhH4QbW25ffGCYWd+cU6vJNSxO
+	5O0JzNGvcXJvhreudbIkNi9VdU/qgOA4Sg==
+X-Google-Smtp-Source: AGHT+IFze1yvXUIStG9IAEYe4ZfyGuJQ3Hn+kkqjQ4DOfInluQBD4+vrj7DhqXAwXsSlpR4SCc6kyw==
+X-Received: by 2002:a2e:b454:0:b0:2cd:52a5:88ec with SMTP id o20-20020a2eb454000000b002cd52a588ecmr3463178ljm.9.1705417450385;
+        Tue, 16 Jan 2024 07:04:10 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id ew3-20020a056402538300b00558a1937dddsm6688768edb.63.2024.01.16.07.04.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jan 2024 07:04:09 -0800 (PST)
+Date: Tue, 16 Jan 2024 16:04:09 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Xiao Wang <xiao.w.wang@intel.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	conor.dooley@microchip.com, heiko@sntech.de, haicheng.li@intel.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Optimize crc32 with Zbc extension
+Message-ID: <20240116-9f09b002afc2337ab5e41e3f@orel>
+References: <20240105080830.3738117-1-xiao.w.wang@intel.com>
 MIME-Version: 1.0
-References: <20240115160600.5444-1-qiujingbao.dlmu@gmail.com>
- <20240115160600.5444-4-qiujingbao.dlmu@gmail.com> <f2b3dff2-ce0d-4ddb-ad61-74abf2c3022d@linaro.org>
-In-Reply-To: <f2b3dff2-ce0d-4ddb-ad61-74abf2c3022d@linaro.org>
-From: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
-Date: Tue, 16 Jan 2024 22:41:44 +0800
-Message-ID: <CAJRtX8QFLoWnJBkepZrbneHX8qZdde=aw+zbdErVC91B=u==MA@mail.gmail.com>
-Subject: Re: [PATCH v6 3/3] riscv: dts: sophgo: add rtc dt node for CV1800
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: alexandre.belloni@bootlin.com, robh+dt@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, chao.wei@sophgo.com, 
-	unicorn_wang@outlook.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	dlan@gentoo.org, inochiama@outlook.com
+Content-Disposition: inline
+In-Reply-To: <20240105080830.3738117-1-xiao.w.wang@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240116_064257_833497_856ACA26 
-X-CRM114-Status: GOOD (  27.10  )
+X-CRM114-CacheID: sfid-20240116_070414_575664_54B56C3D 
+X-CRM114-Status: GOOD (  44.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,96 +87,395 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKYW4gMTYsIDIwMjQgYXQgMzo0NOKAr1BNIEtyenlzenRvZiBLb3psb3dza2kKPGty
-enlzenRvZi5rb3psb3dza2lAbGluYXJvLm9yZz4gd3JvdGU6Cj4KPiBPbiAxNS8wMS8yMDI0IDE3
-OjA2LCBKaW5nYmFvIFFpdSB3cm90ZToKPiA+IEFkZCB0aGUgcnRjIGRldmljZSB0cmVlIG5vZGUg
-dG8gY3YxODAwIFNvQy4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBKaW5nYmFvIFFpdSA8cWl1amlu
-Z2Jhby5kbG11QGdtYWlsLmNvbT4KPiA+IC0tLQo+ID4gIGFyY2gvcmlzY3YvYm9vdC9kdHMvc29w
-aGdvL2N2MTgwMGIuZHRzaSB8IDEyICsrKysrKysrKysrKwo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAx
-MiBpbnNlcnRpb25zKCspCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMv
-c29waGdvL2N2MTgwMGIuZHRzaSBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc29waGdvL2N2MTgwMGIu
-ZHRzaQo+ID4gaW5kZXggZGY0MGU4N2VlMDYzLi42NmJiNGE3NTJiOTEgMTAwNjQ0Cj4gPiAtLS0g
-YS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9jdjE4MDBiLmR0c2kKPiA+ICsrKyBiL2FyY2gv
-cmlzY3YvYm9vdC9kdHMvc29waGdvL2N2MTgwMGIuZHRzaQo+ID4gQEAgLTExOSw1ICsxMTksMTcg
-QEAgY2xpbnQ6IHRpbWVyQDc0MDAwMDAwIHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICByZWcg
-PSA8MHg3NDAwMDAwMCAweDEwMDAwPjsKPiA+ICAgICAgICAgICAgICAgICAgICAgICBpbnRlcnJ1
-cHRzLWV4dGVuZGVkID0gPCZjcHUwX2ludGMgMz4sIDwmY3B1MF9pbnRjIDc+Owo+ID4gICAgICAg
-ICAgICAgICB9Owo+ID4gKwo+ID4gKyAgICAgICAgICAgICBydGM6IHJ0Y0A1MDI1MDAwIHsKPiA+
-ICsgICAgICAgICAgICAgICAgICAgICBjb21wYXRpYmxlID0gInNvcGhnbyxjdjE4MDAtcnRjIiwg
-InN5c2NvbiI7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgcmVnID0gPDB4NTAyNTAwMCAweDIw
-MDA+Owo+ID4gKyAgICAgICAgICAgICAgICAgICAgIGludGVycnVwdHMgPSA8MTcgSVJRX1RZUEVf
-TEVWRUxfSElHSD47Cj4gPiArICAgICAgICAgICAgICAgICAgICAgY2xvY2tzID0gPCZvc2M+Owo+
-ID4gKyAgICAgICAgICAgICB9Owo+ID4gKwo+ID4gKyAgICAgICAgICAgICBwb3Igewo+ID4gKyAg
-ICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAic29waGdvLGN2MTgwMC1wb3IiOwo+Cj4g
-V2hhdCBpcyB0aGlzPyBXaHkgaXMgaXQgaGVyZSwgaG93IGRpZCBpdCBldmVuIGFwcGVhcj8gSXQg
-bWlzc2VzIHVuaXQKPiBhZGRyZXNzIGFuZCByZWcgb3IgaXMgY2xlYXJseSBwbGFjZWQgaW4gd3Jv
-bmcgcGxhY2UuIEl0IHNlZW1zIHlvdQo+IGVudGlyZWx5IGlnbm9yZWQgb3V0IHByZXZpb3VzIGRp
-c2N1c3Npb24uCj4KPiBOQUsKPgoKSSdtIHZlcnkgc29ycnkgZm9yIHdhc3RpbmcgeW91ciB0aW1l
-LiBGdXJ0aGVybW9yZSwgd2Ugd291bGQgbGlrZSB0bwp0aGFuayB5b3UgZm9yIHlvdXIgcGF0aWVu
-dCByZXNwb25zZS4KTGV0IG1lIHJlYWxpemUgdGhlIHJpZ29yIG9mIExpbnV4IGtlcm5lbCBjb2Rl
-LiBJIGdyZWF0bHkgYWRtaXJlCnRoaXMuUGxlYXNlIGFsbG93IG1lIHRvIGJyaWVmbHkgcmV2aWV3
-Cm91ciBwcmV2aW91cyBkaXNjdXNzaW9ucy4KCkNWMTgwMCBpcyBhIFJJU0NWIGJhc2VkIFNPQyB0
-aGF0IGluY2x1ZGVzIGFuIFJUQyBtb2R1bGUuIFRoZSBSVEMKbW9kdWxlIGhhcyBhbiBPU0Mgb3Nj
-aWxsYXRvcgphbmQgUE9SIHN1Ym1vZHVsZSBpbnNpZGUuVGhpcyBPU0Mgb3NjaWxsYXRvciBpcyBv
-bmx5IGZvciBSVEMgdXNlLCBzbwppdCBkb2VzIG5vdCBuZWVkIHRvIGJlIGRlc2NyaWJlZAphcyBh
-IGR0IG5vZGUuIFRoZSBQT1Igc3VibW9kdWxlIHByb3ZpZGVzIHBvd2VyIG9mZi9vbiBhbmQgcmVz
-dGFydApmdW5jdGlvbnMgZm9yIENWMTgwMC4gU28gSSBuZWVkCnR3byBkcml2ZXJzIGNvcnJlc3Bv
-bmRpbmcgdG8gUlRDIGFuZCBQT1IgcmVzcGVjdGl2ZWx5LiBSVEMgcmVxdWlyZXMKdGhlIHVzZSBv
-ZiBpcnEgYW5kIGNsayByZXNvdXJjZXMKaW4gYWRkaXRpb24gdG8gcmVnaXN0ZXJzLCB3aGlsZSBQ
-T1Igb25seSByZXF1aXJlcyBSZWcgcmVzb3VyY2VzLiBUaGUKY3VycmVudCBwcm9ibGVtIGlzIGhv
-dyB0byBkZXNjcmliZQp0aGUgcmVsYXRpb25zaGlwIGJldHdlZW4gUlRDIGFuZCBQT1IsIGFuZCBo
-b3cgdG8gbWFrZSByZWdpc3RlcnMgc2hhcmVkCmJ5IHRoZXNlIHR3byBkcml2ZXJzLgoKSW4gdjMs
-IEkgdGhvdWdodCBSVEMgd2FzIGFuIE1GRCBkZXZpY2UgYmVjYXVzZSBpdCBub3Qgb25seSBoYWQg
-UlRDCmZ1bmN0aW9uYWxpdHkgYnV0IGFsc28gcmVzdGFydCBhbmQKcG93ZXIgb24vb2ZmIGNhcGFi
-aWxpdGllcy5TbyBteSBleGFtcGxlIGlzIHNob3duIGJlbG93LgoKc3lzY29uQDUwMjUwMDAgewog
-IGNvbXBhdGlibGUgPSAic29waGdvLGN2MTgwMGItc3Vic3lzIiwgInN5c2NvbiIsICJzaW1wbGUt
-bWZkIjsKICByZWcgPSA8MHgwNTAyNTAwMCAweDIwMDA+OwogIHJ0YyB7CiAgICBjb21wYXRpYmxl
-ID0gInNvcGhnbyxjdjE4MDBiLXJ0YyI7CiAgICBpbnRlcnJ1cHRzID0gPDE3IElSUV9UWVBFX0xF
-VkVMX0hJR0g+OwogICAgY2xvY2tzID0gPCZjbGsgQ0xLX1JUQ18yNU0+OwogIH07Cn0KClRoZXJl
-IHdlcmUgdHdvIHN1Z2dlc3Rpb25zIHlvdSBtYWRlIGF0IHRoZSB0aW1lLiBGaXJzdGx5LCBJIG9u
-bHkKZGVzY3JpYmVkIFJUQyBhbmQgZGlkIG5vdCBkZXNjcmliZQp0aGUgUE9SIHN1Ym1vZHVsZS4g
-U2Vjb25kbHksIHJlZ2FyZGluZyB0aGUgbmFtZSBpc3N1ZSwgc3lzdGVtCmNvbnRyb2xsZXJzIHNo
-b3VsZCBub3QgYmUgcGxhY2VkCmluIHRoZSBtZmQgZmlsZS5BZnRlcndhcmRzLCBJIHJlbGVhc2Vk
-IHRoZSA0dGggdmVyc2lvbiwgaW4gd2hpY2ggSQpkZXNjcmliZWQgdGhlIFBPUiBzdWJtb2R1bGUs
-IHdoaWNoCmlzIGluY2x1ZGVkIHNpZGUgYnkgc2lkZSB3aXRoIFJUQyBpbiB0aGUgbWlzYyBkZXZp
-Y2UuIFRoZW4sIGJ5IHNoYXJpbmcKdGhlIHJlZ2lzdGVyLCBib3RoIFJUQyBhbmQKUE9SIGRyaXZl
-cnMgY2FuIGFjY2VzcyB0aGUgcmVnaXN0ZXJzLgoKbWlzY0A1MDI1MDAwIHsKICBjb21wYXRpYmxl
-ID0gInNvcGhnbyxjdjE4MDAtbWlzYyIsICJzeXNjb24iLCAic2ltcGxlLW1mZCI7CiAgcmVnID0g
-PDB4MDUwMjUwMDAgMHgyMDAwPjsKICBydGMgIHsKICAgIGNvbXBhdGlibGUgPSAic29waGdvLGN2
-MTgwMC1ydGMiOwogICAgaW50ZXJydXB0cyA9IDwxNyBJUlFfVFlQRV9MRVZFTF9ISUdIPjsKICAg
-IGNsb2NrcyA9IDwmY2xrIDE1PjsKICB9OwogIHBvciAgewogICAgY29tcGF0aWJsZSA9ICJzb3Bo
-Z28sY3YxODAwLXBvciI7CiAgfTsKfTsKCllvdXIgc3VnZ2VzdGlvbiBpcywgZmlyc3RseSwgdGhl
-IHBvciBzdWJtb2R1bGUgZG9lcyBub3QgaGF2ZSBhbnkKcmVzb3VyY2VzLCBzbyBpdCBzaG91bGQg
-YmUgZGVsZXRlZC4KVGhlIHNlY29uZCBpc3N1ZSBpcyBzdGlsbCB0aGUgbmFtZSwgbWlzYyBpcyBh
-bnkgZGV2aWNlLgpBZnRlcndhcmRzLCBJIHJlbGVhc2VkIHRoZSA1dGggZWRpdGlvbi4gSW4gdGhp
-cyB2ZXJzaW9uLCBJIHJlbW92ZWQgdGhlClBPUiBzdWJtb2R1bGUgaW4gUlRDLgoKcnRjQDUwMjUw
-MDAgewogICAgY29tcGF0aWJsZSA9ICJzb3BoZ28sY3YxODAwLXJ0YyIsICJzeXNjb24iOwogICAg
-cmVnID0gPDB4NTAyNTAwMCAweDIwMDA+OwogICAgaW50ZXJydXB0cyA9IDwxNyBJUlFfVFlQRV9M
-RVZFTF9ISUdIPjsKICAgIGNsb2NrcyA9IDwmY2xrIDE1PjsKfTsKClRoZSBxdWVzdGlvbiB5b3Ug
-cmFpc2VkIGlzIHdoeSBzeXNjb24gY2hpbGQgbm9kZXMgYXJlIHVzZWQuCkluIHRoaXMgdmVyc2lv
-biwgSSB3aWxsIHRyeSB0aGUgZm9sbG93aW5nIG1ldGhvZHMuCgpydGM6IHJ0Y0A1MDI1MDAwIHsK
-ICAgICAgICAgICAgICAgICAgICBjb21wYXRpYmxlID0gInNvcGhnbyxjdjE4MDAtcnRjIiwgInN5
-c2NvbiI7CiAgICAgICAgICAgICAgICAgICAgcmVnID0gPDB4NTAyNTAwMCAweDIwMDA+OwogICAg
-ICAgICAgICAgICAgICAgIGludGVycnVwdHMgPSA8MTcgSVJRX1RZUEVfTEVWRUxfSElHSD47CiAg
-ICAgICAgICAgICAgICAgICAgY2xvY2tzID0gPCZvc2M+Owp9Owpwb3IgewogICAgICAgICAgICAg
-ICAgICAgIGNvbXBhdGlibGUgPSAic29waGdvLGN2MTgwMC1wb3IiOwogICAgICAgICAgICAgICAg
-ICAgIHNvcGhnbyxydGMtc3lzcmVnID0gPCZydGM+Owp9OwoKTXkgaWRlYSBpcyB0aGF0IHRoaXMg
-cmVnaXN0ZXIgY2FuIGJlIGFjY2Vzc2VkIHRocm91Z2ggdGhlIHN5c2NvbiB0YWcsClJUQyBkcml2
-ZXIsIGFuZCByZWJvb3QgZHJpdmVyLgpUaGVuIGNvbXBsZXRlIHRoZWlyIGZ1bmN0aW9ucy4KSSdt
-IHNvcnJ5IGlmIGl0IHdhcyBkdWUgdG8gbGFuZ3VhZ2UgZGlmZmVyZW5jZXMgdGhhdCBjYXVzZWQg
-bXkgbWlzdW5kZXJzdGFuZGluZy4KUGVyaGFwcyBJIGNhbiBhY2NvbXBsaXNoIGl0IHRocm91Z2gg
-dGhlIGZvbGxvd2luZyBtZXRob2RzLgpydGM6IHJ0Y0A1MDI1MDAwIHsKICAgICAgICAgICAgICAg
-ICAgICBjb21wYXRpYmxlID0gInNvcGhnbyxjdjE4MDAtcnRjIiwgInNvcGhnbyxjdjE4MDAtcG9y
-IjsKICAgICAgICAgICAgICAgICAgICByZWcgPSA8MHg1MDI1MDAwIDB4MjAwMD47CiAgICAgICAg
-ICAgICAgICAgICAgaW50ZXJydXB0cyA9IDwxNyBJUlFfVFlQRV9MRVZFTF9ISUdIPjsKICAgICAg
-ICAgICAgICAgICAgICBjbG9ja3MgPSA8Jm9zYz47Cn07Ckhvd2V2ZXIsIGluIHJlYWxpdHksIHRo
-ZSBQT1Igc3VibW9kdWxlIGRvZXMgbm90IHVzZSBJUlEgYW5kIENMSy4KUGxlYXNlIGRvIG5vdCBo
-ZXNpdGF0ZSB0byB0ZWFjaC4gVGhhbmtzLgoKCkJlc3QgcmVnYXJkcywKSmluZ2JhbyBRaXUKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, Jan 05, 2024 at 04:08:30PM +0800, Xiao Wang wrote:
+> As suggested by the B-ext spec, the Zbc (carry-less multiplication)
+> instructions can be used to accelerate CRC calculations. Currently, the
+> crc32 is the most widely used crc function inside kernel, so this patch
+> focuses on the optimization of just the crc32 APIs.
+> 
+> Compared with the current table-lookup based optimization, Zbc based
+> optimization can also achieve large stride during CRC calculation loop,
+> meantime, it avoids the memory access latency of the table-lookup based
+> implementation and it reduces memory footprint.
+> 
+> If Zbc feature is not supported in a runtime environment, then the
+> table-lookup based implementation would serve as fallback via alternative
+> mechanism. To avoid the performance concern of unalignment access, we also
+> use the fallback implementation to handle the head and tail bytes if any,
+> the main body is accelerated by Zbc extension.
+> 
+> This patch is tested on QEMU VM with the kernel CRC32 selftest.
+
+Ideally we'd also have the results of some benchmarks, or at least a
+dynamic instruction count or something, but I don't suspect that the
+table-lookup would "win" over Zbc. The bigger question is whether we
+want three implementations, because I assume we want Zvbc, particularly
+since [1] says
+
+"""
+Zvbc is listed as a development option for use in other algorithms,
+and will become mandatory. Scalar Zbc is now listed as an expansion
+option, i.e., it will probably not become mandatory.
+"""
+
+[1] https://github.com/riscv/riscv-profiles/blob/main/rva23-profile.adoc
+
+
+A few nits below.
+
+> 
+> Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
+> ---
+>  arch/riscv/Kconfig      |  23 +++++
+>  arch/riscv/lib/Makefile |   1 +
+>  arch/riscv/lib/crc32.c  | 216 ++++++++++++++++++++++++++++++++++++++++
+>  include/linux/crc32.h   |   3 +
+>  4 files changed, 243 insertions(+)
+>  create mode 100644 arch/riscv/lib/crc32.c
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 95a2a06acc6a..d8b4fb697df2 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -549,6 +549,29 @@ config RISCV_ISA_ZBB
+>  
+>  	   If you don't know what to do here, say Y.
+>  
+> +config TOOLCHAIN_HAS_ZBC
+> +	bool
+> +	default y
+> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbc)
+> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbc)
+> +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
+> +	depends on AS_HAS_OPTION_ARCH
+> +
+> +config RISCV_ISA_ZBC
+> +	bool "Zbc extension support for carry-less multiplication instructions"
+> +	depends on TOOLCHAIN_HAS_ZBC
+> +	depends on MMU
+> +	depends on RISCV_ALTERNATIVE
+> +	default y
+> +	help
+> +	   Adds support to dynamically detect the presence of the Zbc
+> +	   extension (carry-less multiplication) and enable its usage.
+> +
+> +	   The Zbc extension could accelerate CRC (cyclic redundancy check)
+> +	   calculations.
+> +
+> +	   If you don't know what to do here, say Y.
+> +
+>  config RISCV_ISA_ZICBOM
+>  	bool "Zicbom extension support for non-coherent DMA operation"
+>  	depends on MMU
+> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+> index 26cb2502ecf8..183bf2097d57 100644
+> --- a/arch/riscv/lib/Makefile
+> +++ b/arch/riscv/lib/Makefile
+> @@ -9,5 +9,6 @@ lib-y			+= strncmp.o
+>  lib-$(CONFIG_MMU)	+= uaccess.o
+>  lib-$(CONFIG_64BIT)	+= tishift.o
+>  lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
+> +lib-$(CONFIG_RISCV_ISA_ZBC)	+= crc32.o
+>  
+>  obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+> diff --git a/arch/riscv/lib/crc32.c b/arch/riscv/lib/crc32.c
+> new file mode 100644
+> index 000000000000..1a24994df826
+> --- /dev/null
+> +++ b/arch/riscv/lib/crc32.c
+> @@ -0,0 +1,216 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Accelerated CRC32 implementation with Zbc extension.
+> + *
+> + * Copyright (C) 2024 Intel Corporation
+> + *
+> + * Authors:
+> + *     Xiao Wang <xiao.w.wang@intel.com>
+> + */
+> +
+> +#include <asm/hwcap.h>
+> +#include <asm/alternative-macros.h>
+> +#include <asm/byteorder.h>
+> +
+> +#include <linux/types.h>
+> +#include <linux/crc32poly.h>
+> +#include <linux/crc32.h>
+> +#include <linux/byteorder/generic.h>
+> +
+> +#define MIN(a, b) ((a) < (b) ? (a) : (b))
+
+min() from linux/minmax.h?
+
+> +
+> +#if (BITS_PER_LONG == 64)
+
+I think riscv prefers
+
+ #if __riscv_xlen == 64
+
+In any case, the () are unnecessary.
+
+> +/* Slide by XLEN bits per iteration */
+> +# define STEP_ORDER 3
+> +
+> +/* Each below polynomial quotient has an implicit bit for 2^XLEN */
+> +
+> +/* Polynomial quotient of (2^(XLEN+32))/CRC32_POLY, in LE format */
+> +# define CRC32_POLY_QT_LE	0x5a72d812fb808b20
+> +
+> +/* Polynomial quotient of (2^(XLEN+32))/CRC32C_POLY, in LE format */
+> +# define CRC32C_POLY_QT_LE	0xa434f61c6f5389f8
+> +
+> +/* Polynomial quotient of (2^(XLEN+32))/CRC32_POLY, in BE format, it should be
+> + * the same as the bit-reversed version of CRC32_POLY_QT_LE
+> + */
+> +# define CRC32_POLY_QT_BE	0x04d101df481b4e5a
+> +#elif (BITS_PER_LONG == 32)
+> +# define STEP_ORDER 2
+> +/* Each quotient should match the upper half of its analog in RV64 */
+> +# define CRC32_POLY_QT_LE	0xfb808b20
+> +# define CRC32C_POLY_QT_LE	0x6f5389f8
+> +# define CRC32_POLY_QT_BE	0x04d101df
+> +#else
+> +# error "Unexpected BITS_PER_LONG"
+> +#endif
+> +
+> +#define STEP (1 << STEP_ORDER)
+> +#define OFFSET_MASK (STEP - 1)
+
+Should tab out the values of these defines so they line up.
+
+> +
+> +/*
+> + * Refer to https://www.corsix.org/content/barrett-reduction-polynomials for
+> + * better understanding of how this math works.
+
+Thanks for this pointer. I read it, but I didn't digest it enough to
+understand it, which means my review isn't confirming the math is
+correct.
+
+> + *
+> + * let "+" denotes polynomial add (XOR)
+> + * let "-" denotes polynomial sub (XOR)
+> + * let "*" denotes polynomial multiplication
+> + * let "/" denotes polynomial floor division
+> + * let "S" denotes source data, XLEN bit wide
+> + * let "P" denotes CRC32 polynomial
+> + * let "T" denotes 2^(XLEN+32)
+> + * let "QT" denotes quotient of T/P, with the bit for 2^XLEN being implicit
+> + *
+> + * crc32(S, P)
+> + * => S * (2^32) - S * (2^32) / P * P
+> + * => lowest 32 bits of: S * (2^32) / P * P
+> + * => lowest 32 bits of: S * (2^32) * (T / P) / T * P
+> + * => lowest 32 bits of: S * (2^32) * quotient / T * P
+> + * => lowest 32 bits of: S * quotient / 2^XLEN * P
+> + * => lowest 32 bits of: (clmul_high_part(S, QT) + S) * P
+> + * => clmul_low_part(clmul_high_part(S, QT) + S, P)
+> + *
+> + * In terms of below implementations, the BE case is more intuitive, since the
+> + * higher order bit sits at more significant position.
+> + */
+> +
+> +typedef u32 (*fallback)(u32 crc, unsigned char const *p, size_t len);
+> +
+> +static inline u32 __pure crc32_le_generic(u32 crc, unsigned char const *p,
+> +#if (BITS_PER_LONG == 64)
+> +					  size_t len, u32 poly, u64 poly_qt,
+> +#else
+> +					  size_t len, u32 poly, u32 poly_qt,
+> +#endif
+
+How about creating a new type for poly_qt, defined as u64 for xlen=64
+and u32 for xlen=32 to avoid the #ifdef?
+
+> +					  fallback crc_fb)
+> +{
+> +	size_t offset, head_len, tail_len;
+> +	const unsigned long *p_ul;
+> +	unsigned long s;
+> +
+> +	asm_volatile_goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
+> +				      RISCV_ISA_EXT_ZBC, 1)
+> +			  : : : : legacy);
+> +
+> +	/* Handle the unalignment head. */
+> +	offset = (unsigned long)p & OFFSET_MASK;
+> +	if (offset) {
+> +		head_len = MIN(STEP - offset, len);
+> +		crc = crc_fb(crc, p, head_len);
+> +		len -= head_len;
+> +		p += head_len;
+> +	}
+> +
+> +	tail_len = len & OFFSET_MASK;
+> +	len = len >> STEP_ORDER;
+> +	p_ul = (unsigned long *)p;
+> +
+> +	for (int i = 0; i < len; i++) {
+> +#if (BITS_PER_LONG == 64)
+> +		s = (unsigned long)crc ^ __cpu_to_le64(*p_ul++);
+> +		/* We don't have a "clmulrh" insn, so use clmul + slli instead.
+> +		 */
+
+need opening /* comment wing
+
+> +		asm volatile (".option push\n"
+> +			      ".option arch,+zbc\n"
+> +			      "clmul	%0, %1, %2\n"
+> +			      "slli	%0, %0, 1\n"
+> +			      "xor	%0, %0, %1\n"
+> +			      "clmulr	%0, %0, %3\n"
+> +			      "srli	%0, %0, 32\n"
+> +			      ".option pop\n"
+> +			      : "=&r" (crc)
+> +			      : "r" (s),
+> +				"r" (poly_qt),
+> +				"r" ((u64)poly << 32)
+> +			      :);
+> +#else
+> +		s = crc ^ __cpu_to_le32(*p_ul++);
+> +		/* We don't have a "clmulrh" insn, so use clmul + slli instead.
+
+also here
+
+> +		 */
+> +		asm volatile (".option push\n"
+> +			      ".option arch,+zbc\n"
+> +			      "clmul	%0, %1, %2\n"
+> +			      "slli	%0, %0, 1\n"
+> +			      "xor	%0, %0, %1\n"
+> +			      "clmulr	%0, %0, %3\n"
+> +			      ".option pop\n"
+> +			      : "=&r" (crc)
+> +			      : "r" (s),
+> +				"r" (poly_qt),
+> +				"r" (poly)
+> +			      :);
+> +#endif
+
+Instead of the #ifdef here, we could provide function wrappers for the asm
+which would be defined above in the first #ifdef ladder.
+
+> +	}
+> +
+> +	/* Handle the tail bytes. */
+> +	if (tail_len)
+> +		crc = crc_fb(crc, (unsigned char const *)p_ul, tail_len);
+> +	return crc;
+> +
+> +legacy:
+> +	return crc_fb(crc, p, len);
+> +}
+> +
+> +u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len)
+> +{
+> +	return crc32_le_generic(crc, p, len, CRC32_POLY_LE, CRC32_POLY_QT_LE,
+> +				crc32_le_base);
+> +}
+> +
+> +u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
+> +{
+> +	return crc32_le_generic(crc, p, len, CRC32C_POLY_LE,
+> +				CRC32C_POLY_QT_LE, __crc32c_le_base);
+> +}
+> +
+> +u32 __pure crc32_be(u32 crc, unsigned char const *p, size_t len)
+> +{
+> +	size_t offset, head_len, tail_len;
+> +	const unsigned long *p_ul;
+> +	unsigned long s;
+> +
+> +	asm_volatile_goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
+> +				      RISCV_ISA_EXT_ZBC, 1)
+> +			  : : : : legacy);
+> +
+> +	/* Handle the unalignment head. */
+> +	offset = (unsigned long)p & OFFSET_MASK;
+> +	if (offset) {
+> +		head_len = MIN(STEP - offset, len);
+> +		crc = crc32_be_base(crc, p, head_len);
+> +		len -= head_len;
+> +		p += head_len;
+> +	}
+> +
+> +	tail_len = len & OFFSET_MASK;
+> +	len = len >> STEP_ORDER;
+> +	p_ul = (unsigned long *)p;
+> +
+> +	for (int i = 0; i < len; i++) {
+> +#if (BITS_PER_LONG == 64)
+> +		s = (unsigned long)crc << 32;
+> +		s ^= __cpu_to_be64(*p_ul++);
+> +#else
+> +		s = crc ^ __cpu_to_be32(*p_ul++);
+> +#endif
+
+Could write the above without #ifdef with
+
+ if (IS_ENABLED(CONFIG_64BIT)) {
+    ...
+ } else {
+    ...
+ }
+
+> +		asm volatile (".option push\n"
+> +			      ".option arch,+zbc\n"
+> +			      "clmulh	%0, %1, %2\n"
+> +			      "xor	%0, %0, %1\n"
+> +			      "clmul	%0, %0, %3\n"
+> +			      ".option pop\n"
+> +			      : "=&r" (crc)
+> +			      : "r" (s),
+> +				"r" (CRC32_POLY_QT_BE),
+> +				"r" (CRC32_POLY_BE)
+> +			      :);
+> +	}
+> +
+> +	/* Handle the tail bytes. */
+> +	if (tail_len)
+> +		crc = crc32_be_base(crc, (unsigned char const *)p_ul, tail_len);
+> +	return crc;
+> +
+> +legacy:
+> +	return crc32_be_base(crc, p, len);
+> +}
+> diff --git a/include/linux/crc32.h b/include/linux/crc32.h
+> index 9e8a032c1788..87f788c0d607 100644
+> --- a/include/linux/crc32.h
+> +++ b/include/linux/crc32.h
+> @@ -9,7 +9,9 @@
+>  #include <linux/bitrev.h>
+>  
+>  u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len);
+> +u32 __pure crc32_le_base(u32 crc, unsigned char const *p, size_t len);
+>  u32 __pure crc32_be(u32 crc, unsigned char const *p, size_t len);
+> +u32 __pure crc32_be_base(u32 crc, unsigned char const *p, size_t len);
+>  
+>  /**
+>   * crc32_le_combine - Combine two crc32 check values into one. For two
+> @@ -37,6 +39,7 @@ static inline u32 crc32_le_combine(u32 crc1, u32 crc2, size_t len2)
+>  }
+>  
+>  u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len);
+> +u32 __pure __crc32c_le_base(u32 crc, unsigned char const *p, size_t len);
+>  
+>  /**
+>   * __crc32c_le_combine - Combine two crc32c check values into one. For two
+> -- 
+> 2.25.1
+>
+
+Thanks,
+drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
