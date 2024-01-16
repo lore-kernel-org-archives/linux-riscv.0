@@ -4,86 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 035E2C47077
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 18:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D89C47077
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 19:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pBd93+rJU+OKU3dqwUtUB7LykRf3Bhi+Lg0gGQg0D34=; b=wfLU9KOkEvgwF/
-	bZNXZ2fdGysRC4GXG3bLY47z8W7yao62BLvUEQq6kwzxm0IoVTv1kZ0+mOvlssp9BMNDJCrUOdk4g
-	RKe9fC/wfE2Dg4CTzV9QAOsdt4aI/dQvUp7xp1X04DUWSxjdBycnblPLZ87E/Z6lerDjDuKaSeOVb
-	ROJOOGKDnBFIf+Cyok++BtmVsWLUqkmMlWcqYqNm8K9CcuyRi5drUMQnkK0QUFTyHx7pF5eS9PwDm
-	s5i0fx864D5EE0LPsgakIIbYEsEiJF/UjGYoSHBgDRIDBcDzSN31gH6wHW+ABCy4X1O32AgxUStW7
-	tQ8gnk97fs5f+EPcgdvg==;
+	List-Owner; bh=cp51p8IOieEjFLV96E1nbioZKZWte7egOCBnrcZSJUQ=; b=CDxBZ51Tt0L5qS
+	uFV+HFK9rgyVJTTt59P64rm1yWU2NGXiLEzhDN6sz7JkOaC+wguQmzYbmQw7jj9HpWv1HAotKnkQo
+	1ftm2ZWew2ADkpmY1u7tkwJKkq/em3ESNdeNuk2KVHBSh7yWhUpFdNek3wKs2y+8N4pOBGIbB0M+B
+	D0hxaZNcz5Tl5I2CLXMWtum7s+rZFohGnWr5dDzmutoMzAveOCmD3H5IAajQqK8j0hbQ0EhY6PadA
+	fNBr1I2XsgLrn2p1HpwIdX6bA0qoY6FM0Os/FoJmvcNrL3zsZPPOxzheegV7CQSoKXkbNHRxEu+e9
+	4KuBS97dwSQtI4b+EDug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPoSs-00D2d5-1K;
-	Tue, 16 Jan 2024 18:47:10 +0000
-Received: from mail-oo1-f44.google.com ([209.85.161.44])
+	id 1rPp5x-00D8ic-0x;
+	Tue, 16 Jan 2024 19:27:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPoSp-00D2c0-1z
+	id 1rPp5u-00D8hY-0f
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jan 2024 18:47:09 +0000
-Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-59923a4ee6cso280093eaf.1
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 10:47:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1705430762; x=1706035562; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=X7+iPjvVCly4VO5Mo6fUS2dWNQKiaqTW6P9ssk9rj8w=;
-        b=LLSFT0h74MRjkO9rYNZ/HskSY917cOTeYc7sJnKafYWHQEgu607w+KZNAGpzspyWP+
-         8GJNQDuFiT/X2dFVsfwzFSCGg9+EsEmQE7o4UyFQKpYEAUzBgku9tS7rkqeG6KuubLNP
-         fgTyg3lLqZvizvpiiAtAM5udfJmNPOlSfIEqH/sSsq9W+byWSDIjYDfQxWH6YgfS74dU
-         4Ck0dZQlfHUv5vqg6/WHA3uElWBM3ZuJLlR00JQN8ZnjlvEU3NqJJlJJRux6JoOjoJmP
-         PKvFqHt7RXcF/cHYLL4mo+tgRU5pivQcd6kvX4+YySl+LzZGChnGq7WTV0GQmas4HRpD
-         TJgQ==
+	Tue, 16 Jan 2024 19:27:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1705433247;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=esJyrwZ7t8TfGpWfViV1tydHUavaxnEyVLYlf+MWBAY=;
+	b=DXg8T4x9yWgeqfv7tNA9S4GVvI9LsKN45dnwRtfIemEkqlkzPk76JB++cfER8FwQD3TUep
+	v9zWXMPX+FyimuObL1hkF624CfYF+mTSR3ksO6v4XB9ypcayVXL8nF+VBwXe0zoNCfkEHh
+	/8PlsUtZr1PF4ZhAgptznw7locYk2sw=
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
+ [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-580-pYLi2eCgNgG2QF3kPjWx5g-1; Tue, 16 Jan 2024 14:27:20 -0500
+X-MC-Unique: pYLi2eCgNgG2QF3kPjWx5g-1
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-429a7149210so83022751cf.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 11:27:20 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705430762; x=1706035562;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X7+iPjvVCly4VO5Mo6fUS2dWNQKiaqTW6P9ssk9rj8w=;
-        b=Z92Fy4RJwr6agWEiS2ccaO1XjcoTlPGJP5kLtcmgo6l/v0aBiuydTAEhlgWq1F81HV
-         AhR7UOH73KPBCl1jWAROvqhyCLBW59x8b+hWH4OjrR8F0F20J6kATGAOvrnhtLhOINOP
-         X9RNIGWwdOP+1sgGiVRKVx1C4HFxwXHI0gKHpHthFi2omEGD00KC9KCRCkj17FTwORLS
-         WI3K9NCrrkB3FY8JHbuEzQkjdaIzwK19RF1WYmeCXoh7WptJXomgyZDSmvEF40Y7vPj1
-         K8h3zHOO1P2mfG146ojZ2JXl903RyUVFEIpeANBvVVjZmKfp/jw1tC+VN3W0m6Zk5EGX
-         hmgQ==
-X-Gm-Message-State: AOJu0Yxc9ziRgSZf4mE2BXSKZTPjBBg/ff4/zd1Uo1Qmsbj39oR7n0Mr
-	t+HFLosdTJQo+Cg7F6H6POqp8k+MEXwPUg==
-X-Google-Smtp-Source: AGHT+IG8iwkfIcUByGe/mng68dHcuTCvhprse2hGqd6d0WOzy/Oe4zQZuEtALdDWOdpDACmx9Cd2Ag==
-X-Received: by 2002:a05:6358:c305:b0:175:5d72:5f7c with SMTP id fk5-20020a056358c30500b001755d725f7cmr4939338rwb.50.1705430761918;
-        Tue, 16 Jan 2024 10:46:01 -0800 (PST)
-Received: from ghost ([2601:647:5700:6860:60b9:65a4:6399:f8f3])
-        by smtp.gmail.com with ESMTPSA id j190-20020a6380c7000000b005b529d633b7sm10243898pgd.14.2024.01.16.10.46.00
+        d=1e100.net; s=20230601; t=1705433240; x=1706038040;
+        h=content-transfer-encoding:content-disposition:mime-version
+         :references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=esJyrwZ7t8TfGpWfViV1tydHUavaxnEyVLYlf+MWBAY=;
+        b=mDLhqBDv73IrSPPEKK4reqXR20pB7M11zzM+Gk8x0SMCI678cSNXh2O7tJoDBi62US
+         exSmU1Zopu4/E5kLNNNfymy2bdKmurflM63DV30h55O+TQivXd1paYUjM1cFDqG6KLZa
+         cFeMldwgpm1hg2ArATfR56sEF8RM31P1ZW02yS/+hk/4RzHiPkngisGjVW8/tKUmOIYa
+         k5V2EwEDLx77/N0uowaRYVnnrsMjzGkdFepZXkRRRl1D+usTmwp95XH4GThwpJOOuUvG
+         GjSjVi2gaU5uUiwOvB6ZgvsCdrGvsdpma8cymRODARpVwqHvE453kJhA2FUdbWtmeSJr
+         7E0A==
+X-Gm-Message-State: AOJu0Ywpr5ah7YgVKtD3wzjZPpj3pbntHELSczoYhKMesWAztSYH8eAp
+	6XnMYng2ZvnRxScy8i5b/d2Yhf118+E4NkBNGAMxyq6MAiQB9N4oZDndtBd3GhVFK6ekIdFi+mb
+	XSj9zjssKou3HtKk64uX5EX20Yb3lS2EL2HdC
+X-Received: by 2002:a05:622a:178d:b0:429:ae56:5ae3 with SMTP id s13-20020a05622a178d00b00429ae565ae3mr8394158qtk.85.1705433240006;
+        Tue, 16 Jan 2024 11:27:20 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGS3fShy/i2zdxIwBWrU8CA6ttXbmT5UHLBUfFpZeqsNOaTW+nsjukhTUs/vzO0Uaayz0DNVQ==
+X-Received: by 2002:a05:622a:178d:b0:429:ae56:5ae3 with SMTP id s13-20020a05622a178d00b00429ae565ae3mr8394137qtk.85.1705433239700;
+        Tue, 16 Jan 2024 11:27:19 -0800 (PST)
+Received: from LeoBras.redhat.com ([2804:1b3:a803:64aa:6db9:6544:60c:9e16])
+        by smtp.gmail.com with ESMTPSA id fw6-20020a05622a4a8600b00427f89957d9sm5108195qtb.79.2024.01.16.11.27.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jan 2024 10:46:01 -0800 (PST)
-Date: Tue, 16 Jan 2024 10:45:59 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+        Tue, 16 Jan 2024 11:27:19 -0800 (PST)
+From: Leonardo Bras <leobras@redhat.com>
+To: kernel test robot <lkp@intel.com>
+Cc: Leonardo Bras <leobras@redhat.com>,
+	Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v7 1/2] riscv: Include riscv_set_icache_flush_ctx prctl
-Message-ID: <ZabO51bYS8fkXRMu@ghost>
-References: <20240112-fencei-v7-0-78f0614e1db0@rivosinc.com>
- <20240112-fencei-v7-1-78f0614e1db0@rivosinc.com>
- <a75ed906-7dd5-44aa-8809-f1758de188e4@ghiti.fr>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	oe-kbuild-all@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 1/5] riscv/cmpxchg: Deduplicate xchg() asm functions
+Date: Tue, 16 Jan 2024 16:27:07 -0300
+Message-ID: <ZabYi5NoTiXJ4Hf2@LeoBras>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <202401131438.f8SELM0W-lkp@intel.com>
+References: <20240103163203.72768-3-leobras@redhat.com> <202401131438.f8SELM0W-lkp@intel.com>
 MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
-In-Reply-To: <a75ed906-7dd5-44aa-8809-f1758de188e4@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240116_104707_677634_F05E9F13 
-X-CRM114-Status: GOOD (  39.52  )
+X-CRM114-CacheID: sfid-20240116_112730_317964_ED5B6DF3 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,220 +115,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 14, 2024 at 05:05:20PM +0100, Alexandre Ghiti wrote:
-> Hi Charlie,
+On Sat, Jan 13, 2024 at 02:54:17PM +0800, kernel test robot wrote:
+> Hi Leonardo,
 > 
-> On 13/01/2024 00:56, Charlie Jenkins wrote:
-> > Support new prctl with key PR_RISCV_SET_ICACHE_FLUSH_CTX to enable
-> > optimization of cross modifying code. This prctl enables userspace code
-> > to use icache flushing instructions such as fence.i with the guarantee
-> > that the icache will continue to be clean after thread migration.
-> > 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >   arch/riscv/include/asm/mmu.h       |  2 ++
-> >   arch/riscv/include/asm/processor.h |  6 ++++
-> >   arch/riscv/mm/cacheflush.c         | 67 ++++++++++++++++++++++++++++++++++++++
-> >   arch/riscv/mm/context.c            |  8 +++--
-> >   include/uapi/linux/prctl.h         |  6 ++++
-> >   kernel/sys.c                       |  6 ++++
-> >   6 files changed, 92 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-> > index 355504b37f8e..60be458e94da 100644
-> > --- a/arch/riscv/include/asm/mmu.h
-> > +++ b/arch/riscv/include/asm/mmu.h
-> > @@ -19,6 +19,8 @@ typedef struct {
-> >   #ifdef CONFIG_SMP
-> >   	/* A local icache flush is needed before user execution can resume. */
-> >   	cpumask_t icache_stale_mask;
-> > +	/* Force local icache flush on all migrations. */
-> > +	bool force_icache_flush;
-> >   #endif
-> >   #ifdef CONFIG_BINFMT_ELF_FDPIC
-> >   	unsigned long exec_fdpic_loadmap;
-> > diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> > index f19f861cda54..7eda6c75e0f2 100644
-> > --- a/arch/riscv/include/asm/processor.h
-> > +++ b/arch/riscv/include/asm/processor.h
-> > @@ -84,6 +84,9 @@ struct thread_struct {
-> >   	unsigned long vstate_ctrl;
-> >   	struct __riscv_v_ext_state vstate;
-> >   	unsigned long align_ctl;
-> > +#ifdef CONFIG_SMP
-> > +	bool force_icache_flush;
-> > +#endif
-> >   };
-> >   /* Whitelist the fstate from the task_struct for hardened usercopy */
-> > @@ -145,6 +148,9 @@ extern int set_unalign_ctl(struct task_struct *tsk, unsigned int val);
-> >   #define GET_UNALIGN_CTL(tsk, addr)	get_unalign_ctl((tsk), (addr))
-> >   #define SET_UNALIGN_CTL(tsk, val)	set_unalign_ctl((tsk), (val))
-> > +#define RISCV_SET_ICACHE_FLUSH_CTX(arg1, arg2)	riscv_set_icache_flush_ctx(arg1, arg2)
-> > +extern int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread);
-> > +
-> >   #endif /* __ASSEMBLY__ */
-> >   #endif /* _ASM_RISCV_PROCESSOR_H */
-> > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> > index 55a34f2020a8..ff545f19f07a 100644
-> > --- a/arch/riscv/mm/cacheflush.c
-> > +++ b/arch/riscv/mm/cacheflush.c
-> > @@ -5,6 +5,7 @@
-> >   #include <linux/acpi.h>
-> >   #include <linux/of.h>
-> > +#include <linux/prctl.h>
-> >   #include <asm/acpi.h>
-> >   #include <asm/cacheflush.h>
-> > @@ -152,3 +153,69 @@ void __init riscv_init_cbo_blocksizes(void)
-> >   	if (cboz_block_size)
-> >   		riscv_cboz_block_size = cboz_block_size;
-> >   }
-> > +
-> > +/**
-> > + * riscv_set_icache_flush_ctx() - Enable/disable icache flushing instructions in
-> > + * userspace.
-> > + * @ctx: Set the type of icache flushing instructions permitted/prohibited in
-> > + *	 userspace. Supported values described below.
-> > + *
-> > + * Supported values for ctx:
-> > + *
-> > + * * %PR_RISCV_CTX_SW_FENCEI_ON: Allow fence.i in userspace.
-> > + *
-> > + * * %PR_RISCV_CTX_SW_FENCEI_OFF: Disallow fence.i in userspace. When ``scope ==
-> > + *   PR_RISCV_SCOPE_PER_PROCESS``, this will effect all threads in a process.
-> > + *   Therefore, caution must be taken -- only use this flag when you can
-> > + *   guarantee that no thread in the process will emit fence.i from this point
-> > + *   onward.
-> > + *
-> > + * @scope: Set scope of where icache flushing instructions are allowed to be
-> > + *	   emitted. Supported values described below.
-> > + *
-> > + * Supported values for scope:
-> > + *
-> > + * * PR_RISCV_SCOPE_PER_PROCESS: Ensure the icache of any thread in this process
-> > + *                               is coherent with instruction storage upon
-> > + *                               migration.
-> > + *
-> > + * * PR_RISCV_SCOPE_PER_THREAD: Ensure the icache of the current thread is
-> > + *                              coherent with instruction storage upon
-> > + *                              migration.
-> > + *
-> > + * When ``scope == PR_RISCV_SCOPE_PER_PROCESS``, all threads in the process are
-> > + * permitted to emit icache flushing instructions. Whenever any thread in the
-> > + * process is migrated, the corresponding hart's icache will be guaranteed to be
-> > + * consistent with instruction storage. Note this does not enforce any
-> > + * guarantees outside of migration. If a thread modifies an instruction that
-> > + * another thread may attempt to execute, the other thread must still emit an
-> > + * icache flushing instruction before attempting to execute the potentially
-> > + * modified instruction. This must be performed by the userspace program.
-> > + *
-> > + * In per-thread context (eg. ``scope == PR_RISCV_SCOPE_PER_THREAD``), only the
-> > + * thread calling this function is permitted to emit icache flushing
-> > + * instructions. When the thread is migrated, the corresponding hart's icache
-> > + * will be guaranteed to be consistent with instruction storage.
-> > + *
-> > + * On kernels configured without SMP, this function is a nop as migrations
-> > + * across harts will not occur.
-> > + */
-> > +int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long scope)
-> > +{
-> > +#ifdef CONFIG_SMP
-> > +	switch (ctx) {
-> > +	case PR_RISCV_CTX_SW_FENCEI_ON:
-> > +		switch (scope) {
-> > +		case PR_RISCV_SCOPE_PER_PROCESS:
-> > +			current->mm->context.force_icache_flush = true;
-> > +			break;
-> > +		case PR_RISCV_SCOPE_PER_THREAD:
-> > +			current->thread.force_icache_flush = true;
-> > +			break;
-> > +		default:
-> > +			return -EINVAL;
-> > +		}
-> > +	}
-> > +#endif
-> > +	return 0;
-> > +}
-> > diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> > index 217fd4de6134..0146c61be0ab 100644
-> > --- a/arch/riscv/mm/context.c
-> > +++ b/arch/riscv/mm/context.c
-> > @@ -297,12 +297,14 @@ static inline void set_mm(struct mm_struct *prev,
-> >    *
-> >    * The "cpu" argument must be the current local CPU number.
-> >    */
-> > -static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu)
-> > +static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu,
-> > +					 struct task_struct *task)
-> >   {
-> >   #ifdef CONFIG_SMP
-> >   	cpumask_t *mask = &mm->context.icache_stale_mask;
-> > -	if (cpumask_test_cpu(cpu, mask)) {
-> > +	if (cpumask_test_cpu(cpu, mask) || mm->context.force_icache_flush ||
-> > +	    (task && task->thread.force_icache_flush)) {
+> kernel test robot noticed the following build warnings:
 > 
+> [auto build test WARNING on 610a9b8f49fbcf1100716370d3b5f6f884a2835a]
 > 
-> IIUC, if a process/thread enables force_icache_flush, at every context
-> switch, the process/thread will flush the local icache but, as you said,
-> that's actually only needed in case of a migration. So we should check that
-> there has been a migration before flushing the icache. Maybe by storing the
-> last cpu the process/thread executed on and checking when it is scheduled
-> back if the current cpu if different from the last cpu, WDYT?
+> url:    https://github.com/intel-lab-lkp/linux/commits/Leonardo-Bras/riscv-cmpxchg-Deduplicate-xchg-asm-functions/20240104-003501
 
-Yes that does make sense. I will send an update.
+Cloned this repo
+
+> base:   610a9b8f49fbcf1100716370d3b5f6f884a2835a
+> patch link:    https://lore.kernel.org/r/20240103163203.72768-3-leobras%40redhat.com
+> patch subject: [PATCH v1 1/5] riscv/cmpxchg: Deduplicate xchg() asm functions
+> config: riscv-randconfig-r111-20240112 (https://download.01.org/0day-ci/archive/20240113/202401131438.f8SELM0W-lkp@intel.com/config)
+> compiler: clang version 18.0.0git (https://github.com/llvm/llvm-project 9bde5becb44ea071f5e1fa1f5d4071dc8788b18c)
+> reproduce: (https://download.01.org/0day-ci/archive/20240113/202401131438.f8SELM0W-lkp@intel.com/reproduce)
+
+And followed those instructions, while using sparse v0.6.4-52-g1cf3d98c.
 
 > 
-> Thanks,
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202401131438.f8SELM0W-lkp@intel.com/
 > 
-> Alex
+> sparse warnings: (new ones prefixed by >>)
+> >> net/ipv4/tcp_cong.c:300:24: sparse: sparse: incorrect type in initializer (different address spaces) @@     expected struct tcp_congestion_ops const [noderef] __rcu *__new @@     got struct tcp_congestion_ops *[assigned] ca @@
+>    net/ipv4/tcp_cong.c:300:24: sparse:     expected struct tcp_congestion_ops const [noderef] __rcu *__new
+>    net/ipv4/tcp_cong.c:300:24: sparse:     got struct tcp_congestion_ops *[assigned] ca
+>    net/ipv4/tcp_cong.c:300:22: sparse: sparse: incorrect type in assignment (different address spaces) @@     expected struct tcp_congestion_ops const *prev @@     got struct tcp_congestion_ops const [noderef] __rcu * @@
+>    net/ipv4/tcp_cong.c:300:22: sparse:     expected struct tcp_congestion_ops const *prev
+>    net/ipv4/tcp_cong.c:300:22: sparse:     got struct tcp_congestion_ops const [noderef] __rcu *
+>    net/ipv4/tcp_cong.c: note: in included file (through include/linux/module.h):
+>    include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
+>    include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
 > 
+> vim +300 net/ipv4/tcp_cong.c
 > 
-> >   		cpumask_clear_cpu(cpu, mask);
-> >   		/*
-> >   		 * Ensure the remote hart's writes are visible to this hart.
-> > @@ -332,5 +334,5 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
-> >   	set_mm(prev, next, cpu);
-> > -	flush_icache_deferred(next, cpu);
-> > +	flush_icache_deferred(next, cpu, task);
-> >   }
-> > diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-> > index 370ed14b1ae0..524d546d697b 100644
-> > --- a/include/uapi/linux/prctl.h
-> > +++ b/include/uapi/linux/prctl.h
-> > @@ -306,4 +306,10 @@ struct prctl_mm_map {
-> >   # define PR_RISCV_V_VSTATE_CTRL_NEXT_MASK	0xc
-> >   # define PR_RISCV_V_VSTATE_CTRL_MASK		0x1f
-> > +#define PR_RISCV_SET_ICACHE_FLUSH_CTX	71
-> > +# define PR_RISCV_CTX_SW_FENCEI_ON	0
-> > +# define PR_RISCV_CTX_SW_FENCEI_OFF	1
-> > +# define PR_RISCV_SCOPE_PER_PROCESS	0
-> > +# define PR_RISCV_SCOPE_PER_THREAD	1
-> > +
-> >   #endif /* _LINUX_PRCTL_H */
-> > diff --git a/kernel/sys.c b/kernel/sys.c
-> > index 420d9cb9cc8e..e806a8a67c36 100644
-> > --- a/kernel/sys.c
-> > +++ b/kernel/sys.c
-> > @@ -146,6 +146,9 @@
-> >   #ifndef RISCV_V_GET_CONTROL
-> >   # define RISCV_V_GET_CONTROL()		(-EINVAL)
-> >   #endif
-> > +#ifndef RISCV_SET_ICACHE_FLUSH_CTX
-> > +# define RISCV_SET_ICACHE_FLUSH_CTX(a, b)	(-EINVAL)
-> > +#endif
-> >   /*
-> >    * this is where the system-wide overflow UID and GID are defined, for
-> > @@ -2739,6 +2742,9 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
-> >   	case PR_RISCV_V_GET_CONTROL:
-> >   		error = RISCV_V_GET_CONTROL();
-> >   		break;
-> > +	case PR_RISCV_SET_ICACHE_FLUSH_CTX:
-> > +		error = RISCV_SET_ICACHE_FLUSH_CTX(arg2, arg3);
-> > +		break;
-> >   	default:
-> >   		error = -EINVAL;
-> >   		break;
-> > 
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  281  
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  282  /* Used by sysctl to change default congestion control */
+> 6670e152447732 Stephen Hemminger 2017-11-14  283  int tcp_set_default_congestion_control(struct net *net, const char *name)
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  284  {
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  285  	struct tcp_congestion_ops *ca;
+> 6670e152447732 Stephen Hemminger 2017-11-14  286  	const struct tcp_congestion_ops *prev;
+> 6670e152447732 Stephen Hemminger 2017-11-14  287  	int ret;
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  288  
+> 6670e152447732 Stephen Hemminger 2017-11-14  289  	rcu_read_lock();
+> 6670e152447732 Stephen Hemminger 2017-11-14  290  	ca = tcp_ca_find_autoload(net, name);
+> 6670e152447732 Stephen Hemminger 2017-11-14  291  	if (!ca) {
+> 6670e152447732 Stephen Hemminger 2017-11-14  292  		ret = -ENOENT;
+> 0baf26b0fcd74b Martin KaFai Lau  2020-01-08  293  	} else if (!bpf_try_module_get(ca, ca->owner)) {
+> 6670e152447732 Stephen Hemminger 2017-11-14  294  		ret = -EBUSY;
+> 8d432592f30fcc Jonathon Reinhart 2021-05-01  295  	} else if (!net_eq(net, &init_net) &&
+> 8d432592f30fcc Jonathon Reinhart 2021-05-01  296  			!(ca->flags & TCP_CONG_NON_RESTRICTED)) {
+> 8d432592f30fcc Jonathon Reinhart 2021-05-01  297  		/* Only init netns can set default to a restricted algorithm */
+> 8d432592f30fcc Jonathon Reinhart 2021-05-01  298  		ret = -EPERM;
+> 6670e152447732 Stephen Hemminger 2017-11-14  299  	} else {
+> 6670e152447732 Stephen Hemminger 2017-11-14 @300  		prev = xchg(&net->ipv4.tcp_congestion_control, ca);
+> 6670e152447732 Stephen Hemminger 2017-11-14  301  		if (prev)
+> 0baf26b0fcd74b Martin KaFai Lau  2020-01-08  302  			bpf_module_put(prev, prev->owner);
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  303  
+> 6670e152447732 Stephen Hemminger 2017-11-14  304  		ca->flags |= TCP_CONG_NON_RESTRICTED;
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  305  		ret = 0;
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  306  	}
+> 6670e152447732 Stephen Hemminger 2017-11-14  307  	rcu_read_unlock();
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  308  
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  309  	return ret;
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  310  }
+> 317a76f9a44b43 Stephen Hemminger 2005-06-23  311  
+> 
+> -- 
+> 0-DAY CI Kernel Test Service
+> https://github.com/intel/lkp-tests/wiki
+> 
+
+I did some testing using the instructions above on above file, and patch 
+1/5 haven't introduced anything new.
+
+
+Command for gathering sparse warnings:
+COMPILER_INSTALL_PATH=$HOME/0day ~/lkp-tests/kbuild/make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__ -fmax-errors=unlimited -fmax-warnings=unlimited' O=build_dir ARCH=riscv SHELL=/bin/bash net/ipv4/tcp_cong.o 2> sparse
+
+I ran this for the commit mentioned in the reproduction instructions 
+(7931dc023 : riscv/cmpxchg: Deduplicate xchg() asm functions ) and for it's 
+parent (610a9b8f49 : Linux 6.7-rc8). The diff -u on the output was:
+
+# diff -u sparse_vanilla sparse_p1_5    
+--- sparse_vanilla      2024-01-16 14:16:36.217965076 -0500              
++++ sparse_p1_5 2024-01-16 14:15:29.942712160 -0500                      
+@@ -1,5 +1,5 @@                                                          
+ ../net/ipv4/tcp_cong.c:300:24: sparse: warning: incorrect type in initializer (different address spaces)
+-../net/ipv4/tcp_cong.c:300:24: sparse:    expected struct tcp_congestion_ops const [noderef] __rcu *_x_
++../net/ipv4/tcp_cong.c:300:24: sparse:    expected struct tcp_congestion_ops const [noderef] __rcu *__new
+ ../net/ipv4/tcp_cong.c:300:24: sparse:    got struct tcp_congestion_ops *[assigned] ca
+ ../net/ipv4/tcp_cong.c:300:22: sparse: warning: incorrect type in assignment (different address spaces)
+ ../net/ipv4/tcp_cong.c:300:22: sparse:    expected struct tcp_congestion_ops const *prev
+
+So I did not introduce anything new, as per sparse v0.6.4-52-g1cf3d98c .
+
+I noticed the output is slightly different, and that in the reproduction 
+steps this used:
+# sparse version: v0.6.4-52-g1cf3d98c-dirty
+
+Since there is no indicator on what the -dirty stands for, it's hard for me 
+to get the same reproduction, but as far as I could test there is not 
+any new error. 
+
+Thanks!
+Leo
+
+
 
 _______________________________________________
 linux-riscv mailing list
