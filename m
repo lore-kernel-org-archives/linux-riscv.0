@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACAF7C3DA79
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 01:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE1BC3DA79
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 01:07:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kNu0Nm9sD16/jM+O6d5j+hIOAhgvDncq6I1G1ASDHoU=; b=qcocWieWeGfLth
-	MrOyXRbX8txgY8To7twg1ipzihdXCWLhhCB2c2JcskF3l59yiscHeKP0UcGAx/mu1E20xl05YCrMy
-	oq3htb06NFezabp6rVEC/7YYpTTncDPZ6zjr7D98gIQlIVDPfgFhKRe/GdIb2Ky58MX3Q7XH+yAX2
-	iEoBA9WlaPGBobpRA4CK5L0hMYA6F89iyquPpP2gbQGtli9wlLGwEPm2UQ9SQaR/HOb0INhaLrBY2
-	RWdm3nCZ0gGjvwTR3mYhIF00tvhzpqMOBr+CYmFZAQfo3W9gQyV7nlhgnhgec/rv8BwC6vO92AVlI
-	dKXUKL19NcYZCuzwSvFQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kNu0Nm9sD16/jM+O6d5j+hIOAhgvDncq6I1G1ASDHoU=; b=WzSMN/YdEDmCNK
+	9KBte3nt9HVqyxFDp9vxrTSOjhwBQqQfcf72JALhjHmFaT9BUZe6jLlQcLTjizfwmzru/JD3K18Au
+	CXhd4o8a6uP8tNtqgteHvNnRvSIeSmVaVGXnk5LvJE8kuxXWSeLAtv+qzJILXTCvqzrB65JUYySJz
+	ibYk3SbSPrKLwkRk/qi2psqzec7NJzPgTmcaWIePzIVm19FjBeK+i/TIZi7hqUuYkfWgcN59R5vd1
+	l5AYq/9P1zu9ansa9WEvtkVImdKxQlbkT2fRG0MAD7VfrCMOazrny86zpgfm+4T6NvDABMp+0YHue
+	ynbcyKlvSO9hSKHCyKnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPXto-00AcQF-1q;
-	Tue, 16 Jan 2024 01:05:52 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rPXvG-00AcwO-1s;
+	Tue, 16 Jan 2024 01:07:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPXtk-00AcPH-35;
-	Tue, 16 Jan 2024 01:05:50 +0000
+	id 1rPXvC-00Acv1-0x;
+	Tue, 16 Jan 2024 01:07:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 7C865B80D0C;
-	Tue, 16 Jan 2024 01:05:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9DE2C433F1;
-	Tue, 16 Jan 2024 01:05:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A274960FED;
+	Tue, 16 Jan 2024 01:06:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA122C433F1;
+	Tue, 16 Jan 2024 01:06:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705367146;
+	s=k20201202; t=1705367207;
 	bh=4Rgd6pj6ZzHj+h/R371GlQqWUydY+bynAeaxfKNSS8w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qHv0THGo6+yaZOc81ByELgjysey93RrsW0B070TZ6Re3EP11Lgf/vE4TR7g4CzWhn
-	 wJ+F27M1+9a0A9VmE9wwROTxd8t78FUdWXx+kwoxkDhEMbLTr4XGiVRCQX/AsioXMK
-	 HmbyK8B4fPd39tX6K3n9kBc7dKWO4ihE+fUQAfjG+HnU/jlMrfRcTURCkk3IZmqUI9
-	 Eg0Y7Bg59mBO7Wgja1BwGs3t7x2CjvtT7nkOhg7AM3J6l/9PoGpEPven+zO/medb8J
-	 w/FNZypQQQlVcSmG6DlDpdAykSM19BaEBFm2NP5YeqRUvYUB4opiQOB/Dw8fjmJmaK
-	 aIDQkYAkBL5dg==
+	h=From:To:Cc:Subject:Date:From;
+	b=eYwYkqcpJZIKdV6TrNlSEcfnGSR4djZyuzFUVCWe/94NowvwuhMH6cGndv+qXAE3z
+	 IQMPuDJQpxItE0kNEbBClcIw4752kGOsckGC3Kkjp3qrcUBh9EuviRUBWFnJ9fEHkN
+	 2YaHOB04U/FWAjNcuSpo2UqcPYYfjJBeeG2kidc/w3u/6pVF8H4NWUyBiC1r0DqvSN
+	 uSvoKQM7hue/x1mtjYA9qW55kBYOmSa05qwGlUQhZZpb/GTzwWVbmVi65yK0cQEP3A
+	 MZn5r0/M4KDedv8H/scKnpPGlqHIbLN5p+hEPu7Cmz1Du4gHSOaWlm76muE5sS3K1q
+	 Irs6LJMxx4arA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -68,19 +68,17 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.6 02/19] arch: consolidate arch_irq_work_raise prototypes
-Date: Mon, 15 Jan 2024 20:04:57 -0500
-Message-ID: <20240116010532.218428-2-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.1 01/14] arch: consolidate arch_irq_work_raise prototypes
+Date: Mon, 15 Jan 2024 20:06:03 -0500
+Message-ID: <20240116010642.218876-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240116010532.218428-1-sashal@kernel.org>
-References: <20240116010532.218428-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.6.12
+X-stable-base: Linux 6.1.73
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_170549_256429_2CF55B69 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20240115_170718_425689_4F8BA5CA 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
