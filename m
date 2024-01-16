@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508DFC47077
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 10:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE5EC4706C
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 10:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N57MdsctPSpdKzTWonApJsHd0ruVCAdxQWIdsfkjYIw=; b=3R5ShRMc/C4zGK
-	326aTSBLRRI7vz7RTYNrL3Gvc1fksqRc96dj6cny3Yz2s/c7qkE/tiIm9gfzn9nhjm7uVBOhHgv3R
-	c81oefdvEVrAtdwj5GFFI6Ip0jmR49IGmhI3bwzxhHIHfl8tEPsUE67+Yn+jQxW5fLbjMDHkpSblU
-	wbxGu4I2UhVSUab+AE1Vo49CMGSy1kxGSwhmeQ3AieWZKUg+6jzx8YZFkG7GMJsfdijS/b4HCEPmr
-	7SmB9dXYLyWg/bIUA/wXLr1dvkiDsBavCgSS2jNKzqJIbLoGb3d2yZF+xhwEBqYeBhnSJNiFioqy0
-	FQ/Ymntb0FcbXYe6PKfg==;
+	List-Owner; bh=YzOUZFDnkPijFZgP8F3/mTp404LNDSNJbBalhwRl464=; b=fev7xbI/yRKZS2
+	cz5fVNQICeIv0LyRgp1xswB7rNC4bjdiGXUBqpK3Papzruqb0WPJiH3UvcSU+bZ1NNa/lTdQI4fKO
+	rIP57RxuuLm/CLtNi6XBGlkBTG7x9DEI2e1rC9VtiMOBgHVvzHApH5nRNaqY4MGMGo2DAV/7TwoFp
+	1cXIgRtBRPgSMjB4WDX6R9ug4Lw8oAi/ErM8/5CGdXAjDVtW/UGMAI6I5om6wTqYo8iE41YrgNBa3
+	KNiBluDrQDRIRlv0WxMW9OFQZnULtt6Br77g2UMRwn6/D2Km+udxQE1E6r7BGdh/wnoYZ4OB4mwLN
+	Z3QiliA/Ext9IZOBpvSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPgKg-00Bdj8-28;
-	Tue, 16 Jan 2024 10:06:10 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1rPgNY-00Be5N-31;
+	Tue, 16 Jan 2024 10:09:08 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPgKd-00BdiJ-1f
+	id 1rPgNX-00Be3L-0F
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jan 2024 10:06:10 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a27733ae1dfso1110621566b.3
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 02:06:06 -0800 (PST)
+	Tue, 16 Jan 2024 10:09:08 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-55817a12ad8so7507448a12.2
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 02:09:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1705399565; x=1706004365; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1705399743; x=1706004543; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=OZTIIP3sJf0VlBiBgQq2oPnZChL1jOKPVa8eOrSDmuM=;
-        b=ZIg1deTVYLkFCWTP8a2v0oq5I+gB71bHHN+GqAo8nGI4CRF89sVVytHSiGD8o+euLu
-         V5hCkvXHdGHbku6pJ7w+XXzD09wjyQ2p/pS8Uyhp2phWOLhEe14Vt2t+HP2r2SABfAg8
-         IJJvLYRBxIRo/5sDJnvNkL94aUZL3RO8pGrgIBHn5SImbR4hz/r1eaF5GTuLxlpmQU8p
-         sB0asikreM5IC69+ExFfhlixHFT5kU2zkSwH2SNEQ+MJA3Nars9NEy/OgLx9ynhubAfA
-         fDm9I/HgWBr4hQ+e6SrUFLt8iFYn0oWbR+sfo5mzC9HUGN/mWg72UGttId6aAUhwWN48
-         8DCg==
+        bh=S2ouztY5FabhLEMLctP28JtMU7jyUhI1ZTSnZTMlTAg=;
+        b=r0ikxLh3/ipAcu++UrfTRfK6Qbh4czsm7wN8Mw1QWnSUc1TEiE/cTG8DJ9iiQ+v3LO
+         XdOt5WzZeB04JJ0oLQa0DUvoolQndUsVAFsmoe0o6JnOhscsRYoLRGYo9DjrL0mDHk9M
+         QS7XMZXL7d79SjWKX78QW/ssqbBKPedeYwS/DayJkzPRUA6bC2/PAJFfT5xtxGOCEkWG
+         UDbnwDdNTNr+idvbVf0oRALL1K4R3TRToypRAuzhkAYBlizcCC0P9hIMldJLH4HOF4KR
+         mPyt26+4cr292ypydRN5IEo5qPzT2TFdV3YnXXuXLcUWlZBpvTJGMvAj/rEhdP9zhN6W
+         Syng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705399565; x=1706004365;
+        d=1e100.net; s=20230601; t=1705399743; x=1706004543;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OZTIIP3sJf0VlBiBgQq2oPnZChL1jOKPVa8eOrSDmuM=;
-        b=TXVu7CqLawIcgyzJjTCtZ4cD2kuILbLvwzhpjC6UJCx9SpgJR8nd24qxp82f6kHopT
-         R1AzXSIaOpqJAxZyQg9q5Kmk6AoxJt9qijd9PZtL6EfNKe9aS22DDEH7GJ9mZruvLZ2b
-         NXesi3BZqoOgI2qTRGJRxgsqdFu2cImocwTDDFUlFldizgB6pqDLkFM/JbCgHpwGAUWx
-         fBPo1h2Nu+fGFlVEguNUNAg6tRfwbKVwmFG4PHU0aEq3VMQOCpo8hjR2+sc13wE48bLr
-         gRo5841ML8OgxUJfiqA75Ljt1s6eyB7IejRD6SbyRNLhKEZCKxFwM6xBGRjfVyEG2131
-         xmqw==
-X-Gm-Message-State: AOJu0Ywl2gK+hyV28N69XcM2WLRhaydhxPFsOVfA2RR9sRXir06VerK0
-	rbkTFFaeeWUgPKQ+SyU3KljgHKzDEl8RIQ==
-X-Google-Smtp-Source: AGHT+IFsaL5xpC1jtrEaUXh2spsJYu2prL8w44FIry9ZmDgMoFdMO9cuTBzvzslnKNJnehG+3DQJ2Q==
-X-Received: by 2002:a17:906:e2c3:b0:a2d:4e55:1d4f with SMTP id gr3-20020a170906e2c300b00a2d4e551d4fmr1063543ejb.153.1705399565214;
-        Tue, 16 Jan 2024 02:06:05 -0800 (PST)
+        bh=S2ouztY5FabhLEMLctP28JtMU7jyUhI1ZTSnZTMlTAg=;
+        b=w6wv6Xh8XqrKVoVseudObs2YEiZSnEbU5E4IGmyF2KuIPgvoe5+cb6mHXvJl6JXCl4
+         cO/sbJu4HeGcNMFAWbF46GWhKbEysIq9n0d2iuFn/R8GPKS/n3vhCKQt1AejDymkPFGj
+         X7FfeZTZw5XE3XwEI2ryXAAgSuqzJ2/9Nsicj2JElvjORJDIoxhULhoUu3mIzFIgawKF
+         k7QN6hcBo6euMpppe9t0eBJ4s7x10QHP1I6xfvTwZPby5pIslN9t7Kz3e3pCl6tarViK
+         dQQxQLOb2UnQ6bu+Hk0r+Cm2+WErZ4UMVtXW91jcxcjSvOQzBH4nHBSZR9OOYj3euwfD
+         Ihmg==
+X-Gm-Message-State: AOJu0YwK4cBptof9fntSFrBLmPkGnxoaB7SVBeY/UEGC3+9CZiSIGq58
+	ujshFu0tlbLJ6RFSjN1RATxqM4Yq/C6tfg==
+X-Google-Smtp-Source: AGHT+IHmCqFOcCJrghmCUjCf+psCuvdWnLq3g1eg7KArxDOrcVfD+DKcH+WHPqkU7gLc5Pmes4Phmw==
+X-Received: by 2002:a05:6402:1d97:b0:559:6abf:5226 with SMTP id dk23-20020a0564021d9700b005596abf5226mr1009637edb.73.1705399743036;
+        Tue, 16 Jan 2024 02:09:03 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.215.66])
-        by smtp.gmail.com with ESMTPSA id g17-20020a170906c19100b00a2b1a20e662sm6234716ejz.34.2024.01.16.02.06.03
+        by smtp.gmail.com with ESMTPSA id cq13-20020a056402220d00b0055946388052sm2507937edb.43.2024.01.16.02.09.01
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Jan 2024 02:06:04 -0800 (PST)
-Message-ID: <f4a46311-2e12-458b-98a8-d3caa2c95517@linaro.org>
-Date: Tue, 16 Jan 2024 11:06:02 +0100
+        Tue, 16 Jan 2024 02:09:02 -0800 (PST)
+Message-ID: <6badfa7b-543f-4aa0-87db-bac27c2d1f46@linaro.org>
+Date: Tue, 16 Jan 2024 11:09:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/5] dt-bindings: soc: sophgo: Add Sophgo system
- control module
+Subject: Re: [PATCH v8 1/5] dt-bindings: clock: sophgo: add sysclk for SG2042
 Content-Language: en-US
 To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
  chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
@@ -79,7 +78,7 @@ To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
  jszhang@kernel.org, inochiama@outlook.com, samuel.holland@sifive.com
 Cc: Chen Wang <unicorn_wang@outlook.com>
 References: <cover.1705388518.git.unicorn_wang@outlook.com>
- <598b1026fdf9989bc48e5e10d1034b37947d3b80.1705388518.git.unicorn_wang@outlook.com>
+ <7071845b8d1ff6aa91112c91feb62bc875066d9e.1705388518.git.unicorn_wang@outlook.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -125,10 +124,11 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <598b1026fdf9989bc48e5e10d1034b37947d3b80.1705388518.git.unicorn_wang@outlook.com>
+In-Reply-To: <7071845b8d1ff6aa91112c91feb62bc875066d9e.1705388518.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240116_020607_555537_EE99577A 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20240116_020907_117619_B2EB24D7 
+X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,76 +145,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 16/01/2024 08:21, Chen Wang wrote:
+On 16/01/2024 08:20, Chen Wang wrote:
 > From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> Add documentation to describe Sophgo System Control for SG2042.
+> Add bindings for the clocks of which configuration registers are in the
+> range of SYS_CTRL in the memory-map.
+
+This means it is not a separate device and should be just merged with
+parent node. Otherwise please give us some arguments why this should be
+a separate device node.
+
+
 > 
 > Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> ---
->  .../soc/sophgo/sophgo,sg2042-sysctrl.yaml     | 46 +++++++++++++++++++
->  1 file changed, 46 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
-> new file mode 100644
-> index 000000000000..7b50bb56b4cf
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
-> @@ -0,0 +1,46 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,sg2042-sysctrl.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo SG2042 SoC system control
-> +
-> +maintainers:
-> +  - Chen Wang <unicorn_wang@outlook.com>
-> +
-> +description:
-> +  The Sophgo system control is a registers block (SYS_CTRL), providing multiple
-> +  low level platform functions like chip configuration, clock control, etc.
-> +
-> +properties:
-> +  compatible:
-> +    const: sophgo,sg2042-sysctrl
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clock-controller:
-> +    # Child node
+> .
 
-Drop the comment, it is obvious. It cannot be anything else.
+Some stray characters above ^^^. Clean your commit msg. Also, I have
+doubts it passes checkpatch.
 
-> +    $ref: /schemas/clock/sophgo,sg2042-sysclk.yaml#
-> +    type: object
-
-Why isn't this merged here? You do not need the child node really...
-unless the clock inputs are specific to that clock controller and you
-will have here more devices? But where are they in such case?
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clock-controller
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    system-control@30010000 {
-
-Why did you change the name? Please provide detailed changelog with
-explanation of such changes.
-
-
-> +        compatible = "sophgo,sg2042-sysctrl";
-> +        reg = <0x30010000 0x1000>;
-> +
 
 Best regards,
 Krzysztof
