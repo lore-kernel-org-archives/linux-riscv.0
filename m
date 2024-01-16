@@ -4,79 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A49AC4707B
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 00:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A1ABC3DA79
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 00:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oozXdG8QeJFd+KCVQ+KNGgzcQez9X6nqKS7ZCGmYM1g=; b=ps8YPDA8fuZbdx
-	N4U3OhxWGLVysWUVS5jMN4Tm4rUeipHOHx2pleiL1U322Uy11XTngS/ffN2jXzlxmZfl8vDBpO1R3
-	9GLEzpvDRFk2xm/59dUEYff/SzwHhxZhGK8JHQgMuuRaSax0lxhiIdBullRzWscL0cN45lBhG/XPb
-	QkSbSiZ2vcTrjOLEU8pxuN00cGiLopGjy9ScMa7C9ljSCLNjsw7NaMU/vE83nfxYgWjld+fhJOg/m
-	1kznJSku5Vzig1LeNSgH2S769QGvuziplBq1Q1XTANhD+nHqhVPlDR6f98GwXicPPRGWxRj0PsTae
-	SnOfi3ne+LQN5mWS5Y4g==;
+	List-Owner; bh=IKBExYrlBZLeMZndKuE7YhOFe9zOBpAN6bvR2S2C4rs=; b=EBhOUIgCOuk//g
+	5yCnTBWR79eGvvOQnIfI34YVOiwkRszaXDvuYNKD4HE4gXfY2PmkTNQTcoSi1olpXD51q1SqMwCML
+	Njjcw7c8mmxuSQKBwkvTrUKZj0J/DMomgr1eNRDpwjnd/Mi084omLgSA2tQFKdwRdMMRwjQ1CVXVb
+	+ObdCY/q6jmKMOHc9DhSYTrhSTnD7BNf7qcFopm6L4AyN1shWqcYQf2rg+E7In+axgLrfF3Qc9oiX
+	kACuVZ2SAMAX49ge7lVYXNAj3i3bvFtyOCDgk3uzlu7IqUlIJrOYHiwaVhA7f0VPYxw6jcDS9YerB
+	egNzUH8SZLy9ukqgRFfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPX1h-00AS4I-20;
-	Tue, 16 Jan 2024 00:09:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rPXKC-00AWbn-2t;
+	Tue, 16 Jan 2024 00:29:04 +0000
+Received: from mail-mw2nam12olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2805::801] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPX1d-00AS2N-1N;
-	Tue, 16 Jan 2024 00:09:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C88BA6100A;
-	Tue, 16 Jan 2024 00:09:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE332C433F1;
-	Tue, 16 Jan 2024 00:09:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705363762;
-	bh=j/HEzTDeXcl90xT4yrx+cMqrQE+aoeBKC/1c72GBlZQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DBWyiAgfBoDt2YaghyLtY/Wi6YKk9IduvbYhLXWYu3pzWoux5FIEX37L9CNFcBfFl
-	 l4K3LGInk/PULlrCzzh9dO5MHlJW44Bk/F/1uLxNhOaEZPAPzE+GdP7Tx2pvE7q+gX
-	 ieEvfECzFJ/TXcyKFWd5yEcmYvJEEPFJo5iIomz3K0x9i6p1ZpVMLTOqAZksR4f5q/
-	 nX4H+/ISS8drLoI7seS0ElhcViPv4IFYUNLayv9yfgYdFr/nLIKdubXiM2CLziqdeK
-	 Uw7SJAhW89tv+/fnNDWpZMEyqfayy2MAZOmtFVbJAK7WEwKa16lePfoRq5lZaLqhOq
-	 yF+HUtGeaXIZQ==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Vincent Guittot <vincent.guittot@linaro.org>,
-	Ingo Molnar <mingo@kernel.org>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Sasha Levin <sashal@kernel.org>,
-	linux@armlinux.org.uk,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	gregkh@linuxfoundation.org,
-	ajones@ventanamicro.com,
-	suagrfillet@gmail.com,
-	peterz@infradead.org,
-	gautham.shenoy@amd.com,
-	song.bao.hua@hisilicon.com,
-	linmiaohe@huawei.com,
-	linux-arm-kernel@lists.infradead.org,
+	id 1rPXK9-00AWZO-2G
+	for linux-riscv@lists.infradead.org;
+	Tue, 16 Jan 2024 00:29:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=A1uUlmIEjQdi/asXP767RRldD3GFiOakDuuws1Uc/BILi4SBUQ4wLr/KSSTWzKq8zN2BDb4g8rKNHCqKVL0UiqqBdVogP5Y0Y3R94i/Eb9Hb0709JMeQklTvhBhT/1YNu6X5xXyXjYdb6ICRO5wcpFe/NLuv1UAQX7ktvXiOe1Wdijvd5Mv412F60qlQfnntioTPYnVRoFZpjqNT/R1Eczrk6Pb1QqAhQbMTeA6y4Z8yUyx/2t0NpONTLomyPVKhKpdS5u/PVIeUHf1K36gSjc01xU9G0Vvi7L8xE57V7BH0/8W/QpCi2wpwot2Hp+KBrvIAuNC0z26li/l8JcoZgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ONfRYbDARKTQP2V6d/ooSYmjl3yohg4lhwiIf9csgJQ=;
+ b=L9StBhNIEvSkIGrZcIOpl3mAHziuWIwwq+M9Oz5uJ1USbiIvGRYVWfgyxvXiLURHr536RH9LpTertixxk65GShlCbvf/AF59roDjCwODP+AhWhz1+HoKje9udzGmtANqV2DS6o06eDQZMPaSKvVIj5zs+qeeMHRim9CITdvPlYqKtCkNPAoQhs2eEwy0fv8NRaitYy/IdC25M62dyF6W5MCyOu6GaZCwRCMSWOt8nTrXxZsmTcrtpkv8DthnBkNKjPK/mlOExr5JItJal3eIGh/vV2GQI/P+3d6hYi5SL7ksuyCKnhe/PPyB8O/VxJJU5Kc7YaIOd701M5s/U2z2Qg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ONfRYbDARKTQP2V6d/ooSYmjl3yohg4lhwiIf9csgJQ=;
+ b=m4e6wKiXK06Xl5R+3hZuNkLxsInvJBrM5YxE0xHyaZ8O4aUN6FQAPmjiDPgBioZArcQhmAGaS4xlsRV3FQMnXmR8MfU9CsCKVEeZWiOZIjYm2OpOsAzMJ9WSxzjnRdishWti/i2EfvERcjc/gu6KEPpvGySb6bVKaTWRi+/n/Vs93SiSpswqswOFpZgSuGWxCiphHcwHczqTgkmzJXqWubmzx8CNgAdzKkxVtuM4D+J2tmCE7Ebr8J5tPbvIuQF5yU3hLDg5e7B+yf3bBEZGJ84BSdEq8RLpGDTxNKAlBSYvVmJgtJjL/8zZ/L/OViK7eQs2aV+UsY3t78/p1dfvOQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by IA1PR20MB6502.namprd20.prod.outlook.com (2603:10b6:208:44e::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7181.18; Tue, 16 Jan
+ 2024 00:28:47 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b%2]) with mapi id 15.20.7181.020; Tue, 16 Jan 2024
+ 00:28:47 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	dlan@gentoo.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.6 3/6] sched/topology: Add a new arch_scale_freq_ref() method
-Date: Mon, 15 Jan 2024 19:08:58 -0500
-Message-ID: <20240116000909.212520-3-sashal@kernel.org>
+Subject: Re: [PATCH v6 1/4] dt-bindings: clock: sophgo: Add clock controller of SG2000 series SoC
+Date: Tue, 16 Jan 2024 08:27:59 +0800
+Message-ID: <IA1PR20MB4953C0E6DCC3C4CC0A398529BB732@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240116000909.212520-1-sashal@kernel.org>
-References: <20240116000909.212520-1-sashal@kernel.org>
+In-Reply-To: <20240115-spendable-achiness-cff7918fe810@spud>
+References: <20240115-spendable-achiness-cff7918fe810@spud>
+X-TMN: [BedqMMboeOzTtmBgOg/K8bmboI6MGw4OLMBegRqieqzAkczIoZoogGBn//8kDIt8]
+X-ClientProxiedBy: SI2PR02CA0043.apcprd02.prod.outlook.com
+ (2603:1096:4:196::12) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240116002800.190847-1-inochiama@outlook.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.6.12
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|IA1PR20MB6502:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0ab3a8da-5afc-4801-d46c-08dc162a1a86
+X-MS-Exchange-SLBlob-MailProps: cn60g5V53KPB7lvfker9BJFmDCjmgus+fVRuVNJmHyrFt7HSnXiUFArAdhxCnH+QDUCXPRqnLZc4nxrJPDcwbiwSzS392zhXptxEvjeUom1K75ap+ZLBhsYwdCib7DR6VGD33KXaSlv1vaTE5v5HJ1bGnoPWLAqCD2aTWLWNHiwOsETHz8mVlxVDX9bHDzoSdNbIqPcswEjMb/vdb5c24Hx1bdnsJHJSFQkglFiRDwuUuhSMbcwoi9b1CWqTgvC416EQ8ndqOwGRsM1a7H8RfmMLed0a18t6wnRRi3ZLVKS79aki+tAES/aqae0yaXDMdKe4I2y63Uw0mEibuRR1R46v5CtYqVcwui/E98mr8WvXjMxQwvBgwNK5AyASSQfKAVucWel9L7MD4++IvXeWEwg4AgxDCdy4gHOU6py7u5KB1u39dtwTN7K7etalDbzRbYWpNP6Ja8+P47EguRwXJKAPilT8ctbRc47giLVQuiZAWeH7zZREXZN2UENb7DWGQdLlbjkBCHJ4W3dV8LuwMQbVTTmefMHhicBQd3yZfF8IiMEn1WrF6lCs9b4u2RBChDeRJB6E0puo82KxWLaSY7hA+uW3z6hpaCnpd60w/XQX/TS2ZI8zGhPabEBkh9QYLsphTaGXyOjRxhxRCYS9fjIRzj4Dhp0PPazKHyqKnODvJ80/+FSm6GXbfsG5TkPAbm0QzJnOZ20jVMKFCxd5aaGNQdwnQnT8C26Hv1tXJ2vDj47r0g/bw+E4Yj+bchBiftktsGAkgw+AGHAnQho7ju/zjlWJ0XVzpkETJPkOVumvuiWto50bGbzLKyUOSXPxtb8vulC1BtWYgitEtFuPaepqvFJntXarOnXnFpHevaxRqkK3BcGl0w==
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: xXexdaK48cvvMkdreUMvT762uVgOXBiwLgZEm16uzClB7VKUQ9LG7SlmFyCBETwGeMagD0K5dcVdvanWRLCWpDqDe6RCFsV3Lr8KjG+58PB7b7qVUw3ZPcwloCsRIZWNtDVGKauu/wo8pssuO5U5byj8HTAfO2lbbVcGBZFi8fewNurtiZK+uDj9/YOtzSEkCNEk/D5QVjib32aalp+FpY5gK80f8IxhmwBnEVuK1xrY75gwi1rAmfyFPenin2VwWKgqDKIudI8/1uDt6efJL/HfuPmUjPJ+fSEIa++ejYmx8ULcmkCdqkavmf+JLbJS+BI4RuLKr1PwSSAslY44smzIk1OMOooBSDOEFJI+NiscZzaWEtZR14ZvXi+p0gSbGtPZ9pTe2Tu09QfNLlJMZsvtnIQ0S/ol+ZXva5pNo2Bsj/CdJidxB6HnTpTnn1MCHPrD+H2Xl8Y7e8XepX9YpQUqZwkHM8d9EIJwSniInBxI2LXsx6tb0k5UUjyEFMEW9+JxZi+Jc97u07D6Wirc0dSGY96DogfR9i0BgO4NnsW7SCC9jlE1VXJDhcg7dKg85ukITtDGuO2wkUZVo6zfkUCoQ81T4/q7yKQyZ0J51R+JNIoboF4p0q8IaExHl5N8VTJmc7u85Jyqk0rvFxxq7yAyb63ai3cXkA4ySDXVmkg=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+95F0tmVYM6RyLCE1t21/k/dhq/sRGKVVG3LoM7g5B4+QvNQPGXCUoivu2Yq?=
+ =?us-ascii?Q?ZMP2ywdEIDEpC/S0yFAcXidI+LTLilyKswBGSaSGiXvK9uS5YyWpX36VyGxR?=
+ =?us-ascii?Q?6S/n3HNy6EobkOvWVnHZhVVJLT3jsKO/+NXWrcRFTHule+P97V2FDk5QLc3y?=
+ =?us-ascii?Q?3bWEY4Et7yG8KQ1TyBfF428emwq1dQUk7wpUnqStgBkd09Tby+GmDe7gUEJQ?=
+ =?us-ascii?Q?7O1NK5/qBhVoM21CIEAjBR3xkoeAHmFX0WSEGnaP8mduDoEAG3sbp1v7areA?=
+ =?us-ascii?Q?a1CeOvkZt9vAXjQsqweOj+nkLBhhCL64FQ6cOj1mvV1bc7WpiiSDi4xVKkQK?=
+ =?us-ascii?Q?UKss003BLoV+8JehseXAbUkH+cDBLlMC265FvzQeLmo+Yuzw5FaxdB8iwUkb?=
+ =?us-ascii?Q?Gh7xkrH9C1X97KR2lIP1deiVCij5UZ+8ugRo1XBZgnEMRRP6P1hvuHJSIfTp?=
+ =?us-ascii?Q?1YoRQq4vA9yxtOFv+oPeyB9g2YLhuFPMnnfrAyrWqSLYrcAv9oW6I/8JOJFk?=
+ =?us-ascii?Q?mIM3RVbEoa/PNiXGhzwjmdRZ0v3ANsNQW3Ji/Dtad0Xxpo8tzWqg39fdb31w?=
+ =?us-ascii?Q?LmBSuB1PWSp0mjoRnU4K0AANcN9uZe3DIwU0GWNEcC7BjZNK/aAwDJldrzvC?=
+ =?us-ascii?Q?oZWDqzek+NGHA/XEnWCQvhCN0IAJjzGat8ZHGaxoqp/kGU3Z3WHgaA9cHyij?=
+ =?us-ascii?Q?JDwBhyyGI+PlSW9FtOFxRyhFuMWisqipk7HiIugNrgTl5V/HSDU1aE/6dT3V?=
+ =?us-ascii?Q?vXwx/m18Cmf4Ych5xYc6wun9jAF5BSVfGtfZhPfbeNjsDK4V9yUAt8PTlQ5S?=
+ =?us-ascii?Q?M2zdXH7Zg4ywN9EI85rvuNoQudEj6v76T0V4ljG/zjIg46B/B9OIJbETfKDZ?=
+ =?us-ascii?Q?g4wRxXl6pbRPNrJlvgfiwjqNNLnGKkk/Xba4v4xriEZHO0KTpAvmYD7++tU8?=
+ =?us-ascii?Q?Znc7JloLzp3xMzCVv2w93O6wmuFE3KIEzr7HggbY1JaTfm9hnC/2AJEzX6LN?=
+ =?us-ascii?Q?/d0rT7izoYnV4yEEKWaP6c9uMKuQHID+T+uGianRdDQx+w0axQLhB0UuVYqs?=
+ =?us-ascii?Q?/BTidVJtGxURnLncFB5DkXC6L/qPr+rxHs3Ymzng2mKkiNgl88yPU1x7nPm7?=
+ =?us-ascii?Q?/o6z5wrtUAX/pmwGHRd2ZGBfBnKVtah5EyaxPKZoEkTCqmsvdxKExbdArfRb?=
+ =?us-ascii?Q?nH0pv/v+gjoHZB5dpZsANgp/41I8Z2lvtumX93nG5JK45pDzEwDXPf/3zPfl?=
+ =?us-ascii?Q?5R7mCiuGeeIwOtT/JqjTir9dCMEE5QR4RtPA2t2UIQ=3D=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0ab3a8da-5afc-4801-d46c-08dc162a1a86
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2024 00:28:47.2707
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR20MB6502
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_160953_550936_F3B23FE4 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20240115_162901_756975_CB9BD03F 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,216 +142,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Vincent Guittot <vincent.guittot@linaro.org>
+>On Sun, Jan 14, 2024 at 12:16:58PM +0800, Inochi Amaoto wrote:
+>> SG2000 series SoC has the same clock as CV1810 series, but the clock
+>> related to A53 is functional in SG2000 series. So a new compatible
+>> string is needed for the new SoC.
+>>
+>> Add definition for the clock controller of the SG2000 series SoC.
+>>
+>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>> Link: https://github.com/sophgo/sophgo-doc/releases/tag/sg2000-datasheet-v1.0-alpha
+>> ---
+>>  Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
+>> index c1dc24673c0d..59ef41adb539 100644
+>> --- a/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
+>> +++ b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
+>> @@ -4,7 +4,7 @@
+>>  $id: http://devicetree.org/schemas/clock/sophgo,cv1800-clk.yaml#
+>>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>>
+>> -title: Sophgo CV1800 Series Clock Controller
+>> +title: Sophgo CV1800/SG2000 Series Clock Controller
+>>
+>>  maintainers:
+>>    - Inochi Amaoto <inochiama@outlook.com>
+>> @@ -14,6 +14,7 @@ properties:
+>>      enum:
+>>        - sophgo,cv1800-clk
+>>        - sophgo,cv1810-clk
+>> +      - sophgo,sg2000-clk
+>
+>I recall before you mentioned that the Sophgo folks were considering
+>renaming one of their devices. Is the sg2000 the renamed one, or a
+>different chip?
+>
+>Thanks,
+>Conor.
 
-[ Upstream commit 9942cb22ea458c34fa17b73d143ea32d4df1caca ]
+Hi Conor,
 
-Create a new method to get a unique and fixed max frequency. Currently
-cpuinfo.max_freq or the highest (or last) state of performance domain are
-used as the max frequency when computing the frequency for a level of
-utilization, but:
+The sg2000/sg2002 SoCs have one A53 core which cv1812/cv1813 SoCs
+don't have. I prefer sg2000/sg2002 are different chips, or at least
+an enhanced version of existed cv1812/cv1813. It is not a simple
+rename.
 
-  - cpuinfo_max_freq can change at runtime. boost is one example of
-    such change.
+For this patch, the sg2000 doesn't need to disable A53 related clocks
+like cv18xx series. So this compatible is needed to bind to this new
+logic.
 
-  - cpuinfo.max_freq and last item of the PD can be different leading to
-    different results between cpufreq and energy model.
-
-We need to save the reference frequency that has been used when computing
-the CPUs capacity and use this fixed and coherent value to convert between
-frequency and CPU's capacity.
-
-In fact, we already save the frequency that has been used when computing
-the capacity of each CPU. We extend the precision to save kHz instead of
-MHz currently and we modify the type to be aligned with other variables
-used when converting frequency to capacity and the other way.
-
-[ mingo: Minor edits. ]
-
-Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Tested-by: Lukasz Luba <lukasz.luba@arm.com>
-Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
-Acked-by: Sudeep Holla <sudeep.holla@arm.com>
-Link: https://lore.kernel.org/r/20231211104855.558096-2-vincent.guittot@linaro.org
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/arm/include/asm/topology.h   |  1 +
- arch/arm64/include/asm/topology.h |  1 +
- arch/riscv/include/asm/topology.h |  1 +
- drivers/base/arch_topology.c      | 29 ++++++++++++++---------------
- include/linux/arch_topology.h     |  7 +++++++
- include/linux/sched/topology.h    |  8 ++++++++
- 6 files changed, 32 insertions(+), 15 deletions(-)
-
-diff --git a/arch/arm/include/asm/topology.h b/arch/arm/include/asm/topology.h
-index c7d2510e5a78..853c4f81ba4a 100644
---- a/arch/arm/include/asm/topology.h
-+++ b/arch/arm/include/asm/topology.h
-@@ -13,6 +13,7 @@
- #define arch_set_freq_scale topology_set_freq_scale
- #define arch_scale_freq_capacity topology_get_freq_scale
- #define arch_scale_freq_invariant topology_scale_freq_invariant
-+#define arch_scale_freq_ref topology_get_freq_ref
- #endif
- 
- /* Replace task scheduler's default cpu-invariant accounting */
-diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
-index 9fab663dd2de..a323b109b9c4 100644
---- a/arch/arm64/include/asm/topology.h
-+++ b/arch/arm64/include/asm/topology.h
-@@ -23,6 +23,7 @@ void update_freq_counters_refs(void);
- #define arch_set_freq_scale topology_set_freq_scale
- #define arch_scale_freq_capacity topology_get_freq_scale
- #define arch_scale_freq_invariant topology_scale_freq_invariant
-+#define arch_scale_freq_ref topology_get_freq_ref
- 
- #ifdef CONFIG_ACPI_CPPC_LIB
- #define arch_init_invariance_cppc topology_init_cpu_capacity_cppc
-diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
-index e316ab3b77f3..61183688bdd5 100644
---- a/arch/riscv/include/asm/topology.h
-+++ b/arch/riscv/include/asm/topology.h
-@@ -9,6 +9,7 @@
- #define arch_set_freq_scale		topology_set_freq_scale
- #define arch_scale_freq_capacity	topology_get_freq_scale
- #define arch_scale_freq_invariant	topology_scale_freq_invariant
-+#define arch_scale_freq_ref		topology_get_freq_ref
- 
- /* Replace task scheduler's default cpu-invariant accounting */
- #define arch_scale_cpu_capacity	topology_get_cpu_scale
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index b741b5ba82bd..0c9ae5b157b1 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -19,6 +19,7 @@
- #include <linux/init.h>
- #include <linux/rcupdate.h>
- #include <linux/sched.h>
-+#include <linux/units.h>
- 
- #define CREATE_TRACE_POINTS
- #include <trace/events/thermal_pressure.h>
-@@ -26,7 +27,8 @@
- static DEFINE_PER_CPU(struct scale_freq_data __rcu *, sft_data);
- static struct cpumask scale_freq_counters_mask;
- static bool scale_freq_invariant;
--static DEFINE_PER_CPU(u32, freq_factor) = 1;
-+DEFINE_PER_CPU(unsigned long, capacity_freq_ref) = 1;
-+EXPORT_PER_CPU_SYMBOL_GPL(capacity_freq_ref);
- 
- static bool supports_scale_freq_counters(const struct cpumask *cpus)
- {
-@@ -170,9 +172,9 @@ DEFINE_PER_CPU(unsigned long, thermal_pressure);
-  * operating on stale data when hot-plug is used for some CPUs. The
-  * @capped_freq reflects the currently allowed max CPUs frequency due to
-  * thermal capping. It might be also a boost frequency value, which is bigger
-- * than the internal 'freq_factor' max frequency. In such case the pressure
-- * value should simply be removed, since this is an indication that there is
-- * no thermal throttling. The @capped_freq must be provided in kHz.
-+ * than the internal 'capacity_freq_ref' max frequency. In such case the
-+ * pressure value should simply be removed, since this is an indication that
-+ * there is no thermal throttling. The @capped_freq must be provided in kHz.
-  */
- void topology_update_thermal_pressure(const struct cpumask *cpus,
- 				      unsigned long capped_freq)
-@@ -183,10 +185,7 @@ void topology_update_thermal_pressure(const struct cpumask *cpus,
- 
- 	cpu = cpumask_first(cpus);
- 	max_capacity = arch_scale_cpu_capacity(cpu);
--	max_freq = per_cpu(freq_factor, cpu);
--
--	/* Convert to MHz scale which is used in 'freq_factor' */
--	capped_freq /= 1000;
-+	max_freq = arch_scale_freq_ref(cpu);
- 
- 	/*
- 	 * Handle properly the boost frequencies, which should simply clean
-@@ -279,13 +278,13 @@ void topology_normalize_cpu_scale(void)
- 
- 	capacity_scale = 1;
- 	for_each_possible_cpu(cpu) {
--		capacity = raw_capacity[cpu] * per_cpu(freq_factor, cpu);
-+		capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu);
- 		capacity_scale = max(capacity, capacity_scale);
- 	}
- 
- 	pr_debug("cpu_capacity: capacity_scale=%llu\n", capacity_scale);
- 	for_each_possible_cpu(cpu) {
--		capacity = raw_capacity[cpu] * per_cpu(freq_factor, cpu);
-+		capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu);
- 		capacity = div64_u64(capacity << SCHED_CAPACITY_SHIFT,
- 			capacity_scale);
- 		topology_set_cpu_scale(cpu, capacity);
-@@ -321,15 +320,15 @@ bool __init topology_parse_cpu_capacity(struct device_node *cpu_node, int cpu)
- 			cpu_node, raw_capacity[cpu]);
- 
- 		/*
--		 * Update freq_factor for calculating early boot cpu capacities.
-+		 * Update capacity_freq_ref for calculating early boot CPU capacities.
- 		 * For non-clk CPU DVFS mechanism, there's no way to get the
- 		 * frequency value now, assuming they are running at the same
--		 * frequency (by keeping the initial freq_factor value).
-+		 * frequency (by keeping the initial capacity_freq_ref value).
- 		 */
- 		cpu_clk = of_clk_get(cpu_node, 0);
- 		if (!PTR_ERR_OR_ZERO(cpu_clk)) {
--			per_cpu(freq_factor, cpu) =
--				clk_get_rate(cpu_clk) / 1000;
-+			per_cpu(capacity_freq_ref, cpu) =
-+				clk_get_rate(cpu_clk) / HZ_PER_KHZ;
- 			clk_put(cpu_clk);
- 		}
- 	} else {
-@@ -411,7 +410,7 @@ init_cpu_capacity_callback(struct notifier_block *nb,
- 	cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
- 
- 	for_each_cpu(cpu, policy->related_cpus)
--		per_cpu(freq_factor, cpu) = policy->cpuinfo.max_freq / 1000;
-+		per_cpu(capacity_freq_ref, cpu) = policy->cpuinfo.max_freq;
- 
- 	if (cpumask_empty(cpus_to_visit)) {
- 		topology_normalize_cpu_scale();
-diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-index a07b510e7dc5..32c24ff4f2a8 100644
---- a/include/linux/arch_topology.h
-+++ b/include/linux/arch_topology.h
-@@ -27,6 +27,13 @@ static inline unsigned long topology_get_cpu_scale(int cpu)
- 
- void topology_set_cpu_scale(unsigned int cpu, unsigned long capacity);
- 
-+DECLARE_PER_CPU(unsigned long, capacity_freq_ref);
-+
-+static inline unsigned long topology_get_freq_ref(int cpu)
-+{
-+	return per_cpu(capacity_freq_ref, cpu);
-+}
-+
- DECLARE_PER_CPU(unsigned long, arch_freq_scale);
- 
- static inline unsigned long topology_get_freq_scale(int cpu)
-diff --git a/include/linux/sched/topology.h b/include/linux/sched/topology.h
-index 67b573d5bf28..9671b7234684 100644
---- a/include/linux/sched/topology.h
-+++ b/include/linux/sched/topology.h
-@@ -275,6 +275,14 @@ void arch_update_thermal_pressure(const struct cpumask *cpus,
- { }
- #endif
- 
-+#ifndef arch_scale_freq_ref
-+static __always_inline
-+unsigned int arch_scale_freq_ref(int cpu)
-+{
-+	return 0;
-+}
-+#endif
-+
- static inline int task_node(const struct task_struct *p)
- {
- 	return cpu_to_node(task_cpu(p));
--- 
-2.43.0
-
+Thanks,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
