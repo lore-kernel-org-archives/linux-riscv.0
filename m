@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97303C3DA79
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 00:10:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A49AC4707B
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 00:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ayPg8KGOFQiug5ncv7wnNh5LpnkMC2m4hzHvETKQWsU=; b=lyRhYjTNmKJcwI
-	tc9GqyEx9tsFocgEhx//eNo0GQKn8WHpaRiw9Cd7HJsv5aG7CiR5KcvrPuM+vISP2nP2A5uU+IZNw
-	5jND0T/MgsURjVsCrMRnmuj7mGS9RtiOTvh9lOQyP9JLbVJSXDXr+PHVvFqGmJdznidmp2FTskxlA
-	QFCA8evxpqGVDyfdROtOKUdmRg7an1WAq1ta4M8n4mvytNBATm46YuBYTcLfTe3iRUnGI1Au5GzD/
-	KhSzq74CJu28F4+4V98fvJsVUJFe7ov0RfM17XkjBCbseVB3ybBVHQ/zWLw2qDOOaWGLcpELH6/7X
-	s4EEqeLEpUrbdjMOircA==;
+	List-Owner; bh=oozXdG8QeJFd+KCVQ+KNGgzcQez9X6nqKS7ZCGmYM1g=; b=ps8YPDA8fuZbdx
+	N4U3OhxWGLVysWUVS5jMN4Tm4rUeipHOHx2pleiL1U322Uy11XTngS/ffN2jXzlxmZfl8vDBpO1R3
+	9GLEzpvDRFk2xm/59dUEYff/SzwHhxZhGK8JHQgMuuRaSax0lxhiIdBullRzWscL0cN45lBhG/XPb
+	QkSbSiZ2vcTrjOLEU8pxuN00cGiLopGjy9ScMa7C9ljSCLNjsw7NaMU/vE83nfxYgWjld+fhJOg/m
+	1kznJSku5Vzig1LeNSgH2S769QGvuziplBq1Q1XTANhD+nHqhVPlDR6f98GwXicPPRGWxRj0PsTae
+	SnOfi3ne+LQN5mWS5Y4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPX1F-00ARwj-24;
-	Tue, 16 Jan 2024 00:09:29 +0000
+	id 1rPX1h-00AS4I-20;
+	Tue, 16 Jan 2024 00:09:57 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPX1A-00ARut-1K;
-	Tue, 16 Jan 2024 00:09:27 +0000
+	id 1rPX1d-00AS2N-1N;
+	Tue, 16 Jan 2024 00:09:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C1B146100B;
-	Tue, 16 Jan 2024 00:08:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29CA3C433C7;
-	Tue, 16 Jan 2024 00:08:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C88BA6100A;
+	Tue, 16 Jan 2024 00:09:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE332C433F1;
+	Tue, 16 Jan 2024 00:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705363733;
-	bh=JByowmgsBG/xmD3uDxQ+gKMVcm62PpS/07CB0qE8nfQ=;
+	s=k20201202; t=1705363762;
+	bh=j/HEzTDeXcl90xT4yrx+cMqrQE+aoeBKC/1c72GBlZQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OApxk7/OqsawO9h314EzTGeMlk4qy07+EP0UZV0BBCjTUaDhwMtpmZ/eMwlOsEL5N
-	 jvEDwf+ePRta7ra//rq7vVUwttjNGwDEFrHj9arJforq3pM8ebFJWQCY2NRQA27jOH
-	 +JUgF0zUrpQsVSpokoTiSwiwDxCNK8RK33CsB88BND2vf5Gy/qiFKPlXx9G3LzJaDP
-	 f6jIe3HU+1j+9xjz5Tig6hdgDldwZoMUcQC6ScXSiI/oehzTXIE3IHnzU+nYLRiRuM
-	 bn3h22N9Km8iP1U1QAJO91HV35mKSZSU1xFA8g9hZqohTFkkL5HSjVpnvo26cl7Sjb
-	 KxOqwdb5jskKg==
+	b=DBWyiAgfBoDt2YaghyLtY/Wi6YKk9IduvbYhLXWYu3pzWoux5FIEX37L9CNFcBfFl
+	 l4K3LGInk/PULlrCzzh9dO5MHlJW44Bk/F/1uLxNhOaEZPAPzE+GdP7Tx2pvE7q+gX
+	 ieEvfECzFJ/TXcyKFWd5yEcmYvJEEPFJo5iIomz3K0x9i6p1ZpVMLTOqAZksR4f5q/
+	 nX4H+/ISS8drLoI7seS0ElhcViPv4IFYUNLayv9yfgYdFr/nLIKdubXiM2CLziqdeK
+	 Uw7SJAhW89tv+/fnNDWpZMEyqfayy2MAZOmtFVbJAK7WEwKa16lePfoRq5lZaLqhOq
+	 yF+HUtGeaXIZQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -56,26 +56,26 @@ Cc: Vincent Guittot <vincent.guittot@linaro.org>,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	gregkh@linuxfoundation.org,
-	conor.dooley@microchip.com,
-	lftan@kernel.org,
+	ajones@ventanamicro.com,
 	suagrfillet@gmail.com,
 	peterz@infradead.org,
+	gautham.shenoy@amd.com,
 	song.bao.hua@hisilicon.com,
 	linmiaohe@huawei.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.7 4/8] sched/topology: Add a new arch_scale_freq_ref() method
-Date: Mon, 15 Jan 2024 19:08:16 -0500
-Message-ID: <20240116000838.212299-4-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 3/6] sched/topology: Add a new arch_scale_freq_ref() method
+Date: Mon, 15 Jan 2024 19:08:58 -0500
+Message-ID: <20240116000909.212520-3-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240116000838.212299-1-sashal@kernel.org>
-References: <20240116000838.212299-1-sashal@kernel.org>
+In-Reply-To: <20240116000909.212520-1-sashal@kernel.org>
+References: <20240116000909.212520-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.7
+X-stable-base: Linux 6.6.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_160924_534348_6459A31C 
+X-CRM114-CacheID: sfid-20240115_160953_550936_F3B23FE4 
 X-CRM114-Status: GOOD (  21.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -282,10 +282,10 @@ index a07b510e7dc5..32c24ff4f2a8 100644
  
  static inline unsigned long topology_get_freq_scale(int cpu)
 diff --git a/include/linux/sched/topology.h b/include/linux/sched/topology.h
-index de545ba85218..a6e04b4a21d7 100644
+index 67b573d5bf28..9671b7234684 100644
 --- a/include/linux/sched/topology.h
 +++ b/include/linux/sched/topology.h
-@@ -279,6 +279,14 @@ void arch_update_thermal_pressure(const struct cpumask *cpus,
+@@ -275,6 +275,14 @@ void arch_update_thermal_pressure(const struct cpumask *cpus,
  { }
  #endif
  
