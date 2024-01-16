@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE1BC3DA79
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 01:07:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C1BC4707B
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 01:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kNu0Nm9sD16/jM+O6d5j+hIOAhgvDncq6I1G1ASDHoU=; b=WzSMN/YdEDmCNK
-	9KBte3nt9HVqyxFDp9vxrTSOjhwBQqQfcf72JALhjHmFaT9BUZe6jLlQcLTjizfwmzru/JD3K18Au
-	CXhd4o8a6uP8tNtqgteHvNnRvSIeSmVaVGXnk5LvJE8kuxXWSeLAtv+qzJILXTCvqzrB65JUYySJz
-	ibYk3SbSPrKLwkRk/qi2psqzec7NJzPgTmcaWIePzIVm19FjBeK+i/TIZi7hqUuYkfWgcN59R5vd1
-	l5AYq/9P1zu9ansa9WEvtkVImdKxQlbkT2fRG0MAD7VfrCMOazrny86zpgfm+4T6NvDABMp+0YHue
-	ynbcyKlvSO9hSKHCyKnA==;
+	List-Owner; bh=tzLfXPV8NBKiBIMSEkl6nzNEXjgTpEtDSY2Ms92B4ao=; b=aqaGhQXGUGdZ+2
+	hFUL90W+RLIQn072cjWIx8S5chYYqaXsOycUbBCd0b3eVLD03mmrk5B5abv5oNoaHzxqvPLYw8oGL
+	C5v8tcQ5FUDYpB9zF7LuOH1HNhvoUSyNkwZcgNWxEypHB82AD9Fey+n90yLd5g2yltwmlioQzduEe
+	TazJvWCQwdVl0XOlxxJrHu8dv9N6wpqzO8/2fqvgHPoUH9yEFNkSazy2YeovFzn6lEY+uAJxLnJYG
+	tlOFAHSJhQKeiqrr2NyiVTyYo+quAqBnWtT4WHhh8HBpTCcxQT9OUAKiKw/VgV5/KPFHRxCGbFcsQ
+	Stqtrfel+AGVw/3ygZRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPXvG-00AcwO-1s;
-	Tue, 16 Jan 2024 01:07:22 +0000
+	id 1rPXvW-00Ad4F-38;
+	Tue, 16 Jan 2024 01:07:38 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPXvC-00Acv1-0x;
-	Tue, 16 Jan 2024 01:07:19 +0000
+	id 1rPXvT-00Ad1n-0e;
+	Tue, 16 Jan 2024 01:07:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A274960FED;
-	Tue, 16 Jan 2024 01:06:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA122C433F1;
-	Tue, 16 Jan 2024 01:06:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A48C960B73;
+	Tue, 16 Jan 2024 01:07:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D77D5C433C7;
+	Tue, 16 Jan 2024 01:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705367207;
-	bh=4Rgd6pj6ZzHj+h/R371GlQqWUydY+bynAeaxfKNSS8w=;
+	s=k20201202; t=1705367254;
+	bh=TfDrsInvUzA+wma/7RiDh79sAMkHkv8eHX1xyaL6l1Q=;
 	h=From:To:Cc:Subject:Date:From;
-	b=eYwYkqcpJZIKdV6TrNlSEcfnGSR4djZyuzFUVCWe/94NowvwuhMH6cGndv+qXAE3z
-	 IQMPuDJQpxItE0kNEbBClcIw4752kGOsckGC3Kkjp3qrcUBh9EuviRUBWFnJ9fEHkN
-	 2YaHOB04U/FWAjNcuSpo2UqcPYYfjJBeeG2kidc/w3u/6pVF8H4NWUyBiC1r0DqvSN
-	 uSvoKQM7hue/x1mtjYA9qW55kBYOmSa05qwGlUQhZZpb/GTzwWVbmVi65yK0cQEP3A
-	 MZn5r0/M4KDedv8H/scKnpPGlqHIbLN5p+hEPu7Cmz1Du4gHSOaWlm76muE5sS3K1q
-	 Irs6LJMxx4arA==
+	b=W+mNVQ2q/+GOj4ZrOXC4r0iMcYozdtKWlyHO3V3z6XBtnhOlHHxJiRdfLgpG+2UrC
+	 ehpIBNLiH2Eid+XXR+zeKO6TXtfBst/rL4TxRD7pRh8cn4vqZw6HNVoYPUhsQFXPfJ
+	 7YLW0KCUvp4B0c9JbUj0H1X8fzgWHZN2k/eF7nDAvYi9IrX+zPg5p5p6eOU+Jwpbhv
+	 ybNXDWudNJ5HQPHPTEszaiOS0pRxWa+hmp1eKQf7mdr1+JQg1iRtSfPGxqOmUdyTUL
+	 k4bEXMRfxwYk2IzHlTmjXQGC9vbODqc91TgvZ/M0PsG1tevs9/j0QQ7ZiOB+A+W+Rx
+	 wb+YP1UsgSeaA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -50,7 +50,6 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	Palmer Dabbelt <palmer@rivosinc.com>,
 	Guo Ren <guoren@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	linux@armlinux.org.uk,
 	will@kernel.org,
 	mpe@ellerman.id.au,
 	paul.walmsley@sifive.com,
@@ -68,17 +67,17 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.1 01/14] arch: consolidate arch_irq_work_raise prototypes
-Date: Mon, 15 Jan 2024 20:06:03 -0500
-Message-ID: <20240116010642.218876-1-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.15 01/11] arch: consolidate arch_irq_work_raise prototypes
+Date: Mon, 15 Jan 2024 20:07:01 -0500
+Message-ID: <20240116010729.219219-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.73
+X-stable-base: Linux 5.15.147
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_170718_425689_4F8BA5CA 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20240115_170735_335006_B05FDB66 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,7 +112,6 @@ Acked-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/arm/include/asm/irq_work.h     | 2 --
  arch/arm64/include/asm/irq_work.h   | 2 --
  arch/csky/include/asm/irq_work.h    | 2 +-
  arch/powerpc/include/asm/irq_work.h | 1 -
@@ -121,19 +119,8 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  arch/s390/include/asm/irq_work.h    | 2 --
  arch/x86/include/asm/irq_work.h     | 1 -
  include/linux/irq_work.h            | 3 +++
- 8 files changed, 5 insertions(+), 10 deletions(-)
+ 7 files changed, 5 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm/include/asm/irq_work.h b/arch/arm/include/asm/irq_work.h
-index 3149e4dc1b54..8895999834cc 100644
---- a/arch/arm/include/asm/irq_work.h
-+++ b/arch/arm/include/asm/irq_work.h
-@@ -9,6 +9,4 @@ static inline bool arch_irq_work_has_interrupt(void)
- 	return is_smp();
- }
- 
--extern void arch_irq_work_raise(void);
--
- #endif /* _ASM_ARM_IRQ_WORK_H */
 diff --git a/arch/arm64/include/asm/irq_work.h b/arch/arm64/include/asm/irq_work.h
 index 81bbfa3a035b..a1020285ea75 100644
 --- a/arch/arm64/include/asm/irq_work.h
@@ -204,10 +191,10 @@ index 800ffce0db29..6b4d36c95165 100644
  static inline bool arch_irq_work_has_interrupt(void)
  {
 diff --git a/include/linux/irq_work.h b/include/linux/irq_work.h
-index 8cd11a223260..136f2980cba3 100644
+index ec2a47a81e42..ee5f9120c4d7 100644
 --- a/include/linux/irq_work.h
 +++ b/include/linux/irq_work.h
-@@ -66,6 +66,9 @@ void irq_work_sync(struct irq_work *work);
+@@ -58,6 +58,9 @@ void irq_work_sync(struct irq_work *work);
  void irq_work_run(void);
  bool irq_work_needs_cpu(void);
  void irq_work_single(void *arg);
