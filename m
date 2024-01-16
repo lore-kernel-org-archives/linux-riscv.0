@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2138C4706C
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 09:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508DFC47077
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 10:06:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HJYDth1ek7Vcgm4JNBKC1kDlcbEVe2lAUUtbMDJkgGA=; b=XtgmgiwpiEhRXr
-	2qz+G9/mThjFLE6XIPa6JzQ33cCr+r6W4+K2mnJvUc5FytNGh5jSUU7brUjAA8hU6uJ3BA0k/1Zk5
-	EUl/jmKrJpfRJx1oLhI7lzNIDa58mminxH3DsU4myAhsTyvBIODDQ4eIizcAgRyr7hVAsj/oDkqQl
-	9Qjt53GanWR6mk4d4rLx+/4VB8VmKQXZtpiLvshTfIvnljW8AkhxQKWjJYdrCqsRnqitq2pa7IL5m
-	/NXgUjG8Sv/UiLmjVCaQAZL+sSgxG4sNo/YrHvOqv1Xoz0W151SSHtYhq8EGrwYk5yW7DDVJQXiWO
-	FGeNC/Q1zi0cYZieCJyg==;
+	List-Owner; bh=N57MdsctPSpdKzTWonApJsHd0ruVCAdxQWIdsfkjYIw=; b=3R5ShRMc/C4zGK
+	326aTSBLRRI7vz7RTYNrL3Gvc1fksqRc96dj6cny3Yz2s/c7qkE/tiIm9gfzn9nhjm7uVBOhHgv3R
+	c81oefdvEVrAtdwj5GFFI6Ip0jmR49IGmhI3bwzxhHIHfl8tEPsUE67+Yn+jQxW5fLbjMDHkpSblU
+	wbxGu4I2UhVSUab+AE1Vo49CMGSy1kxGSwhmeQ3AieWZKUg+6jzx8YZFkG7GMJsfdijS/b4HCEPmr
+	7SmB9dXYLyWg/bIUA/wXLr1dvkiDsBavCgSS2jNKzqJIbLoGb3d2yZF+xhwEBqYeBhnSJNiFioqy0
+	FQ/Ymntb0FcbXYe6PKfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPg2b-00Ba3U-11;
-	Tue, 16 Jan 2024 09:47:29 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1rPgKg-00Bdj8-28;
+	Tue, 16 Jan 2024 10:06:10 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPg2Z-00Ba2T-0N
+	id 1rPgKd-00BdiJ-1f
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jan 2024 09:47:28 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-a2d04888d3dso381079666b.2
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 01:47:21 -0800 (PST)
+	Tue, 16 Jan 2024 10:06:10 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a27733ae1dfso1110621566b.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 02:06:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1705398440; x=1706003240; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1705399565; x=1706004365; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=yD4vpBkbRBMO9QGAEAJHw9dn2BZMsbgBrgpZ8rNI5cY=;
-        b=OfXEcdibMRKqCBTi6Vtk5vGfZ2/HP4c4MvHqYzGkjz/BGtok7nt9B9F2mtqqMeb39n
-         qh4hcfW9Qfkg0XPf1fjxoFuz565rbM9b7gpQJiM8UKe7r1yua0Emzrn7TckoSVjCJpFe
-         fruoWACVhT5j0trILrMBa1T05wq525ceaFGa6CyWlQIHeQ0LPJVtHelyCKa6XuUCTygf
-         lcUn6mbLspooWK/Yxguptu1bbJxQxWBWxMk2fRBgnnYZuz261q5foITgWLt6r5jp5dnU
-         yXHLdqE3qGfdaaaVIFdMSOLNR6nO+5IREOrwIuaQBdfb/nn/x7lZ+qwCIIYu2MjKUurf
-         pEcg==
+        bh=OZTIIP3sJf0VlBiBgQq2oPnZChL1jOKPVa8eOrSDmuM=;
+        b=ZIg1deTVYLkFCWTP8a2v0oq5I+gB71bHHN+GqAo8nGI4CRF89sVVytHSiGD8o+euLu
+         V5hCkvXHdGHbku6pJ7w+XXzD09wjyQ2p/pS8Uyhp2phWOLhEe14Vt2t+HP2r2SABfAg8
+         IJJvLYRBxIRo/5sDJnvNkL94aUZL3RO8pGrgIBHn5SImbR4hz/r1eaF5GTuLxlpmQU8p
+         sB0asikreM5IC69+ExFfhlixHFT5kU2zkSwH2SNEQ+MJA3Nars9NEy/OgLx9ynhubAfA
+         fDm9I/HgWBr4hQ+e6SrUFLt8iFYn0oWbR+sfo5mzC9HUGN/mWg72UGttId6aAUhwWN48
+         8DCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705398440; x=1706003240;
+        d=1e100.net; s=20230601; t=1705399565; x=1706004365;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yD4vpBkbRBMO9QGAEAJHw9dn2BZMsbgBrgpZ8rNI5cY=;
-        b=JQCOl8QzQOBQY6Ej61uR7yp0vqWATBg/uaG4X3VHQED4jLbvbg7HQOsGNQjWr/vonr
-         acwmm9S9bUSsx69AbzcPMyxFFxEnp4XT/qSZNB4Fb2j3k4IUWGNTQ3/7XrHmiNMqMRbg
-         fHvAibzfHaL4fGnwEq4/nmL+Tv8TXOc0auOIknor66zpST9tx3M88B6BN9oe7hTBWua3
-         KrYzODQCY0HOrAWzAq8WXDzRrIawoPBqyylalU7ht5X0z3VZ8UN1qXYug7U1Wi4nMwQq
-         hBOGeLTiCk/DMZwZOwf6uUlHB3eruvHp5kKd7dglHKzaZKk1C5qavqjDsqMOCYPVEjiX
-         pLzQ==
-X-Gm-Message-State: AOJu0Yx9Eb4H/+ey6Cs+rSjnEFjLdtFRWNN8X0LYBiYmiLS3WR0pqzwG
-	x5MbRyNdeMdFdI/PxmB7j89Z6u2dhQnKSQ==
-X-Google-Smtp-Source: AGHT+IFjvPOBynz+YR0y065oyYGLiC5+MNqe7+ONsHxQG+/V3n4GPlfrFCA4E+HdaInrOPxr6eVnZw==
-X-Received: by 2002:a17:906:7253:b0:a2c:7df9:9e3e with SMTP id n19-20020a170906725300b00a2c7df99e3emr3354302ejk.127.1705398439990;
-        Tue, 16 Jan 2024 01:47:19 -0800 (PST)
+        bh=OZTIIP3sJf0VlBiBgQq2oPnZChL1jOKPVa8eOrSDmuM=;
+        b=TXVu7CqLawIcgyzJjTCtZ4cD2kuILbLvwzhpjC6UJCx9SpgJR8nd24qxp82f6kHopT
+         R1AzXSIaOpqJAxZyQg9q5Kmk6AoxJt9qijd9PZtL6EfNKe9aS22DDEH7GJ9mZruvLZ2b
+         NXesi3BZqoOgI2qTRGJRxgsqdFu2cImocwTDDFUlFldizgB6pqDLkFM/JbCgHpwGAUWx
+         fBPo1h2Nu+fGFlVEguNUNAg6tRfwbKVwmFG4PHU0aEq3VMQOCpo8hjR2+sc13wE48bLr
+         gRo5841ML8OgxUJfiqA75Ljt1s6eyB7IejRD6SbyRNLhKEZCKxFwM6xBGRjfVyEG2131
+         xmqw==
+X-Gm-Message-State: AOJu0Ywl2gK+hyV28N69XcM2WLRhaydhxPFsOVfA2RR9sRXir06VerK0
+	rbkTFFaeeWUgPKQ+SyU3KljgHKzDEl8RIQ==
+X-Google-Smtp-Source: AGHT+IFsaL5xpC1jtrEaUXh2spsJYu2prL8w44FIry9ZmDgMoFdMO9cuTBzvzslnKNJnehG+3DQJ2Q==
+X-Received: by 2002:a17:906:e2c3:b0:a2d:4e55:1d4f with SMTP id gr3-20020a170906e2c300b00a2d4e551d4fmr1063543ejb.153.1705399565214;
+        Tue, 16 Jan 2024 02:06:05 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.215.66])
-        by smtp.gmail.com with ESMTPSA id mc12-20020a170906eb4c00b00a2b85ef0ca3sm6219090ejb.202.2024.01.16.01.47.18
+        by smtp.gmail.com with ESMTPSA id g17-20020a170906c19100b00a2b1a20e662sm6234716ejz.34.2024.01.16.02.06.03
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Jan 2024 01:47:19 -0800 (PST)
-Message-ID: <a9f369bf-48ab-4b6d-bd9e-b51e47bbe535@linaro.org>
-Date: Tue, 16 Jan 2024 10:47:17 +0100
+        Tue, 16 Jan 2024 02:06:04 -0800 (PST)
+Message-ID: <f4a46311-2e12-458b-98a8-d3caa2c95517@linaro.org>
+Date: Tue, 16 Jan 2024 11:06:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 0/5] riscv: sophgo: add clock support for sg2042
+Subject: Re: [PATCH v8 2/5] dt-bindings: soc: sophgo: Add Sophgo system
+ control module
 Content-Language: en-US
 To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
  chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
@@ -78,6 +79,7 @@ To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
  jszhang@kernel.org, inochiama@outlook.com, samuel.holland@sifive.com
 Cc: Chen Wang <unicorn_wang@outlook.com>
 References: <cover.1705388518.git.unicorn_wang@outlook.com>
+ <598b1026fdf9989bc48e5e10d1034b37947d3b80.1705388518.git.unicorn_wang@outlook.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -123,10 +125,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <cover.1705388518.git.unicorn_wang@outlook.com>
+In-Reply-To: <598b1026fdf9989bc48e5e10d1034b37947d3b80.1705388518.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240116_014727_155805_27FB5A06 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20240116_020607_555537_EE99577A 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,39 +145,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 16/01/2024 08:20, Chen Wang wrote:
+On 16/01/2024 08:21, Chen Wang wrote:
 > From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> This series adds clock controller support for sophgo sg2042.
+> Add documentation to describe Sophgo System Control for SG2042.
 > 
-> Thanks,
-> Chen
-> 
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 > ---
+>  .../soc/sophgo/sophgo,sg2042-sysctrl.yaml     | 46 +++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
 > 
-> Changes in v8:
->   The patch series is based on v6.7. You can simply review or test the
->   patches at the link [9].
->   
+> diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
+> new file mode 100644
+> index 000000000000..7b50bb56b4cf
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
+> @@ -0,0 +1,46 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,sg2042-sysctrl.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo SG2042 SoC system control
+> +
+> +maintainers:
+> +  - Chen Wang <unicorn_wang@outlook.com>
+> +
+> +description:
+> +  The Sophgo system control is a registers block (SYS_CTRL), providing multiple
+> +  low level platform functions like chip configuration, clock control, etc.
+> +
+> +properties:
+> +  compatible:
+> +    const: sophgo,sg2042-sysctrl
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clock-controller:
+> +    # Child node
 
-...
+Drop the comment, it is obvious. It cannot be anything else.
 
-> Changes in v1:
->   The patch series is based on v6.7-rc1. You can simply review or test the
->   patches at the link [1].
-> 
-> Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v1 [1]
-> Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v2 [2]
-> Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v3 [3]
-> Link: https://lore.kernel.org/linux-riscv/MA0P287MB03329AE180378E1A2E034374FE82A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM/ [4]
-> Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v4 [5]
-> Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v5 [6]
-> Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v6 [7]
-> Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v7 [8]
-> Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v8 [9]
+> +    $ref: /schemas/clock/sophgo,sg2042-sysclk.yaml#
+> +    type: object
 
-lore links are useful to previous discussions. This shows what was at
-v7, but I cannot see my comments and compare whether you applied them.
+Why isn't this merged here? You do not need the child node really...
+unless the clock inputs are specific to that clock controller and you
+will have here more devices? But where are they in such case?
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clock-controller
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    system-control@30010000 {
+
+Why did you change the name? Please provide detailed changelog with
+explanation of such changes.
+
+
+> +        compatible = "sophgo,sg2042-sysctrl";
+> +        reg = <0x30010000 0x1000>;
+> +
 
 Best regards,
 Krzysztof
