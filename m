@@ -4,131 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE5EC4706C
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 10:09:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8680FC47077
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 10:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YzOUZFDnkPijFZgP8F3/mTp404LNDSNJbBalhwRl464=; b=fev7xbI/yRKZS2
-	cz5fVNQICeIv0LyRgp1xswB7rNC4bjdiGXUBqpK3Papzruqb0WPJiH3UvcSU+bZ1NNa/lTdQI4fKO
-	rIP57RxuuLm/CLtNi6XBGlkBTG7x9DEI2e1rC9VtiMOBgHVvzHApH5nRNaqY4MGMGo2DAV/7TwoFp
-	1cXIgRtBRPgSMjB4WDX6R9ug4Lw8oAi/ErM8/5CGdXAjDVtW/UGMAI6I5om6wTqYo8iE41YrgNBa3
-	KNiBluDrQDRIRlv0WxMW9OFQZnULtt6Br77g2UMRwn6/D2Km+udxQE1E6r7BGdh/wnoYZ4OB4mwLN
-	Z3QiliA/Ext9IZOBpvSA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=I/jBZuIvp4SuFGki31mm4s70SG4+oVHFMjLYR+AQhVk=; b=VZ/tffLbzFZfe/pmCvpFgl75s0
+	i4zNJM5IU191hM6uHsrgNxofO/JiuQNcezDkXaTIuT9c2w5exoRb8EHIUB7u0mBexdqsBllYtVMEf
+	QbLqu+kF2LmcoUxDqb56zVOn7q5/MWsL70NuS7188rbbnxtJO5qsQFvmH1v7sAaGXR8iM4BfeAj5h
+	n8glW/t6LMcyNgWfieZiKtCt26LU+8XixIWfnsBhoHTBLkFmvWSbvMkQgzS6FXis+IqYADCtBM+M6
+	6mRrdu2EStAmyYqkDJCj429Ryej3cHfVmtd4ywvPfjLq1MhIzAXb6zIoIBIkMPj641Z0t850AA4Ta
+	nIS8AdUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPgNY-00Be5N-31;
-	Tue, 16 Jan 2024 10:09:08 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1rPgZH-00BfF9-1j;
+	Tue, 16 Jan 2024 10:21:15 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPgNX-00Be3L-0F
+	id 1rPgZD-00BfEW-0k
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jan 2024 10:09:08 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-55817a12ad8so7507448a12.2
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 02:09:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1705399743; x=1706004543; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=S2ouztY5FabhLEMLctP28JtMU7jyUhI1ZTSnZTMlTAg=;
-        b=r0ikxLh3/ipAcu++UrfTRfK6Qbh4czsm7wN8Mw1QWnSUc1TEiE/cTG8DJ9iiQ+v3LO
-         XdOt5WzZeB04JJ0oLQa0DUvoolQndUsVAFsmoe0o6JnOhscsRYoLRGYo9DjrL0mDHk9M
-         QS7XMZXL7d79SjWKX78QW/ssqbBKPedeYwS/DayJkzPRUA6bC2/PAJFfT5xtxGOCEkWG
-         UDbnwDdNTNr+idvbVf0oRALL1K4R3TRToypRAuzhkAYBlizcCC0P9hIMldJLH4HOF4KR
-         mPyt26+4cr292ypydRN5IEo5qPzT2TFdV3YnXXuXLcUWlZBpvTJGMvAj/rEhdP9zhN6W
-         Syng==
+	Tue, 16 Jan 2024 10:21:13 +0000
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id EEE973F272
+	for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 10:20:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1705400459;
+	bh=xU+S+uXFFj2cwv3uk43aNu2KbGErrv7KCMlpZ+iS0ZQ=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=kpHNPqFejZke64zOWf2zxi+lbiuNCMCJojW0Ct0GdDMO+82GoqKeG34bOH8oxcKqK
+	 6My5kg/DyaEhpprQPMI7WVQ2LSGB6iIGFdld7SrlG30lCDPhGfhD2jL7k20ryjWXCK
+	 czdIe8uq6lPuyU48nRCrsEhOKdySM/lcO86X4+1LPXnDYI9WpG6xRuxSyIck0Jz/na
+	 P7ZtEsTF7Jrn+zx/0HNhBEosloaR0mcY6YUEfLh1FdUy2dOzWvvEzHT4gw8PdJCjon
+	 IiOkT02FbqdFkzt4eSsnDUUWh9OvD+hzR1tIOS71JTqDgj6O5PPm78UfxdB0ACHxxZ
+	 oL2Osk49yWyWQ==
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-78330275051so1026518485a.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 02:20:59 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705399743; x=1706004543;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=S2ouztY5FabhLEMLctP28JtMU7jyUhI1ZTSnZTMlTAg=;
-        b=w6wv6Xh8XqrKVoVseudObs2YEiZSnEbU5E4IGmyF2KuIPgvoe5+cb6mHXvJl6JXCl4
-         cO/sbJu4HeGcNMFAWbF46GWhKbEysIq9n0d2iuFn/R8GPKS/n3vhCKQt1AejDymkPFGj
-         X7FfeZTZw5XE3XwEI2ryXAAgSuqzJ2/9Nsicj2JElvjORJDIoxhULhoUu3mIzFIgawKF
-         k7QN6hcBo6euMpppe9t0eBJ4s7x10QHP1I6xfvTwZPby5pIslN9t7Kz3e3pCl6tarViK
-         dQQxQLOb2UnQ6bu+Hk0r+Cm2+WErZ4UMVtXW91jcxcjSvOQzBH4nHBSZR9OOYj3euwfD
-         Ihmg==
-X-Gm-Message-State: AOJu0YwK4cBptof9fntSFrBLmPkGnxoaB7SVBeY/UEGC3+9CZiSIGq58
-	ujshFu0tlbLJ6RFSjN1RATxqM4Yq/C6tfg==
-X-Google-Smtp-Source: AGHT+IHmCqFOcCJrghmCUjCf+psCuvdWnLq3g1eg7KArxDOrcVfD+DKcH+WHPqkU7gLc5Pmes4Phmw==
-X-Received: by 2002:a05:6402:1d97:b0:559:6abf:5226 with SMTP id dk23-20020a0564021d9700b005596abf5226mr1009637edb.73.1705399743036;
-        Tue, 16 Jan 2024 02:09:03 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.215.66])
-        by smtp.gmail.com with ESMTPSA id cq13-20020a056402220d00b0055946388052sm2507937edb.43.2024.01.16.02.09.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Jan 2024 02:09:02 -0800 (PST)
-Message-ID: <6badfa7b-543f-4aa0-87db-bac27c2d1f46@linaro.org>
-Date: Tue, 16 Jan 2024 11:09:00 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 1/5] dt-bindings: clock: sophgo: add sysclk for SG2042
-Content-Language: en-US
-To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
- chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
- richardcochran@gmail.com, robh+dt@kernel.org, sboyd@kernel.org,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, guoren@kernel.org,
- jszhang@kernel.org, inochiama@outlook.com, samuel.holland@sifive.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-References: <cover.1705388518.git.unicorn_wang@outlook.com>
- <7071845b8d1ff6aa91112c91feb62bc875066d9e.1705388518.git.unicorn_wang@outlook.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <7071845b8d1ff6aa91112c91feb62bc875066d9e.1705388518.git.unicorn_wang@outlook.com>
+        d=1e100.net; s=20230601; t=1705400458; x=1706005258;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xU+S+uXFFj2cwv3uk43aNu2KbGErrv7KCMlpZ+iS0ZQ=;
+        b=B7JPKultydMGW3fUCUYWS29VAoxXgr7LIyzqX+7PC0KgYnGfKa3iQ+srMbtTJ4WWj5
+         alhXsWhMuwki/FL1pNC9cY6wIUcu2Xqff9cq/xLEAvmTAlqrq1lJI4TyzDk3k0tlTuX0
+         InViFz5aWSfCsCzZeQ+4eUerp4jCxHvab63/EwSXtJqJl3HFX5hD+KMNt1Ez8eQ/uL/f
+         sbU1XyFiTj0n7MIJMf1C4NMI9OVHAK4h6VoH5ZwtKhWui6Vowt+fKqliz/j/o28cImp6
+         BzE2H5gshUuYt7sBcvy9d+rrLhIXuMqXaCEZnPDrt4G9jVRUwJu9sgQJFlp2B/TCHEpu
+         K7QQ==
+X-Gm-Message-State: AOJu0YxdajqUw2p1hcwpOTVwRBs24q1Cda9xizzTdpWX91Cz51NV3zSq
+	0KYYm553MVjNDwfca/05XO9k6t7tO2tbJMHIbf2FV+hz0x8kvX7rZaWDVxVp+Q3vsoQHxLWGt8D
+	hEW8cmcrLbUtfXdZL+3JBRwh2ZNnP9tV8n1JciTPVuURT9pPlMCQdVTHpPhmlqOkXqMIy
+X-Received: by 2002:a05:622a:314:b0:42a:9f3:f98f with SMTP id q20-20020a05622a031400b0042a09f3f98fmr59864qtw.31.1705400458726;
+        Tue, 16 Jan 2024 02:20:58 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFyHQK1zxeZizu8qJrW9Hsx4AGxq9c2N/E+5X7YH8Yr1ZSbWwOhH277LwZ3NAq14oAPDip5nwCUUFeB0BgriaE=
+X-Received: by 2002:a05:622a:314:b0:42a:9f3:f98f with SMTP id
+ q20-20020a05622a031400b0042a09f3f98fmr59852qtw.31.1705400458380; Tue, 16 Jan
+ 2024 02:20:58 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 16 Jan 2024 02:20:57 -0800
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20240116041054.11641-2-nylon.chen@sifive.com>
+References: <20240116041054.11641-1-nylon.chen@sifive.com> <20240116041054.11641-2-nylon.chen@sifive.com>
+Mime-Version: 1.0
+Date: Tue, 16 Jan 2024 02:20:57 -0800
+Message-ID: <CAJM55Z9ZbmbPKaJ8LJ5KyoCW9fAEJaT3Q4PbcadwLNCq1NXbxA@mail.gmail.com>
+Subject: Re: [v6 1/3] riscv: dts: sifive: unleashed/unmatched: Remove PWM
+ controlled LED's active-low properties
+To: Nylon Chen <nylon.chen@sifive.com>, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	conor+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, robh+dt@kernel.org, 
+	u.kleine-koenig@pengutronix.de, thierry.reding@gmail.com, 
+	aou@eecs.berkeley.edu
+Cc: zong.li@sifve.com, vincent.chen@sifive.com, linux-pwm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, nylon7717@gmail.com, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240116_020907_117619_B2EB24D7 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240116_022111_683239_2CA7195C 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,29 +104,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 16/01/2024 08:20, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> Add bindings for the clocks of which configuration registers are in the
-> range of SYS_CTRL in the memory-map.
+Nylon Chen wrote:
+> This removes the active-low properties of the PWM-controlled LEDs in
+> the HiFive Unmatched device tree.
+>
+> The reference is hifive-unleashed-a00.pdf[0] and hifive-unmatched-schematics-v3.pdf[1].
+>
+> Link: https://sifive.cdn.prismic.io/sifive/c52a8e32-05ce-4aaf-95c8-7bf8453f8698_hifive-unleashed-a00-schematics-1.pdf [0]
+> Link: https://sifive.cdn.prismic.io/sifive/6a06d6c0-6e66-49b5-8e9e-e68ce76f4192_hifive-unmatched-schematics-v3.pdf [1]
+>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Co-developed-by: Zong Li <zong.li@sifve.com>
+> Signed-off-by: Zong Li <zong.li@sifve.com>
+> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
+> ---
+>  arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts |  8 ++++----
+>  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 12 ++++--------
+>  2 files changed, 8 insertions(+), 12 deletions(-)
+>
+> diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+> index 900a50526d77..11e7ac1c54bb 100644
+> --- a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+> +++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+> @@ -49,7 +49,7 @@ led-controller {
+>  		compatible = "pwm-leds";
+>
+>  		led-d1 {
+> -			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
+> +			pwms = <&pwm0 0 7812500 0>;
+>  			active-low;
+>  			color = <LED_COLOR_ID_GREEN>;
+>  			max-brightness = <255>;
+> @@ -57,7 +57,7 @@ led-d1 {
+>  		};
+>
+>  		led-d2 {
+> -			pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
+> +			pwms = <&pwm0 1 7812500 0>;
+>  			active-low;
+>  			color = <LED_COLOR_ID_GREEN>;
+>  			max-brightness = <255>;
+> @@ -65,7 +65,7 @@ led-d2 {
+>  		};
+>
+>  		led-d3 {
+> -			pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
+> +			pwms = <&pwm0 2 7812500 0>;
+>  			active-low;
+>  			color = <LED_COLOR_ID_GREEN>;
+>  			max-brightness = <255>;
+> @@ -73,7 +73,7 @@ led-d3 {
+>  		};
+>
+>  		led-d4 {
+> -			pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
+> +			pwms = <&pwm0 3 7812500 0>;
+>  			active-low;
+>  			color = <LED_COLOR_ID_GREEN>;
+>  			max-brightness = <255>;
+> diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> index 07387f9c135c..b328ee80693f 100644
+> --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> @@ -51,8 +51,7 @@ led-controller-1 {
+>  		compatible = "pwm-leds";
+>
+>  		led-d12 {
+> -			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
+> -			active-low;
+> +			pwms = <&pwm0 0 7812500 0>;
 
-This means it is not a separate device and should be just merged with
-parent node. Otherwise please give us some arguments why this should be
-a separate device node.
+Here you remove the active-low property, but you don't above. I'm not sure
+what's the right thing to do, but I would have expected the same change in both
+places.
 
+/Emil
 
-> 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> 
-> .
-
-Some stray characters above ^^^. Clean your commit msg. Also, I have
-doubts it passes checkpatch.
-
-
-Best regards,
-Krzysztof
-
+>  			color = <LED_COLOR_ID_GREEN>;
+>  			max-brightness = <255>;
+>  			label = "d12";
+> @@ -68,20 +67,17 @@ multi-led {
+>  			label = "d2";
+>
+>  			led-red {
+> -				pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
+> -				active-low;
+> +				pwms = <&pwm0 2 7812500 0>;
+>  				color = <LED_COLOR_ID_RED>;
+>  			};
+>
+>  			led-green {
+> -				pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
+> -				active-low;
+> +				pwms = <&pwm0 1 7812500 0>;
+>  				color = <LED_COLOR_ID_GREEN>;
+>  			};
+>
+>  			led-blue {
+> -				pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
+> -				active-low;
+> +				pwms = <&pwm0 3 7812500 0>;
+>  				color = <LED_COLOR_ID_BLUE>;
+>  			};
+>  		};
+> --
+> 2.42.0
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
