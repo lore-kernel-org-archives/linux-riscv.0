@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE789C47DA2
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 17:25:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 035E2C47077
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 18:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vhz9E9gX4X66LpQB7bCW0F72j1pcphULx0ArnzUnv0k=; b=YZdFZfb1Y0J88wgFNWvX2UK/Pd
-	ZGuYEstYx1v4hnbkm65iN0JFQpejjDYM0eJxCI6eWzoBb9wAcLY1OOGLTOHi1NWSddNlhPlcMGNqq
-	dpln9FpgtrQENshwmHwdAHJ0p5REd/KmNtb5LzJs56oPvDZcBikkcRcC3oXgEjjd/Cw8xDtnmVpj7
-	GeOinxUoRq3TAQMCEd3Tiefaj3UBN15+Be64Q6agI434KMH1BaDpzkGzybin+1IwwzfF8GN2qNFJh
-	iKkmakCknJ4WCyN2BJnXwGEYAM8ZJugqK3PvlwWAAjS8eHiqY5mrNjQpjTVHuvwpEQUUXOhxi9zN4
-	V1ikDzhg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pBd93+rJU+OKU3dqwUtUB7LykRf3Bhi+Lg0gGQg0D34=; b=wfLU9KOkEvgwF/
+	bZNXZ2fdGysRC4GXG3bLY47z8W7yao62BLvUEQq6kwzxm0IoVTv1kZ0+mOvlssp9BMNDJCrUOdk4g
+	RKe9fC/wfE2Dg4CTzV9QAOsdt4aI/dQvUp7xp1X04DUWSxjdBycnblPLZ87E/Z6lerDjDuKaSeOVb
+	ROJOOGKDnBFIf+Cyok++BtmVsWLUqkmMlWcqYqNm8K9CcuyRi5drUMQnkK0QUFTyHx7pF5eS9PwDm
+	s5i0fx864D5EE0LPsgakIIbYEsEiJF/UjGYoSHBgDRIDBcDzSN31gH6wHW+ABCy4X1O32AgxUStW7
+	tQ8gnk97fs5f+EPcgdvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPnBF-00CmW9-33;
-	Tue, 16 Jan 2024 17:24:53 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rPoSs-00D2d5-1K;
+	Tue, 16 Jan 2024 18:47:10 +0000
+Received: from mail-oo1-f44.google.com ([209.85.161.44])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPnBD-00CmVC-0P
+	id 1rPoSp-00D2c0-1z
 	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jan 2024 17:24:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 460C4CE19FC;
-	Tue, 16 Jan 2024 17:24:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC2C2C433F1;
-	Tue, 16 Jan 2024 17:24:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705425888;
-	bh=68zk3+ROqHddAWsTHPJT5uR90VY+a194t7rgF1l8zAk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YUDRWVpGnr/WN61mxuVJCg1zwkmOf45QyVfUSV4PfrowukX4tDpzQA7g3ARhsOZZQ
-	 /Awj5cfcq/61w0EiIJbLx0+bG5tLs0yc6cFEFbm9AXP8ByIBenRigYpJs0lUdlq/mM
-	 HRownv6XmNkNf2Wd3e2AG5hvYSoGHPcSOWxjqxgx/y+xAtXa7KQRo0VOI1StgGxuWd
-	 3QWVrdoQ7bV/aW4/3TdBcLKDTPso0HR+TsH8BNeD+kP1L2V5MsiBP1Jk4mGpdVTKkb
-	 IfSdp/+rHGmvZykZEIjADUeEBxImuAIHk/jpyJL60Z7lhGfv57A3/6gYB3x+4iTman
-	 66ktziwXDmi8w==
-Date: Tue, 16 Jan 2024 17:24:42 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Tue, 16 Jan 2024 18:47:09 +0000
+Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-59923a4ee6cso280093eaf.1
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Jan 2024 10:47:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1705430762; x=1706035562; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=X7+iPjvVCly4VO5Mo6fUS2dWNQKiaqTW6P9ssk9rj8w=;
+        b=LLSFT0h74MRjkO9rYNZ/HskSY917cOTeYc7sJnKafYWHQEgu607w+KZNAGpzspyWP+
+         8GJNQDuFiT/X2dFVsfwzFSCGg9+EsEmQE7o4UyFQKpYEAUzBgku9tS7rkqeG6KuubLNP
+         fgTyg3lLqZvizvpiiAtAM5udfJmNPOlSfIEqH/sSsq9W+byWSDIjYDfQxWH6YgfS74dU
+         4Ck0dZQlfHUv5vqg6/WHA3uElWBM3ZuJLlR00JQN8ZnjlvEU3NqJJlJJRux6JoOjoJmP
+         PKvFqHt7RXcF/cHYLL4mo+tgRU5pivQcd6kvX4+YySl+LzZGChnGq7WTV0GQmas4HRpD
+         TJgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705430762; x=1706035562;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=X7+iPjvVCly4VO5Mo6fUS2dWNQKiaqTW6P9ssk9rj8w=;
+        b=Z92Fy4RJwr6agWEiS2ccaO1XjcoTlPGJP5kLtcmgo6l/v0aBiuydTAEhlgWq1F81HV
+         AhR7UOH73KPBCl1jWAROvqhyCLBW59x8b+hWH4OjrR8F0F20J6kATGAOvrnhtLhOINOP
+         X9RNIGWwdOP+1sgGiVRKVx1C4HFxwXHI0gKHpHthFi2omEGD00KC9KCRCkj17FTwORLS
+         WI3K9NCrrkB3FY8JHbuEzQkjdaIzwK19RF1WYmeCXoh7WptJXomgyZDSmvEF40Y7vPj1
+         K8h3zHOO1P2mfG146ojZ2JXl903RyUVFEIpeANBvVVjZmKfp/jw1tC+VN3W0m6Zk5EGX
+         hmgQ==
+X-Gm-Message-State: AOJu0Yxc9ziRgSZf4mE2BXSKZTPjBBg/ff4/zd1Uo1Qmsbj39oR7n0Mr
+	t+HFLosdTJQo+Cg7F6H6POqp8k+MEXwPUg==
+X-Google-Smtp-Source: AGHT+IG8iwkfIcUByGe/mng68dHcuTCvhprse2hGqd6d0WOzy/Oe4zQZuEtALdDWOdpDACmx9Cd2Ag==
+X-Received: by 2002:a05:6358:c305:b0:175:5d72:5f7c with SMTP id fk5-20020a056358c30500b001755d725f7cmr4939338rwb.50.1705430761918;
+        Tue, 16 Jan 2024 10:46:01 -0800 (PST)
+Received: from ghost ([2601:647:5700:6860:60b9:65a4:6399:f8f3])
+        by smtp.gmail.com with ESMTPSA id j190-20020a6380c7000000b005b529d633b7sm10243898pgd.14.2024.01.16.10.46.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jan 2024 10:46:01 -0800 (PST)
+Date: Tue, 16 Jan 2024 10:45:59 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Liu Gui <kenneth.liu@sophgo.com>,
-	Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v6 1/4] dt-bindings: clock: sophgo: Add clock controller
- of SG2000 series SoC
-Message-ID: <20240116-music-luckiness-3220a9efdbbf@spud>
-References: <20240116-doubling-fanning-2a46405942ae@wendy>
- <IA1PR20MB49535AA4F070E70BB5C9848ABB732@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH v7 1/2] riscv: Include riscv_set_icache_flush_ctx prctl
+Message-ID: <ZabO51bYS8fkXRMu@ghost>
+References: <20240112-fencei-v7-0-78f0614e1db0@rivosinc.com>
+ <20240112-fencei-v7-1-78f0614e1db0@rivosinc.com>
+ <a75ed906-7dd5-44aa-8809-f1758de188e4@ghiti.fr>
 MIME-Version: 1.0
-In-Reply-To: <IA1PR20MB49535AA4F070E70BB5C9848ABB732@IA1PR20MB4953.namprd20.prod.outlook.com>
+Content-Disposition: inline
+In-Reply-To: <a75ed906-7dd5-44aa-8809-f1758de188e4@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240116_092451_521373_916A061C 
-X-CRM114-Status: GOOD (  26.86  )
+X-CRM114-CacheID: sfid-20240116_104707_677634_F05E9F13 
+X-CRM114-Status: GOOD (  39.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,113 +95,227 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2835500236636894238=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sun, Jan 14, 2024 at 05:05:20PM +0100, Alexandre Ghiti wrote:
+> Hi Charlie,
+> 
+> On 13/01/2024 00:56, Charlie Jenkins wrote:
+> > Support new prctl with key PR_RISCV_SET_ICACHE_FLUSH_CTX to enable
+> > optimization of cross modifying code. This prctl enables userspace code
+> > to use icache flushing instructions such as fence.i with the guarantee
+> > that the icache will continue to be clean after thread migration.
+> > 
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > Reviewed-by: Atish Patra <atishp@rivosinc.com>
+> > ---
+> >   arch/riscv/include/asm/mmu.h       |  2 ++
+> >   arch/riscv/include/asm/processor.h |  6 ++++
+> >   arch/riscv/mm/cacheflush.c         | 67 ++++++++++++++++++++++++++++++++++++++
+> >   arch/riscv/mm/context.c            |  8 +++--
+> >   include/uapi/linux/prctl.h         |  6 ++++
+> >   kernel/sys.c                       |  6 ++++
+> >   6 files changed, 92 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+> > index 355504b37f8e..60be458e94da 100644
+> > --- a/arch/riscv/include/asm/mmu.h
+> > +++ b/arch/riscv/include/asm/mmu.h
+> > @@ -19,6 +19,8 @@ typedef struct {
+> >   #ifdef CONFIG_SMP
+> >   	/* A local icache flush is needed before user execution can resume. */
+> >   	cpumask_t icache_stale_mask;
+> > +	/* Force local icache flush on all migrations. */
+> > +	bool force_icache_flush;
+> >   #endif
+> >   #ifdef CONFIG_BINFMT_ELF_FDPIC
+> >   	unsigned long exec_fdpic_loadmap;
+> > diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> > index f19f861cda54..7eda6c75e0f2 100644
+> > --- a/arch/riscv/include/asm/processor.h
+> > +++ b/arch/riscv/include/asm/processor.h
+> > @@ -84,6 +84,9 @@ struct thread_struct {
+> >   	unsigned long vstate_ctrl;
+> >   	struct __riscv_v_ext_state vstate;
+> >   	unsigned long align_ctl;
+> > +#ifdef CONFIG_SMP
+> > +	bool force_icache_flush;
+> > +#endif
+> >   };
+> >   /* Whitelist the fstate from the task_struct for hardened usercopy */
+> > @@ -145,6 +148,9 @@ extern int set_unalign_ctl(struct task_struct *tsk, unsigned int val);
+> >   #define GET_UNALIGN_CTL(tsk, addr)	get_unalign_ctl((tsk), (addr))
+> >   #define SET_UNALIGN_CTL(tsk, val)	set_unalign_ctl((tsk), (val))
+> > +#define RISCV_SET_ICACHE_FLUSH_CTX(arg1, arg2)	riscv_set_icache_flush_ctx(arg1, arg2)
+> > +extern int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread);
+> > +
+> >   #endif /* __ASSEMBLY__ */
+> >   #endif /* _ASM_RISCV_PROCESSOR_H */
+> > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> > index 55a34f2020a8..ff545f19f07a 100644
+> > --- a/arch/riscv/mm/cacheflush.c
+> > +++ b/arch/riscv/mm/cacheflush.c
+> > @@ -5,6 +5,7 @@
+> >   #include <linux/acpi.h>
+> >   #include <linux/of.h>
+> > +#include <linux/prctl.h>
+> >   #include <asm/acpi.h>
+> >   #include <asm/cacheflush.h>
+> > @@ -152,3 +153,69 @@ void __init riscv_init_cbo_blocksizes(void)
+> >   	if (cboz_block_size)
+> >   		riscv_cboz_block_size = cboz_block_size;
+> >   }
+> > +
+> > +/**
+> > + * riscv_set_icache_flush_ctx() - Enable/disable icache flushing instructions in
+> > + * userspace.
+> > + * @ctx: Set the type of icache flushing instructions permitted/prohibited in
+> > + *	 userspace. Supported values described below.
+> > + *
+> > + * Supported values for ctx:
+> > + *
+> > + * * %PR_RISCV_CTX_SW_FENCEI_ON: Allow fence.i in userspace.
+> > + *
+> > + * * %PR_RISCV_CTX_SW_FENCEI_OFF: Disallow fence.i in userspace. When ``scope ==
+> > + *   PR_RISCV_SCOPE_PER_PROCESS``, this will effect all threads in a process.
+> > + *   Therefore, caution must be taken -- only use this flag when you can
+> > + *   guarantee that no thread in the process will emit fence.i from this point
+> > + *   onward.
+> > + *
+> > + * @scope: Set scope of where icache flushing instructions are allowed to be
+> > + *	   emitted. Supported values described below.
+> > + *
+> > + * Supported values for scope:
+> > + *
+> > + * * PR_RISCV_SCOPE_PER_PROCESS: Ensure the icache of any thread in this process
+> > + *                               is coherent with instruction storage upon
+> > + *                               migration.
+> > + *
+> > + * * PR_RISCV_SCOPE_PER_THREAD: Ensure the icache of the current thread is
+> > + *                              coherent with instruction storage upon
+> > + *                              migration.
+> > + *
+> > + * When ``scope == PR_RISCV_SCOPE_PER_PROCESS``, all threads in the process are
+> > + * permitted to emit icache flushing instructions. Whenever any thread in the
+> > + * process is migrated, the corresponding hart's icache will be guaranteed to be
+> > + * consistent with instruction storage. Note this does not enforce any
+> > + * guarantees outside of migration. If a thread modifies an instruction that
+> > + * another thread may attempt to execute, the other thread must still emit an
+> > + * icache flushing instruction before attempting to execute the potentially
+> > + * modified instruction. This must be performed by the userspace program.
+> > + *
+> > + * In per-thread context (eg. ``scope == PR_RISCV_SCOPE_PER_THREAD``), only the
+> > + * thread calling this function is permitted to emit icache flushing
+> > + * instructions. When the thread is migrated, the corresponding hart's icache
+> > + * will be guaranteed to be consistent with instruction storage.
+> > + *
+> > + * On kernels configured without SMP, this function is a nop as migrations
+> > + * across harts will not occur.
+> > + */
+> > +int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long scope)
+> > +{
+> > +#ifdef CONFIG_SMP
+> > +	switch (ctx) {
+> > +	case PR_RISCV_CTX_SW_FENCEI_ON:
+> > +		switch (scope) {
+> > +		case PR_RISCV_SCOPE_PER_PROCESS:
+> > +			current->mm->context.force_icache_flush = true;
+> > +			break;
+> > +		case PR_RISCV_SCOPE_PER_THREAD:
+> > +			current->thread.force_icache_flush = true;
+> > +			break;
+> > +		default:
+> > +			return -EINVAL;
+> > +		}
+> > +	}
+> > +#endif
+> > +	return 0;
+> > +}
+> > diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+> > index 217fd4de6134..0146c61be0ab 100644
+> > --- a/arch/riscv/mm/context.c
+> > +++ b/arch/riscv/mm/context.c
+> > @@ -297,12 +297,14 @@ static inline void set_mm(struct mm_struct *prev,
+> >    *
+> >    * The "cpu" argument must be the current local CPU number.
+> >    */
+> > -static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu)
+> > +static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu,
+> > +					 struct task_struct *task)
+> >   {
+> >   #ifdef CONFIG_SMP
+> >   	cpumask_t *mask = &mm->context.icache_stale_mask;
+> > -	if (cpumask_test_cpu(cpu, mask)) {
+> > +	if (cpumask_test_cpu(cpu, mask) || mm->context.force_icache_flush ||
+> > +	    (task && task->thread.force_icache_flush)) {
+> 
+> 
+> IIUC, if a process/thread enables force_icache_flush, at every context
+> switch, the process/thread will flush the local icache but, as you said,
+> that's actually only needed in case of a migration. So we should check that
+> there has been a migration before flushing the icache. Maybe by storing the
+> last cpu the process/thread executed on and checking when it is scheduled
+> back if the current cpu if different from the last cpu, WDYT?
 
---===============2835500236636894238==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="r9tQTiOuQ4372n5L"
-Content-Disposition: inline
+Yes that does make sense. I will send an update.
 
-
---r9tQTiOuQ4372n5L
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jan 16, 2024 at 04:00:45PM +0800, Inochi Amaoto wrote:
-> >On Tue, Jan 16, 2024 at 08:27:59AM +0800, Inochi Amaoto wrote:
-> >>> On Sun, Jan 14, 2024 at 12:16:58PM +0800, Inochi Amaoto wrote:
-> >>>> SG2000 series SoC has the same clock as CV1810 series, but the clock
-> >>>> related to A53 is functional in SG2000 series. So a new compatible
-> >>>> string is needed for the new SoC.
-> >>>>
-> >>>> Add definition for the clock controller of the SG2000 series SoC.
-> >>>>
-> >>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> >>>> Link: https://github.com/sophgo/sophgo-doc/releases/tag/sg2000-datas=
-heet-v1.0-alpha
-> >>>> ---
-> >>>>  Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml | 3 =
-++-
-> >>>>  1 file changed, 2 insertions(+), 1 deletion(-)
-> >>>>
-> >>>> diff --git a/Documentation/devicetree/bindings/clock/sophgo,cv1800-c=
-lk.yaml b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
-> >>>> index c1dc24673c0d..59ef41adb539 100644
-> >>>> --- a/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
-> >>>> +++ b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
-> >>>> @@ -4,7 +4,7 @@
-> >>>>  $id: http://devicetree.org/schemas/clock/sophgo,cv1800-clk.yaml#
-> >>>>  $schema: http://devicetree.org/meta-schemas/core.yaml#
-> >>>>
-> >>>> -title: Sophgo CV1800 Series Clock Controller
-> >>>> +title: Sophgo CV1800/SG2000 Series Clock Controller
-> >>>>
-> >>>>  maintainers:
-> >>>>    - Inochi Amaoto <inochiama@outlook.com>
-> >>>> @@ -14,6 +14,7 @@ properties:
-> >>>>      enum:
-> >>>>        - sophgo,cv1800-clk
-> >>>>        - sophgo,cv1810-clk
-> >>>> +      - sophgo,sg2000-clk
-> >>>
-> >>> I recall before you mentioned that the Sophgo folks were considering
-> >>> renaming one of their devices. Is the sg2000 the renamed one, or a
-> >>> different chip?
-> >
-> >> The sg2000/sg2002 SoCs have one A53 core which cv1812/cv1813 SoCs
-> >> don't have. I prefer sg2000/sg2002 are different chips, or at least
-> >> an enhanced version of existed cv1812/cv1813. It is not a simple
-> >> rename.
-> >>
-> >> For this patch, the sg2000 doesn't need to disable A53 related clocks
-> >> like cv18xx series. So this compatible is needed to bind to this new
-> >> logic.
-> >
-> >I'm not disputing the unique compatible - you previously mentioned that
-> >Sophgo were considering rebranding the cvXXXX series of chips going
-> >forward and that one particular chip might undergo a name change.
-> >I was wondering if this was that chip or just another device in the
-> >series.
-> >
-> >Thanks,
-> >Conor.
->=20
-> For your question, this is the rename chip I mentioned.
->=20
-> This is the name mapping I have known:
-> cv1812cp -> sg2000
-> cv1813h -> sg2002
-
-Great, thanks :)
-
---r9tQTiOuQ4372n5L
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZaa72gAKCRB4tDGHoIJi
-0g8eAP9HUpaP7XCMrJxxok89GSOryAQNXy7yCjtp5wJ3O8mY3AEAuG5OIjPyP8LX
-pAAvqf/m4HKVviqiyTQZXUwq+3K2Mgk=
-=2l75
------END PGP SIGNATURE-----
-
---r9tQTiOuQ4372n5L--
-
-
---===============2835500236636894238==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> 
+> Thanks,
+> 
+> Alex
+> 
+> 
+> >   		cpumask_clear_cpu(cpu, mask);
+> >   		/*
+> >   		 * Ensure the remote hart's writes are visible to this hart.
+> > @@ -332,5 +334,5 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+> >   	set_mm(prev, next, cpu);
+> > -	flush_icache_deferred(next, cpu);
+> > +	flush_icache_deferred(next, cpu, task);
+> >   }
+> > diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
+> > index 370ed14b1ae0..524d546d697b 100644
+> > --- a/include/uapi/linux/prctl.h
+> > +++ b/include/uapi/linux/prctl.h
+> > @@ -306,4 +306,10 @@ struct prctl_mm_map {
+> >   # define PR_RISCV_V_VSTATE_CTRL_NEXT_MASK	0xc
+> >   # define PR_RISCV_V_VSTATE_CTRL_MASK		0x1f
+> > +#define PR_RISCV_SET_ICACHE_FLUSH_CTX	71
+> > +# define PR_RISCV_CTX_SW_FENCEI_ON	0
+> > +# define PR_RISCV_CTX_SW_FENCEI_OFF	1
+> > +# define PR_RISCV_SCOPE_PER_PROCESS	0
+> > +# define PR_RISCV_SCOPE_PER_THREAD	1
+> > +
+> >   #endif /* _LINUX_PRCTL_H */
+> > diff --git a/kernel/sys.c b/kernel/sys.c
+> > index 420d9cb9cc8e..e806a8a67c36 100644
+> > --- a/kernel/sys.c
+> > +++ b/kernel/sys.c
+> > @@ -146,6 +146,9 @@
+> >   #ifndef RISCV_V_GET_CONTROL
+> >   # define RISCV_V_GET_CONTROL()		(-EINVAL)
+> >   #endif
+> > +#ifndef RISCV_SET_ICACHE_FLUSH_CTX
+> > +# define RISCV_SET_ICACHE_FLUSH_CTX(a, b)	(-EINVAL)
+> > +#endif
+> >   /*
+> >    * this is where the system-wide overflow UID and GID are defined, for
+> > @@ -2739,6 +2742,9 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
+> >   	case PR_RISCV_V_GET_CONTROL:
+> >   		error = RISCV_V_GET_CONTROL();
+> >   		break;
+> > +	case PR_RISCV_SET_ICACHE_FLUSH_CTX:
+> > +		error = RISCV_SET_ICACHE_FLUSH_CTX(arg2, arg3);
+> > +		break;
+> >   	default:
+> >   		error = -EINVAL;
+> >   		break;
+> > 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2835500236636894238==--
-
