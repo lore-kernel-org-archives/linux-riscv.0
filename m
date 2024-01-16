@@ -4,128 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A1ABC3DA79
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 00:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD7AC3DA79
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Jan 2024 01:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IKBExYrlBZLeMZndKuE7YhOFe9zOBpAN6bvR2S2C4rs=; b=EBhOUIgCOuk//g
-	5yCnTBWR79eGvvOQnIfI34YVOiwkRszaXDvuYNKD4HE4gXfY2PmkTNQTcoSi1olpXD51q1SqMwCML
-	Njjcw7c8mmxuSQKBwkvTrUKZj0J/DMomgr1eNRDpwjnd/Mi084omLgSA2tQFKdwRdMMRwjQ1CVXVb
-	+ObdCY/q6jmKMOHc9DhSYTrhSTnD7BNf7qcFopm6L4AyN1shWqcYQf2rg+E7In+axgLrfF3Qc9oiX
-	kACuVZ2SAMAX49ge7lVYXNAj3i3bvFtyOCDgk3uzlu7IqUlIJrOYHiwaVhA7f0VPYxw6jcDS9YerB
-	egNzUH8SZLy9ukqgRFfg==;
+	List-Owner; bh=kNu0Nm9sD16/jM+O6d5j+hIOAhgvDncq6I1G1ASDHoU=; b=VOAucE5wCp033A
+	POt4B39PmYzn5aQeIad0p1+nNzySJ0pHY0zCwOvAm4mk0is/km4BmZfSWRDX6zvnIWUlT+uVHId36
+	uyhwT7wRC/mbgUhttTUrkqeQ0Jkj2MfIfrgFYm1kMYejai3OUQYyZ3nl/DbbOCtRAPuOCTkcKqeqS
+	1c3MFuP+H1CiLtkIyUQOohTYsAxaNVkHjP+VWUKp+eRD+HQ1HZNPrs87Z5vZUuGOhTgkf2Oge6TaU
+	4dPmFq/jJ0udWhZkOW3EAVZQIX3ZHkETvpO8sdAQt8M9MiyNZ6hb6FsPH7ZmXTaOZDvz3zKq3GHj0
+	2vrZJCJ2V2LUkUDtnq9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPXKC-00AWbn-2t;
-	Tue, 16 Jan 2024 00:29:04 +0000
-Received: from mail-mw2nam12olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2805::801] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1rPXsj-00Ac4w-2J;
+	Tue, 16 Jan 2024 01:04:45 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rPXK9-00AWZO-2G
-	for linux-riscv@lists.infradead.org;
-	Tue, 16 Jan 2024 00:29:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=A1uUlmIEjQdi/asXP767RRldD3GFiOakDuuws1Uc/BILi4SBUQ4wLr/KSSTWzKq8zN2BDb4g8rKNHCqKVL0UiqqBdVogP5Y0Y3R94i/Eb9Hb0709JMeQklTvhBhT/1YNu6X5xXyXjYdb6ICRO5wcpFe/NLuv1UAQX7ktvXiOe1Wdijvd5Mv412F60qlQfnntioTPYnVRoFZpjqNT/R1Eczrk6Pb1QqAhQbMTeA6y4Z8yUyx/2t0NpONTLomyPVKhKpdS5u/PVIeUHf1K36gSjc01xU9G0Vvi7L8xE57V7BH0/8W/QpCi2wpwot2Hp+KBrvIAuNC0z26li/l8JcoZgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ONfRYbDARKTQP2V6d/ooSYmjl3yohg4lhwiIf9csgJQ=;
- b=L9StBhNIEvSkIGrZcIOpl3mAHziuWIwwq+M9Oz5uJ1USbiIvGRYVWfgyxvXiLURHr536RH9LpTertixxk65GShlCbvf/AF59roDjCwODP+AhWhz1+HoKje9udzGmtANqV2DS6o06eDQZMPaSKvVIj5zs+qeeMHRim9CITdvPlYqKtCkNPAoQhs2eEwy0fv8NRaitYy/IdC25M62dyF6W5MCyOu6GaZCwRCMSWOt8nTrXxZsmTcrtpkv8DthnBkNKjPK/mlOExr5JItJal3eIGh/vV2GQI/P+3d6hYi5SL7ksuyCKnhe/PPyB8O/VxJJU5Kc7YaIOd701M5s/U2z2Qg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ONfRYbDARKTQP2V6d/ooSYmjl3yohg4lhwiIf9csgJQ=;
- b=m4e6wKiXK06Xl5R+3hZuNkLxsInvJBrM5YxE0xHyaZ8O4aUN6FQAPmjiDPgBioZArcQhmAGaS4xlsRV3FQMnXmR8MfU9CsCKVEeZWiOZIjYm2OpOsAzMJ9WSxzjnRdishWti/i2EfvERcjc/gu6KEPpvGySb6bVKaTWRi+/n/Vs93SiSpswqswOFpZgSuGWxCiphHcwHczqTgkmzJXqWubmzx8CNgAdzKkxVtuM4D+J2tmCE7Ebr8J5tPbvIuQF5yU3hLDg5e7B+yf3bBEZGJ84BSdEq8RLpGDTxNKAlBSYvVmJgtJjL/8zZ/L/OViK7eQs2aV+UsY3t78/p1dfvOQ==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by IA1PR20MB6502.namprd20.prod.outlook.com (2603:10b6:208:44e::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7181.18; Tue, 16 Jan
- 2024 00:28:47 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::406a:664b:b8bc:1e6b]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::406a:664b:b8bc:1e6b%2]) with mapi id 15.20.7181.020; Tue, 16 Jan 2024
- 00:28:47 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Liu Gui <kenneth.liu@sophgo.com>,
-	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
-	dlan@gentoo.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v6 1/4] dt-bindings: clock: sophgo: Add clock controller of SG2000 series SoC
-Date: Tue, 16 Jan 2024 08:27:59 +0800
-Message-ID: <IA1PR20MB4953C0E6DCC3C4CC0A398529BB732@IA1PR20MB4953.namprd20.prod.outlook.com>
+	id 1rPXsc-00Ac2W-2m;
+	Tue, 16 Jan 2024 01:04:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id F02D4B80D0C;
+	Tue, 16 Jan 2024 01:04:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9AEAC433F1;
+	Tue, 16 Jan 2024 01:04:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1705367076;
+	bh=4Rgd6pj6ZzHj+h/R371GlQqWUydY+bynAeaxfKNSS8w=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=aD+cWltoW9RendeciKgnR7IKr3X3L02qsi6pyVVQuxoQzFV4ZmZ+bqN+BnMAkqSBA
+	 UailrtA6ofEYPXJHJwY88tdnSkp5ju5H0bFbOJN69wg18WzuaKs2qq0eF/gupdm6pf
+	 GsKvu2fj6eXTHAV4PzqWK8dAWMXq0YGOaz78JJFg6vex9jQVBozBSY2qd/pw//M+Mi
+	 X1QJouIAvzyxqhXcpuowRU6WRN3VXAeUQVtXCOa1Q+jO0V6SD/e2rWaiyeMIaj7JwC
+	 pPRHnQdJOmQecFodCvj/aMqCKps+YRkVnPWRi0UiDFuMTMmhCOIh+zqVz+SArjBwEM
+	 nH1eA9r+soSIQ==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Guo Ren <guoren@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	linux@armlinux.org.uk,
+	will@kernel.org,
+	mpe@ellerman.id.au,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	hca@linux.ibm.com,
+	gor@linux.ibm.com,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.7 02/21] arch: consolidate arch_irq_work_raise prototypes
+Date: Mon, 15 Jan 2024 20:03:39 -0500
+Message-ID: <20240116010422.217925-2-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240115-spendable-achiness-cff7918fe810@spud>
-References: <20240115-spendable-achiness-cff7918fe810@spud>
-X-TMN: [BedqMMboeOzTtmBgOg/K8bmboI6MGw4OLMBegRqieqzAkczIoZoogGBn//8kDIt8]
-X-ClientProxiedBy: SI2PR02CA0043.apcprd02.prod.outlook.com
- (2603:1096:4:196::12) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20240116002800.190847-1-inochiama@outlook.com>
+In-Reply-To: <20240116010422.217925-1-sashal@kernel.org>
+References: <20240116010422.217925-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|IA1PR20MB6502:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0ab3a8da-5afc-4801-d46c-08dc162a1a86
-X-MS-Exchange-SLBlob-MailProps: cn60g5V53KPB7lvfker9BJFmDCjmgus+fVRuVNJmHyrFt7HSnXiUFArAdhxCnH+QDUCXPRqnLZc4nxrJPDcwbiwSzS392zhXptxEvjeUom1K75ap+ZLBhsYwdCib7DR6VGD33KXaSlv1vaTE5v5HJ1bGnoPWLAqCD2aTWLWNHiwOsETHz8mVlxVDX9bHDzoSdNbIqPcswEjMb/vdb5c24Hx1bdnsJHJSFQkglFiRDwuUuhSMbcwoi9b1CWqTgvC416EQ8ndqOwGRsM1a7H8RfmMLed0a18t6wnRRi3ZLVKS79aki+tAES/aqae0yaXDMdKe4I2y63Uw0mEibuRR1R46v5CtYqVcwui/E98mr8WvXjMxQwvBgwNK5AyASSQfKAVucWel9L7MD4++IvXeWEwg4AgxDCdy4gHOU6py7u5KB1u39dtwTN7K7etalDbzRbYWpNP6Ja8+P47EguRwXJKAPilT8ctbRc47giLVQuiZAWeH7zZREXZN2UENb7DWGQdLlbjkBCHJ4W3dV8LuwMQbVTTmefMHhicBQd3yZfF8IiMEn1WrF6lCs9b4u2RBChDeRJB6E0puo82KxWLaSY7hA+uW3z6hpaCnpd60w/XQX/TS2ZI8zGhPabEBkh9QYLsphTaGXyOjRxhxRCYS9fjIRzj4Dhp0PPazKHyqKnODvJ80/+FSm6GXbfsG5TkPAbm0QzJnOZ20jVMKFCxd5aaGNQdwnQnT8C26Hv1tXJ2vDj47r0g/bw+E4Yj+bchBiftktsGAkgw+AGHAnQho7ju/zjlWJ0XVzpkETJPkOVumvuiWto50bGbzLKyUOSXPxtb8vulC1BtWYgitEtFuPaepqvFJntXarOnXnFpHevaxRqkK3BcGl0w==
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: xXexdaK48cvvMkdreUMvT762uVgOXBiwLgZEm16uzClB7VKUQ9LG7SlmFyCBETwGeMagD0K5dcVdvanWRLCWpDqDe6RCFsV3Lr8KjG+58PB7b7qVUw3ZPcwloCsRIZWNtDVGKauu/wo8pssuO5U5byj8HTAfO2lbbVcGBZFi8fewNurtiZK+uDj9/YOtzSEkCNEk/D5QVjib32aalp+FpY5gK80f8IxhmwBnEVuK1xrY75gwi1rAmfyFPenin2VwWKgqDKIudI8/1uDt6efJL/HfuPmUjPJ+fSEIa++ejYmx8ULcmkCdqkavmf+JLbJS+BI4RuLKr1PwSSAslY44smzIk1OMOooBSDOEFJI+NiscZzaWEtZR14ZvXi+p0gSbGtPZ9pTe2Tu09QfNLlJMZsvtnIQ0S/ol+ZXva5pNo2Bsj/CdJidxB6HnTpTnn1MCHPrD+H2Xl8Y7e8XepX9YpQUqZwkHM8d9EIJwSniInBxI2LXsx6tb0k5UUjyEFMEW9+JxZi+Jc97u07D6Wirc0dSGY96DogfR9i0BgO4NnsW7SCC9jlE1VXJDhcg7dKg85ukITtDGuO2wkUZVo6zfkUCoQ81T4/q7yKQyZ0J51R+JNIoboF4p0q8IaExHl5N8VTJmc7u85Jyqk0rvFxxq7yAyb63ai3cXkA4ySDXVmkg=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+95F0tmVYM6RyLCE1t21/k/dhq/sRGKVVG3LoM7g5B4+QvNQPGXCUoivu2Yq?=
- =?us-ascii?Q?ZMP2ywdEIDEpC/S0yFAcXidI+LTLilyKswBGSaSGiXvK9uS5YyWpX36VyGxR?=
- =?us-ascii?Q?6S/n3HNy6EobkOvWVnHZhVVJLT3jsKO/+NXWrcRFTHule+P97V2FDk5QLc3y?=
- =?us-ascii?Q?3bWEY4Et7yG8KQ1TyBfF428emwq1dQUk7wpUnqStgBkd09Tby+GmDe7gUEJQ?=
- =?us-ascii?Q?7O1NK5/qBhVoM21CIEAjBR3xkoeAHmFX0WSEGnaP8mduDoEAG3sbp1v7areA?=
- =?us-ascii?Q?a1CeOvkZt9vAXjQsqweOj+nkLBhhCL64FQ6cOj1mvV1bc7WpiiSDi4xVKkQK?=
- =?us-ascii?Q?UKss003BLoV+8JehseXAbUkH+cDBLlMC265FvzQeLmo+Yuzw5FaxdB8iwUkb?=
- =?us-ascii?Q?Gh7xkrH9C1X97KR2lIP1deiVCij5UZ+8ugRo1XBZgnEMRRP6P1hvuHJSIfTp?=
- =?us-ascii?Q?1YoRQq4vA9yxtOFv+oPeyB9g2YLhuFPMnnfrAyrWqSLYrcAv9oW6I/8JOJFk?=
- =?us-ascii?Q?mIM3RVbEoa/PNiXGhzwjmdRZ0v3ANsNQW3Ji/Dtad0Xxpo8tzWqg39fdb31w?=
- =?us-ascii?Q?LmBSuB1PWSp0mjoRnU4K0AANcN9uZe3DIwU0GWNEcC7BjZNK/aAwDJldrzvC?=
- =?us-ascii?Q?oZWDqzek+NGHA/XEnWCQvhCN0IAJjzGat8ZHGaxoqp/kGU3Z3WHgaA9cHyij?=
- =?us-ascii?Q?JDwBhyyGI+PlSW9FtOFxRyhFuMWisqipk7HiIugNrgTl5V/HSDU1aE/6dT3V?=
- =?us-ascii?Q?vXwx/m18Cmf4Ych5xYc6wun9jAF5BSVfGtfZhPfbeNjsDK4V9yUAt8PTlQ5S?=
- =?us-ascii?Q?M2zdXH7Zg4ywN9EI85rvuNoQudEj6v76T0V4ljG/zjIg46B/B9OIJbETfKDZ?=
- =?us-ascii?Q?g4wRxXl6pbRPNrJlvgfiwjqNNLnGKkk/Xba4v4xriEZHO0KTpAvmYD7++tU8?=
- =?us-ascii?Q?Znc7JloLzp3xMzCVv2w93O6wmuFE3KIEzr7HggbY1JaTfm9hnC/2AJEzX6LN?=
- =?us-ascii?Q?/d0rT7izoYnV4yEEKWaP6c9uMKuQHID+T+uGianRdDQx+w0axQLhB0UuVYqs?=
- =?us-ascii?Q?/BTidVJtGxURnLncFB5DkXC6L/qPr+rxHs3Ymzng2mKkiNgl88yPU1x7nPm7?=
- =?us-ascii?Q?/o6z5wrtUAX/pmwGHRd2ZGBfBnKVtah5EyaxPKZoEkTCqmsvdxKExbdArfRb?=
- =?us-ascii?Q?nH0pv/v+gjoHZB5dpZsANgp/41I8Z2lvtumX93nG5JK45pDzEwDXPf/3zPfl?=
- =?us-ascii?Q?5R7mCiuGeeIwOtT/JqjTir9dCMEE5QR4RtPA2t2UIQ=3D=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ab3a8da-5afc-4801-d46c-08dc162a1a86
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2024 00:28:47.2707
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR20MB6502
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240115_162901_756975_CB9BD03F 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20240115_170439_229883_064DCBDB 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,58 +97,131 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->On Sun, Jan 14, 2024 at 12:16:58PM +0800, Inochi Amaoto wrote:
->> SG2000 series SoC has the same clock as CV1810 series, but the clock
->> related to A53 is functional in SG2000 series. So a new compatible
->> string is needed for the new SoC.
->>
->> Add definition for the clock controller of the SG2000 series SoC.
->>
->> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
->> Link: https://github.com/sophgo/sophgo-doc/releases/tag/sg2000-datasheet-v1.0-alpha
->> ---
->>  Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml | 3 ++-
->>  1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
->> index c1dc24673c0d..59ef41adb539 100644
->> --- a/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
->> +++ b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
->> @@ -4,7 +4,7 @@
->>  $id: http://devicetree.org/schemas/clock/sophgo,cv1800-clk.yaml#
->>  $schema: http://devicetree.org/meta-schemas/core.yaml#
->>
->> -title: Sophgo CV1800 Series Clock Controller
->> +title: Sophgo CV1800/SG2000 Series Clock Controller
->>
->>  maintainers:
->>    - Inochi Amaoto <inochiama@outlook.com>
->> @@ -14,6 +14,7 @@ properties:
->>      enum:
->>        - sophgo,cv1800-clk
->>        - sophgo,cv1810-clk
->> +      - sophgo,sg2000-clk
->
->I recall before you mentioned that the Sophgo folks were considering
->renaming one of their devices. Is the sg2000 the renamed one, or a
->different chip?
->
->Thanks,
->Conor.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Hi Conor,
+[ Upstream commit 64bac5ea17d527872121adddfee869c7a0618f8f ]
 
-The sg2000/sg2002 SoCs have one A53 core which cv1812/cv1813 SoCs
-don't have. I prefer sg2000/sg2002 are different chips, or at least
-an enhanced version of existed cv1812/cv1813. It is not a simple
-rename.
+The prototype was hidden in an #ifdef on x86, which causes a warning:
 
-For this patch, the sg2000 doesn't need to disable A53 related clocks
-like cv18xx series. So this compatible is needed to bind to this new
-logic.
+kernel/irq_work.c:72:13: error: no previous prototype for 'arch_irq_work_raise' [-Werror=missing-prototypes]
 
-Thanks,
-Inochi
+Some architectures have a working prototype, while others don't.
+Fix this by providing it in only one place that is always visible.
+
+Reviewed-by: Alexander Gordeev <agordeev@linux.ibm.com>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Guo Ren <guoren@kernel.org>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm/include/asm/irq_work.h     | 2 --
+ arch/arm64/include/asm/irq_work.h   | 2 --
+ arch/csky/include/asm/irq_work.h    | 2 +-
+ arch/powerpc/include/asm/irq_work.h | 1 -
+ arch/riscv/include/asm/irq_work.h   | 2 +-
+ arch/s390/include/asm/irq_work.h    | 2 --
+ arch/x86/include/asm/irq_work.h     | 1 -
+ include/linux/irq_work.h            | 3 +++
+ 8 files changed, 5 insertions(+), 10 deletions(-)
+
+diff --git a/arch/arm/include/asm/irq_work.h b/arch/arm/include/asm/irq_work.h
+index 3149e4dc1b54..8895999834cc 100644
+--- a/arch/arm/include/asm/irq_work.h
++++ b/arch/arm/include/asm/irq_work.h
+@@ -9,6 +9,4 @@ static inline bool arch_irq_work_has_interrupt(void)
+ 	return is_smp();
+ }
+ 
+-extern void arch_irq_work_raise(void);
+-
+ #endif /* _ASM_ARM_IRQ_WORK_H */
+diff --git a/arch/arm64/include/asm/irq_work.h b/arch/arm64/include/asm/irq_work.h
+index 81bbfa3a035b..a1020285ea75 100644
+--- a/arch/arm64/include/asm/irq_work.h
++++ b/arch/arm64/include/asm/irq_work.h
+@@ -2,8 +2,6 @@
+ #ifndef __ASM_IRQ_WORK_H
+ #define __ASM_IRQ_WORK_H
+ 
+-extern void arch_irq_work_raise(void);
+-
+ static inline bool arch_irq_work_has_interrupt(void)
+ {
+ 	return true;
+diff --git a/arch/csky/include/asm/irq_work.h b/arch/csky/include/asm/irq_work.h
+index 33aaf39d6f94..d39fcc1f5395 100644
+--- a/arch/csky/include/asm/irq_work.h
++++ b/arch/csky/include/asm/irq_work.h
+@@ -7,5 +7,5 @@ static inline bool arch_irq_work_has_interrupt(void)
+ {
+ 	return true;
+ }
+-extern void arch_irq_work_raise(void);
++
+ #endif /* __ASM_CSKY_IRQ_WORK_H */
+diff --git a/arch/powerpc/include/asm/irq_work.h b/arch/powerpc/include/asm/irq_work.h
+index b8b0be8f1a07..c6d3078bd8c3 100644
+--- a/arch/powerpc/include/asm/irq_work.h
++++ b/arch/powerpc/include/asm/irq_work.h
+@@ -6,6 +6,5 @@ static inline bool arch_irq_work_has_interrupt(void)
+ {
+ 	return true;
+ }
+-extern void arch_irq_work_raise(void);
+ 
+ #endif /* _ASM_POWERPC_IRQ_WORK_H */
+diff --git a/arch/riscv/include/asm/irq_work.h b/arch/riscv/include/asm/irq_work.h
+index b53891964ae0..b27a4d64fc6a 100644
+--- a/arch/riscv/include/asm/irq_work.h
++++ b/arch/riscv/include/asm/irq_work.h
+@@ -6,5 +6,5 @@ static inline bool arch_irq_work_has_interrupt(void)
+ {
+ 	return IS_ENABLED(CONFIG_SMP);
+ }
+-extern void arch_irq_work_raise(void);
++
+ #endif /* _ASM_RISCV_IRQ_WORK_H */
+diff --git a/arch/s390/include/asm/irq_work.h b/arch/s390/include/asm/irq_work.h
+index 603783766d0a..f00c9f610d5a 100644
+--- a/arch/s390/include/asm/irq_work.h
++++ b/arch/s390/include/asm/irq_work.h
+@@ -7,6 +7,4 @@ static inline bool arch_irq_work_has_interrupt(void)
+ 	return true;
+ }
+ 
+-void arch_irq_work_raise(void);
+-
+ #endif /* _ASM_S390_IRQ_WORK_H */
+diff --git a/arch/x86/include/asm/irq_work.h b/arch/x86/include/asm/irq_work.h
+index 800ffce0db29..6b4d36c95165 100644
+--- a/arch/x86/include/asm/irq_work.h
++++ b/arch/x86/include/asm/irq_work.h
+@@ -9,7 +9,6 @@ static inline bool arch_irq_work_has_interrupt(void)
+ {
+ 	return boot_cpu_has(X86_FEATURE_APIC);
+ }
+-extern void arch_irq_work_raise(void);
+ #else
+ static inline bool arch_irq_work_has_interrupt(void)
+ {
+diff --git a/include/linux/irq_work.h b/include/linux/irq_work.h
+index 8cd11a223260..136f2980cba3 100644
+--- a/include/linux/irq_work.h
++++ b/include/linux/irq_work.h
+@@ -66,6 +66,9 @@ void irq_work_sync(struct irq_work *work);
+ void irq_work_run(void);
+ bool irq_work_needs_cpu(void);
+ void irq_work_single(void *arg);
++
++void arch_irq_work_raise(void);
++
+ #else
+ static inline bool irq_work_needs_cpu(void) { return false; }
+ static inline void irq_work_run(void) { }
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
