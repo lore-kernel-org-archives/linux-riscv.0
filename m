@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B95FDC47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 12:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC8E3C47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 13:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G8HW4gCZbxUKmNgm91qMsrMsE97PwRHe2Ul1BkfvpmA=; b=2Tb9YAKJ6W8MUJ1JvDN6iavjfx
-	HyOheFdj4gLT403qgJ5i+noA4PEJIJiCwZLnZZEwNjkkpC64ZvBT141obWAPcmgURJmmOf1xgue6A
-	UDrbiyuRyRG1+Y8qtU+20G/SAVPo+j4b/1IgvpTmh8t70QCMMR1c/EklelTkB9aEOM4qr0rAyR8K4
-	0oKOcscHmYVHP3GQbxjYFM9TP5WYk6b1liwYurVDzRpE0EBQXNjziQAcCABV8Rne+XYeEuU7Dj8Zg
-	Y6WXTmLCCywbLq7dw9GtWYxSV41sxKUUbCTHZItTxb+92PQe8ca2V3tKBJFwQ/u9CIkTKzCBiHxD7
-	MOtp9JPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DEU//Nlf9wmwIj8zB/VfVERVc68DgVIyCFBGkRG1a28=; b=KTRneSv0c2k6Uy
+	NlKa09usJQc4IrhsZox7A3wh2tzy/DjH9+liNdVLJryapa/UkfXMkJfw+t/JNN1fWD8zqMe3Zk6Hu
+	yyScmirIbZAB0N1nQuR9Z2FfIaE5Xzgu1govmmr0rAHZ3YMFJRuCXa+E1UrkbVp1SufTAQiOj8pKA
+	NDBwboMbfdQicVuGL1lgHD1QUPsXWdpq2T+48J5AJa/oydMC5JBZF/OCqArRyCxNEvXWt0QC4BEqg
+	/hqKH/Qy5n9H7NL8GmDx/Mcb6/tx1sV0ZH9jqxK5lillowlNFsrQKpRrX5e5XEAoIlpvFihjcRy5x
+	uev45tfytkptx7C2C0ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQ5Vv-00GDjK-2D;
-	Wed, 17 Jan 2024 12:59:27 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rQ5fo-00GJUy-1z;
+	Wed, 17 Jan 2024 13:09:40 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQ5Vt-00GDgA-0y
+	id 1rQ5fl-00GJRU-2z
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jan 2024 12:59:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 6B17ACE0A16;
-	Wed, 17 Jan 2024 12:59:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7A2FC433F1;
-	Wed, 17 Jan 2024 12:59:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705496362;
-	bh=vTROU2jcU9nWu+CYX4jqFbAAujvImlfaJDPY2q8o8Vg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HVmsQiohhFLbzEQ+55oJIC2vG/AfBFQp+crYO8KcUBSUXbSn/n2rgGYe131BHgJ8N
-	 sg6NmbnJEMvp1ENbKLpdK/6Ykpt6K+f5/fOELRfltkioAezyQd4ghtkGkO1/5dwvbT
-	 x5B7WiPDdSV8YtcOntlAvvEsVKgPg2tlv3NDv+47IS0LxntC70PqL2HzvDXBup5uQB
-	 A/ChkdwtGpnXEnaR2ANhrdQ1gu8tilKkpJhowzmX+NAAgbZ4BjutJ+NvS40WACVda3
-	 NdFW1Bzn06aSa5tdM7U0wqCgmPM4tkmF3sFFZkbchkVPLkxkjUmiQsi6MXsLO1wraE
-	 ThhoM1oS0qliQ==
-Date: Wed, 17 Jan 2024 12:59:16 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Jingbao Qiu <qiujingbao.dlmu@gmail.com>, alexandre.belloni@bootlin.com,
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org, chao.wei@sophgo.com, unicorn_wang@outlook.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dlan@gentoo.org, inochiama@outlook.com
-Subject: Re: [PATCH v6 3/3] riscv: dts: sophgo: add rtc dt node for CV1800
-Message-ID: <20240117-turbulent-sustained-bf960186f7cc@spud>
-References: <20240115160600.5444-1-qiujingbao.dlmu@gmail.com>
- <20240115160600.5444-4-qiujingbao.dlmu@gmail.com>
- <f2b3dff2-ce0d-4ddb-ad61-74abf2c3022d@linaro.org>
+	Wed, 17 Jan 2024 13:09:39 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-337b38d6568so1822422f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jan 2024 05:09:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1705496975; x=1706101775; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TQBRlgg8YRqh0hYBtnAQg4eOs0cvwqHh0f5pcsorVfE=;
+        b=BCPzGAno/UOookW8x2pcNT1uqQ1BwNF30Lo38nWg+YxDaeSgwuxsOhn2gQ0KGQ6dFC
+         dTRKaHRHZvnoHqHsiVn7OlKL/Q1Nip/HqvQKbjrvRXqsPYzCagcSMpDnckrHXjZEZxNl
+         DbTmpC8AhI6nCIv2J2IDEoUT5Ix62hN+TKz72xSuxiXeTJA+mnJVgxosK6kJ3GYvclcN
+         JnYXfcbquiemaRpq8TTRZLwmWMhx1xOLHxqCts5i8AAAx9jvHyCW+0Sbo8MSpknDHKdi
+         49uasLreWLuHwXgDcZwsFF3DnsgRrtjKlPDavnR91/mifegTUFeo4Q+8iG+xYtGLYw/g
+         Kw8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705496975; x=1706101775;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TQBRlgg8YRqh0hYBtnAQg4eOs0cvwqHh0f5pcsorVfE=;
+        b=agUGkm4d4/vOxLcwI2PXFa8L58SBlr5VKuXW1TaWEkmT8zbt4C4TxZybV1tkv1KG0M
+         O87iB6MJLfWQcSMaKoheFPuGC+MMBOgKq3oLf4KjOc+obAn7RtwuB7AKB23t0ik2zh0Y
+         MgQa5jueLR1JbzBpp36m/q2zDNrW4KVBaRJzvdVWR+oBGGScEJEREUr3iPmsfTvYBncU
+         4gx/bH+kg8ntKBrlp0yXNh9TSEA4nvewc0OhQ2L1WV7VCpuzMIpSkLmU7xTRvlmPpMhz
+         UirvtZoNlTKLjE94f7pKwfljpxZli4x8I7WhDTm7tr+Fym4d/v+xlIER+ci6DIuU+Vf8
+         Pv6A==
+X-Gm-Message-State: AOJu0Yzl82wOj2dVUIxkR1Y5go4OpiNfswiPZuTBuWq/kN7BhTDMiiUG
+	iwyQdaSOGR7B5GfPCLu6hxsnvARtBxbtTAIXpC+dv4i51qA=
+X-Google-Smtp-Source: AGHT+IFZK/Y2EcpfFp4ZxqceLVhvht5oEs9T1bBBogi9jpwj6NYaxxW/zswmOYBcVS+Dwgg8X+kgig==
+X-Received: by 2002:a05:600c:3151:b0:40e:8d2a:db4c with SMTP id h17-20020a05600c315100b0040e8d2adb4cmr197380wmo.38.1705496974840;
+        Wed, 17 Jan 2024 05:09:34 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id j28-20020a05600c1c1c00b0040e52f0e207sm4771200wms.0.2024.01.17.05.09.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jan 2024 05:09:34 -0800 (PST)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org
+Cc: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	cuiyunhui@bytedance.com
+Subject: [PATCH] RISC-V: selftests: cbo: Ensure asm operands match constraints
+Date: Wed, 17 Jan 2024 14:09:34 +0100
+Message-ID: <20240117130933.57514-2-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <f2b3dff2-ce0d-4ddb-ad61-74abf2c3022d@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240117_045925_541171_FEE55CF6 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20240117_050937_973255_28587FC7 
+X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +87,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5158143225957190960=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The 'i' constraint expects a constant operand, which fn and its
+constant derivative MK_CBO(fn) are, but passing fn through a function
+as a parameter and using a local variable for MK_CBO(fn) allow the
+compiler to lose sight of that when no optimization is done. Use
+a macro instead of a function and skip the local variable to ensure
+the compiler uses constants, matching the asm constraints.
 
---===============5158143225957190960==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ST0BWaOiT7MOC+eD"
-Content-Disposition: inline
+Reported-by: Yunhui Cui <cuiyunhui@bytedance.com>
+Closes: https://lore.kernel.org/all/20240117082514.42967-1-cuiyunhui@bytedance.com
+Fixes: a29e2a48afe3 ("RISC-V: selftests: Add CBO tests")
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ tools/testing/selftests/riscv/hwprobe/cbo.c | 18 ++++++++----------
+ 1 file changed, 8 insertions(+), 10 deletions(-)
 
+diff --git a/tools/testing/selftests/riscv/hwprobe/cbo.c b/tools/testing/selftests/riscv/hwprobe/cbo.c
+index c6a83ab11e22..c537d52fafc5 100644
+--- a/tools/testing/selftests/riscv/hwprobe/cbo.c
++++ b/tools/testing/selftests/riscv/hwprobe/cbo.c
+@@ -36,16 +36,14 @@ static void sigill_handler(int sig, siginfo_t *info, void *context)
+ 	regs[0] += 4;
+ }
+ 
+-static void cbo_insn(char *base, int fn)
+-{
+-	uint32_t insn = MK_CBO(fn);
+-
+-	asm volatile(
+-	"mv	a0, %0\n"
+-	"li	a1, %1\n"
+-	".4byte	%2\n"
+-	: : "r" (base), "i" (fn), "i" (insn) : "a0", "a1", "memory");
+-}
++#define cbo_insn(base, fn)							\
++({										\
++	asm volatile(								\
++	"mv	a0, %0\n"							\
++	"li	a1, %1\n"							\
++	".4byte	%2\n"								\
++	: : "r" (base), "i" (fn), "i" (MK_CBO(fn)) : "a0", "a1", "memory");	\
++})
+ 
+ static void cbo_inval(char *base) { cbo_insn(base, 0); }
+ static void cbo_clean(char *base) { cbo_insn(base, 1); }
+-- 
+2.43.0
 
---ST0BWaOiT7MOC+eD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jan 16, 2024 at 08:44:12AM +0100, Krzysztof Kozlowski wrote:
-> On 15/01/2024 17:06, Jingbao Qiu wrote:
-> > Add the rtc device tree node to cv1800 SoC.
-> >=20
-> > Signed-off-by: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
-> > ---
-> >  arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 12 ++++++++++++
-> >  1 file changed, 12 insertions(+)
-> >=20
-> > diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/=
-dts/sophgo/cv1800b.dtsi
-> > index df40e87ee063..66bb4a752b91 100644
-> > --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > @@ -119,5 +119,17 @@ clint: timer@74000000 {
-> >  			reg =3D <0x74000000 0x10000>;
-> >  			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
-> >  		};
-> > +
-> > +		rtc: rtc@5025000 {
-> > +			compatible =3D "sophgo,cv1800-rtc", "syscon";
-> > +			reg =3D <0x5025000 0x2000>;
-> > +			interrupts =3D <17 IRQ_TYPE_LEVEL_HIGH>;
-> > +			clocks =3D <&osc>;
-> > +		};
-> > +
-> > +		por {
-> > +			compatible =3D "sophgo,cv1800-por";
->=20
-> What is this? Why is it here, how did it even appear? It misses unit
-> address and reg or is clearly placed in wrong place. It seems you
-> entirely ignored out previous discussion.
->=20
-> NAK
-
-It doesn't pass dtbs_check, so it's automatically not a runner. Please
-make sure that your series adds no additional warnings at dtbs_check
-with W=3D1.
-
-Thanks,
-Conor.
-
---ST0BWaOiT7MOC+eD
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZafPJAAKCRB4tDGHoIJi
-0iSTAP9PWEFPH4zQ1xBK8WJilwJJ9LXJX6NS+x9taovIstROjwD/eoiJGotb3Uyw
-fZm3S1Pu5lHW4CRa4GOtJs500WJuZAk=
-=353h
------END PGP SIGNATURE-----
-
---ST0BWaOiT7MOC+eD--
-
-
---===============5158143225957190960==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5158143225957190960==--
-
