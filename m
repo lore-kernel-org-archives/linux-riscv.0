@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4208CC47DA2
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 19:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED27C47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 19:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AwZLZT+1z+OKqWubpEyvKKAbpm+03ZKtYkKZQk73Ijc=; b=ZZf2WYiUEViVFr
-	rc8u/0F4s4eIZukwzbCjyAs6JB+rYP1bVFokyKpP/NjLC4wBXSRpxH7bF1V/jmAhEHZXPfzeqrq5X
-	Tef2MuKBaEEVar1s93U1SyGhPa9Meok7KFxCvzglbDnwhAQxvcv13P4XvWTUQNfsenXVrfmTWKIH4
-	tgnFh0IuxpqX0xyZCYKR2B1dd5Q6X6FhhgKAnPMRehlmYVlPGbF6qLwBnsgrFvbTvt730P28HqR5p
-	+lvGkaxbOxR6ZDVYvmjxI41wxPQSWJcyfOPTXUIwgQWpmxl0lj41AwC0QtzY8I3DEIfO5sXzwyEPM
-	gsmIZNHAEoOOcTrwLTCQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wI3uDJ1RCj7+1hwHPnQ63FNnpS2dE+wtPQfYaA13nWk=; b=EM0RxVy6kWG2af
+	6ZP5vEyjEJkYwR6omuJcSje3UZf+cd5yDujd7634XEHmNTrxwZfQ3xScXE3i6E66cMAv7X2sjKpH4
+	nFDHbnjhwRjYgM5PZOgZEI7JSUDwDTvCyGCzgl1yGVoZDNtEZI3x3BkvaEYWFep8952OS7cizuElE
+	LN598hkOhty+b+ptvKJvx/Y73row5IIHN7tijgEw/Hb8mVF/VLK8WE956xpRN9VxETUGtIrV+3fY1
+	tjgXS/B7BJ/7zbLUNvKKe7V/qvelmClzSzohq2giDLw8aIscmLxMJsFy5JJgmYG6HoBk7K97DIZuX
+	RkQthtLWfFLuaIKm8aUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQC2v-000YZQ-0n;
-	Wed, 17 Jan 2024 19:57:57 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1rQC3u-000YjW-1M;
+	Wed, 17 Jan 2024 19:58:58 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQC2s-000YYp-0I
+	id 1rQC3q-000Yic-2f
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jan 2024 19:57:55 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-40e8cf57d63so7335025e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Jan 2024 11:57:52 -0800 (PST)
+	Wed, 17 Jan 2024 19:58:56 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-40e80046246so107135e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jan 2024 11:58:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1705521471; x=1706126271; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4waHk4rPmL0zhRklQDdQP442m/73aDCDPB9DqO34yq0=;
-        b=cnWapsA0+3u9LMO+Jm7BLyH568Tl0tic6iZbeDE4xwQ5m8bbZtypqVw7KedKo9bKUN
-         XULMO5CtH2rbFLJB+gnWxF/QRirhzbg0Vji/mxrSVdvIeCjLJN4+nXm3+KdX0sxNiFfx
-         yW+w7ClLABzNgKttBOcza+yOiWJSOnh7tKctWUCa3CZtLHsn99kniSg1ELtQlxXOVEDQ
-         2xX9u9HXYlPMitdufpVBeYsXCRgrsqtPvRcwPdd3PwPeZfbGJbkoyuEjfPhVNdKMMkBs
-         lZHmvzDOrWP6BSniM6/kbtRCZWqdentQbQR1K7gZwOrQBUxTTq2kzTiENqpj1Oqdb7yw
-         Pp+A==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1705521531; x=1706126331; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OW4Pp+2efBAP38SHF6DygEiJ8WxYEhemir12iniNRbY=;
+        b=LOpUhVLu5iynGw042hAzN2wQ/GeaZ80OWHoaaNa0gkIZbUCkd0rPWKTTmdddm2jDZY
+         /77QfQ1uReCnpz9/ak45GvyMccnj54MHcikJg9450LfpjdcCsjeI4WgQAvF5y45YFJmV
+         MUlrlcIuoGRsVHxRnTJBebCN82Xir8s7K0VGSxggUklTEcbvBuNLxS/Fr+4hHlCL7Nyd
+         Wl57bRt19KAV3RIM0r47TkXr0Fd4zZaW/YrF8osAwrC2BlImWZ7TKUonIlzk50ZpK3oM
+         GH4gCLKG7Jd9mdZS0nNNeUXX8f80JWhvtJgcTpSWFkpu+9M8DjePq4HUANcNxAcBLadJ
+         kBxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705521471; x=1706126271;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4waHk4rPmL0zhRklQDdQP442m/73aDCDPB9DqO34yq0=;
-        b=K5QBfY11xQxP2XgE64sbj1WpPdflxfM7yYWu6YFe+K9PfFy82f+24cQp223fpbiR4H
-         hG2dciRnWtTsp7Qi5ZKT6G2CMabluf83iL3BRWms6FnQRk5muXTuahrul3Z3GFL+Vnl+
-         pFSC2+89GXKDeHjJr/xMqtZYFAYE3htGQ6q7jNnPQN88csEs6+6feTgOi45En0GIxZcd
-         PpCJnbKZSqwJT3Vhm9zYCAcnNc5BJjpMboGF84aqbEYedN1DpwKav5V9wt3K3g7FBpVt
-         P55FR9M2po/4gl+Rf8rU7dupCekmoHxLw1vKLjOLcT1BpLWaB+4rQKwR0JjDyN57KaDe
-         XzKw==
-X-Gm-Message-State: AOJu0YxJSa/ZaPIH8yMBWOydCRwOvfPODQeArblB8PLhPe86yyyqNxuv
-	0Lm657a3RtcVW28I73tifCO9WomIMHPGsg==
-X-Google-Smtp-Source: AGHT+IGewKH6iXQvqW/gNXe71KbxVjxmyFIysE2mQ5oQ2US6/f8tzsBa65eObcHKVN6wt2V1gcOMGg==
-X-Received: by 2002:a7b:ce16:0:b0:40e:4618:d9d0 with SMTP id m22-20020a7bce16000000b0040e4618d9d0mr5236201wmc.77.1705521470046;
-        Wed, 17 Jan 2024 11:57:50 -0800 (PST)
+        d=1e100.net; s=20230601; t=1705521531; x=1706126331;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OW4Pp+2efBAP38SHF6DygEiJ8WxYEhemir12iniNRbY=;
+        b=fvwH44GNLfzxO4d6TbHMofVd3ttejJp8qRHPWckBMJOQbvaBIxj0tp2lodMzIUWmkq
+         RB1Uu25rfyvhRmrxccZ5VzFR22DOohVdaCwV7fdbR8szNqMLOceFRYmu1k9cYSf+iEqx
+         2UMcTe76+ODm/ewkIDDbwyO3Bi54H/HTo4Wpb6aV6RS+qB/nYQUgg7hSuiPkLCDwU3xb
+         s9dhlfqlB/S+0cRaaHM9KJCjHrT91okF8optSeV8+6HvoXrMaVw3OwbJcSI/dCJlyP0F
+         Gu5VwWal2RMzTUzApdpj8WfLpG4ap/KuuQYvu46aYXFRI387acQbuIW8BiDSi/feU7r1
+         Wz8Q==
+X-Gm-Message-State: AOJu0Yya2o4hgcuZijuULM0JA99Mi1Ck+aZ5RBAYLJ1i+4fYUUtF1mnI
+	pNH8vK89M0GGmM4PD5gkPuK2OmlNqw5e/Q==
+X-Google-Smtp-Source: AGHT+IH+wmAPb2Zr2LBLfBchzsXw9gB43nlluCVXkANox4rQAmtTZpNwwjXk/z5t3IS4Fx7EKEyu2g==
+X-Received: by 2002:a05:600c:30d4:b0:40e:52a6:f5af with SMTP id h20-20020a05600c30d400b0040e52a6f5afmr869311wmn.28.1705521531269;
+        Wed, 17 Jan 2024 11:58:51 -0800 (PST)
 Received: from localhost.localdomain (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id j7-20020a05600c190700b0040e52cac976sm27064749wmq.29.2024.01.17.11.57.49
+        by smtp.gmail.com with ESMTPSA id v21-20020a05600c445500b0040e3bdff98asm27120885wmn.23.2024.01.17.11.58.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jan 2024 11:57:49 -0800 (PST)
+        Wed, 17 Jan 2024 11:58:50 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -70,15 +71,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH -fixes 0/2] svnapot fixes
-Date: Wed, 17 Jan 2024 20:57:39 +0100
-Message-Id: <20240117195741.1926459-1-alexghiti@rivosinc.com>
+Subject: [PATCH 1/2] riscv: Fix set_huge_pte_at() for NAPOT mapping
+Date: Wed, 17 Jan 2024 20:57:40 +0100
+Message-Id: <20240117195741.1926459-2-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240117195741.1926459-1-alexghiti@rivosinc.com>
+References: <20240117195741.1926459-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240117_115754_134014_E585AA44 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240117_115854_864105_F93C63F1 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,19 +97,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-While merging riscv napot and arm64 contpte support, I noticed we did
-not abide by the specification which states that we should clear a
-napot mapping before setting a new one, called "break before make" in
-arm64 (patch 1). And also that we did not add the new hugetlb page size
-added by napot in hugetlb_mask_last_page() (patch 2).
+As stated by the privileged specification, we must clear a NAPOT
+mapping and emit a sfence.vma before setting a new translation.
 
-Alexandre Ghiti (2):
-  riscv: Fix set_huge_pte_at() for NAPOT mapping
-  riscv: Fix hugetlb_mask_last_page() when NAPOT is enabled
+Fixes: 82a1a1f3bfb6 ("riscv: mm: support Svnapot in hugetlb page")
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/mm/hugetlbpage.c | 42 +++++++++++++++++++++++++++++++++++--
+ 1 file changed, 40 insertions(+), 2 deletions(-)
 
- arch/riscv/mm/hugetlbpage.c | 62 +++++++++++++++++++++++++++++++++++--
- 1 file changed, 60 insertions(+), 2 deletions(-)
-
+diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
+index b52f0210481f..24c0179565d8 100644
+--- a/arch/riscv/mm/hugetlbpage.c
++++ b/arch/riscv/mm/hugetlbpage.c
+@@ -177,13 +177,36 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
+ 	return entry;
+ }
+ 
++static void clear_flush(struct mm_struct *mm,
++			unsigned long addr,
++			pte_t *ptep,
++			unsigned long pgsize,
++			unsigned long ncontig)
++{
++	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
++	unsigned long i, saddr = addr;
++
++	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
++		ptep_get_and_clear(mm, addr, ptep);
++
++	flush_tlb_range(&vma, saddr, addr);
++}
++
++/*
++ * When dealing with NAPOT mappings, the privileged specification indicates that
++ * "if an update needs to be made, the OS generally should first mark all of the
++ * PTEs invalid, then issue SFENCE.VMA instruction(s) covering all 4 KiB regions
++ * within the range, [...] then update the PTE(s), as described in Section
++ * 4.2.1.". That's the equivalent of the Break-Before-Make approach used by
++ * arm64.
++ */
+ void set_huge_pte_at(struct mm_struct *mm,
+ 		     unsigned long addr,
+ 		     pte_t *ptep,
+ 		     pte_t pte,
+ 		     unsigned long sz)
+ {
+-	unsigned long hugepage_shift;
++	unsigned long hugepage_shift, pgsize;
+ 	int i, pte_num;
+ 
+ 	if (sz >= PGDIR_SIZE)
+@@ -198,7 +221,22 @@ void set_huge_pte_at(struct mm_struct *mm,
+ 		hugepage_shift = PAGE_SHIFT;
+ 
+ 	pte_num = sz >> hugepage_shift;
+-	for (i = 0; i < pte_num; i++, ptep++, addr += (1 << hugepage_shift))
++	pgsize = 1 << hugepage_shift;
++
++	if (!pte_present(pte)) {
++		for (i = 0; i < pte_num; i++, ptep++, addr += pgsize)
++			set_ptes(mm, addr, ptep, pte, 1);
++		return;
++	}
++
++	if (!pte_napot(pte)) {
++		set_ptes(mm, addr, ptep, pte, 1);
++		return;
++	}
++
++	clear_flush(mm, addr, ptep, pgsize, pte_num);
++
++	for (i = 0; i < pte_num; i++, ptep++, addr += pgsize)
+ 		set_pte_at(mm, addr, ptep, pte);
+ }
+ 
 -- 
 2.39.2
 
