@@ -4,121 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBEC0C47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 09:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 203E4C47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 09:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K5H/5PiTeJYqy2pnPXN17XfWOKghXT5mdXmUjjGIG40=; b=RZx9BoR5N/LMrIpPTN8D+jdzTE
-	QpJeRD1DPmk+06oSPxuARNuVWLwtpwsIYtudb1xcrGy32Dlej3Fh5BNDafH9MJxsfBcJIetWeygcS
-	mvmZuswBJqX8K++fWjkAtie/gh/w4ify+GPJ7pOSc/aSKiS6/UMRGJhQIwT9xHGTwAYXM7KsdjrM0
-	pXbaOcYApdPkwsXZCbfbJUj6eorNny62Aedi/Dx8UFIKFS6Sc9XzAYlhX8nq/96VmW8g/YVUxG107
-	55USYxNwIRlPwhIjS6RhbtkEOF489eI1tklIpXW65wmPBBDipTjmXwlxBsdnXIFjiymDo7XwsVBd+
-	6gYBzrdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=w+4jzojIuVZlTpfQHMahg3mxHkxMzHJu1GpccrsO7nU=; b=2sY0vD80j4Bs9s
+	NqG82zgfJ3OO5dXrnoxcBmmxv90x5qrTjb8ib+nDB2o4AlZmistKt9BRT8A8VB40B8VGwXANkWbAi
+	Cso6qVjeJSy3ZIb11vLjUcVrIWtNRvjnciehrv4pfRh4ckGemzakOfphx57t16ryMu8khL1ygxTJR
+	QycLdECoVGQYhtbY30JbnUgcZVPn1EtrXsLs7KfkdLXqa+Qg5V2He1qzJDISGBsOsorVC75rLCadI
+	ZnRL7qPhigUotq5gk28Fpl+QQh2LdQfjqrdYxJWHv0UznpWq0N7bCJbST0JVLN9BegBNSA7n9ff/J
+	Klv9WrX3LCMwNWdzBBjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQ1ps-00F0c6-1i;
-	Wed, 17 Jan 2024 09:03:48 +0000
-Received: from mail-bmxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281c::800] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1rQ22C-00F2QO-1f;
+	Wed, 17 Jan 2024 09:16:32 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQ1po-00F0YE-37
+	id 1rQ229-00F2PV-33
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jan 2024 09:03:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=h01gmrKvBCdCUCQKXTdlesxcGy6lnzT3dZIO/TlK5cYfDeYP4nkyGDIZ1aq3/2viQjT4gVVrodaulXdhmCSWE+SAG0Rc5DiF9md9P0AzFONg7TaGaFo2NreFUPkw5wtaUeIDc3hypjCtOrMnHSB6aFnYr4WlhuUBsKbzi66a0vVmRtsTFd++Ksep+n+hKccHtjkgk9WPBOZLN2Mpz5zHvNk+XB3CteuSSHw+HDCP2XRDovjf3ZMJ94w6uLJN/W7zzJRupgws1Row4PkcCeoQDlOXAadX8XxiJjip6wIzs103h26huYT9fGGkK0uWqYnTDhUwaptWL2fGfEXWNtb0Vw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rvVYJShW9oPs76rq4fQ8+izi4NZmkLJ8sLvFGaSLLNE=;
- b=DhUxfiKsDcXDkkV7qVC2L/dJwtCxOMSwR0OKnu0/vQOJcQXBQGVzV0MtZugD2zMlLz42vdOSCHcVS9l3z/GYhwkGb8o45Zif4Ez3PFPmI4yeJIXjwFjUaPcQj2ewuURKnGVEsY2C839PSbgcXAr8eUHCwlEocx+ZJmf3BH3x/stHEXQb9sXM3wRIG1oEaMY2JEptIoXE/KhvxJ50iWdMnZ+QK8JSq4A7sVQQ+Zl+MoFGp/vUGsBr8xXkz5HqxQsKJoaf5G+l0k12kNKDEoxvqbikGZp5wlG9ubf8jSe70afexD8ZYWnCVoT64pN8KV05qOO8FVW8GPuZAkDC6fqeKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rvVYJShW9oPs76rq4fQ8+izi4NZmkLJ8sLvFGaSLLNE=;
- b=CgUTZyB+mZtlF63NmyGgENNafTiI1o1DCgRRi2sG0IKASm8QtE5xEonZOLx+yFnlAuk/4Awru27a5foKsLqBOYkce4n4BhAVfCTCGbDCDeKKcUG3HBBWF/iaGZqeCFn7D9XVF7bdkz6p5kqBtIP14bn/+xOkJqT3ElThbQQuDcFs5GNlybNYVWil6RbToOZBn3TJms2eNgkp9ZQFolLJt9e4EjF2OmkJAFjaPJBeYU4lE4r5ACIQVcSzNGzNymV6s6R5eOH6ZwpFBvKFcTgs0KE5DCj+v6knFIaxBJQonxh3rGUQrL69AT6LDALb++0L5uqbJOBjNdORUZ9yAqfmOA==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by MA0P287MB0967.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:e5::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7202.23; Wed, 17 Jan
- 2024 09:03:27 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::6e80:69e1:f2e7:d70d]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::6e80:69e1:f2e7:d70d%3]) with mapi id 15.20.7202.020; Wed, 17 Jan 2024
- 09:03:27 +0000
-Message-ID: <MA0P287MB28221065B41ABE67768B98DEFE722@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Wed, 17 Jan 2024 17:03:20 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] riscv: sophgo: add pinctrl support for cv1800b
-To: Jisheng Zhang <jszhang@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20231113005702.2467-1-jszhang@kernel.org>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20231113005702.2467-1-jszhang@kernel.org>
-X-TMN: [MCUEadc/JlyHf5urSc7YByL4+wlsT5M4]
-X-ClientProxiedBy: SG2PR02CA0061.apcprd02.prod.outlook.com
- (2603:1096:4:54::25) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <67baa1cb-e566-4915-acb4-d58df73ae4d7@outlook.com>
+	Wed, 17 Jan 2024 09:16:31 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-40e87d07c07so9060255e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jan 2024 01:16:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1705482987; x=1706087787; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=IsdAvf8hxCZPrunA4Y1YJj8dzQfMO9GuW6K07QeXqBc=;
+        b=KpoMdlN4kFa1bt7Xg+QtM3Tl5QXUczN4irO56MRnKrRx3lx+OM8yN05mx+DTZZW2kk
+         dly2dldZsFJyYERiY0iZUt7ls3NAGbR+nLLSrjQndxD/vKmD7dy7OCNPwYyK4IQIVOUR
+         4OeTMGhH3FyA4OdLyuZiDvJYcGIU4KSw5hGBFN62U2FfxTXvUEO1n52kUKhrvA4ECSnb
+         9IzwV9FFyodptyFzfiSzZuH9XphOepYtXqQ0vKPYSny3tIy8qkZLOlTBaLIuion1ILH9
+         HVTNyIL6TbGyGHhBo6l7Rf3sa4wmEGDhUk6hCvubV25OVq+yNiDXPF6a0pcp3LGfPij3
+         4rwA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705482987; x=1706087787;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IsdAvf8hxCZPrunA4Y1YJj8dzQfMO9GuW6K07QeXqBc=;
+        b=grjJsNS3FA9pHzEb4QLlMZCkh4zMEVedkviLTTaB5jCbZsNP5ov8uNShHIC7P/wIeY
+         XInTLN0jZb2sqCg2mzd+Ix+ooljUarH2cnQWouA6tGf5GVhQDxoS8ED4Rg6vjoV5afL/
+         K0E8D6CSj6c3XDWHzHKQ4hK0OOsk33YmI1hcCQ+CguJBknV8te+tjfejRpsMVd2m3Bm8
+         1Pr4MGjb+9BywoyyhShF2ZwJccWTkRY5/niNH+KzDSUhQI1QTzoRy78XIQEkuPsCUQUe
+         gO/7xjSqbL5SyMNtQWhNElKuvRNSZOLdFAU6IzmfjPGKp8Ybnbu+w7SFkGNuikJG0G+j
+         JHXw==
+X-Gm-Message-State: AOJu0YzY+evWZWuBKCwx/9+6j3FSdcCHC/JMC9waqwoOi2WjjyuRs8Cu
+	q3H/P4iXWFoDMFtnPsI+VryTJ4/wqvk8fA==
+X-Google-Smtp-Source: AGHT+IElDHZcHY6KtbxrcIOLwAyWKlUemsAhPHr/51sSMy0a2ZcI/YvCUrgFo//DPT5UsYvBbPwa+g==
+X-Received: by 2002:a7b:ce8c:0:b0:40e:499a:6734 with SMTP id q12-20020a7bce8c000000b0040e499a6734mr4782442wmj.60.1705482987285;
+        Wed, 17 Jan 2024 01:16:27 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id je6-20020a05600c1f8600b0040d8d11bf63sm21911921wmb.41.2024.01.17.01.16.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jan 2024 01:16:26 -0800 (PST)
+Date: Wed, 17 Jan 2024 10:16:26 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: shuah@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, xiao.w.wang@intel.com, linux-kselftest@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, xuzhipeng.1973@bytedance.com
+Subject: Re: [PATCH] RISC-V: selftests: fix cbo.c compilation error
+Message-ID: <20240117-274e425c51d0deaeca80857d@orel>
+References: <20240117082514.42967-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|MA0P287MB0967:EE_
-X-MS-Office365-Filtering-Correlation-Id: a16e9abe-313c-4580-ee87-08dc173b29f1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: uodcnI0CRPsrTsrtKbl1EfhX9nDdOQA9fkx++dJvCXbwHCnNCDOJ5CmhNp48PIw3yn9ULc7sZCH9EXsODE4XV6ZDfVNzh/tcrzi71F2dzOLra9hStaT22227o42A6rsuhcW9Q+gUPn0sY2MTcG7jHW0qozmaLbxkkeJ7uQ4XC2/LhoFmLA2R4EbnEtSB/NrjgNkyv2xA/1mqgrU2oJ/u3fZ7GWQGwUuDdpkat2uCvYQBBbUd+pAebj0YL/nj+56PZY8+JBqIsa+uQ9J7zblx3yUTMZ9H4cUDjRWI4PF+4OUPTRHjKViNTQjBH5wgLHBl4geGCJbj4Vw42/qGMLrOTs/Qg4XPmPqzaht7xDPOWGFL/5HLbS/w/qHQlzyzkHG+1bcaVRkulNHHPEisDbf7zmXR9CSKJF9AwL+ExC8ejLvYTAXa4M2RZIl7eNePL+qsf4MIVRabtndpjKK0jViuhi1yVnxJKXzkcI3JOiBOjeOWo1lnxfBGH6QIADG2++8lPA8tSEcHxfC57mTvORpAFDH0k4WMg/Ba7667H171P9DBVoeVwGn7muIOQCzmyAIu
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TTJPbk0wZllFODZLSDlvdGFqaktXRkd2Y0ZKWE5aVlpoMlg1cVN6QklyT1dT?=
- =?utf-8?B?b21TalBhNXJQcXB3dzdFdjFSNEFhdDM2KzNINUIxOHJQbTJhbGNjVUxlMnpt?=
- =?utf-8?B?L3JQcFBLRS82NGgzSTMvZUpkMHdTVUl6Ni94eXFnSkdVWjRLWktiN0M1eUdO?=
- =?utf-8?B?djRBQWNlRjREOXFwVW1MRjMyMjdpU0htYVM2Q04wbnVYeXFwaE1YaEtoZVFq?=
- =?utf-8?B?UlU3bUhjalBsSTBVUjJNSHpBUzFEQXlKZzYwd3UxSlRwcU1vZ1FUbHBJaExO?=
- =?utf-8?B?bi9uYWMwV3pCWWQzNCswZFlyZGxTT05xSGtLZHk3SVZOWitNQTRGRjVzdzVo?=
- =?utf-8?B?WXJlQU9DemhDU0tHM1Z0Nlp6RkpORjNoRXFYa2lCcW1CU05wdmsxSVE3bGpV?=
- =?utf-8?B?WDROc1R6SmZWdmU5RFJGYnVFN0RNS3l5QjdRN0V0c00xc2p6bnFhNFhTUGx6?=
- =?utf-8?B?WS82aWhOdzNFbTZOcXcrV1g3a3JGTm5TSXdHMWpmeUhOZ1NOcmdTdUV6VUhC?=
- =?utf-8?B?L3VMNVRZRzgvN3lpaXUzaVkyT2F0aTVOeVdMR3RTVjZtTnIvREVCSnIxL0tR?=
- =?utf-8?B?R0FSTDR5NldvTEtoN085bVgrNXc4aDJRS2VZdGJrV295enllVngxMkpSV05h?=
- =?utf-8?B?OVBhR2MwSXNCK0p6clFLS0p6SHhTeEh0OGYzNUx4TlIzcUhRTVY1MCtTS1I5?=
- =?utf-8?B?VVN0ZzdyNjJWbTFRMVZvNjhqSkw5VVY1ajl2MEQ5a01qZFNsTVlGYnBEREhk?=
- =?utf-8?B?bnRUTU1pMkR4SGw5dm5KK25HNHZ6cTR1eXVaeHlrTE9QSlVlUDJHN1NhVDlo?=
- =?utf-8?B?elJBQWZTUXB0WUlEUTVEczBkb2JCdENGUkt5TmFTelVOYUgwc1VZeE4xSUNs?=
- =?utf-8?B?WnhXb096blpoeUlsMFl3bDNUNEIrR0o4T3lLVEFEZzlUajE5OHMrVXI4UE84?=
- =?utf-8?B?akI3a1RCZ0N0eVBuRGhDeURwUXYxV2xFNSt2Tm9iaGMwU3FyQ1U2RktwZmx4?=
- =?utf-8?B?T1FUS2ltT2hIOGtqWksvRDRKN3M4NU5YMVhxazExQ2RDb0d6N3ZEMTRBby9Y?=
- =?utf-8?B?VkYyZmNiNm1UT2cySjlVdnJHazRIbFhGNEZJTVlMS2dhV2ltbDM1S01tbmhE?=
- =?utf-8?B?UmZtSGtZWVB2RWo2bTR5REtuOHIwcG9qMnhvTHF2Sy9FU3U1TG5xV29GNWRQ?=
- =?utf-8?B?M01scWp1TERrWmQwcVpzbzZwbzVJRERlZkk5WXc4WW4rYjdUU2JINmZFYUVz?=
- =?utf-8?B?SVVUTFBTdzZLZXJPeWFzMlZ5WDVwaE9PM3lvSndad3FzRUVLNnhlUXlENWY1?=
- =?utf-8?B?Y0dORzN2aXAwWENCQ2phY2FMT1lVeGpmMVBudEpnWXlDWGgyZnBiRW1CeklK?=
- =?utf-8?B?R1kwR0pVSFd1NTM1Y1JrQjZlT1VVL0gyTGNhUGxWazRiaTlyMGU4K2JyTjJR?=
- =?utf-8?B?V2hNNEkrUiticjVjVDYrRXljRmhmcFM2UjFPV0hVSUF1bXNKcmJQN1NBK3g0?=
- =?utf-8?B?dFgydldZUTdIa2x1V2E5TmhBRzQ0ZlBjZ0F6RUxWRjhUY2FjWGRibXVEamtj?=
- =?utf-8?B?Y3N2aGRRb29IYTBjdktWeUZ4VDZ4VWFRallhbDkyRjVuSmpTL3Z1YnBCMEU2?=
- =?utf-8?Q?OTDycL2IBELJOSETp1jzuc4tZ4v670tud6gkNEWCEUHI=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a16e9abe-313c-4580-ee87-08dc173b29f1
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2024 09:03:27.7295
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB0967
+Content-Disposition: inline
+In-Reply-To: <20240117082514.42967-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240117_010345_031854_11D9EA17 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240117_011629_997503_DBDD21E6 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,30 +87,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 2023/11/13 8:57, Jisheng Zhang wrote:
-> This series adds pinctrl support for cv1800b reusing the
-> pinctrl-single driver.
+On Wed, Jan 17, 2024 at 04:25:14PM +0800, Yunhui Cui wrote:
+> When compiling with -O0, the following error will occur:
+> cbo.c: In function 'cbo_insn':
+> cbo.c:43:9: warning: 'asm' operand 1 probably does not match constraints
+>    43 |         asm volatile(
+>       |         ^~~
+> cbo.c:43:9: warning: 'asm' operand 2 probably does not match constraints
+> cbo.c:43:9: error: impossible constraint in 'asm'
+> 
+> Add __attribute__((optimize("O"))) to fix.
+> 
+> Fixes: a29e2a48afe3 ("RISC-V: selftests: Add CBO tests")
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> Suggested-by: Zhipeng Xu <xuzhipeng.1973@bytedance.com>
+> ---
+>  tools/testing/selftests/riscv/hwprobe/cbo.c | 11 ++++++-----
+>  1 file changed, 6 insertions(+), 5 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/riscv/hwprobe/cbo.c b/tools/testing/selftests/riscv/hwprobe/cbo.c
+> index 50a2cc8aef38..ff1d8e843d70 100644
+> --- a/tools/testing/selftests/riscv/hwprobe/cbo.c
+> +++ b/tools/testing/selftests/riscv/hwprobe/cbo.c
+> @@ -36,7 +36,7 @@ static void sigill_handler(int sig, siginfo_t *info, void *context)
+>  	regs[0] += 4;
+>  }
+>  
+> -static void cbo_insn(char *base, int fn)
+> +static __always_inline void cbo_insn(char *base, int fn)
+>  {
+>  	uint32_t insn = MK_CBO(fn);
+>  
+> @@ -47,10 +47,11 @@ static void cbo_insn(char *base, int fn)
+>  	: : "r" (base), "i" (fn), "i" (insn) : "a0", "a1", "memory");
+>  }
+>  
+> -static void cbo_inval(char *base) { cbo_insn(base, 0); }
+> -static void cbo_clean(char *base) { cbo_insn(base, 1); }
+> -static void cbo_flush(char *base) { cbo_insn(base, 2); }
+> -static void cbo_zero(char *base)  { cbo_insn(base, 4); }
+> +#define OPTIMIZE __attribute__((optimize("O")))
+> +OPTIMIZE static void cbo_inval(char *base) { cbo_insn(base, 0); }
+> +OPTIMIZE static void cbo_clean(char *base) { cbo_insn(base, 1); }
+> +OPTIMIZE static void cbo_flush(char *base) { cbo_insn(base, 2); }
+> +OPTIMIZE static void cbo_zero(char *base)  { cbo_insn(base, 4); }
+>  
+>  static void test_no_zicbom(void *arg)
+>  {
+> -- 
+> 2.20.1
 >
-> Jisheng Zhang (2):
->    riscv: dts: cv1800b: add pinctrl node for cv1800b
->    riscv: dts: sophgo: set pinctrl for uart0
->
->   arch/riscv/boot/dts/sophgo/cv-pinctrl.h       | 19 +++++++++++++++++++
->   .../boot/dts/sophgo/cv1800b-milkv-duo.dts     | 11 +++++++++++
->   arch/riscv/boot/dts/sophgo/cv1800b.dtsi       | 10 ++++++++++
->   3 files changed, 40 insertions(+)
->   create mode 100644 arch/riscv/boot/dts/sophgo/cv-pinctrl.h
 
-One question, when we use "pinctrl-single" driver, should we enable 
-CONFIG_PINCTRL_SINGLE? Or just leave it to package vendor to configure 
-by themselves?
+Hi Yunhui,
 
+Thanks for the bug report, but this isn't the right fix. The real problem
+is that I didn't ensure operands 1 and 2 match their constraints, just as
+the warning you discovered says. To do that, I should have made cbo_insn()
+a macro and not used the local variable, i.e. ensure 'fn' and 'insn' are
+indeed constants derived from the 0,1,2,4 constants.
+
+I'll send a patch with your reported-by.
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
