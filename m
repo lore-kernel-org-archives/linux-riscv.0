@@ -4,78 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC8E3C47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 13:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03371C47DA2
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 13:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DEU//Nlf9wmwIj8zB/VfVERVc68DgVIyCFBGkRG1a28=; b=KTRneSv0c2k6Uy
-	NlKa09usJQc4IrhsZox7A3wh2tzy/DjH9+liNdVLJryapa/UkfXMkJfw+t/JNN1fWD8zqMe3Zk6Hu
-	yyScmirIbZAB0N1nQuR9Z2FfIaE5Xzgu1govmmr0rAHZ3YMFJRuCXa+E1UrkbVp1SufTAQiOj8pKA
-	NDBwboMbfdQicVuGL1lgHD1QUPsXWdpq2T+48J5AJa/oydMC5JBZF/OCqArRyCxNEvXWt0QC4BEqg
-	/hqKH/Qy5n9H7NL8GmDx/Mcb6/tx1sV0ZH9jqxK5lillowlNFsrQKpRrX5e5XEAoIlpvFihjcRy5x
-	uev45tfytkptx7C2C0ug==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Q0kRaESOQdIfeOoq/Mog/WkjTV13hXIDKkh7BUS2bFk=; b=O4INGJ9G/h7IbN
+	aKjJkQvMvxe59CxtOEKpY/cyfdExNl1jXD+L5A+zbDs9tGDbG5O9KcjB9OPn9AoPkoW1v+i7GbqSg
+	ejWN8QCxGm6zU05iWMTXTI6VBON07sfqi3w8o8mpoKr4+zo+uggtK3ULhDaRXXZBPaB/rNLU9vhcw
+	QPtenTE8KqAQHAVIkTf05DTyXjztFiSuxjBxfQl4rkCNTKJP/taJouo161CR5otrQUr5wFq78YjkL
+	UuxTaJS3RegnIgPp87ta8UkvkldTABNZ+PxMMhMnrJCtxo6hi+spPTYlk9RFo5Fae+gcyCSbGbHpn
+	JEHggZqR9DJhhxCgYm3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQ5fo-00GJUy-1z;
-	Wed, 17 Jan 2024 13:09:40 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1rQ5sk-00GS2b-18;
+	Wed, 17 Jan 2024 13:23:02 +0000
+Received: from mail-bn8nam11on20600.outbound.protection.outlook.com ([2a01:111:f400:7eae::600] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQ5fl-00GJRU-2z
-	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jan 2024 13:09:39 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-337b38d6568so1822422f8f.1
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Jan 2024 05:09:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1705496975; x=1706101775; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TQBRlgg8YRqh0hYBtnAQg4eOs0cvwqHh0f5pcsorVfE=;
-        b=BCPzGAno/UOookW8x2pcNT1uqQ1BwNF30Lo38nWg+YxDaeSgwuxsOhn2gQ0KGQ6dFC
-         dTRKaHRHZvnoHqHsiVn7OlKL/Q1Nip/HqvQKbjrvRXqsPYzCagcSMpDnckrHXjZEZxNl
-         DbTmpC8AhI6nCIv2J2IDEoUT5Ix62hN+TKz72xSuxiXeTJA+mnJVgxosK6kJ3GYvclcN
-         JnYXfcbquiemaRpq8TTRZLwmWMhx1xOLHxqCts5i8AAAx9jvHyCW+0Sbo8MSpknDHKdi
-         49uasLreWLuHwXgDcZwsFF3DnsgRrtjKlPDavnR91/mifegTUFeo4Q+8iG+xYtGLYw/g
-         Kw8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705496975; x=1706101775;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TQBRlgg8YRqh0hYBtnAQg4eOs0cvwqHh0f5pcsorVfE=;
-        b=agUGkm4d4/vOxLcwI2PXFa8L58SBlr5VKuXW1TaWEkmT8zbt4C4TxZybV1tkv1KG0M
-         O87iB6MJLfWQcSMaKoheFPuGC+MMBOgKq3oLf4KjOc+obAn7RtwuB7AKB23t0ik2zh0Y
-         MgQa5jueLR1JbzBpp36m/q2zDNrW4KVBaRJzvdVWR+oBGGScEJEREUr3iPmsfTvYBncU
-         4gx/bH+kg8ntKBrlp0yXNh9TSEA4nvewc0OhQ2L1WV7VCpuzMIpSkLmU7xTRvlmPpMhz
-         UirvtZoNlTKLjE94f7pKwfljpxZli4x8I7WhDTm7tr+Fym4d/v+xlIER+ci6DIuU+Vf8
-         Pv6A==
-X-Gm-Message-State: AOJu0Yzl82wOj2dVUIxkR1Y5go4OpiNfswiPZuTBuWq/kN7BhTDMiiUG
-	iwyQdaSOGR7B5GfPCLu6hxsnvARtBxbtTAIXpC+dv4i51qA=
-X-Google-Smtp-Source: AGHT+IFZK/Y2EcpfFp4ZxqceLVhvht5oEs9T1bBBogi9jpwj6NYaxxW/zswmOYBcVS+Dwgg8X+kgig==
-X-Received: by 2002:a05:600c:3151:b0:40e:8d2a:db4c with SMTP id h17-20020a05600c315100b0040e8d2adb4cmr197380wmo.38.1705496974840;
-        Wed, 17 Jan 2024 05:09:34 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id j28-20020a05600c1c1c00b0040e52f0e207sm4771200wms.0.2024.01.17.05.09.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jan 2024 05:09:34 -0800 (PST)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	cuiyunhui@bytedance.com
-Subject: [PATCH] RISC-V: selftests: cbo: Ensure asm operands match constraints
-Date: Wed, 17 Jan 2024 14:09:34 +0100
-Message-ID: <20240117130933.57514-2-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
+	id 1rQ5sg-00GRyH-0x;
+	Wed, 17 Jan 2024 13:22:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=J7vhKpEuk0DjDt3OxPd0y49HNoCbXQqFONNq/CYj4VHavEtYCJo7pH7NEn4LkOsoWTz9exrAHXKQ0kj7qi7/hFX8Z5FA6cfsIKsaPgCaPKo+bA7MiRH0PXn0riRwDPxzB2IkSDF8IhmNr6OX+gkR1A/+1rConzzH6GMQdckFtm7+2zER7IQuDgzYyqe/rwzQFICkh8O3OLb8/lGcVmU2AiGDKaduPNaRXe2xWA/hPqWZUEDquAefhAmcee7cCzoNSUZFwPIorBEJmY7ZED7eZ9Tk0bamZNG0OaXbfc7MvvA83biWeDnY/6DibFetcEfA7mURZniziXs7WhrH01+8BA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZDyT/81PxUDeA4M5way5h+eZdkx3wiZ6qwptclWV8OU=;
+ b=FfkhxupVUyrtw930NcpS0OsOOoHcTaXzhluLofEjoWDTdeta9aLyEWRVhK1k7Mp1y2/Qc7IhtmfTiiiBEA709xFcxZsGaVioJraoH9lkt6Qf8tyrkZsqkALgodnJ+qvOgMoVVpvjQq7U+IhpvaCfuk/pf9R1tH/daXn2EuApWDofNHXv3HVS7bWxHIy0NZvPjWaH+Db28N1GA7yD3L08Js0TSFjxZYYNYGPK5cZn1iCnz+BSQCh3KKRlM17+22EIYkKKAMXTWOrPeNotptq660e83XOpCEWQTF1ka/xzfGs0YAEZgSeU+lluarmBmfKEKpgvc8eL6Hvx0xtauN5KyQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZDyT/81PxUDeA4M5way5h+eZdkx3wiZ6qwptclWV8OU=;
+ b=eD5lBEHgcWuIXxm543H1cTe99gMiWfp6x9+Ex5Kd32okh30PLeDQbl8mhdeOx1HgM6xh0FF5jDz0ICoFWNtb83rtU5MUyPFddmtfa5MOST2BHicsMhAukysrQ3JEchG64bA/PxaIJRU6qEVYhvt/upNjMkXUaECcp9refeLF+2XhJP9CGv4rWXBb07k8T2bbhYBkUUc8WKpYltfPfDXPZgbK2IHIdvxCYnkrHLKGgCUoqbw8tjXgDQ9H+fnbJnupFvkOzMA4YKr/8BD+7B90mKhFNOPcga2SDfCou8yJB1BXEjA0F4ldDQWM22irrkXLfiDANNEZcuSY9vGQgU+UlQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV2PR12MB5869.namprd12.prod.outlook.com (2603:10b6:408:176::16)
+ by IA1PR12MB8285.namprd12.prod.outlook.com (2603:10b6:208:3f6::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7202.23; Wed, 17 Jan
+ 2024 13:22:45 +0000
+Received: from LV2PR12MB5869.namprd12.prod.outlook.com
+ ([fe80::96dd:1160:6472:9873]) by LV2PR12MB5869.namprd12.prod.outlook.com
+ ([fe80::96dd:1160:6472:9873%6]) with mapi id 15.20.7181.020; Wed, 17 Jan 2024
+ 13:22:44 +0000
+Date: Wed, 17 Jan 2024 09:22:43 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Ryan Roberts <ryan.roberts@arm.com>
+Cc: "peterx@redhat.com" <peterx@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	James Houghton <jthoughton@google.com>,
+	David Hildenbrand <david@redhat.com>,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Yang Shi <shy828301@gmail.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Rik van Riel <riel@surriel.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Mike Rapoport <rppt@kernel.org>, John Hubbard <jhubbard@nvidia.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v2 06/13] mm/gup: Drop folio_fast_pin_allowed() in hugepd
+ processing
+Message-ID: <20240117132243.GG734935@nvidia.com>
+References: <20240103091423.400294-1-peterx@redhat.com>
+ <20240103091423.400294-7-peterx@redhat.com>
+ <20240115183748.GR734935@nvidia.com>
+ <c60c9d88-33aa-4312-a23c-20206e503b6e@csgroup.eu>
+ <20240116123138.GZ734935@nvidia.com>
+ <44e450cb-5d3f-407e-97a3-024eb936f74b@csgroup.eu>
+Content-Disposition: inline
+In-Reply-To: <44e450cb-5d3f-407e-97a3-024eb936f74b@csgroup.eu>
+X-ClientProxiedBy: BL1PR13CA0268.namprd13.prod.outlook.com
+ (2603:10b6:208:2ba::33) To LV2PR12MB5869.namprd12.prod.outlook.com
+ (2603:10b6:408:176::16)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV2PR12MB5869:EE_|IA1PR12MB8285:EE_
+X-MS-Office365-Filtering-Correlation-Id: a90389c4-06a8-435f-bdd5-08dc175f63db
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 4RUtPfwdiREM5biYnZTmJsx0ACNp3OKAqnHVEG4+VXWqWm+NgE/AtHbw0z4FBjTqIkCXuhHRFLlGKm8IEc3Z7Ey35oRTx0ECkU5g12t2Ro1XJj4FUj1/GOYJs8py9vqsNY52GAf4kQIUPHVy7DZXf2VFD7F0depxqmIFIzgU6l9gybk/uswdIKU7Zd8y7f50VDSw694lQUjJnpDqAskzA5CKfiKct3sN5KAXbZVKJ9ltCKQT0tSO9oQzsEvicZ41f0k8pVW1UFW7bOA5ZhhbrhgTrRyFThb7vyEkHSzsx3Wz4joBfz7JqA5vqGTL7T4vh2NA4DvZQ/6Bs5Xgc1sPlNWeivgo/cHQH7HGyh5dsBAs3wCLg2FgJ8ypms+wydyN3Vrg0vyEVcK2g7Cah+pXebP4OtutYGwceKnpU/aaPaqrDHpGstf1z4EPrJpTR4uYPJUl8I85QkfX8y1dYjN7BLf+hWlL0K2loUCKyh1/Bb1xPKZyJ8g9g4jB9OQJYaBIWyKizEHkmH72VwaDUydjsIux38tE4x77mkRwPvDxAl6aisRYYiJkPiiFToEJp8bL4DH+54QaU6ADoSzDKBXgF8A+viNivp4VuVfwCuWCTZ/vybHFqPPZQQvUCU0AoLv+cUSUzOgwycguaOF+GWDY6/vX2gMF7vWdLWTjC0yKrvMXFlsU6vY62GxcOUehCVu2
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5869.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(136003)(376002)(396003)(39860400002)(346002)(366004)(230922051799003)(186009)(451199024)(64100799003)(1800799012)(5660300002)(2906002)(41300700001)(36756003)(38100700002)(86362001)(33656002)(7416002)(6486002)(966005)(54906003)(6512007)(2616005)(66946007)(110136005)(316002)(66476007)(478600001)(6506007)(66556008)(83380400001)(4326008)(8676002)(8936002)(1076003)(26005)(27376004);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UKoIFMwIgo+UP7YkCIUpJly78vCqIGGehMSOnenDhHo9xvv60z5FvHyRuyLg?=
+ =?us-ascii?Q?uHqPA67mf1TDwygj+ayP55jpqpmFdhCv8VI6pPwDM4GuwuSAb0laEi10hPPC?=
+ =?us-ascii?Q?batia6+j//Wl5HtR8yxc32miN2LpnzYn8EzT9x2jXe0TWiXl4eQp9ZXqg9dW?=
+ =?us-ascii?Q?o5gC2i05Rf1HPwP8M5j4eNvGiQDmYtBR2Se6i0L77YHom4MsmV+B6NHkP4kc?=
+ =?us-ascii?Q?AAuUvT+Z95VCfaHM3WwCIzEEIKZfp7slujsD6iDccCWXr5kJPZgguMamI3qC?=
+ =?us-ascii?Q?2QajsFnpbEjGazpMLcKaZHFRKvynBc0+cY/PV6LMbzkD/iHCELC07TztNxjY?=
+ =?us-ascii?Q?YDrybwwqo7DzN58FKLKghN7Z9BnzRxAmIs8tkgXz+YYshm9o6h4uq8GOORxZ?=
+ =?us-ascii?Q?D7v4f88dxvKCleB3Cxo1jZvqZtawQcpJAHlmD5Yc3zD7L46gOeVlHJkiXPbK?=
+ =?us-ascii?Q?D3UKK/XK+eclMeLAzDA6WbZ4ypbIPAQKNvYMyPKCT2hHT6WvSP4mIIkT1w1F?=
+ =?us-ascii?Q?F0U4Vd0ZlOCsjkBBZnKZnb0XwRTSXY7yWnoMhbv3g1vq8tpgscI391PMsdab?=
+ =?us-ascii?Q?x+kH5jJJlxT5uqByKMgDKk1JPeQuuBZCSx+34H+Skm9reES2tiB/LGKXlrf5?=
+ =?us-ascii?Q?bEaM1HstDiu+GPxfN8t+P303I4Ty8nMK7Axcn6g6NCDaEx5v1L1NfLRSk/Gc?=
+ =?us-ascii?Q?P23hqXHSTh517xlf3MB0rzIjXdQDNta7jWNS1L1izNb1Xd7e88YY+403v7zx?=
+ =?us-ascii?Q?tCqMa5LTK/B2V2d9o6OtP2gaZG2VTIbH1EiQ/TME2zp7TfDCOBi9WS+HTB6K?=
+ =?us-ascii?Q?+itNLJQWgtTCVyPaYsyZexsD8mKXy/WVZZGrmszFkxCd0siSs1q5i53rgwCY?=
+ =?us-ascii?Q?nZb8XyjO49GgthVWBSNhz9xSkZsZ/mhXLeQgxsocFLlchYRlYf0U8PVc5Hc2?=
+ =?us-ascii?Q?B7wNFA6J2nwtg8mQf7ORorj4bN+T8JiQ1o7mVKJ+XrXPrIp05g7BaMZxGWjj?=
+ =?us-ascii?Q?jXcREvSWROFWCdoeh6wx86N+AuCDCN0KKB+gD8KgO2l3hpeyKrOtog1zZ8eP?=
+ =?us-ascii?Q?/JricatpSrCtMNE98BvsWUX2BiqXeteeQi2GZR1JzsKsygCalWTgpNi48gaK?=
+ =?us-ascii?Q?QFTuXDHabTDyzNfwbo1BroVpxMHZw1b+1PhQ+6CnxS2S2xXrBWFtPQBbew7T?=
+ =?us-ascii?Q?rgijQRgTVd0rF8W9686GLw+Cuvw5SOxKnra9Mf0E17mrXRyxTColzFkPeb1F?=
+ =?us-ascii?Q?MnudxA7zpNtCQn6+1vYYdjBQ/jNDNU/yY8SgVfWMpKwFzOA1wt52BoAq0KVf?=
+ =?us-ascii?Q?GNb2SAhY43kCqmdrHE8QIu0e7KOOfcHesuKrClRB7mmHkUgw7OtFaF+cKZq2?=
+ =?us-ascii?Q?zXs94xWwRCSK1QgWuKDZ55WqXH+l2h+6ETJYqz0lRnLAvyhIq0QYchCwadpt?=
+ =?us-ascii?Q?OHe2UaH7TO1VH/fi6nptLusm0ZQL/savXJgpZZoDzMCV21LyvUMf6IQ22fUc?=
+ =?us-ascii?Q?cYXbmitxRp5efeL0gbfH+VbSjw5xmmnaaQYO+x+xWGpqehokSuOEiJ8xs7wI?=
+ =?us-ascii?Q?MyKZ9mEg6fWhtTtn3xaEh5TyrmdECxwdOfSB02ix?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a90389c4-06a8-435f-bdd5-08dc175f63db
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5869.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2024 13:22:44.5643
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YuRr4k9IImmVkC4BHJkkI+6OMg5e5p1r5rksakFXdof9PPb19nQO7yfpICDwcwtl
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8285
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240117_050937_973255_28587FC7 
-X-CRM114-Status: UNSURE (   7.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240117_052258_340454_954080A5 
+X-CRM114-Status: GOOD (  29.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,53 +161,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 'i' constraint expects a constant operand, which fn and its
-constant derivative MK_CBO(fn) are, but passing fn through a function
-as a parameter and using a local variable for MK_CBO(fn) allow the
-compiler to lose sight of that when no optimization is done. Use
-a macro instead of a function and skip the local variable to ensure
-the compiler uses constants, matching the asm constraints.
+On Tue, Jan 16, 2024 at 06:32:32PM +0000, Christophe Leroy wrote:
+> >> hugepd is a page directory dedicated to huge pages, where you have huge
+> >> pages listed instead of regular pages. For instance, on powerpc 32 with
+> >> each PGD entries covering 4Mbytes, a regular page table has 1024 PTEs. A
+> >> hugepd for 512k is a page table with 8 entries.
+> >>
+> >> And for 8Mbytes entries, the hugepd is a page table with only one entry.
+> >> And 2 consecutive PGS entries will point to the same hugepd to cover the
+> >> entire 8Mbytes.
+> > 
+> > That still sounds alot like the ARM thing - except ARM replicates the
+> > entry, you also said PPC relicates the entry like ARM to get to the
+> > 8M?
+> 
+> Is it like ARM ? Not sure. The PTE is not in the PGD it must be in a L2 
+> directory, even for 8M.
 
-Reported-by: Yunhui Cui <cuiyunhui@bytedance.com>
-Closes: https://lore.kernel.org/all/20240117082514.42967-1-cuiyunhui@bytedance.com
-Fixes: a29e2a48afe3 ("RISC-V: selftests: Add CBO tests")
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- tools/testing/selftests/riscv/hwprobe/cbo.c | 18 ++++++++----------
- 1 file changed, 8 insertions(+), 10 deletions(-)
+Your diagram looks almost exactly like ARM to me.
 
-diff --git a/tools/testing/selftests/riscv/hwprobe/cbo.c b/tools/testing/selftests/riscv/hwprobe/cbo.c
-index c6a83ab11e22..c537d52fafc5 100644
---- a/tools/testing/selftests/riscv/hwprobe/cbo.c
-+++ b/tools/testing/selftests/riscv/hwprobe/cbo.c
-@@ -36,16 +36,14 @@ static void sigill_handler(int sig, siginfo_t *info, void *context)
- 	regs[0] += 4;
- }
+The key thing is that the address for the L2 Table is *always* formed as:
+
+   L2 Table Base << 12 + L2 Index << 2 + 00
+
+Then the L2 Descriptor must contains bits indicating the page
+size. The L2 Descriptor is replicated to every 4k entry that the page
+size covers.
+
+The only difference I see is the 8M case which has a page size greater
+than a single L1 entry.
+
+> Yes that's how it works on powerpc. For 8xx we used to do that for both 
+> 8M and 512k pages. Now for 512k pages we do kind of like ARM (which 
+> means replicating the entry 128 times) as that's needed to allow mixing 
+> different page sizes for a given PGD entry.
+
+Right, you want to have granular page sizes or it becomes unusable in
+the general case
  
--static void cbo_insn(char *base, int fn)
--{
--	uint32_t insn = MK_CBO(fn);
--
--	asm volatile(
--	"mv	a0, %0\n"
--	"li	a1, %1\n"
--	".4byte	%2\n"
--	: : "r" (base), "i" (fn), "i" (insn) : "a0", "a1", "memory");
--}
-+#define cbo_insn(base, fn)							\
-+({										\
-+	asm volatile(								\
-+	"mv	a0, %0\n"							\
-+	"li	a1, %1\n"							\
-+	".4byte	%2\n"								\
-+	: : "r" (base), "i" (fn), "i" (MK_CBO(fn)) : "a0", "a1", "memory");	\
-+})
- 
- static void cbo_inval(char *base) { cbo_insn(base, 0); }
- static void cbo_clean(char *base) { cbo_insn(base, 1); }
--- 
-2.43.0
+> But for 8M pages that would mean replicating the entry 2048 times. 
+> That's a bit too much isn't it ?
 
+Indeed, de-duplicating the L2 Table is a neat optimization.
+
+> > So if you imagine a pmd_leaf(), pmd_leaf_size() and a pte_leaf_size()
+> > that would return enough information for both.
+> 
+> pmd_leaf() ? Unless I'm missing something I can't do leaf at PMD (PGD) 
+> level. It must be a two-level process even for pages bigger than a PMD 
+> entry.
+
+Right, this is the normal THP/hugetlb situation on x86/etc. It
+wouldn't apply here since it seems the HW doesn't have a bit in the L1
+descriptor to indicate leaf.
+
+Instead for PPC this hugepd stuff should start to follow Ryan's
+generic work for ARM contig:
+
+https://lore.kernel.org/all/20231218105100.172635-1-ryan.roberts@arm.com/
+
+Specifically the arch implementation:
+
+https://lore.kernel.org/linux-mm/20231218105100.172635-15-ryan.roberts@arm.com/
+
+Ie the arch should ultimately wire up the replication and variable
+page size bits within its implementation of set_ptes(). set_ptes()s
+gets a contiguous run of address and should install it with maximum
+use of the variable page sizes. The core code will start to call
+set_ptes() in more cases as Ryan gets along his project.
+
+For the purposes of GUP, where are are today and where we are going,
+it would be much better to not have a special PPC specific "hugepd"
+parser. Just process each of the 4k replicates one by one like ARM is
+starting with.
+
+The arch would still have to return the correct page address from
+pte_phys() which I think Ryan is doing by having the replicates encode
+the full 4k based address in each entry. The HW will ignore those low
+bits and pte_phys() then works properly. This would work for PPC as
+well, excluding the 8M optimization.
+
+Going forward I'd expect to see some pte_page_size() that returns the
+size bits and GUP can have logic to skip reading replicates.
+
+The advantage of all this is that it stops making the feature special
+and the work Ryan is doing to generically push larger folios into
+set_ptes will become usable on these PPC platforms as well. And we can
+kill the PPC specific hugepd.
+
+Jason
 
 _______________________________________________
 linux-riscv mailing list
