@@ -4,53 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F19CC47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 08:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92720C47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Jan 2024 08:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dyPYwgesjBuc5vP1Z2eyTnUEub68GGSIBBMgTCPrNyg=; b=fwv2ZaVCLNsxCc
-	iq8Ii0i4HgsRbNQ6j3ubZRHaiNY5Xojji5sU1dkBlKazwS4aAMsa82w7+yf7qMFVzYpeOscegIg3D
-	ErSz3hkUv9ETivEQF9kaxZJs6+titxKSZ2BgicVJ52IeXfXAe/iQkGCO1asn2WNIJ9LpCNet2Lecu
-	tv+sk6GXGJIQzTKrsI7EDa08+byU/4JHoNsT2zbFV7yhBwGdJfUlsIPWDOeY/uVYag/EbKnRv5u1J
-	XGsFyKhxerO+xFCS4FyVBQ8/zMA90zOA1RPz5X88RQiTbmfHgwlRCGHurNN1b+pSgyxXn/v1LSVyw
-	OWtehI2QF9gma+bK8Cwg==;
+	List-Owner; bh=a0KS8k7kxNXrzk9yB/FqG02Ol32RetSWAdIu2aBxsG4=; b=cIibE/OoRDj+3E
+	cgOb5iGvjguGhD05wtUW3D4ddsbXcll84t1ckHerNJn0AEevE4DKRwvwcUZ47IZsrvGsFi+MIskI/
+	JcsH3E9dZ8DPWRJIYAjzf/J5mg6AyQZNdDoSaDtDCHhEH7IS4RjdsVIgJARcT6XLJs1UHArKCgqGM
+	aWS8J5+Zyaxy3ItLeg2P6lFTr3DJuZ+z/mIWzfOhC2MbwYUlPIIW+nYCmwwbAc7jvbqgjhlhVKuaG
+	ldwa74Bld0bmdqCcKczBqRCc6R+K+W/vPpWVRpT1bZOJeZ5nbR6KBAR9lVRPVE9X50LTyHDp57yMG
+	31+/Cc8JYkN0QTEjepDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQ1Vj-00EutK-0u;
-	Wed, 17 Jan 2024 08:42:59 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1rQ1l1-00EzVB-2z;
+	Wed, 17 Jan 2024 08:58:48 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQ1Ve-00EusQ-0V
+	id 1rQ1kr-00EzKb-1I
 	for linux-riscv@lists.infradead.org;
-	Wed, 17 Jan 2024 08:42:57 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D0A37C000C;
-	Wed, 17 Jan 2024 08:42:43 +0000 (UTC)
-Message-ID: <bb0e976d-7475-4c42-b87e-bf1af389ba5f@ghiti.fr>
-Date: Wed, 17 Jan 2024 09:42:43 +0100
+	Wed, 17 Jan 2024 08:58:43 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2cd0db24e03so123819841fa.3
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Jan 2024 00:58:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google; t=1705481914; x=1706086714; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qn9ckfN5BaYRc0xXVmwBlfKd154La8K2fCYIn9xCfFs=;
+        b=A6JFfQOf7gogFw6ja+vWpLXDcc1O6iEkWhtftynsWykiQlWInys7UfYzywlmdMMAQg
+         eNyAA3QKlDNW4P2K+XeDuM5pl+EjFnZYeUB0Mr+1PQMIvVqLw29QJPTRktqRfm16S3uB
+         jeylcPURQ0BjpixtJfvagNc4jHUUsH8+5q2Pc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705481914; x=1706086714;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qn9ckfN5BaYRc0xXVmwBlfKd154La8K2fCYIn9xCfFs=;
+        b=qtJ5Ron2Eu05FKJpzPki/wVEBqIIIz7zS9UvmnKh/FXRxeecJmqjxbdlGb+Y5YDMSn
+         21TDlNqBvrUTNKKE+ARglHTeDsr64Rt2Unl2QfRkI79JmqwfCUtxstuNLMNVlH1b3wk3
+         /iVu0+rpuFopwHviUko/eARLWBIr4J1qgt6FhNRN8oAWTihE9L3lcVVeYqSDVK73wYRB
+         Hp0WcS9tAOhHNxhZ9cOLKZpP4AZd6kt6y+eXEnds0plDmWl1RraJxsPg6CBw0XZvjv7B
+         20XJrHDsVmt4todOwk5OLD1T255DfJRhLySxXiFNeyP2IOOmhvRHw6sJNbYxE78rKJnG
+         Of6w==
+X-Gm-Message-State: AOJu0YxX66AxnKRc1Fcl5E9Thvv/XPe6e5sYfzY7Vhca04dmjEB2o0W+
+	7Mf5a6RdK4rXZdHlsuqcYxyvGmo/UGsKszHugkpnKaNDSBY7
+X-Google-Smtp-Source: AGHT+IHGN69sf6IzvZMXifJARo2EdyjFE2J6ldS44mwg3jOgnG8qr+jP7axP1aRdj8KvQqOt1VSZa171fv3PuWdWsLw=
+X-Received: by 2002:a2e:8893:0:b0:2cc:6ab1:e6a4 with SMTP id
+ k19-20020a2e8893000000b002cc6ab1e6a4mr1538003lji.71.1705481914055; Wed, 17
+ Jan 2024 00:58:34 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 1/2] riscv: Include riscv_set_icache_flush_ctx prctl
-Content-Language: en-US
-To: Charlie Jenkins <charlie@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Jonathan Corbet <corbet@lwn.net>, Conor Dooley <conor.dooley@microchip.com>,
- =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Atish Patra <atishp@atishpatra.org>, Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
-References: <20240116-fencei-v8-0-43a42134f021@rivosinc.com>
- <20240116-fencei-v8-1-43a42134f021@rivosinc.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240116-fencei-v8-1-43a42134f021@rivosinc.com>
-X-GND-Sasl: alex@ghiti.fr
+References: <20240110073917.2398826-1-peterlin@andestech.com>
+ <20240110073917.2398826-8-peterlin@andestech.com> <CAOnJCUKY8H+pvgTWW5zkfm8O4WR-OWOKmyPTcMjUZBCC5RaLWQ@mail.gmail.com>
+ <20240116-cherub-revival-5d32cc5f1fd0@spud>
+In-Reply-To: <20240116-cherub-revival-5d32cc5f1fd0@spud>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Wed, 17 Jan 2024 00:58:21 -0800
+Message-ID: <CAOnJCU+DvoV08n5LLv-yrPOnUKNEQU9w344UBJ4Ou5-2LJwrrw@mail.gmail.com>
+Subject: Re: [PATCH v7 07/16] RISC-V: Move T-Head PMU to CPU feature
+ alternative framework
+To: Conor Dooley <conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240117_004254_477724_1C19F912 
-X-CRM114-Status: GOOD (  38.61  )
+X-CRM114-CacheID: sfid-20240117_005838_630555_EB05036B 
+X-CRM114-Status: GOOD (  54.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,326 +81,260 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: mark.rutland@arm.com, irogers@google.com, heiko@sntech.de, geert+renesas@glider.be, alexander.shishkin@linux.intel.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, guoren@kernel.org, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, will@kernel.org, linux-renesas-soc@vger.kernel.org, tim609@andestech.com, Yu Chien Peter Lin <peterlin@andestech.com>, samuel@sholland.org, anup@brainfault.org, dminus@andestech.com, magnus.damm@gmail.com, jernej.skrabec@gmail.com, peterz@infradead.org, wens@csie.org, mingo@redhat.com, jszhang@kernel.org, inochiama@outlook.com, linux-sunxi@lists.linux.dev, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, andre.przywara@arm.com, locus84@andestech.com, acme@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, paul.walmsley@sifive.com, namhyung@kernel.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, ycliang@andestech.com, n.shubin@yadro.com, rdunlap@infradead.org, chao.wei@sophgo.com, adrian.hunter@intel.com, linux-perf-users@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com, jolsa@kernel.org, unicorn_wang@outlook.com, wefu@redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Charlie,
-
-On 17/01/2024 03:54, Charlie Jenkins wrote:
-> Support new prctl with key PR_RISCV_SET_ICACHE_FLUSH_CTX to enable
-> optimization of cross modifying code. This prctl enables userspace code
-> to use icache flushing instructions such as fence.i with the guarantee
-> that the icache will continue to be clean after thread migration.
->
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> ---
->   arch/riscv/include/asm/mmu.h         |  4 +++
->   arch/riscv/include/asm/mmu_context.h |  3 ++
->   arch/riscv/include/asm/processor.h   |  7 ++++
->   arch/riscv/include/asm/switch_to.h   | 17 +++++++++
->   arch/riscv/mm/cacheflush.c           | 67 ++++++++++++++++++++++++++++++++++++
->   arch/riscv/mm/context.c              | 14 ++++++--
->   include/uapi/linux/prctl.h           |  6 ++++
->   kernel/sys.c                         |  6 ++++
->   8 files changed, 121 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-> index 355504b37f8e..f437b9a7f5b3 100644
-> --- a/arch/riscv/include/asm/mmu.h
-> +++ b/arch/riscv/include/asm/mmu.h
-> @@ -19,6 +19,10 @@ typedef struct {
->   #ifdef CONFIG_SMP
->   	/* A local icache flush is needed before user execution can resume. */
->   	cpumask_t icache_stale_mask;
-> +	/* Force local icache flush on all migrations. */
-> +	bool force_icache_flush;
-> +	/* The most recent cpu a thread in this mm has been migrated to. */
-> +	unsigned int prev_cpu;
-
-
-Why would we need a prev_cpu on mm? Why don't we only need to have a 
-prev_cpu per thread, i.e. per task_struct? It makes little sense to me 
-to have that on mm since it's shared by multiple threads (by 
-definition), so the prev_cpu on mm could be anything.
-
-
->   #endif
->   #ifdef CONFIG_BINFMT_ELF_FDPIC
->   	unsigned long exec_fdpic_loadmap;
-> diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
-> index 7030837adc1a..195a2e90f3f9 100644
-> --- a/arch/riscv/include/asm/mmu_context.h
-> +++ b/arch/riscv/include/asm/mmu_context.h
-> @@ -29,6 +29,9 @@ static inline int init_new_context(struct task_struct *tsk,
->   {
->   #ifdef CONFIG_MMU
->   	atomic_long_set(&mm->context.id, 0);
-> +#endif
-> +#ifdef CONFIG_SMP
-> +	mm->context.prev_cpu = tsk->thread.prev_cpu;
->   #endif
->   	return 0;
->   }
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index f19f861cda54..1cad05f579ad 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -84,6 +84,10 @@ struct thread_struct {
->   	unsigned long vstate_ctrl;
->   	struct __riscv_v_ext_state vstate;
->   	unsigned long align_ctl;
-> +#ifdef CONFIG_SMP
-> +	bool force_icache_flush;
-> +	unsigned int prev_cpu;
-> +#endif
->   };
->   
->   /* Whitelist the fstate from the task_struct for hardened usercopy */
-> @@ -145,6 +149,9 @@ extern int set_unalign_ctl(struct task_struct *tsk, unsigned int val);
->   #define GET_UNALIGN_CTL(tsk, addr)	get_unalign_ctl((tsk), (addr))
->   #define SET_UNALIGN_CTL(tsk, val)	set_unalign_ctl((tsk), (val))
->   
-> +#define RISCV_SET_ICACHE_FLUSH_CTX(arg1, arg2)	riscv_set_icache_flush_ctx(arg1, arg2)
-> +extern int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread);
-> +
->   #endif /* __ASSEMBLY__ */
->   
->   #endif /* _ASM_RISCV_PROCESSOR_H */
-> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-> index f90d8e42f3c7..6a94431dc193 100644
-> --- a/arch/riscv/include/asm/switch_to.h
-> +++ b/arch/riscv/include/asm/switch_to.h
-> @@ -8,6 +8,7 @@
->   
->   #include <linux/jump_label.h>
->   #include <linux/sched/task_stack.h>
-> +#include <linux/mm_types.h>
->   #include <asm/vector.h>
->   #include <asm/cpufeature.h>
->   #include <asm/processor.h>
-> @@ -73,6 +74,17 @@ static __always_inline bool has_fpu(void) { return false; }
->   extern struct task_struct *__switch_to(struct task_struct *,
->   				       struct task_struct *);
->   
-> +static inline bool switch_to_should_flush_icache(struct task_struct *task)
-> +{
-> +	unsigned int cpu = smp_processor_id();
-> +	bool stale_mm = task->mm && (task->mm->context.force_icache_flush &&
-> +				     (cpu != task->mm->context.prev_cpu));
-> +	bool stale_thread = task->thread.force_icache_flush &&
-> +			    (cpu != task->thread.prev_cpu);
-> +
-> +	return stale_mm || stale_thread;
-
-
-Here the test would become:
-
-return ((task->mm && task->mm->context.force_icache_flush) || 
-task->thread.force_icache_flush) && (cpu != task->thread.prev_cpu);
-
-And do we really need to check task->mm is not null?
-
-
-> +}
-> +
->   #define switch_to(prev, next, last)			\
->   do {							\
->   	struct task_struct *__prev = (prev);		\
-> @@ -81,7 +93,12 @@ do {							\
->   		__switch_to_fpu(__prev, __next);	\
->   	if (has_vector())					\
->   		__switch_to_vector(__prev, __next);	\
-> +	if (switch_to_should_flush_icache(__next))	\
-> +		local_flush_icache_all();		\
->   	((last) = __switch_to(__prev, __next));		\
-> +	__next->thread.prev_cpu = smp_processor_id();	\
-> +	if (__next->mm)					\
-> +		__next->mm->context.prev_cpu = smp_processor_id();	\
->   } while (0)
-
-
-And just to make sure I understand this: you moved the test in 
-switch_to() because 2 threads with the same mm could be scheduled one 
-after the other on the same cpu and then switch_mm() would not be called?
-
-
->   
->   #endif /* _ASM_RISCV_SWITCH_TO_H */
-> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> index 55a34f2020a8..ff545f19f07a 100644
-> --- a/arch/riscv/mm/cacheflush.c
-> +++ b/arch/riscv/mm/cacheflush.c
-> @@ -5,6 +5,7 @@
->   
->   #include <linux/acpi.h>
->   #include <linux/of.h>
-> +#include <linux/prctl.h>
->   #include <asm/acpi.h>
->   #include <asm/cacheflush.h>
->   
-> @@ -152,3 +153,69 @@ void __init riscv_init_cbo_blocksizes(void)
->   	if (cboz_block_size)
->   		riscv_cboz_block_size = cboz_block_size;
->   }
-> +
-> +/**
-> + * riscv_set_icache_flush_ctx() - Enable/disable icache flushing instructions in
-> + * userspace.
-> + * @ctx: Set the type of icache flushing instructions permitted/prohibited in
-> + *	 userspace. Supported values described below.
-> + *
-> + * Supported values for ctx:
-> + *
-> + * * %PR_RISCV_CTX_SW_FENCEI_ON: Allow fence.i in userspace.
-> + *
-> + * * %PR_RISCV_CTX_SW_FENCEI_OFF: Disallow fence.i in userspace. When ``scope ==
-> + *   PR_RISCV_SCOPE_PER_PROCESS``, this will effect all threads in a process.
-> + *   Therefore, caution must be taken -- only use this flag when you can
-> + *   guarantee that no thread in the process will emit fence.i from this point
-> + *   onward.
-> + *
-> + * @scope: Set scope of where icache flushing instructions are allowed to be
-> + *	   emitted. Supported values described below.
-> + *
-> + * Supported values for scope:
-> + *
-> + * * PR_RISCV_SCOPE_PER_PROCESS: Ensure the icache of any thread in this process
-> + *                               is coherent with instruction storage upon
-> + *                               migration.
-> + *
-> + * * PR_RISCV_SCOPE_PER_THREAD: Ensure the icache of the current thread is
-> + *                              coherent with instruction storage upon
-> + *                              migration.
-> + *
-> + * When ``scope == PR_RISCV_SCOPE_PER_PROCESS``, all threads in the process are
-> + * permitted to emit icache flushing instructions. Whenever any thread in the
-> + * process is migrated, the corresponding hart's icache will be guaranteed to be
-> + * consistent with instruction storage. Note this does not enforce any
-> + * guarantees outside of migration. If a thread modifies an instruction that
-> + * another thread may attempt to execute, the other thread must still emit an
-> + * icache flushing instruction before attempting to execute the potentially
-> + * modified instruction. This must be performed by the userspace program.
-> + *
-> + * In per-thread context (eg. ``scope == PR_RISCV_SCOPE_PER_THREAD``), only the
-> + * thread calling this function is permitted to emit icache flushing
-> + * instructions. When the thread is migrated, the corresponding hart's icache
-> + * will be guaranteed to be consistent with instruction storage.
-> + *
-> + * On kernels configured without SMP, this function is a nop as migrations
-> + * across harts will not occur.
-> + */
-> +int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long scope)
-> +{
-> +#ifdef CONFIG_SMP
-> +	switch (ctx) {
-> +	case PR_RISCV_CTX_SW_FENCEI_ON:
-> +		switch (scope) {
-> +		case PR_RISCV_SCOPE_PER_PROCESS:
-> +			current->mm->context.force_icache_flush = true;
-> +			break;
-> +		case PR_RISCV_SCOPE_PER_THREAD:
-> +			current->thread.force_icache_flush = true;
-> +			break;
-> +		default:
-> +			return -EINVAL;
-> +		}
-> +	}
-> +#endif
-> +	return 0;
-> +}
-> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> index 217fd4de6134..b059dc0fae91 100644
-> --- a/arch/riscv/mm/context.c
-> +++ b/arch/riscv/mm/context.c
-> @@ -15,6 +15,7 @@
->   #include <asm/tlbflush.h>
->   #include <asm/cacheflush.h>
->   #include <asm/mmu_context.h>
-> +#include <asm/switch_to.h>
->   
->   #ifdef CONFIG_MMU
->   
-> @@ -297,19 +298,26 @@ static inline void set_mm(struct mm_struct *prev,
->    *
->    * The "cpu" argument must be the current local CPU number.
->    */
-> -static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu)
-> +static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu,
-> +					 struct task_struct *task)
->   {
->   #ifdef CONFIG_SMP
->   	cpumask_t *mask = &mm->context.icache_stale_mask;
->   
->   	if (cpumask_test_cpu(cpu, mask)) {
->   		cpumask_clear_cpu(cpu, mask);
-> +
->   		/*
->   		 * Ensure the remote hart's writes are visible to this hart.
->   		 * This pairs with a barrier in flush_icache_mm.
->   		 */
->   		smp_mb();
-> -		local_flush_icache_all();
-> +
-> +		/*
-> +		 * If cache will be flushed in switch_to, no need to flush here.
-> +		 */
-> +		if (!(task && switch_to_should_flush_icache(task)))
-> +			local_flush_icache_all();
->   	}
->   
->   #endif
-> @@ -332,5 +340,5 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
->   
->   	set_mm(prev, next, cpu);
->   
-> -	flush_icache_deferred(next, cpu);
-> +	flush_icache_deferred(next, cpu, task);
->   }
-> diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-> index 370ed14b1ae0..524d546d697b 100644
-> --- a/include/uapi/linux/prctl.h
-> +++ b/include/uapi/linux/prctl.h
-> @@ -306,4 +306,10 @@ struct prctl_mm_map {
->   # define PR_RISCV_V_VSTATE_CTRL_NEXT_MASK	0xc
->   # define PR_RISCV_V_VSTATE_CTRL_MASK		0x1f
->   
-> +#define PR_RISCV_SET_ICACHE_FLUSH_CTX	71
-> +# define PR_RISCV_CTX_SW_FENCEI_ON	0
-> +# define PR_RISCV_CTX_SW_FENCEI_OFF	1
-> +# define PR_RISCV_SCOPE_PER_PROCESS	0
-> +# define PR_RISCV_SCOPE_PER_THREAD	1
-> +
->   #endif /* _LINUX_PRCTL_H */
-> diff --git a/kernel/sys.c b/kernel/sys.c
-> index 420d9cb9cc8e..e806a8a67c36 100644
-> --- a/kernel/sys.c
-> +++ b/kernel/sys.c
-> @@ -146,6 +146,9 @@
->   #ifndef RISCV_V_GET_CONTROL
->   # define RISCV_V_GET_CONTROL()		(-EINVAL)
->   #endif
-> +#ifndef RISCV_SET_ICACHE_FLUSH_CTX
-> +# define RISCV_SET_ICACHE_FLUSH_CTX(a, b)	(-EINVAL)
-> +#endif
->   
->   /*
->    * this is where the system-wide overflow UID and GID are defined, for
-> @@ -2739,6 +2742,9 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
->   	case PR_RISCV_V_GET_CONTROL:
->   		error = RISCV_V_GET_CONTROL();
->   		break;
-> +	case PR_RISCV_SET_ICACHE_FLUSH_CTX:
-> +		error = RISCV_SET_ICACHE_FLUSH_CTX(arg2, arg3);
-> +		break;
->   	default:
->   		error = -EINVAL;
->   		break;
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKYW4gMTYsIDIwMjQgYXQgNDoxNuKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBUdWUsIEphbiAxNiwgMjAyNCBhdCAxMjo1NTo0MVBNIC0w
+ODAwLCBBdGlzaCBQYXRyYSB3cm90ZToKPiA+IE9uIFR1ZSwgSmFuIDksIDIwMjQgYXQgMTE6NDDi
+gK9QTSBZdSBDaGllbiBQZXRlciBMaW4KPiA+IDxwZXRlcmxpbkBhbmRlc3RlY2guY29tPiB3cm90
+ZToKPiA+ID4KPiA+ID4gVGhlIGN1c3RvbSBQTVUgZXh0ZW5zaW9uIGFpbXMgdG8gc3VwcG9ydCBw
+ZXJmIGV2ZW50IHNhbXBsaW5nIHByaW9yCj4gPiA+IHRvIHRoZSByYXRpZmljYXRpb24gb2YgU3Nj
+b2ZwbWYuIEluc3RlYWQgb2YgZGl2ZXJ0aW5nIHRoZSBiaXRzIGFuZAo+ID4gPiByZWdpc3RlciBy
+ZXNlcnZlZCBmb3IgZnV0dXJlIHN0YW5kYXJkLCBhIHNldCBvZiBjdXN0b20gcmVnaXN0ZXJzIGlz
+Cj4gPiA+IGFkZGVkLiAgSGVuY2UsIHdlIG1heSBjb25zaWRlciBpdCBhcyBhIENQVSBmZWF0dXJl
+IHJhdGhlciB0aGFuIGFuCj4gPiA+IGVycmF0dW0uCj4gPiA+Cj4gPgo+ID4gSSBkb24ndCB0aGlu
+ayB3ZSBzaG91bGQgZG8gdGhhdC4gQW55IGN1c3RvbSBpbXBsZW1lbnRhdGlvbiB0aGF0Cj4gPiB2
+aW9sYXRlcyB0aGUgc3RhbmRhcmQgUklTQy1WIHNwZWMgc2hvdWxkCj4gPiBiZSBhbiBlcnJhdGEg
+bm90IGEgZmVhdHVyZS4KPiA+IEFzIHBlciBteSB1bmRlcnN0YW5kaW5nLCBhIHZlbmRvciBjYW4g
+Y2FsbCBhbiBleHRlbnNpb24gY3VzdG9tIElTQQo+ID4gZXh0ZW5zaW9uIGlmIHRoZSBzYW1lIGZl
+YXR1cmUgaXMgbm90IGF2YWlsYWJsZQo+ID4gaW4gdGhlIHN0YW5kYXJkIElTQSBleHRlbnNpb25z
+IG9yIHRoZSBtZWNoYW5pc20gaXMgY29tcGxldGVseQo+ID4gZGlmZmVyZW50LiBJdCBtdXN0IGFs
+c28gbm90IHZpb2xhdGUgYW55IHN0YW5kYXJkIHNwZWMgYXMgd2VsbC4KPiA+Cj4gPiBJbiB0aGlz
+IGNhc2UsIGEgc3RhbmRhcmQgc3Njb2ZwbWYgaXMgYWxyZWFkeSBhdmFpbGFibGUuIE1vcmVvdmVy
+LCBib3RoCj4gPiBBbmRlcyBhbmQgVC1oZWFkIGV4dGVuc2lvbnMgdmlvbGF0ZSB0aGUgc3RhbmRh
+cmQKPiA+IHNwZWMgYnkgcmV1c2luZyBsb2NhbCBpbnRlcnJ1cHQgbnVtYmVycyAoMTcoVGhlYWQp
+ICYgMTgoQW5kZXMpKSB3aGljaAo+ID4gYXJlIGNsZWFybHkgc3BlY2lmaWVkIGFzIHJlc2VydmVk
+IGZvciBzdGFuZGFyZCBsb2NhbCBpbnRlcnJ1cHRzCj4gPiBpbiB0aGUgQUlBIHNwZWNpZmljYXRp
+b24uCj4KPiBJIGRpc2FncmVlIHdpdGggeW91IGhlcmUuIFRoZSBBbmRlcyBpbXBsZW1lbnRhdGlv
+biBwcmVkYXRlZCAoSUlSQyB0aGF0Cj4gaXMgd2hhdCB3YXMgc2FpZCBpbiByZXBsaWVzIHRvIGFu
+IGVhcmxpZXIgcmV2aXNpb24pIHRoZSBTc2NvZnBtZgo+IGV4dGVuc2lvbiBhbmQgY2VydGFpbmx5
+IHByZWRhdGVzIHRoZSBBSUEgc3BlY2lmaWNhdGlvbi4gSSB3b3VsZCBiZSBvbgo+IGJvYXJkIHdp
+dGggdGhpcyBsaW5lIG9mIHRoaW5raW5nIGlmIHNvbWVvbmUgY29tZXMgYWxvbmcgaW4gMjAzMCB3
+aXRoCj4gIlpiYiBidXQgd2l0aCB0aGlzIG9uZSB0d2VhayIgb3Igd2hlcmUgc29tZXRoaW5nIGZs
+aWVzIGVudGlyZWx5IGluIHRoZQo+IGZhY2Ugb2YgdGhlIHN0YW5kYXJkIChsaWtlIHRoZSBJT0NQ
+IGNhY2hlIHN0dWZmKS4gVGhlIHJlbGV2YW50IHNlY3Rpb24KPiBpbiB0aGUgQUlBIHNwZWMgc2Vl
+bXMgdG8gc2F5Ogo+IHwgSW50ZXJydXB0IGNhdXNlcyB0aGF0IGFyZSBzdGFuZGFyZGl6ZWQgYnkg
+dGhlIFByaXZpbGVnZWQgQXJjaGl0ZWN0dXJlCj4gfCBoYXZlIG1ham9yIGlkZW50aXRpZXMgaW4g
+dGhlIHJhbmdlIDDigJMxNSwgd2hpbGUgbnVtYmVycyAxNiBhbmQgaGlnaGVyIGFyZQo+IHwgb2Zm
+aWNpYWxseSBhdmFpbGFibGUgZm9yIHBsYXRmb3JtIHN0YW5kYXJkcyBvciBmb3IgY3VzdG9tIHVz
+ZS4KPiB8IFRoZSBBZHZhbmNlZCBJbnRlcnJ1cHQgQXJjaGl0ZWN0dXJlIGNsYWltcyBmdXJ0aGVy
+IGF1dGhvcml0eSBvdmVyCj4gfCBpZGVudGl0eSBudW1iZXJzIGluIHRoZSByYW5nZXMgMTbigJMy
+MyBhbmQgMzLigJM0NywgbGVhdmluZyBudW1iZXJzIGluIHRoZQo+IHwgcmFuZ2UgMjTigJMzMSBh
+bmQgYWxsIG1ham9yIGlkZW50aXRpZXMgNDggYW5kIGhpZ2hlciBzdGlsbCBmcmVlIGZvciBjdXN0
+b20KPiB8IHVzZS4KPiBJIGRvbid0IHNlZSBob3cgdGhhdCBjYW4gYmUgcHJvYmxlbWF0aWMgZ2l2
+ZW4gdGhlIEFuZGVzIGltcGxlbXRhdGlvbgo+IGRhdGVzIGZyb20gYmVmb3JlIEFJQSB3YXMgYSB0
+aGluZy4gSXQgd291bGQgYmUgc2lsbHkgdG8gc2F5IHRoYXQgYmVjYXVzZQo+IGFuIG9wdGlvbmFs
+IGV4dGVuc2lvbiBsYXRlciBjYW1lIGFsb25nIGFuZCB0b29rIG92ZXIgc29tZXRoaW5nIHByZXZp
+b3VzbHkKPiBhbGxvd2VkIGZvciBpbmRpc2NyaW1pbmF0ZSBjdXN0b20gdXNlLCB0aGF0IHN1cHBv
+cnQgZm9yIHRoYXQgY3VzdG9tCj4gZXh0ZW5zaW9uIGlzIG5vdCBwZXJtaXR0ZWQuCj4KCkFJQSBp
+cyBub3Qgc29tZSBvcHRpb25hbCBleHRlbnNpb24uIEl0IGRlZmluZXMgdGhlIFJJU0MtViBpbnRl
+cnJ1cHQKYXJjaGl0ZWN0dXJlIGdvaW5nIGZvcndhcmQgYW5kIHdpbGwgYmUgdGhlIGRlZmF1bHQg
+aW1wbGVtZW50YXRpb24KaW4gdGhlIGZ1dHVyZS4gSU1PLCB0aGlzIHdpbGwgYmUgYSBzbGlwcGVy
+eSBzbG9wZSBpZiB3ZSBzdGFydApzdXBwb3J0aW5nIGN1c3RvbSBpbXBsZW1lbnRhdGlvbnMgdG8g
+b3ZlcnJpZGUgaW50ZXJydXB0IElEIGRlZmluaXRpb25zCnZpYSBjdXN0b20gY3B1IGZlYXR1cmVz
+LiBULWhlYWQgaW1wbGVtZW50YXRpb24gd29ya3MgcGVyZmVjdGx5IGZpbmUgYXMKYW4gZXJyYXRh
+IGFuZCBJIGRvbid0IHVuZGVyc3RhbmQgd2h5CnRoZXJlIGlzIGEgcHVzaCB0byBtYWtlIGl0IGEg
+Y3B1IGZlYXR1cmUuIFdlIHNob3VsZCB0cnkgdG8gaW1wcm92ZSB0aGUKZWNvc3lzdGVtIGZvciBm
+dXR1cmUgcGxhdGZvcm1zIHJhdGhlciB0aGFuIGJlbmRpbmcKYmFja3dhcmRzIHRvIHN1cHBvcnQg
+b2xkZXIgaW1wbGVtZW50YXRpb25zLgoKSSB1bmRlcnN0YW5kIHRoZSBwdXNoIHRvIGJyYW5kIHRo
+aXMgYXMgYSBjdXN0b20gZXh0ZW5zaW9uIGlmIGN1cnJlbnQKZXJyYXRhL2FsdGVybmF0aXZlIGNh
+bid0IHN1cHBvcnQgaXQuIEJ1dCBJIGRvbid0IHRoaW5rIHRoYXQncyB0aGUgY2FzZQpoZXJlIHRo
+b3VnaC4gUGxlYXNlIGNvcnJlY3QgbWUgaWYgSSBhbSB3cm9uZy4KCj4gSSBtYXkgd2VsbCBiZSBt
+aXNzaW5nIHNvbWV0aGluZyBoZXJlIHRob3VnaCwgeW91IGNsZWFybHkga25vdyB0aGVzZQo+IHNw
+ZWNzIGJldHRlciB0aGFuIEkgZG8sIGJ1dCBmcm9tIHdoYXQgSSBoYXZlIHJlYWQgSSBkaXNhZ3Jl
+ZS4KPgo+ID4gUGxlYXNlIGltcGxlbWVudGF0aW9uIEFuZGVzIFBNVSBzdXBwb3J0IGFzIGFuIGVy
+cmF0YSBhcyB3ZWxsIHNpbWlsYXIgdG8gVC1oZWFkCj4KPiBJIGNlcnRhaW5seSBfZG8gbm90XyB3
+YW50IHRvIHNlZSB0aGluZ3MgbGlrZSB0aGlzIGRldGVjdGVkIHZpYSBsb29rdXAKPiB0YWJsZXMg
+b2YgbWFyY2hpZCBhbmQgY28gaW4gdGhlIGtlcm5lbCB1bmxlc3MgaXQgaXMgYWJzb2x1dGVseSBy
+ZXF1aXJlZC4KPiBXZSBoYXZlIHN0YW5kYXJkIHByb2JpbmcgbWVjaGFuaXNtcyBmb3IgZmVhdHVy
+ZSBkZXRlY3Rpb24gKGJlY2F1c2UgdG8gbWUKPiB0aGlzIF9pc18gYSBmZWF0dXJlKSBhbmQgdGhl
+eSBzaG91bGQgYmUgdXNlZC4gQWRkaXRpb25hbGx5LCB3ZSBkZWZpbmUgd2hhdAo+IGVudHJpZXMg
+aW4gdGhlIERUIHByb3BlcnRpZXMgbWVhbiwgYW5kIGlmIGl0IGlzIGNvbnZlbmllbnQgdG8gcHV0
+Cj4gInBzdWVkbyIgZXh0ZW5zaW9ucyBpbnRvIHRoZSBEVCwgdGhlbiB3ZSBzaG91bGQgZG8gc28u
+IEdldHRpbmcgYXdheSBmcm9tCj4gYmVpbmcgdGllZCB0byB3aGF0IFJWSSBkZWNyZWVzIHdhcyBv
+bmUgb2YgdGhlIGdvYWxzIG9mIHRoZSBuZXcKPiBwcm9wZXJ0aWVzIGFmdGVyIGFsbCwgc28gdGhh
+dCB3ZSBjb3VsZCB1c2UgYSBzdGFuZGFyZCBtZWNoYW5pc20gb2YgRFQKPiBwcm9iaW5nIGZvciB0
+aGluZ3MgbGlrZSB0aGlzLgo+CgpZZXMuIFRoYXQncyBhIHBlcmZlY3RseSB2YWxpZCBtZWNoYW5p
+c20gZm9yIGFjdHVhbCBjdXN0b20vdmVuZG9yIElTQSBleHRlbnNpb25zLgpJJ20gc3VyZSB3ZSds
+bCBoYXZlIG1hbnkgb2YgdGhvc2UsIHdoaWNoIHdpbGwgYmUgbGV2ZXJhZ2VkIHZpYSBwc2V1ZG8K
+ZXh0ZW5zaW9ucyBpbiB0aGUgRFQuCkhvd2V2ZXIsIHRoZXNlIHNob3VsZG4ndCBjby1leGlzdCB3
+aXRoIHN0YW5kYXJkIElTQSBleHRlbnNpb25zIGluIHRoZQpuYW1lc3BhY2UgaW4gcmlzY3ZfaXNh
+X2V4dCBhbmQvb3IgaHdwcm9iZS4KVGhlIHZlbmRvci1zcGVjaWZpYyBleHRlbnNpb25zIHNob3Vs
+ZCBiZSBkZWZpbmVkIHVuZGVyIGEKdmVuZG9yLXNwZWNpZmljIG5hbWVzcGFjZS4KVGhpcyB3YXMg
+YW5vdGhlciBpc3N1ZSB3aXRoIHRoaXMgc2VyaWVzIGFzIHdlbGwuIEkgZGlkbid0IHJhaXNlIHRo
+aXMKdG9waWMgZWFybGllciBiZWNhdXNlIEkgZG9uJ3QgdGhpbmsgb3ZlcnJpZGluZyBpbnRlcnJ1
+cHQKaWRlbnRpdGllcyBxdWFsaWZpZXMgZm9yIGEgY3VzdG9tIElTQSBleHRlbnNpb24KCj4gVGhh
+bmtzLAo+IENvbm9yLgo+Cj4gPiA+IFQtSGVhZCBjb3JlcyBuZWVkIHRvIGFwcGVuZCAieHRoZWFk
+cG11IiB0byB0aGUgcmlzY3YsaXNhLWV4dGVuc2lvbnMKPiA+ID4gZm9yIGVhY2ggY3B1IG5vZGUg
+aW4gZGV2aWNlIHRyZWUsIGFuZCBlbmFibGUgQ09ORklHX1RIRUFEX0NVU1RPTV9QTVUKPiA+ID4g
+Zm9yIHByb3BlciBmdW5jdGlvbmluZyBhcyBvZiB0aGlzIGNvbW1pdC4KPiA+ID4KPiA+ID4gU2ln
+bmVkLW9mZi1ieTogWXUgQ2hpZW4gUGV0ZXIgTGluIDxwZXRlcmxpbkBhbmRlc3RlY2guY29tPgo+
+ID4gPiBSZXZpZXdlZC1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gPiA+IFJldmll
+d2VkLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+ID4gPiAt
+LS0KPiA+ID4gQ2hhbmdlcyB2MSAtPiB2MjoKPiA+ID4gICAtIE5ldyBwYXRjaAo+ID4gPiBDaGFu
+Z2VzIHYyIC0+IHYzOgo+ID4gPiAgIC0gUmVtb3ZlZCBte3ZlbmRvci9hcmNoL2ltcH1pZCBjaGVj
+a3MgaW4gcG11X3NiaV9zZXR1cF9pcnFzKCkKPiA+ID4gQ2hhbmdlcyB2MyAtPiB2NDoKPiA+ID4g
+ICAtIE5vIGNoYW5nZQo+ID4gPiBDaGFuZ2VzIHY0IC0+IHY1Ogo+ID4gPiAgIC0gSW5jbHVkZSBH
+dW8ncyBSZXZpZXdlZC1ieQo+ID4gPiAgIC0gTGV0IFRIRUFEX0NVU1RPTV9QTVUgZGVwZW5kIG9u
+IEFSQ0hfVEhFQUQKPiA+ID4gQ2hhbmdlcyB2NSAtPiB2NjoKPiA+ID4gICAtIEluY2x1ZGUgQ29u
+b3IncyBSZXZpZXdlZC1ieQo+ID4gPiBDaGFuZ2VzIHY2IC0+IHY3Ogo+ID4gPiAgIC0gTm8gY2hh
+bmdlCj4gPiA+IC0tLQo+ID4gPiAgYXJjaC9yaXNjdi9LY29uZmlnLmVycmF0YSAgICAgICAgICAg
+IHwgMTMgLS0tLS0tLS0tLS0tLQo+ID4gPiAgYXJjaC9yaXNjdi9lcnJhdGEvdGhlYWQvZXJyYXRh
+LmMgICAgIHwgMTkgLS0tLS0tLS0tLS0tLS0tLS0tLQo+ID4gPiAgYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9lcnJhdGFfbGlzdC5oIHwgMTUgKy0tLS0tLS0tLS0tLS0tCj4gPiA+ICBhcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2h3Y2FwLmggICAgICAgfCAgMSArCj4gPiA+ICBhcmNoL3Jpc2N2L2tlcm5l
+bC9jcHVmZWF0dXJlLmMgICAgICAgfCAgMSArCj4gPiA+ICBkcml2ZXJzL3BlcmYvS2NvbmZpZyAg
+ICAgICAgICAgICAgICAgfCAxMyArKysrKysrKysrKysrCj4gPiA+ICBkcml2ZXJzL3BlcmYvcmlz
+Y3ZfcG11X3NiaS5jICAgICAgICAgfCAxOSArKysrKysrKysrKysrKy0tLS0tCj4gPiA+ICA3IGZp
+bGVzIGNoYW5nZWQsIDMwIGluc2VydGlvbnMoKyksIDUxIGRlbGV0aW9ucygtKQo+ID4gPgo+ID4g
+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29uZmlnLmVycmF0YSBiL2FyY2gvcmlzY3YvS2Nv
+bmZpZy5lcnJhdGEKPiA+ID4gaW5kZXggZTJjNzMxY2ZlZDhjLi4wZDE5ZjQ3ZDEwMTggMTAwNjQ0
+Cj4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZy5lcnJhdGEKPiA+ID4gKysrIGIvYXJjaC9y
+aXNjdi9LY29uZmlnLmVycmF0YQo+ID4gPiBAQCAtODYsMTcgKzg2LDQgQEAgY29uZmlnIEVSUkFU
+QV9USEVBRF9DTU8KPiA+ID4KPiA+ID4gICAgICAgICAgIElmIHlvdSBkb24ndCBrbm93IHdoYXQg
+dG8gZG8gaGVyZSwgc2F5ICJZIi4KPiA+ID4KPiA+ID4gLWNvbmZpZyBFUlJBVEFfVEhFQURfUE1V
+Cj4gPiA+IC0gICAgICAgYm9vbCAiQXBwbHkgVC1IZWFkIFBNVSBlcnJhdGEiCj4gPiA+IC0gICAg
+ICAgZGVwZW5kcyBvbiBFUlJBVEFfVEhFQUQgJiYgUklTQ1ZfUE1VX1NCSQo+ID4gPiAtICAgICAg
+IGRlZmF1bHQgeQo+ID4gPiAtICAgICAgIGhlbHAKPiA+ID4gLSAgICAgICAgIFRoZSBULUhlYWQg
+Qzl4eCBjb3JlcyBpbXBsZW1lbnQgYSBQTVUgb3ZlcmZsb3cgZXh0ZW5zaW9uIHZlcnkKPiA+ID4g
+LSAgICAgICAgIHNpbWlsYXIgdG8gdGhlIGNvcmUgU1NDT0ZQTUYgZXh0ZW5zaW9uLgo+ID4gPiAt
+Cj4gPiA+IC0gICAgICAgICBUaGlzIHdpbGwgYXBwbHkgdGhlIG92ZXJmbG93IGVycmF0YSB0byBo
+YW5kbGUgdGhlIG5vbi1zdGFuZGFyZAo+ID4gPiAtICAgICAgICAgYmVoYXZpb3VyIHZpYSB0aGUg
+cmVndWxhciBTQkkgUE1VIGRyaXZlciBhbmQgaW50ZXJmYWNlLgo+ID4gPiAtCj4gPiA+IC0gICAg
+ICAgICBJZiB5b3UgZG9uJ3Qga25vdyB3aGF0IHRvIGRvIGhlcmUsIHNheSAiWSIuCj4gPiA+IC0K
+PiA+ID4gIGVuZG1lbnUgIyAiQ1BVIGVycmF0YSBzZWxlY3Rpb24iCj4gPiA+IGRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L2VycmF0YS90aGVhZC9lcnJhdGEuYyBiL2FyY2gvcmlzY3YvZXJyYXRhL3Ro
+ZWFkL2VycmF0YS5jCj4gPiA+IGluZGV4IDA1NTRlZDRiZjA4Ny4uNWRlNWY3MjA5MTMyIDEwMDY0
+NAo+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L2VycmF0YS90aGVhZC9lcnJhdGEuYwo+ID4gPiArKysg
+Yi9hcmNoL3Jpc2N2L2VycmF0YS90aGVhZC9lcnJhdGEuYwo+ID4gPiBAQCAtNTMsMjIgKzUzLDYg
+QEAgc3RhdGljIGJvb2wgZXJyYXRhX3Byb2JlX2Ntbyh1bnNpZ25lZCBpbnQgc3RhZ2UsCj4gPiA+
+ICAgICAgICAgcmV0dXJuIHRydWU7Cj4gPiA+ICB9Cj4gPiA+Cj4gPiA+IC1zdGF0aWMgYm9vbCBl
+cnJhdGFfcHJvYmVfcG11KHVuc2lnbmVkIGludCBzdGFnZSwKPiA+ID4gLSAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIGFyY2hfaWQsIHVuc2lnbmVkIGxvbmcgaW1waWQp
+Cj4gPiA+IC17Cj4gPiA+IC0gICAgICAgaWYgKCFJU19FTkFCTEVEKENPTkZJR19FUlJBVEFfVEhF
+QURfUE1VKSkKPiA+ID4gLSAgICAgICAgICAgICAgIHJldHVybiBmYWxzZTsKPiA+ID4gLQo+ID4g
+PiAtICAgICAgIC8qIHRhcmdldC1jOXh4IGNvcmVzIHJlcG9ydCBhcmNoX2lkIGFuZCBpbXBpZCBh
+cyAwICovCj4gPiA+IC0gICAgICAgaWYgKGFyY2hfaWQgIT0gMCB8fCBpbXBpZCAhPSAwKQo+ID4g
+PiAtICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwo+ID4gPiAtCj4gPiA+IC0gICAgICAgaWYg
+KHN0YWdlID09IFJJU0NWX0FMVEVSTkFUSVZFU19FQVJMWV9CT09UKQo+ID4gPiAtICAgICAgICAg
+ICAgICAgcmV0dXJuIGZhbHNlOwo+ID4gPiAtCj4gPiA+IC0gICAgICAgcmV0dXJuIHRydWU7Cj4g
+PiA+IC19Cj4gPiA+IC0KPiA+ID4gIHN0YXRpYyB1MzIgdGhlYWRfZXJyYXRhX3Byb2JlKHVuc2ln
+bmVkIGludCBzdGFnZSwKPiA+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWdu
+ZWQgbG9uZyBhcmNoaWQsIHVuc2lnbmVkIGxvbmcgaW1waWQpCj4gPiA+ICB7Cj4gPiA+IEBAIC04
+MCw5ICs2NCw2IEBAIHN0YXRpYyB1MzIgdGhlYWRfZXJyYXRhX3Byb2JlKHVuc2lnbmVkIGludCBz
+dGFnZSwKPiA+ID4gICAgICAgICBpZiAoZXJyYXRhX3Byb2JlX2NtbyhzdGFnZSwgYXJjaGlkLCBp
+bXBpZCkpCj4gPiA+ICAgICAgICAgICAgICAgICBjcHVfcmVxX2VycmF0YSB8PSBCSVQoRVJSQVRB
+X1RIRUFEX0NNTyk7Cj4gPiA+Cj4gPiA+IC0gICAgICAgaWYgKGVycmF0YV9wcm9iZV9wbXUoc3Rh
+Z2UsIGFyY2hpZCwgaW1waWQpKQo+ID4gPiAtICAgICAgICAgICAgICAgY3B1X3JlcV9lcnJhdGEg
+fD0gQklUKEVSUkFUQV9USEVBRF9QTVUpOwo+ID4gPiAtCj4gPiA+ICAgICAgICAgcmV0dXJuIGNw
+dV9yZXFfZXJyYXRhOwo+ID4gPiAgfQo+ID4gPgo+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJh
+dGFfbGlzdC5oCj4gPiA+IGluZGV4IDRlZDIxYTYyMTU4Yy4uOWJjY2MyYmEwZWI1IDEwMDY0NAo+
+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VycmF0YV9saXN0LmgKPiA+ID4gKysr
+IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oCj4gPiA+IEBAIC0yNSw4ICsy
+NSw3IEBACj4gPiA+ICAjaWZkZWYgQ09ORklHX0VSUkFUQV9USEVBRAo+ID4gPiAgI2RlZmluZSAg
+ICAgICAgRVJSQVRBX1RIRUFEX1BCTVQgMAo+ID4gPiAgI2RlZmluZSAgICAgICAgRVJSQVRBX1RI
+RUFEX0NNTyAxCj4gPiA+IC0jZGVmaW5lICAgICAgICBFUlJBVEFfVEhFQURfUE1VIDIKPiA+ID4g
+LSNkZWZpbmUgICAgICAgIEVSUkFUQV9USEVBRF9OVU1CRVIgMwo+ID4gPiArI2RlZmluZSAgICAg
+ICAgRVJSQVRBX1RIRUFEX05VTUJFUiAyCj4gPiA+ICAjZW5kaWYKPiA+ID4KPiA+ID4gICNpZmRl
+ZiBfX0FTU0VNQkxZX18KPiA+ID4gQEAgLTE0NywxOCArMTQ2LDYgQEAgYXNtIHZvbGF0aWxlKEFM
+VEVSTkFUSVZFXzIoICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgXAo+ID4gPiAgICAgICAgICAgICAiciIoKHVuc2lnbmVkIGxvbmcpKF9zdGFydCkgKyAoX3Np
+emUpKSAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICAgICAgICAgOiAiYTAiKQo+ID4gPgo+
+ID4gPiAtI2RlZmluZSBUSEVBRF9DOVhYX1JWX0lSUV9QTVUgICAgICAgICAgICAgICAgICAxNwo+
+ID4gPiAtI2RlZmluZSBUSEVBRF9DOVhYX0NTUl9TQ09VTlRFUk9GICAgICAgICAgICAgICAweDVj
+NQo+ID4gPiAtCj4gPiA+IC0jZGVmaW5lIEFMVF9TQklfUE1VX09WRVJGTE9XKF9fb3ZsKSAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gLWFzbSB2b2xhdGlsZShBTFRF
+Uk5BVElWRSggICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+
+ID4gPiAtICAgICAgICJjc3JyICUwLCAiIF9fc3RyaW5naWZ5KENTUl9TU0NPVU5UT1ZGKSwgICAg
+ICAgICAgICAgICAgICAgICAgICBcCj4gPiA+IC0gICAgICAgImNzcnIgJTAsICIgX19zdHJpbmdp
+ZnkoVEhFQURfQzlYWF9DU1JfU0NPVU5URVJPRiksICAgICAgICAgICAgIFwKPiA+ID4gLSAgICAg
+ICAgICAgICAgIFRIRUFEX1ZFTkRPUl9JRCwgRVJSQVRBX1RIRUFEX1BNVSwgICAgICAgICAgICAg
+ICAgICAgICAgXAo+ID4gPiAtICAgICAgICAgICAgICAgQ09ORklHX0VSUkFUQV9USEVBRF9QTVUp
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+IC0gICAgICAgOiAiPXIiIChf
+X292bCkgOiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwK
+PiA+ID4gLSAgICAgICA6ICJtZW1vcnkiKQo+ID4gPiAtCj4gPiA+ICAjZW5kaWYgLyogX19BU1NF
+TUJMWV9fICovCj4gPiA+Cj4gPiA+ICAjZW5kaWYKPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20vaHdjYXAuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+
+ID4gPiBpbmRleCA1MzQwZjgxODc0NmIuLjQ4MGY5ZGE3ZmJhNyAxMDA2NDQKPiA+ID4gLS0tIGEv
+YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vaHdjYXAuaAo+ID4gPiBAQCAtODAsNiArODAsNyBAQAo+ID4gPiAgI2RlZmluZSBS
+SVNDVl9JU0FfRVhUX1pGQSAgICAgICAgICAgICAgNzEKPiA+ID4gICNkZWZpbmUgUklTQ1ZfSVNB
+X0VYVF9aVFNPICAgICAgICAgICAgIDcyCj4gPiA+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWkFD
+QVMgICAgICAgICAgICA3Mwo+ID4gPiArI2RlZmluZSBSSVNDVl9JU0FfRVhUX1hUSEVBRFBNVSAg
+ICAgICAgICAgICAgICA3NAo+ID4gPgo+ID4gPiAgI2RlZmluZSBSSVNDVl9JU0FfRVhUX01BWCAg
+ICAgICAgICAgICAgMTI4Cj4gPiA+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfSU5WQUxJRCAgICAg
+ICAgICBVMzJfTUFYCj4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0
+dXJlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiA+ID4gaW5kZXggZTMyNTkx
+ZTlkYTkwLi40YWRlZDViZjhmYzMgMTAwNjQ0Cj4gPiA+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVs
+L2NwdWZlYXR1cmUuYwo+ID4gPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMK
+PiA+ID4gQEAgLTMwMyw2ICszMDMsNyBAQCBjb25zdCBzdHJ1Y3QgcmlzY3ZfaXNhX2V4dF9kYXRh
+IHJpc2N2X2lzYV9leHRbXSA9IHsKPiA+ID4gICAgICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQShz
+dmludmFsLCBSSVNDVl9JU0FfRVhUX1NWSU5WQUwpLAo+ID4gPiAgICAgICAgIF9fUklTQ1ZfSVNB
+X0VYVF9EQVRBKHN2bmFwb3QsIFJJU0NWX0lTQV9FWFRfU1ZOQVBPVCksCj4gPiA+ICAgICAgICAg
+X19SSVNDVl9JU0FfRVhUX0RBVEEoc3ZwYm10LCBSSVNDVl9JU0FfRVhUX1NWUEJNVCksCj4gPiA+
+ICsgICAgICAgX19SSVNDVl9JU0FfRVhUX0RBVEEoeHRoZWFkcG11LCBSSVNDVl9JU0FfRVhUX1hU
+SEVBRFBNVSksCj4gPiA+ICB9Owo+ID4gPgo+ID4gPiAgY29uc3Qgc2l6ZV90IHJpc2N2X2lzYV9l
+eHRfY291bnQgPSBBUlJBWV9TSVpFKHJpc2N2X2lzYV9leHQpOwo+ID4gPiBkaWZmIC0tZ2l0IGEv
+ZHJpdmVycy9wZXJmL0tjb25maWcgYi9kcml2ZXJzL3BlcmYvS2NvbmZpZwo+ID4gPiBpbmRleCAy
+NzNkNjdlY2Y2ZDIuLjZjZWYxNWVjN2MyNSAxMDA2NDQKPiA+ID4gLS0tIGEvZHJpdmVycy9wZXJm
+L0tjb25maWcKPiA+ID4gKysrIGIvZHJpdmVycy9wZXJmL0tjb25maWcKPiA+ID4gQEAgLTg2LDYg
+Kzg2LDE5IEBAIGNvbmZpZyBSSVNDVl9QTVVfU0JJCj4gPiA+ICAgICAgICAgICBmdWxsIHBlcmYg
+ZmVhdHVyZSBzdXBwb3J0IGkuZS4gY291bnRlciBvdmVyZmxvdywgcHJpdmlsZWdlIG1vZGUKPiA+
+ID4gICAgICAgICAgIGZpbHRlcmluZywgY291bnRlciBjb25maWd1cmF0aW9uLgo+ID4gPgo+ID4g
+PiArY29uZmlnIFRIRUFEX0NVU1RPTV9QTVUKPiA+ID4gKyAgICAgICBib29sICJULUhlYWQgY3Vz
+dG9tIFBNVSBzdXBwb3J0Igo+ID4gPiArICAgICAgIGRlcGVuZHMgb24gQVJDSF9USEVBRCAmJiBS
+SVNDVl9BTFRFUk5BVElWRSAmJiBSSVNDVl9QTVVfU0JJCj4gPiA+ICsgICAgICAgZGVmYXVsdCB5
+Cj4gPiA+ICsgICAgICAgaGVscAo+ID4gPiArICAgICAgICAgVGhlIFQtSGVhZCBDOXh4IGNvcmVz
+IGltcGxlbWVudCBhIFBNVSBvdmVyZmxvdyBleHRlbnNpb24gdmVyeQo+ID4gPiArICAgICAgICAg
+c2ltaWxhciB0byB0aGUgY29yZSBTU0NPRlBNRiBleHRlbnNpb24uCj4gPiA+ICsKPiA+ID4gKyAg
+ICAgICAgIFRoaXMgd2lsbCBwYXRjaCB0aGUgb3ZlcmZsb3cgQ1NSIGFuZCBoYW5kbGUgdGhlIG5v
+bi1zdGFuZGFyZAo+ID4gPiArICAgICAgICAgYmVoYXZpb3VyIHZpYSB0aGUgcmVndWxhciBTQkkg
+UE1VIGRyaXZlciBhbmQgaW50ZXJmYWNlLgo+ID4gPiArCj4gPiA+ICsgICAgICAgICBJZiB5b3Ug
+ZG9uJ3Qga25vdyB3aGF0IHRvIGRvIGhlcmUsIHNheSAiWSIuCj4gPiA+ICsKPiA+ID4gIGNvbmZp
+ZyBBUk1fUE1VX0FDUEkKPiA+ID4gICAgICAgICBkZXBlbmRzIG9uIEFSTV9QTVUgJiYgQUNQSQo+
+ID4gPiAgICAgICAgIGRlZl9ib29sIHkKPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcGVyZi9y
+aXNjdl9wbXVfc2JpLmMgYi9kcml2ZXJzL3BlcmYvcmlzY3ZfcG11X3NiaS5jCj4gPiA+IGluZGV4
+IDJlZGJjMzdhYmFkZi4uMzFjYTc5ODQ2Mzk5IDEwMDY0NAo+ID4gPiAtLS0gYS9kcml2ZXJzL3Bl
+cmYvcmlzY3ZfcG11X3NiaS5jCj4gPiA+ICsrKyBiL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXVfc2Jp
+LmMKPiA+ID4gQEAgLTIwLDEwICsyMCwyMSBAQAo+ID4gPiAgI2luY2x1ZGUgPGxpbnV4L2NwdV9w
+bS5oPgo+ID4gPiAgI2luY2x1ZGUgPGxpbnV4L3NjaGVkL2Nsb2NrLmg+Cj4gPiA+Cj4gPiA+IC0j
+aW5jbHVkZSA8YXNtL2VycmF0YV9saXN0Lmg+Cj4gPiA+ICAjaW5jbHVkZSA8YXNtL3NiaS5oPgo+
+ID4gPiAgI2luY2x1ZGUgPGFzbS9jcHVmZWF0dXJlLmg+Cj4gPiA+Cj4gPiA+ICsjZGVmaW5lIFRI
+RUFEX0M5WFhfUlZfSVJRX1BNVSAgICAgICAgICAxNwo+ID4gPiArI2RlZmluZSBUSEVBRF9DOVhY
+X0NTUl9TQ09VTlRFUk9GICAgICAgMHg1YzUKPiA+ID4gKwo+ID4gPiArI2RlZmluZSBBTFRfU0JJ
+X1BNVV9PVkVSRkxPVyhfX292bCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBc
+Cj4gPiA+ICthc20gdm9sYXRpbGUoQUxURVJOQVRJVkUoICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAiY3NyciAlMCwgIiBfX3N0cmlu
+Z2lmeShDU1JfU1NDT1VOVE9WRiksICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiArICAg
+ICAgICJjc3JyICUwLCAiIF9fc3RyaW5naWZ5KFRIRUFEX0M5WFhfQ1NSX1NDT1VOVEVST0YpLCAg
+ICAgICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICAwLCBSSVNDVl9JU0FfRVhUX1hUSEVB
+RFBNVSwgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAg
+IENPTkZJR19USEVBRF9DVVNUT01fUE1VKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+XAo+ID4gPiArICAgICAgIDogIj1yIiAoX19vdmwpIDogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICsgICAgICAgOiAibWVtb3J5IikKPiA+ID4g
+Kwo+ID4gPiAgI2RlZmluZSBTWVNDVExfTk9fVVNFUl9BQ0NFU1MgIDAKPiA+ID4gICNkZWZpbmUg
+U1lTQ1RMX1VTRVJfQUNDRVNTICAgICAxCj4gPiA+ICAjZGVmaW5lIFNZU0NUTF9MRUdBQ1kgICAg
+ICAgICAgMgo+ID4gPiBAQCAtODA4LDEwICs4MTksOCBAQCBzdGF0aWMgaW50IHBtdV9zYmlfc2V0
+dXBfaXJxcyhzdHJ1Y3QgcmlzY3ZfcG11ICpwbXUsIHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBk
+ZQo+ID4gPiAgICAgICAgIGlmIChyaXNjdl9pc2FfZXh0ZW5zaW9uX2F2YWlsYWJsZShOVUxMLCBT
+U0NPRlBNRikpIHsKPiA+ID4gICAgICAgICAgICAgICAgIHJpc2N2X3BtdV9pcnFfbnVtID0gUlZf
+SVJRX1BNVTsKPiA+ID4gICAgICAgICAgICAgICAgIHJpc2N2X3BtdV91c2VfaXJxID0gdHJ1ZTsK
+PiA+ID4gLSAgICAgICB9IGVsc2UgaWYgKElTX0VOQUJMRUQoQ09ORklHX0VSUkFUQV9USEVBRF9Q
+TVUpICYmCj4gPiA+IC0gICAgICAgICAgICAgICAgICByaXNjdl9jYWNoZWRfbXZlbmRvcmlkKDAp
+ID09IFRIRUFEX1ZFTkRPUl9JRCAmJgo+ID4gPiAtICAgICAgICAgICAgICAgICAgcmlzY3ZfY2Fj
+aGVkX21hcmNoaWQoMCkgPT0gMCAmJgo+ID4gPiAtICAgICAgICAgICAgICAgICAgcmlzY3ZfY2Fj
+aGVkX21pbXBpZCgwKSA9PSAwKSB7Cj4gPiA+ICsgICAgICAgfSBlbHNlIGlmIChyaXNjdl9pc2Ff
+ZXh0ZW5zaW9uX2F2YWlsYWJsZShOVUxMLCBYVEhFQURQTVUpICYmCj4gPiA+ICsgICAgICAgICAg
+ICAgICAgICBJU19FTkFCTEVEKENPTkZJR19USEVBRF9DVVNUT01fUE1VKSkgewo+ID4gPiAgICAg
+ICAgICAgICAgICAgcmlzY3ZfcG11X2lycV9udW0gPSBUSEVBRF9DOVhYX1JWX0lSUV9QTVU7Cj4g
+PiA+ICAgICAgICAgICAgICAgICByaXNjdl9wbXVfdXNlX2lycSA9IHRydWU7Cj4gPiA+ICAgICAg
+ICAgfQo+ID4gPiAtLQo+ID4gPiAyLjM0LjEKPiA+ID4KPiA+Cj4gPgo+ID4gLS0KPiA+IFJlZ2Fy
+ZHMsCj4gPiBBdGlzaAoKCgotLSAKUmVnYXJkcywKQXRpc2gKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
