@@ -4,87 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB621C47422
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jan 2024 21:54:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BD0C47422
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jan 2024 22:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JecznpbjI0/NvaGoMLwxUh2AJOcx0hxx/WUmyhYULRE=; b=Va6iyv10Q5UASO
-	8O2onnZKxm6eu5/arFeDcUEbZB9+aweMj64xFb5FF4OyHQqHjOfbOkePLtSfwGv+4An1i+okYxA7U
-	PM9UxU5rs7/UUG25pVpH3pDcKEAAimGJuyALxikhSQiUTqq00JPsKk9BTN/jR3a14cPLzPr6lobds
-	xHqUUZyr8wFMwpBFmcdjzWE5QwpfKncN+eSl7N8BdDSNPfwhRtBvQj/ncgWWwfPxfeOR8FH3r4vT8
-	hrDi+Yn9qWCbdpa2uEDj9LtiG2w9JwMsJ5VXnmpC3j6X5dkRyZdhkbTyzrbO4iLfNmUwiQcYX2bnr
-	G6FTGT7eQsxMaS9mKvPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8PB3Eyfudjwk7eGCOtfLeGJfiq8dRHZAmc0hyqS8sM4=; b=M+xeiP5rB6OYePXMS73unUKAll
+	PYNej24mcXpy42eVwaF1BsLUBnAc4VDjnHXmKWDo5icmQBNldPfqU35QW620ITGnjo0hOHX9n77wL
+	w5f6YkzjVaskQ9UjkZXRuKRCQVLiAjUdbb5JP5qULWWtp9JuiJmVDmVLagKYjCfER5MY1hzExUftf
+	YkJyQf79hZbMytAzKY2/NkCt8WYcKESEACrauikrZqNSmpnkOIw1L0C2sRVNlYok3c+3hw1LAuelB
+	ZfGr4DAjBkYXrLo3XRnyxMrJnKwERzb3lS24PY/Gk0MgU7Q7JFeIgd+depHqdSQovukEba+7eLGbx
+	lGDBG5kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQaKs-003wvF-2X;
-	Thu, 18 Jan 2024 21:54:06 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1rQaWH-003xxo-2s;
+	Thu, 18 Jan 2024 22:05:53 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQaKp-003wu7-24
+	id 1rQaWE-003xxS-2m
 	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jan 2024 21:54:05 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-6d9344f30caso117319b3a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Jan 2024 13:54:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1705614841; x=1706219641; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1ykJGA57/c6XjRX+/wiozqy8iJ6Vsrt2RLKtiLpKiLM=;
-        b=ehQ8fAvT3817/XTE7vNL7i5L1JsExQ24Lp6BuiV4PV0GkrH0SZtkPjeQSBAB8lqU49
-         qXSjJW1VjwvWlTQuky3egxhewA1JkdMqG/m1BcHKUfJavYNjlFvCbDMhkp0siJdoOoHa
-         VaMp/kHmQX0Tiz/Y9MaparCNMDRCUdHIfsJErSMZoccaU+mO51cjuNklfUVWrGVdipyR
-         yiRD+P94P/qYxtedP/vBRU07uD1rE9/pTeIMp5TX/XN6o0blyGlNfC7hZsWQGZXSvK5Q
-         kz8ip6/thYV0ouQDSNJh8lR/F8cJ+2N+6RYzhf36iUnd1lkLihUmFaZjNpG/sooOh2Q6
-         AWgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705614841; x=1706219641;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1ykJGA57/c6XjRX+/wiozqy8iJ6Vsrt2RLKtiLpKiLM=;
-        b=LTQIvzmjSLRJP1Na+j14Lfo0zeg3s4w5IHTiB0zjb/9n7DucgERVP8Ny30D3DyTpUw
-         vEc0MPW2Z+wPpBvXoghDNku7il/7xJV+9UTdVGgGmHFe0t2VsR4C1655+dqln0OaEBSL
-         5gxibcFMazEzD5U9hZ8WN75uaQcKuiNiU/r2sm+E73xYWHa9Z1SP+4Fkfi1bE37ZkOYQ
-         pBqUrpm6P0y3vBhwVWCHw1ndTtUHPOozmKgd3DRbEam5Bx/lE0NoQSjenNf6G3UwCZ8/
-         uoFY2Xiv+Y2SrgF6EYtXFmJ5yE33mKEeen9McAxR9/4hUhmvT7KkOwbQle7f67lGon+C
-         0UnA==
-X-Gm-Message-State: AOJu0YyNlIGHoIVF9xpE1oX2l1pyYcidY2reqcoJyeOtQEK2tk/5LeVB
-	m+LSH8sfXtDiYlk0qS7aM0f+dX97vspm8yd+lGMEBixGjCMd2J7pQz0diAGLkqk=
-X-Google-Smtp-Source: AGHT+IFmbmT0nzrJVhkhIeOG1uqqUQ5TnTG1pxSQSR5fbID+PWzb61gZ7b9wYB/SkmypR7VVqfsHEA==
-X-Received: by 2002:a05:6a20:2dc:b0:19b:1da4:8dc with SMTP id 28-20020a056a2002dc00b0019b1da408dcmr18728pzb.34.1705614841620;
-        Thu, 18 Jan 2024 13:54:01 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id j15-20020aa78d0f000000b006d9c7f2840bsm3771459pfe.57.2024.01.18.13.54.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Jan 2024 13:54:01 -0800 (PST)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 18 Jan 2024 13:53:59 -0800
-Subject: [PATCH] riscv: lib: Support csum on GCC <11
+	Thu, 18 Jan 2024 22:05:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 2E0A2CE1ADF;
+	Thu, 18 Jan 2024 22:05:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F037FC433F1;
+	Thu, 18 Jan 2024 22:05:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1705615548;
+	bh=Q+pX89EmEj04h50yCe1VL5XHOahd2MD8MrvKmiempYg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CNbE/DSA1PztMn+pO4MdBoIICDaUBsbIzCzZ5Ac2UfyLf55lezcOOFY7ENy72YJpg
+	 MhPRW9MlcVv7fNBgw8f79OkTk1f2hhznZ8mRS7I5NCTZRGNvj2y1PnpA+zat0ixpY/
+	 sbc2viqRM4rc3odbhaV1BzoU4sBZInarilSrdEbWjZFc7tbpJetoB+mWJO0Q/tAbZI
+	 UNWoim7wx/kNmm1Zm063ZwaptO0ZqPIWd/CKQhmdFfA+h+1WjdL+s4eqmhyBNlxuEX
+	 /Jv6nGR599BKQcVdICb/tSbvW2QUlRMAEdpquDX94FkGKC2XeF01l2KIzUfCdYzYLL
+	 24vWRWGr/YFHg==
+Date: Thu, 18 Jan 2024 22:05:44 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: lib: Support csum on GCC <11
+Message-ID: <20240118-museum-ample-11d649f95de8@spud>
+References: <20240118-csum_remove_output_operands_asm_goto-v1-1-47c672bb9d4b@rivosinc.com>
 MIME-Version: 1.0
-Message-Id: <20240118-csum_remove_output_operands_asm_goto-v1-1-47c672bb9d4b@rivosinc.com>
-X-B4-Tracking: v=1; b=H4sIAPadqWUC/x3NQQrDIBBA0auEWVfIiNCmVylFxEzTWeiIoyEQc
- vdKl2/z/wlKlUnhOZ1QaWdlyQN4myB+Q97I8DoMdrZuRnyYqD35Skl28tJb6c1LoRryqj5o8ps
- 0MW5ZrI3oMNIdRqpU+vDx37ze1/UDe5WzqHYAAAA=
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1705614840; l=2787;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=0OLoge7JRZVK/JTs8M53rSZCOS6zKNIvbnryNlKfkNs=;
- b=dJpuJl1dFpZjTsUOyTWIxBNNNkZvncdUMycB4TzPg8EkchYbaXeZWzM0gJrYusU4KUPaoHcVO
- XLWURTe24UwBbkRTIcQdUzshBpJFlZdeoMxWOC8rVKRzmO3g1hoiBq2
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
+In-Reply-To: <20240118-csum_remove_output_operands_asm_goto-v1-1-47c672bb9d4b@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240118_135403_682601_3FA7F5FB 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240118_140551_272449_D41CAC06 
+X-CRM114-Status: GOOD (  20.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,105 +68,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5254807180118039596=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The OutputOperands field for asm goto statements is only supported
-starting from GCC 11. Split the asm goto to remove the use of this
-feature.
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Fixes: a04c192eabfb ("riscv: Add checksum library")
----
-The OutputOperands field for asm goto statements is only supported
-starting from GCC 11. Split the asm goto to remove the use of this
-feature.
----
- arch/riscv/lib/csum.c | 42 ++++++++++++++++++++++++++++++------------
- 1 file changed, 30 insertions(+), 12 deletions(-)
+--===============5254807180118039596==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="pl1prUg+ekIn2nNV"
+Content-Disposition: inline
 
-diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
-index 06ce8e7250d9..23be289f52b6 100644
---- a/arch/riscv/lib/csum.c
-+++ b/arch/riscv/lib/csum.c
-@@ -177,22 +177,35 @@ do_csum_with_alignment(const unsigned char *buff, int len)
- 				  : no_zbb);
- 
- #ifdef CONFIG_32BIT
--		asm_volatile_goto(".option push			\n\
-+		/*
-+		 * OutputOperands in asm goto is not supported until GCC 11, so
-+		 * this asm has to be split to be compatible.
-+		 */
-+		asm (".option push				\n\
- 		.option arch,+zbb				\n\
- 			rori	%[fold_temp], %[csum], 16	\n\
- 			andi	%[offset], %[offset], 1		\n\
- 			add	%[csum], %[fold_temp], %[csum]	\n\
--			beq	%[offset], zero, %l[end]	\n\
--			rev8	%[csum], %[csum]		\n\
- 		.option pop"
- 			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp)
--			: [offset] "r" (offset)
--			:
--			: end);
-+			: [offset] "r" (offset));
-+
-+		if (offset == 0)
-+			goto end;
-+
-+		asm (".option push				\n\
-+		.option arch, +zbb				\n\
-+			rev8	%[csum], %[csum]		\n\
-+		.option pop"
-+			: [csum] "+r" (csum));
- 
- 		return (unsigned short)csum;
- #else /* !CONFIG_32BIT */
--		asm_volatile_goto(".option push			\n\
-+		/*
-+		 * OutputOperands in asm goto is not supported until GCC 11, so
-+		 * this asm has to be split to be compatible.
-+		 */
-+		asm (".option push				\n\
- 		.option arch,+zbb				\n\
- 			rori	%[fold_temp], %[csum], 32	\n\
- 			add	%[csum], %[fold_temp], %[csum]	\n\
-@@ -200,13 +213,18 @@ do_csum_with_alignment(const unsigned char *buff, int len)
- 			roriw	%[fold_temp], %[csum], 16	\n\
- 			addw	%[csum], %[fold_temp], %[csum]	\n\
- 			andi	%[offset], %[offset], 1		\n\
--			beq	%[offset], zero, %l[end]	\n\
--			rev8	%[csum], %[csum]		\n\
- 		.option pop"
- 			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp)
--			: [offset] "r" (offset)
--			:
--			: end);
-+			: [offset] "r" (offset));
-+
-+		if (offset == 0)
-+			goto end;
-+
-+		asm (".option push				\n\
-+		.option arch, +zbb				\n\
-+			rev8	%[csum], %[csum]		\n\
-+		.option pop"
-+			: [csum] "+r" (csum));
- 
- 		return (csum << 16) >> 48;
- #endif /* !CONFIG_32BIT */
 
----
-base-commit: 080c4324fa5e81ff3780206a138223abfb57a68e
-change-id: 20240118-csum_remove_output_operands_asm_goto-49922c141ce7
--- 
-- Charlie
+--pl1prUg+ekIn2nNV
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Thu, Jan 18, 2024 at 01:53:59PM -0800, Charlie Jenkins wrote:
+> The OutputOperands field for asm goto statements is only supported
+> starting from GCC 11. Split the asm goto to remove the use of this
+> feature.
+>=20
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> Fixes: a04c192eabfb ("riscv: Add checksum library")
+> ---
+> The OutputOperands field for asm goto statements is only supported
+> starting from GCC 11. Split the asm goto to remove the use of this
+> feature.
+
+Maybe this is a super naive question, but is it possible to just not
+use the custom csum code for gcc older than 11?
+
+> ---
+>  arch/riscv/lib/csum.c | 42 ++++++++++++++++++++++++++++++------------
+>  1 file changed, 30 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
+> index 06ce8e7250d9..23be289f52b6 100644
+> --- a/arch/riscv/lib/csum.c
+> +++ b/arch/riscv/lib/csum.c
+> @@ -177,22 +177,35 @@ do_csum_with_alignment(const unsigned char *buff, i=
+nt len)
+>  				  : no_zbb);
+> =20
+>  #ifdef CONFIG_32BIT
+> -		asm_volatile_goto(".option push			\n\
+> +		/*
+> +		 * OutputOperands in asm goto is not supported until GCC 11, so
+> +		 * this asm has to be split to be compatible.
+> +		 */
+> +		asm (".option push				\n\
+>  		.option arch,+zbb				\n\
+>  			rori	%[fold_temp], %[csum], 16	\n\
+>  			andi	%[offset], %[offset], 1		\n\
+>  			add	%[csum], %[fold_temp], %[csum]	\n\
+> -			beq	%[offset], zero, %l[end]	\n\
+> -			rev8	%[csum], %[csum]		\n\
+>  		.option pop"
+>  			: [csum] "+r" (csum), [fold_temp] "=3D&r" (fold_temp)
+> -			: [offset] "r" (offset)
+> -			:
+> -			: end);
+> +			: [offset] "r" (offset));
+> +
+> +		if (offset =3D=3D 0)
+> +			goto end;
+> +
+> +		asm (".option push				\n\
+> +		.option arch, +zbb				\n\
+> +			rev8	%[csum], %[csum]		\n\
+> +		.option pop"
+> +			: [csum] "+r" (csum));
+> =20
+>  		return (unsigned short)csum;
+>  #else /* !CONFIG_32BIT */
+> -		asm_volatile_goto(".option push			\n\
+> +		/*
+> +		 * OutputOperands in asm goto is not supported until GCC 11, so
+> +		 * this asm has to be split to be compatible.
+> +		 */
+> +		asm (".option push				\n\
+>  		.option arch,+zbb				\n\
+>  			rori	%[fold_temp], %[csum], 32	\n\
+>  			add	%[csum], %[fold_temp], %[csum]	\n\
+> @@ -200,13 +213,18 @@ do_csum_with_alignment(const unsigned char *buff, i=
+nt len)
+>  			roriw	%[fold_temp], %[csum], 16	\n\
+>  			addw	%[csum], %[fold_temp], %[csum]	\n\
+>  			andi	%[offset], %[offset], 1		\n\
+> -			beq	%[offset], zero, %l[end]	\n\
+> -			rev8	%[csum], %[csum]		\n\
+>  		.option pop"
+>  			: [csum] "+r" (csum), [fold_temp] "=3D&r" (fold_temp)
+> -			: [offset] "r" (offset)
+> -			:
+> -			: end);
+> +			: [offset] "r" (offset));
+> +
+> +		if (offset =3D=3D 0)
+> +			goto end;
+> +
+> +		asm (".option push				\n\
+> +		.option arch, +zbb				\n\
+> +			rev8	%[csum], %[csum]		\n\
+> +		.option pop"
+> +			: [csum] "+r" (csum));
+> =20
+>  		return (csum << 16) >> 48;
+>  #endif /* !CONFIG_32BIT */
+>=20
+> ---
+> base-commit: 080c4324fa5e81ff3780206a138223abfb57a68e
+> change-id: 20240118-csum_remove_output_operands_asm_goto-49922c141ce7
+> --=20
+> - Charlie
+>=20
+>=20
+
+--pl1prUg+ekIn2nNV
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZamguAAKCRB4tDGHoIJi
+0piAAP43AO2qeJIkMIMNCYDRVUHlOx4Fd4fKJBeaGX7Pc1EjlQD+Klh3LfS4rMLi
+BXwU/T016C4F2KPCyItXgiwTbGy4SwU=
+=Yi8l
+-----END PGP SIGNATURE-----
+
+--pl1prUg+ekIn2nNV--
+
+
+--===============5254807180118039596==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5254807180118039596==--
+
