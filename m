@@ -4,79 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C06BC47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jan 2024 02:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9019C47258
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Jan 2024 03:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Ryp0Q08GSJFrPYMwkpwIBXMIYWjcPN84pOCenYI3L/I=; b=v/D0r7DIv4sOcFHzaUVY7CYlkz
-	AT+HOQHRAv9vTMQSAQTCYyz+UDe8tZg/+jhK4A+v21yiosg/VB2KQgxl91AL8yCEVRJqnv2r8qdkf
-	qFPe5EFtY2eBpsg1kXgiicvJS9AqPHEBOvrALFa7hzMKeMjV72X2Y6Bq3adAbKlju3gzQGRu/aygk
-	JIuodKQRoeVM7/v6oEm5dq0NRJ0f9hLvpYSfSYCZHL8XWJr4le5npo3RWaYu9jSYw9PX3xBMYCvYk
-	YYcdkBqkPe6FN3wzGu81wF0pcLJed22ZRyu3HOGbjnooFunJDH+eak9FJwOv6TP2ZBjcOgNyDZfAh
-	5R6MT6iA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=w3UUJbw5yknKaajSn+RipJQp8CvmQkCDhWrCbMw9zAk=; b=bPzFH6KfD/ge4A
+	5uQNc679YsU+BUiLX1DhDYjiDD91Jk9kfWpU+g/P6EE5F3oulDuKpst3xes3Y/ru6wV7nSuYv2v/4
+	KkGtaYxq1JzGPZsnyzxs96ahtCHTFnHqGFwg92At2djoUkUTJzi1T6Vy7UqCX4bnqyvyNzV7HpUKI
+	D95jIW1xNYrgses/eEPdCskU6OtpXpHIwqyVfu9YiTEN3lPy9EARD6+q6t2BUlRr7jNLSljjVv+gH
+	AzpXyLHxnMeYMoKbygtWHva77dIP+BXRH7XDiaArZ1bDqBtOLeHmwQJFFc/iWcFGrAzdLuzbh5dkM
+	UB5IYLdYN1EWcRISbHQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQHsu-001NlJ-1Q;
-	Thu, 18 Jan 2024 02:12:00 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1rQIt6-001UeS-2y;
+	Thu, 18 Jan 2024 03:16:16 +0000
+Received: from mail-dm6nam10on2103.outbound.protection.outlook.com ([40.107.93.103] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQHsr-001NkF-1r
-	for linux-riscv@lists.infradead.org;
-	Thu, 18 Jan 2024 02:11:59 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-6db0fdd2b8fso4516060b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Jan 2024 18:11:51 -0800 (PST)
+	id 1rQIt2-001Ub1-26;
+	Thu, 18 Jan 2024 03:16:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=mAbjfZeHxX9kjreOHTjFLdKv8Y5CorVzkah2+7bwgE8GfCVoyTJZxJ6w2+0aghXRMfy++p6X6VhVRv3LUUz5o2BS4xRjAj1iF9UW3znghwJh3OeG/z8aqf/BiKjU9wE5nbP4FxQNP8AdcutDu1Npjfi9K5LgEkAaXP/WP6ev8HjoV4PBCXC/FH6snrxFYMCtkVZc3CQ26Kq+BA+uAFaVSccUe3LO0TqQ+RB7NFtHJh90CNCBtKi+818axXPkhcpAyZHBwkTh9OR9uTBDDEU2QrfyUHjNvBDPfWGwryE6Qy4M9B7hvSy+OBuaPaD0qCtRUX1pXqOxjbdnkvm7FzBMkg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9rSlbDTD9GZa0ytWtqo/JoUbXLsumjW+eNlIQoOM3f0=;
+ b=N/1bfAtk/bNS+82wBO20faNkEGa2AmpH7c7e/JqNcAPfcJKPM6GZad+ytNo95ch+Z8V7XymEwc0M4DmLdUMSljTsIwaNCTI0MWvnsKit3cSto7+eThHfiYB5uO7yjyC+h2Ver42VKBIiz5oxKDNQaScwn66XtiNohhw3A/K2zOuSOjCNqyTlSNDDvYLIQx6xMUfJZiSJFerSPxnbTwOZsHsXyswuuRZOuIKcwjCgNFOI7iQ9ejZzL+yliDueUoY5TyryK48jg3EC8eG4YFIbQxAkgltSKRVph2n7l9bfyn3OF+ncNV4Pkk63vGzOOcFwhFcutIabUySlmJt0M+ApOQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1705543911; x=1706148711; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3GxiD+C5XoSqxhbWjkOfmxyd0ivTIk3zxlBcPpdRnRk=;
-        b=pSdJn/AsJFaRTZGzXP1Rbr4G8cT/HSJ+PHmemQRjrrfkLMlDLXwFSuDdDSDYuGe7hv
-         ZQds93k1C1Y/eZ23t1kPGeiBfHrtw6dMMZjD5NaESEZgchqZke/60+zyPAczQG54wwls
-         dLptFlvptKfNctYBshmsIoqm/fjpwEqWL1Gu/rBdJdwcnkBxWSd7Ifv2zG5CoxrENxvN
-         nXwDBS8forOZvJaoM7gG9Y8px3oKNDVFxzhgPntw3tg5sPYupXucaAzQpASuvtUFAatZ
-         WcLIFYQB3eBCgXndgoKhWLfIBR6zbYYzCUh5x9jIVVR4873ht0hEVYAzUxd7IhnVeniK
-         fOdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705543911; x=1706148711;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3GxiD+C5XoSqxhbWjkOfmxyd0ivTIk3zxlBcPpdRnRk=;
-        b=iY1z3lFkzrkxqA8UD6tCrR3vqej9/Ob09v2xKd/Ulh3e0oynzFQ4HwE2yILoug7W3M
-         fonRozf/kpUKhY00QCo3nZjfAuk12qHt1PZri5QEuPydUWR4zCE6FCQi2eY1Ta20cxqm
-         92TZwsHWNHMet+0wRZDhQru2Rx0ZCkScT2pV/1N1VRKaHtS0YhkhZOEx4+NN7I/GUAsm
-         E5xqeY6ONboSILgS86KF/mdh28Gf4GHcqf34c1to0QIkMAVRVX72fvzGt1+ssM3ojblf
-         kOD8JSxAwKlUYDVEL6S/S21YWZcdbIZPVnCikyg+/CKMcipxeeNqX/gcIptg+sdbg0Hb
-         AFKw==
-X-Gm-Message-State: AOJu0YzkAwiTxHB2xMxo71D906JhH+18k6QEDT2v6fXugaiA8XUIBEyi
-	0N0jgmRTdVZ7Ao1xavnY9f0y1v3NmATYOVFVLw4eOzIwbMLBv9hb/6dmLWPXf9DH1/CKhSPhyjL
-	B
-X-Google-Smtp-Source: AGHT+IF1H7DeUCLS8hvg6twzPV4HKfmWrjCdGRY317R5hDysJa1jVFjdplvhB1jqQV12uhi7ioh8Ew==
-X-Received: by 2002:a17:903:2449:b0:1d5:30fd:26b6 with SMTP id l9-20020a170903244900b001d530fd26b6mr262259pls.66.1705543911191;
-        Wed, 17 Jan 2024 18:11:51 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id jx16-20020a170903139000b001d4e058284esm305758plb.89.2024.01.17.18.11.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jan 2024 18:11:48 -0800 (PST)
-Date: Wed, 17 Jan 2024 18:11:48 -0800 (PST)
-X-Google-Original-Date: Wed, 17 Jan 2024 18:11:20 PST (-0800)
-Subject: Re: [PATCH v2 0/3] RISC-V: Disable DWARF5 with known broken LLVM versions
-In-Reply-To: <20231205-riscv-restrict-dwarf5-llvm-v2-0-aedf00a382ac@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  Conor Dooley <conor@kernel.org>, maskray@google.com, ndesaulniers@google.com, linux-riscv@lists.infradead.org,
-  llvm@lists.linux.dev, patches@lists.linux.dev, nathan@kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: nathan@kernel.org
-Message-ID: <mhng-ebd9adde-eb2d-44ea-a8cf-f811dff3f70e@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9rSlbDTD9GZa0ytWtqo/JoUbXLsumjW+eNlIQoOM3f0=;
+ b=SN5jossoaRxbHWXHt1L9IYwS7sHZ/G47hZpC70aFQ6tW6yJqjQamtFe570W5nVlPyUXfHKfOo8pn/aZ7+s7jwNj3jp1ApMVPfDF2WmzBjNEoIrejj3gBx+MOEZVxzoI176ByzJNW2vz5KiWwdm9glM687iToXSi5D0/Sfnpo3u4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
+ LV3PR01MB8439.prod.exchangelabs.com (2603:10b6:408:1a2::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7202.23; Thu, 18 Jan 2024 03:15:49 +0000
+Received: from PH0PR01MB7975.prod.exchangelabs.com ([fe80::91c:92f:45a5:e68a])
+ by PH0PR01MB7975.prod.exchangelabs.com ([fe80::91c:92f:45a5:e68a%6]) with
+ mapi id 15.20.7159.020; Thu, 18 Jan 2024 03:15:48 +0000
+From: Huang Shijie <shijie@os.amperecomputing.com>
+To: gregkh@linuxfoundation.org
+Cc: patches@amperecomputing.com,
+	rafael@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	yury.norov@gmail.com,
+	kuba@kernel.org,
+	vschneid@redhat.com,
+	mingo@kernel.org,
+	akpm@linux-foundation.org,
+	vbabka@suse.cz,
+	rppt@kernel.org,
+	tglx@linutronix.de,
+	jpoimboe@kernel.org,
+	ndesaulniers@google.com,
+	mikelley@microsoft.com,
+	mhiramat@kernel.org,
+	arnd@arndb.de,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	mpe@ellerman.id.au,
+	linuxppc-dev@lists.ozlabs.org,
+	chenhuacai@kernel.org,
+	jiaxun.yang@flygoat.com,
+	linux-mips@vger.kernel.org,
+	cl@os.amperecomputing.com,
+	Huang Shijie <shijie@os.amperecomputing.com>
+Subject: [PATCH] init: refactor the generic cpu_to_node for NUMA
+Date: Thu, 18 Jan 2024 11:14:12 +0800
+Message-Id: <20240118031412.3300-1-shijie@os.amperecomputing.com>
+X-Mailer: git-send-email 2.40.1
+X-ClientProxiedBy: CH0PR03CA0189.namprd03.prod.outlook.com
+ (2603:10b6:610:e4::14) To PH0PR01MB7975.prod.exchangelabs.com
+ (2603:10b6:510:26d::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|LV3PR01MB8439:EE_
+X-MS-Office365-Filtering-Correlation-Id: 208619bf-361c-4a65-1167-08dc17d3c4b7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: Mr/1TD6778cFBBbyoZwmZ3Dbro4P1rF32pgJMbrvXd7c91uHJs7ylAiWynpwhmwqoJKFG6nO8EonUA1QYXYsRoij9X1b6s8dEQFBsoEgi1160WSdfY46bBIP5HUfBhVjpzC+MQIj5yDPREj+Ut35+osNSej/53NdFCM2YUsfhmwPpUqsconz26uHGdtsPfBEkKoPeAW60MGLbmIbGyCOprnH0Km+99N3YAcdvf+hLMCgoffY3XvNN5DD1MF9l794T4wzJJSvyjVzW3bECcSFudl5dz42feswWIcPyFLubKNfSkNaYLDnz2c7GoAkSCOZk58uItsNMx6y29FAyOMv4KDEnp2jKZ61Xa595fCQXrtFWiSj3CBod64YEJqSviA/mH0IPBhnT+8FDzUk78USP6huEcVGNvr6V/+Daff0TO5+0ILO38LLZKYF3CnOH0jg774vcRZbnKH0owQ7tI3/oKCfd7FgEUmYQT8GCEWIKxwQnp/aSDGuX1cXZNZ1LaK/o5ZQHNDVNjHNc3ICSNDvjLuzfuBxup+JX0Kw/HJL5sJg1Z5VW+9r78zo499YAllgstVLEslHwf7mzq/oBWIRXu7cjMtOLbDsWGemQ35+6ZCDNeaxJYdT7bClnXhdmiWqycXOW/eAqJgI/rSNVE6pZw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230031)(346002)(366004)(39850400004)(376002)(136003)(396003)(230922051799003)(64100799003)(451199024)(186009)(1800799012)(41300700001)(38100700002)(83380400001)(86362001)(66556008)(38350700005)(6486002)(6916009)(316002)(66476007)(2906002)(66946007)(5660300002)(7416002)(8936002)(4326008)(26005)(1076003)(2616005)(107886003)(478600001)(52116002)(6666004)(6506007)(6512007)(8676002)(41533002);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UJEiEPaIt1t8oFSATzhnNIet9OVoj0Rut08gOAu6Aa8kMPHi1DSKtvAYxYl1?=
+ =?us-ascii?Q?1XYTHXRv3nK6BYPCC6FWYNCWtvJPa21W9crvptdb8HxigtHrNJm19uQmjyCg?=
+ =?us-ascii?Q?Am6u0F32bp7/0FQjCIyYhLI5JeRL1hFfpb+jM5Ms4xUK7wauiU7yC/UnDi6G?=
+ =?us-ascii?Q?Sez+Bj/O9i8I2ZpzUqn6ng4blO7gGJtZtZW6qwJa5dVAg/kp1M89oQQ8McRF?=
+ =?us-ascii?Q?PusPAawq0/dkNLE4TpNKaUr3frkQAEjRJ+uT4brzzmHAsjJmBC0kXkdvyF/Z?=
+ =?us-ascii?Q?JzMQbsoHymkP+rt9IASiDzVYWbOlwCpYyXtRd7UT7ylCB1MV9Olyjr3H9K5U?=
+ =?us-ascii?Q?aTozH+brI2E9pc2tM1ZZgRw3lFyNM2WQo/3S086bvBGmOYtkWW9Qa/szG5wH?=
+ =?us-ascii?Q?72z7b3URoy2dUIgD7VIqJ3+RckUcrj/u7NFf6Qo5RCs0mYHd9xRUsNkcwq2D?=
+ =?us-ascii?Q?OdZ8Dq4hJX6XqMUTc4jmRQbuYTgLaemcldMy3Da859+fbxjQPW8g++0GWrQe?=
+ =?us-ascii?Q?mOUPNO8QoNZ43Gb4kwZSVKWrIYQfdKh6GFGwUhwJCMGqtvArW7OTgcTo2eBf?=
+ =?us-ascii?Q?PLrOC8v5BT4ZrLHbTbGFKSTBi4okW6yx+xoaSgLydnNhiTQGB0tO194BhIV9?=
+ =?us-ascii?Q?aEZ3H+H9k6wE0iPH2jgmpNxX8tkpI6oIEfmXSSwr5677C6ogRYwNqe/FPwjA?=
+ =?us-ascii?Q?u6FPnQCUGhe/g7ouJVpcOH7egRGRTPuBrxhSMS3ffQDyzTLAiUDkZA9/o199?=
+ =?us-ascii?Q?9lI7e+ARbgpgE3d5jkCUn69I/biA+ABw1FSFI9Q3z7PRFrEvSwASbfMo4Zom?=
+ =?us-ascii?Q?lz0r6dsZp4RjjdrC+OSCA/h8l/E0wJ6g6aQhaWyqExupUHCF3jqAz8OoWByX?=
+ =?us-ascii?Q?2B+EqGIyyfiT/c1D+LQkCrHoM/XelggCeUJGldq6BLc0YBzsgFVq47mw6cbJ?=
+ =?us-ascii?Q?T4ftu3k5nx4REhDMJXcm+o6EQGFkH6bLUX/nRHz7mq672myYxaEyA3zCPMDs?=
+ =?us-ascii?Q?gWEPk9z98iFnkEogREqIerzOJT+gPciS8wDDRtynC84mEOOA46bzJDQpB/ua?=
+ =?us-ascii?Q?X3oiViqAlqI0xlx9S4NCLJPh1qkwzLlAHOJAvULzZ7OqlZHTBbvFs54OWv28?=
+ =?us-ascii?Q?7tJWnZJxLSwTT680qO+ErMe+nqL88k9hHyyvgHbHSlAeqEvxTJbQxdM3E4Pc?=
+ =?us-ascii?Q?PWntl5RwJcTPQBHHLq/vqrQ79SUbcmhCzwNggwqiN6h4E7SM6Zo2reosw6XD?=
+ =?us-ascii?Q?BA/o1pk+ZkxwfskCn+V25P8nPbRFiUP1bLdYuNAZc0oQyNNInGOHQGeBcSVM?=
+ =?us-ascii?Q?kUgF57Qaz7NXbQXrcavuCJINMv9V8ERGo4p+jIzLD7QMTTKC0vAgX9PCEikV?=
+ =?us-ascii?Q?6ATF9PZB9deT9P8tPywpHfi7FOahNpbv32xYbTddYwpocDQZQtDt88XVef1o?=
+ =?us-ascii?Q?K0Ka9/3bNC0Ia7SInuVhv5cZzhlGGzfhETNPsWonnjaFYcZPWpafGrIYUkrp?=
+ =?us-ascii?Q?TAm86B7dOMn0HR5l1AsXMeqByRrt8hTp42nOvTjvfvFh0UCgC1n4VrJDPCUD?=
+ =?us-ascii?Q?mN9m0M0pwUV9MEygu+q+q9q70ET7mdo44NvfQydYZAHUS9nLwnQviBZt3uLK?=
+ =?us-ascii?Q?tSqoLbQn/5M1lf5FzoPoccc=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 208619bf-361c-4a65-1167-08dc17d3c4b7
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jan 2024 03:15:48.8422
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cNkIrnf8wHWP77puODQUm3mJvtTw6xor7pVIPEAzh+ivusw7ZlBMfayxuNMV9JS80Kdm4N2ziVL7OsyRuUB7UuRwbbjBnT9ZqPyKxxZm53yziDj50C5mb6ybcdaZvY2N
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR01MB8439
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240117_181157_842718_F00A9459 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20240117_191612_710839_F2633570 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +154,174 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 05 Dec 2023 15:53:49 PST (-0800), nathan@kernel.org wrote:
-> Hi all,
->
-> This series disables DWARF5 for LLVM versions where it is known to be
-> broken due to linker relaxation:
->
-> https://github.com/llvm/llvm-project/commit/bbc0f99f3bc96f1db16f649fc21dd18e5b0918f6
->
-> If I understand correctly, it sounds like GNU binutils has a similar
-> issue but I am not sure of the status of the fixes and such, so I did
-> not bother with checking for it but it should be easy to add if so
-> desired.
+(0) We list the ARCHs which support the NUMA:
+       arm64, loongarch, powerpc, riscv,
+       sparc, mips, s390, x86,
 
-Do you have any more info?  All I know is this add/sub/set mess we've 
-got, but that's a cross linking problem.
+(1) Some ARCHs in (0) override the generic cpu_to_node(), such as:
+       sparc, mips, s390, x86.
 
-I queued this up for testing, should show up on for-next soon.  Thanks!
+    Since these ARCHs have their own cpu_to_node(), we do not care
+    about them.
 
-> ---
-> Changes in v2:
-> - Added patch 3 with Fangrui's suggested improvements around
->   CONFIG_AS_HAS_NON_CONST_LEB128.
-> - Pick up Fangrui's Reviewed-by on patch 1.
-> - Link to v1: https://lore.kernel.org/r/20231129-riscv-restrict-dwarf5-llvm-v1-0-ec0d368fb538@kernel.org
->
-> ---
-> Nathan Chancellor (3):
->       riscv: Hoist linker relaxation disabling logic into Kconfig
->       riscv: Restrict DWARF5 when building with LLVM to known working versions
->       lib/Kconfig.debug: Update AS_HAS_NON_CONST_LEB128 comment and name
->
->  arch/riscv/Kconfig  | 14 ++++++++++++++
->  arch/riscv/Makefile |  4 +---
->  lib/Kconfig.debug   | 12 +++++++-----
->  3 files changed, 22 insertions(+), 8 deletions(-)
-> ---
-> base-commit: 2cc14f52aeb78ce3f29677c2de1f06c0e91471ab
-> change-id: 20231129-riscv-restrict-dwarf5-llvm-a9824bb974cb
->
-> Best regards,
+(2) The ARCHs enable NUMA and use the generic cpu_to_node.
+    From (0) and (1), we can know that four ARCHs support NUMA and
+    use the generic cpu_to_node:
+        arm64, loongarch, powerpc, riscv,
+
+    The generic cpu_to_node depends on percpu "numa_node".
+
+    (2.1) The loongarch sets "numa_node" in:
+          start_kernel --> smp_prepare_boot_cpu()
+
+    (2.2) The arm64, powerpc, riscv set "numa_node" in:
+       	  start_kernel --> arch_call_rest_init() --> rest_init()
+       	               --> kernel_init() --> kernel_init_freeable()
+                       --> smp_prepare_cpus()
+
+    (2.3) The first place calling the cpu_to_node() is early_trace_init():
+          start_kernel --> early_trace_init()--> __ring_buffer_alloc()
+	               --> rb_allocate_cpu_buffer()
+
+    (2.4) So it safe for loongarch. But for arm64, powerpc and riscv,
+          there are at least four places in the common code where
+	  the cpu_to_node() is called before it is initialized:
+	   a.) early_trace_init()         in kernel/trace/trace.c
+	   b.) sched_init()               in kernel/sched/core.c
+	   c.) init_sched_fair_class()    in kernel/sched/fair.c
+	   d.) workqueue_init_early()     in kernel/workqueue.c
+
+(3) In order to fix the issue, the patch refactors the generic cpu_to_node:
+    (3.1) change cpu_to_node to function pointer,
+          and export it for kernel modules.
+
+    (3.2) introduce _cpu_to_node() which is the original cpu_to_node().
+
+    (3.3) introduce smp_prepare_boot_cpu_start() to wrap the original
+          smp_prepare_boot_cpu(), and set cpu_to_node with
+	  early_cpu_to_node which works fine for arm64, powerpc,
+	  riscv and loongarch.
+
+    (3.4) introduce smp_prepare_cpus_done() to wrap the original
+          smp_prepare_cpus().
+	  The "numa_node" is ready after smp_prepare_cpus(),
+	  then set cpu_to_node with _cpu_to_node().
+
+Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
+---
+ drivers/base/arch_numa.c | 11 +++++++++++
+ include/linux/topology.h |  6 ++----
+ init/main.c              | 29 +++++++++++++++++++++++++++--
+ 3 files changed, 40 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
+index 5b59d133b6af..867a477fa975 100644
+--- a/drivers/base/arch_numa.c
++++ b/drivers/base/arch_numa.c
+@@ -61,6 +61,17 @@ EXPORT_SYMBOL(cpumask_of_node);
+ 
+ #endif
+ 
++#ifdef CONFIG_USE_PERCPU_NUMA_NODE_ID
++#ifndef cpu_to_node
++int _cpu_to_node(int cpu)
++{
++	return per_cpu(numa_node, cpu);
++}
++int (*cpu_to_node)(int cpu);
++EXPORT_SYMBOL(cpu_to_node);
++#endif
++#endif
++
+ static void numa_update_cpu(unsigned int cpu, bool remove)
+ {
+ 	int nid = cpu_to_node(cpu);
+diff --git a/include/linux/topology.h b/include/linux/topology.h
+index 52f5850730b3..e7ce2bae11dd 100644
+--- a/include/linux/topology.h
++++ b/include/linux/topology.h
+@@ -91,10 +91,8 @@ static inline int numa_node_id(void)
+ #endif
+ 
+ #ifndef cpu_to_node
+-static inline int cpu_to_node(int cpu)
+-{
+-	return per_cpu(numa_node, cpu);
+-}
++extern int (*cpu_to_node)(int cpu);
++extern int _cpu_to_node(int cpu);
+ #endif
+ 
+ #ifndef set_numa_node
+diff --git a/init/main.c b/init/main.c
+index e24b0780fdff..b142e9c51161 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -870,6 +870,18 @@ static void __init print_unknown_bootoptions(void)
+ 	memblock_free(unknown_options, len);
+ }
+ 
++static void __init smp_prepare_boot_cpu_start(void)
++{
++	smp_prepare_boot_cpu();	/* arch-specific boot-cpu hooks */
++
++#ifdef CONFIG_USE_PERCPU_NUMA_NODE_ID
++#ifndef cpu_to_node
++	/* The early_cpu_to_node should be ready now. */
++	cpu_to_node = early_cpu_to_node;
++#endif
++#endif
++}
++
+ asmlinkage __visible __init __no_sanitize_address __noreturn __no_stack_protector
+ void start_kernel(void)
+ {
+@@ -899,7 +911,7 @@ void start_kernel(void)
+ 	setup_command_line(command_line);
+ 	setup_nr_cpu_ids();
+ 	setup_per_cpu_areas();
+-	smp_prepare_boot_cpu();	/* arch-specific boot-cpu hooks */
++	smp_prepare_boot_cpu_start();
+ 	boot_cpu_hotplug_init();
+ 
+ 	pr_notice("Kernel command line: %s\n", saved_command_line);
+@@ -1519,6 +1531,19 @@ void __init console_on_rootfs(void)
+ 	fput(file);
+ }
+ 
++static void __init smp_prepare_cpus_done(unsigned int setup_max_cpus)
++{
++	/* Different ARCHs may override smp_prepare_cpus() */
++	smp_prepare_cpus(setup_max_cpus);
++
++#ifdef CONFIG_USE_PERCPU_NUMA_NODE_ID
++#ifndef cpu_to_node
++	/* Change to the formal function. */
++	cpu_to_node = _cpu_to_node;
++#endif
++#endif
++}
++
+ static noinline void __init kernel_init_freeable(void)
+ {
+ 	/* Now the scheduler is fully set up and can do blocking allocations */
+@@ -1531,7 +1556,7 @@ static noinline void __init kernel_init_freeable(void)
+ 
+ 	cad_pid = get_pid(task_pid(current));
+ 
+-	smp_prepare_cpus(setup_max_cpus);
++	smp_prepare_cpus_done(setup_max_cpus);
+ 
+ 	workqueue_init();
+ 
+-- 
+2.40.1
+
 
 _______________________________________________
 linux-riscv mailing list
