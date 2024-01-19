@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10B20C4725D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jan 2024 14:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A909EC47DAF
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jan 2024 14:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x8wVi6CHmpq/nYhqLvSe7NuHTpRA902Kakum4QOU+8M=; b=uS6S13pJ3FaQzk
-	ZAnQ+PpXoEmvdsbSEBOJO9KoQGFLU/ethqfrO16LO5HlsEphEKJ3DodQVnlUjNiq/pHRyA1bNCXxg
-	wsgMKOC+hzC8ITlPx4NbU/ZZmSae+eMME8dWCEWep0Aa6e3nDKOXX0FNCmtaPTIyg1d+7/vcWDI3p
-	8iWHF71DC1DfMChjAHLQB5QCSIv7WkH1Cu5/F3GRLtAQdVI2yvq+ZqvM09SUKKPBGTGohnV2VLldy
-	kFv/EhxHs+CdKNATiisVi1xqlpigFkumXHS6Wu/R8YzdjyJV6rAVbp1JvSnzLSmJ0qzIXdQutfKOH
-	uYibEl5TbnGYDWRhpEoA==;
+	List-Owner; bh=AyFhK7STV8Tf2UeFVGjuhsysmB3Hw5jkj+8Mu/zBQ7Y=; b=dx1dGC0u+4MZ6E
+	8snXFj/J6nZjmyvuUA1rP3csb+URdm+smm8fH22AXMaLOCAjffL1aierGuOUkLU3ack5v2kKSy+UJ
+	mJrRUibwbiJiLpFrZWE3dMbZTLPWyNuAd5rwvJRRzekeqmvEu5ErkDSqrLPeUGqRSFjHCf4AxXWjD
+	3nIHSpXjVzilEysYnVV0bGyTTB93l/ivp4MwXCdiMYTzHRTT5H/9FbN3x/mgNq8JC3hgAdS7JitrJ
+	/AHCNvx2nrlDkpiqEmxa+LG6i5wT4WtdIkipwylxqEcOsyu7bkGKD8jF8IfGHBlvXGkLMpR55V7JG
+	VTbzk7ie4Pux2ri+jj4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQqFw-005tus-1z;
-	Fri, 19 Jan 2024 14:54:04 +0000
+	id 1rQqG4-005tzv-1W;
+	Fri, 19 Jan 2024 14:54:12 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQqFl-005tmH-19
+	id 1rQqFr-005tqJ-0l
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jan 2024 14:54:03 +0000
+	Fri, 19 Jan 2024 14:54:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1705676032;
+	s=mimecast20190719; t=1705676037;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=kHQu/Sqm+tr9X7HLq1/ndDCSHyJOTdh5sqBWm6JXi6w=;
-	b=QvSJ5VWnOW2Kw1h2p/0d03YXq/+1snaO2VCHpu4xZa1R04SeCEcY4e377I4d+mlKsuKmEL
-	KFYdhdvRv5w5/gAOBlVN2u5QBd1GLtKBs4xG7kOCsglfC90heWBHJaacosaTavkeQ3Tb3R
-	5LiisZxG8zr3BP7tnHaB9A8f1bBcUmo=
+	bh=dlnghyw81CpGwF6moUBtvugzcbNEO3VWIFUoR7h2Ajk=;
+	b=RBpJEJ4U00z+wSDQH4Lm6hwSIK+CxCZtkx7c7jdEQOaK5GD4klDoLCO1RsoJxs8NGumJf0
+	RRR72Uhb2Lu0qJPOiHNNlWV96ORidopc88QY9xa0gsMljIYwWQxG7GBadM1pEUJdnwcBbo
+	I8/zdKI/6Kupb299wVwAB1R7q44Nb7o=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-696-hYqBboYzPpCqmns5RJGCGg-1; Fri, 19 Jan 2024 09:53:47 -0500
-X-MC-Unique: hYqBboYzPpCqmns5RJGCGg-1
+ us-mta-586-pami_hTRMLW5sk65b-Os0Q-1; Fri, 19 Jan 2024 09:53:55 -0500
+X-MC-Unique: pami_hTRMLW5sk65b-Os0Q-1
 Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B37D684FA80;
-	Fri, 19 Jan 2024 14:53:46 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B550480007C;
+	Fri, 19 Jan 2024 14:53:54 +0000 (UTC)
 Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.116.4])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 95A6D51D5;
-	Fri, 19 Jan 2024 14:53:40 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 674B951D5;
+	Fri, 19 Jan 2024 14:53:47 +0000 (UTC)
 From: Baoquan He <bhe@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: kexec@lists.infradead.org,
@@ -68,16 +68,17 @@ Cc: kexec@lists.infradead.org,
 	piliu@redhat.com,
 	viro@zeniv.linux.org.uk,
 	Baoquan He <bhe@redhat.com>
-Subject: [PATCH v2 07/14] arm64, crash: wrap crash dumping code into crash related ifdefs
-Date: Fri, 19 Jan 2024 22:52:34 +0800
-Message-ID: <20240119145241.769622-8-bhe@redhat.com>
+Subject: [PATCH v2 08/14] ppc, crash: enforce KEXEC and KEXEC_FILE to select CRASH_DUMP
+Date: Fri, 19 Jan 2024 22:52:35 +0800
+Message-ID: <20240119145241.769622-9-bhe@redhat.com>
 In-Reply-To: <20240119145241.769622-1-bhe@redhat.com>
 References: <20240119145241.769622-1-bhe@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240119_065353_490183_EED3B349 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20240119_065359_404684_D38D3DDC 
+X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,95 +95,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now crash codes under kernel/ folder has been split out from kexec
-code, crash dumping can be separated from kexec reboot in config
-items on arm64 with some adjustments.
+In PowerPC, the crash dumping and kexec reboot share code in
+arch_kexec_locate_mem_hole(), in which struct crash_mem is used.
 
-Here wrap up crash dumping codes with CONFIG_CRASH_DUMP ifdeffery.
+Here enfoce enforce KEXEC and KEXEC_FILE to select CRASH_DUMP for now.
 
 Signed-off-by: Baoquan He <bhe@redhat.com>
 ---
- arch/arm64/include/asm/kexec.h         |  2 +-
- arch/arm64/kernel/machine_kexec.c      |  2 +-
- arch/arm64/kernel/machine_kexec_file.c | 10 ++++++++--
- 3 files changed, 10 insertions(+), 4 deletions(-)
+ arch/powerpc/Kconfig | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kexec.h b/arch/arm64/include/asm/kexec.h
-index 9ac9572a3bbe..4d9cc7a76d9c 100644
---- a/arch/arm64/include/asm/kexec.h
-+++ b/arch/arm64/include/asm/kexec.h
-@@ -80,7 +80,7 @@ static inline void crash_setup_regs(struct pt_regs *newregs,
- 	}
- }
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index 1cdb8fdd3735..fc3cd7f4bb73 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -608,6 +608,10 @@ config PPC64_SUPPORTS_MEMORY_FAILURE
+ config ARCH_SUPPORTS_KEXEC
+ 	def_bool PPC_BOOK3S || PPC_E500 || (44x && !SMP)
  
--#if defined(CONFIG_KEXEC_CORE) && defined(CONFIG_HIBERNATION)
-+#if defined(CONFIG_CRASH_DUMP) && defined(CONFIG_HIBERNATION)
- extern bool crash_is_nosave(unsigned long pfn);
- extern void crash_prepare_suspend(void);
- extern void crash_post_resume(void);
-diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-index b38aae5b488d..82e2203d86a3 100644
---- a/arch/arm64/kernel/machine_kexec.c
-+++ b/arch/arm64/kernel/machine_kexec.c
-@@ -255,7 +255,7 @@ void machine_crash_shutdown(struct pt_regs *regs)
- 	pr_info("Starting crashdump kernel...\n");
- }
++config ARCH_SELECTS_KEXEC
++	def_bool y
++	select CRASH_DUMP
++
+ config ARCH_SUPPORTS_KEXEC_FILE
+ 	def_bool PPC64
  
--#ifdef CONFIG_HIBERNATION
-+#if defined(CONFIG_CRASH_DUMP) && defined(CONFIG_HIBERNATION)
- /*
-  * To preserve the crash dump kernel image, the relevant memory segments
-  * should be mapped again around the hibernation.
-diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index 0e017358f4ba..af1ca875c52c 100644
---- a/arch/arm64/kernel/machine_kexec_file.c
-+++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -39,6 +39,7 @@ int arch_kimage_file_post_load_cleanup(struct kimage *image)
- 	return kexec_image_post_load_cleanup_default(image);
- }
+@@ -618,6 +622,7 @@ config ARCH_SELECTS_KEXEC_FILE
+ 	def_bool y
+ 	depends on KEXEC_FILE
+ 	select KEXEC_ELF
++	select CRASH_DUMP
+ 	select HAVE_IMA_KEXEC if IMA
  
-+#ifdef CONFIG_CRASH_DUMP
- static int prepare_elf_headers(void **addr, unsigned long *sz)
- {
- 	struct crash_mem *cmem;
-@@ -80,6 +81,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 	kfree(cmem);
- 	return ret;
- }
-+#endif
- 
- /*
-  * Tries to add the initrd and DTB to the image. If it is not possible to find
-@@ -93,8 +95,8 @@ int load_other_segments(struct kimage *image,
- 			char *cmdline)
- {
- 	struct kexec_buf kbuf;
--	void *headers, *dtb = NULL;
--	unsigned long headers_sz, initrd_load_addr = 0, dtb_len,
-+	void *dtb = NULL;
-+	unsigned long initrd_load_addr = 0, dtb_len,
- 		      orig_segments = image->nr_segments;
- 	int ret = 0;
- 
-@@ -102,7 +104,10 @@ int load_other_segments(struct kimage *image,
- 	/* not allocate anything below the kernel */
- 	kbuf.buf_min = kernel_load_addr + kernel_size;
- 
-+#ifdef CONFIG_CRASH_DUMP
- 	/* load elf core header */
-+	void *headers;
-+	unsigned long headers_sz;
- 	if (image->type == KEXEC_TYPE_CRASH) {
- 		ret = prepare_elf_headers(&headers, &headers_sz);
- 		if (ret) {
-@@ -130,6 +135,7 @@ int load_other_segments(struct kimage *image,
- 		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
- 			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
- 	}
-+#endif
- 
- 	/* load initrd */
- 	if (initrd) {
+ config PPC64_BIG_ENDIAN_ELF_ABI_V2
 -- 
 2.41.0
 
