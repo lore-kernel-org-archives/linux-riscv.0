@@ -4,152 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50FF2C47DAF
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jan 2024 14:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3DFDC47DD3
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jan 2024 14:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FsrUg8M8VsrZvPqA8F768KFts5lm9NSTMlBA3ZFRbw8=; b=e3nPY3I7Fn6YZm
-	haiOeWrrDSJAdJzyqY8YL0GLElEdyYU2hEWpWNjsucMrRkBSxQwmpEQf9EsOiPJjwYR4AmfPloUMt
-	4UjR74sR5NzaihOBjxaA8bLJvY45ks0sB6m8L971UJxZz7Md5p2apbBBa8vc5V9s04m5wL71huWsq
-	VunK/0B7+2mscp6cszB29cbHj8HRQDH0NEolosyn4FORrfIs7rgXCtndvTR7ix8A2JAu/q/r6aO27
-	sj+5xrt+dekvQj9hIImCCq/Jx61fWagLpO4MztjOD8gnouPhLRO8NKHcj38rjiYTQ3hdTdiW4KTLL
-	30UR/S58anafd8fARxmQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1dugqeZIlp78zU9S9vcCe+y1t6ujdzi5cNp5kji9sPw=; b=zxlnjVNaP1K2JO
+	e7SAfdsWFzBdxT9gc0mthLoByIAvI03c9x1XDyNdldGz1Ipckq99/2+VcaYWJniTq2aYUomicdjJX
+	stn4XQH/vlbRolGUMx+zyWRGS4QOPXZ3s1bGp9Gt+aznYqc0MWaGN7QBoN5CSAI/5r3WTpMyHo0vA
+	e/kDveEoA1sCGt5j9/UqROD1it+v52z1kNyZwlc5zMPCi06g5KBH672uTL6P4seKFOM1vyi0vaRpP
+	VqNjpz/KXAqf+I8WlWkb9szssTLyKlLXCku/pli8TL+bsB6V7pkDYjgiNj17Od56myREauTiunpYl
+	HTTJWuQptpW+Su9kQPhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQpRA-005mZq-1S;
-	Fri, 19 Jan 2024 14:01:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rQqF1-005tFR-0Q;
+	Fri, 19 Jan 2024 14:53:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQoRM-005ZTt-11
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 19 Jan 2024 12:57:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=fCYn1jo8fL71UwAZ7WXwWebXkZwsEfOg50aMXcy3BAQ=; b=M62l/3N95IsVhQAwDXGNiF4+Gv
-	QUQzoh1wlE1UsiVfqFYXEJlBVtrHjPezYQo4Xnkwz85oyKrvyHutpqQfZWF8iHK5Qz7dIscre8BSM
-	TuuZxDY91uBE4sa1HAv+mUHnUu5gzy2vLUVNBqtphgmGhubDD5VPngStp8UyBEu7J7n13/8PwBfJr
-	WG5aordlgGvgHIXYg/FtqIWHh9/p8offW/0gmouLchAVlefrSZXafdBIAaV/GJ4/maSTNybUczQmg
-	x8g5DZQ0R0r1UsgFA75KmY+5p/X1+aui6tAd9uz0SjewyHWVUeqgdbFQZl9vM+0V4D8nE8cF6NgGY
-	i0l0/lmA==;
-Received: from mail-sh0chn02on20625.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::625] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rQoRG-00000001Ybh-1jVR
+	id 1rQqEw-005tCu-0y
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jan 2024 12:57:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=e9oGhLoDFhhLlHeL8Gx1eZULAUZcQSmQRgL6H4j0qgEvEML1rOYBU9gDcHw84gnpy1zuAIqKU4RegEeSuyWVCQrv+koT7qhatv++57yd36kj9XGCeEqXO9wC5Ck4I2nRb1qI1sCHyQ22j4tUvF0V4+cZyMByBjYCsyRxO2ghl8gGwybKbj6GtQwef5r5HJWAMo7fLKJ3biAF/Qi9calOuPGBAfVi83Ip6nvElgnrC4tvAdg4ZZlIYdGkcIqRbYREenVLeyYmOszVH++8O0VCldEZ2VoVgQgfR+Xw2TiipHdb8eTPpd8YbsUO2CgV57Zm9r53Ihb8V4KXsxeKEvXYgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fCYn1jo8fL71UwAZ7WXwWebXkZwsEfOg50aMXcy3BAQ=;
- b=H226Jp8AAgW19jQrXzpCywWQKrdR5yXyrHhC7XpVlr902XA1sUcF5wmFKDJL0MyKgofTExhFQkuYcpncekWYRSg7chVaSGRhfeUNpIro73QgfI/PSYb83qFQ0xPthTnlLYKD5YnYZxgHIp33RCLU73wvWtlbGu3mr8kTAsZGeLCbzhGw+wZ5ieTe0N+JRuyzuFX1B7n16HBEHZIxgpoFUjHgpZv+gtCtAHlB9k9PoKx1RFbEgolyrB3OyAuqglIOVGTHGR77QJLhKr+YMW0Hu4MmKoRXTX/ynOB8HVPsR09eZPGtgksKj7bgwxDYg46wl1+DArrfXQTX30g2GYRvKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:25::10) by SHXPR01MB0592.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:1d::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7181.32; Fri, 19 Jan
- 2024 12:57:22 +0000
-Received: from SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn
- ([fe80::148c:e1dd:302a:196b]) by
- SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn ([fe80::148c:e1dd:302a:196b%6])
- with mapi id 15.20.7135.033; Fri, 19 Jan 2024 12:57:22 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, Emil
- Renner Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Jack
- Zhu <jack.zhu@starfivetech.com>, "linux-media@vger.kernel.org"
-	<linux-media@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>
-Subject: =?gb2312?B?u9i4tDogW1BBVENIIHYxIDEvMl0gZHQtYmluZGluZ3M6IG1lZGlhOiBzdGFy?=
- =?gb2312?Q?five:_Match_driver_and_yaml_property_names?=
-Thread-Topic: [PATCH v1 1/2] dt-bindings: media: starfive: Match driver and
- yaml property names
-Thread-Index: AQHaSr81E8nk9BtrhUGN5g0sexXYkLDg67gAgAAseFA=
-Date: Fri, 19 Jan 2024 12:57:22 +0000
-Message-ID: <SHXPR01MB0671E2150D9A2707F12E0901F270A@SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn>
-References: <20240119100639.84029-1-changhuang.liang@starfivetech.com>
- <20240119100639.84029-2-changhuang.liang@starfivetech.com>
- <20240119-despair-festival-59ab2d4d896b@wendy>
-In-Reply-To: <20240119-despair-festival-59ab2d4d896b@wendy>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SHXPR01MB0671:EE_|SHXPR01MB0592:EE_
-x-ms-office365-filtering-correlation-id: d9c0a395-4373-44c3-e2d6-08dc18ee2d50
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: BADrTlC6Y9HiwsgZSnmoXhQqIeguAakJ5yrbuJJsqj8TOy7BPPLVlMHWxWD/NwrHMHlv6QhEsObqNLKSJcbxiORT3dVH7Z0JwTqZUpS0Ujn42dcCSBage84b0km/xeIQRiVYqFO54EwbgUm3dKDuO6egVoLV9dCH7XX39FyPqPVQtNl/m7eSVW+vKJCNRSAFFJSxiEw8uUrAC818tWmgrLGhP9Z1IzahxgUw0R8T93FIH2YIqKII7tjwUHhroOHFc3tXBHhZ+M5o00BImoANUaVeWsvjGYaDRTpyZc8zjhkKtpOweRTuSYuGaT4JzQRWRkqL9AjBFY8ObAwRChwpXwLGRb6cjA0/7KbxN+aJG6XmXvxaRpsHY3Dnv0qYvcolU4/GATSCP7o3KpmujN8ueb7N8OEaGl+cDRshx5gWrYTYNQ+v+nuj5q3vyH74aEtY4SO4w9wSemYagB2BX+BcdbemdmBo+3R0hZcXVb9VrgfJXEzi/cW7EqvIqaJGkIR2fbAAAzLKDGCRq0zXIoXZ22c0DC8QBeBqIobkHydfAYkx046XLtLYtFiuc7zNa+2u
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(346002)(136003)(396003)(39830400003)(366004)(230922051799003)(1800799012)(451199024)(186009)(64100799003)(38100700002)(55016003)(66946007)(76116006)(41320700001)(71200400001)(9686003)(508600001)(41300700001)(38070700009)(66556008)(44832011)(5660300002)(86362001)(54906003)(64756008)(66476007)(66446008)(4326008)(26005)(6916009)(8936002)(7696005)(83380400001)(122000001)(7416002)(33656002)(4744005)(2906002)(40180700001)(40160700002)(224303003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?aTFCZDBnT0paMnl1UTdhU2xoYVpBNUc1eWxnZFZBUEdjYllORGdBd1dBeElK?=
- =?gb2312?B?a1F1dk5qYnhOblFncUxma0w4cUpPWThuc2hoQjZWNGlLVUZ0Ykl6c0ZNYWlp?=
- =?gb2312?B?OTVCQXRCNnlVaWVFTG1uTUlwOW94c0hNVlF3Q2ZZTU1RNEhubTFQSFR1dXRX?=
- =?gb2312?B?RXAvQ093bExPWUNxYnhGeXlUYzZMQTgzakVWTUlaekloYzRVYnlKRTh5dHA3?=
- =?gb2312?B?MHBNSy84RGtxMU5JVlBoZ0NnSU5oSTFHbVVqTXMzV0xJYktQangwTEJESk9T?=
- =?gb2312?B?VFptdGk1dmxFRHFlakdYSUw3TityRkNZYU1QL3pzSnppZitMem5JSzVmTWI0?=
- =?gb2312?B?WG4rV3BjaW45dzRJaHVZNDBQVHpmWlFBZzQ2cWoydTUwNml0UlprM2NjRmh2?=
- =?gb2312?B?bi94Sk5KSUN1QStxOC9QYzUzTDA4L1JHK1J5VytyYlA1QWJxTk16eEVGWmpD?=
- =?gb2312?B?NCs4MG5UdFd4NVRBNEJIMkE1UERUVEZuZEdWL1Y2ZWVnR2JPVW9WY3VLeU8w?=
- =?gb2312?B?OUFpOXNVazJnTURML3dqTjVOMUVhTXFCQjNpUHVUa2taejluZXFucklRUGti?=
- =?gb2312?B?Y3Z3UWNnQU1LaG1PQkR4RzBsbnpLeWFaeGdsbXNzWXFPVkIwUDdlYktLcnNQ?=
- =?gb2312?B?V0hhcFRXSDM0aXFLb1E2Nk8ycGpHR0ZibzFIc01Rd3FHZlBOOXpHZHdGSzlC?=
- =?gb2312?B?N2NGMXhWTElnYUZaUDYxN1o3NzhuWDJ0L2l0alZrWnVHZG4xMWRoSU13eko2?=
- =?gb2312?B?WS80aFFRd21VcmJ1VUpyRnMyUFdPZDZLakFiaXVyUkJMbkRDdGFVR3F2WGNG?=
- =?gb2312?B?RU1YeHNoTUhFMGk2Vy9uMEtGSEdadVpycVl1dE1Da0FvWGo3Z0FremNUL3h5?=
- =?gb2312?B?VEdrcXg5YUxCaDZDK29xR3ZMYml6ODNMeUJxWnNRelNoRkpyQzhRbEthQWdH?=
- =?gb2312?B?enJzUWRMSnB4eklXdCthcWMrR1FWdnF2TGhvOVorTXBXVFpsVHJxeERwVlMy?=
- =?gb2312?B?OFJ1QmYyS0ZWVUdSZGFrWlZwMkVnSzVrdFpLMk8xcXRVQkJqbUxWOEQ5QXNU?=
- =?gb2312?B?TUVvSkRkMmF5S3YwZFhDMUhXNC9BZ2lOaFZEaTQrRlZZdHNtTWkwWFA5RGRM?=
- =?gb2312?B?ZDhVSzFIRDdFTlZQODN2S1RjZTFyZWlHTUdVdXRvemRBa1hmOGJFRHkyWVN2?=
- =?gb2312?B?bWtnakVKbE5HcVJHVUFTd0p2a1dtd2FIODRTZC9KL1N6a3FFUWpvYXFZOGxL?=
- =?gb2312?B?YThQcnUwMS9rYjhyam5yM0tpRlgvQ2swVGs3QW9QUWEwUzNmNWM3SS9ZdVpP?=
- =?gb2312?B?M3VRYXNJQzFnVjJqZkxpdUNHVGFObWxkdDROWDlBZVNKaFVPQWF4aERpajVi?=
- =?gb2312?B?aWFxWWxHbDY2WEt2TVo1MWJBVUoyWndwakZVM2Z4YWFWQXJqWTJ6K0tRVmJZ?=
- =?gb2312?B?USt2YWthWmVBdE1MMmxJS0xzb2p1N3FVcm1rQ3dmSGo4T0J1SU83K0pUa1g4?=
- =?gb2312?B?bmd0OUV4MzJuQzNxMW53Z3hoa0t3dFYvenNhaHhrdXJuV0xub0tFYW9kMG1o?=
- =?gb2312?B?cERnR3B2MWtsT0lxeHIrOTA1VVkweHhtek1JdzNjdHRCbWJDTjcvK0tla0Nt?=
- =?gb2312?B?SGZ6czFsR1ZnTGphOVFoc3o4OEZzTWNCakpzWFVqcGNaRWQzelB3cVBuMU95?=
- =?gb2312?B?QWp1bXUzeXdKT1k1enVhbTFSRm00dE92UWpUNmtsSDlrZ3FhcXhvL21jMFNC?=
- =?gb2312?B?K1ZRR0NQblNvL1JPMVU2eHlia0FiRlNmWFJUOTlXQXNEZzNHRnQzeVVMZVZr?=
- =?gb2312?B?aERFcVZkNXBNWExlQktiMStBOVRlNm50MU1xUE9scVFHZzhhZlV3cFpYaEcw?=
- =?gb2312?B?UlpJb0szbUR2UndnOGtGRytoa2NJc2NHNkV3bERCQ0c5Yi96cWdJK1FaM01M?=
- =?gb2312?B?OG5pSm8zMGRQalRVdENIUDh0T1RFVVRkK3lyL2NTbGRDaVlDNEhyS0Zob1di?=
- =?gb2312?B?Q3R4UVpiZ3d5UkRSdG9MYmxselhPbXJKMjA0RXlURm5XcnAwYlBhQkxKSkdL?=
- =?gb2312?B?Rmt6MTJNR1luTmFHcDcxRFRPejcvZ2ltTjU3NE5iVGRCQnZXdnBwamFMemNQ?=
- =?gb2312?B?cm84TXk2RklDZW1XY0xFaDYxVXVwODZxUFNhK01WT2dWZzhtRGpMS1QyMWNi?=
- =?gb2312?B?NEE9PQ==?=
+	Fri, 19 Jan 2024 14:53:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1705675977;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=a7b5wka3jZpJDrQA4DTDzEctwPm/eZO0QdaDBfGD0Sk=;
+	b=ge88FbvpbKwuxXPX7aegNouVPnGzDM+33csKcWsGUAVObVDbYeddYw5LVRRuWFrRfckeiE
+	B/1M83TKwAmpo12iplP3a6gvNrlkV4kulYJFTmLSPECwJbhSBLkOllMVTWbJ5d1dZXU4cm
+	6uo9IA37H2Kzr5LrKT3o9tEg/IRr9yY=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-553-y_u4cXE2P_WuQzhDc2Y6SA-1; Fri,
+ 19 Jan 2024 09:52:53 -0500
+X-MC-Unique: y_u4cXE2P_WuQzhDc2Y6SA-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CF48C3C2A1DC;
+	Fri, 19 Jan 2024 14:52:52 +0000 (UTC)
+Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.116.4])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 528F451D5;
+	Fri, 19 Jan 2024 14:52:44 +0000 (UTC)
+From: Baoquan He <bhe@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: kexec@lists.infradead.org,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	akpm@linux-foundation.org,
+	ebiederm@xmission.com,
+	hbathini@linux.ibm.com,
+	piliu@redhat.com,
+	viro@zeniv.linux.org.uk,
+	Baoquan He <bhe@redhat.com>
+Subject: [PATCH v2 00/14] Split crash out from kexec and clean up related config items
+Date: Fri, 19 Jan 2024 22:52:27 +0800
+Message-ID: <20240119145241.769622-1-bhe@redhat.com>
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: d9c0a395-4373-44c3-e2d6-08dc18ee2d50
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jan 2024 12:57:22.1037
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: VFddcfI2auLcxVREpGuhz0Sd3rF20u4xn0SdxdRH9KJaby8PyTevFpMOXjq14d1B7cBd/LO7wDgrzuykWnvnzUlnMyojY5Ey4ocxKE+afQASa2djCZHyWvBB3AMQcRzh
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0592
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240119_125738_553259_E38657B9 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20240119_065302_911592_FC27FB30 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,21 +86,250 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgLCBDb25vcg0KDQo+INb3zOI6IFJlOiBbUEFUQ0ggdjEgMS8yXSBkdC1iaW5kaW5nczogbWVk
-aWE6IHN0YXJmaXZlOiBNYXRjaCBkcml2ZXIgYW5kIHlhbWwNCj4gcHJvcGVydHkgbmFtZXMNCj4g
-DQo+IE9uIEZyaSwgSmFuIDE5LCAyMDI0IGF0IDAyOjA2OjM4QU0gLTA4MDAsIENoYW5naHVhbmcg
-TGlhbmcgd3JvdGU6DQo+ID4gRHJvcCBzb21lIHVudXNlZCBwcm9wZXJ0aWVzIGZvciBjbG9ja3Ms
-IHJlc2V0cyBhbmQgaW50ZXJydXB0cyBmb3INCj4gPiBTdGFyRml2ZSBKSDcxMTAgY2FtZXJhIHN1
-YnN5c3RlbS4NCj4gDQo+IFdoYXQgZG8geW91IG1lYW4gInVudXNlZCI/DQo+IA0KPiBEbyB0aGVz
-ZSBjbG9ja3MgZXRjIGV4aXN0IGJ1dCBhcmUgbm90IHVzZWQgYnkgdGhlIGRyaXZlcj8NCj4gDQo+
-IE9yIGRvIHRoZXkgbm90IGV4aXN0IGF0IGFsbD8NCj4gDQo+IFRoZSB0d28gYXJlIHZlcnkgZGlm
-ZmVyZW50IQ0KPiANCj4gVGhhbmtzLA0KPiBDb25vci4NCj4gDQoNClRoZXNlIGNsb2NrcyBldGMg
-ZXhpc3QgYnV0IGFyZSBub3QgdXNlZCBieSB0aGUgZHJpdmVyLg0KDQoNCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Motivation:
+=============
+Previously, LKP reported a building error. When investigating, it can't
+be resolved reasonablly with the present messy kdump config items.
+
+ https://lore.kernel.org/oe-kbuild-all/202312182200.Ka7MzifQ-lkp@intel.com/
+
+The kdump (crash dumping) related config items could causes confusions:
+
+Firstly,
+---
+CRASH_CORE enables codes including
+ - crashkernel reservation;
+ - elfcorehdr updating;
+ - vmcoreinfo exporting;
+ - crash hotplug handling;
+
+Now fadump of powerpc, kcore dynamic debugging and kdump all selects
+CRASH_CORE, while fadump
+ - fadump needs crashkernel parsing, vmcoreinfo exporting, and accessing
+   global variable 'elfcorehdr_addr';
+ - kcore only needs vmcoreinfo exporting;
+ - kdump needs all of the current kernel/crash_core.c.
+
+So only enabling PROC_CORE or FA_DUMP will enable CRASH_CORE, this
+mislead people that we enable crash dumping, actual it's not.
+
+Secondly,
+---
+It's not reasonable to allow KEXEC_CORE select CRASH_CORE.
+
+Because KEXEC_CORE enables codes which allocate control pages, copy
+kexec/kdump segments, and prepare for switching. These codes are
+shared by both kexec reboot and kdump. We could want kexec reboot,
+but disable kdump. In that case, CRASH_CORE should not be selected.
+
+ --------------------
+ CONFIG_CRASH_CORE=y
+ CONFIG_KEXEC_CORE=y
+ CONFIG_KEXEC=y
+ CONFIG_KEXEC_FILE=y
+    ---------------------
+
+Thirdly,
+---
+It's not reasonable to allow CRASH_DUMP select KEXEC_CORE.
+
+That could make KEXEC_CORE, CRASH_DUMP are enabled independently from
+KEXEC or KEXEC_FILE. However, w/o KEXEC or KEXEC_FILE, the KEXEC_CORE
+code built in doesn't make any sense because no kernel loading or
+switching will happen to utilize the KEXEC_CORE code.
+ ---------------------
+ CONFIG_CRASH_CORE=y 
+ CONFIG_KEXEC_CORE=y 
+ CONFIG_CRASH_DUMP=y
+ ---------------------
+
+In this case, what is worse, on arch sh and arm, KEXEC relies on MMU,
+while CRASH_DUMP can still be enabled when !MMU, then compiling error is
+seen as the lkp test robot reported in above link.
+
+ ------arch/sh/Kconfig------
+ config ARCH_SUPPORTS_KEXEC
+         def_bool MMU
+
+ config ARCH_SUPPORTS_CRASH_DUMP
+         def_bool BROKEN_ON_SMP
+ ---------------------------
+
+Changes:
+===========
+1, split out crash_reserve.c from crash_core.c;
+2, split out vmcore_infoc. from crash_core.c;
+3, move crash related codes in kexec_core.c into crash_core.c;
+4, remove dependency of FA_DUMP on CRASH_DUMP;
+5, clean up kdump related config items;
+6, wrap up crash codes in crash related ifdefs on all 9 arch-es
+   which support crash dumping;
+
+Achievement:
+===========
+With above changes, I can rearrange the config item logic as below (the right
+item depends on or is selected by the left item):
+
+    PROC_KCORE -----------> VMCORE_INFO
+
+               |----------> VMCORE_INFO
+    FA_DUMP----|
+               |----------> CRASH_RESERVE
+
+                                                    ---->VMCORE_INFO
+                                                   /
+                                                   |---->CRASH_RESERVE
+    KEXEC      --|                                /|
+                 |--> KEXEC_CORE--> CRASH_DUMP-->/-|---->PROC_VMCORE
+    KEXEC_FILE --|                               \ |
+                                                   \---->CRASH_HOTPLUG
+
+
+    KEXEC      --|
+                 |--> KEXEC_CORE (for kexec reboot only)
+    KEXEC_FILE --|
+
+Test
+========
+On all 8 architectures, including x86_64, arm64, s390x, sh, arm, mips,
+riscv, loongarch, I did below three cases of config item setting and
+building all passed. Let me take configs on x86_64 as exampmle here:
+
+(1) Both CONFIG_KEXEC and KEXEC_FILE is unset, then all kexec/kdump
+items are unset automatically:
+# Kexec and crash features
+# CONFIG_KEXEC is not set
+# CONFIG_KEXEC_FILE is not set
+# end of Kexec and crash features
+
+(2) set CONFIG_KEXEC_FILE and 'make olddefconfig':
+---------------
+# Kexec and crash features
+CONFIG_CRASH_RESERVE=y
+CONFIG_VMCORE_INFO=y
+CONFIG_KEXEC_CORE=y
+CONFIG_KEXEC_FILE=y
+CONFIG_CRASH_DUMP=y
+CONFIG_CRASH_HOTPLUG=y
+CONFIG_CRASH_MAX_MEMORY_RANGES=8192
+# end of Kexec and crash features
+---------------
+
+(3) unset CONFIG_CRASH_DUMP in case 2 and execute 'make olddefconfig':
+------------------------
+# Kexec and crash features
+CONFIG_KEXEC_CORE=y
+CONFIG_KEXEC_FILE=y
+# end of Kexec and crash features
+------------------------
+
+Note:
+For ppc, it needs investigation to make clear how to split out crash
+code in arch folder. Hope Hari and Pingfan can help have a look, see if
+it's doable. Now, I make it either have both kexec and crash enabled, or
+disable both of them altogether.
+
+Baoquan He (14):
+  kexec: split crashkernel reservation code out from crash_core.c
+  crash: split vmcoreinfo exporting code out from crash_core.c
+  crash: remove dependency of FA_DUMP on CRASH_DUMP
+  crash: split crash dumping code out from kexec_core.c
+  crash: clean up kdump related config items
+  x86, crash: wrap crash dumping code into crash related ifdefs
+  arm64, crash: wrap crash dumping code into crash related ifdefs
+  ppc, crash: enforce KEXEC and KEXEC_FILE to select CRASH_DUMP
+  s390, crash: wrap crash dumping code into crash related ifdefs
+  sh, crash: wrap crash dumping code into crash related ifdefs
+  arm, crash: wrap crash dumping code into crash related ifdefs
+  mips, crash: wrap crash dumping code into crash related ifdefs
+  riscv, crash: wrap crash dumping code into crash related ifdefs
+  loongarch, crash: wrap crash dumping code into crash related ifdefs
+
+ arch/arm/kernel/setup.c                       |   7 +-
+ arch/arm64/Kconfig                            |   2 +-
+ .../asm/{crash_core.h => crash_reserve.h}     |   4 +-
+ arch/arm64/include/asm/kexec.h                |   2 +-
+ arch/arm64/kernel/Makefile                    |   2 +-
+ arch/arm64/kernel/machine_kexec.c             |   2 +-
+ arch/arm64/kernel/machine_kexec_file.c        |  10 +-
+ .../kernel/{crash_core.c => vmcore_info.c}    |   2 +-
+ arch/loongarch/kernel/setup.c                 |   7 +-
+ arch/mips/kernel/setup.c                      |  17 +-
+ arch/powerpc/Kconfig                          |   9 +-
+ arch/powerpc/kernel/setup-common.c            |   2 +-
+ arch/powerpc/mm/nohash/kaslr_booke.c          |   4 +-
+ arch/powerpc/platforms/powernv/opal-core.c    |   2 +-
+ arch/riscv/Kconfig                            |   2 +-
+ .../asm/{crash_core.h => crash_reserve.h}     |   4 +-
+ arch/riscv/kernel/Makefile                    |   2 +-
+ arch/riscv/kernel/elf_kexec.c                 |   9 +-
+ .../kernel/{crash_core.c => vmcore_info.c}    |   2 +-
+ arch/riscv/mm/init.c                          |   2 +-
+ arch/s390/kernel/kexec_elf.c                  |   2 +
+ arch/s390/kernel/kexec_image.c                |   2 +
+ arch/s390/kernel/machine_kexec_file.c         |  10 +
+ arch/sh/kernel/machine_kexec.c                |   3 +
+ arch/sh/kernel/setup.c                        |   2 +-
+ arch/x86/Kconfig                              |   2 +-
+ .../asm/{crash_core.h => crash_reserve.h}     |   6 +-
+ arch/x86/kernel/Makefile                      |   6 +-
+ arch/x86/kernel/cpu/mshyperv.c                |   4 +
+ arch/x86/kernel/kexec-bzimage64.c             |   4 +
+ arch/x86/kernel/kvm.c                         |   4 +-
+ arch/x86/kernel/machine_kexec_64.c            |   3 +
+ arch/x86/kernel/reboot.c                      |   2 +-
+ arch/x86/kernel/setup.c                       |   2 +-
+ arch/x86/kernel/smp.c                         |   2 +-
+ .../{crash_core_32.c => vmcore_info_32.c}     |   2 +-
+ .../{crash_core_64.c => vmcore_info_64.c}     |   2 +-
+ arch/x86/xen/enlighten_hvm.c                  |   4 +
+ drivers/base/cpu.c                            |   6 +-
+ drivers/firmware/qemu_fw_cfg.c                |  14 +-
+ fs/proc/Kconfig                               |   2 +-
+ fs/proc/kcore.c                               |   2 +-
+ include/linux/buildid.h                       |   2 +-
+ include/linux/crash_core.h                    | 152 ++--
+ include/linux/crash_reserve.h                 |  48 ++
+ include/linux/kexec.h                         |  47 +-
+ include/linux/vmcore_info.h                   |  81 ++
+ init/initramfs.c                              |   2 +-
+ kernel/Kconfig.kexec                          |  12 +-
+ kernel/Makefile                               |   5 +-
+ kernel/crash_core.c                           | 764 +++++-------------
+ kernel/crash_reserve.c                        | 464 +++++++++++
+ kernel/{crash_dump.c => elfcorehdr.c}         |   0
+ kernel/kexec.c                                |  11 +-
+ kernel/kexec_core.c                           | 250 +-----
+ kernel/kexec_file.c                           |  13 +-
+ kernel/kexec_internal.h                       |   2 +
+ kernel/ksysfs.c                               |  10 +-
+ kernel/printk/printk.c                        |   4 +-
+ kernel/vmcore_info.c                          | 233 ++++++
+ lib/buildid.c                                 |   2 +-
+ 61 files changed, 1233 insertions(+), 1048 deletions(-)
+ rename arch/arm64/include/asm/{crash_core.h => crash_reserve.h} (81%)
+ rename arch/arm64/kernel/{crash_core.c => vmcore_info.c} (97%)
+ rename arch/riscv/include/asm/{crash_core.h => crash_reserve.h} (78%)
+ rename arch/riscv/kernel/{crash_core.c => vmcore_info.c} (96%)
+ rename arch/x86/include/asm/{crash_core.h => crash_reserve.h} (92%)
+ rename arch/x86/kernel/{crash_core_32.c => vmcore_info_32.c} (90%)
+ rename arch/x86/kernel/{crash_core_64.c => vmcore_info_64.c} (94%)
+ create mode 100644 include/linux/crash_reserve.h
+ create mode 100644 include/linux/vmcore_info.h
+ create mode 100644 kernel/crash_reserve.c
+ rename kernel/{crash_dump.c => elfcorehdr.c} (100%)
+ create mode 100644 kernel/vmcore_info.c
+
+-- 
+2.41.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
