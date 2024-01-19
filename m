@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BCE0C4725D
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jan 2024 15:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4C16C47DD3
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jan 2024 16:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pBYPcbFyy+NDLKJHd8JPYG5YINMCHBsn+T2B3Pey6yY=; b=NvSFyTeSnTCx8x
-	U3OYkMo5LZrpFnUACcBISMQooYcfrQ6aJogrGDmEh+Oy//SFapECMf9aL/4QfgU1/ygvDkDrfjk6V
-	jDLhShsgMEHXEdin17hnKg62pub5xfYt3V+vZik8XlDoe0ix2PFYFo0MiHHkPvTzDxNuEHQ0zMRb9
-	vEnD36U0FyULF0liU23i4feeFmc4adGcopReoRCzvItJA2L6R/EY8DsDulGUXWjpNlX/bRY4B66Jk
-	NQoWuGcgFNExwQzBQs5mTE3qcYaBEl7MeiQeHFWrij8uw2nQc8tBkGN44ODvAFpXTB70yZXzf4Q0p
-	ThcmkLnehqSET22rmxyw==;
+	List-Owner; bh=OmjfusN8wIdCDYQQYf/9eApwcxD6pLUyg8K0rSjy+aI=; b=hCopdAt3QlV355
+	Qg/h3uDhXLtT/Fafn/Qdle0z+Kbv98HmAh7F/rlSkfb+og7ka6kDGQM/nFMLxS2scrRkd2s0NsuRB
+	tDOkconM4H/3iSC+Pvza7OJ/9Z/NkOpO5Rs3GLDChM2eHU6l3zns39SXkk/vVEu7l++1F0J/kMPiZ
+	C8ytfEqxsN1ONeCQHavxC+UggFKsACIh3hTKU1735RzIcnV7okELTnk2nY4u9JAHh2MgnvSY1dEEF
+	0DzDWdlpdQ5NoqMAZpL9+hLcw1QbsFv4FwEBVAqDwwey3hLPlWGebElrp91Yo/Tos9tlHvlZ0S2oO
+	v+k3jsBp6FktXZLoeAgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQqih-005zNP-16;
-	Fri, 19 Jan 2024 15:23:47 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1rQrJH-0062yw-2D;
+	Fri, 19 Jan 2024 16:01:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQqic-005zMp-2v
+	id 1rQqFy-005tvo-14
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jan 2024 15:23:45 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6d9b13fe9e9so736397b3a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Jan 2024 07:23:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1705677820; x=1706282620; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4piK4FlIBshk3S545o0PPe5+IQl2dl/fnP0KWlMUlPE=;
-        b=HKPWPPiD7e9MxwKKR2vuqQkMc+LFgI/23QR1nHKWe1P9OuF3mnWDJkaHQdIQJZzaM9
-         SSJaVpPEmFd7xaxpWSgt+y55Jy4s4x9oUHWnvx+MCacWZyNilvswz+qMbmXFS4hCbZqB
-         PBFwxCVtYfWmTGkfoEcdeSYPKWdW/2UD0XWdLjFIGkVoUuck2QxqKWeK7B/T87FsoA2s
-         lIJZ8CRJ/DVLpvM6D+fSdyxZVJeLcklqa3Re2GMShN3A8pB8Zj0mr1ZDuMn8EmNFP2Eh
-         elCGE2tk14oWW5RFxV+KvFSNkLOdvZ5vELiNsJjgT2sMfAaEuLo1N8HnnQflayyomAOv
-         F+6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705677820; x=1706282620;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4piK4FlIBshk3S545o0PPe5+IQl2dl/fnP0KWlMUlPE=;
-        b=RspJjNRSWyP29xiH+GBszh3800W0yCMFHSaPqHUp51ceaFA+1EoZhaaZsQ5nE9MoBs
-         HeTnEfsyCamu7CwQGJKaVfw4O+J4ZIN1vXq6ma6OZZMFOf8rIqkkJ3F8L4J1Vq+gXCCB
-         O4DH/08LWNMBgpU+DR544EGlZFIcTwyRE8kElL5n22PFHqRDISjRQLm+WhrStU/6EAVi
-         UF8MgCah/zMTNwQVAzcy9oRaDtYskHHYqCmHbl9ZRTEw6PvsM6rsZBLVGGsQv58Qr17w
-         n9pHYBtqmEDmBAbjrW1pzffENJndP32KIl5GwwLr+UI3I+DvvFsazdNvMCrXWBXcxhqM
-         7vXw==
-X-Gm-Message-State: AOJu0YygGX3jsEoishAVEDRKcgnJrjdc2RNUq1gk2x18NgLtDmkdIAq0
-	OfOUU592QqrVTqq78fnmK5ZnP3PL7Nyuqnit/8VR3DBwiGsVPhhuDtiIOlWcTPA=
-X-Google-Smtp-Source: AGHT+IEDpAw5jRwxWDGo0pZARDmf9QlhA87xq1E/pHFbxmVfn6Z7N1QSRsRV5TCFojVTVQwO0YNAsA==
-X-Received: by 2002:a05:6a20:4281:b0:19a:25c6:4913 with SMTP id o1-20020a056a20428100b0019a25c64913mr3247900pzj.38.1705677819959;
-        Fri, 19 Jan 2024 07:23:39 -0800 (PST)
-Received: from ghost (50-197-128-209-static.hfc.comcastbusiness.net. [50.197.128.209])
-        by smtp.gmail.com with ESMTPSA id ks11-20020a056a004b8b00b006d6b91c6eb6sm5356928pfb.13.2024.01.19.07.23.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jan 2024 07:23:39 -0800 (PST)
-Date: Fri, 19 Jan 2024 07:23:36 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: lib: Check if output in asm goto supported
-Message-ID: <ZaqT2E0rH3UbdnV0@ghost>
-References: <20240118-csum_remove_output_operands_asm_goto-v2-1-5d1b73cf93d4@rivosinc.com>
- <20240119-1bff4a21b3d2d5c500a14fcc@orel>
+	Fri, 19 Jan 2024 14:54:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1705676045;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1ELQbTPNyx4L6Rjica+79k486cYCM/jEDd+jz77hDLU=;
+	b=EWzSo9ehL8XyXm5oYuQwOCNvQ1uqjmGWTzfTbtaVxSSnpeCjzXisRaY6VvXYYui6Y0VKZw
+	6dJ22G2YQiIgGDwfO6IO7PpjhJ9Oe07aWzqcV1hpnVe3ip5J+NzkYOs9R4GRdUSyDL42vc
+	FJ/EBb0TXmbIM5IN4eR9I85LYmU4x58=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-422-KYkDc-tBOHakDPqfCoeT5g-1; Fri, 19 Jan 2024 09:54:03 -0500
+X-MC-Unique: KYkDc-tBOHakDPqfCoeT5g-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9B53284FA80;
+	Fri, 19 Jan 2024 14:54:02 +0000 (UTC)
+Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.116.4])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 77D8C5012;
+	Fri, 19 Jan 2024 14:53:55 +0000 (UTC)
+From: Baoquan He <bhe@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: kexec@lists.infradead.org,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	akpm@linux-foundation.org,
+	ebiederm@xmission.com,
+	hbathini@linux.ibm.com,
+	piliu@redhat.com,
+	viro@zeniv.linux.org.uk,
+	Baoquan He <bhe@redhat.com>
+Subject: [PATCH v2 09/14] s390, crash: wrap crash dumping code into crash related ifdefs
+Date: Fri, 19 Jan 2024 22:52:36 +0800
+Message-ID: <20240119145241.769622-10-bhe@redhat.com>
+In-Reply-To: <20240119145241.769622-1-bhe@redhat.com>
+References: <20240119145241.769622-1-bhe@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240119-1bff4a21b3d2d5c500a14fcc@orel>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240119_072342_943523_6918FB0F 
-X-CRM114-Status: GOOD (  29.17  )
+X-CRM114-CacheID: sfid-20240119_065406_458151_B5FBEBEB 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,79 +95,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 19, 2024 at 10:41:14AM +0100, Andrew Jones wrote:
-> On Thu, Jan 18, 2024 at 02:36:45PM -0800, Charlie Jenkins wrote:
-> > The output field of an asm goto statement is not supported by all
-> > compilers. If it is not supported, fallback to the non-optimized code.
-> > 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > Fixes: a04c192eabfb ("riscv: Add checksum library")
-> > ---
-> > The OutputOperands field for asm goto statements is only supported
-> > starting from GCC 11. Split the asm goto to remove the use of this
-> > feature.
-> > ---
-> > Changes in v2:
-> > - Use CC_HAS_ASM_GOTO_TIED_OUTPUT
-> > - Link to v1: https://lore.kernel.org/r/20240118-csum_remove_output_operands_asm_goto-v1-1-47c672bb9d4b@rivosinc.com
-> > ---
-> >  arch/riscv/lib/csum.c | 2 ++
-> >  1 file changed, 2 insertions(+)
-> > 
-> > diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
-> > index 06ce8e7250d9..af3df5274ccb 100644
-> > --- a/arch/riscv/lib/csum.c
-> > +++ b/arch/riscv/lib/csum.c
-> > @@ -156,6 +156,7 @@ do_csum_with_alignment(const unsigned char *buff, int len)
-> >  	end = (const unsigned long *)(buff + len);
-> >  	csum = do_csum_common(ptr, end, data);
-> >  
-> > +#ifdef CC_HAS_ASM_GOTO_TIED_OUTPUT
-> 
-> Can't we just add another IS_ENABLED() to the if rather than this #ifdef?
+Now crash codes under kernel/ folder has been split out from kexec
+code, crash dumping can be separated from kexec reboot in config
+items on s390 with some adjustments.
 
-Unfortunately no. GCC throws syntax before it determines if a branch
-will never be taken, so even though the code is not emitted it will
-still fail with IS_ENABLED.
+Here wrap up crash dumping codes with CONFIG_CRASH_DUMP ifdeffery.
 
-> 
-> >  	/*
-> >  	 * Zbb support saves 6 instructions, so not worth checking without
-> >  	 * alternatives if supported
-> > @@ -214,6 +215,7 @@ do_csum_with_alignment(const unsigned char *buff, int len)
-> >  		return csum >> 16;
-> >  	}
-> >  no_zbb:
-> > +#endif /* CC_HAS_ASM_GOTO_TIED_OUTPUT */
-> >  #ifndef CONFIG_32BIT
-> >  	csum += ror64(csum, 32);
-> >  	csum >>= 32;
-> 
-> BTW, I wonder how/if the check for CC_HAS_ASM_GOTO_TIED_OUTPUT in
-> init/Kconfig is working as expected. I see $CC, as opposed to $(CC),
-> being used there. I believe $CC is just the expansion of $C with a
-> 'C' appended.
+Signed-off-by: Baoquan He <bhe@redhat.com>
+---
+ arch/s390/kernel/kexec_elf.c          |  2 ++
+ arch/s390/kernel/kexec_image.c        |  2 ++
+ arch/s390/kernel/machine_kexec_file.c | 10 ++++++++++
+ 3 files changed, 14 insertions(+)
 
-Huh that is strange. It does work but I am not sure how.
+diff --git a/arch/s390/kernel/kexec_elf.c b/arch/s390/kernel/kexec_elf.c
+index 9da6fa30c447..4d364de43799 100644
+--- a/arch/s390/kernel/kexec_elf.c
++++ b/arch/s390/kernel/kexec_elf.c
+@@ -40,8 +40,10 @@ static int kexec_file_add_kernel_elf(struct kimage *image,
+ 		buf.bufsz = phdr->p_filesz;
+ 
+ 		buf.mem = ALIGN(phdr->p_paddr, phdr->p_align);
++#ifdef CONFIG_CRASH_DUMP
+ 		if (image->type == KEXEC_TYPE_CRASH)
+ 			buf.mem += crashk_res.start;
++#endif
+ 		buf.memsz = phdr->p_memsz;
+ 		data->memsz = ALIGN(data->memsz, phdr->p_align) + buf.memsz;
+ 
+diff --git a/arch/s390/kernel/kexec_image.c b/arch/s390/kernel/kexec_image.c
+index af23eff5774d..a32ce8bea745 100644
+--- a/arch/s390/kernel/kexec_image.c
++++ b/arch/s390/kernel/kexec_image.c
+@@ -24,8 +24,10 @@ static int kexec_file_add_kernel_image(struct kimage *image,
+ 	buf.bufsz = image->kernel_buf_len;
+ 
+ 	buf.mem = 0;
++#ifdef CONFIG_CRASH_DUMP
+ 	if (image->type == KEXEC_TYPE_CRASH)
+ 		buf.mem += crashk_res.start;
++#endif
+ 	buf.memsz = buf.bufsz;
+ 
+ 	data->kernel_buf = image->kernel_buf;
+diff --git a/arch/s390/kernel/machine_kexec_file.c b/arch/s390/kernel/machine_kexec_file.c
+index 8d207b82d9fe..c2bac14dd668 100644
+--- a/arch/s390/kernel/machine_kexec_file.c
++++ b/arch/s390/kernel/machine_kexec_file.c
+@@ -105,6 +105,7 @@ static int kexec_file_update_purgatory(struct kimage *image,
+ 	if (ret)
+ 		return ret;
+ 
++#ifdef CONFIG_CRASH_DUMP
+ 	if (image->type == KEXEC_TYPE_CRASH) {
+ 		u64 crash_size;
+ 
+@@ -121,6 +122,7 @@ static int kexec_file_update_purgatory(struct kimage *image,
+ 						     sizeof(crash_size),
+ 						     false);
+ 	}
++#endif
+ 	return ret;
+ }
+ 
+@@ -134,8 +136,10 @@ static int kexec_file_add_purgatory(struct kimage *image,
+ 
+ 	data->memsz = ALIGN(data->memsz, PAGE_SIZE);
+ 	buf.mem = data->memsz;
++#ifdef CONFIG_CRASH_DUMP
+ 	if (image->type == KEXEC_TYPE_CRASH)
+ 		buf.mem += crashk_res.start;
++#endif
+ 
+ 	ret = kexec_load_purgatory(image, &buf);
+ 	if (ret)
+@@ -158,8 +162,10 @@ static int kexec_file_add_initrd(struct kimage *image,
+ 
+ 	data->memsz = ALIGN(data->memsz, PAGE_SIZE);
+ 	buf.mem = data->memsz;
++#ifdef CONFIG_CRASH_DUMP
+ 	if (image->type == KEXEC_TYPE_CRASH)
+ 		buf.mem += crashk_res.start;
++#endif
+ 	buf.memsz = buf.bufsz;
+ 
+ 	data->parm->initrd_start = data->memsz;
+@@ -223,8 +229,10 @@ static int kexec_file_add_ipl_report(struct kimage *image,
+ 		data->kernel_buf + offsetof(struct lowcore, ipl_parmblock_ptr);
+ 	*lc_ipl_parmblock_ptr = (__u32)buf.mem;
+ 
++#ifdef CONFIG_CRASH_DUMP
+ 	if (image->type == KEXEC_TYPE_CRASH)
+ 		buf.mem += crashk_res.start;
++#endif
+ 
+ 	ret = kexec_add_buffer(&buf);
+ out:
+@@ -268,10 +276,12 @@ void *kexec_file_add_components(struct kimage *image,
+ 	memcpy(data.parm->command_line, image->cmdline_buf,
+ 	       image->cmdline_buf_len);
+ 
++#ifdef CONFIG_CRASH_DUMP
+ 	if (image->type == KEXEC_TYPE_CRASH) {
+ 		data.parm->oldmem_base = crashk_res.start;
+ 		data.parm->oldmem_size = crashk_res.end - crashk_res.start + 1;
+ 	}
++#endif
+ 
+ 	if (image->initrd_buf) {
+ 		ret = kexec_file_add_initrd(image, &data);
+-- 
+2.41.0
 
-- Charlie
-
-> 
-> Thanks,
-> drew
-> 
-> > 
-> > ---
-> > base-commit: 080c4324fa5e81ff3780206a138223abfb57a68e
-> > change-id: 20240118-csum_remove_output_operands_asm_goto-49922c141ce7
-> > -- 
-> > - Charlie
-> > 
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
