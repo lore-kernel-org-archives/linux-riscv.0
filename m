@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16509C47DAF
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jan 2024 13:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A30C4725D
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jan 2024 13:59:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=ZGoPwpwoo2qpQkQzV2T3/VYYAJmlRYjNy6Gj3AiE7UE=; b=cNU
-	juEtGcd4JLk1EvUh9hfyDRXH8o9qDqH0kYHdMe4JuAh6LN6VZfVFry4ICpgKZ3ubdMSJdyAZo03ks
-	ZoGd0cGmovP5OU67HkRTOHy6ccVG7dB29CQSsLF8ze7UpJaadZ6iwWmhvA2QPgps/cbTRwq9kr0+l
-	/5ga+yk+L9X0hZUcuLfHOeMA3892H1z2DaPQ3WTM/L4eV8TQ8LV9XJYoytcVPtSD59GMWcKS/f92w
-	VP7JOmpohnNF4GEdInInychmbQR34aw/xUOYOEimeQotBcyAWQuu1/9lj/KHA44NePrueuyKrs8sB
-	ONCyfcf8o3fPACjvNLoDLjnf3FiSGHw==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fE0yTfdixtDOZw1s0io7ghqz76Cu2mcNeyKstSdpnDY=; b=wagqPyuks7G1xsDtNLevO5m+LM
+	QCV0tdIJ0Ph6SiSv7UAzEzCWROCtwfLwVFjrenZw2FgFWDcYePlP7P8IanuIJ5uykGDXdgEkpTZpP
+	VmnzT38y5fzWXy+ZPtwnWLpHl56n7TsgZESGr4cn54ZVnhBQbpDRIl7xX37nKfBADtspcvwiZDJ7p
+	ZMQfTsRTMKq+M2Y6cYv0w43b4g4zHoao9EAABeCHp59/plHCxc6q2oIgJNXklzGSks6uXyEFlkR75
+	iQi/fOk5Rl77q4dMgtNvWliMND9nIrxEoC6kKPRR4h2RZHq/uU2KS8tLAfvxkA/bVYuvLAvoQjoQ5
+	AIxRoypA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQpJe-005ldh-2q;
-	Fri, 19 Jan 2024 13:53:50 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1rQpOy-005mKC-1H;
+	Fri, 19 Jan 2024 13:59:20 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQpJa-005ldC-0q
+	id 1rQpOu-005mJI-3D
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jan 2024 13:53:49 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1d71cb97937so5883195ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Jan 2024 05:53:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1705672423; x=1706277223; darn=lists.infradead.org;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=18/X7dedl18t7gKBy33vs2gEUxK1Wp/60iRN/Swn/uU=;
-        b=E5F56mSJGOnxrAPjuShS6HZFev/jhtbXWp/zEzV2jf2FMBBDBkxVynwYnmINzyPtuS
-         e/sDkB6bBruOpIcWXrqt4BE6dNo1PTGiLrKmJXDveGyvJv2BfqrYxBpMuG2HKezoj2lQ
-         I0v/agUXqOKSLlagirvewt1cTxVIkQo0sGcWlJAWRhtWpYZONeMFaxm3UOxJAEAj7zZI
-         VdRQi89GkthnZtZ9DfOzG+4BtnoN9Rs9oCkgD3IQtHCjQyfsDGj4I2lBnew3tEVV0nfz
-         L0RvQN2tEMJdIbJdXczgUkLG43lOAHQde+nElAE301rXJxhn+MkPGIev2P8KaId4Dcn4
-         eM+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705672423; x=1706277223;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=18/X7dedl18t7gKBy33vs2gEUxK1Wp/60iRN/Swn/uU=;
-        b=mV/lpdRxsjBYmEh9kJEMg4LDT7gHoA+klKX8XnOaeTKlzJW6cQTwfbKbpmI/n5cqCO
-         kIdGhyf/mhTiOXkuu6v6KYRZv5IzCS3Nk+nXQatPKut5lzWk7sbkDS/MsFIsL6C7AfHh
-         fsYFoSstPFmFnC8kDL4mSEAezNSKrWGoeInHy8qz/IMYQeT/wSXmz3w9VjXU12O6ScBR
-         7VilL0/YDoL1PifsLgEhAePYDRey2wt7WG7RloTuoDhthK875LtfXlPDQq7cgoxoLmmc
-         8Y0XBaNWintbNc3p6BglkNi+iSJr+AqYqwaJaycslQcAJP2+YfpznbRfnKGZww55/M3t
-         /hYw==
-X-Gm-Message-State: AOJu0Yz5Knj0En75fFa7C6IMQaZOK+Tx8Zl/dJ8k3Qk62W6vkfMw+Cvm
-	XLHvKq5mqOGd1UUg8blDlWmCrsnajH9HuTX6FHThU5O8lYn3Rb6v7v7PYrLSMUGFwSq73mMzHS+
-	C
-X-Google-Smtp-Source: AGHT+IGgTPAoREBtkXUJvLm9S9Jq9QP94gTR0lO/gOQPI3JXUqxG0vQqmk+iFUm6Knrl30bYgVR45A==
-X-Received: by 2002:a17:902:ec8e:b0:1d5:e004:e768 with SMTP id x14-20020a170902ec8e00b001d5e004e768mr2481782plg.69.1705672422985;
-        Fri, 19 Jan 2024 05:53:42 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id v12-20020a170903238c00b001d6f78ab422sm3046170plh.139.2024.01.19.05.53.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jan 2024 05:53:42 -0800 (PST)
-Date: Fri, 19 Jan 2024 05:53:42 -0800 (PST)
-X-Google-Original-Date: Fri, 19 Jan 2024 05:47:44 PST (-0800)
-Subject: [GIT PULL] RISC-V Patches for the 6.8 Merge Window, Part 2
-CC: linux-riscv@lists.infradead.org,        linux-kernel@subspace.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-690cf774-fd28-4d25-be9f-69e19fb84d5c@palmer-ri-x1c9>
+	Fri, 19 Jan 2024 13:59:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1705672756; x=1737208756;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=p/40/RTB9UjKxi9Od0nRasdxiGZ7GyKTbdCW/49cFRw=;
+  b=0aM8aAUL4KtAQazIB9BqqJ5TLxqc0vlIr0yFAQmRzCth7d2KxxIgLDsd
+   2QXUOv72OFM3qeb2+QNgkcStcH8hVESYzq/MnDwZNB0Y0R8OhehUFKwrn
+   uoN6UFl7oW0QIFMMHBWuZXynrJJtUT8fXRYrCcHAHjDyKjFjJ6/eWu1ka
+   LkGvEX7NNUbiPgar82CJBaEtHEHl22+xLUmynjZ1tZQr9rltrAEiTpYC7
+   KwK4PlLRFZJ10I1GUBMolcxPIUjAzuMgGuOOC9c6UbVMxdNOvBIPB/6tD
+   kcTm4LVK1+Q7D/kle/EFtVTUByN3Q++JiBP/+inzhLJptpCt0BdqcHLEj
+   A==;
+X-CSE-ConnectionGUID: s9DSPa5yT/2lOC1K8aydzA==
+X-CSE-MsgGUID: 5xml2/pvTuq3Y5CpQ8hwdw==
+X-IronPort-AV: E=Sophos;i="6.05,204,1701154800"; 
+   d="asc'?scan'208";a="16217918"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 Jan 2024 06:59:12 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 19 Jan 2024 06:59:00 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Fri, 19 Jan 2024 06:58:57 -0700
+Date: Fri, 19 Jan 2024 13:58:21 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+CC: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, Emil
+ Renner Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Jack
+ Zhu <jack.zhu@starfivetech.com>, "linux-media@vger.kernel.org"
+	<linux-media@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>
+Subject: Re: =?utf-8?B?5Zue5aSNOiBbUEFUQ0ggdjEgMS8y?=
+ =?utf-8?Q?=5D_dt-bindings?= =?utf-8?Q?=3A?= media: starfive: Match driver
+ and yaml property names
+Message-ID: <20240119-preamble-calm-7724e17fcebc@wendy>
+References: <20240119100639.84029-1-changhuang.liang@starfivetech.com>
+ <20240119100639.84029-2-changhuang.liang@starfivetech.com>
+ <20240119-despair-festival-59ab2d4d896b@wendy>
+ <SHXPR01MB0671E2150D9A2707F12E0901F270A@SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn>
+MIME-Version: 1.0
+In-Reply-To: <SHXPR01MB0671E2150D9A2707F12E0901F270A@SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240119_055347_341286_3AED1EEA 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20240119_055917_182951_43AC25EC 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,238 +93,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============6594895405624416114=="
+Content-Type: multipart/mixed; boundary="===============9180595629411681523=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6594895405624416114==
-Content-Type: text/plain
+--===============9180595629411681523==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="FEb8PAW5xTtdkNzj"
+Content-Disposition: inline
 
-The following changes since commit cb51bfee7f62a8e26b694f9d84c0041b3e3ccc71:
+--FEb8PAW5xTtdkNzj
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-  Merge patch series "riscv: hwprobe: add Zicond, Zacas and Ztso support" (2024-01-09 20:14:51 -0800)
+On Fri, Jan 19, 2024 at 12:57:22PM +0000, Changhuang Liang wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know th=
+e content is safe
+>=20
+> Hi , Conor
+>=20
+> > =E4=B8=BB=E9=A2=98: Re: [PATCH v1 1/2] dt-bindings: media: starfive: Ma=
+tch driver and yaml
+> > property names
+> >
+> > On Fri, Jan 19, 2024 at 02:06:38AM -0800, Changhuang Liang wrote:
+> > > Drop some unused properties for clocks, resets and interrupts for
+> > > StarFive JH7110 camera subsystem.
+> >
+> > What do you mean "unused"?
+> >
+> > Do these clocks etc exist but are not used by the driver?
+> >
+> > Or do they not exist at all?
+> >
+> > The two are very different!
 
-are available in the Git repository at:
+> These clocks etc exist but are not used by the driver.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.8-mw2
+That's not an acceptable reason for removing them from the binding. If
+they exist, they should be documented, regardless of whether the driver
+makes use of them. NAK.
 
-for you to fetch changes up to 4525462dd0db9e86bb67c10dedbbaa4f8d62697d:
+Also, your mail didn't end up on LKML, so there's something wrong with
+your setup.
 
-  riscv: lib: Check if output in asm goto supported (2024-01-18 14:41:38 -0800)
+Thanks,
+Conor.
 
-----------------------------------------------------------------
-RISC-V Patches for the 6.8 Merge Window, Part 2
+--FEb8PAW5xTtdkNzj
+Content-Type: application/pgp-signature; name="signature.asc"
 
-* Support for tuning for systems with fast misaligned accesses.
-* Support for SBI-based suspend.
-* Support for the new SBI debug console extension.
-* The T-Head CMOs now use PA-based flushes.
-* Support for enabling the V extension in kernel code.
-* Optimized IP checksum routines.
-* Various ftrace improvements.
-* Support for archrandom, which depends on the Zkr extension.
+-----BEGIN PGP SIGNATURE-----
 
-----------------------------------------------------------------
-I had a spinlock magic BUG show up over the weekend, but it stopped reproducing
-earlier this week.  So I think this is all clean and it was just a middle of
-the merge window issue, but if someone ends up with a reproducer then please
-say something.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZap//AAKCRB4tDGHoIJi
+0jW2AP9Bp7EjUTpBTrdQLP7B4nOmzqnt6gXBTDDnZd6H416uMgEApGygc1Eeq1gd
+yDqYrR/umDrmC2JDspWdkwzShFgVXgQ=
+=HLIX
+-----END PGP SIGNATURE-----
 
-----------------------------------------------------------------
-Alexandre Ghiti (3):
-      riscv: Use hugepage mappings for vmemmap
-      riscv: Add support for BATCHED_UNMAP_TLB_FLUSH
-      riscv: Fix build error on rv32 + XIP
-
-Andrew Jones (2):
-      riscv: sbi: Introduce system suspend support
-      RISC-V: selftests: cbo: Ensure asm operands match constraints
-
-Andy Chiu (8):
-      riscv: vector: make Vector always available for softirq context
-      riscv: sched: defer restoring Vector context for user
-      riscv: lib: vectorize copy_to_user/copy_from_user
-      riscv: fpu: drop SR_SD bit checking
-      riscv: vector: do not pass task_struct into riscv_v_vstate_{save,restore}()
-      riscv: vector: use a mask to write vstate_ctrl
-      riscv: vector: use kmem_cache to manage vector context
-      riscv: vector: allow kernel-mode Vector with preemption
-
-Anup Patel (4):
-      RISC-V: Add stubs for sbi_console_putchar/getchar()
-      RISC-V: Add SBI debug console helper routines
-      tty/serial: Add RISC-V SBI debug console based earlycon
-      RISC-V: Enable SBI based earlycon support
-
-Atish Patra (1):
-      tty: Add SBI debug console support to HVC SBI driver
-
-Charlie Jenkins (9):
-      riscv: Fix module loading free order
-      riscv: Correctly free relocation hashtable on error
-      riscv: Fix relocation_hashtable size
-      asm-generic: Improve csum_fold
-      riscv: Add static key for misaligned accesses
-      riscv: Add checksum header
-      riscv: Add checksum library
-      kunit: Add tests for csum_ipv6_magic and ip_fast_csum
-      riscv: lib: Check if output in asm goto supported
-
-Christoph Müllner (5):
-      tools: selftests: riscv: Fix compile warnings in hwprobe
-      tools: selftests: riscv: Fix compile warnings in cbo
-      tools: selftests: riscv: Add missing include for vector test
-      tools: selftests: riscv: Fix compile warnings in vector tests
-      tools: selftests: riscv: Fix compile warnings in mm tests
-
-Christophe JAILLET (1):
-      riscv: Fix an off-by-one in get_early_cmdline()
-
-Conor Dooley (1):
-      dt-bindings: riscv: permit numbers in "riscv,isa"
-
-Daniel Henrique Barboza (1):
-      dt-bindings: riscv: Document cbop-block-size
-
-Greentime Hu (2):
-      riscv: Add support for kernel mode vector
-      riscv: Add vector extension XOR implementation
-
-Guo Ren (2):
-      riscv: mm: Fixup compat mode boot failure
-      riscv: mm: Fixup compat arch_get_mmap_end
-
-Jisheng Zhang (4):
-      riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
-      riscv: select DCACHE_WORD_ACCESS for efficient unaligned access HW
-      riscv: errata: thead: use riscv_nonstd_cache_ops for CMO
-      riscv: errata: thead: use pa based instructions for CMO
-
-Masahiro Yamada (1):
-      riscv: add dependency among Image(.gz), loader(.bin), and vmlinuz.efi
-
-Maxim Kochetkov (1):
-      riscv: optimize ELF relocation function in riscv
-
-Nathan Chancellor (3):
-      riscv: Hoist linker relaxation disabling logic into Kconfig
-      riscv: Restrict DWARF5 when building with LLVM to known working versions
-      lib/Kconfig.debug: Update AS_HAS_NON_CONST_LEB128 comment and name
-
-Palmer Dabbelt (10):
-      Merge patch series "riscv: enable EFFICIENT_UNALIGNED_ACCESS and DCACHE_WORD_ACCESS"
-      Merge patch series "riscv: modules: Fix module loading error handling"
-      Merge patch series "RISC-V SBI debug console extension support"
-      Merge patch series "riscv: errata: thead: use riscv_nonstd_cache_ops for CMO"
-      Merge patch series "tools: selftests: riscv: Fix compiler warnings"
-      Merge patch series "riscv: mm: Fixup & Optimize COMPAT code"
-      Merge patch series "riscv: support kernel-mode Vector"
-      Merge patch series "riscv: Add fine-tuned checksum functions"
-      Merge patch series "RISC-V: Disable DWARF5 with known broken LLVM versions"
-      Merge patch series "riscv: ftrace: Miscellaneous ftrace improvements"
-
-Samuel Holland (1):
-      dt-bindings: riscv: cpus: Clarify mmu-type interpretation
-
-Samuel Ortiz (1):
-      RISC-V: Implement archrandom when Zkr is available
-
-Song Shuai (4):
-      riscv: select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY
-      riscv: ftrace: Make function graph use ftrace directly
-      riscv: ftrace: Add DYNAMIC_FTRACE_WITH_DIRECT_CALLS support
-      samples: ftrace: Add RISC-V support for SAMPLE_FTRACE_DIRECT[_MULTI]
-
-Xiao Wang (1):
-      riscv: Optimize hweight API with Zbb extension
-
- Documentation/devicetree/bindings/riscv/cpus.yaml  |   9 +-
- .../devicetree/bindings/riscv/extensions.yaml      |   2 +-
- Documentation/features/vm/TLB/arch-support.txt     |   2 +-
- arch/riscv/Kconfig                                 |  57 +++-
- arch/riscv/Kconfig.errata                          |   1 +
- arch/riscv/Makefile                                |   8 +-
- arch/riscv/configs/defconfig                       |   1 +
- arch/riscv/errata/thead/errata.c                   |  69 ++++-
- arch/riscv/include/asm/arch_hweight.h              |  78 +++++
- arch/riscv/include/asm/archrandom.h                |  72 +++++
- arch/riscv/include/asm/asm-extable.h               |  15 +
- arch/riscv/include/asm/asm-prototypes.h            |  27 ++
- arch/riscv/include/asm/bitops.h                    |   4 +-
- arch/riscv/include/asm/checksum.h                  |  93 ++++++
- arch/riscv/include/asm/cpufeature.h                |   2 +
- arch/riscv/include/asm/csr.h                       |   9 +
- arch/riscv/include/asm/entry-common.h              |  17 ++
- arch/riscv/include/asm/errata_list.h               |  50 +---
- arch/riscv/include/asm/ftrace.h                    |  18 +-
- arch/riscv/include/asm/pgtable.h                   |   2 +-
- arch/riscv/include/asm/processor.h                 |  43 ++-
- arch/riscv/include/asm/sbi.h                       |  19 ++
- arch/riscv/include/asm/simd.h                      |  64 ++++
- arch/riscv/include/asm/switch_to.h                 |   3 +-
- arch/riscv/include/asm/thread_info.h               |   2 +
- arch/riscv/include/asm/tlbbatch.h                  |  15 +
- arch/riscv/include/asm/tlbflush.h                  |   8 +
- arch/riscv/include/asm/vector.h                    |  90 +++++-
- arch/riscv/include/asm/word-at-a-time.h            |  27 ++
- arch/riscv/include/asm/xor.h                       |  68 +++++
- arch/riscv/kernel/Makefile                         |   1 +
- arch/riscv/kernel/cpufeature.c                     |  90 +++++-
- arch/riscv/kernel/entry.S                          |   8 +
- arch/riscv/kernel/ftrace.c                         |  30 +-
- arch/riscv/kernel/kernel_mode_vector.c             | 247 ++++++++++++++++
- arch/riscv/kernel/mcount-dyn.S                     | 198 ++++++++++---
- arch/riscv/kernel/module.c                         |  34 ++-
- arch/riscv/kernel/pi/cmdline_early.c               |   3 +-
- arch/riscv/kernel/process.c                        |  13 +-
- arch/riscv/kernel/ptrace.c                         |   7 +-
- arch/riscv/kernel/sbi.c                            |  66 +++++
- arch/riscv/kernel/signal.c                         |   7 +-
- arch/riscv/kernel/suspend.c                        |  44 +++
- arch/riscv/kernel/vector.c                         |  53 +++-
- arch/riscv/lib/Makefile                            |   6 +
- arch/riscv/lib/csum.c                              | 328 +++++++++++++++++++++
- arch/riscv/lib/riscv_v_helpers.c                   |  45 +++
- arch/riscv/lib/uaccess.S                           |  10 +
- arch/riscv/lib/uaccess_vector.S                    |  53 ++++
- arch/riscv/lib/xor.S                               |  81 +++++
- arch/riscv/mm/extable.c                            |  31 ++
- arch/riscv/mm/init.c                               |  25 +-
- arch/riscv/mm/tlbflush.c                           |  69 +++--
- drivers/tty/hvc/Kconfig                            |   2 +-
- drivers/tty/hvc/hvc_riscv_sbi.c                    |  37 ++-
- drivers/tty/serial/Kconfig                         |   2 +-
- drivers/tty/serial/earlycon-riscv-sbi.c            |  27 +-
- include/asm-generic/checksum.h                     |   6 +-
- lib/Kconfig.debug                                  |  12 +-
- lib/checksum_kunit.c                               | 284 +++++++++++++++++-
- samples/ftrace/ftrace-direct-modify.c              |  35 +++
- samples/ftrace/ftrace-direct-multi-modify.c        |  41 +++
- samples/ftrace/ftrace-direct-multi.c               |  25 ++
- samples/ftrace/ftrace-direct-too.c                 |  28 ++
- samples/ftrace/ftrace-direct.c                     |  24 ++
- tools/testing/selftests/riscv/hwprobe/cbo.c        |  24 +-
- tools/testing/selftests/riscv/hwprobe/hwprobe.c    |   4 +-
- tools/testing/selftests/riscv/mm/mmap_test.h       |   3 +
- .../selftests/riscv/vector/v_initval_nolibc.c      |   2 +-
- .../selftests/riscv/vector/vstate_exec_nolibc.c    |   3 +
- .../testing/selftests/riscv/vector/vstate_prctl.c  |   4 +-
- 71 files changed, 2674 insertions(+), 213 deletions(-)
- create mode 100644 arch/riscv/include/asm/arch_hweight.h
- create mode 100644 arch/riscv/include/asm/archrandom.h
- create mode 100644 arch/riscv/include/asm/checksum.h
- create mode 100644 arch/riscv/include/asm/simd.h
- create mode 100644 arch/riscv/include/asm/tlbbatch.h
- create mode 100644 arch/riscv/include/asm/xor.h
- create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
- create mode 100644 arch/riscv/lib/csum.c
- create mode 100644 arch/riscv/lib/riscv_v_helpers.c
- create mode 100644 arch/riscv/lib/uaccess_vector.S
- create mode 100644 arch/riscv/lib/xor.S
+--FEb8PAW5xTtdkNzj--
 
 
---===============6594895405624416114==
+--===============9180595629411681523==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -324,4 +166,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6594895405624416114==--
+--===============9180595629411681523==--
+
