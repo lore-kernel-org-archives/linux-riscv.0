@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4199DC47DD9
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jan 2024 16:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F4DC47DD3
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Jan 2024 16:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X+YkTWs3nQbACjRqFpMohixrQoBPfhTy/cN3ndPDqR0=; b=zmbhluC1oFExGv
-	pq43lOOrGd1Y3nnnY5tj07P0t/psJOGAx7VPqPxKtSneaCSvcnG5DBO2QOC8xf1a1Ay9J/Cf1DD8s
-	FsQgRUYNRGGhpy1+H+LvpalVw87jUsJdfTSTXH8sx232E3AC5ciC7T+A4r1k/4nQcMlkwCGHAo5yx
-	GfXd/dYJBjmvApb2PP/pBqRit7Hk6GW+ieND012rhJUpcSDW1Wf5zSSYtR7kYk1LARyayGX6JENox
-	dtGo0btT5IYbsoBeIM+Hp4DtZ3MeYwTz01rIpADLcY1oN30qXwoc+CxlECF4gQANZfiJ/iUzqQTLb
-	HVN45n+Y9Skm2TEM3TVw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=YNMRp/ppFLu5YcvSilYWBL08WRnzUAIhz3wJ42mnb20=; b=H+ob0X+7uJfpGRdo2gGpHWIOnM
+	C7nTNBSOGVeum1HzxAqin6cb2zwVjZ47YpRTZdUTzOCg8li4D5L+122jSrQkLD2aAgSG5Jo0Y9Drx
+	MFabdgOcAUEcP4VX6Ux1H5GaUeHVGJl6zRyow5ZnuzbFEHLFcF9NbbCW9Z0LFsVgNIq5MKfwIoFzv
+	dA+PT+0vp8bhrylBWb0npEXpduYNqJcjUdfyXE3V1Lkd6uGMDigP+YE9kEi43ItO09v0qPAjPU7dN
+	rDMW3iXiP4qWAmx/ZO84BbMpAjvOvkB55Eh9WMO6VfUcfk3CxCVNAwGt2ahI8hyjH6zucaFyJd7cV
+	LdKQO+Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQrJH-0062yc-0B;
-	Fri, 19 Jan 2024 16:01:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rQrZb-0065UW-22;
+	Fri, 19 Jan 2024 16:18:27 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rQqFR-005tWN-00
+	id 1rQrZW-0065SL-2F
 	for linux-riscv@lists.infradead.org;
-	Fri, 19 Jan 2024 14:53:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1705676012;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qOsO/Lf7sVxy4fhdSPqohLoRNhvM4CLG9JfiEjyNKTw=;
-	b=CuoXjrP+7I9S266fnpilFI2djkh8+0Ou+sSZJsEdkslbwLuSnoXB7T2+F+dDNOvJqP0NUZ
-	bNhrmYOJ64p3MD3ZlC5jWhYhvQfe7Qv3fd4zfVqSy3oJgoopW34rxB3nJpIM5dxg2rzKlO
-	6Q1F3//OM1h1kJaHamPvdxaXL3W4qmI=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-677-bMRp3DFdOPqN7YAziA51gw-1; Fri,
- 19 Jan 2024 09:53:27 -0500
-X-MC-Unique: bMRp3DFdOPqN7YAziA51gw-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EE52A3C025B8;
-	Fri, 19 Jan 2024 14:53:25 +0000 (UTC)
-Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.116.4])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 88F5251D5;
-	Fri, 19 Jan 2024 14:53:19 +0000 (UTC)
-From: Baoquan He <bhe@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: kexec@lists.infradead.org,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	akpm@linux-foundation.org,
-	ebiederm@xmission.com,
-	hbathini@linux.ibm.com,
-	piliu@redhat.com,
-	viro@zeniv.linux.org.uk,
-	Baoquan He <bhe@redhat.com>
-Subject: [PATCH v2 04/14] crash: split crash dumping code out from kexec_core.c
-Date: Fri, 19 Jan 2024 22:52:31 +0800
-Message-ID: <20240119145241.769622-5-bhe@redhat.com>
-In-Reply-To: <20240119145241.769622-1-bhe@redhat.com>
-References: <20240119145241.769622-1-bhe@redhat.com>
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
+	Fri, 19 Jan 2024 16:18:25 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1d5f56912daso7907225ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Jan 2024 08:18:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1705681097; x=1706285897; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1nJStO1X+XU2NXRkqjxXe5xlVihYUM3XYAIkitLaGVQ=;
+        b=xdzUDVAuDOzrW/qsZm0J9gLa3ATt0FS72i3DEBDRdLsDlBRbOXo+hV02htF999rYxf
+         FBTcr8Jbd/ztz3RfspRelMgPomhwLG+Yqd1bhKpyiNsFaoPIz4b8qFPRH6uv6WxxliUq
+         xo3+YKDYjeKF1XIANAL6Xaph9295Bu9RxLbC7mLolMvfqpAikTu5Vdow8XDw1jdViBOr
+         pUzMl144EMR25hk+mYJ92iLycE1jq1/QeQdw8+6/1U8clRcuj6X6bUtQ2RXfjkKoAToR
+         v9gxbgm/x8xkSNUDWoaB/mHJr6k0Nv6IcKebZk2lCx/Jdgq2ABqG5hvBbAvCebxLZA+f
+         xV7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705681097; x=1706285897;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1nJStO1X+XU2NXRkqjxXe5xlVihYUM3XYAIkitLaGVQ=;
+        b=tR5A0vyb9KPBBEjiczjpdEknkhrnikt9Jflw1yK+j2DRkZiND3QZY6m9woMWvCqH/E
+         QE9R4+mfmZtMT2edkedLOF+iGgPeVnW96IpDrshyhXQSwHFmlAoEOQ7ky2OxtymxcZwV
+         Kql1UCeQvdJrV5Kb/9dk8XPNVXgu2RbcVepwXvZOZabAyNSKqNRZiebWZ0iE05nWMjo4
+         +1S+Cx6eaJWivtgFdcXDgCqTZMc5rq9Wn+8dlRHpamkeiGijYV/HQjaV1pZ4lvp9Pire
+         N8PhlTsEFetl/aH6FcTc6pcfIPznwLMGGWH0FOf4RW3O57eQ/7bY8qZ9j+7Yq+hYFkDX
+         usHQ==
+X-Gm-Message-State: AOJu0YzYAh4xJW8a03uE53HI4BhoBoyDKCxGsCAM67YG53iyX8viSyJE
+	HQeVHm7+fBrMrUDAiVbaf+aATHzwbvEB6VSmw6uW1UfBb3Krh/A1rL7JKNw8bREHzVRJCl/5g1o
+	6
+X-Google-Smtp-Source: AGHT+IHahHYuNz0zszh2VrQL4AZ/4OyVWuPno4WZee7z2Ort+iGyD7sNWu572HdrlvkJV3vFcdo5Zg==
+X-Received: by 2002:a17:903:124b:b0:1d5:7220:9ff with SMTP id u11-20020a170903124b00b001d5722009ffmr139132plh.117.1705681096834;
+        Fri, 19 Jan 2024 08:18:16 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id f15-20020a170902684f00b001d721386cc2sm1276657pln.84.2024.01.19.08.18.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Jan 2024 08:18:16 -0800 (PST)
+Date: Fri, 19 Jan 2024 08:18:16 -0800 (PST)
+X-Google-Original-Date: Fri, 19 Jan 2024 08:18:13 PST (-0800)
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.8 Merge Window, Part 2
+In-Reply-To: <mhng-690cf774-fd28-4d25-be9f-69e19fb84d5c@palmer-ri-x1c9>
+CC: linux-riscv@lists.infradead.org, linux-kernel@subspace.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-f3795e90-29db-4457-b341-3577dda11780@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240119_065333_216555_8FF991D9 
-X-CRM114-Status: GOOD (  30.69  )
+X-CRM114-CacheID: sfid-20240119_081823_733730_76C1E9EE 
+X-CRM114-Status: GOOD (  35.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,1062 +86,221 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, KEXEC_CORE select CRASH_CORE automatically because crash codes
-need be built in to avoid compiling error when building kexec code even
-though the crash dumping functionality is not enabled. E.g
---------------------
-CONFIG_CRASH_CORE=y
-CONFIG_KEXEC_CORE=y
-CONFIG_KEXEC=y
-CONFIG_KEXEC_FILE=y
----------------------
-
-After splitting out crashkernel reservation code and vmcoreinfo exporting
-code, there's only crash related code left in kernel/crash_core.c. Now
-move crash related codes from kexec_core.c to crash_core.c and only build it
-in when CONFIG_CRASH_DUMP=y.
-
-And also wrap up crash codes inside CONFIG_CRASH_DUMP ifdeffery scope,
-or replace inappropriate CONFIG_KEXEC_CORE ifdef with CONFIG_CRASH_DUMP
-ifdef in generic kernel files.
-
-With these changes, crash_core codes are abstracted from kexec codes and
-can be disabled at all if only kexec reboot feature is wanted.
-
-Signed-off-by: Baoquan He <bhe@redhat.com>
----
- drivers/base/cpu.c         |   6 +-
- include/linux/crash_core.h |  61 +++++++++
- include/linux/kexec.h      |  45 +------
- init/initramfs.c           |   2 +-
- kernel/Makefile            |   3 +-
- kernel/crash_core.c        | 256 +++++++++++++++++++++++++++++++++++++
- kernel/kexec.c             |  11 +-
- kernel/kexec_core.c        | 250 ++----------------------------------
- kernel/kexec_file.c        |  13 +-
- kernel/ksysfs.c            |   4 +
- 10 files changed, 359 insertions(+), 292 deletions(-)
-
-diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index 47de0f140ba6..b621a0fc75e1 100644
---- a/drivers/base/cpu.c
-+++ b/drivers/base/cpu.c
-@@ -144,7 +144,7 @@ static DEVICE_ATTR(release, S_IWUSR, NULL, cpu_release_store);
- #endif /* CONFIG_ARCH_CPU_PROBE_RELEASE */
- #endif /* CONFIG_HOTPLUG_CPU */
- 
--#ifdef CONFIG_KEXEC_CORE
-+#ifdef CONFIG_CRASH_DUMP
- #include <linux/kexec.h>
- 
- static ssize_t crash_notes_show(struct device *dev,
-@@ -189,14 +189,14 @@ static const struct attribute_group crash_note_cpu_attr_group = {
- #endif
- 
- static const struct attribute_group *common_cpu_attr_groups[] = {
--#ifdef CONFIG_KEXEC_CORE
-+#ifdef CONFIG_CRASH_DUMP
- 	&crash_note_cpu_attr_group,
- #endif
- 	NULL
- };
- 
- static const struct attribute_group *hotplugable_cpu_attr_groups[] = {
--#ifdef CONFIG_KEXEC_CORE
-+#ifdef CONFIG_CRASH_DUMP
- 	&crash_note_cpu_attr_group,
- #endif
- 	NULL
-diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
-index 7f19f62018ef..23270b16e1db 100644
---- a/include/linux/crash_core.h
-+++ b/include/linux/crash_core.h
-@@ -6,6 +6,48 @@
- #include <linux/elfcore.h>
- #include <linux/elf.h>
- 
-+struct kimage;
-+
-+#ifdef CONFIG_CRASH_DUMP
-+
-+int crash_shrink_memory(unsigned long new_size);
-+ssize_t crash_get_memory_size(void);
-+
-+#ifndef arch_kexec_protect_crashkres
-+/*
-+ * Protection mechanism for crashkernel reserved memory after
-+ * the kdump kernel is loaded.
-+ *
-+ * Provide an empty default implementation here -- architecture
-+ * code may override this
-+ */
-+static inline void arch_kexec_protect_crashkres(void) { }
-+#endif
-+
-+#ifndef arch_kexec_unprotect_crashkres
-+static inline void arch_kexec_unprotect_crashkres(void) { }
-+#endif
-+
-+
-+
-+#ifndef arch_crash_handle_hotplug_event
-+static inline void arch_crash_handle_hotplug_event(struct kimage *image) { }
-+#endif
-+
-+int crash_check_update_elfcorehdr(void);
-+
-+#ifndef crash_hotplug_cpu_support
-+static inline int crash_hotplug_cpu_support(void) { return 0; }
-+#endif
-+
-+#ifndef crash_hotplug_memory_support
-+static inline int crash_hotplug_memory_support(void) { return 0; }
-+#endif
-+
-+#ifndef crash_get_elfcorehdr_size
-+static inline unsigned int crash_get_elfcorehdr_size(void) { return 0; }
-+#endif
-+
- /* Alignment required for elf header segment */
- #define ELF_CORE_HEADER_ALIGN   4096
- 
-@@ -31,4 +73,23 @@ struct kexec_segment;
- #define KEXEC_CRASH_HP_REMOVE_MEMORY		4
- #define KEXEC_CRASH_HP_INVALID_CPU		-1U
- 
-+extern void __crash_kexec(struct pt_regs *regs);
-+extern void crash_kexec(struct pt_regs *regs);
-+int kexec_should_crash(struct task_struct *p);
-+int kexec_crash_loaded(void);
-+void crash_save_cpu(struct pt_regs *regs, int cpu);
-+extern int kimage_crash_copy_vmcoreinfo(struct kimage *image);
-+
-+#else /* !CONFIG_CRASH_DUMP*/
-+struct pt_regs;
-+struct task_struct;
-+struct kimage;
-+static inline void __crash_kexec(struct pt_regs *regs) { }
-+static inline void crash_kexec(struct pt_regs *regs) { }
-+static inline int kexec_should_crash(struct task_struct *p) { return 0; }
-+static inline int kexec_crash_loaded(void) { return 0; }
-+static inline void crash_save_cpu(struct pt_regs *regs, int cpu) {};
-+static inline int kimage_crash_copy_vmcoreinfo(struct kimage *image) { return 0; };
-+#endif /* CONFIG_CRASH_DUMP*/
-+
- #endif /* LINUX_CRASH_CORE_H */
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index 9c7bb8b56ed6..060835bb82d5 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -15,7 +15,6 @@
- 
- #if !defined(__ASSEMBLY__)
- 
--#include <linux/crash_core.h>
- #include <linux/vmcore_info.h>
- #include <linux/crash_reserve.h>
- #include <asm/io.h>
-@@ -33,6 +32,7 @@ extern note_buf_t __percpu *crash_notes;
- #include <linux/module.h>
- #include <linux/highmem.h>
- #include <asm/kexec.h>
-+#include <linux/crash_core.h>
- 
- /* Verify architecture specific macros are defined */
- 
-@@ -380,13 +380,6 @@ extern struct page *kimage_alloc_control_pages(struct kimage *image,
- static inline int machine_kexec_post_load(struct kimage *image) { return 0; }
- #endif
- 
--extern void __crash_kexec(struct pt_regs *);
--extern void crash_kexec(struct pt_regs *);
--int kexec_should_crash(struct task_struct *);
--int kexec_crash_loaded(void);
--void crash_save_cpu(struct pt_regs *regs, int cpu);
--extern int kimage_crash_copy_vmcoreinfo(struct kimage *image);
--
- extern struct kimage *kexec_image;
- extern struct kimage *kexec_crash_image;
- 
-@@ -410,24 +403,6 @@ bool kexec_load_permitted(int kexec_image_type);
- /* flag to track if kexec reboot is in progress */
- extern bool kexec_in_progress;
- 
--int crash_shrink_memory(unsigned long new_size);
--ssize_t crash_get_memory_size(void);
--
--#ifndef arch_kexec_protect_crashkres
--/*
-- * Protection mechanism for crashkernel reserved memory after
-- * the kdump kernel is loaded.
-- *
-- * Provide an empty default implementation here -- architecture
-- * code may override this
-- */
--static inline void arch_kexec_protect_crashkres(void) { }
--#endif
--
--#ifndef arch_kexec_unprotect_crashkres
--static inline void arch_kexec_unprotect_crashkres(void) { }
--#endif
--
- #ifndef page_to_boot_pfn
- static inline unsigned long page_to_boot_pfn(struct page *page)
- {
-@@ -484,24 +459,6 @@ static inline int arch_kexec_post_alloc_pages(void *vaddr, unsigned int pages, g
- static inline void arch_kexec_pre_free_pages(void *vaddr, unsigned int pages) { }
- #endif
- 
--#ifndef arch_crash_handle_hotplug_event
--static inline void arch_crash_handle_hotplug_event(struct kimage *image) { }
--#endif
--
--int crash_check_update_elfcorehdr(void);
--
--#ifndef crash_hotplug_cpu_support
--static inline int crash_hotplug_cpu_support(void) { return 0; }
--#endif
--
--#ifndef crash_hotplug_memory_support
--static inline int crash_hotplug_memory_support(void) { return 0; }
--#endif
--
--#ifndef crash_get_elfcorehdr_size
--static inline unsigned int crash_get_elfcorehdr_size(void) { return 0; }
--#endif
--
- extern bool kexec_file_dbg_print;
- 
- #define kexec_dprintk(fmt, ...)					\
-diff --git a/init/initramfs.c b/init/initramfs.c
-index 76deb48c38cb..6f095f54eec9 100644
---- a/init/initramfs.c
-+++ b/init/initramfs.c
-@@ -642,7 +642,7 @@ void __weak __init free_initrd_mem(unsigned long start, unsigned long end)
- 			"initrd");
- }
- 
--#ifdef CONFIG_KEXEC_CORE
-+#ifdef CONFIG_CRASH_RESERVE
- static bool __init kexec_free_initrd(void)
- {
- 	unsigned long crashk_start = (unsigned long)__va(crashk_res.start);
-diff --git a/kernel/Makefile b/kernel/Makefile
-index 35abc65e1f1a..3c13240dfc9f 100644
---- a/kernel/Makefile
-+++ b/kernel/Makefile
-@@ -70,7 +70,8 @@ obj-$(CONFIG_KALLSYMS_SELFTEST) += kallsyms_selftest.o
- obj-$(CONFIG_BSD_PROCESS_ACCT) += acct.o
- obj-$(CONFIG_VMCORE_INFO) += vmcore_info.o elfcorehdr.o
- obj-$(CONFIG_CRASH_RESERVE) += crash_reserve.o
--obj-$(CONFIG_KEXEC_CORE) += kexec_core.o crash_core.o
-+obj-$(CONFIG_KEXEC_CORE) += kexec_core.o
-+obj-$(CONFIG_CRASH_DUMP) += crash_core.o
- obj-$(CONFIG_KEXEC) += kexec.o
- obj-$(CONFIG_KEXEC_FILE) += kexec_file.o
- obj-$(CONFIG_KEXEC_ELF) += kexec_elf.o
-diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-index 2f4df1fe6f7a..78b5dc7cee3a 100644
---- a/kernel/crash_core.c
-+++ b/kernel/crash_core.c
-@@ -11,9 +11,14 @@
- #include <linux/sizes.h>
- #include <linux/kexec.h>
- #include <linux/memory.h>
-+#include <linux/mm.h>
- #include <linux/cpuhotplug.h>
- #include <linux/memblock.h>
- #include <linux/kmemleak.h>
-+#include <linux/crash_core.h>
-+#include <linux/reboot.h>
-+#include <linux/btf.h>
-+#include <linux/objtool.h>
- 
- #include <asm/page.h>
- #include <asm/sections.h>
-@@ -26,6 +31,131 @@
- /* Per cpu memory for storing cpu states in case of system crash. */
- note_buf_t __percpu *crash_notes;
- 
-+#ifdef CONFIG_CRASH_DUMP
-+
-+int kimage_crash_copy_vmcoreinfo(struct kimage *image)
-+{
-+	struct page *vmcoreinfo_page;
-+	void *safecopy;
-+
-+	if (!IS_ENABLED(CONFIG_CRASH_DUMP))
-+		return 0;
-+	if (image->type != KEXEC_TYPE_CRASH)
-+		return 0;
-+
-+	/*
-+	 * For kdump, allocate one vmcoreinfo safe copy from the
-+	 * crash memory. as we have arch_kexec_protect_crashkres()
-+	 * after kexec syscall, we naturally protect it from write
-+	 * (even read) access under kernel direct mapping. But on
-+	 * the other hand, we still need to operate it when crash
-+	 * happens to generate vmcoreinfo note, hereby we rely on
-+	 * vmap for this purpose.
-+	 */
-+	vmcoreinfo_page = kimage_alloc_control_pages(image, 0);
-+	if (!vmcoreinfo_page) {
-+		pr_warn("Could not allocate vmcoreinfo buffer\n");
-+		return -ENOMEM;
-+	}
-+	safecopy = vmap(&vmcoreinfo_page, 1, VM_MAP, PAGE_KERNEL);
-+	if (!safecopy) {
-+		pr_warn("Could not vmap vmcoreinfo buffer\n");
-+		return -ENOMEM;
-+	}
-+
-+	image->vmcoreinfo_data_copy = safecopy;
-+	crash_update_vmcoreinfo_safecopy(safecopy);
-+
-+	return 0;
-+}
-+
-+
-+
-+int kexec_should_crash(struct task_struct *p)
-+{
-+	/*
-+	 * If crash_kexec_post_notifiers is enabled, don't run
-+	 * crash_kexec() here yet, which must be run after panic
-+	 * notifiers in panic().
-+	 */
-+	if (crash_kexec_post_notifiers)
-+		return 0;
-+	/*
-+	 * There are 4 panic() calls in make_task_dead() path, each of which
-+	 * corresponds to each of these 4 conditions.
-+	 */
-+	if (in_interrupt() || !p->pid || is_global_init(p) || panic_on_oops)
-+		return 1;
-+	return 0;
-+}
-+
-+int kexec_crash_loaded(void)
-+{
-+	return !!kexec_crash_image;
-+}
-+EXPORT_SYMBOL_GPL(kexec_crash_loaded);
-+
-+/*
-+ * No panic_cpu check version of crash_kexec().  This function is called
-+ * only when panic_cpu holds the current CPU number; this is the only CPU
-+ * which processes crash_kexec routines.
-+ */
-+void __noclone __crash_kexec(struct pt_regs *regs)
-+{
-+	/* Take the kexec_lock here to prevent sys_kexec_load
-+	 * running on one cpu from replacing the crash kernel
-+	 * we are using after a panic on a different cpu.
-+	 *
-+	 * If the crash kernel was not located in a fixed area
-+	 * of memory the xchg(&kexec_crash_image) would be
-+	 * sufficient.  But since I reuse the memory...
-+	 */
-+	if (kexec_trylock()) {
-+		if (kexec_crash_image) {
-+			struct pt_regs fixed_regs;
-+
-+			crash_setup_regs(&fixed_regs, regs);
-+			crash_save_vmcoreinfo();
-+			machine_crash_shutdown(&fixed_regs);
-+			machine_kexec(kexec_crash_image);
-+		}
-+		kexec_unlock();
-+	}
-+}
-+STACK_FRAME_NON_STANDARD(__crash_kexec);
-+
-+__bpf_kfunc void crash_kexec(struct pt_regs *regs)
-+{
-+	int old_cpu, this_cpu;
-+
-+	/*
-+	 * Only one CPU is allowed to execute the crash_kexec() code as with
-+	 * panic().  Otherwise parallel calls of panic() and crash_kexec()
-+	 * may stop each other.  To exclude them, we use panic_cpu here too.
-+	 */
-+	old_cpu = PANIC_CPU_INVALID;
-+	this_cpu = raw_smp_processor_id();
-+
-+	if (atomic_try_cmpxchg(&panic_cpu, &old_cpu, this_cpu)) {
-+		/* This is the 1st CPU which comes here, so go ahead. */
-+		__crash_kexec(regs);
-+
-+		/*
-+		 * Reset panic_cpu to allow another panic()/crash_kexec()
-+		 * call.
-+		 */
-+		atomic_set(&panic_cpu, PANIC_CPU_INVALID);
-+	}
-+}
-+
-+static inline resource_size_t crash_resource_size(const struct resource *res)
-+{
-+	return !res->end ? 0 : resource_size(res);
-+}
-+
-+
-+
-+
- int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
- 			  void **addr, unsigned long *sz)
- {
-@@ -187,6 +317,130 @@ int crash_exclude_mem_range(struct crash_mem *mem,
- 	return 0;
- }
- 
-+ssize_t crash_get_memory_size(void)
-+{
-+	ssize_t size = 0;
-+
-+	if (!kexec_trylock())
-+		return -EBUSY;
-+
-+	size += crash_resource_size(&crashk_res);
-+	size += crash_resource_size(&crashk_low_res);
-+
-+	kexec_unlock();
-+	return size;
-+}
-+
-+static int __crash_shrink_memory(struct resource *old_res,
-+				 unsigned long new_size)
-+{
-+	struct resource *ram_res;
-+
-+	ram_res = kzalloc(sizeof(*ram_res), GFP_KERNEL);
-+	if (!ram_res)
-+		return -ENOMEM;
-+
-+	ram_res->start = old_res->start + new_size;
-+	ram_res->end   = old_res->end;
-+	ram_res->flags = IORESOURCE_BUSY | IORESOURCE_SYSTEM_RAM;
-+	ram_res->name  = "System RAM";
-+
-+	if (!new_size) {
-+		release_resource(old_res);
-+		old_res->start = 0;
-+		old_res->end   = 0;
-+	} else {
-+		crashk_res.end = ram_res->start - 1;
-+	}
-+
-+	crash_free_reserved_phys_range(ram_res->start, ram_res->end);
-+	insert_resource(&iomem_resource, ram_res);
-+
-+	return 0;
-+}
-+
-+int crash_shrink_memory(unsigned long new_size)
-+{
-+	int ret = 0;
-+	unsigned long old_size, low_size;
-+
-+	if (!kexec_trylock())
-+		return -EBUSY;
-+
-+	if (kexec_crash_image) {
-+		ret = -ENOENT;
-+		goto unlock;
-+	}
-+
-+	low_size = crash_resource_size(&crashk_low_res);
-+	old_size = crash_resource_size(&crashk_res) + low_size;
-+	new_size = roundup(new_size, KEXEC_CRASH_MEM_ALIGN);
-+	if (new_size >= old_size) {
-+		ret = (new_size == old_size) ? 0 : -EINVAL;
-+		goto unlock;
-+	}
-+
-+	/*
-+	 * (low_size > new_size) implies that low_size is greater than zero.
-+	 * This also means that if low_size is zero, the else branch is taken.
-+	 *
-+	 * If low_size is greater than 0, (low_size > new_size) indicates that
-+	 * crashk_low_res also needs to be shrunken. Otherwise, only crashk_res
-+	 * needs to be shrunken.
-+	 */
-+	if (low_size > new_size) {
-+		ret = __crash_shrink_memory(&crashk_res, 0);
-+		if (ret)
-+			goto unlock;
-+
-+		ret = __crash_shrink_memory(&crashk_low_res, new_size);
-+	} else {
-+		ret = __crash_shrink_memory(&crashk_res, new_size - low_size);
-+	}
-+
-+	/* Swap crashk_res and crashk_low_res if needed */
-+	if (!crashk_res.end && crashk_low_res.end) {
-+		crashk_res.start = crashk_low_res.start;
-+		crashk_res.end   = crashk_low_res.end;
-+		release_resource(&crashk_low_res);
-+		crashk_low_res.start = 0;
-+		crashk_low_res.end   = 0;
-+		insert_resource(&iomem_resource, &crashk_res);
-+	}
-+
-+unlock:
-+	kexec_unlock();
-+	return ret;
-+}
-+
-+void crash_save_cpu(struct pt_regs *regs, int cpu)
-+{
-+	struct elf_prstatus prstatus;
-+	u32 *buf;
-+
-+	if ((cpu < 0) || (cpu >= nr_cpu_ids))
-+		return;
-+
-+	/* Using ELF notes here is opportunistic.
-+	 * I need a well defined structure format
-+	 * for the data I pass, and I need tags
-+	 * on the data to indicate what information I have
-+	 * squirrelled away.  ELF notes happen to provide
-+	 * all of that, so there is no need to invent something new.
-+	 */
-+	buf = (u32 *)per_cpu_ptr(crash_notes, cpu);
-+	if (!buf)
-+		return;
-+	memset(&prstatus, 0, sizeof(prstatus));
-+	prstatus.common.pr_pid = current->pid;
-+	elf_core_copy_regs(&prstatus.pr_reg, regs);
-+	buf = append_elf_note(buf, KEXEC_CORE_NOTE_NAME, NT_PRSTATUS,
-+			      &prstatus, sizeof(prstatus));
-+	final_note(buf);
-+}
-+
-+
-+
- static int __init crash_notes_memory_init(void)
- {
- 	/* Allocate memory for saving cpu registers. */
-@@ -220,6 +474,8 @@ static int __init crash_notes_memory_init(void)
- }
- subsys_initcall(crash_notes_memory_init);
- 
-+#endif /*CONFIG_CRASH_DUMP*/
-+
- #ifdef CONFIG_CRASH_HOTPLUG
- #undef pr_fmt
- #define pr_fmt(fmt) "crash hp: " fmt
-diff --git a/kernel/kexec.c b/kernel/kexec.c
-index 8f35a5a42af8..bab542fc1463 100644
---- a/kernel/kexec.c
-+++ b/kernel/kexec.c
-@@ -28,12 +28,14 @@ static int kimage_alloc_init(struct kimage **rimage, unsigned long entry,
- 	struct kimage *image;
- 	bool kexec_on_panic = flags & KEXEC_ON_CRASH;
- 
-+#ifdef CONFIG_CRASH_DUMP
- 	if (kexec_on_panic) {
- 		/* Verify we have a valid entry point */
- 		if ((entry < phys_to_boot_phys(crashk_res.start)) ||
- 		    (entry > phys_to_boot_phys(crashk_res.end)))
- 			return -EADDRNOTAVAIL;
- 	}
-+#endif
- 
- 	/* Allocate and initialize a controlling structure */
- 	image = do_kimage_alloc_init();
-@@ -44,11 +46,13 @@ static int kimage_alloc_init(struct kimage **rimage, unsigned long entry,
- 	image->nr_segments = nr_segments;
- 	memcpy(image->segment, segments, nr_segments * sizeof(*segments));
- 
-+#ifdef CONFIG_CRASH_DUMP
- 	if (kexec_on_panic) {
- 		/* Enable special crash kernel control page alloc policy. */
- 		image->control_page = crashk_res.start;
- 		image->type = KEXEC_TYPE_CRASH;
- 	}
-+#endif
- 
- 	ret = sanity_check_segment_list(image);
- 	if (ret)
-@@ -99,13 +103,14 @@ static int do_kexec_load(unsigned long entry, unsigned long nr_segments,
- 	if (!kexec_trylock())
- 		return -EBUSY;
- 
-+#ifdef CONFIG_CRASH_DUMP
- 	if (flags & KEXEC_ON_CRASH) {
- 		dest_image = &kexec_crash_image;
- 		if (kexec_crash_image)
- 			arch_kexec_unprotect_crashkres();
--	} else {
-+	} else
-+#endif
- 		dest_image = &kexec_image;
--	}
- 
- 	if (nr_segments == 0) {
- 		/* Uninstall image */
-@@ -162,8 +167,10 @@ static int do_kexec_load(unsigned long entry, unsigned long nr_segments,
- 	image = xchg(dest_image, image);
- 
- out:
-+#ifdef CONFIG_CRASH_DUMP
- 	if ((flags & KEXEC_ON_CRASH) && kexec_crash_image)
- 		arch_kexec_protect_crashkres();
-+#endif
- 
- 	kimage_free(image);
- out_unlock:
-diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
-index d08fc7b5db97..ce3429e7972c 100644
---- a/kernel/kexec_core.c
-+++ b/kernel/kexec_core.c
-@@ -54,30 +54,6 @@ bool kexec_in_progress = false;
- 
- bool kexec_file_dbg_print;
- 
--int kexec_should_crash(struct task_struct *p)
--{
--	/*
--	 * If crash_kexec_post_notifiers is enabled, don't run
--	 * crash_kexec() here yet, which must be run after panic
--	 * notifiers in panic().
--	 */
--	if (crash_kexec_post_notifiers)
--		return 0;
--	/*
--	 * There are 4 panic() calls in make_task_dead() path, each of which
--	 * corresponds to each of these 4 conditions.
--	 */
--	if (in_interrupt() || !p->pid || is_global_init(p) || panic_on_oops)
--		return 1;
--	return 0;
--}
--
--int kexec_crash_loaded(void)
--{
--	return !!kexec_crash_image;
--}
--EXPORT_SYMBOL_GPL(kexec_crash_loaded);
--
- /*
-  * When kexec transitions to the new kernel there is a one-to-one
-  * mapping between physical and virtual addresses.  On processors
-@@ -209,6 +185,7 @@ int sanity_check_segment_list(struct kimage *image)
- 	if (total_pages > nr_pages / 2)
- 		return -EINVAL;
- 
-+#ifdef CONFIG_CRASH_DUMP
- 	/*
- 	 * Verify we have good destination addresses.  Normally
- 	 * the caller is responsible for making certain we don't
-@@ -231,6 +208,7 @@ int sanity_check_segment_list(struct kimage *image)
- 				return -EADDRNOTAVAIL;
- 		}
- 	}
-+#endif
- 
- 	return 0;
- }
-@@ -403,6 +381,7 @@ static struct page *kimage_alloc_normal_control_pages(struct kimage *image,
- 	return pages;
- }
- 
-+#ifdef CONFIG_CRASH_DUMP
- static struct page *kimage_alloc_crash_control_pages(struct kimage *image,
- 						      unsigned int order)
- {
-@@ -468,6 +447,7 @@ static struct page *kimage_alloc_crash_control_pages(struct kimage *image,
- 
- 	return pages;
- }
-+#endif
- 
- 
- struct page *kimage_alloc_control_pages(struct kimage *image,
-@@ -479,48 +459,16 @@ struct page *kimage_alloc_control_pages(struct kimage *image,
- 	case KEXEC_TYPE_DEFAULT:
- 		pages = kimage_alloc_normal_control_pages(image, order);
- 		break;
-+#ifdef CONFIG_CRASH_DUMP
- 	case KEXEC_TYPE_CRASH:
- 		pages = kimage_alloc_crash_control_pages(image, order);
- 		break;
-+#endif
- 	}
- 
- 	return pages;
- }
- 
--int kimage_crash_copy_vmcoreinfo(struct kimage *image)
--{
--	struct page *vmcoreinfo_page;
--	void *safecopy;
--
--	if (image->type != KEXEC_TYPE_CRASH)
--		return 0;
--
--	/*
--	 * For kdump, allocate one vmcoreinfo safe copy from the
--	 * crash memory. as we have arch_kexec_protect_crashkres()
--	 * after kexec syscall, we naturally protect it from write
--	 * (even read) access under kernel direct mapping. But on
--	 * the other hand, we still need to operate it when crash
--	 * happens to generate vmcoreinfo note, hereby we rely on
--	 * vmap for this purpose.
--	 */
--	vmcoreinfo_page = kimage_alloc_control_pages(image, 0);
--	if (!vmcoreinfo_page) {
--		pr_warn("Could not allocate vmcoreinfo buffer\n");
--		return -ENOMEM;
--	}
--	safecopy = vmap(&vmcoreinfo_page, 1, VM_MAP, PAGE_KERNEL);
--	if (!safecopy) {
--		pr_warn("Could not vmap vmcoreinfo buffer\n");
--		return -ENOMEM;
--	}
--
--	image->vmcoreinfo_data_copy = safecopy;
--	crash_update_vmcoreinfo_safecopy(safecopy);
--
--	return 0;
--}
--
- static int kimage_add_entry(struct kimage *image, kimage_entry_t entry)
- {
- 	if (*image->entry != 0)
-@@ -603,10 +551,12 @@ void kimage_free(struct kimage *image)
- 	if (!image)
- 		return;
- 
-+#ifdef CONFIG_CRASH_DUMP
- 	if (image->vmcoreinfo_data_copy) {
- 		crash_update_vmcoreinfo_safecopy(NULL);
- 		vunmap(image->vmcoreinfo_data_copy);
- 	}
-+#endif
- 
- 	kimage_free_extra_pages(image);
- 	for_each_kimage_entry(image, ptr, entry) {
-@@ -824,6 +774,7 @@ static int kimage_load_normal_segment(struct kimage *image,
- 	return result;
- }
- 
-+#ifdef CONFIG_CRASH_DUMP
- static int kimage_load_crash_segment(struct kimage *image,
- 					struct kexec_segment *segment)
- {
-@@ -891,6 +842,7 @@ static int kimage_load_crash_segment(struct kimage *image,
- out:
- 	return result;
- }
-+#endif
- 
- int kimage_load_segment(struct kimage *image,
- 				struct kexec_segment *segment)
-@@ -901,9 +853,11 @@ int kimage_load_segment(struct kimage *image,
- 	case KEXEC_TYPE_DEFAULT:
- 		result = kimage_load_normal_segment(image, segment);
- 		break;
-+#ifdef CONFIG_CRASH_DUMP
- 	case KEXEC_TYPE_CRASH:
- 		result = kimage_load_crash_segment(image, segment);
- 		break;
-+#endif
- 	}
- 
- 	return result;
-@@ -1027,186 +981,6 @@ bool kexec_load_permitted(int kexec_image_type)
- 	return true;
- }
- 
--/*
-- * No panic_cpu check version of crash_kexec().  This function is called
-- * only when panic_cpu holds the current CPU number; this is the only CPU
-- * which processes crash_kexec routines.
-- */
--void __noclone __crash_kexec(struct pt_regs *regs)
--{
--	/* Take the kexec_lock here to prevent sys_kexec_load
--	 * running on one cpu from replacing the crash kernel
--	 * we are using after a panic on a different cpu.
--	 *
--	 * If the crash kernel was not located in a fixed area
--	 * of memory the xchg(&kexec_crash_image) would be
--	 * sufficient.  But since I reuse the memory...
--	 */
--	if (kexec_trylock()) {
--		if (kexec_crash_image) {
--			struct pt_regs fixed_regs;
--
--			crash_setup_regs(&fixed_regs, regs);
--			crash_save_vmcoreinfo();
--			machine_crash_shutdown(&fixed_regs);
--			machine_kexec(kexec_crash_image);
--		}
--		kexec_unlock();
--	}
--}
--STACK_FRAME_NON_STANDARD(__crash_kexec);
--
--__bpf_kfunc void crash_kexec(struct pt_regs *regs)
--{
--	int old_cpu, this_cpu;
--
--	/*
--	 * Only one CPU is allowed to execute the crash_kexec() code as with
--	 * panic().  Otherwise parallel calls of panic() and crash_kexec()
--	 * may stop each other.  To exclude them, we use panic_cpu here too.
--	 */
--	old_cpu = PANIC_CPU_INVALID;
--	this_cpu = raw_smp_processor_id();
--
--	if (atomic_try_cmpxchg(&panic_cpu, &old_cpu, this_cpu)) {
--		/* This is the 1st CPU which comes here, so go ahead. */
--		__crash_kexec(regs);
--
--		/*
--		 * Reset panic_cpu to allow another panic()/crash_kexec()
--		 * call.
--		 */
--		atomic_set(&panic_cpu, PANIC_CPU_INVALID);
--	}
--}
--
--static inline resource_size_t crash_resource_size(const struct resource *res)
--{
--	return !res->end ? 0 : resource_size(res);
--}
--
--ssize_t crash_get_memory_size(void)
--{
--	ssize_t size = 0;
--
--	if (!kexec_trylock())
--		return -EBUSY;
--
--	size += crash_resource_size(&crashk_res);
--	size += crash_resource_size(&crashk_low_res);
--
--	kexec_unlock();
--	return size;
--}
--
--static int __crash_shrink_memory(struct resource *old_res,
--				 unsigned long new_size)
--{
--	struct resource *ram_res;
--
--	ram_res = kzalloc(sizeof(*ram_res), GFP_KERNEL);
--	if (!ram_res)
--		return -ENOMEM;
--
--	ram_res->start = old_res->start + new_size;
--	ram_res->end   = old_res->end;
--	ram_res->flags = IORESOURCE_BUSY | IORESOURCE_SYSTEM_RAM;
--	ram_res->name  = "System RAM";
--
--	if (!new_size) {
--		release_resource(old_res);
--		old_res->start = 0;
--		old_res->end   = 0;
--	} else {
--		crashk_res.end = ram_res->start - 1;
--	}
--
--	crash_free_reserved_phys_range(ram_res->start, ram_res->end);
--	insert_resource(&iomem_resource, ram_res);
--
--	return 0;
--}
--
--int crash_shrink_memory(unsigned long new_size)
--{
--	int ret = 0;
--	unsigned long old_size, low_size;
--
--	if (!kexec_trylock())
--		return -EBUSY;
--
--	if (kexec_crash_image) {
--		ret = -ENOENT;
--		goto unlock;
--	}
--
--	low_size = crash_resource_size(&crashk_low_res);
--	old_size = crash_resource_size(&crashk_res) + low_size;
--	new_size = roundup(new_size, KEXEC_CRASH_MEM_ALIGN);
--	if (new_size >= old_size) {
--		ret = (new_size == old_size) ? 0 : -EINVAL;
--		goto unlock;
--	}
--
--	/*
--	 * (low_size > new_size) implies that low_size is greater than zero.
--	 * This also means that if low_size is zero, the else branch is taken.
--	 *
--	 * If low_size is greater than 0, (low_size > new_size) indicates that
--	 * crashk_low_res also needs to be shrunken. Otherwise, only crashk_res
--	 * needs to be shrunken.
--	 */
--	if (low_size > new_size) {
--		ret = __crash_shrink_memory(&crashk_res, 0);
--		if (ret)
--			goto unlock;
--
--		ret = __crash_shrink_memory(&crashk_low_res, new_size);
--	} else {
--		ret = __crash_shrink_memory(&crashk_res, new_size - low_size);
--	}
--
--	/* Swap crashk_res and crashk_low_res if needed */
--	if (!crashk_res.end && crashk_low_res.end) {
--		crashk_res.start = crashk_low_res.start;
--		crashk_res.end   = crashk_low_res.end;
--		release_resource(&crashk_low_res);
--		crashk_low_res.start = 0;
--		crashk_low_res.end   = 0;
--		insert_resource(&iomem_resource, &crashk_res);
--	}
--
--unlock:
--	kexec_unlock();
--	return ret;
--}
--
--void crash_save_cpu(struct pt_regs *regs, int cpu)
--{
--	struct elf_prstatus prstatus;
--	u32 *buf;
--
--	if ((cpu < 0) || (cpu >= nr_cpu_ids))
--		return;
--
--	/* Using ELF notes here is opportunistic.
--	 * I need a well defined structure format
--	 * for the data I pass, and I need tags
--	 * on the data to indicate what information I have
--	 * squirrelled away.  ELF notes happen to provide
--	 * all of that, so there is no need to invent something new.
--	 */
--	buf = (u32 *)per_cpu_ptr(crash_notes, cpu);
--	if (!buf)
--		return;
--	memset(&prstatus, 0, sizeof(prstatus));
--	prstatus.common.pr_pid = current->pid;
--	elf_core_copy_regs(&prstatus.pr_reg, regs);
--	buf = append_elf_note(buf, KEXEC_CORE_NOTE_NAME, NT_PRSTATUS,
--			      &prstatus, sizeof(prstatus));
--	final_note(buf);
--}
--
- /*
-  * Move into place and start executing a preloaded standalone
-  * executable.  If nothing was preloaded return an error.
-diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-index bef2f6f2571b..ce7ce2ae27cd 100644
---- a/kernel/kexec_file.c
-+++ b/kernel/kexec_file.c
-@@ -285,11 +285,13 @@ kimage_file_alloc_init(struct kimage **rimage, int kernel_fd,
- 	kexec_file_dbg_print = !!(flags & KEXEC_FILE_DEBUG);
- 	image->file_mode = 1;
- 
-+#ifdef CONFIG_CRASH_DUMP
- 	if (kexec_on_panic) {
- 		/* Enable special crash kernel control page alloc policy. */
- 		image->control_page = crashk_res.start;
- 		image->type = KEXEC_TYPE_CRASH;
- 	}
-+#endif
- 
- 	ret = kimage_file_prepare_segments(image, kernel_fd, initrd_fd,
- 					   cmdline_ptr, cmdline_len, flags);
-@@ -349,13 +351,14 @@ SYSCALL_DEFINE5(kexec_file_load, int, kernel_fd, int, initrd_fd,
- 	if (!kexec_trylock())
- 		return -EBUSY;
- 
-+#ifdef CONFIG_CRASH_DUMP
- 	if (image_type == KEXEC_TYPE_CRASH) {
- 		dest_image = &kexec_crash_image;
- 		if (kexec_crash_image)
- 			arch_kexec_unprotect_crashkres();
--	} else {
-+	} else
-+#endif
- 		dest_image = &kexec_image;
--	}
- 
- 	if (flags & KEXEC_FILE_UNLOAD)
- 		goto exchange;
-@@ -419,8 +422,10 @@ SYSCALL_DEFINE5(kexec_file_load, int, kernel_fd, int, initrd_fd,
- exchange:
- 	image = xchg(dest_image, image);
- out:
-+#ifdef CONFIG_CRASH_DUMP
- 	if ((flags & KEXEC_FILE_ON_CRASH) && kexec_crash_image)
- 		arch_kexec_protect_crashkres();
-+#endif
- 
- 	kexec_unlock();
- 	kimage_free(image);
-@@ -595,12 +600,14 @@ static int kexec_walk_memblock(struct kexec_buf *kbuf,
- static int kexec_walk_resources(struct kexec_buf *kbuf,
- 				int (*func)(struct resource *, void *))
- {
-+#ifdef CONFIG_CRASH_DUMP
- 	if (kbuf->image->type == KEXEC_TYPE_CRASH)
- 		return walk_iomem_res_desc(crashk_res.desc,
- 					   IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY,
- 					   crashk_res.start, crashk_res.end,
- 					   kbuf, func);
--	else if (kbuf->top_down)
-+#endif
-+	if (kbuf->top_down)
- 		return walk_system_ram_res_rev(0, ULONG_MAX, kbuf, func);
- 	else
- 		return walk_system_ram_res(0, ULONG_MAX, kbuf, func);
-diff --git a/kernel/ksysfs.c b/kernel/ksysfs.c
-index 11526fc42bc2..fe7a517fc4ab 100644
---- a/kernel/ksysfs.c
-+++ b/kernel/ksysfs.c
-@@ -120,6 +120,7 @@ static ssize_t kexec_loaded_show(struct kobject *kobj,
- }
- KERNEL_ATTR_RO(kexec_loaded);
- 
-+#ifdef CONFIG_CRASH_DUMP
- static ssize_t kexec_crash_loaded_show(struct kobject *kobj,
- 				       struct kobj_attribute *attr, char *buf)
- {
-@@ -152,6 +153,7 @@ static ssize_t kexec_crash_size_store(struct kobject *kobj,
- }
- KERNEL_ATTR_RW(kexec_crash_size);
- 
-+#endif /* CONFIG_CRASH_DUMP*/
- #endif /* CONFIG_KEXEC_CORE */
- 
- #ifdef CONFIG_VMCORE_INFO
-@@ -262,9 +264,11 @@ static struct attribute * kernel_attrs[] = {
- #endif
- #ifdef CONFIG_KEXEC_CORE
- 	&kexec_loaded_attr.attr,
-+#ifdef CONFIG_CRASH_DUMP
- 	&kexec_crash_loaded_attr.attr,
- 	&kexec_crash_size_attr.attr,
- #endif
-+#endif
- #ifdef CONFIG_VMCORE_INFO
- 	&vmcoreinfo_attr.attr,
- #ifdef CONFIG_CRASH_HOTPLUG
--- 
-2.41.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCAxOSBKYW4gMjAyNCAwNTo1Mzo0MiBQU1QgKC0wODAwKSwgUGFsbWVyIERhYmJlbHQg
+d3JvdGU6Cj4gVGhlIGZvbGxvd2luZyBjaGFuZ2VzIHNpbmNlIGNvbW1pdCBjYjUxYmZlZTdmNjJh
+OGUyNmI2OTRmOWQ4NGMwMDQxYjNlM2NjYzcxOgo+Cj4gICBNZXJnZSBwYXRjaCBzZXJpZXMgInJp
+c2N2OiBod3Byb2JlOiBhZGQgWmljb25kLCBaYWNhcyBhbmQgWnRzbyBzdXBwb3J0IiAoMjAyNC0w
+MS0wOSAyMDoxNDo1MSAtMDgwMCkKPgo+IGFyZSBhdmFpbGFibGUgaW4gdGhlIEdpdCByZXBvc2l0
+b3J5IGF0Ogo+Cj4gICBnaXQ6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9n
+aXQvcmlzY3YvbGludXguZ2l0IHRhZ3MvcmlzY3YtZm9yLWxpbnVzLTYuOC1tdzIKPgo+IGZvciB5
+b3UgdG8gZmV0Y2ggY2hhbmdlcyB1cCB0byA0NTI1NDYyZGQwZGI5ZTg2YmI2N2MxMGRlZGJiYWE0
+ZjhkNjI2OTdkOgo+Cj4gICByaXNjdjogbGliOiBDaGVjayBpZiBvdXRwdXQgaW4gYXNtIGdvdG8g
+c3VwcG9ydGVkICgyMDI0LTAxLTE4IDE0OjQxOjM4IC0wODAwKQo+Cj4gLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+IFJJU0Mt
+ViBQYXRjaGVzIGZvciB0aGUgNi44IE1lcmdlIFdpbmRvdywgUGFydCAyCj4KPiAqIFN1cHBvcnQg
+Zm9yIHR1bmluZyBmb3Igc3lzdGVtcyB3aXRoIGZhc3QgbWlzYWxpZ25lZCBhY2Nlc3Nlcy4KPiAq
+IFN1cHBvcnQgZm9yIFNCSS1iYXNlZCBzdXNwZW5kLgo+ICogU3VwcG9ydCBmb3IgdGhlIG5ldyBT
+QkkgZGVidWcgY29uc29sZSBleHRlbnNpb24uCj4gKiBUaGUgVC1IZWFkIENNT3Mgbm93IHVzZSBQ
+QS1iYXNlZCBmbHVzaGVzLgo+ICogU3VwcG9ydCBmb3IgZW5hYmxpbmcgdGhlIFYgZXh0ZW5zaW9u
+IGluIGtlcm5lbCBjb2RlLgo+ICogT3B0aW1pemVkIElQIGNoZWNrc3VtIHJvdXRpbmVzLgo+ICog
+VmFyaW91cyBmdHJhY2UgaW1wcm92ZW1lbnRzLgo+ICogU3VwcG9ydCBmb3IgYXJjaHJhbmRvbSwg
+d2hpY2ggZGVwZW5kcyBvbiB0aGUgWmtyIGV4dGVuc2lvbi4KPgo+IC0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiBJIGhhZCBh
+IHNwaW5sb2NrIG1hZ2ljIEJVRyBzaG93IHVwIG92ZXIgdGhlIHdlZWtlbmQsIGJ1dCBpdCBzdG9w
+cGVkIHJlcHJvZHVjaW5nCj4gZWFybGllciB0aGlzIHdlZWsuICBTbyBJIHRoaW5rIHRoaXMgaXMg
+YWxsIGNsZWFuIGFuZCBpdCB3YXMganVzdCBhIG1pZGRsZSBvZgo+IHRoZSBtZXJnZSB3aW5kb3cg
+aXNzdWUsIGJ1dCBpZiBzb21lb25lIGVuZHMgdXAgd2l0aCBhIHJlcHJvZHVjZXIgdGhlbiBwbGVh
+c2UKPiBzYXkgc29tZXRoaW5nLgoKTG9va3MgbGlrZSBJIG1hbmFnZWQgdG8gbWlzcyBzb21lIGJ1
+aWxkIGZhaWx1cmVzIG9uIHBsYXRmb3JtcyB0aGF0IGRvbid0IApkZWZpbmUgY3N1bV9pcHY2X21h
+Z2ljIHVuZGVyIE5FVD1uLCB1bmRlciByYW5kY29uZmlncyB0aGF0IGFsc28gaGF2ZSAKS1VOSVQ9
+eSAobmlvcyBhbmQgaGV4YWdvbiBoYXZlIHNob3duIHVwIHNvIGZhcikuICBJJ3ZlIGdvdCBhIGZp
+eCBvdXQgZm9yIAppdCB0aGF0IEkgdGhpbmsgbG9va3MgT0sKCmh0dHBzOi8vbG9yZS5rZXJuZWwu
+b3JnL2FsbC8yMDI0MDExOTE0NTYwMC4zMDkzLTItcGFsbWVyQHJpdm9zaW5jLmNvbS8KCmJ1dCBJ
+J20gZ29pbmcgdG8gZ2l2ZSBmb2xrcyBhIGJpdCB0byByZXBseSB0aGlzIG1vcm5pbmcuCgpPYnZp
+b3VzbHkgSSBuZWVkIHRvIGhhdmUgdGhpbmdzIGJha2UgYSBiaXQgbG9uZ2VyIGluIGxpbnV4LW5l
+eHQuICBIYXBweSAKdG8gZWl0aGVyIHJlLXNwaW4gdGhpcyBvciBzZW5kIGFub3RoZXIgUFIgd2l0
+aCB0aGF0IG1lcmdlZCBpbiwganVzdCBsZXQgCm1lIGtub3cuCgphbmQgc29ycnkgZm9yIHRoZSBl
+eHRyYSBjaGFvcyB3aXRoIGFsbCB0aGUgcG93ZXIgaXNzdWVzLi4uCgo+IC0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiBBbGV4
+YW5kcmUgR2hpdGkgKDMpOgo+ICAgICAgIHJpc2N2OiBVc2UgaHVnZXBhZ2UgbWFwcGluZ3MgZm9y
+IHZtZW1tYXAKPiAgICAgICByaXNjdjogQWRkIHN1cHBvcnQgZm9yIEJBVENIRURfVU5NQVBfVExC
+X0ZMVVNICj4gICAgICAgcmlzY3Y6IEZpeCBidWlsZCBlcnJvciBvbiBydjMyICsgWElQCj4KPiBB
+bmRyZXcgSm9uZXMgKDIpOgo+ICAgICAgIHJpc2N2OiBzYmk6IEludHJvZHVjZSBzeXN0ZW0gc3Vz
+cGVuZCBzdXBwb3J0Cj4gICAgICAgUklTQy1WOiBzZWxmdGVzdHM6IGNibzogRW5zdXJlIGFzbSBv
+cGVyYW5kcyBtYXRjaCBjb25zdHJhaW50cwo+Cj4gQW5keSBDaGl1ICg4KToKPiAgICAgICByaXNj
+djogdmVjdG9yOiBtYWtlIFZlY3RvciBhbHdheXMgYXZhaWxhYmxlIGZvciBzb2Z0aXJxIGNvbnRl
+eHQKPiAgICAgICByaXNjdjogc2NoZWQ6IGRlZmVyIHJlc3RvcmluZyBWZWN0b3IgY29udGV4dCBm
+b3IgdXNlcgo+ICAgICAgIHJpc2N2OiBsaWI6IHZlY3Rvcml6ZSBjb3B5X3RvX3VzZXIvY29weV9m
+cm9tX3VzZXIKPiAgICAgICByaXNjdjogZnB1OiBkcm9wIFNSX1NEIGJpdCBjaGVja2luZwo+ICAg
+ICAgIHJpc2N2OiB2ZWN0b3I6IGRvIG5vdCBwYXNzIHRhc2tfc3RydWN0IGludG8gcmlzY3Zfdl92
+c3RhdGVfe3NhdmUscmVzdG9yZX0oKQo+ICAgICAgIHJpc2N2OiB2ZWN0b3I6IHVzZSBhIG1hc2sg
+dG8gd3JpdGUgdnN0YXRlX2N0cmwKPiAgICAgICByaXNjdjogdmVjdG9yOiB1c2Uga21lbV9jYWNo
+ZSB0byBtYW5hZ2UgdmVjdG9yIGNvbnRleHQKPiAgICAgICByaXNjdjogdmVjdG9yOiBhbGxvdyBr
+ZXJuZWwtbW9kZSBWZWN0b3Igd2l0aCBwcmVlbXB0aW9uCj4KPiBBbnVwIFBhdGVsICg0KToKPiAg
+ICAgICBSSVNDLVY6IEFkZCBzdHVicyBmb3Igc2JpX2NvbnNvbGVfcHV0Y2hhci9nZXRjaGFyKCkK
+PiAgICAgICBSSVNDLVY6IEFkZCBTQkkgZGVidWcgY29uc29sZSBoZWxwZXIgcm91dGluZXMKPiAg
+ICAgICB0dHkvc2VyaWFsOiBBZGQgUklTQy1WIFNCSSBkZWJ1ZyBjb25zb2xlIGJhc2VkIGVhcmx5
+Y29uCj4gICAgICAgUklTQy1WOiBFbmFibGUgU0JJIGJhc2VkIGVhcmx5Y29uIHN1cHBvcnQKPgo+
+IEF0aXNoIFBhdHJhICgxKToKPiAgICAgICB0dHk6IEFkZCBTQkkgZGVidWcgY29uc29sZSBzdXBw
+b3J0IHRvIEhWQyBTQkkgZHJpdmVyCj4KPiBDaGFybGllIEplbmtpbnMgKDkpOgo+ICAgICAgIHJp
+c2N2OiBGaXggbW9kdWxlIGxvYWRpbmcgZnJlZSBvcmRlcgo+ICAgICAgIHJpc2N2OiBDb3JyZWN0
+bHkgZnJlZSByZWxvY2F0aW9uIGhhc2h0YWJsZSBvbiBlcnJvcgo+ICAgICAgIHJpc2N2OiBGaXgg
+cmVsb2NhdGlvbl9oYXNodGFibGUgc2l6ZQo+ICAgICAgIGFzbS1nZW5lcmljOiBJbXByb3ZlIGNz
+dW1fZm9sZAo+ICAgICAgIHJpc2N2OiBBZGQgc3RhdGljIGtleSBmb3IgbWlzYWxpZ25lZCBhY2Nl
+c3Nlcwo+ICAgICAgIHJpc2N2OiBBZGQgY2hlY2tzdW0gaGVhZGVyCj4gICAgICAgcmlzY3Y6IEFk
+ZCBjaGVja3N1bSBsaWJyYXJ5Cj4gICAgICAga3VuaXQ6IEFkZCB0ZXN0cyBmb3IgY3N1bV9pcHY2
+X21hZ2ljIGFuZCBpcF9mYXN0X2NzdW0KPiAgICAgICByaXNjdjogbGliOiBDaGVjayBpZiBvdXRw
+dXQgaW4gYXNtIGdvdG8gc3VwcG9ydGVkCj4KPiBDaHJpc3RvcGggTe+/ve+/vWxsbmVyICg1KToK
+PiAgICAgICB0b29sczogc2VsZnRlc3RzOiByaXNjdjogRml4IGNvbXBpbGUgd2FybmluZ3MgaW4g
+aHdwcm9iZQo+ICAgICAgIHRvb2xzOiBzZWxmdGVzdHM6IHJpc2N2OiBGaXggY29tcGlsZSB3YXJu
+aW5ncyBpbiBjYm8KPiAgICAgICB0b29sczogc2VsZnRlc3RzOiByaXNjdjogQWRkIG1pc3Npbmcg
+aW5jbHVkZSBmb3IgdmVjdG9yIHRlc3QKPiAgICAgICB0b29sczogc2VsZnRlc3RzOiByaXNjdjog
+Rml4IGNvbXBpbGUgd2FybmluZ3MgaW4gdmVjdG9yIHRlc3RzCj4gICAgICAgdG9vbHM6IHNlbGZ0
+ZXN0czogcmlzY3Y6IEZpeCBjb21waWxlIHdhcm5pbmdzIGluIG1tIHRlc3RzCj4KPiBDaHJpc3Rv
+cGhlIEpBSUxMRVQgKDEpOgo+ICAgICAgIHJpc2N2OiBGaXggYW4gb2ZmLWJ5LW9uZSBpbiBnZXRf
+ZWFybHlfY21kbGluZSgpCj4KPiBDb25vciBEb29sZXkgKDEpOgo+ICAgICAgIGR0LWJpbmRpbmdz
+OiByaXNjdjogcGVybWl0IG51bWJlcnMgaW4gInJpc2N2LGlzYSIKPgo+IERhbmllbCBIZW5yaXF1
+ZSBCYXJib3phICgxKToKPiAgICAgICBkdC1iaW5kaW5nczogcmlzY3Y6IERvY3VtZW50IGNib3At
+YmxvY2stc2l6ZQo+Cj4gR3JlZW50aW1lIEh1ICgyKToKPiAgICAgICByaXNjdjogQWRkIHN1cHBv
+cnQgZm9yIGtlcm5lbCBtb2RlIHZlY3Rvcgo+ICAgICAgIHJpc2N2OiBBZGQgdmVjdG9yIGV4dGVu
+c2lvbiBYT1IgaW1wbGVtZW50YXRpb24KPgo+IEd1byBSZW4gKDIpOgo+ICAgICAgIHJpc2N2OiBt
+bTogRml4dXAgY29tcGF0IG1vZGUgYm9vdCBmYWlsdXJlCj4gICAgICAgcmlzY3Y6IG1tOiBGaXh1
+cCBjb21wYXQgYXJjaF9nZXRfbW1hcF9lbmQKPgo+IEppc2hlbmcgWmhhbmcgKDQpOgo+ICAgICAg
+IHJpc2N2OiBpbnRyb2R1Y2UgUklTQ1ZfRUZGSUNJRU5UX1VOQUxJR05FRF9BQ0NFU1MKPiAgICAg
+ICByaXNjdjogc2VsZWN0IERDQUNIRV9XT1JEX0FDQ0VTUyBmb3IgZWZmaWNpZW50IHVuYWxpZ25l
+ZCBhY2Nlc3MgSFcKPiAgICAgICByaXNjdjogZXJyYXRhOiB0aGVhZDogdXNlIHJpc2N2X25vbnN0
+ZF9jYWNoZV9vcHMgZm9yIENNTwo+ICAgICAgIHJpc2N2OiBlcnJhdGE6IHRoZWFkOiB1c2UgcGEg
+YmFzZWQgaW5zdHJ1Y3Rpb25zIGZvciBDTU8KPgo+IE1hc2FoaXJvIFlhbWFkYSAoMSk6Cj4gICAg
+ICAgcmlzY3Y6IGFkZCBkZXBlbmRlbmN5IGFtb25nIEltYWdlKC5neiksIGxvYWRlciguYmluKSwg
+YW5kIHZtbGludXouZWZpCj4KPiBNYXhpbSBLb2NoZXRrb3YgKDEpOgo+ICAgICAgIHJpc2N2OiBv
+cHRpbWl6ZSBFTEYgcmVsb2NhdGlvbiBmdW5jdGlvbiBpbiByaXNjdgo+Cj4gTmF0aGFuIENoYW5j
+ZWxsb3IgKDMpOgo+ICAgICAgIHJpc2N2OiBIb2lzdCBsaW5rZXIgcmVsYXhhdGlvbiBkaXNhYmxp
+bmcgbG9naWMgaW50byBLY29uZmlnCj4gICAgICAgcmlzY3Y6IFJlc3RyaWN0IERXQVJGNSB3aGVu
+IGJ1aWxkaW5nIHdpdGggTExWTSB0byBrbm93biB3b3JraW5nIHZlcnNpb25zCj4gICAgICAgbGli
+L0tjb25maWcuZGVidWc6IFVwZGF0ZSBBU19IQVNfTk9OX0NPTlNUX0xFQjEyOCBjb21tZW50IGFu
+ZCBuYW1lCj4KPiBQYWxtZXIgRGFiYmVsdCAoMTApOgo+ICAgICAgIE1lcmdlIHBhdGNoIHNlcmll
+cyAicmlzY3Y6IGVuYWJsZSBFRkZJQ0lFTlRfVU5BTElHTkVEX0FDQ0VTUyBhbmQgRENBQ0hFX1dP
+UkRfQUNDRVNTIgo+ICAgICAgIE1lcmdlIHBhdGNoIHNlcmllcyAicmlzY3Y6IG1vZHVsZXM6IEZp
+eCBtb2R1bGUgbG9hZGluZyBlcnJvciBoYW5kbGluZyIKPiAgICAgICBNZXJnZSBwYXRjaCBzZXJp
+ZXMgIlJJU0MtViBTQkkgZGVidWcgY29uc29sZSBleHRlbnNpb24gc3VwcG9ydCIKPiAgICAgICBN
+ZXJnZSBwYXRjaCBzZXJpZXMgInJpc2N2OiBlcnJhdGE6IHRoZWFkOiB1c2UgcmlzY3Zfbm9uc3Rk
+X2NhY2hlX29wcyBmb3IgQ01PIgo+ICAgICAgIE1lcmdlIHBhdGNoIHNlcmllcyAidG9vbHM6IHNl
+bGZ0ZXN0czogcmlzY3Y6IEZpeCBjb21waWxlciB3YXJuaW5ncyIKPiAgICAgICBNZXJnZSBwYXRj
+aCBzZXJpZXMgInJpc2N2OiBtbTogRml4dXAgJiBPcHRpbWl6ZSBDT01QQVQgY29kZSIKPiAgICAg
+ICBNZXJnZSBwYXRjaCBzZXJpZXMgInJpc2N2OiBzdXBwb3J0IGtlcm5lbC1tb2RlIFZlY3RvciIK
+PiAgICAgICBNZXJnZSBwYXRjaCBzZXJpZXMgInJpc2N2OiBBZGQgZmluZS10dW5lZCBjaGVja3N1
+bSBmdW5jdGlvbnMiCj4gICAgICAgTWVyZ2UgcGF0Y2ggc2VyaWVzICJSSVNDLVY6IERpc2FibGUg
+RFdBUkY1IHdpdGgga25vd24gYnJva2VuIExMVk0gdmVyc2lvbnMiCj4gICAgICAgTWVyZ2UgcGF0
+Y2ggc2VyaWVzICJyaXNjdjogZnRyYWNlOiBNaXNjZWxsYW5lb3VzIGZ0cmFjZSBpbXByb3ZlbWVu
+dHMiCj4KPiBTYW11ZWwgSG9sbGFuZCAoMSk6Cj4gICAgICAgZHQtYmluZGluZ3M6IHJpc2N2OiBj
+cHVzOiBDbGFyaWZ5IG1tdS10eXBlIGludGVycHJldGF0aW9uCj4KPiBTYW11ZWwgT3J0aXogKDEp
+Ogo+ICAgICAgIFJJU0MtVjogSW1wbGVtZW50IGFyY2hyYW5kb20gd2hlbiBaa3IgaXMgYXZhaWxh
+YmxlCj4KPiBTb25nIFNodWFpICg0KToKPiAgICAgICByaXNjdjogc2VsZWN0IEZUUkFDRV9NQ09V
+TlRfVVNFX1BBVENIQUJMRV9GVU5DVElPTl9FTlRSWQo+ICAgICAgIHJpc2N2OiBmdHJhY2U6IE1h
+a2UgZnVuY3Rpb24gZ3JhcGggdXNlIGZ0cmFjZSBkaXJlY3RseQo+ICAgICAgIHJpc2N2OiBmdHJh
+Y2U6IEFkZCBEWU5BTUlDX0ZUUkFDRV9XSVRIX0RJUkVDVF9DQUxMUyBzdXBwb3J0Cj4gICAgICAg
+c2FtcGxlczogZnRyYWNlOiBBZGQgUklTQy1WIHN1cHBvcnQgZm9yIFNBTVBMRV9GVFJBQ0VfRElS
+RUNUW19NVUxUSV0KPgo+IFhpYW8gV2FuZyAoMSk6Cj4gICAgICAgcmlzY3Y6IE9wdGltaXplIGh3
+ZWlnaHQgQVBJIHdpdGggWmJiIGV4dGVuc2lvbgo+Cj4gIERvY3VtZW50YXRpb24vZGV2aWNldHJl
+ZS9iaW5kaW5ncy9yaXNjdi9jcHVzLnlhbWwgIHwgICA5ICstCj4gIC4uLi9kZXZpY2V0cmVlL2Jp
+bmRpbmdzL3Jpc2N2L2V4dGVuc2lvbnMueWFtbCAgICAgIHwgICAyICstCj4gIERvY3VtZW50YXRp
+b24vZmVhdHVyZXMvdm0vVExCL2FyY2gtc3VwcG9ydC50eHQgICAgIHwgICAyICstCj4gIGFyY2gv
+cmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDU3ICsrKy0K
+PiAgYXJjaC9yaXNjdi9LY29uZmlnLmVycmF0YSAgICAgICAgICAgICAgICAgICAgICAgICAgfCAg
+IDEgKwo+ICBhcmNoL3Jpc2N2L01ha2VmaWxlICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICB8ICAgOCArLQo+ICBhcmNoL3Jpc2N2L2NvbmZpZ3MvZGVmY29uZmlnICAgICAgICAgICAgICAg
+ICAgICAgICB8ICAgMSArCj4gIGFyY2gvcmlzY3YvZXJyYXRhL3RoZWFkL2VycmF0YS5jICAgICAg
+ICAgICAgICAgICAgIHwgIDY5ICsrKystCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vYXJjaF9o
+d2VpZ2h0LmggICAgICAgICAgICAgIHwgIDc4ICsrKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vYXJjaHJhbmRvbS5oICAgICAgICAgICAgICAgIHwgIDcyICsrKysrCj4gIGFyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vYXNtLWV4dGFibGUuaCAgICAgICAgICAgICAgIHwgIDE1ICsKPiAgYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9hc20tcHJvdG90eXBlcy5oICAgICAgICAgICAgfCAgMjcgKysKPiAg
+YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9iaXRvcHMuaCAgICAgICAgICAgICAgICAgICAgfCAgIDQg
+Ky0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jaGVja3N1bS5oICAgICAgICAgICAgICAgICAg
+fCAgOTMgKysrKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3B1ZmVhdHVyZS5oICAgICAg
+ICAgICAgICAgIHwgICAyICsKPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCAgICAgICAg
+ICAgICAgICAgICAgICAgfCAgIDkgKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VudHJ5LWNv
+bW1vbi5oICAgICAgICAgICAgICB8ICAxNyArKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Vy
+cmF0YV9saXN0LmggICAgICAgICAgICAgICB8ICA1MCArLS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vZnRyYWNlLmggICAgICAgICAgICAgICAgICAgIHwgIDE4ICstCj4gIGFyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vcGd0YWJsZS5oICAgICAgICAgICAgICAgICAgIHwgICAyICstCj4gIGFyY2gv
+cmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmggICAgICAgICAgICAgICAgIHwgIDQzICsrLQo+
+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oICAgICAgICAgICAgICAgICAgICAgICB8ICAx
+OSArKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NpbWQuaCAgICAgICAgICAgICAgICAgICAg
+ICB8ICA2NCArKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmggICAgICAg
+ICAgICAgICAgIHwgICAzICstCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8u
+aCAgICAgICAgICAgICAgIHwgICAyICsKPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90bGJiYXRj
+aC5oICAgICAgICAgICAgICAgICAgfCAgMTUgKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Rs
+YmZsdXNoLmggICAgICAgICAgICAgICAgICB8ICAgOCArCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vdmVjdG9yLmggICAgICAgICAgICAgICAgICAgIHwgIDkwICsrKysrLQo+ICBhcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL3dvcmQtYXQtYS10aW1lLmggICAgICAgICAgICB8ICAyNyArKwo+ICBhcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3hvci5oICAgICAgICAgICAgICAgICAgICAgICB8ICA2OCArKysr
+Kwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgMSArCj4gIGFyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyAgICAgICAgICAgICAgICAg
+ICAgIHwgIDkwICsrKysrLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TICAgICAgICAgICAg
+ICAgICAgICAgICAgICB8ICAgOCArCj4gIGFyY2gvcmlzY3Yva2VybmVsL2Z0cmFjZS5jICAgICAg
+ICAgICAgICAgICAgICAgICAgIHwgIDMwICstCj4gIGFyY2gvcmlzY3Yva2VybmVsL2tlcm5lbF9t
+b2RlX3ZlY3Rvci5jICAgICAgICAgICAgIHwgMjQ3ICsrKysrKysrKysrKysrKysKPiAgYXJjaC9y
+aXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TICAgICAgICAgICAgICAgICAgICAgfCAxOTggKysrKysr
+KysrKy0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9tb2R1bGUuYyAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAzNCArKy0KPiAgYXJjaC9yaXNjdi9rZXJuZWwvcGkvY21kbGluZV9lYXJseS5jICAg
+ICAgICAgICAgICAgfCAgIDMgKy0KPiAgYXJjaC9yaXNjdi9rZXJuZWwvcHJvY2Vzcy5jICAgICAg
+ICAgICAgICAgICAgICAgICAgfCAgMTMgKy0KPiAgYXJjaC9yaXNjdi9rZXJuZWwvcHRyYWNlLmMg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDcgKy0KPiAgYXJjaC9yaXNjdi9rZXJuZWwvc2Jp
+LmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgNjYgKysrKysKPiAgYXJjaC9yaXNjdi9r
+ZXJuZWwvc2lnbmFsLmMgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDcgKy0KPiAgYXJjaC9y
+aXNjdi9rZXJuZWwvc3VzcGVuZC5jICAgICAgICAgICAgICAgICAgICAgICAgfCAgNDQgKysrCj4g
+IGFyY2gvcmlzY3Yva2VybmVsL3ZlY3Rvci5jICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDUz
+ICsrKy0KPiAgYXJjaC9yaXNjdi9saWIvTWFrZWZpbGUgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgfCAgIDYgKwo+ICBhcmNoL3Jpc2N2L2xpYi9jc3VtLmMgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICB8IDMyOCArKysrKysrKysrKysrKysrKysrKysKPiAgYXJjaC9yaXNjdi9saWIvcmlz
+Y3Zfdl9oZWxwZXJzLmMgICAgICAgICAgICAgICAgICAgfCAgNDUgKysrCj4gIGFyY2gvcmlzY3Yv
+bGliL3VhY2Nlc3MuUyAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDEwICsKPiAgYXJjaC9y
+aXNjdi9saWIvdWFjY2Vzc192ZWN0b3IuUyAgICAgICAgICAgICAgICAgICAgfCAgNTMgKysrKwo+
+ICBhcmNoL3Jpc2N2L2xpYi94b3IuUyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA4
+MSArKysrKwo+ICBhcmNoL3Jpc2N2L21tL2V4dGFibGUuYyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAzMSArKwo+ICBhcmNoL3Jpc2N2L21tL2luaXQuYyAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAyNSArLQo+ICBhcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICA2OSArKystLQo+ICBkcml2ZXJzL3R0eS9odmMvS2NvbmZpZyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgMiArLQo+ICBkcml2ZXJzL3R0eS9odmMvaHZj
+X3Jpc2N2X3NiaS5jICAgICAgICAgICAgICAgICAgICB8ICAzNyArKy0KPiAgZHJpdmVycy90dHkv
+c2VyaWFsL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDIgKy0KPiAgZHJpdmVy
+cy90dHkvc2VyaWFsL2Vhcmx5Y29uLXJpc2N2LXNiaS5jICAgICAgICAgICAgfCAgMjcgKy0KPiAg
+aW5jbHVkZS9hc20tZ2VuZXJpYy9jaGVja3N1bS5oICAgICAgICAgICAgICAgICAgICAgfCAgIDYg
+Ky0KPiAgbGliL0tjb25maWcuZGVidWcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCAgMTIgKy0KPiAgbGliL2NoZWNrc3VtX2t1bml0LmMgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCAyODQgKysrKysrKysrKysrKysrKystCj4gIHNhbXBsZXMvZnRyYWNlL2Z0cmFjZS1k
+aXJlY3QtbW9kaWZ5LmMgICAgICAgICAgICAgIHwgIDM1ICsrKwo+ICBzYW1wbGVzL2Z0cmFjZS9m
+dHJhY2UtZGlyZWN0LW11bHRpLW1vZGlmeS5jICAgICAgICB8ICA0MSArKysKPiAgc2FtcGxlcy9m
+dHJhY2UvZnRyYWNlLWRpcmVjdC1tdWx0aS5jICAgICAgICAgICAgICAgfCAgMjUgKysKPiAgc2Ft
+cGxlcy9mdHJhY2UvZnRyYWNlLWRpcmVjdC10b28uYyAgICAgICAgICAgICAgICAgfCAgMjggKysK
+PiAgc2FtcGxlcy9mdHJhY2UvZnRyYWNlLWRpcmVjdC5jICAgICAgICAgICAgICAgICAgICAgfCAg
+MjQgKysKPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvcmlzY3YvaHdwcm9iZS9jYm8uYyAgICAg
+ICAgfCAgMjQgKy0KPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvcmlzY3YvaHdwcm9iZS9od3By
+b2JlLmMgICAgfCAgIDQgKy0KPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvcmlzY3YvbW0vbW1h
+cF90ZXN0LmggICAgICAgfCAgIDMgKwo+ICAuLi4vc2VsZnRlc3RzL3Jpc2N2L3ZlY3Rvci92X2lu
+aXR2YWxfbm9saWJjLmMgICAgICB8ICAgMiArLQo+ICAuLi4vc2VsZnRlc3RzL3Jpc2N2L3ZlY3Rv
+ci92c3RhdGVfZXhlY19ub2xpYmMuYyAgICB8ICAgMyArCj4gIC4uLi90ZXN0aW5nL3NlbGZ0ZXN0
+cy9yaXNjdi92ZWN0b3IvdnN0YXRlX3ByY3RsLmMgIHwgICA0ICstCj4gIDcxIGZpbGVzIGNoYW5n
+ZWQsIDI2NzQgaW5zZXJ0aW9ucygrKSwgMjEzIGRlbGV0aW9ucygtKQo+ICBjcmVhdGUgbW9kZSAx
+MDA2NDQgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hcmNoX2h3ZWlnaHQuaAo+ICBjcmVhdGUgbW9k
+ZSAxMDA2NDQgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hcmNocmFuZG9tLmgKPiAgY3JlYXRlIG1v
+ZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY2hlY2tzdW0uaAo+ICBjcmVhdGUgbW9k
+ZSAxMDA2NDQgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zaW1kLmgKPiAgY3JlYXRlIG1vZGUgMTAw
+NjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiYmF0Y2guaAo+ICBjcmVhdGUgbW9kZSAxMDA2
+NDQgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS94b3IuaAo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJj
+aC9yaXNjdi9rZXJuZWwva2VybmVsX21vZGVfdmVjdG9yLmMKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0
+IGFyY2gvcmlzY3YvbGliL2NzdW0uYwo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9s
+aWIvcmlzY3Zfdl9oZWxwZXJzLmMKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvbGli
+L3VhY2Nlc3NfdmVjdG9yLlMKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvbGliL3hv
+ci5TCj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+
+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
