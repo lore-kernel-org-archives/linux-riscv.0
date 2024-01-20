@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692FAC47DAF
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 21:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B96C47DAF
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 22:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rOGBIgYxEWlWQm/YeKGvAh0eqxcKaNiRDuOHAzDFdOw=; b=1j4qT2Sfm/Y54k
-	GdVzbes5a8B65nFcMAulD3EvfLGyhtSR7VfAHm4b7GEeuwVS6RrczaJSlJNVtzIHkLj+G+3Dsc2Up
-	RFa3I3OqOJVEYeyvAZwGFdJl4DEV3kTEWibUHP91LhxGxiiF7+GlXefBDowlAnYPnNE3OR9lQQmkZ
-	vN9mxXSzgagB+ZgE2uksAL2eWwlnpSHy+WUhOZ8ijXo4bfDMcb7YpmvJ+1F/l+NLYj8LATGrj+R4C
-	oz4ejmznJG73wntzhHrVrTolcjNZnQ6/52O/qLSmEEs6BxrTrvTFuRaBXqNrNbBEoyzgG99FYNNrI
-	sA1Y/sLE+LXvmavX5NyA==;
+	List-Owner; bh=Egt1dwJeIZBo677mF5dLJs8Q+5SKTdBPj+lANzKz5BA=; b=wiomEfIcPnf+Ig
+	9BC4f5cB0cbyEVHQH6NBDg31z3OS4MqO0etmF4ssLNdDf4CM07oH5QcKWbIrahIBJ1+T/DRs9NZw9
+	6opfMZGPr+wR3d4G9TJCO/iphmvV4OnnlxkOsQ9/8nT4/2CPeFz8HhJWNQYYHuOwEHKQUPy8ERUFB
+	tpk6IrPAMkL/Fb4JBO+0eu++tKyMDpzDZ/77j556raAAY/jT2G33F9iyLVsZeANN6qKzKCpJjG9wz
+	hoaK6HsgDbdy02aT8ky7Ha7GyrN67w1x0jcmK+3uAzT6RQfCaHc+7k9ifNTdNeBJGOQ1wEv1Vdy42
+	noZyAksdAA0I0OG/h3Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRJEV-008TTS-0G;
-	Sat, 20 Jan 2024 21:50:31 +0000
-Received: from out203-205-221-164.mail.qq.com ([203.205.221.164])
+	id 1rRJds-008VIM-2F;
+	Sat, 20 Jan 2024 22:16:44 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRJEO-008TNp-0W
+	id 1rRIbC-008O9S-1j
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Jan 2024 21:50:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1705787410; bh=wiHZS6ft7NfH/87XosWxG0akHz17+zK84hbyOL+xbfQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=tkkUO3X12YqAA6at4NtFba+0ASKEt/e1buGrCZ49fvDwevmnFg4aozaujW4uZqrQf
-	 9p/LzQft4WyK9gnsuENQG5R58YR9AYOVASo4oYcexxZQl3A3PjYwBoesdUhKvQy6Gc
-	 /raIZ/wH/vB6k4dyk9xiEJhPFTqXx+F8HFTHGVM4=
-Received: from cyy-pc.lan ([240e:379:2240:ed00:c92f:86c3:e615:ca18])
-	by newxmesmtplogicsvrszc5-0.qq.com (NewEsmtp) with SMTP
-	id C832D4DD; Sun, 21 Jan 2024 05:50:03 +0800
-X-QQ-mid: xmsmtpt1705787408t5oxeyvxb
-Message-ID: <tencent_6ADF31EB216F8DAA7C608268DA008EB6B808@qq.com>
-X-QQ-XMAILINFO: MUa7vzS8moCUhEfLw/vyx4sgUoBQIP3idQluppaaYziV3yUX8uYoR2EirwDl7R
-	 y6qE4vaWFEn5uxFjflYiQ8TUINCgioSfsy9gQhrXXNQmC51UBKKhIbDHdDwsLwviIV5p4sdmbcun
-	 saTHYKScF7sDkCM7DSqASJUBmsDe8GN6X+m01eSCsNuqoI0KlrVfHfbv6xpGwDPeDu2BITu9udcJ
-	 G04ri04Dfw/gfWaSeyrUsvCzlGo+EiOPx9L1plLGRyJ7NZu7VJabM1TWGLGNEQpcXrRNY5vNd2oj
-	 u92FFLOA5riEAFvFJQixJcxj8zCxfkpvCe45k8F2piIjOcHens8A3WAWpSadsTHzHaSjYQy3NUE3
-	 uXqvSkqZfm6LTytactOFHwCPZzhf4RmNMx3GR9CienhFl7Wb8J6wD6j+i2PWMYUNaiuikzMZc9qE
-	 ex8dNUHc5bz0rAVVWdmYqQBcT2K57tJSv+NgZ6aaqSw803GwiGdJ4uA78iRiF9ggoaicwrGpwbP0
-	 k37nREd1kVJJC1GqDarjb1GfLk+KKNDZsjTkYbIJAyGyh9bmneNEY0gkd0EFrtWtNRXuzWM7cyGh
-	 BmW8DiDkzQPGBUBizBlGesZBIAR3+jOc8oklmcdhIpskiz6NBejwmqhcflUByoyYU+7YKQWr4yC0
-	 U7g8Lvy2egmT/Fi7nuu/Qup6n6vtbzjgos9xrOMCKNzs9dOGomlWy1vFF/RwNAn0UGSDQpA8UdKj
-	 IDVxpPms0JmykcH2uDSY0HmvESHh7qi6TwnvRsqWx38TFUal2wXLebe52f1mf5wRwQ2pKGuBzDc3
-	 2mLKPyn6uVYw2ftdxx5yJXazQN4k3d9jyta3qR6BI3zh3lkXZZpG2DEJAa0cIxm7iIDeUVGVZQyL
-	 OPNpl/t8shZLdc/5FnUQz3uE6y0eivYs0yipJFkxpBw2KEnAUY4MeSeafi0SjWDRBxVF+yFa5SPH
-	 RW+/qeYJngV9W13p7qDKgCAygh6UCBys9beE2YE7qh5f6ApmdN4At3Eeh6vPQjG6Yb6tky4RoICb
-	 UQ8JGUr/2fB8vGt4WQaU+gLpzfbqjT8NWr6dEy1tayhO7FCmXt
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
-From: Yangyu Chen <cyy@cyyself.name>
-To: linux-riscv@lists.infradead.org
-Cc: Charlie Jenkins <charlie@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Guo Ren <guoren@kernel.org>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH v2 3/3] Documentation: riscv: correct sv57 kernel behavior
-Date: Sun, 21 Jan 2024 05:50:00 +0800
-X-OQ-MSGID: <20240120215000.291877-3-cyy@cyyself.name>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <tencent_B2D0435BC011135736262764B511994F4805@qq.com>
-References: <tencent_B2D0435BC011135736262764B511994F4805@qq.com>
+	Sat, 20 Jan 2024 21:09:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 37866CE129E;
+	Sat, 20 Jan 2024 21:09:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 63B9FC43394;
+	Sat, 20 Jan 2024 21:09:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1705784988;
+	bh=8sTuArZkVA6RQ53aU6HlMpab2aJNO93qdpnOX/Gbyqs=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=PdR3wK8eeIMSZYL7Zhl83ZKlrsw55Xy/0WLJjEmZq5LFTnylTmW20pYZiBrtIju/P
+	 7cGCO67Mvi+9XshA2sYSFsJYt3FmiNfAm49iP+JCmbZTBWx6W5OEJa39lK7kCqIU+R
+	 bweUpLiqskMoXVOsNMmK55IB5TvrIN/CyV6xCYvNN5FIQq1kQ7TMX5h3xCPZ3V8hkh
+	 nHw1ndtZvFs2Ja7P125E1Ry+BqY9nRujrMOruUl8F8Y1DlBsjT/SMExMMjBeVTmjdQ
+	 PtPnZVNAQymQssc6JnmcV7SO7eDhu+CcPqBVJSW0WKEapZGIwNGXFiMvaG1iOGTugn
+	 /EJTHbjn8AVmw==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 4FEC6D8C96C;
+	Sat, 20 Jan 2024 21:09:48 +0000 (UTC)
 MIME-Version: 1.0
+Subject: Re: [v11, 00/10] riscv: support kernel-mode Vector
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <170578498832.24348.17748368770465709579.git-patchwork-notify@kernel.org>
+Date: Sat, 20 Jan 2024 21:09:48 +0000
+References: <20240115055929.4736-1-andy.chiu@sifive.com>
+In-Reply-To: <20240115055929.4736-1-andy.chiu@sifive.com>
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, greentime.hu@sifive.com, guoren@linux.alibaba.com,
+ bjorn@kernel.org, charlie@rivosinc.com, ardb@kernel.org, arnd@arndb.de,
+ peterz@infradead.org, tglx@linutronix.de, ebiggers@kernel.org,
+ aou@eecs.berkeley.edu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240120_135024_527309_4A1D400C 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20240120_130954_774154_8E60F8E0 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,83 +77,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The original documentation from the previous patchset[1] treated the hint
-address on mmap as the upper bound, since we have already removed this
-behavior, this document should be updated. Most of the content is copied
-from the corresponding feature in x86_64 with some modifications to align
-with the current kernel's behavior on RISC-V.
+Hello:
 
-[1]. https://lore.kernel.org/linux-riscv/20230809232218.849726-1-charlie@rivosinc.com/
+This series was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
-Signed-off-by: Yangyu Chen <cyy@cyyself.name>
----
- Documentation/arch/riscv/vm-layout.rst | 54 ++++++++++++++++----------
- 1 file changed, 34 insertions(+), 20 deletions(-)
+On Mon, 15 Jan 2024 05:59:19 +0000 you wrote:
+> This series provides support running Vector in kernel mode.
+> Additionally, kernel-mode Vector can be configured to run without
+> turnning off preemption on a CONFIG_PREEMPT kernel. Along with the
+> suport, we add Vector optimized copy_{to,from}_user. And provide a
+> simple threshold to decide when to run the vectorized functions.
+> 
+> We decided to drop vectorized memcpy/memset/memmove for the moment due
+> to the concern of memory side-effect in kernel_vector_begin(). The
+> detailed description can be found at v9[0]
+> 
+> [...]
 
-diff --git a/Documentation/arch/riscv/vm-layout.rst b/Documentation/arch/riscv/vm-layout.rst
-index 69ff6da1dbf8..9d84362b9f91 100644
---- a/Documentation/arch/riscv/vm-layout.rst
-+++ b/Documentation/arch/riscv/vm-layout.rst
-@@ -135,23 +135,37 @@ RISC-V Linux Kernel SV57
-   __________________|____________|__________________|_________|____________________________________________________________
- 
- 
--Userspace VAs
----------------------
--To maintain compatibility with software that relies on the VA space with a
--maximum of 48 bits the kernel will, by default, return virtual addresses to
--userspace from a 48-bit range (sv48). This default behavior is achieved by
--passing 0 into the hint address parameter of mmap. On CPUs with an address space
--smaller than sv48, the CPU maximum supported address space will be the default.
--
--Software can "opt-in" to receiving VAs from another VA space by providing
--a hint address to mmap. A hint address passed to mmap will cause the largest
--address space that fits entirely into the hint to be used, unless there is no
--space left in the address space. If there is no space available in the requested
--address space, an address in the next smallest available address space will be
--returned.
--
--For example, in order to obtain 48-bit VA space, a hint address greater than
--:code:`1 << 47` must be provided. Note that this is 47 due to sv48 userspace
--ending at :code:`1 << 47` and the addresses beyond this are reserved for the
--kernel. Similarly, to obtain 57-bit VA space addresses, a hint address greater
--than or equal to :code:`1 << 56` must be provided.
-+User-space and large virtual address space
-+==========================================
-+On RISC-V, Sv57 paging enables 56-bit userspace virtual address space.
-+Not all user space is ready to handle wide addresses. It's known that
-+at least some JIT compilers use higher bits in pointers to encode their
-+information. It collides with valid pointers with Sv57 paging and leads
-+to crashes.
-+
-+To mitigate this, we are not going to allocate virtual address space
-+above 47-bit by default. And on kernel v6.6-v6.7, that is 38-bit by
-+default.
-+
-+But userspace can ask for allocation from full address space by
-+specifying hint address (with or without MAP_FIXED) above 47-bits, or
-+hint address + size above 47-bits with MAP_FIXED.
-+
-+If hint address set above 47-bit, but MAP_FIXED is not specified, we try
-+to look for unmapped area by specified address. If it's already
-+occupied, we look for unmapped area in *full* address space, rather than
-+from 47-bit window.
-+
-+A high hint address would only affect the allocation in question, but not
-+any future mmap()s.
-+
-+Specifying high hint address without MAP_FIXED on older kernel or on
-+machine without Sv57 paging support is safe. On kernel v6.6-v6.7, the
-+hint will be treated as the upper bound of the address space to search,
-+but this was removed in the future version of kernels. On kernel older
-+than v6.6 or on machine without Sv57 paging support, the kernel will
-+fall back to allocation from the supported address space.
-+
-+This approach helps to easily make application's memory allocator aware
-+about large address space without manually tracking allocated virtual
-+address space.
+Here is the summary with links:
+  - [v11,01/10] riscv: Add support for kernel mode vector
+    https://git.kernel.org/riscv/c/ecd2ada8a5e0
+  - [v11,02/10] riscv: vector: make Vector always available for softirq context
+    https://git.kernel.org/riscv/c/956895b9d8f7
+  - [v11,03/10] riscv: Add vector extension XOR implementation
+    https://git.kernel.org/riscv/c/c5674d00cacd
+  - [v11,04/10] riscv: sched: defer restoring Vector context for user
+    https://git.kernel.org/riscv/c/7df56cbc27e4
+  - [v11,05/10] riscv: lib: vectorize copy_to_user/copy_from_user
+    https://git.kernel.org/riscv/c/c2a658d41924
+  - [v11,06/10] riscv: fpu: drop SR_SD bit checking
+    https://git.kernel.org/riscv/c/a93fdaf18312
+  - [v11,07/10] riscv: vector: do not pass task_struct into riscv_v_vstate_{save,restore}()
+    https://git.kernel.org/riscv/c/d6c78f1ca3e8
+  - [v11,08/10] riscv: vector: use a mask to write vstate_ctrl
+    https://git.kernel.org/riscv/c/5b6048f2ff71
+  - [v11,09/10] riscv: vector: use kmem_cache to manage vector context
+    https://git.kernel.org/riscv/c/bd446f5df5af
+  - [v11,10/10] riscv: vector: allow kernel-mode Vector with preemption
+    https://git.kernel.org/riscv/c/2080ff949307
+
+You are awesome, thank you!
 -- 
-2.43.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
