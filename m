@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BBA3C47258
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 21:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B15C47258
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 21:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6JuhT1eTeflRnXGrT4mgemSuiQ9eQgehp5El+NjD6KY=; b=No5+br/FSz5dOn
-	DDKP5WuDhfi5IfkraeNh4xJ8lNoX07hoGQg5VSOATdHIIIIP0wnEj+upxLUgrDqTfxGhlusjXVGBj
-	K146OOVqzm7ad6l/nKKiQ295Y8qajfktAfnWOKAgbNtTTg1uNXKXfEQADU6X91DDAJ70/hqxyF0nk
-	mSid1tqeNHUEuTuln+oVGpPGDWn6/tm2kGvaWK2rvYev29u69aI3t5AUZ0sWi6SIlcD7jl6WJv4HO
-	Ho2gMS8p+dqohwF46vuaIJpg+ry5nZU+0f6J+gRKa4pXithlL2nTjbbVjPdgSiNPifwn91NLecTh/
-	YhdCxLNBDzCVhNj3DZ5Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=D1Klq47FqiibsTMhxXEGQCGZdse1qk186Qn/imMFbQ0=; b=BbqRMaJ7UbeVHN
+	VjZscq6OsAb+9x73HGmpTR4pVpW51uMoeFgYfJ1FpS9Lb/uCMkWCqExwTQ5cRmvd4ocTa7b1ep1J8
+	Mewe6KrQwjOQALVHJh5EcNR0Q0vNapJ8BGjwxRTKIOHu7QleUiqPUI2fJY9rn0tfq/M+xrJURKpH+
+	jpTQJy/d7sRHb5bhmLk5vh84tA0iXOcsOvF1lgk7WZ5Im7Tfl9ZbQhb8fpMZJfcNb2VUEiPMevrfm
+	rIIZvF8gNaQkFjsXbUBr9ogBjLTLYVrpDB1/q6b/Ng9dBWG3ocacdjSFXkxglRqt2ZcUVHClUOvJs
+	tbO070tDLAKtY9ry2/Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRIgV-008Qck-1Y;
-	Sat, 20 Jan 2024 21:15:23 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1rRIyO-008S7l-26;
+	Sat, 20 Jan 2024 21:33:52 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRIgO-008Qbf-2R;
-	Sat, 20 Jan 2024 21:15:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=1aBK0Gktyu8z+XAOtZwM9ibKmLTWPXmi9JXFn46Moag=; b=NchmfWpKV8qW4oGh0F1Qvj2C/6
-	/9LiX34B1wlpHtipYkfPNQ+3G4sxN+nN75vc36dqQqjNMWNyQa5wFbXiDuuJCw81FAOfCSys3cLbS
-	IooU5FuZdHsgy/cCTasUw23eGZLHi8rqM87NA8xNGA8TZZ5t8ap1so2ig5rH24oATjRzXeNBH9G8b
-	ES6a95oRMX+OMy2zD9vQRKPlkHHSsMPeqUmu5H/RRAiTRt7YRBqjFrwcrblJ1oMA3AphMu0iwndBx
-	qYPvgpL249fguGP08RS7rSdcLn8m1HFKMQRGIg7MzbGLKydZ2bOvJvLHRY4wKgtirPXoSsCPXUNrl
-	VswDM4wg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40226)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1rRIgD-0007pB-1l;
-	Sat, 20 Jan 2024 21:15:05 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1rRIg9-0007ya-3x; Sat, 20 Jan 2024 21:15:01 +0000
-Date: Sat, 20 Jan 2024 21:15:01 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: patchwork-bot+linux-riscv@kernel.org
-Cc: Suren Baghdasaryan <surenb@google.com>, linux-riscv@lists.infradead.org,
-	akpm@linux-foundation.org, willy@infradead.org, will@kernel.org,
-	catalin.marinas@arm.com, palmer@dabbelt.com, mpe@ellerman.id.au,
-	christophe.leroy@csgroup.eu, agordeev@linux.ibm.com,
-	gerald.schaefer@linux.ibm.com, dave.hansen@linux.intel.com,
-	luto@kernel.org, peterz@infradead.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] arch/mm/fault: fix major fault accounting when
- retrying under per-VMA lock
-Message-ID: <Zaw31DVa9q3JZASo@shell.armlinux.org.uk>
-References: <20231226214610.109282-1-surenb@google.com>
- <170578498755.24348.16166096320323933297.git-patchwork-notify@kernel.org>
+	id 1rRIyJ-008S7Q-1v
+	for linux-riscv@lists.infradead.org;
+	Sat, 20 Jan 2024 21:33:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 933BACE1051;
+	Sat, 20 Jan 2024 21:33:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86040C433F1;
+	Sat, 20 Jan 2024 21:33:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1705786423;
+	bh=ggK882gPcvFDbkLHIJzDPNuG5aqZmqVFz9H9u19MILY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=XkKzrtQKGts2brCMmCZ5q/1ZCSjfXbAirPlxQTSwPxe6qmbN2steOWoMR4p9y3UdP
+	 LXOjz1dpAhLP+ZCe2lGm+SCqaZw0ru3FZn3KXLeKvumzOIfX3TZGLQJbwDZNpT+aJf
+	 zPvPm3w1712JBE/t+sBC8m1a5ZYNMezNVrlTGgHSpbYZ+nibs5WOgBU80WOA8cFy7i
+	 0inlxtT0T3JBx90zpNz4p8nNlXKv8sI3ugocmyez//3n4b5IVmUHFntaF2MclIa2l/
+	 u2g6upW94BVJO7qgT3QiSLORsIK0bDvrghj2ztyHor7ZbCECVOoKLhlbglVGLgVtqq
+	 mqz8g9cusUPfw==
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	Masahiro Yamada <masahiroy@kernel.org>
+Subject: [PATCH] riscv: remove unneeded #include <asm-generic/export.h>
+Date: Sun, 21 Jan 2024 06:33:11 +0900
+Message-Id: <20240120213312.3033528-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <170578498755.24348.16166096320323933297.git-patchwork-notify@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240120_131517_901795_382C3A97 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20240120_133347_812343_FEB6B0D1 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,44 +75,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 20, 2024 at 09:09:47PM +0000, patchwork-bot+linux-riscv@kernel.org wrote:
-> Hello:
-> 
-> This patch was applied to riscv/linux.git (fixes)
-> by Andrew Morton <akpm@linux-foundation.org>:
-> 
-> On Tue, 26 Dec 2023 13:46:10 -0800 you wrote:
-> > A test [1] in Android test suite started failing after [2] was merged.
-> > It turns out that after handling a major fault under per-VMA lock, the
-> > process major fault counter does not register that fault as major.
-> > Before [2] read faults would be done under mmap_lock, in which case
-> > FAULT_FLAG_TRIED flag is set before retrying. That in turn causes
-> > mm_account_fault() to account the fault as major once retry completes.
-> > With per-VMA locks we often retry because a fault can't be handled
-> > without locking the whole mm using mmap_lock. Therefore such retries
-> > do not set FAULT_FLAG_TRIED flag. This logic does not work after [2]
-> > because we can now handle read major faults under per-VMA lock and
-> > upon retry the fact there was a major fault gets lost. Fix this by
-> > setting FAULT_FLAG_TRIED after retrying under per-VMA lock if
-> > VM_FAULT_MAJOR was returned. Ideally we would use an additional
-> > VM_FAULT bit to indicate the reason for the retry (could not handle
-> > under per-VMA lock vs other reason) but this simpler solution seems
-> > to work, so keeping it simple.
-> > 
-> > [...]
-> 
-> Here is the summary with links:
->   - [1/1] arch/mm/fault: fix major fault accounting when retrying under per-VMA lock
->     https://git.kernel.org/riscv/c/46e714c729c8
-> 
-> You are awesome, thank you!
+Commit 62694797f56b ("use linux/export.h rather than
+asm-generic/export.h") replaced deprecated <asm-generic/export.h>
+inclusions.
 
-Now that 32-bit ARM has support for the per-VMA lock, does that also
-need to be patched?
+Commit c2a658d41924 ("riscv: lib: vectorize copy_to_user/copy_from_user")
+introduced a new instance of #include <asm-generic/export.h>.
 
+arch/riscv/lib/uaccess_vector.S does not use EXPORT_SYMBOL, hence this
+include directive is unneeded.
+
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
+
+I CC'ed Al Viro in case he attempts to replace <asm-generic/export.h>
+with <linux/export.h> again.
+
+Commit 62694797f56b was suboptimal because arch/riscv/kernel/mcount-dyn.S
+does not use EXPORT_SYMBOL. Removing #include <asm-generic/export.h>
+was correct.
+
+I had submitted a patchset earlier, but it was not picked up:
+ https://lore.kernel.org/all/20231126151739.1557369-1-masahiroy@kernel.org/
+
+
+ arch/riscv/lib/uaccess_vector.S | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/arch/riscv/lib/uaccess_vector.S b/arch/riscv/lib/uaccess_vector.S
+index 51ab5588e9ff..7c45f26de4f7 100644
+--- a/arch/riscv/lib/uaccess_vector.S
++++ b/arch/riscv/lib/uaccess_vector.S
+@@ -1,7 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0-only */
+ 
+ #include <linux/linkage.h>
+-#include <asm-generic/export.h>
+ #include <asm/asm.h>
+ #include <asm/asm-extable.h>
+ #include <asm/csr.h>
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.40.1
+
 
 _______________________________________________
 linux-riscv mailing list
