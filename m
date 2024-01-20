@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8865AC4725D
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 01:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02EFEC47258
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 03:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=20VGOqO46twcfAthrTN/nhi3CzdXi4i3zIZt9OVhLvQ=; b=Bl967Bfb7/a6he
-	PenqceutLiI8MabOTMQOcAKBuA4E/hk8QQ8+E/VC/Vq6wqWnPKp9gU5vti5uA4PcdewVP3JKfPT+3
-	DUJv+fqeVeD4X5+tSWS9czAh0eIqPNgyWr/PMGvHNRh/y5MARiV87m2XmsPPjmazoMLsDVpUWm/2w
-	uUzmW5m/JSi3KRlwQttQVbuGrm1qgRW1Nys4Ex4oPI+Jy35E0E+ajhJzvLY+LrDuVKiVLUS9Kerl2
-	2k4obFHve/XxwGNA22LsBay/BdsCPJcfgr7Y4frd9Bqgzli77Bm5bGeMKNmueC6FbTVqagc1CexdP
-	lhpu0kBfIQH8mMCtbrkA==;
+	List-Owner; bh=lb44IJL3vzO/cWS6tUB6HykAAGFHM+97+ObnhQ5JvHw=; b=XC6f/fbxEKACyN
+	dvwQNQr/ISos1EEz77dWUG5RiO5PU6zs9/JHDuKPRxWJ93KQdYcXBV2Zz18vCenv0bPrXHqoHQLE4
+	kfpeINCGuXLBPbVoRFR1fYSczRXqqykBDaJow4vwFr5vv8hwRzKF1Zxbatx2PSLBVSiv5zBQLwX+y
+	qB9sh2xMJCRs5k4Bjxi8RDV7hy9MGQrtpyDcx5/5TYhaCHxgpByInxr9xBO8OhT6TEAPHtA2A/7wo
+	OjdHnc4lokQWGF4qNYTj4Z7bgx2aP0ieWVPWKoF58lWjMeY9YIEk/lmO0zD0ULn+IZyT6pBqL79Hz
+	4DOgWhuB4dY3hzVl6aAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rR0WO-0071sD-1T;
-	Sat, 20 Jan 2024 01:51:44 +0000
-Received: from mail-ot1-f46.google.com ([209.85.210.46])
+	id 1rR2W3-0079sh-2i;
+	Sat, 20 Jan 2024 03:59:31 +0000
+Received: from mail-il1-x131.google.com ([2607:f8b0:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rR0WL-0071re-2C
+	id 1rR2Vx-0079sB-2g
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Jan 2024 01:51:43 +0000
-Received: by mail-ot1-f46.google.com with SMTP id 46e09a7af769-6dddb927d02so717951a34.2
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Jan 2024 17:51:39 -0800 (PST)
+	Sat, 20 Jan 2024 03:59:28 +0000
+Received: by mail-il1-x131.google.com with SMTP id e9e14a558f8ab-3619e804f2aso4208485ab.2
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Jan 2024 19:59:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1705715439; x=1706320239; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1XOITpQ5DIMR2IaudgN0/DW6CNyk3x4Ig/+XyjN/PP8=;
-        b=JU5DBr9rt8nwo47Ad2BRzD/dLc/dwR1sfBslSd7mxpHicFKyffRXjxzy2MHkkLRfAU
-         WRlc7t1QasEcOGem9Nvze6vR+Em11f8OqPXcOGksNLH4yp50sxHxzKoLyHllvKv3CQ5K
-         kNPkF6uo2PvbqysWpsHwIJyutrFuZpEfR1fVdR+0tgMFzjYb5sRrvf4JQw1uCpIdxzRp
-         dsrAaLgtBZnKCyfADH78gTA0+dLmhfTHKMsHbuHzv0gocwIQJm34bnLUlDBhs3XypYTe
-         zCGVxuo23NMBAWTM8QmLRKjJGrqYDqG8ONub2Ll102AjwSlZQjq9BCkwJhc6IaXKQC+m
-         zjTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705715439; x=1706320239;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1705723163; x=1706327963; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1XOITpQ5DIMR2IaudgN0/DW6CNyk3x4Ig/+XyjN/PP8=;
-        b=gxVd1DJSXYW6wQsI1pyYvi8b7dqTBkmHtg6V3XeG0Oz7aSo1oyi5zqAxTEXhUhQ+UT
-         KBRXv3ieVu9wqUvqXYdr+Uzkg+++rNCJ+6S0Ki6RDjZ4Z0GuBIFJLfXeKnEnI413Gz2+
-         DmJr7yUE5r5jB7583SyPSI+Gp1VVI2/TiKRB7/+TJS5Jw00mI0+MWZMnOYoksGS07f6B
-         7aQ1jjCVMTvkNENq+fcbGY9RN4OFjU/R5Im+AH2EAZDQGC3+IvWrRmKSAd7scUNFgwR/
-         ZcRL64VbyNeur/ZQLxbL5pRZ/f00wq8j+CcjarzUcq2J2crLus7rMC48dF26wPsvxQL8
-         HJRg==
-X-Gm-Message-State: AOJu0YyMaKBHRkBEnjjeXLyVDOo5Wei38mnmcAl0eF3nGtrEChTfzF38
-	33FdCpj45GA5JtR1voa9YznB8t/RYU1hTB0Euu3b7SEQTQGsQsJRHfF+c/9Jfns=
-X-Google-Smtp-Source: AGHT+IGkhCllEapg0R5O7qaHZ0AI3ph1OReFqFBoj0J72zCVnKpl8RZyjHh02StLZzQXRNmMLGfiWQ==
-X-Received: by 2002:a9d:6212:0:b0:6dc:5e1:3d89 with SMTP id g18-20020a9d6212000000b006dc05e13d89mr762369otj.17.1705715439125;
-        Fri, 19 Jan 2024 17:50:39 -0800 (PST)
-Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id u24-20020a63f658000000b005cda7a1d72dsm4086546pgj.74.2024.01.19.17.50.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jan 2024 17:50:38 -0800 (PST)
-Date: Fri, 19 Jan 2024 17:50:36 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] RISC-V: mm: fix mmap behavior in sv48 address space
-Message-ID: <Zasm7D/bQH9XGHvf@ghost>
-References: <tencent_F3B3B5AB1C9D704763CA423E1A41F8BE0509@qq.com>
- <tencent_871D1B705162CE42D21BD1F86E0447B44709@qq.com>
+        bh=MUdj33zU6WPp9NMXR1jDLao5OoMg89mIJNooFVUpnh0=;
+        b=r8tl7dpWOHfMkj4Ddn/P6iWLBNDXkLjbxYzGE+WgdwFT8z5dYoACMJwjWm+/sh5ZYo
+         towq2GSnzysAz1x1OUT2Um4viCR9yv4fZCFAinleTrG75E21eGF7wENmK7TBWbVXF1yS
+         mP7MqLB57pXvfttNVVhni/+/DN2h8IvVuQ8voZ0pCnaB73MkVusz9QlcCD2usvyuWv+h
+         tRTHONSpYwQ56/XDt9ws4uinXdEWJmfQDJmawySYUgbg/Wxslp9LvgQIVRY/voGjdOU5
+         a30rrwbbE6cdot5paoMrUyUbwDr2zSFN13EjANOCubJIeA05yWT/tMJbM8TVyU4ltT3v
+         i1iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705723163; x=1706327963;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MUdj33zU6WPp9NMXR1jDLao5OoMg89mIJNooFVUpnh0=;
+        b=oUU0twR6lymIo5Q4rK/IoBB1jaJ12vdbqk8EZIYjJj1qvWyTniENDkIcRuWoII+1Fg
+         eC9bqO6z1KD2KM5gw7FQFlwCYXV8ho7RW11eRI3QukuY+8yEKJdG9LFJW7OOt/wnQdKh
+         nKchS7Rucgev41Mfu+lpLB5k4+6NQNbNpL7/cJ0DBtb7V26nNMiRaBs6yIErLEBYnwZE
+         euMvZWS2lKpx9WYo6FFl6RVE/lHcon3b+jgUBytjWWc6o29CcmzmDTlHGyKgXXO3ousY
+         pLN/GWJLPWRbkU/hmkhxz7D/zNUfgr239dqO3r4ERchptC9PmSDZrUNqIPbC026xXLg8
+         l1Mg==
+X-Gm-Message-State: AOJu0YwkWevAMBOR4QFzRjgUTRorOKM2KKPbk+tyvDpb+SbzSns8zY5k
+	UAV2OJy4gPNYhBCLZNbbZt7hDX+SZtZLXi6/MTQ9maxDmDVEAa0bSH++yd0kwzhcb5pLo6zBDL4
+	e5RQ25G1K0MhB+PPqOwANdzpOCe+gHKmMYvOIcw==
+X-Google-Smtp-Source: AGHT+IE/vAYx8mnNdDKMAblUXSdltL/8n5TCQTrCXmLC8zaNaqz1vAs/Oe/IS8XQjJqKfiNn3hNoFDPDJZHtazYV8Ls=
+X-Received: by 2002:a92:b70a:0:b0:360:7190:f895 with SMTP id
+ k10-20020a92b70a000000b003607190f895mr854939ili.52.1705723162955; Fri, 19 Jan
+ 2024 19:59:22 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <tencent_871D1B705162CE42D21BD1F86E0447B44709@qq.com>
+References: <20240119224404.26695-2-palmer@rivosinc.com>
+In-Reply-To: <20240119224404.26695-2-palmer@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 20 Jan 2024 09:29:11 +0530
+Message-ID: <CAAhSdy0naZf8aKkAH6MgYyLior3rZEjx0WWWgp4Ljakrb5q5XQ@mail.gmail.com>
+Subject: Re: [PATCH v2] tty: hvc: Fix the RISC-V SBI driver for a refactoring
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, Greg KH <gregkh@linuxfoundation.org>, 
+	jirislaby@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu, ajones@ventanamicro.com, 
+	apatel@ventanamicro.com, Atish Patra <atishp@rivosinc.com>, 
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	linux-serial@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240119_175141_740448_3724081C 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20240119_195926_898351_DFB340EC 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,99 +88,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 15, 2024 at 03:58:30AM +0800, Yangyu Chen wrote:
-> A commit add2cc6b6515 ("RISC-V: mm: Restrict address space for
-> sv39,sv48,sv57") from patch[1] restricts regular mmap return address in the
-> sv48 space if the address hint is not above the sv48 userspace address.
-> However, this commit treats the address wrong which only use sv48 if the
-> hint address is above sv48 user address space. Actually, it should use sv48
-> if the address is above sv39 user address space. Moreover, the original
-
-It is not valid to use any address in sv48 in this case. It is designed
-to provide an address that is in sv39 to guarantee that the application
-is able to handle any address that is returned by mmap. If, for example,
-the application asks for the address 1<<42, it expects that all of the
-bits above 42 are not used. The address provided by mmap must not
-contain those bits, so it uses the sv39 address space.
-
-- Charlie
-
-> patch code looks very complex in logic, we can simplify it with min marco.
-> 
-> [1]. https://lore.kernel.org/r/20230809232218.849726-2-charlie@rivosinc.com
-> 
-> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-> ---
->  arch/riscv/include/asm/processor.h | 39 ++++++------------------------
->  1 file changed, 8 insertions(+), 31 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index e1944ff0757a..7ead6a3e1f12 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -9,6 +9,7 @@
->  #include <linux/const.h>
->  #include <linux/cache.h>
->  #include <linux/prctl.h>
-> +#include <linux/minmax.h>
->  
->  #include <vdso/processor.h>
->  
-> @@ -18,37 +19,13 @@
->  #define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
->  #define STACK_TOP_MAX		TASK_SIZE
->  
-> -#define arch_get_mmap_end(addr, len, flags)			\
-> -({								\
-> -	unsigned long mmap_end;					\
-> -	typeof(addr) _addr = (addr);				\
-> -	if ((_addr) == 0 || (IS_ENABLED(CONFIG_COMPAT) && is_compat_task())) \
-> -		mmap_end = STACK_TOP_MAX;			\
-> -	else if ((_addr) >= VA_USER_SV57)			\
-> -		mmap_end = STACK_TOP_MAX;			\
-> -	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
-> -		mmap_end = VA_USER_SV48;			\
-> -	else							\
-> -		mmap_end = VA_USER_SV39;			\
-> -	mmap_end;						\
-> -})
-> -
-> -#define arch_get_mmap_base(addr, base)				\
-> -({								\
-> -	unsigned long mmap_base;				\
-> -	typeof(addr) _addr = (addr);				\
-> -	typeof(base) _base = (base);				\
-> -	unsigned long rnd_gap = DEFAULT_MAP_WINDOW - (_base);	\
-> -	if ((_addr) == 0 || (IS_ENABLED(CONFIG_COMPAT) && is_compat_task())) \
-> -		mmap_base = (_base);				\
-> -	else if (((_addr) >= VA_USER_SV57) && (VA_BITS >= VA_BITS_SV57)) \
-> -		mmap_base = VA_USER_SV57 - rnd_gap;		\
-> -	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
-> -		mmap_base = VA_USER_SV48 - rnd_gap;		\
-> -	else							\
-> -		mmap_base = VA_USER_SV39 - rnd_gap;		\
-> -	mmap_base;						\
-> -})
-> +#define arch_get_mmap_end(addr, len, flags) \
-> +	((addr) >= DEFAULT_MAP_WINDOW ? STACK_TOP_MAX :\
-> +	 min(DEFAULT_MAP_WINDOW, STACK_TOP_MAX))
-> +
-> +#define arch_get_mmap_base(addr, base) \
-> +	((addr) >= DEFAULT_MAP_WINDOW ? base :\
-> +	 min(base, DEFAULT_MAP_WINDOW))
->  
->  #else
->  #define DEFAULT_MAP_WINDOW	TASK_SIZE
-> -- 
-> 2.43.0
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBKYW4gMjAsIDIwMjQgYXQgNDoxNeKAr0FNIFBhbG1lciBEYWJiZWx0IDxwYWxtZXJA
+cml2b3NpbmMuY29tPiB3cm90ZToKPgo+IEZyb206IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2
+b3NpbmMuY29tPgo+Cj4gSSBtaXNzZWQgdGhlIGludC0+c2l6ZV90IHJlZmFjdG9yaW5nIGluIGYz
+MmZjYmVkYmU5MiAoInR0eTogaHZjOiBjb252ZXJ0Cj4gdG8gdTggYW5kIHNpemVfdCIpLCB3aGlj
+aCBjYXVzZXMgdGhlIG5ld2x5IHVzZWQgb3BzIGluIDg4ZWFkNjhlNzY0Ywo+ICgidHR5OiBBZGQg
+U0JJIGRlYnVnIGNvbnNvbGUgc3VwcG9ydCB0byBIVkMgU0JJIGRyaXZlciIpIHRvIGZhaWwgdG8K
+PiBidWlsZCBkdWUgdG8gYQo+Cj4gbGludXgvZHJpdmVycy90dHkvaHZjL2h2Y19yaXNjdl9zYmku
+Yzo1OToxNTogZXJyb3I6IGluY29tcGF0aWJsZSBmdW5jdGlvbiBwb2ludGVyIHR5cGVzIGluaXRp
+YWxpemluZyAnc3NpemVfdCAoKikodWludDMyX3QsIGNvbnN0IHU4ICosIHNpemVfdCknIChha2Eg
+J2xvbmcgKCopKHVuc2lnbmVkIGludCwgY29uc3QgdW5zaWduZWQgY2hhciAqLCB1bnNpZ25lZCBs
+b25nKScpIHdpdGggYW4gZXhwcmVzc2lvbiBvZiB0eXBlICdpbnQgKHVpbnQzMl90LCBjb25zdCBj
+aGFyICosIGludCknIChha2EgJ2ludCAodW5zaWduZWQgaW50LCBjb25zdCBjaGFyICosIGludCkn
+KSBbLVdpbmNvbXBhdGlibGUtZnVuY3Rpb24tcG9pbnRlci10eXBlc10KPiAgICAgICAgIC5wdXRf
+Y2hhcnMgPSBodmNfc2JpX2RiY25fdHR5X3B1dCwKPgo+IEZpeGVzOiBmMzJmY2JlZGJlOTIgKCJ0
+dHk6IGh2YzogY29udmVydCB0byB1OCBhbmQgc2l6ZV90IikKPiBGaXhlczogODhlYWQ2OGU3NjRj
+ICgidHR5OiBBZGQgU0JJIGRlYnVnIGNvbnNvbGUgc3VwcG9ydCB0byBIVkMgU0JJIGRyaXZlciIp
+Cj4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI0MDExOTIxNTYxMi4yMDUyOS0y
+LXBhbG1lckByaXZvc2luYy5jb20KPiBTaWduZWQtb2ZmLWJ5OiBQYWxtZXIgRGFiYmVsdCA8cGFs
+bWVyQHJpdm9zaW5jLmNvbT4KPiAtLS0KPiBDaGFuZ2VzIHNpbmNlIHYxIDwyMDI0MDExOTIxNTYx
+Mi4yMDUyOS0yLXBhbG1lckByaXZvc2luYy5jb20+Ogo+ICogRml4IHRoZSByZXR1cm4gYW5kIGFy
+Z3VtZW50cyBjb3JyZWN0bHkuCj4gKiBBbHNvIGZpeCB0aGUgaHZjX3NiaV9kYmNuX3R0eV97Z2V0
+LHB1dH0oKS4KPiAtLS0KPiAgZHJpdmVycy90dHkvaHZjL2h2Y19yaXNjdl9zYmkuYyB8IDggKysr
+Ky0tLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkK
+Pgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3R0eS9odmMvaHZjX3Jpc2N2X3NiaS5jIGIvZHJpdmVy
+cy90dHkvaHZjL2h2Y19yaXNjdl9zYmkuYwo+IGluZGV4IDJmMzU3MWYxN2VjZC4uZjhjZDMzMTBl
+ZjM1IDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvdHR5L2h2Yy9odmNfcmlzY3Zfc2JpLmMKPiArKysg
+Yi9kcml2ZXJzL3R0eS9odmMvaHZjX3Jpc2N2X3NiaS5jCj4gQEAgLTE1LDcgKzE1LDcgQEAKPgo+
+ICAjaW5jbHVkZSAiaHZjX2NvbnNvbGUuaCIKPgo+IC1zdGF0aWMgaW50IGh2Y19zYmlfdHR5X3B1
+dCh1aW50MzJfdCB2dGVybW5vLCBjb25zdCBjaGFyICpidWYsIGludCBjb3VudCkKPiArc3RhdGlj
+IHNzaXplX3QgaHZjX3NiaV90dHlfcHV0KHVpbnQzMl90IHZ0ZXJtbm8sIGNvbnN0IHU4ICpidWYs
+IHNpemVfdCBjb3VudCkKPiAgewo+ICAgICAgICAgaW50IGk7Cj4KPiBAQCAtMjUsNyArMjUsNyBA
+QCBzdGF0aWMgaW50IGh2Y19zYmlfdHR5X3B1dCh1aW50MzJfdCB2dGVybW5vLCBjb25zdCBjaGFy
+ICpidWYsIGludCBjb3VudCkKPiAgICAgICAgIHJldHVybiBpOwo+ICB9Cj4KPiAtc3RhdGljIGlu
+dCBodmNfc2JpX3R0eV9nZXQodWludDMyX3QgdnRlcm1ubywgY2hhciAqYnVmLCBpbnQgY291bnQp
+Cj4gK3N0YXRpYyBzc2l6ZV90IGh2Y19zYmlfdHR5X2dldCh1aW50MzJfdCB2dGVybW5vLCB1OCAq
+YnVmLCBzaXplX3QgY291bnQpCgpUaGUgaHZjX3NiaV90dHlfcHV0KCkgYW5kIGh2Y19zYmlfdHR5
+X2dldCgpIGZ1bmN0aW9ucyBhcmUgYWxyZWFkeQp1cGRhdGVkIGluIExpbnVzJ3MgdHJlZS4gV2Ug
+b25seSBuZWVkIHRvIGZpeCBodmNfc2JpX2RiY25fdHR5X3B1dCgpCmFuZCBodmNfc2JpX2RiY25f
+dHR5X2dldCgpCgpQbGVhc2UgcmViYXNlIHRoaXMgZml4IHVwb24gTGludXgtNi44LXJjMSB3aGVu
+ZXZlciB0aGF0IGlzIGF2YWlsYWJsZS4KCj4gIHsKPiAgICAgICAgIGludCBpLCBjOwo+Cj4gQEAg
+LTQ0LDEyICs0NCwxMiBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IGh2X29wcyBodmNfc2JpX3YwMV9v
+cHMgPSB7Cj4gICAgICAgICAucHV0X2NoYXJzID0gaHZjX3NiaV90dHlfcHV0LAo+ICB9Owo+Cj4g
+LXN0YXRpYyBpbnQgaHZjX3NiaV9kYmNuX3R0eV9wdXQodWludDMyX3QgdnRlcm1ubywgY29uc3Qg
+Y2hhciAqYnVmLCBpbnQgY291bnQpCj4gK3N0YXRpYyBzc2l6ZV90IGh2Y19zYmlfZGJjbl90dHlf
+cHV0KHVpbnQzMl90IHZ0ZXJtbm8sIGNvbnN0IHU4ICpidWYsIHNpemVfdCBjb3VudCkKPiAgewo+
+ICAgICAgICAgcmV0dXJuIHNiaV9kZWJ1Z19jb25zb2xlX3dyaXRlKGJ1ZiwgY291bnQpOwo+ICB9
+Cj4KPiAtc3RhdGljIGludCBodmNfc2JpX2RiY25fdHR5X2dldCh1aW50MzJfdCB2dGVybW5vLCBj
+aGFyICpidWYsIGludCBjb3VudCkKPiArc3RhdGljIHNzaXplX3QgaHZjX3NiaV9kYmNuX3R0eV9n
+ZXQodWludDMyX3QgdnRlcm1ubywgdTggKmJ1Ziwgc2l6ZV90IGNvdW50KQo+ICB7Cj4gICAgICAg
+ICByZXR1cm4gc2JpX2RlYnVnX2NvbnNvbGVfcmVhZChidWYsIGNvdW50KTsKPiAgfQo+IC0tCj4g
+Mi40My4wCj4KPgoKUmV2aWV3ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+
+CgpUaGFua3MsCkFudXAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
