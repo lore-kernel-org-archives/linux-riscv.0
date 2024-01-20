@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A50C47258
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 19:13:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84238C47258
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 19:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:From:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=J+HlOHibhzd5wPYGfw3Rtm7lTp1doljI2Qn0Bfa261o=; b=Yq3Uor/8c1E2NN
-	MrkXFO323neMTqEr7s45QtZrNrMzud3MLuMNjl+5xMQFYi9jOuuAe7zExb5iy6c6abCpwq/F6eaP7
-	AxtUN1EoxznASfnju9vy7jhvTNC8VrYktjXd6uoeVBRX0R6Vh6Z5EXQPDoW2zv05XiVY5gpm95/EV
-	u77xi8Vcao8mVVGaNkoBWlLAnzyaj7VndgFY0u71GaC0eIDIIIDMF8TrbfrBddG3vh35hhXINS0Ns
-	uiExTsAzPpLAT3ThbS57pSbve83elffODrpn5gdVNIfY70sgphMI5rKo09c14CWVAshJrSsWef9nU
-	xDdmKmUqdu6EhXOf7fsg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AdGhOmrXvAd8ARLVvpLLLOd+yEraEbVLgCnzaLhaFwo=; b=brhuLu3dOoU4qe
+	AEIZGBwgDcXJeiizo5D3q3L346M0x5Clxydra3wnibbppI3UJcriWVps3BdX9lAIFnU6cDjYZmJXk
+	6TyN4Mf3zCr5Dw/VgoBMw+h8uiZb5CFTjMYclD88zJBLneDiPNTKv8HvmVpPARJ8x4XzBuggvk1qz
+	03LVB1iF59vHjbMvnz3f2tgoPqXuy1/DASMqbfqqbD5rq9eoovBXCGSqoyW+Xi6jXnyx3gFdFIWtF
+	q8pkQsnkIAK8buqK89+bR+dkzLy/XRcRQav7OFXixw2Wn+PG3JAQbScLOE8BfJikVKJN+5j26QFYr
+	3mABnQgojgui7+2IaSvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRGmS-008GuR-2y;
-	Sat, 20 Jan 2024 19:13:24 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1rRHF9-008J6n-1T;
+	Sat, 20 Jan 2024 19:43:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRGmM-008Gtp-0M
+	id 1rRHF8-008J6Q-0R
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 20 Jan 2024 19:43:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Date:Message-Id:References:
+	In-Reply-To:From:Subject:Sender:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Sv22IpZBauvEo2j4dAunhO2n8Mn/MmgpONXlC3zwN68=; b=evFG5uUMhGX338SjOwPDQWwNhH
+	tFMPUhROle/SB8ppGz50WQYTKqb7jG1fb9Sse4vDmAzO3FIfYTElJmdLlVIhDmywmhfxT2X9psJXD
+	9qsnLUffgrtfzNK35a+ogb3brNSWSFT4aUovNXBycdxTJ0AlzNoMhUIhzTFNvPPTOlm385TALykQj
+	bqaDWSg+NOxddEAKiiAeg2dB69G09qUSFBY0Mbuw4vL4iaI92IS6HgVr3Dqu9Ez8DVI6KPqQv4oM4
+	/aLBHpXUVm8k41MjaiQ+HW3YIKZemT61lHj5rHWD75IVjFz6XidPjW96Kr3m9wtfnizoJxFmst5dd
+	uU2ucwGg==;
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rRHF3-00000002GWW-3En4
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Jan 2024 19:13:23 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6da9c834646so1955351b3a.3
-        for <linux-riscv@lists.infradead.org>; Sat, 20 Jan 2024 11:13:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1705777995; x=1706382795; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=FSXFDwM5xV6DnvVYL0DzuTVfxNpSITvNx/pfdyefBwo=;
-        b=ILwbrVIBUy5wR3ZvhJJHjU6qHAk3Z0t9F4TH7KUdkm6G2JvH2p53DPohG+afkNaElq
-         cOom8hFT8A3aDcKcRmckwaDlL8qsDQ6k3YxN68sNpctj00ngqDD8aWxw3tOsiPfkPwmL
-         /jO6aKp7sDQEXTlotL6hO7AvpXrY7b/xpJRJvxobm2xU9HsMq8XAV9QH8TxHuZ3WI2oX
-         ZZQJViCNb4l2GShqpiRzVpHq7xd6w5mkDeuFJja6OaBkDSO7HH8LJ6r69C4MbfMY37PC
-         LqrrhWD8M76MnLM0DyVSWxWXx1LfpAtVNNgeaZiCbAzVOEVE1USSXtJXTdIHjPiYRb8t
-         RcbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705777995; x=1706382795;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FSXFDwM5xV6DnvVYL0DzuTVfxNpSITvNx/pfdyefBwo=;
-        b=Hx+vrPdqhCUacIf3MGijw603x87pdCZSB/v9OhPSumdDM785IHvX9P3+6Jsf3/nQs9
-         iHfMn5rNxDyzLnCzFnu6i6OWjLyW3q+67gcu9TtmFxeXCbaHuRBy3MOqh/L4oyS7DFMQ
-         uyTf+3NT5wD40+Bt3KMMi7gwkET7F12K6dEJnzAxbqkH2uDkyVVdRpdqhgNtGik/RXwV
-         VDlM2JFAPhGHkMOhI3ZLrz9hIIMH9Je2jVmjU7sF1XjDf+RTPz6+3tO7OYx47mVC4E7K
-         HuQrRB5aRrpTgV0AX+8zIc/sdl9v7XdqKNQNA4FBHfXB6S5sbAgMM330uR62QyenKPw6
-         qOow==
-X-Gm-Message-State: AOJu0YxFofGGdD2IsE0xu8CYPbinUmvAnm1Ef1XpTBhzJBXKacaXBIrt
-	hCThq+TfECRrnEbedsYmkZMh+lWag5h6IgMHIXmu8WVI248XB6z7qfl6DzA41Fk=
-X-Google-Smtp-Source: AGHT+IFJrwx0tLU7uKohNHaawmOYWoulAcsx8PdPjrwaj0gtb8t/eAsUgXE+BPw9lCPXJg8Y8mlRjA==
-X-Received: by 2002:a05:6a00:240e:b0:6d9:a683:a6e4 with SMTP id z14-20020a056a00240e00b006d9a683a6e4mr2622481pfh.68.1705777994733;
-        Sat, 20 Jan 2024 11:13:14 -0800 (PST)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id i124-20020a62c182000000b006dadc436071sm7359616pfg.36.2024.01.20.11.13.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 Jan 2024 11:13:14 -0800 (PST)
-Message-ID: <65ac1b4a.620a0220.16162.cef8@mx.google.com>
-Date: Sat, 20 Jan 2024 11:13:14 -0800 (PST)
-MIME-Version: 1.0
-X-Kernelci-Branch: for-next
-X-Kernelci-Tree: riscv
-X-Kernelci-Kernel: riscv-for-linus-6.8-mw4
-X-Kernelci-Report-Type: build
-Subject: riscv/for-next build: 8 builds: 0 failed,
- 8 passed (riscv-for-linus-6.8-mw4)
-To: kernelci-results@groups.io, kernel-ci-triage@rivosinc.com,
- linux-riscv@lists.infradead.org
-From: "kernelci.org bot" <bot@kernelci.org>
+	Sat, 20 Jan 2024 19:43:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 5B211CE1BC6;
+	Sat, 20 Jan 2024 19:42:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 990B9C433F1;
+	Sat, 20 Jan 2024 19:42:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1705779763;
+	bh=Sk7UgdRKhW4n/h43PHK7+DFlzz1yfIvQpgev0Ft8LZs=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=gkqlhoy9iMWviJj2/YIwskGQz3wZCxiVpgSjT/FnFKEY6aF5g++KlirYnGFAMxOkC
+	 mZZIbJxj6QakZHM+hva7n8rP7O2YXMcIgTxJ92vRnQrbjAyaTf0FD3Rpwwr9RLlpkP
+	 X/J8+7PmH1f3Gyn3AOY5aQnECRL+ezloXRdAxNi//4OZHiLvkKcLZlTI5XrE3NfZQm
+	 PtsfkIJrW33FF0ms9C5Yz3/ZiMrIFxwz7h9q2ZRbFY7xjpMF9fNj9t01lLxepX6oAC
+	 Mj5DFzNffU+heLiTB5iFSahn8pCUiAexfmJ5vEyBLLlvJV+igrswEaKHP8NyZh7I/K
+	 8TXZWIYByu7aQ==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 88BB3D8C96C;
+	Sat, 20 Jan 2024 19:42:43 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.8 Merge Window, Part 2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-690cf774-fd28-4d25-be9f-69e19fb84d5c@palmer-ri-x1c9>
+References: <mhng-690cf774-fd28-4d25-be9f-69e19fb84d5c@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-690cf774-fd28-4d25-be9f-69e19fb84d5c@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.8-mw2
+X-PR-Tracked-Commit-Id: 4525462dd0db9e86bb67c10dedbbaa4f8d62697d
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: f24a70106dc1ad2a755b2d42f47cf1dcf24f0b27
+Message-Id: <170577976355.29448.13004086407544849913.pr-tracker-bot@kernel.org>
+Date: Sat, 20 Jan 2024 19:42:43 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@subspace.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240120_111319_508338_2605831F 
-X-CRM114-Status: UNSURE (   1.75  )
+X-CRM114-CacheID: sfid-20240120_194258_244657_DF68A102 
+X-CRM114-Status: UNSURE (   2.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,46 +90,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cmlzY3YvZm9yLW5leHQgYnVpbGQ6IDggYnVpbGRzOiAwIGZhaWxlZCwgOCBwYXNzZWQgKHJpc2N2
-LWZvci1saW51cy02LjgtbXc0KQoKRnVsbCBCdWlsZCBTdW1tYXJ5OiBodHRwczovL2tlcm5lbGNp
-Lm9yZy9idWlsZC9yaXNjdi9icmFuY2gvZm9yLW5leHQva2VybmVsL3Jpc2N2LWZvci1saW51cy02
-LjgtbXc0LwoKVHJlZTogcmlzY3YKQnJhbmNoOiBmb3ItbmV4dApHaXQgRGVzY3JpYmU6IHJpc2N2
-LWZvci1saW51cy02LjgtbXc0CkdpdCBDb21taXQ6IGYyNGE3MDEwNmRjMWFkMmE3NTViMmQ0MmY0
-N2NmMWRjZjI0ZjBiMjcKR2l0IFVSTDogaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xp
-bnV4L2tlcm5lbC9naXQvcmlzY3YvbGludXguZ2l0CkJ1aWx0OiAxIHVuaXF1ZSBhcmNoaXRlY3R1
-cmUKCj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09CgpEZXRhaWxlZCBwZXItZGVmY29uZmlnIGJ1aWxk
-IHJlcG9ydHM6CgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpkZWZjb25maWcgKHJpc2N2LCBnY2Mt
-MTApIOKAlCBQQVNTLCAwIGVycm9ycywgMCB3YXJuaW5ncywgMCBzZWN0aW9uIG1pc21hdGNoZXMK
-Ci0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCmRlZmNvbmZpZyAocmlzY3YsIGNsYW5nLTE2KSDigJQg
-UEFTUywgMCBlcnJvcnMsIDAgd2FybmluZ3MsIDAgc2VjdGlvbiBtaXNtYXRjaGVzCgotLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLQpkZWZjb25maWcrQ09ORklHX1NNUD1uIChyaXNjdiwgZ2NjLTEwKSDi
-gJQgUEFTUywgMCBlcnJvcnMsIDAgd2FybmluZ3MsIDAgc2VjdGlvbiBtaXNtYXRjaGVzCgotLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLQpkZWZjb25maWcrQ09ORklHX1NNUD1uIChyaXNjdiwgY2xhbmct
-MTYpIOKAlCBQQVNTLCAwIGVycm9ycywgMCB3YXJuaW5ncywgMCBzZWN0aW9uIG1pc21hdGNoZXMK
-Ci0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCm5vbW11X2syMTBfZGVmY29uZmlnIChyaXNjdiwgZ2Nj
-LTEwKSDigJQgUEFTUywgMCBlcnJvcnMsIDAgd2FybmluZ3MsIDAgc2VjdGlvbiBtaXNtYXRjaGVz
-CgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpub21tdV9rMjEwX2RlZmNvbmZpZyAocmlzY3YsIGNs
-YW5nLTE2KSDigJQgUEFTUywgMCBlcnJvcnMsIDAgd2FybmluZ3MsIDAgc2VjdGlvbiBtaXNtYXRj
-aGVzCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpub21tdV9rMjEwX3NkY2FyZF9kZWZjb25maWcg
-KHJpc2N2LCBnY2MtMTApIOKAlCBQQVNTLCAwIGVycm9ycywgMCB3YXJuaW5ncywgMCBzZWN0aW9u
-IG1pc21hdGNoZXMKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCm5vbW11X2syMTBfc2RjYXJkX2Rl
-ZmNvbmZpZyAocmlzY3YsIGNsYW5nLTE2KSDigJQgUEFTUywgMCBlcnJvcnMsIDAgd2FybmluZ3Ms
-IDAgc2VjdGlvbiBtaXNtYXRjaGVzCgotLS0KRm9yIG1vcmUgaW5mbyB3cml0ZSB0byA8aW5mb0Br
-ZXJuZWxjaS5vcmc+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+The pull request you sent on Fri, 19 Jan 2024 05:53:42 -0800 (PST):
+
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.8-mw2
+
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/f24a70106dc1ad2a755b2d42f47cf1dcf24f0b27
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
