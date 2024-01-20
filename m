@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 537F7C47258
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E71AC47DAF
 	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 21:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,53 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7E7zNB3K0qnEvnB7b78fjYkhritwXX4AUMwHTaHrwcQ=; b=ZjeULSBb6xCdw+
-	9wsflihjJGxxUjuxjzlII+blxYlbipJUjhWJLFKLIosxtz7KBEEpRAl3P3T/emZjo2srSIEd47bkY
-	ouhU46XFPyaGGAP1Oy7CmqQg+u1iGEbjzi7f7O6xDFTA9SUtTfa41bMxvpmne00qJCuKFR+MTm8jj
-	aJTNvViW4ZKPKE5tfHXBkYWNttwghJzXrrbjcXYSDn4zOUrS08iKR84zKzLUCrn0JkL73gGcy2K4j
-	d5mnW+nKXXugF6eHtvxd0nL5nrcZhQd9+zhPMVXMPh1ET4j09vI0plKdaJOOSHiTmU1pZcwXHepST
-	USRI2CifvcqQnhL1mgMg==;
+	List-Owner; bh=YfXN+m7DSIz0Wv7TlOXl5gNlzNlH03B7ILjvrsooiKQ=; b=Q2NGOQX4PKOCh9
+	UZ1GkNB1F4fQt7iCCK/4yzXlkRIIRE32d1O7L6x+fulDyLuNLHE3DxKc1baj+Z9dA6Q/9961nzrux
+	nQXf6tmMHwM5H6GrVxb9iC8WXBoo+CTW8CxjpnRuMJE+Mwp2Apn9tt7O13IDZfM28db5TGSJk33NL
+	5VnPqeduEjH720ekGR6Anis2UogVOEXpo5IdZug22u1XuVQNhQ7wZ2qSw40qlCKeAoBts6g1fz+3H
+	3ltl+Qc1at3KiNLgnQssTVwkEDOMn8sa2IQG1pPVSj/DGjzbK9hZUxgRogU6JhINy4jesodpynS/x
+	nCqjDgYDxjVVLFG0GEmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRIbG-008OEX-2M;
-	Sat, 20 Jan 2024 21:09:58 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rRIbD-008OCK-1R;
+	Sat, 20 Jan 2024 21:09:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRIbC-008O9R-1j
-	for linux-riscv@lists.infradead.org;
-	Sat, 20 Jan 2024 21:09:56 +0000
+	id 1rRIb8-008O90-1Z;
+	Sat, 20 Jan 2024 21:09:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 4ECDECE118B;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1769F60C24;
+	Sat, 20 Jan 2024 21:09:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D89D9C43141;
 	Sat, 20 Jan 2024 21:09:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8B6CCC433F1;
-	Sat, 20 Jan 2024 21:09:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705784987;
-	bh=bNkiilsgov/ziqTxm0fKOOWZnPue85pExT1FEtv2t1w=;
+	s=k20201202; t=1705784988;
+	bh=2UTuaFwcqkRBRMR5A80pWR7ePvnb57nQBapA7qClW9g=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=aOPKD02LaWcihHz6A2D2EmoHJGpZG+DenkDQxfZo9Vp/DXj/b+9K131PT5VChef1Z
-	 DRwsBO1507eN5pMwbW0oNXW6iwMhBcYh0FZ4ZHe/tBH4roGPDhfsSELwxiwaKZvYbl
-	 ITpvJ67ovyUnDjtvcOpmRsf3DAS5dvX/zrWjrr3HlY00cxT2VpgBKar0eMSTBaP8dY
-	 /1/PJtdv35ZGAjnQ5oTbz0WKdPlDWoQxxBqQoVQlvoJ3gZhopGMO+5pch5Zrybi/aO
-	 UBBvkq27YpD3FCA4MUMjost+pI9Ig19rAMRjRcRnV5j1oDtNvmMT3CSdySFzJ1AyXk
-	 Jkv0LqpS4LVkQ==
+	b=GCFgON7je9PmSZ4JWW4H7qhf2jXKJufA9RJF+aDPsUTPyFRTwt8720JgNMYl1nQOx
+	 5z96haFqCw4cJpkp/avsXwPOKPdGDhbXj2SmyVhUYirkdEWnRHr87oAbbTzbU2lToI
+	 XVGVCKWCtTJrgSY9ixOL95af/XN2w43U589ETZIDlAN7m5HYoAGz86IeUTqr7ON/B+
+	 SqUIGruWhHRoCJ3gX7h5s2NQCBRKIHV8+a7D51Uy6QB2F1x7hQECHLOdB+4mPO2C60
+	 jbnIPDaQPRrqq91pz4HFZIDD7ULmwvSv70Uq+YKiq4r8sUWZetzmMK1BBqbX1hUZZm
+	 OUJDHPoC6B8Ug==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 74393D8C978;
-	Sat, 20 Jan 2024 21:09:47 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id C48C5D8C96C;
+	Sat, 20 Jan 2024 21:09:48 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] RISC-V: Implement archrandom when Zkr is available
+Subject: Re: [PATCH 1/2] riscv, crash: don't export some symbols when CONFIG_MMU=n
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170578498747.24348.16243159445263810097.git-patchwork-notify@kernel.org>
-Date: Sat, 20 Jan 2024 21:09:47 +0000
-References: <20231130111704.1319081-1-cleger@rivosinc.com>
-In-Reply-To: <20231130111704.1319081-1-cleger@rivosinc.com>
-To: =?utf-8?b?Q2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPg==?=@ci.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
- sameo@rivosinc.com, ben.dooks@codethink.co.uk, conor.dooley@microchip.com
+Message-Id: <170578498880.24348.17790461588886369808.git-patchwork-notify@kernel.org>
+Date: Sat, 20 Jan 2024 21:09:48 +0000
+References: <ZW03ODUKGGhP1ZGU@MiWiFi-R3L-srv>
+In-Reply-To: <ZW03ODUKGGhP1ZGU@MiWiFi-R3L-srv>
+To: Baoquan He <bhe@redhat.com>
+Cc: linux-riscv@lists.infradead.org, rdunlap@infradead.org,
+ sfr@canb.auug.org.au, akpm@linux-foundation.org, ignat@cloudflare.com,
+ linux-next@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kexec@lists.infradead.org, eric_devolder@yahoo.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240120_130954_765875_1DB0995F 
-X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-CacheID: sfid-20240120_130950_572658_555C1F65 
+X-CRM114-Status: UNSURE (   5.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,23 +78,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+This series was applied to riscv/linux.git (fixes)
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Thu, 30 Nov 2023 12:17:02 +0100 you wrote:
-> From: Samuel Ortiz <sameo@rivosinc.com>
-> 
-> The Zkr extension is ratified and provides 16 bits of entropy seed when
-> reading the SEED CSR.
-> 
-> We can implement arch_get_random_seed_longs() by doing multiple csrrw to
-> that CSR and filling an unsigned long with valid entropy bits.
+On Mon, 4 Dec 2023 10:19:36 +0800 you wrote:
+> When dropping select of KEXEC and dependency on ARCH_SUPPORTS_KEXEC
+> from CRASH_DUMP, compiling error is reported when below config items are
+> set:
+> -----------------------
+> CONFIG_CRASH_CORE=y
+> CONFIG_KEXEC_CORE=y
+> CONFIG_CRASH_DUMP=y
+> ......
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] RISC-V: Implement archrandom when Zkr is available
-    https://git.kernel.org/riscv/c/102434010592
+  - [1/2] riscv, crash: don't export some symbols when CONFIG_MMU=n
+    https://git.kernel.org/riscv/c/c41bd2514184
+  - [2/2] riscv, kexec: fix dependency of two items
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
