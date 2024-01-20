@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0329C47258
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 21:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06C3C47DAF
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 21:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8MX5Q/yGvf+Xe/FSvlzTRSI/2k+rhD8t9CxlTvlkJmM=; b=FikNmivWFHl56k
-	RfzvMV/H1lKayNVo1DXFJPbBmK24WxJEM9WRG/OFJwV9gJ3OUXsOGGcMFwdW5uT32ZAkewVHSDnUc
-	u/Dv616XKofNxBJ3cFhIv0mhPJRNKK0kWNYNKXhxWHoYrxpxW7JjPc1WZSdPxMElsnRAqA1OJewGJ
-	N5/c2zpNKPWCKkS/nC/QdjcwI/NGy3dxXJ70ye7hwocrrrrP2XQzq+hgM2Ipad1EyhQfqHQdGa+uh
-	tZXkBzIqFdTUf+Xsk/CzTZJenpFJ4AQbgAYGvwp7bpx9lo5nczhWGEROHrl/LK3W/bDQYNAh+Q0VO
-	djjfkpJrcVt/94XVdFiw==;
+	List-Owner; bh=n5kDBxVFaM05CZoKynDN+qzVIT66T461zcjgaZLSLyY=; b=KhapNIH7HlwE4n
+	rEb45TLLcHxyo21wtqwSeA1cIcczEHggc+xJN9VdfDeuJqA46zYBY3l9G6JvgP5PZxD+9uwcVvhPt
+	gtdVFz1vpJFmGzrPbceWr83GIOznmFmtx6Bggwwprr7vEp7FT82u0exOCPnj7Xg16IujxpU0BKDtK
+	UUl4Y+myl82BD8KDUsfqux4vyu77BqlCOAkLgAVO/pqAXXZtVKOOjntWpsFAXaKE+qvx44Go+ucEe
+	qEWCvdfZJ9OUbDJPMsNT3C5ldCIqfpHpG4rBE4IxCipGllcgqIFKcy+iHHskyCGTk83cwS/Ibwm/w
+	CHGjaI9+lLefxgbCOsCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRIbF-008ODK-0n;
-	Sat, 20 Jan 2024 21:09:57 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rRIbL-008OKf-2I;
+	Sat, 20 Jan 2024 21:10:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRIbA-008O8y-1O;
-	Sat, 20 Jan 2024 21:09:54 +0000
+	id 1rRIbH-008OEv-2f
+	for linux-riscv@lists.infradead.org;
+	Sat, 20 Jan 2024 21:10:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 52850B801B8;
-	Sat, 20 Jan 2024 21:09:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9DCC9C43390;
-	Sat, 20 Jan 2024 21:09:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5780360B34;
+	Sat, 20 Jan 2024 21:09:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 264E9C43394;
+	Sat, 20 Jan 2024 21:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705784987;
-	bh=eTLr4dy/uLuhEZDSb8RfdP2ShpbC5ub3YzsOlB3z738=;
+	s=k20201202; t=1705784999;
+	bh=7lzodkQb8V/3EVEvAvA4s28Kz+AbZj+UdtAJn77t/Vg=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=L2rcdUCVcDzOWn4Bg5S9EC1E2ulioUxc9CfH4ixgBvNXMr43iVg8K2rDLBlXN6hgN
-	 vfNqwW5kWUqsXpVgY+wcBKjzzLbfJ/wHXLvIYXeBmg7t8/6EvA4QYoak48KaE+j/x8
-	 lmnoqo+r1LcL7vqDDaPszC3IC5d48QHizq0iBOklFmos6nie6hg/3rQbfXQzXRSIsC
-	 4wSPQrJB/JODPKeDz2+Hsy3ynf1vnoIH+JS71tJlB4/lUhQTXbfCY4KWD91DHL08Ub
-	 6NnxzmBVBW+i1Svnfg58mBoUe+uYY3tov4jL6JVC8GrErk7qDYXH44wX+Jx14G668P
-	 xaQOEg/YnDowQ==
+	b=nZrt/GFWs3IMUIg3JBeJKGApAgDTlt+hiUwtQRLs9+pGxoO6AMWtoBgmNsEkh2gMj
+	 1FRkkhROw8yblMXe2afOfh3qgFfVirAy92IPiRHfj5FbRUaKt+fGRQfwJOdeIb0FXm
+	 lzZXmGqYluHp0RCxJ1fiywjPX5lNtGDQY0oUeyZBf7FpSloPwQbtol4HmzHMMqi/B2
+	 nnfxdwM0oahirxSJxVOpDcCYXW7ZqU1tQPxTj2Yur4kVIeE72QV9yLCjsPhbjzxjcN
+	 tYljKDRMKUC3FmQIknC+cT2nmDC/GXOClqc1t99PAWfdDqdSo7x17A1ALbn8TL73KK
+	 1Xl9a6x7VkaqA==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 874E3D8C96C;
-	Sat, 20 Jan 2024 21:09:47 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 130CED8C978;
+	Sat, 20 Jan 2024 21:09:59 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/1] arch/mm/fault: fix major fault accounting when retrying
- under per-VMA lock
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.8 Merge Window, Part 4
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170578498755.24348.16166096320323933297.git-patchwork-notify@kernel.org>
-Date: Sat, 20 Jan 2024 21:09:47 +0000
-References: <20231226214610.109282-1-surenb@google.com>
-In-Reply-To: <20231226214610.109282-1-surenb@google.com>
-To: Suren Baghdasaryan <surenb@google.com>
-Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
- willy@infradead.org, will@kernel.org, catalin.marinas@arm.com,
- palmer@dabbelt.com, mpe@ellerman.id.au, christophe.leroy@csgroup.eu,
- agordeev@linux.ibm.com, gerald.schaefer@linux.ibm.com,
- dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+Message-Id: <170578499907.24348.2424712213063362005.git-patchwork-notify@kernel.org>
+Date: Sat, 20 Jan 2024 21:09:59 +0000
+References: <mhng-878cc879-7aa0-473f-91e4-8288072cdd4e@palmer-ri-x1c9>
+In-Reply-To: <mhng-878cc879-7aa0-473f-91e4-8288072cdd4e@palmer-ri-x1c9>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
  linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240120_130952_706701_788AAD62 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20240120_130959_910619_C2A26526 
+X-CRM114-Status: UNSURE (   7.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +77,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Andrew Morton <akpm@linux-foundation.org>:
+This pull request was applied to riscv/linux.git (fixes)
+by Linus Torvalds <torvalds@linux-foundation.org>:
 
-On Tue, 26 Dec 2023 13:46:10 -0800 you wrote:
-> A test [1] in Android test suite started failing after [2] was merged.
-> It turns out that after handling a major fault under per-VMA lock, the
-> process major fault counter does not register that fault as major.
-> Before [2] read faults would be done under mmap_lock, in which case
-> FAULT_FLAG_TRIED flag is set before retrying. That in turn causes
-> mm_account_fault() to account the fault as major once retry completes.
-> With per-VMA locks we often retry because a fault can't be handled
-> without locking the whole mm using mmap_lock. Therefore such retries
-> do not set FAULT_FLAG_TRIED flag. This logic does not work after [2]
-> because we can now handle read major faults under per-VMA lock and
-> upon retry the fact there was a major fault gets lost. Fix this by
-> setting FAULT_FLAG_TRIED after retrying under per-VMA lock if
-> VM_FAULT_MAJOR was returned. Ideally we would use an additional
-> VM_FAULT bit to indicate the reason for the retry (could not handle
-> under per-VMA lock vs other reason) but this simpler solution seems
-> to work, so keeping it simple.
+On Sat, 20 Jan 2024 10:17:18 -0800 (PST) you wrote:
+> The following changes since commit cb51bfee7f62a8e26b694f9d84c0041b3e3ccc71:
+> 
+>   Merge patch series "riscv: hwprobe: add Zicond, Zacas and Ztso support" (2024-01-09 20:14:51 -0800)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.8-mw4
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/1] arch/mm/fault: fix major fault accounting when retrying under per-VMA lock
-    https://git.kernel.org/riscv/c/46e714c729c8
+  - [GIT,PULL] RISC-V Patches for the 6.8 Merge Window, Part 4
+    https://git.kernel.org/riscv/c/e5075d8ec564
 
 You are awesome, thank you!
 -- 
