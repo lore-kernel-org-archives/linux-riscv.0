@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DA7C47258
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 21:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 152FCC47DAF
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 21:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lH9pMz7yTlvHa9yKZxYSCzTIgA+t9NWV3TdflRrFHIA=; b=z3qew7+H4vBUkE
-	j2kVpKoNk4HRx7z7rglUyEYay+8pHQVcPvrZgeKLwNZC3S/U25vW3GG9+ILnKvjHKh+m/hVepguCk
-	QgBltFEgtKhtFD475bcRkdrma54wbnjLv+SViscHTFT+lxYISAFmd0AT44S2I2qMl/Yvniyj0GDFm
-	RMmW0PiktJNfShMWdqSXnm7nDmWJhh6GmsUMekAyTQhHA+xyObO3TJE/O++a9YOfV3rgRFprH+zY2
-	YxfHrlWEbIC2FAonALJJ1YS4+Ca1QYLdwnN1YRAqqYLY8mMubdueWSTcPZgzvdEFYZ0Y56FDn51hj
-	GA2L4kCeQwYomN/m1X1w==;
+	List-Owner; bh=rABa/CO+yNNKdYdgg7v21jfQ2MDqKzaxpNrXhQ6vS8M=; b=m52zTuyo1KBWvX
+	whoh6Cjdve4gBGV0Zr/vvQ5NxYzMZ7AyT6iYAyUQbXpetnoVgn32hxIiwgmz2dTeEHeh9MZchQZJM
+	/TltucHBlIQcbFzfq3Oban0zskJzne08R/TZ7k58VIlsdE1cuoIBA0nxVCjN3m0g2guG7xNibGnj5
+	3EETCppNnjjCrPciAXcGMhZMU3BFmax4tpacQQYEIp7YSt34PfzxCpN8Cx+V7hMRp/jpByjbv2xwm
+	589W8s9Q9CtL+BQad9Nbbsj0Ty+FKHfm4+E/FPbHLk+fq93dQpoNQiIeOAiAbqEH0SPgb2LhgU/C+
+	VE0hrcmQ+xML0jTZCOkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRIbg-008OeH-2k;
-	Sat, 20 Jan 2024 21:10:24 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rRIbi-008OgQ-0l;
+	Sat, 20 Jan 2024 21:10:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRIbJ-008OFf-1r
+	id 1rRIbU-008OR1-1k
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 20 Jan 2024 21:10:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=shCzRzaKLWMmWoYNa+3EUQj1ycFVZKFoWI1BYbmOFiM=; b=m3+a+eUAaJEj3mfI4NWCKB8aap
+	6U2jrfC/aACxlKjZF1/2m1DDBlq1PVjweOFge0UH4bVx8IaigV1eOHvpHFHKGvc9bEEqH54kbQQqt
+	UW11TF5MZGrrycKbFnfiwCdyb6mFUoNJE/xyU3udMQ1+vEGVdIX24zlF6QzDFDfXdEVx6tOEVomth
+	GRAwqXlfQADjGhevdWXQJbBKldIpDSgMvw20QAaQyksoDv7f+kKhWUp9Tljj13m+bFwM6CG/qCZux
+	oJmYSdQIHu4d9junv36wQUdZs7vr10ouzoe23ny3MOaJ+j/kt8ycBmN5Fjvg7k7QXVGbso+xHXtr0
+	j+Xh1bBw==;
+Received: from sin.source.kernel.org ([145.40.73.55])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rRIbO-00000002Iwt-3eag
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Jan 2024 21:10:06 +0000
+	Sat, 20 Jan 2024 21:10:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 8D6B1B8094B;
-	Sat, 20 Jan 2024 21:09:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3E057C43609;
+	by sin.source.kernel.org (Postfix) with ESMTP id 17589CE1BC6;
+	Sat, 20 Jan 2024 21:10:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 53453C43141;
 	Sat, 20 Jan 2024 21:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1705784999;
-	bh=Uc9RmMV/bChQHcwZy6eVR8V+6YZdJL9xxLXYJdzSFVk=;
+	bh=5nt45iLV79mhsTfMOftM+AWycz2mQQOYTXoIRFoqOoo=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=iJI69Cs1UJUXFrDB1btlsmANpWWvbJ99kvEPHdb56qHFlu1bOBTkFRdZq4Ckr3JI8
-	 QHT0BnkadFAbz+TNz2sgLuhFWUqfxowUW7W+ZVz4S3rlltTYMg7Y224NGZ7Z0WuT5H
-	 JZmcRmlbghoIiCh5ek6oAGFAx0Xc8Or/vVZLO1B7GPdoGQxhB7mtw/RLe3EUuXaByU
-	 nEuPVTRQYF5W91pG2W4SfEkQMTQmDH6AXY86UWVlcdlm91iHhzLQDhm+dGsGAB0R2J
-	 ghXBKMjYzrhkbQFItYrWb0vVseuAA2gn3lzGaC0IZwNL6Bokpk2W1ObgxCLhYWVS+F
-	 GgYGa62h8iyVw==
+	b=YnN34gi5+oVnZY/0lS2QOt99cVY0Ihez1rMaY38jgbsgV5rQlxtESR6v1mufaZBwg
+	 KdCVD3wxXWgycdTdGLTf7w8SXBOwf2pHsuW9NfFC1cDRecKDiu8VChY2W5McIn+fGD
+	 5qcQptMOY9MKAqjdFJZOQsmA37YAGqCrirlYoZZQdHPFBW5Lz7bvl7qCyabz0jKwIx
+	 RpvAZPIrLCYvWKql32YAsakLpDp2a/v5g9iLE39MxD8dPK+Qs3hwf9LTbZZxFHtqBr
+	 fOLuFKYFstgVg7XDApia6gevkRU+XYVZe7pxq5frYDQQliXFRbb9XBGypKQlCeGQo8
+	 SC8JbFbUBZpeA==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2B217D8C970;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 408FCD8C9A3;
 	Sat, 20 Jan 2024 21:09:59 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] riscv: lib: Check if output in asm goto supported
+Subject: Re: [PATCH] RISC-V: selftests: cbo: Ensure asm operands match constraints
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170578499917.24348.742461114194301217.git-patchwork-notify@kernel.org>
+Message-Id: <170578499925.24348.4221862120348193500.git-patchwork-notify@kernel.org>
 Date: Sat, 20 Jan 2024 21:09:59 +0000
-References: <20240118-csum_remove_output_operands_asm_goto-v2-1-5d1b73cf93d4@rivosinc.com>
-In-Reply-To: <20240118-csum_remove_output_operands_asm_goto-v2-1-5d1b73cf93d4@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
+References: <20240117130933.57514-2-ajones@ventanamicro.com>
+In-Reply-To: <20240117130933.57514-2-ajones@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, cuiyunhui@bytedance.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240120_131001_899495_D2AE40B4 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20240120_211007_748609_CEDD1716 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,22 +95,19 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu, 18 Jan 2024 14:36:45 -0800 you wrote:
-> The output field of an asm goto statement is not supported by all
-> compilers. If it is not supported, fallback to the non-optimized code.
-> 
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> Fixes: a04c192eabfb ("riscv: Add checksum library")
-> ---
-> The OutputOperands field for asm goto statements is only supported
-> starting from GCC 11. Split the asm goto to remove the use of this
-> feature.
+On Wed, 17 Jan 2024 14:09:34 +0100 you wrote:
+> The 'i' constraint expects a constant operand, which fn and its
+> constant derivative MK_CBO(fn) are, but passing fn through a function
+> as a parameter and using a local variable for MK_CBO(fn) allow the
+> compiler to lose sight of that when no optimization is done. Use
+> a macro instead of a function and skip the local variable to ensure
+> the compiler uses constants, matching the asm constraints.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] riscv: lib: Check if output in asm goto supported
-    https://git.kernel.org/riscv/c/4525462dd0db
+  - RISC-V: selftests: cbo: Ensure asm operands match constraints
+    https://git.kernel.org/riscv/c/0de65288d75f
 
 You are awesome, thank you!
 -- 
