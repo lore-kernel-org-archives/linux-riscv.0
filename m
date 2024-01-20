@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B15C47258
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 21:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FBA7C47DD9
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 21:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=D1Klq47FqiibsTMhxXEGQCGZdse1qk186Qn/imMFbQ0=; b=BbqRMaJ7UbeVHN
-	VjZscq6OsAb+9x73HGmpTR4pVpW51uMoeFgYfJ1FpS9Lb/uCMkWCqExwTQ5cRmvd4ocTa7b1ep1J8
-	Mewe6KrQwjOQALVHJh5EcNR0Q0vNapJ8BGjwxRTKIOHu7QleUiqPUI2fJY9rn0tfq/M+xrJURKpH+
-	jpTQJy/d7sRHb5bhmLk5vh84tA0iXOcsOvF1lgk7WZ5Im7Tfl9ZbQhb8fpMZJfcNb2VUEiPMevrfm
-	rIIZvF8gNaQkFjsXbUBr9ogBjLTLYVrpDB1/q6b/Ng9dBWG3ocacdjSFXkxglRqt2ZcUVHClUOvJs
-	tbO070tDLAKtY9ry2/Zg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BHoeURjJ7FRWPk+I5qaKWtbigdK0II5n2tdH95aAMo8=; b=AF65f8aOJRbWHU
+	vz88TtqhyR1vZYfs1fdEx751KNMe+07NIu+Q0XqbtgHriXnMtem1l9Ddmj9+JLMm1jFy5fhodSYeo
+	wKkMxMNm/IXlmo6fFfXC5X+hUNxkJ6rTT69BBpdIFP933VlmafOkywZQzLbqTo0WJOTStn9t8doX/
+	kaYnlqSki4m5EnMCvV0qUtmxPprIDVyAdkbZeRNmKd5/wtWxzEwgq73WCQgTx16eoAzxO+r91pXMD
+	bTqruv93pd2egcgmUU4LJwjfbNC2YsI6K8WAUzczq1QElL30L846TgfmkItfd6zETA8q4gDqZJkJA
+	9jCoTkTLRqdfr6bVJ5hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRIyO-008S7l-26;
-	Sat, 20 Jan 2024 21:33:52 +0000
+	id 1rRJCx-008T94-2B;
+	Sat, 20 Jan 2024 21:48:55 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRIyJ-008S7Q-1v
+	id 1rRJCt-008T7D-03
 	for linux-riscv@lists.infradead.org;
-	Sat, 20 Jan 2024 21:33:49 +0000
+	Sat, 20 Jan 2024 21:48:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 933BACE1051;
-	Sat, 20 Jan 2024 21:33:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86040C433F1;
-	Sat, 20 Jan 2024 21:33:42 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 35C03CE1D19
+	for <linux-riscv@lists.infradead.org>; Sat, 20 Jan 2024 21:48:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3B10C43399
+	for <linux-riscv@lists.infradead.org>; Sat, 20 Jan 2024 21:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705786423;
-	bh=ggK882gPcvFDbkLHIJzDPNuG5aqZmqVFz9H9u19MILY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=XkKzrtQKGts2brCMmCZ5q/1ZCSjfXbAirPlxQTSwPxe6qmbN2steOWoMR4p9y3UdP
-	 LXOjz1dpAhLP+ZCe2lGm+SCqaZw0ru3FZn3KXLeKvumzOIfX3TZGLQJbwDZNpT+aJf
-	 zPvPm3w1712JBE/t+sBC8m1a5ZYNMezNVrlTGgHSpbYZ+nibs5WOgBU80WOA8cFy7i
-	 0inlxtT0T3JBx90zpNz4p8nNlXKv8sI3ugocmyez//3n4b5IVmUHFntaF2MclIa2l/
-	 u2g6upW94BVJO7qgT3QiSLORsIK0bDvrghj2ztyHor7ZbCECVOoKLhlbglVGLgVtqq
-	 mqz8g9cusUPfw==
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	Masahiro Yamada <masahiroy@kernel.org>
-Subject: [PATCH] riscv: remove unneeded #include <asm-generic/export.h>
-Date: Sun, 21 Jan 2024 06:33:11 +0900
-Message-Id: <20240120213312.3033528-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.40.1
+	s=k20201202; t=1705787328;
+	bh=w1FzR7rXZDAG95Z4hhOQkThbbze/zcwVMYt1WGmSrk0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ilwNI162FBpkwnKRHDOoUYOVHZfV77D3iZOoRj31PgMyJ1/Wg2bonK0B7XcAOL27w
+	 nw0THXMEKmFPbyB1YSVxA59V6rjiE/c7/AJrOHxuelLHCzmKd2/9NMin3zz2Fm0RsH
+	 +Pv9Timk/yW4qihHPVkZmiSsDBpqpJpsXWtqv7Fim7D+34d59PkrbmDyaVwivA70nI
+	 KZDIEVAOGUwXiTe4wiQ8hzRrGpppffVQ0gNvSb3tK7anugV4VmH+1Ggg8F5qznKmJ/
+	 Wuliwx9dK5qHHrfNtx373wRFO1JQLTmW7D2IxzUWj7zUh2U+aVxSLOfpK6Z0rVTWQN
+	 59zYOhrwHDgZw==
+Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-59938699589so1062587eaf.3
+        for <linux-riscv@lists.infradead.org>; Sat, 20 Jan 2024 13:48:48 -0800 (PST)
+X-Gm-Message-State: AOJu0Yz2+Dzc8y2snUYQ++SDHqeQZXy4IuYm7QFkrZso0Z80Lg4bTyYh
+	WJa8GsEsMLv7SqYoQsdGX/9Uky9WHuI40La0V3KFMOwcMtixncSniEgQfmQCAfT6pkDB+r7qT4M
+	csel4qfUnykh2HSfVmG7wRCOXcV0=
+X-Google-Smtp-Source: AGHT+IEx9PcXx/mfn28Guw9vSLfimEoqe9scEQf7uCCkYLu2lzRy4aA+upl+phU74jIfgxmU+HKxCxrMPVW5TFISuEU=
+X-Received: by 2002:a05:6870:3309:b0:210:c8f8:2a43 with SMTP id
+ x9-20020a056870330900b00210c8f82a43mr2032544oae.108.1705787328227; Sat, 20
+ Jan 2024 13:48:48 -0800 (PST)
 MIME-Version: 1.0
+References: <20231117125807.1058477-1-masahiroy@kernel.org>
+In-Reply-To: <20231117125807.1058477-1-masahiroy@kernel.org>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Sun, 21 Jan 2024 06:48:11 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAStoCja1gnoFmsKikbzGZmKTcTu+Vc7v9zg8B9hwsH+iQ@mail.gmail.com>
+Message-ID: <CAK7LNAStoCja1gnoFmsKikbzGZmKTcTu+Vc7v9zg8B9hwsH+iQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: compat_vdso: install compat_vdso.so.dbg to /lib/modules/*/vdso/
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240120_133347_812343_FEB6B0D1 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240120_134851_221873_14D0F909 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,55 +76,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 62694797f56b ("use linux/export.h rather than
-asm-generic/export.h") replaced deprecated <asm-generic/export.h>
-inclusions.
-
-Commit c2a658d41924 ("riscv: lib: vectorize copy_to_user/copy_from_user")
-introduced a new instance of #include <asm-generic/export.h>.
-
-arch/riscv/lib/uaccess_vector.S does not use EXPORT_SYMBOL, hence this
-include directive is unneeded.
-
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
-
-I CC'ed Al Viro in case he attempts to replace <asm-generic/export.h>
-with <linux/export.h> again.
-
-Commit 62694797f56b was suboptimal because arch/riscv/kernel/mcount-dyn.S
-does not use EXPORT_SYMBOL. Removing #include <asm-generic/export.h>
-was correct.
-
-I had submitted a patchset earlier, but it was not picked up:
- https://lore.kernel.org/all/20231126151739.1557369-1-masahiroy@kernel.org/
-
-
- arch/riscv/lib/uaccess_vector.S | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/arch/riscv/lib/uaccess_vector.S b/arch/riscv/lib/uaccess_vector.S
-index 51ab5588e9ff..7c45f26de4f7 100644
---- a/arch/riscv/lib/uaccess_vector.S
-+++ b/arch/riscv/lib/uaccess_vector.S
-@@ -1,7 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0-only */
- 
- #include <linux/linkage.h>
--#include <asm-generic/export.h>
- #include <asm/asm.h>
- #include <asm/asm-extable.h>
- #include <asm/csr.h>
--- 
-2.40.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMTcsIDIwMjMgYXQgOTo1OOKAr1BNIE1hc2FoaXJvIFlhbWFkYSA8bWFzYWhp
+cm95QGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gJ21ha2UgdmRzb19pbnN0YWxsJyBpbnN0YWxscyBk
+ZWJ1ZyB2ZHNvIGZpbGVzIHRvIC9saWIvbW9kdWxlcy8qL3Zkc28vLgo+Cj4gT25seSBmb3IgdGhl
+IGNvbXBhdCB2ZHNvIG9uIHJpc2N2LCB0aGUgaW5zdGFsbGF0aW9uIGRlc3RpbmF0aW9uIGRpZmZl
+cnM7Cj4gY29tcGF0X3Zkc28uc28uZGJnIGlzIGluc3RhbGxlZCB0byAvbGliL21vZHVsZS8qL2Nv
+bXBhdF92ZHNvLy4KPgo+IFRvIGZvbGxvdyB0aGUgc3RhbmRhcmQgaW5zdGFsbCBkZXN0aW5hdGlv
+biBhbmQgc2ltcGxpZnkgdGhlIHZkc29faW5zdGFsbAo+IGxvZ2ljLCBjaGFuZ2UgdGhlIGluc3Rh
+bGwgZGVzdGluYXRpb24gdG8gc3RhbmRhcmQgL2xpYi9tb2R1bGVzLyovdmRzby8uCj4KPiBTaWdu
+ZWQtb2ZmLWJ5OiBNYXNhaGlybyBZYW1hZGEgPG1hc2FoaXJveUBrZXJuZWwub3JnPgo+IC0tLQoK
+ClBpbmc/CihpbiBjYXNlICJ5ZXQgbW9yZSBSSVNDLVYgdXBkYXRlcyIgaGFwcGVucykKCgoKCj4K
+PiAgYXJjaC9yaXNjdi9NYWtlZmlsZSB8IDIgKy0KPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0
+aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9NYWtlZmls
+ZSBiL2FyY2gvcmlzY3YvTWFrZWZpbGUKPiBpbmRleCBhNzRiZTc4Njc4ZWIuLjVjYmU1OTYzNDVj
+MSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L01ha2VmaWxlCj4gKysrIGIvYXJjaC9yaXNjdi9N
+YWtlZmlsZQo+IEBAIC0xNDYsNyArMTQ2LDcgQEAgZW5kaWYKPiAgZW5kaWYKPgo+ICB2ZHNvLWlu
+c3RhbGwteSAgICAgICAgICAgICAgICAgKz0gYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92ZHNvLnNv
+LmRiZwo+IC12ZHNvLWluc3RhbGwtJChDT05GSUdfQ09NUEFUKSAgKz0gYXJjaC9yaXNjdi9rZXJu
+ZWwvY29tcGF0X3Zkc28vY29tcGF0X3Zkc28uc28uZGJnOi4uL2NvbXBhdF92ZHNvL2NvbXBhdF92
+ZHNvLnNvCj4gK3Zkc28taW5zdGFsbC0kKENPTkZJR19DT01QQVQpICArPSBhcmNoL3Jpc2N2L2tl
+cm5lbC9jb21wYXRfdmRzby9jb21wYXRfdmRzby5zby5kYmcKPgo+ICBpZm5lcSAoJChDT05GSUdf
+WElQX0tFUk5FTCkseSkKPiAgaWZlcSAoJChDT05GSUdfUklTQ1ZfTV9NT0RFKSQoQ09ORklHX0FS
+Q0hfQ0FOQUFOKSx5eSkKPiAtLQo+IDIuNDAuMQo+CgoKLS0gCkJlc3QgUmVnYXJkcwpNYXNhaGly
+byBZYW1hZGEKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
