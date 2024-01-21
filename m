@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA366C47258
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Jan 2024 23:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76026C47DD9
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Jan 2024 01:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:From:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Kgr6keZXSRSn6R6FCNhDYWFajYQSmDgRVDUwynemTtI=; b=BBlEIN1bhFBV5x
-	eZnm6DKlQly6ntWAnaPujw5bwTBxDiE1kdjim+JbL1zcLmMwMg8nc3f935AoCtOuCEG3JHz8QpJU6
-	2fhSTRQnfivEFgrw8nAghXzryGgSEYZvUvvF0wsojA8Xust1qO1cmM65bESw66gWWEHtREr62W+nm
-	LOAlVmYLxreQ7tGk/bWTZFnfpLOx7TmL8mV7kSQ/+G8adU7/85yGytcA1Htv2u3GBB+tCcF9k7YTM
-	QShB9ripmvX5lyPjQwSeHn4myXh8oYeuxYmeVDudxzsxUgQKxeT8zHsxQOliLW7egNQoxosiyFgRD
-	LTIwDJs9S5uK3kOKCZtA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=66yNqXtsmK1/Wn3dOzWxSoAYmu9qpWOXtSSSi1VpLmQ=; b=Ck+ehvWUPHtK4U
+	iXUiqo2YbB2tkTgbsj/Z6pj6P4HZDMq1qrCumEHk8MurH/PPMJu4dsTjiYVzp8c2rm0M+Ab/nf1lt
+	qMctmL1YK1VKqmSFKY8KbN9Y6Bygv2QNM5tBKKmLePBGOF5NKD+4oB3de8kYFmHij8m44/fqsaePl
+	1a0P3e50L/bTZvg6j/KsIoRIEgbugK9yOV+nIlk6ntIlDVa8g/1L752noTrP+RQ9eT/2Gc8dtDs/t
+	hd6THsWHqNdCNoyShGAf5JVruRM9a3QGPGZH7RHBDVFzaRFxZT56We8nQyaqGsIvw2WDFEfS9auW8
+	j1BI//zrHqCHZ47NkNbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRKOk-008Yyy-0l;
-	Sat, 20 Jan 2024 23:05:10 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1rRMPK-008il4-1T;
+	Sun, 21 Jan 2024 01:13:54 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRKOe-008Yxy-0Z
-	for linux-riscv@lists.infradead.org;
-	Sat, 20 Jan 2024 23:05:08 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6dbce74f917so315307b3a.0
-        for <linux-riscv@lists.infradead.org>; Sat, 20 Jan 2024 15:05:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1705791901; x=1706396701; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=t3SCOrYrydggrLqjpLHk4w5cWVMkEhMbtyx1lBVjnBQ=;
-        b=2/kRIvq01kjT0Nzu4YMrVZIj3Y2ecG0gEkFbg/g3yf8Ind0/ODv36I8FD6XA4cVNwU
-         8WRQ78RCNw9ERBUWGgkj/64qt3DPljVtDoYfIWiCFVt3iZihbgQfsJnxMYvTiIpg5DNg
-         bz06Jnkq9Nr+9aZc6n/0mL4KLlhBjt/Y/YE8hEMLYfkw9cIJf8NeaMJVMomAzjye1tlD
-         nYMBnjrXb9jPs87uWG8ShC5s4mkI+ZQp2t4SFItx6zR4APbgkagkiCH3ie5Nt7VNWX0b
-         P/vZMr832FgL0EXKQ350mxRn7LzJHtEW1wIfJxfRtfj+rLGOtmtKJdTexkhs+pc+U6cR
-         5MtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705791901; x=1706396701;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=t3SCOrYrydggrLqjpLHk4w5cWVMkEhMbtyx1lBVjnBQ=;
-        b=XMW8YGmtGcNXf8xaTHGK8TXYQxQIF/MQgJnGKoQcV1owX/lnPtUUCqEAS409NGqRf0
-         jU7PCBie1FsTEQjFj3K42+XY0SGdfs+t7HT6cTCT/TSpUfr89HVI6TKp7X3fRbGlb48F
-         Vd4brUxvniWz2DpcXnMYaraGuo8y0GZrFwagRWwHoDJ2UbNXibSxOM+T9BzbZyHZAdxv
-         jAjCqnKqXRASYWn7/fCS6FLfc2ctKHEYoru/s0jn3/jnmYcAbrmSEpXSh1Samjr1Rs1Z
-         4i67Qxc+3UeZlhWaiQdgOiG9qNHws1vXmWE68dA9ZcTPMNSQXEawHAjppSpaUu77oFEE
-         +BJA==
-X-Gm-Message-State: AOJu0YxWnYFoGzFMMrj2o59970/SWFUCDnd0mrFiZSJPugt8TAv3wkuv
-	VGu3V8y1aCD3CtpBTiPO28rfNlQQYhoqZEgPYk9JXIJKmvI2z3YY874NPWZhGTs=
-X-Google-Smtp-Source: AGHT+IFPl+JDJz51D6SslFtOqfSHiKip3ZHHDwE/E2G2OlYytJDDwJhc9iF62JtGrqUtyDKlwE+d9g==
-X-Received: by 2002:a17:902:c94e:b0:1d5:3100:5365 with SMTP id i14-20020a170902c94e00b001d531005365mr892080pla.27.1705791900970;
-        Sat, 20 Jan 2024 15:05:00 -0800 (PST)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id j17-20020a170902f25100b001d70e83f9c3sm4426120plc.242.2024.01.20.15.05.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 Jan 2024 15:05:00 -0800 (PST)
-Message-ID: <65ac519c.170a0220.d78ec.0236@mx.google.com>
-Date: Sat, 20 Jan 2024 15:05:00 -0800 (PST)
+	id 1rRMPC-008ijT-35;
+	Sun, 21 Jan 2024 01:13:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id B2EFCB80A1F;
+	Sun, 21 Jan 2024 01:13:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8646CC43390;
+	Sun, 21 Jan 2024 01:13:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1705799624;
+	bh=BxWcz+0bN+GA9nXwcpJAF3xX62AbrnrZ8mAw5Ld/0lI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RXsNvtAZRtYNGIab1LSdVVsXOIOnE9ovOgZTAP/4kQdpKRBb4dPt8tayNSU5niiec
+	 Oeru4K31pWnAhKC/r0NqfrN/w6ciKLUzFyOdhTGukZO6eLdLcWzUaOND0r5SqlXFv0
+	 x55faG5DgFXd14Asw5gx5jL1ovcuc2Gd/ea3n+zbMifJzC1unGTaO/zL+gLgUCIBGQ
+	 DxfSRvoY5K6ar/7W3DukZmxWONTgBVDpUs7s+b6lWvAXOadzqAj4AYJVSJGXGyyMRh
+	 Kxp1z/YK7GIR/g4ccyvPcm5/foc1HJmSiTrSjlLMZNiWdg4cDdwwdPJGFmMCDS2aK4
+	 VyWbs/pBEhmMg==
+Date: Sat, 20 Jan 2024 17:13:41 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	anup@brainfault.org, atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	vineetg@rivosinc.com, greentime.hu@sifive.com,
+	guoren@linux.alibaba.com, Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>
+Subject: Re: [PATCH -next v21 23/27] riscv: detect assembler support for
+ .option arch
+Message-ID: <20240121011341.GA97368@sol.localdomain>
+References: <20230605110724.21391-1-andy.chiu@sifive.com>
+ <20230605110724.21391-24-andy.chiu@sifive.com>
 MIME-Version: 1.0
-X-Kernelci-Branch: fixes
-X-Kernelci-Tree: riscv
-X-Kernelci-Kernel: v6.7-12908-ge5075d8ec5647
-X-Kernelci-Report-Type: test
-Subject: riscv/fixes baseline: 16 runs,
- 1 regressions (v6.7-12908-ge5075d8ec5647)
-To: kernelci-results@groups.io, kernel-ci-triage@rivosinc.com,
- linux-riscv@lists.infradead.org
-From: "kernelci.org bot" <bot@kernelci.org>
+Content-Disposition: inline
+In-Reply-To: <20230605110724.21391-24-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240120_150504_238428_2123DA64 
-X-CRM114-Status: UNSURE (   1.88  )
+X-CRM114-CacheID: sfid-20240120_171347_145967_CD426192 
+X-CRM114-Status: UNSURE (   7.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,46 +81,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv/fixes baseline: 16 runs, 1 regressions (v6.7-12908-ge5075d8ec5647)
+Hi Andy,
 
-Regressions Summary
--------------------
+On Mon, Jun 05, 2023 at 11:07:20AM +0000, Andy Chiu wrote:
+> +config AS_HAS_OPTION_ARCH
+> +	# https://reviews.llvm.org/D123515
+> +	def_bool y
+> +	depends on $(as-instr, .option arch$(comma) +m)
+> +	depends on !$(as-instr, .option arch$(comma) -i)
 
-platform          | arch  | lab           | compiler | defconfig | regressions
-------------------+-------+---------------+----------+-----------+------------
-qemu_smp8_riscv64 | riscv | lab-collabora | gcc-10   | defconfig | 1          
+With tip-of-tree clang (llvm-project commit 85a8e5c3e0586e85), I'm seeing
+AS_HAS_OPTION_ARCH be set to n.  It's the second "depends on" that makes it be
+set to n, so apparently clang started accepting ".option arch -i".  What was
+your intent here for checking that ".option arch -i" is not supported?  I'd
+think that just the first "depends on" would be sufficient.
 
-  Details:  https://kernelci.org/test/job/riscv/branch/fixes/kernel/v6.7-12908-ge5075d8ec5647/plan/baseline/
-
-  Test:     baseline
-  Tree:     riscv
-  Branch:   fixes
-  Describe: v6.7-12908-ge5075d8ec5647
-  URL:      https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
-  SHA:      e5075d8ec5647322fb9e699bfb76331cc8ee098d 
-
-
-Test Regressions
----------------- 
-
-
-platform          | arch  | lab           | compiler | defconfig | regressions
-------------------+-------+---------------+----------+-----------+------------
-qemu_smp8_riscv64 | riscv | lab-collabora | gcc-10   | defconfig | 1          
-
-  Details:     https://kernelci.org/test/plan/id/65ac4a57df0670ab3a52a400
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-10 (riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110)
-  Plain log:   https://storage.kernelci.org//riscv/fixes/v6.7-12908-ge5075d8ec5647/riscv/defconfig/gcc-10/lab-collabora/baseline-qemu_smp8_riscv64.txt
-  HTML log:    https://storage.kernelci.org//riscv/fixes/v6.7-12908-ge5075d8ec5647/riscv/defconfig/gcc-10/lab-collabora/baseline-qemu_smp8_riscv64.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroot-baseline/20230623.0/riscv/rootfs.cpio.gz 
-
-
-  * baseline.login: https://kernelci.org/test/case/id/65ac4a57df0670ab3a52a401
-        new failure (last pass: riscv-for-linus-6.7-rc5-4-gb8b2711336f03) 
-  
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
