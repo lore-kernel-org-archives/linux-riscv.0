@@ -4,76 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC17C47DAF
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 08:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5C50C4725D
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 08:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Sb15sgwl3LfO/fzugHXNHYBl4w64L5xggKoJo8DrI0=; b=fuVSIAZ+7TIgOFZMTDLVJG+rMu
-	D3rtAouNyIzvE9WgGfYljkEA5KpaMxnu7+KuJ6guj9O/wRAa5LRDcpfUGRnZf0YzA6i2zN5prGewy
-	DH+gHA3Qb9bEgpiNrnHGy5DI9IBWxnbqO5BtYJUWephRA1ShEdUscLCs0nIwJxKMqXcNGyKNc++0f
-	2Oo21DOuBlcCDAf9ZFbiguW3lJw+PGigdyLsZffL/erpjUOCSHfnU+H2jB4QwP4WmSz5LiUH6NSpi
-	m2QQssj0xnFk+7h5YL6r5hmaIeiD8CjgHy+k8W0JqJmzoX1lHBT4TWEn8CYNAhDEDkjT/e8l3hM0P
-	frtGeX2Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BlE+GW3nut5aBClL510tjaPZEx71coj5q79u+WQo/eU=; b=eu2NR+2hiq9GXq
+	yK/FsQSY7qktrjmjm3pYUdDSATt4lAQsro2Sp4UaWG1doRO77Y0TvQADa8KEdTb5oiPkoiV8wSajf
+	M3WBSAESKe/UgxDOhEoMK7ZSP5NbNJ5kGH43bi8yIQXeVZv9mrIBWLb3M/QKKj3JiZdWlrYHiqutm
+	KZW2rNbQ1SaYrOedMqv96v14uKF9EDr1VGfL/PnlDX2tvIq8gPA0YjM50Murtvz6x+yHDfKUcei2F
+	fzRhP6GCzGBtlEb4pCjgOLyl4zpn5BTlv9OZhgMTWD88pIFMiVqf3gtOnXpnCpv7dq/kJhQgPIFf0
+	pMy3PgDFJ8v9U8ftHGuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRpc4-00B2NB-1L;
-	Mon, 22 Jan 2024 08:25:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rRpcc-00B2ZA-2A;
+	Mon, 22 Jan 2024 08:25:34 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRpc1-00B2M8-35
+	id 1rRpcZ-00B2Vz-1o
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 08:24:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2C75060FDB;
-	Mon, 22 Jan 2024 08:24:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C09E8C433C7;
-	Mon, 22 Jan 2024 08:24:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705911896;
-	bh=drF9HS0qNEy+0/grGYgRcmiwZBDcpQyCv996fd/G5Uw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s1URRlGjJA38bXP5Tqq7X0QiPyWe3UraXQYziiFt47585KnHSGCL0jFjJwEmzttNe
-	 i2sGsduyPw2Sg1I6HXBlaiQ3g9W51qyA8zeUoJFdgwPA8Cm7eSnjqMH/eVdgQlyoXw
-	 0McCO5WsZwHz4i1coBWQBIgcnyJR2yFipOTrLmYtOth4Y9xXxJoaDrMC8fzMKnmxaX
-	 UkGde0+cJfWZ21larnsTS7hcRJ+jZUe36eTbgWWA0sJTX0msi+zXPEUToMVXZjTpRx
-	 RbW16AveJ/rfSy4EPmMpApjuHanWfaPCZU4CE/3jzTjygb0GjWBB4q5iPKBcCf+H2+
-	 S9s+9RrCs2Rhw==
-Date: Mon, 22 Jan 2024 08:24:51 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jack Zhu <jack.zhu@starfivetech.com>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: Re: =?utf-8?B?5Zue5aSNOiDlm57lpI06IFtQQVRD?=
- =?utf-8?Q?H_v1_1=2F2=5D_dt-bindings?= =?utf-8?Q?=3A?= media: starfive: Match
- driver and yaml property names
-Message-ID: <20240122-uncivil-almost-631137081fd9@spud>
-References: <20240119100639.84029-1-changhuang.liang@starfivetech.com>
- <20240119100639.84029-2-changhuang.liang@starfivetech.com>
- <20240119-despair-festival-59ab2d4d896b@wendy>
- <SHXPR01MB0671E2150D9A2707F12E0901F270A@SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn>
- <20240119-preamble-calm-7724e17fcebc@wendy>
- <BJXPR01MB0662E6EEEEF888BD90A1FCE5F275A@BJXPR01MB0662.CHNPR01.prod.partner.outlook.cn>
+	Mon, 22 Jan 2024 08:25:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1705911928;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bDmft0G/LbU/vGcrH0ViFbqfb55/2jbpdSGlzfSsB1Q=;
+	b=Tq0Kr1MWX0KSxsm9olcGK5lIQDryQLr36bHs7p4buw8wePJUKh6BrP222hP+Pp0JKkefsJ
+	F1e+Pb1nhWcqUGXV+pmk+Xu1hEzJlKXrfeB/uIdJ8mgTn9nbV6D+q3zlQjkIVyRE8Ips3S
+	vz07mo4uUttYPWFUgtVxf9+qcHSELfU=
+Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com
+ [209.85.210.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-267-m_a4dr_GN_-CTr3MDMkOAQ-1; Mon, 22 Jan 2024 03:25:26 -0500
+X-MC-Unique: m_a4dr_GN_-CTr3MDMkOAQ-1
+Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-6ddeec294fdso742566a34.0
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jan 2024 00:25:26 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705911925; x=1706516725;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bDmft0G/LbU/vGcrH0ViFbqfb55/2jbpdSGlzfSsB1Q=;
+        b=CJs/8il0UUHEGe5VgBdiHsTKqU7f55MF3qMPYqgOpMaAlDlEFuZe7fgvM5tGQL1+eu
+         uoKomRwO5rxjXJs0p1wsZfPtbSXfutCkvU/LHBABDEhMRU8ul7RZxWz97SFd2C6mFgCn
+         aNUy5baCfPNFY3/dkRFKtboSKSmD50T8R5rNRIR1ZyglbGqN4+XfyPbq6UcfJ3loJdMv
+         ZPBiyjhL3+OnnMPlpfCzekIDiaIILgGbGl8jZ2ae9myHjZ0bOSannBmNVucmdTUz0X0K
+         52IYsRdvxr2vSWupO/rFgH3zB/ZR2RN0N14jr81ou57Wyz6ycrHhG2tat2WMutX7XYAP
+         WMrw==
+X-Gm-Message-State: AOJu0YyH5MM94PcjkEQTftSyonlcCp03fMEs7YZh82cymhCUWyTc9262
+	QbZdVZkHVsc+sEKjH92YKGjWBTDawYp9nLW/xsnPbPXlZtFTXpvtvbcIxv1x5ufM4iWgH7kUig6
+	G8Rwc8aHR27VA1lMYvshRcivlaWXvPIMc+GeQ62hUw3smFaQiGtn5mY/qbax8Rc0cLQ==
+X-Received: by 2002:a05:6358:591d:b0:176:5ca9:7213 with SMTP id g29-20020a056358591d00b001765ca97213mr953016rwf.0.1705911925337;
+        Mon, 22 Jan 2024 00:25:25 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHSePoGNoX92PzQmVfT4AXX54k/+l1fGFhIaFtWONOwMEeDpGYerPythOMH74Vw9shCsROV9A==
+X-Received: by 2002:a05:6358:591d:b0:176:5ca9:7213 with SMTP id g29-20020a056358591d00b001765ca97213mr952991rwf.0.1705911925009;
+        Mon, 22 Jan 2024 00:25:25 -0800 (PST)
+Received: from x1n ([43.228.180.230])
+        by smtp.gmail.com with ESMTPSA id h8-20020a654808000000b005ca0ae17983sm6839110pgs.8.2024.01.22.00.25.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Jan 2024 00:25:24 -0800 (PST)
+Date: Mon, 22 Jan 2024 16:25:12 +0800
+From: Peter Xu <peterx@redhat.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	James Houghton <jthoughton@google.com>,
+	David Hildenbrand <david@redhat.com>,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Yang Shi <shy828301@gmail.com>, linux-riscv@lists.infradead.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Rik van Riel <riel@surriel.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Mike Rapoport <rppt@kernel.org>, John Hubbard <jhubbard@nvidia.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	linuxppc-dev@lists.ozlabs.org,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v2 01/13] mm/Kconfig: CONFIG_PGTABLE_HAS_HUGE_LEAVES
+Message-ID: <Za4maErLKnRnM0sB@x1n>
+References: <20240103091423.400294-1-peterx@redhat.com>
+ <20240103091423.400294-2-peterx@redhat.com>
+ <20240115173737.GO734935@nvidia.com>
 MIME-Version: 1.0
-In-Reply-To: <BJXPR01MB0662E6EEEEF888BD90A1FCE5F275A@BJXPR01MB0662.CHNPR01.prod.partner.outlook.cn>
+In-Reply-To: <20240115173737.GO734935@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_002458_081566_517BCE64 
-X-CRM114-Status: GOOD (  21.32  )
+X-CRM114-CacheID: sfid-20240122_002531_667862_007CB93A 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,82 +116,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2540034626322078951=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 15, 2024 at 01:37:37PM -0400, Jason Gunthorpe wrote:
+> On Wed, Jan 03, 2024 at 05:14:11PM +0800, peterx@redhat.com wrote:
+> > From: Peter Xu <peterx@redhat.com>
+> > 
+> > Introduce a config option that will be selected as long as huge leaves are
+> > involved in pgtable (thp or hugetlbfs).  It would be useful to mark any
+> > code with this new config that can process either hugetlb or thp pages in
+> > any level that is higher than pte level.
+> > 
+> > Signed-off-by: Peter Xu <peterx@redhat.com>
+> > ---
+> >  mm/Kconfig | 3 +++
+> >  1 file changed, 3 insertions(+)
+> 
+> So you mean anything that supports page table entires > PAGE_SIZE ?
 
---===============2540034626322078951==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="691fbi7YiHqy5KOf"
-Content-Disposition: inline
+Yes.
 
+> 
+> Makes sense to me, though maybe add a comment in the kconfig?
 
---691fbi7YiHqy5KOf
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Sure I'll add some.
 
-On Mon, Jan 22, 2024 at 01:33:56AM +0000, Changhuang Liang wrote:
->=20
-> > On Fri, Jan 19, 2024 at 12:57:22PM +0000, Changhuang Liang wrote:
-> > > EXTERNAL EMAIL: Do not click links or open attachments unless you know
-> > > the content is safe
-> > >
-> > > Hi , Conor
-> > >
-> > > > =E4=B8=BB=E9=A2=98: Re: [PATCH v1 1/2] dt-bindings: media: starfive=
-: Match driver
-> > > > and yaml property names
-> > > >
-> > > > On Fri, Jan 19, 2024 at 02:06:38AM -0800, Changhuang Liang wrote:
-> > > > > Drop some unused properties for clocks, resets and interrupts for
-> > > > > StarFive JH7110 camera subsystem.
-> > > >
-> > > > What do you mean "unused"?
-> > > >
-> > > > Do these clocks etc exist but are not used by the driver?
-> > > >
-> > > > Or do they not exist at all?
-> > > >
-> > > > The two are very different!
-> >=20
-> > > These clocks etc exist but are not used by the driver.
-> >=20
-> > That's not an acceptable reason for removing them from the binding. If =
-they
-> > exist, they should be documented, regardless of whether the driver make=
-s use
-> > of them. NAK.
->=20
-> If so, how to avoid the warning of dtbs_check.
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-By also adding the clocks, resets and interrupts to the dts.
+Thanks for your reviews and also positive comments in previous versions,
+Jason.  I appreciate that.
 
---691fbi7YiHqy5KOf
-Content-Type: application/pgp-signature; name="signature.asc"
+I'm just pretty occupied with other tasks recently so I don't yet have time
+to revisit this series, along with other comments yet.  I'll do so and
+reply to the comments / discussions together afterwards.
 
------BEGIN PGP SIGNATURE-----
+-- 
+Peter Xu
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZa4mUwAKCRB4tDGHoIJi
-0h/FAP9OymvQKrw2lHv7pji+pa6/xaJNsKHlv4dCxUXnS+SjUgD+ItSiNki3Vypi
-yxKXpfp0nWKwBR7x5uxNdhSO9OoXtQs=
-=tSBw
------END PGP SIGNATURE-----
-
---691fbi7YiHqy5KOf--
-
-
---===============2540034626322078951==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2540034626322078951==--
-
