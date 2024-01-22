@@ -4,79 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E740C47DAF
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 12:21:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F253C4725D
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 12:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WKEzMAT9FgETeWkeUgwLUew548BlTbBB01sjfON5pGA=; b=HMvwe5yIFXXjV6
-	8yuGRjFRfDgDE9hcizu3tQmgyRztcyxMTWfm14tcKG48HOjo0NDSA3oso7c717a2rW8Hkwbf0H8QA
-	9+PnHdxjCKEg4DnCQQdiMoCYdXIfa8qwS2SvaPRoUU7UME4/NIfUyIuPZCRzbq+/NobqKLYLXyJXQ
-	xza0mzhT53MlUaiADZ4Z/JHVAC4HnhHOp1HpDEvus5PMnEzX3I3mCUL2WGVpgsZy5MzPERmKjgwj/
-	e9CZdhIKAy0egnI7/R+M1XGA2D/icf/p2PrsxFFT5E7pG5zDbrwFIMdsr4LOWxKgS/vj5E2RqgwuS
-	TI6bV0z7oCv9sKR32K6A==;
+	List-Owner; bh=HTaYEW4DOJKzTPDbvGbvNZslfstiSmSRiMOmDQUZ9/U=; b=uNxPJ0HUCTseTB
+	MyRivHTzu74ppWVKzQ/YdTZd0PbF2O4PCaHGDx+Vp1EYA5HOrD56giHsbP6rftCPrhXPiQqdIN6jG
+	A49Ou4AyB87o5MbzBRVT1ukJAdZhoXGbmFMcLcYXG2j4R7jnlZP2bcJUYDLvQ8a9iRsLVnKoAcQNN
+	bH5JR46ib+gomaf9Y0yJUJCvhv7mmN/Kmk0wnC7GO91fquI1duzkBa8dEXQPi3DCpKr5zKzSnrRSa
+	9CjCAAShLltGjAGVBTVOCJYIGT5RxogELXc6UAhv3HHcCNJf/xflQPYkKMSrKKo3MI5K/b1t9VL65
+	C64vj7+47wMvnQwq/vYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRtIM-00C4On-1S;
-	Mon, 22 Jan 2024 12:20:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rRtJ7-00C4n0-1h;
+	Mon, 22 Jan 2024 12:21:41 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRtIK-00C4M3-0T
+	id 1rRtJ3-00C4jh-2e
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 12:20:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9A2C9612BB;
-	Mon, 22 Jan 2024 12:20:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2AC3C433F1;
-	Mon, 22 Jan 2024 12:20:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705926021;
-	bh=8d4o8b6w9hvJ+ehL0Gmci/4wXJY8BAIb5BXSCLU2izA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=q0+1BfKXT/Q3WTcV0v6zrkcMPc7AkN+h+88/RrAqg+eqV8RBIoaHAbJhpXzXjsRsz
-	 GJl3f+fXohP8flUgMqa9BI4qS2FBiQ9dyCT4MvEbvcvBLz3u48iApRltaJxIKcKMrK
-	 9s1FrXOCnW9axnQEJMkr75lPaYRkKQTCmI+xxYau+xQc/4XB5+WF01JEY4lrXX+IKV
-	 eavw9YDFVtmp+zwwdxyUgPDl3objzuoXbGs+H2/1C0jlbk48f0OhDcG009hXW903xf
-	 GVGQm0Mako7Pxixm/wjC2jBKo/FIiCqLRZum/bT05i32Dd8POLYXCJuaL980eBU67u
-	 0o+hXceniIHhA==
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Wolfgang Grandegger <wg@grandegger.com>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	linux-can@vger.kernel.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: [PATCH v2 2/7] dt-bindings: can: mpfs: add missing required clock
-Date: Mon, 22 Jan 2024 12:19:50 +0000
-Message-ID: <20240122-breeder-lying-0d3668d98886@spud>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240122-catty-roast-d3625dbb02fe@spud>
-References: <20240122-catty-roast-d3625dbb02fe@spud>
+	Mon, 22 Jan 2024 12:21:40 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-337cf4ac600so2897084f8f.3
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jan 2024 04:21:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1705926095; x=1706530895; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pNyn/qnqC01DO5aYO0gaP3LnuG+kGrelMJHPp637j+Q=;
+        b=EjuO5natrfsgux0c9ClrWh4vDJAAuuAeYEX4GasZgT2+k9dTFozI6FxvEFngzbR6Eh
+         GKZvSY2MiiS+TvqAbzlk50bnkZS2Ak2850oXE6sTrxEYA+BZu+TjWFcCltNcOQJ62Fa+
+         Tx22e1B1YhcjagHiLYTeYXMq2xIISpLENE81tW9hZZWRN2uqQIhxZxCefAIRqNJwLYXf
+         nMJMr/qFZCwV2nIv0u7i1h6Wc/7gB3sPP0ktp0bPuLnTe0nCG8QEF6+6edOTWSjAeAho
+         ECPjNSNzvt03jBb69Ae7XYZOAh7zfOdtQO6kNTxVW4+am/nmRGqaaKaLxSaS3w1VwdkB
+         Eo0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705926095; x=1706530895;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pNyn/qnqC01DO5aYO0gaP3LnuG+kGrelMJHPp637j+Q=;
+        b=WS7f2+rWOnNKotRiysvffF1vUi7N/AwxUg8olxWOZZ0eUuKiqSY2G7JwBLe5YmfCoa
+         vpdkAK+4k3md+zEgIW8TIv3CW0aJvC7jw4GAiD7Uc5QhINzVooAgKdgSDsdhhGcDf5Ss
+         H1rqEhgI5DjW8t7UxrUanlA6/xVDuQuAuKM0PK1T0okTpm1FHhQ+cCk4y1mpfBbVUAhH
+         wqTxTaFAHOHBxnPbuBA2jyEEXWfno+xyEDg6jBVyO8py9P8j0SyevrOaysyIoCgOskdy
+         7u2z3q2dv/VhyybZfGLWa6D88T++Bo0y5geSsaJ63IjoYB05FkrTtn9XELxd0siwtSgk
+         7q6Q==
+X-Gm-Message-State: AOJu0YycD4z5gYoS6ORUCR2OuG0QB6VXuCntkCeWnn9utuEmlXLUZsJy
+	luXfJI7C5cYpKu2OgLo0c2gnh0o2uUXDr3LhGHQ/IoouKKyOgZCZod1gZd2v/NY=
+X-Google-Smtp-Source: AGHT+IGjstD5P6UroceP4UshiLynFM2AqV73RXt9NzLqzEsWwmxRvB3J0Fsa/nFM64CECZlIeo29pg==
+X-Received: by 2002:a5d:44ce:0:b0:337:c538:6db with SMTP id z14-20020a5d44ce000000b00337c53806dbmr1979837wrr.2.1705926095352;
+        Mon, 22 Jan 2024 04:21:35 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id bw12-20020a0560001f8c00b00337cef427f8sm11306084wrb.70.2024.01.22.04.21.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Jan 2024 04:21:34 -0800 (PST)
+Date: Mon, 22 Jan 2024 13:21:33 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Haibo Xu <haibo1.xu@intel.com>
+Cc: xiaobo55x@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
+	wchen <waylingii@gmail.com>, Daniel Henrique Barboza <dbarboza@ventanamicro.com>, 
+	Samuel Holland <samuel@sholland.org>, Jisheng Zhang <jszhang@kernel.org>, 
+	Minda Chen <minda.chen@starfivetech.com>, Sean Christopherson <seanjc@google.com>, 
+	Peter Xu <peterx@redhat.com>, Like Xu <likexu@tencent.com>, Vipin Sharma <vipinsh@google.com>, 
+	Aaron Lewis <aaronlewis@google.com>, Thomas Huth <thuth@redhat.com>, 
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 02/12] KVM: arm64: selftests: Data type cleanup for
+ arch_timer test
+Message-ID: <20240122-0ddedacdeb64808477a7911d@orel>
+References: <cover.1705916069.git.haibo1.xu@intel.com>
+ <173c9b64c4c43cd585f6b177a7d434dcedc905fa.1705916069.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1423; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=NrajZ8DKLByCJYLOG7gevyAp2euhGy7v9GQJAOxw45A=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnrYlPKSnQ17k1J/f3WvmYO46S1vI6Zc+PX+eiHL7mtm OS1+1xcRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACay9Bwjw6rOzD+StveFa45F 3lLZYsjaYnNviefhqQbpbO5Pw4zdvRj+xxjJuMotUOz7uJhffcfz6Q+9jdZdWXft3VytDs0X8uH qLAA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+Content-Disposition: inline
+In-Reply-To: <173c9b64c4c43cd585f6b177a7d434dcedc905fa.1705916069.git.haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_042052_228589_EE1A470D 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20240122_042137_862012_715E9FB3 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,48 +106,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Jan 22, 2024 at 05:58:32PM +0800, Haibo Xu wrote:
+> Change signed type to unsigned in test_args struct which
+> only make sense for unsigned value.
+> 
+> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
+> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+> ---
+>  tools/testing/selftests/kvm/aarch64/arch_timer.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/aarch64/arch_timer.c b/tools/testing/selftests/kvm/aarch64/arch_timer.c
+> index 274b8465b42a..3260fefcc1b3 100644
+> --- a/tools/testing/selftests/kvm/aarch64/arch_timer.c
+> +++ b/tools/testing/selftests/kvm/aarch64/arch_timer.c
+> @@ -42,10 +42,10 @@
+>  #define TIMER_TEST_MIGRATION_FREQ_MS	2
+>  
+>  struct test_args {
+> -	int nr_vcpus;
+> -	int nr_iter;
+> -	int timer_period_ms;
+> -	int migration_freq_ms;
+> +	uint32_t nr_vcpus;
+> +	uint32_t nr_iter;
+> +	uint32_t timer_period_ms;
+> +	uint32_t migration_freq_ms;
+>  	struct kvm_arm_counter_offset offset;
+>  };
+>  
+> @@ -57,7 +57,7 @@ static struct test_args test_args = {
+>  	.offset = { .reserved = 1 },
+>  };
+>  
+> -#define msecs_to_usecs(msec)		((msec) * 1000LL)
+> +#define msecs_to_usecs(msec)		((msec) * 1000ULL)
+>  
+>  #define GICD_BASE_GPA			0x8000000ULL
+>  #define GICR_BASE_GPA			0x80A0000ULL
+> @@ -72,7 +72,7 @@ enum guest_stage {
+>  
+>  /* Shared variables between host and guest */
+>  struct test_vcpu_shared_data {
+> -	int nr_iter;
+> +	uint32_t nr_iter;
+>  	enum guest_stage guest_stage;
+>  	uint64_t xcnt;
+>  };
+> -- 
+> 2.34.1
+>
 
-The CAN controller on PolarFire SoC has an AHB peripheral clock _and_ a
-CAN bus clock. The bus clock was omitted when the binding was written,
-but is required for operation. Make up for lost time and add it.
-
-Cautionary tale in adding bindings without having implemented a real
-user for them perhaps.
-
-Fixes: c878d518d7b6 ("dt-bindings: can: mpfs: document the mpfs CAN controller")
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../devicetree/bindings/net/can/microchip,mpfs-can.yaml     | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
-index 45aa3de7cf01..01e4d4a54df6 100644
---- a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
-+++ b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
-@@ -24,7 +24,9 @@ properties:
-     maxItems: 1
- 
-   clocks:
--    maxItems: 1
-+    items:
-+      - description: AHB peripheral clock
-+      - description: CAN bus clock
- 
- required:
-   - compatible
-@@ -39,7 +41,7 @@ examples:
-     can@2010c000 {
-         compatible = "microchip,mpfs-can";
-         reg = <0x2010c000 0x1000>;
--        clocks = <&clkcfg 17>;
-+        clocks = <&clkcfg 17>, <&clkcfg 37>;
-         interrupt-parent = <&plic>;
-         interrupts = <56>;
-     };
--- 
-2.43.0
-
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
