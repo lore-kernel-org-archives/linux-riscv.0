@@ -4,74 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D354C47DD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 07:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBEA7C47DAF
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 07:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RrGOz+UOgYJWuTnm377XesUtIUTqPp991lj8a0o30KQ=; b=Kn73P9wJ8WntDR
-	Y8NpZU1ULe65Zzv+AyTz3O4/vI/iQy0H5IdVPAn9q+FLL6D5WMJrflg9tnGWw4OYcen20lHI8EiFK
-	sbyk/rUqwlKAiBj3Mn+mFH1uNGqkBWxPu7u6oM3XSDZppNTgMiq71YRDyTCwiG7AQ9lLPiVRpXHKN
-	d9fdUYMrJl6DFPx8C9lGXPKvEnPi7HfmW8I7W+mBNfL4d0YRG42+ebcEOGKt8F3m+hsl3ZkoDo4yA
-	v/UJsxk1Jq2HOKYfe2nufcTdxiTdh9Zc69uXV6Y9tvaGxpGcR++j3fxiRE7qvpnvaJ0RH79SN+J2a
-	I21y+RyaBDrtY/eWypYw==;
+	List-Owner; bh=y96FLqUb2JZCvYyi0dw4Hm/AOuz1WHUBC3YE4UTeLl4=; b=SLDAQhxa9X+P7/
+	Fk1hPVo6MyXX+6pmiRi+58P2wjauRN6b6+vhgIUjJQD83z33kIkXXOsnka6+H4qcWbrM80/tF9c2i
+	zOVhUAE+iROHMjBWNrB3xiDg7zmdY2u7lRHNq/hrVnZvgNaOvkQ9f1tf6joMPznsLXlOo6LtvbeLC
+	fJjnrP287Lis4nmubfel/+08syhMXPlfLSo7MJEwAG2ZDthFSauK2C5rMEBg/Af3qV+4v65o+DgSf
+	gWWbBVxovm3BeQPPGZ9YSSTmLvY6OZJ6WlUhEdVitxRB2jS2XlDcn5rQXnsY9CcqNGapPOKcK2U26
+	EZ5xDFUy89dfrPifTPMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRowd-00AtiX-1e;
-	Mon, 22 Jan 2024 07:42:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rRpD8-00AxTn-0I;
+	Mon, 22 Jan 2024 07:59:14 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRowa-00Atfr-1O;
-	Mon, 22 Jan 2024 07:42:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D8F62610E7;
-	Mon, 22 Jan 2024 07:42:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B284C43394;
-	Mon, 22 Jan 2024 07:41:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705909326;
-	bh=6q+Ae298LK6Fwx9w1Hxqg+/TcqF4+MMHBmWb7Tw8+hU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jOnqDMRdvXuWTje7hxQN2dCLE7PzYUq8rAYWennGmg2eWAJlF8wYxF7WITOD93XyX
-	 kOi7HC3t/JBdyraClA4q5IQ6eCe0QP9DQEOOLu5rJzGGtUakerutvskNDSebyStAJZ
-	 z+mnBJqfh9Fcq+5rh+Kc2KPiYn9xLCRpmCpxOFhvwp4xLOdS0I9/a1r1ZusQ+JEtay
-	 eerJbS9dnoFfr2YnDqeIifjrZ8RFwgs3XLP/I8Wfw7PBHR0aHCQTC5FxayDUKgCqE/
-	 I+Nux9qFYloyZL8LPJSk6tchB/m6C22f9IUgs1mhO9obbBZ8/pniLuN0IIT85I3k0j
-	 4+4RMm18KCn0Q==
-Date: Mon, 22 Jan 2024 09:41:40 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Shijie Huang <shijie@amperemail.onmicrosoft.com>
-Cc: Yury Norov <yury.norov@gmail.com>,
-	Huang Shijie <shijie@os.amperecomputing.com>,
-	gregkh@linuxfoundation.org, patches@amperecomputing.com,
-	rafael@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, kuba@kernel.org, vschneid@redhat.com,
-	mingo@kernel.org, akpm@linux-foundation.org, vbabka@suse.cz,
-	tglx@linutronix.de, jpoimboe@kernel.org, ndesaulniers@google.com,
-	mikelley@microsoft.com, mhiramat@kernel.org, arnd@arndb.de,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	will@kernel.org, mark.rutland@arm.com, mpe@ellerman.id.au,
-	linuxppc-dev@lists.ozlabs.org, chenhuacai@kernel.org,
-	jiaxun.yang@flygoat.com, linux-mips@vger.kernel.org,
-	cl@os.amperecomputing.com
-Subject: Re: [PATCH] NUMA: Early use of cpu_to_node() returns 0 instead of
- the correct node id
-Message-ID: <Za4cNBQBLZujlAlP@kernel.org>
-References: <20240119033227.14113-1-shijie@os.amperecomputing.com>
- <Zan9sb0vtSvVvQeA@yury-ThinkPad>
- <1cd078fd-c345-4d85-a92f-04c806c20efa@amperemail.onmicrosoft.com>
- <Zao13I4Bb0tur0fZ@kernel.org>
- <b8786c38-d6c4-4fea-a918-ac6a45682dba@amperemail.onmicrosoft.com>
+	id 1rRpD2-00AxPz-2G
+	for linux-riscv@lists.infradead.org;
+	Mon, 22 Jan 2024 07:59:12 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A80011BF206;
+	Mon, 22 Jan 2024 07:59:00 +0000 (UTC)
+Message-ID: <048fc58d-abbb-4696-9ed0-f5a0fadce740@ghiti.fr>
+Date: Mon, 22 Jan 2024 08:58:58 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b8786c38-d6c4-4fea-a918-ac6a45682dba@amperemail.onmicrosoft.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: Use kcalloc() instead of kzalloc()
+Content-Language: en-US
+To: Erick Archer <erick.archer@gmx.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Andrew Jones <ajones@ventanamicro.com>, Evan Green <evan@rivosinc.com>,
+ =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Jisheng Zhang <jszhang@kernel.org>, Charlie Jenkins <charlie@rivosinc.com>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20240120135400.4710-1-erick.archer@gmx.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240120135400.4710-1-erick.archer@gmx.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240121_234208_547393_CBC0D99D 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20240121_235908_899529_E3AC8A76 
+X-CRM114-Status: GOOD (  19.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +63,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKYW4gMTksIDIwMjQgYXQgMDQ6NTA6NTNQTSArMDgwMCwgU2hpamllIEh1YW5nIHdy
-b3RlOgo+IAo+IOWcqCAyMDI0LzEvMTkgMTY6NDIsIE1pa2UgUmFwb3BvcnQg5YaZ6YGTOgo+ID4g
-SXMgdGhlcmUgYSBmdW5kYW1lbnRhbCByZWFzb24gdG8gaGF2ZSBlYXJseV9jcHVfdG9fbm9kZSgp
-IGF0IGFsbD8KPiAKPiBUaGUgZWFybHlfY3B1X3RvX25vZGUgZG9lcyBub3Qgd29yayBvbiBzb21l
-IEFSQ0hzICh3aGljaCBzdXBwb3J0IHRoZSBOVU1BKSwKPiBzdWNoIGFzwqAgU1BBUkMsIE1JUFMg
-YW5kIFMzOTAuCgpNeSBxdWVzdGlvbiB3YXMgd2h5IHdlIG5lZWQgZWFybHlfY3B1X3RvX25vZGUo
-KSBhdCBhbGwgYW5kIHdoeSBjYW4ndCB3ZSB1c2UKY3B1X3RvX25vZGUoKSBlYXJseSBvbiBhcmNo
-ZXMgdGhhdCBkbyBoYXZlIGl0LgogCj4gVGhhbmtzCj4gCj4gSHVhbmcgU2hpamllCj4gCj4gPiBJ
-dCBzZWVtcyB0aGF0IGFsbCB0aGUgbWFwcGluZ3MgYXJlIGtub3duIGJ5IHRoZSBlbmQgb2Ygc2V0
-dXBfYXJjaCgpIGFuZCB0aGUKPiA+IGluaXRpYWxpemF0aW9uIG9mIG51bWFfbm9kZSBjYW4gYmUg
-bW92ZWQgZWFybGllci4KPiA+ID4gPiBJIHdvdWxkIGFsc28gaW5pdGlhbGl6ZSB0aGUgbnVtYV9u
-b2RlIHdpdGggTlVNQV9OT19OT0RFIGF0IGRlY2xhcmF0aW9uLAo+ID4gPiA+IHNvIHRoYXQgaWYg
-c29tZW9uZSBjYWxscyBjcHVfdG9fbm9kZSgpIGJlZm9yZSB0aGUgdmFyaWFibGUgaXMgcHJvcGVy
-bHkKPiA+ID4gPiBpbml0aWFsaXplZCBhdCBydW50aW1lLCBoZSdsbCBnZXQgTk9fTk9ERSwgd2hp
-Y2ggaXMgb2J2aW91c2x5IGFuIGVycm9yLgo+ID4gPiBFdmVuIHdlIHNldCB0aGUgbnVtYV9ub2Rl
-IHdpdGggTlVNQV9OT19OT0RFLCBpdCBkb2VzIG5vdCBhbHdheXMgcHJvZHVjZQo+ID4gPiBlcnJv
-ci4KPiA+ID4gCj4gPiA+IFBsZWFzZSBzZWUgdGhlIGFsbG9jX3BhZ2VzX25vZGUoKS4KPiA+ID4g
-Cj4gPiA+IAo+ID4gPiBUaGFua3MKPiA+ID4gCj4gPiA+IEh1YW5nIFNoaWppZQo+ID4gPiAKCi0t
-IApTaW5jZXJlbHkgeW91cnMsCk1pa2UuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+Hi Erick,
+
+On 20/01/2024 14:54, Erick Archer wrote:
+> As noted in the "Deprecated Interfaces, Language Features, Attributes,
+> and Conventions" documentation [1], size calculations (especially
+> multiplication) should not be performed in memory allocator (or similar)
+> function arguments due to the risk of them overflowing. This could lead
+> to values wrapping around and a smaller allocation being made than the
+> caller was expecting. Using those allocations could lead to linear
+> overflows of heap memory and other misbehaviors.
+>
+> So, use the purpose specific kcalloc() function instead of the argument
+> count * size in the kzalloc() function.
+>
+> Also, it is preferred to use sizeof(*pointer) instead of sizeof(type)
+> due to the type of the variable can change and one needs not change the
+> former (unlike the latter).
+>
+> Link: https://www.kernel.org/doc/html/next/process/deprecated.html#open-coded-arithmetic-in-allocator-arguments [1]
+> Link: https://github.com/KSPP/linux/issues/162
+> Signed-off-by: Erick Archer <erick.archer@gmx.com>
+> ---
+>   arch/riscv/kernel/cpufeature.c | 3 +--
+>   1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 89920f84d0a3..549a76e34c4e 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -901,8 +901,7 @@ static int check_unaligned_access_all_cpus(void)
+>   {
+>   	unsigned int cpu;
+>   	unsigned int cpu_count = num_possible_cpus();
+> -	struct page **bufs = kzalloc(cpu_count * sizeof(struct page *),
+> -				     GFP_KERNEL);
+> +	struct page **bufs = kcalloc(cpu_count, sizeof(*bufs), GFP_KERNEL);
+>
+>   	if (!bufs) {
+>   		pr_warn("Allocation failure, not measuring misaligned performance\n");
+> --
+> 2.25.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+
+You can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
