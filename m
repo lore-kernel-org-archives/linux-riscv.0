@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84142C4725D
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 13:08:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37093C4725D
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 13:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3g3UCSU8oJUCSsZoYQTiaL65jTwMfXQlay7tl+Pna4A=; b=RfUhI0XDRaVyin
-	50VSdmMa7b3MrocBnaxeUgUPJEqbew5Yv0yA71+O58N0xuUrj3a7pIuZTSEA5YuSMx4oyqAh2il/e
-	rBoF0rekO7xvvRLiivuEhyDB6wBl/EDbctrIZ5Iqa/e7ujwfUZF3OwJvjcAKg0RbqtBfImqKnNefC
-	u2RxYfuYkBC34TIZrMzQZZTUCo6ke7CCNXsU+ri67C/p8n+fRPmLGdfE4bNCMXf+q2CLer5x8BwTg
-	at5Jk4g6nvB7vWGFtN875Aviear2fa7s+W5rPBu08aF/oHgyWs4TEffOAKxvCnwbsIWYX+jKsxhdJ
-	cy4rqbtrsi2y/htBqUvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HnDkBWyyyjl0JEke4jTf19ET4VsLF2PnA08X0bxFO0w=; b=pjLsExlYpCAoPChMDe0AQjgfdR
+	1ipqXyCutSONCTKvdcpbOUYeV85elWsCa5wVPEjDWK05tx57YYPmO6XE+hy3aHk3GeJt7b+g4RSc5
+	O7xvQ+clO3rOz6sQwRD4J099hi+5tmxoUQgw9rDfMR851QX2YryXSJRVXh/h5ieTJKINAxFKZFuXz
+	tTh17iF1c/51MRzD5JyQWhYZa+u0UNX6cl+q4tqoJNwQJ6ZEaIXB83PALGI50cLp1Xg1dTzkqsP7G
+	gB2kS3wjYlw7jvbQXfnisVt6EpbBaqHYiP98XRcXqgMVTjtHOnZY7MhAewmUvLVPvSCDwD/j+rIZ9
+	5R4y7J9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRu2W-00CEBb-0N;
-	Mon, 22 Jan 2024 13:08:36 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1rRu7N-00CF5t-2I;
+	Mon, 22 Jan 2024 13:13:37 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRu2T-00CEAI-05;
-	Mon, 22 Jan 2024 13:08:34 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-50e7d6565b5so3650348e87.0;
-        Mon, 22 Jan 2024 05:08:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1705928908; x=1706533708; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+I4p4d7+rP24cbQOhthF3qkqodnNh9+wAcSbkAH/bzs=;
-        b=GLrWUsIkcqGhTnQXkZoyHxuOiev1oEf0Pr7d39mtr2OcGNsrN5KpOdzyagm4hhFu1p
-         tut6DfWlKla5+NEUHzWTRGiPYKpAVdXpru7kKcCszrXKQFm+UiGTywtuUPBrGvl676JA
-         JILfOUMPbvxjLZcOAADgjNM5Y5WxQv/IuUzGoRCLghB8UPqCmqOv1yrjWlXQ5DGJwkUI
-         Nkbl4Fjk46nS1BpdNlMqpSQ2/sce8pUxFV/dKMuzdMJaZIzHvVQYqSAEuf1A76cl5o9X
-         xcL2wz9sU+AVT9n1XkxYTfnE8WGklXHaitbEZh3L0ksUEH12TlbuIBqcW+N3FcHeMvJk
-         ML+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705928908; x=1706533708;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+I4p4d7+rP24cbQOhthF3qkqodnNh9+wAcSbkAH/bzs=;
-        b=ngMyti5/PxQENCChRhgJnxvqp9QKjgDqeFNAfN0uQywk6P7/MmBz22y+j8MADaSid4
-         duKNyMPnQbMQLjeMT8+zEj6MzeUGt0y3AdoXrmFJ8glYzxKj1SpI5BMjOuPqBdIzzvAf
-         RPSXN6uPXHtiN8iIBrthhNoa0G2ZAlPSEtSTlFTjfZvKoxZpuEDaSBINRYdYo/eLPHR9
-         dk4v0XjGaGr+o4eFczQQFDyPf11A+CK6ICREzXhItS9h3jh3BFYx4VYpkPAg6oVQ4/+d
-         rtc0b+vODxcI48Y+UW7D/0Z6JROEQTa1C9XzBCAY6qiNV8JMwO3o9oi51afWLzyB3f3H
-         qs0A==
-X-Gm-Message-State: AOJu0Yz28uK/57FFIrAPTQV99JFErPFtE4RiEC+iitgytYUca1/qKcxu
-	y5v7E/3iH5gMT+Kj+VuTCegWezS7xell9ECXxWhlbO/nW/ldvPD5dHx0sOHFI8mArfEHb/BRJjz
-	7jc43iO8xbXj2WqvEeZtPVvSUlDc=
-X-Google-Smtp-Source: AGHT+IFxMr1N5U9JEAKS7V3w8GVY3Jj+ucXTqHlbxRUbtCIR7nwq3gck9SN+dTPf/AtQUb++qPGvaIBbGYY8gF5qz9I=
-X-Received: by 2002:a19:690d:0:b0:50e:abd1:bfca with SMTP id
- e13-20020a19690d000000b0050eabd1bfcamr1596377lfc.128.1705928908378; Mon, 22
- Jan 2024 05:08:28 -0800 (PST)
-MIME-Version: 1.0
-References: <cover.1705916069.git.haibo1.xu@intel.com> <173c9b64c4c43cd585f6b177a7d434dcedc905fa.1705916069.git.haibo1.xu@intel.com>
- <20240122-0ddedacdeb64808477a7911d@orel>
-In-Reply-To: <20240122-0ddedacdeb64808477a7911d@orel>
-From: Haibo Xu <xiaobo55x@gmail.com>
-Date: Mon, 22 Jan 2024 21:08:16 +0800
-Message-ID: <CAJve8om6EG7nE891UOBCHJ6t2dsbJGeKDKUfNfJeffBB1QP8NQ@mail.gmail.com>
-Subject: Re: [PATCH v5 02/12] KVM: arm64: selftests: Data type cleanup for
- arch_timer test
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Haibo Xu <haibo1.xu@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	id 1rRu7K-00CF4h-04
+	for linux-riscv@lists.infradead.org;
+	Mon, 22 Jan 2024 13:13:35 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1rRu75-0005ez-Pg; Mon, 22 Jan 2024 14:13:19 +0100
+Received: from [2a0a:edc0:0:b01:1d::7b] (helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1rRu73-001biB-E1; Mon, 22 Jan 2024 14:13:17 +0100
+Received: from pengutronix.de (unknown [172.20.34.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id EDDCF27B58F;
+	Mon, 22 Jan 2024 13:13:16 +0000 (UTC)
+Date: Mon, 22 Jan 2024 14:13:16 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	Wolfgang Grandegger <wg@grandegger.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	wchen <waylingii@gmail.com>, Daniel Henrique Barboza <dbarboza@ventanamicro.com>, 
-	Samuel Holland <samuel@sholland.org>, Jisheng Zhang <jszhang@kernel.org>, 
-	Minda Chen <minda.chen@starfivetech.com>, Sean Christopherson <seanjc@google.com>, 
-	Peter Xu <peterx@redhat.com>, Like Xu <likexu@tencent.com>, 
-	Vipin Sharma <vipinsh@google.com>, Aaron Lewis <aaronlewis@google.com>, 
-	Thomas Huth <thuth@redhat.com>, Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, linux-can@vger.kernel.org, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 2/7] dt-bindings: can: mpfs: add missing required clock
+Message-ID: <20240122-surely-crimp-ba4a8c55106d-mkl@pengutronix.de>
+References: <20240122-catty-roast-d3625dbb02fe@spud>
+ <20240122-breeder-lying-0d3668d98886@spud>
+MIME-Version: 1.0
+In-Reply-To: <20240122-breeder-lying-0d3668d98886@spud>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_050833_063113_4FE64BC4 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20240122_051334_062402_0E3F1B75 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,44 +81,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============4530641646212243086=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKYW4gMjIsIDIwMjQgYXQgODoyMeKAr1BNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
-bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gT24gTW9uLCBKYW4gMjIsIDIwMjQgYXQgMDU6NTg6
-MzJQTSArMDgwMCwgSGFpYm8gWHUgd3JvdGU6Cj4gPiBDaGFuZ2Ugc2lnbmVkIHR5cGUgdG8gdW5z
-aWduZWQgaW4gdGVzdF9hcmdzIHN0cnVjdCB3aGljaAo+ID4gb25seSBtYWtlIHNlbnNlIGZvciB1
-bnNpZ25lZCB2YWx1ZS4KPiA+Cj4gPiBTdWdnZXN0ZWQtYnk6IEFuZHJldyBKb25lcyA8YWpvbmVz
-QHZlbnRhbmFtaWNyby5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBIYWlibyBYdSA8aGFpYm8xLnh1
-QGludGVsLmNvbT4KPiA+IC0tLQo+ID4gIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9hYXJj
-aDY0L2FyY2hfdGltZXIuYyB8IDEyICsrKysrKy0tLS0tLQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCA2
-IGluc2VydGlvbnMoKyksIDYgZGVsZXRpb25zKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL3Rvb2xz
-L3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9hYXJjaDY0L2FyY2hfdGltZXIuYyBiL3Rvb2xzL3Rlc3Rp
-bmcvc2VsZnRlc3RzL2t2bS9hYXJjaDY0L2FyY2hfdGltZXIuYwo+ID4gaW5kZXggMjc0Yjg0NjVi
-NDJhLi4zMjYwZmVmY2MxYjMgMTAwNjQ0Cj4gPiAtLS0gYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0
-cy9rdm0vYWFyY2g2NC9hcmNoX3RpbWVyLmMKPiA+ICsrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRl
-c3RzL2t2bS9hYXJjaDY0L2FyY2hfdGltZXIuYwo+ID4gQEAgLTQyLDEwICs0MiwxMCBAQAo+ID4g
-ICNkZWZpbmUgVElNRVJfVEVTVF9NSUdSQVRJT05fRlJFUV9NUyAyCj4gPgo+ID4gIHN0cnVjdCB0
-ZXN0X2FyZ3Mgewo+ID4gLSAgICAgaW50IG5yX3ZjcHVzOwo+ID4gLSAgICAgaW50IG5yX2l0ZXI7
-Cj4gPiAtICAgICBpbnQgdGltZXJfcGVyaW9kX21zOwo+ID4gLSAgICAgaW50IG1pZ3JhdGlvbl9m
-cmVxX21zOwo+ID4gKyAgICAgdWludDMyX3QgbnJfdmNwdXM7Cj4gPiArICAgICB1aW50MzJfdCBu
-cl9pdGVyOwo+ID4gKyAgICAgdWludDMyX3QgdGltZXJfcGVyaW9kX21zOwo+ID4gKyAgICAgdWlu
-dDMyX3QgbWlncmF0aW9uX2ZyZXFfbXM7Cj4gPiAgICAgICBzdHJ1Y3Qga3ZtX2FybV9jb3VudGVy
-X29mZnNldCBvZmZzZXQ7Cj4gPiAgfTsKPiA+Cj4gPiBAQCAtNTcsNyArNTcsNyBAQCBzdGF0aWMg
-c3RydWN0IHRlc3RfYXJncyB0ZXN0X2FyZ3MgPSB7Cj4gPiAgICAgICAub2Zmc2V0ID0geyAucmVz
-ZXJ2ZWQgPSAxIH0sCj4gPiAgfTsKPiA+Cj4gPiAtI2RlZmluZSBtc2Vjc190b191c2Vjcyhtc2Vj
-KSAgICAgICAgICgobXNlYykgKiAxMDAwTEwpCj4gPiArI2RlZmluZSBtc2Vjc190b191c2Vjcyht
-c2VjKSAgICAgICAgICgobXNlYykgKiAxMDAwVUxMKQo+ID4KPiA+ICAjZGVmaW5lIEdJQ0RfQkFT
-RV9HUEEgICAgICAgICAgICAgICAgICAgICAgICAweDgwMDAwMDBVTEwKPiA+ICAjZGVmaW5lIEdJ
-Q1JfQkFTRV9HUEEgICAgICAgICAgICAgICAgICAgICAgICAweDgwQTAwMDBVTEwKPiA+IEBAIC03
-Miw3ICs3Miw3IEBAIGVudW0gZ3Vlc3Rfc3RhZ2Ugewo+ID4KPiA+ICAvKiBTaGFyZWQgdmFyaWFi
-bGVzIGJldHdlZW4gaG9zdCBhbmQgZ3Vlc3QgKi8KPiA+ICBzdHJ1Y3QgdGVzdF92Y3B1X3NoYXJl
-ZF9kYXRhIHsKPiA+IC0gICAgIGludCBucl9pdGVyOwo+ID4gKyAgICAgdWludDMyX3QgbnJfaXRl
-cjsKPiA+ICAgICAgIGVudW0gZ3Vlc3Rfc3RhZ2UgZ3Vlc3Rfc3RhZ2U7Cj4gPiAgICAgICB1aW50
-NjRfdCB4Y250Owo+ID4gIH07Cj4gPiAtLQo+ID4gMi4zNC4xCj4gPgo+Cj4gUmV2aWV3ZWQtYnk6
-IEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+CgpUaGFua3MhCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============4530641646212243086==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="gm5qx6ivqj7qxcxg"
+Content-Disposition: inline
+
+
+--gm5qx6ivqj7qxcxg
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On 22.01.2024 12:19:50, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> The CAN controller on PolarFire SoC has an AHB peripheral clock _and_ a
+> CAN bus clock. The bus clock was omitted when the binding was written,
+> but is required for operation. Make up for lost time and add it.
+>=20
+> Cautionary tale in adding bindings without having implemented a real
+> user for them perhaps.
+>=20
+> Fixes: c878d518d7b6 ("dt-bindings: can: mpfs: document the mpfs CAN contr=
+oller")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../devicetree/bindings/net/can/microchip,mpfs-can.yaml     | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can=
+=2Eyaml b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
+> index 45aa3de7cf01..01e4d4a54df6 100644
+> --- a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
+> +++ b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
+> @@ -24,7 +24,9 @@ properties:
+>      maxItems: 1
+> =20
+>    clocks:
+> -    maxItems: 1
+> +    items:
+> +      - description: AHB peripheral clock
+> +      - description: CAN bus clock
+
+What about adding clock-names, so that the order can be checked
+automatically?
+
+> =20
+>  required:
+>    - compatible
+> @@ -39,7 +41,7 @@ examples:
+>      can@2010c000 {
+>          compatible =3D "microchip,mpfs-can";
+>          reg =3D <0x2010c000 0x1000>;
+> -        clocks =3D <&clkcfg 17>;
+> +        clocks =3D <&clkcfg 17>, <&clkcfg 37>;
+>          interrupt-parent =3D <&plic>;
+>          interrupts =3D <56>;
+>      };
+> --=20
+> 2.43.0
+>=20
+>=20
+
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--gm5qx6ivqj7qxcxg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEDs2BvajyNKlf9TJQvlAcSiqKBOgFAmWuaecACgkQvlAcSiqK
+BOiItAgAiVb1F3nml4JkuMIY7dmQo5gzshMOge9YwxV+CViwK6+VZN81W+a+uBRC
+nG6H9blRP6/eWCGmJMty07eR8pnzfzh1F7fdSr3ZjVJAtPcNY/Ywc5ByKebJz8jS
+bXxVgQ4cxcMzl54lO6xd0cFi9cCAIc8ENFStCmEhc65/KJMu8uDcitYv2T1fDj3d
+mrs7ok2oKy0JvVoQUVdeSfcWj3KxK4Hl4HX4cDZlsQhLuNRcRm17k5Xf8wtqiW+T
+Qi0Lyzls8rj/Phk0qKpWpcsMxVa76FAYj6W6yyW0s0mP+0piGLWfxNYqdXsvkOvh
+7ak8HyX1amqRf3OBh6/9Uk1imCpACw==
+=oZCM
+-----END PGP SIGNATURE-----
+
+--gm5qx6ivqj7qxcxg--
+
+
+--===============4530641646212243086==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4530641646212243086==--
+
