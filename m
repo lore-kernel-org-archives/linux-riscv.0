@@ -4,54 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBEA7C47DAF
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 07:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E29B6C47DAF
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 08:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y96FLqUb2JZCvYyi0dw4Hm/AOuz1WHUBC3YE4UTeLl4=; b=SLDAQhxa9X+P7/
-	Fk1hPVo6MyXX+6pmiRi+58P2wjauRN6b6+vhgIUjJQD83z33kIkXXOsnka6+H4qcWbrM80/tF9c2i
-	zOVhUAE+iROHMjBWNrB3xiDg7zmdY2u7lRHNq/hrVnZvgNaOvkQ9f1tf6joMPznsLXlOo6LtvbeLC
-	fJjnrP287Lis4nmubfel/+08syhMXPlfLSo7MJEwAG2ZDthFSauK2C5rMEBg/Af3qV+4v65o+DgSf
-	gWWbBVxovm3BeQPPGZ9YSSTmLvY6OZJ6WlUhEdVitxRB2jS2XlDcn5rQXnsY9CcqNGapPOKcK2U26
-	EZ5xDFUy89dfrPifTPMQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ezLEgaRW2m+A+SXIDivUEK6tROnInNy5OtgLDcE/YzE=; b=Decab3FAnbW3jA
+	8cQeEwA6faAtNNJ15F5zXABNgxdQdU/vs3I5LcLeKTdTGDdi7IrQP9+q1cMlZQTcK6IN8/NLww7Gv
+	yTAnQBRAQ/keoezLMbu3hUu0xHoIUWS1kjpeGMgxrbD4SpnwmxlmWV9P91EdoTrRc4Vw/TOF9d1na
+	tA2VZmX8LVOIZGTD0sjqVenjJq3vhw+UGhh0kLwsja7gF9Sw6zB/r55GcxJtPirWlND6qHRDx7k8U
+	FCRzEaW++oK7vheU9jnPokYoU+7AmFpUeC94Rhu9mwr5q444t0fLUwbxar18Fu+/udbjA8eeETmTH
+	PyZ/+gOWLZFgdRmdOvAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRpD8-00AxTn-0I;
-	Mon, 22 Jan 2024 07:59:14 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1rRpIs-00AyNz-1S;
+	Mon, 22 Jan 2024 08:05:10 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRpD2-00AxPz-2G
+	id 1rRpIp-00AyN6-1G
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 07:59:12 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A80011BF206;
-	Mon, 22 Jan 2024 07:59:00 +0000 (UTC)
-Message-ID: <048fc58d-abbb-4696-9ed0-f5a0fadce740@ghiti.fr>
-Date: Mon, 22 Jan 2024 08:58:58 +0100
+	Mon, 22 Jan 2024 08:05:08 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2903498ae21so1260954a91.1
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jan 2024 00:05:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1705910704; x=1706515504; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3G/nUgZ8nqnJBaq446Ylsx7WALmJQMmykwv3P5etgPU=;
+        b=VvQrZGWmaEp0Qp5/SbEE74XXlGAvN9BcaQIASIkQmtTAfByWxG1iBLNbP9oYr4l7Hj
+         cUDSJSifH5XyrWpr5u00cSwPFL9FKm910FwvqL6xbLveqCUiZMmNVUNyn+yT6h8H0zqN
+         NWsZ+4FLaXRbPiFSILL218r30cT0ciIbsjtdSwmXSNi+XxMKAkgtN6EqF0QnGxbLVdML
+         SIrvmDaVO4eCrNyk54rKhZTVfKBtSHkNwRFwn2i4r2i29SRY2ETYzl/iMNmXL7OLVtNb
+         1qsDsMfaDPMGAkjFssFS4SIy5dfMpbBRKFTQ1wc/70TTdsY2fVgImTmZq7Sjlmgb2Ppk
+         GeNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705910704; x=1706515504;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3G/nUgZ8nqnJBaq446Ylsx7WALmJQMmykwv3P5etgPU=;
+        b=VcPNHsGmS79UDdkBHshWI6JhAr91LHP6HAKe5jD7XkMt8wdBZht2LY8mJm3nuvpkM0
+         xRb5uEAMUh4jGBs5Ft2War2I773qTc4tDJ62e9Usl8IvMCuYnrpAJOgVYebb0UO5WsUV
+         nprWmWjEjk/OrTIsO5v/HyUfDshA1w8VieJlIGZGqPaM/Ib3mKasLTY5DmrAztea8Xg6
+         bHmrk5WrMpaf4CUa04OiEkiFJbjPhOOE1ZfoQQswUT9auXpjY2OQOEPWgPkn53WMKKl6
+         LcpXIbUYsWfp2zuv76D9eaz+mWc76IqKVR3/OhwA+Ki4o6DthQHDSOct6Li9Gzpuagxe
+         dYaw==
+X-Gm-Message-State: AOJu0YxbZNwK5h+rT99KLK6L+IPZF572IX1CHVXe0T54yKwUM9mxyrBk
+	miksquh2ndS7i1mn1CN8Co1u0izF4iMyQNX88FL4JD0V8eXURG2Z
+X-Google-Smtp-Source: AGHT+IG6xuGCNNzdkl15x7pKZdJp2BUopy0hpxkX5tBlZhkWuue0fZnqs7Tt6Q5i6iecg23byAgWJQ==
+X-Received: by 2002:a17:90a:e547:b0:290:2d2:6a8 with SMTP id ei7-20020a17090ae54700b0029002d206a8mr1006803pjb.58.1705910703702;
+        Mon, 22 Jan 2024 00:05:03 -0800 (PST)
+Received: from localhost ([46.3.240.101])
+        by smtp.gmail.com with ESMTPSA id sy14-20020a17090b2d0e00b0028c89122f8asm8956224pjb.6.2024.01.22.00.05.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Jan 2024 00:05:03 -0800 (PST)
+From: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
+To: alexandre.belloni@bootlin.com,
+	robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	conor+dt@kernel.org,
+	chao.wei@sophgo.com,
+	unicorn_wang@outlook.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	dlan@gentoo.org
+Subject: [PATCH v7 0/3] riscv: rtc: sophgo: add rtc support for CV1800
+Date: Mon, 22 Jan 2024 16:04:57 +0800
+Message-ID: <20240122080500.2621-1-qiujingbao.dlmu@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Use kcalloc() instead of kzalloc()
-Content-Language: en-US
-To: Erick Archer <erick.archer@gmx.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Conor Dooley <conor.dooley@microchip.com>,
- Andrew Jones <ajones@ventanamicro.com>, Evan Green <evan@rivosinc.com>,
- =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Jisheng Zhang <jszhang@kernel.org>, Charlie Jenkins <charlie@rivosinc.com>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20240120135400.4710-1-erick.archer@gmx.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240120135400.4710-1-erick.archer@gmx.com>
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240121_235908_899529_E3AC8A76 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20240122_000507_437014_A2830B8A 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,67 +95,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Erick,
+Real Time Clock (RTC) is an independently powered module
+within the chip, which includes a 32KHz oscillator and
+a Power On Reset/POR submodule. It can be used for time
+display and timed alarm generation.
 
-On 20/01/2024 14:54, Erick Archer wrote:
-> As noted in the "Deprecated Interfaces, Language Features, Attributes,
-> and Conventions" documentation [1], size calculations (especially
-> multiplication) should not be performed in memory allocator (or similar)
-> function arguments due to the risk of them overflowing. This could lead
-> to values wrapping around and a smaller allocation being made than the
-> caller was expecting. Using those allocations could lead to linear
-> overflows of heap memory and other misbehaviors.
->
-> So, use the purpose specific kcalloc() function instead of the argument
-> count * size in the kzalloc() function.
->
-> Also, it is preferred to use sizeof(*pointer) instead of sizeof(type)
-> due to the type of the variable can change and one needs not change the
-> former (unlike the latter).
->
-> Link: https://www.kernel.org/doc/html/next/process/deprecated.html#open-coded-arithmetic-in-allocator-arguments [1]
-> Link: https://github.com/KSPP/linux/issues/162
-> Signed-off-by: Erick Archer <erick.archer@gmx.com>
-> ---
->   arch/riscv/kernel/cpufeature.c | 3 +--
->   1 file changed, 1 insertion(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 89920f84d0a3..549a76e34c4e 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -901,8 +901,7 @@ static int check_unaligned_access_all_cpus(void)
->   {
->   	unsigned int cpu;
->   	unsigned int cpu_count = num_possible_cpus();
-> -	struct page **bufs = kzalloc(cpu_count * sizeof(struct page *),
-> -				     GFP_KERNEL);
-> +	struct page **bufs = kcalloc(cpu_count, sizeof(*bufs), GFP_KERNEL);
->
->   	if (!bufs) {
->   		pr_warn("Allocation failure, not measuring misaligned performance\n");
-> --
-> 2.25.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Power On Reset/POR submodule only using register resources
+so it should be empty. The 32KHz oscillator only provides
+pulses for RTC in hardware.
+
+Changes since v6:
+- completely delete POR dt node
+- remove syscon tag
+- use devm_regmap_init_mmio() replace
+  syscon_node_to_regmap
+
+v6: https://lore.kernel.org/all/20240115160600.5444-1-qiujingbao.dlmu@gmail.com/
+
+Changes since v5:
+- remove unnecessary lock
+- fix cv1800_rtc_alarm_irq_enable()
+- remove duplicate checks
+- using alrm->enabled instead of unconditionally
+  enabling
+- remove disable alarms on probe
+- using rtc_update_irq() replace mess of alarm
+- remove leak clk
+- useing devm_rtc_allocate_device() and
+  devm_rtc_register_device() instead old way
+- add judgment for rtc_enable_sec_counter()
+- add POR nodes in DTS. This POR device shares
+  the register region with the RTC device
+
+v5: https://lore.kernel.org/all/20240108072253.30183-1-qiujingbao.dlmu@gmail.com/
+
+Changes since v4:
+- remove POR dt-bindings because it empty
+- remove MFD dt-bindings because SoC does
+  not have MFDs
+- add syscon attribute to share registers
+  with POR
+
+v4: https://lore.kernel.org/all/20231229090643.116575-1-qiujingbao.dlmu@gmail.com/
+
+Changes since v3:
+- temporarily not submitting RTC driver code
+  waiting for communication with IC designer
+- add MFD dt-bindings
+- add POR dt-bindings
+
+v3: https://lore.kernel.org/all/20231226100431.331616-1-qiujingbao.dlmu@gmail.com/
+
+Changes since v2:
+- add mfd support for CV1800
+- add rtc to mfd
+- using regmap replace iomap
+- merge register address in dts
+
+v2: https://lore.kernel.org/lkml/20231217110952.78784-1-qiujingbao.dlmu@gmail.com/
+
+Changes since v1
+- fix duplicate names in subject
+- using RTC replace RTC controller
+- improve the properties of dt-bindings
+- using `unevaluatedProperties` replace `additionalProperties`
+- dt-bindings passed the test
+- using `devm_platform_ioremap_resource()` replace
+  `platform_get_resource()` and `devm_ioremap_resource()`
+- fix random order of the code
+- fix wrong wrapping of the `devm_request_irq()` and map the flag with dts
+- using devm_clk_get_enabled replace `devm_clk_get()` and
+  `clk_prepare_enable()`
+- fix return style
+- add rtc clock calibration function
+- use spinlock when write register on read/set time
+
+v1: https://lore.kernel.org/lkml/20231121094642.2973795-1-qiujingbao.dlmu@gmail.com/
+
+Jingbao Qiu (3):
+  dt-bindings: rtc: sophgo: add RTC support for Sophgo CV1800 series SoC
+  rtc: sophgo: add rtc support for Sophgo CV1800 SoC
+  riscv: dts: sophgo: add rtc dt node for CV1800
+
+ .../bindings/rtc/sophgo,cv1800-rtc.yaml       |  53 +++
+ arch/riscv/boot/dts/sophgo/cv1800b.dtsi       |   7 +
+ drivers/rtc/Kconfig                           |   7 +
+ drivers/rtc/Makefile                          |   1 +
+ drivers/rtc/rtc-cv1800.c                      | 406 ++++++++++++++++++
+ 5 files changed, 474 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml
+ create mode 100644 drivers/rtc/rtc-cv1800.c
 
 
-You can add:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
+base-commit: e3d3fe7e7bf08820a83c9d9a4c38c7b29a2927f1
+-- 
+2.43.0
 
 
 _______________________________________________
