@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE9DC47DD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 19:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA55C47DD9
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 19:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WiYKcSnbjqKxgmw5hOeOgYcYnS20riIF6+GsNvZflNg=; b=ORLNB35Js/wMVN
-	ifQmEOvICu8ibrMk4ODoqxDIRmeArTDo7Y1ozjrnxgWXurLzBXsGazHYAbw0rA13Pi3FzZ58D7DBM
-	MdW7RoVgSJyeklx4s2VRg9h2kXNx0NVCIs7Vapz2X2qyYbhbK80NqnqQl0cOv7Psu1AvPRC5rOS+i
-	kJlPuwR8zzaDVZ6t0pzAPnFg9vwPxfwlfZCvYRpc1v5n9AOec986KxWvI7Y1OsOfQlHMwYm81OREr
-	dm7+O/RVW3QhIxBmtjQ7QXWFDB7qqGdyq50wJ01CF0oE0YV0XGpO4fG3Rk4KtSZOSh0IdE4BIZvkt
-	3RzXV3aEDSlm2FanhWHw==;
+	List-Owner; bh=Jk5NOXrSxkXM3vw0PSwHZzCo+NDLlabg0Coaf3Osuug=; b=ge/LZBSJ5ewqXX
+	3RoNdtDw/Z3sksG6wGbDqFc9vRAFCvfIRPkshPcIOObuFgT5nGqeWgLl5Lhjxm+zNIpnyMbXAnjPa
+	A+pnuNr/0ifuzELS1+pN1lEVL4u5GXA1wtte7gjwYvGYYkRiWU8Pm7Cla+fzdf/IEPZdo6VYuhEvQ
+	ho2XVXhXQ9PbqJ2wJEtlblVL1IE/ol023iobIVcWxZiZgOIUdBOV3jECmHbvWYKrhMtLsXCy9k05B
+	UuWTdgmMZzJ7JBjH65qatC9ggz16X9hbkUImQnGJxvpLSndNBzyiK43bW1BtZj7vJ5RfLTZvHaFAC
+	ais3lPIPzF7vAhbFsJTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rS0CS-00DlbD-2G;
-	Mon, 22 Jan 2024 19:43:16 +0000
+	id 1rS0Cb-00Dliz-1Y;
+	Mon, 22 Jan 2024 19:43:25 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rS0C7-00DlEC-0s
+	id 1rS0CA-00DlH1-0r
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 19:42:57 +0000
+	Mon, 22 Jan 2024 19:43:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1705952574;
+	s=mimecast20190719; t=1705952577;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=aezdbNXr3jeNg/oq4Ir7c4pnUJMPrBPlV8tZyKwBKMo=;
-	b=MrTKK64T88m5kupzcmHFWXEjBQ24brDysIgsk6AJMdcMn+PpKMa9hcUjFkyJ4v6IR+JW/Y
-	nsJwW1djIwvH++bOTuoWpllrXMd4dgQWtAh3QoKz2dzHgmfrKoce0fLBEYTNLkJGpoRsxO
-	a6YHtWwMJq++IyEpvZEEqw4virssRIQ=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-284-dLhPkRjVM62_BryuXLzoyw-1; Mon,
- 22 Jan 2024 14:42:48 -0500
-X-MC-Unique: dLhPkRjVM62_BryuXLzoyw-1
+	bh=uF2bxfDUAnNambtI6tdyCXd/UbNqDVLKUcWAFsWTSNU=;
+	b=RqP8hPPxADcx81XvKn8rfZcYa7ji+GoiuvlQGf8k1gtFxjK1DifjzStmCKEKwuSvgzmWZ5
+	ZVtdIMFI3zg2kXyU49MBZojeyZMDTu9BgFr4zAMHs1k+d65eL0Jv2/X2MhRiyQ+Ts27jvj
+	m9j6SwHY0zi2NBKjBcY7m5FZpzCbRm0=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-668-81vkS9EYMCG6II-n3hayug-1; Mon, 22 Jan 2024 14:42:53 -0500
+X-MC-Unique: 81vkS9EYMCG6II-n3hayug-1
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 175DA3806063;
-	Mon, 22 Jan 2024 19:42:47 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 055AF106D1A6;
+	Mon, 22 Jan 2024 19:42:52 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.39.195.114])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id B54363C2E;
-	Mon, 22 Jan 2024 19:42:41 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 7D396488;
+	Mon, 22 Jan 2024 19:42:47 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-mm@kvack.org,
@@ -82,16 +82,16 @@ Cc: linux-mm@kvack.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: [PATCH v1 07/11] mm/memory: factor out copying the actual PTE in copy_present_pte()
-Date: Mon, 22 Jan 2024 20:41:56 +0100
-Message-ID: <20240122194200.381241-8-david@redhat.com>
+Subject: [PATCH v1 08/11] mm/memory: pass PTE to copy_present_pte()
+Date: Mon, 22 Jan 2024 20:41:57 +0100
+Message-ID: <20240122194200.381241-9-david@redhat.com>
 In-Reply-To: <20240122194200.381241-1-david@redhat.com>
 References: <20240122194200.381241-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_114255_424881_0FF74CED 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20240122_114258_445195_FAC05F02 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,108 +108,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's prepare for further changes.
+We already read it, let's just forward it.
+
+This patch is based on work by Ryan Roberts.
 
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- mm/memory.c | 60 ++++++++++++++++++++++++++++-------------------------
- 1 file changed, 32 insertions(+), 28 deletions(-)
+ mm/memory.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
 diff --git a/mm/memory.c b/mm/memory.c
-index 7e1f4849463aa..2aa2051ee51d3 100644
+index 2aa2051ee51d3..185b4aff13d62 100644
 --- a/mm/memory.c
 +++ b/mm/memory.c
-@@ -930,6 +930,29 @@ copy_present_page(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
- 	return 0;
- }
- 
-+static inline void __copy_present_pte(struct vm_area_struct *dst_vma,
-+		struct vm_area_struct *src_vma, pte_t *dst_pte, pte_t *src_pte,
-+		pte_t pte, unsigned long addr)
-+{
-+	struct mm_struct *src_mm = src_vma->vm_mm;
-+
-+	/* If it's a COW mapping, write protect it both processes. */
-+	if (is_cow_mapping(src_vma->vm_flags) && pte_write(pte)) {
-+		ptep_set_wrprotect(src_mm, addr, src_pte);
-+		pte = pte_wrprotect(pte);
-+	}
-+
-+	/* If it's a shared mapping, mark it clean in the child. */
-+	if (src_vma->vm_flags & VM_SHARED)
-+		pte = pte_mkclean(pte);
-+	pte = pte_mkold(pte);
-+
-+	if (!userfaultfd_wp(dst_vma))
-+		pte = pte_clear_uffd_wp(pte);
-+
-+	set_pte_at(dst_vma->vm_mm, addr, dst_pte, pte);
-+}
-+
- /*
-  * Copy one pte.  Returns 0 if succeeded, or -EAGAIN if one preallocated page
-  * is required to copy this pte.
-@@ -939,16 +962,16 @@ copy_present_pte(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
- 		 pte_t *dst_pte, pte_t *src_pte, unsigned long addr, int *rss,
- 		 struct folio **prealloc)
+@@ -959,10 +959,9 @@ static inline void __copy_present_pte(struct vm_area_struct *dst_vma,
+  */
+ static inline int
+ copy_present_pte(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
+-		 pte_t *dst_pte, pte_t *src_pte, unsigned long addr, int *rss,
+-		 struct folio **prealloc)
++		 pte_t *dst_pte, pte_t *src_pte, pte_t pte, unsigned long addr,
++		 int *rss, struct folio **prealloc)
  {
--	struct mm_struct *src_mm = src_vma->vm_mm;
--	unsigned long vm_flags = src_vma->vm_flags;
- 	pte_t pte = ptep_get(src_pte);
+-	pte_t pte = ptep_get(src_pte);
  	struct page *page;
  	struct folio *folio;
  
- 	page = vm_normal_page(src_vma, addr, pte);
--	if (page)
--		folio = page_folio(page);
--	if (page && folio_test_anon(folio)) {
-+	if (unlikely(!page))
-+		goto copy_pte;
-+
-+	folio = page_folio(page);
-+	if (folio_test_anon(folio)) {
- 		/*
- 		 * If this page may have been pinned by the parent process,
- 		 * copy the page immediately for the child so that we'll always
-@@ -963,34 +986,15 @@ copy_present_pte(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
- 						 addr, rss, prealloc, page);
+@@ -1104,7 +1103,7 @@ copy_pte_range(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
  		}
- 		rss[MM_ANONPAGES]++;
--	} else if (page) {
-+		VM_WARN_ON_FOLIO(PageAnonExclusive(page), folio);
-+	} else {
- 		folio_get(folio);
- 		folio_dup_file_rmap_pte(folio, page);
- 		rss[mm_counter_file(page)]++;
- 	}
- 
--	/*
--	 * If it's a COW mapping, write protect it both
--	 * in the parent and the child
--	 */
--	if (is_cow_mapping(vm_flags) && pte_write(pte)) {
--		ptep_set_wrprotect(src_mm, addr, src_pte);
--		pte = pte_wrprotect(pte);
--	}
--	VM_BUG_ON(page && folio_test_anon(folio) && PageAnonExclusive(page));
--
--	/*
--	 * If it's a shared mapping, mark it clean in
--	 * the child
--	 */
--	if (vm_flags & VM_SHARED)
--		pte = pte_mkclean(pte);
--	pte = pte_mkold(pte);
--
--	if (!userfaultfd_wp(dst_vma))
--		pte = pte_clear_uffd_wp(pte);
--
--	set_pte_at(dst_vma->vm_mm, addr, dst_pte, pte);
-+copy_pte:
-+	__copy_present_pte(dst_vma, src_vma, dst_pte, src_pte, pte, addr);
- 	return 0;
- }
- 
+ 		/* copy_present_pte() will clear `*prealloc' if consumed */
+ 		ret = copy_present_pte(dst_vma, src_vma, dst_pte, src_pte,
+-				       addr, rss, &prealloc);
++				       ptent, addr, rss, &prealloc);
+ 		/*
+ 		 * If we need a pre-allocated page for this pte, drop the
+ 		 * locks, allocate, and try again.
 -- 
 2.43.0
 
