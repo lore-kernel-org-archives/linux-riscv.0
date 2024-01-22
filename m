@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E207C4725D
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 09:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AF2C47DAF
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 09:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+HnP9iLS2tIm8qvY4zf/vRk1ONRYjhsL789B+PcENgU=; b=Aw+iA7rsh6RBPC
-	PMyLPYGVBu4STIm5g4q9PtRoGFX1HZL8e90RygNhXu8JGFMkrfzxceDDMzePrDUxyY3JIYfoITvpD
-	6K4evYg4XrQt4mNj/oVzTUUpikO6ZbJJK1ju886cZPh0CDfpcguY+jmkpE008Rhlzy8q4v0co5KJM
-	Ig1WDfWM2unAEfCJQ4Jqk24zVjEu4F5Fro/38j5yobLqRngirtwEFlsTF6rzrZ2uy45vSWjlPdI+C
-	ShrHmsrxRF2Z6FheMj06/yAFuZko+psYDhWaGenbw9RU1318ukkUEmZGGRQFZ3wrSfqHJJisQJIb1
-	ACEIAD91O6Cy/EenK9IA==;
+	List-Owner; bh=tBajSvM2db2YBXeWBCGjg7Uw3AB8bihtWSDyLD3Ck14=; b=puw4RYB5yYSToz
+	2e4htwIwAsLgA7P+ptJW+pH/S2A+6yWAFcPPbf1IspSJu07wnvfAzYIntucz0F47NvszEv4MVzad9
+	05DRRh3ruEjvF/gXNwJ02CRsoUomg200Dcor70xjCVJmtzuhFTGAQCKXCitLRslY5QBHLSOBG8Bd1
+	GppZDzOwa007uQvLi86dpwcAfhReApuUhuD9C10+4zu+vYZUgBrhOboWycXs3Nj0ehmBpVNUYazHJ
+	f/7Z1rdZVLMLUkf7EyZegU36xMBq7MWv/5xmKqhb/dHmnFdTd5+3FRo4b87ZGhQyA+O2CTy2D401y
+	GwsR4MWQggIoInrkrsKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRqtX-00BM3P-2P;
-	Mon, 22 Jan 2024 09:47:07 +0000
+	id 1rRqtn-00BMG8-2H;
+	Mon, 22 Jan 2024 09:47:23 +0000
 Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRqtR-00BLyp-2E;
-	Mon, 22 Jan 2024 09:47:05 +0000
+	id 1rRqtj-00BMCK-0R;
+	Mon, 22 Jan 2024 09:47:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1705916822; x=1737452822;
+  t=1705916839; x=1737452839;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=XjbRb6KLhs3MMD3Cdz5D4prMhpH/m5EAMfKa/Xyq4Ak=;
-  b=fuWFVtWJjp0hxeOF7qSKNxZysDfToApMIx+fEJ1283vIBi0xnqf4/Wfp
-   dIiTDTmys8IhILgmlfl6qBZyAYrt14R7vP4sK7f0CEcsFF1t69rF1LKQs
-   lehPR3bMmc5aEaCgTXwZ7X5J3eo5OvXFdSRh2WIFPJAjBgvMgYQQXDSbi
-   Hk9IxmmpGbV6aW4A0Q7EIRn+RJZFlLxGaaK3VY3HUet+2UX48L5LDZvxZ
-   f039jDtBpJT/O8I6pyZYIGjPJfh/rI1rEylPEV4vhFduEGgf800BfaDUt
-   NKPfKBYscioNOrgAlh0zIxuVPbljLre89+zYEuL8vq2NWB0qTk4LvHzO2
+  bh=bCbMxYqsNc6ysevtODH1LdEzA9cmGSP1KVajSHQPjJU=;
+  b=eALNTadKq+2FfZB9rbjp+Bb84KC61hanZSF78DEtBPwP1puyrgSoj6Yu
+   Q8KRQkrmv0XR3IoXmLFfK/8K8y9V2KnKBMmqIIEu3ha2someqt+fmXymM
+   Joxg4Je4Sjh44oDr8ongAh4XXYhYqRJ9163hAQNBf90dRWgQbp8yV3YBK
+   hjwI0UtNLE06MnrAmZEk2ozksi7fpajezhO2ZS2MmkCAvDIdsDxm3sNvw
+   wPvRNjSEJi8KI7HB3VGhrA8hqCIw3Ozzhx0i+xAGya6l1oaXzbK8Gljdt
+   HsVt+5Olh+vnz5mAMlJtkAorxHdMDEcLcQN+sQLWF6tzbcQElor3YCuca
    A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10960"; a="22641855"
+X-IronPort-AV: E=McAfee;i="6600,9927,10960"; a="22641914"
 X-IronPort-AV: E=Sophos;i="6.05,211,1701158400"; 
-   d="scan'208";a="22641855"
+   d="scan'208";a="22641914"
 Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2024 01:47:01 -0800
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2024 01:47:19 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10960"; a="778535468"
+X-IronPort-AV: E=McAfee;i="6600,9927,10960"; a="778535499"
 X-IronPort-AV: E=Sophos;i="6.05,211,1701158400"; 
-   d="scan'208";a="778535468"
+   d="scan'208";a="778535499"
 Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
-  by orsmga007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2024 01:46:52 -0800
+  by orsmga007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2024 01:47:09 -0800
 From: Haibo Xu <haibo1.xu@intel.com>
 To: 
 Cc: xiaobo55x@gmail.com,
@@ -70,9 +70,10 @@ Cc: xiaobo55x@gmail.com,
 	Guo Ren <guoren@kernel.org>,
 	Mayuresh Chitale <mchitale@ventanamicro.com>,
 	Greentime Hu <greentime.hu@sifive.com>,
+	wchen <waylingii@gmail.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Minda Chen <minda.chen@starfivetech.com>,
 	Samuel Holland <samuel@sholland.org>,
+	Minda Chen <minda.chen@starfivetech.com>,
 	Jisheng Zhang <jszhang@kernel.org>,
 	Sean Christopherson <seanjc@google.com>,
 	Like Xu <likexu@tencent.com>,
@@ -88,16 +89,17 @@ Cc: xiaobo55x@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	kvm-riscv@lists.infradead.org
-Subject: [PATCH v5 07/12] tools: riscv: Add header file vdso/processor.h
-Date: Mon, 22 Jan 2024 17:58:37 +0800
-Message-Id: <212d0d848e54c887944ec38bd9f9729df8d1a27f.1705916069.git.haibo1.xu@intel.com>
+Subject: [PATCH v5 08/12] KVM: riscv: selftests: Switch to use macro from csr.h
+Date: Mon, 22 Jan 2024 17:58:38 +0800
+Message-Id: <4806503d3e8fe4b727eb6df72c8fdd087355495b.1705916069.git.haibo1.xu@intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1705916069.git.haibo1.xu@intel.com>
 References: <cover.1705916069.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_014701_763267_EA1896B3 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20240122_014719_184688_CAC760CF 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,54 +116,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Borrow the cpu_relax() definitions from kernel's
-arch/riscv/include/asm/vdso/processor.h to tools/ for riscv.
-
 Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- tools/arch/riscv/include/asm/vdso/processor.h | 32 +++++++++++++++++++
- 1 file changed, 32 insertions(+)
- create mode 100644 tools/arch/riscv/include/asm/vdso/processor.h
+ tools/testing/selftests/kvm/include/riscv/processor.h | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
 
-diff --git a/tools/arch/riscv/include/asm/vdso/processor.h b/tools/arch/riscv/include/asm/vdso/processor.h
-new file mode 100644
-index 000000000000..662aca039848
---- /dev/null
-+++ b/tools/arch/riscv/include/asm/vdso/processor.h
-@@ -0,0 +1,32 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef __ASM_VDSO_PROCESSOR_H
-+#define __ASM_VDSO_PROCESSOR_H
-+
-+#ifndef __ASSEMBLY__
-+
-+#include <asm-generic/barrier.h>
-+
-+static inline void cpu_relax(void)
-+{
-+#ifdef __riscv_muldiv
-+	int dummy;
-+	/* In lieu of a halt instruction, induce a long-latency stall. */
-+	__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
-+#endif
-+
-+#ifdef CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE
-+	/*
-+	 * Reduce instruction retirement.
-+	 * This assumes the PC changes.
-+	 */
-+	__asm__ __volatile__ ("pause");
-+#else
-+	/* Encoding of the pause instruction */
-+	__asm__ __volatile__ (".4byte 0x100000F");
-+#endif
-+	barrier();
-+}
-+
-+#endif /* __ASSEMBLY__ */
-+
-+#endif /* __ASM_VDSO_PROCESSOR_H */
+diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
+index 5b62a3d2aa9b..6f9e1e5e466d 100644
+--- a/tools/testing/selftests/kvm/include/riscv/processor.h
++++ b/tools/testing/selftests/kvm/include/riscv/processor.h
+@@ -7,8 +7,9 @@
+ #ifndef SELFTEST_KVM_PROCESSOR_H
+ #define SELFTEST_KVM_PROCESSOR_H
+ 
+-#include "kvm_util.h"
+ #include <linux/stringify.h>
++#include <asm/csr.h>
++#include "kvm_util.h"
+ 
+ static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t idx,
+ 				    uint64_t  size)
+@@ -95,13 +96,6 @@ static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t idx,
+ #define PGTBL_PAGE_SIZE				PGTBL_L0_BLOCK_SIZE
+ #define PGTBL_PAGE_SIZE_SHIFT			PGTBL_L0_BLOCK_SHIFT
+ 
+-#define SATP_PPN				_AC(0x00000FFFFFFFFFFF, UL)
+-#define SATP_MODE_39				_AC(0x8000000000000000, UL)
+-#define SATP_MODE_48				_AC(0x9000000000000000, UL)
+-#define SATP_ASID_BITS				16
+-#define SATP_ASID_SHIFT				44
+-#define SATP_ASID_MASK				_AC(0xFFFF, UL)
+-
+ #define SBI_EXT_EXPERIMENTAL_START		0x08000000
+ #define SBI_EXT_EXPERIMENTAL_END		0x08FFFFFF
+ 
 -- 
 2.34.1
 
