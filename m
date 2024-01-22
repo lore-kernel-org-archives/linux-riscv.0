@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C3DC47DD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 19:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C37C47DAF
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 19:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ih8ndHamCxV6BpZhCC4xx3B7t7wiMr12CX/2EIsJszk=; b=LR9Ul95/vvMFBt
-	o1NwX8G/w1eFsoxvTYKzDeH9lGxoQgbWAFcALDKFvQTr9hlzUrNHEHYLywXCZcOmF9rX7yOYSur11
-	gckKGScopeFqjN2N7s8Auubk7e/MT/PZKVDjaoWbhgb1igWvF7j/RmeJ4aE1fD6+Wcej+lp7Pw/kh
-	AshQhgqXr8+iK2UP0ddWsghDSjv6s3TLT1RLx1sym1tmQMGk1UxTU727qcRNKUu6DgTbQgPeDLpnr
-	T9ExHwJHQq6NKKHpXhLitmyjx+XuXCk2jk5G0bPSC958aH+dvdt6zMDO52CoZIQNcOnD0emqB/7Qq
-	HYlkfm9IlnoNO0qJtiCw==;
+	List-Owner; bh=h27VnxL0aV4PfKH9/VGwkaji9Fk1I24eJFpi3HnnJGE=; b=yaqexJ0zVfLKmJ
+	Nasy8RT+Q+s5NH1uvJBFjHeeaXaAcnvWBoViklMtk7ebk335O+rq33pi37v0VQjHreBIr3Y6Febcf
+	48u31Zp/+RVLca3oXeUAxseQFJ31wmev6eUbqYbgLWJj3wgHydfnvyMtVSKif84KTxL6QtgCt3a4W
+	ffzFRcmBkBHTj4vtY5cG/c2S/nIq2WwO2GNokoi58C3hNkPjCM4e4Si18tXhu+Nl+vgRpzIzNGvV4
+	h2JNr8TQ3lmoDkHarRe5qZ55NF2bpWzusfVxHIEo/ixRyaTDmREwHN6bq1/e39ImrhjGcIZ/gzc4F
+	STxdpQHtcMto3y6Fa2Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rS0Cr-00DlzC-32;
-	Mon, 22 Jan 2024 19:43:41 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rS0Cw-00Dm3Z-0p;
+	Mon, 22 Jan 2024 19:43:46 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rS0CR-00DlYf-0j
+	id 1rS0Ca-00DliF-39
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 19:43:20 +0000
+	Mon, 22 Jan 2024 19:43:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1705952593;
+	s=mimecast20190719; t=1705952603;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=OpHohfrBZPpQ+Ag8soc6zzIQIq/5TLvJxKBi0yYAutY=;
-	b=iB5TJCMruJyOUVEIUpxlfDQIgb9LypypkStctisTPuRNxG2RQOMmRPaBNdUtCeASJZyPen
-	W40mRoQTTW8N5hgREGsWlDVWWpL3z0ICYbFMWsx8Hmw3/FCM4cHXgwqVbgds2lfvhN5dif
-	GZtg4pfY7o53gHkbXLRAb6svCv7xRs0=
+	bh=tPsvEkVgYnC21FVdKrk6yuEGSmSqLr856lIR4lg3IVs=;
+	b=L2oeFggRmNnF67Y1JiCyL0y+aQ/Vv4L9YH/PqRpdU6J9Zd2zcUWmsjy/MwSN83kJnob+Yf
+	Z0OD9Zz0SsL2NNWLNkOohbDGw+Gk65O0+lPmwZlO+71u/uDsNNntf98igtg0nUJtWvqDl7
+	QJUAXPmdlA/nJr1Liac9mCwk2A76Dsc=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-499-dgbcNuPJMAq9R1a_XNgOmg-1; Mon, 22 Jan 2024 14:43:10 -0500
-X-MC-Unique: dgbcNuPJMAq9R1a_XNgOmg-1
+ us-mta-678-YpW0JN5UPxiQRu3cMsFdBw-1; Mon, 22 Jan 2024 14:43:18 -0500
+X-MC-Unique: YpW0JN5UPxiQRu3cMsFdBw-1
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AB3D888D145;
-	Mon, 22 Jan 2024 19:43:08 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2508C87A38D;
+	Mon, 22 Jan 2024 19:43:15 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.39.195.114])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 851B33C2E;
-	Mon, 22 Jan 2024 19:42:58 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 192C124ED;
+	Mon, 22 Jan 2024 19:43:08 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-mm@kvack.org,
@@ -82,16 +82,16 @@ Cc: linux-mm@kvack.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: [PATCH v1 10/11] mm/memory: ignore dirty/accessed/soft-dirty bits in folio_pte_batch()
-Date: Mon, 22 Jan 2024 20:41:59 +0100
-Message-ID: <20240122194200.381241-11-david@redhat.com>
+Subject: [PATCH v1 11/11] mm/memory: ignore writable bit in folio_pte_batch()
+Date: Mon, 22 Jan 2024 20:42:00 +0100
+Message-ID: <20240122194200.381241-12-david@redhat.com>
 In-Reply-To: <20240122194200.381241-1-david@redhat.com>
 References: <20240122194200.381241-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_114315_389553_6A87A878 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20240122_114325_109810_0EA69D5F 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,51 +108,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's ignore these bits: they are irrelevant for fork, and will likely
-be irrelevant for upcoming users such as page unmapping.
+... and conditionally return to the caller if any pte except the first one
+is writable. fork() has to make sure to properly write-protect in case any
+PTE is writable. Other users (e.g., page unmaping) won't care.
 
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- mm/memory.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ mm/memory.c | 26 +++++++++++++++++++++-----
+ 1 file changed, 21 insertions(+), 5 deletions(-)
 
 diff --git a/mm/memory.c b/mm/memory.c
-index f563aec85b2a8..341b2be845b6e 100644
+index 341b2be845b6e..a26fd0669016b 100644
 --- a/mm/memory.c
 +++ b/mm/memory.c
-@@ -953,24 +953,30 @@ static __always_inline void __copy_present_ptes(struct vm_area_struct *dst_vma,
- 	set_ptes(dst_vma->vm_mm, addr, dst_pte, pte, nr);
+@@ -955,7 +955,7 @@ static __always_inline void __copy_present_ptes(struct vm_area_struct *dst_vma,
+ 
+ static inline pte_t __pte_batch_clear_ignored(pte_t pte)
+ {
+-	return pte_clear_soft_dirty(pte_mkclean(pte_mkold(pte)));
++	return pte_wrprotect(pte_clear_soft_dirty(pte_mkclean(pte_mkold(pte))));
  }
  
-+static inline pte_t __pte_batch_clear_ignored(pte_t pte)
-+{
-+	return pte_clear_soft_dirty(pte_mkclean(pte_mkold(pte)));
-+}
-+
  /*
-  * Detect a PTE batch: consecutive (present) PTEs that map consecutive
+@@ -963,20 +963,29 @@ static inline pte_t __pte_batch_clear_ignored(pte_t pte)
   * pages of the same folio.
   *
   * All PTEs inside a PTE batch have the same PTE bits set, excluding the PFN.
-+ * the accessed bit, dirty bit and soft-dirty bit.
+- * the accessed bit, dirty bit and soft-dirty bit.
++ * the accessed bit, dirty bit, soft-dirty bit and writable bit.
++ . If "any_writable" is set, it will indicate if any other PTE besides the
++ * first (given) PTE is writable.
   */
  static inline int folio_pte_batch(struct folio *folio, unsigned long addr,
- 		pte_t *start_ptep, pte_t pte, int max_nr)
+-		pte_t *start_ptep, pte_t pte, int max_nr)
++		pte_t *start_ptep, pte_t pte, int max_nr, bool *any_writable)
  {
  	unsigned long folio_end_pfn = folio_pfn(folio) + folio_nr_pages(folio);
  	const pte_t *end_ptep = start_ptep + max_nr;
--	pte_t expected_pte = pte_next_pfn(pte);
-+	pte_t expected_pte = __pte_batch_clear_ignored(pte_next_pfn(pte));
+ 	pte_t expected_pte = __pte_batch_clear_ignored(pte_next_pfn(pte));
  	pte_t *ptep = start_ptep + 1;
++	bool writable;
++
++	if (any_writable)
++		*any_writable = false;
  
  	VM_WARN_ON_FOLIO(!pte_present(pte), folio);
  
  	while (ptep != end_ptep) {
--		pte = ptep_get(ptep);
-+		pte = __pte_batch_clear_ignored(ptep_get(ptep));
+-		pte = __pte_batch_clear_ignored(ptep_get(ptep));
++		pte = ptep_get(ptep);
++		if (any_writable)
++			writable = !!pte_write(pte);
++		pte = __pte_batch_clear_ignored(pte);
  
  		if (!pte_same(pte, expected_pte))
  			break;
+@@ -989,6 +998,9 @@ static inline int folio_pte_batch(struct folio *folio, unsigned long addr,
+ 		if (pte_pfn(pte) == folio_end_pfn)
+ 			break;
+ 
++		if (any_writable)
++			*any_writable |= writable;
++
+ 		expected_pte = pte_next_pfn(expected_pte);
+ 		ptep++;
+ 	}
+@@ -1010,6 +1022,7 @@ copy_present_ptes(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
+ {
+ 	struct page *page;
+ 	struct folio *folio;
++	bool any_writable;
+ 	int err, nr;
+ 
+ 	page = vm_normal_page(src_vma, addr, pte);
+@@ -1024,7 +1037,8 @@ copy_present_ptes(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
+ 	 * by keeping the batching logic separate.
+ 	 */
+ 	if (unlikely(!*prealloc && folio_test_large(folio) && max_nr != 1)) {
+-		nr = folio_pte_batch(folio, addr, src_pte, pte, max_nr);
++		nr = folio_pte_batch(folio, addr, src_pte, pte, max_nr,
++				     &any_writable);
+ 		if (folio_test_anon(folio)) {
+ 			folio_ref_add(folio, nr);
+ 			if (unlikely(folio_try_dup_anon_rmap_ptes(folio, page,
+@@ -1039,6 +1053,8 @@ copy_present_ptes(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
+ 			folio_dup_file_rmap_ptes(folio, page, nr);
+ 			rss[mm_counter_file(page)] += nr;
+ 		}
++		if (any_writable)
++			pte = pte_mkwrite(pte, src_vma);
+ 		__copy_present_ptes(dst_vma, src_vma, dst_pte, src_pte, pte,
+ 				    addr, nr);
+ 		return nr;
 -- 
 2.43.0
 
