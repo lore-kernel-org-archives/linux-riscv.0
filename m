@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4C3C47DD9
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 16:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97A46C47DD9
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 16:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dKUI2+ucUMYUUOqPN2AqRV/1GrCR2ftoU/2sw2pusrQ=; b=H934+/UD4gccXl
-	WSbGPmSrcV6fba3OGn4tcx4rL2GfdMwUdehFPBNxj+rDy3oztsaaWoKhlp9ozFxGkPpbv0YArqvcc
-	0VehSH6xDlJSNCVWVgkno8SGv3rgHXtW5zgz0SsgBcCWT3fqwx9P6E3tyqVQ83RytrTlLiK8zXxL0
-	FOXRgBPi3nEkLD6gaL/2M9kXmm1sl47BsDeIQR6DNjj7Aj7fEncDD4265KUvrfTWYIgKBcy9mEfZw
-	U/IxkOXRcs7WChoWiaaLge3Bc+ltS8BFpqwcnUo6xHdzgNMB0fhfyK7cDB6GZKC4356ai2xG+MvTJ
-	o1sVFA/AETYYPYaEBnfA==;
+	List-Owner; bh=Btz9M8swp6D6iEyIZul/7RVfyLqs9iY/izB6NJXB2O4=; b=sxkjfWEaOqYhsw
+	ET8ijtMPS9I0AE6ZKPQBmMTx4hhSdGMdzzbaVeHoCSlYKF8Qdnd5f712dKSXukIjGq+EFlpTuA9Be
+	zk+xqmsGteA322DtU0hARNPwzBevN9a7Guz+B+GYOQShDETqGLVtDAcYWu6/hsP0VuoGXY7lvO3Cl
+	99Y627/qxSPtq/7KuRbtTr1N/brZf90vhlmbez1c56gDr6YdWTI5mF9a/kglGTabEEtf1K0LxL8qz
+	GXrK9RXsvbaGOahr6vlvvQLyJ+beOAjJsM8EMjaSWsGintTD2yWSd+nC2wbbSy0pTX6ht1iwVh/C5
+	9S7I2FsTtt2v/P8Wd6fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRxPG-00D2ZC-1G;
-	Mon, 22 Jan 2024 16:44:18 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rRxY0-00D4XZ-0l;
+	Mon, 22 Jan 2024 16:53:20 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRxPD-00D2Xh-1H
+	id 1rRxXw-00D4Vx-2k
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 16:44:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7A4C6CE2B76;
-	Mon, 22 Jan 2024 16:44:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71659C433C7;
-	Mon, 22 Jan 2024 16:44:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705941852;
-	bh=TW/AN33h2oTcesoDKGns8E03o0QAbOXHGZZP55YuaO0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VjVar1uFmKpt5+lIXqzXknpmFH8UWaIxF+e+ahlZpm1bGIckUNJl0dMaFjBz2Bpja
-	 E5jM8xEUnRGR7G4jxUUQBVwJM1lqHZhN+uKYBdfnu8z6ls7Yw3oAiX8Z376C6zoo3v
-	 +OoSCMAV4aN52a31JIrnN65xfvarfznlkneqc52XAbxGtJ5+/m3pcqwZvOgBKWEdFE
-	 9nniraj69VpqFgc9RURQPmAv3ER7/7dp5zyhiFPL1hm770sKaLhpkmzrNU7ON1Y40S
-	 D9MooXFwHdpMuN2juxkmZY/uE2LlTgJ+DJac5JarpNJxJHmMsXQlva0mCPLFI5gC23
-	 PQ4byDDeIqdSg==
-From: Conor Dooley <conor@kernel.org>
-To: Conor Dooley <conor@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] soc: microchip: Fix POLARFIRE_SOC_SYS_CTRL input prompt
-Date: Mon, 22 Jan 2024 16:43:49 +0000
-Message-ID: <20240122-subtitle-luminance-517a0bd92582@spud>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <607c5ba8b95b1a11b6dc532223e9d7abcc2c20e4.1705935812.git.geert+renesas@glider.be>
-References: <607c5ba8b95b1a11b6dc532223e9d7abcc2c20e4.1705935812.git.geert+renesas@glider.be>
+	Mon, 22 Jan 2024 16:53:18 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-258-veqgJaI3Peyfp47kXADBow-1; Mon, 22 Jan 2024 16:53:09 +0000
+X-MC-Unique: veqgJaI3Peyfp47kXADBow-1
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Mon, 22 Jan
+ 2024 16:52:42 +0000
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Mon, 22 Jan 2024 16:52:42 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Guenter Roeck' <linux@roeck-us.net>, Charlie Jenkins
+	<charlie@rivosinc.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>, Xiao Wang
+	<xiao.w.wang@intel.com>, Evan Green <evan@rivosinc.com>, Guo Ren
+	<guoren@kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>
+Subject: RE: [PATCH v15 5/5] kunit: Add tests for csum_ipv6_magic and
+ ip_fast_csum
+Thread-Topic: [PATCH v15 5/5] kunit: Add tests for csum_ipv6_magic and
+ ip_fast_csum
+Thread-Index: AQHaTVGn8AUolzpWZEe7KQadoytUPLDmCvsQ
+Date: Mon, 22 Jan 2024 16:52:42 +0000
+Message-ID: <6b0dc20f392c488a9080651a2a2cd4bd@AcuMS.aculab.com>
+References: <20240108-optimize_checksum-v15-0-1c50de5f2167@rivosinc.com>
+ <20240108-optimize_checksum-v15-5-1c50de5f2167@rivosinc.com>
+ <2c8e98b6-336e-4bc7-81ba-5a4d35ac868a@roeck-us.net>
+In-Reply-To: <2c8e98b6-336e-4bc7-81ba-5a4d35ac868a@roeck-us.net>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=350; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=UjseNzGXO9922yEWb8pAmj23ZPXNexQeybrnoHVRzPY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnrZrtUf2fedNDmxsQPeSryXUnnvmz826lwWN9nFvcxm bVXPJzXdZSwMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAifG8YfvS4myrGbamXWM3D 99bgmRej4HqLvAPfP23u3cPnc+otIyPDEtf9IbuLK3aevfUgb7H73pQ+H4tGrbLgCkuz0sU/+Qw 5AQ==
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_084415_610004_B20AFA3E 
-X-CRM114-Status: UNSURE (   5.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240122_085317_156481_813BBAE4 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,21 +87,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-On Mon, 22 Jan 2024 16:04:14 +0100, Geert Uytterhoeven wrote:
-> The symbol's prompt should be a one-line description, instead of just
-> duplicating the symbol name.
+From: Guenter Roeck
+> Sent: 22 January 2024 16:40
 > 
+> Hi,
 > 
+> On Mon, Jan 08, 2024 at 03:57:06PM -0800, Charlie Jenkins wrote:
+> > Supplement existing checksum tests with tests for csum_ipv6_magic and
+> > ip_fast_csum.
+> >
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > ---
+> 
+> With this patch in the tree, the arm:mps2-an385 qemu emulation gets a bad hiccup.
+> 
+> [    1.839556] Unhandled exception: IPSR = 00000006 LR = fffffff1
+> [    1.839804] CPU: 0 PID: 164 Comm: kunit_try_catch Tainted: G                 N 6.8.0-rc1 #1
+> [    1.839948] Hardware name: Generic DT based system
+> [    1.840062] PC is at __csum_ipv6_magic+0x8/0xb4
+> [    1.840408] LR is at test_csum_ipv6_magic+0x3d/0xa4
+> [    1.840493] pc : [<21212f34>]    lr : [<21117fd5>]    psr: 0100020b
+> [    1.840586] sp : 2180bebc  ip : 46c7f0d2  fp : 21275b38
+> [    1.840664] r10: 21276b60  r9 : 21275b28  r8 : 21465cfc
+> [    1.840751] r7 : 00003085  r6 : 21275b4e  r5 : 2138702c  r4 : 00000001
+> [    1.840847] r3 : 2c000000  r2 : 1ac7f0d2  r1 : 21275b39  r0 : 21275b29
+> [    1.840942] xPSR: 0100020b
+> 
+> This translates to:
+> 
+> PC is at __csum_ipv6_magic (arch/arm/lib/csumipv6.S:15)
+> LR is at test_csum_ipv6_magic (./arch/arm/include/asm/checksum.h:60
+> ./arch/arm/include/asm/checksum.h:163 lib/checksum_kunit.c:617)
+> 
+> Obviously I can not say if this is a problem with qemu or a problem with
+> the Linux kernel. Given that, and the presumably low interest in
+> running mps2-an385 with Linux, I'll simply disable that test. Just take
+> it as a heads up that there _may_ be a problem with this on arm
+> nommu systems.
 
-Applied to riscv-soc-fixes, thanks!
+Can you drop in a disassembly of __csum_ipv6_magic ?
+Actually I think it is:
+ENTRY(__csum_ipv6_magic)
+		str	lr, [sp, #-4]!
+		adds	ip, r2, r3
+		ldmia	r1, {r1 - r3, lr}
 
-[1/1] soc: microchip: Fix POLARFIRE_SOC_SYS_CTRL input prompt
-      https://git.kernel.org/conor/c/6dd9a236042e
+So the fault is (probably) a misaligned ldmia ?
+Are they ever supported?
 
-Thanks,
-Conor.
+	David
+
+		adcs	ip, ip, r1
+		adcs	ip, ip, r2
+		adcs	ip, ip, r3
+		adcs	ip, ip, lr
+		ldmia	r0, {r0 - r3}
+		adcs	r0, ip, r0
+		adcs	r0, r0, r1
+		adcs	r0, r0, r2
+		ldr	r2, [sp, #4]
+		adcs	r0, r0, r3
+		adcs	r0, r0, r2
+		adcs	r0, r0, #0
+		ldmfd	sp!, {pc}
+ENDPROC(__csum_ipv6_magic)
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
+
 
 _______________________________________________
 linux-riscv mailing list
