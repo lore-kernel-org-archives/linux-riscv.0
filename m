@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2206EC4725D
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 12:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E740C47DAF
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 12:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W/cb+fHLMn9Bj4iJIfLNOc385fFKuivUw8xa1LpKhU0=; b=M8QMt0EnT86X+0
-	+KJhjX3NKGVfk5xvYHRhB3ca+pFW1KeYq4ePnTFJOf6AMbJcnlbNs0LJOeIt2wnbr+H/5sj0/e4Ht
-	L32r814c1iNfe2Zm9LA6IZVwTTxZnC7R6VMv7rEJaXQjeEgLBshV1qpauKSsmYGtq11VglUyFGlJy
-	B3u/ZSqdInPRnKGhQAlpb1cd8TOnrA8KStCsH906UMmFHyjmQHJ3tcpqvxIPVRUewYDNSLhtVcnQx
-	7UCqTwF5r1g/kFlq2qsIUxnuVBMJCAiYjPzdeWWNDQxNwJ6XjtvM7OQxT+yITrTSo3FTaMyJdYkCO
-	hNxLpvgPSitFhgqChzXQ==;
+	List-Owner; bh=WKEzMAT9FgETeWkeUgwLUew548BlTbBB01sjfON5pGA=; b=HMvwe5yIFXXjV6
+	8yuGRjFRfDgDE9hcizu3tQmgyRztcyxMTWfm14tcKG48HOjo0NDSA3oso7c717a2rW8Hkwbf0H8QA
+	9+PnHdxjCKEg4DnCQQdiMoCYdXIfa8qwS2SvaPRoUU7UME4/NIfUyIuPZCRzbq+/NobqKLYLXyJXQ
+	xza0mzhT53MlUaiADZ4Z/JHVAC4HnhHOp1HpDEvus5PMnEzX3I3mCUL2WGVpgsZy5MzPERmKjgwj/
+	e9CZdhIKAy0egnI7/R+M1XGA2D/icf/p2PrsxFFT5E7pG5zDbrwFIMdsr4LOWxKgS/vj5E2RqgwuS
+	TI6bV0z7oCv9sKR32K6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRtIH-00C4Jt-03;
-	Mon, 22 Jan 2024 12:20:49 +0000
+	id 1rRtIM-00C4On-1S;
+	Mon, 22 Jan 2024 12:20:54 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRtIE-00C4I3-08
+	id 1rRtIK-00C4M3-0T
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 12:20:47 +0000
+	Mon, 22 Jan 2024 12:20:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7A97F61388;
-	Mon, 22 Jan 2024 12:20:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0B1FC433C7;
-	Mon, 22 Jan 2024 12:20:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9A2C9612BB;
+	Mon, 22 Jan 2024 12:20:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2AC3C433F1;
+	Mon, 22 Jan 2024 12:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705926045;
-	bh=GT65QrRSZZI/JIdwPBcys6eLLwNLwpPSE/DJ6auIUks=;
+	s=k20201202; t=1705926021;
+	bh=8d4o8b6w9hvJ+ehL0Gmci/4wXJY8BAIb5BXSCLU2izA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jb3dmfnLIjra2EvCeWTQURVArpunSXQ8WZ7SvOrjHrcqnIRO5bLN1bGYZZ/fwYmsc
-	 6Ir67jWsLHwz1/2EYI0irVemtunm2SMWpxgnOoA1UBRM0ane3xizfMUd1xb5sK2mZY
-	 0qOheNB4lcGneWBomX5Yg7lGZOYJTGR6c0UNDDEJsCbzWckfPr14Qn8zBst4GCCB3D
-	 Y9rMCRDy46UsioPfKTAUAKNTq99J2hlXSmBoDaxuVNXiLanJenqJR/AZf7Iz/5239v
-	 sPNu1DBIuqjTE5ZBs7wCYyAo+5VFS1cfkS/+hy4H9VWOseqEYxwEH+vGEycXOvEREF
-	 0nOuQWwkl4/+w==
+	b=q0+1BfKXT/Q3WTcV0v6zrkcMPc7AkN+h+88/RrAqg+eqV8RBIoaHAbJhpXzXjsRsz
+	 GJl3f+fXohP8flUgMqa9BI4qS2FBiQ9dyCT4MvEbvcvBLz3u48iApRltaJxIKcKMrK
+	 9s1FrXOCnW9axnQEJMkr75lPaYRkKQTCmI+xxYau+xQc/4XB5+WF01JEY4lrXX+IKV
+	 eavw9YDFVtmp+zwwdxyUgPDl3objzuoXbGs+H2/1C0jlbk48f0OhDcG009hXW903xf
+	 GVGQm0Mako7Pxixm/wjC2jBKo/FIiCqLRZum/bT05i32Dd8POLYXCJuaL980eBU67u
+	 0o+hXceniIHhA==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
@@ -65,18 +65,18 @@ Cc: conor@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-clk@vger.kernel.org
-Subject: [PATCH v2 7/7] riscv: dts: microchip: add missing CAN bus clocks
-Date: Mon, 22 Jan 2024 12:19:55 +0000
-Message-ID: <20240122-splice-poncho-18a369c7dbc7@spud>
+Subject: [PATCH v2 2/7] dt-bindings: can: mpfs: add missing required clock
+Date: Mon, 22 Jan 2024 12:19:50 +0000
+Message-ID: <20240122-breeder-lying-0d3668d98886@spud>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240122-catty-roast-d3625dbb02fe@spud>
 References: <20240122-catty-roast-d3625dbb02fe@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1347; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=pLA+R73nzpZMSjL5ZIEEpNbYsZjEzmZPe5bK/xmNjSY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnrYlPleT5Wn+6OL38lGp3sdiX9kvjzCpZLh79GzvM5s zmRq2ByRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACZS+YmRYZunivptLuErjQu/ N1lXLrlwi/XW5XCGE7N82m+Ic7Ruv83wz+SeTKeekUOK973a71eDBd/2iDnWPnL2uLo3PEXiktF WJgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1423; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=NrajZ8DKLByCJYLOG7gevyAp2euhGy7v9GQJAOxw45A=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnrYlPKSnQ17k1J/f3WvmYO46S1vI6Zc+PX+eiHL7mtm OS1+1xcRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACay9Bwjw6rOzD+StveFa45F 3lLZYsjaYnNviefhqQbpbO5Pw4zdvRj+xxjJuMotUOz7uJhffcfz6Q+9jdZdWXft3VytDs0X8uH qLAA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_042046_124462_4F35D9AA 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20240122_042052_228589_EE1A470D 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,36 +97,41 @@ From: Conor Dooley <conor.dooley@microchip.com>
 
 The CAN controller on PolarFire SoC has an AHB peripheral clock _and_ a
 CAN bus clock. The bus clock was omitted when the binding was written,
-but is required for operation. Make up for lost time and add to the DT.
+but is required for operation. Make up for lost time and add it.
 
-Fixes: 38a71fc04895 ("riscv: dts: microchip: add mpfs's CAN controllers")
+Cautionary tale in adding bindings without having implemented a real
+user for them perhaps.
+
+Fixes: c878d518d7b6 ("dt-bindings: can: mpfs: document the mpfs CAN controller")
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/microchip/mpfs.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ .../devicetree/bindings/net/can/microchip,mpfs-can.yaml     | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index 266489d43912..4d70df0f908c 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -416,7 +416,7 @@ i2c1: i2c@2010b000 {
- 		can0: can@2010c000 {
- 			compatible = "microchip,mpfs-can";
- 			reg = <0x0 0x2010c000 0x0 0x1000>;
--			clocks = <&clkcfg CLK_CAN0>;
-+			clocks = <&clkcfg CLK_CAN0>, <&clkcfg CLK_MSSPLL3>;
- 			interrupt-parent = <&plic>;
- 			interrupts = <56>;
- 			status = "disabled";
-@@ -425,7 +425,7 @@ can0: can@2010c000 {
- 		can1: can@2010d000 {
- 			compatible = "microchip,mpfs-can";
- 			reg = <0x0 0x2010d000 0x0 0x1000>;
--			clocks = <&clkcfg CLK_CAN1>;
-+			clocks = <&clkcfg CLK_CAN1>, <&clkcfg CLK_MSSPLL3>;
- 			interrupt-parent = <&plic>;
- 			interrupts = <57>;
- 			status = "disabled";
+diff --git a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
+index 45aa3de7cf01..01e4d4a54df6 100644
+--- a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
++++ b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
+@@ -24,7 +24,9 @@ properties:
+     maxItems: 1
+ 
+   clocks:
+-    maxItems: 1
++    items:
++      - description: AHB peripheral clock
++      - description: CAN bus clock
+ 
+ required:
+   - compatible
+@@ -39,7 +41,7 @@ examples:
+     can@2010c000 {
+         compatible = "microchip,mpfs-can";
+         reg = <0x2010c000 0x1000>;
+-        clocks = <&clkcfg 17>;
++        clocks = <&clkcfg 17>, <&clkcfg 37>;
+         interrupt-parent = <&plic>;
+         interrupts = <56>;
+     };
 -- 
 2.43.0
 
