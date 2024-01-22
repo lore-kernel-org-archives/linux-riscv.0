@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF40EC4725D
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 08:17:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC17C47DAF
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 08:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Iiw5fKtYlob3riwiNueo2+oelweObLoFKUlZJbkP9xs=; b=GbI5mMMJ7NDI9w
-	GSBilMerE5AS8xPtvJKaPm0H2EFoUzPl+6i4E13Dw+8fP//7LPc7FPMVYIWtfHo83P5aDmkTexEcW
-	U5eA5R+Y0AspvMCbqWHGgrQQEs2OzZKAPVTKHD1MSLr4qD2RYBV6w8+9Vq/mq4D3ApLrCb+I06lYM
-	WgSJrZ1qOhUOr1U2mbgBXS2DSb/6vaIseKhODRH3kYbbRaWl59wcOGDxWMKOO+i1OJTYNL0vtE+Bq
-	eUbJIRi2GsQSFrZ7ZQjl65SjxsgE32EZeXxjFwTw3HgIALnActBPGA+lMhBrOrO78/N+tWQSYt74j
-	DRN3UIGkftMv5r4yqL6Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Sb15sgwl3LfO/fzugHXNHYBl4w64L5xggKoJo8DrI0=; b=fuVSIAZ+7TIgOFZMTDLVJG+rMu
+	D3rtAouNyIzvE9WgGfYljkEA5KpaMxnu7+KuJ6guj9O/wRAa5LRDcpfUGRnZf0YzA6i2zN5prGewy
+	DH+gHA3Qb9bEgpiNrnHGy5DI9IBWxnbqO5BtYJUWephRA1ShEdUscLCs0nIwJxKMqXcNGyKNc++0f
+	2Oo21DOuBlcCDAf9ZFbiguW3lJw+PGigdyLsZffL/erpjUOCSHfnU+H2jB4QwP4WmSz5LiUH6NSpi
+	m2QQssj0xnFk+7h5YL6r5hmaIeiD8CjgHy+k8W0JqJmzoX1lHBT4TWEn8CYNAhDEDkjT/e8l3hM0P
+	frtGeX2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRpUr-00B0w9-10;
-	Mon, 22 Jan 2024 08:17:33 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1rRpc4-00B2NB-1L;
+	Mon, 22 Jan 2024 08:25:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRpUm-00B0uW-0c
+	id 1rRpc1-00B2M8-35
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 08:17:32 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DAF611BF20D;
-	Mon, 22 Jan 2024 08:17:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1705911443;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hftQ/3NQ3SEsGANsB0kuwB+4HmiO86h7hcHpWei/1cY=;
-	b=JjuFux0TPgsxBh3Wr7htl8dzLwncaA4+bhaVv9DjNXlLHYsfxKhXWRrYnOqdccPFWYSZU9
-	nNFBMmyBIWLVAGLqlnovcDgvQDTpJM4XF9OwsZ4VGK8s21Hkh0zFTCci0aDpFaglnJuBEC
-	HXedDV07MNMJl+T0ZqExJpNZsTl2JGDXDarLF/EfYaKCjrxbSyOZmUbgnvFcG7h6ZLXgyo
-	3h9D0EZf93N9d8qYXzBYH6pe6s43wiIWp6Ve+iaw0pIPsLYLUneUN1eJcAq8ZdEvk00N54
-	BXNp5k31h49FARUEokf7um+pXt69qcw8NRSIwxkTncL9F4XUeiq1dujnyR55rw==
-Date: Mon, 22 Jan 2024 09:17:22 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
-Cc: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org, chao.wei@sophgo.com, unicorn_wang@outlook.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dlan@gentoo.org
-Subject: Re: [PATCH v7 2/3] rtc: sophgo: add rtc support for Sophgo CV1800 SoC
-Message-ID: <20240122081722868bdda5@mail.local>
-References: <20240122080631.2880-1-qiujingbao.dlmu@gmail.com>
+	Mon, 22 Jan 2024 08:24:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2C75060FDB;
+	Mon, 22 Jan 2024 08:24:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C09E8C433C7;
+	Mon, 22 Jan 2024 08:24:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1705911896;
+	bh=drF9HS0qNEy+0/grGYgRcmiwZBDcpQyCv996fd/G5Uw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s1URRlGjJA38bXP5Tqq7X0QiPyWe3UraXQYziiFt47585KnHSGCL0jFjJwEmzttNe
+	 i2sGsduyPw2Sg1I6HXBlaiQ3g9W51qyA8zeUoJFdgwPA8Cm7eSnjqMH/eVdgQlyoXw
+	 0McCO5WsZwHz4i1coBWQBIgcnyJR2yFipOTrLmYtOth4Y9xXxJoaDrMC8fzMKnmxaX
+	 UkGde0+cJfWZ21larnsTS7hcRJ+jZUe36eTbgWWA0sJTX0msi+zXPEUToMVXZjTpRx
+	 RbW16AveJ/rfSy4EPmMpApjuHanWfaPCZU4CE/3jzTjygb0GjWBB4q5iPKBcCf+H2+
+	 S9s+9RrCs2Rhw==
+Date: Mon, 22 Jan 2024 08:24:51 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jack Zhu <jack.zhu@starfivetech.com>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Subject: Re: =?utf-8?B?5Zue5aSNOiDlm57lpI06IFtQQVRD?=
+ =?utf-8?Q?H_v1_1=2F2=5D_dt-bindings?= =?utf-8?Q?=3A?= media: starfive: Match
+ driver and yaml property names
+Message-ID: <20240122-uncivil-almost-631137081fd9@spud>
+References: <20240119100639.84029-1-changhuang.liang@starfivetech.com>
+ <20240119100639.84029-2-changhuang.liang@starfivetech.com>
+ <20240119-despair-festival-59ab2d4d896b@wendy>
+ <SHXPR01MB0671E2150D9A2707F12E0901F270A@SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn>
+ <20240119-preamble-calm-7724e17fcebc@wendy>
+ <BJXPR01MB0662E6EEEEF888BD90A1FCE5F275A@BJXPR01MB0662.CHNPR01.prod.partner.outlook.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240122080631.2880-1-qiujingbao.dlmu@gmail.com>
-X-GND-Sasl: alexandre.belloni@bootlin.com
+In-Reply-To: <BJXPR01MB0662E6EEEEF888BD90A1FCE5F275A@BJXPR01MB0662.CHNPR01.prod.partner.outlook.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_001728_400743_D2ECC6D4 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20240122_002458_081566_517BCE64 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,53 +85,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2540034626322078951=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22/01/2024 16:06:30+0800, Jingbao Qiu wrote:
-> Implement the RTC driver for CV1800, which able to provide time alarm
-> and calibrate functionality.
-> 
-> Signed-off-by: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
-> ---
-> 
-> Depends on https://lore.kernel.org/all/IA1PR20MB4953C774D41EDF1EADB6EC18BB6D2@IA1PR20MB4953.namprd20.prod.outlook.com/
 
-What is the dependency?
+--===============2540034626322078951==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="691fbi7YiHqy5KOf"
+Content-Disposition: inline
 
 
-Also, please fix the checkpatch.pl --strict warnings
+--691fbi7YiHqy5KOf
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> +/**
-> + * cv1800_rtc_32k_coarse_val_calib() - Using an external
-> + * clock to coarse calibrate the crystal oscillator
-> + * @info: the device of calibrated
-> + *
-> + * @return 0 on success, or -1 on fail
-> + *
-> + * This RTC has an independent 32KHz oscillator. However,
-> + * the accuracy of this oscillator is easily affected by
-> + * external environmental interference,resulting in lower
-> + * accuracy than the internal oscillator.Therefore, a 25M
-> + * crystal oscillator is used as a reference source to
-> + * calibrate the RTC and improve its accuracy.Calibration
-> + * is completed through two steps, namely rough calibration
-> + * and fine calibration.
-> + */
-> +static int cv1800_rtc_32k_coarse_val_calib(struct cv1800_rtc_priv *info)
+On Mon, Jan 22, 2024 at 01:33:56AM +0000, Changhuang Liang wrote:
+>=20
+> > On Fri, Jan 19, 2024 at 12:57:22PM +0000, Changhuang Liang wrote:
+> > > EXTERNAL EMAIL: Do not click links or open attachments unless you know
+> > > the content is safe
+> > >
+> > > Hi , Conor
+> > >
+> > > > =E4=B8=BB=E9=A2=98: Re: [PATCH v1 1/2] dt-bindings: media: starfive=
+: Match driver
+> > > > and yaml property names
+> > > >
+> > > > On Fri, Jan 19, 2024 at 02:06:38AM -0800, Changhuang Liang wrote:
+> > > > > Drop some unused properties for clocks, resets and interrupts for
+> > > > > StarFive JH7110 camera subsystem.
+> > > >
+> > > > What do you mean "unused"?
+> > > >
+> > > > Do these clocks etc exist but are not used by the driver?
+> > > >
+> > > > Or do they not exist at all?
+> > > >
+> > > > The two are very different!
+> >=20
+> > > These clocks etc exist but are not used by the driver.
+> >=20
+> > That's not an acceptable reason for removing them from the binding. If =
+they
+> > exist, they should be documented, regardless of whether the driver make=
+s use
+> > of them. NAK.
+>=20
+> If so, how to avoid the warning of dtbs_check.
 
-This is still not working as well as you think it is. You should
-Implement the offset callbacks instead.
+By also adding the clocks, resets and interrupts to the dts.
+
+--691fbi7YiHqy5KOf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZa4mUwAKCRB4tDGHoIJi
+0h/FAP9OymvQKrw2lHv7pji+pa6/xaJNsKHlv4dCxUXnS+SjUgD+ItSiNki3Vypi
+yxKXpfp0nWKwBR7x5uxNdhSO9OoXtQs=
+=tSBw
+-----END PGP SIGNATURE-----
+
+--691fbi7YiHqy5KOf--
 
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+--===============2540034626322078951==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2540034626322078951==--
+
