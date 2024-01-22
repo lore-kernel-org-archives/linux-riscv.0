@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 670EEC47DD9
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 14:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC6AC47DAF
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 14:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/fnH7jBAVHDvprWcaUHmu1w+IM5yiT7O8qg9mlVCLwo=; b=JUXRO7crK4Ufyu
-	wNK9vClWUsZNYxW+PDNdRiX9AbXmpnbz+FSF3Q+D/PC8K5om3dh2vBCEO49+cMT30/c3NEJbKnQHL
-	jjkBZS7aeMEfU2Npoo9aWc5zR5L6+MryOSCIXU8S6+q3XsisSVxI1590W03+U741LNfUwTiapeGeh
-	PDda7mg3Ra301LLJNp8V/8ETmCaOpVmqccYXN8u6BhFyTRBWlZ2Yxdrs2REPqlVBHXO470rTWIKPb
-	z4UPJjkNPEaGDZ8ke7ytA0uKk5xvV/9GhI1TL+tYIIHrmuZ90CBQNjqOkksJDJ411f4s8SjMzRVKS
-	5ODttSsEt2GaUWWNBakA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EOGIILE5BoDWh/PDDSz24b8c6dqzlVi/jJ76hVlIRvM=; b=toHlUALyJi+ZuNzTirHaT5zz7h
+	UEOOHa/1C9eukbIt5RWYc0nqsG/HM8/KFM5LanJsUQohbU9NTzS5DOcFXs/H+GDAV4LbLF7QKMfHm
+	ONW9tMR7RkWeoY/yunyqRSK0m9+y/agYKL0KUM/YEUz4TUNVABoTqnrkIATZeFV3KCTIkoYFxhERP
+	qJClMTZQvhcLhiiRvtqml6XmEEAkt9YfZoSc5URo4LYDydWN36NTh6y72Y06FVw5LcnAk46VQBbkX
+	6ZYpFG1baoIFapr7iARdS6YxpArHkLWnWJBKict+KrNpfolnSG70N81EWeMKOiGU+XCsjVw6kyqjN
+	Mi9PZHTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRvX2-00CSUb-19;
-	Mon, 22 Jan 2024 14:44:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rRvZC-00CSxy-1p;
+	Mon, 22 Jan 2024 14:46:26 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRvWz-00CSSn-1E
+	id 1rRvZ8-00CSwd-0P
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 14:44:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D05F4611C5;
-	Mon, 22 Jan 2024 14:44:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 429A0C433C7;
-	Mon, 22 Jan 2024 14:44:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705934648;
-	bh=n4icWO+A2WRRsZQtgnXM+zFZavAGdHbVHdwWTbDEN0o=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=rf+cVOryp1l0k/LbLFLRL93XODDyFzoqKCS+plSPspoSJLaDT2Ffb5MmHvpb7aOLC
-	 qSGObe4TVzceKhKnvnkCgB2Jd+KevEymgx56DvjT8j/S67GkCD98gTWIgXQTsVKCfB
-	 doegGsHpCaBYTN1vyfb3rI5jQ2ULK1PVYERudp0o2f4mgyD3UUQdKraOZ3mwhlGEwK
-	 Me0GOuqShNSiXsgGYOQN3ZYhH1+OiGxtrQIn9Wn2KcDepfC9/RYf9hfQKxkOSJBoHZ
-	 eXYh8os1tFFp/I+qCmL5+71jO7KUDF2AMsZW6ABScVjOXCjBOWvHbJ40OxnTQrv3Ww
-	 GAoqiK6Lg+N1Q==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
- Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
- <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
- <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
- <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Luke Nelson
- <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>
-Subject: Re: [PATCH RESEND bpf-next v3 0/6] Zbb support and code
- simplification for RV64 JIT
-In-Reply-To: <baffbab8-721f-462a-8b58-64972f5eae70@huaweicloud.com>
-References: <20240115131235.2914289-1-pulehui@huaweicloud.com>
- <87il3lqvye.fsf@all.your.base.are.belong.to.us>
- <baffbab8-721f-462a-8b58-64972f5eae70@huaweicloud.com>
-Date: Mon, 22 Jan 2024 15:44:05 +0100
-Message-ID: <878r4hqvgq.fsf@all.your.base.are.belong.to.us>
+	Mon, 22 Jan 2024 14:46:25 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1rRvYt-0003ay-HO; Mon, 22 Jan 2024 15:46:07 +0100
+Received: from [2a0a:edc0:0:b01:1d::7b] (helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1rRvYr-001cU3-Kp; Mon, 22 Jan 2024 15:46:05 +0100
+Received: from pengutronix.de (unknown [172.20.34.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 2DCE527B6A2;
+	Mon, 22 Jan 2024 14:46:05 +0000 (UTC)
+Date: Mon, 22 Jan 2024 15:46:04 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	Wolfgang Grandegger <wg@grandegger.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, linux-can@vger.kernel.org, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 2/7] dt-bindings: can: mpfs: add missing required clock
+Message-ID: <20240122-smokeless-ion-63e4148c22e5-mkl@pengutronix.de>
+References: <20240122-catty-roast-d3625dbb02fe@spud>
+ <20240122-breeder-lying-0d3668d98886@spud>
+ <20240122-surely-crimp-ba4a8c55106d-mkl@pengutronix.de>
+ <20240122-cruelly-dainty-002081f0beb2@spud>
 MIME-Version: 1.0
+In-Reply-To: <20240122-cruelly-dainty-002081f0beb2@spud>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_064409_504841_B4C0CD70 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240122_064622_160300_574503AF 
+X-CRM114-Status: GOOD (  27.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,101 +83,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============4025730827242909870=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IE9uIDIwMjQvMS8y
-MiAyMjozMywgQmrDtnJuIFTDtnBlbCB3cm90ZToKPj4gUHUgTGVodWkgPHB1bGVodWlAaHVhd2Vp
-Y2xvdWQuY29tPiB3cml0ZXM6Cj4+IAo+Pj4gQWRkIFpiYiBzdXBwb3J0IFswXSB0byBvcHRpbWl6
-ZSBjb2RlIHNpemUgYW5kIHBlcmZvcm1hbmNlIG9mIFJWNjQgSklULgo+Pj4gTWVhbndoaWxlLCBh
-ZGp1c3QgdGhlIGNvZGUgZm9yIHVuaWZpY2F0aW9uIGFuZCBzaW1wbGlmaWNhdGlvbi4gVGVzdHMK
-Pj4+IHRlc3RfYnBmLmtvIGFuZCB0ZXN0X3ZlcmlmaWVyIGhhdmUgcGFzc2VkLCBhcyB3ZWxsIGFz
-IHRoZSByZWxhdGl2ZQo+Pj4gdGVzdGNhc2VzIG9mIHRlc3RfcHJvZ3MqLgo+Pj4KPj4+IExpbms6
-IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9yaXNjdi1iaXRtYW5pcC9yZWxlYXNlcy9kb3dubG9h
-ZC8xLjAuMC9iaXRtYW5pcC0xLjAuMC0zOC1nODY1ZTdhNy5wZGYgWzBdCj4+Pgo+Pj4gdjMgcmVz
-ZW5kOgo+Pj4gLSByZXNlbmQgZm9yIG1haWwgYmUgdHJlYXRlZCBhcyBzcGFtLgo+Pj4KPj4+IHYz
-Ogo+Pj4gLSBDaGFuZ2UgdG8gZWFybHktZXhpdCBjb2RlIHN0eWxlIGFuZCBtYWtlIGNvZGUgbW9y
-ZSBleHBsaWNpdC4KPj4gCj4+IExlaHVpLAo+PiAKPj4gU29ycnkgZm9yIHRoZSBkZWxheS4gSSdt
-IGNoYXNpbmcgYSBzdHJ1Y3Rfb3BzIFJJU0MtViBCUEYgcmVncmVzc2lvbiBpbgo+PiA2LjgtcmMx
-LCBJIHdpbGwgbmVlZCB0byB3cmFwIG15IGhlYWQgYXJvdW5kIHRoYXQgcHJpb3IgcmV2aWV3aW5n
-Cj4+IHByb3Blcmx5Lgo+PiAKPgo+IE9oLCBJIGFsc28gZm91bmQgdGhlIHByb2JsZW0gd2l0aCBz
-dHJ1Y3Qgb3BzIGFuZCBmaXhlZCBpdAoKQXdlc29tZSwgSSBqdXN0IHN0YXJ0ZWQgYmlzZWN0aW5n
-IHRoZSBmb2xsb3dpbmcgdGVzdF9wcm9ncyBzdWItdGVzdApmYWlscyBvbiA2LjgtcmMxOgoKYnBm
-X2l0ZXJfc2V0c29ja29wdDoKVW5hYmxlIHRvIGhhbmRsZSBrZXJuZWwgTlVMTCBwb2ludGVyIGRl
-cmVmZXJlbmNlIGF0IHZpcnR1YWwgYWRkcmVzcyAwMDAwMDAwMDAwMDAwMDAwCk9vcHMgWyMxXQpN
-b2R1bGVzIGxpbmtlZCBpbjogYnBmX3Rlc3Rtb2QoT0UpIGRybSBmdXNlIGkyY19jb3JlIGRtX21v
-ZCBkcm1fcGFuZWxfb3JpZW50YXRpb25fcXVpcmtzIGJhY2tsaWdodCBjb25maWdmcyBpcF90YWJs
-ZXMgeF90YWJsZXMKQ1BVOiAxIFBJRDogNDU4IENvbW06IHRlc3RfcHJvZ3MgVGFpbnRlZDogRyAg
-ICAgICAgICAgT0UgICAgICA2LjguMC1yYzEta3NlbGZ0ZXN0X3BsYWluICMxCkhhcmR3YXJlIG5h
-bWU6IHJpc2N2LXZpcnRpbyxxZW11IChEVCkKZXBjIDogMHgwCiByYSA6IHRjcF9zZXRfY2Ffc3Rh
-dGUrMHgyYy8weDlhCmVwYyA6IDAwMDAwMDAwMDAwMDAwMDAgcmEgOiBmZmZmZmZmZjgwY2RjNmIy
-IHNwIDogZmYyMDAwMDAwMDAwYjkxMAogZ3AgOiBmZmZmZmZmZjgyNTg3YjYwIHRwIDogZmY2MDAw
-MDA4N2VhODA0MCB0MCA6IDAwMDAwMDAwMDAwMDAwMDAKIHQxIDogZmZmZmZmZmY4MDFlZDE1ZSB0
-MiA6IDAwMDAwMDAwMDAwMDAwMDAgczAgOiBmZjIwMDAwMDAwMDBiOTMwCiBzMSA6IGZmNjAwMDAw
-ODc5Mjk2YzAgYTAgOiBmZjIwMDAwMDAwNDk3MDAwIGExIDogMDAwMDAwMDAwMDAwMDAwOAogYTIg
-OiAwMDAwMDAwMDAwMDAwMDAxIGEzIDogZmY2MDAwMDA4N2VhODNhMCBhNCA6IDAwMDAwMDAwMDAw
-MDAwMDAKIGE1IDogMDAwMDAwMDAwMDAwMDEwNiBhNiA6IDAwMDAwMDAwMDAwMDAwMjEgYTcgOiAw
-MDAwMDAwMDAwMDAwMDAwCiBzMiA6IDAwMDAwMDAwMDAwMDAwMDAgczMgOiBmZjYwMDAwMDg2ODc4
-MDA4IHM0IDogZmY2MDAwMDA4MmNlMmY0MAogczUgOiBmZjYwMDAwMDg0ZjU2MDQwIHM2IDogZmY2
-MDAwMDA4NzkyOTA0MCBzNyA6IGZmNjAwMDAwODY4NzgwMDgKIHM4IDogZmYyMDAwMDAwMDAwYmE1
-ZiBzOSA6IGZmNjAwMDAwODc5MjhhMDAgczEwOiAwMDAwMDAwMDAwMDAwMDAyCiBzMTE6IGZmNjAw
-MDAwODc5MjgwNDAgdDMgOiAwMDAwMDAwMDAwMDFmZmZmIHQ0IDogMDEwMDAwMDAwMDAwMDAwMAog
-dDUgOiAwMDAwMDAwMDAwMDAwMDAwIHQ2IDogZmY2MDAwMDA4NzkyYTExOApzdGF0dXM6IDAwMDAw
-MDAyMDAwMDAxMjAgYmFkYWRkcjogMDAwMDAwMDAwMDAwMDAwMCBjYXVzZTogMDAwMDAwMDAwMDAw
-MDAwYwpDb2RlOiBVbmFibGUgdG8gYWNjZXNzIGluc3RydWN0aW9uIGF0IDB4ZmZmZmZmZmZmZmZm
-ZmZlYy4KLS0tWyBlbmQgdHJhY2UgMDAwMDAwMDAwMDAwMDAwMCBdLS0tCgpicGZfdGNwX2NhOgpV
-bmFibGUgdG8gaGFuZGxlIGtlcm5lbCBwYWdpbmcgcmVxdWVzdCBhdCB2aXJ0dWFsIGFkZHJlc3Mg
-ZmY2MDAwMDA4ODU1NDUwMApPb3BzIFsjMV0KTW9kdWxlcyBsaW5rZWQgaW46IGlwdGFibGVfcmF3
-IHh0X2Nvbm5tYXJrIGJwZl90ZXN0bW9kKE9FKSBkcm0gZnVzZSBpMmNfY29yZSBkcm1fcGFuZWxf
-b3JpZW50YXRpb25fcXVpcmtzIGJhY2tsaWdodCBkbV9tb2QgY29uZmlnZnMgaXBfdGFibGVzIHhf
-dGFibGVzIFtsYXN0IHVubG9hZGVkOiBicGZfdGVzdG1vZChPRSldCkNQVTogMyBQSUQ6IDQ1OCBD
-b21tOiB0ZXN0X3Byb2dzIFRhaW50ZWQ6IEcgICAgICAgICAgIE9FICAgICAgNi44LjAtcmMxLWtz
-ZWxmdGVzdF9wbGFpbiAjMQpIYXJkd2FyZSBuYW1lOiByaXNjdi12aXJ0aW8scWVtdSAoRFQpCmVw
-YyA6IDB4ZmY2MDAwMDA4ODU1NDUwMAogcmEgOiB0Y3BfYWNrKzB4Mjg4LzB4MTIzMgplcGMgOiBm
-ZjYwMDAwMDg4NTU0NTAwIHJhIDogZmZmZmZmZmY4MGNjNzE2NiBzcCA6IGZmMjAwMDAwMDExN2Jh
-NTAKIGdwIDogZmZmZmZmZmY4MjU4N2I2MCB0cCA6IGZmNjAwMDAwODdiZTAwNDAgdDAgOiBmZjYw
-MDAwMDg4NTU0NTAwCiB0MSA6IGZmZmZmZmZmODAxZWQyNGUgdDIgOiAwMDAwMDAwMDAwMDAwMDAw
-IHMwIDogZmYyMDAwMDAwMTE3YmJjMAogczEgOiAwMDAwMDAwMDAwMDAwNTAwIGEwIDogZmYyMDAw
-MDAwMDY5MTAwMCBhMSA6IDAwMDAwMDAwMDAwMDAwMTgKIGEyIDogMDAwMDAwMDAwMDAwMDAwMSBh
-MyA6IGZmNjAwMDAwODdiZTAzYTAgYTQgOiAwMDAwMDAwMDAwMDAwMDAwCiBhNSA6IDAwMDAwMDAw
-MDAwMDAwMDAgYTYgOiAwMDAwMDAwMDAwMDAwMDIxIGE3IDogZmZmZmZmZmY4MjYzZjg4MAogczIg
-OiAwMDAwMDAwMDRhYzNjMTNiIHMzIDogMDAwMDAwMDA0YWMzYzEzYSBzNCA6IDAwMDAwMDAwMDAw
-MDgyMDAKIHM1IDogMDAwMDAwMDAwMDAwMDAwMSBzNiA6IDAwMDAwMDAwMDAwMDAxMDQgczcgOiBm
-ZjIwMDAwMDAxMTdiYjAwCiBzOCA6IGZmNjAwMDAwODg1NTQ0YzAgczkgOiAwMDAwMDAwMDAwMDAw
-MDAwIHMxMDogZmY2MDAwMDA4NmZmMGI4MAogczExOiAwMDAwNTU1NTc5ODNhOWMwIHQzIDogMDAw
-MDAwMDAwMDAwMDAwMCB0NCA6IDAwMDAwMDAwMDAwMGZmYzQKIHQ1IDogZmZmZmZmZmY4MTU0ZjE3
-MCB0NiA6IDAwMDAwMDAwMDAwMDAwMzAKc3RhdHVzOiAwMDAwMDAwMjAwMDAwMTIwIGJhZGFkZHI6
-IGZmNjAwMDAwODg1NTQ1MDAgY2F1c2U6IDAwMDAwMDAwMDAwMDAwMGMKQ29kZTogYzc5NiA2N2Q3
-IDAwMDAgMDAwMCAwMDUyIDAwMDIgYzEzYiA0YWMzIDAwMDAgMDAwMCAoMDAwMSkgMDAwMCAKLS0t
-WyBlbmQgdHJhY2UgMDAwMDAwMDAwMDAwMDAwMCBdLS0tCgpkdW1teV9zdF9vcHM6ClVuYWJsZSB0
-byBoYW5kbGUga2VybmVsIGFjY2VzcyB0byB1c2VyIG1lbW9yeSB3aXRob3V0IHVhY2Nlc3Mgcm91
-dGluZXMgYXQgdmlydHVhbCBhZGRyZXNzIDAwMDAwMDAwMDAwNDMwMjIKT29wcyBbIzFdCk1vZHVs
-ZXMgbGlua2VkIGluOiBpcHRhYmxlX3JhdyB4dF9jb25ubWFyayBicGZfdGVzdG1vZChPRSkgZHJt
-IGZ1c2UgaTJjX2NvcmUgZHJtX3BhbmVsX29yaWVudGF0aW9uX3F1aXJrcyBiYWNrbGlnaHQgZG1f
-bW9kIGNvbmZpZ2ZzIGlwX3RhYmxlcyB4X3RhYmxlcyBbbGFzdCB1bmxvYWRlZDogYnBmX3Rlc3Rt
-b2QoT0UpXQpDUFU6IDEgUElEOiA0NTIgQ29tbTogdGVzdF9wcm9ncyBUYWludGVkOiBHICAgICAg
-ICAgICBPRSAgICAgIDYuOC4wLXJjMS1rc2VsZnRlc3RfcGxhaW4gIzEKSGFyZHdhcmUgbmFtZTog
-cmlzY3YtdmlydGlvLHFlbXUgKERUKQplcGMgOiAweDQzMDIyCiByYSA6IGJwZl9zdHJ1Y3Rfb3Bz
-X3Rlc3RfcnVuKzB4MTg4LzB4MzdhCmVwYyA6IDAwMDAwMDAwMDAwNDMwMjIgcmEgOiBmZmZmZmZm
-ZjgwYzc1ZDFhIHNwIDogZmYyMDAwMDAwMDJhM2NlMAogZ3AgOiBmZmZmZmZmZjgyNTg3YjYwIHRw
-IDogZmY2MDAwMDA4MzU2Yjg0MCB0MCA6IDAwMDAwMDAwMDAwNDMwMjMKIHQxIDogZmZmZmZmZmY4
-MDFlZDA2MiB0MiA6IDAwMDAwMDAwMDAwMGZmMDAgczAgOiBmZjIwMDAwMDAwMmEzZDQwCiBzMSA6
-IGZmZmZmZmZmNzgyMDcwMDAgYTAgOiBmZmZmZmZmZmYyZjNmNGY1IGExIDogMDAwMDAwMDAwMDAw
-MDAwOAogYTIgOiAwMDAwMDAwMDAwMDAwMDAxIGEzIDogZmY2MDAwMDA4MzU2YmJhMCBhNCA6IDAw
-MDAwMDAwMDAwMDAwMDAKIGE1IDogZmZmZmZmZmZmMmYzZjRmNSBhNiA6IDAwMDAwMDAwMDAwMDAw
-MjEgYTcgOiAwMDAwMDAwMDUyNDY0ZTQzCiBzMiA6IDAwMDAwMDAwMDAwMDAwMDAgczMgOiBmZjYw
-MDAwMDgwYjMzYjgwIHM0IDogMDAwMDAwMDAwMDAwMDA4NAogczUgOiBmZjYwMDAwMDgzMzM0YzAw
-IHM2IDogZmY2MDAwMDA4NDg2MTU4MCBzNyA6IDAwMDA3ZmZmZjA4ODc2NjgKIHM4IDogMDAwMDdm
-ZmZhYTg1OTAzMCBzOSA6IDAwMDAwMDAwMDAwMDAwMDAgczEwOiAwMDAwNTU1NTY2MzFjYTRjCiBz
-MTE6IDAwMDA1NTU1NjYzMWM5YzAgdDMgOiAwMDAwMDAwMDAwMDAwMDBmIHQ0IDogMDAwMDAwMDAw
-MDAwMDgwMAogdDUgOiAwMDAxMDAwMDAwMDAwMDAwIHQ2IDogZmY2MDAwMDA4YWRiOWJmOApzdGF0
-dXM6IDAwMDAwMDAyMDAwMDAxMjAgYmFkYWRkcjogMDAwMDAwMDAwMDA0MzAyMiBjYXVzZTogMDAw
-MDAwMDAwMDAwMDAwYwpDb2RlOiBVbmFibGUgdG8gYWNjZXNzIGluc3RydWN0aW9uIGF0IDB4MDAw
-MDAwMDAwMDA0MzAwZS4KLS0tWyBlbmQgdHJhY2UgMDAwMDAwMDAwMDAwMDAwMCBdLS0tCgpFbnZp
-cm9ubWVudDogT3BlblNCSSAxLjQsIFFlbXUgOC4yLjAsIFUtYm9vdCBVRUZJCgpJcyB0aGF0IHRo
-ZSBzYW1lIHRoYXQgeW91IHNlZT8KCkknbGwgdGFrZSB5b3VyIHBhdGNoIGZvciBhIHNwaW4hCgoK
-QmrDtnJuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============4025730827242909870==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zuyztwmnpelwfpxf"
+Content-Disposition: inline
+
+
+--zuyztwmnpelwfpxf
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On 22.01.2024 14:21:04, Conor Dooley wrote:
+> On Mon, Jan 22, 2024 at 02:13:16PM +0100, Marc Kleine-Budde wrote:
+> > On 22.01.2024 12:19:50, Conor Dooley wrote:
+> > > From: Conor Dooley <conor.dooley@microchip.com>
+> > >=20
+> > > The CAN controller on PolarFire SoC has an AHB peripheral clock _and_=
+ a
+> > > CAN bus clock. The bus clock was omitted when the binding was written,
+> > > but is required for operation. Make up for lost time and add it.
+> > >=20
+> > > Cautionary tale in adding bindings without having implemented a real
+> > > user for them perhaps.
+> > >=20
+> > > Fixes: c878d518d7b6 ("dt-bindings: can: mpfs: document the mpfs CAN c=
+ontroller")
+> > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > > ---
+> > >  .../devicetree/bindings/net/can/microchip,mpfs-can.yaml     | 6 ++++=
+--
+> > >  1 file changed, 4 insertions(+), 2 deletions(-)
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/net/can/microchip,mpfs=
+-can.yaml b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.ya=
+ml
+> > > index 45aa3de7cf01..01e4d4a54df6 100644
+> > > --- a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.ya=
+ml
+> > > +++ b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.ya=
+ml
+> > > @@ -24,7 +24,9 @@ properties:
+> > >      maxItems: 1
+> > > =20
+> > >    clocks:
+> > > -    maxItems: 1
+> > > +    items:
+> > > +      - description: AHB peripheral clock
+> > > +      - description: CAN bus clock
+> >=20
+> > What about adding clock-names, so that the order can be checked
+> > automatically?
+>=20
+> I don't personally care for doing so, but if your heart is set on having
+> them, then sure.
+
+Usually the CAN driver needs to have the clock rate of the clocks that
+the basis for the CAN bus clock. Looking at the clocks description it's
+probably the 2nd one.
+
+With clock-names we can automatically check that the 2nd clock is always
+the CAN clock.
+
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--zuyztwmnpelwfpxf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEDs2BvajyNKlf9TJQvlAcSiqKBOgFAmWuf6oACgkQvlAcSiqK
+BOiCMwf+PILQdcoKYj1XmQD6oOg99QEnpCsTXRVcTpE6fUQPNRyfKH6+KYIhiXhn
+bBp6u3rBJ6pnaJfTajjpdFrgjpD7QJBD88Eg37Elv8V9211/UtPLuVLRVQpQfREt
+8vmqnVihZCubToC+pC3B/RadtYJCUb6uD2A0tvdmF154H9lwvpe+ojEmLp/6j9F1
+fr/p52aGJcKdO+8VUx7dXpKlaghGwJoVcPIhTBxaa60hhJsSM8mNuVHx84GtZNBL
+K+ELI4xCxy5U9gs3CAr9FiP2zbtetZhnj19rHAY8ndFGT6DVu9Hp/xgWGyO9pCUR
+rwYkqH/u8YFRS0UmZmZG5A49oESIUQ==
+=yo0x
+-----END PGP SIGNATURE-----
+
+--zuyztwmnpelwfpxf--
+
+
+--===============4025730827242909870==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4025730827242909870==--
+
