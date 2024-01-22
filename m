@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBAAC47DDB
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 16:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40CC0C47DD9
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 16:40:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BDXk04/nUkb8pCaFjU9PPYzepzCvm3FuRAmEQP/GIjE=; b=B88LYFDro2Y83J
-	xHzaZyF+2aBu+UobVVWhLmI6W+daGvwscPxeOjIXaOs5EkJO9daBnZpi8xSDYH/nZAebMVZNJF61g
-	Z3O0JDgC+x4Dwo+kwqPh3OxIPSQkCfqS5R7KTmiFM+XsLU2vPmzuOuGdATT9qRRhnaCkkKxqbJrEj
-	fbDZZ2TDaEG/nx8xm9etUbD76Gg230gm3ryJ4334Jo/6gNVRFlHVc9om5yY/wExb62+oGhVvionE1
-	oUrBEDDHwSWr86f+jitYQ0lWp6SOSdEqhYwmUSac4kfY0ppVBZss/ubw4/kGm7sQgV0xEw5iNkmRe
-	5kZ9LPPI/9oP4AV2fQ3w==;
+	List-Owner; bh=fVvgoNT25XJLKPnEeI+BhBHNA8RUAxZkMRt24/FBn+Y=; b=mOMa6c+zOZJuLg
+	4No9Kwwc55KqBWYcOcKEbGWASmfcLdXgCwgDJxieQPjJauN+FzZCi1WJ5YjI1pYiQ8Nh6sh+tO3OU
+	kqjqq6lCkAVD4wBDlM9qOGSVLzj1TbdIfA8FdcGWtADlDwix/JxEoLzMZ2EDtUbfwUC7lGuJKBO9f
+	JU1AxiQ8lEYXqMEZgi6+/6gZaWPXczjey3DcQ0rUrr/533daTDCuG5ZaBMsri4S9bfFuOd/co+vDj
+	8oqiv82vMS3gDrNM1BevZNIrVXMAf5A6401zU7ttrAs32CuMZOP+jKZHmCfmX59bSozslE6QS3Qfn
+	zQkjF1mt6dE/0u+S83Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRxBc-00Cysj-22;
-	Mon, 22 Jan 2024 16:30:12 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rRxLf-00D1ow-2z;
+	Mon, 22 Jan 2024 16:40:35 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRxBX-00CypD-23
+	id 1rRxLd-00D1nf-0V
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 16:30:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id F2F16CE2975;
-	Mon, 22 Jan 2024 16:30:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A48EBC433C7;
-	Mon, 22 Jan 2024 16:30:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705941005;
-	bh=OzGrYxrAboZ3xNAP6YdI4Gj21H01FR+mtvCInhIDFhg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=Ye4H0itenIlvmOTqqOw+9kFyYzXK16wx1XFlVTPJt9fq+Kgp36t2JlNaFNoiTCEWC
-	 5eS9z+LT1q7dljVuP2r1aozVPuACc5+yQxLH0JUwMu419BwByhMqTZqGyMAFm4badq
-	 SaSawt9e67OemZmajio5b5sOHfYrTKzimqiZrG6aTQZ2VGD/DkZQKJqGW1h+OjMAtV
-	 iiuP3KBY4HLcuTa7ergelTvjX1Bdc49othKQIgX7oKMFTMfP0nX3jZDeTMrfRbqqa0
-	 i1lNZX/pKw5qydYjrblS66wqIE4cn5spyVU5tVhjdmnWba/LTcy1SvNPAzyLNVBiI+
-	 MpBnuWubPalHA==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
- Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
- <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
- <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
- <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Luke Nelson
- <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>
-Subject: Re: [PATCH RESEND bpf-next v3 0/6] Zbb support and code
- simplification for RV64 JIT
-In-Reply-To: <f73cdabe-eba3-4842-8da2-a6316590eb1e@huaweicloud.com>
-References: <20240115131235.2914289-1-pulehui@huaweicloud.com>
- <87il3lqvye.fsf@all.your.base.are.belong.to.us>
- <baffbab8-721f-462a-8b58-64972f5eae70@huaweicloud.com>
- <878r4hqvgq.fsf@all.your.base.are.belong.to.us>
- <874jf5qudx.fsf@all.your.base.are.belong.to.us>
- <f73cdabe-eba3-4842-8da2-a6316590eb1e@huaweicloud.com>
-Date: Mon, 22 Jan 2024 17:30:02 +0100
-Message-ID: <87zfwxpbzp.fsf@all.your.base.are.belong.to.us>
+	Mon, 22 Jan 2024 16:40:34 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1d71207524dso10516165ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jan 2024 08:40:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1705941628; x=1706546428; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hFXUPIGtXHy0u88aXaZUxzjzqMNiU8mnTcB9U06vRXQ=;
+        b=DGhpRFU/8lzv8k9cUwWGeZnaSbBJ0sjEuEu62CjeXr3Fi0aljdsR6ZWsNZlthuIw+D
+         XMyx7ZHY5wwJAzMiahFTZ5jhBAfZg78FYCqyPPiB8GxbPI8sdrhENW+iCXrtnQE8jmfF
+         oWWMuCj+Thgz0azgFy0Dp2ricbWhoVQIKDC2oJIj5GUM9HRugeUikjcfd9aquiOdB1U9
+         TODfii9UHM1kt8kNUkFkYL4jj8DMgFlpXYdoyoh9/HquWcIEWRN2sW2A8mvA1RsHh5hs
+         5U0jraYbBwFzcgQYnD62ryva0tycC+g7VUgYFnY/h781v6TaojEVj/8f6M/E6bHhRQRU
+         RRiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705941628; x=1706546428;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hFXUPIGtXHy0u88aXaZUxzjzqMNiU8mnTcB9U06vRXQ=;
+        b=Lj4KjTBM23crSZnEHKdz2xpVSF1H2IJuNZyrAQD/hGatZjx7Bdo+uqJYfxtMIHepMa
+         N4f3uSr/Htz8sfLTyL4wzh/gtZ3sp62MbDIgpqNuHbNq21dt6HcxxXqSl3jGQw02qjBC
+         jb8rd9lsdSRoEUeoU9d++PNRMaAdSCErJneoY74PNRG8tPjqm3OZCBfIi4i5NCrAOfz3
+         3wslNoSsgQYQMVm5ShwT7RNcPQSbZb1OycsO6FDAdLnYq+zO0UhehYkgNQZQ/AFFO0NG
+         /MG/jgXuNdqEjH3MjodaxKVssX4bGQ+bPxy4D1Yjjpw2DpCkMnrn9P9Jc2GefqW3tfWr
+         iM3g==
+X-Gm-Message-State: AOJu0YxmUNWEFy+7xS4a93YZc/n5I2j2CbT65tfz6XeZABsEZBMUkhDH
+	Ti6zLulNkITb89nJF9quWaPZttOguowYCGHw1dQa6SAGqDUYjqr0
+X-Google-Smtp-Source: AGHT+IE14W6lGJOfsRlhYN6PdnAYVB+1RuPNpPAkweQS2ExEHuVOV7aGlwLBsCqZlWLnei3zJiIEtg==
+X-Received: by 2002:a17:902:b788:b0:1d7:297b:854f with SMTP id e8-20020a170902b78800b001d7297b854fmr2168214pls.54.1705941627649;
+        Mon, 22 Jan 2024 08:40:27 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id ks5-20020a056a004b8500b006db3358a0bdsm9868297pfb.193.2024.01.22.08.40.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Jan 2024 08:40:26 -0800 (PST)
+Date: Mon, 22 Jan 2024 08:40:25 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	David Laight <David.Laight@aculab.com>,
+	Xiao Wang <xiao.w.wang@intel.com>, Evan Green <evan@rivosinc.com>,
+	Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v15 5/5] kunit: Add tests for csum_ipv6_magic and
+ ip_fast_csum
+Message-ID: <2c8e98b6-336e-4bc7-81ba-5a4d35ac868a@roeck-us.net>
+References: <20240108-optimize_checksum-v15-0-1c50de5f2167@rivosinc.com>
+ <20240108-optimize_checksum-v15-5-1c50de5f2167@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240108-optimize_checksum-v15-5-1c50de5f2167@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_083007_865880_6847757D 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240122_084033_197012_F916233B 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +95,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IE9uIDIwMjQvMS8y
-MiAyMzowNywgQmrDtnJuIFTDtnBlbCB3cm90ZToKPj4gQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2Vy
-bmVsLm9yZz4gd3JpdGVzOgo+PiAKPj4+IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNv
-bT4gd3JpdGVzOgo+Pj4KPj4+PiBPbiAyMDI0LzEvMjIgMjI6MzMsIEJqw7ZybiBUw7ZwZWwgd3Jv
-dGU6Cj4+Pj4+IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4gd3JpdGVzOgo+Pj4+
-Pgo+Pj4+Pj4gQWRkIFpiYiBzdXBwb3J0IFswXSB0byBvcHRpbWl6ZSBjb2RlIHNpemUgYW5kIHBl
-cmZvcm1hbmNlIG9mIFJWNjQgSklULgo+Pj4+Pj4gTWVhbndoaWxlLCBhZGp1c3QgdGhlIGNvZGUg
-Zm9yIHVuaWZpY2F0aW9uIGFuZCBzaW1wbGlmaWNhdGlvbi4gVGVzdHMKPj4+Pj4+IHRlc3RfYnBm
-LmtvIGFuZCB0ZXN0X3ZlcmlmaWVyIGhhdmUgcGFzc2VkLCBhcyB3ZWxsIGFzIHRoZSByZWxhdGl2
-ZQo+Pj4+Pj4gdGVzdGNhc2VzIG9mIHRlc3RfcHJvZ3MqLgo+Pj4+Pj4KPj4+Pj4+IExpbms6IGh0
-dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9yaXNjdi1iaXRtYW5pcC9yZWxlYXNlcy9kb3dubG9hZC8x
-LjAuMC9iaXRtYW5pcC0xLjAuMC0zOC1nODY1ZTdhNy5wZGYgWzBdCj4+Pj4+Pgo+Pj4+Pj4gdjMg
-cmVzZW5kOgo+Pj4+Pj4gLSByZXNlbmQgZm9yIG1haWwgYmUgdHJlYXRlZCBhcyBzcGFtLgo+Pj4+
-Pj4KPj4+Pj4+IHYzOgo+Pj4+Pj4gLSBDaGFuZ2UgdG8gZWFybHktZXhpdCBjb2RlIHN0eWxlIGFu
-ZCBtYWtlIGNvZGUgbW9yZSBleHBsaWNpdC4KPj4+Pj4KPj4+Pj4gTGVodWksCj4+Pj4+Cj4+Pj4+
-IFNvcnJ5IGZvciB0aGUgZGVsYXkuIEknbSBjaGFzaW5nIGEgc3RydWN0X29wcyBSSVNDLVYgQlBG
-IHJlZ3Jlc3Npb24gaW4KPj4+Pj4gNi44LXJjMSwgSSB3aWxsIG5lZWQgdG8gd3JhcCBteSBoZWFk
-IGFyb3VuZCB0aGF0IHByaW9yIHJldmlld2luZwo+Pj4+PiBwcm9wZXJseS4KPj4+Pj4KPj4+Pgo+
-Pj4+IE9oLCBJIGFsc28gZm91bmQgdGhlIHByb2JsZW0gd2l0aCBzdHJ1Y3Qgb3BzIGFuZCBmaXhl
-ZCBpdAo+PiAKPj4gUHUsIHdpdGggeW91ciBwYXRjaCBicGZfaXRlcl9zZXRzb2Nrb3B0LCBicGZf
-dGNwX2NhLCBhbmQgZHVtbXlfc3Rfb3BzCj4+IHBhc3NlcyEKPj4gCj4+IFBsZWFzZSBzcGluIGEg
-cHJvcGVyIGZpeGVzIHBhdGNoLCBhbmQgZmVlbCBmcmVlIHRvIGFkZDoKPj4gCj4+IFRlc3RlZC1i
-eTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgo+PiBBY2tlZC1ieTogQmrDtnJu
-IFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4KPj4gCj4KPiBJcyB0aGF0IGluIGEgaHVycnk/IElm
-IG5vdCwgSSB3b3VsZCBsaWtlIHRvIHNlbmQgaXQgd2l0aCB0aGUgdXBjb21pbmcgCj4gcGF0Y2hz
-ZXQuCgpUaGlzIGlzIGEgc2VwYXJhdGUgZml4LCByaWdodD8gV2hhdCBwYXRjaHNldCBhcmUgeW91
-IHJlZmVycmluZyB0byB3aGVyZQp0aGUgZml4IHdvdWxkIGJlIGluPwoKQXMgb2Ygbm93IDYuOC1y
-YzEgaXMgYnJva2VuISBJdCB3b3VsZCBiZSBhIGdyZWF0IHdpdGggYSBmaXggYXNhcC4uLgoKCkNo
-ZWVycywKQmrDtnJuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+Hi,
+
+On Mon, Jan 08, 2024 at 03:57:06PM -0800, Charlie Jenkins wrote:
+> Supplement existing checksum tests with tests for csum_ipv6_magic and
+> ip_fast_csum.
+> 
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+
+With this patch in the tree, the arm:mps2-an385 qemu emulation gets a bad hiccup.
+
+[    1.839556] Unhandled exception: IPSR = 00000006 LR = fffffff1
+[    1.839804] CPU: 0 PID: 164 Comm: kunit_try_catch Tainted: G                 N 6.8.0-rc1 #1
+[    1.839948] Hardware name: Generic DT based system
+[    1.840062] PC is at __csum_ipv6_magic+0x8/0xb4
+[    1.840408] LR is at test_csum_ipv6_magic+0x3d/0xa4
+[    1.840493] pc : [<21212f34>]    lr : [<21117fd5>]    psr: 0100020b
+[    1.840586] sp : 2180bebc  ip : 46c7f0d2  fp : 21275b38
+[    1.840664] r10: 21276b60  r9 : 21275b28  r8 : 21465cfc
+[    1.840751] r7 : 00003085  r6 : 21275b4e  r5 : 2138702c  r4 : 00000001
+[    1.840847] r3 : 2c000000  r2 : 1ac7f0d2  r1 : 21275b39  r0 : 21275b29
+[    1.840942] xPSR: 0100020b
+
+This translates to:
+
+PC is at __csum_ipv6_magic (arch/arm/lib/csumipv6.S:15)
+LR is at test_csum_ipv6_magic (./arch/arm/include/asm/checksum.h:60 ./arch/arm/include/asm/checksum.h:163 lib/checksum_kunit.c:617)
+
+Obviously I can not say if this is a problem with qemu or a problem with
+the Linux kernel. Given that, and the presumably low interest in
+running mps2-an385 with Linux, I'll simply disable that test. Just take
+it as a heads up that there _may_ be a problem with this on arm
+nommu systems.
+
+Thanks,
+Guenter
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
