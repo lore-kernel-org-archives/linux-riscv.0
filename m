@@ -4,100 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD27C4725D
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 11:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3393EC4725D
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 12:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7cUdgrbZE1bEo0MeuKr7QKq2kc+9hJsl7mmzeOag+aU=; b=uX6mboswhs16Pa
-	c/K73/M8c2VPS+UqQbMc6sdtmepE4XVMPOdGrtouyEnkLBv5k9ZOiT06ukDQ5ZLsGvJ0oKRZTcf6s
-	YbeF/bfAsqdECcOI4CuLFinvbXu/KiBY3VXDnhU/s6D+yRMy8GP1qzmkQkA0mfIA7S1NzNc11lnx7
-	5HLHAl352jReWEyW/UUVkPHT4BmNhOqDlDGkC4QAXJAMly0Ae2x1z621BmXkWGedNrlp1KyMkqmAk
-	FgEQGijeDxF9sqiDjW5FiA2rMg76jZKHWEhfUzngyZyZk7/SgmQdQKBoBMBVmfDCp9rVQrjHloLHP
-	PE9a0tMInxJYXzHgH1KA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=w74NRKQaxq7pit65ZmSOtl0Szn3HOmYz70L6eR41rTk=; b=Mer3XHVy77RqP2
+	v0VPtbPisYTBPzvnG1tv/cMEMUqWSxzqkOS6HavitviPmS5phrs6w0n15tobg+KdXOIrK/+h2vIVh
+	HhWZ36ahPqjnj3n8zUI8uipJ2lxQD/Ue0g2n/5qfN15Vtph5shGGCGKFZh494yXNZTmWaCXVT9EGP
+	o99+/cZrxmXL6vz/qqtMSmxz/c2uH3qO5xu0t7mjRLN+zH73wyDEzIxDkdHduXbYJ24HPM+68WQ8Q
+	mV2s7q2YSkHDdnko06ilZh0JgXxc2yh/mWJJfSiSsaP5ugMd3jXg2tXs6UjzCs+XR0Odlz/Yonqdz
+	RPJZD5pFRxR3eI1vmjjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRs2O-00Bcs3-1L;
-	Mon, 22 Jan 2024 11:00:20 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1rRtHi-00C48Q-2c;
+	Mon, 22 Jan 2024 12:20:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRqu0-00BMPM-1N;
-	Mon, 22 Jan 2024 09:47:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1705916856; x=1737452856;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=CShUSY54xBLTmqnpSFLWdsNSkrvcvMhuK3xhvNi4dS8=;
-  b=KrOH1md0YRudZtmbN1A/Kepu4GjjLhJdqj6dfNJUJ56kvUqzvVqhFA3v
-   QSLXt2nTjm7U92h5gW8GD7YQYz3HEkEfjZsV2ENbiJ5C9PVicyCbIqbWc
-   ER8SJDz4nAMFTrBmBYA19bNha3rBFFC9AdU1HaJAkGLCpCSifZi7yzs3V
-   BPPXCURd9DUdp1tL5DRFupUDIFjtWV7b6FbOKkUXqNwYJGa7CKz9D1TuM
-   s8Q6gv1aGqZihyGpreO/1ZLppqlD0NKzV0vnGs5O7PudsN2xNIaM+wpgy
-   O0BXB6yhk+nGmRIFRtG9B7mAFQv6cAQjiq9VE7OSBHQ0e7qYCEyt+DYi4
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10960"; a="22641937"
-X-IronPort-AV: E=Sophos;i="6.05,211,1701158400"; 
-   d="scan'208";a="22641937"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2024 01:47:36 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10960"; a="778535554"
-X-IronPort-AV: E=Sophos;i="6.05,211,1701158400"; 
-   d="scan'208";a="778535554"
-Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
-  by orsmga007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2024 01:47:26 -0800
-From: Haibo Xu <haibo1.xu@intel.com>
-To: 
-Cc: xiaobo55x@gmail.com,
-	ajones@ventanamicro.com,
-	Haibo Xu <haibo1.xu@intel.com>,
+	id 1rRtHg-00C480-2R
+	for linux-riscv@lists.infradead.org;
+	Mon, 22 Jan 2024 12:20:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E2103612BB;
+	Mon, 22 Jan 2024 12:20:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3934FC433F1;
+	Mon, 22 Jan 2024 12:20:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1705926011;
+	bh=IlLNZwCv119gs+G1XZGQUJ/nTZHJ2OxfZVk+jo076AY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ob2Qox9Rq4r16y13ck9Hpq/TMnEm3RnAjWh84mJdSYOZTkruw2jb+VCPFnb0Lh4YU
+	 pS5oIzblRyjnRjjqPfAHjKIZKxL9x42SXUb8gB1lQbEUn+1l+lMIUcaAV95xVZGoUU
+	 P2XGfjHWsDWVYKJuf3CompvjiOERgDFSqMsfHP5LatjVDA5SEfF20l6DqbM7sIlXi8
+	 RV6aXp4F2GBCs1WO8rmakFi3XVxuIQUthGmGg/B3KKVmCmgRzoVZl6cS3czqWGreXt
+	 2FZGSOYl7DWpB/B9+H/v/gNjlgs6z/gBcfpU6eBBKBhJk55mR7KOgsYj8TsM5AK61G
+	 EdbigUbi7JqxQ==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Wolfgang Grandegger <wg@grandegger.com>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Guo Ren <guoren@kernel.org>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
-	wchen <waylingii@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Like Xu <likexu@tencent.com>,
-	Peter Xu <peterx@redhat.com>,
-	Vipin Sharma <vipinsh@google.com>,
-	Aaron Lewis <aaronlewis@google.com>,
-	Thomas Huth <thuth@redhat.com>,
-	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	linux-can@vger.kernel.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm-riscv@lists.infradead.org
-Subject: [PATCH v5 09/12] KVM: riscv: selftests: Add exception handling support
-Date: Mon, 22 Jan 2024 17:58:39 +0800
-Message-Id: <f0df76e546fefb047c83c2f49ea54f6123011475.1705916069.git.haibo1.xu@intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1705916069.git.haibo1.xu@intel.com>
-References: <cover.1705916069.git.haibo1.xu@intel.com>
+	linux-clk@vger.kernel.org
+Subject: [PATCH v2 0/7] MPFS clock fixes required for correct CAN clock modeling
+Date: Mon, 22 Jan 2024 12:19:48 +0000
+Message-ID: <20240122-catty-roast-d3625dbb02fe@spud>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2564; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=LljwZDfMNfbMVLp7XtH+2mdlVEJFVNUoZZukL9HDn4g=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnrYpNPeB3Nb1kttaDRUG6G2KQrfo9W/pvGmv1XWTDCd +Zr1hbbjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEyEjZvhfzE3J/uknFOdS1IO rBILU2HdXCJ24FX6s1di79+EBT29fpqRYfPeFnMmbcM8vdZjkyPudL37ZpvB+vux3oJDb74//3y ligUA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_014736_552562_899405A4 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20240122_042012_885448_4F50EFDB 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,301 +91,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the infrastructure for guest exception handling in riscv selftests.
-Customized handlers can be enabled by vm_install_exception_handler(vector)
-or vm_install_interrupt_handler().
+From: Conor Dooley <conor.dooley@microchip.com>
 
-The code is inspired from that of x86/arm64.
+While reviewing a CAN driver internally for MPFS [1], I realised
+that the modeling of the MSSPLL such that only one of its outputs could
+be used was not correct. The CAN controllers on MPFS take 2 input
+clocks - one that is the bus clock, acquired from the main MSSPLL and
+a second clock for the AHB interface to the result of the SoC.
+Currently the binding for the CAN controllers and the represetnation
+of the MSSPLL only allows for one of these clocks.
+Modify the binding and devicetree to expect two clocks and rework the
+main clock controller driver for MPFS such that it is capable of
+providing multiple outputs from the MSSPLL.
 
-Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
----
- tools/testing/selftests/kvm/Makefile          |   1 +
- .../selftests/kvm/include/kvm_util_base.h     |   7 ++
- .../selftests/kvm/include/riscv/processor.h   |  43 ++++++++
- .../selftests/kvm/lib/riscv/handlers.S        | 101 ++++++++++++++++++
- .../selftests/kvm/lib/riscv/processor.c       |  69 ++++++++++++
- 5 files changed, 221 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/lib/riscv/handlers.S
+Cheers,
+Conor.
 
-diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-index a18d18994fe8..f514c81877ce 100644
---- a/tools/testing/selftests/kvm/Makefile
-+++ b/tools/testing/selftests/kvm/Makefile
-@@ -53,6 +53,7 @@ LIBKVM_s390x += lib/s390x/diag318_test_handler.c
- LIBKVM_s390x += lib/s390x/processor.c
- LIBKVM_s390x += lib/s390x/ucall.c
- 
-+LIBKVM_riscv += lib/riscv/handlers.S
- LIBKVM_riscv += lib/riscv/processor.c
- LIBKVM_riscv += lib/riscv/ucall.c
- 
-diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
-index a18db6a7b3cf..135ae2eb5249 100644
---- a/tools/testing/selftests/kvm/include/kvm_util_base.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
-@@ -932,4 +932,11 @@ void kvm_selftest_arch_init(void);
- 
- void kvm_arch_vm_post_create(struct kvm_vm *vm);
- 
-+void vm_init_vector_tables(struct kvm_vm *vm);
-+void vcpu_init_vector_tables(struct kvm_vcpu *vcpu);
-+
-+struct ex_regs;
-+typedef void(*exception_handler_fn)(struct ex_regs *);
-+void vm_install_exception_handler(struct kvm_vm *vm, int vector, exception_handler_fn handler);
-+
- #endif /* SELFTEST_KVM_UTIL_BASE_H */
-diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-index 6f9e1e5e466d..b68b1b731a34 100644
---- a/tools/testing/selftests/kvm/include/riscv/processor.h
-+++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-@@ -42,6 +42,49 @@ static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t idx,
- #define RISCV_ISA_EXT_REG(idx)	__kvm_reg_id(KVM_REG_RISCV_ISA_EXT, \
- 					     idx, KVM_REG_SIZE_ULONG)
- 
-+struct ex_regs {
-+	unsigned long ra;
-+	unsigned long sp;
-+	unsigned long gp;
-+	unsigned long tp;
-+	unsigned long t0;
-+	unsigned long t1;
-+	unsigned long t2;
-+	unsigned long s0;
-+	unsigned long s1;
-+	unsigned long a0;
-+	unsigned long a1;
-+	unsigned long a2;
-+	unsigned long a3;
-+	unsigned long a4;
-+	unsigned long a5;
-+	unsigned long a6;
-+	unsigned long a7;
-+	unsigned long s2;
-+	unsigned long s3;
-+	unsigned long s4;
-+	unsigned long s5;
-+	unsigned long s6;
-+	unsigned long s7;
-+	unsigned long s8;
-+	unsigned long s9;
-+	unsigned long s10;
-+	unsigned long s11;
-+	unsigned long t3;
-+	unsigned long t4;
-+	unsigned long t5;
-+	unsigned long t6;
-+	unsigned long epc;
-+	unsigned long status;
-+	unsigned long cause;
-+};
-+
-+#define NR_VECTORS  2
-+#define NR_EXCEPTIONS  32
-+#define EC_MASK  (NR_EXCEPTIONS - 1)
-+
-+void vm_install_interrupt_handler(struct kvm_vm *vm, exception_handler_fn handler);
-+
- /* L3 index Bit[47:39] */
- #define PGTBL_L3_INDEX_MASK			0x0000FF8000000000ULL
- #define PGTBL_L3_INDEX_SHIFT			39
-diff --git a/tools/testing/selftests/kvm/lib/riscv/handlers.S b/tools/testing/selftests/kvm/lib/riscv/handlers.S
-new file mode 100644
-index 000000000000..aa0abd3f35bb
---- /dev/null
-+++ b/tools/testing/selftests/kvm/lib/riscv/handlers.S
-@@ -0,0 +1,101 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2023 Intel Corporation
-+ */
-+
-+#ifndef __ASSEMBLY__
-+#define __ASSEMBLY__
-+#endif
-+
-+#include <asm/csr.h>
-+
-+.macro save_context
-+	addi  sp, sp, (-8*34)
-+	sd    x1, 0(sp)
-+	sd    x2, 8(sp)
-+	sd    x3, 16(sp)
-+	sd    x4, 24(sp)
-+	sd    x5, 32(sp)
-+	sd    x6, 40(sp)
-+	sd    x7, 48(sp)
-+	sd    x8, 56(sp)
-+	sd    x9, 64(sp)
-+	sd    x10, 72(sp)
-+	sd    x11, 80(sp)
-+	sd    x12, 88(sp)
-+	sd    x13, 96(sp)
-+	sd    x14, 104(sp)
-+	sd    x15, 112(sp)
-+	sd    x16, 120(sp)
-+	sd    x17, 128(sp)
-+	sd    x18, 136(sp)
-+	sd    x19, 144(sp)
-+	sd    x20, 152(sp)
-+	sd    x21, 160(sp)
-+	sd    x22, 168(sp)
-+	sd    x23, 176(sp)
-+	sd    x24, 184(sp)
-+	sd    x25, 192(sp)
-+	sd    x26, 200(sp)
-+	sd    x27, 208(sp)
-+	sd    x28, 216(sp)
-+	sd    x29, 224(sp)
-+	sd    x30, 232(sp)
-+	sd    x31, 240(sp)
-+	csrr  s0, CSR_SEPC
-+	csrr  s1, CSR_SSTATUS
-+	csrr  s2, CSR_SCAUSE
-+	sd    s0, 248(sp)
-+	sd    s1, 256(sp)
-+	sd    s2, 264(sp)
-+.endm
-+
-+.macro restore_context
-+	ld    s2, 264(sp)
-+	ld    s1, 256(sp)
-+	ld    s0, 248(sp)
-+	csrw  CSR_SCAUSE, s2
-+	csrw  CSR_SSTATUS, s1
-+	csrw  CSR_SEPC, s0
-+	ld    x31, 240(sp)
-+	ld    x30, 232(sp)
-+	ld    x29, 224(sp)
-+	ld    x28, 216(sp)
-+	ld    x27, 208(sp)
-+	ld    x26, 200(sp)
-+	ld    x25, 192(sp)
-+	ld    x24, 184(sp)
-+	ld    x23, 176(sp)
-+	ld    x22, 168(sp)
-+	ld    x21, 160(sp)
-+	ld    x20, 152(sp)
-+	ld    x19, 144(sp)
-+	ld    x18, 136(sp)
-+	ld    x17, 128(sp)
-+	ld    x16, 120(sp)
-+	ld    x15, 112(sp)
-+	ld    x14, 104(sp)
-+	ld    x13, 96(sp)
-+	ld    x12, 88(sp)
-+	ld    x11, 80(sp)
-+	ld    x10, 72(sp)
-+	ld    x9, 64(sp)
-+	ld    x8, 56(sp)
-+	ld    x7, 48(sp)
-+	ld    x6, 40(sp)
-+	ld    x5, 32(sp)
-+	ld    x4, 24(sp)
-+	ld    x3, 16(sp)
-+	ld    x2, 8(sp)
-+	ld    x1, 0(sp)
-+	addi  sp, sp, (8*34)
-+.endm
-+
-+.balign 4
-+.global exception_vectors
-+exception_vectors:
-+	save_context
-+	move  a0, sp
-+	call  route_exception
-+	restore_context
-+	sret
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index d146ca71e0c0..efd9ac4b0198 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -13,6 +13,8 @@
- 
- #define DEFAULT_RISCV_GUEST_STACK_VADDR_MIN	0xac0000
- 
-+static vm_vaddr_t exception_handlers;
-+
- static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
- {
- 	return (v + vm->page_size) & ~(vm->page_size - 1);
-@@ -364,6 +366,73 @@ void vcpu_args_set(struct kvm_vcpu *vcpu, unsigned int num, ...)
- 	va_end(ap);
- }
- 
-+void kvm_exit_unexpected_exception(int vector, int ec)
-+{
-+	ucall(UCALL_UNHANDLED, 2, vector, ec);
-+}
-+
- void assert_on_unhandled_exception(struct kvm_vcpu *vcpu)
- {
-+	struct ucall uc;
-+
-+	if (get_ucall(vcpu, &uc) == UCALL_UNHANDLED) {
-+		TEST_FAIL("Unexpected exception (vector:0x%lx, ec:0x%lx)",
-+			uc.args[0], uc.args[1]);
-+	}
-+}
-+
-+struct handlers {
-+	exception_handler_fn exception_handlers[NR_VECTORS][NR_EXCEPTIONS];
-+};
-+
-+void route_exception(struct ex_regs *regs)
-+{
-+	struct handlers *handlers = (struct handlers *)exception_handlers;
-+	int vector = 0, ec;
-+
-+	ec = regs->cause & ~CAUSE_IRQ_FLAG;
-+	if (ec >= NR_EXCEPTIONS)
-+		goto unexpected_exception;
-+
-+	/* Use the same handler for all the interrupts */
-+	if (regs->cause & CAUSE_IRQ_FLAG) {
-+		vector = 1;
-+		ec = 0;
-+	}
-+
-+	if (handlers && handlers->exception_handlers[vector][ec])
-+		return handlers->exception_handlers[vector][ec](regs);
-+
-+unexpected_exception:
-+	return kvm_exit_unexpected_exception(vector, ec);
-+}
-+
-+void vcpu_init_vector_tables(struct kvm_vcpu *vcpu)
-+{
-+	extern char exception_vectors;
-+
-+	vcpu_set_reg(vcpu, RISCV_CSR_REG(stvec), (unsigned long)&exception_vectors);
-+}
-+
-+void vm_init_vector_tables(struct kvm_vm *vm)
-+{
-+	vm->handlers = __vm_vaddr_alloc(vm, sizeof(struct handlers),
-+				   vm->page_size, MEM_REGION_DATA);
-+
-+	*(vm_vaddr_t *)addr_gva2hva(vm, (vm_vaddr_t)(&exception_handlers)) = vm->handlers;
-+}
-+
-+void vm_install_exception_handler(struct kvm_vm *vm, int vector, exception_handler_fn handler)
-+{
-+	struct handlers *handlers = addr_gva2hva(vm, vm->handlers);
-+
-+	assert(vector < NR_EXCEPTIONS);
-+	handlers->exception_handlers[0][vector] = handler;
-+}
-+
-+void vm_install_interrupt_handler(struct kvm_vm *vm, exception_handler_fn handler)
-+{
-+	struct handlers *handlers = addr_gva2hva(vm, vm->handlers);
-+
-+	handlers->exception_handlers[1][0] = handler;
- }
+1 - Hopefully that'll show up on the lists soon, once we are happy with
+  it ourselves. (As of v2, that's not happened yet, Christmas etc gettin
+  in the way, soonTM).
+
+Changes in v2:
+- Swap MSSPLL out for MSSPLL0 in the driver, there's no functional
+  change there.
+- drop the unneeded maxItems from clocks.
+
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Wolfgang Grandegger <wg@grandegger.com>
+CC: Marc Kleine-Budde <mkl@pengutronix.de>
+CC: "David S. Miller" <davem@davemloft.net>
+CC: Eric Dumazet <edumazet@google.com>
+CC: Jakub Kicinski <kuba@kernel.org>
+CC: Paolo Abeni <pabeni@redhat.com>
+CC: Rob Herring <robh+dt@kernel.org>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: Albert Ou <aou@eecs.berkeley.edu>
+CC: Michael Turquette <mturquette@baylibre.com>
+CC: Stephen Boyd <sboyd@kernel.org>
+CC: linux-riscv@lists.infradead.org
+CC: linux-can@vger.kernel.org
+CC: netdev@vger.kernel.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+CC: linux-clk@vger.kernel.org
+
+Conor Dooley (7):
+  dt-bindings: clock: mpfs: add more MSSPLL output definitions
+  dt-bindings: can: mpfs: add missing required clock
+  clk: microchip: mpfs: split MSSPLL in two
+  clk: microchip: mpfs: setup for using other mss pll outputs
+  clk: microchip: mpfs: add missing MSSPLL outputs
+  clk: microchip: mpfs: convert MSSPLL outputs to clk_divider
+  riscv: dts: microchip: add missing CAN bus clocks
+
+ .../bindings/net/can/microchip,mpfs-can.yaml  |   6 +-
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |   4 +-
+ drivers/clk/microchip/clk-mpfs.c              | 154 ++++++++++--------
+ .../dt-bindings/clock/microchip,mpfs-clock.h  |   5 +
+ 4 files changed, 98 insertions(+), 71 deletions(-)
+
 -- 
-2.34.1
+2.43.0
 
 
 _______________________________________________
