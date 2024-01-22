@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21BA1C47DD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 00:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53E1C47422
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 00:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6hoUHK5dj6MNIUVS00B1h9JUpZxnaiEbQmituwAyflE=; b=i8d61e7GGD0/FS
-	oDa0NktuiXHK56231Mfy3yCQjaTD+lF6R9uBKP/7WIBqacpBE07r0M2GvHm9955ijGyFKRRSY0zHd
-	lWi1kME48iejyF4sULOVyjEPho27XVF/pw9VZYzyq4mehAxDQe+Q9rgmWkUYhtjQ1jQ1f/UDydhff
-	010WRWTrSyBFBkR1w22JxmxaucfFFMdujTJr3d0OMjgrZiz1QMh9EGEesVGUjv4RdpYd2x1XUGisN
-	yiL5e8zH/dKW2WGM10mphrKCwubNu4awK6p5YTgDZJtx8HHDnj40GaYjj1KsmRt2AiRvUcoiKptLR
-	qPU0ua2eCznECAYJ3Zjw==;
+	List-Owner; bh=6d4kx4l527cWxnk7C49KBv1VA7l91nN/vB1b18ak3K0=; b=SJC0c2wnnc8zlb
+	phplGPwYBscQTP9ZZhoh7+vMKlfnMnIwRXyznt3KI+VaW6tBQTMENGf1l9UnhC3SPOdQOuVacfONt
+	ItnEC4tL56vYjp5Br9zSiqZ6k+WZP5Tmoa3JgxJgeT0OiTwioulGGElnDfKvRVIPt4yw+yE2Alc5u
+	vuAHRp95R9DHXy5CPQySPYiaS3/mwsj/GU2SODAEm+G+FHGPzJgcSaX38SieIf2IBgJqfXmB5W35x
+	ewxXVn69BSgDKYkRz4/OqsLby/tmQ7nWp3QOAsn6wLqVJqBQ8wFKkM5aX+ojiLZdfC0u2bunouvd7
+	oVNhqWb076pknJsenrjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRi5e-00AFn4-2t;
-	Mon, 22 Jan 2024 00:23:02 +0000
+	id 1rRi69-00AFzK-0j;
+	Mon, 22 Jan 2024 00:23:33 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRi5c-00AFmJ-0w
+	id 1rRi66-00AFwH-1V
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 00:23:01 +0000
+	Mon, 22 Jan 2024 00:23:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5685161008;
+	by dfw.source.kernel.org (Postfix) with ESMTP id C60EB61006;
 	Mon, 22 Jan 2024 00:22:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64366C433A6;
-	Mon, 22 Jan 2024 00:22:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14B7AC43330;
+	Mon, 22 Jan 2024 00:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705882978;
-	bh=aVQvquY3/QZrbd8jHI67vn2mQbmidA09BUUPYfRdUOA=;
+	s=k20201202; t=1705882979;
+	bh=TfofIEIKQZPK62dMUzgvPsR4BgvnYH75rA2YkgLkUvQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FTtQ7CnRAUueJnnwKyKVtqaOwLHuwC50ol1N6VBH3F4bXANTK4yKJAw6z1Bd+7gnE
-	 0IIJKaDyNCShEoILNDTHusQSstJiDlGlbnsDfmMniFSVrchtQUhYr3vI3l4khHjkKd
-	 h6LcwvPzGM+OP1JHcacDkJnkgZw9TagVLJx1zZXf3RfUMrSsM7aItVVFJokHuMGpmC
-	 q0Pw3Argq3++kZn2Cymq+WX+dr3xaTG8SFvmjka986TDgrZ7yZ/BegxfAUzFx6jJF1
-	 jY8188HAgmTprMrmSOwzKr/UnrdXb2LuUYjSlIAZy/EkYhh97eiF4C50oT+MFjUr0s
-	 44HlDYBKQ385A==
+	b=oXmmw0pFKie1iTNEGrk1apBcAwNl0xXWYevupFo5OY/FbDJ0gEe1eAwyHLzA7rYHQ
+	 VakSJ8WYLUyqbNKoG43mlsAbgUEmIi+4L7MOfvsXzbw+goo9lUw9srnKTF3WWZxAcx
+	 5Kyk99bwbmRl0u1P9xi/Ckm6NM+xWGQ9wtW1LiUTcljq2RWn1wE0siEwMuLGMSZ+AB
+	 uo/A4Mrgrlw8bHIKJEHwlxCGbeCTMJGN+crODJ/aydsCP2MQ3zIsOOLdjwJwr3iXG/
+	 pf01EyzlGraH+P21AEXDaXGIhX99/gvlUl76GOOYaFAnYzf2O/awfYJ/4utJVT9X4Q
+	 K/yt9e5HaL7hA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org,
 	linux-riscv@lists.infradead.org
@@ -55,18 +55,18 @@ Cc: linux-kernel@vger.kernel.org,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Phoebe Chen <phoebe.chen@sifive.com>,
-	hongrong.hsu@sifive.com
-Subject: [PATCH v3 02/10] RISC-V: add TOOLCHAIN_HAS_VECTOR_CRYPTO
-Date: Sun, 21 Jan 2024 16:19:13 -0800
-Message-ID: <20240122002024.27477-3-ebiggers@kernel.org>
+	hongrong.hsu@sifive.com,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: [PATCH v3 03/10] RISC-V: hook new crypto subdir into build-system
+Date: Sun, 21 Jan 2024 16:19:14 -0800
+Message-ID: <20240122002024.27477-4-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240122002024.27477-1-ebiggers@kernel.org>
 References: <20240122002024.27477-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240121_162300_391715_6161F5EA 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240121_162330_592515_13D265A0 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +83,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-Add a kconfig symbol that indicates whether the toolchain supports the
-vector crypto extensions.  This is needed by the RISC-V crypto code.
+Create a crypto subdirectory for added accelerated cryptography routines
+and hook it into the riscv Kbuild and the main crypto Kconfig.
 
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Reviewed-by: Eric Biggers <ebiggers@google.com>
+Signed-off-by: Jerry Shih <jerry.shih@sifive.com>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/riscv/Kconfig | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/riscv/Kbuild          | 1 +
+ arch/riscv/crypto/Kconfig  | 5 +++++
+ arch/riscv/crypto/Makefile | 1 +
+ crypto/Kconfig             | 3 +++
+ 4 files changed, 10 insertions(+)
+ create mode 100644 arch/riscv/crypto/Kconfig
+ create mode 100644 arch/riscv/crypto/Makefile
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index bffbd869a0682..5613b2bb686ec 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -571,20 +571,27 @@ config RISCV_ISA_V_PREEMPTIVE
- 	  consumption due to the allocation of per-task's kernel Vector context.
+diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
+index d25ad1c19f881..2c585f7a0b6ef 100644
+--- a/arch/riscv/Kbuild
++++ b/arch/riscv/Kbuild
+@@ -1,11 +1,12 @@
+ # SPDX-License-Identifier: GPL-2.0-only
  
- config TOOLCHAIN_HAS_ZBB
- 	bool
- 	default y
- 	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbb)
- 	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbb)
- 	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
- 	depends on AS_HAS_OPTION_ARCH
+ obj-y += kernel/ mm/ net/
+ obj-$(CONFIG_BUILTIN_DTB) += boot/dts/
++obj-$(CONFIG_CRYPTO) += crypto/
+ obj-y += errata/
+ obj-$(CONFIG_KVM) += kvm/
  
-+# This symbol indicates that the toolchain supports all v1.0 vector crypto
-+# extensions, including Zvk*, Zvbb, and Zvbc.  LLVM added all of these at once.
-+# binutils added all except Zvkb, then added Zvkb.  So we just check for Zvkb.
-+config TOOLCHAIN_HAS_VECTOR_CRYPTO
-+	def_bool $(as-instr, .option arch$(comma) +zvkb)
-+	depends on AS_HAS_OPTION_ARCH
+ obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
+ 
+ # for cleaning
+ subdir- += boot
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+new file mode 100644
+index 0000000000000..10d60edc0110a
+--- /dev/null
++++ b/arch/riscv/crypto/Kconfig
+@@ -0,0 +1,5 @@
++# SPDX-License-Identifier: GPL-2.0
 +
- config RISCV_ISA_ZBB
- 	bool "Zbb extension support for bit manipulation instructions"
- 	depends on TOOLCHAIN_HAS_ZBB
- 	depends on MMU
- 	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	   Adds support to dynamically detect the presence of the ZBB
- 	   extension (basic bit manipulation) and enable its usage.
- 
++menu "Accelerated Cryptographic Algorithms for CPU (riscv)"
++
++endmenu
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+new file mode 100644
+index 0000000000000..a4e40e534e6a8
+--- /dev/null
++++ b/arch/riscv/crypto/Makefile
+@@ -0,0 +1 @@
++# SPDX-License-Identifier: GPL-2.0-only
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index 7d156c75f15f2..00e4aa16bf2bf 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -1489,20 +1489,23 @@ source "arch/arm64/crypto/Kconfig"
+ endif
+ if LOONGARCH
+ source "arch/loongarch/crypto/Kconfig"
+ endif
+ if MIPS
+ source "arch/mips/crypto/Kconfig"
+ endif
+ if PPC
+ source "arch/powerpc/crypto/Kconfig"
+ endif
++if RISCV
++source "arch/riscv/crypto/Kconfig"
++endif
+ if S390
+ source "arch/s390/crypto/Kconfig"
+ endif
+ if SPARC
+ source "arch/sparc/crypto/Kconfig"
+ endif
+ if X86
+ source "arch/x86/crypto/Kconfig"
+ endif
+ endif
 -- 
 2.43.0
 
