@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98AF8C47DAF
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 08:05:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C984BC4725D
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Jan 2024 08:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+oeHsPb4lG+0kbM6PrccuFIbZYnWVbzPw6ub7DL+EeI=; b=Y+iTUuAaRVk4G3
-	glyQMzbCu5aINlgdXPLE0eKCTDNnoazM+d+8u00F6+0jnXC50EHLNwnEEW0Ege6TeLLWk/7cnXS27
-	RGB/1xtY2WCfbGCUg8h/8VFa2EXQzcmww7IbZe7DrNa0JUu0fU1S4gGkXq0vd1e5FSwB0PZqMJ1P8
-	UpcNCwzLQMswq40k+17FHK6IEZx7D5x9gaoyZXqhpDcoLbv+lFF42L2GaZkbnaSfFmayhDSfH5O/Z
-	8uc2WA4uXCXRk74ZvF9Z2H8W4PUs4X1QX/WnqctSrzguZEEd6yhmZJCzkPBrW/eyRflE0tZ1YJlr7
-	xuvccyImplPjNMqzD2Og==;
+	List-Owner; bh=b5sXeJMuHYNVg2ut/7hwszbK1isHusVPx8W/hkgZj2Y=; b=jJs7/U415lOkm/
+	m2/70DNReLRHX+CwJaRvlVAxdSFuUK0FzIHsYKyffQ1LfavdS92MMhIxgoFCKYQYGD9CdlE4Be8o6
+	hvixfOVGT5pqfxGXwuAg5kuxcTb8y23JQrG3o98VRvmnvi/GCHRe5Qi0dLSKbYyN7CY5/tvDWdEVD
+	PHmaZk5dUB1cY15f1yQDlsOx8olC6xr1sP+ZQl3t4bYsJyj1mB4bLyKCobwt3xiduXTdUCXTs0oJz
+	IbHx8Trr8Yn3cGqU+6XQHbai7sJY9YsbHZtc/jJPoC+ztFCHtw5sGJh3mUsSnJC147UzMToPov0ck
+	yVO55pZAEpKuZ7fJJgDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRpIw-00AyP1-0T;
-	Mon, 22 Jan 2024 08:05:14 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1rRpKM-00Ayka-0K;
+	Mon, 22 Jan 2024 08:06:42 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rRpIr-00AyNX-2C
+	id 1rRpKJ-00Ayiw-1R
 	for linux-riscv@lists.infradead.org;
-	Mon, 22 Jan 2024 08:05:13 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-6dbb26ec1deso2987751b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 22 Jan 2024 00:05:08 -0800 (PST)
+	Mon, 22 Jan 2024 08:06:40 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-1d71cb97937so14010415ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jan 2024 00:06:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1705910708; x=1706515508; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1705910797; x=1706515597; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+VzQb+78mErpWHlkUlL4Km28JBu20sjS8OQqy5uchPM=;
-        b=J1ti9nv6CiiCKsZ6LmGJqQusy5t6Vl5/Du7M3MVl3MAONwfl/zUb/jhesBmgj9FmZ4
-         5hAzd3zTspqBSi6PCy4DZFhHeOBJzJaH4bl9nwUrKRbYXmC+d9SWgM2S1bQC4quUkgjr
-         CVBwndtdmBKANGj3jpHjYjzna40LrWw139cFB6xLb0uv8w8Accn/nw8Fe3WZyZ01+cCl
-         kU9G9jGqUWZWoUhvMPislI+H35fTClPReR7Dm9DSEkWpPewCkSVlgJ7VOVG04XFAVSNG
-         dbDCGlVASfRcrSRQakDdRQ/w2H2i0520EE8JKjN5imjJ+EPt3fD8BgTVE1bysGArvszI
-         gE9w==
+        bh=VU56JILwy1WXTrtMzKmPdAiKq/ot3j3oAn5XBUHBiYQ=;
+        b=MM0YD0gTw169at1coqYYVjwT8D2fAFjmHzQP5PpE1m5uIKAwieTpbKIw7g4Aw1tRa/
+         pKC8iHHUO3z6Lt8Cslly3HYjLlYkNFwDSiyXX90Bb0fll8Ays3drN6PvLSevGdfkW9qn
+         S2qTcSyaaaeOWPWKbHxNbo767pfnowcqIM+cAfGcDc6qBdb50pa2UA1goTy3hSDGoslf
+         bHC8HfkxqLLeWa4xw6CKgjCKeL3Y1NaymQn0kH093auHq5GqitxYeTl76Tp9pq1fE1pU
+         LVOyLg+UtUosPD9hHMvBeCSZP2j402rigwxq2BRu4/doNK3962Bc7Z6f2SDUYw01uec7
+         tSjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705910708; x=1706515508;
+        d=1e100.net; s=20230601; t=1705910797; x=1706515597;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+VzQb+78mErpWHlkUlL4Km28JBu20sjS8OQqy5uchPM=;
-        b=fdSQ3gRv6GxqT81RT6zQLsfnML8mo6mRiWnDpGGKJTQ+ALaJPcMp6gb3PoFZdIVw3q
-         d0WPmA6b+ML2EBWAsIG/+22yWTvBYt7WuhgNV7YwyanC5SoJcZbQL1IJP4nfk5Jdm6yY
-         obwnodZbXn65DEYWj6mYdH96AlZsEZNbxGNgceC8aBkWROGCHXcBrgMdS9T+FoHr5lLn
-         8HLCLWFjS8bziLgTm/TaQZn40zyZuuYRvCOLyj59S+0pcvlSc9iR1ykt/qatMMgVbSWC
-         dcEqChJ9Ee8gGiTKb7HfnSxU4sZtGmFEI7FL/WNjuuj04s39vToK5d7bGb2q2wpNKD2n
-         yL8A==
-X-Gm-Message-State: AOJu0Yxr1bbFrl45iyhvd0DYql5P8D8ZlW3O8eVgiWYNfbHfZmNqddGZ
-	M6LJTqPNAq7k5rHMF07ewud2RSNRt+V1e1IYYSdwrsgXzKFD14If
-X-Google-Smtp-Source: AGHT+IFPmqfjE+LH1PjRwOedBBf9rGpKNqOBP361A/qQuNG31+HVCNCkO6XVUJn1u/MZxSl83p34fQ==
-X-Received: by 2002:a05:6a20:2d25:b0:199:b9ad:5ccb with SMTP id g37-20020a056a202d2500b00199b9ad5ccbmr5940597pzl.113.1705910707528;
-        Mon, 22 Jan 2024 00:05:07 -0800 (PST)
-Received: from localhost ([46.3.240.108])
-        by smtp.gmail.com with ESMTPSA id k9-20020aa792c9000000b006d9bf45436asm9137895pfa.48.2024.01.22.00.05.07
+        bh=VU56JILwy1WXTrtMzKmPdAiKq/ot3j3oAn5XBUHBiYQ=;
+        b=qQr5yBHPUUTizXy4Rw5ricrAbX7nc+c16rKW5+RoVra1ADwIIpXNx3Ro/nTtF+uKpC
+         I72K8+g1Ddl4sk7Rpb491tHv/T5VsjKvfhcfy7MGLTHELxHCPS6QgGMgnp+cmFjcuGEI
+         ltagzvmdQseoXLIaltgg3IaVZJOhk2fWQHUGt6zj86bnuKBoayGoH2MkwPHPMY+s+ovs
+         r04RXNE00pj0BsPGeADP4J7n/9suqr9NheMuHM1eaEOMgytNA/ioQXhgo2jcP5okBS9a
+         2R2z/k+UXG2gK5jdq01NwZn/sgAIJ+4MeWizkp+1PNx/ZrYHn0Hn2PVpiSyQF6ZNsef6
+         0vQQ==
+X-Gm-Message-State: AOJu0YwXhWOjATr02OnlOesmSNSLEDwVKMxtfDeWIYzkUytveNLCVLs+
+	4ZnECuAPJ2uvzOVTO79pQOiGYpyZOHWBGFOSQ0LXASB7l+P2mlOD
+X-Google-Smtp-Source: AGHT+IF13paWEa4F0XS+JYHFMWFgLLn9MwQeEuuxtGbot+R0GeOPKiyEbQOUVZSkLU9+kQ1FuLeP3Q==
+X-Received: by 2002:a17:903:41c2:b0:1d7:2ede:ce8a with SMTP id u2-20020a17090341c200b001d72edece8amr1243257ple.98.1705910797339;
+        Mon, 22 Jan 2024 00:06:37 -0800 (PST)
+Received: from localhost ([46.3.240.101])
+        by smtp.gmail.com with ESMTPSA id d13-20020a170902c18d00b001d7134d149dsm5764072pld.256.2024.01.22.00.06.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Jan 2024 00:05:07 -0800 (PST)
+        Mon, 22 Jan 2024 00:06:37 -0800 (PST)
 From: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
 To: alexandre.belloni@bootlin.com,
 	robh+dt@kernel.org,
@@ -77,16 +77,17 @@ Cc: linux-rtc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	dlan@gentoo.org
-Subject: [PATCH v7 1/3] dt-bindings: rtc: sophgo: add RTC support for Sophgo CV1800 series SoC
-Date: Mon, 22 Jan 2024 16:04:58 +0800
-Message-ID: <20240122080500.2621-2-qiujingbao.dlmu@gmail.com>
+Subject: [PATCH v7 3/3] riscv: dts: sophgo: add rtc dt node for CV1800
+Date: Mon, 22 Jan 2024 16:06:31 +0800
+Message-ID: <20240122080631.2880-2-qiujingbao.dlmu@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240122080500.2621-1-qiujingbao.dlmu@gmail.com>
-References: <20240122080500.2621-1-qiujingbao.dlmu@gmail.com>
+In-Reply-To: <20240122080631.2880-1-qiujingbao.dlmu@gmail.com>
+References: <20240122080631.2880-1-qiujingbao.dlmu@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_000509_719588_5A53EDA2 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20240122_000639_485877_0511BF30 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,74 +104,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add RTC devicetree binding for Sophgo CV1800 SoC.
+Add the rtc device tree node to cv1800 SoC.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
 ---
- .../bindings/rtc/sophgo,cv1800-rtc.yaml       | 53 +++++++++++++++++++
- 1 file changed, 53 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml
+ arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml b/Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml
-new file mode 100644
-index 000000000000..b36b51a69166
---- /dev/null
-+++ b/Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml
-@@ -0,0 +1,53 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/rtc/sophgo,cv1800-rtc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+index df40e87ee063..0cd7eb9a3048 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+@@ -119,5 +119,12 @@ clint: timer@74000000 {
+ 			reg = <0x74000000 0x10000>;
+ 			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
+ 		};
 +
-+title: Real Time Clock of the Sophgo CV1800 SoC
-+
-+description:
-+  Real Time Clock (RTC) is an independently powered module
-+  within the chip, which includes a 32KHz oscillator and a
-+  Power On Reset/POR submodule. It can be used for time display
-+  and timed alarm generation. In addition, the hardware state
-+  machine provides triggering and timing control for chip
-+  power on, off, and reset.
-+
-+maintainers:
-+  - Jingbao Qiu <qiujingbao.dlmu@gmail.com>
-+
-+allOf:
-+  - $ref: rtc.yaml#
-+
-+properties:
-+  compatible:
-+    const: sophgo,cv1800-rtc
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    rtc@5025000 {
-+        compatible = "sophgo,cv1800-rtc";
-+        reg = <0x5025000 0x2000>;
-+        interrupts = <17 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&osc>;
-+    };
++		rtc: rtc@5025000 {
++			compatible = "sophgo,cv1800-rtc";
++			reg = <0x5025000 0x2000>;
++			interrupts = <17 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&osc>;
++		};
+ 	};
+ };
 -- 
 2.43.0
 
