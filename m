@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7297DC47258
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 10:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3480EC47258
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 10:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hAFSeO51XSwy7mLVUtxl5JOtKbJrCta+A/A4rtsYbOc=; b=NSuD+3ZFdnyWho
-	TG2KJ+AsbZt2bAmjSwvfoGdOG/mtdv4qsrZ4yCOP6xdqtdC/Z2Jy3/zw8VwzNwDZ3et1SdVpShN/Q
-	gLaXU5yMOcfLJoF17ZnHmb5vS7pQGX1RBPZwoGG3MSxjfePS3g31lo6I5Ib9QBUq4gT/LrU8khyyf
-	pFUdhgPwJFj7wVU+zI7hpWp1Ip51uud+Am+pNmgiA69ZUbkoIJvOrHl+72wDs+5sFMEHehHH4Wu1T
-	VdB49+rDWlwzUC0DXBjLqXkVVeBA+F7ITfbbBwh68cYSzit79PukBtP16yHTI0aW6XfwBmWmyisgU
-	j7AHtSUBbqrAI4ooxN9Q==;
+	List-Owner; bh=/VjzNssCzxxQ4VVjgd7S0u3M8UAecKcRg7lOeXrXTiU=; b=KoGJVWJyW1u2cp
+	MFShToxuLRBIox7AqIg9wxUWqbh6lHGctp/PkKWuQQKohH4kQ4gqht8snC/QNXf/0WH9rw1y+Nlsf
+	pu5g5QteI66++RZNtFjYenAlO8tGDgHlnkFvysBvYLY9+nhNsiEf/E0oi6MT8fRK3BxEKYGQcFHw1
+	yizeBheapQHUMMrW91BZdYEiPHKoc/Wrp84V+Z1ikig6PvoODJeVvS23jsNLx+N8bfQm9sK8fRhPu
+	X0LYXJqa5JtvUFPJzQUQNQCeqfe3WEO9F4WqbpuSeL/rPELpivKlKRlQZ5msjjoD7hqiin4WVtIVS
+	8sh2bgRvhAlFZsm/nF7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSDpa-00FtLV-2q;
-	Tue, 23 Jan 2024 10:16:34 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1rSDyz-00FvFL-2A;
+	Tue, 23 Jan 2024 10:26:17 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSDpX-00FtI4-0j
-	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jan 2024 10:16:34 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-76-TSOlSA3yNlmz_Bo-aU5ewQ-1; Tue, 23 Jan 2024 10:16:23 +0000
-X-MC-Unique: TSOlSA3yNlmz_Bo-aU5ewQ-1
-Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
- (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Tue, 23 Jan
- 2024 10:16:06 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Tue, 23 Jan 2024 10:16:06 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Guenter Roeck' <linux@roeck-us.net>, Charlie Jenkins
-	<charlie@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>
-CC: Conor Dooley <conor@kernel.org>, "samuel.holland@sifive.com"
-	<samuel.holland@sifive.com>, "xiao.w.wang@intel.com" <xiao.w.wang@intel.com>,
-	Evan Green <evan@rivosinc.com>, "guoren@kernel.org" <guoren@kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: RE: [PATCH v15 5/5] kunit: Add tests for csum_ipv6_magic and
- ip_fast_csum
-Thread-Topic: [PATCH v15 5/5] kunit: Add tests for csum_ipv6_magic and
- ip_fast_csum
-Thread-Index: AQHaTVGn8AUolzpWZEe7KQadoytUPLDmCvsQgAAHpwCAAEjwsIAAOnOOgACYElA=
-Date: Tue, 23 Jan 2024 10:16:06 +0000
-Message-ID: <86411bbab15c42b8819aeb923fe42644@AcuMS.aculab.com>
-References: <be959a4bb660466faba5ade7976485c8@AcuMS.aculab.com>
- <mhng-b5f26a34-7632-4423-9f07-3224170bae9f@palmer-ri-x1c9>
- <Za8AXnKCm4cPyVbp@ghost> <e548f697-650e-4333-9f39-19a472b7d90a@roeck-us.net>
-In-Reply-To: <e548f697-650e-4333-9f39-19a472b7d90a@roeck-us.net>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	id 1rSDyu-00FvCw-30;
+	Tue, 23 Jan 2024 10:26:15 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4TK37w3nrBz6JB35;
+	Tue, 23 Jan 2024 18:23:08 +0800 (CST)
+Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
+	by mail.maildlp.com (Postfix) with ESMTPS id 56FC3140A86;
+	Tue, 23 Jan 2024 18:26:05 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Tue, 23 Jan
+ 2024 10:26:04 +0000
+Date: Tue, 23 Jan 2024 10:26:03 +0000
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<x86@kernel.org>, <acpica-devel@lists.linuxfoundation.org>,
+	<linux-csky@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-ia64@vger.kernel.org>, <linux-parisc@vger.kernel.org>, Salil Mehta
+	<salil.mehta@huawei.com>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	<jianyong.wu@arm.com>, <justin.he@arm.com>, James Morse <james.morse@arm.com>
+Subject: Re: [PATCH RFC v3 17/21] ACPI: add support to register CPUs based
+ on the _STA enabled bit
+Message-ID: <20240123102603.00004244@Huawei.com>
+In-Reply-To: <20240102145320.000062f9@Huawei.com>
+References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
+	<E1rDOhC-00DvlI-Pp@rmk-PC.armlinux.org.uk>
+	<ZYBDJG1g7SH7AiM1@shell.armlinux.org.uk>
+	<20240102145320.000062f9@Huawei.com>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml500002.china.huawei.com (7.191.160.78) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240123_021631_549539_6F94F2DC 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20240123_022613_254842_DF3732AA 
+X-CRM114-Status: GOOD (  27.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,37 +81,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guenter Roeck
-> Sent: 23 January 2024 01:06
-...
-> >>     +#define SUPPORTED_ALIGNMENT (1 << NET_IP_ALIGN)
-> >>      /* Values for a little endian CPU. Byte swap each half on big endian CPU. */
-> >>      static const u32 random_init_sum = 0x2847aab;
-> >>     @@ -486,7 +488,7 @@ static void test_csum_fixed_random_inputs(struct kunit *test)
-> >>      	__sum16 result, expec;
-> >>      	assert_setup_correct(test);
-> >>     -	for (align = 0; align < TEST_BUFLEN; ++align) {
-> >>     +	for (align = 0; align < TEST_BUFLEN; align += SUPPORTED_ALIGNMENT) {
-...
+On Tue, 2 Jan 2024 14:53:20 +0000
+Jonathan Cameron <Jonathan.Cameron@Huawei.com> wrote:
 
-That is all wrong.
-NET_IP_ALIGN is the offset for the base of ethernet frames.
-If zero the IP header will (usually) be misaligned.
-If two the mac addresses are misaligned in order to align
-the IP header (6+6+2 bytes in).
-I don't think any other values are actually valid, but
-there is always that possibility.
+> On Mon, 18 Dec 2023 13:03:32 +0000
+> "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
+> 
+> > On Wed, Dec 13, 2023 at 12:50:38PM +0000, Russell King wrote:  
+> > > From: James Morse <james.morse@arm.com>
+> > > 
+> > > acpi_processor_get_info() registers all present CPUs. Registering a
+> > > CPU is what creates the sysfs entries and triggers the udev
+> > > notifications.
+> > > 
+> > > arm64 virtual machines that support 'virtual cpu hotplug' use the
+> > > enabled bit to indicate whether the CPU can be brought online, as
+> > > the existing ACPI tables require all hardware to be described and
+> > > present.
+> > > 
+> > > If firmware describes a CPU as present, but disabled, skip the
+> > > registration. Such CPUs are present, but can't be brought online for
+> > > whatever reason. (e.g. firmware/hypervisor policy).
+> > > 
+> > > Once firmware sets the enabled bit, the CPU can be registered and
+> > > brought online by user-space. Online CPUs, or CPUs that are missing
+> > > an _STA method must always be registered.    
+> > 
+> > ...
+> >   
+> > > @@ -526,6 +552,9 @@ static void acpi_processor_post_eject(struct acpi_device *device)
+> > >  		acpi_processor_make_not_present(device);
+> > >  		return;
+> > >  	}
+> > > +
+> > > +	if (cpu_present(pr->id) && !(sta & ACPI_STA_DEVICE_ENABLED))
+> > > +		arch_unregister_cpu(pr->id);    
+> > 
+> > This change isn't described in the commit log, but seems to be the cause
+> > of the build error identified by the kernel build bot that is fixed
+> > later in this series. I'm wondering whether this should be in a
+> > different patch, maybe "ACPI: Check _STA present bit before making CPUs
+> > not present" ?  
+> 
+> Would seem a bit odd to call arch_unregister_cpu() way before the code
+> is added to call the matching arch_registers_cpu()
+> 
+> Mind you this eject doesn't just apply to those CPUs that are registered
+> later I think, but instead to all.  So we run into the spec hole that
+> there is no way to identify initially 'enabled' CPUs that might be disabled
+> later.
+> 
+> > 
+> > Or maybe my brain isn't working properly (due to being Covid positive.)
+> > Any thoughts, Jonathan?  
+> 
+> I'll go with a resounding 'not sure' on where this change belongs.
+> I blame my non existent start of the year hangover.
+> Hope you have recovered!
 
-So the definition should really be:
-#define SUPPORTED_ALIGNMENT (NET_IP_ALIGN ? 4 : 1)
+Looking again, I think you were right, move it to that earlier patch.
 
-(Which might happen to be the same values :-)
+J
+> 
+> Jonathan
+> 
+> 
+> _______________________________________________
+> linux-arm-kernel mailing list
+> linux-arm-kernel@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
 
-	David
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
