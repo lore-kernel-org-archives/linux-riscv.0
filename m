@@ -4,80 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08BCDC47258
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 10:52:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BFA4C47DDB
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 11:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=olrbjfEGUe1MgokNhdH+aF/Cwt+d1iVElIAxEq9v/Pw=; b=FGoXMgDVVgVhDF
-	OH4EmjqpPUE4T3/1aHoU48odLGWV7+fyUJGqPfpX9fZqdZupkL/4onLQBxIW/O5THdjSK7DQmotK7
-	DakoG1jKmLAOqqfV2yj1PmXWXmOaA0LmMpbHVzkSEHEVtxZp2u8NEJjG+7vttsXHY0jtTI8dP7wMI
-	rnc+AT0s45Gnp+4qq+Z+qUJlWaKv2ix//Pp8fQ9rrgGbgYLtRNGvHMDO/CQtgMK1FeQeGuxaqws50
-	IWK0vkcBAzx5HQYcbqk8a9av4H5wpCNP2rCEZBiYz3QfHtIYsoHz7rn26dvtX+VTu8IhkyXXrVsi9
-	W4EGnJpQr6yC688Hp3sw==;
+	List-Owner; bh=7D/UsuCqXy5PHZrjniH38x6jD8q/4JHBlXl5CnxAffI=; b=pWQpFTLnD3Sefm
+	XHfV2GfIMygPcxcd1ccKmcrrOyvdtNg//AGHrXjI7zIMRIucBXtytsKB1MCfDE1Dbwa0bleHuWkY8
+	y0Zq2AX0oviopGF3D8n0ozcg40SQHqztdnozEnNpwfogrVb1hqSIruMINwGZ35PyELocORPk0tMZJ
+	Oy/X+EB3O1Mgl/tKEAMS3m/Ddy5yB32coLpkWKwN8Eg2Sfr4XIKWgTi8NRe4zdlMbpZWKEKOLze7N
+	dj5nHI0OlnUom3fIjOyZym9WU7Zk2RU11fAiO70Au27O+xtaDrlw7ZsnjedwDl5EY4HrGGRNwB049
+	BMsjmsLPWh0ynsZAhehw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSENk-00G1cT-17;
-	Tue, 23 Jan 2024 10:51:52 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1rSEY3-00G3Ho-18;
+	Tue, 23 Jan 2024 11:02:31 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSENf-00G1b0-0G;
-	Tue, 23 Jan 2024 10:51:50 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4TK3jv1h6bz6K62v;
-	Tue, 23 Jan 2024 18:49:07 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id E85871404F9;
-	Tue, 23 Jan 2024 18:51:37 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Tue, 23 Jan
- 2024 10:51:37 +0000
-Date: Tue, 23 Jan 2024 10:51:36 +0000
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Jose Marinho <Jose.Marinho@arm.com>
-CC: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "x86@kernel.org" <x86@kernel.org>,
-	"acpica-devel@lists.linuxfoundation.org"
-	<acpica-devel@lists.linuxfoundation.org>, "linux-csky@vger.kernel.org"
-	<linux-csky@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-ia64@vger.kernel.org"
-	<linux-ia64@vger.kernel.org>, "linux-parisc@vger.kernel.org"
-	<linux-parisc@vger.kernel.org>, Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>, Jianyong Wu
-	<Jianyong.Wu@arm.com>, Justin He <Justin.He@arm.com>, James Morse
-	<James.Morse@arm.com>, Samer El-Haj-Mahmoud <Samer.El-Haj-Mahmoud@arm.com>,
-	nd <nd@arm.com>, Kangkang Shen <kangkang.shen@futurewei.com>
-Subject: Re: [PATCH RFC v3 20/21] ACPI: Add _OSC bits to advertise OS
- support for toggling CPU present/enabled
-Message-ID: <20240123105136.000043e5@Huawei.com>
-In-Reply-To: <DBBPR08MB601227202A0F32F448952FDA8861A@DBBPR08MB6012.eurprd08.prod.outlook.com>
-References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
-	<E1rDOhS-00Dvla-7i@rmk-PC.armlinux.org.uk>
-	<20231215171227.00006550@Huawei.com>
-	<DBBPR08MB60121770239F324D877847E18861A@DBBPR08MB6012.eurprd08.prod.outlook.com>
-	<20240102151652.00001b3c@Huawei.com>
-	<DBBPR08MB601227202A0F32F448952FDA8861A@DBBPR08MB6012.eurprd08.prod.outlook.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1rSEXz-00G3FJ-0L
+	for linux-riscv@lists.infradead.org;
+	Tue, 23 Jan 2024 11:02:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1706007746;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=ADeVdxuyk9aWMHIaHDhLLOZKsBVve1swb6NJsYgtkms=;
+	b=ePlJqPGYz/m7vS8MDxjtAlatpqc0hNiJtB+SeZTgkLQL4lH6AmFGey2gA4tQ/Ji9s2dwL5
+	lF/gfKqJbE1FXFqBU6kBx57lmcgfas6KxPSahYGsCkHfZSu0W2m1lSMcosl7nlTjUJAczk
+	uugZiVPDoB0BnJyxSoDUsl0qhqzGE2Y=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-568-1Jqou6QSNESjooqaIUUp9Q-1; Tue, 23 Jan 2024 06:02:24 -0500
+X-MC-Unique: 1Jqou6QSNESjooqaIUUp9Q-1
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-40eaedb4446so14972195e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 23 Jan 2024 03:02:24 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1706007743; x=1706612543;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :references:cc:to:from:content-language:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ADeVdxuyk9aWMHIaHDhLLOZKsBVve1swb6NJsYgtkms=;
+        b=BnasuoeDOzUYfdKFjkxl8M+nRDvQz5Dliw2SYyOcVKw4ry2k1JH3gI7DVPbk6A4JRN
+         WP29CWU5OVSbtH3Ob/CM/PU/iKa/3zEbpvifLbAv4Mqt/DLDC2YLveVmrr1KfPHPius0
+         wq+BCIpePi8Iv31P4KixWwr8+umx7nmXCQVnfJ9eVcZqp0LNY5DwXftGX6rLHK6OH5m3
+         PGQLwsLTwXZ/acproWbHyaAkXQLzabvuQGzQbUDj23NbQ/X3j9pzi2HaojEPntH5/itc
+         nJLkNmQCfGDBTxNs6a629Vs5mrOl4JLENPlOAP4QsFpQOjTBdlcR6X8fHtu6mJ+pa62A
+         RgVA==
+X-Gm-Message-State: AOJu0Yy0VvAxvqm+xT2dR6BBnzc7JEs24hbdOiuil2wWl5UZ9yqliPR1
+	L5f2Ip4WptAOKpf/jLz96KzCubNIvm9ChskScSYvVsL5fpaR3nUs4OW96jP8whJ794XtJdfBdCE
+	Usg9gPEaKG7rG7iKkeGaT9/1Mb+X1I0MQazq9LbqB89nF77/BZBGmjVQPALcqBEvtXA==
+X-Received: by 2002:a7b:cb87:0:b0:40e:b2b2:d2 with SMTP id m7-20020a7bcb87000000b0040eb2b200d2mr6562wmi.134.1706007743552;
+        Tue, 23 Jan 2024 03:02:23 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF+tCfxmJ/19soGtVmtlIvjQMKvo21RHU0ZgsqtMZFvba5PNIEO7LEFpu0n7sRR1TY7GNTQEA==
+X-Received: by 2002:a7b:cb87:0:b0:40e:b2b2:d2 with SMTP id m7-20020a7bcb87000000b0040eb2b200d2mr6550wmi.134.1706007743076;
+        Tue, 23 Jan 2024 03:02:23 -0800 (PST)
+Received: from ?IPV6:2003:cb:c741:de00:bf0f:cd46:dc1c:2de9? (p200300cbc741de00bf0fcd46dc1c2de9.dip0.t-ipconnect.de. [2003:cb:c741:de00:bf0f:cd46:dc1c:2de9])
+        by smtp.gmail.com with ESMTPSA id fl21-20020a05600c0b9500b0040e9d507424sm15840531wmb.5.2024.01.23.03.02.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 23 Jan 2024 03:02:22 -0800 (PST)
+Message-ID: <02d42161-a867-424d-bef8-efd67d592cbc@redhat.com>
+Date: Tue, 23 Jan 2024 12:02:20 +0100
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500002.china.huawei.com (7.191.160.78) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 01/11] arm/pgtable: define PFN_PTE_SHIFT on arm and
+ arm64
+From: David Hildenbrand <david@redhat.com>
+To: Ryan Roberts <ryan.roberts@arm.com>, linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
+ Matthew Wilcox <willy@infradead.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, "David S. Miller"
+ <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org
+References: <20240122194200.381241-1-david@redhat.com>
+ <20240122194200.381241-2-david@redhat.com>
+ <fdaeb9a5-d890-499a-92c8-d171df43ad01@arm.com>
+ <46080ac1-7789-499b-b7f3-0231d7bd6de7@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <46080ac1-7789-499b-b7f3-0231d7bd6de7@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240123_025147_411769_B4C62EE0 
-X-CRM114-Status: GOOD (  75.47  )
+X-CRM114-CacheID: sfid-20240123_030227_217054_4A346B30 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,370 +162,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2 Jan 2024 15:35:45 +0000
-Jose Marinho <Jose.Marinho@arm.com> wrote:
-
-> > -----Original Message-----
-> > From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-> > Sent: Tuesday, January 2, 2024 3:17 PM
-> > To: Jose Marinho <Jose.Marinho@arm.com>
-> > Cc: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>; linux-
-> > pm@vger.kernel.org; loongarch@lists.linux.dev; linux-acpi@vger.kernel.org;
-> > linux-arch@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
-> > kernel@lists.infradead.org; linux-riscv@lists.infradead.org;
-> > kvmarm@lists.linux.dev; x86@kernel.org; acpica-
-> > devel@lists.linuxfoundation.org; linux-csky@vger.kernel.org; linux-
-> > doc@vger.kernel.org; linux-ia64@vger.kernel.org; linux-parisc@vger.kernel.org;
-> > Salil Mehta <salil.mehta@huawei.com>; Jean-Philippe Brucker <jean-  
-> > philippe@linaro.org>; Jianyong Wu <Jianyong.Wu@arm.com>; Justin He  
-> > <Justin.He@arm.com>; James Morse <James.Morse@arm.com>; Samer El-Haj-
-> > Mahmoud <Samer.El-Haj-Mahmoud@arm.com>; nd <nd@arm.com>; Kangkang
-> > Shen <kangkang.shen@futurewei.com>
-> > Subject: Re: [PATCH RFC v3 20/21] ACPI: Add _OSC bits to advertise OS support
-> > for toggling CPU present/enabled
-> > 
-> > On Tue, 2 Jan 2024 13:07:25 +0000
-> > Jose Marinho <Jose.Marinho@arm.com> wrote:
-> >   
-> > > Hi Jonathan,
-> > >  
-> > > > -----Original Message-----
-> > > > From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-> > > > Sent: Friday, December 15, 2023 5:12 PM
-> > > > To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > > > Cc: linux-pm@vger.kernel.org; loongarch@lists.linux.dev; linux-
-> > > > acpi@vger.kernel.org; linux-arch@vger.kernel.org; linux-
-> > > > kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> > > > riscv@lists.infradead.org; kvmarm@lists.linux.dev; x86@kernel.org;
-> > > > acpica- devel@lists.linuxfoundation.org; linux-csky@vger.kernel.org;
-> > > > linux- doc@vger.kernel.org; linux-ia64@vger.kernel.org; linux-
-> > > > parisc@vger.kernel.org; Salil Mehta <salil.mehta@huawei.com>;
-> > > > Jean-Philippe Brucker <jean-philippe@linaro.org>; Jianyong Wu
-> > > > <Jianyong.Wu@arm.com>; Justin He <Justin.He@arm.com>; James Morse
-> > > > <James.Morse@arm.com>; Jose Marinho <Jose.Marinho@arm.com>; Samer
-> > > > El-Haj-Mahmoud <Samer.El- Haj-Mahmoud@arm.com>
-> > > > Subject: Re: [PATCH RFC v3 20/21] ACPI: Add _OSC bits to advertise
-> > > > OS support for toggling CPU present/enabled
-> > > >
-> > > > On Wed, 13 Dec 2023 12:50:54 +0000
-> > > > Russell King (Oracle) <rmk+kernel@armlinux.org.uk> wrote:
-> > > >  
-> > > > > From: James Morse <james.morse@arm.com>
-> > > > >
-> > > > > Platform firmware can disabled a CPU, or make it not-present by
-> > > > > making an eject-request notification, then waiting for the os to
-> > > > > make it offline  
-> > > > OS
-> > > >  
-> > > > > and call _EJx. After the firmware updates _STA with the new status.
-> > > > >
-> > > > > Not all operating systems support this. For arm64 making CPUs
-> > > > > not-present has never been supported. For all ACPI architectures,
-> > > > > making CPUs disabled has recently been added. Firmware can't know
-> > > > > what  
-> > > > the OS has support for.  
-> > > > >
-> > > > > Add two new _OSC bits to advertise whether the OS supports the
-> > > > > _STA enabled or present bits being toggled for CPUs. This will be
-> > > > > important for arm64 if systems that support physical CPU hotplug
-> > > > > ever appear as
-> > > > > arm64 linux doesn't currently support this, so firmware shouldn't try.
-> > > > >
-> > > > > Advertising this support to firmware is useful for cloud
-> > > > > orchestrators to know whether they can scale a particular VM by adding  
-> > CPUs.  
-> > > > >
-> > > > > Signed-off-by: James Morse <james.morse@arm.com>
-> > > > > Tested-by: Miguel Luis <miguel.luis@oracle.com>
-> > > > > Tested-by: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
-> > > > > Tested-by: Jianyong Wu <jianyong.wu@arm.com>  
-> > > >
-> > > > I'm very much in favor of this _OSC but it hasn't been accepted yet I think...
-> > > > https://bugzilla.tianocore.org/show_bug.cgi?id=4481
-> > > >
-> > > > Jose? Github suggests you are the proposer on this.  
-> > >
-> > > The addition of these _OSC bits was proposed by us on the forum in question.
-> > > The forum opted to pause the definition until additional practical information  
-> > could be provided on the use-cases.  
-> > >
-> > > If anyone is interested in progressing the _OSC bit definition, you are invited to  
-> > express that interest in the Bugzilla ticket.
-> > 
-> > I've poked around a bit and can't find any reference to how to actually get a
-> > bugzilla account bugzilla.tianocore.org. Any pointers?  I'm sure I had one at one
-> > stage, but trying every plausible email address and the forgotten password link
-> > got me nowhere.
-> >   
+On 23.01.24 11:48, David Hildenbrand wrote:
+> On 23.01.24 11:34, Ryan Roberts wrote:
+>> On 22/01/2024 19:41, David Hildenbrand wrote:
+>>> We want to make use of pte_next_pfn() outside of set_ptes(). Let's
+>>> simpliy define PFN_PTE_SHIFT, required by pte_next_pfn().
+>>>
+>>> Signed-off-by: David Hildenbrand <david@redhat.com>
+>>> ---
+>>>    arch/arm/include/asm/pgtable.h   | 2 ++
+>>>    arch/arm64/include/asm/pgtable.h | 2 ++
+>>>    2 files changed, 4 insertions(+)
+>>>
+>>> diff --git a/arch/arm/include/asm/pgtable.h b/arch/arm/include/asm/pgtable.h
+>>> index d657b84b6bf70..be91e376df79e 100644
+>>> --- a/arch/arm/include/asm/pgtable.h
+>>> +++ b/arch/arm/include/asm/pgtable.h
+>>> @@ -209,6 +209,8 @@ static inline void __sync_icache_dcache(pte_t pteval)
+>>>    extern void __sync_icache_dcache(pte_t pteval);
+>>>    #endif
+>>>    
+>>> +#define PFN_PTE_SHIFT		PAGE_SHIFT
+>>> +
+>>>    void set_ptes(struct mm_struct *mm, unsigned long addr,
+>>>    		      pte_t *ptep, pte_t pteval, unsigned int nr);
+>>>    #define set_ptes set_ptes
+>>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>>> index 79ce70fbb751c..d4b3bd96e3304 100644
+>>> --- a/arch/arm64/include/asm/pgtable.h
+>>> +++ b/arch/arm64/include/asm/pgtable.h
+>>> @@ -341,6 +341,8 @@ static inline void __sync_cache_and_tags(pte_t pte, unsigned int nr_pages)
+>>>    		mte_sync_tags(pte, nr_pages);
+>>>    }
+>>>    
+>>> +#define PFN_PTE_SHIFT		PAGE_SHIFT
+>>
+>> I think this is buggy. And so is the arm64 implementation of set_ptes(). It
+>> works fine for 48-bit output address, but for 52-bit OAs, the high bits are not
+>> kept contigously, so if you happen to be setting a mapping for which the
+>> physical memory block straddles bit 48, this won't work.
 > 
-> The procedure to get a new account is described here: https://github.com/tianocore/tianocore.github.io/wiki/Reporting-Issues
-> The immediate next steps are:
-> - Join https://edk2.groups.io/g/devel, and subscribe edk2 | devel group.
-> - Send the email with the detail reason to Bugzilla Admin (gaoliming@byosoft.com.cn) , this email address will be created as Bugzilla account.
+> Right, as soon as the PTE bits are not contiguous, this stops working,
+> just like set_ptes() would, which I used as orientation.
 > 
-> > > Information that you should provide to increase the chances of the ticket being  
-> > reopened:  
-> > > - use-case for the new _OSC bits,  
-> > 
-> > Really annoying without it as a hypervisor can't query if a guest can do anything
-> > useful if the host does virtual CPU hotplug via this newly added route.
-> > Given this is new functionality and there is non trivial effort required by the host
-> > to instantiate such a CPU it would be nice to be able to find out if the feature is
-> > supported by the Guest OS without having to basically suck it an see with
-> > hypervisors having to do a trial hotplug just to see if it 'might' work.
-> >   
-> > > - what breaks (if anything) without the proposed _OSC bits.  
-> > 
-> > Nothing breaks - you can merrily poke in hotplugged CPUs with the attendant
-> > creation of resources in the host and have them disappear into a black hole.
-> > That's ugly but not broken as such. Hopefully a hypervisor will not keep trying
-> > until the first attempt either succeeds or fails.
-> >   
-> > >
-> > > We did receive additional comments:
-> > > - the proposed _OSC bits are not generic: the bits simply convey whether the  
-> > guest OS understands CPU hot-plug, but it says nothing about the number of CPUs
-> > that the OS supports.
-> > 
-> > If a guest says it supports this feature, you would hope it supports it for the
-> > number of CPUs that have the present bit set but the enabled not.
-> > I'd clarify that in the text rather than provide a means of querying the number of
-> > CPUs supported.
-> > Number wouldn't be sufficient anyway as it wouldn't indicate 'which' CPUs are
-> > supported.
-> > Nothing says they have to be contiguous or lowest IDs etc.
-> >   
-> > > - There could be alternate schemes that do not rely on spec changes. E.g. there  
-> > could be a hypervisor IMPDEF mechanism to describe if an OS image supports
-> > CPU hot-plug.
-> > 
-> > Sigh. Yes, that could be done at the cost of every guest having to be made aware
-> > of every hypervisor impdef mechanism.  Trying to avoid that mess is why I think
-> > an _OSC makes sense as then everyone can use the same control.
-> > 
-> > No particular reason we should use ACPI at all for VMs :)
-> >   
-> > >  
-> > > >
-> > > > btw v4 looks ok but v5 in the tianocore github seems to have lost
-> > > > the actual OSC part.  
-> > >
-> > > Agree that, if we do progress with this spec change, v4 is the correct formulation  
-> > we should adopt.  
-> > >  
-> > Thanks for the update.
-> > 
-> > Overall this is a question we need to resolve soon.  If this code otherwise goes in
-> > linux without the OSC we will always need to support the 'suck it and see'
-> > approach as we'll never know if the guest fell down the hole. Thus if not added
-> > soon we might as well not add it at all and we'll all be looking at the code and
-> > thinking "that's ugly and shouldn't have been necessary" for years to come.
-> > 
-> > +CC Kangkang as he might be able to help get this started again.  
-> 
-> We're keen to support the progress of this ECR.
+>>
+>> Today, only the 64K base page config can support 52 bits, and for this,
+>> OA[51:48] are stored in PTE[15:12]. But 52 bits for 4K and 16K base pages is
+>> coming (hopefully v6.9) and in this case OA[51:50] are stored in PTE[9:8].
+>> Fortunately we already have helpers in arm64 to abstract this.
+>>
+>> So I think arm64 will want to define its own pte_next_pfn():
+>>
+>> #define pte_next_pfn pte_next_pfn
+>> static inline pte_t pte_next_pfn(pte_t pte)
+>> {
+>> 	return pfn_pte(pte_pfn(pte) + 1, pte_pgprot(pte));
+>> }
+>>
 
-So work is underway on kicking this off again, but I think we need a backup plan
-(even if it is a bit ugly) as I really don't want the kernel code to get caught
-behind an ASWG discussion that might not end up with the answer we want anyway.
+Digging into the details, on arm64 we have:
 
-So even if we eventually land this _OSC in the spec, I think we will have
-systems where it's unknowable if they support this feature or not.
-That is the 'suck it and see' approach will be necessary.  If an orchestrator
-really wants to know if this is supported by the guest it will have to try
-telling the guest the CPU is enabled, and if the guest turns it on we know it
-supports this feature.  So it'll have to have a tedious probe loop.
+#define pte_pfn(pte)           (__pte_to_phys(pte) >> PAGE_SHIFT)
 
-That can then be shortcut but an _OSC if we have one later.
+and
 
-I really want to see this feature go into the kernel this cycle and this ugly
-corner isn't to my mind a blocker.
+#define __pte_to_phys(pte)     (pte_val(pte) & PTE_ADDR_MASK)
 
-So I suggest we drop this patch for now and we'll revisit later.
+But that implies, that upstream the PFN is always contiguous, no?
 
+-- 
+Cheers,
 
-> 
-> Regards,
-> Jose
-> 
-> > 
-> > Jonathan
-> >   
-> > > Regards,
-> > > Jose
-> > >  
-> > > >
-> > > > Jonathan
-> > > >  
-> > > > > ---
-> > > > > I'm assuming Loongarch machines do not support physical CPU hotplug.
-> > > > >
-> > > > > Changes since RFC v3:
-> > > > >  * Drop ia64 changes
-> > > > >  * Update James' comment below "---" to remove reference to ia64
-> > > > >
-> > > > > Outstanding comment:
-> > > > >  https://lore.kernel.org/r/20230914175021.000018fd@Huawei.com  
-> > > >
-> > > >
-> > > >  
-> > > > > ---
-> > > > >  arch/x86/Kconfig              |  1 +
-> > > > >  drivers/acpi/Kconfig          |  9 +++++++++
-> > > > >  drivers/acpi/acpi_processor.c | 14 +++++++++++++-
-> > > > >  drivers/acpi/bus.c            | 16 ++++++++++++++++
-> > > > >  include/linux/acpi.h          |  4 ++++
-> > > > >  5 files changed, 43 insertions(+), 1 deletion(-)
-> > > > >
-> > > > > diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig index
-> > > > > 64fc7c475ab0..33fc4dcd950c 100644
-> > > > > --- a/arch/x86/Kconfig
-> > > > > +++ b/arch/x86/Kconfig
-> > > > > @@ -60,6 +60,7 @@ config X86
-> > > > >  	select ACPI_LEGACY_TABLES_LOOKUP	if ACPI
-> > > > >  	select ACPI_SYSTEM_POWER_STATES_SUPPORT	if ACPI
-> > > > >  	select ACPI_HOTPLUG_PRESENT_CPU		if ACPI_PROCESSOR  
-> > > > && HOTPLUG_CPU  
-> > > > > +	select ACPI_HOTPLUG_IGNORE_OSC		if ACPI &&  
-> > > > HOTPLUG_CPU  
-> > > > >  	select ARCH_32BIT_OFF_T			if X86_32
-> > > > >  	select ARCH_CLOCKSOURCE_INIT
-> > > > >  	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
-> > > > > diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig index
-> > > > > 9c5a43d0aff4..020e7c0ab985 100644
-> > > > > --- a/drivers/acpi/Kconfig
-> > > > > +++ b/drivers/acpi/Kconfig
-> > > > > @@ -311,6 +311,15 @@ config ACPI_HOTPLUG_PRESENT_CPU
-> > > > >  	depends on ACPI_PROCESSOR && HOTPLUG_CPU
-> > > > >  	select ACPI_CONTAINER
-> > > > >
-> > > > > +config ACPI_HOTPLUG_IGNORE_OSC
-> > > > > +	bool
-> > > > > +	depends on ACPI_HOTPLUG_PRESENT_CPU
-> > > > > +	help
-> > > > > +	  Ignore whether firmware acknowledged support for toggling the CPU
-> > > > > +	  present bit in _STA. Some architectures predate the _OSC bits, so
-> > > > > +	  firmware doesn't know to do this.
-> > > > > +
-> > > > > +
-> > > > >  config ACPI_PROCESSOR_AGGREGATOR
-> > > > >  	tristate "Processor Aggregator"
-> > > > >  	depends on ACPI_PROCESSOR
-> > > > > diff --git a/drivers/acpi/acpi_processor.c
-> > > > > b/drivers/acpi/acpi_processor.c index ea12e70dfd39..5bb207a7a1dd
-> > > > > 100644
-> > > > > --- a/drivers/acpi/acpi_processor.c
-> > > > > +++ b/drivers/acpi/acpi_processor.c
-> > > > > @@ -182,6 +182,18 @@ static void __init
-> > > > > acpi_pcc_cpufreq_init(void) static void __init
-> > > > > acpi_pcc_cpufreq_init(void) {}  #endif /*
-> > > > > CONFIG_X86 */
-> > > > >
-> > > > > +static bool acpi_processor_hotplug_present_supported(void)
-> > > > > +{
-> > > > > +	if (!IS_ENABLED(CONFIG_ACPI_HOTPLUG_PRESENT_CPU))
-> > > > > +		return false;
-> > > > > +
-> > > > > +	/* x86 systems pre-date the _OSC bit */
-> > > > > +	if (IS_ENABLED(CONFIG_ACPI_HOTPLUG_IGNORE_OSC))
-> > > > > +		return true;
-> > > > > +
-> > > > > +	return osc_sb_hotplug_present_support_acked;
-> > > > > +}
-> > > > > +
-> > > > >  /* Initialization */
-> > > > >  static int acpi_processor_make_present(struct acpi_processor *pr)
-> > > > > { @@ -189,7 +201,7 @@ static int
-> > > > > acpi_processor_make_present(struct  
-> > > > acpi_processor *pr)  
-> > > > >  	acpi_status status;
-> > > > >  	int ret;
-> > > > >
-> > > > > -	if (!IS_ENABLED(CONFIG_ACPI_HOTPLUG_PRESENT_CPU)) {
-> > > > > +	if (!acpi_processor_hotplug_present_supported()) {
-> > > > >  		pr_err_once("Changing CPU present bit is not supported\n");
-> > > > >  		return -ENODEV;
-> > > > >  	}
-> > > > > diff --git a/drivers/acpi/bus.c b/drivers/acpi/bus.c index
-> > > > > 72e64c0718c9..7122450739d6 100644
-> > > > > --- a/drivers/acpi/bus.c
-> > > > > +++ b/drivers/acpi/bus.c
-> > > > > @@ -298,6 +298,13 @@
-> > > > > EXPORT_SYMBOL_GPL(osc_sb_native_usb4_support_confirmed);
-> > > > >
-> > > > >  bool osc_sb_cppc2_support_acked;
-> > > > >
-> > > > > +/*
-> > > > > + * ACPI 6.? Proposed Operating System Capabilities for modifying
-> > > > > +CPU
-> > > > > + * present/enable.
-> > > > > + */
-> > > > > +bool osc_sb_hotplug_enabled_support_acked;
-> > > > > +bool osc_sb_hotplug_present_support_acked;
-> > > > > +
-> > > > >  static u8 sb_uuid_str[] = "0811B06E-4A27-44F9-8D60-3CBBC22E7B48";
-> > > > >  static void acpi_bus_osc_negotiate_platform_control(void)
-> > > > >  {
-> > > > > @@ -346,6 +353,11 @@ static void
-> > > > > acpi_bus_osc_negotiate_platform_control(void)
-> > > > >
-> > > > >  	if (!ghes_disable)
-> > > > >  		capbuf[OSC_SUPPORT_DWORD] |= OSC_SB_APEI_SUPPORT;
-> > > > > +
-> > > > > +	capbuf[OSC_SUPPORT_DWORD] |=  
-> > > > OSC_SB_HOTPLUG_ENABLED_SUPPORT;  
-> > > > > +	if (IS_ENABLED(CONFIG_ACPI_HOTPLUG_PRESENT_CPU))
-> > > > > +		capbuf[OSC_SUPPORT_DWORD] |=  
-> > > > OSC_SB_HOTPLUG_PRESENT_SUPPORT;  
-> > > > > +
-> > > > >  	if (ACPI_FAILURE(acpi_get_handle(NULL, "\\_SB", &handle)))
-> > > > >  		return;
-> > > > >
-> > > > > @@ -383,6 +395,10 @@ static void  
-> > > > acpi_bus_osc_negotiate_platform_control(void)  
-> > > > >  			capbuf_ret[OSC_SUPPORT_DWORD] &  
-> > > > OSC_SB_NATIVE_USB4_SUPPORT;  
-> > > > >  		osc_cpc_flexible_adr_space_confirmed =
-> > > > >  			capbuf_ret[OSC_SUPPORT_DWORD] &  
-> > > > OSC_SB_CPC_FLEXIBLE_ADR_SPACE;  
-> > > > > +		osc_sb_hotplug_enabled_support_acked =
-> > > > > +			capbuf_ret[OSC_SUPPORT_DWORD] &  
-> > > > OSC_SB_HOTPLUG_ENABLED_SUPPORT;  
-> > > > > +		osc_sb_hotplug_present_support_acked =
-> > > > > +			capbuf_ret[OSC_SUPPORT_DWORD] &  
-> > > > OSC_SB_HOTPLUG_PRESENT_SUPPORT;  
-> > > > >  	}
-> > > > >
-> > > > >  	kfree(context.ret.pointer);
-> > > > > diff --git a/include/linux/acpi.h b/include/linux/acpi.h index
-> > > > > 00be66683505..c572abac803c 100644
-> > > > > --- a/include/linux/acpi.h
-> > > > > +++ b/include/linux/acpi.h
-> > > > > @@ -559,12 +559,16 @@ acpi_status acpi_run_osc(acpi_handle handle,  
-> > > > struct acpi_osc_context *context);  
-> > > > >  #define OSC_SB_NATIVE_USB4_SUPPORT		0x00040000
-> > > > >  #define OSC_SB_PRM_SUPPORT			0x00200000
-> > > > >  #define OSC_SB_FFH_OPR_SUPPORT			0x00400000
-> > > > > +#define OSC_SB_HOTPLUG_ENABLED_SUPPORT		0x00800000
-> > > > > +#define OSC_SB_HOTPLUG_PRESENT_SUPPORT		0x01000000
-> > > > >
-> > > > >  extern bool osc_sb_apei_support_acked;  extern bool
-> > > > > osc_pc_lpi_support_confirmed;  extern bool
-> > > > > osc_sb_native_usb4_support_confirmed;
-> > > > >  extern bool osc_sb_cppc2_support_acked;  extern bool
-> > > > > osc_cpc_flexible_adr_space_confirmed;
-> > > > > +extern bool osc_sb_hotplug_enabled_support_acked;
-> > > > > +extern bool osc_sb_hotplug_present_support_acked;
-> > > > >
-> > > > >  /* USB4 Capabilities */
-> > > > >  #define OSC_USB_USB3_TUNNELING			0x00000001  
-> > >  
-> 
+David / dhildenb
 
 
 _______________________________________________
