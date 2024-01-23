@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E7EC47DDC
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 10:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B67EC47258
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 10:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2UDoUpJA7UXX2c2aFsQm9KP1D82evlPJON0q8wW90H0=; b=VDYw8T+iR0zS35
-	qbDOqFRv8lM10ps5DYf0ThcShJjDDBOH4uzzHnlWmNtSBeDOf4xm9LiCiTxzArq6dD5nxNaCc5evi
-	DQLfSuODwSXD4Yu/aQxnq0MO6VllQgxLJoL3mA8Xb8LMtBDpAKe0KkEWvr8FEHg8BCeC6VmGecweD
-	jZQj74VXlLQmn1ACo42pS58yB+9e3P/XFdMEfDTW9DLAjUlYXIt9NWdsNPmv8nlIaWqxf5CHvBkL/
-	Of+VHiktlUct+uUk00dWCQO54Pv9GBvckP7fAH1h9NkGeYMfWsSwlElOfF16czhvs/mx0pdji5Lm+
-	+pJPVdEHn4x3oAOoGHPg==;
+	List-Owner; bh=KJBawDG76734QNpclsGkss8iVZKrqB0pl6XC+EOUMQo=; b=dj80MD53gDbO43
+	qkhgYzuyqQuvFiZ3PEd9gRuMHglPSnT6nuHsxXv26bEry2jamQoFlDXKPsvKjO26kEBVF82MoVrRy
+	E+of+NvO6s8d+UqSL41Zii0ix+JjdnfeM0rnzbilE4CmXoSoMhpQ/zBsUQPI409mQq41wMiG0NPrI
+	Wadq1bhg62cfoTTlh6E6+Fr2vi+27jOdd4bPbbFxSjaFBt9+OWESvFfy65GNreNqsKk+pbQBto1/b
+	QnHEpy4Rnj1odND1CEfWqNrn3k8Tz8OQnCGEt0MpvePAxRaLwF7nPitzEX48pZiMDMtPMb0LXKe24
+	UYWZlWVbo1XdIU3QM29w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSE4s-00Fwls-2Z;
-	Tue, 23 Jan 2024 10:32:22 +0000
-Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSE4m-00FwgR-0T
-	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jan 2024 10:32:19 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4TK3L622GWz4f3m7B
-	for <linux-riscv@lists.infradead.org>; Tue, 23 Jan 2024 18:31:58 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id 8D8C41A0272
-	for <linux-riscv@lists.infradead.org>; Tue, 23 Jan 2024 18:32:04 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP2 (Coremail) with SMTP id Syh0CgBHaQyfla9ldy79Bg--.53064S5;
-	Tue, 23 Jan 2024 18:32:04 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Song Liu <song@kernel.org>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Luke Nelson <luke.r.nels@gmail.com>,
-	Pu Lehui <pulehui@huawei.com>,
-	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [PATCH bpf-next 3/3] riscv, bpf: Use bpf_prog_pack for RV64 bpf trampoline
-Date: Tue, 23 Jan 2024 10:32:41 +0000
-Message-Id: <20240123103241.2282122-4-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240123103241.2282122-1-pulehui@huaweicloud.com>
-References: <20240123103241.2282122-1-pulehui@huaweicloud.com>
+	id 1rSE70-00FxSJ-0M;
+	Tue, 23 Jan 2024 10:34:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rSE6w-00FxQv-27;
+	Tue, 23 Jan 2024 10:34:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43C5E1FB;
+	Tue, 23 Jan 2024 02:35:14 -0800 (PST)
+Received: from [10.57.77.165] (unknown [10.57.77.165])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD0EF3F5A1;
+	Tue, 23 Jan 2024 02:34:23 -0800 (PST)
+Message-ID: <fdaeb9a5-d890-499a-92c8-d171df43ad01@arm.com>
+Date: Tue, 23 Jan 2024 10:34:21 +0000
 MIME-Version: 1.0
-X-CM-TRANSID: Syh0CgBHaQyfla9ldy79Bg--.53064S5
-X-Coremail-Antispam: 1UD129KBjvJXoWxZFy8Zry7tr43Ar1rXF4ruFg_yoWrWF4kpF
-	s3Gw1ak3ykXr15ta4kJr4UZF1ay3ykW3sxGr9xG3yxCFZ8Xr98GFyrKrWYvFWFkryj9r18
-	AF4qvFn8u3WUJaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUP014x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
-	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2
-	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
-	Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJw
-	CI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7VUbJ73DUU
-	UUU==
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 01/11] arm/pgtable: define PFN_PTE_SHIFT on arm and
+ arm64
+Content-Language: en-GB
+To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
+ Matthew Wilcox <willy@infradead.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, "David S. Miller"
+ <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org
+References: <20240122194200.381241-1-david@redhat.com>
+ <20240122194200.381241-2-david@redhat.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20240122194200.381241-2-david@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240123_023216_562404_657F24F9 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20240123_023430_785037_0891570C 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,123 +81,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pu Lehui <pulehui@huawei.com>
+On 22/01/2024 19:41, David Hildenbrand wrote:
+> We want to make use of pte_next_pfn() outside of set_ptes(). Let's
+> simpliy define PFN_PTE_SHIFT, required by pte_next_pfn().
+> 
+> Signed-off-by: David Hildenbrand <david@redhat.com>
+> ---
+>  arch/arm/include/asm/pgtable.h   | 2 ++
+>  arch/arm64/include/asm/pgtable.h | 2 ++
+>  2 files changed, 4 insertions(+)
+> 
+> diff --git a/arch/arm/include/asm/pgtable.h b/arch/arm/include/asm/pgtable.h
+> index d657b84b6bf70..be91e376df79e 100644
+> --- a/arch/arm/include/asm/pgtable.h
+> +++ b/arch/arm/include/asm/pgtable.h
+> @@ -209,6 +209,8 @@ static inline void __sync_icache_dcache(pte_t pteval)
+>  extern void __sync_icache_dcache(pte_t pteval);
+>  #endif
+>  
+> +#define PFN_PTE_SHIFT		PAGE_SHIFT
+> +
+>  void set_ptes(struct mm_struct *mm, unsigned long addr,
+>  		      pte_t *ptep, pte_t pteval, unsigned int nr);
+>  #define set_ptes set_ptes
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 79ce70fbb751c..d4b3bd96e3304 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -341,6 +341,8 @@ static inline void __sync_cache_and_tags(pte_t pte, unsigned int nr_pages)
+>  		mte_sync_tags(pte, nr_pages);
+>  }
+>  
+> +#define PFN_PTE_SHIFT		PAGE_SHIFT
 
-We used bpf_prog_pack to aggregate bpf programs into huge page to
-relieve the iTLB pressure on the system. We can apply it to bpf
-trampoline, as Song had been implemented it in core and x86 [0]. This
-patch is going to use bpf_prog_pack to RV64 bpf trampoline. Since Song
-and Puranjay have done a lot of work for bpf_prog_pack on RV64,
-implementing this function will be easy. But one thing to mention is
-that emit_call in RV64 will generate the maximum number of instructions
-during dry run, but during real patching it may be optimized to 1
-instruction due to distance. This is no problem as it does not overflow
-the allocated RO image.
+I think this is buggy. And so is the arm64 implementation of set_ptes(). It
+works fine for 48-bit output address, but for 52-bit OAs, the high bits are not
+kept contigously, so if you happen to be setting a mapping for which the
+physical memory block straddles bit 48, this won't work.
 
-Link: https://lore.kernel.org/all/20231206224054.492250-1-song@kernel.org [0]
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- arch/riscv/net/bpf_jit_comp64.c | 59 ++++++++++++++++++++++++---------
- 1 file changed, 44 insertions(+), 15 deletions(-)
+Today, only the 64K base page config can support 52 bits, and for this,
+OA[51:48] are stored in PTE[15:12]. But 52 bits for 4K and 16K base pages is
+coming (hopefully v6.9) and in this case OA[51:50] are stored in PTE[9:8].
+Fortunately we already have helpers in arm64 to abstract this.
 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 5c4e0ac389d0..903f724cd785 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -961,7 +961,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
- 			goto out;
- 		emit_sd(RV_REG_FP, -retval_off, RV_REG_A0, ctx);
- 		emit_sd(RV_REG_FP, -(retval_off - 8), regmap[BPF_REG_0], ctx);
--		im->ip_after_call = ctx->insns + ctx->ninsns;
-+		im->ip_after_call = ctx->ro_insns + ctx->ninsns;
- 		/* 2 nops reserved for auipc+jalr pair */
- 		emit(rv_nop(), ctx);
- 		emit(rv_nop(), ctx);
-@@ -982,7 +982,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
- 	}
- 
- 	if (flags & BPF_TRAMP_F_CALL_ORIG) {
--		im->ip_epilogue = ctx->insns + ctx->ninsns;
-+		im->ip_epilogue = ctx->ro_insns + ctx->ninsns;
- 		emit_imm(RV_REG_A0, (const s64)im, ctx);
- 		ret = emit_call((const u64)__bpf_tramp_exit, true, ctx);
- 		if (ret)
-@@ -1044,31 +1044,60 @@ int arch_bpf_trampoline_size(struct bpf_tramp_image *im, const struct btf_func_m
- 	return ret < 0 ? ret : ninsns_rvoff(ctx.ninsns);
- }
- 
--int arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *image,
--				void *image_end, const struct btf_func_model *m,
-+void *arch_alloc_bpf_trampoline(unsigned int size)
-+{
-+	return bpf_prog_pack_alloc(size, bpf_fill_ill_insns);
-+}
-+
-+void arch_free_bpf_trampoline(void *image, unsigned int size)
-+{
-+	bpf_prog_pack_free(image, size);
-+}
-+
-+void arch_protect_bpf_trampoline(void *image, unsigned int size)
-+{
-+}
-+
-+void arch_unprotect_bpf_trampoline(void *image, unsigned int size)
-+{
-+}
-+
-+int arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *ro_image,
-+				void *ro_image_end, const struct btf_func_model *m,
- 				u32 flags, struct bpf_tramp_links *tlinks,
- 				void *func_addr)
- {
- 	int ret;
-+	void *image, *tmp;
- 	struct rv_jit_context ctx;
-+	u32 size = ro_image_end - ro_image;
-+
-+	image = kvmalloc(size, GFP_KERNEL);
-+	if (!image)
-+		return -ENOMEM;
- 
- 	ctx.ninsns = 0;
--	/*
--	 * The bpf_int_jit_compile() uses a RW buffer (ctx.insns) to write the
--	 * JITed instructions and later copies it to a RX region (ctx.ro_insns).
--	 * It also uses ctx.ro_insns to calculate offsets for jumps etc. As the
--	 * trampoline image uses the same memory area for writing and execution,
--	 * both ctx.insns and ctx.ro_insns can be set to image.
--	 */
- 	ctx.insns = image;
--	ctx.ro_insns = image;
-+	ctx.ro_insns = ro_image;
- 	ret = __arch_prepare_bpf_trampoline(im, m, tlinks, func_addr, flags, &ctx);
- 	if (ret < 0)
--		return ret;
-+		goto out;
- 
--	bpf_flush_icache(ctx.insns, ctx.insns + ctx.ninsns);
-+	if (WARN_ON(size < ninsns_rvoff(ctx.ninsns))) {
-+		ret = -E2BIG;
-+		goto out;
-+	}
- 
--	return ninsns_rvoff(ret);
-+	tmp = bpf_arch_text_copy(ro_image, image, size);
-+	if (IS_ERR(tmp)) {
-+		ret = PTR_ERR(tmp);
-+		goto out;
-+	}
-+
-+	bpf_flush_icache(ro_image, ro_image + size);
-+out:
-+	kvfree(image);
-+	return ret < 0 ? ret : size;
- }
- 
- int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
--- 
-2.34.1
+So I think arm64 will want to define its own pte_next_pfn():
+
+#define pte_next_pfn pte_next_pfn
+static inline pte_t pte_next_pfn(pte_t pte)
+{
+	return pfn_pte(pte_pfn(pte) + 1, pte_pgprot(pte));
+}
+
+I'll do a separate patch to fix the already broken arm64 set_ptes() implementation.
+
+I'm not sure if this type of problem might also apply to other arches?
+
+
+> +
+>  static inline void set_ptes(struct mm_struct *mm,
+>  			    unsigned long __always_unused addr,
+>  			    pte_t *ptep, pte_t pte, unsigned int nr)
 
 
 _______________________________________________
