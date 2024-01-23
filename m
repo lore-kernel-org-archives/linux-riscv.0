@@ -4,145 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B953C47258
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 05:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732A4C47258
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 06:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UNxI2Jdo9x+dI7aFe/7ggSFjDV+A5cKmKuhFU+wjzRU=; b=t7h2gLhwLqu2Sy
-	1Qf90Cj39Oh8wp7JvzFCBkJFdHTT3Wj5NIib4IPhmLsmg1qppId1siePW355HIOlluwkXcupagabE
-	jSvnq2isR5/b4TRqVAArH29/zMAXFQewycd8NeaztZ3iNtEgmbEM17wA9NDY1EpwqfTLhgBmRby4D
-	or1CtWDrbpolbVip3Je8o1ps1zJTIOJ+g1+F+c8qS1u3CIVT+hHvJL3hOyD1KCUlVxA2KgEj5YvhG
-	N+Isnw3pflXThH25sFkxYGBE6fc0womq1SgSOyi0i8qLV+z6LRvTdEWmSM2UHBK7A0RHU4aSBrPeO
-	HcX4a39FEk+xFn/QWcIg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CO3Dbq8tbp9VaGvC3KS7qgxMiRyMVBH/naVESivXDxI=; b=UVelyP8ArXttv5
+	SpD+6aGRJGGpu4fqvzMtSwe/3GLt4BSXmkHLElzikH75aFt0RUtKvGwGDl4cvri96PwdKO3dFSiwi
+	Ju5nn3dXpSI33IOAcb2m6+UNOULCy7xMtc6QoFkB/agaLhFjVtG2jo4s7KeKzZ1XbBHM0uHvKUvRI
+	lVtymHvlcseo5j5DFHD6+7F7/PZXDiqK4cJBuh9C4ZaCurduE3pZvc6dyBZzotELjXd21fE1cu3zg
+	KcP0y8CEdv/B4Pc1rkhuIo+0AYt0r9iovrsTByuf6MlNZ+mLhJ7LnWdanhX9pNeaw+OzB5revbmCX
+	st5CCfnTbfZQa2PtG01A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rS8ta-00F6HI-1J;
-	Tue, 23 Jan 2024 05:00:22 +0000
-Received: from mail-mw2nam04on20700.outbound.protection.outlook.com ([2a01:111:f403:240a::700] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
+	id 1rSA6u-00FEts-1o;
+	Tue, 23 Jan 2024 06:18:12 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rS8tW-00F6GT-0Y;
-	Tue, 23 Jan 2024 05:00:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=WwIZwVw05GXifOwX+7u4/hT4BktsxgdX9gUq7jsv3dadOZCmikbqWZYDnV6pVuaQAQ1mQajsbieS+K3AvtTtioHNGihvJoPJWoLsnu1R3GOAa0oQwYMfVtnU9+tw0AimlsO4P4aIAgzzu1mDBpYUrI/mJNoMfvq7jPPEzSFfAFFxjKw27nwDpaue7Vjj+i+puOuP8WsVsVGIl5YHcXI1kF07E1DBqIVb7kaLVR13FSi0CaGbbABv55zyFJlzLexYw0wLqjbS+VrVuMWoLAeaXeqPigvBlcM97P/gePb2i+AwSlUKzTlrxEA/YCeZN/xCuN7JcPyRI8VQ7jvUSoe2Tg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L8VMOla1IfoGtWF3wkPssQAMpxGPlgWmvfrDwBZXah8=;
- b=jbm04+Y9wNsQITlTP7oaVLwR2sdTuUxZTR6Oek8/WM7Wg9eNivbdsNncs1t3qBbCTTwftp6JFq7AuW2nQdcU0gXJWRYTzXEhs8vX08mFkurac4Xyk2iPj8GvULzcUdHf4ybn/GKFcmjSVxZqPY7+PK6X8ofbRchMmIq5+NPNiz/Zq6zwaiNd0tQphaaFubf+ePSIL9wZsHhSx8PI+s4+RDwN39cy1nob22YtsS/CD5iTzI/ROK8lRYnmiq1f8aM9jYlCIDNeVvbEbeBLJqxZei7T+91vr48UfM4+vPbnOKN/JthVCsmxMNlvBHHi6lcvSLb3wBH7gEKnr/l1NzJm5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	id 1rSA6s-00FEqU-1M
+	for linux-riscv@lists.infradead.org;
+	Tue, 23 Jan 2024 06:18:11 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1d72f71f222so10752045ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 22 Jan 2024 22:18:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L8VMOla1IfoGtWF3wkPssQAMpxGPlgWmvfrDwBZXah8=;
- b=m+AjAekQwvzmwcaQLWU2c4FXfV4iIOXemadq1ERnmUxlVOiulnPl65nYBaXcVkdcjCkzehI/NLrnBHM1DMBPxB7HIhgts4fOJHVzmH3ZbkmLt90vhKM+4V+bpUeqnoKytZuWtZg2G2Wo9n/m166KukD7ZAIC8GC896Or24g3nlo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
- BL1PR01MB7865.prod.exchangelabs.com (2603:10b6:208:39c::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.7202.37; Tue, 23 Jan 2024 05:00:06 +0000
-Received: from PH0PR01MB7975.prod.exchangelabs.com ([fe80::91c:92f:45a5:e68a])
- by PH0PR01MB7975.prod.exchangelabs.com ([fe80::91c:92f:45a5:e68a%6]) with
- mapi id 15.20.7202.026; Tue, 23 Jan 2024 05:00:05 +0000
-From: Huang Shijie <shijie@os.amperecomputing.com>
-To: gregkh@linuxfoundation.org
-Cc: patches@amperecomputing.com,
-	rafael@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	yury.norov@gmail.com,
-	kuba@kernel.org,
-	vschneid@redhat.com,
-	mingo@kernel.org,
-	akpm@linux-foundation.org,
-	vbabka@suse.cz,
-	rppt@kernel.org,
-	tglx@linutronix.de,
-	jpoimboe@kernel.org,
-	ndesaulniers@google.com,
-	mikelley@microsoft.com,
-	mhiramat@kernel.org,
-	arnd@arndb.de,
+        d=sifive.com; s=google; t=1705990687; x=1706595487; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nYo9wXWOZdh4xBQbuTEOxrcqZQMwofEU/9c/S0MDuwU=;
+        b=cDMoyPUBoXDyLvXbqN/iYnz1LF1bV24bc8Y90Ueao8bwnEJR0JmhLE6z7b6InZ0mbT
+         CPko+78MamWshwiCBHzRmuSCu0Dvc4F9k9qXHUwn5qdwZxqGRrq5OWNbolqi3fVcWmhs
+         YsWdHoiB1MGlebGRxUP/zI84maKBzMLU1QX2lzxWtsxEjdprJ5JIf3xRM4Zgaw/mUoMn
+         DZuk6pgYiiiAn3nAFX2Rf52AjL57mw2u/2MUHKGXgoFB0dcOw+f49ArLfe403hZfhh24
+         zD70f/bWKHNK1HH1PDoPf4Ioxca79wcmFvQgkWdrzhcvtjZFkIU8u8vMxBXmNLKUnNrj
+         ArSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705990687; x=1706595487;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nYo9wXWOZdh4xBQbuTEOxrcqZQMwofEU/9c/S0MDuwU=;
+        b=E5gCXUgROwyzCSklNm0I44vqoImUXLoOtvi2e3NLvZzgp8qDeBsfqPQL/vwRytAbd6
+         bptfvzjL+hgRYNA47IXVa2/Y7TsZmtF3cUNwtEak6dSY4ghQdu+Ob7MLJAl36ZaP+qUu
+         6Yuee3H1e9J9h/DsswkmfNwq54KN9svQxEN5N0PcKcH/O/UhbF46Kl78wDd/Xi+1tXJe
+         VuxgStS/mXcL48AnPyrzZK8Dj17ev8AQB6Ucq75AzPnjEexdgjMorwzAqBwNw5nB0nPm
+         Vd1T0oqNbEw7Lab0f4bwvnW37POEeu3rOy+NXCS7fubsOCHFiaoRdcMvof15LnVrst92
+         fvqQ==
+X-Gm-Message-State: AOJu0Yy5jwTgcMk25/H4B5o2FTohvq2s/EHcaGri/2Sba0LA88DaL4Yp
+	lgcwJaIiGSYpLUHhE27xSUVOU2ZRsbEpJ6it/jZsE1gzAapZHeGwkW5Gyxufhvf00FaaUnZeIyc
+	XsksznGYKSk0C7yfqIK4lNQMjzGxBTHo/aJpzecZeOAYRfzSZlh2GAfznozg3DMS6TU9KvG5vXQ
+	KL2a4jNQCq/0BhACogmr6aGxxRf4lvT2xf22CgM8LIszJ5oPwUnHg=
+X-Google-Smtp-Source: AGHT+IFlNaztc63RI2VKYB9Y8YhdR8gD5UHFIk3F8bWliL75YvC4TOWoaqQeAhmdUbkd+zXMJ9ZT6w==
+X-Received: by 2002:a17:902:7897:b0:1d5:78db:4293 with SMTP id q23-20020a170902789700b001d578db4293mr3043550pll.29.1705990686972;
+        Mon, 22 Jan 2024 22:18:06 -0800 (PST)
+Received: from hsinchu15.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id p7-20020a170902b08700b001d733c88646sm4425376plr.216.2024.01.22.22.18.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Jan 2024 22:18:06 -0800 (PST)
+From: Nylon Chen <nylon.chen@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	mpe@ellerman.id.au,
-	linuxppc-dev@lists.ozlabs.org,
-	chenhuacai@kernel.org,
-	jiaxun.yang@flygoat.com,
-	linux-mips@vger.kernel.org,
-	cl@os.amperecomputing.com,
-	Huang Shijie <shijie@os.amperecomputing.com>
-Subject: [PATCH v2] NUMA: Early use of cpu_to_node() returns 0 instead of the correct node id
-Date: Tue, 23 Jan 2024 12:58:43 +0800
-Message-Id: <20240123045843.75969-1-shijie@os.amperecomputing.com>
-X-Mailer: git-send-email 2.40.1
-X-ClientProxiedBy: CH0PR03CA0384.namprd03.prod.outlook.com
- (2603:10b6:610:119::26) To PH0PR01MB7975.prod.exchangelabs.com
- (2603:10b6:510:26d::15)
+	linux-pwm@vger.kernel.org,
+	conor@kernel.org,
+	robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu,
+	thierry.reding@gmail.com,
+	u.kleine-koenig@pengutronix.de
+Cc: vincent.chen@sifive.com,
+	zong.li@sifve.com,
+	nylon.chen@sifive.com,
+	nylon7717@gmail.com
+Subject: [PATCH v7 3/3] pwm: sifive: Fix the error in the idempotent test within the pwm_apply_state_debug function
+Date: Tue, 23 Jan 2024 14:17:48 +0800
+Message-ID: <20240123061748.8844-4-nylon.chen@sifive.com>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20240123061748.8844-1-nylon.chen@sifive.com>
+References: <20240123061748.8844-1-nylon.chen@sifive.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|BL1PR01MB7865:EE_
-X-MS-Office365-Filtering-Correlation-Id: e587ba2d-86b5-4ad6-ea82-08dc1bd02a01
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: +dPw5AkUKDAFa6fB1cwtJupmWRsmlVWFpO/rFtQ6UaY0Hcb4jQxQ0voerUo4skt68kMU2LFdmg8u/GQvuiB+n44nhuuS8B9mnjwFn4MMjHs5iuiGO1wBvDWBxgVWP6CWVqSo1gACs7TuQecKIi8EnueOTvbiM/1TNxgm35qqHDojoEAnn+HG42M2lGzEHv54MEDpQA3EUnOh5HVmujk2A4KkC5v3VB5aOcr/nS27n1BkpeJdGdmnse+JxGXNVO9mKaqizwTaTPpVL+g6SD4kmpYRSW1/lkxIZmbNfIS55V47nQsi6bn5oT6nzE4nd+CzjoW2BiCkRUxsuxZBmsFgW1falAFAkXfBQV0kr0FAgmlM0cb7HHm+ORtxl7gtI6mnaeTu/TsXtm4vMAV8Tmj1SfPdnifMU9rX7mpq3motbCYKa9DioieZpT2Mb0f/wW07UQMxyqGlfztbxpkWrxvbrJZ6Zy5KrRUsSnyZYmwYMNdCewawXETbsFWLktsRpYCiXJ3rCN6KApJ+KEVjsYYv85JYpUVZKvSA8qKJwLvEaQ6j+l9s6+O/J85gvIUIcBnihjY/LFMDKrcQv4uoHi4RnVbDAiTxoCU68ZrZ2wLtRVo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230031)(396003)(346002)(136003)(366004)(39850400004)(376002)(230922051799003)(186009)(64100799003)(1800799012)(451199024)(6666004)(86362001)(66476007)(66556008)(66946007)(107886003)(316002)(6916009)(2616005)(38350700005)(6512007)(41300700001)(52116002)(6506007)(5660300002)(8936002)(8676002)(4326008)(83380400001)(38100700002)(1076003)(26005)(7416002)(2906002)(478600001)(6486002)(966005);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fqghm1328fx4Erk9LUmtZxirlH34qnrW7vkFv1ctbjWLlHKxU20vcrZRVRfu?=
- =?us-ascii?Q?ljM5Mb38oKRJ9HUQgDAEGvsOmGn7T86xTPDSlhDSidLyHFrghqHi+2cBzh9f?=
- =?us-ascii?Q?qe4MxQHH6JPkcwTxG1nvsoWgfdYv3vqhIG37FQzLsHVjBXgkFTg0Mtw5tneQ?=
- =?us-ascii?Q?kKd6XKcevkSbm9keBudBeCc0rByr4PtcsbECgWvCt1HGyppD9/06BctP/oeM?=
- =?us-ascii?Q?alUQkDPTczuWSeuaotN9CAZMTyS0gFhioFt3M1JWV3KglYZ/jbjKmFh0EElO?=
- =?us-ascii?Q?6mutVFYNkm8yKg35pYi+YKK7lLDPkfiGpmDD2PObSUdS8bbdMJmxqibdHBpA?=
- =?us-ascii?Q?BWy0f64bxL6uj3p7KnzQzxc4rNp+1bmeekPorGK81sojUwgFyyG5EJ/wDJpC?=
- =?us-ascii?Q?9gx5+qB+vvQpCLQGPLAxb7/5h+weNb7/qx5rKL4XSgZFXDr2jRLvarLRO/NO?=
- =?us-ascii?Q?tVczoMRY0SGHRNcaJ6LwITUFNMbZ9VdZLg5X0vowFNwvm0lbjhqz4su48kvB?=
- =?us-ascii?Q?ZaTkk7AMUR2CAvfdFT6n35nOfh30mZFOje4SutEQxHOLzPy/yr6mWnHUYgWl?=
- =?us-ascii?Q?jAapEqkHFl+1mm5Exwt4/Bue6W64pUk8WZh9d+aYsIu06Ow7/pp23407i2LJ?=
- =?us-ascii?Q?2ICVD6HBnqFj3z0Rf/HUtHAdYSR03IR1zj3Ee7dqA4x9AQRDIQNBp0V7kky8?=
- =?us-ascii?Q?cZPu/GwCYrJA9htFddx+bNKAzwqiY8Dd9UGqSSmWWqQlbWkpj1xGtHdmPv2p?=
- =?us-ascii?Q?hYiPEJyitBjPQM/GqroFccQhMsrdJ/OdlmgSzsaFuaypxF+U0NkpFCs7qNRs?=
- =?us-ascii?Q?gw+KH2HxnfQNOgNYalg7DxKNY+eWS721J4xBp+s68hCQiTq9B4mDLPeW9Owq?=
- =?us-ascii?Q?JMHz3sfxnbH+TerTFJUAPSth2NRp34t1wuUxIyNhUqzgeZII65AUCSQcV5eK?=
- =?us-ascii?Q?zC6nNgouJffoITKEdxQ+6A6QFQYwlUD394Ek6eF/M8DSrUG5cc3g8MY1xg+J?=
- =?us-ascii?Q?Yqx29mtnk91DNEbl3NOPAZgufElxMpUHNzpvjMbHktJby7vhlpHYn1V2g6P3?=
- =?us-ascii?Q?/W1WxSQW4+rq/qYzFu92EjqZ9G+jSpIuqGT1YfwEiC14gIdRcWoEAHEsX1rk?=
- =?us-ascii?Q?hinJKMZNFHKD4YcSs7Nu3b4r2vS1gm1uf+lIwnyucyUJDD0VGhW3QITL9fW2?=
- =?us-ascii?Q?hCFlQf3K5mBfFUAPZx4szOqEpYaY2+Q2uuWqArJ8ou5KI5QP9G6XCb/5W+qb?=
- =?us-ascii?Q?2ZxfuCcZqDAqYuenche9AmiXNKikcibRDRCBQHVUAuwFphLGW7365hO3HScd?=
- =?us-ascii?Q?KWeJmX9f7fYTEf2104qTKRf4Hd1AlAeJYKW9WSrxcLTHleNt31zXrmHhox7a?=
- =?us-ascii?Q?lRkcrnVxoioE87Ki+nVDoFspbX6WUnGJ0vhKwMcviLYwtmTrqQVY+kfI7ztV?=
- =?us-ascii?Q?eAQrHzFJyBmE7+S0Aqs6W6rRolrWojN/uL7CaG5MQSk6riLMsVp/k8RydfA/?=
- =?us-ascii?Q?i0NbscMe/3B2JBE/e/1sEgOkPRURzhAEIIwf1Wn9X/j08nqD24Vv+Y2bN1pg?=
- =?us-ascii?Q?J2NIqsB7xwHjf9EO9ry2BLMY4L4Qj0wNg8Fn1fGWUaT0wSrNd7q4ekpjxbae?=
- =?us-ascii?Q?jtCzs6nRN4KKy2PGAeMvO8Q=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e587ba2d-86b5-4ad6-ea82-08dc1bd02a01
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2024 05:00:05.7255
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0En8K7/fzhbbvkh2ervdoWUhcfdH/JRiWXlMNnHUiV+XvFu/WY4HNWZU5BqloIkoh/Rj+OW9K5QXJytl4QBJKC9aLaFi0NasK44tSqUdj6+PbvAYH5RE0lgbRH9TZz0/
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR01MB7865
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_210018_257169_A989FDB6 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20240122_221810_462591_8E9C408B 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,139 +107,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-During the kernel booting, the generic cpu_to_node() is called too early in
-arm64, powerpc and riscv when CONFIG_NUMA is enabled.
+Round the result to the nearest whole number. This ensures that
+real_period is always a reasonable integer that is not lower than the
+actual value.
 
-For arm64/powerpc/riscv, there are at least four places in the common code
-where the generic cpu_to_node() is called before it is initialized:
-	   1.) early_trace_init()         in kernel/trace/trace.c
-	   2.) sched_init()               in kernel/sched/core.c
-	   3.) init_sched_fair_class()    in kernel/sched/fair.c
-	   4.) workqueue_init_early()     in kernel/workqueue.c
+e.g.
+$ echo 110 > /sys/devices/platform/led-controller-1/leds/d12/brightness
+$ .apply is not idempotent (ena=1 pol=0 1739692/4032985) -> (ena=1 pol=0 1739630/4032985)
 
-In order to fix the bug, the patch changes generic cpu_to_node to
-function pointer, and export it for kernel modules.
-Introduce smp_prepare_boot_cpu_start() to wrap the original
-smp_prepare_boot_cpu(), and set cpu_to_node with early_cpu_to_node.
-Introduce smp_prepare_cpus_done() to wrap the original smp_prepare_cpus(),
-and set the cpu_to_node to formal _cpu_to_node().
-
-Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
+Co-developed-by: Zong Li <zong.li@sifve.com>
+Signed-off-by: Zong Li <zong.li@sifve.com>
+Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
 ---
-v1 --> v2:
-	In order to fix the x86 compiling error, move the cpu_to_node()
-       	from driver/base/arch_numa.c to driver/base/node.c.
+ drivers/pwm/pwm-sifive.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-	v1: http://lists.infradead.org/pipermail/linux-arm-kernel/2024-January/896160.html
-
-	An old different title patch:
-	http://lists.infradead.org/pipermail/linux-arm-kernel/2024-January/895963.html
-
----
- drivers/base/node.c      | 11 +++++++++++
- include/linux/topology.h |  6 ++----
- init/main.c              | 29 +++++++++++++++++++++++++++--
- 3 files changed, 40 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/base/node.c b/drivers/base/node.c
-index 1c05640461dd..477d58c12886 100644
---- a/drivers/base/node.c
-+++ b/drivers/base/node.c
-@@ -976,3 +976,14 @@ void __init node_dev_init(void)
- 			panic("%s() failed to add node: %d\n", __func__, ret);
- 	}
+diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
+index b07c8598bb21..7cf7a76cdb44 100644
+--- a/drivers/pwm/pwm-sifive.c
++++ b/drivers/pwm/pwm-sifive.c
+@@ -101,7 +101,7 @@ static void pwm_sifive_update_clock(struct pwm_sifive_ddata *ddata,
+ 
+ 	/* As scale <= 15 the shift operation cannot overflow. */
+ 	num = (unsigned long long)NSEC_PER_SEC << (PWM_SIFIVE_CMPWIDTH + scale);
+-	ddata->real_period = div64_ul(num, rate);
++	ddata->real_period = DIV_ROUND_UP_ULL(num, rate);
+ 	dev_dbg(ddata->chip.dev,
+ 		"New real_period = %u ns\n", ddata->real_period);
  }
-+
-+#ifdef CONFIG_USE_PERCPU_NUMA_NODE_ID
-+#ifndef cpu_to_node
-+int _cpu_to_node(int cpu)
-+{
-+	return per_cpu(numa_node, cpu);
-+}
-+int (*cpu_to_node)(int cpu);
-+EXPORT_SYMBOL(cpu_to_node);
-+#endif
-+#endif
-diff --git a/include/linux/topology.h b/include/linux/topology.h
-index 52f5850730b3..e7ce2bae11dd 100644
---- a/include/linux/topology.h
-+++ b/include/linux/topology.h
-@@ -91,10 +91,8 @@ static inline int numa_node_id(void)
- #endif
- 
- #ifndef cpu_to_node
--static inline int cpu_to_node(int cpu)
--{
--	return per_cpu(numa_node, cpu);
--}
-+extern int (*cpu_to_node)(int cpu);
-+extern int _cpu_to_node(int cpu);
- #endif
- 
- #ifndef set_numa_node
-diff --git a/init/main.c b/init/main.c
-index e24b0780fdff..b142e9c51161 100644
---- a/init/main.c
-+++ b/init/main.c
-@@ -870,6 +870,18 @@ static void __init print_unknown_bootoptions(void)
- 	memblock_free(unknown_options, len);
- }
- 
-+static void __init smp_prepare_boot_cpu_start(void)
-+{
-+	smp_prepare_boot_cpu();	/* arch-specific boot-cpu hooks */
-+
-+#ifdef CONFIG_USE_PERCPU_NUMA_NODE_ID
-+#ifndef cpu_to_node
-+	/* The early_cpu_to_node should be ready now. */
-+	cpu_to_node = early_cpu_to_node;
-+#endif
-+#endif
-+}
-+
- asmlinkage __visible __init __no_sanitize_address __noreturn __no_stack_protector
- void start_kernel(void)
- {
-@@ -899,7 +911,7 @@ void start_kernel(void)
- 	setup_command_line(command_line);
- 	setup_nr_cpu_ids();
- 	setup_per_cpu_areas();
--	smp_prepare_boot_cpu();	/* arch-specific boot-cpu hooks */
-+	smp_prepare_boot_cpu_start();
- 	boot_cpu_hotplug_init();
- 
- 	pr_notice("Kernel command line: %s\n", saved_command_line);
-@@ -1519,6 +1531,19 @@ void __init console_on_rootfs(void)
- 	fput(file);
- }
- 
-+static void __init smp_prepare_cpus_done(unsigned int setup_max_cpus)
-+{
-+	/* Different ARCHs may override smp_prepare_cpus() */
-+	smp_prepare_cpus(setup_max_cpus);
-+
-+#ifdef CONFIG_USE_PERCPU_NUMA_NODE_ID
-+#ifndef cpu_to_node
-+	/* Change to the formal function. */
-+	cpu_to_node = _cpu_to_node;
-+#endif
-+#endif
-+}
-+
- static noinline void __init kernel_init_freeable(void)
- {
- 	/* Now the scheduler is fully set up and can do blocking allocations */
-@@ -1531,7 +1556,7 @@ static noinline void __init kernel_init_freeable(void)
- 
- 	cad_pid = get_pid(task_pid(current));
- 
--	smp_prepare_cpus(setup_max_cpus);
-+	smp_prepare_cpus_done(setup_max_cpus);
- 
- 	workqueue_init();
- 
 -- 
-2.40.1
+2.42.0
 
 
 _______________________________________________
