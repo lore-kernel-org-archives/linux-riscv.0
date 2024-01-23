@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5199BC47DDB
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 14:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FB4C47DDB
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 14:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kM/QPfkHuJxft+zPArUCYr2gQQnEVt8YKDscovEmVfw=; b=T2mdrP1ACS51/B
-	icsWTrclkIVlSfPC2hnz4ZLYVQNk1r+LwmA8z4JE29Hh4kk6Ao1PAT+cpOaynKb0Sdf8JxkYBncjg
-	U807+z3TS45gKzMuK+N4B+48WsGwyfmUcVCGbZA2vWaHyNVc7q4WH7Q3eZpNsD2G19kOKwmNCJsqN
-	eisa0/6Z+tB3FTRwnEQqCl6Rc7zoRip+VyxvXCAlMSNqMEseqzfoiW5JYhHn13+x21/dEv7R3Fetl
-	URW+LIAkDD9oEkxNIpR9qmYbj+q5fIVUNqV51qncfPO6X7It8fdKTrcdhJ09vNn9YS5VrB1oXzira
-	lT7mK/FdmM8UvMJMKiVw==;
+	List-Owner; bh=8b15uORva6wsAAwQiVhasffSFTnWOcwG6clmD0nNbFA=; b=ccWzfL4wX6AmBC
+	pxXeKy8HsrQ4cQL5pWBe9ov3szJjUhOLIMKdQ6MO7yVheaAvv4zx1NCkcuuju+1fbTeqn0jAHG4uc
+	S8xVdpWtLa0q7hYqeKcoZsS+mDnwFR7Fet51+/uXDX2NzHKjft36/V9qn49rUU+yzXKS/cPvTMfaK
+	O20obSzqQKCWB3NpAmCGDilu0jOcgWXu4dQ3yQ5oJu3YU37EPG23UkqUtPYCPZSXeEDUjp9ly6TiI
+	NvdrE4dCcB1qLGXrxH3zVXFGmJDN13lSGmsvzMYSyzMT/Gjpl+TrQ97NmCV8SbQgqoKp3r8QT8X3w
+	evpAAQPA3H58IEhWhd5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSHfg-00GnZr-18;
-	Tue, 23 Jan 2024 14:22:36 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSHfb-00GnWm-2w;
-	Tue, 23 Jan 2024 14:22:34 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4TK8P10Qfbz6K64n;
-	Tue, 23 Jan 2024 22:19:49 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3CC42140AB8;
-	Tue, 23 Jan 2024 22:22:20 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Tue, 23 Jan
- 2024 14:22:19 +0000
-Date: Tue, 23 Jan 2024 14:22:18 +0000
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<x86@kernel.org>, <acpica-devel@lists.linuxfoundation.org>,
-	<linux-csky@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-ia64@vger.kernel.org>, <linux-parisc@vger.kernel.org>, Salil Mehta
-	<salil.mehta@huawei.com>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	<jianyong.wu@arm.com>, <justin.he@arm.com>, James Morse <james.morse@arm.com>
-Subject: Re: [PATCH RFC v3 17/21] ACPI: add support to register CPUs based
- on the _STA enabled bit
-Message-ID: <20240123142218.00001a7b@Huawei.com>
-In-Reply-To: <Za+61Jikkxh2BinY@shell.armlinux.org.uk>
-References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
-	<E1rDOhC-00DvlI-Pp@rmk-PC.armlinux.org.uk>
-	<ZYBDJG1g7SH7AiM1@shell.armlinux.org.uk>
-	<20240102145320.000062f9@Huawei.com>
-	<20240123102603.00004244@Huawei.com>
-	<Za+61Jikkxh2BinY@shell.armlinux.org.uk>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1rSHl2-00GogE-1J;
+	Tue, 23 Jan 2024 14:28:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rSHky-00Goeh-0U;
+	Tue, 23 Jan 2024 14:28:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B78CB1FB;
+	Tue, 23 Jan 2024 06:28:45 -0800 (PST)
+Received: from [10.57.77.165] (unknown [10.57.77.165])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 707653F762;
+	Tue, 23 Jan 2024 06:27:56 -0800 (PST)
+Message-ID: <7db13538-20b9-4c12-b333-d197c4b2846d@arm.com>
+Date: Tue, 23 Jan 2024 14:27:55 +0000
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 10/11] mm/memory: ignore dirty/accessed/soft-dirty bits
+ in folio_pte_batch()
+Content-Language: en-GB
+To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
+ Matthew Wilcox <willy@infradead.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, "David S. Miller"
+ <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org
+References: <20240122194200.381241-1-david@redhat.com>
+ <20240122194200.381241-11-david@redhat.com>
+ <59592b50-fe89-4b32-8490-2e6c296f972f@arm.com>
+ <76740e33-9b52-4e23-b407-8ae38bac15ec@redhat.com>
+ <94d33a07-c59a-4315-9c64-8b4d959ca1f4@arm.com>
+ <c92c2460-c66a-46c7-b84f-0732965dcf73@redhat.com>
+ <8eb5db8e-33cc-4cbf-a1bf-0da7af230fab@redhat.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <8eb5db8e-33cc-4cbf-a1bf-0da7af230fab@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240123_062232_229136_6FC24979 
-X-CRM114-Status: GOOD (  52.65  )
+X-CRM114-CacheID: sfid-20240123_062804_306459_208DD1D2 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,158 +81,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Jan 2024 13:10:44 +0000
-"Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
-
-> On Tue, Jan 23, 2024 at 10:26:03AM +0000, Jonathan Cameron wrote:
-> > On Tue, 2 Jan 2024 14:53:20 +0000
-> > Jonathan Cameron <Jonathan.Cameron@Huawei.com> wrote:
-> >   
-> > > On Mon, 18 Dec 2023 13:03:32 +0000
-> > > "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
-> > >   
-> > > > On Wed, Dec 13, 2023 at 12:50:38PM +0000, Russell King wrote:    
-> > > > > From: James Morse <james.morse@arm.com>
-> > > > > 
-> > > > > acpi_processor_get_info() registers all present CPUs. Registering a
-> > > > > CPU is what creates the sysfs entries and triggers the udev
-> > > > > notifications.
-> > > > > 
-> > > > > arm64 virtual machines that support 'virtual cpu hotplug' use the
-> > > > > enabled bit to indicate whether the CPU can be brought online, as
-> > > > > the existing ACPI tables require all hardware to be described and
-> > > > > present.
-> > > > > 
-> > > > > If firmware describes a CPU as present, but disabled, skip the
-> > > > > registration. Such CPUs are present, but can't be brought online for
-> > > > > whatever reason. (e.g. firmware/hypervisor policy).
-> > > > > 
-> > > > > Once firmware sets the enabled bit, the CPU can be registered and
-> > > > > brought online by user-space. Online CPUs, or CPUs that are missing
-> > > > > an _STA method must always be registered.      
-> > > > 
-> > > > ...
-> > > >     
-> > > > > @@ -526,6 +552,9 @@ static void acpi_processor_post_eject(struct acpi_device *device)
-> > > > >  		acpi_processor_make_not_present(device);
-> > > > >  		return;
-> > > > >  	}
-> > > > > +
-> > > > > +	if (cpu_present(pr->id) && !(sta & ACPI_STA_DEVICE_ENABLED))
-> > > > > +		arch_unregister_cpu(pr->id);      
-> > > > 
-> > > > This change isn't described in the commit log, but seems to be the cause
-> > > > of the build error identified by the kernel build bot that is fixed
-> > > > later in this series. I'm wondering whether this should be in a
-> > > > different patch, maybe "ACPI: Check _STA present bit before making CPUs
-> > > > not present" ?    
-> > > 
-> > > Would seem a bit odd to call arch_unregister_cpu() way before the code
-> > > is added to call the matching arch_registers_cpu()
-> > > 
-> > > Mind you this eject doesn't just apply to those CPUs that are registered
-> > > later I think, but instead to all.  So we run into the spec hole that
-> > > there is no way to identify initially 'enabled' CPUs that might be disabled
-> > > later.
-> > >   
-> > > > 
-> > > > Or maybe my brain isn't working properly (due to being Covid positive.)
-> > > > Any thoughts, Jonathan?    
-> > > 
-> > > I'll go with a resounding 'not sure' on where this change belongs.
-> > > I blame my non existent start of the year hangover.
-> > > Hope you have recovered!  
-> > 
-> > Looking again, I think you were right, move it to that earlier patch.  
-> 
-> I'm having second thoughts - because this patch introduces the
-> arch_register_cpu() into the acpi_processor_add() path (via
-> acpi_processor_get_info() and acpi_processor_make_enabled(), so isn't
-> it also correct to add arch_unregister_cpu() to the detach/post_eject
-> path as well? If we add one without the other, doesn't stuff become
-> a bit asymetric?
-> 
-> Looking more deeply at these changes, I'm finding it isn't easy to
-> keep track of everything that's going on here.
-
-I can sympathize.
-
-> 
-> We had attach()/detach() callbacks that were nice and symetrical.
-> How we have this post_eject() callback that makes things asymetrical.
-> 
-> We have the attach() method that registers the CPU, but no detach
-> method, instead having the post_eject() method. On the face of it,
-> arch_unregister_cpu() doesn't look symetric unless one goes digging
-> more in the code - by that, I mean arch_register_cpu() only gets
-> called of present=1 _and_ enabled=1. However, arch_unregister_cpu()
-> gets called buried in acpi_processor_make_not_present(), called when
-> present=0, and then we have this new one to handle the case where
-> enabled=0. It is not obvious that arch_unregister_cpu() is the reverse
-> of what happens with arch_register_cpu() here.
-
-One option would be to pull the arch_unregister_cpu() out so it
-happens in one place in both the present = 0 and enabled = 0 cases but
-I'm not sure if it's safe to reorder the contents of 
-acpi_processor_not_present() as it's followed by a bunch of things.
-
-Would looks something like
-
-if (cpu_present(pr->id)) {
-	if (!(sta & ACPI_STA_DEVICE_PRESENT)) {
-		acpi_processor_make_not_present(device); /* Remove arch_cpu_unregister() */
-	} else if (!(sta & ACPI_STA_DEVICE_ENABLED)) {
-		/* Nothing to do in this case */
-	} else {
-		return; /* Firmware did something silly - probably racing */
-	}
-	arch_unregister_cpu(pr->id);
-
-	return;
-}
-
-> 
-> Then we have the add() method allocating pr->throttling.shared_cpu_map,
-> and acpi_processor_make_not_present() freeing it. From what I read in
-> ACPI v6.5, enabled is not allowed to be set without present. So, if
-> _STA reports that a CPU that had present=1 enabled=1, but then is
-> later reported to be enabled=0 (which we handle by calling only
-> arch_unregister_cpu()) then what happens when _STA changes to
-> enabled=1 later? Does add() get called? 
-
-yes it does (I poked it to see) which indeed isn't good (unless I've
-broken my setup in some obscure way).
-
-Seems we need a few more things than arch_unregister_cpu() pulled out
-in the above code.
-
-
-> If it does, this would cause
-> a new acpi_processor structure to be allocated and the old one to be
-> leaked... I hope I'm wrong about add() being called - but if it isn't,
-> how does enabled going from 0->1 get handled... and if we are handling
-> its 1->0 transition separately from present, then surely we should be
-> handling that.
-> 
-> Maybe I'm just getting confused, but I've spent much of this morning
-> trying to unravel all this... and I'm of the opinion that this isn't a
-> sign of a good approach.
-
-It's all annoyingly messy at the root of things, but indeed you've found
-some issues in current implementation.  Feels like just ripping out
-a bunch of stuff from acpi_processor_make_not_present() and calling it
-for both paths will probably work, but I've not tested that yet.
-
-Jonathan
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjMvMDEvMjAyNCAxNDoxMywgRGF2aWQgSGlsZGVuYnJhbmQgd3JvdGU6Cj4+PiBBbHRob3Vn
+aCBub3cgSSdtIHdvbmRlcmluZyBpZiB0aGVyZSBpcyBhIHJhY2UgaGVyZS4uLiBXaGF0IGhhcHBl
+bnMgaWYgYSBwYWdlIGluCj4+PiB0aGUgcGFyZW50IGJlY29tZXMgZGlydHkgYWZ0ZXIgeW91IGhh
+dmUgY2hlY2tlZCBpdCBidXQgYmVmb3JlIHlvdSB3cml0ZSBwcm90ZWN0Cj4+PiBpdD8gSXNuJ3Qg
+dGhhdCBhbHJlYWR5IGEgcHJvYmxlbSB3aXRoIHRoZSBjdXJyZW50IG5vbi1iYXRjaGVkIHZlcnNp
+b24/IFdoeSBkbyB3ZQo+Pj4gZXZlbiB0byBwcmVzZXJ2ZSBkaXJ0eSBpbiB0aGUgY2hpbGQgZm9y
+IHByaXZhdGUgbWFwcGluZ3M/Cj4+Cj4+IEkgc3VzcGVjdCwgYmVjYXVzZSB0aGUgcGFyZW50IGNv
+dWxkIHphcCB0aGUgYW5vbiBmb2xpby4gSWYgdGhlIGZvbGlvIGlzCj4+IGNsZWFuLCBidXQgdGhl
+IFBURSBkaXJ0eSwgSSBzdXNwZWN0IHRoYXQgd2UgY291bGQgbG9zZSBkYXRhIG9mIHRoZSBjaGls
+ZAo+PiBpZiB3ZSB3ZXJlIHRvIGV2aWN0IHRoYXQgY2xlYW4gZm9saW8gKHN3YXBvdXQpLgo+Pgo+
+PiBTbyBJIGFzc3VtZSB3ZSBzaW1wbHkgY29weSB0aGUgZGlydHkgUFRFIGJpdCwgc28gdGhlIHN5
+c3RlbSBrbm93cyB0aGF0Cj4+IHRoYXQgZm9saW8gaXMgYWN0dWFsbHkgZGlydHksIGJlY2F1c2Ug
+b25lIFBURSBpcyBkaXJ0eS4KPiAKPiBPaCwgYW5kIHJlZ2FyZGluZyB5b3VyIHJhY2UgY29uY2Vy
+bjogaXQncyB1bmRlZmluZWQgd2hpY2ggcGFnZSBzdGF0ZQo+IHdvdWxkIHNlZSBpZiBzb21lIHdy
+aXRlIGlzIHJhY2luZyB3aXRoIGZvcmssIHNvIGl0IGFsc28gZG9lc24ndCBtYXR0ZXIKPiBpZiB3
+ZSB3b3VsZCBjb3B5IHRoZSBQVEUgZGlydHkgYml0IG9yIG5vdCwgaWYgaXQgZ2V0cyBzZXQgaW4g
+YSByYWN5IGZhc2hpb24uCgpBaGggdGhhdCBtYWtlcyBzZW5zZS4gVGhhbmtzLgoKPiAKPiBJJ2xs
+IG5vdCBleHBlcmltZW50IHdpdGg6CgpMb29rcyBnb29kIGFzIGxvbmcgYXMgaXRzIHN0aWxsIHBl
+cmZvcm1hbnQuCgo+IAo+IEZyb20gMTRlODNmZjJhNDIyYTk2Y2U1NzAxZjljODQ1NGE0OWY5ZWQ5
+NDdlMyBNb24gU2VwIDE3IDAwOjAwOjAwIDIwMDEKPiBGcm9tOiBEYXZpZCBIaWxkZW5icmFuZCA8
+ZGF2aWRAcmVkaGF0LmNvbT4KPiBEYXRlOiBTYXQsIDMwIERlYyAyMDIzIDEyOjU0OjM1ICswMTAw
+Cj4gU3ViamVjdDogW1BBVENIXSBtbS9tZW1vcnk6IGlnbm9yZSBkaXJ0eS9hY2Nlc3NlZC9zb2Z0
+LWRpcnR5IGJpdHMgaW4KPiDCoGZvbGlvX3B0ZV9iYXRjaCgpCj4gCj4gTGV0J3MgYWx3YXlzIGln
+bm9yZSB0aGUgYWNjZXNzZWQveW91bmcgYml0OiB3ZSdsbCBhbHdheXMgbWFyayB0aGUgUFRFCj4g
+YXMgb2xkIGluIG91ciBjaGlsZCBwcm9jZXNzIGR1cmluZyBmb3JrLCBhbmQgdXBjb21pbmcgdXNl
+cnMgd2lsbAo+IHNpbWlsYXJseSBub3QgY2FyZS4KPiAKPiBJZ25vcmUgdGhlIGRpcnR5IGJpdCBv
+bmx5IGlmIHdlIGRvbid0IHdhbnQgdG8gZHVwbGljYXRlIHRoZSBkaXJ0eSBiaXQKPiBpbnRvIHRo
+ZSBjaGlsZCBwcm9jZXNzIGR1cmluZyBmb3JrLiBNYXliZSwgd2UgY291bGQganVzdCBzZXQgYWxs
+IFBURXMKPiBpbiB0aGUgY2hpbGQgZGlydHkgaWYgYW55IFBURSBpcyBkaXJ0eS4gRm9yIG5vdywg
+bGV0J3Mga2VlcCB0aGUgYmVoYXZpb3IKPiB1bmNoYW5nZWQuCj4gCj4gSWdub3JlIHRoZSBzb2Z0
+LWRpcnR5IGJpdCBvbmx5IGlmIHRoZSBiaXQgZG9lc24ndCBoYXZlIGFueSBtZWFuaW5nIGluCj4g
+dGhlIHNyYyB2bWEuCj4gCj4gU2lnbmVkLW9mZi1ieTogRGF2aWQgSGlsZGVuYnJhbmQgPGRhdmlk
+QHJlZGhhdC5jb20+Cj4gLS0tCj4gwqBtbS9tZW1vcnkuYyB8IDM0ICsrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKy0tLS0KPiDCoDEgZmlsZSBjaGFuZ2VkLCAzMCBpbnNlcnRpb25zKCspLCA0
+IGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9tbS9tZW1vcnkuYyBiL21tL21lbW9yeS5j
+Cj4gaW5kZXggNzY5MDk5NDkyOWQyNi4uOWFiYTFiMGU4NzFjYSAxMDA2NDQKPiAtLS0gYS9tbS9t
+ZW1vcnkuYwo+ICsrKyBiL21tL21lbW9yeS5jCj4gQEAgLTk1MywyNCArOTUzLDQ0IEBAIHN0YXRp
+YyBfX2Fsd2F5c19pbmxpbmUgdm9pZCBfX2NvcHlfcHJlc2VudF9wdGVzKHN0cnVjdAo+IHZtX2Fy
+ZWFfc3RydWN0ICpkc3Rfdm1hLAo+IMKgwqDCoMKgIHNldF9wdGVzKGRzdF92bWEtPnZtX21tLCBh
+ZGRyLCBkc3RfcHRlLCBwdGUsIG5yKTsKPiDCoH0KPiDCoAo+ICsvKiBGbGFncyBmb3IgZm9saW9f
+cHRlX2JhdGNoKCkuICovCj4gK3R5cGVkZWYgaW50IF9fYml0d2lzZSBmcGJfdDsKPiArCj4gKy8q
+IENvbXBhcmUgUFRFcyBhZnRlciBwdGVfbWtjbGVhbigpLCBpZ25vcmluZyB0aGUgZGlydHkgYml0
+LiAqLwo+ICsjZGVmaW5lIEZQQl9JR05PUkVfRElSVFnCoMKgwqDCoMKgwqDCoCAoKF9fZm9yY2Ug
+ZnBiX3QpQklUKDApKQo+ICsKPiArLyogQ29tcGFyZSBQVEVzIGFmdGVyIHB0ZV9jbGVhcl9zb2Z0
+X2RpcnR5KCksIGlnbm9yaW5nIHRoZSBzb2Z0LWRpcnR5IGJpdC4gKi8KPiArI2RlZmluZSBGUEJf
+SUdOT1JFX1NPRlRfRElSVFnCoMKgwqDCoMKgwqDCoCAoKF9fZm9yY2UgZnBiX3QpQklUKDEpKQo+
+ICsKPiArc3RhdGljIGlubGluZSBwdGVfdCBfX3B0ZV9iYXRjaF9jbGVhcl9pZ25vcmVkKHB0ZV90
+IHB0ZSwgZnBiX3QgZmxhZ3MpCj4gK3sKPiArwqDCoMKgIGlmIChmbGFncyAmIEZQQl9JR05PUkVf
+RElSVFkpCj4gK8KgwqDCoMKgwqDCoMKgIHB0ZSA9IHB0ZV9ta2NsZWFuKHB0ZSk7Cj4gK8KgwqDC
+oCBpZiAobGlrZWx5KGZsYWdzICYgRlBCX0lHTk9SRV9TT0ZUX0RJUlRZKSkKPiArwqDCoMKgwqDC
+oMKgwqAgcHRlID0gcHRlX2NsZWFyX3NvZnRfZGlydHkocHRlKTsKPiArwqDCoMKgIHJldHVybiBw
+dGVfbWtvbGQocHRlKTsKPiArfQo+ICsKPiDCoC8qCj4gwqAgKiBEZXRlY3QgYSBQVEUgYmF0Y2g6
+IGNvbnNlY3V0aXZlIChwcmVzZW50KSBQVEVzIHRoYXQgbWFwIGNvbnNlY3V0aXZlCj4gwqAgKiBw
+YWdlcyBvZiB0aGUgc2FtZSBmb2xpby4KPiDCoCAqCj4gwqAgKiBBbGwgUFRFcyBpbnNpZGUgYSBQ
+VEUgYmF0Y2ggaGF2ZSB0aGUgc2FtZSBQVEUgYml0cyBzZXQsIGV4Y2x1ZGluZyB0aGUgUEZOLgo+
+ICsgKiB0aGUgYWNjZXNzZWQgYml0LCBkaXJ0eSBiaXQgKHdpdGggRlBCX0lHTk9SRV9ESVJUWSkg
+YW5kIHNvZnQtZGlydHkgYml0Cj4gKyAqICh3aXRoIEZQQl9JR05PUkVfU09GVF9ESVJUWSkuCj4g
+wqAgKi8KPiDCoHN0YXRpYyBpbmxpbmUgaW50IGZvbGlvX3B0ZV9iYXRjaChzdHJ1Y3QgZm9saW8g
+KmZvbGlvLCB1bnNpZ25lZCBsb25nIGFkZHIsCj4gLcKgwqDCoMKgwqDCoMKgIHB0ZV90ICpzdGFy
+dF9wdGVwLCBwdGVfdCBwdGUsIGludCBtYXhfbnIpCj4gK8KgwqDCoMKgwqDCoMKgIHB0ZV90ICpz
+dGFydF9wdGVwLCBwdGVfdCBwdGUsIGludCBtYXhfbnIsIGZwYl90IGZsYWdzKQo+IMKgewo+IMKg
+wqDCoMKgIHVuc2lnbmVkIGxvbmcgZm9saW9fZW5kX3BmbiA9IGZvbGlvX3Bmbihmb2xpbykgKyBm
+b2xpb19ucl9wYWdlcyhmb2xpbyk7Cj4gwqDCoMKgwqAgY29uc3QgcHRlX3QgKmVuZF9wdGVwID0g
+c3RhcnRfcHRlcCArIG1heF9ucjsKPiAtwqDCoMKgIHB0ZV90IGV4cGVjdGVkX3B0ZSA9IHB0ZV9u
+ZXh0X3BmbihwdGUpOwo+ICvCoMKgwqAgcHRlX3QgZXhwZWN0ZWRfcHRlID0gX19wdGVfYmF0Y2hf
+Y2xlYXJfaWdub3JlZChwdGVfbmV4dF9wZm4ocHRlKSwgZmxhZ3MpOwo+IMKgwqDCoMKgIHB0ZV90
+ICpwdGVwID0gc3RhcnRfcHRlcCArIDE7Cj4gwqAKPiDCoMKgwqDCoCBWTV9XQVJOX09OX0ZPTElP
+KCFwdGVfcHJlc2VudChwdGUpLCBmb2xpbyk7Cj4gwqAKPiDCoMKgwqDCoCB3aGlsZSAocHRlcCAh
+PSBlbmRfcHRlcCkgewo+IC3CoMKgwqDCoMKgwqDCoCBwdGUgPSBwdGVwX2dldChwdGVwKTsKPiAr
+wqDCoMKgwqDCoMKgwqAgcHRlID0gX19wdGVfYmF0Y2hfY2xlYXJfaWdub3JlZChwdGVwX2dldChw
+dGVwKSwgZmxhZ3MpOwo+IMKgCj4gwqDCoMKgwqDCoMKgwqDCoCBpZiAoIXB0ZV9zYW1lKHB0ZSwg
+ZXhwZWN0ZWRfcHRlKSkKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgYnJlYWs7Cj4gQEAgLTEw
+MDQsNiArMTAyNCw3IEBAIGNvcHlfcHJlc2VudF9wdGVzKHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAq
+ZHN0X3ZtYSwgc3RydWN0Cj4gdm1fYXJlYV9zdHJ1Y3QgKnNyY192bWEKPiDCoHsKPiDCoMKgwqDC
+oCBzdHJ1Y3QgcGFnZSAqcGFnZTsKPiDCoMKgwqDCoCBzdHJ1Y3QgZm9saW8gKmZvbGlvOwo+ICvC
+oMKgwqAgZnBiX3QgZmxhZ3MgPSAwOwo+IMKgwqDCoMKgIGludCBlcnIsIG5yOwo+IMKgCj4gwqDC
+oMKgwqAgcGFnZSA9IHZtX25vcm1hbF9wYWdlKHNyY192bWEsIGFkZHIsIHB0ZSk7Cj4gQEAgLTEw
+MTgsNyArMTAzOSwxMiBAQCBjb3B5X3ByZXNlbnRfcHRlcyhzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3Qg
+KmRzdF92bWEsIHN0cnVjdAo+IHZtX2FyZWFfc3RydWN0ICpzcmNfdm1hCj4gwqDCoMKgwqDCoCAq
+IGJ5IGtlZXBpbmcgdGhlIGJhdGNoaW5nIGxvZ2ljIHNlcGFyYXRlLgo+IMKgwqDCoMKgwqAgKi8K
+PiDCoMKgwqDCoCBpZiAodW5saWtlbHkoISpwcmVhbGxvYyAmJiBmb2xpb190ZXN0X2xhcmdlKGZv
+bGlvKSAmJiBtYXhfbnIgIT0gMSkpIHsKPiAtwqDCoMKgwqDCoMKgwqAgbnIgPSBmb2xpb19wdGVf
+YmF0Y2goZm9saW8sIGFkZHIsIHNyY19wdGUsIHB0ZSwgbWF4X25yKTsKPiArwqDCoMKgwqDCoMKg
+wqAgaWYgKHNyY192bWEtPnZtX2ZsYWdzICYgVk1fU0hBUkVEKQo+ICvCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIGZsYWdzIHw9IEZQQl9JR05PUkVfRElSVFk7Cj4gK8KgwqDCoMKgwqDCoMKgIGlmICgh
+dm1hX3NvZnRfZGlydHlfZW5hYmxlZChzcmNfdm1hKSkKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCBmbGFncyB8PSBGUEJfSUdOT1JFX1NPRlRfRElSVFk7Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoCBu
+ciA9IGZvbGlvX3B0ZV9iYXRjaChmb2xpbywgYWRkciwgc3JjX3B0ZSwgcHRlLCBtYXhfbnIsIGZs
+YWdzKTsKPiDCoMKgwqDCoMKgwqDCoMKgIGZvbGlvX3JlZl9hZGQoZm9saW8sIG5yKTsKPiDCoMKg
+wqDCoMKgwqDCoMKgIGlmIChmb2xpb190ZXN0X2Fub24oZm9saW8pKSB7Cj4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIGlmICh1bmxpa2VseShmb2xpb190cnlfZHVwX2Fub25fcm1hcF9wdGVzKGZv
+bGlvLCBwYWdlLAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
