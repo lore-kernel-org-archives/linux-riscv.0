@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99753C47258
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 12:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E0F8C47258
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 12:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bbllJ3lVeHiN5m+oRji9U04FWcffYVa2hXIZAbl1LLI=; b=byBTQBJmjl+D6N
-	JMoyZc/mF3jJnc7XZwNCZfFi58oGXKiCiUJMOnoJUd+hwx/iNcI+yemHH2NUkOVmQ/B3hO3g8/0Nt
-	0C7zJLC4qTi4uIj3ZpwNFzTkX+pz0EdLRSvFPuUte1x63iQ2IJY0gLgL67SVeIZuQcSearZnvF473
-	PPFwfgEuToBHiIyrcizFEM+1m89ATf6BU7zbxo4RtzNPCaiTiSk2zrbFssIe1vyQBzYTW7F+z6iLQ
-	Sery4otXDt/FkDdOkuFyuM/tu/TUyLJ+rzJtUHjlDlOma36pWun6sXKVjkANAbGyrRznIH5p76TuK
-	EXzBchaPlrWF7jtnf6QQ==;
+	List-Owner; bh=EzxouNi14zm/DpE38l6flNziRjivbbiWZVDrVev71fQ=; b=ugx+yY3xzKMsCd
+	f6WSQoxCwzV6+PMZjPxTnNlGZn2bPjQPyufsKAZqoxOqz8bURTXZ/CPscgcW8JnjVPg2yHYpty4oR
+	1MHLWUyazX01oTZUlg5OMr8mKV0CAVTysdyuZpnnyvK30IWsgE1Vt2noKJxuE+GEZM8HwQwq2HiUM
+	w5zLn7HEugHfZtV+nSuQ+GgTVU1Rs5Q1m/0JrGj+JgcPfLHKaAWGS162EnVB3fAB3MG4SAn43fSj0
+	7aot1htKW6VLNEnEl6/W5VdpZD6QdQ6hH+35DFYEWY/l6fkgQQAn3XdVkvcf8z8XKId0ahO/Nw4Y5
+	eyMXUj2IMPVSyyHd+TjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSFtL-00GPaw-23;
-	Tue, 23 Jan 2024 12:28:35 +0000
+	id 1rSFzr-00GQfG-0i;
+	Tue, 23 Jan 2024 12:35:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSFtI-00GPZ4-0O;
-	Tue, 23 Jan 2024 12:28:34 +0000
+	id 1rSFzm-00GQdb-2w;
+	Tue, 23 Jan 2024 12:35:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B0011FB;
-	Tue, 23 Jan 2024 04:29:15 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2C011FB;
+	Tue, 23 Jan 2024 04:35:57 -0800 (PST)
 Received: from [10.57.77.165] (unknown [10.57.77.165])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6882C3F762;
-	Tue, 23 Jan 2024 04:28:26 -0800 (PST)
-Message-ID: <40112a27-eddb-4c1a-a859-a34e202e6564@arm.com>
-Date: Tue, 23 Jan 2024 12:28:25 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D4703F762;
+	Tue, 23 Jan 2024 04:35:08 -0800 (PST)
+Message-ID: <2ed34573-2f11-485d-9d8d-224e98aa59b2@arm.com>
+Date: Tue, 23 Jan 2024 12:35:07 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 09/11] mm/memory: optimize fork() with PTE-mapped THP
+Subject: Re: [PATCH v1 11/11] mm/memory: ignore writable bit in
+ folio_pte_batch()
 Content-Language: en-GB
 To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
 Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
@@ -58,14 +59,12 @@ Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-s390@vger.kernel.org, sparclinux@vger.kernel.org
 References: <20240122194200.381241-1-david@redhat.com>
- <20240122194200.381241-10-david@redhat.com>
- <63be0c3c-bf34-4cbb-b47b-7c9be0e65058@arm.com>
- <31a0661e-fa69-419c-9936-98bfe168d5a7@redhat.com>
+ <20240122194200.381241-12-david@redhat.com>
 From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <31a0661e-fa69-419c-9936-98bfe168d5a7@redhat.com>
+In-Reply-To: <20240122194200.381241-12-david@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240123_042832_252954_1FD06B50 
-X-CRM114-Status: GOOD (  23.11  )
+X-CRM114-CacheID: sfid-20240123_043515_043163_DA7055AF 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,67 +76,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjMvMDEvMjAyNCAxMjoxOSwgRGF2aWQgSGlsZGVuYnJhbmQgd3JvdGU6Cj4gWy4uLl0KPiAK
-Pj4KPj4gSSB3cm90ZSBzb21lIGRvY3VtZW50YXRpb24gZm9yIHRoaXMgKGJhc2VkIG9uIE1hdHRo
-ZXcncyBkb2NzIGZvciBzZXRfcHRlcygpIGluCj4+IG15IHZlcnNpb24uIFBlcmhhcHMgaXQgbWFr
-ZXMgc2Vuc2UgdG8gYWRkIGl0IGhlcmUsIGdpdmVuIHRoaXMgaXMgb3ZlcnJpZGFibGUgYnkKPj4g
-dGhlIGFyY2guCj4+Cj4+IC8qKgo+PiDCoCAqIHdycHJvdGVjdF9wdGVzIC0gV3JpdGUgcHJvdGVj
-dCBhIGNvbnNlY3V0aXZlIHNldCBvZiBwYWdlcy4KPj4gwqAgKiBAbW06IEFkZHJlc3Mgc3BhY2Ug
-dGhhdCB0aGUgcGFnZXMgYXJlIG1hcHBlZCBpbnRvLgo+PiDCoCAqIEBhZGRyOiBBZGRyZXNzIG9m
-IGZpcnN0IHBhZ2UgdG8gd3JpdGUgcHJvdGVjdC4KPj4gwqAgKiBAcHRlcDogUGFnZSB0YWJsZSBw
-b2ludGVyIGZvciB0aGUgZmlyc3QgZW50cnkuCj4+IMKgICogQG5yOiBOdW1iZXIgb2YgcGFnZXMg
-dG8gd3JpdGUgcHJvdGVjdC4KPj4gwqAgKgo+PiDCoCAqIE1heSBiZSBvdmVycmlkZGVuIGJ5IHRo
-ZSBhcmNoaXRlY3R1cmUsIGVsc2UgaW1wbGVtZW50ZWQgYXMgYSBsb29wIG92ZXIKPj4gwqAgKiBw
-dGVwX3NldF93cnByb3RlY3QoKS4KPj4gwqAgKgo+PiDCoCAqIENvbnRleHQ6IFRoZSBjYWxsZXIg
-aG9sZHMgdGhlIHBhZ2UgdGFibGUgbG9jay4gVGhlIFBURXMgYXJlIGFsbCBpbiB0aGUgc2FtZQo+
-PiDCoCAqIFBNRC4KPj4gwqAgKi8KPj4KPiAKPiBJIGNvdWxkIGhhdmUgc3dvcm4gSSBoYWQgYSBk
-b2N1bWVudGF0aW9uIGF0IHNvbWUgcG9pbnQuIExldCBtZSBhZGQgc29tZSwgdGhhbmtzLgo+IAo+
-IFsuLi5dCj4gCj4+PiArCj4+PiArwqDCoMKgIC8qCj4+PiArwqDCoMKgwqAgKiBJZiB3ZSBsaWtl
-bHkgaGF2ZSB0byBjb3B5LCBqdXN0IGRvbid0IGJvdGhlciB3aXRoIGJhdGNoaW5nLiBNYWtlCj4+
-PiArwqDCoMKgwqAgKiBzdXJlIHRoYXQgdGhlIGNvbW1vbiAic21hbGwgZm9saW8iIGNhc2Ugc3Rh
-eXMgYXMgZmFzdCBhcyBwb3NzaWJsZQo+Pj4gK8KgwqDCoMKgICogYnkga2VlcGluZyB0aGUgYmF0
-Y2hpbmcgbG9naWMgc2VwYXJhdGUuCj4+PiArwqDCoMKgwqAgKi8KPj4+ICvCoMKgwqAgaWYgKHVu
-bGlrZWx5KCEqcHJlYWxsb2MgJiYgZm9saW9fdGVzdF9sYXJnZShmb2xpbykgJiYgbWF4X25yICE9
-IDEpKSB7Cj4+PiArwqDCoMKgwqDCoMKgwqAgbnIgPSBmb2xpb19wdGVfYmF0Y2goZm9saW8sIGFk
-ZHIsIHNyY19wdGUsIHB0ZSwgbWF4X25yKTsKPj4+ICvCoMKgwqDCoMKgwqDCoCBpZiAoZm9saW9f
-dGVzdF9hbm9uKGZvbGlvKSkgewo+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZm9saW9fcmVm
-X2FkZChmb2xpbywgbnIpOwo+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgaWYgKHVubGlrZWx5
-KGZvbGlvX3RyeV9kdXBfYW5vbl9ybWFwX3B0ZXMoZm9saW8sIHBhZ2UsCj4+PiArwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IG5yLCBzcmNfdm1hKSkpIHsKPj4KPj4gV2hhdCBoYXBwZW5zIGlmIGl0cyBub3QgdGhlIGZpcnN0
-IHBhZ2Ugb2YgdGhlIGJhdGNoIHRoYXQgZmFpbHMgaGVyZT8gQXJlbid0IHlvdQo+PiBzaWduYWxs
-aW5nIHRoYXQgeW91IG5lZWQgYSBwcmVhbGxvYydlZCBwYWdlIGZvciB0aGUgd3JvbmcgcHRlPyBT
-aG91bGRuJ3QgeW91Cj4+IHN0aWxsIGJhdGNoIGNvcHkgYWxsIHRoZSB3YXkgdXAgdG8gdGhlIGZh
-aWxpbmcgcGFnZSBmaXJzdD8gUGVyaGFwcyBpdCBhbGwgY29tZXMKPj4gb3V0IGluIHRoZSB3YXNo
-IGFuZCB0aGVzZSBldmVudHMgYXJlIHNvIGluZnJlcXVlbnQgdGhhdCB3ZSBkb24ndCBjYXJlIGFi
-b3V0IHRoZQo+PiBsb3N0IGJhdGNoaW5nIG9wcG9ydHVuaXR5Pwo+IAo+IEkgYXNzdW1lIHlvdSBt
-ZWFuIHRoZSB3ZWlyZCBjb3JuZXIgY2FzZSB0aGF0IHNvbWUgZm9saW8gcGFnZXMgaW4gdGhlIHJh
-bmdlIGhhdmUKPiBQQUUgc2V0LCBvdGhlcnMgZG9uJ3QgLS0gYW5kIHRoZSBmb2xpbyBtYXliZSBw
-aW5uZWQuCj4gCj4gSW4gdGhhdCBjYXNlLCB3ZSBmYWxsYmFjayB0byBpbmRpdmlkdWFsIHBhZ2Vz
-LCBhbmQgbWlnaHQgaGF2ZSBwcmVhbGxvY2F0ZWQgYQo+IHBhZ2UgYWx0aG91Z2ggd2Ugd291bGRu
-J3QgaGF2ZSB0byBwcmVhbGxvY2F0ZSBvbmUgZm9yIHByb2Nlc3NpbmcgdGhlIG5leHQgcGFnZQo+
-ICh0aGF0IGRvZXNuJ3QgaGF2ZSBQQUUgc2V0KS4KPiAKPiBJdCBzaG91bGQgYWxsIHdvcmssIGFs
-dGhvdWdoIG5vdCBvcHRpbWl6ZWQgdG8gdGhlIGV4dHJlbWUsIGFuZCBhcyBpdCdzIGEgY29ybmVy
-Cj4gY2FzZSwgd2UgZG9uJ3QgcGFydGljdWxhcmx5IGNhcmUuIEhvcGVmdWxseSwgaW4gdGhlIGZ1
-dHVyZSB3ZSdsbCBvbmx5IGhhdmUgYQo+IHNpbmdsZSBQQUUgZmxhZyBwZXIgZm9saW8uCj4gCj4g
-T3IgYW0gSSBtaXNzaW5nIHNvbWV0aGluZz8KCk5vLCB5b3VyIGV4cGxhbmF0aW9uIG1ha2VzIHNl
-bnNlLiBKdXN0IHdhbnRlZCB0byBjaGVjayB0aGlzIGFsbCBkZWZpbml0ZWx5CndvcmtlZCwgYmVj
-YXVzZSB0aGUgZmxvdyBpcyBzbGlnaHRseSBkaWZmZXJlbnQgdG8gbXkgcHJldmlvdXMgdmVyc2lv
-biB0aGF0IHdhcwpkb2luZyB0cnlfZHVwX3JtYXAgcGFnZS1ieS1wYWdlLgoKPiAKPj4KPj4+ICvC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZm9saW9fcmVmX3N1Yihmb2xpbywgbnIpOwo+
-Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gLUVBR0FJTjsKPj4+ICvC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIH0KPj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJzc1tN
-TV9BTk9OUEFHRVNdICs9IG5yOwo+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgVk1fV0FSTl9P
-Tl9GT0xJTyhQYWdlQW5vbkV4Y2x1c2l2ZShwYWdlKSwgZm9saW8pOwo+Pj4gK8KgwqDCoMKgwqDC
-oMKgIH0gZWxzZSB7Cj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBmb2xpb19yZWZfYWRkKGZv
-bGlvLCBucik7Cj4+Cj4+IFBlcmhhcHMgaG9pc3QgdGhpcyBvdXQgdG8gaW1tZWRpYXRlbHkgYWZ0
-ZXIgZm9saW9fcHRlX2JhdGNoKCkgc2luY2UgeW91J3JlCj4+IGNhbGxpbmcgaXQgb24gYm90aCBi
-cmFuY2hlcz8KPiAKPiBNYWtlcyBzZW5zZSwgdGhhbmtzLgo+IAoKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 22/01/2024 19:42, David Hildenbrand wrote:
+> ... and conditionally return to the caller if any pte except the first one
+> is writable. fork() has to make sure to properly write-protect in case any
+> PTE is writable. Other users (e.g., page unmaping) won't care.
+> 
+> Signed-off-by: David Hildenbrand <david@redhat.com>
+
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+
+> ---
+>  mm/memory.c | 26 +++++++++++++++++++++-----
+>  1 file changed, 21 insertions(+), 5 deletions(-)
+> 
+> diff --git a/mm/memory.c b/mm/memory.c
+> index 341b2be845b6e..a26fd0669016b 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -955,7 +955,7 @@ static __always_inline void __copy_present_ptes(struct vm_area_struct *dst_vma,
+>  
+>  static inline pte_t __pte_batch_clear_ignored(pte_t pte)
+>  {
+> -	return pte_clear_soft_dirty(pte_mkclean(pte_mkold(pte)));
+> +	return pte_wrprotect(pte_clear_soft_dirty(pte_mkclean(pte_mkold(pte))));
+>  }
+>  
+>  /*
+> @@ -963,20 +963,29 @@ static inline pte_t __pte_batch_clear_ignored(pte_t pte)
+>   * pages of the same folio.
+>   *
+>   * All PTEs inside a PTE batch have the same PTE bits set, excluding the PFN.
+> - * the accessed bit, dirty bit and soft-dirty bit.
+> + * the accessed bit, dirty bit, soft-dirty bit and writable bit.
+> + . If "any_writable" is set, it will indicate if any other PTE besides the
+> + * first (given) PTE is writable.
+>   */
+>  static inline int folio_pte_batch(struct folio *folio, unsigned long addr,
+> -		pte_t *start_ptep, pte_t pte, int max_nr)
+> +		pte_t *start_ptep, pte_t pte, int max_nr, bool *any_writable)
+>  {
+>  	unsigned long folio_end_pfn = folio_pfn(folio) + folio_nr_pages(folio);
+>  	const pte_t *end_ptep = start_ptep + max_nr;
+>  	pte_t expected_pte = __pte_batch_clear_ignored(pte_next_pfn(pte));
+>  	pte_t *ptep = start_ptep + 1;
+> +	bool writable;
+> +
+> +	if (any_writable)
+> +		*any_writable = false;
+>  
+>  	VM_WARN_ON_FOLIO(!pte_present(pte), folio);
+>  
+>  	while (ptep != end_ptep) {
+> -		pte = __pte_batch_clear_ignored(ptep_get(ptep));
+> +		pte = ptep_get(ptep);
+> +		if (any_writable)
+> +			writable = !!pte_write(pte);
+> +		pte = __pte_batch_clear_ignored(pte);
+>  
+>  		if (!pte_same(pte, expected_pte))
+>  			break;
+> @@ -989,6 +998,9 @@ static inline int folio_pte_batch(struct folio *folio, unsigned long addr,
+>  		if (pte_pfn(pte) == folio_end_pfn)
+>  			break;
+>  
+> +		if (any_writable)
+> +			*any_writable |= writable;
+> +
+>  		expected_pte = pte_next_pfn(expected_pte);
+>  		ptep++;
+>  	}
+> @@ -1010,6 +1022,7 @@ copy_present_ptes(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
+>  {
+>  	struct page *page;
+>  	struct folio *folio;
+> +	bool any_writable;
+>  	int err, nr;
+>  
+>  	page = vm_normal_page(src_vma, addr, pte);
+> @@ -1024,7 +1037,8 @@ copy_present_ptes(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
+>  	 * by keeping the batching logic separate.
+>  	 */
+>  	if (unlikely(!*prealloc && folio_test_large(folio) && max_nr != 1)) {
+> -		nr = folio_pte_batch(folio, addr, src_pte, pte, max_nr);
+> +		nr = folio_pte_batch(folio, addr, src_pte, pte, max_nr,
+> +				     &any_writable);
+>  		if (folio_test_anon(folio)) {
+>  			folio_ref_add(folio, nr);
+>  			if (unlikely(folio_try_dup_anon_rmap_ptes(folio, page,
+> @@ -1039,6 +1053,8 @@ copy_present_ptes(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
+>  			folio_dup_file_rmap_ptes(folio, page, nr);
+>  			rss[mm_counter_file(page)] += nr;
+>  		}
+> +		if (any_writable)
+> +			pte = pte_mkwrite(pte, src_vma);
+>  		__copy_present_ptes(dst_vma, src_vma, dst_pte, src_pte, pte,
+>  				    addr, nr);
+>  		return nr;
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
