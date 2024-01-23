@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8888C47DDF
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 17:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D91C47258
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 17:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mrm6yGkhZLJG0rlvtLPLzfyYqmp78n/fcXEWaNJNZsc=; b=OWcaXHhyYtCzSD
-	Nc3qEWaaKbi9Pw0Sv/QJE76zLFLqIjR3TWOFuXzFkqmIv6JqXWpOpiCaGVmGiBZO2wamIAiwGg6tH
-	K3EW1dk5cgdk7yYgp9+4yhYTvZN+B04oHAJCLsppLX+l6xTjQpg6qquk//mja8YKEJ3iQ8BdrAnLF
-	JHdg75bMXYNren8J0pueOnob5N+Q7sfNLANiSMDR2hTfPq+UeYTWpa6YRvts59if6ODeUQNpzQj1r
-	BWUVhkKN3uhlsvjgTcukKkh5rYrBH4O1/xcArQgzUtfdwyLVUW+WhrnG6evdLqh5dNV5eGMN8J0Kt
-	PwPdWaNTMLSwNeM0vvbg==;
+	List-Owner; bh=9iWeuq5E4LlRsB3EwfWB/Npy4mW9ERfo9sNPRf6bn4k=; b=G9ZKznmRkKVgev
+	1Pv4fy5QXuKJYNbv4uTWNsUCPoXeVQ/PX9qj+N7GIvbWOePJ7gTMcZy1a5hrTDTnD9v92Q4QX99Vu
+	y8Hr8ezG8gUIfn40SxxTzBzPVknDFaD9pgEd8QdjaimZqOiEQgSHcHVsb3wPPR90YnOvmzsqpBR8Z
+	4aKq/SlLhy1DWumJ+aSoDwA9AlH9e1y/Vy3zpCU1JQhxsCjsuR13FSnoDiz72oB+KjbsAU+Bumgws
+	eZjFVi4FBoAR+xAPrt6rcYTSSRfB2g7EKAsEB3V8/XSRLGjtHs+zqNZSksunxhhA5ZdVFkBuT5nYf
+	dNqsgw3BVtIFsDbbaxRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSKux-00Ha7z-2M;
-	Tue, 23 Jan 2024 17:50:35 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rSKvR-00HaNq-02;
+	Tue, 23 Jan 2024 17:51:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSKuu-00Ha6A-2b
+	id 1rSKvN-00HaLn-0U
 	for linux-riscv@lists.infradead.org;
-	Tue, 23 Jan 2024 17:50:34 +0000
+	Tue, 23 Jan 2024 17:51:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 2A2BDCE2FB4;
-	Tue, 23 Jan 2024 17:50:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0B98EC433A6;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9624D61EBA;
 	Tue, 23 Jan 2024 17:50:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EBB36C433C7;
+	Tue, 23 Jan 2024 17:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1706032230;
-	bh=awxAMzYU9HaDntJhzA+a1+0udHhkZHo7Vmb+bJNuLog=;
+	bh=Fg0kjr4p02yeL0dd3zpR20S3rY7QojmBvz5b3eZjGMY=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=U4uUotORjnduHiJnhga9a9iSC5xexNraKM47i9W1TViRCenGXQS8oRUX8UCRh6rfu
-	 YDW2oQBDn5cpyw5zPINkhy0C1lPJucdgs9c550n77DCcw3r52DD9IyfH/Xca5g0v/L
-	 OkLkDoymMEcmVgxBuoqvRSRi6d+/a6EXQLl6RvKWzRW9nw6xToH/XeMMhq1dW89X37
-	 MJKC2z0Jb1456T68ookjB95wDYtBBOKfuua69vH9xLiOfMncbdpERuXeIMZrqqWu9Q
-	 2nu2froMu5VF7WV81pR8B8D5CRR/BOB1V0RESAs6N0proOmCD8JYCZqBu0j5VYMb92
-	 82kr8pvY8Zh6A==
+	b=txpf10q3NNT5p/ZbgP37oRGugwd240cA5vlkhPPYdaRJzCLdrHhvFpUFCPEMJvdAD
+	 xHdEDErc2MfD1gyre6Yn+ca6xxFLR7yr+85zx0RdnnL1BCGGswRkJAsvES7qddTc1d
+	 jXwQsyD0oj1QSTgwEO6jGiRAiOhSdWqr5z9gsN/UngCkaXRVzgkj/LJaQuHuds8K8n
+	 iMR4tJaYy4qu9h+/Y9z2w6Gk+HhYN1ICqFGRoUhk8bLLes+8SCbMZLCV39Zd4Ndqs6
+	 83fxqyG93y/qRDVzoRnByqO4vwlsEz+ZMRxeV8YOyxJO6VIvepdfJuTlcVfjkUmvu7
+	 K32Es2dZEBglQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id E781FDFF764;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D1D0CDFF762;
 	Tue, 23 Jan 2024 17:50:29 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] clocksource: extend the max_delta_ns of timer-riscv and
- timer-clint to ULONG_MAX
+Subject: Re: [PATCH v3 00/10] RISC-V crypto with reworked asm files
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170603222994.30461.12710346561077104850.git-patchwork-notify@kernel.org>
+Message-Id: <170603222985.30461.5962076100762100573.git-patchwork-notify@kernel.org>
 Date: Tue, 23 Jan 2024 17:50:29 +0000
-References: <20230905070945.404653-1-vincent.chen@sifive.com>
-In-Reply-To: <20230905070945.404653-1-vincent.chen@sifive.com>
-To: Vincent Chen <vincent.chen@sifive.com>
-Cc: linux-riscv@lists.infradead.org, daniel.lezcano@linaro.org,
- tglx@linutronix.de, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+References: <20240122002024.27477-1-ebiggers@kernel.org>
+In-Reply-To: <20240122002024.27477-1-ebiggers@kernel.org>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, andy.chiu@sifive.com,
+ ardb@kernel.org, christoph.muellner@vrull.eu, heiko@sntech.de,
+ jerry.shih@sifive.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ phoebe.chen@sifive.com, hongrong.hsu@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240123_095033_021151_A14F9A0A 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20240123_095101_230596_1A493F22 
+X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +80,41 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (for-next)
+This series was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Tue,  5 Sep 2023 15:09:45 +0800 you wrote:
-> When registering the riscv-timer or clint-timer as a clock_event device,
-> the driver needs to specify the value of max_delta_ticks. This value
-> directly influences the max_delta_ns, which represents the maximum time
-> interval for configuring subsequent clock events. Currently, both
-> riscv-timer and clint-timer are set with a max_delta_ticks value of
-> 0x7fff_ffff. When the timer operates at a high frequency, this values
-> limists the system to sleep only for a short time. For the 1GHz case,
-> the sleep cannot exceed two seconds. To address this limitation, refer to
-> other timer implementations to extend it to 2^(bit-width of the timer) - 1.
-> Because the bit-width of $mtimecmp is 64bit, this value becomes ULONG_MAX
-> (0xffff_ffff_ffff_ffff).
+On Sun, 21 Jan 2024 16:19:11 -0800 you wrote:
+> This patchset, which applies to v6.8-rc1, adds cryptographic algorithm
+> implementations accelerated using the RISC-V vector crypto extensions
+> (https://github.com/riscv/riscv-crypto/releases/download/v1.0.0/riscv-crypto-spec-vector.pdf)
+> and RISC-V vector extension
+> (https://github.com/riscv/riscv-v-spec/releases/download/v1.0/riscv-v-spec-1.0.pdf).
+> The following algorithms are included: AES in ECB, CBC, CTR, and XTS modes;
+> ChaCha20; GHASH; SHA-2; SM3; and SM4.
 > 
 > [...]
 
 Here is the summary with links:
-  - clocksource: extend the max_delta_ns of timer-riscv and timer-clint to ULONG_MAX
-    https://git.kernel.org/riscv/c/d38e2e7bcb3e
+  - [v3,01/10] RISC-V: add helper function to read the vector VLEN
+    (no matching commit)
+  - [v3,02/10] RISC-V: add TOOLCHAIN_HAS_VECTOR_CRYPTO
+    https://git.kernel.org/riscv/c/34ca4ec628de
+  - [v3,03/10] RISC-V: hook new crypto subdir into build-system
+    https://git.kernel.org/riscv/c/178f3856436c
+  - [v3,04/10] crypto: riscv - add vector crypto accelerated AES-{ECB,CBC,CTR,XTS}
+    https://git.kernel.org/riscv/c/eb24af5d7a05
+  - [v3,05/10] crypto: riscv - add vector crypto accelerated ChaCha20
+    https://git.kernel.org/riscv/c/bb54668837a0
+  - [v3,06/10] crypto: riscv - add vector crypto accelerated GHASH
+    https://git.kernel.org/riscv/c/600a3853dfa0
+  - [v3,07/10] crypto: riscv - add vector crypto accelerated SHA-{256,224}
+    https://git.kernel.org/riscv/c/8c8e40470ffe
+  - [v3,08/10] crypto: riscv - add vector crypto accelerated SHA-{512,384}
+    https://git.kernel.org/riscv/c/b3415925a08b
+  - [v3,09/10] crypto: riscv - add vector crypto accelerated SM3
+    https://git.kernel.org/riscv/c/563a5255afa2
+  - [v3,10/10] crypto: riscv - add vector crypto accelerated SM4
+    https://git.kernel.org/riscv/c/b8d06352bbf3
 
 You are awesome, thank you!
 -- 
