@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AAE5C46CD2
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 01:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CE2C46CD2
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 01:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iLdOJHYngKZkzQm3fD/iqWP9GHD6kgK/1dXI/PwYh8o=; b=rv5Sg4uBB696lthFuJAkP8HZm3
-	kYJ+YpTNP2xbPMCndnegxh/wTNetWF6zL9Dx6/4ESZod3DkwPJjgjxoNd5SaaBu4CGcjyjKTaeru+
-	WZnWck9WS/RWDPye+CSZhWmIlbiaA9cDhqJriOj9AGWHznmzzCmCdJOxpmABwbatgUJvl+6fpvu33
-	MCsRlIKv00Pz3NNs/bxpXbxRsfxTJ7u4w7z3LmX4YxbeUCKuPK5nvUzpvQAXl1ij9ME7iyPca/IZ0
-	dsKgKBvsCf5iJLucXLldUOJsM3L+jwyh/IcJjRn21FDt3O4MoZ8oPxAqpz6QX5eRmjLTbJoAowZ/q
-	RK+oTLoA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZOhKWhVVKPu0OLG+y3Rz1xVmR3FvcetkyUv/AAxQv2Y=; b=vsnsYtCxpaREJi
+	WsaZOoyB/IrMo9+wQYN3kz4gBKV5Hm51eBnrxrgkG8+imuUYExp11tcuD+lE+G6/2/XtyJwi0JwCT
+	+6DXj/lNjKVkbEOpekqYCCD7/mOu0so8LjJ0n4pVizpErB0MK7gMUqwOpBsvRsYdMZDpFDwozqoPP
+	C/2cEyszFuMLB8qFzM/VZQJVzzJ6sYlSug/EvrQTsm19GFvLiCX+9aJD6zHe40tuzE7dwAzxLWgJ/
+	IcphIk6A62ko3Lg26WXCJaftioY1sBkJcpWkV9A2I7vqyDtEFF/6V9YUXjePRfLZt19pw0g3hfxzA
+	LwuXmQJFZMkReXUwORGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rS60l-00EozK-0v;
-	Tue, 23 Jan 2024 01:55:35 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rS62U-00EpJN-0r;
+	Tue, 23 Jan 2024 01:57:22 +0000
+Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rS60h-00Eoxk-23;
-	Tue, 23 Jan 2024 01:55:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 9D6D1CE1098;
-	Tue, 23 Jan 2024 01:55:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29637C433F1;
-	Tue, 23 Jan 2024 01:55:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1705974928;
-	bh=PlMfCQXOLuiUnoNxI1m0m3HX0MZ+Lbok1A9R0kJJkU0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H52PV/vsOGBLGJju20vxT4kJSE5HpjzukyjNVqZE99c+ElcwL/a6lImQ36/ySzLZ4
-	 3ibsX6zzoxiX9283SQcwd4hQJM5jwZUrvsWOYAjxnushnLd5sWMxIbSVerkFf4Xn3C
-	 oDXWFA+7P3kIFG7C2Zl3AUEuGv2QiIzbukRv0ML/vCMhG/0TA7d0ybW64wCf55tv5p
-	 Brd2JKuz7iy2v86ysWG4lg9DL0DlxPbEtD9807LeBJ+5nn+QkhjkEyU8/zydK9XGPC
-	 54QgeNurSdnxO3JytHTUZLiUM/CB8/NkuqS5XlOZCj+c6aMyhFULDUMnUktkrHIgl6
-	 anWa0eEGm7h1A==
-Date: Tue, 23 Jan 2024 01:55:25 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
-	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
-	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com,
-	lukasz.luba@arm.com, ionela.voinescu@arm.com,
-	pierre.gondois@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
-	conor.dooley@microchip.com, suagrfillet@gmail.com,
-	ajones@ventanamicro.com, lftan@kernel.org, beata.michalska@arm.com,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>
-Subject: Re: [PATCH v7 3/7] cpufreq/schedutil: Use a fixed reference frequency
-Message-ID: <Za8cjQXptttuyb6c@finisterre.sirena.org.uk>
-References: <20231211104855.558096-1-vincent.guittot@linaro.org>
- <20231211104855.558096-4-vincent.guittot@linaro.org>
+	id 1rS62Q-00EpHQ-10
+	for linux-riscv@lists.infradead.org;
+	Tue, 23 Jan 2024 01:57:21 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4TJqvw2Mm1z4f3lVy
+	for <linux-riscv@lists.infradead.org>; Tue, 23 Jan 2024 09:57:00 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 938FF1A0232
+	for <linux-riscv@lists.infradead.org>; Tue, 23 Jan 2024 09:57:06 +0800 (CST)
+Received: from [10.67.109.184] (unknown [10.67.109.184])
+	by APP1 (Coremail) with SMTP id cCh0CgAn9w_xHK9lMo29Bg--.34883S2;
+	Tue, 23 Jan 2024 09:57:06 +0800 (CST)
+Message-ID: <ee922f6a-4bd0-48e7-bb9a-373b41e6a5d4@huaweicloud.com>
+Date: Tue, 23 Jan 2024 09:57:05 +0800
 MIME-Version: 1.0
-In-Reply-To: <20231211104855.558096-4-vincent.guittot@linaro.org>
-X-Cookie: Two heads are more numerous than one.
+User-Agent: Mozilla Thunderbird
+From: Pu Lehui <pulehui@huaweicloud.com>
+Subject: Re: [PATCH RESEND bpf-next v3 0/6] Zbb support and code
+ simplification for RV64 JIT
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
+ KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+ Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>,
+ Luke Nelson <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>
+References: <20240115131235.2914289-1-pulehui@huaweicloud.com>
+ <87il3lqvye.fsf@all.your.base.are.belong.to.us>
+ <baffbab8-721f-462a-8b58-64972f5eae70@huaweicloud.com>
+ <878r4hqvgq.fsf@all.your.base.are.belong.to.us>
+ <874jf5qudx.fsf@all.your.base.are.belong.to.us>
+ <f73cdabe-eba3-4842-8da2-a6316590eb1e@huaweicloud.com>
+ <87zfwxpbzp.fsf@all.your.base.are.belong.to.us>
+Content-Language: en-US
+In-Reply-To: <87zfwxpbzp.fsf@all.your.base.are.belong.to.us>
+X-CM-TRANSID: cCh0CgAn9w_xHK9lMo29Bg--.34883S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KFyftFy5tFyxtFyxWFWktFb_yoW8ZrW8pF
+	y8K3Z0k3W8Jr1fJw10yFyjgFWUKw4Yqr13Wr18XrWUur1qqry5KF4UuF15Cw1kCrnFgrya
+	y3yYv347A34UAFJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUk0b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI
+	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
+	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY
+	6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6x
+	AIw20EY4v20xvaj40_WFyUJVCq3wCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv
+	6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUFDGOUUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240122_175532_022421_8E3B0E49 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20240122_175718_684652_F5D70425 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,141 +93,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4618514956909027434=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4618514956909027434==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rky4jjSVNSd+SvwM"
-Content-Disposition: inline
-
-
---rky4jjSVNSd+SvwM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Mon, Dec 11, 2023 at 11:48:51AM +0100, Vincent Guittot wrote:
-> cpuinfo.max_freq can change at runtime because of boost as an example. This
-> implies that the value could be different than the one that has been
-> used when computing the capacity of a CPU.
-
-So, this seems very weird but I just finished a bisection of a failure
-that showed up during the merge window with the DT kselftests on
-meson-gxl-s905x-libretech-cc (Libretech Le Potato) running an arm64
-defconfig.  Looking at the commit this seems like a very surprising
-false result but I verified that the commit before this one runs fine
-and reproduced the failure, the bisect does seem to converge well also
-so it appears like there's something going on.  Does this ring any bells
-for anyone?
-
-The test is timed out by the kselftest wrapper:
-
-   kselftest: Running tests in dt
-   TAP version 13
-   1..1
-   # timeout set to 45
-   # selftests: dt: test_unprobed_devices.sh
-   # TAP version 13
-   #
-   not ok 1 selftests: dt: test_unprobed_devices.sh # TIMEOUT 45 seconds
-
-with no obvious effect on the system, a successful run takes less than
-20 seconds so it shouldn't be that the timing is marginal.  I'm guessing
-that reading the one of the files under /sys/devices hung.  No other
-boards in my lab are affected and I'm not immediately seeing anything
-remarkable about this board.  Full log from a bad run at:
-
-    https://lava.sirena.org.uk/scheduler/job/493329
-
-and a good run:
-
-    https://lava.sirena.org.uk/scheduler/job/492453
-
-Bisect log (the skipped commits didn't build):
-
-git bisect start
-# status: waiting for both good and bad commits
-# bad: [4fbbed7872677b0a28ba8237169968171a61efbd] Merge tag 'timers-core-2024-01-21' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip
-git bisect bad 4fbbed7872677b0a28ba8237169968171a61efbd
-# status: waiting for good commit(s), bad commit known
-# good: [0dd3ee31125508cd67f7e7172247f05b7fd1753a] Linux 6.7
-git bisect good 0dd3ee31125508cd67f7e7172247f05b7fd1753a
-# bad: [ba5afb9a84df2e6b26a1b6389b98849cd16ea757] fs: rework listmount() implementation
-git bisect bad ba5afb9a84df2e6b26a1b6389b98849cd16ea757
-# bad: [de927f6c0b07d9e698416c5b287c521b07694cac] Merge tag 's390-6.8-1' of git://git.kernel.org/pub/scm/linux/kernel/git/s390/linux
-git bisect bad de927f6c0b07d9e698416c5b287c521b07694cac
-# bad: [35f11a3710cdcbbc5090d14017a6295454e0cc73] Merge tag 'mtd/for-6.8' of git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux
-git bisect bad 35f11a3710cdcbbc5090d14017a6295454e0cc73
-# bad: [d30e51aa7b1f6fa7dd78d4598d1e4c047fcc3fb9] Merge tag 'slab-for-6.8' of git://git.kernel.org/pub/scm/linux/kernel/git/vbabka/slab
-git bisect bad d30e51aa7b1f6fa7dd78d4598d1e4c047fcc3fb9
-# skip: [968b80332432172dbbb773e749a43bdc846d1a13] Merge tag 'powerpc-6.8-1' of git://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux
-git bisect skip 968b80332432172dbbb773e749a43bdc846d1a13
-# good: [372a34e66fb7f95124fadae9c600b231c35696a7] fs: replace f_rcuhead with f_task_work
-git bisect good 372a34e66fb7f95124fadae9c600b231c35696a7
-# good: [ae24db43b3b427eb290b58d55179c32f0a7539d1] powerpc/ftrace: Remove nops after the call to ftrace_stub
-git bisect good ae24db43b3b427eb290b58d55179c32f0a7539d1
-# skip: [3cf1d6a5fbf3f724d12b01635319924239d42c00] Merge tag 'm68k-for-v6.8-tag1' of git://git.kernel.org/pub/scm/linux/kernel/git/geert/linux-m68k
-git bisect skip 3cf1d6a5fbf3f724d12b01635319924239d42c00
-# good: [2a33e2ddc6ebf9b5468091aded8a38f57de9a580] splice: remove permission hook from do_splice_direct()
-git bisect good 2a33e2ddc6ebf9b5468091aded8a38f57de9a580
-# good: [9b7e9e2f5d5c3d079ec46bc71b114012e362ea6e] fs: factor out backing_file_splice_{read,write}() helpers
-git bisect good 9b7e9e2f5d5c3d079ec46bc71b114012e362ea6e
-# good: [12c1b632d970c0138b4c5c65a1065e7d0604d272] fs: reformat idmapped mounts entry
-git bisect good 12c1b632d970c0138b4c5c65a1065e7d0604d272
-# good: [d23627a7688fabff0096a7beaff1a93de76afaad] EDAC/igen6: Add Intel Raptor Lake-P SoCs support
-git bisect good d23627a7688fabff0096a7beaff1a93de76afaad
-# skip: [ab5f3fcb7c72094684760e0cd8954d8d570b5e83] Merge tag 'arm64-upstream' of git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux
-git bisect skip ab5f3fcb7c72094684760e0cd8954d8d570b5e83
-# good: [eb183b2cd0a6549992eca3c4ada0b1bc1d9340f5] Revert "perf/arm_dmc620: Remove duplicate format attribute #defines"
-git bisect good eb183b2cd0a6549992eca3c4ada0b1bc1d9340f5
-# good: [1ab33c03145d0f6c345823fc2da935d9a1a9e9fc] asm-generic: make sparse happy with odd-sized put_unaligned_*()
-git bisect good 1ab33c03145d0f6c345823fc2da935d9a1a9e9fc
-# good: [794c68b20408bb6899f90314e36e256924cc85a1] x86/CPU/AMD: Get rid of amd_erratum_1485[]
-git bisect good 794c68b20408bb6899f90314e36e256924cc85a1
-# bad: [11137d384996bb05cf33c8163db271e1bac3f4bf] sched/fair: Simplify util_est
-git bisect bad 11137d384996bb05cf33c8163db271e1bac3f4bf
-# good: [9c0b4bb7f6303c9c4e2e34984c46f5a86478f84d] sched/cpufreq: Rework schedutil governor performance estimation
-git bisect good 9c0b4bb7f6303c9c4e2e34984c46f5a86478f84d
-# good: [599457ba15403037b489fe536266a3d5f9efaed7] cpufreq: Use the fixed and coherent frequency for scaling capacity
-git bisect good 599457ba15403037b489fe536266a3d5f9efaed7
-# bad: [50b813b147e9eb6546a1fc49d4e703e6d23691f2] cpufreq/cppc: Move and rename cppc_cpufreq_{perf_to_khz|khz_to_perf}()
-git bisect bad 50b813b147e9eb6546a1fc49d4e703e6d23691f2
-# bad: [15cbbd1d317e07b4e5c6aca5d4c5579539a82784] energy_model: Use a fixed reference frequency
-git bisect bad 15cbbd1d317e07b4e5c6aca5d4c5579539a82784
-# bad: [b3edde44e5d4504c23a176819865cd603fd16d6c] cpufreq/schedutil: Use a fixed reference frequency
-git bisect bad b3edde44e5d4504c23a176819865cd603fd16d6c
-# first bad commit: [b3edde44e5d4504c23a176819865cd603fd16d6c] cpufreq/schedutil: Use a fixed reference frequency
-
---rky4jjSVNSd+SvwM
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmWvHIwACgkQJNaLcl1U
-h9BKeAf+IFKGcFk0BJUojgKhxZlLR+EoeCrr+qKvkf4MJnUJL08q61JYwLMM819p
-6VM9aQxyVMZV4odlJ1iquxKsIWhGNsGjZoUN+75nVoNvC33xq3bWyi4hQuwuI5pD
-QdMDesukSV+dxpIGQ99rMt5DvYPUx17pGYP12O169bX5CH5KSxY/9Ct/tjgxs6tH
-zw+2s7IATJ1b2ShOFKgrhpk30UoaB0kHl/ojFa6+5AoAJtNXcXA2V0ho2I3ochZV
-F/NwOGdv0N0keLAuXoatUutq+MUfM8gRSitwO6Vg9VJ1EozUI8LFBeHsO9M98X7K
-Ey0zu/yA6e8muzklAjcX3c0cFCMVHw==
-=pMbb
------END PGP SIGNATURE-----
-
---rky4jjSVNSd+SvwM--
-
-
---===============4618514956909027434==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4618514956909027434==--
-
+CgpPbiAyMDI0LzEvMjMgMDozMCwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPiBQdSBMZWh1aSA8cHVs
+ZWh1aUBodWF3ZWljbG91ZC5jb20+IHdyaXRlczoKPiAKPj4gT24gMjAyNC8xLzIyIDIzOjA3LCBC
+asO2cm4gVMO2cGVsIHdyb3RlOgo+Pj4gQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4g
+d3JpdGVzOgo+Pj4KPj4+PiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWljbG91ZC5jb20+IHdyaXRl
+czoKPj4+Pgo+Pj4+PiBPbiAyMDI0LzEvMjIgMjI6MzMsIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4+
+Pj4+PiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWljbG91ZC5jb20+IHdyaXRlczoKPj4+Pj4+Cj4+
+Pj4+Pj4gQWRkIFpiYiBzdXBwb3J0IFswXSB0byBvcHRpbWl6ZSBjb2RlIHNpemUgYW5kIHBlcmZv
+cm1hbmNlIG9mIFJWNjQgSklULgo+Pj4+Pj4+IE1lYW53aGlsZSwgYWRqdXN0IHRoZSBjb2RlIGZv
+ciB1bmlmaWNhdGlvbiBhbmQgc2ltcGxpZmljYXRpb24uIFRlc3RzCj4+Pj4+Pj4gdGVzdF9icGYu
+a28gYW5kIHRlc3RfdmVyaWZpZXIgaGF2ZSBwYXNzZWQsIGFzIHdlbGwgYXMgdGhlIHJlbGF0aXZl
+Cj4+Pj4+Pj4gdGVzdGNhc2VzIG9mIHRlc3RfcHJvZ3MqLgo+Pj4+Pj4+Cj4+Pj4+Pj4gTGluazog
+aHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2L3Jpc2N2LWJpdG1hbmlwL3JlbGVhc2VzL2Rvd25sb2Fk
+LzEuMC4wL2JpdG1hbmlwLTEuMC4wLTM4LWc4NjVlN2E3LnBkZiBbMF0KPj4+Pj4+Pgo+Pj4+Pj4+
+IHYzIHJlc2VuZDoKPj4+Pj4+PiAtIHJlc2VuZCBmb3IgbWFpbCBiZSB0cmVhdGVkIGFzIHNwYW0u
+Cj4+Pj4+Pj4KPj4+Pj4+PiB2MzoKPj4+Pj4+PiAtIENoYW5nZSB0byBlYXJseS1leGl0IGNvZGUg
+c3R5bGUgYW5kIG1ha2UgY29kZSBtb3JlIGV4cGxpY2l0Lgo+Pj4+Pj4KPj4+Pj4+IExlaHVpLAo+
+Pj4+Pj4KPj4+Pj4+IFNvcnJ5IGZvciB0aGUgZGVsYXkuIEknbSBjaGFzaW5nIGEgc3RydWN0X29w
+cyBSSVNDLVYgQlBGIHJlZ3Jlc3Npb24gaW4KPj4+Pj4+IDYuOC1yYzEsIEkgd2lsbCBuZWVkIHRv
+IHdyYXAgbXkgaGVhZCBhcm91bmQgdGhhdCBwcmlvciByZXZpZXdpbmcKPj4+Pj4+IHByb3Blcmx5
+Lgo+Pj4+Pj4KPj4+Pj4KPj4+Pj4gT2gsIEkgYWxzbyBmb3VuZCB0aGUgcHJvYmxlbSB3aXRoIHN0
+cnVjdCBvcHMgYW5kIGZpeGVkIGl0Cj4+Pgo+Pj4gUHUsIHdpdGggeW91ciBwYXRjaCBicGZfaXRl
+cl9zZXRzb2Nrb3B0LCBicGZfdGNwX2NhLCBhbmQgZHVtbXlfc3Rfb3BzCj4+PiBwYXNzZXMhCj4+
+Pgo+Pj4gUGxlYXNlIHNwaW4gYSBwcm9wZXIgZml4ZXMgcGF0Y2gsIGFuZCBmZWVsIGZyZWUgdG8g
+YWRkOgo+Pj4KPj4+IFRlc3RlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29t
+Pgo+Pj4gQWNrZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+Cj4+Pgo+Pgo+
+PiBJcyB0aGF0IGluIGEgaHVycnk/IElmIG5vdCwgSSB3b3VsZCBsaWtlIHRvIHNlbmQgaXQgd2l0
+aCB0aGUgdXBjb21pbmcKPj4gcGF0Y2hzZXQuCj4gCj4gVGhpcyBpcyBhIHNlcGFyYXRlIGZpeCwg
+cmlnaHQ/IFdoYXQgcGF0Y2hzZXQgYXJlIHlvdSByZWZlcnJpbmcgdG8gd2hlcmUKPiB0aGUgZml4
+IHdvdWxkIGJlIGluPwo+IAoKWWVzLCB5b3UgYXJlIHJpZ2h0ISBJJ2xsIHNlbmQgYSBidWcgZml4
+IHBhdGNoIGFzIHNvb24gYXMgcG9zc2libGUuIApDb21pbmcgc29vbiBpcyB0aGUgYnBmX3Byb2df
+cGFjayBmb3IgUlY2NCBUcmFtcG9saW5lLCB3aGljaCBjdXJyZW50bHkgCmRvZXMgbm90IHNlZW0g
+dG8gYmUgcmVsYXRlZCB0byB0aGUgYnVnZml4LCB3aWxsIHBvcHVsYXRlIHRoZSBjb21taXQgCm1l
+c3NhZ2UgYW5kIHNlbmQgaXQgbGF0ZXIu8J+YgQoKPiBBcyBvZiBub3cgNi44LXJjMSBpcyBicm9r
+ZW4hIEl0IHdvdWxkIGJlIGEgZ3JlYXQgd2l0aCBhIGZpeCBhc2FwLi4uCj4gCj4gCj4gQ2hlZXJz
+LAo+IEJqw7ZybgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
