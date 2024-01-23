@@ -4,77 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F82C47258
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 13:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6EEEC47258
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jan 2024 13:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RrOpmfGzgC2RH1KusIRxZV/qCyrapx4p1XJcydMOLWU=; b=GsL38Nt39t25pK
-	B+JAA3ypjz41HuujeYTsuwNjExkGOF68rQO6MRtgnVxODZILIYUctWkVQiv2rWP6ocen1uatGxwbo
-	sv77x/ZPBTb2oC/EhBdqiwPhWaida3uAN1bWZjqCvUvAFDd1J0LeF6G6yf3je0nOa0GWPl+qcqGCa
-	KC+3VTDdbhWILD979FGgNUex33LY59HE4+YeP9druWQPNgrmSlZqhli/Hm6Bruga2CBV7boAt46nm
-	S6W1cDSyz16nLzJ6fBZPQ74tW8oiRrHXwQqyjSNCnH+ls2ZAppgwRfXvrmAtOwsg1qtgjnOcI4hL3
-	SfjZnBkU//QgJAizK7fQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JaQMBwSqKGTVSN9LyWNhimSM26Nssp4qH69dtr2Tqzs=; b=maLUcovNBBNi1z
+	Sw5T4C+mCmcQZFbuT1iIgrH6Pv53zvdGdm6ipPXtK1/HV9rJ7fZRDYZNnyzr17b/EV8poqCTawIZU
+	vhGxfoP1WIym3oq0ic7HMpJ4eU1M1ILvVu6CPbzFRMWEApnmE/mvBSIrroAzudJmRmlbOQJbYmXMd
+	arx9yajl06ed1p9r5B4ZhAe8QKSSCDko10lF0RLN22xN3NjEasWdCt7zKkXg739+W07oD2kIgz4ZV
+	4GXGfJUNVQ8MuSh9XirhteRgoir886AnR79LISIMljQ6US860gYuPGf2wncG1p27V+QGfZisBQ5y2
+	tETdvB6K1FVVKjWPbbDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSGYZ-00GXNz-2y;
-	Tue, 23 Jan 2024 13:11:11 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1rSGlD-00Gav1-0r;
+	Tue, 23 Jan 2024 13:24:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSGYT-00GXHI-1L;
-	Tue, 23 Jan 2024 13:11:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=fSr5mFfM4iUU6EsOYToTuq8gdRk30qQl8QQSg63i70E=; b=fpto1vRE8xiQfC1uHZjgB53IU1
-	JLS4uiEkPBr6x1Klv4TNndrOnG/ui4aqzwG/Y2eqKlYIDHpeJacttqDhXV2KGhFFEn9acxBpxIouu
-	tOH2aiHL34vwZDnDTt45uqhH4MS/X5syanHIDBqUfCGS4JuKsSQ/+MMkvnURyhmYGdLkZ9t3oZuqF
-	XWRtZTgH2zKCxX4SfzUOlORMQvFyeJrKaOho9uAsnq3WH6zRTINuWSRJ4XEYkmi4DaXRKgTQN+Kz8
-	8qrlri2JBWoJpsiLMJuWZcj5/RLx3sn8Pm1uwiDKuFDLblQQ1Lq/w4uAOvqo/kJ0weC6iYY1dCIMz
-	idqciouw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46192)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1rSGYC-0002Qx-1y;
-	Tue, 23 Jan 2024 13:10:48 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1rSGY8-0001yi-Ln; Tue, 23 Jan 2024 13:10:44 +0000
-Date: Tue, 23 Jan 2024 13:10:44 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, acpica-devel@lists.linuxfoundation.org,
-	linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org,
-	Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com,
-	James Morse <james.morse@arm.com>
-Subject: Re: [PATCH RFC v3 17/21] ACPI: add support to register CPUs based on
- the _STA enabled bit
-Message-ID: <Za+61Jikkxh2BinY@shell.armlinux.org.uk>
-References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
- <E1rDOhC-00DvlI-Pp@rmk-PC.armlinux.org.uk>
- <ZYBDJG1g7SH7AiM1@shell.armlinux.org.uk>
- <20240102145320.000062f9@Huawei.com>
- <20240123102603.00004244@Huawei.com>
+	id 1rSGlA-00Gat6-1v
+	for linux-riscv@lists.infradead.org;
+	Tue, 23 Jan 2024 13:24:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 36F0361D4D;
+	Tue, 23 Jan 2024 13:24:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C0F6C433F1;
+	Tue, 23 Jan 2024 13:23:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1706016220;
+	bh=0RGNHFInxFQRBM29nCBUXg7rUT8MFbgsXfxi0b/Mf3o=;
+	h=From:To:Cc:Subject:Date:From;
+	b=HDsdxTCPF2P8K6rIbqpCVoXFAaJMHGYEHl/5rvQT08ljmM5S+A1N+8n6SEbg37UrZ
+	 haKP5Mxsx78xdiZzUoW6l8J0KNzhBUuO3BoyKjQBZ73dosoIMGDg2m52H7psIuxJQH
+	 5Jcugn+deUs8HeTfr5/b9S07L942RzQmS0UesSgWhrRaJTAVCLW7PS9CXmLeK0XcnB
+	 E5yj4eC33L7JH5ENXkgFu65QRES6Lml1d4qXR/YtnVIYSvW145uoed3RHgHz4i5XKm
+	 lnn5/r67EHpwzNIUz3i34+oy1CxWQQujKy5WS7FaZnDSZsrqN6BGUccYHDLGnGUnN1
+	 p/ssMhEAlE7sA==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	linux-sh@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] sh: use generic uaccess
+Date: Tue, 23 Jan 2024 14:23:20 +0100
+Message-Id: <20240123132335.2034611-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240123102603.00004244@Huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240123_051105_452373_BC4E3E5B 
-X-CRM114-Status: GOOD (  39.89  )
+X-CRM114-CacheID: sfid-20240123_052412_735028_F756C2B5 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,110 +74,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 23, 2024 at 10:26:03AM +0000, Jonathan Cameron wrote:
-> On Tue, 2 Jan 2024 14:53:20 +0000
-> Jonathan Cameron <Jonathan.Cameron@Huawei.com> wrote:
-> 
-> > On Mon, 18 Dec 2023 13:03:32 +0000
-> > "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
-> > 
-> > > On Wed, Dec 13, 2023 at 12:50:38PM +0000, Russell King wrote:  
-> > > > From: James Morse <james.morse@arm.com>
-> > > > 
-> > > > acpi_processor_get_info() registers all present CPUs. Registering a
-> > > > CPU is what creates the sysfs entries and triggers the udev
-> > > > notifications.
-> > > > 
-> > > > arm64 virtual machines that support 'virtual cpu hotplug' use the
-> > > > enabled bit to indicate whether the CPU can be brought online, as
-> > > > the existing ACPI tables require all hardware to be described and
-> > > > present.
-> > > > 
-> > > > If firmware describes a CPU as present, but disabled, skip the
-> > > > registration. Such CPUs are present, but can't be brought online for
-> > > > whatever reason. (e.g. firmware/hypervisor policy).
-> > > > 
-> > > > Once firmware sets the enabled bit, the CPU can be registered and
-> > > > brought online by user-space. Online CPUs, or CPUs that are missing
-> > > > an _STA method must always be registered.    
-> > > 
-> > > ...
-> > >   
-> > > > @@ -526,6 +552,9 @@ static void acpi_processor_post_eject(struct acpi_device *device)
-> > > >  		acpi_processor_make_not_present(device);
-> > > >  		return;
-> > > >  	}
-> > > > +
-> > > > +	if (cpu_present(pr->id) && !(sta & ACPI_STA_DEVICE_ENABLED))
-> > > > +		arch_unregister_cpu(pr->id);    
-> > > 
-> > > This change isn't described in the commit log, but seems to be the cause
-> > > of the build error identified by the kernel build bot that is fixed
-> > > later in this series. I'm wondering whether this should be in a
-> > > different patch, maybe "ACPI: Check _STA present bit before making CPUs
-> > > not present" ?  
-> > 
-> > Would seem a bit odd to call arch_unregister_cpu() way before the code
-> > is added to call the matching arch_registers_cpu()
-> > 
-> > Mind you this eject doesn't just apply to those CPUs that are registered
-> > later I think, but instead to all.  So we run into the spec hole that
-> > there is no way to identify initially 'enabled' CPUs that might be disabled
-> > later.
-> > 
-> > > 
-> > > Or maybe my brain isn't working properly (due to being Covid positive.)
-> > > Any thoughts, Jonathan?  
-> > 
-> > I'll go with a resounding 'not sure' on where this change belongs.
-> > I blame my non existent start of the year hangover.
-> > Hope you have recovered!
-> 
-> Looking again, I think you were right, move it to that earlier patch.
+From: Arnd Bergmann <arnd@arndb.de>
 
-I'm having second thoughts - because this patch introduces the
-arch_register_cpu() into the acpi_processor_add() path (via
-acpi_processor_get_info() and acpi_processor_make_enabled(), so isn't
-it also correct to add arch_unregister_cpu() to the detach/post_eject
-path as well? If we add one without the other, doesn't stuff become
-a bit asymetric?
+As reported by many people, the nommu SH code runs into a compiler error
+with a newly added syscall:
 
-Looking more deeply at these changes, I'm finding it isn't easy to
-keep track of everything that's going on here.
+  + {standard input}: Error: displacement to undefined symbol .L105 overflows 8-bit field :  => 590, 593
+  + {standard input}: Error: displacement to undefined symbol .L135 overflows 8-bit field :  => 603
+  + {standard input}: Error: displacement to undefined symbol .L140 overflows 8-bit field :  => 606
+  + {standard input}: Error: displacement to undefined symbol .L76 overflows 12-bit field:  => 591, 594
+  + {standard input}: Error: displacement to undefined symbol .L77 overflows 8-bit field : 607 => 607, 582, 585
+  + {standard input}: Error: displacement to undefined symbol .L97 overflows 12-bit field:  => 607
+  + {standard input}: Error: pcrel too far: 604, 590, 577, 593, 572, 569, 598, 599, 596, 610 => 610, 574, 599, 569, 598, 596, 601, 590, 604, 595, 572, 577, 593
 
-We had attach()/detach() callbacks that were nice and symetrical.
-How we have this post_eject() callback that makes things asymetrical.
+Avoid the code that triggers this entirely by using the same generic
+uaccess code that m68k and riscv have on nommu.
 
-We have the attach() method that registers the CPU, but no detach
-method, instead having the post_eject() method. On the face of it,
-arch_unregister_cpu() doesn't look symetric unless one goes digging
-more in the code - by that, I mean arch_register_cpu() only gets
-called of present=1 _and_ enabled=1. However, arch_unregister_cpu()
-gets called buried in acpi_processor_make_not_present(), called when
-present=0, and then we have this new one to handle the case where
-enabled=0. It is not obvious that arch_unregister_cpu() is the reverse
-of what happens with arch_register_cpu() here.
+Link: https://lore.kernel.org/all/07d8877b-d933-46f4-8ca4-c10ed602f37e@app.fastmail.com/
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/sh/include/asm/uaccess.h    |  5 +++++
+ arch/sh/include/asm/uaccess_32.h | 23 -----------------------
+ 2 files changed, 5 insertions(+), 23 deletions(-)
 
-Then we have the add() method allocating pr->throttling.shared_cpu_map,
-and acpi_processor_make_not_present() freeing it. From what I read in
-ACPI v6.5, enabled is not allowed to be set without present. So, if
-_STA reports that a CPU that had present=1 enabled=1, but then is
-later reported to be enabled=0 (which we handle by calling only
-arch_unregister_cpu()) then what happens when _STA changes to
-enabled=1 later? Does add() get called? If it does, this would cause
-a new acpi_processor structure to be allocated and the old one to be
-leaked... I hope I'm wrong about add() being called - but if it isn't,
-how does enabled going from 0->1 get handled... and if we are handling
-its 1->0 transition separately from present, then surely we should be
-handling that.
-
-Maybe I'm just getting confused, but I've spent much of this morning
-trying to unravel all this... and I'm of the opinion that this isn't a
-sign of a good approach.
-
+diff --git a/arch/sh/include/asm/uaccess.h b/arch/sh/include/asm/uaccess.h
+index a79609eb14be..b42764d55901 100644
+--- a/arch/sh/include/asm/uaccess.h
++++ b/arch/sh/include/asm/uaccess.h
+@@ -2,6 +2,7 @@
+ #ifndef __ASM_SH_UACCESS_H
+ #define __ASM_SH_UACCESS_H
+ 
++#ifdef CONFIG_MMU
+ #include <asm/extable.h>
+ #include <asm-generic/access_ok.h>
+ 
+@@ -130,4 +131,8 @@ struct mem_access {
+ int handle_unaligned_access(insn_size_t instruction, struct pt_regs *regs,
+ 			    struct mem_access *ma, int, unsigned long address);
+ 
++#else
++#include <asm-generic/uaccess.h>
++#endif
++
+ #endif /* __ASM_SH_UACCESS_H */
+diff --git a/arch/sh/include/asm/uaccess_32.h b/arch/sh/include/asm/uaccess_32.h
+index 5d7ddc092afd..e053f2fd245c 100644
+--- a/arch/sh/include/asm/uaccess_32.h
++++ b/arch/sh/include/asm/uaccess_32.h
+@@ -35,7 +35,6 @@ do {								\
+ 	}							\
+ } while (0)
+ 
+-#ifdef CONFIG_MMU
+ #define __get_user_asm(x, addr, err, insn) \
+ ({ \
+ __asm__ __volatile__( \
+@@ -56,16 +55,6 @@ __asm__ __volatile__( \
+ 	".previous" \
+ 	:"=&r" (err), "=&r" (x) \
+ 	:"m" (__m(addr)), "i" (-EFAULT), "0" (err)); })
+-#else
+-#define __get_user_asm(x, addr, err, insn)		\
+-do {							\
+-	__asm__ __volatile__ (				\
+-		"mov." insn "	%1, %0\n\t"		\
+-		: "=&r" (x)				\
+-		: "m" (__m(addr))			\
+-	);						\
+-} while (0)
+-#endif /* CONFIG_MMU */
+ 
+ extern void __get_user_unknown(void);
+ 
+@@ -140,7 +129,6 @@ do {							\
+ 	}						\
+ } while (0)
+ 
+-#ifdef CONFIG_MMU
+ #define __put_user_asm(x, addr, err, insn)			\
+ do {								\
+ 	__asm__ __volatile__ (					\
+@@ -164,17 +152,6 @@ do {								\
+ 		: "memory"					\
+ 	);							\
+ } while (0)
+-#else
+-#define __put_user_asm(x, addr, err, insn)		\
+-do {							\
+-	__asm__ __volatile__ (				\
+-		"mov." insn "	%0, %1\n\t"		\
+-		: /* no outputs */			\
+-		: "r" (x), "m" (__m(addr))		\
+-		: "memory"				\
+-	);						\
+-} while (0)
+-#endif /* CONFIG_MMU */
+ 
+ #if defined(CONFIG_CPU_LITTLE_ENDIAN)
+ #define __put_user_u64(val,addr,retval) \
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
