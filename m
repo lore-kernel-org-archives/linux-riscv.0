@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379BDC46CD2
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 18:55:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE48C46CD2
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 18:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=77jyk/QXIxMJwW81VhOhn1PZtKgbCLi1IWkxDT6t5Ro=; b=cxt2duznvqs0z6
-	qF0FOf1XspfKhRR6zjXaHydkfB9msTIgxcurSPWz/puPqt2yyFFnq4x99aZw4QQYqaQjapGucyxle
-	YxqnBC+FYvZK+RRf+eTADHayWBGuIfhIYwy5l/kQ2e0QXt2k1YKCYIsBRtLOtXccKQs0Mv+OCdStZ
-	aPs1Kyc6mKI/RnROVW5VB08Fy8A3J222yebuioS0DZ6zUQGFm97t6HTaysiKlN/aDwcpenmxSE9Md
-	qaklOQ2KcJpeWznjMc9Vvzdup0bTPG9iTbqyN86yw2UWPWv2HEzLE0vQUTarRtW+tfyUW/L8zoNPb
-	XNk4v2XX8E0bfEIsDb8A==;
+	List-Owner; bh=4snhLw939ktGymF3H6y9z1bxVMW92+kX5QBiX4wMcsY=; b=B/S8/VtoEx0twR
+	DszC4NZgUR00KhTHgGevlW0doz+K6WsSeSz8+Q7WfoXuov+PBGKw4VFqph0dnznnpTssup/ag3fTD
+	Ks6bai+zFV3/L/ShLrio+u0EIbnDdnQiPRKudr6M0sVaIdi9ABOal6gZxKc3tBUHZ1pXxFxxZPYXw
+	NOvshsxx3jp/7v1nlpLhGzlov71VVoFkJYL8J3AULit04mPTv7DyO1/1YPYjt3jVatVIo8PJ7bvbN
+	wQS8jmfWJ6OtSZoUnnkUaXy3KXN6CI/7VmpnAFBOBFfZjcF3bdhUAMrpcrDK6waYlNK+Bvx8CiANy
+	TyocHce++6D9UwJHNiLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSiPG-004mTT-0c;
-	Wed, 24 Jan 2024 18:55:26 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1rSiQZ-004mkw-3C;
+	Wed, 24 Jan 2024 18:56:47 +0000
+Received: from smtpout.efficios.com ([2607:5300:203:b2ee::31e5])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSiPB-004mS8-2e
+	id 1rSiQW-004mjO-3D
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jan 2024 18:55:24 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1d71e24845aso35107405ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 10:55:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706122519; x=1706727319; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jDj/r0j6wjrBeKVb5gL0FLzmDiXz6FHRYIwfCvn46Xc=;
-        b=PXkYeWRj3YhZp9tNpWGvhPIdQ/3ZUiqoEBAB1iBCu7djU1jXvVkACNEgwDf8145Yrp
-         Krzo/Uyc/Y/rik9o1cHDBy0zhYn9j2TifapnSa21ulMrL4RbMkmFGBjnx6ZxuTPBTf+G
-         /o3YeZsXc5ivoqDQI5NOBFgBFiWvOnvwQvkIp02KsOYAya2M3iL0maWUuJyQgkbhREDl
-         kjIDhKSCtdqfdikaCxByal5P7Ip7nrDGRg4sr6/IfifzuypCjlgQjB7wZdncsNnNvAMH
-         slit3NroZ7gws88kE1MvuqN2tqui0BIY+Z8/6QahfsYllPDlgrD7Q9oVk6Ax8SoNAJcc
-         +jNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706122519; x=1706727319;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jDj/r0j6wjrBeKVb5gL0FLzmDiXz6FHRYIwfCvn46Xc=;
-        b=VfgIsXWaaSL2yghuLntuaJxgoJYeYJy7zsbF1Mvttg+/sdEtfwJZQeDK1vdxrunfBD
-         iZd6dYjJW8Rwe93q1cikHq2OJGCPB+EnRLhASTuF29gLo+QttvXow00FX6AtqCT120XE
-         a5oyAGK71Aw8fQ5SqUPkhK0ASYF9IYLdvDohsrbRuV1BS3xBrHBNg1HLd2Id6THxMTz0
-         zGzP7z0so1YPy3UpHtRLjUHs7OzqluN5KCqqJk/mGiEEYNJU32bNAxaUqE0tuL+QjUmw
-         lGHowYNj+I+e65JCV1egF2SChe5caH0w7G8MuvY4nApfLz3p1B+E52CRCdcS/8lW2NSs
-         +fKA==
-X-Gm-Message-State: AOJu0YwVIP6Uw1MSXeO9qi+JM3fWF2IVJbXJTUitUj/QeCQvngKSGTbY
-	ETQM3r0FCMelsEow+Fc5L9gYpzOyDlIsoJwJ+xEFpdB75m+7VmTXXckdp+k4UsY=
-X-Google-Smtp-Source: AGHT+IEIpZf36EhWLz+OQgHES8qLiyZ0UwP9vaFkyqYaaf3TE93IIKGP2XO1CzR3BfCEE2NcFO6xbw==
-X-Received: by 2002:a17:902:d4ce:b0:1d7:8e11:14a0 with SMTP id o14-20020a170902d4ce00b001d78e1114a0mr887617plg.91.1706122518713;
-        Wed, 24 Jan 2024 10:55:18 -0800 (PST)
-Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id z7-20020a1709028f8700b001d71935e5c1sm9210654plo.195.2024.01.24.10.55.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jan 2024 10:55:18 -0800 (PST)
-Date: Wed, 24 Jan 2024 10:55:16 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v9 2/2] documentation: Document
- PR_RISCV_SET_ICACHE_FLUSH_CTX prctl
-Message-ID: <ZbFdFARPQzjRd2g8@ghost>
-References: <20240123-fencei-v9-0-71411bfe8d71@rivosinc.com>
- <20240123-fencei-v9-2-71411bfe8d71@rivosinc.com>
- <26808f34-d9c4-404a-bf09-45c4aff139ad@ghiti.fr>
+	Wed, 24 Jan 2024 18:56:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=efficios.com;
+	s=smtpout1; t=1706122599;
+	bh=fDgg8tctrn6emEkzshBFTOOEhEUdkdDODjW+wwsHgnw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GIqZE93qwRmJH38eufPCxDmBlobXjUjtf9LO71Cd6BqdAn3+KILbVJqzUUuIQ+t8r
+	 50enT+rOVnRPsPWiDuVJ3PfVyRZBTgwuYT5B6E+0DTnKDrb2Grg19TjQGhApoaFTiu
+	 xOJFpG7FAwVXjMVJ9gYR2wFYFGm8oJ3tfx2cpp2UQWjW2hvynNgoFAPtnt/5Gsxt8J
+	 1Xj7OqtUEM1zq3tQqe79mpmZu23v0vPbxppiZ4t86pVWE7sNana2YjbFjymgJ3CcF4
+	 v5sDKO1R1TQ2gDlxEYeIspgjjzH1pYwT7MYrLH0fo/ocSoXqQvQYi2LvnDpJcFFgnI
+	 53aOA3D0lNr4w==
+Received: from [172.16.0.134] (192-222-143-198.qc.cable.ebox.net [192.222.143.198])
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4TKtTz2L4CzV7C;
+	Wed, 24 Jan 2024 13:56:39 -0500 (EST)
+Message-ID: <e4e1ee4d-b96c-47c7-bf81-5f4d3b0ce5dc@efficios.com>
+Date: Wed, 24 Jan 2024 13:56:39 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <26808f34-d9c4-404a-bf09-45c4aff139ad@ghiti.fr>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/4] membarrier: riscv: Provide core serializing
+ command
+Content-Language: en-US
+To: Andrea Parri <parri.andrea@gmail.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ paulmck@kernel.org, corbet@lwn.net, mmaas@google.com, hboehm@google.com,
+ striker@us.ibm.com, charlie@rivosinc.com, rehn@rivosinc.com,
+ linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20240110145533.60234-1-parri.andrea@gmail.com>
+ <20240110145533.60234-5-parri.andrea@gmail.com>
+ <aabea058-0088-41bb-822a-402669f348bb@efficios.com> <ZbFahHxi5laA6CbI@andrea>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+In-Reply-To: <ZbFahHxi5laA6CbI@andrea>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_105521_858996_E6D24F4B 
-X-CRM114-Status: GOOD (  38.67  )
+X-CRM114-CacheID: sfid-20240124_105645_321378_1D3F16AD 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,154 +73,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 24, 2024 at 08:19:42AM +0100, Alexandre Ghiti wrote:
-> On 24/01/2024 00:29, Charlie Jenkins wrote:
-> > Provide documentation that explains how to properly do CMODX in riscv.
-> > 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >   Documentation/arch/riscv/cmodx.rst | 96 ++++++++++++++++++++++++++++++++++++++
-> >   Documentation/arch/riscv/index.rst |  1 +
-> >   2 files changed, 97 insertions(+)
-> > 
-> > diff --git a/Documentation/arch/riscv/cmodx.rst b/Documentation/arch/riscv/cmodx.rst
-> > new file mode 100644
-> > index 000000000000..2ad46129d812
-> > --- /dev/null
-> > +++ b/Documentation/arch/riscv/cmodx.rst
-> > @@ -0,0 +1,96 @@
-> > +.. SPDX-License-Identifier: GPL-2.0
-> > +
-> > +==============================================================================
-> > +Concurrent Modification and Execution of Instructions (CMODX) for RISC-V Linux
-> > +==============================================================================
-> > +
-> > +CMODX is a programming technique where a program executes instructions that were
-> > +modified by the program itself. Instruction storage and the instruction cache
-> > +(icache) are not guaranteed to be synchronized on RISC-V hardware. Therefore, the
-> > +program must enforce its own synchronization with the unprivileged fence.i
-> > +instruction.
-> > +
-> > +However, the default Linux ABI prohibits the use of fence.i in userspace
-> > +applications. At any point the scheduler may migrate a task onto a new hart. If
-> > +migration occurs after the userspace synchronized the icache and instruction
-> > +storage with fence.i, the icache will no longer be clean. This is due to the
+On 2024-01-24 13:44, Andrea Parri wrote:
+>>> +# riscv uses xRET as return from interrupt and to return to user-space.
+>>> +#
+>>> +# Given that xRET is not core serializing, we rely on FENCE.I for providing
+>>> +# core serialization:
+>>> +#
+>>> +#  - by calling sync_core_before_usermode() on return from interrupt (cf.
+>>> +#    ipi_sync_core()),
+>>> +#
+>>> +#  - via switch_mm() and sync_core_before_usermode() (respectively, for
+>>> +#    uthread->uthread and kthread->uthread transitions) to go back to
+>>> +#    user-space.
+>>
+>> I don't quite get the meaning of the sentence above. There seems to be a
+>> missing marker before "to go back".
 > 
+> Let's see.  Without the round brackets, the last part becomes:
 > 
-> Nit: I think you mean "the icache on the new hart will no longer be clean".
+>    - via switch_mm() and sync_core_before_usermode() to go back to
+>      user-space.
+> 
+> This is indeed what I meant to say.  What am I missing?
 
-Aw yes, that should be more explicit.
+Would it still fit your intent if we say "before returning to
+user-space" rather than "to go back to user-space" ?
 
-- Charlie
+Because the switch_mm(), for instance, does not happen exactly on
+return to user-space, but rather when the scheduler switches tasks.
+Therefore, I think that stating that core serialization needs to
+happen before returning to user-space is clearer than stating that
+it happens "when" we go back to user-space.
+
+Also, on another topic, did you find a way forward with respect of
+the different choice of words between the membarrier man page and
+documentation vs the RISC-V official semantic with respect to "core
+serializing" vs FENCE.I ?
+
+Thanks,
+
+Mathieu
+
 
 > 
-> 
-> > +behavior of fence.i only affecting the hart that it is called on. Thus, the hart
-> > +that the task has been migrated to may not have synchronized instruction storage
-> > +and icache.
-> > +
-> > +There are two ways to solve this problem: use the riscv_flush_icache() syscall,
-> > +or use the ``PR_RISCV_SET_ICACHE_FLUSH_CTX`` prctl() and emit fence.i in
-> > +userspace. The syscall performs a one-off icache flushing operation. The prctl
-> > +changes the Linux ABI to allow userspace to emit icache flushing operations.
-> > +
-> > +As an aside, "deferred" icache flushes can sometimes be triggered in the kernel.
-> > +At the time of writing, this only occurs during the riscv_flush_icache() syscall
-> > +and when the kernel uses copy_to_user_page(). These deferred flushes happen only
-> > +when the memory map being used by a hart changes. If the prctl() context caused
-> > +an icache flush, this deferred icache flush will be skipped as it is redundant.
-> > +Therefore, there will be no additional flush when using the riscv_flush_icache()
-> > +syscall inside of the prctl() context.
-> > +
-> > +prctl() Interface
-> > +---------------------
-> > +
-> > +Call prctl() with ``PR_RISCV_SET_ICACHE_FLUSH_CTX`` as the first argument. The
-> > +remaining arguments will be delegated to the riscv_set_icache_flush_ctx
-> > +function detailed below.
-> > +
-> > +.. kernel-doc:: arch/riscv/mm/cacheflush.c
-> > +	:identifiers: riscv_set_icache_flush_ctx
-> > +
-> > +Example usage:
-> > +
-> > +The following files are meant to be compiled and linked with each other. The
-> > +modify_instruction() function replaces an add with 0 with an add with one,
-> > +causing the instruction sequence in get_value() to change from returning a zero
-> > +to returning a one.
-> > +
-> > +cmodx.c::
-> > +
-> > +	#include <stdio.h>
-> > +	#include <sys/prctl.h>
-> > +
-> > +	extern int get_value();
-> > +	extern void modify_instruction();
-> > +
-> > +	int main()
-> > +	{
-> > +		int value = get_value();
-> > +		printf("Value before cmodx: %d\n", value);
-> > +
-> > +		// Call prctl before first fence.i is called inside modify_instruction
-> > +		prctl(PR_RISCV_SET_ICACHE_FLUSH_CTX_ON, PR_RISCV_CTX_SW_FENCEI, PR_RISCV_SCOPE_PER_PROCESS);
-> > +		modify_instruction();
-> > +
-> > +		value = get_value();
-> > +		printf("Value after cmodx: %d\n", value);
-> > +		return 0;
-> > +	}
-> > +
-> > +cmodx.S::
-> > +
-> > +	.option norvc
-> > +
-> > +	.text
-> > +	.global modify_instruction
-> > +	modify_instruction:
-> > +	lw a0, new_insn
-> > +	lui a5,%hi(old_insn)
-> > +	sw  a0,%lo(old_insn)(a5)
-> > +	fence.i
-> > +	ret
-> > +
-> > +	.section modifiable, "awx"
-> > +	.global get_value
-> > +	get_value:
-> > +	li a0, 0
-> > +	old_insn:
-> > +	addi a0, a0, 0
-> > +	ret
-> > +
-> > +	.data
-> > +	new_insn:
-> > +	addi a0, a0, 1
-> > diff --git a/Documentation/arch/riscv/index.rst b/Documentation/arch/riscv/index.rst
-> > index 4dab0cb4b900..eecf347ce849 100644
-> > --- a/Documentation/arch/riscv/index.rst
-> > +++ b/Documentation/arch/riscv/index.rst
-> > @@ -13,6 +13,7 @@ RISC-V architecture
-> >       patch-acceptance
-> >       uabi
-> >       vector
-> > +    cmodx
-> >       features
-> > 
-> 
-> I don't know how man pages are synchronized with new additions in the
-> kernel, do you? It would be nice to have this new prctl documented for
-> userspace.
-> 
-> Thanks,
-> 
-> Alex
-> 
+>    Andrea
+
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
+
 
 _______________________________________________
 linux-riscv mailing list
