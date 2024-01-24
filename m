@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B47C46CD2
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 21:44:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A0E1C47422
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 21:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z4wVzJbawhqJdrRheWHY9dZcwubzB+JaGl4TnD0r4Z0=; b=SoTMVYO0OciDtM
-	t/g0TNNhWkHJkFe1DV2JaLmrHb0t7PXNjmn13mDxnCAF8tYslSEU6HAB8enomcIBJ6SxefHky93yA
-	7EUVjq2BAPITph7ceW6gVFHOH6dCnnca2f2EHsJsztCRix/E9X7FlmrvS6pkjMMqpzlWaGMcIXipn
-	+HTqcYK96POdJgNS6TJWbKcKEcyd7OCrqWSeA7jyQiluMm+kWcvengQP2y4tjfr3b7Ybc9H56gOf3
-	785tI4Pw01545LRAX4BtfJhCoEypSFleOGbiJ19YV+OYZ4rPUOlkJP/24e21V3exRoZQ/3PeX52yT
-	6URMyf/zH81ZiGvZ1bLQ==;
+	List-Owner; bh=oUfPu1BGNrs85nskQCvj2R/dUpFTQEgDQ531JIeqYDg=; b=1GtfIkvrmD80jN
+	pX9Arm00SvltO1N3XbgvlM+uNJl9aw/I29VO60mqCgVrleI4J+EWYjzoQ/bDPQ0R3dNQazjBWW3Wu
+	pN4d2uG1inUVg1xicZN/bIdAF3v04dbGvTAf5AvWFoL81fPo5qTBsJ8IwzceKDuRHBaZMLUerPKXj
+	VJ8xJyU079t8NkdlsRee10rwNM/Q0RkkRH1PW/awcPT+QAscvbdWPM9gqaeXlJU4IqVOuCZSrxlBN
+	EM8+LH3r17eakA1lfaA80s/Qmexw3aDvIZ3yqWOglqmrlgS6IyVO4X9MmReToC3xx4gLF0cNfmaIG
+	ug0fngSpv+aEgv4jOmpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSl2G-005ByC-1s;
-	Wed, 24 Jan 2024 21:43:52 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1rSlGN-005E61-0B;
+	Wed, 24 Jan 2024 21:58:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSl2C-005Bx1-2j
-	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jan 2024 21:43:50 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-337d32cd9c1so5259448f8f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 13:43:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1706132622; x=1706737422; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tg6vlOJdIGK8tq0vrQAo3bCHPF7VlBCqruzxipzmg3E=;
-        b=gZdsrDmPwFlGlC1Cx/J3BeOwAkYafKi6+un3ll+UcCo+DrHoAYeQNQufPa127nnNuI
-         oCNhbHHVNlm8ex15cv24UE19nDEdYB7x9MifYVmGWJTZaphpZGQuulYl5BrldHxB0wAg
-         kQGb3sudjIvTdXsD64I719nQp+JDJsUvZkz+nq6i8a1y/MrZNEdRCh0fVj2LbM/3QXY/
-         r3nFvaGwTjmZBxmJtJfIkIcQWuBKFRfR20oUaDZB5ggPaiCMYjJqngzOt1jA+U35EDpQ
-         UFwY55dd/4grxfhjN4bvmoO1UvfgtBpDU5e4kLtQbFfJHweZlybFUNi8tkQ1NxXQ3lc2
-         hRrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706132622; x=1706737422;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tg6vlOJdIGK8tq0vrQAo3bCHPF7VlBCqruzxipzmg3E=;
-        b=RmGbYFcBVEssa0uNMsuTUruFKDSXX59ErdOg2LoogyCRkz2SMzT/Te+2e/pyw2MZqZ
-         68e/BsS7AIORCLnkpej4sBGkyXOjQGvM/+qnnkGfCgUAQDJYcLg1PgOjmrw6LtZuQ8Zg
-         70O5DSUxntNshVHl6Z+M+T+9wci+NEOuYA3p/oxP2B9XRJmlZVFBSMlYGXKOFW0BPL6P
-         Ug/nhS+IVl75xpd1t0SR2hhoyfr9+ssitBb8pSsiAWBll2h69xRaeqK/RbqvkEikdFz7
-         IklEcBW3fb4LjLR/y6ERR5NNGrTFzckX819e/7HaxqCFQgOagXv4QuL0TtfAPR6ROfpj
-         Vc/g==
-X-Gm-Message-State: AOJu0Yzgek12mobaufbd6c3lxAm61os9NXLQsHkGrIcsueT1zOudwuZi
-	W9WMaV6SqjSDCNLdCjpNFlVeTZLdSjkS4zv1HDYDybSI7KHiSA6x
-X-Google-Smtp-Source: AGHT+IHr4rlR/jsqg4UhvhM22LlkdwhEz3vyqEedXc7T2SDNhM04UimPxufVBGGISy/LOD8NkSJcyQ==
-X-Received: by 2002:adf:a188:0:b0:336:5f15:5533 with SMTP id u8-20020adfa188000000b003365f155533mr941828wru.54.1706132621880;
-        Wed, 24 Jan 2024 13:43:41 -0800 (PST)
-Received: from andrea ([31.189.8.91])
-        by smtp.gmail.com with ESMTPSA id cl22-20020a170906c4d600b00a26a061eef8sm292575ejb.69.2024.01.24.13.43.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jan 2024 13:43:41 -0800 (PST)
-Date: Wed, 24 Jan 2024 22:43:36 +0100
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	paulmck@kernel.org, corbet@lwn.net, mmaas@google.com,
-	hboehm@google.com, striker@us.ibm.com, charlie@rivosinc.com,
-	rehn@rivosinc.com, linux-riscv@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/4] membarrier: riscv: Provide core serializing
- command
-Message-ID: <ZbGEiEgeGwzUcTe0@andrea>
-References: <20240110145533.60234-1-parri.andrea@gmail.com>
- <20240110145533.60234-5-parri.andrea@gmail.com>
- <aabea058-0088-41bb-822a-402669f348bb@efficios.com>
- <ZbFahHxi5laA6CbI@andrea>
- <e4e1ee4d-b96c-47c7-bf81-5f4d3b0ce5dc@efficios.com>
+	id 1rSlGJ-005E57-31;
+	Wed, 24 Jan 2024 21:58:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 65E0561DB3;
+	Wed, 24 Jan 2024 21:58:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72B9AC433F1;
+	Wed, 24 Jan 2024 21:58:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1706133502;
+	bh=uMwDhQCLwA5wgNwX3/sL+vg/75j1pnH7swf2g38L7iA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qwGw/amCMosOG55RuQMEK2Yz0wSPIw1pZbIEsKN9uTeRG3CiSLi52NkdDNFevblHH
+	 kTqzMbIWc0xaXGcrM2zXvxo7WUKI/S4ZnGCRs+NkSA1GWFAMQHOfFrWWDITpZf+HDK
+	 MRsG7RWYUWalvluSa6ejyoTltRWZMXHqY/WPN9Cw6vUxe1m2eTxDiPQ5qrYNekVGa4
+	 tPI2bqHKOGoHYqeCyUaSmDEYc921ME9rPqfrBG5J47YgIJjoBOpQyPsCwLeH1YM5j5
+	 RffoC356pdS1+HKCIv9dD/OzOek/qDzhV8UxjgD6XD1LTmUKvVf1iGT1g3s3fyZgW1
+	 qbiwiiFW0sZkg==
+Date: Wed, 24 Jan 2024 13:58:18 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Andy Chiu <andy.chiu@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Nelson Chu <nelson.chu@sifive.com>, linux-riscv@lists.infradead.org,
+	anup@brainfault.org, atishp@atishpatra.org,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	Vineet Gupta <vineetg@rivosinc.com>, greentime.hu@sifive.com,
+	guoren@linux.alibaba.com, Paul Walmsley <paul.walmsley@sifive.com>,
+	aou@eecs.berkeley.edu, ndesaulniers@google.com, trix@redhat.com
+Subject: Re: [PATCH -next v21 23/27] riscv: detect assembler support for
+ .option arch
+Message-ID: <20240124215818.GB1088@sol.localdomain>
+References: <20240121011341.GA97368@sol.localdomain>
+ <mhng-e4b5de69-859d-43ea-b35d-b568e6a621ef@palmer-ri-x1c9>
+ <CABgGipW0pZCESu7dyiUdta2JtrpeMsJ3EABNjj_0GO9fbbTwQg@mail.gmail.com>
+ <20240121181009.GA1469@sol.localdomain>
+ <20240122222918.GA141255@dev-fedora.aadp>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <e4e1ee4d-b96c-47c7-bf81-5f4d3b0ce5dc@efficios.com>
+In-Reply-To: <20240122222918.GA141255@dev-fedora.aadp>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_134348_911318_C0D54CFC 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20240124_135824_064088_8AC872D3 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +81,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 24, 2024 at 01:56:39PM -0500, Mathieu Desnoyers wrote:
-> On 2024-01-24 13:44, Andrea Parri wrote:
-> > > > +# riscv uses xRET as return from interrupt and to return to user-space.
-> > > > +#
-> > > > +# Given that xRET is not core serializing, we rely on FENCE.I for providing
-> > > > +# core serialization:
-> > > > +#
-> > > > +#  - by calling sync_core_before_usermode() on return from interrupt (cf.
-> > > > +#    ipi_sync_core()),
-> > > > +#
-> > > > +#  - via switch_mm() and sync_core_before_usermode() (respectively, for
-> > > > +#    uthread->uthread and kthread->uthread transitions) to go back to
-> > > > +#    user-space.
+On Mon, Jan 22, 2024 at 03:29:18PM -0700, Nathan Chancellor wrote:
+> On Sun, Jan 21, 2024 at 10:10:09AM -0800, Eric Biggers wrote:
+> > On Sun, Jan 21, 2024 at 10:32:59PM +0800, Andy Chiu wrote:
 > > > 
-> > > I don't quite get the meaning of the sentence above. There seems to be a
-> > > missing marker before "to go back".
+> > > Maybe what we really should do is to upgrade the condition check to a
+> > > one liner shell script and grep if "Warning" is being printed. Sadly
+> > > this warning is not failing the compilation with -Werror.
+> > > 
+> > > I can try forming a patch on this if it feels alright to people.
 > > 
-> > Let's see.  Without the round brackets, the last part becomes:
-> > 
-> >    - via switch_mm() and sync_core_before_usermode() to go back to
-> >      user-space.
-> > 
-> > This is indeed what I meant to say.  What am I missing?
+> > What about -Wa,--fatal-warnings ?
 > 
-> Would it still fit your intent if we say "before returning to
-> user-space" rather than "to go back to user-space" ?
-
-Yes, works for me.  Will change in v4.
-
-
-> Because the switch_mm(), for instance, does not happen exactly on
-> return to user-space, but rather when the scheduler switches tasks.
-> Therefore, I think that stating that core serialization needs to
-> happen before returning to user-space is clearer than stating that
-> it happens "when" we go back to user-space.
+> I suspect that would work, the following diff appears to work for me
+> with a version of clang that does and does not support '.option arch',
+> (although I am not sure if adding -Wa,--fatal-warnings will have any
+> other consequences):
 > 
-> Also, on another topic, did you find a way forward with respect of
-> the different choice of words between the membarrier man page and
-> documentation vs the RISC-V official semantic with respect to "core
-> serializing" vs FENCE.I ?
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index bffbd869a068..e3142ce531a0 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -315,7 +315,6 @@ config AS_HAS_OPTION_ARCH
+>  	# https://reviews.llvm.org/D123515
+>  	def_bool y
+>  	depends on $(as-instr, .option arch$(comma) +m)
+> -	depends on !$(as-instr, .option arch$(comma) -i)
+>  
+>  source "arch/riscv/Kconfig.socs"
+>  source "arch/riscv/Kconfig.errata"
+> diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+> index 5a84b6443875..3ee8ecfb8c04 100644
+> --- a/scripts/Kconfig.include
+> +++ b/scripts/Kconfig.include
+> @@ -33,7 +33,7 @@ ld-option = $(success,$(LD) -v $(1))
+>  
+>  # $(as-instr,<instr>)
+>  # Return y if the assembler supports <instr>, n otherwise
+> -as-instr = $(success,printf "%b\n" "$(1)" | $(CC) $(CLANG_FLAGS) -c -x assembler-with-cpp -o /dev/null -)
+> +as-instr = $(success,printf "%b\n" "$(1)" | $(CC) $(CLANG_FLAGS) -Wa$(comma)--fatal-warnings -c -x assembler-with-cpp -o /dev/null -)
+>  
+>  # check if $(CC) and $(LD) exist
+>  $(error-if,$(failure,command -v $(CC)),C compiler '$(CC)' not found)
 
-The way forward I envision involves the continuous (iterative) discussion
-/review of the respective documentation and use-cases/litmus tests/models
-/etc.
+It looks good to me as long as none of the as-instr users turn out to have any
+expected warnings.
 
-AFAICS, that is not that different from discussions about smp_mb() (as in
-memory-barriers.txt) vs. FENCE RW,RW (RISC-V ISA manual) - only time will
-tell.
+Maybe send the change to scripts/Kconfig.include as a separate patch?
 
-  Andrea
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
