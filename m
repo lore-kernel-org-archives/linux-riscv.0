@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD840C46CD2
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 18:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1263C46CD2
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 18:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hIbGKpBr6T+vIV97iYRCYbF4mC93qWaBGKUX8tPecoY=; b=sX+bnVR0IHMbVw
-	23mHMrjdcoeb1ZqB5XVU/+Z5WZUWeHNpmmrVc4tE3pUDVUzxy8tCuXud0MTHCN7MVw8TNLf2guKtc
-	pqUvOc8Tnvj4jiYGEVk1XmYh3xBWfJD9UJPn43AbvUxTlJ4bYyAMG10d3qxBs6wd64zEmkplJndjW
-	GYboW3zuJVl/6yHuKVU5JxiFUbFp5cMqpPVDHdBEjUM0Ij7/vWqyUPrgSY4CFSsajwT4L7ym+WWi+
-	AJz2JsriFBrw/9fuqy6Sw7r/iiinSJpuUPNSwZeYirQM7XNBcQ4p8Dea2KAHctzcMoB5DFUspyyso
-	e9e0UpdGyt0AwCsbFy7Q==;
+	List-Owner; bh=nDbfOZBQSkDZrJa5fp17bQAJ/BXX8ExO0z9Hm1NbTCk=; b=toG4CEp1tYQu3n
+	c6a1zph1SuHNxssU5rGz6nU/CMLuhdPV/ayJpz07oJRqeth2tFJSsEZggo3GkueOZJF55QkkYQjXf
+	DGodoFhbJ+4xV9Qz71bK+7T4RkbreAIiR8zH+dRCSlizPqZvBKiFHUN8CsqpYJh4l+Xgy9r5YUpT+
+	ySiKecPKn+vUn3h/dy/4PtkAl5Olx3gcY+xysGrkPIHJcl7np1E1STt4nFjKz6bVwG16oJN7XrzVM
+	Dyvl0tAcYl72qx1yj6jz09ysenKzYVjZfP7xd2KiCZ3zzU0ramfIvHl5nNfa4owGl/+colq2TmvHb
+	JsYBNyvi23EC9kbWx6cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSi6L-004iOl-1T;
-	Wed, 24 Jan 2024 18:35:53 +0000
-Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
+	id 1rSi6w-004ibF-0X;
+	Wed, 24 Jan 2024 18:36:30 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSi6I-004iNY-2R
+	id 1rSi6t-004iYW-0b
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jan 2024 18:35:52 +0000
-Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-3bda741ad7dso4505188b6e.1
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 10:35:48 -0800 (PST)
+	Wed, 24 Jan 2024 18:36:29 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-6daa89a6452so4131975b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 10:36:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706121347; x=1706726147; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BSDyjeT+sWx4a7+HucQkDxlfBX8Yu1AlwACyEiZHipQ=;
-        b=1yuNLGqc+Y30ldAQfIlbsiM0QG0kcngnLiLAIMuPaSEQRnp0y97IBHGHnc2DE110wN
-         8C42J2RpgJBT06vg3SDsDqFW9wQR/v+1QCHsWZa7We5mFvUAaQF32poP4LbLXTgcGnC3
-         RnypTShclJ8LBOEfw9TJcG3p6o7YjXJJWm6NY+stouTxfAmFwRjRNgyeVnCpElrbCp5U
-         leOMlfht8Cj6X1Cc3a1RXPxBeBG0MRI9a1YYquPlKUzcoRP77EkGKeGtAFOEiobylTAY
-         GhfSVs3AguzTSPIe5LXnreIeXIbt8ihF7n3xf7oPxRMbH7cTm0x2aqgO9LBCFkTNQiTR
-         AMkQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706121381; x=1706726181; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=dyoVaujb6HdGGQZquWAHWyK8BzIubclZKA3RVrGEVpc=;
+        b=kCQhW7lEBkCiH+EpVSwKtcm3t/qnmBkKVlJeYaQicerXo6p4Zca151ezvBOJKVJidP
+         G4/ko2DGcSv2HYTTVAs7Lco5vstrvBdBQIK6n9mnMMZUg4N549GTdcaRqDQBPznlhP0z
+         yJE8qQ3NtVnW1DZO6IOllc0TGa3DahsH1De7B6wl2LIvZMx2G/EfkzcwpRXe2XnhqGvY
+         juorDEc666AuPW7KovveprFAyNFQoLII7uD/k6/FCRBYXKXz1o4SQNvEEXgolPKpulx4
+         SGpSfsB/i+9AkFlfKaYAVdO0CwCV7vBcScs/7CF1CQ6d6ZiR+Ua0frD8lANq6qKwD4Ht
+         EbwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706121347; x=1706726147;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BSDyjeT+sWx4a7+HucQkDxlfBX8Yu1AlwACyEiZHipQ=;
-        b=ccZgqZkZHBlMEYP2/ct38eHHpR5Hi+6i2WKmwbH/S5usydmaPp4++ilDU6F2f2wE1L
-         jK9e9btiWF7UI9VP9EXANz6YvLEYh8aa9IteKYYYnDHwWf5jVI81cgjB9mLEgKaRdvNZ
-         EqSCtFwHk+ARye+RZODOeY1OHEV/F2a6niL9aTKPvRvz/q2q2wSCnSCDylnHJKEq+/8e
-         vcyT0EhALRCrYtKlHdt0Sa1GM/0mkRQb8XVsiCB/0ANDnVJghubvEnX9giSkbsTytqR+
-         bpVvNQ1uLI7+SGU5zgatDFHm9CKgotn7U3PQzd1spUNQOLbu5WXzqsh+6Gy045jqLujO
-         gOUA==
-X-Gm-Message-State: AOJu0YypoE2fzZawCXZnsFiGCbmG6PS2NxqwC65gdDlHsBpgPV+Bo3D6
-	qFKl+maizl3A9uR7hlsF8mOV/FnopvjXB3iqixv1RCiwkl73bFKPT8xIwNA2k1g=
-X-Google-Smtp-Source: AGHT+IG1yY+FPPP5M4yQmH3acC0a0/2mcx5E1lUmj9dQ7hZv1pU3OA5oy37S1GCeQohq0/uOBCuQyA==
-X-Received: by 2002:a05:6871:581e:b0:210:9e85:edc3 with SMTP id oj30-20020a056871581e00b002109e85edc3mr4154038oac.18.1706121347349;
-        Wed, 24 Jan 2024 10:35:47 -0800 (PST)
+        d=1e100.net; s=20230601; t=1706121381; x=1706726181;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dyoVaujb6HdGGQZquWAHWyK8BzIubclZKA3RVrGEVpc=;
+        b=TIaRQOOQFjG0VfRRc+NtJsKWQC0imNj66LnXb1JveO+riK93hmcPx8/uYNeqLP1mN4
+         tStw8n7hc4833VlGBZISozT9VBYbrx1oIWLF6sUUua8jQPyqaG16hH6oGKQIs6a0NsXR
+         RZOHmZOmCYJvC4LsmoduK0B+i9/iZqhhaBci44pAAjwX3X9jGt1HWh2OShuWgreo/UA3
+         ybDw4FhmekdKEU1Xd48oMQjlijshB6JMCRKsLARzo5xCOCg07M8+GmHgcb0YsIX7FXqE
+         Y65mWDuL1014+6vTwToy++kwvNh94HAuZcOAMXGqWqiAraXWxX4tmtdpRsRTiMLBnJU6
+         yFoQ==
+X-Gm-Message-State: AOJu0Yz6eHHeyqmibGdABDRNYqTAhto7AIkRYqOVcg1R96CNoF5JQ8Lo
+	cugGpMDvQNQy1uTb/+2sr357n/qyyCKSVbaKZ08Q4omlOVaqnu1zo8VezsH+mY4=
+X-Google-Smtp-Source: AGHT+IGa4MiJVKL68+be1ENZatYewBEzPKO9fNG4WgZ7fFnKMwOYC9yysxlwKGZJPdjj+oZ9bTHTzA==
+X-Received: by 2002:a05:6a20:6e91:b0:19a:e5cd:c41d with SMTP id gr17-20020a056a206e9100b0019ae5cdc41dmr881650pzb.96.1706121381191;
+        Wed, 24 Jan 2024 10:36:21 -0800 (PST)
 Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id t8-20020a63dd08000000b005cf450e91d2sm12079197pgg.52.2024.01.24.10.35.46
+        by smtp.gmail.com with ESMTPSA id p12-20020a056a0026cc00b006ddc2a97806sm444955pfw.213.2024.01.24.10.36.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jan 2024 10:35:47 -0800 (PST)
-Date: Wed, 24 Jan 2024 10:35:43 -0800
+        Wed, 24 Jan 2024 10:36:20 -0800 (PST)
+Date: Wed, 24 Jan 2024 10:36:17 -0800
 From: Charlie Jenkins <charlie@rivosinc.com>
 To: guoren@kernel.org
 Cc: linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
@@ -70,16 +71,16 @@ Cc: linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
 	rick.p.edgecombe@intel.com, willy@infradead.org, bjorn@rivosinc.com,
 	conor.dooley@microchip.com, cleger@rivosinc.com, leobras@redhat.com,
 	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V3 3/4] riscv: mm: Remove unused TASK_SIZE_MIN
-Message-ID: <ZbFYf+TDKhPQIpVR@ghost>
+Subject: Re: [PATCH V3 4/4] riscv: mm: Optimize TASK_SIZE definition
+Message-ID: <ZbFYoT4OWQQs7H5z@ghost>
 References: <20231222115703.2404036-1-guoren@kernel.org>
- <20231222115703.2404036-4-guoren@kernel.org>
+ <20231222115703.2404036-5-guoren@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231222115703.2404036-4-guoren@kernel.org>
+In-Reply-To: <20231222115703.2404036-5-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_103550_791103_09FD7D39 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20240124_103627_225529_73F93F23 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,51 +92,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 22, 2023 at 06:57:02AM -0500, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> Remove TASK_SIZE_MIN because it's not used anymore.
-> 
-> Reviewed-by: Leonardo Bras <leobras@redhat.com>
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> ---
->  arch/riscv/include/asm/pgtable.h | 2 --
->  1 file changed, 2 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 74ffb2178f54..e415582276ec 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -878,7 +878,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
->   */
->  #ifdef CONFIG_64BIT
->  #define TASK_SIZE_64	(PGDIR_SIZE * PTRS_PER_PGD / 2)
-> -#define TASK_SIZE_MIN	(PGDIR_SIZE_L3 * PTRS_PER_PGD / 2)
->  
->  #ifdef CONFIG_COMPAT
->  #define TASK_SIZE_32	(_AC(0x80000000, UL))
-> @@ -890,7 +889,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
->  
->  #else
->  #define TASK_SIZE	FIXADDR_START
-> -#define TASK_SIZE_MIN	TASK_SIZE
->  #endif
->  
->  #else /* CONFIG_MMU */
-> -- 
-> 2.40.1
-> 
-
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBEZWMgMjIsIDIwMjMgYXQgMDY6NTc6MDNBTSAtMDUwMCwgZ3VvcmVuQGtlcm5lbC5v
+cmcgd3JvdGU6Cj4gRnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+IAo+
+IFVuaWZ5IHRoZSBUQVNLX1NJWkUgZGVmaW5pdGlvbiB3aXRoIFZBX0JJVFMgZm9yIGJldHRlciBy
+ZWFkYWJpbGl0eS4KPiBBZGQgQ09NUEFUIG1vZGUgdXNlciBhZGRyZXNzIHNwYWNlIGluZm8gaW4g
+dGhlIGNvbW1lbnQuCj4gCj4gUmV2aWV3ZWQtYnk6IExlb25hcmRvIEJyYXMgPGxlb2JyYXNAcmVk
+aGF0LmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5j
+b20+Cj4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gLS0tCj4g
+IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oIHwgNSArKystLQo+ICAxIGZpbGUgY2hh
+bmdlZCwgMyBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9h
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+cGd0YWJsZS5oCj4gaW5kZXggZTQxNTU4MjI3NmVjLi4yNzE1NjVlMTk1NmYgMTAwNjQ0Cj4gLS0t
+IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKPiArKysgYi9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL3BndGFibGUuaAo+IEBAIC04NjYsNiArODY2LDcgQEAgc3RhdGljIGlubGluZSBw
+dGVfdCBwdGVfc3dwX2NsZWFyX2V4Y2x1c2l2ZShwdGVfdCBwdGUpCj4gICAqIE5vdGUgdGhhdCBQ
+R0RJUl9TSVpFIG11c3QgZXZlbmx5IGRpdmlkZSBUQVNLX1NJWkUuCj4gICAqIFRhc2sgc2l6ZSBp
+czoKPiAgICogLSAgICAgICAgMHg5ZmMwMDAwMAkofjIuNUdCKSBmb3IgUlYzMi4KPiArICogLSAg
+ICAgICAgMHg4MDAwMDAwMAkoICAgMkdCKSBmb3IgUlY2NCBjb21wYXQgbW9kZQo+ICAgKiAtICAg
+ICAgMHg0MDAwMDAwMDAwCSggMjU2R0IpIGZvciBSVjY0IHVzaW5nIFNWMzkgbW11Cj4gICAqIC0g
+ICAgMHg4MDAwMDAwMDAwMDAJKCAxMjhUQikgZm9yIFJWNjQgdXNpbmcgU1Y0OCBtbXUKPiAgICog
+LSAweDEwMDAwMDAwMDAwMDAwMAkoICA2NFBCKSBmb3IgUlY2NCB1c2luZyBTVjU3IG1tdQo+IEBA
+IC04NzcsMTAgKzg3OCwxMCBAQCBzdGF0aWMgaW5saW5lIHB0ZV90IHB0ZV9zd3BfY2xlYXJfZXhj
+bHVzaXZlKHB0ZV90IHB0ZSkKPiAgICogU2ltaWxhcmx5IGZvciBTVjU3LCBiaXRzIDYz4oCTNTcg
+bXVzdCBiZSBlcXVhbCB0byBiaXQgNTYuCj4gICAqLwo+ICAjaWZkZWYgQ09ORklHXzY0QklUCj4g
+LSNkZWZpbmUgVEFTS19TSVpFXzY0CShQR0RJUl9TSVpFICogUFRSU19QRVJfUEdEIC8gMikKPiAr
+I2RlZmluZSBUQVNLX1NJWkVfNjQJKFVMKDEpIDw8IChWQV9CSVRTIC0gMSkpCj4gIAo+ICAjaWZk
+ZWYgQ09ORklHX0NPTVBBVAo+IC0jZGVmaW5lIFRBU0tfU0laRV8zMgkoX0FDKDB4ODAwMDAwMDAs
+IFVMKSkKPiArI2RlZmluZSBUQVNLX1NJWkVfMzIJKFVMKDEpIDw8IChWQV9CSVRTX1NWMzIgLSAx
+KSkKPiAgI2RlZmluZSBUQVNLX1NJWkUJKHRlc3RfdGhyZWFkX2ZsYWcoVElGXzMyQklUKSA/IFwK
+PiAgCQkJIFRBU0tfU0laRV8zMiA6IFRBU0tfU0laRV82NCkKPiAgI2Vsc2UKPiAtLSAKPiAyLjQw
+LjEKPiAKClJldmlld2VkLWJ5OiBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29t
+PgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
