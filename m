@@ -4,116 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE7F8C47422
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 07:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D91C46CD2
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 08:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Subject:From:Cc:To:Date:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9r4Jrh7N8jrcQqMDDuPQ1QvAs5ZeK7V6iOoQIUHOvN8=; b=QOPkY6bzA1V6K2AoW8eOYnocn/
-	nXRkTJlSeNNJQGoBXZH1UCUkddh+yb1A16EshGkCcDHyN6kbDAKBqXJbg2QaLPmxfouYJ/HptMmHT
-	2OFhnLgs5bRDaQg/SuTVW3IaGQgyqDbYJYa2K1VbIY43f+ahUMX3dt8bkUL28sjPBCnwprU+d3fJf
-	TcuEftgFgp5v+YSiETB1qjJVNI12k00IE8ipPIEwlm8SC5yh9FhjaigMCaK1lW3C7MSbMKBEE2Buh
-	npSNQMPs77GZJm8urAKcWPrLSvajZIHfwiXhTzHYYX6LioHtGc/adZS+zxlo49SSRJqhHyEWteaq5
-	0ISfA+Ow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YlKVZRe2ue9kdcSj6ThEUNr+b494/1AzpbayDVqaYXc=; b=ysNqKaEl4xsXff
+	hvwKiSn+oJ/FxDBkf0hBJxvzsk9FrapebWiE9Q8OWvTnZ1KNP8erPzhFQqa5iv5on3wxGVbQia3UJ
+	GU9ZaWzEmvinoKzvE8xnjOD1DpsicHU5yfUCokbliiqcaynNPZETml1+GRzqHmjfTNedjTOEjrv0b
+	mRnqicV550Gx/VtNQGksUJk5Bc7fknYOSoEMjUD7Z54w+RvK/f0ycReaIyYSjW2V47wE2ZRoxWknt
+	byYYZEhW1/ydNdLIPB7H7VwKbpsMpEs6HiQ16k51qcI7J085UIGIlhjpcP66Dg3/jkP8dNGhzTWuX
+	T7Ol7okwFG5E+4tEMwlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSY2H-001v8n-04;
-	Wed, 24 Jan 2024 07:51:01 +0000
-Received: from mail-bmxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281c::800] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1rSYEX-001x8A-08;
+	Wed, 24 Jan 2024 08:03:41 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSY2E-001v7l-2q
+	id 1rSYEU-001x7R-0q
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jan 2024 07:51:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=IHxOg0oOBpbe/iXhtHmRYKBhxcYVZZv2Pcx4yHj4OmkDVxlqbUKPmc+T8Nl/nY+9GwOncoj3lIOcx8KuCqF7SIp9IckSA8Esdnhtpc0HJTMcnQ9jApKYtc6U64uJHvCBVbxQdnnd3iu45UFBgPw43r1jYiDyE2C4/4tNIQFzXMf9i8QD0//O+QXO3tNT2Qiroq5oezat/T9GgppXp82/z/SXTZ1LCGCxm1ZMis8Av1n2zM2g2Ze3Hkj0TBuzBrPMdyhfaFTxAS/+iq5sA41kVpnmkoiT9K7Br1H4fKmjEH8YNLG2/C3FO5heb5F8O4hKQN6BuJt+nY2HHEvn6HkkxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ij/+loR4YO4tUQ+DbSFFSmlvHVO6lUF3XW+pY+nIfMU=;
- b=chMiRHQtCNPRaDnawuqMIObo6VV5/W8F1SvJusH+MiCDL2ngRv3gh5zpsQtYgY5ApDb+UmfnFibPhcWNJ7nTjCzL3C+/OKa+zChMgdyQ4HKYLKVo2jmrL79+/EZAP9LRrXqLmmrO7cW7L+VMb9hMagQXuA+RMsVM/GNCTvbhkZlf6t83il5W4FkLScyeNroDRbSKFZZJfHF/4GbNiTNAYYpjfUyvoNhsg6WwY8fo/YQLXpRrGsG0WCUcGLwUxgxJQ5Dl6EI9b6V2v26hwYt8t4NnWs5iZD+C7x538v9SDCfKJd9RiqQgVd0HhhBUq3fF3ccECUlHdfW5mtemn590TA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ij/+loR4YO4tUQ+DbSFFSmlvHVO6lUF3XW+pY+nIfMU=;
- b=pnzJdMAR3vWaYa2K+WjorE0PlK1d6BSu8YPLgN8qz2fFT1dzr8wo4/8cHweMbxBVU6QplkYMj+izYcyxHDvN8s0pQiEXZu3CUVd7nlg29kmnwJ2zVatk5dBN7UH8LjFrIm3DLbenx1HzT8/UqLxMj/mtX/i/TjZn1Ea6n5n4LH3fkbWt2kgnstjZ6C6GEEtAArUw7Z9iRUyKrMDexVBcQQNmKJV5zCLXWzL083goSiPfYPqSd1NWbINw1aLupoCmiBTvorqvfOt676xqTJBWdwn1xYA4DFOuoyMYaaNPmavGYFkY14+HGdivchbvSCJ2RbeDhmCZyif7Aar6cVa+rQ==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by PN0P287MB1154.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:142::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7228.22; Wed, 24 Jan
- 2024 07:50:47 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a2d5:82f2:b6d4:f2cd]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::a2d5:82f2:b6d4:f2cd%2]) with mapi id 15.20.7228.022; Wed, 24 Jan 2024
- 07:50:47 +0000
-Message-ID: <MA0P287MB28228572C526C5099A8BDA2DFE7B2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Wed, 24 Jan 2024 15:50:44 +0800
-User-Agent: Mozilla Thunderbird
-To: soc@kernel.org
-Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Inochi Amaoto <inochiama@outlook.com>,
- Xiaoguang Xing <xiaoguang.xing@sophgo.com>, haijiao.liu@sophgo.com,
- Chao Wei <chao.wei@sophgo.com>, unicorn_wang@outlook.com
-From: Chen Wang <unicorn_wang@outlook.com>
-Subject: [GIT PULL] RISC-V Devicetrees fix for Sophgo/SG2042 v6.8-rc1
-X-TMN: [b+f6lx+Oo62ew/EpGBEWKoI0ykSdycZA]
-X-ClientProxiedBy: SG2PR06CA0185.apcprd06.prod.outlook.com (2603:1096:4:1::17)
- To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <e897fa5d-8b9d-4781-b349-2c357a5f71cb@outlook.com>
+	Wed, 24 Jan 2024 08:03:40 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-337d5480a6aso4893707f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 00:03:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706083414; x=1706688214; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GZy9WpZnhJvrQeE8AmDUs4sp0+DbG8sczVOvkF4cAt8=;
+        b=gbzXmhh8wTm4PCma9KWJ03Wyk0aMjFWkguvaDw7fr4r+ZonSNvSzdxjEgRcsIpOy5J
+         qkYD/P0kksJgvCxDbplfULVCzmRc/P8TbfNh2XrCmQE1mdZOR3ECxnwZa2iMfO0Di9vs
+         ndwTwhblv+7AAPI09HbCUX1rQHvhb0dZ5Yxijm8Agf0SdHxXK7/3miAgLto9hcq9WYbT
+         zFRJl3gvT9ufWy17R+xaSB5iykd47XAPIgoR4zPbe1fo7AqXTGgLfg47ytc1oRRjkJu5
+         OzZIGvzhp1K2IB6o0Re/1uMP0d5/jKUPnje5GxB/9gNSRVX3mjP4wVVbv/p9poBEeT+T
+         YrIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1706083414; x=1706688214;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GZy9WpZnhJvrQeE8AmDUs4sp0+DbG8sczVOvkF4cAt8=;
+        b=eubOwobI0SwpfK1lALefyPey2MSsrSR4guSxOQmfFzaOtYrSbsHNE0SjOFwvW7LcfE
+         PIkU7q5vjgfSsh6DllRi5BlsiYtRqyetnYlcR1D1lNiORT1GGfmJYY/dkFUs5zTZcwpa
+         ehgULW+OoTO+mtWd/+zZM+wy4+jyQB3bd7sCj7EBMGOZQIAnj5ekxRcrr+69mKETGjCP
+         rl++V3awLD0+gl8uOIF8N6EScza8BfVyXFvd9JQdCrnsXn2vaircaC0q2t6zgBaPHrfk
+         tS6GiQxDZj+IM7BFaPQxT6aCeI30Y3Mb8ZE3NHJ60wp+enYMMvpjEbRnmK8PoyzMJ7fG
+         uAXg==
+X-Gm-Message-State: AOJu0YwBZ0XlxlQfUv8vPk9E0vrYDR2mvXlhfP2NozKlG0GIZPCr49G/
+	txj1TdJc5Ed/n1CA7wSQwzpcNsiiMy0htVqt50tJik5f26nleeoO1Jw9Nm1SMB0=
+X-Google-Smtp-Source: AGHT+IEwCglOT9kCUsrL9QV6qoywOPNiQgp6EwlC96xpmz3dFXkjkP38QsKvnDEjagMQzVxRLinzRQ==
+X-Received: by 2002:a7b:cb8a:0:b0:40e:8c73:b205 with SMTP id m10-20020a7bcb8a000000b0040e8c73b205mr883048wmi.74.1706083414076;
+        Wed, 24 Jan 2024 00:03:34 -0800 (PST)
+Received: from localhost.localdomain (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id g7-20020a7bc4c7000000b0040d5c58c41dsm43655605wmk.24.2024.01.24.00.03.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Jan 2024 00:03:33 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH] riscv: Call secondary mmu notifier when flushing the tlb
+Date: Wed, 24 Jan 2024 09:03:25 +0100
+Message-Id: <20240124080325.2324462-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN0P287MB1154:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4f2dd1a9-9ecf-445c-12a0-08dc1cb12d57
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: BnS7FPs9yosOoM8Z1oLNJB58ccoy7SkxiSzssUAjbJlnmZkeA300U+Hk/oqnuWdC8cEDERxjsVRfjbYw0BGOsV5/6gBGiZ8a0nrze0S3/io/DV4USp07jxnSQBYkopwnXOstEOv0DGLJs75tejb0wA7QsqCCk/08ENRLvSHmI2TojMF+HdQhbhAMkpIedNaozPKES8Fw5G2jNQwze4YDKViqzby0S13zG7Khi/VdvOAaAjrsE71wMzb9URB3twQOW8f85xCfgpTCWVgpOK9UwUmk5Ns7WL6fQcfqdeP2okgxyO6kql7gUfRCgwGHnmDXCOr7ULLD3SauqCdVUfrs0vAZT+WYTX00E0lyN5VNg6XgKuV4UsnhFoFG7PL5lGDwPm5+0zcFW2D1QVMSJ8icvZHpzUo4C2y5wdwUXACN0rGU6zz9J5nGAsrKxDDBpgtdC0dmUcm/hH0n714H1ksXhKaVAu9iuHwDQ7+OkPOSIh/XX/xE9OOK+gPd+BgUFnYS4d76th1JOdpcvVAV3dD1VkSMluMZTVvCiEsWZehNSJLGzR6mLvILs39ZYM/BL+rr2NP3fhJF3xSwy7VCtsLsIS3QqMUvNXkz9bDymNnI61LCLIY5xSWW5KjTuunYbDYCf4uXpEQZXGbVUQOm1T9e5sTn8O1dhoYElZ4d56oZUmw=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RnBJUGdKZW5uYUdyTG9URjlZS0xkZTl0OWg5MjQrODhlSmxQdlRFNTJpRXdj?=
- =?utf-8?B?S1FaR2hjS0dsRkFQNkUvUTU2aW5jUW5tZVFZM2IzZHQvekhJK2lwSVN1N1g2?=
- =?utf-8?B?V0NtUnNPTkRNeEc2VUY5REJqa0lkY3V6ZVRuZ0NsamNVVUJyTFhvMTNqenJO?=
- =?utf-8?B?Q3VGWDFVR2FZRXRJUUVyNk1nb1pxRjczaVJQczg5NDFQRFNxSXpRNnFJOXRa?=
- =?utf-8?B?eXNrQ0tHZjZnVjVPMDNLVHo2ZW4vUDFRS0pqblI2S3JBbHREdzlWbnU5SytH?=
- =?utf-8?B?N1o3bVl6SE9Od1BTSEIwaEM4bWRXanJjd20vQ1V0QmV1Y2dvdW05aWd1NDB3?=
- =?utf-8?B?U2loc0k5eW5NRDRLYUM3aW1wK1pkQVZtdlB1bHJLamdPKzZXdjROOG9YVjNF?=
- =?utf-8?B?Y2tlKytVT3BzS1FEOVVHZVZ4KytVTVNsbWF3NWY2S01PZDZLU0dFelpYNW5E?=
- =?utf-8?B?RHZ6ZzlKeGhZWGZTcW1lU2RSa0V2MldLRW85MElNUDBTbThjdFhwR1VzRjBi?=
- =?utf-8?B?TWFWMXlTbHhmVFg0Vi9yU2RCUSt5cldzZEcxZkFhNkR0bGdxdGNBOVhmOWwy?=
- =?utf-8?B?bHQ3VWZ6TlA1RkpwOWlHYWphVDErdFJ3ZGMzREJoSGFpY1pDL2lSZkJWcTdn?=
- =?utf-8?B?eUZaMENocjdTVmNFMUZlNmZIbktzNHpiWkZPZ1VFWWR0OVgxWCt6RlZQL2ly?=
- =?utf-8?B?QVp5UGZiYituclo4UWt2L1g1V1dDTlhCVHV6TVFuQllyRzNIa0MyOVZiU3ZT?=
- =?utf-8?B?bGFwWld0c1J3UnFtYThLaVNSUnpyTFlibGtUWkF2YnZVQmdlc0oyZTdEZy9D?=
- =?utf-8?B?UG1zRTI1ZmVvQy96SitCWUZHNzVndCtBVE5qWDJvc3NMa25XYlRobE1yWTRV?=
- =?utf-8?B?cDRLcXNWN3AwUnplTngwQmZJbXRTZjh6cGUvYUtScWg4Z2NOK0VPYUJQMmhS?=
- =?utf-8?B?bmU4b2NWTTFGYm1QVlRqTk9wczhjRm5wWmZsWXRKbDY5SmNPTnR0cHhqTW95?=
- =?utf-8?B?L3ltSFJ0bHE3SXRJd2dTYVA2TUxvL0xrNjMvMUJ2cEtqdHp1K3JKeUVXVTRi?=
- =?utf-8?B?QTRVMlN3NFhlVnZEYXBFalNxK3E2R2U0TXFPbWNyZXdFaGpvUkJ6NFhOSURZ?=
- =?utf-8?B?Y2FmN0dsV2IvNER2NHZ3ODhqZmxPVmYxRFRlMmVRWkQxaHd5aC9COUlOeGE3?=
- =?utf-8?B?YXRCbStLWWJNWXJTY3ZVMDBFaVlVWVlTNnNJaEZkRlFuZDRXYVBxMHdsTm9V?=
- =?utf-8?B?TzR2Q3FNNG05citjTEt4UlJEL0ZVQ2lVRVhJNFZGSmtHVjEwb2w0N1RYTTc4?=
- =?utf-8?B?YlA2MzlUemluY1VHZE9OOFQ5UFRqMzUvNWlnODdjZ0pKSUd5V3R2MnNESnBP?=
- =?utf-8?B?TGpQeXpWK3hXVE15dDdiYmxyMDdKNllUYlFzSGl5a01zUG5VbnRrSys5ZVYz?=
- =?utf-8?B?Z3AvOG5aRTJIZXVWdm1kR3VjVnB6dmlGVk1lUUFaM243c0RvRWpYMHYzL1RF?=
- =?utf-8?B?QlBoR0c1ZGVSb1AxelJvR3RGSGFvVlRVYVdlbnM2SzJtbmFGMXNrR1VmaU0w?=
- =?utf-8?B?MnI4VS9wcWlyTndIeG93cW9xdzhncUxoZmlOREkvQVNCem5RVkZDaHlLeVkz?=
- =?utf-8?Q?oO4q3JiO2F38L3KNAB/q1HmV+9Q941u9ZDxEDHuzxrQ0=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4f2dd1a9-9ecf-445c-12a0-08dc1cb12d57
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jan 2024 07:50:47.7660
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB1154
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240123_235058_968058_5D4265FD 
-X-CRM114-Status: UNSURE (   4.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240124_000338_848052_8C1F5B9F 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,38 +87,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGV5IEFybmQsCgpQbGVhc2UgcHVsbCBvbmUgRFQgZml4IGZvciBTb3BoZ28gU0cyMDQyIGJhc2Vk
-IG9mZiB2Ni44LXJjMS4KClRoYW5rcywKQ2hlbi4KClRoZSBmb2xsb3dpbmcgY2hhbmdlcyBzaW5j
-ZSBjb21taXQgCjY2MTM0NzZlMjI1ZTA5MGNjOWFhZDQ5YmU3ZmE1MDRlMjkwZGQzM2Q6CgogwqAg
-TGludXggNi44LXJjMSAoMjAyNC0wMS0yMSAxNDoxMTozMiAtMDgwMCkKCmFyZSBhdmFpbGFibGUg
-aW4gdGhlIEdpdCByZXBvc2l0b3J5IGF0OgoKZ2l0QGdpdGh1Yi5jb206c29waGdvL2xpbnV4Lmdp
-dCAKdGFncy9yaXNjdi1kdC1maXhlcy1zb3BoZ28tc2cyMDQyLWZvci12Ni44LXJjMQoKZm9yIHlv
-dSB0byBmZXRjaCBjaGFuZ2VzIHVwIHRvIGViMzdhMTUzN2RhOGM5MmVhZGM2YmRlMDI2YzE4OTg4
-YjAwODkyYzE6CgogwqAgcmlzY3Y6IGR0czogc29waGdvOiBzZXBhcmF0ZSBzZzIwNDIgbXRpbWUg
-YW5kIG10aW1lY21wIHRvIGZpdCBhY2xpbnQgCmZvcm1hdCAoMjAyNC0wMS0yNCAxNDoyMDo1MSAr
-MDgwMCkKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0KUklTQy1WIERldmljZXRyZWVzIGZpeCBmb3IgU29waGdvL1NHMjA0MiB2
-Ni44LXJjMQoKVGhpcyBwYXRjaCBpcyBbMi8yXSBvZiBbMV0uIFRoZSBiaW5kaW5nIHBhcnQgWzJd
-IGhhcyBiZWVuIG1lcmdlZCBpbiAKdjYuOC1yYzEsIGJ1dAp0aGUgZHQgcGF0Y2ggWzNdIGlzIG1p
-c3NlZC4gVGhpcyBmaXggYWRkIHRoZSBkdCBwYXRjaC4KClNpZ25lZC1vZmYtYnk6IENoZW4gV2Fu
-ZyA8dW5pY29ybl93YW5nQG91dGxvb2suY29tPgoKTGluazogCmh0dHBzOi8vbG9yZS5rZXJuZWwu
-b3JnL2FsbC9JQTFQUjIwTUI0OTUzQzkxMkZDNThDMEQyNDg5NzY1NjRCQjg2QUBJQTFQUjIwTUI0
-OTUzLm5hbXByZDIwLnByb2Qub3V0bG9vay5jb20vIApbMV0KTGluazogCmh0dHBzOi8vbG9yZS5r
-ZXJuZWwub3JnL2FsbC8wOWIyZmMyZi1kZGU5LTRmNDMtOTcwNC1kODA1M2JmYzg1Y2ZAbGluYXJv
-Lm9yZy8gClsyXQpMaW5rOiAKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsL0lBMVBSMjBNQjQ5
-NTM2NjlDMDk3RDlDOUUyNEI1NDlGRkJCODZBQElBMVBSMjBNQjQ5NTMubmFtcHJkMjAucHJvZC5v
-dXRsb29rLmNvbS8gClszXQoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpJbm9jaGkgQW1hb3RvICgxKToKIMKgwqDCoMKgwqAg
-cmlzY3Y6IGR0czogc29waGdvOiBzZXBhcmF0ZSBzZzIwNDIgbXRpbWUgYW5kIG10aW1lY21wIHRv
-IGZpdCAKYWNsaW50IGZvcm1hdAoKIMKgYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vc2cyMDQy
-LmR0c2kgfCA4MCAKKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysrLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KIMKgMSBmaWxlIGNoYW5nZWQsIDQ4
-IGluc2VydGlvbnMoKyksIDMyIGRlbGV0aW9ucygtKQoKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+This is required to allow the IOMMU driver to correctly flush its own
+TLB.
+
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/mm/tlbflush.c | 39 +++++++++++++++++++++++----------------
+ 1 file changed, 23 insertions(+), 16 deletions(-)
+
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index 8d12b26f5ac3..ad7c4205524d 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -4,6 +4,7 @@
+ #include <linux/smp.h>
+ #include <linux/sched.h>
+ #include <linux/hugetlb.h>
++#include <linux/mmu_notifier.h>
+ #include <asm/sbi.h>
+ #include <asm/mmu_context.h>
+ 
+@@ -98,11 +99,19 @@ static void __ipi_flush_tlb_range_asid(void *info)
+ 	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
+ }
+ 
+-static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
++static inline unsigned long get_mm_asid(struct mm_struct *mm)
++{
++	return (mm && static_branch_unlikely(&use_asid_allocator)) ?
++			atomic_long_read(&mm->context.id) & asid_mask : FLUSH_TLB_NO_ASID;
++}
++
++static void __flush_tlb_range(struct mm_struct *mm,
++			      struct cpumask *cmask,
+ 			      unsigned long start, unsigned long size,
+ 			      unsigned long stride)
+ {
+ 	struct flush_tlb_range_data ftd;
++	unsigned long asid = get_mm_asid(mm);
+ 	bool broadcast;
+ 
+ 	if (cpumask_empty(cmask))
+@@ -136,31 +145,26 @@ static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
+ 
+ 	if (cmask != cpu_online_mask)
+ 		put_cpu();
+-}
+ 
+-static inline unsigned long get_mm_asid(struct mm_struct *mm)
+-{
+-	return static_branch_unlikely(&use_asid_allocator) ?
+-			atomic_long_read(&mm->context.id) & asid_mask : FLUSH_TLB_NO_ASID;
++	if (mm)
++		mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, start + size);
+ }
+ 
+ void flush_tlb_mm(struct mm_struct *mm)
+ {
+-	__flush_tlb_range(mm_cpumask(mm), get_mm_asid(mm),
+-			  0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
++	__flush_tlb_range(mm, mm_cpumask(mm), 0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
+ }
+ 
+ void flush_tlb_mm_range(struct mm_struct *mm,
+ 			unsigned long start, unsigned long end,
+ 			unsigned int page_size)
+ {
+-	__flush_tlb_range(mm_cpumask(mm), get_mm_asid(mm),
+-			  start, end - start, page_size);
++	__flush_tlb_range(mm, mm_cpumask(mm), start, end - start, page_size);
+ }
+ 
+ void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
+ {
+-	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
++	__flush_tlb_range(vma->vm_mm, mm_cpumask(vma->vm_mm),
+ 			  addr, PAGE_SIZE, PAGE_SIZE);
+ }
+ 
+@@ -193,13 +197,13 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 		}
+ 	}
+ 
+-	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
++	__flush_tlb_range(vma->vm_mm, mm_cpumask(vma->vm_mm),
+ 			  start, end - start, stride_size);
+ }
+ 
+ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+ {
+-	__flush_tlb_range((struct cpumask *)cpu_online_mask, FLUSH_TLB_NO_ASID,
++	__flush_tlb_range(NULL, (struct cpumask *)cpu_online_mask,
+ 			  start, end - start, PAGE_SIZE);
+ }
+ 
+@@ -207,7 +211,7 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 			unsigned long end)
+ {
+-	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
++	__flush_tlb_range(vma->vm_mm, mm_cpumask(vma->vm_mm),
+ 			  start, end - start, PMD_SIZE);
+ }
+ #endif
+@@ -221,7 +225,10 @@ void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+ 			       struct mm_struct *mm,
+ 			       unsigned long uaddr)
+ {
++	unsigned long start = uaddr & PAGE_MASK;
++
+ 	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
++	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, start + PAGE_SIZE);
+ }
+ 
+ void arch_flush_tlb_batched_pending(struct mm_struct *mm)
+@@ -231,6 +238,6 @@ void arch_flush_tlb_batched_pending(struct mm_struct *mm)
+ 
+ void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+ {
+-	__flush_tlb_range(&batch->cpumask, FLUSH_TLB_NO_ASID, 0,
+-			  FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
++	__flush_tlb_range(NULL, &batch->cpumask,
++			  0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
+ }
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
