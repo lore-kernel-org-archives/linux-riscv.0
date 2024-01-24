@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 386BAC46CD2
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 14:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99307C46CD2
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 14:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UXpBzWm/b1TeQMfrjnn8e+kR8MYf5r6iaz20vMZ4p7M=; b=H0Zx8CT7thzV7m
-	ZPEoRKxl0cAS0mMM4y/rLEeKlB+t3HFF/6u20YHn9AdeEUmGIW9WCAhJZ+WSHCzf1Vxmp7My4y4EY
-	fu7tELJKazidSK4qY6LkvccW/uaLa9tdpa9TSPgROY7VbCzmhblGt1EWJIG+QtGFZDmpt/RywGlRO
-	Ez+gAvWlu08OTmTUFW76uvV9QQvLIUSH3m+kAOZBqfoyanBpr5uXLbemkDgohP/E7elSSGz/xyjxp
-	80dIy/kNV5I21c8GhKmeU15A5f89BBnqHbEj0y29AJqEvLpxnQy1Uq2KkY9CZ9Zv/eEUqToUJpFQ2
-	zmNJMHNVyu4+0z61Y92Q==;
+	List-Owner; bh=FYVTt1p+MQ8uR6+uHHYBZfrd7ulwstkckzwXGYIttPA=; b=Q5L7iSuaDAoZ5b
+	veA+CW6AzdbBZEehSOLSb5j5uELzK75PEZ4RGmbwGN4J5ekmkvf689/Bizxs0nLlaCTMoPANz6tzL
+	fxDd7SW0xlg2WE1+H/6BLTHwUnxhxHjRH0cBQhZ2F+zafkZQtdBntAuGflhT5KNLijemkFFxgqrIe
+	XU14G9eKzphUyKdYGErAn9JbnQ3/wPlJwfi7BoTdZKoHNjXO2RRZs/x5Mu/Qy9k8kszUPVrdy7CqI
+	inS3Zj9D2l9KRtKc8Ju09EpqyEFHFbR8c8wVHuWW7+cMP7Ild2zF9YcFxZVNK364BoiISdcG5Ie5Q
+	ZDAP+3dXPvhK62RtILFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSe1B-003bIG-1s;
-	Wed, 24 Jan 2024 14:14:17 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1rSeFR-003fWu-2W;
+	Wed, 24 Jan 2024 14:29:01 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSe18-003bH5-2C
+	id 1rSeFO-003fUV-1j
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jan 2024 14:14:16 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-55a8fb31fc2so5015242a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 06:14:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1706105650; x=1706710450; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RVt0ZnKeByvzhrfkzssJmlz6f1Lvfiy149b2/exZGTI=;
-        b=lBbhjASRuoC5LbGq4Wm3qXLwjQtnBg1QplNiOm5s96TqhLFtyeEp2QH7LMz/O1VXPD
-         wy/DpHH7584t7wTBucQi/UpajbLxXkpTGmIkS5xxvKW6MQ3D8K8HwbU6h5qHCvPPvNzK
-         wHRFoNRp1BC2wOKBjXDMHwtczvjLP2UpkgUU/RkiZJvQSDSQfY6oa2C4kFkfKU0z8RkZ
-         vH/7DfWsWf8B1o/xvEUsx/kw0NptuVQJoQIFWrhlPyy/QvwD4s0i3dk8g1vBKmcRpamT
-         vRElFcMlP2ZqkHlYd8jsByTNvbrZ7mGW36v7FaDvDvy3Db2BOA0SHrO4kWI1u+oRjuyQ
-         Lu5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706105650; x=1706710450;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RVt0ZnKeByvzhrfkzssJmlz6f1Lvfiy149b2/exZGTI=;
-        b=ACJGTLmtHFbLiN2v7LeElQeeHsl74JD1ONWeWDq66s1HyC/20rmAXSogZfNMsHjra6
-         sLE8QhDT33km69/19qAnXMgQbD1uFBNrNfd3aEPhna/Jnyyv29GJIZYlMuqZ0kADBJSC
-         d1MSzBDAXT+XAApfr6AeR8Ld8wikJkK34Az+DYCQYpcd5PP/AYsia/Rawl0sd6UZ8Ruq
-         rxJME0q5J+Tv3A6bQQrLbD9Yc60UC2K9sSxJKQ7M04Ei0IiwbA5n+dKedPGj5ZEGbI1N
-         0Dcc/khBeU3LYaHT02lyq7mmN/LYSGdJt+Tcn5WGq5TZ+Oal8QppA2b4ezYzacaxKGVn
-         BGeg==
-X-Gm-Message-State: AOJu0YxbJ3gem68xycomh4uYrVh6LTg6k4ih5RaDhr5Xa7qoO3ZA4ydr
-	4v2R+3XFNnX7s+9e5G8VUjrliNeP+bykVznCgtob0OniS9TKO8si
-X-Google-Smtp-Source: AGHT+IF9Si4NHAOAqa3uYGeUJLR9rrnIrYwH+j1jIF67RS+3PdY09F2BJ2FydAo0qGhNxG2VPd32pA==
-X-Received: by 2002:a17:906:f197:b0:a2f:71f1:b9e4 with SMTP id gs23-20020a170906f19700b00a2f71f1b9e4mr780499ejb.53.1706105649844;
-        Wed, 24 Jan 2024 06:14:09 -0800 (PST)
-Received: from andrea ([31.189.8.91])
-        by smtp.gmail.com with ESMTPSA id vb5-20020a170907d04500b00a30f04cb266sm1142517ejc.5.2024.01.24.06.14.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jan 2024 06:14:09 -0800 (PST)
-Date: Wed, 24 Jan 2024 15:13:58 +0100
-From: Andrea Parri <parri.andrea@gmail.com>
-To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	mathieu.desnoyers@efficios.com, paulmck@kernel.org, corbet@lwn.net
-Cc: mmaas@google.com, hboehm@google.com, striker@us.ibm.com,
-	charlie@rivosinc.com, rehn@rivosinc.com,
-	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/4] membarrier: riscv: Core serializing command
-Message-ID: <ZbEbJpnUoFPW0fhd@andrea>
-References: <20240110145533.60234-1-parri.andrea@gmail.com>
+	Wed, 24 Jan 2024 14:29:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id BF6A9CE312C;
+	Wed, 24 Jan 2024 14:28:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DFE7C433C7;
+	Wed, 24 Jan 2024 14:28:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1706106529;
+	bh=rl17rrrrdDpGDd/ayUegjJVsAbRli/J9OpRT36DGW8g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=GWkA0A7RVjrn1XzuGgIzBx89fDBGHy7Pzg7AsbUxkwP5f/jmQ9dm/SqsKWTKda6Zj
+	 d950eFlSN/S38N+kuGlLrrLlJJdL+eGV111fD8qL2pTY4zpq/ZhhTRkfYyaq/jAoaA
+	 yZ4n4nJmbSa+w3BNezmuWb7kt9XF/iXnmj2loPGSCscLgMFhIRPBEkRuZ7PElBI5gI
+	 lMHe/6FDFo4tlIkevQ1f5P1bX16UqHmqiJ2IMF+jRJsPnfnCyPyFNlEu82pWx6aaB0
+	 QYMfoCZzC1dXVRKaCV37KPoYUDp/+2oXiNTwErgAFfLQvvt2POAlMX1HO6I5gCqBl9
+	 I9ReuKhOvvxaw==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Frederik Haxel <haxel@fzi.de>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Sasha Levin <sashal@kernel.org>,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com,
+	andy.chiu@sifive.com,
+	heiko@sntech.de,
+	samitolvanen@google.com,
+	greentime.hu@sifive.com,
+	samuel.holland@sifive.com,
+	cleger@rivosinc.com,
+	guoren@kernel.org,
+	namcaov@gmail.com,
+	alexghiti@rivosinc.com,
+	anup@brainfault.org,
+	bjorn@rivosinc.com,
+	bhe@redhat.com,
+	chenjiahao16@huawei.com,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.7 10/13] riscv: Make XIP bootable again
+Date: Wed, 24 Jan 2024 09:28:03 -0500
+Message-ID: <20240124142820.1283206-10-sashal@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240124142820.1283206-1-sashal@kernel.org>
+References: <20240124142820.1283206-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240110145533.60234-1-parri.andrea@gmail.com>
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.7.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_061414_728020_697D2C2D 
-X-CRM114-Status: UNSURE (   7.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240124_062858_927589_39CC8E21 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,33 +95,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 10, 2024 at 03:55:29PM +0100, Andrea Parri wrote:
-> Changes since v2 ([1]):
->   - amaned inline comments
->   - drop ARCH_HAS_MEMBARRIER, create membarrrier.rst
-> 
-> Changes since v1 ([2]):
->   - add smp_mb() in switch_mm()
->   - introduce ARCH_HAS_MEMBARRIER, amend documentation
-> 
-> Changes since RFC ([3]):
->   - introduce prepare_sync_core_cmd()
->   - fix nosmp builds
-> 
-> [1] https://lore.kernel.org/lkml/20231211094414.8078-1-parri.andrea@gmail.com/
-> [2] https://lore.kernel.org/lkml/20231127103235.28442-1-parri.andrea@gmail.com/
-> [3] https://lore.kernel.org/lkml/20230803040111.5101-1-parri.andrea@gmail.com/
-> 
-> Andrea Parri (4):
->   membarrier: riscv: Add full memory barrier in switch_mm()
->   membarrier: Create Documentation/scheduler/membarrier.rst
->   locking: Introduce prepare_sync_core_cmd()
->   membarrier: riscv: Provide core serializing command
+From: Frederik Haxel <haxel@fzi.de>
 
-Gentle ping to the riscv&membarrier people who have survived the merge
-window: any other thoughts on this series? suggestions for a v4?
+[ Upstream commit 66f1e68093979816a23412a3fad066f5bcbc0360 ]
 
-  Andrea
+Currently, the XIP kernel seems to fail to boot due to missing
+XIP_FIXUP and a wrong page_offset value. A superfluous XIP_FIXUP
+has also been removed.
+
+Signed-off-by: Frederik Haxel <haxel@fzi.de>
+Link: https://lore.kernel.org/r/20231212130116.848530-2-haxel@fzi.de
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/riscv/kernel/head.S | 1 +
+ arch/riscv/mm/init.c     | 8 ++++++--
+ 2 files changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 76ace1e0b46f..663881785b2b 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -89,6 +89,7 @@ relocate_enable_mmu:
+ 	/* Compute satp for kernel page tables, but don't load it yet */
+ 	srl a2, a0, PAGE_SHIFT
+ 	la a1, satp_mode
++	XIP_FIXUP_OFFSET a1
+ 	REG_L a1, 0(a1)
+ 	or a2, a2, a1
+ 
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 2e011cbddf3a..a65937336cdc 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -174,6 +174,9 @@ void __init mem_init(void)
+ 
+ /* Limit the memory size via mem. */
+ static phys_addr_t memory_limit;
++#ifdef CONFIG_XIP_KERNEL
++#define memory_limit	(*(phys_addr_t *)XIP_FIXUP(&memory_limit))
++#endif /* CONFIG_XIP_KERNEL */
+ 
+ static int __init early_mem(char *p)
+ {
+@@ -952,7 +955,7 @@ static void __init create_fdt_early_page_table(uintptr_t fix_fdt_va,
+ 	 * setup_vm_final installs the linear mapping. For 32-bit kernel, as the
+ 	 * kernel is mapped in the linear mapping, that makes no difference.
+ 	 */
+-	dtb_early_va = kernel_mapping_pa_to_va(XIP_FIXUP(dtb_pa));
++	dtb_early_va = kernel_mapping_pa_to_va(dtb_pa);
+ #endif
+ 
+ 	dtb_early_pa = dtb_pa;
+@@ -1055,9 +1058,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ #endif
+ 
+ 	kernel_map.virt_addr = KERNEL_LINK_ADDR + kernel_map.virt_offset;
+-	kernel_map.page_offset = _AC(CONFIG_PAGE_OFFSET, UL);
+ 
+ #ifdef CONFIG_XIP_KERNEL
++	kernel_map.page_offset = PAGE_OFFSET_L3;
+ 	kernel_map.xiprom = (uintptr_t)CONFIG_XIP_PHYS_ADDR;
+ 	kernel_map.xiprom_sz = (uintptr_t)(&_exiprom) - (uintptr_t)(&_xiprom);
+ 
+@@ -1067,6 +1070,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 
+ 	kernel_map.va_kernel_xip_pa_offset = kernel_map.virt_addr - kernel_map.xiprom;
+ #else
++	kernel_map.page_offset = _AC(CONFIG_PAGE_OFFSET, UL);
+ 	kernel_map.phys_addr = (uintptr_t)(&_start);
+ 	kernel_map.size = (uintptr_t)(&_end) - kernel_map.phys_addr;
+ #endif
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
