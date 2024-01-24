@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B8BC47DDF
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 20:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B47C46CD2
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 21:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MPvY9+81Zf1VK+XSPx7XPnvwfSwaKOBfl2Zsrw7wgEU=; b=T6/ATh65IpMbBO
-	xI1OMEhj+r+Uxt6LgO5pLbiGxz+znWaK/7ynzuD6ClRYEDD1ELZ0BJILUHrAPRKISXmOH/Eu85GfH
-	Dv7Pe2BImICIbQ/om9m7FODqrOa6gD+p5EaqK+J+N6obA5xr0SQTfN2ts6C4sw/oNxYFODT5eOnyM
-	14vhTYFNUYji3brnUnwgB//PsugYJk4+lU9zkPCcULFdi4oYWXNhRqWRQjJo59lNm0P7Iw7uhC3Vl
-	RLZ1As+l/Sm7uzrnnAb/OST59XTerSKm7mViwtyzXAGJdP/4OI6uKbJRh97/zZXsU6n/GYbv0M6/3
-	dkWQdmjfAqWxGxjJN9Mg==;
+	List-Owner; bh=Z4wVzJbawhqJdrRheWHY9dZcwubzB+JaGl4TnD0r4Z0=; b=SoTMVYO0OciDtM
+	t/g0TNNhWkHJkFe1DV2JaLmrHb0t7PXNjmn13mDxnCAF8tYslSEU6HAB8enomcIBJ6SxefHky93yA
+	7EUVjq2BAPITph7ceW6gVFHOH6dCnnca2f2EHsJsztCRix/E9X7FlmrvS6pkjMMqpzlWaGMcIXipn
+	+HTqcYK96POdJgNS6TJWbKcKEcyd7OCrqWSeA7jyQiluMm+kWcvengQP2y4tjfr3b7Ybc9H56gOf3
+	785tI4Pw01545LRAX4BtfJhCoEypSFleOGbiJ19YV+OYZ4rPUOlkJP/24e21V3exRoZQ/3PeX52yT
+	6URMyf/zH81ZiGvZ1bLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSjSb-004wuV-0V;
-	Wed, 24 Jan 2024 20:02:57 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1rSl2G-005ByC-1s;
+	Wed, 24 Jan 2024 21:43:52 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSjSX-004ws1-1V
+	id 1rSl2C-005Bx1-2j
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jan 2024 20:02:55 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1d75ea3a9b6so28978125ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 12:02:52 -0800 (PST)
+	Wed, 24 Jan 2024 21:43:50 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-337d32cd9c1so5259448f8f.2
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 13:43:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1706126572; x=1706731372; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+w2Z/B9DvCeSq6bcxM6bUW3f+gLJiWZyp7gFEq+AuD4=;
-        b=Wnm5IQBVCJKfOswDDyQfYogM1P2S43+ULCbrCAlMSZ2ZQZYwjKhX+CtXSi6NiTvhz9
-         JED4mmSuqLfHxriL/LFU5fEbLTdV3SQCX5H93iMGpvLAzSM9Fu5TiI1pLannPQlVBh/Q
-         lFcprznT/XIxv3Z/sRa0rB8cADYw0Si0OPkICkiBMmddyxcHzW8YHG3KCXGX5mQsrbYD
-         XFZ0Pc0ymCG2lH3H+FSiFxmE185lSI5rntdIYzyyOamjXw0igWdcaBfHDmd7ZNqREUs/
-         9uW8CHpdqU1iC1RXuUQxSmbss8qPz5NpyHlVkduL1ViyG52dYegxy2vreplCY8Jt6Paf
-         ZYow==
+        d=gmail.com; s=20230601; t=1706132622; x=1706737422; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=tg6vlOJdIGK8tq0vrQAo3bCHPF7VlBCqruzxipzmg3E=;
+        b=gZdsrDmPwFlGlC1Cx/J3BeOwAkYafKi6+un3ll+UcCo+DrHoAYeQNQufPa127nnNuI
+         oCNhbHHVNlm8ex15cv24UE19nDEdYB7x9MifYVmGWJTZaphpZGQuulYl5BrldHxB0wAg
+         kQGb3sudjIvTdXsD64I719nQp+JDJsUvZkz+nq6i8a1y/MrZNEdRCh0fVj2LbM/3QXY/
+         r3nFvaGwTjmZBxmJtJfIkIcQWuBKFRfR20oUaDZB5ggPaiCMYjJqngzOt1jA+U35EDpQ
+         UFwY55dd/4grxfhjN4bvmoO1UvfgtBpDU5e4kLtQbFfJHweZlybFUNi8tkQ1NxXQ3lc2
+         hRrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706126572; x=1706731372;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+w2Z/B9DvCeSq6bcxM6bUW3f+gLJiWZyp7gFEq+AuD4=;
-        b=sdxSRAmT7UEWr6wBx9Tjlwx9mbHLm2lxWM7yDOQo04RTI6Wgo7e8xfatMMOT87r9IP
-         atm/Vr9FVXpCyDTp3M9jEW2rjG8wmhMcYUaOtIaWKDtZ2NgKdMA75vOhUrcx3YybMQZc
-         xHaV/lxTbISKHso/rEhxnWptxdTVWSzVBkNALqciA0P8lmu3F9wkgYVPRplKToy4EbnF
-         JqQW85FzNtizYHgCeg6vA4Thu2LqzcSde3rO3vYXwSxpNBtvX6EGJPtURpY0/2MJJ5QW
-         5pNMrrXtfG/Lf+0yNB4YEqgDVeTZNE8vBuKQbrkhTPil4NZJHz8q1hp4HOpgJenpokUZ
-         23TQ==
-X-Gm-Message-State: AOJu0YzSfwOzyiO15bNGXiF9on7EpkblprC+cdRSit/ohX74mOjkvzn8
-	mHzIDvidNBHCq4ZfMiYg/A1u6mXyT/bSgZEhF9vaid1xs5f62/bEQRRRiKlf7FLF+41nlvMTWgS
-	5
-X-Google-Smtp-Source: AGHT+IHmdnAzRy94TdW37rxIReLv8xmTxnle59ObMQ60OBh/Hx1dq+31Zqz4kUmazN7Jz6XbTetWjA==
-X-Received: by 2002:a17:902:6b4a:b0:1d5:f10d:2ac6 with SMTP id g10-20020a1709026b4a00b001d5f10d2ac6mr1232352plt.115.1706126571674;
-        Wed, 24 Jan 2024 12:02:51 -0800 (PST)
-Received: from [192.168.68.110] ([152.234.127.94])
-        by smtp.gmail.com with ESMTPSA id d13-20020a170902c18d00b001d7134d149dsm9769222pld.256.2024.01.24.12.02.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 24 Jan 2024 12:02:51 -0800 (PST)
-Message-ID: <08188a93-0d5b-40bf-aefb-ac74d9c3d0be@ventanamicro.com>
-Date: Wed, 24 Jan 2024 17:02:47 -0300
+        d=1e100.net; s=20230601; t=1706132622; x=1706737422;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tg6vlOJdIGK8tq0vrQAo3bCHPF7VlBCqruzxipzmg3E=;
+        b=RmGbYFcBVEssa0uNMsuTUruFKDSXX59ErdOg2LoogyCRkz2SMzT/Te+2e/pyw2MZqZ
+         68e/BsS7AIORCLnkpej4sBGkyXOjQGvM/+qnnkGfCgUAQDJYcLg1PgOjmrw6LtZuQ8Zg
+         70O5DSUxntNshVHl6Z+M+T+9wci+NEOuYA3p/oxP2B9XRJmlZVFBSMlYGXKOFW0BPL6P
+         Ug/nhS+IVl75xpd1t0SR2hhoyfr9+ssitBb8pSsiAWBll2h69xRaeqK/RbqvkEikdFz7
+         IklEcBW3fb4LjLR/y6ERR5NNGrTFzckX819e/7HaxqCFQgOagXv4QuL0TtfAPR6ROfpj
+         Vc/g==
+X-Gm-Message-State: AOJu0Yzgek12mobaufbd6c3lxAm61os9NXLQsHkGrIcsueT1zOudwuZi
+	W9WMaV6SqjSDCNLdCjpNFlVeTZLdSjkS4zv1HDYDybSI7KHiSA6x
+X-Google-Smtp-Source: AGHT+IHr4rlR/jsqg4UhvhM22LlkdwhEz3vyqEedXc7T2SDNhM04UimPxufVBGGISy/LOD8NkSJcyQ==
+X-Received: by 2002:adf:a188:0:b0:336:5f15:5533 with SMTP id u8-20020adfa188000000b003365f155533mr941828wru.54.1706132621880;
+        Wed, 24 Jan 2024 13:43:41 -0800 (PST)
+Received: from andrea ([31.189.8.91])
+        by smtp.gmail.com with ESMTPSA id cl22-20020a170906c4d600b00a26a061eef8sm292575ejb.69.2024.01.24.13.43.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Jan 2024 13:43:41 -0800 (PST)
+Date: Wed, 24 Jan 2024 22:43:36 +0100
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	paulmck@kernel.org, corbet@lwn.net, mmaas@google.com,
+	hboehm@google.com, striker@us.ibm.com, charlie@rivosinc.com,
+	rehn@rivosinc.com, linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 4/4] membarrier: riscv: Provide core serializing
+ command
+Message-ID: <ZbGEiEgeGwzUcTe0@andrea>
+References: <20240110145533.60234-1-parri.andrea@gmail.com>
+ <20240110145533.60234-5-parri.andrea@gmail.com>
+ <aabea058-0088-41bb-822a-402669f348bb@efficios.com>
+ <ZbFahHxi5laA6CbI@andrea>
+ <e4e1ee4d-b96c-47c7-bf81-5f4d3b0ce5dc@efficios.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: qemu riscv, thead c906, Linux boot regression
-Content-Language: en-US
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- qemu-devel@nongnu.org, =?UTF-8?Q?Christoph_M=C3=BCllner?=
- <christoph.muellner@vrull.eu>
-Cc: linux-riscv@lists.infradead.org, LIU Zhiwei
- <zhiwei_liu@linux.alibaba.com>, Andrew Jones <ajones@ventanamicro.com>,
- Alistair Francis <alistair.francis@wdc.com>, Conor Dooley
- <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
-References: <874jf2rj4g.fsf@all.your.base.are.belong.to.us>
- <78107c83-7035-414c-9a44-af5e234fd5c2@ventanamicro.com>
- <87wmryr0rx.fsf@all.your.base.are.belong.to.us>
-From: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-In-Reply-To: <87wmryr0rx.fsf@all.your.base.are.belong.to.us>
+Content-Disposition: inline
+In-Reply-To: <e4e1ee4d-b96c-47c7-bf81-5f4d3b0ce5dc@efficios.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_120253_586771_80BCCAFD 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20240124_134348_911318_C0D54CFC 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +94,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAxLzI0LzI0IDE2OjI2LCBCasO2cm4gVMO2cGVsIHdyb3RlOgo+IERhbmllbCBIZW5yaXF1
-ZSBCYXJib3phIDxkYmFyYm96YUB2ZW50YW5hbWljcm8uY29tPiB3cml0ZXM6Cj4gCj4+IE9uIDEv
-MjQvMjQgMDk6NDksIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4+PiBIaSEKPj4+Cj4+PiBJIGJ1bXBl
-ZCB0aGUgUklTQy1WIExpbnV4IGtlcm5lbCBDSSB0byB1c2UgcWVtdSA4LjIuMCwgYW5kIHJlYWxp
-emVkIHRoYXQKPj4+IHRoZWFkIGM5MDYgZGlkbid0IGJvb3QgYW55bW9yZS4gQmlzZWN0aW9uIHBv
-aW50cyB0byBjb21taXQgZDZhNDI3ZTJjMGIyCj4+PiAoInRhcmdldC9yaXNjdi9jcHUuYzogcmVz
-dHJpY3QgJ21hcmNoaWQnIHZhbHVlIikKPj4+Cj4+PiBSZXZlcnRpbmcgdGhhdCBjb21taXQsIG9y
-IHRoZSBoYWNrIGJlbG93IHNvbHZlcyB0aGUgYm9vdCBpc3N1ZToKPj4+Cj4+PiAtLTg8LS0KPj4+
-IGRpZmYgLS1naXQgYS90YXJnZXQvcmlzY3YvY3B1LmMgYi90YXJnZXQvcmlzY3YvY3B1LmMKPj4+
-IGluZGV4IDhjYmZjN2U3ODFhZC4uZTE4NTk2YzhhNTVhIDEwMDY0NAo+Pj4gLS0tIGEvdGFyZ2V0
-L3Jpc2N2L2NwdS5jCj4+PiArKysgYi90YXJnZXQvcmlzY3YvY3B1LmMKPj4+IEBAIC01MDUsNiAr
-NTA1LDkgQEAgc3RhdGljIHZvaWQgcnY2NF90aGVhZF9jOTA2X2NwdV9pbml0KE9iamVjdCAqb2Jq
-KQo+Pj4gICAgICAgIGNwdS0+Y2ZnLmV4dF94dGhlYWRzeW5jID0gdHJ1ZTsKPj4+ICAgIAo+Pj4g
-ICAgICAgIGNwdS0+Y2ZnLm12ZW5kb3JpZCA9IFRIRUFEX1ZFTkRPUl9JRDsKPj4+ICsgICAgY3B1
-LT5jZmcubWFyY2hpZCA9ICgoUUVNVV9WRVJTSU9OX01BSk9SIDw8IDE2KSB8Cj4+PiArICAgICAg
-ICAgICAgICAgICAgICAgICAgKFFFTVVfVkVSU0lPTl9NSU5PUiA8PCA4KSAgfAo+Pj4gKyAgICAg
-ICAgICAgICAgICAgICAgICAgIChRRU1VX1ZFUlNJT05fTUlDUk8pKTsKPj4+ICAgICNpZm5kZWYg
-Q09ORklHX1VTRVJfT05MWQo+Pj4gICAgICAgIHNldF9zYXRwX21vZGVfbWF4X3N1cHBvcnRlZChj
-cHUsIFZNXzFfMTBfU1YzOSk7Cj4+PiAgICAjZW5kaWYKPj4+IC0tODwtLQo+Pj4KPj4+IEknbSB1
-bnN1cmUgd2hhdCB0aGUgY29ycmVjdCBxZW11IHdheSBvZiBhZGRpbmcgYSBkZWZhdWx0IHZhbHVl
-IGlzLAo+Pj4gb3IgaWYgYzkwNiBzaG91bGQgaGF2ZSBhIHByb3BlciBtYXJjaGlkLgo+Pgo+PiBJ
-biBjYXNlIHlvdSBuZWVkIHRvIHNldCBhICdtYXJjaGlkJyBkaWZmZXJlbnQgdGhhbiB6ZXJvIGZv
-ciBjOTA2LCB0aGlzIGhhY2sgd291bGQKPj4gYmUgYSBwcm9wZXIgZml4LiBBcyBtZW50aW9uZWQg
-aW4gdGhlIGNvbW1pdCBtc2cgb2YgdGhlIHBhdGNoIHlvdSBtZW50aW9uZWQ6Cj4+Cj4+ICJOYW1l
-ZCBDUFVzIHNob3VsZCBzZXQgJ21hcmNoaWQnIHRvIGEgbWVhbmluZ2Z1bCB2YWx1ZSBpbnN0ZWFk
-LCBhbmQgZ2VuZXJpYwo+PiAgICBDUFVzIGNhbiBzZXQgdG8gYW55IHZhbGlkIHZhbHVlLiIKPj4K
-Pj4gVGhhdCBtZWFucyB0aGF0IGFueSBzcGVjaWZpYyBtYXJjaGlkIHZhbHVlIHRoYXQgdGhlIENQ
-VSB1c2VzIG11c3QgdG8gYmUgc2V0Cj4+IGluIGl0cyBvd24gY3B1X2luaXQoKSBmdW5jdGlvbi4K
-PiAKPiBHb3QgaXQuIFRoYW5rcywgRGFuaWVsIQo+IAo+IEZvciBjb21wbGV0ZW5lc3MgKHNpbmNl
-IGl0IGNhbWUgdXAgb24gdGhlIHdlZWtseSBQVyBjYWxsKTsgQ29ub3IgcG9pbnRlZAo+IG91dCB0
-aGF0IHplcm8gKmlzKiBpbmRlZWQgdGhlIHJpZ2h0IG1hcmNoaWQgZm9yIGM5MDYsIGFuZCBpbiBm
-YWN0LCB0aGUKPiBub24temVybyBtYXJjaGlkIHByZSBjb21taXQgZDZhNDI3ZTJjMGIyIHdhcyBp
-bmNvcnJlY3QuCj4gCj4gUG9zdCBjb21taXQgZDZhNDI3ZTJjMGIyLCB0aGUgY29ycmVjdCBhbHRl
-cm5hdGl2ZSBpcyBwaWNrZWQgdXAsIGFuZAo+IEVSUkFUQV9USEVBRF9QQk1UICh1c2luZyBub24t
-c3RhbmRhcmQgbWVtb3J5IHR5cGUgYml0cyBpbgo+IHBhZ2UtdGFibGUtZW50cmllcykga2lja3Mg
-aW4uIEFGQUlVLCB0aGF0J3Mgbm90IGltcGxlbWVudGVkIGJ5IHFlbXUncwo+IGM5MDYgc3VwcG9y
-dCwgd2hpY2ggdGhlbiB0cmFwcy4KCgpUaGlzIGxvb2tzIGxpa2UgYSB2ZXJ5IGdvb2QgcmVhc29u
-IHRvIGFjdHVhbGx5IHB1c2ggd2hhdCB5b3UgY2FsbGVkICdoYWNrJyBhcwphIGZpeC4gWWVhaCwg
-aW4gdGhlb3J5IHRoYXQgY29tbWl0IGRpZCBub3RoaW5nIHdyb25nLCBidXQgdGhlIHNpZGUgZWZm
-ZWN0CihtaXNzaW5nIHN1cHBvcnQgZm9yIG5vbi1zdGFuZGFyZCBtZW1vcnkgdHlwZSBiaXRzKSBp
-cyBraW5kIG9mIGEgUUVNVSBwcm9ibGVtLgoKWW91J3JlIHdlbGNvbWUgdG8gZm9ybWF0IHRoYXQg
-aGFjayBpbnRvIGEgcGF0Y2gsIGV4cGxhaW5pbmcgaW4gdGhlIGNvbW1pdCBtc2cgd2h5CndlIG5l
-ZWQgdG8gc2V0IG1hcmNoaWQgZm9yIGM5MDYgdG8gdGhhdCBzcGVjaWZpYyB2YWx1ZS4gSSdkIGV2
-ZW4gYWRkIGEgVE9ETwp0YWcgaW4gcnY2NF90aGVhZF9jOTA2X2NwdV9pbml0KCkgdG8gcmVtaW5k
-IHVzIHRoYXQgdGhpcyBpcyBhIGJhbmQtYWlkIGFuZAp0aGF0IHdlIHNob3VsZCByZW1vdmUgaXQg
-b25jZSB3ZSBpbXBsZW1lbnQgdGhlIG5lZWRlZCBzdXBwb3J0LgoKCgo+IAo+IFRoYXQncyB0aGUg
-dGhlb3J5LiBNYXliZSBDaHJpc3RvcGgga25vd3MgaWYgdGhlIG5vbi1zdGFuZGFyZCBiaXRzIGFy
-ZQo+IGltcGxlbWVudGVkIG9yIG5vdD8KPiAKPiBSZWdhcmRsZXNzOyBJIHJlbW92ZWQgYm9vdGlu
-ZyBRZW11IFQtaGVhZCBjOTA2IGZyb20gdGhlIENJLCBhbmQgdGhlCj4gYnVpbGQvYm9vdCBwYXNz
-ZXMgbmljZWx5IDstKSBbMV0KCkkgdm90ZSBmb3Igc2V0dGluZyBtYXJjaGlkIGluIGM5MDYgY3B1
-X2luaXQgYW5kIHJlLWVuYWJsZSBpdCBpbiB0aGUgQ0kuCgoKVGhhbmtzLAoKRGFuaWVsCgo+IAo+
-IAo+IEJqw7Zybgo+IAo+IFsxXSBodHRwczovL2dpdGh1Yi5jb20vbGludXgtcmlzY3YvbGludXgt
-cmlzY3YvYWN0aW9ucy9ydW5zLzc2NDE3NjQ3NTkvam9iLzIwODE5ODAxMjM1P3ByPTQ0NwoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Wed, Jan 24, 2024 at 01:56:39PM -0500, Mathieu Desnoyers wrote:
+> On 2024-01-24 13:44, Andrea Parri wrote:
+> > > > +# riscv uses xRET as return from interrupt and to return to user-space.
+> > > > +#
+> > > > +# Given that xRET is not core serializing, we rely on FENCE.I for providing
+> > > > +# core serialization:
+> > > > +#
+> > > > +#  - by calling sync_core_before_usermode() on return from interrupt (cf.
+> > > > +#    ipi_sync_core()),
+> > > > +#
+> > > > +#  - via switch_mm() and sync_core_before_usermode() (respectively, for
+> > > > +#    uthread->uthread and kthread->uthread transitions) to go back to
+> > > > +#    user-space.
+> > > 
+> > > I don't quite get the meaning of the sentence above. There seems to be a
+> > > missing marker before "to go back".
+> > 
+> > Let's see.  Without the round brackets, the last part becomes:
+> > 
+> >    - via switch_mm() and sync_core_before_usermode() to go back to
+> >      user-space.
+> > 
+> > This is indeed what I meant to say.  What am I missing?
+> 
+> Would it still fit your intent if we say "before returning to
+> user-space" rather than "to go back to user-space" ?
+
+Yes, works for me.  Will change in v4.
+
+
+> Because the switch_mm(), for instance, does not happen exactly on
+> return to user-space, but rather when the scheduler switches tasks.
+> Therefore, I think that stating that core serialization needs to
+> happen before returning to user-space is clearer than stating that
+> it happens "when" we go back to user-space.
+> 
+> Also, on another topic, did you find a way forward with respect of
+> the different choice of words between the membarrier man page and
+> documentation vs the RISC-V official semantic with respect to "core
+> serializing" vs FENCE.I ?
+
+The way forward I envision involves the continuous (iterative) discussion
+/review of the respective documentation and use-cases/litmus tests/models
+/etc.
+
+AFAICS, that is not that different from discussions about smp_mb() (as in
+memory-barriers.txt) vs. FENCE RW,RW (RISC-V ISA manual) - only time will
+tell.
+
+  Andrea
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
