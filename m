@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2200C47E49
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 17:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD840C46CD2
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 18:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZaPlBg2gOi0BFlzSQa1N7G2DiXEn/0R/c6ixqcyXIi8=; b=Ot9jZv0i57h5zM
-	+dDwOqhXLmD0wKBzeXI8oDFpWT1j1iJxWFfvwzlbgZaII24dWaqIuhkxQTQxLA88P/AN1ssebitBK
-	ED040wEkY1vnkk8SEs0gCqk175tBzEeraT+YKe3EX20gwOz1wlQqgqkSdogKE+jvhwpS1gQQlvrYS
-	MPyrBR0UIKbSO89k3DQepbQFWPMqzFz3KjmIGGzuEncKPAKA0FYIsRpQIgB00ountPblB015FAoNp
-	P5+98TqTlFvWs/lWSUXK6VtW8ASTpOmkzDxuFvKmGnHUsfk9S27/XF78fNQKD6/0HS8texSseN495
-	jpnwe8e9PxWeoWycJZSg==;
+	List-Owner; bh=hIbGKpBr6T+vIV97iYRCYbF4mC93qWaBGKUX8tPecoY=; b=sX+bnVR0IHMbVw
+	23mHMrjdcoeb1ZqB5XVU/+Z5WZUWeHNpmmrVc4tE3pUDVUzxy8tCuXud0MTHCN7MVw8TNLf2guKtc
+	pqUvOc8Tnvj4jiYGEVk1XmYh3xBWfJD9UJPn43AbvUxTlJ4bYyAMG10d3qxBs6wd64zEmkplJndjW
+	GYboW3zuJVl/6yHuKVU5JxiFUbFp5cMqpPVDHdBEjUM0Ij7/vWqyUPrgSY4CFSsajwT4L7ym+WWi+
+	AJz2JsriFBrw/9fuqy6Sw7r/iiinSJpuUPNSwZeYirQM7XNBcQ4p8Dea2KAHctzcMoB5DFUspyyso
+	e9e0UpdGyt0AwCsbFy7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rShFc-004Xjb-1g;
-	Wed, 24 Jan 2024 17:41:24 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1rSi6L-004iOl-1T;
+	Wed, 24 Jan 2024 18:35:53 +0000
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rShFZ-004XiE-2H;
-	Wed, 24 Jan 2024 17:41:23 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-5ffe7e7b7b3so35083647b3.3;
-        Wed, 24 Jan 2024 09:41:20 -0800 (PST)
+	id 1rSi6I-004iNY-2R
+	for linux-riscv@lists.infradead.org;
+	Wed, 24 Jan 2024 18:35:52 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-3bda741ad7dso4505188b6e.1
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 10:35:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1706118080; x=1706722880; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706121347; x=1706726147; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HrKSWjAPLury0l0O07YwABLahdqYSfqu/vkyFWYooQ8=;
-        b=QtvDdF6NbEp67GtnOb1eHAGDtrCkUCiIx0tJwG0zcWGNiq8eAPC1vz6rwWTk0Xkyt/
-         K34/eaIj4PaV0sVVIAM4sHQYwRdZZlpD/Tdu3tAbVDAQofD7hoEoSmPXxNGlPT1iEs2c
-         /h7LEC0cq6BVv/G/IuCbjpbdHlTH2xFf1U0EP8NIjrnIXumeoWIxT3zE9BuYnwhR3iu8
-         wnRItB8McOUp6fc868J2Chlu2AVGlAJWwkZ+RQjYEC9UN40Hk1TfJCY+XYHo5R9S/DGC
-         jTAJAtT+ITFybzMB6Vimi1x7dQ7TAUOjrZxoecFoN8aJnP5+kzfAR+kzPae2C+Hkatom
-         vNhg==
+        bh=BSDyjeT+sWx4a7+HucQkDxlfBX8Yu1AlwACyEiZHipQ=;
+        b=1yuNLGqc+Y30ldAQfIlbsiM0QG0kcngnLiLAIMuPaSEQRnp0y97IBHGHnc2DE110wN
+         8C42J2RpgJBT06vg3SDsDqFW9wQR/v+1QCHsWZa7We5mFvUAaQF32poP4LbLXTgcGnC3
+         RnypTShclJ8LBOEfw9TJcG3p6o7YjXJJWm6NY+stouTxfAmFwRjRNgyeVnCpElrbCp5U
+         leOMlfht8Cj6X1Cc3a1RXPxBeBG0MRI9a1YYquPlKUzcoRP77EkGKeGtAFOEiobylTAY
+         GhfSVs3AguzTSPIe5LXnreIeXIbt8ihF7n3xf7oPxRMbH7cTm0x2aqgO9LBCFkTNQiTR
+         AMkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706118080; x=1706722880;
+        d=1e100.net; s=20230601; t=1706121347; x=1706726147;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HrKSWjAPLury0l0O07YwABLahdqYSfqu/vkyFWYooQ8=;
-        b=DB0TVe5LnR/fg83wQmZ9ZMh4zngnkPzzV2SeVQAapJwWMjSvofd05JANNx/wx81AyX
-         ZYH3l9YnuT8ofW48Hn+c72tkokoq6X1yRZS0cZsPZW6P11lQyY0F5YAONPJgPXvvchYR
-         U0pIKRaTMJzA7eumDU0nlU2LbJh9MhZGHikyTkHQoq5q+4A1PsTRMSo0JwTAEmETgh9D
-         irBi6xrY/OFFE72HyQOfsz99TETlhofHkz4xGDAt3dgOOgxEGpQFB3AjhuHJmrHlum/T
-         WMoM/KCLRCMBNw+fKBUv3gUBi/J3M45UxDxHfH+qN+UASsARbzb5dEj43yWQm6znuZ+5
-         IylA==
-X-Gm-Message-State: AOJu0Yzna7W9bT5pigVSxqL4E/DBvzMmyBYHr0fokTMHO5PH5tYRY3g3
-	/lz9l8QBEw4SjW7hZj5KuVYeBOgE3OwK+FIl0Fv3FBade21r/Zc8IeG0+uSYSl0=
-X-Google-Smtp-Source: AGHT+IG8FJ68JYgvol2vsYmkZB9x7Cw6vyk82+V1soudJ0xN7Bq1azDGVFF6zVhVo1ZMyf65R6wE/A==
-X-Received: by 2002:a0d:d70b:0:b0:5ff:9f2c:1299 with SMTP id z11-20020a0dd70b000000b005ff9f2c1299mr1077412ywd.65.1706118079707;
-        Wed, 24 Jan 2024 09:41:19 -0800 (PST)
-Received: from localhost ([2601:344:8301:57f0:abdb:7236:6977:9ab5])
-        by smtp.gmail.com with ESMTPSA id t140-20020a0dea92000000b005ffb2815960sm77564ywe.45.2024.01.24.09.41.18
+        bh=BSDyjeT+sWx4a7+HucQkDxlfBX8Yu1AlwACyEiZHipQ=;
+        b=ccZgqZkZHBlMEYP2/ct38eHHpR5Hi+6i2WKmwbH/S5usydmaPp4++ilDU6F2f2wE1L
+         jK9e9btiWF7UI9VP9EXANz6YvLEYh8aa9IteKYYYnDHwWf5jVI81cgjB9mLEgKaRdvNZ
+         EqSCtFwHk+ARye+RZODOeY1OHEV/F2a6niL9aTKPvRvz/q2q2wSCnSCDylnHJKEq+/8e
+         vcyT0EhALRCrYtKlHdt0Sa1GM/0mkRQb8XVsiCB/0ANDnVJghubvEnX9giSkbsTytqR+
+         bpVvNQ1uLI7+SGU5zgatDFHm9CKgotn7U3PQzd1spUNQOLbu5WXzqsh+6Gy045jqLujO
+         gOUA==
+X-Gm-Message-State: AOJu0YypoE2fzZawCXZnsFiGCbmG6PS2NxqwC65gdDlHsBpgPV+Bo3D6
+	qFKl+maizl3A9uR7hlsF8mOV/FnopvjXB3iqixv1RCiwkl73bFKPT8xIwNA2k1g=
+X-Google-Smtp-Source: AGHT+IG1yY+FPPP5M4yQmH3acC0a0/2mcx5E1lUmj9dQ7hZv1pU3OA5oy37S1GCeQohq0/uOBCuQyA==
+X-Received: by 2002:a05:6871:581e:b0:210:9e85:edc3 with SMTP id oj30-20020a056871581e00b002109e85edc3mr4154038oac.18.1706121347349;
+        Wed, 24 Jan 2024 10:35:47 -0800 (PST)
+Received: from ghost ([12.44.203.122])
+        by smtp.gmail.com with ESMTPSA id t8-20020a63dd08000000b005cf450e91d2sm12079197pgg.52.2024.01.24.10.35.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jan 2024 09:41:19 -0800 (PST)
-Date: Wed, 24 Jan 2024 09:41:18 -0800
-From: Yury Norov <yury.norov@gmail.com>
-To: "Lameter, Christopher" <cl@os.amperecomputing.com>
-Cc: Huang Shijie <shijie@os.amperecomputing.com>,
-	gregkh@linuxfoundation.org, patches@amperecomputing.com,
-	rafael@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, kuba@kernel.org, vschneid@redhat.com,
-	mingo@kernel.org, akpm@linux-foundation.org, vbabka@suse.cz,
-	rppt@kernel.org, tglx@linutronix.de, jpoimboe@kernel.org,
-	ndesaulniers@google.com, mikelley@microsoft.com,
-	mhiramat@kernel.org, arnd@arndb.de, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	will@kernel.org, mark.rutland@arm.com, mpe@ellerman.id.au,
-	linuxppc-dev@lists.ozlabs.org, chenhuacai@kernel.org,
-	jiaxun.yang@flygoat.com, linux-mips@vger.kernel.org
-Subject: Re: [PATCH v2] NUMA: Early use of cpu_to_node() returns 0 instead of
- the correct node id
-Message-ID: <ZbFLvnMQ3wsQ0pIF@yury-ThinkPad>
-References: <20240123045843.75969-1-shijie@os.amperecomputing.com>
- <4a13353c-cf4b-a388-5776-389c61c63ec0@os.amperecomputing.com>
+        Wed, 24 Jan 2024 10:35:47 -0800 (PST)
+Date: Wed, 24 Jan 2024 10:35:43 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: guoren@kernel.org
+Cc: linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, alexghiti@rivosinc.com, xiao.w.wang@intel.com,
+	david@redhat.com, panqinglin2020@iscas.ac.cn,
+	rick.p.edgecombe@intel.com, willy@infradead.org, bjorn@rivosinc.com,
+	conor.dooley@microchip.com, cleger@rivosinc.com, leobras@redhat.com,
+	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V3 3/4] riscv: mm: Remove unused TASK_SIZE_MIN
+Message-ID: <ZbFYf+TDKhPQIpVR@ghost>
+References: <20231222115703.2404036-1-guoren@kernel.org>
+ <20231222115703.2404036-4-guoren@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <4a13353c-cf4b-a388-5776-389c61c63ec0@os.amperecomputing.com>
+In-Reply-To: <20231222115703.2404036-4-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_094121_742843_FB7E3977 
-X-CRM114-Status: GOOD (  22.57  )
+X-CRM114-CacheID: sfid-20240124_103550_791103_09FD7D39 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +96,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 24, 2024 at 09:19:00AM -0800, Lameter, Christopher wrote:
-> On Tue, 23 Jan 2024, Huang Shijie wrote:
+On Fri, Dec 22, 2023 at 06:57:02AM -0500, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
 > 
-> > During the kernel booting, the generic cpu_to_node() is called too early in
-> > arm64, powerpc and riscv when CONFIG_NUMA is enabled.
-> > 
-> > For arm64/powerpc/riscv, there are at least four places in the common code
-> > where the generic cpu_to_node() is called before it is initialized:
-> > 	   1.) early_trace_init()         in kernel/trace/trace.c
-> > 	   2.) sched_init()               in kernel/sched/core.c
-> > 	   3.) init_sched_fair_class()    in kernel/sched/fair.c
-> > 	   4.) workqueue_init_early()     in kernel/workqueue.c
-> > 
-> > In order to fix the bug, the patch changes generic cpu_to_node to
-> > function pointer, and export it for kernel modules.
-> > Introduce smp_prepare_boot_cpu_start() to wrap the original
-> > smp_prepare_boot_cpu(), and set cpu_to_node with early_cpu_to_node.
-> > Introduce smp_prepare_cpus_done() to wrap the original smp_prepare_cpus(),
-> > and set the cpu_to_node to formal _cpu_to_node().
+> Remove TASK_SIZE_MIN because it's not used anymore.
 > 
-> Would  you please fix this cleanly without a function pointer?
+> Reviewed-by: Leonardo Bras <leobras@redhat.com>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> ---
+>  arch/riscv/include/asm/pgtable.h | 2 --
+>  1 file changed, 2 deletions(-)
 > 
-> What I think needs to be done is a patch series.
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 74ffb2178f54..e415582276ec 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -878,7 +878,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+>   */
+>  #ifdef CONFIG_64BIT
+>  #define TASK_SIZE_64	(PGDIR_SIZE * PTRS_PER_PGD / 2)
+> -#define TASK_SIZE_MIN	(PGDIR_SIZE_L3 * PTRS_PER_PGD / 2)
+>  
+>  #ifdef CONFIG_COMPAT
+>  #define TASK_SIZE_32	(_AC(0x80000000, UL))
+> @@ -890,7 +889,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+>  
+>  #else
+>  #define TASK_SIZE	FIXADDR_START
+> -#define TASK_SIZE_MIN	TASK_SIZE
+>  #endif
+>  
+>  #else /* CONFIG_MMU */
+> -- 
+> 2.40.1
 > 
-> 1. Instrument cpu_to_node so that some warning is issued if it is used too
-> early. Preloading the array with NUMA_NO_NODE would allow us to do that.
 
-By preloading do you mean compile-time initialization?
- 
-> 2. Implement early_cpu_to_node on platforms that currently do not have it.
-> 
-> 3. A series of patches that fix each place where cpu_to_node is used too
-> early.
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 
-Agree. This is the right way to go. And pretty well all of it was discussed
-in v1, isn't?
-
-Thanks,
-Yury
 
 _______________________________________________
 linux-riscv mailing list
