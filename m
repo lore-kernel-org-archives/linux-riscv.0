@@ -4,53 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 533A1C46CD2
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 08:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E547FC46CD2
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 08:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DoRHhoJLJLp7CB/PqpTH8LphYLWNRoKrAsbMomIQ4/k=; b=sZ+ca4N6Ro1TYO
-	qlEjqNKEvKzp+myyprAvV+Hr+0vbyVyNELJOduIZvqdk1R971oJKSPOW8PsWl+wM0JYYro/8Ln1Hr
-	Mtlt9qVm2iufuH9ayvKBy1rQ3SvITz2M7sdVjDNO+zS1qytJ8ajHlZseM2H4LSE+rCIPzkXepmty1
-	AXKOx4L5gi8ThNqNFuH+/Z3NcElJc6zQrITo5gG+SDoGndxsQfP28njkg40lCXm2vi7sONkhRS4DM
-	2qCDPIxle+5HyXIBwMQ08UorWN/3HR4SlibbkGkY7ussVLKGj2W1xCnU8w+lArJC4/CdJfKSS1MKY
-	SGPwfdG9dM+SBp3TcAvg==;
+	List-Owner; bh=m7xnDDhdU9+aQInbfAlLP0nD3CRmkozP0cuMd+1Nqt4=; b=nzlsl0/GGYdJ2m
+	pQhXb5VmNkJdBnDKnJK9by8+78lBikVf07U6WnkDLOs3CAScjkCALKN4IcBInanRRbNWo1J2KTVwd
+	XyxSSIG2ABEX1wr3Kny7ughvfk/QJpX7xzRsrgaqvFV2tnvbbV2nUnLZvcEyKHr81VlQmSlPg5IGB
+	a6jOauevIRAGGMW0cqtpdf1UFz1qvAtlTP6PhnD0ZajIx3SkhCtocIQYYn5bY4Azist5pKEAyWL2Z
+	MQSUG34eBh4S3JpF54Ft5VY0X0jkRxbA7cwTtoXb+IGjGSpiUaRgLQoU75JrE9PWx779wCm2h2+Wv
+	Mi3OB1VfpsrIlFUKdp0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSYpG-0022jM-1Y;
-	Wed, 24 Jan 2024 08:41:38 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1rSYt2-0023KG-3B;
+	Wed, 24 Jan 2024 08:45:32 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSYpC-0022hb-2i
-	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jan 2024 08:41:36 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id B8E3760002;
-	Wed, 24 Jan 2024 08:41:27 +0000 (UTC)
-Message-ID: <65bd3d38-dcc0-4e64-b35b-8a2e697768ff@ghiti.fr>
-Date: Wed, 24 Jan 2024 09:41:27 +0100
+	id 1rSYsz-0023Hi-2M;
+	Wed, 24 Jan 2024 08:45:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=5lEen0G4yFCsLlAF+wT6cjA+TZeTYFwLA6f1OlJb35c=; b=Nzo1kG4/6uJi4JkVCN2GnsVPSP
+	MSCm4FbOrhPHehb1KUJVrH1BJ3z9cxxbnwCC0zxjG3bD8+skV/uIfdTD6Xjbum3MAfAlH46N/Wp+6
+	L7YV4CDoxK1vWQMcHAQgVJyJHoNDrjkuxOIry+Y5WoNfp7WvmbHn0uuneIMiaw3MbPLQllmBXaukX
+	TYMxIFTn6SoI9/QX7eY4T0qhBicf+VgU4zXx/IN3Fy2G80u7atBOa9GDJ5r57T/AsDstwl/th3j5P
+	hRfBkIRpb/e4q3+Na04s1TcgWKeqoYLVLCnejFkjHgtXQ41c1OGcmGHfEku7EHHcuxCj7+We0ZUXO
+	+zL7lf9w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41124)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1rSYsi-0003f3-2f;
+	Wed, 24 Jan 2024 08:45:13 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1rSYse-0002ld-Qu; Wed, 24 Jan 2024 08:45:08 +0000
+Date: Wed, 24 Jan 2024 08:45:08 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, acpica-devel@lists.linuxfoundation.org,
+	linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org,
+	Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com,
+	James Morse <james.morse@arm.com>
+Subject: Re: [PATCH RFC v3 05/21] ACPI: Rename ACPI_HOTPLUG_CPU to include
+ 'present'
+Message-ID: <ZbDOFJeRjdaXtVJu@shell.armlinux.org.uk>
+References: <CAJZ5v0gwe02uzAQoX0QDHo35OTEozpbnqC6vukjM3aE6HMq9WQ@mail.gmail.com>
+ <ZbADTBLDEFtdglho@shell.armlinux.org.uk>
+ <CAJZ5v0jh-EdrnjkJep++UDo+Uv4hmR7VV4KYVdF4CK2K+5XLtg@mail.gmail.com>
+ <ZbAMjZoybVfiAGcT@shell.armlinux.org.uk>
+ <CAJZ5v0gt=MR1JGsPZnZG_AqudA-KMmb4BOa_A6H9B6+Rhe_+JQ@mail.gmail.com>
+ <ZbAdAdqqfXRuY3Xj@shell.armlinux.org.uk>
+ <CAJZ5v0gsqbeJc4qX-AefOqu53=rDme2XzFXacWz_0zbVBoaXjw@mail.gmail.com>
+ <ZbAoJO8f66Dg0lGF@shell.armlinux.org.uk>
+ <ZbArzbC19L1YxLHi@shell.armlinux.org.uk>
+ <CAJZ5v0jvek=W-FNhiY_0DQha2wDCUv7YW_4jaHUeX0DbYJOX6Q@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [External] [PATCH] riscv: Fix wrong size passed to
- local_flush_tlb_range_asid()
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Dennis Zhou <dennis@kernel.org>, yunhui cui <cuiyunhui@bytedance.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Geert Uytterhoeven <geert@linux-m68k.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20240123132730.2297719-1-alexghiti@rivosinc.com>
- <CAEEQ3wk5edUFTuE3H3KDGkCXj0+=i7Z1BM2M+6X-Tk9_m8X_iQ@mail.gmail.com>
- <ZbDICZkatO3/lGf/@snowbird> <cd68cf4e-7a6b-4875-ae1b-0c28a6eacaad@ghiti.fr>
-In-Reply-To: <cd68cf4e-7a6b-4875-ae1b-0c28a6eacaad@ghiti.fr>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <CAJZ5v0jvek=W-FNhiY_0DQha2wDCUv7YW_4jaHUeX0DbYJOX6Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_004135_156618_91677288 
-X-CRM114-Status: GOOD (  28.22  )
+X-CRM114-CacheID: sfid-20240124_004529_769468_BA42D67C 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,67 +92,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjQvMDEvMjAyNCAwOTozOCwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+IEhpIERlbm5pcywg
-WXVuaHVpLAo+Cj4gT24gMjQvMDEvMjAyNCAwOToxOSwgRGVubmlzIFpob3Ugd3JvdGU6Cj4+IEhl
-bGxvLAo+Pgo+PiBPbiBXZWQsIEphbiAyNCwgMjAyNCBhdCAxMDo0NDoxMkFNICswODAwLCB5dW5o
-dWkgY3VpIHdyb3RlOgo+Pj4gSGkgQWxleGFuZHJlLAo+Pj4KPj4+IE9uIFR1ZSwgSmFuIDIzLCAy
-MDI0IGF0IDk6MzHigK9QTSBBbGV4YW5kcmUgR2hpdGkgCj4+PiA8YWxleGdoaXRpQHJpdm9zaW5j
-LmNvbT4gd3JvdGU6Cj4+Pj4gbG9jYWxfZmx1c2hfdGxiX3JhbmdlX2FzaWQoKSB0YWtlcyB0aGUg
-c2l6ZSBhcyBhcmd1bWVudCwgbm90IHRoZSAKPj4+PiBlbmQgb2YKPj4+PiB0aGUgcmFuZ2UgdG8g
-Zmx1c2gsIHNvIGZpeCB0aGlzIGJ5IGNvbXB1dGluZyB0aGUgc2l6ZSBmcm9tIHRoZSBlbmQgYW5k
-Cj4+Pj4gdGhlIHN0YXJ0IG9mIHRoZSByYW5nZS4KPj4+Pgo+Pj4+IEZpeGVzOiA3YTkyZmM4YjRk
-MjAgKCJtbTogSW50cm9kdWNlIGZsdXNoX2NhY2hlX3ZtYXBfZWFybHkoKSIpCj4+Pj4gU2lnbmVk
-LW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+Pj4+IC0t
-LQo+Pj4+IMKgIGFyY2gvcmlzY3YvbW0vdGxiZmx1c2guYyB8IDIgKy0KPj4+PiDCoCAxIGZpbGUg
-Y2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPj4+Pgo+Pj4+IGRpZmYgLS1n
-aXQgYS9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMgYi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMK
-Pj4+PiBpbmRleCA4ZDEyYjI2ZjVhYzMuLjk2MTk5NjVmNjUwMSAxMDA2NDQKPj4+PiAtLS0gYS9h
-cmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPj4+PiArKysgYi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNo
-LmMKPj4+PiBAQCAtNjgsNyArNjgsNyBAQCBzdGF0aWMgaW5saW5lIHZvaWQgCj4+Pj4gbG9jYWxf
-Zmx1c2hfdGxiX3JhbmdlX2FzaWQodW5zaWduZWQgbG9uZyBzdGFydCwKPj4+Pgo+Pj4+IMKgIHZv
-aWQgbG9jYWxfZmx1c2hfdGxiX2tlcm5lbF9yYW5nZSh1bnNpZ25lZCBsb25nIHN0YXJ0LCB1bnNp
-Z25lZCAKPj4+PiBsb25nIGVuZCkKPj4+PiDCoCB7Cj4+Pj4gLcKgwqDCoMKgwqDCoCBsb2NhbF9m
-bHVzaF90bGJfcmFuZ2VfYXNpZChzdGFydCwgZW5kLCBQQUdFX1NJWkUsIAo+Pj4+IEZMVVNIX1RM
-Ql9OT19BU0lEKTsKPj4+PiArwqDCoMKgwqDCoMKgIGxvY2FsX2ZsdXNoX3RsYl9yYW5nZV9hc2lk
-KHN0YXJ0LCBlbmQgLSBzdGFydCwgUEFHRV9TSVpFLCAKPj4+PiBGTFVTSF9UTEJfTk9fQVNJRCk7
-Cj4+Pj4gwqAgfQo+PiBXZWxsIHRoaXMgd2FzIGEgbWlzcyBkdXJpbmcgY29kZSByZXZpZXcuLiBJ
-J20gZ29pbmcgdG8gdGFrZSBhbm90aGVyIGxvb2sKPj4gdG9tb3Jyb3cgYW5kIHRoZW4gbGlrZWx5
-IHB1bGwgdGhpcyBpbnRvIGEgZml4ZXMgYnJhbmNoLgo+Pgo+Pj4gV2hhdCBtYWtlcyBtZSBjdXJp
-b3VzIGlzIHRoYXQgdGhpcyBwYXRjaCBoYXMgbm90IGJlZW4gdGVzdGVkPwo+Pj4gQlRXLCBJdCBp
-cyBiZXN0IHRvIGtlZXAgdGhlIHBhcmFtZXRlciBvcmRlciBvZiBhbGwgZnVuY3Rpb25zIGluCj4+
-PiB0bGJmbHVzaC5jIGNvbnNpc3RlbnQ6IGNwdW1hc2ssIHN0YXJ0LCBzaXplLCBzdHJpZGUsIGFz
-aWQuCj4+Pgo+PiBJIGNhbid0IHNwZWFrIHRvIHRoZSByaXNjdiBjb21tdW5pdGllcyB0ZXN0aW5n
-L3JlZ3Jlc3Npb24gc3VpdGVzLCBidXQKPj4gdGhpcyB3b3VsZCBvbmx5IGJlIGNhdWdodCBpbiBh
-IHBlcmZvcm1hbmNlIHJlZ3Jlc3Npb24gdGVzdC4KPj4KPj4gVGhhdCBiZWluZyBzYWlkLCBBbGV4
-YW5kcmUsIGNhbiB5b3UgcGxlYXNlIGxtayB3aGF0IGxldmVsIG9mIHRlc3RpbmcKPj4gdGhpcyBo
-YXMgZ29uZSB0aHJvdWdoPwo+Cj4KPiBBbGwgbXkgcGF0Y2hlcyBnbyB0aHJvdWdoIHRoZSBzYW1l
-IGxldmVsIG9mIHRlc3Rpbmc6Cj4KPiAqIEJ1aWxkL2Jvb3QgYW4gVWJ1bnR1IGtlcm5lbCB3aXRo
-IGFuZCB3aXRob3V0IEtBU0FOICsgYSBmZXcgc2ltcGxlIAo+IHRlc3RzdWl0ZXMgKGxpYmh1Z2V0
-bGJmcywgcmlzY3Yga3NlbGZ0ZXN0cyBhbmQgb3RoZXIpCj4gKiBCdWlsZC9ib290IGEgc2ltcGxl
-IHJvb3RmcyBvbiB+NDAgZGlmZmVyZW50IHJ2NjQgY29uZmlncwo+ICogQnVpbGQvYm9vdCBhIHNp
-bXBsZSByb290ZnMgb24gfjMwIGRpZmZlcmVudCBydjMyIGNvbmZpZ3MKPgo+IEFuZCBJIHJ1biBM
-VFAvZnVsbCBrc2VsZnRlc3RzL3BlcmYgdGVzdHN1aXRlIG9uIGEgd2Vla2x5IGJhc2lzIG9uIAo+
-IGV2ZXJ5IHJjLiBBbGwgdGhpcyB2YWxpZGF0aW9uIGlzIGRvbmUgb24gcWVtdS4KPgo+IFRoZSBw
-YXRjaCBpcyBmdW5jdGlvbmFsLCBpdCAic2ltcGx5IiBmbHVzaGVzIHRoZSB3aG9sZSBUTEIgaW5z
-dGVhZCBvZiAKPiBhIGZldyBlbnRyaWVzLCBzbyB0aGUgb25seSB3YXkgdG8gY2F0Y2ggdGhhdCB3
-b3VsZCBoYXZlIGJlZW4gYSAKPiBwZXJmb3JtYW5jZSByZWdyZXNzaW9uLiBCdXQgZ2l2ZW4gaXQg
-b25seSBydW5zIG9uIHFlbXUsIGl0IHdvdWxkIGhhdmUgCj4gYmVlbiBoYXJkIHRvIGNhdGNoIGFu
-eSBwZXJmb3JtYW5jZSByZWdyZXNzaW9uIHNpbmNlIHRoYXQgaW52b2x2ZXMgdGhlIAo+IFRMQi4K
-Pgo+IEBZdW5odWk6IFBsZWFzZSBsZXQgbWUga25vdyBob3cgSSBzaG91bGQgdmFsaWRhdGUgbXkg
-cGF0Y2hlcyBiZXR0ZXIuCgoKQFl1bmh1aTogQW5kIEJUVywgd2UgbGFjayByZXZpZXdlcnMsIHNv
-IGZlZWwgZnJlZSB0byBoZWxwIDspCgoKPgo+IFRoYW5rcywKPgo+IEFsZXgKPgo+Cj4+IFRoYW5r
-cywKPj4gRGVubmlzCj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+PiBsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YKPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+On Tue, Jan 23, 2024 at 11:05:43PM +0100, Rafael J. Wysocki wrote:
+> > So why not state that you personally don't want it in the first
+> > place? Why this game of cat and mouse and the constantly changing
+> > arguments. I guess it's to waste developers time.
+> >
+> > Well, I'm calling you out for this, because I'm that pissed off
+> > at the amount of time you're causing to be wasted.
+> 
+> And I don't have to suffer this kind of abuse.  Sorry.
+
+And I've had enough of this crap, so I'm not walking away. Good
+riddance.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
