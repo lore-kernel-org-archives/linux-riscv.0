@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA775C47E49
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 14:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B6A5C47422
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 14:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j9WTX/I9XPaKmnIiTc6h34W3p+pnbsVIQIZr0tAQ0U4=; b=hiB4tMHXqxg+p8
-	1MfhaSbJa80ZOebJAny4Lj9MkhXUPYvrqe9zkDWd5q+CAATBZaG4WEfmXXjDPdTQNc7eLES9whEqr
-	nq6gGDUnNfzl/6Jd/A33uLJu+EfDclt8qUDNw/wBMEEsg8BBynuPQ7AktwyWKp8fVbSMdnyEmiV/h
-	YtyHm/HAjW6jIau4d2GStT5Q0IAiAoslF9vVuFn6hF+uOxh+1T6G5yTPvQbqJbbj8+Q1Rtmsdpu2O
-	FrafwyCsHDp6ehLjVSoghKCzHMFKffwlIQtv21CdKEXo0r2A3wgWwyILy3Y/VjbKX5o0Bj+PzW9jl
-	Da1aDBY1yavCckWnGK/g==;
+	List-Owner; bh=zpf+ZA7/7Nahb8m0sk0bYNOWwsLm2CiturRGdXMuuYY=; b=Pahtl1tXwscLC3
+	OpgcN9B+0jew2WJsq4p1F/TF6Xv1OY9Tp5+6R8ywDSvotF8njgKcHgo6+VjRJv1GC5/1BhAcAvm4w
+	9Ykgiy4KtVDPf+nXk/cJA8rz85PysPaV4nfF62o80h/1LvGCUDi5YLGijEcilrWeYXVrzycAZ9e/7
+	jjutFlcn8+W+1pgArA0yJuZSxrc+YIH5ftrLPaOFsSZMOQ/2WvewY6J589+1SvuGcQBRzBtTQfWZ6
+	pGgVN3Y7Zp25wXTBn/1WFMudn8r1RMSF2DyJNx1fwfWoNsLrdr+IJuGDdSX1/2tYQ7BoB6FcTxtQO
+	x4Zn0Tfz6bBcZVKXL11A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSeG2-003fp1-0u;
-	Wed, 24 Jan 2024 14:29:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rSePI-003jBf-22;
+	Wed, 24 Jan 2024 14:39:12 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSeFz-003fnm-0r
+	id 1rSeP5-003j71-2y
 	for linux-riscv@lists.infradead.org;
-	Wed, 24 Jan 2024 14:29:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 65D1E61D5A;
-	Wed, 24 Jan 2024 14:29:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 159CCC433B2;
-	Wed, 24 Jan 2024 14:29:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706106574;
-	bh=yiRheaS9gSGRAyOPZIgt6Cn9n01PdUHVYcjkvKmHKMc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CiC/MCCy3GxxdX/l0tnM1x8BLgHVPz0HzHZZvTFTE1EixM7FZNI6Sq99iece/ZYwD
-	 sFXIfUz0px5ZQQtCzBQkqpxsnfadayb1gVBHvX9w7Q67kJo7afWX7NUoD4bmn8vGEY
-	 hYfXZIGijRkj3JEEAL1svS2Gn2y2ympnuqdDIZtEAC4jskJHe9mt7GTJ5d1RDzUa/j
-	 /29BO0OJ6p1XMwlkijeWiC6373ktEQWsMVDq+X4hw+Y2JfuvUu3e9bfETMBATb0ePl
-	 zrcEEWSLclcuek/LwADkdOQ+OyvXQSHwt7q/LnJazCEGoHlD2jZqrjs2JkeXrxY736
-	 /dzuC02g6v7xQ==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Frederik Haxel <haxel@fzi.de>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Sasha Levin <sashal@kernel.org>,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	conor.dooley@microchip.com,
-	andy.chiu@sifive.com,
-	samitolvanen@google.com,
-	heiko@sntech.de,
-	greentime.hu@sifive.com,
-	cleger@rivosinc.com,
-	samuel.holland@sifive.com,
-	guoren@kernel.org,
-	namcaov@gmail.com,
-	alexghiti@rivosinc.com,
-	bhe@redhat.com,
-	akpm@linux-foundation.org,
-	chenjiahao16@huawei.com,
-	bjorn@rivosinc.com,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.6 08/11] riscv: Make XIP bootable again
-Date: Wed, 24 Jan 2024 09:28:51 -0500
-Message-ID: <20240124142907.1283546-8-sashal@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240124142907.1283546-1-sashal@kernel.org>
-References: <20240124142907.1283546-1-sashal@kernel.org>
+	Wed, 24 Jan 2024 14:39:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1706107137;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ls80tWWITZqF3iJAPsDuzCkVtKDTZBr/hmM0JE5RG5g=;
+	b=a9o0e4Y2/Nx+5Sirj35CLJ7eA6BEQOVfkJrkX77SlO43mLIoLqjl5Lnr2R2O0qlwutKpYT
+	ZIubIU2ElrFeeohGOctIDfK4eK8YKMCQ2dVIL2wEL1066i3fsUQG8yJ71XchNpR+5Avw/s
+	/tBkbUbyGdZo1R7kNm7BKOWzLzdEv2g=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-695-hw5KzothNAWkK-1bR3SVuw-1; Wed,
+ 24 Jan 2024 09:38:53 -0500
+X-MC-Unique: hw5KzothNAWkK-1bR3SVuw-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 254953806622;
+	Wed, 24 Jan 2024 14:38:53 +0000 (UTC)
+Received: from localhost (unknown [10.72.116.117])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 49B49AC03;
+	Wed, 24 Jan 2024 14:38:51 +0000 (UTC)
+Date: Wed, 24 Jan 2024 22:38:49 +0800
+From: Baoquan He <bhe@redhat.com>
+To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
+	loongarch@lists.linux.dev, akpm@linux-foundation.org,
+	ebiederm@xmission.com, hbathini@linux.ibm.com, piliu@redhat.com,
+	viro@zeniv.linux.org.uk
+Subject: Re: [PATCH linux-next v3 10/14] sh, crash: wrap crash dumping code
+ into crash related ifdefs
+Message-ID: <ZbEg+aoWKPww71gW@MiWiFi-R3L-srv>
+References: <20240124051254.67105-1-bhe@redhat.com>
+ <20240124051254.67105-11-bhe@redhat.com>
+ <27d8aa3a9e604a7e45c87b7fbc5b1ec2a63f03e3.camel@physik.fu-berlin.de>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.6.13
+Content-Disposition: inline
+In-Reply-To: <27d8aa3a9e604a7e45c87b7fbc5b1ec2a63f03e3.camel@physik.fu-berlin.de>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_062935_390939_C4C2D7EF 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20240124_063900_059731_76DB6CC5 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,79 +89,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Frederik Haxel <haxel@fzi.de>
+On 01/24/24 at 09:13am, John Paul Adrian Glaubitz wrote:
+> Hello Baoquan,
+> 
+> On Wed, 2024-01-24 at 13:12 +0800, Baoquan He wrote:
+> > Now crash codes under kernel/ folder has been split out from kexec
+> > code, crash dumping can be separated from kexec reboot in config
+> > items on SuperH with some adjustments.
+> > 
+> > wrap up crash dumping codes with CONFIG_CRASH_DUMP ifdeffery, and
+> > use IS_ENABLED(CONFIG_CRASH_RESERVE) check to decide if compiling
+> > in the crashkernel reservation code.
+> 
+> Comparing this to the patches, it seems you missed the first word
+> "Here". Either amend that or write the word "wrap" capitalized.
+> 
+> I would omit "Here" as it's not necessary and just start the
+> sentence with "Wrap".
 
-[ Upstream commit 66f1e68093979816a23412a3fad066f5bcbc0360 ]
+You are right, thanks for careful checking. I will see if I need repost
+to include this update.
 
-Currently, the XIP kernel seems to fail to boot due to missing
-XIP_FIXUP and a wrong page_offset value. A superfluous XIP_FIXUP
-has also been removed.
-
-Signed-off-by: Frederik Haxel <haxel@fzi.de>
-Link: https://lore.kernel.org/r/20231212130116.848530-2-haxel@fzi.de
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/riscv/kernel/head.S | 1 +
- arch/riscv/mm/init.c     | 8 ++++++--
- 2 files changed, 7 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 3710ea5d160f..0097c145385f 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -88,6 +88,7 @@ relocate_enable_mmu:
- 	/* Compute satp for kernel page tables, but don't load it yet */
- 	srl a2, a0, PAGE_SHIFT
- 	la a1, satp_mode
-+	XIP_FIXUP_OFFSET a1
- 	REG_L a1, 0(a1)
- 	or a2, a2, a1
- 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 0798bd861dcb..5f1921d014b1 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -172,6 +172,9 @@ void __init mem_init(void)
- 
- /* Limit the memory size via mem. */
- static phys_addr_t memory_limit;
-+#ifdef CONFIG_XIP_KERNEL
-+#define memory_limit	(*(phys_addr_t *)XIP_FIXUP(&memory_limit))
-+#endif /* CONFIG_XIP_KERNEL */
- 
- static int __init early_mem(char *p)
- {
-@@ -950,7 +953,7 @@ static void __init create_fdt_early_page_table(uintptr_t fix_fdt_va,
- 	 * setup_vm_final installs the linear mapping. For 32-bit kernel, as the
- 	 * kernel is mapped in the linear mapping, that makes no difference.
- 	 */
--	dtb_early_va = kernel_mapping_pa_to_va(XIP_FIXUP(dtb_pa));
-+	dtb_early_va = kernel_mapping_pa_to_va(dtb_pa);
- #endif
- 
- 	dtb_early_pa = dtb_pa;
-@@ -1053,9 +1056,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- #endif
- 
- 	kernel_map.virt_addr = KERNEL_LINK_ADDR + kernel_map.virt_offset;
--	kernel_map.page_offset = _AC(CONFIG_PAGE_OFFSET, UL);
- 
- #ifdef CONFIG_XIP_KERNEL
-+	kernel_map.page_offset = PAGE_OFFSET_L3;
- 	kernel_map.xiprom = (uintptr_t)CONFIG_XIP_PHYS_ADDR;
- 	kernel_map.xiprom_sz = (uintptr_t)(&_exiprom) - (uintptr_t)(&_xiprom);
- 
-@@ -1065,6 +1068,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 
- 	kernel_map.va_kernel_xip_pa_offset = kernel_map.virt_addr - kernel_map.xiprom;
- #else
-+	kernel_map.page_offset = _AC(CONFIG_PAGE_OFFSET, UL);
- 	kernel_map.phys_addr = (uintptr_t)(&_start);
- 	kernel_map.size = (uintptr_t)(&_end) - kernel_map.phys_addr;
- #endif
--- 
-2.43.0
+> 
+> -- 
+>  .''`.  John Paul Adrian Glaubitz
+> : :' :  Debian Developer
+> `. `'   Physicist
+>   `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
+> 
+> _______________________________________________
+> kexec mailing list
+> kexec@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/kexec
+> 
 
 
 _______________________________________________
