@@ -4,133 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F75EC47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 14:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64409C48285
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 14:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:To:From:Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7PwenCr5Olfz2M0uavzsu+4678ahBFYvJMD28ySQYUw=; b=WBkibSfw/aSVS+
-	U6IlQzYoYIxKTER0EmRHhnuftbLHyXWT6+IW/srZu3/2xlwWlIHsFD8KOx1MEaxvzG8+k8EPHkL5M
-	psw5S2Fh+Fzu+b3nIsSNtPLFD/fEu/VNth/s72oGry7CtN/NeGLexP2ddb4lA/BJOvEWKbNoxMb23
-	circCx7sgdZvPMXb0i/8qeEzRWeWS0yIOPDtwFTW0dWEj7VB/5sSZjggYAULy5XIMY1tx+mILcc+F
-	JMZxNhREXRObIuqQkj/ZNPO0WlJBQ2TLbS86BrjLlTH9RFaRVzKYBVK+XsQ4IVwWfe6tUmRRiNdEg
-	mzxqscJrWKAdkcGHEsmQ==;
+	List-Owner; bh=qb5fQ5JCU3TzRgxsmEXpeg/PurO5C//8nUBXGqYDbbo=; b=GuXuQ95OezGIHM
+	lBKpKwenK0rNQuvWETdHCoyeHFjlE83SV8tpfu0Lut5JUNUp8NAPkmzAQ5heHklajKybTlA1hWlhA
+	NJGvtwV9zLM2PmrFT20ixEO0mBVJBsuRN74T7pmj7cX/XQsspIvTIkxU4mHCGqRORKBEkg1NrsuPi
+	iPddCxdd/uEYuS6IByF4WxCFIghL9NVf+rFlBan/zehvWFS/AtlxuGs9+n3H5UtCfIV0xLypTsoaw
+	KWt8+KYmjF9OmbOxgmrtucT866O4Ct92UvqEyfZrB+ILH7POS5G8WWSpji3rRoH++QDH8qblaLxOq
+	Y0AGalqXrMu7zmVCy61g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT0cO-00000000LkL-3njO;
-	Thu, 25 Jan 2024 14:22:12 +0000
+	id 1rT0cx-00000000Lxy-1SxS;
+	Thu, 25 Jan 2024 14:22:47 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT0cN-00000000LjG-05DC
+	id 1rT0cv-00000000Lx4-27X5
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 25 Jan 2024 14:22:11 +0000
+	Thu, 25 Jan 2024 14:22:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=DooyQrtizpQPYQvg3orF2s8x816HvpICh5L6Gs5NXqE=; b=kUUuQF4zYvYcU0/pHTfUBJZhk5
-	2xmvbu5K/Tq/xSZ0dOmFXWWtrFNhbjlfEtXkLqXT1ysyKxNt3yH5umPlgVCNlEM00/NztWxEXEVzL
-	lkDB+Ev4XKo5lpgFj2ndcOdr3aIxP/hgPDNbbrFB6dshvHzUELceb0440cSZR20pnQF1sjL5ua6zx
-	lvqmDqmf4FKEdwGS8lGnS9erLaz5YehaZr74giogBTLBtFbGDe0aDSPG34nyWdHyXGwelN+k+WxiV
-	nGm1QlKXi59H28MtzG/vcvCX4EM9lMgWQkBw/oF6rEKWrKSx/tPAE2WfhwiKvUPoXVdmqUDyBu8E5
-	i8GhkyCw==;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:To:From:Subject:Message-ID:Sender:
+	Reply-To:Cc:Content-ID:Content-Description;
+	bh=6CScWZENNpS1IQUjki3DtrZNUHrq1q+9GD63yP0LeS4=; b=Haoyl4NOiJNKME0d/qaYQDzsrE
+	Wb/YyLNPmC9uPH0MuLzOzHWt7hz73MnHPMFe+dnUSbkCOQxoSjEMXAq2AMgwHczYQRLeXDOP4wYD1
+	DfzqSUci/Y4osBPbZSKn9eLaZB/lW2nOixOmCQIQtMiw6TkZURL+ae4vegSMwWfzRrauBTpEo2xUp
+	oJ7OWxqQcvdEP8gzeYv6nZmweu3xgxwxaurnJN0JIjyk8Wqv25m69vElsRsoBHLJpbGm7IOGZksmI
+	qy/aQUhU5s8qRsgNdJo29g2MMvIZL69ie2G/9GHS6qxJL9Hj3ky9hoM+1FY9QZcosh4//HFdOxLQu
+	A+snkccA==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rSybw-00000005Hr7-0Qmx
+	id 1rSzUw-00000005O9N-3CzN
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 12:13:37 +0000
+	Thu, 25 Jan 2024 13:10:28 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rSyZB-0003Ze-Mz; Thu, 25 Jan 2024 13:10:45 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1rSzUn-0003Ro-Vu; Thu, 25 Jan 2024 14:10:18 +0100
+Received: from [2a0a:edc0:0:900:1d::4e] (helo=lupine)
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rSyZ6-002HOt-Gy; Thu, 25 Jan 2024 13:10:40 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rSyZ6-007myG-1E;
-	Thu, 25 Jan 2024 13:10:40 +0100
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: linux-pwm@vger.kernel.org,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Benson Leung <bleung@chromium.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Robert Foss <rfoss@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Johan Hovold <johan@kernel.org>,
-	Alex Elder <elder@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: kernel@pengutronix.de,
-	linux-arm-kernel@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Guenter Roeck <groeck@chromium.org>,
-	chrome-platform@lists.linux.dev,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	linux-mips@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-samsung-soc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	Douglas Anderson <dianders@chromium.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	dri-devel@lists.freedesktop.org,
-	greybus-dev@lists.linaro.org,
-	linux-staging@lists.linux.dev
-Subject: [PATCH v5 003/111] pwm: Provide a macro to get the parent device of a given chip
-Date: Thu, 25 Jan 2024 13:08:25 +0100
-Message-ID: <1cae6f73264ab313205eaa9483251f7aaf259cb4.1706182805.git.u.kleine-koenig@pengutronix.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1706182805.git.u.kleine-koenig@pengutronix.de>
-References: <cover.1706182805.git.u.kleine-koenig@pengutronix.de>
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1rSzUl-002I4s-H7; Thu, 25 Jan 2024 14:10:15 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1rSzUl-0009Xo-1S;
+	Thu, 25 Jan 2024 14:10:15 +0100
+Message-ID: <8eb843fc0a3a40f1090283b3081e4c12846e82c3.camel@pengutronix.de>
+Subject: Re: [PATCH v2 2/4] reset: sophgo: add SG2042 reset generator driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Chen Wang <unicorn_wang@outlook.com>, Chen Wang <unicornxw@gmail.com>, 
+ aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org, 
+ krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com,  robh+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
+ haijiao.liu@sophgo.com,  xiaoguang.xing@sophgo.com, guoren@kernel.org,
+ jszhang@kernel.org,  inochiama@outlook.com
+Date: Thu, 25 Jan 2024 14:10:15 +0100
+In-Reply-To: <MA0P287MB28226D07A5DC0200132358C4FE7A2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+References: <cover.1706161530.git.unicorn_wang@outlook.com>
+	 <34650036ea5f1c500da54c67c3a67b91c4419399.1706161530.git.unicorn_wang@outlook.com>
+	 <bf30a97b4c39e5c606583783058ea12520c1146b.camel@pengutronix.de>
+	 <MA0P287MB28226D07A5DC0200132358C4FE7A2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=988; i=u.kleine-koenig@pengutronix.de; h=from:subject:message-id; bh=SfOslAbsyBLEr/955V0luBriAR1MBuqlRLojueDMWPA=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBlsk89sMCb69Ns1+4RognQQiOh0kwtwTRgZqZe7 Qr1BL64ZR+JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZbJPPQAKCRCPgPtYfRL+ Tm5ICACqUZnuAnSjFfXrvBpLBI7tlj8WA+HQMKQ6Zc+N4XX6ETnakaKJsM+x6j+q4etOxq2c/gZ zxT7BpN14RbPiCl4D8hdIHJMFSxpOXgFMhHn6G0CiQZKij7FYNQcIit0BAKORd4VGZ3VwABrQ/Y OjjIIjxHWR1qdMK2N2kNbFpbTf4/2PRkxMHdXTJcAMAnSGWqM6H23gUlqytwn6NbEab8dDUgmkC dj7M9Z8Ubq9AofnoudLfMHIY54wLfZ0PkykBosZOeOLWLjqyM0qMfK6/MVn1CgVUVr75LWffVka lOK3tBDX44i4Xzm74nXYI2dfx77u3aY3K3mXE4UoCo8Z6Cl7
-X-Developer-Key: i=u.kleine-koenig@pengutronix.de; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_121336_205317_9E1ABEE6 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20240125_131026_919277_91D1B1A9 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,23 +97,43 @@ Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q3VycmVudGx5IGEgcHdtX2NoaXAgc3RvcmVzIGluIGl0cyBzdHJ1Y3QgZGV2aWNlICpkZXYgbWVt
-YmVyIGEgcG9pbnRlcgp0byB0aGUgcGFyZW50IGRldmljZS4gUHJlcGFyaW5nIGEgY2hhbmdlIHRo
-YXQgZW1iZWRzIGEgZnVsbCBzdHJ1Y3QKZGV2aWNlIGluIHN0cnVjdCBwd21fY2hpcCwgdGhpcyBh
-Y2Nlc3NvciBtYWNybyBzaG91bGQgYmUgdXNlZCBpbiBhbGwKZHJpdmVycyBkaXJlY3RseSBhY2Nl
-c3NpbmcgY2hpcC0+ZGV2IG5vdy4gVGhpcyB3YXkgc3RydWN0IHB3bV9jaGlwIGFuZAp0aGlzIG1h
-Y3JvIGNhbiBiZSBjaGFuZ2VkIHdpdGhvdXQgaGF2aW5nIHRvIHRvdWNoIGFsbCBkcml2ZXJzIGlu
-IHRoZQpzYW1lIGNoYW5nZSBzZXQuCgpTaWduZWQtb2ZmLWJ5OiBVd2UgS2xlaW5lLUvDtm5pZyA8
-dS5rbGVpbmUta29lbmlnQHBlbmd1dHJvbml4LmRlPgotLS0KIGluY2x1ZGUvbGludXgvcHdtLmgg
-fCA1ICsrKysrCiAxIGZpbGUgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEv
-aW5jbHVkZS9saW51eC9wd20uaCBiL2luY2x1ZGUvbGludXgvcHdtLmgKaW5kZXggOGZmZTlhZTdh
-MjNhLi5kNzk2NjkxOGYzMDEgMTAwNjQ0Ci0tLSBhL2luY2x1ZGUvbGludXgvcHdtLmgKKysrIGIv
-aW5jbHVkZS9saW51eC9wd20uaApAQCAtMjg5LDYgKzI4OSwxMSBAQCBzdHJ1Y3QgcHdtX2NoaXAg
-ewogCXN0cnVjdCBwd21fZGV2aWNlICpwd21zOwogfTsKIAorc3RhdGljIGlubGluZSBzdHJ1Y3Qg
-ZGV2aWNlICpwd21jaGlwX3BhcmVudChzdHJ1Y3QgcHdtX2NoaXAgKmNoaXApCit7CisJcmV0dXJu
-IGNoaXAtPmRldjsKK30KKwogI2lmIElTX0VOQUJMRUQoQ09ORklHX1BXTSkKIC8qIFBXTSB1c2Vy
-IEFQSXMgKi8KIGludCBwd21fYXBwbHlfbWlnaHRfc2xlZXAoc3RydWN0IHB3bV9kZXZpY2UgKnB3
-bSwgY29uc3Qgc3RydWN0IHB3bV9zdGF0ZSAqc3RhdGUpOwotLSAKMi40My4wCgoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+T24gRG8sIDIwMjQtMDEtMjUgYXQgMjA6MDcgKzA4MDAsIENoZW4gV2FuZyB3cm90ZToKPiBPbiAy
+MDI0LzEvMjUgMTg6NDMsIFBoaWxpcHAgWmFiZWwgd3JvdGU6Cj4gPiBPbiBEbywgMjAyNC0wMS0y
+NSBhdCAxNDoxMSArMDgwMCwgQ2hlbiBXYW5nIHdyb3RlOgo+ID4gPiBGcm9tOiBDaGVuIFdhbmcg
+PHVuaWNvcm5fd2FuZ0BvdXRsb29rLmNvbT4KPiA+ID4gCj4gPiA+IFJldXNlIHJlc2V0LXNpbXBs
+ZSBkcml2ZXIgZm9yIHRoZSBTb3BoZ28gU0cyMDQyIHJlc2V0IGdlbmVyYXRvci4KPiA+IFN1Ympl
+Y3QgcHJlZml4IHNob3VsZCBiZSAicmVzZXQ6IHNpbXBsZTogIgo+IE9rLgo+ID4gCj4gPiA+IFNp
+Z25lZC1vZmYtYnk6IENoZW4gV2FuZyA8dW5pY29ybl93YW5nQG91dGxvb2suY29tPgo+ID4gPiAt
+LS0KPiA+ID4gICBkcml2ZXJzL3Jlc2V0L0tjb25maWcgICAgICAgIHwgIDEgKwo+ID4gPiAgIGRy
+aXZlcnMvcmVzZXQvcmVzZXQtc2ltcGxlLmMgfCAgMiArKwo+ID4gPiAgIGRyaXZlcnMvcmVzZXQv
+c29waGdvL0tjb25maWcgfCAxMCArKysrKysrKysrCj4gPiA+ICAgMyBmaWxlcyBjaGFuZ2VkLCAx
+MyBpbnNlcnRpb25zKCspCj4gPiA+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvcmVzZXQv
+c29waGdvL0tjb25maWcKPiA+ID4gCj4gPiBbLi4uXQo+ID4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVy
+cy9yZXNldC9zb3BoZ28vS2NvbmZpZyBiL2RyaXZlcnMvcmVzZXQvc29waGdvL0tjb25maWcKPiA+
+ID4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiA+ID4gaW5kZXggMDAwMDAwMDAwMDAwLi45YWQ5NmU0
+OWUxZGQKPiA+ID4gLS0tIC9kZXYvbnVsbAo+ID4gPiArKysgYi9kcml2ZXJzL3Jlc2V0L3NvcGhn
+by9LY29uZmlnCj4gPiA+IEBAIC0wLDAgKzEsMTAgQEAKPiA+ID4gKyMgU1BEWC1MaWNlbnNlLUlk
+ZW50aWZpZXI6IEdQTC0yLjAtb25seQo+ID4gPiArCj4gPiA+ICtjb25maWcgUkVTRVRfU09QSEdP
+X1NHMjA0Mgo+ID4gPiArCWJvb2wgIlNvcGhnbyBTRzIwNDIgUmVzZXQgRHJpdmVyIgo+ID4gPiAr
+CWRlcGVuZHMgb24gQVJDSF9TT1BIR08gfHwgQ09NUElMRV9URVNUCj4gPiA+ICsJc2VsZWN0IFJF
+U0VUX1NJTVBMRQo+ID4gPiArCWRlZmF1bHQgQVJDSF9TT1BIR08KPiA+ID4gKwloZWxwCj4gPiA+
+ICsJICBUaGlzIGVuYWJsZXMgdGhlIHJlc2V0IGNvbnRyb2xsZXIgZHJpdmVyIGZvciB0aGUgU29w
+aGdvIFNHMjA0MiBTb0MuCj4gPiA+ICsKPiA+IERyb3AgdGhlIEtjb25maWcsIGp1c3QgYWRkIGEg
+ZGVmYXVsdCB5IGlmIEFSQ0hfU09QSEdPIHRvIFJFU0VUX1NJTVBMRS4KPiAKPiBoae+8jFBoaWxp
+cHAsCj4gCj4gVGhlIHB1cnBvc2Ugb2YgbXkgYWRkaW5nIEtjb25maWcgaXMgdG8gY29uc2lkZXIg
+dGhhdCBvdGhlciBzb2NzIHVuZGVyIAo+IHNvcGhnbyBtYXkgbm90IHVzZSBSRVNFVF9TSU1QTEUu
+IEknbSB3b3JyaWVkIHRoYXQgdGhlIGNvdmVyYWdlIGlzIHRvbyAKPiBsYXJnZSB3aGVuIGRlZmF1
+bHQgeSBpZiBBUkNIX1NPUEhHTz8gV2hhdCBkbyB5b3UgdGhpbms/CgpJZiBBUkNIX1NPUEhHTyBj
+b3ZlcmFnZSBpcyBjb25zaWRlcmVkIHRvbyB3aWRlLCBpdCdzIG5vdCBjb3JyZWN0IHRvCm1ha2Ug
+UkVTRVRfU09QSEdPX1NHMjAyNCAiZGVmYXVsdCBBUkNIX1NPUEhHTyIgZWl0aGVyLCBzbyB0aGVy
+ZSdzIG5vCnNpZ25pZmljYW50IGRpZmZlcmVuY2UuCgpUaGUgcXVlc3Rpb24gaXMgd2hldGhlciB5
+b3UgbmVlZCBpdCBhdCBhbGwuIENhbiBTRzIwNDIgYm9vdCwgcG9zc2libHkKd2l0aCByZWR1Y2Vk
+IGZ1bmN0aW9uYWxpdHksIGludG8gYSB1c2VmdWwgc3lzdGVtIHdpdGhvdXQgdGhlIHJlc2V0CmNv
+bnRyb2xsZXI/IElmIHNvLCBtYXliZSBpdCBpcyBlbm91Z2ggdG8gcmVseSBvbiBhIGRlZmNvbmZp
+ZyB0byBlbmFibGUKUkVTRVRfU0lNUExFPyBPdGhlcndpc2UsIHJlc2V0LXNpbXBsZSBjb3VsZCBi
+ZSBjb25zaWRlcmVkIHNtYWxsIGVub3VnaAp0byBhY2NlcHQgY2FycnlpbmcgaXQgYXJvdW5kIGZv
+ciBub24tU0cyMDQyIFNvQ3MgYnkgZGVmYXVsdCwgaXQgY2FuIGJlCmRpc2FibGVkIG1hbnVhbGx5
+LCBhZnRlciBhbGwuCgpyZWdhcmRzClBoaWxpcHAKCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
