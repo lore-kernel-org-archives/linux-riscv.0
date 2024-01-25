@@ -4,50 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF48C47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 09:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D873C47422
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 09:17:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W/wC+qva5UacagTxSI/nhhwqORmSnWn19dWvepvmPW4=; b=Pib5cjeNLid3st
-	gIS7MwXq51s+vPu96HP0+vM1oV78oSQfngFQWp1771pEeO4h5TuVGXGcHPmgRvXnO1M1Uh/FXfsT5
-	e0mlQyZHWONBnS3ZsdE5FJBFU4sPfl6L9MY9UEBQX5bM7bjbY4i7rNWyNj+cT2DnSOfKN2weEI55a
-	XKacHGfj1h6SPeofLuahqvDKn2Ql0BC1r0tBvvLy2S5RhsXz5apY37RZYTLVorVHkKtxSc75Czhjj
-	NoIhmSPA6y23RD5cBOC2VvocprrgPWQY7j8hR8K1umasNprJgENWa5HP0ibjiqBFU4HI2cY/sWYa1
-	gJWV6jpYMrJZ0gznjqyQ==;
+	List-Owner; bh=v6zyKbCFDsaHattwCQNumobj6K9LA0xmlRcVsoeTf2A=; b=yBY5rRD+ImBXK5
+	GmQS4xqE4dECZQpZb8PxTwyslLd0V3JpaT+Fjix663vSwbjXxlfkq5vFBJePxep7hXnI0rcivZJy8
+	0H7IlIiIEmLSJYBtFq7I1aEloWuPuiEocKSNv1qR4aRDzUTb+UVNCtzFSeB/SFFjBd8LI+xswNJcg
+	rBEwxK3EhqBYTqFk5+13pdjUJmvaIEgIIRIBodJUYesSs/y8SfLTnnAx60ntGwdtHq1lGa8icXNRx
+	a2pjFSvXutdMUMyrN7dxQVvv8zk/WIngGkp9dEIOqiZBpylQzsRpBM+5z0dSvAqFqkViohZdpt7I5
+	qJwpB0+gMaOHFLNQEqsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSvnm-007UZ5-1n;
-	Thu, 25 Jan 2024 09:13:38 +0000
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
+	id 1rSvrg-007VLX-2I;
+	Thu, 25 Jan 2024 09:17:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSvni-007UWh-0C
+	id 1rSvrc-007VIP-14
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 09:13:36 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046050;MF=zhiwei_liu@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0W.JuljN_1706174004;
-Received: from 30.198.0.95(mailfrom:zhiwei_liu@linux.alibaba.com fp:SMTPD_---0W.JuljN_1706174004)
-          by smtp.aliyun-inc.com;
-          Thu, 25 Jan 2024 17:13:24 +0800
-Message-ID: <546f0981-bcab-429b-b3a6-35308c872ff9@linux.alibaba.com>
-Date: Thu, 25 Jan 2024 17:13:25 +0800
+	Thu, 25 Jan 2024 09:17:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1706174252;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SDoUkylaVEDmZz6nqfW3ZjNKRZGYGdls3feFdR//5ps=;
+	b=E5hv2Z/40goBnQ8rfb/pZezA+FT7u5bkZ6cK8Iu2tm2XSZIcsPnyhBlhqjIJFQg3hj4wKW
+	vY/mySs/9CD31puR+sE0g4gHNzPlTxHpgFSoCyo5xXvWbQ+ZGq/qMnL3IcrTR26O4Rupkr
+	wt3SujRc82ovEKwzmrCFVC5tnjCU8KI=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-636-iCprDXE0NJaMkShWq3Qs8Q-1; Thu, 25 Jan 2024 04:17:26 -0500
+X-MC-Unique: iCprDXE0NJaMkShWq3Qs8Q-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 701931013682;
+	Thu, 25 Jan 2024 09:17:25 +0000 (UTC)
+Received: from localhost (unknown [10.72.116.117])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8814F1C060AF;
+	Thu, 25 Jan 2024 09:17:24 +0000 (UTC)
+Date: Thu, 25 Jan 2024 17:17:21 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Michael Kelley <mhklinux@outlook.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kexec@lists.infradead.org" <kexec@lists.infradead.org>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+	"linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"ebiederm@xmission.com" <ebiederm@xmission.com>,
+	"hbathini@linux.ibm.com" <hbathini@linux.ibm.com>,
+	"piliu@redhat.com" <piliu@redhat.com>,
+	"viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>
+Subject: Re: [PATCH linux-next v3 06/14] x86, crash: wrap crash dumping code
+ into crash related ifdefs
+Message-ID: <ZbInIQeIoPj6R0kY@MiWiFi-R3L-srv>
+References: <20240124051254.67105-1-bhe@redhat.com>
+ <20240124051254.67105-7-bhe@redhat.com>
+ <SN6PR02MB4157931105FA68D72E3D3DB8D47B2@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <ZbHfACpwqi2U9vmK@MiWiFi-R3L-srv>
+ <SN6PR02MB4157E138C7EE4A281AB49C10D47A2@SN6PR02MB4157.namprd02.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: qemu riscv, thead c906, Linux boot regression
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- qemu-devel@nongnu.org, Daniel Henrique Barboza <dbarboza@ventanamicro.com>,
- =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>
-Cc: linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>,
- Alistair Francis <alistair.francis@wdc.com>
-References: <874jf2rj4g.fsf@all.your.base.are.belong.to.us>
-Content-Language: en-US
-From: LIU Zhiwei <zhiwei_liu@linux.alibaba.com>
-In-Reply-To: <874jf2rj4g.fsf@all.your.base.are.belong.to.us>
+Content-Disposition: inline
+In-Reply-To: <SN6PR02MB4157E138C7EE4A281AB49C10D47A2@SN6PR02MB4157.namprd02.prod.outlook.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_011334_244708_636A453B 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20240125_011736_468693_220D78DB 
+X-CRM114-Status: GOOD (  31.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,39 +94,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDIwMjQvMS8yNCAyMDo0OSwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPiBIaSEKPgo+IEkgYnVt
-cGVkIHRoZSBSSVNDLVYgTGludXgga2VybmVsIENJIHRvIHVzZSBxZW11IDguMi4wLCBhbmQgcmVh
-bGl6ZWQgdGhhdAo+IHRoZWFkIGM5MDYgZGlkbid0IGJvb3QgYW55bW9yZS4gQmlzZWN0aW9uIHBv
-aW50cyB0byBjb21taXQgZDZhNDI3ZTJjMGIyCj4gKCJ0YXJnZXQvcmlzY3YvY3B1LmM6IHJlc3Ry
-aWN0ICdtYXJjaGlkJyB2YWx1ZSIpCj4KPiBSZXZlcnRpbmcgdGhhdCBjb21taXQsIG9yIHRoZSBo
-YWNrIGJlbG93IHNvbHZlcyB0aGUgYm9vdCBpc3N1ZToKPgo+IC0tODwtLQo+IGRpZmYgLS1naXQg
-YS90YXJnZXQvcmlzY3YvY3B1LmMgYi90YXJnZXQvcmlzY3YvY3B1LmMKPiBpbmRleCA4Y2JmYzdl
-NzgxYWQuLmUxODU5NmM4YTU1YSAxMDA2NDQKPiAtLS0gYS90YXJnZXQvcmlzY3YvY3B1LmMKPiAr
-KysgYi90YXJnZXQvcmlzY3YvY3B1LmMKPiBAQCAtNTA1LDYgKzUwNSw5IEBAIHN0YXRpYyB2b2lk
-IHJ2NjRfdGhlYWRfYzkwNl9jcHVfaW5pdChPYmplY3QgKm9iaikKPiAgICAgICBjcHUtPmNmZy5l
-eHRfeHRoZWFkc3luYyA9IHRydWU7Cj4gICAKPiAgICAgICBjcHUtPmNmZy5tdmVuZG9yaWQgPSBU
-SEVBRF9WRU5ET1JfSUQ7Cj4gKyAgICBjcHUtPmNmZy5tYXJjaGlkID0gKChRRU1VX1ZFUlNJT05f
-TUFKT1IgPDwgMTYpIHwKPiArICAgICAgICAgICAgICAgICAgICAgICAgKFFFTVVfVkVSU0lPTl9N
-SU5PUiA8PCA4KSAgfAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAoUUVNVV9WRVJTSU9OX01J
-Q1JPKSk7Cj4gICAjaWZuZGVmIENPTkZJR19VU0VSX09OTFkKPiAgICAgICBzZXRfc2F0cF9tb2Rl
-X21heF9zdXBwb3J0ZWQoY3B1LCBWTV8xXzEwX1NWMzkpOwo+ICAgI2VuZGlmCj4gLS04PC0tCj4K
-PiBJJ20gdW5zdXJlIHdoYXQgdGhlIGNvcnJlY3QgcWVtdSB3YXkgb2YgYWRkaW5nIGEgZGVmYXVs
-dCB2YWx1ZSBpcywKPiBvciBpZiBjOTA2IHNob3VsZCBoYXZlIGEgcHJvcGVyIG1hcmNoaWQuCj4K
-PiBNYXliZSBDaHJpc3RvcGggb3IgWmhpd2VpIGNhbiBhbnN3ZXI/Cj4KPiBxZW11IGNvbW1hbmQt
-bGluZToKPiBxZW11LXN5c3RlbS1yaXNjdjY0IC1ub2RlZmF1bHRzIC1ub2dyYXBoaWMgLW1hY2hp
-bmUgdmlydCxhY3BpPW9mZiBcCj4gICAgIC1jcHUgdGhlYWQtYzkwNiAuLi4KCkhpwqAgQmrDtnJu
-LAoKSSB0aGluayBpdCBpcyBjYXVzZWQgYnkgYW4gbW11IGV4dGVuc2lvbihuYW1lZCBYVGhlYWRN
-YWVlKSBub3QgCmltcGxlbWVudGVkIG9uIFFFTVUgd2hpY2ggaXMgY29uZmxpY3RzIHdpdGggU3Zw
-Ym10LCB3aGljaCBpcyB0aGUgcmVhc29uIApmb3IgZXJyb3ItdGEgaW4gTGludXguCgpJIHdpbGwg
-dHJ5IHRvIGZpeCB0aGlzIG9uIFFFTVUgYW5kIGF0IHRoZSBzYW1lIHRpbWUgZ2l2ZSBhIHdheSB0
-byAKaW1wbGVtZW50IHZlbmRvciBjdXN0b20gQ1NSKFhUaGVhZE1hZWUgaXMgY29udHJvbGxlZCBi
-eSBhbiBDU1IgbmFtZWQgCm1leHN0YXR1cynCoCBvbiBRRU1VLgoKVGhhbmtzLApaaGl3ZWkKCj4K
-PiBUaGFua3MsCj4gQmrDtnJuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+On 01/25/24 at 05:12am, Michael Kelley wrote:
+> From: Baoquan He <bhe@redhat.com> Sent: Wednesday, January 24, 2024 8:10 PM
+> > 
+> > On 01/24/24 at 11:02pm, Michael Kelley wrote:
+> > > > diff --git a/arch/x86/kernel/cpu/mshyperv.c
+> > > > b/arch/x86/kernel/cpu/mshyperv.c
+> > > > index 01fa06dd06b6..f8163a59026b 100644
+> > > > --- a/arch/x86/kernel/cpu/mshyperv.c
+> > > > +++ b/arch/x86/kernel/cpu/mshyperv.c
+> > > > @@ -210,6 +210,7 @@ static void hv_machine_shutdown(void)
+> > > >  		hyperv_cleanup();
+> > > >  }
+> > > >
+> > > > +#ifdef CONFIG_CRASH_DUMP
+> > > >  static void hv_machine_crash_shutdown(struct pt_regs *regs)
+> > > >  {
+> > > >  	if (hv_crash_handler)
+> > > > @@ -221,6 +222,7 @@ static void hv_machine_crash_shutdown(struct pt_regs *regs)
+> > > >  	/* Disable the hypercall page when there is only 1 active CPU. */
+> > > >  	hyperv_cleanup();
+> > > >  }
+> > > > +#endif
+> > > >  #endif /* CONFIG_KEXEC_CORE */
+> > >
+> > > Note that the #ifdef CONFIG_CRASH_DUMP is nested inside
+> > > #ifdef CONFIG_KEXEC_CODE here, and in the other Hyper-V code
+> > > just below.   It's also nested in xen_hvm_guest_init() at the bottom
+> > > of this patch.  But the KVM case of setting crash_shutdown is
+> > > not nested -- you changed #ifdef CONFIG_KEXEC_CORE to #ifdef
+> > > CONFIG_CRASH_DUMP.
+> > >
+> > > I think both approaches work because CONFIG_CRASH_DUMP implies
+> > > CONFIG_KEXEC_CORE, but I wonder if it would be better to *not* nest
+> > > in all cases.  I'd like to see the cases be consistent so in the future
+> > > someone doesn't wonder why there's a difference (unless there's
+> > > a reason for the difference that I missed).
+> > 
+> > I agree with you, it's a great suggestion. Thanks.
+> > 
+> > Do you think below draft patch includes all changes you are concerned
+> > about?
+> 
+> Yes, these changes look good as a delta to your original patch.
+> 
+> But also look at xen_hvm_guest_init().  It looks like your original patch
+> does nesting there as well, and it could probably be "un-nested".
+
+Right. I checked them all in arch/x86 this time, hope nothing is missed
+again. I can post a v4 to update this x86 patch later if no other
+concern. Thanks.
+
+diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
+index f8163a59026b..2e8cd5a4ae85 100644
+--- a/arch/x86/kernel/cpu/mshyperv.c
++++ b/arch/x86/kernel/cpu/mshyperv.c
+@@ -209,6 +209,7 @@ static void hv_machine_shutdown(void)
+ 	if (kexec_in_progress)
+ 		hyperv_cleanup();
+ }
++#endif /* CONFIG_KEXEC_CORE */
+ 
+ #ifdef CONFIG_CRASH_DUMP
+ static void hv_machine_crash_shutdown(struct pt_regs *regs)
+@@ -222,8 +223,7 @@ static void hv_machine_crash_shutdown(struct pt_regs *regs)
+ 	/* Disable the hypercall page when there is only 1 active CPU. */
+ 	hyperv_cleanup();
+ }
+-#endif
+-#endif /* CONFIG_KEXEC_CORE */
++#endif /* CONFIG_CRASH_DUMP */
+ #endif /* CONFIG_HYPERV */
+ 
+ static uint32_t  __init ms_hyperv_platform(void)
+@@ -497,9 +497,11 @@ static void __init ms_hyperv_init_platform(void)
+ 	no_timer_check = 1;
+ #endif
+ 
+-#if IS_ENABLED(CONFIG_HYPERV) && defined(CONFIG_KEXEC_CORE)
++#if IS_ENABLED(CONFIG_HYPERV)
++#if defined(CONFIG_KEXEC_CORE)
+ 	machine_ops.shutdown = hv_machine_shutdown;
+-#ifdef CONFIG_CRASH_DUMP
++#endif
++#if defined(CONFIG_CRASH_DUMP)
+ 	machine_ops.crash_shutdown = hv_machine_crash_shutdown;
+ #endif
+ #endif
+diff --git a/arch/x86/kernel/reboot.c b/arch/x86/kernel/reboot.c
+index 1287b0d5962f..f3130f762784 100644
+--- a/arch/x86/kernel/reboot.c
++++ b/arch/x86/kernel/reboot.c
+@@ -826,7 +826,7 @@ void machine_halt(void)
+ 	machine_ops.halt();
+ }
+ 
+-#ifdef CONFIG_KEXEC_CORE
++#ifdef CONFIG_CRASH_DUMP
+ void machine_crash_shutdown(struct pt_regs *regs)
+ {
+ 	machine_ops.crash_shutdown(regs);
+diff --git a/arch/x86/xen/enlighten_hvm.c b/arch/x86/xen/enlighten_hvm.c
+index 09e3db7ff990..0b367c1e086d 100644
+--- a/arch/x86/xen/enlighten_hvm.c
++++ b/arch/x86/xen/enlighten_hvm.c
+@@ -148,6 +148,7 @@ static void xen_hvm_shutdown(void)
+ 	if (kexec_in_progress)
+ 		xen_reboot(SHUTDOWN_soft_reset);
+ }
++#endif
+ 
+ #ifdef CONFIG_CRASH_DUMP
+ static void xen_hvm_crash_shutdown(struct pt_regs *regs)
+@@ -156,7 +157,6 @@ static void xen_hvm_crash_shutdown(struct pt_regs *regs)
+ 	xen_reboot(SHUTDOWN_soft_reset);
+ }
+ #endif
+-#endif
+ 
+ static int xen_cpu_up_prepare_hvm(unsigned int cpu)
+ {
+@@ -238,10 +238,10 @@ static void __init xen_hvm_guest_init(void)
+ 
+ #ifdef CONFIG_KEXEC_CORE
+ 	machine_ops.shutdown = xen_hvm_shutdown;
++#endif
+ #ifdef CONFIG_CRASH_DUMP
+ 	machine_ops.crash_shutdown = xen_hvm_crash_shutdown;
+ #endif
+-#endif
+ }
+ 
+ static __init int xen_parse_nopv(char *arg)
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
