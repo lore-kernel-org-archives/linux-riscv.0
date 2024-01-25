@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0121FC47422
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCEEC47258
 	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 17:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DXjylwpuXpIiRjkfd+0zm2T4RdetGFDQ8f4Q2QFgCEY=; b=qVFaig6cysgjW0
-	z5iqDSWdBkARWubqU3Ie7OTpWAaZhdvlSSst8Hu+iNkm2hGotK+rzMvIKD0g9Um0b52Rxw2IYwhSi
-	rJhQeMquK8b1NnQye4LvZHhP6l0e8pI1sPxEqXqQTo48npAPaejX2/SQErozRFo3gCrUvu0D3QrLc
-	JtDSmqQZGDrKVUH5spYU6RSmrYZlvwM8RYGPfsQAXOcsCU4kq4BQf4P10M1/e2LLQUNquCPnu832E
-	KDWmUX1Ev1PPE+oR4YSfWD3XVEHQlDal8VHXatVOJ7ceNyu/gez4blHh9E1HQxXsga9X1GtLhlCzC
-	6Hcb2jlj6dK0LUUd53SA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DYlb3fDaJP+TztZK8P1EpPHHHw5JfDnrzhuCkWbM8uk=; b=vdV5J4X1qjqaa4
+	qAlKwVdj7DSWPoeAQGSBAag3HZgDy8Reyy7kE3OFt0uVBwPVyAKt/bMmeTmXOeKKg484ExioqT5Ur
+	sqLFDYOgr9baabg5Ykn//CKpS9nKN6TaLXGgbRiW43vcNEA0xwwM28M2kTnxJoBeanZPAOPQ0Aj5V
+	kUjxMw1j7RqhOYeiyKmY2w/VIUTys1RC/Z6QHL1GTp2M9NQCF3eDhMP2/meBLgwXZbjor7KRDGeTF
+	Y+zTXY4NYhGUDmw8xJgRnVk1tHDTxpUbEIY8LDrL73YSFNjRscCRvfzR7ATvPwnqF4agwpTDAPmxx
+	x6EVorGPLxcK+Sz8rXNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT3aS-00000001AGi-0GVp;
-	Thu, 25 Jan 2024 17:32:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT3aN-00000001AF2-21VK
-	for linux-riscv@lists.infradead.org;
+	id 1rT3aP-00000001AFj-2gs8;
 	Thu, 25 Jan 2024 17:32:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rT3aM-00000001AEY-1bue
+	for linux-riscv@lists.infradead.org;
+	Thu, 25 Jan 2024 17:32:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0086C6229C;
-	Thu, 25 Jan 2024 17:32:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 128E4C43399;
-	Thu, 25 Jan 2024 17:32:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4C73762292;
+	Thu, 25 Jan 2024 17:32:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41D85C433F1;
+	Thu, 25 Jan 2024 17:32:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706203938;
-	bh=lICtxkQ3NvVShAwZIuLeByavdbgR2qlvf8P4owRHXS0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=W6W/YgzMa+vfIWb5fX28wPCUuhezAVgqad/dW1hojJysx+W3zkJX2JeLMuTN1Czdw
-	 XYIVjy3QPgiNiEEPG45JgquTNPbEuET9cRyjDlSBUjX5Cb2fXoGJJ/MPsG2VCYPGNN
-	 ct+R1QRzVTmlvTNUj5FzmzMQUa4Gl8JpUZli4axBg0lolr38mgqahfUMkf9J8RnLjf
-	 kFTJiLqFD2HFiaW6S+3Q+lLJtjaSv08qHf/qTj6CYeVL+U4HZCMNFegfhGyP/ndg3J
-	 WJT95mKdfiUVF3wLoGMQJj4HjbSByQMlf3m6ikTWHr9oo5RRNFmyL2cYwDbiAsHi+E
-	 PLKymFEVtVD7Q==
+	s=k20201202; t=1706203937;
+	bh=3PvCiAQrtJD/zuf2t8VwlvCpBAFoHiP16hfmstASs9E=;
+	h=From:Subject:Date:To:Cc:From;
+	b=CWxf9fgh7SWQbUv+w60Q5mT7c9OYxjTpVll1i2bNNiKg/wlwZujGzhs6cb7vgRveQ
+	 JIbAMjVa0NuS6kCH5gSwTCOSdZJbgSsvyE1jlYQgtc3122EOKqhYbNyq/HUJEAQcCe
+	 AE67+vBF68+wDM0d/uqKkmi7ddKkTU/iGyYZ/iRxhGwICCehWPNvirHw2VprPJJKCp
+	 qt3DoTAajdBm5iVbw6m1bKg0sKzk1cKsHNVCok1/vJFBTxdFBYZG9gcl6D8rgWa5mT
+	 LMMs1euY2mE26V3uO1k002IEp4fjCyZe3l9YU6JaJXjEz9JSshp/uSnlDr86s44SSW
+	 DDLQQNqSgC02A==
 From: Nathan Chancellor <nathan@kernel.org>
-Date: Thu, 25 Jan 2024 10:32:12 -0700
-Subject: [PATCH 2/2] RISC-V: Drop invalid test from
- CONFIG_AS_HAS_OPTION_ARCH
+Subject: [PATCH 0/2] RISC-V: Fix CONFIG_AS_HAS_OPTION_ARCH with tip of tree
+ LLVM
+Date: Thu, 25 Jan 2024 10:32:10 -0700
+Message-Id: <20240125-fix-riscv-option-arch-llvm-18-v1-0-390ac9cc3cd0@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20240125-fix-riscv-option-arch-llvm-18-v1-2-390ac9cc3cd0@kernel.org>
-References: <20240125-fix-riscv-option-arch-llvm-18-v1-0-390ac9cc3cd0@kernel.org>
-In-Reply-To: <20240125-fix-riscv-option-arch-llvm-18-v1-0-390ac9cc3cd0@kernel.org>
+X-B4-Tracking: v=1; b=H4sIABqbsmUC/x2MSwqFMAwAryJZv0Bbxd9VxEWtUQP+SKUI4t0Nb
+ zkwMw9EEqYIbfaAUOLIx65gfxmExe8zIY/K4IwrjHUFTnyjcAwJj/NSGb2EBdc1bWhrzMNA1WA
+ a72wJ+jiFNPj/u/59P/u0YW9vAAAA
 To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
  masahiroy@kernel.org
 Cc: nicolas@fjasle.eu, andy.chiu@sifive.com, conor.dooley@microchip.com, 
@@ -57,17 +58,17 @@ Cc: nicolas@fjasle.eu, andy.chiu@sifive.com, conor.dooley@microchip.com,
  llvm@lists.linux.dev, patches@lists.linux.dev, stable@vger.kernel.org, 
  Eric Biggers <ebiggers@kernel.org>, Nathan Chancellor <nathan@kernel.org>
 X-Mailer: b4 0.13-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2365; i=nathan@kernel.org;
- h=from:subject:message-id; bh=lICtxkQ3NvVShAwZIuLeByavdbgR2qlvf8P4owRHXS0=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDKmbZissneNvc+U8g8IkiV2P1y8V+vnuj1eFVfVy31c+S
- sc4V1/d31HKwiDGxSArpshS/Vj1uKHhnLOMN05NgpnDygQyhIGLUwAmsi6L4X9Wx9n0S4s2cUzV
- q/lYfnDKWrdt3qvWLPzFHJgzVbXZdIcYI8P/j63TYrYsVLNiNKmSnDiZx/TBt7jCBDb+hNe6wUx
- mFUwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1526; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=3PvCiAQrtJD/zuf2t8VwlvCpBAFoHiP16hfmstASs9E=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDKmbZsszSfLFTrfQc+X5/21XXcmGTcwG/6/tad9ZEOjzz
+ 2TXzOU1HaUsDGJcDLJiiizVj1WPGxrOOct449QkmDmsTCBDGLg4BWAi8ucZGdY+zVm9yNNafwG3
+ gMmPxYyCm7Y09Pt2flr47PSRXtbDvosY/gd7PHZ1uLt4qpwAw501soe+ZT6qnpr06I+v7vSlXL5
+ SQYwA
 X-Developer-Key: i=nathan@kernel.org; a=openpgp;
  fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_093219_656383_963F3038 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20240125_093218_581337_AA72C403 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,64 +85,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit e4bb020f3dbb ("riscv: detect assembler support for .option arch")
-added two tests, one for a valid value to '.option arch' that should
-succeed and one for an invalid value that is expected to fail to make
-sure that support for '.option arch' is properly detected because Clang
-does not error when '.option arch' is not supported:
+Hi all,
 
-  $ clang --target=riscv64-linux-gnu -Werror -x assembler -c -o /dev/null <(echo '.option arch, +m')
-  /dev/fd/63:1:9: warning: unknown option, expected 'push', 'pop', 'rvc', 'norvc', 'relax' or 'norelax'
-  .option arch, +m
-          ^
-  $ echo $?
-  0
+Eric reported that builds of LLVM with [1] (close to tip of tree) have
+CONFIG_AS_HAS_OPTION_ARCH=n because the test for expected failure on
+invalid input has started succeeding.
 
-Unfortunately, the invalid test started being accepted by Clang after
-the linked llvm-project change, which causes CONFIG_AS_HAS_OPTION_ARCH
-and configurations that depend on it to be silently disabled, even
-though those versions do support '.option arch'.
+This Kconfig test was added because '.option arch' only causes an
+assembler warning when it is unsupported, rather than a hard error,
+which is what users of as-instr expect when something is unsupported.
 
-The invalid test can be avoided altogether by using
-'-Wa,--fatal-warnings', which will turn all assembler warnings into
-errors, like '-Werror' does for the compiler:
+This can be resolved by turning assembler warnings into errors with
+'-Wa,--fatal-warnings' like we do with the compiler with '-Werror',
+which is what the first patch does. The second patch removes the invalid
+test, as the valid test is good enough with fatal warnings.
 
-  $ clang --target=riscv64-linux-gnu -Werror -Wa,--fatal-warnings -x assembler -c -o /dev/null <(echo '.option arch, +m')
-  /dev/fd/63:1:9: error: unknown option, expected 'push', 'pop', 'rvc', 'norvc', 'relax' or 'norelax'
-  .option arch, +m
-          ^
-  $ echo $?
-  1
+I have diffed several configurations for the different architectures
+that use as-instr and I have found no issues.
 
-The as-instr macros have been updated to make use of this flag, so
-remove the invalid test, which allows CONFIG_AS_HAS_OPTION_ARCH to work
-for all compiler versions.
+I think this could go in through either the kbuild or RISC-V tree with
+sufficient acks but I will let them fight over who takes it :)
 
-Cc: stable@vger.kernel.org
-Fixes: e4bb020f3dbb ("riscv: detect assembler support for .option arch")
-Link: https://github.com/llvm/llvm-project/commit/3ac9fe69f70a2b3541266daedbaaa7dc9c007a2a
-Reported-by: Eric Biggers <ebiggers@kernel.org>
-Closes: https://lore.kernel.org/r/20240121011341.GA97368@sol.localdomain/
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+[1]: https://github.com/llvm/llvm-project/commit/3ac9fe69f70a2b3541266daedbaaa7dc9c007a2a
+
 ---
- arch/riscv/Kconfig | 1 -
- 1 file changed, 1 deletion(-)
+Nathan Chancellor (2):
+      kbuild: Add -Wa,--fatal-warnings to as-instr invocation
+      RISC-V: Drop invalid test from CONFIG_AS_HAS_OPTION_ARCH
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index bffbd869a068..e3142ce531a0 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -315,7 +315,6 @@ config AS_HAS_OPTION_ARCH
- 	# https://reviews.llvm.org/D123515
- 	def_bool y
- 	depends on $(as-instr, .option arch$(comma) +m)
--	depends on !$(as-instr, .option arch$(comma) -i)
- 
- source "arch/riscv/Kconfig.socs"
- source "arch/riscv/Kconfig.errata"
+ arch/riscv/Kconfig        | 1 -
+ scripts/Kconfig.include   | 2 +-
+ scripts/Makefile.compiler | 2 +-
+ 3 files changed, 2 insertions(+), 3 deletions(-)
+---
+base-commit: 6613476e225e090cc9aad49be7fa504e290dd33d
+change-id: 20240124-fix-riscv-option-arch-llvm-18-3cbe7b09a216
 
+Best regards,
 -- 
-2.43.0
+Nathan Chancellor <nathan@kernel.org>
 
 
 _______________________________________________
