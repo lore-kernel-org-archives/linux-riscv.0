@@ -4,123 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF467C46CD2
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Jan 2024 23:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43921C46CD2
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 02:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YG5VEO3HgOL3O09jtYgMdS3Zm4TeucAPQNYf2W5xCh0=; b=wl0hjJ6IyGmZhP
-	j8QnruCVqBhadWkjLWqeLnny8z6h5V7oWab/0wbWCOQflbO/tLp8OlBJlYwK742Ond8QN6azE1Jzu
-	ADvzZFfRMFWzROKvXhr/yt+OFLFI/kH4p+oNftVGP1e2TZ7rjop1pO1FLaw8Pee3Hzc2rFQr/IOeJ
-	0vS7bKbWRg8TRNcXsiHILr5vIrBBQQWTeAEvpszG+N351D53E0HZmTkDw3XUKY6iAEL/BwjCznV8Q
-	zEnBiCE7RYHqIHtrRYyZ99JHAApAVaDsDkSNH+PmKxnp4lYjZyMRdULeioReFAawvnuiveIPtyGs6
-	xGJHryZK59hrNQxgykEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lcN+aiun9/vrFLB7C5o0hZioliqe7BQ9c1udegTkCU8=; b=WAuRhUfUpC2jqiH3F0Bo2M4obV
+	UzkpbrLRttpG+PewDZ2ZpAWAgL/v3plQYCvbTAqqnP9opPpbM54hDH6CdRTnufhLtjqwObg4mz/ok
+	dKNZycv7Y8wfz4laX5GykW0kVw5VOiS73NQIj+GaIScfW5Y6lQ7Z+gZrQg7naWtZCn6ai6G+XAN3b
+	MZOutievBTGnlvxYm1478e5SF0oEoCHz+nKhfbGTk6v+CrAeqQpiNfp5yI1xnAfIGCufWK2S/yTw2
+	OIi4ULg5gjhxiB8MYuYGBysRqdxQ/u/ZKKnUjrhDCbx7ifXL5wkjUIZJRwPe0wSKswBwro4r0UAA1
+	aCKBEMTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSmH6-005T29-2V;
-	Wed, 24 Jan 2024 23:03:16 +0000
-Received: from mail-co1nam11olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c16::801] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1rSpit-005voW-1o;
+	Thu, 25 Jan 2024 02:44:11 +0000
+Received: from mail-dm6nam11on2071b.outbound.protection.outlook.com ([2a01:111:f400:7eaa::71b] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSmGz-005Sz8-2V;
-	Wed, 24 Jan 2024 23:03:11 +0000
+	id 1rSpip-005vm8-2q;
+	Thu, 25 Jan 2024 02:44:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=PepvoakWM74EeLPjj/LRAArRVY+IjpLX/FWpy/AnaKTHYeE1FOPgug5cWizZGf1wAlsH3nwxWALDe3etGDCfJGETYeOgBImp6Pa5Eqb1JvRvNHBMf22N9Y3WYG84/uPVKLHTLoEFgleHeRI7EjddOwT8T4Oc96CaZ9ezgjSwoOi87JOHDn+EX/WoKhXwoVvnZlJuDI05/oP+CEwdeQ4M0jqgdEOZRL4tZuvj6dj5h3mnpKJ12AqkQT5gs2RtQEBgZsEQR39rsxbhwpIE48XSPRQbmiOP2HYLmwZRPCOfUHMzx/cpWDgt0aLjDq8zEz9di4kGhPB6hpsa+NywafZ5Og==
+ b=WCT+ijVp3+gouV994/1nQ1WcOXat/Wks7BoqVn3KZ3rtrsN6tUUz8ygW28zeu03bxb6Ytk7NcbXDllzX6wtcgrFIRf5vLmDzFCwoO3bj7Slake8vn8cz0cyJXzecLLJypxFOCkAm24hSQiwgUNaCXvTqSeQ7YZcK2gv+3V/c0zakUs0nq4tg8SNTe3AV9tWSOO0acxilrJJdTAtUu7pNYX2dbjNESyYL2ViHqb1u8D36TR7y4iFsXPYlZCFK8uNJVHvxkPzVXXelzqSpvulrkdwFi0Ci1snkfrPnptGWVWI7FUXutQ3S3F6nGOaKADnQe0491+xRxgG2uapw4kcL3w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4l6Ns8rTYdxWO1Ya2TTU0dhX0x/0LTN2nSiiDkHoKbs=;
- b=FYKx9YChlkpjzWaoAx9eCyI+4jfmc8cOpMZ3Ai08M5DjXwIPa6BEIZEwibWzukaILKA1HaTEI58UT8b7fCsT4OzQzYadca9cb3Uyr9IxISgLsCs752zSb/c+6rnE1P5Pwi+aiTkbH/nt+OsbV7zRSEohJCTrqhkk08loerShQjOFw3lDekOUNFrt1nu8y8oM1ibD6nclrXa+OSF2S1rZb9K0t/r7wJKgfMTXmLRL5Ex2sqTEjxkPetcAew3bIN/o3lzAObP5FOGkUOaF1EFHxPPIpuwSnvXYwPVsK690qkSps7wi68bbsgzw/IBM4pKfPRX4vg7ipv8FtC7IP3kQqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
+ bh=6CvYZh0mBvkHRbO98yoKxSDYL76ErX9PbNvBNpOsjCo=;
+ b=KlfgdeC46KkO9/Tc+em85dqb93r4W5DYxdEdWL1OhFa1FQP1FeDH4tl9oVuNuKy/RGSy7oRPmxss9wQfmKjsbXhlVeYY4eznwUsoXJKA79/dkUhRiHBsvksuv3hdN8zNY0awNFREZUHF+Iz1nHdtrm1XYVx8xO9A15dbb/fJSvV/HsmBKmWmCYUtJ2R65QUUhMEw7EqGADRdzkxGFbYxV7UmwsGQnDCjBckzKt4WNiLBKgjx5awO9AYoBruLVOaELQupbt5gT+T+2xEt99nAE9nf7cV06GmtjVNhxoecNNHFfK6ZMoDiNaJ3+BI6P9yL1kGs61tfDbgyn3CiRTYiaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=amperemail.onmicrosoft.com; dkim=pass
+ header.d=amperemail.onmicrosoft.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4l6Ns8rTYdxWO1Ya2TTU0dhX0x/0LTN2nSiiDkHoKbs=;
- b=jLZWvnNiaD6PC3KYozx0QATx95YXv4qTfQQBy92TMr5paROYM5bRlsSaMIdgiO8Lq3Kg932jA6zLCc2EhschVFKz+CkxXfPcqVCYHYUpO/sfLiulRjDJ//Lusubh4a8vwtRZBWFXWV+wiVKs5K8gmxuDqAgC8AgnvSGpUatX5JYP7geQ1SGrOmHfUlT7nUMrDHD2fDzmVz0aVVrFRiwMadBuD8qWkMPNq3ZpxzFJU0eG+EpKqf3fXIuByQpteVhJMoz42HMEF9QyB3QzRzCrpX7L1eIkVJvJDReF2d222IolXGOb/WTEVQ7WFVjMj43S4+47pM8A74SR9DXPLHUd4A==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by CO6PR02MB8834.namprd02.prod.outlook.com (2603:10b6:303:145::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7202.34; Wed, 24 Jan
- 2024 23:02:54 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::67a9:f3c0:f57b:86dd]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::67a9:f3c0:f57b:86dd%5]) with mapi id 15.20.7228.022; Wed, 24 Jan 2024
- 23:02:54 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Baoquan He <bhe@redhat.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-CC: "kexec@lists.infradead.org" <kexec@lists.infradead.org>, "x86@kernel.org"
-	<x86@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, "linux-sh@vger.kernel.org"
-	<linux-sh@vger.kernel.org>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "loongarch@lists.linux.dev"
-	<loongarch@lists.linux.dev>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>, "ebiederm@xmission.com" <ebiederm@xmission.com>,
-	"hbathini@linux.ibm.com" <hbathini@linux.ibm.com>, "piliu@redhat.com"
-	<piliu@redhat.com>, "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>
-Subject: RE: [PATCH linux-next v3 06/14] x86, crash: wrap crash dumping code
- into crash related ifdefs
-Thread-Topic: [PATCH linux-next v3 06/14] x86, crash: wrap crash dumping code
- into crash related ifdefs
-Thread-Index: AQHaToRG7EZBXaVit0yb4RXbyvoNjrDpkK1g
-Date: Wed, 24 Jan 2024 23:02:54 +0000
-Message-ID: <SN6PR02MB4157931105FA68D72E3D3DB8D47B2@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20240124051254.67105-1-bhe@redhat.com>
- <20240124051254.67105-7-bhe@redhat.com>
-In-Reply-To: <20240124051254.67105-7-bhe@redhat.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-tmn: [op7zH1Au+oeYF86X+kKmdQs2MzIdeyA9]
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|CO6PR02MB8834:EE_
-x-ms-office365-filtering-correlation-id: 4b5968da-bb37-4619-e097-08dc1d309949
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: ku3k2L/WLldwXurBOby3xSDRfdxLPUz4FK6zagX6zdtdUr7+PAoK8MXi2Ykd7amB3pdYUItfIDy0TJi/Vw+pzSPK9mAugL1zP6xpRELzDIGbvqyDxvxEvdqyrs9xTwtQeXCCnJImHCVmBuziO+5WDJ8DyvtK0Ycfk2DhyRgmLn8VYDopAT0DOWXfSVRUAe3zdUkZxvZLde38piBCsEAFbovRlshgfHrc8knWQ9I87ULQZytZHBy8H3kHM3r02/urmw+bohaG0mL5vrq9KlbtjSd4tq1jyGADy292bpE3h04X/mDHLHdZpQdVtg1vQJiARRmIRQ0fqXbcGVu8b9+plX7bMJD1mYwiTTftNoRdLZCE6IjbXARE3F874pImzRDXx1k2NzkrhTzGqckw1/a24BHjK3oAx791rZeVos4IGpxl6gBQeIxR2SNcrspQZoYvHVPzfuZAikmEE/b2zd8agIYpbLmxt2gdMxFMTa1JUQw8RUofvlJb8ZNcunlaIH6Tan1KuEUbaddG1g4RdH4jDiAuuPnc5LCmR68/vmIeUZTZUXYYbPT9y7bC71XSyzZ+
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?8i3Z4LI8SB7vkm6bFj40SG4cpXdkzFIElDGTjz9f4LPnUSJUz0PKcM2ELVst?=
- =?us-ascii?Q?R3Bvif3axS8xdX0wsr7jTveErDdeBbIrD0o13sJU1vncE0OH+Qn6MVi8P8tg?=
- =?us-ascii?Q?wjk9M6kVEBJjXrAhMgaFI5fVbV6ftS9S8EKe4wZ8rPDLSgyfMQrB/YR0/LwS?=
- =?us-ascii?Q?nls3w7cpyvAwx91ByWf3lXd+Lelrc5DM60Ab9rv+ZVW+VH/xafFODnKflIid?=
- =?us-ascii?Q?wIy51I/JsoCb6pvkg2WH563ZxMx6UfOAL1lo/jcmgPzgIaJmOq+V7v7cEo52?=
- =?us-ascii?Q?5KFdfuWRDdLkQ2fWdvcA5NA9UwkLh4nRdNUvJlxci4FUq+8NgvTBY8QNC0fr?=
- =?us-ascii?Q?eX42hISrIUXtMZYo1Fm10yUKpJp2QrxSCWl66svAzG3E47X/qW6NMOc5V8Xw?=
- =?us-ascii?Q?DWLL5BsyvJsUwHdfKtdFNoGThpS26XCLWczju3BMjnhlLmUetP4gKiozcisd?=
- =?us-ascii?Q?RAu4Si2OYp5XiRCtC0eS+i28xNr/cnuJKNE7fYDKhdxDaRR3vx+xUGEQowVN?=
- =?us-ascii?Q?vb4Ug5rY2nryKYV8yxAATnBoTwUFW5zxCdj0rU1TQOVBLy8rsAlZZvrI3XPZ?=
- =?us-ascii?Q?IevjWoFOqJ0dVsYtAhGlue5tSut8OQfOdzFGZGfwIo30vCHqhkFnuxjAfGIp?=
- =?us-ascii?Q?IY1gW6cktkJT3VVJwh9MhuqqBAe8THavM6dPLPcCL2oUPaPgdQjsgnkkMzz+?=
- =?us-ascii?Q?4UysoDGKodFPGeasOkrIRssvL8CAq2oYL8DtiEvVmzPw8VJ7no3tJUxyzF1n?=
- =?us-ascii?Q?eNuPwM5nI5qe+BKfnXqQkA4HffRWyDOLoZR1wf+Rw3UCZHdVOFZXSUsEsxSV?=
- =?us-ascii?Q?uu4J4/ZXhAmUoDTRKwwqquNIHlsXsw93WSO8PvpZt8U5WL015AdlVXt3cU3t?=
- =?us-ascii?Q?FxH9yX1DPKIPwc/sBHpD2ExAbdXe9oHs1f7HQbF3GZcMdYwq+b4R7AGAao5Y?=
- =?us-ascii?Q?7Fi0Zwix4zag5dvX108IPSUsirI6x8gThahayKQW4XqCbaoncBct5yYXyimy?=
- =?us-ascii?Q?ddHxZ25GP6kH2C0mBxOmBoL6uvFDl53GJK8YCynbSv4R28utM/uPOF3qe8B+?=
- =?us-ascii?Q?MxaT2SIV1msA1tOV+pY46w935RozxjRdd8uQ4kxq5JKkCulchNjYstDoO/wR?=
- =?us-ascii?Q?E3Q7vsYP46HaqtnaIpo3ZEAtHK6U79kx7Wv1k6QvQkJq6sq6/7cEwRHsI+QB?=
- =?us-ascii?Q?BGd++I1TVn4jzYTpZitqFyuU8PbLemqMeAc51Q=3D=3D?=
+ bh=6CvYZh0mBvkHRbO98yoKxSDYL76ErX9PbNvBNpOsjCo=;
+ b=RpcjYoH4g6a/lRcM18rxnL0fv6sfZqAvtaFhiOMnQjz1Z6uAgXIwxy6Bk347wcaA3BuYAaat33DA4X3oQX5RihRDKmePM22Kgic7Uyd3vb9Do5JHpeQHa121NbjiKQ3mo/39QXU3J0D2/W/2LBLhvEC+cV0caEOHDnMYg3XMSwk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
+Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
+ SA1PR01MB8252.prod.exchangelabs.com (2603:10b6:806:388::16) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7202.34; Thu, 25 Jan 2024 02:42:44 +0000
+Received: from PH0PR01MB7975.prod.exchangelabs.com ([fe80::91c:92f:45a5:e68a])
+ by PH0PR01MB7975.prod.exchangelabs.com ([fe80::91c:92f:45a5:e68a%6]) with
+ mapi id 15.20.7202.026; Thu, 25 Jan 2024 02:42:43 +0000
+Message-ID: <2c7c6afa-7750-413d-8d35-048d6813d93c@amperemail.onmicrosoft.com>
+Date: Thu, 25 Jan 2024 10:42:14 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] NUMA: Early use of cpu_to_node() returns 0 instead of
+ the correct node id
+To: "Lameter, Christopher" <cl@os.amperecomputing.com>,
+ Huang Shijie <shijie@os.amperecomputing.com>
+Cc: gregkh@linuxfoundation.org, patches@amperecomputing.com,
+ rafael@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, yury.norov@gmail.com, kuba@kernel.org,
+ vschneid@redhat.com, mingo@kernel.org, akpm@linux-foundation.org,
+ vbabka@suse.cz, rppt@kernel.org, tglx@linutronix.de, jpoimboe@kernel.org,
+ ndesaulniers@google.com, mikelley@microsoft.com, mhiramat@kernel.org,
+ arnd@arndb.de, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ mpe@ellerman.id.au, linuxppc-dev@lists.ozlabs.org, chenhuacai@kernel.org,
+ jiaxun.yang@flygoat.com, linux-mips@vger.kernel.org
+References: <20240123045843.75969-1-shijie@os.amperecomputing.com>
+ <4a13353c-cf4b-a388-5776-389c61c63ec0@os.amperecomputing.com>
+From: Shijie Huang <shijie@amperemail.onmicrosoft.com>
+In-Reply-To: <4a13353c-cf4b-a388-5776-389c61c63ec0@os.amperecomputing.com>
+X-ClientProxiedBy: CH0P221CA0028.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:610:11d::10) To PH0PR01MB7975.prod.exchangelabs.com
+ (2603:10b6:510:26d::15)
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|SA1PR01MB8252:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8b2648b7-57b1-4a81-ed36-08dc1d4f4dfd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: fhhCCEyaq9KxvLAhwtyT2Mdd1tJkmWepEzkfDPyQ3mur742++CErcC0DzUz+dZKeXLEHn7aV2hOH7hikWOqqxo/x4gV7pogArIlVx5jHSYdW3Wj7B4CeGSxLyaM7s0Vi2w43nSrwXgyDAcY/pokwAlaQVUEG2SPHf215kVr3a5eYMp/I2zaiX6C2S1P9iR/bw4f2cpiRlISmGwmffjUqZjguUMXjdXZiWknZx2LeVSfvR9I6DmhYfU1vUeipn0dNx5ENsYCZayLNqJbaIwqmJI+QSid+J8CWFtCYDZn4P9Uz2pH8q85fxqhaXV4XTxVgj72wp9fjwywNH6wXhrwO1F31/4VdFW84j6NQ/z6T3Z7Ok67Meq/En325JwQ37nPmVQPEIbwa5prnTgo15ug9A36JB4vUSVmtdgzMg5586gAJbUNv2oZHxILgSqB5yEgv11FpmeYR1pQZlGTnoj7qQjXWQZQwwC6OYaYn+mqfLZBJiagetCZ8HapO/liNUp/8v/s1bBPK7juQuNCLDI/6kVBMz2sRzhmg2ycH+rxxZGlrOxz6QwNXH5K8HK2c9K0TYYZjsapG6npaPgm80UmQicD+Qw0ScMdKV7b5jLOM1Ds3Y8biX632oj4p/wEzMtgr5WIOM/t3KA3Vjyfwfz5B+MgXlp64CyIqLAKKXwFSARo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230031)(376002)(396003)(366004)(346002)(39850400004)(136003)(230173577357003)(230273577357003)(230922051799003)(186009)(451199024)(1800799012)(64100799003)(6486002)(6506007)(6512007)(6666004)(478600001)(26005)(2616005)(2906002)(83380400001)(7416002)(5660300002)(41300700001)(42882007)(4326008)(8676002)(66556008)(66946007)(110136005)(8936002)(316002)(66476007)(83170400001)(31696002)(31686004)(38100700002)(43740500002);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bGUrRWxjTmlTOXBHeFhvTWRyb2E3QkE1SmcxRHVFWXFleEQ4QjRNNGtPam4w?=
+ =?utf-8?B?SlFXRXE0cGxaNTZIMzlqUVQyb1l0R3BzWVB3T1NlUk9jRlppbG0zU0sySnp5?=
+ =?utf-8?B?bTJiT2Y3Yk5FNkZKZ3E3RmI0SDlHS2FrUGYvSzJZaGpRQ1A1Tm4rOVc1dlRv?=
+ =?utf-8?B?L0tCVXUyUUNrNys1TmRRa3Rwc2ptWU1JTkhNS2c3SGNWZjNiSnNxUkN2SjJN?=
+ =?utf-8?B?ODdUa202ZGZnT1oxVGlIK3FWRUE3UXFmYVBqbGxnRU1nT0ozcXFDdTg1UzBI?=
+ =?utf-8?B?S2NKTFMzQnJ0WGhGMVlxbkJFR05jY2lPR1Jnc0Z2TzZ3WXVFTWtyVmhPbldX?=
+ =?utf-8?B?ZmthNkdUeENmVVJmVFQ3QzB2aE5lOTE1cWJxZXpDVEJpaS8yNm9xMXRVWWQ3?=
+ =?utf-8?B?ekpSOEdvcUdycS84VDNiSy83UDFYcExYdWRrYjFLcUdRaHlRRUc5MGVCTGYr?=
+ =?utf-8?B?OURxYlZhbmFjekFJSUg2Vk41UklUMHBROXFoZ3NzcHlsRGZCTkhHbzRnandX?=
+ =?utf-8?B?SnFuODlkWnY0Q1hsM1IvbzBBNGJDVE5WWFRzcXVtUUNPc0toN0s5MVNYSC90?=
+ =?utf-8?B?cm0wTVZGS3pjdjNDcEZJNjFrbnpra3lHV2FWMTBPWUphSzFwekJHaUlyNkFn?=
+ =?utf-8?B?YWJHeFBzYVBRLzJkMit1UnhmNlFpKzBJTDlqNFE1NFZINkhYVXZMcnZZNDhZ?=
+ =?utf-8?B?SGtxRjVkaTVkZDRqclR4QjVGRXJpTUg5RmJWLzhSTGhlaEVqWTgvMDd4RjAy?=
+ =?utf-8?B?QTM3ZnBHVjVLeW0xcElUQnh1R3ZFQkZZWUlHa2QrVDhFMEhac2s3cjJQMXJh?=
+ =?utf-8?B?Z2hYS1FWOWVyWEY2U0xjMkh2UGFXNWo3Vm5wMnZPTzVjQzVOK241cnJDMmtm?=
+ =?utf-8?B?aEtmbTYwbjBWYmhhM2FkTWJ2WGJpK1hVWm9Pbk0xTkJqUldYTjg2MUpQako4?=
+ =?utf-8?B?Z0tUMlhNcXlLbXVBR2NBYVRhMS9KLzRsZmNFUlJlb2kwSTJ1YzJiTEtHcFU3?=
+ =?utf-8?B?M0VRcTY2RXhtZVJ1WWpSR2xPWi9ZWEZLQSsvVjM0UHFkeXhNcFZodTVNZWZj?=
+ =?utf-8?B?R1BmUFl4R2NMSVVpTzVDY0NBYzJQemhvS1pUL1ZWUjE0OG55aU5raVBQKzg4?=
+ =?utf-8?B?R2g1WUUycTQrcXUvK0UrenJrK2FZejVIR1BEQ1MrdENTNnBQc1BoOHJqVEVP?=
+ =?utf-8?B?Znl1ZmM4QjdibW5oSnV6MDI2blJudHZsQ2JSa0VxUzR1K0RvWkV2dThjajNT?=
+ =?utf-8?B?S0RoNzRXcyt4bDFhTHhHTVo4bktHMlBVN3d4eFRDbm56R09vQUxncmVrK0E5?=
+ =?utf-8?B?Z0ZNYlRQVGhzZVFlT2pvWnJ4aGl0VDdYNlNEUW9RNkhScU1wQUxLOEJRZUtj?=
+ =?utf-8?B?dldZNWx4YXNKZDZiUDBTNkFIbmRYQkFrd0xFN2Q0YVFiOUVLcFgvY2hGMGJs?=
+ =?utf-8?B?OTZwNDV4ZlJsRlRWaVRKc1d1eDhlL1Bla3RteFlSYVFEWStuYng0VDh6dy8y?=
+ =?utf-8?B?d3d6cXZTV1lBN0xXUVlPSmI3TmdyVGZrYUhOM0NBVmIrTzA1bmlzcDhwYktm?=
+ =?utf-8?B?dGt6cFhjZnAwRkJhTWVxczFiV0lLWTZraHF0ajFyc25CcGdhQ2JBOWJXSEdm?=
+ =?utf-8?B?M2QyRFpOM1ZLU1FVV3ZkQmpYUURhelJuenp5UExDV2s0OW5WZ1FjVjBxM3hw?=
+ =?utf-8?B?dGpDNmE4Uk83WGFuOGdoM1ZlRHBpQWlPQ1BjdldvUjZtUEt5WkVZY1JydllQ?=
+ =?utf-8?B?dmNUMVN0WlhoNkptd0llN29Ybnh1MVNqODhSOFE0RjJoeWVhR1EySmgwRWxh?=
+ =?utf-8?B?UFNpNGNUQnNpaWh5Vm5ud0RHZEkyWEZXR25ub2wvMUJWSWtpeXVpRlAvYzJs?=
+ =?utf-8?B?Qit1UXlWSmE4NnpZeTNTYUNNNFM4dU1hbUtmVVU1M3BrSDYxbUN0TlM5VndX?=
+ =?utf-8?B?Q3dRS0ZGemZvajFNOFFoUTNWWEFDZTVyakN1ZVNmVVJxRWtNaHNTdnZOSGZx?=
+ =?utf-8?B?TS94djYxU2F6SzBNMHZKeHcwMEkweUtFbDVOS0szUjVjdlFXcUJqM3ZQWDN5?=
+ =?utf-8?B?d2djdDlPNFN6cU8zUVdiRkJZazN0d0JuZDRJOHRUcVV6MmtMdDlRR2ZDNUtJ?=
+ =?utf-8?B?SnB4YkV0WDZLWUhWQmpVb3loMWlMWm11UHVPa08yYzY3RFI3MzA0ZHVsRXc2?=
+ =?utf-8?Q?N/c14SdkrGfuTJvileArV8s=3D?=
+X-OriginatorOrg: amperemail.onmicrosoft.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8b2648b7-57b1-4a81-ed36-08dc1d4f4dfd
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b5968da-bb37-4619-e097-08dc1d309949
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jan 2024 23:02:54.6871
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jan 2024 02:42:43.3496
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR02MB8834
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 41q/FE+kcUBSq0XcZ9pvymbvVxbh2aJqWriuXtRweZZziHOvTBo/rRp/nmww4ANTTPBN5ABYXMEQTxx/0134NYm7D9h9t3nzLQGPlVYlm6C0pXqEQwl9hRU5S/Sp+ZA5
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB8252
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_150309_862293_E1A0CBE5 
-X-CRM114-Status: GOOD (  26.06  )
+X-CRM114-CacheID: sfid-20240124_184407_936367_45259241 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,261 +148,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Baoquan He <bhe@redhat.com>  Sent: Tuesday, January 23, 2024 9:13 PM
-> 
-> Now crash codes under kernel/ folder has been split out from kexec
-> code, crash dumping can be separated from kexec reboot in config
-> items on x86 with some adjustments.
-> 
-> Here, also change some ifdefs or IS_ENABLED() check to more appropriate
-> ones, e,g
->  - #ifdef CONFIG_KEXEC_CORE -> #ifdef CONFIG_CRASH_DUMP
->  - (!IS_ENABLED(CONFIG_KEXEC_CORE)) - >
-> (!IS_ENABLED(CONFIG_CRASH_RESERVE))
-> 
-> Signed-off-by: Baoquan He <bhe@redhat.com>
-> ---
->  arch/x86/kernel/Makefile           | 4 ++--
->  arch/x86/kernel/cpu/mshyperv.c     | 4 ++++
->  arch/x86/kernel/kexec-bzimage64.c  | 4 ++++
->  arch/x86/kernel/kvm.c              | 4 ++--
->  arch/x86/kernel/machine_kexec_64.c | 3 +++
->  arch/x86/kernel/reboot.c           | 2 +-
->  arch/x86/kernel/setup.c            | 2 +-
->  arch/x86/kernel/smp.c              | 2 +-
->  arch/x86/xen/enlighten_hvm.c       | 4 ++++
->  9 files changed, 22 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/x86/kernel/Makefile b/arch/x86/kernel/Makefile
-> index 913d4022131e..3668b1edef2d 100644
-> --- a/arch/x86/kernel/Makefile
-> +++ b/arch/x86/kernel/Makefile
-> @@ -100,9 +100,9 @@ obj-$(CONFIG_TRACING)		+= trace.o
->  obj-$(CONFIG_RETHOOK)		+= rethook.o
->  obj-$(CONFIG_VMCORE_INFO)	+= vmcore_info_$(BITS).o
->  obj-$(CONFIG_KEXEC_CORE)	+= machine_kexec_$(BITS).o
-> -obj-$(CONFIG_KEXEC_CORE)	+= relocate_kernel_$(BITS).o crash.o
-> +obj-$(CONFIG_KEXEC_CORE)	+= relocate_kernel_$(BITS).o
->  obj-$(CONFIG_KEXEC_FILE)	+= kexec-bzimage64.o
-> -obj-$(CONFIG_CRASH_DUMP)	+= crash_dump_$(BITS).o
-> +obj-$(CONFIG_CRASH_DUMP)	+= crash_dump_$(BITS).o crash.o
->  obj-y				+= kprobes/
->  obj-$(CONFIG_MODULES)		+= module.o
->  obj-$(CONFIG_X86_32)		+= doublefault_32.o
-> diff --git a/arch/x86/kernel/cpu/mshyperv.c
-> b/arch/x86/kernel/cpu/mshyperv.c
-> index 01fa06dd06b6..f8163a59026b 100644
-> --- a/arch/x86/kernel/cpu/mshyperv.c
-> +++ b/arch/x86/kernel/cpu/mshyperv.c
-> @@ -210,6 +210,7 @@ static void hv_machine_shutdown(void)
->  		hyperv_cleanup();
->  }
-> 
-> +#ifdef CONFIG_CRASH_DUMP
->  static void hv_machine_crash_shutdown(struct pt_regs *regs)
->  {
->  	if (hv_crash_handler)
-> @@ -221,6 +222,7 @@ static void hv_machine_crash_shutdown(struct
-> pt_regs *regs)
->  	/* Disable the hypercall page when there is only 1 active CPU. */
->  	hyperv_cleanup();
->  }
-> +#endif
->  #endif /* CONFIG_KEXEC_CORE */
-
-Note that the #ifdef CONFIG_CRASH_DUMP is nested inside
-#ifdef CONFIG_KEXEC_CODE here, and in the other Hyper-V code
-just below.   It's also nested in xen_hvm_guest_init() at the bottom
-of this patch.  But the KVM case of setting crash_shutdown is
-not nested -- you changed #ifdef CONFIG_KEXEC_CORE to #ifdef
-CONFIG_CRASH_DUMP.
-
-I think both approaches work because CONFIG_CRASH_DUMP implies
-CONFIG_KEXEC_CORE, but I wonder if it would be better to *not* nest
-in all cases.  I'd like to see the cases be consistent so in the future
-someone doesn't wonder why there's a difference (unless there's
-a reason for the difference that I missed).
-
->  #endif /* CONFIG_HYPERV */
-> 
-> @@ -497,7 +499,9 @@ static void __init ms_hyperv_init_platform(void)
-> 
->  #if IS_ENABLED(CONFIG_HYPERV) && defined(CONFIG_KEXEC_CORE)
->  	machine_ops.shutdown = hv_machine_shutdown;
-> +#ifdef CONFIG_CRASH_DUMP
->  	machine_ops.crash_shutdown = hv_machine_crash_shutdown;
-> +#endif
->  #endif
->  	if (ms_hyperv.features & HV_ACCESS_TSC_INVARIANT) {
->  		/*
-> diff --git a/arch/x86/kernel/kexec-bzimage64.c b/arch/x86/kernel/kexec-
-> bzimage64.c
-> index 2a422e00ed4b..b55737b83a84 100644
-> --- a/arch/x86/kernel/kexec-bzimage64.c
-> +++ b/arch/x86/kernel/kexec-bzimage64.c
-> @@ -263,11 +263,13 @@ setup_boot_parameters(struct kimage *image,
-> struct boot_params *params,
->  	memset(&params->hd0_info, 0, sizeof(params->hd0_info));
->  	memset(&params->hd1_info, 0, sizeof(params->hd1_info));
-> 
-> +#ifdef CONFIG_CRASH_DUMP
->  	if (image->type == KEXEC_TYPE_CRASH) {
->  		ret = crash_setup_memmap_entries(image, params);
->  		if (ret)
->  			return ret;
->  	} else
-> +#endif
->  		setup_e820_entries(params);
-> 
->  	nr_e820_entries = params->e820_entries;
-> @@ -433,12 +435,14 @@ static void *bzImage64_load(struct kimage *image, char *kernel,
->  		return ERR_PTR(-EINVAL);
->  	}
-> 
-> +#ifdef CONFIG_CRASH_DUMP
->  	/* Allocate and load backup region */
->  	if (image->type == KEXEC_TYPE_CRASH) {
->  		ret = crash_load_segments(image);
->  		if (ret)
->  			return ERR_PTR(ret);
->  	}
-> +#endif
-> 
->  	/*
->  	 * Load purgatory. For 64bit entry point, purgatory  code can be
-> diff --git a/arch/x86/kernel/kvm.c b/arch/x86/kernel/kvm.c
-> index dfe9945b9bec..acfc2d3183bc 100644
-> --- a/arch/x86/kernel/kvm.c
-> +++ b/arch/x86/kernel/kvm.c
-> @@ -769,7 +769,7 @@ static struct notifier_block kvm_pv_reboot_nb = {
->   * won't be valid. In cases like kexec, in which you install a new kernel, this
->   * means a random memory location will be kept being written.
->   */
-> -#ifdef CONFIG_KEXEC_CORE
-> +#ifdef CONFIG_CRASH_DUMP
->  static void kvm_crash_shutdown(struct pt_regs *regs)
->  {
->  	kvm_guest_cpu_offline(true);
-> @@ -852,7 +852,7 @@ static void __init kvm_guest_init(void)
->  	kvm_guest_cpu_init();
->  #endif
-> 
-> -#ifdef CONFIG_KEXEC_CORE
-> +#ifdef CONFIG_CRASH_DUMP
->  	machine_ops.crash_shutdown = kvm_crash_shutdown;
->  #endif
-> 
-> diff --git a/arch/x86/kernel/machine_kexec_64.c
-> b/arch/x86/kernel/machine_kexec_64.c
-> index bc0a5348b4a6..b180d8e497c3 100644
-> --- a/arch/x86/kernel/machine_kexec_64.c
-> +++ b/arch/x86/kernel/machine_kexec_64.c
-> @@ -508,6 +508,8 @@ int arch_kimage_file_post_load_cleanup(struct
-> kimage *image)
->  }
->  #endif /* CONFIG_KEXEC_FILE */
-> 
-> +#ifdef CONFIG_CRASH_DUMP
-> +
->  static int
->  kexec_mark_range(unsigned long start, unsigned long end, bool protect)
->  {
-> @@ -552,6 +554,7 @@ void arch_kexec_unprotect_crashkres(void)
->  {
->  	kexec_mark_crashkres(false);
->  }
-> +#endif
-> 
->  /*
->   * During a traditional boot under SME, SME will encrypt the kernel,
-> diff --git a/arch/x86/kernel/reboot.c b/arch/x86/kernel/reboot.c
-> index 830425e6d38e..1287b0d5962f 100644
-> --- a/arch/x86/kernel/reboot.c
-> +++ b/arch/x86/kernel/reboot.c
-> @@ -796,7 +796,7 @@ struct machine_ops machine_ops __ro_after_init = {
->  	.emergency_restart = native_machine_emergency_restart,
->  	.restart = native_machine_restart,
->  	.halt = native_machine_halt,
-> -#ifdef CONFIG_KEXEC_CORE
-> +#ifdef CONFIG_CRASH_DUMP
->  	.crash_shutdown = native_machine_crash_shutdown,
->  #endif
->  };
-
-Also in arch/x86/kernel/reboot.c, should the function
-machine_crash_shutdown() be updated with
-#ifdef CONFIG_CRASH_SHUTDOWN instead of #ifdef
-CONFIG_KEXEC_CORE?
-
-Michael
-
-> diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-> index 84201071dfac..899d839a2954 100644
-> --- a/arch/x86/kernel/setup.c
-> +++ b/arch/x86/kernel/setup.c
-> @@ -471,7 +471,7 @@ static void __init arch_reserve_crashkernel(void)
->  	bool high = false;
->  	int ret;
-> 
-> -	if (!IS_ENABLED(CONFIG_KEXEC_CORE))
-> +	if (!IS_ENABLED(CONFIG_CRASH_RESERVE))
->  		return;
-> 
->  	ret = parse_crashkernel(cmdline, memblock_phys_mem_size(),
-> diff --git a/arch/x86/kernel/smp.c b/arch/x86/kernel/smp.c
-> index 2908e063d7d8..18266cc3d98c 100644
-> --- a/arch/x86/kernel/smp.c
-> +++ b/arch/x86/kernel/smp.c
-> @@ -286,7 +286,7 @@ struct smp_ops smp_ops = {
->  	.smp_cpus_done		= native_smp_cpus_done,
-> 
->  	.stop_other_cpus	= native_stop_other_cpus,
-> -#if defined(CONFIG_KEXEC_CORE)
-> +#if defined(CONFIG_CRASH_DUMP)
->  	.crash_stop_other_cpus	= kdump_nmi_shootdown_cpus,
->  #endif
->  	.smp_send_reschedule	= native_smp_send_reschedule,
-> diff --git a/arch/x86/xen/enlighten_hvm.c b/arch/x86/xen/enlighten_hvm.c
-> index 3f8c34707c50..09e3db7ff990 100644
-> --- a/arch/x86/xen/enlighten_hvm.c
-> +++ b/arch/x86/xen/enlighten_hvm.c
-> @@ -149,12 +149,14 @@ static void xen_hvm_shutdown(void)
->  		xen_reboot(SHUTDOWN_soft_reset);
->  }
-> 
-> +#ifdef CONFIG_CRASH_DUMP
->  static void xen_hvm_crash_shutdown(struct pt_regs *regs)
->  {
->  	native_machine_crash_shutdown(regs);
->  	xen_reboot(SHUTDOWN_soft_reset);
->  }
->  #endif
-> +#endif
-> 
->  static int xen_cpu_up_prepare_hvm(unsigned int cpu)
->  {
-> @@ -236,8 +238,10 @@ static void __init xen_hvm_guest_init(void)
-> 
->  #ifdef CONFIG_KEXEC_CORE
->  	machine_ops.shutdown = xen_hvm_shutdown;
-> +#ifdef CONFIG_CRASH_DUMP
->  	machine_ops.crash_shutdown = xen_hvm_crash_shutdown;
->  #endif
-> +#endif
->  }
-> 
->  static __init int xen_parse_nopv(char *arg)
-> --
-> 2.41.0
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CuWcqCAyMDI0LzEvMjUgMToxOSwgTGFtZXRlciwgQ2hyaXN0b3BoZXIg5YaZ6YGTOgo+IE9uIFR1
+ZSwgMjMgSmFuIDIwMjQsIEh1YW5nIFNoaWppZSB3cm90ZToKPgo+PiBEdXJpbmcgdGhlIGtlcm5l
+bCBib290aW5nLCB0aGUgZ2VuZXJpYyBjcHVfdG9fbm9kZSgpIGlzIGNhbGxlZCB0b28gCj4+IGVh
+cmx5IGluCj4+IGFybTY0LCBwb3dlcnBjIGFuZCByaXNjdiB3aGVuIENPTkZJR19OVU1BIGlzIGVu
+YWJsZWQuCj4+Cj4+IEZvciBhcm02NC9wb3dlcnBjL3Jpc2N2LCB0aGVyZSBhcmUgYXQgbGVhc3Qg
+Zm91ciBwbGFjZXMgaW4gdGhlIGNvbW1vbiAKPj4gY29kZQo+PiB3aGVyZSB0aGUgZ2VuZXJpYyBj
+cHVfdG9fbm9kZSgpIGlzIGNhbGxlZCBiZWZvcmUgaXQgaXMgaW5pdGlhbGl6ZWQ6Cj4+IMKgwqDC
+oMKgwqDCoCAxLikgZWFybHlfdHJhY2VfaW5pdCgpwqDCoMKgwqDCoMKgwqDCoCBpbiBrZXJuZWwv
+dHJhY2UvdHJhY2UuYwo+PiDCoMKgwqDCoMKgwqAgMi4pIHNjaGVkX2luaXQoKcKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqAgaW4ga2VybmVsL3NjaGVkL2NvcmUuYwo+PiDCoMKgwqDCoMKgwqAg
+My4pIGluaXRfc2NoZWRfZmFpcl9jbGFzcygpwqDCoMKgIGluIGtlcm5lbC9zY2hlZC9mYWlyLmMK
+Pj4gwqDCoMKgwqDCoMKgIDQuKSB3b3JrcXVldWVfaW5pdF9lYXJseSgpwqDCoMKgwqAgaW4ga2Vy
+bmVsL3dvcmtxdWV1ZS5jCj4+Cj4+IEluIG9yZGVyIHRvIGZpeCB0aGUgYnVnLCB0aGUgcGF0Y2gg
+Y2hhbmdlcyBnZW5lcmljIGNwdV90b19ub2RlIHRvCj4+IGZ1bmN0aW9uIHBvaW50ZXIsIGFuZCBl
+eHBvcnQgaXQgZm9yIGtlcm5lbCBtb2R1bGVzLgo+PiBJbnRyb2R1Y2Ugc21wX3ByZXBhcmVfYm9v
+dF9jcHVfc3RhcnQoKSB0byB3cmFwIHRoZSBvcmlnaW5hbAo+PiBzbXBfcHJlcGFyZV9ib290X2Nw
+dSgpLCBhbmQgc2V0IGNwdV90b19ub2RlIHdpdGggZWFybHlfY3B1X3RvX25vZGUuCj4+IEludHJv
+ZHVjZSBzbXBfcHJlcGFyZV9jcHVzX2RvbmUoKSB0byB3cmFwIHRoZSBvcmlnaW5hbCAKPj4gc21w
+X3ByZXBhcmVfY3B1cygpLAo+PiBhbmQgc2V0IHRoZSBjcHVfdG9fbm9kZSB0byBmb3JtYWwgX2Nw
+dV90b19ub2RlKCkuCj4KPiBXb3VsZMKgIHlvdSBwbGVhc2UgZml4IHRoaXMgY2xlYW5seSB3aXRo
+b3V0IGEgZnVuY3Rpb24gcG9pbnRlcj8KPgo+IFdoYXQgSSB0aGluayBuZWVkcyB0byBiZSBkb25l
+IGlzIGEgcGF0Y2ggc2VyaWVzLgo+Cj4gMS4gSW5zdHJ1bWVudCBjcHVfdG9fbm9kZSBzbyB0aGF0
+IHNvbWUgd2FybmluZyBpcyBpc3N1ZWQgaWYgaXQgaXMgdXNlZCAKPiB0b28gZWFybHkuIFByZWxv
+YWRpbmcgdGhlIGFycmF5IHdpdGggTlVNQV9OT19OT0RFIHdvdWxkIGFsbG93IHVzIHRvIGRvIAo+
+IHRoYXQuCj4KPiAyLiBJbXBsZW1lbnQgZWFybHlfY3B1X3RvX25vZGUgb24gcGxhdGZvcm1zIHRo
+YXQgY3VycmVudGx5IGRvIG5vdCBoYXZlIAo+IGl0Lgo+Cj4gMy4gQSBzZXJpZXMgb2YgcGF0Y2hl
+cyB0aGF0IGZpeCBlYWNoIHBsYWNlIHdoZXJlIGNwdV90b19ub2RlIGlzIHVzZWQgCj4gdG9vIGVh
+cmx5LgoKb2theSwgSSB3aWxsIHRyeSB0byBkbyBpdC4KCgpUaGFua3MKCkh1YW5nIFNoaWppZQoK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
