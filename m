@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF36C47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 21:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3655C48285
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 21:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eD0mGqI7XsfbwlHa1z+mQ35/uU9RE5ZTAvxYpV1au1g=; b=LtQhIUyhJukuSA
-	yPF9W15pY32Wf4sOpc1JpnfPnIQD4RzOP5ZCHiZdIup3T2Xd2yJ6MohU3pLiiaGn96Nqay3Oc32Am
-	6AdiXp8GB1wLO5LzZx0ppnm49OYYXEsjj+HiHzeIoqef5SeJxs/d2H0Gde9EOq4uZec3Q0lXfMSnS
-	RkLbl5IDFH60mgMphvsmHOOJhKGL61DVhQq+tvNBS+NMpEQ4oF0C1li1uBOthGu01n4qNdyEu3CUJ
-	Bta3PCRu6oGWFspbKZZzZSwLxU7buP2tUFYxazJoJpX+Vr7c9SmBIuinXsXVLidcgxkx1idpvmmzN
-	9Rtk1FAnZ/DD/gSpMtVA==;
+	List-Owner; bh=BpfT7mYtPZdHyVCAf8fkvT94eOwpltAeT5Gg3IcMWVg=; b=EcjAUsHDN0qUsE
+	vLHyrer6XwqQPyuNJm24yAB4lvWtWM/hZiRqZ+cWLNTbfDse9jRc1+XLN0/b8J6npFkoxWU3XZSXA
+	aWnP4qpLoxwVXx6ObrxGF5VQwD1OcYDiOkDFKFoxBXtD4l4sAep6A39XQz8y/iuC8YG/iBxKELAnZ
+	ate5rIkREVa8fmQE9XSH8aEn0AXYCWnDVBRLaIQ3u3ef3DQ4s9N7GLugpD015hHjbTHWfEWv0qiZS
+	mENUvmpeOgNRHoU43QTGnBITqJMvhHjt+gZwyYVltHp9k1YdGEkwRuwtDjgDQbtvWno9uV7cG0tX7
+	Lw/2/p455XAbhIqP2HGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT7Ix-000000020R6-2juz;
-	Thu, 25 Jan 2024 21:30:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rT7Iy-000000020Rc-1yHg;
+	Thu, 25 Jan 2024 21:30:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT7Is-000000020NZ-40DQ
+	id 1rT7It-000000020NX-03wB
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 21:30:32 +0000
+	Thu, 25 Jan 2024 21:30:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EC25362320;
+	by dfw.source.kernel.org (Postfix) with ESMTP id EC27C62322;
 	Thu, 25 Jan 2024 21:30:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4E8EDC43394;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 70F08C43601;
 	Thu, 25 Jan 2024 21:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1706218229;
-	bh=+MxR9NaWaOppxz1CebUGCA3UGwUCCpm+2/tjFMQvNwY=;
+	bh=X2mNprfouPEmvBoKw8baKQx7oOuTfhqFfvOx4U8Q8wU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=fEmX87PLzrdwWTQWwpSjg37S+uSvU5viqmA3eY4LAPTBEKTn8Vy5Xm6i+fPIO1+Uh
-	 698K8Ka5acpgEBwfIC7w2+8OWBKMWs1J2ck0ocGIMrQDiA73js8KC1HeezbpNt7q9W
-	 u7gN1weUog8LWrOEfMzYUYWvJFT2tKV3WxwK9lYofwX9hCpwXpjzPaSXEKuYEsKbcm
-	 zM5beLowdfluCqT2cPW34KIBG4e2OAih7VZarzFfBh/ZKt+NC0mKRGjxDUwGkKBgo4
-	 AO4wsAGtx9tP1nuVXiK9Zo4lTwmSmUf/GcXZGrrcNd4H/t9sX9zd3qTOrOVC0TO9LS
-	 dfyXIqSe5s+kg==
+	b=XQvcmpdNzt0ETY1MUWWfaBPOe9ZLr+MHgLnmCec4ax5XDwFNheBmLQQiAa7dNpbnR
+	 A8ErelEO4mNiAHDgU5lSz3NJKX8mtlEH2i4QNJVcdMoe3wVt+HVdIFrKWXme8krD8V
+	 /cRzq0f+AOYf4fUypSykgJYIqQ5vB++Bqnl++GKZjmgBE0d0PaVaQpD3TethO7rX2j
+	 z/kmGB5QoXDmC6OY8mbQ2JWWE9urYtmoYh+BPE+h2cB5rW+cu0eep+qilNpEDsOZ7R
+	 EUjLFNLBLx/vuLwYRBwNkUxRnix2NHnvLllsEFOloLdESJyuEAvPm6jhLf2BQDHuoB
+	 0Yqn2vdq1RIJA==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 36D8ED8C966;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 5CFCDDC9A06;
 	Thu, 25 Jan 2024 21:30:29 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: blacklist assembly symbols for kprobe
+Subject: Re: [PATCH V2] riscv: Support RANDOMIZE_KSTACK_OFFSET
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170621822922.6239.4505416696182414411.git-patchwork-notify@kernel.org>
+Message-Id: <170621822937.6239.4360145858676634125.git-patchwork-notify@kernel.org>
 Date: Thu, 25 Jan 2024 21:30:29 +0000
-References: <20231004131009.409193-1-cleger@rivosinc.com>
-In-Reply-To: <20231004131009.409193-1-cleger@rivosinc.com>
-To: =?utf-8?b?Q2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPg==?=@ci.codeaurora.org
+References: <20231109133751.212079-1-songshuaishuai@tinylab.org>
+In-Reply-To: <20231109133751.212079-1-songshuaishuai@tinylab.org>
+To: Song Shuai <songshuaishuai@tinylab.org>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, keescook@chromium.org,
+ guoren@kernel.org, bjorn@rivosinc.com, jszhang@kernel.org,
+ conor.dooley@microchip.com, andy.chiu@sifive.com, samitolvanen@google.com,
+ coelacanthushex@gmail.com, dlemoal@kernel.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org, palmer@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_133031_075237_FCA694A7 
-X-CRM114-Status: UNSURE (   7.36  )
+X-CRM114-CacheID: sfid-20240125_133031_158271_36B203C3 
+X-CRM114-Status: UNSURE (   8.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,21 +84,22 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed,  4 Oct 2023 15:10:09 +0200 you wrote:
-> Adding kprobes on some assembly functions (mainly exception handling)
-> will result in crashes (either recursive trap or panic). To avoid such
-> errors, add ASM_NOKPROBE() macro which allow adding specific symbols
-> into the __kprobe_blacklist section and use to blacklist the following
-> symbols that showed to be problematic:
-> - handle_exception()
-> - ret_from_exception()
-> - handle_kernel_stack_overflow()
+On Thu,  9 Nov 2023 21:37:51 +0800 you wrote:
+> Inspired from arm64's implement -- commit 70918779aec9
+> ("arm64: entry: Enable random_kstack_offset support")
+> 
+> Add support of kernel stack offset randomization while handling syscall,
+> the offset is defaultly limited by KSTACK_OFFSET_MAX() (i.e. 10 bits).
+> 
+> In order to avoid trigger stack canaries (due to __builtin_alloca) and
+> slowing down the entry path, use __no_stack_protector attribute to
+> disable stack protector for do_trap_ecall_u() at the function level.
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: blacklist assembly symbols for kprobe
-    https://git.kernel.org/riscv/c/5014396af9bb
+  - [V2] riscv: Support RANDOMIZE_KSTACK_OFFSET
+    https://git.kernel.org/riscv/c/05d450aabd73
 
 You are awesome, thank you!
 -- 
