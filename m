@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B1FC47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 19:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408FEC48286
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 19:33:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sdt8RKvKGhZkVOwNdQ51Zb/hstwe44SUvU0IYYoMXUU=; b=jTrYQPMX4gJojV
-	FdPrtE5ICYxZZlgDDYMbU9g/YZmLCSQ6vysCdsAbbDDg6gqwt7xwgmxrwehlKSwQuvDm5CDijVHat
-	dTAPKKgNP4GHmdo+Ytk07zLuv8AGp+yYYjk5voA9WEg0jJk7L608B45HZGkhpSRnkBhQNm2HHANoF
-	baBLX5V9yb57RtJutL/aeDJrbq4n7mRtDZYJv8wWXICC65Xjj+yuNI5ksB+W6KGLU3s4HLI4d5meD
-	BYSJSfrztzOOLbsPi0XZwXOGGrNpJiajj16kxEJQynm1w+06PnW4ZxdMtT0eTvuOYNFFR3riNY3WJ
-	yHtRpC0GYKiq5EaoDRiA==;
+	List-Owner; bh=CnnY01tsNP41RiF45syidCcilh96jKgzVPzW0ZYfv6k=; b=miydt3OTX6s4JH
+	am3HmGPIZT2r06n+DaqM+QsWpYbWW+wsF1/MWUIJ9mz1pMk1F5WMdZZiegWj6+iaNvXRYGg5K21Zy
+	Nt/pJh22alCG5DRvifGmu55o2A0hpaKzWLFWABJGCKG23yTBVPHi6daCyOiZwZUhs8iOXi8HkKrIa
+	NoyJQOh+EkotuRbb3KtOA6NdUWj6zc5VqJ48jVSnVHBEqV18a/mNE29Jl0cww3PqacPACFi7C/nVY
+	EMstMUIEOyvF9BE6EUoVfcDHMyTnwGBVoYCncxUD18ox52/ZIFm1VmuAbPKYcBmldKmQrVBeTaofS
+	tfCy/TK7uGMMwCOoAwgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT5Sz-00000001XHY-3STi;
-	Thu, 25 Jan 2024 19:32:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rT5T8-00000001XNY-3dMB;
+	Thu, 25 Jan 2024 19:32:58 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT5Sx-00000001XEk-21CC
+	id 1rT5T2-00000001XIP-3kTX
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 19:32:49 +0000
+	Thu, 25 Jan 2024 19:32:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1706211166;
+	s=mimecast20190719; t=1706211171;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=82AmjG/O5udPRimJWVv8/kqN5WdZj3aSPBj/SjaK3u4=;
-	b=S62N9o3pikqaOBOr/Na222g/JLhRYzYPiVMP+GcGw6L5Cw+hxQKUNYHyADo1J0B1+Q2tuQ
-	fknCq8WPzEc2dr1SixRCqay7iR2SzNlYPgm8Ryqy8AmWCRvCXCN2U80kjouxo7N3jC1vpX
-	si9JTBm/ktie7CrlHIBsvGtCGZfVBEM=
+	bh=PQouyLY2O+uNJNW8rltya8+XjvAPXlL2xnyiW/c3KZ4=;
+	b=QS2BNlb+JpicPHp6dRsxKVSDIIF9XTA4VjXk+Hj1Q7UHVgwEyTwox6OweoYdAORLxuiDFb
+	xY+YnGBeuBJYdOcgJi3qD3AxddKytEn96Wnx1czSZYeNxQ0gVqXyL93E1ar/4WdZxC+K4/
+	S8HbvaSGlAoLnNN4IRxEvqDHhiIA8QQ=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-581-J0yUPAt0OCGNPncPGz6sEA-1; Thu, 25 Jan 2024 14:32:42 -0500
-X-MC-Unique: J0yUPAt0OCGNPncPGz6sEA-1
+ us-mta-606--28HdBjrN0mHVjdOaKldYA-1; Thu, 25 Jan 2024 14:32:48 -0500
+X-MC-Unique: -28HdBjrN0mHVjdOaKldYA-1
 Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EFA1F8432A6;
-	Thu, 25 Jan 2024 19:32:40 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AF58485A589;
+	Thu, 25 Jan 2024 19:32:46 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.39.193.154])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 81D45492BC6;
-	Thu, 25 Jan 2024 19:32:35 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 37002492BC6;
+	Thu, 25 Jan 2024 19:32:41 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-mm@kvack.org,
@@ -82,16 +82,17 @@ Cc: linux-mm@kvack.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: [PATCH v2 01/15] arm64/mm: Make set_ptes() robust when OAs cross 48-bit boundary
-Date: Thu, 25 Jan 2024 20:32:13 +0100
-Message-ID: <20240125193227.444072-2-david@redhat.com>
+Subject: [PATCH v2 02/15] arm/pgtable: define PFN_PTE_SHIFT
+Date: Thu, 25 Jan 2024 20:32:14 +0100
+Message-ID: <20240125193227.444072-3-david@redhat.com>
 In-Reply-To: <20240125193227.444072-1-david@redhat.com>
 References: <20240125193227.444072-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_113247_644587_D48B7847 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20240125_113253_057887_D15A71EE 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,88 +109,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Roberts <ryan.roberts@arm.com>
+We want to make use of pte_next_pfn() outside of set_ptes(). Let's
+simply define PFN_PTE_SHIFT, required by pte_next_pfn().
 
-Since the high bits [51:48] of an OA are not stored contiguously in the
-PTE, there is a theoretical bug in set_ptes(), which just adds PAGE_SIZE
-to the pte to get the pte with the next pfn. This works until the pfn
-crosses the 48-bit boundary, at which point we overflow into the upper
-attributes.
-
-Of course one could argue (and Matthew Wilcox has :) that we will never
-see a folio cross this boundary because we only allow naturally aligned
-power-of-2 allocation, so this would require a half-petabyte folio. So
-its only a theoretical bug. But its better that the code is robust
-regardless.
-
-I've implemented pte_next_pfn() as part of the fix, which is an opt-in
-core-mm interface. So that is now available to the core-mm, which will
-be needed shortly to support forthcoming fork()-batching optimizations.
-
-Link: https://lkml.kernel.org/r/20240125173534.1659317-1-ryan.roberts@arm.com
-Fixes: 4a169d61c2ed ("arm64: implement the new page table range API")
-Closes: https://lore.kernel.org/linux-mm/fdaeb9a5-d890-499a-92c8-d171df43ad01@arm.com/
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Reviewed-by: David Hildenbrand <david@redhat.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- arch/arm64/include/asm/pgtable.h | 28 +++++++++++++++++-----------
- 1 file changed, 17 insertions(+), 11 deletions(-)
+ arch/arm/include/asm/pgtable.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 79ce70fbb751c..52d0b0a763f16 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -341,6 +341,22 @@ static inline void __sync_cache_and_tags(pte_t pte, unsigned int nr_pages)
- 		mte_sync_tags(pte, nr_pages);
- }
+diff --git a/arch/arm/include/asm/pgtable.h b/arch/arm/include/asm/pgtable.h
+index d657b84b6bf70..be91e376df79e 100644
+--- a/arch/arm/include/asm/pgtable.h
++++ b/arch/arm/include/asm/pgtable.h
+@@ -209,6 +209,8 @@ static inline void __sync_icache_dcache(pte_t pteval)
+ extern void __sync_icache_dcache(pte_t pteval);
+ #endif
  
-+/*
-+ * Select all bits except the pfn
-+ */
-+static inline pgprot_t pte_pgprot(pte_t pte)
-+{
-+	unsigned long pfn = pte_pfn(pte);
++#define PFN_PTE_SHIFT		PAGE_SHIFT
 +
-+	return __pgprot(pte_val(pfn_pte(pfn, __pgprot(0))) ^ pte_val(pte));
-+}
-+
-+#define pte_next_pfn pte_next_pfn
-+static inline pte_t pte_next_pfn(pte_t pte)
-+{
-+	return pfn_pte(pte_pfn(pte) + 1, pte_pgprot(pte));
-+}
-+
- static inline void set_ptes(struct mm_struct *mm,
- 			    unsigned long __always_unused addr,
- 			    pte_t *ptep, pte_t pte, unsigned int nr)
-@@ -354,7 +370,7 @@ static inline void set_ptes(struct mm_struct *mm,
- 		if (--nr == 0)
- 			break;
- 		ptep++;
--		pte_val(pte) += PAGE_SIZE;
-+		pte = pte_next_pfn(pte);
- 	}
- }
+ void set_ptes(struct mm_struct *mm, unsigned long addr,
+ 		      pte_t *ptep, pte_t pteval, unsigned int nr);
  #define set_ptes set_ptes
-@@ -433,16 +449,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
- 	return clear_pte_bit(pte, __pgprot(PTE_SWP_EXCLUSIVE));
- }
- 
--/*
-- * Select all bits except the pfn
-- */
--static inline pgprot_t pte_pgprot(pte_t pte)
--{
--	unsigned long pfn = pte_pfn(pte);
--
--	return __pgprot(pte_val(pfn_pte(pfn, __pgprot(0))) ^ pte_val(pte));
--}
--
- #ifdef CONFIG_NUMA_BALANCING
- /*
-  * See the comment in include/linux/pgtable.h
 -- 
 2.43.0
 
