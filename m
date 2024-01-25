@@ -4,91 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD6A2C47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 04:23:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 280EDC47DDF
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 05:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZwcBioQsA8RTN6DL2CA55mHB6bArq86/rpo/HGng9Z4=; b=Ro1SuUinpyOH5O
-	7IMloYoeE3xz5J/Op3cGw0SXml5zwf07srs338FVqM8SpNQLcSiC76Xyf9P7fejrynOtqeAmiT8kG
-	xfbuKRdRq1ogqYQhyE7dZY9X8tsOqwyhNi4LgNeOZ+ddk1NPCBC6dDUDMlItJ4SE+paeke09XiPPc
-	yAdW/LWcRrErnSO+61d72mqcPsiyOGd59v2t5gRK0wYVkW2C8fs36JeE82C0su9GIKVXq4ozC3r1C
-	ikibh/1OZ6CuPvwZ2sZGL5hmPt3W799L7WinrjRRkW4eC8N5Gy5eWbbAXcg58lKB8GyU3jiFomait
-	o8Js3jDunM295zrBvLDw==;
+	List-Owner; bh=04WOHhbS3CpkbhoK3+N0h3Mw9GjnfLRkSl6pOvy7Z1U=; b=H7/uNRUlVcdOF6
+	WjBEOBl0GgT3Q7opPcCn5wEhjPKrLh7km0ex97hZAePoISSuBu8z0nuT0c0EUFNNoZSgDhjvvJPL9
+	GYdoM/8YodPfBNa5myakTUmeRYAvNAzcp1Bo/D/zskg2wsVV5TMqiGexjwSw49qKaJJ1oFvm2v10X
+	hssrPhp+Fey9w18VJDGaCGUdENqCWoFVO5s+/p8b/8PkvdywEfjPtMjxGN5NszIQHdil2iWcgg3R/
+	NBZ+1hHrZhTQ7yiaYxdpFUH6T34MxBZslC0AcsFcpZTCPOPP9tf1d95ui6vT6vlK/2p9gQrckiz8w
+	IwM6DiJzCdsFPtTl46Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSrH1-006FXZ-0X;
-	Thu, 25 Jan 2024 04:23:31 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1rSs2r-006Q3h-1W;
+	Thu, 25 Jan 2024 05:12:57 +0000
+Received: from mail-mw2nam10olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c12::801] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSrGu-006FPS-1B
-	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 04:23:27 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-6ddf26eba3cso4107133a34.0
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 20:23:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706156591; x=1706761391; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vLIM72Z2vNh3qI4rsxyZGnimCgUZb6UoqNYsK+L6u4g=;
-        b=UQLF2zVVJ1bmku5lmFHK490NzB3825NGW/H5CzfCXdrThZJZJycJXx6drY7Etieh0C
-         dubBfmm6hKf9ONHGZ74Y9afke8oFH5APIu8Sn9nMMhQ+k+/AKNXhRrc+8JNx3S0fJWQv
-         JD9LJWP0Xe4h5GqtHb3qsTs7uePCwkv/C69VN6UpmTpLhJd1lFfy7YHIH7SNC0Zz1NAP
-         x8WQE8juMl2O6FiBeKEKN8n/fv2ud1PYOfzBSntS2D35YKqAT1JxILUpAU41SORlOuFv
-         c7H/DTnOQ+0yHyGoBT0e3kf8caG9j/KprGp887+6yhB0OJQQbPmacaZmgdZDwToq2Hsf
-         UvAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706156591; x=1706761391;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vLIM72Z2vNh3qI4rsxyZGnimCgUZb6UoqNYsK+L6u4g=;
-        b=FS28NmWl3Mr6dhvpnZT+iGXu7LLdrsvK+Oegt9yRsIxfelLrPV6o6jxk8fTjLo0Wgy
-         o8ovGbEy71vF0U3wCyolwW13OgMhXNkjnWxU+J9GWcSOYUDjGAkXELpyA/ucznkVizE0
-         Z6VWwpsoUExhg8MMWjgAdOYqEz9RPcevUtUb6yi89QAENTa6IiOoXQWkVYyiDXguXjBM
-         47Gfilnfbg/wvYsg/MYDQFAByt2UCFNh6rFWkqZw42Jc9HJJ0ig69gOMkZwCwf4aIiZh
-         M1+opJrCayxYfZYNQUstC4hsxlXLEGBJNw6qD/48mTeENRReZGBKIzEnwtLyB3NyCjHn
-         xuaQ==
-X-Gm-Message-State: AOJu0YySZFz6pwS0uDk4v4MMUZtF9BROOnEysGvYa2FqDoaChZvqEd3/
-	sDM3nBRUyJ2G6d62H2305R6adn6tZwsRsjJCk3I+FT3nLAUmRgGPENQaI4hsE/E=
-X-Google-Smtp-Source: AGHT+IFUvnTdJaqbpQl1U0Dl7T4XtAAkQaiRxFqqbQs1mGklF/pj6r3xdCixdbHNU6ti4Yb2l95t4Q==
-X-Received: by 2002:a9d:67c5:0:b0:6e1:37b:5678 with SMTP id c5-20020a9d67c5000000b006e1037b5678mr263383otn.34.1706156591404;
-        Wed, 24 Jan 2024 20:23:11 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id ko9-20020a056a00460900b006dab36287bfsm14549743pfb.207.2024.01.24.20.23.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jan 2024 20:23:10 -0800 (PST)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 24 Jan 2024 20:23:08 -0800
-Subject: [PATCH v10 1/2] riscv: Include riscv_set_icache_flush_ctx prctl
+	id 1rSs2m-006Q1t-2b;
+	Thu, 25 Jan 2024 05:12:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=dd777VtAPtOmKebxxwyRYH09k8ojvygXBj/mJFZPlQapgnPzhK5No+H/gsps31dHOVyh0RRhCjiAxDV23DwegYanK/XVg2x9SB+V3KM8e6VDOnl622GiBa4qnjYSM28RbBIukkwDdpJ6wkUL4hVghxoZfxd5M4m7X5g6rtnv/Nw6/Cq2gYr+hC95Mc2TKWOzZStWn9D520Qc18sjpP+Li1nBx/VUvh8uJun7O2JuaL+dcfWLp1glYVLO9YR4iHYUQTUvwuBTUTxkGdaa5+5uEvlrEx+mGZAsW9xOh8TsTwMWm4Ut1SOXzh7prBwI/IZ4ekvSEfXmuJ2npMGUhx8uYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=piEt+f2hjxMsWO9R+JZwe8J+xCJs/pLyITSwv0ELKus=;
+ b=IKTP2fpLC7Cccw3t0NUVGrwSZ0/5EkBt0az/DpEhEOC/mMEAB5IAb/Ed5pW6tvRl4p4L1M8MQujeXBMNSz0HGi/xeRMj3i4GRmcB0aUmkXiA5NaJ3nkO70BmZ6ipkystSMY6rYtoImkRSSYsHbBshJJSYtLkq1l/o/SndKHCcbqP9h/1fm+owYj08F3/eTUQ5oDvDq3f3+dk/aRr90il0LzEqZqNDxsi4xdfeyRcbcQqpjDd+7R39dmrA4x9ciry8ZScugUORSIt4iOOmJ0SJpR5F/MtIWzA/t61BYg8XT06UmN18kSC6xojyadygfTN2MBhT/9ClVEn/VnZs9tV2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=piEt+f2hjxMsWO9R+JZwe8J+xCJs/pLyITSwv0ELKus=;
+ b=TnCEtYXjB13OJTB4ZpBjRKfXMIjSPk86SoPKDEzBUN+vwnBfjXGU3QndjWM5EavUPRKdxUyM6C+HugyqNC1Onje/L5OZWZ72qMAUQJk4B4gvOO2f/YwJsIhaYGAx8tKWdHyFOf5d68imBwFdobKbCER3Zu37IqkClahIsgFA1oT3H2M0YnCGFkLd/PwhsmcqDm2KgzTiY22pdkMLTzdN48P3lvVWrumSSMUEwOYBql9gvzXyNv7XFrjTbdDrEyZccV+HiEXWBF0g+TR32NCoSDVYIlkehyPOChMCLEvZ6T1vvrd8TpOQzCY20Arem+rL29qbDuxEOtUarddL3E2e3A==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by SJ0PR02MB8765.namprd02.prod.outlook.com (2603:10b6:a03:3dc::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7228.26; Thu, 25 Jan
+ 2024 05:12:45 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::67a9:f3c0:f57b:86dd]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::67a9:f3c0:f57b:86dd%5]) with mapi id 15.20.7228.022; Thu, 25 Jan 2024
+ 05:12:45 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Baoquan He <bhe@redhat.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kexec@lists.infradead.org" <kexec@lists.infradead.org>, "x86@kernel.org"
+	<x86@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "linux-sh@vger.kernel.org"
+	<linux-sh@vger.kernel.org>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, "akpm@linux-foundation.org"
+	<akpm@linux-foundation.org>, "ebiederm@xmission.com" <ebiederm@xmission.com>,
+	"hbathini@linux.ibm.com" <hbathini@linux.ibm.com>, "piliu@redhat.com"
+	<piliu@redhat.com>, "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>
+Subject: RE: [PATCH linux-next v3 06/14] x86, crash: wrap crash dumping code
+ into crash related ifdefs
+Thread-Topic: [PATCH linux-next v3 06/14] x86, crash: wrap crash dumping code
+ into crash related ifdefs
+Thread-Index: AQHaToRG7EZBXaVit0yb4RXbyvoNjrDpkK1ggABa6ACAAA/3oA==
+Date: Thu, 25 Jan 2024 05:12:45 +0000
+Message-ID: <SN6PR02MB4157E138C7EE4A281AB49C10D47A2@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <20240124051254.67105-1-bhe@redhat.com>
+ <20240124051254.67105-7-bhe@redhat.com>
+ <SN6PR02MB4157931105FA68D72E3D3DB8D47B2@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <ZbHfACpwqi2U9vmK@MiWiFi-R3L-srv>
+In-Reply-To: <ZbHfACpwqi2U9vmK@MiWiFi-R3L-srv>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-tmn: [NISCNTVr9jvOnz7R+68sGNU/5qSOTo7d]
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|SJ0PR02MB8765:EE_
+x-ms-office365-filtering-correlation-id: 86f5c899-3c6c-4d09-678b-08dc1d6443e4
+x-ms-exchange-slblob-mailprops: WaIXnCbdHrOwhXVdeGZL77uy/MCF2FXuH2O8XtKFoSBIWHiMUCm9GLLfTibU/DWp6D1JtO0RmblZV74wuiys1tuj463WIjqYkbbhbkZOdd6Gs6NRZWUi5kp1ImJ2mGTQzQEESoaw3Qz8Ie13a+gwvmKP6J/UVl9rIc6s55TNG/P0qVOvuobRL/ebdSF9Vt3aCfTPwv9gpkkHNUmdPKvR9sV9luuAPnXhPnFw+E3nLnIFSh4mL4zSKJZutPKavF88xvCxXRP2DpUfITULGmIcjmDQ7TVqn+GkCIcz3kO6KpPuE+V9+2r1w0K8dJfeuNr5Y4PX6KqYNTUglbmqsgUbgcuiidS6Fn1D3mro4o8J3Hz3bof/q8eZTFPSMNkpODastcr4fcfKufAUAJGD5ay19J8/3SVMvetdGMOZOitS4CGOy8WmN26uzL+Q/m7XTofJO7hZYl0Zz/o68gBkfpgfkSDMzcvKaWQTx/F/Vauo7GCk0D+OYCXZqpvrpqFJw+6s4szuANQ884hokmVXh6iofU7UyTFi5Gu5PVe7qpPQ9GzbrUe/p/hm8coza3W56I/JoPZASjSynt9jMIr5TiRn26UYfWszdnbUoHLCMzn1z3Honp4ynFvDFfN+JJA4AdKDwHwEQ59hFF/NM3J3uJ/Na6/bhsEOYXsf/fry4l1LAI7N5+izLTrlUUgRbgtrsjZjCsoe/GiYluHl376EOhckta31F1BYdMB8gVy91USaQ4L1Icsg/enZcW3onG39hzvc3aTDyyzhm2U=
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: alY3iC2hQhYnRfo9NbxslDGFp5e7TNjV5xVjVeWzfZcp2aUgIVdBRgGaSd+Xmt64+ZDhMhlH7ho89cwUwvVR+NZXF1wY97YQZ8x189d0DPEi3qhzVaXtHIOMXS4b61U1YaJ97VphCen6UGOZfQWDOnZ1xnGA0bcgeewrxdfh1ZiQa1rPQXui+Nh+DIu7Vl3AhutImSgr4NTb7Y1WjEPMVP1w5T4GoP/bhAgT19gSASVv2SmQbXXsCtJ+0KNY5CGtgwUmQb7ZYlnjH7G1Fe5/yPrkavBKwj//pwNec8cjAtcv1iFbbFvpc9HQ8IpyW6QrXhigdeKfytgQELnOCaHgsqsmpFtfHsgNzQ1RZ+bC02cjaLv3qZ7eiJznHfPUCUjTlCjUj+snSmYL0J7JOdx5WqEekQyTQvzMf58GYHbAAGbQ71EP6FO4z9hK8kJcoVuZlv/8O/iiRVVQOK5UokdUyg8EIN9ht99bgt7gAgoLwp4HKf/DPpKtc33fpa1MwKsOuokvkiR9gJjnf8ndRfCPENQH+GLtLxpxz0vIZQ9fI07r6irFMCV3SdfI2604HUzW
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?pKQibq74HeDVDTsxKq/hwFYAfYro3gf5RZHFnGtMhBXhV1XGZkdqx5tHt8zF?=
+ =?us-ascii?Q?H4kKli5yri/A6qH27LCxeeuvl3MKXgCJSqv+7Zrg3SMLQ/8GfOwQa9OfsGVU?=
+ =?us-ascii?Q?g/roiC9AbL5+sdlDi8uuLqbNVZbqXOTCensjiWhzz5mnWTp8acgIH0MRa5sS?=
+ =?us-ascii?Q?zGDoVRFTkMEJrGkMSu67m7VcmYkToR4WnN3sczC/q+vvmmejJFd9zaNUxrq1?=
+ =?us-ascii?Q?lFaC/UcNpjTS/+udX0N7e2pvtK3tvr9FziqO+6HY4duhkbcjb+zMeo4TEhXj?=
+ =?us-ascii?Q?L1v8mZWAKkfNFYgybdWMagCKykV658V35nOsZ1HYdv0iNmhm8QUqlqy5VUU7?=
+ =?us-ascii?Q?bFTyttXdkgWxW6pBZdInrVU0604gXeiPVX8GbDVl6TVvFTS2Ly+xKv1T4hUN?=
+ =?us-ascii?Q?IthKL9tP5vCwzfAIuEDDIht2EGIrAvKr1hbPv+SkeOCHBGttODdrA1R5bQUj?=
+ =?us-ascii?Q?ytiMpSE7K3dECWVRE1Spb/lZguZqC8GQD4tSx/WL6RukTWd73lK7BQE9l4PB?=
+ =?us-ascii?Q?NhRGmlOFBvg4SQtJmF2vwY1mDsSH1sg+/gRbI18rsSOEy4b9nXrVkkvblGoB?=
+ =?us-ascii?Q?epQE0MKvprGZB5QwYW8RaWQgaQqAVXiZxRf3TvcbhW0dL8IfyjVVYKk2uYey?=
+ =?us-ascii?Q?YyE583dBxkYJrya/6dGKJjrkPifm/2/gqE+ei0+jSDrs52lLsF85ULWH4HFo?=
+ =?us-ascii?Q?5vbWU6tb1a+aOJFktUYTdYnSHCPOOurkXyXvDu3APDm6xx3gldz6XlN6Icr2?=
+ =?us-ascii?Q?9KrGUjfZJfXXsg8/HArbg2uhuuMss3CZVZGURXpmQcuTY4BWSEts9o+VJXFr?=
+ =?us-ascii?Q?RJnTVmPSR/ZRt4Zms2jFKTeuDK/wkYoH28Wr+fz5mIXg6FsrANUEzaS5uX73?=
+ =?us-ascii?Q?5X8CAUaxAyhd1mEuFKloOp0XEwuNELEYHNWk/oc9W7f0OP3bIcvBXpalMMYK?=
+ =?us-ascii?Q?rbN0WRewERHmTbjWZ7nWP98BzdWtnrurhBYN2UNS4tULxMZOXrghAhu+yIsI?=
+ =?us-ascii?Q?G8l7vHcK9Y7MKjg13DyLVK+fXiTbKF5WVBeI1e0ZMwMJFmqCV3fQCfBtllkI?=
+ =?us-ascii?Q?peCADJtp3S+0OdUjYXdXzEshFEX9QAMs9kYMLRSSIB32fEY+2lkhg+NY+7Na?=
+ =?us-ascii?Q?w49pQ2XxBs56DFHwHJD3tdJky/tiJ0ZiCNMDs+MkyHnsWII8wp+A5KqbcqwI?=
+ =?us-ascii?Q?wr2fLdQ31HbjhFGfJcBGGiEF1zqeY/nx0cyHZw=3D=3D?=
 MIME-Version: 1.0
-Message-Id: <20240124-fencei-v10-1-a25971f4301d@rivosinc.com>
-References: <20240124-fencei-v10-0-a25971f4301d@rivosinc.com>
-In-Reply-To: <20240124-fencei-v10-0-a25971f4301d@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Jonathan Corbet <corbet@lwn.net>, Conor Dooley <conor.dooley@microchip.com>, 
- =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
- Atish Patra <atishp@atishpatra.org>, Randy Dunlap <rdunlap@infradead.org>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>, 
- Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1706156588; l=9638;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=Wrbc2b6m69dlcwU7PwTcVPKZs3y4yvoSAGZnA9SbZ+w=;
- b=kyLw1DLApnIyBKT1LLGYGvjkOP+WNF2nzFLQiYvHqu4U+6xzKO/fSWEAG+F8eZ4l6jsGDUtH7
- E86CXf4VcL2CkLkW3ngNOLpdl7nTEid24bCcbzWRI9juEJBJZJEPUnB
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 86f5c899-3c6c-4d09-678b-08dc1d6443e4
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jan 2024 05:12:45.2178
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR02MB8765
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_202324_798704_9EBD9985 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20240124_211252_875256_507EBAA0 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,267 +140,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Support new prctl with key PR_RISCV_SET_ICACHE_FLUSH_CTX to enable
-optimization of cross modifying code. This prctl enables userspace code
-to use icache flushing instructions such as fence.i with the guarantee
-that the icache will continue to be clean after thread migration.
+From: Baoquan He <bhe@redhat.com> Sent: Wednesday, January 24, 2024 8:10 PM
+> 
+> On 01/24/24 at 11:02pm, Michael Kelley wrote:
+> > > diff --git a/arch/x86/kernel/cpu/mshyperv.c
+> > > b/arch/x86/kernel/cpu/mshyperv.c
+> > > index 01fa06dd06b6..f8163a59026b 100644
+> > > --- a/arch/x86/kernel/cpu/mshyperv.c
+> > > +++ b/arch/x86/kernel/cpu/mshyperv.c
+> > > @@ -210,6 +210,7 @@ static void hv_machine_shutdown(void)
+> > >  		hyperv_cleanup();
+> > >  }
+> > >
+> > > +#ifdef CONFIG_CRASH_DUMP
+> > >  static void hv_machine_crash_shutdown(struct pt_regs *regs)
+> > >  {
+> > >  	if (hv_crash_handler)
+> > > @@ -221,6 +222,7 @@ static void hv_machine_crash_shutdown(struct pt_regs *regs)
+> > >  	/* Disable the hypercall page when there is only 1 active CPU. */
+> > >  	hyperv_cleanup();
+> > >  }
+> > > +#endif
+> > >  #endif /* CONFIG_KEXEC_CORE */
+> >
+> > Note that the #ifdef CONFIG_CRASH_DUMP is nested inside
+> > #ifdef CONFIG_KEXEC_CODE here, and in the other Hyper-V code
+> > just below.   It's also nested in xen_hvm_guest_init() at the bottom
+> > of this patch.  But the KVM case of setting crash_shutdown is
+> > not nested -- you changed #ifdef CONFIG_KEXEC_CORE to #ifdef
+> > CONFIG_CRASH_DUMP.
+> >
+> > I think both approaches work because CONFIG_CRASH_DUMP implies
+> > CONFIG_KEXEC_CORE, but I wonder if it would be better to *not* nest
+> > in all cases.  I'd like to see the cases be consistent so in the future
+> > someone doesn't wonder why there's a difference (unless there's
+> > a reason for the difference that I missed).
+> 
+> I agree with you, it's a great suggestion. Thanks.
+> 
+> Do you think below draft patch includes all changes you are concerned
+> about?
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/include/asm/mmu.h       |  2 ++
- arch/riscv/include/asm/processor.h |  7 ++++
- arch/riscv/include/asm/switch_to.h | 13 ++++++++
- arch/riscv/mm/cacheflush.c         | 67 ++++++++++++++++++++++++++++++++++++++
- arch/riscv/mm/context.c            | 13 ++++++--
- include/uapi/linux/prctl.h         |  6 ++++
- kernel/sys.c                       |  6 ++++
- 7 files changed, 111 insertions(+), 3 deletions(-)
+Yes, these changes look good as a delta to your original patch.
 
-diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-index 355504b37f8e..60be458e94da 100644
---- a/arch/riscv/include/asm/mmu.h
-+++ b/arch/riscv/include/asm/mmu.h
-@@ -19,6 +19,8 @@ typedef struct {
- #ifdef CONFIG_SMP
- 	/* A local icache flush is needed before user execution can resume. */
- 	cpumask_t icache_stale_mask;
-+	/* Force local icache flush on all migrations. */
-+	bool force_icache_flush;
- #endif
- #ifdef CONFIG_BINFMT_ELF_FDPIC
- 	unsigned long exec_fdpic_loadmap;
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index a8509cc31ab2..816cdc2395f4 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -123,6 +123,10 @@ struct thread_struct {
- 	struct __riscv_v_ext_state vstate;
- 	unsigned long align_ctl;
- 	struct __riscv_v_ext_state kernel_vstate;
-+#ifdef CONFIG_SMP
-+	bool force_icache_flush;
-+	unsigned int prev_cpu;
-+#endif
- };
- 
- /* Whitelist the fstate from the task_struct for hardened usercopy */
-@@ -184,6 +188,9 @@ extern int set_unalign_ctl(struct task_struct *tsk, unsigned int val);
- #define GET_UNALIGN_CTL(tsk, addr)	get_unalign_ctl((tsk), (addr))
- #define SET_UNALIGN_CTL(tsk, val)	set_unalign_ctl((tsk), (val))
- 
-+#define RISCV_SET_ICACHE_FLUSH_CTX(arg1, arg2)	riscv_set_icache_flush_ctx(arg1, arg2)
-+extern int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread);
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _ASM_RISCV_PROCESSOR_H */
-diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-index 7efdb0584d47..ac99ab64499c 100644
---- a/arch/riscv/include/asm/switch_to.h
-+++ b/arch/riscv/include/asm/switch_to.h
-@@ -8,6 +8,7 @@
- 
- #include <linux/jump_label.h>
- #include <linux/sched/task_stack.h>
-+#include <linux/mm_types.h>
- #include <asm/vector.h>
- #include <asm/cpufeature.h>
- #include <asm/processor.h>
-@@ -72,14 +73,26 @@ static __always_inline bool has_fpu(void) { return false; }
- extern struct task_struct *__switch_to(struct task_struct *,
- 				       struct task_struct *);
- 
-+static inline bool switch_to_should_flush_icache(struct task_struct *task)
-+{
-+	bool stale_mm = task->mm && (task->mm->context.force_icache_flush);
-+	bool stale_thread = task->thread.force_icache_flush;
-+	bool thread_migrated = smp_processor_id() != task->thread.prev_cpu;
-+
-+	return thread_migrated && (stale_mm || stale_thread);
-+}
-+
- #define switch_to(prev, next, last)			\
- do {							\
- 	struct task_struct *__prev = (prev);		\
- 	struct task_struct *__next = (next);		\
-+	__next->thread.prev_cpu = smp_processor_id();	\
- 	if (has_fpu())					\
- 		__switch_to_fpu(__prev, __next);	\
- 	if (has_vector())					\
- 		__switch_to_vector(__prev, __next);	\
-+	if (switch_to_should_flush_icache(__next))	\
-+		local_flush_icache_all();		\
- 	((last) = __switch_to(__prev, __next));		\
- } while (0)
- 
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index 55a34f2020a8..2d5e1575f6c1 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/acpi.h>
- #include <linux/of.h>
-+#include <linux/prctl.h>
- #include <asm/acpi.h>
- #include <asm/cacheflush.h>
- 
-@@ -152,3 +153,69 @@ void __init riscv_init_cbo_blocksizes(void)
- 	if (cboz_block_size)
- 		riscv_cboz_block_size = cboz_block_size;
- }
-+
-+/**
-+ * riscv_set_icache_flush_ctx() - Enable/disable icache flushing instructions in
-+ * userspace.
-+ * @ctx: Set the type of icache flushing instructions permitted/prohibited in
-+ *	 userspace. Supported values described below.
-+ *
-+ * Supported values for ctx:
-+ *
-+ * * %PR_RISCV_CTX_SW_FENCEI_ON: Allow fence.i in userspace.
-+ *
-+ * * %PR_RISCV_CTX_SW_FENCEI_OFF: Disallow fence.i in userspace. All threads in
-+ *   a process will be affected when ``scope == PR_RISCV_SCOPE_PER_PROCESS``.
-+ *   Therefore, caution must be taken -- only use this flag when you can
-+ *   guarantee that no thread in the process will emit fence.i from this point
-+ *   onward.
-+ *
-+ * @scope: Set scope of where icache flushing instructions are allowed to be
-+ *	   emitted. Supported values described below.
-+ *
-+ * Supported values for scope:
-+ *
-+ * * %PR_RISCV_SCOPE_PER_PROCESS: Ensure the icache of any thread in this process
-+ *                               is coherent with instruction storage upon
-+ *                               migration.
-+ *
-+ * * %PR_RISCV_SCOPE_PER_THREAD: Ensure the icache of the current thread is
-+ *                              coherent with instruction storage upon
-+ *                              migration.
-+ *
-+ * When ``scope == PR_RISCV_SCOPE_PER_PROCESS``, all threads in the process are
-+ * permitted to emit icache flushing instructions. Whenever any thread in the
-+ * process is migrated, the corresponding hart's icache will be guaranteed to be
-+ * consistent with instruction storage. Note this does not enforce any
-+ * guarantees outside of migration. If a thread modifies an instruction that
-+ * another thread may attempt to execute, the other thread must still emit an
-+ * icache flushing instruction before attempting to execute the potentially
-+ * modified instruction. This must be performed by the userspace program.
-+ *
-+ * In per-thread context (eg. ``scope == PR_RISCV_SCOPE_PER_THREAD``), only the
-+ * thread calling this function is permitted to emit icache flushing
-+ * instructions. When the thread is migrated, the corresponding hart's icache
-+ * will be guaranteed to be consistent with instruction storage.
-+ *
-+ * On kernels configured without SMP, this function is a nop as migrations
-+ * across harts will not occur.
-+ */
-+int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long scope)
-+{
-+#ifdef CONFIG_SMP
-+	switch (ctx) {
-+	case PR_RISCV_CTX_SW_FENCEI_ON:
-+		switch (scope) {
-+		case PR_RISCV_SCOPE_PER_PROCESS:
-+			current->mm->context.force_icache_flush = true;
-+			break;
-+		case PR_RISCV_SCOPE_PER_THREAD:
-+			current->thread.force_icache_flush = true;
-+			break;
-+		default:
-+			return -EINVAL;
-+		}
-+	}
-+#endif
-+	return 0;
-+}
-diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 217fd4de6134..5cabbc449080 100644
---- a/arch/riscv/mm/context.c
-+++ b/arch/riscv/mm/context.c
-@@ -15,6 +15,7 @@
- #include <asm/tlbflush.h>
- #include <asm/cacheflush.h>
- #include <asm/mmu_context.h>
-+#include <asm/switch_to.h>
- 
- #ifdef CONFIG_MMU
- 
-@@ -297,7 +298,8 @@ static inline void set_mm(struct mm_struct *prev,
-  *
-  * The "cpu" argument must be the current local CPU number.
-  */
--static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu)
-+static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu,
-+					 struct task_struct *task)
- {
- #ifdef CONFIG_SMP
- 	cpumask_t *mask = &mm->context.icache_stale_mask;
-@@ -309,7 +311,12 @@ static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu)
- 		 * This pairs with a barrier in flush_icache_mm.
- 		 */
- 		smp_mb();
--		local_flush_icache_all();
-+
-+		/*
-+		 * If cache will be flushed in switch_to, no need to flush here.
-+		 */
-+		if (!(task && switch_to_should_flush_icache(task)))
-+			local_flush_icache_all();
- 	}
- 
- #endif
-@@ -332,5 +339,5 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
- 
- 	set_mm(prev, next, cpu);
- 
--	flush_icache_deferred(next, cpu);
-+	flush_icache_deferred(next, cpu, task);
- }
-diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-index 370ed14b1ae0..524d546d697b 100644
---- a/include/uapi/linux/prctl.h
-+++ b/include/uapi/linux/prctl.h
-@@ -306,4 +306,10 @@ struct prctl_mm_map {
- # define PR_RISCV_V_VSTATE_CTRL_NEXT_MASK	0xc
- # define PR_RISCV_V_VSTATE_CTRL_MASK		0x1f
- 
-+#define PR_RISCV_SET_ICACHE_FLUSH_CTX	71
-+# define PR_RISCV_CTX_SW_FENCEI_ON	0
-+# define PR_RISCV_CTX_SW_FENCEI_OFF	1
-+# define PR_RISCV_SCOPE_PER_PROCESS	0
-+# define PR_RISCV_SCOPE_PER_THREAD	1
-+
- #endif /* _LINUX_PRCTL_H */
-diff --git a/kernel/sys.c b/kernel/sys.c
-index e219fcfa112d..69afdd8b430f 100644
---- a/kernel/sys.c
-+++ b/kernel/sys.c
-@@ -146,6 +146,9 @@
- #ifndef RISCV_V_GET_CONTROL
- # define RISCV_V_GET_CONTROL()		(-EINVAL)
- #endif
-+#ifndef RISCV_SET_ICACHE_FLUSH_CTX
-+# define RISCV_SET_ICACHE_FLUSH_CTX(a, b)	(-EINVAL)
-+#endif
- 
- /*
-  * this is where the system-wide overflow UID and GID are defined, for
-@@ -2743,6 +2746,9 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
- 	case PR_RISCV_V_GET_CONTROL:
- 		error = RISCV_V_GET_CONTROL();
- 		break;
-+	case PR_RISCV_SET_ICACHE_FLUSH_CTX:
-+		error = RISCV_SET_ICACHE_FLUSH_CTX(arg2, arg3);
-+		break;
- 	default:
- 		error = -EINVAL;
- 		break;
+But also look at xen_hvm_guest_init().  It looks like your original patch
+does nesting there as well, and it could probably be "un-nested".
 
--- 
-2.34.1
+Michael
+
+> 
+> diff --git a/arch/x86/kernel/cpu/mshyperv.c
+> b/arch/x86/kernel/cpu/mshyperv.c
+> index f8163a59026b..2e8cd5a4ae85 100644
+> --- a/arch/x86/kernel/cpu/mshyperv.c
+> +++ b/arch/x86/kernel/cpu/mshyperv.c
+> @@ -209,6 +209,7 @@ static void hv_machine_shutdown(void)
+>  	if (kexec_in_progress)
+>  		hyperv_cleanup();
+>  }
+> +#endif /* CONFIG_KEXEC_CORE */
+> 
+>  #ifdef CONFIG_CRASH_DUMP
+>  static void hv_machine_crash_shutdown(struct pt_regs *regs)
+> @@ -222,8 +223,7 @@ static void hv_machine_crash_shutdown(struct
+> pt_regs *regs)
+>  	/* Disable the hypercall page when there is only 1 active CPU. */
+>  	hyperv_cleanup();
+>  }
+> -#endif
+> -#endif /* CONFIG_KEXEC_CORE */
+> +#endif /* CONFIG_CRASH_DUMP */
+>  #endif /* CONFIG_HYPERV */
+> 
+>  static uint32_t  __init ms_hyperv_platform(void)
+> @@ -497,9 +497,11 @@ static void __init ms_hyperv_init_platform(void)
+>  	no_timer_check = 1;
+>  #endif
+> 
+> -#if IS_ENABLED(CONFIG_HYPERV) && defined(CONFIG_KEXEC_CORE)
+> +#if IS_ENABLED(CONFIG_HYPERV)
+> +#if defined(CONFIG_KEXEC_CORE)
+>  	machine_ops.shutdown = hv_machine_shutdown;
+> -#ifdef CONFIG_CRASH_DUMP
+> +#endif
+> +#if defined(CONFIG_CRASH_DUMP)
+>  	machine_ops.crash_shutdown = hv_machine_crash_shutdown;
+>  #endif
+>  #endif
+> diff --git a/arch/x86/kernel/reboot.c b/arch/x86/kernel/reboot.c
+> index 1287b0d5962f..f3130f762784 100644
+> --- a/arch/x86/kernel/reboot.c
+> +++ b/arch/x86/kernel/reboot.c
+> @@ -826,7 +826,7 @@ void machine_halt(void)
+>  	machine_ops.halt();
+>  }
+> 
+> -#ifdef CONFIG_KEXEC_CORE
+> +#ifdef CONFIG_CRASH_DUMP
+>  void machine_crash_shutdown(struct pt_regs *regs)
+>  {
+>  	machine_ops.crash_shutdown(regs);
 
 
 _______________________________________________
