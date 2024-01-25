@@ -4,70 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D34C48286
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 17:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6769C47422
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 17:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s5gE9Dx8q02di10H9Z+j21qHfFYyY8I45LfK4UhgY3E=; b=vAv1vSAUuOx81S
-	r3QwAtdcSJG2ZFj/iH4jiS7UU7RciEj7xFgtMPUS9AVkJYpSzPk5cOmqCzeR0PJ4DGMjxK8DMzTth
-	/srWOpZbByKyHqaP3/kX4g9ZzIu1MKlG9DP8ZvmZQ2i5LiTcl7a/KvXpctCj/eg4lwnQGQSHRc6ls
-	nYnIWUhQMbH4zkjsPQbCO3IcMNpWEfP0PX/h5FT7pR/hLl/KhmOFcD4d1CM//1MCKvhjepuwBsVWP
-	OL7OtTZ+c673VaKoZA8h5PW6QRtMn9GoK8dk/s4+x7tNgzs1E7PFMw75NJqVNxBuZIYSttRXSkRUC
-	1IhXx0f1H9tFeMKvUKrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zfnCdCdSd8Ssm9dLHPp4WkH8L/nhTF6lhRmQAopL5EQ=; b=V5et/Tg55N2K9UGTs461Ii/pN3
+	ZB384PE9E1K0WAByVEa53A5oKvpW+I0qN39Mh5oVesJa5v6FtXiUSI4uruNz8Zcr3PbVHNB6IjTJ0
+	FDDNXTyMp//y17fRB4/E99bCk8spZoda5rVlPE4DnUFXgd7HQQfeuMy6O2kM61lZchh2bY7xZsOpY
+	LBIICOmsJu6V2VFAf3NOImOy51FQzgxOmkVM3Op6lBCY+OwFUVz5/9xz4C2UqaVPa5dkCmhhn8BeW
+	n4wQZ7RNC9RZce19NBzGP1bZAAagJpnwoog2XNHSve8WpZ0tidvWObLGT6hxRZUK4/vunKL2HZm1D
+	idbwYZaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT3aT-00000001AHb-1AiC;
-	Thu, 25 Jan 2024 17:32:25 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rT3vu-00000001E8H-3KpV;
+	Thu, 25 Jan 2024 17:54:34 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT3aO-00000001AF1-24a2
+	id 1rT3vr-00000001E71-3r4U
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 17:32:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 987E3CE347C;
-	Thu, 25 Jan 2024 17:32:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28BBAC433C7;
-	Thu, 25 Jan 2024 17:32:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706203937;
-	bh=IDSSBzPhxzI+ZK3MxpGpT7LOXd777sA7SwQ1ZR2C1s4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XFn3NOYndZhJ2KFChTNTUAi9PV1wJbswY7JOjNIj4+XEgp8qCtCZYARLiv5YNm2fv
-	 Xfr9vt36bv9KIMKzMShzfACzod4M/vOm64cRl4AGF37q97uQq2Q4KeX0OXxzS22D7g
-	 MgiA0Ib1ifvakVI2o8EoEkfHyybf0eaTsKKhzRClTi0Cp4gIrdlxXXPpbMX6e6zbSd
-	 LvAWmBiw+1LAPf0bXTHIJm1oCj9I8nua8nuzgphr1KVLDYrDJHg9yVbRHwIKum1qj3
-	 +SKvxxWteyxCeAvilAUGM/FQ9pTj6H4gv/8S7kAv9IuXsNDZ3Rw1d1o3Pmvq2xFzrM
-	 NC5V/djg1TtVA==
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Thu, 25 Jan 2024 10:32:11 -0700
-Subject: [PATCH 1/2] kbuild: Add -Wa,--fatal-warnings to as-instr
- invocation
+	Thu, 25 Jan 2024 17:54:33 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1d893950211so3579315ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Jan 2024 09:54:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706205269; x=1706810069; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2nicyzemtTRD4VSL2aIrfR13izgwrVMBCjiaMcBIu4g=;
+        b=txkMLVIraSn/MH1w5DZiUN/sJeo9/SjxQHptD6OswXS8qcOMMwZ+S0LvMEe5o2VTUe
+         aYtUkyBW1dHQW4CBQi/ylFQzHXI7Dbc1E25YtH9LM46jwKj60G4OJBlznAwYZ+YWr79y
+         uYj6080jAI0hgShloP+HiNsyEDUBkBb3O3HvNDeXCsB34yFI7kZyujggXXdnqOzU69kZ
+         RBbCfTIuKuFrbgughwpwRIr6L3/OSuy7FhAR2oJD6QrQDx6kUx4e6Oc8fZX81QgitURG
+         ZTjPf0q5c3D6AaWSpW7+2+U6QaIRsopQ4WmmUiLfSjeVPXw5FlWow2CN5eXOD2Fbkbwn
+         5nZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1706205269; x=1706810069;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2nicyzemtTRD4VSL2aIrfR13izgwrVMBCjiaMcBIu4g=;
+        b=kcanJ8EhgPi3dvWuyyYQR/P7dPtReoAxyNlND4kMehpy7J9MWIxlADAY9FLpN+6idD
+         VE70lhKx87CrpUEF5EK2ogr2vYLU0PtyEjFzLtRdBksu0y/zmeiYTk4RCXO2jD9zzo8h
+         Al9+t7FUzAkNsQje3tTMlm5zUcIlDj21+6YR1+pyndBVIblek0lWS3lBRfDyAdKYzsuP
+         SlmnzpnnX5HtUl7E3y/ALtqqCIu+/d+nbk8ZeOyxI3hgn+ngVSGV3AW9zYeWCs49inA8
+         lp9vGjRFAV6LmEsDlICf/UpBxbp4qvgHpQEogRfEuGV0iFDpkQf7I4M7p4efWJ2+Rscy
+         2EQw==
+X-Gm-Message-State: AOJu0YzzUz3qj8EsUgC0juqbBdQCcnX5xAY5Budyri1eMUnmxTA4o0LG
+	LftraBvwwF9Z0RhJP2pz09DNKvsWHfNMW8OCc/Om29MZKVd9nL9FHcQ7H+LW7Iw=
+X-Google-Smtp-Source: AGHT+IHocjbJl+xR8mMLXKtkqWJu/nhVxybtwo7TBdSkwNgtnoPBjFJ6RTaIl5x14FjrIbULLsROeg==
+X-Received: by 2002:a17:903:124c:b0:1d7:eb1:a053 with SMTP id u12-20020a170903124c00b001d70eb1a053mr104655plh.18.1706205269113;
+        Thu, 25 Jan 2024 09:54:29 -0800 (PST)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id u24-20020a170902a61800b001d74343a53dsm7538299plq.81.2024.01.25.09.54.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Jan 2024 09:54:28 -0800 (PST)
+Date: Thu, 25 Jan 2024 09:54:24 -0800
+From: Deepak Gupta <debug@rivosinc.com>
+To: Stefan O'Rear <sorear@fastmail.com>
+Cc: rick.p.edgecombe@intel.com, broonie@kernel.org, Szabolcs.Nagy@arm.com,
+	"kito.cheng@sifive.com" <kito.cheng@sifive.com>,
+	Kees Cook <keescook@chromium.org>,
+	Andrew Jones <ajones@ventanamicro.com>, paul.walmsley@sifive.com,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Conor Dooley <conor.dooley@microchip.com>, cleger@rivosinc.com,
+	Atish Patra <atishp@atishpatra.org>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>, Albert Ou <aou@eecs.berkeley.edu>,
+	oleg@redhat.com, akpm@linux-foundation.org, arnd@arndb.de,
+	"Eric W. Biederman" <ebiederm@xmission.com>, shuah@kernel.org,
+	Christian Brauner <brauner@kernel.org>, guoren <guoren@kernel.org>,
+	samitolvanen@google.com, Evan Green <evan@rivosinc.com>,
+	xiao.w.wang@intel.com, Anup Patel <apatel@ventanamicro.com>,
+	mchitale@ventanamicro.com, waylingii@gmail.com,
+	greentime.hu@sifive.com, Heiko Stuebner <heiko@sntech.de>,
+	Jisheng Zhang <jszhang@kernel.org>, shikemeng@huaweicloud.com,
+	david@redhat.com, Charlie Jenkins <charlie@rivosinc.com>,
+	panqinglin2020@iscas.ac.cn, willy@infradead.org,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Andy Chiu <andy.chiu@sifive.com>, Greg Ungerer <gerg@kernel.org>,
+	jeeheng.sia@starfivetech.com, mason.huo@starfivetech.com,
+	ancientmodern4@gmail.com, mathis.salmen@matsal.de,
+	cuiyunhui@bytedance.com, bhe@redhat.com, ruscur@russell.cc,
+	bgray@linux.ibm.com, alx@kernel.org, baruch@tkos.co.il,
+	zhangqing@loongson.cn, Catalin Marinas <catalin.marinas@arm.com>,
+	revest@chromium.org, josh@joshtriplett.org, joey.gouly@arm.com,
+	shr@devkernel.io, omosnace@redhat.com, ojeda@kernel.org,
+	jhubbard@nvidia.com, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-arch@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [RFC PATCH v1 02/28] riscv: envcfg save and restore on trap
+ entry/exit
+Message-ID: <ZbKgUNR+Em55Moaw@debug.ba.rivosinc.com>
+References: <20240125062739.1339782-1-debug@rivosinc.com>
+ <20240125062739.1339782-3-debug@rivosinc.com>
+ <23d023c0-27cf-44fa-be0a-000d1534ef86@app.fastmail.com>
+ <ZbKVutBWoelt33GM@debug.ba.rivosinc.com>
 MIME-Version: 1.0
-Message-Id: <20240125-fix-riscv-option-arch-llvm-18-v1-1-390ac9cc3cd0@kernel.org>
-References: <20240125-fix-riscv-option-arch-llvm-18-v1-0-390ac9cc3cd0@kernel.org>
-In-Reply-To: <20240125-fix-riscv-option-arch-llvm-18-v1-0-390ac9cc3cd0@kernel.org>
-To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
- masahiroy@kernel.org
-Cc: nicolas@fjasle.eu, andy.chiu@sifive.com, conor.dooley@microchip.com, 
- linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org, 
- llvm@lists.linux.dev, patches@lists.linux.dev, stable@vger.kernel.org, 
- Eric Biggers <ebiggers@kernel.org>, Nathan Chancellor <nathan@kernel.org>
-X-Mailer: b4 0.13-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2280; i=nathan@kernel.org;
- h=from:subject:message-id; bh=IDSSBzPhxzI+ZK3MxpGpT7LOXd777sA7SwQ1ZR2C1s4=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDKmbZsu7K6zaXpv59fmm4t4LfcbtCm9jLi6ssZYLLWOee
- vmvbhJnRykLgxgXg6yYIkv1Y9XjhoZzzjLeODUJZg4rE8gQBi5OAZhIkRDD//B3jdx17xQfM9iZ
- pRb/+3snLFAuM/FoKZPe0zvH17zUN2L4zaZcGrX4yv84AfeJ3nziev6BfF/4DA599lxStzMjqDC
- KDQA=
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+Content-Disposition: inline
+In-Reply-To: <ZbKVutBWoelt33GM@debug.ba.rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_093220_947132_D13770B7 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20240125_095432_011163_FC3AD56E 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,61 +122,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Certain assembler instruction tests may only induce warnings from the
-assembler on an unsupported instruction or option, which causes as-instr
-to succeed when it was expected to fail. Some tests workaround this
-limitation by additionally testing that invalid input fails as expected.
-However, this is fragile if the assembler is changed to accept the
-invalid input, as it will cause the instruction/option to be unavailable
-like it was unsupported even when it is.
+On Thu, Jan 25, 2024 at 09:09:14AM -0800, Deepak Gupta wrote:
+>On Thu, Jan 25, 2024 at 02:19:29AM -0500, Stefan O'Rear wrote:
+>>On Thu, Jan 25, 2024, at 1:21 AM, debug@rivosinc.com wrote:
+>>>From: Deepak Gupta <debug@rivosinc.com>
+>>>
+>>>envcfg CSR defines enabling bits for cache management instructions and soon
+>>>will control enabling for control flow integrity and pointer masking features.
+>>>
+>>>Control flow integrity enabling for forward cfi and backward cfi is controlled
+>>>via envcfg and thus need to be enabled on per thread basis.
+>>>
+>>>This patch creates a place holder for envcfg CSR in `thread_info` and adds
+>>>logic to save and restore on trap entry and exits.
+>>
+>>Should only be "restore"?  I don't see saving.
+>
+>It's always saved in `thread_info` and user mode can't change it.
+>So no point saving it.
 
-Use '-Wa,--fatal-warnings' in the as-instr macro to turn these warnings
-into hard errors, which avoids this fragility and makes tests more
-robust and well formed.
+Also I'll fix the commit message. I think that's what you were pointing out.
 
-Cc: stable@vger.kernel.org
-Suggested-by: Eric Biggers <ebiggers@kernel.org>
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
- scripts/Kconfig.include   | 2 +-
- scripts/Makefile.compiler | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
-index 5a84b6443875..3ee8ecfb8c04 100644
---- a/scripts/Kconfig.include
-+++ b/scripts/Kconfig.include
-@@ -33,7 +33,7 @@ ld-option = $(success,$(LD) -v $(1))
- 
- # $(as-instr,<instr>)
- # Return y if the assembler supports <instr>, n otherwise
--as-instr = $(success,printf "%b\n" "$(1)" | $(CC) $(CLANG_FLAGS) -c -x assembler-with-cpp -o /dev/null -)
-+as-instr = $(success,printf "%b\n" "$(1)" | $(CC) $(CLANG_FLAGS) -Wa$(comma)--fatal-warnings -c -x assembler-with-cpp -o /dev/null -)
- 
- # check if $(CC) and $(LD) exist
- $(error-if,$(failure,command -v $(CC)),C compiler '$(CC)' not found)
-diff --git a/scripts/Makefile.compiler b/scripts/Makefile.compiler
-index 8fcb427405a6..92be0c9a13ee 100644
---- a/scripts/Makefile.compiler
-+++ b/scripts/Makefile.compiler
-@@ -38,7 +38,7 @@ as-option = $(call try-run,\
- # Usage: aflags-y += $(call as-instr,instr,option1,option2)
- 
- as-instr = $(call try-run,\
--	printf "%b\n" "$(1)" | $(CC) -Werror $(CLANG_FLAGS) $(KBUILD_AFLAGS) -c -x assembler-with-cpp -o "$$TMP" -,$(2),$(3))
-+	printf "%b\n" "$(1)" | $(CC) -Werror $(CLANG_FLAGS) $(KBUILD_AFLAGS) -Wa$(comma)--fatal-warnings -c -x assembler-with-cpp -o "$$TMP" -,$(2),$(3))
- 
- # __cc-option
- # Usage: MY_CFLAGS += $(call __cc-option,$(CC),$(MY_CFLAGS),-march=winchip-c6,-march=i586)
-
--- 
-2.43.0
-
+>
+>>
+>>>
+>>>Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+>>>---
+>>> arch/riscv/include/asm/thread_info.h | 1 +
+>>> arch/riscv/kernel/asm-offsets.c      | 1 +
+>>> arch/riscv/kernel/entry.S            | 4 ++++
+>>> 3 files changed, 6 insertions(+)
+>>>
+>>>diff --git a/arch/riscv/include/asm/thread_info.h
+>>>b/arch/riscv/include/asm/thread_info.h
+>>>index 574779900bfb..320bc899a63b 100644
+>>>--- a/arch/riscv/include/asm/thread_info.h
+>>>+++ b/arch/riscv/include/asm/thread_info.h
+>>>@@ -57,6 +57,7 @@ struct thread_info {
+>>> 	long			user_sp;	/* User stack pointer */
+>>> 	int			cpu;
+>>> 	unsigned long		syscall_work;	/* SYSCALL_WORK_ flags */
+>>>+	unsigned long envcfg;
+>>> #ifdef CONFIG_SHADOW_CALL_STACK
+>>> 	void			*scs_base;
+>>> 	void			*scs_sp;
+>>>diff --git a/arch/riscv/kernel/asm-offsets.c
+>>>b/arch/riscv/kernel/asm-offsets.c
+>>>index a03129f40c46..cdd8f095c30c 100644
+>>>--- a/arch/riscv/kernel/asm-offsets.c
+>>>+++ b/arch/riscv/kernel/asm-offsets.c
+>>>@@ -39,6 +39,7 @@ void asm_offsets(void)
+>>> 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+>>> 	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+>>> 	OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
+>>>+	OFFSET(TASK_TI_ENVCFG, task_struct, thread_info.envcfg);
+>>> #ifdef CONFIG_SHADOW_CALL_STACK
+>>> 	OFFSET(TASK_TI_SCS_SP, task_struct, thread_info.scs_sp);
+>>> #endif
+>>>diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+>>>index 54ca4564a926..63c3855ba80d 100644
+>>>--- a/arch/riscv/kernel/entry.S
+>>>+++ b/arch/riscv/kernel/entry.S
+>>>@@ -129,6 +129,10 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
+>>> 	addi s0, sp, PT_SIZE_ON_STACK
+>>> 	REG_S s0, TASK_TI_KERNEL_SP(tp)
+>>>
+>>>+	/* restore envcfg bits for current thread */
+>>>+	REG_L s0, TASK_TI_ENVCFG(tp)
+>>>+	csrw CSR_ENVCFG, s0
+>>>+
+>>
+>>This is redundant if we're repeatedly processing interrupts or exceptions
+>>within a single task.  We should only be writing envcfg when switching
+>>between tasks or as part of the prctl.
+>>
+>>We need to use an ALTERNATIVE for this since the oldest supported hardware
+>>does not have envcfg csrs.
+>
+>Yeah fixing that in next series. Thanks
+>
+>>
+>>-s
+>>
+>>> 	/* Save the kernel shadow call stack pointer */
+>>> 	scs_save_current
+>>>
+>>>--
+>>>2.43.0
+>>>
+>>>
+>>>_______________________________________________
+>>>linux-riscv mailing list
+>>>linux-riscv@lists.infradead.org
+>>>http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
