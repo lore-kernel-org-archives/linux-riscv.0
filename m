@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A0AC47422
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 18:04:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957E4C47422
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 18:04:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=+nSUXqLCT/D+ZC/wp8MTBmbmmzaf5W6YqoPe8LD1iWk=; b=kNbZFXPLxMLkzVY9KbTRkK8CCo
-	RyMc8yQlTIwEcwTibBb4S/zDC6knGl5sgk4kK2GSZOh8iK+4dkSlvdE5PaX+Kq+g4PLism7o3yD6E
-	A1/uZrel+7p0RkksSDFdrBktcDhJSaCMzoe3KdD2Vj2d/Q1tSlvONu/2lWTGjdUyG8+aOmYBuf1xL
-	0VOeoHg4GnXZjBuYQQK0g55dQ4bf9Oq45RVvPNdhu5zwryyyS6UEkhkUy0RB9i47829qptYZkRE9p
-	RZ2smVTNjEIyy21XLz52XW8dwlrY47oGSuqQh8O1vvfuYcwTHd8qAZQocFeW/a0aD4M166MLMloUh
-	9Sh9fmvA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ifEtDVnabwQeA/rJzu5nc/1L17ZnIVI1vjA6Tn2tOlE=; b=EUaaZL8eqKSuwgji0TuDdhqIiz
+	gBBvFqFDQg8FN2TDD70T1UOtpTQUFTblo5dtpkMRS8ViEl3xwOygl4RWpoDoORSjEQxOwTzidFD+j
+	r+4zI1yyReHOqXUFbCDUWYbYFdr+RQMctTRn8BO+oh/kiT+ccuF1jgEZkedQSmUbemOimRf10BmY8
+	eJ691nIpz9SJrOcvUsS2Pkx4ilDZvRnPsLqS6tl38IJV/TNDQNO5biwtQNltuYC6L/Y9jif0S7Tzv
+	GFAhqBqob8JjVxJ7zBjYuaTJeIr+jHw/TZ64dt+dxrmHv8iUxCzhyiMRGYfFy+j4tZ77amwRBsHLw
+	vYPAJvdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT45Q-00000001FmG-2egO;
-	Thu, 25 Jan 2024 18:04:24 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1rT45l-00000001Fsu-0FTV;
+	Thu, 25 Jan 2024 18:04:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT45M-00000001Fkq-0uVJ
+	id 1rT45i-00000001Frh-2hOs
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 18:04:22 +0000
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 40534404A5
-	for <linux-riscv@lists.infradead.org>; Thu, 25 Jan 2024 18:04:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1706205856;
-	bh=ayub+31DU82NBlOvVCPDnf32wdKHrULJJXVRXXuuL9c=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=PYoziZdM51JoXq0hr52HJCcRvUJmo6e5IOCNgetRKw8xU/bOlLtuz5JK+RbYJHF8P
-	 Gbn8XOlDNnkhjbLQNUe4FROrj/gCP+lv+3ZKLfv6qhN1Oslg83UkfLkft6yNwvXCX6
-	 QF4/n7jZ0z6hp1iNY5tE4DBq84BPSmVcFzEhe3pqvvtqYH7AM+vA91v8PZPnY6dtF5
-	 Vt90NZO6jvSin4y5d1v15akjIYijRiHhS68LWEXmkzQJb9rnUz55/SbfRE2AlueIDV
-	 8VqrvUUXL/ajQtOFjIg7RkGvRl57Ffk7fbGdJHPG3ns5hbo13Gj1MZCWMruWK6TDuK
-	 O4S/TmmGmihqQ==
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-42a32dff21bso90751661cf.0
-        for <linux-riscv@lists.infradead.org>; Thu, 25 Jan 2024 10:04:16 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706205855; x=1706810655;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ayub+31DU82NBlOvVCPDnf32wdKHrULJJXVRXXuuL9c=;
-        b=aol68txsOUvs40XLOE3IRMc6pd+FA5m+MPedna6BA6H9FJ9wNQRQneR9sYFEH7CjAu
-         TdUUMR9SU+VWZwnVYlODCic8VhtOjhEO26aqilsmPhnISv+c8AFMhEjdLWTF9tVZcwTV
-         XC21dauz0sgZTTLWZlG5E+m3ghTCwn1Pj7IlP5TNHLs57yp1irz9wotLV7kXqhjBUGGs
-         hejzw62oAumc3DE3TmOxplRcgtn0ErIv9G39jWMO7bE4inldXr//ojdT8l7zsqDxr6N+
-         jUgo0xZZsSX5cuvz8WADY9fkhziwCsue40n9Lg+qGYCeF09jGC2CXLSRVXRL/YBkYYJ0
-         1x3g==
-X-Gm-Message-State: AOJu0Yxb1jnUpUo3bCurP3hx3cCC9x+fUjkB8wsGbfhhehozJx5NuTJ+
-	Iom+LuceU5+DCdzjuYZsw7gG7SwfHPpsf5VBeof2ZoHbWbwBU1UbTi4KrfM7mhisTnGLpIYbzHY
-	RwNzK9Tmine/t8tX3Vazj2IoakchvWl4Pjr/ImpQoM7xVzXdgDJKXih3zZz5CnWKKynhF6rcJDP
-	oVe+lUJ0eeUu9Zl4adFD9G0lHFy/9ySVpY01sMVg+2CTiN2+QIeVYJb3ga
-X-Received: by 2002:a05:622a:1a9a:b0:42a:39ef:e699 with SMTP id s26-20020a05622a1a9a00b0042a39efe699mr40091qtc.96.1706205855066;
-        Thu, 25 Jan 2024 10:04:15 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGg5qDGICDhkaPcE9L5WU3IS+FgRzGS9fLfcnH+CV2bsry9F4JkTFoWocsmx3aGbnJrWIYBpfdW4XfPKSyrFSA=
-X-Received: by 2002:a05:622a:1a9a:b0:42a:39ef:e699 with SMTP id
- s26-20020a05622a1a9a00b0042a39efe699mr40078qtc.96.1706205854721; Thu, 25 Jan
- 2024 10:04:14 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 25 Jan 2024 10:04:14 -0800
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <DM6PR20MB2316366FC9ADCBC7B6E9C289AB7A2@DM6PR20MB2316.namprd20.prod.outlook.com>
-References: <DM6PR20MB2316366FC9ADCBC7B6E9C289AB7A2@DM6PR20MB2316.namprd20.prod.outlook.com>
-Mime-Version: 1.0
-Date: Thu, 25 Jan 2024 10:04:14 -0800
-Message-ID: <CAJM55Z8aeQs+KOHo-5dxHE+kDSp5DMaNcw3MukzS_K0HGj92Og@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: dts: sophgo: add watchdog dt node for CV1800
-To: AnnanLiu <annan.liu.xdu@outlook.com>, chao.wei@sophgo.com, 
-	unicorn_wang@outlook.com, robh+dt@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+	Thu, 25 Jan 2024 18:04:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D24A261503;
+	Thu, 25 Jan 2024 18:04:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32A08C433F1;
+	Thu, 25 Jan 2024 18:04:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1706205881;
+	bh=WDKiWZF/CO1jOYkvrWCm5fjBFh98x/VbgkhxOL64aJw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=M8+ilI+rArrGEQzPOKxpm2KS3wnWPXl81DIQIIVlFks4XkUWeCCYLnv2W1QOtXMH7
+	 vxZxdNzGTgI5Ck6OrV+3PtZNm8Cr5WmRLPPVQcrGnWkkUSAu1d3v3XE2hVMJZ0m9He
+	 iD1f44ZRSJJgs0xN+T5HI7H5rxVDgR/KYt90fxsf1ZKe9ZQZMRjMC418rbZF1Jcup/
+	 jSkG8NJUt5s3pNBKI69IhDV3sAr3XfzL+Cq4zJGEx4bc4nPpBECZySU7/hCjLo8m9L
+	 32n4SQxsAE7RgeGLlnFvEweH44zMFp5oX7ZMLwG65JW0diChuZZSzVja0gYDOCJ15k
+	 mVK8beInkEYYw==
+Date: Thu, 25 Jan 2024 18:04:26 +0000
+From: Conor Dooley <conor@kernel.org>
+To: debug@rivosinc.com
+Cc: rick.p.edgecombe@intel.com, broonie@kernel.org, Szabolcs.Nagy@arm.com,
+	kito.cheng@sifive.com, keescook@chromium.org,
+	ajones@ventanamicro.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, conor.dooley@microchip.com, cleger@rivosinc.com,
+	atishp@atishpatra.org, alex@ghiti.fr, bjorn@rivosinc.com,
+	alexghiti@rivosinc.com, corbet@lwn.net, aou@eecs.berkeley.edu,
+	oleg@redhat.com, akpm@linux-foundation.org, arnd@arndb.de,
+	ebiederm@xmission.com, shuah@kernel.org, brauner@kernel.org,
+	guoren@kernel.org, samitolvanen@google.com, evan@rivosinc.com,
+	xiao.w.wang@intel.com, apatel@ventanamicro.com,
+	mchitale@ventanamicro.com, waylingii@gmail.com,
+	greentime.hu@sifive.com, heiko@sntech.de, jszhang@kernel.org,
+	shikemeng@huaweicloud.com, david@redhat.com, charlie@rivosinc.com,
+	panqinglin2020@iscas.ac.cn, willy@infradead.org,
+	vincent.chen@sifive.com, andy.chiu@sifive.com, gerg@kernel.org,
+	jeeheng.sia@starfivetech.com, mason.huo@starfivetech.com,
+	ancientmodern4@gmail.com, mathis.salmen@matsal.de,
+	cuiyunhui@bytedance.com, bhe@redhat.com, chenjiahao16@huawei.com,
+	ruscur@russell.cc, bgray@linux.ibm.com, alx@kernel.org,
+	baruch@tkos.co.il, zhangqing@loongson.cn, catalin.marinas@arm.com,
+	revest@chromium.org, josh@joshtriplett.org, joey.gouly@arm.com,
+	shr@devkernel.io, omosnace@redhat.com, ojeda@kernel.org,
+	jhubbard@nvidia.com, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-arch@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [RFC PATCH v1 24/28] riscv: select config for shadow stack and
+ landing pad instr support
+Message-ID: <20240125-snitch-boogieman-5b4a0b142e61@spud>
+References: <20240125062739.1339782-1-debug@rivosinc.com>
+ <20240125062739.1339782-25-debug@rivosinc.com>
+MIME-Version: 1.0
+In-Reply-To: <20240125062739.1339782-25-debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_100420_568917_35A09361 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20240125_100442_820101_D6D07038 
+X-CRM114-Status: GOOD (  21.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,93 +92,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1095542182147618763=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-AnnanLiu wrote:
-> Add the watchdog device tree node to cv1800 SoC.
->
-> Signed-off-by: AnnanLiu <annan.liu.xdu@outlook.com>
+
+--===============1095542182147618763==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="NUnGWzqhiv75TmQp"
+Content-Disposition: inline
+
+
+--NUnGWzqhiv75TmQp
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Jan 24, 2024 at 10:21:49PM -0800, debug@rivosinc.com wrote:
+> From: Deepak Gupta <debug@rivosinc.com>
+>=20
+> This patch selects config shadow stack support and landing pad instr
+> support. Shadow stack support and landing instr support is hidden behind
+> `CONFIG_RISCV_USER_CFI`. Selecting `CONFIG_RISCV_USER_CFI` wires up path
+> to enumerate CPU support and if cpu support exists, kernel will support
+> cpu assisted user mode cfi.
+>=20
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 > ---
-> This patch depends on the clk driver and reset driver.
-> Clk driver link:
-> https://lore.kernel.org/all/IA1PR20MB49539CDAD9A268CBF6CA184BBB9FA@IA1PR20MB4953.namprd20.prod.outlook.com/
-> Reset driver link:
-> https://lore.kernel.org/all/20231113005503.2423-1-jszhang@kernel.org/
->
-> Changes since v1:
-> - Change the name of the watchdog from watchdog0 to watchdog.
-> - Change the status of watchdog.
-> v1 link:
-> https://lore.kernel.org/all/DM6PR20MB23160B8499CC2BFDAE6FCACDAB9EA@DM6PR20MB2316.namprd20.prod.outlook.com/
->
->
->  arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts |  4 ++++
->  arch/riscv/boot/dts/sophgo/cv1800b.dtsi          | 16 ++++++++++++++++
->  2 files changed, 20 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts b/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
-> index 3af9e34b3bc7..75469161bfff 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
-> +++ b/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
-> @@ -36,3 +36,7 @@ &osc {
->  &uart0 {
->  	status = "okay";
->  };
-> +
-> +&watchdog {
-> +	status = "okay";
-> +};
-> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> index aec6401a467b..03ca32cd37b6 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> @@ -1,6 +1,7 @@
->  // SPDX-License-Identifier: (GPL-2.0 OR MIT)
->  /*
->   * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> + * Copyright (C) 2024 Annan Liu <annan.liu.xdu@outlook.com>
->   */
->
->  #include <dt-bindings/interrupt-controller/irq.h>
-> @@ -103,6 +104,21 @@ uart4: serial@41c0000 {
->  			status = "disabled";
->  		};
->
-> +		watchdog: watchdog@3010000{
-> +			compatible = "snps,dw-wdt";
-> +			reg = <0x3010000 0x100>;
-> +			interrupts = <58 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&pclk>;
-> +			resets = <&rst RST_WDT>;
-> +			status = "disabled";
-> +		};
+>  arch/riscv/Kconfig | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 9d386e9edc45..437b2f9abf3e 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -163,6 +163,7 @@ config RISCV
+>  	select SYSCTL_EXCEPTION_TRACE
+>  	select THREAD_INFO_IN_TASK
+>  	select TRACE_IRQFLAGS_SUPPORT
+> +	select RISCV_USER_CFI
 
-Before this patch the nodes seems to be ordered by their address. This
-patch breaks that.
+This select makes no sense to me, it will unconditionally enable
+RISCV_USER_CFI. I don't think that that is your intent, since you have a
+detailed option below that allows the user to turn it on or off.
 
+If you remove it, the commit message will need to change too FYI.
+
+Thanks,
+Conor.
+
+>  	select UACCESS_MEMCPY if !MMU
+>  	select ZONE_DMA32 if 64BIT
+> =20
+> @@ -182,6 +183,20 @@ config HAVE_SHADOW_CALL_STACK
+>  	# https://github.com/riscv-non-isa/riscv-elf-psabi-doc/commit/a484e843e=
+6eeb51f0cb7b8819e50da6d2444d769
+>  	depends on $(ld-option,--no-relax-gp)
+> =20
+> +config RISCV_USER_CFI
+> +	bool "riscv userspace control flow integrity"
+> +	help
+> +	  Provides CPU assisted control flow integrity to userspace tasks.
+> +	  Control flow integrity is provided by implementing shadow stack for
+> +	  backward edge and indirect branch tracking for forward edge in progra=
+m.
+> +	  Shadow stack protection is a hardware feature that detects function
+> +	  return address corruption. This helps mitigate ROP attacks.
+> +	  Indirect branch tracking enforces that all indirect branches must land
+> +	  on a landing pad instruction else CPU will fault. This mitigates agai=
+nst
+> +	  JOP / COP attacks. Applications must be enabled to use it, and old us=
+er-
+> +	  space does not get protection "for free".
+> +	  default y
 > +
-> +		pclk: pclk {
-> +			#clock-cells = <0>;
-> +			compatible = "fixed-clock";
-> +			clock-frequency = <25000000>;
-> +		};
-> +
->  		plic: interrupt-controller@70000000 {
->  			compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
->  			reg = <0x70000000 0x4000000>;
-> --
-> 2.34.1
->
->
+>  config ARCH_MMAP_RND_BITS_MIN
+>  	default 18 if 64BIT
+>  	default 8
+> --=20
+> 2.43.0
+>=20
+>=20
 > _______________________________________________
 > linux-riscv mailing list
 > linux-riscv@lists.infradead.org
 > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
+--NUnGWzqhiv75TmQp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZbKiqgAKCRB4tDGHoIJi
+0vKGAQDVTVByG7JLLR+gPjsKjLHdPRWsvjnTta2HP7StCen6fgD9Eq3Uv1oej4Qh
+QiRGb9e3PxfM9z73zB+grxPynuwKxg4=
+=TScR
+-----END PGP SIGNATURE-----
+
+--NUnGWzqhiv75TmQp--
+
+
+--===============1095542182147618763==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1095542182147618763==--
+
