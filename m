@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 234E0C47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 07:31:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CEC0C47DDF
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 07:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NT/VNyVXmLSzy+RO++xcYcg0Uf0HcJqHw3dxgfNYybA=; b=EaZcUOZXpuALns
-	mmO1qYteTWQo4uwn6tkrWmu/FIcV+HD23lc3SeO1tqlKAP9KRAvH4BxdSq7okwiGiLnXBb3Pxigf2
-	RO5QennnmZfVdUJucOe7WgyGAB5n80v0e0MAGDIztQnKNxFCc8woBXYudpnMGmA/L9gKHqUaNnNK5
-	UhKWLsxxbjE+DC559GAE6EaCSIzi3Tf3xgmzy2RC3WPBIzSfkxhjxK0LwJTvy47sSS22Va+Cn2to7
-	nZnUAjSQsf63ZcG0Hneo+Crhgvu+O9NnR7bigpKxoc4hoEjwXc4xlaDEV1f+O9HbBJsRdOswI4PeQ
-	iB3Y43o9wQ1wNgDXiylg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aRC1ccUA/937vztMFKMGDgkWfAUzBYX2s95VsD3euE0=; b=opM64RFRe8T2mv
+	P2fgBP1u+nxqSS5e4qi5tvAXClUfBSqAw6KV2xWYOJoVi0yoamCRmqgjIWpK6LrUATUvEughpkC5+
+	C62T43ACCiUbMqZEu+LbsdnYSz6mFWeANmr54D3HC1GGM8W6oQo7vULd3yDqGMJCE/sGvB27B9L7I
+	JMpjRC6z0YOGla2b2ZmSDCpjOtglKns8J1g44E2JlogMrqUddhtUex8nz/1zBcQlYqAiKYMEScWYs
+	hCYGKnsbdQTZP4NT35lHPjmC8A+4iZK77K70GtU1ySqYx5K+lHPf0oxjzlFvEY/5/+cdRXXNwD620
+	WswDUsF7G/4qdQDcD+Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSuD5-00736x-2O;
-	Thu, 25 Jan 2024 07:31:39 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1rSuD7-00737d-0N;
+	Thu, 25 Jan 2024 07:31:41 +0000
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rStDZ-006kB9-1F
+	id 1rStEi-006kvt-0o
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 06:28:08 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-5ca29c131ebso4636262a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 22:28:01 -0800 (PST)
+	Thu, 25 Jan 2024 06:29:17 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-3bda6c92ce7so3913082b6e.2
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 22:29:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706164081; x=1706768881; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QXTHyjxL8kR5Po7d+GYATRHdwro/16lDMpxqrKjx/Ag=;
-        b=a8C3K8Z9WcPoXdTNSi0armsRZ89XulqArZeSiD/Ct7ZNhm5noV45Pp1ovb90ovd7Py
-         pSRlAiADUX++BLczS39Ut0aqw4FzB6Muyyxqlcq6m0gZR/uPEyPfg/cO9CRg8Hb+2c+0
-         6Y+nEwurNHkH39leqEsNiOUdLCRkrVQwGavNPBLs7weauY+POWfIBUQGCzAj2/l2OF3Y
-         ajuhyMG8pwC6vETJCoJVPR3+/Bqxgx9WVJJKzz3P9owxvvQgHEtv5c/XZydGOk2vBOrQ
-         aCq24upLImSvnTn3nL0l/izTcScvio9MCujkjHVkLUK5XnK3tEMFK7CNC++lqG7uiBNE
-         HAiw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706164153; x=1706768953; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=T6jrxQTzk5v6yDwRhrNBVQOQ/gk4SzlXhOza5budY2g=;
+        b=fk1qUGx0T4ok1j5OBzx1X2klBnkcncExJM9iT1Z3RGPEGi6CHgsmMxHqxqrzOLk8rw
+         BVWOaIoioQL4mevSV/sO3028A8X/Z4ClPNgO6DTs4ia7DTaS3OIxTmYL6WoWsaA55gQG
+         lPntc2dIP8HFUytfUEmaaSBwlOAwhPCp/D3jg7k1ncuLqsx//6D7JWWemww+7w+qBAAw
+         LHy32DWpN6MjYaJHj8denGJPnmibnunbLaOGbCV3vq/+9Y9nc4LipiJ1GFlHFSAgVwdf
+         oYM4GppIjmn7gCTF/vpXoy9gxG2drmhdBY2SX5C1YdPnoei/GEsPGi2dZj0elIr3Ch8S
+         +ZCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706164081; x=1706768881;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QXTHyjxL8kR5Po7d+GYATRHdwro/16lDMpxqrKjx/Ag=;
-        b=KVWoF8sSfbIRNk6SgIV9bnZAv1iQq/0KkDfJmzsAhT5tMTZerz8UDVtXP0EJ7w92fT
-         jvvIelirAITQL9qC1vBbZCpf/VB7pEZmZXh3lXaeEaA6L1pbLW/Ojf4A4I3mPFAyxpHl
-         4AKaWQjaxWsXvuRmNJd95LQFG8PSyC8YLDjcM6StW4O0L6bB3l9vFkecBYfjqWnZeG+/
-         RNys3S6XYXJHJNzkk5A0fbckjJSZdp2HNxeLqvvyRdH4UAWEr+HYmvlQ3UQay1LNcggl
-         0GdQvJ4wyQ+bKrTZN191Rpp3p/jpIwOzvoawRoad1Iyf4LkedtaI1FlM8ZJwkbYxkyS7
-         DadA==
-X-Gm-Message-State: AOJu0YzerBwZY74fSaG7/8HDjTkcmdS876W9uMTKwy0M89UOtVMnB/Hn
-	2v+MJMy3VLI8SaNdaZCOwqWXp7c/gzNTXlA41pNcNVTrBbxfYHgXDdb4UCUL+so=
-X-Google-Smtp-Source: AGHT+IHI/WMAhl2PB+/aXrDdR8LPiiPrRqLK2yfdwW0qIQIbS5kaetCk3DdXJz5Rd4D4N6P34jxx3A==
-X-Received: by 2002:a05:6a20:938f:b0:19b:211a:e62d with SMTP id x15-20020a056a20938f00b0019b211ae62dmr712796pzh.25.1706164080770;
-        Wed, 24 Jan 2024 22:28:00 -0800 (PST)
+        d=1e100.net; s=20230601; t=1706164153; x=1706768953;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=T6jrxQTzk5v6yDwRhrNBVQOQ/gk4SzlXhOza5budY2g=;
+        b=bw4XQvxQVU4ZDZ/vfxhl4XDrirMiNt2OBm9OozU8AT9OFPy1TVDl9gNb2hXl5EmYgj
+         TWqxR7DVVn3IY20aOoXuuHNt7ymuTe2aE+5U+8tqgcdxDprtFcsXTDwXDwlFB4C1cmaD
+         qKu8O4rqjcz3smy4idRGXu7Eo2Og/XBdaY2lLH6yJ1K8VjCO99Vb7hJ2Duk94KrUVZ4H
+         8aJvzZbP2HVwRhmZ7QJ87Y+9/0B7IrVTG1Plyy/3Et375+M3PhkVXtKndgjqit+LCNUF
+         y5a0Fy2IKXKPkA0eh69/QdCv8+AWXcNriNpQDcHH/zvU3s9iq1Q6818muAwMiv0/4hzh
+         uL9g==
+X-Gm-Message-State: AOJu0Yy7aQOUww27llpJ4QaJpKucvC/5v+bvSn7mb0DtAXYd1lmGtVTs
+	ogxn2mzthun95iFqebmO18h4uQRJFNQlOJp3xH72PEfOKrKEpqm/oAAyM7M511k=
+X-Google-Smtp-Source: AGHT+IE9c8MEdVglNRelh8ZMz256rscxIEtK+0cPNlGjBMQYH53mysOGbUh9rlxjO/qpIC+YDleATw==
+X-Received: by 2002:a54:478d:0:b0:3bd:be66:c0c7 with SMTP id o13-20020a54478d000000b003bdbe66c0c7mr441553oic.98.1706164153039;
+        Wed, 24 Jan 2024 22:29:13 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id t19-20020a056a00139300b006dd870b51b8sm3201139pfg.126.2024.01.24.22.27.57
+        by smtp.gmail.com with ESMTPSA id t19-20020a056a00139300b006dd870b51b8sm3201139pfg.126.2024.01.24.22.29.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jan 2024 22:28:00 -0800 (PST)
+        Wed, 24 Jan 2024 22:29:12 -0800 (PST)
 From: debug@rivosinc.com
 To: rick.p.edgecombe@intel.com,
 	broonie@kernel.org,
@@ -129,14 +130,16 @@ Cc: corbet@lwn.net,
 	linux-mm@kvack.org,
 	linux-arch@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [RFC PATCH v1 00/28] riscv control-flow integrity for usermode
-Date: Wed, 24 Jan 2024 22:21:25 -0800
-Message-ID: <20240125062739.1339782-1-debug@rivosinc.com>
+Subject: [RFC PATCH v1 09/28] mm: abstract shadow stack vma behind `arch_is_shadow_stack`
+Date: Wed, 24 Jan 2024 22:21:34 -0800
+Message-ID: <20240125062739.1339782-10-debug@rivosinc.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240125062739.1339782-1-debug@rivosinc.com>
+References: <20240125062739.1339782-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_222806_351467_FCF575DB 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20240124_222916_332684_2697738F 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,171 +158,108 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Deepak Gupta <debug@rivosinc.com>
 
-It's been almost an year since I posted my last patch series [1] to
-enable CPU assisted control-flow integrity for usermode on riscv. A lot
-has changed since then and so has the patches. It's been a while and since
-this is a reboot of series, starting with RFC and v1.
+x86 has used VM_SHADOW_STACK (alias to VM_HIGH_ARCH_5) to encode shadow
+stack VMA. VM_SHADOW_STACK is thus not possible on 32bit. Some arches may
+need a way to encode shadow stack on 32bit and 64bit both and they may
+encode this information differently in VMAs.
 
-Securing control-flow integrity for usermode requires following
+This patch changes checks of VM_SHADOW_STACK flag in generic code to call
+to a function `arch_is_shadow_stack` which will return true if arch
+supports shadow stack and vma is shadow stack else stub returns false.
 
-    - Securing forward control flow : All callsites must reach
-      reach a target that they actually intend to reach.
+There was a suggestion to name it as `vma_is_shadow_stack`. I preferred to
+keep `arch` prefix in there because it's each arch specific.
 
-    - Securing backward control flow : All function returns must
-      return to location where they were called from.
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+---
+ include/linux/mm.h | 18 +++++++++++++++++-
+ mm/gup.c           |  5 +++--
+ mm/internal.h      |  2 +-
+ 3 files changed, 21 insertions(+), 4 deletions(-)
 
-This patch series use riscv cpu extension `zicfilp` [2] to secure forward
-control flow and `zicfiss` [2] to secure backward control flow. `zicfilp`
-enforces that all indirect calls or jmps must land on a landing pad instr
-and label embedded in landing pad instr must match a value programmed in
-`x7` register (at callsite via compiler). `zicfiss` introduces shadow stack
-which can only be writeable via shadow stack instructions (sspush and
-ssamoswap) and thus can't be tampered with via inadvertent stores. More
-details about extension can be read from [2] and there are details in
-documentation as well (in this patch series).
-
-Using config `CONFIG_RISCV_USER_CFI`, kernel support for riscv control flow
-integrity for user mode programs can be compiled in the kernel.
-
-Enabling of control flow integrity for user programs is left to user runtime
-(specifically expected from dynamic loader). There has been a lot of earlier
-discussion on the enabling topic around x86 shadow stack enabling [3, 4, 5] and
-overall consensus had been to let dynamic loader (or usermode) to decide for
-enabling the feature.
-
-This patch series introduces arch agnostic `prctls` to enable shadow stack
-and indirect branch tracking. And implements them on riscv. arm64 is expected
-to implement shadow stack part of these arch agnostic `prctls` [6]
-
-Changes since last time
-***********************
-
-Spec changes
-------------
-- Forward cfi spec has become much simpler. `lpad` instruction is pseudo for
-  `auipc rd, <20bit_imm>`. `lpad` checks x7 against 20bit embedded in instr.
-  Thus label width is 20bit.
-
-- Shadow stack management instructions are reduced to
-    sspush - to push x1/x5 on shadow stack
-    sspopchk - pops from shadow stack and comapres with x1/x5.
-    ssamoswap - atomically swap value on shadow stack.
-    rdssp - reads current shadow stack pointer
-
-- Shadow stack accesses on readonly memory always raise AMO/store page fault.
-  `sspopchk` is load but if underlying page is readonly, it'll raise a store
-  page fault. It simplifies hardware and kernel for COW handling for shadow
-  stack pages.
-
-- riscv defines a new exception type `software check exception` and control flow
-  violations raise software check exception.
-
-- enabling controls for shadow stack and landing are in xenvcfg CSR and controls
-  lower privilege mode enabling. As an example senvcfg controls enabling for U and
-  menvcfg controls enabling for S mode.
-
-core mm shadow stack enabling
------------------------------
-Shadow stack for x86 usermode are now in mainline and thus this patch
-series builds on top of that for arch-agnostic mm related changes. Big
-thanks and shout out to Rick Edgecombe for that.
-
-selftests
----------
-Created some minimal selftests to test the patch series.
-
-
-[1] - https://lore.kernel.org/lkml/20230213045351.3945824-1-debug@rivosinc.com/
-[2] - https://github.com/riscv/riscv-cfi
-[3] - https://lore.kernel.org/lkml/ZWHcBq0bJ+15eeKs@finisterre.sirena.org.uk/T/#mb121cd8b33d564e64234595a0ec52211479cf474
-[4] - https://lore.kernel.org/all/20220130211838.8382-1-rick.p.edgecombe@intel.com/
-[5] - https://lore.kernel.org/lkml/CAHk-=wgP5mk3poVeejw16Asbid0ghDt4okHnWaWKLBkRhQntRA@mail.gmail.com/
-[6] - https://lore.kernel.org/linux-mm/20231122-arm64-gcs-v7-2-201c483bd775@kernel.org/
-
-Deepak Gupta (27):
-  riscv: abstract envcfg CSR
-  riscv: envcfg save and restore on trap entry/exit
-  riscv: define default value for envcfg
-  riscv/Kconfig: enable HAVE_EXIT_THREAD for riscv
-  riscv: zicfiss/zicfilp enumeration
-  riscv: zicfiss/zicfilp extension csr and bit definitions
-  riscv: kernel handling on trap entry/exit for user cfi
-  mm: Define VM_SHADOW_STACK for RISC-V
-  mm: abstract shadow stack vma behind `arch_is_shadow_stack`
-  riscv/mm : Introducing new protection flag "PROT_SHADOWSTACK"
-  riscv: Implementing "PROT_SHADOWSTACK" on riscv
-  riscv mm: manufacture shadow stack pte
-  riscv mmu: teach pte_mkwrite to manufacture shadow stack PTEs
-  riscv mmu: write protect and shadow stack
-  riscv/mm: Implement map_shadow_stack() syscall
-  riscv/shstk: If needed allocate a new shadow stack on clone
-  prctl: arch-agnostic prtcl for indirect branch tracking
-  riscv: Implements arch agnostic shadow stack prctls
-  riscv: Implements arch argnostic indirect branch tracking prctls
-  riscv/traps: Introduce software check exception
-  riscv sigcontext: adding cfi state field in sigcontext
-  riscv signal: Save and restore of shadow stack for signal
-  riscv: select config for shadow stack and landing pad instr support
-  riscv/ptrace: riscv cfi status and state via ptrace and in core files
-  riscv: Documentation for landing pad / indirect branch tracking
-  riscv: Documentation for shadow stack on riscv
-  kselftest/riscv: kselftest for user mode cfi
-
-Mark Brown (1):
-  prctl: arch-agnostic prctl for shadow stack
-
- Documentation/arch/riscv/zicfilp.rst          | 104 ++++
- Documentation/arch/riscv/zicfiss.rst          | 169 ++++++
- arch/riscv/Kconfig                            |  16 +
- arch/riscv/include/asm/asm-prototypes.h       |   1 +
- arch/riscv/include/asm/cpufeature.h           |  18 +
- arch/riscv/include/asm/csr.h                  |  20 +
- arch/riscv/include/asm/hwcap.h                |   2 +
- arch/riscv/include/asm/mman.h                 |  42 ++
- arch/riscv/include/asm/pgtable.h              |  32 +-
- arch/riscv/include/asm/processor.h            |   2 +
- arch/riscv/include/asm/thread_info.h          |   4 +
- arch/riscv/include/asm/usercfi.h              | 106 ++++
- arch/riscv/include/uapi/asm/ptrace.h          |  18 +
- arch/riscv/include/uapi/asm/sigcontext.h      |   5 +
- arch/riscv/kernel/Makefile                    |   2 +
- arch/riscv/kernel/asm-offsets.c               |   6 +-
- arch/riscv/kernel/cpufeature.c                |   4 +-
- arch/riscv/kernel/entry.S                     |  32 ++
- arch/riscv/kernel/process.c                   |  16 +
- arch/riscv/kernel/ptrace.c                    |  83 +++
- arch/riscv/kernel/signal.c                    |  45 ++
- arch/riscv/kernel/sys_riscv.c                 |  19 +
- arch/riscv/kernel/traps.c                     |  38 ++
- arch/riscv/kernel/usercfi.c                   | 497 ++++++++++++++++++
- arch/riscv/mm/init.c                          |   2 +-
- arch/riscv/mm/pgtable.c                       |  21 +
- include/linux/mm.h                            |  35 +-
- include/uapi/asm-generic/mman.h               |   1 +
- include/uapi/linux/elf.h                      |   1 +
- include/uapi/linux/prctl.h                    |  49 ++
- kernel/sys.c                                  |  60 +++
- mm/gup.c                                      |   5 +-
- mm/internal.h                                 |   2 +-
- mm/mmap.c                                     |   1 +
- tools/testing/selftests/riscv/Makefile        |   2 +-
- tools/testing/selftests/riscv/cfi/Makefile    |  10 +
- .../testing/selftests/riscv/cfi/cfi_rv_test.h |  85 +++
- .../selftests/riscv/cfi/riscv_cfi_test.c      |  91 ++++
- .../testing/selftests/riscv/cfi/shadowstack.c | 376 +++++++++++++
- .../testing/selftests/riscv/cfi/shadowstack.h |  39 ++
- 40 files changed, 2050 insertions(+), 11 deletions(-)
- create mode 100644 Documentation/arch/riscv/zicfilp.rst
- create mode 100644 Documentation/arch/riscv/zicfiss.rst
- create mode 100644 arch/riscv/include/asm/mman.h
- create mode 100644 arch/riscv/include/asm/usercfi.h
- create mode 100644 arch/riscv/kernel/usercfi.c
- create mode 100644 tools/testing/selftests/riscv/cfi/Makefile
- create mode 100644 tools/testing/selftests/riscv/cfi/cfi_rv_test.h
- create mode 100644 tools/testing/selftests/riscv/cfi/riscv_cfi_test.c
- create mode 100644 tools/testing/selftests/riscv/cfi/shadowstack.c
- create mode 100644 tools/testing/selftests/riscv/cfi/shadowstack.h
-
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index dfe0e8118669..15c70fc677a3 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -352,6 +352,10 @@ extern unsigned int kobjsize(const void *objp);
+  * for more details on the guard size.
+  */
+ # define VM_SHADOW_STACK	VM_HIGH_ARCH_5
++static inline bool arch_is_shadow_stack(vm_flags_t vm_flags)
++{
++	return (vm_flags & VM_SHADOW_STACK);
++}
+ #endif
+ 
+ #ifdef CONFIG_RISCV_USER_CFI
+@@ -362,10 +366,22 @@ extern unsigned int kobjsize(const void *objp);
+  * with VM_SHARED.
+  */
+ #define VM_SHADOW_STACK	VM_WRITE
++
++static inline bool arch_is_shadow_stack(vm_flags_t vm_flags)
++{
++	return ((vm_flags & (VM_WRITE | VM_READ | VM_EXEC)) == VM_WRITE);
++}
++
+ #endif
+ 
+ #ifndef VM_SHADOW_STACK
+ # define VM_SHADOW_STACK	VM_NONE
++
++static inline bool arch_is_shadow_stack(vm_flags_t vm_flags)
++{
++	return false;
++}
++
+ #endif
+ 
+ #if defined(CONFIG_X86)
+@@ -3464,7 +3480,7 @@ static inline unsigned long stack_guard_start_gap(struct vm_area_struct *vma)
+ 		return stack_guard_gap;
+ 
+ 	/* See reasoning around the VM_SHADOW_STACK definition */
+-	if (vma->vm_flags & VM_SHADOW_STACK)
++	if (vma->vm_flags && arch_is_shadow_stack(vma->vm_flags))
+ 		return PAGE_SIZE;
+ 
+ 	return 0;
+diff --git a/mm/gup.c b/mm/gup.c
+index 231711efa390..45798782ed2c 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -1051,7 +1051,7 @@ static int check_vma_flags(struct vm_area_struct *vma, unsigned long gup_flags)
+ 		    !writable_file_mapping_allowed(vma, gup_flags))
+ 			return -EFAULT;
+ 
+-		if (!(vm_flags & VM_WRITE) || (vm_flags & VM_SHADOW_STACK)) {
++		if (!(vm_flags & VM_WRITE) || arch_is_shadow_stack(vm_flags)) {
+ 			if (!(gup_flags & FOLL_FORCE))
+ 				return -EFAULT;
+ 			/* hugetlb does not support FOLL_FORCE|FOLL_WRITE. */
+@@ -1069,7 +1069,8 @@ static int check_vma_flags(struct vm_area_struct *vma, unsigned long gup_flags)
+ 			if (!is_cow_mapping(vm_flags))
+ 				return -EFAULT;
+ 		}
+-	} else if (!(vm_flags & VM_READ)) {
++	} else if (!(vm_flags & VM_READ) && !arch_is_shadow_stack(vm_flags)) {
++	/* reads allowed if its shadow stack vma */
+ 		if (!(gup_flags & FOLL_FORCE))
+ 			return -EFAULT;
+ 		/*
+diff --git a/mm/internal.h b/mm/internal.h
+index b61034bd50f5..0abf00c93fe1 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -572,7 +572,7 @@ static inline bool is_exec_mapping(vm_flags_t flags)
+  */
+ static inline bool is_stack_mapping(vm_flags_t flags)
+ {
+-	return ((flags & VM_STACK) == VM_STACK) || (flags & VM_SHADOW_STACK);
++	return ((flags & VM_STACK) == VM_STACK) || arch_is_shadow_stack(flags);
+ }
+ 
+ /*
 -- 
 2.43.0
 
