@@ -4,70 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53E8C47DDF
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 07:32:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC2EC47258
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 08:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xf6tYm3kV7zvNMneWlvTmaqIVIEIx/ZI/wZ0xNrL6iw=; b=T9rPwIz5FKHS93
-	hjLO5e6ZsY/hVoDC5irXiqkbfrRJJGZ38aZ01rlFF3B893Z+Png86u7VRH30baGH9lCTqDamYL6kl
-	XAuOEtitjhIqXt99rHVxuwUNjzP0F2bh/AKjFWEnA+SN0JlJNMkLclI2vT/IAVbcLXNPM0MC5+I08
-	F3WHkzuOdzZueO4QUgbIujZXDwpaNoNA1aWfnXwlt0fymaYgvQTgUR6QvmCqd9fSVodcg3slD/af0
-	SbZBsa1EnQjtBeF7foG8ijpKignVaa+rXtXkqOdl10gfOLflQgPjUW2yKr9zlzixjcCQN+XoOF/v9
-	1Bk5l/bhsJZfMnlcw3IQ==;
+	List-Owner; bh=9WZ+c6Pml0ZllLu8yCr94Bx9JvlIbPeeZCiIg/jkoMA=; b=mR4/TPymZyvblx
+	f2LK2d7/sny7DJ0pdLP2G+3etXIKQIJhL3m1W+aLMtJRlSRJEFAkURIv5ovRncvhE41LHAhfP2/6z
+	1t9unesyYPytdjILRvzOc5mDA3do479QpOHRR1hjN9kTW02Px/a9fLgS0o7AiQIlGQSSUIarxohfo
+	3ZNq1U7Z+xHEqAVLJMaUb4id9FZJHWqjPUUTd4xHHeVUrkACUflubW17Zzi/v9Ci5F2BsqIiOUlTK
+	/vxML1hIOxYa9tpVLU6CaZGbl46aELwRrLSZo/daOQkb4BYOBfNrtRu9bTadb4M9NHFt7+q7c3eG1
+	WFb6Zeiph+ZzoWkWy4DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSuE5-0073gM-2s;
-	Thu, 25 Jan 2024 07:32:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rSuvD-007HNp-3C;
+	Thu, 25 Jan 2024 08:17:15 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSuDy-0073c0-21;
-	Thu, 25 Jan 2024 07:32:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EF3176211E;
-	Thu, 25 Jan 2024 07:32:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D9E8C433C7;
-	Thu, 25 Jan 2024 07:32:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706167949;
-	bh=4YJZl/HB/FeUJBFx4g+Hq4GWbhTEDrW8F8ywC05k2CU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o/qlP90bWA8vs1DoAh96IyHbdPjr4YyuZvDq0onY5ZuuTV08XQml8GYs0ScKoZDdk
-	 kRNaiyxLgYIpzg1fYukUi9EtRFIRc727kYqe3wtWXR5gtzs35c/p1Y0J1fwyQZK1Ap
-	 6AYBkhNKcCN91vd4Pq89IdOJXzTo/DfX9ptcP+9MEhnDjZshaFfmldWDYiRB/53swx
-	 +1IA6GzmPSyirfoR+LyXczKV2zT5RxfrhLZ1jFEvHaBZKOwVLKW3QWPCviK1bmr2b8
-	 GoXu6/VAAQ3DwKjghCy5ELrIOAk+v3Yh5RTjDRV/vZkGVh46K5kitkUo/oNKs++SiR
-	 aXnmU6ZKh3AJg==
-Date: Thu, 25 Jan 2024 09:31:57 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: "Lameter, Christopher" <cl@os.amperecomputing.com>
-Cc: Huang Shijie <shijie@os.amperecomputing.com>,
-	gregkh@linuxfoundation.org, patches@amperecomputing.com,
-	rafael@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, yury.norov@gmail.com, kuba@kernel.org,
-	vschneid@redhat.com, mingo@kernel.org, akpm@linux-foundation.org,
-	vbabka@suse.cz, tglx@linutronix.de, jpoimboe@kernel.org,
-	ndesaulniers@google.com, mikelley@microsoft.com,
-	mhiramat@kernel.org, arnd@arndb.de, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	will@kernel.org, mark.rutland@arm.com, mpe@ellerman.id.au,
-	linuxppc-dev@lists.ozlabs.org, chenhuacai@kernel.org,
-	jiaxun.yang@flygoat.com, linux-mips@vger.kernel.org
-Subject: Re: [PATCH v2] NUMA: Early use of cpu_to_node() returns 0 instead of
- the correct node id
-Message-ID: <ZbIObaA6t9WbRw9y@kernel.org>
-References: <20240123045843.75969-1-shijie@os.amperecomputing.com>
- <4a13353c-cf4b-a388-5776-389c61c63ec0@os.amperecomputing.com>
+	id 1rSuvA-007HKB-2Q
+	for linux-riscv@lists.infradead.org;
+	Thu, 25 Jan 2024 08:17:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1706170629;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=UZLvbQ/sj/IqlociRX/ySFK6it2BLTBR7c6/FUndS40=;
+	b=b3FB+0O24/tJNSao7q6o9oekbSb8UOVWAvGUjyP/wOYbQvSd9WC0L2cQHwzS1OnScIIQ69
+	VxrCU+JaKxcVP2SB871eNAGCpUUVgFnlo9Um3Hj/vEn/FtorLFaN/8Zgi/MMYti5kmVBYI
+	pU3VZtvfhAQMVOKueg66K2HNMLYSghY=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-397-H2JepY7EPAueicgfUGRHuA-1; Thu, 25 Jan 2024 03:17:06 -0500
+X-MC-Unique: H2JepY7EPAueicgfUGRHuA-1
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-40e412c1e65so55315115e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Jan 2024 00:17:06 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1706170625; x=1706775425;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UZLvbQ/sj/IqlociRX/ySFK6it2BLTBR7c6/FUndS40=;
+        b=EWByGfWKchdMvKH63X5DOkRqFgxbSoTiA49VRATRFwWJ8aO59bwZGNca96kr6P0jRx
+         UuzSXNrR072K599WFOMpm0hf6XJ/XEg+ZWWwcJ0IZZs3fTIlSprgy/UrtyQ4phtzW8pO
+         TDL3rs5KmWW4dwguME70S9/DH41flSp4zIAG34bZjygOjlwCDs9mmi8NjzDKqtGa2gZ2
+         F2bfKQf79gdzG/5rxIvxXXQhU2EbFUEFy3S7EgYJM7HZof01K61UxfrK9RR/IkxIgT6q
+         T/yfRPP57vk2ZgX0ls+P+UCiZrC5WoXVLsBHJobDGEmeWTuC6S7ThZNcaMJS0Lzje1RM
+         wa1g==
+X-Gm-Message-State: AOJu0YzLXq0Q2fV7yeEfCCpCr2DxUsaRkIDRwIxz4MvkzFgpLUQTk5wJ
+	3Pj7uL6vg3fBbey5n3U1OSmCF4HzWaD6zgi/WO+bL1CUr8s5LCC9PsW4ttlzlR/sLvZ/rzceFye
+	LWc6ZShFcnodgZuNXLk4mBQa+8BkuhWic34pZs45xl5qitSFR7wds2bLqoQocnz/E0g==
+X-Received: by 2002:a05:600c:4f4d:b0:40e:a32c:988d with SMTP id m13-20020a05600c4f4d00b0040ea32c988dmr107877wmq.4.1706170625360;
+        Thu, 25 Jan 2024 00:17:05 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHBXG0c1n69CXCyo5Gso5jszoyqCLj5BPA212FZgRTdtFdTJYJL0uYG9mHoKZFGV423EU1+WQ==
+X-Received: by 2002:a05:600c:4f4d:b0:40e:a32c:988d with SMTP id m13-20020a05600c4f4d00b0040ea32c988dmr107862wmq.4.1706170624814;
+        Thu, 25 Jan 2024 00:17:04 -0800 (PST)
+Received: from ?IPV6:2003:cb:c70a:7600:9a0b:ceef:a304:b9a7? (p200300cbc70a76009a0bceefa304b9a7.dip0.t-ipconnect.de. [2003:cb:c70a:7600:9a0b:ceef:a304:b9a7])
+        by smtp.gmail.com with ESMTPSA id o14-20020a05600c4fce00b0040d30af488asm1658538wmq.40.2024.01.25.00.17.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 25 Jan 2024 00:17:04 -0800 (PST)
+Message-ID: <a6f3ccf5-26a0-45f1-adaa-56a8df569548@redhat.com>
+Date: Thu, 25 Jan 2024 09:17:01 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <4a13353c-cf4b-a388-5776-389c61c63ec0@os.amperecomputing.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 08/28] mm: Define VM_SHADOW_STACK for RISC-V
+To: debug@rivosinc.com, rick.p.edgecombe@intel.com, broonie@kernel.org,
+ Szabolcs.Nagy@arm.com, kito.cheng@sifive.com, keescook@chromium.org,
+ ajones@ventanamicro.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ conor.dooley@microchip.com, cleger@rivosinc.com, atishp@atishpatra.org,
+ alex@ghiti.fr, bjorn@rivosinc.com, alexghiti@rivosinc.com
+Cc: corbet@lwn.net, aou@eecs.berkeley.edu, oleg@redhat.com,
+ akpm@linux-foundation.org, arnd@arndb.de, ebiederm@xmission.com,
+ shuah@kernel.org, brauner@kernel.org, guoren@kernel.org,
+ samitolvanen@google.com, evan@rivosinc.com, xiao.w.wang@intel.com,
+ apatel@ventanamicro.com, mchitale@ventanamicro.com, waylingii@gmail.com,
+ greentime.hu@sifive.com, heiko@sntech.de, jszhang@kernel.org,
+ shikemeng@huaweicloud.com, charlie@rivosinc.com, panqinglin2020@iscas.ac.cn,
+ willy@infradead.org, vincent.chen@sifive.com, andy.chiu@sifive.com,
+ gerg@kernel.org, jeeheng.sia@starfivetech.com, mason.huo@starfivetech.com,
+ ancientmodern4@gmail.com, mathis.salmen@matsal.de, cuiyunhui@bytedance.com,
+ bhe@redhat.com, chenjiahao16@huawei.com, ruscur@russell.cc,
+ bgray@linux.ibm.com, alx@kernel.org, baruch@tkos.co.il,
+ zhangqing@loongson.cn, catalin.marinas@arm.com, revest@chromium.org,
+ josh@joshtriplett.org, joey.gouly@arm.com, shr@devkernel.io,
+ omosnace@redhat.com, ojeda@kernel.org, jhubbard@nvidia.com,
+ linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20240125062739.1339782-1-debug@rivosinc.com>
+ <20240125062739.1339782-9-debug@rivosinc.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <20240125062739.1339782-9-debug@rivosinc.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_233234_723141_8B779803 
-X-CRM114-Status: GOOD (  21.19  )
+X-CRM114-CacheID: sfid-20240125_001712_928969_16AF6E3D 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +163,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 24, 2024 at 09:19:00AM -0800, Lameter, Christopher wrote:
-> On Tue, 23 Jan 2024, Huang Shijie wrote:
+On 25.01.24 07:21, debug@rivosinc.com wrote:
+> From: Deepak Gupta <debug@rivosinc.com>
 > 
-> > During the kernel booting, the generic cpu_to_node() is called too early in
-> > arm64, powerpc and riscv when CONFIG_NUMA is enabled.
-> > 
-> > For arm64/powerpc/riscv, there are at least four places in the common code
-> > where the generic cpu_to_node() is called before it is initialized:
-> > 	   1.) early_trace_init()         in kernel/trace/trace.c
-> > 	   2.) sched_init()               in kernel/sched/core.c
-> > 	   3.) init_sched_fair_class()    in kernel/sched/fair.c
-> > 	   4.) workqueue_init_early()     in kernel/workqueue.c
-> > 
-> > In order to fix the bug, the patch changes generic cpu_to_node to
-> > function pointer, and export it for kernel modules.
-> > Introduce smp_prepare_boot_cpu_start() to wrap the original
-> > smp_prepare_boot_cpu(), and set cpu_to_node with early_cpu_to_node.
-> > Introduce smp_prepare_cpus_done() to wrap the original smp_prepare_cpus(),
-> > and set the cpu_to_node to formal _cpu_to_node().
+> VM_SHADOW_STACK is defined by x86 as vm flag to mark a shadow stack vma.
 > 
-> Would  you please fix this cleanly without a function pointer?
+> x86 uses VM_HIGH_ARCH_5 bit but that limits shadow stack vma to 64bit only.
+> arm64 follows same path
+> https://lore.kernel.org/lkml/20231009-arm64-gcs-v6-12-78e55deaa4dd@kernel.org/#r
 > 
-> What I think needs to be done is a patch series.
+> On RISC-V, write-only page table encodings are shadow stack pages. This patch
+> re-defines VM_WRITE only to be VM_SHADOW_STACK.
 > 
-> 1. Instrument cpu_to_node so that some warning is issued if it is used too
-> early. Preloading the array with NUMA_NO_NODE would allow us to do that.
+> Next set of patches will set guard rail that no other mm flow can set VM_WRITE
+> only in vma except when specifically creating shadow stack.
 > 
-> 2. Implement early_cpu_to_node on platforms that currently do not have it.
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>   include/linux/mm.h | 14 +++++++++++++-
+>   1 file changed, 13 insertions(+), 1 deletion(-)
 > 
-> 3. A series of patches that fix each place where cpu_to_node is used too
-> early.
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 418d26608ece..dfe0e8118669 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -352,7 +352,19 @@ extern unsigned int kobjsize(const void *objp);
+>    * for more details on the guard size.
+>    */
+>   # define VM_SHADOW_STACK	VM_HIGH_ARCH_5
+> -#else
+> +#endif
+> +
+> +#ifdef CONFIG_RISCV_USER_CFI
+> +/*
+> + * On RISC-V pte encodings for shadow stack is R=0, W=1, X=0 and thus RISCV
+> + * choosing to use similar mechanism on vm_flags where VM_WRITE only means
+> + * VM_SHADOW_STACK. RISCV as well doesn't support VM_SHADOW_STACK to be set
+> + * with VM_SHARED.
+> + */
+> +#define VM_SHADOW_STACK	VM_WRITE
+> +#endif
+> +
+> +#ifndef VM_SHADOW_STACK
+>   # define VM_SHADOW_STACK	VM_NONE
+>   #endif
+>   
 
-I think step 3 can be simplified with a generic function that sets
-per_cpu(numa_node) using early_cpu_to_node(). It can be called right after
-setup_per_cpu_areas().
+That just screams for trouble. Can we find a less hacky way, please?
+
+Maybe just start with 64bit support only and do it like the other archs. 
+No need to be special.
+
+When wanting to support 32bit, we'll just finally clean up this high 
+flag mess and allow for more vm flags on 32bit as well.
 
 -- 
-Sincerely yours,
-Mike.
+Cheers,
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
