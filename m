@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2216CC47422
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 17:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFA7C47422
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 17:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6qO8lfY69k+4Vtjg/GwzRTKzkOlB4ZuYLVvgP4puhs=; b=AumXqQssYb+dEeRm1MqoxVo5i1
-	qGpSqPy7/cW5zYaxyjRSiyYv1YlIUAv2vHznpZGXdLrsfYdXtwJvOCbIfYo9DI1R7SmgKRwPGeUIF
-	9zXzSJfVz7nrLHabi38IOFQoSxA962FM2qFavGdmXnC5y0d8SmdEqtnkzwDAoqXUUgWgjMgiSEqA0
-	fbSvtEIWZWOdjPhfx0ZRVDfp6WSaXygOnqU/s3GwW3QxkpQkyFzgH4B5boSyf9SxFOAlJSYdr87Za
-	/Cabzcv0Ite9ixK/sLTii60PVetaFV8x4DrXWJ7EO8AscHF2WhFZmI2PKjJRcCT24OWdvePy93wWX
-	qkVWP4yA==;
+	bh=wwmlBxsw863HycCbreNdynL2P/I/d4dDJ4cF0Z64W78=; b=Bx2oRyqQ2h/IdS4A7RgqYnb9Dy
+	yOlv1fbM7tHiyWkDF7yKPdp+2y4aOZv2z7x1Zms6CBFvsbheEggdKu+bk9LUzXLOCTuVNLbgMts5Z
+	qtsO6R1FLzqxwl8cTg/B8s9zSc6VbLTURvk8ro4McFiaoket6d7co+LIfVJNX+UBsL09Qqpe+0fCu
+	XZaJ7WER3O3SF1VCKuXy7nkw1a8bmXCvLQI/p0MseBOBgc9IFvyYuMKaDOR02UTNNyZAPZly6CGA0
+	xkEy+9RDps7sp5YKOlL7PL6rqG8qBoJr8+vhca/PYRh0KigXYttLmIRw1m82boDcNp2HL3PPAj7qr
+	t4FRCrag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT3A8-0000000134A-25CN;
-	Thu, 25 Jan 2024 17:05:12 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1rT3C4-000000013rZ-22PP;
+	Thu, 25 Jan 2024 17:07:12 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT3A3-00000001312-2xDn
+	id 1rT3C1-000000013q4-192Q
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 17:05:10 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-6daa89a6452so5091854b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 25 Jan 2024 09:05:06 -0800 (PST)
+	Thu, 25 Jan 2024 17:07:10 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-6ddc1b30458so1704967b3a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Jan 2024 09:07:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706202306; x=1706807106; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706202427; x=1706807227; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0M1FGpzVNcThtLlc0xGfB6RVNT85al2FAnsQAblSAe0=;
-        b=q+SroSqeBozcyxwmVXugF7pGELAkYnu5nm4rhihaYoTAHYiuCJovocf061tcu8D4iP
-         R5NHNK2aVLnTM0ByZpPbF8DDNdmUQ+6GhIkemkdfknB5iO6QP7qtKpd78E99JvfHBxS0
-         JCewaFc+G3uKEs5If7MQQPRmqr90izu03Kw0LvBMkTGYfKXdl6lwW9xuA4pnbIk2/oTa
-         TwGUaaYKwezcCePfqbh46ixAEj9LlCdH5GxDC7WZl4hzTqEAYk7L86cXqw6ToVNApVBa
-         2Gg8Np6Ve2sKIN8iRqRAk6GvD9VsZvzU9UWMQ61vLPSB7onyASPp8lEinbVsYW6S5KmO
-         SBBg==
+        bh=w+Y205/Bj9/UaPGsjWa2kZTirfJ1VaurSr0W2Uv0l3s=;
+        b=ko5myZUA7qr5q1aISayRDcGLg9+AEWJ0RlQV3U85FKlokA0aDzWyzWiAiCgJYWOF80
+         5g3U6g6Rgm1Ba5/HLkOAH7MnmmPBjVGcTNYg5E0FzVDN32rA9BaX1zZLqzaYAdksSyAM
+         HvTCJHG4k2DRVypAGTVvSZga7uYAxNKwmKzcjzLzp/hOSlmBa4+ghOjpNkWJh8f7GKOa
+         mm6wwogI3dBE6QRjIFleMYQdex0yBnhvv5ns7aRgMIvHewvI50zSc2/Doi8m/Fw0yNPB
+         1CXqjrIBZDvYymFCwwvV1rYgAA68QrgU9ynNRuceBtN5lzX0tE4thI/DMG5EPX9XrVt2
+         c3Kw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706202306; x=1706807106;
+        d=1e100.net; s=20230601; t=1706202427; x=1706807227;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0M1FGpzVNcThtLlc0xGfB6RVNT85al2FAnsQAblSAe0=;
-        b=toW0aZBSbmr3zbm3bdvW7twIvfoI7Zx6tFKLf9n81Pyo9bGZ/58iKqN/+JT/g798EG
-         UMcLwaBt4zOucY0Mxd1O1W1L1W1vrBYSGx5R5IipS+l//77AgsMtyWESYPWqETaJUTQ0
-         gnsWROFzfCs3n+MJY9NHHw6fXNNS1D9cWLe+sudtVGTW4rKjsFZYwz2HSpLeWteM3KIb
-         +z4SoU3UqgklIG8NH63vnMs1WHgW2XU1Q9X+JcpSWBgc5sNO6GWprB1C335Qzi400/XL
-         Bfw0h1/45Z79jKez+sdJxyAsXm/K2JN3Vwa1aPk5ZLlxM8O1G5EV/tpewZVi28s+jCw/
-         aCyw==
-X-Gm-Message-State: AOJu0YzOG1W7Q59aGsoUBVBAvDmbL11ZtZTGnxPjpjssLLWsw9eVLPVT
-	cetC2CgaNMhqZkkmpvDqjpDarTqiWT2vjwskE+OoNzDgOZx1YiUJNecS4sUOHTc=
-X-Google-Smtp-Source: AGHT+IGut0SQXr9AbScsdtYRLtI9Q1u0TcXDVvdxEucMFGumMjEZ81k2C95PoDlDDNCwCXrQvmnyWA==
-X-Received: by 2002:a05:6a00:1a8a:b0:6dd:892f:e2a6 with SMTP id e10-20020a056a001a8a00b006dd892fe2a6mr2044pfv.23.1706202305670;
-        Thu, 25 Jan 2024 09:05:05 -0800 (PST)
+        bh=w+Y205/Bj9/UaPGsjWa2kZTirfJ1VaurSr0W2Uv0l3s=;
+        b=UCQi76HRKpXt621cwScOy0QQtJzjUE4dBnhlnjDbFk3N8RNpmMBDgAYDLztyTgWQFA
+         geX/z/G5NE/lIZg5QUE5Te4uc11NHQqzT8Osn0sdJhoKHSeuUQIDD6DE9Dfzj4xiWDrd
+         8HNVXSfkNwt1BB2BkQYADvGi+VtXVAjFxj19x4xjo2xBb7ZHRWYnfwsPvB+xU4Vsnt4e
+         h4wwkNu+FHu+znFdIlJsMmKewQGNsToXTIxeyx38f97VcdPDJtL1W8ezBupaKddJP1uP
+         g/AxAGprYHG8mT5YCrrl01dezJEFZV5EIVp1OJUXRzzsFx7jmJqRMCf1vTL+XPclu7Qg
+         AkzA==
+X-Gm-Message-State: AOJu0YwlVPMXhHaZoFpEdqdg3TBaXggCzkrBYCqcJCWaX3A1gHCKtvt7
+	9Byf9yeQ5ZKX0KZSKbVLdDSovqddEWLvlKwjA7sWlSVx50UFHlH5YVyYigK9eU0=
+X-Google-Smtp-Source: AGHT+IHYeX7pTsc6T2+Oj8CHwr5rzy78ADNZC7lkEDYMAD93a3MlR2jkEuTYyjSwB5kHgHqSGlWjog==
+X-Received: by 2002:a05:6a00:2b56:b0:6dd:8a23:b2c7 with SMTP id du22-20020a056a002b5600b006dd8a23b2c7mr21796pfb.5.1706202427107;
+        Thu, 25 Jan 2024 09:07:07 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id s19-20020a056a0008d300b006d9a6039745sm16078660pfu.40.2024.01.25.09.05.02
+        by smtp.gmail.com with ESMTPSA id lc9-20020a056a004f4900b006db105027basm16031068pfb.50.2024.01.25.09.07.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Jan 2024 09:05:05 -0800 (PST)
-Date: Thu, 25 Jan 2024 09:05:01 -0800
+        Thu, 25 Jan 2024 09:07:06 -0800 (PST)
+Date: Thu, 25 Jan 2024 09:07:02 -0800
 From: Deepak Gupta <debug@rivosinc.com>
 To: David Hildenbrand <david@redhat.com>
 Cc: rick.p.edgecombe@intel.com, broonie@kernel.org, Szabolcs.Nagy@arm.com,
@@ -90,17 +90,18 @@ Cc: rick.p.edgecombe@intel.com, broonie@kernel.org, Szabolcs.Nagy@arm.com,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org, linux-arch@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: Re: [RFC PATCH v1 08/28] mm: Define VM_SHADOW_STACK for RISC-V
-Message-ID: <ZbKUveOKsT/bdd+a@debug.ba.rivosinc.com>
+Subject: Re: [RFC PATCH v1 09/28] mm: abstract shadow stack vma behind
+ `arch_is_shadow_stack`
+Message-ID: <ZbKVNm5ubV8yQtSE@debug.ba.rivosinc.com>
 References: <20240125062739.1339782-1-debug@rivosinc.com>
- <20240125062739.1339782-9-debug@rivosinc.com>
- <a6f3ccf5-26a0-45f1-adaa-56a8df569548@redhat.com>
+ <20240125062739.1339782-10-debug@rivosinc.com>
+ <2f34f6aa-99fa-4545-b706-a1d50864f9e9@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <a6f3ccf5-26a0-45f1-adaa-56a8df569548@redhat.com>
+In-Reply-To: <2f34f6aa-99fa-4545-b706-a1d50864f9e9@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_090508_269333_B08C1167 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20240125_090709_377661_C6323BB1 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,62 +118,59 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 25, 2024 at 09:17:01AM +0100, David Hildenbrand wrote:
+On Thu, Jan 25, 2024 at 09:18:07AM +0100, David Hildenbrand wrote:
 >On 25.01.24 07:21, debug@rivosinc.com wrote:
 >>From: Deepak Gupta <debug@rivosinc.com>
 >>
->>VM_SHADOW_STACK is defined by x86 as vm flag to mark a shadow stack vma.
+>>x86 has used VM_SHADOW_STACK (alias to VM_HIGH_ARCH_5) to encode shadow
+>>stack VMA. VM_SHADOW_STACK is thus not possible on 32bit. Some arches may
+>>need a way to encode shadow stack on 32bit and 64bit both and they may
+>>encode this information differently in VMAs.
 >>
->>x86 uses VM_HIGH_ARCH_5 bit but that limits shadow stack vma to 64bit only.
->>arm64 follows same path
->>https://lore.kernel.org/lkml/20231009-arm64-gcs-v6-12-78e55deaa4dd@kernel.org/#r
+>>This patch changes checks of VM_SHADOW_STACK flag in generic code to call
+>>to a function `arch_is_shadow_stack` which will return true if arch
+>>supports shadow stack and vma is shadow stack else stub returns false.
 >>
->>On RISC-V, write-only page table encodings are shadow stack pages. This patch
->>re-defines VM_WRITE only to be VM_SHADOW_STACK.
->>
->>Next set of patches will set guard rail that no other mm flow can set VM_WRITE
->>only in vma except when specifically creating shadow stack.
+>>There was a suggestion to name it as `vma_is_shadow_stack`. I preferred to
+>>keep `arch` prefix in there because it's each arch specific.
 >>
 >>Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 >>---
->>  include/linux/mm.h | 14 +++++++++++++-
->>  1 file changed, 13 insertions(+), 1 deletion(-)
+>>  include/linux/mm.h | 18 +++++++++++++++++-
+>>  mm/gup.c           |  5 +++--
+>>  mm/internal.h      |  2 +-
+>>  3 files changed, 21 insertions(+), 4 deletions(-)
 >>
 >>diff --git a/include/linux/mm.h b/include/linux/mm.h
->>index 418d26608ece..dfe0e8118669 100644
+>>index dfe0e8118669..15c70fc677a3 100644
 >>--- a/include/linux/mm.h
 >>+++ b/include/linux/mm.h
->>@@ -352,7 +352,19 @@ extern unsigned int kobjsize(const void *objp);
+>>@@ -352,6 +352,10 @@ extern unsigned int kobjsize(const void *objp);
 >>   * for more details on the guard size.
 >>   */
 >>  # define VM_SHADOW_STACK	VM_HIGH_ARCH_5
->>-#else
->>+#endif
->>+
->>+#ifdef CONFIG_RISCV_USER_CFI
->>+/*
->>+ * On RISC-V pte encodings for shadow stack is R=0, W=1, X=0 and thus RISCV
->>+ * choosing to use similar mechanism on vm_flags where VM_WRITE only means
->>+ * VM_SHADOW_STACK. RISCV as well doesn't support VM_SHADOW_STACK to be set
->>+ * with VM_SHARED.
->>+ */
->>+#define VM_SHADOW_STACK	VM_WRITE
->>+#endif
->>+
->>+#ifndef VM_SHADOW_STACK
->>  # define VM_SHADOW_STACK	VM_NONE
+>>+static inline bool arch_is_shadow_stack(vm_flags_t vm_flags)
+>>+{
+>>+	return (vm_flags & VM_SHADOW_STACK);
+>>+}
 >>  #endif
+>>  #ifdef CONFIG_RISCV_USER_CFI
+>>@@ -362,10 +366,22 @@ extern unsigned int kobjsize(const void *objp);
+>>   * with VM_SHARED.
+>>   */
+>>  #define VM_SHADOW_STACK	VM_WRITE
+>>+
+>>+static inline bool arch_is_shadow_stack(vm_flags_t vm_flags)
+>>+{
+>>+	return ((vm_flags & (VM_WRITE | VM_READ | VM_EXEC)) == VM_WRITE);
+>>+}
+>>+
 >
->That just screams for trouble. Can we find a less hacky way, please?
->
->Maybe just start with 64bit support only and do it like the other 
->archs. No need to be special.
->
->When wanting to support 32bit, we'll just finally clean up this high 
->flag mess and allow for more vm flags on 32bit as well.
+>Please no such hacks just to work around the 32bit vmflags limitation.
 
-Noted. I wanted to give a chance to anyone who cares about 32bit on riscv.
-Will fix it in next series.
+As I said in another response. Noted.
+And if there're no takers for 32bit on riscv (which highly likely is the case)
+This will go away in next version of patchsets.
 
 >
 >-- 
