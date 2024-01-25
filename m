@@ -4,94 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA3DEC47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 20:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB6C1C47422
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 20:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9scZ07d0JlWaOP3mok2Q+CNnYR2Sz8iXM/Ht2KjJVYk=; b=r368X3GiHFBhfR
-	oFHZL3Yp432ZFyWeqjNVVrr1P8+Fsf3K14WJYR1KiT85SKlsqthyN6FxIaF40vFaJAwu8OFrWKNST
-	8Okx/ZES+nV2MvyXenfb7w9EeFERhA5tXyJhOwhIlXIWjW/M2LAtiFnbiAI2a74OnK+bGHqF4dnGx
-	gzvbvcyfNulqG8MY8yacRZZuajadRhzmZgHgItNMeVvTO3Dc99k/7XuMMObo6QyONlQe60HZJT5gF
-	HU0KGVU1oKiWDuzrI7ZHiOobojfoaGNBMDmNeZr8yArE9n52QVFf4stAywEXX5QfsLyKPUlQbu6YW
-	i2qq4P4YOxMBwvbUnyZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B8znEkOLf2hbnJzkGxSNjugxcoei2YoVd0JClYOlOIY=; b=iYMYog4Sxay+e7kPZW7OtwtFNT
+	ZfyTHNuLTZWPyYbQebN2qvU2zkZx7hVrzPzJJe/9XNCJKwGDKPA7bpZ9T7Up310T3hueXyLDqEXo0
+	W5WBZ17FTWritnYJHyI/b06Zi/iMCdHoLLIfNGps7CJ2n3wuF14Zt2YKWr38sp9EdBNxnevyP0thG
+	LxEZxMwhEbvxbRp9KRhSDTYfiLTncdm0K95Dy3qw6UfGN5EJvOChOechf9hy29lNEbRhrhpJ3B0aG
+	XVYuwEkokvGzMmpbJIhYpkI7QWUKGt2rygx7iA7LskZ/4VVKuRVu6LDrs5Zdo6JdsKrX8uVKG+gxo
+	G22ORbLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT6fT-00000001rGq-3ZW8;
-	Thu, 25 Jan 2024 20:49:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rT6ks-00000001sF8-1Ly8;
+	Thu, 25 Jan 2024 20:55:22 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT5Tu-00000001Y3s-2h4i
+	id 1rT6kp-00000001sDQ-0Ixl
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 19:33:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1706211225;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3s1Jv/6P5yjhblLF2udczJAUFVvnCKFeQLjRuwj24+c=;
-	b=O6G4nsp+f9m150UyKJv1GWw9i0fAeRALLAHzYgNfqUWdPscvD7ksmuvG0Y5m+JOb6qBRhJ
-	RdbrYU5sDTLYU1c5wHrpfqM13tadqo0JA14qJ3MArBYGb0hk98U56d+Ou0CvDk03bZvxpC
-	hB47h+m91TiejNzhnzn1Wd3eFlu3qnc=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-499-493L1nvTPrqpYIPc57u-fA-1; Thu, 25 Jan 2024 14:33:42 -0500
-X-MC-Unique: 493L1nvTPrqpYIPc57u-fA-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 34A868432A1;
-	Thu, 25 Jan 2024 19:33:41 +0000 (UTC)
-Received: from t14s.redhat.com (unknown [10.39.193.154])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 074EA492BC9;
-	Thu, 25 Jan 2024 19:33:34 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-mm@kvack.org,
-	David Hildenbrand <david@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org
-Subject: [PATCH v2 11/15] mm/memory: factor out copying the actual PTE in copy_present_pte()
-Date: Thu, 25 Jan 2024 20:32:23 +0100
-Message-ID: <20240125193227.444072-12-david@redhat.com>
-In-Reply-To: <20240125193227.444072-1-david@redhat.com>
-References: <20240125193227.444072-1-david@redhat.com>
+	Thu, 25 Jan 2024 20:55:20 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rT6kK-0000q6-2e; Thu, 25 Jan 2024 21:54:48 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rT6kE-002MbB-Qk; Thu, 25 Jan 2024 21:54:42 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rT6kE-0088NE-2C;
+	Thu, 25 Jan 2024 21:54:42 +0100
+Date: Thu, 25 Jan 2024 21:54:42 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Douglas Anderson <dianders@chromium.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, dri-devel@lists.freedesktop.org, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Paul Cercueil <paul@crapouillou.net>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	linux-amlogic@lists.infradead.org, Guenter Roeck <groeck@chromium.org>, 
+	linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, 
+	linux-stm32@st-md-mailman.stormreply.com, Jerome Brunet <jbrunet@baylibre.com>, 
+	chrome-platform@lists.linux.dev, linux-samsung-soc@vger.kernel.org, 
+	Robert Foss <rfoss@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	Kevin Hilman <khilman@baylibre.com>, linux-staging@lists.linux.dev, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, NXP Linux Team <linux-imx@nxp.com>, linux-mips@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, linux-pwm@vger.kernel.org, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Jonas Karlman <jonas@kwiboo.se>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Ray Jui <rjui@broadcom.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Johan Hovold <johan@kernel.org>, Maxime Ripard <mripard@kernel.org>, greybus-dev@lists.linaro.org, 
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, linux-mediatek@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, Fabio Estevam <festevam@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Daniel Vetter <daniel@ffwll.ch>, Benson Leung <bleung@chromium.org>, kernel@pengutronix.de, 
+	linux-arm-kernel@lists.infradead.org, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Alex Elder <elder@kernel.org>, Scott Branden <sbranden@broadcom.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH v5 003/111] pwm: Provide a macro to get the parent device
+ of a given chip
+Message-ID: <h4l5ki3mvayfmfb73jnrokmxu3p2ewutihx4rytefmpce7bcxq@nhsyy2fw6fds>
+References: <cover.1706182805.git.u.kleine-koenig@pengutronix.de>
+ <1cae6f73264ab313205eaa9483251f7aaf259cb4.1706182805.git.u.kleine-koenig@pengutronix.de>
+ <c89cbecf-253d-4a2c-8782-304b7b620175@broadcom.com>
+ <e3xeos2rtfydqj3hz3ql7xkon3aa3aingww7q5lpb3xa4arqrs@6jgwfrgay4le>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.9
+In-Reply-To: <e3xeos2rtfydqj3hz3ql7xkon3aa3aingww7q5lpb3xa4arqrs@6jgwfrgay4le>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_113347_009675_3D069764 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20240125_125519_124472_3B9A3FBC 
+X-CRM114-Status: GOOD (  26.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,127 +99,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4121014535014171845=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's prepare for further changes.
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- mm/memory.c | 63 ++++++++++++++++++++++++++++-------------------------
- 1 file changed, 33 insertions(+), 30 deletions(-)
+--===============4121014535014171845==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2cxtxp6sbv6wwe5j"
+Content-Disposition: inline
 
-diff --git a/mm/memory.c b/mm/memory.c
-index 7e1f4849463aa..10fc14ff8e49b 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -930,6 +930,29 @@ copy_present_page(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
- 	return 0;
- }
- 
-+static inline void __copy_present_pte(struct vm_area_struct *dst_vma,
-+		struct vm_area_struct *src_vma, pte_t *dst_pte, pte_t *src_pte,
-+		pte_t pte, unsigned long addr)
-+{
-+	struct mm_struct *src_mm = src_vma->vm_mm;
-+
-+	/* If it's a COW mapping, write protect it both processes. */
-+	if (is_cow_mapping(src_vma->vm_flags) && pte_write(pte)) {
-+		ptep_set_wrprotect(src_mm, addr, src_pte);
-+		pte = pte_wrprotect(pte);
-+	}
-+
-+	/* If it's a shared mapping, mark it clean in the child. */
-+	if (src_vma->vm_flags & VM_SHARED)
-+		pte = pte_mkclean(pte);
-+	pte = pte_mkold(pte);
-+
-+	if (!userfaultfd_wp(dst_vma))
-+		pte = pte_clear_uffd_wp(pte);
-+
-+	set_pte_at(dst_vma->vm_mm, addr, dst_pte, pte);
-+}
-+
- /*
-  * Copy one pte.  Returns 0 if succeeded, or -EAGAIN if one preallocated page
-  * is required to copy this pte.
-@@ -939,23 +962,23 @@ copy_present_pte(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
- 		 pte_t *dst_pte, pte_t *src_pte, unsigned long addr, int *rss,
- 		 struct folio **prealloc)
- {
--	struct mm_struct *src_mm = src_vma->vm_mm;
--	unsigned long vm_flags = src_vma->vm_flags;
- 	pte_t pte = ptep_get(src_pte);
- 	struct page *page;
- 	struct folio *folio;
- 
- 	page = vm_normal_page(src_vma, addr, pte);
--	if (page)
--		folio = page_folio(page);
--	if (page && folio_test_anon(folio)) {
-+	if (unlikely(!page))
-+		goto copy_pte;
-+
-+	folio = page_folio(page);
-+	folio_get(folio);
-+	if (folio_test_anon(folio)) {
- 		/*
- 		 * If this page may have been pinned by the parent process,
- 		 * copy the page immediately for the child so that we'll always
- 		 * guarantee the pinned page won't be randomly replaced in the
- 		 * future.
- 		 */
--		folio_get(folio);
- 		if (unlikely(folio_try_dup_anon_rmap_pte(folio, page, src_vma))) {
- 			/* Page may be pinned, we have to copy. */
- 			folio_put(folio);
-@@ -963,34 +986,14 @@ copy_present_pte(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
- 						 addr, rss, prealloc, page);
- 		}
- 		rss[MM_ANONPAGES]++;
--	} else if (page) {
--		folio_get(folio);
-+		VM_WARN_ON_FOLIO(PageAnonExclusive(page), folio);
-+	} else {
- 		folio_dup_file_rmap_pte(folio, page);
- 		rss[mm_counter_file(page)]++;
- 	}
- 
--	/*
--	 * If it's a COW mapping, write protect it both
--	 * in the parent and the child
--	 */
--	if (is_cow_mapping(vm_flags) && pte_write(pte)) {
--		ptep_set_wrprotect(src_mm, addr, src_pte);
--		pte = pte_wrprotect(pte);
--	}
--	VM_BUG_ON(page && folio_test_anon(folio) && PageAnonExclusive(page));
--
--	/*
--	 * If it's a shared mapping, mark it clean in
--	 * the child
--	 */
--	if (vm_flags & VM_SHARED)
--		pte = pte_mkclean(pte);
--	pte = pte_mkold(pte);
--
--	if (!userfaultfd_wp(dst_vma))
--		pte = pte_clear_uffd_wp(pte);
--
--	set_pte_at(dst_vma->vm_mm, addr, dst_pte, pte);
-+copy_pte:
-+	__copy_present_pte(dst_vma, src_vma, dst_pte, src_pte, pte, addr);
- 	return 0;
- }
- 
--- 
-2.43.0
 
+--2cxtxp6sbv6wwe5j
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Jan 25, 2024 at 09:29:37PM +0100, Uwe Kleine-K=F6nig wrote:
+> On Thu, Jan 25, 2024 at 11:32:47AM -0800, Florian Fainelli wrote:
+> > On 1/25/24 04:08, Uwe Kleine-K=F6nig wrote:
+> > > Currently a pwm_chip stores in its struct device *dev member a pointer
+> > > to the parent device. Preparing a change that embeds a full struct
+> > > device in struct pwm_chip, this accessor macro should be used in all
+> > > drivers directly accessing chip->dev now. This way struct pwm_chip and
+> > > this macro can be changed without having to touch all drivers in the
+> > > same change set.
+> > >=20
+> > > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+> >=20
+> > Nit: this is not a macro but an inline function.
+>=20
+> Oh right, it used to be a macro, but I changed that. I made the commit
+> log read:
+>=20
+>     pwm: Provide an inline function to get the parent device of a given c=
+hip
+>=20
+>     Currently a pwm_chip stores in its struct device *dev member a pointer
+>     to the parent device. Preparing a change that embeds a full struct
+>     device in struct pwm_chip, this accessor function should be used in a=
+ll
+>     drivers directly accessing chip->dev now. This way struct pwm_chip and
+>     this new function can be changed without having to touch all drivers =
+in
+>     the same change set.
+
+While looking into further feedback, I noticed I did the same mistake in
+all the patches that convert the drivers to use this function. I did
+
+	git filter-branch --msg-filter 'sed "s/Make use of pwmchip_parent() macro/=
+Make use of pwmchip_parent() accessor/; s/commit as struct pwm_chip::dev, u=
+se the macro/commit as struct pwm_chip::dev, use the accessor/; s/provided =
+for exactly this purpose./function provided for exactly this purpose./"' li=
+nus/master..
+
+on my branch to make the typical commit log read:
+
+	pwm: atmel: Make use of pwmchip_parent() accessor
+=09
+	struct pwm_chip::dev is about to change. To not have to touch this
+	driver in the same commit as struct pwm_chip::dev, use the accessor
+	function provided for exactly this purpose.
+
+I wont resend the whole series if this is the only change to it.
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--2cxtxp6sbv6wwe5j
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmWyypEACgkQj4D7WH0S
+/k5psggAul+UfI+G8dHEaH2KDgkBUUlYZUwuEaOFluY8XF2KWBYgzrV6GTSkw5wT
+Me32hGYPzkH5GThVge4EwflIY6st1Dpe7hApskZcERowT4iaqpLmRhMLJSfbNFFL
+TKdck+IYqa1cFxKcnCqPr5UHCx9DR2zJulclKHey+IaAQbbiSZ7PXqTliJidSqA4
+gcZdCllP/NksXCjwuu7f3ffFYfT4eD4biOf/g24aQx4AkSSB/1xPNtYnwHwe9U7Q
+NfCN0EtnmSN3qHIMZQ0v8PHGjfE/VvFR+cIRqaher18JI/FRZFfNPMhT1hniO7vh
+qGInsEnK5ClF+KhK7XpBNiDRRAyXtw==
+=6bo9
+-----END PGP SIGNATURE-----
+
+--2cxtxp6sbv6wwe5j--
+
+
+--===============4121014535014171845==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4121014535014171845==--
+
