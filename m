@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EB74C47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 06:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC99C47258
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 06:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cOIRUO8m100rp29urO4XP7B/YIEcauF93jphBQEtMQ4=; b=XmWPcJ/JwW8ErT
-	RnE8vdIuN7Co86ykS2B5NuAf9zOWU2OieKO1lNRflXlSN3pXjefb+I+qx5etUYrXU4erqpGkV2zV0
-	P1k7Qy0gaxLtF/AVJ1KWQRLFai79KgDj6i39/divYNWl/cSMxQSscNYAYacfyXQj7GuLKUdP4KkfM
-	TJcE4P48hUMKp/LnYYbtkJ1Gh68ssXfVOGoIFaZtQw5DJYIcjmCZgJvF5ckAjQh3uCNax/3yae5OX
-	QIN4iGHgjpfYF0glapebQtLserlTMUHyv7BLZ/Yz+Z3qU/MPb16WIwOcp+hyuPqhk0Ns+mNqG92p2
-	6leTRgGEmF/neLYEPVKw==;
+	List-Owner; bh=QyayrQTXSjla9PiETTfaKdMNI/+jSvND25nHsU22Lg0=; b=YOvdJVq8QhSLx6
+	jMEV+IPpUJrETeN3jakFoq0A3U6Q/KvVPyKAi+UdjvRZj4BXuHEhFTJirSWBk2excpMzqVQwuzo+M
+	fpYBM6DBmCgHAKo+Fn/4Ov/TrfFIiDVBwNb3cYPSIWIZ9D6pr3PA+pogDBX0GFyZcacxNJ36600nL
+	nLGNDARHM0Hb8hrHJB5Lt8S4ZRKUcPyf4Wxt+6eOYhTsH6aLfpWDGkKPs6hIheYDIKgXtEkoLUnaV
+	WApeyihJcnZ8r6sfLU5yZ7B9+55IrTVnlo/v974TZl/MVKEJz4CiXvI/KnevDkRZShn7VCdHPnyWo
+	MtY8o38sK5udHX6u4fGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rStF8-006lF0-2l;
-	Thu, 25 Jan 2024 06:29:42 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1rStFB-006lHJ-2V;
+	Thu, 25 Jan 2024 06:29:45 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rStF5-006lA6-0F
+	id 1rStF6-006lD3-2I
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 06:29:40 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-5ce942efda5so4821469a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 22:29:35 -0800 (PST)
+	Thu, 25 Jan 2024 06:29:42 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-6dd84fe7aebso1958121b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Jan 2024 22:29:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706164175; x=1706768975; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706164180; x=1706768980; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hEK0nLeeUyyEqPsucfbvDxvRRfgyRHV2ZwAZ0YdFTFk=;
-        b=dwfHpyijMV+I2TmaGLVrgtXeri2A8TWja8Dc8m7aAl4nUyW95r65O3hJGIuDPVGw77
-         vCaIaEHIOW03+omYT1JYB4JBNh6XFRTjQ3BNlD+gu9F4idQn+O+ie7ZMCRy9Fqr0oMJA
-         L+rGQs16XlnJ3OdQgy2QFU888Dy2+fhofDVQg0F/OIM3BAMJNE7N9n7h6B05COo4Q2I3
-         6d0kvzTqqV/v8cqv1Al1AkapHm9TSjxG3Pj/FYrolAjkg3CEzTdToT4jToiTtNjFBKBE
-         kt1ulOVc41K+4tpbE3oBWaZJXdZEGybi/tLct3AfYWbL+pQzH+Mw/o5UB531LGYeqof7
-         7GoQ==
+        bh=9U4/v4w/mrwXRuPEpy9c03cIo3F2WWlXK10aLJp76Yo=;
+        b=J114D3Yb2qF9h0uLdY3Yr1ta0Ot+1ayXt2QwCuWTHNcO8B1/weU6dfZEH4dmI1yhSp
+         NQuy6aRi5d9RrVYSdclDMx2dIt5YsZZgHh6WOsVeAn6PrLCOPl9A+8rYWbaGMRyprEEv
+         6qAikTO3ndeMPHlNW8PnbGKNExBG44KZ5V+oYp36XhDEf+dgAP0T8K8zlcnS4d4B64Fh
+         z9UFWX284VM4JYiBMxTGGRhzmkZm4vOEKOVvBmhCdB/vL7XUx+A7yIXXZ8aZe3w1p7s6
+         yyDeULET4jQRrKUCo7iXXAAeeuErquQxbYQ1RxOyrJriUMr5hVrO7APEq+TD0nBUKXfk
+         g/nQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706164175; x=1706768975;
+        d=1e100.net; s=20230601; t=1706164180; x=1706768980;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hEK0nLeeUyyEqPsucfbvDxvRRfgyRHV2ZwAZ0YdFTFk=;
-        b=E5cTB/jFStfzDLnev3z1iUIduZY2yoEkgYB4HiCxj5KV655Sg2x3bFdri5L9OVmXfn
-         AVqDD+ZSmFwcyDRn3bbnvZUBV67ZGLhyL62uie9LJJwqJWS/n88fq0ZCvGvMHANKhdcr
-         X3ZhIMt24oMVFVpmIg7cmNSrT0yg+REP47TBqZFUNHgkPgS6Jzwtnrn2tMeJCb3KqE6A
-         huH/C02gZeUeC54Iku+cS+0udHTs5M/eN8NcAg4a2eEuLi601RuUXoTRpJRuUPFeJ8oi
-         RuOnN4fwTWfmukUcfTSS4EV3lh1pDIIGRjWCPV9uynlgFB/e8jfa4f4PtgCbFW4tpFAy
-         O9qQ==
-X-Gm-Message-State: AOJu0YxovJYDfDxZdBtzMLDaXMhgd/GMbV5GcRCA/92UiyXsLVkdHqFr
-	0iTKaxOof/CBMl/1X+mvyURLOehdUBWl1FMT1sTYU8KbjQts+Fyb6MEQsORRabY=
-X-Google-Smtp-Source: AGHT+IEuES+Nqzdr2BEz6j/Kl5wHqawKSI3UsPoKeKJE5bEvHyihgNT2hQgxZpIvSEF4VhLoqkQkuQ==
-X-Received: by 2002:a05:6a20:2d25:b0:199:a43f:db4 with SMTP id g37-20020a056a202d2500b00199a43f0db4mr942290pzl.80.1706164175121;
-        Wed, 24 Jan 2024 22:29:35 -0800 (PST)
+        bh=9U4/v4w/mrwXRuPEpy9c03cIo3F2WWlXK10aLJp76Yo=;
+        b=w+Mow/Icy8h+w+2tPv+wB2oTa7kSPEwd4hTtnWNgYYG9JolzyRbqb1KjdGAo3pP4aB
+         LYU+ZPOo1/jxUQTau8DzZN9DuDJLVLTqSxRTUocasRZXwM1SUt09ObHeXiE/IPZruFVJ
+         DoVJNRZGarnRCqNRmTUNR2CekGuwZs1GZ90i5t2oUxKXYDV2ko9VaH2bbeR0Zzdsh4yH
+         ZDGjATmLL/DttwlAdJq753dsizNYfxvs7jn0qYjLQtv/BCUPR6iRJiYzR4qWyo81f8GH
+         hS0WF3Za1KGgeF1W1RalL4IKkpZeBhY9q8gGrlcXxlYToTC18pS5xPe2Kd7tsOKmTI81
+         X2/w==
+X-Gm-Message-State: AOJu0Yx611FDwajbpGwdbDItKo9TMoZx1O+fmggLg4l3ZC5AiWzfCmLm
+	5/+f2hTzxTVfXcqL3dZx42+IY0YqxsP5BxII6hDswXXqGkgbpx0zwuzE5tibfh0=
+X-Google-Smtp-Source: AGHT+IFE6DJFyN+P/UFNG3VqxG06rTZRsSyHKHiD9aR2/YyBQCkrTLXVopsPYOyeiHivgMNZUq582Q==
+X-Received: by 2002:a05:6a00:4006:b0:6dd:a072:867 with SMTP id by6-20020a056a00400600b006dda0720867mr290270pfb.15.1706164179881;
+        Wed, 24 Jan 2024 22:29:39 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id t19-20020a056a00139300b006dd870b51b8sm3201139pfg.126.2024.01.24.22.29.32
+        by smtp.gmail.com with ESMTPSA id t19-20020a056a00139300b006dd870b51b8sm3201139pfg.126.2024.01.24.22.29.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jan 2024 22:29:34 -0800 (PST)
+        Wed, 24 Jan 2024 22:29:39 -0800 (PST)
 From: debug@rivosinc.com
 To: rick.p.edgecombe@intel.com,
 	broonie@kernel.org,
@@ -130,16 +130,17 @@ Cc: corbet@lwn.net,
 	linux-mm@kvack.org,
 	linux-arch@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [RFC PATCH v1 11/28] riscv: Implementing "PROT_SHADOWSTACK" on riscv
-Date: Wed, 24 Jan 2024 22:21:36 -0800
-Message-ID: <20240125062739.1339782-12-debug@rivosinc.com>
+Subject: [RFC PATCH v1 12/28] riscv mm: manufacture shadow stack pte
+Date: Wed, 24 Jan 2024 22:21:37 -0800
+Message-ID: <20240125062739.1339782-13-debug@rivosinc.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240125062739.1339782-1-debug@rivosinc.com>
 References: <20240125062739.1339782-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240124_222939_115932_CB98C412 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20240124_222940_750943_7858FBC5 
+X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,126 +159,44 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Deepak Gupta <debug@rivosinc.com>
 
-This patch implements new risc-v specific protection flag
-`PROT_SHADOWSTACK` (only for kernel) on riscv.
-
-`PROT_SHADOWSTACK` protection flag is only limited to kernel and not exposed
-to userspace. Shadow stack is a security construct to prevent against ROP attacks.
-`map_shadow_stack` is a new syscall to manufacture shadow stack. In order to avoid
-multiple methods to create shadow stack, `PROT_SHADOWSTACK` is not allowed for user
-space `mmap` call. `mprotect` wouldn't allow because `arch_validate_prot` already
-takes care of this for risc-v.
-
-`arch_calc_vm_prot_bits` is implemented on risc-v to return VM_SHADOW_STACK (alias
-for VM_WRITE) if PROT_SHADOWSTACK is supplied (such as call to `do_mmap` will) and
-underlying CPU supports shadow stack. `PROT_WRITE` will be converted to `VM_READ |
-`VM_WRITE` so that existing case where `PROT_WRITE` is specified keep working but
-don't collide with `VM_WRITE` only encoding which now denotes a shadow stack.
-
-risc-v `mmap` wrapper enforces if PROT_WRITE is specified and PROT_READ is left out
-then PROT_READ is enforced.
-
-Earlier `protection_map[VM_WRITE]` used to pick read-write (and copy on write) PTE
-encodings. Now all non-shadow stack writeable mappings will pick `protection_map[VM_WRITE
-| VM_READ] PTE encodings. `protection[VM_WRITE]` are programmed to pick PAGE_SHADOWSTACK
-PTE encordings.
+This patch implements creating shadow stack pte (on riscv). Creating
+shadow stack PTE on riscv means that clearing RWX and then setting W=1.
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/mman.h    | 17 +++++++++++++++++
- arch/riscv/include/asm/pgtable.h |  1 +
- arch/riscv/kernel/sys_riscv.c    | 19 +++++++++++++++++++
- arch/riscv/mm/init.c             |  2 +-
- 4 files changed, 38 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/pgtable.h | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/riscv/include/asm/mman.h b/arch/riscv/include/asm/mman.h
-index 4902d837e93c..bc09a9c0e81f 100644
---- a/arch/riscv/include/asm/mman.h
-+++ b/arch/riscv/include/asm/mman.h
-@@ -22,4 +22,21 @@
-  */
- #define PROT_SHADOWSTACK	0x40
- 
-+static inline unsigned long arch_calc_vm_prot_bits(unsigned long prot,
-+	unsigned long pkey __always_unused)
-+{
-+	unsigned long ret = 0;
-+
-+	if (cpu_supports_shadow_stack())
-+		ret = (prot & PROT_SHADOWSTACK) ? VM_SHADOW_STACK : 0;
-+	/*
-+	 * If PROT_WRITE was specified, force it to VM_READ | VM_WRITE.
-+	 * Only VM_WRITE means shadow stack.
-+	 */
-+	if (prot & PROT_WRITE)
-+		ret = (VM_READ | VM_WRITE);
-+	return ret;
-+}
-+#define arch_calc_vm_prot_bits(prot, pkey) arch_calc_vm_prot_bits(prot, pkey)
-+
- #endif /* ! __ASM_MMAN_H__ */
 diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 294044429e8e..54a8dde29504 100644
+index 54a8dde29504..7ed00b4cc73d 100644
 --- a/arch/riscv/include/asm/pgtable.h
 +++ b/arch/riscv/include/asm/pgtable.h
-@@ -184,6 +184,7 @@ extern struct pt_alloc_ops pt_ops __initdata;
- #define PAGE_READ_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ | _PAGE_EXEC)
- #define PAGE_WRITE_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ |	\
- 					 _PAGE_EXEC | _PAGE_WRITE)
-+#define PAGE_SHADOWSTACK       __pgprot(_PAGE_BASE | _PAGE_WRITE)
- 
- #define PAGE_COPY		PAGE_READ
- #define PAGE_COPY_EXEC		PAGE_READ_EXEC
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index a2ca5b7756a5..2a7cf28a6fe0 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -16,6 +16,7 @@
- #include <asm/unistd.h>
- #include <asm-generic/mman-common.h>
- #include <vdso/vsyscall.h>
-+#include <asm/mman.h>
- 
- static long riscv_sys_mmap(unsigned long addr, unsigned long len,
- 			   unsigned long prot, unsigned long flags,
-@@ -25,6 +26,24 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
- 	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
- 		return -EINVAL;
- 
-+	/*
-+	 * If only PROT_WRITE is specified then extend that to PROT_READ
-+	 * protection_map[VM_WRITE] is now going to select shadow stack encodings.
-+	 * So specifying PROT_WRITE actually should select protection_map [VM_WRITE | VM_READ]
-+	 * If user wants to create shadow stack then they should use `map_shadow_stack` syscall.
-+	 */
-+	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
-+		prot |= PROT_READ;
-+
-+	/*
-+	 * PROT_SHADOWSTACK is a kernel only protection flag on risc-v.
-+	 * mmap doesn't expect PROT_SHADOWSTACK to be set by user space.
-+	 * User space can rely on `map_shadow_stack` syscall to create
-+	 * shadow stack pages.
-+	 */
-+	if (unlikely(prot & PROT_SHADOWSTACK))
-+		return -EINVAL;
-+
- 	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
- 			       offset >> (PAGE_SHIFT - page_shift_offset));
+@@ -408,6 +408,12 @@ static inline pte_t pte_mkwrite_novma(pte_t pte)
+ 	return __pte(pte_val(pte) | _PAGE_WRITE);
  }
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 2e011cbddf3a..f71c2d2c6cbf 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -296,7 +296,7 @@ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
- static const pgprot_t protection_map[16] = {
- 	[VM_NONE]					= PAGE_NONE,
- 	[VM_READ]					= PAGE_READ,
--	[VM_WRITE]					= PAGE_COPY,
-+	[VM_WRITE]					= PAGE_SHADOWSTACK,
- 	[VM_WRITE | VM_READ]				= PAGE_COPY,
- 	[VM_EXEC]					= PAGE_EXEC,
- 	[VM_EXEC | VM_READ]				= PAGE_READ_EXEC,
+ 
++static inline pte_t pte_mkwrite_shstk(pte_t pte)
++{
++	/* shadow stack on risc-v is XWR = 010. Clear everything and only set _PAGE_WRITE */
++	return __pte((pte_val(pte) & ~(_PAGE_LEAF)) | _PAGE_WRITE);
++}
++
+ /* static inline pte_t pte_mkexec(pte_t pte) */
+ 
+ static inline pte_t pte_mkdirty(pte_t pte)
+@@ -705,6 +711,12 @@ static inline pmd_t pmd_mkwrite_novma(pmd_t pmd)
+ 	return pte_pmd(pte_mkwrite_novma(pmd_pte(pmd)));
+ }
+ 
++static inline pmd_t pmd_mkwrite_shstk(pmd_t pte)
++{
++	/* shadow stack on risc-v is XWR = 010. Clear everything and only set _PAGE_WRITE */
++	return __pmd((pmd_val(pte) & ~(_PAGE_LEAF)) | _PAGE_WRITE);
++}
++
+ static inline pmd_t pmd_wrprotect(pmd_t pmd)
+ {
+ 	return pte_pmd(pte_wrprotect(pmd_pte(pmd)));
 -- 
 2.43.0
 
