@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D59C48260
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 10:11:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE68C47258
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 13:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+LAjfqAEbqReCoFyIe+FeOsjLJLmi8HDJM5VOZowfeY=; b=PUM9HMsLiYy0je
-	omz9U/95qeZ4BPQARHqAiqojejbrhLVYT8rsf3wmYK8MLnhQ61cEzyPt8Fw8eJZgvT1SwqieOZZyt
-	T8BNfjxkNimFRaOsFHsVVqvF67Ig4/ueD4C413/dK0oSrRv2aW9c8PonEeImTYjsIc+bkewUlvmVm
-	HBi3jMw9+rY9Y/0hi3fhFCzFNVoks+lS3kL0DRpm8X1zYnqrcx/B8j2orG+vOnnKLnmc9Ow4EmiF2
-	j/xCHzWuk5ugUxOETTzkGttsxwSl+m1hViwgxyqYDvuvANHn1ScLJKPZx1HtKXRGLnKFK1vTzNr5U
-	2t7aFT+mzzpTMV2mZt7Q==;
+	List-Owner; bh=SMMR5z5Od/CVqeOc9JOWAR2HPNTYANkzkGxlq/46dWU=; b=VWtT9PqBLjGSuQ
+	Jc0kI5iQbXWEQX7iQTBcIDuzcsx+GURVHwi0G4d89TtB1NCvigoDinUEznC7gBfvRhL478biNV8xb
+	ocPm2JqsYyzv7zitR0P2Rx1xN7WAcwzCAVadeje0C1YBMiK/MUlv1Mz4AdwVCg+u+kH0+r0BGKTFT
+	1rw5vNdJQzezePGeoW6RpuE23BHCj9SRPJclTdqBggzUz2PcQhv35KJYc/pPq2+lqrXgDAX25BDLk
+	wFT2ii5Z8tAj4J4X4wEhV9tcNlHDWir/XWUbizHBRc6M2zYZvodLxlMeBvVhVzsS+mVoNuhFzY6SS
+	O5I46QYv6JzWe75AL5gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSwhK-00019O-3A;
-	Thu, 25 Jan 2024 10:11:03 +0000
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rSzdw-00000000122-0on9;
+	Thu, 25 Jan 2024 13:19:44 +0000
 Received: from mail-bn8nam12olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c18::801] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSwYI-007hUa-1v
+	id 1rSwXh-007hA5-1q
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 10:01:48 +0000
+	Thu, 25 Jan 2024 10:01:07 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Bvk8aElI8DAJ/9YfyAePxfhMYimyKG+qJWHXhSANkQ0TCyEGfdLat+UzXYqmur7heWiDKmWON+RhvZ18a7OuWO+xeQMK74MjoMs5Kop1v2hJYujo+FF3pxVUxAdtZvUIPdfmwpK2Ptk9QiI+cLVvEiMUCd8U/TX+vG6YGrhIZtdiki7ueytPDdXw21fOhjbiQ5C0Jismjgko/gohkmEUEo4TJJ1AXoJL/qH6uPppNtIuGBB3L2Gf+/6kl5FA7Y4REOvFmU5mBSTy1WewKE5KYnfIn7EXaojxPYlg1j05QlO1XGu0ZkxRXKcUHtTwG6XJe0WREcd3QHxyLkytMkA0Uw==
+ b=ZzHRbrGoT590sPns9sd23pQ5z9Jcp4gQ4BDhtH0yC7pUKj0yI1ctQhWqf5ndPlwDJi17lpHTOZOgEv6yblWTX3ftdEytAD6f7/OwZeHpjbTn2xF11al/KR60entOosb+FST028ARLSnMg0hkIbeFIF0Ym/sD3jwF7lBQDhW45BR2VmaXvx1ndhnkXqfEBVhOtlU1ADJPZW59JcQqeegr8oT9esn3wwoQkJMCfiP6rqFvfeCjkZ+/g/VSYXj4MkMKnYZaBItnngI8anZ4yBbDkhlF5aMWWXpckEmCvtMjrAPry0UCsHfQI9q0uwZEnXDfe3lHz4U+JTcUO2PPrlh7ww==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Avc4btygBTB+P1+tw/KX4T/5yEf8onn4TVe/YGVWt/I=;
- b=G/5uWFwEle5xjP1qQz7xmVoSzFNCxxwt8YGAQJFRdaVIH9JPVQ61+F9Ibrm+/N0rF0YN7uJPiEk4QncSc7atGzSwhTpnwEyys556Fu7UQVyQn9pggUdWNgCfV/tg7t/nBv0T0n9TsiF9sp+Z0WpwoboQR9LtrYRILFbqLoNqcAmOFaJ8TzMWdJwsfPvjs+c+pXB/O+C8B9oPacONCs0/LzVR9lpVq3s4AHCPd9GO/fTOY4SaBY08lwlySInAS/V8ESkeBHVVReTzm2Yj0Jms8rRCFZ/A7gCqHbP2U9ISPIcD/0jIT2qQscMBASJU4e2O+iANX0clXOOEcqaC8T6XEw==
+ bh=wvhMhEr1gG2rZCRANSeO9n2GaX3aIe/oAFZU9L/doX8=;
+ b=Vi95e/z+aTBYUzycTWooCnVmW7u3NeIjpfN0pf/UGQEis4UikXDuWs28YJnJpPz1p4xpwyP5NmVkOOYrQPay3YNreEshKINWP6SCvD3b7FGe2I9KnmACcBN5LAsNUd/Cm9Ruop/0Nos60STFTlAJTvXkg5IWlz5L8LPsKzi3PgjykyNp40rBjseYiWbXpzSeWfCoh+uu7/tU8kBUCOsAvJ82YN1T3XJHQaT5dRXnVdwxtL5UfO/J6jijTZM/KG0+xUZxuTSCXW9x3VBtqHUGBVPqWzZAg6n6ti9oQzLHZ/k2L/+xGJfuRQoPyRwZjUHK76eRcJPWCIEgTItYvQVZIQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Avc4btygBTB+P1+tw/KX4T/5yEf8onn4TVe/YGVWt/I=;
- b=Q8mlGxyQAqkCZEBSuTIbVu55uXcVm8i3mgXemjpKCPSsia4LpEgZ+IoXMOkcPlRs29th7qv9nVYWDTftTAcZ9pW3I5yNs54rrfosTuepvcs2h2OxGSge/VGe5Q4lkf+pyQRpwp8QZ0eGEZaGTqqXiCcdbPpt0KcTyFD2sYWMelByHraOKwqUAEz328u2WTu2fd1c+n1qbqb1Fnx9osqCL0Jt1wv8v4Kz6BfisRgcvLMgBpXmSP170iUWtNPwETlecauoTPDC+/ySU38vPrtyS5DrV/8ZJnCLvNA8iEJLeDRjYnYgmGyWGzQRACLlUFpngJwnBps0ynr3E0AUTrUCRg==
+ bh=wvhMhEr1gG2rZCRANSeO9n2GaX3aIe/oAFZU9L/doX8=;
+ b=krZy4pmQtayOMw3krIy0L8Fz+eCySTTFYHL0fwBikA+A4xb+HZPKhf+5w+YjRFhnoraFGhPqItK3A72D7h+aPVqsx162q+5WvmcALdYr0sArQAuW2UOYm02V9tvWZzFmbPyeB3oA52aUL04JMn4IoA4AxEVBVOChmLd4lHJjpw96YE6ymf2K8ckqO1gdNC0NP7Ltg6YXT5zheWnOmfPDYAkBBfC0AUTBU1S69EGR9jmmwmamrbRl+aJUOepmpm0PpeI4TwlEjUk7f5cQgYDKNUuhMeOR5ECTGqglYaiPtX3oeRLaaQouQNmFQL0/uAcuO3tWwkeWg7EiZOI+ki9ljA==
 Received: from DM6PR20MB2316.namprd20.prod.outlook.com (2603:10b6:5:1a8::28)
  by SA1PR20MB4275.namprd20.prod.outlook.com (2603:10b6:806:22b::9) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7202.34; Thu, 25 Jan
- 2024 09:46:45 +0000
+ 2024 09:46:29 +0000
 Received: from DM6PR20MB2316.namprd20.prod.outlook.com
  ([fe80::eada:a454:b624:1459]) by DM6PR20MB2316.namprd20.prod.outlook.com
  ([fe80::eada:a454:b624:1459%4]) with mapi id 15.20.7228.022; Thu, 25 Jan 2024
- 09:46:45 +0000
+ 09:46:29 +0000
 From: AnnanLiu <annan.liu.xdu@outlook.com>
 To: chao.wei@sophgo.com,
 	unicorn_wang@outlook.com,
@@ -63,59 +63,59 @@ Cc: paul.walmsley@sifive.com,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	AnnanLiu <annan.liu.xdu@outlook.com>
-Subject: [PATCH v2] riscv: dts: sophgo: add watchdog dt node for CV1800
-Date: Thu, 25 Jan 2024 17:46:40 +0800
-Message-ID: <DM6PR20MB2316366FC9ADCBC7B6E9C289AB7A2@DM6PR20MB2316.namprd20.prod.outlook.com>
+Subject: [PATCH v2] riscv: dts: sophgo: add timer dt node for CV1800
+Date: Thu, 25 Jan 2024 17:46:23 +0800
+Message-ID: <DM6PR20MB23167ABF18C1F004A5710D4FAB7A2@DM6PR20MB2316.namprd20.prod.outlook.com>
 X-Mailer: git-send-email 2.34.1
-X-TMN: [e5aC/WTf166EcgBX8qr4a3cFpuCmKYgmF/UgcVmntEY=]
-X-ClientProxiedBy: TYCP286CA0184.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:382::7) To DM6PR20MB2316.namprd20.prod.outlook.com
+X-TMN: [8dmQ79MD5VeY/5T3aa1ZPSLy+/pgmXnGWCBBYxXktng=]
+X-ClientProxiedBy: TYAPR03CA0012.apcprd03.prod.outlook.com
+ (2603:1096:404:14::24) To DM6PR20MB2316.namprd20.prod.outlook.com
  (2603:10b6:5:1a8::28)
-X-Microsoft-Original-Message-ID: <20240125094640.27279-1-annan.liu.xdu@outlook.com>
+X-Microsoft-Original-Message-ID: <20240125094623.27188-1-annan.liu.xdu@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DM6PR20MB2316:EE_|SA1PR20MB4275:EE_
-X-MS-Office365-Filtering-Correlation-Id: f7eaf245-101d-4c68-9b4b-08dc1d8a8abd
-X-MS-Exchange-SLBlob-MailProps: vuaKsetfIZnl7OK+GjNZx76AODbk0dt+BycfSlgr8O/XM3p3VNRsLb8oFufI6jvM+53xjvnaIbpNinm6Q5aOuk0Egwub/95tgBIIPJe0QQ9nm9ulqEhrJevbxUf/9B+Mz8Eia38AKaZuEv4FfTgGYI2eMCMYEwik/deHNxWt/v0l1rQp0s60PWb8dR/wAKBXQoHqdPLjFDiKIy/ISzarF8hU9KiInqJwQ1IkexfuouV8IF4bZ33g5/SJ+TUhYcjgp9oO9eONNW7rC1U+cigEQX4hE0g9DsYqEb0v89L5EVrJqOM81a9G4BYZ81xH/esHJba0LJTnMdP7cWIb1s5Gu2MMRgR+BhnuZl0+7aeZ2dmOqNmKI4/8qNRJTR5WHTv23nllcCp09HBIL/sBOAWhP+gw9XnsQ+rszPdhIm9+boSIGS9PNWh0urjwy0iu+8jUkrDtY7oBXIWdoHn6HYN3zz+d6axYur2E03KgTE1/iguYEFhqgTJTrcUXyffKZGL/9X0p4nurO0WYqqbgkaplGUOOx9nPHNMQzjzqNDJ4GBAKr/Pt0R8955GMaMrxiUwpNtb8+J4Wh1FC9NfY7rlJMeSF09uvLBx9LCvV1XSgrH1gYnfNJmFSwSaIx4PSBeK9L+PkhETguidJ/6bSWFzdj0NBmn4EUgB1N+2E4nF6qaJXki3yjpNfwZsxIk6QdDI1nPlL+9qfLhFuC+d+CiY1am0vDfOYSiQnE3evc7cxtQ2oLdhTMDtYCLE8aehlxhFQZLiBn4tGOQxdiBtkH/cvXqebILrxKZvwtfTKOdi4qg9gr35PqKqQNUSZB4+U/9gR
+X-MS-Office365-Filtering-Correlation-Id: 189da528-fd9b-4ce6-b13a-08dc1d8a8159
+X-MS-Exchange-SLBlob-MailProps: vuaKsetfIZnl7OK+GjNZx76AODbk0dt+LKWMRPEIDUGU2sukGk3bH82ehqnde3qe9cpdmb3XB7DvY/pfM+yDftnEo3M0GC1iWcNKrNzPSCKS1a8MLn39lTclUQ3/2IcOB5OmkiTsIIU7R9c9r6y6ZKAouj5GfenLbEP8N1BSvAgRvY6+HUaj+gaujtz5CRTFv4qlXRXHOaRspmnA7cToXLx/8hCwRT/PFFZ2CpO/Lov5TxIorpVHpiAbBxWd1ADcdtC57AMzqCnivi/vVNfShAg8mz6o76Z30sWscguGfvEZrSk/LbEACnwkoLcFS4RGcbJSx7p2OfsfyRpFJcJtUbKd8OgWKgHwZNY0YML+bTfBObxdD5wpagNNlZoasgrV1raKY4ZP2wGI+k6kUPZBTsvoCBJ0f8DCpoVxFml0am9mhM+u1Lsv8ICnNIa499x9S4KY1k7XSGIfZwonr3Fw2vmG6gvIzMq53pn5i0CGcYMtd/FasjqLvqpveHANAc/rQFY6tCEXG1InITLcZyC9z0aLmzwTfNotsh70+KTp1gBezDXh5/C8ndF5H6WlDxZr0we+6yxFbAw1YRJDwHrS4vA5CHY0ixz6ZGyyJHWdzs/iQPHe/GyeeN1dZVzfEE6a0JX5r0MxGnRS39MqWH6g9XTUD2Gy4PTbfh2Qy1T6aZAEK1aNDqXLQkj9QCNDIEd8C9qVT38/X8TlvyYicC4ShQSm7Jv/nY7JW7kPPGcfNh6FI7fXbWjLJCvBVxPdvUzaauli35uu9mVWJUIroG5PkRhxJ1zYBukLHy7eu/7jm3lgrmq/Jj8EGDwjDxe7Aeqx
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: a6NmWcUbKT1kaS6JgSq99iyg4foyhGdP/PqySUPQY0WstBvy8R2LwcYqkvk3+Euf/VLYbxzKw4CDV58wmiyWVdFRHgrYooRP3gFKwuipyKWtWK05KcFrPjoVKbHmGleTAbjPf4KXJYYCP7x88agFZwIVm/qeEopZ5a5DHEeNylTqPJX7R74mqbAnQRqu5WH+FBeLU/YgOsJtWKNXUqJu3JTniMkcVV7l7aCbNJyaA1/g7WIt32wMBxoITWFBqzR6M6c3RW8ZTJZS+mMK1KanILpoIqjGklkDSnO8ByMsVHq6VktRKiuyOF2RULd1feoX8lZJQaQUchYOw+lRBVfl+xAZeWfLSm3za4k32PuLpJ8nI7tymf1jOZKlwafNbX5uD1tgAUshseK+wS4qvBU66jLW4GBCV3Rm1rjf70Y+qzIEPMpli9caV48RMaeBf+b58WTo1WO0MjFkYiCd0gt1vfrLgsVA4zjrIelMHH+pKnloNEmG8UeSADCwAxSWYd45hUxjkx9/RgNh6jEOJpntjyYGmvMXxQVoTjHA9m4KX9k/vQ7d1VsXrLpY3jRGSS0UfsnimSUDzN2rz+wONlayPfAmZk1QoBNCkHV52mP9vcgeCKQnWLRQ5FnXcrX66cfmVmhymXUwPMyOO11bJ3+nBiLOWMLQHaBg3B2Ak7Om4tU=
+X-Microsoft-Antispam-Message-Info: ucm7QRgwI7Gu22cXbTdDghDKORct0FfKzsDC1HlG4ztU06eUaaHw9SNcFWlYwS+T88XJZ2a8jce8TdMuT7rXI7EOJ5UD+rrSXFc+EjK2FGYO05blS2sTbg69RDg3WjjYwNruPLp7wOcKb4zyQTQpnBdRdCZM5mmOzV69MwQm11PY0HntiEsEPChzOKcFcdU6/oX18k7yX0qEbjr/TPETewlaXyi0MfSvHfVlVEdfDJfQ35jBmfxf/z3xwvxei5Udl0ilpX/f/Y2ylzvQd8fSOeZXUYMcH7mMgH/ZaZHFjrTJLYmEmYe5xFkhBBIAXtN3ABSuu50llkQ1ONb70ozWi009Z1JUHr2MDWO6eX/JUuNaXPhc2E6fFNYrI4te6xEpoTrsuvZrYQdxIgO3nietrcKaCKl3gv6BSdVaEQgViUO7+FwSgyw47pA0ibV6hhCpNZxTv6jvl2lvd2PWIm/TVQ0C8DBsImYeo1Okc4he/Cg6KAU1xRqlV2/jrUfABfnsLW+wpISkwXjuKR3POnRzj/zk5Vu80R5p54hypnVuD5Ka/TtEyxdBL9XY2+XzxmBxPOKri+hptbH+J9106NPyjrLPmhAgCowy5hwpT0rlQuq9EGuAYbSK3fC38fZqH2OcHzLIq9CaMuzSFlYp8jnEpqE27JSQb/5dPU93ZOTpI6I=
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Fuhc0yirIiix+XT5tDwNuhC/ukJgA+Q2+A/3Vcp+kzHgCi9ABj+yB1RcXwwg?=
- =?us-ascii?Q?Hz7czmo/HjNx6n9tld9uDaprEVMrx/7HarJXDwhS8oe9rzzqwNAU0SAX1MEL?=
- =?us-ascii?Q?3/zokcc1iXqrGeelxcGfWxp9PUshHhHu18CwxPSnX+5m3a4bbUJZ/gpAk3tJ?=
- =?us-ascii?Q?Sq11MDLsuuWAu9vL5E900ELV4SKCgGwEigJEOLY9czRMNvhZsOvZnPinPT+3?=
- =?us-ascii?Q?9hP82Ez4XPWoNR6qxUc5A9dOlIB0xF2aE8JM/bvQk4cPferzfCrBsRIKSoNk?=
- =?us-ascii?Q?7g4wWWnCRh9ABnnxrZ2QG70v/13TtzoSbVF/h+m7/ZfB1dy/cJWGa2S45tHw?=
- =?us-ascii?Q?O0Ro1Sm4eVSQbfxnffDuPyl5HTcIeK7GuKMLEUivcN0luc9sCa4HKUzIOXza?=
- =?us-ascii?Q?GrXmHQRYn6S7Ii1+3bKARY6ulsmtagtO3CYoYxZo+ErpuqI33XFkbQTKjHqD?=
- =?us-ascii?Q?1e28WUZ5gw6B1eiHkRSoYW0a0ZtaRGLgGT+iWERWm5wDuIXwLEAbrz+t/g0e?=
- =?us-ascii?Q?0Bvl7zwq9co/RdwBo7mfbSWM07q60mxF+ZbhrGsxbK3+32ugIJL6OBToZXtG?=
- =?us-ascii?Q?UMBYh4bQ/KeGJJRyb9S+9EgkZ29D/twah92ksbAN72nOP8SB+ZczY78YOGSO?=
- =?us-ascii?Q?KuSoJttWVx8n6zR4KA6SfIQU+4DPRQCXbKOdYQMQFwbR9QSteRFFMqb3C/NN?=
- =?us-ascii?Q?BaLOOms8Xkvl4vlOwc5KNJ18Hmj+hx9vsllEBH+7Xkzriba3by5H/LMI1yXO?=
- =?us-ascii?Q?RUHWdbukwmGuOub1E8XJrzk+2sbniPkpeJVWfvkXk9TGOVqs/QptTN5sykog?=
- =?us-ascii?Q?STobcR652Wr21e5N3uNXKiyJFhpluFMosFLHZn8cyIcbN6swH9gDjX8rc+UV?=
- =?us-ascii?Q?VGRTmhSnuO786HxLVzsYG1jObMWhVIIzvOPYI53H2vyRxp1f/A1Ue/4OGeNb?=
- =?us-ascii?Q?m59SbahWw5nyP+97JCDGTT0prOgbkgvntzE2Nxl9KsmLkBc82eg7wlAU9PDX?=
- =?us-ascii?Q?03EPkAY3m1UvT+/lMliKoixnhM9HubuY47q6hqHZe0pHFxeIGEuL8xxB+B64?=
- =?us-ascii?Q?ECQQSRa+3WmfId+AZCMo/1JUAldkAQpSDRwArlZ67er/xmAXDMG+E8u6u7m3?=
- =?us-ascii?Q?FZC8FoC+po389Gz///prv0irtBY3wbdbKVATnUuMO/nnMtpXhrBwMxC2ISst?=
- =?us-ascii?Q?DM46H5+/G9kDimvkmzyLGS706Fw3kzLgLjH6X+NqxpXRF6ufNy3yZ0T/lPw?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3Gg3clQr9nB5amSEQdYmqNOdYFJ5lPOQ0+SmtekMo+C4jzVrl8ZjLM/868Ub?=
+ =?us-ascii?Q?hrf5yUH2ziVTI0AG4gZW1PRaclI+iK+C2t8ELKYZ4o7b2YWlr7YgRVhw9qhk?=
+ =?us-ascii?Q?r/mjsz9NhQMlVTR1iebpv4N4YGXvJMOE4URmuT4S/96JWUERf3Eh15IpLI6g?=
+ =?us-ascii?Q?gJU3ZXYTH7R/0PIedQwgqxnwviBBWWp5D+vXm7VrIm/nJeI+pPYouhXjB0F3?=
+ =?us-ascii?Q?yJIikzgpdgmxQkQg0+9+Zz+1PF7Qk1oENU1OA6tovDBYLpARFnmnj8eQcFR+?=
+ =?us-ascii?Q?z1cg0l9s4pW9Ngb3uevpuF+Z5eI+jBcteJT0CYcvZ0tTHDow1YB46RphhtCn?=
+ =?us-ascii?Q?9mbZ0zoxiEnzWHCKIltA4BvAlg0HAPnr1C6or1QksTpkjtTuQxTg62q2dISF?=
+ =?us-ascii?Q?gEXteDFZTp9Na5eeD/JDvQHVUDGIzU+Uwh6RRKo8NgVU/PwihgiggNpqnZ0V?=
+ =?us-ascii?Q?zCjn0LkGILI+fpCv3kak1P3HZ5pAK5rAn81JWEPxbNAjmDMEhCXsNcsYWpa+?=
+ =?us-ascii?Q?Z/tnd7rm5aUp/D8RFKzcGyzWsjgWi3ecqGlQ7/wB3uKLF4mrj8p7Jra2KDW6?=
+ =?us-ascii?Q?+29zJ7fk4AuW8Nqe8WTOH9ia5PAloajDbRIXeZ7tIzZzJJXUZOMv1podAgCb?=
+ =?us-ascii?Q?3ldHFcp0kNG7MFHCnjpWUSL0N+ax/goKMhDwk8jXRaZMzmz+8Wh/ERxNB7tQ?=
+ =?us-ascii?Q?3gQcuPCjaVoqxYx70qMhkBa5X6TsxGU22vkesHJ71WP1Uo/jW99MhtwdeGJ1?=
+ =?us-ascii?Q?lkjSOxMicdL04d7t1/nvY2TxgtN8ZGWn9yTrFjXrPiLdyeIiBqn9m1s7/J5d?=
+ =?us-ascii?Q?KLADYWlZxV/BAOb00Sji1emNtJJ/WEhARFf8ocYo8fD0jwoo5oEw0n/g3Hp/?=
+ =?us-ascii?Q?cZCM11MXslsix4dAq3V/6bMFm783+nJv0Bv84i74P47jHn9wJKgndumCFl/R?=
+ =?us-ascii?Q?30QozcXKVWzxf08loDuP6Xd+OJX71mph5ftzVwdsfnsAfsdWPEvISmHXSiXn?=
+ =?us-ascii?Q?bDeUtq+fbCqgSk9KZKLstOaPa0SysxHCt503N1rSYn9iLtfFmogC6QY0uwGd?=
+ =?us-ascii?Q?KzBVvFSd3t/0I/ZXied0kd6+U08I53ABv8hZ1iA4jIoxwkRw1NgcDw5PilmM?=
+ =?us-ascii?Q?euugj468PDJhCJuLNRkeyPJhZ0nRYHa7TpLqJRMtSuNbiGA3OQ2empof8zMi?=
+ =?us-ascii?Q?nsA2dtCJjapXUevDIY3Ng91CmHwmAcsqFHe1+w62T2KOWZZcxq7TT6GxxJw?=
  =?us-ascii?Q?=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f7eaf245-101d-4c68-9b4b-08dc1d8a8abd
+X-MS-Exchange-CrossTenant-Network-Message-Id: 189da528-fd9b-4ce6-b13a-08dc1d8a8159
 X-MS-Exchange-CrossTenant-AuthSource: DM6PR20MB2316.namprd20.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jan 2024 09:46:45.1290
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jan 2024 09:46:29.3787
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR20MB4275
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_020144_317764_19732E2E 
-X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-CacheID: sfid-20240125_020105_745952_8C08CEC7 
+X-CRM114-Status: UNSURE (   8.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -133,7 +133,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the watchdog device tree node to cv1800 SoC.
+Add the timer device tree node to CV1800 SoC.
 
 Signed-off-by: AnnanLiu <annan.liu.xdu@outlook.com>
 ---
@@ -144,30 +144,15 @@ Reset driver link:
 https://lore.kernel.org/all/20231113005503.2423-1-jszhang@kernel.org/
 
 Changes since v1:
-- Change the name of the watchdog from watchdog0 to watchdog.
-- Change the status of watchdog.
+- Change the status of the timer from disabled to okay.
 v1 link:
-https://lore.kernel.org/all/DM6PR20MB23160B8499CC2BFDAE6FCACDAB9EA@DM6PR20MB2316.namprd20.prod.outlook.com/
+https://lore.kernel.org/all/DM6PR20MB23167E08FCA546D6C1899CB1AB9EA@DM6PR20MB2316.namprd20.prod.outlook.com/
 
+ arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 73 +++++++++++++++++++++++++
+ 1 file changed, 73 insertions(+)
 
- arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts |  4 ++++
- arch/riscv/boot/dts/sophgo/cv1800b.dtsi          | 16 ++++++++++++++++
- 2 files changed, 20 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts b/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
-index 3af9e34b3bc7..75469161bfff 100644
---- a/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
-+++ b/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
-@@ -36,3 +36,7 @@ &osc {
- &uart0 {
- 	status = "okay";
- };
-+
-+&watchdog {
-+	status = "okay";
-+};
 diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-index aec6401a467b..03ca32cd37b6 100644
+index aec6401a467b..aef7970af2b8 100644
 --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
 +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
 @@ -1,6 +1,7 @@
@@ -178,28 +163,85 @@ index aec6401a467b..03ca32cd37b6 100644
   */
  
  #include <dt-bindings/interrupt-controller/irq.h>
-@@ -103,6 +104,21 @@ uart4: serial@41c0000 {
- 			status = "disabled";
+@@ -113,6 +114,78 @@ plic: interrupt-controller@70000000 {
+ 			riscv,ndev = <101>;
  		};
  
-+		watchdog: watchdog@3010000{
-+			compatible = "snps,dw-wdt";
-+			reg = <0x3010000 0x100>;
-+			interrupts = <58 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&pclk>;
-+			resets = <&rst RST_WDT>;
++		timer0: timer@030a0000 {
++			compatible = "snps,dw-apb-timer";
++			reg = <0x030a0000 0x14>;
++			interrupts = <79 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&osc>;
++			resets = <&rst RST_TIMER0>;
++			status = "okay";
++		};
++
++		timer1: timer@030a0014 {
++			compatible = "snps,dw-apb-timer";
++			reg = <0x030a0014 0x14>;
++			interrupts = <80 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&osc>;
++			resets = <&rst RST_TIMER1>;
 +			status = "disabled";
 +		};
 +
-+		pclk: pclk {
-+			#clock-cells = <0>;
-+			compatible = "fixed-clock";
-+			clock-frequency = <25000000>;
++		timer2: timer@030a0028 {
++			compatible = "snps,dw-apb-timer";
++			reg = <0x030a0028 0x14>;
++			interrupts = <81 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&osc>;
++			resets = <&rst RST_TIMER2>;
++			status = "disabled";
 +		};
 +
- 		plic: interrupt-controller@70000000 {
- 			compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
- 			reg = <0x70000000 0x4000000>;
++		timer3: timer@030a003c {
++			compatible = "snps,dw-apb-timer";
++			reg = <0x030a003c 0x14>;
++			interrupts = <82 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&osc>;
++			resets = <&rst RST_TIMER3>;
++			status = "disabled";
++		};
++
++		timer4: timer@030a0050 {
++			compatible = "snps,dw-apb-timer";
++			reg = <0x030a0050 0x14>;
++			interrupts = <83 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&osc>;
++			resets = <&rst RST_TIMER4>;
++			status = "disabled";
++		};
++
++		timer5: timer@30a0064 {
++			compatible = "snps,dw-apb-timer";
++			reg = <0x030a0064 0x14>;
++			interrupts = <84 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&osc>;
++			resets = <&rst RST_TIMER5>;
++			status = "disabled";
++		};
++
++		timer6: timer@030a0078 {
++			compatible = "snps,dw-apb-timer";
++			reg = <0x030a0078 0x14>;
++			interrupts = <85 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&osc>;
++			resets = <&rst RST_TIMER6>;
++			status = "disabled";
++		};
++
++		timer7: timer@030a008c {
++			compatible = "snps,dw-apb-timer";
++			reg = <0x030a008c 0x14>;
++			interrupts = <86 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&osc>;
++			resets = <&rst RST_TIMER7>;
++			status = "disabled";
++		};
++
+ 		clint: timer@74000000 {
+ 			compatible = "sophgo,cv1800b-clint", "thead,c900-clint";
+ 			reg = <0x74000000 0x10000>;
 -- 
 2.34.1
 
