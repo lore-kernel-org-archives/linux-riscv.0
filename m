@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC2EC47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 08:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 526E1C47DDF
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 08:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9WZ+c6Pml0ZllLu8yCr94Bx9JvlIbPeeZCiIg/jkoMA=; b=mR4/TPymZyvblx
-	f2LK2d7/sny7DJ0pdLP2G+3etXIKQIJhL3m1W+aLMtJRlSRJEFAkURIv5ovRncvhE41LHAhfP2/6z
-	1t9unesyYPytdjILRvzOc5mDA3do479QpOHRR1hjN9kTW02Px/a9fLgS0o7AiQIlGQSSUIarxohfo
-	3ZNq1U7Z+xHEqAVLJMaUb4id9FZJHWqjPUUTd4xHHeVUrkACUflubW17Zzi/v9Ci5F2BsqIiOUlTK
-	/vxML1hIOxYa9tpVLU6CaZGbl46aELwRrLSZo/daOQkb4BYOBfNrtRu9bTadb4M9NHFt7+q7c3eG1
-	WFb6Zeiph+ZzoWkWy4DA==;
+	List-Owner; bh=seHrbJBP1qTWyQSbJ6FvUw63BmipbuFwNBGoijMlxow=; b=SWFeqkbYqNVPbj
+	2G7xefZ11PcurAAXYFXUTReFQAP8UqLeJNvbZbLj5J904h1meklJV7kowZN0aqLwbF51N6c2c6q/o
+	ywuF/PqdkzN+8lw019yVCyoSt8SvL7+TLhUooPVTkYMLhNNz/m4ZcdCgMBN0AjUbcu0JHJFAeJaSt
+	WCedpMeEgTEkbGF/nMHRAMlw9wlviZlFyOvfoKB09uz+gMvyMd/Fylzjz0j4HgX5mzxQlNjgqeApn
+	sqqXVCpovDLm7Pl2QSl3VY3EnQSDoLuaPW2tW8/3zVwwX6fnEe/OBgOjLPy8XnfP3RhsbAtb8mxHI
+	u1P/hLLVSndpkgFf1GcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSuvD-007HNp-3C;
-	Thu, 25 Jan 2024 08:17:15 +0000
+	id 1rSuwE-007Hum-1X;
+	Thu, 25 Jan 2024 08:18:18 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rSuvA-007HKB-2Q
+	id 1rSuwA-007Hrx-2W
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 08:17:14 +0000
+	Thu, 25 Jan 2024 08:18:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1706170629;
+	s=mimecast20190719; t=1706170693;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=UZLvbQ/sj/IqlociRX/ySFK6it2BLTBR7c6/FUndS40=;
-	b=b3FB+0O24/tJNSao7q6o9oekbSb8UOVWAvGUjyP/wOYbQvSd9WC0L2cQHwzS1OnScIIQ69
-	VxrCU+JaKxcVP2SB871eNAGCpUUVgFnlo9Um3Hj/vEn/FtorLFaN/8Zgi/MMYti5kmVBYI
-	pU3VZtvfhAQMVOKueg66K2HNMLYSghY=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=uXqJgm/c2OUlFe0pydromqbBJfahkXAhDOZB8V8CPy0=;
+	b=TFix/3bwqCJi/Bmefa54vWyP3vmv+ARAV4oXl5gUkd8psdNuT2MgIN07yIsuJLcH/UVZlf
+	e0foH/DRzzLeQj2DvjTeaw5e9S6NbrWQPxs5qDCcaVaBWMQq2Q5I8gzPlZbBqYlgPzaCw4
+	Pggblqn+zETf31F+ZVfMaYlWFi3wYbg=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-397-H2JepY7EPAueicgfUGRHuA-1; Thu, 25 Jan 2024 03:17:06 -0500
-X-MC-Unique: H2JepY7EPAueicgfUGRHuA-1
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-40e412c1e65so55315115e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 25 Jan 2024 00:17:06 -0800 (PST)
+ us-mta-295-l_rhEHhbPy-ObbN0CR1ydw-1; Thu, 25 Jan 2024 03:18:12 -0500
+X-MC-Unique: l_rhEHhbPy-ObbN0CR1ydw-1
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-40e530b7596so61103035e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Jan 2024 00:18:11 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706170625; x=1706775425;
+        d=1e100.net; s=20230601; t=1706170691; x=1706775491;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
+         :references:cc:to:content-language:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UZLvbQ/sj/IqlociRX/ySFK6it2BLTBR7c6/FUndS40=;
-        b=EWByGfWKchdMvKH63X5DOkRqFgxbSoTiA49VRATRFwWJ8aO59bwZGNca96kr6P0jRx
-         UuzSXNrR072K599WFOMpm0hf6XJ/XEg+ZWWwcJ0IZZs3fTIlSprgy/UrtyQ4phtzW8pO
-         TDL3rs5KmWW4dwguME70S9/DH41flSp4zIAG34bZjygOjlwCDs9mmi8NjzDKqtGa2gZ2
-         F2bfKQf79gdzG/5rxIvxXXQhU2EbFUEFy3S7EgYJM7HZof01K61UxfrK9RR/IkxIgT6q
-         T/yfRPP57vk2ZgX0ls+P+UCiZrC5WoXVLsBHJobDGEmeWTuC6S7ThZNcaMJS0Lzje1RM
-         wa1g==
-X-Gm-Message-State: AOJu0YzLXq0Q2fV7yeEfCCpCr2DxUsaRkIDRwIxz4MvkzFgpLUQTk5wJ
-	3Pj7uL6vg3fBbey5n3U1OSmCF4HzWaD6zgi/WO+bL1CUr8s5LCC9PsW4ttlzlR/sLvZ/rzceFye
-	LWc6ZShFcnodgZuNXLk4mBQa+8BkuhWic34pZs45xl5qitSFR7wds2bLqoQocnz/E0g==
-X-Received: by 2002:a05:600c:4f4d:b0:40e:a32c:988d with SMTP id m13-20020a05600c4f4d00b0040ea32c988dmr107877wmq.4.1706170625360;
-        Thu, 25 Jan 2024 00:17:05 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHBXG0c1n69CXCyo5Gso5jszoyqCLj5BPA212FZgRTdtFdTJYJL0uYG9mHoKZFGV423EU1+WQ==
-X-Received: by 2002:a05:600c:4f4d:b0:40e:a32c:988d with SMTP id m13-20020a05600c4f4d00b0040ea32c988dmr107862wmq.4.1706170624814;
-        Thu, 25 Jan 2024 00:17:04 -0800 (PST)
+        bh=uXqJgm/c2OUlFe0pydromqbBJfahkXAhDOZB8V8CPy0=;
+        b=RuT7vwuIZXuQUuzD+Ju/tlMv+VphAXoKQdQxNe41Oifd1CTQxPRIwgWEOlC/jV5XFp
+         ZwA5kUXDwRrsHo/H83JbpocZy4LSfEtS5Jw3DYx+V3hYfx/cejmiSDjWHDPsEdkrv7kj
+         AwPpGEh5LRTnue8FuBWytCP/fiXU1wLA46uJuavFB+4zaBR9U92XuGI6K06stq8Lf4WS
+         kCsXs9E/33+gYx8oGpOaZaPf3q88O8r0x7oJpnIzCmhGbEFfGUc0FwKvwsiY16tBKzv+
+         I7k16x/o6xqkIUPKYcdBj1A9q2L9VBlsFjZaIpY9nh/pGdzeiAOwnrN2U415jwOtf50o
+         qY3g==
+X-Gm-Message-State: AOJu0YykHG/1nFjvplO7JxUvH2jlde4QfW74FLTw17cb4y3f6mQq4mGG
+	R2Uno2CCLv/S3yN/mizwTTEWsC0Qaf1FxRHX5gCwi36BUr+EjMa7O5zfM0iSqAYOPjtPZ59D46r
+	prBx2su+mZZOdWDGIbGVkvgsHdwgmn90qggwyKgvgIDaYUfGaP1yUt549s1h6fSV4qQ==
+X-Received: by 2002:a05:600c:c8b:b0:40e:4b11:663d with SMTP id fj11-20020a05600c0c8b00b0040e4b11663dmr267219wmb.66.1706170690819;
+        Thu, 25 Jan 2024 00:18:10 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEshtEkNFMkm00s60/JsUTo/oUqMCiWSuFJI5nmGq2+g7C4FvJZO0iTHAUzos0dIk+wNed0Hw==
+X-Received: by 2002:a05:600c:c8b:b0:40e:4b11:663d with SMTP id fj11-20020a05600c0c8b00b0040e4b11663dmr267209wmb.66.1706170690365;
+        Thu, 25 Jan 2024 00:18:10 -0800 (PST)
 Received: from ?IPV6:2003:cb:c70a:7600:9a0b:ceef:a304:b9a7? (p200300cbc70a76009a0bceefa304b9a7.dip0.t-ipconnect.de. [2003:cb:c70a:7600:9a0b:ceef:a304:b9a7])
-        by smtp.gmail.com with ESMTPSA id o14-20020a05600c4fce00b0040d30af488asm1658538wmq.40.2024.01.25.00.17.02
+        by smtp.gmail.com with ESMTPSA id o14-20020a05600c4fce00b0040d30af488asm1658538wmq.40.2024.01.25.00.18.07
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 25 Jan 2024 00:17:04 -0800 (PST)
-Message-ID: <a6f3ccf5-26a0-45f1-adaa-56a8df569548@redhat.com>
-Date: Thu, 25 Jan 2024 09:17:01 +0100
+        Thu, 25 Jan 2024 00:18:09 -0800 (PST)
+Message-ID: <2f34f6aa-99fa-4545-b706-a1d50864f9e9@redhat.com>
+Date: Thu, 25 Jan 2024 09:18:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 08/28] mm: Define VM_SHADOW_STACK for RISC-V
+Subject: Re: [RFC PATCH v1 09/28] mm: abstract shadow stack vma behind
+ `arch_is_shadow_stack`
 To: debug@rivosinc.com, rick.p.edgecombe@intel.com, broonie@kernel.org,
  Szabolcs.Nagy@arm.com, kito.cheng@sifive.com, keescook@chromium.org,
  ajones@ventanamicro.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
@@ -98,7 +99,7 @@ Cc: corbet@lwn.net, aou@eecs.berkeley.edu, oleg@redhat.com,
  linux-kernel@vger.kernel.org, linux-mm@kvack.org,
  linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org
 References: <20240125062739.1339782-1-debug@rivosinc.com>
- <20240125062739.1339782-9-debug@rivosinc.com>
+ <20240125062739.1339782-10-debug@rivosinc.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -145,13 +146,13 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240125062739.1339782-9-debug@rivosinc.com>
+In-Reply-To: <20240125062739.1339782-10-debug@rivosinc.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_001712_928969_16AF6E3D 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20240125_001814_907519_41D855A4 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,56 +172,52 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 25.01.24 07:21, debug@rivosinc.com wrote:
 > From: Deepak Gupta <debug@rivosinc.com>
 > 
-> VM_SHADOW_STACK is defined by x86 as vm flag to mark a shadow stack vma.
+> x86 has used VM_SHADOW_STACK (alias to VM_HIGH_ARCH_5) to encode shadow
+> stack VMA. VM_SHADOW_STACK is thus not possible on 32bit. Some arches may
+> need a way to encode shadow stack on 32bit and 64bit both and they may
+> encode this information differently in VMAs.
 > 
-> x86 uses VM_HIGH_ARCH_5 bit but that limits shadow stack vma to 64bit only.
-> arm64 follows same path
-> https://lore.kernel.org/lkml/20231009-arm64-gcs-v6-12-78e55deaa4dd@kernel.org/#r
+> This patch changes checks of VM_SHADOW_STACK flag in generic code to call
+> to a function `arch_is_shadow_stack` which will return true if arch
+> supports shadow stack and vma is shadow stack else stub returns false.
 > 
-> On RISC-V, write-only page table encodings are shadow stack pages. This patch
-> re-defines VM_WRITE only to be VM_SHADOW_STACK.
-> 
-> Next set of patches will set guard rail that no other mm flow can set VM_WRITE
-> only in vma except when specifically creating shadow stack.
+> There was a suggestion to name it as `vma_is_shadow_stack`. I preferred to
+> keep `arch` prefix in there because it's each arch specific.
 > 
 > Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 > ---
->   include/linux/mm.h | 14 +++++++++++++-
->   1 file changed, 13 insertions(+), 1 deletion(-)
+>   include/linux/mm.h | 18 +++++++++++++++++-
+>   mm/gup.c           |  5 +++--
+>   mm/internal.h      |  2 +-
+>   3 files changed, 21 insertions(+), 4 deletions(-)
 > 
 > diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index 418d26608ece..dfe0e8118669 100644
+> index dfe0e8118669..15c70fc677a3 100644
 > --- a/include/linux/mm.h
 > +++ b/include/linux/mm.h
-> @@ -352,7 +352,19 @@ extern unsigned int kobjsize(const void *objp);
+> @@ -352,6 +352,10 @@ extern unsigned int kobjsize(const void *objp);
 >    * for more details on the guard size.
 >    */
 >   # define VM_SHADOW_STACK	VM_HIGH_ARCH_5
-> -#else
-> +#endif
-> +
-> +#ifdef CONFIG_RISCV_USER_CFI
-> +/*
-> + * On RISC-V pte encodings for shadow stack is R=0, W=1, X=0 and thus RISCV
-> + * choosing to use similar mechanism on vm_flags where VM_WRITE only means
-> + * VM_SHADOW_STACK. RISCV as well doesn't support VM_SHADOW_STACK to be set
-> + * with VM_SHARED.
-> + */
-> +#define VM_SHADOW_STACK	VM_WRITE
-> +#endif
-> +
-> +#ifndef VM_SHADOW_STACK
->   # define VM_SHADOW_STACK	VM_NONE
+> +static inline bool arch_is_shadow_stack(vm_flags_t vm_flags)
+> +{
+> +	return (vm_flags & VM_SHADOW_STACK);
+> +}
 >   #endif
 >   
+>   #ifdef CONFIG_RISCV_USER_CFI
+> @@ -362,10 +366,22 @@ extern unsigned int kobjsize(const void *objp);
+>    * with VM_SHARED.
+>    */
+>   #define VM_SHADOW_STACK	VM_WRITE
+> +
+> +static inline bool arch_is_shadow_stack(vm_flags_t vm_flags)
+> +{
+> +	return ((vm_flags & (VM_WRITE | VM_READ | VM_EXEC)) == VM_WRITE);
+> +}
+> +
 
-That just screams for trouble. Can we find a less hacky way, please?
-
-Maybe just start with 64bit support only and do it like the other archs. 
-No need to be special.
-
-When wanting to support 32bit, we'll just finally clean up this high 
-flag mess and allow for more vm flags on 32bit as well.
+Please no such hacks just to work around the 32bit vmflags limitation.
 
 -- 
 Cheers,
