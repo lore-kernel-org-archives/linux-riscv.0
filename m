@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C93C47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 15:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD93C47258
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 15:12:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dSRo6emwXUl+AOLjdAF8SoorP5n2GMLmZL6asg49Blo=; b=jAaImevT3Z1gtS
-	aNSkXBwMZaS8hv+K0l+Cd1AD9GYWSzJ60sw9+P6N3j/CkYiBe6CzaEP3Qs21U3YhVCSKd7KnsYhZx
-	fCAT652bLcE/K3DqMNvzQQ+oOCOx46iEKAfuAaQECXf8YL7qPgCtnOYkuW8PeISx1vUyuJLukMR+W
-	vhVVRjAA3FeIxuIIRgatrYKqKo9aQh5Je6Sg+su2x8U/dtb/v5TVcwsi41cliXlniavRSf+BUVvVE
-	+raohLDw0REvbRh3jdo7tN336V9MrrGG5JvFDbN1whHRRak9YUiSWMJdxvv0UkLu/Xo/gGjzJ5aix
-	w8mPnBFOTZgAHJMj8Vhw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dVMO6wv0B+sTnkppuekDLKYYKkS/ILwS7tY+Ii5YBEs=; b=rCZjLSDBvXMwjN
+	nK5GvfWfUEOuXqqeWfaWjIt+QciiQkN5gxOSwo3at0wK3ltGvJe1IRLJ25PWW+BLdHphRydZlcqZu
+	mFrSipk0wIVWQXa0D7BIqf4FyrCHB0vUzx9Vdyd4F+r6nIM6UM3LDCcgD7XRcz5ckSLPNUOm1BWNl
+	msPLwF/vIikN8yKwcaBXY3PvC3DdoyhEL6eHGEHmS4nqkF/6xM8lIAXbdMOUnUpYHkvftiscXMLHj
+	mEcptq9iUTxpO8CgiG83q1/2wrFxDaIUQr8chGJ5RCGt5mT1qaTBEzlEPUVPl2gR0msXoEq0fhIcF
+	TcV+8lA6iR/A9XPZiaog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT1Nz-00000000YS8-1A0p;
-	Thu, 25 Jan 2024 15:11:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rT1Ob-00000000YeF-42Rk;
+	Thu, 25 Jan 2024 15:12:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT1Nx-00000000YRM-0fNO
+	id 1rT1OZ-00000000YcT-17Wl
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 15:11:22 +0000
+	Thu, 25 Jan 2024 15:12:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8B9AE61365;
-	Thu, 25 Jan 2024 15:11:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72034C433C7;
-	Thu, 25 Jan 2024 15:11:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B635161365;
+	Thu, 25 Jan 2024 15:11:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FBD0C43390;
+	Thu, 25 Jan 2024 15:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706195480;
-	bh=VdSMPHq9c7sR9UiOhE5GzJdCBp/tPQFpSJmR+kQEo9Y=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Lq5ExDP+hnvKvAN5e33VVvQPicB2+YzePhlbp/M7p2hCzMHivadA/0gUlfi6N81OM
-	 ijFt55wI5xvg4wl2ClkhJsmbcg/LmN++brzAPZ9zhYCqGehQVqPoM1Po8BjENfHo25
-	 lHnSWb5LZL8pmHwCvErL4WQWyzCW3c84XuifN2MXDN+L4YlxtT9uJ4iSWjMV6G4+GZ
-	 IZNXxvmEC95Af2vY6MEPYmpqoOYD1UKBS4w8MApj18YmRUaGvMV6Ty7OUD9N2ay1mL
-	 NR6O4VJgcg1XJmz8AFRPvF0Ty131J/z3mYXYLexREcQQHoQvIsXbRGeW2kvDLuR0rK
-	 /UhSMiuzyY2ew==
+	s=k20201202; t=1706195518;
+	bh=qaC0W89Ij+l6ejUX971u7DsedKgRmIMuV9AHu7Mxo8U=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=nSXdWtBRn7k/oWkIm7gkawOUKqSN1OL4w9QeB24Fl8ZRHsLgAjoCIHhFWXd79Mp/k
+	 3Ywru/xCQb2wY60k7l+yyuii5qOHoNUPxJY9OA4fDUB9tsBI4CKKLva81H4c5Npxko
+	 soBi2N+5Uw7UwkYTWpLpjdPKPQ0wBM3LM74JmxAgiScgs4je9bRGpVKtSOL7XfqcrF
+	 qK+tHIU3yLfbf+4jshsQqPu95ovDWv9J+0QvFX4IW5ZFrIZ/pWLLCKym8nubIjGZDb
+	 ItQ+fc24J9ME0sCIyGDYtuTdbnutgAEV9mcG2Qrx1ywShbrYa9g7szY7BW8Otb0SZs
+	 axAz+H2EwRvfA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v3] riscv: mm: still create swiotlb buffer for kmalloc() bouncing if required
-Date: Thu, 25 Jan 2024 22:58:31 +0800
-Message-ID: <20240125145831.947-1-jszhang@kernel.org>
+	Andrea Parri <parri.andrea@gmail.com>
+Subject: [PATCH v3 1/2] riscv: select ARCH_USE_CMPXCHG_LOCKREF
+Date: Thu, 25 Jan 2024 22:59:06 +0800
+Message-ID: <20240125145908.968-2-jszhang@kernel.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240125145908.968-1-jszhang@kernel.org>
+References: <20240125145908.968-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_071121_284048_D0CCB003 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20240125_071159_424707_52DCE62C 
+X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,79 +76,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After commit f51f7a0fc2f4 ("riscv: enable DMA_BOUNCE_UNALIGNED_KMALLOC
-for !dma_coherent"), for non-coherent platforms with less than 4GB
-memory, we rely on users to pass "swiotlb=mmnn,force" kernel parameters
-to enable DMA bouncing for unaligned kmalloc() buffers. Now let's go
-further: If no bouncing needed for ZONE_DMA, let kernel automatically
-allocate 1MB swiotlb buffer per 1GB of RAM for kmalloc() bouncing on
-non-coherent platforms, so that no need to pass "swiotlb=mmnn,force"
-any more.
+Select ARCH_USE_CMPXCHG_LOCKREF to enable the cmpxchg-based lockless
+lockref implementation for riscv.
 
-The math of "1MB swiotlb buffer per 1GB of RAM for kmalloc() bouncing"
-is taken from arm64. Users can still force smaller swiotlb buffer by
-passing "swiotlb=mmnn".
+Using Linus' test case[1] on TH1520 platform, I see a 11.2% improvement.
+On JH7110 platform, I see 12.0% improvement.
 
+Link: http://marc.info/?l=linux-fsdevel&m=137782380714721&w=4 [1]
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Andrea Parri <parri.andrea@gmail.com>
 ---
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-since v2:
- - rebase on v6.8-rc1
- - collect Reviewed-by tag
-
-since v1
- - fix build error if CONFIG_RISCV_DMA_NONCOHERENT=n
-
- arch/riscv/include/asm/cache.h |  2 +-
- arch/riscv/mm/init.c           | 16 +++++++++++++++-
- 2 files changed, 16 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cache.h
-index 2174fe7bac9a..570e9d8acad1 100644
---- a/arch/riscv/include/asm/cache.h
-+++ b/arch/riscv/include/asm/cache.h
-@@ -26,8 +26,8 @@
- 
- #ifndef __ASSEMBLY__
- 
--#ifdef CONFIG_RISCV_DMA_NONCOHERENT
- extern int dma_cache_alignment;
-+#ifdef CONFIG_RISCV_DMA_NONCOHERENT
- #define dma_get_cache_alignment dma_get_cache_alignment
- static inline int dma_get_cache_alignment(void)
- {
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 32cad6a65ccd..3359472df9a5 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -162,11 +162,25 @@ static void print_vm_layout(void) { }
- 
- void __init mem_init(void)
- {
-+	bool swiotlb = max_pfn > PFN_DOWN(dma32_phys_limit);
- #ifdef CONFIG_FLATMEM
- 	BUG_ON(!mem_map);
- #endif /* CONFIG_FLATMEM */
- 
--	swiotlb_init(max_pfn > PFN_DOWN(dma32_phys_limit), SWIOTLB_VERBOSE);
-+	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb &&
-+	    dma_cache_alignment != 1) {
-+		/*
-+		 * If no bouncing needed for ZONE_DMA, allocate 1MB swiotlb
-+		 * buffer per 1GB of RAM for kmalloc() bouncing on
-+		 * non-coherent platforms.
-+		 */
-+		unsigned long size =
-+			DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
-+		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
-+		swiotlb = true;
-+	}
-+
-+	swiotlb_init(swiotlb, SWIOTLB_VERBOSE);
- 	memblock_free_all();
- 
- 	print_vm_layout();
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index fdd1a595ebd8..248cea3e2749 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -51,6 +51,7 @@ config RISCV
+ 	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
+ 	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
+ 	select ARCH_SUPPORTS_SHADOW_CALL_STACK if HAVE_SHADOW_CALL_STACK
++	select ARCH_USE_CMPXCHG_LOCKREF if 64BIT
+ 	select ARCH_USE_MEMTEST
+ 	select ARCH_USE_QUEUED_RWLOCKS
+ 	select ARCH_USES_CFI_TRAPS if CFI_CLANG
 -- 
 2.43.0
 
