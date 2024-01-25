@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E3AC47422
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 18:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0566EC47258
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 18:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K0INLr6+ju6vnBptw7cRIQdtfa3Qe3FtCLsjhxZFMeE=; b=2cxrDSsVprjNFfMpJ6et3rBlIf
-	xBQKR8tqwGkpr6S3/7J8S9G3lphFTwTEuAoHUxA0sIVEUEn80hf32YE0EvH3qa3d4NeGEPhEx7vXa
-	MYLabfKy0Gf1qz3iAb27YcVOflqoet/xa+tBSSfhiS3h2HDJu7QNB+PQ5X90aG/SuKkuisQPpYVdg
-	ow30csl8siNr9KfrJri91OwxogFJgi9G4NRJL5BZ0yQSgo/zLedW2d3OgnDugJbC2hWQtNFXhVmyd
-	bEXgZXarQutE73RbfTHlmvrXnGjfjVq0p+PaCaz4AMBHmnwUimAQRnIVEihVuO/xgXkBNmxPbO+Dr
-	JVUldq6Q==;
+	bh=zKyvqnf0CS1VAklgpsjWc6Ye1/YGNNm+Oq5ZpQw4uQs=; b=3OghG/aR8inQcS864i/AsuZ0RD
+	ymZNiypfZDIFowpjbmRWXyZ9gs1f3ozV/xP029OGCdNv+NuHu/R6dZKITzCwpomHUHlpEQIC7i2KW
+	Qlu/q4FT3bCGG4To9jVddgkYJBrZdOeFqawJlDVCyHaLrus6G0nxj0hDZPbGor2BUT6bGDF39Vc+N
+	mSLAKpD8UJDbG/Ku5uxaaCYsdBxeCRMX07cAfs2ZGH/71XanQiWA9qs15k8Rs1Vt2JMkcUtNrmGVC
+	BHY69w6daAfsHVMyqDBrzU38J5rcV7rq/CFK7J0XC5cBXHu+kiBVNR2a81yJSfWj4Q2Ttxqx0+I8x
+	bBggDq3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT4it-00000001Pt2-2VNT;
-	Thu, 25 Jan 2024 18:45:11 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rT4k2-00000001QL3-1WCP;
+	Thu, 25 Jan 2024 18:46:22 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT4ip-00000001Poe-3GhE
+	id 1rT4jy-00000001QIN-33wv
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 Jan 2024 18:45:09 +0000
+	Thu, 25 Jan 2024 18:46:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id C3EE3CE34C9;
-	Thu, 25 Jan 2024 18:45:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85938C433F1;
-	Thu, 25 Jan 2024 18:44:50 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id ED07FCE34D2;
+	Thu, 25 Jan 2024 18:46:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01409C433C7;
+	Thu, 25 Jan 2024 18:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706208303;
-	bh=YOmQgkz1P+8Zi0uUakZsNY3tJ1wB079WwZ+pgQHgPOk=;
+	s=k20201202; t=1706208376;
+	bh=BiLkqVgI1Un5YIaI3ap285wntHUZokIzCeY02xoir/E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W6tH+ufYN63e0ec9n24c1FtjKPLogyll3pPVDTlBw5IyIKQC21WfMzoutf7aFwp1Z
-	 xe1NAaXx662qjwLMcjlFuhZjalF6dGCmXAC1FHFz0ddkNaiHUOfDhJM6x6DmmMmkUw
-	 7S2cKN4hWcysnuC7LU/m2G6zl5xoPsA2LUzDZ6X2QgRaLeccd/2B/tBSEGFoXdT8Vc
-	 NNsI2SDXMeBpu23AB23V7I3NydxCuDXf3g8idaSoTYDRd534DYw2vQHNfYHKMfd9gl
-	 AdBHKLvMPFSwVsq8AlJP48Qc0Sf21tREDkJm1q+KjsG+y7BIQJy2bKH7eFVzDH2xSV
-	 2m8nlYs+rsSkQ==
-Date: Thu, 25 Jan 2024 18:44:48 +0000
+	b=Qu1G0Hi7rmFnF+2ZLbGGHHrSoG0BLvlZZP/xRzg1RH8ly9Rik3Su3lLqWik9BRe9d
+	 c8QQDzcNXgWo+xKG+XVOWFviek68G9nTzBz5zol8I+bU6vlBWsypD93BcIYPYY5+ot
+	 bij6bGl2icUbFUNTN966sOVcgZ5Ts9d36t3yXFTYV+OFkSdP5izT8mvowTKb97rlq2
+	 C/QxWqQtvyIF1hZzL0kCrOdXKD7S2IB9af0ylNwFJZ20ghHmI/G5/zCILhMjJvvCkQ
+	 J2DfEijCKdn86fx55+lMnY1k9qowdjr14vOrLCQJJqmdk9nxOJ7mj4zaxwjNxiOKHp
+	 NajAyPjJIqGlw==
+Date: Thu, 25 Jan 2024 18:46:01 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Deepak Gupta <debug@rivosinc.com>
 Cc: rick.p.edgecombe@intel.com, broonie@kernel.org, Szabolcs.Nagy@arm.com,
@@ -62,27 +62,25 @@ Cc: rick.p.edgecombe@intel.com, broonie@kernel.org, Szabolcs.Nagy@arm.com,
 	vincent.chen@sifive.com, andy.chiu@sifive.com, gerg@kernel.org,
 	jeeheng.sia@starfivetech.com, mason.huo@starfivetech.com,
 	ancientmodern4@gmail.com, mathis.salmen@matsal.de,
-	cuiyunhui@bytedance.com, bhe@redhat.com, chenjiahao16@huawei.com,
-	ruscur@russell.cc, bgray@linux.ibm.com, alx@kernel.org,
-	baruch@tkos.co.il, zhangqing@loongson.cn, catalin.marinas@arm.com,
-	revest@chromium.org, josh@joshtriplett.org, joey.gouly@arm.com,
-	shr@devkernel.io, omosnace@redhat.com, ojeda@kernel.org,
-	jhubbard@nvidia.com, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, linux-arch@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [RFC PATCH v1 24/28] riscv: select config for shadow stack and
- landing pad instr support
-Message-ID: <20240125-implement-coagulant-3058e743a098@spud>
+	cuiyunhui@bytedance.com, bhe@redhat.com, ruscur@russell.cc,
+	bgray@linux.ibm.com, alx@kernel.org, baruch@tkos.co.il,
+	zhangqing@loongson.cn, catalin.marinas@arm.com, revest@chromium.org,
+	josh@joshtriplett.org, joey.gouly@arm.com, shr@devkernel.io,
+	omosnace@redhat.com, ojeda@kernel.org, jhubbard@nvidia.com,
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [RFC PATCH v1 05/28] riscv: zicfiss/zicfilp enumeration
+Message-ID: <20240125-ambulance-tingle-d72bf0e744d9@spud>
 References: <20240125062739.1339782-1-debug@rivosinc.com>
- <20240125062739.1339782-25-debug@rivosinc.com>
- <20240125-snitch-boogieman-5b4a0b142e61@spud>
- <ZbKkgNX7xfU5KO8X@debug.ba.rivosinc.com>
+ <20240125062739.1339782-6-debug@rivosinc.com>
+ <20240125-unscathed-coeditor-31f04e811489@spud>
+ <ZbKny7ZAG5FWHwwF@debug.ba.rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <ZbKkgNX7xfU5KO8X@debug.ba.rivosinc.com>
+In-Reply-To: <ZbKny7ZAG5FWHwwF@debug.ba.rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_104508_292242_EB5910C0 
-X-CRM114-Status: GOOD (  25.01  )
+X-CRM114-CacheID: sfid-20240125_104619_176610_B9E683B7 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,97 +92,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1314135437400175238=="
+Content-Type: multipart/mixed; boundary="===============4560977758042795663=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1314135437400175238==
+--===============4560977758042795663==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="e/FrbnVtGEexHgLP"
+	protocol="application/pgp-signature"; boundary="dL0t2IReIcmPOkC/"
 Content-Disposition: inline
 
 
---e/FrbnVtGEexHgLP
+--dL0t2IReIcmPOkC/
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Jan 25, 2024 at 10:12:16AM -0800, Deepak Gupta wrote:
-> On Thu, Jan 25, 2024 at 06:04:26PM +0000, Conor Dooley wrote:
-> > On Wed, Jan 24, 2024 at 10:21:49PM -0800, debug@rivosinc.com wrote:
-> > > From: Deepak Gupta <debug@rivosinc.com>
-> > >=20
-> > > This patch selects config shadow stack support and landing pad instr
-> > > support. Shadow stack support and landing instr support is hidden beh=
-ind
-> > > `CONFIG_RISCV_USER_CFI`. Selecting `CONFIG_RISCV_USER_CFI` wires up p=
-ath
-> > > to enumerate CPU support and if cpu support exists, kernel will suppo=
-rt
-> > > cpu assisted user mode cfi.
-> > >=20
-> > > Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-> > > ---
-> > >  arch/riscv/Kconfig | 15 +++++++++++++++
-> > >  1 file changed, 15 insertions(+)
-> > >=20
-> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > index 9d386e9edc45..437b2f9abf3e 100644
-> > > --- a/arch/riscv/Kconfig
-> > > +++ b/arch/riscv/Kconfig
-> > > @@ -163,6 +163,7 @@ config RISCV
-> > >  	select SYSCTL_EXCEPTION_TRACE
-> > >  	select THREAD_INFO_IN_TASK
-> > >  	select TRACE_IRQFLAGS_SUPPORT
-> > > +	select RISCV_USER_CFI
-> >=20
-> > This select makes no sense to me, it will unconditionally enable
-> > RISCV_USER_CFI. I don't think that that is your intent, since you have a
-> > detailed option below that allows the user to turn it on or off.
-> >=20
-> > If you remove it, the commit message will need to change too FYI.
-> >=20
+On Thu, Jan 25, 2024 at 10:26:19AM -0800, Deepak Gupta wrote:
+
+> > Anything you add to this array, you need to document in a dt-binding.
 >=20
-> Selecting this config puts support in Kernel so that it can run tasks who=
- wants
-> to enable hardware assisted control flow integrity for themselves. But ap=
-ps still
-> always need to optin using `prctls`. Those prctls are stubs and return EI=
-NVAL when
-> this config is not selected. Not selecting this config means, kernel will=
- not support
-> enabling this feature for user mode.
+> You mean Documentation/devicetree/bindings/riscv/extensions.yaml
+> (or possibly any other yaml if needed?)
 
-I don't think you understand me. "select RISCV_USER_CFI" will
-unconditionally build it into the kernel, making stubs etc useless.
-You're talking like (and the rest of your commit implements it!) that
-this feature can be enabled in menuconfig etc. Having this select
-will always enable the config option, rendering the choice below
-redundant. Try turning it off in menuconfig.
+That one alone should be okay.
 
-Oh and if it were valid to have here, you put it in out of order. That's
-an alphanumerically sorted list :)
+> > Also, you added these in the wrong place. There's a massive comment
+> > before the array describing the order entries must be in, please take a
+> > look.
+>=20
+> I see the comment.
+> In my defense, looks like I missed it when I was rebasing.
 
-Cheers,
-Conor.
+No worries.
 
-
---e/FrbnVtGEexHgLP
+--dL0t2IReIcmPOkC/
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZbKsIAAKCRB4tDGHoIJi
-0s4rAPwLj36cq4OCVYXidwGHQqrZUowdECj4uRLcWI43EFSS4AEAt/7J8GXw81Mv
-lW2W0+1Wk7ntO8Qb5WDzqbK7NusmQwo=
-=Mape
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZbKsaQAKCRB4tDGHoIJi
+0ikfAP98dLdRxWlp+Lhv6tFH9mw3Wm2hF//67S6BSZcJA+SbXQD/ZkpLxUZiV2vE
+Hp0XM2ITtrvVej0ZmzRxbvJUoyE6cw8=
+=roj8
 -----END PGP SIGNATURE-----
 
---e/FrbnVtGEexHgLP--
+--dL0t2IReIcmPOkC/--
 
 
---===============1314135437400175238==
+--===============4560977758042795663==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -195,5 +151,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1314135437400175238==--
+--===============4560977758042795663==--
 
