@@ -4,68 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54FDBC47258
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 15:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E0DFC47258
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Jan 2024 15:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rbiXLwmSLpqMJ+vbuC3rqzr/cmjS5oeOGXc111oMiXI=; b=SUwjwwGZP7YQAM
-	Gf6NTL2ZiDJwgHAhWas7tJZ2uIORilZLRYxlMlYoOXIx7rZPm0/D2WNFlc0OGo6rob59PE6vjDTWk
-	yqE2EWoqS4JXiuc2ZSCcV4lxHY+jE5xeJXKEeYjr7+jbdiTQwZs3B26fmNCalkxZe7CDcDOZFvOUL
-	c3j1gEtcDY1oorC7gOebHJKmDNUMOPxXaKcREdsUF68CaQyC1cVtz98P8NFtDtOu8fJlP6fOI4b8N
-	hs6kLnC4VJIg/lS12S04/4Lxwn4Jx5xSRfPGe9GXVVbz1leR32X86aMi8rC6nKaHXxvOZneRicEae
-	U6eI/MqLzJjI7vagWC8w==;
+	List-Owner; bh=Coxh22kf9cL5yzkRtftxjcUWdjsPLUkZDgTHSqKsMr8=; b=0nZI7ZGKuZ+K0h
+	i4AfDVtLUOXDDkOwbl/omUnq0jA/YWIfalmuX4NXCHBcwK1sFv9jWtMU54IyShfvgB9xyJNJ0j0gm
+	1Sn+QSSF76waiRwn24iv+hCzpgEo1kkdM0Ere3UReoDrE3VB5WsEhDCaYfoL9hFusFgrqbVSMExI8
+	TfWFRYmgbE7kt7j0w/fLmk9mzLRxB73ePpQ2Zue2/FG701CpVZsfL9jhIC6Mm97gQlUFa53EWclhF
+	sQtJSxiG4bC28wCUFq4/xSrzm1jQdHQ9yHAd3NiuUasNcvar69NwPTIT7Znb0Lz1ASZGMrDXRBxcp
+	RUt0eGtOWVtNpaybi2+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT1Ol-00000000Yk8-1PYL;
-	Thu, 25 Jan 2024 15:12:11 +0000
-Received: from mgamail.intel.com ([192.55.52.93])
+	id 1rT1h2-00000000cIK-3mU8;
+	Thu, 25 Jan 2024 15:31:05 +0000
+Received: from mail-bn1nam02olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c07::801] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rT1Og-00000000Ydk-2dG8;
-	Thu, 25 Jan 2024 15:12:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1706195526; x=1737731526;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bNbqsHGby+g+eJR/aOu+ryrg5Zcjann7tj+5NoeF4DY=;
-  b=DZ2iC2gxNNF+pF05WIIuHjyT628F10nMFSZKQLWPTakza/46cFL2uNLy
-   QYaMdz5y1z9EdesyCi91sBHsjXUcjJhdPBILMuAaArxk36Qp30NDaH6u9
-   WJWtqM4ilXs9YEzY7HsyyM+K4YCXZsbtoaaEhQGDdyKg+aXps3QWCxImm
-   sUijT5oWHxdzdTWRSkks3NDqupOt+ZHvHzRdda6zWD3BOfsARlt+HDC00
-   hX0QdgWC8aDC9ngYgT9Kys4NXtLKu7Qwj5aPLD9oLV9ZSxD/VA06pG+jV
-   E8vArUlcfFTQuMHErhxFMbrZBdgycli67i0wwdenQ/Z00Sv62h98UNWCO
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10962"; a="399354242"
-X-IronPort-AV: E=Sophos;i="6.05,216,1701158400"; 
-   d="scan'208";a="399354242"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jan 2024 07:12:00 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.05,216,1701158400"; 
-   d="scan'208";a="2291110"
-Received: from lkp-server01.sh.intel.com (HELO 370188f8dc87) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 25 Jan 2024 07:11:54 -0800
-Received: from kbuild by 370188f8dc87 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1rT1OR-00006q-1Y;
-	Thu, 25 Jan 2024 15:11:51 +0000
-Date: Thu, 25 Jan 2024 23:11:06 +0800
-From: kernel test robot <lkp@intel.com>
-To: Aleksandr Shubin <privatesub2@gmail.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
- support
-Message-ID: <202401252250.TYU33FhT-lkp@intel.com>
-References: <20240125072032.1151383-3-privatesub2@gmail.com>
+	id 1rT1gy-00000000cFs-3SbK;
+	Thu, 25 Jan 2024 15:31:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Wi2W5EnWM5ImiRa0u3ZgYBv3psB5MjmVL7e8z7LXvboMv5qA9rV3ohntOcVM+0cpqbhjsYovoDDhqO8TEKuJ4uB+OSNa9qc2FFo80qPdpI4vm5FrYrdMRAbvlPet36rcyqe1OJjpoWzDkR2iyORDJ6iieHxmg54QUKnr8be15dAtSbxZh9WC5AD1tA0b/QM/BP1pMkQnOKpKOlrou7hno44gjFk3GKZSEZ3oeVZIHw3LswBSIoMqQLLkEHzDY5cuhpLzScYTtZ0kZ4ZBQEQP8V7Fdqvz6jKGTjG2euum7pUbcKo7ES4oYeFbPaByWFnffyY97aZ+/yzzWshoGhlfvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eW2alejqAOYT8WAjMai/jwWkVOYlVlzir8+fWHfLoG4=;
+ b=KZduFnFM4kmyDwEwvMI1M8eJgwyGOExC/11Jx+u6UjbeQNotC6IVwL3CK4/nR4SojUtIuhpSlFpSf0LV1/C5RDSlZEmXPX5ip+07VwHVSXyH9aQzHkBP/O3dGu+X72kKuiatorFDtxeVvf2C/zegsssnE3ttw4V6y/3RR09hSnFa+YsD//WNjIvun3UsXgD5haUSuqznZq4Yd4D0sEiO780dJw+wzLOjEiWZS2q6+OFGCT+KMGdvBuKGtTwrvNbZrYNtiB9bGT92K/UwfWzfBKk9+3xQFzblFHU9R9WbmZWica6+Z0WG5JX32ohM9U+SsDnT+Egbi/Wtn2Ip1hq83g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eW2alejqAOYT8WAjMai/jwWkVOYlVlzir8+fWHfLoG4=;
+ b=IsB3UrNzu5Xn0UgYLY+hFfk9v7sdqDOpsfIpP1TB01DdZalsNRyvOSFwBuhU/OhlKKKSMj8AZYhE/YopziPalbqobev+gp6ALcF+EKAAU/MR//7VPs4kDUCHdh1u6mxmcOEPo0l5iJ5l4d7ioFfDt+31Yd7fMRGNvcnxD+0DmsfWtStaxEFeVE2wNmlye6Ic7A1Z56DiwbIyBuUxjEcfGAuK6760BuZtv1UsYxIDFrSWYg0E8CIIxOWrEkIm1fEm2AqnUYyTsJXpDlCtzQA8Mp+7FLSuAq6QFxwj1IJ8pV332UiwNKR/9Bvu22OETDLykJNNx7zaMO2bPInd/LGijA==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by PH7PR02MB8980.namprd02.prod.outlook.com (2603:10b6:510:1f8::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7228.26; Thu, 25 Jan
+ 2024 15:30:46 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::67a9:f3c0:f57b:86dd]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::67a9:f3c0:f57b:86dd%5]) with mapi id 15.20.7228.022; Thu, 25 Jan 2024
+ 15:30:46 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Baoquan He <bhe@redhat.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kexec@lists.infradead.org" <kexec@lists.infradead.org>, "x86@kernel.org"
+	<x86@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "linux-sh@vger.kernel.org"
+	<linux-sh@vger.kernel.org>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, "akpm@linux-foundation.org"
+	<akpm@linux-foundation.org>, "ebiederm@xmission.com" <ebiederm@xmission.com>,
+	"hbathini@linux.ibm.com" <hbathini@linux.ibm.com>, "piliu@redhat.com"
+	<piliu@redhat.com>, "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>
+Subject: RE: [PATCH linux-next v3 06/14] x86, crash: wrap crash dumping code
+ into crash related ifdefs
+Thread-Topic: [PATCH linux-next v3 06/14] x86, crash: wrap crash dumping code
+ into crash related ifdefs
+Thread-Index: AQHaToRG7EZBXaVit0yb4RXbyvoNjrDpkK1ggABa6ACAAA/3oIAARgWAgABnw3A=
+Date: Thu, 25 Jan 2024 15:30:45 +0000
+Message-ID: <SN6PR02MB41572FDAE703FC8A91974DFFD47A2@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <20240124051254.67105-1-bhe@redhat.com>
+ <20240124051254.67105-7-bhe@redhat.com>
+ <SN6PR02MB4157931105FA68D72E3D3DB8D47B2@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <ZbHfACpwqi2U9vmK@MiWiFi-R3L-srv>
+ <SN6PR02MB4157E138C7EE4A281AB49C10D47A2@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <ZbInIQeIoPj6R0kY@MiWiFi-R3L-srv>
+In-Reply-To: <ZbInIQeIoPj6R0kY@MiWiFi-R3L-srv>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-tmn: [kBPvbuH5eMbnBowZglgoIczCWf/e+Xu7]
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|PH7PR02MB8980:EE_
+x-ms-office365-filtering-correlation-id: 1dd18b5f-0428-4c59-dec9-08dc1dba99ba
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: /aH4jkmyv0ty76k9LAS6MR4nv2cgpKsOzP6GwHd+HQssdpDIfaJhh/vVCXR5kQsb2qLVdNOmHcA5A7cc3WeT/SgMcCPlMmhwYjkRKD4tHIHtGgseWm+MC7WitVnT0aUobih0TORAKdGV+vqg/MO5y3tIcKCGDSGgPKNxUmKtPJ3GAWl4/tFlLqiCTSaxsRdzLm1sKNVavQWi7KEoyAfEnw65Znm499uxsLJx2yJIla2Tu1HKJBDlhpZ1EqRFABkCrxz8RuGHmF/PjYwZpWzC1OuQ8cD+CxLJo0jD9tQC6ieY2984Tb4kTRt61JHprgz97soQWkbDSkOJAxZX6iNK7tcV85Dyjfyzptjsn6I65hFK5OPc0ax5aIsl3IEV0LvMIWdPbPP0aepx8DWPcZjpnDiYK++kS0uYGGFLS2NYNOqMa9SiJ2gLdb/2GuxHUldXbRgK2bexasJt+VsH5ay2gPBnT+OzSikbsY8Dp87eDbumkyM4IpzryLc6ioDtc18yaHOH451Lt6sII2q9gw5/kEiziqNxO7EcLKrAG/Pznz0GoepHww6mbTx1sTPc0uoF
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?rDZlZD2CA0+HKZCv3KEDs5f1ygEjqFw7Le+0at86EcWCnClczxvKx2gWWXZh?=
+ =?us-ascii?Q?JbXZBoacRbvSz0S9fsJbOF1HQ5pt1Ib5AwYgjpzrDMCmvHK/2UiPCnghx398?=
+ =?us-ascii?Q?g/qp60CEmCbZclWstEjir0GGZus9cVAYEa0RiV84MiBKR85t0Pc0TgC3HRAf?=
+ =?us-ascii?Q?PFUfGtzh3MXNZLZ8D719F5z5HVhgusVKAnDX9H14uGl8BgYbfRS5sZ4Y8/ww?=
+ =?us-ascii?Q?0DkFC8qalh1O5XFdGj7hrJllMzk8CFLlUqjnRM8VHGGUwHCfNF3vqh0aSNAG?=
+ =?us-ascii?Q?lLtAIRELT4IsacaRW0GOHFQZHDbl+dM0NmWA5lCv4ZZxtS76IBhxe55s55q1?=
+ =?us-ascii?Q?2YdIvaxuvTjCgWkZ6TPIKFTKBxaxyAkSQE5IyWsmRGMoadyyDmpc9OYzYmRj?=
+ =?us-ascii?Q?faZfO9KKf5xvzBBoy4UgjqNc8ncDfK8cA8exewsaH+GnwM8Omqq/av5h/v7n?=
+ =?us-ascii?Q?9fBGovW5O0iSx5dbmmR3LpuiRbXsa3ZJin8+0KEPYaE29nLpFq8wYtTVKLmd?=
+ =?us-ascii?Q?sRxm0Hn6GXn+CkqbRa3hz1vWu4TFvOZEtwv0yXZXnx5bXnUdGGBhC/0BR+bK?=
+ =?us-ascii?Q?UFnxsvs1His8sEVC+92IQA2QXHh/idK9Ig+PAzA8RJe4NqDuU+B5FYnzZB3a?=
+ =?us-ascii?Q?62kbTpJL0zZHePhkEtjTGrQVE8EPfjmpeBzHTrGULLJPlGOWvQmIYkgcnUOS?=
+ =?us-ascii?Q?z/Lro/YRiqVPdu2AyO3S+BkrakpN8qf3oxkwXGeNPlDfquw3gvm6gITjm67Q?=
+ =?us-ascii?Q?pxKl8IieqDV9/I0r4OC/18pFAauC/ka5PuZdzAm/xfYt4nQQxosh4iJ3FASs?=
+ =?us-ascii?Q?3bFMn/VpX/hnEJ70ue5gQDmmy1vCT1k1/DIcqlJNNhkX0XsALsbEp1kNwU1H?=
+ =?us-ascii?Q?kZcMKb88y4y18TWtb/4xo1XzDyOelY3iLVI4WE4u3o7wGA8QonVCPju9iEXG?=
+ =?us-ascii?Q?QHdxH3p4bwS94RK0v4l34kQZI2TPsTy2Ce6sX/UzGgxFyaVCdBEzUqKY/8cE?=
+ =?us-ascii?Q?zsISGi7fqdRCczg2ucuKHrAogLjBwq+/n3Cy1/YB2BHy7e7eyjGLJdCx8OQu?=
+ =?us-ascii?Q?oubPCrqiLbaB0K5Me0Ev65m3brFPi+BrNKb2gqodosLxPnVymUrG64ceVvIu?=
+ =?us-ascii?Q?of4og4ldjWPK70sCfx8Z8ky3MM1W5+40ir5tnA4unxxiJSXzirA/roTarfiP?=
+ =?us-ascii?Q?6Ye4JHUgUp+GufrhQnN5JU+26xNBlYQ7tRYSaA=3D=3D?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240125072032.1151383-3-privatesub2@gmail.com>
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1dd18b5f-0428-4c59-dec9-08dc1dba99ba
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jan 2024 15:30:45.9873
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR02MB8980
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_071206_735306_B55EA185 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20240125_073100_894497_87A0F8AB 
+X-CRM114-Status: GOOD (  31.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,262 +136,155 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, John Watts <contact@jookia.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, linux-riscv@lists.infradead.org, Samuel Holland <samuel@sholland.org>, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof Kozlowski <krzk@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>, linux-sunxi@lists.linux.dev, linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Aleksandr Shubin <privatesub2@gmail.com>, Rob Herring <robh+dt@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>, oe-kbuild-all@lists.linux.dev, Maksim Kiselev <bigunclemax@gmail.com>, linux-arm-kernel@lists.infradead.org, Brandon Cheo Fusi <fusibrandon13@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aleksandr,
+From: Baoquan He <bhe@redhat.com> Sent: Thursday, January 25, 2024 1:17 AM
+> 
+> On 01/25/24 at 05:12am, Michael Kelley wrote:
+> > From: Baoquan He <bhe@redhat.com> Sent: Wednesday, January 24, 2024
+> 8:10 PM
+> > >
+> > > On 01/24/24 at 11:02pm, Michael Kelley wrote:
+> > > > > diff --git a/arch/x86/kernel/cpu/mshyperv.c
+> > > > > b/arch/x86/kernel/cpu/mshyperv.c
+> > > > > index 01fa06dd06b6..f8163a59026b 100644
+> > > > > --- a/arch/x86/kernel/cpu/mshyperv.c
+> > > > > +++ b/arch/x86/kernel/cpu/mshyperv.c
+> > > > > @@ -210,6 +210,7 @@ static void hv_machine_shutdown(void)
+> > > > >  		hyperv_cleanup();
+> > > > >  }
+> > > > >
+> > > > > +#ifdef CONFIG_CRASH_DUMP
+> > > > >  static void hv_machine_crash_shutdown(struct pt_regs *regs)
+> > > > >  {
+> > > > >  	if (hv_crash_handler)
+> > > > > @@ -221,6 +222,7 @@ static void hv_machine_crash_shutdown(struct pt_regs *regs)
+> > > > >  	/* Disable the hypercall page when there is only 1 active CPU. */
+> > > > >  	hyperv_cleanup();
+> > > > >  }
+> > > > > +#endif
+> > > > >  #endif /* CONFIG_KEXEC_CORE */
+> > > >
+> > > > Note that the #ifdef CONFIG_CRASH_DUMP is nested inside
+> > > > #ifdef CONFIG_KEXEC_CODE here, and in the other Hyper-V code
+> > > > just below.   It's also nested in xen_hvm_guest_init() at the bottom
+> > > > of this patch.  But the KVM case of setting crash_shutdown is
+> > > > not nested -- you changed #ifdef CONFIG_KEXEC_CORE to #ifdef
+> > > > CONFIG_CRASH_DUMP.
+> > > >
+> > > > I think both approaches work because CONFIG_CRASH_DUMP implies
+> > > > CONFIG_KEXEC_CORE, but I wonder if it would be better to *not* nest
+> > > > in all cases.  I'd like to see the cases be consistent so in the future
+> > > > someone doesn't wonder why there's a difference (unless there's
+> > > > a reason for the difference that I missed).
+> > >
+> > > I agree with you, it's a great suggestion. Thanks.
+> > >
+> > > Do you think below draft patch includes all changes you are concerned
+> > > about?
+> >
+> > Yes, these changes look good as a delta to your original patch.
+> >
+> > But also look at xen_hvm_guest_init().  It looks like your original patch
+> > does nesting there as well, and it could probably be "un-nested".
+> 
+> Right. I checked them all in arch/x86 this time, hope nothing is missed
+> again. I can post a v4 to update this x86 patch later if no other
+> concern. Thanks.
 
-kernel test robot noticed the following build warnings:
+Yes -- everything looks good to me now.
 
-[auto build test WARNING on robh/for-next]
-[also build test WARNING on sunxi/sunxi/for-next linus/master v6.8-rc1 next-20240125]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Michael
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Aleksandr-Shubin/dt-bindings-pwm-Add-binding-for-Allwinner-D1-T113-S3-R329-PWM-controller/20240125-152445
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20240125072032.1151383-3-privatesub2%40gmail.com
-patch subject: [PATCH v7 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
-config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20240125/202401252250.TYU33FhT-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 13.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240125/202401252250.TYU33FhT-lkp@intel.com/reproduce)
+> 
+> diff --git a/arch/x86/kernel/cpu/mshyperv.c
+> b/arch/x86/kernel/cpu/mshyperv.c
+> index f8163a59026b..2e8cd5a4ae85 100644
+> --- a/arch/x86/kernel/cpu/mshyperv.c
+> +++ b/arch/x86/kernel/cpu/mshyperv.c
+> @@ -209,6 +209,7 @@ static void hv_machine_shutdown(void)
+>  	if (kexec_in_progress)
+>  		hyperv_cleanup();
+>  }
+> +#endif /* CONFIG_KEXEC_CORE */
+> 
+>  #ifdef CONFIG_CRASH_DUMP
+>  static void hv_machine_crash_shutdown(struct pt_regs *regs)
+> @@ -222,8 +223,7 @@ static void hv_machine_crash_shutdown(struct
+> pt_regs *regs)
+>  	/* Disable the hypercall page when there is only 1 active CPU. */
+>  	hyperv_cleanup();
+>  }
+> -#endif
+> -#endif /* CONFIG_KEXEC_CORE */
+> +#endif /* CONFIG_CRASH_DUMP */
+>  #endif /* CONFIG_HYPERV */
+> 
+>  static uint32_t  __init ms_hyperv_platform(void)
+> @@ -497,9 +497,11 @@ static void __init ms_hyperv_init_platform(void)
+>  	no_timer_check = 1;
+>  #endif
+> 
+> -#if IS_ENABLED(CONFIG_HYPERV) && defined(CONFIG_KEXEC_CORE)
+> +#if IS_ENABLED(CONFIG_HYPERV)
+> +#if defined(CONFIG_KEXEC_CORE)
+>  	machine_ops.shutdown = hv_machine_shutdown;
+> -#ifdef CONFIG_CRASH_DUMP
+> +#endif
+> +#if defined(CONFIG_CRASH_DUMP)
+>  	machine_ops.crash_shutdown = hv_machine_crash_shutdown;
+>  #endif
+>  #endif
+> diff --git a/arch/x86/kernel/reboot.c b/arch/x86/kernel/reboot.c
+> index 1287b0d5962f..f3130f762784 100644
+> --- a/arch/x86/kernel/reboot.c
+> +++ b/arch/x86/kernel/reboot.c
+> @@ -826,7 +826,7 @@ void machine_halt(void)
+>  	machine_ops.halt();
+>  }
+> 
+> -#ifdef CONFIG_KEXEC_CORE
+> +#ifdef CONFIG_CRASH_DUMP
+>  void machine_crash_shutdown(struct pt_regs *regs)
+>  {
+>  	machine_ops.crash_shutdown(regs);
+> diff --git a/arch/x86/xen/enlighten_hvm.c b/arch/x86/xen/enlighten_hvm.c
+> index 09e3db7ff990..0b367c1e086d 100644
+> --- a/arch/x86/xen/enlighten_hvm.c
+> +++ b/arch/x86/xen/enlighten_hvm.c
+> @@ -148,6 +148,7 @@ static void xen_hvm_shutdown(void)
+>  	if (kexec_in_progress)
+>  		xen_reboot(SHUTDOWN_soft_reset);
+>  }
+> +#endif
+> 
+>  #ifdef CONFIG_CRASH_DUMP
+>  static void xen_hvm_crash_shutdown(struct pt_regs *regs)
+> @@ -156,7 +157,6 @@ static void xen_hvm_crash_shutdown(struct pt_regs
+> *regs)
+>  	xen_reboot(SHUTDOWN_soft_reset);
+>  }
+>  #endif
+> -#endif
+> 
+>  static int xen_cpu_up_prepare_hvm(unsigned int cpu)
+>  {
+> @@ -238,10 +238,10 @@ static void __init xen_hvm_guest_init(void)
+> 
+>  #ifdef CONFIG_KEXEC_CORE
+>  	machine_ops.shutdown = xen_hvm_shutdown;
+> +#endif
+>  #ifdef CONFIG_CRASH_DUMP
+>  	machine_ops.crash_shutdown = xen_hvm_crash_shutdown;
+>  #endif
+> -#endif
+>  }
+> 
+>  static __init int xen_parse_nopv(char *arg)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202401252250.TYU33FhT-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/pwm/pwm-sun20i.c:288:10: error: 'const struct pwm_ops' has no member named 'owner'
-     288 |         .owner = THIS_MODULE,
-         |          ^~~~~
-   In file included from include/linux/printk.h:6,
-                    from include/linux/kernel.h:31,
-                    from include/linux/clk.h:13,
-                    from drivers/pwm/pwm-sun20i.c:14:
-   include/linux/init.h:186:21: error: initialization of 'int (*)(struct pwm_chip *, struct pwm_device *, struct pwm_state *)' from incompatible pointer type 'struct module *' [-Werror=incompatible-pointer-types]
-     186 | #define THIS_MODULE ((struct module *)0)
-         |                     ^
-   drivers/pwm/pwm-sun20i.c:288:18: note: in expansion of macro 'THIS_MODULE'
-     288 |         .owner = THIS_MODULE,
-         |                  ^~~~~~~~~~~
-   include/linux/init.h:186:21: note: (near initialization for 'sun20i_pwm_ops.get_state')
-     186 | #define THIS_MODULE ((struct module *)0)
-         |                     ^
-   drivers/pwm/pwm-sun20i.c:288:18: note: in expansion of macro 'THIS_MODULE'
-     288 |         .owner = THIS_MODULE,
-         |                  ^~~~~~~~~~~
-   include/linux/init.h:186:21: warning: initialized field overwritten [-Woverride-init]
-     186 | #define THIS_MODULE ((struct module *)0)
-         |                     ^
-   drivers/pwm/pwm-sun20i.c:288:18: note: in expansion of macro 'THIS_MODULE'
-     288 |         .owner = THIS_MODULE,
-         |                  ^~~~~~~~~~~
-   include/linux/init.h:186:21: note: (near initialization for 'sun20i_pwm_ops.get_state')
-     186 | #define THIS_MODULE ((struct module *)0)
-         |                     ^
-   drivers/pwm/pwm-sun20i.c:288:18: note: in expansion of macro 'THIS_MODULE'
-     288 |         .owner = THIS_MODULE,
-         |                  ^~~~~~~~~~~
->> drivers/pwm/pwm-sun20i.c:297:36: warning: 'struct platform_device' declared inside parameter list will not be visible outside of this definition or declaration
-     297 | static int sun20i_pwm_probe(struct platform_device *pdev)
-         |                                    ^~~~~~~~~~~~~~~
-   drivers/pwm/pwm-sun20i.c: In function 'sun20i_pwm_probe':
-   drivers/pwm/pwm-sun20i.c:302:23: error: implicit declaration of function 'devm_kzalloc' [-Werror=implicit-function-declaration]
-     302 |         sun20i_chip = devm_kzalloc(&pdev->dev, sizeof(*sun20i_chip), GFP_KERNEL);
-         |                       ^~~~~~~~~~~~
-   drivers/pwm/pwm-sun20i.c:302:41: error: invalid use of undefined type 'struct platform_device'
-     302 |         sun20i_chip = devm_kzalloc(&pdev->dev, sizeof(*sun20i_chip), GFP_KERNEL);
-         |                                         ^~
-   drivers/pwm/pwm-sun20i.c:306:29: error: implicit declaration of function 'devm_platform_ioremap_resource' [-Werror=implicit-function-declaration]
-     306 |         sun20i_chip->base = devm_platform_ioremap_resource(pdev, 0);
-         |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> drivers/pwm/pwm-sun20i.c:306:27: warning: assignment to 'void *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-     306 |         sun20i_chip->base = devm_platform_ioremap_resource(pdev, 0);
-         |                           ^
-   drivers/pwm/pwm-sun20i.c:310:58: error: invalid use of undefined type 'struct platform_device'
-     310 |         sun20i_chip->clk_bus = devm_clk_get_enabled(&pdev->dev, "bus");
-         |                                                          ^~
-   drivers/pwm/pwm-sun20i.c:312:24: error: implicit declaration of function 'dev_err_probe' [-Werror=implicit-function-declaration]
-     312 |                 return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_bus),
-         |                        ^~~~~~~~~~~~~
-   drivers/pwm/pwm-sun20i.c:312:43: error: invalid use of undefined type 'struct platform_device'
-     312 |                 return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_bus),
-         |                                           ^~
-   drivers/pwm/pwm-sun20i.c:315:59: error: invalid use of undefined type 'struct platform_device'
-     315 |         sun20i_chip->clk_hosc = devm_clk_get_enabled(&pdev->dev, "hosc");
-         |                                                           ^~
-   drivers/pwm/pwm-sun20i.c:317:43: error: invalid use of undefined type 'struct platform_device'
-     317 |                 return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_hosc),
-         |                                           ^~
-   drivers/pwm/pwm-sun20i.c:320:59: error: invalid use of undefined type 'struct platform_device'
-     320 |         sun20i_chip->clk_apb0 = devm_clk_get_enabled(&pdev->dev, "apb0");
-         |                                                           ^~
-   drivers/pwm/pwm-sun20i.c:322:43: error: invalid use of undefined type 'struct platform_device'
-     322 |                 return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_apb0),
-         |                                           ^~
-   drivers/pwm/pwm-sun20i.c:325:66: error: invalid use of undefined type 'struct platform_device'
-     325 |         sun20i_chip->rst = devm_reset_control_get_exclusive(&pdev->dev, NULL);
-         |                                                                  ^~
-   drivers/pwm/pwm-sun20i.c:327:43: error: invalid use of undefined type 'struct platform_device'
-     327 |                 return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->rst),
-         |                                           ^~
-   drivers/pwm/pwm-sun20i.c:330:40: error: invalid use of undefined type 'struct platform_device'
-     330 |         ret = of_property_read_u32(pdev->dev.of_node, "allwinner,pwm-channels",
-         |                                        ^~
-   drivers/pwm/pwm-sun20i.c:341:43: error: invalid use of undefined type 'struct platform_device'
-     341 |                 return dev_err_probe(&pdev->dev, ret, "failed to deassert reset\n");
-         |                                           ^~
-   drivers/pwm/pwm-sun20i.c:343:38: error: invalid use of undefined type 'struct platform_device'
-     343 |         sun20i_chip->chip.dev = &pdev->dev;
-         |                                      ^~
-   drivers/pwm/pwm-sun20i.c:351:43: error: invalid use of undefined type 'struct platform_device'
-     351 |                 return dev_err_probe(&pdev->dev, ret, "failed to add PWM chip\n");
-         |                                           ^~
-   drivers/pwm/pwm-sun20i.c:354:9: error: implicit declaration of function 'platform_set_drvdata' [-Werror=implicit-function-declaration]
-     354 |         platform_set_drvdata(pdev, sun20i_chip);
-         |         ^~~~~~~~~~~~~~~~~~~~
-   drivers/pwm/pwm-sun20i.c: At top level:
-   drivers/pwm/pwm-sun20i.c:359:38: warning: 'struct platform_device' declared inside parameter list will not be visible outside of this definition or declaration
-     359 | static void sun20i_pwm_remove(struct platform_device *pdev)
-         |                                      ^~~~~~~~~~~~~~~
-   drivers/pwm/pwm-sun20i.c: In function 'sun20i_pwm_remove':
-   drivers/pwm/pwm-sun20i.c:361:47: error: implicit declaration of function 'platform_get_drvdata' [-Werror=implicit-function-declaration]
-     361 |         struct sun20i_pwm_chip *sun20i_chip = platform_get_drvdata(pdev);
-         |                                               ^~~~~~~~~~~~~~~~~~~~
->> drivers/pwm/pwm-sun20i.c:361:47: warning: initialization of 'struct sun20i_pwm_chip *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-   drivers/pwm/pwm-sun20i.c: At top level:
-   drivers/pwm/pwm-sun20i.c:368:15: error: variable 'sun20i_pwm_driver' has initializer but incomplete type
-     368 | static struct platform_driver sun20i_pwm_driver = {
-         |               ^~~~~~~~~~~~~~~
-   drivers/pwm/pwm-sun20i.c:369:10: error: 'struct platform_driver' has no member named 'driver'
-     369 |         .driver = {
-         |          ^~~~~~
-   drivers/pwm/pwm-sun20i.c:369:19: error: extra brace group at end of initializer
-     369 |         .driver = {
-         |                   ^
-   drivers/pwm/pwm-sun20i.c:369:19: note: (near initialization for 'sun20i_pwm_driver')
->> drivers/pwm/pwm-sun20i.c:369:19: warning: excess elements in struct initializer
-   drivers/pwm/pwm-sun20i.c:369:19: note: (near initialization for 'sun20i_pwm_driver')
-   drivers/pwm/pwm-sun20i.c:373:10: error: 'struct platform_driver' has no member named 'probe'
-     373 |         .probe = sun20i_pwm_probe,
-         |          ^~~~~
-   drivers/pwm/pwm-sun20i.c:373:18: warning: excess elements in struct initializer
-     373 |         .probe = sun20i_pwm_probe,
-         |                  ^~~~~~~~~~~~~~~~
-   drivers/pwm/pwm-sun20i.c:373:18: note: (near initialization for 'sun20i_pwm_driver')
-   drivers/pwm/pwm-sun20i.c:374:10: error: 'struct platform_driver' has no member named 'remove_new'
-     374 |         .remove_new = sun20i_pwm_remove,
-         |          ^~~~~~~~~~
-   drivers/pwm/pwm-sun20i.c:374:23: warning: excess elements in struct initializer
-     374 |         .remove_new = sun20i_pwm_remove,
-         |                       ^~~~~~~~~~~~~~~~~
-   drivers/pwm/pwm-sun20i.c:374:23: note: (near initialization for 'sun20i_pwm_driver')
->> drivers/pwm/pwm-sun20i.c:376:1: warning: data definition has no type or storage class
-     376 | module_platform_driver(sun20i_pwm_driver);
-         | ^~~~~~~~~~~~~~~~~~~~~~
-   drivers/pwm/pwm-sun20i.c:376:1: error: type defaults to 'int' in declaration of 'module_platform_driver' [-Werror=implicit-int]
->> drivers/pwm/pwm-sun20i.c:376:1: warning: parameter names (without types) in function declaration
-   drivers/pwm/pwm-sun20i.c:368:31: error: storage size of 'sun20i_pwm_driver' isn't known
-     368 | static struct platform_driver sun20i_pwm_driver = {
-         |                               ^~~~~~~~~~~~~~~~~
->> drivers/pwm/pwm-sun20i.c:368:31: warning: 'sun20i_pwm_driver' defined but not used [-Wunused-variable]
-   cc1: some warnings being treated as errors
-
-
-vim +297 drivers/pwm/pwm-sun20i.c
-
-   296	
- > 297	static int sun20i_pwm_probe(struct platform_device *pdev)
-   298	{
-   299		struct sun20i_pwm_chip *sun20i_chip;
-   300		int ret;
-   301	
-   302		sun20i_chip = devm_kzalloc(&pdev->dev, sizeof(*sun20i_chip), GFP_KERNEL);
-   303		if (!sun20i_chip)
-   304			return -ENOMEM;
-   305	
- > 306		sun20i_chip->base = devm_platform_ioremap_resource(pdev, 0);
-   307		if (IS_ERR(sun20i_chip->base))
-   308			return PTR_ERR(sun20i_chip->base);
-   309	
-   310		sun20i_chip->clk_bus = devm_clk_get_enabled(&pdev->dev, "bus");
-   311		if (IS_ERR(sun20i_chip->clk_bus))
-   312			return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_bus),
-   313					     "failed to get bus clock\n");
-   314	
-   315		sun20i_chip->clk_hosc = devm_clk_get_enabled(&pdev->dev, "hosc");
-   316		if (IS_ERR(sun20i_chip->clk_hosc))
-   317			return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_hosc),
-   318					     "failed to get hosc clock\n");
-   319	
-   320		sun20i_chip->clk_apb0 = devm_clk_get_enabled(&pdev->dev, "apb0");
-   321		if (IS_ERR(sun20i_chip->clk_apb0))
-   322			return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_apb0),
-   323					     "failed to get apb0 clock\n");
-   324	
-   325		sun20i_chip->rst = devm_reset_control_get_exclusive(&pdev->dev, NULL);
-   326		if (IS_ERR(sun20i_chip->rst))
-   327			return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->rst),
-   328					     "failed to get bus reset\n");
-   329	
-   330		ret = of_property_read_u32(pdev->dev.of_node, "allwinner,pwm-channels",
-   331					   &sun20i_chip->chip.npwm);
-   332		if (ret)
-   333			sun20i_chip->chip.npwm = 8;
-   334	
-   335		if (sun20i_chip->chip.npwm > 16)
-   336			sun20i_chip->chip.npwm = 16;
-   337	
-   338		/* Deassert reset */
-   339		ret = reset_control_deassert(sun20i_chip->rst);
-   340		if (ret)
-   341			return dev_err_probe(&pdev->dev, ret, "failed to deassert reset\n");
-   342	
-   343		sun20i_chip->chip.dev = &pdev->dev;
-   344		sun20i_chip->chip.ops = &sun20i_pwm_ops;
-   345	
-   346		mutex_init(&sun20i_chip->mutex);
-   347	
-   348		ret = pwmchip_add(&sun20i_chip->chip);
-   349		if (ret < 0) {
-   350			reset_control_assert(sun20i_chip->rst);
-   351			return dev_err_probe(&pdev->dev, ret, "failed to add PWM chip\n");
-   352		}
-   353	
-   354		platform_set_drvdata(pdev, sun20i_chip);
-   355	
-   356		return 0;
-   357	}
-   358	
-   359	static void sun20i_pwm_remove(struct platform_device *pdev)
-   360	{
- > 361		struct sun20i_pwm_chip *sun20i_chip = platform_get_drvdata(pdev);
-   362	
-   363		pwmchip_remove(&sun20i_chip->chip);
-   364	
-   365		reset_control_assert(sun20i_chip->rst);
-   366	}
-   367	
- > 368	static struct platform_driver sun20i_pwm_driver = {
- > 369		.driver = {
-   370			.name = "sun20i-pwm",
-   371			.of_match_table = sun20i_pwm_dt_ids,
-   372		},
-   373		.probe = sun20i_pwm_probe,
-   374		.remove_new = sun20i_pwm_remove,
-   375	};
- > 376	module_platform_driver(sun20i_pwm_driver);
-   377	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
