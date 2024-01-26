@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE27C47DDB
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jan 2024 18:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6841C47DDB
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jan 2024 18:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pEDvfXBWj4xY5FTZ5cb3n39y2Hze7b5n3M2D5eguBug=; b=jVtyb6KxoGNfju
-	RmpsuigqoTlXcwBxfQdPd1YehqM37hrXAf9SwswyKlAdxMdzUDuE1txurMus4/eoKhTdDp4M02kzG
-	YZz/s9nPnF6ODfFr9KjXkmwcl2vnUM0lISwrIEw/K6S3m7SVE5gj3k33UO3o7zbzm3ovViav0IWTZ
-	TlLPL6YX+osv0z2koEienfEZVVVSt3K1DSmjlPsESur2cuyF8E9v08PSl5CfU9tajA6uJZUATNDah
-	4gq8aCPMDajeCNK/U9w3O93gwU/zY4uTx+NHPDtBuaQQbLeqrSMUtFA2TQwYukFyPTONIBERVOWd1
-	TcvqrhpMBcmYxgkA9WAw==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:Message-Id:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Qlma0U2TNsc/bAoG4zHCKDKPtyFL45S5+Y4CkNATLIs=; b=OHZRlcJFLTEAU3
+	RS6jMQocipCDN0fJvJq5Q6nMpOEkdGzxqgGp++TYalwQrfqRwmzcQIOTQVNKzRA4OaPOwTaGBk8Qs
+	P9ZNelMB0ackiVyoQPjbrjD7fhwZuLT2yiecLQVxwAbwLUgAPrsmfXGn03JdVWBQ1hTGxtzOBcydj
+	tA5i094djqoqFKwD+ADiUciwA2FAmnIMAqrOZ4MvPs19OeZ+kq9CTR1TnCh5LRc2kN+BRLqTb39me
+	tJPKKCO+R45DKRZPlu2eczvI8AKUUrgfiGKqSISRZ/wNC9Xkda6JiE9dMS57dmfvPWuxk+zCKASPV
+	wkKe//m0kBWBMgS0e3tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rTQUx-00000004zgY-2Dla;
-	Fri, 26 Jan 2024 18:00:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rTQqZ-000000053Bc-0wwv;
+	Fri, 26 Jan 2024 18:22:35 +0000
+Received: from wout4-smtp.messagingengine.com ([64.147.123.20])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rTQUt-00000004zed-0Y5L
-	for linux-riscv@lists.infradead.org;
-	Fri, 26 Jan 2024 18:00:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1706292008;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Pe5cAuD+r7l7BeM6JauqetJcjdzYv9yedKQx/BOkRTI=;
-	b=jUxTOcF3K2YwizYYqvODWmoJ4lgpSMWMo1xxbaAaQO2JUirBLCK61s1DJCm+Z5E/xrRvW5
-	AEPMouLl4ky7lYV68s2tPTESbrJBuLABM0sG5ZUl72AtNWUwk4mVfpuoYvz+ApXFWm3StB
-	e11+esXzCpI63JCppARjGxmFv5IP8iI=
-Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com
- [209.85.222.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-542-DsS0zOdTP3Kdkc9HbsS52Q-1; Fri, 26 Jan 2024 13:00:07 -0500
-X-MC-Unique: DsS0zOdTP3Kdkc9HbsS52Q-1
-Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-7d2d72f7965so197921241.2
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Jan 2024 10:00:06 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706292006; x=1706896806;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Pe5cAuD+r7l7BeM6JauqetJcjdzYv9yedKQx/BOkRTI=;
-        b=XEzIXpYhi1pfFNk8mfBkFI54H/mTI9avWlET9q268wEi+g5OKhGwktbkJXFgdg6L1/
-         HzHwu2EPs8lMIBdN6iVT6pf3HvjkNIG7iiEIWSip/ghAgcRc4vf4f+0VjvB8I/XfEoTE
-         HgCWzVo6d59RJBXSE69U+PNg9dLquCIWa+non4ZIWX0An4bwAPOlFWlj2qPkh8x+c0mj
-         WT/PW6w0naUN34GFz+V0lfE6tFuc8eHve/PVLBQ7BFjZfl++f1I7z78Apg3daF/D3Xvd
-         LPDMj0o0ZG5ICeSiDKgxVsisniYm4ZA2foU7dQlwfvIvUVxZr0Vlhg5iqQd9Lr3XUVnt
-         d/DQ==
-X-Gm-Message-State: AOJu0YxDIT/KfQrcutAXZaawoLtyXko34VfzgkJFGET3czwBgx2Q++Yi
-	X2BuD7hFX4OVSrx2gywHQJdO0xuzN6KMMTgWy87DFaygYjb0r2akBXdw00pJn6cu/NVLrU4Vsi0
-	JhuuGKHseHt21eP8C/t0vXeQ0hWEJvkfe2Waxru92ZSuJaj06fYB47wuv/0ZzdlXqrZx9cj9Tx+
-	qbLp9JmeaCMAJQ3uxxFt+x3CyL40c1lfX5isET7INx
-X-Received: by 2002:a05:6122:4126:b0:4bd:5f13:1293 with SMTP id ce38-20020a056122412600b004bd5f131293mr161894vkb.24.1706292006201;
-        Fri, 26 Jan 2024 10:00:06 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEs8NNV8GXT8UDGCEqs4Xs1royxAcYx30+Iiu+w3V2jR05bmGyDpTGlnwfAOA3z4i569k8jc+jA020qI93c/F0=
-X-Received: by 2002:a05:6122:4126:b0:4bd:5f13:1293 with SMTP id
- ce38-20020a056122412600b004bd5f131293mr161881vkb.24.1706292005872; Fri, 26
- Jan 2024 10:00:05 -0800 (PST)
+	id 1rTQqV-000000053B3-2GiK;
+	Fri, 26 Jan 2024 18:22:33 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailout.west.internal (Postfix) with ESMTP id 52AC63200B16;
+	Fri, 26 Jan 2024 13:22:25 -0500 (EST)
+Received: from imap51 ([10.202.2.101])
+  by compute5.internal (MEProxy); Fri, 26 Jan 2024 13:22:25 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:message-id:mime-version:reply-to:subject:subject:to:to; s=fm2;
+	 t=1706293344; x=1706379744; bh=QMPmaKyxvSEr5qcv2uqrMQvVfbkeAOpf
+	YJLC3w8JdPs=; b=NAgWPxYqN9rNuKlwjJGgRgtTofVW9UotWFXjm5NK9dThpeBT
+	UJJ18uc/QER5yZ/1nYX5ibHjkkaeT496FpS1FH1nD7m69p9VCn2aOYac1H9GlZ1n
+	55QISON9KZhAFG5BqEyD76S2CBsYSWwTc5yCPxWgPlku+HdC4gFj/fT1R31xa+Lu
+	wfrslTEacuMdGw9Popgik+x3ar7rbvA/SSNhFLqpZzzP3x+JvaBVK+gLAvbpffuX
+	AkvtFTGo9nm8YmMDpHk8Zeuy4tuT+G/3IVFPXmpEwXsPUq0c0KxDdUQSn9IzVYqn
+	KrSrlWDu1c6v9pAdLZ7/7lkpeOTpl9MMuuD5VA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:message-id
+	:mime-version:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1706293344; x=1706379744; bh=QMPmaKyxvSEr5qcv2uqrMQvVfbkeAOpfYJL
+	C3w8JdPs=; b=hvQittG39kwJzPBOsTke5fQAHTlVuPM2A/n13NP2KakWLhUlJQJ
+	SKgr871gL/w0eXDdqGrz0v5tBH0OkpWhFtgWTgcZedbgLFqxWf35ml7qSvLPlMX0
+	pFI0HXDNPegSRFJj0s3yCyWvm6uv8EuGNbNnOFj3wnkZOSHMVQ8Zvu1iakDuucPF
+	AZuIDEQwB0fLGvYDyE9hwc4jJ3w3PkGd8dXdqGjl9xbemRcP4xRmfbSSpi2oH7iU
+	2Awj4cXaHZSiWQu94fW147mw0uMcOJ/Lq95uCcbHxWFz2LdQ9LL2sxZBVuyxqsr+
+	x7h5WZnilbj85nYs+545aqUjXpvVxOfNfWg==
+X-ME-Sender: <xms:YPizZTgzkb13Izv0uBPfRWve166gbhLkF8nZLOn9DWkMaK_YEf0-dg>
+    <xme:YPizZQA7bTpkRitieoeDsu77OIEwMqNL7m0K0F9D2bJ1JYIfY32f1OM1IXyz9rRAV
+    QoH0cBDk_oxQtYUU5Q>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrvdeljedguddutdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpefofgggkfffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeeffeeuhfekjeevtddvtdelledttddtjeegvdfhtdduvdfhueekudeihfejtefg
+    ieenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptd
+    enucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:YPizZTF35F5-Pei1QQADnzTMMVGOaYlrWLhW0gPkjW-9nFxsKTp-eg>
+    <xmx:YPizZQQybE41rHZAq42DnXjOjuBq2RHsY109CouRABu7pt8PreGxrA>
+    <xmx:YPizZQyo9GgonHOKTZbD3DfpHLNJhN7V4JhyH2Fnea8A9mYERUwKCg>
+    <xmx:YPizZdr57SBBMnvS2mnfRqP_wqAAmFpZbDogyFFHJaHY3HHErkjb0A>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 8171FB6008D; Fri, 26 Jan 2024 13:22:24 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.11.0-alpha0-119-ga8b98d1bd8-fm-20240108.001-ga8b98d1b
 MIME-Version: 1.0
-References: <CAAhSdy2rbMeTwwHU_dHwUQi3AQB1qGNf=ByvzG11D99ZOJ3djA@mail.gmail.com>
-In-Reply-To: <CAAhSdy2rbMeTwwHU_dHwUQi3AQB1qGNf=ByvzG11D99ZOJ3djA@mail.gmail.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Fri, 26 Jan 2024 18:59:54 +0100
-Message-ID: <CABgObfavYbr_L34jNTOf_GLKTZ0CjXyz_vkVO6jr6pQZ_pLWSA@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/riscv changes for 6.8 part #2
-To: Anup Patel <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, 
-	Atish Patra <atishp@rivosinc.com>, KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+Message-Id: <26b37af5-7611-4a96-a324-427927cc6ad3@app.fastmail.com>
+Date: Fri, 26 Jan 2024 19:22:04 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: soc@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org
+Subject: [GIT PULL] Arm SoC fixes for 6.8, part 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240126_100011_271731_4DBD6AE4 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20240126_102231_995630_051FEFA5 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,59 +96,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKYW4gMTksIDIwMjQgYXQgNjozM+KAr0FNIEFudXAgUGF0ZWwgPGFudXBAYnJhaW5m
-YXVsdC5vcmc+IHdyb3RlOgo+Cj4gSGkgUGFvbG8sCj4KPiBXZSBoYXZlIHRoZSBmb2xsb3dpbmcg
-YWRkaXRpb25hbCBLVk0gUklTQy1WIGNoYW5nZXMgZm9yIDYuODoKPiAxKSBaYmMgZXh0ZW5zaW9u
-IHN1cHBvcnQgZm9yIEd1ZXN0L1ZNCj4gMikgU2NhbGFyIGNyeXB0byBleHRlbnNpb25zIHN1cHBv
-cnQgZm9yIEd1ZXN0L1ZNCj4gMykgVmVjdG9yIGNyeXB0byBleHRlbnNpb25zIHN1cHBvcnQgZm9y
-IEd1ZXN0L1ZNCj4gNCkgWmZoW21pbl0gZXh0ZW5zaW9ucyBzdXBwb3J0IGZvciBHdWVzdC9WTQo+
-IDUpIFppaGludG50bCBleHRlbnNpb24gc3VwcG9ydCBmb3IgR3Vlc3QvVk0KPiA2KSBadmZoW21p
-bl0gZXh0ZW5zaW9ucyBzdXBwb3J0IGZvciBHdWVzdC9WTQo+IDcpIFpmYSBleHRlbnNpb24gc3Vw
-cG9ydCBmb3IgR3Vlc3QvVk0KClB1bGxlZCwgdGhhbmtzLgoKUGFvbG8KCj4gUGxlYXNlIHB1bGwu
-Cj4KPiBSZWdhcmRzLAo+IEFudXAKPgo+IFRoZSBmb2xsb3dpbmcgY2hhbmdlcyBzaW5jZSBjb21t
-aXQgOWQxNjk0ZGM5MWNlN2I4MGJjOTZkNmQ4ZWFmMWExZWNhNjY4ZDg0NzoKPgo+ICAgTWVyZ2Ug
-dGFnICdmb3ItNi44L2Jsb2NrLTIwMjQtMDEtMTgnIG9mIGdpdDovL2dpdC5rZXJuZWwuZGsvbGlu
-dXgKPiAoMjAyNC0wMS0xOCAxODoyMjo0MCAtMDgwMCkKPgo+IGFyZSBhdmFpbGFibGUgaW4gdGhl
-IEdpdCByZXBvc2l0b3J5IGF0Ogo+Cj4gICBodHRwczovL2dpdGh1Yi5jb20va3ZtLXJpc2N2L2xp
-bnV4LmdpdCB0YWdzL2t2bS1yaXNjdi02LjgtMgo+Cj4gZm9yIHlvdSB0byBmZXRjaCBjaGFuZ2Vz
-IHVwIHRvIDRkMGU4ZjlhMzYxYjNhMWY3YjY3NDE4YzUzNmIyNTgzMjNkZTczNGY6Cj4KPiAgIEtW
-TTogcmlzY3Y6IHNlbGZ0ZXN0czogQWRkIFpmYSBleHRlbnNpb24gdG8gZ2V0LXJlZy1saXN0IHRl
-c3QKPiAoMjAyNC0wMS0xOSAwOToyMDoxOSArMDUzMCkKPgo+IC0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiBLVk0vcmlzY3Yg
-Y2hhbmdlcyBmb3IgNi44IHBhcnQgIzIKPgo+IC0gWmJjIGV4dGVuc2lvbiBzdXBwb3J0IGZvciBH
-dWVzdC9WTQo+IC0gU2NhbGFyIGNyeXB0byBleHRlbnNpb25zIHN1cHBvcnQgZm9yIEd1ZXN0L1ZN
-Cj4gLSBWZWN0b3IgY3J5cHRvIGV4dGVuc2lvbnMgc3VwcG9ydCBmb3IgR3Vlc3QvVk0KPiAtIFpm
-aFttaW5dIGV4dGVuc2lvbnMgc3VwcG9ydCBmb3IgR3Vlc3QvVk0KPiAtIFppaGludG50bCBleHRl
-bnNpb24gc3VwcG9ydCBmb3IgR3Vlc3QvVk0KPiAtIFp2ZmhbbWluXSBleHRlbnNpb25zIHN1cHBv
-cnQgZm9yIEd1ZXN0L1ZNCj4gLSBaZmEgZXh0ZW5zaW9uIHN1cHBvcnQgZm9yIEd1ZXN0L1ZNCj4K
-PiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tCj4gQW51cCBQYXRlbCAoMTQpOgo+ICAgICAgIFJJU0MtVjogS1ZNOiBBbGxvdyBa
-YmMgZXh0ZW5zaW9uIGZvciBHdWVzdC9WTQo+ICAgICAgIEtWTTogcmlzY3Y6IHNlbGZ0ZXN0czog
-QWRkIFpiYyBleHRlbnNpb24gdG8gZ2V0LXJlZy1saXN0IHRlc3QKPiAgICAgICBSSVNDLVY6IEtW
-TTogQWxsb3cgc2NhbGFyIGNyeXB0byBleHRlbnNpb25zIGZvciBHdWVzdC9WTQo+ICAgICAgIEtW
-TTogcmlzY3Y6IHNlbGZ0ZXN0czogQWRkIHNjYWxlciBjcnlwdG8gZXh0ZW5zaW9ucyB0byBnZXQt
-cmVnLWxpc3QgdGVzdAo+ICAgICAgIFJJU0MtVjogS1ZNOiBBbGxvdyB2ZWN0b3IgY3J5cHRvIGV4
-dGVuc2lvbnMgZm9yIEd1ZXN0L1ZNCj4gICAgICAgS1ZNOiByaXNjdjogc2VsZnRlc3RzOiBBZGQg
-dmVjdG9yIGNyeXB0byBleHRlbnNpb25zIHRvIGdldC1yZWctbGlzdCB0ZXN0Cj4gICAgICAgUklT
-Qy1WOiBLVk06IEFsbG93IFpmaFttaW5dIGV4dGVuc2lvbnMgZm9yIEd1ZXN0L1ZNCj4gICAgICAg
-S1ZNOiByaXNjdjogc2VsZnRlc3RzOiBBZGQgWmZoW21pbl0gZXh0ZW5zaW9ucyB0byBnZXQtcmVn
-LWxpc3QgdGVzdAo+ICAgICAgIFJJU0MtVjogS1ZNOiBBbGxvdyBaaWhpbnRudGwgZXh0ZW5zaW9u
-IGZvciBHdWVzdC9WTQo+ICAgICAgIEtWTTogcmlzY3Y6IHNlbGZ0ZXN0czogQWRkIFppaGludG50
-bCBleHRlbnNpb24gdG8gZ2V0LXJlZy1saXN0IHRlc3QKPiAgICAgICBSSVNDLVY6IEtWTTogQWxs
-b3cgWnZmaFttaW5dIGV4dGVuc2lvbnMgZm9yIEd1ZXN0L1ZNCj4gICAgICAgS1ZNOiByaXNjdjog
-c2VsZnRlc3RzOiBBZGQgWnZmaFttaW5dIGV4dGVuc2lvbnMgdG8gZ2V0LXJlZy1saXN0IHRlc3QK
-PiAgICAgICBSSVNDLVY6IEtWTTogQWxsb3cgWmZhIGV4dGVuc2lvbiBmb3IgR3Vlc3QvVk0KPiAg
-ICAgICBLVk06IHJpc2N2OiBzZWxmdGVzdHM6IEFkZCBaZmEgZXh0ZW5zaW9uIHRvIGdldC1yZWct
-bGlzdCB0ZXN0Cj4KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oICAgICAgICAg
-ICAgICAgIHwgIDI3ICsrKysrKwo+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1X29uZXJlZy5jICAgICAg
-ICAgICAgICAgICAgICAgfCAgNTQgKysrKysrKysrKysrCj4gIHRvb2xzL3Rlc3Rpbmcvc2VsZnRl
-c3RzL2t2bS9yaXNjdi9nZXQtcmVnLWxpc3QuYyB8IDEwOCArKysrKysrKysrKysrKysrKysrKysr
-Kwo+ICAzIGZpbGVzIGNoYW5nZWQsIDE4OSBpbnNlcnRpb25zKCspCj4KCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+The following changes since commit 6613476e225e090cc9aad49be7fa504e290dd33d:
+
+  Linux 6.8-rc1 (2024-01-21 14:11:32 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/arm-fixes-6.8-1
+
+for you to fetch changes up to 1f4a994be2c3d13852fd5c1054f292bd303352cc:
+
+  riscv: dts: sophgo: separate sg2042 mtime and mtimecmp to fit aclint format (2024-01-26 13:33:52 +0100)
+
+----------------------------------------------------------------
+Arm SoC fixes for 6.8, part 1
+
+There are a couple of devicetree fixes for samsung, riscv/sophgo, and for
+TPM device nodes on a couple of platforms.
+
+Both the Arm FF-A and the SCMI firmware drivers get a number of code fixes,
+addressing minor implementation bugs and compatibility with firmware
+implementations. Most of these bugs relate to the usage of xarray and
+rwlock structures and are fixed by Cristian Marussi.
+
+----------------------------------------------------------------
+Arnd Bergmann (3):
+      Merge tag 'scmi-fixes-6.8' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
+      Merge tag 'ffa-fixes-6.8' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
+      Merge tag 'samsung-fixes-6.8' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux into arm/fixes
+
+Artur Weber (1):
+      ARM: dts: exynos4212-tab3: add samsung,invert-vclk flag to fimd
+
+Cristian Marussi (11):
+      firmware: arm_scmi: Check mailbox/SMT channel for consistency
+      firmware: arm_scmi: Use xa_insert() to store opps
+      firmware: arm_scmi: Use xa_insert() when saving raw queues
+      firmware: arm_scmi: Fix the clock protocol version for v3.2
+      firmware: arm_scmi: Fix the clock protocol supported version
+      firmware: arm_ffa: Add missing rwlock_init() in ffa_setup_partitions()
+      firmware: arm_ffa: Add missing rwlock_init() for the driver partition
+      firmware: arm_ffa: Check xa_load() return value
+      firmware: arm_ffa: Simplify ffa_partitions_cleanup()
+      firmware: arm_ffa: Use xa_insert() and check for result
+      firmware: arm_ffa: Handle partitions setup failures
+
+Inochi Amaoto (1):
+      riscv: dts: sophgo: separate sg2042 mtime and mtimecmp to fit aclint format
+
+Lukas Wunner (2):
+      ARM: dts: Fix TPM schema violations
+      arm64: dts: Fix TPM schema violations
+
+Tanzir Hasan (1):
+      firmware: arm_scmi: Replace asm-generic/bug.h with linux/bug.h
+
+Tudor Ambarus (1):
+      arm64: dts: exynos: gs101: comply with the new cmu_misc clock names
+
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts   |  4 ++--
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts    |  4 ++--
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-tacoma.dts           |  2 +-
+ arch/arm/boot/dts/aspeed/ast2600-facebook-netbmc-common.dtsi |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6ull-phytec-tauri.dtsi          |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx7d-flex-concentrator.dts        |  2 +-
+ arch/arm/boot/dts/samsung/exynos4212-tab3.dtsi               |  1 +
+ arch/arm/boot/dts/ti/omap/am335x-moxa-uc-2100-common.dtsi    |  2 +-
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi                 |  2 +-
+ arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts     |  2 +-
+ arch/arm64/boot/dts/freescale/imx8mm-venice-gw72xx.dtsi      |  2 +-
+ arch/arm64/boot/dts/freescale/imx8mm-venice-gw73xx.dtsi      |  2 +-
+ arch/arm64/boot/dts/freescale/imx8mp-beacon-kit.dts          |  2 +-
+ arch/arm64/boot/dts/freescale/imx8mp-venice-gw72xx.dtsi      |  2 +-
+ arch/arm64/boot/dts/freescale/imx8mp-venice-gw73xx.dtsi      |  2 +-
+ arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts       |  2 +-
+ arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts  |  2 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi               |  2 +-
+ arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi             |  2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-gru-bob.dts              |  2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-gru-scarlet.dtsi         |  2 +-
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi                       | 80 +++++++++++++++++++++++++++++++++++++++--------------------------
+ drivers/firmware/arm_ffa/driver.c                            | 85 +++++++++++++++++++++++++++++++++++++++++++++++-----------------------
+ drivers/firmware/arm_scmi/clock.c                            |  5 ++---
+ drivers/firmware/arm_scmi/common.h                           |  1 +
+ drivers/firmware/arm_scmi/mailbox.c                          | 14 ++++++++++++
+ drivers/firmware/arm_scmi/perf.c                             | 23 ++++++++++++++-----
+ drivers/firmware/arm_scmi/raw_mode.c                         | 12 ++++++----
+ drivers/firmware/arm_scmi/shmem.c                            |  8 ++++++-
+ 29 files changed, 179 insertions(+), 96 deletions(-)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
