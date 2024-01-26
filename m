@@ -4,63 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C995FC47422
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jan 2024 04:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF200C47422
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jan 2024 06:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s7FYaVEY4wG75qL1D/7uvchv//9omo++9ZXM55ltwi8=; b=F0mfhtlVfPyaCv
-	UEuIH3eQMRQoFRcQM/Jtu4I1uJiuvpnObyVvbnHpIUn0WrPzwZhdzlPF69QJsi3ZolqHLX2DrWfSf
-	AemCqRMLDhadviTniXpBlSQ2zlIr/VNe8C7lc6iqf75SnunrqwC1iOq6q/kBTrC3qawwCWAJr/9nC
-	ilMCn8Y0mglePdh3tBP5P5sdz682dlP1BDorOrLGCYugjYTtBFrYUMXVMN+/ABXbU+UamcaC7lNyO
-	O1gYRx4LVnQF/IL+WXZhG+5PC6VpfCMHZ99F1qA6ZIFYtqjRJWKZnufk1kNZgv9G//NC3DiczTPNe
-	FDQpsf9eZidnfyttjbmw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7KdpDaYzelsZAHB5o4Vw5Xp9jj6CDbOio62loUfLKBA=; b=gVhHMU6XZFcorQ
+	LU83ntWOjKh6D99NI5056d67DS9ZBlO8YuFy8EProo9YzbnyLq0X3bza2G64hZRVMry3bOSchuApG
+	EJ+n5nMCmsg3jmi1RNYkZTSKsGZxifQ9LhZp4PSwFsL0VpmnSksXVBgYwA5EbDZOGPs3x5MhMThHY
+	icx1JOAxYkOrjzh/dtFfzpjRg9ZHEIJHmbJLHq5E+gAgUTvDzzHOkG3yZ3WES6l3E4ffAj+Z7Bk41
+	97UnoG7ng/cT5TggvFnax/6QbyH0iFhDTy43XsgLf9yuYQ7u2R3SpkGlKpM/MB59g4idYox9RfEIT
+	P5iHS8ECWQrVvK+X59vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rTEG2-000000038Xd-1K40;
-	Fri, 26 Jan 2024 04:56:02 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rTFKx-00000003CPo-1SmW;
+	Fri, 26 Jan 2024 06:05:11 +0000
+Received: from mail-co1nam11olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2c16::800] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rTEFx-000000038X1-3gBT;
-	Fri, 26 Jan 2024 04:55:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 62F77CE3602;
-	Fri, 26 Jan 2024 04:55:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7424AC433C7;
-	Fri, 26 Jan 2024 04:55:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706244954;
-	bh=FmNHhs5Ei5rNQtR/0pq39ZRt4hEXbrRkj0sDq9SFGz8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R7DqRs3lJV6vva5/GrZ5vyvk/fyiid7mrqFU5b5j+aAL1A3l/pmyg1MUmlJxLrErx
-	 ed7+2pZaiRCgfAquHhC2dqIoNZcqNiRVimZoDqwqThaxKZeuIveWl9ouRG3rYnm94+
-	 dDr7tsUuKxr6bUgNOdgbix9L2K4MP70b/uUjGxfTr8D76LWXn0BIvbFNPHNwSUKSXo
-	 ObJ1nLkwV9XdI6H5GHnv42jfmuDx5l33eMDvquwSc/6m7bRzyHcwW4dpvmHw8WnI98
-	 vcJokpq8atILg/Qv6JdytOBNcXP2aG9sGMRlD5LgZFfZUGtu8dvQQLVA0bEv8hXqPp
-	 lc79SuicTzCXQ==
-Date: Thu, 25 Jan 2024 21:55:51 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Baoquan He <bhe@redhat.com>
-Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	loongarch@lists.linux.dev, akpm@linux-foundation.org,
-	ebiederm@xmission.com, hbathini@linux.ibm.com, piliu@redhat.com,
-	viro@zeniv.linux.org.uk
-Subject: Re: [PATCH linux-next v3 00/14] Split crash out from kexec and clean
- up related config items
-Message-ID: <20240126045551.GA126645@dev-arch.thelio-3990X>
-References: <20240124051254.67105-1-bhe@redhat.com>
+	id 1rTFKs-00000003COr-444I
+	for linux-riscv@lists.infradead.org;
+	Fri, 26 Jan 2024 06:05:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=fScpDtVuGPTekKP3BNW2iSjPIDC1OC9/i8mOt9jDgFawwdE2HnBhbenYZS4SCRzROJu1FxNJzEw+VprcUV9PcGQarYdpfyW3AuaSUTPay07g9HyqLcaSrVQEbOKYNT7dHGWx20EpkEvEzbxBRQFqMM25UO64723sdZ3VYUb577zFWAehnfLfwoHeUVUTZ9AX8CO0JY+owZiUpAPcfJ2ihTQYm1n/vD7/zW+3oZ6FKHRep6yscv+YYHkTySaHeFw17xD2YbwCVy68vZ3qXvxoi+OX9oAoqZZT/3JADO2jqv8H8rkP4ljxlAInNTWPDmr1g3PYGjD+bXxFhVPlmmDTGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=v4iGzy+pKbSiCwJbGqtOiGtUg6a7k9dgF+Xk9Y1IZ68=;
+ b=XplUj5GSNBhfSfUgp8epGFStUrG0HJ0YLf7rdw8bTGr720hqi6CtGe246Lcga5p2lzL88bZhVlCy6CpcCW6mB1T6gd9k6skogg0WmK/b7uGNpIrUP5Ll89Zl6RIYf3k+vz+h82nRvx+a51gR1u3xj3AtfX6RuPZq2WosMHrybZdGGuDJW80vI6YkGXYQL8n691Q90j4wwPiwGFnB1j9mjwlpI5URggOgnuhh5ZaC+iE98+fQACMdj4EP+1/cmciLC7/0Jeui5oYo+NIQv6VxOQA4zukHaXWUdtIHRC/y5E69Gg/S2wNlmyVqzNLBujWgWz7UcNYIfQoGlfN2R4i8VQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=v4iGzy+pKbSiCwJbGqtOiGtUg6a7k9dgF+Xk9Y1IZ68=;
+ b=ZRrwRFmEoz125qPcUHKgCJPiBG4C58ZoJXjeamPpjWHaw0WWwHdb6FfkcGcTBcuwauRkrZ3fBv8WUvnDvId6UiVTuAimZEDrrMGj/ASzuGC0vw0VZsEhIhtPjFBsWQ4kKDVgrgdHxPQOsv4fH0C/pJOflvPYf7UNJJRR3S+u105rHmEaSLGCsYLwFA403zhpZ+Yp5QcPyJUbz8KnShPNA4BQ8Ij8tCSdbzabwYZizBb3sPUfC6znQxp5EHXfqO5XGPv4uY+iZIv7/prh+Fmg14shRnKAwxuXKEsrfc4J0YFV1AIZIA94XPvkVZAAKRPj8ap4/btHzY8yHoHgwbQHaQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by PH0PR20MB4448.namprd20.prod.outlook.com (2603:10b6:510:148::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7228.24; Fri, 26 Jan
+ 2024 06:04:54 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b%2]) with mapi id 15.20.7228.027; Fri, 26 Jan 2024
+ 06:04:54 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] MAINTAINERS: Setup proper info for SOPHGO vendor support
+Date: Fri, 26 Jan 2024 14:04:50 +0800
+Message-ID: <IA1PR20MB49534A5DE79A6CEE57301737BB792@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.0
+X-TMN: [rgmLm1hHdwYRKBcEL0IZnR0KIpkLIUaOM2gLdf1FoylFvxHzKlN8DmhJV7EXNfqp]
+X-ClientProxiedBy: SI2PR04CA0011.apcprd04.prod.outlook.com
+ (2603:1096:4:197::10) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240126060451.459103-1-inochiama@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240124051254.67105-1-bhe@redhat.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH0PR20MB4448:EE_
+X-MS-Office365-Filtering-Correlation-Id: c33b945c-4ed6-4e75-a999-08dc1e34b70a
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: sBgIYStjHCJS5da5AZAhOihNcxw0ZfgSlWMd4FxQrkZcauoINOV0fb8MqT+MLxxg3MV2hyHCQS6hLZOlMbeLXudO5pj8oON1wbjc6E5vuPtaC1k3rdkhHUEuh6x0kfSPWr6EEJgmMdQ+BJDdmL2weaW7c7vIle2x/7pZb9cKiLEwc27vGKg2sGJwHOd49QUVDtK46dgJNxoKcNF4r+j14Kdig/tr1eGKPC4016yy/SsPOl4o1PRjkdRaeXv+vw9p053UEp0MiGZ542XScUYCGapXhUxL/B2b+yXGRiEFAC3W+70n/+ViveYXMrfogLbKLqeTLnSk7+y/FfS4Ui8E3y9iED3XJkX5B7gFsKdGtJHKeHu8P5fEFL8ylUAFsdtBE8Q4zGRS5gPzriA7pwDNMFN5hudt1tingsrol5syh5pPL1xKZK7mL6N9QDGOQQTAk2wkzJcNZY5r01gUenEovfQxVhYzqbwMAaJJ19TShtrBiVv3A+Eb3ceCTx/uuDBQIxyy6U+wHTHnenw5liJwaN9U+7TPA2bs/kmF8Lcs6I2KiaFr+DIlSNAIyOX3OnZ6CYAlZHSwhqqvkxOY5EoQdns8V4Mb+hvphf1Ep55NI+fQAT7zuuvr0CHtaawomYY2
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RoBIpVyPw5Cs+RLKZnJDnmKSizfYDrx8ydduRv3N4hQygLMkxlHuc79Sh9+l?=
+ =?us-ascii?Q?Gjovk4GHqW5iu+agECqGH1yXY+vtGP7Gqhib729ycRlggGhsAllDIFwKrr/0?=
+ =?us-ascii?Q?106eC4TOUei+YQGZKItaNHS4essm5j/FONPxrdvtbi2UzR47P+n7AS+8+IJq?=
+ =?us-ascii?Q?EnvPcFdEMJwK0h6OEL+LWxPMBy8ri//qE3ClbTw+ECknwvBIhYYLh1YphCpW?=
+ =?us-ascii?Q?+/hocjIByNlzsLkeCjcN9phdGG7R0ZgGFSjacNM+3MUzIqCW4Gp0uJj8YmXL?=
+ =?us-ascii?Q?Jr4m+2w3jQhDU67u5e7WllcWdqXXZ1/kz/ksLU04ylZbKpu9LsAe2SsQtzCJ?=
+ =?us-ascii?Q?HOE/yjH3qY5DxY/b9c9aASIZfTpRmoVWL6j4jUKd3Eu774TQlITBtEHnTSWM?=
+ =?us-ascii?Q?yZWeHz1ea3HpGH+dL696ufJzejluRAoi9YfRVmy/dIYGjz4qqhN0/noDsrIO?=
+ =?us-ascii?Q?qNgccUv8edmnQn9HvU09s39ir0MPtbvtS6NX0fsBHf5xojX6+C+76M2Nqj8s?=
+ =?us-ascii?Q?syKPytpmvqLGHhSmgbbu6AJqDZtcljIb2ngAkEt4z3q9OvT5LqX1TIXyKlUP?=
+ =?us-ascii?Q?yU5b8K2+/UZfUZULkrQAFXAc+hZWI9KJDUFoM+KI+l7U+64P5+xXNtpR5z8G?=
+ =?us-ascii?Q?vGqgtjdTxGmy3xBv4S5x2mfu890ZUTwb7NUtTMpFK9FFiDjlPHy2YHQWkM+4?=
+ =?us-ascii?Q?8WBBPoyu/dSUDx8qnZYeAhNvMRi3gq1zVobcdow5jm/xAipW0q4Eb6VGER13?=
+ =?us-ascii?Q?+ECoDxl9LiYN9gmxXIdNqxa4I3QbrQULj22jRxHRl6sABX6FvrFzuASISaEQ?=
+ =?us-ascii?Q?cqT5ltm176aF/oMcyHbbd/H5xaiVff8CkAH/GexyugUxx3kun5RxrocxdFcH?=
+ =?us-ascii?Q?bqNvWFpYUWgpjBUPSz4wI742BNSwUwu6IonNBUiyH+OXk8l4rR+6TZmRRs0s?=
+ =?us-ascii?Q?sKX4rZ4hGZJvKuMEWhjsC5qdVOQq0gy2b+we5hlo9E3Y86UVx0gYuEsnknQF?=
+ =?us-ascii?Q?RjqHbVxlZDvvFGnWd1XpSyc1IPP0QRdDjAo5zKwbzxJHsqOg+qkgjd/W6kTv?=
+ =?us-ascii?Q?5cGlk89gysyDgl2FtakqDMWH/EtY4Q6d1xkV56+isOOIivFqIChgJKz8bE8N?=
+ =?us-ascii?Q?6YOUjT30fTdIFT+fiTLM7CEfmfLQHsV37aIdvCbXeLp6JYPinCjpkFyWAhwz?=
+ =?us-ascii?Q?9zW75jm/lF5/bdz5qKqAuXaYYsOc+cDN5uBcB3HeyWXnjIe0SxrVLLbGZbpP?=
+ =?us-ascii?Q?VuAaUj13i3iNyaELfCt2iFoaRpPxtbw/yeCmPbjeLw=3D=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c33b945c-4ed6-4e75-a999-08dc1e34b70a
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2024 06:04:54.0287
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR20MB4448
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240125_205558_285906_DDBBA4F4 
-X-CRM114-Status: GOOD (  23.38  )
+X-CRM114-CacheID: sfid-20240125_220507_019559_207BF4CF 
+X-CRM114-Status: UNSURE (   6.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,193 +128,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Baoquan,
+Add git tree that maintaines sophgo vendor code.
+Also replace Chao Wei with myself, since he does not have enough time.
 
-On Wed, Jan 24, 2024 at 01:12:40PM +0800, Baoquan He wrote:
-> Motivation:
-> =============
-> Previously, LKP reported a building error. When investigating, it can't
-> be resolved reasonablly with the present messy kdump config items.
-> 
->  https://lore.kernel.org/oe-kbuild-all/202312182200.Ka7MzifQ-lkp@intel.com/
-> 
-> The kdump (crash dumping) related config items could causes confusions:
-> 
-> Firstly,
-> ---
-> CRASH_CORE enables codes including
->  - crashkernel reservation;
->  - elfcorehdr updating;
->  - vmcoreinfo exporting;
->  - crash hotplug handling;
-> 
-> Now fadump of powerpc, kcore dynamic debugging and kdump all selects
-> CRASH_CORE, while fadump
->  - fadump needs crashkernel parsing, vmcoreinfo exporting, and accessing
->    global variable 'elfcorehdr_addr';
->  - kcore only needs vmcoreinfo exporting;
->  - kdump needs all of the current kernel/crash_core.c.
-> 
-> So only enabling PROC_CORE or FA_DUMP will enable CRASH_CORE, this
-> mislead people that we enable crash dumping, actual it's not.
-> 
-> Secondly,
-> ---
-> It's not reasonable to allow KEXEC_CORE select CRASH_CORE.
-> 
-> Because KEXEC_CORE enables codes which allocate control pages, copy
-> kexec/kdump segments, and prepare for switching. These codes are
-> shared by both kexec reboot and kdump. We could want kexec reboot,
-> but disable kdump. In that case, CRASH_CORE should not be selected.
-> 
->  --------------------
->  CONFIG_CRASH_CORE=y
->  CONFIG_KEXEC_CORE=y
->  CONFIG_KEXEC=y
->  CONFIG_KEXEC_FILE=y
->  ---------------------
-> 
-> Thirdly,
-> ---
-> It's not reasonable to allow CRASH_DUMP select KEXEC_CORE.
-> 
-> That could make KEXEC_CORE, CRASH_DUMP are enabled independently from
-> KEXEC or KEXEC_FILE. However, w/o KEXEC or KEXEC_FILE, the KEXEC_CORE
-> code built in doesn't make any sense because no kernel loading or
-> switching will happen to utilize the KEXEC_CORE code.
->  ---------------------
->  CONFIG_CRASH_CORE=y
->  CONFIG_KEXEC_CORE=y
->  CONFIG_CRASH_DUMP=y
->  ---------------------
-> 
-> In this case, what is worse, on arch sh and arm, KEXEC relies on MMU,
-> while CRASH_DUMP can still be enabled when !MMU, then compiling error is
-> seen as the lkp test robot reported in above link.
-> 
->  ------arch/sh/Kconfig------
->  config ARCH_SUPPORTS_KEXEC
->          def_bool MMU
-> 
->  config ARCH_SUPPORTS_CRASH_DUMP
->          def_bool BROKEN_ON_SMP
->  ---------------------------
-> 
-> Changes:
-> ===========
-> 1, split out crash_reserve.c from crash_core.c;
-> 2, split out vmcore_infoc. from crash_core.c;
-> 3, move crash related codes in kexec_core.c into crash_core.c;
-> 4, remove dependency of FA_DUMP on CRASH_DUMP;
-> 5, clean up kdump related config items;
-> 6, wrap up crash codes in crash related ifdefs on all 8 arch-es
->    which support crash dumping, except of ppc;
-> 
-> Achievement:
-> ===========
-> With above changes, I can rearrange the config item logic as below (the right
-> item depends on or is selected by the left item):
-> 
->     PROC_KCORE -----------> VMCORE_INFO
-> 
->                |----------> VMCORE_INFO
->     FA_DUMP----|
->                |----------> CRASH_RESERVE
-> 
->                                                     ---->VMCORE_INFO
->                                                    /
->                                                    |---->CRASH_RESERVE
->     KEXEC      --|                                /|
->                  |--> KEXEC_CORE--> CRASH_DUMP-->/-|---->PROC_VMCORE
->     KEXEC_FILE --|                               \ |
->                                                    \---->CRASH_HOTPLUG
-> 
-> 
->     KEXEC      --|
->                  |--> KEXEC_CORE (for kexec reboot only)
->     KEXEC_FILE --|
-> 
-> Test
-> ========
-> On all 8 architectures, including x86_64, arm64, s390x, sh, arm, mips,
-> riscv, loongarch, I did below three cases of config item setting and
-> building all passed. Take configs on x86_64 as exampmle here:
-> 
-> (1) Both CONFIG_KEXEC and KEXEC_FILE is unset, then all kexec/kdump
-> items are unset automatically:
-> # Kexec and crash features
-> # CONFIG_KEXEC is not set
-> # CONFIG_KEXEC_FILE is not set
-> # end of Kexec and crash features
-> 
-> (2) set CONFIG_KEXEC_FILE and 'make olddefconfig':
-> ---------------
-> # Kexec and crash features
-> CONFIG_CRASH_RESERVE=y
-> CONFIG_VMCORE_INFO=y
-> CONFIG_KEXEC_CORE=y
-> CONFIG_KEXEC_FILE=y
-> CONFIG_CRASH_DUMP=y
-> CONFIG_CRASH_HOTPLUG=y
-> CONFIG_CRASH_MAX_MEMORY_RANGES=8192
-> # end of Kexec and crash features
-> ---------------
-> 
-> (3) unset CONFIG_CRASH_DUMP in case 2 and execute 'make olddefconfig':
-> ------------------------
-> # Kexec and crash features
-> CONFIG_KEXEC_CORE=y
-> CONFIG_KEXEC_FILE=y
-> # end of Kexec and crash features
-> ------------------------
-> 
-> Note:
-> For ppc, it needs investigation to make clear how to split out crash
-> code in arch folder. Hope Hari and Pingfan can help have a look, see if
-> it's doable. Now, I make it either have both kexec and crash enabled, or
-> disable both of them altogether.
+Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+---
+ MAINTAINERS | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-I am seeing a few build failures in my test matrix on next-20240125 that
-appear to be caused by this series although I have not bisected. Some
-reproduction steps:
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 39219b144c23..0dbf2882afbf 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20446,12 +20446,13 @@ F:	drivers/char/sonypi.c
+ F:	drivers/platform/x86/sony-laptop.c
+ F:	include/linux/sony-laptop.h
 
-$ curl -LSso .config https://git.alpinelinux.org/aports/plain/community/linux-edge/config-edge.armv7
-$ make -skj"$(nproc)" ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- olddefconfig all
-...
-arm-linux-gnueabi-ld: arch/arm/kernel/machine_kexec.o: in function `arch_crash_save_vmcoreinfo':
-machine_kexec.c:(.text+0x488): undefined reference to `vmcoreinfo_append_str'
-...
+-SOPHGO DEVICETREES
+-M:	Chao Wei <chao.wei@sophgo.com>
++SOPHGO DEVICETREES and DRIVERS
+ M:	Chen Wang <unicorn_wang@outlook.com>
++M:	Inochi Amaoto <inochiama@outlook.com>
++T:	git https://github.com/sophgo/linux.git
+ S:	Maintained
+-F:	arch/riscv/boot/dts/sophgo/
+-F:	Documentation/devicetree/bindings/riscv/sophgo.yaml
++N:	sophgo
++K:	[^@]sophgo
 
-$ curl -LSso .config https://github.com/archlinuxarm/PKGBUILDs/raw/master/core/linux-aarch64/config
-$ make -skj"$(nproc)" ARCH=arm64 CROSS_COMPILE=aarch64-linux- olddefconfig all
-...
-aarch64-linux-ld: kernel/kexec_file.o: in function `kexec_walk_memblock.constprop.0':
-kexec_file.c:(.text+0x314): undefined reference to `crashk_res'
-aarch64-linux-ld: kernel/kexec_file.o: relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol `crashk_res' which may bind externally can not be used when making a shared object; recompile with -fPIC
-kexec_file.c:(.text+0x314): dangerous relocation: unsupported relocation
-aarch64-linux-ld: kexec_file.c:(.text+0x318): undefined reference to `crashk_res'
-aarch64-linux-ld: drivers/of/kexec.o: in function `of_kexec_alloc_and_setup_fdt':
-kexec.c:(.text+0x580): undefined reference to `crashk_res'
-aarch64-linux-ld: drivers/of/kexec.o: relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol `crashk_res' which may bind externally can not be used when making a shared object; recompile with -fPIC
-kexec.c:(.text+0x580): dangerous relocation: unsupported relocation
-aarch64-linux-ld: kexec.c:(.text+0x584): undefined reference to `crashk_res'
-aarch64-linux-ld: kexec.c:(.text+0x590): undefined reference to `crashk_res'
-aarch64-linux-ld: kexec.c:(.text+0x5b0): undefined reference to `crashk_low_res'
-aarch64-linux-ld: drivers/of/kexec.o: relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol `crashk_low_res' which may bind externally can not be used when making a shared object; recompile with -fPIC
-kexec.c:(.text+0x5b0): dangerous relocation: unsupported relocation
-aarch64-linux-ld: kexec.c:(.text+0x5b4): undefined reference to `crashk_low_res'
-aarch64-linux-ld: kexec.c:(.text+0x5c0): undefined reference to `crashk_low_res'
-...
+ SOUND
+ M:	Jaroslav Kysela <perex@perex.cz>
+--
+2.43.0
 
-$ curl -LSso .config https://git.alpinelinux.org/aports/plain/community/linux-edge/config-edge.x86_64
-$ make -skj"$(nproc)" ARCH=x86_64 CROSS_COMPILE=x86_64-linux- olddefconfig all
-...
-x86_64-linux-ld: arch/x86/xen/mmu_pv.o: in function `paddr_vmcoreinfo_note':
-mmu_pv.c:(.text+0x3af3): undefined reference to `vmcoreinfo_note'
-...
-
-Cheers,
-Nathan
 
 _______________________________________________
 linux-riscv mailing list
