@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17275C46CD2
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jan 2024 16:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2F62C47DA9
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jan 2024 16:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jeWNq2c1p9e2pgXScMbr+IvVINWX5/Z29fAs2Vns5bc=; b=pH+D7Fn7vMrOHY
-	x7m9zIL3mIzxDsf2vDpnJ0OK+HitOznqxBEAoG2/mp5c0xTmj3iGdYa+wJLxysznjBG4A01VmMnnN
-	OWBOLWLpNKAWOGsrV1oO7FwW1I6LFhBKW0PqgJGsx7ack5wSrDKOwACQJencwwd23qLcD2IHCZ8kD
-	ewHCO0nKgo0QMQ76gjrsQmrpI9vBoEgZDzI7TeEbpTesUSV4veVAQacQeX8WCQDQQXr/HqjcF1Olo
-	L5e4xLj23VCyHD2IFUplqsTEDiMMiSdDuVTaUTl2otSIinmJddhL1cPEMkLhsFX/Ft4X2GfIUS0Bo
-	JZ7a89IPFTutt6D+ZpUw==;
+	List-Owner; bh=QINgjC0WKAeWo7ATfDqHJ9ofnYmtqzw9IkeNQa/Ejn8=; b=ZuL3Gt7EVSLZZY
+	mn/4eEEefue4YcbGx0S4BnLovS5AsYonXM7OE+D5FDibczY+ITDMHJHWydM2qcdrxgAbcZQUQyZb1
+	KOrXdBRDB31IE3+JYVsVi026tNrJ0N0wpWOhJBzJrJPQnByyxqeBYqAhWwJHs8m3veSwosz9fdK51
+	DfJYfTmf3wcgRVsafPRQoZ6Wbm1UXhK75RWY9qWD1N6Y0MZlPfEkGwhUVCKtOW4uWlFt7vLRLRBKK
+	VWIFs1Ge9xN0yxyRtjw/DdNTbKp6MbkxY4FZ0S5+h3Y2ru0INgpTUDJS9SFnHwnXXbekPfzrcoAsR
+	mKpdzmjGtU2MikRLQDpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rTlSL-00000007mz8-0Zpc;
-	Sat, 27 Jan 2024 16:22:57 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1rTlSm-00000007nGh-2IrY;
+	Sat, 27 Jan 2024 16:23:24 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rTlPW-00000007l6A-1qM7
+	id 1rTlPs-00000007lOy-3Gyy
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Jan 2024 16:20:21 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1d8ca5692f2so319105ad.3
-        for <linux-riscv@lists.infradead.org>; Sat, 27 Jan 2024 08:20:02 -0800 (PST)
+	Sat, 27 Jan 2024 16:20:35 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2903498ae21so886658a91.1
+        for <linux-riscv@lists.infradead.org>; Sat, 27 Jan 2024 08:20:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1706372401; x=1706977201; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1706372424; x=1706977224; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hiPsyZi3DbWaCgxBSFgut5D+DPNt3J7NC6WPa3de4Ns=;
-        b=P6ZmJcF4y6xozFIKAW1yRuKlEnGLUyhDZ+P2ZLetP2bw+exbNwinPFUxSzAqOPTF+F
-         nV+8+3m5fZrHa1LIYOmH+LCHea4Ov2Ehx/HfMktD/M1LN0poQ22No9zXEYKrNri+60iX
-         o491HFkKlYWhdKHrAlm5dD6cJT6/52maF4eVnVxAfvgpf35vq6psC/xJi9nBLPsEdKwd
-         aQFcLUSWh/YqzZf0MjM1YHj3vDW5l9v6DXOSjreBbFrO6r+Hyw3Qj24qLQ3pxmY32Oxs
-         egkua5rGkAgBHBntErAa7b3apyI3I2/dq+NlL/QWYGJ6jSTr9IW8SYRLu2OkGwbkkfXy
-         MvQg==
+        bh=75IFSofjydLshjU7f++j5PmCmnW06G2e+7AY/vM5Yfg=;
+        b=fUACKwk0SZ6Jr1Qd6oJWSXxHVIgRVUTV68fuyt2fJIpqYUSHrRcyx0LbPcojloRWku
+         EzTwdUVFRmJitgt7RcsB6K3cvOZy4KsGHEgoy5DiLzKl2aQIkRuBnRhKzxBktOTe9998
+         YJK0d02JEKforhpP0H2TXaWLbXlpp6K/oPOH6ROyNn12GA3e8rc9XTym2qQgNmX0Q75y
+         w9jGc2YjkTA1M4ykGtvQSwaE34x1d7EXEhfjHIFfKjgeKGmpD7tgAQ3Qp4hipdeG1te0
+         9H+yQfV0VH95an742EoLwMrijAxJX1N6266u++ve3+8oF/pr/PiFs+3UPg7MqsZvhhZ9
+         PyIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706372401; x=1706977201;
+        d=1e100.net; s=20230601; t=1706372424; x=1706977224;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hiPsyZi3DbWaCgxBSFgut5D+DPNt3J7NC6WPa3de4Ns=;
-        b=UeCh0fBSr44qE6rHIrONidcsKjETIkXU1PPMcj6jotWtDFWArtZ71lq0DB7tYbi4rE
-         Qiq6Klbtf/FlB/6lEv9cE/7FqDLTzYQL2z6gnrSsK1N88aQ+S5UBdmliu4ALNxiDXDAZ
-         UN5hGh6OL2YG6WVslMggTrgdO5LOgs4eeBt3tugQ3DwZa7N6Hqlq1T9KFTI9KPpkF53Y
-         rGoCVCuajii3yHFOJFDl+GILSbxfT+FjzHdo6k2WTAWS+q0dJHO0dTF3YVqxyflq+ive
-         OfG0Ni3d65UbBLTs77FH8dI+XVOELnECWFYHpmja6CURKLhbzIpWPhPONo5iLp/v8M5z
-         i8Wg==
-X-Gm-Message-State: AOJu0YwDHkKIpGyUC3nZty8hlqbHwYoWjKGyLaGgrFvKuO3h5/UUDd6p
-	SQskU0C22rxDIlLA1pTsZ7dg28/85sneu0e/gSaMmTemc77eEB+C42juo0WqPXQ=
-X-Google-Smtp-Source: AGHT+IGjnr3o36edmbPxqAXA3kXPuUgWcTSPSDezQNApBIgh668+zOJeKE33JMyRFWrt7OPqPkNwSQ==
-X-Received: by 2002:a17:902:c641:b0:1d7:6bac:5f13 with SMTP id s1-20020a170902c64100b001d76bac5f13mr746938pls.27.1706372401127;
-        Sat, 27 Jan 2024 08:20:01 -0800 (PST)
+        bh=75IFSofjydLshjU7f++j5PmCmnW06G2e+7AY/vM5Yfg=;
+        b=AKEPu2zlugLDnp/PfyJCa8EMoiiZJhxllDsiKn9u+jx7H7wFol70IJ9hLk+htcIisR
+         R48FjR+f15hBbwv1ynVj6jrTFBY2ofTQ8JFXsT7iONmViOdLFBd9mbFjlFyQ0QWL2+qh
+         5UU/JrkIoXpuZd6cBWz8VPHr/pAIqcJ86ZbtE2SzFijMnd6KreLEZsSNr5xp3gCKyQQK
+         9Opt2pO7Aefg2yICIwVZ9ViDOwR7dmG+F7hX1cD9BaD6DlcN1yarFO3Shuvs0/BTUAIc
+         BCxNY8cuGvR1ghAf453FKfIEVBS5cAXUUmEOegiEe9IOZXo6xZNzJH2/mDIWtqEtLx/k
+         0/Uw==
+X-Gm-Message-State: AOJu0YzXY/o5ZtyPhel4kHFJz5YTwPMTEM82ahVRFAb3Pr4RqxSisjN9
+	+5N+rvr9NPhOJwfxWpwm5QNhzABdXfysp1WTma9igA2FDYQ5NNFWaDotjbZjgJA=
+X-Google-Smtp-Source: AGHT+IH5yhE8yYs/3yDqvFbnSKyx+1nt7jBUgnVGwoWwpYzJc1S2qdVjTx4DOSiT6swFWbSxusSGRA==
+X-Received: by 2002:a17:90a:b104:b0:28b:d8ed:7fc5 with SMTP id z4-20020a17090ab10400b0028bd8ed7fc5mr842554pjq.89.1706372423777;
+        Sat, 27 Jan 2024 08:20:23 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([171.76.86.17])
-        by smtp.gmail.com with ESMTPSA id d11-20020a17090ac24b00b00290f8c708d0sm5091620pjx.57.2024.01.27.08.19.55
+        by smtp.gmail.com with ESMTPSA id d11-20020a17090ac24b00b00290f8c708d0sm5091620pjx.57.2024.01.27.08.20.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 27 Jan 2024 08:20:00 -0800 (PST)
+        Sat, 27 Jan 2024 08:20:23 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -70,16 +70,16 @@ To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Frank Rowand <frowand.list@gmail.com>,
 	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v12 18/25] irqchip: Add RISC-V incoming MSI controller early driver
-Date: Sat, 27 Jan 2024 21:47:46 +0530
-Message-Id: <20240127161753.114685-19-apatel@ventanamicro.com>
+Subject: [PATCH v12 22/25] irqchip: Add RISC-V advanced PLIC driver for direct-mode
+Date: Sat, 27 Jan 2024 21:47:50 +0530
+Message-Id: <20240127161753.114685-23-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240127161753.114685-1-apatel@ventanamicro.com>
 References: <20240127161753.114685-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240127_082003_168565_C49C1080 
-X-CRM114-Status: GOOD (  28.20  )
+X-CRM114-CacheID: sfid-20240127_082025_082569_29074361 
+X-CRM114-Status: GOOD (  28.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,1401 +97,820 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V advanced interrupt architecture (AIA) specification
-defines a new MSI controller called incoming message signalled
-interrupt controller (IMSIC) which manages MSI on per-HART (or
-per-CPU) basis. It also supports IPIs as software injected MSIs.
-(For more details refer https://github.com/riscv/riscv-aia)
+The RISC-V advanced interrupt architecture (AIA) specification defines
+advanced platform-level interrupt controller (APLIC) which has two modes
+of operation: 1) Direct mode and 2) MSI mode.
+(For more details, refer https://github.com/riscv/riscv-aia)
 
-Let us add an early irqchip driver for RISC-V IMSIC which sets
-up the IMSIC state and provide IPIs.
+In APLIC direct-mode, wired interrupts are forwared to CPUs (or HARTs)
+as a local external interrupt.
+
+We add a platform irqchip driver for the RISC-V APLIC direct-mode to
+support RISC-V platforms having only wired interrupts.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/irqchip/Kconfig                 |   7 +
- drivers/irqchip/Makefile                |   1 +
- drivers/irqchip/irq-riscv-imsic-early.c | 241 +++++++
- drivers/irqchip/irq-riscv-imsic-state.c | 887 ++++++++++++++++++++++++
- drivers/irqchip/irq-riscv-imsic-state.h | 105 +++
- include/linux/irqchip/riscv-imsic.h     |  87 +++
- 6 files changed, 1328 insertions(+)
- create mode 100644 drivers/irqchip/irq-riscv-imsic-early.c
- create mode 100644 drivers/irqchip/irq-riscv-imsic-state.c
- create mode 100644 drivers/irqchip/irq-riscv-imsic-state.h
- create mode 100644 include/linux/irqchip/riscv-imsic.h
+ drivers/irqchip/Kconfig                  |   5 +
+ drivers/irqchip/Makefile                 |   1 +
+ drivers/irqchip/irq-riscv-aplic-direct.c | 343 +++++++++++++++++++++++
+ drivers/irqchip/irq-riscv-aplic-main.c   | 232 +++++++++++++++
+ drivers/irqchip/irq-riscv-aplic-main.h   |  45 +++
+ include/linux/irqchip/riscv-aplic.h      | 119 ++++++++
+ 6 files changed, 745 insertions(+)
+ create mode 100644 drivers/irqchip/irq-riscv-aplic-direct.c
+ create mode 100644 drivers/irqchip/irq-riscv-aplic-main.c
+ create mode 100644 drivers/irqchip/irq-riscv-aplic-main.h
+ create mode 100644 include/linux/irqchip/riscv-aplic.h
 
 diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index f7149d0f3d45..85f86e31c996 100644
+index 2fc0cb32341a..dbc8811d3764 100644
 --- a/drivers/irqchip/Kconfig
 +++ b/drivers/irqchip/Kconfig
-@@ -546,6 +546,13 @@ config SIFIVE_PLIC
+@@ -546,6 +546,11 @@ config SIFIVE_PLIC
  	select IRQ_DOMAIN_HIERARCHY
  	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
  
-+config RISCV_IMSIC
++config RISCV_APLIC
 +	bool
 +	depends on RISCV
 +	select IRQ_DOMAIN_HIERARCHY
-+	select GENERIC_IRQ_MATRIX_ALLOCATOR
-+	select GENERIC_MSI_IRQ
 +
- config EXYNOS_IRQ_COMBINER
- 	bool "Samsung Exynos IRQ combiner support" if COMPILE_TEST
- 	depends on (ARCH_EXYNOS && ARM) || COMPILE_TEST
+ config RISCV_IMSIC
+ 	bool
+ 	depends on RISCV
 diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index ffd945fe71aa..d714724387ce 100644
+index abca445a3229..7f8289790ed8 100644
 --- a/drivers/irqchip/Makefile
 +++ b/drivers/irqchip/Makefile
 @@ -95,6 +95,7 @@ obj-$(CONFIG_QCOM_MPM)			+= irq-qcom-mpm.o
  obj-$(CONFIG_CSKY_MPINTC)		+= irq-csky-mpintc.o
  obj-$(CONFIG_CSKY_APB_INTC)		+= irq-csky-apb-intc.o
  obj-$(CONFIG_RISCV_INTC)		+= irq-riscv-intc.o
-+obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o
++obj-$(CONFIG_RISCV_APLIC)		+= irq-riscv-aplic-main.o irq-riscv-aplic-direct.o
+ obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o irq-riscv-imsic-platform.o
  obj-$(CONFIG_SIFIVE_PLIC)		+= irq-sifive-plic.o
  obj-$(CONFIG_IMX_IRQSTEER)		+= irq-imx-irqsteer.o
- obj-$(CONFIG_IMX_INTMUX)		+= irq-imx-intmux.o
-diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+diff --git a/drivers/irqchip/irq-riscv-aplic-direct.c b/drivers/irqchip/irq-riscv-aplic-direct.c
 new file mode 100644
-index 000000000000..3557e32a713c
+index 000000000000..9ed2666bfb5e
 --- /dev/null
-+++ b/drivers/irqchip/irq-riscv-imsic-early.c
-@@ -0,0 +1,241 @@
++++ b/drivers/irqchip/irq-riscv-aplic-direct.c
+@@ -0,0 +1,343 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
 + * Copyright (C) 2022 Ventana Micro Systems Inc.
 + */
 +
-+#define pr_fmt(fmt) "riscv-imsic: " fmt
++#include <linux/bitops.h>
 +#include <linux/cpu.h>
 +#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/irq.h>
 +#include <linux/irqchip.h>
 +#include <linux/irqchip/chained_irq.h>
++#include <linux/irqchip/riscv-aplic.h>
 +#include <linux/module.h>
-+#include <linux/spinlock.h>
++#include <linux/of_address.h>
++#include <linux/printk.h>
 +#include <linux/smp.h>
 +
-+#include "irq-riscv-imsic-state.h"
++#include "irq-riscv-aplic-main.h"
 +
-+static int imsic_parent_irq;
++#define APLIC_DISABLE_IDELIVERY		0
++#define APLIC_ENABLE_IDELIVERY		1
++#define APLIC_DISABLE_ITHRESHOLD	1
++#define APLIC_ENABLE_ITHRESHOLD		0
 +
-+#ifdef CONFIG_SMP
-+static irqreturn_t imsic_local_sync_handler(int irq, void *data)
-+{
-+	imsic_local_sync();
-+	return IRQ_HANDLED;
-+}
++struct aplic_direct {
++	struct aplic_priv	priv;
++	struct irq_domain	*irqdomain;
++	struct cpumask		lmask;
++};
 +
-+static void imsic_ipi_send(unsigned int cpu)
-+{
-+	struct imsic_local_config *local =
-+				per_cpu_ptr(imsic->global.local, cpu);
++struct aplic_idc {
++	unsigned int		hart_index;
++	void __iomem		*regs;
++	struct aplic_direct	*direct;
++};
 +
-+	writel_relaxed(IMSIC_IPI_ID, local->msi_va);
-+}
++static unsigned int aplic_direct_parent_irq;
++static DEFINE_PER_CPU(struct aplic_idc, aplic_idcs);
 +
-+static void imsic_ipi_starting_cpu(void)
-+{
-+	/* Enable IPIs for current CPU. */
-+	__imsic_id_set_enable(IMSIC_IPI_ID);
-+
-+	/* Enable virtual IPI used for IMSIC ID synchronization */
-+	enable_percpu_irq(imsic->ipi_virq, 0);
-+}
-+
-+static void imsic_ipi_dying_cpu(void)
++static void aplic_direct_irq_eoi(struct irq_data *d)
 +{
 +	/*
-+	 * Disable virtual IPI used for IMSIC ID synchronization so
-+	 * that we don't receive ID synchronization requests.
++	 * The fasteoi_handler requires irq_eoi() callback hence
++	 * provide a dummy handler.
 +	 */
-+	disable_percpu_irq(imsic->ipi_virq);
 +}
 +
-+static int __init imsic_ipi_domain_init(void)
++#ifdef CONFIG_SMP
++static int aplic_direct_set_affinity(struct irq_data *d,
++				  const struct cpumask *mask_val, bool force)
 +{
-+	int virq;
++	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
++	struct aplic_direct *direct =
++			container_of(priv, struct aplic_direct, priv);
++	struct aplic_idc *idc;
++	unsigned int cpu, val;
++	struct cpumask amask;
++	void __iomem *target;
 +
-+	/* Create IMSIC IPI multiplexing */
-+	virq = ipi_mux_create(IMSIC_NR_IPI, imsic_ipi_send);
-+	if (virq <= 0)
-+		return (virq < 0) ? virq : -ENOMEM;
-+	imsic->ipi_virq = virq;
++	cpumask_and(&amask, &direct->lmask, mask_val);
 +
-+	/* First vIRQ is used for IMSIC ID synchronization */
-+	virq = request_percpu_irq(imsic->ipi_virq, imsic_local_sync_handler,
-+				  "riscv-imsic-lsync", imsic->global.local);
-+	if (virq)
-+		return virq;
-+	irq_set_status_flags(imsic->ipi_virq, IRQ_HIDDEN);
-+	imsic->ipi_lsync_desc = irq_to_desc(imsic->ipi_virq);
++	if (force)
++		cpu = cpumask_first(&amask);
++	else
++		cpu = cpumask_any_and(&amask, cpu_online_mask);
 +
-+	/* Set vIRQ range */
-+	riscv_ipi_set_virq_range(imsic->ipi_virq + 1, IMSIC_NR_IPI - 1, true);
++	if (cpu >= nr_cpu_ids)
++		return -EINVAL;
 +
-+	/* Announce that IMSIC is providing IPIs */
-+	pr_info("%pfwP: providing IPIs using interrupt %d\n",
-+		imsic->fwnode, IMSIC_IPI_ID);
++	idc = per_cpu_ptr(&aplic_idcs, cpu);
++	target = priv->regs + APLIC_TARGET_BASE;
++	target += (d->hwirq - 1) * sizeof(u32);
++	val = idc->hart_index & APLIC_TARGET_HART_IDX_MASK;
++	val <<= APLIC_TARGET_HART_IDX_SHIFT;
++	val |= APLIC_DEFAULT_PRIORITY;
++	writel(val, target);
 +
-+	return 0;
-+}
-+#else
-+static void imsic_ipi_starting_cpu(void)
-+{
-+}
++	irq_data_update_effective_affinity(d, cpumask_of(cpu));
 +
-+static void imsic_ipi_dying_cpu(void)
-+{
-+}
-+
-+static int __init imsic_ipi_domain_init(void)
-+{
-+	return 0;
++	return IRQ_SET_MASK_OK_DONE;
 +}
 +#endif
 +
-+/*
-+ * To handle an interrupt, we read the TOPEI CSR and write zero in one
-+ * instruction. If TOPEI CSR is non-zero then we translate TOPEI.ID to
-+ * Linux interrupt number and let Linux IRQ subsystem handle it.
-+ */
-+static void imsic_handle_irq(struct irq_desc *desc)
++static struct irq_chip aplic_direct_chip = {
++	.name		= "APLIC-DIRECT",
++	.irq_mask	= aplic_irq_mask,
++	.irq_unmask	= aplic_irq_unmask,
++	.irq_set_type	= aplic_irq_set_type,
++	.irq_eoi	= aplic_direct_irq_eoi,
++#ifdef CONFIG_SMP
++	.irq_set_affinity = aplic_direct_set_affinity,
++#endif
++	.flags		= IRQCHIP_SET_TYPE_MASKED |
++			  IRQCHIP_SKIP_SET_WAKE |
++			  IRQCHIP_MASK_ON_SUSPEND,
++};
++
++static int aplic_direct_irqdomain_translate(struct irq_domain *d,
++					 struct irq_fwspec *fwspec,
++					 unsigned long *hwirq,
++					 unsigned int *type)
 +{
++	struct aplic_priv *priv = d->host_data;
++
++	return aplic_irqdomain_translate(fwspec, priv->gsi_base,
++					 hwirq, type);
++}
++
++static int aplic_direct_irqdomain_alloc(struct irq_domain *domain,
++				     unsigned int virq, unsigned int nr_irqs,
++				     void *arg)
++{
++	int i, ret;
++	unsigned int type;
++	irq_hw_number_t hwirq;
++	struct irq_fwspec *fwspec = arg;
++	struct aplic_priv *priv = domain->host_data;
++	struct aplic_direct *direct =
++			container_of(priv, struct aplic_direct, priv);
++
++	ret = aplic_irqdomain_translate(fwspec, priv->gsi_base,
++					&hwirq, &type);
++	if (ret)
++		return ret;
++
++	for (i = 0; i < nr_irqs; i++) {
++		irq_domain_set_info(domain, virq + i, hwirq + i,
++				    &aplic_direct_chip, priv,
++				    handle_fasteoi_irq, NULL, NULL);
++		irq_set_affinity(virq + i, &direct->lmask);
++		/* See the reason described in aplic_msi_irqdomain_alloc() */
++		irq_set_status_flags(virq + i, IRQ_DISABLE_UNLAZY);
++	}
++
++	return 0;
++}
++
++static const struct irq_domain_ops aplic_direct_irqdomain_ops = {
++	.translate	= aplic_direct_irqdomain_translate,
++	.alloc		= aplic_direct_irqdomain_alloc,
++	.free		= irq_domain_free_irqs_top,
++};
++
++/*
++ * To handle an APLIC direct interrupts, we just read the CLAIMI register
++ * which will return highest priority pending interrupt and clear the
++ * pending bit of the interrupt. This process is repeated until CLAIMI
++ * register return zero value.
++ */
++static void aplic_direct_handle_irq(struct irq_desc *desc)
++{
++	struct aplic_idc *idc = this_cpu_ptr(&aplic_idcs);
 +	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	int err, cpu = smp_processor_id();
-+	struct imsic_vector *vec;
-+	unsigned long local_id;
++	struct irq_domain *irqdomain = idc->direct->irqdomain;
++	irq_hw_number_t hw_irq;
++	int irq;
 +
 +	chained_irq_enter(chip, desc);
 +
-+	while ((local_id = csr_swap(CSR_TOPEI, 0))) {
-+		local_id = local_id >> TOPEI_ID_SHIFT;
++	while ((hw_irq = readl(idc->regs + APLIC_IDC_CLAIMI))) {
++		hw_irq = hw_irq >> APLIC_IDC_TOPI_ID_SHIFT;
++		irq = irq_find_mapping(irqdomain, hw_irq);
 +
-+		if (local_id == IMSIC_IPI_ID) {
-+#ifdef CONFIG_SMP
-+			ipi_mux_process();
-+#endif
-+			continue;
-+		}
-+
-+		if (unlikely(!imsic->base_domain))
-+			continue;
-+
-+		vec = imsic_vector_from_local_id(cpu, local_id);
-+		if (!vec) {
-+			pr_warn_ratelimited(
-+				"vector not found for local ID 0x%lx\n",
-+				local_id);
-+			continue;
-+		}
-+
-+		err = generic_handle_domain_irq(imsic->base_domain,
-+						vec->hwirq);
-+		if (unlikely(err))
-+			pr_warn_ratelimited(
-+				"hwirq 0x%x mapping not found\n",
-+				vec->hwirq);
++		if (unlikely(irq <= 0))
++			dev_warn_ratelimited(idc->direct->priv.dev,
++					     "hw_irq %lu mapping not found\n",
++					     hw_irq);
++		else
++			generic_handle_irq(irq);
 +	}
 +
 +	chained_irq_exit(chip, desc);
 +}
 +
-+static int imsic_starting_cpu(unsigned int cpu)
++static void aplic_idc_set_delivery(struct aplic_idc *idc, bool en)
 +{
-+	/* Mark per-CPU IMSIC state as online */
-+	imsic_state_online();
++	u32 de = (en) ? APLIC_ENABLE_IDELIVERY : APLIC_DISABLE_IDELIVERY;
++	u32 th = (en) ? APLIC_ENABLE_ITHRESHOLD : APLIC_DISABLE_ITHRESHOLD;
 +
-+	/* Enable per-CPU parent interrupt */
-+	enable_percpu_irq(imsic_parent_irq,
-+			  irq_get_trigger_type(imsic_parent_irq));
++	/* Priority must be less than threshold for interrupt triggering */
++	writel(th, idc->regs + APLIC_IDC_ITHRESHOLD);
 +
-+	/* Setup IPIs */
-+	imsic_ipi_starting_cpu();
++	/* Delivery must be set to 1 for interrupt triggering */
++	writel(de, idc->regs + APLIC_IDC_IDELIVERY);
++}
++
++static int aplic_direct_dying_cpu(unsigned int cpu)
++{
++	if (aplic_direct_parent_irq)
++		disable_percpu_irq(aplic_direct_parent_irq);
++
++	return 0;
++}
++
++static int aplic_direct_starting_cpu(unsigned int cpu)
++{
++	if (aplic_direct_parent_irq)
++		enable_percpu_irq(aplic_direct_parent_irq,
++				irq_get_trigger_type(aplic_direct_parent_irq));
++
++	return 0;
++}
++
++static int aplic_direct_parse_parent_hwirq(struct device *dev,
++					   u32 index, u32 *parent_hwirq,
++					   unsigned long *parent_hartid)
++{
++	struct of_phandle_args parent;
++	int rc;
 +
 +	/*
-+	 * Interrupts identities might have been enabled/disabled while
-+	 * this CPU was not running so sync-up local enable/disable state.
++	 * Currently, only OF fwnode is supported so extend this
++	 * function for ACPI support.
 +	 */
-+	imsic_local_sync();
++	if (!is_of_node(dev->fwnode))
++		return -EINVAL;
 +
-+	/* Enable local interrupt delivery */
-+	imsic_local_delivery(true);
++	rc = of_irq_parse_one(to_of_node(dev->fwnode), index, &parent);
++	if (rc)
++		return rc;
 +
++	rc = riscv_of_parent_hartid(parent.np, parent_hartid);
++	if (rc)
++		return rc;
++
++	*parent_hwirq = parent.args[0];
 +	return 0;
 +}
 +
-+static int imsic_dying_cpu(unsigned int cpu)
++int aplic_direct_setup(struct device *dev, void __iomem *regs)
 +{
-+	/* Cleanup IPIs */
-+	imsic_ipi_dying_cpu();
-+
-+	/* Mark per-CPU IMSIC state as offline */
-+	imsic_state_offline();
-+
-+	return 0;
-+}
-+
-+static int __init imsic_early_probe(struct fwnode_handle *fwnode)
-+{
-+	int rc;
++	int i, j, rc, cpu, setup_count = 0;
++	struct aplic_direct *direct;
++	struct aplic_priv *priv;
 +	struct irq_domain *domain;
++	unsigned long hartid;
++	struct aplic_idc *idc;
++	u32 val, hwirq;
++
++	direct = kzalloc(sizeof(*direct), GFP_KERNEL);
++	if (!direct)
++		return -ENOMEM;
++	priv = &direct->priv;
++
++	rc = aplic_setup_priv(priv, dev, regs);
++	if (rc) {
++		dev_err(dev, "failed to create APLIC context\n");
++		kfree(direct);
++		return rc;
++	}
++
++	/* Setup per-CPU IDC and target CPU mask */
++	for (i = 0; i < priv->nr_idcs; i++) {
++		rc = aplic_direct_parse_parent_hwirq(dev, i, &hwirq, &hartid);
++		if (rc) {
++			dev_warn(dev, "parent irq for IDC%d not found\n", i);
++			continue;
++		}
++
++		/*
++		 * Skip interrupts other than external interrupts for
++		 * current privilege level.
++		 */
++		if (hwirq != RV_IRQ_EXT)
++			continue;
++
++		cpu = riscv_hartid_to_cpuid(hartid);
++		if (cpu < 0) {
++			dev_warn(dev, "invalid cpuid for IDC%d\n", i);
++			continue;
++		}
++
++		cpumask_set_cpu(cpu, &direct->lmask);
++
++		idc = per_cpu_ptr(&aplic_idcs, cpu);
++		idc->hart_index = i;
++		idc->regs = priv->regs + APLIC_IDC_BASE + i * APLIC_IDC_SIZE;
++		idc->direct = direct;
++
++		aplic_idc_set_delivery(idc, true);
++
++		/*
++		 * Boot cpu might not have APLIC hart_index = 0 so check
++		 * and update target registers of all interrupts.
++		 */
++		if (cpu == smp_processor_id() && idc->hart_index) {
++			val = idc->hart_index & APLIC_TARGET_HART_IDX_MASK;
++			val <<= APLIC_TARGET_HART_IDX_SHIFT;
++			val |= APLIC_DEFAULT_PRIORITY;
++			for (j = 1; j <= priv->nr_irqs; j++)
++				writel(val, priv->regs + APLIC_TARGET_BASE +
++					    (j - 1) * sizeof(u32));
++		}
++
++		setup_count++;
++	}
 +
 +	/* Find parent domain and register chained handler */
 +	domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(),
 +					  DOMAIN_BUS_ANY);
-+	if (!domain) {
-+		pr_err("%pfwP: Failed to find INTC domain\n", fwnode);
-+		return -ENOENT;
-+	}
-+	imsic_parent_irq = irq_create_mapping(domain, RV_IRQ_EXT);
-+	if (!imsic_parent_irq) {
-+		pr_err("%pfwP: Failed to create INTC mapping\n", fwnode);
-+		return -ENOENT;
-+	}
-+	irq_set_chained_handler(imsic_parent_irq, imsic_handle_irq);
++	if (!aplic_direct_parent_irq && domain) {
++		aplic_direct_parent_irq = irq_create_mapping(domain, RV_IRQ_EXT);
++		if (aplic_direct_parent_irq) {
++			irq_set_chained_handler(aplic_direct_parent_irq,
++						aplic_direct_handle_irq);
 +
-+	/* Initialize IPI domain */
-+	rc = imsic_ipi_domain_init();
-+	if (rc) {
-+		pr_err("%pfwP: Failed to initialize IPI domain\n", fwnode);
-+		return rc;
++			/*
++			 * Setup CPUHP notifier to enable parent
++			 * interrupt on all CPUs
++			 */
++			cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
++					  "irqchip/riscv/aplic:starting",
++					  aplic_direct_starting_cpu,
++					  aplic_direct_dying_cpu);
++		}
 +	}
 +
-+	/*
-+	 * Setup cpuhp state (must be done after setting imsic_parent_irq)
-+	 *
-+	 * Don't disable per-CPU IMSIC file when CPU goes offline
-+	 * because this affects IPI and the masking/unmasking of
-+	 * virtual IPIs is done via generic IPI-Mux
-+	 */
-+	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-+			  "irqchip/riscv/imsic:starting",
-+			  imsic_starting_cpu, imsic_dying_cpu);
++	/* Fail if we were not able to setup IDC for any CPU */
++	if (!setup_count) {
++		kfree(direct);
++		return -ENODEV;
++	}
++
++	/* Setup global config and interrupt delivery */
++	aplic_init_hw_global(priv, false);
++
++	/* Create irq domain instance for the APLIC */
++	direct->irqdomain = irq_domain_create_linear(dev->fwnode,
++						   priv->nr_irqs + 1,
++						   &aplic_direct_irqdomain_ops,
++						   priv);
++	if (!direct->irqdomain) {
++		dev_err(dev, "failed to create direct irq domain\n");
++		kfree(direct);
++		return -ENOMEM;
++	}
++
++	/* Advertise the interrupt controller */
++	dev_info(dev, "%d interrupts directly connected to %d CPUs\n",
++		 priv->nr_irqs, priv->nr_idcs);
 +
 +	return 0;
 +}
-+
-+static int __init imsic_early_dt_init(struct device_node *node,
-+				      struct device_node *parent)
-+{
-+	int rc;
-+	struct fwnode_handle *fwnode = &node->fwnode;
-+
-+	/* Setup IMSIC state */
-+	rc = imsic_setup_state(fwnode);
-+	if (rc) {
-+		pr_err("%pfwP: failed to setup state (error %d)\n",
-+			fwnode, rc);
-+		return rc;
-+	}
-+
-+	/* Do early setup of IPIs */
-+	rc = imsic_early_probe(fwnode);
-+	if (rc)
-+		return rc;
-+
-+	/* Ensure that OF platform device gets probed */
-+	of_node_clear_flag(node, OF_POPULATED);
-+	return 0;
-+}
-+IRQCHIP_DECLARE(riscv_imsic, "riscv,imsics", imsic_early_dt_init);
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
 new file mode 100644
-index 000000000000..66389a6e558f
+index 000000000000..87450708a733
 --- /dev/null
-+++ b/drivers/irqchip/irq-riscv-imsic-state.c
-@@ -0,0 +1,887 @@
++++ b/drivers/irqchip/irq-riscv-aplic-main.c
+@@ -0,0 +1,232 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
 + * Copyright (C) 2022 Ventana Micro Systems Inc.
 + */
 +
-+#define pr_fmt(fmt) "riscv-imsic: " fmt
-+#include <linux/cpu.h>
-+#include <linux/bitmap.h>
-+#include <linux/interrupt.h>
-+#include <linux/irq.h>
-+#include <linux/module.h>
 +#include <linux/of.h>
-+#include <linux/of_address.h>
 +#include <linux/of_irq.h>
-+#include <linux/seq_file.h>
-+#include <linux/spinlock.h>
-+#include <linux/smp.h>
-+#include <asm/hwcap.h>
++#include <linux/printk.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/irqchip/riscv-aplic.h>
 +
-+#include "irq-riscv-imsic-state.h"
++#include "irq-riscv-aplic-main.h"
 +
-+#define IMSIC_DISABLE_EIDELIVERY		0
-+#define IMSIC_ENABLE_EIDELIVERY			1
-+#define IMSIC_DISABLE_EITHRESHOLD		1
-+#define IMSIC_ENABLE_EITHRESHOLD		0
-+
-+#define imsic_csr_write(__c, __v)		\
-+do {						\
-+	csr_write(CSR_ISELECT, __c);		\
-+	csr_write(CSR_IREG, __v);		\
-+} while (0)
-+
-+#define imsic_csr_read(__c)			\
-+({						\
-+	unsigned long __v;			\
-+	csr_write(CSR_ISELECT, __c);		\
-+	__v = csr_read(CSR_IREG);		\
-+	__v;					\
-+})
-+
-+#define imsic_csr_read_clear(__c, __v)		\
-+({						\
-+	unsigned long __r;			\
-+	csr_write(CSR_ISELECT, __c);		\
-+	__r = csr_read_clear(CSR_IREG, __v);	\
-+	__r;					\
-+})
-+
-+#define imsic_csr_set(__c, __v)			\
-+do {						\
-+	csr_write(CSR_ISELECT, __c);		\
-+	csr_set(CSR_IREG, __v);			\
-+} while (0)
-+
-+#define imsic_csr_clear(__c, __v)		\
-+do {						\
-+	csr_write(CSR_ISELECT, __c);		\
-+	csr_clear(CSR_IREG, __v);		\
-+} while (0)
-+
-+struct imsic_priv *imsic;
-+
-+const struct imsic_global_config *imsic_get_global_config(void)
++void aplic_irq_unmask(struct irq_data *d)
 +{
-+	return imsic ? &imsic->global : NULL;
-+}
-+EXPORT_SYMBOL_GPL(imsic_get_global_config);
++	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
 +
-+static bool __imsic_eix_read_clear(unsigned long id, bool pend)
-+{
-+	unsigned long isel, imask;
-+
-+	isel = id / BITS_PER_LONG;
-+	isel *= BITS_PER_LONG / IMSIC_EIPx_BITS;
-+	isel += pend ? IMSIC_EIP0 : IMSIC_EIE0;
-+	imask = BIT(id & (__riscv_xlen - 1));
-+
-+	return (imsic_csr_read_clear(isel, imask) & imask) ? true : false;
++	writel(d->hwirq, priv->regs + APLIC_SETIENUM);
 +}
 +
-+#define __imsic_id_read_clear_enabled(__id)		\
-+	__imsic_eix_read_clear((__id), false)
-+#define __imsic_id_read_clear_pending(__id)		\
-+	__imsic_eix_read_clear((__id), true)
-+
-+void __imsic_eix_update(unsigned long base_id,
-+			unsigned long num_id, bool pend, bool val)
++void aplic_irq_mask(struct irq_data *d)
 +{
-+	unsigned long i, isel, ireg;
-+	unsigned long id = base_id, last_id = base_id + num_id;
++	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
 +
-+	while (id < last_id) {
-+		isel = id / BITS_PER_LONG;
-+		isel *= BITS_PER_LONG / IMSIC_EIPx_BITS;
-+		isel += (pend) ? IMSIC_EIP0 : IMSIC_EIE0;
++	writel(d->hwirq, priv->regs + APLIC_CLRIENUM);
++}
 +
-+		ireg = 0;
-+		for (i = id & (__riscv_xlen - 1);
-+		     (id < last_id) && (i < __riscv_xlen); i++) {
-+			ireg |= BIT(i);
-+			id++;
-+		}
++int aplic_irq_set_type(struct irq_data *d, unsigned int type)
++{
++	u32 val = 0;
++	void __iomem *sourcecfg;
++	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
 +
-+		/*
-+		 * The IMSIC EIEx and EIPx registers are indirectly
-+		 * accessed via using ISELECT and IREG CSRs so we
-+		 * need to access these CSRs without getting preempted.
-+		 *
-+		 * All existing users of this function call this
-+		 * function with local IRQs disabled so we don't
-+		 * need to do anything special here.
-+		 */
-+		if (val)
-+			imsic_csr_set(isel, ireg);
-+		else
-+			imsic_csr_clear(isel, ireg);
++	switch (type) {
++	case IRQ_TYPE_NONE:
++		val = APLIC_SOURCECFG_SM_INACTIVE;
++		break;
++	case IRQ_TYPE_LEVEL_LOW:
++		val = APLIC_SOURCECFG_SM_LEVEL_LOW;
++		break;
++	case IRQ_TYPE_LEVEL_HIGH:
++		val = APLIC_SOURCECFG_SM_LEVEL_HIGH;
++		break;
++	case IRQ_TYPE_EDGE_FALLING:
++		val = APLIC_SOURCECFG_SM_EDGE_FALL;
++		break;
++	case IRQ_TYPE_EDGE_RISING:
++		val = APLIC_SOURCECFG_SM_EDGE_RISE;
++		break;
++	default:
++		return -EINVAL;
 +	}
++
++	sourcecfg = priv->regs + APLIC_SOURCECFG_BASE;
++	sourcecfg += (d->hwirq - 1) * sizeof(u32);
++	writel(val, sourcecfg);
++
++	return 0;
 +}
 +
-+void imsic_local_sync(void)
++int aplic_irqdomain_translate(struct irq_fwspec *fwspec, u32 gsi_base,
++			      unsigned long *hwirq, unsigned int *type)
 +{
-+	struct imsic_local_priv *lpriv = this_cpu_ptr(imsic->lpriv);
-+	struct imsic_local_config *mlocal;
-+	struct imsic_vector *mvec;
-+	unsigned long flags;
++	if (WARN_ON(fwspec->param_count < 2))
++		return -EINVAL;
++	if (WARN_ON(!fwspec->param[0]))
++		return -EINVAL;
++
++	/* For DT, gsi_base is always zero. */
++	*hwirq = fwspec->param[0] - gsi_base;
++	*type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
++
++	WARN_ON(*type == IRQ_TYPE_NONE);
++
++	return 0;
++}
++
++void aplic_init_hw_global(struct aplic_priv *priv, bool msi_mode)
++{
++	u32 val;
++#ifdef CONFIG_RISCV_M_MODE
++	u32 valH;
++
++	if (msi_mode) {
++		val = priv->msicfg.base_ppn;
++		valH = ((u64)priv->msicfg.base_ppn >> 32) &
++			APLIC_xMSICFGADDRH_BAPPN_MASK;
++		valH |= (priv->msicfg.lhxw & APLIC_xMSICFGADDRH_LHXW_MASK)
++			<< APLIC_xMSICFGADDRH_LHXW_SHIFT;
++		valH |= (priv->msicfg.hhxw & APLIC_xMSICFGADDRH_HHXW_MASK)
++			<< APLIC_xMSICFGADDRH_HHXW_SHIFT;
++		valH |= (priv->msicfg.lhxs & APLIC_xMSICFGADDRH_LHXS_MASK)
++			<< APLIC_xMSICFGADDRH_LHXS_SHIFT;
++		valH |= (priv->msicfg.hhxs & APLIC_xMSICFGADDRH_HHXS_MASK)
++			<< APLIC_xMSICFGADDRH_HHXS_SHIFT;
++		writel(val, priv->regs + APLIC_xMSICFGADDR);
++		writel(valH, priv->regs + APLIC_xMSICFGADDRH);
++	}
++#endif
++
++	/* Setup APLIC domaincfg register */
++	val = readl(priv->regs + APLIC_DOMAINCFG);
++	val |= APLIC_DOMAINCFG_IE;
++	if (msi_mode)
++		val |= APLIC_DOMAINCFG_DM;
++	writel(val, priv->regs + APLIC_DOMAINCFG);
++	if (readl(priv->regs + APLIC_DOMAINCFG) != val)
++		dev_warn(priv->dev, "unable to write 0x%x in domaincfg\n",
++			 val);
++}
++
++static void aplic_init_hw_irqs(struct aplic_priv *priv)
++{
 +	int i;
 +
-+	raw_spin_lock_irqsave(&lpriv->ids_lock, flags);
-+	for (i = 1; i <= imsic->global.nr_ids; i++) {
-+		if (i == IMSIC_IPI_ID)
-+			continue;
++	/* Disable all interrupts */
++	for (i = 0; i <= priv->nr_irqs; i += 32)
++		writel(-1U, priv->regs + APLIC_CLRIE_BASE +
++			    (i / 32) * sizeof(u32));
 +
-+		if (test_bit(i, lpriv->ids_enabled_bitmap))
-+			__imsic_id_set_enable(i);
-+		else
-+			__imsic_id_clear_enable(i);
-+
-+		mvec = lpriv->ids_move[i];
-+		lpriv->ids_move[i] = NULL;
-+		if (mvec) {
-+			if (__imsic_id_read_clear_pending(i)) {
-+				mlocal = per_cpu_ptr(imsic->global.local,
-+						     mvec->cpu);
-+				writel_relaxed(mvec->local_id, mlocal->msi_va);
-+			}
-+
-+			imsic_vector_free(&lpriv->vectors[i]);
-+		}
-+
-+	}
-+	raw_spin_unlock_irqrestore(&lpriv->ids_lock, flags);
-+}
-+
-+void imsic_local_delivery(bool enable)
-+{
-+	if (enable) {
-+		imsic_csr_write(IMSIC_EITHRESHOLD, IMSIC_ENABLE_EITHRESHOLD);
-+		imsic_csr_write(IMSIC_EIDELIVERY, IMSIC_ENABLE_EIDELIVERY);
-+		return;
++	/* Set interrupt type and default priority for all interrupts */
++	for (i = 1; i <= priv->nr_irqs; i++) {
++		writel(0, priv->regs + APLIC_SOURCECFG_BASE +
++			  (i - 1) * sizeof(u32));
++		writel(APLIC_DEFAULT_PRIORITY,
++		       priv->regs + APLIC_TARGET_BASE +
++		       (i - 1) * sizeof(u32));
 +	}
 +
-+	imsic_csr_write(IMSIC_EIDELIVERY, IMSIC_DISABLE_EIDELIVERY);
-+	imsic_csr_write(IMSIC_EITHRESHOLD, IMSIC_DISABLE_EITHRESHOLD);
++	/* Clear APLIC domaincfg */
++	writel(0, priv->regs + APLIC_DOMAINCFG);
 +}
 +
-+#ifdef CONFIG_SMP
-+static void imsic_remote_sync(unsigned int cpu)
++int aplic_setup_priv(struct aplic_priv *priv, struct device *dev,
++		     void __iomem *regs)
 +{
-+	/*
-+	 * We simply inject ID synchronization IPI to a target CPU
-+	 * if it is not same as the current CPU. The ipi_send_mask()
-+	 * implementation of IPI mux will inject ID synchronization
-+	 * IPI only for CPUs that have enabled it so offline CPUs
-+	 * won't receive IPI. An offline CPU will unconditionally
-+	 * synchronize IDs through imsic_starting_cpu() when the
-+	 * CPU is brought up.
-+	 */
-+	if (cpu_online(cpu)) {
-+		if (cpu != smp_processor_id())
-+			__ipi_send_mask(imsic->ipi_lsync_desc, cpumask_of(cpu));
-+		else
-+			imsic_local_sync();
-+	}
-+}
-+#else
-+static inline void imsic_remote_sync(unsigned int cpu)
-+{
-+	imsic_local_sync();
-+}
-+#endif
-+
-+void imsic_vector_mask(struct imsic_vector *vec)
-+{
-+	struct imsic_local_priv *lpriv;
-+	unsigned long flags;
-+
-+	lpriv = per_cpu_ptr(imsic->lpriv, vec->cpu);
-+	if (WARN_ON(&lpriv->vectors[vec->local_id] != vec))
-+		return;
-+
-+	raw_spin_lock_irqsave(&lpriv->ids_lock, flags);
-+	bitmap_clear(lpriv->ids_enabled_bitmap, vec->local_id, 1);
-+	raw_spin_unlock_irqrestore(&lpriv->ids_lock, flags);
-+
-+	imsic_remote_sync(vec->cpu);
-+}
-+
-+void imsic_vector_unmask(struct imsic_vector *vec)
-+{
-+	struct imsic_local_priv *lpriv;
-+	unsigned long flags;
-+
-+	lpriv = per_cpu_ptr(imsic->lpriv, vec->cpu);
-+	if (WARN_ON(&lpriv->vectors[vec->local_id] != vec))
-+		return;
-+
-+	raw_spin_lock_irqsave(&lpriv->ids_lock, flags);
-+	bitmap_set(lpriv->ids_enabled_bitmap, vec->local_id, 1);
-+	raw_spin_unlock_irqrestore(&lpriv->ids_lock, flags);
-+
-+	imsic_remote_sync(vec->cpu);
-+}
-+
-+void imsic_vector_move(struct imsic_vector *old_vec,
-+			struct imsic_vector *new_vec)
-+{
-+	struct imsic_local_priv *old_lpriv, *new_lpriv;
-+	unsigned long flags, flags1;
-+
-+	if (WARN_ON(old_vec->cpu == new_vec->cpu))
-+		return;
-+
-+	old_lpriv = per_cpu_ptr(imsic->lpriv, old_vec->cpu);
-+	if (WARN_ON(&old_lpriv->vectors[old_vec->local_id] != old_vec))
-+		return;
-+
-+	new_lpriv = per_cpu_ptr(imsic->lpriv, new_vec->cpu);
-+	if (WARN_ON(&new_lpriv->vectors[new_vec->local_id] != new_vec))
-+		return;
-+
-+	raw_spin_lock_irqsave(&old_lpriv->ids_lock, flags);
-+	raw_spin_lock_irqsave(&new_lpriv->ids_lock, flags1);
-+
-+	/* Unmask the new vector entry */
-+	if (test_bit(old_vec->local_id, old_lpriv->ids_enabled_bitmap))
-+		bitmap_set(new_lpriv->ids_enabled_bitmap,
-+			   new_vec->local_id, 1);
-+
-+	/* Mask the old vector entry */
-+	bitmap_clear(old_lpriv->ids_enabled_bitmap, old_vec->local_id, 1);
-+
-+	/*
-+	 * Move and re-trigger the new vector based on the pending
-+	 * state of the old vector because we might get a device
-+	 * interrupt on the old vector while device was being moved
-+	 * to the new vector.
-+	 */
-+	old_lpriv->ids_move[old_vec->local_id] = new_vec;
-+
-+	raw_spin_unlock_irqrestore(&new_lpriv->ids_lock, flags1);
-+	raw_spin_unlock_irqrestore(&old_lpriv->ids_lock, flags);
-+
-+	imsic_remote_sync(old_vec->cpu);
-+	imsic_remote_sync(new_vec->cpu);
-+}
-+
-+#ifdef CONFIG_GENERIC_IRQ_DEBUGFS
-+void imsic_vector_debug_show(struct seq_file *m,
-+			     struct imsic_vector *vec, int ind)
-+{
-+	unsigned int mcpu = 0, mlocal_id = 0;
-+	struct imsic_local_priv *lpriv;
-+	bool move_in_progress = false;
-+	struct imsic_vector *mvec;
-+	bool is_enabled = false;
-+	unsigned long flags;
-+
-+	lpriv = per_cpu_ptr(imsic->lpriv, vec->cpu);
-+	if (WARN_ON(&lpriv->vectors[vec->local_id] != vec))
-+		return;
-+
-+	raw_spin_lock_irqsave(&lpriv->ids_lock, flags);
-+	if (test_bit(vec->local_id, lpriv->ids_enabled_bitmap))
-+		is_enabled = true;
-+	mvec = lpriv->ids_move[vec->local_id];
-+	if (mvec) {
-+		move_in_progress = true;
-+		mcpu = mvec->cpu;
-+		mlocal_id = mvec->local_id;
-+	}
-+	raw_spin_unlock_irqrestore(&lpriv->ids_lock, flags);
-+
-+	seq_printf(m, "%*starget_cpu      : %5u\n", ind, "", vec->cpu);
-+	seq_printf(m, "%*starget_local_id : %5u\n", ind, "", vec->local_id);
-+	seq_printf(m, "%*sis_reserved     : %5u\n", ind, "",
-+		   (vec->local_id <= IMSIC_IPI_ID) ? 1 : 0);
-+	seq_printf(m, "%*sis_enabled      : %5u\n", ind, "",
-+		   (is_enabled) ? 1 : 0);
-+	seq_printf(m, "%*sis_move_pending : %5u\n", ind, "",
-+		   (move_in_progress) ? 1 : 0);
-+	if (move_in_progress) {
-+		seq_printf(m, "%*smove_cpu        : %5u\n", ind, "", mcpu);
-+		seq_printf(m, "%*smove_local_id   : %5u\n", ind, "", mlocal_id);
-+	}
-+}
-+
-+void imsic_vector_debug_show_summary(struct seq_file *m, int ind)
-+{
-+	irq_matrix_debug_show(m, imsic->matrix, ind);
-+}
-+#endif
-+
-+struct imsic_vector *imsic_vector_from_local_id(unsigned int cpu,
-+						unsigned int local_id)
-+{
-+	struct imsic_local_priv *lpriv = per_cpu_ptr(imsic->lpriv, cpu);
-+
-+	if (!lpriv || imsic->global.nr_ids < local_id)
-+		return NULL;
-+
-+	return &lpriv->vectors[local_id];
-+}
-+
-+struct imsic_vector *imsic_vector_alloc(unsigned int hwirq,
-+					const struct cpumask *mask)
-+{
-+	struct imsic_vector *vec = NULL;
-+	struct imsic_local_priv *lpriv;
-+	unsigned long flags;
-+	unsigned int cpu;
-+	int local_id;
-+
-+	raw_spin_lock_irqsave(&imsic->matrix_lock, flags);
-+	local_id = irq_matrix_alloc(imsic->matrix, mask, false, &cpu);
-+	raw_spin_unlock_irqrestore(&imsic->matrix_lock, flags);
-+	if (local_id < 0)
-+		return NULL;
-+
-+	lpriv = per_cpu_ptr(imsic->lpriv, cpu);
-+	vec = &lpriv->vectors[local_id];
-+	vec->hwirq = hwirq;
-+
-+	return vec;
-+}
-+
-+void imsic_vector_free(struct imsic_vector *vec)
-+{
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&imsic->matrix_lock, flags);
-+	vec->hwirq = UINT_MAX;
-+	irq_matrix_free(imsic->matrix, vec->cpu, vec->local_id, false);
-+	raw_spin_unlock_irqrestore(&imsic->matrix_lock, flags);
-+}
-+
-+static void __init imsic_local_cleanup(void)
-+{
-+	int cpu;
-+	struct imsic_local_priv *lpriv;
-+
-+	for_each_possible_cpu(cpu) {
-+		lpriv = per_cpu_ptr(imsic->lpriv, cpu);
-+
-+		bitmap_free(lpriv->ids_enabled_bitmap);
-+		kfree(lpriv->ids_move);
-+		kfree(lpriv->vectors);
-+	}
-+
-+	free_percpu(imsic->lpriv);
-+}
-+
-+static int __init imsic_local_init(void)
-+{
-+	struct imsic_global_config *global = &imsic->global;
-+	struct imsic_local_priv *lpriv;
-+	struct imsic_vector *vec;
-+	int cpu, i;
-+
-+	/* Allocate per-CPU private state */
-+	imsic->lpriv = alloc_percpu(typeof(*(imsic->lpriv)));
-+	if (!imsic->lpriv)
-+		return -ENOMEM;
-+
-+	/* Setup per-CPU private state */
-+	for_each_possible_cpu(cpu) {
-+		lpriv = per_cpu_ptr(imsic->lpriv, cpu);
-+
-+		raw_spin_lock_init(&lpriv->ids_lock);
-+
-+		/* Allocate enabled bitmap */
-+		lpriv->ids_enabled_bitmap = bitmap_zalloc(global->nr_ids + 1,
-+							  GFP_KERNEL);
-+		if (!lpriv->ids_enabled_bitmap) {
-+			imsic_local_cleanup();
-+			return -ENOMEM;
-+		}
-+
-+		/* Allocate move array */
-+		lpriv->ids_move = kcalloc(global->nr_ids + 1,
-+					sizeof(*lpriv->ids_move), GFP_KERNEL);
-+		if (!lpriv->ids_move) {
-+			imsic_local_cleanup();
-+			return -ENOMEM;
-+		}
-+
-+		/* Allocate vector array */
-+		lpriv->vectors = kcalloc(global->nr_ids + 1,
-+					 sizeof(*lpriv->vectors), GFP_KERNEL);
-+		if (!lpriv->vectors) {
-+			imsic_local_cleanup();
-+			return -ENOMEM;
-+		}
-+
-+		/* Setup vector array */
-+		for (i = 0; i <= global->nr_ids; i++) {
-+			vec = &lpriv->vectors[i];
-+			vec->cpu = cpu;
-+			vec->local_id = i;
-+			vec->hwirq = UINT_MAX;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+int imsic_hwirq_alloc(void)
-+{
-+	int ret;
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&imsic->hwirqs_lock, flags);
-+	ret = bitmap_find_free_region(imsic->hwirqs_used_bitmap,
-+				      imsic->nr_hwirqs, 0);
-+	raw_spin_unlock_irqrestore(&imsic->hwirqs_lock, flags);
-+
-+	return ret;
-+}
-+
-+void imsic_hwirq_free(unsigned int hwirq)
-+{
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&imsic->hwirqs_lock, flags);
-+	bitmap_release_region(imsic->hwirqs_used_bitmap, hwirq, 0);
-+	raw_spin_unlock_irqrestore(&imsic->hwirqs_lock, flags);
-+}
-+
-+static int __init imsic_hwirqs_init(void)
-+{
-+	struct imsic_global_config *global = &imsic->global;
-+
-+	imsic->nr_hwirqs = num_possible_cpus() * (global->nr_ids - 1);
-+
-+	raw_spin_lock_init(&imsic->hwirqs_lock);
-+
-+	imsic->hwirqs_used_bitmap = bitmap_zalloc(imsic->nr_hwirqs,
-+						  GFP_KERNEL);
-+	if (!imsic->hwirqs_used_bitmap)
-+		return -ENOMEM;
-+
-+	return 0;
-+}
-+
-+static void __init imsic_hwirqs_cleanup(void)
-+{
-+	bitmap_free(imsic->hwirqs_used_bitmap);
-+}
-+
-+void imsic_state_online(void)
-+{
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&imsic->matrix_lock, flags);
-+	irq_matrix_online(imsic->matrix);
-+	raw_spin_unlock_irqrestore(&imsic->matrix_lock, flags);
-+}
-+
-+void imsic_state_offline(void)
-+{
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&imsic->matrix_lock, flags);
-+	irq_matrix_offline(imsic->matrix);
-+	raw_spin_unlock_irqrestore(&imsic->matrix_lock, flags);
-+}
-+
-+static int __init imsic_matrix_init(void)
-+{
-+	struct imsic_global_config *global = &imsic->global;
-+
-+	raw_spin_lock_init(&imsic->matrix_lock);
-+	imsic->matrix = irq_alloc_matrix(global->nr_ids + 1,
-+					 0, global->nr_ids + 1);
-+	if (!imsic->matrix)
-+		return -ENOMEM;
-+
-+	/* Reserve ID#0 because it is special and never implemented */
-+	irq_matrix_assign_system(imsic->matrix, 0, false);
-+
-+	/* Reserve IPI ID because it is special and used internally */
-+	irq_matrix_assign_system(imsic->matrix, IMSIC_IPI_ID, false);
-+
-+	return 0;
-+}
-+
-+static int __init imsic_get_parent_hartid(struct fwnode_handle *fwnode,
-+					  u32 index, unsigned long *hartid)
-+{
-+	int rc;
 +	struct of_phandle_args parent;
-+
-+	/*
-+	 * Currently, only OF fwnode is supported so extend this
-+	 * function for ACPI support.
-+	 */
-+	if (!is_of_node(fwnode))
-+		return -EINVAL;
-+
-+	rc = of_irq_parse_one(to_of_node(fwnode), index, &parent);
-+	if (rc)
-+		return rc;
-+
-+	/*
-+	 * Skip interrupts other than external interrupts for
-+	 * current privilege level.
-+	 */
-+	if (parent.args[0] != RV_IRQ_EXT)
-+		return -EINVAL;
-+
-+	return riscv_of_parent_hartid(parent.np, hartid);
-+}
-+
-+static int __init imsic_get_mmio_resource(struct fwnode_handle *fwnode,
-+					  u32 index, struct resource *res)
-+{
-+	/*
-+	 * Currently, only OF fwnode is supported so extend this
-+	 * function for ACPI support.
-+	 */
-+	if (!is_of_node(fwnode))
-+		return -EINVAL;
-+
-+	return of_address_to_resource(to_of_node(fwnode), index, res);
-+}
-+
-+static int __init imsic_parse_fwnode(struct fwnode_handle *fwnode,
-+				     struct imsic_global_config *global,
-+				     u32 *nr_parent_irqs,
-+				     u32 *nr_mmios)
-+{
-+	unsigned long hartid;
-+	struct resource res;
 +	int rc;
-+	u32 i;
 +
 +	/*
 +	 * Currently, only OF fwnode is supported so extend this
 +	 * function for ACPI support.
 +	 */
-+	if (!is_of_node(fwnode))
++	if (!is_of_node(dev->fwnode))
 +		return -EINVAL;
 +
-+	*nr_parent_irqs = 0;
-+	*nr_mmios = 0;
++	/* Save device pointer and register base */
++	priv->dev = dev;
++	priv->regs = regs;
 +
-+	/* Find number of parent interrupts */
-+	*nr_parent_irqs = 0;
-+	while (!imsic_get_parent_hartid(fwnode, *nr_parent_irqs, &hartid))
-+		(*nr_parent_irqs)++;
-+	if (!(*nr_parent_irqs)) {
-+		pr_err("%pfwP: no parent irqs available\n", fwnode);
-+		return -EINVAL;
-+	}
-+
-+	/* Find number of guest index bits in MSI address */
-+	rc = of_property_read_u32(to_of_node(fwnode),
-+				  "riscv,guest-index-bits",
-+				  &global->guest_index_bits);
-+	if (rc)
-+		global->guest_index_bits = 0;
-+
-+	/* Find number of HART index bits */
-+	rc = of_property_read_u32(to_of_node(fwnode),
-+				  "riscv,hart-index-bits",
-+				  &global->hart_index_bits);
++	/* Find out number of interrupt sources */
++	rc = of_property_read_u32(to_of_node(dev->fwnode),
++					     "riscv,num-sources",
++					     &priv->nr_irqs);
 +	if (rc) {
-+		/* Assume default value */
-+		global->hart_index_bits = __fls(*nr_parent_irqs);
-+		if (BIT(global->hart_index_bits) < *nr_parent_irqs)
-+			global->hart_index_bits++;
-+	}
-+
-+	/* Find number of group index bits */
-+	rc = of_property_read_u32(to_of_node(fwnode),
-+				  "riscv,group-index-bits",
-+				  &global->group_index_bits);
-+	if (rc)
-+		global->group_index_bits = 0;
-+
-+	/*
-+	 * Find first bit position of group index.
-+	 * If not specified assumed the default APLIC-IMSIC configuration.
-+	 */
-+	rc = of_property_read_u32(to_of_node(fwnode),
-+				  "riscv,group-index-shift",
-+				  &global->group_index_shift);
-+	if (rc)
-+		global->group_index_shift = IMSIC_MMIO_PAGE_SHIFT * 2;
-+
-+	/* Find number of interrupt identities */
-+	rc = of_property_read_u32(to_of_node(fwnode),
-+				  "riscv,num-ids",
-+				  &global->nr_ids);
-+	if (rc) {
-+		pr_err("%pfwP: number of interrupt identities not found\n",
-+			fwnode);
++		dev_err(dev, "failed to get number of interrupt sources\n");
 +		return rc;
 +	}
 +
-+	/* Find number of guest interrupt identities */
-+	rc = of_property_read_u32(to_of_node(fwnode),
-+				  "riscv,num-guest-ids",
-+				  &global->nr_guest_ids);
-+	if (rc)
-+		global->nr_guest_ids = global->nr_ids;
-+
-+	/* Sanity check guest index bits */
-+	i = BITS_PER_LONG - IMSIC_MMIO_PAGE_SHIFT;
-+	if (i < global->guest_index_bits) {
-+		pr_err("%pfwP: guest index bits too big\n", fwnode);
-+		return -EINVAL;
++	/*
++	 * Find out number of IDCs based on parent interrupts
++	 *
++	 * If "msi-parent" property is present then we ignore the
++	 * APLIC IDCs which forces the APLIC driver to use MSI mode.
++	 */
++	if (!of_property_present(to_of_node(dev->fwnode), "msi-parent")) {
++		while (!of_irq_parse_one(to_of_node(dev->fwnode),
++					 priv->nr_idcs, &parent))
++			priv->nr_idcs++;
 +	}
 +
-+	/* Sanity check HART index bits */
-+	i = BITS_PER_LONG - IMSIC_MMIO_PAGE_SHIFT - global->guest_index_bits;
-+	if (i < global->hart_index_bits) {
-+		pr_err("%pfwP: HART index bits too big\n", fwnode);
-+		return -EINVAL;
-+	}
-+
-+	/* Sanity check group index bits */
-+	i = BITS_PER_LONG - IMSIC_MMIO_PAGE_SHIFT -
-+	    global->guest_index_bits - global->hart_index_bits;
-+	if (i < global->group_index_bits) {
-+		pr_err("%pfwP: group index bits too big\n", fwnode);
-+		return -EINVAL;
-+	}
-+
-+	/* Sanity check group index shift */
-+	i = global->group_index_bits + global->group_index_shift - 1;
-+	if (i >= BITS_PER_LONG) {
-+		pr_err("%pfwP: group index shift too big\n", fwnode);
-+		return -EINVAL;
-+	}
-+
-+	/* Sanity check number of interrupt identities */
-+	if ((global->nr_ids < IMSIC_MIN_ID) ||
-+	    (global->nr_ids >= IMSIC_MAX_ID) ||
-+	    ((global->nr_ids & IMSIC_MIN_ID) != IMSIC_MIN_ID)) {
-+		pr_err("%pfwP: invalid number of interrupt identities\n",
-+			fwnode);
-+		return -EINVAL;
-+	}
-+
-+	/* Sanity check number of guest interrupt identities */
-+	if ((global->nr_guest_ids < IMSIC_MIN_ID) ||
-+	    (global->nr_guest_ids >= IMSIC_MAX_ID) ||
-+	    ((global->nr_guest_ids & IMSIC_MIN_ID) != IMSIC_MIN_ID)) {
-+		pr_err("%pfwP: invalid number of guest interrupt identities\n",
-+			fwnode);
-+		return -EINVAL;
-+	}
-+
-+	/* Compute base address */
-+	rc = imsic_get_mmio_resource(fwnode, 0, &res);
-+	if (rc) {
-+		pr_err("%pfwP: first MMIO resource not found\n", fwnode);
-+		return -EINVAL;
-+	}
-+	global->base_addr = res.start;
-+	global->base_addr &= ~(BIT(global->guest_index_bits +
-+				   global->hart_index_bits +
-+				   IMSIC_MMIO_PAGE_SHIFT) - 1);
-+	global->base_addr &= ~((BIT(global->group_index_bits) - 1) <<
-+			       global->group_index_shift);
-+
-+	/* Find number of MMIO register sets */
-+	while (!imsic_get_mmio_resource(fwnode, *nr_mmios, &res))
-+		(*nr_mmios)++;
++	/* Setup initial state APLIC interrupts */
++	aplic_init_hw_irqs(priv);
 +
 +	return 0;
 +}
 +
-+int __init imsic_setup_state(struct fwnode_handle *fwnode)
++static int aplic_probe(struct platform_device *pdev)
 +{
-+	int rc, cpu;
-+	phys_addr_t base_addr;
-+	void __iomem **mmios_va = NULL;
-+	struct resource *mmios = NULL;
-+	struct imsic_local_config *local;
-+	struct imsic_global_config *global;
-+	unsigned long reloff, hartid;
-+	u32 i, j, index, nr_parent_irqs, nr_mmios, nr_handlers = 0;
++	struct device *dev = &pdev->dev;
++	bool msi_mode = false;
++	struct resource *res;
++	void __iomem *regs;
++	int rc;
++
++	/* Map the MMIO registers */
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	if (!res) {
++		dev_err(dev, "failed to get MMIO resource\n");
++		return -EINVAL;
++	}
++	regs = devm_ioremap(&pdev->dev, res->start, resource_size(res));
++	if (!regs) {
++		dev_err(dev, "failed map MMIO registers\n");
++		return -ENOMEM;
++	}
 +
 +	/*
-+	 * Only one IMSIC instance allowed in a platform for clean
-+	 * implementation of SMP IRQ affinity and per-CPU IPIs.
-+	 *
-+	 * This means on a multi-socket (or multi-die) platform we
-+	 * will have multiple MMIO regions for one IMSIC instance.
++	 * If msi-parent property is present then setup APLIC MSI
++	 * mode otherwise setup APLIC direct mode.
 +	 */
-+	if (imsic) {
-+		pr_err("%pfwP: already initialized hence ignoring\n",
-+			fwnode);
-+		return -EALREADY;
-+	}
-+
-+	if (!riscv_isa_extension_available(NULL, SxAIA)) {
-+		pr_err("%pfwP: AIA support not available\n", fwnode);
-+		return -ENODEV;
-+	}
-+
-+	imsic = kzalloc(sizeof(*imsic), GFP_KERNEL);
-+	if (!imsic)
-+		return -ENOMEM;
-+	imsic->fwnode = fwnode;
-+	global = &imsic->global;
-+
-+	global->local = alloc_percpu(typeof(*(global->local)));
-+	if (!global->local) {
-+		rc = -ENOMEM;
-+		goto out_free_priv;
-+	}
-+
-+	/* Parse IMSIC fwnode */
-+	rc = imsic_parse_fwnode(fwnode, global, &nr_parent_irqs, &nr_mmios);
-+	if (rc)
-+		goto out_free_local;
-+
-+	/* Allocate MMIO resource array */
-+	mmios = kcalloc(nr_mmios, sizeof(*mmios), GFP_KERNEL);
-+	if (!mmios) {
-+		rc = -ENOMEM;
-+		goto out_free_local;
-+	}
-+
-+	/* Allocate MMIO virtual address array */
-+	mmios_va = kcalloc(nr_mmios, sizeof(*mmios_va), GFP_KERNEL);
-+	if (!mmios_va) {
-+		rc = -ENOMEM;
-+		goto out_iounmap;
-+	}
-+
-+	/* Parse and map MMIO register sets */
-+	for (i = 0; i < nr_mmios; i++) {
-+		rc = imsic_get_mmio_resource(fwnode, i, &mmios[i]);
-+		if (rc) {
-+			pr_err("%pfwP: unable to parse MMIO regset %d\n",
-+				fwnode, i);
-+			goto out_iounmap;
-+		}
-+
-+		base_addr = mmios[i].start;
-+		base_addr &= ~(BIT(global->guest_index_bits +
-+				   global->hart_index_bits +
-+				   IMSIC_MMIO_PAGE_SHIFT) - 1);
-+		base_addr &= ~((BIT(global->group_index_bits) - 1) <<
-+			       global->group_index_shift);
-+		if (base_addr != global->base_addr) {
-+			rc = -EINVAL;
-+			pr_err("%pfwP: address mismatch for regset %d\n",
-+				fwnode, i);
-+			goto out_iounmap;
-+		}
-+
-+		mmios_va[i] = ioremap(mmios[i].start, resource_size(&mmios[i]));
-+		if (!mmios_va[i]) {
-+			rc = -EIO;
-+			pr_err("%pfwP: unable to map MMIO regset %d\n",
-+				fwnode, i);
-+			goto out_iounmap;
-+		}
-+	}
-+
-+	/* Initialize HW interrupt numbers */
-+	rc = imsic_hwirqs_init();
-+	if (rc) {
-+		pr_err("%pfwP: failed to initialize HW interrupts numbers\n",
-+		       fwnode);
-+		goto out_iounmap;
-+	}
-+
-+	/* Initialize local (or per-CPU )state */
-+	rc = imsic_local_init();
-+	if (rc) {
-+		pr_err("%pfwP: failed to initialize local state\n",
-+		       fwnode);
-+		goto out_hwirqs_cleanup;
-+	}
-+
-+	/* Configure handlers for target CPUs */
-+	for (i = 0; i < nr_parent_irqs; i++) {
-+		rc = imsic_get_parent_hartid(fwnode, i, &hartid);
-+		if (rc) {
-+			pr_warn("%pfwP: hart ID for parent irq%d not found\n",
-+				fwnode, i);
-+			continue;
-+		}
-+
-+		cpu = riscv_hartid_to_cpuid(hartid);
-+		if (cpu < 0) {
-+			pr_warn("%pfwP: invalid cpuid for parent irq%d\n",
-+				fwnode, i);
-+			continue;
-+		}
-+
-+		/* Find MMIO location of MSI page */
-+		index = nr_mmios;
-+		reloff = i * BIT(global->guest_index_bits) *
-+			 IMSIC_MMIO_PAGE_SZ;
-+		for (j = 0; nr_mmios; j++) {
-+			if (reloff < resource_size(&mmios[j])) {
-+				index = j;
-+				break;
-+			}
-+
-+			/*
-+			 * MMIO region size may not be aligned to
-+			 * BIT(global->guest_index_bits) * IMSIC_MMIO_PAGE_SZ
-+			 * if holes are present.
-+			 */
-+			reloff -= ALIGN(resource_size(&mmios[j]),
-+			BIT(global->guest_index_bits) * IMSIC_MMIO_PAGE_SZ);
-+		}
-+		if (index >= nr_mmios) {
-+			pr_warn("%pfwP: MMIO not found for parent irq%d\n",
-+				fwnode, i);
-+			continue;
-+		}
-+
-+		local = per_cpu_ptr(global->local, cpu);
-+		local->msi_pa = mmios[index].start + reloff;
-+		local->msi_va = mmios_va[index] + reloff;
-+
-+		nr_handlers++;
-+	}
-+
-+	/* If no CPU handlers found then can't take interrupts */
-+	if (!nr_handlers) {
-+		pr_err("%pfwP: No CPU handlers found\n", fwnode);
++	if (is_of_node(dev->fwnode))
++		msi_mode = of_property_present(to_of_node(dev->fwnode),
++						"msi-parent");
++	if (msi_mode)
 +		rc = -ENODEV;
-+		goto out_local_cleanup;
-+	}
-+
-+	/* Initialize matrix allocator */
-+	rc = imsic_matrix_init();
++	else
++		rc = aplic_direct_setup(dev, regs);
 +	if (rc) {
-+		pr_err("%pfwP: failed to create matrix allocator\n",
-+		       fwnode);
-+		goto out_local_cleanup;
++		dev_err(dev, "failed setup APLIC in %s mode\n",
++			msi_mode ? "MSI" : "direct");
++		return rc;
 +	}
-+
-+	/* We don't need MMIO arrays anymore so let's free-up */
-+	kfree(mmios_va);
-+	kfree(mmios);
 +
 +	return 0;
-+
-+out_local_cleanup:
-+	imsic_local_cleanup();
-+out_hwirqs_cleanup:
-+	imsic_hwirqs_cleanup();
-+out_iounmap:
-+	for (i = 0; i < nr_mmios; i++) {
-+		if (mmios_va[i])
-+			iounmap(mmios_va[i]);
-+	}
-+	kfree(mmios_va);
-+	kfree(mmios);
-+out_free_local:
-+	free_percpu(imsic->global.local);
-+out_free_priv:
-+	kfree(imsic);
-+	imsic = NULL;
-+	return rc;
 +}
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
++
++static const struct of_device_id aplic_match[] = {
++	{ .compatible = "riscv,aplic" },
++	{}
++};
++
++static struct platform_driver aplic_driver = {
++	.driver = {
++		.name		= "riscv-aplic",
++		.of_match_table	= aplic_match,
++	},
++	.probe = aplic_probe,
++};
++builtin_platform_driver(aplic_driver);
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.h b/drivers/irqchip/irq-riscv-aplic-main.h
 new file mode 100644
-index 000000000000..de83b649221c
+index 000000000000..474a04229334
 --- /dev/null
-+++ b/drivers/irqchip/irq-riscv-imsic-state.h
-@@ -0,0 +1,105 @@
++++ b/drivers/irqchip/irq-riscv-aplic-main.h
+@@ -0,0 +1,45 @@
 +/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
 + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
 + * Copyright (C) 2022 Ventana Micro Systems Inc.
 + */
 +
-+#ifndef _IRQ_RISCV_IMSIC_STATE_H
-+#define _IRQ_RISCV_IMSIC_STATE_H
++#ifndef _IRQ_RISCV_APLIC_MAIN_H
++#define _IRQ_RISCV_APLIC_MAIN_H
 +
-+#include <linux/irqchip/riscv-imsic.h>
++#include <linux/device.h>
++#include <linux/io.h>
++#include <linux/irq.h>
 +#include <linux/irqdomain.h>
 +#include <linux/fwnode.h>
 +
-+/*
-+ * The IMSIC driver uses 1 IPI for ID synchronization and
-+ * arch/riscv/kernel/smp.c require 6 IPIs so we fix the
-+ * total number of IPIs to 8.
-+ */
-+#define IMSIC_IPI_ID				1
-+#define IMSIC_NR_IPI				8
++#define APLIC_DEFAULT_PRIORITY		1
 +
-+struct imsic_vector {
-+	/* Fixed details of the vector */
-+	unsigned int cpu;
-+	unsigned int local_id;
-+	/* Details saved by driver in the vector */
-+	unsigned int hwirq;
++struct aplic_msicfg {
++	phys_addr_t		base_ppn;
++	u32			hhxs;
++	u32			hhxw;
++	u32			lhxs;
++	u32			lhxw;
 +};
 +
-+struct imsic_local_priv {
-+	/* Local state of interrupt identities */
-+	raw_spinlock_t ids_lock;
-+	unsigned long *ids_enabled_bitmap;
-+	struct imsic_vector **ids_move;
-+
-+	/* Local vector table */
-+	struct imsic_vector *vectors;
++struct aplic_priv {
++	struct device		*dev;
++	u32			gsi_base;
++	u32			nr_irqs;
++	u32			nr_idcs;
++	void __iomem		*regs;
++	struct aplic_msicfg	msicfg;
 +};
 +
-+struct imsic_priv {
-+	/* Device details */
-+	struct fwnode_handle *fwnode;
-+
-+	/* Global configuration common for all HARTs */
-+	struct imsic_global_config global;
-+
-+	/* Dummy HW interrupt numbers */
-+	unsigned int nr_hwirqs;
-+	raw_spinlock_t hwirqs_lock;
-+	unsigned long *hwirqs_used_bitmap;
-+
-+	/* Per-CPU state */
-+	struct imsic_local_priv __percpu *lpriv;
-+
-+	/* State of IRQ matrix allocator */
-+	raw_spinlock_t matrix_lock;
-+	struct irq_matrix *matrix;
-+
-+	/* IPI interrupt identity and synchronization */
-+	int ipi_virq;
-+	struct irq_desc *ipi_lsync_desc;
-+
-+	/* IRQ domains (created by platform driver) */
-+	struct irq_domain *base_domain;
-+	struct irq_domain *plat_domain;
-+};
-+
-+extern struct imsic_priv *imsic;
-+
-+void __imsic_eix_update(unsigned long base_id,
-+			unsigned long num_id, bool pend, bool val);
-+
-+#define __imsic_id_set_enable(__id)		\
-+	__imsic_eix_update((__id), 1, false, true)
-+#define __imsic_id_clear_enable(__id)	\
-+	__imsic_eix_update((__id), 1, false, false)
-+
-+void imsic_local_sync(void);
-+void imsic_local_delivery(bool enable);
-+
-+void imsic_vector_mask(struct imsic_vector *vec);
-+void imsic_vector_unmask(struct imsic_vector *vec);
-+void imsic_vector_move(struct imsic_vector *old_vec,
-+			struct imsic_vector *new_vec);
-+
-+struct imsic_vector *imsic_vector_from_local_id(unsigned int cpu,
-+						unsigned int local_id);
-+
-+struct imsic_vector *imsic_vector_alloc(unsigned int hwirq,
-+					const struct cpumask *mask);
-+void imsic_vector_free(struct imsic_vector *vector);
-+
-+void imsic_vector_debug_show(struct seq_file *m,
-+			     struct imsic_vector *vec, int ind);
-+
-+void imsic_vector_debug_show_summary(struct seq_file *m, int ind);
-+
-+int imsic_hwirq_alloc(void);
-+void imsic_hwirq_free(unsigned int hwirq);
-+
-+void imsic_state_online(void);
-+void imsic_state_offline(void);
-+int imsic_setup_state(struct fwnode_handle *fwnode);
++void aplic_irq_unmask(struct irq_data *d);
++void aplic_irq_mask(struct irq_data *d);
++int aplic_irq_set_type(struct irq_data *d, unsigned int type);
++int aplic_irqdomain_translate(struct irq_fwspec *fwspec, u32 gsi_base,
++			      unsigned long *hwirq, unsigned int *type);
++void aplic_init_hw_global(struct aplic_priv *priv, bool msi_mode);
++int aplic_setup_priv(struct aplic_priv *priv, struct device *dev,
++		     void __iomem *regs);
++int aplic_direct_setup(struct device *dev, void __iomem *regs);
 +
 +#endif
-diff --git a/include/linux/irqchip/riscv-imsic.h b/include/linux/irqchip/riscv-imsic.h
+diff --git a/include/linux/irqchip/riscv-aplic.h b/include/linux/irqchip/riscv-aplic.h
 new file mode 100644
-index 000000000000..cbb7bcd0e4dd
+index 000000000000..97e198ea0109
 --- /dev/null
-+++ b/include/linux/irqchip/riscv-imsic.h
-@@ -0,0 +1,87 @@
++++ b/include/linux/irqchip/riscv-aplic.h
+@@ -0,0 +1,119 @@
 +/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
 + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
 + * Copyright (C) 2022 Ventana Micro Systems Inc.
 + */
-+#ifndef __LINUX_IRQCHIP_RISCV_IMSIC_H
-+#define __LINUX_IRQCHIP_RISCV_IMSIC_H
++#ifndef __LINUX_IRQCHIP_RISCV_APLIC_H
++#define __LINUX_IRQCHIP_RISCV_APLIC_H
 +
-+#include <linux/types.h>
 +#include <linux/bitops.h>
-+#include <asm/csr.h>
 +
-+#define IMSIC_MMIO_PAGE_SHIFT		12
-+#define IMSIC_MMIO_PAGE_SZ		BIT(IMSIC_MMIO_PAGE_SHIFT)
-+#define IMSIC_MMIO_PAGE_LE		0x00
-+#define IMSIC_MMIO_PAGE_BE		0x04
++#define APLIC_MAX_IDC			BIT(14)
++#define APLIC_MAX_SOURCE		1024
 +
-+#define IMSIC_MIN_ID			63
-+#define IMSIC_MAX_ID			2048
++#define APLIC_DOMAINCFG			0x0000
++#define APLIC_DOMAINCFG_RDONLY		0x80000000
++#define APLIC_DOMAINCFG_IE		BIT(8)
++#define APLIC_DOMAINCFG_DM		BIT(2)
++#define APLIC_DOMAINCFG_BE		BIT(0)
 +
-+#define IMSIC_EIDELIVERY		0x70
++#define APLIC_SOURCECFG_BASE		0x0004
++#define APLIC_SOURCECFG_D		BIT(10)
++#define APLIC_SOURCECFG_CHILDIDX_MASK	0x000003ff
++#define APLIC_SOURCECFG_SM_MASK	0x00000007
++#define APLIC_SOURCECFG_SM_INACTIVE	0x0
++#define APLIC_SOURCECFG_SM_DETACH	0x1
++#define APLIC_SOURCECFG_SM_EDGE_RISE	0x4
++#define APLIC_SOURCECFG_SM_EDGE_FALL	0x5
++#define APLIC_SOURCECFG_SM_LEVEL_HIGH	0x6
++#define APLIC_SOURCECFG_SM_LEVEL_LOW	0x7
 +
-+#define IMSIC_EITHRESHOLD		0x72
++#define APLIC_MMSICFGADDR		0x1bc0
++#define APLIC_MMSICFGADDRH		0x1bc4
++#define APLIC_SMSICFGADDR		0x1bc8
++#define APLIC_SMSICFGADDRH		0x1bcc
 +
-+#define IMSIC_EIP0			0x80
-+#define IMSIC_EIP63			0xbf
-+#define IMSIC_EIPx_BITS			32
-+
-+#define IMSIC_EIE0			0xc0
-+#define IMSIC_EIE63			0xff
-+#define IMSIC_EIEx_BITS			32
-+
-+#define IMSIC_FIRST			IMSIC_EIDELIVERY
-+#define IMSIC_LAST			IMSIC_EIE63
-+
-+#define IMSIC_MMIO_SETIPNUM_LE		0x00
-+#define IMSIC_MMIO_SETIPNUM_BE		0x04
-+
-+struct imsic_local_config {
-+	phys_addr_t msi_pa;
-+	void __iomem *msi_va;
-+};
-+
-+struct imsic_global_config {
-+	/*
-+	 * MSI Target Address Scheme
-+	 *
-+	 * XLEN-1                                                12     0
-+	 * |                                                     |     |
-+	 * -------------------------------------------------------------
-+	 * |xxxxxx|Group Index|xxxxxxxxxxx|HART Index|Guest Index|  0  |
-+	 * -------------------------------------------------------------
-+	 */
-+
-+	/* Bits representing Guest index, HART index, and Group index */
-+	u32 guest_index_bits;
-+	u32 hart_index_bits;
-+	u32 group_index_bits;
-+	u32 group_index_shift;
-+
-+	/* Global base address matching all target MSI addresses */
-+	phys_addr_t base_addr;
-+
-+	/* Number of interrupt identities */
-+	u32 nr_ids;
-+
-+	/* Number of guest interrupt identities */
-+	u32 nr_guest_ids;
-+
-+	/* Per-CPU IMSIC addresses */
-+	struct imsic_local_config __percpu *local;
-+};
-+
-+#ifdef CONFIG_RISCV_IMSIC
-+
-+extern const struct imsic_global_config *imsic_get_global_config(void);
-+
++#ifdef CONFIG_RISCV_M_MODE
++#define APLIC_xMSICFGADDR		APLIC_MMSICFGADDR
++#define APLIC_xMSICFGADDRH		APLIC_MMSICFGADDRH
 +#else
-+
-+static inline const struct imsic_global_config *imsic_get_global_config(void)
-+{
-+	return NULL;
-+}
-+
++#define APLIC_xMSICFGADDR		APLIC_SMSICFGADDR
++#define APLIC_xMSICFGADDRH		APLIC_SMSICFGADDRH
 +#endif
++
++#define APLIC_xMSICFGADDRH_L		BIT(31)
++#define APLIC_xMSICFGADDRH_HHXS_MASK	0x1f
++#define APLIC_xMSICFGADDRH_HHXS_SHIFT	24
++#define APLIC_xMSICFGADDRH_LHXS_MASK	0x7
++#define APLIC_xMSICFGADDRH_LHXS_SHIFT	20
++#define APLIC_xMSICFGADDRH_HHXW_MASK	0x7
++#define APLIC_xMSICFGADDRH_HHXW_SHIFT	16
++#define APLIC_xMSICFGADDRH_LHXW_MASK	0xf
++#define APLIC_xMSICFGADDRH_LHXW_SHIFT	12
++#define APLIC_xMSICFGADDRH_BAPPN_MASK	0xfff
++
++#define APLIC_xMSICFGADDR_PPN_SHIFT	12
++
++#define APLIC_xMSICFGADDR_PPN_HART(__lhxs) \
++	(BIT(__lhxs) - 1)
++
++#define APLIC_xMSICFGADDR_PPN_LHX_MASK(__lhxw) \
++	(BIT(__lhxw) - 1)
++#define APLIC_xMSICFGADDR_PPN_LHX_SHIFT(__lhxs) \
++	((__lhxs))
++#define APLIC_xMSICFGADDR_PPN_LHX(__lhxw, __lhxs) \
++	(APLIC_xMSICFGADDR_PPN_LHX_MASK(__lhxw) << \
++	 APLIC_xMSICFGADDR_PPN_LHX_SHIFT(__lhxs))
++
++#define APLIC_xMSICFGADDR_PPN_HHX_MASK(__hhxw) \
++	(BIT(__hhxw) - 1)
++#define APLIC_xMSICFGADDR_PPN_HHX_SHIFT(__hhxs) \
++	((__hhxs) + APLIC_xMSICFGADDR_PPN_SHIFT)
++#define APLIC_xMSICFGADDR_PPN_HHX(__hhxw, __hhxs) \
++	(APLIC_xMSICFGADDR_PPN_HHX_MASK(__hhxw) << \
++	 APLIC_xMSICFGADDR_PPN_HHX_SHIFT(__hhxs))
++
++#define APLIC_IRQBITS_PER_REG		32
++
++#define APLIC_SETIP_BASE		0x1c00
++#define APLIC_SETIPNUM			0x1cdc
++
++#define APLIC_CLRIP_BASE		0x1d00
++#define APLIC_CLRIPNUM			0x1ddc
++
++#define APLIC_SETIE_BASE		0x1e00
++#define APLIC_SETIENUM			0x1edc
++
++#define APLIC_CLRIE_BASE		0x1f00
++#define APLIC_CLRIENUM			0x1fdc
++
++#define APLIC_SETIPNUM_LE		0x2000
++#define APLIC_SETIPNUM_BE		0x2004
++
++#define APLIC_GENMSI			0x3000
++
++#define APLIC_TARGET_BASE		0x3004
++#define APLIC_TARGET_HART_IDX_SHIFT	18
++#define APLIC_TARGET_HART_IDX_MASK	0x3fff
++#define APLIC_TARGET_GUEST_IDX_SHIFT	12
++#define APLIC_TARGET_GUEST_IDX_MASK	0x3f
++#define APLIC_TARGET_IPRIO_MASK	0xff
++#define APLIC_TARGET_EIID_MASK	0x7ff
++
++#define APLIC_IDC_BASE			0x4000
++#define APLIC_IDC_SIZE			32
++
++#define APLIC_IDC_IDELIVERY		0x00
++
++#define APLIC_IDC_IFORCE		0x04
++
++#define APLIC_IDC_ITHRESHOLD		0x08
++
++#define APLIC_IDC_TOPI			0x18
++#define APLIC_IDC_TOPI_ID_SHIFT	16
++#define APLIC_IDC_TOPI_ID_MASK	0x3ff
++#define APLIC_IDC_TOPI_PRIO_MASK	0xff
++
++#define APLIC_IDC_CLAIMI		0x1c
 +
 +#endif
 -- 
