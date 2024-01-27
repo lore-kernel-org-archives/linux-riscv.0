@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67EF9C47DA9
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jan 2024 16:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D22C46CD2
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jan 2024 16:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rxo55x2DDpXdOmHJO5jd8PntgZNXluQnh4c+hIQQbR0=; b=i+aGZFvVt41nT3
-	p2/tf2aZX7vEDYQn7p+lYDwX0FNy7GstB4OwmFuQxeIoYwAp4fEmQ/OHQoNQAt+X7LkaTiPqg3LJT
-	X4jEtlQ6dmfeQSn3E2C/KAMP3bIgTMmPWBO0ckh7yHqXrQEvSoj6zf71tgnoZ79tZ/3v5Mw4d6U6/
-	V2NBtFYCpWp4XQ1nDNnafZo9pnOV6f8ugTquU+rP9eTfZ6TwODLB+jic557y1FMiddJ86GywrxygF
-	FcZk/b4eftChzLIkm3lOBPwIr/qeKkoUq4Xb4WSU0bKDK1TFfa3kmzMjLJK0aZdYAtGDRezo9E0hL
-	MjE/NYyFq/fM8EsiBZzg==;
+	List-Owner; bh=SUyoIsEFMRAofmKLqe/d5/puBmNrVTrQaLAbAfPJVPY=; b=Ef8yEwviIcY8Eb
+	CtA5bxCOzEqggZiyGtMs4ntOeCAAchXFFcE0D1w65AGNC1puhsBmBJWjGnh3wyaLbYyJZt51FKzLE
+	prWTadVnOkkL+sw+ZjCebVIqobSa/2XPLkZGRxmtVqUMOEf8VICoxjPU1lj4m5nFDGmMSvwUUxxQw
+	hIniI3zg0cOO5orG7UNXT3WhJa0/HZF1ovazcfrSIWrXqJB7tb49EAc13WwirXX4zJMD10eZlusw5
+	5KaiQiQyK3+J1mxpPjoKP8GK1cE5laS9xldeTjlv9XNUUsRQEI2AG0/ZNFT70gcX4LDeAheD0kBX5
+	Djntd4n8HgnbgRd3oIbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rTlOI-00000007kAO-4BL2;
-	Sat, 27 Jan 2024 16:18:47 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1rTlOT-00000007kIh-1YL3;
+	Sat, 27 Jan 2024 16:18:57 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rTlO2-00000007jyi-0DZv
+	id 1rTlO7-00000007k2B-3Q8o
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Jan 2024 16:18:31 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1d730b6943bso7060295ad.2
-        for <linux-riscv@lists.infradead.org>; Sat, 27 Jan 2024 08:18:29 -0800 (PST)
+	Sat, 27 Jan 2024 16:18:37 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1d7881b1843so13255345ad.3
+        for <linux-riscv@lists.infradead.org>; Sat, 27 Jan 2024 08:18:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1706372309; x=1706977109; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1706372314; x=1706977114; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Gio4VcisYA6evHi9fLFTB/NsIADoYywgfT0MwGlZzIc=;
-        b=F9g31rv5o5jD9/TYzz/ez3zAeeZ+LIaoKWSO4hYk7TiokKvTWvWdf7kwXLzFY7gNAy
-         MPg5nfMLLpReu0b8kDbetAVfoTrqwZV0ANpnB2hV1SPxMglidlcJhbZO5NivZ9mLP9xF
-         eqPN8taouLW5IBRLUHuk8YYBFJl95Mjibe3cAJAhX/bF4vRm/Mq1o4BTrdpW1sb6/+Yq
-         Yk/KvUb7XttD11I+v59G520Hh2TOcyXFE7Jv71FMYOb9Xir0i4jsb6v3N3cqEKwdExHz
-         a0ue2y2dfrmIn+WvVBDnwrFUYPrrsN45pWIh6rDM2cXAGJNtdeBSSjzW1Ey2NZvH3rJE
-         1WXw==
+        bh=xhYUMfVc19qKu3HnThUsAONLPR7ur4VXlw7AfNK85R4=;
+        b=HFLsgRdaTqmSYwYJP3xR5IYY+G6749zW0wpMdw1wOe/UmFSg5X/BdmlGV65abIw2bL
+         m0LOtO+bPHPl3JOu0AHD8kv+QAYdIMjv3RICaKNCQKuVOVQWLz8tzYdD03k3/Mn58fy2
+         jb6V+KB4R2hVAadaiOjIkBsUhRK41NxxAL4Ds9F5uGFRz4hRpLplzLO4GpNlJ/5IhaHI
+         N1nVgQgJvt64Ra2y1nUPBvguVhKjSTsLREZNZF6PS92/2h8nAwveRCAcbsUj3xxTXnGd
+         7vMwf8ChCtvB654H8mU47tQWO0TkHgH04N1iV+7Uz7RLkDBuF8b7aDh0BVEdfnZ17bt3
+         xSTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706372309; x=1706977109;
+        d=1e100.net; s=20230601; t=1706372314; x=1706977114;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Gio4VcisYA6evHi9fLFTB/NsIADoYywgfT0MwGlZzIc=;
-        b=adOfKskZ/NK8OCPog2U4zT1/+commPoBTv7eM+vsucrWDteBiYLGnNHHTis7Cabq3T
-         KYyzrxDMuiKQJuBhrINJWz35mHnJ0aKaWm2cUNeE32iu3nn1evaomb88Ky92Sb6kDt+h
-         EyFQOAYe0e3dtJXil2gYH32WQrgyxAs6L+WFQ1F9nh5cJ/IPgEhCEaitYFEHqjGJ+MhO
-         MXfTQTKLlyAduQG7GDUBwcr9siz2zRnh+L+KCOiNKxcRmdSuzZ9NBiL35klW5640E8gZ
-         HvMLMCWqe2E6JVKdPJKuEbGPOflmFQ0tTjb1mcfzxqW8EuYGWtdwOm/HbTSiGZ2ioeDi
-         A7sA==
-X-Gm-Message-State: AOJu0YwYtem2tQnrTjAJmBaOaCDMQnBuQoxlpc00m5y7VBXIh2DY7kRU
-	gbOK/PvmN9T/WUNIDmmWIugfaFdm85p43viDS/2Hw25n02EQaqokZSsv2dIY7P4=
-X-Google-Smtp-Source: AGHT+IED/6ZIyLe42SYcWyw5qvmxNb89PVkJ7Cc0/TjAs0f65nBH0WO/WCelT/RErST/4ZIoCKlTJA==
-X-Received: by 2002:a17:903:1c3:b0:1d4:326c:1c89 with SMTP id e3-20020a17090301c300b001d4326c1c89mr1195988plh.10.1706372308671;
-        Sat, 27 Jan 2024 08:18:28 -0800 (PST)
+        bh=xhYUMfVc19qKu3HnThUsAONLPR7ur4VXlw7AfNK85R4=;
+        b=mitYSun19gGAYfJiC4xRve8EXfKF6d5ep/zmmOcPR9vQ++1+gDmDp4mMXxJoIHZJvM
+         m8PuhPzTNNmcHW3AVr8E2zZAl69hQ9JP75oe08W9cBlAv4Vuh33vus1IfJC21N3Kn7Mk
+         bDXIYIjXuRVnjhzghOWoNjX1lu/5S6DWZqvd1cbWjzCm5Y5FPS0SjWNCckRqmWEIvTxU
+         GLuFFLElaJEbewUTsArWSbfiFT+Pdu5w1ClKdKcOSPsXM6oJNlOQzh3P1KIMwQlf4vgK
+         1d47gKSmIH/Qz9i7Nhy014AwPQZK8tWfc2ksJev3k9nEt2wKhkJp7k1QdYVX9kdF8MGn
+         Unuw==
+X-Gm-Message-State: AOJu0Yx1h9Ku+8b1wFHhZnbX5glDLUmZk+J5cPoTHWM5PoxotG9+aUEm
+	nzpxFSQfLWwERsAWFcloLaa9UVz8SxruNm/PLqmZ4XN7hZ93Xd6FL0W9vsivzos=
+X-Google-Smtp-Source: AGHT+IHtY0P//woqQufFCQxfwqYt9nRAYpMpLB6XG5TxI8TAX8TT9FgCwM/axEzX7TjcSLauiPb5WA==
+X-Received: by 2002:a17:902:d4cf:b0:1d7:8237:f770 with SMTP id o15-20020a170902d4cf00b001d78237f770mr2153923plg.17.1706372314502;
+        Sat, 27 Jan 2024 08:18:34 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([171.76.86.17])
-        by smtp.gmail.com with ESMTPSA id d11-20020a17090ac24b00b00290f8c708d0sm5091620pjx.57.2024.01.27.08.18.23
+        by smtp.gmail.com with ESMTPSA id d11-20020a17090ac24b00b00290f8c708d0sm5091620pjx.57.2024.01.27.08.18.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 27 Jan 2024 08:18:28 -0800 (PST)
+        Sat, 27 Jan 2024 08:18:34 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -70,16 +70,16 @@ To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Frank Rowand <frowand.list@gmail.com>,
 	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v12 02/25] genirq/irqdomain: Remove the param count restriction from select()
-Date: Sat, 27 Jan 2024 21:47:30 +0530
-Message-Id: <20240127161753.114685-3-apatel@ventanamicro.com>
+Subject: [PATCH v12 03/25] genirq/msi: Extend msi_parent_ops
+Date: Sat, 27 Jan 2024 21:47:31 +0530
+Message-Id: <20240127161753.114685-4-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240127161753.114685-1-apatel@ventanamicro.com>
 References: <20240127161753.114685-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240127_081830_130677_F5501082 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20240127_081835_906865_83A24F35 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +99,52 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-Now that the GIC-v3 callback can handle invocation with a fwspec parameter
-count of 0 lift the restriction in the core code and invoke select()
-unconditionally when the domain provides it.
+Supporting per device MSI domains on ARM64, RISC-V and the zoo of
+interrupt mechanisms needs a bit more information than what the
+initial x86 implementation provides.
 
-Preparatory change for per device MSI domains.
+Add the following fields:
+
+  - required_flags: 	The flags which a parent domain requires to be set
+  - bus_select_token:	The bus token of the parent domain for select()
+  - bus_select_mask:	A bitmask of supported child domain bus types
+
+This allows to provide library functions which can be shared between
+various interrupt chip implementations and avoids replicating mostly
+similar code all over the place.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- kernel/irq/irqdomain.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/msi.h | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
-index 0bdef4fe925b..8fee37918195 100644
---- a/kernel/irq/irqdomain.c
-+++ b/kernel/irq/irqdomain.c
-@@ -448,7 +448,7 @@ struct irq_domain *irq_find_matching_fwspec(struct irq_fwspec *fwspec,
- 	 */
- 	mutex_lock(&irq_domain_mutex);
- 	list_for_each_entry(h, &irq_domain_list, link) {
--		if (h->ops->select && fwspec->param_count)
-+		if (h->ops->select)
- 			rc = h->ops->select(h, fwspec, bus_token);
- 		else if (h->ops->match)
- 			rc = h->ops->match(h, to_of_node(fwnode), bus_token);
+diff --git a/include/linux/msi.h b/include/linux/msi.h
+index ddace8c34dcf..d5d1513ef4d6 100644
+--- a/include/linux/msi.h
++++ b/include/linux/msi.h
+@@ -572,6 +572,11 @@ enum {
+  * struct msi_parent_ops - MSI parent domain callbacks and configuration info
+  *
+  * @supported_flags:	Required: The supported MSI flags of the parent domain
++ * @required_flags:	Optional: The required MSI flags of the parent MSI domain
++ * @bus_select_token:	Optional: The bus token of the real parent domain for
++ *			irq_domain::select()
++ * @bus_select_mask:	Optional: A mask of supported BUS_DOMAINs for
++ *			irq_domain::select()
+  * @prefix:		Optional: Prefix for the domain and chip name
+  * @init_dev_msi_info:	Required: Callback for MSI parent domains to setup parent
+  *			domain specific domain flags, domain ops and interrupt chip
+@@ -579,6 +584,9 @@ enum {
+  */
+ struct msi_parent_ops {
+ 	u32		supported_flags;
++	u32		required_flags;
++	u32		bus_select_token;
++	u32		bus_select_mask;
+ 	const char	*prefix;
+ 	bool		(*init_dev_msi_info)(struct device *dev, struct irq_domain *domain,
+ 					     struct irq_domain *msi_parent_domain,
 -- 
 2.34.1
 
