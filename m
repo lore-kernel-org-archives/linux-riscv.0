@@ -4,73 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801DCC46CD2
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jan 2024 16:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0399FC46CD2
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jan 2024 16:24:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Py4peYxxF5KGctFePzBA8ssWLM/DPPSdpJsUXaYDBo8=; b=RT/IrikzUVLy8z
-	YGYt4KUuwzVe5xy/uMGTL4iDwW01rj9dDHF0dNc80eoQRonzIAUSS7poirH8mdQRIwBK8G0eQokFs
-	ktpMigSHLLKmLUDx8SZChDFC27F4AQdUd1u10EgtGhm9o7sJ9urEzZMf9iW7QqKQY4yX9FUPkE/vF
-	9fP1B3WwHM2V6Q1ve+Vxg2XLIsW3z0HNow+edoRnBLRY0WJhx5I1v99YAG6V0M3dfgHXZ7pC4OMkR
-	60h3mZUYB9gjTCoJxqncIzIPBPslwElgyO6Ss8+xagwROHJIHYebc1dGbeJT/zb/eLCKwBZDRrAdq
-	zl9RV7oR53WRKG0Zoizw==;
+	List-Owner; bh=fF0me4PMIDPBcK6Ex6vNCjyoVgYkj+vsG/4v1kdIgaI=; b=cmZFqSh0eSNMYS
+	5NXWfPIr5IOOIApq0Ls7eaPdruOEVWAlJ0Yiojmdtk51zxT2R7Y8Z3zC4UxOVvnekgq73Psjb/123
+	8tAK6x0NsJ9qF2++u0bMW72ouCVW2425IytO0QSGjh2lwDX/y4kz/Ko+ulcgzflaxXLREMs0eyIAt
+	IBKICsER+sE+/ffMxY9pCDv2JqSAkDwPOcP80LaLZF6Sz3IDet5u0cny3y/oWvToqHiSLC6N426sO
+	phgkbDeFth2OtmXKAHITteFAMI+z3G1376BTCe2BX1GhMU0oeePZjKur4IGEJiLrnYMNLwEO7J5iZ
+	hB7zNHg52cTX4/5b4sfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rTlT9-00000007nV2-2uv4;
-	Sat, 27 Jan 2024 16:23:47 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1rTlTL-00000007ncW-1ljv;
+	Sat, 27 Jan 2024 16:23:59 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rTlPy-00000007lS5-4BT9
+	id 1rTlPz-00000007lSz-0cdv
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 Jan 2024 16:20:43 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-2cf591d22dfso2324631fa.0
+	Sat, 27 Jan 2024 16:20:44 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-5d8bc1caf00so314244a12.1
         for <linux-riscv@lists.infradead.org>; Sat, 27 Jan 2024 08:20:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1706372428; x=1706977228; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=ventanamicro.com; s=google; t=1706372430; x=1706977230; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cs22FUCSh/QKVUEnHbkZdHK+B7Cwzv+8TU0ghWB1nTI=;
-        b=AatS8au+waQpRhc0PneIyHFiTKND08Hx4ul5AYE0Q3irObNUdIJ5qMbxWrhsJz42pk
-         vJqVrVQeyykNlMmIC/TtaG+3y3OYNr1t2hQavTjk66vEUFaMX9TVLZrXCqqz2s0cVp2F
-         GX5/j4SQggazoEvDZ6p8h29j8POIwxBuxSROdRXLMH+KHtry2rrbGubKOBRwkp1VeuBO
-         X2Y/V1k/sWnN6hoxcih/yOcL7UkR9ToPbt5myAns2aGo1lt7MKtivzCVWrIGLCq6QV9H
-         UCvBkVOM/ygYCrAxtjceR3Sk/+XyExvV4qyxxSLL0rP9FHyTLOUwL9+nTDnEiLj8HXGj
-         q12A==
+        bh=cOpM0IPmaKoQiKG4E1UR9MWNkLInTWJxdpL37ZRkBAk=;
+        b=UmPYV02Qbf6txlCq4xx2chZKMC7vLwRWyPze0jNr4eYsAGZazNC9JZ4ZkdIFjN+fEV
+         kJLdWyHvwqdlbbjGj0zG47ea9w+c2LtB8vAzrO+F7Ld+RmOhP2IfDOY2SqcX8DWi9Fr1
+         ScDaqhJOGR8Uh1uX0dN6oJ5pjb0VScnfDvO9Lq3iNnPg8IlSYRthmCSsIGh05kiBNjHO
+         y+i4SEcaKz3ZDstQPZ0qG8fpcr3KSU6DZgOiIvKoWaty/IVnl9deDcRtY96bEOSWiBzI
+         siRHYkjhyg4HlmSoLAqwsOyc9Ixx+KJWqJAVbNmSp/T6VtcYC7+FImxOiClRTIcR2YOc
+         Z+hA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706372428; x=1706977228;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1706372430; x=1706977230;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=cs22FUCSh/QKVUEnHbkZdHK+B7Cwzv+8TU0ghWB1nTI=;
-        b=jEeb1OpC/f+dqqfwVx7gHNLNqFgRcirgpVR/OO39+eabrikjqLqFetyUULwbEu8q5q
-         fubBwmLwH/CTSKSgD+90nKiMj+nBaMrF2f9bafRmQMTaxlI3JurhMu8ZHU5yHJCGYwqc
-         k5JRSCpn0qzAytOypa3vmQ19MphxS0TgY+Kwzsu5Ppm1aS1rNMjHb3aAB58SgE3OTUZx
-         sovixC1VmFYXe4JQui2IyQX7T9GGDIf3rBnPXc8/4Zw4saDutdX1yxbVDxkJz+Kx837G
-         qi4mxsD+QLuOIOstQ7o1lb8ydEGRYBEdbUzw9gFuTgwMhS+AsWItgKW1LJzWzu2q5nCG
-         tIJw==
-X-Gm-Message-State: AOJu0YwaEUaGA3VpEG2pI0vzuaLjqp8MamapXrbkCwSUY25rfB3NMgsT
-	EKsAG32bIzTuEKQfhl/HXtV46BN9uELs34eQ96FgbkbI+qKeChV5OOvf+/VOwYP4fNSRqfGZJmy
-	jt6ZVXj6wu1179qJISDsctrnUFRkfUcl5tiqXlQ==
-X-Google-Smtp-Source: AGHT+IGF6Sch5alDMQDKFPphLYwHjJnDfls8OumK/Oo1CumL91mn384i/BuE4WD1qUPncRKGuTcHHFFkt/3bd4Ldd/o=
-X-Received: by 2002:a19:750f:0:b0:50e:fe09:6597 with SMTP id
- y15-20020a19750f000000b0050efe096597mr1061774lfe.69.1706372428170; Sat, 27
- Jan 2024 08:20:28 -0800 (PST)
-MIME-Version: 1.0
-References: <20240127161753.114685-1-apatel@ventanamicro.com>
-In-Reply-To: <20240127161753.114685-1-apatel@ventanamicro.com>
+        bh=cOpM0IPmaKoQiKG4E1UR9MWNkLInTWJxdpL37ZRkBAk=;
+        b=FiBQzpWxnwbHAIhitG/gtbjD7jqxx0rK9NgqLpfOg6VzftfEiqm6gs8Y8zGEpVDTjQ
+         8tUZEKz+l7LCKBIxYmO/e5qc9Y0nf0lWQCCYNsiujbVtbPhsP/eMr5CRDpgiqh0IZpoc
+         b8fvoZ35tSXA9yz+CPSTV8KkUxnXhHoTg9wEjJ/NkJx7/g5CwoSOEnfDTjdAoAkktWkx
+         l1J0e5JBKhdwdwRRGlBn1ktvpkVHOlXhuDWx5W9XjVhrhrSOANcPIWqqSXjQqOJau9/v
+         Mze+I1zUgGa33OGsC7AQpu+l+T8Fmi7gh/ZYuQ8hL0+Vq83jqnIEXxAa6qNUALgYEGXT
+         f54A==
+X-Gm-Message-State: AOJu0YygrPHWX/GPPbc+zfZFij0kJ8AGrv0Ee2N11g64+j/QOKyjS+7y
+	G5Oh3Csi+EMZ70mA/nnyUbh0mNrdefAh/3tPTcXNSjLF+HW7XtIasadcGScsOB0=
+X-Google-Smtp-Source: AGHT+IGMOsKWaDJxDU2PLp8wzwJOEAxzKDvWqwPRoGN15DFx/yCpDzQnS7D2lwhZtQXOolyfs90zHA==
+X-Received: by 2002:a17:90a:6bc2:b0:28c:fa2a:bc75 with SMTP id w60-20020a17090a6bc200b0028cfa2abc75mr1222658pjj.88.1706372429685;
+        Sat, 27 Jan 2024 08:20:29 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([171.76.86.17])
+        by smtp.gmail.com with ESMTPSA id d11-20020a17090ac24b00b00290f8c708d0sm5091620pjx.57.2024.01.27.08.20.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 27 Jan 2024 08:20:28 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
-Date: Sat, 27 Jan 2024 21:50:15 +0530
-Message-ID: <CAK9=C2Vwtj2gZg-P73yLMxu0rPXQ3YrRRuxq6HcpHMXgs-jHaw@mail.gmail.com>
-Subject: Re: [PATCH v12 00/25] Linux RISC-V AIA Support
-To: Thomas Gleixner <tglx@linutronix.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: [PATCH v12 23/25] irqchip/riscv-aplic: Add support for MSI-mode
+Date: Sat, 27 Jan 2024 21:47:51 +0530
+Message-Id: <20240127161753.114685-24-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240127161753.114685-1-apatel@ventanamicro.com>
+References: <20240127161753.114685-1-apatel@ventanamicro.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240127_082031_372564_C2A37942 
-X-CRM114-Status: GOOD (  37.05  )
+X-CRM114-CacheID: sfid-20240127_082031_370459_E27B8E4B 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,201 +91,359 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Frank Rowand <frowand.list@gmail.com>, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVGhvbWFzLAoKT24gU2F0LCBKYW4gMjcsIDIwMjQgYXQgOTo0OOKAr1BNIEFudXAgUGF0ZWwg
-PGFwYXRlbEB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IFRoZSBSSVNDLVYgQUlBIHNwZWNp
-ZmljYXRpb24gaXMgcmF0aWZpZWQgYXMtcGVyIHRoZSBSSVNDLVYgaW50ZXJuYXRpb25hbAo+IHBy
-b2Nlc3MuIFRoZSBsYXRlc3QgcmF0aWZpZWQgQUlBIHNwZWNpZmNhdGlvbiBjYW4gYmUgZm91bmQg
-YXQ6Cj4gaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2L3Jpc2N2LWFpYS9yZWxlYXNlcy9kb3dubG9h
-ZC8xLjAvcmlzY3YtaW50ZXJydXB0cy0xLjAucGRmCj4KPiBBdCBhIGhpZ2gtbGV2ZWwsIHRoZSBB
-SUEgc3BlY2lmaWNhdGlvbiBhZGRzIHRocmVlIHRoaW5nczoKPiAxKSBBSUEgQ1NScwo+ICAgIC0g
-SW1wcm92ZWQgbG9jYWwgaW50ZXJydXB0IHN1cHBvcnQKPiAyKSBJbmNvbWluZyBNZXNzYWdlIFNp
-Z25hbGVkIEludGVycnVwdCBDb250cm9sbGVyIChJTVNJQykKPiAgICAtIFBlci1IQVJUIE1TSSBj
-b250cm9sbGVyCj4gICAgLSBTdXBwb3J0IE1TSSB2aXJ0dWFsaXphdGlvbgo+ICAgIC0gU3VwcG9y
-dCBJUEkgYWxvbmcgd2l0aCB2aXJ0dWFsaXphdGlvbgo+IDMpIEFkdmFuY2VkIFBsYXRmb3JtLUxl
-dmVsIEludGVycnVwdCBDb250cm9sbGVyIChBUExJQykKPiAgICAtIFdpcmVkIGludGVycnVwdCBj
-b250cm9sbGVyCj4gICAgLSBJbiBNU0ktbW9kZSwgY29udmVydHMgd2lyZWQgaW50ZXJydXB0IGlu
-dG8gTVNJcyAoaS5lLiBNU0kgZ2VuZXJhdG9yKQo+ICAgIC0gSW4gRGlyZWN0LW1vZGUsIGluamVj
-dHMgZXh0ZXJuYWwgaW50ZXJydXB0cyBkaXJlY3RseSBpbnRvIEhBUlRzCj4KPiBGb3IgYW4gb3Zl
-cnZpZXcgb2YgdGhlIEFJQSBzcGVjaWZpY2F0aW9uLCByZWZlciB0aGUgQUlBIHZpcnR1YWxpemF0
-aW9uCj4gdGFsayBhdCBLVk0gRm9ydW0gMjAyMjoKPiBodHRwczovL3N0YXRpYy5zY2hlZC5jb20v
-aG9zdGVkX2ZpbGVzL2t2bWZvcnVtMjAyMi9hMS9BSUFfVmlydHVhbGl6YXRpb25faW5fS1ZNX1JJ
-U0NWX2ZpbmFsLnBkZgo+IGh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9cjA3MWRMOFow
-eW8KPgo+IFRvIHRlc3QgdGhpcyBzZXJpZXMsIHVzZSBRRU1VIHY3LjIgKG9yIGhpZ2hlcikgYW5k
-IE9wZW5TQkkgdjEuMiAob3IgaGlnaGVyKS4KPgo+IFRoZXNlIHBhdGNoZXMgY2FuIGFsc28gYmUg
-Zm91bmQgaW4gdGhlIHJpc2N2X2FpYV92MTIgYnJhbmNoIGF0Ogo+IGh0dHBzOi8vZ2l0aHViLmNv
-bS9hdnBhdGVsL2xpbnV4LmdpdAo+Cj4gQ2hhbmdlcyBzaW5jZSB2MTE6Cj4gIC0gUmViYXNlZCBv
-biBMaW51eC02LjgtcmMxCj4gIC0gSW5jbHVkZWQga2VybmVsL2lycSByZWxhdGVkIHBhdGNoZXMg
-ZnJvbSAiZ2VuaXJxLCBpcnFjaGlwOiBDb252ZXJ0IEFSTQo+ICAgIE1TSSBoYW5kbGluZyB0byBw
-ZXIgZGV2aWNlIE1TSSBkb21haW5zIiBzZXJpZXMgYnkgVGhvbWFzLgo+ICAgIChQQVRDSDcsIFBB
-VENIOCwgUEFUQ0g5LCBQQVRDSDE0LCBQQVRDSDE2LCBQQVRDSDE3LCBQQVRDSDE4LCBQQVRDSDE5
-LAo+ICAgICBQQVRDSDIwLCBQQVRDSDIxLCBQQVRDSDIyLCBQQVRDSDIzLCBhbmQgUEFUQ0gzMiBv
-Zgo+ICAgICBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1hcm0ta2VybmVsLzIwMjIxMTIx
-MTM1NjUzLjIwODYxMTIzM0BsaW51dHJvbml4LmRlLykKPiAgLSBVcGRhdGVkIEFQTElDIE1TSS1t
-b2RlIGRyaXZlciB0byB1c2UgdGhlIG5ldyBXSVJFRF9UT19NU0kgbWVjaGFuaXNtLgo+ICAtIFVw
-ZGF0ZWQgSU1TSUMgZHJpdmVyIHRvIHN1cHBvcnQgcGVyLWRldmljZSBNU0kgZG9tYWlucyBmb3Ig
-UENJIGFuZAo+ICAgIHBsYXRmb3JtIGRldmljZXMuCj4KPiBDaGFuZ2VzIHNpbmNlIHYxMDoKPiAg
-LSBSZWJhc2VkIG9uIExpbnV4LTYuNi1yYzcKPiAgLSBEcm9wcGVkIFBBVENIMyBvZiB2MTAgc2Vy
-aWVzIHNpbmNlIHRoaXMgaGFzIGJlZW4gbWVyZ2VkIGJ5IE1hcmNaCj4gICAgZm9yIExpbnV4LTYu
-Ni1yYzcKPiAgLSBDaGFuZ2VkIHRoZSBJTVNJQyBJRCBtYW5hZ2VtZW50IHN0cmF0ZWd5IGZyb20g
-MS1uIGFwcHJvYWNoIHRvCj4gICAgeDg2LXN0eWxlIDEtMSBhcHByb2FjaAo+Cj4gQ2hhbmdlcyBz
-aW5jZSB2OToKPiAgLSBSZWJhc2VkIG9uIExpbnV4LTYuNi1yYzQKPiAgLSBVc2UgYnVpbHRpbl9w
-bGF0Zm9ybV9kcml2ZXIoKSBpbiBQQVRDSDUsIFBBVENIOSwgYW5kIFBBVENIMTIKPgo+IENoYW5n
-ZXMgc2luY2Ugdjg6Cj4gIC0gUmViYXNlZCBvbiBMaW51eC02LjYtcmMzCj4gIC0gRHJvcHBlZCBQ
-QVRDSDIgb2Ygdjggc2VyaWVzIHNpbmNlIHdlIHdvbid0IGJlIHJlcXVpcmluZwo+ICAgIHJpc2N2
-X2dldF9pbnRjX2hhcnRpZCgpIGJhc2VkIG9uIE1hcmMgWidzIGNvbW1lbnRzIG9uIEFDUEkgQUlB
-IHN1cHBvcnQuCj4gIC0gQWRkcmVzc2VkIFNhcmF2YW5hJ3MgY29tbWVudHMgaW4gUEFUQ0gzIG9m
-IHY4IHNlcmllcwo+ICAtIFVwZGF0ZSBQQVRDSDkgYW5kIFBBVENIMTMgb2Ygdjggc2VyaWVzIGJh
-c2VkIG9uIGNvbW1lbnRzIGZyb20gU3VuaWwKPgo+IENoYW5nZXMgc2luY2Ugdjc6Cj4gIC0gUmVi
-YXNlZCBvbiBMaW51eC02LjYtcmMxCj4gIC0gQWRkcmVzc2VkIGNvbW1lbnRzIG9uIFBBVENIMSBv
-ZiB2NyBzZXJpZXMgYW5kIHNwbGl0IGl0IGludG8gdHdvIFBBVENIZXMKPiAgLSBVc2UgREVGSU5F
-X1NJTVBMRV9QUk9QKCkgaW4gUEFUQ0gyIG9mIHY3IHNlcmllcwo+Cj4gQ2hhbmdlcyBzaW5jZSB2
-NjoKPiAgLSBSZWJhc2VkIG9uIExpbnV4LTYuNS1yYzQKPiAgLSBVcGRhdGVkIFBBVENIMiB0byB1
-c2UgSVNfRU5BQkxFRChDT05GSUdfU1BBUkMpIGluc3RlYWQgb2YKPiAgICAhSVNfRU5BQkxFRChD
-T05GSUdfT0ZfSVJRKQo+ICAtIEFkZGVkIG5ldyBQQVRDSDQgdG8gZml4IHN5c2NvcmUgcmVnaXN0
-cmF0aW9uIGluIFBMSUMgZHJpdmVyCj4gIC0gVXBkYXRlIFBBVENINSB0byBjb252ZXJ0IFBMSUMg
-ZHJpdmVyIGludG8gZnVsbC1ibG93biBwbGF0Zm9ybSBkcml2ZXIKPiAgICB3aXRoIGEgcmUtd3Jp
-dHRlbiBwcm9iZSBmdW5jdGlvbi4KPgo+IENoYW5nZXMgc2luY2UgdjU6Cj4gIC0gUmViYXNlZCBv
-biBMaW51eC02LjUtcmMyCj4gIC0gVXBkYXRlZCB0aGUgb3ZlcmFsbCBzZXJpZXMgdG8gZW5zdXJl
-IHRoYXQgb25seSBJUEksIHRpbWVyLCBhbmQKPiAgICBJTlRDIGRyaXZlcnMgYXJlIHByb2JlZCB2
-ZXJ5IGVhcmx5IHdoZXJlYXMgcmVzdCBvZiB0aGUgaW50ZXJydXB0Cj4gICAgY29udHJvbGxlcnMg
-KHN1Y2ggYXMgUExJQywgQVBMSUMsIGFuZCBJTUlTQykgYXJlIHByb2JlZCBhcwo+ICAgIHJlZ3Vs
-YXIgcGxhdGZvcm0gZHJpdmVycy4KPiAgLSBSZW5hbWVkIHJpc2N2X2Z3X3BhcmVudF9oYXJ0aWQo
-KSB0byByaXNjdl9nZXRfaW50Y19oYXJ0aWQoKQo+ICAtIE5ldyBQQVRDSDEgdG8gYWRkIGZ3X2Rl
-dmxpbmsgc3VwcG9ydCBmb3IgbXNpLXBhcmVudCBEVCBwcm9wZXJ0eQo+ICAtIE5ldyBQQVRDSDIg
-dG8gZW5zdXJlIGFsbCBJTlRDIHN1cHBsaWVycyBhcmUgaW5pdGlhbGl6ZWQgd2hpY2ggaW4tdHVy
-bgo+ICAgIGZpeGVzIHRoZSBwcm9iaW5nIGlzc3VlIGZvciBQTElDLCBBUExJQyBhbmQgSU1TSUMg
-YXMgcGxhdGZvcm0gZHJpdmVyCj4gIC0gTmV3IFBBVENIMyB0byB1c2UgcGxhdGZvcm0gZHJpdmVy
-IHByb2JpbmcgZm9yIFBMSUMKPiAgLSBSZS1zdHJ1Y3R1cmVkIHRoZSBJTVNJQyBkcml2ZXIgaW50
-byB0d28gc2VwYXJhdGUgZHJpdmVyczogZWFybHkgYW5kCj4gICAgcGxhdGZvcm0uIFRoZSBJTVNJ
-QyBlYXJseSBkcml2ZXIgKFBBVENINykgb25seSBpbml0aWFsaXplZCBJTVNJQyBzdGF0ZQo+ICAg
-IGFuZCBwcm92aWRlcyBJUElzIHdoZXJlYXMgdGhlIElNU0lDIHBsYXRmb3JtIGRyaXZlciAoUEFU
-Q0g4KSBpcyBwcm9iZWQKPiAgICBwcm92aWRlcyBNU0kgZG9tYWluIGZvciBwbGF0Zm9ybSBkZXZp
-Y2VzLgo+ICAtIFJlLXN0cnVjdHVyZSB0aGUgQVBMSUMgcGxhdGZvcm0gZHJpdmVyIGludG8gdGhy
-ZWUgc2VwYXJlIHNvdXJjZXM6IG1haW4sCj4gICAgZGlyZWN0IG1vZGUsIGFuZCBNU0kgbW9kZS4K
-Pgo+IENoYW5nZXMgc2luY2UgdjQ6Cj4gIC0gUmViYXNlZCBvbiBMaW51eC02LjUtcmMxCj4gIC0g
-QWRkZWQgIkRlcGVuZGVuY2llcyIgaW4gdGhlIEFQTElDIGJpbmRpbmdzIChQQVRDSDYgaW4gdjQp
-Cj4gIC0gRHJvcHBlZCB0aGUgUEFUQ0g2IHdoaWNoIHdhcyBjaGFuZ2luZyB0aGUgSU9NTVUgRE1B
-IGRvbWFpbiBBUElzCj4gIC0gRHJvcHBlZCB1c2Ugb2YgSU9NTVUgRE1BIEFQSXMgaW4gdGhlIElN
-U0lDIGRyaXZlciAoUEFUQ0g0KQo+Cj4gQ2hhbmdlcyBzaW5jZSB2MzoKPiAgLSBSZWJhc2VkIG9u
-IExpbnV4LTYuNC1yYzYKPiAgLSBEcm9wZWQgUEFUQ0gyIG9mIHYzIHNlcmllcyBpbnN0ZWFkIHdl
-IG5vdyBzZXQgRldOT0RFX0ZMQUdfQkVTVF9FRkZPUlQgdmlhCj4gICAgSVJRQ0hJUF9ERUNMQVJF
-KCkKPiAgLSBFeHRlbmQgcmlzY3ZfZndfcGFyZW50X2hhcnRpZCgpIHRvIHN1cHBvcnQgYm90aCBE
-VCBhbmQgQUNQSSBpbiBQQVRDSDEKPiAgLSBFeHRlbmQgaW9tbXVfZG1hX2NvbXBvc2VfbXNpX21z
-ZygpIGluc3RlYWQgb2YgYWRkaW5nIGlvbW11X2RtYV9zZWxlY3RfbXNpKCkKPiAgICBpbiBQQVRD
-SDYKPiAgLSBBZGRyZXNzZWQgQ29ub3IncyBjb21tZW50cyBpbiBQQVRDSDMKPiAgLSBBZGRyZXNz
-ZWQgQ29ub3IncyBhbmQgUm9iJ3MgY29tbWVudHMgaW4gUEFUQ0g3Cj4KPiBDaGFuZ2VzIHNpbmNl
-IHYyOgo+ICAtIFJlYmFzZWQgb24gTGludXgtNi40LXJjMQo+ICAtIEFkZHJlc3NlZCBSb2IncyBj
-b21tZW50cyBvbiBEVCBiaW5kaW5ncyBwYXRjaGVzIDQgYW5kIDguCj4gIC0gQWRkZXNzZWQgTWFy
-YydzIGNvbW1lbnRzIG9uIElNU0lDIGRyaXZlciBQQVRDSDUKPiAgLSBSZXBsYWNlZCB1c2Ugb2Yg
-T0YgYXBpcyBpbiBBUExJQyBhbmQgSU1TSUMgZHJpdmVycyB3aXRoIEZXTk9ERSBhcGlzCj4gICAg
-dGhpcyBtYWtlcyBib3RoIGRyaXZlcnMgZWFzaWx5IHBvcnRhYmxlIGZvciBBQ1BJIHN1cHBvcnQu
-IFRoaXMgYWxzbwo+ICAgIHJlbW92ZXMgdW5uZWNlc3NhcnkgaW5kaXJlY3Rpb24gZnJvbSB0aGUg
-QVBMSUMgYW5kIElNU0lDIGRyaXZlcnMuCj4gIC0gUEFUQ0gxIGlzIGEgbmV3IHBhdGNoIGZvciBw
-b3J0YWJpbGl0eSB3aXRoIEFDUEkgc3VwcG9ydAo+ICAtIFBBVENIMiBpcyBhIG5ldyBwYXRjaCB0
-byBmaXggcHJvYmluZyBpbiBBUExJQyBkcml2ZXJzIGZvciBBUExJQy1vbmx5IHN5c3RlbXMuCj4g
-IC0gUEFUQ0g3IGlzIGEgbmV3IHBhdGNoIHdoaWNoIGFkZHJlc3NlcyB0aGUgSU9NTVUgRE1BIGRv
-bWFpbiBpc3N1ZXMgcG9pbnRlZAo+ICAgIG91dCBieSBTaUZpdmUKPgo+IENoYW5nZXMgc2luY2Ug
-djE6Cj4gIC0gUmViYXNlZCBvbiBMaW51eC02LjItcmMyCj4gIC0gQWRkcmVzc2VkIGNvbW1lbnRz
-IG9uIElNU0lDIERUIGJpbmRpbmdzIGZvciBQQVRDSDQKPiAgLSBVc2UgcmF3X3NwaW5fbG9ja19p
-cnFzYXZlKCkgb24gaWRzX2xvY2sgZm9yIFBBVENINQo+ICAtIEltcHJvdmVkIE1NSU8gYWxpZ25t
-ZW50IGNoZWNrcyBpbiBQQVRDSDUgdG8gYWxsb3cgTU1JTyByZWdpb25zCj4gICAgd2l0aCBob2xl
-cy4KPiAgLSBBZGRyZXNzZWQgY29tbWVudHMgb24gQVBMSUMgRFQgYmluZGluZ3MgZm9yIFBBVENI
-Ngo+ICAtIEZpeGVkIHdhcm5pbmcgc3BsYXQgaW4gYXBsaWNfbXNpX3dyaXRlX21zZygpIGNhdXNl
-ZCBieQo+ICAgIHplcm9lZCBNU0kgbWVzc2FnZSBpbiBQQVRDSDcKPiAgLSBEcm9wcGVkIERUIHBy
-b3BlcnR5IHJpc2N2LHNsb3ctaXBpIGluc3RlYWQgd2lsbCBoYXZlIG1vZHVsZQo+ICAgIHBhcmFt
-ZXRlciBpbiBmdXR1cmUuCj4KPiBBbnVwIFBhdGVsICgxMSk6Cj4gICBpcnFjaGlwL3NpZml2ZS1w
-bGljOiBDb252ZXJ0IFBMSUMgZHJpdmVyIGludG8gYSBwbGF0Zm9ybSBkcml2ZXIKPiAgIGlycWNo
-aXAvcmlzY3YtaW50YzogQWRkIHN1cHBvcnQgZm9yIFJJU0MtViBBSUEKPiAgIGR0LWJpbmRpbmdz
-OiBpbnRlcnJ1cHQtY29udHJvbGxlcjogQWRkIFJJU0MtViBpbmNvbWluZyBNU0kgY29udHJvbGxl
-cgo+ICAgaXJxY2hpcDogQWRkIFJJU0MtViBpbmNvbWluZyBNU0kgY29udHJvbGxlciBlYXJseSBk
-cml2ZXIKPiAgIGlycWNoaXAvcmlzY3YtaW1zaWM6IEFkZCBkZXZpY2UgTVNJIGRvbWFpbiBzdXBw
-b3J0IGZvciBwbGF0Zm9ybQo+ICAgICBkZXZpY2VzCj4gICBpcnFjaGlwL3Jpc2N2LWltc2ljOiBB
-ZGQgZGV2aWNlIE1TSSBkb21haW4gc3VwcG9ydCBmb3IgUENJIGRldmljZXMKPiAgIGR0LWJpbmRp
-bmdzOiBpbnRlcnJ1cHQtY29udHJvbGxlcjogQWRkIFJJU0MtViBhZHZhbmNlZCBQTElDCj4gICBp
-cnFjaGlwOiBBZGQgUklTQy1WIGFkdmFuY2VkIFBMSUMgZHJpdmVyIGZvciBkaXJlY3QtbW9kZQo+
-ICAgaXJxY2hpcC9yaXNjdi1hcGxpYzogQWRkIHN1cHBvcnQgZm9yIE1TSS1tb2RlCj4gICBSSVND
-LVY6IFNlbGVjdCBBUExJQyBhbmQgSU1TSUMgZHJpdmVycwo+ICAgTUFJTlRBSU5FUlM6IEFkZCBl
-bnRyeSBmb3IgUklTQy1WIEFJQSBkcml2ZXJzCj4KPiBCasO2cm4gVMO2cGVsICgxKToKPiAgIGdl
-bmlycS9tYXRyaXg6IER5bmFtaWMgYml0bWFwIGFsbG9jYXRpb24KPgo+IFRob21hcyBHbGVpeG5l
-ciAoMTMpOgo+ICAgaXJxY2hpcC9naWMtdjM6IE1ha2UgZ2ljX2lycV9kb21haW5fc2VsZWN0KCkg
-cm9idXN0IGZvciB6ZXJvIHBhcmFtZXRlcgo+ICAgICBjb3VudAo+ICAgZ2VuaXJxL2lycWRvbWFp
-bjogUmVtb3ZlIHRoZSBwYXJhbSBjb3VudCByZXN0cmljdGlvbiBmcm9tIHNlbGVjdCgpCj4gICBn
-ZW5pcnEvbXNpOiBFeHRlbmQgbXNpX3BhcmVudF9vcHMKPiAgIGdlbmlycS9pcnFkb21haW46IEFk
-ZCBET01BSU5fQlVTX0RFVklDRV9JTVMKPiAgIHBsYXRmb3JtLW1zaTogUHJlcGFyZSBmb3IgcmVh
-bCBwZXIgZGV2aWNlIGRvbWFpbnMKPiAgIGlycWNoaXA6IENvbnZlcnQgYWxsIHBsYXRmb3JtIE1T
-SSB1c2VycyB0byB0aGUgbmV3IEFQSQo+ICAgZ2VuaXJxL21zaTogUHJvdmlkZSBvcHRpb25hbCB0
-cmFuc2xhdGlvbiBvcAo+ICAgZ2VuaXJxL21zaTogU3BsaXQgbXNpX2RvbWFpbl9hbGxvY19pcnFf
-YXQoKQo+ICAgZ2VuaXJxL21zaTogUHJvdmlkZSBET01BSU5fQlVTX1dJUkVEX1RPX01TSQo+ICAg
-Z2VuaXJxL21zaTogT3B0aW9uYWxseSB1c2UgZGV2LT5md25vZGUgZm9yIGRldmljZSBkb21haW4K
-PiAgIGdlbmlycS9tc2k6IFByb3ZpZGUgYWxsb2NhdGlvbi9mcmVlIGZ1bmN0aW9ucyBmb3IgIndp
-cmVkIiBNU0kKPiAgICAgaW50ZXJydXB0cwo+ICAgZ2VuaXJxL2lycWRvbWFpbjogUmVyb3V0ZSBk
-ZXZpY2UgTVNJIGNyZWF0ZV9tYXBwaW5nCj4gICBnZW5pcnEvbXNpOiBQcm92aWRlIE1TSV9GTEFH
-X1BBUkVOVF9QTV9ERVYKCkkgaGF2ZSByZWJhc2VkIGFuZCBpbmNsdWRlZCAxMyBwYXRjaGVzICh3
-aGljaCBhZGQgcGVyLWRldmljZSBNU0kgZG9tYWluCmluZnJhc3RydWN0dXJlKSBmcm9tIHlvdXIg
-c2VyaWVzIFsxXS4gSW4gdGhpcyBzZXJpZXMsIHRoZSBJTVNJQyBkcml2ZXIKaW1wbGVtZW50cyB0
-aGUgbXNpX3BhcmVudF9vcHMgYW5kIEFQTElDIGRyaXZlciBpbXBsZW1lbnRzIHdpcmVkLXRvLW1z
-aQpicmlkZ2UgdXNpbmcgeW91ciBuZXcgaW5mcmFzdHJ1Y3R1cmUuCgpUaGUgcmVtYWluaW5nIDI3
-IHBhdGNoZXMgb2YgeW91ciBzZXJpZXMgWzFdIHJlcXVpcmVzIHRlc3Rpbmcgb24gQVJNCnBsYXRm
-b3JtcyB3aGljaCBJIGRvbid0IGhhdmUuIEkgc3VnZ2VzdCB0aGVzZSByZW1haW5pbmcgcGF0Y2hl
-cyB0bwpnbyBhcyBzZXBhcmF0ZSBzZXJpZXMuCgpJIGhvcGUgeW91IGFyZSBva2F5IHdpdGggdGhp
-cyBhcHByb2FjaC4KCkJlc3QgUmVnYXJkcywKQW51cAoKWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwu
-b3JnL2xpbnV4LWFybS1rZXJuZWwvMjAyMjExMjExMzU2NTMuMjA4NjExMjMzQGxpbnV0cm9uaXgu
-ZGUvCgoKPgo+ICAuLi4vaW50ZXJydXB0LWNvbnRyb2xsZXIvcmlzY3YsYXBsaWMueWFtbCAgICAg
-fCAxNzIgKysrKwo+ICAuLi4vaW50ZXJydXB0LWNvbnRyb2xsZXIvcmlzY3YsaW1zaWNzLnlhbWwg
-ICAgfCAxNzIgKysrKwo+ICBNQUlOVEFJTkVSUyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgfCAgMTQgKwo+ICBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgfCAgIDIgKwo+ICBhcmNoL3g4Ni9pbmNsdWRlL2FzbS9od19pcnEuaCAgICAgICAgICAg
-ICAgICAgfCAgIDIgLQo+ICBkcml2ZXJzL2Jhc2UvcGxhdGZvcm0tbXNpLmMgICAgICAgICAgICAg
-ICAgICAgfCAgOTcgKysKPiAgZHJpdmVycy9kbWEvbXZfeG9yX3YyLmMgICAgICAgICAgICAgICAg
-ICAgICAgIHwgICA4ICstCj4gIGRyaXZlcnMvZG1hL3Fjb20vaGlkbWEuYyAgICAgICAgICAgICAg
-ICAgICAgICB8ICAgNiArLQo+ICBkcml2ZXJzL2lvbW11L2FybS9hcm0tc21tdS12My9hcm0tc21t
-dS12My5jICAgfCAgIDUgKy0KPiAgZHJpdmVycy9pcnFjaGlwL0tjb25maWcgICAgICAgICAgICAg
-ICAgICAgICAgIHwgIDI1ICsKPiAgZHJpdmVycy9pcnFjaGlwL01ha2VmaWxlICAgICAgICAgICAg
-ICAgICAgICAgIHwgICAzICsKPiAgZHJpdmVycy9pcnFjaGlwL2lycS1naWMtdjMuYyAgICAgICAg
-ICAgICAgICAgIHwgICA2ICstCj4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBsaWMtZGly
-ZWN0LmMgICAgICB8IDM0MyArKysrKysrCj4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBs
-aWMtbWFpbi5jICAgICAgICB8IDIzMiArKysrKwo+ICBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2
-LWFwbGljLW1haW4uaCAgICAgICAgfCAgNTMgKysKPiAgZHJpdmVycy9pcnFjaGlwL2lycS1yaXNj
-di1hcGxpYy1tc2kuYyAgICAgICAgIHwgMjU2ICsrKysrCj4gIGRyaXZlcnMvaXJxY2hpcC9pcnEt
-cmlzY3YtaW1zaWMtZWFybHkuYyAgICAgICB8IDI0MSArKysrKwo+ICBkcml2ZXJzL2lycWNoaXAv
-aXJxLXJpc2N2LWltc2ljLXBsYXRmb3JtLmMgICAgfCA0MDMgKysrKysrKysKPiAgZHJpdmVycy9p
-cnFjaGlwL2lycS1yaXNjdi1pbXNpYy1zdGF0ZS5jICAgICAgIHwgODg3ICsrKysrKysrKysrKysr
-KysrKwo+ICBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLXN0YXRlLmggICAgICAgfCAx
-MDUgKysrCj4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50Yy5jICAgICAgICAgICAgICB8
-ICAzNCArLQo+ICBkcml2ZXJzL2lycWNoaXAvaXJxLXNpZml2ZS1wbGljLmMgICAgICAgICAgICAg
-fCAyMzkgKysrLS0KPiAgZHJpdmVycy9tYWlsYm94L2JjbS1mbGV4cm0tbWFpbGJveC5jICAgICAg
-ICAgIHwgICA4ICstCj4gIGRyaXZlcnMvcGVyZi9hcm1fc21tdXYzX3BtdS5jICAgICAgICAgICAg
-ICAgICB8ICAgNCArLQo+ICBkcml2ZXJzL3Vmcy9ob3N0L3Vmcy1xY29tLmMgICAgICAgICAgICAg
-ICAgICAgfCAgIDggKy0KPiAgaW5jbHVkZS9saW51eC9pcnFjaGlwL3Jpc2N2LWFwbGljLmggICAg
-ICAgICAgIHwgMTE5ICsrKwo+ICBpbmNsdWRlL2xpbnV4L2lycWNoaXAvcmlzY3YtaW1zaWMuaCAg
-ICAgICAgICAgfCAgODcgKysKPiAgaW5jbHVkZS9saW51eC9pcnFkb21haW4uaCAgICAgICAgICAg
-ICAgICAgICAgIHwgIDE3ICsKPiAgaW5jbHVkZS9saW51eC9pcnFkb21haW5fZGVmcy5oICAgICAg
-ICAgICAgICAgIHwgICAyICsKPiAgaW5jbHVkZS9saW51eC9tc2kuaCAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIHwgIDIxICsKPiAga2VybmVsL2lycS9pcnFkb21haW4uYyAgICAgICAgICAgICAg
-ICAgICAgICAgIHwgIDI4ICstCj4gIGtlcm5lbC9pcnEvbWF0cml4LmMgICAgICAgICAgICAgICAg
-ICAgICAgICAgICB8ICAyOCArLQo+ICBrZXJuZWwvaXJxL21zaS5jICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgfCAxODQgKysrLQo+ICAzMyBmaWxlcyBjaGFuZ2VkLCAzNjM2IGluc2VydGlv
-bnMoKyksIDE3NSBkZWxldGlvbnMoLSkKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRp
-b24vZGV2aWNldHJlZS9iaW5kaW5ncy9pbnRlcnJ1cHQtY29udHJvbGxlci9yaXNjdixhcGxpYy55
-YW1sCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGlu
-Z3MvaW50ZXJydXB0LWNvbnRyb2xsZXIvcmlzY3YsaW1zaWNzLnlhbWwKPiAgY3JlYXRlIG1vZGUg
-MTAwNjQ0IGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBsaWMtZGlyZWN0LmMKPiAgY3JlYXRl
-IG1vZGUgMTAwNjQ0IGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBsaWMtbWFpbi5jCj4gIGNy
-ZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1haW4uaAo+
-ICBjcmVhdGUgbW9kZSAxMDA2NDQgZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tc2ku
-Ywo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1l
-YXJseS5jCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWlt
-c2ljLXBsYXRmb3JtLmMKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvaXJxY2hpcC9pcnEt
-cmlzY3YtaW1zaWMtc3RhdGUuYwo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgZHJpdmVycy9pcnFjaGlw
-L2lycS1yaXNjdi1pbXNpYy1zdGF0ZS5oCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBpbmNsdWRlL2xp
-bnV4L2lycWNoaXAvcmlzY3YtYXBsaWMuaAo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgaW5jbHVkZS9s
-aW51eC9pcnFjaGlwL3Jpc2N2LWltc2ljLmgKPgo+IC0tCj4gMi4zNC4xCj4KCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The RISC-V advanced platform-level interrupt controller (APLIC) has
+two modes of operation: 1) Direct mode and 2) MSI mode.
+(For more details, refer https://github.com/riscv/riscv-aia)
+
+In APLIC MSI-mode, wired interrupts are forwared as message signaled
+interrupts (MSIs) to CPUs via IMSIC.
+
+We extend the existing APLIC irqchip driver to support MSI-mode for
+RISC-V platforms having both wired interrupts and MSIs.
+
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ drivers/irqchip/Kconfig                |   6 +
+ drivers/irqchip/Makefile               |   1 +
+ drivers/irqchip/irq-riscv-aplic-main.c |   2 +-
+ drivers/irqchip/irq-riscv-aplic-main.h |   8 +
+ drivers/irqchip/irq-riscv-aplic-msi.c  | 256 +++++++++++++++++++++++++
+ 5 files changed, 272 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/irqchip/irq-riscv-aplic-msi.c
+
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index dbc8811d3764..806b5fccb3e8 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -551,6 +551,12 @@ config RISCV_APLIC
+ 	depends on RISCV
+ 	select IRQ_DOMAIN_HIERARCHY
+ 
++config RISCV_APLIC_MSI
++	bool
++	depends on RISCV_APLIC
++	select GENERIC_MSI_IRQ
++	default RISCV_APLIC
++
+ config RISCV_IMSIC
+ 	bool
+ 	depends on RISCV
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index 7f8289790ed8..47995fdb2c60 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -96,6 +96,7 @@ obj-$(CONFIG_CSKY_MPINTC)		+= irq-csky-mpintc.o
+ obj-$(CONFIG_CSKY_APB_INTC)		+= irq-csky-apb-intc.o
+ obj-$(CONFIG_RISCV_INTC)		+= irq-riscv-intc.o
+ obj-$(CONFIG_RISCV_APLIC)		+= irq-riscv-aplic-main.o irq-riscv-aplic-direct.o
++obj-$(CONFIG_RISCV_APLIC_MSI)		+= irq-riscv-aplic-msi.o
+ obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o irq-riscv-imsic-platform.o
+ obj-$(CONFIG_SIFIVE_PLIC)		+= irq-sifive-plic.o
+ obj-$(CONFIG_IMX_IRQSTEER)		+= irq-imx-irqsteer.o
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+index 87450708a733..d1b342b66551 100644
+--- a/drivers/irqchip/irq-riscv-aplic-main.c
++++ b/drivers/irqchip/irq-riscv-aplic-main.c
+@@ -205,7 +205,7 @@ static int aplic_probe(struct platform_device *pdev)
+ 		msi_mode = of_property_present(to_of_node(dev->fwnode),
+ 						"msi-parent");
+ 	if (msi_mode)
+-		rc = -ENODEV;
++		rc = aplic_msi_setup(dev, regs);
+ 	else
+ 		rc = aplic_direct_setup(dev, regs);
+ 	if (rc) {
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.h b/drivers/irqchip/irq-riscv-aplic-main.h
+index 474a04229334..78267ec58098 100644
+--- a/drivers/irqchip/irq-riscv-aplic-main.h
++++ b/drivers/irqchip/irq-riscv-aplic-main.h
+@@ -41,5 +41,13 @@ void aplic_init_hw_global(struct aplic_priv *priv, bool msi_mode);
+ int aplic_setup_priv(struct aplic_priv *priv, struct device *dev,
+ 		     void __iomem *regs);
+ int aplic_direct_setup(struct device *dev, void __iomem *regs);
++#ifdef CONFIG_RISCV_APLIC_MSI
++int aplic_msi_setup(struct device *dev, void __iomem *regs);
++#else
++static inline int aplic_msi_setup(struct device *dev, void __iomem *regs)
++{
++	return -ENODEV;
++}
++#endif
+ 
+ #endif
+diff --git a/drivers/irqchip/irq-riscv-aplic-msi.c b/drivers/irqchip/irq-riscv-aplic-msi.c
+new file mode 100644
+index 000000000000..8d7d1b3d1247
+--- /dev/null
++++ b/drivers/irqchip/irq-riscv-aplic-msi.c
+@@ -0,0 +1,256 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
++ * Copyright (C) 2022 Ventana Micro Systems Inc.
++ */
++
++#include <linux/bitops.h>
++#include <linux/cpu.h>
++#include <linux/interrupt.h>
++#include <linux/irqchip.h>
++#include <linux/irqchip/riscv-aplic.h>
++#include <linux/irqchip/riscv-imsic.h>
++#include <linux/module.h>
++#include <linux/msi.h>
++#include <linux/of_irq.h>
++#include <linux/platform_device.h>
++#include <linux/printk.h>
++#include <linux/smp.h>
++
++#include "irq-riscv-aplic-main.h"
++
++static void aplic_msi_irq_unmask(struct irq_data *d)
++{
++	aplic_irq_unmask(d);
++	irq_chip_unmask_parent(d);
++}
++
++static void aplic_msi_irq_mask(struct irq_data *d)
++{
++	aplic_irq_mask(d);
++	irq_chip_mask_parent(d);
++}
++
++static void aplic_msi_irq_eoi(struct irq_data *d)
++{
++	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
++	u32 reg_off, reg_mask;
++
++	/*
++	 * EOI handling only required only for level-triggered
++	 * interrupts in APLIC MSI mode.
++	 */
++
++	reg_off = APLIC_CLRIP_BASE + ((d->hwirq / APLIC_IRQBITS_PER_REG) * 4);
++	reg_mask = BIT(d->hwirq % APLIC_IRQBITS_PER_REG);
++	switch (irqd_get_trigger_type(d)) {
++	case IRQ_TYPE_LEVEL_LOW:
++		if (!(readl(priv->regs + reg_off) & reg_mask))
++			writel(d->hwirq, priv->regs + APLIC_SETIPNUM_LE);
++		break;
++	case IRQ_TYPE_LEVEL_HIGH:
++		if (readl(priv->regs + reg_off) & reg_mask)
++			writel(d->hwirq, priv->regs + APLIC_SETIPNUM_LE);
++		break;
++	}
++}
++
++static void aplic_msi_write_msg(struct irq_data *d, struct msi_msg *msg)
++{
++	unsigned int group_index, hart_index, guest_index, val;
++	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
++	struct aplic_msicfg *mc = &priv->msicfg;
++	phys_addr_t tppn, tbppn, msg_addr;
++	void __iomem *target;
++
++	/* For zeroed MSI, simply write zero into the target register */
++	if (!msg->address_hi && !msg->address_lo && !msg->data) {
++		target = priv->regs + APLIC_TARGET_BASE;
++		target += (d->hwirq - 1) * sizeof(u32);
++		writel(0, target);
++		return;
++	}
++
++	/* Sanity check on message data */
++	WARN_ON(msg->data > APLIC_TARGET_EIID_MASK);
++
++	/* Compute target MSI address */
++	msg_addr = (((u64)msg->address_hi) << 32) | msg->address_lo;
++	tppn = msg_addr >> APLIC_xMSICFGADDR_PPN_SHIFT;
++
++	/* Compute target HART Base PPN */
++	tbppn = tppn;
++	tbppn &= ~APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
++	tbppn &= ~APLIC_xMSICFGADDR_PPN_LHX(mc->lhxw, mc->lhxs);
++	tbppn &= ~APLIC_xMSICFGADDR_PPN_HHX(mc->hhxw, mc->hhxs);
++	WARN_ON(tbppn != mc->base_ppn);
++
++	/* Compute target group and hart indexes */
++	group_index = (tppn >> APLIC_xMSICFGADDR_PPN_HHX_SHIFT(mc->hhxs)) &
++		     APLIC_xMSICFGADDR_PPN_HHX_MASK(mc->hhxw);
++	hart_index = (tppn >> APLIC_xMSICFGADDR_PPN_LHX_SHIFT(mc->lhxs)) &
++		     APLIC_xMSICFGADDR_PPN_LHX_MASK(mc->lhxw);
++	hart_index |= (group_index << mc->lhxw);
++	WARN_ON(hart_index > APLIC_TARGET_HART_IDX_MASK);
++
++	/* Compute target guest index */
++	guest_index = tppn & APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
++	WARN_ON(guest_index > APLIC_TARGET_GUEST_IDX_MASK);
++
++	/* Update IRQ TARGET register */
++	target = priv->regs + APLIC_TARGET_BASE;
++	target += (d->hwirq - 1) * sizeof(u32);
++	val = (hart_index & APLIC_TARGET_HART_IDX_MASK)
++				<< APLIC_TARGET_HART_IDX_SHIFT;
++	val |= (guest_index & APLIC_TARGET_GUEST_IDX_MASK)
++				<< APLIC_TARGET_GUEST_IDX_SHIFT;
++	val |= (msg->data & APLIC_TARGET_EIID_MASK);
++	writel(val, target);
++}
++
++static void aplic_msi_set_desc(msi_alloc_info_t *arg, struct msi_desc *desc)
++{
++	arg->desc = desc;
++	arg->hwirq = (u32)desc->data.icookie.value;
++}
++
++static int aplic_msi_translate(struct irq_domain *d, struct irq_fwspec *fwspec,
++			       unsigned long *hwirq, unsigned int *type)
++{
++	struct msi_domain_info *info = d->host_data;
++	struct aplic_priv *priv = info->data;
++
++	return aplic_irqdomain_translate(fwspec, priv->gsi_base, hwirq, type);
++}
++
++static const struct msi_domain_template aplic_msi_template = {
++	.chip = {
++		.name			= "APLIC-MSI",
++		.irq_mask		= aplic_msi_irq_mask,
++		.irq_unmask		= aplic_msi_irq_unmask,
++		.irq_set_type		= aplic_irq_set_type,
++		.irq_eoi		= aplic_msi_irq_eoi,
++#ifdef CONFIG_SMP
++		.irq_set_affinity	= irq_chip_set_affinity_parent,
++#endif
++		.irq_write_msi_msg	= aplic_msi_write_msg,
++		.flags			= IRQCHIP_SET_TYPE_MASKED |
++					  IRQCHIP_SKIP_SET_WAKE |
++					  IRQCHIP_MASK_ON_SUSPEND,
++	},
++
++	.ops = {
++		.set_desc		= aplic_msi_set_desc,
++		.msi_translate		= aplic_msi_translate,
++	},
++
++	.info = {
++		.bus_token		= DOMAIN_BUS_WIRED_TO_MSI,
++		.flags			= MSI_FLAG_USE_DEV_FWNODE,
++		.handler		= handle_fasteoi_irq,
++	},
++};
++
++int aplic_msi_setup(struct device *dev, void __iomem *regs)
++{
++	const struct imsic_global_config *imsic_global;
++	struct aplic_priv *priv;
++	struct aplic_msicfg *mc;
++	phys_addr_t pa;
++	int rc;
++
++	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	rc = aplic_setup_priv(priv, dev, regs);
++	if (rc) {
++		dev_err(dev, "failed to create APLIC context\n");
++		return rc;
++	}
++	mc = &priv->msicfg;
++
++	/*
++	 * The APLIC outgoing MSI config registers assume target MSI
++	 * controller to be RISC-V AIA IMSIC controller.
++	 */
++	imsic_global = imsic_get_global_config();
++	if (!imsic_global) {
++		dev_err(dev, "IMSIC global config not found\n");
++		return -ENODEV;
++	}
++
++	/* Find number of guest index bits (LHXS) */
++	mc->lhxs = imsic_global->guest_index_bits;
++	if (APLIC_xMSICFGADDRH_LHXS_MASK < mc->lhxs) {
++		dev_err(dev, "IMSIC guest index bits big for APLIC LHXS\n");
++		return -EINVAL;
++	}
++
++	/* Find number of HART index bits (LHXW) */
++	mc->lhxw = imsic_global->hart_index_bits;
++	if (APLIC_xMSICFGADDRH_LHXW_MASK < mc->lhxw) {
++		dev_err(dev, "IMSIC hart index bits big for APLIC LHXW\n");
++		return -EINVAL;
++	}
++
++	/* Find number of group index bits (HHXW) */
++	mc->hhxw = imsic_global->group_index_bits;
++	if (APLIC_xMSICFGADDRH_HHXW_MASK < mc->hhxw) {
++		dev_err(dev, "IMSIC group index bits big for APLIC HHXW\n");
++		return -EINVAL;
++	}
++
++	/* Find first bit position of group index (HHXS) */
++	mc->hhxs = imsic_global->group_index_shift;
++	if (mc->hhxs < (2 * APLIC_xMSICFGADDR_PPN_SHIFT)) {
++		dev_err(dev, "IMSIC group index shift should be >= %d\n",
++			(2 * APLIC_xMSICFGADDR_PPN_SHIFT));
++		return -EINVAL;
++	}
++	mc->hhxs -= (2 * APLIC_xMSICFGADDR_PPN_SHIFT);
++	if (APLIC_xMSICFGADDRH_HHXS_MASK < mc->hhxs) {
++		dev_err(dev, "IMSIC group index shift big for APLIC HHXS\n");
++		return -EINVAL;
++	}
++
++	/* Compute PPN base */
++	mc->base_ppn = imsic_global->base_addr >> APLIC_xMSICFGADDR_PPN_SHIFT;
++	mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
++	mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_LHX(mc->lhxw, mc->lhxs);
++	mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_HHX(mc->hhxw, mc->hhxs);
++
++	/* Setup global config and interrupt delivery */
++	aplic_init_hw_global(priv, true);
++
++	/* Set the APLIC device MSI domain if not available */
++	if (!dev_get_msi_domain(dev)) {
++		/*
++		 * The device MSI domain for OF devices is only set at the
++		 * time of populating/creating OF device. If the device MSI
++		 * domain is discovered later after the OF device is created
++		 * then we need to set it explicitly before using any platform
++		 * MSI functions.
++		 *
++		 * In case of APLIC device, the parent MSI domain is always
++		 * IMSIC and the IMSIC MSI domains are created later through
++		 * the platform driver probing so we set it explicitly here.
++		 */
++		if (is_of_node(dev->fwnode))
++			of_msi_configure(dev, to_of_node(dev->fwnode));
++	}
++
++	if (!msi_create_device_irq_domain(dev, MSI_DEFAULT_DOMAIN,
++					  &aplic_msi_template,
++					  priv->nr_irqs + 1, priv, priv)) {
++		dev_err(dev, "failed to create MSI irq domain\n");
++		return -ENOMEM;
++	}
++
++	/* Advertise the interrupt controller */
++	pa = priv->msicfg.base_ppn << APLIC_xMSICFGADDR_PPN_SHIFT;
++	dev_info(dev, "%d interrupts forwared to MSI base %pa\n",
++		 priv->nr_irqs, &pa);
++
++	return 0;
++}
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
