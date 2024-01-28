@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F5F0C47258
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jan 2024 12:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB5AC47258
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jan 2024 12:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qWYxkp3S7J5vAOYgQROwFj8HwP0mOLPceAw0ZcpPJt4=; b=pdlvBqQ7y7Bv54
-	vNuHrQbCJA5WrZIoCMNwdV5ipE56lO5kEWoU1Bx0Q2kpE70oNwN4ngX3p858vZzTEUAd9GHs2kcH8
-	Q1qbh+5ap3PHimkWnBb0srRVa9/oe1teFZEWLoA/orQRjHvIR6d2QSMLESNJdepMf8CrfQbOHXS55
-	Gunf0c89UMIHE7iCGa4ZP6UjdgHsk+bBMcYg2H5lpkERtB59VIDTKM7RRfZlOQfIrDDpT40Gpv3em
-	RhAer7MJW0FKPcPuG/DDtsnpK3d0++szLsgxuvpJZSNGriMnzK3vN/ZRYEbpEo6d84VFMwkCw/xRu
-	81GjEmtqGaVgS3zdYlBA==;
+	List-Owner; bh=sA8Ww/BGcwPG7Gym/eM88Bx7Gcj+nAL+CKh9yp8pnZo=; b=O8m1NePXUolh/y
+	FDL6iu6kOcbTk427tN2kdTdboZnzEwYOcrn1FXrye2m6JqGSRjXYtImicRnL30p7S4fLch7EEmYBE
+	Ma0r1yUNbJjPVKHjMU21JkRXXK9OgZ+bV+jPAlik3tRFjO6cWvFHLj65WXyEFOyjmQUlPv+BcDF7d
+	7TdA2kF3p1nG+SLHTLQj14mJTYgpEUaY+QLNPtU+FOt4vQPMkSdQXShLSgvqjW7suuZGuuJ2O0fiC
+	iBd6CPuPSUf7zbOC0kzSsEXw1b40W0PBN0PPYkWva43I8lej2q33I08uawTjyrYrCPAsbsFlXVebN
+	ennl/VQuF+rc5tUMQKAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rU4Of-00000009Ry2-0fFl;
-	Sun, 28 Jan 2024 12:36:25 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1rU4ZS-00000009T3A-1FpJ;
+	Sun, 28 Jan 2024 12:47:34 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rU4Oa-00000009RxO-2ToR
+	id 1rU4ZP-00000009T2V-13Yx
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Jan 2024 12:36:22 +0000
+	Sun, 28 Jan 2024 12:47:33 +0000
 Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
  relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-317-Eq0wpz7mO1e21GBJ1oOirA-1; Sun, 28 Jan 2024 12:36:16 +0000
-X-MC-Unique: Eq0wpz7mO1e21GBJ1oOirA-1
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sun, 28 Jan
- 2024 12:35:53 +0000
+ uk-mta-192-sDnoWcOHNe-yKChU7lXVCg-1; Sun, 28 Jan 2024 12:47:23 +0000
+X-MC-Unique: sDnoWcOHNe-yKChU7lXVCg-1
+Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
+ (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sun, 28 Jan
+ 2024 12:47:00 +0000
 Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Sun, 28 Jan 2024 12:35:53 +0000
+ id 15.00.1497.048; Sun, 28 Jan 2024 12:47:00 +0000
 From: David Laight <David.Laight@ACULAB.COM>
 To: 'Jisheng Zhang' <jszhang@kernel.org>, Paul Walmsley
 	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
@@ -44,14 +44,14 @@ To: 'Jisheng Zhang' <jszhang@kernel.org>, Paul Walmsley
 CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Matteo Croce
 	<mcroce@microsoft.com>, kernel test robot <lkp@intel.com>
-Subject: RE: [PATCH 1/3] riscv: optimized memcpy
-Thread-Topic: [PATCH 1/3] riscv: optimized memcpy
-Thread-Index: AQHaUdxgc9Zy837AxkOiZhjgW4/PA7DvJZjg
-Date: Sun, 28 Jan 2024 12:35:53 +0000
-Message-ID: <dc1f54f90642401ca6135c75e399c06d@AcuMS.aculab.com>
+Subject: RE: [PATCH 2/3] riscv: optimized memmove
+Thread-Topic: [PATCH 2/3] riscv: optimized memmove
+Thread-Index: AQHaUdxjAvIJPrdYsUmtWfJZGIT/drDvKbzw
+Date: Sun, 28 Jan 2024 12:47:00 +0000
+Message-ID: <59bed43df37b4361a8a1cb31b8582e9b@AcuMS.aculab.com>
 References: <20240128111013.2450-1-jszhang@kernel.org>
- <20240128111013.2450-2-jszhang@kernel.org>
-In-Reply-To: <20240128111013.2450-2-jszhang@kernel.org>
+ <20240128111013.2450-3-jszhang@kernel.org>
+In-Reply-To: <20240128111013.2450-3-jszhang@kernel.org>
 Accept-Language: en-GB, en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
@@ -62,8 +62,9 @@ X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: aculab.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240128_043620_962690_81D90D6F 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20240128_044731_626140_B26104DE 
+X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,69 +84,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 From: Jisheng Zhang
 > Sent: 28 January 2024 11:10
 > 
-> From: Matteo Croce <mcroce@microsoft.com>
+> When the destination buffer is before the source one, or when the
+> buffers doesn't overlap, it's safe to use memcpy() instead, which is
+> optimized to use a bigger data size possible.
 > 
-> Write a C version of memcpy() which uses the biggest data size allowed,
-> without generating unaligned accesses.
-> 
-> The procedure is made of three steps:
-> First copy data one byte at time until the destination buffer is aligned
-> to a long boundary.
-> Then copy the data one long at time shifting the current and the next u8
-> to compose a long at every cycle.
-> Finally, copy the remainder one byte at time.
-> 
-> On a BeagleV, the TCP RX throughput increased by 45%:
 ...
-> +static void __memcpy_aligned(unsigned long *dest, const unsigned long *src, size_t count)
-> +{
+> + * Simply check if the buffer overlaps an call memcpy() in case,
+> + * otherwise do a simple one byte at time backward copy.
 
-You should be able to remove an instruction from the loop by using:
-	const unsigned long *src_lim = src + count;
-	for (; src < src_lim; ) {
+I'd at least do a 64bit copy loop if the addresses are aligned.
 
-> +	for (; count > 0; count -= BYTES_LONG * 8) {
-> +		register unsigned long d0, d1, d2, d3, d4, d5, d6, d7;
+Thinks a bit more....
 
-register is completely ignored and pointless.
-(More annoyingly auto is also ignored.)
+Put the copy 64 bytes code (the body of the memcpy() loop)
+into it an inline function and call it with increasing addresses
+in memcpy() are decrementing addresses in memmove.
 
-> +		d0 = src[0];
-> +		d1 = src[1];
-> +		d2 = src[2];
-> +		d3 = src[3];
-> +		d4 = src[4];
-> +		d5 = src[5];
-> +		d6 = src[6];
-> +		d7 = src[7];
-> +		dest[0] = d0;
-> +		dest[1] = d1;
-> +		dest[2] = d2;
-> +		dest[3] = d3;
-> +		dest[4] = d4;
-> +		dest[5] = d5;
-> +		dest[6] = d6;
-> +		dest[7] = d7;
-> +		dest += 8;
-> +		src += 8;
+So memcpy() contains:
+	src_lim = src_lim + count;
+	... alignment copy
+	for (; src + 64 <= src_lim; src += 64; dest += 64)
+		copy_64_bytes(dest, src);
+	... tail copy
 
-There two lines belong in the for (...) statement.
-
-> +	}
-> +}
-
-If you __always_inline the function you can pass &src and &dest
-and use the updated pointers following the loop.
-
-I don't believe that risc-v supports 'reg+reg+(imm5<<3)' addressing
-(although there is probably space in the instruction for it.
-Actually 'reg+reg' addressing could be supported for loads but
-not stores - since the latter would require 3 registers be read.
-
-We use the Nios-II cpu in some fpgas. Intel are removing support
-in favour of Risc-V - we are thinking of re-implementing Nios-II
-ourselves!
-I don't think they understand what the cpu get used for!
+Then you can do something very similar for backwards copies.
 
 	David
 
