@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C17AAC47258
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jan 2024 11:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CAC4C47DDF
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jan 2024 11:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0PyNhA/z83ZSGdaNW4eeGLAq1VZv3uRr2YrGeJAMbrE=; b=m45t0555ertE1v
-	YVrPgjJnNgjMxnnq3qLSIA07f7zm8ScdCuVvz5nlLy3FHlDOhKMl959W3Ptn41gO1KdIEqdkhau3Q
-	eMGZ5Z0ireM37m3kbX7/PSRXRwY7y3huS+GudRv3sVIxwVg4NK5+3w6qAq26ZJqGSbKjn4iFUfCQM
-	Piz0QYroiujZpoaabaQ+U3sG5TA+uRGuKCM9t70GT8BUcnn2+Sn7zp2M97Ah0GbnBW478SvFWIoBI
-	SdMjX6cv8DMpuO1SoRG7RjuwAsl1PMkex9JLU83tFD0QruYzHcFd+xIoSubJmWPFL/YYKtvFU8sFX
-	jx/o0hcfdTqqQ1kmJrfw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VPuOsK5g/xuE8if6WcVXwXHp5wK+OM5LOLVPQxiuMuA=; b=aW1CgREFZf1deu
+	s/ZdpN0TxHyCR4K4+e/EwgdTJvuP6sL3ofX/kgVrs+xIU91bfI7K8srKSFaLv+M6wBAUejFOFsSoa
+	XcSKmInXp+m6rcdIGUpN9aCoIwGH8Lkuvb1d1W1lIFFJ18ANzzt09nEWJ4MFTNLc0M1VWlIKjvikE
+	VWP+Shs6W72qS6isFpLsMHTJ1+gfkEOYN2HKYhPl09vcdC7W71dCdeV2+vfCajwxqJxty6fTUeuDK
+	roaIYXllQhWnKTGsUpdAcG2vkYYHCpNw84oBAXev8F/lULQGgeialh24NIaBtJx7ilA2FAlcOidFw
+	Ag9QObHAW7rese3sm6jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rU3Fn-00000009JLT-3eHK;
-	Sun, 28 Jan 2024 11:23:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rU3Fq-00000009JMe-2xVA;
+	Sun, 28 Jan 2024 11:23:14 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rU3Fk-00000009JJu-234R
+	id 1rU3Fm-00000009JKF-1Xr6
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Jan 2024 11:23:10 +0000
+	Sun, 28 Jan 2024 11:23:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 20F0D61A10;
-	Sun, 28 Jan 2024 11:23:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71445C433B2;
-	Sun, 28 Jan 2024 11:23:05 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id AA1EDCE0925;
+	Sun, 28 Jan 2024 11:23:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE08DC433C7;
+	Sun, 28 Jan 2024 11:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706440986;
-	bh=/od1c7MyoQNpI2RDNFAjU9gX1pL9wSnySvV0sadsH0E=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kf1+V7HY4GYXLpeGiqpvV0SN8/z9kSnocTgUcsX85JaCdLjsfHuJ2CxlOgVtGXU26
-	 0GOR0OqSoCpgZrUSNJ0S1x3yyEArR//TihcKOEaWRJxvCsArknqUQYXicE0+k0s6nS
-	 hu9CDu4nyLMcNG3BihjTgFi/B2iZFyGzyFqqMAPaKfkW6tUEr6gyKyaYUUCM5SV8vL
-	 utU2gvuaVoEmx0LA3l0JEFI7T4UKVMcI5WLfxdlBLO3Ewo3tw8nXuW09m4q3TyAU6w
-	 pd5XLTnk9vYDrD6Y1M02n3tB+lk329yUZqNttz9i0q6cySadWLGPKL/LtkxfRKXZtD
-	 +l4+FOE2d54aQ==
+	s=k20201202; t=1706440983;
+	bh=FoqEX1cRVe0NITYGpOghxAdM7Y1pgwLjfNaiHFus6Ts=;
+	h=From:To:Cc:Subject:Date:From;
+	b=EkhrNOQ6ulzMyD9V4IxKWn9bKK2oTSCUhJqxcv3YDM1s9DanNaBph3qAaJ16mTOoC
+	 9iGbMhn9M6p641OQhYqNYOQcFJd9nnWNphe22vARm+EjUAQJYIwZPBReBGGy7cPAQH
+	 zdUlJsivPFe0HRbgC3XUXAPSxAC71dDBbnB8bh7kPj3CiiN7RZuZrBCBayCogEL/Au
+	 YRt+IPQ85RTh8IOXU6ORn7kufldUbS7AVBeo3JGdWoqHu4VD9YgEreLiFfAq1i8uvm
+	 SXet5T3SpLyS3YzUmTPZOvYEd9hug4TUK0CYSH+N4+qIX5VqAOlg3jnCamLyHUAlHT
+	 g0/FbtHw78raw==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Matteo Croce <mcroce@microsoft.com>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH 2/3] riscv: optimized memmove
-Date: Sun, 28 Jan 2024 19:10:12 +0800
-Message-ID: <20240128111013.2450-3-jszhang@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] riscv: optimize memcpy/memmove/memset
+Date: Sun, 28 Jan 2024 19:10:10 +0800
+Message-ID: <20240128111013.2450-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240128111013.2450-1-jszhang@kernel.org>
-References: <20240128111013.2450-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240128_032308_656578_AD7FED9B 
-X-CRM114-Status: GOOD (  32.27  )
+X-CRM114-CacheID: sfid-20240128_032310_603802_2DAB74D0 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,421 +72,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Matteo Croce <mcroce@microsoft.com>
+This series is to renew Matteo's "riscv: optimized mem* functions"
+sereies.
 
-When the destination buffer is before the source one, or when the
-buffers doesn't overlap, it's safe to use memcpy() instead, which is
-optimized to use a bigger data size possible.
+Compared with Matteo's original series, Jisheng made below changes:
+1. adopt Emil's change to fix boot failure when build with clang
+2. add corresponding changes to purgatory
+3. always build optimized string.c rather than only build when optimize
+for performance
+4. implement unroll support when src & dst are both aligned to keep
+the same performance as assembly version. After disassembling, I found
+that the unroll version looks something like below, so it acchieves
+the "unroll" effect as asm version but in C programming language:
+	ld	t2,0(a5)
+	ld	t0,8(a5)
+	ld	t6,16(a5)
+	ld	t5,24(a5)
+	ld	t4,32(a5)
+	ld	t3,40(a5)
+	ld	t1,48(a5)
+	ld	a1,56(a5)
+	sd	t2,0(a6)
+	sd	t0,8(a6)
+	sd	t6,16(a6)
+	sd	t5,24(a6)
+	sd	t4,32(a6)
+	sd	t3,40(a6)
+	sd	t1,48(a6)
+	sd	a1,56(a6)
+And per my testing, unrolling more doesn't help performance, so
+the "c" version only unrolls by using 8 GP regs rather than 16
+ones as asm version.
+5. Add proper __pi_memcpy and __pi___memcpy alias
+6. more performance numbers.
 
-Signed-off-by: Matteo Croce <mcroce@microsoft.com>
-Reported-by: kernel test robot <lkp@intel.com>
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/include/asm/string.h |   4 +-
- arch/riscv/kernel/riscv_ksyms.c |   2 -
- arch/riscv/lib/Makefile         |   1 -
+Per my benchmark with [1] on TH1520, CV1800B and JH7110 platforms,
+the unaligned medium memcpy performance is running about 3.5x ~ 8.6x
+speed of the unpatched versions's! Check patch1 for more details and
+performance numbers.
+
+Link:https://github.com/ARM-software/optimized-routines/blob/master/string/bench/memcpy.c [1]
+
+Here is the original cover letter msg from Matteo:
+Replace the assembly mem{cpy,move,set} with C equivalent.
+
+Try to access RAM with the largest bit width possible, but without
+doing unaligned accesses.
+
+A further improvement could be to use multiple read and writes as the
+assembly version was trying to do.
+
+Tested on a BeagleV Starlight with a SiFive U74 core, where the
+improvement is noticeable.
+
+
+Matteo Croce (3):
+  riscv: optimized memcpy
+  riscv: optimized memmove
+  riscv: optimized memset
+
+ arch/riscv/include/asm/string.h |  14 +-
+ arch/riscv/kernel/riscv_ksyms.c |   6 -
+ arch/riscv/lib/Makefile         |   9 +-
+ arch/riscv/lib/memcpy.S         | 110 -----------
  arch/riscv/lib/memmove.S        | 317 --------------------------------
- arch/riscv/lib/string.c         |  25 +++
- 5 files changed, 27 insertions(+), 322 deletions(-)
+ arch/riscv/lib/memset.S         | 113 ------------
+ arch/riscv/lib/string.c         | 187 +++++++++++++++++++
+ arch/riscv/purgatory/Makefile   |  13 +-
+ 8 files changed, 206 insertions(+), 563 deletions(-)
+ delete mode 100644 arch/riscv/lib/memcpy.S
  delete mode 100644 arch/riscv/lib/memmove.S
+ delete mode 100644 arch/riscv/lib/memset.S
+ create mode 100644 arch/riscv/lib/string.c
 
-diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-index edf1d56e4f13..17c3b40382e1 100644
---- a/arch/riscv/include/asm/string.h
-+++ b/arch/riscv/include/asm/string.h
-@@ -18,8 +18,8 @@ extern void *memcpy(void *dest, const void *src, size_t count);
- extern void *__memcpy(void *dest, const void *src, size_t count);
- 
- #define __HAVE_ARCH_MEMMOVE
--extern asmlinkage void *memmove(void *, const void *, size_t);
--extern asmlinkage void *__memmove(void *, const void *, size_t);
-+extern void *memmove(void *dest, const void *src, size_t count);
-+extern void *__memmove(void *dest, const void *src, size_t count);
- 
- #define __HAVE_ARCH_STRCMP
- extern asmlinkage int strcmp(const char *cs, const char *ct);
-diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
-index c69dc74e0a27..76849d0906ef 100644
---- a/arch/riscv/kernel/riscv_ksyms.c
-+++ b/arch/riscv/kernel/riscv_ksyms.c
-@@ -10,9 +10,7 @@
-  * Assembly functions that may be used (directly or indirectly) by modules
-  */
- EXPORT_SYMBOL(memset);
--EXPORT_SYMBOL(memmove);
- EXPORT_SYMBOL(strcmp);
- EXPORT_SYMBOL(strlen);
- EXPORT_SYMBOL(strncmp);
- EXPORT_SYMBOL(__memset);
--EXPORT_SYMBOL(__memmove);
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 5f2f94f6db17..5fa88c5a601c 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -1,7 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
- lib-y			+= delay.o
- lib-y			+= memset.o
--lib-y			+= memmove.o
- lib-y			+= strcmp.o
- lib-y			+= strlen.o
- lib-y			+= string.o
-diff --git a/arch/riscv/lib/memmove.S b/arch/riscv/lib/memmove.S
-deleted file mode 100644
-index cb3e2e7ef0ba..000000000000
---- a/arch/riscv/lib/memmove.S
-+++ /dev/null
-@@ -1,317 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright (C) 2022 Michael T. Kloos <michael@michaelkloos.com>
-- */
--
--#include <linux/linkage.h>
--#include <asm/asm.h>
--
--SYM_FUNC_START(__memmove)
--	/*
--	 * Returns
--	 *   a0 - dest
--	 *
--	 * Parameters
--	 *   a0 - Inclusive first byte of dest
--	 *   a1 - Inclusive first byte of src
--	 *   a2 - Length of copy n
--	 *
--	 * Because the return matches the parameter register a0,
--	 * we will not clobber or modify that register.
--	 *
--	 * Note: This currently only works on little-endian.
--	 * To port to big-endian, reverse the direction of shifts
--	 * in the 2 misaligned fixup copy loops.
--	 */
--
--	/* Return if nothing to do */
--	beq a0, a1, .Lreturn_from_memmove
--	beqz a2, .Lreturn_from_memmove
--
--	/*
--	 * Register Uses
--	 *      Forward Copy: a1 - Index counter of src
--	 *      Reverse Copy: a4 - Index counter of src
--	 *      Forward Copy: t3 - Index counter of dest
--	 *      Reverse Copy: t4 - Index counter of dest
--	 *   Both Copy Modes: t5 - Inclusive first multibyte/aligned of dest
--	 *   Both Copy Modes: t6 - Non-Inclusive last multibyte/aligned of dest
--	 *   Both Copy Modes: t0 - Link / Temporary for load-store
--	 *   Both Copy Modes: t1 - Temporary for load-store
--	 *   Both Copy Modes: t2 - Temporary for load-store
--	 *   Both Copy Modes: a5 - dest to src alignment offset
--	 *   Both Copy Modes: a6 - Shift ammount
--	 *   Both Copy Modes: a7 - Inverse Shift ammount
--	 *   Both Copy Modes: a2 - Alternate breakpoint for unrolled loops
--	 */
--
--	/*
--	 * Solve for some register values now.
--	 * Byte copy does not need t5 or t6.
--	 */
--	mv   t3, a0
--	add  t4, a0, a2
--	add  a4, a1, a2
--
--	/*
--	 * Byte copy if copying less than (2 * SZREG) bytes. This can
--	 * cause problems with the bulk copy implementation and is
--	 * small enough not to bother.
--	 */
--	andi t0, a2, -(2 * SZREG)
--	beqz t0, .Lbyte_copy
--
--	/*
--	 * Now solve for t5 and t6.
--	 */
--	andi t5, t3, -SZREG
--	andi t6, t4, -SZREG
--	/*
--	 * If dest(Register t3) rounded down to the nearest naturally
--	 * aligned SZREG address, does not equal dest, then add SZREG
--	 * to find the low-bound of SZREG alignment in the dest memory
--	 * region.  Note that this could overshoot the dest memory
--	 * region if n is less than SZREG.  This is one reason why
--	 * we always byte copy if n is less than SZREG.
--	 * Otherwise, dest is already naturally aligned to SZREG.
--	 */
--	beq  t5, t3, 1f
--		addi t5, t5, SZREG
--	1:
--
--	/*
--	 * If the dest and src are co-aligned to SZREG, then there is
--	 * no need for the full rigmarole of a full misaligned fixup copy.
--	 * Instead, do a simpler co-aligned copy.
--	 */
--	xor  t0, a0, a1
--	andi t1, t0, (SZREG - 1)
--	beqz t1, .Lcoaligned_copy
--	/* Fall through to misaligned fixup copy */
--
--.Lmisaligned_fixup_copy:
--	bltu a1, a0, .Lmisaligned_fixup_copy_reverse
--
--.Lmisaligned_fixup_copy_forward:
--	jal  t0, .Lbyte_copy_until_aligned_forward
--
--	andi a5, a1, (SZREG - 1) /* Find the alignment offset of src (a1) */
--	slli a6, a5, 3 /* Multiply by 8 to convert that to bits to shift */
--	sub  a5, a1, t3 /* Find the difference between src and dest */
--	andi a1, a1, -SZREG /* Align the src pointer */
--	addi a2, t6, SZREG /* The other breakpoint for the unrolled loop*/
--
--	/*
--	 * Compute The Inverse Shift
--	 * a7 = XLEN - a6 = XLEN + -a6
--	 * 2s complement negation to find the negative: -a6 = ~a6 + 1
--	 * Add that to XLEN.  XLEN = SZREG * 8.
--	 */
--	not  a7, a6
--	addi a7, a7, (SZREG * 8 + 1)
--
--	/*
--	 * Fix Misalignment Copy Loop - Forward
--	 * load_val0 = load_ptr[0];
--	 * do {
--	 * 	load_val1 = load_ptr[1];
--	 * 	store_ptr += 2;
--	 * 	store_ptr[0 - 2] = (load_val0 >> {a6}) | (load_val1 << {a7});
--	 *
--	 * 	if (store_ptr == {a2})
--	 * 		break;
--	 *
--	 * 	load_val0 = load_ptr[2];
--	 * 	load_ptr += 2;
--	 * 	store_ptr[1 - 2] = (load_val1 >> {a6}) | (load_val0 << {a7});
--	 *
--	 * } while (store_ptr != store_ptr_end);
--	 * store_ptr = store_ptr_end;
--	 */
--
--	REG_L t0, (0 * SZREG)(a1)
--	1:
--	REG_L t1, (1 * SZREG)(a1)
--	addi  t3, t3, (2 * SZREG)
--	srl   t0, t0, a6
--	sll   t2, t1, a7
--	or    t2, t0, t2
--	REG_S t2, ((0 * SZREG) - (2 * SZREG))(t3)
--
--	beq   t3, a2, 2f
--
--	REG_L t0, (2 * SZREG)(a1)
--	addi  a1, a1, (2 * SZREG)
--	srl   t1, t1, a6
--	sll   t2, t0, a7
--	or    t2, t1, t2
--	REG_S t2, ((1 * SZREG) - (2 * SZREG))(t3)
--
--	bne   t3, t6, 1b
--	2:
--	mv    t3, t6 /* Fix the dest pointer in case the loop was broken */
--
--	add  a1, t3, a5 /* Restore the src pointer */
--	j .Lbyte_copy_forward /* Copy any remaining bytes */
--
--.Lmisaligned_fixup_copy_reverse:
--	jal  t0, .Lbyte_copy_until_aligned_reverse
--
--	andi a5, a4, (SZREG - 1) /* Find the alignment offset of src (a4) */
--	slli a6, a5, 3 /* Multiply by 8 to convert that to bits to shift */
--	sub  a5, a4, t4 /* Find the difference between src and dest */
--	andi a4, a4, -SZREG /* Align the src pointer */
--	addi a2, t5, -SZREG /* The other breakpoint for the unrolled loop*/
--
--	/*
--	 * Compute The Inverse Shift
--	 * a7 = XLEN - a6 = XLEN + -a6
--	 * 2s complement negation to find the negative: -a6 = ~a6 + 1
--	 * Add that to XLEN.  XLEN = SZREG * 8.
--	 */
--	not  a7, a6
--	addi a7, a7, (SZREG * 8 + 1)
--
--	/*
--	 * Fix Misalignment Copy Loop - Reverse
--	 * load_val1 = load_ptr[0];
--	 * do {
--	 * 	load_val0 = load_ptr[-1];
--	 * 	store_ptr -= 2;
--	 * 	store_ptr[1] = (load_val0 >> {a6}) | (load_val1 << {a7});
--	 *
--	 * 	if (store_ptr == {a2})
--	 * 		break;
--	 *
--	 * 	load_val1 = load_ptr[-2];
--	 * 	load_ptr -= 2;
--	 * 	store_ptr[0] = (load_val1 >> {a6}) | (load_val0 << {a7});
--	 *
--	 * } while (store_ptr != store_ptr_end);
--	 * store_ptr = store_ptr_end;
--	 */
--
--	REG_L t1, ( 0 * SZREG)(a4)
--	1:
--	REG_L t0, (-1 * SZREG)(a4)
--	addi  t4, t4, (-2 * SZREG)
--	sll   t1, t1, a7
--	srl   t2, t0, a6
--	or    t2, t1, t2
--	REG_S t2, ( 1 * SZREG)(t4)
--
--	beq   t4, a2, 2f
--
--	REG_L t1, (-2 * SZREG)(a4)
--	addi  a4, a4, (-2 * SZREG)
--	sll   t0, t0, a7
--	srl   t2, t1, a6
--	or    t2, t0, t2
--	REG_S t2, ( 0 * SZREG)(t4)
--
--	bne   t4, t5, 1b
--	2:
--	mv    t4, t5 /* Fix the dest pointer in case the loop was broken */
--
--	add  a4, t4, a5 /* Restore the src pointer */
--	j .Lbyte_copy_reverse /* Copy any remaining bytes */
--
--/*
-- * Simple copy loops for SZREG co-aligned memory locations.
-- * These also make calls to do byte copies for any unaligned
-- * data at their terminations.
-- */
--.Lcoaligned_copy:
--	bltu a1, a0, .Lcoaligned_copy_reverse
--
--.Lcoaligned_copy_forward:
--	jal t0, .Lbyte_copy_until_aligned_forward
--
--	1:
--	REG_L t1, ( 0 * SZREG)(a1)
--	addi  a1, a1, SZREG
--	addi  t3, t3, SZREG
--	REG_S t1, (-1 * SZREG)(t3)
--	bne   t3, t6, 1b
--
--	j .Lbyte_copy_forward /* Copy any remaining bytes */
--
--.Lcoaligned_copy_reverse:
--	jal t0, .Lbyte_copy_until_aligned_reverse
--
--	1:
--	REG_L t1, (-1 * SZREG)(a4)
--	addi  a4, a4, -SZREG
--	addi  t4, t4, -SZREG
--	REG_S t1, ( 0 * SZREG)(t4)
--	bne   t4, t5, 1b
--
--	j .Lbyte_copy_reverse /* Copy any remaining bytes */
--
--/*
-- * These are basically sub-functions within the function.  They
-- * are used to byte copy until the dest pointer is in alignment.
-- * At which point, a bulk copy method can be used by the
-- * calling code.  These work on the same registers as the bulk
-- * copy loops.  Therefore, the register values can be picked
-- * up from where they were left and we avoid code duplication
-- * without any overhead except the call in and return jumps.
-- */
--.Lbyte_copy_until_aligned_forward:
--	beq  t3, t5, 2f
--	1:
--	lb   t1,  0(a1)
--	addi a1, a1, 1
--	addi t3, t3, 1
--	sb   t1, -1(t3)
--	bne  t3, t5, 1b
--	2:
--	jalr zero, 0x0(t0) /* Return to multibyte copy loop */
--
--.Lbyte_copy_until_aligned_reverse:
--	beq  t4, t6, 2f
--	1:
--	lb   t1, -1(a4)
--	addi a4, a4, -1
--	addi t4, t4, -1
--	sb   t1,  0(t4)
--	bne  t4, t6, 1b
--	2:
--	jalr zero, 0x0(t0) /* Return to multibyte copy loop */
--
--/*
-- * Simple byte copy loops.
-- * These will byte copy until they reach the end of data to copy.
-- * At that point, they will call to return from memmove.
-- */
--.Lbyte_copy:
--	bltu a1, a0, .Lbyte_copy_reverse
--
--.Lbyte_copy_forward:
--	beq  t3, t4, 2f
--	1:
--	lb   t1,  0(a1)
--	addi a1, a1, 1
--	addi t3, t3, 1
--	sb   t1, -1(t3)
--	bne  t3, t4, 1b
--	2:
--	ret
--
--.Lbyte_copy_reverse:
--	beq  t4, t3, 2f
--	1:
--	lb   t1, -1(a4)
--	addi a4, a4, -1
--	addi t4, t4, -1
--	sb   t1,  0(t4)
--	bne  t4, t3, 1b
--	2:
--
--.Lreturn_from_memmove:
--	ret
--
--SYM_FUNC_END(__memmove)
--SYM_FUNC_ALIAS_WEAK(memmove, __memmove)
--SYM_FUNC_ALIAS(__pi_memmove, __memmove)
--SYM_FUNC_ALIAS(__pi___memmove, __memmove)
-diff --git a/arch/riscv/lib/string.c b/arch/riscv/lib/string.c
-index 5f9c83ec548d..20677c8067da 100644
---- a/arch/riscv/lib/string.c
-+++ b/arch/riscv/lib/string.c
-@@ -119,3 +119,28 @@ void *memcpy(void *dest, const void *src, size_t count) __weak __alias(__memcpy)
- EXPORT_SYMBOL(memcpy);
- void *__pi_memcpy(void *dest, const void *src, size_t count) __alias(__memcpy);
- void *__pi___memcpy(void *dest, const void *src, size_t count) __alias(__memcpy);
-+
-+/*
-+ * Simply check if the buffer overlaps an call memcpy() in case,
-+ * otherwise do a simple one byte at time backward copy.
-+ */
-+void *__memmove(void *dest, const void *src, size_t count)
-+{
-+	if (dest < src || src + count <= dest)
-+		return __memcpy(dest, src, count);
-+
-+	if (dest > src) {
-+		const char *s = src + count;
-+		char *tmp = dest + count;
-+
-+		while (count--)
-+			*--tmp = *--s;
-+	}
-+	return dest;
-+}
-+EXPORT_SYMBOL(__memmove);
-+
-+void *memmove(void *dest, const void *src, size_t count) __weak __alias(__memmove);
-+EXPORT_SYMBOL(memmove);
-+void *__pi_memmove(void *dest, const void *src, size_t count) __alias(__memmove);
-+void *__pi___memmove(void *dest, const void *src, size_t count) __alias(__memmove);
 -- 
 2.43.0
 
