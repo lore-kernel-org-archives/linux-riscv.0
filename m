@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E249C47DDF
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jan 2024 12:04:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F5F0C47258
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jan 2024 12:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pwVO54IcbnonTgqeq+ulT3to0gtJtroxDOyZvtfuKPM=; b=hmyXcm4Hhd8sHN
-	CD14lOlu+A4+duo3R9Up+efbQD8A1FfUeVAI/rQOasTxhWfOslKfnsQhdFHUfDVOux+K3CgiXHDP3
-	61VG20+v9cnWPaV4R7MyuNIQ0fOPSPgX6uvLsY9zWeK6z+SM+7xR1HYuPFqlcAHtlowhl0E6QocdO
-	/jOkhJT7hHEi/Rt2n8z0p0Pmsco5G6qcs6w43vejCDMdef9xKQbjqfJVC6v5xm5YQ6on6USgT/4KW
-	wWmsQnriwwpHNQTMQsKI7LL5PNQPU9sk+Ytxfrw7abHBJuodSxO46FUpjKyBPhFa4p05ufGKOxq5B
-	CA9/AT523jEN7OAsQfzg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qWYxkp3S7J5vAOYgQROwFj8HwP0mOLPceAw0ZcpPJt4=; b=pdlvBqQ7y7Bv54
+	vNuHrQbCJA5WrZIoCMNwdV5ipE56lO5kEWoU1Bx0Q2kpE70oNwN4ngX3p858vZzTEUAd9GHs2kcH8
+	Q1qbh+5ap3PHimkWnBb0srRVa9/oe1teFZEWLoA/orQRjHvIR6d2QSMLESNJdepMf8CrfQbOHXS55
+	Gunf0c89UMIHE7iCGa4ZP6UjdgHsk+bBMcYg2H5lpkERtB59VIDTKM7RRfZlOQfIrDDpT40Gpv3em
+	RhAer7MJW0FKPcPuG/DDtsnpK3d0++szLsgxuvpJZSNGriMnzK3vN/ZRYEbpEo6d84VFMwkCw/xRu
+	81GjEmtqGaVgS3zdYlBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rU3tT-00000009O2X-2yxN;
-	Sun, 28 Jan 2024 12:04:11 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1rU4Of-00000009Ry2-0fFl;
+	Sun, 28 Jan 2024 12:36:25 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rU3tR-00000009O1K-2lh2
+	id 1rU4Oa-00000009RxO-2ToR
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Jan 2024 12:04:10 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-40e7065b7bdso31119985e9.3
-        for <linux-riscv@lists.infradead.org>; Sun, 28 Jan 2024 04:04:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706443448; x=1707048248; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=HxcAjPK0N066N6P8kFzyYPkzX8zdfJo2IeOhtls9JxI=;
-        b=tzuLdee1L+uoFqXNko3iUHe0VoPgagLhFUBaETDkewogO/tt0hWALnD3EqTQqplI82
-         IxcyWJngYichKSjdlxr2xb1wARbxZ03PjbxNiwgtXL4il2VSliGnuGi7dVPajwU7dXdN
-         wnL+TgQv0x60AAhzoYDXxTUBDmtbZ9hd9Kt9nU78UHxyxlhhvCXJRjGIrAF0QhwxTH01
-         FTG6vHrhyfbxuXTrKUvAMJgDZ8KJkviN4UYys+Rgu8PYutCezM1j27uKvdLtXoJDOIJT
-         rmS0Ds6KaQnQnsWLYcC5H3QKufhLXpb6Js6Hlgg2FVeqsWH8bYlGtKNb0ZGSpuJ9IC2s
-         Q+KA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706443448; x=1707048248;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HxcAjPK0N066N6P8kFzyYPkzX8zdfJo2IeOhtls9JxI=;
-        b=SYrAW+0RO9BoKIG00Zf2oyCS/3WyjobWT3IAV/rWgpez2qhO0H8PCa+UXOaCOhTapg
-         eQ0FUNNn4mJQU4l0JdSKD48PXoi7uQ05RJ9NAEF/0dCuv/OZhyyRPVuQ0T2PsNTdkEHJ
-         nD7Z9SgyjVgH/sD11wk76UrZmY2J4qGWFS56iop3AplhemQ6fojhAN41bHvbA6qnmbjz
-         6HRTP2x8+54FU0Qk59Kt/UlMO4RpP8wC3Z1UWc1ILO9yQdWMLjsIzQMgy3mM4bVXxgc7
-         ALyJCW3TAW8pezq90m2iDa/pxkHcoYt1sSmejUiYwMLkTKuV03XXPHnOX9vuimCyouyn
-         N2Nw==
-X-Gm-Message-State: AOJu0YxR5aqfY+BRkjLbigfRItknV0PYU80Oqp6T7B6QWnn+aYANYOY1
-	Cb3ux8MrkyXSHvn7lhdh8gBk4ek2XjubSrnBZNx2gAmreqY6XhOuzEbLD8UhwOs=
-X-Google-Smtp-Source: AGHT+IGp9QOplulvd/Y9t4bqyDTHP2SEbLG4SLRuZKPDPzRKkEqnxw5vDg9O8Y6f+J4FCQikbsMYxA==
-X-Received: by 2002:a05:600c:34c4:b0:40e:ee82:18 with SMTP id d4-20020a05600c34c400b0040eee820018mr1937031wmq.14.1706443447739;
-        Sun, 28 Jan 2024 04:04:07 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id m16-20020a05600c4f5000b0040eee561e4dsm3859911wmq.41.2024.01.28.04.04.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 28 Jan 2024 04:04:07 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Will Deacon <will@kernel.org>,
-	"Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nick Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH -fixes] riscv: Flush the tlb when a page directory is freed
-Date: Sun, 28 Jan 2024 13:04:05 +0100
-Message-Id: <20240128120405.25876-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
+	Sun, 28 Jan 2024 12:36:22 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-317-Eq0wpz7mO1e21GBJ1oOirA-1; Sun, 28 Jan 2024 12:36:16 +0000
+X-MC-Unique: Eq0wpz7mO1e21GBJ1oOirA-1
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sun, 28 Jan
+ 2024 12:35:53 +0000
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Sun, 28 Jan 2024 12:35:53 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Jisheng Zhang' <jszhang@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>
+CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Matteo Croce
+	<mcroce@microsoft.com>, kernel test robot <lkp@intel.com>
+Subject: RE: [PATCH 1/3] riscv: optimized memcpy
+Thread-Topic: [PATCH 1/3] riscv: optimized memcpy
+Thread-Index: AQHaUdxgc9Zy837AxkOiZhjgW4/PA7DvJZjg
+Date: Sun, 28 Jan 2024 12:35:53 +0000
+Message-ID: <dc1f54f90642401ca6135c75e399c06d@AcuMS.aculab.com>
+References: <20240128111013.2450-1-jszhang@kernel.org>
+ <20240128111013.2450-2-jszhang@kernel.org>
+In-Reply-To: <20240128111013.2450-2-jszhang@kernel.org>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240128_040409_738555_9D3351C4 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20240128_043620_962690_81D90D6F 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,30 +80,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The riscv privileged specification mandates to flush the TLB whenever a
-page directory is modified, so add that to tlb_flush().
+From: Jisheng Zhang
+> Sent: 28 January 2024 11:10
+> 
+> From: Matteo Croce <mcroce@microsoft.com>
+> 
+> Write a C version of memcpy() which uses the biggest data size allowed,
+> without generating unaligned accesses.
+> 
+> The procedure is made of three steps:
+> First copy data one byte at time until the destination buffer is aligned
+> to a long boundary.
+> Then copy the data one long at time shifting the current and the next u8
+> to compose a long at every cycle.
+> Finally, copy the remainder one byte at time.
+> 
+> On a BeagleV, the TCP RX throughput increased by 45%:
+...
+> +static void __memcpy_aligned(unsigned long *dest, const unsigned long *src, size_t count)
+> +{
 
-Fixes: c5e9b2c2ae82 ("riscv: Improve tlb_flush()")
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/include/asm/tlb.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+You should be able to remove an instruction from the loop by using:
+	const unsigned long *src_lim = src + count;
+	for (; src < src_lim; ) {
 
-diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
-index 1eb5682b2af6..50b63b5c15bd 100644
---- a/arch/riscv/include/asm/tlb.h
-+++ b/arch/riscv/include/asm/tlb.h
-@@ -16,7 +16,7 @@ static void tlb_flush(struct mmu_gather *tlb);
- static inline void tlb_flush(struct mmu_gather *tlb)
- {
- #ifdef CONFIG_MMU
--	if (tlb->fullmm || tlb->need_flush_all)
-+	if (tlb->fullmm || tlb->need_flush_all || tlb->freed_tables)
- 		flush_tlb_mm(tlb->mm);
- 	else
- 		flush_tlb_mm_range(tlb->mm, tlb->start, tlb->end,
--- 
-2.39.2
+> +	for (; count > 0; count -= BYTES_LONG * 8) {
+> +		register unsigned long d0, d1, d2, d3, d4, d5, d6, d7;
+
+register is completely ignored and pointless.
+(More annoyingly auto is also ignored.)
+
+> +		d0 = src[0];
+> +		d1 = src[1];
+> +		d2 = src[2];
+> +		d3 = src[3];
+> +		d4 = src[4];
+> +		d5 = src[5];
+> +		d6 = src[6];
+> +		d7 = src[7];
+> +		dest[0] = d0;
+> +		dest[1] = d1;
+> +		dest[2] = d2;
+> +		dest[3] = d3;
+> +		dest[4] = d4;
+> +		dest[5] = d5;
+> +		dest[6] = d6;
+> +		dest[7] = d7;
+> +		dest += 8;
+> +		src += 8;
+
+There two lines belong in the for (...) statement.
+
+> +	}
+> +}
+
+If you __always_inline the function you can pass &src and &dest
+and use the updated pointers following the loop.
+
+I don't believe that risc-v supports 'reg+reg+(imm5<<3)' addressing
+(although there is probably space in the instruction for it.
+Actually 'reg+reg' addressing could be supported for loads but
+not stores - since the latter would require 3 registers be read.
+
+We use the Nios-II cpu in some fpgas. Intel are removing support
+in favour of Risc-V - we are thinking of re-implementing Nios-II
+ourselves!
+I don't think they understand what the cpu get used for!
+
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 
 _______________________________________________
