@@ -4,61 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 480D7C47258
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jan 2024 11:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A8B0C47258
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jan 2024 12:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T6HJDzERmVFNUJx/KOdquD6aTWMT+hkjl949fVPeBoc=; b=r/LlDMoWtjGIpK
-	2dMuTuCdIdu/ko1ovW9cTx+7d2ODC2m3+vq2f2Qb3HxGZe9i3NdcqCvaxR+FkjRkmOjXr6PYQIdmA
-	H4os3ysghTqLsCND+6g5dL8TPE05Btt5ohVHf1y9SgmzuF10hoAW0WZKOyp6IKvjNOQEgc0RPq9/I
-	gQufq+aB8Nv9REm3nh1dLqXgYmobGffs8nqnlaoAYbKKr8wI/MatGcpQXB4oCV2JiQoMlHDoAen9c
-	gaeekpFFzGTzAWCgvCuS5ZyrWMmuMcIOaKwB5ISYrDn0JBSGOmfLKh4i82sNedK/nRhVnysG/VG1y
-	h5XZGO0rBPj4VAiebIeA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=j5Q214srGFmST2A+2uwh604oZDgneFhnoMb/9+ue7R8=; b=fN64xfscR+nus/
+	GE7knNUkYeKqUGVHo3BBM/pgwl4oTXu0vm2p1xFUiZj53AIhmSD+Ln5co0rIUPT7fLMb5HeioBEy9
+	sxBHionZoKe6qstiS4zastJ8z1rqYR81vRh5i0fHFMheNOtTkYU2DJ7D0uEzVxlES9ZP2thisvGqH
+	8AtiOJDV71MNZgnVVqqirF6G5voZpdGvGZXB1oNbWXoej2VhTVSnJUiz/E0Z6/KQWbYKSXKm3Qee5
+	EXDH71WB/eO4rccmwgLPKzvlZGb2wVv0MNktT8eeFbcJO05kOAYT03CWVq44qalTG9p/79HWlS3x+
+	ggeHnNJq4VbOGmXm/+IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rU3GI-00000009JXA-3fiw;
-	Sun, 28 Jan 2024 11:23:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rU3pQ-00000009NYX-3ZXh;
+	Sun, 28 Jan 2024 12:00:00 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rU3GF-00000009JVK-23cH
+	id 1rU3pM-00000009NXb-47oD
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 Jan 2024 11:23:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EE2AD61A2A;
-	Sun, 28 Jan 2024 11:23:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53F28C433C7;
-	Sun, 28 Jan 2024 11:23:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706440988;
-	bh=51aqju5D7ZfZtgqtq/RpE3mm4RKMUFkOzrpLBoF/U2U=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=J7Fx9I4u43VhttKk0N/v3sTyoEKBYpBz6adEaiBKTBC2kSSAueq5qjAZA8Je3V79J
-	 knK7DA7OSuxibwQV4FI70Is4ZLCIp7MU40N6dbgAz93rx9OFZ795DQknOcGCGT3mib
-	 cLUpkRyEX5UPLHgwZv1u+Gg8p6HQM22RtuJuwyCNcwP+bIUBxDaeX41o/N27VC8oEb
-	 lxB6xMm/lHFLI8Enazh9LmgQjR+AK0hAnYauTWEQOXyGW7sScr18UxED14cQMhwLLG
-	 ELuDanpu/23DcPxqbFlQBZa2gSiZAFswntsc5NkB9pWWTA45MhknJehttjJcKNcBQJ
-	 jhPXcTovWha1Q==
-From: Jisheng Zhang <jszhang@kernel.org>
+	Sun, 28 Jan 2024 11:59:59 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-40e76626170so26760105e9.2
+        for <linux-riscv@lists.infradead.org>; Sun, 28 Jan 2024 03:59:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706443195; x=1707047995; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=iQXpMM6MssEsk2oLvh57e4djnu+gVgpIUXXI62pyybA=;
+        b=iLyAbz4UBo2xKw3HJM/gywaY+5MEp3RFpsfmbaYzFPO8I7vkzPdLpIjElWWiQ3japM
+         RRH8zkkCTw/7GuAD0XPdSPeaA5ipTeqQJuBkaTosWoJblhwhbr8sR6iHJMiuhEe/ZZC8
+         oSf0DaERw56gjQtYedftQ3Pn6jMVGNtecXF23DtUZOelIWa6Lib5MjvAOuxB2LBH/PCz
+         Je4fYcE4WffgN1IP/TcKEwF58MwbxuLmEudl/ppczboB2lPahSA2hHe/7za0DReIZbAT
+         2r8sezc4lTEnbP5dg2uw6V+k5sbU2/K2Gc0on6GuPE12fD+i+FaBhHsThvHc5KbEQfb9
+         zSBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1706443195; x=1707047995;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iQXpMM6MssEsk2oLvh57e4djnu+gVgpIUXXI62pyybA=;
+        b=iJHExUiLFSaOeUJekOFpDRAcrbNMI55PswLRBj39PGeO5PSN+2ek0spq83xtGfXG9K
+         vm56xTyg2+mqtNL/nQSum9kINA+DR6ns8b9bpdFgQPqVQofsHsBi0gWg2r8jZmmE36Nq
+         JN/WVJ2f+kGmjST3M3y6wa0U85+eZDnknm4sUAWzBERIGIOccThoTy2kwwBabAN+0gw5
+         to5QbHJH+hWe2SVrtAPWadrUXEOXAdkK7IGQUOMFakEv0vmZ/1c4UqGc8XkGEsDCEoSw
+         Z+aTUHLUB+cLXQOLFgYdwyI2jv78azze/GVE04yOrbuDC8vnwYf4f02Vg2IPn4K9tGvY
+         2RpQ==
+X-Gm-Message-State: AOJu0Yx8VJa9y/P3K17vdws57xmdi/8uCunh9TBE/hnKo+AKAljbbsDZ
+	XGRZ9XsethHbRkGg+hsX26q2TOMsrMH5e8VpxNGo34cl39o2U2nT8b4JvufusSY=
+X-Google-Smtp-Source: AGHT+IGma6x2uAQftFRw+t34Rigv73YGbVESS515n/ezSqGLzQ60pjQMjIRMC7yGXXA7fqpMBZw0GQ==
+X-Received: by 2002:a05:600c:19ce:b0:40e:f6f5:9398 with SMTP id u14-20020a05600c19ce00b0040ef6f59398mr6888wmq.24.1706443194612;
+        Sun, 28 Jan 2024 03:59:54 -0800 (PST)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id q13-20020a05600c46cd00b0040e89ade84bsm11101843wmo.4.2024.01.28.03.59.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 28 Jan 2024 03:59:54 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Matteo Croce <mcroce@microsoft.com>
-Subject: [PATCH 3/3] riscv: optimized memset
-Date: Sun, 28 Jan 2024 19:10:13 +0800
-Message-ID: <20240128111013.2450-4-jszhang@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240128111013.2450-1-jszhang@kernel.org>
-References: <20240128111013.2450-1-jszhang@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH] riscv: Implement pte_accessible()
+Date: Sun, 28 Jan 2024 12:59:53 +0100
+Message-Id: <20240128115953.25085-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240128_032339_661921_471AED31 
-X-CRM114-Status: GOOD (  21.14  )
+X-CRM114-CacheID: sfid-20240128_035957_275961_D6C7B9ED 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,259 +93,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Matteo Croce <mcroce@microsoft.com>
+Like other architectures, a pte is accessible if it is present or if
+there is a pending tlb flush and the pte is protnone (which could be the
+case when a pte is downgraded to protnone before a flush tlb is
+executed).
 
-The generic memset is defined as a byte at time write. This is always
-safe, but it's slower than a 4 byte or even 8 byte write.
-
-Write a generic memset which fills the data one byte at time until the
-destination is aligned, then fills using the largest size allowed,
-and finally fills the remaining data one byte at time.
-
-Signed-off-by: Matteo Croce <mcroce@microsoft.com>
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/include/asm/string.h |   4 +-
- arch/riscv/kernel/riscv_ksyms.c |   2 -
- arch/riscv/lib/Makefile         |   1 -
- arch/riscv/lib/memset.S         | 113 --------------------------------
- arch/riscv/lib/string.c         |  41 ++++++++++++
- arch/riscv/purgatory/Makefile   |   5 +-
- 6 files changed, 44 insertions(+), 122 deletions(-)
- delete mode 100644 arch/riscv/lib/memset.S
+ arch/riscv/include/asm/pgtable.h | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-index 17c3b40382e1..3d45d61ddab9 100644
---- a/arch/riscv/include/asm/string.h
-+++ b/arch/riscv/include/asm/string.h
-@@ -10,8 +10,8 @@
- #include <linux/linkage.h>
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 0c94260b5d0c..3b46677827f6 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -353,6 +353,19 @@ static inline int pte_present(pte_t pte)
+ 	return (pte_val(pte) & (_PAGE_PRESENT | _PAGE_PROT_NONE));
+ }
  
- #define __HAVE_ARCH_MEMSET
--extern asmlinkage void *memset(void *, int, size_t);
--extern asmlinkage void *__memset(void *, int, size_t);
-+extern void *memset(void *s, int c, size_t count);
-+extern void *__memset(void *s, int c, size_t count);
- 
- #define __HAVE_ARCH_MEMCPY
- extern void *memcpy(void *dest, const void *src, size_t count);
-diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
-index 76849d0906ef..9a07cbf67095 100644
---- a/arch/riscv/kernel/riscv_ksyms.c
-+++ b/arch/riscv/kernel/riscv_ksyms.c
-@@ -9,8 +9,6 @@
- /*
-  * Assembly functions that may be used (directly or indirectly) by modules
-  */
--EXPORT_SYMBOL(memset);
- EXPORT_SYMBOL(strcmp);
- EXPORT_SYMBOL(strlen);
- EXPORT_SYMBOL(strncmp);
--EXPORT_SYMBOL(__memset);
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 5fa88c5a601c..b20cadccff78 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -1,6 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0-only
- lib-y			+= delay.o
--lib-y			+= memset.o
- lib-y			+= strcmp.o
- lib-y			+= strlen.o
- lib-y			+= string.o
-diff --git a/arch/riscv/lib/memset.S b/arch/riscv/lib/memset.S
-deleted file mode 100644
-index 35f358e70bdb..000000000000
---- a/arch/riscv/lib/memset.S
-+++ /dev/null
-@@ -1,113 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright (C) 2013 Regents of the University of California
-- */
--
--
--#include <linux/linkage.h>
--#include <asm/asm.h>
--
--/* void *memset(void *, int, size_t) */
--SYM_FUNC_START(__memset)
--	move t0, a0  /* Preserve return value */
--
--	/* Defer to byte-oriented fill for small sizes */
--	sltiu a3, a2, 16
--	bnez a3, 4f
--
--	/*
--	 * Round to nearest XLEN-aligned address
--	 * greater than or equal to start address
--	 */
--	addi a3, t0, SZREG-1
--	andi a3, a3, ~(SZREG-1)
--	beq a3, t0, 2f  /* Skip if already aligned */
--	/* Handle initial misalignment */
--	sub a4, a3, t0
--1:
--	sb a1, 0(t0)
--	addi t0, t0, 1
--	bltu t0, a3, 1b
--	sub a2, a2, a4  /* Update count */
--
--2: /* Duff's device with 32 XLEN stores per iteration */
--	/* Broadcast value into all bytes */
--	andi a1, a1, 0xff
--	slli a3, a1, 8
--	or a1, a3, a1
--	slli a3, a1, 16
--	or a1, a3, a1
--#ifdef CONFIG_64BIT
--	slli a3, a1, 32
--	or a1, a3, a1
--#endif
--
--	/* Calculate end address */
--	andi a4, a2, ~(SZREG-1)
--	add a3, t0, a4
--
--	andi a4, a4, 31*SZREG  /* Calculate remainder */
--	beqz a4, 3f            /* Shortcut if no remainder */
--	neg a4, a4
--	addi a4, a4, 32*SZREG  /* Calculate initial offset */
--
--	/* Adjust start address with offset */
--	sub t0, t0, a4
--
--	/* Jump into loop body */
--	/* Assumes 32-bit instruction lengths */
--	la a5, 3f
--#ifdef CONFIG_64BIT
--	srli a4, a4, 1
--#endif
--	add a5, a5, a4
--	jr a5
--3:
--	REG_S a1,        0(t0)
--	REG_S a1,    SZREG(t0)
--	REG_S a1,  2*SZREG(t0)
--	REG_S a1,  3*SZREG(t0)
--	REG_S a1,  4*SZREG(t0)
--	REG_S a1,  5*SZREG(t0)
--	REG_S a1,  6*SZREG(t0)
--	REG_S a1,  7*SZREG(t0)
--	REG_S a1,  8*SZREG(t0)
--	REG_S a1,  9*SZREG(t0)
--	REG_S a1, 10*SZREG(t0)
--	REG_S a1, 11*SZREG(t0)
--	REG_S a1, 12*SZREG(t0)
--	REG_S a1, 13*SZREG(t0)
--	REG_S a1, 14*SZREG(t0)
--	REG_S a1, 15*SZREG(t0)
--	REG_S a1, 16*SZREG(t0)
--	REG_S a1, 17*SZREG(t0)
--	REG_S a1, 18*SZREG(t0)
--	REG_S a1, 19*SZREG(t0)
--	REG_S a1, 20*SZREG(t0)
--	REG_S a1, 21*SZREG(t0)
--	REG_S a1, 22*SZREG(t0)
--	REG_S a1, 23*SZREG(t0)
--	REG_S a1, 24*SZREG(t0)
--	REG_S a1, 25*SZREG(t0)
--	REG_S a1, 26*SZREG(t0)
--	REG_S a1, 27*SZREG(t0)
--	REG_S a1, 28*SZREG(t0)
--	REG_S a1, 29*SZREG(t0)
--	REG_S a1, 30*SZREG(t0)
--	REG_S a1, 31*SZREG(t0)
--	addi t0, t0, 32*SZREG
--	bltu t0, a3, 3b
--	andi a2, a2, SZREG-1  /* Update count */
--
--4:
--	/* Handle trailing misalignment */
--	beqz a2, 6f
--	add a3, t0, a2
--5:
--	sb a1, 0(t0)
--	addi t0, t0, 1
--	bltu t0, a3, 5b
--6:
--	ret
--SYM_FUNC_END(__memset)
--SYM_FUNC_ALIAS_WEAK(memset, __memset)
-diff --git a/arch/riscv/lib/string.c b/arch/riscv/lib/string.c
-index 20677c8067da..022edda68f1c 100644
---- a/arch/riscv/lib/string.c
-+++ b/arch/riscv/lib/string.c
-@@ -144,3 +144,44 @@ void *memmove(void *dest, const void *src, size_t count) __weak __alias(__memmov
- EXPORT_SYMBOL(memmove);
- void *__pi_memmove(void *dest, const void *src, size_t count) __alias(__memmove);
- void *__pi___memmove(void *dest, const void *src, size_t count) __alias(__memmove);
-+
-+void *__memset(void *s, int c, size_t count)
++#define pte_accessible pte_accessible
++static inline unsigned long pte_accessible(struct mm_struct *mm, pte_t a)
 +{
-+	union types dest = { .as_u8 = s };
++	if (pte_val(a) & _PAGE_PRESENT)
++		return true;
 +
-+	if (count >= MIN_THRESHOLD) {
-+		unsigned long cu = (unsigned long)c;
++	if ((pte_val(a) & _PAGE_PROT_NONE) &&
++	    atomic_read(&mm->tlb_flush_pending))
++		return true;
 +
-+		/* Compose an ulong with 'c' repeated 4/8 times */
-+#ifdef CONFIG_ARCH_HAS_FAST_MULTIPLIER
-+		cu *= 0x0101010101010101UL;
-+#else
-+		cu |= cu << 8;
-+		cu |= cu << 16;
-+		/* Suppress warning on 32 bit machines */
-+		cu |= (cu << 16) << 16;
-+#endif
-+		if (!IS_ENABLED(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS)) {
-+			/*
-+			 * Fill the buffer one byte at time until
-+			 * the destination is word aligned.
-+			 */
-+			for (; count && dest.as_uptr & WORD_MASK; count--)
-+				*dest.as_u8++ = c;
-+		}
-+
-+		/* Copy using the largest size allowed */
-+		for (; count >= BYTES_LONG; count -= BYTES_LONG)
-+			*dest.as_ulong++ = cu;
-+	}
-+
-+	/* copy the remainder */
-+	while (count--)
-+		*dest.as_u8++ = c;
-+
-+	return s;
++	return false;
 +}
-+EXPORT_SYMBOL(__memset);
 +
-+void *memset(void *s, int c, size_t count) __weak __alias(__memset);
-+EXPORT_SYMBOL(memset);
-diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index 8b940ff04895..a31513346951 100644
---- a/arch/riscv/purgatory/Makefile
-+++ b/arch/riscv/purgatory/Makefile
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- OBJECT_FILES_NON_STANDARD := y
- 
--purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o memset.o
-+purgatory-y := purgatory.o sha256.o entry.o string.o ctype.o
- purgatory-y += strcmp.o strlen.o strncmp.o riscv_string.o
- 
- targets += $(purgatory-y)
-@@ -16,9 +16,6 @@ $(obj)/string.o: $(srctree)/lib/string.c FORCE
- $(obj)/ctype.o: $(srctree)/lib/ctype.c FORCE
- 	$(call if_changed_rule,cc_o_c)
- 
--$(obj)/memset.o: $(srctree)/arch/riscv/lib/memset.S FORCE
--	$(call if_changed_rule,as_o_S)
--
- $(obj)/strcmp.o: $(srctree)/arch/riscv/lib/strcmp.S FORCE
- 	$(call if_changed_rule,as_o_S)
- 
+ static inline int pte_none(pte_t pte)
+ {
+ 	return (pte_val(pte) == 0);
 -- 
-2.43.0
+2.39.2
 
 
 _______________________________________________
