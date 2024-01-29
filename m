@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9915C47258
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 01:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 800D2C48285
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 01:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MLE9pkM9l0pkgkaOYUT+EUZeTEqGT7/yGB+NYg3NoGA=; b=RKp1ruHxjkQSa5
-	lynzDc17PWNySh2g1nf65UD2ZAQOh5Jfz9NBdeyusmlHDBOof6UuozEchSyIZbpQlvoQUkcsP/jzo
-	eorCkBe7I91HPHkXuAPuk6gPhgx5l6cR1ZbmztZciuLY/CqTYxE9gmmKwA7zJ2KZinyUm+dpxAWWK
-	LuKxSUew4EVf1MAZGToNS6bJG0aEDV6a1p/50mY+tHq7lbQ6oWw34BGG3nUylxbrdjvo6rAc1mmYV
-	cvpafk8bKZqFUB6h12+d+LFS1ANbgba8Oh1k3DK+wUqfgLTab5uzdAyAPM/geD24B5wIkYiwNA5y2
-	pYJeiOj6CAfRm+SyjyJg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=g6FzgD7fUpv/D7ivZYWzPKNH6D26wnKXMe48BKrt7WU=; b=SwcjWWklFZhNKZ
+	c41vaadooRHMPjTBUR/7b5Hn3AZATbchf764Fio7YOVdMo4NtQowVN/73BYz5xh6GetuplotQtysN
+	/iz7E5fM6UGPcoNEp20rkF9jXjTyBDdoaPmMeahIT8Knc0MUl6mkYA4XYNQHXYZvMVgWQg7IcW+lT
+	JdIHmyeiq9fQHPBqKXAbCKRSFamnFOZ0pw6ktxZi7+TB6Ism7zS/jXPQf8Ebwflz33VbP+++WYL5M
+	KT49nanAAZQiFg0g2qa/sVNPJxrukIfpStISei6VmUVcMQsdMqeNhMzz3YMVFuL5QbTlX0c2rcVuH
+	xRHEFErZjZvCKWWQ8nAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUG0Z-0000000ArX9-0n1W;
-	Mon, 29 Jan 2024 01:00:19 +0000
+	id 1rUG0b-0000000ArYD-3a7p;
+	Mon, 29 Jan 2024 01:00:21 +0000
 Received: from mail-bjschn02on2061f.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::61f] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUG0W-0000000ArVp-3sB1
+	id 1rUG0Y-0000000ArVp-2Gko
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 01:00:18 +0000
+	Mon, 29 Jan 2024 01:00:19 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Alrj7Vxcq21ly6tpjtHMByT5Pvv8nV1HMmhYdEAZqSn2PKZTLDXE65zEc7r5+MS9+h4yMmOgRh2b0osskxhEvCdbbt9QGDlkzKq8Sx/qnJTOgf2Vxh0dPHOTgGqrYPxCq3xpIutSy7dxjYgdTh62n+zyNcBR8cO/n00G1pdsoGeLjRui+IRmDyhwNG0kgg+xfy1WQHBA8WxflGtgOH8CQhewWztF4D7SLq5IRPPRzKKVS3Ry+ny+XyZgk9BFRPGmpj15ks3RcZw38FjXyRTBSBTT+Ajg52GqmTjI14k+phYUMofWkzkkrXZ1XpqCV7RzRmcblbHKCM5CrSJ1jjqOWw==
+ b=XXjW/5vDuV8iHPSYQgt6uIbfOukPGZgaAM4D+ZVOERvEXJCSg0GvGesBASmtZqoQ+ZwGsbeiew5re/xvYGQyUozzIXaz8xxM21a9ntcagBKNqpTQFoiF8OMg30II+rvQa7mGmGR9SIOtGopn4RF6A/u9d63GDgOkoF1Wr8ihz6ZLncCLnQGqbjE9mATQLBvUgdbrvVL72eYrhVwH+k85DqobDylLyWLIBDLXZmLYCXnHw6xaTPyuo/4CKeM4Jghp+/pGHKqWvpHId/Cs+tY/Y3K8DqSBRyrv+4DK62biPiT1iztvokE8NjRegLLD2fzFyMKg4016CmFki+ULVo0iug==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e32gHqF3/4Ta8V5kx4q5V2+D4dF4zhKKR6XIQgjmQYE=;
- b=JXvbwRknv3lmy514E5JUiihvQuVm2tyvxsGiWs+rr0uUooPdw/GreF3UP3J9lZYAF7h1Ba26ZZoBSOlCRxn7e5cLNpuZ9zIMR0GsfIFqHu04EvcGzCqQj30eczEHBOt/qy6BD/qdGvr8AYe7HzsLjm6CyuxdUVpn/tUMaDV4LFQ9+Hv9M7NGqGiGz9cn8JC2nywUKihcL0pERp/CdDsJfboSJ0q1xRHs8S7ZBfVmHmUL0oBUPWIxMl6ynBz/dF0JuNgpIoekE/9rOZ1v9TorVwiL4GDDBQb6zDAdxErXNsACAyrWnyycFEhwTB807j32boEBC37uhqnJ28EmxTBqJA==
+ bh=qx5Yb/mH7vkRlelY89RpGgyd0V1vSjgcQXjlTiRgDK8=;
+ b=eG/m9MjlzG6UOe4l7JFM/MueIX1J+RZr/3I8kRLNe/tQgGonQxCLZzF0OJ3J1IU/xm0vh5dxXyFMx2fID0gXkFDKo85Cwi7Q/iInBZcA76EERtebOTZVZNeQFkVc/snb+e98mFHq3cumwOL7PT5gIoJZ3setzmYI1YsscMsfeUbvJZzsSj4UwGW8/Dqo/yE8KNKJvVbnHmgafoiEon9EKmzVzsUaa/1UGFPTRkUIKDuXmv0ne7ChU5bzmUrrMZAG32QUgrGSuynL2L2WvK9rohrk8kYEoyfo+wGgjltBOeyJO8Zx6rSP5M9fPEiwRhDiRnCvcPvz9hZA3qsult6wjA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:18::12) by BJXPR01MB0630.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:14::21) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7228.28; Mon, 29 Jan
- 2024 01:00:06 +0000
+ 2024 01:00:09 +0000
 Received: from BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
  ([fe80::1ea1:19d5:efef:6fc6]) by
  BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn ([fe80::1ea1:19d5:efef:6fc6%4])
- with mapi id 15.20.7228.029; Mon, 29 Jan 2024 01:00:06 +0000
+ with mapi id 15.20.7228.029; Mon, 29 Jan 2024 01:00:09 +0000
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
@@ -69,64 +69,66 @@ Cc: devicetree@vger.kernel.org,
 	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>,
 	Minda Chen <minda.chen@starfivetech.com>
-Subject: [PATCH v14,RESEND 02/22] PCI: microchip: Move pcie-microchip-host.c to plda directory
-Date: Mon, 29 Jan 2024 08:59:47 +0800
-Message-Id: <20240129005958.3613-1-minda.chen@starfivetech.com>
+Subject: [PATCH v14,RESEND 04/22] PCI: microchip: Add bridge_addr field to struct mc_pcie
+Date: Mon, 29 Jan 2024 08:59:49 +0800
+Message-Id: <20240129005958.3613-3-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20240129005958.3613-1-minda.chen@starfivetech.com>
+References: <20240129005958.3613-1-minda.chen@starfivetech.com>
 X-ClientProxiedBy: SHXPR01CA0010.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:1b::19) To BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:18::12)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: BJXPR01MB0855:EE_|BJXPR01MB0630:EE_
-X-MS-Office365-Filtering-Correlation-Id: e649555f-52ba-4b64-d1cf-08dc2065a1f9
+X-MS-Office365-Filtering-Correlation-Id: 6cf03b02-de5e-471b-a3a3-08dc2065a398
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: B8Q1RttqYNI21ZfZuxeUYXxvrrOynorQs7u85YJ00m6SoQjLFbNlDqN/Xz3dv4a9+5uCeStHApp0tXMTOdNepYXfhEFqH01seSv9nukzkBEuFvlDrRnMrpXcYqw++bEINUbu2/PusgMx5iN2Es5pqI3poGCQgFKqibS77qP/p+jXuz4Kj5cv1JI/IuGls63NG/D2BAwYP1nXQp2vSubLEG8YQh9P8a5t9bOItWMYjn09VEgQVbSKU75Nzvj40tzyWRB2WIBgqnoT7lupPl0yBIH3EogocGurSElAZLbX9AMOsnAxDkycRgBBb8/P6j2chFgE/RPsiU6SiWJeQ98ufz4sO/phHogeXwqWFAITo6Dtb/HDrpEVWN0iCT0resHGr6BbgjEL9OCpx04o+cZxCJwsG+eslv3VQEhfEXFtSOHJ8dmT+8BNA6AQdciP4GmNP0iHswK5hD98xtoWhhDC2zGWKa9Ci/BsHMyW8nCWTuvYq7W4qPYNbJuiPkoLsYfkY2PmuR9HHAM1ONk3Or/E2+JZivIvIS6Y7l8LUp5EPnE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(136003)(39830400003)(396003)(346002)(366004)(230922051799003)(64100799003)(1800799012)(451199024)(186009)(83380400001)(41320700001)(40180700001)(86362001)(40160700002)(36756003)(38350700005)(1076003)(38100700002)(2616005)(26005)(107886003)(2906002)(52116002)(45080400002)(508600001)(6666004)(41300700001)(110136005)(66946007)(66556008)(66476007)(54906003)(5660300002)(8936002)(4326008)(44832011)(8676002)(7416002);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Message-Info: rNHi8eq8oWESFD8FUt97KUJtxkUBxq3iv5JES4EcFkcWDhcLb8CQ1j8MXF9frOcA41fWk8HrkfJ49xNmZPSunkqPPkmMWH+q2WQ8Rdry+3GSs5tfDPW7EpNNoF74dBa+ZxJAge+8RRmxQmu/xeApZdN3Qw0C+/iehtZNWas4nhOxV6wkyzr3Gdl4yDtfNDbLLLRwRP+bQJDGLlk5lbIEbmGN4XpGBKxraB1skGxHrtaqDaBwNpLOJ75R6HPIrF5xaefhylP5RecD7FDDL4xDaaTHhjbIMwcXF5Nqivf0pEShd6qEPGDbpP+i8i69dKSBJ/lGctDwXCT/ygJ1UnZUilRVuuModA+IUhER4OKEa/rqCRMTsW6sNpPH3DJHGpqp8OmU8MQnZPi3zwvDN9dD+ymmiMnqotutv52Zv5AR5qsRJLBkKa1A5JqzYYZm7p34otpiEWIofRyYpJc5Uets0YhAmanSYtLBvNytAmT70ypaFlfvBm2Ns2hqEabhSVQ35WhSaq4i32as90giLfIUFZNc1DxNa0Akptd7FL3cD1YUIVMnls1dvqa5q9oBZvnk
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(136003)(39830400003)(396003)(346002)(366004)(230922051799003)(64100799003)(1800799012)(451199024)(186009)(83380400001)(41320700001)(40180700001)(86362001)(40160700002)(36756003)(38350700005)(1076003)(38100700002)(2616005)(26005)(107886003)(2906002)(52116002)(508600001)(6666004)(41300700001)(110136005)(66946007)(66556008)(66476007)(54906003)(5660300002)(8936002)(4326008)(44832011)(8676002)(7416002);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?23XvUu1sQUwT6+bmg7YUS8ErmSQS9ig4dpbb7eu4qnkIQNUI6BkEuyYvT5iX?=
- =?us-ascii?Q?6GJKN3UERJD1bLWvELz+9y5CEdqNkkXPyWTFaIdFreGb4AMHvYBygkL4yIPj?=
- =?us-ascii?Q?Rh4qrj2iwGCY3MWufsOLVVZFwwDbSyEfugzHgiN06bJnnGQLA8fev5DSD6J8?=
- =?us-ascii?Q?41PVQH655pIRIwZstfrWB57he5y7J/sjjRhdud1fgtYhhHjlpiaxh5ywM04e?=
- =?us-ascii?Q?fBEWrUkdVGN900xm7Bn4k7JBpzhazOshLW8amxD0C8PP+K2pKKTw9o3XRFrc?=
- =?us-ascii?Q?Gd+0RZ1mGCkZey4TV8FGJ6L41J7dn/0naJg4h3CnJstCFiPb0jEdinsZ2rG6?=
- =?us-ascii?Q?Pf6ikiYfLh9/J163OYT8w8O5xTi7G4yt89tdOQM+OOX42/WL6jb16dKXC3gx?=
- =?us-ascii?Q?+aJdA866TvWAADSQuPAq/d785H2IGpXi8xma8LpkzS39Mr5yDJeBc1dSV7PT?=
- =?us-ascii?Q?eTKcE7V9KCDvZFMpDp5+kgw4x0dwGUU6UKOHmJCvpVUEbrXK89TJlS8B3jwd?=
- =?us-ascii?Q?ya/KluZU1P2pUrkVvoKficIWw2e0UYOp8Rd3uLbWuyrGr/PgPLd7m5lAwkNj?=
- =?us-ascii?Q?WLKfR3IpO4QtyoZxBKBxvdJQSe9I0GmoF3WczhBN05pUizQDewuFgfnlvIXw?=
- =?us-ascii?Q?PyGkZ4zgRyaoRlQdgLVwLQz4hTn/UCycqIOPLiVx29SM1fOBJBrJtNfv12gm?=
- =?us-ascii?Q?TqkSG7yywSKKxKSWTY/GsY2H+RUnitcU1jwItVFaP6kVmm8YxAvONzleoGcZ?=
- =?us-ascii?Q?En+DTQ9t+AMdYPsmC8AhEZuBcp8th7zUB6yAwOfdud6idiK7n9vqtG6N8SsT?=
- =?us-ascii?Q?BW+ogdXkjhBQ/DGrqm/41uIpHsaqDZ6ahoqJLBjpUF48lZbVQplOpd+GxQqT?=
- =?us-ascii?Q?UCPZMGFNEJyS2ke84n3hNaQexm5pYI2d3/uGV6qGytAIxLvFBlwsGOD4oRXj?=
- =?us-ascii?Q?UhVTmZuXIuLX3F8s/LpnXhhUtG1nOpfJDMcJrw2V7LXKelQzzcCKDb0MSomE?=
- =?us-ascii?Q?5WcHrmNcqpF5hv1Y+jK7i+eE3BCHVuKOvvzHwNW70xDVPzLHbJf4I9OjgbEy?=
- =?us-ascii?Q?k04uD3ADo4xCykaBYs+Toemm2wzgz0n+9qELfCixrcdk2MotYhpYeprbb+we?=
- =?us-ascii?Q?XTJvRh/S1mVdEpgul9DdRuTYpDm4U285njhK/pDX74h2HK7L6mr73+9vlfb1?=
- =?us-ascii?Q?uetqkQNgiSu7pHOUcNoiYHfW5iCNYNv8Us+4CQN1q1oQF0A0sGYnTn83utE5?=
- =?us-ascii?Q?3zv7/enZzgZNy9DH9xERvhvs8KXddtGuSDqMuqo8vjqd+FIyGokvPUU1dACq?=
- =?us-ascii?Q?CAKuz6UDC07oSiAZ/ayH23XhnGS93bLTO/AZliseA7gmRMzV+KN/J6gOKB5P?=
- =?us-ascii?Q?lzg5qv/B9/6MxkXJ49ZfJDZJReM4qVHeQPMGXHilJ453hISZDQpPO2cQhPN1?=
- =?us-ascii?Q?UOx+DXHuZ2s2NioqCrHokn8SYLiDh0QxFs4rSsAxORNAOjtWaLsuKhMu2Np2?=
- =?us-ascii?Q?4mYRh63JW9bXmLkRJnjkWNMxk98qMZb12rPz7chJzdJxOH1whaO78T+Ev1JH?=
- =?us-ascii?Q?MzKBJmHm3Ilz/ri3byQ9F/0eh6ura+wj2j784FUHLIIruuM0f1XAqIJf5Us/?=
- =?us-ascii?Q?3Q=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ht74ElwsQXFWk8h1nVugZmN2s9UdKSxQDzrAR0gn1GVm3OKc5v2khFPTcY6m?=
+ =?us-ascii?Q?QDadCghco2mWxbRMjMdbkzGAgNZ9ySrDPPrIHSqePcGvfbTS+nEsW/i8dp/h?=
+ =?us-ascii?Q?/W62Caml5Tc/C86OAOtkYrA04B9G3fXvyX8UcGB/U9vplOeQTYr4+K7Mww5N?=
+ =?us-ascii?Q?jYr7zWlTbFfA4ZSHg8E5l1JrOntSq+WDMujBzQNqIsaDHuGROXrgOmbUMMvp?=
+ =?us-ascii?Q?fUCuLMzRUPeaKubhQouT3VTwxvtSonX9DN3F7/DzXqppJTQkIkayHM2T6Ut8?=
+ =?us-ascii?Q?FMjkaTe3ltSl+9XOMc0QUVzJkywG3XwcFQSSHUxSiRgPda3uU0sQsrvkkUvw?=
+ =?us-ascii?Q?n5cZYFGR2fx3QdxCwChrwW7Nu7pwG6P45pMG3vYxMKG1dC/vUFOtwWFSsIqY?=
+ =?us-ascii?Q?wbpwKON6LD5NcwxOGLPgNixvIRKbns9YoXH06S9ZwYC/UuSGHA2SlsNMRfVR?=
+ =?us-ascii?Q?45bh8jt3T+zEHFmf/cDLC6cO0ElFJJ/+yjZorW/KwSWUYcD4NKzy106ifEf9?=
+ =?us-ascii?Q?OvITgWWLJangcjrvDthwHsQ+XHvPx5Y59pxuCA3pPKrHnnyRGPsZl5EplI6c?=
+ =?us-ascii?Q?QRAJ+DETPTzzB7ISCCNxCdaVnMjIgTP7V1vQTR6caQXiluhMo4ijLQ+WNyMM?=
+ =?us-ascii?Q?15jNq8lxxMzqSSsOoM/qJHpJAJeIlaV+z25tt06Q5nBU2mBdDTvb1UhKe98s?=
+ =?us-ascii?Q?atLzrzdl2HmMdDH01VROWxb23/dk5R1sMCVlcK+QX8msrHJjsTtj7/sJIIMa?=
+ =?us-ascii?Q?0c6s7fsgkkNRerkXgV7RA/7C3IfGDgQAmcaTaZEMTsRSPRnjgfORq+1RRSGl?=
+ =?us-ascii?Q?NTz+mQ95OlX6zRd5VMz5HwT5nV9LN0x/xtuUAcwA96wVNpgjmkj2PBNqqGgj?=
+ =?us-ascii?Q?Ao6ejdxYSvmtHgWn0LZxToAz/FujgyZwRtb0mID9cOQVWgo8QTM1qItMDIz1?=
+ =?us-ascii?Q?UCEFzT7tHw1FxZa98IhxIh8hwr9sgFlUvKqd574z1LRa+qVbZ6eWLkXf9H0I?=
+ =?us-ascii?Q?Lca/JM9t/ciD/ExpUMyF0QWdUCsG3GHBJn1QYxhD3pKcQQ1JoyT2Jxr79uyb?=
+ =?us-ascii?Q?wORD2ylAmz0RKxDxhoQTNYjLL1wiAmwODtuZkyxQHIySk+AcjkkyAaIRSiRX?=
+ =?us-ascii?Q?TFu6EFpXkRl6ffbIitSlftlyA+cML2TIB7lsBK+CvwIO0PY/2pItvXEwJ0Uk?=
+ =?us-ascii?Q?wmEmudQRUYn+9lA4LlL2qH7nPWj7H++8PWYgFw3ibwNrLFnCfu2eSEE7IO/R?=
+ =?us-ascii?Q?vw4ILFtwfZET8qwrNTMLXXFf3idsgPe3AFQXcUdK9vH7FP0pZUy5feYHaJjq?=
+ =?us-ascii?Q?zO2nfo/amXuZfFl0gC7NN/wMxigRq2GNmJVg0ibxtC9jedByEehAlGpUtpXF?=
+ =?us-ascii?Q?WLPvZm3cGG9uH+aamUas+g2ZPrBiJd2jJ19v5sKn60edNdXGFST8s6JxeRDh?=
+ =?us-ascii?Q?TcC1yFPZQ/ZzfR6MdC37csxMLgXEZ88UVmze6O7P6FBqjeKyOcCQgtQOACUS?=
+ =?us-ascii?Q?QFM1tnvM7lRho3Ya6z4f4uYbWJysjn3Lnu6XF3YrsaPSbkwo3z2liVlWmxo8?=
+ =?us-ascii?Q?1FPbbAnQ4BVVqMl0f9WTUxtuYslOhWlhbn6zHR3wO3+J1vpKC2MRXOkxKx4y?=
+ =?us-ascii?Q?hg=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e649555f-52ba-4b64-d1cf-08dc2065a1f9
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6cf03b02-de5e-471b-a3a3-08dc2065a398
 X-MS-Exchange-CrossTenant-AuthSource: BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2024 01:00:06.2077
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2024 01:00:09.0687
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3ga0AmoB9kNm0DyQsc5/4KWgkZ8Psffoo/LO9G39kIjMXyi8uSdHovtvnfeMtINun2HLzDjcnUC3mtlkH04rFtJbw1I/dzMeA/++2iVS1t0=
+X-MS-Exchange-CrossTenant-UserPrincipalName: Xx1M8mzu6HZOqDEOpGFn7keA4rmJ1n8xrsLIeT5EbPEIj1s1FvZg8SJXNiYs6g4hetgst4n8JSHlXEX0M7YktxJJ4hpr98cMGX+c0vCDiuE=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0630
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240128_170017_021834_17B9C811 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20240128_170018_608948_CD77754E 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,134 +145,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For Microchip Polarfire PCIe host is PLDA XpressRich IP, move to plda
-directory. Prepare for refactoring the codes.
+For bridge address base is common PLDA field, Add this to struct mc_pcie
+first.
+
+INTx and MSI codes interrupts codes will get the bridge base address from
+port->bridge_addr. These codes will be changed to common codes.
+axi_base_addr is Microchip its own data.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- MAINTAINERS                                        |  4 ++--
- drivers/pci/controller/Kconfig                     |  9 +--------
- drivers/pci/controller/Makefile                    |  2 +-
- drivers/pci/controller/plda/Kconfig                | 14 ++++++++++++++
- drivers/pci/controller/plda/Makefile               |  2 ++
- .../controller/{ => plda}/pcie-microchip-host.c    |  2 +-
- 6 files changed, 21 insertions(+), 12 deletions(-)
- create mode 100644 drivers/pci/controller/plda/Kconfig
- create mode 100644 drivers/pci/controller/plda/Makefile
- rename drivers/pci/controller/{ => plda}/pcie-microchip-host.c (99%)
+ .../pci/controller/plda/pcie-microchip-host.c | 23 ++++++++-----------
+ 1 file changed, 9 insertions(+), 14 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8d1052fa6a69..44daaf962065 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17034,7 +17034,7 @@ M:	Daire McNamara <daire.mcnamara@microchip.com>
- L:	linux-pci@vger.kernel.org
- S:	Supported
- F:	Documentation/devicetree/bindings/pci/microchip*
--F:	drivers/pci/controller/*microchip*
-+F:	drivers/pci/controller/plda/*microchip*
- 
- PCIE DRIVER FOR QUALCOMM MSM
- M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-@@ -18827,7 +18827,7 @@ F:	drivers/clk/microchip/clk-mpfs*.c
- F:	drivers/firmware/microchip/mpfs-auto-update.c
- F:	drivers/i2c/busses/i2c-microchip-corei2c.c
- F:	drivers/mailbox/mailbox-mpfs.c
--F:	drivers/pci/controller/pcie-microchip-host.c
-+F:	drivers/pci/controller/plda/pcie-microchip-host.c
- F:	drivers/pwm/pwm-microchip-core.c
- F:	drivers/reset/reset-mpfs.c
- F:	drivers/rtc/rtc-mpfs.c
-diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-index e534c02ee34f..4d2c188f5835 100644
---- a/drivers/pci/controller/Kconfig
-+++ b/drivers/pci/controller/Kconfig
-@@ -215,14 +215,6 @@ config PCIE_MT7621
- 	help
- 	  This selects a driver for the MediaTek MT7621 PCIe Controller.
- 
--config PCIE_MICROCHIP_HOST
--	tristate "Microchip AXI PCIe controller"
--	depends on PCI_MSI && OF
--	select PCI_HOST_COMMON
--	help
--	  Say Y here if you want kernel to support the Microchip AXI PCIe
--	  Host Bridge driver.
--
- config PCI_HYPERV_INTERFACE
- 	tristate "Microsoft Hyper-V PCI Interface"
- 	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI
-@@ -356,4 +348,5 @@ config PCIE_XILINX_CPM
- source "drivers/pci/controller/cadence/Kconfig"
- source "drivers/pci/controller/dwc/Kconfig"
- source "drivers/pci/controller/mobiveil/Kconfig"
-+source "drivers/pci/controller/plda/Kconfig"
- endmenu
-diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
-index f2b19e6174af..038ccbd9e3ba 100644
---- a/drivers/pci/controller/Makefile
-+++ b/drivers/pci/controller/Makefile
-@@ -33,7 +33,6 @@ obj-$(CONFIG_PCIE_ROCKCHIP_EP) += pcie-rockchip-ep.o
- obj-$(CONFIG_PCIE_ROCKCHIP_HOST) += pcie-rockchip-host.o
- obj-$(CONFIG_PCIE_MEDIATEK) += pcie-mediatek.o
- obj-$(CONFIG_PCIE_MEDIATEK_GEN3) += pcie-mediatek-gen3.o
--obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
- obj-$(CONFIG_VMD) += vmd.o
- obj-$(CONFIG_PCIE_BRCMSTB) += pcie-brcmstb.o
- obj-$(CONFIG_PCI_LOONGSON) += pci-loongson.o
-@@ -44,6 +43,7 @@ obj-$(CONFIG_PCIE_MT7621) += pcie-mt7621.o
- # pcie-hisi.o quirks are needed even without CONFIG_PCIE_DW
- obj-y				+= dwc/
- obj-y				+= mobiveil/
-+obj-y				+= plda/
- 
- 
- # The following drivers are for devices that use the generic ACPI
-diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
-new file mode 100644
-index 000000000000..5cb3be4fc98c
---- /dev/null
-+++ b/drivers/pci/controller/plda/Kconfig
-@@ -0,0 +1,14 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+menu "PLDA-based PCIe controllers"
-+	depends on PCI
-+
-+config PCIE_MICROCHIP_HOST
-+	tristate "Microchip AXI PCIe controller"
-+	depends on PCI_MSI && OF
-+	select PCI_HOST_COMMON
-+	help
-+	  Say Y here if you want kernel to support the Microchip AXI PCIe
-+	  Host Bridge driver.
-+
-+endmenu
-diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
-new file mode 100644
-index 000000000000..e1a265cbf91c
---- /dev/null
-+++ b/drivers/pci/controller/plda/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
-diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-similarity index 99%
-rename from drivers/pci/controller/pcie-microchip-host.c
-rename to drivers/pci/controller/plda/pcie-microchip-host.c
-index 137fb8570ba2..cb09a8137e25 100644
---- a/drivers/pci/controller/pcie-microchip-host.c
+diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+index d9030d550482..c55ede80a6d0 100644
+--- a/drivers/pci/controller/plda/pcie-microchip-host.c
 +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-@@ -18,7 +18,7 @@
- #include <linux/pci-ecam.h>
- #include <linux/platform_device.h>
+@@ -195,6 +195,7 @@ struct mc_pcie {
+ 	struct irq_domain *event_domain;
+ 	raw_spinlock_t lock;
+ 	struct mc_msi msi;
++	void __iomem *bridge_addr;
+ };
  
--#include "../pci.h"
-+#include "../../pci.h"
+ struct cause {
+@@ -339,8 +340,7 @@ static void mc_handle_msi(struct irq_desc *desc)
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+ 	struct device *dev = port->dev;
+ 	struct mc_msi *msi = &port->msi;
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	unsigned long status;
+ 	u32 bit;
+ 	int ret;
+@@ -365,8 +365,7 @@ static void mc_handle_msi(struct irq_desc *desc)
+ static void mc_msi_bottom_irq_ack(struct irq_data *data)
+ {
+ 	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	u32 bitpos = data->hwirq;
  
- /* Number of MSI IRQs */
- #define MC_MAX_NUM_MSI_IRQS			32
+ 	writel_relaxed(BIT(bitpos), bridge_base_addr + ISTATUS_MSI);
+@@ -488,8 +487,7 @@ static void mc_handle_intx(struct irq_desc *desc)
+ 	struct mc_pcie *port = irq_desc_get_handler_data(desc);
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+ 	struct device *dev = port->dev;
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	unsigned long status;
+ 	u32 bit;
+ 	int ret;
+@@ -514,8 +512,7 @@ static void mc_handle_intx(struct irq_desc *desc)
+ static void mc_ack_intx_irq(struct irq_data *data)
+ {
+ 	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
+ 
+ 	writel_relaxed(mask, bridge_base_addr + ISTATUS_LOCAL);
+@@ -524,8 +521,7 @@ static void mc_ack_intx_irq(struct irq_data *data)
+ static void mc_mask_intx_irq(struct irq_data *data)
+ {
+ 	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	unsigned long flags;
+ 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
+ 	u32 val;
+@@ -540,8 +536,7 @@ static void mc_mask_intx_irq(struct irq_data *data)
+ static void mc_unmask_intx_irq(struct irq_data *data)
+ {
+ 	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	unsigned long flags;
+ 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
+ 	u32 val;
+@@ -896,8 +891,7 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+ static int mc_pcie_setup_windows(struct platform_device *pdev,
+ 				 struct mc_pcie *port)
+ {
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+ 	struct resource_entry *entry;
+ 	u64 pci_addr;
+@@ -1081,6 +1075,7 @@ static int mc_host_probe(struct platform_device *pdev)
+ 	mc_disable_interrupts(port);
+ 
+ 	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	port->bridge_addr = bridge_base_addr;
+ 
+ 	/* Allow enabling MSI by disabling MSI-X */
+ 	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
 -- 
 2.17.1
 
