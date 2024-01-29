@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB9EC47422
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 13:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D3BC47422
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 13:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NiH7TCRyduCCJ5XsqQ7gLTVWnMdnx+pxgptMVF0aau0=; b=w9kDcCHljdiQJA
-	f26Iv1hL3iCBprZIZTRkNNlDsDQ55jW9Qg67h1/03uUv6p1TcHvUGou+mEWpK6E1ey00Cl6VRPXYG
-	p6wBNzF211eehsizH7iassVFfJK7WnBVWiKrq2rLBAxxteFhwlXqMe5mfOtGP9atPNDsicxPhvRZ6
-	SiIjT87YEslOixU/rHHtmCILkcYv33agK/TmuXjDG3hsvPlFWWyvTOgmoldjrOuRJV+0HF4zDROLO
-	ZP4EJdEp7PiI6mhJOgCdd6MM92AGiyX0Vj0FS0YLKPThtWxtBbABfa1oRN18Usci3ToJyBqtjc9Pt
-	m/6s+nqDu4GAFwYQgySQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RslQnxEw7Vc6zdaH8IcbBH6L8yj/jq4Evf/ZsVl1fyQ=; b=X+eXgYzs6zUk9j
+	Q9eVWnLUczKDFHmu92vRr47hzX6nxitxh0ay5y1nf7htm1gHJXx5HIlj0tE30cR5QxHF2196W6+Ix
+	pKWpwlxkBVv+SAXS0sycEFJiDcle5OSi9J7mTC8/eonGWJbAFt2IGX3SOUbik/qMhG0RdrRPE1/BL
+	xGJ7wmjU+ikEnc9BPxRAk/mNaDK8GMGd7OCLUaz0IqJyE3HZQwdhC4VBmgPhtqiOVaN4QLJVcz2/i
+	qxVL0XryF0qmIOceqZ7yyXqufJHmWdHIhRo+R/MYbze6DMiB1zeUk39y/NLD4+nnD/Oy+WQLe7ZWy
+	byxhDYUC6X+pQqML+DCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rURJ1-0000000Cksz-1NJN;
-	Mon, 29 Jan 2024 13:04:07 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1rUS7g-0000000Cxy6-3Ok4;
+	Mon, 29 Jan 2024 13:56:28 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rURIx-0000000Ckrl-1eMh;
-	Mon, 29 Jan 2024 13:04:05 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4TNpM75yZdz6K9JK;
-	Mon, 29 Jan 2024 21:00:51 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8F10A140A1B;
-	Mon, 29 Jan 2024 21:03:55 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Mon, 29 Jan
- 2024 13:03:54 +0000
-Date: Mon, 29 Jan 2024 13:03:54 +0000
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-CC: "Rafael J. Wysocki" <rafael@kernel.org>, <linux-pm@vger.kernel.org>,
-	<loongarch@lists.linux.dev>, <linux-acpi@vger.kernel.org>,
-	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <x86@kernel.org>,
-	<acpica-devel@lists.linuxfoundation.org>, <linux-csky@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-ia64@vger.kernel.org>,
-	<linux-parisc@vger.kernel.org>, Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>, <jianyong.wu@arm.com>,
-	<justin.he@arm.com>, James Morse <james.morse@arm.com>,
-	<vishnu@os.amperecomputing.com>, <miguel.luis@oracle.com>
-Subject: Re: [PATCH RFC v3 03/21] ACPI: processor: Register CPUs that are
- online, but not described in the DSDT
-Message-ID: <20240129130354.0000042b@Huawei.com>
-In-Reply-To: <20240123092725.00004382@Huawei.com>
-References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
-	<E1rDOg2-00Dvjk-RI@rmk-PC.armlinux.org.uk>
-	<CAJZ5v0ju1JHgpjuFLHZVs4NZiARG6iBZN_wza6c2e0kDhZjK0w@mail.gmail.com>
-	<ZaURtUvWQyjYfiiO@shell.armlinux.org.uk>
-	<20240122160227.00002d83@Huawei.com>
-	<CAJZ5v0hamuXJ_w-TSmVb=5jGide=Lb7sCjbzzNb_rFuPrvkgxQ@mail.gmail.com>
-	<Za6mHRJVjb6M1mun@shell.armlinux.org.uk>
-	<20240123092725.00004382@Huawei.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1rUS7e-0000000CxwR-35nV
+	for linux-riscv@lists.infradead.org;
+	Mon, 29 Jan 2024 13:56:28 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-510322d5363so2419635e87.1
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 05:56:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1706536583; x=1707141383; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kLNm6aWjWhP3Zo5PR428kbbo6W3kbQTRbP3vEHT7Ffg=;
+        b=L9t2cpKDniIrQiKtsN+SEYExcqXCsuxdUtmTVye+pW6AilsikXkb/78j3ccvg/PiCX
+         yD1ODB1p+Znm22elkANpDnb4fFB7pvi7bvPmmQlVFa0BMEL1gzpxeVqF5iTHh/TbdE2Q
+         05ZBqKWbHpIRfEKfQ2STsPdZdqjp3rBHd0zRe2N8BJERXu9Mjaivf4OJ9MMoGmuW3olw
+         H9QvD645rO9bE3/LO0pUoPweJhgJVleGtnNKJEbsm79DpecrqH+jxJE2A4P7/JNvKFvL
+         gNQcZfEijpwylmzUwkL+aaBBNfYN4FSd6Fl64wNtuHuu0Y7kfCwalijNurKBpzeit+jG
+         JWqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1706536583; x=1707141383;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kLNm6aWjWhP3Zo5PR428kbbo6W3kbQTRbP3vEHT7Ffg=;
+        b=cjpq5XhVxbdG8msRYYY7xBUhw0dtTabIsuOsdFVdUSp85iFiYaB9p4BIJQGspGbb/w
+         u+jx/BQ+ifKqyNAXEzH0/n/p6pCju1bb/HdXmCV141bIpGyH+Z7y6w5OigstaaQ97aNC
+         UtRd2hR/ROz7TumlLDRLqKL2o22mKXyCw3G1e4MAyqRFWYa4lYSDXJO59n2qRNMCiHTl
+         gg+/IS0kABjmnMn0N/9gCz5AyyI9odMBA9mJ/w5bdCe01o2n5Q+HT1w0qty1FeoNcJH6
+         0ibJ0B2JlR0amD5GGeoYcACHuhYPIo1obvFTPTb8vk6Nml348iNOI9Kn+H2lIYlTw72n
+         +Q8A==
+X-Gm-Message-State: AOJu0YwomL6yVNTh6udvZv0ipDtaUMlIVuCZ3X7dGj7PQsOe/JAxg/xW
+	0Cen9GbFbGpYzwpsl9Zv7V0DtLYgOUvuCqFiLt4M4IUFYqMEDOsf
+X-Google-Smtp-Source: AGHT+IEEtghO5GV+T/CBEzKDmZAqom9CfctaZ5B5R9VZvhtHodZrQXvLgfVQnCcQnTFaBnCC9ONtzQ==
+X-Received: by 2002:a19:7612:0:b0:50e:36ad:5f6e with SMTP id c18-20020a197612000000b0050e36ad5f6emr3552167lff.20.1706536582819;
+        Mon, 29 Jan 2024 05:56:22 -0800 (PST)
+Received: from prasmi.home ([2a00:23c8:2500:a01:5616:a18c:ea50:2995])
+        by smtp.gmail.com with ESMTPSA id bh5-20020a05600005c500b0033aed46956csm3058057wrb.80.2024.01.29.05.56.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jan 2024 05:56:22 -0800 (PST)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v6 0/4] Add missing port pins on RZ/Five SoC
+Date: Mon, 29 Jan 2024 13:55:52 +0000
+Message-Id: <20240129135556.63466-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml100006.china.huawei.com (7.191.160.224) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_050403_764410_3320F0B2 
-X-CRM114-Status: GOOD (  48.13  )
+X-CRM114-CacheID: sfid-20240129_055626_827276_A8E708BA 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,112 +97,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMyBKYW4gMjAyNCAwOToyNzoyNSArMDAwMApKb25hdGhhbiBDYW1lcm9uIDxKb25h
-dGhhbi5DYW1lcm9uQEh1YXdlaS5jb20+IHdyb3RlOgoKPiBPbiBNb24sIDIyIEphbiAyMDI0IDE3
-OjMwOjA1ICswMDAwCj4gIlJ1c3NlbGwgS2luZyAoT3JhY2xlKSIgPGxpbnV4QGFybWxpbnV4Lm9y
-Zy51az4gd3JvdGU6Cj4gCj4gPiBPbiBNb24sIEphbiAyMiwgMjAyNCBhdCAwNToyMjo0NlBNICsw
-MTAwLCBSYWZhZWwgSi4gV3lzb2NraSB3cm90ZTogIAo+ID4gPiBPbiBNb24sIEphbiAyMiwgMjAy
-NCBhdCA1OjAy4oCvUE0gSm9uYXRoYW4gQ2FtZXJvbgo+ID4gPiA8Sm9uYXRoYW4uQ2FtZXJvbkBo
-dWF3ZWkuY29tPiB3cm90ZTogICAgCj4gPiA+ID4KPiA+ID4gPiBPbiBNb24sIDE1IEphbiAyMDI0
-IDExOjA2OjI5ICswMDAwCj4gPiA+ID4gIlJ1c3NlbGwgS2luZyAoT3JhY2xlKSIgPGxpbnV4QGFy
-bWxpbnV4Lm9yZy51az4gd3JvdGU6Cj4gPiA+ID4gICAgCj4gPiA+ID4gPiBPbiBNb24sIERlYyAx
-OCwgMjAyMyBhdCAwOToyMjowM1BNICswMTAwLCBSYWZhZWwgSi4gV3lzb2NraSB3cm90ZTogICAg
-Cj4gPiA+ID4gPiA+IE9uIFdlZCwgRGVjIDEzLCAyMDIzIGF0IDE6NDnigK9QTSBSdXNzZWxsIEtp
-bmcgPHJtaytrZXJuZWxAYXJtbGludXgub3JnLnVrPiB3cm90ZTogICAgCj4gPiA+ID4gPiA+ID4K
-PiA+ID4gPiA+ID4gPiBGcm9tOiBKYW1lcyBNb3JzZSA8amFtZXMubW9yc2VAYXJtLmNvbT4KPiA+
-ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+IEFDUEkgaGFzIHR3byBkZXNjcmlwdGlvbnMgb2YgQ1BV
-cywgb25lIGluIHRoZSBNQURUL0FQSUMgdGFibGUsIHRoZSBvdGhlcgo+ID4gPiA+ID4gPiA+IGlu
-IHRoZSBEU0RULiBCb3RoIGFyZSByZXF1aXJlZC4gKEFDUEkgNi41J3MgOC40ICJEZWNsYXJpbmcg
-UHJvY2Vzc29ycyIKPiA+ID4gPiA+ID4gPiBzYXlzICJFYWNoIHByb2Nlc3NvciBpbiB0aGUgc3lz
-dGVtIG11c3QgYmUgZGVjbGFyZWQgaW4gdGhlIEFDUEkKPiA+ID4gPiA+ID4gPiBuYW1lc3BhY2Ui
-KS4gSGF2aW5nIHR3byBkZXNjcmlwdGlvbnMgYWxsb3dzIGZpcm13YXJlIGF1dGhvcnMgdG8gZ2V0
-Cj4gPiA+ID4gPiA+ID4gdGhpcyB3cm9uZy4KPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+IElm
-IENQVXMgYXJlIGRlc2NyaWJlZCBpbiB0aGUgTUFEVC9BUElDLCB0aGV5IHdpbGwgYmUgYnJvdWdo
-dCBvbmxpbmUKPiA+ID4gPiA+ID4gPiBlYXJseSBkdXJpbmcgYm9vdC4gT25jZSB0aGUgcmVnaXN0
-ZXJfY3B1KCkgY2FsbHMgYXJlIG1vdmVkIHRvIEFDUEksCj4gPiA+ID4gPiA+ID4gdGhleSB3aWxs
-IGJlIGJhc2VkIG9uIHRoZSBEU0RUIGRlc2NyaXB0aW9uIG9mIHRoZSBDUFVzLiBXaGVuIENQVXMg
-YXJlCj4gPiA+ID4gPiA+ID4gbWlzc2luZyBmcm9tIHRoZSBEU0RUIGRlc2NyaXB0aW9uLCB0aGV5
-IHdpbGwgZW5kIHVwIG9ubGluZSwgYnV0IG5vdAo+ID4gPiA+ID4gPiA+IHJlZ2lzdGVyZWQuCj4g
-PiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiBBZGQgYSBoZWxwZXIgdGhhdCBydW5zIGFmdGVyIGFj
-cGlfaW5pdCgpIGhhcyBjb21wbGV0ZWQgdG8gcmVnaXN0ZXIKPiA+ID4gPiA+ID4gPiBDUFVzIHRo
-YXQgYXJlIG9ubGluZSwgYnV0IHdlcmVuJ3QgZm91bmQgaW4gdGhlIERTRFQuIEFueSBDUFUgdGhh
-dAo+ID4gPiA+ID4gPiA+IGlzIHJlZ2lzdGVyZWQgYnkgdGhpcyBjb2RlIHRyaWdnZXJzIGEgZmly
-bXdhcmUtYnVnIHdhcm5pbmcgYW5kIGtlcm5lbAo+ID4gPiA+ID4gPiA+IHRhaW50Lgo+ID4gPiA+
-ID4gPiA+Cj4gPiA+ID4gPiA+ID4gUWVtdSBUQ0cgb25seSBkZXNjcmliZXMgdGhlIGZpcnN0IENQ
-VSBpbiB0aGUgRFNEVCwgdW5sZXNzIGNwdS1ob3RwbHVnCj4gPiA+ID4gPiA+ID4gaXMgY29uZmln
-dXJlZC4gICAgCj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IFNvIHdoeSBpcyB0aGlzIGEga2VybmVs
-IHByb2JsZW0/ICAgIAo+ID4gPiA+ID4KPiA+ID4gPiA+IFNvIHdoYXQgYXJlIHlvdSBwcm9wb3Np
-bmcgc2hvdWxkIGJlIHRoZSBiZWhhdmlvdXIgaGVyZT8gV2hhdCB0aGlzCj4gPiA+ID4gPiBzdGF0
-ZW1lbnQgc2VlbXMgdG8gYmUgc2F5aW5nIGlzIHRoYXQgUUVNVSBhcyBpdCBleGlzdHMgdG9kYXkg
-b25seQo+ID4gPiA+ID4gZGVzY3JpYmVzIHRoZSBmaXJzdCBDUFUgaW4gRFNEVC4gICAgCj4gPiA+
-ID4KPiA+ID4gPiBUaGlzIGNvbmZ1c2VzIG1lIHNvbWV3aGF0LCBiZWNhdXNlIEknbSBmYXIgZnJv
-bSBzdXJlIHdoaWNoIG1hY2hpbmVzIHRoaXMKPiA+ID4gPiBpcyB0cnVlIGZvciBpbiBRRU1VLiAg
-SSdtIGd1ZXNzaW5nIGl0J3MgYSBsZWdhY3kgdGhpbmcgd2l0aAo+ID4gPiA+IHNvbWUgb2xkIGRp
-c3RybyB2ZXJzaW9uIG9mIFFFTVUgLSBzbyB3ZSdsbCBoYXZlIHRvIHBhcGVyIG92ZXIgaXQgYW55
-d2F5Cj4gPiA+ID4gYnV0IGZvciBjdXJyZW50IFFFTVUgSSdtIG5vdCBzdXJlIGl0J3MgdHJ1ZS4K
-PiA+ID4gPgo+ID4gPiA+IEhlbHBmdWxseSB0aGVyZSBhcmUgYSBidW5jaCBvZiBBQ1BJIHRhYmxl
-IHRlc3RzIHNvIEkndmUgYmVlbiBjaGVja2luZwo+ID4gPiA+IHRocm91Z2ggYWxsIHRoZSBtdWx0
-aSBDUFUgY2FzZXMuCj4gPiA+ID4KPiA+ID4gPiBDUFUgaG90cGx1ZyBub3QgZW5hYmxlZC4KPiA+
-ID4gPiBwYy9EU0RULmRpbW1weG0gIC0gNHggUHJvY2Vzc29yIGVudHJpZXMuICAtc21wIDQKPiA+
-ID4gPiBwYy9EU0RULmFjcGlobWF0IC0gMnggUHJvY2Vzc29yIGVudHJpZXMuICAtc21wIDIKPiA+
-ID4gPiBxMzUvRFNEVC5hY3BpaG1hdCAtIDJ4IFByb2Nlc3NvciBlbnRyaWVzLiAtc21wIDIKPiA+
-ID4gPiB2aXJ0L0RTRFQuYWNwaWhtYXR2aXJ0IC0gNHggQUNQSTAwMDcgZW50cmllcyAtc21wIDQK
-PiA+ID4gPiBxMzUvRFNEVC5hY3BpaG1hdC1ub2luaXRpYXRvciAtIDQgeCBQcm9jZXNzb3IgKCkg
-ZW50cmllcyAtc21wIDQKPiA+ID4gPiB2aXJ0L0RTRFQudG9wb2xvZ3kgLSA4eCBBQ1BJMDAwNyBl
-bnRyaWVzCj4gPiA+ID4KPiA+ID4gPiBJJ3ZlIGFsc28gbG9va2VkIGF0IHRoZSBjb2RlIGFuZCB3
-ZSBoYXZlIHZhcmlvdXMgdHlwZXMgb2YKPiA+ID4gPiBDUFUgaG90cGx1ZyBvbiB4ODYgYnV0IHRo
-ZXkgYWxsIGJ1aWxkIGFwcHJvcHJpYXRlIG51bWJlcnMgb2YKPiA+ID4gPiBQcm9jZXNzb3IoKSBl
-bnRyaWVzIGluIERTRFQuCj4gPiA+ID4gQXJtIGxpa2V3aXNlIHNlZW1zIHRvIGJ1aWxkIHRoZSBy
-aWdodCBudW1iZXIgb2YgQUNQSTAwMDcgZW50cmllcwo+ID4gPiA+IChhbmQgZG9lc24ndCB5ZXQg
-aGF2ZSBDUFUgSFAgc3VwcG9ydCkuCj4gPiA+ID4KPiA+ID4gPiBJZiBhbnlvbmUgY2FuIGFkZCBh
-IHJlZmVyZW5jZSBvbiB3aHkgdGhpcyBpcyBuZWVkZWQgdGhhdCB3b3VsZCBiZSB2ZXJ5Cj4gPiA+
-ID4gaGVscGZ1bC4gICAgCj4gPiA+IAo+ID4gPiBZZXMsIGl0IHdvdWxkLgo+ID4gPiAKPiA+ID4g
-UGVyc29uYWxseSwgSSB3b3VsZCBwcmVmZXIgdG8gYXNzdW1lIHRoYXQgaXQgaXMgbm90IG5lY2Vz
-c2FyeSB1bnRpbCBpdAo+ID4gPiB0dXJucyBvdXQgdGhhdCAoMSkgdGhlcmUgaXMgZmlybXdhcmUg
-d2l0aCB0aGlzIGlzc3VlIGFjdHVhbGx5IGluIHVzZQo+ID4gPiBhbmQgKDIpIHVwZGF0aW5nIHRo
-ZSBmaXJtd2FyZSBpbiBxdWVzdGlvbiB0byBmb2xsb3cgdGhlIHNwZWNpZmljYXRpb24KPiA+ID4g
-aXMgbm90IHByYWN0aWNhbC4KPiA+ID4gCj4gPiA+IE90aGVyd2lzZSwgd2UnZCBtYWtlIGl0IGVh
-c2llciB0byBzaGlwIG5vbi1jb21wbGlhbnQgZmlybXdhcmUgZm9yIG5vCj4gPiA+IGdvb2QgcmVh
-c29uLiAgICAKPiA+IAo+ID4gSWYgU2FsaWwgY2FuJ3QgY29tZSB1cCB3aXRoIGEgcmVhc29uLCB0
-aGVuIEknbSBpbiBmYXZvdXIgb2YgZHJvcHBpbmcKPiA+IHRoZSBwYXRjaCBsaWtlIGFscmVhZHkg
-ZG9uZSBmb3IgcGF0Y2ggMi4gSWYgdGhlIGNvZGUgY2hhbmdlIHNlcnZlcyBubwo+ID4gdXNlZnVs
-IHB1cnBvc2UsIHRoZXJlJ3Mgbm8gcG9pbnQgaW4gbWFraW5nIHRoZSBjaGFuZ2UuCj4gPiAgIAo+
-IAo+IFNhbGlsJ3Mgb3V0IHRvZGF5LCBidXQgSSd2ZSBtZXNzYWdlZCBoaW0gdG8gZm9sbG93IHVw
-IGxhdGVyIGluIHRoZSB3ZWVrLgo+IAo+IEl0ICdtaWdodCcgYmUgdGhlIG9kZCBjb2xkIHBsdWcg
-cGF0aCB3aGVyZSBRRU1VIGhhbGYgY29tZXMgdXAsIHRoZW4gZXh0cmEKPiBDUFVzIGFyZSBhZGRl
-ZCwgdGhlbiBpdCBib290cy4gKHVzZWQgYnkgc29tZSBvcmNoZXN0cmF0aW9uIGZyYW1ld29ya3Mp
-CgpJIHBva2VkIHRoaXMgb24geDg2IC0gaXQgb25seSBhcHBsaWVzIHdpdGggaG90cGx1ZyBlbmFi
-bGVkIGFueXdheSBzbwpzYW1lIHJlc3VsdCBhcyBkb2luZyB0aGUgaG90cGx1ZyBsYXRlciAtIEFs
-bCBwb3NzaWJsZSBQcm9jZXNzb3IoKSBlbnRyaWVzCmFscmVhZHkgZXhpc3QgaW4gRFNEVC4gSGVu
-Y2UgdGhpcyBpc24ndCB0aGUgc291cmNlIG9mIHRoZSBteXN0ZXJpb3VzCmJyb2tlbiBjb25maWd1
-cmF0aW9uLgoKSWYgYW55b25lIGRvZXMgcG9rZSB0aGlzIHBhdGgsIHRoZSBvbGQgZGlzY3Vzc2lv
-biBiZXR3ZWVuIEphbWVzCmFuZCBTYWxpbCBwcm92aWRlcyBzb21lIGluc3RydWN0aW9ucyAobW9z
-dGx5IHRoZSB0aHJlYWQgaXMgYWJvdXQKYW5vdGhlciBpc3N1ZSkuCmh0dHBzOi8vb3AtbGlzdHMu
-bGluYXJvLm9yZy9hcmNoaXZlcy9saXN0L2xpbmFyby1vcGVuLWRpc2N1c3Npb25zQG9wLWxpc3Rz
-LmxpbmFyby5vcmcvdGhyZWFkL0ROQUdCMkZCNUFMVkxWMkJZV1lPQ0xLR05GNzdQTlhTLwoKQWxz
-byBvbiB4ODYgYSB0ZXN0IGludm9sdmluZyBzbXAgMixtYXgtY3B1cz00IGFuZCBhZGRpbmcgY3B1
-LWlkIDMKKHNvIHNraXBwaW5nIDIpIGRvZXNuJ3QgYm9vdC4gKHRoaXMgaXMgd2l0aG91dCBTYWxp
-bCdzIFFFTVUgcGF0Y2hlcykuCkkgZ3Vlc3MgdGhlcmUgYXJlIHNvbWUgd2VsbCBrbm93biBydWxl
-cyBpbiB0aGVyZSB0aGF0IEkgZG9uJ3Qga25vdyBhYm91dAphbmQgUUVNVSBpc24ndCBwcmV2ZW50
-aW5nIHBlb3BsZSBzaG9vdGluZyB0aGVtc2VsdmVzIGluIHRoZSBmb290LgoKQXMgSSdtIGNvbmNl
-cm5lZCwgZHJvcCB0aGlzIHBhdGNoLgpJZiB0aGVyZSBhcmUgcGxhdGZvcm1zIG91dCB0aGVyZSBk
-b2luZyB0aGlzIHdyb25nIHRoZXknbGwgc3VyZmFjZSBvbmNlCndlIGdldCB0aGlzIGludG8gbW9y
-ZSB0ZXN0IGZhcm1zIChzbyBsaW51eC1uZXh0KS4gIElmIHdlIG5lZWQgdGhpcwonZml4JyB3ZSBj
-YW4gYXBwbHkgaXQgd2hlbiB3ZSBoYXZlIGEgcHJvYmxlbSBmaXJtd2FyZSB0byBwb2ludCBhdC4K
-ClRoYW5rcywKCkpvbmF0aGFuCgo+IEkgZG9uJ3QgaGF2ZSBhIHNldCB1cCBmb3IgdGhhdCBhbmQg
-SSB3b24ndCBnZXQgdG8gY3JlYXRpbmcgb25lIHRvZGF5IGFueXdheQo+ICh3ZSBhbGwgbG92ZSBz
-dGFydCBvZiB0aGUgeWVhciBwbGFubmluZyB3b3Jrc2hvcHMhKQoKPiAKPiBJJ3ZlICtDQydkIGEg
-ZmV3IHBlb3BsZSBoYXZlIHJ1biB0ZXN0cyBvbiB0aGUgdmFyaW91cyBpdGVyYXRpb25zIG9mIHRo
-aXMKPiB3b3JrIGluIHRoZSBwYXN0LiAgTWF5YmUgb25lIG9mIHRoZW0gY2FuIHNoZWQgc29tZSBs
-aWdodCBvbiB0aGlzPwo+IAo+IEpvbmF0aGFuCj4gCj4gCj4gCj4gCj4gCj4gX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1hcm0ta2VybmVsIG1h
-aWxpbmcgbGlzdAo+IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtYXJtLWtlcm5lbAoK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+
+Hi All,
+
+This patch series intends to incorporate the absent port pins P19 to P28,
+which are exclusively available on the RZ/Five SoC.
+
+Cheers,
+Prabhakar
+
+v5 -> v6:
+- Rebased the changes due to conflict in pinctrl-rzg2l.c
+
+v4 -> v5:
+- Made struct rzg2l_variable_pin_cfg variables u32
+- Updated PIN_CFG_PIN_MAP_MASK macro to use GENMASK_ULL() as reported
+  by kernel test robot.
+
+v3 -> v4:
+- Rebased the changes on top Claudiu's patches
+- patch 1/4 is new patch for using FIELD_PREP_CONST/FIELD_GET as
+  suggested by Geert
+- patch 2/4 adjusted the code again using FIELD_PREP_CONST/FIELD_GET
+- patch 3/4 fixed rzg2l_pinctrl_get_variable_pin_cfg() as pointed by Geert
+- patch 4/4 is unchanged
+- patches 1-3 have been boot tested on g2l family
+
+v2->v3:
+- Fixed build warnings for m68k as reported by Kernel test robot.
+
+RFC -> v2:
+- Fixed review comments pointed by Geert & Biju
+
+RFC:
+Link: https://lore.kernel.org/lkml/20230630120433.49529-3-prabhakar.mahadev-lad.rj@bp.renesas.com/T/
+
+Lad Prabhakar (4):
+  pinctrl: renesas: rzg2l: Improve code for readability
+  pinctrl: renesas: rzg2l: Include pinmap in RZG2L_GPIO_PORT_PACK()
+    macro
+  pinctrl: renesas: pinctrl-rzg2l: Add the missing port pins P19 to P28
+  riscv: dts: renesas: r9a07g043f: Update gpio-ranges property
+
+ arch/riscv/boot/dts/renesas/r9a07g043f.dtsi |   4 +
+ drivers/pinctrl/renesas/pinctrl-rzg2l.c     | 284 +++++++++++++++++---
+ 2 files changed, 248 insertions(+), 40 deletions(-)
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
