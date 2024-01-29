@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB73BC47DA9
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 10:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2114EC47422
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 11:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2ov4z2kA8E7TytNirnHNqJ2FIsxPCdWY6q1MTa1zh4k=; b=MmZXVEkhhqstUE
-	H6mFpHQ0sNNxJFv1NL9rFtngWWEszkFKCs4cCjWYaNB7pHi+olw99VfX/XC2LYq0vErftRN/Oluxd
-	15FDB6Xv6g/mQAYfFpCQtxeYwblrB2xGA+UHWKKNxXDDxSnztpEC1AxhJBEEyZfstK28DoqRxGFYz
-	E5rDXQC5ElemMDDu6mtfnXuhHAbm64u+RoQ++VMEk2XxIMf553Oasfjz+isWBjLDUesldPLCxwPUF
-	vo/GsaczxoxtnGLU9A7R2Es/2YPCEcqCWCILVX33ihDYHA/xYUBKAq43fUiCKZoq5Ou3WbXS87qwR
-	VhJVxFC96m7dUHpbwJfA==;
+	List-Owner; bh=466J5Xhck1Q3C20TFwI8U1hDDP6bdDbz8HCg8Zok2pM=; b=gsdSJsIvNSOmEL
+	Um+N6lEAglkb1zjCUdKRJ8R/bVoQE8VqiWcgCKn11GpCsj95YKSBP07nbFU7Djb2TNxaUdGt1mDMf
+	jqKUoGV3QvGQubLEUnhekOffpQ1bP2/Hzmikcqc8rO7Usm7h3dpUyeszGMGxoTFnBQo4XaUbJx0vc
+	3Dr5ZAVynZvyscxNuEBgpGxeZtqZLuPYP9W0STm9ZB0U+EBKjR12RcGVy/yJTwX/ABHii7k4Zmuil
+	Uylhr9uGRn+8wYNiAkBocilXhN6xlHNhPso7euv9NDmmMXCYtUPefqkQcLloLLv+XAygb9kXyytfB
+	G9AeZdN9Q3a0IYy6qeKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUPA3-0000000CHe9-317p;
-	Mon, 29 Jan 2024 10:46:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUP9z-0000000CHcM-23QV;
-	Mon, 29 Jan 2024 10:46:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F6C11FB;
-	Mon, 29 Jan 2024 02:47:17 -0800 (PST)
-Received: from [10.57.65.9] (unknown [10.57.65.9])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C3ED53F738;
-	Mon, 29 Jan 2024 02:46:29 -0800 (PST)
-Message-ID: <25ae5e0d-d07d-4be9-beb2-1a4333b0ee8f@arm.com>
-Date: Mon, 29 Jan 2024 10:46:28 +0000
+	id 1rUPQE-0000000CKbJ-3BQa;
+	Mon, 29 Jan 2024 11:03:26 +0000
+Received: from mail-ot1-f49.google.com ([209.85.210.49])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rUPQB-0000000CKaN-1y3N
+	for linux-riscv@lists.infradead.org;
+	Mon, 29 Jan 2024 11:03:24 +0000
+Received: by mail-ot1-f49.google.com with SMTP id 46e09a7af769-6e113b81107so703442a34.0
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 03:03:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1706526142; x=1707130942; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sTJxbxSOrvcrYc8CLPfFyPhV1mIIGJ+doi7MTifU0M0=;
+        b=O7CTqhchFmMyVaAw5vMGzOjFL3aDJ16t8wTcl9VW79JKTnCXdeBNUFWBqJD7QC+mZr
+         /vCDCHEvzzAnpAdz/DCnEFPMaR+zzwBqyByy7mc2DsT7G7EJnTM//zQD5ObUEqT/0vwH
+         ie2/ZqaEqaIWKDMkyRfnQ9sgvIbyyyxcQE5s4YAaMk6M25bT/Lqt09BLr4DgBzfhmTPL
+         5NuhnIvq9RqScmZS20xRJlbKNusIT1EPA9JZ2DbJ+M6FVE1fupOBYzma0IWIgXfnut4l
+         Xfl/8Pl4eAvJzDJVRcNgxkSKeFAeDrWb+iQvPqwE9Qu0G8QBkL9VBEQ2qWr+75cdIPYw
+         NJ6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1706526142; x=1707130942;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sTJxbxSOrvcrYc8CLPfFyPhV1mIIGJ+doi7MTifU0M0=;
+        b=DtuEJM/gu7qHxHInFEy5XqjS8q1JGnk6+Y4oouW2ZRpNZV9le9ndF2lecZrUhTI2QK
+         OEd6BpNCGT9Ghu7vYJON5ulrySOsN8EtY9SLAxPNPO1ojzlIJ2CIpf3lXZb5PQh07fc6
+         tvJmd5dMGCy0R7onRfQaPvOHsk7Z+6u2225hTEzqRzajjAPqFE3n6I17996g4dxRmL0e
+         ri8cXDc8e5uLj9Is/wmFyfLtJ+/2FNARQd+rY7e+Zj7o0UAI3ffvxpTQWNyICEabMZR1
+         iMXTurJ+jkbiqbKjGK4Pv5XvixtAocAT7OcqSLxKWlPh9R3HKokD4p+e5qO6xL8vGNwD
+         ga+A==
+X-Gm-Message-State: AOJu0YwECE2//xaxAetoETpcsU9KrjpWwvw1sxI8cHzb+mdslv2rhsy9
+	I+e8u5QBWYlZu9aEh8u7Z04wZ5xSxGsOUcxQxXsq7CHwUpcB71aDvBjt1jdDSkc9t0yAiVu7tf3
+	/Zl8wA60yvbF3o0Zpna0Eh3VZpMuaLYP+jEevfA==
+X-Google-Smtp-Source: AGHT+IFyB6ujhYtsGwcb5sT9gwnpJFYAxXYY7eiiu37ZZfUtpEHnWyotucxQcOKyU9rF1HwrYKMWvXZazIT3hfyDpvA=
+X-Received: by 2002:a05:6870:d611:b0:214:76ce:3877 with SMTP id
+ a17-20020a056870d61100b0021476ce3877mr2253435oaq.16.1706526141790; Mon, 29
+ Jan 2024 03:02:21 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 13/15] mm/memory: optimize fork() with PTE-mapped THP
-To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
- Matthew Wilcox <willy@infradead.org>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Dinh Nguyen <dinguyen@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, "David S. Miller"
- <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org
-References: <20240125193227.444072-1-david@redhat.com>
- <20240125193227.444072-14-david@redhat.com>
-Content-Language: en-GB
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20240125193227.444072-14-david@redhat.com>
+References: <20240125062044.63344-1-cuiyunhui@bytedance.com>
+ <ZbdYijWK1PnHXn47@xhacker> <CAEEQ3wnSN8dLh3FcmHq5yPwQRdjLQa_VjcuTH+7YYZLOqCzaCQ@mail.gmail.com>
+ <ZbdyLJ24I2fa6oNb@xhacker>
+In-Reply-To: <ZbdyLJ24I2fa6oNb@xhacker>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Mon, 29 Jan 2024 19:02:10 +0800
+Message-ID: <CAEEQ3w=gpSTxzxTzh-zHbP37P8s5eVCzG6RZndBXF-U+mNrziw@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH] RISC-V: add uniprocessor flush_tlb_range() support
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alexghiti@rivosinc.com, samuel.holland@sifive.com, ajones@ventanamicro.com, 
+	mchitale@ventanamicro.com, dylan@andestech.com, 
+	sergey.matyukevich@syntacore.com, prabhakar.mahadev-lad.rj@bp.renesas.com, 
+	apatel@ventanamicro.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_024639_670846_D2EEB05D 
-X-CRM114-Status: GOOD (  40.93  )
+X-CRM114-CacheID: sfid-20240129_030323_561736_3B92F1C6 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,292 +90,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25/01/2024 19:32, David Hildenbrand wrote:
-> Let's implement PTE batching when consecutive (present) PTEs map
-> consecutive pages of the same large folio, and all other PTE bits besides
-> the PFNs are equal.
-> 
-> We will optimize folio_pte_batch() separately, to ignore selected
-> PTE bits. This patch is based on work by Ryan Roberts.
-> 
-> Use __always_inline for __copy_present_ptes() and keep the handling for
-> single PTEs completely separate from the multi-PTE case: we really want
-> the compiler to optimize for the single-PTE case with small folios, to
-> not degrade performance.
-> 
-> Note that PTE batching will never exceed a single page table and will
-> always stay within VMA boundaries.
-> 
-> Further, processing PTE-mapped THP that maybe pinned and have
-> PageAnonExclusive set on at least one subpage should work as expected,
-> but there is room for improvement: We will repeatedly (1) detect a PTE
-> batch (2) detect that we have to copy a page (3) fall back and allocate a
-> single page to copy a single page. For now we won't care as pinned pages
-> are a corner case, and we should rather look into maintaining only a
-> single PageAnonExclusive bit for large folios.
-> 
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-
-> ---
->  include/linux/pgtable.h |  31 +++++++++++
->  mm/memory.c             | 112 +++++++++++++++++++++++++++++++++-------
->  2 files changed, 124 insertions(+), 19 deletions(-)
-> 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 351cd9dc7194f..891ed246978a4 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -650,6 +650,37 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm, unsigned long addres
->  }
->  #endif
->  
-> +#ifndef wrprotect_ptes
-> +/**
-> + * wrprotect_ptes - Write-protect consecutive pages that are mapped to a
-> + *		    contiguous range of addresses.
-> + * @mm: Address space to map the pages into.
-> + * @addr: Address the first page is mapped at.
-> + * @ptep: Page table pointer for the first entry.
-> + * @nr: Number of pages to write-protect.
-> + *
-> + * May be overridden by the architecture; otherwise, implemented as a simple
-> + * loop over ptep_set_wrprotect().
-> + *
-> + * Note that PTE bits in the PTE range besides the PFN can differ. For example,
-> + * some PTEs might already be write-protected.
-> + *
-> + * Context: The caller holds the page table lock.  The pages all belong
-> + * to the same folio.  The PTEs are all in the same PMD.
-> + */
-> +static inline void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
-> +		pte_t *ptep, unsigned int nr)
-> +{
-> +	for (;;) {
-> +		ptep_set_wrprotect(mm, addr, ptep);
-> +		if (--nr == 0)
-> +			break;
-> +		ptep++;
-> +		addr += PAGE_SIZE;
-> +	}
-> +}
-> +#endif
-> +
->  /*
->   * On some architectures hardware does not set page access bit when accessing
->   * memory page, it is responsibility of software setting this bit. It brings
-> diff --git a/mm/memory.c b/mm/memory.c
-> index 729ca4d6a820c..4d1be89a01ee0 100644
-> --- a/mm/memory.c
-> +++ b/mm/memory.c
-> @@ -930,15 +930,15 @@ copy_present_page(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
->  	return 0;
->  }
->  
-> -static inline void __copy_present_pte(struct vm_area_struct *dst_vma,
-> +static __always_inline void __copy_present_ptes(struct vm_area_struct *dst_vma,
->  		struct vm_area_struct *src_vma, pte_t *dst_pte, pte_t *src_pte,
-> -		pte_t pte, unsigned long addr)
-> +		pte_t pte, unsigned long addr, int nr)
->  {
->  	struct mm_struct *src_mm = src_vma->vm_mm;
->  
->  	/* If it's a COW mapping, write protect it both processes. */
->  	if (is_cow_mapping(src_vma->vm_flags) && pte_write(pte)) {
-> -		ptep_set_wrprotect(src_mm, addr, src_pte);
-> +		wrprotect_ptes(src_mm, addr, src_pte, nr);
->  		pte = pte_wrprotect(pte);
->  	}
->  
-> @@ -950,26 +950,93 @@ static inline void __copy_present_pte(struct vm_area_struct *dst_vma,
->  	if (!userfaultfd_wp(dst_vma))
->  		pte = pte_clear_uffd_wp(pte);
->  
-> -	set_pte_at(dst_vma->vm_mm, addr, dst_pte, pte);
-> +	set_ptes(dst_vma->vm_mm, addr, dst_pte, pte, nr);
-> +}
-> +
-> +/*
-> + * Detect a PTE batch: consecutive (present) PTEs that map consecutive
-> + * pages of the same folio.
-> + *
-> + * All PTEs inside a PTE batch have the same PTE bits set, excluding the PFN.
-> + */
-> +static inline int folio_pte_batch(struct folio *folio, unsigned long addr,
-> +		pte_t *start_ptep, pte_t pte, int max_nr)
-> +{
-> +	unsigned long folio_end_pfn = folio_pfn(folio) + folio_nr_pages(folio);
-> +	const pte_t *end_ptep = start_ptep + max_nr;
-> +	pte_t expected_pte = pte_next_pfn(pte);
-> +	pte_t *ptep = start_ptep + 1;
-> +
-> +	VM_WARN_ON_FOLIO(!pte_present(pte), folio);
-> +
-> +	while (ptep != end_ptep) {
-> +		pte = ptep_get(ptep);
-> +
-> +		if (!pte_same(pte, expected_pte))
-> +			break;
-> +
-> +		/*
-> +		 * Stop immediately once we reached the end of the folio. In
-> +		 * corner cases the next PFN might fall into a different
-> +		 * folio.
-> +		 */
-> +		if (pte_pfn(pte) == folio_end_pfn)
-> +			break;
-> +
-> +		expected_pte = pte_next_pfn(expected_pte);
-> +		ptep++;
-> +	}
-> +
-> +	return ptep - start_ptep;
->  }
->  
->  /*
-> - * Copy one pte.  Returns 0 if succeeded, or -EAGAIN if one preallocated page
-> - * is required to copy this pte.
-> + * Copy one present PTE, trying to batch-process subsequent PTEs that map
-> + * consecutive pages of the same folio by copying them as well.
-> + *
-> + * Returns -EAGAIN if one preallocated page is required to copy the next PTE.
-> + * Otherwise, returns the number of copied PTEs (at least 1).
->   */
->  static inline int
-> -copy_present_pte(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
-> +copy_present_ptes(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
->  		 pte_t *dst_pte, pte_t *src_pte, pte_t pte, unsigned long addr,
-> -		 int *rss, struct folio **prealloc)
-> +		 int max_nr, int *rss, struct folio **prealloc)
->  {
->  	struct page *page;
->  	struct folio *folio;
-> +	int err, nr;
->  
->  	page = vm_normal_page(src_vma, addr, pte);
->  	if (unlikely(!page))
->  		goto copy_pte;
->  
->  	folio = page_folio(page);
-> +
-> +	/*
-> +	 * If we likely have to copy, just don't bother with batching. Make
-> +	 * sure that the common "small folio" case is as fast as possible
-> +	 * by keeping the batching logic separate.
-> +	 */
-> +	if (unlikely(!*prealloc && folio_test_large(folio) && max_nr != 1)) {
-> +		nr = folio_pte_batch(folio, addr, src_pte, pte, max_nr);
-> +		folio_ref_add(folio, nr);
-> +		if (folio_test_anon(folio)) {
-> +			if (unlikely(folio_try_dup_anon_rmap_ptes(folio, page,
-> +								  nr, src_vma))) {
-> +				folio_ref_sub(folio, nr);
-> +				return -EAGAIN;
-> +			}
-> +			rss[MM_ANONPAGES] += nr;
-> +			VM_WARN_ON_FOLIO(PageAnonExclusive(page), folio);
-> +		} else {
-> +			folio_dup_file_rmap_ptes(folio, page, nr);
-> +			rss[mm_counter_file(page)] += nr;
-> +		}
-> +		__copy_present_ptes(dst_vma, src_vma, dst_pte, src_pte, pte,
-> +				    addr, nr);
-> +		return nr;
-> +	}
-> +
->  	folio_get(folio);
->  	if (folio_test_anon(folio)) {
->  		/*
-> @@ -981,8 +1048,9 @@ copy_present_pte(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
->  		if (unlikely(folio_try_dup_anon_rmap_pte(folio, page, src_vma))) {
->  			/* Page may be pinned, we have to copy. */
->  			folio_put(folio);
-> -			return copy_present_page(dst_vma, src_vma, dst_pte, src_pte,
-> -						 addr, rss, prealloc, page);
-> +			err = copy_present_page(dst_vma, src_vma, dst_pte, src_pte,
-> +						addr, rss, prealloc, page);
-> +			return err ? err : 1;
->  		}
->  		rss[MM_ANONPAGES]++;
->  		VM_WARN_ON_FOLIO(PageAnonExclusive(page), folio);
-> @@ -992,8 +1060,8 @@ copy_present_pte(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
->  	}
->  
->  copy_pte:
-> -	__copy_present_pte(dst_vma, src_vma, dst_pte, src_pte, pte, addr);
-> -	return 0;
-> +	__copy_present_ptes(dst_vma, src_vma, dst_pte, src_pte, pte, addr, 1);
-> +	return 1;
->  }
->  
->  static inline struct folio *folio_prealloc(struct mm_struct *src_mm,
-> @@ -1030,10 +1098,11 @@ copy_pte_range(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
->  	pte_t *src_pte, *dst_pte;
->  	pte_t ptent;
->  	spinlock_t *src_ptl, *dst_ptl;
-> -	int progress, ret = 0;
-> +	int progress, max_nr, ret = 0;
->  	int rss[NR_MM_COUNTERS];
->  	swp_entry_t entry = (swp_entry_t){0};
->  	struct folio *prealloc = NULL;
-> +	int nr;
->  
->  again:
->  	progress = 0;
-> @@ -1064,6 +1133,8 @@ copy_pte_range(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
->  	arch_enter_lazy_mmu_mode();
->  
->  	do {
-> +		nr = 1;
-> +
->  		/*
->  		 * We are holding two locks at this point - either of them
->  		 * could generate latencies in another task on another CPU.
-> @@ -1100,9 +1171,10 @@ copy_pte_range(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
->  			 */
->  			WARN_ON_ONCE(ret != -ENOENT);
->  		}
-> -		/* copy_present_pte() will clear `*prealloc' if consumed */
-> -		ret = copy_present_pte(dst_vma, src_vma, dst_pte, src_pte,
-> -				       ptent, addr, rss, &prealloc);
-> +		/* copy_present_ptes() will clear `*prealloc' if consumed */
-> +		max_nr = (end - addr) / PAGE_SIZE;
-> +		ret = copy_present_ptes(dst_vma, src_vma, dst_pte, src_pte,
-> +					ptent, addr, max_nr, rss, &prealloc);
->  		/*
->  		 * If we need a pre-allocated page for this pte, drop the
->  		 * locks, allocate, and try again.
-> @@ -1119,8 +1191,10 @@ copy_pte_range(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
->  			folio_put(prealloc);
->  			prealloc = NULL;
->  		}
-> -		progress += 8;
-> -	} while (dst_pte++, src_pte++, addr += PAGE_SIZE, addr != end);
-> +		nr = ret;
-> +		progress += 8 * nr;
-> +	} while (dst_pte += nr, src_pte += nr, addr += PAGE_SIZE * nr,
-> +		 addr != end);
->  
->  	arch_leave_lazy_mmu_mode();
->  	pte_unmap_unlock(orig_src_pte, src_ptl);
-> @@ -1141,7 +1215,7 @@ copy_pte_range(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
->  		prealloc = folio_prealloc(src_mm, src_vma, addr, false);
->  		if (!prealloc)
->  			return -ENOMEM;
-> -	} else if (ret) {
-> +	} else if (ret < 0) {
->  		VM_WARN_ON_ONCE(1);
->  	}
->  
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSmlzaGVuZywKCk9uIE1vbiwgSmFuIDI5LCAyMDI0IGF0IDU6NTHigK9QTSBKaXNoZW5nIFpo
+YW5nIDxqc3poYW5nQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gTW9uLCBKYW4gMjksIDIwMjQg
+YXQgMDQ6MjY6NTdQTSArMDgwMCwgeXVuaHVpIGN1aSB3cm90ZToKPiA+IEhpIEppc2hlbmcsCj4g
+Pgo+ID4gT24gTW9uLCBKYW4gMjksIDIwMjQgYXQgNDowMuKAr1BNIEppc2hlbmcgWmhhbmcgPGpz
+emhhbmdAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+Cj4gPiA+IE9uIFRodSwgSmFuIDI1LCAyMDI0
+IGF0IDAyOjIwOjQ0UE0gKzA4MDAsIFl1bmh1aSBDdWkgd3JvdGU6Cj4gPiA+ID4gQWRkIHN1cHBv
+cnQgZm9yIGZsdXNoX3RsYl9yYW5nZSgpIHRvIGltcHJvdmUgVExCIHBlcmZvcm1hbmNlIGZvcgo+
+ID4gPiA+IFVQIHN5c3RlbXMuIEluIG9yZGVyIHRvIGF2b2lkIHRoZSBtdXR1YWwgaW5jbHVzaW9u
+IG9mIHRsYmZsdXNoLmgKPiA+ID4gPiBhbmQgaHVnZXRsYi5oLCB0aGUgVVAgcGFydCBpcyBhbHNv
+IGltcGxlbWVudGVkIGluIHRsYmZsdXNoLmMuCj4gPiA+Cj4gPiA+IEhpIFl1bmh1aSwKPiA+ID4K
+PiA+ID4gSUlSQywgU2FtdWVsIHNlbnQgc2ltaWxhciBwYXRjaCBzZXJpZXMgYSBmZXcgd2Vla3Mg
+YWdvLgo+ID4gPgo+ID4gPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI0
+MDEwMjIyMDEzNC4zMjI5MTU2LTEtc2FtdWVsLmhvbGxhbmRAc2lmaXZlLmNvbS8KPiA+ID4KPiA+
+ID4gQWZ0ZXIgdGhhdCBzZXJpZXMsIGRvIHlvdSBzdGlsbCBuZWVkIHRoaXMgcGF0Y2g/Cj4gPgo+
+ID4gVGhhbmsgeW91IGZvciB5b3VyIHJlbWluZGVyLiBJIGRpZG4ndCBmaW5kIGl0IGJlZm9yZSBJ
+IG1haWxlZCBteQo+ID4gcGF0Y2guIEkganVzdCBsb29rZWQgYXQgdGhlIGNvbnRlbnQgb2YgdGhp
+cyBwYXRjaC4gSSB1bmRlcnN0YW5kIHRoYXQKPiA+IG15IHBhdGNoIGlzIG5lZWRlZC4gRm9yIGEg
+c2luZ2xlIGNvcmUsIGEgbW9yZSBjb25jaXNlIFRMQiBmbHVzaCBsb2dpYwo+ID4gaXMgbmVlZGVk
+LCBhbmQgaXQgaXMgaGVscGZ1bCB0byBpbXByb3ZlIHBlcmZvcm1hbmNlLgo+Cj4gQ3VycmVudGx5
+LCByaXNjdiBVUCBmbHVzaF90bGJfcmFuZ2Ugc3RpbGwgdXNlIGZsdXNoIGFsbCBUTEIgZW50cmll
+cywKPiBvYnZpb3VzbHkgaXQncyBpcyBhIGJpZyBoYW1tZXIsIHRoaXMgaXMgd2hhdCB5b3VyIHBh
+dGNoIGlzIHRyeWluZyB0bwo+IG9wdGltaXplLiBJJ20gbm90IHN1cmUgd2hldGhlciBJIHVuZGVy
+c3RhbmQgeW91ciBjb2RlIGNvcnJlY3RseSBvciBub3QuCj4gTGV0IG1lIGtub3cgaWYgSSBtaXN1
+bmRlcnN0YW5kIHlvdXIgY29kZS4KPgo+IEFmdGVyIHBhdGNoNSBvZiB0aGUgU2FtdWVsJ3Mgc2Vy
+aWVzLCBfX2ZsdXNoX3RsYl9yYW5nZSBpcyB1bmlmaWVkIGZvcgo+IFNNUCBhbmQgVVAsIHNvIHRo
+YXQgVVAgY2FuIGFsc28gYmVuZWZpdCBmcm9tIHJlY2VudCBpbXByb3ZlbWVudHMsIHN1Y2gKPiBh
+cyByYW5nZSBmbHVzaCByYXRoZXIgdGhhbiBhbGwuCgpJbiBteSBvcGluaW9uLCBVUCBkb2VzIG5v
+dCBuZWVkIHRvIGNvbWJpbmUgc29tZSBTTVAgaWYuLi4gZWxzZSwKb25fZWFjaF9jcHUoLi4uKSBs
+b2dpYywgd2hpY2ggaXMgYWxzbyBhIG1hbmlmZXN0YXRpb24gb2YgcGVyZm9ybWFuY2UKaW1wcm92
+ZW1lbnQuIHdoYXQgZG8geW91IHRoaW5rPwpUaGFua3MsCll1bmh1aQoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
