@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A12A5C47DA9
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 21:58:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0981C47DA9
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 22:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tPU53YqZAmYUOtuOpIXdPPw7V4WXWVfYex3MUv1DkjA=; b=3w+46+ZZcK0xqa
-	a/xDhQaRLxkKKinVlBN0wvomUa9eKC3hL+JakYTm06KA/tu2FdiupW0F1P0iatCHtywIAHa1IA4LG
-	Y5g3LaO/WC3Z5Gsn+5pOVlJQ39ML2bmlu8OFO0tB/6hjuVMurm5ltlqNQbnCIemx83Xbe6LYtnkYQ
-	FwEhBuu9EXYLvDWIYY7/w7hcZAvbMIcWWJ0fQYs3uVKp75BsiNGXwZkyRB+AIA8YZv191JC5Z5E78
-	VlYjOUCBYQcPQStiu7rOyVeEmP7bOIqCACL2r5yM8QhTYFFgrZT98VDIFRCN5UIehYQW6lD3jf7ms
-	gI5JaznSWUyZln5W6FmA==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=NrJ06gpA+nz4mLjH8SmeH8dqyi8rFrYIaZOVZiKcn7A=; b=Utbbgsag3jLVTVLPPQr3cYImNM
+	YEm8IU1Rny6oCoLmYKXB/JYkHaznd9xBqQiDH/JmA/dAgxL+bRKPyNFW0UoycbWMQt/pmKVocmjMO
+	qDmvzm63EzJr1WZsa3lwXqcSiqulRW6jSKQ++RvpFtiICmleXBrwdcqB1kDlRA1DGIwTYgwublyaZ
+	Qntv1x5GZuNk5jUQWmjXBE5w8MHlYWZLIFeWJj6hhxzLAvq7hhkYr7Jr8xl/Ae7RC7FAikU1lEMZF
+	HiuSn6yAw/ZwUAk830CGhuBji6Lc7/KKHyOjj+nGw8ZYCY+TxCh5SL2W9TZF96nEU4GAOghJSXLuH
+	/s7Lwm6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUZeG-0000000EPqd-2JrE;
-	Mon, 29 Jan 2024 21:58:36 +0000
+	id 1rUa0E-0000000ESOP-3NXn;
+	Mon, 29 Jan 2024 22:21:18 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUZeD-0000000EPoq-08re
+	id 1rUa0B-0000000ESNl-38xR
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 21:58:35 +0000
+	Mon, 29 Jan 2024 22:21:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 758306251A
-	for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 21:58:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23F36C43390
-	for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 21:58:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6BEDC622ED;
+	Mon, 29 Jan 2024 22:21:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D415BC433F1;
+	Mon, 29 Jan 2024 22:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706565512;
-	bh=DiuiMteWjtD0DGA2bnkTTz/tOuGTgdtmyO9VDZPqxk4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fpZIP9mN2Cq7MhgOxCLMF0x4xErZYqZyAXSjFI4ydzUNS2LP0oFaVJc3ZEteEprcr
-	 V4nHpc+imoa1hiOfecKxrFcMh2BQGUKUymCpkR+Xfz4rgKcKpWZVoMakqYplYS58Q1
-	 sfxhP7gvpBMbap61rfCU/4Uw7pifFJkTCYCBaTqKCzFp6cWZVoas1Io9cMoz7rSTdP
-	 7dzGVRNM2mHrxBh/Eq/PBAvmO4uLHfumR4kuQ7OsFDYxXbzmRIKRFS3vCg4418Ym++
-	 gANQKqkksz3wlD4zw94FAyEFigMBQFt0FN3sy/2GFWYPfLlkQa8DO8Vk3pzjL8Srp4
-	 vak5BNgh0RzZQ==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-51031ae95a1so2759045e87.0
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 13:58:32 -0800 (PST)
-X-Gm-Message-State: AOJu0Yxxznbz5+Go8MmtTGxOovF/mvuDbmNxavzbXWeQnbVtN0jy8A5k
-	PjX1bNc8efxZF3A4ulywr8a1fAJqhblhR+aXTaN/i7I93TvnaMDDVQ/Q0zg3tgUNRhZ9eYrmjUd
-	R1MibyinfbnPRuhy1Ag9sZ6YwlJ0=
-X-Google-Smtp-Source: AGHT+IGWAKr0Ycgzi/iZcSUte5256AaxVuyAn7qb7eWq9WOFrFNcVCiCcCsIO0JX8cH0WZIawFB//fulwJs6n5tMN7s=
-X-Received: by 2002:a19:5f16:0:b0:510:2832:5625 with SMTP id
- t22-20020a195f16000000b0051028325625mr4145906lfb.52.1706565510279; Mon, 29
- Jan 2024 13:58:30 -0800 (PST)
+	s=k20201202; t=1706566874;
+	bh=HPUoP6eW0UIad8w+O0F0hkehgUlt/2XjPLLSrb9Sz/s=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=ioTaToqJpsbXqfc8N3OnyUxt/4NvmFgDBQVEAi8DoZvPAZTa2Ce6GJ+iefQvXvLUu
+	 qBAirrsMSlaD+b5bzden4b+b1EEyqXq0NIPswLcAUlRpKhQgmPNWKDte72r5Atn0Eu
+	 PfDZcijwXm7mYODqBHNqizbuTrNVxwJQloOnm3naJXLHPOHsPOEVZVJeyuNNWmOY1B
+	 ZjOBlDD3cj+/JDMdCvk4D4pfBvksMlvyGr1Fabpb68AZ2HLVnqMEecL1gdzlYUBRfS
+	 HyXbk7AFwPnOT4R01w7kdLiD2bzmr/T2z6YaCObsRBqURBhJtx6EbL64TN2bfYW24s
+	 5XuvOEPBBsLrg==
+Date: Mon, 29 Jan 2024 16:21:12 -0600
 MIME-Version: 1.0
-References: <20240123103241.2282122-1-pulehui@huaweicloud.com> <20240123103241.2282122-4-pulehui@huaweicloud.com>
-In-Reply-To: <20240123103241.2282122-4-pulehui@huaweicloud.com>
-From: Song Liu <song@kernel.org>
-Date: Mon, 29 Jan 2024 13:58:18 -0800
-X-Gmail-Original-Message-ID: <CAPhsuW4dUK4NN6HqEpw7AMwaWyUwvm1a=KmDPHfQsVZ1DphYtA@mail.gmail.com>
-Message-ID: <CAPhsuW4dUK4NN6HqEpw7AMwaWyUwvm1a=KmDPHfQsVZ1DphYtA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next 3/3] riscv, bpf: Use bpf_prog_pack for RV64 bpf trampoline
-To: Pu Lehui <pulehui@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	netdev@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Puranjay Mohan <puranjay12@gmail.com>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Yonghong Song <yhs@fb.com>, 
-	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
-	Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Luke Nelson <luke.r.nels@gmail.com>, 
-	Pu Lehui <pulehui@huawei.com>
+From: Rob Herring <robh@kernel.org>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Kevin Xie <kevin.xie@starfivetech.com>, 
+ Leyfoon Tan <leyfoon.tan@starfivetech.com>, 
+ Bjorn Helgaas <bhelgaas@google.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ linux-pci@vger.kernel.org, Daire McNamara <daire.mcnamara@microchip.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, 
+ Mason Huo <mason.huo@starfivetech.com>, 
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+ Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
+In-Reply-To: <20240129010142.3732-4-minda.chen@starfivetech.com>
+References: <20240129010142.3732-1-minda.chen@starfivetech.com>
+ <20240129010142.3732-4-minda.chen@starfivetech.com>
+Message-Id: <170656679886.3057.12378312489853176077.robh@kernel.org>
+Subject: Re: [PATCH v14,RESEND 19/22] dt-bindings: PCI: Add StarFive JH7110
+ PCIe controller
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_135833_132197_F3F5D08C 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20240129_142115_903275_4FF14A0D 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,28 +82,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKYW4gMjMsIDIwMjQgYXQgMjozMuKAr0FNIFB1IExlaHVpIDxwdWxlaHVpQGh1YXdl
-aWNsb3VkLmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWkuY29t
-Pgo+Cj4gV2UgdXNlZCBicGZfcHJvZ19wYWNrIHRvIGFnZ3JlZ2F0ZSBicGYgcHJvZ3JhbXMgaW50
-byBodWdlIHBhZ2UgdG8KPiByZWxpZXZlIHRoZSBpVExCIHByZXNzdXJlIG9uIHRoZSBzeXN0ZW0u
-IFdlIGNhbiBhcHBseSBpdCB0byBicGYKPiB0cmFtcG9saW5lLCBhcyBTb25nIGhhZCBiZWVuIGlt
-cGxlbWVudGVkIGl0IGluIGNvcmUgYW5kIHg4NiBbMF0uIFRoaXMKPiBwYXRjaCBpcyBnb2luZyB0
-byB1c2UgYnBmX3Byb2dfcGFjayB0byBSVjY0IGJwZiB0cmFtcG9saW5lLiBTaW5jZSBTb25nCj4g
-YW5kIFB1cmFuamF5IGhhdmUgZG9uZSBhIGxvdCBvZiB3b3JrIGZvciBicGZfcHJvZ19wYWNrIG9u
-IFJWNjQsCj4gaW1wbGVtZW50aW5nIHRoaXMgZnVuY3Rpb24gd2lsbCBiZSBlYXN5LiBCdXQgb25l
-IHRoaW5nIHRvIG1lbnRpb24gaXMKPiB0aGF0IGVtaXRfY2FsbCBpbiBSVjY0IHdpbGwgZ2VuZXJh
-dGUgdGhlIG1heGltdW0gbnVtYmVyIG9mIGluc3RydWN0aW9ucwo+IGR1cmluZyBkcnkgcnVuLCBi
-dXQgZHVyaW5nIHJlYWwgcGF0Y2hpbmcgaXQgbWF5IGJlIG9wdGltaXplZCB0byAxCj4gaW5zdHJ1
-Y3Rpb24gZHVlIHRvIGRpc3RhbmNlLiBUaGlzIGlzIG5vIHByb2JsZW0gYXMgaXQgZG9lcyBub3Qg
-b3ZlcmZsb3cKPiB0aGUgYWxsb2NhdGVkIFJPIGltYWdlLgo+Cj4gTGluazogaHR0cHM6Ly9sb3Jl
-Lmtlcm5lbC5vcmcvYWxsLzIwMjMxMjA2MjI0MDU0LjQ5MjI1MC0xLXNvbmdAa2VybmVsLm9yZyBb
-MF0KPiBTaWduZWQtb2ZmLWJ5OiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWkuY29tPgoKQWNrZWQt
-Ynk6IFNvbmcgTGl1IDxzb25nQGtlcm5lbC5vcmc+CgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+On Mon, 29 Jan 2024 09:01:39 +0800, Minda Chen wrote:
+> Add StarFive JH7110 SoC PCIe controller dt-bindings. JH7110 using PLDA
+> XpressRICH PCIe host controller IP.
+> 
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Rob Herring <robh@kernel.org>
+> ---
+>  .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++++++++++++++++
+>  1 file changed, 120 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+> 
+
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml:
+Error in referenced schema matching $id: http://devicetree.org/schemas/pci/plda,xpressrich3-axi-common.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.example.dtb: pcie@940000000: False schema does not allow {'compatible': ['starfive,jh7110-pcie'], 'reg': [[9, 1073741824, 0, 268435456], [0, 721420288, 0, 16777216]], 'reg-names': ['cfg', 'apb'], '#address-cells': [[3]], '#size-cells': [[2]], '#interrupt-cells': [[1]], 'device_type': ['pci'], 'ranges': [[2181038080, 0, 805306368, 0, 805306368, 0, 134217728], [3271557120, 9, 0, 9, 0, 0, 1073741824]], 'starfive,stg-syscon': [[4294967295]], 'bus-range': [[0, 255]], 'interrupts': [[56]], 'interrupt-map-mask': [[0, 0, 0, 7]], 'interrupt-map': [[0, 0, 0, 1, 2, 1], [0, 0, 0, 2, 2, 2], [0, 0, 0, 3, 2, 3], [0, 0, 0, 4, 2, 4]], 'msi-controller': True, 'clocks': [[4294967295, 86], [4294967295, 10], [4294967295, 8], [4294967295, 9]], 'clock-names': ['noc', 'tl', 'axi_mst0', 'apb'], 'resets': [[4294967295, 11], [4294967295, 12], [4294967295, 13], [4294967295, 14], [4294967295, 15], [4294967295, 16]], 
+ 'perst-gpios': [[4294967295, 26, 1]], 'phys': [[4294967295]], 'interrupt-controller': {'#address-cells': [[0]], '#interrupt-cells': [[1]], 'interrupt-controller': True, 'phandle': [[2]]}, '$nodename': ['pcie@940000000']}
+	from schema $id: http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.example.dtb: pcie@940000000: Unevaluated properties are not allowed ('#address-cells', '#interrupt-cells', '#size-cells', 'bus-range', 'device_type', 'interrupt-controller', 'interrupt-map', 'interrupt-map-mask', 'interrupts', 'msi-controller', 'ranges', 'reg', 'reg-names' were unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20240129010142.3732-4-minda.chen@starfivetech.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
