@@ -4,82 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5360C47DDB
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 14:58:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 529B9C47DDB
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 15:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wHcBPS6qQ87CzMvioxmwmvQQqFaCrpO03E8oLX+cnQg=; b=c8LETNJ2KzVxNc
-	ZV/52Py32QCrTKWc3QMocMsUzJnqFYGylJt5e8NRVkw3HN4CBBD/3aXRg1wrxzK1noIWrW6fhzwfr
-	KuQHbslE0wf2HG0VMBKlJ8T3WeGHs2sHww572qOVUYE/gYo8mmqAq/fPq8f19hMc3VsNmWjfGppz/
-	UaUdSpp/rJh3E/ytRw0KMZExVPeeUkNxlRYz9J6aMXwsUr4i/JjK/1uoDOAnEuYzr9pefuy+ybnhZ
-	7sLCT7ayz8y4raha0hARt4EbQVbaAqRTK1e+/pMCpbnIHJ7jGv8Co7rK7O6f93hMrp05pPrngFzrk
-	daMGyoQwvE9qkDqwCn1A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=70V6ipo/xlNKO2DpPW1I3pfy+BITPhKs6u5a4mYN1II=; b=Mg1+aFHGrE8Dekzm6J1+8RuAjF
+	BUSFwU7YlZeymehDJzz9BdUpMOFI8vclN+XUWso5nz08Jp3A3U7U1+MygSShtPOrXez95F37v0uAT
+	HQs4sTnRE6ywIiG6IX93OTJMSJhibgmMX1ejFWxEQn86ggLocQsrHMJ7+Luk0rSOO6n+SuNAJ8sSA
+	+1vkffooBaQFWCBuHvuqoZntEBKDvUSmnPZf/FJpFnCcmRC3WS2RQZTV6cH8GQyaZuJps+8SjE66q
+	6CPa1H2qSuVVhogRoJFtUmwFd7THSSFMzNIMs9pWuomEZ95hr/nQtnvSwByPrRkvXpFVILUno4gFS
+	BREcruog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUT59-0000000DAQs-0wNn;
-	Mon, 29 Jan 2024 14:57:55 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1rUT7K-0000000DAxc-0F3z;
+	Mon, 29 Jan 2024 15:00:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUT54-0000000D9yS-3omr;
-	Mon, 29 Jan 2024 14:57:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=M1dyK4/mPjmXezB9OECra+eUv49q0u5KCO/rCTgyWjo=; b=zshAlN5dO4KSpCUyuhnHvqGFw5
-	Gh7/mHP6cgVBHrE5nMDsXFPalTDr1ZzFPzRd+TI3s6neNq9Af58Vp3/mYT3mH1KRmbTzeAaN4hL6H
-	fwQhoOIa1yKFj+i7nMitwQv1yOG0Pz0nUWKhd2M/o536j+TlvQga+8v5LJ3avKX49iZjAYE3R321y
-	O2ps7v/NwXnLCZBPRDhB722lFSCJPiCiWdXOhGxpRCt+7PfqIGluNFkn4mXrYxw2Koq2c9Rr4ObDV
-	7YwmV/eFjDI793/wrAU7O0xFV+v50tPaN/a1bIX95nRfhzCTLPIOqUuhcS09c50fU0hLrjkOGJEos
-	mD5qTJTg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60316)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1rUT2l-0000YR-0u;
-	Mon, 29 Jan 2024 14:55:27 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1rUT2f-0004dh-CJ; Mon, 29 Jan 2024 14:55:21 +0000
-Date: Mon, 29 Jan 2024 14:55:21 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: "Rafael J. Wysocki" <rjw@rjwysocki.net>,
-	"Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, acpica-devel@lists.linuxfoundation.org,
-	linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org,
-	Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com,
-	James Morse <james.morse@arm.com>
-Subject: Re: [PATCH RFC v3 01/21] ACPI: Only enumerate enabled (or
- functional) devices
-Message-ID: <Zbe8WQRASx6D6RaG@shell.armlinux.org.uk>
-References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
- <ZXxxa+XZjPZtNfJ+@shell.armlinux.org.uk>
- <20231215161539.00000940@Huawei.com>
- <5760569.DvuYhMxLoT@kreacher>
- <20240102143925.00004361@Huawei.com>
- <20240111101949.000075dc@Huawei.com>
- <ZZ/CR/6Voec066DR@shell.armlinux.org.uk>
- <20240112115205.000043b0@Huawei.com>
+	id 1rUT7I-0000000DAxA-0Jqx
+	for linux-riscv@lists.infradead.org;
+	Mon, 29 Jan 2024 15:00:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8AC556211A;
+	Mon, 29 Jan 2024 14:59:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB376C433F1;
+	Mon, 29 Jan 2024 14:59:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1706540377;
+	bh=3l8vvbKif7wVC7bMTkrcO4TBaNj6h0QNy/ZaLjauggs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GdHsffo5LUizRilMlDjB1Uv2hRYUcIxYkrso2AOiHRmM0i3yI39QhMvvxkv3UQQdN
+	 RBsKGPDjuExrtQHT6Z1wAJadW+tSKB+hlfufpA9RunqHTE2pVfQGlG92hl65fbH+lL
+	 81wM8rhC2dvaJ9GR47tng6u1VMDeBXY4+52D859SzGMSaYobiIH8/aJjrQxmnHpwO4
+	 +lN63QzEjpsW/1TZK4uEsBGHH8/dazlH7OC7g77K26aDvm1kKSczNuzADp6WwcrjCj
+	 fQk2AxtQCTMe0XrJEjyV7nxbEraMsi1rXYoKHEGIy+SV8bln2uSby2RIYu7h+hiH4K
+	 8Kr7MZB9RWhEA==
+Date: Mon, 29 Jan 2024 14:59:31 +0000
+From: Conor Dooley <conor@kernel.org>
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-can@vger.kernel.org,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Wolfgang Grandegger <wg@grandegger.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v1 1/4] dt-bindings: vendor-prefixes: Add cast vendor
+ prefix
+Message-ID: <20240129-pavement-fondue-31f29ac2033c@spud>
+References: <20240129031239.17037-1-william.qiu@starfivetech.com>
+ <20240129031239.17037-2-william.qiu@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240112115205.000043b0@Huawei.com>
+In-Reply-To: <20240129031239.17037-2-william.qiu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_065750_963409_EBE7E7B0 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20240129_070008_178284_A0340630 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,78 +81,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6423782429780840374=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
 
-On Fri, Jan 12, 2024 at 11:52:05AM +0000, Jonathan Cameron wrote:
-> On Thu, 11 Jan 2024 10:26:15 +0000
-> "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
-> > @@ -2381,16 +2388,38 @@ EXPORT_SYMBOL_GPL(acpi_dev_clear_dependencies);
-> >   * acpi_dev_ready_for_enumeration - Check if the ACPI device is ready for enumeration
-> >   * @device: Pointer to the &struct acpi_device to check
-> >   *
-> > - * Check if the device is present and has no unmet dependencies.
-> > + * Check if the device is functional or enabled and has no unmet dependencies.
-> >   *
-> > - * Return true if the device is ready for enumeratino. Otherwise, return false.
-> > + * Return true if the device is ready for enumeration. Otherwise, return false.
-> >   */
-> >  bool acpi_dev_ready_for_enumeration(const struct acpi_device *device)
-> >  {
-> >  	if (device->flags.honor_deps && device->dep_unmet)
-> >  		return false;
-> >  
-> > -	return acpi_device_is_present(device);
-> > +	/*
-> > +	 * ACPI 6.5's 6.3.7 "_STA (Device Status)" allows firmware to return
-> > +	 * (!present && functional) for certain types of devices that should be
-> > +	 * enumerated. Note that the enabled bit should not be set unless the
-> > +	 * present bit is set.
-> > +	 *
-> > +	 * However, limit this only to processor devices to reduce possible
-> > +	 * regressions with firmware.
-> > +	 */
-> > +	if (device->status.functional)
-> > +		return true;
+--===============6423782429780840374==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="cogiGBIc/MCqykSX"
+Content-Disposition: inline
 
-I have a report from within Oracle that this causes testing failures
-with QEMU using -smp cpus=2,maxcpus=4. I think it needs to be:
 
-	if (!device->status.present)
-		return device->status.functional;
+--cogiGBIc/MCqykSX
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-	if (device->status.enabled)
-		return true;
+On Mon, Jan 29, 2024 at 11:12:36AM +0800, William Qiu wrote:
+> Add prefix for Computer-Aided Software Technologies, Inc.
+>=20
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 
-	return !acpi_device_is_processor(device);
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-So we can better understand the history here, let's list it as a
-truth table. P=present, F=functional, E=enabled, Orig=how the code
-is in mainline, James=James' original proposal, Rafael=the proposed
-replacement but seems to be buggy, Rmk=the fixed version that passes
-tests:
+Cheers,
+Conor.
 
-P F E	Orig	James	Rafael		Rmk
-0 0 0	0	0	0		0
-0 0 1	0	0	0		0
-0 1 0	1	1	1		1
-0 1 1	1	0	1		1
-1 0 0	1	0	!processor	!processor
-1 0 1	1	1	1		1
-1 1 0	1	0	1		!processor
-1 1 1	1	1	1		1
+> ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Doc=
+umentation/devicetree/bindings/vendor-prefixes.yaml
+> index 1a0dc04f1db4..b9c6ce99d24d 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -242,6 +242,8 @@ patternProperties:
+>      description: Capella Microsystems, Inc
+>    "^cascoda,.*":
+>      description: Cascoda, Ltd.
+> +  "^cast,.*":
+> +    description: Computer-Aided Software Technologies, Inc.
+>    "^catalyst,.*":
+>      description: Catalyst Semiconductor, Inc.
+>    "^cavium,.*":
+> --=20
+> 2.34.1
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Any objections to this?
+--cogiGBIc/MCqykSX
+Content-Type: application/pgp-signature; name="signature.asc"
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZbe9UwAKCRB4tDGHoIJi
+0vnBAP4h9TeV8gpl0bK+1Wd48qmmmXDASj7WbF2vhDFdPDrdXgEArDrOKaRpACUE
+s0brDp0M/KU4k7zpGc/9tpYV64sqgg8=
+=vPXn
+-----END PGP SIGNATURE-----
+
+--cogiGBIc/MCqykSX--
+
+
+--===============6423782429780840374==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6423782429780840374==--
+
