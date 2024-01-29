@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A02CC47DA9
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 09:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF66C47422
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 09:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fHtQZcvKVonAEnIcPvbLDOpceFXvUCdEC0HAZhfg2Z0=; b=b2Is/ZmQaty3Vy
-	GzCET1rkXgOilJ5lndxAEAMbi9mC5goI+QKESckhhSTa3pmhsVLgz+ps0FYlzXJPxJa7a+ev4BCbc
-	wYkAVNZs/jFm6tT2a50rnDeTlg3N5CjqhAFI/91br766TGMS+y5jilYwP+JDCJj3kJhNfw8FoF/hH
-	CfNuqpkPNRfDWM6r97r1S3xnpVec0TT3sMOLBVI9akxru7D6t3z6I4pIxi504JQBKbYH4CuTQGUIb
-	7geSj9jLEs1xXwXP4ilTO/GZnbCaO6uRjJCToSvgKNIUR2nmyA71toXZ8MxDn85lXDBcGoUXvsHwx
-	PK58sxX1SakwDvIvGlnw==;
+	List-Owner; bh=40jMQswHu6VAnjEqDwCqg2E3YIBV1WZ98h1TocZVxeM=; b=NN2RM11SfaES7P
+	DqEXLN2/+Wz8b1Y8HSvCwUFxYC9/atflvGFMmstVAffNobCbHNWim0DvuLl5IOUYRMEdvPxlNHrGH
+	xWhM/zm2uJ3/+6Km0wryPob6O8/yHy3aOOj2oxQtZQV/ArjW6KEYHH8yjQiffoRvy2DQPAFtYWLD0
+	DaUeeiB9F1SQ+cXMWWoO2MIZlURtT3Me1w/94jQPhUQMvyouFLKR7+bEzLPkWHW5GxgL7w2qhyJGZ
+	uCc2bpR4k8y3pLo3/WLjWSVBnou+e6Yo/h5hjODuvRl+SaJDc22x+/6kJciT9XE5xiTkN56Ov0C1j
+	LZf6f9k3ooCjNIxLrFyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUNw0-0000000C1Ec-3wqK;
-	Mon, 29 Jan 2024 09:28:08 +0000
+	id 1rUNw5-0000000C1Ht-1QEb;
+	Mon, 29 Jan 2024 09:28:13 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUNvk-0000000C0z1-2qBY;
-	Mon, 29 Jan 2024 09:27:54 +0000
+	id 1rUNvm-0000000C11N-3zd3;
+	Mon, 29 Jan 2024 09:27:58 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 40T9QeQ9080272;
-	Mon, 29 Jan 2024 17:26:40 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 40T9QjU6080313;
+	Mon, 29 Jan 2024 17:26:45 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Mon, 29 Jan 2024
- 17:26:36 +0800
+ 17:26:41 +0800
 From: Yu Chien Peter Lin <peterlin@andestech.com>
 To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <alexander.shishkin@linux.intel.com>, <andre.przywara@arm.com>,
@@ -56,19 +56,19 @@ To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <tim609@andestech.com>, <uwu@icenowy.me>, <wens@csie.org>,
         <will@kernel.org>, <inochiama@outlook.com>, <unicorn_wang@outlook.com>,
         <wefu@redhat.com>
-Subject: [PATCH v8 08/10] dt-bindings: riscv: Add Andes PMU extension description
-Date: Mon, 29 Jan 2024 17:25:51 +0800
-Message-ID: <20240129092553.2058043-9-peterlin@andestech.com>
+Subject: [PATCH v8 09/10] riscv: dts: renesas: Add Andes PMU extension for r9a07g043f
+Date: Mon, 29 Jan 2024 17:25:52 +0800
+Message-ID: <20240129092553.2058043-10-peterlin@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240129092553.2058043-1-peterlin@andestech.com>
 References: <20240129092553.2058043-1-peterlin@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 40T9QeQ9080272
+X-MAIL: Atcsqr.andestech.com 40T9QjU6080313
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_012753_249852_D3D661D3 
-X-CRM114-Status: UNSURE (   5.64  )
+X-CRM114-CacheID: sfid-20240129_012755_605343_2032420B 
+X-CRM114-Status: UNSURE (   8.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,47 +86,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the ISA string for Andes Technology performance monitor
-extension which provides counter overflow interrupt and mode
-filtering mechanisms.
+xandespmu stands for Andes Performance Monitor Unit extension.
+Based on the added Andes PMU ISA string, the SBI PMU driver
+will make use of the non-standard irq source.
 
 Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-Changes v2 -> v3:
+Changes v1 -> v2:
   - New patch
-Changes v3 -> v4:
-  - Include Conor's Acked-by
-Changes v4 -> v5:
-  - Include Prabhakar's Reviewed-by
-Changes v5 -> v6:
+Changes v2 -> v3:
   - No change
+Changes v3 -> v4:
+  - No change
+Changes v4 -> v5:
+  - Include Geert's Reviewed-by
+  - Include Prabhakar's Reviewed/Tested-by
+Changes v5 -> v6:
+  - Include Conor's Acked-by
 Changes v6 -> v7:
   - No change
 Changes v7 -> v8:
   - No change
 ---
- Documentation/devicetree/bindings/riscv/extensions.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 63d81dc895e5..468c646247aa 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -477,5 +477,12 @@ properties:
-             latency, as ratified in commit 56ed795 ("Update
-             riscv-crypto-spec-vector.adoc") of riscv-crypto.
- 
-+        - const: xandespmu
-+          description:
-+            The Andes Technology performance monitor extension for counter overflow
-+            and privilege mode filtering. For more details, see Counter Related
-+            Registers in the AX45MP datasheet.
-+            https://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
-+
- additionalProperties: true
- ...
+diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+index 099f3df75b42..d7a66043f13b 100644
+--- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
++++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+@@ -27,7 +27,7 @@ cpu0: cpu@0 {
+ 			riscv,isa-base = "rv64i";
+ 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
+ 					       "zicntr", "zicsr", "zifencei",
+-					       "zihpm";
++					       "zihpm", "xandespmu";
+ 			mmu-type = "riscv,sv39";
+ 			i-cache-size = <0x8000>;
+ 			i-cache-line-size = <0x40>;
 -- 
 2.34.1
 
