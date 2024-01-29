@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D62AC47DDB
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 12:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786A1C47DA9
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 12:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xv7Z5mEaEk+SPpwl/Hh6gsWdEets6rSHG5O+SzF7HFQ=; b=IrMfClue7Pc2ZG
-	ydiB2QdPAJ8Kcffl33VH5UERgFlxNEprhj0SUECx67CXjVRfhkBjy/n1/ckpMOROMP/CjmFfMncLG
-	+cxo9u/C7305WJ9NCc/7P3pX/7XVE+/Q3E+XPJIRdfMCepIg8P2UTE8vDdkJ8VGa/SqVopXJps2xe
-	I4xZyHG7c0/LLWs6Ep5IDKxs7rAIBZSsSmezV5O/Kdt9ZsMpyIiB3Mk87GGshMULv5/0jfT1c8kNB
-	eeIYtDJHbdDY017djQV/yQ8vnSo1x/eewYJYxhIWIWfshs1gV7zWRZ3f9Mzxa559MvRKNmCciZkbr
-	DAta6HHlZ47aApzylyjA==;
+	List-Owner; bh=ZPBfxS66YrLW341bDh3olw/8b3qEf3FI9hQh/2d8aQo=; b=xtU/dYM5CgyFdF
+	pHDHUQBVphnyFMsnKiEyDO6FuWJwWg4NHvgs2hZKpjlz9+/4y5trE9GGz/poaSOpvJck4yEOz5QkL
+	0iFQuSyu2Tqj8hVZxKA9iHdKQl0Wu4pATDwrbS3v/TG96+oYWPU1wkB6d2bWFcIhmjtsCOjBFFia6
+	htvI4lv0gvyu6LX9rlRPMUAGpOugLP70ib37+Rd/dguvZwHO3JzgATbTqfADHc8qRFH40ktcAA38u
+	ZXzj4WPqSQBPO/8dtZJHaKBLA7hX6x+rXi8ALCqPsG90C5JoCd3SZ5PwE+fP3zu8UtHB8I1XuZcQp
+	oYCseUvIt1OAqofu638A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUR3o-0000000CfqX-2uQ8;
-	Mon, 29 Jan 2024 12:48:24 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rUR4F-0000000CgBn-1Rxv;
+	Mon, 29 Jan 2024 12:48:51 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUR34-0000000Cf9Y-40il
+	id 1rUR3C-0000000CfHc-3nQa
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 12:47:42 +0000
+	Mon, 29 Jan 2024 12:47:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1706532457;
+	s=mimecast20190719; t=1706532465;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Q4tnrwU9nMLq/XRgt5SnLvg5SSqAxaQfTq+KC4Tr5Rw=;
-	b=TmaNglseSx373K6jvLJcNeByjoiACIczb2yqndCRGWPBeqbvHdhQyqvr/jmDi5NiIbsSpb
-	xn0Xwe7lw7eHqu98RDm2U72Oqh6YsXSgxTjSWGLt9OG95WzrtXJzaOjJs8FjQ3WmRimHJH
-	iQHnWErluT0NcqSaze9zLQBBNGn0qjU=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-626-0qzEMwiFPS-I-NbcZuBhSg-1; Mon,
- 29 Jan 2024 07:47:34 -0500
-X-MC-Unique: 0qzEMwiFPS-I-NbcZuBhSg-1
+	bh=8viUIwfAqrpZYGrKXKN1ylfsdDoFL9veEN2EDkxcPF4=;
+	b=D1zlh2nEoXs7D3xjehNL0cpPtqu3sKuVnym5mzS/H9dFoDXRqjtlGeW6mS60VfyPJj9q2N
+	0oeehHft3wdNjAjYByDXa9iV6oSbDWu+KWlgSUM28RvrSG9oo88YsxQ/11EAvnXX3bbjoq
+	CbBn+X2IaNSdnjoXgxEPOrEbdJPbe6Q=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-513-FOOOGCS9Nq6C0wiBz3AC0A-1; Mon, 29 Jan 2024 07:47:40 -0500
+X-MC-Unique: FOOOGCS9Nq6C0wiBz3AC0A-1
 Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 208913814E8C;
-	Mon, 29 Jan 2024 12:47:33 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id ED2DB86F122;
+	Mon, 29 Jan 2024 12:47:38 +0000 (UTC)
 Received: from t14s.fritz.box (unknown [10.39.194.46])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 1C9928B;
-	Mon, 29 Jan 2024 12:47:26 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 802EB8B;
+	Mon, 29 Jan 2024 12:47:33 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-mm@kvack.org,
@@ -82,16 +82,16 @@ Cc: linux-mm@kvack.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: [PATCH v3 06/15] s390/pgtable: define PFN_PTE_SHIFT
-Date: Mon, 29 Jan 2024 13:46:40 +0100
-Message-ID: <20240129124649.189745-7-david@redhat.com>
+Subject: [PATCH v3 07/15] sparc/pgtable: define PFN_PTE_SHIFT
+Date: Mon, 29 Jan 2024 13:46:41 +0100
+Message-ID: <20240129124649.189745-8-david@redhat.com>
 In-Reply-To: <20240129124649.189745-1-david@redhat.com>
 References: <20240129124649.189745-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_044739_312612_13F1C9B6 
-X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-CacheID: sfid-20240129_044747_258746_77E8EA1C 
+X-CRM114-Status: UNSURE (   9.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,22 +114,22 @@ simply define PFN_PTE_SHIFT, required by pte_next_pfn().
 
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- arch/s390/include/asm/pgtable.h | 2 ++
+ arch/sparc/include/asm/pgtable_64.h | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
-index 1299b56e43f6..4b91e65c85d9 100644
---- a/arch/s390/include/asm/pgtable.h
-+++ b/arch/s390/include/asm/pgtable.h
-@@ -1316,6 +1316,8 @@ pgprot_t pgprot_writecombine(pgprot_t prot);
- #define pgprot_writethrough	pgprot_writethrough
- pgprot_t pgprot_writethrough(pgprot_t prot);
+diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
+index a8c871b7d786..652af9d63fa2 100644
+--- a/arch/sparc/include/asm/pgtable_64.h
++++ b/arch/sparc/include/asm/pgtable_64.h
+@@ -929,6 +929,8 @@ static inline void __set_pte_at(struct mm_struct *mm, unsigned long addr,
+ 	maybe_tlb_batch_add(mm, addr, ptep, orig, fullmm, PAGE_SHIFT);
+ }
  
 +#define PFN_PTE_SHIFT		PAGE_SHIFT
 +
- /*
-  * Set multiple PTEs to consecutive pages with a single call.  All PTEs
-  * are within the same folio, PMD and VMA.
+ static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
+ 		pte_t *ptep, pte_t pte, unsigned int nr)
+ {
 -- 
 2.43.0
 
