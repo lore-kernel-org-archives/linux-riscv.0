@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B8BC47DA9
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 09:27:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A099C47DA9
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 09:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jh/qLo0zI8eQMBEHtZeTi91vuqhhlhkgR4ntIbsr+VQ=; b=ULA9lbPK75QPQs
-	hvGbCcszTYH5aRovBZtHKE83OogHubA16qpAN7mem8HNsXTKYKMBuSn5yUtD6o0g+pNMOdj7x5u1y
-	jQSj6RAwQ6XOROrkfDkm/dEdvGNH5Zt1SEOJ3vuet41DHBo30icDUIBb0JdSPSy5wu/9DsVgzCN1f
-	tqBT/hq7BOjQtR5R6iBazMvt6y/RmOseIUyDbpmpY9P50I/Bwaeb9EA+17dHrLudnn37sFpds4Tkk
-	VZSwKCCykS8F4rNFBYfqxUqKYx9kEjX6+KvS8dbU8vYwzvgiuIvaPSpBspOK0w+H1b0Bx5nH7CPDe
-	gxg3pxzqSPLA6mhQuILw==;
+	List-Owner; bh=MWhYFQSJflFHXKkVetnxZTBwAhr4R9h5w5CpDYF2N+A=; b=3Mhm73bypfD+09
+	5eVvRoYuepf74DkScw2we5pqFqqwgTq0gv77fdrU4ijpOYwW1HRZsahOcCLjGL29jflFiHuwm6dKh
+	GQzAoeHZ6E9IPv7kkrZybZ012ouQWsb3eaWqkK6B9eu5uDR3Tn97nbdlHjjfuNvfcCihZ1DPUSJ3n
+	xFuWGmebfyV3WMpJBiBoukMe0NTIf3zRWJUJoBdVWCg44/guHJO/+JWLXYLxkgsIW9FEYZQIVpj7k
+	31maikJ+UnY4+7wNLyS4PKUuRsa9IUntpgwVFUPf91hffVNC6B9nOWyN9neclYTWgHo0Utrmvzl2n
+	rWxLanLYPhwno57xx6bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUNvZ-0000000C0sx-3Kir;
-	Mon, 29 Jan 2024 09:27:41 +0000
+	id 1rUNve-0000000C0vp-2YGm;
+	Mon, 29 Jan 2024 09:27:46 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUNvM-0000000C0ig-2QBd;
+	id 1rUNvM-0000000C0ij-2Q1s;
 	Mon, 29 Jan 2024 09:27:31 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 40T9Q4pt080023;
-	Mon, 29 Jan 2024 17:26:04 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 40T9QPvi080151;
+	Mon, 29 Jan 2024 17:26:25 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Mon, 29 Jan 2024
- 17:26:01 +0800
+ 17:26:21 +0800
 From: Yu Chien Peter Lin <peterlin@andestech.com>
 To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <alexander.shishkin@linux.intel.com>, <andre.przywara@arm.com>,
@@ -56,22 +56,20 @@ To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <tim609@andestech.com>, <uwu@icenowy.me>, <wens@csie.org>,
         <will@kernel.org>, <inochiama@outlook.com>, <unicorn_wang@outlook.com>,
         <wefu@redhat.com>
-CC: Charles Ci-Jyun Wu <dminus@andestech.com>,
-        Leo Yu-Chi Liang
-	<ycliang@andestech.com>
-Subject: [PATCH v8 01/10] riscv: errata: Rename defines for Andes
-Date: Mon, 29 Jan 2024 17:25:44 +0800
-Message-ID: <20240129092553.2058043-2-peterlin@andestech.com>
+Subject: [PATCH v8 05/10] riscv: dts: renesas: r9a07g043f: Update compatible string to use Andes INTC
+Date: Mon, 29 Jan 2024 17:25:48 +0800
+Message-ID: <20240129092553.2058043-6-peterlin@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240129092553.2058043-1-peterlin@andestech.com>
 References: <20240129092553.2058043-1-peterlin@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 40T9Q4pt080023
+X-MAIL: Atcsqr.andestech.com 40T9QPvi080151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_012729_166404_5029AF55 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20240129_012729_192924_9A19B125 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,24 +86,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use "ANDES" rather than "ANDESTECH" to unify the naming
-convention with directory, file names, Kconfig options
-and other definitions.
+The Andes hart-level interrupt controller (Andes INTC) allows AX45MP
+cores to handle custom local interrupts, such as the performance
+counter overflow interrupt.
 
 Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
-Reviewed-by: Charles Ci-Jyun Wu <dminus@andestech.com>
-Reviewed-by: Leo Yu-Chi Liang <ycliang@andestech.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
 Changes v1 -> v2:
-  - No change
+  - New patch
 Changes v2 -> v3:
-  - Rewrite commit message (suggested by Conor)
+  - Fixed possible compatibles for Andes INTC
 Changes v3 -> v4:
-  - Include Conor's Acked-by tag
+  - No change
 Changes v4 -> v5:
-  - Include Prabhakar's RB tag
+  - Include Geert's Reviewed-by
+  - Include Prabhakar's Reviewed/Tested-by
 Changes v5 -> v6:
   - No change
 Changes v6 -> v7:
@@ -113,88 +111,22 @@ Changes v6 -> v7:
 Changes v7 -> v8:
   - No change
 ---
- arch/riscv/errata/andes/errata.c       | 10 +++++-----
- arch/riscv/include/asm/errata_list.h   |  4 ++--
- arch/riscv/include/asm/vendorid_list.h |  2 +-
- arch/riscv/kernel/alternative.c        |  2 +-
- 4 files changed, 9 insertions(+), 9 deletions(-)
+ arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes/errata.c
-index 17a904869724..f2708a9494a1 100644
---- a/arch/riscv/errata/andes/errata.c
-+++ b/arch/riscv/errata/andes/errata.c
-@@ -18,9 +18,9 @@
- #include <asm/sbi.h>
- #include <asm/vendorid_list.h>
+diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+index a92cfcfc021b..099f3df75b42 100644
+--- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
++++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+@@ -39,7 +39,7 @@ cpu0: cpu@0 {
  
--#define ANDESTECH_AX45MP_MARCHID	0x8000000000008a45UL
--#define ANDESTECH_AX45MP_MIMPID		0x500UL
--#define ANDESTECH_SBI_EXT_ANDES		0x0900031E
-+#define ANDES_AX45MP_MARCHID		0x8000000000008a45UL
-+#define ANDES_AX45MP_MIMPID		0x500UL
-+#define ANDES_SBI_EXT_ANDES		0x0900031E
- 
- #define ANDES_SBI_EXT_IOCP_SW_WORKAROUND	1
- 
-@@ -32,7 +32,7 @@ static long ax45mp_iocp_sw_workaround(void)
- 	 * ANDES_SBI_EXT_IOCP_SW_WORKAROUND SBI EXT checks if the IOCP is missing and
- 	 * cache is controllable only then CMO will be applied to the platform.
- 	 */
--	ret = sbi_ecall(ANDESTECH_SBI_EXT_ANDES, ANDES_SBI_EXT_IOCP_SW_WORKAROUND,
-+	ret = sbi_ecall(ANDES_SBI_EXT_ANDES, ANDES_SBI_EXT_IOCP_SW_WORKAROUND,
- 			0, 0, 0, 0, 0, 0);
- 
- 	return ret.error ? 0 : ret.value;
-@@ -50,7 +50,7 @@ static void errata_probe_iocp(unsigned int stage, unsigned long arch_id, unsigne
- 
- 	done = true;
- 
--	if (arch_id != ANDESTECH_AX45MP_MARCHID || impid != ANDESTECH_AX45MP_MIMPID)
-+	if (arch_id != ANDES_AX45MP_MARCHID || impid != ANDES_AX45MP_MIMPID)
- 		return;
- 
- 	if (!ax45mp_iocp_sw_workaround())
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index ea33288f8a25..96025eec5631 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -12,8 +12,8 @@
- #include <asm/vendorid_list.h>
- 
- #ifdef CONFIG_ERRATA_ANDES
--#define ERRATA_ANDESTECH_NO_IOCP	0
--#define ERRATA_ANDESTECH_NUMBER		1
-+#define ERRATA_ANDES_NO_IOCP 0
-+#define ERRATA_ANDES_NUMBER 1
- #endif
- 
- #ifdef CONFIG_ERRATA_SIFIVE
-diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
-index e55407ace0c3..2f2bb0c84f9a 100644
---- a/arch/riscv/include/asm/vendorid_list.h
-+++ b/arch/riscv/include/asm/vendorid_list.h
-@@ -5,7 +5,7 @@
- #ifndef ASM_VENDOR_LIST_H
- #define ASM_VENDOR_LIST_H
- 
--#define ANDESTECH_VENDOR_ID	0x31e
-+#define ANDES_VENDOR_ID		0x31e
- #define SIFIVE_VENDOR_ID	0x489
- #define THEAD_VENDOR_ID		0x5b7
- 
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 319a1da0358b..0128b161bfda 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -43,7 +43,7 @@ static void riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info
- 
- 	switch (cpu_mfr_info->vendor_id) {
- #ifdef CONFIG_ERRATA_ANDES
--	case ANDESTECH_VENDOR_ID:
-+	case ANDES_VENDOR_ID:
- 		cpu_mfr_info->patch_func = andes_errata_patch_func;
- 		break;
- #endif
+ 			cpu0_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
+-				compatible = "riscv,cpu-intc";
++				compatible = "andestech,cpu-intc", "riscv,cpu-intc";
+ 				interrupt-controller;
+ 			};
+ 		};
 -- 
 2.34.1
 
