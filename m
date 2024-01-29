@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B269EC47DA9
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 12:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 057C7C47422
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 12:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g5DKp3sIXp46Dutrelpp4eZ7iHm/HlPAGkyiOjBISNs=; b=tzEz0a4SXgSH/rPjE2BBUqOJNr
-	UJkUnpFZFfsuR0alRu66M/mrFWlMmR4hjRNHE9foA9CvSLJuSikjT8GD8ty+Zs+QLkg61DkQCLdIY
-	K6Bfev4pe9GAfpDbrZOUk4Evv4SO/WmAIUsAX3cfQkahxm7ujixHiytuyyhJWcXn1cG3hy3xmMlkK
-	fhmNkxXoPnwngpTxjIK/lCVzHaummIsmQWwR6zftOvx/XbpBzCwqYEirWNLkCkBKDV6T1IYoItbZz
-	/QmDm8GIQ7v9ZTtTRRPhL85YSq3u6lc134WnhP9MeYTt+5U79O2UfqCitrauK1mZP2sBm6XNvjyUz
-	9GnTuQdQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CjZvqcvIQ3SQkG6uVmtyq2ssOVWBC+KpuHUzYmSZovE=; b=yQrjiYmi9nrQnK
+	swJfI7/TrGqvcsOUIYuwVt6K6G6zU6nQ/C0RPdlnv3bbHeDO+YdKWsYvEwmtIEpbt9ecsFWisKM6y
+	R91sBZ/gD7Hb8+cIPAt2q2ApXuWLHM+FfCbfhCXv++nhCdofp1qJ4kwYwNk/D8h0SVAk3Gt0jO9IA
+	dhOL5MsUveGN1Edvuy/l4iIlIXNLgX8x4NjUK6CPiNImbBoh26d85hWyJnr+2cMvw8q+/UAZlstPu
+	QiVKRyRlLx1gCSNw1q30a6Mb6oHPoORlgIQXeq79+b8kFGFPaB+JTp+W/8yV1N7fj1RTTuPLFxadg
+	gIUwi0es+WXgqwnxzO2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUQn7-0000000Cc8d-0Eo5;
-	Mon, 29 Jan 2024 12:31:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rUR2Z-0000000Cel5-1Oxh;
+	Mon, 29 Jan 2024 12:47:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUQn3-0000000Cc7S-0jEs
+	id 1rUR2U-0000000Cegz-26q2
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 12:31:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E1FFC6211E;
-	Mon, 29 Jan 2024 12:31:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8200AC433C7;
-	Mon, 29 Jan 2024 12:31:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706531463;
-	bh=OMjG087pQhKBaSUbWJ01ewqPvsYZPCOIy7ZK/xWIyLM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mpESaN2AmpfQFQYUKYs+EQbLWFkPPNM+IzD4Jn9kW1zbuPrDWsV+go03/pzx2lFuF
-	 r2X09hQBKVNvGDGOs1+Jn+JF1KLoqQ/J5L0aI3h/1p0CxRKVfD2z4m1NfxDlHiFU2h
-	 xGCenlPZpg72QOMHycpLzAMC/TzA8H+aScDbhWO4M7zIhh9gisOoIRhGZ8k1ug62rX
-	 DRlzGBJqjSv75FCBDIG5xdWJEmhIo2uAKAsKDwtav/ouSgPRfVL3useLSi2i0cxBrL
-	 JWX6m2gs0/H8gCAU4Aac91MhjZgp+0KjWEi99pX2j98Wg9YMgWEgQ1GJRh44yWUxp0
-	 unmvaNfw68XKw==
-Date: Mon, 29 Jan 2024 12:30:59 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	sudeep.holla@arm.com, robh@kernel.org, conor.dooley@microchip.com,
-	suagrfillet@gmail.com
-Subject: Re: [RFC v1 2/2] riscv: cacheinfo: Refactor populate_cache_leaves()
-Message-ID: <20240129-parrot-dropout-c4ece33a98da@spud>
-References: <20240129075957.116033-1-jeeheng.sia@starfivetech.com>
- <20240129075957.116033-3-jeeheng.sia@starfivetech.com>
+	Mon, 29 Jan 2024 12:47:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1706532420;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=KvkAH0bQzCOTptNfhBBhiuyqh5M2/G8GqLgKULFKaNQ=;
+	b=YfaWmx2nBejTq5HMH1lesyq31vqoeAI0m71bVkpBELOzisHNYTWH2ZNWKgsbC57xS8hNJ/
+	qTFYk/t6derFCllTKjseRRGFKrBNgo3as4Fwtq1F9qpTYrNp1hvN8AEjCbXQBRAP+dMMtw
+	I0JbSNNiDtT333Hff3XJrbOxftsRJYE=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-369-GprgdTNKNKqdu1U7aI74eA-1; Mon,
+ 29 Jan 2024 07:46:58 -0500
+X-MC-Unique: GprgdTNKNKqdu1U7aI74eA-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B4DE129AC02A;
+	Mon, 29 Jan 2024 12:46:56 +0000 (UTC)
+Received: from t14s.fritz.box (unknown [10.39.194.46])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 4C575107BD;
+	Mon, 29 Jan 2024 12:46:50 +0000 (UTC)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org,
+	David Hildenbrand <david@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org
+Subject: [PATCH v3 00/15] mm/memory: optimize fork() with PTE-mapped THP
+Date: Mon, 29 Jan 2024 13:46:34 +0100
+Message-ID: <20240129124649.189745-1-david@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <20240129075957.116033-3-jeeheng.sia@starfivetech.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_043105_356784_4B16F32C 
-X-CRM114-Status: GOOD (  28.30  )
+X-CRM114-CacheID: sfid-20240129_044702_689214_26A44BD4 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,156 +100,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3306940459790947479=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Now that the rmap overhaul[1] is upstream that provides a clean interface
+for rmap batching, let's implement PTE batching during fork when processing
+PTE-mapped THPs.
 
---===============3306940459790947479==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="vVQN45TubuFKPBU4"
-Content-Disposition: inline
+This series is partially based on Ryan's previous work[2] to implement
+cont-pte support on arm64, but its a complete rewrite based on [1] to
+optimize all architectures independent of any such PTE bits, and to
+use the new rmap batching functions that simplify the code and prepare
+for further rmap accounting changes.
+
+We collect consecutive PTEs that map consecutive pages of the same large
+folio, making sure that the other PTE bits are compatible, and (a) adjust
+the refcount only once per batch, (b) call rmap handling functions only
+once per batch and (c) perform batch PTE setting/updates.
+
+While this series should be beneficial for adding cont-pte support on
+ARM64[2], it's one of the requirements for maintaining a total mapcount[3]
+for large folios with minimal added overhead and further changes[4] that
+build up on top of the total mapcount.
+
+Independent of all that, this series results in a speedup during fork with
+PTE-mapped THP, which is the default with THPs that are smaller than a PMD
+(for example, 16KiB to 1024KiB mTHPs for anonymous memory[5]).
+
+On an Intel Xeon Silver 4210R CPU, fork'ing with 1GiB of PTE-mapped folios
+of the same size (stddev < 1%) results in the following runtimes
+for fork() (shorter is better):
+
+Folio Size | v6.8-rc1 |      New | Change
+------------------------------------------
+      4KiB | 0.014328 | 0.014035 |   - 2%
+     16KiB | 0.014263 | 0.01196  |   -16%
+     32KiB | 0.014334 | 0.01094  |   -24%
+     64KiB | 0.014046 | 0.010444 |   -26%
+    128KiB | 0.014011 | 0.010063 |   -28%
+    256KiB | 0.013993 | 0.009938 |   -29%
+    512KiB | 0.013983 | 0.00985  |   -30%
+   1024KiB | 0.013986 | 0.00982  |   -30%
+   2048KiB | 0.014305 | 0.010076 |   -30%
+
+Note that these numbers are even better than the ones from v1 (verified
+over multiple reboots), even though there were only minimal code changes.
+Well, I removed a pte_mkclean() call for anon folios, maybe that also
+plays a role.
+
+But my experience is that fork() is extremely sensitive to code size,
+inlining, ... so I suspect we'll see on other architectures rather a change
+of -20% instead of -30%, and it will be easy to "lose" some of that speedup
+in the future by subtle code changes.
+
+Next up is PTE batching when unmapping. Only tested on x86-64.
+Compile-tested on most other architectures.
+
+v2 -> v3:
+ * Rebased on mm-unstable
+ * Picked up RB's
+ * Updated documentation of wrprotect_ptes().
+
+v1 -> v2:
+ * "arm64/mm: Make set_ptes() robust when OAs cross 48-bit boundary"
+  -> Added patch from Ryan
+ * "arm/pgtable: define PFN_PTE_SHIFT"
+  -> Removed the arm64 bits
+ * "mm/pgtable: make pte_next_pfn() independent of set_ptes()"
+ * "arm/mm: use pte_next_pfn() in set_ptes()"
+ * "powerpc/mm: use pte_next_pfn() in set_ptes()"
+  -> Added to use pte_next_pfn() in some arch set_ptes() implementations
+     I tried to make use of pte_next_pfn() also in the others, but it's
+     not trivial because the other archs implement set_ptes() in their
+     asm/pgtable.h. Future work.
+ * "mm/memory: factor out copying the actual PTE in copy_present_pte()"
+  -> Move common folio_get() out of if/else
+ * "mm/memory: optimize fork() with PTE-mapped THP"
+  -> Add doc for wrprotect_ptes
+  -> Extend description to mention handling of pinned folios
+  -> Move common folio_ref_add() out of if/else
+ * "mm/memory: ignore dirty/accessed/soft-dirty bits in folio_pte_batch()"
+  -> Be more conservative with dirt/soft-dirty, let the caller specify
+     using flags
+
+[1] https://lkml.kernel.org/r/20231220224504.646757-1-david@redhat.com
+[2] https://lkml.kernel.org/r/20231218105100.172635-1-ryan.roberts@arm.com
+[3] https://lkml.kernel.org/r/20230809083256.699513-1-david@redhat.com
+[4] https://lkml.kernel.org/r/20231124132626.235350-1-david@redhat.com
+[5] https://lkml.kernel.org/r/20231207161211.2374093-1-ryan.roberts@arm.com
+
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Dinh Nguyen <dinguyen@kernel.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Cc: Heiko Carstens <hca@linux.ibm.com>
+Cc: Vasily Gorbik <gor@linux.ibm.com>
+Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
+Cc: Sven Schnelle <svens@linux.ibm.com>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: sparclinux@vger.kernel.org
+
+---
+
+Andrew asked for a resend based on latest mm-unstable. I am sending this
+out earlier than I would usually have sent out the next version, so we can
+pull it into mm-unstable again now that v1 was dropped.
+
+David Hildenbrand (14):
+  arm/pgtable: define PFN_PTE_SHIFT
+  nios2/pgtable: define PFN_PTE_SHIFT
+  powerpc/pgtable: define PFN_PTE_SHIFT
+  riscv/pgtable: define PFN_PTE_SHIFT
+  s390/pgtable: define PFN_PTE_SHIFT
+  sparc/pgtable: define PFN_PTE_SHIFT
+  mm/pgtable: make pte_next_pfn() independent of set_ptes()
+  arm/mm: use pte_next_pfn() in set_ptes()
+  powerpc/mm: use pte_next_pfn() in set_ptes()
+  mm/memory: factor out copying the actual PTE in copy_present_pte()
+  mm/memory: pass PTE to copy_present_pte()
+  mm/memory: optimize fork() with PTE-mapped THP
+  mm/memory: ignore dirty/accessed/soft-dirty bits in folio_pte_batch()
+  mm/memory: ignore writable bit in folio_pte_batch()
+
+Ryan Roberts (1):
+  arm64/mm: Make set_ptes() robust when OAs cross 48-bit boundary
+
+ arch/arm/include/asm/pgtable.h      |   2 +
+ arch/arm/mm/mmu.c                   |   2 +-
+ arch/arm64/include/asm/pgtable.h    |  28 ++--
+ arch/nios2/include/asm/pgtable.h    |   2 +
+ arch/powerpc/include/asm/pgtable.h  |   2 +
+ arch/powerpc/mm/pgtable.c           |   5 +-
+ arch/riscv/include/asm/pgtable.h    |   2 +
+ arch/s390/include/asm/pgtable.h     |   2 +
+ arch/sparc/include/asm/pgtable_64.h |   2 +
+ include/linux/pgtable.h             |  33 ++++-
+ mm/memory.c                         | 212 ++++++++++++++++++++++------
+ 11 files changed, 229 insertions(+), 63 deletions(-)
 
 
---vVQN45TubuFKPBU4
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+base-commit: d162e170f1181b4305494843e1976584ddf2b72e
+-- 
+2.43.0
 
-Hey,
-
-Firstly, the $subject should really mention that the motivation for the
-refactoring is ACPI support.
-
-On Sun, Jan 28, 2024 at 11:59:57PM -0800, Sia Jee Heng wrote:
-> Refactoring the cache population function to support both DT and
-> ACPI-based platforms.
->=20
-> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> ---
->  arch/riscv/kernel/cacheinfo.c | 47 ++++++++++++++---------------------
->  1 file changed, 19 insertions(+), 28 deletions(-)
->=20
-> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-> index 30a6878287ad..f10e26fb75b6 100644
-> --- a/arch/riscv/kernel/cacheinfo.c
-> +++ b/arch/riscv/kernel/cacheinfo.c
-> @@ -74,36 +74,27 @@ int populate_cache_leaves(unsigned int cpu)
->  {
->  	struct cpu_cacheinfo *this_cpu_ci =3D get_cpu_cacheinfo(cpu);
->  	struct cacheinfo *this_leaf =3D this_cpu_ci->info_list;
-> -	struct device_node *np =3D of_cpu_device_node_get(cpu);
-> -	struct device_node *prev =3D NULL;
-> -	int levels =3D 1, level =3D 1;
-> -
-> -	if (of_property_read_bool(np, "cache-size"))
-> -		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-> -	if (of_property_read_bool(np, "i-cache-size"))
-> -		ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> -	if (of_property_read_bool(np, "d-cache-size"))
-> -		ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
-> -
-> -	prev =3D np;
-> -	while ((np =3D of_find_next_cache_node(np))) {
-> -		of_node_put(prev);
-> -		prev =3D np;
-> -		if (!of_device_is_compatible(np, "cache"))
-> -			break;
-> -		if (of_property_read_u32(np, "cache-level", &level))
-> -			break;
-> -		if (level <=3D levels)
-> -			break;
-> -		if (of_property_read_bool(np, "cache-size"))
-> -			ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-> -		if (of_property_read_bool(np, "i-cache-size"))
-> -			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> -		if (of_property_read_bool(np, "d-cache-size"))
-> +	unsigned int level, idx;
-> +
-> +	for (idx =3D 0, level =3D 1; level <=3D this_cpu_ci->num_levels &&
-> +	     idx < this_cpu_ci->num_leaves; idx++, level++) {
-> +		/*
-> +		 * Since the RISC-V architecture doesn't provide any register for dete=
-cting the
-> +		 * Cache Level and Cache type, this assumes that:
-> +		 * - There cannot be any split caches (data/instruction) above a unifi=
-ed cache.
-> +		 * - Data/instruction caches come in pairs.
-> +		 * - Significant work is required elsewhere to fully support data/inst=
-ruction-only
-> +		 *   type caches.
-> +		 * - The above assumptions are based on conventional system design and=
- known
-> +		 *   examples.
-
-I don't think this comment matches what you are doing.
-
-For example, the comment only requires that split caches cannot be above
-unified ones, but the code will always make a level 1 cache be split and
-higher level caches unified.
-
-The place you took the comment about the split caches from does not
-enforce the type of cache layout that you do where the 1st level is
-always split and anything else is unified.
-
-populate_cache_leaves() only gets called in a fallback path when the
-information has not already been configured by other means (and as you
-probably noticed on things like arm64 it uses some other means to fill
-in the data).
-
-Is there a reason why we would not just return -ENOENT for ACPI systems
-if this has not been populated earlier in boot and leave the DT code
-here alone?
-
-Thanks,
-Conor.
-
-> +		 */
-> +		if (level =3D=3D 1) {
->  			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
-> -		levels =3D level;
-> +			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> +		} else {
-> +			ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-> +		}
->  	}
-> -	of_node_put(np);
-> =20
->  	return 0;
->  }
-> --=20
-> 2.34.1
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---vVQN45TubuFKPBU4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZbeagwAKCRB4tDGHoIJi
-0p2vAP91xqgYKdI5R4E8M2TeUKf7W4MillrhtPoe4A++bU5YagD+NYICS59UguEb
-kC/D3NRlCAVajtBJRjiLWpUC77PETws=
-=E7YN
------END PGP SIGNATURE-----
-
---vVQN45TubuFKPBU4--
-
-
---===============3306940459790947479==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3306940459790947479==--
-
