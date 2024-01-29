@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F68C47258
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 01:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 836EFC47258
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 01:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3RjDNtNdnHFONxk9IaApAiihv5I7VJ+yYl5crP0hy1I=; b=rFaHMbli60CBhA
-	5zJSyjebOfmAaocBn39ulmE3QPUi4uHcNq79ux4vPZvGsOr9fJj9lfPfbZ54kgvUme3hMp7/l7wwL
-	20Q27MF8s0NNo5xZ8r/E4LRZF5jxc+yIe1D+pjUmMD/nv1RL/Iq092QPOOOR5A2RUF6Qf/WauY9pY
-	ENHFt2YGAzOVIcvMDvw0YtpLw4ev5AowqEY9t3p7hd5tmos3vMYijPACW203R3R9zuPrY3EcHF3Gr
-	4gWRAwo/K702HmkdmnK2OX2bgUEjjzG1cA0d9LyqeBJ/ZIn3kVOE4KSlbqJX0ceCUxySR5hu8nPBl
-	mswfd+yxd0LBBBERDRSQ==;
+	List-Owner; bh=jD0RR0TZ/G7zAoCIcNfKZzIG2S4/xAEZPY5VPSuAOPg=; b=UxH/PsjcWWygXk
+	SWBuxA2d6LULJ9/HbABOj7q4TqaVQc9y6oA2XDzohs9Tpz9F47NPkrZ54/22OSCReOkwDhzcKCcaI
+	9sWCSPDLEvEd1NrPFP1sHAp0TIf4WN1G6lltFNYlv6KpNkVsTIvUngok1yX5qE2NYI3Uk6P5KYjUQ
+	MJ81P/unWeE277Pv9QYSNDwkYcSloNBBBy4Hun202yM5oWHNXnGg16fthzU3+1oRc1J34u6XM/e2w
+	Ya3PtMWFIzAOllddzTLCW1hq/3eRe8rbUG2RRzzBwxAlro70a6j4hB6e4O7yVWbr4W3x4Ma2MNAmp
+	DzSdEksPxx8y6C2dn6Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUG2j-0000000At1H-0SBe;
-	Mon, 29 Jan 2024 01:02:33 +0000
-Received: from mail-bjschn02on2062e.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::62e] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1rUGFQ-0000000AuSS-0OgO;
+	Mon, 29 Jan 2024 01:15:40 +0000
+Received: from mail-sh0chn02on20617.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::617] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUG2K-0000000Asez-11wG
+	id 1rUGFN-0000000AuRs-0alP
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 01:02:15 +0000
+	Mon, 29 Jan 2024 01:15:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=BcisV9TWTTWpRcb63z0QsLALaQRNlrFTYsrmbVa1h9P+t76y7/YqJOyhL3IFeB4boTp3B2xJ0uL6pPXuc1x01XJ1kDWfhrvJR4Gvlquvk9coXQPL01gpHdJqV3QyYEAwV5YDnqlnpS6D2Uv35Kwt3J37vfiSAfGTzsGl+nJo0cdol8Z+GsoNRmB44q07KMuAOVHDOZVSc+hayKL0RYvoyojGW7XaxxNEKSNJugd/92BbIFKYGU/3CDwtJKGpDR+PiE5NaxSk1kCDf2bapH/dXseZf0ZvFFdWqCFeXQj6jRAqkMjdQfKeLPBvpcBAyUd3AUaIf4sWjLOEl5xYB2cIAA==
+ b=LTryLzGzwujo7mnKS1MoivSe5PL4Xy2hDNCB8OdAsecarfRgxYj/Nmz3xjZfM6PN0UAFzmCw24KckpiUjs5TdbnHmnbJC+W0K3dej+chc60B2froF1TN+yQ9I+FUlyHnsIa0rpzG3IaekPwtAFYaW4xBhgu0fIBTWv8WjxEFIbKYxqvFhNO8oGJiuVVaXCw1uLGkyO+BMBiQegMr6l2Ut+dscWgKT38H7dUKGaFUJSO/QhW39p7ZHmfJpL0kyrM2rbhovXntQdqdbRjlQ7JwcSbhNioHXRIHOn/WN7B2DH86ycWBxhSU0YK8NhKuQYefs54vez/NRIT/NBAM1UaaZQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nIXi8JBQnxVNAlvrZCPiLc7iuf6UII3Un7BOHkCInrQ=;
- b=D2FR9lBFHVzrWAZjiGqeE5REc0AOQqhmlEZH6PMg33YUT7YgE9XwvJ3o3JOsuw+1hDlg/2TbXZdXU/1ByFh6Uor/0ueqKQdpjMN5UJq/IFD0/pZOwxwdfha69n3G8EIdIDWn0q+MGehen0H7VPZiYj01rqrZ11kxop+VEI8GH+nko+nnjeLTFJiqlcR0BfxuNn5c/0UgMlZPNShAHBsSIeK3TkuFhZNlrPR8BAT1eD/ms1VztwhoTxUFlzHMDppvCGf+PoFnrjG23bJX295kcm6YQ97IyQTbdudcp4obcfvOwfUtiMgjaQqdv71IBMOVwo0CH12wJehItvx65mqOEg==
+ bh=Itcg3aSqPauiN5XQFv7dSMmeVokhY5xZ4+FWKeBoZIs=;
+ b=D7/6S015+vJek6eAcHzuZzoBHo9ykkzt+ZwE2gWy+MTF+WC+0H4VIvJGblyforRC4LEj3WOborLFnwAY4eW16Q8RtBnG03EH5UDh2lbC1Jxf2PQI5kjvHs1UyceH+Uu4K8H7e7u5RSj5b03fJhzYgwLRZB//roNYtjwvHmOz8Mvec7rOWonHwf1FM36bRdn83CWlnp6OXtoSpj1NxjfjhTZ6LLsa1lYcEtqipGsSHyBXxzDqvgGOjAKOpLRCi4qcaTujnbW5Jlle9PSb4hrr0Om3Mxa57kXJd6Gl4m6kIsJyH2HgH+dcwotqMkbtTQPwkOo96hD9QgLG9Wi9YkSuYA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
 Received: from BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:18::12) by BJXPR01MB0552.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:13::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7228.22; Mon, 29 Jan
- 2024 01:02:00 +0000
+ (2406:e500:c211:18::12) by BJXPR01MB0630.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:14::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7228.28; Mon, 29 Jan
+ 2024 01:00:07 +0000
 Received: from BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
  ([fe80::1ea1:19d5:efef:6fc6]) by
  BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn ([fe80::1ea1:19d5:efef:6fc6%4])
- with mapi id 15.20.7228.029; Mon, 29 Jan 2024 01:02:00 +0000
+ with mapi id 15.20.7228.029; Mon, 29 Jan 2024 01:00:07 +0000
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
@@ -69,67 +69,66 @@ Cc: devicetree@vger.kernel.org,
 	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>,
 	Minda Chen <minda.chen@starfivetech.com>
-Subject: [PATCH v14,RESEND 22/22] riscv: dts: starfive: add PCIe dts configuration for JH7110
-Date: Mon, 29 Jan 2024 09:01:42 +0800
-Message-Id: <20240129010142.3732-7-minda.chen@starfivetech.com>
+Subject: [PATCH v14,RESEND 03/22] PCI: microchip: Move PLDA IP register macros to pcie-plda.h
+Date: Mon, 29 Jan 2024 08:59:48 +0800
+Message-Id: <20240129005958.3613-2-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20240129010142.3732-1-minda.chen@starfivetech.com>
-References: <20240129010142.3732-1-minda.chen@starfivetech.com>
-X-ClientProxiedBy: SH0PR01CA0003.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:5::15) To BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
+In-Reply-To: <20240129005958.3613-1-minda.chen@starfivetech.com>
+References: <20240129005958.3613-1-minda.chen@starfivetech.com>
+X-ClientProxiedBy: SHXPR01CA0010.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1b::19) To BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:18::12)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BJXPR01MB0855:EE_|BJXPR01MB0552:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d90048d-25de-4956-adeb-08dc2065e5c0
+X-MS-TrafficTypeDiagnostic: BJXPR01MB0855:EE_|BJXPR01MB0630:EE_
+X-MS-Office365-Filtering-Correlation-Id: bff46389-2aa3-47cd-3ac0-08dc2065a2c9
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: XChOFFnG9VdyXuQFXksUq9g1AAebnNe2piVREg3ZUiJ3LXkVZTVow53Qqi/AfFAJfjHzrPIiFTuYBJXUdYjoLpJeMPXHK5hGxIG+k203NBdpdNQwDmYgyhtTHR2rzSjsJu9iTLnqT27lIfhVhm4EljsFPRtjk6PBE2aYv1HJjd81M6H5f1mJm4fg4MhuWsIKoiblXR5UVQWoi3GULkTMhPda2+VY9CakdqzoOQClCHt0yfhxc9bk7MgpkeqgZkQg7aZ3C+CoFSE3N3shTsiqY7QrcVQQF2CEXoMczYV/QhQ3ZmpxIMeTPK9k+Zgwc2/v5+DzoqCa33c8I1STtzuXVakFDQ3D2C5IW4bGl9XqAxtDZwiyd91/6Ak8jpPQiDBFRmOqrttaql4dbOY1jwSDzpudYYMsSfxR61fsmqgM7C4ktWpkCDD/li7/647Z0tKOBvYpNdDkN+DTZ68yNDhe7YO/J+ewgyZ/vAByvuI/Wq7QTiamc/ROFqa7CEW4HPJjT6DAFtlQeE1dx+3t6qoxbd5mtmDbbbXUdf31DwFGKJmLgp/v407NT4DUf7BZvnBY
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(346002)(136003)(396003)(39830400003)(366004)(230922051799003)(451199024)(186009)(64100799003)(1800799012)(107886003)(2616005)(1076003)(41300700001)(26005)(41320700001)(40180700001)(40160700002)(38350700005)(508600001)(6666004)(83380400001)(54906003)(52116002)(36756003)(38100700002)(2906002)(66476007)(5660300002)(8936002)(86362001)(66946007)(110136005)(44832011)(4326008)(7416002)(8676002)(66556008);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Message-Info: 3hP2BF1MvR3TCgMDoyFqKmm7BxHOIZAtRUL9u3IxZfqfasgGlzoSIsfFSsJjDjRkgaYkjAozQsseL0ahCjm7Ph//D3hZ1FHztvJ81gLaplRC5QWuB8njA0mxQj6b4iWNaiB2qxXn+Fo9K8Y80uc52Xrt9qOSRfJbIFPuGy47DpkSM3Oz7JGKHEhkSLfxf7uCsMqDi//ievQUHIdybuf0ZuFFIvTisU+GmapESCMVl8A60K1UNwyFU86SsR8hxwGXgR+OPezrbfgUamaHK56bgc/nUsn+bjo7igixLJeiV88GTLhYTo8TOM8Mmj1CBHkmzZuCAoBMndlGJfVT/1FnPmD9tVjUsqqMW+l6re+IkFi0oV3kb7HPA7wY4i/gNtG6c9/YnbacW/CoWoQdJrtwwlDJ+pfol4Yzdw0DL9It7p5KZ7jbOGMbw+1rl+WlaLFpl/QOWYhxuxu93xaThJrqU7msB70dsnNBIvSp11GooJxMubNG0sk5XejQLxEjzFXsytDFlVKXMocyw9Bt8n9TjdjO403mweQTOyjJ45BiSWrWaZQpVsy6UxEENw5ffBc4
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(136003)(39830400003)(396003)(346002)(366004)(230922051799003)(64100799003)(1800799012)(451199024)(186009)(83380400001)(41320700001)(40180700001)(86362001)(40160700002)(36756003)(38350700005)(1076003)(38100700002)(2616005)(26005)(107886003)(2906002)(30864003)(52116002)(508600001)(6666004)(41300700001)(110136005)(66946007)(66556008)(66476007)(54906003)(5660300002)(8936002)(4326008)(44832011)(8676002)(7416002);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?suqYYL6Z0Elz+9dTUfe35YjsAt1H45+EFUtbQDgoNuWAkE3baJU3eZ2Bn+N0?=
- =?us-ascii?Q?wWfNloboxBTInLduckNtbFOUqPfNgoz0YUEiJY0o/w48KtuykZLw5yWsKpX2?=
- =?us-ascii?Q?+2JAQahF6Q8GrUMIV8sWua/AmNnHuH8sbY5AqeUZAvDBuzJAU6JxMqp9J7aA?=
- =?us-ascii?Q?ay38D6du+DVtxuCICuIC2dwl91Ajc32tmQxvcD6iOZOPS6jsCLgCUqMjkPUk?=
- =?us-ascii?Q?HhvJZFew4kMDAqiuwNhXM2ZIIyX4Ff4VURGgCTw5wjgsmVBocELAci3WcCHY?=
- =?us-ascii?Q?hUU1o2PyhszB1ODsUX9lRsNWFhpK9Vq5FsqFTaYQCegZeTInZZkQnuKPamAN?=
- =?us-ascii?Q?Dq5K+luKPDmOF3CL0Mdhv9T4wyilgvMuNudhzatsH+Z3/sS0vsEZ6IZ2nRXB?=
- =?us-ascii?Q?qDo87UHZM65T05wRIu+Xb3BtIJtQNoNLW1PP9OaQJBdZ9eosRbc82Md4U+cY?=
- =?us-ascii?Q?8zLITwN6SFXJbDhOrlvC8yRIGMlnwih0GEWOddNQA3SP10lugTt3C2lTsusU?=
- =?us-ascii?Q?Ogw0Zz/SOV4jK6YrHkH+//r5UpXg5MSt/v6Dl6qIZzJTgAtsf6VUp4KK9JG2?=
- =?us-ascii?Q?Z5SzomDgnsviGAk5MaL9USlTLF3yQEQxHfVOS3rgPTQBgduBOHnorGM+4IpO?=
- =?us-ascii?Q?0OTmqt9UgPrMh2qyl+HraY15EGxQqiipm69MBToQkwpHxLWHE7/KckzdaRaS?=
- =?us-ascii?Q?mkh5DIeY7L494iTx4sgwlaL4bl0Q9W18GsC4VvRlePSce6G4I9QOw06ngg/R?=
- =?us-ascii?Q?RQyIoM7INaO+On2kK1bpeeb4pkerac+t0fhij9Ktfw++iXfVvVnO/l1TvWy0?=
- =?us-ascii?Q?0BSjvAtfNPqa+vwzXFMSJ2k3IGVEvlqfPG9AFhBAC8cY7GfoA/2EpS0Stu33?=
- =?us-ascii?Q?skunBpZQ7/eEWuGHQqF0kbX4uCMyUGHIjT2csJqgVYvAfpk/9J3aEEMlj49l?=
- =?us-ascii?Q?4VOJhbJeiKAmTlMmDIAVux/yrSM4hJDzNwKWV3olAcrcDEjxnN9KzG9sFZ62?=
- =?us-ascii?Q?OHbIL0H2WMgimyAh9kM0Hqh3u5BDm3iysnPAUaujqAcfXP56lr9V1Qf8BC7w?=
- =?us-ascii?Q?Fltq/5xDCEhttv27frKt0UPRXqLnwulukR34Xtace84/PduyvElM7rogUs3A?=
- =?us-ascii?Q?K/CPNrbLXfmsCe1bRUc40KgnJb0yFHQdG2cZQAME6zJDfcpdIGAH8RTraNdd?=
- =?us-ascii?Q?C9tWAf67JMuVr6qFtCt0RQ27ZElp369DkjgScDYOzXIZ0CsNwRR/pnb7vTtm?=
- =?us-ascii?Q?0GOEirFuAt1IQH9r4nmufQOr16JS8K0VGmXtYxa1Fq22E1QgwICEKWZbC4VZ?=
- =?us-ascii?Q?WZct52C7vobJlF9DF9FpVCk61nt3fqVcztF1wPShNpm4d0MwAjnHQidqZbz5?=
- =?us-ascii?Q?nE1tifHfGGMjN98N2VI2YMURsTRIz/2VZehYCHKsSio70kdEAIQUsVvhLtgD?=
- =?us-ascii?Q?DnxJxJyAagHrWan713UjWj+LBme6KBSBWborE1uKkxgYqWT6uY7ouDaoSmV+?=
- =?us-ascii?Q?KVDYdO8ugj3ARdjDEbMo0eZcLohPv6Ro7n7+tmoxFH3zuGf7A7arztu/wM1D?=
- =?us-ascii?Q?65fo63+nN50E7r429gdU4DEGDALP19NVYTdh3lC7SsKhfI69OXhxS9BxFxF4?=
- =?us-ascii?Q?Yw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Rlqf7olskp2Pqfiq20hQ33mEOhwyUxCQ/AZjlMy5QLZesxOvJwg0Q1mbmwih?=
+ =?us-ascii?Q?DqLDyiLruJwV5qJ0AUbCFt1gve7CuK6f3+UYOnK+6PHUUNu0wA5GO71r1Ol3?=
+ =?us-ascii?Q?atd+noQs756fgs2PWavld9y9w7cdjnPR+6ATFsI8vGpDl7Cq3GmUxsHMNlHI?=
+ =?us-ascii?Q?1H9lCUTa5S68aH89srs49Dx3Z8ERNyx3/cpyFv937PPR3SQIqYWi1qnQMpji?=
+ =?us-ascii?Q?t6hhBw91chIl+p35GhSyK6QRW+9A4PNhJHlmv7hopxZnKUW8rqpu4TwpnXcK?=
+ =?us-ascii?Q?+kItLmRX1MTA+lLomdDna1j3kRYW1H6PLIh11hz3gA46yvkSgAnySdLI2FJx?=
+ =?us-ascii?Q?w905JnaGkFOPSsZ8EqwvZ/+UrDptjD9usuFuPtIyYKGsnWhb+yLJOFu0KPIe?=
+ =?us-ascii?Q?bR9eYU0/NDCmtzenqh4E/FrONJP5ntA+GVRXeMZ4gvAoZ7o2wTi/UOVWmydM?=
+ =?us-ascii?Q?ZOTGpM/Mt+38fAkWXRQkreshMmttUSe4ODnlV3dFed3jnHexaLbA1ob0JqZe?=
+ =?us-ascii?Q?yw7Fd1haeTeVX0VDBsmzmckjt+9qXPVOMF5HOXHKgHc1b2cDi15wnwDKohCZ?=
+ =?us-ascii?Q?KM/XxcCUY72dPGHiMuj2lF0tsKxKFtLbqehUlOZw0aH529G9sMPKgw6+UaKe?=
+ =?us-ascii?Q?JLLkk5McUp6DkY3MULlDIqhtMvOTtYrrbv9Pq3A9/Ue3MfDK72XEX4SVGJqY?=
+ =?us-ascii?Q?7fT8hzw4tzwv6yZ75uRjhhmPXHYc8RFQUAGlPYlIEo4/tfFG9akO4CqyryWj?=
+ =?us-ascii?Q?xfmfNCglk12UDD5e8KgkHFEYwrnR+ey1t3ejIp0pHhWRSvSI8f1ZQyHtV3Bj?=
+ =?us-ascii?Q?6mkEoXRpDgsa+fsGoaNSbkVSDUV9p2eb8JZKuFg660u9xqrayVT5+MHOqAK7?=
+ =?us-ascii?Q?c3llMn/T1f90kpMZLAlgX+p1pN2T74+UG4hmy+4WLfwlOvA767bvNFGVPApO?=
+ =?us-ascii?Q?5NEHcGdMpMequVliIqKB/Vn5kz/m0yQuesxvdIwtNVILzI+3jUAkCbquYn9q?=
+ =?us-ascii?Q?6GIG1nzmdDxkcmvge182TXYjaXH3N2p3T2sfARv2H4jxwaIomhoeS/H9C9OE?=
+ =?us-ascii?Q?j6tjCrBGIGhWchtzqO/TJlnokIlx3EZF66DcWcfVA67uKcf9QIZW27PWhHT6?=
+ =?us-ascii?Q?ofxzNtMMMOS5Tt34UOePdsMj7e9hMPATkzKVDdHDms8P6Y0oRFpEdMPhcGdV?=
+ =?us-ascii?Q?1QxEVsJAAguL/Neqzru0eZGbd8odUcorqqrzbqN3R/RYqozh87JB/Kg8ZUD8?=
+ =?us-ascii?Q?aWnF3iC7Vrhc8U4wRQEvjsSrNbJgyPKKafIbKJjAQ5tkL22NIUkAO2MZc6Kt?=
+ =?us-ascii?Q?GdP5O+vVnSLIsn+hXg7ukrVdQDnN9w11SfRBOeitIeRKp6B69F62M+1sNGaU?=
+ =?us-ascii?Q?XO3Fe4W1hXBE//89agqOlLwUuLxgY0G11Uijexz2XURiEMFg0cE7QIAp6yky?=
+ =?us-ascii?Q?/wYw8m4ZJPBvlfKuKhEkAs0774E30E/ZKj6EurFTwfGd0XVlJ7MJhLfAaUBC?=
+ =?us-ascii?Q?NWn9q5bjRoeORRyo+JSoeVwYhNGV19BYEoMwdypmZ7poVYhnzTiLDqtpoHD6?=
+ =?us-ascii?Q?6T77yzreFf7v/XC+l09AbzXQo7t5D4XqT5tepnp9fe3hzoKX+g1IbkKBTcmz?=
+ =?us-ascii?Q?rA=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d90048d-25de-4956-adeb-08dc2065e5c0
+X-MS-Exchange-CrossTenant-Network-Message-Id: bff46389-2aa3-47cd-3ac0-08dc2065a2c9
 X-MS-Exchange-CrossTenant-AuthSource: BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2024 01:01:59.9357
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2024 01:00:07.5926
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /9BAYzmTeGYnWOATaiTflZkXeKGzcHvwTchJ0849LZF750nI99rgDJ9kYH6ONCYWE5pke3lqAjt+XGtWaZrVr34UW3SxDnOpMdLUzXj83CQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0552
+X-MS-Exchange-CrossTenant-UserPrincipalName: ghncKGugvMWn8DjrgYd3dvPCASKHf7nwuIevJ4dCA0M2GmDG303Tmky474Ju3pRFDb1XiH5bdg4N3mXYIi1fHwR4kU8A7c3XNufwRantLIM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0630
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240128_170208_441416_00B375B0 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240128_171537_412863_3E34CE9E 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,193 +145,284 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add PCIe dts configuraion for JH7110 SoC platform.
+Move PLDA PCIe host controller IP registers macros to pcie-plda.h,
+including bridge registers and PLDA IRQ event number.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../jh7110-starfive-visionfive-2.dtsi         | 64 ++++++++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      | 86 +++++++++++++++++++
- 2 files changed, 150 insertions(+)
+ MAINTAINERS                                   |   8 ++
+ .../pci/controller/plda/pcie-microchip-host.c | 108 +++---------------
+ drivers/pci/controller/plda/pcie-plda.h       | 108 ++++++++++++++++++
+ 3 files changed, 132 insertions(+), 92 deletions(-)
+ create mode 100644 drivers/pci/controller/plda/pcie-plda.h
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-index b89e9791efa7..2f8056d6f817 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-@@ -287,6 +287,22 @@
- 	status = "okay";
- };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 44daaf962065..3b8d7ba12807 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16802,6 +16802,14 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/pci/layerscape-pcie-gen4.txt
+ F:	drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
  
-+&pcie0 {
-+	perst-gpios = <&sysgpio 26 GPIO_ACTIVE_LOW>;
-+	phys = <&pciephy0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie0_pins>;
-+	status = "okay";
++PCI DRIVER FOR PLDA PCIE IP
++M:	Daire McNamara <daire.mcnamara@microchip.com>
++M:	Kevin Xie <kevin.xie@starfivetech.com>
++L:	linux-pci@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/pci/plda,*
++F:	drivers/pci/controller/plda/*plda*
++
+ PCI DRIVER FOR RENESAS R-CAR
+ M:	Marek Vasut <marek.vasut+renesas@gmail.com>
+ M:	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+index cb09a8137e25..d9030d550482 100644
+--- a/drivers/pci/controller/plda/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -19,6 +19,7 @@
+ #include <linux/platform_device.h>
+ 
+ #include "../../pci.h"
++#include "pcie-plda.h"
+ 
+ /* Number of MSI IRQs */
+ #define MC_MAX_NUM_MSI_IRQS			32
+@@ -30,84 +31,6 @@
+ #define MC_PCIE_BRIDGE_ADDR			(MC_PCIE1_BRIDGE_ADDR)
+ #define MC_PCIE_CTRL_ADDR			(MC_PCIE1_CTRL_ADDR)
+ 
+-/* PCIe Bridge Phy Regs */
+-#define PCIE_PCI_IRQ_DW0			0xa8
+-#define  MSIX_CAP_MASK				BIT(31)
+-#define  NUM_MSI_MSGS_MASK			GENMASK(6, 4)
+-#define  NUM_MSI_MSGS_SHIFT			4
+-
+-#define IMASK_LOCAL				0x180
+-#define  DMA_END_ENGINE_0_MASK			0x00000000u
+-#define  DMA_END_ENGINE_0_SHIFT			0
+-#define  DMA_END_ENGINE_1_MASK			0x00000000u
+-#define  DMA_END_ENGINE_1_SHIFT			1
+-#define  DMA_ERROR_ENGINE_0_MASK		0x00000100u
+-#define  DMA_ERROR_ENGINE_0_SHIFT		8
+-#define  DMA_ERROR_ENGINE_1_MASK		0x00000200u
+-#define  DMA_ERROR_ENGINE_1_SHIFT		9
+-#define  A_ATR_EVT_POST_ERR_MASK		0x00010000u
+-#define  A_ATR_EVT_POST_ERR_SHIFT		16
+-#define  A_ATR_EVT_FETCH_ERR_MASK		0x00020000u
+-#define  A_ATR_EVT_FETCH_ERR_SHIFT		17
+-#define  A_ATR_EVT_DISCARD_ERR_MASK		0x00040000u
+-#define  A_ATR_EVT_DISCARD_ERR_SHIFT		18
+-#define  A_ATR_EVT_DOORBELL_MASK		0x00000000u
+-#define  A_ATR_EVT_DOORBELL_SHIFT		19
+-#define  P_ATR_EVT_POST_ERR_MASK		0x00100000u
+-#define  P_ATR_EVT_POST_ERR_SHIFT		20
+-#define  P_ATR_EVT_FETCH_ERR_MASK		0x00200000u
+-#define  P_ATR_EVT_FETCH_ERR_SHIFT		21
+-#define  P_ATR_EVT_DISCARD_ERR_MASK		0x00400000u
+-#define  P_ATR_EVT_DISCARD_ERR_SHIFT		22
+-#define  P_ATR_EVT_DOORBELL_MASK		0x00000000u
+-#define  P_ATR_EVT_DOORBELL_SHIFT		23
+-#define  PM_MSI_INT_INTA_MASK			0x01000000u
+-#define  PM_MSI_INT_INTA_SHIFT			24
+-#define  PM_MSI_INT_INTB_MASK			0x02000000u
+-#define  PM_MSI_INT_INTB_SHIFT			25
+-#define  PM_MSI_INT_INTC_MASK			0x04000000u
+-#define  PM_MSI_INT_INTC_SHIFT			26
+-#define  PM_MSI_INT_INTD_MASK			0x08000000u
+-#define  PM_MSI_INT_INTD_SHIFT			27
+-#define  PM_MSI_INT_INTX_MASK			0x0f000000u
+-#define  PM_MSI_INT_INTX_SHIFT			24
+-#define  PM_MSI_INT_MSI_MASK			0x10000000u
+-#define  PM_MSI_INT_MSI_SHIFT			28
+-#define  PM_MSI_INT_AER_EVT_MASK		0x20000000u
+-#define  PM_MSI_INT_AER_EVT_SHIFT		29
+-#define  PM_MSI_INT_EVENTS_MASK			0x40000000u
+-#define  PM_MSI_INT_EVENTS_SHIFT		30
+-#define  PM_MSI_INT_SYS_ERR_MASK		0x80000000u
+-#define  PM_MSI_INT_SYS_ERR_SHIFT		31
+-#define  NUM_LOCAL_EVENTS			15
+-#define ISTATUS_LOCAL				0x184
+-#define IMASK_HOST				0x188
+-#define ISTATUS_HOST				0x18c
+-#define IMSI_ADDR				0x190
+-#define ISTATUS_MSI				0x194
+-
+-/* PCIe Master table init defines */
+-#define ATR0_PCIE_WIN0_SRCADDR_PARAM		0x600u
+-#define  ATR0_PCIE_ATR_SIZE			0x25
+-#define  ATR0_PCIE_ATR_SIZE_SHIFT		1
+-#define ATR0_PCIE_WIN0_SRC_ADDR			0x604u
+-#define ATR0_PCIE_WIN0_TRSL_ADDR_LSB		0x608u
+-#define ATR0_PCIE_WIN0_TRSL_ADDR_UDW		0x60cu
+-#define ATR0_PCIE_WIN0_TRSL_PARAM		0x610u
+-
+-/* PCIe AXI slave table init defines */
+-#define ATR0_AXI4_SLV0_SRCADDR_PARAM		0x800u
+-#define  ATR_SIZE_SHIFT				1
+-#define  ATR_IMPL_ENABLE			1
+-#define ATR0_AXI4_SLV0_SRC_ADDR			0x804u
+-#define ATR0_AXI4_SLV0_TRSL_ADDR_LSB		0x808u
+-#define ATR0_AXI4_SLV0_TRSL_ADDR_UDW		0x80cu
+-#define ATR0_AXI4_SLV0_TRSL_PARAM		0x810u
+-#define  PCIE_TX_RX_INTERFACE			0x00000000u
+-#define  PCIE_CONFIG_INTERFACE			0x00000001u
+-
+-#define ATR_ENTRY_SIZE				32
+-
+ /* PCIe Controller Phy Regs */
+ #define SEC_ERROR_EVENT_CNT			0x20
+ #define DED_ERROR_EVENT_CNT			0x24
+@@ -179,20 +102,21 @@
+ #define EVENT_LOCAL_DMA_END_ENGINE_1		12
+ #define EVENT_LOCAL_DMA_ERROR_ENGINE_0		13
+ #define EVENT_LOCAL_DMA_ERROR_ENGINE_1		14
+-#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		15
+-#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		16
+-#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	17
+-#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		18
+-#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		19
+-#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		20
+-#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	21
+-#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		22
+-#define EVENT_LOCAL_PM_MSI_INT_INTX		23
+-#define EVENT_LOCAL_PM_MSI_INT_MSI		24
+-#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		25
+-#define EVENT_LOCAL_PM_MSI_INT_EVENTS		26
+-#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		27
+-#define NUM_EVENTS				28
++#define NUM_MC_EVENTS				15
++#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + PLDA_AXI_POST_ERR)
++#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + PLDA_AXI_FETCH_ERR)
++#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + PLDA_AXI_DISCARD_ERR)
++#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + PLDA_AXI_DOORBELL)
++#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + PLDA_PCIE_POST_ERR)
++#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + PLDA_PCIE_FETCH_ERR)
++#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + PLDA_PCIE_DISCARD_ERR)
++#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + PLDA_PCIE_DOORBELL)
++#define EVENT_LOCAL_PM_MSI_INT_INTX		(NUM_MC_EVENTS + PLDA_INTX)
++#define EVENT_LOCAL_PM_MSI_INT_MSI		(NUM_MC_EVENTS + PLDA_MSI)
++#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		(NUM_MC_EVENTS + PLDA_AER_EVENT)
++#define EVENT_LOCAL_PM_MSI_INT_EVENTS		(NUM_MC_EVENTS + PLDA_MISC_EVENTS)
++#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		(NUM_MC_EVENTS + PLDA_SYS_ERR)
++#define NUM_EVENTS				(NUM_MC_EVENTS + PLDA_INT_EVENT_NUM)
+ 
+ #define PCIE_EVENT_CAUSE(x, s)	\
+ 	[EVENT_PCIE_ ## x] = { __stringify(x), s }
+diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+new file mode 100644
+index 000000000000..65e0f3b72184
+--- /dev/null
++++ b/drivers/pci/controller/plda/pcie-plda.h
+@@ -0,0 +1,108 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * PLDA PCIe host controller driver
++ */
++
++#ifndef _PCIE_PLDA_H
++#define _PCIE_PLDA_H
++
++/* PCIe Bridge Phy Regs */
++#define PCIE_PCI_IRQ_DW0			0xa8
++#define  MSIX_CAP_MASK				BIT(31)
++#define  NUM_MSI_MSGS_MASK			GENMASK(6, 4)
++#define  NUM_MSI_MSGS_SHIFT			4
++
++#define IMASK_LOCAL				0x180
++#define  DMA_END_ENGINE_0_MASK			0x00000000u
++#define  DMA_END_ENGINE_0_SHIFT			0
++#define  DMA_END_ENGINE_1_MASK			0x00000000u
++#define  DMA_END_ENGINE_1_SHIFT			1
++#define  DMA_ERROR_ENGINE_0_MASK		0x00000100u
++#define  DMA_ERROR_ENGINE_0_SHIFT		8
++#define  DMA_ERROR_ENGINE_1_MASK		0x00000200u
++#define  DMA_ERROR_ENGINE_1_SHIFT		9
++#define  A_ATR_EVT_POST_ERR_MASK		0x00010000u
++#define  A_ATR_EVT_POST_ERR_SHIFT		16
++#define  A_ATR_EVT_FETCH_ERR_MASK		0x00020000u
++#define  A_ATR_EVT_FETCH_ERR_SHIFT		17
++#define  A_ATR_EVT_DISCARD_ERR_MASK		0x00040000u
++#define  A_ATR_EVT_DISCARD_ERR_SHIFT		18
++#define  A_ATR_EVT_DOORBELL_MASK		0x00000000u
++#define  A_ATR_EVT_DOORBELL_SHIFT		19
++#define  P_ATR_EVT_POST_ERR_MASK		0x00100000u
++#define  P_ATR_EVT_POST_ERR_SHIFT		20
++#define  P_ATR_EVT_FETCH_ERR_MASK		0x00200000u
++#define  P_ATR_EVT_FETCH_ERR_SHIFT		21
++#define  P_ATR_EVT_DISCARD_ERR_MASK		0x00400000u
++#define  P_ATR_EVT_DISCARD_ERR_SHIFT		22
++#define  P_ATR_EVT_DOORBELL_MASK		0x00000000u
++#define  P_ATR_EVT_DOORBELL_SHIFT		23
++#define  PM_MSI_INT_INTA_MASK			0x01000000u
++#define  PM_MSI_INT_INTA_SHIFT			24
++#define  PM_MSI_INT_INTB_MASK			0x02000000u
++#define  PM_MSI_INT_INTB_SHIFT			25
++#define  PM_MSI_INT_INTC_MASK			0x04000000u
++#define  PM_MSI_INT_INTC_SHIFT			26
++#define  PM_MSI_INT_INTD_MASK			0x08000000u
++#define  PM_MSI_INT_INTD_SHIFT			27
++#define  PM_MSI_INT_INTX_MASK			0x0f000000u
++#define  PM_MSI_INT_INTX_SHIFT			24
++#define  PM_MSI_INT_MSI_MASK			0x10000000u
++#define  PM_MSI_INT_MSI_SHIFT			28
++#define  PM_MSI_INT_AER_EVT_MASK		0x20000000u
++#define  PM_MSI_INT_AER_EVT_SHIFT		29
++#define  PM_MSI_INT_EVENTS_MASK			0x40000000u
++#define  PM_MSI_INT_EVENTS_SHIFT		30
++#define  PM_MSI_INT_SYS_ERR_MASK		0x80000000u
++#define  PM_MSI_INT_SYS_ERR_SHIFT		31
++#define  NUM_LOCAL_EVENTS			15
++#define ISTATUS_LOCAL				0x184
++#define IMASK_HOST				0x188
++#define ISTATUS_HOST				0x18c
++#define IMSI_ADDR				0x190
++#define ISTATUS_MSI				0x194
++
++/* PCIe Master table init defines */
++#define ATR0_PCIE_WIN0_SRCADDR_PARAM		0x600u
++#define  ATR0_PCIE_ATR_SIZE			0x25
++#define  ATR0_PCIE_ATR_SIZE_SHIFT		1
++#define ATR0_PCIE_WIN0_SRC_ADDR			0x604u
++#define ATR0_PCIE_WIN0_TRSL_ADDR_LSB		0x608u
++#define ATR0_PCIE_WIN0_TRSL_ADDR_UDW		0x60cu
++#define ATR0_PCIE_WIN0_TRSL_PARAM		0x610u
++
++/* PCIe AXI slave table init defines */
++#define ATR0_AXI4_SLV0_SRCADDR_PARAM		0x800u
++#define  ATR_SIZE_SHIFT				1
++#define  ATR_IMPL_ENABLE			1
++#define ATR0_AXI4_SLV0_SRC_ADDR			0x804u
++#define ATR0_AXI4_SLV0_TRSL_ADDR_LSB		0x808u
++#define ATR0_AXI4_SLV0_TRSL_ADDR_UDW		0x80cu
++#define ATR0_AXI4_SLV0_TRSL_PARAM		0x810u
++#define  PCIE_TX_RX_INTERFACE			0x00000000u
++#define  PCIE_CONFIG_INTERFACE			0x00000001u
++
++#define ATR_ENTRY_SIZE				32
++
++enum plda_int_event {
++	PLDA_AXI_POST_ERR,
++	PLDA_AXI_FETCH_ERR,
++	PLDA_AXI_DISCARD_ERR,
++	PLDA_AXI_DOORBELL,
++	PLDA_PCIE_POST_ERR,
++	PLDA_PCIE_FETCH_ERR,
++	PLDA_PCIE_DISCARD_ERR,
++	PLDA_PCIE_DOORBELL,
++	PLDA_INTX,
++	PLDA_MSI,
++	PLDA_AER_EVENT,
++	PLDA_MISC_EVENTS,
++	PLDA_SYS_ERR,
++	PLDA_INT_EVENT_NUM
 +};
 +
-+&pcie1 {
-+	perst-gpios = <&sysgpio 28 GPIO_ACTIVE_LOW>;
-+	phys = <&pciephy1>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie1_pins>;
-+	status = "okay";
-+};
++#define PLDA_NUM_DMA_EVENTS			16
 +
- &qspi {
- 	#address-cells = <1>;
- 	#size-cells = <0>;
-@@ -513,6 +529,54 @@
- 		};
- 	};
- 
-+	pcie0_pins: pcie0-0 {
-+		clkreq-pins {
-+			pinmux = <GPIOMUX(27, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_NONE)>;
-+			bias-pull-down;
-+			drive-strength = <2>;
-+			input-enable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
++#define PLDA_MAX_EVENT_NUM			(PLDA_NUM_DMA_EVENTS + PLDA_INT_EVENT_NUM)
 +
-+		wake-pins {
-+			pinmux = <GPIOMUX(32, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_NONE)>;
-+			bias-pull-up;
-+			drive-strength = <2>;
-+			input-enable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	pcie1_pins: pcie1-0 {
-+		clkreq-pins {
-+			pinmux = <GPIOMUX(29, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_NONE)>;
-+			bias-pull-down;
-+			drive-strength = <2>;
-+			input-enable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		wake-pins {
-+			pinmux = <GPIOMUX(21, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_NONE)>;
-+			bias-pull-up;
-+			drive-strength = <2>;
-+			input-enable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
- 	spi0_pins: spi0-0 {
- 		mosi-pins {
- 			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 45213cdf50dc..dfa2f94ed5b2 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -1138,5 +1138,91 @@
- 			#reset-cells = <1>;
- 			power-domains = <&pwrc JH7110_PD_VOUT>;
- 		};
-+
-+		pcie0: pcie@940000000 {
-+			compatible = "starfive,jh7110-pcie";
-+			reg = <0x9 0x40000000 0x0 0x1000000>,
-+			      <0x0 0x2b000000 0x0 0x100000>;
-+			reg-names = "cfg", "apb";
-+			linux,pci-domain = <0>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			#interrupt-cells = <1>;
-+			ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
-+				 <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
-+			interrupts = <56>;
-+			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+			interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
-+					<0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
-+					<0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
-+					<0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
-+			msi-controller;
-+			device_type = "pci";
-+			starfive,stg-syscon = <&stg_syscon>;
-+			bus-range = <0x0 0xff>;
-+			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
-+				 <&stgcrg JH7110_STGCLK_PCIE0_TL>,
-+				 <&stgcrg JH7110_STGCLK_PCIE0_AXI_MST0>,
-+				 <&stgcrg JH7110_STGCLK_PCIE0_APB>;
-+			clock-names = "noc", "tl", "axi_mst0", "apb";
-+			resets = <&stgcrg JH7110_STGRST_PCIE0_AXI_MST0>,
-+				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV0>,
-+				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV>,
-+				 <&stgcrg JH7110_STGRST_PCIE0_BRG>,
-+				 <&stgcrg JH7110_STGRST_PCIE0_CORE>,
-+				 <&stgcrg JH7110_STGRST_PCIE0_APB>;
-+			reset-names = "mst0", "slv0", "slv", "brg",
-+				      "core", "apb";
-+			status = "disabled";
-+
-+			pcie_intc0: interrupt-controller {
-+				#address-cells = <0>;
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		pcie1: pcie@9c0000000 {
-+			compatible = "starfive,jh7110-pcie";
-+			reg = <0x9 0xc0000000 0x0 0x1000000>,
-+			      <0x0 0x2c000000 0x0 0x100000>;
-+			reg-names = "cfg", "apb";
-+			linux,pci-domain = <1>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			#interrupt-cells = <1>;
-+			ranges = <0x82000000  0x0 0x38000000  0x0 0x38000000 0x0 0x08000000>,
-+				 <0xc3000000  0x9 0x80000000  0x9 0x80000000 0x0 0x40000000>;
-+			interrupts = <57>;
-+			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+			interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc1 0x1>,
-+					<0x0 0x0 0x0 0x2 &pcie_intc1 0x2>,
-+					<0x0 0x0 0x0 0x3 &pcie_intc1 0x3>,
-+					<0x0 0x0 0x0 0x4 &pcie_intc1 0x4>;
-+			msi-controller;
-+			device_type = "pci";
-+			starfive,stg-syscon = <&stg_syscon>;
-+			bus-range = <0x0 0xff>;
-+			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
-+				 <&stgcrg JH7110_STGCLK_PCIE1_TL>,
-+				 <&stgcrg JH7110_STGCLK_PCIE1_AXI_MST0>,
-+				 <&stgcrg JH7110_STGCLK_PCIE1_APB>;
-+			clock-names = "noc", "tl", "axi_mst0", "apb";
-+			resets = <&stgcrg JH7110_STGRST_PCIE1_AXI_MST0>,
-+				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV0>,
-+				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV>,
-+				 <&stgcrg JH7110_STGRST_PCIE1_BRG>,
-+				 <&stgcrg JH7110_STGRST_PCIE1_CORE>,
-+				 <&stgcrg JH7110_STGRST_PCIE1_APB>;
-+			reset-names = "mst0", "slv0", "slv", "brg",
-+				      "core", "apb";
-+			status = "disabled";
-+
-+			pcie_intc1: interrupt-controller {
-+				#address-cells = <0>;
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
- 	};
- };
++#endif
 -- 
 2.17.1
 
