@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED43C47DDB
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 15:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A2FC47DB3
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 15:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a+CKAK3D56Tg5BXmr8d0SYIJi5c7kU5DEqS8J8wV/Sw=; b=C3XV8miMmk5FtW
-	aCNsjooeD9LhV4OY2cVrC0/a5bXCtv4vWZ7XzMdsGDkt28WNj1jGCy0DUf/xuycfdzOuJgk4h1CPp
-	6oQMM0FG6Aw/od6441hiQ94WHuSig0n9sOIFHCYtt138/X6zQ84gSe5Dp+IeRuu6xjANEe+VL7Qsx
-	RtnRICm/b02uDmc+GlFQW/sqqESUxfjFoxKCncgrcrPqxEs75BZAGK78Ie0iyGo9bXqN03BK/7LCJ
-	PC3mW5oMXJb/Pytr79QMQ0zjFm0k+mR1ljEERCE4Yf5FOidiIs56ixC8Q45L8oA5ZSPCYvHj4lUZx
-	HgXPD+uSBAmaYMtyJvDA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Map8XPFtd8gccmlPEEwalxlKTBPMnIp3AaXshkzjigE=; b=di5iw5je90Tca8k9VbK6GsXOew
+	FfTSrIfSuyhvQ0yhLRzWTD6DwmsodPHRM6TdXgeIAWRWvWfxtcflkLjPFWeFU/lnxC0s6eBcoJCna
+	Kb41U691vzsUPkkR7aasfbLZPOaipObwa8Ap9B1/MqY62HJyRWPl6doTaS3jJ+uLFdui4F+MvX7Ts
+	gNSyLQtLWoTz5rB/NTzQNdWNJZIzalQ0xYKV/PSctdWqogm8drOv7NtU6rZSK6RPftmBWHPtLzy+o
+	6kFokuCuecFNGnv0kWoTl8MMW0Q8ofBndIjkoJirg0+pNPdEZx+6llaev1QELujQyTTshRHBJ/kkT
+	NNl97I8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUTdB-0000000DI9e-06SB;
-	Mon, 29 Jan 2024 15:33:05 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1rUTde-0000000DISL-0nOX;
+	Mon, 29 Jan 2024 15:33:34 +0000
+Received: from www62.your-server.de ([213.133.104.62])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUTd8-0000000DI8k-2CYQ;
-	Mon, 29 Jan 2024 15:33:03 +0000
+	id 1rUTdU-0000000DIFH-2FkJ
+	for linux-riscv@lists.infradead.org;
+	Mon, 29 Jan 2024 15:33:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=CrHCTlFRqhVi35tK959UuBbKAaE+0blDjjqiPB7oOOk=; b=QPBMraaOzb39X/fTDTDp8vZn3U
-	RyQNYMvVEuosY1G2SF9dOmBcU/EIjaw/4q1ZtewTtTqBR2ZTFc0HwNzLEMLV2PL1R+6KEJM2hgN8y
-	y27brvTJVMBs3/Kx16Qyd0F6UgR6nO91iHksI1MULxx1Uv/MoCL4CJVPMswAs3vMX+z1pVQoWF9mP
-	ciarx1HSr1oQZTuCJWBn/mylPek1/6qnmqyWafXtUnzD171hxxU3T2/IBjNv4sD9GCQi2Sz5aNUJ2
-	NpFd5Kwem/2q2pdUrG702/gdn6SHY1d9fOFivlToOyVuVDMwEArwj3mFhJINI1ddPyf7tn0gTM/tU
-	xrrJkCOA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40068)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1rUTcv-0000bZ-0j;
-	Mon, 29 Jan 2024 15:32:49 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1rUTcp-0004f6-8p; Mon, 29 Jan 2024 15:32:43 +0000
-Date: Mon, 29 Jan 2024 15:32:43 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, acpica-devel@lists.linuxfoundation.org,
-	linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org,
-	Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com,
-	James Morse <james.morse@arm.com>, vishnu@os.amperecomputing.com,
-	miguel.luis@oracle.com
-Subject: Re: [PATCH RFC v3 03/21] ACPI: processor: Register CPUs that are
- online, but not described in the DSDT
-Message-ID: <ZbfFG5JLnAkGN1pk@shell.armlinux.org.uk>
-References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
- <E1rDOg2-00Dvjk-RI@rmk-PC.armlinux.org.uk>
- <CAJZ5v0ju1JHgpjuFLHZVs4NZiARG6iBZN_wza6c2e0kDhZjK0w@mail.gmail.com>
- <ZaURtUvWQyjYfiiO@shell.armlinux.org.uk>
- <20240122160227.00002d83@Huawei.com>
- <CAJZ5v0hamuXJ_w-TSmVb=5jGide=Lb7sCjbzzNb_rFuPrvkgxQ@mail.gmail.com>
- <Za6mHRJVjb6M1mun@shell.armlinux.org.uk>
- <20240123092725.00004382@Huawei.com>
- <20240129130354.0000042b@Huawei.com>
+	d=iogearbox.net; s=default2302; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=ekJI84jz9Cz4AFQVBZBV9I87QpFYwV1HOZxh1PFt9/U=; b=jB4DDqb1cCAWQswNqcJfN7MjqC
+	xaPle6dW5aS9NhxvIKcaBFRrDZUY1cQOzojKgUFRFnrGK4G5d/60OAGNloPPXCZZo+DF0OaA/8HgF
+	JAt35RV4WNtk4XCCmM8mb+IkdHKTGQSbGX5XZGNc66bLlf31Wp8A1MLHtofuG2D9ZE/mr0h2fwTPs
+	YA201eg9HpAW5vRtztivcKi27HIiZ9OBDSCGzP7aMOWKuExxmpdaU/JZhKcr9yZTOTGuEVJ64z47n
+	fZQzOPdtWtbOKHYwgLlZ6veoXCVSkGGVRMvTWcQst431WbyLDIQ1UMzMIIvRYcdA2caVsPNcSC32s
+	oWEy/eNg==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www62.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1rUTd0-000Dvz-HP; Mon, 29 Jan 2024 16:32:54 +0100
+Received: from [85.1.206.226] (helo=linux.home)
+	by sslproxy03.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1rUTcz-000N5e-Ey; Mon, 29 Jan 2024 16:32:53 +0100
+Subject: Re: [PATCH RESEND bpf-next v3 4/6] riscv, bpf: Add necessary Zbb
+ instructions
+To: Pu Lehui <pulehui@huawei.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
+ KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+ Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>,
+ Luke Nelson <luke.r.nels@gmail.com>
+References: <20240115131235.2914289-1-pulehui@huaweicloud.com>
+ <20240115131235.2914289-5-pulehui@huaweicloud.com>
+ <871qa2zog6.fsf@all.your.base.are.belong.to.us>
+ <03ebc63f-7b96-4a70-ad10-a4ffc1d5b1cc@huawei.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <0b2bb6aa-e114-157b-94d1-4acb091b48b8@iogearbox.net>
+Date: Mon, 29 Jan 2024 16:32:52 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240129130354.0000042b@Huawei.com>
+In-Reply-To: <03ebc63f-7b96-4a70-ad10-a4ffc1d5b1cc@huawei.com>
+Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.103.10/27169/Mon Jan 29 10:39:53 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_073302_586057_265C8E17 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20240129_073324_742422_D0462AB6 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,39 +88,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 29, 2024 at 01:03:54PM +0000, Jonathan Cameron wrote:
-> I poked this on x86 - it only applies with hotplug enabled anyway so
-> same result as doing the hotplug later - All possible Processor() entries
-> already exist in DSDT. Hence this isn't the source of the mysterious
-> broken configuration.
-> 
-> If anyone does poke this path, the old discussion between James
-> and Salil provides some instructions (mostly the thread is about
-> another issue).
-> https://op-lists.linaro.org/archives/list/linaro-open-discussions@op-lists.linaro.org/thread/DNAGB2FB5ALVLV2BYWYOCLKGNF77PNXS/
-> 
-> Also on x86 a test involving smp 2,max-cpus=4 and adding cpu-id 3
-> (so skipping 2) doesn't boot. (this is without Salil's QEMU patches).
-> I guess there are some well known rules in there that I don't know about
-> and QEMU isn't preventing people shooting themselves in the foot.
-> 
-> As I'm concerned, drop this patch.
-> If there are platforms out there doing this wrong they'll surface once
-> we get this into more test farms (so linux-next).  If we need this
-> 'fix' we can apply it when we have a problem firmware to point at.
-
-Now dropped.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMS8yOS8yNCAxMDoxMyBBTSwgUHUgTGVodWkgd3JvdGU6Cj4gT24gMjAyNC8xLzI4IDE6MTYs
+IEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4+IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNv
+bT4gd3JpdGVzOgo+Pgo+Pj4gRnJvbTogUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KPj4+
+Cj4+PiBBZGQgbmVjZXNzYXJ5IFpiYiBpbnN0cnVjdGlvbnMgaW50cm9kdWNlZCBieSBbMF0gdG8g
+cmVkdWNlIGNvZGUgc2l6ZSBhbmQKPj4+IGltcHJvdmUgcGVyZm9ybWFuY2Ugb2YgUlY2NCBKSVQu
+IE1lYW53aGlsZSwgYSBydW50aW1lIGRldGV0ZWQgaGVscGVyIGlzCj4+PiBhZGRlZCB0byBjaGVj
+ayB3aGV0aGVyIHRoZSBDUFUgc3VwcG9ydHMgWmJiIGluc3RydWN0aW9ucy4KPj4+Cj4+PiBMaW5r
+OiBodHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3YtYml0bWFuaXAvcmVsZWFzZXMvZG93bmxv
+YWQvMS4wLjAvYml0bWFuaXAtMS4wLjAtMzgtZzg2NWU3YTcucGRmIFswXQo+Pj4gU2lnbmVkLW9m
+Zi1ieTogUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KPj4+IC0tLQo+Pj4gwqAgYXJjaC9y
+aXNjdi9uZXQvYnBmX2ppdC5oIHwgMzIgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysK
+Pj4+IMKgIDEgZmlsZSBjaGFuZ2VkLCAzMiBpbnNlcnRpb25zKCspCj4+Pgo+Pj4gZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXQuaCBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXQuaAo+
+Pj4gaW5kZXggZTMwNTAxYjQ2ZjhmLi41MWY2ZDIxNDA4NmYgMTAwNjQ0Cj4+PiAtLS0gYS9hcmNo
+L3Jpc2N2L25ldC9icGZfaml0LmgKPj4+ICsrKyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXQuaAo+
+Pj4gQEAgLTE4LDYgKzE4LDExIEBAIHN0YXRpYyBpbmxpbmUgYm9vbCBydmNfZW5hYmxlZCh2b2lk
+KQo+Pj4gwqDCoMKgwqDCoCByZXR1cm4gSVNfRU5BQkxFRChDT05GSUdfUklTQ1ZfSVNBX0MpOwo+
+Pj4gwqAgfQo+Pj4gK3N0YXRpYyBpbmxpbmUgYm9vbCBydnpiYl9lbmFibGVkKHZvaWQpCj4+PiAr
+ewo+Pj4gK8KgwqDCoCByZXR1cm4gSVNfRU5BQkxFRChDT05GSUdfUklTQ1ZfSVNBX1pCQikgJiYg
+cmlzY3ZfaGFzX2V4dGVuc2lvbl9saWtlbHkoUklTQ1ZfSVNBX0VYVF9aQkIpOwo+Pgo+PiBIbW0s
+IEknbSB0aGlua2luZyBhYm91dCB0aGUgSVNfRU5BQkxFRChDT05GSUdfUklTQ1ZfSVNBX1pCQikg
+c2VtYW50aWNzCj4+IGZvciBhIGtlcm5lbCBKSVQgY29tcGlsZXIuCj4+Cj4+IElTX0VOQUJMRUQo
+Q09ORklHX1JJU0NWX0lTQV9aQkIpIGFmZmVjdHMgdGhlIGtlcm5lbCBjb21waWxlciBmbGFncy4K
+Pj4gU2hvdWxkIGl0IGJlIGVub3VnaCB0byBqdXN0IGhhdmUgdGhlIHJ1bi10aW1lIGNoZWNrPyBT
+aG91bGQgYSBrZXJuZWwKPj4gYnVpbHQgdy9vIFpiYiBiZSBhYmxlIHRvIGVtaXQgWmJiIGZyb20g
+dGhlIEpJVD8KPiAKPiBOb3QgZW5vdWdoLCBiZWNhdXNlIHJpc2N2X2hhc19leHRlbnNpb25fbGlr
+ZWx5KFJJU0NWX0lTQV9FWFRfWkJCKSBpcyBhIHBsYXRmb3JtIGNhcGFiaWxpdHkgY2hlY2ssIGFu
+ZCB0aGUgb3RoZXIgb25lIGlzIGEga2VybmVsIGltYWdlIGNhcGFiaWxpdHkgY2hlY2suIFdlIGNh
+biBwYXNzIHRoZSBjaGVjayByaXNjdl9oYXNfZXh0ZW5zaW9uX2xpa2VseShSSVNDVl9JU0FfRVhU
+X1pCQikgd2hlbiBDT05GSUdfUklTQ1ZfSVNBX1pCQj1uLiBBbmQgbXkgbG9jYWwgdGVzdCBwcm92
+ZSBpdC4KClNvIGlmIEkgdW5kZXJzdGFuZCB5b3UgY29ycmVjdGx5LCBvbmx5IHJlbHlpbmcgb24g
+dGhlIHJpc2N2X2hhc19leHRlbnNpb25fbGlrZWx5KFJJU0NWX0lTQV9FWFRfWkJCKQpwYXJ0IHdv
+dWxkIG5vdCB3b3JrIC0gaW93LCB0aGUgSVNfRU5BQkxFRChDT05GSUdfUklTQ1ZfSVNBX1pCQikg
+aXMgbWFuZGF0b3J5IGhlcmU/CgpUaGFua3MsCkRhbmllbAoKUC5zLjogR2l2ZW4gQmpvcm4ncyBy
+ZXZpZXcgYW5kIHRlc3RzIEkgdG9vayB0aGUgc2VyaWVzIGludG8gYnBmLW5leHQgbm93LiBUaGFu
+a3MgZXZlcnlvbmUhCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
