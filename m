@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990A7C47DDB
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 08:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADCEC48285
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 08:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AFR3z6UBtVLsv7UuwsmG6qYXB045gwLIcC90XSpHF5s=; b=qpkmK5QHNvz1sm
-	DBvtjaoeKIntCbtBaqDzzmYfoNNaj+AlBSIPfIk+YXMftTS1x9m/Q2njijoF0epOHrntjGXM/ipOg
-	lyBdY/iaiJuxSCAXyQePojqSrH3+Nqn44YUi/FKtcbhUnFIVHhBxyAaB2h41bBzqQEuTkfpSAthAB
-	bfVjY1dzTJ6J2H5/87E8dEHDUmF22HLrf4G0avfuGjTXRuNHxlIgwNWsJKaM+eggkbCreNg6tmsyc
-	ggTG7sJYqlAJFlMdm+HZJNUSaRIfhPw1ge6mijjEfnmy3Dh3UN7+0DS4kpGIdrhEWojw9sfRqTDLD
-	wyKx9pUU5EqIXKSnxEXw==;
+	List-Owner; bh=hb0MpOrsRYcW+FaVv1PoNRrXPs3D5HEN6qLWPHitTlE=; b=ceuFSDvKrCIbpN
+	odEyu3Dr9Allg8dnwIrOEgEpV6QewOMl6ndXTIrRUwQhHsinJiUZHoknKcDWNjl3EdqLhEe1gsp6f
+	D15vMoXgODRKctkc6o4RR5etFaHUBuwG59cOHU7rwV/lBT/Dasv6ywwjDMR7QsRIEB+/MDqJsKxSw
+	1nA+wmsb7mcscAi2FZHr38Gv72I7/RQCKaDbOUzFPffNeUoxc6OdtblSzkYrtDGa4eIZ36xV+SFqB
+	s6ndpayP035AzJvp+HIJoRSInxCBhBzvELeyg1e/Q8rzT32k70w6tCxk/aJG7eH468tdeHkflIvBJ
+	sLgLQwA5NDLO7enlLv3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUMZ6-0000000Bh97-2lyi;
-	Mon, 29 Jan 2024 08:00:24 +0000
+	id 1rUMZ7-0000000Bh9T-1iGH;
+	Mon, 29 Jan 2024 08:00:25 +0000
 Received: from mail-bjschn02on20606.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::606] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUMZ2-0000000Bh6j-1vZG
+	id 1rUMZ3-0000000Bh6j-4AJh
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 08:00:21 +0000
+	Mon, 29 Jan 2024 08:00:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=BDuYMJorbRW9nAmxpsnXuIl2ioCm/1v+79SGjZjvEw1/O/vX9riwgglxKjUanGiJJEaaxjuoWoeimuI380W6EEaVat1QGNSRlrz4+mR0UiGFE7T3r5SAIGVoaQO3+F8+dxDzGdrssAl5qhQkg7RnDz0zBhvfBId6XW4gZOR75DaKzwSFI9aqGtBpAaZ7shd1qkCY7huU2VEqQUJ5cimiLjQj8BWYR1l5uL0WRAX1Ku/ARgNhZ7RiQiVz/Qmnz6muuqMQVfg1ITDxqQdqLiPHd3COSw7VN5LWlwwZUdh61So7LuCSGpO71l3YEulHm76bI4S9TVicTt/lt/oHGJSXDw==
+ b=GBpD6b5zXHFdgRDXm+lljp8fY5yS3eIYRrO0ldSMXOkG5yBNQn4ESSnH3lyMA7sZFF9gcqqRkmCtTvtrHyi8FpnPVDb96YlkT+gp4qcUPj7CDrQYiXZodFZcUq2VdmQPHgNHBx/TIUyAirVfkcMKo711Ju9bbIneJ4vwo5OGNdgP0eKDZtMqhkQa6cLs3jGlRyk6RaXdL8WNihhG6iMudguzAmMoppUlsJE8D9KjEPUeFC93e9VEK6bE9q6w5hwdWLkjDZHM3B6KbxtxQ1bLloTlZAGUh3xjOXSTf10xZfDkh1S17JJVbQJg+756OcjflEIViOKE0/eB0BoTveFPnw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hQZtdNYJ56KwD1I/52FjiLmuaG1QJCswXe4mYk0EikI=;
- b=D7OlLbrjB9jBooNKhDqjnxr+kMnrP8egImtkhWiIpNMikH15g37sfm6QIQexk4wkg1pbIgL0jUjMKoc7J/bIuOFz59MkJYxj0Y5tJOOryoLn83Puw4HhPjxD+PZpznNlF6kAXYM9KPQryxDhVpuxtLB/RUoK1SjZZxQtgawbbbqCqGzdRipQBtnaBaJ00iVlGMH8c+YKkOy9/lXJXl+Md57KWfYVtb+rKJct8h1JA8/iLT5DBLKMeDnnl8hhMGhinzclw9X+zNrolzIe+TJIBBxB7QBzbo0Bo9ghSdBTKATOnxZ83U97cEQ2P8k3ki9DHlUm0TH0IzcD/xdv6C6LEg==
+ bh=vclcctiJ5OWYZEDxb0dc61vfmQgN9P7BWRd1qswym/8=;
+ b=FLDYCl0dIi2dHBvbFH8j6gvcHW5DsVNKlfjP4865BCeTZvXYveXMPSkfdmfC+DQg6k6O18JOHljT7Mm5nIDk+9ZNGiUiT7y7ohHb54varInOBX1zmwpLGSnxVONUFGcqG/o1q6pdkkIWDN3UrIa35hRmu8Hy3hfd4gq2avLkyPKK0eZzgObXlIw5Ic/abV51PbR7MLBv4D6TdUtghqYn+gXskDZwc7NWNUx8WekxWdsr8XjZ6APKUinNXLojGO5ZqK5nPDESYNAtwiofoq+9JQO7HHmY5K1w5PgYli0u95mOZu8XkFY5Wmgd3z45Fb4Bz/Zt9IPPUvqmcNrJlDNMmQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:f::16) by BJSPR01MB0545.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:f::20) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7228.31; Mon, 29 Jan
- 2024 08:00:16 +0000
+ 2024 08:00:20 +0000
 Received: from BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn
  ([fe80::3862:65b4:c857:c4a6]) by
  BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn ([fe80::3862:65b4:c857:c4a6%4])
- with mapi id 15.20.7228.029; Mon, 29 Jan 2024 08:00:16 +0000
+ with mapi id 15.20.7228.029; Mon, 29 Jan 2024 08:00:20 +0000
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
@@ -59,9 +59,9 @@ Cc: paul.walmsley@sifive.com,
 	robh@kernel.org,
 	conor.dooley@microchip.com,
 	suagrfillet@gmail.com
-Subject: [RFC v1 1/2] riscv: cacheinfo: Remove unused parameter
-Date: Sun, 28 Jan 2024 23:59:56 -0800
-Message-Id: <20240129075957.116033-2-jeeheng.sia@starfivetech.com>
+Subject: [RFC v1 2/2] riscv: cacheinfo: Refactor populate_cache_leaves()
+Date: Sun, 28 Jan 2024 23:59:57 -0800
+Message-Id: <20240129075957.116033-3-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240129075957.116033-1-jeeheng.sia@starfivetech.com>
 References: <20240129075957.116033-1-jeeheng.sia@starfivetech.com>
@@ -71,55 +71,54 @@ X-ClientProxiedBy: NT0PR01CA0031.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: BJSPR01MB0561:EE_|BJSPR01MB0545:EE_
-X-MS-Office365-Filtering-Correlation-Id: 048c09d5-343a-4e89-2980-08dc20a0540f
+X-MS-Office365-Filtering-Correlation-Id: 39db1208-901c-4394-73ac-08dc20a056af
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: JPcLGyvgzHMGte3IfQL86liL5UWCsgeyb7Ss2uuSoOn0TQRsi72EcmWlt8nIfYPF/EZTlKulIbQrMPxPNX8mlVywRppkdKKzpsN6BEVa8nD1oZ4Ur6HYGiXVt/PvLKcwgMac/JvesCvQzkJhsIS+9PKis75Cg2QOMM0rMoIKzewVYDeSa8iQuMZ00EH02dydskSi22udEDQY5ECKg0lL4tu2ou6Ar0IW2sV4L6zG2+ABwJqZ7jG87KaJw2hXrS4lNwKTcGYoGeVd0a6vYdQJYzmvdnEV9rHr4AU3fnPgaj7l6hC5vzSAd2SS6luEFmRhUDQvSKKgxAVigiKQtigNx90QYGYG8KyW7kzxB9Nut8ishKxZv3N+XfRwhedV8nCnS7se1tpuDVPWKW9kVtgracLGEcjiaWP0UxwjYQ7NY/PBLxqCs9wavJDsz6O9OTE0FbhfdV8usAwdAoRF8gT6fyAQSdERqqwxUgbGgXsk5E3qj98NYcrCIrHBBhBepcTPEewpcPFg8LeVoZiUjfPIwRGU7kahqMgyBKsmnxBnddN7Kzv11ab4uh/R37L1NfNy
+X-Microsoft-Antispam-Message-Info: BiZUEShl0HWegj1xKAtLPeofmQdugXSunJDlkdnWTxlUeyrrSJLksGAQiL9CQVv+CzUku2rXrCDI0JJgMY+sxutz/YNY4pqiJp/zk9mkhE4k2g6MhYqmQD3wd/j7AV8YmCyQDihf0JThzr6d09bx4C7VRYpKVBNWrV4kpTcfWBk7mU/xvqckjNwgIWqNWmZq5WIIX7ZI8PmYHFZondGzRBbFDeshu6E6zDRTolNmbMZbzE5+BXIkJmw4rOXMyTG6PNH0rQXXLBlXQK0RYSVGZPJNIOpTIrdKQwwNwdABaZbdRSiS42dryR1sTcwgvhNw7PR4Xrdgu95n8OCbW760aijT5s5/NCpNlhED7zQ123NjMNanXYUbgi8vaIdSg8/my+i6GC6HNqkcC2VD9GfM9APTYOGKPYQQd2jo/3QPvt8QiASnow4MGPfIMlHbnXeuuTz+q9FWRVQtcexC3zbcG6fQkYVey+n1sbp0SCFqChhmfelcbjWBLupiZUwhtADL/3NetI+viQrG7D2T04M2Hf9Yg7/wLwP9m0KierHOILTwN7UULZ1zgH1DBg2+aNUI
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(366004)(136003)(346002)(396003)(39830400003)(230922051799003)(186009)(1800799012)(64100799003)(451199024)(38350700005)(41320700001)(2616005)(2906002)(52116002)(5660300002)(6666004)(66946007)(66556008)(4326008)(26005)(1076003)(66476007)(8676002)(8936002)(38100700002)(83380400001)(508600001)(41300700001)(40180700001)(86362001)(40160700002)(36756003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LeMV2ksVy0mvH81f4EqP/7VvjtRiwxkDXIgyn43qBle0jOqXLfzw6ospgnNy?=
- =?us-ascii?Q?D/ZZVzEH1GTw9rQSKLd2BfEdRZAzq+mMzkvD8Q0VLaWxmQOLLG6wAtJgeq5l?=
- =?us-ascii?Q?1x+XVL1fzCSXPo6Qn2MMu7JirEiaSOcBJa+HiwjiOef7p5L/4kPpXIFmpC9z?=
- =?us-ascii?Q?Ljph5etogTfiox5MRcmB9zPYt8ktY9eUGmN2UZ/Wmf+HctP0KYyufBoDWP6G?=
- =?us-ascii?Q?WEzmG7dD9LNjT7z+Uf4sB10+PAfZ/YEX612VtVjCsricx4XeQUWnJ8Jqybpz?=
- =?us-ascii?Q?Gdrvzf+Hg2RySq4gwLmaG1/VaCOi2QVp28nTCEhKYN8NLmJgNJ0fNugoaN7k?=
- =?us-ascii?Q?8QTx3KeGiAalIBMWKBxadRDgcVSfnP1xTgJvel9vG1R5PoS+M6/OWZ9Zzc6j?=
- =?us-ascii?Q?k24Wc1It6DhkJtFVU17Ikk2aP0hLq8RLmp7pwfJBUSOSH5Zn+HuNiC7K2unA?=
- =?us-ascii?Q?igDnpaE2PpU3tvJCJXdD1y6nlEouoyDgLbfssaeFFtIm0RRDMH5U9XhVLlYX?=
- =?us-ascii?Q?NQiuDpzCDJXBJYiCWgyhL1qYsnRBgA54eNtHa5dzCNwTGexAMgHk2QVmC467?=
- =?us-ascii?Q?Q0KUMNjIlL7MKWo2KUE9E9XbteehKfoP/PERLK94X1MXaYfWsBODnqqMMsWT?=
- =?us-ascii?Q?B1YduJIWhZQlhvtBBlRkDGInhq6pOsqb30NEhJh9+/5ryVQ9XG6HwcUocW8H?=
- =?us-ascii?Q?63eQG8lq+opqGMQDXmCyVTRC/jnklvXmYviCTEoi8SOhN5TIyC6RjkT9YRwG?=
- =?us-ascii?Q?SXgBKgncpejoTki015dlhoKs3/CAbyhR8rPRLYm4EFKpNU3Xgnu5mdzphx9f?=
- =?us-ascii?Q?NhmUaUGEToOTpp0siV2C7ZvhdS5qLV9tn022xgnOgUwJSKltKLdD7tmxZmmN?=
- =?us-ascii?Q?kNkE0cf1CSoOhcoK9hwh8w8Im+eQiEjeT/MfggBZwgW3300QBpGpyP8qRf84?=
- =?us-ascii?Q?iMm7t4hH6AEHLhI2pj4gQ69ZJ5mlpKeXEJi25sNThzHFyoUG+tCiiVCnoOmb?=
- =?us-ascii?Q?2SeuHFm6dbaZuUJinb5cg4akyzCMSftRNkrwEsHjKL4577QLKqi9tA+XaTfB?=
- =?us-ascii?Q?YCX1/FqkqmDDB4lNmkU1ElmDPIxcvKSVa8sVkdyZRJOsmOHcyPFMUYLPTryf?=
- =?us-ascii?Q?bymhDYObb2PnUQMv07/uGHtqGbQoB+bL7+8CERWYN8epnFRycY2n0THi15C8?=
- =?us-ascii?Q?1S1iYDkoqbUgVUGbQMCryn/U7tI4mIfuE1K3u1PnxuhZWTsKbOgqOzRjLx6u?=
- =?us-ascii?Q?7ChaUvch8tS64T6r0GEyIPFyy/4gdeCZ/NwmCgstz0x6juxtI1EMwXLE+sAx?=
- =?us-ascii?Q?8YHwm+B0vCH+gpBD2kIQD8FHjCNvmb2dhsOWmX21CczF5bm3HlnpQ5C85WxK?=
- =?us-ascii?Q?r+yYBPMD8JR40ZBquA2l7DoEcqf4jwc5e2G1HEAM8jfXfD6mk3FIDzZkSpyG?=
- =?us-ascii?Q?uVa4AB1iV/tgP3kzCaphpXVXavZP6/KK5skX2CClrjT9D9GoRfIokpMxihtF?=
- =?us-ascii?Q?VV0cxebwivot3HCz2IZ8oH4kaIidTV2Jj0T+8oKrbZ+H68X4va2yhhS+Pn4t?=
- =?us-ascii?Q?P1UPf4Hdnx9trx1Xy+lgKZqsGty/DHszs3W8hKDuNfInD9IVIW8PigEWDBwD?=
- =?us-ascii?Q?kg=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XULIfIufYVg/Vfq2/Kyiv/LkHLtvSQKR1y2RdYVjoZxPVybkLmd2fqQZjjN9?=
+ =?us-ascii?Q?RknHy7AmQtzq9uotTz+hbtfbvPq6+4DLPUaJJ/iCy+9EuYtYgk1t8pFGrwXQ?=
+ =?us-ascii?Q?SWdcZX6dKSPxzjvTee9WnGoziX/BDpcAk4akukE3gdFjIjBekD9x7AtlJ9Kj?=
+ =?us-ascii?Q?w6D4f9BhObBU+Mxcz2AG3fB9PDkdpYzs0CAW9qg0GR+KdTV1s9Lw15WvSVFA?=
+ =?us-ascii?Q?q/k8mVsO0ApRHSXHpskw6eMjHNC/umy+nx1Tk5UKXWWvHHsDLiBc6qMAfsqY?=
+ =?us-ascii?Q?RUG6nyzSGPn4H/Nxt+7Gv5n9rvtwzYnIsOw38L5TWKrimNVSTY1lHixpAIt2?=
+ =?us-ascii?Q?oyLhFk3Unb2nkQIZWSraFBlxKWbUkNYQZA1JxejK9SAjB8pYaPqD+nyjVsW8?=
+ =?us-ascii?Q?JvI/ZMeZQ7fnWPQ6ZD1JUrRekTAtmI7VezM0sQ87PELASxqUR0X9iLSIyKJp?=
+ =?us-ascii?Q?mJ8ODIXU2dw+VN11Lg/eXzW2Zi4fO/IN+h1VrKMwKpEWTCCyEXya56wACN4J?=
+ =?us-ascii?Q?w42GvgdHofdiWM1793vPFnGNMfITukwiZm/ZsVJ1RRTkFAUH7lq6Jkxgp4Ce?=
+ =?us-ascii?Q?Ca6+QLSdL709qH379EQkfbxoDXttUMRSDaSG0Ej7Pe/d/BkmZVC0uufYbi1Y?=
+ =?us-ascii?Q?mZw3DdSdiGlRMU2J5C6pxXn72USZGxiLOlITatShI2kPmZDfg7jcHiQ0aeMS?=
+ =?us-ascii?Q?NL9YPJQnp7bCBrAzkf49Nh3VlnnUHtMo2LqnbBQYeZzKK4laiZmp/L9VGqO+?=
+ =?us-ascii?Q?LWLntIFIQpKVHF8fQEZ3j26OySKFbQAMSGSCr8Tq0Z0Yw+52DQteEUaYMPt9?=
+ =?us-ascii?Q?EXpdn4vfL4Ds7OVtiCvZMwLGjsZIUftKX0RhozlgAR9MGqcg9q48vyOOxMNr?=
+ =?us-ascii?Q?9570/M/4sreyx5/2KGB2SBKSudtQXOb5qlachXoHOnINmrirBunFDvuN72/i?=
+ =?us-ascii?Q?yCHJCtVhnjLjIO5MijEVXwgoHRh9q1jEXtcznElS6V9d4OLaAnLavegjD/KC?=
+ =?us-ascii?Q?Zv9R+yjzsxuUfAgX9oPyNMu0Zv1oQljMKTm6XAZctsrywzAW23/Bm6mlKUbB?=
+ =?us-ascii?Q?4IKUNAhlVyH7V+Gsclo2v0ChaDb6E7pfmf171Lp58UvPTH8fdKG9b1o3XfJ8?=
+ =?us-ascii?Q?pd5nhP3/z4yI4Z7guzXw6klrMBXE3vmaDLvj2H6GkgRHUJgMRNLogxph+ari?=
+ =?us-ascii?Q?fAFRANaBJe2y6iIqaEh2QsbnzSWbsHHjNpo9xWSpt7gVDsnhcyzDDQgAvd54?=
+ =?us-ascii?Q?64fxweJZqggWgjt9gtE5M3ZJ2UFSbuFKZTE/cgdPNLhKFUNuhsXGYvZAbDUb?=
+ =?us-ascii?Q?huBCGeKfkH1XGfJTewLiYnxTSJABEmUFwL8DVAvPTaEYQl5iyjii70/7EqS5?=
+ =?us-ascii?Q?rDTMZjOZuEWaqWcg+hMb2XCS1saRvS0wDfy/o/hTQ40M/8ko8agLmQ7FDCZJ?=
+ =?us-ascii?Q?Ybq4NMzE5/VEYDQJJHipzsBYUH1u3KV6hSLyjUXxZHKlw6k8S0bB8nIDk7EP?=
+ =?us-ascii?Q?qhPiIy7HgogAcocZnXefYfZTNGNIX8UeRiGn1VFojyWPhFQ2EyQSpf07YBgE?=
+ =?us-ascii?Q?gFs1aM3Ngg3mEQKEGFBcq34JnlQQNBuvfI89BJLIzez6u5k7mI63b8D3ntym?=
+ =?us-ascii?Q?YQ=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 048c09d5-343a-4e89-2980-08dc20a0540f
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39db1208-901c-4394-73ac-08dc20a056af
 X-MS-Exchange-CrossTenant-AuthSource: BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2024 08:00:15.9754
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2024 08:00:20.4008
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: i4tzgcZhp0TEraiF5mDFOXtxYsmQ3v30xS5MMbJAMaUsLw8Wn2pMG/xuhVoVFCIEGMzGJVxyhjz0IOV4FumOeAzF6nSVJWQrXpD/RHQYQig=
+X-MS-Exchange-CrossTenant-UserPrincipalName: MBeGMM+s+mkZnU+3A6aVRXydgcO+jJnxc+cIoBOkFBrTUMt+HLb4RRvhce9g3nFycWfyul6IELK63z2SHUdyWJlu2Vz6/u8nSO+TCp3iF+c=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJSPR01MB0545
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_000020_521888_9AE0EFBB 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240129_000022_068663_7A42C771 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,55 +135,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Removing the unused parameter in ci_leaf_init() to simplify the code.
+Refactoring the cache population function to support both DT and
+ACPI-based platforms.
 
 Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 ---
- arch/riscv/kernel/cacheinfo.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
+ arch/riscv/kernel/cacheinfo.c | 47 ++++++++++++++---------------------
+ 1 file changed, 19 insertions(+), 28 deletions(-)
 
 diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-index 09e9b88110d1..30a6878287ad 100644
+index 30a6878287ad..f10e26fb75b6 100644
 --- a/arch/riscv/kernel/cacheinfo.c
 +++ b/arch/riscv/kernel/cacheinfo.c
-@@ -64,7 +64,6 @@ uintptr_t get_cache_geometry(u32 level, enum cache_type type)
- }
- 
- static void ci_leaf_init(struct cacheinfo *this_leaf,
--			 struct device_node *node,
- 			 enum cache_type type, unsigned int level)
+@@ -74,36 +74,27 @@ int populate_cache_leaves(unsigned int cpu)
  {
- 	this_leaf->level = level;
-@@ -80,11 +79,11 @@ int populate_cache_leaves(unsigned int cpu)
- 	int levels = 1, level = 1;
- 
- 	if (of_property_read_bool(np, "cache-size"))
--		ci_leaf_init(this_leaf++, np, CACHE_TYPE_UNIFIED, level);
-+		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
- 	if (of_property_read_bool(np, "i-cache-size"))
--		ci_leaf_init(this_leaf++, np, CACHE_TYPE_INST, level);
-+		ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
- 	if (of_property_read_bool(np, "d-cache-size"))
--		ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
-+		ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
- 
- 	prev = np;
- 	while ((np = of_find_next_cache_node(np))) {
-@@ -97,11 +96,11 @@ int populate_cache_leaves(unsigned int cpu)
- 		if (level <= levels)
- 			break;
- 		if (of_property_read_bool(np, "cache-size"))
--			ci_leaf_init(this_leaf++, np, CACHE_TYPE_UNIFIED, level);
-+			ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
- 		if (of_property_read_bool(np, "i-cache-size"))
--			ci_leaf_init(this_leaf++, np, CACHE_TYPE_INST, level);
+ 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+ 	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
+-	struct device_node *np = of_cpu_device_node_get(cpu);
+-	struct device_node *prev = NULL;
+-	int levels = 1, level = 1;
+-
+-	if (of_property_read_bool(np, "cache-size"))
+-		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
+-	if (of_property_read_bool(np, "i-cache-size"))
+-		ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
+-	if (of_property_read_bool(np, "d-cache-size"))
+-		ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
+-
+-	prev = np;
+-	while ((np = of_find_next_cache_node(np))) {
+-		of_node_put(prev);
+-		prev = np;
+-		if (!of_device_is_compatible(np, "cache"))
+-			break;
+-		if (of_property_read_u32(np, "cache-level", &level))
+-			break;
+-		if (level <= levels)
+-			break;
+-		if (of_property_read_bool(np, "cache-size"))
+-			ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
+-		if (of_property_read_bool(np, "i-cache-size"))
+-			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
+-		if (of_property_read_bool(np, "d-cache-size"))
++	unsigned int level, idx;
++
++	for (idx = 0, level = 1; level <= this_cpu_ci->num_levels &&
++	     idx < this_cpu_ci->num_leaves; idx++, level++) {
++		/*
++		 * Since the RISC-V architecture doesn't provide any register for detecting the
++		 * Cache Level and Cache type, this assumes that:
++		 * - There cannot be any split caches (data/instruction) above a unified cache.
++		 * - Data/instruction caches come in pairs.
++		 * - Significant work is required elsewhere to fully support data/instruction-only
++		 *   type caches.
++		 * - The above assumptions are based on conventional system design and known
++		 *   examples.
++		 */
++		if (level == 1) {
+ 			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
+-		levels = level;
 +			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
- 		if (of_property_read_bool(np, "d-cache-size"))
--			ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
-+			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
- 		levels = level;
++		} else {
++			ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
++		}
  	}
- 	of_node_put(np);
+-	of_node_put(np);
+ 
+ 	return 0;
+ }
 -- 
 2.34.1
 
