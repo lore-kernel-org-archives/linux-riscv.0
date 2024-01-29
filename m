@@ -4,74 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BAB7C47DDB
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 17:22:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70044C47DB3
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 17:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tW4SGmPXxw7btMhfVtJnGcAtktl5E+/mPXkwvUwyKEQ=; b=cuwgk1EwzVoaoV
-	TqYUeYKwBUB7aRbAlPpYVeCgT0ivRciC7iQo+rmYqPtvnNJhlcsA5OS8EiCKKhwgE8Y4GWA0URzRN
-	2dSNF2Em8gLPifeEWof2h4ClWmvgwLYJWk3rwJsnkS6J+POqdaIH7Swt6q6l/JoTvfKfeYd1hqnQ4
-	XgKFEz4B/N8UBX8ZFhaaThl98ZZ/demjoZEYIAnsQx32A9hnmDQgWoQpKpo+ZmmkV9pQgbof6iq1K
-	2UUfZ9INgb4to5Za/SXuJXwLKAnL+Uwt6B70AHQ5/RD4V8+QfXOLR9G+a0DaJ3Op0xvfozlB3GHX6
-	gxT4WXNKnDwuL//CZt9Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pAdQ8PDG8vPqno8O319YZHN9CQ+OPNB87/XS1QKR/sA=; b=4LtZtHMdyqtRt+AFrVu+P6B6Ko
+	VPyxCTRMG7eihvYLLpwQlZwW1ikrpxmaKsAZOmRWm3/EEp2ShDLFuWVeYzg6RaobiFfmeGTbR1hCX
+	YlAS1UjIHo+9dbUN7GoEspx2C7gu8RoT3Vm2dCUQ+UD8KZbbJ0HmelzzGCS0aIYuowcVdeoyQYIQe
+	eEz9FHOfKUpvr1yJCMmzNZsbxtgtU5YVUOq6HZ2ddbe+SfxpEShxqJyke9wcgZrE+KW2mtGD8GS8s
+	63W4A1EcA2ruTOlg7XSq03VzWCTijXRMwZcsq0hQCo9BTHDB/F0+LD/pJ32GKtFI+qx90oCh4cMmN
+	TvRfkigQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUVL9-0000000Dic9-3z2N;
-	Mon, 29 Jan 2024 17:22:35 +0000
+	id 1rUVT1-0000000Djle-2F45;
+	Mon, 29 Jan 2024 17:30:43 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUVL7-0000000DibU-3JXG
+	id 1rUVSv-0000000Djjp-1GTX
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 17:22:34 +0000
+	Mon, 29 Jan 2024 17:30:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 469F86239F
-	for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 17:22:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA360C433F1
-	for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 17:22:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BAEBA622BF;
+	Mon, 29 Jan 2024 17:30:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9E4CC433C7;
+	Mon, 29 Jan 2024 17:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706548923;
-	bh=JYBbAYWNibVPSsm2aZM9pxXWuL6jTBf0j8mHiaK44Ow=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=WuSJcWsKXENTUCDGo/2nsNi6XSHrUZkGChuEAemYPjjWcD24F3le6iVqtY5fwq+UK
-	 dHRcUvJZnQPfqFvyR8tEV0GnOh5pPWNl3rmy5mb35Ox3L+Mxp6T5T5hQ7+7gV6gAL1
-	 l6HCG62UU0EHCKnyebU+Ti+Bh1ECzWaKwuDdJnixKEqgf7mU+j5enjgXz9SkeXWyav
-	 AIpWIf3fuc5wt3yzSwoGrtZHY4xrn35E6Suj5d+7w/LlBI+4oVTqHPLFnm1zFD59EB
-	 akVkxhg9PAkJ5oh6k/W4QYOTg/5/VuExl0z8aV7Kj1j6HqKvZKij4FAXSL6cQT4/UO
-	 KAcKErCsFpkBg==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-2cf4fafa386so31201981fa.1
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 09:22:02 -0800 (PST)
-X-Gm-Message-State: AOJu0YxK7JH3og7MN+GX8of8w9gEek2bwDFL8ZUl5PTPvZ0kKDbTt6GS
-	Bx3HbGQOx0eVxaspSFBnUrLT+RnphsL8LPsvxuCF14WRfcMFw7dYUY04OAIPUOAIeVExcroLpCZ
-	JzC8bgnGBdCWm9VLeHGKURgB6aPo=
-X-Google-Smtp-Source: AGHT+IG0VAb/ekeITVOF0bS7rfDDvzjNwelO3EtNC/hYjAZLD6sUGghOToyiYKiqSggijHySxsSuWcZVmbTpRn3TFGY=
-X-Received: by 2002:a2e:b8d1:0:b0:2cf:457e:61fa with SMTP id
- s17-20020a2eb8d1000000b002cf457e61famr4993469ljp.37.1706548921169; Mon, 29
- Jan 2024 09:22:01 -0800 (PST)
+	s=k20201202; t=1706549436;
+	bh=OXQd1RnjO7UJeTnd9b35uKkSkUJf85ceg9kIDyszIk8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m+K69jKWZIF69OHl7PMAE41J0uqd1KVWsmsLishPqiVhnQXmGHaePGHbFCGBWgtDD
+	 833c7oemkGkJ7LfpHyexjIZnfGU0Vi+PWWnI5YUWXbZFvOtRalWswI1jfLu4rjdSgu
+	 MKoK5Jb7qx+divI6WtIGPx+HXtAm5mNGWi76TRKXD6ppuDCZF+9rNGt756SwvJa8iq
+	 4VihGKgCQ/HeC700lCi7aVVw7ggiZVLsM+c0o6uXdcBp4Q1Cq1TMfg6Or0rd7fvQdf
+	 WUQptqLE3iI4BMV63lNP9SahrI6VOONxYXfSFvWQrJEyA3aKs6EkrE10vJVDmwkeeE
+	 GHa19xQe2PbLg==
+Date: Mon, 29 Jan 2024 17:30:30 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH 1/5] dt-bindings: interrupt-controller:
+ renesas,rzg2l-irqc: Document RZ/Five SoC
+Message-ID: <20240129-magical-unclaimed-e725e2491ccb@spud>
+References: <20240129151618.90922-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20240129151618.90922-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-References: <20240123103241.2282122-1-pulehui@huaweicloud.com> <20240123103241.2282122-2-pulehui@huaweicloud.com>
-In-Reply-To: <20240123103241.2282122-2-pulehui@huaweicloud.com>
-From: Song Liu <song@kernel.org>
-Date: Mon, 29 Jan 2024 09:21:49 -0800
-X-Gmail-Original-Message-ID: <CAPhsuW5fr5-wz1Q_AvuVCwSJ=byE+wVrKcKXrnJQjshn8Hc-sw@mail.gmail.com>
-Message-ID: <CAPhsuW5fr5-wz1Q_AvuVCwSJ=byE+wVrKcKXrnJQjshn8Hc-sw@mail.gmail.com>
-Subject: Re: [PATCH bpf-next 1/3] bpf: Use precise image size for struct_ops trampoline
-To: Pu Lehui <pulehui@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	netdev@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Puranjay Mohan <puranjay12@gmail.com>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Yonghong Song <yhs@fb.com>, 
-	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
-	Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Luke Nelson <luke.r.nels@gmail.com>, 
-	Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20240129151618.90922-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_092233_895517_A9B8D586 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20240129_093037_478626_AEDE50EE 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,23 +77,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8148271016885699490=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKYW4gMjMsIDIwMjQgYXQgMjozMuKAr0FNIFB1IExlaHVpIDxwdWxlaHVpQGh1YXdl
-aWNsb3VkLmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWkuY29t
-Pgo+Cj4gRm9yIHRyYW1wb2xpbmUgdXNpbmcgYnBmX3Byb2dfcGFjaywgd2UgbmVlZCB0byBnZW5l
-cmF0ZSBhIHJ3X2ltYWdlCj4gYnVmZmVyIHdpdGggc2l6ZSBvZiAoaW1hZ2VfZW5kIC0gaW1hZ2Up
-LiBGb3IgcmVndWxhciB0cmFtcG9saW5lLCB3ZSB1c2UKPiB0aGUgcHJlY2lzZSBpbWFnZSBzaXpl
-IGdlbmVyYXRlZCBieSBhcmNoX2JwZl90cmFtcG9saW5lX3NpemUgdG8gYWxsb2NhdGUKPiByd19p
-bWFnZS4gQnV0IGZvciBzdHJ1Y3Rfb3BzIHRyYW1wb2xpbmUsIHdlIGFsbG9jYXRlIHJ3X2ltYWdl
-IGRpcmVjdGx5Cj4gdXNpbmcgY2xvc2UgdG8gUEFHRV9TSVpFIHNpemUuIFdlIGRvIG5vdCBuZWVk
-IHRvIGFsbG9jYXRlIGZvciB0aGF0IG11Y2gsCj4gYXMgdGhlIHBhdGNoIHNpemUgaXMgdXN1YWxs
-eSBtdWNoIHNtYWxsZXIgdGhhbiBQQUdFX1NJWkUuIExldCdzIHVzZQo+IHByZWNpc2UgaW1hZ2Ug
-c2l6ZSBmb3IgaXQgdG9vLgo+Cj4gU2lnbmVkLW9mZi1ieTogUHUgTGVodWkgPHB1bGVodWlAaHVh
-d2VpLmNvbT4KCkFja2VkLWJ5OiBTb25nIExpdSA8c29uZ0BrZXJuZWwub3JnPgoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============8148271016885699490==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Ygn/mpQIjskR0FcW"
+Content-Disposition: inline
+
+
+--Ygn/mpQIjskR0FcW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Jan 29, 2024 at 03:16:14PM +0000, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>=20
+> Document RZ/Five (R9A07G043F) IRQC bindings. The IRQC block on RZ/Five SoC
+> is almost identical to one found on the RZ/G2L SoC with below differences,
+> * Additional BUS error interrupt
+> * Additional ECCRAM error interrupt
+> * Has additional mask control registers for NMI/IRQ/TINT
+>=20
+> Hence new compatible string "renesas,r9a07g043f-irqc" is added for RZ/Five
+> SoC.
+>=20
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+>  .../renesas,rzg2l-irqc.yaml                   | 27 +++++++++++++++++++
+>  1 file changed, 27 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/renes=
+as,rzg2l-irqc.yaml b/Documentation/devicetree/bindings/interrupt-controller=
+/renesas,rzg2l-irqc.yaml
+> index d3b5aec0a3f7..3abc01e48934 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/renesas,rzg2=
+l-irqc.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/renesas,rzg2=
+l-irqc.yaml
+> @@ -23,6 +23,7 @@ properties:
+>    compatible:
+>      items:
+>        - enum:
+> +          - renesas,r9a07g043f-irqc   # RZ/Five
+>            - renesas,r9a07g043u-irqc   # RZ/G2UL
+>            - renesas,r9a07g044-irqc    # RZ/G2{L,LC}
+>            - renesas,r9a07g054-irqc    # RZ/V2L
+> @@ -88,6 +89,12 @@ properties:
+>        - description: GPIO interrupt, TINT30
+>        - description: GPIO interrupt, TINT31
+>        - description: Bus error interrupt
+> +      - description: ECCRAM0 TIE1 interrupt
+> +      - description: ECCRAM0 TIE2 interrupt
+> +      - description: ECCRAM0 overflow interrupt
+> +      - description: ECCRAM1 TIE1 interrupt
+> +      - description: ECCRAM1 TIE2 interrupt
+> +      - description: ECCRAM1 overflow interrupt
+> =20
+>    interrupt-names:
+>      minItems: 41
+> @@ -134,6 +141,12 @@ properties:
+>        - const: tint30
+>        - const: tint31
+>        - const: bus-err
+> +      - const: eccram0-tie1
+> +      - const: eccram0-tie2
+> +      - const: eccram0-ovf
+> +      - const: eccram1-tie1
+> +      - const: eccram1-tie2
+> +      - const: eccram1-ovf
+
+I think the restrictions already in the file become incorrect with this
+patch:
+  - if:
+      properties:
+        compatible:
+          contains:
+            enum:
+              - renesas,r9a07g043u-irqc
+              - renesas,r9a08g045-irqc
+    then:
+      properties:
+        interrupts:
+          minItems: 42
+        interrupt-names:
+          minItems: 42
+      required:
+        - interrupt-names
+
+This used to require all 42 interrupts for the two compatibles here
+and at least the first 41 otherwise. Now you've increased the number of
+interrupts to 48 thereby removing the upper limits on the existing
+devices.
+
+Given the commit message, I figure that providing 48 interrupts for
+(at least some of) those devices would be incorrect?
+
+Cheers,
+Conor.
+
+> =20
+>    clocks:
+>      maxItems: 2
+> @@ -180,6 +193,20 @@ allOf:
+>        required:
+>          - interrupt-names
+> =20
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: renesas,r9a07g043f-irqc
+> +    then:
+> +      properties:
+> +        interrupts:
+> +          minItems: 48
+> +        interrupt-names:
+> +          minItems: 48
+> +      required:
+> +        - interrupt-names
+> +
+>  unevaluatedProperties: false
+> =20
+>  examples:
+> --=20
+> 2.34.1
+>=20
+
+--Ygn/mpQIjskR0FcW
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZbfgtgAKCRB4tDGHoIJi
+0oqzAQDRsNsMgRYlDd+DmTlEOCZC0GxDFYdGkW9k02+U2C2kUAD/Q+SgbLDfDyC8
++6lTLc/HCbiewN8LWm/xBVSaQNYbWwk=
+=5vqQ
+-----END PGP SIGNATURE-----
+
+--Ygn/mpQIjskR0FcW--
+
+
+--===============8148271016885699490==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8148271016885699490==--
+
