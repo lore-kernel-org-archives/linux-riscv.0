@@ -4,62 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2A0C47422
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 08:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B70CEC47422
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 08:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+2n7XjfR3gNdCRBApCf8dgYFBDAbv/KRAjcfav3NDVU=; b=3leCG32YTyvzty
-	d7te9QhFw1JLcHtmrJbnhuZN5KUmQW6zUybo67Ms1ioWGdqskIhsvac1wVRa2K8yPwRMjkwSZh5g9
-	Ilkh2rvp9/wSUmOFET1HKeEyWZ4TCw3KitDGAEGrPcfRDoeYCLcZT23WkTaq9SIzmPq2kI11jeSOV
-	WD/cjgfgHTCjL+2DzDNHEKc3az/SN9MVVhSTMZfYxKi6ObE0Dob6H9ZIsxJpOoO1N4TMGT17E64QH
-	Pd+Hd2eCTXEemmxBs7muVU0SR8nYpUB4TrRqyFM5BCbK0VvEX+ZjVURSBh0/6xiUuuygsVNxf1mSP
-	xd0RD+wijjy0eWgn2qDg==;
+	List-Owner; bh=rKs+9hJsCKbFdDeVCr2qksGb5cdsXfqoPqjSErrBHV4=; b=Dc4ihhPKZkqFK2
+	uxWK4oU4ryWvt9xpgZSaPLk8eyTVSE+3nOeJy+ywPYiDZFtL74bpcjxkXcp7bU/se+AcIkETyI1P6
+	IFycUyoB0ezrzmVx3SwfRl1CNw3hzpnU57DhFFZ+av3iqS0JttZUTgU1E4wYoHnb9M1LAlvHn2s7e
+	gqH/4/vl+xsSljJCy2hUe6MYDsqoMEGk4Z4Npu35RjLg01Fij1gS5owU9W975g0HUoYGESfYBkKj2
+	0xWw6ZY8CjiyIAE5QBrrIJxfRFphKI86ZJwZbIcHVxdL3BFI45O5EHCh9kSRPnq+52hl/cu/zYHCe
+	/zuI9DiRoB2K/zGP2SLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUMb4-0000000BhZI-0VAh;
-	Mon, 29 Jan 2024 08:02:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rUMgQ-0000000BiSR-0pVP;
+	Mon, 29 Jan 2024 08:07:58 +0000
+Received: from mail-bjschn02on2060f.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::60f] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUMb1-0000000BhYr-1Oqt
+	id 1rUMgN-0000000BiQt-04Jg
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 08:02:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 657BF61E75;
-	Mon, 29 Jan 2024 08:02:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEE37C433F1;
-	Mon, 29 Jan 2024 08:02:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706515342;
-	bh=sZsG7QH1rlDO0WNxsYn3wAlIDwJT/YYn7MykAKKXVOM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bSum0+lmKUkVLL2tswoS64p8dfcOhCh3MlgHdL0sxFEqZnHTqgiTGSTVx9z7VYZx3
-	 V4zwoFm22wrQyo+sXPrUff684wlAUFVwG/7SxDDZ07hLSIXqxmqTn9ZorC/AbGRzht
-	 uFPy/Bpt4vDo/z1NLkymMSICp5dA3HYP4IJj5HLvpFabB7MEAx2DsDieZjwkZDVT/V
-	 LAPsPRcB7XZTpvypnLvuh2dJsNE+SL6V1it5+Y3y413fNCE5F6JWt0iVrBKeTPL1ZQ
-	 ziXGWoCPyHhQzViv+/beNCWfmAGjuNCmmh1s0Up5qLj6mXjpEc3kTdW/QGqdxNIKPR
-	 t4YVHm/ym2NTA==
-Date: Mon, 29 Jan 2024 15:49:30 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alexghiti@rivosinc.com, samuel.holland@sifive.com,
-	ajones@ventanamicro.com, mchitale@ventanamicro.com,
-	dylan@andestech.com, sergey.matyukevich@syntacore.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, apatel@ventanamicro.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] RISC-V: add uniprocessor flush_tlb_range() support
-Message-ID: <ZbdYijWK1PnHXn47@xhacker>
-References: <20240125062044.63344-1-cuiyunhui@bytedance.com>
+	Mon, 29 Jan 2024 08:07:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=SjzjaM+kJDAgnYfi6osyfrdL6jJrHIBMYjZcuSQj2AEPx2Z8JnoJr1aFgnqONAb5hi/4spCz8Aeqlj+LKs5ROWevYiE2qYcoW/IRLHec2C9EJXSbs22+Z+SSMItokxi6HVF5SKSKOcJSRL0imyFYITktqpZaILAZjDum600/D4cdavT2L0wuaoxZ+C5rKGGJIztdtpmZ6n1Nef3O8HWGomnHCeHzAZcolKllCINs1dv8gUkHJj+SKTukCFElIgR+AMzXaFPI2iRJ0Rec6FZQKmIj7nmZEKGJrH9FA5XFpI3vJdeycQEBWWeuxSQBbn+LpwwXXZ5wku7LQgj0RYEPQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+yU6wCtYlo4M8AK5uRx8SOC8YQKR9QULT0b4IvRM/Sw=;
+ b=lwRGxs5JwZhX+9gT9bE9z/rZhEkgysr6zNsYSH0c5cx424gHR8Mu6dUSQtSAYlY0oGA9e2rSIS4JWc5UiitDJlj5N5wTo0RHA1b34q21yI9T7ioJVVF7SUYmDBhQws9jYgWC4bEdLNrmb3Syw5VuAxo0jmwsTw5zMK4nfDDLNqzNVa8sLeEM8R8HMnpNUlhsfr9IP8qCVcYekWg3IFhwBCXqnbeazDpyK/pwjCUL5V6mZyu6Syrv6T1zeZ1+WFo1ebSFXHgouK+Nvh8SxIzCXACx+S/lHK7mG68KPEMuYxmbdwTpNbFkr68Q35kpSryr9W4nyeDWJKWFuZ7imrCBeQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ0PR01MB1253.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:1b::8) by ZQ0PR01MB1304.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:19::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7228.32; Mon, 29 Jan
+ 2024 08:07:50 +0000
+Received: from ZQ0PR01MB1253.CHNPR01.prod.partner.outlook.cn
+ ([fe80::a5c6:9ab0:d20f:cb78]) by
+ ZQ0PR01MB1253.CHNPR01.prod.partner.outlook.cn ([fe80::a5c6:9ab0:d20f:cb78%6])
+ with mapi id 15.20.7228.029; Mon, 29 Jan 2024 08:07:49 +0000
+From: William Qiu <william.qiu@starfivetech.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-can@vger.kernel.org" <linux-can@vger.kernel.org>, Emil Renner Berthing
+	<kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Wolfgang Grandegger
+	<wg@grandegger.com>, Philipp Zabel <p.zabel@pengutronix.de>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Subject: RE: [PATCH v1 0/4] CAST Controller Area Network driver support
+Thread-Topic: [PATCH v1 0/4] CAST Controller Area Network driver support
+Thread-Index: AQHaUmEJuS1ELIQV10Sl2BziVX79G7DwbOcAgAAAc/A=
+Date: Mon, 29 Jan 2024 08:07:49 +0000
+Message-ID: <ZQ0PR01MB1253323CA8F8173D98BDD3949F7EA@ZQ0PR01MB1253.CHNPR01.prod.partner.outlook.cn>
+References: <20240129031239.17037-1-william.qiu@starfivetech.com>
+ <20240129-gills-excitable-01213b5b28eb-mkl@pengutronix.de>
+In-Reply-To: <20240129-gills-excitable-01213b5b28eb-mkl@pengutronix.de>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ0PR01MB1253:EE_|ZQ0PR01MB1304:EE_
+x-ms-office365-filtering-correlation-id: 153effd9-3d58-4c8e-5497-08dc20a162c9
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 44pOvGd56g7FLYoNsiD4lv8AfUqRQJOPx2LUX0NuV9EwpLjJaMl3q3dnubAlMioEuPvaANBpdh9CoJHIkdHvMfQv66deLqdokcmIbwv5dBq3Fqh7iRKc8dq51E4Zy5tUwU9CDPPz22viW38e9dcG0k/iS4tAttBMb+cgkEO0S2z3zMmQeMyxFbbSTqINh0hgol5LfUH7OAkkXwcIC7In4FcuizQBzolp6bxcpTSFO7mOXTbISsVIV21/Ua7vFWFPFn0Hs3OePFyDiIzSAzCB/zp6dkoO22DsckA8+DnU/Cx5xuMb7plJpjPQXDMcIsCHhpC6FvuEztyDXjObs6hL6BJ8lj1JDEdXKqLSGNMenJPmXguPJ8Ul24+FuOd4ndDnKYqyWxClx7ULszIi4qnr6p9Jaq9yFHpd7bQubPNxnjZTlUeNbCJb3l4k16FURCz0NbeWdve5JUz+rFzgvqMmhm5Re8ddoVkXJbF9dUTbl6/eoB9SiTRN2ZemGcwBE79zgEy/N/0NvhXqvisqoBrwC9F9BczFHZraVeHYWGQvShXJxLcjKk/g+n+fQJ6LLlgm
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB1253.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(366004)(396003)(39830400003)(136003)(346002)(230922051799003)(186009)(451199024)(64100799003)(1800799012)(55016003)(41320700001)(38100700002)(122000001)(33656002)(2906002)(41300700001)(40180700001)(83380400001)(71200400001)(26005)(40160700002)(9686003)(7696005)(508600001)(53546011)(6916009)(66446008)(64756008)(54906003)(966005)(66476007)(66556008)(66946007)(76116006)(38070700009)(4326008)(8936002)(86362001)(44832011)(7416002)(8676002)(5660300002);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RjNKSGFXejg2dkxFVmJPT1lmNzdzRDcyaDJOemRONW1lV0tNb0dFWE9jWmtI?=
+ =?utf-8?B?T3BUK1N0QXUvaVc3bDNBa2hiS1dEYzRUNVFCbWZiS0U2eWlHT0JBVG8wU3pt?=
+ =?utf-8?B?RDVtaTNjN2JkYlczRitWU3VxbjA1V1RaY2NHNUFHWGFZNE1ZSkNjVENrbVEy?=
+ =?utf-8?B?bFJXUmhkTy9jRnZDeG9heis3NURDMHR3b2lkUmpGSEZ5clpFNUtydGFVT0ln?=
+ =?utf-8?B?eHd2NmJMWjZyWVdnc3NYQ3hDMEZnVmtWK1NnWTMxT2E4ajQrRitSYnhLeDl2?=
+ =?utf-8?B?c2tUb1VjVGJiNjZpNjMzM1AwcEs1YjhWOTBUWTY2QWRBemhPaUdKOHdLdUdh?=
+ =?utf-8?B?OUliNGs2NFlJdDhwbmxaZ1lvSnpUZzdoSnoraWVTU1ZkeUlqQVJGYmc3WEZk?=
+ =?utf-8?B?NzJFRDFyWE9vQktOM2hoYXVDSjZFUngrZGZHbzFRZGVUZmJVUkJrbkhPdjRj?=
+ =?utf-8?B?TDJtTVBuK0hoTFpNU0UvaHczREFOOGU3cUNDSXhDSzhWcWlMTXp4QTNrb0xG?=
+ =?utf-8?B?b1ZDT241QnUxYUR4eEtxNHh5aUExM1dhQW1HNVNQNlhqVFVkZ29LYW1TbE4x?=
+ =?utf-8?B?SXc3bXYraVhhNWR0SWRrMy9oSG9SZVJ2U3lUalEyNEJsVWovNVR4c05TZFN3?=
+ =?utf-8?B?Y1FMRmlQMGEwUFNWWmNMaUorcjRMYkZjVXhZSE55dmUzNTBRZzB6amIwdGxP?=
+ =?utf-8?B?RnphSjBVbzhiOE9mN1ljeURxc2JVRHRlOXNlYnd2NHJtLzlJd0NHUCt3Ull2?=
+ =?utf-8?B?QWNLRGNWREJlYzZuN0ZYaHNmYmRZWmlqeUVNa2gxa2F2bUFPQjUvdjVGR1Y0?=
+ =?utf-8?B?MjJEK2wvSXdnS1pIYlI2ZWV2am50UjFCblZkVGdKc0xYNmJ1Uy9wa01DTnlr?=
+ =?utf-8?B?SUJrYnprTmhaRzE3SkZyQlFIUDVPSWRYeWZ5b0hNTDBzVW5kb3d2dUdSaERw?=
+ =?utf-8?B?ZXQ0YXE1ZUJkRGN1a3VVdUtOOE1oS1NEaCtBRmlWNlI4MmlreklmcXRMVXN2?=
+ =?utf-8?B?d3hSa3JPT21aa2MxS2tEbWY1UFJDdklCeXdhN2phV2xYNFJIaWhTeGNVUHFi?=
+ =?utf-8?B?Wm5UTUZFM1lUdEcvYThwdHNiRGc1dUUrcER4VStPWW5vSTduQWJueHdHZmIy?=
+ =?utf-8?B?UnUxL2ZveW51TVZsNVd0VGdRRjZrSktTQzNZNXpJNDdHRE0zLzQrR1ZOQlls?=
+ =?utf-8?B?SWIyczUxQ3ZxekhmcE9JLzNGZ0pZTnhMK290eXovelpCOTl2MXBvNElqaWZw?=
+ =?utf-8?B?TnF1akVsRUUvVGNrZ0RkSU9nbk95dzg1cHZVMzlFR3h0Snd1UWlDUERsVlV3?=
+ =?utf-8?B?eDNvMGhaYWZiaDF4am1BRFBHd2pqNnlhNnNYcUI0Nm5zc05IS2pobVFHdXNK?=
+ =?utf-8?B?dnZ4cGJJeHBNbVI5VExRWDBGKzd0ZFBaMGdpQ2N6SGpoR2gvMFpVUE9NK05T?=
+ =?utf-8?B?TW8wK2cxRFdDS2YrbGxGeU02MVNyUTVMNDlpRERHblo5QU5iQ3p0YjhGTWxQ?=
+ =?utf-8?B?b2RyZkJDV01VWER5RlNhYWtKbkJqNDlLeWV6NXdweUhuZ1lxQllGL0tJSW9M?=
+ =?utf-8?B?V2djSWNmbXdTeHhpcWNJSHdiQ0toYnRGV3BoSDloSjB2MEVTOXMvY1EzaER0?=
+ =?utf-8?B?Vk5KQUhkT002NEtxV25hUUhxbXZYb1Z6MjAxcFFPYi9ESjNxUHNSRFhaaVg4?=
+ =?utf-8?B?ZWZ1TTZwUTduR2FhV2Nzc3FNM1FmY0JWYlVTUWZoQk94MiswMjZ5aklMME5p?=
+ =?utf-8?B?cUlKaG5TRHlES2VwUndOT25ZZWdJbEJxUlFFTFlzNVBXUFhrdDRVb2FUN1Fn?=
+ =?utf-8?B?RjQ3eWFmVDNJc3hUSnptRVdJNC9IYmFhSUMzOW9uOUtzaDM5WjI0QkpqWm5s?=
+ =?utf-8?B?WFQzd3R1elpTVzVNczhvV0RabWhjS3pXM0gxYnhSTmVXVnd4ZmhUR1J5aVEr?=
+ =?utf-8?B?NTNZVmdXcXErVHJ3b3ZqT25aeXN2VXcrRDYwMkdEUVVTTkFqblArUGhLM3Bj?=
+ =?utf-8?B?WHVsN2NlWUF4Q0tWTlBOUSs2THlNYWZ5WWxIMmpNR1FaVG0weDZieXZnSkVh?=
+ =?utf-8?B?ME8rS2pWNCtaa0xQTUxGVTRMdXRTQ1BPcklQNElwVkVha002S2lDSHFBeU15?=
+ =?utf-8?B?aFFsT3QxbU5DT3VqQ214MFROZEtsMmRoaUd3QjJxeGlGS0FVMWFnb2hLeFpX?=
+ =?utf-8?B?UGc9PQ==?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240125062044.63344-1-cuiyunhui@bytedance.com>
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB1253.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 153effd9-3d58-4c8e-5497-08dc20a162c9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Jan 2024 08:07:49.8801
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WZbmsOF4A1vmSNzHg8jVBoGnrWHdM5xX0niDJj9aWctlZjoL/z0yZdbdgfVM2DpH9dDlGtoQe0urJOid9Hy+LYWtY1VdUFD9QP8I3IQZtjM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1304
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_000223_512160_D41B83B8 
-X-CRM114-Status: GOOD (  25.08  )
+X-CRM114-CacheID: sfid-20240129_000755_111234_38CE1AFF 
+X-CRM114-Status: GOOD (  21.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,405 +144,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 25, 2024 at 02:20:44PM +0800, Yunhui Cui wrote:
-> Add support for flush_tlb_range() to improve TLB performance for
-> UP systems. In order to avoid the mutual inclusion of tlbflush.h
-> and hugetlb.h, the UP part is also implemented in tlbflush.c.
-
-Hi Yunhui,
-
-IIRC, Samuel sent similar patch series a few weeks ago.
-
-https://lore.kernel.org/linux-riscv/20240102220134.3229156-1-samuel.holland@sifive.com/
-
-After that series, do you still need this patch?
-
-Thanks
-> 
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> ---
->  arch/riscv/include/asm/tlbflush.h |  61 ++++++----
->  arch/riscv/mm/Makefile            |   2 +-
->  arch/riscv/mm/tlbflush.c          | 195 ++++++++++++++++++------------
->  3 files changed, 156 insertions(+), 102 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-> index 928f096dca21..426f043fb450 100644
-> --- a/arch/riscv/include/asm/tlbflush.h
-> +++ b/arch/riscv/include/asm/tlbflush.h
-> @@ -10,12 +10,21 @@
->  #include <linux/mm_types.h>
->  #include <asm/smp.h>
->  #include <asm/errata_list.h>
-> +#include <asm/tlbbatch.h>
->  
->  #define FLUSH_TLB_MAX_SIZE      ((unsigned long)-1)
->  #define FLUSH_TLB_NO_ASID       ((unsigned long)-1)
->  
->  #ifdef CONFIG_MMU
->  extern unsigned long asid_mask;
-> +DECLARE_STATIC_KEY_FALSE(use_asid_allocator);
-> +
-> +struct flush_tlb_range_data {
-> +	unsigned long asid;
-> +	unsigned long start;
-> +	unsigned long size;
-> +	unsigned long stride;
-> +};
->  
->  static inline void local_flush_tlb_all(void)
->  {
-> @@ -27,12 +36,40 @@ static inline void local_flush_tlb_page(unsigned long addr)
->  {
->  	ALT_FLUSH_TLB_PAGE(__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory"));
->  }
-> +
-> +static inline void local_flush_tlb_all_asid(unsigned long asid)
-> +{
-> +	if (asid != FLUSH_TLB_NO_ASID)
-> +		__asm__ __volatile__ ("sfence.vma x0, %0"
-> +				:
-> +				: "r" (asid)
-> +				: "memory");
-> +	else
-> +		local_flush_tlb_all();
-> +}
-> +
-> +static inline void local_flush_tlb_page_asid(unsigned long addr,
-> +		unsigned long asid)
-> +{
-> +	if (asid != FLUSH_TLB_NO_ASID)
-> +		__asm__ __volatile__ ("sfence.vma %0, %1"
-> +				:
-> +				: "r" (addr), "r" (asid)
-> +				: "memory");
-> +	else
-> +		local_flush_tlb_page(addr);
-> +}
-> +
-> +static inline unsigned long get_mm_asid(struct mm_struct *mm)
-> +{
-> +	return static_branch_unlikely(&use_asid_allocator) ?
-> +			atomic_long_read(&mm->context.id) & asid_mask : FLUSH_TLB_NO_ASID;
-> +}
->  #else /* CONFIG_MMU */
->  #define local_flush_tlb_all()			do { } while (0)
->  #define local_flush_tlb_page(addr)		do { } while (0)
->  #endif /* CONFIG_MMU */
->  
-> -#if defined(CONFIG_SMP) && defined(CONFIG_MMU)
->  void flush_tlb_all(void);
->  void flush_tlb_mm(struct mm_struct *mm);
->  void flush_tlb_mm_range(struct mm_struct *mm, unsigned long start,
-> @@ -55,26 +92,4 @@ void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
->  void arch_flush_tlb_batched_pending(struct mm_struct *mm);
->  void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch);
->  
-> -#else /* CONFIG_SMP && CONFIG_MMU */
-> -
-> -#define flush_tlb_all() local_flush_tlb_all()
-> -#define flush_tlb_page(vma, addr) local_flush_tlb_page(addr)
-> -
-> -static inline void flush_tlb_range(struct vm_area_struct *vma,
-> -		unsigned long start, unsigned long end)
-> -{
-> -	local_flush_tlb_all();
-> -}
-> -
-> -/* Flush a range of kernel pages */
-> -static inline void flush_tlb_kernel_range(unsigned long start,
-> -	unsigned long end)
-> -{
-> -	local_flush_tlb_all();
-> -}
-> -
-> -#define flush_tlb_mm(mm) flush_tlb_all()
-> -#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
-> -#endif /* !CONFIG_SMP || !CONFIG_MMU */
-> -
->  #endif /* _ASM_RISCV_TLBFLUSH_H */
-> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-> index 2c869f8026a8..7c6c4c858a6b 100644
-> --- a/arch/riscv/mm/Makefile
-> +++ b/arch/riscv/mm/Makefile
-> @@ -19,7 +19,7 @@ obj-y += context.o
->  obj-y += pmem.o
->  
->  ifeq ($(CONFIG_MMU),y)
-> -obj-$(CONFIG_SMP) += tlbflush.o
-> +obj-y += tlbflush.o
->  endif
->  obj-$(CONFIG_HUGETLB_PAGE) += hugetlbpage.o
->  obj-$(CONFIG_PTDUMP_CORE) += ptdump.o
-> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-> index 8d12b26f5ac3..4765603fa08a 100644
-> --- a/arch/riscv/mm/tlbflush.c
-> +++ b/arch/riscv/mm/tlbflush.c
-> @@ -6,28 +6,36 @@
->  #include <linux/hugetlb.h>
->  #include <asm/sbi.h>
->  #include <asm/mmu_context.h>
-> +#include <asm/tlbflush.h>
->  
-> -static inline void local_flush_tlb_all_asid(unsigned long asid)
-> +static unsigned long get_stride_size(struct vm_area_struct *vma)
->  {
-> -	if (asid != FLUSH_TLB_NO_ASID)
-> -		__asm__ __volatile__ ("sfence.vma x0, %0"
-> -				:
-> -				: "r" (asid)
-> -				: "memory");
-> -	else
-> -		local_flush_tlb_all();
-> -}
-> +	unsigned long stride_size;
->  
-> -static inline void local_flush_tlb_page_asid(unsigned long addr,
-> -		unsigned long asid)
-> -{
-> -	if (asid != FLUSH_TLB_NO_ASID)
-> -		__asm__ __volatile__ ("sfence.vma %0, %1"
-> -				:
-> -				: "r" (addr), "r" (asid)
-> -				: "memory");
-> -	else
-> -		local_flush_tlb_page(addr);
-> +	if (!is_vm_hugetlb_page(vma))
-> +		return PAGE_SIZE;
-> +
-> +	stride_size = huge_page_size(hstate_vma(vma));
-> +
-> +	/*
-> +	 * As stated in the privileged specification, every PTE in a
-> +	 * NAPOT region must be invalidated, so reset the stride in that
-> +	 * case.
-> +	 */
-> +	if (has_svnapot()) {
-> +		if (stride_size >= PGDIR_SIZE)
-> +			stride_size = PGDIR_SIZE;
-> +		else if (stride_size >= P4D_SIZE)
-> +			stride_size = P4D_SIZE;
-> +		else if (stride_size >= PUD_SIZE)
-> +			stride_size = PUD_SIZE;
-> +		else if (stride_size >= PMD_SIZE)
-> +			stride_size = PMD_SIZE;
-> +		else
-> +			stride_size = PAGE_SIZE;
-> +	}
-> +
-> +	return stride_size;
->  }
->  
->  /*
-> @@ -66,31 +74,12 @@ static inline void local_flush_tlb_range_asid(unsigned long start,
->  		local_flush_tlb_range_threshold_asid(start, size, stride, asid);
->  }
->  
-> -void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
-> -{
-> -	local_flush_tlb_range_asid(start, end, PAGE_SIZE, FLUSH_TLB_NO_ASID);
-> -}
-> -
-> +#ifdef CONFIG_SMP
->  static void __ipi_flush_tlb_all(void *info)
->  {
->  	local_flush_tlb_all();
->  }
->  
-> -void flush_tlb_all(void)
-> -{
-> -	if (riscv_use_ipi_for_rfence())
-> -		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
-> -	else
-> -		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
-> -}
-> -
-> -struct flush_tlb_range_data {
-> -	unsigned long asid;
-> -	unsigned long start;
-> -	unsigned long size;
-> -	unsigned long stride;
-> -};
-> -
->  static void __ipi_flush_tlb_range_asid(void *info)
->  {
->  	struct flush_tlb_range_data *d = info;
-> @@ -138,10 +127,18 @@ static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
->  		put_cpu();
->  }
->  
-> -static inline unsigned long get_mm_asid(struct mm_struct *mm)
-> +void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
->  {
-> -	return static_branch_unlikely(&use_asid_allocator) ?
-> -			atomic_long_read(&mm->context.id) & asid_mask : FLUSH_TLB_NO_ASID;
-> +	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
-> +			  addr, PAGE_SIZE, PAGE_SIZE);
-> +}
-> +
-> +void flush_tlb_all(void)
-> +{
-> +	if (riscv_use_ipi_for_rfence())
-> +		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
-> +	else
-> +		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
->  }
->  
->  void flush_tlb_mm(struct mm_struct *mm)
-> @@ -158,41 +155,12 @@ void flush_tlb_mm_range(struct mm_struct *mm,
->  			  start, end - start, page_size);
->  }
->  
-> -void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
-> -{
-> -	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
-> -			  addr, PAGE_SIZE, PAGE_SIZE);
-> -}
-> -
->  void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
->  		     unsigned long end)
->  {
->  	unsigned long stride_size;
->  
-> -	if (!is_vm_hugetlb_page(vma)) {
-> -		stride_size = PAGE_SIZE;
-> -	} else {
-> -		stride_size = huge_page_size(hstate_vma(vma));
-> -
-> -		/*
-> -		 * As stated in the privileged specification, every PTE in a
-> -		 * NAPOT region must be invalidated, so reset the stride in that
-> -		 * case.
-> -		 */
-> -		if (has_svnapot()) {
-> -			if (stride_size >= PGDIR_SIZE)
-> -				stride_size = PGDIR_SIZE;
-> -			else if (stride_size >= P4D_SIZE)
-> -				stride_size = P4D_SIZE;
-> -			else if (stride_size >= PUD_SIZE)
-> -				stride_size = PUD_SIZE;
-> -			else if (stride_size >= PMD_SIZE)
-> -				stride_size = PMD_SIZE;
-> -			else
-> -				stride_size = PAGE_SIZE;
-> -		}
-> -	}
-> -
-> +	stride_size = get_stride_size(vma);
->  	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
->  			  start, end - start, stride_size);
->  }
-> @@ -203,6 +171,12 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
->  			  start, end - start, PAGE_SIZE);
->  }
->  
-> +void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
-> +{
-> +	__flush_tlb_range(&batch->cpumask, FLUSH_TLB_NO_ASID, 0,
-> +			  FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
-> +}
-> +
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->  void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
->  			unsigned long end)
-> @@ -212,6 +186,77 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
->  }
->  #endif
->  
-> +#else
-> +static void __flush_tlb_range_up(struct mm_struct *mm, unsigned long start,
-> +				 unsigned long size, unsigned long stride)
-> +{
-> +	unsigned long asid = FLUSH_TLB_NO_ASID;
-> +
-> +	if (mm)
-> +		asid = get_mm_asid(mm);
-> +
-> +	local_flush_tlb_range_asid(start, size, stride, asid);
-> +}
-> +
-> +void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
-> +{
-> +	local_flush_tlb_page(addr);
-> +}
-> +
-> +void flush_tlb_all(void)
-> +{
-> +	local_flush_tlb_all();
-> +}
-> +
-> +void flush_tlb_mm(struct mm_struct *mm)
-> +{
-> +	__flush_tlb_range_up(mm, 0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
-> +}
-> +
-> +void flush_tlb_mm_range(struct mm_struct *mm,
-> +			unsigned long start, unsigned long end,
-> +			unsigned int page_size)
-> +{
-> +	__flush_tlb_range_up(mm, start, end - start, page_size);
-> +}
-> +
-> +void flush_tlb_range(struct vm_area_struct *vma,
-> +		unsigned long start, unsigned long end)
-> +{
-> +	unsigned long stride_size;
-> +
-> +	stride_size = get_stride_size(vma);
-> +	__flush_tlb_range_up(vma->vm_mm, start, end - start, stride_size);
-> +}
-> +
-> +/* Flush a range of kernel pages */
-> +void flush_tlb_kernel_range(unsigned long start,
-> +	unsigned long end)
-> +{
-> +	__flush_tlb_range_up(NULL, start, end - start, PAGE_SIZE);
-> +}
-> +
-> +void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
-> +{
-> +	__flush_tlb_range_up(NULL, 0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
-> +}
-> +
-> +#ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> +void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
-> +			unsigned long end)
-> +{
-> +	__flush_tlb_range_up(vma->vm_mm, start, end - start, PMD_SIZE);
-> +}
-> +#endif
-> +
-> +#endif
-> +
-> +void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
-> +{
-> +	local_flush_tlb_range_asid(start, end - start, PAGE_SIZE,
-> +				   FLUSH_TLB_NO_ASID);
-> +}
-> +
->  bool arch_tlbbatch_should_defer(struct mm_struct *mm)
->  {
->  	return true;
-> @@ -228,9 +273,3 @@ void arch_flush_tlb_batched_pending(struct mm_struct *mm)
->  {
->  	flush_tlb_mm(mm);
->  }
-> -
-> -void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
-> -{
-> -	__flush_tlb_range(&batch->cpumask, FLUSH_TLB_NO_ASID, 0,
-> -			  FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
-> -}
-> -- 
-> 2.20.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+DQo+IC0tLS0tT3JpZ2luYWwgTWVzc2FnZS0tLS0tDQo+IEZyb206IE1hcmMgS2xlaW5lLUJ1ZGRl
+IDxta2xAcGVuZ3V0cm9uaXguZGU+DQo+IFNlbnQ6IDIwMjTlubQx5pyIMjnml6UgMTU6NTgNCj4g
+VG86IFdpbGxpYW0gUWl1IDx3aWxsaWFtLnFpdUBzdGFyZml2ZXRlY2guY29tPg0KPiBDYzogZGV2
+aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7DQo+
+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmc7IGxpbnV4LWNhbkB2Z2VyLmtlcm5lbC5v
+cmc7IEVtaWwgUmVubmVyDQo+IEJlcnRoaW5nIDxrZXJuZWxAZXNtaWwuZGs+OyBSb2IgSGVycmlu
+ZyA8cm9iaCtkdEBrZXJuZWwub3JnPjsgV29sZmdhbmcNCj4gR3JhbmRlZ2dlciA8d2dAZ3JhbmRl
+Z2dlci5jb20+OyBQaGlsaXBwIFphYmVsIDxwLnphYmVsQHBlbmd1dHJvbml4LmRlPjsNCj4gS3J6
+eXN6dG9mIEtvemxvd3NraSA8a3J6eXN6dG9mLmtvemxvd3NraStkdEBsaW5hcm8ub3JnPjsgQ29u
+b3IgRG9vbGV5DQo+IDxjb25vcitkdEBrZXJuZWwub3JnPjsgRGF2aWQgUyAuIE1pbGxlciA8ZGF2
+ZW1AZGF2ZW1sb2Z0Lm5ldD47IEVyaWMNCj4gRHVtYXpldCA8ZWR1bWF6ZXRAZ29vZ2xlLmNvbT47
+IEpha3ViIEtpY2luc2tpIDxrdWJhQGtlcm5lbC5vcmc+OyBQYW9sbw0KPiBBYmVuaSA8cGFiZW5p
+QHJlZGhhdC5jb20+OyBQYXVsIFdhbG1zbGV5IDxwYXVsLndhbG1zbGV5QHNpZml2ZS5jb20+Ow0K
+PiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQGRhYmJlbHQuY29tPjsgQWxiZXJ0IE91IDxhb3VAZWVj
+cy5iZXJrZWxleS5lZHU+DQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggdjEgMC80XSBDQVNUIENvbnRy
+b2xsZXIgQXJlYSBOZXR3b3JrIGRyaXZlciBzdXBwb3J0DQo+IA0KPiBPbiAyOS4wMS4yMDI0IDEx
+OjEyOjM1LCBXaWxsaWFtIFFpdSB3cm90ZToNCj4gPiBIaSwNCj4gPg0KPiA+IFRoaXMgcGF0Y2hz
+ZXQgYWRkcyBpbml0aWFsIHJ1ZGltZW50YXJ5IHN1cHBvcnQgZm9yIHRoZSBDQVNUIENvbnRyb2xs
+ZXINCj4gPiBBcmVhIE5ldHdvcmsgZHJpdmVyLiBBbmQgd2UgcmVnaXN0ZXJlZCBjYXN0IGluIGtl
+cm5lbCBhcyB3ZWxsLiBUaGlzDQo+ID4gZHJpdmVyIHdpbGwgYmUgYXBwbGllZCBpbiBKSDcxMTAg
+U29DIGZpcnN0LCBzbyBhZGQgcmVsZXZhbnQNCj4gPiBjb21wYXRpYmlsaXR5IHN1cHBvcnQuDQo+
+IA0KPiBJcyB0aGVyZSBhIHB1YmxpYyBhdmFpbGFibGUgZGF0YSBzaGVldCBmb3IgdGhlIElQIGNv
+cmU/DQo+IA0KPiBNYXJjDQo+IA0KDQpXZSBkbyBoYXZlIHRoZSBkYXRhIHNoZWV0LCBidXQgSSdt
+IG5vdCBzdXJlIGlmIENBU1QgaXMgd2lsbGluZyB0byBtYWtlIGl0DQpwdWJsaWMuIEkgbmVlZCB0
+byBjb250YWN0IHRoZW0gZmlyc3QgYW5kIHRoZW4gcmVwbHkgdG8geW91Lg0KT3IgeW91IGNhbiBj
+b250YWN0IHRoZW0gb24gdGhlaXIgd2Vic2l0ZSwgd2hpY2ggaXMgaHR0cHM6Ly93d3cuY2FzdC1p
+bmMuY29tLy4NCg0KVGhhbmtzLA0KV2lsbGlhbQ0KPiA+DQo+ID4gV2lsbGlhbSBRaXUgKDQpOg0K
+PiA+ICAgZHQtYmluZGluZ3M6IHZlbmRvci1wcmVmaXhlczogQWRkIGNhc3QgdmVuZG9yIHByZWZp
+eA0KPiA+ICAgZHQtYmluZGluZ3M6IGNhbjogQWRkIGJpbmRpbmdzIGZvciBDQVNUIENBTiBDb250
+cm9sbGVyDQo+ID4gICBjYW46IGNhc3Q6IGFkZCBkcml2ZXIgZm9yIENBU1QgQ0FOIGNvbnRyb2xs
+ZXINCj4gPiAgIHJpc2N2OiBkdHM6IHN0YXJmaXZlOiBqaDcxMTA6IEFkZCBDQU4gbm9kZQ0KPiA+
+DQo+ID4gIC4uLi9kZXZpY2V0cmVlL2JpbmRpbmdzL25ldC9jYW4vY2FzdCxjYW4ueWFtbCB8ICAg
+OTUgKysNCj4gPiAgLi4uL2RldmljZXRyZWUvYmluZGluZ3MvdmVuZG9yLXByZWZpeGVzLnlhbWwg
+IHwgICAgMiArDQo+ID4gIE1BSU5UQUlORVJTICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgIDcgKw0KPiA+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL2poNzExMC5k
+dHNpICAgICAgfCAgIDMyICsNCj4gPiAgZHJpdmVycy9uZXQvY2FuL0tjb25maWcgICAgICAgICAg
+ICAgICAgICAgICAgIHwgICAgNyArDQo+ID4gIGRyaXZlcnMvbmV0L2Nhbi9NYWtlZmlsZSAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgIDEgKw0KPiA+ICBkcml2ZXJzL25ldC9jYW4vY2FzdF9jYW4u
+YyAgICAgICAgICAgICAgICAgICAgfCAxMjE1DQo+ICsrKysrKysrKysrKysrKysrDQo+ID4gIDcg
+ZmlsZXMgY2hhbmdlZCwgMTM1OSBpbnNlcnRpb25zKCspDQo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0
+NA0KPiA+IERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9uZXQvY2FuL2Nhc3QsY2Fu
+LnlhbWwNCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvbmV0L2Nhbi9jYXN0X2Nhbi5j
+DQo+ID4NCj4gPiAtLQ0KPiA+IDIuMzQuMQ0KPiA+DQo+ID4NCj4gPg0KPiANCj4gLS0NCj4gUGVu
+Z3V0cm9uaXggZS5LLiAgICAgICAgICAgICAgICAgfCBNYXJjIEtsZWluZS1CdWRkZSAgICAgICAg
+ICB8DQo+IEVtYmVkZGVkIExpbnV4ICAgICAgICAgICAgICAgICAgIHwgaHR0cHM6Ly93d3cucGVu
+Z3V0cm9uaXguZGUgfA0KPiBWZXJ0cmV0dW5nIE7DvHJuYmVyZyAgICAgICAgICAgICAgfCBQaG9u
+ZTogKzQ5LTUxMjEtMjA2OTE3LTEyOSB8DQo+IEFtdHNnZXJpY2h0IEhpbGRlc2hlaW0sIEhSQSAy
+Njg2IHwgRmF4OiAgICs0OS01MTIxLTIwNjkxNy05ICAgfA0KX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
