@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C03C47422
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 11:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 724C0C47422
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 11:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RK+PmuFMNvjezQVhH6TuRAguEAFld+dOoH7KIb6cc64=; b=hKsZ9rqCvgYls9GoPhL6vRPv89
-	HllzxJsZG7oKeYcFyEbb/QKUMtx+B7DYyp9g3rqcsw0cvhOUjSh21Wbm8Iebzj15X/E8xPgwU73jm
-	G85clilosJWBpeZI20DXZGZGGZ1XLNdbugNlgqLwm0WN9+G2KJRKwCTaLruxR+EDrDFgVhoQFy8D2
-	aYzMnr2uIuI2UkAewtnBS1GtisRkLoYLpcUpc/7RYCIK8GyMZAcg+NrnUnHg4omWjozoEWL2rowC8
-	KsIlRvipdskwKvWpAouZcI3mmy4ojfGIxaXy3UYrUE1vebHvUQcNlJoUod4eSkt6r5sKMXf7qnqiH
-	K9uBGNEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bgkJBv6j+Pdn/YSYLuAdHGG9irWpk1b6UQiLjJnAFxU=; b=Ln1uVnqMIIwcP3
+	ojj0fh9QJPiImNt7eWinF0f4FsQIIGztV+GX/1Y7sow4M/kJyhL2soLCPCnGee6kDhfhrhIk064ZI
+	9EKQFa4G27iJFD4tXXd3XY2VEvLJdKIQ3BkjZ4nEjTGoL/Y0VBtgiBlvZpNARe9CcucZtXbfysLD7
+	iTdX8JLaWqijDree7KhE7bKBQFeH8sUvTXTqBwOegw7gEdwhbclYFMI8WkugS/ALBATQ0QJlqso6s
+	lTINKmQ1LmU0J6jz9Mt4/PtsG7r7RJApO3Rp9XNa01XC/m+glpnnv5041ViIvpynU4ZijqCOYQ60y
+	1cgAa1+gwWlwqRRKZKvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUPra-0000000CPQ3-3XLv;
-	Mon, 29 Jan 2024 11:31:42 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1rUQ2h-0000000CR8F-1sJo;
+	Mon, 29 Jan 2024 11:43:11 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUPrX-0000000CPPE-3aYA
+	id 1rUQ2f-0000000CR72-0MbI
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 11:31:41 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1rUPrL-0006Kn-Aw; Mon, 29 Jan 2024 12:31:27 +0100
-Received: from [2a0a:edc0:0:b01:1d::7b] (helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1rUPrI-0039rt-4A; Mon, 29 Jan 2024 12:31:24 +0100
-Received: from pengutronix.de (unknown [172.20.34.65])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id A89FE280977;
-	Mon, 29 Jan 2024 11:31:23 +0000 (UTC)
-Date: Mon, 29 Jan 2024 12:31:23 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: William Qiu <william.qiu@starfivetech.com>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "linux-can@vger.kernel.org" <linux-can@vger.kernel.org>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
-	Wolfgang Grandegger <wg@grandegger.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: RE: [PATCH v1 0/4] CAST Controller Area Network driver support
-Message-ID: <20240129-boneless-herbicide-24966319a1e4-mkl@pengutronix.de>
-References: <20240129031239.17037-1-william.qiu@starfivetech.com>
- <20240129-gills-excitable-01213b5b28eb-mkl@pengutronix.de>
- <ZQ0PR01MB1253323CA8F8173D98BDD3949F7EA@ZQ0PR01MB1253.CHNPR01.prod.partner.outlook.cn>
+	Mon, 29 Jan 2024 11:43:10 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-55f12332350so655942a12.1
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 03:43:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1706528586; x=1707133386; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=jll+xDGWtNinZyXQQxr9XYKpco16f8UDTOTc59xvHik=;
+        b=SzEaguqDsCb7Oa2RcNi4CHE4sgX4uSBtBr2A27HDVwZroRh4Hso3oHgXhuHFsZV30N
+         ZlaV/mxdhDBuYcTJ90MM2JyY5ldnSo5sMhOsCU8DF4H1pUSZmtle6HlPVCnnCTllJQ+N
+         RBGA0XrYkdUx+tUcyzvMhSgNwYm68hTX5zcZGKpIpJDTUCWSuvP9oIc+3I1Yc3abajOr
+         VSCUeQwAI8JgFMGpQVwZPmBzCY7ihvHqMc8+PlVY5xwNYiYtdMgLQpV3F+c7vTLPRqdu
+         0x7MpTzELM0lHhT90DlPCUeQdFRZl937bRtjkDGvbJrLlSW19y1BBTEZDbYPy9gAHZ0k
+         Y1gA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1706528586; x=1707133386;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jll+xDGWtNinZyXQQxr9XYKpco16f8UDTOTc59xvHik=;
+        b=pr4Rq/VvZW7rQ4yde4KolG1+WrxHh/z9SwUxISZdy/HJZseKqPPvIEQQndECd95epT
+         cFIV8dzS6mgTwizi9W4lJRAL9szgfkqiGhPN0S38ECcvbEEhMVTJSnc2vHEXIrlCFJx/
+         X5O+CMJLt3rJ6KyPZ8eOS9KxDjKgtqKwHAml5XKFVMrh0BfRk+Dy7N80eBb+jerpluB7
+         XI0weE96linBWkqd17i3bJsxFlxdJWtMm4Sxbm8ijyrIqJYgpap4J7ZCiVDlzz9Kd/85
+         VEb0SZlk6API7ydTh5xT1P+t11AbbrebRH3k6Kwp0/7ASFBvAU45ivV8nrD6AIxaVZwF
+         m31Q==
+X-Gm-Message-State: AOJu0Yx13K0A87sFWFVftwu/6JqxYHjF7hrTtXWlrlAzc854zQIRuskt
+	L0YUhGd/ysbBpOZEaYorYalcm7BhXjQoihpcdfkL5eRZTl9ZmeuLjq8gDJ3uVeamdl34CK99Pz1
+	L
+X-Google-Smtp-Source: AGHT+IEH86+9YzoszcB0Vw77R/3cAt0Y76DqSvHQ0Vzf0hiKE1eyYrhFeBRHNrBofYY00RvjvRoY9g==
+X-Received: by 2002:a05:6402:22ea:b0:55e:ed35:ffce with SMTP id dn10-20020a05640222ea00b0055eed35ffcemr2148019edb.37.1706528586113;
+        Mon, 29 Jan 2024 03:43:06 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id fk1-20020a056402398100b0055d19c9daf2sm3657333edb.15.2024.01.29.03.43.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jan 2024 03:43:05 -0800 (PST)
+Date: Mon, 29 Jan 2024 12:43:04 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, netdev@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song <yhs@fb.com>, 
+	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
+	Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, 
+	Luke Nelson <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>
+Subject: Re: Re: [PATCH RESEND bpf-next v3 4/6] riscv, bpf: Add necessary Zbb
+ instructions
+Message-ID: <20240129-d06c79a17a5091b3403fc5b6@orel>
+References: <20240115131235.2914289-1-pulehui@huaweicloud.com>
+ <20240115131235.2914289-5-pulehui@huaweicloud.com>
+ <871qa2zog6.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-In-Reply-To: <ZQ0PR01MB1253323CA8F8173D98BDD3949F7EA@ZQ0PR01MB1253.CHNPR01.prod.partner.outlook.cn>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <871qa2zog6.fsf@all.your.base.are.belong.to.us>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_033139_938916_9C6F56F3 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20240129_034309_171531_5183C435 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,70 +97,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4342086867404946968=="
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, Jan 27, 2024 at 06:16:41PM +0100, Bj=F6rn T=F6pel wrote:
+> Pu Lehui <pulehui@huaweicloud.com> writes:
+> =
 
---===============4342086867404946968==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hdklyqubvughg56z"
-Content-Disposition: inline
+> > From: Pu Lehui <pulehui@huawei.com>
+> >
+> > Add necessary Zbb instructions introduced by [0] to reduce code size and
+> > improve performance of RV64 JIT. Meanwhile, a runtime deteted helper is
+> > added to check whether the CPU supports Zbb instructions.
+> >
+> > Link: https://github.com/riscv/riscv-bitmanip/releases/download/1.0.0/b=
+itmanip-1.0.0-38-g865e7a7.pdf [0]
+> > Signed-off-by: Pu Lehui <pulehui@huawei.com>
+> > ---
+> >  arch/riscv/net/bpf_jit.h | 32 ++++++++++++++++++++++++++++++++
+> >  1 file changed, 32 insertions(+)
+> >
+> > diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+> > index e30501b46f8f..51f6d214086f 100644
+> > --- a/arch/riscv/net/bpf_jit.h
+> > +++ b/arch/riscv/net/bpf_jit.h
+> > @@ -18,6 +18,11 @@ static inline bool rvc_enabled(void)
+> >  	return IS_ENABLED(CONFIG_RISCV_ISA_C);
+> >  }
+> >  =
 
+> > +static inline bool rvzbb_enabled(void)
+> > +{
+> > +	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && riscv_has_extension_likely=
+(RISCV_ISA_EXT_ZBB);
+> =
 
---hdklyqubvughg56z
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> Hmm, I'm thinking about the IS_ENABLED(CONFIG_RISCV_ISA_ZBB) semantics
+> for a kernel JIT compiler.
+> =
 
-On 29.01.2024 08:07:49, William Qiu wrote:
-> > Is there a public available data sheet for the IP core?
->=20
-> We do have the data sheet, but I'm not sure if CAST is willing to make it
-> public. I need to contact them first and then reply to you.
-> Or you can contact them on their website, which is https://www.cast-inc.c=
-om/.
+> IS_ENABLED(CONFIG_RISCV_ISA_ZBB) affects the kernel compiler flags.
+> Should it be enough to just have the run-time check? Should a kernel
+> built w/o Zbb be able to emit Zbb from the JIT?
+>
 
-I'll contact them via the website, but please ask them as well, as you
-have probably a better, more direct contact to them.
+My two cents (which might be worth less than two cents due to my lack of
+BPF knowledge) is yes, the JIT should be allowed to emit Zbb instructions
+even when the kernel is not built with a compiler which has done so. In
+fact, we have insn-def.h for situations similar to this.
 
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---hdklyqubvughg56z
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEDs2BvajyNKlf9TJQvlAcSiqKBOgFAmW3jIgACgkQvlAcSiqK
-BOiiCwf/eNLsL6NzPZwKlkK3NClJKuaLytTsBVxWnFSMs/IZehhGTbvC8ATFyqXM
-IoRcuBQ6mMM4KO3nU5ytVMriTGbdIMRvGBgrO/YDNiRChk+vCxSRn+oJ5QUWkZpT
-hLcJWXbpAYg4BKOCO9BEQUE6BpPKBxfgXYKO7RMhu5Qg8MZowYaUT/fx8UXibuEb
-Hr0KlCJxWRlUZ5LXxtad90r03K2PaLF3V3ORyROLEE4f8uGIKGG/JsSlgRaOKtic
-PHNm0K1J1Xxv+8X8rxgwbDhjt/kQznukqUJeOagX6ng6CVCo+qK5qSf1hbOdBm4h
-dDJAw2btJHE7BR/CYNTMygV7gtfdqw==
-=Mf4/
------END PGP SIGNATURE-----
-
---hdklyqubvughg56z--
-
-
---===============4342086867404946968==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4342086867404946968==--
-
