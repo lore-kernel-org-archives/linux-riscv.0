@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D70FC47DDB
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 15:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C0DC48286
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 15:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6B/7zeKw6g4lUG+mstXhpOQcMklhTPHvohvNVV2ji9Q=; b=hDd+/RAPWtt2VV
-	iHI54cbns1l5A5lsnw0Kpxtr5YgFv2kj/hQMvFXrZ9ZwSJHA5OBrjGmIqD17weIpvRrG6Bi6t1/rV
-	2KwFfsbZmIpfLrrQxknX/FaIvuARPHish9kltFGNqdlf5xCyHj3EWwFmDIm1CJPSfYEhkH8iB8Y5i
-	KPRr1IFugDJGkarmxWTegIOq6DC1WxRmFGBjT/iTIWVT7EUcThugvhqsXRvfQjTs+L01an4d7/dXs
-	jhCOhmKYniMxjjrSCWVr7hIjsSC5cbBYPGWdMtc+ee0D/bzNzNM0PyRwpKUGOz4Q27+jNz6jQb0/2
-	b7MnIqhhRPAOacMqvA+A==;
+	List-Owner; bh=0pr8O70OKWWB2D3rdKYKpvcNOM/3ygU86/zuUd3jDLE=; b=oMFXa/cDj2MOVF
+	PRFcC8Ttvk1uvmmH8ry83Reio6JtkoszTS3L2XrXxgvuiVuEbzM47VNQvcEAPzyVHlYkEO7wI6IXw
+	gLmJzhWARFb2DNwSsV4iOrNPLffl6SMRv+9GFNMwlqP3vZkPm5VzWpj0IakLEE/NwCOfDvofNTsRr
+	W3uQ1+V/e2qf6ziCUsD2JnSWpMjvTum+aP/vAu8MHaKifTXQckzw9XwZ+EIh3k6dTlZB7bNCEHEMJ
+	YB1d6+zfaLUpvgVZv39hdSkm8SWKiyQDQzgGBb1fEKGTJJko4WwiYgCNmVALxTObdgprjj6danxs4
+	HkWn5xKv/4NbVkA+kO2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUTND-0000000DE3i-3BtE;
-	Mon, 29 Jan 2024 15:16:35 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1rUTNF-0000000DE4O-0KkA;
+	Mon, 29 Jan 2024 15:16:37 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUTN7-0000000DE13-461q
+	id 1rUTNA-0000000DE26-0pDA
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 15:16:31 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-40e72a567eeso48202545e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 07:16:29 -0800 (PST)
+	Mon, 29 Jan 2024 15:16:33 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-33ae5e7d787so1588057f8f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 07:16:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1706541388; x=1707146188; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1706541390; x=1707146190; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gGa8xFRwP8zLCWj6u5lZzVVx+K8OLPxZ4f43XzHIoys=;
-        b=gnq+Qc3I9oDPc/q36GUdV8KjNPrZ2hC62E/yQKRCcW2xEbTy3jbBXTjqKMSjWVFAdf
-         2zu9LlrN5AO+hyYPLLMQsMRUnXzKtS2cGtH4DizSbPaGZTKLAFsE34S6/8NRPCqKXaly
-         YDlkz/zIpsa2zIrzq3UQmTcmBPlCwhXY/W1mU0r6hWc6n3zwzQah8Krx7OGg6KrCBmCO
-         rNYmf9dZ4l6kEgJln9388DY0MKXmJiNMDdjVZP/iD9NBJ/VS4Nv32ZAjIePcnpmqwrYh
-         /XB+71cIsuHC3dJCdZIJ3i0qWYSYfhDKElWstSkI1Cru2cQRFY63lntpQupontSa17wB
-         6kQw==
+        bh=nRPYmXZnIT01poufmeMRGZaKCj5tsIcmA7FhqBODKic=;
+        b=aggT4tpZM1Wf0DKGeGMP5yOE4bd0ji991Mi6nLyndHU3KpAOh+gJhxnvYdaDnH9Bjq
+         vp3ztRXgSCplpQ9L59Xm30ijQuZEtZfLFbUDiflIyH61iA/S9Kzjrbn+xjTVN4bH4ylZ
+         k7kOU0pfdOSTgO1YExEVWvDVgTcoE4o0n3UE9miMxkl8cMsuVBy9PBlWqb6m+69Mzwpg
+         ngIlrhCLLglpHdvkZEkoA28/6fcOacr9nyegY3MeapUa0Yw1x7zpp5Gzjn/UgqDyJ5eV
+         AA1XxDO7u5tAd61EGEnc/vGzNqDzc+lhnGQoxSMrGerv6QVOSzl7lnRqEZ6KsCnpMUdm
+         6Yxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706541388; x=1707146188;
+        d=1e100.net; s=20230601; t=1706541390; x=1707146190;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gGa8xFRwP8zLCWj6u5lZzVVx+K8OLPxZ4f43XzHIoys=;
-        b=SMAYJFjIwWOkWwy/GKF46CzG/yj6cGLZopPquHbitNMdmow+oNHMzEm53oH4kwyDQ2
-         YWgbF5AIpjnqBcQtkiqNP8U2bdPwR2PzUssR8hlZAo6p9sEXqX5pntI4LVxD3STzjIML
-         J6FgxzuXy6OAuuFIMa+xbGwelMhEr9PCQ9nKl+abQTmXLk2Q/YzA8xPjfnpKEvSk17oN
-         PMRc/+5gbdc5PJZM0ocz9YXvfDrHp7nBq6xxuzS0pp9My+z5T4Dl+hcPeZyZfy9imPJ8
-         v/4I/yiWROPWjI/9c2LuKR5mF1hgytG1cssKZcVO+m2phm51/OSrudQw2KeXmqWkRts7
-         wLLw==
-X-Gm-Message-State: AOJu0Yzl+U3NdvXWJf7x00szfyw9OHHc+7cbcjBT7uzFAzt8EIKmqyKX
-	Y/UvxnxbMVcn7hRXkxejCl1vAZFX0Uey8dvOLhg0TstWD7d7+n0SYMvyo9X0
-X-Google-Smtp-Source: AGHT+IG3HsuD9SaUwYrvX4rmWSShZVOxOyMaqp6KeQVa+qLdgqFTIv45DCNzraZDMw6ntN1GjVYCWg==
-X-Received: by 2002:adf:e105:0:b0:337:c176:6549 with SMTP id t5-20020adfe105000000b00337c1766549mr4168842wrz.65.1706541388215;
-        Mon, 29 Jan 2024 07:16:28 -0800 (PST)
+        bh=nRPYmXZnIT01poufmeMRGZaKCj5tsIcmA7FhqBODKic=;
+        b=KuzbJPpt6KMR+PemfzhEmE5As8ITGR/ZxcLGNwTR9Lh8ncaBv+PaReFtT+d6Iypa4O
+         znLdcnrUDDxNbTq+xASxAFW08e6TvmwigG1CmvzkoCC2mUmAq3oHK7wAeavqeSnTGRls
+         4mYTMPFwscEAJZ2BUKqXgpELVHpr96xKioD2l6+E2EAt7nCPqZybM/UEcOvdpqOIRig8
+         Y0JKpB7HOJX+zqcDI8pPVBwfOfr88cQbbXzE4Q1gNx41haOkiR5bqSV3o256Dn2XbB1W
+         MARPCdhSGa8eWKc1t7EgrhZitNZtZigfMgoO1/EZxSCxXuxah8O0VSXxZfy7luzpBl+y
+         KNpg==
+X-Gm-Message-State: AOJu0Yz2OOe2eQ8hvjqejTAwad87Vtrd3su9EWRbp8eUi/rsCB6Z3xs8
+	SWWX20NZZFfaMp+6OHP7/zdpV/3fg5ZzcyX96DH2zTuDPQDbgNwk
+X-Google-Smtp-Source: AGHT+IEnu42aSb7Ky9qC9wvEJ1nW8oN4/7POsNlm7cXhpfdpi1cTjbNoRtxNqJjKC4KUjxXGypeXbQ==
+X-Received: by 2002:a5d:4ad2:0:b0:33a:e791:d8ac with SMTP id y18-20020a5d4ad2000000b0033ae791d8acmr3430590wrs.12.1706541390428;
+        Mon, 29 Jan 2024 07:16:30 -0800 (PST)
 Received: from prasmi.home ([2a00:23c8:2500:a01:5616:a18c:ea50:2995])
-        by smtp.gmail.com with ESMTPSA id h4-20020adfa4c4000000b00337d4eed87asm8397774wrb.115.2024.01.29.07.16.26
+        by smtp.gmail.com with ESMTPSA id h4-20020adfa4c4000000b00337d4eed87asm8397774wrb.115.2024.01.29.07.16.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jan 2024 07:16:27 -0800 (PST)
+        Mon, 29 Jan 2024 07:16:29 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Thomas Gleixner <tglx@linutronix.de>,
@@ -78,16 +78,16 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH 1/5] dt-bindings: interrupt-controller: renesas,rzg2l-irqc: Document RZ/Five SoC
-Date: Mon, 29 Jan 2024 15:16:14 +0000
-Message-Id: <20240129151618.90922-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH 3/5] riscv: dts: renesas: r9a07g043f: Add IRQC node to RZ/Five SoC DTSI
+Date: Mon, 29 Jan 2024 15:16:16 +0000
+Message-Id: <20240129151618.90922-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240129151618.90922-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20240129151618.90922-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_071630_101718_FB711BAC 
-X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-CacheID: sfid-20240129_071632_275394_AC55706B 
+X-CRM114-Status: UNSURE (   9.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,79 +107,100 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Document RZ/Five (R9A07G043F) IRQC bindings. The IRQC block on RZ/Five SoC
-is almost identical to one found on the RZ/G2L SoC with below differences,
-* Additional BUS error interrupt
-* Additional ECCRAM error interrupt
-* Has additional mask control registers for NMI/IRQ/TINT
-
-Hence new compatible string "renesas,r9a07g043f-irqc" is added for RZ/Five
-SoC.
+Add the IRQC node to RZ/Five (R9A07G043F) SoC DTSI.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
- .../renesas,rzg2l-irqc.yaml                   | 27 +++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 76 +++++++++++++++++++++
+ 1 file changed, 76 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/renesas,rzg2l-irqc.yaml b/Documentation/devicetree/bindings/interrupt-controller/renesas,rzg2l-irqc.yaml
-index d3b5aec0a3f7..3abc01e48934 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/renesas,rzg2l-irqc.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/renesas,rzg2l-irqc.yaml
-@@ -23,6 +23,7 @@ properties:
-   compatible:
-     items:
-       - enum:
-+          - renesas,r9a07g043f-irqc   # RZ/Five
-           - renesas,r9a07g043u-irqc   # RZ/G2UL
-           - renesas,r9a07g044-irqc    # RZ/G2{L,LC}
-           - renesas,r9a07g054-irqc    # RZ/V2L
-@@ -88,6 +89,12 @@ properties:
-       - description: GPIO interrupt, TINT30
-       - description: GPIO interrupt, TINT31
-       - description: Bus error interrupt
-+      - description: ECCRAM0 TIE1 interrupt
-+      - description: ECCRAM0 TIE2 interrupt
-+      - description: ECCRAM0 overflow interrupt
-+      - description: ECCRAM1 TIE1 interrupt
-+      - description: ECCRAM1 TIE2 interrupt
-+      - description: ECCRAM1 overflow interrupt
+diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+index d7a66043f13b..d2272a0bfb61 100644
+--- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
++++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+@@ -50,6 +50,82 @@ &soc {
+ 	dma-noncoherent;
+ 	interrupt-parent = <&plic>;
  
-   interrupt-names:
-     minItems: 41
-@@ -134,6 +141,12 @@ properties:
-       - const: tint30
-       - const: tint31
-       - const: bus-err
-+      - const: eccram0-tie1
-+      - const: eccram0-tie2
-+      - const: eccram0-ovf
-+      - const: eccram1-tie1
-+      - const: eccram1-tie2
-+      - const: eccram1-ovf
- 
-   clocks:
-     maxItems: 2
-@@ -180,6 +193,20 @@ allOf:
-       required:
-         - interrupt-names
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: renesas,r9a07g043f-irqc
-+    then:
-+      properties:
-+        interrupts:
-+          minItems: 48
-+        interrupt-names:
-+          minItems: 48
-+      required:
-+        - interrupt-names
++	irqc: interrupt-controller@110a0000 {
++		compatible = "renesas,r9a07g043f-irqc",
++			     "renesas,rzg2l-irqc";
++		reg = <0 0x110a0000 0 0x20000>;
++		#interrupt-cells = <2>;
++		#address-cells = <0>;
++		interrupt-controller;
++		interrupts = <SOC_PERIPHERAL_IRQ(0) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(1) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(2) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(3) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(4) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(5) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(6) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(7) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(8) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(444) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(445) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(446) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(447) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(448) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(449) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(450) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(451) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(452) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(453) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(454) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(455) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(456) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(457) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(458) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(459) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(460) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(461) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(462) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(463) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(464) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(465) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(466) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(467) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(468) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(469) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(470) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(471) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(472) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(473) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(474) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(475) IRQ_TYPE_LEVEL_HIGH>,
++			     <SOC_PERIPHERAL_IRQ(25) IRQ_TYPE_EDGE_RISING>,
++			     <SOC_PERIPHERAL_IRQ(34) IRQ_TYPE_EDGE_RISING>,
++			     <SOC_PERIPHERAL_IRQ(35) IRQ_TYPE_EDGE_RISING>,
++			     <SOC_PERIPHERAL_IRQ(36) IRQ_TYPE_EDGE_RISING>,
++			     <SOC_PERIPHERAL_IRQ(37) IRQ_TYPE_EDGE_RISING>,
++			     <SOC_PERIPHERAL_IRQ(38) IRQ_TYPE_EDGE_RISING>,
++			     <SOC_PERIPHERAL_IRQ(39) IRQ_TYPE_EDGE_RISING>;
++		interrupt-names = "nmi",
++				  "irq0", "irq1", "irq2", "irq3",
++				  "irq4", "irq5", "irq6", "irq7",
++				  "tint0", "tint1", "tint2", "tint3",
++				  "tint4", "tint5", "tint6", "tint7",
++				  "tint8", "tint9", "tint10", "tint11",
++				  "tint12", "tint13", "tint14", "tint15",
++				  "tint16", "tint17", "tint18", "tint19",
++				  "tint20", "tint21", "tint22", "tint23",
++				  "tint24", "tint25", "tint26", "tint27",
++				  "tint28", "tint29", "tint30", "tint31",
++				  "bus-err", "eccram0-tie1", "eccram0-tie2",
++				  "eccram0-ovf", "eccram1-tie1", "eccram1-tie2",
++				  "eccram1-ovf";
++		clocks = <&cpg CPG_MOD R9A07G043_IAX45_CLK>,
++			 <&cpg CPG_MOD R9A07G043_IAX45_PCLK>;
++		clock-names = "clk", "pclk";
++		power-domains = <&cpg>;
++		resets = <&cpg R9A07G043_IAX45_RESETN>;
++	};
 +
- unevaluatedProperties: false
- 
- examples:
+ 	plic: interrupt-controller@12c00000 {
+ 		compatible = "renesas,r9a07g043-plic", "andestech,nceplic100";
+ 		#interrupt-cells = <2>;
 -- 
 2.34.1
 
