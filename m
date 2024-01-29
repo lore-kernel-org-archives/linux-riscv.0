@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1F6C47DDB
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 15:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED43C47DDB
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 15:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r7kNZ6yCsK5PB+DJRDD+o1VzwZVbR8F94HLyEK/wWUs=; b=sF3oTZqoOJMDX9
-	sNj3gX+BR4ZYS9n7UtU+YWNjixQ4G6eE1kVEKjrVduMR5yc5ITJakFyyvgsDdnzkFx0mmYB5ImhpE
-	MANkfsVj+dzu0ah2juduraj1vja9WdF4kwAhkQ9CTCNbT5lpAhXMc1gnEKPKICxnDMcREnZ9vkRJR
-	frN4rNGKtQguTtBuh16mGCDfRv4Msn4OKc3FU/lYEPKb36B6zVggJ2QesFW3dwXCAxLSqgagDDE6N
-	5RkN5q5sHZBeejyRW6aa1jVKAc6LuBQNHVw1l7+1MsdaG0UG/oG/LTVbsDvbiTsbraqTWht/8ovXo
-	fXGCS6uV/teHsWwqZSdg==;
+	List-Owner; bh=a+CKAK3D56Tg5BXmr8d0SYIJi5c7kU5DEqS8J8wV/Sw=; b=C3XV8miMmk5FtW
+	aCNsjooeD9LhV4OY2cVrC0/a5bXCtv4vWZ7XzMdsGDkt28WNj1jGCy0DUf/xuycfdzOuJgk4h1CPp
+	6oQMM0FG6Aw/od6441hiQ94WHuSig0n9sOIFHCYtt138/X6zQ84gSe5Dp+IeRuu6xjANEe+VL7Qsx
+	RtnRICm/b02uDmc+GlFQW/sqqESUxfjFoxKCncgrcrPqxEs75BZAGK78Ie0iyGo9bXqN03BK/7LCJ
+	PC3mW5oMXJb/Pytr79QMQ0zjFm0k+mR1ljEERCE4Yf5FOidiIs56ixC8Q45L8oA5ZSPCYvHj4lUZx
+	HgXPD+uSBAmaYMtyJvDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUTbA-0000000DHjx-496N;
-	Mon, 29 Jan 2024 15:31:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rUTdB-0000000DI9e-06SB;
+	Mon, 29 Jan 2024 15:33:05 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUTb7-0000000DHjX-2k0F
-	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 15:30:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E4F0362259;
-	Mon, 29 Jan 2024 15:30:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 85D23C433C7;
-	Mon, 29 Jan 2024 15:30:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706542226;
-	bh=ixi8kL7I86gBrHfmeQ/hZc+GdJatpUL8KGDJK72LYAs=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=a5gwh+QIq4ZeTsxtmZ8+aIsNKWJ/brKgOggIog+p3Jk5uZqM1l8Qyrt6CL3F+aX72
-	 bLF1Gyuk0+aeINi5T5tVR9gcNJgfoJ4hzC9HEIKaFpDfoXYQcn9B2toux7xLXLV0IP
-	 Z0s1PUogO6Xa3EMQH1sVdWvVvMDb9hj85f5NaJt+hvKSdqdDTL1cThAIHywL1/IAPj
-	 jgAHEJTfO1n5XwXaJHTGWRHnzEsuJ4tTyuzpmC5ya1qLJwUcud67O1hVNyZjdB85Ww
-	 QR5ba/9MXfzlGJ8bfjYY8tM7FsCjn2a+GtsEUvoClIUMAA3kurhKvsxCy73h89Ta5U
-	 jFsUYDN+CU14A==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 64CF4C3274C;
-	Mon, 29 Jan 2024 15:30:26 +0000 (UTC)
+	id 1rUTd8-0000000DI8k-2CYQ;
+	Mon, 29 Jan 2024 15:33:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=CrHCTlFRqhVi35tK959UuBbKAaE+0blDjjqiPB7oOOk=; b=QPBMraaOzb39X/fTDTDp8vZn3U
+	RyQNYMvVEuosY1G2SF9dOmBcU/EIjaw/4q1ZtewTtTqBR2ZTFc0HwNzLEMLV2PL1R+6KEJM2hgN8y
+	y27brvTJVMBs3/Kx16Qyd0F6UgR6nO91iHksI1MULxx1Uv/MoCL4CJVPMswAs3vMX+z1pVQoWF9mP
+	ciarx1HSr1oQZTuCJWBn/mylPek1/6qnmqyWafXtUnzD171hxxU3T2/IBjNv4sD9GCQi2Sz5aNUJ2
+	NpFd5Kwem/2q2pdUrG702/gdn6SHY1d9fOFivlToOyVuVDMwEArwj3mFhJINI1ddPyf7tn0gTM/tU
+	xrrJkCOA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40068)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1rUTcv-0000bZ-0j;
+	Mon, 29 Jan 2024 15:32:49 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1rUTcp-0004f6-8p; Mon, 29 Jan 2024 15:32:43 +0000
+Date: Mon, 29 Jan 2024 15:32:43 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, acpica-devel@lists.linuxfoundation.org,
+	linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org,
+	Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com,
+	James Morse <james.morse@arm.com>, vishnu@os.amperecomputing.com,
+	miguel.luis@oracle.com
+Subject: Re: [PATCH RFC v3 03/21] ACPI: processor: Register CPUs that are
+ online, but not described in the DSDT
+Message-ID: <ZbfFG5JLnAkGN1pk@shell.armlinux.org.uk>
+References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
+ <E1rDOg2-00Dvjk-RI@rmk-PC.armlinux.org.uk>
+ <CAJZ5v0ju1JHgpjuFLHZVs4NZiARG6iBZN_wza6c2e0kDhZjK0w@mail.gmail.com>
+ <ZaURtUvWQyjYfiiO@shell.armlinux.org.uk>
+ <20240122160227.00002d83@Huawei.com>
+ <CAJZ5v0hamuXJ_w-TSmVb=5jGide=Lb7sCjbzzNb_rFuPrvkgxQ@mail.gmail.com>
+ <Za6mHRJVjb6M1mun@shell.armlinux.org.uk>
+ <20240123092725.00004382@Huawei.com>
+ <20240129130354.0000042b@Huawei.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH RESEND bpf-next v3 0/6] Zbb support and code simplification
- for RV64 JIT
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <170654222640.3521.12964970085967863074.git-patchwork-notify@kernel.org>
-Date: Mon, 29 Jan 2024 15:30:26 +0000
-References: <20240115131235.2914289-1-pulehui@huaweicloud.com>
-In-Reply-To: <20240115131235.2914289-1-pulehui@huaweicloud.com>
-To: Pu Lehui <pulehui@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org, bjorn@kernel.org, ast@kernel.org,
- daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
- song@kernel.org, yhs@fb.com, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@google.com, haoluo@google.com, jolsa@kernel.org, palmer@dabbelt.com,
- conor@kernel.org, luke.r.nels@gmail.com, pulehui@huawei.com
+Content-Disposition: inline
+In-Reply-To: <20240129130354.0000042b@Huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_073057_740490_D97C69D5 
-X-CRM114-Status: UNSURE (   7.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240129_073302_586057_265C8E17 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +97,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to bpf/bpf-next.git (master)
-by Daniel Borkmann <daniel@iogearbox.net>:
-
-On Mon, 15 Jan 2024 13:12:29 +0000 you wrote:
-> Add Zbb support [0] to optimize code size and performance of RV64 JIT.
-> Meanwhile, adjust the code for unification and simplification. Tests
-> test_bpf.ko and test_verifier have passed, as well as the relative
-> testcases of test_progs*.
+On Mon, Jan 29, 2024 at 01:03:54PM +0000, Jonathan Cameron wrote:
+> I poked this on x86 - it only applies with hotplug enabled anyway so
+> same result as doing the hotplug later - All possible Processor() entries
+> already exist in DSDT. Hence this isn't the source of the mysterious
+> broken configuration.
 > 
-> Link: https://github.com/riscv/riscv-bitmanip/releases/download/1.0.0/bitmanip-1.0.0-38-g865e7a7.pdf [0]
+> If anyone does poke this path, the old discussion between James
+> and Salil provides some instructions (mostly the thread is about
+> another issue).
+> https://op-lists.linaro.org/archives/list/linaro-open-discussions@op-lists.linaro.org/thread/DNAGB2FB5ALVLV2BYWYOCLKGNF77PNXS/
 > 
-> [...]
+> Also on x86 a test involving smp 2,max-cpus=4 and adding cpu-id 3
+> (so skipping 2) doesn't boot. (this is without Salil's QEMU patches).
+> I guess there are some well known rules in there that I don't know about
+> and QEMU isn't preventing people shooting themselves in the foot.
+> 
+> As I'm concerned, drop this patch.
+> If there are platforms out there doing this wrong they'll surface once
+> we get this into more test farms (so linux-next).  If we need this
+> 'fix' we can apply it when we have a problem firmware to point at.
 
-Here is the summary with links:
-  - [RESEND,bpf-next,v3,1/6] riscv, bpf: Unify 32-bit sign-extension to emit_sextw
-    https://git.kernel.org/bpf/bpf-next/c/e33758f7493c
-  - [RESEND,bpf-next,v3,2/6] riscv, bpf: Unify 32-bit zero-extension to emit_zextw
-    https://git.kernel.org/bpf/bpf-next/c/914c7a5ff18a
-  - [RESEND,bpf-next,v3,3/6] riscv, bpf: Simplify sext and zext logics in branch instructions
-    https://git.kernel.org/bpf/bpf-next/c/361db44c3c59
-  - [RESEND,bpf-next,v3,4/6] riscv, bpf: Add necessary Zbb instructions
-    https://git.kernel.org/bpf/bpf-next/c/647b93f65daa
-  - [RESEND,bpf-next,v3,5/6] riscv, bpf: Optimize sign-extention mov insns with Zbb support
-    https://git.kernel.org/bpf/bpf-next/c/519fb722bea0
-  - [RESEND,bpf-next,v3,6/6] riscv, bpf: Optimize bswap insns with Zbb support
-    https://git.kernel.org/bpf/bpf-next/c/06a33d024838
+Now dropped.
 
-You are awesome, thank you!
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
