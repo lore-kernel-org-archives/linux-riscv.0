@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C0DC47258
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 00:59:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9915C47258
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jan 2024 01:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zLxyLDETyyGXcdmNJROdsaGaUPhAG9dY+TOB6stR9zQ=; b=4QMHIy36F0iOug
-	H7XzYxdMYhGUkEIM9svlPE3n5MEinWmFjPfGy0ZbBVsXkyYt21jsvd8yzJ6aF4vp36TSJEJzWB4ni
-	b3rZhIDATiM8PycXbvOAsGVw66kL62CvAXrErdVo8g6zlzIVx5mlvM05qd6492g8O2W7PjgznafVh
-	lolZhBmAiycoXxz2Qfc2sSOUtCP17nfOSKMTsaE7F8lwxTyZzcfboSNF6mHQwqEDGVxucs3uaeyv7
-	iDQusEcE4ne3mS8S0uWfnVv1Rj0UjLUVQf6bL0jrHG7MbyQ9PrhLFFHVmtHh8/ybZFhuE7gDiYJbS
-	xit2zV11+gSfOvyW9wiA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MLE9pkM9l0pkgkaOYUT+EUZeTEqGT7/yGB+NYg3NoGA=; b=RKp1ruHxjkQSa5
+	lynzDc17PWNySh2g1nf65UD2ZAQOh5Jfz9NBdeyusmlHDBOof6UuozEchSyIZbpQlvoQUkcsP/jzo
+	eorCkBe7I91HPHkXuAPuk6gPhgx5l6cR1ZbmztZciuLY/CqTYxE9gmmKwA7zJ2KZinyUm+dpxAWWK
+	LuKxSUew4EVf1MAZGToNS6bJG0aEDV6a1p/50mY+tHq7lbQ6oWw34BGG3nUylxbrdjvo6rAc1mmYV
+	cvpafk8bKZqFUB6h12+d+LFS1ANbgba8Oh1k3DK+wUqfgLTab5uzdAyAPM/geD24B5wIkYiwNA5y2
+	pYJeiOj6CAfRm+SyjyJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUFzj-0000000ArIS-0Gva;
-	Mon, 29 Jan 2024 00:59:27 +0000
-Received: from mail-bjschn02on2062b.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::62b] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1rUG0Z-0000000ArX9-0n1W;
+	Mon, 29 Jan 2024 01:00:19 +0000
+Received: from mail-bjschn02on2061f.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::61f] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUFze-0000000ArG2-1tWi
+	id 1rUG0W-0000000ArVp-3sB1
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 Jan 2024 00:59:23 +0000
+	Mon, 29 Jan 2024 01:00:18 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=LXT9Yy5JeM7kuE32uNBanMBy2aPgWBfuzZWMVeqAy0Rps8L8CpvmQVE2fj3o6TxkPgPoa2HdNIX3JKBIBhCxB05SKDMa8g0WazjBpnuqPvjQeACeVIvXaae5NN97X9TrqVQoeKWsHZdaDTAsPFRZHhn9uU/Tquosmx1Ydz12XrnlnECkcpE1qdFjqK2RbcLTD6ZBRkl2ygPH5FtuX/aa3wxZmqSJQLCXcHVNO6ZAn9KXOTcirpnuF7C1aGNWENQklOcycpGHCq6ec9Ia4CKw2EOSBgWsRa4ztbOjxEBBr/zn/mzvLLBWVu4Ij6dWYlJSNkXe2p7ltkXf0b9k2fesiw==
+ b=Alrj7Vxcq21ly6tpjtHMByT5Pvv8nV1HMmhYdEAZqSn2PKZTLDXE65zEc7r5+MS9+h4yMmOgRh2b0osskxhEvCdbbt9QGDlkzKq8Sx/qnJTOgf2Vxh0dPHOTgGqrYPxCq3xpIutSy7dxjYgdTh62n+zyNcBR8cO/n00G1pdsoGeLjRui+IRmDyhwNG0kgg+xfy1WQHBA8WxflGtgOH8CQhewWztF4D7SLq5IRPPRzKKVS3Ry+ny+XyZgk9BFRPGmpj15ks3RcZw38FjXyRTBSBTT+Ajg52GqmTjI14k+phYUMofWkzkkrXZ1XpqCV7RzRmcblbHKCM5CrSJ1jjqOWw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K7UZdmdyYz24tezUgGACcYCmJKOSO6Q04qEPwmoKWvY=;
- b=MBsYGoRO9KX0ebyIZ+Au6AvXvEvnzFKjFusZlTVoxYb61itBLpQsZLTuDLvoHwU2+tMCmckXyL77jk0zO67qLf020SEDp7qwf3UZc7aADfCMhwHUgeRwg5EBs748cbKPS9gP6/nH/buYnIVMPAe+vbltDYkd3xWurEhfgon9BK5UNBC9biUjVKsuc09kcVVAo0aMMGiphtrRDLafvMXBYYAQVJpczNaLOHqD/0opbdDH7sqaVpzoYEUZNyg78fpKqfLX4INGPUwcnDrVb+ndXOe7ea7R1w1ASPWZsg/c5oA/rq0z4UAv/5pm+qNw9Z/sv6pGtm40B/0jtttdYcIDZg==
+ bh=e32gHqF3/4Ta8V5kx4q5V2+D4dF4zhKKR6XIQgjmQYE=;
+ b=JXvbwRknv3lmy514E5JUiihvQuVm2tyvxsGiWs+rr0uUooPdw/GreF3UP3J9lZYAF7h1Ba26ZZoBSOlCRxn7e5cLNpuZ9zIMR0GsfIFqHu04EvcGzCqQj30eczEHBOt/qy6BD/qdGvr8AYe7HzsLjm6CyuxdUVpn/tUMaDV4LFQ9+Hv9M7NGqGiGz9cn8JC2nywUKihcL0pERp/CdDsJfboSJ0q1xRHs8S7ZBfVmHmUL0oBUPWIxMl6ynBz/dF0JuNgpIoekE/9rOZ1v9TorVwiL4GDDBQb6zDAdxErXNsACAyrWnyycFEhwTB807j32boEBC37uhqnJ28EmxTBqJA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,18 +43,17 @@ Received: from BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:18::12) by BJXPR01MB0630.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:14::21) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7228.28; Mon, 29 Jan
- 2024 00:59:05 +0000
+ 2024 01:00:06 +0000
 Received: from BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
  ([fe80::1ea1:19d5:efef:6fc6]) by
  BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn ([fe80::1ea1:19d5:efef:6fc6%4])
- with mapi id 15.20.7228.029; Mon, 29 Jan 2024 00:59:05 +0000
+ with mapi id 15.20.7228.029; Mon, 29 Jan 2024 01:00:06 +0000
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
 	Rob Herring <robh+dt@kernel.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
@@ -70,66 +69,64 @@ Cc: devicetree@vger.kernel.org,
 	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>,
 	Minda Chen <minda.chen@starfivetech.com>
-Subject: [PATCH v14,RESEND 01/22] dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
-Date: Mon, 29 Jan 2024 08:58:54 +0800
-Message-Id: <20240129005854.3554-2-minda.chen@starfivetech.com>
+Subject: [PATCH v14,RESEND 02/22] PCI: microchip: Move pcie-microchip-host.c to plda directory
+Date: Mon, 29 Jan 2024 08:59:47 +0800
+Message-Id: <20240129005958.3613-1-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20240129005854.3554-1-minda.chen@starfivetech.com>
-References: <20240129005854.3554-1-minda.chen@starfivetech.com>
-X-ClientProxiedBy: ZQ0PR01CA0035.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:2::21) To BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
+X-ClientProxiedBy: SHXPR01CA0010.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1b::19) To BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:18::12)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: BJXPR01MB0855:EE_|BJXPR01MB0630:EE_
-X-MS-Office365-Filtering-Correlation-Id: e44324e6-6ae8-45c3-d1b6-08dc20657dd7
+X-MS-Office365-Filtering-Correlation-Id: e649555f-52ba-4b64-d1cf-08dc2065a1f9
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: NXU8MG2yF1afcvI7R+rHgU33tw2+zHVRt4qSnBrHqaSOBV2i1og2/rO6nHgFb6mnMHgKLz3af9jzWpBdyT2BDuUQZlD4fRAVhUlfnioVzvgOHjJ73MmDUrp57e6Yuj5seqMv1ljU8dT4/+9V5VVqPcX9e1Hab0UgqjtV6bDHj8xkvRsdPm+yE/o2zIJAbvUGGfO0Z4jHWzmWsGVhQsr5p6DLrHvpiSthFd0GpMCcbb65MI99Wc9IAHgT0m7wyw6LHoNHzJOW3Bv/h88AGj8rT8rkJhZ3NuF5XQGxO4fi+Ztz4U/eTylLxiPGSlHAuvNs7onP6o4JwSQBZxvi3g1JtzLq1WnmYKXxxKe2JY587H0C8ReBChxWO5m6tjzRr84pBCHn2mC0RD1DWyFPlu7G0AJIsvnxb9PyG0GzyMzQLD2Awqk+bnQPBfLUKJgDm0T62lU6hBfuDirkLKexgDb1ieenPjbEOHMDiycSyPgvbWOgzCmaKWCZ9YKqyNbulUk0FQHbhatS7y9LTtTOdOmP1ptQkQvmUZSYCaseYvXQhUOn3hcL3fwHX5mOEWZrnlUV
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(136003)(39830400003)(396003)(346002)(366004)(230922051799003)(64100799003)(1800799012)(451199024)(186009)(83380400001)(41320700001)(40180700001)(86362001)(40160700002)(36756003)(38350700005)(1076003)(38100700002)(2616005)(26005)(107886003)(966005)(2906002)(52116002)(508600001)(6666004)(41300700001)(110136005)(66946007)(66556008)(66476007)(54906003)(5660300002)(8936002)(4326008)(44832011)(8676002)(7416002);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Message-Info: B8Q1RttqYNI21ZfZuxeUYXxvrrOynorQs7u85YJ00m6SoQjLFbNlDqN/Xz3dv4a9+5uCeStHApp0tXMTOdNepYXfhEFqH01seSv9nukzkBEuFvlDrRnMrpXcYqw++bEINUbu2/PusgMx5iN2Es5pqI3poGCQgFKqibS77qP/p+jXuz4Kj5cv1JI/IuGls63NG/D2BAwYP1nXQp2vSubLEG8YQh9P8a5t9bOItWMYjn09VEgQVbSKU75Nzvj40tzyWRB2WIBgqnoT7lupPl0yBIH3EogocGurSElAZLbX9AMOsnAxDkycRgBBb8/P6j2chFgE/RPsiU6SiWJeQ98ufz4sO/phHogeXwqWFAITo6Dtb/HDrpEVWN0iCT0resHGr6BbgjEL9OCpx04o+cZxCJwsG+eslv3VQEhfEXFtSOHJ8dmT+8BNA6AQdciP4GmNP0iHswK5hD98xtoWhhDC2zGWKa9Ci/BsHMyW8nCWTuvYq7W4qPYNbJuiPkoLsYfkY2PmuR9HHAM1ONk3Or/E2+JZivIvIS6Y7l8LUp5EPnE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(136003)(39830400003)(396003)(346002)(366004)(230922051799003)(64100799003)(1800799012)(451199024)(186009)(83380400001)(41320700001)(40180700001)(86362001)(40160700002)(36756003)(38350700005)(1076003)(38100700002)(2616005)(26005)(107886003)(2906002)(52116002)(45080400002)(508600001)(6666004)(41300700001)(110136005)(66946007)(66556008)(66476007)(54906003)(5660300002)(8936002)(4326008)(44832011)(8676002)(7416002);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FWBkwTFh5av1f7b2+Vc0Jp9kVM0TM61XGOg/4co21CdnVO+qugd9WJPwm/Lh?=
- =?us-ascii?Q?bcb33fnEtaEI+FHHl/VJ0b+5/iqDMT2rEbzctxH/MFgWGuMT8IAlPJT0+LH0?=
- =?us-ascii?Q?J0a+gxPdVmxtnXCg/xOOryPw0tfW16OmFisiXncNnpVXy99vgsRh28yRmmMo?=
- =?us-ascii?Q?T+R5zf9rcYqaJ3M15UD62bX8YEJksuT7k6knlvi9TT7e6Cc4srTgBZiET+tl?=
- =?us-ascii?Q?M7HY1gkK4Vf3UE636HbrO8/oKwNXgpx2xTWruLyE1tqk0o5Djk0yxmIHhS9x?=
- =?us-ascii?Q?XNfiLLPulQbOzbEXkMC0DWNSqaqaqStY8P6TpAxxMljjpn0XfCdsxEZ5bPrM?=
- =?us-ascii?Q?4+BqVt6cnneNsw8am9yw2VpLfatKiZliaYOLYYl+j5jFA5AwnwX804JQanq2?=
- =?us-ascii?Q?HZ/WFLjKzCW3O0j957k6arKXUk5Q9JPR9nj71gOz18Af+mBNQ5AOiK/htgnq?=
- =?us-ascii?Q?HxFNyltP6mAYTKreVhoLc/KmKnbbHz5SdtuxF43fsOWcRDoyIu7SPZnQPfEf?=
- =?us-ascii?Q?Rkp5RjT0SucSwWCJZYJVe/3qjLdCfvIaiIzhdnn4U6Dla8Ceqo0cR4uncO5V?=
- =?us-ascii?Q?CTQGyRsBhqy4MJrmE8iFFYt7D9YXGf8/YwCzl4p6A81Ob6RuBq8THYNg5uew?=
- =?us-ascii?Q?Oy/Z2qcU/Mn520ZiiLs4ymwbL8d8aodELKqLpdCPp2N+X+cKXfB4rAm3JvC5?=
- =?us-ascii?Q?l2jWVIHTzvjevCCAOKl4GXfqHE6VELxhM8couS2Y4ohHDvEMcW91EeiZj5wn?=
- =?us-ascii?Q?QpYI2XPFzX0gWaYM0MntrsHNWBkDS9WILHOqNAXdT4QJc/JdsOdb+zZyEocD?=
- =?us-ascii?Q?cfV9Bbwyiz5lIIvwCoS9zm1PBByKhYEhU69aVX7xtw2GgE5ZT3rvltpLsvCD?=
- =?us-ascii?Q?nUgQJVdro9wZBgmViQ/z0J52w9kQbJmrzb1vCb6fqhMU3ynbata6gs3X8Vyj?=
- =?us-ascii?Q?ZVgM9mhIIyxfgKmXFkSOwgaLANATuKJX7QApf9zl7jVJJ9YmwT+afuN1nwRF?=
- =?us-ascii?Q?7mdYpIGSedn5qADxidmmv8hmQ3RbZXE4hIWf3b1azBxMrJlep6CzY2zUKRQ0?=
- =?us-ascii?Q?wbbTGNPHje5pJ7+94Mw92cSfbKJIfvHK8j1MHJmcQwPFjNdVJFYuwyBfJvkL?=
- =?us-ascii?Q?2Ef5LU5M5RbfbmqMa+rp7domfDoJnM98FcGBVkLtf645X9VH2C88Bz86i4PC?=
- =?us-ascii?Q?MgfMwtBQyL15mEQSXUZ3zoHjcthxkYkdWeJ+sACoy5zudmBtboH9zE9Uta+I?=
- =?us-ascii?Q?waEWeNYWoqIysvD5QOZFNnQNTaxOJAFWkT8dB3PMbJWf7eOgBLhUEhlEEl1E?=
- =?us-ascii?Q?3ejl5xPKGd13hqscQ+zuw8nzDWMmk7LaZuixPRNNUF5eeAGbSDmfBXVLmd/W?=
- =?us-ascii?Q?ZI9ZzKXTmJ9TV/Atya/C6mPvrKA1nSN67KTK9u9489Va/y85F7p+oJTW9TmM?=
- =?us-ascii?Q?5HkvTZY6O7xu9TQ4GhoxpCs5wCHYpoFBQzXJ5gE1j79HhgmgG+L5R758oOwP?=
- =?us-ascii?Q?RtiDU5Iozoc1bQTV7Z3G4lv5hTMlYaFFyu1xEv7dGRD8WOZBXMZ4X1bryJuU?=
- =?us-ascii?Q?HcjyLlbgURBg396N2LaWmdDwjR+j/WIMeUHm7/+eO+yNwboSR9ysfKP7HJkj?=
- =?us-ascii?Q?6Q=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?23XvUu1sQUwT6+bmg7YUS8ErmSQS9ig4dpbb7eu4qnkIQNUI6BkEuyYvT5iX?=
+ =?us-ascii?Q?6GJKN3UERJD1bLWvELz+9y5CEdqNkkXPyWTFaIdFreGb4AMHvYBygkL4yIPj?=
+ =?us-ascii?Q?Rh4qrj2iwGCY3MWufsOLVVZFwwDbSyEfugzHgiN06bJnnGQLA8fev5DSD6J8?=
+ =?us-ascii?Q?41PVQH655pIRIwZstfrWB57he5y7J/sjjRhdud1fgtYhhHjlpiaxh5ywM04e?=
+ =?us-ascii?Q?fBEWrUkdVGN900xm7Bn4k7JBpzhazOshLW8amxD0C8PP+K2pKKTw9o3XRFrc?=
+ =?us-ascii?Q?Gd+0RZ1mGCkZey4TV8FGJ6L41J7dn/0naJg4h3CnJstCFiPb0jEdinsZ2rG6?=
+ =?us-ascii?Q?Pf6ikiYfLh9/J163OYT8w8O5xTi7G4yt89tdOQM+OOX42/WL6jb16dKXC3gx?=
+ =?us-ascii?Q?+aJdA866TvWAADSQuPAq/d785H2IGpXi8xma8LpkzS39Mr5yDJeBc1dSV7PT?=
+ =?us-ascii?Q?eTKcE7V9KCDvZFMpDp5+kgw4x0dwGUU6UKOHmJCvpVUEbrXK89TJlS8B3jwd?=
+ =?us-ascii?Q?ya/KluZU1P2pUrkVvoKficIWw2e0UYOp8Rd3uLbWuyrGr/PgPLd7m5lAwkNj?=
+ =?us-ascii?Q?WLKfR3IpO4QtyoZxBKBxvdJQSe9I0GmoF3WczhBN05pUizQDewuFgfnlvIXw?=
+ =?us-ascii?Q?PyGkZ4zgRyaoRlQdgLVwLQz4hTn/UCycqIOPLiVx29SM1fOBJBrJtNfv12gm?=
+ =?us-ascii?Q?TqkSG7yywSKKxKSWTY/GsY2H+RUnitcU1jwItVFaP6kVmm8YxAvONzleoGcZ?=
+ =?us-ascii?Q?En+DTQ9t+AMdYPsmC8AhEZuBcp8th7zUB6yAwOfdud6idiK7n9vqtG6N8SsT?=
+ =?us-ascii?Q?BW+ogdXkjhBQ/DGrqm/41uIpHsaqDZ6ahoqJLBjpUF48lZbVQplOpd+GxQqT?=
+ =?us-ascii?Q?UCPZMGFNEJyS2ke84n3hNaQexm5pYI2d3/uGV6qGytAIxLvFBlwsGOD4oRXj?=
+ =?us-ascii?Q?UhVTmZuXIuLX3F8s/LpnXhhUtG1nOpfJDMcJrw2V7LXKelQzzcCKDb0MSomE?=
+ =?us-ascii?Q?5WcHrmNcqpF5hv1Y+jK7i+eE3BCHVuKOvvzHwNW70xDVPzLHbJf4I9OjgbEy?=
+ =?us-ascii?Q?k04uD3ADo4xCykaBYs+Toemm2wzgz0n+9qELfCixrcdk2MotYhpYeprbb+we?=
+ =?us-ascii?Q?XTJvRh/S1mVdEpgul9DdRuTYpDm4U285njhK/pDX74h2HK7L6mr73+9vlfb1?=
+ =?us-ascii?Q?uetqkQNgiSu7pHOUcNoiYHfW5iCNYNv8Us+4CQN1q1oQF0A0sGYnTn83utE5?=
+ =?us-ascii?Q?3zv7/enZzgZNy9DH9xERvhvs8KXddtGuSDqMuqo8vjqd+FIyGokvPUU1dACq?=
+ =?us-ascii?Q?CAKuz6UDC07oSiAZ/ayH23XhnGS93bLTO/AZliseA7gmRMzV+KN/J6gOKB5P?=
+ =?us-ascii?Q?lzg5qv/B9/6MxkXJ49ZfJDZJReM4qVHeQPMGXHilJ453hISZDQpPO2cQhPN1?=
+ =?us-ascii?Q?UOx+DXHuZ2s2NioqCrHokn8SYLiDh0QxFs4rSsAxORNAOjtWaLsuKhMu2Np2?=
+ =?us-ascii?Q?4mYRh63JW9bXmLkRJnjkWNMxk98qMZb12rPz7chJzdJxOH1whaO78T+Ev1JH?=
+ =?us-ascii?Q?MzKBJmHm3Ilz/ri3byQ9F/0eh6ura+wj2j784FUHLIIruuM0f1XAqIJf5Us/?=
+ =?us-ascii?Q?3Q=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e44324e6-6ae8-45c3-d1b6-08dc20657dd7
+X-MS-Exchange-CrossTenant-Network-Message-Id: e649555f-52ba-4b64-d1cf-08dc2065a1f9
 X-MS-Exchange-CrossTenant-AuthSource: BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2024 00:59:05.6080
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2024 01:00:06.2077
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U6gGZOPBWmMhHQ+bJPbLya7wl9Ip9IHXhKBZDm+2RzorWWBfVCFXEMT+yJ3ueaYbbGz5RkvmszM68ozAoOny06vlOMNj38N1aUNfCldlI30=
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3ga0AmoB9kNm0DyQsc5/4KWgkZ8Psffoo/LO9G39kIjMXyi8uSdHovtvnfeMtINun2HLzDjcnUC3mtlkH04rFtJbw1I/dzMeA/++2iVS1t0=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0630
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240128_165922_514273_332CE000 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20240128_170017_021834_17B9C811 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,188 +143,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add PLDA XpressRICH PCIe host common properties dt-binding doc.
-PolarFire PCIe host using PLDA IP. Move common properties from Microchip
-PolarFire PCIe host to PLDA files.
+For Microchip Polarfire PCIe host is PLDA XpressRich IP, move to plda
+directory. Prepare for refactoring the codes.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
-Tested-by: John Clark <inindev@gmail.com>
 ---
- .../bindings/pci/microchip,pcie-host.yaml     | 55 +-------------
- .../pci/plda,xpressrich3-axi-common.yaml      | 75 +++++++++++++++++++
- 2 files changed, 76 insertions(+), 54 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+ MAINTAINERS                                        |  4 ++--
+ drivers/pci/controller/Kconfig                     |  9 +--------
+ drivers/pci/controller/Makefile                    |  2 +-
+ drivers/pci/controller/plda/Kconfig                | 14 ++++++++++++++
+ drivers/pci/controller/plda/Makefile               |  2 ++
+ .../controller/{ => plda}/pcie-microchip-host.c    |  2 +-
+ 6 files changed, 21 insertions(+), 12 deletions(-)
+ create mode 100644 drivers/pci/controller/plda/Kconfig
+ create mode 100644 drivers/pci/controller/plda/Makefile
+ rename drivers/pci/controller/{ => plda}/pcie-microchip-host.c (99%)
 
-diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-index f7a3c2636355..7c2d51221f65 100644
---- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-+++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-@@ -10,21 +10,13 @@ maintainers:
-   - Daire McNamara <daire.mcnamara@microchip.com>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8d1052fa6a69..44daaf962065 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -17034,7 +17034,7 @@ M:	Daire McNamara <daire.mcnamara@microchip.com>
+ L:	linux-pci@vger.kernel.org
+ S:	Supported
+ F:	Documentation/devicetree/bindings/pci/microchip*
+-F:	drivers/pci/controller/*microchip*
++F:	drivers/pci/controller/plda/*microchip*
  
- allOf:
--  - $ref: /schemas/pci/pci-bus.yaml#
-+  - $ref: plda,xpressrich3-axi-common.yaml#
-   - $ref: /schemas/interrupt-controller/msi-controller.yaml#
+ PCIE DRIVER FOR QUALCOMM MSM
+ M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+@@ -18827,7 +18827,7 @@ F:	drivers/clk/microchip/clk-mpfs*.c
+ F:	drivers/firmware/microchip/mpfs-auto-update.c
+ F:	drivers/i2c/busses/i2c-microchip-corei2c.c
+ F:	drivers/mailbox/mailbox-mpfs.c
+-F:	drivers/pci/controller/pcie-microchip-host.c
++F:	drivers/pci/controller/plda/pcie-microchip-host.c
+ F:	drivers/pwm/pwm-microchip-core.c
+ F:	drivers/reset/reset-mpfs.c
+ F:	drivers/rtc/rtc-mpfs.c
+diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+index e534c02ee34f..4d2c188f5835 100644
+--- a/drivers/pci/controller/Kconfig
++++ b/drivers/pci/controller/Kconfig
+@@ -215,14 +215,6 @@ config PCIE_MT7621
+ 	help
+ 	  This selects a driver for the MediaTek MT7621 PCIe Controller.
  
- properties:
-   compatible:
-     const: microchip,pcie-host-1.0 # PolarFire
+-config PCIE_MICROCHIP_HOST
+-	tristate "Microchip AXI PCIe controller"
+-	depends on PCI_MSI && OF
+-	select PCI_HOST_COMMON
+-	help
+-	  Say Y here if you want kernel to support the Microchip AXI PCIe
+-	  Host Bridge driver.
+-
+ config PCI_HYPERV_INTERFACE
+ 	tristate "Microsoft Hyper-V PCI Interface"
+ 	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI
+@@ -356,4 +348,5 @@ config PCIE_XILINX_CPM
+ source "drivers/pci/controller/cadence/Kconfig"
+ source "drivers/pci/controller/dwc/Kconfig"
+ source "drivers/pci/controller/mobiveil/Kconfig"
++source "drivers/pci/controller/plda/Kconfig"
+ endmenu
+diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
+index f2b19e6174af..038ccbd9e3ba 100644
+--- a/drivers/pci/controller/Makefile
++++ b/drivers/pci/controller/Makefile
+@@ -33,7 +33,6 @@ obj-$(CONFIG_PCIE_ROCKCHIP_EP) += pcie-rockchip-ep.o
+ obj-$(CONFIG_PCIE_ROCKCHIP_HOST) += pcie-rockchip-host.o
+ obj-$(CONFIG_PCIE_MEDIATEK) += pcie-mediatek.o
+ obj-$(CONFIG_PCIE_MEDIATEK_GEN3) += pcie-mediatek-gen3.o
+-obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+ obj-$(CONFIG_VMD) += vmd.o
+ obj-$(CONFIG_PCIE_BRCMSTB) += pcie-brcmstb.o
+ obj-$(CONFIG_PCI_LOONGSON) += pci-loongson.o
+@@ -44,6 +43,7 @@ obj-$(CONFIG_PCIE_MT7621) += pcie-mt7621.o
+ # pcie-hisi.o quirks are needed even without CONFIG_PCIE_DW
+ obj-y				+= dwc/
+ obj-y				+= mobiveil/
++obj-y				+= plda/
  
--  reg:
--    maxItems: 2
--
--  reg-names:
--    items:
--      - const: cfg
--      - const: apb
--
-   clocks:
-     description:
-       Fabric Interface Controllers, FICs, are the interface between the FPGA
-@@ -52,18 +44,6 @@ properties:
-     items:
-       pattern: '^fic[0-3]$'
  
--  interrupts:
--    minItems: 1
--    items:
--      - description: PCIe host controller
--      - description: builtin MSI controller
--
--  interrupt-names:
--    minItems: 1
--    items:
--      - const: pcie
--      - const: msi
--
-   ranges:
-     maxItems: 1
- 
-@@ -71,39 +51,6 @@ properties:
-     minItems: 1
-     maxItems: 6
- 
--  msi-controller:
--    description: Identifies the node as an MSI controller.
--
--  msi-parent:
--    description: MSI controller the device is capable of using.
--
--  interrupt-controller:
--    type: object
--    properties:
--      '#address-cells':
--        const: 0
--
--      '#interrupt-cells':
--        const: 1
--
--      interrupt-controller: true
--
--    required:
--      - '#address-cells'
--      - '#interrupt-cells'
--      - interrupt-controller
--
--    additionalProperties: false
--
--required:
--  - reg
--  - reg-names
--  - "#interrupt-cells"
--  - interrupts
--  - interrupt-map-mask
--  - interrupt-map
--  - msi-controller
--
- unevaluatedProperties: false
- 
- examples:
-diff --git a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+ # The following drivers are for devices that use the generic ACPI
+diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
 new file mode 100644
-index 000000000000..31bb17b11e58
+index 000000000000..5cb3be4fc98c
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
-@@ -0,0 +1,75 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/plda,xpressrich3-axi-common.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/pci/controller/plda/Kconfig
+@@ -0,0 +1,14 @@
++# SPDX-License-Identifier: GPL-2.0
 +
-+title: PLDA XpressRICH PCIe host common properties
++menu "PLDA-based PCIe controllers"
++	depends on PCI
 +
-+maintainers:
-+  - Daire McNamara <daire.mcnamara@microchip.com>
-+  - Kevin Xie <kevin.xie@starfivetech.com>
++config PCIE_MICROCHIP_HOST
++	tristate "Microchip AXI PCIe controller"
++	depends on PCI_MSI && OF
++	select PCI_HOST_COMMON
++	help
++	  Say Y here if you want kernel to support the Microchip AXI PCIe
++	  Host Bridge driver.
 +
-+description:
-+  Generic PLDA XpressRICH PCIe host common properties.
-+
-+allOf:
-+  - $ref: /schemas/pci/pci-bus.yaml#
-+
-+properties:
-+  reg:
-+    maxItems: 2
-+
-+  reg-names:
-+    items:
-+      - const: cfg
-+      - const: apb
-+
-+  interrupts:
-+    minItems: 1
-+    items:
-+      - description: PCIe host controller
-+      - description: builtin MSI controller
-+
-+  interrupt-names:
-+    minItems: 1
-+    items:
-+      - const: pcie
-+      - const: msi
-+
-+  msi-controller:
-+    description: Identifies the node as an MSI controller.
-+
-+  msi-parent:
-+    description: MSI controller the device is capable of using.
-+
-+  interrupt-controller:
-+    type: object
-+    properties:
-+      '#address-cells':
-+        const: 0
-+
-+      '#interrupt-cells':
-+        const: 1
-+
-+      interrupt-controller: true
-+
-+    required:
-+      - '#address-cells'
-+      - '#interrupt-cells'
-+      - interrupt-controller
-+
-+    additionalProperties: false
-+
-+required:
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - msi-controller
-+  - "#interrupt-cells"
-+  - interrupt-map-mask
-+  - interrupt-map
-+
-+additionalProperties: true
-+
-+...
++endmenu
+diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
+new file mode 100644
+index 000000000000..e1a265cbf91c
+--- /dev/null
++++ b/drivers/pci/controller/plda/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+similarity index 99%
+rename from drivers/pci/controller/pcie-microchip-host.c
+rename to drivers/pci/controller/plda/pcie-microchip-host.c
+index 137fb8570ba2..cb09a8137e25 100644
+--- a/drivers/pci/controller/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -18,7 +18,7 @@
+ #include <linux/pci-ecam.h>
+ #include <linux/platform_device.h>
+ 
+-#include "../pci.h"
++#include "../../pci.h"
+ 
+ /* Number of MSI IRQs */
+ #define MC_MAX_NUM_MSI_IRQS			32
 -- 
 2.17.1
 
