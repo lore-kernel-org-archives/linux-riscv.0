@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1775BC47DB3
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 01:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B9BC47DA9
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 01:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ykb6r7s29LTji22rVrurlweNyCk5fDJV0+t8z5hUXik=; b=0uUJoEUWPretWm
-	8VAvHg2Y/DMZfLwxDq8ofipDP1SiRoY+cCy/wpoz/q8VJP6fkShRnji1bDkRcQ0HgD4dq3sYxVFlj
-	RlSzwW/0FRiq8gx81Uyvk1cvJR86LBDACJI+P7tGyKqMI1FP9OkZvMoqSeeaygP/a3ma+N4WhUecN
-	t+8HsW3b4EubRsBN/5nFH+eMGTyut/KooBIZSnrRLE0yQzcsrz5Y9uhALXWnrb1cDkPGg1k+yY0c1
-	Q7rlgdd8XOhnUFhHLi1FXz8AU24hOnlZ5HGZ6OuyqSvnG/o7wcLBl7PSUm4JxvMEeX5EZ1OiSPwJu
-	r8s7JtaDpQkrt+/iD6+w==;
+	List-Owner; bh=m74T00Td+/mKbql+dhymmU/XZBiHQ8xY/TwrE5uKrVQ=; b=xz3PLzE9EXsR4m
+	tAEy1WoczPTckwqmyzB2tL7cySovS+gyxImNgJHcj4sLSw1LsoACGlbfaFlON6LbPUgWCi4HmUpFP
+	mM661NrPYEuLg4Q2VRuJ7y72bDHrIkJxe2FaiR/JYWHMTTukhZmKBawFX24aH4ZLHtcEXKUIyLWmb
+	sScpn1Mmv+NiWpB7v/FPUZIsjW+bsA47PX5WYdN1m2TfTq+hAgnQWXJ/GH2/h6XRvSRg7o4LULujs
+	aRybtlEOhE14OwYxTpbMIg9aBlkwcal10uCeT3fZl77mIO4XwS/Kk2gjwbDIyBTxIkqHgxafBhWnh
+	QzolIumpqjVRIcZCc+aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUdGe-0000000EsjL-3H85;
-	Tue, 30 Jan 2024 01:50:28 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1rUdGv-0000000EspZ-4AN4;
+	Tue, 30 Jan 2024 01:50:45 +0000
+Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUdGc-0000000EsiZ-0ofb
+	id 1rUdGt-0000000Esof-2XLp
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jan 2024 01:50:27 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-6e13c6e6093so157615a34.1
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 17:50:24 -0800 (PST)
+	Tue, 30 Jan 2024 01:50:44 +0000
+Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-216f774c827so818232fac.2
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 17:50:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1706579424; x=1707184224; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1706579442; x=1707184242; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=T+/+BqCwMuDGeOCcrnZSnGmH94q8LFSE4MJFDmMTUoM=;
-        b=ZmkPjhnvqDV3B0+G0Bio127I+uMhg1G3iK49VTMTRkTh+Fb9dcaxFwXrQc9N8P/ObD
-         CwX+f7dJZlvtIgy6XsLn5L0hMVFlh+KrqTY1MsOOif1ycNlHZE3pS4SgGjdeTzi36I+q
-         gbdd6nvvKHGjtg8odNCiGLq3UHYy7wPO4VeJUqgIxVGmOWZWeqZ/n+Xl74ouFHffzkgt
-         WASON0EIiF3UW07cg3LJnHCcXOn2vqkwcojLPYcFfua1cjP8b64LCbyg2RVEccb/CfRL
-         osiTYbsvSUTxxqGjUrm2wii2o4AD8CAUvwdoJfyD5rAIBxQ+p8wo17A4xs4k29Vff4PW
-         s5QQ==
+        bh=pES1Be8lnleSkC5ZTbu9K0AiFC/pOlb++5x2f9+FMkw=;
+        b=AGTRHlpJEoQZK6jv8XpA7D78iuW/FNdIvjJ8OZRVuOCoS5COqEQYxVA5EUu4HB1FSr
+         f/WTBvNqi0oB7Xnu2XWKSA3p3erG4mUvnUYMYLvfBYhQ8VhKLduB3WKVIDvlCKqaUwhq
+         CZZ0WMqG9LV1AKzUt3ADbLmmcCnACoCZoTC4JQCzZwQR2PGyuovFylGJ9dEYXwg013EJ
+         9os3zxqB3w+S59FsKbbsaDJvBlHHk7zE5SsbaOcnREtMBB9ifxg5BeljOwm+8S6Fpgkc
+         0S6F5MbjZNu2JRW8JaRmwmMgZZDTw1qLrq1HMkUkrtZO+lzruhYOwlbohnks1Q4q3PXi
+         w8qw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706579424; x=1707184224;
+        d=1e100.net; s=20230601; t=1706579442; x=1707184242;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=T+/+BqCwMuDGeOCcrnZSnGmH94q8LFSE4MJFDmMTUoM=;
-        b=RBOYdVtQouHxXBVkUMSNeR8yMNukQksVEzCXHdmHCFskdoAjBBcyKp6/g1GfuODi6L
-         grL26kAOqHZ/uP947IjAz8Ny7VeV3Y5NfeU4VKaq0OoUXPa/aI8BD5vmpjDoky8r5t+3
-         Fpna8UVX5FHBzM7DtwvxzflGdN+c3o+I3upMpPlEvwazIVF09Lew9e6bwJrq8vI0+RCr
-         CGbPtG3MydIfB212rorLNaB9sWBWtdlmyeU4LTfOzV/TkXQJhyKVEBi9EQZJMuPqe/au
-         RvsIfUamn3ljzi36gAAcGazM6HFbrSW8WnslJ8bPA/phbJj2DuF+xADx50dM5QkrBJ15
-         32PQ==
-X-Gm-Message-State: AOJu0YzEWyZOruXSAMF2LlZkLUDjOzQRTg6rVAFGTizRLUPoN+NB37N1
-	KZmCZLrAlg0EjdZWH4jGMTX1/4rgyfn1QZB82YCpIPpYt/ZmJQtV
-X-Google-Smtp-Source: AGHT+IFq9Xk7811v3ADb80CtutRY0zvjWZvOVPlUhN9sU9gbnK+EK7WvbooNwP/qEMA3CSlitF72rg==
-X-Received: by 2002:a9d:7855:0:b0:6dd:eaaa:a33d with SMTP id c21-20020a9d7855000000b006ddeaaaa33dmr5219120otm.21.1706579424090;
-        Mon, 29 Jan 2024 17:50:24 -0800 (PST)
+        bh=pES1Be8lnleSkC5ZTbu9K0AiFC/pOlb++5x2f9+FMkw=;
+        b=qLAiEwiH0dYRpwoBec4b2uKoldieyLU6UFaLLITznPEdyAk9Tc6KIHtyg2WRORn6s8
+         mPba96Uo/24fS/8Wzv5K9uCS0VnKP6e6FnrfFRyHSXFNgwrqoipsgq2Bw3IbislZSDA0
+         jDk9n0Lf9L+KP+N4PIMt23SAaQIj0hoTaI1zbvvbJQyhDOKfuyFdh9J4zRrmMX/gBgkH
+         a7qWMW2YBxPRG20Ys0Yl9NaTgk9Bx7LWMKIKFqai6JhDQhlPq1loOxk83yDgHHLxJ5Jc
+         Iw11MU6XYU4yVRZE3nUQyMBkWYeNQM0+17LPSBwuHLHroZcekDHrUu/t+XWiEB9rLScd
+         jydA==
+X-Gm-Message-State: AOJu0YzSaCMxGYeEiPpec9aiUuYJ7vFREOem9fgM6LL8DsCPwDyvjYpk
+	u5YpQD7oGMvgLpu3/39exeCdpIqmw/LX5jw/fjQnU/hWqKZ/i35o
+X-Google-Smtp-Source: AGHT+IGio/t2XsWrOwzRM9pFgzBhPyxcBq77pykVY6hy8s3dWZl1ypoMVNAtpSg4J8UbdBCL7VCC+w==
+X-Received: by 2002:a05:6871:6ac:b0:210:ad08:8f47 with SMTP id l44-20020a05687106ac00b00210ad088f47mr3292623oao.36.1706579442391;
+        Mon, 29 Jan 2024 17:50:42 -0800 (PST)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id z24-20020a056830129800b006e13a9ff830sm194148otp.53.2024.01.29.17.50.22
+        by smtp.gmail.com with ESMTPSA id e12-20020a056870450c00b00218496d80b7sm1894855oao.29.2024.01.29.17.50.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jan 2024 17:50:23 -0800 (PST)
+        Mon, 29 Jan 2024 17:50:42 -0800 (PST)
 From: Chen Wang <unicornxw@gmail.com>
 To: aou@eecs.berkeley.edu,
 	chao.wei@sophgo.com,
@@ -80,16 +80,17 @@ To: aou@eecs.berkeley.edu,
 	jszhang@kernel.org,
 	inochiama@outlook.com
 Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v3 2/4] reset: simple: add support for Sophgo SG2042
-Date: Tue, 30 Jan 2024 09:50:08 +0800
-Message-Id: <1cfd7b3ba447942784c4f7aa595e962399e9f617.1706577450.git.unicorn_wang@outlook.com>
+Subject: [PATCH v3 3/4] riscv: dts: add reset generator for Sophgo SG2042 SoC
+Date: Tue, 30 Jan 2024 09:50:32 +0800
+Message-Id: <b2f5d7cd2d3fccfc00cf4563d2dd7363b0fa2fca.1706577450.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1706577450.git.unicorn_wang@outlook.com>
 References: <cover.1706577450.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_175026_259406_28435D62 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20240129_175043_665634_CE40B4CF 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,48 +109,39 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-Reuse reset-simple driver for the Sophgo SG2042 reset generator.
+Add reset generator node to device tree for SG2042.
 
 Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- drivers/reset/Kconfig        | 3 ++-
- drivers/reset/reset-simple.c | 2 ++
- 2 files changed, 4 insertions(+), 1 deletion(-)
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index ccd59ddd7610..2034f69d5953 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -213,7 +213,7 @@ config RESET_SCMI
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+index ead1cc35d88b..eeb341e16bfd 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
++++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+@@ -6,6 +6,8 @@
+ /dts-v1/;
+ #include <dt-bindings/interrupt-controller/irq.h>
  
- config RESET_SIMPLE
- 	bool "Simple Reset Controller Driver" if COMPILE_TEST || EXPERT
--	default ARCH_ASPEED || ARCH_BCMBCA || ARCH_BITMAIN || ARCH_REALTEK || ARCH_STM32 || (ARCH_INTEL_SOCFPGA && ARM64) || ARCH_SUNXI || ARC
-+	default ARCH_ASPEED || ARCH_BCMBCA || ARCH_BITMAIN || ARCH_REALTEK || ARCH_SOPHGO || ARCH_STM32 || (ARCH_INTEL_SOCFPGA && ARM64) || ARCH_SUNXI || ARC
- 	depends on HAS_IOMEM
- 	help
- 	  This enables a simple reset controller driver for reset lines that
-@@ -228,6 +228,7 @@ config RESET_SIMPLE
- 	   - RCC reset controller in STM32 MCUs
- 	   - Allwinner SoCs
- 	   - SiFive FU740 SoCs
-+	   - Sophgo SoCs
++#include <dt-bindings/reset/sophgo,sg2042-reset.h>
++
+ #include "sg2042-cpus.dtsi"
  
- config RESET_SOCFPGA
- 	bool "SoCFPGA Reset Driver" if COMPILE_TEST && (!ARM || !ARCH_INTEL_SOCFPGA)
-diff --git a/drivers/reset/reset-simple.c b/drivers/reset/reset-simple.c
-index 818cabcc9fb7..276067839830 100644
---- a/drivers/reset/reset-simple.c
-+++ b/drivers/reset/reset-simple.c
-@@ -151,6 +151,8 @@ static const struct of_device_id reset_simple_dt_ids[] = {
- 	{ .compatible = "snps,dw-high-reset" },
- 	{ .compatible = "snps,dw-low-reset",
- 		.data = &reset_simple_active_low },
-+	{ .compatible = "sophgo,sg2042-reset",
-+		.data = &reset_simple_active_low },
- 	{ /* sentinel */ },
- };
+ / {
+@@ -327,6 +329,12 @@ intc: interrupt-controller@7090000000 {
+ 			riscv,ndev = <224>;
+ 		};
  
++		rstgen: reset-controller@7030013000 {
++			compatible = "sophgo,sg2042-reset";
++			reg = <0x00000070 0x30013000 0x00000000 0x0000000c>;
++			#reset-cells = <1>;
++		};
++
+ 		uart0: serial@7040000000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x00000070 0x40000000 0x00000000 0x00001000>;
 -- 
 2.25.1
 
