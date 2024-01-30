@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB903C47DDF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AFFC46CD2
 	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 12:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VqopRfoaHciRcTg278pLuruN4fMycDSnTe3k9Aom8mA=; b=dbh0zuZ+76Jo7P
-	poZrSdX8aPDs2aW+yuXUXOoPfJgA2qcToy0hDAuT9Q8XIeZ0Zq9tRMJxcAiTJW/A7u3bKRRL3bOjq
-	WDc2BFKLlYtp2bldawQJaYs7eLt4+8tZmFrUUjH6gEQ0H60czPNjpJN/N4NcQbPwF6RdwN7kGs+Ig
-	UThoEo/NaWKd2/F0ssLAMGn/RJxbElpU6ZMoPyG3i1z6qCZ81M6jW/46PozMDzrGbMpv3+VkCB6y8
-	f38jifz+53t3smeWq0B4qMQha/SZ9WDDCXKtwvsb+K6ZG5vmfAAlHM9E2nR8fNqEwupwc3Pbr0CrG
-	0aJCH0FGh4fsmZ73qE2w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+u5C/ByVwyUk5lI8qJ1z674lC8dIr1idZi3Y0LNhJh8=; b=WelkIgu9oR2Mwa
+	x7LTWEumCK6U+sGDxwG4XmIq7MQR58ksXvFT0KKm+xkE+yvioxiwD3fCaQxpVb/uVydpA1gbWBGtQ
+	yws4kjg1jsm08xcBVrBz8R3Tr/3nu8DZYuY/S/SjieN3VydRil8b7sUTFyW//jjBD/uVgFcOFFcwa
+	Dib99D8q3jAEA9BQ4O8T+sXQzMHrcIC6mnjU1Iw5EXtuRxg/kBXN8G0J8WQ/cRqzlVDo/LbtgELlk
+	CqSgeI9ToKH8UUzcQDhiRcRDjJHmTXTBP2qlNPv+5UC9kQ68EE1pdyjj3X5iy3/2NwPTbx8zD8+X6
+	lfBn4HeIRDOgKkV8IAcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUnVO-0000000GitG-2DyR;
-	Tue, 30 Jan 2024 12:46:22 +0000
+	id 1rUnVN-0000000Git2-3HqI;
+	Tue, 30 Jan 2024 12:46:21 +0000
 Received: from [45.249.212.56] (helo=dggsgout12.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUnVK-0000000GiqB-2Ek9
+	id 1rUnVK-0000000GiqC-2EbW
 	for linux-riscv@lists.infradead.org;
 	Tue, 30 Jan 2024 12:46:20 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4TPPzf70syz4f3kG1
-	for <linux-riscv@lists.infradead.org>; Tue, 30 Jan 2024 20:46:06 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4TPPzg0yDCz4f3kGD
+	for <linux-riscv@lists.infradead.org>; Tue, 30 Jan 2024 20:46:07 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 1E2031A01E9
+	by mail.maildlp.com (Postfix) with ESMTP id 447511A0272
 	for <linux-riscv@lists.infradead.org>; Tue, 30 Jan 2024 20:46:11 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP1 (Coremail) with SMTP id cCh0CgCXZg+S77hllrfLCQ--.28270S2;
-	Tue, 30 Jan 2024 20:46:10 +0800 (CST)
+	by APP1 (Coremail) with SMTP id cCh0CgCXZg+S77hllrfLCQ--.28270S4;
+	Tue, 30 Jan 2024 20:46:11 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
@@ -58,32 +58,35 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Luke Nelson <luke.r.nels@gmail.com>,
 	Pu Lehui <pulehui@huawei.com>,
 	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [PATCH bpf-next 0/2] Enable inline bpf_kptr_xchg() for RV64
-Date: Tue, 30 Jan 2024 12:46:57 +0000
-Message-Id: <20240130124659.670321-1-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 2/2] selftests/bpf: Enable inline bpf_kptr_xchg() test for RV64
+Date: Tue, 30 Jan 2024 12:46:59 +0000
+Message-Id: <20240130124659.670321-3-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240130124659.670321-1-pulehui@huaweicloud.com>
+References: <20240130124659.670321-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: cCh0CgCXZg+S77hllrfLCQ--.28270S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7XFyfWw47Jr48Xr1kXrWkJFb_yoW3AwbEkr
-	y8Xw1DXFyYvryIvF4UKas8t398KrW3Xry5ZryIgF42yw1aqFs8ZFWku3s3JryUZrs3Zry7
-	JF4DXFWIyw13ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbxxFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrV
-	AFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCI
-	c40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267
-	AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Zr0_Wr1UMIIF0xvEx4A2jsIE14v26r1j
-	6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjfUF0
-	eHDUUUU
+X-CM-TRANSID: cCh0CgCXZg+S77hllrfLCQ--.28270S4
+X-Coremail-Antispam: 1UD129KBjvdXoW7XrWxGFWUWr4rGr4UCr15Arb_yoWDJwb_ur
+	y2qr1kAFWkuFn2vr18C3W5WFW8uw4UWrWfWFyrWr17Aw17tF45J3WkZ3s8J3yfursxXry7
+	tr4kJ343Gr42kjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbD8FF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUXwA2048vs2IY02
+	0Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
+	wVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1l84
+	ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I2
+	62IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcV
+	AFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG
+	0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI
+	1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWU
+	JVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7V
+	AKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIx
+	AIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUAGYLUUUUU
+	=
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240130_044618_783006_ECA63E49 
-X-CRM114-Status: UNSURE (   5.45  )
+X-CRM114-CacheID: sfid-20240130_044618_798203_9793B515 
+X-CRM114-Status: UNSURE (   6.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,22 +104,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch is the RV64 implementation of inline bpf_kptr_xchg()[0]. RV64
-JIT supports 64-bit BPF_XCHG atomic instructions. At the same time, the
-underlying implementation of xchg() and atomic64_xchg() in RV64 both are
-raw_xchg() that supported 64-bit. Therefore inline bpf_kptr_xchg() will
-have equivalent semantics. Let's inline it for better performance.
+From: Pu Lehui <pulehui@huawei.com>
 
-link: https://lore.kernel.org/bpf/20240105104819.3916743-1-houtao@huaweicloud.com [0]
+Enable inline bpf_kptr_xchg() test for RV64, and the test have passed as
+show below:
 
-Pu Lehui (2):
-  riscv, bpf: Enable inline bpf_kptr_xchg() for RV64
-  selftests/bpf: Enable inline bpf_kptr_xchg() test for RV64
+Summary: 1/0 PASSED, 0 SKIPPED, 0 FAILED
 
- arch/riscv/net/bpf_jit_comp64.c                           | 5 +++++
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
  tools/testing/selftests/bpf/prog_tests/kptr_xchg_inline.c | 3 ++-
- 2 files changed, 7 insertions(+), 1 deletion(-)
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
+diff --git a/tools/testing/selftests/bpf/prog_tests/kptr_xchg_inline.c b/tools/testing/selftests/bpf/prog_tests/kptr_xchg_inline.c
+index 15144943e88b..7def158da9eb 100644
+--- a/tools/testing/selftests/bpf/prog_tests/kptr_xchg_inline.c
++++ b/tools/testing/selftests/bpf/prog_tests/kptr_xchg_inline.c
+@@ -13,7 +13,8 @@ void test_kptr_xchg_inline(void)
+ 	unsigned int cnt;
+ 	int err;
+ 
+-#if !(defined(__x86_64__) || defined(__aarch64__))
++#if !(defined(__x86_64__) || defined(__aarch64__) || \
++      (defined(__riscv) && __riscv_xlen == 64))
+ 	test__skip();
+ 	return;
+ #endif
 -- 
 2.34.1
 
