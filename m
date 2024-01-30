@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E06C46CD2
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 08:44:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 262B9C46CD2
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 10:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ornyv26gzzKVZHI/dn+Bb7+Y7GH77E1CF49beIK4UEI=; b=KDprhK0QSvnAuSJxF179A40Bfo
-	4VbIb2bjq9by/qt82relovUMwmz1ge8ZMHAYdWSdoWcnGYtHE2eSmAm8clhCANi6A18naqua0tcOz
-	MaNA7ja3Y1mY2QyHDdvL6ktX7NtUI5h1Kbps6vyiCF14vXBwiKs+hhvgn2H5k7h+xvo2x+U7lNGgt
-	U+Cj5SvqzdzyfhBIhuQy/8FZ8DjC2RnBVns8n9A2XcYvO3uVgfSYUhYHhx7MLmkG8eHbPONpHe9NB
-	262cnnkD9NH8p0yMhiipOFIbN/+mgipm+pvAzbyvf5C5d6ttE6ljEVFR9aJ2fMWVUGyjt3mEePiIL
-	Ezw1DJoA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JvbYj0u5U/i/hRZa2TC1hFloRMdyj21uYuvRrYVxdnk=; b=kxRc9cO7UP7bXa
+	/gwerNmc1EesXd3VLEF02eBBM2EkNUtvG4pUjtTuuoMhKwE86mnGXZWaTDIRjeROSyzGFsdlMx+hA
+	+ORFf2kJ2VP4iRgH0KrGlVsgmXJSSC8kdNtrtbbTPyeZ6uBfyAnnVvNljmC5sDRqpwrQemiKmhJ9u
+	2VwXs53XqrZAW7Mt8f/1/FbWHOxakwPNHKeXElOzVC8uf29fp028Q/NOStjICX9RRTrLktHoqmdc3
+	aayhm4jilmByG/MZR8bhJhbGJ7QNwYJ/ZxAMeWj8lW+c5B1tkVQoU22D5gYw41zYDyYacivZBY6un
+	CQnpj9TwVXxfnsmaQ0hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUjjH-0000000FlJu-0Yjf;
-	Tue, 30 Jan 2024 08:44:27 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1rUkww-0000000G5cj-1nUm;
+	Tue, 30 Jan 2024 10:02:38 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUjjE-0000000FlIa-2Ih0
+	id 1rUkwu-0000000G5bg-0bRg
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jan 2024 08:44:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1706604264; x=1738140264;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bYXuSCoKukzXJsZktTDDVdGFGywE4T8aErnrwaizOJw=;
-  b=kOd7ZgMprcaSUOSy+Eq3/mNByyh7e3SrB8qwQXV87n12F1Dp1xPkZ/9v
-   ljdefO1MwY9PIKXKS/Wh1DHLLhv3NIAlAzHGWNX5zjUZoDH1HhXPte5h7
-   kJB4GpDat9D789HIIwXOAeOsdc9YWjlD46EDtw0E+NhuKSzmz89uNy/lH
-   mgr5Z1RB/uTF7U8UZEkPPlOyOYcPlidAmryKteFKHCj/MJgXKT+YHThp8
-   piCcPmwGkaqot5vrg+nygN+otBhSWgxXF+9F3YY/oMSl1Ae8hnS3sO5BK
-   QQ3qjilhor1iC31ajvUVhzHDRbN7nooxbo4qGhJpToCV1lNvpdmKokiEd
-   g==;
-X-CSE-ConnectionGUID: oX+nB/PuTbmJKFZjlYO7pA==
-X-CSE-MsgGUID: GseA+0pkQU2Yu8MOQhQc9w==
-X-IronPort-AV: E=Sophos;i="6.05,707,1701154800"; 
-   d="asc'?scan'208";a="15987627"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 30 Jan 2024 01:44:20 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 30 Jan 2024 01:43:59 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Tue, 30 Jan 2024 01:43:58 -0700
-Date: Tue, 30 Jan 2024 08:43:20 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-CC: Conor Dooley <conor@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "paul.walmsley@sifive.com"
-	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "sudeep.holla@arm.com"
-	<sudeep.holla@arm.com>, "robh@kernel.org" <robh@kernel.org>,
-	"suagrfillet@gmail.com" <suagrfillet@gmail.com>
-Subject: Re: [RFC v1 2/2] riscv: cacheinfo: Refactor populate_cache_leaves()
-Message-ID: <20240130-tinker-speculate-89e694c5f559@wendy>
-References: <20240129075957.116033-1-jeeheng.sia@starfivetech.com>
- <20240129075957.116033-3-jeeheng.sia@starfivetech.com>
- <20240129-parrot-dropout-c4ece33a98da@spud>
- <BJSPR01MB05611B1A4DDB1F73FD9E0A829C7DA@BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn>
+	Tue, 30 Jan 2024 10:02:37 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-510f37d673aso3032880e87.0
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Jan 2024 02:02:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1706608953; x=1707213753; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kClA8daQckTIvu1OZztRzd8EFBYH/WDKzJCQ35/y4Ao=;
+        b=FiiXorlMPXVHq9/sTeOx3T24K4JK0FZkIpfw8f0zeTckkJX4CVITeKRUgLDgDkZec8
+         jnJ13INan4Ye9vsV8F0rCT5KKfmcu4OcLGmtb3+k3YMgX8mXbo3yXymTQiFi6ngCpLRR
+         MTU88dQxivSTLS/vXVWd/H99yq8flO9jGijAizjTLMyQcrzKj2L5knbHI9ky68PDGp/a
+         wOra6T9VxjmJvdiePu3FljUSwbm+St8dk6zzrKa9x/3RLrYMhc36zOFzkhTmiB2G9obL
+         f2fJC+XTNbbjX9C33ZrjAjkfD0N9N5oQxnEPKcorMveDo7Hu1d6RhWs0sWbmpjzUE/em
+         RxuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1706608953; x=1707213753;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kClA8daQckTIvu1OZztRzd8EFBYH/WDKzJCQ35/y4Ao=;
+        b=CwrlyaZ2hU8KnjsYqoJf3nV/QsOf/h7UVKHAuhNL3dWBTZ0N9phLfC9en4OT4mvgzi
+         awBRO8YI31eyWlTIEZV56WdkmpRRQPSpr4AvcLFZ+pi/bNQYfJadqz4QxYW04ElT2/nQ
+         UPOeLDp/H0Jo1NAZKNoAHh8FcWGrRwphWwCUsTEQ0rL/4eC09ReznKujOkLUSFJrfVM6
+         fFrOx1n9yjCDwjrm60IgqlNaJMdqhh8n9qEbYwiSGnGZM22BoqgnXKFqqfb29vEvgvPr
+         0K1A0MCpY564G070NArzf5fSX4rRjaWsBgAQqA2FFqeRXLSre2j37wTiGH0U8qYw7X/t
+         uBRw==
+X-Gm-Message-State: AOJu0Yx0mgxzRxNr0ThGe2lSGNlCZfr5puvxgP+iILYfDvrtjurlxOdA
+	3vc+eKBFGkiLNUwsqhG2TAJ5BdGNmRTz+JCNV3TPmHQP1i2oYMPGyif7ApIJrPQfDUUlMg3XINu
+	J82+VB9U75/sZohf7YJPxfe0n4scy4vHxx1JpyA==
+X-Google-Smtp-Source: AGHT+IEu4GUw7zdQUbV+R6CcIgnxnw9wAWoqOjcKDwjumwIFhh0v31H+fAq88YVX4N5QfeCdu72T3yofgT9yNyrYMQo=
+X-Received: by 2002:a05:6512:61:b0:50e:8eff:3980 with SMTP id
+ i1-20020a056512006100b0050e8eff3980mr6148028lfo.30.1706608953505; Tue, 30 Jan
+ 2024 02:02:33 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <BJSPR01MB05611B1A4DDB1F73FD9E0A829C7DA@BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn>
+References: <20240127161753.114685-1-apatel@ventanamicro.com>
+ <87r0hzuw87.fsf@all.your.base.are.belong.to.us> <87le87uulb.fsf@all.your.base.are.belong.to.us>
+In-Reply-To: <87le87uulb.fsf@all.your.base.are.belong.to.us>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Tue, 30 Jan 2024 15:32:21 +0530
+Message-ID: <CAK9=C2U2mGzTLaXDqyD86bEM4XRc3UmBxRtrd3=+QXXwMK3hjg@mail.gmail.com>
+Subject: Re: [PATCH v12 00/25] Linux RISC-V AIA Support
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Frank Rowand <frowand.list@gmail.com>, 
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	linux-kernel@vger.kernel.org, Atish Patra <atishp@atishpatra.org>, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240130_004424_779989_CD0753FE 
-X-CRM114-Status: GOOD (  43.00  )
+X-CRM114-CacheID: sfid-20240130_020236_212774_FC7326E5 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,180 +91,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5512518376389920914=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5512518376389920914==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="RjPP/Q2tX/ed6WHc"
-Content-Disposition: inline
-
---RjPP/Q2tX/ed6WHc
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jan 30, 2024 at 06:24:44AM +0000, JeeHeng Sia wrote:
-> > From: Conor Dooley <conor@kernel.org>
-> > Sent: Monday, January 29, 2024 8:31 PM
-> > On Sun, Jan 28, 2024 at 11:59:57PM -0800, Sia Jee Heng wrote:
-> > > Refactoring the cache population function to support both DT and
-> > > ACPI-based platforms.
-> > >
-> > > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> > > ---
-> > >  arch/riscv/kernel/cacheinfo.c | 47 ++++++++++++++-------------------=
---
-> > >  1 file changed, 19 insertions(+), 28 deletions(-)
-> > >
-> > > diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cachei=
-nfo.c
-> > > index 30a6878287ad..f10e26fb75b6 100644
-> > > --- a/arch/riscv/kernel/cacheinfo.c
-> > > +++ b/arch/riscv/kernel/cacheinfo.c
-> > > @@ -74,36 +74,27 @@ int populate_cache_leaves(unsigned int cpu)
-> > >  {
-> > >  	struct cpu_cacheinfo *this_cpu_ci =3D get_cpu_cacheinfo(cpu);
-> > >  	struct cacheinfo *this_leaf =3D this_cpu_ci->info_list;
-> > > -	struct device_node *np =3D of_cpu_device_node_get(cpu);
-> > > -	struct device_node *prev =3D NULL;
-> > > -	int levels =3D 1, level =3D 1;
-> > > -
-> > > -	if (of_property_read_bool(np, "cache-size"))
-> > > -		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-> > > -	if (of_property_read_bool(np, "i-cache-size"))
-> > > -		ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> > > -	if (of_property_read_bool(np, "d-cache-size"))
-> > > -		ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
-> > > -
-> > > -	prev =3D np;
-> > > -	while ((np =3D of_find_next_cache_node(np))) {
-> > > -		of_node_put(prev);
-> > > -		prev =3D np;
-> > > -		if (!of_device_is_compatible(np, "cache"))
-> > > -			break;
-> > > -		if (of_property_read_u32(np, "cache-level", &level))
-> > > -			break;
-> > > -		if (level <=3D levels)
-> > > -			break;
-> > > -		if (of_property_read_bool(np, "cache-size"))
-> > > -			ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-> > > -		if (of_property_read_bool(np, "i-cache-size"))
-> > > -			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> > > -		if (of_property_read_bool(np, "d-cache-size"))
-> > > +	unsigned int level, idx;
-> > > +
-> > > +	for (idx =3D 0, level =3D 1; level <=3D this_cpu_ci->num_levels &&
-> > > +	     idx < this_cpu_ci->num_leaves; idx++, level++) {
-> > > +		/*
-> > > +		 * Since the RISC-V architecture doesn't provide any register for =
-detecting the
-> > > +		 * Cache Level and Cache type, this assumes that:
-> > > +		 * - There cannot be any split caches (data/instruction) above a u=
-nified cache.
-> > > +		 * - Data/instruction caches come in pairs.
-> > > +		 * - Significant work is required elsewhere to fully support data/=
-instruction-only
-> > > +		 *   type caches.
-> > > +		 * - The above assumptions are based on conventional system design=
- and known
-> > > +		 *   examples.
-> >=20
-> > I don't think this comment matches what you are doing.
-> >=20
-> > For example, the comment only requires that split caches cannot be above
-> > unified ones, but the code will always make a level 1 cache be split and
-> > higher level caches unified.
-> >=20
-> > The place you took the comment about the split caches from does not
-> > enforce the type of cache layout that you do where the 1st level is
-> > always split and anything else is unified.
-> Correct, I meant to say 1st level is always split and anything else is un=
-ified.
-> But, do we agree with the statement?
-
-That the first level is always split and anything else is always unified?
-No, but I think the assumption /in the comment/ is reasonable however.
-
-This is your patch, you need to justify the changes you are making
-here, not ask me if it is okay after I noticed that your comments and
-code do not match.
-
-> > populate_cache_leaves() only gets called in a fallback path when the
-> > information has not already been configured by other means (and as you
-> > probably noticed on things like arm64 it uses some other means to fill
-> > in the data).
-> >=20
-> > Is there a reason why we would not just return -ENOENT for ACPI systems
-> I don't think that we should return -ENOENT otherwise the cacheinfo
-> framework would failed.
-
-If you don't have a way to determine the cache layout, what makes
--ENOENT worse than making something up?
-
-Why does your system not get information from its ACPI tables?
-
-> > if this has not been populated earlier in boot and leave the DT code
-> > here alone?
-
-> This function is shared by both ACPI and DT.
-
-I don't see how that answers my question.
-
-Why should the DT systems stop trying to parse for the information?
-
-Why must ACPI and DT do the same thing here?
-
-Thanks,
-Conor.
-
-> > > +		 */
-> > > +		if (level =3D=3D 1) {
-> > >  			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
-> > > -		levels =3D level;
-> > > +			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> > > +		} else {
-> > > +			ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-> > > +		}
-> > >  	}
-> > > -	of_node_put(np);
-> > >
-> > >  	return 0;
-> > >  }
-> > > --
-> > > 2.34.1
-> > >
-> > >
-> > > _______________________________________________
-> > > linux-riscv mailing list
-> > > linux-riscv@lists.infradead.org
-> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---RjPP/Q2tX/ed6WHc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZbi2owAKCRB4tDGHoIJi
-0lO2AQD0A3/H7hh5AG3sDLHfZ9gkTS0mjtoKVg57zYoHoM3nOAD+KK+eRU9gg16t
-GkduSQZiXWd2+tOyFY7jz75qEMTTvAY=
-=qfNW
------END PGP SIGNATURE-----
-
---RjPP/Q2tX/ed6WHc--
-
-
---===============5512518376389920914==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5512518376389920914==--
-
+T24gVHVlLCBKYW4gMzAsIDIwMjQgYXQgMToyMuKAr1BNIEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtl
+cm5lbC5vcmc+IHdyb3RlOgo+Cj4gQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4gd3Jp
+dGVzOgo+Cj4gPiBBbnVwIFBhdGVsIDxhcGF0ZWxAdmVudGFuYW1pY3JvLmNvbT4gd3JpdGVzOgo+
+ID4KPiA+PiBUaGUgUklTQy1WIEFJQSBzcGVjaWZpY2F0aW9uIGlzIHJhdGlmaWVkIGFzLXBlciB0
+aGUgUklTQy1WIGludGVybmF0aW9uYWwKPiA+PiBwcm9jZXNzLiBUaGUgbGF0ZXN0IHJhdGlmaWVk
+IEFJQSBzcGVjaWZjYXRpb24gY2FuIGJlIGZvdW5kIGF0Ogo+ID4+IGh0dHBzOi8vZ2l0aHViLmNv
+bS9yaXNjdi9yaXNjdi1haWEvcmVsZWFzZXMvZG93bmxvYWQvMS4wL3Jpc2N2LWludGVycnVwdHMt
+MS4wLnBkZgo+ID4+Cj4gPj4gQXQgYSBoaWdoLWxldmVsLCB0aGUgQUlBIHNwZWNpZmljYXRpb24g
+YWRkcyB0aHJlZSB0aGluZ3M6Cj4gPj4gMSkgQUlBIENTUnMKPiA+PiAgICAtIEltcHJvdmVkIGxv
+Y2FsIGludGVycnVwdCBzdXBwb3J0Cj4gPj4gMikgSW5jb21pbmcgTWVzc2FnZSBTaWduYWxlZCBJ
+bnRlcnJ1cHQgQ29udHJvbGxlciAoSU1TSUMpCj4gPj4gICAgLSBQZXItSEFSVCBNU0kgY29udHJv
+bGxlcgo+ID4+ICAgIC0gU3VwcG9ydCBNU0kgdmlydHVhbGl6YXRpb24KPiA+PiAgICAtIFN1cHBv
+cnQgSVBJIGFsb25nIHdpdGggdmlydHVhbGl6YXRpb24KPiA+PiAzKSBBZHZhbmNlZCBQbGF0Zm9y
+bS1MZXZlbCBJbnRlcnJ1cHQgQ29udHJvbGxlciAoQVBMSUMpCj4gPj4gICAgLSBXaXJlZCBpbnRl
+cnJ1cHQgY29udHJvbGxlcgo+ID4+ICAgIC0gSW4gTVNJLW1vZGUsIGNvbnZlcnRzIHdpcmVkIGlu
+dGVycnVwdCBpbnRvIE1TSXMgKGkuZS4gTVNJIGdlbmVyYXRvcikKPiA+PiAgICAtIEluIERpcmVj
+dC1tb2RlLCBpbmplY3RzIGV4dGVybmFsIGludGVycnVwdHMgZGlyZWN0bHkgaW50byBIQVJUcwo+
+ID4+Cj4gPj4gRm9yIGFuIG92ZXJ2aWV3IG9mIHRoZSBBSUEgc3BlY2lmaWNhdGlvbiwgcmVmZXIg
+dGhlIEFJQSB2aXJ0dWFsaXphdGlvbgo+ID4+IHRhbGsgYXQgS1ZNIEZvcnVtIDIwMjI6Cj4gPj4g
+aHR0cHM6Ly9zdGF0aWMuc2NoZWQuY29tL2hvc3RlZF9maWxlcy9rdm1mb3J1bTIwMjIvYTEvQUlB
+X1ZpcnR1YWxpemF0aW9uX2luX0tWTV9SSVNDVl9maW5hbC5wZGYKPiA+PiBodHRwczovL3d3dy55
+b3V0dWJlLmNvbS93YXRjaD92PXIwNzFkTDhaMHlvCj4gPj4KPiA+PiBUbyB0ZXN0IHRoaXMgc2Vy
+aWVzLCB1c2UgUUVNVSB2Ny4yIChvciBoaWdoZXIpIGFuZCBPcGVuU0JJIHYxLjIgKG9yIGhpZ2hl
+cikuCj4gPj4KPiA+PiBUaGVzZSBwYXRjaGVzIGNhbiBhbHNvIGJlIGZvdW5kIGluIHRoZSByaXNj
+dl9haWFfdjEyIGJyYW5jaCBhdDoKPiA+PiBodHRwczovL2dpdGh1Yi5jb20vYXZwYXRlbC9saW51
+eC5naXQKPiA+Pgo+ID4+IENoYW5nZXMgc2luY2UgdjExOgo+ID4+ICAtIFJlYmFzZWQgb24gTGlu
+dXgtNi44LXJjMQo+ID4+ICAtIEluY2x1ZGVkIGtlcm5lbC9pcnEgcmVsYXRlZCBwYXRjaGVzIGZy
+b20gImdlbmlycSwgaXJxY2hpcDogQ29udmVydCBBUk0KPiA+PiAgICBNU0kgaGFuZGxpbmcgdG8g
+cGVyIGRldmljZSBNU0kgZG9tYWlucyIgc2VyaWVzIGJ5IFRob21hcy4KPiA+PiAgICAoUEFUQ0g3
+LCBQQVRDSDgsIFBBVENIOSwgUEFUQ0gxNCwgUEFUQ0gxNiwgUEFUQ0gxNywgUEFUQ0gxOCwgUEFU
+Q0gxOSwKPiA+PiAgICAgUEFUQ0gyMCwgUEFUQ0gyMSwgUEFUQ0gyMiwgUEFUQ0gyMywgYW5kIFBB
+VENIMzIgb2YKPiA+PiAgICAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtYXJtLWtlcm5l
+bC8yMDIyMTEyMTEzNTY1My4yMDg2MTEyMzNAbGludXRyb25peC5kZS8pCj4gPj4gIC0gVXBkYXRl
+ZCBBUExJQyBNU0ktbW9kZSBkcml2ZXIgdG8gdXNlIHRoZSBuZXcgV0lSRURfVE9fTVNJIG1lY2hh
+bmlzbS4KPiA+PiAgLSBVcGRhdGVkIElNU0lDIGRyaXZlciB0byBzdXBwb3J0IHBlci1kZXZpY2Ug
+TVNJIGRvbWFpbnMgZm9yIFBDSSBhbmQKPiA+PiAgICBwbGF0Zm9ybSBkZXZpY2VzLgo+ID4KPiA+
+IFRoYW5rcyBmb3Igd29ya2luZyBvbiB0aGlzLCBBbnVwISBJJ20gc3RpbGwgcmV2aWV3aW5nIHRo
+ZSBwYXRjaGVzLgo+ID4KPiA+IEknbSBoaXR0aW5nIGEgYm9vdCBoYW5nIGluIHRleHQgcGF0Y2hp
+bmcsIHdpdGggdGhpcyBzZXJpZXMgYXBwbGllZCBvbgo+ID4gNi44LXJjMi4gSVBJIGlzc3Vlcz8K
+Pgo+IE5vdCB0ZXh0IHBhdGNoaW5nISBPbmUgY3B1IHNwaW5uaW5nIGluIHNtcF9jYWxsX2Z1bmN0
+aW9uX21hbnlfY29uZCgpIGFuZAo+IHRoZSBvdGhlcnMgYXJlIGluIGNwdV9yZWxheCgpLiBTbWVs
+bHMgbGlrZSBJUEkuLi4KCkNhbiB5b3Ugc2hhcmUgdGhlIGNvbXBsZXRlIGJvb3Rsb2cgPwoKUmVn
+YXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
