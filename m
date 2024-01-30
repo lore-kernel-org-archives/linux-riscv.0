@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5DDAC47DA9
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 16:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00BE7C47DA9
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 17:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zKpxhutbJYCjoN2xMow8MI0D8obHLsCrXSkmIrtRqYw=; b=l94087+eODfn3A
-	ofG0T+LvY3WKzwljCbxrRl+5FJnyGKa9mybIDjbzjMJOrn66/lldNeKanRv4i6a58GSFMZo9UxOgA
-	IpUx/x0v5q23Vzwf0hRLW8NeVExEGXwzuEaVH93FZE6hQR5Mgi7BSaI32UWlHcULNyDmoPto88/nR
-	KDBUyk0GLFz5pVmIVc3OstK8FyURufOd5IZIfJE+YzY4tXl0wN3n2wncy3iOjS/yS49GvA/PF/DFZ
-	ZsjWRDuKAEjAAD9eNzks0QuWp6wpnarHT5q7yRPuTyooo9cGgq6p4YDCGAQrZKc6rmuQengvMuW6s
-	+0bLILNaCA/BZ1KUi0XQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=41IWz/MVkwSRpDY0CuX/jQLd2MMommcepn6Oo/vq4/4=; b=EC0SWqDOGha6X/U6yLcEU3AufU
+	06aRX+V1WHn9TYGMHeMMRjq+eGPgiyknCUaOlgXN99OFSFZM/+k1bA+poXlZYAV6oJQGkn50ESW30
+	OrutViesxUyp5GfiPVoZK6MjOKqH29RspswXY9fbOmIc5Gy+fopvOJf1dvywkcyNCaqMJvxTLJyeA
+	PyFs97Iiy2ILLNQzIbmozCAkf9qmrdYV5pJjax3sDpEgTX422jwAd8cE0e0ivYq85daa9yiE+vHxn
+	U3FMRBddt5ACyHS9n8C09jG4HT8vO9f28pAP8NXqF4809bjeIzUWLl9WYmmB17BdkI/ky36oWBFbX
+	3q6L7Phg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUrLr-0000000HSWP-3vTg;
-	Tue, 30 Jan 2024 16:52:47 +0000
-Received: from mailgate.ics.forth.gr ([139.91.1.2])
+	id 1rUrVk-0000000HUfv-0ki7;
+	Tue, 30 Jan 2024 17:03:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUrLo-0000000HSU9-3rxB
+	id 1rUrVh-0000000HUei-1d7U
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jan 2024 16:52:46 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
-	by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id 40UGqbOH012005
-	for <linux-riscv@lists.infradead.org>; Tue, 30 Jan 2024 18:52:37 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
-	q=dns/txt; i=@ics.forth.gr; t=1706633551; x=1709225551;
-	h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=APe8qHs7OS1okrSny8ta3CCO+EktflctfrLK41gq/Fk=;
-	b=U5qg+AQ/phewkJxH70fZ2R3vQyboB5fmnWM0cI1BWhdqkgrTnMWul7LIakN9/XyG
-	WVQ9T9WXqNaiSg3/ggjOzUs0UPm+aK8IR6IijLN/tJcoWRDRx1BE6p0kmJ0fUEFj
-	XhLxjykO7xMx7QzGEqzq5P9luYA9dcVzzi8OE5UZHT9+5VxgxkJIYeU685apMhMB
-	3P5Fy/JRTqQKz8R3ZmNclPNXCdIBX8/ThOj34R8ZG5fgiEGqmy5GpQzo5gcle9ID
-	cjAaUAI7CMxMZH0iCkh68psOCKlJgyVKQPEQ9woeLFVcGrcUMOsnrBoZsg8sV5sE
-	QeNG7l+J9obQbPA6dugPBA==;
-X-AuditID: 8b5b014d-a17eb70000002178-8a-65b9294ffbfd
-Received: from enigma.ics.forth.gr (webmail.ics.forth.gr [139.91.151.35])
-	by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id BA.04.08568.F4929B56; Tue, 30 Jan 2024 18:52:31 +0200 (EET)
-X-ICS-AUTH-INFO: Authenticated user: mick at ics.forth.gr
-Message-ID: <c6066469-7bc9-4232-b600-0b167193f13f@ics.forth.gr>
-Date: Tue, 30 Jan 2024 18:52:24 +0200
+	Tue, 30 Jan 2024 17:02:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D831160F07;
+	Tue, 30 Jan 2024 17:02:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14292C43609;
+	Tue, 30 Jan 2024 17:02:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1706634176;
+	bh=SXaLPfDZAvSOvV1Meuu6KFULLIZdu+ujJNFiM7oIWY0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dvoSdqNeIiWSDsCr2ioyEf58I7OUGQb9uOX26I5X1yuzX/WwCAaZ6jzR8t4UQBX7L
+	 BlitvCOVARsj5HhNBRufBvScpFuOCrQjwRv0E/5FeIJ1f5nVd/yxWkK8rKYQ8I02A3
+	 yOQZMODrPQDmXmt1ydm95wv2CFFJ1xsqrun+tvXtwBQrv6iVvmePUC+pyES5d9QUtu
+	 WYUKX0tGqB+XrI1FafYq0WrUMJEqe9MU/YlLbHBbLbGRYzoriiRPQ4pdIVUYIVt7r6
+	 B8yXwEwzUV6NO3seSe0zy22uB5EfIwBPraYmtfkrkPzmYdTi/x13T760qIkDyAKU2X
+	 bvoJB8qBTVqRg==
+Date: Tue, 30 Jan 2024 17:02:50 +0000
+From: Conor Dooley <conor@kernel.org>
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-can@vger.kernel.org" <linux-can@vger.kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Wolfgang Grandegger <wg@grandegger.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v1 2/4] dt-bindings: can: Add bindings for CAST CAN
+ Controller
+Message-ID: <20240130-extruding-yodel-8580cc390b64@spud>
+References: <20240129031239.17037-1-william.qiu@starfivetech.com>
+ <20240129031239.17037-3-william.qiu@starfivetech.com>
+ <20240129-garnet-polar-65afd461a1c6@spud>
+ <ZQ0PR01MB125387EBAB0E6883FAD077859F7DA@ZQ0PR01MB1253.CHNPR01.prod.partner.outlook.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] riscv: optimized memmove
-Content-Language: el-GR, en-US
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Matteo Croce <mcroce@microsoft.com>, kernel test robot <lkp@intel.com>
-References: <20240128111013.2450-1-jszhang@kernel.org>
- <20240128111013.2450-3-jszhang@kernel.org>
- <fa36b871-43d7-413c-82a2-0ecc0ebce9b4@ics.forth.gr>
- <Zbj1o6VAsk8Tn2ab@xhacker>
-From: Nick Kossifidis <mick@ics.forth.gr>
-In-Reply-To: <Zbj1o6VAsk8Tn2ab@xhacker>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrGLMWRmVeSWpSXmKPExsXSHT1dWddfc2eqwbTPRhZbf89it2g+tp7N
-	4vKuOWwW2z63sFm8an7EZvH3139Wi5eXe5gt2mbxO3B4vHn5ksXjcMcXdo/Fe14yeWxa1cnm
-	sXlJvUfrjr/sHpear7N7fN4kF8ARxWWTkpqTWZZapG+XwJVxozu3oEGoYuPPiewNjEv5uhg5
-	OSQETCQOdP1l6WLk4hASOMoocWbiYmaIhKXE5k8vWUBsXgF7iV8XNrN1MXJwsAioSpxu94QI
-	C0qcnPkErERUQF7i/q0Z7CAlwgKGErtvV4KEmQXkJN4/284KYosIqEn82veYCWQVs8A0Jont
-	d5qYIPZuY5R4fHslI0gVm4CmxPxLB8GGcgqoS7zZMoUdYpKZRNfWLkYIW16ieets5gmMArOQ
-	3DELycJZSFpmIWlZwMiyilEgscxYLzO5WC8tv6gkQy+9aBMjOCoYfXcw3t78Vu8QIxMH4yFG
-	CQ5mJRHelXI7U4V4UxIrq1KL8uOLSnNSiw8xSnOwKInznrBdkCwkkJ5YkpqdmlqQWgSTZeLg
-	lGpgOpj/c+WLvqesccbr/vlVL2Ot7b+a8b1I0E7i5+ZvPzZPe8wuIOWZsFz9jsuCeaY+05Qb
-	Z//bkB/7jy/yDdPH+Qu65HbHB4u+WhS5s/3ti9Znsgtlc5eoCE1KNAibzPXLeBq3sfMDTfd6
-	7fmpLVeZjWfUajparJh6M/256o9N374Y3V5eG3lty7rJBjqJrzSPFjmJbPh+I+P8/jdOO45v
-	ez6XZ8fx952vphh0BIl+j7+js2vdDsmN67fnTzhfE3Eswjq88/dyJY2wd8bxK+3ZSm71Bm90
-	sTm5POQvn+POoLWaE47sOMk6pTPu5I1XL548tmjgn5hZ0SRw4MazK95byzK4TjVt3KYjGfA+
-	/8af1ypKLMUZiYZazEXFiQDQAtHd+QIAAA==
+In-Reply-To: <ZQ0PR01MB125387EBAB0E6883FAD077859F7DA@ZQ0PR01MB1253.CHNPR01.prod.partner.outlook.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240130_085245_347247_481A2C88 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20240130_090257_531737_C11A02AC 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,51 +85,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============8462071065742690100=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMS8zMC8yNCAxNToxMiwgSmlzaGVuZyBaaGFuZyB3cm90ZToKPiBPbiBUdWUsIEphbiAzMCwg
-MjAyNCBhdCAwMTozOToxMFBNICswMjAwLCBOaWNrIEtvc3NpZmlkaXMgd3JvdGU6Cj4+IE9uIDEv
-MjgvMjQgMTM6MTAsIEppc2hlbmcgWmhhbmcgd3JvdGU6Cj4+PiBGcm9tOiBNYXR0ZW8gQ3JvY2Ug
-PG1jcm9jZUBtaWNyb3NvZnQuY29tPgo+Pj4KPj4+IFdoZW4gdGhlIGRlc3RpbmF0aW9uIGJ1ZmZl
-ciBpcyBiZWZvcmUgdGhlIHNvdXJjZSBvbmUsIG9yIHdoZW4gdGhlCj4+PiBidWZmZXJzIGRvZXNu
-J3Qgb3ZlcmxhcCwgaXQncyBzYWZlIHRvIHVzZSBtZW1jcHkoKSBpbnN0ZWFkLCB3aGljaCBpcwo+
-Pj4gb3B0aW1pemVkIHRvIHVzZSBhIGJpZ2dlciBkYXRhIHNpemUgcG9zc2libGUuCj4+Pgo+Pj4g
-U2lnbmVkLW9mZi1ieTogTWF0dGVvIENyb2NlIDxtY3JvY2VAbWljcm9zb2Z0LmNvbT4KPj4+IFJl
-cG9ydGVkLWJ5OiBrZXJuZWwgdGVzdCByb2JvdCA8bGtwQGludGVsLmNvbT4KPj4+IFNpZ25lZC1v
-ZmYtYnk6IEppc2hlbmcgWmhhbmcgPGpzemhhbmdAa2VybmVsLm9yZz4KPj4KPj4gSSdkIGV4cGVj
-dCB0byBoYXZlIG1lbW1vdmUgaGFuZGxlIGJvdGggZncvYncgY29weWluZyBhbmQgdGhlbiBtZW1j
-cHkgYmVpbmcKPj4gYW4gYWxpYXMgdG8gbWVtbW92ZSwgdG8gYWxzbyB0YWtlIGNhcmUgd2hlbiBy
-ZWdpb25zIG92ZXJsYXAgYW5kIGF2b2lkCj4+IHVuZGVmaW5lZCBiZWhhdmlvci4KPiAKPiBIaSBO
-aWNrLAo+IAo+IEhlcmUgaXMgc29tdGhpbmcgZnJvbSBtYW4gbWVtY3B5Ogo+IAo+ICJ2b2lkICpt
-ZW1jcHkodm9pZCBkZXN0W3Jlc3RyaWN0IC5uXSwgY29uc3Qgdm9pZCBzcmNbcmVzdHJpY3QgLm5d
-LAo+ICAgICAgICAgICAgICAgICAgICAgIHNpemVfdCBuKTsKPiAKPiBUaGUgIG1lbWNweSgpICBm
-dW5jdGlvbiBjb3BpZXMgbiBieXRlcyBmcm9tIG1lbW9yeSBhcmVhIHNyYyB0byBtZW1vcnkgYXJl
-YSBkZXN0Lgo+IFRoZSBtZW1vcnkgYXJlYXMgbXVzdCBub3Qgb3ZlcmxhcC4gIFVzZSBtZW1tb3Zl
-KDMpIGlmIHRoZSBtZW1vcnkgYXJlYXMgZG8gIG92ZXLigJAKPiBsYXAuIgo+IAo+IElNSE8sIHRo
-ZSAicmVzdHJpY3QiIGltcGxpZXMgdGhhdCB0aGVyZSdzIG5vIG92ZXJsYXAuIElmIG92ZXJsYXAK
-PiBoYXBwZW5zLCB0aGUgbWFudWFsIGRvZXNuJ3Qgc2F5IHdoYXQgd2lsbCBoYXBwZW4uCj4gCj4g
-IEZyb20gYW5vdGhlciBzaWRlLCBJIGhhdmUgYSBjb25jZXJuOiBjdXJyZW50bHksIG90aGVyIGFy
-Y2ggZG9uJ3QgaGF2ZQo+IHRoaXMgYWxpYXMgYmVoYXZpb3IsIElJVUMoYXQgbGVhc3QsIHBlciBt
-eSB1bmRlcnN0YW5kaW5nIG9mIGFybSBhbmQgYXJtNjQKPiBtZW1jcHkgaW1wbGVtZW50YXRpb25z
-KXRoZXkganVzdCBjb3B5IGZvcndhcmQuIEkgd2FudCB0byBrZWVwIHNpbWlsYXIgYmVoYXZpb3IK
-PiBmb3IgcmlzY3YuCj4gCj4gU28gSSB3YW50IHRvIGhlYXIgbW9yZSBiZWZvcmUgZ29pbmcgdG93
-YXJkcyBhbGlhcy1tZW1jcHktdG8tbWVtbW92ZSBkaXJlY3Rpb24uCj4gCj4gVGhhbmtzCgpJZiB5
-b3UgcmVhZCBNYXR0ZW8ncyBvcmlnaW5hbCBwb3N0IHRoYXQgd2FzIGFsc28gaGlzIHN1Z2dlc3Rp
-b24sIGFuZCAKTGludXMgaGFzIGFsc28gY29tbWVudGVkIG9uIHRoYXQuIEluIGdlbmVyYWwgaXQn
-cyBiZXR0ZXIgdG8gaGFuZGxlIHRoZSAKY2FzZSB3aGVyZSB0aGUgcmVnaW9ucyBwcm92aWRlZCB0
-byBtZW1jcHkoKSBvdmVybGFwIHRoYW4gdG8gcmVzb3J0IHRvIAoidW5kZWZpbmVkIGJlaGF2aW9y
-IiwgSSBwcm92aWRlZCBhIGJhY2t3YXJkcyBjb3B5IGV4YW1wbGUgdGhhdCB5b3UgY2FuIAp1c2Ug
-c28gdGhhdCB3ZSBjYW4gaGF2ZSBib3RoIGZ3IGFuZCBidyBjb3B5aW5nIGZvciBtZW1tb3ZlKCks
-IGFuZCB1c2UgCm1lbW1vdmUoKSBpbiBhbnkgY2FzZS4gVGhlIFtyZXN0cmljdCAubl0gaW4gdGhl
-IHByb3RvdHlwZSBpcyBqdXN0IHRoZXJlIAp0byBzYXkgdGhhdCB0aGUgc2l6ZSBvZiBzcmMgaXMg
-cmVzdHJpY3RlZCBieSBuICh0aGUgbmV4dCBhcmd1bWVudCkuIElmIApzb21lb25lIHVzZXMgbWVt
-Y3B5KCkgd2l0aCBvdmVybGFwcGluZyByZWdpb25zLCB3aGljaCBpcyBhbHdheXMgYSAKcG9zc2li
-aWxpdHksIGluIHlvdXIgY2FzZSBpdCdsbCByZXN1bHQgY29ycnVwdGVkIGRhdGEsIHdlIHdvbid0
-IGV2ZW4gZ2V0IAphIHdhcm5pbmcgKHN0aWxsIGNvdW50cyBhcyB1bmRlZmluZWQgYmVoYXZpb3Ip
-IGFib3V0IGl0LgoKUmVnYXJkcywKTmljawoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+
+--===============8462071065742690100==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="6HBub9x1mt/td7wn"
+Content-Disposition: inline
+
+
+--6HBub9x1mt/td7wn
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jan 30, 2024 at 06:30:54AM +0000, William Qiu wrote:
+> > From: Conor Dooley <conor@kernel.org>
+> > On Mon, Jan 29, 2024 at 11:12:37AM +0800, William Qiu wrote:
+
+> > > +properties:
+> > > +  compatible:
+> > > +    enum:
+> > > +      - cast,can
+> > > +      - cast,canfd
+> >=20
+> > I don't like these uber generic compatibles that have no users as a fal=
+lback.
+> > Allowing them in the binding only really discourages people from creati=
+ng device
+> > specific compatibles.
+> > Secondly, this is some purchased IP that I am sure has a versioning sch=
+eme and
+> > the compatibles that you have created do not reflect that.
+> > If they were being used as a fallback, I would request some versioning.
+> > That's not going to really work though since the canfd features on the
+> > jh7110 require setting u0_can_ctrl_can_fd_enable, so neither of these
+> > compatibles really has a use right now.
+> >=20
+> I'll add some tag to do versioning.
+
+I don't want to see a "cast,can-<something>" compatible allowed in
+isolation either as there is no user for it.
+The generic compatibles like that should only be permitted in
+combination with a device specific one - particularly since there are
+bits in implementation defined registers that control whether or not
+canfd is enabled.
+
+--6HBub9x1mt/td7wn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZbkrugAKCRB4tDGHoIJi
+0gttAP4/q8qVZkSoUY5SEHx4IMoXGOkLA6t5XrEBE2tGdNgmnAD+IW65Z6LW6bDe
+j71PnmrSgtOR9MjEvpq0SgpOkZfnlQ4=
+=asIB
+-----END PGP SIGNATURE-----
+
+--6HBub9x1mt/td7wn--
+
+
+--===============8462071065742690100==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8462071065742690100==--
+
