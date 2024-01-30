@@ -4,90 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 170A2C47DDF
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 00:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CACC47DA9
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 01:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dgMFs37sAQTGvRCSuACA+u7SVAeG6MJlx0BsIxfTZ5g=; b=yst+x8A7+DA5YP
-	1eMht7B2zyYc+zEJxGDp4HCCR+9EWFy2DL5UUJX7f0AsXHk1zsTBorEcfC9erz7rtaRPUI5LvnUuQ
-	zwusl1DAx2yILnrKfJiBhrXNStWna/CkhNmNOsd+EqKzVTsw7L0zB7Wt0gd0ZBDQuEsd1rsl+QgW8
-	gckF3dAVH6kn6oAfFvoeU+YdhOsLZgnWCaMk/HHEyLyvUf+QhZaW3xmpm/kJCC62qZolKYizBJgF4
-	x3mV8HSKqaOcn8NFH2K3eY/Jsd/EU0Mj8CzddGahylSCPiBcwXx1+uBExJlJJ6OzZKdqewRw4j4bE
-	t39jNea/VBFsbFG3JMjw==;
+	List-Owner; bh=j/uZ3m4GAUSO5BXreASCxr5wyLqdxTmwFsf2TznzKzI=; b=Q0GCa0mtuTI5Dv
+	8peZCK5/utoaMAebyC44ffeX8OBUDhIarYFXkEToxv2euF+xr2BIFr1z22GSW0+qA+h2MUGpIgQmn
+	Z+bYXm/jdKZHuVc4eYzPWcFF0U1lHqRTBpGsosAKB1ZFmmGlFNXsKxT6zsrjZNH5J62Xp4x3ntANP
+	CiBHWmXwzcAv9JCqox8z8g82LR37UsADaHOQ3FgU6wp/odmelEFAloTg4G7x/gIahgM8/nmYxnClQ
+	HWq+mRlyM//5MTdJFw8jLPVRTf24EOAdQGy+nt0k4Iais/KPwgVJ7pYKPsWR/n8SrLilzroFRrLMr
+	mw5/dRo5X4AFGO1rUbnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUc7n-0000000EiHO-2Iwq;
-	Tue, 30 Jan 2024 00:37:15 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1rUcU7-0000000Em4P-101U;
+	Tue, 30 Jan 2024 01:00:19 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUc7i-0000000EiBH-0X7X
+	id 1rUcU2-0000000Em1X-3akz
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jan 2024 00:37:11 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1d8cea8bb3bso8019075ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 16:37:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706575025; x=1707179825; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=f4k3XgG6Vs4V2eymg6847wUAtUHshLOeTHqeR5jZPT4=;
-        b=Bn4GoDDBNrH/brHFsiED+DHKczvDYac+9qudViRrUAbFvkOxTVBdn4oMukkfoToLQD
-         dicS7A+CSk+Dkowu10U3FixVCpHqUsC8TbYDCSVW7wYQ3xFeiuMWQnTrACOyM4CLeoew
-         R5QyOAze+9H1yc8h9ueuvI2kVyrAtk5B+napepYKnehgjaCRd9geFCygMwaBkrC/5mt6
-         4B6qGrAkg1x+DGp52GUNtRTrwy2VlOBsiVZUGAIX7lgRMlZ5JWMiTylWv6O4r3QwI3kd
-         O07jNG4n9uWyHmRAuyKWI0TipThe3wxObXmRUMt+9n42knM3aqeGlhZI4c9SqHy3N7jK
-         Y+/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706575025; x=1707179825;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f4k3XgG6Vs4V2eymg6847wUAtUHshLOeTHqeR5jZPT4=;
-        b=uqdljtaDdLS5gzsL3GXEAItIdyfhOBoo3PN3c4znDeM2felFxoFh0W9GrTpJ3c0wB3
-         YGZaospjvvxcfx4GU5qg/HV6tI3TtZ+xR/D2HRJnLXBibiTqzDU8/D9HjYgDAnDyYElH
-         WPvHI2PzwUNLta/U5zNMqrD32IKg0q5SxsaIac/fj8tY4JbklGEnKQj5EQ0mVSnvb9Z7
-         W3RRpKZy+SRErsmw79zTAKUtWmTnX6fQ50OC7h9O6aByyMpAco9vWZzWJnzi1rgABRkz
-         vz0Z+1qIwt8GPalupkzyOrR2ic8R1PDLz4d+iXJalFVSZQ94l94+nVUxDqlQSzypHGmF
-         VR6Q==
-X-Gm-Message-State: AOJu0Yx7dFIbSetI2uxwIBn/jOjmvQKLb24qOob6U0M83g0vnJmDFtgm
-	GoWgJzo1O3ZWyaug6q4M8Dw5YdAt5FHADwG4v4oWoFFYtrVwCHozU3/TfPPeF20=
-X-Google-Smtp-Source: AGHT+IEl+PVzBuK1MtOtugM8nPKpD3tRnNLknu/QZvQdEbvyOpEhCmeWCoWCedcxT6a8gteFbHIcYw==
-X-Received: by 2002:a17:903:2452:b0:1d7:46a2:9383 with SMTP id l18-20020a170903245200b001d746a29383mr3732999pls.33.1706575025637;
-        Mon, 29 Jan 2024 16:37:05 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id jb9-20020a170903258900b001d8ca3f5e3fsm3406375plb.295.2024.01.29.16.37.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jan 2024 16:37:05 -0800 (PST)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Mon, 29 Jan 2024 16:37:01 -0800
-Subject: [PATCH 2/3] selftests: riscv: Generalize mm selftests
+	Tue, 30 Jan 2024 01:00:17 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4TP6Hd3Cbzz1Q8Zl;
+	Tue, 30 Jan 2024 08:58:53 +0800 (CST)
+Received: from kwepemd100009.china.huawei.com (unknown [7.221.188.135])
+	by mail.maildlp.com (Postfix) with ESMTPS id 714101402CD;
+	Tue, 30 Jan 2024 09:00:03 +0800 (CST)
+Received: from [10.67.109.184] (10.67.109.184) by
+ kwepemd100009.china.huawei.com (7.221.188.135) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.1258.28; Tue, 30 Jan 2024 09:00:02 +0800
+Message-ID: <9680b0fe-9f83-4bc3-b9ba-729778b0a802@huawei.com>
+Date: Tue, 30 Jan 2024 09:00:01 +0800
 MIME-Version: 1.0
-Message-Id: <20240129-use_mmap_hint_address-v1-2-4c74da813ba1@rivosinc.com>
-References: <20240129-use_mmap_hint_address-v1-0-4c74da813ba1@rivosinc.com>
-In-Reply-To: <20240129-use_mmap_hint_address-v1-0-4c74da813ba1@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Yangyu Chen <cyy@cyyself.name>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org, 
- Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1706575021; l=8041;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=FRDzzVwyS7nuVapUvX+XBqyYOrJdFna/LWspy9EPMlc=;
- b=ReSkIvhXYwZAs7IYMAoCHsb+L26/KnPQEvQRVbbnRYXttmBETtcCnqZJ2gblNRVT9pMk3jCKU
- 9pzOJxz037HBJDtu9MXwyiGLLQV3mIuzGyrpBsN5bEFrDDuIV57AWDE
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND bpf-next v3 4/6] riscv, bpf: Add necessary Zbb
+ instructions
+To: Daniel Borkmann <daniel@iogearbox.net>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+	<bjorn@kernel.org>, <bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<netdev@vger.kernel.org>
+CC: Pu Lehui <pulehui@huaweicloud.com>, Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>, Yonghong Song <yhs@fb.com>, John Fastabend
+	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav Fomichev
+	<sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Luke
+ Nelson <luke.r.nels@gmail.com>
+References: <20240115131235.2914289-1-pulehui@huaweicloud.com>
+ <20240115131235.2914289-5-pulehui@huaweicloud.com>
+ <871qa2zog6.fsf@all.your.base.are.belong.to.us>
+ <03ebc63f-7b96-4a70-ad10-a4ffc1d5b1cc@huawei.com>
+ <0b2bb6aa-e114-157b-94d1-4acb091b48b8@iogearbox.net>
+Content-Language: en-US
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <0b2bb6aa-e114-157b-94d1-4acb091b48b8@iogearbox.net>
+X-Originating-IP: [10.67.109.184]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemd100009.china.huawei.com (7.221.188.135)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_163710_329061_5E349103 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20240129_170015_286469_25D66033 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,210 +78,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The behavior of mmap on riscv is defined to not provide an address that
-uses more bits than the hint address, if provided. Make the tests
-reflect that.
-
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- tools/testing/selftests/riscv/mm/mmap_bottomup.c | 20 +----
- tools/testing/selftests/riscv/mm/mmap_default.c  | 20 +----
- tools/testing/selftests/riscv/mm/mmap_test.h     | 93 +++++++++++++-----------
- 3 files changed, 53 insertions(+), 80 deletions(-)
-
-diff --git a/tools/testing/selftests/riscv/mm/mmap_bottomup.c b/tools/testing/selftests/riscv/mm/mmap_bottomup.c
-index 1757d19ca89b..bad8e854263d 100644
---- a/tools/testing/selftests/riscv/mm/mmap_bottomup.c
-+++ b/tools/testing/selftests/riscv/mm/mmap_bottomup.c
-@@ -8,27 +8,9 @@ TEST(infinite_rlimit)
- {
- // Only works on 64 bit
- #if __riscv_xlen == 64
--	struct addresses mmap_addresses;
--
- 	EXPECT_EQ(BOTTOM_UP, memory_layout());
- 
--	do_mmaps(&mmap_addresses);
--
--	EXPECT_NE(MAP_FAILED, mmap_addresses.no_hint);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_37_addr);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_38_addr);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_46_addr);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_47_addr);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_55_addr);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_56_addr);
--
--	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.no_hint);
--	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_37_addr);
--	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_38_addr);
--	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_46_addr);
--	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_47_addr);
--	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_55_addr);
--	EXPECT_GT(1UL << 56, (unsigned long)mmap_addresses.on_56_addr);
-+	TEST_MMAPS;
- #endif
- }
- 
-diff --git a/tools/testing/selftests/riscv/mm/mmap_default.c b/tools/testing/selftests/riscv/mm/mmap_default.c
-index c63c60b9397e..a3874778d795 100644
---- a/tools/testing/selftests/riscv/mm/mmap_default.c
-+++ b/tools/testing/selftests/riscv/mm/mmap_default.c
-@@ -8,27 +8,9 @@ TEST(default_rlimit)
- {
- // Only works on 64 bit
- #if __riscv_xlen == 64
--	struct addresses mmap_addresses;
--
- 	EXPECT_EQ(TOP_DOWN, memory_layout());
- 
--	do_mmaps(&mmap_addresses);
--
--	EXPECT_NE(MAP_FAILED, mmap_addresses.no_hint);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_37_addr);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_38_addr);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_46_addr);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_47_addr);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_55_addr);
--	EXPECT_NE(MAP_FAILED, mmap_addresses.on_56_addr);
--
--	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.no_hint);
--	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_37_addr);
--	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_38_addr);
--	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_46_addr);
--	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_47_addr);
--	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_55_addr);
--	EXPECT_GT(1UL << 56, (unsigned long)mmap_addresses.on_56_addr);
-+	TEST_MMAPS;
- #endif
- }
- 
-diff --git a/tools/testing/selftests/riscv/mm/mmap_test.h b/tools/testing/selftests/riscv/mm/mmap_test.h
-index 9b8434f62f57..93face2b3118 100644
---- a/tools/testing/selftests/riscv/mm/mmap_test.h
-+++ b/tools/testing/selftests/riscv/mm/mmap_test.h
-@@ -4,60 +4,69 @@
- #include <sys/mman.h>
- #include <sys/resource.h>
- #include <stddef.h>
-+#include <strings.h>
-+#include "../../kselftest_harness.h"
- 
- #define TOP_DOWN 0
- #define BOTTOM_UP 1
- 
--struct addresses {
--	int *no_hint;
--	int *on_37_addr;
--	int *on_38_addr;
--	int *on_46_addr;
--	int *on_47_addr;
--	int *on_55_addr;
--	int *on_56_addr;
-+uint64_t random_addresses[] = {
-+	0x19764f0d73b3a9f0, 0x016049584cecef59, 0x3580bdd3562f4acd,
-+	0x1164219f20b17da0, 0x07d97fcb40ff2373, 0x76ec528921272ee7,
-+	0x4dd48c38a3de3f70, 0x2e11415055f6997d, 0x14b43334ac476c02,
-+	0x375a60795aff19f6, 0x47f3051725b8ee1a, 0x4e697cf240494a9f,
-+	0x456b59b5c2f9e9d1, 0x101724379d63cb96, 0x7fe9ad31619528c1,
-+	0x2f417247c495c2ea, 0x329a5a5b82943a5e, 0x06d7a9d6adcd3827,
-+	0x327b0b9ee37f62d5, 0x17c7b1851dfd9b76, 0x006ebb6456ec2cd9,
-+	0x00836cd14146a134, 0x00e5c4dcde7126db, 0x004c29feadf75753,
-+	0x00d8b20149ed930c, 0x00d71574c269387a, 0x0006ebe4a82acb7a,
-+	0x0016135df51f471b, 0x00758bdb55455160, 0x00d0bdd949b13b32,
-+	0x00ecea01e7c5f54b, 0x00e37b071b9948b1, 0x0011fdd00ff57ab3,
-+	0x00e407294b52f5ea, 0x00567748c200ed20, 0x000d073084651046,
-+	0x00ac896f4365463c, 0x00eb0d49a0b26216, 0x0066a2564a982a31,
-+	0x002e0d20237784ae, 0x0000554ff8a77a76, 0x00006ce07a54c012,
-+	0x000009570516d799, 0x00000954ca15b84d, 0x0000684f0d453379,
-+	0x00002ae5816302b5, 0x0000042403fb54bf, 0x00004bad7392bf30,
-+	0x00003e73bfa4b5e3, 0x00005442c29978e0, 0x00002803f11286b6,
-+	0x000073875d745fc6, 0x00007cede9cb8240, 0x000027df84cc6a4f,
-+	0x00006d7e0e74242a, 0x00004afd0b836e02, 0x000047d0e837cd82,
-+	0x00003b42405efeda, 0x00001531bafa4c95, 0x00007172cae34ac4,
-+	0x0000002732f06b2b, 0x00000012cbf8fd0b, 0x0000001fcc6af0e8,
- };
- 
--static inline void do_mmaps(struct addresses *mmap_addresses)
--{
--	/*
--	 * Place all of the hint addresses on the boundaries of mmap
--	 * sv39, sv48, sv57
--	 * User addresses end at 1<<38, 1<<47, 1<<56 respectively
--	 */
--	void *on_37_bits = (void *)(1UL << 37);
--	void *on_38_bits = (void *)(1UL << 38);
--	void *on_46_bits = (void *)(1UL << 46);
--	void *on_47_bits = (void *)(1UL << 47);
--	void *on_55_bits = (void *)(1UL << 55);
--	void *on_56_bits = (void *)(1UL << 56);
- 
--	int prot = PROT_READ | PROT_WRITE;
--	int flags = MAP_PRIVATE | MAP_ANONYMOUS;
-+#define PROT (PROT_READ | PROT_WRITE)
-+#define FLAGS (MAP_PRIVATE | MAP_ANONYMOUS)
-+
-+/* mmap must return a value that doesn't use more bits than the hint address. */
-+static inline unsigned long get_max_value(unsigned long input)
-+{
-+	unsigned long max_bit = (1UL << (ffsl(input) - 1));
- 
--	mmap_addresses->no_hint =
--		mmap(NULL, 5 * sizeof(int), prot, flags, 0, 0);
--	mmap_addresses->on_37_addr =
--		mmap(on_37_bits, 5 * sizeof(int), prot, flags, 0, 0);
--	mmap_addresses->on_38_addr =
--		mmap(on_38_bits, 5 * sizeof(int), prot, flags, 0, 0);
--	mmap_addresses->on_46_addr =
--		mmap(on_46_bits, 5 * sizeof(int), prot, flags, 0, 0);
--	mmap_addresses->on_47_addr =
--		mmap(on_47_bits, 5 * sizeof(int), prot, flags, 0, 0);
--	mmap_addresses->on_55_addr =
--		mmap(on_55_bits, 5 * sizeof(int), prot, flags, 0, 0);
--	mmap_addresses->on_56_addr =
--		mmap(on_56_bits, 5 * sizeof(int), prot, flags, 0, 0);
-+	return max_bit + (max_bit - 1);
- }
- 
-+#define TEST_MMAPS                                                            \
-+	({                                                                    \
-+		void *mmap_addr;                                              \
-+		for (int i = 0; i < ARRAY_SIZE(random_addresses); i++) {      \
-+			mmap_addr = mmap((void *)random_addresses[i],         \
-+					 5 * sizeof(int), PROT, FLAGS, 0, 0); \
-+			EXPECT_NE(MAP_FAILED, mmap_addr);                     \
-+			EXPECT_GE((void *)get_max_value(random_addresses[i]), \
-+				  mmap_addr);                                 \
-+			mmap_addr = mmap((void *)random_addresses[i],         \
-+					 5 * sizeof(int), PROT, FLAGS, 0, 0); \
-+			EXPECT_NE(MAP_FAILED, mmap_addr);                     \
-+			EXPECT_GE((void *)get_max_value(random_addresses[i]), \
-+				  mmap_addr);                                 \
-+		}                                                             \
-+	})
-+
- static inline int memory_layout(void)
- {
--	int prot = PROT_READ | PROT_WRITE;
--	int flags = MAP_PRIVATE | MAP_ANONYMOUS;
--
--	void *value1 = mmap(NULL, sizeof(int), prot, flags, 0, 0);
--	void *value2 = mmap(NULL, sizeof(int), prot, flags, 0, 0);
-+	void *value1 = mmap(NULL, sizeof(int), PROT, FLAGS, 0, 0);
-+	void *value2 = mmap(NULL, sizeof(int), PROT, FLAGS, 0, 0);
- 
- 	return value2 > value1;
- }
-
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDI0LzEvMjkgMjM6MzIsIERhbmllbCBCb3JrbWFubiB3cm90ZToKPiBPbiAxLzI5LzI0
+IDEwOjEzIEFNLCBQdSBMZWh1aSB3cm90ZToKPj4gT24gMjAyNC8xLzI4IDE6MTYsIEJqw7ZybiBU
+w7ZwZWwgd3JvdGU6Cj4+PiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWljbG91ZC5jb20+IHdyaXRl
+czoKPj4+Cj4+Pj4gRnJvbTogUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KPj4+Pgo+Pj4+
+IEFkZCBuZWNlc3NhcnkgWmJiIGluc3RydWN0aW9ucyBpbnRyb2R1Y2VkIGJ5IFswXSB0byByZWR1
+Y2UgY29kZSBzaXplIAo+Pj4+IGFuZAo+Pj4+IGltcHJvdmUgcGVyZm9ybWFuY2Ugb2YgUlY2NCBK
+SVQuIE1lYW53aGlsZSwgYSBydW50aW1lIGRldGV0ZWQgaGVscGVyIGlzCj4+Pj4gYWRkZWQgdG8g
+Y2hlY2sgd2hldGhlciB0aGUgQ1BVIHN1cHBvcnRzIFpiYiBpbnN0cnVjdGlvbnMuCj4+Pj4KPj4+
+PiBMaW5rOiAKPj4+PiBodHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3YtYml0bWFuaXAvcmVs
+ZWFzZXMvZG93bmxvYWQvMS4wLjAvYml0bWFuaXAtMS4wLjAtMzgtZzg2NWU3YTcucGRmIFswXQo+
+Pj4+IFNpZ25lZC1vZmYtYnk6IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4+Pj4gLS0t
+Cj4+Pj4gwqAgYXJjaC9yaXNjdi9uZXQvYnBmX2ppdC5oIHwgMzIgKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysKPj4+PiDCoCAxIGZpbGUgY2hhbmdlZCwgMzIgaW5zZXJ0aW9ucygrKQo+
+Pj4+Cj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXQuaCBiL2FyY2gvcmlz
+Y3YvbmV0L2JwZl9qaXQuaAo+Pj4+IGluZGV4IGUzMDUwMWI0NmY4Zi4uNTFmNmQyMTQwODZmIDEw
+MDY0NAo+Pj4+IC0tLSBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXQuaAo+Pj4+ICsrKyBiL2FyY2gv
+cmlzY3YvbmV0L2JwZl9qaXQuaAo+Pj4+IEBAIC0xOCw2ICsxOCwxMSBAQCBzdGF0aWMgaW5saW5l
+IGJvb2wgcnZjX2VuYWJsZWQodm9pZCkKPj4+PiDCoMKgwqDCoMKgIHJldHVybiBJU19FTkFCTEVE
+KENPTkZJR19SSVNDVl9JU0FfQyk7Cj4+Pj4gwqAgfQo+Pj4+ICtzdGF0aWMgaW5saW5lIGJvb2wg
+cnZ6YmJfZW5hYmxlZCh2b2lkKQo+Pj4+ICt7Cj4+Pj4gK8KgwqDCoCByZXR1cm4gSVNfRU5BQkxF
+RChDT05GSUdfUklTQ1ZfSVNBX1pCQikgJiYgCj4+Pj4gcmlzY3ZfaGFzX2V4dGVuc2lvbl9saWtl
+bHkoUklTQ1ZfSVNBX0VYVF9aQkIpOwo+Pj4KPj4+IEhtbSwgSSdtIHRoaW5raW5nIGFib3V0IHRo
+ZSBJU19FTkFCTEVEKENPTkZJR19SSVNDVl9JU0FfWkJCKSBzZW1hbnRpY3MKPj4+IGZvciBhIGtl
+cm5lbCBKSVQgY29tcGlsZXIuCj4+Pgo+Pj4gSVNfRU5BQkxFRChDT05GSUdfUklTQ1ZfSVNBX1pC
+QikgYWZmZWN0cyB0aGUga2VybmVsIGNvbXBpbGVyIGZsYWdzLgo+Pj4gU2hvdWxkIGl0IGJlIGVu
+b3VnaCB0byBqdXN0IGhhdmUgdGhlIHJ1bi10aW1lIGNoZWNrPyBTaG91bGQgYSBrZXJuZWwKPj4+
+IGJ1aWx0IHcvbyBaYmIgYmUgYWJsZSB0byBlbWl0IFpiYiBmcm9tIHRoZSBKSVQ/Cj4+Cj4+IE5v
+dCBlbm91Z2gsIGJlY2F1c2UgcmlzY3ZfaGFzX2V4dGVuc2lvbl9saWtlbHkoUklTQ1ZfSVNBX0VY
+VF9aQkIpIGlzIGEgCj4+IHBsYXRmb3JtIGNhcGFiaWxpdHkgY2hlY2ssIGFuZCB0aGUgb3RoZXIg
+b25lIGlzIGEga2VybmVsIGltYWdlIAo+PiBjYXBhYmlsaXR5IGNoZWNrLiBXZSBjYW4gcGFzcyB0
+aGUgY2hlY2sgCj4+IHJpc2N2X2hhc19leHRlbnNpb25fbGlrZWx5KFJJU0NWX0lTQV9FWFRfWkJC
+KSB3aGVuIAo+PiBDT05GSUdfUklTQ1ZfSVNBX1pCQj1uLiBBbmQgbXkgbG9jYWwgdGVzdCBwcm92
+ZSBpdC4KPiAKPiBTbyBpZiBJIHVuZGVyc3RhbmQgeW91IGNvcnJlY3RseSwgb25seSByZWx5aW5n
+IG9uIHRoZSAKPiByaXNjdl9oYXNfZXh0ZW5zaW9uX2xpa2VseShSSVNDVl9JU0FfRVhUX1pCQikK
+PiBwYXJ0IHdvdWxkIG5vdCB3b3JrIC0gaW93LCB0aGUgSVNfRU5BQkxFRChDT05GSUdfUklTQ1Zf
+SVNBX1pCQikgaXMgCj4gbWFuZGF0b3J5IGhlcmU/Cj4gCgpZZXMsIGl0IHNob3VsZCBiZSBJU19F
+TkFCTEVEKENPTkZJR19SSVNDVl9JU0FfWkJCKSAmJiAKcmlzY3ZfaGFzX2V4dGVuc2lvbl9saWtl
+bHkoUklTQ1ZfSVNBX0VYVF9aQkIpLgoKPiBUaGFua3MsCj4gRGFuaWVsCj4gCj4gUC5zLjogR2l2
+ZW4gQmpvcm4ncyByZXZpZXcgYW5kIHRlc3RzIEkgdG9vayB0aGUgc2VyaWVzIGludG8gYnBmLW5l
+eHQgCj4gbm93LiBUaGFua3MgZXZlcnlvbmUhCgpUaGFua3MgRGFuaWVsIGFuZCBCasO2cm4KCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
