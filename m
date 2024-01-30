@@ -4,79 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6580C47DDF
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 10:36:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE5EC46CD2
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 10:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=urqoJ2eITNYXkcmdktx/aTzFOjGrzgNdyirn/+p5xwo=; b=NwsafKBYteNi8u
-	kKwZQ3LEL408ZFC38J9oduwSe7oCarv5HgaH3942cWJOnO5pxDCCdw0AVXTWdCuC7Qi9KFmWj0OqH
-	bd+P/vVr0xe8C1RGsWzErGbw/QfW6pS6qXa0CcuTl6XRyzsqSAYisWWbXb1wxnOw4DV7fqAR6tMql
-	o0VoUsIYSS9zUruu+sKAp4EW/f5crrOW+c2lpCLawr614tDQvGlAWBgtRfU06vykr21qjrQvl5/Yl
-	EkcK7GZPNE8cJuXe3cemc/BK+BIwSGB/hlmQrU9vQdED9Ckh+IYrJ8smoOxVHYi3w4kipKVKdojcE
-	X7GdnLcLY4v9+ADMxXKw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8RE9zmpUyQwVadA90d5HWpGSuOyS2d9Pmyex7SyK4OM=; b=IJqqk//EL9ll5B
+	Xhio75nRwpDjcxyVgiEzgPq0Am1yYXqivv6bP/1HEk+MiDQgpgGugLNmyH7euedWRhl2Lk0ntm+iV
+	r1x/u+0A6xcIAWWzL8n1KNK6B4z2+4FvIvCaTs9XyBCf43w3fb0iQGy6zI5Xm9DXweAcLyNjTuO7z
+	Ep1Ie8l0N1vWHsJsCIegRCR8fitnl3CwbACPzvtyGUgPiadQiOo204frtTC0b4CVsSjSVKh9Dvr4W
+	gig99f7/ddTkFqkQde3EPP0LpSzeSR0ZY9HNhH5OQ3zd4lvVFOZq8a1afI/VtmfbMIY/47c1N8fLt
+	zcdsUsKVuVEwb1Z5R0ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUlTl-0000000GCbx-0FEK;
-	Tue, 30 Jan 2024 10:36:33 +0000
-Received: from mail-yw1-f176.google.com ([209.85.128.176])
+	id 1rUlTr-0000000GCfu-1ucp;
+	Tue, 30 Jan 2024 10:36:39 +0000
+Received: from pegase1.c-s.fr ([93.17.236.30])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUlTi-0000000GCac-1PUP
-	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jan 2024 10:36:31 +0000
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-6029e069e08so50159037b3.0
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jan 2024 02:36:29 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706610989; x=1707215789;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f0zKEeIH6XGdGj+q5gmx2XiQOnw1KXquglVBPd+xyto=;
-        b=OTrAWGzvKVaOZk3nGfkCFWYTf5zc621j7kxo6PiXZWsirT0j0GzNN/z98D6WcybjOU
-         6zLqg4zbWmJ7QL1ivKqd9wtOFQrOWFmekthenuqmJNkXz3jBPQgzDw7FmfRhYwSPCrRB
-         QMPHSxUADRPenYpFCKc5WInwScNMmPz2L6OS2tjN/Bzq7Um2Ic9x1aBb1Jkbm7JZaPOs
-         wKhJWOM3nFB1eYIUoOfBeYNQb4x3vbDGzwyWfUFlcock806QOsIfQBnjEs2L3omWPSoy
-         lK4pWmRBvVGnP+jV2lyMeBILUy93v3tC6doiLE1F6QATZjjW0qVYAfcytTp4ellLqmGE
-         qaBQ==
-X-Gm-Message-State: AOJu0Yy5lkdEsfqA5VdNhEjjBWGoB5mG69O7XJpj6Pp70v6JI9qb4jh6
-	PCOip+pz95UB9N4P1IJdVpqbjQMJpYRlzJ5CGwPEFXxnnuhNeSTk64LTXFURIoc=
-X-Google-Smtp-Source: AGHT+IFipvs71KztgqNGlQ3JG8bPChwFyXAqxMa+kxjiWqADNrxSkmNLm3u9fUtS1TatpUg2zo32Ww==
-X-Received: by 2002:a81:a843:0:b0:5ff:84f1:6fe3 with SMTP id f64-20020a81a843000000b005ff84f16fe3mr5420375ywh.23.1706610989003;
-        Tue, 30 Jan 2024 02:36:29 -0800 (PST)
-Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com. [209.85.128.176])
-        by smtp.gmail.com with ESMTPSA id c194-20020a814ecb000000b00603f0c80c61sm344089ywb.142.2024.01.30.02.36.28
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Jan 2024 02:36:28 -0800 (PST)
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-603c5d7997aso24954757b3.1
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jan 2024 02:36:28 -0800 (PST)
-X-Received: by 2002:a81:e207:0:b0:5e9:fa4a:fd56 with SMTP id
- p7-20020a81e207000000b005e9fa4afd56mr5491349ywl.13.1706610987546; Tue, 30 Jan
- 2024 02:36:27 -0800 (PST)
+	id 1rUlTm-0000000GCcG-39qs;
+	Tue, 30 Jan 2024 10:36:36 +0000
+Received: from localhost (mailhub3.si.c-s.fr [192.168.12.233])
+	by localhost (Postfix) with ESMTP id 4TPM625ppBz9sB6;
+	Tue, 30 Jan 2024 11:36:26 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase1.c-s.fr ([192.168.12.234])
+	by localhost (pegase1.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Ws_uhNN709Je; Tue, 30 Jan 2024 11:36:26 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase1.c-s.fr (Postfix) with ESMTP id 4TPM4R4bMWz9vDl;
+	Tue, 30 Jan 2024 11:35:03 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 93C778B76E;
+	Tue, 30 Jan 2024 11:35:03 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id 5Vre96fi8PyS; Tue, 30 Jan 2024 11:35:03 +0100 (CET)
+Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.232.134])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id D09B58B763;
+	Tue, 30 Jan 2024 11:35:01 +0100 (CET)
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Kees Cook <keescook@chromium.org>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-mm@kvack.org,
+	steven.price@arm.com,
+	Phong Tran <tranmanphong@gmail.com>,
+	mark.rutland@arm.com,
+	Greg KH <greg@kroah.com>
+Subject: [PATCH v2 0/5] mm: ptdump: Refactor CONFIG_DEBUG_WX and check_wx_pages debugfs attribute
+Date: Tue, 30 Jan 2024 11:34:31 +0100
+Message-ID: <cover.1706610398.git.christophe.leroy@csgroup.eu>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20240129135556.63466-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20240129135556.63466-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20240129135556.63466-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 30 Jan 2024 11:36:16 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdV-x94pcJ7UwYH_SUcFc_k0CiNckqxEX=_QCi+Ad9adJw@mail.gmail.com>
-Message-ID: <CAMuHMdV-x94pcJ7UwYH_SUcFc_k0CiNckqxEX=_QCi+Ad9adJw@mail.gmail.com>
-Subject: Re: [PATCH v6 2/4] pinctrl: renesas: rzg2l: Include pinmap in
- RZG2L_GPIO_PORT_PACK() macro
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1706610876; l=2737; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=GLnDgyafe3Abwdfr1jBJzmg1hyqpqoPnd3cHPH0oxrY=; b=tIZe4XZQjVwWyWqJ6WaH1FMomnKnFXJjNxF+XKnvH0G3eYwBTTFLAyHmPCAqyI2HJixgHIMEp +ciHrtrDDPHBl9BQwIT71a8HT+O9hvNWFDyEfO0KDZbwbPjdDLV5qLD
+X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240130_023630_398796_202587D4 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20240130_023634_947209_49C6B45E 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +105,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKYW4gMjksIDIwMjQgYXQgMjo1NuKAr1BNIFByYWJoYWthciA8cHJhYmhha2FyLmNz
-ZW5nZ0BnbWFpbC5jb20+IHdyb3RlOgo+IEZyb206IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5t
-YWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbT4KPgo+IEN1cnJlbnRseSB3ZSBhc3N1bWUgYWxs
-IHRoZSBwb3J0IHBpbnMgYXJlIHNlcXVlbnRpYWwgaWUgYWx3YXlzIFBYXzAgdG8KPiBQWF9uIChu
-PTEuLjcpIGV4aXN0LCBidXQgb24gUlovRml2ZSBTb0Mgd2UgaGF2ZSBhZGRpdGlvbmFsIHBpbnMg
-UDE5XzEgdG8KPiBQMjhfNSB3aGljaCBoYXZlIGhvbGVzIGluIHRoZW0sIGZvciBleGFtcGxlIG9u
-bHkgb25lIHBpbiBvbiBwb3J0MTkgaXMKPiBhdmFpbGFibGUgYW5kIHRoYXQgaXMgUDE5XzEgYW5k
-IG5vdCBQMTlfMC4gU28gdG8gaGFuZGxlIHN1Y2ggY2FzZXMKPiBpbmNsdWRlIHBpbm1hcCBmb3Ig
-ZWFjaCBwb3J0IHdoaWNoIHdvdWxkIGluZGljYXRlIHRoZSBwaW4gYXZhaWxhYmlsaXR5Cj4gb24g
-ZWFjaCBwb3J0LiBBcyB0aGUgcGluY291bnQgY2FuIGJlIGNhbGN1bGF0ZWQgYmFzZWQgb24gcGlu
-bWFwIGRyb3AgdGhpcwo+IGZyb20gUlpHMkxfR1BJT19QT1JUX1BBQ0soKSBtYWNyby4KPgo+IFBy
-ZXZpb3VzbHkgd2UgaGFkIGEgbWF4IG9mIDcgcGlucyBvbiBlYWNoIHBvcnQgYnV0IG9uIFJaL0Zp
-dmUgUG9ydC0yMAo+IGhhcyA4IHBpbnMsIHNvIG1vdmUgdGhlIHNpbmdsZSBwaW4gY29uZmlndXJh
-dGlvbiB0byBCSVQoNjMpLgo+Cj4gU2lnbmVkLW9mZi1ieTogTGFkIFByYWJoYWthciA8cHJhYmhh
-a2FyLm1haGFkZXYtbGFkLnJqQGJwLnJlbmVzYXMuY29tPgoKUmV2aWV3ZWQtYnk6IEdlZXJ0IFV5
-dHRlcmhvZXZlbiA8Z2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU+CmkuZS4gd2lsbCBxdWV1ZSBpbiBy
-ZW5lc2FzLXBpbmN0cmwgZm9yIHY2LjkuCgpHcntvZXRqZSxlZXRpbmd9cywKCiAgICAgICAgICAg
-ICAgICAgICAgICAgIEdlZXJ0CgotLSAKR2VlcnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90
-cyBvZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1tNjhrLm9yZwoKSW4gcGVyc29u
-YWwgY29udmVyc2F0aW9ucyB3aXRoIHRlY2huaWNhbCBwZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBo
-YWNrZXIuIEJ1dAp3aGVuIEknbSB0YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInBy
-b2dyYW1tZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRoYXQuCiAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgLS0gTGludXMgVG9ydmFsZHMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+Refer old discussion at https://lore.kernel.org/lkml/20200422152656.GF676@willie-the-truck/T/#m802eaf33efd6f8d575939d157301b35ac0d4a64f
+And https://github.com/KSPP/linux/issues/35
+
+This series refactors CONFIG_DEBUG_WX for the 5 architectures
+implementing CONFIG_GENERIC_PTDUMP
+
+First rename stuff in ARM which uses similar names while not
+implementing CONFIG_GENERIC_PTDUMP.
+
+Then define a generic version of debug_checkwx() that calls
+ptdump_check_wx() when CONFIG_DEBUG_WX is set. Call it immediately
+after calling mark_rodata_ro() instead of calling it at the end of
+every mark_rodata_ro().
+
+Then implement a debugfs attribute that can be used to trigger
+a W^X test at anytime and regardless of CONFIG_DEBUG_WX
+
+Changes in v2:
+- Fixed a few build failures (patch 1 and 2)
+- Added patch 4
+- Make the attribute return SUCCESS/FAILURE as suggested by Heiko (patch 5)
+
+Christophe Leroy (5):
+  arm: ptdump: Rename CONFIG_DEBUG_WX to CONFIG_ARM_DEBUG_WX
+  arm64, powerpc, riscv, s390, x86: ptdump: Refactor CONFIG_DEBUG_WX
+  powerpc,s390: ptdump: Define ptdump_check_wx() regardless of
+    CONFIG_DEBUG_WX
+  mm: ptdump: Have ptdump_check_wx() return bool
+  mm: ptdump: add check_wx_pages debugfs attribute
+
+ arch/arm/Kconfig.debug               |  2 +-
+ arch/arm/configs/aspeed_g4_defconfig |  2 +-
+ arch/arm/configs/aspeed_g5_defconfig |  2 +-
+ arch/arm/include/asm/ptdump.h        |  6 +++---
+ arch/arm/mm/init.c                   |  2 +-
+ arch/arm64/include/asm/ptdump.h      |  7 -------
+ arch/arm64/mm/mmu.c                  |  2 --
+ arch/arm64/mm/ptdump.c               | 11 ++++++++---
+ arch/powerpc/mm/mmu_decl.h           |  6 ------
+ arch/powerpc/mm/pgtable_32.c         |  4 ----
+ arch/powerpc/mm/pgtable_64.c         |  3 ---
+ arch/powerpc/mm/ptdump/ptdump.c      | 21 ++++++++++++++-------
+ arch/riscv/include/asm/ptdump.h      | 22 ----------------------
+ arch/riscv/mm/init.c                 |  3 ---
+ arch/riscv/mm/ptdump.c               | 12 ++++++++----
+ arch/s390/include/asm/ptdump.h       | 14 --------------
+ arch/s390/mm/dump_pagetables.c       | 21 +++++++++++----------
+ arch/s390/mm/init.c                  |  2 --
+ arch/x86/include/asm/pgtable.h       |  5 ++---
+ arch/x86/mm/dump_pagetables.c        | 20 ++++++++++++++------
+ arch/x86/mm/init_32.c                |  2 --
+ arch/x86/mm/init_64.c                |  2 --
+ include/linux/ptdump.h               |  7 +++++++
+ init/main.c                          |  2 ++
+ mm/ptdump.c                          | 22 ++++++++++++++++++++++
+ 25 files changed, 95 insertions(+), 107 deletions(-)
+ delete mode 100644 arch/riscv/include/asm/ptdump.h
+ delete mode 100644 arch/s390/include/asm/ptdump.h
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
