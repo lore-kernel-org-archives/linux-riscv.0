@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68EEC47DB3
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 03:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78CC6C47DB3
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 03:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o2j6WZ/xLBylzeTRoi2y3H1ZjTM8aTCXNXI048LmIvw=; b=JTVxa7U8SsLpqc
-	JApgQq3mRvtWX5Q2YteqT4dBINGYoklyELPYDoVYLzQ6zgq6TyLYOsTHwU66mmi6Ac2NmPF2fBrrl
-	NMT3ppuvIJAMgc57fv3/mrRLxuphXRjz4s73XSSfLgivCAi7uVeA7b5GQyuoQtTc8wNlA6+qnCl+x
-	ebnPRC9kG+EC2iBBihZGhMcv+W6yhyeaS0rrXw+uDL6cS0xb17shBfrxOPHMjWiQr07++K3pr71Yv
-	msQXR89FImb5mFXAIllYOD+dP2dSoSoe5WlVGRMh1qKhNfvOrkEA2gYyhFvbvPFH8mWoxMeBmTTGp
-	GSvItr2n6FcJnP+U+HvQ==;
+	List-Owner; bh=d3WnRmUefoRI0VqKrNzy5qgIfmap4WAgynQA8lRKEfs=; b=Lh2mBhpl2EprvL
+	kMfKMuSHo8upc3sjouULJEWx/yjh8roByzxOK8VvRIUy4FTIeJFgirb9fFHbHq3Is9WAACucCo9rR
+	sw39usRXJFkycuqyTz1RDYDSamJxsodIQAw1VSSxOCpjl6VH7Q8kCP3okMqg1GV8fC04sUxEJPNXb
+	OLlN1IT2YdRHOJbjVe36Os+FAzNEJusFInDbd6VbBtoO7utW4HW6N9PagDl7Kfu8gGOSDRuBTV33Q
+	OKg1YpGkackG1nEdC0OcfJ832dDAPCu0wJDpE2Jh546IgFDq2pHldzzoIw2Lj7ilQhtKVxlHCuhWG
+	5lO8daADtovD81m0hZSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUefP-0000000F6H1-3KMC;
-	Tue, 30 Jan 2024 03:20:07 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1rUele-0000000F7YJ-2muS;
+	Tue, 30 Jan 2024 03:26:34 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUefL-0000000F6Dg-2wJC
+	id 1rUelc-0000000F7WH-0c1K
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jan 2024 03:20:06 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4TP9NJ04kZz29krM;
-	Tue, 30 Jan 2024 11:18:08 +0800 (CST)
+	Tue, 30 Jan 2024 03:26:33 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4TP9Wx3JSYzvVZs;
+	Tue, 30 Jan 2024 11:24:45 +0800 (CST)
 Received: from kwepemd100009.china.huawei.com (unknown [7.221.188.135])
-	by mail.maildlp.com (Postfix) with ESMTPS id 486A61A016B;
-	Tue, 30 Jan 2024 11:19:57 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id C535C1400FF;
+	Tue, 30 Jan 2024 11:26:23 +0800 (CST)
 Received: from [10.67.109.184] (10.67.109.184) by
  kwepemd100009.china.huawei.com (7.221.188.135) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.1258.28; Tue, 30 Jan 2024 11:19:56 +0800
-Message-ID: <8cc7d3ad-1b34-478d-bfc8-6a2f791aa5d9@huawei.com>
-Date: Tue, 30 Jan 2024 11:19:55 +0800
+ 15.2.1258.28; Tue, 30 Jan 2024 11:26:22 +0800
+Message-ID: <c063db6e-e947-4c8a-8f4a-afcdb318feb5@huawei.com>
+Date: Tue, 30 Jan 2024 11:26:22 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next 2/3] bpf: Keep im address consistent between dry
- run and real patching
+Subject: Re: [PATCH bpf-next 4/4] riscv, bpf: Mixing bpf2bpf and tailcalls
 Content-Language: en-US
-To: Song Liu <song@kernel.org>, Pu Lehui <pulehui@huaweicloud.com>
-CC: <bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<netdev@vger.kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
-	<bjorn@kernel.org>, Puranjay Mohan <puranjay12@gmail.com>, Alexei Starovoitov
+To: Pu Lehui <pulehui@huaweicloud.com>, <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>
+CC: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Alexei Starovoitov
 	<ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
-	<andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Yonghong Song
-	<yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
-	<kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
-	<haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Luke Nelson <luke.r.nels@gmail.com>
-References: <20240123103241.2282122-1-pulehui@huaweicloud.com>
- <20240123103241.2282122-3-pulehui@huaweicloud.com>
- <CAPhsuW67c8NYxBhwrq8JK8HP95P1Wwq1zHEDqooAOgP+aru13g@mail.gmail.com>
+	<andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
+	<song@kernel.org>, Yonghong Song <yhs@fb.com>, John Fastabend
+	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav Fomichev
+	<sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Luke
+ Nelson <luke.r.nels@gmail.com>
+References: <20230919035711.3297256-1-pulehui@huaweicloud.com>
+ <20230919035711.3297256-5-pulehui@huaweicloud.com>
 From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <CAPhsuW67c8NYxBhwrq8JK8HP95P1Wwq1zHEDqooAOgP+aru13g@mail.gmail.com>
+In-Reply-To: <20230919035711.3297256-5-pulehui@huaweicloud.com>
 X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  kwepemd100009.china.huawei.com (7.221.188.135)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_192004_149728_A8EB241E 
-X-CRM114-Status: GOOD (  20.95  )
+X-CRM114-CacheID: sfid-20240129_192632_558410_48BF140F 
+X-CRM114-Status: GOOD (  31.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,73 +74,305 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDI0LzEvMzAgMTo1OCwgU29uZyBMaXUgd3JvdGU6Cj4gT24gVHVlLCBKYW4gMjMsIDIw
-MjQgYXQgMjozMuKAr0FNIFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4gd3JvdGU6
-Cj4+Cj4+IEZyb206IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4+Cj4+IEluIF9fYXJj
-aF9wcmVwYXJlX2JwZl90cmFtcG9saW5lLCB3ZSBlbWl0IGluc3RydWN0aW9ucyB0byBzdG9yZSB0
-aGUKPj4gYWRkcmVzcyBvZiBpbSB0byByZWdpc3RlciBhbmQgdGhlbiBwYXNzIGl0IHRvIF9fYnBm
-X3RyYW1wX2VudGVyIGFuZAo+PiBfX2JwZl90cmFtcF9leGl0IGZ1bmN0aW9ucy4gQ3VycmVudGx5
-IHdlIHVzZSBmYWtlIGltIGluCj4+IGFyY2hfYnBmX3RyYW1wb2xpbmVfc2l6ZSBmb3IgdGhlIGRy
-eSBydW4sIGFuZCB0aGVuIGFsbG9jYXRlIG5ldyBpbSBmb3IKPj4gdGhlIHJlYWwgcGF0Y2hpbmcu
-IFRoaXMgaXMgZmluZSBmb3IgYXJjaGl0ZWN0dXJlcyB0aGF0IHVzZSBmaXhlZAo+PiBpbnN0cnVj
-dGlvbnMgdG8gZ2VuZXJhdGUgYWRkcmVzc2VzLiBIb3dldmVyLCBmb3IgYXJjaGl0ZWN0dXJlcyB0
-aGF0IHVzZQo+PiBkeW5hbWljIGluc3RydWN0aW9ucyB0byBnZW5lcmF0ZSBhZGRyZXNzZXMsIHRo
-aXMgbWF5IG1ha2UgdGhlIGZyb250IGFuZAo+PiByZWFyIGltYWdlcyBpbmNvbnNpc3RlbnQsIGxl
-YWRpbmcgdG8gcGF0Y2hpbmcgb3ZlcmZsb3cuIFdlIGNhbiBleHRyYWN0Cj4+IHRoZSBpbSBhbGxv
-Y2F0aW9uIGFoZWFkIG9mIHRoZSBkcnkgcnVuIGFuZCBwYXNzIHRoZSBhbGxvY2F0ZWQgaW0gdG8K
-Pj4gYXJjaF9icGZfdHJhbXBvbGluZV9zaXplLCBzbyB0aGF0IHdlIGNhbiBlbnN1cmUgdGhhdCBp
-bSBpcyBjb25zaXN0ZW50IGluCj4+IGRyeSBydW4gYW5kIHJlYWwgcGF0Y2hpbmcuCj4gCj4gSUlV
-QywgdGhpcyBpcyByZXF1aXJlZCBiZWNhdXNlIGVtaXRfaW1tKCkgZm9yIHJpc2N2IG1heSBnZW5l
-cmF0ZSB2YXJpYWJsZQo+IHNpemUgaW5zdHJ1Y3Rpb25zIChkZXBlbmRzIG9uIHRoZSB2YWx1ZSBv
-ZiBpbSkuIEkgd29uZGVyIHdlIGNhbiBmaXggdGhpcyBieQo+IHNpbXBseSBzZXQgYSBzcGVjaWFs
-IHZhbHVlIGZvciBmYWtlIGltIGluIGFyY2hfYnBmX3RyYW1wb2xpbmVfc2l6ZSgpIHRvCj4gc28g
-dGhhdCBlbWl0X2ltbSgpIGFsd2F5cyBnaXZlcyBiaWdnZXN0IHZhbHVlIGZvciB0aGUgZmFrZSBp
-bS4KPiAKCkhpIFNvbmcsCgpUaGFua3MgZm9yIHlvdXIgcmV2aWV3LiBZZXMsIEkgaGFkIHRoZSBz
-YW1lIGlkZWEgYXMgeW91IGF0IGZpcnN0LCBlbWl0IApiaWdnaXN0IGNvdW50IGluc3RydWN0aW9u
-cyB3aGVuIGN0eC0+aW5zbnMgaXMgTlVMTCwgYnV0IHRoaXMgbWF5IGxlYWQgdG8gCm1lbW9yeSB3
-YXN0ZS4gU28gdHJ5IG1vdmluZyBvdXQgb2YgSU0gdG8gZ2V0IGEgZml4ZWQgSU0gYWRkcmVzcywg
-bWF5YmUgCm90aGVyIGFyY2hpdGVjdHVyZXMgcmVxdWlyZSBpdCB0b28uIElmIHlvdSBmZWVsIGl0
-IGlzIGluYXBwcm9wcmlhdGUsIEkgCndpbGwgd2l0aGRyYXcgaXQuCgo+Pgo+PiBTaWduZWQtb2Zm
-LWJ5OiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWkuY29tPgo+PiAtLS0KPiBbLi4uXQo+Pgo+PiAg
-IHN0YXRpYyBpbnQgYnBmX3RyYW1wb2xpbmVfdXBkYXRlKHN0cnVjdCBicGZfdHJhbXBvbGluZSAq
-dHIsIGJvb2wgbG9ja19kaXJlY3RfbXV0ZXgpCj4+IEBAIC00MzIsMjMgKzQyNSwyNyBAQCBzdGF0
-aWMgaW50IGJwZl90cmFtcG9saW5lX3VwZGF0ZShzdHJ1Y3QgYnBmX3RyYW1wb2xpbmUgKnRyLCBi
-b29sIGxvY2tfZGlyZWN0X211dAo+PiAgICAgICAgICAgICAgICAgIHRyLT5mbGFncyB8PSBCUEZf
-VFJBTVBfRl9PUklHX1NUQUNLOwo+PiAgICNlbmRpZgo+Pgo+PiAtICAgICAgIHNpemUgPSBhcmNo
-X2JwZl90cmFtcG9saW5lX3NpemUoJnRyLT5mdW5jLm1vZGVsLCB0ci0+ZmxhZ3MsCj4+ICsgICAg
-ICAgaW0gPSBremFsbG9jKHNpemVvZigqaW0pLCBHRlBfS0VSTkVMKTsKPj4gKyAgICAgICBpZiAo
-IWltKSB7Cj4+ICsgICAgICAgICAgICAgICBlcnIgPSAtRU5PTUVNOwo+PiArICAgICAgICAgICAg
-ICAgZ290byBvdXQ7Cj4+ICsgICAgICAgfQo+PiArCj4+ICsgICAgICAgc2l6ZSA9IGFyY2hfYnBm
-X3RyYW1wb2xpbmVfc2l6ZShpbSwgJnRyLT5mdW5jLm1vZGVsLCB0ci0+ZmxhZ3MsCj4+ICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGxpbmtzLCB0ci0+ZnVuYy5hZGRy
-KTsKPj4gICAgICAgICAgaWYgKHNpemUgPCAwKSB7Cj4+ICAgICAgICAgICAgICAgICAgZXJyID0g
-c2l6ZTsKPj4gLSAgICAgICAgICAgICAgIGdvdG8gb3V0Owo+PiArICAgICAgICAgICAgICAgZ290
-byBvdXRfZnJlZV9pbTsKPj4gICAgICAgICAgfQo+Pgo+PiAgICAgICAgICBpZiAoc2l6ZSA+IFBB
-R0VfU0laRSkgewo+PiAgICAgICAgICAgICAgICAgIGVyciA9IC1FMkJJRzsKPj4gLSAgICAgICAg
-ICAgICAgIGdvdG8gb3V0Owo+PiArICAgICAgICAgICAgICAgZ290byBvdXRfZnJlZV9pbTsKPj4g
-ICAgICAgICAgfQo+Pgo+PiAtICAgICAgIGltID0gYnBmX3RyYW1wX2ltYWdlX2FsbG9jKHRyLT5r
-ZXksIHNpemUpOwo+PiAtICAgICAgIGlmIChJU19FUlIoaW0pKSB7Cj4+IC0gICAgICAgICAgICAg
-ICBlcnIgPSBQVFJfRVJSKGltKTsKPj4gLSAgICAgICAgICAgICAgIGdvdG8gb3V0Owo+PiAtICAg
-ICAgIH0KPj4gKyAgICAgICBlcnIgPSBicGZfdHJhbXBfaW1hZ2VfYWxsb2MoaW0sIHRyLT5rZXks
-IHNpemUpOwo+PiArICAgICAgIGlmIChlcnIgPCAwKQo+PiArICAgICAgICAgICAgICAgZ290byBv
-dXRfZnJlZV9pbTsKPiAKPiBJIGZlZWwgdGhpcyBjaGFuZ2UganVzdCBtYWtlcyBicGZfdHJhbXBv
-bGluZV91cGRhdGUoKSBldmVuCj4gbW9yZSBjb25mdXNpbmcuCj4gCj4+Cj4+ICAgICAgICAgIGVy
-ciA9IGFyY2hfcHJlcGFyZV9icGZfdHJhbXBvbGluZShpbSwgaW0tPmltYWdlLCBpbS0+aW1hZ2Ug
-KyBzaXplLAo+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJnRy
-LT5mdW5jLm1vZGVsLCB0ci0+ZmxhZ3MsIHRsaW5rcywKPj4gQEAgLTQ5Niw2ICs0OTMsOCBAQCBz
-dGF0aWMgaW50IGJwZl90cmFtcG9saW5lX3VwZGF0ZShzdHJ1Y3QgYnBmX3RyYW1wb2xpbmUgKnRy
-LCBib29sIGxvY2tfZGlyZWN0X211dAo+Pgo+PiAgIG91dF9mcmVlOgo+PiAgICAgICAgICBicGZf
-dHJhbXBfaW1hZ2VfZnJlZShpbSk7Cj4+ICtvdXRfZnJlZV9pbToKPj4gKyAgICAgICBrZnJlZV9y
-Y3UoaW0sIHJjdSk7Cj4gCj4gSWYgd2UgZ290byBvdXRfZnJlZSBhYm92ZSwgd2Ugd2lsbCBjYWxs
-IGtmcmVlX3JjdShpbSwgcmN1KQo+IHR3aWNlLCByaWdodD8gT25jZSBpbiBicGZfdHJhbXBfaW1h
-Z2VfZnJlZSgpLCBhbmQgYWdhaW4KPiBoZXJlLgo+IAoKT29wcywgc29ycnksIGZvcmdvdCB0byBy
-ZW1vdmUga2ZyZWVfcmN1IGluIGJwZl90cmFtcF9pbWFnZV9mcmVlIGluIHRoaXMgCnZlcnNpb24u
-Cgo+IFRoYW5rcywKPiBTb25nCj4gCj4gWy4uLl0KPiAKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On 2023/9/19 11:57, Pu Lehui wrote:
+> From: Pu Lehui <pulehui@huawei.com>
+> 
+> In the current RV64 JIT, if we just don't initialize the TCC in subprog,
+> the TCC can be propagated from the parent process to the subprocess, but
+> the TCC of the parent process cannot be restored when the subprocess
+> exits. Since the RV64 TCC is initialized before saving the callee saved
+> registers into the stack, we cannot use the callee saved register to
+> pass the TCC, otherwise the original value of the callee saved register
+> will be destroyed. So we implemented mixing bpf2bpf and tailcalls
+> similar to x86_64, i.e. using a non-callee saved register to transfer
+> the TCC between functions, and saving that register to the stack to
+> protect the TCC value. At the same time, we also consider the scenario
+> of mixing trampoline.
+> 
+> Tests test_bpf.ko and test_verifier have passed, as well as the relative
+> testcases of test_progs*.
+> 
+> Signed-off-by: Pu Lehui <pulehui@huawei.com>
+> ---
+>   arch/riscv/net/bpf_jit.h        |  1 +
+>   arch/riscv/net/bpf_jit_comp64.c | 91 ++++++++++++++-------------------
+>   2 files changed, 39 insertions(+), 53 deletions(-)
+> 
+> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+> index d21c6c92a..ca518846c 100644
+> --- a/arch/riscv/net/bpf_jit.h
+> +++ b/arch/riscv/net/bpf_jit.h
+> @@ -75,6 +75,7 @@ struct rv_jit_context {
+>   	int nexentries;
+>   	unsigned long flags;
+>   	int stack_size;
+> +	int tcc_offset;
+>   };
+>   
+>   /* Convert from ninsns to bytes. */
+> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> index f2ded1151..f37be4911 100644
+> --- a/arch/riscv/net/bpf_jit_comp64.c
+> +++ b/arch/riscv/net/bpf_jit_comp64.c
+> @@ -13,13 +13,11 @@
+>   #include <asm/patch.h>
+>   #include "bpf_jit.h"
+>   
+> +#define RV_REG_TCC		RV_REG_A6
+>   #define RV_FENTRY_NINSNS	2
+>   /* fentry and TCC init insns will be skipped on tailcall */
+>   #define RV_TAILCALL_OFFSET	((RV_FENTRY_NINSNS + 1) * 4)
+>   
+> -#define RV_REG_TCC RV_REG_A6
+> -#define RV_REG_TCC_SAVED RV_REG_S6 /* Store A6 in S6 if program do calls */
+> -
+>   static const int regmap[] = {
+>   	[BPF_REG_0] =	RV_REG_A5,
+>   	[BPF_REG_1] =	RV_REG_A0,
+> @@ -51,14 +49,12 @@ static const int pt_regmap[] = {
+>   };
+>   
+>   enum {
+> -	RV_CTX_F_SEEN_TAIL_CALL =	0,
+>   	RV_CTX_F_SEEN_CALL =		RV_REG_RA,
+>   	RV_CTX_F_SEEN_S1 =		RV_REG_S1,
+>   	RV_CTX_F_SEEN_S2 =		RV_REG_S2,
+>   	RV_CTX_F_SEEN_S3 =		RV_REG_S3,
+>   	RV_CTX_F_SEEN_S4 =		RV_REG_S4,
+>   	RV_CTX_F_SEEN_S5 =		RV_REG_S5,
+> -	RV_CTX_F_SEEN_S6 =		RV_REG_S6,
+>   };
+>   
+>   static u8 bpf_to_rv_reg(int bpf_reg, struct rv_jit_context *ctx)
+> @@ -71,7 +67,6 @@ static u8 bpf_to_rv_reg(int bpf_reg, struct rv_jit_context *ctx)
+>   	case RV_CTX_F_SEEN_S3:
+>   	case RV_CTX_F_SEEN_S4:
+>   	case RV_CTX_F_SEEN_S5:
+> -	case RV_CTX_F_SEEN_S6:
+>   		__set_bit(reg, &ctx->flags);
+>   	}
+>   	return reg;
+> @@ -86,7 +81,6 @@ static bool seen_reg(int reg, struct rv_jit_context *ctx)
+>   	case RV_CTX_F_SEEN_S3:
+>   	case RV_CTX_F_SEEN_S4:
+>   	case RV_CTX_F_SEEN_S5:
+> -	case RV_CTX_F_SEEN_S6:
+>   		return test_bit(reg, &ctx->flags);
+>   	}
+>   	return false;
+> @@ -102,32 +96,6 @@ static void mark_call(struct rv_jit_context *ctx)
+>   	__set_bit(RV_CTX_F_SEEN_CALL, &ctx->flags);
+>   }
+>   
+> -static bool seen_call(struct rv_jit_context *ctx)
+> -{
+> -	return test_bit(RV_CTX_F_SEEN_CALL, &ctx->flags);
+> -}
+> -
+> -static void mark_tail_call(struct rv_jit_context *ctx)
+> -{
+> -	__set_bit(RV_CTX_F_SEEN_TAIL_CALL, &ctx->flags);
+> -}
+> -
+> -static bool seen_tail_call(struct rv_jit_context *ctx)
+> -{
+> -	return test_bit(RV_CTX_F_SEEN_TAIL_CALL, &ctx->flags);
+> -}
+> -
+> -static u8 rv_tail_call_reg(struct rv_jit_context *ctx)
+> -{
+> -	mark_tail_call(ctx);
+> -
+> -	if (seen_call(ctx)) {
+> -		__set_bit(RV_CTX_F_SEEN_S6, &ctx->flags);
+> -		return RV_REG_S6;
+> -	}
+> -	return RV_REG_A6;
+> -}
+> -
+>   static bool is_32b_int(s64 val)
+>   {
+>   	return -(1L << 31) <= val && val < (1L << 31);
+> @@ -235,10 +203,7 @@ static void __build_epilogue(bool is_tail_call, struct rv_jit_context *ctx)
+>   		emit_ld(RV_REG_S5, store_offset, RV_REG_SP, ctx);
+>   		store_offset -= 8;
+>   	}
+> -	if (seen_reg(RV_REG_S6, ctx)) {
+> -		emit_ld(RV_REG_S6, store_offset, RV_REG_SP, ctx);
+> -		store_offset -= 8;
+> -	}
+> +	emit_ld(RV_REG_TCC, store_offset, RV_REG_SP, ctx);
+>   
+>   	emit_addi(RV_REG_SP, RV_REG_SP, stack_adjust, ctx);
+>   	/* Set return value. */
+> @@ -332,7 +297,6 @@ static void emit_zext_32(u8 reg, struct rv_jit_context *ctx)
+>   static int emit_bpf_tail_call(int insn, struct rv_jit_context *ctx)
+>   {
+>   	int tc_ninsn, off, start_insn = ctx->ninsns;
+> -	u8 tcc = rv_tail_call_reg(ctx);
+>   
+>   	/* a0: &ctx
+>   	 * a1: &array
+> @@ -355,9 +319,11 @@ static int emit_bpf_tail_call(int insn, struct rv_jit_context *ctx)
+>   	/* if (--TCC < 0)
+>   	 *     goto out;
+>   	 */
+> -	emit_addi(RV_REG_TCC, tcc, -1, ctx);
+> +	emit_ld(RV_REG_TCC, ctx->tcc_offset, RV_REG_SP, ctx);
+> +	emit_addi(RV_REG_TCC, RV_REG_TCC, -1, ctx);
+>   	off = ninsns_rvoff(tc_ninsn - (ctx->ninsns - start_insn));
+>   	emit_branch(BPF_JSLT, RV_REG_TCC, RV_REG_ZERO, off, ctx);
+> +	emit_sd(RV_REG_SP, ctx->tcc_offset, RV_REG_TCC, ctx);
+>   
+>   	/* prog = array->ptrs[index];
+>   	 * if (!prog)
+> @@ -763,7 +729,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+>   	int i, ret, offset;
+>   	int *branches_off = NULL;
+>   	int stack_size = 0, nregs = m->nr_args;
+> -	int retval_off, args_off, nregs_off, ip_off, run_ctx_off, sreg_off;
+> +	int retval_off, args_off, nregs_off, ip_off, run_ctx_off, sreg_off, tcc_off;
+>   	struct bpf_tramp_links *fentry = &tlinks[BPF_TRAMP_FENTRY];
+>   	struct bpf_tramp_links *fexit = &tlinks[BPF_TRAMP_FEXIT];
+>   	struct bpf_tramp_links *fmod_ret = &tlinks[BPF_TRAMP_MODIFY_RETURN];
+> @@ -807,6 +773,8 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+>   	 *
+>   	 * FP - sreg_off    [ callee saved reg	]
+>   	 *
+> +	 * FP - tcc_off     [ tail call count	] BPF_TRAMP_F_TAIL_CALL_CTX
+> +	 *
+>   	 *		    [ pads              ] pads for 16 bytes alignment
+>   	 */
+>   
+> @@ -848,6 +816,11 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+>   	stack_size += 8;
+>   	sreg_off = stack_size;
+>   
+> +	if (flags & BPF_TRAMP_F_TAIL_CALL_CTX) {
+> +		stack_size += 8;
+> +		tcc_off = stack_size;
+> +	}
+> +
+>   	stack_size = round_up(stack_size, 16);
+>   
+>   	if (func_addr) {
+> @@ -874,6 +847,10 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+>   		emit_addi(RV_REG_FP, RV_REG_SP, stack_size, ctx);
+>   	}
+>   
+> +	/* store tail call count */
+> +	if (flags & BPF_TRAMP_F_TAIL_CALL_CTX)
+> +		emit_sd(RV_REG_FP, -tcc_off, RV_REG_TCC, ctx);
+> +
+>   	/* callee saved register S1 to pass start time */
+>   	emit_sd(RV_REG_FP, -sreg_off, RV_REG_S1, ctx);
+>   
+> @@ -927,6 +904,9 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+>   
+>   	if (flags & BPF_TRAMP_F_CALL_ORIG) {
+>   		restore_args(nregs, args_off, ctx);
+> +		/* restore TCC to RV_REG_TCC before calling the original function */
+> +		if (flags & BPF_TRAMP_F_TAIL_CALL_CTX)
+> +			emit_ld(RV_REG_TCC, -tcc_off, RV_REG_FP, ctx);
+>   		ret = emit_call((const u64)orig_call, true, ctx);
+>   		if (ret)
+>   			goto out;
+> @@ -967,6 +947,10 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+>   
+>   	emit_ld(RV_REG_S1, -sreg_off, RV_REG_FP, ctx);
+>   
+> +	/* restore TCC to RV_REG_TCC before calling the original function */
+> +	if (flags & BPF_TRAMP_F_TAIL_CALL_CTX)
+> +		emit_ld(RV_REG_TCC, -tcc_off, RV_REG_FP, ctx);
+
+Sorry guys. This will emit double times when `flags & 
+BPF_TRAMP_F_CALL_ORIG`. Will fix it in next version.
+
+> +
+>   	if (func_addr) {
+>   		/* trampoline called from function entry */
+>   		emit_ld(RV_REG_T0, stack_size - 8, RV_REG_SP, ctx);
+> @@ -1476,6 +1460,9 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   		if (ret < 0)
+>   			return ret;
+>   
+> +		/* restore TCC from stack to RV_REG_TCC */
+> +		emit_ld(RV_REG_TCC, ctx->tcc_offset, RV_REG_SP, ctx);
+> +
+>   		ret = emit_call(addr, fixed_addr, ctx);
+>   		if (ret)
+>   			return ret;
+> @@ -1735,6 +1722,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   void bpf_jit_build_prologue(struct rv_jit_context *ctx)
+>   {
+>   	int i, stack_adjust = 0, store_offset, bpf_stack_adjust;
+> +	bool is_main = ctx->prog->aux->func_idx == 0;
+>   
+>   	bpf_stack_adjust = round_up(ctx->prog->aux->stack_depth, 16);
+>   	if (bpf_stack_adjust)
+> @@ -1753,8 +1741,7 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx)
+>   		stack_adjust += 8;
+>   	if (seen_reg(RV_REG_S5, ctx))
+>   		stack_adjust += 8;
+> -	if (seen_reg(RV_REG_S6, ctx))
+> -		stack_adjust += 8;
+> +	stack_adjust += 8; /* RV_REG_TCC */
+>   
+>   	stack_adjust = round_up(stack_adjust, 16);
+>   	stack_adjust += bpf_stack_adjust;
+> @@ -1769,7 +1756,8 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx)
+>   	 * (TCC) register. This instruction is skipped for tail calls.
+>   	 * Force using a 4-byte (non-compressed) instruction.
+>   	 */
+> -	emit(rv_addi(RV_REG_TCC, RV_REG_ZERO, MAX_TAIL_CALL_CNT), ctx);
+> +	if (is_main)
+> +		emit(rv_addi(RV_REG_TCC, RV_REG_ZERO, MAX_TAIL_CALL_CNT), ctx);
+>   
+>   	emit_addi(RV_REG_SP, RV_REG_SP, -stack_adjust, ctx);
+>   
+> @@ -1799,22 +1787,14 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx)
+>   		emit_sd(RV_REG_SP, store_offset, RV_REG_S5, ctx);
+>   		store_offset -= 8;
+>   	}
+> -	if (seen_reg(RV_REG_S6, ctx)) {
+> -		emit_sd(RV_REG_SP, store_offset, RV_REG_S6, ctx);
+> -		store_offset -= 8;
+> -	}
+> +	emit_sd(RV_REG_SP, store_offset, RV_REG_TCC, ctx);
+> +	ctx->tcc_offset = store_offset;
+>   
+>   	emit_addi(RV_REG_FP, RV_REG_SP, stack_adjust, ctx);
+>   
+>   	if (bpf_stack_adjust)
+>   		emit_addi(RV_REG_S5, RV_REG_SP, bpf_stack_adjust, ctx);
+>   
+> -	/* Program contains calls and tail calls, so RV_REG_TCC need
+> -	 * to be saved across calls.
+> -	 */
+> -	if (seen_tail_call(ctx) && seen_call(ctx))
+> -		emit_mv(RV_REG_TCC_SAVED, RV_REG_TCC, ctx);
+> -
+>   	ctx->stack_size = stack_adjust;
+>   }
+>   
+> @@ -1827,3 +1807,8 @@ bool bpf_jit_supports_kfunc_call(void)
+>   {
+>   	return true;
+>   }
+> +
+> +bool bpf_jit_supports_subprog_tailcalls(void)
+> +{
+> +	return true;
+> +}
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
