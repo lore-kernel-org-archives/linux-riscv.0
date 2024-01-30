@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4145DC46CD2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889B5C47DA9
 	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 04:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,29 +12,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qo8XAHdVjnN/VLnCYKxvUtAC5Oqf1Se1IqQm0kOtL9A=; b=CLHQIK8roiBtSc
-	R1pT5s3E/m4EEnr8IkWToVkGNtC3UNRELg3cf/I8u/xvNQEi8OMnzZQ/8Vvs1/ocsFJtWcJ2DMnxw
-	hyT4JFowLPHyV7y5CLg6LRVWmEzye1k4Mnr+aTO1+Zw2dXYvoRyEEmNvEtX5ryQeDeQ3nlYZeM0Xt
-	Y6YIumqMZF+HrPeXAw25J05Jg44wnIj5U3IjBJhrPgPLQcRe81f/P4cu4wRdDGeSTiJUgq+Cc7Kel
-	GYYHQD8Vx3lgNj3+2/2+ev12QZ4MmZMcksTdEl2Q866hXhZ7iXXoyPG8IliOR7WBsJOw6Nqc6ghpZ
-	oJq2D4GP+y1FFZdVVrAg==;
+	List-Owner; bh=/+tpKnmZ+DTKjTqUcQD1b/gA1JF4t4riG5gEQiozVZc=; b=mT8ft0AdvYsl/6
+	Rn6HzKWgq4ielKKITYVUbaFEbpA2Tz2NkR8lAv1Sh9ljC+B3uqTq57zSw3rduii/XnuYzx06jwC7b
+	j+6jzmu4G3RD9W7rQC5QcVPcPCbwDbslmWBO207v76+eCYwc4NNiRq7DyEpIdb1c0QX60D/oLQTDO
+	z6t3yYGp5JXIPsSP04eC5fKOFPP1iPxw2wQqi1TeeaV+gK/pfYgqlGixSpsNwORSvSBgYYNKSAeAJ
+	vid2BQdhyi0BHH8Y4Cdj7LaioWX4IPgytbLZxRSdJG9lIcIKdqgOpV9pISt9g/kzDAQdOQwryDgBY
+	3YK1+wCSfyor1ecO2THA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUfRA-0000000FDHd-0df2;
-	Tue, 30 Jan 2024 04:09:28 +0000
+	id 1rUfRD-0000000FDJ2-3WSE;
+	Tue, 30 Jan 2024 04:09:31 +0000
 Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUfR7-0000000FDFc-0TWt
+	id 1rUfR7-0000000FDFa-0OwB
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jan 2024 04:09:27 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4TPBW85Yt8z4f3k6X
-	for <linux-riscv@lists.infradead.org>; Tue, 30 Jan 2024 12:09:08 +0800 (CST)
+	Tue, 30 Jan 2024 04:09:28 +0000
+Received: from mail.maildlp.com (unknown [172.19.93.142])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4TPBW46R4Rz4f3mHJ
+	for <linux-riscv@lists.infradead.org>; Tue, 30 Jan 2024 12:09:04 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id 4DE3D1A0199
+	by mail.maildlp.com (Postfix) with ESMTP id 5FCE71A016E
 	for <linux-riscv@lists.infradead.org>; Tue, 30 Jan 2024 12:09:11 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP2 (Coremail) with SMTP id Syh0CgCHqg1ldrhlqljQCQ--.26624S3;
+	by APP2 (Coremail) with SMTP id Syh0CgCHqg1ldrhlqljQCQ--.26624S4;
 	Tue, 30 Jan 2024 12:09:11 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
@@ -57,34 +57,35 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Luke Nelson <luke.r.nels@gmail.com>,
 	Pu Lehui <pulehui@huawei.com>,
 	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [PATCH bpf-next v2 1/4] riscv, bpf: Remove redundant ctx->offset initialization
-Date: Tue, 30 Jan 2024 04:09:55 +0000
-Message-Id: <20240130040958.230673-2-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next v2 2/4] riscv, bpf: Using kvcalloc to allocate cache buffer
+Date: Tue, 30 Jan 2024 04:09:56 +0000
+Message-Id: <20240130040958.230673-3-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240130040958.230673-1-pulehui@huaweicloud.com>
 References: <20240130040958.230673-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: Syh0CgCHqg1ldrhlqljQCQ--.26624S3
-X-Coremail-Antispam: 1UD129KBjvdXoW7XFW8Jr15KF1fuF45XrW5KFg_yoW3Awb_C3
-	4fta4xXrWfJa1qkr1jqr1rXr1qyw1rtFyrur1fXry5C3Z0qw1vy3s7Kr17Gry7urn8ZrWx
-	WFZ7JrW7Zw1YgjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb6kFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGwA2048vs2IY02
-	0Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
-	wVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1l84
-	ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I2
-	62IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcV
-	AFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG
-	0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI
-	1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWU
-	JVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7V
-	AKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42
-	IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUecTQUUUUU
+X-CM-TRANSID: Syh0CgCHqg1ldrhlqljQCQ--.26624S4
+X-Coremail-Antispam: 1UD129KBjvJXoW7WFW3Cw13GrWfGw4Utr4fXwb_yoW8Zr1rpF
+	4DGwnIy3yYvr1kXF4vqr4kXFy5J3Wqg3W7GFWUuFyfXF9IqrWrXan5C345urZ8CrWrCryF
+	vayY9rnxu34kXwUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPj14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
+	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
+	xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
+	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2
+	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
+	Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8Jw
+	CI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUFrcTDUUU
+	U
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_200925_356582_7558483C 
-X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-CacheID: sfid-20240129_200925_540437_260D2728 
+X-CRM114-Status: UNSURE (   9.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,30 +105,60 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pu Lehui <pulehui@huawei.com>
 
-There is no gain in initializing ctx->offset and prev_insns, and
-ctx->offset is already zero-initialized. Let's remove this code.
+It is unnecessary to allocate continuous physical memory for cache
+buffer, and when ebpf program is too large, it may cause memory
+allocation failure.
 
 Signed-off-by: Pu Lehui <pulehui@huawei.com>
 ---
- arch/riscv/net/bpf_jit_core.c | 5 -----
- 1 file changed, 5 deletions(-)
+ arch/riscv/net/bpf_jit_comp64.c | 4 ++--
+ arch/riscv/net/bpf_jit_core.c   | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-index 7b70ccb7fec3..b271240f48c9 100644
---- a/arch/riscv/net/bpf_jit_core.c
-+++ b/arch/riscv/net/bpf_jit_core.c
-@@ -91,11 +91,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		goto out_offset;
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index fda6b4f6a4c1..74f995abf2c2 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -911,7 +911,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
  	}
  
--	for (i = 0; i < prog->len; i++) {
--		prev_ninsns += 32;
--		ctx->offset[i] = prev_ninsns;
--	}
--
- 	for (i = 0; i < NR_JIT_ITERATIONS; i++) {
- 		pass++;
- 		ctx->ninsns = 0;
+ 	if (fmod_ret->nr_links) {
+-		branches_off = kcalloc(fmod_ret->nr_links, sizeof(int), GFP_KERNEL);
++		branches_off = kvcalloc(fmod_ret->nr_links, sizeof(int), GFP_KERNEL);
+ 		if (!branches_off)
+ 			return -ENOMEM;
+ 
+@@ -1001,7 +1001,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im,
+ 
+ 	ret = ctx->ninsns;
+ out:
+-	kfree(branches_off);
++	kvfree(branches_off);
+ 	return ret;
+ }
+ 
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index b271240f48c9..5ba68b1888ab 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -80,7 +80,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 	}
+ 
+ 	ctx->prog = prog;
+-	ctx->offset = kcalloc(prog->len, sizeof(int), GFP_KERNEL);
++	ctx->offset = kvcalloc(prog->len, sizeof(int), GFP_KERNEL);
+ 	if (!ctx->offset) {
+ 		prog = orig_prog;
+ 		goto out_offset;
+@@ -188,7 +188,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 			ctx->offset[i] = ninsns_rvoff(ctx->offset[i]);
+ 		bpf_prog_fill_jited_linfo(prog, ctx->offset);
+ out_offset:
+-		kfree(ctx->offset);
++		kvfree(ctx->offset);
+ 		kfree(jit_data);
+ 		prog->aux->jit_data = NULL;
+ 	}
 -- 
 2.34.1
 
