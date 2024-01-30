@@ -4,85 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B6CC46CD2
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 21:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A88FC46CD2
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 22:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gOd7fBs5t1WKXM+Vh3jbNT9pTZxjqtID4/vsGoB6aqM=; b=CEhx7upj09xpnL
-	7eEhwf0qyTv/jGmYP9l/XYIiTYZjl5wAaWOn9zKJl52eGKj42t62pAljRnm8v6GbsQ0MtlUmVjEJ7
-	KZ05oGE9ieWt/1R0aNYmAAuP84FEUVxz2y5X4wO2LnOoO50g3u5JXMhITr0uMTQvB+HiyH72DEVoi
-	UTl/s5TWFAa6uHAznn845YWq/zHo/N6wZRfIkFFr1PLq2CMGM+bNsfz32de+mUIrXW9GSlvN55kh8
-	hJa+xT0yeBNgxL07vmlPGvTnGXImpckHGoPvySzBoDkKQ2iGxmgCAOGPl65EKzMni/9NSV/5GFtLe
-	WFxI4mjjcBVm/hN7o2PQ==;
+	List-Owner; bh=24Lo+LcaE4PvQoTCTH4nqM5/u6nFmBoaOtblbtaQkJ4=; b=ERDiVP5wCKTGeO
+	9kP+i2dVf60/MmENRZqBr/hGtdUFJvcUUE7bWX90EER1OHlTZcrJiQc7VsF5ENKq1da/m7tyJqJkq
+	OBHlvJY9TEFJb/S2/D20SqNGF2L93aEsXlIYUCMRXXEFkHAszCHqsmJCEGoxDOqPMiBa+/Rw0Qdih
+	HUAu+0LSnd9fAYBoE23HlzpFg6cOfOG+PerxDBblrIClEiNR8g52KxGj+CWDING/KevSVXm4IjR1i
+	e+KKwgI7T2WHEvQqcGLY25stlupDvG6X9C0qfFyWZXY2ye+YsPw4o86nNWPWApytgND/mtonP58oa
+	yEVWpjaQZKTXIVH4eGxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUw14-00000000flp-0TfW;
-	Tue, 30 Jan 2024 21:51:38 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1rUwEO-00000000hXj-0wao;
+	Tue, 30 Jan 2024 22:05:24 +0000
+Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUw10-00000000fi2-11ki
+	id 1rUwEL-00000000hX7-39NI
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jan 2024 21:51:36 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-295d22bd3afso357180a91.1
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Jan 2024 13:51:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706651490; x=1707256290; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Np9jYGYfYb8N8NYn/XtRXhSjDUyxZMfM0XTBuDl+Ozs=;
-        b=VgwDVpdG3152Yuhxv5PQgehz5RcrlPfDgrH0vl9psPDtXTlg8tKWYBPxauwQgZEsfM
-         YcSMxKxxTcU+VpERY+kvzCjj31lz9r88fHVMnVTxqxmkUnK88fXN7vuKCgUiU00QXFt1
-         BpQ6rJES0Pm9Pl4MSf0tDrHQNqKi407gxN3W2X9WDlN+V47vZQ/x04+2/Jon3e7e0CM4
-         xlrBU1Pir1cu5HnqVefeF5fmu4d7WF331QerWXcO1EDaZes8aGh4a2z0/l0mDRLc+kEe
-         C4OH32n6yWq78tmoX870LKOD1l80Qle2CZysjpa8fKrSQZIL55Cy0Hm1KxjwSJggbKLx
-         7Fyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706651490; x=1707256290;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Np9jYGYfYb8N8NYn/XtRXhSjDUyxZMfM0XTBuDl+Ozs=;
-        b=mJcwXhDn97vJeQOi/hLZigsRnpXBXWSB3JshHaExFw3JMsrqZI2hM3W8V8VT8l6Jrm
-         hmzaIL3D3NELC1UBrT2MZcftNb45L+6C0ufKcxFVanDBpdcgssHROsEc6p0HfEOAll2a
-         CEzpm2twSMsnN2psfNRRrYu1wVv+LiLEPx9GTn+CQ23c8Qsj9uoCGP7lekAy5sN6gJ7n
-         45iYbs1WpWPsf7UXKHPmi7BARUixMbyzObGqifkcNBUVxNJGmlI1ykyii5Fh8JsKL3X+
-         qVwClrMv3sq63kG9NlqO0rzOGhIbmdEbqoln4yHlXv9UfN+h0d5cH1sfPe6LShtbVlLQ
-         fCRA==
-X-Gm-Message-State: AOJu0YzAn0Bomt656aKWkqm8nCQ46pMbVNUWHaU0iRRt1xqd0HMYd1Y9
-	FhHbpO7kL9XcvacadWwLtiv38DqUGmw5vG/Cfuptyh5+xMnR4PciOkHHqJ+T/TY=
-X-Google-Smtp-Source: AGHT+IEwtwQoylWlOGq8TqPSvs3bul1pVTRd8p25SneMALbfVbul/65KMmvpPziXy2wknL2Wg6OzKg==
-X-Received: by 2002:a17:90a:17a2:b0:28f:f1c0:3d21 with SMTP id q31-20020a17090a17a200b0028ff1c03d21mr5388368pja.41.1706651490637;
-        Tue, 30 Jan 2024 13:51:30 -0800 (PST)
-Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id nb5-20020a17090b35c500b0029464b5fcdbsm8657589pjb.42.2024.01.30.13.51.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jan 2024 13:51:30 -0800 (PST)
-Date: Tue, 30 Jan 2024 13:51:28 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] riscv: mm: Use hint address in mmap if available
-Message-ID: <ZblvYH3NLfhZQt9g@ghost>
-References: <20240130-use_mmap_hint_address-v2-0-f34ebfd33053@rivosinc.com>
- <20240130-use_mmap_hint_address-v2-1-f34ebfd33053@rivosinc.com>
- <tencent_34680F3AAAE356C4A485103556F3F909C60A@qq.com>
+	Tue, 30 Jan 2024 22:05:23 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.west.internal (Postfix) with ESMTP id 333953200B26;
+	Tue, 30 Jan 2024 17:05:17 -0500 (EST)
+Received: from imap50 ([10.202.2.100])
+  by compute3.internal (MEProxy); Tue, 30 Jan 2024 17:05:18 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
+	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1706652316; x=1706738716; bh=6JySg6oxBL
+	ctqW7yqA5TQZwLK2NTOu4x+J4bcx93/hs=; b=ZwLKbUHVGU5pLTJfuE8bRKeO7p
+	xlRPn5sb3L13ArVNiQlJdRZAIqUjrW/HX30wHoZOmNBHm6OvPjcQJ+KM/P16roNq
+	CF7ell2U+wN0Ea6v6R30MujOVViv6Y3v4J+iN8aSlO3he021giX7JhNjsOo7ZlXx
+	KmBs0huTzeka+mCf/K3bLuXgLMclQZhZkUHediibs+ws036URqsKzApLRHWZZMlQ
+	UNxYtfg/0iYXZ+94jz8LwQXOzzqPXenJSkrH/sixlDujMGjp4FdFvfYk/n0tBAZT
+	SBOLG5DbMoF8pqqcSKh7+rYy1CayYbaDWhXq+A+AUbruYZlfSdd/hXPHF8IQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1706652316; x=1706738716; bh=6JySg6oxBLctqW7yqA5TQZwLK2NT
+	Ou4x+J4bcx93/hs=; b=rCmG7DTjLQB/zm6pU3uus63GXaKb9OPy0pBSlFYDB+9G
+	vPjUThKVGiVPiT2TxpqF0umOv1EPdeRG7dQdrUryp9reng8LJnhDuuy2+mdmIao/
+	z60SAwF8pEAHiBMPybINo41PYzP/x9EmSz6MtPd6jwcd5PfyNRlEEdZQFlqle6JT
+	v0tHQRc9jdHVOczm+3i7h8oSR+KRrzMOUAuJ1WxE45Ii4LxPK5B1mRQWKYBX8BeI
+	KzHMWxV4TR95WrJi+1+2U1nU95IJxQN90lxMzRQTL+yvKsR8KQo+Ndz28kZjgMPx
+	vHwLYolc31U5Yc0mItgzV9iGXY7Ev5qucYPedV4zZQ==
+X-ME-Sender: <xms:m3K5ZS-GoQITLfLuEyih--a_ywEwLuR7CvGjR3101vpj_YV2E9XCig>
+    <xme:m3K5ZSt4nvo3ub-7LvzV0l7v9rzatpBMtxS-57qExDsZxJgB0NWRVB7Q_04jqRL3W
+    kJzNdMR2NxUG5M6mg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrfedtjedgkeelucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedfufht
+    vghfrghnucfqkdftvggrrhdfuceoshhorhgvrghrsehfrghsthhmrghilhdrtghomheqne
+    cuggftrfgrthhtvghrnhepjeeuheegtdeuteeghfehjeejiefghfeifeejheduvdeugedt
+    hfehvefggefgkedtnecuffhomhgrihhnpehinhhfrhgruggvrggurdhorhhgnecuvehluh
+    hsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshhorhgvrghrsehf
+    rghsthhmrghilhdrtghomh
+X-ME-Proxy: <xmx:nHK5ZYAkdB7mu9efbNWQu13ueqsxhWSVjBgtSayAtJgB_fhwG-aO_w>
+    <xmx:nHK5Zaf2ITv3PhoX-zP8ZJTpHkfoMR5WhhsD2dbZx9kc1a1cJvj9pg>
+    <xmx:nHK5ZXPTRyHejQGewkPQWQDXjP_V5qHGuxgA4eMk_RDxe10rIe7fGQ>
+    <xmx:nHK5ZSoPTsiybhyKCrNJ3diUTscE515yAD27vQoy-UTePUTvjC2_kg>
+Feedback-ID: i84414492:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id DB27E1700093; Tue, 30 Jan 2024 17:05:15 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.11.0-alpha0-144-ge5821d614e-fm-20240125.002-ge5821d61
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <tencent_34680F3AAAE356C4A485103556F3F909C60A@qq.com>
+Message-Id: <6352ff7f-1e69-4f7a-b793-f69d223d4684@app.fastmail.com>
+In-Reply-To: <ZbhbNYLR9kh5dtFU@ghost>
+References: <20240129-use_mmap_hint_address-v1-0-4c74da813ba1@rivosinc.com>
+ <5fd69812-f07b-4079-a871-7e0ee857aaca@app.fastmail.com>
+ <ZbhbNYLR9kh5dtFU@ghost>
+Date: Tue, 30 Jan 2024 17:04:55 -0500
+From: "Stefan O'Rear" <sorear@fastmail.com>
+To: "Charlie Jenkins" <charlie@rivosinc.com>
+Cc: "Alexandre Ghiti" <alexghiti@rivosinc.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Shuah Khan" <shuah@kernel.org>, "Jonathan Corbet" <corbet@lwn.net>,
+ "Yangyu Chen" <cyy@cyyself.name>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-doc@vger.kernel.org
+Subject: Re: [PATCH 0/3] riscv: mm: Use hint address in mmap if available
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240130_135134_543594_04D9DE24 
-X-CRM114-Status: GOOD (  31.01  )
+X-CRM114-CacheID: sfid-20240130_140522_007571_326F7F8D 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,122 +106,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 31, 2024 at 03:15:16AM +0800, Yangyu Chen wrote:
-> On Tue, 2024-01-30 at 11:04 -0800, Charlie Jenkins wrote:
-> > On riscv it is guaranteed that the address returned by mmap is less
-> > than
-> > the hint address. Allow mmap to return an address all the way up to
-> > addr, if provided, rather than just up to the lower address space.
-> > =
+On Mon, Jan 29, 2024, at 9:13 PM, Charlie Jenkins wrote:
+> On Mon, Jan 29, 2024 at 09:04:50PM -0500, Stefan O'Rear wrote:
+>> On Mon, Jan 29, 2024, at 7:36 PM, Charlie Jenkins wrote:
+>> > On riscv, mmap currently returns an address from the largest address
+>> > space that can fit entirely inside of the hint address. This makes it
+>> > such that the hint address is almost never returned. This patch raises
+>> > the mappable area up to and including the hint address. This allows mmap
+>> > to often return the hint address, which allows a performance improvement
+>> > over searching for a valid address as well as making the behavior more
+>> > similar to other architectures.
+>> 
+>> This means that if an application or library opts in to Sv48 support by
+>> passing a nonzero hint, it will lose the benefits of ASLR.
+>
+> sv48 is default. However your statement stands for opting into sv57.
+> If they always pass the same hint address, only the first address will
+> be deterministic though, correct?
 
-> > This provides a performance benefit as well, allowing mmap to exit
-> > after
-> > checking that the address is in range rather than searching for a
-> > valid
-> > address.
-> > =
+I think this is correct.
 
-> > It is possible to provide an address that uses at most the same
-> > number
-> > of bits, however it is significantly more computationally expensive
-> > to
-> > provide that number rather than setting the max to be the hint
-> > address.
-> > There is the instruction clz/clzw in Zbb that returns the highest set
-> > bit
-> > which could be used to performantly implement this, but it would
-> > still
-> > be slower than the current implementation. At worst case, half of the
-> > address would not be able to be allocated when a hint address is
-> > provided.
-> > =
+>> 
+>> Allowing applications to opt in to a VA space smaller than the
+>> architectural minimum seems like an independently useful feature.
+>> Is there a reason to only add it for riscv64?
+>> 
+>
+> If there is interest, it can be added to other architectures as well.
 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > ---
-> > =A0arch/riscv/include/asm/processor.h | 22 +++++++++-------------
-> > =A01 file changed, 9 insertions(+), 13 deletions(-)
-> > =
+I meant as opposed to riscv32.
 
-> > diff --git a/arch/riscv/include/asm/processor.h
-> > b/arch/riscv/include/asm/processor.h
-> > index f19f861cda54..5d966ae81a58 100644
-> > --- a/arch/riscv/include/asm/processor.h
-> > +++ b/arch/riscv/include/asm/processor.h
-> > @@ -22,14 +22,12 @@
-> > =A0({								\
-> > =A0	unsigned long
-> > mmap_end;					\
-> > =A0	typeof(addr) _addr =3D (addr);				\
-> > -	if ((_addr) =3D=3D 0 || (IS_ENABLED(CONFIG_COMPAT) &&
-> > is_compat_task())) \
-> > -		mmap_end =3D STACK_TOP_MAX;			\
-> > -	else if ((_addr) >=3D VA_USER_SV57)			\
-> > -		mmap_end =3D STACK_TOP_MAX;			\
-> > -	else if ((((_addr) >=3D VA_USER_SV48)) && (VA_BITS >=3D
-> > VA_BITS_SV48)) \
-> > -		mmap_end =3D VA_USER_SV48;			\
-> > +	if ((_addr) =3D=3D 0 ||					\
-> > +	=A0=A0=A0 (IS_ENABLED(CONFIG_COMPAT) && is_compat_task()) ||	\
-> > +	=A0=A0=A0 ((_addr + len) > BIT(VA_BITS -
-> > 1)))			\
-> > +		mmap_end =3D STACK_TOP_MAX			\
-> > =A0	else							\
-> > -		mmap_end =3D VA_USER_SV39;			\
-> > +		mmap_end =3D (_addr + len);			\
-> > =A0	mmap_end;						\
-> > =A0})
-> > =A0
-> > @@ -39,14 +37,12 @@
-> > =A0	typeof(addr) _addr =3D (addr);				\
-> > =A0	typeof(base) _base =3D (base);				\
-> > =A0	unsigned long rnd_gap =3D DEFAULT_MAP_WINDOW - (_base);	\
-> > -	if ((_addr) =3D=3D 0 || (IS_ENABLED(CONFIG_COMPAT) &&
-> > is_compat_task())) \
-> > +	if ((_addr) =3D=3D 0 ||					\
-> > +	=A0=A0=A0 (IS_ENABLED(CONFIG_COMPAT) && is_compat_task()) ||	\
-> > +	=A0=A0=A0 ((_addr + len) > BIT(VA_BITS -
-> > 1)))			\
-> > =A0		mmap_base =3D (_base);				\
-> > -	else if (((_addr) >=3D VA_USER_SV57) && (VA_BITS >=3D
-> > VA_BITS_SV57)) \
-> > -		mmap_base =3D VA_USER_SV57 - rnd_gap;		\
-> > -	else if ((((_addr) >=3D VA_USER_SV48)) && (VA_BITS >=3D
-> > VA_BITS_SV48)) \
-> > -		mmap_base =3D VA_USER_SV48 - rnd_gap;		\
-> > =A0	else							\
-> > -		mmap_base =3D VA_USER_SV39 - rnd_gap;		\
-> > +		mmap_base =3D (_addr + len) - rnd_gap;		\
-> =
+-s
 
-> Please mind that rnd_gap can be non-zero, in this case, the map will
-> fail. It will be better to let mmap_base =3D min((_addr + len), (base) +
-> TASK_SIZE - DEFAULT_MAP_WINDOW) .
-
-Why would an rnd_gap that is non-zero cause mmap to fail? mmap will fail
-if rnd_gap is greater than (_addr + len). That is expected and should be
-interpreted as no address was available in the requested address space.
-
-mmap_base is used if the hint address is not available.
-
-I do see that I fumbled the test cases in this patch so I will fix that
-in a v3.
-
-- Charlie
-
-> =
-
-> > =A0	mmap_base;						\
-> > =A0})
-> > =A0
-> > =
-
-> =
-
+> - Charlie
+>
+>> -s
+>> 
+>> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+>> > ---
+>> > Charlie Jenkins (3):
+>> >       riscv: mm: Use hint address in mmap if available
+>> >       selftests: riscv: Generalize mm selftests
+>> >       docs: riscv: Define behavior of mmap
+>> >
+>> >  Documentation/arch/riscv/vm-layout.rst           | 16 ++--
+>> >  arch/riscv/include/asm/processor.h               | 21 ++----
+>> >  tools/testing/selftests/riscv/mm/mmap_bottomup.c | 20 +----
+>> >  tools/testing/selftests/riscv/mm/mmap_default.c  | 20 +----
+>> >  tools/testing/selftests/riscv/mm/mmap_test.h     | 93 +++++++++++++-----------
+>> >  5 files changed, 66 insertions(+), 104 deletions(-)
+>> > ---
+>> > base-commit: 556e2d17cae620d549c5474b1ece053430cd50bc
+>> > change-id: 20240119-use_mmap_hint_address-f9f4b1b6f5f1
+>> > -- 
+>> > - Charlie
+>> >
+>> >
+>> > _______________________________________________
+>> > linux-riscv mailing list
+>> > linux-riscv@lists.infradead.org
+>> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
