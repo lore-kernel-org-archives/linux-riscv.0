@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BDBDC47DA9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF320C47DB3
 	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jan 2024 00:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iKgYZVDGXmdsCb/8aDdUIyByZ4Qup0KtafYJhQpp73U=; b=koJC2PMNCRMl5A
-	YnDgnLgdGNYWaVk5GPevOXhthAjRm+j+hZf2Fa0pZ3ajLe3K2dxVh5S3QQ8ydUcbunAACu1uH2RYu
-	6ZE3t5slJls2XsFJ9M636nhLDvV7Q7rOBOIfyM2LFRGHAH3rx/qjOCYqxvMVeM3ZUzpLT/LHcVARi
-	/dAMl3ZaGRkcypiP0rEtYOVnjEBcrzH3BPt9Pd0G2DYMHezHw786SWLBmtzfhIZebjPDTC4XzzXw3
-	YBa0DxwDd7CMHZHScmW7SWQIpSoGfKOGdmsKXQlKsDObMtw6uyEjJShzRYadbdyOidr9u4BBlv7EF
-	LZeUDt+OaqnbNwOQ9MAw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FzJbv6IFhbU3ZSa/ypo+JZS06g39iVeDssDHiWjXz5Y=; b=iz/0Hhy4JIfkFO
+	vn7Iq+ZK4iyi2kNFhJoKxbBv74UgWNCn4Yt14J1tjxOkReDAtx0n5B21lLs3kanCTt+YeoIHt0wUg
+	alHjGsRBCCTwSo8Ijak0GdjFw4d07vRCxU7YAjR9yNDzPYwqVsvMMIWoV+Js8NGY/k664UEiNopwY
+	+t7jgHOXQ70G0xa4smNwQrQcE/Pxy/NJ2dnxM+qionOc2ZBNtYOHFeyymRTKNcAHeO2ZFEw2JGjDh
+	j5lI55SRlUvZk2ca8GdLX+Aw+Kz74+lfvx2N3RkXLZKA9DtAaNWTThDcq/85s6a2TlWSNwoEPfHci
+	ECnwOtFXS39gLpz+jppA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUc7i-0000000EiFB-3yB7;
-	Tue, 30 Jan 2024 00:37:10 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1rUc7m-0000000EiGr-2bls;
+	Tue, 30 Jan 2024 00:37:14 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rUc7f-0000000EiAp-3dRJ
+	id 1rUc7i-0000000EiB4-0Xhg
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 Jan 2024 00:37:09 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1d8e1f0be53so9390565ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 16:37:03 -0800 (PST)
+	Tue, 30 Jan 2024 00:37:11 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1d74045c463so17740085ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Jan 2024 16:37:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706575023; x=1707179823; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5TFMd8ZeRyjiOalUt16J2vr2THoaCcjjHoXH9jXrtYQ=;
-        b=bY5M2OfH+wutPZDICIJrvY8UXAfKPZrbanN27wFmsV0r3hIQdXjq1udVmwgWYvKx7g
-         NXwELaqciH/lcwiTn7diJ4d/cp0WTqIz1/l3A1eTpj1fp6UtaR/gYWtizobl1u8tkaRU
-         eDZodNQlc3lIaoUH9X2HH+WqUdNyoGzunZmzS190ufNTl25noZW4ICn2q27uLqGsv5Dm
-         J1wC75OIIqjXeSc7cklIRCuEvGKm/gBjsXMoLlY03/Ul60jjVEpSz5eqtmKxvrgEn0VE
-         cd7X7bHih4x1ZzZ7QmnLXDMii6lm7H1Ny+skYf/D7yaq6E2+o4PaWMvw7kkQGnAexLiK
-         +sPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706575023; x=1707179823;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706575024; x=1707179824; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=5TFMd8ZeRyjiOalUt16J2vr2THoaCcjjHoXH9jXrtYQ=;
-        b=AxZLPf8AjqvkU4StWRVAegFrFsaWY4RuTRgXgM7r0QhU+l/wsRKddRCaANl4nvHWE/
-         xkXzEyf5Rq8qI2O+cu+5yO+6XV7QnKlh3T+EUZRiZJD3tg1oF81EfWs7I1XNXRX/HQ2h
-         Qxjytm1ecq/b/rqiPEsN5D9AiMWDjqjeukffvWMSMKhJIUYAhRnTQEmy9IBOuUCK9rn0
-         bkM+Hp8mXkNDRaDMCvrjauhCCC8Ga5XSKXS7DylgfeJTFQT6Y5QuS+vyAivSYulFk4fm
-         yJ/HqcdWlsNMx2vzbYnpo81HUo3B8j4TU17czq6st1e5fZx5biXDUI9uJ5S8aAx/IQcV
-         GqJg==
-X-Gm-Message-State: AOJu0YzLO3sSq9NX7alShlWYY+fmtUdV0pRqqXiaClq1R5WWLU8xopYb
-	0CYBqjmvOFurbBXuA123Tv0ZpTickGNDLsCy8ftxRkIuzPJFdpPqn9OCBxtTmM0=
-X-Google-Smtp-Source: AGHT+IHouZt2X6rfsHSDuKVQG7Dio6bVc//7RWirBkJAX25H0ZFFwPSk8rVRv3/4TN3qfd8Wnl5X5w==
-X-Received: by 2002:a17:902:784e:b0:1d7:8cae:a5dc with SMTP id e14-20020a170902784e00b001d78caea5dcmr5649574pln.62.1706575023239;
-        Mon, 29 Jan 2024 16:37:03 -0800 (PST)
+        bh=fBdnavPhPLG4hLHe/lbowMi09bgXqSC/rhZZs2QP0QQ=;
+        b=eDo5NYLRyauKM5hUDbodlbxD6g0Xp5gU0XXLQFKXXs5KM4+9DF4PSsdPogNpjT6lFt
+         Ri2F1GMUgpaWVCKlsRmaXy0MZJ0z0ohqpphEN/7eRvsHAzi0PSgaq9/QHZoLprAzqjOL
+         geE2MQSBR9LHxTliIWp7E8nd9kGC05NykwupmIIAbO/3YYU1WP7GjuIfKZXTmUMWiKVi
+         g4ycxqOEv38zoGlHUUAt/in0kaUQLvxcb2t4rpI3zVPOrvSi67WJAFSiA7d3HUr+PgtX
+         JbLL5+ynHKKbSdmFKiFf2U9u/+zavJoGP90/kTE8Dg3MJREVtyOcuoDHnWa32e2xfLrn
+         Hfzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1706575024; x=1707179824;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fBdnavPhPLG4hLHe/lbowMi09bgXqSC/rhZZs2QP0QQ=;
+        b=bRClMeDahUJTxJKCVRazESZYhH+O/zDUjn+erwhumZNc4zIxDTuUWXBAaA+N2eX0/w
+         l41Yxslif7zxhPgR86HXdccdziQGi3+YhQlh95Nlz9FTW6CJ7oU//vAWenWORixSUDOQ
+         VUuUoCBncNLJ8cOdHLpRZre6mLyFALhcDhFBypZ4ZMpddLnu7ncU1gNa5s0eYRMFy3Hf
+         v3qo/VHvdwmF0xasKE6fgUauwbUqQRgig2u9L+K3GgvTs4PKJBljwuGCzqq1Aj6cFbIl
+         Zb/zhAouu+zLhlzwjPOqxsLSbOwsTucVeevEY3PXV6pkkZ9J13IrRXQbg5E4cRhNMiGV
+         V+ew==
+X-Gm-Message-State: AOJu0YzfQ+93Q9VBYgvn9/5B3xHUZpM6XMVUbv1sI4wkOgQM7KNCU0ZN
+	cSLJ7D9+YzP4BAeql2bWYOzFRrDEIFHzYabBG9LFWLCl93wfagEZFoQuMHzg1Y0=
+X-Google-Smtp-Source: AGHT+IGUsknhl2CDcef7BUE1BsiJx3EyQBp1F7tMWLKnMckNrmrOa3LA4FFwrTaqlOeS/OBEkFdUbA==
+X-Received: by 2002:a17:902:f551:b0:1d8:f21b:809c with SMTP id h17-20020a170902f55100b001d8f21b809cmr2649429plf.60.1706575024448;
+        Mon, 29 Jan 2024 16:37:04 -0800 (PST)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id jb9-20020a170903258900b001d8ca3f5e3fsm3406375plb.295.2024.01.29.16.37.01
+        by smtp.gmail.com with ESMTPSA id jb9-20020a170903258900b001d8ca3f5e3fsm3406375plb.295.2024.01.29.16.37.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jan 2024 16:37:02 -0800 (PST)
+        Mon, 29 Jan 2024 16:37:04 -0800 (PST)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Subject: [PATCH 0/3] riscv: mm: Use hint address in mmap if available
-Date: Mon, 29 Jan 2024 16:36:59 -0800
-Message-Id: <20240129-use_mmap_hint_address-v1-0-4c74da813ba1@rivosinc.com>
+Date: Mon, 29 Jan 2024 16:37:00 -0800
+Subject: [PATCH 1/3] riscv: mm: Use hint address in mmap if available
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAKtEuGUC/3WNQQ6CMBBFr0JmbQ3TYBVX3sMQAmUqs6AlHWw0h
- LtbiVuX7yX//RWEIpPAtVghUmLh4DPgoQA7dv5BiofMoEtdlYi1egq109TN7ch+abthiCSiXO2
- qHnvjTg4hb+dIjl97995kHlmWEN/7TcKv/RW1/lNMqFAZY3u6nF1VG7pFTkHY26MNEzTbtn0AV
- UJcAr0AAAA=
+Message-Id: <20240129-use_mmap_hint_address-v1-1-4c74da813ba1@rivosinc.com>
+References: <20240129-use_mmap_hint_address-v1-0-4c74da813ba1@rivosinc.com>
+In-Reply-To: <20240129-use_mmap_hint_address-v1-0-4c74da813ba1@rivosinc.com>
 To: Alexandre Ghiti <alexghiti@rivosinc.com>, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -79,17 +78,16 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org, 
  Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1706575021; l=1216;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1706575021; l=2676;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=MBqHVwDGuAF644QBUmaFqas8tYpxSS6yi6tIOOSWm10=;
- b=SN9b/QxznrtxHxm3ihKTSgB4jNcs+2+HV3KevBEHBaKKAz4WEk+1+qsuWzkp9ngsCRMawSo8o
- YPZH/hcRVIDBnn80q9dZ2Jvt9xuRib+yzFFyol5U3cR2ZUpagkqq9Ib
+ bh=V7pluBm2W1PoZ2bBLrm+qZq65mTPWf8JJaZyD0Mij4k=;
+ b=xLofBRKvo5qnvg1/QxrS9M++r6DfPgaAnZCvKPa1IRqMAJzNlfAUw3QxPPg3xgb0XIbJE85Ak
+ oCl/l13iT1iCv7LIAifwyK+c286DNL3c3U9kefDRkWMehYKkGUTw++4
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240129_163708_187092_BB2E9E25 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240129_163710_280151_37538FFB 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +104,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On riscv, mmap currently returns an address from the largest address
-space that can fit entirely inside of the hint address. This makes it
-such that the hint address is almost never returned. This patch raises
-the mappable area up to and including the hint address. This allows mmap
-to often return the hint address, which allows a performance improvement
-over searching for a valid address as well as making the behavior more
-similar to other architectures.
+On riscv it is guaranteed that the address returned by mmap is less than
+the hint address. Allow mmap to return an address all the way up to
+addr, if provided, rather than just up to the lower address space.
+
+This provides a performance benefit as well, allowing mmap to exit after
+checking that the address is in range rather than searching for a valid
+address.
+
+It is possible to provide an address that uses at most the same number
+of bits, however it is significantly more computationally expensive to
+provide that number rather than setting the max to be the hint address.
+There is the instruction clz/clzw in Zbb that returns the highest set bit
+which could be used to performantly implement this, but it would still
+be slower than the current implementation. At worst case, half of the
+address would not be able to be allocated when a hint address is
+provided.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
-Charlie Jenkins (3):
-      riscv: mm: Use hint address in mmap if available
-      selftests: riscv: Generalize mm selftests
-      docs: riscv: Define behavior of mmap
+ arch/riscv/include/asm/processor.h | 21 ++++++++-------------
+ 1 file changed, 8 insertions(+), 13 deletions(-)
 
- Documentation/arch/riscv/vm-layout.rst           | 16 ++--
- arch/riscv/include/asm/processor.h               | 21 ++----
- tools/testing/selftests/riscv/mm/mmap_bottomup.c | 20 +----
- tools/testing/selftests/riscv/mm/mmap_default.c  | 20 +----
- tools/testing/selftests/riscv/mm/mmap_test.h     | 93 +++++++++++++-----------
- 5 files changed, 66 insertions(+), 104 deletions(-)
----
-base-commit: 556e2d17cae620d549c5474b1ece053430cd50bc
-change-id: 20240119-use_mmap_hint_address-f9f4b1b6f5f1
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index f19f861cda54..f3ea5166e3b2 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -22,14 +22,11 @@
+ ({								\
+ 	unsigned long mmap_end;					\
+ 	typeof(addr) _addr = (addr);				\
+-	if ((_addr) == 0 || (IS_ENABLED(CONFIG_COMPAT) && is_compat_task())) \
+-		mmap_end = STACK_TOP_MAX;			\
+-	else if ((_addr) >= VA_USER_SV57)			\
+-		mmap_end = STACK_TOP_MAX;			\
+-	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
+-		mmap_end = VA_USER_SV48;			\
++	if ((_addr) == 0 ||					\
++		(IS_ENABLED(CONFIG_COMPAT) && is_compat_task()) ||	\
++		((_addr + len) > BIT(VA_BITS - 1)))		\
+ 	else							\
+-		mmap_end = VA_USER_SV39;			\
++		mmap_end = (_addr + len);			\
+ 	mmap_end;						\
+ })
+ 
+@@ -39,14 +36,12 @@
+ 	typeof(addr) _addr = (addr);				\
+ 	typeof(base) _base = (base);				\
+ 	unsigned long rnd_gap = DEFAULT_MAP_WINDOW - (_base);	\
+-	if ((_addr) == 0 || (IS_ENABLED(CONFIG_COMPAT) && is_compat_task())) \
++	if ((_addr) == 0 ||					\
++	    (IS_ENABLED(CONFIG_COMPAT) && is_compat_task()) ||	\
++	    ((_addr + len) > BIT(VA_BITS - 1)))			\
+ 		mmap_base = (_base);				\
+-	else if (((_addr) >= VA_USER_SV57) && (VA_BITS >= VA_BITS_SV57)) \
+-		mmap_base = VA_USER_SV57 - rnd_gap;		\
+-	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
+-		mmap_base = VA_USER_SV48 - rnd_gap;		\
+ 	else							\
+-		mmap_base = VA_USER_SV39 - rnd_gap;		\
++		mmap_base = (_addr + len) - rnd_gap;		\
+ 	mmap_base;						\
+ })
+ 
+
 -- 
-- Charlie
+2.43.0
 
 
 _______________________________________________
