@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A29E0C47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 13:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5746C47DDF
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 13:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cjjAtLFgMr6HuS5VNcE20crxnCe1XN/Fx3GTHOFOXWQ=; b=ObIcdlQLGGdK7V
-	LeHWTSwFtzd8ff8Q81ORDFKRSNW9EPVoAvwHWfziUzMoMQrOC86a5jpy8AqYG4s2DcILFpCZ5N+6e
-	lWurqEIAHS6AReqYS5Cc15RbRhfnAOYuNj551GJTGhTh8IpM3Df4Xqs09VDlOKgv5mC8rjseLhzYA
-	0IVg+jQF4C82wyhk/cgF73WdNmLhXaEGRhLLX608+OAXnDhDZDpVnzTMGgUr807X2v8EmIP/YpST5
-	4w3kbMoMsH9kFlrS8nSKwQz5U1gP0hst+5u6gIeMpDMdtZEPIgX7idKykIgIFMHDj1oG0FrNmX3p0
-	cX3DNTET8Rr9KzWPFlmg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=87Rnaatah6OxU9T6UI75F0Vd9nuJRA/1IxEcFb0ynrs=; b=yK3cw6WSJ0jH+ICHxEPfzIVFDR
+	O2kHXUaDk1Qvf7cs/kgNLfkMHF20ZcPgUd/MoW/uW+ogtsMGY96IEx0jJ9bnjMg0DycdzD5eMjJ3/
+	CXXA2UlPnFMUaWBSpextOIHV8EKwi0cpb2d8MRXsQDHzzYffwHWr5xhtYxEmzykNbot1pGPotXBG9
+	DK+E/onk5NzL1JuD9MR65UW3vtoChIKNIkxc+Po5gwjWgUNCZq6I1TRBXMs3WdKhoUlelHJH4EYIB
+	7JWFFinrf+0f8gy4CWecsW5PZs2+rlKkBlAmKbybx9bHxhBCzxEs2+0+eDYF9D9UWfQK64kEMH7pS
+	v2dR8M5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVASc-00000003ZUH-3XcH;
-	Wed, 31 Jan 2024 13:17:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVASZ-00000003ZSd-1JqP;
-	Wed, 31 Jan 2024 13:17:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC38DDA7;
-	Wed, 31 Jan 2024 05:17:38 -0800 (PST)
-Received: from [10.57.79.60] (unknown [10.57.79.60])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 599E13F738;
-	Wed, 31 Jan 2024 05:16:50 -0800 (PST)
-Message-ID: <de975655-8f8f-40dc-b281-75c40dd1e2c1@arm.com>
-Date: Wed, 31 Jan 2024 13:16:48 +0000
+	id 1rVAZD-00000003b1u-4Bzm;
+	Wed, 31 Jan 2024 13:23:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rVAZB-00000003b0u-43Kq
+	for linux-riscv@lists.infradead.org;
+	Wed, 31 Jan 2024 13:23:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3F4B8614C0;
+	Wed, 31 Jan 2024 13:23:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 911B4C433C7;
+	Wed, 31 Jan 2024 13:23:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1706707428;
+	bh=J9hRJqEVyfz6m3bzfd1driAZjOz6J5Kpse04aYCgsWo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pCP2EhycfmHkioOPAG2x9UfrGfTpe25lgPmfQu9o2dxEExQYDUQjnqxosSSo8ab4G
+	 GwL2pZeVA/EbZDPPe0OiMpxNbuVyC+rBvFHqJF4x3CMyF9FrxqXWWiDU6vQJ7D/js2
+	 dm6SXZ/hcB6uOzEaAcDxOXTn1esc/aWsnnPmKr5CXvRdZy2mpverNmuuxXZu/ClK+c
+	 4tskyQIrjCWsSEuMBhi1pqSs+qCTjlOTlyyYX8J1gyj+q5f/lIRHzNXq7/MAQ75z/U
+	 UmbxuNK5Nui7xwr1mk02XZRGYWPdtKgilhfc7Ma42Yz7kZ8rXp6dZYoy1A+hXsCqBr
+	 rMXVjRaqHuCyA==
+Date: Wed, 31 Jan 2024 14:23:46 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Keith Zhao <keith.zhao@starfivetech.com>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "tzimmermann@suse.de" <tzimmermann@suse.de>, 
+	"airlied@gmail.com" <airlied@gmail.com>, 
+	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>, William Qiu <william.qiu@starfivetech.com>, 
+	Xingyu Wu <xingyu.wu@starfivetech.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, 
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "palmer@dabbelt.com" <palmer@dabbelt.com>, 
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, Shengyang Chen <shengyang.chen@starfivetech.com>, 
+	Jack Zhu <jack.zhu@starfivetech.com>, Changhuang Liang <changhuang.liang@starfivetech.com>, 
+	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>
+Subject: Re: [v3 4/6] drm/vs: Add KMS crtc&plane
+Message-ID: <rvwcfjon4hjdx4youknherj2rrvvbfrn4bufdqlcd7tn3l5lc2@74rwotxzgyuq>
+References: <20231204123315.28456-1-keith.zhao@starfivetech.com>
+ <20231204123315.28456-5-keith.zhao@starfivetech.com>
+ <o4ica2jg2rqfx6znir6j7mkoojoqzejjuqvlwcnehanw5mvop6@a3t6vi7c55tz>
+ <NTZPR01MB1050C46113AD71AA5E93C67BEE7CA@NTZPR01MB1050.CHNPR01.prod.partner.outlook.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/15] mm/memory: optimize fork() with PTE-mapped THP
-Content-Language: en-GB
-To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
- Matthew Wilcox <willy@infradead.org>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Dinh Nguyen <dinguyen@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, "David S. Miller"
- <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org
-References: <20240129124649.189745-1-david@redhat.com>
- <a335a9d2-9b8f-4eb8-ba22-23a223b59b06@arm.com>
- <a1a0e9b3-dae2-418f-bd63-50e65f471728@redhat.com>
- <57eb82c7-4816-42a2-b5ab-cc221e289b21@arm.com>
- <e6eaba5b-f290-4d1f-990b-a47d89f56ee4@redhat.com>
- <714d0930-2202-48b6-9728-d248f820325e@arm.com>
- <dcaa20c4-bd1f-4f15-bb0a-3a790808937d@arm.com>
- <30718fc8-15cf-41e4-922c-5cdbf00a0840@redhat.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <30718fc8-15cf-41e4-922c-5cdbf00a0840@redhat.com>
+In-Reply-To: <NTZPR01MB1050C46113AD71AA5E93C67BEE7CA@NTZPR01MB1050.CHNPR01.prod.partner.outlook.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_051659_483009_7187C0C3 
-X-CRM114-Status: GOOD (  52.17  )
+X-CRM114-CacheID: sfid-20240131_052350_116001_2B1902C9 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,179 +77,333 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============4118466729244595557=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMzEvMDEvMjAyNCAxMjo1NiwgRGF2aWQgSGlsZGVuYnJhbmQgd3JvdGU6Cj4gT24gMzEuMDEu
-MjQgMTM6MzcsIFJ5YW4gUm9iZXJ0cyB3cm90ZToKPj4gT24gMzEvMDEvMjAyNCAxMTo0OSwgUnlh
-biBSb2JlcnRzIHdyb3RlOgo+Pj4gT24gMzEvMDEvMjAyNCAxMToyOCwgRGF2aWQgSGlsZGVuYnJh
-bmQgd3JvdGU6Cj4+Pj4gT24gMzEuMDEuMjQgMTI6MTYsIFJ5YW4gUm9iZXJ0cyB3cm90ZToKPj4+
-Pj4gT24gMzEvMDEvMjAyNCAxMTowNiwgRGF2aWQgSGlsZGVuYnJhbmQgd3JvdGU6Cj4+Pj4+PiBP
-biAzMS4wMS4yNCAxMTo0MywgUnlhbiBSb2JlcnRzIHdyb3RlOgo+Pj4+Pj4+IE9uIDI5LzAxLzIw
-MjQgMTI6NDYsIERhdmlkIEhpbGRlbmJyYW5kIHdyb3RlOgo+Pj4+Pj4+PiBOb3cgdGhhdCB0aGUg
-cm1hcCBvdmVyaGF1bFsxXSBpcyB1cHN0cmVhbSB0aGF0IHByb3ZpZGVzIGEgY2xlYW4gaW50ZXJm
-YWNlCj4+Pj4+Pj4+IGZvciBybWFwIGJhdGNoaW5nLCBsZXQncyBpbXBsZW1lbnQgUFRFIGJhdGNo
-aW5nIGR1cmluZyBmb3JrIHdoZW4gcHJvY2Vzc2luZwo+Pj4+Pj4+PiBQVEUtbWFwcGVkIFRIUHMu
-Cj4+Pj4+Pj4+Cj4+Pj4+Pj4+IFRoaXMgc2VyaWVzIGlzIHBhcnRpYWxseSBiYXNlZCBvbiBSeWFu
-J3MgcHJldmlvdXMgd29ya1syXSB0byBpbXBsZW1lbnQKPj4+Pj4+Pj4gY29udC1wdGUgc3VwcG9y
-dCBvbiBhcm02NCwgYnV0IGl0cyBhIGNvbXBsZXRlIHJld3JpdGUgYmFzZWQgb24gWzFdIHRvCj4+
-Pj4+Pj4+IG9wdGltaXplIGFsbCBhcmNoaXRlY3R1cmVzIGluZGVwZW5kZW50IG9mIGFueSBzdWNo
-IFBURSBiaXRzLCBhbmQgdG8KPj4+Pj4+Pj4gdXNlIHRoZSBuZXcgcm1hcCBiYXRjaGluZyBmdW5j
-dGlvbnMgdGhhdCBzaW1wbGlmeSB0aGUgY29kZSBhbmQgcHJlcGFyZQo+Pj4+Pj4+PiBmb3IgZnVy
-dGhlciBybWFwIGFjY291bnRpbmcgY2hhbmdlcy4KPj4+Pj4+Pj4KPj4+Pj4+Pj4gV2UgY29sbGVj
-dCBjb25zZWN1dGl2ZSBQVEVzIHRoYXQgbWFwIGNvbnNlY3V0aXZlIHBhZ2VzIG9mIHRoZSBzYW1l
-IGxhcmdlCj4+Pj4+Pj4+IGZvbGlvLCBtYWtpbmcgc3VyZSB0aGF0IHRoZSBvdGhlciBQVEUgYml0
-cyBhcmUgY29tcGF0aWJsZSwgYW5kIChhKSBhZGp1c3QKPj4+Pj4+Pj4gdGhlIHJlZmNvdW50IG9u
-bHkgb25jZSBwZXIgYmF0Y2gsIChiKSBjYWxsIHJtYXAgaGFuZGxpbmcgZnVuY3Rpb25zIG9ubHkK
-Pj4+Pj4+Pj4gb25jZSBwZXIgYmF0Y2ggYW5kIChjKSBwZXJmb3JtIGJhdGNoIFBURSBzZXR0aW5n
-L3VwZGF0ZXMuCj4+Pj4+Pj4+Cj4+Pj4+Pj4+IFdoaWxlIHRoaXMgc2VyaWVzIHNob3VsZCBiZSBi
-ZW5lZmljaWFsIGZvciBhZGRpbmcgY29udC1wdGUgc3VwcG9ydCBvbgo+Pj4+Pj4+PiBBUk02NFsy
-XSwgaXQncyBvbmUgb2YgdGhlIHJlcXVpcmVtZW50cyBmb3IgbWFpbnRhaW5pbmcgYSB0b3RhbCBt
-YXBjb3VudFszXQo+Pj4+Pj4+PiBmb3IgbGFyZ2UgZm9saW9zIHdpdGggbWluaW1hbCBhZGRlZCBv
-dmVyaGVhZCBhbmQgZnVydGhlciBjaGFuZ2VzWzRdIHRoYXQKPj4+Pj4+Pj4gYnVpbGQgdXAgb24g
-dG9wIG9mIHRoZSB0b3RhbCBtYXBjb3VudC4KPj4+Pj4+Pj4KPj4+Pj4+Pj4gSW5kZXBlbmRlbnQg
-b2YgYWxsIHRoYXQsIHRoaXMgc2VyaWVzIHJlc3VsdHMgaW4gYSBzcGVlZHVwIGR1cmluZyBmb3Jr
-IHdpdGgKPj4+Pj4+Pj4gUFRFLW1hcHBlZCBUSFAsIHdoaWNoIGlzIHRoZSBkZWZhdWx0IHdpdGgg
-VEhQcyB0aGF0IGFyZSBzbWFsbGVyIHRoYW4gYSBQTUQKPj4+Pj4+Pj4gKGZvciBleGFtcGxlLCAx
-NktpQiB0byAxMDI0S2lCIG1USFBzIGZvciBhbm9ueW1vdXMgbWVtb3J5WzVdKS4KPj4+Pj4+Pj4K
-Pj4+Pj4+Pj4gT24gYW4gSW50ZWwgWGVvbiBTaWx2ZXIgNDIxMFIgQ1BVLCBmb3JrJ2luZyB3aXRo
-IDFHaUIgb2YgUFRFLW1hcHBlZCBmb2xpb3MKPj4+Pj4+Pj4gb2YgdGhlIHNhbWUgc2l6ZSAoc3Rk
-ZGV2IDwgMSUpIHJlc3VsdHMgaW4gdGhlIGZvbGxvd2luZyBydW50aW1lcwo+Pj4+Pj4+PiBmb3Ig
-Zm9yaygpIChzaG9ydGVyIGlzIGJldHRlcik6Cj4+Pj4+Pj4+Cj4+Pj4+Pj4+IEZvbGlvIFNpemUg
-fCB2Ni44LXJjMSB8wqDCoMKgwqDCoCBOZXcgfCBDaGFuZ2UKPj4+Pj4+Pj4gLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4+Pj4+Pj4+IMKgwqDCoMKgwqDCoMKgwqAg
-NEtpQiB8IDAuMDE0MzI4IHwgMC4wMTQwMzUgfMKgwqAgLSAyJQo+Pj4+Pj4+PiDCoMKgwqDCoMKg
-wqDCoCAxNktpQiB8IDAuMDE0MjYzIHwgMC4wMTE5NsKgIHzCoMKgIC0xNiUKPj4+Pj4+Pj4gwqDC
-oMKgwqDCoMKgwqAgMzJLaUIgfCAwLjAxNDMzNCB8IDAuMDEwOTTCoCB8wqDCoCAtMjQlCj4+Pj4+
-Pj4+IMKgwqDCoMKgwqDCoMKgIDY0S2lCIHwgMC4wMTQwNDYgfCAwLjAxMDQ0NCB8wqDCoCAtMjYl
-Cj4+Pj4+Pj4+IMKgwqDCoMKgwqDCoCAxMjhLaUIgfCAwLjAxNDAxMSB8IDAuMDEwMDYzIHzCoMKg
-IC0yOCUKPj4+Pj4+Pj4gwqDCoMKgwqDCoMKgIDI1NktpQiB8IDAuMDEzOTkzIHwgMC4wMDk5Mzgg
-fMKgwqAgLTI5JQo+Pj4+Pj4+PiDCoMKgwqDCoMKgwqAgNTEyS2lCIHwgMC4wMTM5ODMgfCAwLjAw
-OTg1wqAgfMKgwqAgLTMwJQo+Pj4+Pj4+PiDCoMKgwqDCoMKgIDEwMjRLaUIgfCAwLjAxMzk4NiB8
-IDAuMDA5ODLCoCB8wqDCoCAtMzAlCj4+Pj4+Pj4+IMKgwqDCoMKgwqAgMjA0OEtpQiB8IDAuMDE0
-MzA1IHwgMC4wMTAwNzYgfMKgwqAgLTMwJQo+Pj4+Pj4+Cj4+Pj4+Pj4gSnVzdCBhIGhlYWRzIHVw
-IHRoYXQgSSdtIHNlZWluZyBzb21lIHN0cmFuZ2UgcmVzdWx0cyBvbiBBcHBsZSBNMi4gRm9yayBm
-b3IKPj4+Pj4+PiBvcmRlci0wIGlzIHNlZW1pbmdseSBjb3N0aW5nIH4xNyUgbW9yZS4gSSdtIHVz
-aW5nIEdDQyAxMy4yIGFuZCB3YXMgcHJldHR5Cj4+Pj4+Pj4gc3VyZSBJCj4+Pj4+Pj4gZGlkbid0
-IHNlZSB0aGlzIHByb2JsZW0gd2l0aCB2ZXJzaW9uIDE7IGFsdGhvdWdoIHRoYXQgd2FzIG9uIGEg
-ZGlmZmVyZW50Cj4+Pj4+Pj4gYmFzZWxpbmUgYW5kIEkndmUgdGhyb3duIHRoZSBudW1iZXJzIGF3
-YXkgc28gd2lsbCByZXJ1biBhbmQgdHJ5IHRvIGRlYnVnCj4+Pj4+Pj4gdGhpcy4KPj4+Cj4+PiBO
-dW1iZXJzIGZvciB2MSBvZiB0aGUgc2VyaWVzLCBib3RoIG9uIHRvcCBvZiA2LjgtcmMxIGFuZCBy
-ZWJhc2VkIHRvIHRoZSBzYW1lCj4+PiBtbS11bnN0YWJsZSBiYXNlIGFzIHYzIG9mIHRoZSBzZXJp
-ZXMgKGZpcnN0IDIgcm93cyBhcmUgZnJvbSB3aGF0IEkganVzdCBwb3N0ZWQKPj4+IGZvciBjb250
-ZXh0KToKPj4+Cj4+PiB8IGtlcm5lbMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDCoCBtZWFu
-X3JlbCB8wqDCoCBzdGRfcmVsIHwKPj4+IHw6LS0tLS0tLS0tLS0tLS0tLS0tLXwtLS0tLS0tLS0t
-LTp8LS0tLS0tLS0tLTp8Cj4+PiB8IG1tLXVuc3RhYmUgKGJhc2UpwqAgfMKgwqDCoMKgwqDCoCAw
-LjAlIHzCoMKgwqDCoMKgIDEuMSUgfAo+Pj4gfCBtbS11bnN0YWJsZSArIHYzwqDCoCB8wqDCoMKg
-wqDCoCAxNi43JSB8wqDCoMKgwqDCoCAwLjglIHwKPj4+IHwgbW0tdW5zdGFibGUgKyB2McKgwqAg
-fMKgwqDCoMKgwqAgLTIuNSUgfMKgwqDCoMKgwqAgMS43JSB8Cj4+PiB8IHY2LjgtcmMxICsgdjHC
-oMKgwqDCoMKgIHzCoMKgwqDCoMKgIC02LjYlIHzCoMKgwqDCoMKgIDEuMSUgfAo+Pj4KPj4+IFNv
-IGFsbCBsb29rcyBnb29kIHdpdGggdjEuIEFuZCBzZWVtcyB0byBzdWdnZXN0IG1tLXVuc3RhYmxl
-IGhhcyByZWdyZXNzZWQgYnkgfjQlCj4+PiB2cyB2Ni44LXJjMS4gSXMgdGhpcyByZWFsbHkgYSB1
-c2VmdWwgYmVuY2htYXJrPyBEb2VzIHRoZSByYXcgcGVyZm9ybWFuY2Ugb2YKPj4+IGZvcmsoKSBz
-eXNjYWxsIHJlYWxseSBtYXR0ZXI/IEV2aWRlbmNlIHN1Z2dlc3RzIGl0cyBtb3ZpbmcgYWxsIG92
-ZXIgdGhlIHBsYWNlIC0KPj4+IGJyZWF0aCBvbiB0aGUgY29kZSBhbmQgaXQgY2hhbmdlcyAtIG5v
-dCBhIGdyZWF0IHBsYWNlIHRvIGJlIHdoZW4gdXNpbmcgdGhlIHRlc3QKPj4+IGZvciBnYXRpbmcg
-cHVycG9zZXMhCj4+Pgo+Pj4gU3RpbGwgd2l0aCB0aGUgb2xkIHRlc3RzIC0gSSdsbCBtb3ZlIHRv
-IHRoZSBuZXcgb25lcyBub3cuCj4+Pgo+Pj4KPj4+Pj4+Pgo+Pj4+Pj4KPj4+Pj4+IFNvIGZhciwg
-b24gbXkgeDg2IHRlc3RzIChJbnRlbCwgQU1EIEVQWUMpLCBJIHdhcyBub3QgYWJsZSB0byBvYnNl
-cnZlIHRoaXMuCj4+Pj4+PiBmb3JrKCkgZm9yIG9yZGVyLTAgd2FzIGNvbnNpc3RlbnRseSBlZmZl
-Y3RpdmVseSB1bmNoYW5nZWQuIERvIHlvdSBvYnNlcnZlCj4+Pj4+PiB0aGF0Cj4+Pj4+PiBvbiBv
-dGhlciBBUk0gc3lzdGVtcyBhcyB3ZWxsPwo+Pj4+Pgo+Pj4+PiBOb3BlOyBydW5uaW5nIHRoZSBl
-eGFjdCBzYW1lIGtlcm5lbCBiaW5hcnkgYW5kIHVzZXIgc3BhY2Ugb24gQWx0cmEsIEkgc2VlCj4+
-Pj4+IHNlbnNpYmxlIG51bWJlcnM7Cj4+Pj4+Cj4+Pj4+IGZvcmsgb3JkZXItMDogLTEuMyUKPj4+
-Pj4gZm9yayBvcmRlci05OiAtNy42JQo+Pj4+PiBkb250bmVlZCBvcmRlci0wOiAtMC41JQo+Pj4+
-PiBkb250bmVlZCBvcmRlci05OiAwLjElCj4+Pj4+IG11bm1hcCBvcmRlci0wOiAwLjAlCj4+Pj4+
-IG11bm1hcCBvcmRlci05OiAtNjcuOSUKPj4+Pj4KPj4+Pj4gU28gSSBndWVzcyBzb21lIHBpcGVs
-aW5pbmcgaXNzdWUgdGhhdCBjYXVzZXMgdGhlIE0yIHRvIHN0YWxsIG1vcmU/Cj4+Pj4KPj4+PiBX
-aXRoIG9uZSBlZmZlY3RpdmUgYWRkZWQgZm9saW9fdGVzdF9sYXJnZSgpLCBpdCBjb3VsZCBvbmx5
-IGJlIGEgY29kZSBsYXlvdXQKPj4+PiBwcm9ibGVtPyBPciB0aGUgY29tcGlsZXIgZG9lcyBzb21l
-dGhpbmcgc3R1cGlkLCBidXQgeW91IHNheSB0aGF0IHlvdSBydW4gdGhlCj4+Pj4gZXhhY3Qgc2Ft
-ZSBrZXJuZWwgYmluYXJ5LCBzbyB0aGF0IGRvZXNuJ3QgbWFrZSBzZW5zZS4KPj4+Cj4+PiBZdXAs
-IHNhbWUgYmluYXJ5LiBXZSBrbm93IHRoaXMgY29kZSBpcyB2ZXJ5IHNlbnNpdGl2ZSAtIDEgY3lj
-bGUgbWFrZXMgYSBiaWcKPj4+IGRpZmZlcmVuY2UuIFNvIGNvdWxkIGVhc2lseSBiZSBjb2RlIGxh
-eW91dCwgYnJhbmNoIHByZWRpY3Rpb24sIGV0Yy4uLgo+Pj4KPj4+Pgo+Pj4+IEknbSBhbHNvIHN1
-cnByaXNlZCBhYm91dCB0aGUgZG9udG5lZWQgdnMuIG11bm1hcCBudW1iZXJzLgo+Pj4KPj4+IFlv
-dSBtZWFuIHRoZSBvbmVzIGZvciBBbHRyYSB0aGF0IEkgcG9zdGVkPyAoSSBkaWRuJ3QgcG9zdCBh
-bnkgZm9yIE0yKS4gVGhlIGFsdHJhCj4+PiBudW1iZXJzIGxvb2sgb2sgdG8gbWU7IGRvbnRuZWVk
-IGhhcyBubyBjaGFuZ2UsIGFuZCBtdW5tYXAgaGFzIG5vIGNoYW5nZSBmb3IKPj4+IG9yZGVyLTAg
-YW5kIGlzIG1hc3NpdmVseSBpbXByb3ZlZCBmb3Igb3JkZXItOS4KPj4+Cj4+PiDCoCBEb2Vzbid0
-IG1ha2UgYW55IHNlbnNlCj4+Pj4gKGFnYWluLCB0aGVyZSB3YXMgdGhpcyBWTUEgbWVyZ2luZyBw
-cm9ibGVtIGJ1dCBpdCB3b3VsZCBzdGlsbCBhbGxvdyBmb3IKPj4+PiBiYXRjaGluZwo+Pj4+IHdp
-dGhpbiBhIHNpbmdsZSBWTUEgdGhhdCBzcGFucyBleGFjdGx5IG9uZSBsYXJnZSBmb2xpbykuCj4+
-Pj4KPj4+PiBXaGF0IGFyZSB5b3UgdXNpbmcgYXMgYmFzZWxpbmU/IFJlYWxseSBqdXN0IG1tLXVu
-c3RhYmxlIHZzLgo+Pj4+IG1tLXVuc3RhYmxlK3BhdGNoZXM/Cj4+Pgo+Pj4geWVzLiBleGNlcHQg
-Zm9yICJ2Ni44LXJjMSArIHYxIiBhYm92ZS4KPj4+Cj4+Pj4KPj4+PiBMZXQncyBzZWUgaWYgdGhl
-IG5ldyB0ZXN0IGNoYW5nZXMgdGhlIG51bWJlcnMgeW91IG1lYXN1cmUuCj4+Cj4+IE5vcGU6IGxv
-b2tzIHRoZSBzYW1lLiBJJ3ZlIHRha2VuIG15IHRlc3QgaGFybmVzcyBvdXQgb2YgdGhlIHBpY3R1
-cmUgYW5kIGRvbmUKPj4gZXZlcnl0aGluZyBtYW51YWxseSBmcm9tIHRoZSBncm91bmQgdXAsIHdp
-dGggdGhlIG9sZCB0ZXN0cyBhbmQgdGhlIG5ldy4gSGVhZGxpbmUKPj4gaXMgdGhhdCBJIHNlZSBz
-aW1pbGFyIG51bWJlcnMgZnJvbSBib3RoLgo+IAo+IEkgdG9vayBtZSBhIHdoaWxlIHRvIGdldCBy
-ZWFsbHkgcmVwcm9kdWNpYmxlIG51bWJlcnMgb24gSW50ZWwuIE1vc3QgaW1wb3J0YW50bHk6Cj4g
-KiBTZXQgYSBmaXhlZCBDUFUgZnJlcXVlbmN5LCBkaXNhYmxpbmcgYW55IGJvb3N0IGFuZCBhdm9p
-ZGluZyBhbnkKPiDCoCB0aGVybWFsIHRocm90dGxpbmcuCj4gKiBQaW4gdGhlIHRlc3QgdG8gQ1BV
-cyBhbmQgc2V0IGEgbmljZSBsZXZlbC4KCkknbSBhbHJlYWR5IHBpbm5pbmcgdGhlIHRlc3QgdG8g
-Y3B1IDAuIEJ1dCBmb3IgTTIsIGF0IGxlYXN0LCBJJ20gcnVubmluZyBpbiBhIFZNCm9uIHRvcCBv
-ZiBtYWNvcywgYW5kIEkgZG9uJ3QgaGF2ZSBhIG1lY2hhbmlzbSB0byBwaW4gdGhlIFFFTVUgdGhy
-ZWFkcyB0byB0aGUKcGh5c2ljYWwgQ1BVcy4gQW55d2F5LCBJIGRvbid0IHRoaW5rIHRoZXNlIGFy
-ZSBwcm9ibGVtcyBiZWNhdXNlIGZvciBhIGdpdmVuCmtlcm5lbCBidWlsZCBJIGNhbiBhY2N1cmF0
-ZWx5IHJlcHJvIG51bWJlcnMuCgo+IAo+IEFub3RoZXIgdGhpbmcgaXMsIHRvIGF2b2lkIHN5c3Rl
-bXMgd2hlcmUgeW91IGNhbiBoYXZlIE5VTUEgZWZmZWN0cyB3aXRoaW4gYQo+IHNpbmdsZSBzb2Nr
-ZXQuIE90aGVyd2lzZSwgbWVtb3J5IGFjY2VzcyBsYXRlbmN5IGlzIGp1c3QgcmFuZG9tIGFuZCBk
-ZXBlbmRzIG9uCj4gd2hhdCB0aGUgYnVkZHkgZW5qb3lzIGdpdmluZyB5b3UuCgpZZXA7IHNhbWUu
-IE0yIGlzIDEgTlVNQSBub2RlLiBPbiBBbHRyYSwgSSdtIGRpc2FibGluZyB0aGUgc2Vjb25kIE5V
-TUEgbm9kZSB0bwpyZW1vdmUgdGhvc2UgZWZmZWN0cy4KCj4gCj4gQnV0IHlvdSBzZWVtIHRvIGdl
-dCB0aGUgc2FtZSArMTcgZXZlbiBhZnRlciByZWJvb3RzLCBzbyB0aGF0IGluZGljYXRlcyB0aGF0
-IHRoZQo+IENQVSBpcyBub3QgaGFwcHkgYWJvdXQgdGhlIGNvZGUgZm9yIHNvbWUgcmVhc29uLiBB
-bmQgdGhlIHdlaXJkIHRoaW5nIGlzLCB0aGF0Cj4gbm90aGluZyBzaWduaWZpY2FudGx5IGNoYW5n
-ZWQgZm9yIG9yZGVyLTAgZm9saW9zIGJldHdlZW4gdjEgYW5kIHYzIHRoYXQgY291bGQKPiBleHBs
-YWluIGFueSBvZiB0aGlzLgo+IAo+IEknbSBub3Qgd29ycmllZCBhYm91dCA1JSBvciBzbywgbm9i
-b2R5IGNhcmVzLiBCdXQgaXQgd291bGQgYmUgZ29vZCB0byBoYXZlIGF0Cj4gbGVhc3QgYW4gZXhw
-bGFuYXRpb24gd2h5IG9ubHkgdGhhdCBzeXN0ZW0gc2hvd3MgKzE3JS4KClllcCB1bmRlcnN0b29k
-LgoKPiAKPj4KPj4gU29tZSBkZXRhaWxzOgo+PiDCoCAtIEknbSBydW5uaW5nIGZvciAxMCBzZWNv
-bmRzIHRoZW4gYXZlcmFnaW5nIHRoZSBvdXRwdXQKPiAKPiBTYW1lIGhlcmUuCj4gCj4+IMKgIC0g
-dGVzdCBpcyBiaW1vZGFsOyBmaXJzdCBydW4gKG9mIDEwIHNlY29uZHMpIGFmdGVyIGJvb3QgaXMg
-YSBiaXQgZmFzdGVyIG9uCj4+IMKgwqDCoCBhdmVyYWdlICh1cCB0byAxMCUpIHRoYW4gdGhlIHJl
-c3Q7IEkgY291bGQgZ3Vlc3MgdGhpcyBpcyBkdWUgdG8gdGhlIG1lbW9yeQo+PiDCoMKgwqAgYmVp
-bmcgYWxsb2NhdGVkIG1vcmUgY29udGlndW91c2x5IHRoZSBmaXJzdCBmZXcgdGltZXMgdGhyb3Vn
-aCwgc28gc3RydWN0Cj4+IMKgwqDCoCBwYWdlcyBoYXZlIGJldHRlciBsb2NhbGl0eSwgYnV0IHRo
-YXQncyBhIGd1ZXNzLgo+IAo+IEkgdGhpbmsgaXQgYWxzbyBoYXMgdG8gZG8gd2l0aCB0aGUgUENQ
-IGxpc3RzLCBhbmQgdGhlIGhpZ2gtcGNwIGF1dG8gdHVuaW5nIChJCj4gcGxheWVkIHdpdGggZGlz
-YWJsaW5nIHRoYXQpLiBSdW5uaW5nIG9uIGEgZnJlc2hseSBib290ZWQgc3lzdGVtIGdhdmUgbWUK
-PiByZXByb2R1Y2libGUgcmVzdWx0cy4KPiAKPiBCdXQgeWVzOiBJIHdhcyBvYnNlcnZpbmcgc29t
-ZXRoaW5nIHNpbWlsYXIgb24gQU1EIEVQWUMsIHdoZXJlIHlvdSBnZXQKPiBjb25zZWN1dGl2ZSBw
-YWdlcyBmcm9tIHRoZSBidWRkeSwgYnV0IG9uY2UgeW91IGFsbG9jYXRlIGZyb20gdGhlIFBDUCBp
-dCBtaWdodCBubwo+IGxvbmdlciBiZSBjb25zZWN1dGl2ZS4KPiAKPj4gwqAgLSB0ZXN0IGlzIDUt
-MTAlIHNsb3dlciB3aGVuIG91dHB1dCBpcyBwcmludGVkIHRvIHRlcm1pbmFsIHZzIHdoZW4gcmVk
-aXJlY3RlZCB0bwo+PiDCoMKgwqAgZmlsZS4gSSd2ZSBhbHdheXMgZWZmZWN0aXZlbHkgYmVlbiBy
-ZWRpcmVjdGluZy4gTm90IHN1cmUgaWYgdGhpcyBvdmVyaGVhZAo+PiDCoMKgwqAgY291bGQgc3Rh
-cnQgdG8gZG9taW5hdGUgdGhlIHJlZ3Jlc3Npb24gYW5kIHRoYXQncyB3aHkgeW91IGRvbid0IHNl
-ZSBpdD8KPiAKPiBUaGF0J3Mgd2VpcmQsIGJlY2F1c2Ugd2UgZG9uJ3QgcHJpbnQgd2hpbGUgbWVh
-c3VyaW5nPyBBbnlob3csIDUvMTAlIHZhcmlhbmNlIG9uCj4gc29tZSBzeXN0ZW0gaXMgbm90IHRo
-ZSBlbmQgb2YgdGhlIHdvcmxkLgoKSSBpbWFnaW5lIGl0cyBjYWNoZSBlZmZlY3RzPyBNb3JlIHdv
-cmsgdG8gZG8gdG8gcHJpbnQgdGhlIG91dHB1dCBjb3VsZCBiZQpldmljdGluZyBzb21lIGNvZGUg
-dGhhdCdzIGluIHRoZSBiZW5jaG1hcmsgcGF0aD8KCj4gCj4+Cj4+IEknbSBpbmNsaW5lZCB0byBy
-dW4gdGhpcyB0ZXN0IGZvciB0aGUgbGFzdCBOIGtlcm5lbCByZWxlYXNlcyBhbmQgaWYgdGhlIG51
-bWJlcgo+PiBtb3ZlcyBhcm91bmQgc2lnbmlmaWNhbnRseSwgY29uY2x1ZGUgdGhhdCB0aGVzZSB0
-ZXN0cyBkb24ndCByZWFsbHkgbWF0dGVyLgo+PiBPdGhlcndpc2UgaXRzIGFuIGV4ZXJjaXNlIGlu
-IHJhbmRvbWx5IHJlZmFjdG9yaW5nIGNvZGUgdW50aWwgaXQgd29ya3Mgd2VsbCwgYnV0Cj4+IHRo
-YXQncyBqdXN0IG92ZXJmaXR0aW5nIHRvIHRoZSBjb21waWxlciBhbmQgaHcuIFdoYXQgZG8geW91
-IHRoaW5rPwo+IAo+IFBlcnNvbmFsbHksIEkgd291bGRuJ3QgbG9zZSBzbGVlcCBpZiB5b3Ugc2Vl
-IHdlaXJkLCB1bmV4cGxhaW5hYmxlIGJlaGF2aW9yIG9uCj4gc29tZSBzeXN0ZW0gKG5vdCBldmVu
-IGFyY2hpdGVjdHVyZSEpLiBUcnlpbmcgdG8gb3B0aW1pemUgZm9yIHRoYXQgd291bGQgaW5kZWVk
-Cj4gYmUgcmFuZG9tIHJlZmFjdG9yaW5ncy4KPiAKPiBCdXQgSSB3b3VsZCBub3QgYmUgc28gZmFz
-dCB0byBzYXkgdGhhdCAidGhlc2UgdGVzdHMgZG9uJ3QgcmVhbGx5IG1hdHRlciIgYW5kCj4gdGhl
-biBnbyB3aWxkIGFuZCBkZWdyYWRlIHRoZW0gYXMgbXVjaCBhcyB5b3Ugd2FudC4gVGhlcmUgYXJl
-IHVzZSBjYXNlcyB0aGF0IGNhcmUKPiBhYm91dCBmb3JrIHBlcmZvcm1hbmNlIGVzcGVjaWFsbHkg
-d2l0aCBvcmRlci0wIHBhZ2VzIC0tIHN1Y2ggYXMgUmVkaXMuCgpJbmRlZWQuIEJ1dCBhbHNvIHJl
-bWVtYmVyIHRoYXQgbXkgZm9yayBiYXNlbGluZSB0aW1lIGlzIH4yLjVtcywgYW5kIEkgdGhpbmsg
-eW91CnNhaWQgeW91cnMgd2FzIDE0bXMgOikKCkknbGwgY29udGludWUgdG8gbWVzcyBhcm91bmQg
-d2l0aCBpdCB1bnRpbCB0aGUgZW5kIG9mIHRoZSBkYXkuIEJ1dCBJJ20gbm90Cm1ha2luZyBhbnkg
-aGVhZHdheSwgdGhlbiBJJ2xsIGNoYW5nZSB0YWNrOyBJJ2xsIGp1c3QgbWVhc3VyZSB0aGUgcGVy
-Zm9ybWFuY2Ugb2YKbXkgY29udHB0ZSBjaGFuZ2VzIHVzaW5nIHlvdXIgZm9yay96YXAgc3R1ZmYg
-YXMgdGhlIGJhc2VsaW5lIGFuZCBwb3N0IGJhc2VkIG9uIHRoYXQuCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============4118466729244595557==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pxujij5httjhwier"
+Content-Disposition: inline
+
+
+--pxujij5httjhwier
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Jan 31, 2024 at 09:33:06AM +0000, Keith Zhao wrote:
+>=20
+>=20
+> > -----=E9=82=AE=E4=BB=B6=E5=8E=9F=E4=BB=B6-----
+> > =E5=8F=91=E4=BB=B6=E4=BA=BA: Maxime Ripard <mripard@kernel.org>
+> > =E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4: 2023=E5=B9=B412=E6=9C=886=E6=97=
+=A5 16:56
+> > =E6=94=B6=E4=BB=B6=E4=BA=BA: Keith Zhao <keith.zhao@starfivetech.com>
+> > =E6=8A=84=E9=80=81: devicetree@vger.kernel.org; dri-devel@lists.freedes=
+ktop.org;
+> > linux-kernel@vger.kernel.org; linux-riscv@lists.infradead.org;
+> > tzimmermann@suse.de; airlied@gmail.com; krzysztof.kozlowski+dt@linaro.o=
+rg;
+> > William Qiu <william.qiu@starfivetech.com>; Xingyu Wu
+> > <xingyu.wu@starfivetech.com>; paul.walmsley@sifive.com;
+> > aou@eecs.berkeley.edu; palmer@dabbelt.com; p.zabel@pengutronix.de;
+> > Shengyang Chen <shengyang.chen@starfivetech.com>; Jack Zhu
+> > <jack.zhu@starfivetech.com>; Changhuang Liang
+> > <changhuang.liang@starfivetech.com>; maarten.lankhorst@linux.intel.com;
+> > suijingfeng@loongson.cn
+> > =E4=B8=BB=E9=A2=98: Re: [v3 4/6] drm/vs: Add KMS crtc&plane
+> >=20
+> > On Mon, Dec 04, 2023 at 08:33:13PM +0800, Keith Zhao wrote:
+> > > +static const struct vs_plane_info dc_hw_planes_rev0[PLANE_NUM] =3D {
+> > > +	{
+> > > +		.name			=3D "Primary",
+> > > +		.id			=3D PRIMARY_PLANE_0,
+> > > +		.type			=3D DRM_PLANE_TYPE_PRIMARY,
+> > > +		.num_formats		=3D ARRAY_SIZE(primary_overlay_format0),
+> > > +		.formats		=3D primary_overlay_format0,
+> > > +		.num_modifiers		=3D ARRAY_SIZE(format_modifier0),
+> > > +		.modifiers		=3D format_modifier0,
+> > > +		.min_width		=3D 0,
+> > > +		.min_height		=3D 0,
+> > > +		.max_width		=3D 4096,
+> > > +		.max_height		=3D 4096,
+> > > +		.rotation		=3D DRM_MODE_ROTATE_0 |
+> > > +					  DRM_MODE_ROTATE_90 |
+> > > +					  DRM_MODE_ROTATE_180 |
+> > > +					  DRM_MODE_ROTATE_270 |
+> > > +					  DRM_MODE_REFLECT_X |
+> > > +					  DRM_MODE_REFLECT_Y,
+> > > +		.blend_mode		=3D BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> > > +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> > > +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> > > +		.color_encoding		=3D BIT(DRM_COLOR_YCBCR_BT709) |
+> > > +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> > > +		.degamma_size		=3D DEGAMMA_SIZE,
+> > > +		.min_scale		=3D FRAC_16_16(1, 3),
+> > > +		.max_scale		=3D FRAC_16_16(10, 1),
+> > > +		.zpos			=3D 0,
+> > > +		.watermark		=3D true,
+> > > +		.color_mgmt		=3D true,
+> > > +		.roi			=3D true,
+> > > +	},
+> > > +	{
+> > > +		.name			=3D "Overlay",
+> > > +		.id			=3D OVERLAY_PLANE_0,
+> > > +		.type			=3D DRM_PLANE_TYPE_OVERLAY,
+> > > +		.num_formats		=3D ARRAY_SIZE(primary_overlay_format0),
+> > > +		.formats		=3D primary_overlay_format0,
+> > > +		.num_modifiers		=3D ARRAY_SIZE(format_modifier0),
+> > > +		.modifiers		=3D format_modifier0,
+> > > +		.min_width		=3D 0,
+> > > +		.min_height		=3D 0,
+> > > +		.max_width		=3D 4096,
+> > > +		.max_height		=3D 4096,
+> > > +		.rotation		=3D DRM_MODE_ROTATE_0 |
+> > > +					  DRM_MODE_ROTATE_90 |
+> > > +					  DRM_MODE_ROTATE_180 |
+> > > +					  DRM_MODE_ROTATE_270 |
+> > > +					  DRM_MODE_REFLECT_X |
+> > > +					  DRM_MODE_REFLECT_Y,
+> > > +		.blend_mode		=3D BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> > > +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> > > +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> > > +		.color_encoding		=3D BIT(DRM_COLOR_YCBCR_BT709) |
+> > > +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> > > +		.degamma_size		=3D DEGAMMA_SIZE,
+> > > +		.min_scale		=3D FRAC_16_16(1, 3),
+> > > +		.max_scale		=3D FRAC_16_16(10, 1),
+> > > +		.zpos			=3D 1,
+> > > +		.watermark		=3D true,
+> > > +		.color_mgmt		=3D true,
+> > > +		.roi			=3D true,
+> > > +	},
+> > > +	{
+> > > +		.name			=3D "Overlay_1",
+> > > +		.id			=3D OVERLAY_PLANE_1,
+> > > +		.type			=3D DRM_PLANE_TYPE_OVERLAY,
+> > > +		.num_formats		=3D ARRAY_SIZE(primary_overlay_format0),
+> > > +		.formats		=3D primary_overlay_format0,
+> > > +		.num_modifiers		=3D ARRAY_SIZE(secondary_format_modifiers),
+> > > +		.modifiers		=3D secondary_format_modifiers,
+> > > +		.min_width		=3D 0,
+> > > +		.min_height		=3D 0,
+> > > +		.max_width		=3D 4096,
+> > > +		.max_height		=3D 4096,
+> > > +		.rotation		=3D 0,
+> > > +		.blend_mode		=3D BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> > > +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> > > +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> > > +		.color_encoding		=3D BIT(DRM_COLOR_YCBCR_BT709) |
+> > > +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> > > +		.degamma_size		=3D DEGAMMA_SIZE,
+> > > +		.min_scale		=3D DRM_PLANE_NO_SCALING,
+> > > +		.max_scale		=3D DRM_PLANE_NO_SCALING,
+> > > +		.zpos			=3D 2,
+> > > +		.watermark		=3D true,
+> > > +		.color_mgmt		=3D true,
+> > > +		.roi			=3D true,
+> > > +	},
+> > > +	{
+> > > +		.name			=3D "Primary_1",
+> > > +		.id			=3D PRIMARY_PLANE_1,
+> > > +		.type			=3D DRM_PLANE_TYPE_PRIMARY,
+> > > +		.num_formats		=3D ARRAY_SIZE(primary_overlay_format0),
+> > > +		.formats		=3D primary_overlay_format0,
+> > > +		.num_modifiers		=3D ARRAY_SIZE(format_modifier0),
+> > > +		.modifiers		=3D format_modifier0,
+> > > +		.min_width		=3D 0,
+> > > +		.min_height		=3D 0,
+> > > +		.max_width		=3D 4096,
+> > > +		.max_height		=3D 4096,
+> > > +		.rotation		=3D DRM_MODE_ROTATE_0 |
+> > > +					  DRM_MODE_ROTATE_90 |
+> > > +					  DRM_MODE_ROTATE_180 |
+> > > +					  DRM_MODE_ROTATE_270 |
+> > > +					  DRM_MODE_REFLECT_X |
+> > > +					  DRM_MODE_REFLECT_Y,
+> > > +		.blend_mode		=3D BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> > > +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> > > +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> > > +		.color_encoding		=3D BIT(DRM_COLOR_YCBCR_BT709) |
+> > > +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> > > +		.degamma_size		=3D DEGAMMA_SIZE,
+> > > +		.min_scale		=3D FRAC_16_16(1, 3),
+> > > +		.max_scale		=3D FRAC_16_16(10, 1),
+> > > +		.zpos			=3D 3,
+> > > +		.watermark		=3D true,
+> > > +		.color_mgmt		=3D true,
+> > > +		.roi			=3D true,
+> > > +	},
+> > > +	{
+> > > +		.name			=3D "Overlay_2",
+> > > +		.id			=3D OVERLAY_PLANE_2,
+> > > +		.type			=3D DRM_PLANE_TYPE_OVERLAY,
+> > > +		.num_formats		=3D ARRAY_SIZE(primary_overlay_format0),
+> > > +		.formats		=3D primary_overlay_format0,
+> > > +		.num_modifiers		=3D ARRAY_SIZE(format_modifier0),
+> > > +		.modifiers		=3D format_modifier0,
+> > > +		.min_width		=3D 0,
+> > > +		.min_height		=3D 0,
+> > > +		.max_width		=3D 4096,
+> > > +		.max_height		=3D 4096,
+> > > +		.rotation		=3D DRM_MODE_ROTATE_0 |
+> > > +					  DRM_MODE_ROTATE_90 |
+> > > +					  DRM_MODE_ROTATE_180 |
+> > > +					  DRM_MODE_ROTATE_270 |
+> > > +					  DRM_MODE_REFLECT_X |
+> > > +					  DRM_MODE_REFLECT_Y,
+> > > +		.blend_mode		=3D BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> > > +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> > > +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> > > +		.color_encoding		=3D BIT(DRM_COLOR_YCBCR_BT709) |
+> > > +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> > > +		.degamma_size		=3D DEGAMMA_SIZE,
+> > > +		.min_scale		=3D FRAC_16_16(1, 3),
+> > > +		.max_scale		=3D FRAC_16_16(10, 1),
+> > > +		.zpos			=3D 4,
+> > > +		.watermark		=3D true,
+> > > +		.color_mgmt		=3D true,
+> > > +		.roi			=3D true,
+> > > +	},
+> > > +	{
+> > > +		.name			=3D "Overlay_3",
+> > > +		.id			=3D OVERLAY_PLANE_3,
+> > > +		.type			=3D DRM_PLANE_TYPE_OVERLAY,
+> > > +		.num_formats		=3D ARRAY_SIZE(primary_overlay_format0),
+> > > +		.formats		=3D primary_overlay_format0,
+> > > +		.num_modifiers		=3D ARRAY_SIZE(secondary_format_modifiers),
+> > > +		.modifiers		=3D secondary_format_modifiers,
+> > > +		.min_width		=3D 0,
+> > > +		.min_height		=3D 0,
+> > > +		.max_width		=3D 4096,
+> > > +		.max_height		=3D 4096,
+> > > +		.rotation		=3D 0,
+> > > +		.blend_mode		=3D BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> > > +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> > > +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> > > +		.color_encoding		=3D BIT(DRM_COLOR_YCBCR_BT709) |
+> > > +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> > > +		.degamma_size		=3D DEGAMMA_SIZE,
+> > > +		.min_scale		=3D DRM_PLANE_NO_SCALING,
+> > > +		.max_scale		=3D DRM_PLANE_NO_SCALING,
+> > > +		.zpos			=3D 5,
+> > > +		.watermark		=3D true,
+> > > +		.color_mgmt		=3D true,
+> > > +		.roi			=3D true,
+> > > +	},
+> > > +	{
+> > > +		.name			=3D "Cursor",
+> > > +		.id			=3D CURSOR_PLANE_0,
+> > > +		.type			=3D DRM_PLANE_TYPE_CURSOR,
+> > > +		.num_formats		=3D ARRAY_SIZE(cursor_formats),
+> > > +		.formats		=3D cursor_formats,
+> > > +		.num_modifiers		=3D 0,
+> > > +		.modifiers		=3D NULL,
+> > > +		.min_width		=3D 32,
+> > > +		.min_height		=3D 32,
+> > > +		.max_width		=3D 64,
+> > > +		.max_height		=3D 64,
+> > > +		.rotation		=3D 0,
+> > > +		.degamma_size		=3D 0,
+> > > +		.min_scale		=3D DRM_PLANE_NO_SCALING,
+> > > +		.max_scale		=3D DRM_PLANE_NO_SCALING,
+> > > +		.zpos			=3D 255,
+> > > +		.watermark		=3D false,
+> > > +		.color_mgmt		=3D false,
+> > > +		.roi			=3D false,
+> > > +	},
+> > > +	{
+> > > +		.name			=3D "Cursor_1",
+> > > +		.id			=3D CURSOR_PLANE_1,
+> > > +		.type			=3D DRM_PLANE_TYPE_CURSOR,
+> > > +		.num_formats		=3D ARRAY_SIZE(cursor_formats),
+> > > +		.formats		=3D cursor_formats,
+> > > +		.num_modifiers		=3D 0,
+> > > +		.modifiers		=3D NULL,
+> > > +		.min_width		=3D 32,
+> > > +		.min_height		=3D 32,
+> > > +		.max_width		=3D 64,
+> > > +		.max_height		=3D 64,
+> > > +		.rotation		=3D 0,
+> > > +		.degamma_size		=3D 0,
+> > > +		.min_scale		=3D DRM_PLANE_NO_SCALING,
+> > > +		.max_scale		=3D DRM_PLANE_NO_SCALING,
+> > > +		.zpos			=3D 255,
+> > > +		.watermark		=3D false,
+> > > +		.color_mgmt		=3D false,
+> > > +		.roi			=3D false,
+> > > +	},
+> > > +};
+> > > +
+> > > +static const struct vs_dc_info dc8200_info =3D {
+> > > +	.name			=3D "DC8200",
+> > > +	.panel_num		=3D 2,
+> > > +	.plane_num		=3D 8,
+> > > +	.planes			=3D dc_hw_planes_rev0,
+> > > +	.layer_num		=3D 6,
+> > > +	.max_bpc		=3D 10,
+> > > +	.color_formats		=3D DRM_COLOR_FORMAT_RGB444 |
+> > > +				  DRM_COLOR_FORMAT_YCBCR444 |
+> > > +				  DRM_COLOR_FORMAT_YCBCR422 |
+> > > +				  DRM_COLOR_FORMAT_YCBCR420,
+> > > +	.gamma_size		=3D GAMMA_EX_SIZE,
+> > > +	.gamma_bits		=3D 12,
+> > > +	.pitch_alignment	=3D 128,
+> > > +	.pipe_sync		=3D false,
+> > > +	.background		=3D true,
+> > > +	.panel_sync		=3D true,
+> > > +	.cap_dec		=3D true,
+> > > +};
+> >=20
+> > I really think that entire thing is to workaround a suboptimal device t=
+ree binding.
+> > You should have two CRTCs in the device tree, you'll probe twice, and y=
+ou won't
+> > get to do that whole dance.
+> >=20
+
+> I tried to modify it according to this idea Found it too difficult In
+> terms of hardware, the two crtc designs are too close to separate, and
+> they are even designed into the same reg with different bits
+> representing crtc0 and crtc1. It seems not easy to described the 2
+> ctrc hardware by 2 device nodes
+
+What are these bits doing?
+
+> The idea is to avoid a whole dance I don't know if I understand
+> correctly about whole dance. Is it means I create 2 ctrc and 8 plane
+> in the dc_bind?
+
+Yeah, you should strive to make it two separate devices.
+
+Maxime
+
+--pxujij5httjhwier
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCZbpJ4QAKCRDj7w1vZxhR
+xbXKAQCkvP9gj89Uud9IYEso1eFoTC1FwHXjqrFhiyGdoEM2jgEAnCBvuWdLGfFs
+puqhj3XR1WkyppzKeff6yOmoPFnMvwM=
+=cHAW
+-----END PGP SIGNATURE-----
+
+--pxujij5httjhwier--
+
+
+--===============4118466729244595557==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4118466729244595557==--
+
