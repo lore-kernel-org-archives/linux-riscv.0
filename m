@@ -4,63 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3297C47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 16:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D932C47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 16:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V7PaLMgnuxoC6Ome0yjo0qQz5vvPoPqM9YI5lhwXRis=; b=YgymWPlc7ADHkQ
-	kt8b28gAT9q/hacPU5HlORxF/Tdb86M6qZwYj0mo1FqvOYhGtsrCxDGP3Kxa5kmC0llcEgfemtZF9
-	EKXoc+EIyIm3MAk5MeQF01jkNuzmdPdgNuel/po1LIyQ7rBCnvWHfZ/HuJZPkzsJlvJqzLDL6wR+e
-	9Awhbi8A9wMLg8gjqN+6BhaUd/AZUrSg8AJ95yUDMa++D3R7dWQlnc8KYiof1tkTZsfAS0o0FvA1S
-	4DxXMRNU471igUuY00kFDN4aW879vFsKXfXEBR13PCB402oEhbnIqcmxW4UWdn/2ijJDbXDuq/LXz
-	ruvXJv4l4t2W8EuIILmw==;
+	List-Owner; bh=p/m37P7NsB+GKa6EnzNrf55C19xd2agpdgq13geBCMU=; b=sDIp5lQz2GATKh
+	0lTPADYvTZ9ExEpqmXsMzsFZpRwOUkYB0p82JOYAWWnTFhuTmuK23Rf54zS77p1gMP2b1DuCHh66v
+	WcpkUpKMFqXTi1FiiGvefO7Oqh2IuBFqVGykn7fwjnVHrQlp3aG53UrgOIWMJLLMJSemekilOdZKv
+	d+ap+rJQWwpuRX8Jq2XfIOfySNPGtpI5nGtVWM2/CCBInI/COZo9Rqh4bQpSlPhgtQlOSHzvvlExB
+	DkJB5+kfQIBIHbYQGmHOqP8fmeBRQ9ZQ5WFs0q36nDxdED3rjOAuYAdFMLybWfV8skiTHU5p1VSAv
+	P6Rx6lUTJK2yV4uHGe+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVDp3-00000004f2t-0hW4;
-	Wed, 31 Jan 2024 16:52:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVDnf-00000004e0N-1n76;
-	Wed, 31 Jan 2024 16:50:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=DnAkVWZfHdsfbPL7YZp73DdgOlGRvTL1dby6CU3CDrY=; b=KdCRYo/N5WlTFb9vuQH38iE/8p
-	GX9dLo7NgO1JIXklmruUH0tiH8gVgWp9l20KNT2DocGzQoUlNbecSYaM6IZUd9X1AlOw+B6GQ74nx
-	LtjV3gWEGAL92vBX5RiFsiWb3FN9U7m/g4B+EwqnX5qeOQ3hVDu/yOO79VwzMr2ie1zS+4ZDagwVt
-	0xKEDDqF6Sl64V4cwvv6mfQ8OQk+74ZLR+5eiUTBWHFztmH5iEwk8cvTWu741szx2zpvM8tY0EXqX
-	O+C22XMJ/Pte516qdkYwZgll1rExhOpfL60QRADksTjoSqp8jqT5Kl4s7Fl3jIqxdfFnyU/qlVHKl
-	QN5cuTUA==;
+	id 1rVDsx-00000004gku-0QAq;
+	Wed, 31 Jan 2024 16:56:27 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVDna-00000009829-3fXe;
-	Wed, 31 Jan 2024 16:50:58 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rVDst-00000004giD-13lB;
+	Wed, 31 Jan 2024 16:56:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=DnAkVWZfHdsfbPL7YZp73DdgOlGRvTL1dby6CU3CDrY=; b=uqc+DCKwG0ug+HapGtea8aoa5Y
-	g5EpcUoEzakHsQIsGgONCg7oIGC58rfToOozcFpjkAtAypAyfVF6fnnKgmvWj1DD2sxBspC6E4cHX
-	SSOa+qh6GVlBlisWfGKmtDac31tVsXttXF8jhZdqTIICwhAhlJbeSeb2bsTj3GlEuH4lquy25qowh
-	qE5bnPbzW5WKHaXBCE7AxlRmjJ5l1MQNXQtzwAGI2Ys1ulpvisOs2/egpL8YFDP4mHKVzHjGfq1D0
-	Qg7QH6oXlz1qOITAOO7AoN4aWjtI84rCd5gwtLz7YiKyArVIPBSPvrq3HXqSm/sQKSb30L71/nt+H
-	+wF0Ir0g==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36100 helo=rmk-PC.armlinux.org.uk)
+	bh=f5npkqxZTlvintQfJQR7JFbNovddfzG1yIBSkxo5huM=; b=rZ+y9KQNys/vt6EBJk4R2yPaCi
+	4OKNmwHWIF+OvTh5I/L9c8gwiS0OLuRncsIm3vvJTYzYGyPl24yFVpR090gnimcgSNH4/GiyFcrOL
+	lo7MDovAf/jMcoyctkWeHbWsOhFg1IxstP5eHZd5CdG23fpLnqXRtDHdHfWjdJ3oosl9pHh3hxHZg
+	r2+PFBLmUHdJ4D/F3kO4APh+Oc6e2sTVlnuToDH0/pAkBPVdmJqL+SJY0KZArZMEf0BAplgmV1BIc
+	QZwZ7uqRz3oAg8aTWw8NVtu2aty6N2PFsYTvEqAMD1hsLAhC9AMdtmWwhXCCxy7U0WDeoMRR67yJb
+	aL9h6OEQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:33590 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1rVDnM-0003W7-34;
-	Wed, 31 Jan 2024 16:50:41 +0000
+	id 1rVDnT-0003WQ-1m;
+	Wed, 31 Jan 2024 16:50:47 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1rVDnK-0027ZN-40; Wed, 31 Jan 2024 16:50:38 +0000
+	id 1rVDnP-0027ZZ-BN; Wed, 31 Jan 2024 16:50:43 +0000
 In-Reply-To: <Zbp5xzmFhKDAgHws@shell.armlinux.org.uk>
 References: <Zbp5xzmFhKDAgHws@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -85,14 +71,15 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	 James Morse <james.morse@arm.com>,
 	 Jonathan Cameron <Jonathan.Cameron@Huawei.com>,
 	 "Rafael J. Wysocki" <rafael@kernel.org>
-Subject: [PATCH RFC v4 12/15] arm64: psci: Ignore DENIED CPUs
+Subject: [PATCH RFC v4 13/15] ACPI: add support to (un)register CPUs based on
+ the _STA enabled bit
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1rVDnK-0027ZN-40@rmk-PC.armlinux.org.uk>
-Date: Wed, 31 Jan 2024 16:50:38 +0000
+Message-Id: <E1rVDnP-0027ZZ-BN@rmk-PC.armlinux.org.uk>
+Date: Wed, 31 Jan 2024 16:50:43 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_165056_406195_581A222E 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20240131_085623_321958_74A4CDEA 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,65 +96,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+From: James Morse <james.morse@arm.com>
 
-When a CPU is marked as disabled, but online capable in the MADT, PSCI
-applies some firmware policy to control when it can be brought online.
-PSCI returns DENIED to a CPU_ON request if this is not currently
-permitted. The OS can learn the current policy from the _STA enabled bit.
+acpi_processor_get_info() registers all present CPUs. Registering a
+CPU is what creates the sysfs entries and triggers the udev
+notifications.
 
-Handle the PSCI DENIED return code gracefully instead of printing an
-error.
+arm64 virtual machines that support 'virtual cpu hotplug' use the
+enabled bit to indicate whether the CPU can be brought online, as
+the existing ACPI tables require all hardware to be described and
+present.
 
-See https://developer.arm.com/documentation/den0022/f/?lang=en page 58.
+If firmware describes a CPU as present, but disabled, skip the
+registration. Such CPUs are present, but can't be brought online for
+whatever reason. (e.g. firmware/hypervisor policy).
 
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-[ morse: Rewrote commit message ]
+Once firmware sets the enabled bit, the CPU can be registered and
+brought online by user-space. Online CPUs, or CPUs that are missing
+an _STA method must always be registered.
+
+When firmware clears the enabled bit, we need to unregister the CPU
+for symetry. As this is dependent on hotplug CPU being support, and
+arch_unregister_cpu() only exists when hotplug CPU is supported,
+we need to add a check for that configuration symbol.
+
 Signed-off-by: James Morse <james.morse@arm.com>
 Tested-by: Miguel Luis <miguel.luis@oracle.com>
 Tested-by: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
 Tested-by: Jianyong Wu <jianyong.wu@arm.com>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-Changes since RFC v2
- * Add specification reference
- * Use EPERM rather than EPROBE_DEFER
-Changes since RFC v3:
- * Use EPERM everywhere
- * Drop unnecessary changes to drivers/firmware/psci/psci.c
+Changes since RFC v3 (smaller series):
+ * Squash "ACPI: processor: Only call arch_unregister_cpu() if
+   HOTPLUG_CPU is selected" into this patch.
 ---
- arch/arm64/kernel/psci.c | 2 +-
- arch/arm64/kernel/smp.c  | 3 ++-
- 2 files changed, 3 insertions(+), 2 deletions(-)
+ drivers/acpi/acpi_processor.c | 33 +++++++++++++++++++++++++++++++--
+ 1 file changed, 31 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kernel/psci.c b/arch/arm64/kernel/psci.c
-index 29a8e444db83..fabd732d0a2d 100644
---- a/arch/arm64/kernel/psci.c
-+++ b/arch/arm64/kernel/psci.c
-@@ -40,7 +40,7 @@ static int cpu_psci_cpu_boot(unsigned int cpu)
+diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
+index d1d33e74216c..5e641180c45a 100644
+--- a/drivers/acpi/acpi_processor.c
++++ b/drivers/acpi/acpi_processor.c
+@@ -228,6 +228,32 @@ static int acpi_processor_make_present(struct acpi_processor *pr)
+ 	return ret;
+ }
+ 
++static int acpi_processor_make_enabled(struct acpi_processor *pr)
++{
++	unsigned long long sta;
++	acpi_status status;
++	bool present, enabled;
++
++	if (!acpi_has_method(pr->handle, "_STA"))
++		return arch_register_cpu(pr->id);
++
++	status = acpi_evaluate_integer(pr->handle, "_STA", NULL, &sta);
++	if (ACPI_FAILURE(status))
++		return -ENODEV;
++
++	present = sta & ACPI_STA_DEVICE_PRESENT;
++	enabled = sta & ACPI_STA_DEVICE_ENABLED;
++
++	if (cpu_online(pr->id) && (!present || !enabled)) {
++		pr_err_once(FW_BUG "CPU %u is online, but described as not present or disabled!\n", pr->id);
++		add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_STILL_OK);
++	} else if (!present || !enabled) {
++		return -ENODEV;
++	}
++
++	return arch_register_cpu(pr->id);
++}
++
+ static int acpi_processor_get_info(struct acpi_device *device)
  {
- 	phys_addr_t pa_secondary_entry = __pa_symbol(secondary_entry);
- 	int err = psci_ops.cpu_on(cpu_logical_map(cpu), pa_secondary_entry);
--	if (err)
-+	if (err && err != -EPERM)
- 		pr_err("failed to boot CPU%d (%d)\n", cpu, err);
+ 	union acpi_object object = { 0 };
+@@ -318,7 +344,7 @@ static int acpi_processor_get_info(struct acpi_device *device)
+ 	 */
+ 	if (!invalid_logical_cpuid(pr->id) && cpu_present(pr->id) &&
+ 	    !get_cpu_device(pr->id)) {
+-		int ret = arch_register_cpu(pr->id);
++		int ret = acpi_processor_make_enabled(pr);
  
- 	return err;
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 4ced34f62dab..dc0e0b3ec2d4 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -132,7 +132,8 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
- 	/* Now bring the CPU into our world */
- 	ret = boot_secondary(cpu, idle);
- 	if (ret) {
--		pr_err("CPU%u: failed to boot: %d\n", cpu, ret);
-+		if (ret != -EPERM)
-+			pr_err("CPU%u: failed to boot: %d\n", cpu, ret);
- 		return ret;
+ 		if (ret)
+ 			return ret;
+@@ -511,7 +537,7 @@ static void acpi_processor_post_eject(struct acpi_device *device)
+ 	unsigned long long sta;
+ 	acpi_status status;
+ 
+-	if (!device)
++	if (!IS_ENABLED(CONFIG_HOTPLUG_CPU) || !device)
+ 		return;
+ 
+ 	pr = acpi_driver_data(device);
+@@ -526,6 +552,9 @@ static void acpi_processor_post_eject(struct acpi_device *device)
+ 		acpi_processor_make_not_present(device);
+ 		return;
  	}
++
++	if (cpu_present(pr->id) && !(sta & ACPI_STA_DEVICE_ENABLED))
++		arch_unregister_cpu(pr->id);
+ }
  
+ #ifdef CONFIG_ARCH_MIGHT_HAVE_ACPI_PDC
 -- 
 2.30.2
 
