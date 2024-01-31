@@ -4,57 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E65C47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 21:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D61E9C47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 22:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GObxxTFBEC46BxHN2dKdQf148jnYo3F0hUUlceiPJZg=; b=zahRtYq27Ypw7x6Eo88vNOgzp+
-	L5EChogDG8tmP6y7Y2oZDuZKkIXDL96hzLVSDYi8SQxKIkFca3jukyLtnIY6XEsEfN5X9vszxzgbp
-	HgnRetf82ToEgecsGcWI/4LLRHdPdS7PZHum+8KMA2fqX4Lq+JIvsfMN75NLEe0sdqAElIBUSjWot
-	RRAJC47j4Brv3pMTEicHLGM2OixAPQ0c6rBZFavUkew8bt4AeKPMyuMKGnFz1w4LUw87HeBqvOe+N
-	p0HzyQWVP2WhNtOaeczYLoJIxbSKChEpQuIL1lymGP3f+kHYCQgTsUgD4iz9Hgt/kPp6ta/iHfH2f
-	yt7odyiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=WDNtxB0WY64zzHh2NRgLy+RBLEBWC1u5yHuQchSeGOc=; b=HQXFMlro9sGOxw449Sg4qbwfqo
+	4h9Mf620E3FkPEyBZg08+WjJAJidBHWC0AEhW6+Atq5+4bHVEurG/m5xvIh8AlnYsi1Q+rDohBmJI
+	Z6YLAtcC1B2tjSNW8JBKBFREp3nbxx6s1tf52006DH+v0+wF974sNRC6UXXhfITVsNxRfQSc40CQr
+	MRWe6lf6EC9Oodm3F4Bv+VuDptg4g3NKZTX7oAZyYVB/fT1Jhxm9TPSphuyLB3t1zNDq81Xy8SKVr
+	p5zh5nt7bvh2tgFfBkDd+oTeb8b7NezM41TGPEx/JgW0ScuyunWMqJVfeweHsBUYB+ZpJ8AflHqyi
+	amcvP3Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVI2E-00000005VfP-1baa;
-	Wed, 31 Jan 2024 21:22:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rVJL9-00000005jjM-0qfY;
+	Wed, 31 Jan 2024 22:45:55 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVI2A-00000005Vdl-3Zi5;
-	Wed, 31 Jan 2024 21:22:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 49F1F619F8;
-	Wed, 31 Jan 2024 21:22:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49AA4C433C7;
-	Wed, 31 Jan 2024 21:22:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706736134;
-	bh=6/S3gn/MU54WmcTkqkBqwpun43sj6keFl/lVKEDYooU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u8x09sGYO00YuYlSGlkT2akkv0shyGx869qM0+Nclutea46M8UdJZb/sudyW+01w3
-	 Jicz2TGobc8mmXGtUcRO676xFf5CxWOa+rr3tiHFrVxliKJSUjU+ESbv/my7hu12XJ
-	 Epun7n4H9pPPOm3amIXwK03nbrD1z9rMwAk623ucM6/AByBA+sy8d26F4V+3Df6WT5
-	 3JUZm7wUEB+1M9GEh6bTCy784yonSr1hbrTs7VC8MH/9c9eAYCULOtp9g3n7KSzZmL
-	 OP6X8RZVQ3PJD+aolPH6o2ZuKmj1B0asR2j5rKV1NVyNASsT8UjvMjYRCpcD6aGRY3
-	 Y1uZup2ac2gKQ==
-Date: Wed, 31 Jan 2024 21:22:06 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v8 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-Message-ID: <20240131-renewably-glimpse-a80339e8ff81@spud>
-References: <20240131125920.2879433-1-privatesub2@gmail.com>
- <20240131125920.2879433-2-privatesub2@gmail.com>
- <20240131145244.4f534bac@donnerap.manchester.arm.com>
-MIME-Version: 1.0
-In-Reply-To: <20240131145244.4f534bac@donnerap.manchester.arm.com>
+	id 1rVJL5-00000005jhm-2Hnv
+	for linux-riscv@lists.infradead.org;
+	Wed, 31 Jan 2024 22:45:53 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-dc6b9f4a513so414194276.3
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Jan 2024 14:45:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1706741149; x=1707345949; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LFZR+caDlnxynR006W8r06MBUXUFwhkI/G9N83P84WQ=;
+        b=DP24JNA8UPQGWGoKxvvYq9uPrz05bePQ7BsQdJa7XXoiicBlLCm/84kEu63B69S3hl
+         hXHSizj39UuY7E4cYbilqX2Aso1pYuv2YtpZCYxVLMjdSWqLJnoPW5S7ym33gomMZ9NN
+         2Dah/SAup94VddbzWtlOgvg57ywvv5HHF0nE/3dCpMEUIwgF4Y8vXxZzItSsoWonL4EF
+         cqxq9TVhPfphY2dgzG+8BQxO5wQy7oA+Ws7nBs43cQ0TE5nk3fkAgsj/JVWf7PtENoDc
+         hmWLkwnsDenzNSMoCZalmuXBhBDSGz4nTb/k7ABd38BeWQ7lxdSglgjf9Qv/8ENFQGxO
+         LeVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1706741149; x=1707345949;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LFZR+caDlnxynR006W8r06MBUXUFwhkI/G9N83P84WQ=;
+        b=slOVVKuq/VRh7HLoMCJHGPuAtXEHk8KDt/YzGY9K/TfqrDY9VWT/0JmRQmOvSI4+XT
+         ++5ZOdLJUInVWuXFoA+bjokepQw6WvE/LeEA5yzB0mQ/3Y1AfxXPuX0qJ2tUwS//xrCP
+         d08+m+4SCieLdt1FrXKdGYF5k291VrFcqsvJtDtKmT5ub5DUgedJDzcy1grMahrflNRF
+         eNZsajdVX7xY3nXZvVC4AEkCGbxseqjhW/DWQP4rACGXLC86AL8vGQ3LyW6sWaaoQmv1
+         Buqq7yS2B4iU98kec2Caq2WkZVvl0c9XTlpvIT2TsJ9/e9vrODpxXtdclCkwKiY290NU
+         8dDA==
+X-Gm-Message-State: AOJu0Yygzwa6q2Bg2TsUIxovcVEWF3DWeocUBLDflPyEilrbGbpLVfsZ
+	uUKJyWng2Em1oLk80u//Nz7oM0iTMfWvK4kghBc6EWD0z3uKylNSATie9pp3WaIwy79vdCMHNXX
+	24A==
+X-Google-Smtp-Source: AGHT+IHbj+iyys3ihZ/6xbW07HHtto50GCqd6T2uQS3vYWtVgZ/I/uUSlscC69aVq4ekwAFGEgKUUC6N6OE=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a05:6902:11c3:b0:dc2:398d:a671 with SMTP id
+ n3-20020a05690211c300b00dc2398da671mr827981ybu.10.1706741148737; Wed, 31 Jan
+ 2024 14:45:48 -0800 (PST)
+Date: Wed, 31 Jan 2024 14:45:46 -0800
+In-Reply-To: <20231102155111.28821-2-guang.zeng@intel.com>
+Mime-Version: 1.0
+References: <20231102155111.28821-1-guang.zeng@intel.com> <20231102155111.28821-2-guang.zeng@intel.com>
+Message-ID: <ZbrNmoSiufn4RM9K@google.com>
+Subject: Re: [RFC PATCH v1 1/8] KVM: selftests: x86: Fix bug in addr_arch_gva2gpa()
+From: Sean Christopherson <seanjc@google.com>
+To: Zeng Guang <guang.zeng@intel.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_132215_002866_C13BDBEF 
-X-CRM114-Status: GOOD (  33.50  )
+X-CRM114-CacheID: sfid-20240131_144551_600127_1FC445E2 
+X-CRM114-Status: GOOD (  22.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,170 +90,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, John Watts <contact@jookia.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-riscv@lists.infradead.org, Samuel Holland <samuel@sholland.org>, Albert Ou <aou@eecs.berkeley.edu>, Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>, linux-sunxi@lists.linux.dev, linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Aleksandr Shubin <privatesub2@gmail.com>, Rob Herring <robh+dt@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Maksim Kiselev <bigunclemax@gmail.com>, linux-arm-kernel@lists.infradead.org, Cheo Fusi <fusibrandon13@gmail.com>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Content-Type: multipart/mixed; boundary="===============2375873087485063064=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Nov 02, 2023, Zeng Guang wrote:
+> Fix the approach to get page map from gva to gpa.
+> 
+> If gva maps a 4-KByte page, current implementation of addr_arch_gva2gpa()
+> will obtain wrong page size and cannot derive correct offset from the guest
+> virtual address.
+> 
+> Meanwhile using HUGEPAGE_MASK(x) to calculate the offset within page
+> (1G/2M/4K) mistakenly incorporates the upper part of 64-bit canonical
+> linear address. That will work out improper guest physical address if
+> translating guest virtual address in supervisor-mode address space.
 
---===============2375873087485063064==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="lXyhdNnqG2jz+p5F"
-Content-Disposition: inline
+The "Meanwhile ..." is a huge clue that this should be two separate patches.
 
+> Signed-off-by: Zeng Guang <guang.zeng@intel.com>
+> ---
+>  tools/testing/selftests/kvm/lib/x86_64/processor.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/lib/x86_64/processor.c b/tools/testing/selftests/kvm/lib/x86_64/processor.c
+> index d8288374078e..9f4b8c47edce 100644
+> --- a/tools/testing/selftests/kvm/lib/x86_64/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/x86_64/processor.c
+> @@ -293,6 +293,7 @@ uint64_t *__vm_get_page_table_entry(struct kvm_vm *vm, uint64_t vaddr,
+>  	if (vm_is_target_pte(pde, level, PG_LEVEL_2M))
+>  		return pde;
+>  
+> +	*level = PG_LEVEL_4K;
+>  	return virt_get_pte(vm, pde, vaddr, PG_LEVEL_4K);
+>  }
+>  
+> @@ -496,7 +497,7 @@ vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
+>  	 * No need for a hugepage mask on the PTE, x86-64 requires the "unused"
+>  	 * address bits to be zero.
+>  	 */
+> -	return PTE_GET_PA(*pte) | (gva & ~HUGEPAGE_MASK(level));
+> +	return PTE_GET_PA(*pte) | (gva & (HUGEPAGE_SIZE(level) - 1));
 
---lXyhdNnqG2jz+p5F
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I think I would prefer to "fix" HUGEPAGE_MASK() and drop its incorporation of
+PHYSICAL_PAGE_MASK.  Regardless of anyone's personal views on whether or not
+PAGE_MASK and HUGEPAGE_MASK should only cover physical address bits, (a) the
+_one_ usage of HUGEPAGE_MASK is broken and (b) diverging from the kernel for
+something like is a terrible idea, and the kernel does:
 
-On Wed, Jan 31, 2024 at 02:52:44PM +0000, Andre Przywara wrote:
-> On Wed, 31 Jan 2024 15:59:14 +0300
-> Aleksandr Shubin <privatesub2@gmail.com> wrote:
->=20
-> Hi,
->=20
-> > Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
-> > controller witch is different from the previous pwm-sun4i.
-> >=20
-> > The D1 and T113 are identical in terms of peripherals,
-> > they differ only in the architecture of the CPU core, and
-> > even share the majority of their DT. Because of that,
-> > using the same compatible makes sense.
-> > The R329 is a different SoC though, and should have
-> > a different compatible string added, especially as there
-> > is a difference in the number of channels.
-> >=20
-> > D1 and T113s SoCs have one PWM controller with 8 channels.
-> > R329 SoC has two PWM controllers in both power domains, one of
-> > them has 9 channels (CPUX one) and the other has 6 (CPUS one).
-> >=20
-> > Add a device tree binding for them.
-> >=20
-> > Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  .../bindings/pwm/allwinner,sun20i-pwm.yaml    | 88 +++++++++++++++++++
-> >  1 file changed, 88 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun=
-20i-pwm.yaml
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm=
-=2Eyaml b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> > new file mode 100644
-> > index 000000000000..716f75776006
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> > @@ -0,0 +1,88 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/pwm/allwinner,sun20i-pwm.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Allwinner D1, T113-S3 and R329 PWM
-> > +
-> > +maintainers:
-> > +  - Aleksandr Shubin <privatesub2@gmail.com>
-> > +  - Brandon Cheo Fusi <fusibrandon13@gmail.com>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    oneOf:
-> > +      - const: allwinner,sun20i-d1-pwm
-> > +      - items:
-> > +          - const: allwinner,sun20i-r329-pwm
-> > +          - const: allwinner,sun20i-d1-pwm
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  "#pwm-cells":
-> > +    const: 3
-> > +
-> > +  clocks:
-> > +    items:
-> > +      - description: Bus clock
-> > +      - description: 24 MHz oscillator
-> > +      - description: APB0 clock
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: bus
-> > +      - const: hosc
-> > +      - const: apb0
-> > +
-> > +  resets:
-> > +    maxItems: 1
-> > +
-> > +  allwinner,pwm-channels:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    description: The number of PWM channels configured for this instan=
-ce
-> > +    enum: [6, 9]
-> > +
-> > +allOf:
-> > +  - $ref: pwm.yaml#
-> > +
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: allwinner,sun20i-r329-pwm
-> > +
-> > +    then:
-> > +      required:
-> > +        - allwinner,pwm-channels
-> > +
-> > +    else:
-> > +      properties:
-> > +        allwinner,pwm-channels: false
->=20
-> Do we really need to be that strict?
-> If something compatible to D1 pops up in the future, just with a different
-> number of channels, we would need a new compatible string.
+	#define PAGE_MASK		(~(PAGE_SIZE-1))
+	#define HPAGE_MASK		(~(HPAGE_SIZE - 1))
+	#define KVM_HPAGE_MASK(x)	(~(KVM_HPAGE_SIZE(x) - 1))
 
-Well, you would want to have a soc specific compatible anyway then,
-right?
+Luckily, there are barely any users in x86, so I think the entirety of the
+conversion is this?
 
-> If we would leave this else branch out, we could just specify some
-> number differing from the default, and be good.
+diff --git a/tools/testing/selftests/kvm/include/x86_64/processor.h b/tools/testing/selftests/kvm/include/x86_64/processor.h
+index 0f4792083d01..ef895038c87f 100644
+--- a/tools/testing/selftests/kvm/include/x86_64/processor.h
++++ b/tools/testing/selftests/kvm/include/x86_64/processor.h
+@@ -352,11 +352,12 @@ static inline unsigned int x86_model(unsigned int eax)
+ 
+ #define PAGE_SHIFT             12
+ #define PAGE_SIZE              (1ULL << PAGE_SHIFT)
+-#define PAGE_MASK              (~(PAGE_SIZE-1) & PHYSICAL_PAGE_MASK)
++#define PAGE_MASK              (~(PAGE_SIZE-1))
++kvm_static_assert((PHYSICAL_PAGE_MASK & PAGE_MASK) == PHYSICAL_PAGE_MASK);
+ 
+ #define HUGEPAGE_SHIFT(x)      (PAGE_SHIFT + (((x) - 1) * 9))
+ #define HUGEPAGE_SIZE(x)       (1UL << HUGEPAGE_SHIFT(x))
+-#define HUGEPAGE_MASK(x)       (~(HUGEPAGE_SIZE(x) - 1) & PHYSICAL_PAGE_MASK)
++#define HUGEPAGE_MASK(x)       (~(HUGEPAGE_SIZE(x) - 1))
+ 
+ #define PTE_GET_PA(pte)                ((pte) & PHYSICAL_PAGE_MASK)
+ #define PTE_GET_PFN(pte)        (PTE_GET_PA(pte) >> PAGE_SHIFT)
+diff --git a/tools/testing/selftests/kvm/x86_64/hyperv_tlb_flush.c b/tools/testing/selftests/kvm/x86_64/hyperv_tlb_flush.c
+index 05b56095cf76..cc5730322072 100644
+--- a/tools/testing/selftests/kvm/x86_64/hyperv_tlb_flush.c
++++ b/tools/testing/selftests/kvm/x86_64/hyperv_tlb_flush.c
+@@ -623,7 +623,7 @@ int main(int argc, char *argv[])
+        for (i = 0; i < NTEST_PAGES; i++) {
+                pte = vm_get_page_table_entry(vm, data->test_pages + i * PAGE_SIZE);
+                gpa = addr_hva2gpa(vm, pte);
+-               __virt_pg_map(vm, gva + PAGE_SIZE * i, gpa & PAGE_MASK, PG_LEVEL_4K);
++               __virt_pg_map(vm, gva + PAGE_SIZE * i, gpa & PHYSICAL_PAGE_MASK, PG_LEVEL_4K);
+                data->test_pages_pte[i] = gva + (gpa & ~PAGE_MASK);
+        }
+ 
 
-If it were compatible with the d1, then the "then:" branch would apply,
-provided you used the fallback correctly. Although if the number of
-channels were different, we'd likely end up with modifications here to
-limit it to the correct values for each soc.
-
-Cheers,
-Conor.
-
-> The number of channels really looks like a parameter to the IP, it's
-> modelled like this in the manual (PCR: 0x0100 + 0x0000 + N * 0x0020).
-
---lXyhdNnqG2jz+p5F
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZbq5/gAKCRB4tDGHoIJi
-0m7lAQDMB3FXHeE2sd+nUCjULoFP3QBAMejcAL5DVTHwwcfoCwEAmITUfiKctPUZ
-aRVAUnCJ7PvSkH3019Ou5tyacXCp1gY=
-=b0st
------END PGP SIGNATURE-----
-
---lXyhdNnqG2jz+p5F--
-
-
---===============2375873087485063064==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2375873087485063064==--
-
