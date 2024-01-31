@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5789AC47DB3
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 18:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41E8C47DB3
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 18:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FxksnRWYgyWDbKod8Vqq7+gWoQ+f2j7MHLKWGoVqyhg=; b=Za39BS8+4i/eMx
-	Ei3+0A8wQ0K+6EfbatB+XI3EsbGTndrbLnWl97og8rHqP3z99aKaG+mmcnwAvNl6kBjc1EVgyxUJq
-	Yf4xeMM4u/BuVqJtL6dWpYY4Mt388lq12pdzFKRY41fz72IsvgNBEvpHJePf1Q+z99rngCL1wXXtC
-	s3dxXp6JOqqeCZGf8ysmOUZwBahaH+k+8+PnhwwLWUepah35WsRRlqYKCpxxBaXjysxzGVjlFLeJI
-	sDmJgbfURkQwuCnpLicb1WqPRvzlltdJtX34SPT2AsRoaR+2lTnRKvoeiV4wrl9t7mhHe1iLLyIHi
-	aFeQ7lXDNFYH2i3fghDA==;
+	List-Owner; bh=FPMY+i/DKJniKF42/lmmQYiBnDdftKZLqcJSnZbEIqM=; b=k7Zw5/r4kpuwTr
+	N0cbDuTiOFCQYozEkSiI6UbqjDPm+ZwxIaskNm1xiip0CtuxoD44DSl1FwAR53/z1oBea4EHPZPf4
+	38cYfX2uKlv4/eKrlagj4Q/t0d/P7rrK4V+CaVYx1EjJzPA98057pyDqZhix83hW8mRzMifC9k348
+	r+B8cWP8wLOFm9KfDw1rDfSsqVBiSUUyC5Il9VDk/J8J7kc8SQRaANs5c/HEsqs6IlFanY3lT5Aey
+	IEQxdtmbAJoRpvYo55JOoBxhnwv2xVcgfAMdXUsu7rBtyfcBnf4OEFU0s4krLVffc+Gj6qNGxT0r2
+	MtaX6UKryT8rZwe/PSmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVEuE-00000004yHu-0See;
-	Wed, 31 Jan 2024 18:01:50 +0000
-Received: from pandora.armlinux.org.uk ([78.32.30.218])
+	id 1rVEu9-00000004yDp-3dLX;
+	Wed, 31 Jan 2024 18:01:45 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVDnS-00000004dnz-3O4X;
-	Wed, 31 Jan 2024 16:50:48 +0000
+	id 1rVDmu-00000004dQq-1fnU;
+	Wed, 31 Jan 2024 16:50:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ggNpMVZKnCA4qTUdSs1tTKgcZqyqwopZRj4HYgCBhpE=; b=eRQOmPSTq1ZLIHQXa2wUnO5S2U
-	YS1T+Wxe2fqb4L8VLRnsI55TcS6ALkGhMQxBHxyk0HMsfLuyvclo0EQX5eJyiWivU6SLmFPyQ4Het
-	ewI3JVRJwxIn9f8fEhqHW0ReqGzOQ2V3RKpxcY3EsBfqI4XnLTOeefB8byqeb1QT0UHRQHZJauzuJ
-	5fSazsiGDuM8P5D69pd0gOi+w3zD4Ypw9fLPzYlN9gZoPF1BPwd/e7PovA9TQiTNHHJGxfprYynl8
-	Djeh2SCfaMEUzHYUdZlaK/7Xq3FUrL8O8mlemaLr4cvipE2nrxHEvml2Xe9VK3cyCw46c7jqBNIGs
-	B/0n6bsQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36030 helo=rmk-PC.armlinux.org.uk)
+	bh=GTt+zTRDJEWcpx9Xy5W4TT50pzwG/YUzwyuwhrcyZOM=; b=Vfg3ZyYuaYmNOkoqPCz1o+2zX1
+	CHnbf95wXJ8iNQiPXvhkhc71pS2lEmL0BjG7UDAkKM1AmeyI7Hw99+IZwxMqV5xfG1dQOVWjNSrxK
+	nI3mFn7sO8gfuf0xTZKKwsKxmf2IzsZb34MG2VsL+7+xdTfxL6cE2U68ZrM3R26CuzvWpwCvBd1t4
+	4Llyd4+LA4apOlJDyKGd1H/tl8vBYcuWS08mc9fxhgh51HY0tUVfcCaZaue37+yhtiShI5us6dzOo
+	5eYvo3a6Z1EG6k7xWrBQKjDSZHMvLwt1uMzkpqvdjlF4ZhHXWeNk5U3HIqxksMV1sDVaOFFu97D/L
+	iESmz7Pw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35968 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1rVDnD-0003VU-16;
-	Wed, 31 Jan 2024 16:50:31 +0000
+	id 1rVDmg-0003U8-0E;
+	Wed, 31 Jan 2024 16:49:58 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1rVDn9-0027ZB-QN; Wed, 31 Jan 2024 16:50:27 +0000
+	id 1rVDme-0027Yb-Sj; Wed, 31 Jan 2024 16:49:56 +0000
 In-Reply-To: <Zbp5xzmFhKDAgHws@shell.armlinux.org.uk>
 References: <Zbp5xzmFhKDAgHws@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -71,15 +71,15 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	 James Morse <james.morse@arm.com>,
 	 Jonathan Cameron <Jonathan.Cameron@Huawei.com>,
 	 "Rafael J. Wysocki" <rafael@kernel.org>
-Subject: [PATCH RFC v4 10/15] irqchip/gic-v3: Don't return errors from
- gic_acpi_match_gicc()
+Subject: [PATCH RFC v4 04/15] ACPI: Rename acpi_processor_hotadd_init and
+ remove pre-processor guards
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1rVDn9-0027ZB-QN@rmk-PC.armlinux.org.uk>
-Date: Wed, 31 Jan 2024 16:50:27 +0000
+Message-Id: <E1rVDme-0027Yb-Sj@rmk-PC.armlinux.org.uk>
+Date: Wed, 31 Jan 2024 16:49:56 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_085046_953614_19C07518 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20240131_085012_567339_3197EFC5 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,64 +98,94 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: James Morse <james.morse@arm.com>
 
-gic_acpi_match_gicc() is only called via gic_acpi_count_gicr_regions().
-It should only count the number of enabled redistributors, but it
-also tries to sanity check the GICC entry, currently returning an
-error if the Enabled bit is set, but the gicr_base_address is zero.
+acpi_processor_hotadd_init() will make a CPU present by mapping it
+based on its hardware id.
 
-Adding support for the online-capable bit to the sanity check will
-complicate it, for no benefit. The existing check implicitly depends on
-gic_acpi_count_gicr_regions() previous failing to find any GICR regions
-(as it is valid to have gicr_base_address of zero if the redistributors
-are described via a GICR entry).
+'hotadd_init' is ambiguous once there are two different behaviours
+for cpu hotplug. This is for toggling the _STA present bit. Subsequent
+patches will add support for toggling the _STA enabled bit, named
+acpi_processor_make_enabled().
 
-Instead of complicating the check, remove it. Failures that happen at
-this point cause the irqchip not to register, meaning no irqs can be
-requested. The kernel grinds to a panic() pretty quickly.
+Rename it acpi_processor_make_present() to make it clear this is
+for CPUs that were not previously present.
 
-Without the check, MADT tables that exhibit this problem are still
-caught by gic_populate_rdist(), which helpfully also prints what went
-wrong:
-| CPU4: mpidr 100 has no re-distributor!
+Expose the function prototypes it uses to allow the preprocessor
+guards to be removed. The IS_ENABLED() check will let the compiler
+dead-code elimination pass remove this if it isn't going to be
+used.
 
 Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Tested-by: Miguel Luis <miguel.luis@oracle.com>
+Tested-by: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
+Tested-by: Jianyong Wu <jianyong.wu@arm.com>
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-Changes since RFC v3 (smaller series):
- * Move acpi_gicc_is_usable() change in gic_acpi_match_gicc() into
-   following patch so this is only about the error return.
- * Tweak commit message
----
- drivers/irqchip/irq-gic-v3.c | 13 ++-----------
- 1 file changed, 2 insertions(+), 11 deletions(-)
+ drivers/acpi/acpi_processor.c | 14 +++++---------
+ include/linux/acpi.h          |  2 --
+ 2 files changed, 5 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index 98b0329b7154..8deb671c4ff7 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -2422,19 +2422,10 @@ static int __init gic_acpi_match_gicc(union acpi_subtable_headers *header,
- 	 * If GICC is enabled and has valid gicr base address, then it means
- 	 * GICR base is presented via GICC
- 	 */
--	if (acpi_gicc_is_usable(gicc) && gicc->gicr_base_address) {
-+	if (acpi_gicc_is_usable(gicc) && gicc->gicr_base_address)
- 		acpi_data.enabled_rdists++;
--		return 0;
--	}
+diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
+index a68c475cdea5..fd8f3a0572cb 100644
+--- a/drivers/acpi/acpi_processor.c
++++ b/drivers/acpi/acpi_processor.c
+@@ -183,13 +183,15 @@ static void __init acpi_pcc_cpufreq_init(void) {}
+ #endif /* CONFIG_X86 */
  
--	/*
--	 * It's perfectly valid firmware can pass disabled GICC entry, driver
--	 * should not treat as errors, skip the entry instead of probe fail.
--	 */
--	if (!acpi_gicc_is_usable(gicc))
--		return 0;
--
--	return -ENODEV;
-+	return 0;
+ /* Initialization */
+-#ifdef CONFIG_ACPI_HOTPLUG_CPU
+-static int acpi_processor_hotadd_init(struct acpi_processor *pr)
++static int acpi_processor_make_present(struct acpi_processor *pr)
+ {
+ 	unsigned long long sta;
+ 	acpi_status status;
+ 	int ret;
+ 
++	if (!IS_ENABLED(CONFIG_ACPI_HOTPLUG_CPU))
++		return -ENODEV;
++
+ 	if (invalid_phys_cpuid(pr->phys_id))
+ 		return -ENODEV;
+ 
+@@ -223,12 +225,6 @@ static int acpi_processor_hotadd_init(struct acpi_processor *pr)
+ 	cpu_maps_update_done();
+ 	return ret;
  }
+-#else
+-static inline int acpi_processor_hotadd_init(struct acpi_processor *pr)
+-{
+-	return -ENODEV;
+-}
+-#endif /* CONFIG_ACPI_HOTPLUG_CPU */
  
- static int __init gic_acpi_count_gicr_regions(void)
+ static int acpi_processor_get_info(struct acpi_device *device)
+ {
+@@ -335,7 +331,7 @@ static int acpi_processor_get_info(struct acpi_device *device)
+ 	 *  because cpuid <-> apicid mapping is persistent now.
+ 	 */
+ 	if (invalid_logical_cpuid(pr->id) || !cpu_present(pr->id)) {
+-		int ret = acpi_processor_hotadd_init(pr);
++		int ret = acpi_processor_make_present(pr);
+ 
+ 		if (ret)
+ 			return ret;
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index b7165e52b3c6..76ad43f7860b 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -302,12 +302,10 @@ static inline int acpi_processor_evaluate_cst(acpi_handle handle, u32 cpu,
+ }
+ #endif
+ 
+-#ifdef CONFIG_ACPI_HOTPLUG_CPU
+ /* Arch dependent functions for cpu hotplug support */
+ int acpi_map_cpu(acpi_handle handle, phys_cpuid_t physid, u32 acpi_id,
+ 		 int *pcpu);
+ int acpi_unmap_cpu(int cpu);
+-#endif /* CONFIG_ACPI_HOTPLUG_CPU */
+ 
+ #ifdef CONFIG_ACPI_HOTPLUG_IOAPIC
+ int acpi_get_ioapic_id(acpi_handle handle, u32 gsi_base, u64 *phys_addr);
 -- 
 2.30.2
 
