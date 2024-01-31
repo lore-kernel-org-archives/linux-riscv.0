@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C11C47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 12:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD04C47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 12:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M8/yVD6KfyqoNQVc5003yjYMPJl0UyDN3N3xN7X/Ri4=; b=RkuuYxSiyJYmjU
-	H6Dh5KAKGEOzkvi0eSib/aR1fOEFy/edL/R95wrUYcXscm78m1JsKunwBCnyOr1aQZ+dmuPWFvUCn
-	jblCUXNHnh/RyWASyWQ8HMJr19KORcjd9PIEaZMHomRZ4IZ5jSYAJJ4bpTjYKPVUVTcjAANGltTb+
-	0Y0BF1rXAU5kLYRYzwDsPXIIQyi52Yw+XdZwzUHaHTNs2hS11et/4rcmPBE1Vxg5OmG4oUMkYyznS
-	yoQwuqh0dDJbAe4Dvr0huwaXpRkdiN2nwtFfY8R/QdgNnEQkdlpa9GoBCbaQ5WXwYROo2xImoB/Xe
-	7VxvGX061SzkOkS22OYA==;
+	List-Owner; bh=5YOB8jtcNEBHOYxydrBKiX3F5xq0LqGK+EI3/d8inXM=; b=WA+J2YaCJLxUoh
+	+KuZ0i1Ft1yxKrSJXBiRKZnzNbaFbZLFCSu33Eco+q1iYFTrM50H++IHucl6yhXxv6mpPR8gVhCb9
+	/W2vpvWaYTX+riaPksVL1SB8SAMOkz+bvLaU09QgKIusOIsxf/EwfrdBta0+6rHcIXHX8TiAgg5Rp
+	1VXU9h5XjzuZjWPnBIDTL8fYkRrrvPRrR4os5u4R0sfxFTYnJofUVB5ohHfR6Z7jqvJe5gFY10xIr
+	EsqK+L/i3eWUk6LdFZqyChMjauWxPVvWciWxx1Yq8ywjDb5Hhit59x4AsbhBEWXnYr17wgDMZ7tIK
+	CMUSs0LTZ3yy8pDUIbCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rV9LH-00000003GWv-34Gl;
-	Wed, 31 Jan 2024 12:05:23 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1rV9LJ-00000003GYa-44uz;
+	Wed, 31 Jan 2024 12:05:25 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rV9LA-00000003GRV-3esR
+	id 1rV9LB-00000003GSc-2wJH
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jan 2024 12:05:18 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a358ec50b7cso153858566b.0
-        for <linux-riscv@lists.infradead.org>; Wed, 31 Jan 2024 04:05:16 -0800 (PST)
+	Wed, 31 Jan 2024 12:05:19 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-55f0367b15fso4113069a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Jan 2024 04:05:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1706702715; x=1707307515; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1706702716; x=1707307516; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VYWwoGW5tnFj1vY5dj8PEXtyvWyXgtkfLVtW7dbTGJ0=;
-        b=niRsRlnLHZTFxrZ/VNrzJb8ReeOaXWPu94iuMEPjGA/Wty6jLbfFZk5RAoZz3oGILG
-         id9g3SxIaUxxovPR0sEg+8TtzbHTZ+rsNF3JuxkAAfXAj6zFspd4l4A27IZ3uKnFwQfs
-         U0TylCM7/3let/0vxFYDSaZune2q3lA+1R+5MIOXtE6XvZz42VfYxe70ZWGFl6r/N3ml
-         MZlWgiONl2581EUFAe5Yg/aGhMdZJz9xyUYUu7Wt+H5V7QfhfkZOGDhbrUDyX8kghkmi
-         Xx09ol7nuWKb86+i6eNhYZdH9/hWtQe3GaN9HQbV3pzWcLK0oJBHbBGYk1IJLLRW0q5O
-         ZuZw==
+        bh=t/0LGl9WG/KzeVYElHwd84K3m9f0ISp27bonGhBK6lw=;
+        b=ZX4J071Nhv4cEc2CAGbbtO4hWCiEBoYE1Irh1jtoUpaPNptxb6uO8g51TsuzHqFLKf
+         UR6IQTAvX/bbLfjBchAZAU0Mcpk8W4s1a+/LFmdQvnmfUNT7DTu+XHXSLHCsLItf01qD
+         35iEAq892ZUMuUWUZXtqXIELU7CGZc35A/jhkhvAl0wZ3V6FZFv9hWSfJFc7mUoAHJZj
+         eybx0YM7LvhanYC+eeFU3GNgyfeLxt9SwTDjWIEcDuhMKpcHBDGauhfHSHhD6jh74q28
+         N42TA+K2ZUTkLL9OVgcahwFbeR8LqrPMC6NG7P71B6t5q4FYQ1N/65/loL+5GCpi6Akr
+         UQxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706702715; x=1707307515;
+        d=1e100.net; s=20230601; t=1706702716; x=1707307516;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VYWwoGW5tnFj1vY5dj8PEXtyvWyXgtkfLVtW7dbTGJ0=;
-        b=H78z6y8uLr3jdFpFqJqaxhFP5TXyEQpRjLivxgDI95MwlREvjDHaRYUTddN3WLsmYd
-         QVQQFOhwJGqvbvaNG+/jrUjn48PkWO56onnNujNhNwJ3D/QHNzCPOLH/kF48CGm+j1m/
-         Q/Iovrsw64L2SAGrupenazp1XlCYlSCNupwUfX7KHm6Mlef1WY/P/qIxhhkE+W2yQSTY
-         ARA6Sx/J3ZGMMFLR5+ynNXP7xyprrIXtAdT54tGEGREg1NjyVtDE9WYHDOlOqXTAcx7m
-         +lbmCl2tCAa9rj4eRYFIl9JoKy0bYQu4m2J8BsTVmYUisg3HjhEpJmyA3Wqx6vKrY2MD
-         7izg==
-X-Gm-Message-State: AOJu0YwTrc8pLCtExVyvlZlp/IFoeXU5q4fkO9kNK8h0f10ehb+VDCme
-	xBeQuiboP0uwxGsQzc9tpq3APgEEL4Os5H5iAiM/VHlq+fC/zIMfxLS+ClEN5u0=
-X-Google-Smtp-Source: AGHT+IG3qsVaJ7eMMfqslnQzBz0EU6jsRzTYo1vpVN8ZA8BUHXm2UYkzNSECaYwSySyKb9q29S2vig==
-X-Received: by 2002:a17:906:289b:b0:a35:a7ba:c647 with SMTP id o27-20020a170906289b00b00a35a7bac647mr1173472ejd.3.1706702715161;
-        Wed, 31 Jan 2024 04:05:15 -0800 (PST)
-X-Forwarded-Encrypted: i=0; AJvYcCVCfavWEXZaXtbMyQG34FsXmuzymq5zKrumrzpsCQiALJMXvkof9CSXI1jtPbHQVWhJlDVhTw9ag6wIj//v8y/MWbh0pevPQjGjqLyHcbmMEWBCrukkwrXP9iexh5aNuaOg7P2/iSPeZhpG0esTuW5L+ZKNblpw+O1MzBR9O85hSwg8mAbxHssBeiDWLPwVRq9jHtsqYeVa9fNbMxEwjbcN+jGnj2Oht1HlWid6qf/ttH+tvXl4zaRY3LATDUbUmDJLc36HX/NBy3BUN+W0tAwBNgzg
+        bh=t/0LGl9WG/KzeVYElHwd84K3m9f0ISp27bonGhBK6lw=;
+        b=DDHzzibOyVofhVL6ybBg87UlU+PhlYBJVJQ18Oqvku1miNH6ItvAe6H5ZjOGc1RfbM
+         LMEm5yt3WVE2uuSfeZGzyp9OPY/8ndV2b0HyRiFNrMxxOqTd0BMc0P7KtvY8J67jNwU8
+         /1DzJTakeQryI9vhWdEB4IxBFKDvwgI56wJUx1Htcr9LAJXmm5XdFKGg3DlUirEPS1Aa
+         VtYieglaNRdzMAkaPM/DTW5nmAGmuZPhvdFl3eXXBBlPiI/eGCuvgVilpHaTIl5KUCC4
+         rcMJ/+uN/mo22gsnoTLy3GGvCm75abIuRsly1cIifHzGbWvbANASRrYWNXFz3qMN+iLs
+         i+FQ==
+X-Gm-Message-State: AOJu0YxHuzNk0FBOSmhY1NAetHyxoZIrT1bxj+/bxUqkb8viiYgLu4O6
+	i5+8dNJ+1GAa69ZuecdS4emaHg8lAbO+hwHgkrfZ8pFfyQfd11j4szjKiel+F4E=
+X-Google-Smtp-Source: AGHT+IHdrBPtdLFcPhY83T9ZrVV+224JS7L5qhGRWIZB1FspaedfeW/G5skcnPUTAAQ3DZcsALwwBQ==
+X-Received: by 2002:a05:6402:1604:b0:55f:8bdd:f990 with SMTP id f4-20020a056402160400b0055f8bddf990mr805709edv.23.1706702716470;
+        Wed, 31 Jan 2024 04:05:16 -0800 (PST)
+X-Forwarded-Encrypted: i=0; AJvYcCXzUo5QQJQ/giwvtOTKFzukoHcjeMWPWj6EAzWV3mc2FRczUxTRCUcQZe4LbyyVoL2fAME5nJ8+M6rc8lr9//rfRPMpwZ/ETllBzx4BF9fc2NKnU1z3NsIBn4994VI59rp5ecHE86d3abS9T3HiCo7x4v+hx53k1wsZlh3y1rbn1fT4HRBsmLsRa7sEmY5PUHhJou+c/TrU8HjTf+zQZl/YRKzVkSqB3H5iWspUTtRfIMgbQA+caLdZ5BEKzYkQh9h7Co42baYR8tjKsBs8omrEsDFY
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id vv4-20020a170907a68400b00a3633ae53dcsm1467683ejc.52.2024.01.31.04.05.14
+        by smtp.gmail.com with ESMTPSA id d15-20020a056402000f00b0055f1af929c2sm2408250edu.28.2024.01.31.04.05.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Jan 2024 04:05:14 -0800 (PST)
+        Wed, 31 Jan 2024 04:05:16 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org
@@ -72,16 +72,17 @@ Cc: anup@brainfault.org,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	kernel test robot <lkp@intel.com>
-Subject: [PATCH 2/3] RISC-V: paravirt: Use correct restricted types
-Date: Wed, 31 Jan 2024 13:05:14 +0100
-Message-ID: <20240131120511.200338-7-ajones@ventanamicro.com>
+Subject: [PATCH 3/3] RISC-V: KVM: Use correct restricted types
+Date: Wed, 31 Jan 2024 13:05:15 +0100
+Message-ID: <20240131120511.200338-8-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240131120511.200338-5-ajones@ventanamicro.com>
 References: <20240131120511.200338-5-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_040516_956050_AA96E1F0 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20240131_040517_798584_17AB76ED 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +100,65 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 __le32 and __le64 types should be used with le32_to_cpu() and
-le64_to_cpu(), as sparse helpfully points out.
+le64_to_cpu() and __user is needed for pointers referencing
+guest memory, as sparse helpfully points out.
 
-Fixes: fdf68acccfc6 ("RISC-V: paravirt: Implement steal-time support")
+Fixes: e9f12b5fff8a ("RISC-V: KVM: Implement SBI STA extension")
 Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202401011933.hL9zqmKo-lkp@intel.com/
+Closes: https://lore.kernel.org/oe-kbuild-all/202401020142.lwFEDK5v-lkp@intel.com/
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/kernel/paravirt.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/kvm/vcpu_sbi_sta.c | 20 ++++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
 
-diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
-index 15c5d4048db5..0d6225fd3194 100644
---- a/arch/riscv/kernel/paravirt.c
-+++ b/arch/riscv/kernel/paravirt.c
-@@ -91,8 +91,8 @@ static int pv_time_cpu_down_prepare(unsigned int cpu)
- static u64 pv_time_steal_clock(int cpu)
+diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
+index 01f09fe8c3b0..d8cf9ca28c61 100644
+--- a/arch/riscv/kvm/vcpu_sbi_sta.c
++++ b/arch/riscv/kvm/vcpu_sbi_sta.c
+@@ -26,8 +26,12 @@ void kvm_riscv_vcpu_record_steal_time(struct kvm_vcpu *vcpu)
  {
- 	struct sbi_sta_struct *st = per_cpu_ptr(&steal_time, cpu);
--	u32 sequence;
--	u64 steal;
-+	__le32 sequence;
-+	__le64 steal;
+ 	gpa_t shmem = vcpu->arch.sta.shmem;
+ 	u64 last_steal = vcpu->arch.sta.last_steal;
+-	u32 *sequence_ptr, sequence;
+-	u64 *steal_ptr, steal;
++	__le32 __user *sequence_ptr;
++	__le64 __user *steal_ptr;
++	__le32 sequence_le;
++	__le64 steal_le;
++	u32 sequence;
++	u64 steal;
+ 	unsigned long hva;
+ 	gfn_t gfn;
  
- 	/*
- 	 * Check the sequence field before and after reading the steal
+@@ -47,22 +51,22 @@ void kvm_riscv_vcpu_record_steal_time(struct kvm_vcpu *vcpu)
+ 		return;
+ 	}
+ 
+-	sequence_ptr = (u32 *)(hva + offset_in_page(shmem) +
++	sequence_ptr = (__le32 __user *)(hva + offset_in_page(shmem) +
+ 			       offsetof(struct sbi_sta_struct, sequence));
+-	steal_ptr = (u64 *)(hva + offset_in_page(shmem) +
++	steal_ptr = (__le64 __user *)(hva + offset_in_page(shmem) +
+ 			    offsetof(struct sbi_sta_struct, steal));
+ 
+-	if (WARN_ON(get_user(sequence, sequence_ptr)))
++	if (WARN_ON(get_user(sequence_le, sequence_ptr)))
+ 		return;
+ 
+-	sequence = le32_to_cpu(sequence);
++	sequence = le32_to_cpu(sequence_le);
+ 	sequence += 1;
+ 
+ 	if (WARN_ON(put_user(cpu_to_le32(sequence), sequence_ptr)))
+ 		return;
+ 
+-	if (!WARN_ON(get_user(steal, steal_ptr))) {
+-		steal = le64_to_cpu(steal);
++	if (!WARN_ON(get_user(steal_le, steal_ptr))) {
++		steal = le64_to_cpu(steal_le);
+ 		vcpu->arch.sta.last_steal = READ_ONCE(current->sched_info.run_delay);
+ 		steal += vcpu->arch.sta.last_steal - last_steal;
+ 		WARN_ON(put_user(cpu_to_le64(steal), steal_ptr));
 -- 
 2.43.0
 
