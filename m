@@ -4,47 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5063C47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 17:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4365CC47DB3
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 17:26:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kamkY7oZid4Gy9eJbZmmYIneCXf8W6S7QFXJrJCi2c0=; b=cV8ii7Ry387QYTDskyy7h+Z2Z4
-	ai8+gY/bt5qwA387HSWwVjt5YRjWbrhKwVPda4h4+ZQa+o+vcMX9zXZp+O7G1CqPqOnxjOCXTr1IE
-	uWGLxzID9slw/1RgiO8AhlfGelpPvUXrnhgihLBAiQCLRhQNDUCtx1dcTz0Qn1yh6kJPhvjlvGnj6
-	j5nImcHlbUPL1bMl7xZ3O2PW5IVE0RKe7sReWHUT635ojxlvuRrQwKqO9QJXAq02c6T9Wm+xk81R/
-	BbcJalpzEThqcdYWlcEg0bKHQMe0G0Z55RFte9JTGsJL7vSNp3ibbarohD2D+Ja0lci7kwruhk7TU
-	XihHDX4w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gSVC59cvD0jF6KNSzVJklztNhr1L/ddlarArp+amUZM=; b=y1sKe4wWyb+vG1
+	Fu8/T1U4Voznl9i21GYT4X68hjHCLsIVi4VLIG/glSP2nRhs1PR4hxRylcQ22S6U14w+qSbviDBQc
+	nlbFXXo9KbHWgiJrPj8QA/jw1c+P+3zSlEgh4OTm51x/Iq1lrrQX3AwopW9S2Dg3LrGLTy8NEoihG
+	mLAxmbTUL1dQxLbSOtcKlCy3tWhhpGi1+VlswItMCI52qMCCwJBF7N3MqJZYdypu7/t7U8PEfpK68
+	fGHVHSBE57Lrmws9z9IOPMXV1NW3hHgFrwben/315J1NPDwPtN0mwvn36XkZGoSIUTTc7Pbuqxi7T
+	x0BUUPAcPED42andxdfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVE6z-00000004lGd-2W9w;
-	Wed, 31 Jan 2024 17:10:57 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1rVELW-00000004p7j-3lK2;
+	Wed, 31 Jan 2024 17:25:58 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVE6w-00000004lFI-3It2
-	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jan 2024 17:10:56 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 739B2240006;
-	Wed, 31 Jan 2024 17:10:48 +0000 (UTC)
-Message-ID: <139cdbd6-73d9-4452-94ce-825689b7c0c8@ghiti.fr>
-Date: Wed, 31 Jan 2024 18:10:48 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: add CALLER_ADDRx support
+	id 1rVELS-00000004p6G-2DYl;
+	Wed, 31 Jan 2024 17:25:56 +0000
+Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 40VHC3hU004756;
+	Wed, 31 Jan 2024 17:25:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=from : to : cc :
+ subject : date : message-id : references : in-reply-to : content-type :
+ content-id : content-transfer-encoding : mime-version; s=corp-2023-11-20;
+ bh=05fyeGhIMhB1lOJKioTUONn/STr+y5O4M3hrptRHV1k=;
+ b=VHerG/iwekOA3DLY8gNPgGKTa1Z8JACw5wErcCpeBIxwE6a7yOSUzBPdPGeL1RgHWFkX
+ yOrW1c3UW9OAeNMKgiy7Y1pkrYRGwtgCqCQDSax25ZI1i1m1owGPS6K8OM6Njoxdu47t
+ qSFnA5ituVtg0OZSPDagwXQWi7LfLJhOB6T+xoYg8CEBJZIDSya3XBUyfnpFXeS2P0d5
+ CqVkAX/4CAO5SBaocsMgOnsHu8IcAbljC4y8db14TCuwqO2+diY+8WVXwyLf63wQW+2U
+ lGTu5G2yU+75bJD7MghYfaCYGZtZEHVBY27HJa1CtnCbQGBKqQ7Fg2K55Ug/uCKbromJ 9A== 
+Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3vvsqb2ehv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 31 Jan 2024 17:25:33 +0000
+Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.17.1.19/8.17.1.19) with ESMTP id 40VGvhw7036101;
+	Wed, 31 Jan 2024 17:25:32 GMT
+Received: from nam04-dm6-obe.outbound.protection.outlook.com (mail-dm6nam04lp2041.outbound.protection.outlook.com [104.47.73.41])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 3vvr9fmncn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 31 Jan 2024 17:25:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=VD93YpZEFVU6LMt5/v+xy0c7XiQMv+3zfhZXnYBaKVo1Lzo5ylO7YxnMUClu03Ea2X8LphlcT/p1glhaMeehTrwyJ55jEw613oJtNCjamozR7c8wS+Mg1xFrqYz9nHHIVQozxp0fEvnPzY1wvalKPmjWaHY45ri/xDe7dBl/pgSEy+zaGYVpC2W0/dKtqwpQkEoaQkQPBJdxWLn3k2eZeuly9LsqbAmYkO5FeZTpY8zZBv9F5YuKRoxa+6aQ1BK+bM0SYKXPpp42y1YoGUvLk9BdazK0Hif0aSK7/mVojDi2s1zjDznj1HcSk20nm7lF9X6K3fZ7dHpO3/4Zy/6n8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=05fyeGhIMhB1lOJKioTUONn/STr+y5O4M3hrptRHV1k=;
+ b=oaJj3wI6Px5Pj5KvSEWoGHvx4hSVbNbzmP1FDOzOk8+/13GwaBPnFB7s3K8dtDJ3ocIHItyqKMfTG8ewZb4nttiwkwQrP99/XIJ0uQI6NNq38ulNuaSe8YQOWqAEgsAaj6MlE79wKGuv1F+G4IOd4ppylNqUSykM0hqXqiAvPeP11wfaTUBM7gD714VX504ltyCnygGw57GtQQBu+G++iI9C5moLe60PID6vV9XGgtzvW4mQhj+e/DhO/sBcaCtW4org1su79Bnkfg41ilx/PaOQVLZv0x94xvOOg5D5+rW+cZh6nh7RK1JD2irAjJjXZzHpfuIwUDcB6bFfVhg72g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=05fyeGhIMhB1lOJKioTUONn/STr+y5O4M3hrptRHV1k=;
+ b=OvbQt26t5yfkM3UZU8qfnpK9aVWDXtta82ec0NXxzGauqL9immcHPtSkVYbi4Uxu+fOOo+wwEhPn03hRGMkoMky3nhfv04fifznGlHDYzyNx9/3L4mrOAlHVvHbwvLOpQS/bRt5Q9HgaSwQBcxQkcEAreW5Pnt/wveZI1G8xX/U=
+Received: from PH0PR10MB5433.namprd10.prod.outlook.com (2603:10b6:510:e0::9)
+ by DS0PR10MB7979.namprd10.prod.outlook.com (2603:10b6:8:1ab::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7202.37; Wed, 31 Jan
+ 2024 17:25:29 +0000
+Received: from PH0PR10MB5433.namprd10.prod.outlook.com
+ ([fe80::5997:266c:f3fd:6bf4]) by PH0PR10MB5433.namprd10.prod.outlook.com
+ ([fe80::5997:266c:f3fd:6bf4%4]) with mapi id 15.20.7228.035; Wed, 31 Jan 2024
+ 17:25:29 +0000
+From: Miguel Luis <miguel.luis@oracle.com>
+To: Russell King <rmk+kernel@armlinux.org.uk>
+CC: "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+        "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+        "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+        "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>,
+        "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+        "x86@kernel.org" <x86@kernel.org>,
+        "acpica-devel@lists.linuxfoundation.org"
+	<acpica-devel@lists.linuxfoundation.org>,
+        "linux-csky@vger.kernel.org"
+	<linux-csky@vger.kernel.org>,
+        "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>,
+        "linux-ia64@vger.kernel.org"
+	<linux-ia64@vger.kernel.org>,
+        "linux-parisc@vger.kernel.org"
+	<linux-parisc@vger.kernel.org>,
+        Salil Mehta <salil.mehta@huawei.com>,
+        Jean-Philippe Brucker <jean-philippe@linaro.org>,
+        "jianyong.wu@arm.com"
+	<jianyong.wu@arm.com>,
+        "justin.he@arm.com" <justin.he@arm.com>,
+        James Morse
+	<james.morse@arm.com>,
+        Jonathan Cameron <Jonathan.Cameron@Huawei.com>,
+        "Rafael J. Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH RFC v4 01/15] ACPI: Only enumerate enabled (or functional)
+ processor devices
+Thread-Topic: [PATCH RFC v4 01/15] ACPI: Only enumerate enabled (or
+ functional) processor devices
+Thread-Index: AQHaVGWXrmQ6tbct00qr+/5CouVONrD0LCkA
+Date: Wed, 31 Jan 2024 17:25:29 +0000
+Message-ID: <05A27863-22ED-4CF6-BBD6-5349ED1330A9@oracle.com>
+References: <Zbp5xzmFhKDAgHws@shell.armlinux.org.uk>
+ <E1rVDmP-0027YJ-EW@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1rVDmP-0027YJ-EW@rmk-PC.armlinux.org.uk>
+Accept-Language: en-GB, en-US
 Content-Language: en-US
-To: Zong Li <zong.li@sifive.com>, palmer@dabbelt.com,
- paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20231205085959.32177-1-zong.li@sifive.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20231205085959.32177-1-zong.li@sifive.com>
-X-GND-Sasl: alex@ghiti.fr
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PH0PR10MB5433:EE_|DS0PR10MB7979:EE_
+x-ms-office365-filtering-correlation-id: 239c1c46-8156-4f08-0c80-08dc22819f37
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 13rnIGOyd4jAamv+GHXnmeeqvZMxtl71EHFiI4+S7mbugbDBTVRGGfTgveZnuIDRV/UWqlbKEEI1kVEwSnVVUpbL+7Vh+NSkF4l4nTGt21quKeeZNR9tzv9JehVfDwQcuKU27UiWnvNMLNmXr4Ix8/vyjCqGCarIo1LA9M/w6BGDnRCYjsvS6FFZSUqb8R299G/sxVx17nRaWT7LfqX12qndkrHyX66HJdaeZVKC8moe4bbOJqat2/qXWX7Ok+xXGR+P5rx6cN8HRkiCLiMZkwiHI4zycoexC2c/szcxjhjlHdFD7/qsxwB1cdV1/tV1t12lVZzB7Yg9E/Aon2AXfP36Mo+xw1oBDGDLj+OWHZB4CvXv7/wV6o7WkJrqYzTRfyYk9zbHgp7lLpKj+PC3Y9HshGxqZX+gWFJhcCQAT98l2m7Dx7tjZ0QMOpYfN9+SOv5LTdJ+AB+9mQt4bwyfbcM09WYlVtitccEn/OR/4fIBQ2PTPDXvCGIrO6JdQ3WWXhIKHmKGVcwhzYnYewd/4j/jWymf8sMFQocy3cyxATW6NQ3BqHR1ltp3YR3kfmEAc3ql/IwnS0WKOdr+pKgYHuNqooMjH+gXytUgnghm9bXDC8R3NNoiCdbqaQjP4YUP1ZNo8TUIp+KbGEIbJW7OZzC35JXgEQSj4G1yGWl3u5BhWHI2SxrmMAJrlk9qg4yI
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR10MB5433.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(136003)(346002)(376002)(366004)(39860400002)(396003)(230922051799003)(186009)(64100799003)(451199024)(1800799012)(83380400001)(36756003)(38070700009)(41300700001)(44832011)(8936002)(4326008)(8676002)(6512007)(2906002)(33656002)(2616005)(5660300002)(66946007)(478600001)(6486002)(966005)(76116006)(66446008)(64756008)(6506007)(38100700002)(86362001)(53546011)(91956017)(66476007)(54906003)(316002)(66556008)(71200400001)(7416002)(122000001)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?KIKUvpWWX6fu8l7PCOEbuGh1nO+sAPXA/M+YwRYtT1pxbnnEyB0eLR0vAkuu?=
+ =?us-ascii?Q?CoDZm653IdFhx2CqK+0nfUdV3kPy9vdrBoEkHiNiQq0OdPEixTa7g1bgziJC?=
+ =?us-ascii?Q?EFwhOg6KEdgrThslD++FSEqJ4HfM9nnS4+/laMf3KlHMs/1dz7WrKrKVXo/N?=
+ =?us-ascii?Q?ZZ3tSh57abYbBECTHicYtsweVnPLLY/OxNDDHbXWlbzOjWa6tReJHn0eg+Rn?=
+ =?us-ascii?Q?nTTDMcqW6kD6LvA2c2WTqMOGtu+uSnlQbYXwOm+XQobTk4pwJuVkek4wHt75?=
+ =?us-ascii?Q?BJ2HXMVCM4s8NQnjbfZE+TsWc6ny4+jMeE1xsclNJEULInKsiqF6ENmwdwm6?=
+ =?us-ascii?Q?dIWaDuChs9/ikq/Cl3TD+PWGhAwBmuincI8qoh4MX2kT31P/pX+utmRMI7Hf?=
+ =?us-ascii?Q?rwS44bN6AHf1vxJbDmIdSd5tbC+r3ajpWUSWFcV3CowDAJBCftpXpG6biGkg?=
+ =?us-ascii?Q?LQjmXO2v1nfWoynXMqKmnORxKTnR1iuqiVG6QobvvnFNeHu5h+F3Axum42Kv?=
+ =?us-ascii?Q?YoyTAc8l8IUI/wJlMDqbfOnfo6qFF/qky+LHUZFj2EfUWV0p+qaGfGwmDsD0?=
+ =?us-ascii?Q?lcUz4Td8Bk0IJCF/abcgsRSO9UoHTU9bPyZZWxiwhxChjoglANE/jxh5Wz4I?=
+ =?us-ascii?Q?TkVfHF1TXR4iZRlVM0tLz0tHc5AC11bdfv9xERPJc2M03XLLvVNB8KaqknRP?=
+ =?us-ascii?Q?XNOzazwWmYWX+IhTqw6Feo3bmen/8oq/T+5R52S+khxb8W6sd4zrm/SL8EDI?=
+ =?us-ascii?Q?R8XwWUrCWV+biKGEvod+ydHlewreq5eJPby6PhqRTQSbgE6Bek29you94g4l?=
+ =?us-ascii?Q?WLBH7K8Ysp82hW9l6OHXjRy920RvgtF7ptq7CRRQJT7ON96xMcvNpB5uBGL7?=
+ =?us-ascii?Q?D3DNHXbhy4f5jJidCQNS7yzmlP1+JInvf+bPyr2aE21PrWI04BWsV/Kmit8h?=
+ =?us-ascii?Q?xZCYeAnZTtWwv8w5fpHSBLTnL0Mf8ZLtI4ldlPlI6L4bIK8wZoWfaRbOiR5x?=
+ =?us-ascii?Q?TNW1gXYwGipYquYW88EnSQvBeVZVdssm9+k/xQIpeSPy82QIURaRqsJOpcLT?=
+ =?us-ascii?Q?xgtWxuYRiMKA8dg1Aq82AOHnAvg5MY312+b7IU8Dabq61AmZZzxt77ph0txG?=
+ =?us-ascii?Q?VKHK1GtgWfpgseVY4V+2O/wZAIGataKxCmIw+ujUvfPLdBzd6M95wkI7tQni?=
+ =?us-ascii?Q?5KENat0Z3c52hODZahmIhCfu/kRleUmiL0L+LWWuLuEKaRi4zm18hQC/dmcw?=
+ =?us-ascii?Q?WgsThR4nC4NPL6t6D3baUpxtrfJjXGgAuiuTlC/luil3caeXMYVCqCGMfCbE?=
+ =?us-ascii?Q?L2NlXnQQlJ6HdL8kvf+jP4AKYvhZgbYVhRqLcoMxM0HzijJBzhI+dDyuXbAR?=
+ =?us-ascii?Q?XRUCsqjRgltX4HjKF24buCOY6rhg+Oakqf/gihb9Pm3pB9FM+1bPEWUJZNCi?=
+ =?us-ascii?Q?g1BQp1w4wO3B0x7t+sTWznQTBVqR5S0mTTx1bRTDabEiWydsRZ1Ia3fCS3mk?=
+ =?us-ascii?Q?Qdt/w0UWZYi20X89mi52CZfmedI2Z9/+grMvb+FFgShROSxNzuDebg98RMFq?=
+ =?us-ascii?Q?yUW18fYgt69iKWJPUXexslCT51JKbD7fZkrTOUMeZPBzLzoG1k/lSxLIMbpB?=
+ =?us-ascii?Q?XEsnWMjWcqHt0aKGMKM+HIk=3D?=
+Content-ID: <8FC90E6C189EA44E9F8E6FF2032CAE53@namprd10.prod.outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 85+Cagi0gvsXMI9BJYndbO906L0RqDraYRDudbP+w/fmQrKuULcqPd2hapmV6EGOLXHSyoNBAVVoif62KxRldomV6jlMRMxzJAlIdeH5yyQE9jJC/X/3NoRIomL9vP9MqiwYK0tM15lKZ/HUC8/xIIpvgUM6ohWTIgB9wf1v0CXOD5fkYVrGuXVRBYLYnMkL2HKKhBWjPlzhOg/pQi9NOb3UoPCqhPj0V+lHOSGdVT/kpNQqtz+NT17zr+cnFXvxQUQ14pd+jZ8JT5UVKf8T2XK7zDb4Bb+Pnp0mbLy2IIPLAWAHiqPYzot0S8eJ9yvr3KTly1UbOOJvrG3/+GwXvd4k72VaETEFrhdMVazUVz1wGCcnsvloN7lrxppzW246WGeBbSXbH7BR4r9fMMxX+bhZqwQ4TF9qekDFvlLbmQZIBGqQ6dNCZn6mYNZxYDOcGorsODDjAi/MZdenuRzO9AmbtAImZjBh9ApSq8YccYV746NkEFXdqSmqhb+PKg25s+yMqR07j2FaL0smAcDeFD3Fd+Etm42QfNddJqHE5CsAy9vM1iHnOHStEslIB/lyHh2imHe7L4xhO8BJk5wxoHl5brzpcrBW/FwEyuIep4M=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR10MB5433.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 239c1c46-8156-4f08-0c80-08dc22819f37
+X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Jan 2024 17:25:29.6579
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: CMp6qsK4jiEKMN99JKVfk+YN9UNTHz4isX/uXu3wCNXwOpdtObrnvZyJ1lOzv3XZgExRW4aLkwstqc9RX1VO+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7979
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-01-31_10,2024-01-31_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0 phishscore=0 malwarescore=0
+ spamscore=0 mlxlogscore=999 adultscore=0 bulkscore=0 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2311290000
+ definitions=main-2401310134
+X-Proofpoint-GUID: e3s_sTLO9TF_C4Po0IXfVKJiSDYXeFje
+X-Proofpoint-ORIG-GUID: e3s_sTLO9TF_C4Po0IXfVKJiSDYXeFje
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_091055_146470_F2DAB8FA 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20240131_092554_605586_B040CA25 
+X-CRM114-Status: GOOD (  33.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,155 +195,265 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 05/12/2023 09:59, Zong Li wrote:
-> CALLER_ADDRx returns caller's address at specified level, they are used
-> for several tracers. These macros eventually use
-> __builtin_return_address(n) to get the caller's address if arch doesn't
-> define their own implementation.
->
-> In RISC-V, __builtin_return_address(n) only works when n == 0, we need
-> to walk the stack frame to get the caller's address at specified level.
+Hi
 
+> On 31 Jan 2024, at 15:49, Russell King <rmk+kernel@armlinux.org.uk> wrote:
+> 
+> From: James Morse <james.morse@arm.com>
+> 
+> Today the ACPI enumeration code 'visits' all devices that are present.
+> 
+> This is a problem for arm64, where CPUs are always present, but not
+> always enabled. When a device-check occurs because the firmware-policy
+> has changed and a CPU is now enabled, the following error occurs:
+> | acpi ACPI0007:48: Enumeration failure
+> 
+> This is ultimately because acpi_dev_ready_for_enumeration() returns
+> true for a device that is not enabled. The ACPI Processor driver
+> will not register such CPUs as they are not 'decoding their resources'.
+> 
+> ACPI allows a device to be functional instead of maintaining the
+> present and enabled bit, but we can't simply check the enabled bit
+> for all devices since firmware can be buggy.
+> 
+> If ACPI indicates that the device is present and enabled, then all well
+> and good, we can enumate it. However, if the device is present and not
 
-Is that a bug in gcc or something expected for riscv in general?
+enumerate
 
-
->
-> data.level started from 'level + 3' due to the call flow of getting
-> caller's address in RISC-V implementation. If we don't have additional
-> three iteration, the level is corresponding to follows:
->
-> callsite -> return_address -> arch_stack_walk -> walk_stackframe
-> |           |                 |                  |
-> level 3     level 2           level 1            level 0
->
-> Signed-off-by: Zong Li <zong.li@sifive.com>
+> enabled, then we also check whether the device is a processor device
+> to limit the impact of this new check to just processor devices.
+> 
+> This avoids enumerating present && functional processor devices that
+> are not enabled.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Co-developed-by: Rafael J. Wysocki <rjw@rjwysocki.net>
+> Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > ---
->   arch/riscv/include/asm/ftrace.h    |  5 ++++
->   arch/riscv/kernel/Makefile         |  2 ++
->   arch/riscv/kernel/return_address.c | 48 ++++++++++++++++++++++++++++++
->   3 files changed, 55 insertions(+)
->   create mode 100644 arch/riscv/kernel/return_address.c
->
-> diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-> index 2b2f5df7ef2c..42777f91a9c5 100644
-> --- a/arch/riscv/include/asm/ftrace.h
-> +++ b/arch/riscv/include/asm/ftrace.h
-> @@ -25,6 +25,11 @@
->   
->   #define ARCH_SUPPORTS_FTRACE_OPS 1
->   #ifndef __ASSEMBLY__
+> Changes since RFC v2:
+> * Incorporate comment suggestion by Gavin Shan.
+> Changes since RFC v3:
+> * Fixed "sert" typo.
+> Changes since RFC v3 (smaller series):
+> * Restrict checking the enabled bit to processor devices, update
+>   commit comments.
+> * Use Rafael's suggestion in
+>   https://lore.kernel.org/r/5760569.DvuYhMxLoT@kreacher
+> * Updated with a fix - see:
+>   https://lore.kernel.org/all/Zbe8WQRASx6D6RaG@shell.armlinux.org.uk/
+> ---
+> drivers/acpi/acpi_processor.c | 11 +++++++++
+> drivers/acpi/device_pm.c      |  2 +-
+> drivers/acpi/device_sysfs.c   |  2 +-
+> drivers/acpi/internal.h       |  4 ++-
+> drivers/acpi/property.c       |  2 +-
+> drivers/acpi/scan.c           | 46 +++++++++++++++++++++++++++--------
+> 6 files changed, 53 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
+> index 4fe2ef54088c..cf7c1cca69dd 100644
+> --- a/drivers/acpi/acpi_processor.c
+> +++ b/drivers/acpi/acpi_processor.c
+> @@ -626,6 +626,17 @@ static struct acpi_scan_handler processor_handler = {
+> },
+> };
+> 
+> +bool acpi_device_is_processor(const struct acpi_device *adev)
+> +{
+> + if (adev->device_type == ACPI_BUS_TYPE_PROCESSOR)
+> + return true;
 > +
-> +extern void *return_address(unsigned int level);
+> + if (adev->device_type != ACPI_BUS_TYPE_DEVICE)
+> + return false;
 > +
-> +#define ftrace_return_address(n) return_address(n)
+> + return acpi_scan_check_handler(adev, &processor_handler);
+> +}
 > +
->   void MCOUNT_NAME(void);
->   static inline unsigned long ftrace_call_adjust(unsigned long addr)
->   {
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index fee22a3d1b53..40d054939ae2 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -7,6 +7,7 @@ ifdef CONFIG_FTRACE
->   CFLAGS_REMOVE_ftrace.o	= $(CC_FLAGS_FTRACE)
->   CFLAGS_REMOVE_patch.o	= $(CC_FLAGS_FTRACE)
->   CFLAGS_REMOVE_sbi.o	= $(CC_FLAGS_FTRACE)
-> +CFLAGS_REMOVE_return_address.o	= $(CC_FLAGS_FTRACE)
->   endif
->   CFLAGS_syscall_table.o	+= $(call cc-option,-Wno-override-init,)
->   CFLAGS_compat_syscall_table.o += $(call cc-option,-Wno-override-init,)
-> @@ -46,6 +47,7 @@ obj-y	+= irq.o
->   obj-y	+= process.o
->   obj-y	+= ptrace.o
->   obj-y	+= reset.o
-> +obj-y	+= return_address.o
->   obj-y	+= setup.o
->   obj-y	+= signal.o
->   obj-y	+= syscall_table.o
-> diff --git a/arch/riscv/kernel/return_address.c b/arch/riscv/kernel/return_address.c
-> new file mode 100644
-> index 000000000000..c2008d4aa6e5
-> --- /dev/null
-> +++ b/arch/riscv/kernel/return_address.c
-> @@ -0,0 +1,48 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * This code come from arch/arm64/kernel/return_address.c
+> static int acpi_processor_container_attach(struct acpi_device *dev,
+>   const struct acpi_device_id *id)
+> {
+> diff --git a/drivers/acpi/device_pm.c b/drivers/acpi/device_pm.c
+> index 3b4d048c4941..e3c80f3b3b57 100644
+> --- a/drivers/acpi/device_pm.c
+> +++ b/drivers/acpi/device_pm.c
+> @@ -313,7 +313,7 @@ int acpi_bus_init_power(struct acpi_device *device)
+> return -EINVAL;
+> 
+> device->power.state = ACPI_STATE_UNKNOWN;
+> - if (!acpi_device_is_present(device)) {
+> + if (!acpi_dev_ready_for_enumeration(device)) {
+> device->flags.initialized = false;
+> return -ENXIO;
+> }
+> diff --git a/drivers/acpi/device_sysfs.c b/drivers/acpi/device_sysfs.c
+> index 23373faa35ec..a0256d2493a7 100644
+> --- a/drivers/acpi/device_sysfs.c
+> +++ b/drivers/acpi/device_sysfs.c
+> @@ -141,7 +141,7 @@ static int create_pnp_modalias(const struct acpi_device *acpi_dev, char *modalia
+> struct acpi_hardware_id *id;
+> 
+> /* Avoid unnecessarily loading modules for non present devices. */
+> - if (!acpi_device_is_present(acpi_dev))
+> + if (!acpi_dev_ready_for_enumeration(acpi_dev))
+> return 0;
+> 
+> /*
+> diff --git a/drivers/acpi/internal.h b/drivers/acpi/internal.h
+> index 6588525c45ef..1bc8b6db60c5 100644
+> --- a/drivers/acpi/internal.h
+> +++ b/drivers/acpi/internal.h
+> @@ -62,6 +62,8 @@ void acpi_sysfs_add_hotplug_profile(struct acpi_hotplug_profile *hotplug,
+> int acpi_scan_add_handler_with_hotplug(struct acpi_scan_handler *handler,
+>       const char *hotplug_profile_name);
+> void acpi_scan_hotplug_enabled(struct acpi_hotplug_profile *hotplug, bool val);
+> +bool acpi_scan_check_handler(const struct acpi_device *adev,
+> +     struct acpi_scan_handler *handler);
+> 
+> #ifdef CONFIG_DEBUG_FS
+> extern struct dentry *acpi_debugfs_dir;
+> @@ -121,7 +123,6 @@ int acpi_device_setup_files(struct acpi_device *dev);
+> void acpi_device_remove_files(struct acpi_device *dev);
+> void acpi_device_add_finalize(struct acpi_device *device);
+> void acpi_free_pnp_ids(struct acpi_device_pnp *pnp);
+> -bool acpi_device_is_present(const struct acpi_device *adev);
+> bool acpi_device_is_battery(struct acpi_device *adev);
+> bool acpi_device_is_first_physical_node(struct acpi_device *adev,
+> const struct device *dev);
+> @@ -133,6 +134,7 @@ int acpi_bus_register_early_device(int type);
+> const struct acpi_device *acpi_companion_match(const struct device *dev);
+> int __acpi_device_uevent_modalias(const struct acpi_device *adev,
+>  struct kobj_uevent_env *env);
+> +bool acpi_device_is_processor(const struct acpi_device *adev);
+> 
+> /* --------------------------------------------------------------------------
+>                                   Power Resource
+> diff --git a/drivers/acpi/property.c b/drivers/acpi/property.c
+> index a6ead5204046..9f8d54038770 100644
+> --- a/drivers/acpi/property.c
+> +++ b/drivers/acpi/property.c
+> @@ -1486,7 +1486,7 @@ static bool acpi_fwnode_device_is_available(const struct fwnode_handle *fwnode)
+> if (!is_acpi_device_node(fwnode))
+> return false;
+> 
+> - return acpi_device_is_present(to_acpi_device_node(fwnode));
+> + return acpi_dev_ready_for_enumeration(to_acpi_device_node(fwnode));
+> }
+> 
+> static const void *
+> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+> index e6ed1ba91e5c..fd2e8b3a5749 100644
+> --- a/drivers/acpi/scan.c
+> +++ b/drivers/acpi/scan.c
+> @@ -304,7 +304,7 @@ static int acpi_scan_device_check(struct acpi_device *adev)
+> int error;
+> 
+> acpi_bus_get_status(adev);
+> - if (acpi_device_is_present(adev)) {
+> + if (acpi_dev_ready_for_enumeration(adev)) {
+> /*
+> * This function is only called for device objects for which
+> * matching scan handlers exist.  The only situation in which
+> @@ -338,7 +338,7 @@ static int acpi_scan_bus_check(struct acpi_device *adev, void *not_used)
+> int error;
+> 
+> acpi_bus_get_status(adev);
+> - if (!acpi_device_is_present(adev)) {
+> + if (!acpi_dev_ready_for_enumeration(adev)) {
+> acpi_scan_device_not_enumerated(adev);
+> return 0;
+> }
+> @@ -1917,11 +1917,6 @@ static bool acpi_device_should_be_hidden(acpi_handle handle)
+> return true;
+> }
+> 
+> -bool acpi_device_is_present(const struct acpi_device *adev)
+> -{
+> - return adev->status.present || adev->status.functional;
+> -}
+> -
+> static bool acpi_scan_handler_matching(struct acpi_scan_handler *handler,
+>       const char *idstr,
+>       const struct acpi_device_id **matchid)
+> @@ -1942,6 +1937,18 @@ static bool acpi_scan_handler_matching(struct acpi_scan_handler *handler,
+> return false;
+> }
+> 
+> +bool acpi_scan_check_handler(const struct acpi_device *adev,
+> +     struct acpi_scan_handler *handler)
+> +{
+> + struct acpi_hardware_id *hwid;
+> +
+> + list_for_each_entry(hwid, &adev->pnp.ids, list)
+> + if (acpi_scan_handler_matching(handler, hwid->id, NULL))
+> + return true;
+> +
+> + return false;
+> +}
+> +
+> static struct acpi_scan_handler *acpi_scan_match_handler(const char *idstr,
+> const struct acpi_device_id **matchid)
+> {
+> @@ -2405,16 +2412,35 @@ EXPORT_SYMBOL_GPL(acpi_dev_clear_dependencies);
+>  * acpi_dev_ready_for_enumeration - Check if the ACPI device is ready for enumeration
+>  * @device: Pointer to the &struct acpi_device to check
+>  *
+> - * Check if the device is present and has no unmet dependencies.
+> + * Check if the device is functional or enabled and has no unmet dependencies.
+>  *
+> - * Return true if the device is ready for enumeratino. Otherwise, return false.
+> + * Return true if the device is ready for enumeration. Otherwise, return false.
+>  */
+> bool acpi_dev_ready_for_enumeration(const struct acpi_device *device)
+> {
+> if (device->flags.honor_deps && device->dep_unmet)
+> return false;
+> 
+> - return acpi_device_is_present(device);
+> + /*
+> + * ACPI 6.5's 6.3.7 "_STA (Device Status)" allows firmware to return
+> + * (!present && functional) for certain types of devices that should be
+> + * enumerated. Note that the enabled bit should not be set unless the
+> + * present bit is set.
 > + *
-> + * Copyright (C) 2023 SiFive.
+> + * However, limit this only to processor devices to reduce possible
+> + * regressions with firmware.
 > + */
+> + if (!device->status.present)
+> + return device->status.functional;
 > +
-> +#include <linux/export.h>
-> +#include <linux/kprobes.h>
-> +#include <linux/stacktrace.h>
+> + /*
+> + * Fast path - if enabled is set, avoid the more expensive test to
+> + * check whether this device is a processor.
+> + */
+> + if (device->status.enabled)
+> + return true;
 > +
-> +struct return_address_data {
-> +	unsigned int level;
-> +	void *addr;
-> +};
-> +
-> +static bool save_return_addr(void *d, unsigned long pc)
-> +{
-> +	struct return_address_data *data = d;
-> +
-> +	if (!data->level) {
-> +		data->addr = (void *)pc;
-> +		return false;
-> +	}
-> +
-> +	--data->level;
-> +
-> +	return true;
-> +}
-> +NOKPROBE_SYMBOL(save_return_addr);
-> +
-> +void *return_address(unsigned int level)
+> + return !acpi_device_is_processor(device);
 
+Otherwise, feel free to add:
 
-Maybe return_address() should be noinline to make sure it's not inlined 
-as it would break the "+ 3"? Not sure it's necessary though.
+Reviewed-by: Miguel Luis <miguel.luis@oracle.com>
+Tested-by: Miguel Luis <miguel.luis@oracle.com>
 
+Thanks
 
-> +{
-> +	struct return_address_data data;
-> +
-> +	data.level = level + 3;
-> +	data.addr = NULL;
-> +
-> +	arch_stack_walk(save_return_addr, &data, current, NULL);
-> +
-> +	if (!data.level)
-> +		return data.addr;
-> +	else
-> +		return NULL;
-> +
-> +}
-> +EXPORT_SYMBOL_GPL(return_address);
-> +NOKPROBE_SYMBOL(return_address);
+Miguel
 
-
-And I see that with this patch, ftrace_return_address() is now defined 
-whether CONFIG_FRAME_POINTER is set or not, is that correct?
-
-This looks like a fix to me so that should go into -fixes with a Fixes 
-tag (but we'll have to make sure that the "+ 3" is correct on all 
-backports...):
-
-Fixes: 10626c32e382 ("riscv/ftrace: Add basic support")
-
-And you can finally add for your v2 (or not if you don't respin):
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks and sorry for the delay!
-
-Alex
+> }
+> EXPORT_SYMBOL_GPL(acpi_dev_ready_for_enumeration);
+> 
+> -- 
+> 2.30.2
+> 
+> 
 
 
 _______________________________________________
