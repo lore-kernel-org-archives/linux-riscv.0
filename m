@@ -4,92 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4A8C47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 16:01:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F49C47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 16:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z93FrsjsuXG6joZZPpdZgL0iPAYwI/jsSAD0lVzTdiM=; b=sZOsPV5KqhF/CE
-	exlSPVWhFUC9Cm1PFxjtqz4OVQAhyqXD9+dZwizJooCOPSRXu194eRMU3Z3uMCljczuH9J+GUobaV
-	RlwWskK3zPui0Eu7G6x+/Eb44cNMFBC4VUs2/8RDyTgqsEiqZIsSFCTGfkKiYD1wqK3oAjYn2Fx7R
-	eewMcmCA0RL+YIFnBKOPwtXqO0jTfyo+ugY7fBSaVHIrMHM3lShUzJcZgNC49cU9amxdysst2qPSP
-	TNyhK0Wc5j6rkCc4xfzZb7HDvOZc/XyuZIPvenY/GHo0tEOqqxiSI6K2o0kUZTNFpWNzy7Wjy7f2n
-	vrYChjzMXXRAXfvo739A==;
+	List-Owner; bh=NI7eMxeNtZSVYmVIpv2gn2tWfkujNGlA5YOg9/xOLqw=; b=akCd+tsD65Ey6B
+	0+yeKCXu6uBv6Fq4DbAHx/OyuZg8Qnyf1nqehK2M0YmU8aDnJKn3cr241mOnq34btgjefGUB9KdlS
+	SiQ38I7mj221tN/n4bzW+nnJcsfA9luOLBtpY6FoDysNtiJqcuCXQ15aSdLUcxouuhDw4WvCs+mSu
+	J8I+QpbdgArUskKA7UPdAgcHIEz6Dcq7dFYBZKXV76ZfjUxm6V3mzFKIDzPg+a888Lwogfn0BhtHr
+	OvlFXYjpz3aJ6tpTbQfas2z4DGb/TCRTiukkTHbEJ5+87+T32ZvOleDuiWLF2t7MY4JAUPNSCRDA/
+	3VJizUZ585g5+7eWGnxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVD1x-00000004Na5-1QYt;
-	Wed, 31 Jan 2024 16:01:41 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1rVD2v-00000004O4r-1yyY;
+	Wed, 31 Jan 2024 16:02:41 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVBus-0000000407j-0Nki
+	id 1rVD2t-00000004O3K-0us3
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jan 2024 14:50:19 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-33ae4205ad8so3013702f8f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 31 Jan 2024 06:50:15 -0800 (PST)
+	Wed, 31 Jan 2024 16:02:40 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a30e445602cso238115066b.0
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Jan 2024 08:02:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1706712614; x=1707317414; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706716957; x=1707321757; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EgAdMMq2AoWWNilPNigg7Nbpcu7FSjABsk32vurOK/A=;
-        b=lmKvyYSjvWjfdyRny3BQffnJZ/10tzQAEQdIpzbQiYN97reDKSGxTRPOYQQEkX8maf
-         nYTK4oPE8Hb8oeE/yYwaZ09s5b0FuswzJN724B/1/ze4HYtkOIdK//a1n/wWX+R7r4Pg
-         VXcwfRUlgV5RTR6I3ASSL6o+wiOqe8z8dJAmeOEkP551dIzaHlS3wPzrvJcxblOdS3Eg
-         6ilGmeu7d1yjcf+5rcbm5lzugXloSwghfcS6XPIKW6y4Ozmfvm8RY+8DtRpjC2owejfH
-         Lqdh/fNjUWnCU8pmGAuajFp6RU009N/Lrs7F6Ycju4SXkTXmf4ErwbRbD0+ZA6DIifC0
-         Qv2A==
+        bh=roEDJI/JlVTVXh0TwtWic11MC5sMgNCSBaun+agzxOw=;
+        b=Jgc8LPFiTWsuR49JbueLnCA1Ff2576ntwLQ2a7YDHLMv2oVvobBjibj15ycebUZtWa
+         sEMam7thgQwtu1F01kNRPxVgmjWajpnIMPeDT9QX6bR3xLy+HIlUc0Y+XHQrcjBZ43Lz
+         gu0VmRMQV5Krq2x9nn317wLZ8wnEJLYCogrB86dcoUzxYlTOqpJpKDSfBfiHJajDlxGG
+         BMfkm9SyJKU5WkiqwAnQhYcAcDvF4CQvSOHCqTTY+djbFtdbrpTwSoOIK7zLE8DKMVny
+         qHMb+8UZNhnjM9vP8oCO33kYlPmJ4vBAzEfye6q4CNwVKHT7PDMiUWw7F/KmKmxO4+au
+         ESrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706712614; x=1707317414;
+        d=1e100.net; s=20230601; t=1706716957; x=1707321757;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EgAdMMq2AoWWNilPNigg7Nbpcu7FSjABsk32vurOK/A=;
-        b=e9wFz3QC8xOxY7+Kpb0jztHK5wukdossyLwDNneXxKz+QGrllQEEiAfg1cY3Kh/zZz
-         jFk9eJFqjZShDKnL7mM4HuJy7KR21oU9+BsoTAyHxO+ZiC5yeWxiIVLvgxfDbMc3t4pG
-         0GupV4dAT79yPQkfXr5A+nJpDwNym4wIzOhrb5j2u0bRqjyqrCdzTG5GXaZUdtQePAvB
-         A7rUoJRPdEQCCXmzXqxjtexK9opv4A18wD+aAqyQ8pLoEe8KbFs+3egJ892ADfwvTCJT
-         2ZiSUu695fyq8S3gXTJfMqkQPSZeT7/TuhCECOeVtwm+pKuJOmgRfNLWJre6hwPC2a3H
-         KITg==
-X-Gm-Message-State: AOJu0YyeyxzpRe3duTnjaPQludZkJG/MMZI3N/xcc+67tCok3Gvnmrws
-	Gs9i0OiZ1PtX6eXpdLr/npJm3sAGgOjTgS+ulLyQnwvo0q4gG+sJ
-X-Google-Smtp-Source: AGHT+IFRT6v8rC9ruh3UI6dztiV62kHw03zIYHJ0VpYeoWNXLg2hPPytoIqnwPVCg0HA7hvUfEmVsg==
-X-Received: by 2002:a5d:64ce:0:b0:33a:e834:5545 with SMTP id f14-20020a5d64ce000000b0033ae8345545mr1675049wri.16.1706712614271;
-        Wed, 31 Jan 2024 06:50:14 -0800 (PST)
-Received: from andrea.wind3.hub ([31.189.8.91])
-        by smtp.gmail.com with ESMTPSA id w6-20020a5d4046000000b0033b0d049c71sm419265wrp.54.2024.01.31.06.50.12
+        bh=roEDJI/JlVTVXh0TwtWic11MC5sMgNCSBaun+agzxOw=;
+        b=GR46JE0dvdlSfato9OcQXl8HCWjgW1C6fizPKPRd+gBnTbUlGHo9E9+m9NHD1Zkcm/
+         ytpNaK3JBc8pSH+MPbZoxx8Ajp5AtChf7JOAq0RmwKcWdBeT/Zb3SOMp4FaxhTTO1qxL
+         3m76D+frklPuvDT5tHyCq5JhlZtRKjhhlHP8/E+3f0nVjZiZ9mq+aSZW/TTjNQ0nk78r
+         mnCpfk/h9laJF0ta5QpW18EeQnIq2dlml2ygFzgL/nerlCmtQN/cApSdonMQYRJfiBdB
+         v4KLwfpHV2kTEpkCFkb8i7bxq+OzW0Br2OQZTvOA0sG9p9WgmqztPlGuyGlL2asB+HZQ
+         ODTQ==
+X-Gm-Message-State: AOJu0YzjunkV4F69rH6UDa/BgIIQ7v6oELAmxQw2ym23xoncCeBsrhKa
+	3clXaiWUeKSklqzOCWbGeE3gSSoJL+fDvYGF4r8hpJTV6reDV/4P37gI+h2DgDI=
+X-Google-Smtp-Source: AGHT+IGv2jgdsIvvr3em1Asod7wMzF0cwySX89l1VDTNJRgzTu/LSzdp9sUvQ6blXvUGsP80SoaKkg==
+X-Received: by 2002:a17:907:a642:b0:a33:8fed:b9d5 with SMTP id vu2-20020a170907a64200b00a338fedb9d5mr4201411ejc.3.1706716957070;
+        Wed, 31 Jan 2024 08:02:37 -0800 (PST)
+X-Forwarded-Encrypted: i=0; AJvYcCXfm71N3T9h/F/CiQJuplDKsyuZZyOxCnpmTyjV18wHTQsMSdQnNkDDdJ4IMI8MOZMMdnUoibCHWjlKo3QMlFwAcKN2+h/dhl9NOsGzXN1JsWeY0jSAXt6kygdx5jmO3bK8iZoFHuM2PCTSYsG7ZfsOCsijcVgRagvcQVE7W3iHU8yMR10JnIGM7RSSzqhflRVpTacDW+JT62844/5FGpifmIx9ZrJrM32TGTe40Mjtw8mBvhFaS6bJSQuAKlFrcU4DEPoIWsMIUm9fjVLrTF8RvqX/J91AqrinE9UD4tO4ISOhc5MQDo4RKGEVsopkso7aPjriJ0cD9+Fss4m7V8IDYYZMnwGS9GvlGIDV9Lpae7a5DoYsVx56yheDZ7eUUC3WsLxo3l24ZoumYteEnZZiZMbL+5fvvxzGV7neS1WG53zX6tmFIdvnLEkuWqR6qDg47MOvifLiRGbtfsAarzJgey4UMkS9f6zlL5NDt6UJmERiwr0V+mC8T+2+z3IXDIyygRYyz24aCKxBXWJVx+XxUH3fJWDXb0YlsqC+SlGK4xdQccCUJyTO8t+9ksDUDrwdR5XNwyKgcWRZY7NyfNHedMNeXUVCCVKsxJI5vH9PqtlKzjTXdPyWbekeU+53OewZjRnfybXkDRYbEg==
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id vh8-20020a170907d38800b00a3040040011sm180335ejc.45.2024.01.31.08.02.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Jan 2024 06:50:13 -0800 (PST)
-From: Andrea Parri <parri.andrea@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	mathieu.desnoyers@efficios.com,
-	paulmck@kernel.org,
-	corbet@lwn.net
-Cc: mmaas@google.com,
-	hboehm@google.com,
-	striker@us.ibm.com,
-	charlie@rivosinc.com,
-	rehn@rivosinc.com,
-	rdunlap@infradead.org,
-	sorear@fastmail.com,
-	linux-riscv@lists.infradead.org,
-	linux-doc@vger.kernel.org,
+        Wed, 31 Jan 2024 08:02:36 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Ved Shanbhogue <ved@rivosinc.com>,
+	Matt Evans <mev@rivosinc.com>,
+	Dylan Jhong <dylan@andestech.com>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Andrea Parri <parri.andrea@gmail.com>
-Subject: [PATCH v4 3/4] locking: Introduce prepare_sync_core_cmd()
-Date: Wed, 31 Jan 2024 15:49:35 +0100
-Message-Id: <20240131144936.29190-4-parri.andrea@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240131144936.29190-1-parri.andrea@gmail.com>
-References: <20240131144936.29190-1-parri.andrea@gmail.com>
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-mm@kvack.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH RFC/RFT v2 3/4] riscv: Stop emitting preventive sfence.vma for new vmalloc mappings
+Date: Wed, 31 Jan 2024 16:59:28 +0100
+Message-Id: <20240131155929.169961-4-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240131155929.169961-1-alexghiti@rivosinc.com>
+References: <20240131155929.169961-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_065018_250458_3E06B714 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20240131_080239_294737_D0A07507 
+X-CRM114-Status: GOOD (  23.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,77 +110,227 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce an architecture function that architectures can use to set
-up ("prepare") SYNC_CORE commands.
+In 6.5, we removed the vmalloc fault path because that can't work (see
+[1] [2]). Then in order to make sure that new page table entries were
+seen by the page table walker, we had to preventively emit a sfence.vma
+on all harts [3] but this solution is very costly since it relies on IPI.
 
-The function will be used by RISC-V to update its "deferred icache-
-flush" data structures (icache_stale_mask).
+And even there, we could end up in a loop of vmalloc faults if a vmalloc
+allocation is done in the IPI path (for example if it is traced, see
+[4]), which could result in a kernel stack overflow.
 
-Architectures defining prepare_sync_core_cmd() static inline need to
-select ARCH_HAS_PREPARE_SYNC_CORE_CMD.
+Those preventive sfence.vma needed to be emitted because:
 
-Suggested-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+- if the uarch caches invalid entries, the new mapping may not be
+  observed by the page table walker and an invalidation may be needed.
+- if the uarch does not cache invalid entries, a reordered access
+  could "miss" the new mapping and traps: in that case, we would actually
+  only need to retry the access, no sfence.vma is required.
+
+So this patch removes those preventive sfence.vma and actually handles
+the possible (and unlikely) exceptions. And since the kernel stacks
+mappings lie in the vmalloc area, this handling must be done very early
+when the trap is taken, at the very beginning of handle_exception: this
+also rules out the vmalloc allocations in the fault path.
+
+Link: https://lore.kernel.org/linux-riscv/20230531093817.665799-1-bjorn@kernel.org/ [1]
+Link: https://lore.kernel.org/linux-riscv/20230801090927.2018653-1-dylan@andestech.com [2]
+Link: https://lore.kernel.org/linux-riscv/20230725132246.817726-1-alexghiti@rivosinc.com/ [3]
+Link: https://lore.kernel.org/lkml/20200508144043.13893-1-joro@8bytes.org/ [4]
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- include/linux/sync_core.h | 16 +++++++++++++++-
- init/Kconfig              |  3 +++
- kernel/sched/membarrier.c |  1 +
- 3 files changed, 19 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/cacheflush.h  | 18 +++++-
+ arch/riscv/include/asm/thread_info.h |  5 ++
+ arch/riscv/kernel/asm-offsets.c      |  5 ++
+ arch/riscv/kernel/entry.S            | 84 ++++++++++++++++++++++++++++
+ arch/riscv/mm/init.c                 |  2 +
+ 5 files changed, 113 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/sync_core.h b/include/linux/sync_core.h
-index 013da4b8b3272..67bb9794b8758 100644
---- a/include/linux/sync_core.h
-+++ b/include/linux/sync_core.h
-@@ -17,5 +17,19 @@ static inline void sync_core_before_usermode(void)
- }
+diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+index a129dac4521d..b0d631701757 100644
+--- a/arch/riscv/include/asm/cacheflush.h
++++ b/arch/riscv/include/asm/cacheflush.h
+@@ -37,7 +37,23 @@ static inline void flush_dcache_page(struct page *page)
+ 	flush_icache_mm(vma->vm_mm, 0)
+ 
+ #ifdef CONFIG_64BIT
+-#define flush_cache_vmap(start, end)		flush_tlb_kernel_range(start, end)
++extern u64 new_vmalloc[NR_CPUS / sizeof(u64) + 1];
++extern char _end[];
++#define flush_cache_vmap flush_cache_vmap
++static inline void flush_cache_vmap(unsigned long start, unsigned long end)
++{
++	if (is_vmalloc_or_module_addr((void *)start)) {
++		int i;
++
++		/*
++		 * We don't care if concurrently a cpu resets this value since
++		 * the only place this can happen is in handle_exception() where
++		 * an sfence.vma is emitted.
++		 */
++		for (i = 0; i < ARRAY_SIZE(new_vmalloc); ++i)
++			new_vmalloc[i] = -1ULL;
++	}
++}
+ #define flush_cache_vmap_early(start, end)	local_flush_tlb_kernel_range(start, end)
  #endif
  
--#endif /* _LINUX_SYNC_CORE_H */
-+#ifdef CONFIG_ARCH_HAS_PREPARE_SYNC_CORE_CMD
-+#include <asm/sync_core.h>
-+#else
-+/*
-+ * This is a dummy prepare_sync_core_cmd() implementation that can be used on
-+ * all architectures which provide unconditional core serializing instructions
-+ * in switch_mm().
-+ * If your architecture doesn't provide such core serializing instructions in
-+ * switch_mm(), you may need to write your own functions.
-+ */
-+static inline void prepare_sync_core_cmd(struct mm_struct *mm)
-+{
-+}
-+#endif
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index 5d473343634b..32631acdcdd4 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -60,6 +60,11 @@ struct thread_info {
+ 	void			*scs_base;
+ 	void			*scs_sp;
+ #endif
++	/*
++	 * Used in handle_exception() to save a0, a1 and a2 before knowing if we
++	 * can access the kernel stack.
++	 */
++	unsigned long		a0, a1, a2;
+ };
  
-+#endif /* _LINUX_SYNC_CORE_H */
-diff --git a/init/Kconfig b/init/Kconfig
-index 8d4e836e1b6b1..e2bad47922642 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -1982,6 +1982,9 @@ source "kernel/Kconfig.locks"
- config ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	bool
- 
-+config ARCH_HAS_PREPARE_SYNC_CORE_CMD
-+	bool
+ #ifdef CONFIG_SHADOW_CALL_STACK
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index a03129f40c46..939ddc0e3c6e 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -35,6 +35,8 @@ void asm_offsets(void)
+ 	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
+ 	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
+ 	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
 +
- config ARCH_HAS_SYNC_CORE_BEFORE_USERMODE
- 	bool
++	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
+ 	OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
+ 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+ 	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+@@ -42,6 +44,9 @@ void asm_offsets(void)
+ #ifdef CONFIG_SHADOW_CALL_STACK
+ 	OFFSET(TASK_TI_SCS_SP, task_struct, thread_info.scs_sp);
+ #endif
++	OFFSET(TASK_TI_A0, task_struct, thread_info.a0);
++	OFFSET(TASK_TI_A1, task_struct, thread_info.a1);
++	OFFSET(TASK_TI_A2, task_struct, thread_info.a2);
  
-diff --git a/kernel/sched/membarrier.c b/kernel/sched/membarrier.c
-index f3d91628d6b8a..6d1f31b3a967b 100644
---- a/kernel/sched/membarrier.c
-+++ b/kernel/sched/membarrier.c
-@@ -320,6 +320,7 @@ static int membarrier_private_expedited(int flags, int cpu_id)
- 		      MEMBARRIER_STATE_PRIVATE_EXPEDITED_SYNC_CORE_READY))
- 			return -EPERM;
- 		ipi_func = ipi_sync_core;
-+		prepare_sync_core_cmd(mm);
- 	} else if (flags == MEMBARRIER_FLAG_RSEQ) {
- 		if (!IS_ENABLED(CONFIG_RSEQ))
- 			return -EINVAL;
+ 	OFFSET(TASK_TI_CPU_NUM, task_struct, thread_info.cpu);
+ 	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 9d1a305d5508..c1ffaeaba7aa 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -19,6 +19,78 @@
+ 
+ 	.section .irqentry.text, "ax"
+ 
++.macro new_vmalloc_check
++	REG_S 	a0, TASK_TI_A0(tp)
++	REG_S 	a1, TASK_TI_A1(tp)
++	REG_S	a2, TASK_TI_A2(tp)
++
++	csrr 	a0, CSR_CAUSE
++	/* Exclude IRQs */
++	blt  	a0, zero, _new_vmalloc_restore_context
++	/* Only check new_vmalloc if we are in page/protection fault */
++	li   	a1, EXC_LOAD_PAGE_FAULT
++	beq  	a0, a1, _new_vmalloc_kernel_address
++	li   	a1, EXC_STORE_PAGE_FAULT
++	beq  	a0, a1, _new_vmalloc_kernel_address
++	li   	a1, EXC_INST_PAGE_FAULT
++	bne  	a0, a1, _new_vmalloc_restore_context
++
++_new_vmalloc_kernel_address:
++	/* Is it a kernel address? */
++	csrr 	a0, CSR_TVAL
++	bge 	a0, zero, _new_vmalloc_restore_context
++
++	/* Check if a new vmalloc mapping appeared that could explain the trap */
++
++	/*
++	 * Computes:
++	 * a0 = &new_vmalloc[BIT_WORD(cpu)]
++	 * a1 = BIT_MASK(cpu)
++	 */
++	REG_L 	a2, TASK_TI_CPU(tp)
++	/*
++	 * Compute the new_vmalloc element position:
++	 * (cpu / 64) * 8 = (cpu >> 6) << 3
++	 */
++	srli	a1, a2, 6
++	slli	a1, a1, 3
++	la	a0, new_vmalloc
++	add	a0, a0, a1
++	/*
++	 * Compute the bit position in the new_vmalloc element:
++	 * bit_pos = cpu % 64 = cpu - (cpu / 64) * 64 = cpu - (cpu >> 6) << 6
++	 * 	   = cpu - ((cpu >> 6) << 3) << 3
++	 */
++	slli	a1, a1, 3
++	sub	a1, a2, a1
++	/* Compute the "get mask": 1 << bit_pos */
++	li	a2, 1
++	sll	a1, a2, a1
++
++	/* Check the value of new_vmalloc for this cpu */
++	REG_L	a2, 0(a0)
++	and	a2, a2, a1
++	beq	a2, zero, _new_vmalloc_restore_context
++
++	/* Atomically reset the current cpu bit in new_vmalloc */
++	amoxor.w	a0, a1, (a0)
++
++	/* Only emit a sfence.vma if the uarch caches invalid entries */
++	ALTERNATIVE("sfence.vma", "nop", 0, RISCV_ISA_EXT_SVVPTC, 1)
++
++	REG_L	a0, TASK_TI_A0(tp)
++	REG_L	a1, TASK_TI_A1(tp)
++	REG_L	a2, TASK_TI_A2(tp)
++	csrw	CSR_SCRATCH, x0
++	sret
++
++_new_vmalloc_restore_context:
++	REG_L	a0, TASK_TI_A0(tp)
++	REG_L 	a1, TASK_TI_A1(tp)
++	REG_L 	a2, TASK_TI_A2(tp)
++.endm
++
++
+ SYM_CODE_START(handle_exception)
+ 	/*
+ 	 * If coming from userspace, preserve the user thread pointer and load
+@@ -30,6 +102,18 @@ SYM_CODE_START(handle_exception)
+ 
+ .Lrestore_kernel_tpsp:
+ 	csrr tp, CSR_SCRATCH
++
++	/*
++	 * The RISC-V kernel does not eagerly emit a sfence.vma after each
++	 * new vmalloc mapping, which may result in exceptions:
++	 * - if the uarch caches invalid entries, the new mapping would not be
++	 *   observed by the page table walker and an invalidation is needed.
++	 * - if the uarch does not cache invalid entries, a reordered access
++	 *   could "miss" the new mapping and traps: in that case, we only need
++	 *   to retry the access, no sfence.vma is required.
++	 */
++	new_vmalloc_check
++
+ 	REG_S sp, TASK_TI_KERNEL_SP(tp)
+ 
+ #ifdef CONFIG_VMAP_STACK
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index eafc4c2200f2..54c9fdeda11e 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -36,6 +36,8 @@
+ 
+ #include "../kernel/head.h"
+ 
++u64 new_vmalloc[NR_CPUS / sizeof(u64) + 1];
++
+ struct kernel_mapping kernel_map __ro_after_init;
+ EXPORT_SYMBOL(kernel_map);
+ #ifdef CONFIG_XIP_KERNEL
 -- 
-2.34.1
+2.39.2
 
 
 _______________________________________________
