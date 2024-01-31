@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E690BC47DB3
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 11:07:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE94C47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 11:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Npes9w2tROUOAGDe/l9AVokHFHlOEAyt6gXMjlHpgOk=; b=qqZpSv36Nb93HE
-	zPoc7ZWkRZQkJb1qPLptERO0i+dtlrxI2hXrAWxS4ElJe7VZYby3Agm+wnJyYCcINXv83NlR+897U
-	HsK9FH+ffQzyfMI21j2RP+iPKKJqNGkGFbCJwbknkdfESfvRF/Wcm+1R1vM4tTF1B0IMSgHukphl5
-	jvjF+QIbJAlYMwCNmZWbMXjCx1cJh2PNp+z7zjl82uW4xysYMmimGKafq9HrW5dhVx/1EXck5+y36
-	DWEobdSNRvPZ5YMySYOsbSe9WtmG6liMVD3swKQSsuhW1LNTo09nOnwVEYdIamfpj6BTomGvKXec5
-	j4Dvz2YknGBDh7kQiIRw==;
+	List-Owner; bh=fvsWsXik2mbesUlYHIyKI1NdlOpwtyw1UeYUYXy0KDY=; b=4tShlIkNp11fE3
+	uSjmKq/whP23rlBCQE1ibGf1r2p7417oaBEc4lphyfZXUnnL2nigMh6zNkrnVwn2aN5N8yI2xMmsH
+	uOT/D+At9LmoPGZaU4XX0bN8mnJjE56ZG9zVcHBjvdoLcCLPyGXk6ohKXrs2Mqe77Pdbz2tFC/F8S
+	15tYw7+JdWMjzHYca3keaR6p+y5MwUW6KI0dPmMOpteDylgQlgD7CxsbK387/oMEbwixd4dMI4dD9
+	RhFuUYHGenRDG6PXPB+ocMm068IbhkXHkPH1ZUcIVJEyJGkERoAJHThtcJEknP029ZZEpR0jB6vFu
+	JMK2is/4F/hgNJ4quaZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rV8Qu-00000002yzV-06Yo;
-	Wed, 31 Jan 2024 11:07:08 +0000
+	id 1rV8lO-000000035gD-3Uvy;
+	Wed, 31 Jan 2024 11:28:18 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rV8Qr-00000002yyc-1KHv
+	id 1rV8lL-000000035dj-0gHZ
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jan 2024 11:07:06 +0000
+	Wed, 31 Jan 2024 11:28:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1706699224;
+	s=mimecast20190719; t=1706700493;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=EPrRA4G16rNph0HwrpyFZd0WmfVM9XjFuWwPmxCMxPs=;
-	b=CtC/33LCoqJBJwl7TsH4fmL12fP25ZzjySKiXds81roVhXV8dXQCqJkUyg2hwYs5cm24Jt
-	3HUN3npN61lVsPIdV/ACwP+fy2AL9otjEpmMovVg3r3sPuJ9+oyhgU+9QbBio6igXhmV/G
-	OlzyrWmpch7cFIDZPPEI41nFgc3kslg=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=QEgFZrM0WK1zcolOs9UzEgOHw8WztsvnyJnbA5iRSvg=;
+	b=dF0NAhvCUXGkmwWm1h5mQ3EpyhN+Fb/JAlCReX65LDCeidOOCm12UuL8TZ7SdhPY49hbOx
+	i+4xMbnZEUFoHdDMM67hWvCDC4DyAngfQpnEs6Qw+Az0jTEjdYIhEi+lxVa/sZ4a0kt3Di
+	M2xDZI0ZE++tGUfM2bzlbMoft9A/DIo=
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-619-2gFAozWOM0CoDgp7UF8NcA-1; Wed, 31 Jan 2024 06:07:02 -0500
-X-MC-Unique: 2gFAozWOM0CoDgp7UF8NcA-1
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-33afc40d5b3so705425f8f.1
-        for <linux-riscv@lists.infradead.org>; Wed, 31 Jan 2024 03:07:02 -0800 (PST)
+ us-mta-361-83reVY_kN8qM3Bdlg00PGg-1; Wed, 31 Jan 2024 06:28:12 -0500
+X-MC-Unique: 83reVY_kN8qM3Bdlg00PGg-1
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-68c4e69e121so67809756d6.2
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Jan 2024 03:28:12 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706699221; x=1707304021;
+        d=1e100.net; s=20230601; t=1706700492; x=1707305292;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt:from
          :references:cc:to:content-language:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EPrRA4G16rNph0HwrpyFZd0WmfVM9XjFuWwPmxCMxPs=;
-        b=PCZXFr7jjLwgWOB1519n4+Uy5x2XiaUuYi8rZahL4T73355uHLTkz5uBzmfd/u6IYr
-         Sp1RNP970r65nDHkXAQ5CT1IcUMwRs/6Mhw2gsSBpDnVA4AAup/UrlXyrsHQxstzbTBW
-         HRhC7jjcA+BpgQFpa7tus7qnl0a3xeOEbyDdb2ZHXH4KBJgvULSmlzhBjsQWYkxyH+Ab
-         Efqt8CukX+YLnR6qdQGqd6kr0i3xidBiQvcKVsbdpgJezv8sQLBDc3gyUv6ClGZzlKnR
-         WOYQxlfFGsyIlJVDInULdnorc7nhaSJ0kEaDbx5Krl5bBm220KxCdicNqa4tB9MX/SIL
-         l09Q==
-X-Gm-Message-State: AOJu0YwFyfzVwGowKzC1qj900PJaj6Z2Re/Iis4ZOjLHCI1tvfw700lk
-	yjzkJeaVjjq6lpj22wsF40wV5Img6kORTE1+F3pL6RcisEMTr6003+nQLRJEO6ckWluWqYJJjyQ
-	lPQaapRjI6pBzO882UbZgtQD0TAtVUagQjx+25zW56bVRLQCXXDoXDBiJM5NTgVCsCg==
-X-Received: by 2002:adf:cd0b:0:b0:336:6377:6e3d with SMTP id w11-20020adfcd0b000000b0033663776e3dmr731894wrm.66.1706699221622;
-        Wed, 31 Jan 2024 03:07:01 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFA/lbkXBUTF2Q1hwLU6vcNIzd8zfJwdZPFVoQqQvBcWoL3J9lF0IZkIJXh4wwNAzmG9wj1/Q==
-X-Received: by 2002:adf:cd0b:0:b0:336:6377:6e3d with SMTP id w11-20020adfcd0b000000b0033663776e3dmr731857wrm.66.1706699221183;
-        Wed, 31 Jan 2024 03:07:01 -0800 (PST)
+        bh=QEgFZrM0WK1zcolOs9UzEgOHw8WztsvnyJnbA5iRSvg=;
+        b=UkI459agVzitIpEe+EExI8NpkOFb6nVwNeBQgwu6N+ZsJU7yNaMa+mx8Fe+QL/4iNt
+         QvI9ivwhTuKGYg6f7ccOex/KAUDGaLc+bHbYbozbipGwsPQsoKx7VKMlyZfCe35z1As3
+         YqJpGEFH0jY8PzfLCuFKZDbxQVTURJbvUFAEZXcfsdYyDRnhnBl7qovAYQzbn22BSvKF
+         8SzvClEPoAtKkUX982gQL6ANS0gvloNnGGaEoXIREATxyd6TTbDCTkKUOsgnwbhIlVls
+         4FlQlUJTc7BzRT13EVulMmhjgQAKMsYyJ9r4oVKGjxTPQUGU4VOAD0XnQmihwYvPccP+
+         moXg==
+X-Gm-Message-State: AOJu0YzFOcoX2+Iz2OK/l7c/GXNHCTDOHRVkp5OzHjd6vZAjibaVPRup
+	kd7tOG2cbIjb8Nt3D3skucTXr0b6bDu12IyId5PzCGoQoH6LQhjdCrJUOdEBW4Gp2TC/+Ja6lc9
+	2JJJBuTeJhyEZaoFew8d/1NqboYcLNzKr8PL1ccKdMiSZp/q1ypWLactIt0zxs5itJw==
+X-Received: by 2002:ad4:596f:0:b0:68c:5cd3:7657 with SMTP id eq15-20020ad4596f000000b0068c5cd37657mr1161407qvb.50.1706700491809;
+        Wed, 31 Jan 2024 03:28:11 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFnMRI1kY3UTBQ/tm4+uOS8wrOMJMpp0UBTiS3ZHTfv2MyVvtZoSJ5dluKxqhKuk0iXvDsuZw==
+X-Received: by 2002:ad4:596f:0:b0:68c:5cd3:7657 with SMTP id eq15-20020ad4596f000000b0068c5cd37657mr1161383qvb.50.1706700491415;
+        Wed, 31 Jan 2024 03:28:11 -0800 (PST)
 Received: from [10.32.64.237] (nat-pool-muc-t.redhat.com. [149.14.88.26])
-        by smtp.gmail.com with ESMTPSA id fo4-20020a056000290400b0033af3294417sm6643931wrb.21.2024.01.31.03.06.59
+        by smtp.gmail.com with ESMTPSA id dz11-20020ad4588b000000b0068c493426edsm3433632qvb.104.2024.01.31.03.28.07
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 31 Jan 2024 03:07:00 -0800 (PST)
-Message-ID: <a1a0e9b3-dae2-418f-bd63-50e65f471728@redhat.com>
-Date: Wed, 31 Jan 2024 12:06:59 +0100
+        Wed, 31 Jan 2024 03:28:11 -0800 (PST)
+Message-ID: <e6eaba5b-f290-4d1f-990b-a47d89f56ee4@redhat.com>
+Date: Wed, 31 Jan 2024 12:28:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 00/15] mm/memory: optimize fork() with PTE-mapped THP
@@ -95,6 +95,8 @@ Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
  linux-s390@vger.kernel.org, sparclinux@vger.kernel.org
 References: <20240129124649.189745-1-david@redhat.com>
  <a335a9d2-9b8f-4eb8-ba22-23a223b59b06@arm.com>
+ <a1a0e9b3-dae2-418f-bd63-50e65f471728@redhat.com>
+ <57eb82c7-4816-42a2-b5ab-cc221e289b21@arm.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -141,13 +143,13 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <a335a9d2-9b8f-4eb8-ba22-23a223b59b06@arm.com>
+In-Reply-To: <57eb82c7-4816-42a2-b5ab-cc221e289b21@arm.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_030705_473423_A0FF7DE4 
-X-CRM114-Status: GOOD (  25.97  )
+X-CRM114-CacheID: sfid-20240131_032815_308636_8463B22C 
+X-CRM114-Status: GOOD (  20.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,109 +161,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 31.01.24 11:43, Ryan Roberts wrote:
-> On 29/01/2024 12:46, David Hildenbrand wrote:
->> Now that the rmap overhaul[1] is upstream that provides a clean interface
->> for rmap batching, let's implement PTE batching during fork when processing
->> PTE-mapped THPs.
->>
->> This series is partially based on Ryan's previous work[2] to implement
->> cont-pte support on arm64, but its a complete rewrite based on [1] to
->> optimize all architectures independent of any such PTE bits, and to
->> use the new rmap batching functions that simplify the code and prepare
->> for further rmap accounting changes.
->>
->> We collect consecutive PTEs that map consecutive pages of the same large
->> folio, making sure that the other PTE bits are compatible, and (a) adjust
->> the refcount only once per batch, (b) call rmap handling functions only
->> once per batch and (c) perform batch PTE setting/updates.
->>
->> While this series should be beneficial for adding cont-pte support on
->> ARM64[2], it's one of the requirements for maintaining a total mapcount[3]
->> for large folios with minimal added overhead and further changes[4] that
->> build up on top of the total mapcount.
->>
->> Independent of all that, this series results in a speedup during fork with
->> PTE-mapped THP, which is the default with THPs that are smaller than a PMD
->> (for example, 16KiB to 1024KiB mTHPs for anonymous memory[5]).
->>
->> On an Intel Xeon Silver 4210R CPU, fork'ing with 1GiB of PTE-mapped folios
->> of the same size (stddev < 1%) results in the following runtimes
->> for fork() (shorter is better):
->>
->> Folio Size | v6.8-rc1 |      New | Change
->> ------------------------------------------
->>        4KiB | 0.014328 | 0.014035 |   - 2%
->>       16KiB | 0.014263 | 0.01196  |   -16%
->>       32KiB | 0.014334 | 0.01094  |   -24%
->>       64KiB | 0.014046 | 0.010444 |   -26%
->>      128KiB | 0.014011 | 0.010063 |   -28%
->>      256KiB | 0.013993 | 0.009938 |   -29%
->>      512KiB | 0.013983 | 0.00985  |   -30%
->>     1024KiB | 0.013986 | 0.00982  |   -30%
->>     2048KiB | 0.014305 | 0.010076 |   -30%
-> 
-> Just a heads up that I'm seeing some strange results on Apple M2. Fork for
-> order-0 is seemingly costing ~17% more. I'm using GCC 13.2 and was pretty sure I
-> didn't see this problem with version 1; although that was on a different
-> baseline and I've thrown the numbers away so will rerun and try to debug this.
-> 
-
-So far, on my x86 tests (Intel, AMD EPYC), I was not able to observe 
-this. fork() for order-0 was consistently effectively unchanged. Do you 
-observe that on other ARM systems as well?
-
-
-> | kernel      |   mean_rel |   std_rel |
-> |:------------|-----------:|----------:|
-> | mm-unstable |       0.0% |      1.1% |
-> | patch 1     |      -2.3% |      1.3% |
-> | patch 10    |      -2.9% |      2.7% |
-> | patch 11    |      13.5% |      0.5% |
-> | patch 12    |      15.2% |      1.2% |
-> | patch 13    |      18.2% |      0.7% |
-> | patch 14    |      20.5% |      1.0% |
-> | patch 15    |      17.1% |      1.6% |
-> | patch 15    |      16.7% |      0.8% |
-> 
-> fork for order-9 is looking good (-20%), and for the zap series, munmap is
-> looking good, but dontneed is looking poor for both order-0 and 9. But one thing
-> at a time... let's concentrate on fork order-0 first.
-
-munmap and dontneed end up calling the exact same call paths. So a big 
-performance difference is rather surprising and might indicate something 
-else.
-
-(I think I told you that I was running in some kind of VMA merging 
-problem where one would suddenly get with my benchmark 1 VMA per page. 
-The new benchmark below works around that, but I am not sure if that was 
-fixed in the meantime)
-
-VMA merging can of course explain a big difference in fork and munmap 
-vs. dontneed times, especially when comparing different code base where 
-that VMA merging behavior was different.
-
-> 
-> Note that I'm still using the "old" benchmark code. Could you resend me the link
-> to the new code? Although I don't think there should be any effect for order-0
-> anyway, if I understood your changes correctly?
-
-This is the combined one (small and large PTEs):
-
-https://gitlab.com/davidhildenbrand/scratchspace/-/raw/main/pte-mapped-folio-benchmarks.c?inline=false
-
--- 
-Cheers,
-
-David / dhildenb
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMzEuMDEuMjQgMTI6MTYsIFJ5YW4gUm9iZXJ0cyB3cm90ZToKPiBPbiAzMS8wMS8yMDI0IDEx
+OjA2LCBEYXZpZCBIaWxkZW5icmFuZCB3cm90ZToKPj4gT24gMzEuMDEuMjQgMTE6NDMsIFJ5YW4g
+Um9iZXJ0cyB3cm90ZToKPj4+IE9uIDI5LzAxLzIwMjQgMTI6NDYsIERhdmlkIEhpbGRlbmJyYW5k
+IHdyb3RlOgo+Pj4+IE5vdyB0aGF0IHRoZSBybWFwIG92ZXJoYXVsWzFdIGlzIHVwc3RyZWFtIHRo
+YXQgcHJvdmlkZXMgYSBjbGVhbiBpbnRlcmZhY2UKPj4+PiBmb3Igcm1hcCBiYXRjaGluZywgbGV0
+J3MgaW1wbGVtZW50IFBURSBiYXRjaGluZyBkdXJpbmcgZm9yayB3aGVuIHByb2Nlc3NpbmcKPj4+
+PiBQVEUtbWFwcGVkIFRIUHMuCj4+Pj4KPj4+PiBUaGlzIHNlcmllcyBpcyBwYXJ0aWFsbHkgYmFz
+ZWQgb24gUnlhbidzIHByZXZpb3VzIHdvcmtbMl0gdG8gaW1wbGVtZW50Cj4+Pj4gY29udC1wdGUg
+c3VwcG9ydCBvbiBhcm02NCwgYnV0IGl0cyBhIGNvbXBsZXRlIHJld3JpdGUgYmFzZWQgb24gWzFd
+IHRvCj4+Pj4gb3B0aW1pemUgYWxsIGFyY2hpdGVjdHVyZXMgaW5kZXBlbmRlbnQgb2YgYW55IHN1
+Y2ggUFRFIGJpdHMsIGFuZCB0bwo+Pj4+IHVzZSB0aGUgbmV3IHJtYXAgYmF0Y2hpbmcgZnVuY3Rp
+b25zIHRoYXQgc2ltcGxpZnkgdGhlIGNvZGUgYW5kIHByZXBhcmUKPj4+PiBmb3IgZnVydGhlciBy
+bWFwIGFjY291bnRpbmcgY2hhbmdlcy4KPj4+Pgo+Pj4+IFdlIGNvbGxlY3QgY29uc2VjdXRpdmUg
+UFRFcyB0aGF0IG1hcCBjb25zZWN1dGl2ZSBwYWdlcyBvZiB0aGUgc2FtZSBsYXJnZQo+Pj4+IGZv
+bGlvLCBtYWtpbmcgc3VyZSB0aGF0IHRoZSBvdGhlciBQVEUgYml0cyBhcmUgY29tcGF0aWJsZSwg
+YW5kIChhKSBhZGp1c3QKPj4+PiB0aGUgcmVmY291bnQgb25seSBvbmNlIHBlciBiYXRjaCwgKGIp
+IGNhbGwgcm1hcCBoYW5kbGluZyBmdW5jdGlvbnMgb25seQo+Pj4+IG9uY2UgcGVyIGJhdGNoIGFu
+ZCAoYykgcGVyZm9ybSBiYXRjaCBQVEUgc2V0dGluZy91cGRhdGVzLgo+Pj4+Cj4+Pj4gV2hpbGUg
+dGhpcyBzZXJpZXMgc2hvdWxkIGJlIGJlbmVmaWNpYWwgZm9yIGFkZGluZyBjb250LXB0ZSBzdXBw
+b3J0IG9uCj4+Pj4gQVJNNjRbMl0sIGl0J3Mgb25lIG9mIHRoZSByZXF1aXJlbWVudHMgZm9yIG1h
+aW50YWluaW5nIGEgdG90YWwgbWFwY291bnRbM10KPj4+PiBmb3IgbGFyZ2UgZm9saW9zIHdpdGgg
+bWluaW1hbCBhZGRlZCBvdmVyaGVhZCBhbmQgZnVydGhlciBjaGFuZ2VzWzRdIHRoYXQKPj4+PiBi
+dWlsZCB1cCBvbiB0b3Agb2YgdGhlIHRvdGFsIG1hcGNvdW50Lgo+Pj4+Cj4+Pj4gSW5kZXBlbmRl
+bnQgb2YgYWxsIHRoYXQsIHRoaXMgc2VyaWVzIHJlc3VsdHMgaW4gYSBzcGVlZHVwIGR1cmluZyBm
+b3JrIHdpdGgKPj4+PiBQVEUtbWFwcGVkIFRIUCwgd2hpY2ggaXMgdGhlIGRlZmF1bHQgd2l0aCBU
+SFBzIHRoYXQgYXJlIHNtYWxsZXIgdGhhbiBhIFBNRAo+Pj4+IChmb3IgZXhhbXBsZSwgMTZLaUIg
+dG8gMTAyNEtpQiBtVEhQcyBmb3IgYW5vbnltb3VzIG1lbW9yeVs1XSkuCj4+Pj4KPj4+PiBPbiBh
+biBJbnRlbCBYZW9uIFNpbHZlciA0MjEwUiBDUFUsIGZvcmsnaW5nIHdpdGggMUdpQiBvZiBQVEUt
+bWFwcGVkIGZvbGlvcwo+Pj4+IG9mIHRoZSBzYW1lIHNpemUgKHN0ZGRldiA8IDElKSByZXN1bHRz
+IGluIHRoZSBmb2xsb3dpbmcgcnVudGltZXMKPj4+PiBmb3IgZm9yaygpIChzaG9ydGVyIGlzIGJl
+dHRlcik6Cj4+Pj4KPj4+PiBGb2xpbyBTaXplIHwgdjYuOC1yYzEgfMKgwqDCoMKgwqAgTmV3IHwg
+Q2hhbmdlCj4+Pj4gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4+
+Pj4gIMKgwqDCoMKgwqDCoCA0S2lCIHwgMC4wMTQzMjggfCAwLjAxNDAzNSB8wqDCoCAtIDIlCj4+
+Pj4gIMKgwqDCoMKgwqAgMTZLaUIgfCAwLjAxNDI2MyB8IDAuMDExOTbCoCB8wqDCoCAtMTYlCj4+
+Pj4gIMKgwqDCoMKgwqAgMzJLaUIgfCAwLjAxNDMzNCB8IDAuMDEwOTTCoCB8wqDCoCAtMjQlCj4+
+Pj4gIMKgwqDCoMKgwqAgNjRLaUIgfCAwLjAxNDA0NiB8IDAuMDEwNDQ0IHzCoMKgIC0yNiUKPj4+
+PiAgwqDCoMKgwqAgMTI4S2lCIHwgMC4wMTQwMTEgfCAwLjAxMDA2MyB8wqDCoCAtMjglCj4+Pj4g
+IMKgwqDCoMKgIDI1NktpQiB8IDAuMDEzOTkzIHwgMC4wMDk5MzggfMKgwqAgLTI5JQo+Pj4+ICDC
+oMKgwqDCoCA1MTJLaUIgfCAwLjAxMzk4MyB8IDAuMDA5ODXCoCB8wqDCoCAtMzAlCj4+Pj4gIMKg
+wqDCoCAxMDI0S2lCIHwgMC4wMTM5ODYgfCAwLjAwOTgywqAgfMKgwqAgLTMwJQo+Pj4+ICDCoMKg
+wqAgMjA0OEtpQiB8IDAuMDE0MzA1IHwgMC4wMTAwNzYgfMKgwqAgLTMwJQo+Pj4KPj4+IEp1c3Qg
+YSBoZWFkcyB1cCB0aGF0IEknbSBzZWVpbmcgc29tZSBzdHJhbmdlIHJlc3VsdHMgb24gQXBwbGUg
+TTIuIEZvcmsgZm9yCj4+PiBvcmRlci0wIGlzIHNlZW1pbmdseSBjb3N0aW5nIH4xNyUgbW9yZS4g
+SSdtIHVzaW5nIEdDQyAxMy4yIGFuZCB3YXMgcHJldHR5IHN1cmUgSQo+Pj4gZGlkbid0IHNlZSB0
+aGlzIHByb2JsZW0gd2l0aCB2ZXJzaW9uIDE7IGFsdGhvdWdoIHRoYXQgd2FzIG9uIGEgZGlmZmVy
+ZW50Cj4+PiBiYXNlbGluZSBhbmQgSSd2ZSB0aHJvd24gdGhlIG51bWJlcnMgYXdheSBzbyB3aWxs
+IHJlcnVuIGFuZCB0cnkgdG8gZGVidWcgdGhpcy4KPj4+Cj4+Cj4+IFNvIGZhciwgb24gbXkgeDg2
+IHRlc3RzIChJbnRlbCwgQU1EIEVQWUMpLCBJIHdhcyBub3QgYWJsZSB0byBvYnNlcnZlIHRoaXMu
+Cj4+IGZvcmsoKSBmb3Igb3JkZXItMCB3YXMgY29uc2lzdGVudGx5IGVmZmVjdGl2ZWx5IHVuY2hh
+bmdlZC4gRG8geW91IG9ic2VydmUgdGhhdAo+PiBvbiBvdGhlciBBUk0gc3lzdGVtcyBhcyB3ZWxs
+Pwo+IAo+IE5vcGU7IHJ1bm5pbmcgdGhlIGV4YWN0IHNhbWUga2VybmVsIGJpbmFyeSBhbmQgdXNl
+ciBzcGFjZSBvbiBBbHRyYSwgSSBzZWUKPiBzZW5zaWJsZSBudW1iZXJzOwo+IAo+IGZvcmsgb3Jk
+ZXItMDogLTEuMyUKPiBmb3JrIG9yZGVyLTk6IC03LjYlCj4gZG9udG5lZWQgb3JkZXItMDogLTAu
+NSUKPiBkb250bmVlZCBvcmRlci05OiAwLjElCj4gbXVubWFwIG9yZGVyLTA6IDAuMCUKPiBtdW5t
+YXAgb3JkZXItOTogLTY3LjklCj4gCj4gU28gSSBndWVzcyBzb21lIHBpcGVsaW5pbmcgaXNzdWUg
+dGhhdCBjYXVzZXMgdGhlIE0yIHRvIHN0YWxsIG1vcmU/CgpXaXRoIG9uZSBlZmZlY3RpdmUgYWRk
+ZWQgZm9saW9fdGVzdF9sYXJnZSgpLCBpdCBjb3VsZCBvbmx5IGJlIGEgY29kZSAKbGF5b3V0IHBy
+b2JsZW0/IE9yIHRoZSBjb21waWxlciBkb2VzIHNvbWV0aGluZyBzdHVwaWQsIGJ1dCB5b3Ugc2F5
+IHRoYXQgCnlvdSBydW4gdGhlIGV4YWN0IHNhbWUga2VybmVsIGJpbmFyeSwgc28gdGhhdCBkb2Vz
+bid0IG1ha2Ugc2Vuc2UuCgpJJ20gYWxzbyBzdXJwcmlzZWQgYWJvdXQgdGhlIGRvbnRuZWVkIHZz
+LiBtdW5tYXAgbnVtYmVycy4gRG9lc24ndCBtYWtlIAphbnkgc2Vuc2UgKGFnYWluLCB0aGVyZSB3
+YXMgdGhpcyBWTUEgbWVyZ2luZyBwcm9ibGVtIGJ1dCBpdCB3b3VsZCBzdGlsbCAKYWxsb3cgZm9y
+IGJhdGNoaW5nIHdpdGhpbiBhIHNpbmdsZSBWTUEgdGhhdCBzcGFucyBleGFjdGx5IG9uZSBsYXJn
+ZSBmb2xpbykuCgpXaGF0IGFyZSB5b3UgdXNpbmcgYXMgYmFzZWxpbmU/IFJlYWxseSBqdXN0IG1t
+LXVuc3RhYmxlIHZzLiAKbW0tdW5zdGFibGUrcGF0Y2hlcz8KCkxldCdzIHNlZSBpZiB0aGUgbmV3
+IHRlc3QgY2hhbmdlcyB0aGUgbnVtYmVycyB5b3UgbWVhc3VyZS4KCi0tIApDaGVlcnMsCgpEYXZp
+ZCAvIGRoaWxkZW5iCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
