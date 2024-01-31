@@ -4,128 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E17C47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 09:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 431D8C47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 10:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1VW+8Yeu/rng4ca00GQsvCxCbAV5SIw8GwEGu8nvw4c=; b=yiMlFmLeT5ZeAq
-	qBrsmoiJ9rREob4EVzEFaJKfarkdktHN6DlzHmydLrDiEKx53lVrd/svqM4ccFwwZC1CdvZaOCLId
-	E1dMyhjbo6j/MThs53MkDAPpnd4WdF7ueZJz7IJyE66AgkKsclwwTR05GW7xqiXveaQ+jJLkaB0IY
-	NqrwSLnoGg1WVojwdn796Ryu7qveQe3fhpmUArJffsebpSFaOcFRAh+62o6Hg8RIp42YVmlpXjFPP
-	O3nkop48u6RpqH5xLCC5kiofRoJJY59k8A1hsfm6Br75sUHkkGRN+ukQnICpAFSaE8YYmUg1WIJU2
-	UeFGxie4UQlL+sVQo+rA==;
+	List-Owner; bh=oXPPWnkT0upxxGKkCG74C2RXL0USM5jWKaP9I8InNJs=; b=Sjwi3QKy2OzsW+
+	vq0mKWjFSRs7qbGIiTNWbU/kGA9zdrwuOFXGIwafi7oG6W82u7Cx5JMKPb86wp6vC6+EgZyo451DT
+	5weSbz8FrJY0DkTX3mAeGK8rzgex/gVtfN2Cwf6Yd510KKFlwrhKTg0Xb+4ZOZ9P17neXkOTDJeDd
+	i3N2FhjLBfJv8mzUPlw7RiCc1FkP+0IjJYMYs9Nu09svSZ35AwDY0TXAWQTJrSAoAmo9/1Rh3KUat
+	GqqXrTf9q3f5Y5zCqKO/ZpbjwSFRWUR0eqdJ6UpndTZ3fXPxhtKsuudOlYke//GRL7y4efW+b/lc1
+	GP4XfmlZiOeuMcGMAG3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rV6yW-00000002UG6-1vpw;
-	Wed, 31 Jan 2024 09:33:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rV7V0-00000002ffm-3TDV;
+	Wed, 31 Jan 2024 10:07:18 +0000
+Received: from mail-sh0chn02on2072f.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::72f] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rV6yU-00000002UFD-3PbL
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 31 Jan 2024 09:33:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Subject:Cc:To:From:Date:
-	References:In-Reply-To:Message-Id:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=zfFTIJuMkeXWXqP1X9CM0AfUVjTJrLkI22bHlsMbmtw=; b=c/C4TVf3Ql0ohWGiziAr1kngPU
-	fw/qtdoqqtixJa+JD4rpd0sk/9LFH5MuEjHeA9Ec3PoxqbxsTXnknFKlR0YfjQV0fqCfVvsJ8Q+UO
-	L1poqP9eILix4EszsHRmbMp+MSXQE64qHHZNRH07MMSosWZn83WnAxW5NjiQK78sR7/YtD8PRFxfy
-	bSEHIq2uVOVL7bErUlLA5S2jPBlCyhr/1+5U6HKysV+cbOsVI+krEtmJ0pYuCuihH/Oz1x2C9YdIN
-	Oatoyt3zfbXIbPhSiBeQXsyS7Y+CV+eC7c9MopyLELUMa97jl7WPiq4PzKEbQeOp67GJLlQfvz9c8
-	Rr+0dBQQ==;
-Received: from out1-smtp.messagingengine.com ([66.111.4.25])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rV6yL-00000008uwN-2I8z
+	id 1rV7Uy-00000002fds-1Sd0
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jan 2024 09:33:39 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.nyi.internal (Postfix) with ESMTP id 04E625C00CE;
-	Wed, 31 Jan 2024 04:33:23 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute5.internal (MEProxy); Wed, 31 Jan 2024 04:33:23 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1706693602; x=1706780002; bh=zfFTIJuMke
-	XWXqP1X9CM0AfUVjTJrLkI22bHlsMbmtw=; b=bSn4THvb3TNzacAXhTziKRl5rh
-	em6ZTUsdUJUsNMIzHZAlPH/1xeZqsrJAi5uO+4udjh12g5xLfLgQYDe1mO2XxRtB
-	1TLw9nJgsgXCa6Ev2O9ki1haskqZrxDBf0aCheZRxM0Tfq/kC/l6rE4Uxp5V/mop
-	Uyc05OnShT3Ow1NJGsuVkNMx1l7NYmOx50NA+QID4bpVIGiPWD+dSe4zYGnijSYG
-	75hR5solZGQXgJKEUL4wKhqTMrinzElUNUPLcsj6Fjifv9uedR+hDdCuk8VTNfqq
-	h5C98oj021rWDFM5haCHo4IrDgXT/CRQv1fNSgbjJ4ho/6yffnKI1ArjyvrQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1706693602; x=1706780002; bh=zfFTIJuMkeXWXqP1X9CM0AfUVjTJ
-	rLkI22bHlsMbmtw=; b=oigmsgoIRcR/hClDiIcHKTJBEMKvbpFKKx6R3l8pRfdI
-	Vx74VCDzlM85cr2ridYUVdbvEsZ1NiVUeJGYBwjb/KQeIKieImcZgWJNTNoKdori
-	ZMW2efPJoF9tTfewUgPygwdom4VHTEmR3mMaGkFEr8i6TItuuYIrACXLT2xBzGKJ
-	rniO4Az8EBb5KRXnavAIh7qJSEQbqGFMx2TYgYmd8zoSOem22M6SlRrBVJCqpRia
-	TVK7v0RecAJOOLIXvuJOFk+AcsEjniiqZLBnHkSbD92jo2HYsjoDkwbVPwssYmzn
-	XwFUvCZzXE7X7zhYSWhCx74CzGgOXMIhh+ZDvah73g==
-X-ME-Sender: <xms:4hO6ZSDyts5aymwbcqXhOpRv0NxSxSa2UKeaCznOpdlSQVr4IJCxqQ>
-    <xme:4hO6Zcjz454H0hMy7oS-pS7TI1rnKjkNJ4UsVwOBJjIjr6EqnnZBz5WseBxtWDRXk
-    RmoDtpqmmRCmPSYfhA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrfedtledgtdefucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:4hO6ZVnU1Je3RbLMfWXzYNYVf-vOuAmn3LwXu_JuyFMU2WcH8KegxA>
-    <xmx:4hO6ZQzMVRFHjHlgoA45o1frQlsonOJJIG8Hrr_yDlxoNc-Xz9HDvA>
-    <xmx:4hO6ZXRtLjYqwGq6bwLd4PgDubiIaysXdJ2KLX5fkULA2lJA-syrdQ>
-    <xmx:4hO6Za9ZjHmo9sg797cPxDJg4WV7uKUAbwDU7WfE4Ho3o2nuVuC0BA>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 08CC4B6008D; Wed, 31 Jan 2024 04:33:21 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.11.0-alpha0-144-ge5821d614e-fm-20240125.002-ge5821d61
+	Wed, 31 Jan 2024 10:07:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=QgrMSJsQyXDmroakVZPCF0/rQRm18XiCmXUyzsGJDCVepksxuOr0OlbLMg/31v9kRRAnJiRNkhe09FSlaWR5V7loSgduEx+MLOxkWNsUrGgBwAlkpyFAZQtKKwv7GXLV8Hwda7DUvOyQw4VkTPJ3cHIhUpvSqfRjIzsQRwxekuAJxR30/w80+/QDoTVKzyOSv2bn9wwobgeW767pTjt4dllOQhg6qIKdnSCQ7K1X3bDnUoyPsjKY1TlxwFliR9/XhlddWJIMrvbKe6Ou8pFORcYS9sOD5berVeZr/X20GAzDgnjaWeMg6MDX2XY1sASfs9xNB0+rbQzhGFH+IjwVWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zhADv0OpMlAftKwUCinfh10J8mx+tVIicHFmgxSwuQ0=;
+ b=HtYn1sm/VdNtHAaCnCPnqXhfI4cKbmo5rSYUZ9um/A9tsXRkes5Jd+uWSXUhbETWx7eUV95blhsLFGhV5+SD+oU5BHsB9syoqlwuLq78ysjzRqrTtzv9AyQLgPFqJNQDzf9UX0mUzNsW/MIYlBQ5q2HGOgyb/iLSddIl1UnIqXibgS2ymvOA+YhOoZyfJK6nArOh4Nv4rSsDMlkXqGdhOAgk8DQGhpp5plqivcm6QyHj5nBBjBUd3JPcSxhyj56jwQnr08zDkL1TsElo1TYizyD/Myq1f7RkPx7JD3leWB6vE+m2ouh9zCAvIt6yA/hsadBAGGGLgdCi8CNAERakwA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15) by SHXPR01MB0797.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:26::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7228.34; Wed, 31 Jan
+ 2024 10:07:09 +0000
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ ([fe80::5a5a:fa59:15fd:63dc]) by
+ SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::5a5a:fa59:15fd:63dc%3])
+ with mapi id 15.20.7228.029; Wed, 31 Jan 2024 10:07:08 +0000
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Rob Herring <robh@kernel.org>
+CC: Palmer Dabbelt <palmer@dabbelt.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Kevin Xie <kevin.xie@starfivetech.com>, Leyfoon Tan
+	<leyfoon.tan@starfivetech.com>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, Daire McNamara
+	<daire.mcnamara@microchip.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	=?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kw@linux.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Mason Huo
+	<mason.huo@starfivetech.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Conor Dooley <conor@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v14,RESEND 19/22] dt-bindings: PCI: Add StarFive JH7110
+ PCIe controller
+Thread-Topic: [PATCH v14,RESEND 19/22] dt-bindings: PCI: Add StarFive JH7110
+ PCIe controller
+Thread-Index: AQHaUk7ANof4CuKrsESG58uORquI7LDxXlAAgAEciACAATsJUA==
+Date: Wed, 31 Jan 2024 10:07:08 +0000
+Message-ID: <SHXPR01MB0863F3FFB671A0B95324A830E67CA@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
+References: <20240129010142.3732-1-minda.chen@starfivetech.com>
+ <20240129010142.3732-4-minda.chen@starfivetech.com>
+ <170656679886.3057.12378312489853176077.robh@kernel.org>
+ <20240130151934.GA1636501-robh@kernel.org>
+In-Reply-To: <20240130151934.GA1636501-robh@kernel.org>
+Accept-Language: en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SHXPR01MB0863:EE_|SHXPR01MB0797:EE_
+x-ms-office365-filtering-correlation-id: e20775ca-71d4-44bf-17d1-08dc224462b5
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: +eTndG5e8ZDFNKThe/FTof5rojlAiIQkdBV1uom3wmhYjdEqyDh9q31jfne+V/uYMKKm41d0Zj0FIOZRiZHHKBbGSYA/GgmgWefgs8gQfecs8Btwut6MIpV8X+YSZeGGlabHulHaQukz5WjaVkN0NdRrAxKv1+38ttBSnwEngX5uGgi1jTAJ6ZgnEXXMRwwWoi4gJruxPQ54aZrrMPOAB/Lm4FAx7ifz2Q9iJfKBRy5DGdXx5rBRfykiIWPOdJZ5NM7BzFgNXV1dPAPpm/nqErqm/qUTDda8hRePOMOyn0GByh0jos2Zc/Bg73Za4AX4+Qxsbu+h8hXDD58vKiJNnqKnmH0l+HdYzcw8PQwn71KdHTqYMtmKK15mImWeCeskuSx73Dxrbis9f1DyZuRT/+Bi9sLMZhkMOcHD4v+ef4+dAebQAMB83IY/nwuTu2luO0UJVEMgsWfTZ8VVf+1xYlKgWFZobcqzVWQtI/f3DgDeWlAHmizJAHtGpkDoW1gp04b0Ol4g+XPICObJydUbrTWuilBmq6X3OYEG2/HtBFS6+XDsAVkHqhXYsbsBdcfKOkpvS05zEys8qDmT3w1UOnDppi4W295/fPVY8ykyfHg=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(39830400003)(346002)(366004)(136003)(396003)(230922051799003)(230273577357003)(230173577357003)(64100799003)(1800799012)(451199024)(186009)(38070700009)(7416002)(41320700001)(2906002)(40180700001)(5660300002)(33656002)(41300700001)(86362001)(66446008)(64756008)(76116006)(54906003)(66476007)(83380400001)(66946007)(6916009)(966005)(508600001)(66556008)(71200400001)(7696005)(9686003)(55016003)(8676002)(26005)(44832011)(122000001)(4326008)(8936002)(38100700002)(40160700002);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?iZLFVnPiawQsG6dKofl+88tg8LdCLBrx1rwXDDCeO8mWCXcfBEkzVcybFi?=
+ =?iso-8859-2?Q?MWcf8s9HRNLv1SVNn/9wHYbP0tEnfDOUk7e+YGR93zy4eUPOG4Z03jl8cd?=
+ =?iso-8859-2?Q?TjNBb3J0wuQzS7aYjLJwY+OHMuM9kSjxOgz7NfY0cFziXVOW4ZwU231aUc?=
+ =?iso-8859-2?Q?MdLSkBk7WpSc8AtvKIScwZUhdT8qWB9lDk4DvooSZ5lXmvXhsiMIZ9vqIL?=
+ =?iso-8859-2?Q?gSCH9k8syA4maG97dil+BrkiNQa3dmL92h1xuwhVDDLdujL1IUypPH5qO9?=
+ =?iso-8859-2?Q?AmRDOw4YZMGappm4HW+me8iRVo+z/7wtZUq96NuX1+eRtrzB9g7YQIH7/a?=
+ =?iso-8859-2?Q?voxGaV1C6JtnwM+fdqWXuWgRBywXMyv199/QwZvU/opBhvSiMgQSW8Vam7?=
+ =?iso-8859-2?Q?9a73/tIXKFWkssbp3g5OmW0xClt2zd4zd0tYSKvzTsgy4oOB254e/m8xEU?=
+ =?iso-8859-2?Q?a8Ib4nlc4+vV7BraBLrZ/8N40neoMN2byv+ATciGnWl7lkDrCN3x1cxv72?=
+ =?iso-8859-2?Q?MmTmAoJOOfurQU+crBUimYT+yCPkpcaSMfVoG+a8DRwUhOCktazyq69fd5?=
+ =?iso-8859-2?Q?wCYRUW1110V6urdGWhhVPqpR3JIXMXiQa2DsbF3jp+cR5adqjdwMURJOqH?=
+ =?iso-8859-2?Q?SmGzkmmPawgBg6bLubYvbIFyvPIBgsmizs447D3QlvKcyR6dpTwupqXBl2?=
+ =?iso-8859-2?Q?gzqqQNZGJ40gzktT7Y2eGpnWz57eJDS/sPXcsKXyxtbqPiMoTugAnUYJab?=
+ =?iso-8859-2?Q?zhEm0ZxkDEjO9vNUDExAiLerwsV0zH8Fu7j3NAzaUh8vvfAi5Q5FLSvjMI?=
+ =?iso-8859-2?Q?u5ZyfJZifXDDE7U9JRTNlJD/gIvu5WmkP7frdfwgtBzLmsYW5kvDTk3dLz?=
+ =?iso-8859-2?Q?ERpQtvW/ouf0NZZjSu1m78sSkVNSDV/gzcR4IbFtH2HGRLVSrz/k8ALirp?=
+ =?iso-8859-2?Q?f+zzwnVFkvW3PgvNz/USn+9M/veu7/FXo9yG07lc9dQFFBq4WEZ7tTfrFw?=
+ =?iso-8859-2?Q?TkvyP4DNARuD7jCFjAMoLcTHJBbknpJ4ig9SnbZci4OA6CfiJIzrqc70Cj?=
+ =?iso-8859-2?Q?YLb+iyEOBMdSymxm5NF+bPPTLBEcxWr6m8o65aNevEp3nX5JzyZTDUcrMn?=
+ =?iso-8859-2?Q?U0SzKViohLup1f2tHPLHCFk8XMIMzOA7nTnHF/kIgL4ys3vocodBnaLFcu?=
+ =?iso-8859-2?Q?aMIQLC8OMgk5IAeamc3nZGdEX6MJkI/Besw/+gNQwyEG358mR8HSps+nyw?=
+ =?iso-8859-2?Q?x7O+po8KAgHqYWTnu7Y9ysUwf3cx6B0v9vZuc8CwkQEb011T4E5jYzw5bm?=
+ =?iso-8859-2?Q?4VJ/lbpLoW8Wtv5sMsILkWfNYPpsVMJtYawDxpq+eu9rzOITalVffICBNq?=
+ =?iso-8859-2?Q?a6h9XWFYMzIhUBHm3NO56CWxSs3t8ghztLafHjL/NY4Q59Kc5fS7gQ9ddc?=
+ =?iso-8859-2?Q?8aBCD5V/OA/MTxVDmonAtHRfOIhF4smwTak8oJJBi5XXsuy0CfkHKkB9Dv?=
+ =?iso-8859-2?Q?yR3OwFCU1vRYMJdcb7HYSh5h/lZ827kFFPySJgknucaFBB9Gz1CbyLsJgN?=
+ =?iso-8859-2?Q?PbRKwyHddC0hDa2y9k8RpHFiqchuMZbyMS2qTpLNNVnb1Dwf8QJkx5c+Vv?=
+ =?iso-8859-2?Q?cybX83Ul1tHF+GZZVALLnj9YoC2e5+DkNs?=
 MIME-Version: 1.0
-Message-Id: <682f037e-0efe-4d73-b867-f1f86a244836@app.fastmail.com>
-In-Reply-To: <0be49d4d7d7e43933534aad6f72b35d3380519fd.1706603678.git.haibo1.xu@intel.com>
-References: <cover.1706603678.git.haibo1.xu@intel.com>
- <0be49d4d7d7e43933534aad6f72b35d3380519fd.1706603678.git.haibo1.xu@intel.com>
-Date: Wed, 31 Jan 2024 10:33:01 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Haibo Xu" <haibo1.xu@intel.com>
-Cc: "Alison Schofield" <alison.schofield@intel.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- linux-kernel@vger.kernel.org,
- "Conor.Dooley" <conor.dooley@microchip.com>, guoren <guoren@kernel.org>,
- "Jisheng Zhang" <jszhang@kernel.org>,
- "James Morse" <james.morse@arm.com>, linux-riscv@lists.infradead.org,
- "Ard Biesheuvel" <ardb@kernel.org>, "Baoquan He" <bhe@redhat.com>,
- acpica-devel@lists.linux.dev, "Robert Moore" <robert.moore@intel.com>,
- linux-acpi@vger.kernel.org, "Sami Tolvanen" <samitolvanen@google.com>,
- "Greentime Hu" <greentime.hu@sifive.com>, "Len Brown" <lenb@kernel.org>,
- "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alexghiti@rivosinc.com>,
- "Dan Williams" <dan.j.williams@intel.com>,
- "Chen Jiahao" <chenjiahao16@huawei.com>,
- "Yuntao Wang" <ytcoode@gmail.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- =?UTF-8?Q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>,
- xiaobo55x@gmail.com, "Anup Patel" <apatel@ventanamicro.com>,
- "Tony Luck" <tony.luck@intel.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Russell King" <rmk+kernel@armlinux.org.uk>,
- "Samuel Holland" <samuel.holland@sifive.com>,
- "Evan Green" <evan@rivosinc.com>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Andrew Jones" <ajones@ventanamicro.com>
-Subject: Re: [PATCH 4/4] ACPI: RISCV: Enable ACPI based NUMA
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: e20775ca-71d4-44bf-17d1-08dc224462b5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Jan 2024 10:07:08.8646
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 2tuRH9VHICaUrxhvK7y47hamdbhcTDak1DGM3lnBPqYKRGia89/pEEKhcnwsZzOUCivEXe26esJ/5ojoivphS1gbSRuSv9lOM9D06QyRQ44=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0797
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_093335_861782_DD102664 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20240131_020716_416455_DA41392C 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,29 +146,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 31, 2024, at 03:32, Haibo Xu wrote:
-> diff --git a/drivers/acpi/numa/Kconfig b/drivers/acpi/numa/Kconfig
-> index 849c2bd820b9..525297c44250 100644
-> --- a/drivers/acpi/numa/Kconfig
-> +++ b/drivers/acpi/numa/Kconfig
-> @@ -2,7 +2,7 @@
->  config ACPI_NUMA
->  	bool "NUMA support"
->  	depends on NUMA
-> -	depends on (X86 || ARM64 || LOONGARCH)
-> +	depends on (X86 || ARM64 || LOONGARCH || RISCV)
 
-The dependency is no longer needed now since these are
-the four architectures that support ACPI now that IA64
-is gone.
+> 
+> On Mon, Jan 29, 2024 at 04:21:12PM -0600, Rob Herring wrote:
+> >
+> > On Mon, 29 Jan 2024 09:01:39 +0800, Minda Chen wrote:
+> > > Add StarFive JH7110 SoC PCIe controller dt-bindings. JH7110 using
+> > > PLDA XpressRICH PCIe host controller IP.
+> > >
+> > > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> > > Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > > Reviewed-by: Rob Herring <robh@kernel.org>
+> > > ---
+> > >  .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++++++++++++++++
+> > >  1 file changed, 120 insertions(+)
+> > >  create mode 100644
+> > > Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+> > >
+> >
+> > My bot found errors running 'make DT_CHECKER_FLAGS=-m
+> dt_binding_check'
+> > on your patch (DT_CHECKER_FLAGS is new in v5.13):
+> >
+> > yamllint warnings/errors:
+> >
+> > dtschema/dtc warnings/errors:
+> >
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/s
+> tarfive,jh7110-pcie.yaml:
+> > Error in referenced schema matching $id:
+> > http://devicetree.org/schemas/pci/plda,xpressrich3-axi-common.yaml
+> >
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/s
+> tarfive,jh7110-pcie.example.dtb: pcie@940000000: False schema does not
+> allow {'compatible': ['starfive,jh7110-pcie'], 'reg': [[9, 1073741824, 0,
+> 268435456], [0, 721420288, 0, 16777216]], 'reg-names': ['cfg', 'apb'],
+> '#address-cells': [[3]], '#size-cells': [[2]], '#interrupt-cells': [[1]], 'device_type':
+> ['pci'], 'ranges': [[2181038080, 0, 805306368, 0, 805306368, 0, 134217728],
+> [3271557120, 9, 0, 9, 0, 0, 1073741824]], 'starfive,stg-syscon': [[4294967295]],
+> 'bus-range': [[0, 255]], 'interrupts': [[56]], 'interrupt-map-mask': [[0, 0, 0, 7]],
+> 'interrupt-map': [[0, 0, 0, 1, 2, 1], [0, 0, 0, 2, 2, 2], [0, 0, 0, 3, 2, 3], [0, 0, 0, 4, 2, 4]],
+> 'msi-controller': True, 'clocks': [[4294967295, 86], [4294967295, 10],
+> [4294967295, 8], [4294967295, 9]], 'clock-names': ['noc', 'tl', 'axi_mst0', 'apb'],
+> 'resets': [[4294967295, 11], [4294967295, 12], [4294967295, 13], [4294967295,
+> 14], [4294967295, 15], [4294967295, 16]], 'perst-gpios': [[4294967295, 26, 1]],
+> 'phys': [[4294967295]], 'interrupt-controller': {'#address-cells': [[0]],
+> '#interrupt-cells': [[1]], 'interrupt-controller': True, 'phandle': [[2]]}, '$nodename':
+> ['pcie@940000000']}
+> > 	from schema $id:
+> > http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
+> >
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/s
+> tarfive,jh7110-pcie.example.dtb: pcie@940000000: Unevaluated properties are
+> not allowed ('#address-cells', '#interrupt-cells', '#size-cells', 'bus-range',
+> 'device_type', 'interrupt-controller', 'interrupt-map', 'interrupt-map-mask',
+> 'interrupts', 'msi-controller', 'ranges', 'reg', 'reg-names' were unexpected)
+> > 	from schema $id:
+> > http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
+> 
+> These are probably due to only patches 16-22 showing up in lore.
+> 
+> Rob
 
-All of them also 'select ACPI_NUMA' by default, though on
-x86 this can still be disabled by manually turning off
-CONFIG_X86_64_ACPI_NUMA. I suspect we don't actually ever
-want to turn it off on x86 either, so I guess the Kconfig
-option can just be removed entirely.
+Yes.
+The plda,xpressrich3-axi-common.yaml file is not added to kernel.
 
-     Arnd
+Error in referenced schema matching $id:
+> > http://devicetree.org/schemas/pci/plda,xpressrich3-axi-common.yaml
 
 _______________________________________________
 linux-riscv mailing list
