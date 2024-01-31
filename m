@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B02C47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 13:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A057C47DB3
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 13:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=a8cOF/qKwEaWRcp/E5BM+J0ZgnoYdu6d05TyK4TX3dI=; b=kEGG4c+oW2YzPA
-	3JcUCeiJ0y3MTSgmiokO/HqEZ+01qNXaGBiLPh3TkIWydUZXQUxniILimObhGEfMbFPuUqjGabLSW
-	YGxcFvC2m54DEBjGNWGPMHGT5eD655gkjAiYDH+X+nc9v/hYkmPs8KhyRmP5073KEX6DIHjKLLnpH
-	mgpDEgwKrm3oEAmf4Hc3SXNyXb3TyDReiKPF6lbnqbkGB/HC4A70ZIiOsaTQg15JEuBQd1raRlKfS
-	Ns7SJfM0vBuLuF6JZs4smkepqAiA8tOk2Tls4bgXhQrTCETAgZmOfDL5qFV8XbCZt286zbsWjJvBc
-	GffiZ23gta7pzQ2lzWDA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cY6El/CPJPDHncI9Xn9M0M/cJsq53qeMazMM3S8fSMY=; b=MsN69yH3adknAz
+	piJfuDseOpb0AMRQYo88pNGU2VSQYq0Pa9AFQ1Djn7FyOLu2n0erh/Dys9dsUdY41Tlpb44N8eD74
+	bgnCy9htpjMrEgG3JEYMRckYkJEJWMkP0Wg7XBpy2HnBw1K4LYZruWRYS8VgrpZG5VFGtaVpRmZd3
+	hjezKmadEP1vFdTATtw37DHlgamJC18Oq0TnoTkGIXE1/uknMQ1LDEG9A4deT44/m6+O8aECmyOYu
+	BfdOLJeeoKlaub72Dsd3xC+8TlRzrhecnGDnsA41bN3TtjavRXxmCAuRuuTzZzWTMvM3kkrWW2vvE
+	GmtHNMhkDebMdS/g+1ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVAno-00000003eox-0dGP;
-	Wed, 31 Jan 2024 13:38:56 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rVAnr-00000003eqd-3vnx;
+	Wed, 31 Jan 2024 13:38:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVAnl-00000003eo2-3Nt4
+	id 1rVAnn-00000003eoc-2sIY
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 Jan 2024 13:38:55 +0000
+	Wed, 31 Jan 2024 13:38:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EA5B16176E;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3FF3861782;
+	Wed, 31 Jan 2024 13:38:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DE6BC433F1;
 	Wed, 31 Jan 2024 13:38:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94E8DC43390;
-	Wed, 31 Jan 2024 13:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706708332;
-	bh=CPLp+9AYzGX3pEeWi3wlU4ZtwP5lMB44GA9+1lDqg0Q=;
-	h=From:To:Cc:Subject:Date:From;
-	b=N7wOeWfNFJ1SeWiKk+cAW/43kh5X4RTcseKgUBBaK7HVu8FeyNgcglzNeEXM2iNbt
-	 /ER/FBSdTbD8zxzkp1m6hGF1ZbEtJSt7LAvN2RjY2ZHhsrsNdnZHICJU+dntMNj7Kt
-	 +bLM6GbahqHupXQ7NAX9OsINU4u47fu2bsiiphcj6GOc8UdGxxor1JYAuTz7gx6rcs
-	 FhgUs3L3O5eFGUyU/cWIHpOxgcVw+mLwH1L/2Aek4/sHOodoDgoCWjByU2tar/oc/z
-	 aRKNv5zBHnxLe7jwzcZLyvci/++PNsc4zB8TtQyQPxkFeSjQZOUqTewp7WxDy9MBBR
-	 MeDQYGadFcmHg==
+	s=k20201202; t=1706708335;
+	bh=cveEm9XYzqaufx9fWhL/pSd3M6JBh+uL9vWXxxLn510=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MQO2HbYn8TlZaNSKK4VljVZMWR1KBBRWjUcgtw+kXim93UgjIQV2U+4gvoa/XJ+Go
+	 /fwRSuVJ4QvbVjVuIWxWr4sMCzqZ1Nv+5HlYMAqF2Jwq6LIUrE7tX3cs9XofB0QFwa
+	 kZBVldQZU2ZIao0vzTfcLZ6fbFleNYxKUaNg/d8z+MG5Eu4Dc7UZ3O02FPUCJtZ9ye
+	 /6F/ohRadWj5PR+0LXtiibDE6INNH5LltmYu2Ww3fkYhd7M3PJL9VMIuIFpPLFSQBu
+	 ixf8kRIZZksXqCwFLnbgV5lynjNRpZjJgDvtv1Ybw09Q9nX9DJJEgp/fFVEptl7VB+
+	 gci2Zl31Ecrcw==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Conor Dooley <conor@kernel.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -53,14 +53,17 @@ To: Conor Dooley <conor@kernel.org>,
 Cc: linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/6] riscv: dts: starfive: add Milkv Mars board device tree
-Date: Wed, 31 Jan 2024 21:25:54 +0800
-Message-ID: <20240131132600.4067-1-jszhang@kernel.org>
+Subject: [PATCH v3 1/6] riscv: dts: starfive: add 'cpus' label to jh7110 and jh7100 soc dtsi
+Date: Wed, 31 Jan 2024 21:25:55 +0800
+Message-ID: <20240131132600.4067-2-jszhang@kernel.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240131132600.4067-1-jszhang@kernel.org>
+References: <20240131132600.4067-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_053853_920741_3A7925F5 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20240131_053855_811807_37F59038 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,60 +80,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Milkv Mars is a development board based on the Starfive JH7110 SoC.
-The board features:
+Add the 'cpus' label so that we can reference it in board dts files.
 
-- JH7110 SoC
-- 1/2/4/8 GiB LPDDR4 DRAM
-- AXP15060 PMIC
-- 40 pin GPIO header
-- 3x USB 3.0 host port
-- 1x USB 2.0 host port
-- 1x M.2 E-Key
-- 1x eMMC slot
-- 1x MicroSD slot
-- 1x QSPI Flash
-- 1x 1Gbps Ethernet port
-- 1x HDMI port
-- 1x 2-lane DSI and 1x 4-lane DSI
-- 1x 2-lane CSI
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/boot/dts/starfive/jh7100.dtsi | 2 +-
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-patch1 adds 'cpus' label
-patch2 adds "milkv,mars" board dt-binding
-patch3 ~ patch4 adopt Krzysztof's suggestions to DT node names
-patch5 introduces a board common dtsi for visionfive2 and mars
-patch3 adds the mars board dts file describing the currently supported
-features:
-Namely PMIC, UART, I2C, GPIO, SD card, QSPI Flash, eMMC and Ethernet.
-
-Since v2:
- - add a common board file which can be used by vf2 and mars
-
-Since v1:
- - add two new patches which add "cpus" label and board dt-binding
- - adopt Krzysztof's suggestions, thanks
-
-Jisheng Zhang (6):
-  riscv: dts: starfive: add 'cpus' label to jh7110 and jh7100 soc dtsi
-  dt-bindings: riscv: starfive: add Milkv Mars board
-  riscv: dts: starfive: visionfive 2: update sound and codec dt node
-    name
-  riscv: dts: starfive: visionfive 2: use cpus label for timebase freq
-  riscv: dts: starfive: introduce a common board dtsi for jh7110 based
-    boards
-  riscv: dts: starfive: add Milkv Mars board device tree
-
- .../devicetree/bindings/riscv/starfive.yaml   |   1 +
- arch/riscv/boot/dts/starfive/Makefile         |   1 +
- arch/riscv/boot/dts/starfive/jh7100.dtsi      |   2 +-
- .../boot/dts/starfive/jh7110-milkv-mars.dts   |  35 +
- .../jh7110-starfive-visionfive-2.dtsi         | 600 +----------------
- .../jh7110-visionfive2-mars-common.dtsi       | 617 ++++++++++++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |   2 +-
- 7 files changed, 657 insertions(+), 601 deletions(-)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-visionfive2-mars-common.dtsi
-
+diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+index c216aaecac53..b2d36685db5b 100644
+--- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+@@ -13,7 +13,7 @@ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
+ 
+-	cpus {
++	cpus: cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 45213cdf50dc..5a6ff90685e5 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -15,7 +15,7 @@ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
+ 
+-	cpus {
++	cpus: cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 
 -- 
 2.43.0
 
