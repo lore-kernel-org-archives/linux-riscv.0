@@ -4,49 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03866C47258
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 14:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF4EC47258
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Jan 2024 15:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QuSii/Z8UE8HHq9fsYegf7vnQsA+AWJ5iH+BApLAwLk=; b=rXLoDLy1uCqb0d
-	xl2zm3e4uvCO4+5c1eDrEOlGkEB6t049JE1dsmI5ArICsrJVG3sNL7w1u1BoTOmfgJw1R2FussCPc
-	s7YidK1AudYK+Lu2vxZt+D2MyeCyn99gDbQpvKYWPddxMuo3V7YbiH9Emmtj7oMaG6p8yR5K0Z4zG
-	Szr8vSxgWy96CVHZOOJ0ieSf9ieVecEME6eJ/80N1ZRgqvxyt/sTmqWuLm5hf7tc63N9xOx3FWjOd
-	uoteDR2DhX86H7p9Nyc1b7LHe04TghcteQF6DrznWaY+xdvUC25fBcUDu45TEeVYeoC+/mKaS0hwY
-	80iIXvon7+IqfoE3vRJg==;
+	List-Owner; bh=4v7jQ84/L7ra6lDdK2R4BA6FaqyHjVdKSJz3ITvU+KM=; b=fLiRZJbPJ/RKNt
+	dIxoIqDMgjJMlo9dvjk6Yk7f3gJfO7AU7lsXSu7VwfHpiMSL+an3AxFRRTM31W92G7NsK95v+DQ2H
+	v9wX0+P80MmmrwiNO8b0F1Y1zPjr5a6sH9PXMrgjd+MyRqpqjnwazBL5ltPnDP10YJ9nIUYBnCzsm
+	M17UfC6giG0x+PiYvFDJ8so5cn2A8GFe0nZFpdXPs2/mcALn1KLQfiHpgBwTuo22ZKg1E3bXbNHK2
+	1SHes2G5QUSyEnKqoOniLyDemk+NNiWXKQ/+tZzYHITuDbGJOzzEzH1U36rcqJ+v1HQ0lDH3aUkJS
+	um9ldT5u2siBZkYj4BDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVBxP-000000041b3-23T7;
-	Wed, 31 Jan 2024 14:52:55 +0000
+	id 1rVC7I-000000045Fu-2UNR;
+	Wed, 31 Jan 2024 15:03:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVBxL-000000041Z0-3tG2;
-	Wed, 31 Jan 2024 14:52:53 +0000
+	id 1rVC7E-000000045DL-2Sj6;
+	Wed, 31 Jan 2024 15:03:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF49EDA7;
-	Wed, 31 Jan 2024 06:53:33 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 89FDA3F762;
-	Wed, 31 Jan 2024 06:52:47 -0800 (PST)
-Date: Wed, 31 Jan 2024 14:52:44 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Aleksandr Shubin <privatesub2@gmail.com>
-Subject: Re: [PATCH v8 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-Message-ID: <20240131145244.4f534bac@donnerap.manchester.arm.com>
-In-Reply-To: <20240131125920.2879433-2-privatesub2@gmail.com>
-References: <20240131125920.2879433-1-privatesub2@gmail.com>
-	<20240131125920.2879433-2-privatesub2@gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50D6ADA7;
+	Wed, 31 Jan 2024 07:03:45 -0800 (PST)
+Received: from [10.57.79.60] (unknown [10.57.79.60])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E47B3F762;
+	Wed, 31 Jan 2024 07:02:57 -0800 (PST)
+Message-ID: <a34eee7e-3970-4cdd-8c09-bca51132db50@arm.com>
+Date: Wed, 31 Jan 2024 15:02:56 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/15] mm/memory: optimize fork() with PTE-mapped THP
+Content-Language: en-GB
+To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
+ Matthew Wilcox <willy@infradead.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, "David S. Miller"
+ <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org
+References: <20240129124649.189745-1-david@redhat.com>
+ <a335a9d2-9b8f-4eb8-ba22-23a223b59b06@arm.com>
+ <a1a0e9b3-dae2-418f-bd63-50e65f471728@redhat.com>
+ <57eb82c7-4816-42a2-b5ab-cc221e289b21@arm.com>
+ <e6eaba5b-f290-4d1f-990b-a47d89f56ee4@redhat.com>
+ <714d0930-2202-48b6-9728-d248f820325e@arm.com>
+ <dcaa20c4-bd1f-4f15-bb0a-3a790808937d@arm.com>
+ <30718fc8-15cf-41e4-922c-5cdbf00a0840@redhat.com>
+ <de975655-8f8f-40dc-b281-75c40dd1e2c1@arm.com>
+ <c63870b0-690a-4051-b4f5-296cf3b73be2@redhat.com>
+ <a0cdeb7c-dec8-4971-8b54-e6f65ea48ade@arm.com>
+ <74333154-a99b-4bad-81f4-bee02ba05e91@redhat.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <74333154-a99b-4bad-81f4-bee02ba05e91@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_065252_101063_40B7131C 
-X-CRM114-Status: GOOD (  24.68  )
+X-CRM114-CacheID: sfid-20240131_070304_790571_01BD1F09 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,148 +85,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, John Watts <contact@jookia.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-riscv@lists.infradead.org, Samuel Holland <samuel@sholland.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@pengutronix.de>, linux-sunxi@lists.linux.dev, linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Maksim Kiselev <bigunclemax@gmail.com>, linux-arm-kernel@lists.infradead.org, Cheo Fusi <fusibrandon13@gmail.com>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 31 Jan 2024 15:59:14 +0300
-Aleksandr Shubin <privatesub2@gmail.com> wrote:
-
-Hi,
-
-> Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
-> controller witch is different from the previous pwm-sun4i.
+On 31/01/2024 14:29, David Hildenbrand wrote:
+>>> Note that regarding NUMA effects, I mean when some memory access within the same
+>>> socket is faster/slower even with only a single node. On AMD EPYC that's
+>>> possible, depending on which core you are running and on which memory controller
+>>> the memory you want to access is located. If both are in different quadrants
+>>> IIUC, the access latency will be different.
+>>
+>> I've configured the NUMA to only bring the RAM and CPUs for a single socket
+>> online, so I shouldn't be seeing any of these effects. Anyway, I've been using
+>> the Altra as a secondary because its so much slower than the M2. Let me move
+>> over to it and see if everything looks more straightforward there.
 > 
-> The D1 and T113 are identical in terms of peripherals,
-> they differ only in the architecture of the CPU core, and
-> even share the majority of their DT. Because of that,
-> using the same compatible makes sense.
-> The R329 is a different SoC though, and should have
-> a different compatible string added, especially as there
-> is a difference in the number of channels.
+> Better use a system where people will actually run Linux production workloads
+> on, even if it is slower :)
 > 
-> D1 and T113s SoCs have one PWM controller with 8 channels.
-> R329 SoC has two PWM controllers in both power domains, one of
-> them has 9 channels (CPUX one) and the other has 6 (CPUS one).
+> [...]
 > 
-> Add a device tree binding for them.
+>>>>
+>>>> I'll continue to mess around with it until the end of the day. But I'm not
+>>>> making any headway, then I'll change tack; I'll just measure the performance of
+>>>> my contpte changes using your fork/zap stuff as the baseline and post based on
+>>>> that.
+>>>
+>>> You should likely not focus on M2 results. Just pick a representative bare metal
+>>> machine where you get consistent, explainable results.
+>>>
+>>> Nothing in the code is fine-tuned for a particular architecture so far, only
+>>> order-0 handling is kept separate.
+>>>
+>>> BTW: I see the exact same speedups for dontneed that I see for munmap. For
+>>> example, for order-9, it goes from 0.023412s -> 0.009785, so -58%. So I'm
+>>> curious why you see a speedup for munmap but not for dontneed.
+>>
+>> Ugh... ok, coming up.
 > 
-> Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../bindings/pwm/allwinner,sun20i-pwm.yaml    | 88 +++++++++++++++++++
->  1 file changed, 88 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
+> Hopefully you were just staring at the wrong numbers (e.g., only with fork
+> patches). Because both (munmap/pte-dontneed) are using the exact same code path.
 > 
-> diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> new file mode 100644
-> index 000000000000..716f75776006
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> @@ -0,0 +1,88 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pwm/allwinner,sun20i-pwm.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner D1, T113-S3 and R329 PWM
-> +
-> +maintainers:
-> +  - Aleksandr Shubin <privatesub2@gmail.com>
-> +  - Brandon Cheo Fusi <fusibrandon13@gmail.com>
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - const: allwinner,sun20i-d1-pwm
-> +      - items:
-> +          - const: allwinner,sun20i-r329-pwm
-> +          - const: allwinner,sun20i-d1-pwm
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#pwm-cells":
-> +    const: 3
-> +
-> +  clocks:
-> +    items:
-> +      - description: Bus clock
-> +      - description: 24 MHz oscillator
-> +      - description: APB0 clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: bus
-> +      - const: hosc
-> +      - const: apb0
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  allwinner,pwm-channels:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: The number of PWM channels configured for this instance
-> +    enum: [6, 9]
-> +
-> +allOf:
-> +  - $ref: pwm.yaml#
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: allwinner,sun20i-r329-pwm
-> +
-> +    then:
-> +      required:
-> +        - allwinner,pwm-channels
-> +
-> +    else:
-> +      properties:
-> +        allwinner,pwm-channels: false
 
-Do we really need to be that strict?
-If something compatible to D1 pops up in the future, just with a different
-number of channels, we would need a new compatible string.
-If we would leave this else branch out, we could just specify some
-number differing from the default, and be good.
-The number of channels really looks like a parameter to the IP, it's
-modelled like this in the manual (PCR: 0x0100 + 0x0000 + N * 0x0020).
-
-Cheers,
-Andre
-
-> +
-> +unevaluatedProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#pwm-cells"
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/sun20i-d1-ccu.h>
-> +    #include <dt-bindings/reset/sun20i-d1-ccu.h>
-> +
-> +    pwm: pwm@2000c00 {
-> +      compatible = "allwinner,sun20i-d1-pwm";
-> +      reg = <0x02000c00 0x400>;
-> +      clocks = <&ccu CLK_BUS_PWM>, <&dcxo>, <&ccu CLK_APB0>;
-> +      clock-names = "bus", "hosc", "apb0";
-> +      resets = <&ccu RST_BUS_PWM>;
-> +      #pwm-cells = <0x3>;
-> +    };
-> +
-> +...
-
+Ahh... I'm doing pte-dontneed, which is the only option in your original
+benchmark - it does MADV_DONTNEED one page at a time. It looks like your new
+benchmark has an additional "dontneed" option that does it in one shot. Which
+option are you running? Assuming the latter, I think that explains it.
 
 _______________________________________________
 linux-riscv mailing list
