@@ -4,75 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACDEC47DDF
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Feb 2024 08:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 881C2C47DDF
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Feb 2024 08:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tqyjwcj867KPI569QtLp8dS1zf7f6x5AiakpcxJMd3A=; b=NM6I19S0gUITR+
-	CZD8qg/w9nK7Orf48kWoxgdvzrcXeReQDWzgZF3CU5RlFHmbtuN1uJr40pB/njvGtFL0ZkMyaepVg
-	BY7Yi3j6Mj8xPYxxrEhz6Uyvp/VB517tI5UlpR2PS4WNrb74oSNDH/tPHt4fkcsyLxD2B/ZNlzZom
-	GOOT2xJaxy2oxx/v+PS7Wawwet3lWvtnPnRKCMxRORdE9mrITpepOEnp0qVu+1y7E1R9jYsjEzJqL
-	DZFXRMpa4E3s7V0hOY8s/jhv/5b6bpiX3l8kCSyW4ueY5H0GtKYof9v2JwqPWPx5d/bkAIvpIjzBo
-	2hn+7LpgAyor0+rEO4IQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z7ZsKmi6psFeK3Lqp32+1iKu9q2jUHI3GEvKbW9NZag=; b=MUZwWNUf/I7u8PVe4q9tFOOTVa
+	U1hoHGaFQsCo6J4jHJ9m59S3o5/fl8OgFKRL0kMSeLqsnMiUZKsWTvTJ/gM893CzQVP0xSen3GU/y
+	NwgaqarO+Te+RBHpjYiHnLpOcWxogw2MQOgfmA29lUsYIY9dXNFBoMeN7zRozbyhopODII+HHG9vt
+	KJrbSkDUulTwfUnhhaF/UWDHvTvcaiKcP19u64gdM8ECNIU6VjkcYNZ5Go7n8UFDF+9HvxTPe03+e
+	ccSO4iTv0AA27UkCCzF6h7v/+WOEVxkZOl6vlqBbb2exPqkLj3X2LJkLYFBR4jpya7yok+x+/U/XE
+	JiFZBbqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVSfV-0000000784X-09gn;
-	Thu, 01 Feb 2024 08:43:33 +0000
-Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
+	id 1rVSli-000000079WI-3imC;
+	Thu, 01 Feb 2024 08:49:58 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVSfS-0000000783e-2HTw
+	id 1rVSlg-000000079V3-11by
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Feb 2024 08:43:31 +0000
-Received: by mail-io1-xd2f.google.com with SMTP id ca18e2360f4ac-7bc32b0fdadso28745939f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Feb 2024 00:43:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1706777008; x=1707381808; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ao4eLU5tdpHEycqvq3kREW2Bipgab7R6ZJUONGAvtxk=;
-        b=gPZGKa/D++xWkKyMMN2TSeUQCGarcXfiGxYwAXfnmZAuyZufXogFRm5b0fSJnYB5AZ
-         4+zSphyV0/B/6jI9uDCgGqn8UmzVxDyh05DmgcsaFsRutJ0w7Ev9mzCY96tC2fU+SnCg
-         Z+m7NDnM8uli9R+cr4baf7bB/BuTulzUPYcdaZRPHVd6YQdiqxxsDy1c6bGWYMoQ1f1g
-         cpT+ZyK63TfkqVbfUv6DM3emR0q7UOXPxinf1bLW6/Uc2NlRzLR7H21xOngLVBJWeL2v
-         O/2nLgj4Qax6roz76H/POwtmKifnUb6aMHErF2qvH8NGXWi5PLC5WQ0Uo46ey1K23Qy0
-         OzqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706777008; x=1707381808;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ao4eLU5tdpHEycqvq3kREW2Bipgab7R6ZJUONGAvtxk=;
-        b=SKepk6g7z3Mm7HM8v804VTpCfgKpXRchrbwQmB1NO20D61w6xOHfNpiOirLEe+TbO5
-         QDM+5cIifwK2Qw+Sq7NqO4jy8Hihz7gLLP80UGLuBmUe8mDgf5tTWqfy/BZxPRyTKXcI
-         I+T8rvXg/k22Fkn1WW+8JiCMlLq1SJn4Ek494wmMWvpo3wSI+9UJLIDZmnJihvCss50O
-         kV3/+CrPXEeeH+LQZAfimVCE8tze2KEQItWCaz+AIrOBItwv+03l+SWZqieYZROllWOI
-         07+bZ6rSO2PiBwS26KAw65N+WekZ+ggCNYOVhMC5APHwAfnk356hEIoPI4gISwfL1ym0
-         b6Mw==
-X-Gm-Message-State: AOJu0YxEx5aeDMyCi3QDZ5CSK2PXuyPbqgN1veO0nIaMUkJktDQspO+C
-	wewxazdCmKiH1fiB7yYULBF17unJNI5I2Cor9J756eT7MuaPHar0LIxWrUtKN4GdsbtwCiGxZl7
-	EWtv5fJV71xzSEiofPspgpFvgYWYxq2RLFSyR6w==
-X-Google-Smtp-Source: AGHT+IHBzPPfuPk7WAEZLvLmarQrhiLi8C68HmDuy98JSViVi9R3hkGEt5C9YikDQVvMEz5qfy2pE+Jb/kaAS9dUBag=
-X-Received: by 2002:a05:6602:17c5:b0:7c0:31a7:a755 with SMTP id
- z5-20020a05660217c500b007c031a7a755mr526890iox.8.1706777008498; Thu, 01 Feb
- 2024 00:43:28 -0800 (PST)
+	Thu, 01 Feb 2024 08:49:57 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rVSlB-0001qv-A5; Thu, 01 Feb 2024 09:49:25 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rVSl9-003oeA-0k; Thu, 01 Feb 2024 09:49:23 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rVSl8-00Cthr-2y;
+	Thu, 01 Feb 2024 09:49:22 +0100
+Date: Thu, 1 Feb 2024 09:49:22 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Aleksandr Shubin <privatesub2@gmail.com>
+Subject: Re: [PATCH v8 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
+ support
+Message-ID: <eynkbikmzcffid2jft3b6pmjfcbvda6mpzu7l5mefrw3za3iwh@ctgn57kb7ard>
+References: <20240131125920.2879433-1-privatesub2@gmail.com>
+ <20240131125920.2879433-3-privatesub2@gmail.com>
 MIME-Version: 1.0
-References: <20231205085959.32177-1-zong.li@sifive.com> <139cdbd6-73d9-4452-94ce-825689b7c0c8@ghiti.fr>
-In-Reply-To: <139cdbd6-73d9-4452-94ce-825689b7c0c8@ghiti.fr>
-From: Zong Li <zong.li@sifive.com>
-Date: Thu, 1 Feb 2024 16:43:17 +0800
-Message-ID: <CANXhq0oA7LsKev+5gZCtNzCJ64RVOyimM1yQnY0kqs22VE6S4A@mail.gmail.com>
-Subject: Re: [PATCH] riscv: add CALLER_ADDRx support
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20240131125920.2879433-3-privatesub2@gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240201_004330_618361_0A331B72 
-X-CRM114-Status: GOOD (  38.43  )
+X-CRM114-CacheID: sfid-20240201_004956_458995_DD0685DC 
+X-CRM114-Status: GOOD (  30.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,109 +69,322 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Maksim Kiselev <bigunclemax@gmail.com>, Samuel Holland <samuel@sholland.org>, Brandon Cheo Fusi <fusibrandon13@gmail.com>, linux-kernel@vger.kernel.org, Jernej Skrabec <jernej.skrabec@gmail.com>, John Watts <contact@jookia.org>, Chen-Yu Tsai <wens@csie.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Marc Kleine-Budde <mkl@pengutronix.de>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org
+Content-Type: multipart/mixed; boundary="===============0248420365483714270=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBGZWIgMSwgMjAyNCBhdCAxOjEw4oCvQU0gQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdo
-aXRpLmZyPiB3cm90ZToKPgo+IE9uIDA1LzEyLzIwMjMgMDk6NTksIFpvbmcgTGkgd3JvdGU6Cj4g
-PiBDQUxMRVJfQUREUnggcmV0dXJucyBjYWxsZXIncyBhZGRyZXNzIGF0IHNwZWNpZmllZCBsZXZl
-bCwgdGhleSBhcmUgdXNlZAo+ID4gZm9yIHNldmVyYWwgdHJhY2Vycy4gVGhlc2UgbWFjcm9zIGV2
-ZW50dWFsbHkgdXNlCj4gPiBfX2J1aWx0aW5fcmV0dXJuX2FkZHJlc3MobikgdG8gZ2V0IHRoZSBj
-YWxsZXIncyBhZGRyZXNzIGlmIGFyY2ggZG9lc24ndAo+ID4gZGVmaW5lIHRoZWlyIG93biBpbXBs
-ZW1lbnRhdGlvbi4KPiA+Cj4gPiBJbiBSSVNDLVYsIF9fYnVpbHRpbl9yZXR1cm5fYWRkcmVzcyhu
-KSBvbmx5IHdvcmtzIHdoZW4gbiA9PSAwLCB3ZSBuZWVkCj4gPiB0byB3YWxrIHRoZSBzdGFjayBm
-cmFtZSB0byBnZXQgdGhlIGNhbGxlcidzIGFkZHJlc3MgYXQgc3BlY2lmaWVkIGxldmVsLgo+Cj4K
-PiBJcyB0aGF0IGEgYnVnIGluIGdjYyBvciBzb21ldGhpbmcgZXhwZWN0ZWQgZm9yIHJpc2N2IGlu
-IGdlbmVyYWw/Cj4KCkkgdGhpbmsgaXQgaXNuJ3Qgc3VwcG9ydGVkIGZvciByaXNjdiBpbiBnZW5l
-cmFsLgoKPgo+ID4KPiA+IGRhdGEubGV2ZWwgc3RhcnRlZCBmcm9tICdsZXZlbCArIDMnIGR1ZSB0
-byB0aGUgY2FsbCBmbG93IG9mIGdldHRpbmcKPiA+IGNhbGxlcidzIGFkZHJlc3MgaW4gUklTQy1W
-IGltcGxlbWVudGF0aW9uLiBJZiB3ZSBkb24ndCBoYXZlIGFkZGl0aW9uYWwKPiA+IHRocmVlIGl0
-ZXJhdGlvbiwgdGhlIGxldmVsIGlzIGNvcnJlc3BvbmRpbmcgdG8gZm9sbG93czoKPiA+Cj4gPiBj
-YWxsc2l0ZSAtPiByZXR1cm5fYWRkcmVzcyAtPiBhcmNoX3N0YWNrX3dhbGsgLT4gd2Fsa19zdGFj
-a2ZyYW1lCj4gPiB8ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAg
-ICAgfAo+ID4gbGV2ZWwgMyAgICAgbGV2ZWwgMiAgICAgICAgICAgbGV2ZWwgMSAgICAgICAgICAg
-IGxldmVsIDAKPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5j
-b20+Cj4gPiAtLS0KPiA+ICAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9mdHJhY2UuaCAgICB8ICA1
-ICsrKysKPiA+ICAgYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUgICAgICAgICB8ICAyICsrCj4g
-PiAgIGFyY2gvcmlzY3Yva2VybmVsL3JldHVybl9hZGRyZXNzLmMgfCA0OCArKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysKPiA+ICAgMyBmaWxlcyBjaGFuZ2VkLCA1NSBpbnNlcnRpb25zKCsp
-Cj4gPiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9yZXR1cm5fYWRkcmVz
-cy5jCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnRyYWNlLmgg
-Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Z0cmFjZS5oCj4gPiBpbmRleCAyYjJmNWRmN2VmMmMu
-LjQyNzc3ZjkxYTljNSAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnRy
-YWNlLmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnRyYWNlLmgKPiA+IEBAIC0y
-NSw2ICsyNSwxMSBAQAo+ID4KPiA+ICAgI2RlZmluZSBBUkNIX1NVUFBPUlRTX0ZUUkFDRV9PUFMg
-MQo+ID4gICAjaWZuZGVmIF9fQVNTRU1CTFlfXwo+ID4gKwo+ID4gK2V4dGVybiB2b2lkICpyZXR1
-cm5fYWRkcmVzcyh1bnNpZ25lZCBpbnQgbGV2ZWwpOwo+ID4gKwo+ID4gKyNkZWZpbmUgZnRyYWNl
-X3JldHVybl9hZGRyZXNzKG4pIHJldHVybl9hZGRyZXNzKG4pCj4gPiArCj4gPiAgIHZvaWQgTUNP
-VU5UX05BTUUodm9pZCk7Cj4gPiAgIHN0YXRpYyBpbmxpbmUgdW5zaWduZWQgbG9uZyBmdHJhY2Vf
-Y2FsbF9hZGp1c3QodW5zaWduZWQgbG9uZyBhZGRyKQo+ID4gICB7Cj4gPiBkaWZmIC0tZ2l0IGEv
-YXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQo+
-ID4gaW5kZXggZmVlMjJhM2QxYjUzLi40MGQwNTQ5MzlhZTIgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNo
-L3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQo+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZp
-bGUKPiA+IEBAIC03LDYgKzcsNyBAQCBpZmRlZiBDT05GSUdfRlRSQUNFCj4gPiAgIENGTEFHU19S
-RU1PVkVfZnRyYWNlLm8gICAgICA9ICQoQ0NfRkxBR1NfRlRSQUNFKQo+ID4gICBDRkxBR1NfUkVN
-T1ZFX3BhdGNoLm8gICAgICAgPSAkKENDX0ZMQUdTX0ZUUkFDRSkKPiA+ICAgQ0ZMQUdTX1JFTU9W
-RV9zYmkubyA9ICQoQ0NfRkxBR1NfRlRSQUNFKQo+ID4gK0NGTEFHU19SRU1PVkVfcmV0dXJuX2Fk
-ZHJlc3MubyAgICAgICA9ICQoQ0NfRkxBR1NfRlRSQUNFKQo+ID4gICBlbmRpZgo+ID4gICBDRkxB
-R1Nfc3lzY2FsbF90YWJsZS5vICAgICAgKz0gJChjYWxsIGNjLW9wdGlvbiwtV25vLW92ZXJyaWRl
-LWluaXQsKQo+ID4gICBDRkxBR1NfY29tcGF0X3N5c2NhbGxfdGFibGUubyArPSAkKGNhbGwgY2Mt
-b3B0aW9uLC1Xbm8tb3ZlcnJpZGUtaW5pdCwpCj4gPiBAQCAtNDYsNiArNDcsNyBAQCBvYmoteSAg
-ICAgICArPSBpcnEubwo+ID4gICBvYmoteSAgICAgICArPSBwcm9jZXNzLm8KPiA+ICAgb2JqLXkg
-ICAgICAgKz0gcHRyYWNlLm8KPiA+ICAgb2JqLXkgICAgICAgKz0gcmVzZXQubwo+ID4gK29iai15
-ICAgICAgICArPSByZXR1cm5fYWRkcmVzcy5vCj4gPiAgIG9iai15ICAgICAgICs9IHNldHVwLm8K
-PiA+ICAgb2JqLXkgICAgICAgKz0gc2lnbmFsLm8KPiA+ICAgb2JqLXkgICAgICAgKz0gc3lzY2Fs
-bF90YWJsZS5vCj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcmV0dXJuX2FkZHJl
-c3MuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3JldHVybl9hZGRyZXNzLmMKPiA+IG5ldyBmaWxlIG1v
-ZGUgMTAwNjQ0Cj4gPiBpbmRleCAwMDAwMDAwMDAwMDAuLmMyMDA4ZDRhYTZlNQo+ID4gLS0tIC9k
-ZXYvbnVsbAo+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcmV0dXJuX2FkZHJlc3MuYwo+ID4g
-QEAgLTAsMCArMSw0OCBAQAo+ID4gKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4w
-LW9ubHkKPiA+ICsvKgo+ID4gKyAqIFRoaXMgY29kZSBjb21lIGZyb20gYXJjaC9hcm02NC9rZXJu
-ZWwvcmV0dXJuX2FkZHJlc3MuYwo+ID4gKyAqCj4gPiArICogQ29weXJpZ2h0IChDKSAyMDIzIFNp
-Rml2ZS4KPiA+ICsgKi8KPiA+ICsKPiA+ICsjaW5jbHVkZSA8bGludXgvZXhwb3J0Lmg+Cj4gPiAr
-I2luY2x1ZGUgPGxpbnV4L2twcm9iZXMuaD4KPiA+ICsjaW5jbHVkZSA8bGludXgvc3RhY2t0cmFj
-ZS5oPgo+ID4gKwo+ID4gK3N0cnVjdCByZXR1cm5fYWRkcmVzc19kYXRhIHsKPiA+ICsgICAgIHVu
-c2lnbmVkIGludCBsZXZlbDsKPiA+ICsgICAgIHZvaWQgKmFkZHI7Cj4gPiArfTsKPiA+ICsKPiA+
-ICtzdGF0aWMgYm9vbCBzYXZlX3JldHVybl9hZGRyKHZvaWQgKmQsIHVuc2lnbmVkIGxvbmcgcGMp
-Cj4gPiArewo+ID4gKyAgICAgc3RydWN0IHJldHVybl9hZGRyZXNzX2RhdGEgKmRhdGEgPSBkOwo+
-ID4gKwo+ID4gKyAgICAgaWYgKCFkYXRhLT5sZXZlbCkgewo+ID4gKyAgICAgICAgICAgICBkYXRh
-LT5hZGRyID0gKHZvaWQgKilwYzsKPiA+ICsgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwo+ID4g
-KyAgICAgfQo+ID4gKwo+ID4gKyAgICAgLS1kYXRhLT5sZXZlbDsKPiA+ICsKPiA+ICsgICAgIHJl
-dHVybiB0cnVlOwo+ID4gK30KPiA+ICtOT0tQUk9CRV9TWU1CT0woc2F2ZV9yZXR1cm5fYWRkcik7
-Cj4gPiArCj4gPiArdm9pZCAqcmV0dXJuX2FkZHJlc3ModW5zaWduZWQgaW50IGxldmVsKQo+Cj4K
-PiBNYXliZSByZXR1cm5fYWRkcmVzcygpIHNob3VsZCBiZSBub2lubGluZSB0byBtYWtlIHN1cmUg
-aXQncyBub3QgaW5saW5lZAo+IGFzIGl0IHdvdWxkIGJyZWFrIHRoZSAiKyAzIj8gTm90IHN1cmUg
-aXQncyBuZWNlc3NhcnkgdGhvdWdoLgoKWWVzLCB0aGFua3MgZm9yIHBvaW50aW5nIGl0IG91dC4g
-V2Ugc2hvdWxkIGVuc3VyZSBpdCdzIG5vdCBpbmxpbmVkIGluCmFueSBjYXNlLiBJIHdpbGwgc2Vu
-ZCB0aGUgbmV4dCB2ZXJzaW9uLgoKPgo+Cj4gPiArewo+ID4gKyAgICAgc3RydWN0IHJldHVybl9h
-ZGRyZXNzX2RhdGEgZGF0YTsKPiA+ICsKPiA+ICsgICAgIGRhdGEubGV2ZWwgPSBsZXZlbCArIDM7
-Cj4gPiArICAgICBkYXRhLmFkZHIgPSBOVUxMOwo+ID4gKwo+ID4gKyAgICAgYXJjaF9zdGFja193
-YWxrKHNhdmVfcmV0dXJuX2FkZHIsICZkYXRhLCBjdXJyZW50LCBOVUxMKTsKPiA+ICsKPiA+ICsg
-ICAgIGlmICghZGF0YS5sZXZlbCkKPiA+ICsgICAgICAgICAgICAgcmV0dXJuIGRhdGEuYWRkcjsK
-PiA+ICsgICAgIGVsc2UKPiA+ICsgICAgICAgICAgICAgcmV0dXJuIE5VTEw7Cj4gPiArCj4gPiAr
-fQo+ID4gK0VYUE9SVF9TWU1CT0xfR1BMKHJldHVybl9hZGRyZXNzKTsKPiA+ICtOT0tQUk9CRV9T
-WU1CT0wocmV0dXJuX2FkZHJlc3MpOwo+Cj4KPiBBbmQgSSBzZWUgdGhhdCB3aXRoIHRoaXMgcGF0
-Y2gsIGZ0cmFjZV9yZXR1cm5fYWRkcmVzcygpIGlzIG5vdyBkZWZpbmVkCj4gd2hldGhlciBDT05G
-SUdfRlJBTUVfUE9JTlRFUiBpcyBzZXQgb3Igbm90LCBpcyB0aGF0IGNvcnJlY3Q/CgpZZXMsIHRo
-YXQgaXMgd2hhdCBJIHVuZGVyc3RhbmQuIEluIHRoaXMgcGF0Y2gsIHRoZQpmdHJhY2VfcmV0dXJu
-X2FkZHJlc3MoKSBpcyBzdGlsbCBkZWZpbmVkIHRvIHJldHVybl9hZGRyZXNzKCkgd2hlbgpDT05G
-SUdfRlJBTUVfUE9JTlRFUiBpc24ndCBlbmFibGVkLCBhbmQgcmV0dXJuX2FkZHJlc3Mgc3RpbGwg
-d29ya3MKYmVjYXVzZSByaXNjdiBwb3J0IGNhbiB3YWxrIHN0YWNrZnJhbWUgd2l0aG91dCBmcC4K
-Cj4KPiBUaGlzIGxvb2tzIGxpa2UgYSBmaXggdG8gbWUgc28gdGhhdCBzaG91bGQgZ28gaW50byAt
-Zml4ZXMgd2l0aCBhIEZpeGVzCj4gdGFnIChidXQgd2UnbGwgaGF2ZSB0byBtYWtlIHN1cmUgdGhh
-dCB0aGUgIisgMyIgaXMgY29ycmVjdCBvbiBhbGwKPiBiYWNrcG9ydHMuLi4pOgo+Cj4gRml4ZXM6
-IDEwNjI2YzMyZTM4MiAoInJpc2N2L2Z0cmFjZTogQWRkIGJhc2ljIHN1cHBvcnQiKQoKVGhlIHJl
-dHVybl9hZGRyZXNzKCkgaW52b2tlcyBhcmNoX3N0YWNrX3dhbGsoKSwgd2hpY2ggZW5hYmxlZCBi
-eSB0aGUKJzVjYjAwODBmMWJmZCAoInJpc2N2OiBFbmFibGUgQVJDSF9TVEFDS1dBTEsiKScKCkkg
-Z3Vlc3MgdGhhdCB3ZSBhcmUgbm90IGFibGUgdG8gYXBwbHkgaXQgb24gYWxsIGJhY2twb3J0cy4g
-SXMgdGhpcwpyaWdodD8gIiszIiBpcyBjb3JyZWN0IGFmdGVyIGVuYWJsaW5nIEFSQ0hfU1RBQ0tX
-QUxLLgoKPgo+IEFuZCB5b3UgY2FuIGZpbmFsbHkgYWRkIGZvciB5b3VyIHYyIChvciBub3QgaWYg
-eW91IGRvbid0IHJlc3Bpbik6Cj4KPiBSZXZpZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4
-Z2hpdGlAcml2b3NpbmMuY29tPgoKVGhhbmtzIGZvciB0aGUgcmV2aWV3LCBBbGV4YW5kcmUuIEkg
-d2lsbCBhZGQgaXQgaW4gdjI6KQoKPgo+IFRoYW5rcyBhbmQgc29ycnkgZm9yIHRoZSBkZWxheSEK
-Pgo+IEFsZXgKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+
+--===============0248420365483714270==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="w56zi5w66btz7pje"
+Content-Disposition: inline
+
+
+--w56zi5w66btz7pje
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+hello Aleksandr,
+
+On Wed, Jan 31, 2024 at 03:59:15PM +0300, Aleksandr Shubin wrote:
+> +#include <linux/bitfield.h>
+> +#include <linux/clk.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/of_device.h>
+
+Some time ago there was some effort by Rob Herring to detangle the
+headers platform_device.h, of_device.h and of.h. See for example commit
+87e51b76c9db8c29cde573af0faf5a3e13e23960. I think you should use
+linux/of.h instead of linux/of_device.h.
+
+> +#include <linux/platform_device.h>
+> +#include <linux/pwm.h>
+> +#include <linux/reset.h>
+> +
+> +#define SUN20I_PWM_CLK_CFG(chan)		(0x20 + (((chan) >> 1) * 0x4))
+> +#define SUN20I_PWM_CLK_CFG_SRC			GENMASK(8, 7)
+> +#define SUN20I_PWM_CLK_CFG_DIV_M		GENMASK(3, 0)
+> +#define SUN20I_PWM_CLK_DIV_M_MAX		8
+
+SUN20I_PWM_CLK_CFG_DIV_M_MAX?
+
+> +#define SUN20I_PWM_CLK_GATE			0x40
+> +#define SUN20I_PWM_CLK_GATE_BYPASS(chan)	BIT((chan) + 16)
+> +#define SUN20I_PWM_CLK_GATE_GATING(chan)	BIT(chan)
+> +
+> +#define SUN20I_PWM_ENABLE			0x80
+> +#define SUN20I_PWM_ENABLE_EN(chan)		BIT(chan)
+> +
+> +#define SUN20I_PWM_CTL(chan)			(0x100 + (chan) * 0x20)
+> +#define SUN20I_PWM_CTL_ACT_STA			BIT(8)
+> +#define UN20I_PWM_CTL_PRESCAL_K		GENMASK(7, 0)
+> +#define SUN20I_PWM_CTL_PRESCAL_K_MAX		0xff
+
+This matches the theoretical maximum for GENMASK(7,0), so you could make
+use of field_max(SUN20I_PWM_CTL_PRESCAL_K) here.
+
+> +#define SUN20I_PWM_PERIOD(chan)			(0x104 + (chan) * 0x20)
+> +#define SUN20I_PWM_PERIOD_ENTIRE_CYCLE		GENMASK(31, 16)
+> +#define SUN20I_PWM_PERIOD_ACT_CYCLE		GENMASK(15, 0)
+> +
+> +#define SUN20I_PWM_PCNTR_SIZE			BIT(16)
+> +
+> +/**
+> + * SUN20I_PWM_MAGIC is used to quickly compute the values of the clock d=
+ividers
+> + * div_m (SUN20I_PWM_CLK_CFG_DIV_M) & prescale_k (SUN20I_PWM_CTL_PRESCAL=
+_K)
+> + * without using a loop. These dividers limit the # of cycles in a period
+> + * to SUN20I_PWM_PCNTR_SIZE by applying a scaling factor of
+> + * 1/(div_m * (prescale_k + 1)) to the clock source.
+> + *
+> + * SUN20I_PWM_MAGIC is derived by solving for div_m and prescale_k
+> + * such that for a given requested period,
+> + *
+> + * i) div_m is minimized for any prescale_k =E2=89=A4 SUN20I_PWM_CTL_PRE=
+SCAL_K_MAX,
+> + * ii) prescale_k is minimized.
+> + *
+> + * The derivation proceeds as follows, with val =3D # of cycles for reqe=
+sted
+
+s/reqested/requested/
+
+> + * period:
+> + *
+> + * for a given value of div_m we want the smallest prescale_k such that
+> + *
+> + * (val >> div_m) // (prescale_k + 1) =E2=89=A4 65536 (SUN20I_PWM_PCNTR_=
+SIZE)
+> + *
+> + * This is equivalent to:
+> + *
+> + * (val >> div_m) =E2=89=A4 65536 * (prescale_k + 1) + prescale_k
+> + * =E2=9F=BA (val >> div_m) =E2=89=A4 65537 * prescale_k + 65536
+> + * =E2=9F=BA (val >> div_m) - 65536 =E2=89=A4 65537 * prescale_k
+> + * =E2=9F=BA ((val >> div_m) - 65536) / 65537 =E2=89=A4 prescale_k
+> + *
+> + * As prescale_k is integer, this becomes
+> + *
+> + * ((val >> div_m) - 65536) // 65537 =E2=89=A4 prescale_k
+> + *
+> + * And is minimized at
+> + *
+> + * ((val >> div_m) - 65536) // 65537
+> + *
+> + * Now we pick the smallest div_m that satifies prescale_k =E2=89=A4 255
+> + * (i.e SUN20I_PWM_CTL_PRESCAL_K_MAX),
+> + *
+> + * ((val >> div_m) - 65536) // 65537 =E2=89=A4 255
+> + * =E2=9F=BA (val >> div_m) - 65536 =E2=89=A4 255 * 65537 + 65536
+> + * =E2=9F=BA val >> div_m =E2=89=A4 255 * 65537 + 2 * 65536
+> + * =E2=9F=BA val >> div_m < (255 * 65537 + 2 * 65536 + 1)
+> + * =E2=9F=BA div_m =3D fls((val) / (255 * 65537 + 2 * 65536 + 1))
+> + *
+> + * Suggested by Uwe Kleine-K=C3=B6nig
+
+Good man, I assume this is all sane then :-)
+
+> + */
+> +#define SUN20I_PWM_MAGIC			(255 * 65537 + 2 * 65536 + 1)
+> +
+> +struct sun20i_pwm_chip {
+> +	struct clk *clk_bus, *clk_hosc, *clk_apb0;
+> +	struct reset_control *rst;
+> +	struct pwm_chip chip;
+> +	void __iomem *base;
+> +	/* Mutex to protect pwm apply state */
+> +	struct mutex mutex;
+> +};
+> +
+> +static inline struct sun20i_pwm_chip *to_sun20i_pwm_chip(struct pwm_chip=
+ *chip)
+> +{
+> +	return container_of(chip, struct sun20i_pwm_chip, chip);
+> +}
+> +
+> +static inline u32 sun20i_pwm_readl(struct sun20i_pwm_chip *chip,
+> +				   unsigned long offset)
+> +{
+> +	return readl(chip->base + offset);
+> +}
+> +
+> +static inline void sun20i_pwm_writel(struct sun20i_pwm_chip *chip,
+> +				     u32 val, unsigned long offset)
+> +{
+> +	writel(val, chip->base + offset);
+> +}
+> +
+> +static int sun20i_pwm_get_state(struct pwm_chip *chip,
+> +				struct pwm_device *pwm,
+> +				struct pwm_state *state)
+> +{
+> +	struct sun20i_pwm_chip *sun20i_chip =3D to_sun20i_pwm_chip(chip);
+> +	u16 ent_cycle, act_cycle, prescale_k;
+> +	u64 clk_rate, tmp;
+> +	u8 div_m;
+> +	u32 val;
+> +
+> +	mutex_lock(&sun20i_chip->mutex);
+> +
+> +	val =3D sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_CLK_CFG(pwm->hwpwm));
+> +	div_m =3D FIELD_GET(SUN20I_PWM_CLK_CFG_DIV_M, val);
+> +	if (div_m > SUN20I_PWM_CLK_DIV_M_MAX)
+> +		div_m =3D SUN20I_PWM_CLK_DIV_M_MAX;
+> +
+> +	if (FIELD_GET(SUN20I_PWM_CLK_CFG_SRC, val) =3D=3D 0)
+> +		clk_rate =3D clk_get_rate(sun20i_chip->clk_hosc);
+> +	else
+> +		clk_rate =3D clk_get_rate(sun20i_chip->clk_apb0);
+> +
+> +	val =3D sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_CTL(pwm->hwpwm));
+> +	state->polarity =3D (SUN20I_PWM_CTL_ACT_STA & val) ?
+> +			   PWM_POLARITY_NORMAL : PWM_POLARITY_INVERSED;
+> +
+> +	prescale_k =3D FIELD_GET(SUN20I_PWM_CTL_PRESCAL_K, val) + 1;
+> +
+> +	val =3D sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_ENABLE);
+> +	state->enabled =3D (SUN20I_PWM_ENABLE_EN(pwm->hwpwm) & val) ? true : fa=
+lse;
+> +
+> +	val =3D sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_PERIOD(pwm->hwpwm));
+> +
+> +	mutex_unlock(&sun20i_chip->mutex);
+> +
+> +	act_cycle =3D FIELD_GET(SUN20I_PWM_PERIOD_ACT_CYCLE, val);
+> +	ent_cycle =3D FIELD_GET(SUN20I_PWM_PERIOD_ENTIRE_CYCLE, val);
+> +
+> +	/*
+> +	 * The duration of the active phase should not be longer
+> +	 * than the duration of the period
+> +	 */
+> +	if (act_cycle > ent_cycle)
+> +		act_cycle =3D ent_cycle;
+> +
+> +	tmp =3D ((u64)(act_cycle) * prescale_k << div_m) * NSEC_PER_SEC;
+> +	state->duty_cycle =3D DIV_ROUND_UP_ULL(tmp, clk_rate);
+> +	tmp =3D ((u64)(ent_cycle) * prescale_k << div_m) * NSEC_PER_SEC;
+> +	state->period =3D DIV_ROUND_UP_ULL(tmp, clk_rate);
+
+Please add a comment above this block that justifies assuming that the
+multiplication doesn't overflow. Something like:
+
+	We have act_cycle <=3D ent_cycle <=3D 0xffff, prescale_k <=3D 0x100,
+	div_m <=3D 8. So the multiplication fits into an u64 without
+	overflow.
+
+> +
+> +	return 0;
+> +}
+> +
+> +static int sun20i_pwm_apply(struct pwm_chip *chip, struct pwm_device *pw=
+m,
+> +			    const struct pwm_state *state)
+> +{
+> +...
+> +}
+
+I didn't recheck all the logic in .apply in detail and will assume it is
+sane for this round.
+
+> +static const struct pwm_ops sun20i_pwm_ops =3D {
+> +	.apply =3D sun20i_pwm_apply,
+> +	.get_state =3D sun20i_pwm_get_state,
+> +};
+> +
+> +static const struct of_device_id sun20i_pwm_dt_ids[] =3D {
+> +	{ .compatible =3D "allwinner,sun20i-d1-pwm" },
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(of, sun20i_pwm_dt_ids);
+> +
+> +static int sun20i_pwm_probe(struct platform_device *pdev)
+> +{
+> +	struct sun20i_pwm_chip *sun20i_chip;
+> +	int ret;
+> +
+> +	sun20i_chip =3D devm_kzalloc(&pdev->dev, sizeof(*sun20i_chip), GFP_KERN=
+EL);
+> +	if (!sun20i_chip)
+> +		return -ENOMEM;
+> +
+> +	sun20i_chip->base =3D devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(sun20i_chip->base))
+> +		return PTR_ERR(sun20i_chip->base);
+> +
+> +	sun20i_chip->clk_bus =3D devm_clk_get_enabled(&pdev->dev, "bus");
+> +	if (IS_ERR(sun20i_chip->clk_bus))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_bus),
+> +				     "failed to get bus clock\n");
+> +
+> +	sun20i_chip->clk_hosc =3D devm_clk_get_enabled(&pdev->dev, "hosc");
+> +	if (IS_ERR(sun20i_chip->clk_hosc))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_hosc),
+> +				     "failed to get hosc clock\n");
+> +
+> +	sun20i_chip->clk_apb0 =3D devm_clk_get_enabled(&pdev->dev, "apb0");
+> +	if (IS_ERR(sun20i_chip->clk_apb0))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_apb0),
+> +				     "failed to get apb0 clock\n");
+> +
+> +	sun20i_chip->rst =3D devm_reset_control_get_exclusive(&pdev->dev, NULL);
+> +	if (IS_ERR(sun20i_chip->rst))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->rst),
+> +				     "failed to get bus reset\n");
+> +
+> +	ret =3D of_property_read_u32(pdev->dev.of_node, "allwinner,pwm-channels=
+",
+> +				   &sun20i_chip->chip.npwm);
+> +	if (ret)
+> +		sun20i_chip->chip.npwm =3D 8;
+> +
+> +	if (sun20i_chip->chip.npwm > 16)
+> +		sun20i_chip->chip.npwm =3D 16;
+
+Is it worth to emit an error message here? Something like:
+
+	Limiting number of PWM lines from %u to 16
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=C3=B6nig         =
+   |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--w56zi5w66btz7pje
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmW7WxEACgkQj4D7WH0S
+/k7HfAgAn/PEpM3A20iTXqFs73pn5IFzr1kdJaIPSkUT8GkUYe8Qrjamd4VXwoBK
+lkLscSz256RA8t2tYfM5dwWO71U6TJBPmS3UfeJQjZVFN4jK7ptPzxwiO2S9xjrt
+rJhOHMvlEQT+OvF0/LJwGLYSycTXT2Y5eypA4beDzoqTRSBpmdzzcZ5ft2XbcOD+
+0tItrmGiiB7Cj17JacxEoeT2BDpMvwvuu6w7Rx2IeGkKrNcn/11bLeAQl7CKnoUk
+xs+tfJpSZ1LE8NZJVYEFb3adpGOV7jCjPEgELogWTTNdxdwuVdBY8PVgnAW+LM3q
++Jh3qobPQ8dXFOxh6J3IHJc/he7Vpw==
+=wVat
+-----END PGP SIGNATURE-----
+
+--w56zi5w66btz7pje--
+
+
+--===============0248420365483714270==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0248420365483714270==--
+
