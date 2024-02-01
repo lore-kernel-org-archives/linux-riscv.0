@@ -4,78 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21965C47DDF
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Feb 2024 06:59:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C540BC47DDB
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Feb 2024 07:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lhJm3qHMFCmB9VZ4HzH9M8nwA/ruHCG0HyoiCjEm8JU=; b=ujTI8oxigp+rBX
-	ExotfHF/emZwtOa/RGbzAPxLk1JbxKeRFaWh6Wbskiia/t8H2AYTvNceJ3OSzDOPsrBLSovkPyda3
-	RhZvhhztR3WGgwr7dzEvQu+ZSSNQYCti746H5wyHlV4egpuCxjQB0r+bhWvgQ/Azdw6pstyggJI+J
-	8HlMnbGhVxUyGSLurnpLSJUgNg9a3N/H5vqaxpsAkfCUZGmYm7t30qR4eFCPr14XYDr0ddIsbC+lf
-	XnluRaQTPB/dWoOaw9GJbqrcfeeIOvWTgdm3KAADSaVLvmObpsmaW7fAiOUZ3MRXg2ylYAIzVUC0s
-	yHT/fn5yHW/BP752LjCQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1XMBSn/dhKKB6hzUEJxo0fTnsEFXe36if21+xwnGx/s=; b=C+TP/iMMqMjl4Q
+	xC4pcqzd9D6tDAXj+fG31GGNgDKa7cvZRyH1wkMs+djTjcFpBfXuJgZhQ5mBOPShyUV4GEeHWOIN4
+	ecvOkBBDg4oTGX82wfCuaj2jzMJxgT1dGJONxcxuUQnE0o9bbIn0gIUGuG1+58yyWjfpPrYxtZOfd
+	bKCpj3S/ZD0z3AQ/nF5xO1uwHKbvaRhZJmVh1djWyzUk+GlEVTAcVlAEf93zsj9SsZ1hvWDhPy9gK
+	XD6v5W5kuWb+cbENWBiqC2iSb12n2OCqHGRBuLUmoIEicvqlGqJPQAsFr0H4kuI1yhrO4y2KQhCp0
+	cnzwttAKG8aR7N5z5kuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVR30-00000006qdB-1jff;
-	Thu, 01 Feb 2024 06:59:42 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1rVROV-00000006tjZ-1dnN;
+	Thu, 01 Feb 2024 07:21:55 +0000
+Received: from mail-ej1-f46.google.com ([209.85.218.46])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVR2x-00000006qcG-2zM3
+	id 1rVROT-00000006tiX-2e2u
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Feb 2024 06:59:40 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-295d22bd625so405168a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 31 Jan 2024 22:59:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1706770778; x=1707375578; darn=lists.infradead.org;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vlIN8EUE48rC5uTTPPIhaWbjEtaHOruLs++XqNgVM0c=;
-        b=lA+i2i9GkmFTM/Me/SkE7aPp4zd1jA4OyOHt//NKdqT8WooPSzCJ6EYKS120OPTVS6
-         O69N482m9sdxX7MtFakhXuPcbJ0z4dg/sP2cdLl55qCWCmVI+QUmsnRQAd4rpgDcPOTp
-         e8WW4SF78cfK7kOgePIARr1Am2x95vRJDzXxs1dOHmvPLAwg9UYH3xm1W5p7S0qyy8yR
-         e5Lc9ggOfJ4UIa6pgV/dcImVi7sv+yYD8srUpINLPO/Qarzxe7HrsVaYiVV/NSt0P5Om
-         pxKD6uMc3PQKrn2h8tAiMkAM60QKJkzdFzA7IF2OHNZne39CTZ0Kt+t20+ifCJcyrlM+
-         l6rA==
+	Thu, 01 Feb 2024 07:21:54 +0000
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-a318ccfe412so55537966b.1
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Jan 2024 23:21:48 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706770778; x=1707375578;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vlIN8EUE48rC5uTTPPIhaWbjEtaHOruLs++XqNgVM0c=;
-        b=j9GhYlcrOurgOeWnRKB8c379pkNj4Nw2lrF/qH/Tid/wBWSBxFj9l037Fwr3Umfw67
-         jc4jUMv29Vc1cT2NkR8Bl7MLZh7CC3NHAm/pbOBW0v2jYAJZp8XDAeFb8SxZS7t2Aev+
-         WZu5bvRq0YK3nUDQS3w4oCtQtvdiKLQp3vhWFRqUKjT7E/P4YehxtSehiYgyAHTRPt5t
-         IrLDE2YKHzcbHsIWywanstdsGkEeW5HvtMMpXdQ9j2TczLXz+PV95+hVhunAErhiOeH9
-         VfVFOBj4Z88DkON5U3q1uU/7MOuioh6rx2fgcoiH3Y/mUFVRTTPjQP+ypTuVNLq7Gtmh
-         KcPA==
-X-Gm-Message-State: AOJu0YwIxJJ1WydPkz8bGQuV61MfkrrvrsNmWPXRyaLIi7gbif9Xu2SA
-	/6QdTqWN4ezWezj3WnAxlJ820A0rvFR6Ww550oonm3Muo/NxS+0YUBmHZCD/zMo=
-X-Google-Smtp-Source: AGHT+IH/o/5JqeOA/x2iMwoniYizhXmfdnxdnTcGm27O4QdQUCPpzI7Y7LqIdMK6wYPdO68ohRayTw==
-X-Received: by 2002:a17:90b:19c9:b0:296:1dcf:c296 with SMTP id nm9-20020a17090b19c900b002961dcfc296mr211546pjb.18.1706770778294;
-        Wed, 31 Jan 2024 22:59:38 -0800 (PST)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id pq9-20020a17090b3d8900b0029051dad730sm2787838pjb.26.2024.01.31.22.59.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Jan 2024 22:59:37 -0800 (PST)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: linux-serial@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	gregkh@linuxfoundation.org
-Cc: paul.walmsley@sifive.com,
-	jirislaby@kernel.org,
-	Andy Chiu <andy.chiu@sifive.com>
-Subject: [PATCH] tty: serial: manage irq with spin_lock_irqsave in SiFive console
-Date: Thu,  1 Feb 2024 06:59:32 +0000
-Message-Id: <20240201065932.19899-1-andy.chiu@sifive.com>
-X-Mailer: git-send-email 2.17.1
+        d=1e100.net; s=20230601; t=1706772107; x=1707376907;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=IsDZKbApnlA2dj+p9U4qkntJDZZ8OgdKFtyDfxWQtQc=;
+        b=IBPLuzbQRlZQAYS7fzRqPV9Tp4dOQns3/a+e2nWDoAKHFVSV/KGUPRp8cYqqJqqRDz
+         VjM4zUi9ci51zJNP/XYBHiO6jPjISb98kcgaH5IwGnEvLVjckkb+CSbmpFLgAN9gZVbo
+         v09olmdXyjaLBVxybE55kwTUPxphyOOzhn26OVR2HDGtembRzhycQoQgyjNgzIABhtXX
+         fwYkV8x6Amb4M9Ne7oE4Kw41oU4tmFtV7NaCp3nserXBFrWVL9kfu2Id4B82hxgRxSjY
+         IkFUQ/778UK4ethnWVZy3oMAQjQGwOFV6rxNNE/AEvuz2yRZNwfDUZhtrTj2oh1OaQeV
+         veNg==
+X-Gm-Message-State: AOJu0YxkSFIoZ/Vyyp90Lmm0XlHJ/STxsbuK1iqqorbJbcWrtJtA3qbH
+	3vttRMJe+OA5aihWrkNLZNVDyyHpWtIdkePZgvdHUnZurjjbAZtB
+X-Google-Smtp-Source: AGHT+IFZjbxr2cJofMVlTOUkCIF0D0dvueGS96gzxjkAiqKk589qNwSLO6i2lSpZaO6635a2uLvAmQ==
+X-Received: by 2002:a17:906:eb51:b0:a36:3c47:1a2e with SMTP id mc17-20020a170906eb5100b00a363c471a2emr2831331ejb.19.1706772107235;
+        Wed, 31 Jan 2024 23:21:47 -0800 (PST)
+Received: from ?IPV6:2a0b:e7c0:0:107::aaaa:59? ([2a0b:e7c0:0:107::aaaa:59])
+        by smtp.gmail.com with ESMTPSA id lz13-20020a170906fb0d00b00a317ca8b422sm5639448ejb.92.2024.01.31.23.21.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 31 Jan 2024 23:21:46 -0800 (PST)
+Message-ID: <2f1b1262-8c32-4dd5-8052-d47682c0b1f6@kernel.org>
+Date: Thu, 1 Feb 2024 08:21:44 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] tty: serial: manage irq with spin_lock_irqsave in SiFive
+ console
+Content-Language: en-US
+To: Andy Chiu <andy.chiu@sifive.com>, linux-serial@vger.kernel.org,
+ linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ gregkh@linuxfoundation.org
+Cc: paul.walmsley@sifive.com
+References: <20240201065932.19899-1-andy.chiu@sifive.com>
+From: Jiri Slaby <jirislaby@kernel.org>
+Autocrypt: addr=jirislaby@kernel.org; keydata=
+ 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
+In-Reply-To: <20240201065932.19899-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240131_225939_801587_5E4E3B07 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240131_232153_705510_2A835C86 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,53 +120,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It is not safe to call spin_lock() with irq disabled on RT-linux.
-Instead, transfer the code segment to spin_lock_irqsave to make it work
-on both RT and non-RT linux.
+On 01. 02. 24, 7:59, Andy Chiu wrote:
+> It is not safe to call spin_lock() with irq disabled on RT-linux.
+> Instead, transfer the code segment to spin_lock_irqsave to make it work
+> on both RT and non-RT linux.
 
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
----
- drivers/tty/serial/sifive.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+Hi,
 
-diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
-index fa4c9336924f..3f0ddf8bfa7b 100644
---- a/drivers/tty/serial/sifive.c
-+++ b/drivers/tty/serial/sifive.c
-@@ -788,13 +788,12 @@ static void sifive_serial_console_write(struct console *co, const char *s,
- 	if (!ssp)
- 		return;
- 
--	local_irq_save(flags);
- 	if (ssp->port.sysrq)
- 		locked = 0;
- 	else if (oops_in_progress)
--		locked = spin_trylock(&ssp->port.lock);
-+		locked = spin_trylock_irqsave(&ssp->port.lock, flags);
- 	else
--		spin_lock(&ssp->port.lock);
-+		spin_lock_irqsave(&ssp->port.lock, flags);
- 
- 	ier = __ssp_readl(ssp, SIFIVE_SERIAL_IE_OFFS);
- 	__ssp_writel(0, SIFIVE_SERIAL_IE_OFFS, ssp);
-@@ -804,8 +803,7 @@ static void sifive_serial_console_write(struct console *co, const char *s,
- 	__ssp_writel(ier, SIFIVE_SERIAL_IE_OFFS, ssp);
- 
- 	if (locked)
--		spin_unlock(&ssp->port.lock);
--	local_irq_restore(flags);
-+		spin_unlock_irqrestore(&ssp->port.lock, flags);
- }
- 
- static int __init sifive_serial_console_setup(struct console *co, char *options)
+have you investigated what is protected by the local_irq_save() in 
+there? The lock is not always taken, OTOH the interrupts are always 
+disabled.
+
+I believe the fix is not as easy as is presented below.
+
+> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> ---
+>   drivers/tty/serial/sifive.c | 8 +++-----
+>   1 file changed, 3 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
+> index fa4c9336924f..3f0ddf8bfa7b 100644
+> --- a/drivers/tty/serial/sifive.c
+> +++ b/drivers/tty/serial/sifive.c
+> @@ -788,13 +788,12 @@ static void sifive_serial_console_write(struct console *co, const char *s,
+>   	if (!ssp)
+>   		return;
+>   
+> -	local_irq_save(flags);
+>   	if (ssp->port.sysrq)
+>   		locked = 0;
+>   	else if (oops_in_progress)
+> -		locked = spin_trylock(&ssp->port.lock);
+> +		locked = spin_trylock_irqsave(&ssp->port.lock, flags);
+>   	else
+> -		spin_lock(&ssp->port.lock);
+> +		spin_lock_irqsave(&ssp->port.lock, flags);
+>   
+>   	ier = __ssp_readl(ssp, SIFIVE_SERIAL_IE_OFFS);
+>   	__ssp_writel(0, SIFIVE_SERIAL_IE_OFFS, ssp);
+> @@ -804,8 +803,7 @@ static void sifive_serial_console_write(struct console *co, const char *s,
+>   	__ssp_writel(ier, SIFIVE_SERIAL_IE_OFFS, ssp);
+>   
+>   	if (locked)
+> -		spin_unlock(&ssp->port.lock);
+> -	local_irq_restore(flags);
+> +		spin_unlock_irqrestore(&ssp->port.lock, flags);
+>   }
+>   
+>   static int __init sifive_serial_console_setup(struct console *co, char *options)
+
 -- 
-2.17.1
+js
+suse labs
 
 
 _______________________________________________
