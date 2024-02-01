@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B88C47DDB
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Feb 2024 10:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD338C47DDB
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Feb 2024 10:40:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JMjsEpq6Ldq1DUKjOTckX4K4lcm0bHw4ZqBB9zVC1N4=; b=bsdyvtj5szyeSu
-	9bIGuYiHbyoazmcFboVTEYYVY+WK8jvY2r8eD80CrWE741czeIILAjB5DBnrnC4LFAvPwEds4IW9J
-	Ko7xCb8ZfMrGhMVmDPexAwnm2RHPrpAOoXrqScJZM364cA2lGkGQ756S9+wc7SWgbPThG+qWIhix1
-	eqVY7IkJfTWPXKJeuNSil2EQi+FPCuEbb7eXsi8pkpWDOKj4lHlLyy6q+s7EHIaapsj9gyTT45msb
-	RnQ11Kh2ApFflFMlGQylHArfv93qtsk6y3otzrOWFNXt+tRejWy+KULBqKbluy8mWCt+tPBb3LiC/
-	4c8QZEpSuN/oMaNISgLw==;
+	List-Owner; bh=HaexapclvbHqteQS2QIaapc6fXpBpgQhRMZD61V2GV4=; b=eIEXpXjatU+BDT
+	C23is3DqMNzq9IpeotJVI3J3IKziOLzPaSh2pyyi8Kl9b6MMDYw0pxIYdflNL5pm/+9mHptw+1/G0
+	WMnWCH+MixjTeNsT3R6h9Uvepe+rauoEYvlW2R0n42MZeNTkxHJvw3rQldXFWrrXeY5P8hxIqugpZ
+	hEEyslXUmA9a0PFN1RsrXAhYQDwEledouvBW9SIvr6s1Fc0e9OLaCrs+jxxNwWXK9AgRmxwXm9LSA
+	cl0HZ2iwQt7dWZuDNkwe3E8JreYldfY+AZ8c8c9yDdVgoTzgOfOhZTlp0wljdMO2oHqyJKAbTNZuv
+	+OFqLW/LTpgcuAEVbfzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVU2H-00000007PJc-1Zp5;
-	Thu, 01 Feb 2024 10:11:09 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rVUUg-00000007UbK-322f;
+	Thu, 01 Feb 2024 10:40:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVU2E-00000007PIo-2sVG
+	id 1rVUUe-00000007Uaz-0eNM
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Feb 2024 10:11:07 +0000
+	Thu, 01 Feb 2024 10:40:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 32F5ECE257F;
-	Thu,  1 Feb 2024 10:11:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1183C43390;
-	Thu,  1 Feb 2024 10:10:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9EF6961DF6;
+	Thu,  1 Feb 2024 10:40:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 42FCBC43399;
+	Thu,  1 Feb 2024 10:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706782258;
-	bh=kNpL087SdTjcpHpZyVDVxwYbgFh8TGavz5zFaqFwx9I=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=HUZcF9T20LH5e967YRRqhKtkEzGG4/wImL8agSCSMROtzuPTo5wxkrHi8X2bPfk43
-	 GCIHf0ozPYQ/ZxXgsbkEuvC6hEal/smcL0umPsIak4Qfgcp/Jm9XOgd7Gd3luyibVc
-	 JhXeNbVaYqFdQyQHbop8xfeg4NU8vog1t7OMJh++kPawtlRmpsDla6p7QUvsCYUMd2
-	 Zsb+Pibhxk6hsD80w1VLYcVx2Bxdk8dWKK6p0ViXP/YSkIh7xYe+6h+3ubHCPf8c+G
-	 UP/swblYGgpBa49CYmBU2FKpCbCGXRRSawTajia0vXJljo0fZlKnbB6cbgVhunLSXp
-	 IcAy6LT3+IdJA==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org
-Cc: Song Liu <song@kernel.org>, Alexei Starovoitov <ast@kernel.org>, Daniel
- Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Yonghong Song <yhs@fb.com>, John Fastabend
- <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav
- Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa
- <jolsa@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Luke Nelson
- <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>
-Subject: Re: [PATCH bpf-next v2 4/4] riscv, bpf: Mixing bpf2bpf and tailcalls
-In-Reply-To: <fab22b9e-7b56-4fef-ba92-bf62ec43007d@huaweicloud.com>
-References: <20240130040958.230673-1-pulehui@huaweicloud.com>
- <20240130040958.230673-5-pulehui@huaweicloud.com>
- <87sf2eohj2.fsf@all.your.base.are.belong.to.us>
- <fab22b9e-7b56-4fef-ba92-bf62ec43007d@huaweicloud.com>
-Date: Thu, 01 Feb 2024 11:10:55 +0100
-Message-ID: <878r44mr4g.fsf@all.your.base.are.belong.to.us>
+	s=k20201202; t=1706784027;
+	bh=XaG0HTa5bdiZUGiMcDQ0KA5J9y1Mt48AeFOL+u1Drd0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=ue+SoNsPgTZAimqUVy5rIYex/14lNlZMmPq+EV8Qua2OfHWthNQ2wQQjer3Jo/mK7
+	 RKdKkIUaar3lHB45M9WYYfITZwnwBGU3NSWzvVz3PBWSP8yOUBh9oTL1MneiMvtgVq
+	 kK5LbaGZ86DA6xBNYxuhUoNrgp4r7kNE6/9oCdV3E7fX3hRuNzHBX5YHTNq8BOqjhW
+	 6NhU9iIyUttXlY4zOLuhcQ9RNghUwttSFTYqG1kyJvwAd7hBlBwmnsjc89SJGoizWH
+	 JAQUHqZwMS1JOCYQt0yO3pLmwheTsqU592r9bE/bc+nK8OT+y74P7/tzrS5XYaN0SZ
+	 AuEyFhr2P/FFg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2E98DC1614E;
+	Thu,  1 Feb 2024 10:40:27 +0000 (UTC)
 MIME-Version: 1.0
+Subject: Re: [PATCH bpf-next 0/2] Enable inline bpf_kptr_xchg() for RV64
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <170678402718.13930.11085578984728371793.git-patchwork-notify@kernel.org>
+Date: Thu, 01 Feb 2024 10:40:27 +0000
+References: <20240130124659.670321-1-pulehui@huaweicloud.com>
+In-Reply-To: <20240130124659.670321-1-pulehui@huaweicloud.com>
+To: Pu Lehui <pulehui@huaweicloud.com>
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+ netdev@vger.kernel.org, bjorn@kernel.org, houtao1@huawei.com, ast@kernel.org,
+ daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
+ eddyz87@gmail.com, song@kernel.org, yhs@fb.com, john.fastabend@gmail.com,
+ kpsingh@kernel.org, sdf@google.com, haoluo@google.com, jolsa@kernel.org,
+ palmer@dabbelt.com, luke.r.nels@gmail.com, pulehui@huawei.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240201_021106_914618_7EEF6879 
-X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-CacheID: sfid-20240201_024028_261099_1B2AEDC8 
+X-CRM114-Status: UNSURE (   8.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,29 +74,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+Pj4gQEAgLTI1Miwx
-MCArMjIwLDcgQEAgc3RhdGljIHZvaWQgX19idWlsZF9lcGlsb2d1ZShib29sIGlzX3RhaWxfY2Fs
-bCwgc3RydWN0IHJ2X2ppdF9jb250ZXh0ICpjdHgpCj4+PiAgIAkJZW1pdF9sZChSVl9SRUdfUzUs
-IHN0b3JlX29mZnNldCwgUlZfUkVHX1NQLCBjdHgpOwo+Pj4gICAJCXN0b3JlX29mZnNldCAtPSA4
-Owo+Pj4gICAJfQo+Pj4gLQlpZiAoc2Vlbl9yZWcoUlZfUkVHX1M2LCBjdHgpKSB7Cj4+PiAtCQll
-bWl0X2xkKFJWX1JFR19TNiwgc3RvcmVfb2Zmc2V0LCBSVl9SRUdfU1AsIGN0eCk7Cj4+PiAtCQlz
-dG9yZV9vZmZzZXQgLT0gODsKPj4+IC0JfQo+Pj4gKwllbWl0X2xkKFJWX1JFR19UQ0MsIHN0b3Jl
-X29mZnNldCwgUlZfUkVHX1NQLCBjdHgpOwo+PiAKPj4gV2h5IGRvIHlvdSBuZWVkIHRvIHJlc3Rv
-cmUgUlZfUkVHX1RDQz8gV2UncmUgcGFzc2luZyBSVl9SRUdfVENDIChhNikgYXMKPj4gYW4gYXJn
-dW1lbnQgYXQgYWxsIGNhbGwtc2l0ZXMsIGFuZCBmb3IgdGFpbGNhbGxzIHdlJ3JlIGxvYWRpbmcg
-ZnJvbSB0aGUKPj4gc3RhY2suCj4+IAo+PiBJcyB0aGlzIHRvIGZha2UgdGhlIGE2IGFyZ3VtZW50
-IGZvciB0aGUgdGFpbC1jYWxsPyBJZiBzbywgaXQncyBiZXR0ZXIgdG8KPj4gbW92ZSBpdCB0byBl
-bWl0X2JwZl90YWlsX2NhbGwoKSwgaW5zdGVhZCBvZiBsZXR0aW5nIGFsbCBwcm9ncmFtcyBwYXkg
-Zm9yCj4+IGl0Lgo+Cj4gWWVzLCB3ZSBjYW4gcmVtb3ZlIHRoaXMgZHVwbGljYXRlIGxvYWQuIHdp
-bGwgZG8gdGhhdCBhdCBuZXh0IHZlcnNpb24uCgpIbW0sIG5vIHJlbW92ZSwgYnV0ICptb3ZlKiBy
-aWdodD8gT3RoZXJ3aXNlIGE2IGNhbiBjb250YWluIGdhcmdhYmUgb24KZW50ZXJpbmcgdGhlIHRh
-aWxjYWxsPwoKTW92ZSBpdCBiZWZvcmUgX19lbWl0X2VwaWxvZ3VlKCkgaW4gdGhlIHRhaWxjYWxs
-LCBubz8KCgpCasO2cm4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+Hello:
+
+This series was applied to bpf/bpf-next.git (master)
+by Daniel Borkmann <daniel@iogearbox.net>:
+
+On Tue, 30 Jan 2024 12:46:57 +0000 you wrote:
+> This patch is the RV64 implementation of inline bpf_kptr_xchg()[0]. RV64
+> JIT supports 64-bit BPF_XCHG atomic instructions. At the same time, the
+> underlying implementation of xchg() and atomic64_xchg() in RV64 both are
+> raw_xchg() that supported 64-bit. Therefore inline bpf_kptr_xchg() will
+> have equivalent semantics. Let's inline it for better performance.
+> 
+> link: https://lore.kernel.org/bpf/20240105104819.3916743-1-houtao@huaweicloud.com [0]
+> 
+> [...]
+
+Here is the summary with links:
+  - [bpf-next,1/2] riscv, bpf: Enable inline bpf_kptr_xchg() for RV64
+    https://git.kernel.org/bpf/bpf-next/c/69065aa11ca6
+  - [bpf-next,2/2] selftests/bpf: Enable inline bpf_kptr_xchg() test for RV64
+    https://git.kernel.org/bpf/bpf-next/c/994ff2f79739
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
