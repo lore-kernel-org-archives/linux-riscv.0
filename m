@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD338C47DDB
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Feb 2024 10:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D73C47DDB
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Feb 2024 10:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HaexapclvbHqteQS2QIaapc6fXpBpgQhRMZD61V2GV4=; b=eIEXpXjatU+BDT
-	C23is3DqMNzq9IpeotJVI3J3IKziOLzPaSh2pyyi8Kl9b6MMDYw0pxIYdflNL5pm/+9mHptw+1/G0
-	WMnWCH+MixjTeNsT3R6h9Uvepe+rauoEYvlW2R0n42MZeNTkxHJvw3rQldXFWrrXeY5P8hxIqugpZ
-	hEEyslXUmA9a0PFN1RsrXAhYQDwEledouvBW9SIvr6s1Fc0e9OLaCrs+jxxNwWXK9AgRmxwXm9LSA
-	cl0HZ2iwQt7dWZuDNkwe3E8JreYldfY+AZ8c8c9yDdVgoTzgOfOhZTlp0wljdMO2oHqyJKAbTNZuv
-	+OFqLW/LTpgcuAEVbfzQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bbIKht7C03JvZkV3kdBubeB/PZwt5npxCF5Zsn7tzU8=; b=KIIpJtQOyOViksrbSKrE+hD0ad
+	uK2k8ghhU1P89ZzQrICidy8KgzC45nqirkawYrC/Q+6N7PVKnhp7AVSBzXbM4xh0aInvxasneF0sq
+	8UHZBvPMZx/mT4tGr31L2sW/t3h4na81ILawGwsoBulQ4fjZRuXOtcFd079N1gpGsOZbfKwxe3iN6
+	iMlD1az/LuagFdxyKDeqYr3/zsInbHvHWhJSnKoBqB+EBrN9VPd+plzin2HQFTnaGZZH0vmWzr35h
+	5S0iy6phJ6GrvsA+YoggZcLVI/ajnHHNGc5RpX0XdJ3IUvpTRfrrLyyFS3r26qTFZD8fhsrX0nCrw
+	NWZJtONQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVUUg-00000007UbK-322f;
-	Thu, 01 Feb 2024 10:40:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rVUkX-00000007WrD-3yrX;
+	Thu, 01 Feb 2024 10:56:53 +0000
+Received: from www62.your-server.de ([213.133.104.62])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVUUe-00000007Uaz-0eNM
+	id 1rVUkV-00000007Wp8-0Km2
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Feb 2024 10:40:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9EF6961DF6;
-	Thu,  1 Feb 2024 10:40:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 42FCBC43399;
-	Thu,  1 Feb 2024 10:40:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706784027;
-	bh=XaG0HTa5bdiZUGiMcDQ0KA5J9y1Mt48AeFOL+u1Drd0=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ue+SoNsPgTZAimqUVy5rIYex/14lNlZMmPq+EV8Qua2OfHWthNQ2wQQjer3Jo/mK7
-	 RKdKkIUaar3lHB45M9WYYfITZwnwBGU3NSWzvVz3PBWSP8yOUBh9oTL1MneiMvtgVq
-	 kK5LbaGZ86DA6xBNYxuhUoNrgp4r7kNE6/9oCdV3E7fX3hRuNzHBX5YHTNq8BOqjhW
-	 6NhU9iIyUttXlY4zOLuhcQ9RNghUwttSFTYqG1kyJvwAd7hBlBwmnsjc89SJGoizWH
-	 JAQUHqZwMS1JOCYQt0yO3pLmwheTsqU592r9bE/bc+nK8OT+y74P7/tzrS5XYaN0SZ
-	 AuEyFhr2P/FFg==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2E98DC1614E;
-	Thu,  1 Feb 2024 10:40:27 +0000 (UTC)
+	Thu, 01 Feb 2024 10:56:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=iogearbox.net; s=default2302; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Fg8rVU3Nxutr7U/048wbPXJuIttyCXN6sJ43lXpWKNM=; b=cY3+ffXCncX46QIb+bLqTW4C++
+	YSycUE3fmafTktOZXwDJgxvvFFfhTo7Gmwqr8j0Oatho2JvZigHGEsWVwBqTcSGdKO5VmVy/8OO91
+	hlj7LemAlYptFK5C7mvwC6orDXfIx+X9f5JDsTe5peahB9xvd4K4p0x+nydkKjkiZe8j7vnWL1a3j
+	HYF3rfUYkhgOpdXT5+HuTkvuPODtZ91kFvJbcen737GZv9QKGaP/N1/zf8BduBWTSqCtYB5vg+lEA
+	Fmc7FcizHQp3e286Rsm9E0cX/VxxMFJLfenKc80KOLrKrnhoWhnjVRzvxTyPxXxd2ooEzf33E8Pd3
+	b1GxXCPQ==;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www62.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1rVUkG-0002ci-86; Thu, 01 Feb 2024 11:56:36 +0100
+Received: from [81.6.34.132] (helo=localhost.localdomain)
+	by sslproxy06.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1rVUkF-00006P-49; Thu, 01 Feb 2024 11:56:35 +0100
+Subject: Re: [PATCH bpf-next v3 0/4] Mixing bpf2bpf and tailcalls for RV64
+To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org
+Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Song Liu <song@kernel.org>, Yonghong Song <yhs@fb.com>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Luke Nelson <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>
+References: <20240201083351.943121-1-pulehui@huaweicloud.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <1e7181e4-c4c5-d307-2c5c-5bf15016aa8a@iogearbox.net>
+Date: Thu, 1 Feb 2024 11:56:34 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next 0/2] Enable inline bpf_kptr_xchg() for RV64
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <170678402718.13930.11085578984728371793.git-patchwork-notify@kernel.org>
-Date: Thu, 01 Feb 2024 10:40:27 +0000
-References: <20240130124659.670321-1-pulehui@huaweicloud.com>
-In-Reply-To: <20240130124659.670321-1-pulehui@huaweicloud.com>
-To: Pu Lehui <pulehui@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org, bjorn@kernel.org, houtao1@huawei.com, ast@kernel.org,
- daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
- eddyz87@gmail.com, song@kernel.org, yhs@fb.com, john.fastabend@gmail.com,
- kpsingh@kernel.org, sdf@google.com, haoluo@google.com, jolsa@kernel.org,
- palmer@dabbelt.com, luke.r.nels@gmail.com, pulehui@huawei.com
+In-Reply-To: <20240201083351.943121-1-pulehui@huaweicloud.com>
+Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.103.10/27172/Thu Feb  1 10:40:50 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240201_024028_261099_1B2AEDC8 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240201_025651_139412_C6227A78 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +84,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to bpf/bpf-next.git (master)
-by Daniel Borkmann <daniel@iogearbox.net>:
-
-On Tue, 30 Jan 2024 12:46:57 +0000 you wrote:
-> This patch is the RV64 implementation of inline bpf_kptr_xchg()[0]. RV64
-> JIT supports 64-bit BPF_XCHG atomic instructions. At the same time, the
-> underlying implementation of xchg() and atomic64_xchg() in RV64 both are
-> raw_xchg() that supported 64-bit. Therefore inline bpf_kptr_xchg() will
-> have equivalent semantics. Let's inline it for better performance.
-> 
-> link: https://lore.kernel.org/bpf/20240105104819.3916743-1-houtao@huaweicloud.com [0]
-> 
-> [...]
-
-Here is the summary with links:
-  - [bpf-next,1/2] riscv, bpf: Enable inline bpf_kptr_xchg() for RV64
-    https://git.kernel.org/bpf/bpf-next/c/69065aa11ca6
-  - [bpf-next,2/2] selftests/bpf: Enable inline bpf_kptr_xchg() test for RV64
-    https://git.kernel.org/bpf/bpf-next/c/994ff2f79739
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMi8xLzI0IDk6MzMgQU0sIFB1IExlaHVpIHdyb3RlOgo+IEluIHRoZSBjdXJyZW50IFJWNjQg
+SklULCBpZiB3ZSBqdXN0IGRvbid0IGluaXRpYWxpemUgdGhlIFRDQyBpbiBzdWJwcm9nLAo+IHRo
+ZSBUQ0MgY2FuIGJlIHByb3BhZ2F0ZWQgZnJvbSB0aGUgcGFyZW50IHByb2Nlc3MgdG8gdGhlIHN1
+YnByb2Nlc3MsIGJ1dAo+IHRoZSBUQ0Mgb2YgdGhlIHBhcmVudCBwcm9jZXNzIGNhbm5vdCBiZSBy
+ZXN0b3JlZCB3aGVuIHRoZSBzdWJwcm9jZXNzCj4gZXhpdHMuIFNpbmNlIHRoZSBSVjY0IFRDQyBp
+cyBpbml0aWFsaXplZCBiZWZvcmUgc2F2aW5nIHRoZSBjYWxsZWUgc2F2ZWQKPiByZWdpc3RlcnMg
+aW50byB0aGUgc3RhY2ssIHdlIGNhbm5vdCB1c2UgdGhlIGNhbGxlZSBzYXZlZCByZWdpc3RlciB0
+bwo+IHBhc3MgdGhlIFRDQywgb3RoZXJ3aXNlIHRoZSBvcmlnaW5hbCB2YWx1ZSBvZiB0aGUgY2Fs
+bGVlIHNhdmVkIHJlZ2lzdGVyCj4gd2lsbCBiZSBkZXN0cm95ZWQuIFNvIHdlIGltcGxlbWVudGVk
+IG1peGluZyBicGYyYnBmIGFuZCB0YWlsY2FsbHMKPiBzaW1pbGFyIHRvIHg4Nl82NCwgaS5lLiB1
+c2luZyBhIG5vbi1jYWxsZWUgc2F2ZWQgcmVnaXN0ZXIgdG8gdHJhbnNmZXIKPiB0aGUgVENDIGJl
+dHdlZW4gZnVuY3Rpb25zLCBhbmQgc2F2aW5nIHRoYXQgcmVnaXN0ZXIgdG8gdGhlIHN0YWNrIHRv
+Cj4gcHJvdGVjdCB0aGUgVENDIHZhbHVlLiBBdCB0aGUgc2FtZSB0aW1lLCB3ZSBhbHNvIGNvbnNp
+ZGVyIHRoZSBzY2VuYXJpbwo+IG9mIG1peGluZyB0cmFtcG9saW5lLgo+IAo+IEluIGFkZGl0aW9u
+LCBzb21lIGNvZGUgY2xlYW5zIGFyZSBhbHNvIGF0dGFjaGVkIHRvIHRoaXMgcGF0Y2hzZXQuCj4g
+Cj4gVGVzdHMgdGVzdF9icGYua28gYW5kIHRlc3RfdmVyaWZpZXIgaGF2ZSBwYXNzZWQsIGFzIHdl
+bGwgYXMgdGhlIHJlbGF0aXZlCj4gdGVzdGNhc2VzIG9mIHRlc3RfcHJvZ3MqLgo+IAo+IHYzOgo+
+IC0gUmVtb3ZlIGR1cGxpY2F0ZSBSVl9SRUdfVENDIGxvYWQgaW4gZXBpbG9ndWVpLiAoQmrDtnJu
+IFTDtnBlbCkKCklpdWMsIHRoaXMgc3RpbGwgbmVlZHMgYSByZXNwaW4gYXMgcGVyIHRoZSBvbmdv
+aW5nIGRpc2N1c3Npb25zLiBBbHNvLAppZiB5b3UgaGF2ZSB3b3JrZWQgb24gQlBGIHNlbGZ0ZXN0
+cyB3aGljaCBleGVyY2lzZSB0aGUgY29ybmVyIGNhc2UKYXJvdW5kIGE2LCBwbGVhc2UgaW5jbHVk
+ZSB0aGVtIGluIHRoZSBzZXJpZXMgYXMgd2VsbCBmb3IgY292ZXJhZ2UuCgpUaGFua3MsCkRhbmll
+bAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
