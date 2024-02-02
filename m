@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B325EC48291
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Feb 2024 16:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D4EAC4828F
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Feb 2024 16:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nZ83cqlUFllcgsJDmGSS9/rOs+OJEZD1IhRmBGfXJAg=; b=JfwWjhB2xJEBUP
-	rcDEfnCxc36vDxVDpXP7jy+ojWKAmuoBP752ahEt7LWtIqFHSru3Rh913PeXX2XooK2tL1tFgqCK8
-	E9E1LJk+6GiXgOgc+2QLnQ29FCK2FVHUbPPPLTOni4+VfhEHnqPEk7pGTZDaqh/Uqu0duAKsE8XDW
-	YtmS5IrrqWMnfvSpXmSCbEaW2tADBvdhe9ul4ukUtsnaTwlqmb5ajzkI2Rp56QpbX/P6sWUptHJkj
-	zxuB1OnOUohLZJZiER3kpClEsMwjJEHUzbNcwJAPlkm9dQjfNORYig7TKiLGCWlLDRPZwWP8Uao0g
-	BWav9b1DYOhzHj2Ag2+w==;
+	List-Owner; bh=335x7hUQWHCTih1CBoDyL83ePXF4J9/TzYrN32AFORM=; b=j1BChauR5Flfb+
+	oCW55MGPddYBHUMMaTfkvP9wT+8Jdgnt7bFDRV+neGY6Qwzqa63FGuoRkupnjut8KVYkmkXfFMGVW
+	9384V0m0rskM4aQ682A86oFYLini36OKNWu7mjnRWkyBFlbmiCb4u2bsaKe2zGo1pb70yQFzz4xCI
+	px4C2UhCcSzCqnl95Iz+zghseZhpQvy7HXBDHOJkZX51HZf7UHDoq5N8EOKd0eErWgC1CKnhEd4hx
+	6ylyohsJjnjIk9wkxARckgoofBo1cs25i3WLjTKxkWk5dUWGxTZZ2QQGV2vgWxNB9532ZB1/BLEIW
+	vLg/V8LnAePoWgpgGBUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVwXy-0000000CMIR-23xz;
-	Fri, 02 Feb 2024 16:37:46 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rVwex-0000000COPR-26CC;
+	Fri, 02 Feb 2024 16:44:59 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVwXv-0000000CMGg-0wKQ
-	for linux-riscv@lists.infradead.org;
-	Fri, 02 Feb 2024 16:37:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 58042CE2C2D
-	for <linux-riscv@lists.infradead.org>; Fri,  2 Feb 2024 16:37:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B487C433C7
-	for <linux-riscv@lists.infradead.org>; Fri,  2 Feb 2024 16:37:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706891860;
-	bh=Uwkd7nTQQrSccD545d3Y+lH6FQYzJbXBcM9/NkSdyEU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fXHS0fuyj/S03+wmk5ISzAXdQ8cMdABMx6ExToz8J4VtDmQbJ8hPFgjtzru1e8/Aw
-	 DLegNr7XswiSzak9whAzIsW+48P5LDZSbLuGEB31DJe6aKrSIkbhf1Di0GuD0R5KWR
-	 9K/xj19XqXZLro3BoaW+43MvNTrvWnRPxmtN/+gYvTxpka5TxFtxKJaMDux/IszswB
-	 JRKDFSIVE+zmeEjhlkCDUxJf0J1LHTMFPsTcJr1AOJ0mM0MQiLFw666l9tZ29VLPu0
-	 LizKmg8YJIsUwwlbbNL8WPUowEqVutqGy87WF3IdnnRKYx7fB8NRX/lflzu+MzYVFq
-	 cFuGogFLj8yEQ==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-2d07b400bb8so21074971fa.2
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Feb 2024 08:37:40 -0800 (PST)
-X-Gm-Message-State: AOJu0Ywd+6q6c1wzq+g10XkqyJ0Te4PyuOkYTD6jFKAcAkDEEZtnnQHw
-	kGTWer7KhkimHDRvcn/P0dEHvTrAa/Xs8XyHatRWmBczxLdKybFpSk8PoVqDu0w0qaT4Z09AgtI
-	NGDBuVrKx92pWbwlfPSw3qmcCjcA=
-X-Google-Smtp-Source: AGHT+IH+2hrSf5CH7QZoCnp7kbDbwEWAwfZngecusVvcc+8VLLiXgX2u9WvaRUy0ZbgjPawIpFHcGXT0CgZtix88FXM=
-X-Received: by 2002:a2e:bc1b:0:b0:2d0:870e:b29d with SMTP id
- b27-20020a2ebc1b000000b002d0870eb29dmr1857693ljf.50.1706891858752; Fri, 02
- Feb 2024 08:37:38 -0800 (PST)
+	id 1rVwes-0000000COIS-1AJX;
+	Fri, 02 Feb 2024 16:44:56 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4TRM3Q6Gpcz67pnj;
+	Sat,  3 Feb 2024 00:41:06 +0800 (CST)
+Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
+	by mail.maildlp.com (Postfix) with ESMTPS id B846A1400D4;
+	Sat,  3 Feb 2024 00:44:32 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Fri, 2 Feb
+ 2024 16:44:31 +0000
+Date: Fri, 2 Feb 2024 16:44:31 +0000
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<x86@kernel.org>, <acpica-devel@lists.linuxfoundation.org>,
+	<linux-csky@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-ia64@vger.kernel.org>, <linux-parisc@vger.kernel.org>, Salil Mehta
+	<salil.mehta@huawei.com>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	<jianyong.wu@arm.com>, <justin.he@arm.com>, James Morse
+	<james.morse@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH RFC v4 10/15] irqchip/gic-v3: Don't return errors from
+ gic_acpi_match_gicc()
+Message-ID: <20240202164431.00006f09@Huawei.com>
+In-Reply-To: <E1rVDn9-0027ZB-QN@rmk-PC.armlinux.org.uk>
+References: <Zbp5xzmFhKDAgHws@shell.armlinux.org.uk>
+	<E1rVDn9-0027ZB-QN@rmk-PC.armlinux.org.uk>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20240202163433.786581-1-abrestic@rivosinc.com> <20240202163433.786581-2-abrestic@rivosinc.com>
-In-Reply-To: <20240202163433.786581-2-abrestic@rivosinc.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 2 Feb 2024 17:37:24 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGR0thbcDt32pC=KS=tsmSWqQuyhJ2Ftq0vX3u=dLX22g@mail.gmail.com>
-Message-ID: <CAMj1kXGR0thbcDt32pC=KS=tsmSWqQuyhJ2Ftq0vX3u=dLX22g@mail.gmail.com>
-Subject: Re: [PATCH 1/2] efi: runtime: Fix potential overflow of soft-reserved
- region size
-To: Andrew Bresticker <abrestic@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-efi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240202_083744_065638_E8EF35C2 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20240202_084454_509663_9D7606C3 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,53 +80,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+On Wed, 31 Jan 2024 16:50:27 +0000
+Russell King (Oracle) <rmk+kernel@armlinux.org.uk> wrote:
 
-On Fri, 2 Feb 2024 at 17:34, Andrew Bresticker <abrestic@rivosinc.com> wrote:
->
-> md_size will have been narrowed if we have >= 4GB worth of pages in a
-> soft-reserved region.
->
-> Signed-off-by: Andrew Bresticker <abrestic@rivosinc.com>
-> ---
->  drivers/firmware/efi/arm-runtime.c   | 2 +-
->  drivers/firmware/efi/riscv-runtime.c | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/firmware/efi/arm-runtime.c b/drivers/firmware/efi/arm-runtime.c
-> index 83f5bb57fa4c..f369256c7003 100644
-> --- a/drivers/firmware/efi/arm-runtime.c
-> +++ b/drivers/firmware/efi/arm-runtime.c
-> @@ -107,7 +107,7 @@ static int __init arm_enable_runtime_services(void)
->                 efi_memory_desc_t *md;
->
->                 for_each_efi_memory_desc(md) {
-> -                       int md_size = md->num_pages << EFI_PAGE_SHIFT;
-> +                       unsigned long md_size = md->num_pages << EFI_PAGE_SHIFT;
+> From: James Morse <james.morse@arm.com>
+> 
+> gic_acpi_match_gicc() is only called via gic_acpi_count_gicr_regions().
+> It should only count the number of enabled redistributors, but it
+> also tries to sanity check the GICC entry, currently returning an
+> error if the Enabled bit is set, but the gicr_base_address is zero.
+> 
+> Adding support for the online-capable bit to the sanity check will
+> complicate it, for no benefit. The existing check implicitly depends on
+> gic_acpi_count_gicr_regions() previous failing to find any GICR regions
+> (as it is valid to have gicr_base_address of zero if the redistributors
+> are described via a GICR entry).
+> 
+> Instead of complicating the check, remove it. Failures that happen at
+> this point cause the irqchip not to register, meaning no irqs can be
+> requested. The kernel grinds to a panic() pretty quickly.
+> 
+> Without the check, MADT tables that exhibit this problem are still
+> caught by gic_populate_rdist(), which helpfully also prints what went
+> wrong:
+> | CPU4: mpidr 100 has no re-distributor!
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Does what it says on the tin.
 
-Better use u64 here, and below as well.
-
-
->                         struct resource *res;
->
->                         if (!(md->attribute & EFI_MEMORY_SP))
-> diff --git a/drivers/firmware/efi/riscv-runtime.c b/drivers/firmware/efi/riscv-runtime.c
-> index 09525fb5c240..9da79b8169d2 100644
-> --- a/drivers/firmware/efi/riscv-runtime.c
-> +++ b/drivers/firmware/efi/riscv-runtime.c
-> @@ -85,7 +85,7 @@ static int __init riscv_enable_runtime_services(void)
->                 efi_memory_desc_t *md;
->
->                 for_each_efi_memory_desc(md) {
-> -                       int md_size = md->num_pages << EFI_PAGE_SHIFT;
-> +                       unsigned long md_size = md->num_pages << EFI_PAGE_SHIFT;
->                         struct resource *res;
->
->                         if (!(md->attribute & EFI_MEMORY_SP))
-> --
-> 2.34.1
->
->
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 
 _______________________________________________
 linux-riscv mailing list
