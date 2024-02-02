@@ -4,85 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5293C47258
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Feb 2024 04:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B87CDC4828E
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Feb 2024 05:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5SLU6IUDP5yhmUyl+ZPTv7ao3G4zxlPy6hi84rhcLIo=; b=ZHuRXhb0LOI8ls
-	+g1iJgjmxo7GjONHedsazPBKSbVG2gXNCEozFZmeVMupKyXYWtyd82r0/8xa/H+LBhxcip9mMY2KN
-	8VLseo8MeQVRbweLlyBPyZehKtJtJhqjCrvb39EJnh3raMV5ZpuTOrBhdQM/bbrwy0BE7gCR/nBWM
-	f4f4F+OBLAFgINF06Foe9Mn/Mz2j+LRv/LjLy1lDfaxyrTQmU/pXNt0tCIxcyfScz+ApQrurBEcHJ
-	RLDVmvN8t1VAYkWHRmHt0BijuxuLjyeh21MSdI0Ucje2ev8Bljd0tb7IjWdlJbu0EXzxUi//G+jUF
-	A9/PmMlr3rqGA1mvVgdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HtcVf5X9XV/N0TG9YVYIbcZ3eJRud+ES+eMewkvkqA4=; b=EtmKrUTIFHjfRI/wJ4uWy2LVWB
+	B82nTNd4bs0nLC5psBALcTfjxTKzotRGUitT2wQ/7/8CzSEIg2Sk3vL/vXmRipYhNugoKjDxICKnI
+	W2uhTqaCDneNq4GndFQELKoNf/ENrMpqh6vRKu4EajuJJgmiaZBlfHoTKendJYcJeVbBniITIAuZJ
+	uWAj7Uo5u9KGJAhyuf4ubGqHGW9ZzqPXr1UVqLsQ+GUGE41cx82El+uxEGvNaE4qt83L/pXtZcy38
+	+WPEMhX9zGLZihZfUmSs52TKxtFIBwAflm6ZDNqG9JIr2dZZlTtoqD2r2kFMUx+Uabfuvg5c44HXq
+	kOWpB+FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVla8-0000000AD2I-0x9I;
-	Fri, 02 Feb 2024 04:55:16 +0000
-Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
+	id 1rVm2b-0000000AHoQ-41wU;
+	Fri, 02 Feb 2024 05:24:41 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVla4-0000000ACzn-474O
-	for linux-riscv@lists.infradead.org;
-	Fri, 02 Feb 2024 04:55:14 +0000
-Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-3bfbb51ac70so391699b6e.1
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Feb 2024 20:55:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706849710; x=1707454510; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ELOUzOOhC9OHyQkXGZvP+NJh1VjcNaclpZjQdZoL1A0=;
-        b=HkW6KS+55uGttXl4YehakE6MvPHl2qC/G8hLC0fqpJiv/yiDQ/E9pPhIjA8gdKtnqk
-         mSxMedUHjfSTbPrCFO+T7T0LZ0s0CrSjatXHvHbLO3DXh+JNvwBA72ojBiOubOU2TqsG
-         aJuxkLOprr6/iXp0b4bWxAIVHTy3T9G0a2vGGzTNdz6W0dZGCDA+8gN46uAQPSEIemAL
-         bt8SNbnljW62JMIqFJl1tr7N21T8UscndbqFmXK3ZiXi9yezQjfEwiSMb+Qd2dnpjeAq
-         OvDY/Ue0m6jWsWqgUY9bhoD+OFZ7qKB2D03mdldijMbQ1VddfLq5VNZU9WHfzlcKHz+l
-         4Q+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706849710; x=1707454510;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ELOUzOOhC9OHyQkXGZvP+NJh1VjcNaclpZjQdZoL1A0=;
-        b=ki09F2a00c06VEvwUFgN7NgPldh7Gl4jmEgXYX/wLuzYl1DZ2TvMrgDthSC9xTTVXI
-         2yKKz9eNeuQjanHY9PUkqpp/zznSpmC8Ootso+pUz9lPvmWTdKyiIrKAoHKzO4Gd1SEf
-         pamJXtD32ZxSgNlNc+aavwnW6TW0+zKKGtVRy6EjgA6XdLC3pp1nCE7sZhTln5X/rSPZ
-         +e3yyD16+q41JK6YVaNSZPUuX8aRtLEeDKICaVTBJ7ipp1HLHPGiMDFvtw91+blm+ikD
-         iC44DdRoy6xzJ8Nu8R8pLSaysdyuGqtIKR4TvQqBpMiUTzZ0mgSrrgt0DCl8f/pDVX1B
-         issg==
-X-Gm-Message-State: AOJu0Yxo7iZxjaB8UmnTQq4GK/PByUOZeTZ94QehZk3Z47H9zdlNGBn/
-	vt06YiRb0piBP/dxeDLr2L92p2zXPIynqzSVOVz5rFXbFC4o/gxxN1NLmJpfD5Q=
-X-Google-Smtp-Source: AGHT+IEt/9wko6Cibn+dwmpNKmXyDK48EPa2pWVscYQC2nlerGRXrHP67I5NFVgtquib0f23Ev+JDw==
-X-Received: by 2002:a05:6808:15a4:b0:3bf:bc6b:ffe2 with SMTP id t36-20020a05680815a400b003bfbc6bffe2mr1626440oiw.38.1706849710167;
-        Thu, 01 Feb 2024 20:55:10 -0800 (PST)
-X-Forwarded-Encrypted: i=0; AJvYcCXaIf8VPRQDhUIzj9+k0XKjsZEiQYNzBqS4trMRWGdzWHRfcc5fnSubNMHCLB+ryltPFubGHu/4zhzI9lj4QStL/fLyHWw6PrWOsa6ex5MyDoZ/mIFU8HIo6AC33CxXKahoaWNJTpytH1PApkRRMjt1wOqnvCOwIQq9g6DIabmrLG4ZKljwS7lvit5Hb9M36Bgwj4Nb/Rty7QvZ+5PX1nTCdMb0Ia8VOdaEomzdshXyYwriOTp4y6rujYkM+6TlbnZ+8Z6XyT+uGp9PfzLEn9Zt7aTcRQ==
-Received: from ghost ([2601:647:5700:6860:e95e:e3b9:1925:927a])
-        by smtp.gmail.com with ESMTPSA id j24-20020a62b618000000b006dd850bbd21sm617636pff.36.2024.02.01.20.55.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Feb 2024 20:55:09 -0800 (PST)
-Date: Thu, 1 Feb 2024 20:55:06 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Elliot Berman <quic_eberman@quicinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, Evan Green <evan@rivosinc.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] riscv: Disable misaligned access probe when
- CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
-Message-ID: <Zbx1qlcfWJIBLobb@ghost>
-References: <20240201-disable_misaligned_probe_config-v2-0-77c368bed7b2@rivosinc.com>
- <20240201-disable_misaligned_probe_config-v2-2-77c368bed7b2@rivosinc.com>
- <gtwet3x2fokbne5642vleyp5u7pqjl2lbtbngjjfavmgvvytzg@z2gx6xoa3hvl>
+	id 1rVm2Y-0000000AHmm-0Sjz;
+	Fri, 02 Feb 2024 05:24:40 +0000
+Received: from pps.filterd (m0353726.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 4124f8L7017387;
+	Fri, 2 Feb 2024 05:24:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : date :
+ subject : to : cc : references : from : in-reply-to : content-type :
+ content-transfer-encoding : mime-version; s=pp1;
+ bh=PDV06LOquyZ2c07ivE0vzxZrSRl419YEOX13JRF/udo=;
+ b=nPh+kCvNsnHIYDXWB0+2FRPhHygYiddpgBYz2W2SHiiN1BkFek2qQw4ycvxxYI/qpDU6
+ yTcyNuf7kUwLL+dKocLOKD9Ekbesc3adySbvz8eZZZo2Z5ceyoprZbKlKsbp/pRs/L+u
+ LoKmlG+vz37L6dQuBT680kuK7Hzw1dKKzpiIQ6ikpbCbLP8uFBLpJtSeBEj0PCvygnUT
+ 4NR2nL56TsuRsPlaZ56kvvRxLE4E+QskziTz+cZzPuCgZxD21oHVw4P/IY05CitLKyF1
+ eg9L8IxFl1XG9YTFEBQGzk6a4uzOmaa08XYF8RC/ZKiXNITRfrHPMBQBXQuNWjRLHcyu Mw== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3w0sev0xb0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 02 Feb 2024 05:24:26 +0000
+Received: from m0353726.ppops.net (m0353726.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 4124w2OJ002776;
+	Fri, 2 Feb 2024 05:23:50 GMT
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3w0sev0wt4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 02 Feb 2024 05:23:50 +0000
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 41240aMF011292;
+	Fri, 2 Feb 2024 05:23:31 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 3vwecm0xbv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 02 Feb 2024 05:23:31 +0000
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4125NTcC43254138
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 2 Feb 2024 05:23:29 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 755912004B;
+	Fri,  2 Feb 2024 05:23:29 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A5C9420040;
+	Fri,  2 Feb 2024 05:23:25 +0000 (GMT)
+Received: from [9.43.64.13] (unknown [9.43.64.13])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri,  2 Feb 2024 05:23:25 +0000 (GMT)
+Message-ID: <9101bb07-70f1-476c-bec9-ec67e9899744@linux.ibm.com>
+Date: Fri, 2 Feb 2024 10:53:23 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/14] Split crash out from kexec and clean up related
+ config items
+To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
+Cc: kexec@lists.infradead.org, x86@kernel.org,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
+        loongarch@lists.linux.dev, akpm@linux-foundation.org,
+        ebiederm@xmission.com, piliu@redhat.com, viro@zeniv.linux.org.uk
+References: <20240119145241.769622-1-bhe@redhat.com>
+Content-Language: en-US
+From: Hari Bathini <hbathini@linux.ibm.com>
+In-Reply-To: <20240119145241.769622-1-bhe@redhat.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: RAVJ1hGQlGX9e6U_JEK40a_2LBSb9TD_
+X-Proofpoint-ORIG-GUID: tOhKLrcRaLdeupwFUmZ3kDNGA-MwGyC-
+X-Proofpoint-UnRewURL: 0 URL was un-rewritten
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <gtwet3x2fokbne5642vleyp5u7pqjl2lbtbngjjfavmgvvytzg@z2gx6xoa3hvl>
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-02-01_10,2024-01-31_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 adultscore=0
+ spamscore=0 clxscore=1011 malwarescore=0 suspectscore=0 priorityscore=1501
+ mlxscore=0 mlxlogscore=999 phishscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2311290000
+ definitions=main-2402020037
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240201_205513_260497_3BC812F3 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20240201_212438_427528_1E4C20BC 
+X-CRM114-Status: GOOD (  27.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,58 +112,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 01, 2024 at 08:31:10PM -0800, Elliot Berman wrote:
-> Hi Charlie,
-> 
-> On Thu, Feb 01, 2024 at 03:30:46PM -0800, Charlie Jenkins wrote:
-> > When CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS is selected, the cpus can be
-> > set to have fast misaligned access without needing to probe.
-> > 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > ---
-> >  arch/riscv/Kconfig                               |   1 +
-> >  arch/riscv/include/asm/cpufeature.h              |   7 +
-> >  arch/riscv/include/asm/misaligned_access_speed.h |  29 +++
-> >  arch/riscv/kernel/Makefile                       |   3 +
-> >  arch/riscv/kernel/cpufeature.c                   | 255 ----------------------
-> >  arch/riscv/kernel/misaligned_access_speed.c      | 265 +++++++++++++++++++++++
-> >  arch/riscv/kernel/sys_hwprobe.c                  |   4 +
-> >  7 files changed, 309 insertions(+), 255 deletions(-)
-> > 
-> > diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> > index f71910718053..8be7f17da9ab 100644
-> > --- a/arch/riscv/kernel/Makefile
-> > +++ b/arch/riscv/kernel/Makefile
-> > @@ -62,6 +62,9 @@ obj-y	+= tests/
-> >  obj-$(CONFIG_MMU) += vdso.o vdso/
-> >  
-> >  obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_misaligned.o
-> > +ifneq ($(RISCV_EFFICIENT_UNALIGNED_ACCESS), y)
-> 
-> Should this be CONFIG_RISCV_EFFICIENT_UNALIGNED_ACCESS ?
+Hi Baoquan,
 
-Oh thank you Elliot! Yes it is. I was going back and forth on whether I
-wanted this to be CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS or
-CONFIG_RISCV_EFFICIENT_UNALIGNED_ACCESS and I must have mistyped when I
-was changing it. I settled on CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
-everywhere else so this should also use that instead. These two configs
-are effectively the same since the only way to select
-CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS is by selecting
-CONFIG_RISCV_EFFICIENT_UNALIGNED_ACCESS.
-
-- Charlie
-
+On 19/01/24 8:22 pm, Baoquan He wrote:
+> Motivation:
+> =============
+> Previously, LKP reported a building error. When investigating, it can't
+> be resolved reasonablly with the present messy kdump config items.
 > 
-> > +obj-y	+= misaligned_access_speed.o
-> > +endif
-> >  obj-$(CONFIG_FPU)		+= fpu.o
-> >  obj-$(CONFIG_RISCV_ISA_V)	+= vector.o
-> >  obj-$(CONFIG_RISCV_ISA_V)	+= kernel_mode_vector.o
+>   https://lore.kernel.org/oe-kbuild-all/202312182200.Ka7MzifQ-lkp@intel.com/
+> 
+> The kdump (crash dumping) related config items could causes confusions:
+> 
+> Firstly,
+> ---
+> CRASH_CORE enables codes including
+>   - crashkernel reservation;
+>   - elfcorehdr updating;
+>   - vmcoreinfo exporting;
+>   - crash hotplug handling;
+> 
+> Now fadump of powerpc, kcore dynamic debugging and kdump all selects
+> CRASH_CORE, while fadump
+>   - fadump needs crashkernel parsing, vmcoreinfo exporting, and accessing
+>     global variable 'elfcorehdr_addr';
+>   - kcore only needs vmcoreinfo exporting;
+>   - kdump needs all of the current kernel/crash_core.c.
+> 
+> So only enabling PROC_CORE or FA_DUMP will enable CRASH_CORE, this
+> mislead people that we enable crash dumping, actual it's not.
+> 
+> Secondly,
+> ---
+> It's not reasonable to allow KEXEC_CORE select CRASH_CORE.
+> 
+> Because KEXEC_CORE enables codes which allocate control pages, copy
+> kexec/kdump segments, and prepare for switching. These codes are
+> shared by both kexec reboot and kdump. We could want kexec reboot,
+> but disable kdump. In that case, CRASH_CORE should not be selected.
+> 
+>   --------------------
+>   CONFIG_CRASH_CORE=y
+>   CONFIG_KEXEC_CORE=y
+>   CONFIG_KEXEC=y
+>   CONFIG_KEXEC_FILE=y
+>      ---------------------
+> 
+> Thirdly,
+> ---
+> It's not reasonable to allow CRASH_DUMP select KEXEC_CORE.
+> 
+> That could make KEXEC_CORE, CRASH_DUMP are enabled independently from
+> KEXEC or KEXEC_FILE. However, w/o KEXEC or KEXEC_FILE, the KEXEC_CORE
+> code built in doesn't make any sense because no kernel loading or
+> switching will happen to utilize the KEXEC_CORE code.
+>   ---------------------
+>   CONFIG_CRASH_CORE=y
+>   CONFIG_KEXEC_CORE=y
+>   CONFIG_CRASH_DUMP=y
+>   ---------------------
+> 
+> In this case, what is worse, on arch sh and arm, KEXEC relies on MMU,
+> while CRASH_DUMP can still be enabled when !MMU, then compiling error is
+> seen as the lkp test robot reported in above link.
+> 
+>   ------arch/sh/Kconfig------
+>   config ARCH_SUPPORTS_KEXEC
+>           def_bool MMU
+> 
+>   config ARCH_SUPPORTS_CRASH_DUMP
+>           def_bool BROKEN_ON_SMP
+>   ---------------------------
+> 
+> Changes:
+> ===========
+> 1, split out crash_reserve.c from crash_core.c;
+> 2, split out vmcore_infoc. from crash_core.c;
+> 3, move crash related codes in kexec_core.c into crash_core.c;
+> 4, remove dependency of FA_DUMP on CRASH_DUMP;
+> 5, clean up kdump related config items;
+> 6, wrap up crash codes in crash related ifdefs on all 9 arch-es
+>     which support crash dumping;
+> 
+> Achievement:
+> ===========
+> With above changes, I can rearrange the config item logic as below (the right
+> item depends on or is selected by the left item):
+> 
+>      PROC_KCORE -----------> VMCORE_INFO
+> 
+>                 |----------> VMCORE_INFO
+>      FA_DUMP----|
+>                 |----------> CRASH_RESERVE
+
+FA_DUMP also needs PROC_VMCORE (CRASH_DUMP by dependency, I guess).
+So, the FA_DUMP related changes here will need a relook..
+
+
+>                                                      ---->VMCORE_INFO
+>                                                     /
+>                                                     |---->CRASH_RESERVE
+>      KEXEC      --|                                /|
+>                   |--> KEXEC_CORE--> CRASH_DUMP-->/-|---->PROC_VMCORE
+>      KEXEC_FILE --|                               \ |
+>                                                     \---->CRASH_HOTPLUG
+> 
+> 
+>      KEXEC      --|
+>                   |--> KEXEC_CORE (for kexec reboot only)
+>      KEXEC_FILE --|
+> 
+> Test
+> ========
+> On all 8 architectures, including x86_64, arm64, s390x, sh, arm, mips,
+> riscv, loongarch, I did below three cases of config item setting and
+> building all passed. Let me take configs on x86_64 as exampmle here:
+> 
+> (1) Both CONFIG_KEXEC and KEXEC_FILE is unset, then all kexec/kdump
+> items are unset automatically:
+> # Kexec and crash features
+> # CONFIG_KEXEC is not set
+> # CONFIG_KEXEC_FILE is not set
+> # end of Kexec and crash features
+> 
+> (2) set CONFIG_KEXEC_FILE and 'make olddefconfig':
+> ---------------
+> # Kexec and crash features
+> CONFIG_CRASH_RESERVE=y
+> CONFIG_VMCORE_INFO=y
+> CONFIG_KEXEC_CORE=y
+> CONFIG_KEXEC_FILE=y
+> CONFIG_CRASH_DUMP=y
+> CONFIG_CRASH_HOTPLUG=y
+> CONFIG_CRASH_MAX_MEMORY_RANGES=8192
+> # end of Kexec and crash features
+> ---------------
+> 
+> (3) unset CONFIG_CRASH_DUMP in case 2 and execute 'make olddefconfig':
+> ------------------------
+> # Kexec and crash features
+> CONFIG_KEXEC_CORE=y
+> CONFIG_KEXEC_FILE=y
+> # end of Kexec and crash features
+> ------------------------
+> 
+> Note:
+> For ppc, it needs investigation to make clear how to split out crash
+> code in arch folder.
+
+On powerpc, both kdump and fadump need PROC_VMCORE & CRASH_DUMP.
+Hope that clears things. So, patch 3/14 breaks things for FA_DUMP..
+
+> Hope Hari and Pingfan can help have a look, see if
+> it's doable. Now, I make it either have both kexec and crash enabled, or
+> disable both of them altogether.
+
+
+Sure. I will take a closer look...
+
+Thanks
+Hari
 
 _______________________________________________
 linux-riscv mailing list
