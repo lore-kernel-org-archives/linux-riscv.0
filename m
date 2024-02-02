@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 172B7C48291
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Feb 2024 16:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649F1C48291
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Feb 2024 17:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dpGV1vHm7QpN68V15euEV4IEk8D1ReYbwGKCMzDBMS0=; b=C+c4ax8Xt7Om2KyN4XIgUk1OKy
-	nqDy6gRs1hLQoZOghBeuCahClcEbPx+FabmTfwXF8Mmh6lRnmw6R4yM6FhHYtYRDHRx6WZEjjae9l
-	LZaXcdCcox+BNHHTHd6lHjUfvs7kHNgzk3tC0M+bEjlpdnw6DdV8XM7znxG8PoXqzMzQNDKzjVL8P
-	RsXwpM1NwMBMb1m0Xd5z0VWrmmjGivJSulbczqKcERBroMmqHPskJddzhvzMYsGT0ppuU0rGety1t
-	N28bljrHIRY8NK+AVew2HKrguY3jKWY9n/6oM/dda3Kr3jDaS69lsREJGVMaQbHa8oxODZwcqIgu8
-	3pw041aw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CH4kr6xanvgVTpM1g0CI5rQ1Ckbl/mA+ffUhYJC0Biw=; b=tsbZMsDDo2VTaU
+	Eyy+tR4tXMyGGkp5dqxLKlC3YcWMWTBTHj42J3R2KtCbmFPKkcJt/SwwQgxD0qqchtZbWycaE0eTU
+	xulgYzeGEhRrE4iSr1uAW4cMiW/1IldgP7bLv/RDZPB7q5pVk3/ubdHnXJ27iiEISfABDYc53BuZi
+	H0dOMCeNhsgp8TF0l2tpb6WLlviYA1DpPkV129MN2tyBacF0V51lDOndydRWUru6HL5ZV9+TrvgVv
+	o+bDByTHCQfM7wyBEQiVfjTHtzFZXP+2uyl3aPAUocFB4oUl7jCmlnswqv2BRDXBhDMgiwXD6ucA9
+	wbj5BDh7s6DRC+vip5DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVwhJ-0000000CPBJ-3kXJ;
-	Fri, 02 Feb 2024 16:47:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rVwxm-0000000CTkg-3Hm5;
+	Fri, 02 Feb 2024 17:04:26 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVwhH-0000000CPA5-1bKp
-	for linux-riscv@lists.infradead.org;
-	Fri, 02 Feb 2024 16:47:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E259862697;
-	Fri,  2 Feb 2024 16:47:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 221D2C433C7;
-	Fri,  2 Feb 2024 16:47:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706892442;
-	bh=qVGQPqaAKKe4rQPmvSxnfJxycvP91+EBvnjm6km00sU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qNCqFUzTNiblKPnDQEd8pje0NXH4Zy3nqDPZrHBJIwDuSZulOTSYJkzEPpxXJpnY8
-	 Fgqdae3dL6Vcw/z+hwVavA4mh7DTV7iDwNFjErVaF1pN5BFxrVOC5bvF9VCrcHulQO
-	 mGICncO3/J/ZBtMCbf7tX9MuYMP3folEPxo3ga2eyR2wmKnUWd3xmxZ3Kq5H5ydOaO
-	 1X35NC29UpyzTygfL5wyXagjVz73WuiNWiYduyyCwvHEW6tb2CLuOAb5Chrc8ccBCA
-	 Sw+BrWqr4Jwm1F1zRshfaSk5DhZwfl9Yt1Iqx+ylGW6cxMPwFlqONy6GjGFXPaFaRO
-	 tl1d0paIiPePw==
-Date: Fri, 2 Feb 2024 16:47:17 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jack Zhu <jack.zhu@starfivetech.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: Re: =?utf-8?B?5Zue5aSNOiDlm57lpI06IFt2Mg==?= =?utf-8?Q?=5D?= riscv:
- dts: starfive: jh7110: Add camera subsystem nodes
-Message-ID: <20240202-spoiler-deceit-0e9ac720fd2c@spud>
-References: <20240130082509.217683-1-changhuang.liang@starfivetech.com>
- <20240131-recycling-entering-b742e0e835eb@spud>
- <SH0PR01MB06675EF7ACD1452C4DEBE45FF243A@SH0PR01MB0667.CHNPR01.prod.partner.outlook.cn>
- <20240201-handiwork-excretion-36aa2eea0709@spud>
- <SHXPR01MB0671975B6B2455E43A5C7D86F242A@SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn>
+	id 1rVwxg-0000000CThC-2ZEY;
+	Fri, 02 Feb 2024 17:04:24 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4TRMV93hsYz6J9h8;
+	Sat,  3 Feb 2024 01:00:49 +0800 (CST)
+Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
+	by mail.maildlp.com (Postfix) with ESMTPS id 69A141400CD;
+	Sat,  3 Feb 2024 01:04:15 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Fri, 2 Feb
+ 2024 17:04:14 +0000
+Date: Fri, 2 Feb 2024 17:04:13 +0000
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<x86@kernel.org>, <acpica-devel@lists.linuxfoundation.org>,
+	<linux-csky@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-ia64@vger.kernel.org>, <linux-parisc@vger.kernel.org>, Salil Mehta
+	<salil.mehta@huawei.com>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	<jianyong.wu@arm.com>, <justin.he@arm.com>, James Morse
+	<james.morse@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH RFC v4 14/15] arm64: document virtual CPU hotplug's
+ expectations
+Message-ID: <20240202170413.0000154e@Huawei.com>
+In-Reply-To: <E1rVDnU-0027Zf-GF@rmk-PC.armlinux.org.uk>
+References: <Zbp5xzmFhKDAgHws@shell.armlinux.org.uk>
+	<E1rVDnU-0027Zf-GF@rmk-PC.armlinux.org.uk>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-In-Reply-To: <SHXPR01MB0671975B6B2455E43A5C7D86F242A@SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn>
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml100006.china.huawei.com (7.191.160.224) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240202_084723_523170_9E5EEAE4 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20240202_090421_213569_E30D1EBD 
+X-CRM114-Status: GOOD (  36.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,86 +75,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0287409290609319944=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 31 Jan 2024 16:50:48 +0000
+Russell King (Oracle) <rmk+kernel@armlinux.org.uk> wrote:
 
---===============0287409290609319944==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="BCDHEep2tdoQkpJp"
-Content-Disposition: inline
+> From: James Morse <james.morse@arm.com>
+> 
+> Add a description of physical and virtual CPU hotplug, explain the
+> differences and elaborate on what is required in ACPI for a working
+> virtual hotplug system.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+> Outstanding comment:
+>  https://lore.kernel.org/r/20230914174137.00000a62@Huawei.com
 
+Outstanding but an ACPI Spec question rather than one about this description.
+I've finally regained access to Mantis etc so can follow that up at some point.
 
---BCDHEep2tdoQkpJp
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Feb 02, 2024 at 02:29:16AM +0000, Changhuang Liang wrote:
->=20
-> Hi, Conor,
->=20
-> [...]
-> > > > > +	imx219_clk: imx219-clock {
-> > > > > +		compatible =3D "fixed-clock";
-> > > > > +		clock-output-names =3D "imx219_clk";
-> > > > > +		clock-frequency =3D <24000000>;
-> > > > > +		#clock-cells =3D <0>;
-> > > > > +	};
-> > > >
-> > > > Why do you need an output name here?
-> > >
-> > > The output name can be unnecessary.
-> > >
-> > > > Also, where does this clock come from? Is it an oscillator on the b=
-oard?
-> > > >
-> > >
-> > > This clock come from imx219, not the VisionFive 2 board.
-> >=20
-> > If the camera is not on the visionfive 2 board, why are you adding this=
- to
-> > visionfive-2.dtsi?
->=20
-> It seems that I need to use dtso. Right?
-
-Yes. FWIW, the same comments as applied for the sound card Walker tried
-to add applies here too, unless this ships with the boards:
-| I'm not against allowing in-tree overlays for hats/capes/daughter-boards
-| that come bundled with a board, but accepting ones for a hat that
-| someone decided to use theoretically has no limit! The "someone" in this
-| case might be a StarFive developer, but it could be any random one of
-| your customers next!
-https://lore.kernel.org/linux-riscv/20230510-riveter-ridden-3f056251e623@sp=
-ud/
-
-I figure this is a similar case as that?
-
---BCDHEep2tdoQkpJp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZb0clQAKCRB4tDGHoIJi
-0s6AAP9L5qiPX0VFQUsozcIGbJ6jTWsVE9WjcORf+MEOv8bBLwD/eAwDIKs2E/3d
-hREM5pnSpQkMLMCQ+cIoxbBnsRfWGgY=
-=bMIQ
------END PGP SIGNATURE-----
-
---BCDHEep2tdoQkpJp--
+If we get clarify on how to tell that CPUs that are present and enabled at boot
+can be removed later we can relax this text to allow for that.
 
 
---===============0287409290609319944==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>  https://lore.kernel.org/r/20231215170428.00000d81@Huawei.com
+That's a comment on the above comment to say I'm fine with it as is :)
+
+This @Huawei guy is really annoying ;)
+
+Jonathan
+
+> ---
+>  Documentation/arch/arm64/cpu-hotplug.rst | 79 ++++++++++++++++++++++++
+>  Documentation/arch/arm64/index.rst       |  1 +
+>  2 files changed, 80 insertions(+)
+>  create mode 100644 Documentation/arch/arm64/cpu-hotplug.rst
+> 
+> diff --git a/Documentation/arch/arm64/cpu-hotplug.rst b/Documentation/arch/arm64/cpu-hotplug.rst
+> new file mode 100644
+> index 000000000000..76ba8d932c72
+> --- /dev/null
+> +++ b/Documentation/arch/arm64/cpu-hotplug.rst
+> @@ -0,0 +1,79 @@
+> +.. SPDX-License-Identifier: GPL-2.0
+> +.. _cpuhp_index:
+> +
+> +====================
+> +CPU Hotplug and ACPI
+> +====================
+> +
+> +CPU hotplug in the arm64 world is commonly used to describe the kernel taking
+> +CPUs online/offline using PSCI. This document is about ACPI firmware allowing
+> +CPUs that were not available during boot to be added to the system later.
+> +
+> +``possible`` and ``present`` refer to the state of the CPU as seen by linux.
+> +
+> +
+> +CPU Hotplug on physical systems - CPUs not present at boot
+> +----------------------------------------------------------
+> +
+> +Physical systems need to mark a CPU that is ``possible`` but not ``present`` as
+> +being ``present``. An example would be a dual socket machine, where the package
+> +in one of the sockets can be replaced while the system is running.
+> +
+> +This is not supported.
+> +
+> +In the arm64 world CPUs are not a single device but a slice of the system.
+> +There are no systems that support the physical addition (or removal) of CPUs
+> +while the system is running, and ACPI is not able to sufficiently describe
+> +them.
+> +
+> +e.g. New CPUs come with new caches, but the platform's cache toplogy is
+> +described in a static table, the PPTT. How caches are shared between CPUs is
+> +not discoverable, and must be described by firmware.
+> +
+> +e.g. The GIC redistributor for each CPU must be accessed by the driver during
+> +boot to discover the system wide supported features. ACPI's MADT GICC
+> +structures can describe a redistributor associated with a disabled CPU, but
+> +can't describe whether the redistributor is accessible, only that it is not
+> +'always on'.
+> +
+> +arm64's ACPI tables assume that everything described is ``present``.
+> +
+> +
+> +CPU Hotplug on virtual systems - CPUs not enabled at boot
+> +---------------------------------------------------------
+> +
+> +Virtual systems have the advantage that all the properties the system will
+> +ever have can be described at boot. There are no power-domain considerations
+> +as such devices are emulated.
+> +
+> +CPU Hotplug on virtual systems is supported. It is distinct from physical
+> +CPU Hotplug as all resources are described as ``present``, but CPUs may be
+> +marked as disabled by firmware. Only the CPU's online/offline behaviour is
+> +influenced by firmware. An example is where a virtual machine boots with a
+> +single CPU, and additional CPUs are added once a cloud orchestrator deploys
+> +the workload.
+> +
+> +For a virtual machine, the VMM (e.g. Qemu) plays the part of firmware.
+> +
+> +Virtual hotplug is implemented as a firmware policy affecting which CPUs can be
+> +brought online. Firmware can enforce its policy via PSCI's return codes. e.g.
+> +``DENIED``.
+> +
+> +The ACPI tables must describe all the resources of the virtual machine. CPUs
+> +that firmware wishes to disable either from boot (or later) should not be
+> +``enabled`` in the MADT GICC structures, but should have the ``online capable``
+> +bit set, to indicate they can be enabled later. The boot CPU must be marked as
+> +``enabled``.  The 'always on' GICR structure must be used to describe the
+> +redistributors.
+> +
+> +CPUs described as ``online capable`` but not ``enabled`` can be set to enabled
+> +by the DSDT's Processor object's _STA method. On virtual systems the _STA method
+> +must always report the CPU as ``present``. Changes to the firmware policy can
+> +be notified to the OS via device-check or eject-request.
+> +
+> +CPUs described as ``enabled`` in the static table, should not have their _STA
+> +modified dynamically by firmware. Soft-restart features such as kexec will
+> +re-read the static properties of the system from these static tables, and
+> +may malfunction if these no longer describe the running system. Linux will
+> +re-discover the dynamic properties of the system from the _STA method later
+> +during boot.
+> diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
+> index d08e924204bf..78544de0a8a9 100644
+> --- a/Documentation/arch/arm64/index.rst
+> +++ b/Documentation/arch/arm64/index.rst
+> @@ -13,6 +13,7 @@ ARM64 Architecture
+>      asymmetric-32bit
+>      booting
+>      cpu-feature-registers
+> +    cpu-hotplug
+>      elf_hwcaps
+>      hugetlbpage
+>      kdump
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0287409290609319944==--
-
