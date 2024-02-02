@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1839FC48286
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Feb 2024 02:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2473DC4828D
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Feb 2024 02:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+Vhl8/7HlVxl1pSq6+l9a5KKkGKDBwH9YFMmZulOpBI=; b=3/t+WIFo8Z5RAJ
-	qShQIJKwx6TKOxkCIH8VpsC9SZgz3kcH1NX5m9cIRNb3TKITEQg6P6WvSMvaiCpOeTTakMOHT9Mcq
-	ZCePDzE3KonGJQwhnuoX0ZXRmFD3oZAuAQd9mfRo1wube8wj3hM0FbtRCGXwv+S4s/EJcPuZVoUEf
-	4nvWAPet1OX1zKdrM0Ve7b+C38suZh9gC4BdmUiX9COQqrc39mfNFuKy5M5VOgm8+ChwwfArEXXH1
-	d9vYKCKcJOc6aNTz6nD81o+4E8wfZeoC8QGbZYQJxBeUqZGN1DxQMYtVMXC8EWwQljNJABicuEPMg
-	K8GBJQMAw5nRzD7zEa2w==;
+	List-Owner; bh=zpmQCmO9sU1i1ZX3NL4ej9EwwOfKxkt8sU4GYbNUcNw=; b=E2clpO/iqcxgUd
+	kyuZy/mSsY5gp3Po6aM6WMbqJ5bqXEOn/3CgtR5dnUXf3Eu4/MIzFeOSY4ZMAX/oJ6k9nkGFQQVhK
+	9t7Ymo2tPxmVnKfdw4N8j4bRVKkQjMrFMqpKS0phZZ7TPBWsGBKtXw5IKXVK2UuB1AK9DD8sTsq1y
+	LeT2/Y/bk/Ju+HxDFcNwWQM8DVmdfCH16XpelEoBCmMoWVsz+RyyiS+WPZWlnHRcmx4i3+7lpE1St
+	Yb3REzsTvDNd9946ZSdy1t1QbK/Qw1vRZ4regU55d1qIWTdSOf27L4/ewDRlBQ7OajS917w8CUKoI
+	7QtZ6fPtQ6MeWHoymWiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVjHr-00000009t5F-40sE;
-	Fri, 02 Feb 2024 02:28:15 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1rVjMO-00000009u4s-1FiA;
+	Fri, 02 Feb 2024 02:32:56 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rVjHm-00000009t3I-1pBy
+	id 1rVjMM-00000009u3t-17NM
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Feb 2024 02:28:15 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-6e118da997cso839908a34.3
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Feb 2024 18:28:09 -0800 (PST)
+	Fri, 02 Feb 2024 02:32:55 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-295ecd6a198so1767049a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Feb 2024 18:32:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706840889; x=1707445689; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1706841173; x=1707445973; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=nH6kvi7IzHM1HjT9d3ebo606kaCmtup5eOU1YOyCeeQ=;
-        b=fQV76b5jIetAzjlpxyNjQAle0/vx6T5ABwXrklGBuWPqFvVjHKx8QD783o1PFsbo3L
-         +x0K5f7cxtB0lrwgqL7IgPzJQ/G+c0DmhjJwzCbZEITYtxaImQMp3o5a7abfSvMO44oA
-         POdD0cMW+shY6SFefrjwLfYoSXgVxN+Qj5RotrlptP1LjZlW7iAu1K84xP97/7mfwhQV
-         rkA4+HsSb5pvH+xtJ/g3skM5rqbzxU9NbMtMUa1HuXZPmUcFdLQl1tLbTqiM/CsEUH68
-         oknvT74GTryBuxMknpg/vVAdisbO71SLlHQEwgt/sz+V2FTLcP8lU90/xTfNzID0HAYj
-         +B1A==
+        bh=0bXBoUL8xedCmLcnMAqTDLt5mCSq9W7voiTTkiqTwv4=;
+        b=SZPYvRCRTqTICXGscHfpCzBwFlQfo396f7NU1M4Bml2Jz/6/aIIcW06jQ7RnBF9w4z
+         J03fwYzgq9B1pwvus1HaJ+LYk1qh+10MV2MKT+YlrhviXeSXu32GddkfnEneWHeeaAB0
+         /mbxJuEG+ivVL3JPcsKEMPGoHH/zchAZ7x0MaAQFm2aSZDOB7+rwAWtUIxdavqjEMhYM
+         ApWtAILAuD48NwX+OJlJvzQvlY0E/G0fLnCERpYl7mTkYFQKwOmhwtuOy3DDw7O3sJY1
+         hUUvgwdTJIWyDbKozGf/Q79aeOqhe0vjPKAMensJ5CjCxpzN8I6ctzFZXHXJP4BRyy1i
+         nIcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706840889; x=1707445689;
+        d=1e100.net; s=20230601; t=1706841173; x=1707445973;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nH6kvi7IzHM1HjT9d3ebo606kaCmtup5eOU1YOyCeeQ=;
-        b=Z2Eo9UpLBMHAn9MQObeLQXUWqQUF68FuUIIqc2wm3BzZnv9PMwGo6x5yWSPkCNbOwk
-         t2zdMjj5+fclc8E4to99QjpHX51ffBpb6T/UczLXplpxKVVzkPJ9kzsMztkO+s+9OJNN
-         7k368NUGhJHGLVXj0H+P5/B37iqMSFIP0J8YpgosA9I52dpQB5/f0mhSL/hEFCoFKnDl
-         RQJUAuOSDcnmX8C+LlhHf6cydLz8pO3PbTXdOkndEzUxaff+32xWtr8XG5Lr7jsnASpN
-         XPVKpuvTXCfm0yVDtcy/bXnMkFtjLCAz/rK95CBdIto+Ln2GnxgzO361iVtt7itYMHNg
-         aqLw==
-X-Gm-Message-State: AOJu0YyTMekg71GmMhVkZcklzoqON/dfE8BzARLaBOGWwJXdi+ee83wL
-	EXQ65S7Z5l+X8noTNPboPTV3HtPg5K7is/OkPvvmUg62TkDXmUYFoGIS2/QwHv4=
-X-Google-Smtp-Source: AGHT+IFp062ooy/IHYTf+Z1OQbUuwLGyLVscZ2fxBHLPNsW3kl1YytnGZuKwPGTv6LdCdXItOvcJDA==
-X-Received: by 2002:a05:6358:6f9e:b0:175:f9b8:89bf with SMTP id s30-20020a0563586f9e00b00175f9b889bfmr754264rwn.22.1706840888844;
-        Thu, 01 Feb 2024 18:28:08 -0800 (PST)
-X-Forwarded-Encrypted: i=0; AJvYcCXzW8HfzfBFndPbvvprCc2R3w70/c3RF57w2kO5sNhkjXiUc1+iJh25RmbGSpHdo5iPTXeHAnAB7skw2x1KEoPntxLdqUFcfINGL9DWhTDZaEPfW02nxrhVVq93LOqGqNgq0r2qw1V7QZ4yQQb9qzK9vG4gCQm+HEhoLTBwLMa67+YJOLZ31OGsXEicpDP0DEqDcubfynAm/g8XPvNWtIf9b3BlmflK4EEeYcg2uN/vMC9b1V1V3JenxQ0f8Fdb7boDEqhfd/fOEWa8BjnidQ1VNbmJzh8ygiJqy/NzNF8GnnxzaQLPE/xjCNrGBSeDM8QyHJD2o/RIpcqCU7zdkZSx+UdVKZjT1sw6QR6wH8bkgpWrrk+HXWDd54eS+Qerhkl4EURj
+        bh=0bXBoUL8xedCmLcnMAqTDLt5mCSq9W7voiTTkiqTwv4=;
+        b=DhrHIogQAWuUusoDl2k/rN8TEUIb2mNPd6kVW36VWDGZGWHgRfBItx8IFf4fEZ7QPl
+         h+0N/vfn4aoAmwe+UFmFBhAFpNT7vYKxMBJJZuvsqMw8MznH8p9X5dp0BVGmvXID/P8b
+         Q5r1P+jBsOmG7YJ7hlfDYPj3AKfWyFxjnACZFAwqDCFxxXw5O2E1HrjgDeoy87Gux47S
+         ICoIZrI2d8f8bybwW020Wpbg0+STZTJSItgFKOamlmtHvt/DCu9jNmhh1dJm1/6O5DHl
+         KF+W/pd9y8R4hPr5J2zqtacf1ErW8eq7Azu1tfERo/TSWuXWkZrPf/hDl0sDolJGwkL4
+         d8ug==
+X-Gm-Message-State: AOJu0YwP9vW9NcSBcEdGeF/eWHTonPFSXMFBDnCzc6xuiYvQAI+yjfF0
+	FBPparXKIPzflh7lfYWVtVQbuUSZi5z9P63IelYMDmNRkHhUOonQXya3lnHNGjY=
+X-Google-Smtp-Source: AGHT+IGtFCDECe658rt2QpCLasaQ2JkghYeJOImzP8BJBK7/gOp6/f6aiZdBc58sQIW8BtovrJE54Q==
+X-Received: by 2002:a17:90a:b10a:b0:296:2843:99cd with SMTP id z10-20020a17090ab10a00b00296284399cdmr1401923pjq.19.1706841173141;
+        Thu, 01 Feb 2024 18:32:53 -0800 (PST)
+X-Forwarded-Encrypted: i=0; AJvYcCXZ6STwiDMcre3f6rZaunHarbO54/adMkGh2ZZ/CykLb79STq4eDTPsA5FX5WMZZXHBB5Msk+NlKkixeem05d2nlknG/D+rpeG6q2rYqx6udY6poFg+E2WGpkLZbpqBQQDqH9FQ+G+6INoHRtQ2OYwp3QKaCj50D06NLGYRrElpiFFjg3oohH9gLBhab/i78AaPUCe4L/BJDoWZYoChqaaYdPZqS09P7OlDc5V51mcNlvFgyeGGbBkX4bUko2TCq4ihf/Ye1gsASBbkH+BajspR/pXVmcfJ83NELoR6FiZShQ==
 Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id f8-20020a63de08000000b005d8aef12380sm524464pgg.73.2024.02.01.18.28.07
+        by smtp.gmail.com with ESMTPSA id t13-20020a17090a024d00b0028ce81d9f32sm650159pje.16.2024.02.01.18.32.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Feb 2024 18:28:08 -0800 (PST)
-Date: Thu, 1 Feb 2024 18:28:06 -0800
+        Thu, 01 Feb 2024 18:32:52 -0800 (PST)
+Date: Thu, 1 Feb 2024 18:32:50 -0800
 From: Charlie Jenkins <charlie@rivosinc.com>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, linux-mm@kvack.org,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-doc@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] riscv: mm: Use hint address in mmap if available
-Message-ID: <ZbxTNjQPFKBatMq+@ghost>
-References: <20240130-use_mmap_hint_address-v3-0-8a655cfa8bcb@rivosinc.com>
- <20240130-use_mmap_hint_address-v3-1-8a655cfa8bcb@rivosinc.com>
- <tencent_83E0AB36A9A3032E5A4C4AC864A311DF9406@qq.com>
- <tencent_068B3B7AE01AC67885E4369AF14109CE6A0A@qq.com>
+	Robin Ehn <rehn@rivosinc.com>
+Subject: Re: [PATCH] riscv: hwprobe: export VA_BITS
+Message-ID: <ZbxUUsKdKIPI8Fb/@ghost>
+References: <20240201140319.360088-1-cleger@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <tencent_068B3B7AE01AC67885E4369AF14109CE6A0A@qq.com>
+In-Reply-To: <20240201140319.360088-1-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240201_182810_702515_511F33EE 
-X-CRM114-Status: GOOD (  41.37  )
+X-CRM114-CacheID: sfid-20240201_183254_331919_A4DF1F06 
+X-CRM114-Status: GOOD (  25.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,185 +97,107 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 31, 2024 at 11:59:43PM +0800, Yangyu Chen wrote:
-> On Wed, 2024-01-31 at 22:41 +0800, Yangyu Chen wrote:
-> > On Tue, 2024-01-30 at 17:07 -0800, Charlie Jenkins wrote:
-> > > On riscv it is guaranteed that the address returned by mmap is less
-> > > than
-> > > the hint address. Allow mmap to return an address all the way up to
-> > > addr, if provided, rather than just up to the lower address space.
-> > > =
+On Thu, Feb 01, 2024 at 03:02:45PM +0100, Cl=E9ment L=E9ger wrote:
+> Some userspace applications (OpenJDK for instance) uses the free bits
+> in pointers to insert additional information for their own logic.
+> Currently they rely on parsing /proc/cpuinfo to obtain the current value
+> of virtual address used bits [1]. Exporting VA_BITS through hwprobe will
+> allow for a more stable interface to be used.
 
-> > > This provides a performance benefit as well, allowing mmap to exit
-> > > after
-> > > checking that the address is in range rather than searching for a
-> > > valid
-> > > address.
-> > > =
-
-> > > It is possible to provide an address that uses at most the same
-> > > number
-> > > of bits, however it is significantly more computationally expensive
-> > > to
-> > > provide that number rather than setting the max to be the hint
-> > > address.
-> > > There is the instruction clz/clzw in Zbb that returns the highest
-> > > set
-> > > bit
-> > > which could be used to performantly implement this, but it would
-> > > still
-> > > be slower than the current implementation. At worst case, half of
-> > > the
-> > > address would not be able to be allocated when a hint address is
-> > > provided.
-> > > =
-
-> > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > > ---
-> > > =A0arch/riscv/include/asm/processor.h | 27 +++++++++++---------------
-> > > -
-> > > =A01 file changed, 11 insertions(+), 16 deletions(-)
-> > > =
-
-> > > diff --git a/arch/riscv/include/asm/processor.h
-> > > b/arch/riscv/include/asm/processor.h
-> > > index f19f861cda54..8ece7a8f0e18 100644
-> > > --- a/arch/riscv/include/asm/processor.h
-> > > +++ b/arch/riscv/include/asm/processor.h
-> > > @@ -14,22 +14,16 @@
-> > > =A0
-> > > =A0#include <asm/ptrace.h>
-> > > =A0
-> > > -#ifdef CONFIG_64BIT
-> > > -#define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
-> > > -#define STACK_TOP_MAX		TASK_SIZE_64
-> > > -
-> > > =A0#define arch_get_mmap_end(addr, len, flags)			\
-> > > =A0({								\
-> > > =A0	unsigned long
-> > > mmap_end;					\
-> > > =A0	typeof(addr) _addr =3D (addr);				\
-> > > -	if ((_addr) =3D=3D 0 || (IS_ENABLED(CONFIG_COMPAT) &&
-> > > is_compat_task())) \
-> > > +	if ((_addr) =3D=3D 0 ||					\
-> > > +	=A0=A0=A0 (IS_ENABLED(CONFIG_COMPAT) && is_compat_task()) ||	\
-> > > +	=A0=A0=A0 ((_addr + len) > BIT(VA_BITS -
-> > > 1)))			\
-> > > =A0		mmap_end =3D STACK_TOP_MAX;			\
-> > > -	else if ((_addr) >=3D VA_USER_SV57)			\
-> > > -		mmap_end =3D STACK_TOP_MAX;			\
-> > > -	else if ((((_addr) >=3D VA_USER_SV48)) && (VA_BITS >=3D
-> > > VA_BITS_SV48)) \
-> > > -		mmap_end =3D VA_USER_SV48;			\
-> > > =A0	else							\
-> > > -		mmap_end =3D VA_USER_SV39;			\
-> > > +		mmap_end =3D (_addr + len);			\
-> > > =A0	mmap_end;						\
-> > > =A0})
-> > > =A0
-> > > @@ -39,17 +33,18 @@
-> > > =A0	typeof(addr) _addr =3D (addr);				\
-> > > =A0	typeof(base) _base =3D (base);				\
-> > > =A0	unsigned long rnd_gap =3D DEFAULT_MAP_WINDOW - (_base);	\
-> > > -	if ((_addr) =3D=3D 0 || (IS_ENABLED(CONFIG_COMPAT) &&
-> > > is_compat_task())) \
-> > > +	if ((_addr) =3D=3D 0 ||					\
-> > > +	=A0=A0=A0 (IS_ENABLED(CONFIG_COMPAT) && is_compat_task()) ||	\
-> > > +	=A0=A0=A0 ((_addr + len) > BIT(VA_BITS -
-> > > 1)))			\
-> > > =A0		mmap_base =3D (_base);				\
-> > > -	else if (((_addr) >=3D VA_USER_SV57) && (VA_BITS >=3D
-> > > VA_BITS_SV57)) \
-> > > -		mmap_base =3D VA_USER_SV57 - rnd_gap;		\
-> > > -	else if ((((_addr) >=3D VA_USER_SV48)) && (VA_BITS >=3D
-> > > VA_BITS_SV48)) \
-> > > -		mmap_base =3D VA_USER_SV48 - rnd_gap;		\
-> > > =A0	else							\
-> > > -		mmap_base =3D VA_USER_SV39 - rnd_gap;		\
-> > > +		mmap_base =3D (_addr + len) - rnd_gap;		\
-> > > =A0	mmap_base;						\
-> > > =A0})
-> > > =A0
-> > > +#ifdef CONFIG_64BIT
-> > > +#define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
-> > > +#define STACK_TOP_MAX		TASK_SIZE_64
-> > > =A0#else
-> > > =A0#define DEFAULT_MAP_WINDOW	TASK_SIZE
-> > > =A0#define STACK_TOP_MAX		TASK_SIZE
-> > > =
-
-> > =
-
-> > I have carefully tested your patch on qemu with sv57. A bug that
-> > needs
-> > to be solved is that mmap with the same hint address without
-> > MAP_FIXED
-> > set will fail the second time.
-> > =
-
-> > Userspace code to reproduce the bug:
-> > =
-
-> > #include <sys/mman.h>
-> > #include <stdio.h>
-> > #include <stdint.h>
-> > =
-
-> > void test(char *addr) {
-> > =A0=A0=A0 char *res =3D mmap(addr, 4096, PROT_READ | PROT_WRITE,
-> > MAP_ANONYMOUS
-> > > MAP_PRIVATE, -1, 0);
-> > =A0=A0=A0 printf("hint %p got %p.\n", addr, res);
-> > }
-> > =
-
-> > int main (void) {
-> > =A0=A0=A0 test(1<<30);
-> > =A0=A0=A0 test(1<<30);
-> > =A0=A0=A0 test(1<<30);
-> > =A0=A0=A0 return 0;
-> > }
-> > =
-
-> > output:
-> > =
-
-> > hint 0x40000000 got 0x40000000.
-> > hint 0x40000000 got 0xffffffffffffffff.
-> > hint 0x40000000 got 0xffffffffffffffff.
-> > =
-
-> > output on x86:
-> > =
-
-> > hint 0x40000000 got 0x40000000.
-> > hint 0x40000000 got 0x7f9171363000.
-> > hint 0x40000000 got 0x7f9171362000.
-> > =
-
-> > It may need to implement a special arch_get_unmapped_area and
-> > arch_get_unmapped_area_topdown function.
-> > =
-
-> =
-
-> This is because hint address < rnd_gap. I have tried to let mmap_base =3D
-> min((_addr + len), (base) + TASK_SIZE - DEFAULT_MAP_WINDOW). However it
-> does not work for bottom-up while ulimit -s is unlimited. You said this
-> behavior is expected from patch v2 review.=A0However it brings a new
-> regression even on sv39 systems.
-> =
-
-> I still don't know the reason why use addr+len as the upper-bound. I
-> think solution like x86/arm64/powerpc provide two address space switch
-> based on whether hint address above the default map window is enough.
-> =
-
-
-Yep this is expected. It is up to the maintainers to decide.
+mmap already supports this without a need for applications to know the
+underlying hardware. If a hint address is passed into mmap, it will never
+return an address that uses more bits than the hint address. I designed
+it that way so that something like this wasn't necessary.
 
 - Charlie
 
+> =
+
+> Link: https://github.com/openjdk/jdk/blob/master/src/hotspot/os_cpu/linux=
+_riscv/vm_version_linux_riscv.cpp#L171 [1]
+> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+> =
+
+> ---
+>  Documentation/arch/riscv/hwprobe.rst  | 3 +++
+>  arch/riscv/include/asm/hwprobe.h      | 2 +-
+>  arch/riscv/include/uapi/asm/hwprobe.h | 1 +
+>  arch/riscv/kernel/sys_hwprobe.c       | 3 +++
+>  4 files changed, 8 insertions(+), 1 deletion(-)
+> =
+
+> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/ri=
+scv/hwprobe.rst
+> index b2bcc9eed9aa..6f198c6ed4f0 100644
+> --- a/Documentation/arch/riscv/hwprobe.rst
+> +++ b/Documentation/arch/riscv/hwprobe.rst
+> @@ -210,3 +210,6 @@ The following keys are defined:
+>  =
+
+>  * :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
+>    represents the size of the Zicboz block in bytes.
+> +
+> +* :c:macro:`RISCV_HWPROBE_KEY_VA_BITS`: An unsigned long which
+> +  represent the number of bits used to store virtual addresses.
+> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hw=
+probe.h
+> index 630507dff5ea..150a9877b0af 100644
+> --- a/arch/riscv/include/asm/hwprobe.h
+> +++ b/arch/riscv/include/asm/hwprobe.h
+> @@ -8,7 +8,7 @@
+>  =
+
+>  #include <uapi/asm/hwprobe.h>
+>  =
+
+> -#define RISCV_HWPROBE_MAX_KEY 6
+> +#define RISCV_HWPROBE_MAX_KEY 7
+>  =
+
+>  static inline bool riscv_hwprobe_key_is_valid(__s64 key)
+>  {
+> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/u=
+api/asm/hwprobe.h
+> index 9f2a8e3ff204..2a5006cddb7b 100644
+> --- a/arch/riscv/include/uapi/asm/hwprobe.h
+> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
+> @@ -67,6 +67,7 @@ struct riscv_hwprobe {
+>  #define		RISCV_HWPROBE_MISALIGNED_UNSUPPORTED	(4 << 0)
+>  #define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
+>  #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
+> +#define RISCV_HWPROBE_KEY_VA_BITS		7
+>  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+>  =
+
+>  /* Flags */
+> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwpr=
+obe.c
+> index a7c56b41efd2..328435836e36 100644
+> --- a/arch/riscv/kernel/sys_hwprobe.c
+> +++ b/arch/riscv/kernel/sys_hwprobe.c
+> @@ -202,6 +202,9 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pa=
+ir,
+>  		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOZ))
+>  			pair->value =3D riscv_cboz_block_size;
+>  		break;
+> +	case RISCV_HWPROBE_KEY_VA_BITS:
+> +		pair->value =3D VA_BITS;
+> +		break;
+>  =
+
+>  	/*
+>  	 * For forward compatibility, unknown keys don't fail the whole
+> -- =
+
+> 2.43.0
+> =
+
+> =
+
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
