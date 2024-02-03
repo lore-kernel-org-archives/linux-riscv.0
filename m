@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B93BC4828F
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 13:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC42BC4828D
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 13:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kttY2zfee5onhgZNjUvHTuCBpbilmU7Bp7A8UOX4DyM=; b=Jxv8i9ZjieksZv
-	a6ZubVDOIesgNeJEQmm499Y8LDd3iYZXAdj4k12+mAJCfVtRjbmudB0qCNvAlgbiFNlWFHXnrcB8d
-	0RabzmGXF2G6i2tQq9L09AmZ/nyYcrX184QQanATEngTt87VuYHqkqknzFuMu3b3NUQWanIC3bIAd
-	2HtavDpZDPAemol2KFBK/gOi3YGw9HsyU+r17/VX6BzLtCgVsty1vCKBIxW5aU5U48192+hQ/JAat
-	tNx4y9kz1hcBrosTvhDPdanpGcMKIyFNSFKQgG5Twm75Ulbv7UWFsjeO3zpADyx11N1GgYTZ7lVva
-	RhkrjOFn2wSd2ixBCYGw==;
+	List-Owner; bh=sIRTGSQCDPb2bWG0WMzXrGr25alpYTWnJHnetQuVzuU=; b=nJ5RMio8Xhu+XF
+	XEhbtECpJa9bVYNO963GxxUH4/Ub9WSZg0tkvW5KF6d8/fK4y0Yyc7R6DKg4xHUtAcuIWjd47rOSx
+	5H87TyU4AgG01yyaNGqbVSzrhHVtEZkQuXf1cgpguPKYE0bnKqw8i0doF2gUTedLyhFQzUF7JBmpm
+	HhHtCjxMxvssfIK4O+xhkELlG5dr4ZyzxU48h++vRYYxHQZWdPC0xQIQclmx/LBlT/zQDyzeN3KL6
+	bt/qRdGtoulnL2X0ULtwY/dS/ha7UtTs8HK3wZ6kPYwe+LN0Vhbe6xM+Lf3fjt/78ksNrebGlUQHq
+	EcyQThning5DOn0Pkr5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWG9L-0000000GXbE-1S5B;
-	Sat, 03 Feb 2024 13:33:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rWG9N-0000000GXbU-08cP;
+	Sat, 03 Feb 2024 13:33:41 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFBC-0000000GJLH-1EIQ;
-	Sat, 03 Feb 2024 12:31:35 +0000
+	id 1rWFBZ-0000000GJgL-38PU;
+	Sat, 03 Feb 2024 12:32:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 839F060A67;
-	Sat,  3 Feb 2024 12:31:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23856C433C7;
-	Sat,  3 Feb 2024 12:31:22 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 1EFF2CE1F0C;
+	Sat,  3 Feb 2024 12:31:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BFFEC43330;
+	Sat,  3 Feb 2024 12:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706963489;
-	bh=2cZBAsyDen5t10YKJMqQqRacz55Ix1gmnVNOGcAdVHI=;
+	s=k20201202; t=1706963509;
+	bh=LIgg9EoXLUqmc2NONgYIbWfk2OpP+a7HqWePlA8MwVc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=G3KODdyXV84zp1WCaszFTbVJ2uzuktodWs8f8wULYlN8w99KkxKz/+ezLneV0DugV
-	 x/cwvGfsdUC3eW+YYRIwg6HU1tyRVrb7V4Ub/MdYDk6mE4D7XxqcwonHdr44Kp/bvw
-	 b2g/KQS9cGH9Cl2Y2GuKcr7ecb32sw2ElksDnlhfkXP2DbnDikvM7MxJ8h8o+cOfkl
-	 KvPtjaP0HwY9t6phffOTirc/ieuvAsz8aZwasX1XNp1Cv64JpuCsLj5fu7rvuPL6TP
-	 hvuoAl/z3r0yWCjpqndfLm5YGAVsOPfdT2IgvmV9XZi0r9yPQS0W5hdeffXFKXMUnt
-	 A9oqQY7azVtTQ==
+	b=gUOIA9ndUINB2R/yJNvtN6eVwihasL3005KinxnSLiwpk0GxMBdKWGozutVVJklg3
+	 wZ8ygQruhZ/pwNXoA0V3AFkBl+plMbl+00zVLDPu/2Ooc9gstY+9eIp9qwwPhBGTkD
+	 eGbiE2bvHjwutwFf0iWe0xwvy1gtYv9tRGh4pxjJDMh+rWcxEsnmCVzY+SIpztgFyo
+	 t1JXjYOVecnGx5gQhX0hyiLW7bynoAoum/y5tfiNBkIEqnn/Mdf4YHk0IG4qxgkSXO
+	 Loiw5tzHOxj2GqXh4UA+3oogNkWzY9VXBMAESEAshhBkKlsuMqfzKzrfJQGfxuCIwd
+	 Ti40XkH2BccVQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Sat, 03 Feb 2024 12:25:42 +0000
-Subject: [PATCH v8 16/38] arm64/hwcap: Add hwcap for GCS
+Date: Sat, 03 Feb 2024 12:25:45 +0000
+Subject: [PATCH v8 19/38] arm64/gcs: Context switch GCS state for EL0
 MIME-Version: 1.0
-Message-Id: <20240203-arm64-gcs-v8-16-c9fec77673ef@kernel.org>
+Message-Id: <20240203-arm64-gcs-v8-19-c9fec77673ef@kernel.org>
 References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 In-Reply-To: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -69,20 +69,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-a684c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2995; i=broonie@kernel.org;
- h=from:subject:message-id; bh=2cZBAsyDen5t10YKJMqQqRacz55Ix1gmnVNOGcAdVHI=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDdArV5/f1ACfon5ADCHhNy9LNTvLl/uQOQRNL0
- 1A2GhhGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w3QAKCRAk1otyXVSH0LMLB/
- 94kl6jJs+ZdrvXxnmg2VS+Ldw/qKP/sR+00QxgbGMh/uXh1xYFxuDHzgUpcnXqnP08q9VHn3XI0q+9
- 5SpUX6Qd3Fvtqy1KVotOyPSUoeE7dpPJntzXucH4HzayJCWZ1VbxUaon7nPT6rWirxCE4eqW1rispq
- HomupbnqiFm9Q5BSDH8gS76+j3FBtUB71bbwothoqHW1avAFYEY/AYeoWmbNMfEsuvtFv4PI5FJ+ZX
- G4TNA3Mkel4mGN+Y7fQe+nlszt8TNErQCFln4CSh+0S/qH4X75ZBaIvA0HKUTIWPBRrMBDHdpA/Uaq
- sZb3P7vZZGRDet9V9CpODyO7rtqWzM
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6699; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=LIgg9EoXLUqmc2NONgYIbWfk2OpP+a7HqWePlA8MwVc=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDg71pKnNHZwjL83REQOHC73wjfzFbk5eebs5dp
+ bg19mBaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w4AAKCRAk1otyXVSH0LkKB/
+ 0bnKzvF70bw/d4BodS7eaSl34KwfWWf1Ect1459rOEJNxs5uWJGgP8HzIVk5Rw5fGkLBHsxv8fOyUd
+ ma29YJS6mSWJW4eeGoYhB8RS2dNPjudICQO76RD9pi2pHCgvbmri5dngn8TdZBzvlWEFbd2Hx2vduS
+ fg3g9TvaF4Hp76hXwrwvqdj9MMs7fCG6Hg1euetOuvo4rYyhKyt7QfgEV8npXHf2B6fNAeCtpPOPMX
+ O3GuVwS5gBFH5k0levGdB/GmuPYOYmYJ7o8OAaczf88LBa8imYcMx2pfTHf50pAkTeeiFYlDY4rvpj
+ R0ZD8Bp4CFjm/TZDl0UFQ8RXVj5AId
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240203_043130_922109_6E2BF9EC 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20240203_043154_734497_2AAC3C53 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,80 +99,233 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a hwcap to enable userspace to detect support for GCS.
+There are two registers controlling the GCS state of EL0, GCSPR_EL0 which
+is the current GCS pointer and GCSCRE0_EL1 which has enable bits for the
+specific GCS functionality enabled for EL0. Manage these on context switch
+and process lifetime events, GCS is reset on exec().  Also ensure that
+any changes to the GCS memory are visible to other PEs and that changes
+from other PEs are visible on this one by issuing a GCSB DSYNC when
+moving to or from a thread with GCS.
+
+Since the current GCS configuration of a thread will be visible to
+userspace we store the configuration in the format used with userspace
+and provide a helper which configures the system register as needed.
+
+On systems that support GCS we always allow access to GCSPR_EL0, this
+facilitates reporting of GCS faults if userspace implements disabling of
+GCS on error - the GCS can still be discovered and examined even if GCS
+has been disabled.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- Documentation/arch/arm64/elf_hwcaps.rst | 3 +++
- arch/arm64/include/asm/hwcap.h          | 1 +
- arch/arm64/include/uapi/asm/hwcap.h     | 1 +
- arch/arm64/kernel/cpufeature.c          | 3 +++
- arch/arm64/kernel/cpuinfo.c             | 1 +
- 5 files changed, 9 insertions(+)
+ arch/arm64/include/asm/gcs.h       | 24 ++++++++++++++++
+ arch/arm64/include/asm/processor.h |  6 ++++
+ arch/arm64/kernel/process.c        | 56 ++++++++++++++++++++++++++++++++++++++
+ arch/arm64/mm/Makefile             |  1 +
+ arch/arm64/mm/gcs.c                | 39 ++++++++++++++++++++++++++
+ 5 files changed, 126 insertions(+)
 
-diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
-index ced7b335e2e0..86d4ace9c75c 100644
---- a/Documentation/arch/arm64/elf_hwcaps.rst
-+++ b/Documentation/arch/arm64/elf_hwcaps.rst
-@@ -317,6 +317,9 @@ HWCAP2_LRCPC3
- HWCAP2_LSE128
-     Functionality implied by ID_AA64ISAR0_EL1.Atomic == 0b0011.
+diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
+index 7c5e95218db6..04594ef59dad 100644
+--- a/arch/arm64/include/asm/gcs.h
++++ b/arch/arm64/include/asm/gcs.h
+@@ -48,4 +48,28 @@ static inline u64 gcsss2(void)
+ 	return Xt;
+ }
  
-+HWCAP2_GCS
-+    Functionality implied by ID_AA64PFR1_EL1.GCS == 0b1
-+
- 4. Unused AT_HWCAP bits
- -----------------------
- 
-diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
-index cd71e09ea14d..e01e6b72a839 100644
---- a/arch/arm64/include/asm/hwcap.h
-+++ b/arch/arm64/include/asm/hwcap.h
-@@ -142,6 +142,7 @@
- #define KERNEL_HWCAP_SVE_B16B16		__khwcap2_feature(SVE_B16B16)
- #define KERNEL_HWCAP_LRCPC3		__khwcap2_feature(LRCPC3)
- #define KERNEL_HWCAP_LSE128		__khwcap2_feature(LSE128)
-+#define KERNEL_HWCAP_GCS		__khwcap2_feature(GCS)
- 
- /*
-  * This yields a mask that user programs can use to figure out what
-diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
-index 5023599fa278..996b5b5d4c4e 100644
---- a/arch/arm64/include/uapi/asm/hwcap.h
-+++ b/arch/arm64/include/uapi/asm/hwcap.h
-@@ -107,5 +107,6 @@
- #define HWCAP2_SVE_B16B16	(1UL << 45)
- #define HWCAP2_LRCPC3		(1UL << 46)
- #define HWCAP2_LSE128		(1UL << 47)
-+#define HWCAP2_GCS		(1UL << 48)
- 
- #endif /* _UAPI__ASM_HWCAP_H */
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index b606842ab8c1..1a92c4502a0b 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2867,6 +2867,9 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
- 	HWCAP_CAP(ID_AA64ZFR0_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEI8MM),
- 	HWCAP_CAP(ID_AA64ZFR0_EL1, F32MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF32MM),
- 	HWCAP_CAP(ID_AA64ZFR0_EL1, F64MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF64MM),
-+#endif
 +#ifdef CONFIG_ARM64_GCS
-+	HWCAP_CAP(ID_AA64PFR1_EL1, GCS, IMP, CAP_HWCAP, KERNEL_HWCAP_GCS),
++
++static inline bool task_gcs_el0_enabled(struct task_struct *task)
++{
++	return current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE;
++}
++
++void gcs_set_el0_mode(struct task_struct *task);
++void gcs_free(struct task_struct *task);
++void gcs_preserve_current_state(void);
++
++#else
++
++static inline bool task_gcs_el0_enabled(struct task_struct *task)
++{
++	return false;
++}
++
++static inline void gcs_set_el0_mode(struct task_struct *task) { }
++static inline void gcs_free(struct task_struct *task) { }
++static inline void gcs_preserve_current_state(void) { }
++
++#endif
++
  #endif
- 	HWCAP_CAP(ID_AA64PFR1_EL1, SSBS, SSBS2, CAP_HWCAP, KERNEL_HWCAP_SSBS),
- #ifdef CONFIG_ARM64_BTI
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index 47043c0d95ec..b3ec0b89c9e0 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -128,6 +128,7 @@ static const char *const hwcap_str[] = {
- 	[KERNEL_HWCAP_SVE_B16B16]	= "sveb16b16",
- 	[KERNEL_HWCAP_LRCPC3]		= "lrcpc3",
- 	[KERNEL_HWCAP_LSE128]		= "lse128",
-+	[KERNEL_HWCAP_GCS]		= "gcs",
+diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
+index 5b0a04810b23..6fc6dcbd494c 100644
+--- a/arch/arm64/include/asm/processor.h
++++ b/arch/arm64/include/asm/processor.h
+@@ -182,6 +182,12 @@ struct thread_struct {
+ 	u64			sctlr_user;
+ 	u64			svcr;
+ 	u64			tpidr2_el0;
++#ifdef CONFIG_ARM64_GCS
++	unsigned int		gcs_el0_mode;
++	u64			gcspr_el0;
++	u64			gcs_base;
++	u64			gcs_size;
++#endif
  };
  
- #ifdef CONFIG_COMPAT
+ static inline unsigned int thread_get_vl(struct thread_struct *thread,
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 7387b68c745b..fd80b43c2969 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -48,6 +48,7 @@
+ #include <asm/cacheflush.h>
+ #include <asm/exec.h>
+ #include <asm/fpsimd.h>
++#include <asm/gcs.h>
+ #include <asm/mmu_context.h>
+ #include <asm/mte.h>
+ #include <asm/processor.h>
+@@ -271,12 +272,32 @@ static void flush_tagged_addr_state(void)
+ 		clear_thread_flag(TIF_TAGGED_ADDR);
+ }
+ 
++#ifdef CONFIG_ARM64_GCS
++
++static void flush_gcs(void)
++{
++	if (!system_supports_gcs())
++		return;
++
++	gcs_free(current);
++	current->thread.gcs_el0_mode = 0;
++	write_sysreg_s(0, SYS_GCSCRE0_EL1);
++	write_sysreg_s(0, SYS_GCSPR_EL0);
++}
++
++#else
++
++static void flush_gcs(void) { }
++
++#endif
++
+ void flush_thread(void)
+ {
+ 	fpsimd_flush_thread();
+ 	tls_thread_flush();
+ 	flush_ptrace_hw_breakpoint(current);
+ 	flush_tagged_addr_state();
++	flush_gcs();
+ }
+ 
+ void arch_release_task_struct(struct task_struct *tsk)
+@@ -474,6 +495,40 @@ static void entry_task_switch(struct task_struct *next)
+ 	__this_cpu_write(__entry_task, next);
+ }
+ 
++#ifdef CONFIG_ARM64_GCS
++
++void gcs_preserve_current_state(void)
++{
++	if (task_gcs_el0_enabled(current))
++		current->thread.gcspr_el0 = read_sysreg_s(SYS_GCSPR_EL0);
++}
++
++static void gcs_thread_switch(struct task_struct *next)
++{
++	if (!system_supports_gcs())
++		return;
++
++	gcs_preserve_current_state();
++
++	gcs_set_el0_mode(next);
++	write_sysreg_s(next->thread.gcspr_el0, SYS_GCSPR_EL0);
++
++	/*
++	 * Ensure that GCS changes are observable by/from other PEs in
++	 * case of migration.
++	 */
++	if (task_gcs_el0_enabled(current) || task_gcs_el0_enabled(next))
++		gcsb_dsync();
++}
++
++#else
++
++static void gcs_thread_switch(struct task_struct *next)
++{
++}
++
++#endif
++
+ /*
+  * ARM erratum 1418040 handling, affecting the 32bit view of CNTVCT.
+  * Ensure access is disabled when switching to a 32bit task, ensure
+@@ -533,6 +588,7 @@ struct task_struct *__switch_to(struct task_struct *prev,
+ 	ssbs_thread_switch(next);
+ 	erratum_1418040_thread_switch(next);
+ 	ptrauth_thread_switch_user(next);
++	gcs_thread_switch(next);
+ 
+ 	/*
+ 	 * Complete any pending TLB or cache maintenance on this CPU in case
+diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
+index dbd1bc95967d..4e7cb2f02999 100644
+--- a/arch/arm64/mm/Makefile
++++ b/arch/arm64/mm/Makefile
+@@ -10,6 +10,7 @@ obj-$(CONFIG_TRANS_TABLE)	+= trans_pgd.o
+ obj-$(CONFIG_TRANS_TABLE)	+= trans_pgd-asm.o
+ obj-$(CONFIG_DEBUG_VIRTUAL)	+= physaddr.o
+ obj-$(CONFIG_ARM64_MTE)		+= mteswap.o
++obj-$(CONFIG_ARM64_GCS)		+= gcs.o
+ KASAN_SANITIZE_physaddr.o	+= n
+ 
+ obj-$(CONFIG_KASAN)		+= kasan_init.o
+diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
+new file mode 100644
+index 000000000000..b0a67efc522b
+--- /dev/null
++++ b/arch/arm64/mm/gcs.c
+@@ -0,0 +1,39 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <linux/mm.h>
++#include <linux/mman.h>
++#include <linux/syscalls.h>
++#include <linux/types.h>
++
++#include <asm/cpufeature.h>
++#include <asm/page.h>
++
++/*
++ * Apply the GCS mode configured for the specified task to the
++ * hardware.
++ */
++void gcs_set_el0_mode(struct task_struct *task)
++{
++	u64 gcscre0_el1 = GCSCRE0_EL1_nTR;
++
++	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE)
++		gcscre0_el1 |= GCSCRE0_EL1_RVCHKEN | GCSCRE0_EL1_PCRSEL;
++
++	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_WRITE)
++		gcscre0_el1 |= GCSCRE0_EL1_STREn;
++
++	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_PUSH)
++		gcscre0_el1 |= GCSCRE0_EL1_PUSHMEn;
++
++	write_sysreg_s(gcscre0_el1, SYS_GCSCRE0_EL1);
++}
++
++void gcs_free(struct task_struct *task)
++{
++	if (task->thread.gcs_base)
++		vm_munmap(task->thread.gcs_base, task->thread.gcs_size);
++
++	task->thread.gcspr_el0 = 0;
++	task->thread.gcs_base = 0;
++	task->thread.gcs_size = 0;
++}
 
 -- 
 2.30.2
