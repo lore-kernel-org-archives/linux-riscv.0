@@ -4,63 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB6CDC4828F
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D1BC4828F
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4bGNL9B6QTweT/JDYX6/SivjkIL87CSnfi8Upf9QVzU=; b=bdNT54BtKw2JgK
-	eXMP5U61sqVpqYnyqNNc3KsakLODEbdEZwPO+TRLVBDNw4QgsqZscNRkSSk4fypeyY8aDj7lN7FIc
-	3g3bDe/7V1o8MKeYISEt2V4KtiLS/D0cdEVskj8LVhGnxfGgzoWhEQXsb2nwv/ckXfZbnHq7nvHrx
-	AICAv0qOJbuF1mvs/M4jJVLctEUV0c9UBfx7XABawoXv0Ofk0k6CyV2NnZZG3Etra59DRBlT43NM0
-	+SNUBFzeXVQ+ekyQQsqKh16uwD7pw6wMuNlhBzRgF9XJoCMhQfVt21YEygQjLg/mN+9mqFQ/cThG4
-	GffTF3drTnss/FA3sGbg==;
+	List-Owner; bh=Ox9JCa3TqSN28o9axTk5XLWxROqPP2UVHYwFg9UWHB8=; b=BudEAwC4qbBwx6
+	/rWXR6jpUOffIqi51pcTdSwpM/2U1ZKEEDQCCfVXEer5JjDm/m3h0nkHGx6ZpqIKHy+7OvOgOLWoZ
+	B8ehR92lueUro2UuIfJW4FTi3pa7ZeE+FlN6lImt9o3y1fShDPKbLv6HFSV9iEUi/Hspcb5+AVw0q
+	vc4ZIH3NVa8vlhsmnITmlHq5orXgfiX9DdU57hBGRzbALd+qfgNBJHr+dbofTblxtLzhgh676swH5
+	KOzVvbDLvQCBcaz0aEAlh/yfbkhIlXQSU2qCSsdhbRhZBpnURwq8OYw2RH4qyA0SdCFyGvQofM4/A
+	3BqOviwUdmZ+1Y+kNoHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFEC-0000000GM5f-2iSt;
-	Sat, 03 Feb 2024 12:34:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rWFEN-0000000GMFY-0Y0K;
+	Sat, 03 Feb 2024 12:34:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFDb-0000000GLX5-3w2h;
-	Sat, 03 Feb 2024 12:34:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=alAj6nkG76GZw0L0FKsYPw7Csz/3CTz3yYYHsGvoS2Y=; b=T08P1DqposxPANwQ8ekSjJ17Ot
-	CA6AkTOa+I3XZTGpt07T5nnwy1KlfJDe7O7YH7EZneioVTI3QOCmutYULTDwQ7sxBL7x07774HkHz
-	8BfHfW/EekViT1ZkcMYBxru1/cRfDvQ34t4yoU1/Mk0ZWaiMX/02/fEKZoxe/HV2DJSmh0wPzE++x
-	7KHmTFe6wbaD2u+PYaAsvzItCeT58JpdhcmY8DT3/lmBxgwlO1FRgdr55kerZeqn+rxfkPUwRcL/z
-	3RdCFXGAPBw5Xw594IFGgZY/XY0ZcNwHf8sndpfU/V2t7+uWjA+wci436JY09AAdYENLSFZKknMyt
-	yg2N9OUQ==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFD8-0000000Alic-3omR;
-	Sat, 03 Feb 2024 12:33:56 +0000
+	id 1rWFDX-0000000GLTm-3xVv;
+	Sat, 03 Feb 2024 12:34:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ED40860A0B;
-	Sat,  3 Feb 2024 12:33:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DC0CC433F1;
-	Sat,  3 Feb 2024 12:33:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1945160A13;
+	Sat,  3 Feb 2024 12:33:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF01C43390;
+	Sat,  3 Feb 2024 12:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706963607;
-	bh=D3xFplh+Bhjio+ExeWY8BT4LbRqycsYXKA0uNcRnZbA=;
+	s=k20201202; t=1706963634;
+	bh=9F4zVwazY45NVTLTUMt3+YYK1FhVQKr2kpggbiXDZYk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=tekMQukWgwV6FogTTbJFoYX97KInc7FBbbjFiuXdKl0xrhAGRxlsFB3NMKM2ko9xA
-	 jAjxRQ7RJVpwFx6L8dOptMknvdepEFYwe9EFmS40q5ywgIaPMy0cyZO/CuCHo81Y9g
-	 KA/uiUDOg9bqEQbhQBRuAYeciXD4/aBkbkJ7NfqYoMdIedl2TiQUlhnChv80srcs4C
-	 oKX/5UItJ2b58u7E12GnMKsNTz2Pbpjs8G6EEAR9icpgPRRYCdZ2d41TgK74HtmA19
-	 I4qyDAUePMr8jkkGtlRXF+sVlJe8Y4LlzAH797l6lB7yOTQulzXN9MxYRijw8Nr49Z
-	 Zbuh/8AqM9zcw==
+	b=GAPqK+2Tg7IeoYeLzW/lxHYBxXVbkmr9N6VoDkMRmiAyfvdGrjwwX7jOjEUxTA5Q2
+	 /l5z5xzv/EHEDHto4oWGMOcWTtw3z29dh4UP5PMsaQMj2OYKJPMgPsjBtqCLSveCdF
+	 IyDHhhvJx+X/psoJdAqnITvdezXyLq91C9qu7pA0aWx1gDFQz4Y+uLqv1+REhdequZ
+	 Cl7E/HkNb2okHRTogLu3T3T/3nSExZ/mvLhCOIK1hwvy1DU+qiMyzXgMBIZ3WexOEs
+	 hhdMeF6Wgm9W+kWy/RyVU6T36BjgxKklBygRnE33D2JBytL5CISb2tpW7K6I246Xrm
+	 vNvTFl7bEOg9Q==
 From: Mark Brown <broonie@kernel.org>
-Date: Sat, 03 Feb 2024 12:25:59 +0000
-Subject: [PATCH v8 33/38] kselftest/arm64: Add a GCS test program built
- with the system libc
+Date: Sat, 03 Feb 2024 12:26:03 +0000
+Subject: [PATCH v8 37/38] kselftest/arm64: Enable GCS for the FP stress
+ tests
 MIME-Version: 1.0
-Message-Id: <20240203-arm64-gcs-v8-33-c9fec77673ef@kernel.org>
+Message-Id: <20240203-arm64-gcs-v8-37-c9fec77673ef@kernel.org>
 References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 In-Reply-To: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -84,20 +70,21 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-a684c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=21243; i=broonie@kernel.org;
- h=from:subject:message-id; bh=D3xFplh+Bhjio+ExeWY8BT4LbRqycsYXKA0uNcRnZbA=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDrBjsxieO4kMObCxRgmaUcEfJ9/uCRJy8LtnYS
- D/6FBfeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w6wAKCRAk1otyXVSH0B/pB/
- 4qLYUafmtmQYRo7okF0fOKX34wAEMvNLNvoyx20wgjqOOaej613l+zFhjioHDUi0qANPFxt9MIbv7L
- b0QAZwpsQYnpcxjwjZwtfjWULiXnP0u2Rh+nOzJxCkbOXhvUaQcSYeq/dRWQ00TJvYNhiz7ZVRfEQ1
- EFuZJ/5Z0Q8+VPxS8ZYaV3Q6mD6aOVkwFknvGlWcfJz/jOL+SY+Wv4zQ4KbPYPrxaXlfSPXM/nQ8gr
- Qz+3HKuv9liXS+vl1TySrH+NtgJAMq2lcLmuh3nClfBKvro/EOqzLqOCJcDaOjjbjhQFOkmWS9XL2Q
- e/4OJG8D0W6A3xHUCCvhgttpXFvhy/
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3085; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=9F4zVwazY45NVTLTUMt3+YYK1FhVQKr2kpggbiXDZYk=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDuRauFkaaPh56HIZRKGO8gNrdgx5cd8fytqaJ9
+ gxcZ8/yJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w7gAKCRAk1otyXVSH0HvfB/
+ 45BDOyjlHdP8oMFeAoBIWMZZkmUzrM9aCS8QzG4hHJ4fJUKglzj019pZFVnlgeEtVvYPLOw2Mms9Xz
+ QFl96gFHiupPO6gSLIp3YUOe0mDoh0oUhPp7eKc82vvXhQVBvhfgnSKmvd5A9immDtRgiJ4GD35W9x
+ YMHaW1UpHJ/0SuU+JwZ+Uzmr2w6Ele0LENiS6hHXWG13qVDAXYqVeV2qdUVUXE6Aai+vRqxkoyXwwN
+ YNXtOVmIA5hMiLQIR+BhqJjb+9YDPJaXCpuZUgRgUNOTJ27HIMUb2crVxqMDd+ug5hYHPXG3kq3KQM
+ /AA99Qn2fflH/ontmNTg69Ma0JCwb3
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240203_123335_372821_0629D85D 
-X-CRM114-Status: GOOD (  30.46  )
+X-CRM114-CacheID: sfid-20240203_043356_458068_164B95FC 
+X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,804 +101,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are things like threads which nolibc struggles with which we want
-to add coverage for, and the ABI allows us to test most of these even if
-libc itself does not understand GCS so add a test application built
-using the system libc.
+While it's a bit off topic for them the floating point stress tests do give
+us some coverage of context thrashing cases, and also of active signal
+delivery separate to the relatively complicated framework in the actual
+signals tests. Have the tests enable GCS on startup, ignoring failures so
+they continue to work as before on systems without GCS.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/gcs/.gitignore |   1 +
- tools/testing/selftests/arm64/gcs/Makefile   |   4 +-
- tools/testing/selftests/arm64/gcs/gcs-util.h |  10 +
- tools/testing/selftests/arm64/gcs/libc-gcs.c | 736 +++++++++++++++++++++++++++
- 4 files changed, 750 insertions(+), 1 deletion(-)
+ tools/testing/selftests/arm64/fp/assembler.h   | 15 +++++++++++++++
+ tools/testing/selftests/arm64/fp/fpsimd-test.S |  2 ++
+ tools/testing/selftests/arm64/fp/sve-test.S    |  2 ++
+ tools/testing/selftests/arm64/fp/za-test.S     |  2 ++
+ tools/testing/selftests/arm64/fp/zt-test.S     |  2 ++
+ 5 files changed, 23 insertions(+)
 
-diff --git a/tools/testing/selftests/arm64/gcs/.gitignore b/tools/testing/selftests/arm64/gcs/.gitignore
-index 0e5e695ecba5..5810c4a163d4 100644
---- a/tools/testing/selftests/arm64/gcs/.gitignore
-+++ b/tools/testing/selftests/arm64/gcs/.gitignore
-@@ -1 +1,2 @@
- basic-gcs
-+libc-gcs
-diff --git a/tools/testing/selftests/arm64/gcs/Makefile b/tools/testing/selftests/arm64/gcs/Makefile
-index 61a30f483429..a8fdf21e9a47 100644
---- a/tools/testing/selftests/arm64/gcs/Makefile
-+++ b/tools/testing/selftests/arm64/gcs/Makefile
-@@ -6,7 +6,9 @@
- # nolibc.
- #
+diff --git a/tools/testing/selftests/arm64/fp/assembler.h b/tools/testing/selftests/arm64/fp/assembler.h
+index 9b38a0da407d..7012f9f796de 100644
+--- a/tools/testing/selftests/arm64/fp/assembler.h
++++ b/tools/testing/selftests/arm64/fp/assembler.h
+@@ -65,4 +65,19 @@ endfunction
+ 	bl	puts
+ .endm
  
--TEST_GEN_PROGS := basic-gcs
-+TEST_GEN_PROGS := basic-gcs libc-gcs
++#define PR_SET_SHADOW_STACK_STATUS      72
++# define PR_SHADOW_STACK_ENABLE         (1UL << 0)
 +
-+LDLIBS+=-lpthread
++.macro enable_gcs
++	// Run with GCS
++	mov	x0, PR_SET_SHADOW_STACK_STATUS
++	mov	x1, PR_SHADOW_STACK_ENABLE
++	mov	x2, xzr
++	mov	x3, xzr
++	mov	x4, xzr
++	mov	x5, xzr
++	mov	x8, #__NR_prctl
++	svc	#0
++.endm
++
+ #endif /* ! ASSEMBLER_H */
+diff --git a/tools/testing/selftests/arm64/fp/fpsimd-test.S b/tools/testing/selftests/arm64/fp/fpsimd-test.S
+index 8b960d01ed2e..b16fb7f42e3e 100644
+--- a/tools/testing/selftests/arm64/fp/fpsimd-test.S
++++ b/tools/testing/selftests/arm64/fp/fpsimd-test.S
+@@ -215,6 +215,8 @@ endfunction
+ // Main program entry point
+ .globl _start
+ function _start
++	enable_gcs
++
+ 	mov	x23, #0		// signal count
  
- include ../../lib.mk
+ 	mov	w0, #SIGINT
+diff --git a/tools/testing/selftests/arm64/fp/sve-test.S b/tools/testing/selftests/arm64/fp/sve-test.S
+index fff60e2a25ad..2fb4f0b84476 100644
+--- a/tools/testing/selftests/arm64/fp/sve-test.S
++++ b/tools/testing/selftests/arm64/fp/sve-test.S
+@@ -378,6 +378,8 @@ endfunction
+ // Main program entry point
+ .globl _start
+ function _start
++	enable_gcs
++
+ 	mov	x23, #0		// Irritation signal count
  
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-util.h b/tools/testing/selftests/arm64/gcs/gcs-util.h
-index b37801c95604..4bafd1d7feb5 100644
---- a/tools/testing/selftests/arm64/gcs/gcs-util.h
-+++ b/tools/testing/selftests/arm64/gcs/gcs-util.h
-@@ -16,6 +16,16 @@
- #define __NR_prctl 167
- #endif
+ 	mov	w0, #SIGINT
+diff --git a/tools/testing/selftests/arm64/fp/za-test.S b/tools/testing/selftests/arm64/fp/za-test.S
+index 095b45531640..b2603aba99de 100644
+--- a/tools/testing/selftests/arm64/fp/za-test.S
++++ b/tools/testing/selftests/arm64/fp/za-test.S
+@@ -231,6 +231,8 @@ endfunction
+ // Main program entry point
+ .globl _start
+ function _start
++	enable_gcs
++
+ 	mov	x23, #0		// signal count
  
-+#ifndef NT_ARM_GCS
-+#define NT_ARM_GCS 0x40e
-+
-+struct user_gcs {
-+	__u64 features_enabled;
-+	__u64 features_locked;
-+	__u64 gcspr_el0;
-+};
-+#endif
-+
- /* Shadow Stack/Guarded Control Stack interface */
- #define PR_GET_SHADOW_STACK_STATUS	71
- #define PR_SET_SHADOW_STACK_STATUS      72
-diff --git a/tools/testing/selftests/arm64/gcs/libc-gcs.c b/tools/testing/selftests/arm64/gcs/libc-gcs.c
-new file mode 100644
-index 000000000000..937f8bee7bdd
---- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/libc-gcs.c
-@@ -0,0 +1,736 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2023 ARM Limited.
-+ */
-+
-+#define _GNU_SOURCE
-+
-+#include <pthread.h>
-+#include <stdbool.h>
-+
-+#include <sys/auxv.h>
-+#include <sys/mman.h>
-+#include <sys/prctl.h>
-+#include <sys/ptrace.h>
-+#include <sys/uio.h>
-+
-+#include <asm/hwcap.h>
-+#include <asm/mman.h>
-+
-+#include <linux/compiler.h>
-+
-+#include "kselftest_harness.h"
-+
-+#include "gcs-util.h"
-+
-+#define my_syscall2(num, arg1, arg2)                                          \
-+({                                                                            \
-+	register long _num  __asm__ ("x8") = (num);                           \
-+	register long _arg1 __asm__ ("x0") = (long)(arg1);                    \
-+	register long _arg2 __asm__ ("x1") = (long)(arg2);                    \
-+	register long _arg3 __asm__ ("x2") = 0;                               \
-+	register long _arg4 __asm__ ("x3") = 0;                               \
-+	register long _arg5 __asm__ ("x4") = 0;                               \
-+	                                                                      \
-+	__asm__  volatile (                                                   \
-+		"svc #0\n"                                                    \
-+		: "=r"(_arg1)                                                 \
-+		: "r"(_arg1), "r"(_arg2),                                     \
-+		  "r"(_arg3), "r"(_arg4),                                     \
-+		  "r"(_arg5), "r"(_num)					      \
-+		: "memory", "cc"                                              \
-+	);                                                                    \
-+	_arg1;                                                                \
-+})
-+
-+static noinline void gcs_recurse(int depth)
-+{
-+	if (depth)
-+		gcs_recurse(depth - 1);
-+
-+	/* Prevent tail call optimization so we actually recurse */
-+	asm volatile("dsb sy" : : : "memory");
-+}
-+
-+/* Smoke test that a function call and return works*/
-+TEST(can_call_function)
-+{
-+	gcs_recurse(0);
-+}
-+
-+static void *gcs_test_thread(void *arg)
-+{
-+	int ret;
-+	unsigned long mode;
-+
-+	/*
-+	 * Some libcs don't seem to fill unused arguments with 0 but
-+	 * the kernel validates this so we supply all 5 arguments.
-+	 */
-+	ret = prctl(PR_GET_SHADOW_STACK_STATUS, &mode, 0, 0, 0);
-+	if (ret != 0) {
-+		ksft_print_msg("PR_GET_SHADOW_STACK_STATUS failed: %d\n", ret);
-+		return NULL;
-+	}
-+
-+	if (!(mode & PR_SHADOW_STACK_ENABLE)) {
-+		ksft_print_msg("GCS not enabled in thread, mode is %u\n",
-+			       mode);
-+		return NULL;
-+	}
-+
-+	/* Just in case... */
-+	gcs_recurse(0);
-+
-+	/* Use a non-NULL value to indicate a pass */
-+	return &gcs_test_thread;
-+}
-+
-+/* Verify that if we start a new thread it has GCS enabled */
-+TEST(gcs_enabled_thread)
-+{
-+	pthread_t thread;
-+	void *thread_ret;
-+	int ret;
-+
-+	ret = pthread_create(&thread, NULL, gcs_test_thread, NULL);
-+	ASSERT_TRUE(ret == 0);
-+	if (ret != 0)
-+		return;
-+
-+	ret = pthread_join(thread, &thread_ret);
-+	ASSERT_TRUE(ret == 0);
-+	if (ret != 0)
-+		return;
-+
-+	ASSERT_TRUE(thread_ret != NULL);
-+}
-+
-+/* Read the GCS until we find the terminator */
-+TEST(gcs_find_terminator)
-+{
-+	unsigned long *gcs, *cur;
-+
-+	gcs = get_gcspr();
-+	cur = gcs;
-+	while (*cur)
-+		cur++;
-+
-+	ksft_print_msg("GCS in use from %p-%p\n", gcs, cur);
-+
-+	/*
-+	 * We should have at least whatever called into this test so
-+	 * the two pointer should differ.
-+	 */
-+	ASSERT_TRUE(gcs != cur);
-+}
-+
-+/*
-+ * We can access a GCS via ptrace
-+ *
-+ * This could usefully have a fixture but note that each test is
-+ * fork()ed into a new child whcih causes issues.  Might be better to
-+ * lift at least some of this out into a separate, non-harness, test
-+ * program.
-+ */
-+TEST(ptrace_read_write)
-+{
-+	pid_t child, pid;
-+	int ret, status;
-+	siginfo_t si;
-+	uint64_t val, rval, gcspr;
-+	struct user_gcs child_gcs;
-+	struct iovec iov, local_iov, remote_iov;
-+
-+	child = fork();
-+	if (child == -1) {
-+		ksft_print_msg("fork() failed: %d (%s)\n",
-+			       errno, strerror(errno));
-+		ASSERT_NE(child, -1);
-+	}
-+
-+	if (child == 0) {
-+		/*
-+		 * In child, make sure there's something on the stack and
-+		 * ask to be traced.
-+		 */
-+		gcs_recurse(0);
-+		if (ptrace(PTRACE_TRACEME, -1, NULL, NULL))
-+			ksft_exit_fail_msg("PTRACE_TRACEME", strerror(errno));
-+
-+		if (raise(SIGSTOP))
-+			ksft_exit_fail_msg("raise(SIGSTOP)", strerror(errno));
-+
-+		return;
-+	}
-+
-+	ksft_print_msg("Child: %d\n", child);
-+
-+	/* Attach to the child */
-+	while (1) {
-+		int sig;
-+
-+		pid = wait(&status);
-+		if (pid == -1) {
-+			ksft_print_msg("wait() failed: %s",
-+				       strerror(errno));
-+			goto error;
-+		}
-+
-+		/*
-+		 * This should never happen but it's hard to flag in
-+		 * the framework.
-+		 */
-+		if (pid != child)
-+			continue;
-+
-+		if (WIFEXITED(status) || WIFSIGNALED(status))
-+			ksft_exit_fail_msg("Child died unexpectedly\n");
-+
-+		if (!WIFSTOPPED(status))
-+			goto error;
-+
-+		sig = WSTOPSIG(status);
-+
-+		if (ptrace(PTRACE_GETSIGINFO, pid, NULL, &si)) {
-+			if (errno == ESRCH) {
-+				ASSERT_NE(errno, ESRCH);
-+				return;
-+			}
-+
-+			if (errno == EINVAL) {
-+				sig = 0; /* bust group-stop */
-+				goto cont;
-+			}
-+
-+			ksft_print_msg("PTRACE_GETSIGINFO: %s\n",
-+				       strerror(errno));
-+			goto error;
-+		}
-+
-+		if (sig == SIGSTOP && si.si_code == SI_TKILL &&
-+		    si.si_pid == pid)
-+			break;
-+
-+	cont:
-+		if (ptrace(PTRACE_CONT, pid, NULL, sig)) {
-+			if (errno == ESRCH) {
-+				ASSERT_NE(errno, ESRCH);
-+				return;
-+			}
-+
-+			ksft_print_msg("PTRACE_CONT: %s\n", strerror(errno));
-+			goto error;
-+		}
-+	}
-+
-+	/* Where is the child GCS? */
-+	iov.iov_base = &child_gcs;
-+	iov.iov_len = sizeof(child_gcs);
-+	ret = ptrace(PTRACE_GETREGSET, child, NT_ARM_GCS, &iov);
-+	if (ret != 0) {
-+		ksft_print_msg("Failed to read child GCS state: %s (%d)\n",
-+			       strerror(errno), errno);
-+		goto error;
-+	}
-+
-+	/* We should have inherited GCS over fork(), confirm */
-+	if (!(child_gcs.features_enabled & PR_SHADOW_STACK_ENABLE)) {
-+		ASSERT_TRUE(child_gcs.features_enabled &
-+			    PR_SHADOW_STACK_ENABLE);
-+		goto error;
-+	}
-+
-+	gcspr = child_gcs.gcspr_el0;
-+	ksft_print_msg("Child GCSPR 0x%lx, flags %x, locked %x\n",
-+		       gcspr, child_gcs.features_enabled,
-+		       child_gcs.features_locked);
-+
-+	/* Ideally we'd cross check with the child memory map */
-+
-+	errno = 0;
-+	val = ptrace(PTRACE_PEEKDATA, child, (void *)gcspr, NULL);
-+	ret = errno;
-+	if (ret != 0)
-+		ksft_print_msg("PTRACE_PEEKDATA failed: %s (%d)\n",
-+			       strerror(ret), ret);
-+	EXPECT_EQ(ret, 0);
-+
-+	/* The child should be in a function, the GCSPR shouldn't be 0 */
-+	EXPECT_NE(val, 0);
-+
-+	/* Same thing via process_vm_readv() */
-+	local_iov.iov_base = &rval;
-+	local_iov.iov_len = sizeof(rval);
-+	remote_iov.iov_base = (void *)gcspr;
-+	remote_iov.iov_len = sizeof(rval);
-+	ret = process_vm_readv(child, &local_iov, 1, &remote_iov, 1, 0);
-+	if (ret == -1)
-+		ksft_print_msg("process_vm_readv() failed: %s (%d)\n",
-+			       strerror(errno), errno);
-+	EXPECT_EQ(ret, sizeof(rval));
-+	EXPECT_EQ(val, rval);
-+
-+	/* Write data via a peek */
-+	ret = ptrace(PTRACE_POKEDATA, child, (void *)gcspr, NULL);
-+	if (ret == -1)
-+		ksft_print_msg("PTRACE_POKEDATA failed: %s (%d)\n",
-+			       strerror(errno), errno);
-+	EXPECT_EQ(ret, 0);
-+	EXPECT_EQ(0, ptrace(PTRACE_PEEKDATA, child, (void *)gcspr, NULL));
-+
-+	/* Restore what we had before */
-+	ret = ptrace(PTRACE_POKEDATA, child, (void *)gcspr, val);
-+	if (ret == -1)
-+		ksft_print_msg("PTRACE_POKEDATA failed: %s (%d)\n",
-+			       strerror(errno), errno);
-+	EXPECT_EQ(ret, 0);
-+	EXPECT_EQ(val, ptrace(PTRACE_PEEKDATA, child, (void *)gcspr, NULL));
-+
-+	/* That's all, folks */
-+	kill(child, SIGKILL);
-+	return;
-+
-+error:
-+	kill(child, SIGKILL);
-+	ASSERT_FALSE(true);
-+}
-+
-+FIXTURE(map_gcs)
-+{
-+	unsigned long *stack;
-+};
-+
-+FIXTURE_VARIANT(map_gcs)
-+{
-+	size_t stack_size;
-+	unsigned long flags;
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s2k_cap_marker)
-+{
-+	.stack_size = 2 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s2k_cap)
-+{
-+	.stack_size = 2 * 1024,
-+	.flags = SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s2k_marker)
-+{
-+	.stack_size = 2 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s2k)
-+{
-+	.stack_size = 2 * 1024,
-+	.flags = 0,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s4k_cap_marker)
-+{
-+	.stack_size = 4 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s4k_cap)
-+{
-+	.stack_size = 4 * 1024,
-+	.flags = SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s3k_marker)
-+{
-+	.stack_size = 4 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s4k)
-+{
-+	.stack_size = 4 * 1024,
-+	.flags = 0,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s16k_cap_marker)
-+{
-+	.stack_size = 16 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s16k_cap)
-+{
-+	.stack_size = 16 * 1024,
-+	.flags = SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s16k_marker)
-+{
-+	.stack_size = 16 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s16k)
-+{
-+	.stack_size = 16 * 1024,
-+	.flags = 0,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s64k_cap_marker)
-+{
-+	.stack_size = 64 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s64k_cap)
-+{
-+	.stack_size = 64 * 1024,
-+	.flags = SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s64k_marker)
-+{
-+	.stack_size = 64 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s64k)
-+{
-+	.stack_size = 64 * 1024,
-+	.flags = 0,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s128k_cap_marker)
-+{
-+	.stack_size = 128 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s128k_cap)
-+{
-+	.stack_size = 128 * 1024,
-+	.flags = SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s128k_marker)
-+{
-+	.stack_size = 128 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s128k)
-+{
-+	.stack_size = 128 * 1024,
-+	.flags = 0,
-+};
-+
-+FIXTURE_SETUP(map_gcs)
-+{
-+	self->stack = (void *)syscall(__NR_map_shadow_stack, 0,
-+				      variant->stack_size, 
-+				      variant->flags);
-+	ASSERT_FALSE(self->stack == MAP_FAILED);
-+	ksft_print_msg("Allocated stack from %p-%p\n", self->stack,
-+		       (unsigned long)self->stack + variant->stack_size);
-+}
-+
-+FIXTURE_TEARDOWN(map_gcs)
-+{
-+	int ret;
-+
-+	if (self->stack != MAP_FAILED) {
-+		ret = munmap(self->stack, variant->stack_size);
-+		ASSERT_EQ(ret, 0);
-+	}
-+}
-+
-+/* The stack has a cap token */
-+TEST_F(map_gcs, stack_capped)
-+{
-+	unsigned long *stack = self->stack;
-+	size_t cap_index;
-+
-+	cap_index = (variant->stack_size / sizeof(unsigned long));
-+
-+	switch (variant->flags & (SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN)) {
-+	case SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 2;
-+		break;
-+	case SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 1;
-+		break;
-+	case SHADOW_STACK_SET_MARKER:
-+	case 0:
-+		/* No cap, no test */
-+		return;
-+	}
-+
-+	ASSERT_EQ(stack[cap_index], GCS_CAP(&stack[cap_index]));
-+}
-+
-+/* The top of the stack is 0 */
-+TEST_F(map_gcs, stack_terminated)
-+{
-+	unsigned long *stack = self->stack;
-+	size_t term_index;
-+
-+	if (!(variant->flags & SHADOW_STACK_SET_MARKER))
-+		return;
-+
-+	term_index = (variant->stack_size / sizeof(unsigned long)) - 1;
-+
-+	ASSERT_EQ(stack[term_index], 0);
-+}
-+
-+/* Writes should fault */
-+TEST_F_SIGNAL(map_gcs, not_writeable, SIGSEGV)
-+{
-+	self->stack[0] = 0;
-+}
-+
-+/* Put it all together, we can safely switch to and from the stack */
-+TEST_F(map_gcs, stack_switch)
-+{
-+	size_t cap_index;
-+	cap_index = (variant->stack_size / sizeof(unsigned long));
-+	unsigned long *orig_gcspr_el0, *pivot_gcspr_el0;
-+
-+	/* Skip over the stack terminator and point at the cap */
-+	switch (variant->flags & (SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN)) {
-+	case SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 2;
-+		break;
-+	case SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 1;
-+		break;
-+	case SHADOW_STACK_SET_MARKER:
-+	case 0:
-+		/* No cap, no test */
-+		return;
-+	}
-+	pivot_gcspr_el0 = &self->stack[cap_index];
-+
-+	/* Pivot to the new GCS */
-+	ksft_print_msg("Pivoting to %p from %p, target has value 0x%lx\n",
-+		       pivot_gcspr_el0, get_gcspr(),
-+		       *pivot_gcspr_el0);
-+	gcsss1(pivot_gcspr_el0);
-+	orig_gcspr_el0 = gcsss2();
-+	ksft_print_msg("Pivoted to %p from %p, target has value 0x%lx\n",
-+		       get_gcspr(), orig_gcspr_el0,
-+		       *pivot_gcspr_el0);
-+
-+	ksft_print_msg("Pivoted, GCSPR_EL0 now %p\n", get_gcspr());
-+
-+	/* New GCS must be in the new buffer */
-+	ASSERT_TRUE((unsigned long)get_gcspr() > (unsigned long)self->stack);
-+	ASSERT_TRUE((unsigned long)get_gcspr() <=
-+		    (unsigned long)self->stack + variant->stack_size);
-+
-+	/* We should be able to use all but 2 slots of the new stack */
-+	ksft_print_msg("Recursing %d levels\n", cap_index - 1);
-+	gcs_recurse(cap_index - 1);
-+
-+	/* Pivot back to the original GCS */
-+	gcsss1(orig_gcspr_el0);
-+	pivot_gcspr_el0 = gcsss2();
-+
-+	gcs_recurse(0);
-+	ksft_print_msg("Pivoted back to GCSPR_EL0 0x%lx\n", get_gcspr());
-+}
-+
-+/* We fault if we try to go beyond the end of the stack */
-+TEST_F_SIGNAL(map_gcs, stack_overflow, SIGSEGV)
-+{
-+	size_t cap_index;
-+	cap_index = (variant->stack_size / sizeof(unsigned long));
-+	unsigned long *orig_gcspr_el0, *pivot_gcspr_el0;
-+
-+	/* Skip over the stack terminator and point at the cap */
-+	switch (variant->flags & (SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN)) {
-+	case SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 2;
-+		break;
-+	case SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 1;
-+		break;
-+	case SHADOW_STACK_SET_MARKER:
-+	case 0:
-+		/* No cap, no test but we need to SEGV to avoid a false fail */
-+		orig_gcspr_el0 = get_gcspr();
-+		*orig_gcspr_el0 = 0;
-+		return;
-+	}
-+	pivot_gcspr_el0 = &self->stack[cap_index];
-+
-+	/* Pivot to the new GCS */
-+	ksft_print_msg("Pivoting to %p from %p, target has value 0x%lx\n",
-+		       pivot_gcspr_el0, get_gcspr(),
-+		       *pivot_gcspr_el0);
-+	gcsss1(pivot_gcspr_el0);
-+	orig_gcspr_el0 = gcsss2();
-+	ksft_print_msg("Pivoted to %p from %p, target has value 0x%lx\n",
-+		       pivot_gcspr_el0, orig_gcspr_el0,
-+		       *pivot_gcspr_el0);
-+
-+	ksft_print_msg("Pivoted, GCSPR_EL0 now %p\n", get_gcspr());
-+
-+	/* New GCS must be in the new buffer */
-+	ASSERT_TRUE((unsigned long)get_gcspr() > (unsigned long)self->stack);
-+	ASSERT_TRUE((unsigned long)get_gcspr() <=
-+		    (unsigned long)self->stack + variant->stack_size);
-+
-+	/* Now try to recurse, we should fault doing this. */
-+	ksft_print_msg("Recursing %d levels...\n", cap_index + 1);
-+	gcs_recurse(cap_index + 1);
-+	ksft_print_msg("...done\n");
-+
-+	/* Clean up properly to try to guard against spurious passes. */
-+	gcsss1(orig_gcspr_el0);
-+	pivot_gcspr_el0 = gcsss2();
-+	ksft_print_msg("Pivoted back to GCSPR_EL0 0x%lx\n", get_gcspr());
-+}
-+
-+FIXTURE(map_invalid_gcs)
-+{
-+};
-+
-+FIXTURE_VARIANT(map_invalid_gcs)
-+{
-+	size_t stack_size;
-+};
-+
-+FIXTURE_SETUP(map_invalid_gcs)
-+{
-+}
-+
-+FIXTURE_TEARDOWN(map_invalid_gcs)
-+{
-+}
-+
-+/* GCS must be larger than 16 bytes */
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, too_small)
-+{
-+	.stack_size = 8,
-+};
-+
-+/* GCS size must be 16 byte aligned */
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_1)  { .stack_size = 1024 + 1  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_2)  { .stack_size = 1024 + 2  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_3)  { .stack_size = 1024 + 3  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_4)  { .stack_size = 1024 + 4  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_5)  { .stack_size = 1024 + 5  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_6)  { .stack_size = 1024 + 6  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_7)  { .stack_size = 1024 + 7  };
-+
-+TEST_F(map_invalid_gcs, do_map)
-+{
-+	void *stack;
-+
-+	stack = (void *)syscall(__NR_map_shadow_stack, 0,
-+				variant->stack_size, 0);
-+	ASSERT_TRUE(stack == MAP_FAILED);
-+	if (stack != MAP_FAILED)
-+		munmap(stack, variant->stack_size);
-+}
-+
-+FIXTURE(invalid_mprotect)
-+{
-+	unsigned long *stack;
-+	size_t stack_size;
-+};
-+
-+FIXTURE_VARIANT(invalid_mprotect)
-+{
-+	unsigned long flags;
-+};
-+
-+FIXTURE_SETUP(invalid_mprotect)
-+{
-+	self->stack_size = sysconf(_SC_PAGE_SIZE);
-+	self->stack = (void *)syscall(__NR_map_shadow_stack, 0,
-+				      self->stack_size, 0);
-+	ASSERT_FALSE(self->stack == MAP_FAILED);
-+	ksft_print_msg("Allocated stack from %p-%p\n", self->stack,
-+		       (unsigned long)self->stack + self->stack_size);
-+}
-+
-+FIXTURE_TEARDOWN(invalid_mprotect)
-+{
-+	int ret;
-+
-+	if (self->stack != MAP_FAILED) {
-+		ret = munmap(self->stack, self->stack_size);
-+		ASSERT_EQ(ret, 0);
-+	}
-+}
-+
-+FIXTURE_VARIANT_ADD(invalid_mprotect, exec)
-+{
-+	.flags = PROT_EXEC,
-+};
-+
-+FIXTURE_VARIANT_ADD(invalid_mprotect, bti)
-+{
-+	.flags = PROT_BTI,
-+};
-+
-+FIXTURE_VARIANT_ADD(invalid_mprotect, exec_bti)
-+{
-+	.flags = PROT_EXEC | PROT_BTI,
-+};
-+
-+TEST_F(invalid_mprotect, do_map)
-+{
-+	int ret;
-+
-+	ret = mprotect(self->stack, self->stack_size, variant->flags);
-+	ASSERT_EQ(ret, -1);
-+}
-+
-+TEST_F(invalid_mprotect, do_map_read)
-+{
-+	int ret;
-+
-+	ret = mprotect(self->stack, self->stack_size,
-+		       variant->flags | PROT_READ);
-+	ASSERT_EQ(ret, -1);
-+}
-+
-+int main(int argc, char **argv)
-+{
-+	unsigned long gcs_mode;
-+	int ret;
-+
-+	if (!(getauxval(AT_HWCAP2) & HWCAP2_GCS))
-+		ksft_exit_skip("SKIP GCS not supported\n");
-+
-+	/* 
-+	 * Force shadow stacks on, our tests *should* be fine with or
-+	 * without libc support and with or without this having ended
-+	 * up tagged for GCS and enabled by the dynamic linker.  We
-+	 * can't use the libc prctl() function since we can't return
-+	 * from enabling the stack.
-+	 */
-+	ret = my_syscall2(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &gcs_mode);
-+	if (ret) {
-+		ksft_print_msg("Failed to read GCS state: %d\n", ret);
-+		return EXIT_FAILURE;
-+	}
-+	
-+	if (!(gcs_mode & PR_SHADOW_STACK_ENABLE)) {
-+		gcs_mode = PR_SHADOW_STACK_ENABLE;
-+		ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
-+				  gcs_mode);
-+		if (ret) {
-+			ksft_print_msg("Failed to configure GCS: %d\n", ret);
-+			return EXIT_FAILURE;
-+		}
-+	}
-+
-+	/* Avoid returning in case libc doesn't understand GCS */
-+	exit(test_harness_run(argc, argv));
-+}
+ 	mov	w0, #SIGINT
+diff --git a/tools/testing/selftests/arm64/fp/zt-test.S b/tools/testing/selftests/arm64/fp/zt-test.S
+index b5c81e81a379..8d9609a49008 100644
+--- a/tools/testing/selftests/arm64/fp/zt-test.S
++++ b/tools/testing/selftests/arm64/fp/zt-test.S
+@@ -200,6 +200,8 @@ endfunction
+ // Main program entry point
+ .globl _start
+ function _start
++	enable_gcs
++
+ 	mov	x23, #0		// signal count
+ 
+ 	mov	w0, #SIGINT
 
 -- 
 2.30.2
