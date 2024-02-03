@@ -4,86 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D7DC4828D
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 05:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0109BC4828F
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 10:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YL7280XjMtrPeIbWonWC/XfpcvlqJ1JfwOGg2DBFfKA=; b=k3XBIT6K+zeTec
-	Adj5xbVY11Q/6GwjgxFBUlNKANuYTNC02N+EXvupQKVP2bdE8+KrlbKO1lcbIr/mL3Mo87+zcGxg5
-	p0IODsNCEpo2vkOqIYFAVDymcQ4hIqGzIoBFXnoIKcxbXnc5vNHJWdw5+itdfYYGa8563HAuccitw
-	cgRPTlCRNSVIOZfsHoPv86YN53PYgAcsq5yB5/mMDHbGFcoWLetJXgTDaG6l79CuHsNpWOF4LkLd5
-	/lY7UrhZHbUbMUrE06hRBTsRXLgmAUNxkQDx3BtiSpAZJWYJagKwstuHUjGGph9eZOxBXykIYP9mZ
-	fVIfAkvCURIIsHk/1C7w==;
+	List-Owner; bh=TdZ3b1hPYQpKz5q1H8roCabZKsQ3oEUwtmxeINMbE/c=; b=BmnqjW63xHiGy6
+	1Tga9BdY7kNXcLa4PjykQlZQQWc6Uw5fedwwg9r9UnrfwEDfpijVyKuvveLOcZ5q//CIP+78z48m7
+	xOj248L/wETo14SVdp5mYDz1lg4aB+xHyRs4wha9beonGkDXYMTm9pEJPALl9w3Ecbn83wL3Sqs2h
+	3+7EfxU5LYzJCwLaczbd8oIAa/Pl/ZScoS1cSgUG1Xv2k4OzJFPPSM7OPcOEBAmqY2u0P/R8yRY/m
+	trJYAC8s0jq6vDlKiwPfvFXyHdvAdErvA1GR3Qfa0KFVdY5s4IYYHsJOvmSkf1eiTNXXQuBVcdcz/
+	f8zI1SVgoYphN2MiBSLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rW8el-0000000FP3e-0IDm;
-	Sat, 03 Feb 2024 05:33:35 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1rWDSO-0000000G7Qq-0c9H;
+	Sat, 03 Feb 2024 10:41:08 +0000
+Received: from wout5-smtp.messagingengine.com ([64.147.123.21])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rW3bE-0000000Dsgd-0YPX
+	id 1rWDSH-0000000G7PM-3xjw
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 Feb 2024 00:09:49 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-602dae507caso50266097b3.0
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Feb 2024 16:09:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1706918974; x=1707523774; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=kcNwe0n4y+fi75yl+T1k9chorTvmU12VF8T08tNTnrE=;
-        b=OJR9842PLAW3v6MF5M39cRvgg4lMztdzPnohjxC7UKKxv2huvKGwESmz6JTCZ7ZVUB
-         GWamCwvgtup1L9SwTTrh2gfVAcqy+itQGcLZQYVL2QSUlPAqWy3wV1WPRwWIpbmnR+q9
-         dkr7/Pfyx3iM7Jn+760Yz5xBnSNLDjk1v06G/jjKh0NC/N8g+tusb7qi/QC3B4IFfjkc
-         bZ8XJxycDS4iRRS2sT5L+g0jOPOQJHz5YOqzl+/Zrs8kSceRr+iBTB5ScK7ga73nr85H
-         9XFvy+ibcVVhGXJZlqw0qPFMwPpYsZmf6iMb2RMNY5qJql4k/otZwUAa27scSemZeZu7
-         s2KQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706918974; x=1707523774;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kcNwe0n4y+fi75yl+T1k9chorTvmU12VF8T08tNTnrE=;
-        b=w5hSJ4WG47zuLJcLFaWTMBGjwuiGfzVDtA1r+dJd1320Z4dvL9TbtFVrZ+ypa/6sUf
-         MtcAblfsom4fIcMZyX/W+xezJvgYnHTwsFvR5qETPKg8OySm66nRBE9IVwxD4xkm/vJF
-         WQMwAKlSOMicayH+E37kwF4H5MPp+ebtI2TNugkG4v4q/J9pIVhmHqchzVqi4xnjGfzB
-         05n4JscM5XgoLB7VeFwbucG/B2QN5BYV7+J0oquMXAngfwxf3BzYx3uPc0aP4cOkW8dV
-         guP9+PWTxjuVjRbuaVeNp5OW7k01qmjIIm/dv6SUOzaxkGIpwi9usgjywpKBwbR2p8es
-         jm0g==
-X-Gm-Message-State: AOJu0YwizvGRaVW8oyw1A+q74qmA3D7RFuhPfNG+/wCQ/7Yx0bPgkSVw
-	Y/QzepLF6WBzLYv6drE1DtASr/kiAgSdTOgqiZn4FjPiwuKGMU5w//nYuizHsGcBHgH1vs0ioGJ
-	B9w==
-X-Google-Smtp-Source: AGHT+IFSBiC4pwy/1GMY0akKl2+vCiGBbqGUglBQSMkSfm9h5k59LZ0biXvwcd8bPkR+6OYthWg2LoBZS3g=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6902:920:b0:dc6:55ac:d08d with SMTP id
- bu32-20020a056902092000b00dc655acd08dmr2378837ybb.5.1706918974538; Fri, 02
- Feb 2024 16:09:34 -0800 (PST)
-Date: Fri,  2 Feb 2024 16:09:13 -0800
-In-Reply-To: <20240203000917.376631-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20240203000917.376631-1-seanjc@google.com>
-X-Mailer: git-send-email 2.43.0.594.gd9cf4e227d-goog
-Message-ID: <20240203000917.376631-8-seanjc@google.com>
-Subject: [PATCH v8 07/10] KVM: selftests: Allow tagging protected memory in
- guest page tables
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Andrew Jones <andrew.jones@linux.dev>, Tom Lendacky <thomas.lendacky@amd.com>, 
-	Michael Roth <michael.roth@amd.com>, Peter Gonda <pgonda@google.com>
+	Sat, 03 Feb 2024 10:41:06 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.west.internal (Postfix) with ESMTP id F12FD3200B15;
+	Sat,  3 Feb 2024 05:40:54 -0500 (EST)
+Received: from imap50 ([10.202.2.100])
+  by compute3.internal (MEProxy); Sat, 03 Feb 2024 05:40:55 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1706956854;
+	 x=1707043254; bh=5i1vqb5NehMGoPuv1e9ZjiUnajUF+hzp+g2HFH1CXoM=; b=
+	IrmA9BloMIRk9DuufY7g71TtazNUwzM2XjbIvTlrtEXjVpWOYaDrBH2jLTrx5kj6
+	aihz+zqUEJuLokGHvt9HastOyFmGv1mOvwqxs/wQk2lhkt59+neUvR2gJNeTCs0R
+	kd5yJOHMV5/bE9mH44VeXekDo8S1w27GP5CCUaVwHmqFpmB6Gns/GJC43HT+p2hE
+	cGyoIRgV+b3LF2JN/+Rx53ppVeoIA5IjwwLnjfiIM/7GLzJIUgVd/Ry/YOwbuww/
+	KDEP0tTyYzApTfsjMVh2DoLKs1VLbJe8/Pnfii1lH4YrxuRLtVXj+SZF2HdGmTz8
+	mLMTMhnkYjjA7nkDI4yquw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1706956854; x=
+	1707043254; bh=5i1vqb5NehMGoPuv1e9ZjiUnajUF+hzp+g2HFH1CXoM=; b=A
+	6V7wSqYX3vuYt8RellyWE0DmACaKNVt/mHGsbY5cC4G/0NTcawFPXRKH4YFe0Wsx
+	7Y/cVwvjAvLc06E85s0ZtinCfcpTrcJEbDfg9nQEsfHRKtD8AokvMUSrMcXaaEkF
+	zG55O3+jPraT02V4JT1azsIlNkMBER4/Sua2RZT0CJ21dlSFCDQHWhJqIK3Zxrm+
+	1+aV8YrJ2cADWhQscfaD6SCIrxUyqjeJx1ABQAZFKAvQgl/T5XL1+3karPqOUNx2
+	AnFrbN1wed3ABygMEfc6aO1fGyNTcorzJyhUWyH+cu32H6NqgNSt0k0wduF2lWwH
+	tKS8rY7OCCnR12m3GgxOg==
+X-ME-Sender: <xms:NRi-ZUNj4Dsw3FNu9ThpsIy_UJBzt9yJWyIiPSwBOQzhlpz_nkgwvw>
+    <xme:NRi-Za-RcvvQhz6wNaNGhb_P49q155RPQPjXE5x5_ruJS8KCTxTr--r0ECctKjdq7
+    vZFJ4mZP7pTWGFf0A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrfeduiedgudejucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtgfesthhqredtreerjeenucfhrhhomhepfdfu
+    thgvfhgrnhcuqfdktfgvrghrfdcuoehsohhrvggrrhesfhgrshhtmhgrihhlrdgtohhmqe
+    enucggtffrrghtthgvrhhnpefhudfhffetvdegfeeiudduleekheelteefgfdtleffuddt
+    ffduffeigffghfegieenucffohhmrghinhepghhithhhuhgsrdgtohhmpdhinhhfrhgrug
+    gvrggurdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhf
+    rhhomhepshhorhgvrghrsehfrghsthhmrghilhdrtghomh
+X-ME-Proxy: <xmx:Nhi-ZbSZXwUZnQWrffX5b9IabcbW8dAVCeBfnJCvx6MvYRLCU53u_w>
+    <xmx:Nhi-ZcuVnzzuPDEjOv-exsaewy2a5lD1Ixvd4O1zxpWfRl-8fzc6Pg>
+    <xmx:Nhi-Zcft7o0p5F6m2bvBaLIR1hwgdcaZ6F0Ao1f6mfYb5w0lwrid7Q>
+    <xmx:Nhi-Zavl71KwJAgeAGvURdX7bSrP6FyGq9CVg0a-avtCKUXOJ-l2Pg>
+Feedback-ID: i84414492:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id DE8071700093; Sat,  3 Feb 2024 05:40:53 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.11.0-alpha0-144-ge5821d614e-fm-20240125.002-ge5821d61
+MIME-Version: 1.0
+Message-Id: <5657c211-531b-4890-8c52-182b7b4eae7c@app.fastmail.com>
+In-Reply-To: <701d3350-93d3-4235-aaf7-04c6492420a7@rivosinc.com>
+References: <20240201140319.360088-1-cleger@rivosinc.com>
+ <ZbxUUsKdKIPI8Fb/@ghost> <701d3350-93d3-4235-aaf7-04c6492420a7@rivosinc.com>
+Date: Sat, 03 Feb 2024 05:40:06 -0500
+From: "Stefan O'Rear" <sorear@fastmail.com>
+To: =?UTF-8?Q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>,
+ "Charlie Jenkins" <charlie@rivosinc.com>
+Cc: "Jonathan Corbet" <corbet@lwn.net>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, "Robin Ehn" <rehn@rivosinc.com>
+Subject: Re: [PATCH] riscv: hwprobe: export VA_BITS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240202_160936_402619_CF431230 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20240203_024102_328742_835A2592 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,243 +106,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Peter Gonda <pgonda@google.com>
-
-Add support for tagging and untagging guest physical address, e.g. to
-allow x86's SEV and TDX guests to embed shared vs. private information in
-the GPA.  SEV (encryption, a.k.a. C-bit) and TDX (shared, a.k.a. S-bit)
-steal bits from the guest's physical address space that is consumed by the
-CPU metadata, i.e. effectively aliases the "real" GPA.
-
-Implement generic "tagging" so that the shared vs. private metadata can be
-managed by x86 without bleeding too many details into common code.
-
-Cc: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Sean Christopherson <seanjc@google.com>
-Cc: Vishal Annapurve <vannapurve@google.com>
-Cc: Ackerly Tng <ackerleytng@google.com>
-cc: Andrew Jones <andrew.jones@linux.dev>
-Cc: Tom Lendacky <thomas.lendacky@amd.com>
-Cc: Michael Roth <michael.roth@amd.com>
-Originally-by: Michael Roth <michael.roth@amd.com>
-Signed-off-by: Peter Gonda <pgonda@google.com>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- .../kvm/include/aarch64/kvm_util_arch.h       |  7 +++++++
- .../selftests/kvm/include/kvm_util_base.h     | 13 ++++++++++++
- .../kvm/include/riscv/kvm_util_arch.h         |  7 +++++++
- .../kvm/include/s390x/kvm_util_arch.h         |  7 +++++++
- .../kvm/include/x86_64/kvm_util_arch.h        | 21 +++++++++++++++++++
- tools/testing/selftests/kvm/lib/kvm_util.c    | 17 +++++++++++++++
- .../selftests/kvm/lib/x86_64/processor.c      | 15 ++++++++++++-
- 7 files changed, 86 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h
- create mode 100644 tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
- create mode 100644 tools/testing/selftests/kvm/include/s390x/kvm_util_arch.h
- create mode 100644 tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
-
-diff --git a/tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h b/tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h
-new file mode 100644
-index 000000000000..218f5cdf0d86
---- /dev/null
-+++ b/tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h
-@@ -0,0 +1,7 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _TOOLS_LINUX_ASM_ARM64_KVM_HOST_H
-+#define _TOOLS_LINUX_ASM_ARM64_KVM_HOST_H
-+
-+struct kvm_vm_arch {};
-+
-+#endif  // _TOOLS_LINUX_ASM_ARM64_KVM_HOST_H
-diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
-index cb3159af6db3..4b266dc0c9bd 100644
---- a/tools/testing/selftests/kvm/include/kvm_util_base.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
-@@ -18,9 +18,11 @@
- #include <linux/types.h>
- 
- #include <asm/atomic.h>
-+#include <asm/kvm.h>
- 
- #include <sys/ioctl.h>
- 
-+#include "kvm_util_arch.h"
- #include "sparsebit.h"
- 
- /*
-@@ -113,6 +115,9 @@ struct kvm_vm {
- 	vm_vaddr_t idt;
- 	vm_vaddr_t handlers;
- 	uint32_t dirty_ring_size;
-+	uint64_t gpa_tag_mask;
-+
-+	struct kvm_vm_arch arch;
- 
- 	/* Cache of information for binary stats interface */
- 	int stats_fd;
-@@ -605,6 +610,12 @@ void *addr_gva2hva(struct kvm_vm *vm, vm_vaddr_t gva);
- vm_paddr_t addr_hva2gpa(struct kvm_vm *vm, void *hva);
- void *addr_gpa2alias(struct kvm_vm *vm, vm_paddr_t gpa);
- 
-+
-+static inline vm_paddr_t vm_untag_gpa(struct kvm_vm *vm, vm_paddr_t gpa)
-+{
-+	return gpa & ~vm->gpa_tag_mask;
-+}
-+
- void vcpu_run(struct kvm_vcpu *vcpu);
- int _vcpu_run(struct kvm_vcpu *vcpu);
- 
-@@ -1114,4 +1125,6 @@ void kvm_selftest_arch_init(void);
- 
- void kvm_arch_vm_post_create(struct kvm_vm *vm);
- 
-+bool vm_is_gpa_protected(struct kvm_vm *vm, vm_paddr_t paddr);
-+
- #endif /* SELFTEST_KVM_UTIL_BASE_H */
-diff --git a/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h b/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
-new file mode 100644
-index 000000000000..c8280d5659ce
---- /dev/null
-+++ b/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
-@@ -0,0 +1,7 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _TOOLS_LINUX_ASM_RISCV_KVM_HOST_H
-+#define _TOOLS_LINUX_ASM_RISCV_KVM_HOST_H
-+
-+struct kvm_vm_arch {};
-+
-+#endif  // _TOOLS_LINUX_ASM_RISCV_KVM_HOST_H
-diff --git a/tools/testing/selftests/kvm/include/s390x/kvm_util_arch.h b/tools/testing/selftests/kvm/include/s390x/kvm_util_arch.h
-new file mode 100644
-index 000000000000..4c4c1c1e4bf8
---- /dev/null
-+++ b/tools/testing/selftests/kvm/include/s390x/kvm_util_arch.h
-@@ -0,0 +1,7 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _TOOLS_LINUX_ASM_S390_KVM_HOST_H
-+#define _TOOLS_LINUX_ASM_S390_KVM_HOST_H
-+
-+struct kvm_vm_arch {};
-+
-+#endif  // _TOOLS_LINUX_ASM_S390_KVM_HOST_H
-diff --git a/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h b/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
-new file mode 100644
-index 000000000000..17bb38236d97
---- /dev/null
-+++ b/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
-@@ -0,0 +1,21 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _TOOLS_LINUX_ASM_X86_KVM_HOST_H
-+#define _TOOLS_LINUX_ASM_X86_KVM_HOST_H
-+
-+#include <stdbool.h>
-+#include <stdint.h>
-+
-+struct kvm_vm_arch {
-+	uint64_t c_bit;
-+	uint64_t s_bit;
-+};
-+
-+static inline bool __vm_arch_has_protected_memory(struct kvm_vm_arch *arch)
-+{
-+	return arch->c_bit || arch->s_bit;
-+}
-+
-+#define vm_arch_has_protected_memory(vm) \
-+	__vm_arch_has_protected_memory(&(vm)->arch)
-+
-+#endif  // _TOOLS_LINUX_ASM_X86_KVM_HOST_H
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index e7f4f84f2e68..19511137d1ae 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -1597,6 +1597,8 @@ void *addr_gpa2hva(struct kvm_vm *vm, vm_paddr_t gpa)
- {
- 	struct userspace_mem_region *region;
- 
-+	gpa = vm_untag_gpa(vm, gpa);
-+
- 	region = userspace_mem_region_find(vm, gpa, gpa);
- 	if (!region) {
- 		TEST_FAIL("No vm physical memory at 0x%lx", gpa);
-@@ -2305,3 +2307,18 @@ void __attribute((constructor)) kvm_selftest_init(void)
- 
- 	kvm_selftest_arch_init();
- }
-+
-+bool vm_is_gpa_protected(struct kvm_vm *vm, vm_paddr_t paddr)
-+{
-+	sparsebit_idx_t pg = 0;
-+	struct userspace_mem_region *region;
-+
-+	if (!vm_arch_has_protected_memory(vm))
-+		return false;
-+
-+	region = userspace_mem_region_find(vm, paddr, paddr);
-+	TEST_ASSERT(region, "No vm physical memory at 0x%lx", paddr);
-+
-+	pg = paddr >> vm->page_shift;
-+	return sparsebit_is_set(region->protected_phy_pages, pg);
-+}
-diff --git a/tools/testing/selftests/kvm/lib/x86_64/processor.c b/tools/testing/selftests/kvm/lib/x86_64/processor.c
-index 615d05247470..6c1d2c0ec584 100644
---- a/tools/testing/selftests/kvm/lib/x86_64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/x86_64/processor.c
-@@ -157,6 +157,8 @@ static uint64_t *virt_create_upper_pte(struct kvm_vm *vm,
- {
- 	uint64_t *pte = virt_get_pte(vm, parent_pte, vaddr, current_level);
- 
-+	paddr = vm_untag_gpa(vm, paddr);
-+
- 	if (!(*pte & PTE_PRESENT_MASK)) {
- 		*pte = PTE_PRESENT_MASK | PTE_WRITABLE_MASK;
- 		if (current_level == target_level)
-@@ -200,6 +202,8 @@ void __virt_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr, int level)
- 		    "Physical address beyond maximum supported,\n"
- 		    "  paddr: 0x%lx vm->max_gfn: 0x%lx vm->page_size: 0x%x",
- 		    paddr, vm->max_gfn, vm->page_size);
-+	TEST_ASSERT(vm_untag_gpa(vm, paddr) == paddr,
-+		    "Unexpected bits in paddr: %lx", paddr);
- 
- 	/*
- 	 * Allocate upper level page tables, if not already present.  Return
-@@ -222,6 +226,15 @@ void __virt_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr, int level)
- 	TEST_ASSERT(!(*pte & PTE_PRESENT_MASK),
- 		    "PTE already present for 4k page at vaddr: 0x%lx", vaddr);
- 	*pte = PTE_PRESENT_MASK | PTE_WRITABLE_MASK | (paddr & PHYSICAL_PAGE_MASK);
-+
-+	/*
-+	 * Neither SEV nor TDX supports shared page tables, so only the final
-+	 * leaf PTE needs manually set the C/S-bit.
-+	 */
-+	if (vm_is_gpa_protected(vm, paddr))
-+		*pte |= vm->arch.c_bit;
-+	else
-+		*pte |= vm->arch.s_bit;
- }
- 
- void virt_arch_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr)
-@@ -496,7 +509,7 @@ vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
- 	 * No need for a hugepage mask on the PTE, x86-64 requires the "unused"
- 	 * address bits to be zero.
- 	 */
--	return PTE_GET_PA(*pte) | (gva & ~HUGEPAGE_MASK(level));
-+	return vm_untag_gpa(vm, PTE_GET_PA(*pte)) | (gva & ~HUGEPAGE_MASK(level));
- }
- 
- static void kvm_setup_gdt(struct kvm_vm *vm, struct kvm_dtable *dt)
--- 
-2.43.0.594.gd9cf4e227d-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBGZWIgMiwgMjAyNCwgYXQgMzoyMiBBTSwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+
+IE9uIDAyLzAyLzIwMjQgMDM6MzIsIENoYXJsaWUgSmVua2lucyB3cm90ZToKPj4gT24gVGh1LCBG
+ZWIgMDEsIDIwMjQgYXQgMDM6MDI6NDVQTSArMDEwMCwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+
+Pj4gU29tZSB1c2Vyc3BhY2UgYXBwbGljYXRpb25zIChPcGVuSkRLIGZvciBpbnN0YW5jZSkgdXNl
+cyB0aGUgZnJlZSBiaXRzCj4+PiBpbiBwb2ludGVycyB0byBpbnNlcnQgYWRkaXRpb25hbCBpbmZv
+cm1hdGlvbiBmb3IgdGhlaXIgb3duIGxvZ2ljLgo+Pj4gQ3VycmVudGx5IHRoZXkgcmVseSBvbiBw
+YXJzaW5nIC9wcm9jL2NwdWluZm8gdG8gb2J0YWluIHRoZSBjdXJyZW50IHZhbHVlCj4+PiBvZiB2
+aXJ0dWFsIGFkZHJlc3MgdXNlZCBiaXRzIFsxXS4gRXhwb3J0aW5nIFZBX0JJVFMgdGhyb3VnaCBo
+d3Byb2JlIHdpbGwKPj4+IGFsbG93IGZvciBhIG1vcmUgc3RhYmxlIGludGVyZmFjZSB0byBiZSB1
+c2VkLgo+PiAKPj4gbW1hcCBhbHJlYWR5IHN1cHBvcnRzIHRoaXMgd2l0aG91dCBhIG5lZWQgZm9y
+IGFwcGxpY2F0aW9ucyB0byBrbm93IHRoZQo+PiB1bmRlcmx5aW5nIGhhcmR3YXJlLiBJZiBhIGhp
+bnQgYWRkcmVzcyBpcyBwYXNzZWQgaW50byBtbWFwLCBpdCB3aWxsIG5ldmVyCj4+IHJldHVybiBh
+biBhZGRyZXNzIHRoYXQgdXNlcyBtb3JlIGJpdHMgdGhhbiB0aGUgaGludCBhZGRyZXNzLiBJIGRl
+c2lnbmVkCj4+IGl0IHRoYXQgd2F5IHNvIHRoYXQgc29tZXRoaW5nIGxpa2UgdGhpcyB3YXNuJ3Qg
+bmVjZXNzYXJ5Lgo+Cj4gT2sgZXZlbiB0aG91Z2ggcHJvYmluZyB0aGlzIGtpbmQgb2YgdGhpbmcg
+aXMgcHJvYmFibHkgbm90IHdoYXQgbW1hcCBpcwo+IG1lYW50IHRvIGRvLiBJTUhPLCBwcm9iaW5n
+IHRoaXMgdGhyb3VnaCB0aGUgcmVndWxhciBod3Byb2JlIGludGVyZmFjZSBpcwo+IHByb2JhYmx5
+IG1vcmUgY29oZXJlbnQgYnV0IG1heWJlIFJvYmluICh3aGljaCBuZWVkcyB0aGlzIGluZm9ybWF0
+aW9uKQo+IGNhbiByZWx5IG9uIHRoYXQuCgpCb3RoIG9mIHRoZXNlIGFyZSB1c2VmdWwsIHNlcGFy
+YXRlbHkgYW5kIGluIGNvbmp1bmN0aW9uLgoKaHdwcm9iZSBhbGxvd3MgYXBwbGljYXRpb25zIHdo
+aWNoIGNhbiBhZGFwdCB0byBkaWZmZXJlbnQgVkEgc2l6ZXMgdG8gbGVhcm4Kd2hpY2ggaXMgaW4g
+dXNlIHByaW9yIHRvIGFsbG9jYXRpbmcgbWVtb3J5LgoKbW1hcCBoaW50cyBhbGxvdyBhcHBsaWNh
+dGlvbnMgd2hpY2ggcmVxdWlyZSBhIGZpeGVkIGxpbWl0IG9uIHRoZSBWQSBzaXplIHRvCmV4cHJl
+c3MgdGhhdCBsaW1pdCBhdCB0aGUgcG9pbnQgb2YgcmVxdWlyZW1lbnQsIHRoZSBoaW50IGNhbiBi
+ZSBzZXQgYmFzZWQgb24KdGhlIGh3cHJvYmUgcmVzdWx0IHRvIGV4cGxpY2l0bHkgaW5kaWNhdGUg
+aXRzIHVzZS4KCi1zCgo+IENsw6ltZW50Cj4KPj4gCj4+IC0gQ2hhcmxpZQo+PiAKPj4+Cj4+PiBM
+aW5rOiBodHRwczovL2dpdGh1Yi5jb20vb3Blbmpkay9qZGsvYmxvYi9tYXN0ZXIvc3JjL2hvdHNw
+b3Qvb3NfY3B1L2xpbnV4X3Jpc2N2L3ZtX3ZlcnNpb25fbGludXhfcmlzY3YuY3BwI0wxNzEgWzFd
+Cj4+PiBTaWduZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5jb20+
+Cj4+Pgo+Pj4gLS0tCj4+PiAgRG9jdW1lbnRhdGlvbi9hcmNoL3Jpc2N2L2h3cHJvYmUucnN0ICB8
+IDMgKysrCj4+PiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od3Byb2JlLmggICAgICB8IDIgKy0K
+Pj4+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oIHwgMSArCj4+PiAgYXJj
+aC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYyAgICAgICB8IDMgKysrCj4+PiAgNCBmaWxlcyBj
+aGFuZ2VkLCA4IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPj4+Cj4+PiBkaWZmIC0tZ2l0
+IGEvRG9jdW1lbnRhdGlvbi9hcmNoL3Jpc2N2L2h3cHJvYmUucnN0IGIvRG9jdW1lbnRhdGlvbi9h
+cmNoL3Jpc2N2L2h3cHJvYmUucnN0Cj4+PiBpbmRleCBiMmJjYzllZWQ5YWEuLjZmMTk4YzZlZDRm
+MCAxMDA2NDQKPj4+IC0tLSBhL0RvY3VtZW50YXRpb24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdAo+
+Pj4gKysrIGIvRG9jdW1lbnRhdGlvbi9hcmNoL3Jpc2N2L2h3cHJvYmUucnN0Cj4+PiBAQCAtMjEw
+LDMgKzIxMCw2IEBAIFRoZSBmb2xsb3dpbmcga2V5cyBhcmUgZGVmaW5lZDoKPj4+ICAKPj4+ICAq
+IDpjOm1hY3JvOmBSSVNDVl9IV1BST0JFX0tFWV9aSUNCT1pfQkxPQ0tfU0laRWA6IEFuIHVuc2ln
+bmVkIGludCB3aGljaAo+Pj4gICAgcmVwcmVzZW50cyB0aGUgc2l6ZSBvZiB0aGUgWmljYm96IGJs
+b2NrIGluIGJ5dGVzLgo+Pj4gKwo+Pj4gKyogOmM6bWFjcm86YFJJU0NWX0hXUFJPQkVfS0VZX1ZB
+X0JJVFNgOiBBbiB1bnNpZ25lZCBsb25nIHdoaWNoCj4+PiArICByZXByZXNlbnQgdGhlIG51bWJl
+ciBvZiBiaXRzIHVzZWQgdG8gc3RvcmUgdmlydHVhbCBhZGRyZXNzZXMuCj4+PiBkaWZmIC0tZ2l0
+IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od3Byb2JlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2h3cHJvYmUuaAo+Pj4gaW5kZXggNjMwNTA3ZGZmNWVhLi4xNTBhOTg3N2IwYWYgMTAwNjQ0
+Cj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3cHJvYmUuaAo+Pj4gKysrIGIvYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9od3Byb2JlLmgKPj4+IEBAIC04LDcgKzgsNyBAQAo+Pj4gIAo+
+Pj4gICNpbmNsdWRlIDx1YXBpL2FzbS9od3Byb2JlLmg+Cj4+PiAgCj4+PiAtI2RlZmluZSBSSVND
+Vl9IV1BST0JFX01BWF9LRVkgNgo+Pj4gKyNkZWZpbmUgUklTQ1ZfSFdQUk9CRV9NQVhfS0VZIDcK
+Pj4+ICAKPj4+ICBzdGF0aWMgaW5saW5lIGJvb2wgcmlzY3ZfaHdwcm9iZV9rZXlfaXNfdmFsaWQo
+X19zNjQga2V5KQo+Pj4gIHsKPj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFw
+aS9hc20vaHdwcm9iZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2h3cHJvYmUuaAo+
+Pj4gaW5kZXggOWYyYThlM2ZmMjA0Li4yYTUwMDZjZGRiN2IgMTAwNjQ0Cj4+PiAtLS0gYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oCj4+PiArKysgYi9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oCj4+PiBAQCAtNjcsNiArNjcsNyBAQCBzdHJ1Y3Qgcmlz
+Y3ZfaHdwcm9iZSB7Cj4+PiAgI2RlZmluZQkJUklTQ1ZfSFdQUk9CRV9NSVNBTElHTkVEX1VOU1VQ
+UE9SVEVECSg0IDw8IDApCj4+PiAgI2RlZmluZQkJUklTQ1ZfSFdQUk9CRV9NSVNBTElHTkVEX01B
+U0sJCSg3IDw8IDApCj4+PiAgI2RlZmluZSBSSVNDVl9IV1BST0JFX0tFWV9aSUNCT1pfQkxPQ0tf
+U0laRQk2Cj4+PiArI2RlZmluZSBSSVNDVl9IV1BST0JFX0tFWV9WQV9CSVRTCQk3Cj4+PiAgLyog
+SW5jcmVhc2UgUklTQ1ZfSFdQUk9CRV9NQVhfS0VZIHdoZW4gYWRkaW5nIGl0ZW1zLiAqLwo+Pj4g
+IAo+Pj4gIC8qIEZsYWdzICovCj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc3lz
+X2h3cHJvYmUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3N5c19od3Byb2JlLmMKPj4+IGluZGV4IGE3
+YzU2YjQxZWZkMi4uMzI4NDM1ODM2ZTM2IDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJu
+ZWwvc3lzX2h3cHJvYmUuYwo+Pj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUu
+Ywo+Pj4gQEAgLTIwMiw2ICsyMDIsOSBAQCBzdGF0aWMgdm9pZCBod3Byb2JlX29uZV9wYWlyKHN0
+cnVjdCByaXNjdl9od3Byb2JlICpwYWlyLAo+Pj4gIAkJaWYgKGh3cHJvYmVfZXh0MF9oYXMoY3B1
+cywgUklTQ1ZfSFdQUk9CRV9FWFRfWklDQk9aKSkKPj4+ICAJCQlwYWlyLT52YWx1ZSA9IHJpc2N2
+X2Nib3pfYmxvY2tfc2l6ZTsKPj4+ICAJCWJyZWFrOwo+Pj4gKwljYXNlIFJJU0NWX0hXUFJPQkVf
+S0VZX1ZBX0JJVFM6Cj4+PiArCQlwYWlyLT52YWx1ZSA9IFZBX0JJVFM7Cj4+PiArCQlicmVhazsK
+Pj4+ICAKPj4+ICAJLyoKPj4+ICAJICogRm9yIGZvcndhcmQgY29tcGF0aWJpbGl0eSwgdW5rbm93
+biBrZXlzIGRvbid0IGZhaWwgdGhlIHdob2xlCj4+PiAtLSAKPj4+IDIuNDMuMAo+Pj4KPj4+Cj4+
+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+Pj4gbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4+PiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cj4+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+
+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
