@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF49C4828D
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:32:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54739C48298
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vyJH3SUXko1SLLOq9ATxv8TUwYLW/wr95TNN/JodEYA=; b=XeF0imw+rQTDJb
-	ULt8hEFYKX5SXiXqICqTujS421nsEXRZmBP3arF92Bzhv9Sy3t4bcjcRGv+dNziMNVrTIt52mVhGV
-	TOwzhzA3f/OoaTJC64aXoJZVnfzHyJnfYmwf3EMvRv9zf0H2B/MyI/6mAloq/D+tXGkF0wOXVtrZr
-	Q6NhQS9qD+zkJfjnlrr5qXBUzHciLJgGZ+ZSXUpQCIRMYCWG7U0wdHIzQQH2/yQ+QaGhLykxLz2tQ
-	66+guNG8JUarn0LJecUalsFGuoJ91fl++dw/QQ5UuJVf0Xug46VhzDGz4/oWN0ZURmteXUDkvLkJi
-	MiacrPa55saQjv2hL2mA==;
+	List-Owner; bh=PblSaLBDwG7W7SBwk1fG7py67vIalAORSxMlLdl7ufw=; b=FHrSSJabBiok2Z
+	7XZj1pmvIIrwF/Dw9mHXyVcn33Qn31PQrcflD/Ct+wyGkQIsb+hkL08yKqOqJlrrkBwQB1BIbWRru
+	Stg1eeBg1w8kJ9+HDjYwqGD/BpL7LzoV8kKg4vW+DSIdK1iU3mBirY96LJRoretOyweofG0he/GIN
+	acvwZyEjUIJQLfpr2TGDqeUGeHYslIUPNWks9PbvJGnOJvCB/HCJVpHTWl6lMTZDrG6c2jxSNOsNW
+	kp8WF88XhxTzih8NL6cRsY8lPbTE5jNkVMab8yD4hbWH3qcFVwX+SgBQM9YtNX/EnONAb+Q7Xt/mE
+	yt2dAwTEr9V8483GnIcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFCF-0000000GKIZ-0k6Z;
-	Sat, 03 Feb 2024 12:32:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rWFCT-0000000GKVE-1uh0;
+	Sat, 03 Feb 2024 12:32:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFBr-0000000GJwY-0KVo;
-	Sat, 03 Feb 2024 12:32:22 +0000
+	id 1rWFBx-0000000GK2r-3yCE;
+	Sat, 03 Feb 2024 12:32:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 304996069B;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1133460A13;
+	Sat,  3 Feb 2024 12:32:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D0E7C433B1;
 	Sat,  3 Feb 2024 12:32:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A16F9C433F1;
-	Sat,  3 Feb 2024 12:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706963529;
-	bh=Aw31IGKjr1UrJDLWxkb2b/BK0n5+HbIF3Im1kdrhlF4=;
+	s=k20201202; t=1706963536;
+	bh=Ivqpdle3E1tJpwmrfahier3b/6hrTNZg1uoFbX2zWm4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GKUG+zpZ2VILKpS5XDiWYdz2oomc5hvV3q397oN3cKwrqvjN8JKf9ZMOB+6zZRcY1
-	 iTUhw186L7BkGkiyEnDwbA2D1HfTzsgjtdPEhb3OSGyDDEL4L3JlqFz1AWtIBAQSY6
-	 9dm9WMbF7/+oCBcxK3fFKSGyTaH2t0ukjuHqcX8qIGbanmqsR109W7myEvSS2ptTye
-	 FSH1gSgaA3tm4tUie8cuI9rQF5s39SGkMpyheiPi+onw9b6y8icdbNSgLC+iGX/nJe
-	 CxyxwaJOf9c9pdGmuwR4iuMbniVufpOG9YnrXm3OemlI0rqHYkzLn2mzlr33eNnXwL
-	 0mDazwlGIzVkQ==
+	b=jW2gqdbMO2ahiVdWdt/i6mRHmQ8bP6VU1lTH0YqY/DTN41GYwBD12b+jOBHvcIb4O
+	 5Vl6n+cING38vSq9IKL7J/KwAfiv5B+tV1EaH4p6ZtX3QkIrURzQvex77X96n8cDfN
+	 TgQ6RC/TTmAH/Sos0BqT0XSsm8OfzRtJlPDBqyaDPZkwS8Kgwr96OAr9nLdZPVbn0B
+	 TIzhlm84cWxyqEl+Je+BCVcMuNzGOae/02tx5Ji+/+gr8mREURcatSODBsODQQKAm5
+	 VfPBtxBcAqzLaLkDR3Dg2K4+rAWJOlGLefXZXJkbqXTbN3JqIQ/Sgc+tAAmMYbAD6t
+	 kroZE4OTZlvcQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Sat, 03 Feb 2024 12:25:48 +0000
-Subject: [PATCH v8 22/38] arm64/mm: Implement map_shadow_stack()
+Date: Sat, 03 Feb 2024 12:25:49 +0000
+Subject: [PATCH v8 23/38] arm64/signal: Set up and restore the GCS context
+ for signal handlers
 MIME-Version: 1.0
-Message-Id: <20240203-arm64-gcs-v8-22-c9fec77673ef@kernel.org>
+Message-Id: <20240203-arm64-gcs-v8-23-c9fec77673ef@kernel.org>
 References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 In-Reply-To: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -69,20 +70,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-a684c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2931; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Aw31IGKjr1UrJDLWxkb2b/BK0n5+HbIF3Im1kdrhlF4=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDiF619KL+pXnFncRboG77ij7BrGr7OUVw8KD54
- W94MjnmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w4gAKCRAk1otyXVSH0Jx+B/
- 4v6RH+W/BD/bwrjhMex1EknsuooW4f/43TzROGdgQf5ZleIEHLx7aQHusweh6WwRiwnNYYsQ47/1EM
- BBeH8SXHb4LF1Foh1DTm5I9/a3wa3noh+LUCiGbbO1uvAOAcrsconNTQ4XfZmOTHEVomxOV9JdONTR
- mrghCkklix5q/XA7ublf7dKYPmkBrd4XpgT/S80mmzPh5YFsOt3wpu+UCpqeqcgyCacBE7C/v284GH
- zAJjljdn6oB0SlBacil3LPR+nO9vOcxZaN1lT2ae59T0BR5pE8p7S+qcMIYriIalD501OnOZhMaNTr
- rVijbRZWUs3jqHufM94IsGOg3p/jRe
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7344; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Ivqpdle3E1tJpwmrfahier3b/6hrTNZg1uoFbX2zWm4=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDjVeSPBEplvRBeGrair4X3hxmDqtqW7Drq6QFa
+ pzDgz8qJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w4wAKCRAk1otyXVSH0Ca4B/
+ 0dEhD/qVtQvI6SQR6Gz+ZgErKI/4Fudbf7sAR3pfFJlJgNgma9ODEJcuMwSNDpnj9BSzbXCm80sG2o
+ eVs6tInzlBFuE6xNi4JF3qn7hDJetgYDOQmK+A63bJYQyTsupMCsWkj1li3egnbzKnOwSnGmSbV15i
+ O/vyn+ZiL9zRRXqwI5reWQjFKnonsBIaMiVKM8fAOgJuz+pZVeWigGvg72S29yhPxJbw2I1ln4fwnS
+ rEjv+F3SZ8qRUgBiYfaJyiduRKaw78mAGj0kBnsTjhgyuKdrhOeVUyFZU0lHuYsdhpwjXMGHZYBd4g
+ ZIh8MgGcZ/SYqxtPbC3Y0oa5lBStlO
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240203_043211_750752_81370CF6 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20240203_043218_643703_9428B654 
+X-CRM114-Status: GOOD (  28.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,99 +100,253 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As discussed extensively in the changelog for the addition of this
-syscall on x86 ("x86/shstk: Introduce map_shadow_stack syscall") the
-existing mmap() and madvise() syscalls do not map entirely well onto the
-security requirements for guarded control stacks since they lead to
-windows where memory is allocated but not yet protected or stacks which
-are not properly and safely initialised. Instead a new syscall
-map_shadow_stack() has been defined which allocates and initialises a
-shadow stack page.
+When invoking a signal handler we use the GCS configuration and stack
+for the current thread.
 
-Implement this for arm64.  Two flags are provided, allowing applications
-to request that the stack be initialised with a valid cap token at the
-top of the stack and optionally also an end of stack marker above that.
-We support requesting an end of stack marker alone but since this is a
-NULL pointer it is indistinguishable from not initialising anything by
-itself.
+Since we implement signal return by calling the signal handler with a
+return address set up pointing to a trampoline in the vDSO we need to
+also configure any active GCS for this by pushing a frame for the
+trampoline onto the GCS.  If we do not do this then signal return will
+generate a GCS protection fault.
+
+In order to guard against attempts to bypass GCS protections via signal
+return we only allow returning with GCSPR_EL0 pointing to an address
+where it was previously preempted by a signal.  We do this by pushing a
+cap onto the GCS, this takes the form of an architectural GCS cap token
+with the top bit set and token type of 0 which we add on signal entry
+and validate and pop off on signal return.  The combination of the top
+bit being set and the token type mean that this can't be interpreted as
+a valid token or address.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/mm/gcs.c | 61 +++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 61 insertions(+)
+ arch/arm64/include/asm/gcs.h |   1 +
+ arch/arm64/kernel/signal.c   | 134 +++++++++++++++++++++++++++++++++++++++++--
+ arch/arm64/mm/gcs.c          |   1 +
+ 3 files changed, 131 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
-index 95f5cf599bc6..f34821d98d85 100644
---- a/arch/arm64/mm/gcs.c
-+++ b/arch/arm64/mm/gcs.c
-@@ -115,6 +115,67 @@ unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
- 	return addr;
- }
+diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
+index 48c97e63e56a..f50660603ecf 100644
+--- a/arch/arm64/include/asm/gcs.h
++++ b/arch/arm64/include/asm/gcs.h
+@@ -9,6 +9,7 @@
+ #include <asm/uaccess.h>
  
-+SYSCALL_DEFINE3(map_shadow_stack, unsigned long, addr, unsigned long, size, unsigned int, flags)
+ struct kernel_clone_args;
++struct ksignal;
+ 
+ static inline void gcsb_dsync(void)
+ {
+diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+index 0e8beb3349ea..1cca646a7479 100644
+--- a/arch/arm64/kernel/signal.c
++++ b/arch/arm64/kernel/signal.c
+@@ -25,6 +25,7 @@
+ #include <asm/elf.h>
+ #include <asm/exception.h>
+ #include <asm/cacheflush.h>
++#include <asm/gcs.h>
+ #include <asm/ucontext.h>
+ #include <asm/unistd.h>
+ #include <asm/fpsimd.h>
+@@ -34,6 +35,37 @@
+ #include <asm/traps.h>
+ #include <asm/vdso.h>
+ 
++#ifdef CONFIG_ARM64_GCS
++/* Extra bit set in the address distinguishing a signal cap token. */
++#define GCS_SIGNAL_CAP_FLAG BIT(63)
++
++#define GCS_SIGNAL_CAP(addr) ((((unsigned long)addr) & GCS_CAP_ADDR_MASK) | \
++			      GCS_SIGNAL_CAP_FLAG)
++
++static bool gcs_signal_cap_valid(u64 addr, u64 val)
 +{
-+	unsigned long alloc_size;
-+	unsigned long __user *cap_ptr;
-+	unsigned long cap_val;
-+	int ret = 0;
-+	int cap_offset;
-+
-+	if (!system_supports_gcs())
-+		return -EOPNOTSUPP;
-+
-+	if (flags & ~(SHADOW_STACK_SET_TOKEN | SHADOW_STACK_SET_MARKER))
-+		return -EINVAL;
-+
-+	if (addr && (addr % PAGE_SIZE))
-+		return -EINVAL;
-+
-+	if (size == 8 || size % 8)
-+		return -EINVAL;
-+
 +	/*
-+	 * An overflow would result in attempting to write the restore token
-+	 * to the wrong location. Not catastrophic, but just return the right
-+	 * error code and block it.
++	 * The top bit should be set, this is an invalid address for
++	 * EL0 and will only be set for caps created by signals.
 +	 */
-+	alloc_size = PAGE_ALIGN(size);
-+	if (alloc_size < size)
-+		return -EOVERFLOW;
++	if (!(val & GCS_SIGNAL_CAP_FLAG))
++		return false;
 +
-+	addr = alloc_gcs(addr, alloc_size, 0, false);
-+	if (IS_ERR_VALUE(addr))
-+		return addr;
++	/* The rest should be a standard architectural cap token. */
++	val &= ~GCS_SIGNAL_CAP_FLAG;
 +
-+	/*
-+	 * Put a cap token at the end of the allocated region so it
-+	 * can be switched to.
-+	 */
-+	if (flags & SHADOW_STACK_SET_TOKEN) {
-+		/* Leave an extra empty frame as a top of stack marker? */
-+		if (flags & SHADOW_STACK_SET_MARKER)
-+			cap_offset = 2;
-+		else
-+			cap_offset = 1;
++	/* The cap must not have a token set */
++	if (GCS_CAP_TOKEN(val) != 0)
++		return false;
 +
-+		cap_ptr = (unsigned long __user *)(addr + size -
-+						   (cap_offset * sizeof(unsigned long)));
-+		cap_val = GCS_CAP(cap_ptr);
++	/* The cap must store the VA the cap was stored at */
++	if (GCS_CAP_ADDR(addr) != GCS_CAP_ADDR(val))
++		return false;
 +
-+		put_user_gcs(cap_val, cap_ptr, &ret);
-+		if (ret != 0) {
-+			vm_munmap(addr, size);
-+			return -EFAULT;
-+		}
-+
-+		/* Ensure the new cap is viaible for GCS */
-+		gcsb_dsync();
-+	}
-+
-+	return addr;
++	return true;
 +}
++#endif
 +
  /*
-  * Apply the GCS mode configured for the specified task to the
-  * hardware.
+  * Do a signal return; undo the signal stack. These are aligned to 128-bit.
+  */
+@@ -815,6 +847,50 @@ static int restore_sigframe(struct pt_regs *regs,
+ 	return err;
+ }
+ 
++#ifdef CONFIG_ARM64_GCS
++static int gcs_restore_signal(void)
++{
++	u64 gcspr_el0, cap;
++	int ret;
++
++	if (!system_supports_gcs())
++		return 0;
++
++	if (!(current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE))
++		return 0;
++
++	gcspr_el0 = read_sysreg_s(SYS_GCSPR_EL0);
++
++	/*
++	 * GCSPR_EL0 should be pointing at a capped GCS, read the cap...
++	 */
++	gcsb_dsync();
++	ret = copy_from_user(&cap, (__user void*)gcspr_el0, sizeof(cap));
++	if (ret)
++		return -EFAULT;
++
++	/*
++	 * ...then check that the cap is the actual GCS before
++	 * restoring it.
++	 */
++	if (!gcs_signal_cap_valid(gcspr_el0, cap))
++		return -EINVAL;
++
++	/* Invalidate the token to prevent reuse */
++	put_user_gcs(0, (__user void*)gcspr_el0, &ret);
++	if (ret != 0)
++		return -EFAULT;
++
++	current->thread.gcspr_el0 = gcspr_el0 + sizeof(cap);
++	write_sysreg_s(current->thread.gcspr_el0, SYS_GCSPR_EL0);
++
++	return 0;
++}
++
++#else
++static int gcs_restore_signal(void) { return 0; }
++#endif
++
+ SYSCALL_DEFINE0(rt_sigreturn)
+ {
+ 	struct pt_regs *regs = current_pt_regs();
+@@ -841,6 +917,9 @@ SYSCALL_DEFINE0(rt_sigreturn)
+ 	if (restore_altstack(&frame->uc.uc_stack))
+ 		goto badframe;
+ 
++	if (gcs_restore_signal())
++		goto badframe;
++
+ 	return regs->regs[0];
+ 
+ badframe:
+@@ -1071,7 +1150,50 @@ static int get_sigframe(struct rt_sigframe_user_layout *user,
+ 	return 0;
+ }
+ 
+-static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
++#ifdef CONFIG_ARM64_GCS
++
++static int gcs_signal_entry(__sigrestore_t sigtramp, struct ksignal *ksig)
++{
++	unsigned long __user *gcspr_el0;
++	int ret = 0;
++
++	if (!system_supports_gcs())
++		return 0;
++
++	if (!task_gcs_el0_enabled(current))
++		return 0;
++
++	/*
++	 * We are entering a signal handler, current register state is
++	 * active.
++	 */
++	gcspr_el0 = (unsigned long __user *)read_sysreg_s(SYS_GCSPR_EL0);
++
++	/*
++	 * Push a cap and the GCS entry for the trampoline onto the GCS.
++	 */
++	put_user_gcs((unsigned long)sigtramp, gcspr_el0 - 2, &ret);
++	put_user_gcs(GCS_SIGNAL_CAP(gcspr_el0 - 1), gcspr_el0 - 1, &ret);
++	if (ret != 0)
++		return ret;
++
++	gcsb_dsync();
++
++	gcspr_el0 -= 2;
++	write_sysreg_s((unsigned long)gcspr_el0, SYS_GCSPR_EL0);
++
++	return 0;
++}
++#else
++
++static int gcs_signal_entry(__sigrestore_t sigtramp, struct ksignal *ksig)
++{
++	return 0;
++}
++
++#endif
++
++static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
+ 			 struct rt_sigframe_user_layout *user, int usig)
+ {
+ 	__sigrestore_t sigtramp;
+@@ -1079,7 +1201,7 @@ static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
+ 	regs->regs[0] = usig;
+ 	regs->sp = (unsigned long)user->sigframe;
+ 	regs->regs[29] = (unsigned long)&user->next_frame->fp;
+-	regs->pc = (unsigned long)ka->sa.sa_handler;
++	regs->pc = (unsigned long)ksig->ka.sa.sa_handler;
+ 
+ 	/*
+ 	 * Signal delivery is a (wacky) indirect function call in
+@@ -1119,12 +1241,14 @@ static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
+ 		sme_smstop();
+ 	}
+ 
+-	if (ka->sa.sa_flags & SA_RESTORER)
+-		sigtramp = ka->sa.sa_restorer;
++	if (ksig->ka.sa.sa_flags & SA_RESTORER)
++		sigtramp = ksig->ka.sa.sa_restorer;
+ 	else
+ 		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
+ 
+ 	regs->regs[30] = (unsigned long)sigtramp;
++
++	return gcs_signal_entry(sigtramp, ksig);
+ }
+ 
+ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
+@@ -1147,7 +1271,7 @@ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
+ 	err |= __save_altstack(&frame->uc.uc_stack, regs->sp);
+ 	err |= setup_sigframe(&user, regs, set);
+ 	if (err == 0) {
+-		setup_return(regs, &ksig->ka, &user, usig);
++		err = setup_return(regs, ksig, &user, usig);
+ 		if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
+ 			err |= copy_siginfo_to_user(&frame->info, &ksig->info);
+ 			regs->regs[1] = (unsigned long)&frame->info;
+diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
+index f34821d98d85..2d8e54316fe2 100644
+--- a/arch/arm64/mm/gcs.c
++++ b/arch/arm64/mm/gcs.c
+@@ -6,6 +6,7 @@
+ #include <linux/types.h>
+ 
+ #include <asm/cpufeature.h>
++#include <asm/gcs.h>
+ #include <asm/page.h>
+ 
+ static unsigned long alloc_gcs(unsigned long addr, unsigned long size,
 
 -- 
 2.30.2
