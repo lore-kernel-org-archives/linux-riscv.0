@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C07C4828F
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C383BC4828F
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f1RFBiQLkyRZMVMnIEYTyEsPmmIyv5+gReTOxNmx/04=; b=b+V/2XgxbLPU4q
-	ih0Tckz/1JE1g8lkL7WvgUQaKj7WUlRR2Rw7FSTFlQ8UxRyjVlz2CiVqIFCFpEwoZyhitPYvS9Z1a
-	FRkvRz5RD7KN4nZO29TiNvM4CpklscXTlonE+aY8vEFtHW8cJkEeqRhKDxEUFnleB2bwzhZwuZn9W
-	S61n5q0OU/KryUtDSiwjamc8BTlXq7a4xkQ2T1m6I8peJO1WTg2d3HDO7rp5hnce4jAV7jiarSl9J
-	YyzGbfg8U083C4z2ckx3KKuf3xyQCZJnEOYpcYkFP9RqHOBJZok6olh+n43AQoM9LIUXpwZsPyeMu
-	rLR3XWsXeIfl0bC3m1ug==;
+	List-Owner; bh=y+g1HstmjKPRS83Jcz70VxenlJryW4DZRTujdBnx8V0=; b=RKSGCJ+6efriva
+	KX4eCKgpcjiZqe511a1oCzCJRqpUzH69mVebKtJ2EBluRW4apDiDr7n8GwAX+nY4pkQPz1SmI4EEI
+	/Sr0TtHIYo2lctNLEjvpHG67o/o/2MuWx4fczUV7PTCOjmlGh0/a7p1525MQNiRtKPE/eE2bHGLOA
+	JIdZbP9xQE89Bf8sj57Y9m9xgS26sPBay84i2C95UCYOL4Jm2nnQjU1/Wax5DHXGntCwyFA4DxzBS
+	Sb1KDuvznPWTf6vemMXPETDKms9E93WBe5cHUZSOFkWALvB2RKbKTcLSmrjg/M3lPVwiKWfsu5ID5
+	8jJDRiYwi3NK8X41LL2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWF9f-0000000GINg-0fzO;
-	Sat, 03 Feb 2024 12:29:55 +0000
+	id 1rWF9w-0000000GIVG-1GhC;
+	Sat, 03 Feb 2024 12:30:12 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWF9b-0000000GILv-1J7y;
-	Sat, 03 Feb 2024 12:29:52 +0000
+	id 1rWF9t-0000000GITc-1Frr;
+	Sat, 03 Feb 2024 12:30:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 233E1CE1F0F;
-	Sat,  3 Feb 2024 12:29:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AA6CC43390;
-	Sat,  3 Feb 2024 12:29:28 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 2AA2FCE1EF7;
+	Sat,  3 Feb 2024 12:30:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74CBBC43394;
+	Sat,  3 Feb 2024 12:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706963387;
-	bh=sadX6jRs7DdBAThhpdGK2D3phr2V3dLQCMXle4b8GlY=;
+	s=k20201202; t=1706963405;
+	bh=39WiY3pJD/byvb21132HZ1FFf2AaFNt9bxr2VNbG8Fw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=dTXtO9zoQm9JKCKVlTQvs8wgeMjkGOAr950r85KgQGAT34nQSSQ2ln64WxHAiJSSm
-	 6PEarPvcoqFTmKT5cj+HNeUFr7pQcIfGbe/klZhA+Gkoa1v65gL5yD+Mqw28o9xbW0
-	 XEQWk+Cl9jbYrlf5kijxq1s1ROA0BB6StTf0KMmMKXIXwpAXOM4xDKVclfS0df/Po7
-	 Rg/marbuHTjU5J+T7iEW5sdtvASHVxoDEH5nKmz85XW+1Sl01maEm6BdV2XzdcuK/R
-	 tONiZcB3QLD8rufqmcRFLGHZ2neKaX5nb/wRhPu8oq4ux9CAUl85rntpWtq1LMJ8Ql
-	 D7+aWaDk0Ov9g==
+	b=shZj4zmbEG51YJXT2HR/hbkSqqeTtDXlNZZf7YSTfM8hx53j8LXpmJZLw3Iv82n8T
+	 EmsnjZlBS3Whdw84UibP2OywFky27fJU1kV1ZQZrvMHmo5oo6DDxG7Ve+KACATX2av
+	 DyY97pWgxe8gwFmEDtgEyjX1bk3f/dH3s4xHFsuiFE52tVb78u03HcN/O2BbuJHAi7
+	 KNMQRWaioIbZCcU/WSDqiLZ81LH+jBUTthLazxEBHx9RWs8ibKA/VQQFMjwhktb/Sh
+	 61x79dnbtbMxzrMbLJs9q2PhBw/ScBw5eG6rQTZlugcKruZnKQ6rD0cO+jKGPxrzE1
+	 jHMBTdnV+2cdA==
 From: Mark Brown <broonie@kernel.org>
-Date: Sat, 03 Feb 2024 12:25:33 +0000
-Subject: [PATCH v8 07/38] arm64/gcs: Add manual encodings of GCS
- instructions
+Date: Sat, 03 Feb 2024 12:25:34 +0000
+Subject: [PATCH v8 08/38] arm64/gcs: Provide put_user_gcs()
 MIME-Version: 1.0
-Message-Id: <20240203-arm64-gcs-v8-7-c9fec77673ef@kernel.org>
+Message-Id: <20240203-arm64-gcs-v8-8-c9fec77673ef@kernel.org>
 References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 In-Reply-To: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +69,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-a684c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2577; i=broonie@kernel.org;
- h=from:subject:message-id; bh=sadX6jRs7DdBAThhpdGK2D3phr2V3dLQCMXle4b8GlY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDWl0RFbpcffLYcZJBiVq99jNr+C4cCBZd5T7RM
- G4XEv1eJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w1gAKCRAk1otyXVSH0NwrB/
- 9qoPgQtako2eNJFYJjaadGibJhrC+O0rrQ1WjE8Q9ksJCD+xyk2iXaeED1LmGEM3ZQMaNLezHZnqCE
- YzpJZxzTffvJ8MbMj0ZW+j7kI8MOe0jm4w+PMPvPf+YCHQA6kzklMsd8HOMnmCxKe01+hbtiiPcqoc
- JTMZW6BCL8+fjQ4aICJpz1CafRa5IhasNRga1FPU8SCgl0E+ojogy3ewXC9Q7Wit+8L8ZW94hHa7U7
- iVy9XiEFddFnqgZdhk3E6a5F07EjPMBMRMbI2jRxrz1G2a9/PDQ8C8bc23U49FNAxKrBjW3jJR6IZ7
- NU+2krwITMBnkNo5cyh4uleB8jnJMb
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1037; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=39WiY3pJD/byvb21132HZ1FFf2AaFNt9bxr2VNbG8Fw=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDXlOhNa5wqLtdcsL9HXNagaPZlUCqhjcNX1c/m
+ OGZhZROJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w1wAKCRAk1otyXVSH0GPoB/
+ 41N6+udhNIKyfclpuplMcjQpE4Medy7BQP1spdA3c3PSHB2nlB6id9g5c3aaDNbOG37yHJfw2ZoUN8
+ sgb3yLFVwhS5JnwHUUpsdwrK7jftwR1SlVArLgVwgyqyz9VuVeZ71IXLIBRhx9kDgK412ZYWfDCUag
+ cByQrhbCoyfJSbprcOy7eNXWxpd4+C4do+G2udTLpptHhhxMqt/0zB6iOYBYk7SaIIXok1V3v/bKNx
+ lQ5mXxZ9LYnsYVcbi9w8SQzJ4VZGzDcECPlEhUS0e2APKEEdGo2EJJ3bjMgkTEPN9C6B03JU9IPhRE
+ A/tP1bU7676ZdvRcI96pstycM97i9L
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240203_042951_729725_597BEADE 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20240203_043009_726533_B21BDE56 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,107 +99,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define C callable functions for GCS instructions used by the kernel. In
-order to avoid ambitious toolchain requirements for GCS support these are
-manually encoded, this means we have fixed register numbers which will be
-a bit limiting for the compiler but none of these should be used in
-sufficiently fast paths for this to be a problem.
-
-Note that GCSSTTR is used to store to EL0.
+In order for EL1 to write to an EL0 GCS it must use the GCSSTTR instruction
+rather than a normal STTR. Provide a put_user_gcs() which does this.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/gcs.h     | 51 ++++++++++++++++++++++++++++++++++++++++
- arch/arm64/include/asm/uaccess.h | 22 +++++++++++++++++
- 2 files changed, 73 insertions(+)
+ arch/arm64/include/asm/uaccess.h | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
-new file mode 100644
-index 000000000000..7c5e95218db6
---- /dev/null
-+++ b/arch/arm64/include/asm/gcs.h
-@@ -0,0 +1,51 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2023 ARM Ltd.
-+ */
-+#ifndef __ASM_GCS_H
-+#define __ASM_GCS_H
-+
-+#include <asm/types.h>
-+#include <asm/uaccess.h>
-+
-+static inline void gcsb_dsync(void)
-+{
-+	asm volatile(".inst 0xd503227f" : : : "memory");
-+}
-+
-+static inline void gcsstr(u64 *addr, u64 val)
-+{
-+	register u64 *_addr __asm__ ("x0") = addr;
-+	register long _val __asm__ ("x1") = val;
-+
-+	/* GCSSTTR x1, x0 */
-+	asm volatile(
-+		".inst 0xd91f1c01\n"
-+		:
-+		: "rZ" (_val), "r" (_addr)
-+		: "memory");
-+}
-+
-+static inline void gcsss1(u64 Xt)
-+{
-+	asm volatile (
-+		"sys #3, C7, C7, #2, %0\n"
-+		:
-+		: "rZ" (Xt)
-+		: "memory");
-+}
-+
-+static inline u64 gcsss2(void)
-+{
-+	u64 Xt;
-+
-+	asm volatile(
-+		"SYSL %0, #3, C7, C7, #3\n"
-+		: "=r" (Xt)
-+		:
-+		: "memory");
-+
-+	return Xt;
-+}
-+
-+#endif
 diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
-index 14be5000c5a0..22e10e79f56a 100644
+index 22e10e79f56a..e118c3d772c8 100644
 --- a/arch/arm64/include/asm/uaccess.h
 +++ b/arch/arm64/include/asm/uaccess.h
-@@ -425,4 +425,26 @@ static inline size_t probe_subpage_writeable(const char __user *uaddr,
+@@ -445,6 +445,24 @@ static inline int gcssttr(unsigned long __user *addr, unsigned long val)
+ 	return err;
+ }
  
- #endif /* CONFIG_ARCH_HAS_SUBPAGE_FAULTS */
- 
-+#ifdef CONFIG_ARM64_GCS
-+
-+static inline int gcssttr(unsigned long __user *addr, unsigned long val)
++static inline void put_user_gcs(unsigned long val, unsigned long __user *addr,
++				int *err)
 +{
-+	register unsigned long __user *_addr __asm__ ("x0") = addr;
-+	register unsigned long _val __asm__ ("x1") = val;
-+	int err = 0;
++	int ret;
 +
-+	/* GCSSTTR x1, x0 */
-+	asm volatile(
-+		"1: .inst 0xd91f1c01\n"
-+		"2: \n"
-+		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)
-+		: "+r" (err)
-+		: "rZ" (_val), "r" (_addr)
-+		: "memory");
++	if (!access_ok((char __user *)addr, sizeof(u64))) {
++		*err = -EFAULT;
++		return;
++	}
 +
-+	return err;
++	uaccess_ttbr0_enable();
++	ret = gcssttr(addr, val);
++	if (ret != 0)
++		*err = ret;
++	uaccess_ttbr0_disable();
 +}
 +
-+#endif /* CONFIG_ARM64_GCS */
 +
+ #endif /* CONFIG_ARM64_GCS */
+ 
  #endif /* __ASM_UACCESS_H */
 
 -- 
