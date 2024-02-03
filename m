@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B6FC4828D
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB6CDC4828F
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YuleKqXm4Oq4cM48TjNy0KJQqhyfySpXfpt5CGSCWhs=; b=qktHQmYbFTnc+F
-	EDaBaEQxeBhvXBGTdm+T8G+PGw7u3rrWbd7VF3/LHMtBT59aTclB/kRwWCmFqr6DrRsUkin2XocGB
-	31pnxbbvaxAT9LZhGBByXMPYx7UrWZ6U1iePKqq2KtFYorLnxuOwXYqsCt0RAydxG+DeyvUPD6bMa
-	uOIdUyFTWqK40Fi2qfrcwI94+t+qCcq0Lux8OQVmne7hMRoDbOdVVWVLnQXN1MDU015YRfozFbhId
-	FKpH6Zi3A5YInGLke4kPMbQ48+B3yJkaCLmbrkPQDDTmnvmVYOtfqkQRbaRXijtq+iqtagbxi11nP
-	oSR5sfWAwisf9v40qPnA==;
+	List-Owner; bh=4bGNL9B6QTweT/JDYX6/SivjkIL87CSnfi8Upf9QVzU=; b=bdNT54BtKw2JgK
+	eXMP5U61sqVpqYnyqNNc3KsakLODEbdEZwPO+TRLVBDNw4QgsqZscNRkSSk4fypeyY8aDj7lN7FIc
+	3g3bDe/7V1o8MKeYISEt2V4KtiLS/D0cdEVskj8LVhGnxfGgzoWhEQXsb2nwv/ckXfZbnHq7nvHrx
+	AICAv0qOJbuF1mvs/M4jJVLctEUV0c9UBfx7XABawoXv0Ofk0k6CyV2NnZZG3Etra59DRBlT43NM0
+	+SNUBFzeXVQ+ekyQQsqKh16uwD7pw6wMuNlhBzRgF9XJoCMhQfVt21YEygQjLg/mN+9mqFQ/cThG4
+	GffTF3drTnss/FA3sGbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFE2-0000000GLwB-0DhP;
-	Sat, 03 Feb 2024 12:34:26 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1rWFEC-0000000GM5f-2iSt;
+	Sat, 03 Feb 2024 12:34:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFDY-0000000GLTx-1sJI;
-	Sat, 03 Feb 2024 12:33:56 +0000
+	id 1rWFDb-0000000GLX5-3w2h;
+	Sat, 03 Feb 2024 12:34:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=m9MTMbeupzityFuUucbEDsCCpw6/7Byn1YGlEKu7xvc=; b=qRlgnBMRmmdmyG5iAR+H5vxgZy
-	SznThEImcxC+Y12W5aB8KyKCWlIAba9z4Auv7KsSQ6LhdJwPfeR6IUkruEDRNopVsxR1/3AFClg81
-	sPx9I8sDltKQCV3ey11NB1fUPz1fS6EPpiB57+vv8VIqlhkzQkprpYVYpjEB27HGtOvG/eouEJfGI
-	RZLfoqaAw5Nh7kLr+Zp5JMHJS1/iKtQJZUcFEy+QHNeN9j7VLK25uBI1EqOCnyDdcpyGSqDoJQfjK
-	Gfy6lsP4P6LtbgKt0YF6ZK8GlxVS/DW5xKONud8NCBB7Pk3xjdmEI2pYZnXrmM1yJ05ZON3djG0qi
-	XUOz+WEA==;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=alAj6nkG76GZw0L0FKsYPw7Csz/3CTz3yYYHsGvoS2Y=; b=T08P1DqposxPANwQ8ekSjJ17Ot
+	CA6AkTOa+I3XZTGpt07T5nnwy1KlfJDe7O7YH7EZneioVTI3QOCmutYULTDwQ7sxBL7x07774HkHz
+	8BfHfW/EekViT1ZkcMYBxru1/cRfDvQ34t4yoU1/Mk0ZWaiMX/02/fEKZoxe/HV2DJSmh0wPzE++x
+	7KHmTFe6wbaD2u+PYaAsvzItCeT58JpdhcmY8DT3/lmBxgwlO1FRgdr55kerZeqn+rxfkPUwRcL/z
+	3RdCFXGAPBw5Xw594IFGgZY/XY0ZcNwHf8sndpfU/V2t7+uWjA+wci436JY09AAdYENLSFZKknMyt
+	yg2N9OUQ==;
 Received: from dfw.source.kernel.org ([139.178.84.217])
-	by casper.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFDT-00000003qgK-3JSY;
-	Sat, 03 Feb 2024 12:33:55 +0000
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rWFD8-0000000Alic-3omR;
+	Sat, 03 Feb 2024 12:33:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4300F603E0;
-	Sat,  3 Feb 2024 12:33:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A940C433C7;
-	Sat,  3 Feb 2024 12:33:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ED40860A0B;
+	Sat,  3 Feb 2024 12:33:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DC0CC433F1;
+	Sat,  3 Feb 2024 12:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706963628;
-	bh=abP0OxQ39yBw88Uk/mZez3jim3UVxuH5Q3zwc7pr9ZE=;
+	s=k20201202; t=1706963607;
+	bh=D3xFplh+Bhjio+ExeWY8BT4LbRqycsYXKA0uNcRnZbA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KcEvtstng6Yv6LMO1Y0y2MuMyuTaVPBXWSGu3TjzDD/lKrnxvjSjL5FxGnQWVDYBP
-	 tSlGhP4EEEppcBMkZPSUo5scwpocVKO8QxahYCLJAhjiFMFBdeJ2OHOp1PAiW0QTfe
-	 nVpevBnSR29leggI/OI/kl/KtH+5SYvih0+DPAXP6yJ1gljVu2mWQFFREJFODVP+hV
-	 hInJvPWCdcGMGq4/a3cGTi4J+XK+AXM7ERU83ADsCNt9al1uelKR17SyPeWjZiWmgm
-	 +yZS7WcByyTVUMj6h71PtbvYFi/urqdutpLZm4IN9iaFd7Pi/a0qyy1TTKPsA3FpM6
-	 PkWugelAgzpCw==
+	b=tekMQukWgwV6FogTTbJFoYX97KInc7FBbbjFiuXdKl0xrhAGRxlsFB3NMKM2ko9xA
+	 jAjxRQ7RJVpwFx6L8dOptMknvdepEFYwe9EFmS40q5ywgIaPMy0cyZO/CuCHo81Y9g
+	 KA/uiUDOg9bqEQbhQBRuAYeciXD4/aBkbkJ7NfqYoMdIedl2TiQUlhnChv80srcs4C
+	 oKX/5UItJ2b58u7E12GnMKsNTz2Pbpjs8G6EEAR9icpgPRRYCdZ2d41TgK74HtmA19
+	 I4qyDAUePMr8jkkGtlRXF+sVlJe8Y4LlzAH797l6lB7yOTQulzXN9MxYRijw8Nr49Z
+	 Zbuh/8AqM9zcw==
 From: Mark Brown <broonie@kernel.org>
-Date: Sat, 03 Feb 2024 12:26:02 +0000
-Subject: [PATCH v8 36/38] kselftest/arm64: Add a GCS stress test
+Date: Sat, 03 Feb 2024 12:25:59 +0000
+Subject: [PATCH v8 33/38] kselftest/arm64: Add a GCS test program built
+ with the system libc
 MIME-Version: 1.0
-Message-Id: <20240203-arm64-gcs-v8-36-c9fec77673ef@kernel.org>
+Message-Id: <20240203-arm64-gcs-v8-33-c9fec77673ef@kernel.org>
 References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 In-Reply-To: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -83,20 +84,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-a684c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=21146; i=broonie@kernel.org;
- h=from:subject:message-id; bh=abP0OxQ39yBw88Uk/mZez3jim3UVxuH5Q3zwc7pr9ZE=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDtyrNyZQ55VaPTu7vstnlD+Qg7ntn5oVLklrA/
- iTlo9AWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w7QAKCRAk1otyXVSH0C60B/
- 9B+N9fAtIc8rM4bR1zVzPPUuTULn5DHPJzJ7ToQHNfE9g4tpf9G/wRs5DS0WyclGWu9SVML50OC9jQ
- tJ1nqaXLZC4WugY8+IpdOyeGB+rh1MaZrFup7SQLXnWFKVdq5OYiVbTqT3y4n/hiJnFCmGpE0z2T/j
- dz4Vsn3aU0Vx9QTCkOeyk37sQEvCkxGpWVV7zgBK1dhry80mt2UA3+CJDYk10AxQnXVNAzN1kCvd/E
- fCKIEXiLXN0OzS11DkRUzbE7is7BL/uAln4wjNI6iM7rZn1vkRZ4kV1yR6MLDihbvjbqqnj+mTe4lt
- cWNJ4wcQ9gzbxxLBU9TADvD6QmyfpV
+X-Developer-Signature: v=1; a=openpgp-sha256; l=21243; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=D3xFplh+Bhjio+ExeWY8BT4LbRqycsYXKA0uNcRnZbA=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDrBjsxieO4kMObCxRgmaUcEfJ9/uCRJy8LtnYS
+ D/6FBfeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w6wAKCRAk1otyXVSH0B/pB/
+ 4qLYUafmtmQYRo7okF0fOKX34wAEMvNLNvoyx20wgjqOOaej613l+zFhjioHDUi0qANPFxt9MIbv7L
+ b0QAZwpsQYnpcxjwjZwtfjWULiXnP0u2Rh+nOzJxCkbOXhvUaQcSYeq/dRWQ00TJvYNhiz7ZVRfEQ1
+ EFuZJ/5Z0Q8+VPxS8ZYaV3Q6mD6aOVkwFknvGlWcfJz/jOL+SY+Wv4zQ4KbPYPrxaXlfSPXM/nQ8gr
+ Qz+3HKuv9liXS+vl1TySrH+NtgJAMq2lcLmuh3nClfBKvro/EOqzLqOCJcDaOjjbjhQFOkmWS9XL2Q
+ e/4OJG8D0W6A3xHUCCvhgttpXFvhy/
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240203_123353_441590_46C7F492 
-X-CRM114-Status: GOOD (  27.17  )
+X-CRM114-CacheID: sfid-20240203_123335_372821_0629D85D 
+X-CRM114-Status: GOOD (  30.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,910 +114,803 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a stress test which runs one more process than we have CPUs spinning
-through a very recursive function with frequent syscalls immediately prior
-to return and signals being injected every 100ms. The goal is to flag up
-any scheduling related issues, for example failure to ensure that barriers
-are inserted when moving a GCS using task to another CPU. The test runs for
-a configurable amount of time, defaulting to 10 seconds.
+There are things like threads which nolibc struggles with which we want
+to add coverage for, and the ABI allows us to test most of these even if
+libc itself does not understand GCS so add a test application built
+using the system libc.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/gcs/.gitignore       |   2 +
- tools/testing/selftests/arm64/gcs/Makefile         |   6 +-
- tools/testing/selftests/arm64/gcs/asm-offsets.h    |   0
- .../selftests/arm64/gcs/gcs-stress-thread.S        | 311 ++++++++++++
- tools/testing/selftests/arm64/gcs/gcs-stress.c     | 532 +++++++++++++++++++++
- 5 files changed, 850 insertions(+), 1 deletion(-)
+ tools/testing/selftests/arm64/gcs/.gitignore |   1 +
+ tools/testing/selftests/arm64/gcs/Makefile   |   4 +-
+ tools/testing/selftests/arm64/gcs/gcs-util.h |  10 +
+ tools/testing/selftests/arm64/gcs/libc-gcs.c | 736 +++++++++++++++++++++++++++
+ 4 files changed, 750 insertions(+), 1 deletion(-)
 
 diff --git a/tools/testing/selftests/arm64/gcs/.gitignore b/tools/testing/selftests/arm64/gcs/.gitignore
-index 0c86f53f68ad..1e8d1f6b27f2 100644
+index 0e5e695ecba5..5810c4a163d4 100644
 --- a/tools/testing/selftests/arm64/gcs/.gitignore
 +++ b/tools/testing/selftests/arm64/gcs/.gitignore
-@@ -1,3 +1,5 @@
+@@ -1 +1,2 @@
  basic-gcs
- libc-gcs
- gcs-locking
-+gcs-stress
-+gcs-stress-thread
++libc-gcs
 diff --git a/tools/testing/selftests/arm64/gcs/Makefile b/tools/testing/selftests/arm64/gcs/Makefile
-index 2173d6275956..d8b06ca51e22 100644
+index 61a30f483429..a8fdf21e9a47 100644
 --- a/tools/testing/selftests/arm64/gcs/Makefile
 +++ b/tools/testing/selftests/arm64/gcs/Makefile
-@@ -6,7 +6,8 @@
+@@ -6,7 +6,9 @@
  # nolibc.
  #
  
--TEST_GEN_PROGS := basic-gcs libc-gcs gcs-locking
-+TEST_GEN_PROGS := basic-gcs libc-gcs gcs-locking gcs-stress
-+TEST_GEN_PROGS_EXTENDED := gcs-stress-thread
+-TEST_GEN_PROGS := basic-gcs
++TEST_GEN_PROGS := basic-gcs libc-gcs
++
++LDLIBS+=-lpthread
  
- LDLIBS+=-lpthread
+ include ../../lib.mk
  
-@@ -18,3 +19,6 @@ $(OUTPUT)/basic-gcs: basic-gcs.c
- 		-I../../../../../usr/include \
- 		-std=gnu99 -I../.. -g \
- 		-ffreestanding -Wall $^ -o $@ -lgcc
+diff --git a/tools/testing/selftests/arm64/gcs/gcs-util.h b/tools/testing/selftests/arm64/gcs/gcs-util.h
+index b37801c95604..4bafd1d7feb5 100644
+--- a/tools/testing/selftests/arm64/gcs/gcs-util.h
++++ b/tools/testing/selftests/arm64/gcs/gcs-util.h
+@@ -16,6 +16,16 @@
+ #define __NR_prctl 167
+ #endif
+ 
++#ifndef NT_ARM_GCS
++#define NT_ARM_GCS 0x40e
 +
-+$(OUTPUT)/gcs-stress-thread: gcs-stress-thread.S
-+	$(CC) -nostdlib $^ -o $@
-diff --git a/tools/testing/selftests/arm64/gcs/asm-offsets.h b/tools/testing/selftests/arm64/gcs/asm-offsets.h
++struct user_gcs {
++	__u64 features_enabled;
++	__u64 features_locked;
++	__u64 gcspr_el0;
++};
++#endif
++
+ /* Shadow Stack/Guarded Control Stack interface */
+ #define PR_GET_SHADOW_STACK_STATUS	71
+ #define PR_SET_SHADOW_STACK_STATUS      72
+diff --git a/tools/testing/selftests/arm64/gcs/libc-gcs.c b/tools/testing/selftests/arm64/gcs/libc-gcs.c
 new file mode 100644
-index 000000000000..e69de29bb2d1
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-stress-thread.S b/tools/testing/selftests/arm64/gcs/gcs-stress-thread.S
-new file mode 100644
-index 000000000000..2a08d6bf1ced
+index 000000000000..937f8bee7bdd
 --- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/gcs-stress-thread.S
-@@ -0,0 +1,311 @@
-+// Program that loops for ever doing lots of recursions and system calls,
-+// intended to be used as part of a stress test for GCS context switching.
-+//
-+// Copyright 2015-2023 Arm Ltd
-+
-+#include <asm/unistd.h>
-+
-+#define sa_sz 32
-+#define sa_flags 8
-+#define sa_handler 0
-+#define sa_mask_sz 8
-+
-+#define si_code 8
-+
-+#define SIGINT 2
-+#define SIGABRT 6
-+#define SIGUSR1 10
-+#define SIGSEGV 11
-+#define SIGUSR2 12
-+#define SIGTERM 15
-+#define SEGV_CPERR 10
-+
-+#define SA_NODEFER 1073741824
-+#define SA_SIGINFO 4
-+#define ucontext_regs 184
-+
-+#define PR_SET_SHADOW_STACK_STATUS      72
-+# define PR_SHADOW_STACK_ENABLE         (1UL << 0)
-+
-+#define	GCSPR_EL0 S3_3_C2_C5_1
-+
-+.macro function name
-+	.macro endfunction
-+		.type \name, @function
-+		.purgem endfunction
-+	.endm
-+\name:
-+.endm
-+
-+// Print a single character x0 to stdout
-+// Clobbers x0-x2,x8
-+function putc
-+	str	x0, [sp, #-16]!
-+
-+	mov	x0, #1			// STDOUT_FILENO
-+	mov	x1, sp
-+	mov	x2, #1
-+	mov	x8, #__NR_write
-+	svc	#0
-+
-+	add	sp, sp, #16
-+	ret
-+endfunction
-+.globl	putc
-+
-+// Print a NUL-terminated string starting at address x0 to stdout
-+// Clobbers x0-x3,x8
-+function puts
-+	mov	x1, x0
-+
-+	mov	x2, #0
-+0:	ldrb	w3, [x0], #1
-+	cbz	w3, 1f
-+	add	x2, x2, #1
-+	b	0b
-+
-+1:	mov	w0, #1			// STDOUT_FILENO
-+	mov	x8, #__NR_write
-+	svc	#0
-+
-+	ret
-+endfunction
-+.globl	puts
-+
-+// Utility macro to print a literal string
-+// Clobbers x0-x4,x8
-+.macro puts string
-+	.pushsection .rodata.str1.1, "aMS", @progbits, 1
-+.L__puts_literal\@: .string "\string"
-+	.popsection
-+
-+	ldr	x0, =.L__puts_literal\@
-+	bl	puts
-+.endm
-+
-+// Print an unsigned decimal number x0 to stdout
-+// Clobbers x0-x4,x8
-+function putdec
-+	mov	x1, sp
-+	str	x30, [sp, #-32]!	// Result can't be > 20 digits
-+
-+	mov	x2, #0
-+	strb	w2, [x1, #-1]!		// Write the NUL terminator
-+
-+	mov	x2, #10
-+0:	udiv	x3, x0, x2		// div-mod loop to generate the digits
-+	msub	x0, x3, x2, x0
-+	add	w0, w0, #'0'
-+	strb	w0, [x1, #-1]!
-+	mov	x0, x3
-+	cbnz	x3, 0b
-+
-+	ldrb	w0, [x1]
-+	cbnz	w0, 1f
-+	mov	w0, #'0'		// Print "0" for 0, not ""
-+	strb	w0, [x1, #-1]!
-+
-+1:	mov	x0, x1
-+	bl	puts
-+
-+	ldr	x30, [sp], #32
-+	ret
-+endfunction
-+.globl	putdec
-+
-+// Print an unsigned decimal number x0 to stdout, followed by a newline
-+// Clobbers x0-x5,x8
-+function putdecn
-+	mov	x5, x30
-+
-+	bl	putdec
-+	mov	x0, #'\n'
-+	bl	putc
-+
-+	ret	x5
-+endfunction
-+.globl	putdecn
-+
-+// Fill x1 bytes starting at x0 with 0.
-+// Clobbers x1, x2.
-+function memclr
-+	mov	w2, #0
-+endfunction
-+.globl	memclr
-+	// fall through to memfill
-+
-+// Trivial memory fill: fill x1 bytes starting at address x0 with byte w2
-+// Clobbers x1
-+function memfill
-+	cmp	x1, #0
-+	b.eq	1f
-+
-+0:	strb	w2, [x0], #1
-+	subs	x1, x1, #1
-+	b.ne	0b
-+
-+1:	ret
-+endfunction
-+.globl	memfill
-+
-+// w0: signal number
-+// x1: sa_action
-+// w2: sa_flags
-+// Clobbers x0-x6,x8
-+function setsignal
-+	str	x30, [sp, #-((sa_sz + 15) / 16 * 16 + 16)]!
-+
-+	mov	w4, w0
-+	mov	x5, x1
-+	mov	w6, w2
-+
-+	add	x0, sp, #16
-+	mov	x1, #sa_sz
-+	bl	memclr
-+
-+	mov	w0, w4
-+	add	x1, sp, #16
-+	str	w6, [x1, #sa_flags]
-+	str	x5, [x1, #sa_handler]
-+	mov	x2, #0
-+	mov	x3, #sa_mask_sz
-+	mov	x8, #__NR_rt_sigaction
-+	svc	#0
-+
-+	cbz	w0, 1f
-+
-+	puts	"sigaction failure\n"
-+	b	abort
-+
-+1:	ldr	x30, [sp], #((sa_sz + 15) / 16 * 16 + 16)
-+	ret
-+endfunction
-+
-+
-+function tickle_handler
-+	// Perhaps collect GCSPR_EL0 here in future?
-+	ret
-+endfunction
-+
-+function terminate_handler
-+	mov	w21, w0
-+	mov	x20, x2
-+
-+	puts	"Terminated by signal "
-+	mov	w0, w21
-+	bl	putdec
-+	puts	", no error\n"
-+
-+	mov	x0, #0
-+	mov	x8, #__NR_exit
-+	svc	#0
-+endfunction
-+
-+function segv_handler
-+	// stash the siginfo_t *
-+	mov	x20, x1
-+
-+	// Disable GCS, we don't want additional faults logging things
-+	mov	x0, PR_SET_SHADOW_STACK_STATUS
-+	mov	x1, xzr
-+	mov	x2, xzr
-+	mov	x3, xzr
-+	mov	x4, xzr
-+	mov	x5, xzr
-+	mov	x8, #__NR_prctl
-+	svc	#0
-+
-+	puts	"Got SIGSEGV code "
-+
-+	ldr	x21, [x20, #si_code]
-+	mov	x0, x21
-+	bl	putdec
-+
-+	// GCS faults should have si_code SEGV_CPERR
-+	cmp	x21, #SEGV_CPERR
-+	bne	1f
-+
-+	puts	" (GCS violation)"
-+1:
-+	mov	x0, '\n'
-+	bl	putc
-+	b	abort
-+endfunction
-+
-+// Recurse x20 times
-+.macro recurse id
-+function recurse\id
-+	stp	x29, x30, [sp, #-16]!
-+	mov	x29, sp
-+
-+	cmp	x20, 0
-+	beq	1f
-+	sub	x20, x20, 1
-+	bl	recurse\id
-+
-+1:
-+	ldp	x29, x30, [sp], #16
-+
-+	// Do a syscall immediately prior to returning to try to provoke
-+	// scheduling and migration at a point where coherency issues
-+	// might trigger.
-+	mov	x8, #__NR_getpid
-+	svc	#0
-+
-+	ret
-+endfunction
-+.endm
-+
-+// Generate and use two copies so we're changing the GCS contents
-+recurse 1
-+recurse 2
-+
-+.globl _start
-+function _start
-+	// Run with GCS
-+	mov	x0, PR_SET_SHADOW_STACK_STATUS
-+	mov	x1, PR_SHADOW_STACK_ENABLE
-+	mov	x2, xzr
-+	mov	x3, xzr
-+	mov	x4, xzr
-+	mov	x5, xzr
-+	mov	x8, #__NR_prctl
-+	svc	#0
-+	cbz	x0, 1f
-+	puts	"Failed to enable GCS\n"
-+	b	abort
-+1:
-+
-+	mov	w0, #SIGTERM
-+	adr	x1, terminate_handler
-+	mov	w2, #SA_SIGINFO
-+	bl	setsignal
-+
-+	mov	w0, #SIGUSR1
-+	adr	x1, tickle_handler
-+	mov	w2, #SA_SIGINFO
-+	orr	w2, w2, #SA_NODEFER
-+	bl	setsignal
-+
-+	mov	w0, #SIGSEGV
-+	adr	x1, segv_handler
-+	mov	w2, #SA_SIGINFO
-+	orr	w2, w2, #SA_NODEFER
-+	bl	setsignal
-+
-+	puts	"Running\n"
-+
-+loop:
-+	// Small recursion depth so we're frequently flipping between
-+	// the two recursors and changing what's on the stack
-+	mov	x20, #5
-+	bl	recurse1
-+	mov	x20, #5
-+	bl	recurse2
-+	b	loop
-+endfunction
-+
-+abort:
-+	mov	x0, #255
-+	mov	x8, #__NR_exit
-+	svc	#0
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-stress.c b/tools/testing/selftests/arm64/gcs/gcs-stress.c
-new file mode 100644
-index 000000000000..23fd8ec37bdc
---- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/gcs-stress.c
-@@ -0,0 +1,532 @@
++++ b/tools/testing/selftests/arm64/gcs/libc-gcs.c
+@@ -0,0 +1,736 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Copyright (C) 2022-3 ARM Limited.
++ * Copyright (C) 2023 ARM Limited.
 + */
 +
 +#define _GNU_SOURCE
-+#define _POSIX_C_SOURCE 199309L
 +
-+#include <errno.h>
-+#include <getopt.h>
-+#include <poll.h>
-+#include <signal.h>
++#include <pthread.h>
 +#include <stdbool.h>
-+#include <stddef.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <unistd.h>
++
 +#include <sys/auxv.h>
-+#include <sys/epoll.h>
++#include <sys/mman.h>
 +#include <sys/prctl.h>
-+#include <sys/types.h>
++#include <sys/ptrace.h>
 +#include <sys/uio.h>
-+#include <sys/wait.h>
++
 +#include <asm/hwcap.h>
++#include <asm/mman.h>
 +
-+#include "../../kselftest.h"
++#include <linux/compiler.h>
 +
-+struct child_data {
-+	char *name, *output;
-+	pid_t pid;
-+	int stdout;
-+	bool output_seen;
-+	bool exited;
-+	int exit_status;
-+	int exit_signal;
-+};
++#include "kselftest_harness.h"
 +
-+static int epoll_fd;
-+static struct child_data *children;
-+static struct epoll_event *evs;
-+static int tests;
-+static int num_children;
-+static bool terminate;
++#include "gcs-util.h"
 +
-+static int startup_pipe[2];
++#define my_syscall2(num, arg1, arg2)                                          \
++({                                                                            \
++	register long _num  __asm__ ("x8") = (num);                           \
++	register long _arg1 __asm__ ("x0") = (long)(arg1);                    \
++	register long _arg2 __asm__ ("x1") = (long)(arg2);                    \
++	register long _arg3 __asm__ ("x2") = 0;                               \
++	register long _arg4 __asm__ ("x3") = 0;                               \
++	register long _arg5 __asm__ ("x4") = 0;                               \
++	                                                                      \
++	__asm__  volatile (                                                   \
++		"svc #0\n"                                                    \
++		: "=r"(_arg1)                                                 \
++		: "r"(_arg1), "r"(_arg2),                                     \
++		  "r"(_arg3), "r"(_arg4),                                     \
++		  "r"(_arg5), "r"(_num)					      \
++		: "memory", "cc"                                              \
++	);                                                                    \
++	_arg1;                                                                \
++})
 +
-+static int num_processors(void)
++static noinline void gcs_recurse(int depth)
 +{
-+	long nproc = sysconf(_SC_NPROCESSORS_CONF);
-+	if (nproc < 0) {
-+		perror("Unable to read number of processors\n");
-+		exit(EXIT_FAILURE);
-+	}
++	if (depth)
++		gcs_recurse(depth - 1);
 +
-+	return nproc;
++	/* Prevent tail call optimization so we actually recurse */
++	asm volatile("dsb sy" : : : "memory");
 +}
 +
-+static void start_thread(struct child_data *child)
++/* Smoke test that a function call and return works*/
++TEST(can_call_function)
 +{
-+	int ret, pipefd[2], i;
-+	struct epoll_event ev;
-+
-+	ret = pipe(pipefd);
-+	if (ret != 0)
-+		ksft_exit_fail_msg("Failed to create stdout pipe: %s (%d)\n",
-+				   strerror(errno), errno);
-+
-+	child->pid = fork();
-+	if (child->pid == -1)
-+		ksft_exit_fail_msg("fork() failed: %s (%d)\n",
-+				   strerror(errno), errno);
-+
-+	if (!child->pid) {
-+		/*
-+		 * In child, replace stdout with the pipe, errors to
-+		 * stderr from here as kselftest prints to stdout.
-+		 */
-+		ret = dup2(pipefd[1], 1);
-+		if (ret == -1) {
-+			fprintf(stderr, "dup2() %d\n", errno);
-+			exit(EXIT_FAILURE);
-+		}
-+
-+		/*
-+		 * Duplicate the read side of the startup pipe to
-+		 * FD 3 so we can close everything else.
-+		 */
-+		ret = dup2(startup_pipe[0], 3);
-+		if (ret == -1) {
-+			fprintf(stderr, "dup2() %d\n", errno);
-+			exit(EXIT_FAILURE);
-+		}
-+
-+		/*
-+		 * Very dumb mechanism to clean open FDs other than
-+		 * stdio. We don't want O_CLOEXEC for the pipes...
-+		 */
-+		for (i = 4; i < 8192; i++)
-+			close(i);
-+
-+		/*
-+		 * Read from the startup pipe, there should be no data
-+		 * and we should block until it is closed.  We just
-+		 * carry on on error since this isn't super critical.
-+		 */
-+		ret = read(3, &i, sizeof(i));
-+		if (ret < 0)
-+			fprintf(stderr, "read(startp pipe) failed: %s (%d)\n",
-+				strerror(errno), errno);
-+		if (ret > 0)
-+			fprintf(stderr, "%d bytes of data on startup pipe\n",
-+				ret);
-+		close(3);
-+
-+		ret = execl("gcs-stress-thread", "gcs-stress-thread", NULL);
-+		fprintf(stderr, "execl(gcs-stress-thread) failed: %d (%s)\n",
-+			errno, strerror(errno));
-+
-+		exit(EXIT_FAILURE);
-+	} else {
-+		/*
-+		 * In parent, remember the child and close our copy of the
-+		 * write side of stdout.
-+		 */
-+		close(pipefd[1]);
-+		child->stdout = pipefd[0];
-+		child->output = NULL;
-+		child->exited = false;
-+		child->output_seen = false;
-+
-+		ev.events = EPOLLIN | EPOLLHUP;
-+		ev.data.ptr = child;
-+
-+		ret = asprintf(&child->name, "Thread-%d", child->pid);
-+		if (ret == -1)
-+			ksft_exit_fail_msg("asprintf() failed\n");
-+
-+		ret = epoll_ctl(epoll_fd, EPOLL_CTL_ADD, child->stdout, &ev);
-+		if (ret < 0) {
-+			ksft_exit_fail_msg("%s EPOLL_CTL_ADD failed: %s (%d)\n",
-+					   child->name, strerror(errno), errno);
-+		}
-+	}
-+
-+	ksft_print_msg("Started %s\n", child->name);
-+	num_children++;
++	gcs_recurse(0);
 +}
 +
-+static bool child_output_read(struct child_data *child)
++static void *gcs_test_thread(void *arg)
 +{
-+	char read_data[1024];
-+	char work[1024];
-+	int ret, len, cur_work, cur_read;
-+
-+	ret = read(child->stdout, read_data, sizeof(read_data));
-+	if (ret < 0) {
-+		if (errno == EINTR)
-+			return true;
-+
-+		ksft_print_msg("%s: read() failed: %s (%d)\n",
-+			       child->name, strerror(errno),
-+			       errno);
-+		return false;
-+	}
-+	len = ret;
-+
-+	child->output_seen = true;
-+
-+	/* Pick up any partial read */
-+	if (child->output) {
-+		strncpy(work, child->output, sizeof(work) - 1);
-+		cur_work = strnlen(work, sizeof(work));
-+		free(child->output);
-+		child->output = NULL;
-+	} else {
-+		cur_work = 0;
-+	}
-+
-+	cur_read = 0;
-+	while (cur_read < len) {
-+		work[cur_work] = read_data[cur_read++];
-+
-+		if (work[cur_work] == '\n') {
-+			work[cur_work] = '\0';
-+			ksft_print_msg("%s: %s\n", child->name, work);
-+			cur_work = 0;
-+		} else {
-+			cur_work++;
-+		}
-+	}
-+
-+	if (cur_work) {
-+		work[cur_work] = '\0';
-+		ret = asprintf(&child->output, "%s", work);
-+		if (ret == -1)
-+			ksft_exit_fail_msg("Out of memory\n");
-+	}
-+
-+	return false;
-+}
-+
-+static void child_output(struct child_data *child, uint32_t events,
-+			 bool flush)
-+{
-+	bool read_more;
-+
-+	if (events & EPOLLIN) {
-+		do {
-+			read_more = child_output_read(child);
-+		} while (read_more);
-+	}
-+
-+	if (events & EPOLLHUP) {
-+		close(child->stdout);
-+		child->stdout = -1;
-+		flush = true;
-+	}
-+
-+	if (flush && child->output) {
-+		ksft_print_msg("%s: %s<EOF>\n", child->name, child->output);
-+		free(child->output);
-+		child->output = NULL;
-+	}
-+}
-+
-+static void child_tickle(struct child_data *child)
-+{
-+	if (child->output_seen && !child->exited)
-+		kill(child->pid, SIGUSR1);
-+}
-+
-+static void child_stop(struct child_data *child)
-+{
-+	if (!child->exited)
-+		kill(child->pid, SIGTERM);
-+}
-+
-+static void child_cleanup(struct child_data *child)
-+{
-+	pid_t ret;
-+	int status;
-+	bool fail = false;
-+
-+	if (!child->exited) {
-+		do {
-+			ret = waitpid(child->pid, &status, 0);
-+			if (ret == -1 && errno == EINTR)
-+				continue;
-+
-+			if (ret == -1) {
-+				ksft_print_msg("waitpid(%d) failed: %s (%d)\n",
-+					       child->pid, strerror(errno),
-+					       errno);
-+				fail = true;
-+				break;
-+			}
-+
-+			if (WIFEXITED(status)) {
-+				child->exit_status = WEXITSTATUS(status);
-+				child->exited = true;
-+			}
-+
-+			if (WIFSIGNALED(status)) {
-+				child->exit_signal = WTERMSIG(status);
-+				ksft_print_msg("%s: Exited due to signal %d\n",
-+					       child->name);
-+				fail = true;
-+				child->exited = true;
-+			}
-+		} while (!child->exited);
-+	}
-+
-+	if (!child->output_seen) {
-+		ksft_print_msg("%s no output seen\n", child->name);
-+		fail = true;
-+	}
-+
-+	if (child->exit_status != 0) {
-+		ksft_print_msg("%s exited with error code %d\n",
-+			       child->name, child->exit_status);
-+		fail = true;
-+	}
-+
-+	ksft_test_result(!fail, "%s\n", child->name);
-+}
-+
-+static void handle_child_signal(int sig, siginfo_t *info, void *context)
-+{
-+	int i;
-+	bool found = false;
-+
-+	for (i = 0; i < num_children; i++) {
-+		if (children[i].pid == info->si_pid) {
-+			children[i].exited = true;
-+			children[i].exit_status = info->si_status;
-+			found = true;
-+			break;
-+		}
-+	}
-+
-+	if (!found)
-+		ksft_print_msg("SIGCHLD for unknown PID %d with status %d\n",
-+			       info->si_pid, info->si_status);
-+}
-+
-+static void handle_exit_signal(int sig, siginfo_t *info, void *context)
-+{
-+	int i;
-+
-+	/* If we're already exiting then don't signal again */
-+	if (terminate)
-+		return;
-+
-+	ksft_print_msg("Got signal, exiting...\n");
-+
-+	terminate = true;
++	int ret;
++	unsigned long mode;
 +
 +	/*
-+	 * This should be redundant, the main loop should clean up
-+	 * after us, but for safety stop everything we can here.
++	 * Some libcs don't seem to fill unused arguments with 0 but
++	 * the kernel validates this so we supply all 5 arguments.
 +	 */
-+	for (i = 0; i < num_children; i++)
-+		child_stop(&children[i]);
++	ret = prctl(PR_GET_SHADOW_STACK_STATUS, &mode, 0, 0, 0);
++	if (ret != 0) {
++		ksft_print_msg("PR_GET_SHADOW_STACK_STATUS failed: %d\n", ret);
++		return NULL;
++	}
++
++	if (!(mode & PR_SHADOW_STACK_ENABLE)) {
++		ksft_print_msg("GCS not enabled in thread, mode is %u\n",
++			       mode);
++		return NULL;
++	}
++
++	/* Just in case... */
++	gcs_recurse(0);
++
++	/* Use a non-NULL value to indicate a pass */
++	return &gcs_test_thread;
 +}
 +
-+/* Handle any pending output without blocking */
-+static void drain_output(bool flush)
++/* Verify that if we start a new thread it has GCS enabled */
++TEST(gcs_enabled_thread)
 +{
-+	int ret = 1;
-+	int i;
++	pthread_t thread;
++	void *thread_ret;
++	int ret;
 +
-+	while (ret > 0) {
-+		ret = epoll_wait(epoll_fd, evs, tests, 0);
-+		if (ret < 0) {
-+			if (errno == EINTR)
-+				continue;
-+			ksft_print_msg("epoll_wait() failed: %s (%d)\n",
-+				       strerror(errno), errno);
++	ret = pthread_create(&thread, NULL, gcs_test_thread, NULL);
++	ASSERT_TRUE(ret == 0);
++	if (ret != 0)
++		return;
++
++	ret = pthread_join(thread, &thread_ret);
++	ASSERT_TRUE(ret == 0);
++	if (ret != 0)
++		return;
++
++	ASSERT_TRUE(thread_ret != NULL);
++}
++
++/* Read the GCS until we find the terminator */
++TEST(gcs_find_terminator)
++{
++	unsigned long *gcs, *cur;
++
++	gcs = get_gcspr();
++	cur = gcs;
++	while (*cur)
++		cur++;
++
++	ksft_print_msg("GCS in use from %p-%p\n", gcs, cur);
++
++	/*
++	 * We should have at least whatever called into this test so
++	 * the two pointer should differ.
++	 */
++	ASSERT_TRUE(gcs != cur);
++}
++
++/*
++ * We can access a GCS via ptrace
++ *
++ * This could usefully have a fixture but note that each test is
++ * fork()ed into a new child whcih causes issues.  Might be better to
++ * lift at least some of this out into a separate, non-harness, test
++ * program.
++ */
++TEST(ptrace_read_write)
++{
++	pid_t child, pid;
++	int ret, status;
++	siginfo_t si;
++	uint64_t val, rval, gcspr;
++	struct user_gcs child_gcs;
++	struct iovec iov, local_iov, remote_iov;
++
++	child = fork();
++	if (child == -1) {
++		ksft_print_msg("fork() failed: %d (%s)\n",
++			       errno, strerror(errno));
++		ASSERT_NE(child, -1);
++	}
++
++	if (child == 0) {
++		/*
++		 * In child, make sure there's something on the stack and
++		 * ask to be traced.
++		 */
++		gcs_recurse(0);
++		if (ptrace(PTRACE_TRACEME, -1, NULL, NULL))
++			ksft_exit_fail_msg("PTRACE_TRACEME", strerror(errno));
++
++		if (raise(SIGSTOP))
++			ksft_exit_fail_msg("raise(SIGSTOP)", strerror(errno));
++
++		return;
++	}
++
++	ksft_print_msg("Child: %d\n", child);
++
++	/* Attach to the child */
++	while (1) {
++		int sig;
++
++		pid = wait(&status);
++		if (pid == -1) {
++			ksft_print_msg("wait() failed: %s",
++				       strerror(errno));
++			goto error;
 +		}
 +
-+		for (i = 0; i < ret; i++)
-+			child_output(evs[i].data.ptr, evs[i].events, flush);
++		/*
++		 * This should never happen but it's hard to flag in
++		 * the framework.
++		 */
++		if (pid != child)
++			continue;
++
++		if (WIFEXITED(status) || WIFSIGNALED(status))
++			ksft_exit_fail_msg("Child died unexpectedly\n");
++
++		if (!WIFSTOPPED(status))
++			goto error;
++
++		sig = WSTOPSIG(status);
++
++		if (ptrace(PTRACE_GETSIGINFO, pid, NULL, &si)) {
++			if (errno == ESRCH) {
++				ASSERT_NE(errno, ESRCH);
++				return;
++			}
++
++			if (errno == EINVAL) {
++				sig = 0; /* bust group-stop */
++				goto cont;
++			}
++
++			ksft_print_msg("PTRACE_GETSIGINFO: %s\n",
++				       strerror(errno));
++			goto error;
++		}
++
++		if (sig == SIGSTOP && si.si_code == SI_TKILL &&
++		    si.si_pid == pid)
++			break;
++
++	cont:
++		if (ptrace(PTRACE_CONT, pid, NULL, sig)) {
++			if (errno == ESRCH) {
++				ASSERT_NE(errno, ESRCH);
++				return;
++			}
++
++			ksft_print_msg("PTRACE_CONT: %s\n", strerror(errno));
++			goto error;
++		}
++	}
++
++	/* Where is the child GCS? */
++	iov.iov_base = &child_gcs;
++	iov.iov_len = sizeof(child_gcs);
++	ret = ptrace(PTRACE_GETREGSET, child, NT_ARM_GCS, &iov);
++	if (ret != 0) {
++		ksft_print_msg("Failed to read child GCS state: %s (%d)\n",
++			       strerror(errno), errno);
++		goto error;
++	}
++
++	/* We should have inherited GCS over fork(), confirm */
++	if (!(child_gcs.features_enabled & PR_SHADOW_STACK_ENABLE)) {
++		ASSERT_TRUE(child_gcs.features_enabled &
++			    PR_SHADOW_STACK_ENABLE);
++		goto error;
++	}
++
++	gcspr = child_gcs.gcspr_el0;
++	ksft_print_msg("Child GCSPR 0x%lx, flags %x, locked %x\n",
++		       gcspr, child_gcs.features_enabled,
++		       child_gcs.features_locked);
++
++	/* Ideally we'd cross check with the child memory map */
++
++	errno = 0;
++	val = ptrace(PTRACE_PEEKDATA, child, (void *)gcspr, NULL);
++	ret = errno;
++	if (ret != 0)
++		ksft_print_msg("PTRACE_PEEKDATA failed: %s (%d)\n",
++			       strerror(ret), ret);
++	EXPECT_EQ(ret, 0);
++
++	/* The child should be in a function, the GCSPR shouldn't be 0 */
++	EXPECT_NE(val, 0);
++
++	/* Same thing via process_vm_readv() */
++	local_iov.iov_base = &rval;
++	local_iov.iov_len = sizeof(rval);
++	remote_iov.iov_base = (void *)gcspr;
++	remote_iov.iov_len = sizeof(rval);
++	ret = process_vm_readv(child, &local_iov, 1, &remote_iov, 1, 0);
++	if (ret == -1)
++		ksft_print_msg("process_vm_readv() failed: %s (%d)\n",
++			       strerror(errno), errno);
++	EXPECT_EQ(ret, sizeof(rval));
++	EXPECT_EQ(val, rval);
++
++	/* Write data via a peek */
++	ret = ptrace(PTRACE_POKEDATA, child, (void *)gcspr, NULL);
++	if (ret == -1)
++		ksft_print_msg("PTRACE_POKEDATA failed: %s (%d)\n",
++			       strerror(errno), errno);
++	EXPECT_EQ(ret, 0);
++	EXPECT_EQ(0, ptrace(PTRACE_PEEKDATA, child, (void *)gcspr, NULL));
++
++	/* Restore what we had before */
++	ret = ptrace(PTRACE_POKEDATA, child, (void *)gcspr, val);
++	if (ret == -1)
++		ksft_print_msg("PTRACE_POKEDATA failed: %s (%d)\n",
++			       strerror(errno), errno);
++	EXPECT_EQ(ret, 0);
++	EXPECT_EQ(val, ptrace(PTRACE_PEEKDATA, child, (void *)gcspr, NULL));
++
++	/* That's all, folks */
++	kill(child, SIGKILL);
++	return;
++
++error:
++	kill(child, SIGKILL);
++	ASSERT_FALSE(true);
++}
++
++FIXTURE(map_gcs)
++{
++	unsigned long *stack;
++};
++
++FIXTURE_VARIANT(map_gcs)
++{
++	size_t stack_size;
++	unsigned long flags;
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s2k_cap_marker)
++{
++	.stack_size = 2 * 1024,
++	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s2k_cap)
++{
++	.stack_size = 2 * 1024,
++	.flags = SHADOW_STACK_SET_TOKEN,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s2k_marker)
++{
++	.stack_size = 2 * 1024,
++	.flags = SHADOW_STACK_SET_MARKER,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s2k)
++{
++	.stack_size = 2 * 1024,
++	.flags = 0,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s4k_cap_marker)
++{
++	.stack_size = 4 * 1024,
++	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s4k_cap)
++{
++	.stack_size = 4 * 1024,
++	.flags = SHADOW_STACK_SET_TOKEN,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s3k_marker)
++{
++	.stack_size = 4 * 1024,
++	.flags = SHADOW_STACK_SET_MARKER,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s4k)
++{
++	.stack_size = 4 * 1024,
++	.flags = 0,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s16k_cap_marker)
++{
++	.stack_size = 16 * 1024,
++	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s16k_cap)
++{
++	.stack_size = 16 * 1024,
++	.flags = SHADOW_STACK_SET_TOKEN,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s16k_marker)
++{
++	.stack_size = 16 * 1024,
++	.flags = SHADOW_STACK_SET_MARKER,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s16k)
++{
++	.stack_size = 16 * 1024,
++	.flags = 0,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s64k_cap_marker)
++{
++	.stack_size = 64 * 1024,
++	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s64k_cap)
++{
++	.stack_size = 64 * 1024,
++	.flags = SHADOW_STACK_SET_TOKEN,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s64k_marker)
++{
++	.stack_size = 64 * 1024,
++	.flags = SHADOW_STACK_SET_MARKER,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s64k)
++{
++	.stack_size = 64 * 1024,
++	.flags = 0,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s128k_cap_marker)
++{
++	.stack_size = 128 * 1024,
++	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s128k_cap)
++{
++	.stack_size = 128 * 1024,
++	.flags = SHADOW_STACK_SET_TOKEN,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s128k_marker)
++{
++	.stack_size = 128 * 1024,
++	.flags = SHADOW_STACK_SET_MARKER,
++};
++
++FIXTURE_VARIANT_ADD(map_gcs, s128k)
++{
++	.stack_size = 128 * 1024,
++	.flags = 0,
++};
++
++FIXTURE_SETUP(map_gcs)
++{
++	self->stack = (void *)syscall(__NR_map_shadow_stack, 0,
++				      variant->stack_size, 
++				      variant->flags);
++	ASSERT_FALSE(self->stack == MAP_FAILED);
++	ksft_print_msg("Allocated stack from %p-%p\n", self->stack,
++		       (unsigned long)self->stack + variant->stack_size);
++}
++
++FIXTURE_TEARDOWN(map_gcs)
++{
++	int ret;
++
++	if (self->stack != MAP_FAILED) {
++		ret = munmap(self->stack, variant->stack_size);
++		ASSERT_EQ(ret, 0);
 +	}
 +}
 +
-+static const struct option options[] = {
-+	{ "timeout",	required_argument, NULL, 't' },
-+	{ }
++/* The stack has a cap token */
++TEST_F(map_gcs, stack_capped)
++{
++	unsigned long *stack = self->stack;
++	size_t cap_index;
++
++	cap_index = (variant->stack_size / sizeof(unsigned long));
++
++	switch (variant->flags & (SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN)) {
++	case SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN:
++		cap_index -= 2;
++		break;
++	case SHADOW_STACK_SET_TOKEN:
++		cap_index -= 1;
++		break;
++	case SHADOW_STACK_SET_MARKER:
++	case 0:
++		/* No cap, no test */
++		return;
++	}
++
++	ASSERT_EQ(stack[cap_index], GCS_CAP(&stack[cap_index]));
++}
++
++/* The top of the stack is 0 */
++TEST_F(map_gcs, stack_terminated)
++{
++	unsigned long *stack = self->stack;
++	size_t term_index;
++
++	if (!(variant->flags & SHADOW_STACK_SET_MARKER))
++		return;
++
++	term_index = (variant->stack_size / sizeof(unsigned long)) - 1;
++
++	ASSERT_EQ(stack[term_index], 0);
++}
++
++/* Writes should fault */
++TEST_F_SIGNAL(map_gcs, not_writeable, SIGSEGV)
++{
++	self->stack[0] = 0;
++}
++
++/* Put it all together, we can safely switch to and from the stack */
++TEST_F(map_gcs, stack_switch)
++{
++	size_t cap_index;
++	cap_index = (variant->stack_size / sizeof(unsigned long));
++	unsigned long *orig_gcspr_el0, *pivot_gcspr_el0;
++
++	/* Skip over the stack terminator and point at the cap */
++	switch (variant->flags & (SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN)) {
++	case SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN:
++		cap_index -= 2;
++		break;
++	case SHADOW_STACK_SET_TOKEN:
++		cap_index -= 1;
++		break;
++	case SHADOW_STACK_SET_MARKER:
++	case 0:
++		/* No cap, no test */
++		return;
++	}
++	pivot_gcspr_el0 = &self->stack[cap_index];
++
++	/* Pivot to the new GCS */
++	ksft_print_msg("Pivoting to %p from %p, target has value 0x%lx\n",
++		       pivot_gcspr_el0, get_gcspr(),
++		       *pivot_gcspr_el0);
++	gcsss1(pivot_gcspr_el0);
++	orig_gcspr_el0 = gcsss2();
++	ksft_print_msg("Pivoted to %p from %p, target has value 0x%lx\n",
++		       get_gcspr(), orig_gcspr_el0,
++		       *pivot_gcspr_el0);
++
++	ksft_print_msg("Pivoted, GCSPR_EL0 now %p\n", get_gcspr());
++
++	/* New GCS must be in the new buffer */
++	ASSERT_TRUE((unsigned long)get_gcspr() > (unsigned long)self->stack);
++	ASSERT_TRUE((unsigned long)get_gcspr() <=
++		    (unsigned long)self->stack + variant->stack_size);
++
++	/* We should be able to use all but 2 slots of the new stack */
++	ksft_print_msg("Recursing %d levels\n", cap_index - 1);
++	gcs_recurse(cap_index - 1);
++
++	/* Pivot back to the original GCS */
++	gcsss1(orig_gcspr_el0);
++	pivot_gcspr_el0 = gcsss2();
++
++	gcs_recurse(0);
++	ksft_print_msg("Pivoted back to GCSPR_EL0 0x%lx\n", get_gcspr());
++}
++
++/* We fault if we try to go beyond the end of the stack */
++TEST_F_SIGNAL(map_gcs, stack_overflow, SIGSEGV)
++{
++	size_t cap_index;
++	cap_index = (variant->stack_size / sizeof(unsigned long));
++	unsigned long *orig_gcspr_el0, *pivot_gcspr_el0;
++
++	/* Skip over the stack terminator and point at the cap */
++	switch (variant->flags & (SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN)) {
++	case SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN:
++		cap_index -= 2;
++		break;
++	case SHADOW_STACK_SET_TOKEN:
++		cap_index -= 1;
++		break;
++	case SHADOW_STACK_SET_MARKER:
++	case 0:
++		/* No cap, no test but we need to SEGV to avoid a false fail */
++		orig_gcspr_el0 = get_gcspr();
++		*orig_gcspr_el0 = 0;
++		return;
++	}
++	pivot_gcspr_el0 = &self->stack[cap_index];
++
++	/* Pivot to the new GCS */
++	ksft_print_msg("Pivoting to %p from %p, target has value 0x%lx\n",
++		       pivot_gcspr_el0, get_gcspr(),
++		       *pivot_gcspr_el0);
++	gcsss1(pivot_gcspr_el0);
++	orig_gcspr_el0 = gcsss2();
++	ksft_print_msg("Pivoted to %p from %p, target has value 0x%lx\n",
++		       pivot_gcspr_el0, orig_gcspr_el0,
++		       *pivot_gcspr_el0);
++
++	ksft_print_msg("Pivoted, GCSPR_EL0 now %p\n", get_gcspr());
++
++	/* New GCS must be in the new buffer */
++	ASSERT_TRUE((unsigned long)get_gcspr() > (unsigned long)self->stack);
++	ASSERT_TRUE((unsigned long)get_gcspr() <=
++		    (unsigned long)self->stack + variant->stack_size);
++
++	/* Now try to recurse, we should fault doing this. */
++	ksft_print_msg("Recursing %d levels...\n", cap_index + 1);
++	gcs_recurse(cap_index + 1);
++	ksft_print_msg("...done\n");
++
++	/* Clean up properly to try to guard against spurious passes. */
++	gcsss1(orig_gcspr_el0);
++	pivot_gcspr_el0 = gcsss2();
++	ksft_print_msg("Pivoted back to GCSPR_EL0 0x%lx\n", get_gcspr());
++}
++
++FIXTURE(map_invalid_gcs)
++{
 +};
++
++FIXTURE_VARIANT(map_invalid_gcs)
++{
++	size_t stack_size;
++};
++
++FIXTURE_SETUP(map_invalid_gcs)
++{
++}
++
++FIXTURE_TEARDOWN(map_invalid_gcs)
++{
++}
++
++/* GCS must be larger than 16 bytes */
++FIXTURE_VARIANT_ADD(map_invalid_gcs, too_small)
++{
++	.stack_size = 8,
++};
++
++/* GCS size must be 16 byte aligned */
++FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_1)  { .stack_size = 1024 + 1  };
++FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_2)  { .stack_size = 1024 + 2  };
++FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_3)  { .stack_size = 1024 + 3  };
++FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_4)  { .stack_size = 1024 + 4  };
++FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_5)  { .stack_size = 1024 + 5  };
++FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_6)  { .stack_size = 1024 + 6  };
++FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_7)  { .stack_size = 1024 + 7  };
++
++TEST_F(map_invalid_gcs, do_map)
++{
++	void *stack;
++
++	stack = (void *)syscall(__NR_map_shadow_stack, 0,
++				variant->stack_size, 0);
++	ASSERT_TRUE(stack == MAP_FAILED);
++	if (stack != MAP_FAILED)
++		munmap(stack, variant->stack_size);
++}
++
++FIXTURE(invalid_mprotect)
++{
++	unsigned long *stack;
++	size_t stack_size;
++};
++
++FIXTURE_VARIANT(invalid_mprotect)
++{
++	unsigned long flags;
++};
++
++FIXTURE_SETUP(invalid_mprotect)
++{
++	self->stack_size = sysconf(_SC_PAGE_SIZE);
++	self->stack = (void *)syscall(__NR_map_shadow_stack, 0,
++				      self->stack_size, 0);
++	ASSERT_FALSE(self->stack == MAP_FAILED);
++	ksft_print_msg("Allocated stack from %p-%p\n", self->stack,
++		       (unsigned long)self->stack + self->stack_size);
++}
++
++FIXTURE_TEARDOWN(invalid_mprotect)
++{
++	int ret;
++
++	if (self->stack != MAP_FAILED) {
++		ret = munmap(self->stack, self->stack_size);
++		ASSERT_EQ(ret, 0);
++	}
++}
++
++FIXTURE_VARIANT_ADD(invalid_mprotect, exec)
++{
++	.flags = PROT_EXEC,
++};
++
++FIXTURE_VARIANT_ADD(invalid_mprotect, bti)
++{
++	.flags = PROT_BTI,
++};
++
++FIXTURE_VARIANT_ADD(invalid_mprotect, exec_bti)
++{
++	.flags = PROT_EXEC | PROT_BTI,
++};
++
++TEST_F(invalid_mprotect, do_map)
++{
++	int ret;
++
++	ret = mprotect(self->stack, self->stack_size, variant->flags);
++	ASSERT_EQ(ret, -1);
++}
++
++TEST_F(invalid_mprotect, do_map_read)
++{
++	int ret;
++
++	ret = mprotect(self->stack, self->stack_size,
++		       variant->flags | PROT_READ);
++	ASSERT_EQ(ret, -1);
++}
 +
 +int main(int argc, char **argv)
 +{
-+	int seen_children;
-+	bool all_children_started = false;
-+	int gcs_threads;
-+	int timeout = 10;
-+	int ret, cpus, i, c;
-+	struct sigaction sa;
++	unsigned long gcs_mode;
++	int ret;
 +
-+	while ((c = getopt_long(argc, argv, "t:", options, NULL)) != -1) {
-+		switch (c) {
-+		case 't':
-+			ret = sscanf(optarg, "%d", &timeout);
-+			if (ret != 1)
-+				ksft_exit_fail_msg("Failed to parse timeout %s\n",
-+						   optarg);
-+			break;
-+		default:
-+			ksft_exit_fail_msg("Unknown argument\n");
-+		}
-+	}
++	if (!(getauxval(AT_HWCAP2) & HWCAP2_GCS))
++		ksft_exit_skip("SKIP GCS not supported\n");
 +
-+	cpus = num_processors();
-+	tests = 0;
-+
-+	if (getauxval(AT_HWCAP2) & HWCAP2_GCS) {
-+		/* One extra thread, trying to trigger migrations */
-+		gcs_threads = cpus + 1;
-+		tests += gcs_threads;
-+	} else {
-+		gcs_threads = 0;
-+	}
-+
-+	ksft_print_header();
-+	ksft_set_plan(tests);
-+
-+	ksft_print_msg("%d CPUs, %d GCS threads\n",
-+		       cpus, gcs_threads);
-+
-+	if (!tests)
-+		ksft_exit_skip("No tests scheduled\n");
-+
-+	if (timeout > 0)
-+		ksft_print_msg("Will run for %ds\n", timeout);
-+	else
-+		ksft_print_msg("Will run until terminated\n");
-+
-+	children = calloc(sizeof(*children), tests);
-+	if (!children)
-+		ksft_exit_fail_msg("Unable to allocate child data\n");
-+
-+	ret = epoll_create1(EPOLL_CLOEXEC);
-+	if (ret < 0)
-+		ksft_exit_fail_msg("epoll_create1() failed: %s (%d)\n",
-+				   strerror(errno), ret);
-+	epoll_fd = ret;
-+
-+	/* Create a pipe which children will block on before execing */
-+	ret = pipe(startup_pipe);
-+	if (ret != 0)
-+		ksft_exit_fail_msg("Failed to create startup pipe: %s (%d)\n",
-+				   strerror(errno), errno);
-+
-+	/* Get signal handers ready before we start any children */
-+	memset(&sa, 0, sizeof(sa));
-+	sa.sa_sigaction = handle_exit_signal;
-+	sa.sa_flags = SA_RESTART | SA_SIGINFO;
-+	sigemptyset(&sa.sa_mask);
-+	ret = sigaction(SIGINT, &sa, NULL);
-+	if (ret < 0)
-+		ksft_print_msg("Failed to install SIGINT handler: %s (%d)\n",
-+			       strerror(errno), errno);
-+	ret = sigaction(SIGTERM, &sa, NULL);
-+	if (ret < 0)
-+		ksft_print_msg("Failed to install SIGTERM handler: %s (%d)\n",
-+			       strerror(errno), errno);
-+	sa.sa_sigaction = handle_child_signal;
-+	ret = sigaction(SIGCHLD, &sa, NULL);
-+	if (ret < 0)
-+		ksft_print_msg("Failed to install SIGCHLD handler: %s (%d)\n",
-+			       strerror(errno), errno);
-+
-+	evs = calloc(tests, sizeof(*evs));
-+	if (!evs)
-+		ksft_exit_fail_msg("Failed to allocated %d epoll events\n",
-+				   tests);
-+
-+	for (i = 0; i < gcs_threads; i++)
-+		start_thread(&children[i]);
-+
-+	/*
-+	 * All children started, close the startup pipe and let them
-+	 * run.
++	/* 
++	 * Force shadow stacks on, our tests *should* be fine with or
++	 * without libc support and with or without this having ended
++	 * up tagged for GCS and enabled by the dynamic linker.  We
++	 * can't use the libc prctl() function since we can't return
++	 * from enabling the stack.
 +	 */
-+	close(startup_pipe[0]);
-+	close(startup_pipe[1]);
-+
-+	timeout *= 10;
-+	for (;;) {
-+		/* Did we get a signal asking us to exit? */
-+		if (terminate)
-+			break;
-+
-+		/*
-+		 * Timeout is counted in 100ms with no output, the
-+		 * tests print during startup then are silent when
-+		 * running so this should ensure they all ran enough
-+		 * to install the signal handler, this is especially
-+		 * useful in emulation where we will both be slow and
-+		 * likely to have a large set of VLs.
-+		 */
-+		ret = epoll_wait(epoll_fd, evs, tests, 100);
-+		if (ret < 0) {
-+			if (errno == EINTR)
-+				continue;
-+			ksft_exit_fail_msg("epoll_wait() failed: %s (%d)\n",
-+					   strerror(errno), errno);
++	ret = my_syscall2(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &gcs_mode);
++	if (ret) {
++		ksft_print_msg("Failed to read GCS state: %d\n", ret);
++		return EXIT_FAILURE;
++	}
++	
++	if (!(gcs_mode & PR_SHADOW_STACK_ENABLE)) {
++		gcs_mode = PR_SHADOW_STACK_ENABLE;
++		ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
++				  gcs_mode);
++		if (ret) {
++			ksft_print_msg("Failed to configure GCS: %d\n", ret);
++			return EXIT_FAILURE;
 +		}
-+
-+		/* Output? */
-+		if (ret > 0) {
-+			for (i = 0; i < ret; i++) {
-+				child_output(evs[i].data.ptr, evs[i].events,
-+					     false);
-+			}
-+			continue;
-+		}
-+
-+		/* Otherwise epoll_wait() timed out */
-+
-+		/*
-+		 * If the child processes have not produced output they
-+		 * aren't actually running the tests yet.
-+		 */
-+		if (!all_children_started) {
-+			seen_children = 0;
-+
-+			for (i = 0; i < num_children; i++)
-+				if (children[i].output_seen ||
-+				    children[i].exited)
-+					seen_children++;
-+
-+			if (seen_children != num_children) {
-+				ksft_print_msg("Waiting for %d children\n",
-+					       num_children - seen_children);
-+				continue;
-+			}
-+
-+			all_children_started = true;
-+		}
-+
-+		ksft_print_msg("Sending signals, timeout remaining: %d00ms\n",
-+			       timeout);
-+
-+		for (i = 0; i < num_children; i++)
-+			child_tickle(&children[i]);
-+
-+		/* Negative timeout means run indefinitely */
-+		if (timeout < 0)
-+			continue;
-+		if (--timeout == 0)
-+			break;
 +	}
 +
-+	ksft_print_msg("Finishing up...\n");
-+	terminate = true;
-+
-+	for (i = 0; i < tests; i++)
-+		child_stop(&children[i]);
-+
-+	drain_output(false);
-+
-+	for (i = 0; i < tests; i++)
-+		child_cleanup(&children[i]);
-+
-+	drain_output(true);
-+
-+	ksft_print_cnts();
-+
-+	return 0;
++	/* Avoid returning in case libc doesn't understand GCS */
++	exit(test_harness_run(argc, argv));
 +}
 
 -- 
