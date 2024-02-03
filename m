@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4299DC4828F
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:29:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C07C4828F
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s4R8AwroyexBIWTudU7Ca7UAqhFLNg2OjnpDWX0SuTQ=; b=zGc8LKYJ6nPlRk
-	PcZqjb8HvrKzXuEmUTW1Ci5p4wkx6zKmBwY6dqybZs0PprPrXozZvfRiGyAqfiZNaFALDWJT75f8+
-	LuGIMuwoW3VMtIthWfIKsP9up+nc6vbE1rYWe1d1ropsbQZ3oQdWyBSC3pbYjHxzuXxVg7yimUEhh
-	gTc/XHJkDaxFMYLpHYj8aj0lodC9KQOsUAWL3PxQ4WGkLa9bbwBfcilKM05+tAMB9Aju4Z1e/kyG4
-	qYoWzzWMgfOz36UhuvCmeP9M1ghNXxsbKWjX4TFakQ24zNAu4htX5uXyQCpvt2GbgEqjC5JhsjYaE
-	WOFD1jWbdwvRWWhYd83g==;
+	List-Owner; bh=f1RFBiQLkyRZMVMnIEYTyEsPmmIyv5+gReTOxNmx/04=; b=b+V/2XgxbLPU4q
+	ih0Tckz/1JE1g8lkL7WvgUQaKj7WUlRR2Rw7FSTFlQ8UxRyjVlz2CiVqIFCFpEwoZyhitPYvS9Z1a
+	FRkvRz5RD7KN4nZO29TiNvM4CpklscXTlonE+aY8vEFtHW8cJkEeqRhKDxEUFnleB2bwzhZwuZn9W
+	S61n5q0OU/KryUtDSiwjamc8BTlXq7a4xkQ2T1m6I8peJO1WTg2d3HDO7rp5hnce4jAV7jiarSl9J
+	YyzGbfg8U083C4z2ckx3KKuf3xyQCZJnEOYpcYkFP9RqHOBJZok6olh+n43AQoM9LIUXpwZsPyeMu
+	rLR3XWsXeIfl0bC3m1ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWF9J-0000000GIFR-2u41;
-	Sat, 03 Feb 2024 12:29:33 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rWF9f-0000000GINg-0fzO;
+	Sat, 03 Feb 2024 12:29:55 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWF9F-0000000GIDR-2QHN;
-	Sat, 03 Feb 2024 12:29:30 +0000
+	id 1rWF9b-0000000GILv-1J7y;
+	Sat, 03 Feb 2024 12:29:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9F84760A13;
+	by sin.source.kernel.org (Postfix) with ESMTP id 233E1CE1F0F;
+	Sat,  3 Feb 2024 12:29:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AA6CC43390;
 	Sat,  3 Feb 2024 12:29:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C2D4C433C7;
-	Sat,  3 Feb 2024 12:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706963368;
-	bh=nfp6EMTmsacTE8jIWijq0csUQnWyRS9dbPzwDPbc9Oo=;
+	s=k20201202; t=1706963387;
+	bh=sadX6jRs7DdBAThhpdGK2D3phr2V3dLQCMXle4b8GlY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=osiScCWg4d3KIQZcrJeOEESWG83yHbzhiGcQeX7MowDI3BpjPG0b59J5w0TMyUGhx
-	 AiZFxIDmeGUFCmE3Gx5qt5Ekc13a+DGzvGFihiMuVXGFOpCy0HP16OhiVdFRNmINdk
-	 B+++NJvgEKQkXUHftLefN+RkWlfmRMCdidNYbJscH4DWcTBUpNux0R9eWYq6BgUyJf
-	 ZIpFreOOPDY1dmytZEu+vqVlYuYTsEYckA3a3Ae8EXP8Uz0zdzKlWfbpI0+Y+oqN/+
-	 8BARDvmTtKiPJDePxkqMCbgacVKxEXJM9wA9NjmKcvMUJHFKUtFzBD3+BpE2U3mXGq
-	 6FWOb2QFd08tw==
+	b=dTXtO9zoQm9JKCKVlTQvs8wgeMjkGOAr950r85KgQGAT34nQSSQ2ln64WxHAiJSSm
+	 6PEarPvcoqFTmKT5cj+HNeUFr7pQcIfGbe/klZhA+Gkoa1v65gL5yD+Mqw28o9xbW0
+	 XEQWk+Cl9jbYrlf5kijxq1s1ROA0BB6StTf0KMmMKXIXwpAXOM4xDKVclfS0df/Po7
+	 Rg/marbuHTjU5J+T7iEW5sdtvASHVxoDEH5nKmz85XW+1Sl01maEm6BdV2XzdcuK/R
+	 tONiZcB3QLD8rufqmcRFLGHZ2neKaX5nb/wRhPu8oq4ux9CAUl85rntpWtq1LMJ8Ql
+	 D7+aWaDk0Ov9g==
 From: Mark Brown <broonie@kernel.org>
-Date: Sat, 03 Feb 2024 12:25:32 +0000
-Subject: [PATCH v8 06/38] arm64/sysreg: Add definitions for architected GCS
- caps
+Date: Sat, 03 Feb 2024 12:25:33 +0000
+Subject: [PATCH v8 07/38] arm64/gcs: Add manual encodings of GCS
+ instructions
 MIME-Version: 1.0
-Message-Id: <20240203-arm64-gcs-v8-6-c9fec77673ef@kernel.org>
+Message-Id: <20240203-arm64-gcs-v8-7-c9fec77673ef@kernel.org>
 References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 In-Reply-To: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,21 +70,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-a684c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1355; i=broonie@kernel.org;
- h=from:subject:message-id; bh=nfp6EMTmsacTE8jIWijq0csUQnWyRS9dbPzwDPbc9Oo=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDV9XvzQG5mbwdmnxaEA2beaNmzTLR4QnZfsb5k
- dABRgtOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w1QAKCRAk1otyXVSH0DSDB/
- 4ndgRTySkwuTALaejt2vvGqwqgfiRnfYkefv1ma8rX3ZFKkMhDmmWTaqgOWLCRoex5Fe5UhcFwYrHT
- a2aI58d9V1IAUodeTLqo1GD5DaDA4u1/tDmYlgYmy9u9PJrnPonUUaYzkKVfkOHjIVRvFL75b9VcNH
- ax5DpBY3FxYokPpg6PWwG8R0LApWNrwrEMY/jxDYInXcBnW8nnqGaG5PQ7XlpwM04YBo00koRuPJ/3
- Sc3T/ew/2wbt3217BNKGVIUpFtzCn83x7VLwr/Ht3vfMrHO0IkX0V/RAxhBMYq9JvGYMm5rL/cCkbA
- OLa29/wK/D7MMMDE1wda7wLwRtVOwc
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2577; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=sadX6jRs7DdBAThhpdGK2D3phr2V3dLQCMXle4b8GlY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDWl0RFbpcffLYcZJBiVq99jNr+C4cCBZd5T7RM
+ G4XEv1eJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w1gAKCRAk1otyXVSH0NwrB/
+ 9qoPgQtako2eNJFYJjaadGibJhrC+O0rrQ1WjE8Q9ksJCD+xyk2iXaeED1LmGEM3ZQMaNLezHZnqCE
+ YzpJZxzTffvJ8MbMj0ZW+j7kI8MOe0jm4w+PMPvPf+YCHQA6kzklMsd8HOMnmCxKe01+hbtiiPcqoc
+ JTMZW6BCL8+fjQ4aICJpz1CafRa5IhasNRga1FPU8SCgl0E+ojogy3ewXC9Q7Wit+8L8ZW94hHa7U7
+ iVy9XiEFddFnqgZdhk3E6a5F07EjPMBMRMbI2jRxrz1G2a9/PDQ8C8bc23U49FNAxKrBjW3jJR6IZ7
+ NU+2krwITMBnkNo5cyh4uleB8jnJMb
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240203_042929_817683_CA6866BA 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240203_042951_729725_597BEADE 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,46 +100,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The architecture defines a format for guarded control stack caps, used
-to mark the top of an unused GCS in order to limit the potential for
-exploitation via stack switching. Add definitions associated with these.
+Define C callable functions for GCS instructions used by the kernel. In
+order to avoid ambitious toolchain requirements for GCS support these are
+manually encoded, this means we have fixed register numbers which will be
+a bit limiting for the compiler but none of these should be used in
+sufficiently fast paths for this to be a problem.
+
+Note that GCSSTTR is used to store to EL0.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/sysreg.h | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ arch/arm64/include/asm/gcs.h     | 51 ++++++++++++++++++++++++++++++++++++++++
+ arch/arm64/include/asm/uaccess.h | 22 +++++++++++++++++
+ 2 files changed, 73 insertions(+)
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index c3b19b376c86..6ed813e856c1 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -1064,6 +1064,26 @@
- #define POE_RXW		UL(0x7)
- #define POE_MASK	UL(0xf)
- 
+diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
+new file mode 100644
+index 000000000000..7c5e95218db6
+--- /dev/null
++++ b/arch/arm64/include/asm/gcs.h
+@@ -0,0 +1,51 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
-+ * Definitions for Guarded Control Stack
++ * Copyright (C) 2023 ARM Ltd.
 + */
++#ifndef __ASM_GCS_H
++#define __ASM_GCS_H
 +
-+#define GCS_CAP_ADDR_MASK		GENMASK(63, 12)
-+#define GCS_CAP_ADDR_SHIFT		12
-+#define GCS_CAP_ADDR_WIDTH		52
-+#define GCS_CAP_ADDR(x)			FIELD_GET(GCS_CAP_ADDR_MASK, x)
++#include <asm/types.h>
++#include <asm/uaccess.h>
 +
-+#define GCS_CAP_TOKEN_MASK		GENMASK(11, 0)
-+#define GCS_CAP_TOKEN_SHIFT		0
-+#define GCS_CAP_TOKEN_WIDTH		12
-+#define GCS_CAP_TOKEN(x)		FIELD_GET(GCS_CAP_TOKEN_MASK, x)
++static inline void gcsb_dsync(void)
++{
++	asm volatile(".inst 0xd503227f" : : : "memory");
++}
 +
-+#define GCS_CAP_VALID_TOKEN		0x1
-+#define GCS_CAP_IN_PROGRESS_TOKEN	0x5
++static inline void gcsstr(u64 *addr, u64 val)
++{
++	register u64 *_addr __asm__ ("x0") = addr;
++	register long _val __asm__ ("x1") = val;
 +
-+#define GCS_CAP(x)	((((unsigned long)x) & GCS_CAP_ADDR_MASK) | \
-+					       GCS_CAP_VALID_TOKEN)
++	/* GCSSTTR x1, x0 */
++	asm volatile(
++		".inst 0xd91f1c01\n"
++		:
++		: "rZ" (_val), "r" (_addr)
++		: "memory");
++}
 +
- #define ARM64_FEATURE_FIELD_BITS	4
++static inline void gcsss1(u64 Xt)
++{
++	asm volatile (
++		"sys #3, C7, C7, #2, %0\n"
++		:
++		: "rZ" (Xt)
++		: "memory");
++}
++
++static inline u64 gcsss2(void)
++{
++	u64 Xt;
++
++	asm volatile(
++		"SYSL %0, #3, C7, C7, #3\n"
++		: "=r" (Xt)
++		:
++		: "memory");
++
++	return Xt;
++}
++
++#endif
+diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
+index 14be5000c5a0..22e10e79f56a 100644
+--- a/arch/arm64/include/asm/uaccess.h
++++ b/arch/arm64/include/asm/uaccess.h
+@@ -425,4 +425,26 @@ static inline size_t probe_subpage_writeable(const char __user *uaddr,
  
- /* Defined for compatibility only, do not add new users. */
+ #endif /* CONFIG_ARCH_HAS_SUBPAGE_FAULTS */
+ 
++#ifdef CONFIG_ARM64_GCS
++
++static inline int gcssttr(unsigned long __user *addr, unsigned long val)
++{
++	register unsigned long __user *_addr __asm__ ("x0") = addr;
++	register unsigned long _val __asm__ ("x1") = val;
++	int err = 0;
++
++	/* GCSSTTR x1, x0 */
++	asm volatile(
++		"1: .inst 0xd91f1c01\n"
++		"2: \n"
++		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)
++		: "+r" (err)
++		: "rZ" (_val), "r" (_addr)
++		: "memory");
++
++	return err;
++}
++
++#endif /* CONFIG_ARM64_GCS */
++
+ #endif /* __ASM_UACCESS_H */
 
 -- 
 2.30.2
