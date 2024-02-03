@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E349C4828F
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B037C4828D
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 12:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IUEsV0OIADKFB4/XurD/X1yWvvWW9F9S6T3r3ELzo18=; b=Mphj49Ji9DYdGC
-	s7PT6mRz2o7/VvlJj2Ot+dFmuK0860kXbNPdOZ75XFq4OGqCTHQJ1k1zEJGfcqAG9zKv0BqmVdxps
-	Pyd/KlGuLl3MDdZM6Iw2nU3yMiLr99RtGdRHoj1REAOIbNEhG39UT07CDWY047lESTu6eQr0DzjgE
-	A1b5N4cunaIYmVUGQP1ZiiRoVKbd7QTVB39/ibbGVGxefPS/+DEhoWU4Y5wMKQsUul4H+d9BBJv5F
-	We3DFZ+o6Mf4zXDjKvLm+RqA7RWemwDxGKChV1Oj+lNr6+KV5kezNv2bCWC7jvc2I16ObUnRD4jfh
-	qkOpbHWcDSxKKxZUs1uA==;
+	List-Owner; bh=wI2D8gXxk0sA6PQtSIECzbPnLSMnJfkhPMFp8FpzDXw=; b=TOxuRix9OdwDJY
+	eVGHUr1C6vfPjrxBwZVrCVgDSxykDaBwcmt7J07jw3m95LV8Cg9bAaJnDs/Kdz37LItSbi22Xamy9
+	L5SxOmynRuwvMHH2+2rWz6qf51KSVKP/taWsMcVpcLERnQmCBXYFM5ON31EKs9BE6WKeheCicT85y
+	QlW197iwzuAGsI6/uiVtNwCfV5e2yP7ZxMecQaRwqp7lTOaZZfF+8wAyXUB3eZ5aKjDtBrRJ36oKC
+	Pg34mXVpf/+clR5xNP24ic2HayjQoLd2OJsZIhdQ0J9e8uz/+KNXgJ8N6Bp9hZab5yLDHk2GFcigp
+	KDQmlIdFnSsyJobfGxNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFB3-0000000GJD1-2Kku;
-	Sat, 03 Feb 2024 12:31:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rWFBE-0000000GJMm-0O2T;
+	Sat, 03 Feb 2024 12:31:32 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFAs-0000000GJ2p-27Ps;
-	Sat, 03 Feb 2024 12:31:14 +0000
+	id 1rWFAy-0000000GJ8I-3ivs;
+	Sat, 03 Feb 2024 12:31:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8B03160A6B;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3AD0D60A6E;
+	Sat,  3 Feb 2024 12:31:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C56F8C433C7;
 	Sat,  3 Feb 2024 12:31:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7804C433A6;
-	Sat,  3 Feb 2024 12:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706963469;
-	bh=wsC4cXHxhQJUOeMbmPuoHCyoB60s23Z9e6BRm1QhN7A=;
+	s=k20201202; t=1706963476;
+	bh=D3mrjjzhu1bmO322qeetoeUWjp5BglarJjfdNbXnw/Y=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Y4+pK5KFU0dncMhitlTirufT5ijd2/gZ96LtjyukVkILr1m2XXsADtfHpLiMfvgwc
-	 1rVY7lygDo5aNC9i34odTMACj/89MX+Av2vjb3OmoUAV+AoVABv/QBL47arcpjvJSH
-	 /xwiFwfCXeNBFi1rWGto82wLoWhGcwAptuxYErv9TSpsNME6MWd3KzeowF/TnjH4xa
-	 gcgbyo/m+041r/1zvfh1UGaU0aTR1uvs5kz7umBZA6ciBv0H7mI7A30QQtbZ4ExpAm
-	 YQnV9Z4kdn09sQDx3HdTh/PLbYdyReYOD0Fi3vU+pFAAaRUuYHaweLfKr4o7yYCR75
-	 GzhW7CtkIkkLw==
+	b=b8LtOloGXjSjg88htRVqjKTHNIpv0KYxDjzZZc71ZNTni2PxZT1VAYdJN/gNX8zgU
+	 ybOCUuvaxAoBMVShab+E5dZjUyGnTueq0nXdn1xuED1XL3WEEikq8LRu5ULi1VwggL
+	 ZgrVxgcgUxtO5uO27W/yK4PC7TpG9BTPJE5/nHaFo2NC8luOoerHgYAqVYROaqSJVa
+	 yt4mYZic23yETrP7HcrYgZfC1ZqB2dVzF/Wa6U3eZHxsG4Rp18/77HbM42KQpgvmub
+	 rq5RZXLNX70wZiIl1EhPquGNwPdGSPO1GriBmlDJ8EjDf22vLCcozMiMlXJYsxwZlW
+	 p/dVV5Ax8HJwA==
 From: Mark Brown <broonie@kernel.org>
-Date: Sat, 03 Feb 2024 12:25:39 +0000
-Subject: [PATCH v8 13/38] KVM: arm64: Manage GCS registers for guests
+Date: Sat, 03 Feb 2024 12:25:40 +0000
+Subject: [PATCH v8 14/38] arm64/gcs: Allow GCS usage at EL0 and EL1
 MIME-Version: 1.0
-Message-Id: <20240203-arm64-gcs-v8-13-c9fec77673ef@kernel.org>
+Message-Id: <20240203-arm64-gcs-v8-14-c9fec77673ef@kernel.org>
 References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 In-Reply-To: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -69,20 +69,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-a684c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6351; i=broonie@kernel.org;
- h=from:subject:message-id; bh=wsC4cXHxhQJUOeMbmPuoHCyoB60s23Z9e6BRm1QhN7A=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDbJNRUJao3dWvuwPTqT3MBlEVih4ppUyFD1IDZ
- rP8CrkyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w2wAKCRAk1otyXVSH0MKDB/
- 4n9gMdLyCdNGCiZo+CTMFlgQ4Wi8rMdJmgyEoJTwuG76FVrWeLymMLRG5IfLwYTUawuLoJxV8TS1kv
- /qDxZzMgPY3zCqfIes1OM6ZCSt0OWYzq1jugGcndxjBdC5NVVZoJWQTBBO/XJi/1b+bBCtj0AZtKl9
- FGzwFnbuH9pCojns2G9IlfZIChvGSwuCInxQYajCdx/S4C4hwcQooD8bIsQtFPi6i8NJ0kN9CTViuE
- MI9mBvjhfiZ2xljFpTPUpnbraIynqHE6bYxUjy8D3zAeOalsVCv9NoY8Gec6SEcx+gXe8aEB9x6x/d
- p7fDpnqOG+4FFyHk83njeAm6LZvWW8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2231; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=D3mrjjzhu1bmO322qeetoeUWjp5BglarJjfdNbXnw/Y=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDc8EHGCknoOBKe6qZKHD+oiq1TQJV0CBg/qGUx
+ v9IrslaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w3AAKCRAk1otyXVSH0D/LB/
+ 42988rQEDEd1c4AWNUz5rGufrrvcfn77vTQ2D1Q95lKvScKDoA3SCsg/NCBvD6bTwCQyimBPieLclf
+ vphVOHi8RIWA46cysnMRfhnLSUzUUwJdRhNYL1KASDBbgrGh2nIdUMB1zMuuBP4yJowmA+LBTjroCK
+ YPS9XoZUZIHlFfkTOi0V/a8Fu+HwPn14jxbpiehTXDctJz5EfvwcjTooeg2p6dmcuHzocpcSTVBX5V
+ AZNNDcwvGgtXBrDMV8wVp3ZJk6Iq3ejaqd2L8Iz3zS/sAJBUp7sDi/fCOHvh+iWdCsG4mGqUuqM0F+
+ LjLYBdtbAn0AUFobSt30jnpFzdqG+D
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240203_043111_200917_9DF6976D 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20240203_043117_401681_C0FA1C1E 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,162 +99,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-GCS introduces a number of system registers for EL1 and EL0, on systems
-with GCS we need to context switch them and expose them to VMMs to allow
-guests to use GCS, as well as describe their fine grained traps to
-nested virtualisation.  Traps are already disabled.
+There is a control HCRX_EL2.GCSEn which must be set to allow GCS
+features to take effect at lower ELs and also fine grained traps for GCS
+usage at EL0 and EL1.  Configure all these to allow GCS usage by EL0 and
+EL1.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h          | 12 ++++++++++++
- arch/arm64/kvm/emulate-nested.c            |  4 ++++
- arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 17 +++++++++++++++++
- arch/arm64/kvm/sys_regs.c                  | 22 ++++++++++++++++++++++
- 4 files changed, 55 insertions(+)
+ arch/arm64/include/asm/el2_setup.h | 17 +++++++++++++++++
+ arch/arm64/include/asm/kvm_arm.h   |  4 ++--
+ 2 files changed, 19 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 21c57b812569..6c7ea7f9cd92 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -388,6 +388,12 @@ enum vcpu_sysreg {
- 	GCR_EL1,	/* Tag Control Register */
- 	TFSRE0_EL1,	/* Tag Fault Status Register (EL0) */
- 
-+	/* Guarded Control Stack registers */
-+	GCSCRE0_EL1,	/* Guarded Control Stack Control (EL0) */
-+	GCSCR_EL1,	/* Guarded Control Stack Control (EL1) */
-+	GCSPR_EL0,	/* Guarded Control Stack Pointer (EL0) */
-+	GCSPR_EL1,	/* Guarded Control Stack Pointer (EL1) */
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index b7afaa026842..17672563e333 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -27,6 +27,14 @@
+ 	ubfx	x0, x0, #ID_AA64MMFR1_EL1_HCX_SHIFT, #4
+ 	cbz	x0, .Lskip_hcrx_\@
+ 	mov_q	x0, HCRX_HOST_FLAGS
 +
- 	/* 32bit specific registers. */
- 	DACR32_EL2,	/* Domain Access Control Register */
- 	IFSR32_EL2,	/* Instruction Fault Status Register */
-@@ -1221,6 +1227,12 @@ static inline bool __vcpu_has_feature(const struct kvm_arch *ka, int feature)
- 
- #define vcpu_has_feature(v, f)	__vcpu_has_feature(&(v)->kvm->arch, (f))
- 
-+static inline bool has_gcs(void)
-+{
-+	return IS_ENABLED(CONFIG_ARM64_GCS) &&
-+		cpus_have_final_cap(ARM64_HAS_GCS);
-+}
++        /* Enable GCS if supported */
++	mrs_s	x1, SYS_ID_AA64PFR1_EL1
++	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
++	cbz	x1, .Lset_hcrx_\@
++	orr	x0, x0, #HCRX_EL2_GCSEn
 +
- int kvm_trng_call(struct kvm_vcpu *vcpu);
- #ifdef CONFIG_KVM
- extern phys_addr_t hyp_mem_base;
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index 431fd429932d..24eb7eccbae4 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -1098,8 +1098,12 @@ static const struct encoding_to_trap_config encoding_to_fgt[] __initconst = {
- 	SR_FGT(SYS_ESR_EL1, 		HFGxTR, ESR_EL1, 1),
- 	SR_FGT(SYS_DCZID_EL0, 		HFGxTR, DCZID_EL0, 1),
- 	SR_FGT(SYS_CTR_EL0, 		HFGxTR, CTR_EL0, 1),
-+	SR_FGT(SYS_GCSPR_EL0,		HFGxTR, nGCS_EL0, 1),
- 	SR_FGT(SYS_CSSELR_EL1, 		HFGxTR, CSSELR_EL1, 1),
- 	SR_FGT(SYS_CPACR_EL1, 		HFGxTR, CPACR_EL1, 1),
-+	SR_FGT(SYS_GCSCR_EL1,		HFGxTR, nGCS_EL1, 1),
-+	SR_FGT(SYS_GCSPR_EL1,		HFGxTR, nGCS_EL1, 1),
-+	SR_FGT(SYS_GCSCRE0_EL1,		HFGxTR, nGCS_EL0, 1),
- 	SR_FGT(SYS_CONTEXTIDR_EL1, 	HFGxTR, CONTEXTIDR_EL1, 1),
- 	SR_FGT(SYS_CLIDR_EL1, 		HFGxTR, CLIDR_EL1, 1),
- 	SR_FGT(SYS_CCSIDR_EL1, 		HFGxTR, CCSIDR_EL1, 1),
-diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-index bb6b571ec627..ec34d4a90717 100644
---- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-@@ -25,6 +25,8 @@ static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
- {
- 	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
- 	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
-+	if (has_gcs())
-+		ctxt_sys_reg(ctxt, GCSPR_EL0) = read_sysreg_s(SYS_GCSPR_EL0);
- }
++.Lset_hcrx_\@:
+ 	msr_s	SYS_HCRX_EL2, x0
+ .Lskip_hcrx_\@:
+ .endm
+@@ -190,6 +198,15 @@
+ 	orr	x0, x0, #HFGxTR_EL2_nPIR_EL1
+ 	orr	x0, x0, #HFGxTR_EL2_nPIRE0_EL1
  
- static inline bool ctxt_has_mte(struct kvm_cpu_context *ctxt)
-@@ -62,6 +64,12 @@ static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
- 	ctxt_sys_reg(ctxt, PAR_EL1)	= read_sysreg_par();
- 	ctxt_sys_reg(ctxt, TPIDR_EL1)	= read_sysreg(tpidr_el1);
- 
-+	if (has_gcs()) {
-+		ctxt_sys_reg(ctxt, GCSPR_EL1)	= read_sysreg_el1(SYS_GCSPR);
-+		ctxt_sys_reg(ctxt, GCSCR_EL1)	= read_sysreg_el1(SYS_GCSCR);
-+		ctxt_sys_reg(ctxt, GCSCRE0_EL1)	= read_sysreg_s(SYS_GCSCRE0_EL1);
-+	}
++	/* GCS depends on PIE so we don't check it if PIE is absent */
++	mrs_s	x1, SYS_ID_AA64PFR1_EL1
++	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
++	cbz	x1, .Lset_fgt_\@
 +
- 	if (ctxt_has_mte(ctxt)) {
- 		ctxt_sys_reg(ctxt, TFSR_EL1) = read_sysreg_el1(SYS_TFSR);
- 		ctxt_sys_reg(ctxt, TFSRE0_EL1) = read_sysreg_s(SYS_TFSRE0_EL1);
-@@ -95,6 +103,8 @@ static inline void __sysreg_restore_user_state(struct kvm_cpu_context *ctxt)
- {
- 	write_sysreg(ctxt_sys_reg(ctxt, TPIDR_EL0),	tpidr_el0);
- 	write_sysreg(ctxt_sys_reg(ctxt, TPIDRRO_EL0),	tpidrro_el0);
-+	if (has_gcs())
-+		write_sysreg_s(ctxt_sys_reg(ctxt, GCSPR_EL0), SYS_GCSPR_EL0);
- }
- 
- static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt)
-@@ -138,6 +148,13 @@ static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt)
- 	write_sysreg(ctxt_sys_reg(ctxt, PAR_EL1),	par_el1);
- 	write_sysreg(ctxt_sys_reg(ctxt, TPIDR_EL1),	tpidr_el1);
- 
-+	if (has_gcs()) {
-+		write_sysreg_el1(ctxt_sys_reg(ctxt, GCSPR_EL1),	SYS_GCSPR);
-+		write_sysreg_el1(ctxt_sys_reg(ctxt, GCSCR_EL1),	SYS_GCSCR);
-+		write_sysreg_s(ctxt_sys_reg(ctxt, GCSCRE0_EL1),
-+			       SYS_GCSCRE0_EL1);
-+	}
++	/* Disable traps of access to GCS registers at EL0 and EL1 */
++	orr	x0, x0, #HFGxTR_EL2_nGCS_EL1_MASK
++	orr	x0, x0, #HFGxTR_EL2_nGCS_EL0_MASK
 +
- 	if (ctxt_has_mte(ctxt)) {
- 		write_sysreg_el1(ctxt_sys_reg(ctxt, TFSR_EL1), SYS_TFSR);
- 		write_sysreg_s(ctxt_sys_reg(ctxt, TFSRE0_EL1), SYS_TFSRE0_EL1);
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 30253bd19917..83ba767e75d2 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2000,6 +2000,23 @@ static unsigned int mte_visibility(const struct kvm_vcpu *vcpu,
- 	.visibility = mte_visibility,		\
- }
+ .Lset_fgt_\@:
+ 	msr_s	SYS_HFGRTR_EL2, x0
+ 	msr_s	SYS_HFGWTR_EL2, x0
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 3c6f8ba1e479..a9354c237a97 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -103,9 +103,9 @@
+ #define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H)
  
-+static unsigned int gcs_visibility(const struct kvm_vcpu *vcpu,
-+				   const struct sys_reg_desc *rd)
-+{
-+	if (has_gcs())
-+		return 0;
-+
-+	return REG_HIDDEN;
-+}
-+
-+#define GCS_REG(name) {				\
-+	SYS_DESC(SYS_##name),			\
-+	.access = undef_access,			\
-+	.reset = reset_unknown,			\
-+	.reg = name,				\
-+	.visibility = gcs_visibility,		\
-+}
-+
- static unsigned int el2_visibility(const struct kvm_vcpu *vcpu,
- 				   const struct sys_reg_desc *rd)
- {
-@@ -2376,6 +2393,10 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	PTRAUTH_KEY(APDB),
- 	PTRAUTH_KEY(APGA),
+ #define HCRX_GUEST_FLAGS \
+-	(HCRX_EL2_SMPME | HCRX_EL2_TCR2En | \
++	(HCRX_EL2_SMPME | HCRX_EL2_TCR2En | HCRX_EL2_GCSEn |\
+ 	 (cpus_have_final_cap(ARM64_HAS_MOPS) ? (HCRX_EL2_MSCEn | HCRX_EL2_MCE2) : 0))
+-#define HCRX_HOST_FLAGS (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En)
++#define HCRX_HOST_FLAGS (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En | HCRX_EL2_GCSEn)
  
-+	GCS_REG(GCSCR_EL1),
-+	GCS_REG(GCSPR_EL1),
-+	GCS_REG(GCSCRE0_EL1),
-+
- 	{ SYS_DESC(SYS_SPSR_EL1), access_spsr},
- 	{ SYS_DESC(SYS_ELR_EL1), access_elr},
- 
-@@ -2462,6 +2483,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	{ SYS_DESC(SYS_SMIDR_EL1), undef_access },
- 	{ SYS_DESC(SYS_CSSELR_EL1), access_csselr, reset_unknown, CSSELR_EL1 },
- 	{ SYS_DESC(SYS_CTR_EL0), access_ctr },
-+	GCS_REG(GCSPR_EL0),
- 	{ SYS_DESC(SYS_SVCR), undef_access },
- 
- 	{ PMU_SYS_REG(PMCR_EL0), .access = access_pmcr, .reset = reset_pmcr,
+ /* TCR_EL2 Registers bits */
+ #define TCR_EL2_DS		(1UL << 32)
 
 -- 
 2.30.2
