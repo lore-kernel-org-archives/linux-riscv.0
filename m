@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC56C4828D
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 13:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DDD6C48295
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Feb 2024 13:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cLMTNffm9irs9+zziDHxtdBGNv9UyDR5fuMnAErYHTQ=; b=QtQyhx9/nb1Br6
-	JkhLIky8TBI6Llkbvfgd2R9vkHmvy3zwDSlDekSQO1uRvICUD3t+GIx/4QxASy644b9tDBNj8D1PR
-	KsUrNBVbS2qS04V//WtcTYq3BALdqHmIkpq/y2UV5NsC8/MD7otXLwGfs/fLKoTM9eaf/76GTMy0R
-	9w36o9v4j8nO0xEZirbeDow4J1OCe465d7fVPjL071KPV+x1H/+hebiuhbXGBxdGZ0Oi5l0vidz0m
-	SSO3StERI64XOEodwZzBktMKcV+WHZAzQvmyIkTDr9HYeBeuAkNh2Xpueb0TsXAfUO3XS4bkAqYFf
-	zKEglZnQmcCUB2QwPXqw==;
+	List-Owner; bh=zzYNGeIxLtgG35scwRKrRV8uZrCjprvCY/LrdvBDKAs=; b=r+YR/1l5YVw8Vc
+	2C7AqKQnYjskruWiFr1yu+Wvu3JIPiL8Bk3BA0zBK6KcwSvvqODnTrkn7XbddkSC2rHRJlfZmUKBE
+	zUJTkufZTuKKzU92Cq601VVRKGDUVu4jvcqDwdhRFPNz19VQ+ncMRO0A6fNdHB/ZTkXz+msJhvSX5
+	jnSjnO/3TX63tg782YMNwctPEF0JL+X47DLuZpI+WqiOhfLM3cu9exmY4Qe3Bi+5ArPxTruSnOmJt
+	Sup3Y8rS7Oy4pKK5BPrFcXcAleP4lt9EHhwjJSQhJjpiQTt67rC+CbsgoYJD/hPdH0ey8dPxGAgrn
+	uGHA/VCYLwZsDES7vXeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWG9P-0000000GXdW-0zjT;
-	Sat, 03 Feb 2024 13:33:43 +0000
+	id 1rWG9R-0000000GXfW-2JOJ;
+	Sat, 03 Feb 2024 13:33:45 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFC6-0000000GKAR-0zDM;
-	Sat, 03 Feb 2024 12:32:26 +0000
+	id 1rWFCj-0000000GKjn-0gTm;
+	Sat, 03 Feb 2024 12:33:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=DZAtClSt5On26RiBpNVNpcBpDsxqlxp8QFws3BPx8IA=; b=g89Z7leLYZnKqS5tBrg+1qrO9G
-	AUSthTApqTzdRePakKHVRJ7FcX6jYYuJVnTd3UHZEG8XKEhMuHCQ3AttR7CbrlmRtuv/1Q4dW8Re2
-	wW1k3HaJwlYOnlUVJ4y3XzW50p1OyA03QTN9rMJ1mD++HK7RexrAqE+ujXos3DeJBQQ+iy+s1ypDw
-	VQUaatoPF1wr2IptwyVAhNW7QozC0No4IcrEqzHTFRxwrkQ7xesV1SG9+6u9BfDtWmSIACTriMFJR
-	pEcV+L++aDytlUzjFWVMTG6rOaE2NTqD2aO6Qgh3Psem7t6iBCghBaIg4+OKt8h3RDaPKdMX4peF7
-	fkeIZL0w==;
+	bh=npDy0Wmy9sZ4pKZgJh/SDPTi250q9KNBnEHGR8MQcNY=; b=XYMoIJ8T8c9s4fr01DzqT8ow0Q
+	rBGDiUJd1GTxD4CBfl35kV7XH5pNmvaSSkhAJT6l2k/LlHQknqHRNGew88GaGLDEAu5/ibDH+RQNj
+	g50N/YH9NPnnhNX0ETM9lSi6+Lgon28meFr/uRdhboIweFkZu9RaSP3vnqCzh3u5WIm2fQLQPp9lv
+	wnUEFO5PrTIRPSSanXpQpRDfq0FSo7ODpBSyDoKaJgUlLFmfF1LwvejKE91FKVG5Fq/f5upY7SVlr
+	v1V1V1RmhcKtK+O0tR0LNZ4kZSQuBGH1SRrONypeV5Kic+gS9lxmfnujkyRVDVEld3mjMdn68yq+8
+	LymHBGpg==;
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rWFBq-0000000AlSQ-0U5h;
-	Sat, 03 Feb 2024 12:32:22 +0000
+	id 1rWFCU-0000000AlbA-3RFV;
+	Sat, 03 Feb 2024 12:32:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id CCA80CE1F18;
-	Sat,  3 Feb 2024 12:32:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03BD9C43390;
-	Sat,  3 Feb 2024 12:31:56 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 04A02CE1F0F;
+	Sat,  3 Feb 2024 12:32:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32B8AC43394;
+	Sat,  3 Feb 2024 12:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1706963523;
-	bh=U5MciaTL0rYvjCIumqURacdaryA/1hlaB10gSNsfShY=;
+	s=k20201202; t=1706963563;
+	bh=12GEB0Pk7RCg7IDCHng3d3qOxpvs8kdDfOLg/QCQKjw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=tpLHddu/3s6KK5wnT5rQj+Pd5a6ev93vYGZXSRAuAXzWXWvjis8vox9rbuowcCRjO
-	 xNH5+6JIOg3XVeikkfgANT2/AIC6wQmgutrXNk4SqzasRQRra0bdiRnpRY387wk4ux
-	 3j3nDdZx2cYT02NiWyK8VDqCodWSHShr6OifHn3PybyqlRGEK3RJfc+J7VZvqBW1ne
-	 s3WdrV7DXIedRn80l8EgeUmC45bwLOZvXfwVd532i6BBs18Sa+uRn/Fkt0NlFuKDXl
-	 yYQl6LIG2ahA4jC8un1pCKHqP03Dz1q8+V8R2a7KBLF4PJYAR1GMIHWQ9n24mAzWKl
-	 drauPDYDOk63g==
+	b=rq54rGZnx24MR+LUh3nV3e8oP26hH94Ibu9LOex/80fqVy+e02EBu6dqOsyofq/dn
+	 9S3U4uPifeLeILbteJBG/QpWUnZBy2WOLOp+KlMEeRcHL0qaYHcKVtv9q0S3QhIcwI
+	 9E7PODu5zTqrPfUy5t4C+wZy0qNXoit/OCYzm0NAdwWQydU1XQwNFUeDX0MRP167T0
+	 Y7Iu3LtDUIXNO0qtNGG0Y7WCih15IbGNQYHJdK+QTL7cGBX7U9Fzf95CLwlV6+DWis
+	 KDpX4Lz0jfsNLClK5EnD1j4F6fJ0rXsFQXAp3XGWDvODVXmAyfNf+vI79g1HZOXsYV
+	 THWaW5vGRn1IA==
 From: Mark Brown <broonie@kernel.org>
-Date: Sat, 03 Feb 2024 12:25:47 +0000
-Subject: [PATCH v8 21/38] arm64/gcs: Implement shadow stack prctl()
- interface
+Date: Sat, 03 Feb 2024 12:25:53 +0000
+Subject: [PATCH v8 27/38] kselftest/arm64: Verify the GCS hwcap
 MIME-Version: 1.0
-Message-Id: <20240203-arm64-gcs-v8-21-c9fec77673ef@kernel.org>
+Message-Id: <20240203-arm64-gcs-v8-27-c9fec77673ef@kernel.org>
 References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 In-Reply-To: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -84,20 +83,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-a684c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5675; i=broonie@kernel.org;
- h=from:subject:message-id; bh=U5MciaTL0rYvjCIumqURacdaryA/1hlaB10gSNsfShY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDhXvrqcGZBd+9/+gfWtioOkspbIVIuapYQkeO4
- 2Ek4A8+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w4QAKCRAk1otyXVSH0JuzB/
- 9Nsil/CkJIgThqvkV7vl+7SUj4tch4kYdrDe1K2VdYijvUW+AeVboEr8gnTvdiOIJwutNGG9JEkV9f
- KPDIwaRpAUfybv1h5fN6qSvwUClufBTP7FbMRgd2OJfecw5g2ieJgg0q1Ob6AkjLBOa+2tBUxuEMIN
- xeB/8dMvhw3u/XTn22XIxZSc/sgH18/tKXF+QgsY4Yf+QOw6qVQ8hzeRSmLGb7Yng2SD6ncWl2Ex79
- LHwZ2eJofY3G+embhTZ16cXU3FdVF8SkhnAi7FiuJ8JsXPj+X6vANHdevGcvILeiZXc1IflJ7meoyc
- J74wfqlKIe7HuZQPvCxTshDzN9l0wn
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1190; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=12GEB0Pk7RCg7IDCHng3d3qOxpvs8kdDfOLg/QCQKjw=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlvjDmTw5/9VutAafQEgaHl/AQF1z3bFN2KzUpHqGY
+ L4zrDKaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZb4w5gAKCRAk1otyXVSH0H76B/
+ 0ZxrYYCMIsi8MRn7I+3H6jNZKAVNmw8SJNvqoTY/zYbJNmq4MKh3rt6x1O2gevx9hobz/cn88DE1f9
+ pdIhoGTFgFsgL5+npQ6sINjikcDLWkpQZ9IKvFtQ8i0A7p1Ts6+F8ouQ/YWF5fiwDCcaglMB5SDDS0
+ UKDKMWST/vMh8R/NHIjFIZ/yqpAFZrbPxntxjgSGwoIONgk0N959zfmcfkPghY9+a5troDlRxfBQyg
+ M1y/zi2IbuTvIkrM9tWMmAh0rM4cC3npQ8FUa7WcMl9u2iNHczDLo6UvLO8idOYZStNtaGst5U6Izi
+ tbHk2hUyigCouolu0//aNQ/XwlU1i1
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240203_123215_127098_06547003 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20240203_123251_929812_0EAB3E5A 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,191 +113,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement the architecture neutral prtctl() interface for setting the
-shadow stack status, this supports setting and reading the current GCS
-configuration for the current thread.
-
-Userspace can enable basic GCS functionality and additionally also
-support for GCS pushes and arbitrary GCS stores.  It is expected that
-this prctl() will be called very early in application startup, for
-example by the dynamic linker, and not subsequently adjusted during
-normal operation.  Users should carefully note that after enabling GCS
-for a thread GCS will become active with no call stack so it is not
-normally possible to return from the function that invoked the prctl().
-
-State is stored per thread, enabling GCS for a thread causes a GCS to be
-allocated for that thread.
-
-Userspace may lock the current GCS configuration by specifying
-PR_SHADOW_STACK_ENABLE_LOCK, this prevents any further changes to the
-GCS configuration via any means.
-
-If GCS is not being enabled then all flags other than _LOCK are ignored,
-it is not possible to enable stores or pops without enabling GCS.
-
-When disabling the GCS we do not free the allocated stack, this allows
-for inspection of the GCS after disabling as part of fault reporting.
-Since it is not an expected use case and since it presents some
-complications in determining what to do with previously initialsed data
-on the GCS attempts to reenable GCS after this are rejected.  This can
-be revisted if a use case arises.
+Add coverage of the GCS hwcap to the hwcap selftest, using a read of
+GCSPR_EL0 to generate SIGILL without having to worry about enabling GCS.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/gcs.h       | 22 ++++++++++
- arch/arm64/include/asm/processor.h |  1 +
- arch/arm64/mm/gcs.c                | 82 ++++++++++++++++++++++++++++++++++++++
- 3 files changed, 105 insertions(+)
+ tools/testing/selftests/arm64/abi/hwcap.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
-index c1f274fdb9c0..48c97e63e56a 100644
---- a/arch/arm64/include/asm/gcs.h
-+++ b/arch/arm64/include/asm/gcs.h
-@@ -50,6 +50,9 @@ static inline u64 gcsss2(void)
- 	return Xt;
+diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
+index 1189e77c8152..bc9e3250a9df 100644
+--- a/tools/testing/selftests/arm64/abi/hwcap.c
++++ b/tools/testing/selftests/arm64/abi/hwcap.c
+@@ -63,6 +63,17 @@ static void fp_sigill(void)
+ 	asm volatile("fmov s0, #1");
  }
  
-+#define PR_SHADOW_STACK_SUPPORTED_STATUS_MASK \
-+	(PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE | PR_SHADOW_STACK_PUSH)
-+
- #ifdef CONFIG_ARM64_GCS
- 
- static inline bool task_gcs_el0_enabled(struct task_struct *task)
-@@ -63,6 +66,20 @@ void gcs_preserve_current_state(void);
- unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
- 				     const struct kernel_clone_args *args);
- 
-+static inline int gcs_check_locked(struct task_struct *task,
-+				   unsigned long new_val)
++static void gcs_sigill(void)
 +{
-+	unsigned long cur_val = task->thread.gcs_el0_mode;
++	unsigned long *gcspr;
 +
-+	cur_val &= task->thread.gcs_el0_locked;
-+	new_val &= task->thread.gcs_el0_locked;
-+
-+	if (cur_val != new_val)
-+		return -EBUSY;
-+
-+	return 0;
++	asm volatile(
++		"mrs	%0, S3_3_C2_C5_1"
++	: "=r" (gcspr)
++	:
++	: "cc");
 +}
 +
- #else
- 
- static inline bool task_gcs_el0_enabled(struct task_struct *task)
-@@ -78,6 +95,11 @@ static inline unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
+ static void ilrcpc_sigill(void)
  {
- 	return -ENOTSUPP;
- }
-+static inline int gcs_check_locked(struct task_struct *task,
-+				   unsigned long new_val)
-+{
-+	return 0;
-+}
- 
- #endif
- 
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 6fc6dcbd494c..6a3091ec0f03 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -184,6 +184,7 @@ struct thread_struct {
- 	u64			tpidr2_el0;
- #ifdef CONFIG_ARM64_GCS
- 	unsigned int		gcs_el0_mode;
-+	unsigned int		gcs_el0_locked;
- 	u64			gcspr_el0;
- 	u64			gcs_base;
- 	u64			gcs_size;
-diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
-index 3cbc3a3d4bc7..95f5cf599bc6 100644
---- a/arch/arm64/mm/gcs.c
-+++ b/arch/arm64/mm/gcs.c
-@@ -154,3 +154,85 @@ void gcs_free(struct task_struct *task)
- 	task->thread.gcs_base = 0;
- 	task->thread.gcs_size = 0;
- }
-+
-+int arch_set_shadow_stack_status(struct task_struct *task, unsigned long arg)
-+{
-+	unsigned long gcs, size;
-+	int ret;
-+
-+	if (!system_supports_gcs())
-+		return -EINVAL;
-+
-+	if (is_compat_thread(task_thread_info(task)))
-+		return -EINVAL;
-+
-+	/* Reject unknown flags */
-+	if (arg & ~PR_SHADOW_STACK_SUPPORTED_STATUS_MASK)
-+		return -EINVAL;
-+
-+	ret = gcs_check_locked(task, arg);
-+	if (ret != 0)
-+		return ret;
-+
-+	/* If we are enabling GCS then make sure we have a stack */
-+	if (arg & PR_SHADOW_STACK_ENABLE) {
-+		if (!task_gcs_el0_enabled(task)) {
-+			/* Do not allow GCS to be reenabled */
-+			if (task->thread.gcs_base)
-+				return -EINVAL;
-+
-+			if (task != current)
-+				return -EBUSY;
-+
-+			size = gcs_size(0);
-+			gcs = alloc_gcs(task->thread.gcspr_el0, size,
-+					0, 0);
-+			if (!gcs)
-+				return -ENOMEM;
-+
-+			task->thread.gcspr_el0 = gcs + size - sizeof(u64);
-+			task->thread.gcs_base = gcs;
-+			task->thread.gcs_size = size;
-+			if (task == current)
-+				write_sysreg_s(task->thread.gcspr_el0,
-+					       SYS_GCSPR_EL0);
-+
-+		}
-+	}
-+
-+	task->thread.gcs_el0_mode = arg;
-+	if (task == current)
-+		gcs_set_el0_mode(task);
-+
-+	return 0;
-+}
-+
-+int arch_get_shadow_stack_status(struct task_struct *task,
-+				 unsigned long __user *arg)
-+{
-+	if (!system_supports_gcs())
-+		return -EINVAL;
-+
-+	if (is_compat_thread(task_thread_info(task)))
-+		return -EINVAL;
-+
-+	return put_user(task->thread.gcs_el0_mode, arg);
-+}
-+
-+int arch_lock_shadow_stack_status(struct task_struct *task,
-+				  unsigned long arg)
-+{
-+	if (!system_supports_gcs())
-+		return -EINVAL;
-+
-+	if (is_compat_thread(task_thread_info(task)))
-+		return -EINVAL;
-+
-+	/*
-+	 * We support locking unknown bits so applications can prevent
-+	 * any changes in a future proof manner.
-+	 */
-+	task->thread.gcs_el0_locked |= arg;
-+
-+	return 0;
-+}
+ 	/* LDAPUR W0, [SP, #8] */
+@@ -360,6 +371,14 @@ static const struct hwcap_data {
+ 		.cpuinfo = "fp",
+ 		.sigill_fn = fp_sigill,
+ 	},
++	{
++		.name = "GCS",
++		.at_hwcap = AT_HWCAP2,
++		.hwcap_bit = HWCAP2_GCS,
++		.cpuinfo = "gcs",
++		.sigill_fn = gcs_sigill,
++		.sigill_reliable = true,
++	},
+ 	{
+ 		.name = "JSCVT",
+ 		.at_hwcap = AT_HWCAP,
 
 -- 
 2.30.2
