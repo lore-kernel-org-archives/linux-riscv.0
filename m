@@ -4,102 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F40CC4828D
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Feb 2024 15:34:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B0AC4828D
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Feb 2024 16:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3DpxiaNNZaxPScg8O4F59aomGPp7i1j5e3f4w6Vw7ZQ=; b=VI4gL/t7kRsWIk
-	TVo/y7XQMDZqvNH1EvzVNItjv7v9EPX4wuZLJjWHryxYN0Np0BuNsJ0tUriqlXX0hW+MisGAL/B13
-	O+5DEqFTpfNapI5Sev2jxlSjVkB60YGZDvcEaYJM8pYp7zHzN2Ux8CvMQbg4/Hh16EC9SKV0ryzSJ
-	Ue5pWR8Qdxetf6o0en5CKyOrGELKavK4zVPcSx+giViGRb9/md0SjnfMzU1d9TkeZx0edhqlaRxGx
-	FIimaKNkp9nbQAs9JpbWwg3AR6ZXcMsNADGzvCZAMQ4lZVM2fJSNbdSXTVus1SCSmhiwgzBcKMvOL
-	6UgrjJM3hyyFLz6DqWWw==;
+	List-Owner; bh=wgzrpdfmELS66zJzkOYhH88xzVNt5uq2WYG0B04q+GA=; b=N5cNRYruUCBHOw
+	7Z7Mt78LuLF2VCb/Y54nPzjcTMQZEeEb/K+9bYdojbgrsU9QauFecRHPg56B2nAmjZRC/4OHWtuqW
+	JndTODiXW+3DazoBn6pdnlKvswarl2t/ooddBU8DBP+Y1cFcyArilxQkrjrR1PfRAEmB26ZXtniiH
+	KF1H1vL+xKw3a114D5iUmbJdBSYM9NJ9a5G651pkB3/bOx4w+VDMITi1XhcZIXqko+/p2OvmsCMR/
+	L5a5JrqUdRUu9T7F4ZaqB8ze5nnPaFKCmtELj/26VtobhQwlErhl4QU/WFeZ0xb2JH336iWcGvyaz
+	+LcfGlVA15hgFTvBmYLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rX0z8-00000003oas-3PrU;
-	Mon, 05 Feb 2024 15:34:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rX1ly-00000003yYS-2BfF;
+	Mon, 05 Feb 2024 16:24:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rX0z4-00000003oXl-0pGg;
-	Mon, 05 Feb 2024 15:34:11 +0000
+	id 1rX1ld-00000003yQN-3aoO;
+	Mon, 05 Feb 2024 16:24:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 86E8E611B0;
-	Mon,  5 Feb 2024 15:34:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 213CBC433F1;
-	Mon,  5 Feb 2024 15:34:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 94E9D611D6;
+	Mon,  5 Feb 2024 16:24:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2D96C43390;
+	Mon,  5 Feb 2024 16:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707147249;
-	bh=SZ5lOaTcjPLax9RiPdWCg4niKcbES+E0uMPELi0RXuU=;
+	s=k20201202; t=1707150256;
+	bh=fIMCSPUEi6cexm0uafrNgsHcCO+RxErvwhtxx6mdG5M=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DvvLnxe0P4S5yNRw5W2VY9jJ/E1A+shICsu1xDuV/gHmffvHBzURzsVRFJcvUJ8YE
-	 6QBN55llvCBZnj2N7RqNyqqi9c7wb9DYeG2+9zjkVok4Da3nmMRjNTPGl+52PDgjhM
-	 GsH1ZYh1DLMKySBZsxTWhaRwJPkUykxLG+W3eZkFdZ3mhXH9Sw0xcFypYfdPXfZBjP
-	 sHZCaIf8sr9Lx503zRsqr0kqLGI0h6JzFx1tMKuSAoy5MXNktLQyNPGD6r8QxxINLm
-	 5o0ggZ7xvpbbeoBwBLxqbCmkB97jAeDicbiBgGlpnPXzp92m19n0g6qQkAvnLQu4Iz
-	 PpsszaLe4tw5Q==
+	b=ekHT+Gb3KAQ+Ahd1adEl8P74E+onUgWUxlneL25GP8bxSLtCspDxDjyy0VItSvd2f
+	 VyJskXNW3PEy1/ZW20R45xwBx3fHnkaQh0Tyae/NPlVjiIpWqBKzQN//CSbVeFkSdK
+	 igh8cKnztJzyuYLAOXytR0yXLd8Y8plcuYdJPRpFTFQLZ1WAYauyJeuQgeI49aPcRP
+	 kpkkqk1evmzFifpqRcsTInL2NmCrMZ01UJG4a8boMcpacGtDL8wiLKZAWeIMyJaeD5
+	 W7UkXrQIcpxIzs6/UXCSDJuYEMPIlxDYYcL2wqEnlRidds4EbWLO9JKftBFWrPrDGT
+	 peoI+Ll4176LQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1rX0z0-000Su2-Bp;
-	Mon, 05 Feb 2024 15:34:06 +0000
-Date: Mon, 05 Feb 2024 15:34:05 +0000
-Message-ID: <8634u76i36.wl-maz@kernel.org>
+	id 1rX1lV-000TlO-Cr;
+	Mon, 05 Feb 2024 16:24:13 +0000
+Date: Mon, 05 Feb 2024 16:24:12 +0000
+Message-ID: <86zfwe6frn.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>,
-	Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
+To: Haibo Xu <xiaobo55x@gmail.com>
+Cc: Haibo Xu <haibo1.xu@intel.com>,
+	ajones@ventanamicro.com,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Guo Ren <guoren@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	wchen <waylingii@gmail.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Peter Xu <peterx@redhat.com>,
+	Like Xu <likexu@tencent.com>,
+	Vipin Sharma <vipinsh@google.com>,
+	Thomas Huth <thuth@redhat.com>,
+	Aaron Lewis <aaronlewis@google.com>,
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v8 13/38] KVM: arm64: Manage GCS registers for guests
-In-Reply-To: <825d2b35-fa10-43ad-b3b3-b29a77f3fed0@sirena.org.uk>
-References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
-	<20240203-arm64-gcs-v8-13-c9fec77673ef@kernel.org>
-	<868r3z6y6v.wl-maz@kernel.org>
-	<825d2b35-fa10-43ad-b3b3-b29a77f3fed0@sirena.org.uk>
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 00/12] RISCV: Add kvm Sstc timer selftests
+In-Reply-To: <CAJve8onDbX44Ph6a-FdO2+p7QOQLah-7OyF+yUc06wud+SvmQQ@mail.gmail.com>
+References: <cover.1705916069.git.haibo1.xu@intel.com>
+	<CAJve8onDbX44Ph6a-FdO2+p7QOQLah-7OyF+yUc06wud+SvmQQ@mail.gmail.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, akpm@linux-foundation.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, arnd@arndb.de, oleg@redhat.com, ebiederm@xmission.com, keescook@chromium.org, shuah@kernel.org, rick.p.edgecombe@intel.com, debug@rivosinc.com, ardb@kernel.org, Szabolcs.Nagy@arm.com, hjl.tools@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, fweimer@redhat.com, brauner@kernel.org, thiago.bauermann@linaro.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-SA-Exim-Rcpt-To: xiaobo55x@gmail.com, haibo1.xu@intel.com, ajones@ventanamicro.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, pbonzini@redhat.com, shuah@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, guoren@kernel.org, conor.dooley@microchip.com, mchitale@ventanamicro.com, waylingii@gmail.com, greentime.hu@sifive.com, jszhang@kernel.org, samuel@sholland.org, minda.chen@starfivetech.com, seanjc@google.com, peterx@redhat.com, likexu@tencent.com, vipinsh@google.com, thuth@redhat.com, aaronlewis@google.com, maciej.wieczor-retman@intel.com, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240205_073410_342581_0B96EFDE 
-X-CRM114-Status: GOOD (  38.18  )
+X-CRM114-CacheID: sfid-20240205_082422_048908_E85BAAEE 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,77 +117,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 05 Feb 2024 12:35:53 +0000,
-Mark Brown <broonie@kernel.org> wrote:
+On Mon, 05 Feb 2024 13:10:26 +0000,
+Haibo Xu <xiaobo55x@gmail.com> wrote:
 > 
-> On Mon, Feb 05, 2024 at 09:46:16AM +0000, Marc Zyngier wrote:
-> > On Sat, 03 Feb 2024 12:25:39 +0000,
-> > Mark Brown <broonie@kernel.org> wrote:
+> Hi Marc,
 > 
-> > > +++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-> > > @@ -25,6 +25,8 @@ static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
-> > >  {
-> > >  	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
-> > >  	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
-> > > +	if (has_gcs())
-> > > +		ctxt_sys_reg(ctxt, GCSPR_EL0) = read_sysreg_s(SYS_GCSPR_EL0);
-> 
-> > We have had this discussion in the past. This must be based on the
-> > VM's configuration. Guarding the check with the host capability is a
-> > valuable optimisation, but that's nowhere near enough. See the series
-> > that I have posted on this very subject (you're on Cc), but you are
-> > welcome to invent your own mechanism in the meantime.
-> 
-> Right, which postdates the version you're replying to and isn't merged
-> yet - the current code was what you were asking for at the time.
+> Could you help review the first 3 patches in this series?
 
-v1 and v2 predate it. And if the above is what I did ask, then I must
-have done a very poor job of explaining what was required. For which I
-apologise profusely.
+For these 3 patches:
 
-> I'm
-> expecting to update all these feature series to work with that once it
-> gets finalised and merged but it's not there yet, I do see I forgot to
-> put a note in v9 about that like I did for dpISA - sorry about that, I
-> was too focused on the clone3() rework when rebasing onto the new
-> kernel.
-> 
-> This particular series isn't going to get merged for a while yet anyway
-> due to the time it'll take for userspace testing, I'm expecting your
-> series to be in by the time it becomes an issue.
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-Right. Then I'll ignore it for the foreseeable future.
-
-> 
-> > > +	if (has_gcs()) {
-> > > +		write_sysreg_el1(ctxt_sys_reg(ctxt, GCSPR_EL1),	SYS_GCSPR);
-> > > +		write_sysreg_el1(ctxt_sys_reg(ctxt, GCSCR_EL1),	SYS_GCSCR);
-> > > +		write_sysreg_s(ctxt_sys_reg(ctxt, GCSCRE0_EL1),
-> > > +			       SYS_GCSCRE0_EL1);
-> > > +	}
-> 
-> > For the benefit of the unsuspecting reviewers, and in the absence of a
-> > public specification (which the XML drop isn't), it would be good to
-> > have the commit message explaining the rationale of what gets saved
-> > when.
-> 
-> What are you looking for in terms of rationale here?  The KVM house
-> style is often very reliant on reader context so it would be good to
-> know what considerations you'd like to see explicitly addressed.
-
-Nothing to do with style, everything to do with substance: if nothing
-in the host kernel makes any use of these registers, why are they
-eagerly saved/restored on nVHE/hVHE? I'm sure you have a reason for
-it, but it isn't that obvious. Because these two modes need all the
-help they can get in terms of overhead reduction.
-
-> These
-> registers shouldn't do anything when we aren't running the guest so
-> they're not terribly ordering sensitive, the EL2 ones will need a bit
-> more consideration in the face of nested virt.
-
-The EL2 registers should follow the exact same pattern, specially once
-you fix the VNCR bugs I pointed out.
+Thanks,
 
 	M.
 
