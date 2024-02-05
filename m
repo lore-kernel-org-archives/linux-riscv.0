@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A170BC4828D
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Feb 2024 18:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6328AC4828D
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Feb 2024 23:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KZtlkbakX71zjDwrj9rAlflY4oeFaBE5QlTZ9sqTuWI=; b=DhtHci/sYAb1v3Hnfk8MO9gatG
-	Fhu0liuK3ce+qbxnS3JVmQj0yKmFT4AHudpptzUxIsJo6eQ6AA2GKkcsKsNNZMbvBSfI1ReO19Idw
-	170qgj+qOohLFpsn17PIGFMXb/pj2WPCnGrDWnavvsxpOxRB8L/6l3lKn6stdmWHdvcnCleYN/t8p
-	J2HZ5gC2IMHA0Gd9RiozqdPFTGzaBUfE3FQN3SSKOZ9LvT9RMRlxLxjqeHgOMuueYOfc76RJykVXh
-	u/9e/WjdGT9mxBc352cCBNIxTuaVsMuJQmMKtDpssbs/8nJ97Tdza/+6lK2117KWexOwlJpyE5wOA
-	BQwXZ0kg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/b3eTO0vyVTxQk9V4Fh9ovHTtkaSC8hFkE2zMCjRRX4=; b=aDxybscZHfGvpx
+	/5vXRyI0AundBslB/8xUoP4ejNscYQKEzUDkpWXsOjDt4x3DwXq6WvzXwJ9nbLSD0QiBbmYwHov6K
+	pPSBxFYvP5Dh53stO00aJeCdjkxj1x2s+r2sqNPNZwZzMTa3kHoRbLlcLPwBWm2f9Jmtr3mcOTfPe
+	dGKck+JkZ0PoGiSVjzbfYNKTbxsq3NYnLXaS9KZajDfvs6B1G9MVf5oGVT9nfgR7TleX9dIHdjyFA
+	cvKYoYqv6ZWTbkOQTW6E7PzMqtSuZOX21s1FRaX2aKinCkyupJT9HbB2lLDDiVRkMYuPSAZX6hGPE
+	D/F66b6QRvVwr0t+ViZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rX3NH-00000004JSs-2xwe;
-	Mon, 05 Feb 2024 18:07:19 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1rX85e-00000005WdZ-1Bf8;
+	Mon, 05 Feb 2024 23:09:26 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rX3NE-00000004JRp-3uBM
+	id 1rX85a-00000005WdA-2Xvq
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Feb 2024 18:07:18 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rX3ND-0002rX-MG; Mon, 05 Feb 2024 19:07:15 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rX3NC-004fwa-68; Mon, 05 Feb 2024 19:07:14 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rX3NC-00Fkrt-0H;
-	Mon, 05 Feb 2024 19:07:14 +0100
-Date: Mon, 5 Feb 2024 19:07:13 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Nylon Chen <nylon.chen@sifive.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, conor@kernel.org, robh+dt@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	aou@eecs.berkeley.edu, thierry.reding@gmail.com, vincent.chen@sifive.com, 
-	zong.li@sifive.com, nylon7717@gmail.com
-Subject: Re: [PATCH v8 2/3] pwm: sifive: change the PWM controlled LED
- algorithm
-Message-ID: <4kqkazromkzyhic2mgyyjrh4jlnp6djfuotu37btdfolqp5e2o@6jkbjnahvrbo>
-References: <20240126074045.20159-1-nylon.chen@sifive.com>
- <20240126074045.20159-3-nylon.chen@sifive.com>
+	Mon, 05 Feb 2024 23:09:24 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1d746856d85so37242035ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Feb 2024 15:09:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1707174561; x=1707779361; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nSwq0kqDcJFU0BRDFanOctiB1Z+4ozxhyzWWA6dFk0s=;
+        b=1ps2SNApmPxP8a2YU3A22dlGVq9KC3bCLzUraUpp2zpwPXwrFyaRPId4ovBn6DyXix
+         1vVhkiXv0hKs/T5fJoQEziXHvAyEN2yYJznuuL5HXYtJ6zMMdNq8BVKQoq24NXmoT+1F
+         TnBkjedbiIE077ZKelYAb9tI2FNr49g+eSOiPGgmM8PFw9ZqPIGDOXoCRe0REabJftcO
+         pybgd5Q8KHTd7iwTcIRuf92XAjW4+WT/iKJJ8u/K7AarcVbkCLtSksoKv4ABOxYDlsDI
+         8GK5oyA+3+k8wmSKR2VBsQ9DUTOvQ5ghQnwf0ojl7sEcct4GkijX8Eu18kkU2uEVrCfZ
+         uRSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1707174561; x=1707779361;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nSwq0kqDcJFU0BRDFanOctiB1Z+4ozxhyzWWA6dFk0s=;
+        b=LuZ5kx5OSkx9V0p+O7yNustwKieWc982t6FzjOREZGSIa1/vTVveiQgFNhD206y2qS
+         a9yxAw3/cs7+srYRgKBLUx9UlpjjBHwbjANzg31NI+yMzEuw0QoppC+rDcR1gkKf3wHG
+         je/xCv3gk/RMz4B6o7TC1VzWxlnrn9aocim8m0YCZ1Utdueoc3c1jLAGVM+8dCelWspU
+         lID+KlVeClcfPi24STAxieW2E6xnN1NZskttrXU+Rb5cn4/uraTG+O4KUg0ZHqRIWcvC
+         FdOuPa9+RBpNqzxmaLrbpytuvyj9EMzTQverMBJgt1ehgo9UZXwJOSZ2Lj9WTkzvqEhX
+         hcCQ==
+X-Gm-Message-State: AOJu0YzIxOaP9pA7kVajNG1i7ry0uHyW7C8XaPGJDzJclMkT6X0LEjTI
+	eCT0JH5AvWyrzV/m9DsMhtvIXq5u2YxYjSQMbxAwvP9IIvBiGeUL5FZeYygdHm4=
+X-Google-Smtp-Source: AGHT+IGWMSVP4g1RkkGppscPVtyZNu/IY0rg2dbT54+40Cs+tkHyOIqM7on6+FJVjo9rViYIkkpgsA==
+X-Received: by 2002:a17:902:bc45:b0:1d9:8cd8:acff with SMTP id t5-20020a170902bc4500b001d98cd8acffmr941573plz.62.1707174561185;
+        Mon, 05 Feb 2024 15:09:21 -0800 (PST)
+X-Forwarded-Encrypted: i=0; AJvYcCXKI30Vl6WZduHvlKzCNdPAifq8CEQxrTFOAWDyKxPHczXy/jrjnvAi+a6hMW/JpVitKZhL3OZkYjKA4oJYZnkRPmTKAGO7uDO8PM5lxtZUnPutBFCx7p6POaymKGn15culFuICFPYwWXseNLX+iqzD3goBLbH5ucc/HKkn7i5suEOdspDOg7mi9mvFEDjsizrroAECI7dLzw==
+Received: from ghost ([12.44.203.122])
+        by smtp.gmail.com with ESMTPSA id e6-20020a170902744600b001d93bb0c9c8sm414955plt.85.2024.02.05.15.09.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Feb 2024 15:09:20 -0800 (PST)
+Date: Mon, 5 Feb 2024 15:09:18 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Only flush the mm icache when setting an exec pte
+Message-ID: <ZcFqnm5/odPzQoHK@ghost>
+References: <20240202124711.256146-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20240126074045.20159-3-nylon.chen@sifive.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20240202124711.256146-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240205_100717_000156_E89EB78C 
-X-CRM114-Status: GOOD (  22.45  )
+X-CRM114-CacheID: sfid-20240205_150922_827258_1B9C8E36 
+X-CRM114-Status: GOOD (  24.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,131 +89,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6514021318526948819=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============6514021318526948819==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ngq5sitimfjzgek5"
-Content-Disposition: inline
-
-
---ngq5sitimfjzgek5
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-Regarding the Subject: The patch has nothing to do with an LED, has it?
-
-On Fri, Jan 26, 2024 at 03:40:44PM +0800, Nylon Chen wrote:
-> The `frac` variable represents the pulse inactive time, and the result
-> of this algorithm is the pulse active time. Therefore, we must reverse th=
-e result.
-
-Please break lines at 75 columns in the commit log.
-
-> The reference is SiFive FU740-C000 Manual[0]
->=20
-> Link: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b=
-16acba_fu740-c000-manual-v1p6.pdf [0]
-
-I looked at Figure 29 in this document (version v1p6, pdf page 148). Not
-sure I understand that correctly, but I expect that the output of the
-">=3D?" node below pwmcmp0 to become 1 if pwms has reached pwmcmp0, is
-that right? In that case this output is zero when pwmcount is zero and
-then pwmcmp0ip is zero, too. So a period starts with the inactive part
-and so it's inversed polarity.
-
-What made you think that the current driver implementation is wrong?
-
-> Co-developed-by: Zong Li <zong.li@sifive.com>
-> Signed-off-by: Zong Li <zong.li@sifive.com>
-> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
+On Fri, Feb 02, 2024 at 01:47:11PM +0100, Alexandre Ghiti wrote:
+> We used to emit a flush_icache_all() whenever a dirty executable
+> mapping is set in the page table but we can instead call
+> flush_icache_mm() which will only send IPIs to cores that currently run
+> this mm and add a deferred icache flush to the others.
+> 
+> The number of calls to sbi_remote_fence_i() (tested without IPI
+> support):
+> 
+> With a simple buildroot rootfs:
+> * Before: ~5k
+> * After :  4 (!)
+> 
+> Tested on HW, the boot to login is ~4.5% faster.
+> 
+> With an ubuntu rootfs:
+> * Before: ~24k
+> * After : ~13k
+> 
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 > ---
->  drivers/pwm/pwm-sifive.c | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-> index eabddb7c7820..b07c8598bb21 100644
-> --- a/drivers/pwm/pwm-sifive.c
-> +++ b/drivers/pwm/pwm-sifive.c
-> @@ -113,6 +113,7 @@ static int pwm_sifive_get_state(struct pwm_chip *chip=
-, struct pwm_device *pwm,
->  	u32 duty, val;
-> =20
->  	duty =3D readl(ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
-> +	duty =3D (1U << PWM_SIFIVE_CMPWIDTH) - 1 - duty;
-
-I find it irritating that both values are assigned to duty. I'd spend
-another variable and make this:
-
-	inactive =3D readl(ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
-	duty =3D (1U << PWM_SIFIVE_CMPWIDTH) - 1 - inactive;
-
-
-> =20
->  	state->enabled =3D duty > 0;
-> =20
-> @@ -123,11 +124,10 @@ static int pwm_sifive_get_state(struct pwm_chip *ch=
-ip, struct pwm_device *pwm,
->  	state->period =3D ddata->real_period;
->  	state->duty_cycle =3D
->  		(u64)duty * ddata->real_period >> PWM_SIFIVE_CMPWIDTH;
-> -	state->polarity =3D PWM_POLARITY_INVERSED;
-> +	state->polarity =3D PWM_POLARITY_NORMAL;
-> =20
->  	return 0;
+>  arch/riscv/include/asm/pgtable.h | 14 +++++++-------
+>  arch/riscv/mm/cacheflush.c       |  4 ++--
+>  arch/riscv/mm/pgtable.c          |  2 +-
+>  3 files changed, 10 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 0c94260b5d0c..058cfa89dd29 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -513,12 +513,12 @@ static inline void set_pte(pte_t *ptep, pte_t pteval)
+>  	WRITE_ONCE(*ptep, pteval);
 >  }
-> -
-
-Please keep this empty line between functions.
-
->  static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pw=
-m,
->  			    const struct pwm_state *state)
+>  
+> -void flush_icache_pte(pte_t pte);
+> +void flush_icache_pte(struct mm_struct *mm, pte_t pte);
+>  
+> -static inline void __set_pte_at(pte_t *ptep, pte_t pteval)
+> +static inline void __set_pte_at(struct mm_struct *mm, pte_t *ptep, pte_t pteval)
 >  {
+>  	if (pte_present(pteval) && pte_exec(pteval))
+> -		flush_icache_pte(pteval);
+> +		flush_icache_pte(mm, pteval);
+>  
+>  	set_pte(ptep, pteval);
+>  }
+> @@ -529,7 +529,7 @@ static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
+>  	page_table_check_ptes_set(mm, ptep, pteval, nr);
+>  
+>  	for (;;) {
+> -		__set_pte_at(ptep, pteval);
+> +		__set_pte_at(mm, ptep, pteval);
+>  		if (--nr == 0)
+>  			break;
+>  		ptep++;
+> @@ -541,7 +541,7 @@ static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
+>  static inline void pte_clear(struct mm_struct *mm,
+>  	unsigned long addr, pte_t *ptep)
+>  {
+> -	__set_pte_at(ptep, __pte(0));
+> +	__set_pte_at(mm, ptep, __pte(0));
+>  }
+>  
+>  #define __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS	/* defined in mm/pgtable.c */
+> @@ -707,14 +707,14 @@ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+>  				pmd_t *pmdp, pmd_t pmd)
+>  {
+>  	page_table_check_pmd_set(mm, pmdp, pmd);
+> -	return __set_pte_at((pte_t *)pmdp, pmd_pte(pmd));
+> +	return __set_pte_at(mm, (pte_t *)pmdp, pmd_pte(pmd));
+>  }
+>  
+>  static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+>  				pud_t *pudp, pud_t pud)
+>  {
+>  	page_table_check_pud_set(mm, pudp, pud);
+> -	return __set_pte_at((pte_t *)pudp, pud_pte(pud));
+> +	return __set_pte_at(mm, (pte_t *)pudp, pud_pte(pud));
+>  }
+>  
+>  #ifdef CONFIG_PAGE_TABLE_CHECK
+> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> index b0774993c0f3..3e234e95d952 100644
+> --- a/arch/riscv/mm/cacheflush.c
+> +++ b/arch/riscv/mm/cacheflush.c
+> @@ -85,12 +85,12 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
+>  #endif /* CONFIG_SMP */
+>  
+>  #ifdef CONFIG_MMU
+> -void flush_icache_pte(pte_t pte)
+> +void flush_icache_pte(struct mm_struct *mm, pte_t pte)
+>  {
+>  	struct folio *folio = page_folio(pte_page(pte));
+>  
+>  	if (!test_bit(PG_dcache_clean, &folio->flags)) {
+> -		flush_icache_all();
+> +		flush_icache_mm(mm, false);
+>  		set_bit(PG_dcache_clean, &folio->flags);
+>  	}
+>  }
+> diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
+> index ef887efcb679..533ec9055fa0 100644
+> --- a/arch/riscv/mm/pgtable.c
+> +++ b/arch/riscv/mm/pgtable.c
+> @@ -10,7 +10,7 @@ int ptep_set_access_flags(struct vm_area_struct *vma,
+>  			  pte_t entry, int dirty)
+>  {
+>  	if (!pte_same(ptep_get(ptep), entry))
+> -		__set_pte_at(ptep, entry);
+> +		__set_pte_at(vma->vm_mm, ptep, entry);
+>  	/*
+>  	 * update_mmu_cache will unconditionally execute, handling both
+>  	 * the case that the PTE changed and the spurious fault case.
+> -- 
+> 2.39.2
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Best regards
-Uwe
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---ngq5sitimfjzgek5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmXBI9AACgkQj4D7WH0S
-/k5uxQgAnQ/SvX4+QQISrWgnYygCgVlr4ryD5EN3wAHNeDGn3EvG8hNVvZTlQtZV
-CA5wYClIyGjAq6Qeg/tlfwjhthtMinqwQZpZ0K67c/Fr51cp0ic7PNKWkQF3UMWf
-EaShSF6NIyFsCX25OZNa9lUpMgp9hx+klZ0gFSL5aZ9n/MGmgM4In68YfKEQsS01
-X/LgQj0AwDo5utQmLL+zp8sKneEs5WM7/Wcs7910eC/+bpo4fBBs5D1R7ap8LHts
-J6qse4XMtdHJyHQxXuDq2/tH4+ttAz7lodvJuYSjGoU/OAhCOUNx0rF+TgUFs5zj
-FqHeGOJyQ2QKYeqv3kqqjdd3VpHLjw==
-=4mPe
------END PGP SIGNATURE-----
-
---ngq5sitimfjzgek5--
-
-
---===============6514021318526948819==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6514021318526948819==--
-
