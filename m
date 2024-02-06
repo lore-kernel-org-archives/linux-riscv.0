@@ -4,73 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B310C48297
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Feb 2024 19:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4720CC48297
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Feb 2024 20:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
+	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZkIpDPLaRXi4NqcF31tTvdoHhjd/16Ya8j/q3ogpx0M=; b=xUpJBo5Z66k264
-	JzXorfUFZy4mM2a2Yg/rPI0d+1iRi5hP30TXtbi/cyXOYKmfbvEt60ampbK2sLx8jIDT0ID5hgNSC
-	sxcyoJZtV3n/6h0S8Vn0dM4WlfgZMpQ4TAo4zk0f5s28hmHAGkVlxUmvYV4LmI7pT1l82615CYrzA
-	lGJOqxlLXEXKdhogAHjROEB/2AaEUooF+rT/4jXE1iypbD9MktMHrWCWAKKRvNCKSddJquTgm6RjF
-	jrAWQdeNNN5kPDBug70nVUqUa7uZ2ZAju2kNDtCjdCVwpegOvAKKih+GXze6ESx17UY5v3PDOZBAp
-	WyFlTWiUKFt0G6AjKdKw==;
+	List-Owner; bh=4akC0WpmeORRK5lW2gmb8oInsRQAF2LlTmn3IhDrdvc=; b=mhTApKYxIoTTKh
+	Y9HQphHqd3xwAlUOMuCXWc2c+5RBqrQ7jdffjPniN8MOLTlEElZ1g9SaaaYLiXlfDLbssP7+8jZ4Z
+	gSNUYdX3UFSMq0KmdfNPtWGO3xVXD8sRSPXkdoiU5mSlLaPp+PF1SmjfhwLMLJuGSCXMetQHVdImj
+	qtsh3kt+dwzHCNYliisuqhpSZXISt+ocD6YLm2oj+mta45X/81ZDygFm7kjXqqEJF4RCxKWEfH6+Q
+	gvbahoOiQhKRGyErM9PmXYXvRHzViW5ejJ3QSAp3vTe+S0+dA8rg3Q6dGm1EhX+WtBBdoUxmJMslW
+	O3KggkHbE1lhmSf3zADQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXRIA-00000008hmc-1gEy;
-	Tue, 06 Feb 2024 19:39:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rXSBC-00000008t6m-1Yqs;
+	Tue, 06 Feb 2024 20:36:30 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXRI7-00000008hmJ-3bJc
+	id 1rXSB7-00000008t01-30vA
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Feb 2024 19:39:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4445B616C0;
-	Tue,  6 Feb 2024 19:39:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC340C433F1;
-	Tue,  6 Feb 2024 19:39:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707248374;
-	bh=BqxQ7FEXnzOrBOd7zj6mYuOjgycKqkJG9Ox/LfYw7ms=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nt77VMdXUt5FjMlr8RCREY65FvC8+hBjPE8hs4xXz1s7YvoV7OToDZl1R19bOZDIZ
-	 ZQad5Rw+Gk34NATfN8E5itpqs6s6KSoo+J9Xx+tjbhAMJ57w0XbMBdz+N09oXPbjPl
-	 AdOMZUZ3EwFkcaVS85n60VP8YHCiF6SqO+aOL+oLQdgjUtpB5GKahUNc4Srdo2TuKR
-	 DZBemHXcgkVo/pjtzisQkzavKbr6Lx3fNPoWjMk7AJ/d2ZfAULTIncMSJ6mjS6SAGM
-	 b8k9t1/y4YWGYPthsbJKg0j4K936lUUc/xrS27z7b17HDCHRcrzl+q/nCOmEQMr3Jy
-	 q6JTU7zynApsQ==
-From: Conor Dooley <conor@kernel.org>
-To: green.wan@sifive.com,
-	vkoul@kernel.org,
-	robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	conor+dt@kernel.org,
-	shravan chippa <shravan.chippa@microchip.com>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	nagasuresh.relli@microchip.com,
-	praveen.kumar@microchip.com
-Subject: Re: (subset) [PATCH v5 0/4] dma: sf-pdma: various sf-pdma updates for the mpfs platform
-Date: Tue,  6 Feb 2024 19:39:25 +0000
-Message-ID: <20240206-luckily-udder-ffd828ccdc57@spud>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20231208103856.3732998-1-shravan.chippa@microchip.com>
-References: <20231208103856.3732998-1-shravan.chippa@microchip.com>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=443; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=xmtgk10aREoc8W34f44KzSWunePLW5lmhs8pdAnijqk=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKmHut7wx7dWlExfcNHWa3tnQMT2pqO2387rZOe0dZstl 98k7fmjo5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABN538vIsJF7rtPM7173ukOX vrPqXhavN/VYiDjfpgseC85sqa9+nsnwk3HRzTmVmgsWbM5TeJudttX7Q8HFm/veCVy/58+8SWZ FEzMA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+	Tue, 06 Feb 2024 20:36:28 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-5d1bffa322eso7461578a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Feb 2024 12:36:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1707251784; x=1707856584; darn=lists.infradead.org;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Jzwz3V63szJHlExhCZvPC7c2dtOM+k/FDHvQAaa+NEw=;
+        b=lY21KX7epEciYjDkhDHyL83VKvsa8CkuCd9nL7RGwBSTdTA4iQKrfTlO0W37pukqOw
+         anRrSZpFTUV60mTijPM+AXfVg7q8Dp5PMl5BbMOckfmXMJebCRnZYwP66u88kyBJlx9a
+         VQeu5bKVIrdJVxdzmcqKT4WWYQL3hFew9Q8clWB2gcH5Q8WgxiE4a2/hGsVWibCJVZnK
+         sR917Pm1M8vQkVtcYaJYaCbauy8NibwDUbKpM9NigUtCqtbHPd5Ysa5q3QiYwsWxfuHT
+         FqecKcbPNImkiJTURoylOAVBbKjkI2dRr1BLUy/fmEuyDSSJWv/CfpCAeMrjrdA7UTCq
+         hxqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1707251784; x=1707856584;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Jzwz3V63szJHlExhCZvPC7c2dtOM+k/FDHvQAaa+NEw=;
+        b=hSe7BW5It+F22bR6k1Vw9uLo+E+ICgHuCCgkkaGRrZcD3nBYx5oStDj3xvqSYEuN8Z
+         076dTkK3I21ZdtrWbVQugPRR4Goz0NSjWnmjeUmbnRzxsbLopYaUFKausrv2Af+yGCun
+         7UlVuSt9gHO3RdoZ18j1R+gm7ZBCPIdUr2I4QBXuL3tQQ0bkp3OBrqqE0BNuAe6XEqL8
+         VtaZrsNsRN5dhRm//dT6LO6eKyVFX+ZZx19hmz/BoqeD8Nu8VL0Hiu3UUQWcoGfjb15t
+         LAQk+6m7I/NGh/tF0A5bHQxnnPW4a3ffPgeoiR7f14whSJlPWYeXP14oPviUf61mVP6X
+         NxDg==
+X-Forwarded-Encrypted: i=1; AJvYcCUB8PXOCiXkQ3zXJXfJbifAST3Ugab6oKoLqq7sSujdiCWScbMzt7TwyKEvMZBj3SRhjlNYrhHqRDXkg8i/aWoQtQxJw39FJKx8hbB97kXZ
+X-Gm-Message-State: AOJu0YzGYCZOPKjCV4zTfkegHi8cCFMquUzkejSPmXfLbkO8yjDu4kQy
+	bhOaNuF0o1VVKJKD/StXgp7oQsly251fnMh+WrNi41WOsVCr2ZM7c8mNzrgwu9ekNlPDlmaNXkm
+	kaA==
+X-Google-Smtp-Source: AGHT+IE+O6nMTqNGYB/t77HMprboX4PQjl7+xgDRrny/aw5DBBLxjaHIIhAZ2fE2KVmSzCD1jBDPxM7Dmrc=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a05:6a02:313:b0:5ca:45d0:dc1b with SMTP id
+ bn19-20020a056a02031300b005ca45d0dc1bmr1646pgb.9.1707251783750; Tue, 06 Feb
+ 2024 12:36:23 -0800 (PST)
+Date: Tue, 6 Feb 2024 12:36:22 -0800
+In-Reply-To: <20240203000917.376631-11-seanjc@google.com>
+Mime-Version: 1.0
+References: <20240203000917.376631-1-seanjc@google.com> <20240203000917.376631-11-seanjc@google.com>
+Message-ID: <ZcKYRsNUAngWGy2a@google.com>
+Subject: Re: [PATCH v8 10/10] KVM: selftests: Add a basic SEV smoke test
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Vishal Annapurve <vannapurve@google.com>, 
+	Ackerley Tng <ackerleytng@google.com>, Andrew Jones <andrew.jones@linux.dev>, 
+	Tom Lendacky <thomas.lendacky@amd.com>, Michael Roth <michael.roth@amd.com>, 
+	Peter Gonda <pgonda@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240206_113935_970341_7EC3DF69 
-X-CRM114-Status: UNSURE (   5.67  )
+X-CRM114-CacheID: sfid-20240206_123625_875771_6CE191C8 
+X-CRM114-Status: UNSURE (   6.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,26 +98,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Fri, Feb 02, 2024, Sean Christopherson wrote:
+> +int main(int argc, char *argv[])
+> +{
+> +	TEST_REQUIRE(is_kvm_sev_supported());
 
-On Fri, 08 Dec 2023 16:08:52 +0530, shravan chippa wrote:
-> From: Shravan Chippa <shravan.chippa@microchip.com>
-> 
-> Changes from V4 -> V5:
-> 
-> Modified commit msg
-> Replaced the sf_pdma_of_xlate() function with
-> of_dma_xlate_by_chan_id()
-> 
-> [...]
+This also needs
 
-Applied to riscv-dt-for-next, thanks!
+	TEST_REQUIRE(kvm_cpu_has(X86_FEATURE_SEV));
 
-[4/4] riscv: dts: microchip: add specific compatible for mpfs pdma
-      https://git.kernel.org/conor/c/5669bb5a16a0
-
-Thanks,
-Conor.
+to handle the case where the platform supports SEV, i.e. /dev/sev exists, but
+KVM doesn't support SEV, e.g. if TDP is disabled, if SEV was explicitly disabled
+via module param, etc.
 
 _______________________________________________
 linux-riscv mailing list
