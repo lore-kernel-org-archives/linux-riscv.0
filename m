@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B308C48297
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Feb 2024 19:14:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3F8C4828D
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Feb 2024 19:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kAxZD2No1QyDT+amdD4HoiNq13nuMiye9eLxoSuZXDI=; b=fz6Q0pCg9K4IkWqfMxHdnoCXKC
-	NrE2ToxiW0p+sv0HU8pliutPBtyZbEcyv+yvkGTI5R849+2f78Pvb9GsdoAZPbtQmI2SpyUBStjuH
-	UyVm7psOi/XxYnOE/i7Z+R1gY9rvQhCspLZM/q2y5t8dCwOyeM3Ay8MBtZN9MOOPB1RNnWJGpnqYt
-	rjvRPot7haEPDucL7ujMm/FQbG0UFSACtx/xag6Fh+ONm3zZcpkS5rmcz1MaFAzIGgKt6lpkvUd99
-	URoZ8e0pLhqAOZZovvv9ca41+MCoxVEjmuhf/TYbB7TCtN3NXTd8uPM836L42oBaPWJi/yCHfBUvv
-	Wt6TqJxg==;
+	bh=rLN2IJzp0c1/bnXSxWXRjK6sGEnD7ThvoLci0c5adxc=; b=1eUqYKL1oQiK0rAWIRUBzZQ5Dg
+	DLBgAu+2hiJGRbZFBVft4tEnzJBMKC3qAoeG3puOX/GBOTZUibFylZewfW0VxJ4BqG4PPg5DII59u
+	95LQL3DTGIGmzKa4p0kf+SunvQslm6fSTbeIJYaQoH+wQX2tosQzN6GE/i7yIMtwkylLRFWDd5woo
+	DFKG+3jYVmPmOJdl8W5ynZchmMD4fBVJ+Y7tGbo+Evfph1mYrpia1i1WnIyDu9pLaVRkAlJKOaNiR
+	hb2VlIx1nU7NMNyAfmuTlxrdNjSiVDjefdj8ltcdobgIVySXBJswkawSQGd6Z0KbYw1YwCd10uNqT
+	GCqvyJ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXQtI-00000008eke-2CRl;
-	Tue, 06 Feb 2024 19:13:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rXR4J-00000008gB8-46kf;
+	Tue, 06 Feb 2024 19:25:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXQtF-00000008ejs-2VyR
+	id 1rXR4H-00000008gAj-2IUp
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Feb 2024 19:13:55 +0000
+	Tue, 06 Feb 2024 19:25:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1D3D2616AE;
-	Tue,  6 Feb 2024 19:13:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8D86C433F1;
-	Tue,  6 Feb 2024 19:13:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id EEFF8616BA;
+	Tue,  6 Feb 2024 19:25:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0CC5C433C7;
+	Tue,  6 Feb 2024 19:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707246832;
-	bh=onwe4EzjWJV+cq1TR1U2XS4PSciWcSYm51R+cgATKxY=;
+	s=k20201202; t=1707247516;
+	bh=Mu4K6W1Ehm84eYP2IsyclOUmQOj8IiBKVmzjXqzzQ2I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TUWRdJmmfYpoyDOvdrd19ja8t7fKgOAj477iqglAG8qNGVb3DNwkiqddTE6igRcX8
-	 Go5y8kCEfPDR4/NHIFaWiBp9SVsbraKYg7m+ki0kwm0q0obx/JveYBH8D2vJMlNX+z
-	 u4rJE5FeiS/UZxtilQApCp21T+0yZVKTy8n3QO9sQuQ3iwl0cVbgx552D6ZnXjOKTL
-	 a9NL9AIftcriyaLGI5Kl5+fZuVTlgi0nGKx1jNAGBDWHYQ7CE0RGWZ+u2lP1kfYFgy
-	 hblUlPwsiBPh3kEcS8XRcjH7NJlyyqnw7TsS5EPZJAkJWnUYPUvoA5OeC3xS65cm54
-	 0jAdstILGEYZg==
-Date: Tue, 6 Feb 2024 19:13:48 +0000
+	b=dryfk4hBPCkoHPTRg3bOk3W70RS8MbpKC1iEwwOvNetBlzd81NKnbDWZByUZFt2Kk
+	 xCSY4+QuwurPs60t78WctLqClMcT0WqgN6MJPDJfbJy1nAJK9PFB/u7g7YevXeeU66
+	 Oz82bqacMGrjQs8YoAnZOObRKuVMnFFiVKgVScvClx1Pw0ABQK1kJOJyv5ns+hYGi3
+	 507LPYJs7O1l3UavO+3NG68bZOMB6bK5eOaZm+YUpAR6OyCJ4Bb3IRY0Y74lRxGcok
+	 YjMjV232u0P1L1iEJZbNwCaEIjMnf+OpXmQ+lagpDKh2GgI6jvA39b2/UhJQxkO8qI
+	 ro6dKcSZh907Q==
+Date: Tue, 6 Feb 2024 19:25:11 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Rob Herring <robh+dt@kernel.org>,
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 6/6] riscv: dts: starfive: add Milkv Mars board device
- tree
-Message-ID: <20240206-magma-deem-2c88e45a545a@spud>
-References: <20240131132600.4067-1-jszhang@kernel.org>
- <20240131132600.4067-7-jszhang@kernel.org>
+	Drew Fustini <dfustini@baylibre.com>
+Subject: Re: [PATCH v2 0/8] Add T-Head TH1520 SoC pin control
+Message-ID: <20240206-cornball-blighted-e40a9cc059cf@spud>
+References: <20240103132852.298964-1-emil.renner.berthing@canonical.com>
 MIME-Version: 1.0
-In-Reply-To: <20240131132600.4067-7-jszhang@kernel.org>
+In-Reply-To: <20240103132852.298964-1-emil.renner.berthing@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240206_111353_756105_E66ADEE9 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20240206_112517_650478_34880189 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,141 +74,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4836372390986346427=="
+Content-Type: multipart/mixed; boundary="===============5481332165172766285=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4836372390986346427==
+--===============5481332165172766285==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="H4mv7uwP1RXcpRTP"
+	protocol="application/pgp-signature"; boundary="9SR2866Q2kC1oVMZ"
 Content-Disposition: inline
 
 
---H4mv7uwP1RXcpRTP
+--9SR2866Q2kC1oVMZ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Jan 31, 2024 at 09:26:00PM +0800, Jisheng Zhang wrote:
-> The Milkv Mars is a development board based on the Starfive JH7110 SoC.
-> The board features:
->=20
-> - JH7110 SoC
-> - 1/2/4/8 GiB LPDDR4 DRAM
-> - AXP15060 PMIC
-> - 40 pin GPIO header
-> - 3x USB 3.0 host port
-> - 1x USB 2.0 host port
-> - 1x M.2 E-Key
-> - 1x eMMC slot
-> - 1x MicroSD slot
-> - 1x QSPI Flash
-> - 1x 1Gbps Ethernet port
-> - 1x HDMI port
-> - 1x 2-lane DSI and 1x 4-lane DSI
-> - 1x 2-lane CSI
->=20
-> Add the devicetree file describing the currently supported features,
-> namely PMIC, UART, I2C, GPIO, SD card, QSPI Flash, eMMC and Ethernet.
->=20
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+On Wed, Jan 03, 2024 at 02:28:37PM +0100, Emil Renner Berthing wrote:
+> This adds a pin control driver for the T-Head TH1520 RISC-V SoC used on
+> the Lichee Pi 4A and BeagleV Ahead boards and updates the device trees
+> to make use of it.
 
-Got a dtbs_check issue in the patchwork CI:
-
-  +arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dtb: gmac1-rgmii-rxin-clo=
-ck: 'clock-frequency' is a required property
-  +	from schema $id: http://devicetree.org/schemas/clock/fixed-clock.yaml#
-  +arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dtb: gmac1-rmii-refin-clo=
-ck: 'clock-frequency' is a required property
-  +	from schema $id: http://devicetree.org/schemas/clock/fixed-clock.yaml#
-
-Can you fix that please? Also, I applied some patches the other day that
-seem to conflict quite a bit with the common board dts patch. Would you
-please do a rebase on top of that please?
+I'm gonna mark the bits of this that apply to me as "superseded", albeit
+somewhat preemptive, since you'll need to resubmit the bindings patch.
 
 Cheers,
 Conor.
 
-> ---
->  arch/riscv/boot/dts/starfive/Makefile         |  1 +
->  .../boot/dts/starfive/jh7110-milkv-mars.dts   | 35 +++++++++++++++++++
->  2 files changed, 36 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
->=20
-> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/=
-starfive/Makefile
-> index 0141504c0f5c..2fa0cd7f31c3 100644
-> --- a/arch/riscv/boot/dts/starfive/Makefile
-> +++ b/arch/riscv/boot/dts/starfive/Makefile
-> @@ -8,5 +8,6 @@ DTC_FLAGS_jh7110-starfive-visionfive-2-v1.3b :=3D -@
->  dtb-$(CONFIG_ARCH_STARFIVE) +=3D jh7100-beaglev-starlight.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) +=3D jh7100-starfive-visionfive-v1.dtb
-> =20
-> +dtb-$(CONFIG_ARCH_STARFIVE) +=3D jh7110-milkv-mars.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) +=3D jh7110-starfive-visionfive-2-v1.2a.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) +=3D jh7110-starfive-visionfive-2-v1.3b.dtb
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts b/arch/ri=
-scv/boot/dts/starfive/jh7110-milkv-mars.dts
-> new file mode 100644
-> index 000000000000..de600e799e7d
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
-> @@ -0,0 +1,35 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +/dts-v1/;
-> +#include "jh7110-visionfive2-mars-common.dtsi"
-> +
-> +/ {
-> +	model =3D "Milk-V Mars";
-> +	compatible =3D "milkv,mars", "starfive,jh7110";
-> +};
-> +
-> +&gmac0 {
-> +	starfive,tx-use-rgmii-clk;
-> +	assigned-clocks =3D <&aoncrg JH7110_AONCLK_GMAC0_TX>;
-> +	assigned-clock-parents =3D <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
-> +};
-> +
-> +
-> +&phy0 {
-> +	motorcomm,tx-clk-adj-enabled;
-> +	motorcomm,tx-clk-10-inverted;
-> +	motorcomm,tx-clk-100-inverted;
-> +	motorcomm,tx-clk-1000-inverted;
-> +	motorcomm,rx-clk-drv-microamp =3D <3970>;
-> +	motorcomm,rx-data-drv-microamp =3D <2910>;
-> +	rx-internal-delay-ps =3D <1500>;
-> +	tx-internal-delay-ps =3D <1500>;
-> +};
-> +
-> +&mmc1 {
-> +	disable-wp;
-> +	cd-gpios =3D <&sysgpio 41 GPIO_ACTIVE_LOW>;
-> +};
-> --=20
-> 2.43.0
->=20
-
---H4mv7uwP1RXcpRTP
+--9SR2866Q2kC1oVMZ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZcKE7AAKCRB4tDGHoIJi
-0ozhAQC7TY7fFtI+7Cw4EcbHg3iXLfPgEJADK1Liq8mObgwtEgD9G0Z1TigpDQda
-rA37daVrT5yyYKio+Rl1uMG5ig+GVA4=
-=5e08
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZcKHlwAKCRB4tDGHoIJi
+0jngAQC/9KRmKdjlujY+RbvfKLmq782PlybcZHEB0rVLPFyb/wEA7SN2iJajXSPV
+T3vr7u9GNYAvcAHAcDhp3/esony+yQ0=
+=3Hcg
 -----END PGP SIGNATURE-----
 
---H4mv7uwP1RXcpRTP--
+--9SR2866Q2kC1oVMZ--
 
 
---===============4836372390986346427==
+--===============5481332165172766285==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -219,5 +125,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4836372390986346427==--
+--===============5481332165172766285==--
 
