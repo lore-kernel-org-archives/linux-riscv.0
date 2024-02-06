@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9007C4828D
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Feb 2024 23:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF33C4828D
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Feb 2024 00:27:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jjFJKdHZpYccZcFbgzp8Qi3Mkjxwa/ZpvbJAWNXe8MQ=; b=UUWOK770MJshTq
-	8YpBwJ8NMI7D49XRlAsaP03XNEZ5TTL1gmvy9LxxOs4Ss8ql7yuXN/JK3ktJ/kzaqPOEBzU67K/nR
-	NhIQ/ReKp371z22cjlXdPbBOjzgUJtVHxLPBzCG6nMdva6mDqwci9MDl+hRfHnG3NcUDvXJpYODRh
-	Xv13f8b6EePcEiAugPvfzYVW2G21BjflbmEr+V+WBwBQcGtuFezaXindSbXismUx3TRnxcgm3/kZ1
-	iq6aVUcS96YQt5AGAYgDv9TXiCYzEsdyihiYsIy039JZkR5bWruzes1GIMIJWvB56Tzj+Tw+MVwS6
-	bsWVdI3EBSmFPSZBkUcw==;
+	List-Owner; bh=FkqeRYE19SOGQbsfaf7RTXm3MZ+X/qIjE0IO2T1R9DU=; b=ZFDPimvi8Dn7ar
+	pQ7IXwpLqGD5iG+FQmmbGVYqbDCtKPyIyH7ehLUBQyLJ0XObJ2lWNh3L9SnqlTTvhzZJr6oxqan+T
+	fz4CLJmG08v7htt6alO0PF0lyNqRmNTC7WH3e5t3ndJjqmnzme3b7UfoUitQMFkFk4ZOMrO86QYja
+	sHWa3YVK07akzW7nvTxnziShP3tIeoe2F7bvN+vpGWfdm2tv55VuSo1HxNJpaZZHUSNUxELxBZdUu
+	FmXAMHqv3MrYDlMs5cspl1UTp80xqj/5vzqu+MEdeqDEbxW5RqGVHquYH2GppwsMpsKl4InpBQi6w
+	k/cMXYzvM9o8+RqtWo7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rX8mo-00000005b2L-3cXe;
-	Mon, 05 Feb 2024 23:54:02 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1rX9Iu-00000005dSd-1bn6;
+	Tue, 06 Feb 2024 00:27:12 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rX8ml-00000005b1k-0W45
+	id 1rX9Ir-00000005dQu-2NoF
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Feb 2024 23:54:00 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-5cddfe0cb64so3979576a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Feb 2024 15:53:57 -0800 (PST)
+	Tue, 06 Feb 2024 00:27:10 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-5d81b08d6f2so4717222a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Feb 2024 16:26:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1707177237; x=1707782037; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1707179217; x=1707784017; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hmrdDifKn+uVsNlfDzCvuZfjS7ayNWNTt2suseO1un4=;
-        b=NYUr4PLMTP2tc5Vve2XPMfZy8AMux2V4xNjJI4f09CvhMDslXPYEhwIDmSXtf+Dowc
-         lJAfu8PhplnqsSjPPQI1AImqI166IGbzWuvG8ajQKDOCUcA5B6csDrRJsvMioFhUdNy7
-         Np+fbqhy/BGwXh1sanhmgElx8Ysleg2n4ppOv1N9jJmPqdWXcBYZEclALYStFIzqxVoP
-         LMFGwRtbLLAX5DlOj0Hk99OUGVhrOMU1C1EjSxWfk/7kgaPFod17B1UVe7TXKdfZCSJH
-         RjCf8YUNsx3Q1EtIl6AFhvv4AIJXjLKk3+54RunK4XqA8l0+1RNgcO6J2sqH4l5nFhQO
-         qC6g==
+        bh=fiVjpSDFqDkt9XNvIzkLrXyeTIMkWHM8SqfmdeXNea0=;
+        b=pn1DoUHUQuxibUMRxnyrxsKGOjr6RAzGKTIXCGAIewDHxlXnxOtdGGwk/Np50HZDOl
+         LbVn10chlxUPL0GqwOMbr7LsWXcgs0p8PVvQ/jBL1KfrKA60PJmeQubzX9Q1HyejLnfJ
+         3ugaVEORV2xgaPpDUEizAO30nTXS+juXF/7EnBNgaIYwhW8+hsFR1LtLhRNlXcHzFFiO
+         IPcyMXf5N5gVdMApW4vyvgbYiNCyjb+joY73t55ozAhwIMHfgOauAjJP0Ls1U38MGYJL
+         WLDNo+aF7856xnlvXJg3wbROr9VMO2hNNNbrSm1KMvIGEuO3LlhOK8WXGwr9rUDQBj+/
+         t9fw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707177237; x=1707782037;
+        d=1e100.net; s=20230601; t=1707179217; x=1707784017;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hmrdDifKn+uVsNlfDzCvuZfjS7ayNWNTt2suseO1un4=;
-        b=c7L+B1u+QCB3qAOhRiqW9EHnaCdqx/trzRPT5BlQzjuvZTcGD0xmpm6s7aSxRu8N3G
-         9pt0u6MbScGuJyAME5BV/X9VP0x7PerU35+vF1WJNLtxqKyLqa/c9OyUwDtqWo3Ane1v
-         ORozh2M8HUAaZiidGatPCjAdVYBw8vyTi1PCV90ewJ194ifBhIuxghyqzZ7TC+P2r4P3
-         E9oQWsq9UoVnZ7AsAzxeSSFlPqxTRpziD3J27hbCmn4u8FfLpwUNNfM9rgoRtMV2qqqY
-         YjZU62WA3Hf6PcBDoaGLyud9ex0+mBNlsyTNrim2BQiMIrENC5JIOGS/t9Wj5Ri2+yyr
-         5WPQ==
-X-Gm-Message-State: AOJu0YzsBvQub7k1BjSNE/KM/NYGGOTcrAxymr0z+Gfckmrw7BXiYgDZ
-	cpgIjGJHsQuTz+PRJ3y+9yqar5u9Xhhi2B/TtSiLTXMT0mbR1JA/r0x9N5yC5sc=
-X-Google-Smtp-Source: AGHT+IHeI/+Sp824UroO/mDYidk3cFb94YOApkQqYdkLtM9PHmtd5rblgX/GhroclrmfDZVRJjAJvQ==
-X-Received: by 2002:a05:6a21:2785:b0:19e:89ae:9b52 with SMTP id rn5-20020a056a21278500b0019e89ae9b52mr51387pzb.7.1707177237249;
-        Mon, 05 Feb 2024 15:53:57 -0800 (PST)
-X-Forwarded-Encrypted: i=0; AJvYcCVwcZhTk4c0u0np/uhoHXLwPQ/Wcj2MaeQOM9FqkgxTj2vuWoI/YVq71BO5+lhQYk5e3bISfbaGFDwsMYle96R7byvptgPpHlcZishruHbiB2ER4cRLKUlSlSasxMzD1Asz14TVXCdqBFQGhWo0gN5hQcCmHn1noPYecH0xtKK6GttXmIn4v/8Z3JF41HtMi0WjDjq5Gj2Nv/KL4aEAO6D3s3OGA7wAtbIdL04MZdkkF2CmOjQQvL8jlAJQUqHONWA/1DPJdI0imC15vjTHcmrkvgr7TEDqVli0Mlg9oQnxUwoZXAO1VedoHrNEPmI64j11xtnv2+MgUEhwUUjFpcaFUjralvHAUvXcA5fPQc2628t1uCSBbOcw3jy7ESMZhGUDpplvpP7R7VHdhx+GVMTxtl7eE5RKZQfmkoU4KkGTOYG2+pYJWJumzly5fwvjX22/7ZOWnO5JAcWy1+RlzpyruTNclkK+EwLEI6X/GyAOPAFqnt7d5A==
+        bh=fiVjpSDFqDkt9XNvIzkLrXyeTIMkWHM8SqfmdeXNea0=;
+        b=ek2GSY4lMFEeaEb3ca1nNaUTom5Axumm8wzq2zBTypqtPY51uwOxKALadhYdzWGPZC
+         SOHf157gC/DIFLEdlLOgfP6JaRa0J2+tChfsDzf/MsB0OfSe7aqgJ054LJDeqcsmLnNA
+         BNkChyk7Pwp0fSAdKZGmtlM2iB3ZggARzy5Bhy1LnB0CxVoCOQbbpPHDVQGgo7BIp4n4
+         PYduAdabXjwNR8of7PPx6T6H8GFerl1k4WIbXB2+w45cTm2Yl2fk0DufZnUS1/TXMIlP
+         pz0qBx+qNbnCXLymSUTATj2zoRY8I/4Fxaxqs73JUfefFZmXI6uTqehtmKxONTZ25Y26
+         nq8Q==
+X-Gm-Message-State: AOJu0Yz4iDLfofrgTMXOvBJB/PfzrEycR4pdfTa9szuVVkt6chVgyeeP
+	d8+h86pbe9ZpieaTUHk2LFRTgVZqimuO5zeQ/LfM5AWP5zz30LYRM6pOEmbuoKs=
+X-Google-Smtp-Source: AGHT+IGYCi0+X1+vaJBNc0l8Gs1SpiPv6m18ULzOlpD7Sl4SzHbj0qBqx6SGNAXHukFrXAy7Mux6kw==
+X-Received: by 2002:a05:6a21:788e:b0:19e:367a:2ca9 with SMTP id bf14-20020a056a21788e00b0019e367a2ca9mr143337pzc.8.1707179217597;
+        Mon, 05 Feb 2024 16:26:57 -0800 (PST)
+X-Forwarded-Encrypted: i=0; AJvYcCXuxl7fvNMncJzVpzTszUz0jVy3RKrVSRFq9HMCATFeYqQ2K4Xs8LZ/kTazqhiy1ELGqU/PG1WZ8jG+JNbM0l2kGIOnOZBEiwfxm4NgppMD5ZTW0fvTyMOlVS5hhFI4CyWG+rrdacWNcMMTf0c9tTrq3cOSWH15M2jCROPLOO/n/A85UD4n5jVgfa9iSFhuoDUguU2inNzIHXdQmoXOF7W+sx1AYGdfYRaMd8xv
 Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id e12-20020a62aa0c000000b006ddc7de91e9sm444758pff.197.2024.02.05.15.53.56
+        by smtp.gmail.com with ESMTPSA id y32-20020a056a00182000b006d98ae070c3sm485463pfa.135.2024.02.05.16.26.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Feb 2024 15:53:57 -0800 (PST)
-Date: Mon, 5 Feb 2024 15:53:54 -0800
+        Mon, 05 Feb 2024 16:26:57 -0800 (PST)
+Date: Mon, 5 Feb 2024 16:26:55 -0800
 From: Charlie Jenkins <charlie@rivosinc.com>
 To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Will Deacon <will@kernel.org>,
-	"Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nick Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>, linux-arch@vger.kernel.org,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH -fixes] riscv: Flush the tlb when a page directory is
- freed
-Message-ID: <ZcF1Er55ClKgJtHJ@ghost>
-References: <20240128120405.25876-1-alexghiti@rivosinc.com>
+Subject: Re: [PATCH -fixes] riscv: Fix arch_tlbbatch_flush() by clearing the
+ batch cpumask
+Message-ID: <ZcF8z18dwnGsw0Ix@ghost>
+References: <20240130115508.105386-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240128120405.25876-1-alexghiti@rivosinc.com>
+In-Reply-To: <20240130115508.105386-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240205_155359_184583_43AF5930 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20240205_162709_620538_3C0BDDE1 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,29 +96,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 28, 2024 at 01:04:05PM +0100, Alexandre Ghiti wrote:
-> The riscv privileged specification mandates to flush the TLB whenever a
-> page directory is modified, so add that to tlb_flush().
+On Tue, Jan 30, 2024 at 12:55:08PM +0100, Alexandre Ghiti wrote:
+> We must clear the cpumask once we have flushed the batch, otherwise cpus
+> get accumulated and we end sending IPIs to more cpus than needed.
 > 
-> Fixes: c5e9b2c2ae82 ("riscv: Improve tlb_flush()")
+> Fixes: 54d7431af73e ("riscv: Add support for BATCHED_UNMAP_TLB_FLUSH")
 > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 > ---
->  arch/riscv/include/asm/tlb.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/riscv/mm/tlbflush.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
-> index 1eb5682b2af6..50b63b5c15bd 100644
-> --- a/arch/riscv/include/asm/tlb.h
-> +++ b/arch/riscv/include/asm/tlb.h
-> @@ -16,7 +16,7 @@ static void tlb_flush(struct mmu_gather *tlb);
->  static inline void tlb_flush(struct mmu_gather *tlb)
+> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+> index 99c3e037f127..c8efc3f87a0f 100644
+> --- a/arch/riscv/mm/tlbflush.c
+> +++ b/arch/riscv/mm/tlbflush.c
+> @@ -240,4 +240,5 @@ void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
 >  {
->  #ifdef CONFIG_MMU
-> -	if (tlb->fullmm || tlb->need_flush_all)
-> +	if (tlb->fullmm || tlb->need_flush_all || tlb->freed_tables)
->  		flush_tlb_mm(tlb->mm);
->  	else
->  		flush_tlb_mm_range(tlb->mm, tlb->start, tlb->end,
+>  	__flush_tlb_range(NULL, &batch->cpumask,
+>  			  0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
+> +	cpumask_clear(&batch->cpumask);
+>  }
 > -- 
 > 2.39.2
 > 
