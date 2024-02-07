@@ -4,89 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3DBC4828F
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Feb 2024 19:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A5DC4828D
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Feb 2024 19:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Cc:From:References:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7mSKmHJs1UYti8JvzzRRJYJqIoiWlfHrF+LHm1cSCKs=; b=AMJY1lvDzWN6TU
-	D7zLeJVcJy6DtDh3Im0xAfj75ghdszIGc7sifGOTIrL3UBv5UiHHueDgeYyEGQgy8N2wgKH+2GTwM
-	pirpW8ojZu/Mgwo3JoccEcksB71nIcPmlsG8N/Do8pYRdxdf3EqMHpw3N5CaUgi9wu3s6Qo7CImGe
-	6hoG4Dc83p7k8P3JJd6WE2fO3yCrw2d6ADybOmBA6sBmGOtfO6BguvFvAJ13EFKeSaw47QGrd22qx
-	3k+vDzVMV2fdF+aWPShaPAreo70clzlKcPIYYzqw3spr06L0ZUxkpWmXOy11GpowMjiaPNAWp5HIX
-	A+1vWH+LpMxA3CkeJbtg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=C5usibmv7jdaPFpb6W4/Mrd1BVI2vlGSQSKSS8WwJJ8=; b=Xi8tH/Iq9nzOv6/j9w+JYYpUxa
+	5H4/wstK1rIHRLJsJ2q81fjJEkrMdWJrPMVgPA0Ba5nCp+ZkQDebh+WKDWPjncFZU8HAVHq2syzTC
+	wD5hJuJ+z7Fv6i86E1h8EsLHhYFCpKRbmsW2LKZl40HBg01P3HGAk052KaGm2Rv0pT80ShgRUUpkk
+	GSLpu1pfP/cdV9AoikmFTAmlFtIpvoJz1N9AAQzVimX+uoVQZ9tdl4hm3KMSYMD105nUTnRQT8ypX
+	ylwvy5YfPneNBrcuubeiKa1T3o8PzKv5idRhYmA38bi/EGvW0Awc+qcPwqcLWqa8WpEEQanhFvf2e
+	XKU7M8/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXna0-0000000BcC2-2yW9;
-	Wed, 07 Feb 2024 19:27:32 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	id 1rXnhV-0000000Bcmj-3UaT;
+	Wed, 07 Feb 2024 19:35:17 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXnZy-0000000BcBY-3jsm
+	id 1rXnhS-0000000Bcln-2IkY
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Feb 2024 19:27:32 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-68ca1db07ceso4860736d6.2
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Feb 2024 11:27:30 -0800 (PST)
+	Wed, 07 Feb 2024 19:35:16 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6e04eceebb5so708053b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Feb 2024 11:35:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1707334049; x=1707938849; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:cc:from:references:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=cA5YwgvtHoLDpmj5Skshopyo0pdeDCfKH8nml3v6ZvA=;
-        b=V2WJi1V0gc6cNbheE1e5uPQv9fa5hC8vK0r54dLpaz+lo8gNEy4p0ewoqao3GgeB1k
-         Iwvvn+W6VmDX3DZeXdPATzywblj1LX3K3CAm+mKZoJPL6MOSOFOF4v52Hal51p7WB+3J
-         lnRngI96FPJgwz99lMQgKohxYCjf46Wy06xXxB6naqKoAi1VNZcUtCY6ea17hOIeQNVQ
-         y064ryHRIygD6C8/VUte6cR2eWc+PnOZE1vJBxeAudincla1YG7ZXrpLkVZk9E3wmzgk
-         DVNFN82HMukuP1oK68lQah+u9IzsqaK7esIQAUv3yIAB5ml14+XR9BiMPjuMlZIEk5ta
-         pRXA==
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1707334513; x=1707939313; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5DNJ0YWZMQGJUiB/7nqMNUBTgtfVhRG2xEzHjBsppl0=;
+        b=VAM7lQP/E4AmFFYcDq57DcQLMuHMrvLhJOVGPDHe/SAt45Yk9epksD+tb76HBo3z/h
+         Ha4pdCxUCkNVkBuz7DqtH1ngimQth2kVj02fEoNOAVZAlluYmoBAVrKJeto68WRR0xMV
+         +IdlVPRz+2bjBByEZqNs5CnQT6jr85cvTdSS8rDeEVpdICG7iFn0bORzLQa6vkt/2gGj
+         Joe+EKgIw2HFknLhnNY5pUa6I+qldVhTeypmiHguBXy2GqdEJD49iXACCHMjJf2GNh0p
+         TIo2RQ5b+A0qSx1rRiq9OsVFZmYYFxQEN5yqoQ3nEdlB4xx9qPvj7Gw9ELc9hK31gsXe
+         birg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707334049; x=1707938849;
-        h=content-transfer-encoding:in-reply-to:cc:from:references:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cA5YwgvtHoLDpmj5Skshopyo0pdeDCfKH8nml3v6ZvA=;
-        b=R6KRW+In9nx4u04JJYhSqZim9EXB0pidgdX3a6NnDziLPxKDWQtPlALnaohR1NZ7Q6
-         FT5S3wWb3HNVhXzZNVDo9ccdcFz1DtXnz4yM1oc8UHW/xqObxcXXI3WvfMacxtCnH1ai
-         wvYqFAZZhJiZWucX9qbyEmd7OwdFo+lYJvfJyWlkHmAM4cwzaxRRw0W2y7CkEt0UJBf9
-         6LC492ib3jAebtm9obBirDKccB9jx7G4E/FyERRhBFbSTF1QvqnAQkcNtBzKgOhT63Es
-         G9gizUCJBis/dRjGqeW3njP+xWkRrnl1tVrzH3VPZZ9lstOnaq46GYG4KkoF1wXvamO2
-         Vw8g==
-X-Gm-Message-State: AOJu0YxhgQ9NckvoEiygEmk4kiI5K9jRdFfJXawVyfMsZdqWoXD0jywa
-	xrf28oTnVaKhLMMA+Mdlt5WuNeXHg4TxlEJZLPpCZlKGpNaz6sE5BCqfdhjabsg=
-X-Google-Smtp-Source: AGHT+IHsK4ELyrPXdU4ZLmwitvFRj7LYEHNgAJuvSyMPNB8sou2DqRMM7N8MJoYaGqi2rQYT+Fxtqg==
-X-Received: by 2002:a05:6214:27cb:b0:68c:67aa:c056 with SMTP id ge11-20020a05621427cb00b0068c67aac056mr6941805qvb.39.1707334049232;
-        Wed, 07 Feb 2024 11:27:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXj1ff2e/sYSGxK1YlhNSpJ8/w8GhjTI5LhuvxizKy6x8W/6hos9diJ1ETtTEcLg/TVYmqAIwhTEKHzeaxM9l9DDMoT6Rl/ykv8I5MEn2RQ4RzDTpjnVLYW3ZXn/TNw0ueiAHScDsmwL3AwcGQDqrxvYNXsvFkP1puPtlXLOAxSFw+g/0BCBhy9I8Gajfei3p+mqqln7VJ2vILpUpfwVUdbkVf1werhIL4Xk9hkFoyQSXVpRi34UW/O8UHpavC+10PZ4+KSLIrP8EsbFRi/xpmZIjPE/QII7mdA+9jGp3ZJw+/NwygGxNW2xdpBgA2x1B/FviTu6abT91l6SLSW4ExTkADsYTqPkirRqI14FN4vBik5b9VpObUbi0iUqNRUfVaRBoEsg3TQ3KU+IyoV/60EkdsKc6zC+dDKPwAsDoMmpJz3Nv45Y33ntLQctzsHs9XF3FZuVV8dMiaEtw==
-Received: from [100.64.0.1] ([170.85.8.192])
-        by smtp.gmail.com with ESMTPSA id nd10-20020a056214420a00b006819aeb62d6sm868412qvb.136.2024.02.07.11.27.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 07 Feb 2024 11:27:28 -0800 (PST)
-Message-ID: <b4e20286-eb80-4dce-8d37-0d079ba5296a@sifive.com>
-Date: Wed, 7 Feb 2024 13:27:27 -0600
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -fixes] riscv: Flush the tlb when a page directory is
- freed
-Content-Language: en-US
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-References: <20240128120405.25876-1-alexghiti@rivosinc.com>
-From: Samuel Holland <samuel.holland@sifive.com>
-Cc: Will Deacon <will@kernel.org>,
- "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Jones <ajones@ventanamicro.com>, linux-arch@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-In-Reply-To: <20240128120405.25876-1-alexghiti@rivosinc.com>
+        d=1e100.net; s=20230601; t=1707334513; x=1707939313;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5DNJ0YWZMQGJUiB/7nqMNUBTgtfVhRG2xEzHjBsppl0=;
+        b=X1zl3QI5M5JTgxlWWEeK3m29Ee0bsclpl8xggi4ddZ02hY2cfWIt8hic0jQ+gJfUA0
+         hPRM/cFSaqgQKznO11jZ+WGgL0lsQhsf7l8ithFtqhwLnzMxvJNIHXEjEkn6y6eoZToa
+         v2i53JBWnTRPZeamXqgzJp2m88EPgxVCXqBjScHFQqKcXGvL3ZkrL6GRCmanCui9WbEU
+         TVUz+qBH1kQfcHucC2yOKYr4NGq9ipKEJ4vMnmofY6kenWDwgBJK6kUYgyN1/t5itX2l
+         YaDLeBvD8lOFEkLIBxVa8b8gqT0n1m7EOE9tCLqfwYm3jowXF/GWcrlZRfXcsVIPzCtW
+         M/7g==
+X-Forwarded-Encrypted: i=1; AJvYcCVZltYYYPJ7HvdAXbFoLNiJC8GzTjaZ6L9BiXD03s/BgoNNscJDCzn3izsVnqicPU5ICzmby/0HI+ZyFRMtDtam+7uc6zsvKAKAMMZvlEU2
+X-Gm-Message-State: AOJu0YzHoYHLp+kEZrMes2+ZcBRzaDBWEjSwRLRplc875uCqOA0oRYYx
+	QsCMK8Q+5LDynw32Y9Jto8lG8zSbxb52fwXgaploYkaS3bG7KOOLHuiAOeAL+f8=
+X-Google-Smtp-Source: AGHT+IHecxI00C0AysG9jk2vFisMXFVveXNnX/H4oDlFL2OOUFQ/AEV1QOpSJXJ9aHab8uyRYIlfKQ==
+X-Received: by 2002:a05:6a20:a092:b0:19e:987c:78a7 with SMTP id r18-20020a056a20a09200b0019e987c78a7mr4101823pzj.32.1707334513324;
+        Wed, 07 Feb 2024 11:35:13 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCW7PM5eZAdnwqPrU9TC7lCb+5kyWOLdybcxqg3gwdxj5FVcxgrXFDgek0GyZpZ25vYnaquKPDeXQYeJBu03dxalZ1OiLKQbCmuOYYkKi4snVeuasLujaeCS7Vdcz9MwBWHwGg/DodlOcuuV0ckC/ciHANKGB2iQrxKivw32mbrxR+7hXyb9UvMJWdF5se7BjgDEgBM2AUxmSWE/Fn2OO3Zr5GH3aigEDwVXPiaRPTJizzIP
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id j17-20020a056a00175100b006d9b35b2602sm2024683pfc.3.2024.02.07.11.35.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Feb 2024 11:35:12 -0800 (PST)
+Date: Wed, 07 Feb 2024 11:35:12 -0800 (PST)
+X-Google-Original-Date: Wed, 07 Feb 2024 11:35:11 PST (-0800)
+Subject: Re: [PATCH -fixes] riscv: Fix arch_tlbbatch_flush() by clearing the batch cpumask
+In-Reply-To: <a21e4253-9ef6-4c44-917c-02742440d192@sifive.com>
+CC: alexghiti@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, jszhang@kernel.org, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: samuel.holland@sifive.com
+Message-ID: <mhng-e8dda78d-2d87-403f-a969-2b5ec99da094@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240207_112730_967048_E587D699 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240207_113514_823573_7DC20073 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,24 +89,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-01-28 6:04 AM, Alexandre Ghiti wrote:
-> The riscv privileged specification mandates to flush the TLB whenever a
-> page directory is modified, so add that to tlb_flush().
-> 
-> Fixes: c5e9b2c2ae82 ("riscv: Improve tlb_flush()")
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  arch/riscv/include/asm/tlb.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+On Wed, 07 Feb 2024 11:23:55 PST (-0800), samuel.holland@sifive.com wrote:
+> Hi Alex,
+>
+> On 2024-01-30 5:55 AM, Alexandre Ghiti wrote:
+>> We must clear the cpumask once we have flushed the batch, otherwise cpus
+>> get accumulated and we end sending IPIs to more cpus than needed.
+>>
+>> Fixes: 54d7431af73e ("riscv: Add support for BATCHED_UNMAP_TLB_FLUSH")
+>> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+>> ---
+>>  arch/riscv/mm/tlbflush.c | 1 +
+>>  1 file changed, 1 insertion(+)
+>>
+>> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+>> index 99c3e037f127..c8efc3f87a0f 100644
+>> --- a/arch/riscv/mm/tlbflush.c
+>> +++ b/arch/riscv/mm/tlbflush.c
+>> @@ -240,4 +240,5 @@ void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+>>  {
+>>  	__flush_tlb_range(NULL, &batch->cpumask,
+>>  			  0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
+>> +	cpumask_clear(&batch->cpumask);
+>>  }
+>
+> This patch doesn't apply to fixes -- it looks like it was based on "riscv: Call
+> secondary mmu notifier when flushing the tlb"[1], which has not been merged and
+> would go in for-next anyway. Otherwise:
+>
+> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+>
+> [1]: https://lore.kernel.org/all/20240124080325.2324462-1-alexghiti@rivosinc.com/
 
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-Tested-by: Samuel Holland <samuel.holland@sifive.com>
-
+Ya and for some reason it trips up "patch -p1", which applies it to some 
+other function.  I just merged it manually a few minutes ago and it's in 
+the tester...
 
 _______________________________________________
 linux-riscv mailing list
