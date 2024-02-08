@@ -4,98 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1341C48260
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 11:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05FD1C4828F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 11:42:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ib4DY1086ViXfiXLEm+Rfbth4fj5r8aiBnVvlOwoVuU=; b=gSG6DSmLWf0znN
-	XvKbq2KpcIUVa47xiC8cnRDgTVKrT1U7o50xO8UPFjCoBcGI5qwLqfytgzriCBYAFNfLqdh7HpfdZ
-	NQ7prlhXaFrg6PeFl6HGiQXCr45tvaxGIi5Q3edifccQzwDx5Eb/xMMekZ3UtKCd5hSFdaOpRPrho
-	J77VNdZ22SQkomWh1d6W/KCrb95LN0dTnkLk4R7PAEGSlUeVUn8+6MDLn7Nr7Sp1gFHujyLDC9Re0
-	Qx55SkeEpLOyMss6hrlbV+fzYL4vBLj1Lz87k1bfveEemSSglYWZbDo0IB+H8fqFkgOgqHtvLNqBR
-	jQzHPSD/97JPHnBGUZDg==;
+	List-Owner; bh=fvSA7u4vX+K4V0fstPJtyQyTTJ8oUXs0I/R1pu3+xgE=; b=VYrIiueAPnmp6l
+	OAai4FGjPf5zH+3gxBv7SLUcMiX4RLyvVDtnjMXL7XxzTS2WBqhcLND1+/YBtxSBwFhkamXJNMS79
+	+/JLsAMsD6u2+YDN4y+NQ6jw+BYzP0sifIOZac6Ki7ay9a9KVvLojRQEQC1/4vJlwPB65ia1TWAjA
+	EQgUcvABqU//c0IR7sZmyvNRVrrJk9+T3tDAC4wwoIVvJaDqetYNWjseEm4phPgdYohBmqYCLLEsJ
+	iEJwBK/zarqSsE+sMhh0dINPYm/m70H7g3+BNv5Y6bnPbM3TrKMVsuAxRAcWgJOPmDAy2/BD5O2cB
+	/4HwnsRm3aW3d6w5D5lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY2JJ-0000000DXRy-0Vi8;
-	Thu, 08 Feb 2024 11:11:17 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1rY2nS-0000000DbsG-1lYY;
+	Thu, 08 Feb 2024 11:42:26 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY2JF-0000000DXQW-29KJ
+	id 1rY2nP-0000000DbrD-3v41
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Feb 2024 11:11:14 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-55fe4534e9bso2024587a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 03:11:12 -0800 (PST)
+	Thu, 08 Feb 2024 11:42:25 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a38271c0bd5so227906866b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 03:42:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1707390672; x=1707995472; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1707392541; x=1707997341; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dkltV/LKNYv+rODcoWYZtA6BeNijF5We+gSy0yOyWBU=;
-        b=LY988N4mXMisgAMfWariJKSm47IN3aTerk4y+QQMN65RlkVFAq/u0dAi9eJobBNZwy
-         q2UPU/U/06G+gk2LtgPBcNwtGk3Yrczc5v8YIztUUuHJj/7g5dG+7T3BUzM2lMF2ueGr
-         z+B4m/ApLUfecjSkG60q/0qqspJvOWXU37jqPWHW9TVaS4qjlCsTbwPo4N/9DYKbAnmU
-         S5K8LEjz/aNPl81TOT0unjHoTzYvD7TbFi/8T50wy6D3s3qV4spaNnnCfZbe9ZsLZMHE
-         y0z6n2T5bbabxQSW2/GkQi4Tj2wcvP1i7QPhLUrBT1b/nJnU8SA+TwDNDs7GQJdJgSWl
-         KKuA==
+        bh=uJx67bcvbAo9zHf0ymAdxOGvHwHm6HIalhNV9TyZktU=;
+        b=mZiF+KFSoCMMZuCu9LysAS84dFn6h34SAywcqypwrgAn/nG7aLth5BIQZIvx0QhtvV
+         LYiZX6ZUQ5Yl2MJJIR7HIvw/r9WXGfzZaxu1v2MhniRlU1K6wVSt2489gh6CaWIqv2UV
+         bNeOvRb0r5zHjczeMJ+XUntoh2e4P3vwYVAGIff3kaNVUskHumbF3OPl+wAijhqhA/xR
+         GUcyQdXrxOn/iRnUUb7RK1xx+Xfr0kW7+1iUqVmZXwljpGPUGk7S9UFgK6hQPnavuL6x
+         hE239QD/hfY/5ENMBVCMN5Kom9arSe9DGSRHVMRWNiLJRFFGEjVD7Cp7K9hCiEPxVlgy
+         wLNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707390672; x=1707995472;
+        d=1e100.net; s=20230601; t=1707392541; x=1707997341;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dkltV/LKNYv+rODcoWYZtA6BeNijF5We+gSy0yOyWBU=;
-        b=tFcfM5BWZy7YYC6GXFHkV/UqqYGImtkakdZo89DudBGTfpPN5XKBUdKQJzi6LVabYO
-         inxAumXRSmhnA+9y28mEkye9tfXi7C9UYMfSd7x5yIDI57XO0evUzHhjpWnMoc3h78n5
-         Ezzp0BJ1mYjkVrja1wR6jKL1dITJ3bD+znuChn6y+QOB+D72FlVaw4fAv3sV69+vL+GG
-         wRWBkVWU5mM3mPGO0+WRWOm1oIV6zzlxJAaSvH/ydFmdfkqvEc9qHfe2spXRJTQJQd6a
-         4g8VHa3UZ0vEIoZbIAWgfB8M2tmnRGn+C3s2FxfqLbkf/mU1cL8ZXHIjMTXW9XYiGVPR
-         Af8w==
-X-Forwarded-Encrypted: i=1; AJvYcCUx1cypHHrCAAs2dqXoNHGlKBPbiCzTANgPnwWuIuqaxkwWG0dYa33pBVgVq660+skKMkis67ui5BgM9dIHpaUKZNztPbGnx6nm1nh87/j3
-X-Gm-Message-State: AOJu0YxCHSiVtp8jF7QHJBSnNbNhXLxZ66m8ZIaTTEFBFFJGsIWbmtCg
-	G7WOLGZ6wZiVDdmmfqzOXes84NbxmSCDXRlM+xjfTtk2yUaM05YW
-X-Google-Smtp-Source: AGHT+IExNxDbHcLYVVbVySRZGWORe981ejf9nZ3Tj95iByf6mv66AIx7CnDeMVaPXJhy3hlNtRREeQ==
-X-Received: by 2002:a17:907:3c25:b0:a38:551d:ff1d with SMTP id gh37-20020a1709073c2500b00a38551dff1dmr3401759ejc.73.1707390671390;
-        Thu, 08 Feb 2024 03:11:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXIhbezgSq5pUviM5QD+tULi2vsu2weRt7MQTg2TgJ07ngjjOJj2myeyRzken1n6fgRGqMxQuVSeWNVHbvNA4qZZkJP5O/4hMsxgB3XpN2KCcAWtD9lcTad4awznh3Xqt4ONHoYS0rDhhPaxkfjDiiDtEjZtJVj2CtihTCLpzRmfVIwJYZPl7WpZhDlfR4tsHMLVdSNVcnWuFOCxTgg7hsLE65KG1isAtpZkVVBw8unjAL3e0K2ZBE6MU/ACqLVDp9MJ10rD+ULDsaXUi0r88hfdVl4+MPZCZMXUtgMDpG3zYs0JbxO8oRf0FWuPoswdq6Xipmo3r/7f3fty7VT9jFncxgKRCGYlVTNWqsLzFZlqzk1m7G5xn7DvAfMZmhu1FmODnVJilkxhvhZq3mUJowBW2sLJXHWDXoe+P8J7ETFz6l+4D1sZOk+3Gyi8950ePUVEV3muF5wNZ0nVvgPIZJTq6pNIS5Reyzk56V/fUsBNWxlXHrpiNf45bCeS2F6QIw0wEAmqYE2TFq8d/7yvclqvlqSXL76FGWOHf2jpRCxk6d4meLQyMLl6aLrjST2FHAm9eJHC/TsIAU4pih45hZhIXSxV2I0NvzIJeZXJucnMk3nC1Kgbc1DlZDiZXo1LVZJyBvYLsotP8OqKxUWPUT+9hlgDYhZXV0G507luAa45djJWzzzRpzos8L9XpBjyIoEI/8twbxUL0XnKTyvp2mOEpDO0N32RHTH302/hDy8QTwvDaeSBCdfW2JM5+AHWONdNoT9spayByfZYKzpxUGVeqlqHZQZMImktsG2ZR8Tir1C5H1Y/Ef26R4Hpg==
+        bh=uJx67bcvbAo9zHf0ymAdxOGvHwHm6HIalhNV9TyZktU=;
+        b=R9m/ocwFK9H2cjIvCkAsIskp3zVFc1+sVy+HVjrent4E6AyiLPgkSge82gBMuZOEVj
+         8b1l0o5+ULIRk5SbHa4lhhnQjdzofUFm3W2O2/2i9iflOk18fJc80djjWRbaEW2PLivU
+         O7YVPougi8Cn3CYEV3ZDd+2bI2xZ4skIPMGcdMT3a/yeZinsVec0rp7r8R6rLLZpjRzm
+         4HpMlMmRcN4t50jtgG200Jyg60dvY8p6UCc1Mkrws06wG9yO1NFRhCZ61K94j/ydMFJU
+         +hB036mNCA8N5Q+UsLQf58x1KH/wvXSSpvDWfrrJKb3JkuHeWgZy8kTgonDqbo+moJxj
+         htsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWk6vkNP2eaqq/Pi9f1ZE4UjdruW+o1kzq2zIkldLei0u1O4Q8iKDp1reKjWtB9PWeNk1mX/e1SqT+IAH5bKrWtvwcbtLxNOMFNEh+sTcb0
+X-Gm-Message-State: AOJu0Yw55gamXx1WkSk5afn0ak7OYAS4WyKNKK31LNFh7q86v2pab+KE
+	t4sBG+K75MhrDbmwmsR2B5I2jsLLXfWU0ATtxfcqcVCe1dnzEJRUVU4HLoWXoNQw7Q==
+X-Google-Smtp-Source: AGHT+IEiPm4u84iqFSB/UQg6ibdfUKzGrLkfL1m3NTh0SS5++/aHuKt3pBw9YrhOY1kilrXZeG6DMg==
+X-Received: by 2002:a17:906:d10d:b0:a38:948e:85d3 with SMTP id b13-20020a170906d10d00b00a38948e85d3mr2932904ejz.71.1707392541302;
+        Thu, 08 Feb 2024 03:42:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVISQGNJhcgRfbCljEvw7EzsND50WXxUpC4wFphSMcBvdzRIwbL7Ryz518AMPWPM8jSxRs0KB7Ropazpm8LjMrbZ8JFStTaDPeC1LQt2v8Ut06vT2nk2yiRzB5u5BwQ6VPecfYcJUZUnj3snDHe3u9fyFsYjU5QawLERsKuJF3YAWRNgL06iSOJ8SPb2oNBunViYzVACgOdN48RvE7Hab7wmi+qh1B5Nbs2VlDSJozNfZ03T/pWq1SaHNkIxG5Q1zGeZjK0WpttiduQo/fpQFRK/Y9Xow6QVEftEVQPw0jypU8d5Z2nQ9sWPbOADDjT9FKF4/yr8KIWAAGqCvHzPUSg1bgl+GaQv2Y+z41S38/k3qowiSDXHmU5a4279KlMRbSCw/LNpg==
 Received: from andrea ([31.189.46.254])
-        by smtp.gmail.com with ESMTPSA id oz14-20020a170906cd0e00b00a38620c3b3dsm1777453ejb.198.2024.02.08.03.11.09
+        by smtp.gmail.com with ESMTPSA id qc12-20020a170906d8ac00b00a28f6294233sm1784541ejb.76.2024.02.08.03.42.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Feb 2024 03:11:10 -0800 (PST)
-Date: Thu, 8 Feb 2024 12:10:52 +0100
+        Thu, 08 Feb 2024 03:42:20 -0800 (PST)
+Date: Thu, 8 Feb 2024 12:42:16 +0100
 From: Andrea Parri <parri.andrea@gmail.com>
-To: Jonas Oberhauser <jonas.oberhauser@huaweicloud.com>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	Christoph Muellner <christoph.muellner@vrull.eu>,
-	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	Andrew Jones <ajones@ventanamicro.com>, Guo Ren <guoren@kernel.org>,
-	Daniel Henrique Barboza <dbarboza@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Will Deacon <will@kernel.org>, Daniel Lustig <dlustig@nvidia.com>,
-	Brendan Sweeney <turtwig@utexas.edu>,
-	Hans Boehm <hboehm@google.com>, Andrew Waterman <andrew@sifive.com>
-Subject: Re: [RFC PATCH 0/5] RISC-V: Add dynamic TSO support
-Message-ID: <ZcS2vDZjQzDARefn@andrea>
-References: <20231124072142.2786653-1-christoph.muellner@vrull.eu>
- <20231124101519.GP3818@noisy.programming.kicks-ass.net>
- <59da3e41-abb3-405a-8f98-c74bdf26935b@huaweicloud.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>
+Subject: Re: [PATCH] riscv: Fix text patching when icache flushes use IPIs
+Message-ID: <ZcS+GAaM25LXsBOl@andrea>
+References: <20240206204607.527195-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <59da3e41-abb3-405a-8f98-c74bdf26935b@huaweicloud.com>
+In-Reply-To: <20240206204607.527195-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240208_031113_600039_013D19E5 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20240208_034223_998551_04E07150 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,28 +100,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 24, 2023 at 12:04:09PM +0100, Jonas Oberhauser wrote:
-> Unfortunately, at least last time I checked RISC-V still hadn't gotten such
-> instructions.
-> What they have is the *semantics* of the instructions, but no actual opcodes
-> to encode them.
-> I argued for them in the RISC-V memory group, but it was considered to be
-> outside the scope of that group.
+> +static int __ftrace_modify_code(void *data)
+> +{
+> +	struct ftrace_modify_param *param = data;
+> +
+> +	if (atomic_inc_return(&param->cpu_count) == num_online_cpus()) {
+> +		ftrace_modify_all_code(param->command);
+> +		atomic_inc(&param->cpu_count);
 
-(Sorry for the late, late reply; just recalled this thread...)
+I stared at ftrace_modify_all_code() for a bit but honestly I don't see
+what prevents the ->cpu_count increment from being reordered before the
+insn write(s) (architecturally) now that you have removed the IPI dance:
+perhaps add an smp_wmb() right before the atomic_inc() (or promote this
+latter to a (void)atomic_inc_return_release()) and/or an inline comment
+saying why such reordering is not possible?
 
-That's right.  AFAICT, the discussion about the native load-acquire
-and store-release instructions was revived somewhere last year within
-the RVI community, culminating in the so called Zalasr-proposal [1];
-Brendan, Hans and Andrew (+ Cc) might be able to provide more up-to-
-date information about the status/plans for that proposal.
 
-(Remark that RISC-V did introduce LR/SCs and AMOs instructions with
-acquire/release semantics separately, cf. the so called A-extension.)
+> +	} else {
+> +		while (atomic_read(&param->cpu_count) <= num_online_cpus())
+> +			cpu_relax();
+> +		smp_mb();
+
+I see that you've lifted/copied the memory barrier from patch_text_cb():
+what's its point?  AFAIU, the barrier has no ordering effect on program
+order later insn fetches; perhaps the code was based on some legacy/old
+version of Zifencei?  IAC, comments, comments, ... or maybe just remove
+that memory barrier?
+
+
+> +	}
+> +
+> +	local_flush_icache_all();
+> +
+> +	return 0;
+> +}
+
+[...]
+
+
+> @@ -232,8 +230,7 @@ static int patch_text_cb(void *data)
+>  	if (atomic_inc_return(&patch->cpu_count) == num_online_cpus()) {
+>  		for (i = 0; ret == 0 && i < patch->ninsns; i++) {
+>  			len = GET_INSN_LENGTH(patch->insns[i]);
+> -			ret = patch_text_nosync(patch->addr + i * len,
+> -						&patch->insns[i], len);
+> +			ret = patch_insn_write(patch->addr + i * len, &patch->insns[i], len);
+>  		}
+>  		atomic_inc(&patch->cpu_count);
+>  	} else {
+> @@ -242,6 +239,8 @@ static int patch_text_cb(void *data)
+>  		smp_mb();
+>  	}
+>  
+> +	local_flush_icache_all();
+> +
+>  	return ret;
+>  }
+>  NOKPROBE_SYMBOL(patch_text_cb);
+
+My above remarks/questions also apply to this function.
+
+
+On a last topic, although somehow orthogonal to the scope of this patch,
+I'm not sure the patch_{map,unmap}() dance in our patch_insn_write() is
+correct: I can see why we may want (need to do) the local TLB flush be-
+fore returning from patch_{map,unmap}(), but does a local flush suffice?
+For comparison, arm64 seems to go through a complete dsb-tlbi-dsb(-isb)
+sequence in their unmapping stage (and apparently relying on "no caching
+of invalid ptes" in their mapping stage).  Of course, "broadcasting" our
+(riscv's) TLB invalidations will necessary introduce some complexity...
+
+Thoughts?
 
   Andrea
-
-[1] https://github.com/mehnadnerd/riscv-zalasr
 
 _______________________________________________
 linux-riscv mailing list
