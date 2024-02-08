@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA5AC4828F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 12:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D85CC4829D
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 12:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cmaI7g7yvCQQlTCViiRgg/AnxvdpiIFw8e9kkJB8REs=; b=2Ww8/5h9DBtFxN
-	hdInvTwBh1+dZWdfbesY49tTeD8Y0ZJYV4f1gBx0OkqgN2EE8+V/eqOBAn6I9OFk3/Tr+NJ++bbUX
-	fiYs4Uy2icAOP8YTmP8Jw3B07VsKVH/A1Bb187l1JeKttqCZpsN47Wa0Ce4WsUwN3FJz6W6A81QhB
-	ZYfwnWP83BUwFfMG8CuFPxENLa1lEaBVx98JX2kfK4FKgA70HXgy+qcaFDGrLxn9Bl8tKJU/Dz2nz
-	COgwYShxYT0VtYmcwy0xeDJQin0+R7eEj1QXJNmI5XzOzePLV7gXCq/kIP+7oRVHfHIhQXhOZnD46
-	Jg4oSVcN2/+4dlta52hA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CRhsFwLGtKSGF5T8qsaKW2eHDNaQsjFZiaRT9dFu7N8=; b=C3tnAO81gRV5g5
+	ATVtoxLnl5G/P6t3pfl/9LdseQxA/0rtAUmp6lOrRe2i5fHlz816p3hDBYs+Ya4swKLaIIR/4FwbW
+	CajqwYMtGUnRLx5enkPdrOiR/iD4AyHY/wiq3jObzSLwb+kyvPGP6/I696htymjIUXApSpwBIYyjU
+	BQZOkqEM8mVkZY2AJJiRofMIZtT/ZZfGQUjzIKQgrt9TkatE/U7L2B9XmnWn13h5wDCCSiqfI43JG
+	uexMazWqp75abAJUnuDTVUo5E+IBJ7ZqgTBGu7DBiR0JadOorONby3w3oXdbIKqQGJFZevWbgW+9O
+	tZsjjW9v3dIDGbkFckgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY3kq-0000000DlUK-4Ayg;
-	Thu, 08 Feb 2024 12:43:49 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1rY3l1-0000000DlXs-1jo0;
+	Thu, 08 Feb 2024 12:43:59 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY3kn-0000000DlS7-2mSN
+	id 1rY3ky-0000000DlVZ-1zsA
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Feb 2024 12:43:47 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-51168572090so2916984e87.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 04:43:43 -0800 (PST)
+	Thu, 08 Feb 2024 12:43:57 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-41047386c8dso2363215e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 04:43:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1707396222; x=1708001022; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=euiJLfBajM/ZFVIDyhIV5fjjCmiMvfIZ0T4coXTdvWE=;
-        b=ewPem2DAL2w4qFXnym3Si8wxc5C2wJg4bITFPOETIWi8Y+ZUV7R+SlZUpqWPKAUQ8U
-         7Zo3R0KzJH5Tn/HKEJzOUuXdz493FafVrh6rOsd29txz5abmHnov6IpPsBupbYy9VbrZ
-         xS2HzAJGRayRx/MFZa0YbsiMV9JLr5YtECFYXAitL1Ez+VbRvsnySOHYiLwDGWgTKOLT
-         X+wT7HVaXWqfP5ePghy7OjDh2pduksBODKLRVWu3nHzYBSaSrQ3VtdH0gAI2rZQtQThy
-         sNE9gNUJWyIp6PuohfyQE5glsi+xKVDj2sMYeTNKWl+SqMQBUHMC8n4V4QtG7CFkSYXi
-         dzsg==
+        d=tuxon.dev; s=google; t=1707396234; x=1708001034; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YVbMwB0TiglM9Jy2bve9nHK/i2B3Um4Ecj9XE9vae54=;
+        b=ScVgyrjnINqoTKo742MRLH69GLX+ttAqaJsgkJp4hRQCbrtkI66PEQGMq5mNE82YMG
+         YNOSs4PZLP20Zj5ciqu7KM47eB0VVadcvHIXA0hOS+z8hbZBBrZHlf0jLJYtkMfXKwVY
+         mTi0HUdb7uN32H3WbML6QeifWz72KxSnj8BAI70yCLMZ1BzKdfhXN6NZ4XJXPmJZWfw7
+         dgBmB4Z224cul319jERfSQP5PyJcAVrv4zMxQ5H5p9K0cV5gB9bGTzNu/JTvf0xyHpp/
+         BYVWS9iw3aCPlk/gsMhkMOVhpIXyGsb+sJwun259VoggDMORUHd1PQIoblWtlhqs3Ckq
+         bAyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707396222; x=1708001022;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=euiJLfBajM/ZFVIDyhIV5fjjCmiMvfIZ0T4coXTdvWE=;
-        b=iNvWgll8ufGB0iZT9SwQKwifAOmMrzKr3GLo7kEuk0HrLVt0RxaZ5m5syxjTQFdHuY
-         0aV/4hnHpV/SFH2bG+PNFW/9u2gPaBF3pL446eX5/ppgivANmI1VvIs1YPmcsWAp5l3Q
-         pVQAXcsOsXWkeTC5WmLMRoPF8AhVnO7yvXkeJP87NgUquXx9/ALBPkHoDl9F27A+fTwv
-         FlW+TEjwGFAfGMBdb8sXJAYS3gB8LUaPMbI9uEodfkXNpvA59z69Ty306OudaottB2yJ
-         vQUNzz4lgrzt5KWGXi0qufSuHKiEkk7SsOyQiVi+uSTtDyErzjJsjcCYgukWAKaZUYCa
-         /LvA==
-X-Forwarded-Encrypted: i=1; AJvYcCUxXU6yyvhspo2SSSPZILxpkG/QFJ79/8hLz4M/lJBtWZsO7XAMXZMcr3bV38lzPHpdH5WriIJBzfEhZguES4wLNgtdJLp7LM5Qt7h31l9k
-X-Gm-Message-State: AOJu0YxAlq4t5dwJkHN65yfubbqxE3CF5mhRQMkgLoE3IGygF2+sr/6X
-	r5l5DFHz1hPsrDKk4Rwj2JkA8LVEISDwsMA5YHVKuULUTG99jLFszNi8tamTdYY=
-X-Google-Smtp-Source: AGHT+IGFiG7OHJfzRNPbhImwwPJamXoJQIEhIgb6vjVPNybgWE5Mqmkj9l3PB8njMa4WiG5eqbRvxQ==
-X-Received: by 2002:a05:6512:33cc:b0:511:5724:dcd1 with SMTP id d12-20020a05651233cc00b005115724dcd1mr7734788lfg.11.1707396222387;
-        Thu, 08 Feb 2024 04:43:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWr+/IOtPfh0lK3AG+Z2s/nxleo8pO7DNwgvhzMfvQOlQeo0BQH94pIvapJvPkZXT7ludRt0V+zlZx62qzOHVY6SOOcwiztRENMNS5ttT/QzvChrqrk00aJIsWx4Vt2c8wBXhfHRFyHj0pfjdVpU7qL9XL3h2uHIjX+E7WNTj0cpaKRyvNm0Ja/l6yLSd2P7yTY4IQaZ92erU6P8uUKz8hmle7apJ+YzTGyWowtGq1LPEZgwSEAbqbd6qmrGfD82zRqVopXiTjBd9o1q/O2VuW2925SPB81j28coIaRlNJGyYSaOyoJnO+6WJv+jOAu1Al7abQ5TRMvglgi01KlUN7O4UzNnBLcnBifcAp4n9tiE8pt9WciwX8RLricE7vehrbXPiZO0hUKk0+70QjmIIMB6VblERZovT9GO0WUuFeZ4mBpnldemseNCZvJRdbwuapgoOjy/ZCYeiCUWltUFkgtTHU6x32rHfEft9nTEJwO7R5uAH93iOlpTFw5ClvujCf+oGbGn2ihPSlUFlgFBJC1rQymxDr6CZ5hqwN/a9/82ti6abyqsOL/jMmqXHulG9k=
+        d=1e100.net; s=20230601; t=1707396234; x=1708001034;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YVbMwB0TiglM9Jy2bve9nHK/i2B3Um4Ecj9XE9vae54=;
+        b=u8KDxA0HXAzXJuxeT+Ms+7GfdhNSp6EKjQ81cbSEKfaOeWywdHwXnumS0mAICA65y6
+         7JNVwykhwfXqtiivDV6onNKNE3s3gqqudanFgyZe61aPjv+scPbZ4/vQpUz3OAMN5UmS
+         sfpvikIi2kK0aQGytSsN/kzD788/QVfg5d///lleKYwh6UajCRcZXOBpCCkbeRSZ9o/3
+         ilVAdzTPaRJPBa8QZQCBCXE6uJ8oac2Fx+DxZv0AO2epyI6sHOyXvn5kX5k3BKJisxeB
+         YDQd7tMUEFfZ1iIxvIeff2MGrM6kYtpjnZYCMJ8smkvO80hXdL0IoHFam0RHSAeiKU9p
+         DiBw==
+X-Gm-Message-State: AOJu0YzDUGv1ddxtMVtdtn73ySLgOqSHZEVSCTF0xVNrX0Hc6SnQVZTu
+	g87ekxQeJ6qYiRIziNFHzJuSqb1qjO2TAdxPu2y4cS9yWirrjJS/MNTpgv4bReA=
+X-Google-Smtp-Source: AGHT+IFGzF9o2pTF9T3Gci4TSPWcIsOUNfNbwJnaBk6HW7gCXyCkEcJabWF2d2a4zsvkUeM6h7+Pow==
+X-Received: by 2002:a05:600c:1e1d:b0:40f:f4b2:b26 with SMTP id ay29-20020a05600c1e1d00b0040ff4b20b26mr5738131wmb.25.1707396233978;
+        Thu, 08 Feb 2024 04:43:53 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCW+k3ak3Q1EAZ44zAFQPvAThcwM466bhXPNIxXdC0k+54Ou7Zc12txWb58P6bsgdd6OT/w183dgapwgULEVG/ja7p/6VXKOKpT+MtV6ONpsgZU22nzt5NFnpcivsGxTLBsffy2XBOkR6aygjtY2sYYajYX570vNa6itMviKmUW3M5dIhgxqAheRT4dzyGXIksavPo2IdYe+20QSO946qX3hna55YZvGE5mRX2dO+yzE+EEcZBUJPUY25g6hTXPYi9ZwW+nqXLtFXFhjczn0qcibAomrERJzAJ9Bd2PYioQ7Rjs8wywIlbk4UxTI2V0l40yeWyyKcrZwtn2yN1u8icvnREZZEt+tIcHVRX+DMADriAAGj8+htO/QbKMRtYapriyn2R9RfS25WNfbCk6024l4bftl0+DZ+rTGhZ8w7kuA64+GGvLU18c2NV2HIOeYW+Ki68P7icEAi5t2b1tk7nMqJKKohxeJOvpJWEbDkt+aXWJNYXAHajWum7ELpdGlfL76g0x6l1a8oUVR+d7xN13hVXNOI8m6pEBxETYCVGNGYRJ3oBo/WrzYMdk9niAjtvc=
 Received: from claudiu-X670E-Pro-RS.. ([82.78.167.45])
-        by smtp.gmail.com with ESMTPSA id o13-20020a05600c4fcd00b0041047382b76sm790244wmq.37.2024.02.08.04.43.40
+        by smtp.gmail.com with ESMTPSA id o13-20020a05600c4fcd00b0041047382b76sm790244wmq.37.2024.02.08.04.43.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Feb 2024 04:43:42 -0800 (PST)
+        Thu, 08 Feb 2024 04:43:53 -0800 (PST)
 From: Claudiu <claudiu.beznea@tuxon.dev>
 X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
 To: geert+renesas@glider.be,
@@ -82,14 +82,17 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	claudiu.beznea@tuxon.dev,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH 00/17] clk: renesas: rzg2l: Add support for power domains
-Date: Thu,  8 Feb 2024 14:42:43 +0200
-Message-Id: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH 05/17] dt-bindings: clock: r9a09g011-cpg: Add always-on power domain IDs
+Date: Thu,  8 Feb 2024 14:42:48 +0200
+Message-Id: <20240208124300.2740313-6-claudiu.beznea.uj@bp.renesas.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
+References: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240208_044345_840009_560630F5 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20240208_044356_547270_04D7B1BE 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,91 +111,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-Hi,
+Add always-on power domain ID for RZ/V2M (R9A09G011) SoC.
 
-Series adds support for power domains on rzg2l driver.
+Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+---
+ include/dt-bindings/clock/r9a09g011-cpg.h | 3 +++
+ 1 file changed, 3 insertions(+)
 
-RZ/G2L kind of devices support a functionality called MSTOP (module
-stop/standby). According to hardware manual the module could be switch
-to standby after its clocks are disabled. The reverse order of operation
-should be done when enabling a module (get the module out of standby,
-enable its clocks etc).
-
-In [1] the MSTOP settings were implemented by adding code in driver
-to attach the MSTOP state to the IP clocks. But it has been proposed
-to implement it as power domain. The result is this series.
-
-Along with MSTOP functionality there is also module power down
-functionality (which is currently available only on RZ/G3S). This has
-been also implemented through power domains.
-
-The DT bindings were updated with power domain IDs (plain integers
-that matches the DT with driver data structures). The current DT
-bindings were updated with module IDs for the modules listed in tables
-with name "Registers for Module Standby Mode" (see HW manual) exception
-being RZ/G3S where, due to the power down functionality, the DDR,
-TZCDDR, OTFDE_DDR were also added, to avoid system being blocked due
-to the following lines of code from patch 7/17.
-
-+       /* Prepare for power down the BUSes in power down mode. */
-+       if (info->pm_domain_pwrdn_mstop)
-+               writel(CPG_PWRDN_MSTOP_ENABLE, priv->base + CPG_PWRDN_MSTOP);
-
-Domain IDs were added to all SoC specific bindings to avoid breaking
-dt schema validation failures.
-
-If the proposed dt-binding update is good for you, please let me know
-if you want me to also update the individual dt schemas to reflect
-the newly introduced power domain IDs in schema examples, if any.
-
-Thank you,
-Claudiu Beznea 
-
-[1] https://lore.kernel.org/all/20231120070024.4079344-4-claudiu.beznea.uj@bp.renesas.com/
-
-Claudiu Beznea (17):
-  dt-bindings: clock: r9a07g043-cpg: Add power domain IDs
-  dt-bindings: clock: r9a07g044-cpg: Add power domain IDs
-  dt-bindings: clock: r9a07g054-cpg: Add power domain IDs
-  dt-bindings: clock: r9a08g045-cpg: Add power domain IDs
-  dt-bindings: clock: r9a09g011-cpg: Add always-on power domain IDs
-  dt-bindings: clock: renesas,rzg2l-cpg: Update #power-domain-cells =
-    <1>
-  clk: renesas: rzg2l: Extend power domain support
-  clk: renesas: r9a07g043: Add initial support for power domains
-  clk: renesas: r9a07g044: Add initial support for power domains
-  clk: renesas: r9a08g045: Add support for power domains
-  clk: renesas: r9a09g011: Add initial support for power domains
-  arm64: dts: renesas: rzg3s-smarc-som: Guard the ethernet IRQ GPIOs
-    with proper flags
-  arm64: dts: renesas: r9a07g043: Update #power-domain-cells = <1>
-  arm64: dts: renesas: r9a07g044: Update #power-domain-cells = <1>
-  arm64: dts: renesas: r9a07g054: Update #power-domain-cells = <1>
-  arm64: dts: renesas: r9a08g045: Update #power-domain-cells = <1>
-  arm64: dts: renesas: r9a09g011: Update #power-domain-cells = <1>
-
- .../bindings/clock/renesas,rzg2l-cpg.yaml     |   4 +-
- arch/arm64/boot/dts/renesas/r9a07g043.dtsi    |  84 +++----
- arch/arm64/boot/dts/renesas/r9a07g043u.dtsi   |   6 +-
- arch/arm64/boot/dts/renesas/r9a07g044.dtsi    | 100 ++++----
- arch/arm64/boot/dts/renesas/r9a07g054.dtsi    | 100 ++++----
- arch/arm64/boot/dts/renesas/r9a08g045.dtsi    |  20 +-
- arch/arm64/boot/dts/renesas/r9a09g011.dtsi    |  28 +--
- .../boot/dts/renesas/rzg3s-smarc-som.dtsi     |   4 +
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi   |   2 +-
- drivers/clk/renesas/r9a07g043-cpg.c           |   9 +
- drivers/clk/renesas/r9a07g044-cpg.c           |  13 +
- drivers/clk/renesas/r9a08g045-cpg.c           |  27 +++
- drivers/clk/renesas/r9a09g011-cpg.c           |   9 +
- drivers/clk/renesas/rzg2l-cpg.c               | 227 ++++++++++++++++--
- drivers/clk/renesas/rzg2l-cpg.h               |  68 ++++++
- include/dt-bindings/clock/r9a07g043-cpg.h     |  48 ++++
- include/dt-bindings/clock/r9a07g044-cpg.h     |  58 +++++
- include/dt-bindings/clock/r9a07g054-cpg.h     |  58 +++++
- include/dt-bindings/clock/r9a08g045-cpg.h     |  70 ++++++
- include/dt-bindings/clock/r9a09g011-cpg.h     |   3 +
- 20 files changed, 752 insertions(+), 186 deletions(-)
-
+diff --git a/include/dt-bindings/clock/r9a09g011-cpg.h b/include/dt-bindings/clock/r9a09g011-cpg.h
+index 41dd585d7115..250499faf049 100644
+--- a/include/dt-bindings/clock/r9a09g011-cpg.h
++++ b/include/dt-bindings/clock/r9a09g011-cpg.h
+@@ -349,4 +349,7 @@
+ #define R9A09G011_DDI_RESET		93
+ #define R9A09G011_DDI_RESETN_APB	94
+ 
++/* Power domain IDs. */
++#define R9A09G011_PD_ALWAYS_ON		0
++
+ #endif /* __DT_BINDINGS_CLOCK_R9A09G011_CPG_H__ */
 -- 
 2.39.2
 
