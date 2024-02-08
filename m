@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C709C4828D
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 02:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3124DC4828D
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 02:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WTeDxwQMBiXvlOA5f0cQ3ZwP+DDI9YujzVYx7Ckvv0g=; b=MVY//7WPmNCuq2
-	TndbgZ+KYWUYO21msKJ5ckS6W62A/4ILKW/Dboqg7+6dKoZ/wrNLTmYe1A/PBSLk5N0L7aw3QyIBn
-	ZjKEZdNQ1XJ7ECFnAcufeaZQhYk4TGST1gN6l7+4jvzofRROrBYWDpedcB7rLWCte+NfEz+AMLB64
-	cbbUHVNTo1UvwK+scL4H8z5iZXecPjPFlR8y5h6Kj5kRZtGGP+HHAUR79tnnAKwqkJih5AyJD6YdM
-	9AiiE5Aa0/aD6kC4/b6dacJPMR62YQY3P1i3PnLtY7yR3XkUJAJHEIWC7UKqXUNXCPswLX3bPW+mY
-	zHLBWa9YZHWLnEo0kQow==;
+	List-Owner; bh=irZvqQK/DPE/OWuWe/v4/dbk/IRhriipAwC9jcBFL6Q=; b=A9HcVX8paLmfiZ
+	jnsYvcz9oRj/fH0Hn8abDI2irvz+XhQND2haEfoeNHbK9StQV8PudjRloy5eYj7G8Dn+Hg0f9ZlOd
+	YhNHWqcx41wKFNohy27rGiigXAcwqG9PSGQX2l+IyY+NeV0l8db/B+oeptR/W3sq/B8r3SddQYmmk
+	yIq/bLMUhaa5I5qVdfKFs90FLah46B+tFt9l/KVgKUw5Bb9T4MLCE7VGkXmqfFXjJGcdBwbx0zxQ5
+	SA5uANyH6UukSlU1nFPHSZXOM3+kOpJo/eE9ODD4yKIqFA6EIkCl5DAXJL9DI/URJcbxrK92MB7XJ
+	AkrTR+oL8UOiFV0kz4RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXu8L-0000000CSdk-1seP;
-	Thu, 08 Feb 2024 02:27:25 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1rXuXc-0000000CUlK-377X;
+	Thu, 08 Feb 2024 02:53:32 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXu8I-0000000CScb-1sjf
+	id 1rXuXZ-0000000CUku-3pDB
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Feb 2024 02:27:23 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1d7858a469aso11011815ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Feb 2024 18:27:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1707359237; x=1707964037; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Hk7ZBu3HurWptK6Jqxv5pv5i6VPmY5c2Ebia9meKyH8=;
-        b=0xs5rWaoxFOHJZS9QjeMNIw+P0F6hQBs08yw9+f79jywEdziLwGqaXGrjQzixCmxGF
-         ps5lYDBhzaGUYsK0vj3o4pQih8JZ+j8hLxCu72lcrY0oYWf10iTKx+o9QvLVGXa1lEOl
-         uw9vRjthSI2CGg34Rsq/YqEUk74/8GDHbxhrqjb/ig3lIOXHfrCnuDA17IXzOHdPkTEw
-         Eann2Fnqq0oCdg4XkGniSnQzmWkmubQlxXxeitgvh6f3DvrS6cQaZPhRsEKitSfvV1zu
-         pSQi/B1fBLQ2thVYk2wbOQ2JDVvZaZVohwChgLWLQvKPFY/rGK840AW5ibL9rfLGEDCH
-         MAqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707359237; x=1707964037;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Hk7ZBu3HurWptK6Jqxv5pv5i6VPmY5c2Ebia9meKyH8=;
-        b=dQ96TdC6yhKd7QlzB1R7c5EGqiJa2tSNfNYzMXMdMwK4gQMl3t/nVBFTIJuXSehmih
-         WtdrziVlzeEQCrXgsVZSL3a6fTSTgP0aEdyQ3j4tU9dEWKgKx65CyX+dKKN/3U1UeJIJ
-         vLwOntcOr0eWfUtH4NsRofZcs5Ke54HuoIRkmTR0glmwzV2lcepTr03FEdeFDK09Lj2C
-         jUAM7K93aaR3FNJpxHu5wgMn16CAZSj0g+imG4isfBqrxMNiAwS749NO6hIYuLKRNCcc
-         vlQ3FDbyPNzznDHSQ+xWoVJb6OGQ68uGs8+dRDDS6fPP8fnyxvg4XwOjLZIibbBLtyBo
-         kY2w==
-X-Forwarded-Encrypted: i=1; AJvYcCWx1lzXhoSbFDVajVxby64l27J+vU1bCouI9qxH7kHjLtWGCsATzfLQ3aIMcikurLTZjle0N9IDj5ekKUk5JtphCwqOChNnPjRF+fCC8qVk
-X-Gm-Message-State: AOJu0Yyhg7ovYPqw41+tTcPSZ/cvzC2K2epIlVnqpqJ7herT7JjmZHS0
-	uiAw3tUV0+7jna1XV9xpVSMEp3bxIGn0I01VlMmIZ9ZzUtDH2EeHIfQqg+PVUJY=
-X-Google-Smtp-Source: AGHT+IEPYkh0T7abTwPmR89ZmskiQMXL1Jzq060oaQiJqqmJp0kHeX3owcA3Y6sl+JbA2YBh8oWZlw==
-X-Received: by 2002:a17:90a:fb87:b0:290:9e9e:a87e with SMTP id cp7-20020a17090afb8700b002909e9ea87emr4541463pjb.42.1707359237452;
-        Wed, 07 Feb 2024 18:27:17 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWlp7aSq9sbJGvJI6PVa+3Owfz+xtwDZBKZm17mlbjNd98ImzfoRg4C0gMC1d7H9BXDynd2oTWJdBhN0oT9vaQ1qEA8YuzmnDfmuq6Llo2R6aZkNv3FULu0C5gPPeCWGgGSY4QaGEjU+SuzbOfheDOh+Lxdr8/9/hVed4F8xbG/5hIUiaqQOQe6DeWIIGpVqtUfG/XEQo4QkxWT/Dw5V17pnKJDXOzx428Xi016kaT4fbxr/6z3Q+pfMCdcwQRDoTwdCAx+Jr/n4HHkWbb6NIXLsczke01TYS9mib5Tz+X28KGicxU68dkIwCkWSuRkXLNucQGxcqq37IPTKwBgKvGmk49S1FrxMs25H6u/1mKFXAlPZuciZZ2dKnXYqIZg4+JHX3Lh//YSzOWK9PgN/i44X/GiU6w+g5+sOeSjcukB66zo5GT9+Z/AcbXvjBG3GIoO
-Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id nd7-20020a17090b4cc700b00296a265acbbsm167120pjb.25.2024.02.07.18.27.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Feb 2024 18:27:17 -0800 (PST)
-Date: Wed, 7 Feb 2024 18:27:13 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	Atish Patra <atishp@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Randy Dunlap <rdunlap@infradead.org>
-Subject: Re: [PATCH v10 1/2] riscv: Include riscv_set_icache_flush_ctx prctl
-Message-ID: <ZcQ8ARL70eB3kvUE@ghost>
-References: <20240124-fencei-v10-0-a25971f4301d@rivosinc.com>
- <20240124-fencei-v10-1-a25971f4301d@rivosinc.com>
- <5849b66f-d7c4-4011-b556-10725ac0958e@sifive.com>
+	Thu, 08 Feb 2024 02:53:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1707360810; x=1738896810;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=z8d5u8+rfIRiZiS6FEisYDE0pgKqtyMux9OL0xOE4cI=;
+  b=D6+Y62phUStizYdTcg0LLjBx0MFsIY9NjqoXas4Znp3aD/09q8AJ9fIv
+   hzIdGolYwe8/dhPJMgau/EbRcOe9TPnzxzdiRwZm1yCJgpFQpgswxMrm2
+   mbMZKoXXNhf+m/p1vKZWVi2SeBOZgKVbaK0E/wTKZSkqcVzfNT+/9LXky
+   01U96lAKjzgy1CLv2X07GPZbMgmpwjKddFbETvsMn9dC721341mawCKln
+   bzrahkwE37u4G4ykYkSjZ7UzJFHq03OOH07ik6zycbgtWj/U6WnVEUdhH
+   O58yqR7jEzWk6hgyowVf7et8sGU7p9BQjqaFMNUiExGCcK/S0x6T3wZdP
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10977"; a="11867495"
+X-IronPort-AV: E=Sophos;i="6.05,252,1701158400"; 
+   d="scan'208";a="11867495"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2024 18:53:26 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.05,252,1701158400"; 
+   d="scan'208";a="24776293"
+Received: from lkp-server01.sh.intel.com (HELO 01f0647817ea) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 07 Feb 2024 18:53:22 -0800
+Received: from kbuild by 01f0647817ea with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1rXuXQ-0003Hg-1q;
+	Thu, 08 Feb 2024 02:53:20 +0000
+Date: Thu, 8 Feb 2024 10:53:02 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jingbao Qiu <qiujingbao.dlmu@gmail.com>, u.kleine-koenig@pengutronix.de,
+	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	dlan@gentoo.org, inochiama@outlook.com,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>
+Subject: Re: [PATCH v1 2/2] pwm: sophgo: add pwm support for Sophgo CV1800 SoC
+Message-ID: <202402081059.e1PYAFcY-lkp@intel.com>
+References: <20240207060913.672554-1-qiujingbao.dlmu@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <5849b66f-d7c4-4011-b556-10725ac0958e@sifive.com>
+In-Reply-To: <20240207060913.672554-1-qiujingbao.dlmu@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240207_182722_536126_C3BCF89B 
-X-CRM114-Status: GOOD (  46.94  )
+X-CRM114-CacheID: sfid-20240207_185329_992254_73F5DC68 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,331 +90,159 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 07, 2024 at 12:55:24PM -0600, Samuel Holland wrote:
-> Hi Charlie,
-> 
-> On 2024-01-24 10:23 PM, Charlie Jenkins wrote:
-> > Support new prctl with key PR_RISCV_SET_ICACHE_FLUSH_CTX to enable
-> > optimization of cross modifying code. This prctl enables userspace code
-> > to use icache flushing instructions such as fence.i with the guarantee
-> > that the icache will continue to be clean after thread migration.
-> > 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  arch/riscv/include/asm/mmu.h       |  2 ++
-> >  arch/riscv/include/asm/processor.h |  7 ++++
-> >  arch/riscv/include/asm/switch_to.h | 13 ++++++++
-> >  arch/riscv/mm/cacheflush.c         | 67 ++++++++++++++++++++++++++++++++++++++
-> >  arch/riscv/mm/context.c            | 13 ++++++--
-> >  include/uapi/linux/prctl.h         |  6 ++++
-> >  kernel/sys.c                       |  6 ++++
-> >  7 files changed, 111 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-> > index 355504b37f8e..60be458e94da 100644
-> > --- a/arch/riscv/include/asm/mmu.h
-> > +++ b/arch/riscv/include/asm/mmu.h
-> > @@ -19,6 +19,8 @@ typedef struct {
-> >  #ifdef CONFIG_SMP
-> >  	/* A local icache flush is needed before user execution can resume. */
-> >  	cpumask_t icache_stale_mask;
-> > +	/* Force local icache flush on all migrations. */
-> > +	bool force_icache_flush;
-> >  #endif
-> >  #ifdef CONFIG_BINFMT_ELF_FDPIC
-> >  	unsigned long exec_fdpic_loadmap;
-> > diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> > index a8509cc31ab2..816cdc2395f4 100644
-> > --- a/arch/riscv/include/asm/processor.h
-> > +++ b/arch/riscv/include/asm/processor.h
-> > @@ -123,6 +123,10 @@ struct thread_struct {
-> >  	struct __riscv_v_ext_state vstate;
-> >  	unsigned long align_ctl;
-> >  	struct __riscv_v_ext_state kernel_vstate;
-> > +#ifdef CONFIG_SMP
-> > +	bool force_icache_flush;
-> > +	unsigned int prev_cpu;
-> > +#endif
-> >  };
-> >  
-> >  /* Whitelist the fstate from the task_struct for hardened usercopy */
-> > @@ -184,6 +188,9 @@ extern int set_unalign_ctl(struct task_struct *tsk, unsigned int val);
-> >  #define GET_UNALIGN_CTL(tsk, addr)	get_unalign_ctl((tsk), (addr))
-> >  #define SET_UNALIGN_CTL(tsk, val)	set_unalign_ctl((tsk), (val))
-> >  
-> > +#define RISCV_SET_ICACHE_FLUSH_CTX(arg1, arg2)	riscv_set_icache_flush_ctx(arg1, arg2)
-> > +extern int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread);
-> > +
-> >  #endif /* __ASSEMBLY__ */
-> >  
-> >  #endif /* _ASM_RISCV_PROCESSOR_H */
-> > diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-> > index 7efdb0584d47..ac99ab64499c 100644
-> > --- a/arch/riscv/include/asm/switch_to.h
-> > +++ b/arch/riscv/include/asm/switch_to.h
-> > @@ -8,6 +8,7 @@
-> >  
-> >  #include <linux/jump_label.h>
-> >  #include <linux/sched/task_stack.h>
-> > +#include <linux/mm_types.h>
-> >  #include <asm/vector.h>
-> >  #include <asm/cpufeature.h>
-> >  #include <asm/processor.h>
-> > @@ -72,14 +73,26 @@ static __always_inline bool has_fpu(void) { return false; }
-> >  extern struct task_struct *__switch_to(struct task_struct *,
-> >  				       struct task_struct *);
-> >  
-> > +static inline bool switch_to_should_flush_icache(struct task_struct *task)
-> > +{
-> > +	bool stale_mm = task->mm && (task->mm->context.force_icache_flush);
-> 
-> No parentheses needed here.
-> 
-> > +	bool stale_thread = task->thread.force_icache_flush;
-> > +	bool thread_migrated = smp_processor_id() != task->thread.prev_cpu;
-> 
-> This fails to compile when SMP is disabled:
-> 
-> In file included from arch/riscv/kernel/ptrace.c:14:
-> ./arch/riscv/include/asm/switch_to.h:78:49: error: no member named
-> 'force_icache_flush' in 'mm_context_t'
->         bool stale_mm = task->mm && (task->mm->context.force_icache_flush);
->                                      ~~~~~~~~~~~~~~~~~ ^
-> ./arch/riscv/include/asm/switch_to.h:79:35: error: no member named
-> 'force_icache_flush' in 'struct thread_struct'
->         bool stale_thread = task->thread.force_icache_flush;
->                             ~~~~~~~~~~~~ ^
-> ./arch/riscv/include/asm/switch_to.h:80:60: error: no member named 'prev_cpu' in
-> 'struct thread_struct'
->         bool thread_migrated = smp_processor_id() != task->thread.prev_cpu;
->                                                      ~~~~~~~~~~~~ ^
->   CC      arch/riscv/kernel/sys_hwprobe.o
-> 
-> > +
-> > +	return thread_migrated && (stale_mm || stale_thread);
-> > +}
-> > +
-> >  #define switch_to(prev, next, last)			\
-> >  do {							\
-> >  	struct task_struct *__prev = (prev);		\
-> >  	struct task_struct *__next = (next);		\
-> > +	__next->thread.prev_cpu = smp_processor_id();	\
-> 
-> Shouldn't this instead update __prev (the task being scheduled out)?
+Hi Jingbao,
 
-Hmm, yes that makes sense. I shouldn't have moved this to above the
-switch_to_should_flush_icache call. If this is after
-switch_to_should_flush_icache, then setting __prev or __next will have
-the same effect but __prev probably makes more sense.
+kernel test robot noticed the following build errors:
 
-> 
-> >  	if (has_fpu())					\
-> >  		__switch_to_fpu(__prev, __next);	\
-> >  	if (has_vector())					\
-> >  		__switch_to_vector(__prev, __next);	\
-> > +	if (switch_to_should_flush_icache(__next))	\
-> > +		local_flush_icache_all();		\
-> >  	((last) = __switch_to(__prev, __next));		\
-> >  } while (0)
-> >  
-> > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> > index 55a34f2020a8..2d5e1575f6c1 100644
-> > --- a/arch/riscv/mm/cacheflush.c
-> > +++ b/arch/riscv/mm/cacheflush.c
-> > @@ -5,6 +5,7 @@
-> >  
-> >  #include <linux/acpi.h>
-> >  #include <linux/of.h>
-> > +#include <linux/prctl.h>
-> >  #include <asm/acpi.h>
-> >  #include <asm/cacheflush.h>
-> >  
-> > @@ -152,3 +153,69 @@ void __init riscv_init_cbo_blocksizes(void)
-> >  	if (cboz_block_size)
-> >  		riscv_cboz_block_size = cboz_block_size;
-> >  }
-> > +
-> > +/**
-> > + * riscv_set_icache_flush_ctx() - Enable/disable icache flushing instructions in
-> > + * userspace.
-> > + * @ctx: Set the type of icache flushing instructions permitted/prohibited in
-> > + *	 userspace. Supported values described below.
-> > + *
-> > + * Supported values for ctx:
-> > + *
-> > + * * %PR_RISCV_CTX_SW_FENCEI_ON: Allow fence.i in userspace.
-> > + *
-> > + * * %PR_RISCV_CTX_SW_FENCEI_OFF: Disallow fence.i in userspace. All threads in
-> > + *   a process will be affected when ``scope == PR_RISCV_SCOPE_PER_PROCESS``.
-> > + *   Therefore, caution must be taken -- only use this flag when you can
-> > + *   guarantee that no thread in the process will emit fence.i from this point
-> > + *   onward.
-> > + *
-> > + * @scope: Set scope of where icache flushing instructions are allowed to be
-> > + *	   emitted. Supported values described below.
-> > + *
-> > + * Supported values for scope:
-> > + *
-> > + * * %PR_RISCV_SCOPE_PER_PROCESS: Ensure the icache of any thread in this process
-> > + *                               is coherent with instruction storage upon
-> > + *                               migration.
-> > + *
-> > + * * %PR_RISCV_SCOPE_PER_THREAD: Ensure the icache of the current thread is
-> > + *                              coherent with instruction storage upon
-> > + *                              migration.
-> > + *
-> > + * When ``scope == PR_RISCV_SCOPE_PER_PROCESS``, all threads in the process are
-> > + * permitted to emit icache flushing instructions. Whenever any thread in the
-> > + * process is migrated, the corresponding hart's icache will be guaranteed to be
-> > + * consistent with instruction storage. Note this does not enforce any
-> > + * guarantees outside of migration. If a thread modifies an instruction that
-> > + * another thread may attempt to execute, the other thread must still emit an
-> > + * icache flushing instruction before attempting to execute the potentially
-> > + * modified instruction. This must be performed by the userspace program.
-> > + *
-> > + * In per-thread context (eg. ``scope == PR_RISCV_SCOPE_PER_THREAD``), only the
-> > + * thread calling this function is permitted to emit icache flushing
-> > + * instructions. When the thread is migrated, the corresponding hart's icache
-> > + * will be guaranteed to be consistent with instruction storage.
-> > + *
-> > + * On kernels configured without SMP, this function is a nop as migrations
-> > + * across harts will not occur.
-> > + */
-> > +int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long scope)
-> > +{
-> > +#ifdef CONFIG_SMP
-> > +	switch (ctx) {
-> > +	case PR_RISCV_CTX_SW_FENCEI_ON:
-> > +		switch (scope) {
-> > +		case PR_RISCV_SCOPE_PER_PROCESS:
-> > +			current->mm->context.force_icache_flush = true;
-> > +			break;
-> > +		case PR_RISCV_SCOPE_PER_THREAD:
-> > +			current->thread.force_icache_flush = true;
-> > +			break;
-> > +		default:
-> > +			return -EINVAL;
-> > +		}
-> 
-> At some point you dropped the implementation for PR_RISCV_CTX_SW_FENCEI_OFF.
-> It's still documented, so I don't think that was intentional.
-> 
+[auto build test ERROR on 7afc0e7f681e6efd6b826f003fc14c17b5093643]
 
-Yikes!
+url:    https://github.com/intel-lab-lkp/linux/commits/Jingbao-Qiu/dt-bindings-pwm-sophgo-add-pwm-for-Sophgo-CV1800-series-SoC/20240207-141135
+base:   7afc0e7f681e6efd6b826f003fc14c17b5093643
+patch link:    https://lore.kernel.org/r/20240207060913.672554-1-qiujingbao.dlmu%40gmail.com
+patch subject: [PATCH v1 2/2] pwm: sophgo: add pwm support for Sophgo CV1800 SoC
+config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20240208/202402081059.e1PYAFcY-lkp@intel.com/config)
+compiler: clang version 19.0.0git (https://github.com/llvm/llvm-project 7dd790db8b77c4a833c06632e903dc4f13877a64)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240208/202402081059.e1PYAFcY-lkp@intel.com/reproduce)
 
-> Also, PR_RISCV_CTX_SW_FENCEI_OFF needs to mark the icache on all other CPUs as
-> stale, as in flush_icache_mm(). Consider the following sequence:
->  1. Migrate from CPU A to CPU B
->  2. CMODX on CPU B
->  3. fence.i in userspace on CPU B
->  4. prctl(PR_RISCV_CTX_SW_FENCEI_OFF) on CPU B
->  5. Migrate back to CPU A -- force_icache_flush is false, no flush happens
->  6. Execute the modified code -- fails, because CPU A's I$ never got flushed
-> 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202402081059.e1PYAFcY-lkp@intel.com/
 
-Oh good catch, thank you.
+All errors (new ones prefixed by >>):
 
-> > +	}
-> > +#endif
-> > +	return 0;
-> 
-> This makes the prtcl() call silently succeed for invalid ctx values, whereas it
-> should fail for those instead.
-> 
-> Regards,
-> Samuel
-> 
-> > +}
-> > diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> > index 217fd4de6134..5cabbc449080 100644
-> > --- a/arch/riscv/mm/context.c
-> > +++ b/arch/riscv/mm/context.c
-> > @@ -15,6 +15,7 @@
-> >  #include <asm/tlbflush.h>
-> >  #include <asm/cacheflush.h>
-> >  #include <asm/mmu_context.h>
-> > +#include <asm/switch_to.h>
-> >  
-> >  #ifdef CONFIG_MMU
-> >  
-> > @@ -297,7 +298,8 @@ static inline void set_mm(struct mm_struct *prev,
-> >   *
-> >   * The "cpu" argument must be the current local CPU number.
-> >   */
-> > -static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu)
-> > +static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu,
-> > +					 struct task_struct *task)
-> >  {
-> >  #ifdef CONFIG_SMP
-> >  	cpumask_t *mask = &mm->context.icache_stale_mask;
-> > @@ -309,7 +311,12 @@ static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu)
-> >  		 * This pairs with a barrier in flush_icache_mm.
-> >  		 */
-> >  		smp_mb();
-> > -		local_flush_icache_all();
-> > +
-> > +		/*
-> > +		 * If cache will be flushed in switch_to, no need to flush here.
-> > +		 */
-> > +		if (!(task && switch_to_should_flush_icache(task)))
-> > +			local_flush_icache_all();
-> >  	}
-> >  
-> >  #endif
-> > @@ -332,5 +339,5 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
-> >  
-> >  	set_mm(prev, next, cpu);
-> >  
-> > -	flush_icache_deferred(next, cpu);
-> > +	flush_icache_deferred(next, cpu, task);
-> >  }
-> > diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-> > index 370ed14b1ae0..524d546d697b 100644
-> > --- a/include/uapi/linux/prctl.h
-> > +++ b/include/uapi/linux/prctl.h
-> > @@ -306,4 +306,10 @@ struct prctl_mm_map {
-> >  # define PR_RISCV_V_VSTATE_CTRL_NEXT_MASK	0xc
-> >  # define PR_RISCV_V_VSTATE_CTRL_MASK		0x1f
-> >  
-> > +#define PR_RISCV_SET_ICACHE_FLUSH_CTX	71
-> > +# define PR_RISCV_CTX_SW_FENCEI_ON	0
-> > +# define PR_RISCV_CTX_SW_FENCEI_OFF	1
-> > +# define PR_RISCV_SCOPE_PER_PROCESS	0
-> > +# define PR_RISCV_SCOPE_PER_THREAD	1
-> > +
-> >  #endif /* _LINUX_PRCTL_H */
-> > diff --git a/kernel/sys.c b/kernel/sys.c
-> > index e219fcfa112d..69afdd8b430f 100644
-> > --- a/kernel/sys.c
-> > +++ b/kernel/sys.c
-> > @@ -146,6 +146,9 @@
-> >  #ifndef RISCV_V_GET_CONTROL
-> >  # define RISCV_V_GET_CONTROL()		(-EINVAL)
-> >  #endif
-> > +#ifndef RISCV_SET_ICACHE_FLUSH_CTX
-> > +# define RISCV_SET_ICACHE_FLUSH_CTX(a, b)	(-EINVAL)
-> > +#endif
-> >  
-> >  /*
-> >   * this is where the system-wide overflow UID and GID are defined, for
-> > @@ -2743,6 +2746,9 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
-> >  	case PR_RISCV_V_GET_CONTROL:
-> >  		error = RISCV_V_GET_CONTROL();
-> >  		break;
-> > +	case PR_RISCV_SET_ICACHE_FLUSH_CTX:
-> > +		error = RISCV_SET_ICACHE_FLUSH_CTX(arg2, arg3);
-> > +		break;
-> >  	default:
-> >  		error = -EINVAL;
-> >  		break;
-> > 
-> 
+   In file included from drivers/pwm/pwm-cv1800.c:14:
+   In file included from include/linux/regmap.h:20:
+   In file included from include/linux/iopoll.h:14:
+   In file included from include/linux/io.h:13:
+   In file included from arch/hexagon/include/asm/io.h:337:
+   include/asm-generic/io.h:547:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     547 |         val = __raw_readb(PCI_IOBASE + addr);
+         |                           ~~~~~~~~~~ ^
+   include/asm-generic/io.h:560:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     560 |         val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
+         |                                                         ~~~~~~~~~~ ^
+   include/uapi/linux/byteorder/little_endian.h:37:51: note: expanded from macro '__le16_to_cpu'
+      37 | #define __le16_to_cpu(x) ((__force __u16)(__le16)(x))
+         |                                                   ^
+   In file included from drivers/pwm/pwm-cv1800.c:14:
+   In file included from include/linux/regmap.h:20:
+   In file included from include/linux/iopoll.h:14:
+   In file included from include/linux/io.h:13:
+   In file included from arch/hexagon/include/asm/io.h:337:
+   include/asm-generic/io.h:573:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     573 |         val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
+         |                                                         ~~~~~~~~~~ ^
+   include/uapi/linux/byteorder/little_endian.h:35:51: note: expanded from macro '__le32_to_cpu'
+      35 | #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
+         |                                                   ^
+   In file included from drivers/pwm/pwm-cv1800.c:14:
+   In file included from include/linux/regmap.h:20:
+   In file included from include/linux/iopoll.h:14:
+   In file included from include/linux/io.h:13:
+   In file included from arch/hexagon/include/asm/io.h:337:
+   include/asm-generic/io.h:584:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     584 |         __raw_writeb(value, PCI_IOBASE + addr);
+         |                             ~~~~~~~~~~ ^
+   include/asm-generic/io.h:594:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     594 |         __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
+         |                                                       ~~~~~~~~~~ ^
+   include/asm-generic/io.h:604:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     604 |         __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
+         |                                                       ~~~~~~~~~~ ^
+   drivers/pwm/pwm-cv1800.c:131:3: warning: comparison of distinct pointer types ('typeof ((tem)) *' (aka 'unsigned int *') and 'uint64_t *' (aka 'unsigned long long *')) [-Wcompare-distinct-pointer-types]
+     131 |                 do_div(tem, rate);
+         |                 ^~~~~~~~~~~~~~~~~
+   include/asm-generic/div64.h:222:28: note: expanded from macro 'do_div'
+     222 |         (void)(((typeof((n)) *)0) == ((uint64_t *)0));  \
+         |                ~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~~
+>> drivers/pwm/pwm-cv1800.c:131:3: error: incompatible pointer types passing 'u32 *' (aka 'unsigned int *') to parameter of type 'uint64_t *' (aka 'unsigned long long *') [-Werror,-Wincompatible-pointer-types]
+     131 |                 do_div(tem, rate);
+         |                 ^~~~~~~~~~~~~~~~~
+   include/asm-generic/div64.h:238:22: note: expanded from macro 'do_div'
+     238 |                 __rem = __div64_32(&(n), __base);       \
+         |                                    ^~~~
+   include/asm-generic/div64.h:213:38: note: passing argument to parameter 'dividend' here
+     213 | extern uint32_t __div64_32(uint64_t *dividend, uint32_t divisor);
+         |                                      ^
+   drivers/pwm/pwm-cv1800.c:135:3: warning: comparison of distinct pointer types ('typeof ((tem)) *' (aka 'unsigned int *') and 'uint64_t *' (aka 'unsigned long long *')) [-Wcompare-distinct-pointer-types]
+     135 |                 do_div(tem, hlperiod_val);
+         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+   include/asm-generic/div64.h:222:28: note: expanded from macro 'do_div'
+     222 |         (void)(((typeof((n)) *)0) == ((uint64_t *)0));  \
+         |                ~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~~
+   drivers/pwm/pwm-cv1800.c:135:3: error: incompatible pointer types passing 'u32 *' (aka 'unsigned int *') to parameter of type 'uint64_t *' (aka 'unsigned long long *') [-Werror,-Wincompatible-pointer-types]
+     135 |                 do_div(tem, hlperiod_val);
+         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+   include/asm-generic/div64.h:238:22: note: expanded from macro 'do_div'
+     238 |                 __rem = __div64_32(&(n), __base);       \
+         |                                    ^~~~
+   include/asm-generic/div64.h:213:38: note: passing argument to parameter 'dividend' here
+     213 | extern uint32_t __div64_32(uint64_t *dividend, uint32_t divisor);
+         |                                      ^
+   drivers/pwm/pwm-cv1800.c:131:3: warning: shift count >= width of type [-Wshift-count-overflow]
+     131 |                 do_div(tem, rate);
+         |                 ^~~~~~~~~~~~~~~~~
+   include/asm-generic/div64.h:234:25: note: expanded from macro 'do_div'
+     234 |         } else if (likely(((n) >> 32) == 0)) {          \
+         |                                ^  ~~
+   include/linux/compiler.h:76:40: note: expanded from macro 'likely'
+      76 | # define likely(x)      __builtin_expect(!!(x), 1)
+         |                                             ^
+   drivers/pwm/pwm-cv1800.c:135:3: warning: shift count >= width of type [-Wshift-count-overflow]
+     135 |                 do_div(tem, hlperiod_val);
+         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+   include/asm-generic/div64.h:234:25: note: expanded from macro 'do_div'
+     234 |         } else if (likely(((n) >> 32) == 0)) {          \
+         |                                ^  ~~
+   include/linux/compiler.h:76:40: note: expanded from macro 'likely'
+      76 | # define likely(x)      __builtin_expect(!!(x), 1)
+         |                                             ^
+   10 warnings and 2 errors generated.
 
-I will send out a new verson.
 
-- Charlie
+vim +131 drivers/pwm/pwm-cv1800.c
 
+   113	
+   114	static int cv1800_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+   115					 struct pwm_state *state)
+   116	{
+   117		struct cv1800_pwm *priv = to_cv1800_pwm_dev(chip);
+   118		u32 period_val, hlperiod_val, tem;
+   119		u64 rate;
+   120		u64 period_ns = 0;
+   121		u64 duty_ns = 0;
+   122		u32 enable = 0;
+   123	
+   124		regmap_read(priv->map, PERIOD(pwm->hwpwm), &period_val);
+   125		regmap_read(priv->map, HLPERIOD(pwm->hwpwm), &hlperiod_val);
+   126	
+   127		if (period_val != PERIOD_RESET || hlperiod_val != HLPERIOD_RESET) {
+   128			rate = (u64)clk_get_rate(priv->clk);
+   129	
+   130			tem = NSEC_PER_SEC * period_val;
+ > 131			do_div(tem, rate);
+   132			period_ns = tem;
+   133	
+   134			tem = period_val * period_ns;
+   135			do_div(tem, hlperiod_val);
+   136			duty_ns = tem;
+   137	
+   138			regmap_read(priv->map, PWMSTART, &enable);
+   139			enable >>= pwm->hwpwm;
+   140		}
+   141	
+   142		state->period = period_ns;
+   143		state->duty_cycle = duty_ns;
+   144		state->enabled = enable;
+   145	
+   146		return 0;
+   147	}
+   148	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
