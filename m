@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2336C4829D
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 12:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BE8C4828F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 12:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MkbXkoY6lvHZfAP2MPj7sazCfkH3APy0XdJTP0v7Kdk=; b=gg48TfvaMWiyAP
-	xWgis7y8gTebRg35XADEwp7FQTNIfV6za4iI7OQZZpQWy3qHwYhHqYBMFdDqlgPQhxZw3IX0/NDzO
-	8RAMj+Du0sblKw74vys8AXjakZ+ux9UbQdAfbKoUBoAwxRkxf6nFHsy3GR1TdaZqXGSykB5cIOVBC
-	sG0qbJPbj6RbfLCTiXJq8FV0U7J4LstVUwT4TZVABIOquRBUMw+xBsOq+X1oZ1I7Qw5RgptdtBkPS
-	roZyCA/DiPq+ZfKAK8riT69UsCez936aA7tH4q2aVvCuunAO2c/icL6NppljivmJEitqjsJDOWBTp
-	SnFbd6IUt9REKf3y8nKA==;
+	List-Owner; bh=zUHVhkP/g4DPTiQRP6d8qdPVQhv009rICyWBsS1VdgI=; b=vPqWmUBFbvv5SM
+	al8eNdFmRUA91twb7m62eOz1ADYkCuF1TKMFVBE6JMqVjUpToNbmOPeBdHi+c6oZGfFxUHk6BULFT
+	CgeTJwWcOLWVSvFMy2E8/KBoikfBxIH1zy2rJ92ssX2Rijg7p01OS9PwBrBKfHkwrD1MkecjNH6ma
+	fwltnJK0qCa3SuLD3XXAPLC4CwTLiLRNMm7P/KFkCBOS6aALbU321XIFKjJ6w1aeDHYTZx4ZvPZBQ
+	o1USR2L4Ss44ECZx3xncEzGJVQof4Is4aNqszU4QOY+zcxG2IHow5xBN3FIiPBfE3lYn5peLLJKDP
+	ZtmfUi8LlZTuKrhda+8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY3lE-0000000Dlj1-0vaC;
-	Thu, 08 Feb 2024 12:44:12 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1rY3lL-0000000DlrQ-1qqT;
+	Thu, 08 Feb 2024 12:44:19 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY3l4-0000000DlXu-28gb
+	id 1rY3l9-0000000DlbR-3yiG
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Feb 2024 12:44:09 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5116bf4dcf4so1120472e87.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 04:44:00 -0800 (PST)
+	Thu, 08 Feb 2024 12:44:12 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-40fb3b5893eso14048795e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 04:44:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1707396239; x=1708001039; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1707396243; x=1708001043; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1YxpUHAla5Wryw9iIi3tPbE4ZbFceRrwYviiC216IIY=;
-        b=H5V6IiUXnhVclqNBte/1ygiJ/JGwotL+JobO87BOT/3kt4SFLrQGbWU3k0EbMIPBZq
-         0O7S4JmTUsKuE9C8aJPYR85VeMrlYC2uXSjT/PE5KeEV3fyrBCabD2QwfaG634Fsuk4a
-         YCPI+NoDMfaxU2wH0ilU1YNyhhblh/0D69aeC/vzbDFgZaQuLYkzzqVBE8XddlR3RHzQ
-         ZE5pngTJ+RUI2mEw0LK2wdJbF+B+PFVaORTCKm8MZv2pJzXWNVFDk56w5L3FvfcGKuJe
-         AFjLSIzOyDSy3BRp0eMn+8VKv/nLGVqeG+iW75+Qew56zLjqH2nqHk83sDeIjIlb8KRT
-         6wbg==
+        bh=oM9XPRWyZyQTpDxwqoOKeZPHvqIal+M05hNhd5ZULcI=;
+        b=RA+f+cX5KvTcJZERYUI9FWE/JB3qz8CL/Vl16E8NxnOAa00QP9ULnZ+jVelE88yQLt
+         NpeWNxebXxS/sLhEL4nXu0poNdQhmJ8P1jFz0MkaDVPh+qhIJgywv3CLpnbjTU2TIwMo
+         ytSByZE/pQjMrfrDH/M1haenN+0Orl4atrMrpj2te163hQ/DhTDTvwxia4g/wo0hjyfR
+         d5Apej8o7dnZXoazTCmkAPq4bsJIJ6PWYSDXZkeshEtpzwkVFWIdvwPGAFHDug8kYyI/
+         ijjigROTB3SwKBz65vGsF70UcmoB6Z2x+j3KFjdeSvahArbYX6/U1QrOz5mctGOg0kkM
+         Sj0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707396239; x=1708001039;
+        d=1e100.net; s=20230601; t=1707396243; x=1708001043;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1YxpUHAla5Wryw9iIi3tPbE4ZbFceRrwYviiC216IIY=;
-        b=jgFYw5gAOoSnUtzP089Xfu1abFWiPXxSsv7+6xyuR5F3OR7p1zM89zfeL0SMNBAzko
-         WsQb8z5nSO81xUtQIVd3StX+t5NHlV9kAl+WR01vKX7I1aP+rQbJ94jo6txYB7eRqbRn
-         OtL+30b0hsC81jcpMcFQ0b6+MKsW3/Z1cPnwUnDwQzYgzSVQmNhNdHLOrXrb9IwSjdyE
-         cBT+InuJ1USbcplJVb61f9HUS3tneLMzzaS8BT6SSq3yzvSrPd4KHlUUAqnVKN/8lOjU
-         rtOe63UKQrDw7ZQ7rFJZU1mgBl3uaomlpmmz08UrkkyD+HyNFRiVcajePpvoOztEVNbY
-         aZdg==
-X-Forwarded-Encrypted: i=1; AJvYcCWwzPS6njANKVSrg00fHh/q2OknK1ATt11APa41b4N1gb2WEYTjajA5XUT6EX+rHgO8ylrPxlXcXj3f1non8NOCGnCn8rt7Dv0piq2euO8R
-X-Gm-Message-State: AOJu0Yw78vGFEtFto2Aomr3nJdXsvFHJNElQSVetYjvP1n69BZpztGpz
-	DBtTk/Q427L39mShIhpi0J5bhBGY1XuYpBKvteSzsuTuFTSiSO49bXwI3iOD3xA=
-X-Google-Smtp-Source: AGHT+IEKsZUH+UVex+YI3uwJfRxWtfbbPqahbMhEtGb4tIBVaIIfJ40rMF36QBSolr0R8HS2lBa7pA==
-X-Received: by 2002:a05:6512:ad5:b0:511:60d0:c0ec with SMTP id n21-20020a0565120ad500b0051160d0c0ecmr6465924lfu.36.1707396238908;
-        Thu, 08 Feb 2024 04:43:58 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUMKC5QQ1BLQI72au2TdIqDut80ECvA/v8OPNWI/SG6QJB2n6yaW9Fu7epCTnz3wjA8QoOy1MfAHzmmqM27jhJo+nVEGEtQBck0AG6oQ0t3fjR2ztEXXoG6a1VulSo47fIsmNW6hAvGyfXVz/KwCF/Xs11OoV2GmkHAXPvWedNQnSixAr0Ce4TVARb1gJe1O5f3HnqtbNxqoi4pT3lSQ5skqAGa7njBuggI78j5e+Y2gnbT31y7JQDLub1jqQEyv+eLEDjQfJrXPK8+CBMV7vy2GG2zqvWzBmqKl9tMnC3wZFcMeA8RCJ6mhtFqMApxyLMKJXM9cY1Zd74kHYX3SqYKsHWna4lbQllT87visC2pBLnlUpum9W2NHaHtw18IewYRRyri+bLDZywHj2J/Ur6nfCnP7OV62ddi31EenKZotCKZlKfZjjG7ZLTIso5GmA3ndpid3/TJyn9P4YOPz9Zj8l75qGNXQwU3IRgwM5CbduM82Kqoo8a+vx9WuFuRuhwXfwH/vH75/2J91GLoihIbxXOs8oELAKKMsiVw5/Juh/RLgAkLp1vXHDNQ+mTGeis=
+        bh=oM9XPRWyZyQTpDxwqoOKeZPHvqIal+M05hNhd5ZULcI=;
+        b=qOHNsFf89Q7CvMWoNeEHBt/K8iGYkuuykB+yPKoZtqMxsFoN+rZzBxkdT0ywsf5ywf
+         DPeYsTtL+ylgN6beyJbWIzZZmuOBcJUnnlHJ/0ehAJs6mybsWdSdWiPRsTvLnZwdY9p5
+         J4PXlKTBCHogQNibKrke5pzlQKhySdrtVTXZZNhc4jdHgBOLbKOgCiy5Rj+TxqtsvZrk
+         0OhMkHFN9BvDEvmglQ5u7HirVB0M3nxoy8YrB0DGr3nN6MzurQbOYQpvSmxlqyVTjD27
+         N9pm1hC6bftvqyWBD1MF/OW9NAchvmJHa0cCySqwQHSU6lEHelgWgDKuEkcWb97szwhy
+         rrig==
+X-Gm-Message-State: AOJu0YyEWmTtfOGpsO2ncxqrKN1Hlem2KYlqFgF+naZVcsdcDkwHplHJ
+	Y38nQ4DLSSwe3Y+GpvxAt1eRcW5ilZq6oLDjky87MZmwD7xQMdvjdsdThNLqvxg=
+X-Google-Smtp-Source: AGHT+IG6q4gcNCxRmIgk0F+dAl3ZK1W+ZIIklXV91EUjVHFUCxB9Yjn+gAO0u0URCHz1eIaiGbJpGg==
+X-Received: by 2002:a05:600c:4c9a:b0:40f:de44:5164 with SMTP id g26-20020a05600c4c9a00b0040fde445164mr6664373wmp.17.1707396243513;
+        Thu, 08 Feb 2024 04:44:03 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVEJWtOiAz9ykuqFwwxiz+go8BAqNKUg3++9Klovreyfajle+cQd76Qys5aUi/DKiFBZSpGFpdBkG3GqXpx5pYDW6ArnMr6o7FnO3bC/qwBd3T9rbxFnEDB5d4C9gGQ7Tp2heQXgostbRuWS3xWyiJSF2EYSizkPqp353/6ADLThdX60eRDJ3WS0l4tXyHPeciCGVNwwP847FqjLQDCeh0zQIb1c70ahRqDuV1LLaB7eFHNhqrwNMtuVhCIq4Mz3IKK8LRlZw7E5IMnHupvf1TYKTqPNNtPVzrZCqVKXzuBn9cImYNOqG56lszGRRMWBt4hupTIsxPlux2GEec8DpeFgDhG63Bk3vZ9bOG7S1xux2tfJihirISSOG5E81MisjvcTZ3N88wDm0ktNvHN1fDMwRdd0qR4G+zbC6oEtXLRUAcI8PVEjHXuqQpgyMqMYxp6zZ0vpJPP78mjdJqPVhCwOStAIqpqkrlrKFXtPWlRKt7NliSml0BH1sI+7nv1l0hSGDqHwKfz2kReEJFWQv59eKSaSY96K0AszHpLsihOa7csjlsfQTIi5m7KdLZTVV8=
 Received: from claudiu-X670E-Pro-RS.. ([82.78.167.45])
-        by smtp.gmail.com with ESMTPSA id o13-20020a05600c4fcd00b0041047382b76sm790244wmq.37.2024.02.08.04.43.56
+        by smtp.gmail.com with ESMTPSA id o13-20020a05600c4fcd00b0041047382b76sm790244wmq.37.2024.02.08.04.44.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Feb 2024 04:43:58 -0800 (PST)
+        Thu, 08 Feb 2024 04:44:03 -0800 (PST)
 From: Claudiu <claudiu.beznea@tuxon.dev>
 X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
 To: geert+renesas@glider.be,
@@ -83,16 +82,16 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	claudiu.beznea@tuxon.dev,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH 07/17] clk: renesas: rzg2l: Extend power domain support
-Date: Thu,  8 Feb 2024 14:42:50 +0200
-Message-Id: <20240208124300.2740313-8-claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH 09/17] clk: renesas: r9a07g044: Add initial support for power domains
+Date: Thu,  8 Feb 2024 14:42:52 +0200
+Message-Id: <20240208124300.2740313-10-claudiu.beznea.uj@bp.renesas.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
 References: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240208_044403_035099_14C3F2C3 
-X-CRM114-Status: GOOD (  23.29  )
+X-CRM114-CacheID: sfid-20240208_044408_285258_0CBFF001 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,431 +110,52 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-RZ/{G2L, V2L, G3S}-based CPG versions have support for saving extra
-power when clocks are disabled by activating module standby. This is done
-through MSTOP-specific registers that are part of CPG. Each individual
-module has one or more bits associated with one MSTOP register (see table
-"Registers for Module Standby Mode" from HW manuals). Hardware manual
-associates modules' clocks with one or more MSTOP bits. There are 3 mappings
-available (identified by researching RZ/G2L, RZ/G3S, RZ/V2L HW manuals):
-
-case 1: N clocks mapped to N MSTOP bits (with N={0, ..., X})
-case 2: N clocks mapped to 1 MSTOP bit  (with N={0, ..., X})
-case 3: N clocks mapped to M MSTOP bits (with N={0, ..., X}, M={0, ..., Y})
-
-Case 3 has been currently identified on RZ/V2L for the VCPL4 module.
-
-To cover all three cases, the individual platform drivers will provide to
-clock driver MSTOP register offset and associated bits in this register
-as a bitmask and the clock driver will apply this bitmask to proper
-MSTOP register.
-
-Apart from MSTOP support, RZ/G3S can save more power by powering down the
-individual IPs (after MSTOP has been set) if proper bits in
-CPG_PWRDN_IP{1,2} registers are set.
-
-The MSTOP and IP power down support were implemented through power
-domains. Platform-specific clock drivers will register an array of
-type struct rzg2l_cpg_pm_domain_init_data, which will be used to
-instantiate properly the power domains.
+Instantiate always-on power domain for R9A07G044 SoC. At the moment, all
+the IPs are part of this domain.
 
 Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 ---
- drivers/clk/renesas/rzg2l-cpg.c | 227 ++++++++++++++++++++++++++++++--
- drivers/clk/renesas/rzg2l-cpg.h |  68 ++++++++++
- 2 files changed, 281 insertions(+), 14 deletions(-)
+ drivers/clk/renesas/r9a07g044-cpg.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/drivers/clk/renesas/rzg2l-cpg.c b/drivers/clk/renesas/rzg2l-cpg.c
-index 3d2daa4ba2a4..3a7168c314c2 100644
---- a/drivers/clk/renesas/rzg2l-cpg.c
-+++ b/drivers/clk/renesas/rzg2l-cpg.c
-@@ -139,7 +139,6 @@ struct rzg2l_pll5_mux_dsi_div_param {
-  * @num_resets: Number of Module Resets in info->resets[]
-  * @last_dt_core_clk: ID of the last Core Clock exported to DT
-  * @info: Pointer to platform data
-- * @genpd: PM domain
-  * @mux_dsi_div_params: pll5 mux and dsi div parameters
-  */
- struct rzg2l_cpg_priv {
-@@ -156,8 +155,6 @@ struct rzg2l_cpg_priv {
- 
- 	const struct rzg2l_cpg_info *info;
- 
--	struct generic_pm_domain genpd;
--
- 	struct rzg2l_pll5_mux_dsi_div_param mux_dsi_div_params;
+diff --git a/drivers/clk/renesas/r9a07g044-cpg.c b/drivers/clk/renesas/r9a07g044-cpg.c
+index 1047278c9079..3755e506fc65 100644
+--- a/drivers/clk/renesas/r9a07g044-cpg.c
++++ b/drivers/clk/renesas/r9a07g044-cpg.c
+@@ -443,6 +443,11 @@ static const unsigned int r9a07g044_no_pm_mod_clks[] = {
+ 	MOD_CLK_BASE + R9A07G044_CRU_VCLK,
  };
  
-@@ -1559,9 +1556,34 @@ static bool rzg2l_cpg_is_pm_clk(struct rzg2l_cpg_priv *priv,
- 	return true;
- }
- 
-+/**
-+ * struct rzg2l_cpg_pm_domain - RZ/G2L PM domains data structure
-+ * @domains: generic PM domains
-+ * @onecell_data: cell data
-+ */
-+struct rzg2l_cpg_pm_domain {
-+	struct generic_pm_domain **domains;
-+	struct genpd_onecell_data onecell_data;
++static const struct rzg2l_cpg_pm_domain_init_data r9a07g044_pm_domains[] = {
++	DEF_PD("always-on",	R9A07G044_PD_ALWAYS_ON, 0, 0,
++				RZG2L_PD_F_PARENT | RZG2L_PD_F_ALWAYS_ON),
 +};
 +
-+/**
-+ * struct rzg2l_cpg_pd - RZ/G2L power domain data structure
-+ * @priv: pointer to CPG private data structure
-+ * @genpd: generic PM domain
-+ * @conf: CPG PM domain configuration info
-+ * @id: RZ/G2L power domain ID
-+ */
-+struct rzg2l_cpg_pd {
-+	struct rzg2l_cpg_priv *priv;
-+	struct generic_pm_domain genpd;
-+	struct rzg2l_cpg_pm_domain_conf conf;
-+	u16 id;
-+};
-+
- static int rzg2l_cpg_attach_dev(struct generic_pm_domain *domain, struct device *dev)
- {
--	struct rzg2l_cpg_priv *priv = container_of(domain, struct rzg2l_cpg_priv, genpd);
-+	struct rzg2l_cpg_pd *pd = container_of(domain, struct rzg2l_cpg_pd, genpd);
-+	struct rzg2l_cpg_priv *priv = pd->priv;
- 	struct device_node *np = dev->of_node;
- 	struct of_phandle_args clkspec;
- 	bool once = true;
-@@ -1617,31 +1639,208 @@ static void rzg2l_cpg_detach_dev(struct generic_pm_domain *unused, struct device
- }
+ #ifdef CONFIG_CLK_R9A07G044
+ const struct rzg2l_cpg_info r9a07g044_cpg_info = {
+ 	/* Core Clocks */
+@@ -468,6 +473,10 @@ const struct rzg2l_cpg_info r9a07g044_cpg_info = {
+ 	.resets = r9a07g044_resets,
+ 	.num_resets = R9A07G044_TSU_PRESETN + 1, /* Last reset ID + 1 */
  
- static void rzg2l_cpg_genpd_remove(void *data)
-+{
-+	struct genpd_onecell_data *celldata = data;
++	/* PM domains */
++	.pm_domains = r9a07g044_pm_domains,
++	.num_pm_domains = ARRAY_SIZE(r9a07g044_pm_domains),
 +
-+	for (unsigned int i = 0; i < celldata->num_domains; i++)
-+		pm_genpd_remove(celldata->domains[i]);
-+}
-+
-+static void rzg2l_cpg_genpd_remove_simple(void *data)
- {
- 	pm_genpd_remove(data);
- }
- 
-+static int rzg2l_cpg_power_on(struct generic_pm_domain *domain)
-+{
-+	struct rzg2l_cpg_pd *pd = container_of(domain, struct rzg2l_cpg_pd, genpd);
-+	struct rzg2l_cpg_priv *priv = pd->priv;
-+	u32 off, mask;
-+
-+	/* Set PWRDN. */
-+	if (pd->conf.pwrdn) {
-+		off = PWRDN_OFF(pd->conf.pwrdn);
-+		mask = PWRDN_MASK(pd->conf.pwrdn) << 16;
-+		writel(mask, priv->base + off);
-+	}
-+
-+	/* Set MSTOP. */
-+	if (pd->conf.mstop) {
-+		off = MSTOP_OFF(pd->conf.mstop);
-+		mask = MSTOP_MASK(pd->conf.mstop) << 16;
-+		writel(mask, priv->base + off);
-+	}
-+
-+	return 0;
-+}
-+
-+static int rzg2l_cpg_power_off(struct generic_pm_domain *domain)
-+{
-+	struct rzg2l_cpg_pd *pd = container_of(domain, struct rzg2l_cpg_pd, genpd);
-+	struct rzg2l_cpg_priv *priv = pd->priv;
-+	u32 off, mask;
-+
-+	/* Set MSTOP. */
-+	if (pd->conf.mstop) {
-+		off = MSTOP_OFF(pd->conf.mstop);
-+		mask = MSTOP_MASK(pd->conf.mstop);
-+		writel(mask | (mask << 16), priv->base + off);
-+	}
-+
-+	/* Set PWRDN. */
-+	if (pd->conf.pwrdn) {
-+		off = PWRDN_OFF(pd->conf.pwrdn);
-+		mask = PWRDN_MASK(pd->conf.pwrdn);
-+		writel(mask | (mask << 16), priv->base + off);
-+	}
-+
-+	return 0;
-+}
-+
-+static int __init rzg2l_cpg_pd_setup(struct rzg2l_cpg_pd *pd, bool always_on)
-+{
-+	struct dev_power_governor *governor;
-+
-+	pd->genpd.flags |= GENPD_FLAG_PM_CLK | GENPD_FLAG_ACTIVE_WAKEUP;
-+	pd->genpd.attach_dev = rzg2l_cpg_attach_dev;
-+	pd->genpd.detach_dev = rzg2l_cpg_detach_dev;
-+	if (always_on) {
-+		pd->genpd.flags |= GENPD_FLAG_ALWAYS_ON;
-+		governor = &pm_domain_always_on_gov;
-+	} else {
-+		pd->genpd.power_on = rzg2l_cpg_power_on;
-+		pd->genpd.power_off = rzg2l_cpg_power_off;
-+		governor = &simple_qos_governor;
-+	}
-+
-+	return pm_genpd_init(&pd->genpd, governor, false);
-+}
-+
- static int __init rzg2l_cpg_add_clk_domain(struct rzg2l_cpg_priv *priv)
- {
- 	struct device *dev = priv->dev;
- 	struct device_node *np = dev->of_node;
--	struct generic_pm_domain *genpd = &priv->genpd;
-+	struct rzg2l_cpg_pd *pd;
- 	int ret;
- 
--	genpd->name = np->name;
--	genpd->flags = GENPD_FLAG_PM_CLK | GENPD_FLAG_ALWAYS_ON |
--		       GENPD_FLAG_ACTIVE_WAKEUP;
--	genpd->attach_dev = rzg2l_cpg_attach_dev;
--	genpd->detach_dev = rzg2l_cpg_detach_dev;
--	ret = pm_genpd_init(genpd, &pm_domain_always_on_gov, false);
-+	pd = devm_kzalloc(priv->dev, sizeof(*pd), GFP_KERNEL);
-+	if (!pd)
-+		return -ENOMEM;
-+
-+	pd->genpd.name = np->name;
-+	pd->priv = priv;
-+	ret = rzg2l_cpg_pd_setup(pd, true);
- 	if (ret)
- 		return ret;
- 
--	ret = devm_add_action_or_reset(dev, rzg2l_cpg_genpd_remove, genpd);
-+	ret = devm_add_action_or_reset(dev, rzg2l_cpg_genpd_remove_simple, &pd->genpd);
- 	if (ret)
- 		return ret;
- 
--	return of_genpd_add_provider_simple(np, genpd);
-+	return of_genpd_add_provider_simple(np, &pd->genpd);
-+}
-+
-+static struct generic_pm_domain *
-+rzg2l_cpg_pm_domain_xlate(struct of_phandle_args *spec, void *data)
-+{
-+	struct generic_pm_domain *domain = ERR_PTR(-ENOENT);
-+	struct genpd_onecell_data *genpd = data;
-+
-+	if (spec->args_count != 1)
-+		return ERR_PTR(-EINVAL);
-+
-+	for (unsigned int i = 0; i < genpd->num_domains; i++) {
-+		struct rzg2l_cpg_pd *pd = container_of(genpd->domains[i], struct rzg2l_cpg_pd,
-+						       genpd);
-+
-+		if (pd->id == spec->args[0]) {
-+			domain = &pd->genpd;
-+			break;
-+		}
-+	}
-+
-+	return domain;
-+}
-+
-+static int __init rzg2l_cpg_add_pm_domains(struct rzg2l_cpg_priv *priv)
-+{
-+	const struct rzg2l_cpg_info *info = priv->info;
-+	struct device *dev = priv->dev;
-+	struct device_node *np = dev->of_node;
-+	struct rzg2l_cpg_pm_domain *domains;
-+	struct generic_pm_domain *parent;
-+	u32 ncells;
-+	int ret;
-+
-+	ret = of_property_read_u32(np, "#power-domain-cells", &ncells);
-+	if (ret)
-+		return ret;
-+
-+	/* For backward compatibility. */
-+	if (!ncells)
-+		return rzg2l_cpg_add_clk_domain(priv);
-+
-+	domains = devm_kzalloc(priv->dev, sizeof(*domains), GFP_KERNEL);
-+	if (!domains)
-+		return -ENOMEM;
-+
-+	domains->domains = devm_kcalloc(priv->dev, info->num_pm_domains,
-+					sizeof(struct generic_pm_domain *), GFP_KERNEL);
-+	if (!domains->domains)
-+		return -ENOMEM;
-+
-+	domains->onecell_data.domains = domains->domains;
-+	domains->onecell_data.num_domains = info->num_pm_domains;
-+	domains->onecell_data.xlate = rzg2l_cpg_pm_domain_xlate;
-+
-+	ret = devm_add_action_or_reset(dev, rzg2l_cpg_genpd_remove, &domains->onecell_data);
-+	if (ret)
-+		return ret;
-+
-+	for (unsigned int i = 0; i < info->num_pm_domains; i++) {
-+		bool always_on = !!(info->pm_domains[i].flags & RZG2L_PD_F_ALWAYS_ON);
-+		struct rzg2l_cpg_pd *pd;
-+
-+		pd = devm_kzalloc(priv->dev, sizeof(*pd), GFP_KERNEL);
-+		if (!pd)
-+			return -ENOMEM;
-+
-+		pd->genpd.name = info->pm_domains[i].name;
-+		pd->conf = info->pm_domains[i].conf;
-+		pd->id = info->pm_domains[i].id;
-+		pd->priv = priv;
-+
-+		ret = rzg2l_cpg_pd_setup(pd, always_on);
-+		if (ret)
-+			return ret;
-+
-+		if (always_on) {
-+			ret = rzg2l_cpg_power_on(&pd->genpd);
-+			if (ret)
-+				return ret;
-+		}
-+
-+		domains->domains[i] = &pd->genpd;
-+		/* Parent should be on the very first entry of info->pm_domains[]. */
-+		if (info->pm_domains[i].flags & RZG2L_PD_F_PARENT) {
-+			parent = &pd->genpd;
-+			continue;
-+		}
-+
-+		ret = pm_genpd_add_subdomain(parent, &pd->genpd);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	ret = of_genpd_add_provider_onecell(np, &domains->onecell_data);
-+	if (ret)
-+		return ret;
-+
-+	/* Prepare for power down the BUSes in power down mode. */
-+	if (info->pm_domain_pwrdn_mstop)
-+		writel(CPG_PWRDN_MSTOP_ENABLE, priv->base + CPG_PWRDN_MSTOP);
-+
-+	return 0;
- }
- 
- static int __init rzg2l_cpg_probe(struct platform_device *pdev)
-@@ -1697,7 +1896,7 @@ static int __init rzg2l_cpg_probe(struct platform_device *pdev)
- 	if (error)
- 		return error;
- 
--	error = rzg2l_cpg_add_clk_domain(priv);
-+	error = rzg2l_cpg_add_pm_domains(priv);
- 	if (error)
- 		return error;
- 
-diff --git a/drivers/clk/renesas/rzg2l-cpg.h b/drivers/clk/renesas/rzg2l-cpg.h
-index 6e38c8fc888c..00d12b04ba2f 100644
---- a/drivers/clk/renesas/rzg2l-cpg.h
-+++ b/drivers/clk/renesas/rzg2l-cpg.h
-@@ -27,6 +27,16 @@
- #define CPG_PL6_ETH_SSEL	(0x418)
- #define CPG_PL5_SDIV		(0x420)
- #define CPG_RST_MON		(0x680)
-+#define CPG_ACPU_MSTOP		(0xB60)
-+#define CPG_MCPU2_MSTOP		(0xB68)
-+#define CPG_PERI_COM_MSTOP	(0xB6C)
-+#define CPG_PERI_CPU_MSTOP	(0xB70)
-+#define CPG_PERI_DDR_MSTOP	(0xB74)
-+#define CPG_REG1_MSTOP		(0xB80)
-+#define CPG_TZCDDR_MSTOP	(0xB84)
-+#define CPG_PWRDN_IP1		(0xBB0)
-+#define CPG_PWRDN_IP2		(0xBB4)
-+#define CPG_PWRDN_MSTOP		(0xBC0)
- #define CPG_OTHERFUNC1_REG	(0xBE8)
- 
- #define CPG_SIPLL5_STBY_RESETB		BIT(0)
-@@ -70,6 +80,8 @@
- 
- #define EXTAL_FREQ_IN_MEGA_HZ	(24)
- 
-+#define CPG_PWRDN_MSTOP_ENABLE		(BIT(16) | BIT(0))
-+
- /**
-  * Definitions of CPG Core Clocks
-  *
-@@ -234,6 +246,54 @@ struct rzg2l_reset {
- #define DEF_RST(_id, _off, _bit)	\
- 	DEF_RST_MON(_id, _off, _bit, -1)
- 
-+/**
-+ * struct rzg2l_cpg_pm_domain_conf - PM domain configuration data structure
-+ * @mstop: MSTOP configuration (MSB = register offset, LSB = bitmask)
-+ * @pwrdn: PWRDN configuration (MSB = register offset, LSB = register bit)
-+ */
-+struct rzg2l_cpg_pm_domain_conf {
-+	u32 mstop;
-+	u32 pwrdn;
-+};
-+
-+/**
-+ * struct rzg2l_cpg_pm_domain_init_data - PM domain init data
-+ * @name: PM domain name
-+ * @conf: PM domain configuration
-+ * @flags: RZG2L PM domain flags (see RZG2L_PD_F_*)
-+ * @id: PM domain ID (similar to the ones defined in
-+ *      include/dt-bindings/clock/<soc-id>-cpg.h)
-+ */
-+struct rzg2l_cpg_pm_domain_init_data {
-+	const char * const name;
-+	struct rzg2l_cpg_pm_domain_conf conf;
-+	u32 flags;
-+	u16 id;
-+};
-+
-+#define DEF_PD(_name, _id, _mstop_conf, _pwrdn_conf, _flags) \
-+	{ \
-+		.name = (_name), \
-+		.id = (_id), \
-+		.conf = { \
-+			.mstop = (_mstop_conf), \
-+			.pwrdn = (_pwrdn_conf), \
-+		}, \
-+		.flags = (_flags), \
-+	}
-+
-+#define MSTOP(name, bitmask)	((CPG_##name##_MSTOP) << 16 | (bitmask))
-+#define MSTOP_OFF(conf)		((conf) >> 16)
-+#define MSTOP_MASK(conf)	((conf) & GENMASK(15, 0))
-+
-+#define PWRDN(name, bit)	((CPG_PWRDN_##name) << 16 | BIT(bit))
-+#define PWRDN_OFF(conf)		((conf) >> 16)
-+#define PWRDN_MASK(conf)	((conf) & GENMASK(15, 0))
-+
-+/* Power domain flags. */
-+#define RZG2L_PD_F_PARENT	BIT(0)
-+#define RZG2L_PD_F_ALWAYS_ON	BIT(1)
-+
- /**
-  * struct rzg2l_cpg_info - SoC-specific CPG Description
-  *
-@@ -252,6 +312,9 @@ struct rzg2l_reset {
-  * @crit_mod_clks: Array with Module Clock IDs of critical clocks that
-  *                 should not be disabled without a knowledgeable driver
-  * @num_crit_mod_clks: Number of entries in crit_mod_clks[]
-+ * @pm_domains: PM domains init data array
-+ * @num_pm_domains: Number of PM domains
-+ * @pm_domain_pwrdn_mstop: Specifies if PWRDN MSTOP is supported
-  * @has_clk_mon_regs: Flag indicating whether the SoC has CLK_MON registers
-  */
- struct rzg2l_cpg_info {
-@@ -278,6 +341,11 @@ struct rzg2l_cpg_info {
- 	const unsigned int *crit_mod_clks;
- 	unsigned int num_crit_mod_clks;
- 
-+	/* Power domain. */
-+	const struct rzg2l_cpg_pm_domain_init_data *pm_domains;
-+	unsigned int num_pm_domains;
-+	bool pm_domain_pwrdn_mstop;
-+
- 	bool has_clk_mon_regs;
+ 	.has_clk_mon_regs = true,
  };
+ #endif
+@@ -497,6 +506,10 @@ const struct rzg2l_cpg_info r9a07g054_cpg_info = {
+ 	.resets = r9a07g044_resets,
+ 	.num_resets = R9A07G054_STPAI_ARESETN + 1, /* Last reset ID + 1 */
  
++	/* PM domains */
++	.pm_domains = r9a07g044_pm_domains,
++	.num_pm_domains = ARRAY_SIZE(r9a07g044_pm_domains),
++
+ 	.has_clk_mon_regs = true,
+ };
+ #endif
 -- 
 2.39.2
 
