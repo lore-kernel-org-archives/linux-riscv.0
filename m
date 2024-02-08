@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B63C4828F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 06:27:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F44C4828F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 06:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L3qino3CjtrQYNVgEdekQDMXOoCk/YlTgz2YtCgIcs8=; b=MIKJXV399Y1fFm
-	3Gm1PvjR56ehD6y7TalE8gnOqTs4KUtkc3amx8ADUj8CXagaPpB7nolZ3Np3Q9K4cykfNgaP/NMGK
-	sbbzOhZA5gWq/KpTk24ZLiC8PY+op6FcuI+TqWliUqHYXY/KFAg/WO3wSn76WUiuchir/U1u35vcS
-	H1Gj4zqE1RztAMNb0D6eZSeeFH+xi1v6JJG2o9LbXKgKMOUi0gP5fEy8Q0j9DxxNPLBc6lAQGzwmJ
-	I4AwPOJa9+/Wo36biIA/kXkAJDnETET1MfMtzGXoYGy880csLkf+G7TcT4WZ6YIclY9uehhNANOMl
-	1apU9N5kPdqxABJSVhrQ==;
+	List-Owner; bh=zIwrvI+uK2uWHC5cCcsp/9TRgRT0aFMVqK2bMsbJtqs=; b=I2RiPB8ymMSHY6
+	4eYZGojx7IE1JV+xjRIxijTk67bzN8KJoZOVIncWRGfBdoBKj0b7kStoNEAAv3v8XV0vImEW7fL4D
+	EaXQBWAn+JUWhMRcLdz7WoreZJkt4OhZppKTGRqqBbRHbRuoZtc71Gpp+LRPJShDLBO+b9KwQtn6K
+	NosutcO4iPXoDLpsADeiJQUhF5BY6jHyOTb62kc6qRu4lLvyyhR2skAEc4hzS9q97sPduZeQuXRg8
+	IVj6dQtgXbYWR03sXMsoUOMwyIrjSRugMaGK8Yxpov2n3xznNxvQO+QLyIKpVnVS/GLnPDLc3GGCy
+	uAB+F2LsfCyZpvAteQyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXxt4-0000000CoDy-13TF;
-	Thu, 08 Feb 2024 06:27:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rXxux-0000000Cog7-02R5;
+	Thu, 08 Feb 2024 06:29:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXxt0-0000000CoCm-2ux2;
-	Thu, 08 Feb 2024 06:27:52 +0000
+	id 1rXxut-0000000Coev-0b3q;
+	Thu, 08 Feb 2024 06:29:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E94BB61B13;
-	Thu,  8 Feb 2024 06:27:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F0D4C433C7;
-	Thu,  8 Feb 2024 06:27:39 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8BB1E61B29;
+	Thu,  8 Feb 2024 06:29:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E21FC433F1;
+	Thu,  8 Feb 2024 06:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707373669;
-	bh=wxaBvjOQruR4Ppe5iBXVeEd+wF2Ez98jfGSuez99hUI=;
+	s=k20201202; t=1707373786;
+	bh=x4GCLa2xzNhu7jlHpC2LrDTqBpAccwVcIjWuUAdJzgc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kOdTKonuPOHT47MMueyUa62BOnNiiM/wNlezDtex/q6A6C+C0/4I75w1hs6HgvTcM
-	 6hzU/xNlN2o7mllZJQrfNN8OS6yllsdwkypMwhdT9Zppi/oCLVm5oi0rjh8531W++l
-	 VyhzaLbe16SPL0h9xcRPSV+cCkOkyBpKxf4y5KkH108vuZcpzPDikPbUG6HlcbyEC6
-	 jTwJS9vdlSE+DGYuaJ63tvvk0g/PUUXVgtbv8Zylz7Hox9kBt886iEEM3kege/8EOf
-	 NJ+pl0uRULV4iQ598Nv8XuegThQZaF4ao5iEmjzKtdYeRjwmfPMTOqKkZ7RotF7fHW
-	 dTB19Ug9MhA4w==
-Date: Thu, 8 Feb 2024 08:27:24 +0200
+	b=Phoix+90khL4IEhQ6gpSoCEIa7eKrFuowZSgj42G9vOi8dSlpe1gQK0YyWgYKp+4r
+	 sPLY9+CUFb9aZvZlJVuQqwKhWZ+pa+B4zWmW6ij44vrjGh7IL5UzkD3sKKzoxbKYee
+	 QNwaU30tJ0UF6MuasMfjEGa+A4FY8V6otf3jfYDzeJPTIubtszyNvCkdBsoVBCTCKZ
+	 +W8z7CCvQhm6qI593PxMf1LOB8FDsoWbQ3LesFfp+jH1tSwZzvF1v7s5703XCDTQvu
+	 YYI3y/4CVWlLjbUJLn8zUCRy2xy0Roln1eAOTnw74B+sWgLw7OSbGWrqA5wjWVRClH
+	 ouB/3F6aDobjA==
+Date: Thu, 8 Feb 2024 08:29:21 +0200
 From: Mike Rapoport <rppt@kernel.org>
 To: David Hildenbrand <david@redhat.com>
 Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
@@ -69,16 +69,17 @@ Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: Re: [PATCH v3 12/15] mm/memory: pass PTE to copy_present_pte()
-Message-ID: <ZcR0TF5d75ucLjBm@kernel.org>
+Subject: Re: [PATCH v3 11/15] mm/memory: factor out copying the actual PTE in
+ copy_present_pte()
+Message-ID: <ZcR0waPgUzfQgyGQ@kernel.org>
 References: <20240129124649.189745-1-david@redhat.com>
- <20240129124649.189745-13-david@redhat.com>
+ <20240129124649.189745-12-david@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240129124649.189745-13-david@redhat.com>
+In-Reply-To: <20240129124649.189745-12-david@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240207_222750_801807_2BAAA968 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20240207_222947_278720_12EBF78E 
+X-CRM114-Status: GOOD (  26.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,10 +96,8 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 29, 2024 at 01:46:46PM +0100, David Hildenbrand wrote:
-> We already read it, let's just forward it.
-> 
-> This patch is based on work by Ryan Roberts.
+On Mon, Jan 29, 2024 at 01:46:45PM +0100, David Hildenbrand wrote:
+> Let's prepare for further changes.
 > 
 > Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 > Signed-off-by: David Hildenbrand <david@redhat.com>
@@ -106,35 +105,112 @@ On Mon, Jan 29, 2024 at 01:46:46PM +0100, David Hildenbrand wrote:
 Reviewed-by: Mike Rapoport (IBM) <rppt@kernel.org>
 
 > ---
->  mm/memory.c | 7 +++----
->  1 file changed, 3 insertions(+), 4 deletions(-)
+>  mm/memory.c | 63 ++++++++++++++++++++++++++++-------------------------
+>  1 file changed, 33 insertions(+), 30 deletions(-)
 > 
 > diff --git a/mm/memory.c b/mm/memory.c
-> index a3bdb25f4c8d..41b24da5be38 100644
+> index 8d14ba440929..a3bdb25f4c8d 100644
 > --- a/mm/memory.c
 > +++ b/mm/memory.c
-> @@ -959,10 +959,9 @@ static inline void __copy_present_pte(struct vm_area_struct *dst_vma,
->   */
->  static inline int
->  copy_present_pte(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
-> -		 pte_t *dst_pte, pte_t *src_pte, unsigned long addr, int *rss,
-> -		 struct folio **prealloc)
-> +		 pte_t *dst_pte, pte_t *src_pte, pte_t pte, unsigned long addr,
-> +		 int *rss, struct folio **prealloc)
+> @@ -930,6 +930,29 @@ copy_present_page(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
+>  	return 0;
+>  }
+>  
+> +static inline void __copy_present_pte(struct vm_area_struct *dst_vma,
+> +		struct vm_area_struct *src_vma, pte_t *dst_pte, pte_t *src_pte,
+> +		pte_t pte, unsigned long addr)
+> +{
+> +	struct mm_struct *src_mm = src_vma->vm_mm;
+> +
+> +	/* If it's a COW mapping, write protect it both processes. */
+> +	if (is_cow_mapping(src_vma->vm_flags) && pte_write(pte)) {
+> +		ptep_set_wrprotect(src_mm, addr, src_pte);
+> +		pte = pte_wrprotect(pte);
+> +	}
+> +
+> +	/* If it's a shared mapping, mark it clean in the child. */
+> +	if (src_vma->vm_flags & VM_SHARED)
+> +		pte = pte_mkclean(pte);
+> +	pte = pte_mkold(pte);
+> +
+> +	if (!userfaultfd_wp(dst_vma))
+> +		pte = pte_clear_uffd_wp(pte);
+> +
+> +	set_pte_at(dst_vma->vm_mm, addr, dst_pte, pte);
+> +}
+> +
+>  /*
+>   * Copy one pte.  Returns 0 if succeeded, or -EAGAIN if one preallocated page
+>   * is required to copy this pte.
+> @@ -939,23 +962,23 @@ copy_present_pte(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
+>  		 pte_t *dst_pte, pte_t *src_pte, unsigned long addr, int *rss,
+>  		 struct folio **prealloc)
 >  {
-> -	pte_t pte = ptep_get(src_pte);
+> -	struct mm_struct *src_mm = src_vma->vm_mm;
+> -	unsigned long vm_flags = src_vma->vm_flags;
+>  	pte_t pte = ptep_get(src_pte);
 >  	struct page *page;
 >  	struct folio *folio;
 >  
-> @@ -1103,7 +1102,7 @@ copy_pte_range(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
->  		}
->  		/* copy_present_pte() will clear `*prealloc' if consumed */
->  		ret = copy_present_pte(dst_vma, src_vma, dst_pte, src_pte,
-> -				       addr, rss, &prealloc);
-> +				       ptent, addr, rss, &prealloc);
+>  	page = vm_normal_page(src_vma, addr, pte);
+> -	if (page)
+> -		folio = page_folio(page);
+> -	if (page && folio_test_anon(folio)) {
+> +	if (unlikely(!page))
+> +		goto copy_pte;
+> +
+> +	folio = page_folio(page);
+> +	folio_get(folio);
+> +	if (folio_test_anon(folio)) {
 >  		/*
->  		 * If we need a pre-allocated page for this pte, drop the
->  		 * locks, allocate, and try again.
+>  		 * If this page may have been pinned by the parent process,
+>  		 * copy the page immediately for the child so that we'll always
+>  		 * guarantee the pinned page won't be randomly replaced in the
+>  		 * future.
+>  		 */
+> -		folio_get(folio);
+>  		if (unlikely(folio_try_dup_anon_rmap_pte(folio, page, src_vma))) {
+>  			/* Page may be pinned, we have to copy. */
+>  			folio_put(folio);
+> @@ -963,34 +986,14 @@ copy_present_pte(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma,
+>  						 addr, rss, prealloc, page);
+>  		}
+>  		rss[MM_ANONPAGES]++;
+> -	} else if (page) {
+> -		folio_get(folio);
+> +		VM_WARN_ON_FOLIO(PageAnonExclusive(page), folio);
+> +	} else {
+>  		folio_dup_file_rmap_pte(folio, page);
+>  		rss[mm_counter_file(folio)]++;
+>  	}
+>  
+> -	/*
+> -	 * If it's a COW mapping, write protect it both
+> -	 * in the parent and the child
+> -	 */
+> -	if (is_cow_mapping(vm_flags) && pte_write(pte)) {
+> -		ptep_set_wrprotect(src_mm, addr, src_pte);
+> -		pte = pte_wrprotect(pte);
+> -	}
+> -	VM_BUG_ON(page && folio_test_anon(folio) && PageAnonExclusive(page));
+> -
+> -	/*
+> -	 * If it's a shared mapping, mark it clean in
+> -	 * the child
+> -	 */
+> -	if (vm_flags & VM_SHARED)
+> -		pte = pte_mkclean(pte);
+> -	pte = pte_mkold(pte);
+> -
+> -	if (!userfaultfd_wp(dst_vma))
+> -		pte = pte_clear_uffd_wp(pte);
+> -
+> -	set_pte_at(dst_vma->vm_mm, addr, dst_pte, pte);
+> +copy_pte:
+> +	__copy_present_pte(dst_vma, src_vma, dst_pte, src_pte, pte, addr);
+>  	return 0;
+>  }
+>  
 > -- 
 > 2.43.0
 > 
