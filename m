@@ -4,86 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05FD1C4828F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 11:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A005C48260
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 12:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fvSA7u4vX+K4V0fstPJtyQyTTJ8oUXs0I/R1pu3+xgE=; b=VYrIiueAPnmp6l
-	OAai4FGjPf5zH+3gxBv7SLUcMiX4RLyvVDtnjMXL7XxzTS2WBqhcLND1+/YBtxSBwFhkamXJNMS79
-	+/JLsAMsD6u2+YDN4y+NQ6jw+BYzP0sifIOZac6Ki7ay9a9KVvLojRQEQC1/4vJlwPB65ia1TWAjA
-	EQgUcvABqU//c0IR7sZmyvNRVrrJk9+T3tDAC4wwoIVvJaDqetYNWjseEm4phPgdYohBmqYCLLEsJ
-	iEJwBK/zarqSsE+sMhh0dINPYm/m70H7g3+BNv5Y6bnPbM3TrKMVsuAxRAcWgJOPmDAy2/BD5O2cB
-	/4HwnsRm3aW3d6w5D5lw==;
+	List-Owner; bh=2tGExyMcSauviKEi/QSbmQ+2rc06lVNrxmSjitG+UJ0=; b=d7WTdNhFaeJyIK
+	1+9/NCEiScr9OZRuDAbNvcofp3Nrz3bvsatreX2uB+G7LIYR88zx/NpjwpBD1lF3Ff76Fi9mhFsMO
+	Je4MuRreJgLPOnevb4hVIsLDddnT18C9wyomeyAXfOKr68q2PAyZ8ADt8/h9jyufwOOXja2xgRbFb
+	Ofr27BwrRnWx2I6mwv6HkaAunvXwy61VkRt/MBMhBNSjsqIIbo6wlZmko1FOTAkGZ+T13UL0585LQ
+	tqiiWeRIMEZsPyxxp+wS73hdTWk7uxcQxEmPSDQqk6yGwtxBEo0VuGo/Ops/CDuetGW12NO22XTOq
+	V91phKBqu7ZXGOgnJZ9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY2nS-0000000DbsG-1lYY;
-	Thu, 08 Feb 2024 11:42:26 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1rY3kx-0000000DlVu-2UIs;
+	Thu, 08 Feb 2024 12:43:55 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY2nP-0000000DbrD-3v41
+	id 1rY3kv-0000000DlV7-3IuQ
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Feb 2024 11:42:25 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a38271c0bd5so227906866b.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 03:42:22 -0800 (PST)
+	Thu, 08 Feb 2024 12:43:54 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-33b29b5ea96so471818f8f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 04:43:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1707392541; x=1707997341; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uJx67bcvbAo9zHf0ymAdxOGvHwHm6HIalhNV9TyZktU=;
-        b=mZiF+KFSoCMMZuCu9LysAS84dFn6h34SAywcqypwrgAn/nG7aLth5BIQZIvx0QhtvV
-         LYiZX6ZUQ5Yl2MJJIR7HIvw/r9WXGfzZaxu1v2MhniRlU1K6wVSt2489gh6CaWIqv2UV
-         bNeOvRb0r5zHjczeMJ+XUntoh2e4P3vwYVAGIff3kaNVUskHumbF3OPl+wAijhqhA/xR
-         GUcyQdXrxOn/iRnUUb7RK1xx+Xfr0kW7+1iUqVmZXwljpGPUGk7S9UFgK6hQPnavuL6x
-         hE239QD/hfY/5ENMBVCMN5Kom9arSe9DGSRHVMRWNiLJRFFGEjVD7Cp7K9hCiEPxVlgy
-         wLNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707392541; x=1707997341;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=tuxon.dev; s=google; t=1707396231; x=1708001031; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=uJx67bcvbAo9zHf0ymAdxOGvHwHm6HIalhNV9TyZktU=;
-        b=R9m/ocwFK9H2cjIvCkAsIskp3zVFc1+sVy+HVjrent4E6AyiLPgkSge82gBMuZOEVj
-         8b1l0o5+ULIRk5SbHa4lhhnQjdzofUFm3W2O2/2i9iflOk18fJc80djjWRbaEW2PLivU
-         O7YVPougi8Cn3CYEV3ZDd+2bI2xZ4skIPMGcdMT3a/yeZinsVec0rp7r8R6rLLZpjRzm
-         4HpMlMmRcN4t50jtgG200Jyg60dvY8p6UCc1Mkrws06wG9yO1NFRhCZ61K94j/ydMFJU
-         +hB036mNCA8N5Q+UsLQf58x1KH/wvXSSpvDWfrrJKb3JkuHeWgZy8kTgonDqbo+moJxj
-         htsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWk6vkNP2eaqq/Pi9f1ZE4UjdruW+o1kzq2zIkldLei0u1O4Q8iKDp1reKjWtB9PWeNk1mX/e1SqT+IAH5bKrWtvwcbtLxNOMFNEh+sTcb0
-X-Gm-Message-State: AOJu0Yw55gamXx1WkSk5afn0ak7OYAS4WyKNKK31LNFh7q86v2pab+KE
-	t4sBG+K75MhrDbmwmsR2B5I2jsLLXfWU0ATtxfcqcVCe1dnzEJRUVU4HLoWXoNQw7Q==
-X-Google-Smtp-Source: AGHT+IEiPm4u84iqFSB/UQg6ibdfUKzGrLkfL1m3NTh0SS5++/aHuKt3pBw9YrhOY1kilrXZeG6DMg==
-X-Received: by 2002:a17:906:d10d:b0:a38:948e:85d3 with SMTP id b13-20020a170906d10d00b00a38948e85d3mr2932904ejz.71.1707392541302;
-        Thu, 08 Feb 2024 03:42:21 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVISQGNJhcgRfbCljEvw7EzsND50WXxUpC4wFphSMcBvdzRIwbL7Ryz518AMPWPM8jSxRs0KB7Ropazpm8LjMrbZ8JFStTaDPeC1LQt2v8Ut06vT2nk2yiRzB5u5BwQ6VPecfYcJUZUnj3snDHe3u9fyFsYjU5QawLERsKuJF3YAWRNgL06iSOJ8SPb2oNBunViYzVACgOdN48RvE7Hab7wmi+qh1B5Nbs2VlDSJozNfZ03T/pWq1SaHNkIxG5Q1zGeZjK0WpttiduQo/fpQFRK/Y9Xow6QVEftEVQPw0jypU8d5Z2nQ9sWPbOADDjT9FKF4/yr8KIWAAGqCvHzPUSg1bgl+GaQv2Y+z41S38/k3qowiSDXHmU5a4279KlMRbSCw/LNpg==
-Received: from andrea ([31.189.46.254])
-        by smtp.gmail.com with ESMTPSA id qc12-20020a170906d8ac00b00a28f6294233sm1784541ejb.76.2024.02.08.03.42.19
+        bh=5ntIc4Xd+YZj5HH2Wt0TNsIkkpEJY2U3yN2SR97JFpk=;
+        b=MmFYasRWNEwN2S7DFquZprLjqLji9M+ZUAkj7tW+Jr+RBW6XMs9lqFOxMDS1Gjel0t
+         Sf4JMZf9V6/bhuRETs4zJFBusb1j0CuZBOsbrtsjoWomQZM2jaTaXQRkEuZ0xrRX3OI2
+         YRf1fR23pTVs4IE1cMcse8lb6TolksIvLB/GPxSI/pIh/a7MiHC8pGKtQXevHZ9Dxahz
+         blNzmLg9l0vIvmbCTBi7xlA+TvLlTo7tt1FHLwl10soNn6v9Nzm+T7VhsGrgxGLKwWGJ
+         0rPGoGljuA5sdVqZqaztkV5Wp7tScIMlVeTCvtjJJnBISm+MoRsmZKDTRI4vSyueQJ1K
+         08tQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1707396231; x=1708001031;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5ntIc4Xd+YZj5HH2Wt0TNsIkkpEJY2U3yN2SR97JFpk=;
+        b=boU6ooVpNW6EBSxiudtQyV0FyTaMtg9s3a4O0BG+kmGJ8SzDjvwR2U2MPSyWYTRubl
+         I6MrHTW6dqzq6utBrWyOeY2VukiIC8m+G5OBjoGP+T+e39ALFt1YTxiRnIcjGaBvG8ww
+         ToaeiavsrjsBFkS0TrK8fxKizG1zTJfc1vzWNLQ2jAoTN2W+3pWbHx2m9+xwuXHH5fFg
+         BQdeAq4+h5q6w5sipnOGTMYIcPYOHRjJXl5JrUV/X1ApmwOK1HO7jDG92Pv/14BWFrRW
+         /0G5gfZCmDvQ1I1Gp0ydHCLj812R6oTYm4nj9jex+s1NYX3c5qxjLHr17jwNLFGd8u0I
+         8kSQ==
+X-Gm-Message-State: AOJu0YwPleCpkjXre6reXQgpUzUkfnod5XIc972Egm2FoBKGHRmJm5FG
+	zbhndRVih/9WcuyQRcjGi7Pn+AnRh/W108lQYJkgtAL3q6nNojBgXQ8BQSuLLSc=
+X-Google-Smtp-Source: AGHT+IHVs2lCJKy/UUZC1BNBkvIBfeCLLHIO7OTiYKoC1EFECe4p+YbLsSs5xxIM3yw0i3cximWUwA==
+X-Received: by 2002:a5d:5392:0:b0:33a:ead3:6438 with SMTP id d18-20020a5d5392000000b0033aead36438mr1921387wrv.33.1707396231405;
+        Thu, 08 Feb 2024 04:43:51 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUmFgAW+Skjw1lnmXbQXSf/9hq51jiHJjDAVQk/4K6QzmOq/O9rXIdU/p6mQ301ukgVBqm9o3SqZiK1KTEZS371ZL3D8guYUX1220vQ3lKtetn5ReofmJLqM8ihrVHEhouSo5NuTYAj7t38SFPmAoUEi6yDYC7hiJt0XMBmT+6lRYSy8dB2bKZCcMcd0e4nEGhiuqi82zhv9PJbv40h0N2C+ECiFqdOM5OP+4ha6aqrH44Trrd2RCMpVVre6hcviWQTMbcXaUhhjoN40hIwqfMFbxkWD/J5rfQw4c5bhFAkV0cb1O9Xqh7B1QC3WCjE0Jkrp6qErRskPMFP6uw18A+T1jmp+CzLOWgzUWRN4sKgD0a0fvJ/vyScZAOGAqsqdOGlu0TQC8zDOUfI6QznLcMJ0zchmA6kwKVRexIaqqZyLujTcQkCUTWAkVjraYQiQivt+PjbJcpI1ZK82jFTbdeRBED/3HtxNN1kXdnvthvusegfD9NCOY3o1gQinq6MiztY6j+yw6aygjn4izuKrWfTXUwl3n1zurce98xOwIMlKNH0iQaU893nFZbgkDsu3U8=
+Received: from claudiu-X670E-Pro-RS.. ([82.78.167.45])
+        by smtp.gmail.com with ESMTPSA id o13-20020a05600c4fcd00b0041047382b76sm790244wmq.37.2024.02.08.04.43.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Feb 2024 03:42:20 -0800 (PST)
-Date: Thu, 8 Feb 2024 12:42:16 +0100
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>
-Subject: Re: [PATCH] riscv: Fix text patching when icache flushes use IPIs
-Message-ID: <ZcS+GAaM25LXsBOl@andrea>
-References: <20240206204607.527195-1-alexghiti@rivosinc.com>
+        Thu, 08 Feb 2024 04:43:50 -0800 (PST)
+From: Claudiu <claudiu.beznea@tuxon.dev>
+X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
+To: geert+renesas@glider.be,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	robh@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	conor+dt@kernel.org,
+	magnus.damm@gmail.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	claudiu.beznea@tuxon.dev,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH 04/17] dt-bindings: clock: r9a08g045-cpg: Add power domain IDs
+Date: Thu,  8 Feb 2024 14:42:47 +0200
+Message-Id: <20240208124300.2740313-5-claudiu.beznea.uj@bp.renesas.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
+References: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240206204607.527195-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240208_034223_998551_04E07150 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20240208_044353_853618_F33A2A8D 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,79 +109,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +static int __ftrace_modify_code(void *data)
-> +{
-> +	struct ftrace_modify_param *param = data;
-> +
-> +	if (atomic_inc_return(&param->cpu_count) == num_online_cpus()) {
-> +		ftrace_modify_all_code(param->command);
-> +		atomic_inc(&param->cpu_count);
+From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-I stared at ftrace_modify_all_code() for a bit but honestly I don't see
-what prevents the ->cpu_count increment from being reordered before the
-insn write(s) (architecturally) now that you have removed the IPI dance:
-perhaps add an smp_wmb() right before the atomic_inc() (or promote this
-latter to a (void)atomic_inc_return_release()) and/or an inline comment
-saying why such reordering is not possible?
+Add power domain IDs for RZ/G3S (R9A08G045) SoC.
 
+Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+---
+ include/dt-bindings/clock/r9a08g045-cpg.h | 70 +++++++++++++++++++++++
+ 1 file changed, 70 insertions(+)
 
-> +	} else {
-> +		while (atomic_read(&param->cpu_count) <= num_online_cpus())
-> +			cpu_relax();
-> +		smp_mb();
+diff --git a/include/dt-bindings/clock/r9a08g045-cpg.h b/include/dt-bindings/clock/r9a08g045-cpg.h
+index 410725b778a8..8281e9caf3a9 100644
+--- a/include/dt-bindings/clock/r9a08g045-cpg.h
++++ b/include/dt-bindings/clock/r9a08g045-cpg.h
+@@ -239,4 +239,74 @@
+ #define R9A08G045_I3C_PRESETN		92
+ #define R9A08G045_VBAT_BRESETN		93
+ 
++/* Power domain IDs. */
++#define R9A08G045_PD_ALWAYS_ON		0
++#define R9A08G045_PD_GIC		1
++#define R9A08G045_PD_IA55		2
++#define R9A08G045_PD_MHU		3
++#define R9A08G045_PD_CORESIGHT		4
++#define R9A08G045_PD_SYC		5
++#define R9A08G045_PD_DMAC		6
++#define R9A08G045_PD_GTM0		7
++#define R9A08G045_PD_GTM1		8
++#define R9A08G045_PD_GTM2		9
++#define R9A08G045_PD_GTM3		10
++#define R9A08G045_PD_GTM4		11
++#define R9A08G045_PD_GTM5		12
++#define R9A08G045_PD_GTM6		13
++#define R9A08G045_PD_GTM7		14
++#define R9A08G045_PD_MTU		15
++#define R9A08G045_PD_POE3		16
++#define R9A08G045_PD_GPT		17
++#define R9A08G045_PD_POEGA		18
++#define R9A08G045_PD_POEGB		19
++#define R9A08G045_PD_POEGC		20
++#define R9A08G045_PD_POEGD		21
++#define R9A08G045_PD_WDT0		22
++#define R9A08G045_PD_XSPI		23
++#define R9A08G045_PD_SDHI0		24
++#define R9A08G045_PD_SDHI1		25
++#define R9A08G045_PD_SDHI2		26
++#define R9A08G045_PD_SSI0		27
++#define R9A08G045_PD_SSI1		28
++#define R9A08G045_PD_SSI2		29
++#define R9A08G045_PD_SSI3		30
++#define R9A08G045_PD_SRC		31
++#define R9A08G045_PD_USB0		32
++#define R9A08G045_PD_USB1		33
++#define R9A08G045_PD_USB_PHY		34
++#define R9A08G045_PD_ETHER0		35
++#define R9A08G045_PD_ETHER1		36
++#define R9A08G045_PD_I2C0		37
++#define R9A08G045_PD_I2C1		38
++#define R9A08G045_PD_I2C2		39
++#define R9A08G045_PD_I2C3		40
++#define R9A08G045_PD_SCIF0		41
++#define R9A08G045_PD_SCIF1		42
++#define R9A08G045_PD_SCIF2		43
++#define R9A08G045_PD_SCIF3		44
++#define R9A08G045_PD_SCIF4		45
++#define R9A08G045_PD_SCIF5		46
++#define R9A08G045_PD_SCI0		47
++#define R9A08G045_PD_SCI1		48
++#define R9A08G045_PD_IRDA		49
++#define R9A08G045_PD_RSPI0		50
++#define R9A08G045_PD_RSPI1		51
++#define R9A08G045_PD_RSPI2		52
++#define R9A08G045_PD_RSPI3		53
++#define R9A08G045_PD_RSPI4		54
++#define R9A08G045_PD_CANFD		55
++#define R9A08G045_PD_ADC		56
++#define R9A08G045_PD_TSU		57
++#define R9A08G045_PD_OCTA		58
++#define R9A08G045_PD_PDM		59
++#define R9A08G045_PD_PCI		60
++#define R9A08G045_PD_SPDIF		61
++#define R9A08G045_PD_I3C		62
++#define R9A08G045_PD_VBAT		63
++
++#define R9A08G045_PD_DDR		64
++#define R9A08G045_PD_TZCDDR		65
++#define R9A08G045_PD_OTFDE_DDR		66
++
+ #endif /* __DT_BINDINGS_CLOCK_R9A08G045_CPG_H__ */
+-- 
+2.39.2
 
-I see that you've lifted/copied the memory barrier from patch_text_cb():
-what's its point?  AFAIU, the barrier has no ordering effect on program
-order later insn fetches; perhaps the code was based on some legacy/old
-version of Zifencei?  IAC, comments, comments, ... or maybe just remove
-that memory barrier?
-
-
-> +	}
-> +
-> +	local_flush_icache_all();
-> +
-> +	return 0;
-> +}
-
-[...]
-
-
-> @@ -232,8 +230,7 @@ static int patch_text_cb(void *data)
->  	if (atomic_inc_return(&patch->cpu_count) == num_online_cpus()) {
->  		for (i = 0; ret == 0 && i < patch->ninsns; i++) {
->  			len = GET_INSN_LENGTH(patch->insns[i]);
-> -			ret = patch_text_nosync(patch->addr + i * len,
-> -						&patch->insns[i], len);
-> +			ret = patch_insn_write(patch->addr + i * len, &patch->insns[i], len);
->  		}
->  		atomic_inc(&patch->cpu_count);
->  	} else {
-> @@ -242,6 +239,8 @@ static int patch_text_cb(void *data)
->  		smp_mb();
->  	}
->  
-> +	local_flush_icache_all();
-> +
->  	return ret;
->  }
->  NOKPROBE_SYMBOL(patch_text_cb);
-
-My above remarks/questions also apply to this function.
-
-
-On a last topic, although somehow orthogonal to the scope of this patch,
-I'm not sure the patch_{map,unmap}() dance in our patch_insn_write() is
-correct: I can see why we may want (need to do) the local TLB flush be-
-fore returning from patch_{map,unmap}(), but does a local flush suffice?
-For comparison, arm64 seems to go through a complete dsb-tlbi-dsb(-isb)
-sequence in their unmapping stage (and apparently relying on "no caching
-of invalid ptes" in their mapping stage).  Of course, "broadcasting" our
-(riscv's) TLB invalidations will necessary introduce some complexity...
-
-Thoughts?
-
-  Andrea
 
 _______________________________________________
 linux-riscv mailing list
