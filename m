@@ -4,83 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8582DC4828D
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Feb 2024 22:09:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFFDFC4828D
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 00:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zygDIaCEPiC9cwkfESau/3BDD37TYVMlbLXNGrGaPhg=; b=GjaecKOzvP0nYD
-	PUknEkP+XZu0HTTCn+7FqjuDkKcbZMb1ZKvamD4h37j6kRvBKwI1BoW85KxQQoqgMIHRPAKYBH+77
-	5iH9OduSlDU4saUjknjEtI/S1m4qVnTO7z39tpQhnJNItULYJGrTQJr8pfYAEclCt2l3zT/l2fRIQ
-	yFUtcliZZBE150cGL3Rj1RJj4BQTIVAZ447CIP9zyDqCvRc2eTBJYYiS3X1XZprBxbLgf4Tlu7/48
-	uTwCblSIwoaWm5sDaMEPMGykrVM6OUPhukXLAqknhpZG+O5JxUCEzG3P+dA2GylV/b3aX5kBXCACT
-	sPtpzYPvnC+VWIaCT4Xw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GpnvyILW/c0Wl4lyErVUlTI7i0BtqJdlz/JBfO/7v3g=; b=rQA+C9fr8oXFWw
+	ob8d/J/QVXRyt2ulx3B+Ue2EfJ1qCt9cP8WCFhPbjnStYvXea7awean0ZdWeV2wIqvoI5tVqn6HnK
+	9N0VAIIDGtrTrb1GHr2ImaVoEMP5YD0rv3lkfSSx9iTkjmxNOBXfeXre2QDIhPG+Zk5H2gGVVtfRy
+	gNPYIWIZFKcyReiR67wCFTVTaHITcxzRbZ+IRIR6St+SCZw3kQIIb2myTXFQ709ClXGrKnRDzfav2
+	b0ho4yRbJ8bP9B2KvDvtJ4MeGrM2g9qyp5fVyef/abdSEAgV3u6jN1H1x0HE2XvAaF1Q4Pl9rKpfn
+	d8qnhuzQk7mEflyIcrMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXq68-0000000C45h-3Xyf;
-	Wed, 07 Feb 2024 22:08:52 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1rXsAn-0000000CIgd-2gZU;
+	Thu, 08 Feb 2024 00:21:49 +0000
+Received: from mail-bn1nam02olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c07::801] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXq66-0000000C453-0uLy
+	id 1rXsAk-0000000CIf8-2JIO
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Feb 2024 22:08:52 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6e04e7b687bso706063b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Feb 2024 14:08:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1707343728; x=1707948528; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=VP1GaO8yBte8x8UqhhgufPbWp8S+qR3qt5sB/Le/8GU=;
-        b=kBVF1gd8ZJGUJ1E9LHFbjtwzzs/TMzwl5Qm4T7P30/tJbhz489upn/ZqN2o5/rBDDF
-         zbXK2Camt+ejM0h120IakAv8rklMAYrKf0ujpKaI3cHtiuw2cq0qC2YR/emeNMM9q02M
-         wcLyAVw5kI1S+IrH55vXI+A6bm4c/eRoaU0tbRME8cLe8JPgiHOS5rOprImdP1CWIc25
-         ocCGb7QQFgmNSGose1LpSrn0M6Le/cxx+UdbfYpKYimL6ZStm607Lfn+MVwkRGi46Ul0
-         GgboqmELYWdHpbqfYNQZN86PbYEacq/5I0l3Z8wmYRhM2qe62CjCJQsk3ENQAYFhwrOI
-         DpyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707343728; x=1707948528;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VP1GaO8yBte8x8UqhhgufPbWp8S+qR3qt5sB/Le/8GU=;
-        b=VlmEeW0sKScJI74PAit+DQ3T9akSO+L1qmS8oetRpQ1fFOUJINZLZhXOLPdHp3CM+6
-         4vIe9OqMjGDNEr6Tl4E1t/y4iU24MMmYwXupAjbF88peHSIym4nQ6nz3jqCXoCV/alTp
-         VPknSm4cm8W7aM8+JhJgFoOiCyLArA5j9XlA6s7jV0I7O1yy/WKchiar6RQjanycx//B
-         dEjT6eB8KRTH+7fskh+671Ffs5Kf2eRccO5gH3B0mvUwCnt/YopHCxNHGKQXlPoyy3d+
-         FcxMocyhq5rzzjDk0OSyiUG52i9ebeqkymgi6R6OPNfIjlNe8H9L6+HEGC5HfnFMbgip
-         mASw==
-X-Gm-Message-State: AOJu0Yxu8fi5wGlAcQd3q9LnjNr8rRjtJIeD8OB/4mWeMKQM3XGyLFaQ
-	AsgksS6X2wmV7CMMgmtWFgTYGl+zI4CNpVnGfZf+CU26/lcUdTkizxKfePmwI6I=
-X-Google-Smtp-Source: AGHT+IG02I2awJn4mfQEvfbb6d/ZMppfjlJs6l570ZImP3dYCiEQOfqygzvj7rQ8G7iEFIHFRPcgug==
-X-Received: by 2002:a62:e808:0:b0:6e0:4759:88f2 with SMTP id c8-20020a62e808000000b006e0475988f2mr3921268pfi.4.1707343728380;
-        Wed, 07 Feb 2024 14:08:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVDXNgnEDcri4FjIzqDqj+oozPGRTkmr8lbhyQy2no6rdUcHZvi6WwsQ81v33uB64uKQ7k9AziT0MUaE0EP92kql2RiNMRzyigmvLesaxViHMmIry0JECvXV5Vg33iV68auJeKNsNgfM75UEhhNVjUL3ZDqhyqsb8E4b4H7uxR1j+BuPXm0VjyJ2OV7fOudwEZKt83O9NdMoNglxyr9Uwszwqli0JWR9oLczk8orVLT/pZ6SvWO1BRUhby1T86qun4TbIVEuG8YAnFe9v0=
-Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id r14-20020a62e40e000000b006e051ec4f90sm2166465pfh.84.2024.02.07.14.08.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Feb 2024 14:08:47 -0800 (PST)
-Date: Wed, 7 Feb 2024 14:08:45 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Thu, 08 Feb 2024 00:21:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=cvJjwZzCaVhlvTzJbKq8DJOZCUQmmZbl57SHmkb29mO9KkZmOnMKbfmaj7A7IFzFCXLjGOx4FjfDVZj8qfWzN9eCX8iLJmXkYjXjftkUpCtECfcEuWM7Y7EfhgQAFqCKERpyCqHrW8cyiHdzFuPJdbRKjN87kmYN6yMVfXlG3DjkbBcMcAwfRwZWXE8k9CUhRztciHPiYGLNpaAPpLGAsLspsnKZd9bihfmqHbfzf0yf1ZHiK9OlTOMYT+XSFhPbRJ3m9mLs1xxFy8h/N/SVaprkfJFTj+YCSSpdZyiHAaGgpWx4OMFlmJV2/9/MkqbCNINFpLpFA60dREdS7YhgOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gGezQzUhQovpjvb7TPzDYs19/RhPOvl3Wlec5xnoyM4=;
+ b=UHMMsRhrrLKtidOnbOj3EtV6tAApoNbpzYxPzAghcGVMYQ362/XH5PWyRznGiSAG/3I2PxQr4Q3a59JDHH30ZUgXjUWZuDdXCxY2UWHC16L6IiCvRXlHBs3I/jYIfBMjWCdWw6odkeN2Mg+u6C49hK8zG48ldq59w2PUcRqn5dVGhc6TK47hjr5OWDqu3bOuM9bwu9/pkZSMmLiDbuAomcDNdiH8Og3ud1iAXvq4RqMtCo59U/qdAIlSkgGnaMSdolDuxdJ0DkFdSFBTLNdrJV/Kc83GcOmCeIn+AF1L06dhbgW7OKW+r1noHp39Ex26grrLbdYoKhphpcRPz7MUeQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gGezQzUhQovpjvb7TPzDYs19/RhPOvl3Wlec5xnoyM4=;
+ b=VKuZlJ7ShvQsWA8Y1v6a4iFg5MovAPFSl45J5ub8AiigJSOHaSLOnRuqwSZyh8+J2LtCLTHLMSIg3RROwyRgEMKb6EgMH6Qr2xkdjgM6Dwtw5ExU456I4le81CvlSQlpWRjlJpDqnGky1NmKrJTN62g+wvQTNQn9azJTZGpwmutf2KBhXuQvBwuV779Vh+h+1pFq7lNpJcsWXI3rMl8d3GbMY0FaT6vqj2eAZFLIYVEmowUQvLScBlinrMASqkuGcE61EUyKt9SxtYKNvOxyPr5f9jadNjOPeeOLyZnrRioOXoYQeGgEqlN2OdgQpwXOGmAzU4hIGqX7Vyt1wJFVjA==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SA1PR20MB6986.namprd20.prod.outlook.com (2603:10b6:806:3ad::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.36; Thu, 8 Feb
+ 2024 00:21:28 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b%2]) with mapi id 15.20.7249.035; Thu, 8 Feb 2024
+ 00:21:28 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Chen Wang <unicorn_wang@outlook.com>,
+	Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Ben Dooks <ben.dooks@codethink.co.uk>,
-	David Laight <David.Laight@aculab.com>
-Subject: Re: [PATCH v2] riscv: misaligned: remove CONFIG_RISCV_M_MODE
- specific code
-Message-ID: <ZcP/bQizfVcwrf3R@ghost>
-References: <20240206154104.896809-1-cleger@rivosinc.com>
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	dlan@gentoo.org,
+	Inochi Amaoto <inochiama@outlook.com>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/2] riscv: sophgo: add i2c and spi device to CV180x/SG2000x SoCs
+Date: Thu,  8 Feb 2024 08:21:29 +0800
+Message-ID: <IA1PR20MB49539A9C5F5CFF6644ED2C2ABB442@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.0
+X-TMN: [bJWcXTvnHmTI6UHIS+vfUDyU80EOX8KESFfzyIaYk9cTTUUUwEUf+hJmjTCUXlnL]
+X-ClientProxiedBy: TYCPR01CA0189.jpnprd01.prod.outlook.com
+ (2603:1096:400:2b0::14) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240208002131.162432-1-inochiama@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240206154104.896809-1-cleger@rivosinc.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA1PR20MB6986:EE_
+X-MS-Office365-Filtering-Correlation-Id: 59c308ba-baef-431f-425d-08dc283be476
+X-MS-Exchange-SLBlob-MailProps: Om8TgR6f4EBS2ftQVFRXvBH1S2ebRITSsr5Ej2yRezSpnOKhlTFTpDa7AkzAJNH2Wu60oFK5OWM86lEQU7+sFIOpv5HFAyPGqpQnpH5r9t0+tfVTiXYJojBvo7sIkmbDBpAcIK/Sw9HWxv+TUqSGbzUd05ynFIOOp9Un/aEI7N42ZhQHpdhuw3bh2GaZ3jBkROnfTptBcz0Q90OQ/nm4aPWQP5SxJM74wlSVzOO1zW7IFdO9MSqCtjgPMN8GK2qENkFTwoGsrOTxODpaI0VgmzR80KtoGjtr6XgL9M6bonQNjo+IksqkAjonqVY5JcDSFDlrLF+Lx63WLlZgR194IRt1SM0MHuBVH1WugIEnNwS98jrAbNAp60LpyqGcLoxgSyXfUFfzxPZGOLBB0bwW53NTyJxNAhvmqDF9zvY+JzKhl3O1fuO3YExGYNFVpgsjPi5gFSbxW16Mimwm+abfOAEH0b47Spqj5Kk9KLznmG6FRhKnn40dfDYdtZmiOG2vdEuCIoSYLgzBokmg1poyV10skJrmROPdNFf27WKLrPc8ai4oHS/PpCPn12GAHmhtt9ud+bxGZ5ZFJk6l64IWP0JgFVCMnLu0jVyQnYx4W7R7CQACWaowZu1nG8b48zDnaCQw+cKCQaxdecwaBzruOuc3CZlGQmZfqNWko+ssU3+QFs/3iBdMNtz1fk1UZpjXDkN5818noeUnjCwSWtxkYORC12iTBEjF6UcmGkbL4fIT9Nme+dghcFq6BvY+AkC7FdORbK5p+3Siv6N+jv697bVXmtvSzOGvVer5vF6PmvrrrEI0rG/oG9AtZSYDVj1Sq+5WPCtrT0XumJad/0MDSRlpISoc3MxI
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: m+I/0QrCtuzxGlsotQs/ujGS3I1GSQ0nwvZ5V7/chSnhdVeEz6GwXCipZsOZTALh0QkS+ULRLWiYJ3iEwITiAJ/il2UL7KtmEa3UoQSAyPFxjai/tHiiAw9UbJRU0rsXLx0WO4uLnSjGQdGFeHGW+KRl9ZFL2grNd0mr55rdltxRraMl5qABzkBM3chu4aVWGpeuFQ8QxdDSZQVqYaI4XsbExOMcLzaU1IUtmdiOh2A158H9Nyze4nwkpzEN/MAogHJEjeeQ4AzoYzWQGGq6G5XJuilcO4QNoeZNObvre1lI12wB3dattcliMKMsqfDM+w+OE0JI+/dALoRh1DMq893Eu0/vv56yZ5XedlFcweinubfBGCCRjYlqByL408xsp9KCrnBJYFvXInKVtafnnhe/0CwY7/xNcCR/5N2VQW4yOZbggLDEZy0ltY+yfr/B+KEcMhXUKC5RcOdvzPs3U5Ei+A/eJzIL7bHnmDFMViIdErWhEl1TLsrDdtW9jca0d+DOffXQgt+Kdvi+uDQNViqNcwiwpitNLp1VmdhbwPN4y8uegDmguwZZR3ux26Yi8CvbAPy6yhEi4b2vFrl74TiSqUmaEt9JJRrd6F9jMMq3b1WA3RHmfo7ZsTBg57/k
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cBTMRBNrDkL7sNPWEI5b5puQKg71j/Qrnh91IiH7XyvuQ/Nns9tOSy2g0Mz3?=
+ =?us-ascii?Q?NMXxj8CmUVj5mIU3llap6zMX+yVG9rFTRjzBHijc1hfRXua4IBQgiGKVGv5L?=
+ =?us-ascii?Q?htSeaQOZUS6hGD8yQeMkjAJJRT6u7HD9mXsTJxLEXhCLSFOG27HWz/W8b5vC?=
+ =?us-ascii?Q?vk3kv5937fNqgroXbu/8aRSrjadIU1abYgz30WuV6UQju24N3YDDzPmovMGF?=
+ =?us-ascii?Q?RMnM4BLMf6wG/0o8ja7NzEWYZvY2V5jbtiYIGkVQpIAAS1fES1kObKb25bLe?=
+ =?us-ascii?Q?VzIHTRb9pv6Z0iisK46yAEnKUhm+s08IwbFfYOgtYm1rzQEJ715IMdiisV7P?=
+ =?us-ascii?Q?dXPMj4MbrxDFUcGDO7h1HMZR7iBUEWtS73jbQuahqQAmysjndgRbC3jaY5IL?=
+ =?us-ascii?Q?3v7VzeNNMfhit+i6pV8BCJ71kXhed3l/KMVtfZ6BHYAz/r2F5dLYvLdxAjY8?=
+ =?us-ascii?Q?t12wwPzaItuTTocWxQNywnu7XeJHlkxbKFrONztzs6JwjV45yhqZ9qWT39om?=
+ =?us-ascii?Q?XydtwVefGjK6XOoZjcQSpqCWOOg3fEMId8/40kUVzRDzAQcHzS+w2TXFeDSh?=
+ =?us-ascii?Q?inzYjH0W3yx6iktQzNV2dKOUiPqQqv4t0ktx3L+oxy3SKr8jlzDS2fpwO6Wj?=
+ =?us-ascii?Q?5C05M0sA84PnLSF8qsYNkE0kNZOtjhCLjvBPZEpw6nzffXzB+kEXD5l8osjV?=
+ =?us-ascii?Q?L/IBRSHqSxOdFiD4hIo/dKwGYM/ms1Sczbt78rm2T/rkb16xm88/wbdWJVMf?=
+ =?us-ascii?Q?4O/QNc1NMYb3J1FYRm7uL3ScbZcM2CNS2gyLlPVgXS6ouEqm/tBbVzNsppfU?=
+ =?us-ascii?Q?wjQaMLL60tyjKU4YXa8y7UDrxOsXeg+EgFOqV+jHwXfHjzOeDGBhKQb7t166?=
+ =?us-ascii?Q?lgQWD4vkYOi8qCbCSXl6m4x7dIad9hid+HYGoqNjSQ5ILdA/uJwSYGQd/kpi?=
+ =?us-ascii?Q?uiarhSfwJRMVSQAHbBNW2he4Y2B+CC4+B850yK1tv7UTaeW+66ttkdZuQSHS?=
+ =?us-ascii?Q?PtwSO7VogkL2TmaLWIIBpAbBRxx7gHF9yNTqB0fYymihuSLZHZczt2/iFujr?=
+ =?us-ascii?Q?g4uWQjifqEp2qEldV/RiHx3uh9kcVQp8GyqgMHfla/OMrEsHm/jDz5xYifNG?=
+ =?us-ascii?Q?6Lvy47CGKrB84MKw6P1MjEqEfwXDgu+PftDlT1p9mxKc6FI1KZXw3f9kJ8/K?=
+ =?us-ascii?Q?SIsonGQE2wN3nryLuVodmonNcsp/zWPHGJw9n1KgbvCv/ZGWxYt8S5tpiqrz?=
+ =?us-ascii?Q?ZwN95+EqnGaj09Bt0horRVrkRpoJI+UMRPdkiKHRjg=3D=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 59c308ba-baef-431f-425d-08dc283be476
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Feb 2024 00:21:28.3906
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR20MB6986
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240207_140850_440563_028AF6C7 
-X-CRM114-Status: GOOD (  35.09  )
+X-CRM114-CacheID: sfid-20240207_162146_597526_A410BCC0 
+X-CRM114-Status: UNSURE (   5.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,319 +131,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 06, 2024 at 04:40:59PM +0100, Cl=E9ment L=E9ger wrote:
-> While reworking code to fix sparse errors, it appears that the
-> RISCV_M_MODE specific could actually be removed and use the one for
-> normal mode. Even though RISCV_M_MODE can do direct user memory access,
-> using the user uaccess helpers is also going to work. Since there is no
-> need anymore for specific accessors (load_u8()/store_u8()), we can
-> directly use memcpy()/copy_{to/from}_user() and get rid of the copy
-> loop entirely. __read_insn() is also fixed to use an unsigned long
-> instead of a pointer which was cast in __user address space. The
-> insn_addr parameter is now cast from unsigned lnog to the correct
-> address space directly.
-> =
+Add i2c and spi devices
 
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> =
+The patch depends on the clk patch:
+https://lore.kernel.org/all/IA1PR20MB4953C774D41EDF1EADB6EC18BB6D2@IA1PR20MB4953.namprd20.prod.outlook.com/
 
-> ---
-> =
+Changed from v1:
+1. adjust the order of properties in dts.
 
-> The test used to validate these changes is the one used originally for
-> S-mode misaligned support:
-> =
+Inochi Amaoto (2):
+  riscv: dts: sophgo: cv18xx: Add spi devices
+  riscv: dts: sophgo: cv18xx: Add i2c devices
 
-> https://github.com/clementleger/unaligned_test
-> =
+ arch/riscv/boot/dts/sophgo/cv18xx.dtsi | 99 ++++++++++++++++++++++++++
+ 1 file changed, 99 insertions(+)
 
-> This test exercise (almost) all the supported instructions, all the
-> registers for FPU instructions and is compiled with and without
-> compressed instructions.
-> =
-
-> For S-mode, you simply need a classic toolchain and export CROSS_COMPILE
-> to match it.
-> =
-
-> For M-mode validation, the following steps can be used:
-> =
-
-> Build a nommu toolchain with buildroot toolchain:
-> $ git clone https://github.com/buildroot/buildroot.git
-> $ cd buildroot
-> $ make O=3Dbuild_nommu qemu_riscv64_nommu_virt_defconfig
-> =
-
-> Test:
-> $ git clone https://github.com/clementleger/unaligned_test.git
-> $ cd unaligned_test
-> $ make CFLAGS=3D"-fPIC -Wl,-elf2flt=3D-r"
-> CROSS_COMPILE=3D<buildroot>/build_nommu/host/bin/riscv64-buildroot-linux-=
-uclibc-
-> =
-
-> Copy the resulting elf files (unaligned & unaligned_c) to buildroot rootf=
-s and rebuild it.
-> $ cp unaligned unaligned_c <buildroot>/build_nommu/target/root
-> $ cd <buildroot>/build_nommu/
-> $ make
-> =
-
-> Kernel:
-> $ make O=3Dbuild_nommu nommu_virt_defconfig
-> $ make O=3Dbuild_nommu loader
-> =
-
-> Either set the kernel initramfs or provide one on spike command line
-> using the one built with buildroot
-> =
-
-> Then to run it on spike (QEMU always emulate misaligned accesses and
-> won't generate any misaligned exception):
-> =
-
-> $ spike <kernel>/build_nommu/loader
-> =
-
-> ---
-> =
-
-> V2:
->  - Rebased on master
->  - Align macro end "\"
-> =
-
-> Link to v1: https://lore.kernel.org/linux-riscv/20231128165206.589240-1-c=
-leger@rivosinc.com/
-> =
-
-> Notes: This patch is a complete rework of a previous one [1] and thus is
-> not a V3.
-> =
-
-> [1] https://lore.kernel.org/linux-riscv/d156242a-f104-4925-9736-624a4ba82=
-10d@rivosinc.com/
-> ---
->  arch/riscv/kernel/traps_misaligned.c | 106 +++++----------------------
->  1 file changed, 17 insertions(+), 89 deletions(-)
-> =
-
-> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/tra=
-ps_misaligned.c
-> index 8ded225e8c5b..fb202dd18fe5 100644
-> --- a/arch/riscv/kernel/traps_misaligned.c
-> +++ b/arch/riscv/kernel/traps_misaligned.c
-> @@ -264,86 +264,14 @@ static unsigned long get_f32_rs(unsigned long insn,=
- u8 fp_reg_offset,
->  #define GET_F32_RS2C(insn, regs) (get_f32_rs(insn, 2, regs))
->  #define GET_F32_RS2S(insn, regs) (get_f32_rs(RVC_RS2S(insn), 0, regs))
->  =
-
-> -#ifdef CONFIG_RISCV_M_MODE
-> -static inline int load_u8(struct pt_regs *regs, const u8 *addr, u8 *r_va=
-l)
-> -{
-> -	u8 val;
-> -
-> -	asm volatile("lbu %0, %1" : "=3D&r" (val) : "m" (*addr));
-> -	*r_val =3D val;
-> -
-> -	return 0;
-> -}
-> -
-> -static inline int store_u8(struct pt_regs *regs, u8 *addr, u8 val)
-> -{
-> -	asm volatile ("sb %0, %1\n" : : "r" (val), "m" (*addr));
-> -
-> -	return 0;
-> -}
-> -
-> -static inline int get_insn(struct pt_regs *regs, ulong mepc, ulong *r_in=
-sn)
-> -{
-> -	register ulong __mepc asm ("a2") =3D mepc;
-> -	ulong val, rvc_mask =3D 3, tmp;
-> -
-> -	asm ("and %[tmp], %[addr], 2\n"
-> -		"bnez %[tmp], 1f\n"
-> -#if defined(CONFIG_64BIT)
-> -		__stringify(LWU) " %[insn], (%[addr])\n"
-> -#else
-> -		__stringify(LW) " %[insn], (%[addr])\n"
-> -#endif
-> -		"and %[tmp], %[insn], %[rvc_mask]\n"
-> -		"beq %[tmp], %[rvc_mask], 2f\n"
-> -		"sll %[insn], %[insn], %[xlen_minus_16]\n"
-> -		"srl %[insn], %[insn], %[xlen_minus_16]\n"
-> -		"j 2f\n"
-> -		"1:\n"
-> -		"lhu %[insn], (%[addr])\n"
-> -		"and %[tmp], %[insn], %[rvc_mask]\n"
-> -		"bne %[tmp], %[rvc_mask], 2f\n"
-> -		"lhu %[tmp], 2(%[addr])\n"
-> -		"sll %[tmp], %[tmp], 16\n"
-> -		"add %[insn], %[insn], %[tmp]\n"
-> -		"2:"
-> -	: [insn] "=3D&r" (val), [tmp] "=3D&r" (tmp)
-> -	: [addr] "r" (__mepc), [rvc_mask] "r" (rvc_mask),
-> -	  [xlen_minus_16] "i" (XLEN_MINUS_16));
-> -
-> -	*r_insn =3D val;
-> -
-> -	return 0;
-> -}
-> -#else
-> -static inline int load_u8(struct pt_regs *regs, const u8 *addr, u8 *r_va=
-l)
-> -{
-> -	if (user_mode(regs)) {
-> -		return __get_user(*r_val, (u8 __user *)addr);
-> -	} else {
-> -		*r_val =3D *addr;
-> -		return 0;
-> -	}
-> -}
-> -
-> -static inline int store_u8(struct pt_regs *regs, u8 *addr, u8 val)
-> -{
-> -	if (user_mode(regs)) {
-> -		return __put_user(val, (u8 __user *)addr);
-> -	} else {
-> -		*addr =3D val;
-> -		return 0;
-> -	}
-> -}
-> -
-> -#define __read_insn(regs, insn, insn_addr)		\
-> +#define __read_insn(regs, insn, insn_addr, type)	\
->  ({							\
->  	int __ret;					\
->  							\
->  	if (user_mode(regs)) {				\
-> -		__ret =3D __get_user(insn, insn_addr);	\
-> +		__ret =3D __get_user(insn, (type __user *) insn_addr); \
->  	} else {					\
-> -		insn =3D *(__force u16 *)insn_addr;	\
-> +		insn =3D *(type *)insn_addr;		\
->  		__ret =3D 0;				\
->  	}						\
->  							\
-> @@ -356,9 +284,8 @@ static inline int get_insn(struct pt_regs *regs, ulon=
-g epc, ulong *r_insn)
->  =
-
->  	if (epc & 0x2) {
->  		ulong tmp =3D 0;
-> -		u16 __user *insn_addr =3D (u16 __user *)epc;
->  =
-
-> -		if (__read_insn(regs, insn, insn_addr))
-> +		if (__read_insn(regs, insn, epc, u16))
->  			return -EFAULT;
->  		/* __get_user() uses regular "lw" which sign extend the loaded
->  		 * value make sure to clear higher order bits in case we "or" it
-> @@ -369,16 +296,14 @@ static inline int get_insn(struct pt_regs *regs, ul=
-ong epc, ulong *r_insn)
->  			*r_insn =3D insn;
->  			return 0;
->  		}
-> -		insn_addr++;
-> -		if (__read_insn(regs, tmp, insn_addr))
-> +		epc +=3D sizeof(u16);
-> +		if (__read_insn(regs, tmp, epc, u16))
->  			return -EFAULT;
->  		*r_insn =3D (tmp << 16) | insn;
->  =
-
->  		return 0;
->  	} else {
-> -		u32 __user *insn_addr =3D (u32 __user *)epc;
-> -
-> -		if (__read_insn(regs, insn, insn_addr))
-> +		if (__read_insn(regs, insn, epc, u32))
->  			return -EFAULT;
->  		if ((insn & __INSN_LENGTH_MASK) =3D=3D __INSN_LENGTH_32) {
->  			*r_insn =3D insn;
-> @@ -390,7 +315,6 @@ static inline int get_insn(struct pt_regs *regs, ulon=
-g epc, ulong *r_insn)
->  		return 0;
->  	}
->  }
-> -#endif
->  =
-
->  union reg_data {
->  	u8 data_bytes[8];
-> @@ -409,7 +333,7 @@ int handle_misaligned_load(struct pt_regs *regs)
->  	unsigned long epc =3D regs->epc;
->  	unsigned long insn;
->  	unsigned long addr =3D regs->badaddr;
-> -	int i, fp =3D 0, shift =3D 0, len =3D 0;
-> +	int fp =3D 0, shift =3D 0, len =3D 0;
->  =
-
->  	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
->  =
-
-> @@ -490,9 +414,11 @@ int handle_misaligned_load(struct pt_regs *regs)
->  		return -EOPNOTSUPP;
->  =
-
->  	val.data_u64 =3D 0;
-> -	for (i =3D 0; i < len; i++) {
-> -		if (load_u8(regs, (void *)(addr + i), &val.data_bytes[i]))
-> +	if (user_mode(regs)) {
-> +		if (raw_copy_from_user(&val, (u8 __user *)addr, len))
->  			return -1;
-> +	} else {
-> +		memcpy(&val, (u8 *)addr, len);
->  	}
->  =
-
->  	if (!fp)
-> @@ -513,7 +439,7 @@ int handle_misaligned_store(struct pt_regs *regs)
->  	unsigned long epc =3D regs->epc;
->  	unsigned long insn;
->  	unsigned long addr =3D regs->badaddr;
-> -	int i, len =3D 0, fp =3D 0;
-> +	int len =3D 0, fp =3D 0;
->  =
-
->  	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
->  =
-
-> @@ -586,9 +512,11 @@ int handle_misaligned_store(struct pt_regs *regs)
->  	if (!IS_ENABLED(CONFIG_FPU) && fp)
->  		return -EOPNOTSUPP;
->  =
-
-> -	for (i =3D 0; i < len; i++) {
-> -		if (store_u8(regs, (void *)(addr + i), val.data_bytes[i]))
-> +	if (user_mode(regs)) {
-> +		if (raw_copy_to_user((u8 __user *)addr, &val, len))
->  			return -1;
-> +	} else {
-> +		memcpy((u8 *)addr, &val, len);
->  	}
->  =
-
->  	regs->epc =3D epc + INSN_LEN(insn);
-> -- =
-
-> 2.43.0
-> =
-
-
-Thank you for posting the testing instructions! I tested it and it
-worked as expected.
-
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+--
+2.43.0
 
 
 _______________________________________________
