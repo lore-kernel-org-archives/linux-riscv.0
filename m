@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E9FAC48260
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 06:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7533FC4829C
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 06:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VtvODNtVyaJJ74gVnVqd7XCvErOZ7FsZc+0uavDBIIM=; b=QcdDafDp3a5kzK
-	fi+8nyIDBrtRR2vPEgcXkOfiQnYNNGWyuzCFhJvr8nKag1wHoZ9dwXvza22Pk/aU5iVPpAyj9giO+
-	9iJiJsPNZ0K2yoIoEcYzoOxU0nsV9+yMdlGS+XPguxSVKsRXFSEF+/OqU56M/V/hg5Z5eE8aViAYE
-	k6Sm/KaSgMKk/uDXHjswcKpF4KKyjT7xb2LrjIL+tLNYfM1+8OV9XPUBrPbz/7/nlJIph6GFGzSwo
-	ifRrPjiiDBiII9TBSV9nGJQd9BhHDe535YOcPi6ezFkHjUknUGDmPJ9jRD2oCEiyhah77ZPQs5HFi
-	4JOkk6ohUdrUVLBko0BA==;
+	List-Owner; bh=Dyg+BqxMdZIgjJHJnHq+WoDAgr0/VXpw1EN778GAa2I=; b=wxGjIsRw8qMnsB
+	CBD5HfiENFVdEcmuRPqbnRpXGNsSw1AeiOdPytqz+TMzc8vGHtzYUDwbYsDV7XcpFhv9f5SdlY0cB
+	TU+UWOPbQ0PzTpmitEXrx9DVnym4o/LMzQWMyxJMq17v3RALC+kXlSDxbL4CG2N4VpyNgBuGcfrex
+	L0EkjSguLXzBlLtay6p89OJ727RHJPd5Hc2ZNpNYcf96UeDfYZqLcOFZrbnGeTqeeEziq+9xoRF8R
+	3t7tzhqf6Vio/de8EeOBiSFWwJ7NFzIJ4S7fQfb35OpJbnJ/BRa8YSalfSf/wEzQ89CXD1iuK4yy5
+	XKalVej/s2ZeofyQx75w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXxkq-0000000Cm1u-3wYr;
-	Thu, 08 Feb 2024 06:19:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rXxlO-0000000CmG9-0Rh4;
+	Thu, 08 Feb 2024 06:19:58 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXxkn-0000000Cm0h-24fM;
-	Thu, 08 Feb 2024 06:19:22 +0000
+	id 1rXxlK-0000000CmE9-1zaY;
+	Thu, 08 Feb 2024 06:19:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7A15361B60;
-	Thu,  8 Feb 2024 06:19:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E073C433C7;
-	Thu,  8 Feb 2024 06:19:10 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 9BEE6CE1B8E;
+	Thu,  8 Feb 2024 06:19:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF2B9C433C7;
+	Thu,  8 Feb 2024 06:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707373160;
-	bh=sykn19xSWWObW9qLEcBLaerZOcbUqhpMGC17aR+qXjA=;
+	s=k20201202; t=1707373191;
+	bh=nxciaXphWmGCQZgRp+6AraxUwzLXbBBeY7cwt8JPcBc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jIr3HcQ5b0bG8W1uCJ8Xs3AwCdkv1B8MN9avDtnOskKLP0MGsSA5FdVe/qlbwHlcW
-	 ij75Se4Sr0M/mlXPbTkg0ExM3s0WbaPDmBB2z0afJU/DgLRzJylJTpMBlkaFq6genb
-	 UGrNOEd0VDk8McWIYbPInEhmtVwApod8E7+c/sGa2tGsu8eSLCSRKoYuzxYXt8WRCQ
-	 9cQouplzvU1R7Agn51n6p8mDjqipAaZ8nccLsae0oyB1d4PDPTePnX+SGrmuqMGd6I
-	 jV18g7gasEz+BfWfvdqPK2SfzN57x1dswOCBjsVrob3m65Q37nQIWq9pBNrosyAwa/
-	 8XrfQqz5PFmrw==
-Date: Thu, 8 Feb 2024 08:18:55 +0200
+	b=dfNiMFhazIYH10xRr5CgSsEUKx1/MHtqdKR5dLOtoLSCnzVdAATtU7nxrVFXM4BpC
+	 gCGwotvDn7ACXKus06eXzj+eZFYm9wAopITxFL8a8tezWcb5Lap0xHbr493kIoHncD
+	 Ji8m2xjisvxTYwQzAoYpx49/a9Zp+h1Kt+4N1ta6uMLLzeAGNNcMHTSIzdp5pDP730
+	 wyrBnBWla/DtCF/gympbDZ+QYOcvjC5PLvCSqHgYCqiQyCQdmHKGPyxvZv6QkTBUnH
+	 M9Idx2TB81kcYGZKOss9xP7XeuY91FZ5wUyl1ETidkY4l1k3mGk5EtF84qqV9GR0PD
+	 xUtpEa/HDCbrA==
+Date: Thu, 8 Feb 2024 08:19:27 +0200
 From: Mike Rapoport <rppt@kernel.org>
 To: David Hildenbrand <david@redhat.com>
 Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
@@ -69,16 +69,17 @@ Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	sparclinux@vger.kernel.org
-Subject: Re: [PATCH v3 07/15] sparc/pgtable: define PFN_PTE_SHIFT
-Message-ID: <ZcRyT9qil3f-Jot5@kernel.org>
+Subject: Re: [PATCH v3 08/15] mm/pgtable: make pte_next_pfn() independent of
+ set_ptes()
+Message-ID: <ZcRyb2o_lq2XITH_@kernel.org>
 References: <20240129124649.189745-1-david@redhat.com>
- <20240129124649.189745-8-david@redhat.com>
+ <20240129124649.189745-9-david@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240129124649.189745-8-david@redhat.com>
+In-Reply-To: <20240129124649.189745-9-david@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240207_221921_589201_2A1FB567 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20240207_221954_697509_B1A215CD 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,31 +96,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 29, 2024 at 01:46:41PM +0100, David Hildenbrand wrote:
-> We want to make use of pte_next_pfn() outside of set_ptes(). Let's
-> simply define PFN_PTE_SHIFT, required by pte_next_pfn().
+On Mon, Jan 29, 2024 at 01:46:42PM +0100, David Hildenbrand wrote:
+> Let's provide pte_next_pfn(), independently of set_ptes(). This allows for
+> using the generic pte_next_pfn() version in some arch-specific set_ptes()
+> implementations, and prepares for reusing pte_next_pfn() in other context.
 > 
+> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 > Signed-off-by: David Hildenbrand <david@redhat.com>
 
 Reviewed-by: Mike Rapoport (IBM) <rppt@kernel.org>
 
 > ---
->  arch/sparc/include/asm/pgtable_64.h | 2 ++
->  1 file changed, 2 insertions(+)
+>  include/linux/pgtable.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
-> index a8c871b7d786..652af9d63fa2 100644
-> --- a/arch/sparc/include/asm/pgtable_64.h
-> +++ b/arch/sparc/include/asm/pgtable_64.h
-> @@ -929,6 +929,8 @@ static inline void __set_pte_at(struct mm_struct *mm, unsigned long addr,
->  	maybe_tlb_batch_add(mm, addr, ptep, orig, fullmm, PAGE_SHIFT);
->  }
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index f6d0e3513948..351cd9dc7194 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -212,7 +212,6 @@ static inline int pmd_dirty(pmd_t pmd)
+>  #define arch_flush_lazy_mmu_mode()	do {} while (0)
+>  #endif
 >  
-> +#define PFN_PTE_SHIFT		PAGE_SHIFT
-> +
->  static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
->  		pte_t *ptep, pte_t pte, unsigned int nr)
->  {
+> -#ifndef set_ptes
+>  
+>  #ifndef pte_next_pfn
+>  static inline pte_t pte_next_pfn(pte_t pte)
+> @@ -221,6 +220,7 @@ static inline pte_t pte_next_pfn(pte_t pte)
+>  }
+>  #endif
+>  
+> +#ifndef set_ptes
+>  /**
+>   * set_ptes - Map consecutive pages to a contiguous range of addresses.
+>   * @mm: Address space to map the pages into.
 > -- 
 > 2.43.0
 > 
