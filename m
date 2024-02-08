@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A339C4828F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 01:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A6FC4829B
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 01:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hgd98Q/O27MYkZypaNOYAFYctA/iXXkevlb9RzRx7H0=; b=zhhd6kHfYDxrZq
-	P6bMIj2+HouJ33bfmHbstei1CrFqpEqS74T2+Kknxnf87gZHSQTVWjcWfQcKMgEylCOjs4Onti1Og
-	p25ph3JRr0GlftGrTvV0DQBHI9z8zCii1ecXglGtQ6CJVL2skBse/8IdZIAXj/WPOK+3Z0IC8+Ibg
-	rwo6H5lz6IULot6R3EX/4UXulIfX1nKYR/+6ZK1x4TGMqsrq5EnSCqZ1NW1sAujfXcLlsbNsz5dPv
-	Q9KfEQhqzytamvgv8XlynL/gafIrJ7iR94Q9wmCosAguX2nsb/G6/TxEZKThEYN7J30ZTi6LNfGHF
-	fYdClYSrbqhtx387zZtQ==;
+	List-Owner; bh=+wWOXVm9pG3gGWSK9EJAax4m67kPeQpGBu0IopAllzs=; b=4QbYozP7aMi6Zz
+	uC9/Gkvvhorkcvp/1kQqqFoelxithhpsZMTX5MQ41XFFcw3wJYBrAS82sgXSw9b5H1zFDS89c80s7
+	uJShUeO/MValKFUWy291zSL+Pq1EWEBxcZN3GsHTQRzpuajY1hY2ub2JTidWHjsourNlXfDtWet1E
+	CxjJfdzvI05bj4mHoJbQtiNTA5IuhA3ro7i9MDoHuR268j1y7rihLq9/qLw/q3+8r5XoYerWfHXTn
+	aNHpc0Njj2ITWthacYJPBS2R2mXjoGJq7swK6nfn8dSIfnquvGz0FOczxBA8py/s9ncD0nYsHFJxe
+	5vKArx1tPFsbPSgM41yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXtFM-0000000COPy-0063;
-	Thu, 08 Feb 2024 01:30:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rXtFO-0000000COQo-1hfS;
+	Thu, 08 Feb 2024 01:30:38 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXtFJ-0000000COOm-2DFV
+	id 1rXtFJ-0000000COOi-2DAZ
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Feb 2024 01:30:34 +0000
+	Thu, 08 Feb 2024 01:30:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 983416196F;
+	by sin.source.kernel.org (Postfix) with ESMTP id 6205ECE1B34;
 	Thu,  8 Feb 2024 01:30:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6DB25C433B1;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4CBE5C43394;
 	Thu,  8 Feb 2024 01:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1707355829;
-	bh=RMupFb4nJ/fs56B3Mp8NAVjkwclZL/zYoqXWz4mV58M=;
+	bh=jYYwLLD0cwfcrSOXqzB93y66pQoLtdRRtkWOuQY4Tcs=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=NUggYVTwasaK3+SnCqY9s1DQ8Rkt7whE+tlGoGXPUQQHxV3a/U/FiudlgRtJqnnyL
-	 YoK0u724ZuXIkgMN43WHBgAwe8VJWRVCNGKJtogCxNKdiPByDc5gPHchg3xuPtNNKA
-	 pds3VnpHYtH5Is78jCHKQJujPhHp0Rpm7sxocM5zPY5OWGtP9m5O8jv5M2BLykINi/
-	 9+laroHlcorrGptWxrx5+8JomDo2K9VELemYkrrT+jqwsTxUQu+JvkV9EsIlT+Q+TL
-	 N5nOmV8eSLnWHM8LeWY6cawc/BekQMMpt9wBGk4facBRozJMKBvc5XrbdTWXJSWo5N
-	 tJ4Oy9c9bNaNQ==
+	b=ry4PZHKt2T4QCiOzmtdUe9xa5hmTVZOPPqR7Entrs1kU5kxZEvLVtszf3Xx6fWRki
+	 tWOfoshV8pMS3HS9cDp9uiLNiU19prV4RCn8HmYOvVRC9KKX2zYIhLgMfUT6pZUpNr
+	 uQJzkgt4vhIb1TYQg30lDwcznon7vq7hU1FEseNx9JsqQZcqf+yXXRFPjTjjG7VCPk
+	 xIZKeEbyVco4h441qqP7BfCB55CTNzetH3lResw3DS5H8tSsuVHRVtnTjUnvU8e4rP
+	 jvHA3//nLw9IP7kICjl4Hyz5/KnKZ9Zz771ydifwh0TcVYW7Ypa0b8SkDFYeUqodSq
+	 LH9m//dRHfgJw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 53514E2F2F1;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 266D0D8C97D;
 	Thu,  8 Feb 2024 01:30:29 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH -fixes] riscv: Flush the tlb when a page directory is freed
+Subject: Re: [PATCH -fixes] riscv: Fix arch_hugetlb_migration_supported() for
+ NAPOT
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170735582932.12826.4648361824228463635.git-patchwork-notify@kernel.org>
+Message-Id: <170735582915.12826.16835732930725743994.git-patchwork-notify@kernel.org>
 Date: Thu, 08 Feb 2024 01:30:29 +0000
-References: <20240128120405.25876-1-alexghiti@rivosinc.com>
-In-Reply-To: <20240128120405.25876-1-alexghiti@rivosinc.com>
+References: <20240130120114.106003-1-alexghiti@rivosinc.com>
+In-Reply-To: <20240130120114.106003-1-alexghiti@rivosinc.com>
 To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, will@kernel.org,
- aneesh.kumar@linux.ibm.com, akpm@linux-foundation.org, npiggin@gmail.com,
- peterz@infradead.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, samuel.holland@sifive.com, ajones@ventanamicro.com,
- linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, ajones@ventanamicro.com,
+ panqinglin2020@iscas.ac.cn, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240207_173033_632620_39AC0701 
-X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-CacheID: sfid-20240207_173033_774751_0D7CB6DC 
+X-CRM114-Status: UNSURE (   8.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,19 +82,20 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Sun, 28 Jan 2024 13:04:05 +0100 you wrote:
-> The riscv privileged specification mandates to flush the TLB whenever a
-> page directory is modified, so add that to tlb_flush().
+On Tue, 30 Jan 2024 13:01:14 +0100 you wrote:
+> arch_hugetlb_migration_supported() must be reimplemented to add support
+> for NAPOT hugepages, which is done here.
 > 
-> Fixes: c5e9b2c2ae82 ("riscv: Improve tlb_flush()")
+> Fixes: 82a1a1f3bfb6 ("riscv: mm: support Svnapot in hugetlb page")
 > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 > ---
->  arch/riscv/include/asm/tlb.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/riscv/include/asm/hugetlb.h |  3 +++
+>  arch/riscv/mm/hugetlbpage.c      | 16 +++++++++++++---
+>  2 files changed, 16 insertions(+), 3 deletions(-)
 
 Here is the summary with links:
-  - [-fixes] riscv: Flush the tlb when a page directory is freed
-    https://git.kernel.org/riscv/c/97cf301fa42e
+  - [-fixes] riscv: Fix arch_hugetlb_migration_supported() for NAPOT
+    https://git.kernel.org/riscv/c/ce68c035457b
 
 You are awesome, thank you!
 -- 
