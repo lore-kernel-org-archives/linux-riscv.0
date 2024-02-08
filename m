@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217C2C48260
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 12:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31DCEC4828F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 12:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FjP/ij0RRB5vbRk6O7JOLCETbHqCLtVLWX+9l8iu4gI=; b=jrXr0Fq2utSE8k
-	iO5uBuHhHHU4/dhOG/L8d/sL3TWlIvIkp5mS3aRVZerIJJBuOlBKKSTRHf7fwO9wHaF7gY8wOxOS6
-	I0aPt17VjVSfc/ywTNbUigbB3uKxtxlhUYyETpZp/4l2hftpgpNM1xJaLPsF1LAUrHmE0ZTzx2Q6U
-	E27zeAbz/rB5cJSJH6uXJLgvuisxS3x6r+Cc1MKC9LAK/XqluKlfPQoLQsXmWNX8hTIyoV4SjSdk1
-	AaTCI4muidoIjGrCqs2hF2xOfArrMzdluzohWNGYCWDWjwowiJJ6ypn/k/7uxKHuli5bZAqyN2VQp
-	6FYsaqtgKSQ0uYnevtEA==;
+	List-Owner; bh=LeXcJ0S48vzEpowH0odSHXAbGE3npktidhu2zjIK3U8=; b=QSkE8zvPdl0mDF
+	bmmkAgSryiGVTXLxWmE+gbaMTA3hzEjNr494oLv7kFXvaUZ3ZedQ5cYFSumSwtGNG0hfoCR5oR6XR
+	FU6czAmJANbLEVAxO59YYNi0RGvIqRkoHJd9HtSUasOh4/hCmIlZSGMl5nUxT0gAw9aTft0GtS78k
+	YAZxtq9HBsZfuoNJpEUXDSFGPoioxFJPAVm03/9VOr5QO2WOuNMP0BLIi7wFhngsYMkkZev95HxJU
+	CToYbaG/XpM7rxe16Qo2alyjaBaqIMWEmC0kqGHq0EOBmZQq+kAMTbowDBLP1+4M9gNWC0yPSuYpj
+	+PbU+z34VcR00VXeLPpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY3le-0000000Dm93-3rZS;
-	Thu, 08 Feb 2024 12:44:38 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1rY3lj-0000000DmEF-2k9O;
+	Thu, 08 Feb 2024 12:44:43 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY3lK-0000000DlqK-4AeA
+	id 1rY3lO-0000000Dltx-3aYw
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Feb 2024 12:44:28 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5101cd91017so2059869e87.2
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 04:44:18 -0800 (PST)
+	Thu, 08 Feb 2024 12:44:29 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-40efcb37373so16040375e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 04:44:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1707396257; x=1708001057; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1707396261; x=1708001061; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=A5vDPFCyu4dKHPbIjfPJAR8Xl/z+7tvbrj2jQ3PSyCc=;
-        b=MsE6mnr2rvkDEHA3ZCwEOnjGjuZkgSXyCcH3BZo0bFLfjHKaZNZa+0y6vkx1n/t43Z
-         kmi0sEaPsLjn8xRff4DR4Vp1OQyHuc/rox2D+U0Oe/UD5vwguDb9c45BL/6zJPEk9X+g
-         R4A193la03xsmfOxcD7O9kWMJg46h6mhaCOyuS9aEXTDRbawEs2MudKWvJj/nhUblmJb
-         fgyi/eIiwG1Cq59yhT3UD1vjHn5SGOwS8blJkssfbj/eP85TYlz77bST1hGN1JpkyJkU
-         AjeJK0DnoB38ize9tXQ+jHPjes4zWZNC02icu+LJH2iTrV8SySvpQvMmE971KEBsjYnd
-         szyA==
+        bh=6yTEa4/lsVRh49barZX5/hHwmF5ODn+0XbIAzs9ib3A=;
+        b=kTpqdwXgltbe6blEgzKkR3cd78zcnxMiRiso1FQnb8FNbFRI7Os+FIHKcnzsp2Y1cU
+         6qauPrH9L14lppruZbKekugyrQpTRhAvm4K0FAGNHIKAduNUUzyAJER5ZASrVq/vAgmh
+         a2VcymTx3d6kZ+m8Cu4RVipeWwtTgrVmGRkdGV6ScAuufsaGVbwS6eowL+ll4QNAF94k
+         FeWDKmAwnIPm0w1kpbrwfEdekzVrS//L9eBsYNJCAl/Mnd86TEGS/eLJajCxV5vS1wWx
+         HTrTiaNmK3GQ54d00oLEm2Eru4Zp75bgfjnXhjgc9nSBVmEji4EZ000+SSQqoVJdBsRx
+         DAeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707396257; x=1708001057;
+        d=1e100.net; s=20230601; t=1707396261; x=1708001061;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=A5vDPFCyu4dKHPbIjfPJAR8Xl/z+7tvbrj2jQ3PSyCc=;
-        b=D5lLdVCuRlUvWELLNqKwQ4ePK5nsZPwyBqQ1kVqXhs5EVRj3OroT/1VsjOm8nOVkr7
-         Ofl0qw/oC3/qtOSCiFv+WEQ+ia4SO42Aev6N9SJqEC2apI/K5N33oBWpnD48yHX13fzG
-         G7IyxDBa2kbGP4qR9iA4Vn7tZFWELm06o+Tnd2Hrwz5KTENMHpKCU5Z6dReELmyiY+07
-         b8GUCloqyFes3wLoOPyh41yowQBBOvObSRFoiogj+3aUgR6yzafHXtmy6c858YOr8uFv
-         cO/tvWEkGb1Rr8Jst40eIwS8cQC/nxCZ7GME2o6bcRxQ4Ib6juGFiQcyIDrQ2bcSg0Gy
-         K7DQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXxCWg+ssGyqfi767fOMW7Vm1WThec95/4eb6iG01gWlHWn2BOLfqFGJo3AMSIf7keEcmwLgQjmEmGYs8OD95LV1gPx1HYxq4b8GacsV67d
-X-Gm-Message-State: AOJu0Yy5N+9Jqv7dM3YX0LgsH9+bAOKGQ/TnpRdGEF097ugGDNnMeJU6
-	V4JSh7/okfwyW3zDqZgCrE80vp7/KMMDA00OHfInhERHNww3a++uRl4iCWdJSbI=
-X-Google-Smtp-Source: AGHT+IE0anga4wAVIHQGEO4kwt+FmMR+rPaVN3o1P4uZfxRfc3g4Ix7xiG++qj052jif9TxDdYe+Sg==
-X-Received: by 2002:a19:7410:0:b0:50f:18f7:855e with SMTP id v16-20020a197410000000b0050f18f7855emr5896888lfe.39.1707396257242;
-        Thu, 08 Feb 2024 04:44:17 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXE7c3sz4f5wWPPmFgkoRc8BY8A6X4pjg9pmgXzPlV8fvP2U6xbA+abb1l1nwiYJgCT7u6OewuD5z6gEJmGZPUtyVRvDWC0kOXVbIMjKhVhIu7ONfA2dsZB6vzVtPHreOtK1kFaVkBL2F98E3HbSsKPfa0OvjBiy/XBo0MDALyrxBO7WQKAVc1L8OVnpbdwAYDUI71K2HcIyTk5UimsmZWqzTZa+dJTkHkAFRa+ELtCDsHkoNMdDuF8iUfQP3cAmVZw5tqZJewtmvDUkX5XukL6Q25yUETVAYQHyZdbnOVTzjLnIUkc4tPhLwhrKsZIueQ4151kivB7MtT6ZOB0JWq2sHhvt1qe6ueKQdDWiqdpFsOleRXqlpUAVBJKphw/sQsYjG/xilfTzsEkquQd+WoD0gpXbKbxqVumkGEM/Q9WNogZxjRrtUyQJwdRf9TWFpmXIdNj4BXgnr25F7H2uwBW3+Qo8p3nOAp6pxpuNkFixHqt0oupKc0zwXpq2bQmnupyZufRU2Bqpi1hEq7REH/QsMPc9FYipFYJPU7L8077AGlwndFAz7DKBq7kJ5epoG8=
+        bh=6yTEa4/lsVRh49barZX5/hHwmF5ODn+0XbIAzs9ib3A=;
+        b=fft2f0QbAr9/uRNX/Adi8sPepVl0Yb0+2KBGBUpfej3EwxiI2e/BftoGzkCPiqKyPi
+         ZabpZqT/meJk/jUykV1ZLFBST0WpkjMmYgBrJAaOcakgNGY+CctvQkdAZygXF7W1+QrC
+         sV+j6Qsr3PSCzCE5UtopnGqsKEcdO5AlXH1Wy8ZQle1T6kgrfywMu9BZFsar+x3oeb1T
+         /+0MdZ//6yKkvBW5JTBtG5P1MybhWjTKo+AOCsxQH0NaSNFxptJ8DBlVHjVrVZpaJESk
+         HwSZ8CVrgL8hgp13j/nwS6eaCDSvIsc6Uzu0vxy81+rKIQPf/icxOWS0I6WkmPlf5/Bj
+         U8Hg==
+X-Forwarded-Encrypted: i=1; AJvYcCUHtD13HhsUAD4ZRvuzRfFlBNxpe9VW0YNgiImzUVDs4g6o+KlVWecTyfZf+5NIs6XpceyOcEAIlvly7wIzKuEjJPhM8gHwSmOYMHNOD1ty
+X-Gm-Message-State: AOJu0YzQE9xuhoBTgTVRPvsezW/zroBbo70/jTy4YrUpD3gaK4rgQCfz
+	6CqVn+boPBp749cyX5lQM38M94AiwEWWITkWf1EGWXTcwPSnzplyGjMtM3627vc=
+X-Google-Smtp-Source: AGHT+IGANbj1iqOytgIwqTg4Mq/0gpcdPMAp60+0punCG5pjW18WFbjKTwZGb5kh4i/RgdGw5GaHyw==
+X-Received: by 2002:a05:600c:1c9e:b0:40f:c1b7:2556 with SMTP id k30-20020a05600c1c9e00b0040fc1b72556mr7366673wms.11.1707396261396;
+        Thu, 08 Feb 2024 04:44:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCW9Sr/LYarYn0Ydw9Z5UndLl0lPc2rf5eImobbDtGEveI/5qBkV4OQYupRBQfDCMJRJ35YozSSMZas9QWzlnjzZVptnk7zkEZazrYTVw86UYlPS3AI0amTEsE6I1FZTTCY+hKtcasM7WBV0CBCiw8LWCK5V8+EBrXoy+b097mnpz/r7tCy6nox9rqP8L6C/nTjqQwSbamMiJThJ8fRRSO1vtaaCazKwu8e2vMsvJBixIu9GxEvggwQmByZNF0Ftcn2PZ+sei2Tg2ED43jC+Pkt/GSwfzj4BqqDpmdcS/ligPgbTVv4N94S7AmYojqC3XPwLYcTPlsGwptui7xpDuKnOfdMoU91UuSuawHavUuKJrBzwPp3Gk8VKSIXbo2O13LQPhV7Rrq5vTtcWY2ksYI7gP3GUlsypZNX08ORpOoYrg0q6+EI8xVUSuGbFdrQeqxp/s1UyKIEqYLsn9o0yOymBeDmq7b0rAXaZJ+wGnPwDdhKPP0W9GZMM1Ow3IYm8P5oq0ulAfZVqpmXZbInU1pEw6JiKqDGpNY1BXjMkk/DzWiFO5eVGwKSTxx5g6mbiqdQ=
 Received: from claudiu-X670E-Pro-RS.. ([82.78.167.45])
-        by smtp.gmail.com with ESMTPSA id o13-20020a05600c4fcd00b0041047382b76sm790244wmq.37.2024.02.08.04.44.15
+        by smtp.gmail.com with ESMTPSA id o13-20020a05600c4fcd00b0041047382b76sm790244wmq.37.2024.02.08.04.44.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Feb 2024 04:44:16 -0800 (PST)
+        Thu, 08 Feb 2024 04:44:20 -0800 (PST)
 From: Claudiu <claudiu.beznea@tuxon.dev>
 X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
 To: geert+renesas@glider.be,
@@ -83,16 +83,16 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	claudiu.beznea@tuxon.dev,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH 15/17] arm64: dts: renesas: r9a07g054: Update #power-domain-cells = <1>
-Date: Thu,  8 Feb 2024 14:42:58 +0200
-Message-Id: <20240208124300.2740313-16-claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH 17/17] arm64: dts: renesas: r9a09g011: Update #power-domain-cells = <1>
+Date: Thu,  8 Feb 2024 14:43:00 +0200
+Message-Id: <20240208124300.2740313-18-claudiu.beznea.uj@bp.renesas.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
 References: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240208_044419_532518_73C69950 
-X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-CacheID: sfid-20240208_044423_365239_1CE4B6CC 
+X-CRM114-Status: UNSURE (   8.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,266 +118,77 @@ power domains.
 
 Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 ---
- arch/arm64/boot/dts/renesas/r9a07g054.dtsi | 100 ++++++++++-----------
- 1 file changed, 50 insertions(+), 50 deletions(-)
+ arch/arm64/boot/dts/renesas/r9a09g011.dtsi | 28 +++++++++++-----------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/renesas/r9a07g054.dtsi b/arch/arm64/boot/dts/renesas/r9a07g054.dtsi
-index 1f1d481dc783..15fc6e6f79ce 100644
---- a/arch/arm64/boot/dts/renesas/r9a07g054.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r9a07g054.dtsi
-@@ -238,7 +238,7 @@ mtu3: timer@10001200 {
- 					  "tgia8", "tgib8", "tgic8", "tgid8",
- 					  "tciv8", "tciu8";
- 			clocks = <&cpg CPG_MOD R9A07G054_MTU_X_MCK_MTU3>;
+diff --git a/arch/arm64/boot/dts/renesas/r9a09g011.dtsi b/arch/arm64/boot/dts/renesas/r9a09g011.dtsi
+index 50ed66d42a24..74af0f730b89 100644
+--- a/arch/arm64/boot/dts/renesas/r9a09g011.dtsi
++++ b/arch/arm64/boot/dts/renesas/r9a09g011.dtsi
+@@ -81,7 +81,7 @@ sdhi0: mmc@85000000 {
+ 				 <&cpg CPG_MOD R9A09G011_SDI0_ACLK>;
+ 			clock-names = "core", "clkh", "cd", "aclk";
+ 			resets = <&cpg R9A09G011_SDI0_IXRST>;
 -			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_MTU_X_PRESET_MTU3>;
- 			#pwm-cells = <2>;
- 			status = "disabled";
-@@ -259,7 +259,7 @@ ssi0: ssi@10049c00 {
- 			resets = <&cpg R9A07G054_SSI0_RST_M2_REG>;
- 			dmas = <&dmac 0x2655>, <&dmac 0x2656>;
- 			dma-names = "tx", "rx";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			#sound-dai-cells = <0>;
- 			status = "disabled";
- 		};
-@@ -279,7 +279,7 @@ ssi1: ssi@1004a000 {
- 			resets = <&cpg R9A07G054_SSI1_RST_M2_REG>;
- 			dmas = <&dmac 0x2659>, <&dmac 0x265a>;
- 			dma-names = "tx", "rx";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			#sound-dai-cells = <0>;
- 			status = "disabled";
- 		};
-@@ -298,7 +298,7 @@ ssi2: ssi@1004a400 {
- 			resets = <&cpg R9A07G054_SSI2_RST_M2_REG>;
- 			dmas = <&dmac 0x265f>;
- 			dma-names = "rt";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			#sound-dai-cells = <0>;
- 			status = "disabled";
- 		};
-@@ -318,7 +318,7 @@ ssi3: ssi@1004a800 {
- 			resets = <&cpg R9A07G054_SSI3_RST_M2_REG>;
- 			dmas = <&dmac 0x2661>, <&dmac 0x2662>;
- 			dma-names = "tx", "rx";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			#sound-dai-cells = <0>;
- 			status = "disabled";
- 		};
-@@ -334,7 +334,7 @@ spi0: spi@1004ac00 {
- 			resets = <&cpg R9A07G054_RSPI0_RST>;
- 			dmas = <&dmac 0x2e95>, <&dmac 0x2e96>;
- 			dma-names = "tx", "rx";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			num-cs = <1>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -352,7 +352,7 @@ spi1: spi@1004b000 {
- 			resets = <&cpg R9A07G054_RSPI1_RST>;
- 			dmas = <&dmac 0x2e99>, <&dmac 0x2e9a>;
- 			dma-names = "tx", "rx";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			num-cs = <1>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -370,7 +370,7 @@ spi2: spi@1004b400 {
- 			resets = <&cpg R9A07G054_RSPI2_RST>;
- 			dmas = <&dmac 0x2e9d>, <&dmac 0x2e9e>;
- 			dma-names = "tx", "rx";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			num-cs = <1>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -391,7 +391,7 @@ scif0: serial@1004b800 {
- 					  "bri", "dri", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G054_SCIF0_CLK_PCK>;
- 			clock-names = "fck";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_SCIF0_RST_SYSTEM_N>;
- 			status = "disabled";
- 		};
-@@ -410,7 +410,7 @@ scif1: serial@1004bc00 {
- 					  "bri", "dri", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G054_SCIF1_CLK_PCK>;
- 			clock-names = "fck";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_SCIF1_RST_SYSTEM_N>;
- 			status = "disabled";
- 		};
-@@ -429,7 +429,7 @@ scif2: serial@1004c000 {
- 					  "bri", "dri", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G054_SCIF2_CLK_PCK>;
- 			clock-names = "fck";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_SCIF2_RST_SYSTEM_N>;
- 			status = "disabled";
- 		};
-@@ -448,7 +448,7 @@ scif3: serial@1004c400 {
- 					  "bri", "dri", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G054_SCIF3_CLK_PCK>;
- 			clock-names = "fck";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_SCIF3_RST_SYSTEM_N>;
- 			status = "disabled";
- 		};
-@@ -467,7 +467,7 @@ scif4: serial@1004c800 {
- 					  "bri", "dri", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G054_SCIF4_CLK_PCK>;
- 			clock-names = "fck";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_SCIF4_RST_SYSTEM_N>;
- 			status = "disabled";
- 		};
-@@ -482,7 +482,7 @@ sci0: serial@1004d000 {
- 			interrupt-names = "eri", "rxi", "txi", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G054_SCI0_CLKP>;
- 			clock-names = "fck";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_SCI0_RST>;
- 			status = "disabled";
- 		};
-@@ -497,7 +497,7 @@ sci1: serial@1004d400 {
- 			interrupt-names = "eri", "rxi", "txi", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G054_SCI1_CLKP>;
- 			clock-names = "fck";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_SCI1_RST>;
- 			status = "disabled";
- 		};
-@@ -525,7 +525,7 @@ canfd: can@10050000 {
- 			resets = <&cpg R9A07G054_CANFD_RSTP_N>,
- 				 <&cpg R9A07G054_CANFD_RSTC_N>;
- 			reset-names = "rstp_n", "rstc_n";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 
- 			channel0 {
-@@ -554,7 +554,7 @@ i2c0: i2c@10058000 {
- 			clocks = <&cpg CPG_MOD R9A07G054_I2C0_PCLK>;
- 			clock-frequency = <100000>;
- 			resets = <&cpg R9A07G054_I2C0_MRST>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
++			power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
  			status = "disabled";
  		};
  
-@@ -576,7 +576,7 @@ i2c1: i2c@10058400 {
- 			clocks = <&cpg CPG_MOD R9A07G054_I2C1_PCLK>;
- 			clock-frequency = <100000>;
- 			resets = <&cpg R9A07G054_I2C1_MRST>;
+@@ -97,7 +97,7 @@ sdhi1: mmc@85010000  {
+ 				 <&cpg CPG_MOD R9A09G011_SDI1_ACLK>;
+ 			clock-names = "core", "clkh", "cd", "aclk";
+ 			resets = <&cpg R9A09G011_SDI1_IXRST>;
 -			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
++			power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
  			status = "disabled";
  		};
  
-@@ -598,7 +598,7 @@ i2c2: i2c@10058800 {
- 			clocks = <&cpg CPG_MOD R9A07G054_I2C2_PCLK>;
- 			clock-frequency = <100000>;
- 			resets = <&cpg R9A07G054_I2C2_MRST>;
+@@ -113,7 +113,7 @@ emmc: mmc@85020000  {
+ 				 <&cpg CPG_MOD R9A09G011_EMM_ACLK>;
+ 			clock-names = "core", "clkh", "cd", "aclk";
+ 			resets = <&cpg R9A09G011_EMM_IXRST>;
 -			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
++			power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
  			status = "disabled";
  		};
  
-@@ -620,7 +620,7 @@ i2c3: i2c@10058c00 {
- 			clocks = <&cpg CPG_MOD R9A07G054_I2C3_PCLK>;
- 			clock-frequency = <100000>;
- 			resets = <&cpg R9A07G054_I2C3_MRST>;
+@@ -129,7 +129,7 @@ usb3drd: usb3drd@85070400 {
+ 				 <&cpg CPG_MOD R9A09G011_USB_PCLK>;
+ 			clock-names = "axi", "reg";
+ 			resets = <&cpg R9A09G011_USB_DRD_RESET>;
 -			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
++			power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
+ 			ranges;
+ 			#address-cells = <2>;
+ 			#size-cells = <2>;
+@@ -144,7 +144,7 @@ usb3host: usb@85060000 {
+ 					 <&cpg CPG_MOD R9A09G011_USB_PCLK>;
+ 				clock-names = "axi", "reg";
+ 				resets = <&cpg R9A09G011_USB_ARESETN_H>;
+-				power-domains = <&cpg>;
++				power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
+ 				status = "disabled";
+ 			};
+ 
+@@ -157,7 +157,7 @@ usb3peri: usb3peri@85070000 {
+ 					 <&cpg CPG_MOD R9A09G011_USB_PCLK>;
+ 				clock-names = "axi", "reg";
+ 				resets = <&cpg R9A09G011_USB_ARESETN_P>;
+-				power-domains = <&cpg>;
++				power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
+ 				status = "disabled";
+ 			};
  		};
- 
-@@ -634,7 +634,7 @@ adc: adc@10059000 {
- 			resets = <&cpg R9A07G054_ADC_PRESETN>,
- 				 <&cpg R9A07G054_ADC_ADRST_N>;
- 			reset-names = "presetn", "adrst-n";
+@@ -207,7 +207,7 @@ avb: ethernet@a3300000 {
+ 				 <&cpg CPG_MOD R9A09G011_ETH0_GPTP_EXT>;
+ 			clock-names = "axi", "chi", "gptp";
+ 			resets = <&cpg R9A09G011_ETH0_RST_HW_N>;
 -			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 
- 			#address-cells = <1>;
-@@ -672,7 +672,7 @@ tsu: thermal@10059400 {
- 			reg = <0 0x10059400 0 0x400>;
- 			clocks = <&cpg CPG_MOD R9A07G054_TSU_PCLK>;
- 			resets = <&cpg R9A07G054_TSU_PRESETN>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			#thermal-sensor-cells = <1>;
- 		};
- 
-@@ -687,7 +687,7 @@ sbc: spi@10060000 {
- 			clocks = <&cpg CPG_MOD R9A07G054_SPI_CLK2>,
- 				 <&cpg CPG_MOD R9A07G054_SPI_CLK>;
- 			resets = <&cpg R9A07G054_SPI_RST>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
++			power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
  			#address-cells = <1>;
  			#size-cells = <0>;
  			status = "disabled";
-@@ -707,7 +707,7 @@ cru: video@10830000 {
- 			resets = <&cpg R9A07G054_CRU_PRESETN>,
- 				 <&cpg R9A07G054_CRU_ARESETN>;
- 			reset-names = "presetn", "aresetn";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 
- 			ports {
-@@ -748,7 +748,7 @@ csi2: csi2@10830400 {
- 			resets = <&cpg R9A07G054_CRU_PRESETN>,
- 				 <&cpg R9A07G054_CRU_CMN_RSTB>;
- 			reset-names = "presetn", "cmn-rstb";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 
- 			ports {
-@@ -796,7 +796,7 @@ dsi: dsi@10850000 {
- 				 <&cpg R9A07G054_MIPI_DSI_ARESET_N>,
- 				 <&cpg R9A07G054_MIPI_DSI_PRESET_N>;
- 			reset-names = "rst", "arst", "prst";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 		};
- 
-@@ -809,7 +809,7 @@ vspd: vsp@10870000 {
- 				 <&cpg CPG_MOD R9A07G054_LCDC_CLK_P>,
- 				 <&cpg CPG_MOD R9A07G054_LCDC_CLK_D>;
- 			clock-names = "aclk", "pclk", "vclk";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_LCDC_RESET_N>;
- 			renesas,fcp = <&fcpvd>;
- 		};
-@@ -822,7 +822,7 @@ fcpvd: fcp@10880000 {
- 				 <&cpg CPG_MOD R9A07G054_LCDC_CLK_P>,
- 				 <&cpg CPG_MOD R9A07G054_LCDC_CLK_D>;
- 			clock-names = "aclk", "pclk", "vclk";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_LCDC_RESET_N>;
- 		};
- 
-@@ -833,7 +833,7 @@ cpg: clock-controller@11010000 {
+@@ -220,7 +220,7 @@ cpg: clock-controller@a3500000 {
  			clock-names = "extal";
  			#clock-cells = <2>;
  			#reset-cells = <1>;
@@ -385,194 +196,59 @@ index 1f1d481dc783..15fc6e6f79ce 100644
 +			#power-domain-cells = <1>;
  		};
  
- 		sysc: system-controller@11020000 {
-@@ -859,7 +859,7 @@ pinctrl: pinctrl@11030000 {
- 			interrupt-controller;
- 			gpio-ranges = <&pinctrl 0 0 392>;
- 			clocks = <&cpg CPG_MOD R9A07G054_GPIO_HCLK>;
+ 		pwc: pwc@a3700000 {
+@@ -244,7 +244,7 @@ csi0: spi@a4020000 {
+ 				 <&cpg CPG_MOD R9A09G011_CPERI_GRPG_PCLK>;
+ 			clock-names = "csiclk", "pclk";
+ 			resets = <&cpg R9A09G011_CSI_GPG_PRESETN>;
 -			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_GPIO_RSTN>,
- 				 <&cpg R9A07G054_GPIO_PORT_RESETN>,
- 				 <&cpg R9A07G054_GPIO_SPARE_RESETN>;
-@@ -916,7 +916,7 @@ irqc: interrupt-controller@110a0000 {
- 			clocks = <&cpg CPG_MOD R9A07G054_IA55_CLK>,
- 				 <&cpg CPG_MOD R9A07G054_IA55_PCLK>;
- 			clock-names = "clk", "pclk";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_IA55_RESETN>;
- 		};
- 
-@@ -950,7 +950,7 @@ dmac: dma-controller@11820000 {
- 			clocks = <&cpg CPG_MOD R9A07G054_DMAC_ACLK>,
- 				 <&cpg CPG_MOD R9A07G054_DMAC_PCLK>;
- 			clock-names = "main", "register";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_DMAC_ARESETN>,
- 				 <&cpg R9A07G054_DMAC_RST_ASYNC>;
- 			reset-names = "arst", "rst_async";
-@@ -971,7 +971,7 @@ gpu: gpu@11840000 {
- 				 <&cpg CPG_MOD R9A07G054_GPU_AXI_CLK>,
- 				 <&cpg CPG_MOD R9A07G054_GPU_ACE_CLK>;
- 			clock-names = "gpu", "bus", "bus_ace";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			resets = <&cpg R9A07G054_GPU_RESETN>,
- 				 <&cpg R9A07G054_GPU_AXI_RESETN>,
- 				 <&cpg R9A07G054_GPU_ACE_RESETN>;
-@@ -1001,7 +1001,7 @@ sdhi0: mmc@11c00000 {
- 				 <&cpg CPG_MOD R9A07G054_SDHI0_ACLK>;
- 			clock-names = "core", "clkh", "cd", "aclk";
- 			resets = <&cpg R9A07G054_SDHI0_IXRST>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 		};
- 
-@@ -1017,7 +1017,7 @@ sdhi1: mmc@11c10000 {
- 				 <&cpg CPG_MOD R9A07G054_SDHI1_ACLK>;
- 			clock-names = "core", "clkh", "cd", "aclk";
- 			resets = <&cpg R9A07G054_SDHI1_IXRST>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 		};
- 
-@@ -1035,7 +1035,7 @@ eth0: ethernet@11c20000 {
- 				 <&cpg CPG_CORE R9A07G054_CLK_HP>;
- 			clock-names = "axi", "chi", "refclk";
- 			resets = <&cpg R9A07G054_ETH0_RST_HW_N>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
++			power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
  			#address-cells = <1>;
  			#size-cells = <0>;
  			status = "disabled";
-@@ -1055,7 +1055,7 @@ eth1: ethernet@11c30000 {
- 				 <&cpg CPG_CORE R9A07G054_CLK_HP>;
- 			clock-names = "axi", "chi", "refclk";
- 			resets = <&cpg R9A07G054_ETH1_RST_HW_N>;
+@@ -258,7 +258,7 @@ csi4: spi@a4020200 {
+ 				 <&cpg CPG_MOD R9A09G011_CPERI_GRPH_PCLK>;
+ 			clock-names = "csiclk", "pclk";
+ 			resets = <&cpg R9A09G011_CSI_GPH_PRESETN>;
 -			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
++			power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
  			#address-cells = <1>;
  			#size-cells = <0>;
  			status = "disabled";
-@@ -1067,7 +1067,7 @@ phyrst: usbphy-ctrl@11c40000 {
- 			reg = <0 0x11c40000 0 0x10000>;
- 			clocks = <&cpg CPG_MOD R9A07G054_USB_PCLK>;
- 			resets = <&cpg R9A07G054_USB_PRESETN>;
+@@ -274,7 +274,7 @@ i2c0: i2c@a4030000 {
+ 			interrupt-names = "tia", "tis";
+ 			clocks = <&cpg CPG_MOD R9A09G011_IIC_PCLK0>;
+ 			resets = <&cpg R9A09G011_IIC_GPA_PRESETN>;
 -			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			#reset-cells = <1>;
- 			status = "disabled";
- 		};
-@@ -1082,7 +1082,7 @@ ohci0: usb@11c50000 {
- 				 <&cpg R9A07G054_USB_U2H0_HRESETN>;
- 			phys = <&usb2_phy0 1>;
- 			phy-names = "usb";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
++			power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
  			status = "disabled";
  		};
  
-@@ -1096,7 +1096,7 @@ ohci1: usb@11c70000 {
- 				 <&cpg R9A07G054_USB_U2H1_HRESETN>;
- 			phys = <&usb2_phy1 1>;
- 			phy-names = "usb";
+@@ -288,7 +288,7 @@ i2c2: i2c@a4030100 {
+ 			interrupt-names = "tia", "tis";
+ 			clocks = <&cpg CPG_MOD R9A09G011_IIC_PCLK1>;
+ 			resets = <&cpg R9A09G011_IIC_GPB_PRESETN>;
 -			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
++			power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
  			status = "disabled";
  		};
  
-@@ -1111,7 +1111,7 @@ ehci0: usb@11c50100 {
- 			phys = <&usb2_phy0 2>;
- 			phy-names = "usb";
- 			companion = <&ohci0>;
+@@ -311,7 +311,7 @@ wdt0: watchdog@a4050000 {
+ 			clock-names = "pclk", "oscclk";
+ 			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
+ 			resets = <&cpg R9A09G011_WDT0_PRESETN>;
 -			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
++			power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
  			status = "disabled";
  		};
  
-@@ -1126,7 +1126,7 @@ ehci1: usb@11c70100 {
- 			phys = <&usb2_phy1 2>;
- 			phy-names = "usb";
- 			companion = <&ohci1>;
+@@ -361,7 +361,7 @@ pinctrl: pinctrl@b6250000 {
+ 				     <GIC_SPI 105 IRQ_TYPE_LEVEL_HIGH>,
+ 				     <GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&cpg CPG_MOD R9A09G011_PFC_PCLK>;
 -			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 		};
- 
-@@ -1139,7 +1139,7 @@ usb2_phy0: usb-phy@11c50200 {
- 				 <&cpg CPG_MOD R9A07G054_USB_U2H0_HCLK>;
- 			resets = <&phyrst 0>;
- 			#phy-cells = <1>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 		};
- 
-@@ -1152,7 +1152,7 @@ usb2_phy1: usb-phy@11c70200 {
- 				 <&cpg CPG_MOD R9A07G054_USB_U2H1_HCLK>;
- 			resets = <&phyrst 1>;
- 			#phy-cells = <1>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 		};
- 
-@@ -1171,7 +1171,7 @@ hsusb: usb@11c60000 {
- 			renesas,buswait = <7>;
- 			phys = <&usb2_phy0 3>;
- 			phy-names = "usb";
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 		};
- 
-@@ -1186,7 +1186,7 @@ wdt0: watchdog@12800800 {
- 				     <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "wdt", "perrout";
- 			resets = <&cpg R9A07G054_WDT0_PRESETN>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 		};
- 
-@@ -1201,7 +1201,7 @@ wdt1: watchdog@12800c00 {
- 				     <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "wdt", "perrout";
- 			resets = <&cpg R9A07G054_WDT1_PRESETN>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 		};
- 
-@@ -1212,7 +1212,7 @@ ostm0: timer@12801000 {
- 			interrupts = <GIC_SPI 46 IRQ_TYPE_EDGE_RISING>;
- 			clocks = <&cpg CPG_MOD R9A07G054_OSTM0_PCLK>;
- 			resets = <&cpg R9A07G054_OSTM0_PRESETZ>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 		};
- 
-@@ -1223,7 +1223,7 @@ ostm1: timer@12801400 {
- 			interrupts = <GIC_SPI 47 IRQ_TYPE_EDGE_RISING>;
- 			clocks = <&cpg CPG_MOD R9A07G054_OSTM1_PCLK>;
- 			resets = <&cpg R9A07G054_OSTM1_PRESETZ>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
- 		};
- 
-@@ -1234,7 +1234,7 @@ ostm2: timer@12801800 {
- 			interrupts = <GIC_SPI 48 IRQ_TYPE_EDGE_RISING>;
- 			clocks = <&cpg CPG_MOD R9A07G054_OSTM2_PCLK>;
- 			resets = <&cpg R9A07G054_OSTM2_PRESETZ>;
--			power-domains = <&cpg>;
-+			power-domains = <&cpg R9A07G054_PD_ALWAYS_ON>;
- 			status = "disabled";
++			power-domains = <&cpg R9A09G011_PD_ALWAYS_ON>;
+ 			resets = <&cpg R9A09G011_PFC_PRESETN>;
  		};
  	};
 -- 
