@@ -4,87 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9680C48260
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 14:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A121C4828F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 14:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hicVnjJEkpp6aNcIuvZHu7sRKQI67LfYr0zNoIdBPuU=; b=f2fnqMFeKtCtRi
-	PnQoTM1FfqvOd1rqQ9JMvIxNWwnPHn3apL6qQdMIXBaogiadOcTTaNoXAk1QSJaiZhZYyvU/Sgz8e
-	lVWCGBZHADMZUrVAPG6a3rriTs2aiQigHaiYA1GJ6L/hPQe+Y3niJ54Dya1QeTY2HImCE1VK81xPS
-	gY3CSa2yIFjsLAQ3DDRbkMhhp/SqNNtrBOeYM3qAUOTTWb/FGpXIGSHuanVCiP5YLP70VdCBQfTYH
-	XUAPAHAuZP4cTG3Ch9to8sHlcOg7q1TZxWqZuMeT0CQccR2Sp67HvUqLGpX63liXf7Ld/HCTDlExQ
-	8konvt28FV7DCjr/iTOw==;
+	List-Owner; bh=RSA60gQ6lW6+orLjw7nxrjSdVASf4apFnVHmtp19gQA=; b=lkUGsCX7caiP59
+	eYnWiyjdnZGQ5wbFbsD+/5bN2T1dAP/YgXGUIXVYAK5ziD66JY+T4//PbNkWecKYiBfgwTAfdFjaG
+	Vz9R3mgdMtkOYAZCnqVIZSYplF90TFlxzG7upYOW7G/nSgVqyOs+Ln29KyKY5NqmTzIJocY1oNFpj
+	ETm8YyC/Vhq69Yxa3PKSTzEMhfzEyVxEeVv+j+bH45CmOJpt0Czks9CRcTE+BQakn80pB9Ft3v+S2
+	tZ/2cv/5WR6/UekpWQLspSaVpJYLdOzdQViSxrowoh6J5vbBo7wnWtXEEkFJo1hxT5K+ziGBiij9q
+	LBtIEl68Vn1Xwe5AU8xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY5Ad-0000000E13p-0xwj;
-	Thu, 08 Feb 2024 14:14:31 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1rY5Ql-0000000E3E4-2OzP;
+	Thu, 08 Feb 2024 14:31:11 +0000
+Received: from mail-tycjpn01on20601.outbound.protection.outlook.com ([2a01:111:f403:2019::601] helo=JPN01-TYC-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rY5Ab-0000000E13O-0OQ7
+	id 1rY5Qh-0000000E3Am-2p6j
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Feb 2024 14:14:30 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a38271c0bd5so249853966b.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 06:14:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1707401666; x=1708006466; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vDKJggBNKUh5J1UD60+/UCBCI6C1MTiVKiks1Qd8k3o=;
-        b=IrOtBJ2cT5aup1WIAWM+TYshbU4TXhyctopQEvLbZw7UQDb9/kxYvq6Xp0vEGvOmhM
-         4/Fndm14j9+W0f+DQnqoc9qB+v5EMk0ImUwPT+qOD+OcSF3R3Mis2owq6zQW4Tn2Qcc+
-         HuvWmJGWWtq/mo4veZpPFPMrJXPy6xnzZiXo+2hP5OfzqjXjEzPJNyX5+AzWqH9Uf5KQ
-         NPFTPG1GTpM376U+XKAgl8xuymvc11cph+3Pb3vcRL+nGt1UJdB+iuJTEVtkHvD0mR2N
-         9skUr5VZGOWiH1EkUusFpAiteVp7aysT5w4MNdipc2ZK5aqqerEEuInPM2Fb+MhggkV5
-         oqtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707401666; x=1708006466;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vDKJggBNKUh5J1UD60+/UCBCI6C1MTiVKiks1Qd8k3o=;
-        b=ZPDNSCpxMko1f1BWbpYm2Um2QUaR6ZhZoABJyDbmkaA9vpl2vDqZwS6TpjQRic1Akn
-         WoP8TTCd9UCsPLd4FEcSaeGhHVzlmEycGQaSeyu1b8laPdK+qlkj88au/FcfENcIXlOh
-         fozgEYT0jELlc/Uy079jpvqB/EYKX1QoNYsvoEIjnVT5UA7h9tQybSE8RdFGOrMlOKuI
-         71ks7EMf1yvDzEwlxiYmL4JDOTsjkjviRPMc0yRqI6YCGPe4XbKj1L2GbbEZthxL7/u6
-         Kxn4P6J8c2gZ7M1y9mV/OaVhRMctDe77j10vrLmcRLEjgq2Pf+I6FLkw9/FJW4Nwanfl
-         LkyA==
-X-Gm-Message-State: AOJu0Yz4V9/uAys4O2DN/pejyiFyZUYaHKpM0W1eKL2QbtTcQxOXJevV
-	uHLxSNf1zP4wv3AbDAvkZCFRUA/kZIHH5e2VPgR9nv4kVBnxyDac
-X-Google-Smtp-Source: AGHT+IHr4RdcZIOaiSh1Q3PJLh4mVb4SUYUwnQUTA1xO6hlUnbTbmNqlpNO2IEh7urUC0/CYI9RdoQ==
-X-Received: by 2002:a17:906:51:b0:a37:461c:61ea with SMTP id 17-20020a170906005100b00a37461c61eamr6213238ejg.43.1707401666084;
-        Thu, 08 Feb 2024 06:14:26 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVoXDprPoNLSf2MZ9/EnDleTd8xWd97TTn50rofvdwKhL8xCFOh2TlzUy+KkTqjRDlgLpqs2vrcVBTXLXm75Gugm50V5UpW9uiKe8XIpysaLfGBKGFA1JlX2CRbF0p5cVNyZcohCtQPO9+he/imflmMPDY0HprXZqtHTcXuTI55pmA6SqLgBTQkCFEwNQdIBAjlrGFEWJsN5SvnqNdvgVD5sfPMCWNGSctd37zIRhkdcm3Rv9NXmQvDLR9+aDzjOtNvw+IdRaFZDSnlD/SYPNrlWbG0U6Y8b04nmUSNPhSkib7+tbUFu/w2TIgrlcW2tI0RqfM8BXi8nhA5lS/gcn1/od8WVD8dc0+GJKrTFfzSAeqn+BY9/CuDG2XbkDb2HXF9q0hbCg==
-Received: from andrea ([31.189.46.254])
-        by smtp.gmail.com with ESMTPSA id ga6-20020a170906b84600b00a371c568978sm78815ejb.150.2024.02.08.06.14.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Feb 2024 06:14:25 -0800 (PST)
-Date: Thu, 8 Feb 2024 15:14:21 +0100
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>
-Subject: Re: [PATCH] riscv: Fix text patching when icache flushes use IPIs
-Message-ID: <ZcThvZgdzVHotyQq@andrea>
-References: <20240206204607.527195-1-alexghiti@rivosinc.com>
- <ZcS+GAaM25LXsBOl@andrea>
- <CAHVXubj7ChgpvN4F_QO0oASaT5WC2VS0Q-bEqhnmF8z8QV=yDQ@mail.gmail.com>
+	Thu, 08 Feb 2024 14:31:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=CuDl0jfnBqdUtuAlpgR1VWeJR0UqYfxYNckySAlgUuGVgNg/f+5DRq7lQWQoB7ctolvZlYdrac2dV3oDfAqxKGYYLgq+Eaf/xnA5LbqEC+tGNWLm7X8fZDAYnslX5CwegzLKpQVG3edTo1duHhwlRryldysA/Hy8y7Pfc0sRo8JAEpcc6P+D+6xUvxf8i8o2g9k3emz+vdRnkCD2QHq+nLnDNqvxhsz+MORGSIP70ViqdPnqSJR8pxEG0XOFlie/XIKi9tyfBicWN/rbcIQBBL0otrt45++Kk0we3vnU4KASQgzAkiXytpfq+tGdC6o20ZHwvLJnFuEbtln9pMTc3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B1k7cI4SMRfWAYuQl1mbzhIBgxyZ0jBdiZvPDsREblM=;
+ b=CoRFlh2pdQWH/c0O/MaPx5PbhVy8AqAwpPGcQvMxJ+t3vHzD3MyVyIHH7+3Lc6z1HojzRXXUpo+P2bTfyi6TuonC9WcJeXa/ckc8JUw5dUft4LLM0Jzo6n2ua9aeLHgbsGy5tn9sMGEGGg7E0obxAgsWHSsK4zlsLmI6kvribL5rWV51FcTsWBWYDm0tJBMBEhbGREgYnQduFuppWtu4dhu3GfHUL/U/9nChFBNjfnkMEN1nJ1J0RG3zEHexCI5nlYZ/QEJr0XtTGiiKqHnImaYgkDtadVelGvPNs3MqABLuhPe+1344PonpUhsgrQ5JqR9pRcpl9jgJbVSncbidlg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B1k7cI4SMRfWAYuQl1mbzhIBgxyZ0jBdiZvPDsREblM=;
+ b=sLXoQWrI6ZWbq0jzGGksf6ApmE970+0nG0Zy+dEkokd03l32Bjl20Ze8yowbRw1bWSp/WKL0QoYa4KGzBQBWhAgU8Nw1/ff+MPaVzwN88QF3ko3IcYKjXDBGodIBp30UGpm/A23aC3aono3sN46M4rP/V2UybeHt2VMBDeq40WE=
+Received: from TYCPR01MB11269.jpnprd01.prod.outlook.com
+ (2603:1096:400:3c0::10) by TYWPR01MB10836.jpnprd01.prod.outlook.com
+ (2603:1096:400:2a8::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.31; Thu, 8 Feb
+ 2024 14:30:42 +0000
+Received: from TYCPR01MB11269.jpnprd01.prod.outlook.com
+ ([fe80::6719:535a:7217:9f0]) by TYCPR01MB11269.jpnprd01.prod.outlook.com
+ ([fe80::6719:535a:7217:9f0%3]) with mapi id 15.20.7249.039; Thu, 8 Feb 2024
+ 14:30:42 +0000
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Claudiu.Beznea <claudiu.beznea@tuxon.dev>, "geert+renesas@glider.be"
+	<geert+renesas@glider.be>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>, "krzysztof.kozlowski+dt@linaro.org"
+	<krzysztof.kozlowski+dt@linaro.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "magnus.damm@gmail.com" <magnus.damm@gmail.com>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com"
+	<palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>
+CC: "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	Claudiu.Beznea <claudiu.beznea@tuxon.dev>, Claudiu Beznea
+	<claudiu.beznea.uj@bp.renesas.com>
+Subject: RE: [PATCH 01/17] dt-bindings: clock: r9a07g043-cpg: Add power domain
+ IDs
+Thread-Topic: [PATCH 01/17] dt-bindings: clock: r9a07g043-cpg: Add power
+ domain IDs
+Thread-Index: AQHaWox93XkHXchpTkaSnTQ6Ok/3vrEAgGfQ
+Date: Thu, 8 Feb 2024 14:30:42 +0000
+Message-ID: <TYCPR01MB11269DEA9261CA594EECC949686442@TYCPR01MB11269.jpnprd01.prod.outlook.com>
+References: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
+ <20240208124300.2740313-2-claudiu.beznea.uj@bp.renesas.com>
+In-Reply-To: <20240208124300.2740313-2-claudiu.beznea.uj@bp.renesas.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYCPR01MB11269:EE_|TYWPR01MB10836:EE_
+x-ms-office365-filtering-correlation-id: 8d5ad3db-2cde-4947-bbf0-08dc28b287db
+x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: Clx1e2WfOY9yL4bsQLohBl/+ixhcGTrdZwxioq2ExrmSrRp12USZwce3vpLzEVfQSJMgMUPJuEx1xlye73IAow9PmoJoWlT7Lv7LSewqySejuZwhvE986XJa+97Ynph4oDpTElKfDRuMdo8/RQr4lrRpDzMGs72YlaID5Vfd10J+QuqYHZQQtfDe6MzC7OXFszooCO4ogab5XZ6T46YL+MHWzeibPH7Shnzq6hK6Ty/wmhFcT+iFNgGlgB6XT5RWp6iv095KfH9E3N7OgWSqulDJ2D3ZdnHi1eFQVUI7NnZttLzfcBYaZSc8sQHt5eafVk4FBqZOo4nUMPlYqpMn1M1MUUAUQ+swx07bz7NsJSTaymCfLAKEvYorV0JM3quRoFQ41vSYliJqxDGc/BafzwOErddMiLd3xAB4A+1nIlI5qAs1+wRHShmmPID1w35fBZFirNOKIbIWevv1W9LsGzGMj8MR6hc/i0XsDFkN9T3x1wMRg0vfsmazFvluW2qwTK1rOn2QN5HVua4Ar3D8HXnCgx5wkX8yI3kiueN54Ca8zbyb8Fn10y3JdapnOOREI47pz/Dnd8VtbtfCk048q+SkOZfQkquY7KDtwX5/Y9SjMLZfYDXKzyWXobyAU7p38JZxJzg2X3mCbKQgG3nt+Q==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB11269.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(39860400002)(376002)(366004)(346002)(136003)(396003)(230922051799003)(1800799012)(64100799003)(186009)(451199024)(55016003)(9686003)(55236004)(83380400001)(38070700009)(33656002)(86362001)(38100700002)(54906003)(921011)(6506007)(122000001)(8936002)(53546011)(478600001)(26005)(107886003)(52536014)(5660300002)(66556008)(66446008)(4326008)(7416002)(66946007)(64756008)(76116006)(316002)(8676002)(71200400001)(66476007)(7696005)(110136005)(2906002)(41300700001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?l3WysoI/ZxlIEtXFlk2Lu/bSYow0uhFGKm8uyJSVZ/kkOZRAJigU9kvpjclf?=
+ =?us-ascii?Q?nGRwE2buHtFaiqAk9pEdAjv/E7ZIeGUmASv0rk7WlbHVSIjjOO4t8gYy3zwR?=
+ =?us-ascii?Q?FVrdA3B+eRwH4WDWxzVDH6Ok1UpledJ6nUgy1CFWXM/GhL+Q033Ufizni2Au?=
+ =?us-ascii?Q?TuVWcC/LwzBbZnReGE5+0QWon7pCXKmCR2ewN359cZwVZ2gnO0ZvW58zxTMq?=
+ =?us-ascii?Q?7wJXMy70Ku+aiTbl7b905+nq/mYWmyotgc1PYa73qdTcDFMPzuR4Hqy7AnEd?=
+ =?us-ascii?Q?cuRdTqciABIn70tf3bV+ZZgDLz1VtaI6EzCIhzgFN+bmkmHH+D7Wt0vtduBr?=
+ =?us-ascii?Q?4DyvzaTbPltqJZ8rTyFtxAx+32Sm70RY95NILc8CQL7A/9d/kRGfGL38KH6C?=
+ =?us-ascii?Q?tPoa4HyKr0g9NmrxPrrsx2sLKsdJADrXCIw0PfB9jPheE78luFCSBpjENwSm?=
+ =?us-ascii?Q?xO+U7awnfHfBrrffDxecjO2EYWIgdRf6DCJF5H5CrpXagvUCzmDPt1mlaUUW?=
+ =?us-ascii?Q?TUFAlWR/Wt30WmOyGmdl4Ej1OjtqufEBoJvdjeh0x1G7R7VkLl+zgVXFOy9K?=
+ =?us-ascii?Q?CzCuE14BMt23t/InXgSlg9DqiyWOTXgd9eVXLzoSDOSqBcawI2UyS8dqNwcO?=
+ =?us-ascii?Q?Qcp3HcTYZc6gfG//0TnONaU2WD4d4jRGoT0GYGKh6d1jgsPte9h84wvJbEn5?=
+ =?us-ascii?Q?al8RXcBk3jBbvEBQHEZl5DwxpI8aZimr2hSwKbT3ufLm0PPsRBtdAKPxvjQe?=
+ =?us-ascii?Q?b/8ysFkfZ4SjoT4tztzZbI9I/wcF05dDVI/AxhvlgEo9Z9+SqXwyChneua3Z?=
+ =?us-ascii?Q?nUfk2B+VXYletbDteS0Z0OnUoCImhd0bITHJXEZxVxeRlLwPDQrbOVzooPwh?=
+ =?us-ascii?Q?qnUblpv6w7TeLD0R0RccMXYdM0XW2n374oxzjolfh3s51glem66LurS0KSUU?=
+ =?us-ascii?Q?bL44p4S6goIou22pBDpOFvovCybLjjoQ8qMXHvSuBHxS5/xelXNNGif0Jr0j?=
+ =?us-ascii?Q?H7ceeuJXeVp6Ty6w2EpO2eOkcOk7wj3/XfJNHYa6xcDXb9yS42lgYbnPG+SG?=
+ =?us-ascii?Q?ALghf+wKCBFZvKoWxgzQMPSy/FrCOMuv6POuhxUkpeEydw/5qwqh0R9Xtj2w?=
+ =?us-ascii?Q?5ev8nIEyUd3vD+HUa+8pe508WfhC2kI2g2kFKRRi4z0STl1CWQicaygaDIlu?=
+ =?us-ascii?Q?uMa8shVX644N3W6BE7/rvW6bykneAIsb/AP4CzNjEF1JMQsnoiStCHqJl7Xn?=
+ =?us-ascii?Q?uczhVfE25nOBDbuXjG/qTsxvoqpM/CoGgRPHhop095kUI7s5cp4QCZuHfnR5?=
+ =?us-ascii?Q?Q2Uj3Fjk8wfzOJzhhA65j7ke1C4ImyelEpR76lNXbo/k47TzUYDGk5FVoO2o?=
+ =?us-ascii?Q?IydCfj658ABrkD6JcWyQOKidZp3u0tdpJGVA8/5zfEWIssIPA4IHwPIKAHrr?=
+ =?us-ascii?Q?TogLvC20+FsQuZMhOt1bbvNvPSQ8H8FZMAZ5FmQDjztM/iDHCTeMHq2io+PL?=
+ =?us-ascii?Q?9TKB4mUxFHMmO1swQNH+f8o4XURJSG00LauwplvsFpMapiTsLsn+oXt0XSXK?=
+ =?us-ascii?Q?KYZ4QJqGcVlQWGJnZckkjJpjTFfaAAdCK8Yii8HnIxZePhxkXgmvd3nJ/HwF?=
+ =?us-ascii?Q?wg=3D=3D?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAHVXubj7ChgpvN4F_QO0oASaT5WC2VS0Q-bEqhnmF8z8QV=yDQ@mail.gmail.com>
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB11269.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8d5ad3db-2cde-4947-bbf0-08dc28b287db
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Feb 2024 14:30:42.7994
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 4JkkLfg/jqiYJASkWu84y8LgW8u3wmpwCjaMuWV5vVTveLYaK9nJ+pIqP3Th4e8Q162mJteT1vOLMFy32P8h3kqqpVTaDGSNeHdN1nNl4/w=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYWPR01MB10836
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240208_061429_178109_B15D3C76 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20240208_063107_721927_968BE5D2 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,48 +152,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> I did not even think of that, and it actually makes sense so I'll go
-> with what you propose: I'll replace atomic_inc() with
-> atomic_inc_return_release(). And I'll add the following comment if
-> that's ok with you:
+Hi Claudiu,
+
+Thanks for the patch.
+
+> -----Original Message-----
+> From: Claudiu <claudiu.beznea@tuxon.dev>
+> Sent: Thursday, February 8, 2024 12:43 PM
+> Subject: [PATCH 01/17] dt-bindings: clock: r9a07g043-cpg: Add power domain
+> IDs
 > 
-> "Make sure the patching store is effective *before* we increment the
-> counter which releases all waiting cpus"
-
-Yes, this sounds good to me.
-
-
-> Honestly, I looked at it one minute, did not understand its purpose
-> and said to myself "ok that can't hurt anyway, I may be missing
-> something".
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 > 
-> FWIW,  I see that arm64 uses isb() here. If you don't see its purpose,
-> I'll remove it (here and where I copied it).
-
-Removing the smp_mb() (and keeping the local_flush_icache_all()) seems
-fine to me; thanks for the confirmation.
-
-
-> > On a last topic, although somehow orthogonal to the scope of this patch,
-> > I'm not sure the patch_{map,unmap}() dance in our patch_insn_write() is
-> > correct: I can see why we may want (need to do) the local TLB flush be-
-> > fore returning from patch_{map,unmap}(), but does a local flush suffice?
-> > For comparison, arm64 seems to go through a complete dsb-tlbi-dsb(-isb)
-> > sequence in their unmapping stage (and apparently relying on "no caching
-> > of invalid ptes" in their mapping stage).  Of course, "broadcasting" our
-> > (riscv's) TLB invalidations will necessary introduce some complexity...
-> >
-> > Thoughts?
+> Add power domain IDs for RZ/G2UL (R9A07G043) SoC.
 > 
-> To avoid remote TLBI, could we simply disable the preemption before
-> the first patch_map()? arm64 disables the irqs, but that seems
-> overkill to me, but maybe I'm missing something again?
+> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> ---
+>  include/dt-bindings/clock/r9a07g043-cpg.h | 48 +++++++++++++++++++++++
+>  1 file changed, 48 insertions(+)
+> 
+> diff --git a/include/dt-bindings/clock/r9a07g043-cpg.h b/include/dt-
+> bindings/clock/r9a07g043-cpg.h
+> index 77cde8effdc7..eabfeec7ac37 100644
+> --- a/include/dt-bindings/clock/r9a07g043-cpg.h
+> +++ b/include/dt-bindings/clock/r9a07g043-cpg.h
+> @@ -200,5 +200,53 @@
+>  #define R9A07G043_AX45MP_CORE0_RESETN	78	/* RZ/Five Only */
+>  #define R9A07G043_IAX45_RESETN		79	/* RZ/Five Only */
+> 
+> +/* Power domain IDs. */
+> +#define R9A07G043_PD_ALWAYS_ON		0
+> +#define R9A07G043_PD_GIC		1
+> +#define R9A07G043_PD_IA55		2
+> +#define R9A07G043_PD_MHU		3
+> +#define R9A07G043_PD_CORESIGHT		4
+> +#define R9A07G043_PD_SYC		5
+> +#define R9A07G043_PD_DMAC		6
+> +#define R9A07G043_PD_GTM0		7
+> +#define R9A07G043_PD_GTM1		8
+> +#define R9A07G043_PD_GTM2		9
+> +#define R9A07G043_PD_MTU		10
+> +#define R9A07G043_PD_POE3		11
+> +#define R9A07G043_PD_WDT0		12
+> +#define R9A07G043_PD_SPI		13
+> +#define R9A07G043_PD_SDHI0		14
+> +#define R9A07G043_PD_SDHI1		15
+> +#define R9A07G043_PD_ISU		16
+> +#define R9A07G043_PD_CRU		17
+> +#define R9A07G043_PD_LCDC		18
+> +#define R9A07G043_PD_SSI0		19
+> +#define R9A07G043_PD_SSI1		20
+> +#define R9A07G043_PD_SSI2		21
+> +#define R9A07G043_PD_SSI3		22
+> +#define R9A07G043_PD_SRC		23
+> +#define R9A07G043_PD_USB0		24
+> +#define R9A07G043_PD_USB1		25
+> +#define R9A07G043_PD_USB_PHY		26
+> +#define R9A07G043_PD_ETHER0		27
+> +#define R9A07G043_PD_ETHER1		28
+> +#define R9A07G043_PD_I2C0		29
+> +#define R9A07G043_PD_I2C1		30
+> +#define R9A07G043_PD_I2C2		31
+> +#define R9A07G043_PD_I2C3		32
+> +#define R9A07G043_PD_SCIF0		33
+> +#define R9A07G043_PD_SCIF1		34
+> +#define R9A07G043_PD_SCIF2		35
+> +#define R9A07G043_PD_SCIF3		36
+> +#define R9A07G043_PD_SCIF4		37
+> +#define R9A07G043_PD_SCI0		38
+> +#define R9A07G043_PD_SCI1		39
+> +#define R9A07G043_PD_IRDA		40
+> +#define R9A07G043_PD_RSPI0		41
+> +#define R9A07G043_PD_RSPI1		42
+> +#define R9A07G043_PD_RSPI2		43
+> +#define R9A07G043_PD_CANFD		44
+> +#define R9A07G043_PD_ADC		45
+> +#define R9A07G043_PD_TSU		46
 
-Mmh, I'm afraid this will require more thinking/probing on my end (not
-really "the expert" of the codebase at stake...).  Maybe the ftrace
-reviewers will provide further ideas/suggestions for us to brainstorm.
+Not sure from "Table 42.3 Registers for Module Standby Mode"
 
-  Andrea
+Power domain ID has to be based on CPG_BUS_***_MSTOP or CPG_CLKON_***
+As former reduces number of IDs??
+
+Cheers,
+Biju
+
+ 
+
 
 _______________________________________________
 linux-riscv mailing list
