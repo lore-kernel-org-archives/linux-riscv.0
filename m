@@ -4,80 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B25DC4829B
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 03:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DD6C48260
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Feb 2024 06:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RfaxAAJGXeyrxhRuY8WrE+jpKV4nRUejr4iq/gtMzJU=; b=3oYRhbSNstTNjz
-	PI31dk9pdxIWl5kxBSOQv55dHJyeT9qux7vGiulrvcra5YyHss7HhnMF6y4WSURuBFP1Q80GmqJEB
-	T11uuGgoQioWD1RM668XQ2tBDL9Ed5AmQhnoefV76LRqebAQbMy8ke4OLMng4MIz5sxzXk7Hkbz6F
-	74vxkR80+VwdQuUs6nj7r0ufX23qH+OHjSo/li1Jv7C/DYb1PUQd4SiZig3+IiDA1qHKJEigPjMHI
-	WlXmpvr68+wh7NzhB5aS0Ath6sffS5UCOzbB3dwytxBW6/pO7UMjBCa88uOYOriZ+7sydU06cVi6U
-	DdnreqOgup8Z2q/gXgQg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ynq3L6MFAliEvEewTMljiYPobm/rt/IxZlXPaVRVVDc=; b=YvJR3lWdAuLwfN
+	JVmTApcf2e02nB2hJt3Qpzz7k5O/Ac3Zmwn1x4IbpEYLZE3oGTL16CQpmD31QUNfiJTbEjUklpKf4
+	R94Y0jtXBsB755DbXeW13b17D1y1/VvOmAx6fKnx1zkjhqPwxBewKg6/YBFaULTYT4ljn8oHYJFtV
+	0WUdCjRy3KDHWafrNMp2+Nwnu9PgcecCFwkdKBMr5aF1S/oUhy3kWuwjWsCnDHy+r3kNwTUjNtLjd
+	VG//KuS9XJ5Q1zh45NYDsYK3eZfP9XNHmcfc6N0zSJZWTC2Ixz5N2XAWQrBKdUi/1e88Mu1v5gNVW
+	m+hNXms7mOON1Vqd/Acw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXvLD-0000000CZXs-0gZR;
-	Thu, 08 Feb 2024 03:44:47 +0000
-Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
+	id 1rXxci-0000000Ck9z-0LSo;
+	Thu, 08 Feb 2024 06:11:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rXvLA-0000000CZWj-1pLI
+	id 1rXxcf-0000000Ck9L-1EIH
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Feb 2024 03:44:45 +0000
-Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-206689895bfso943579fac.1
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Feb 2024 19:44:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1707363882; x=1707968682; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pHHbaCQ0poyIlU4NNDp8/EJ+oDcSBjCEciZfSlQAroE=;
-        b=gejmA2ZORAd6lS6VHdAvaPmaPOJHPIh0lCF9iQNDwnA2baWlQIic8RhTNERwcxlP90
-         KHi59hv/kE7PyHvOp/DegINGfqyNtAQEAUqUi6waGEVL47vtmH6UzGzIuX0qpNiWV47I
-         dJe0J12rnookHekwopsgGuUoMTtqNTFg8fsSBRAExlr3zc5pOp7QxP2gloLgdIxDfC18
-         HOSDIIpiVWWQa0Ga5UG31cv4NEBYv4b7Cqd6HA16PRS6sP9GC1DJOcLHtF3YnEYdx+US
-         cBawK2dE2Cq3uu9t5AqcZqKKCiA84vqjdqwohNP5fzhDdNkZszuSof9xlyeYs2gRuNW6
-         ooGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707363882; x=1707968682;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pHHbaCQ0poyIlU4NNDp8/EJ+oDcSBjCEciZfSlQAroE=;
-        b=hsnzyxYuUBLFQZtKDVBPV4vepKGO9bZ4ieA4WA1zzMxL/xynAKl6rFh19zC9D50B5f
-         Pjkkn9jDc6BKR5WJu0X5WK81/DGn34osGhLhqyKcltCxN4ad/GLSxFQTNNcI5Tb3kke8
-         RXMcoGMh5ZaDfymNBfBzuL+9o+g5pg/8gpYWhYBb0ZhSdwHMywteDRTCfkhZZnSE8zks
-         VnRw+i1HIN9SyBAS9ck/OaOPR1EWAEnrDWDLaDjeXqhhh6OXZ4d0kxHFfuwDWd5ZVEm7
-         GKXyMCRPOr34CHwZDFcUpFWgWFPXdc4hX/PxCPoMaCCK6gNtKx87FkHHRBcPbP7PaiOm
-         1JdA==
-X-Gm-Message-State: AOJu0Yx1e6ZJ78yPOf6NDpg+3uQHEXvYWwZx/vf+Y+h85oI263jzqWI4
-	cQtwAkUl5KsLpoFe34NHUkLwjwNhoKhHqcyGhz/VuEjJua1sRXqBmpDnnv7ZDzNGSXnSsRF1iYF
-	80Yk=
-X-Google-Smtp-Source: AGHT+IF8S/sWdD2/t/IehosLthOGcp9RQPnzkTr2qd4mbuxfbLO4HkNLnW4usy2ZbfgHlv8pV/ejiA==
-X-Received: by 2002:a05:6870:5aa6:b0:219:efcf:4566 with SMTP id dt38-20020a0568705aa600b00219efcf4566mr608603oab.13.1707363882197;
-        Wed, 07 Feb 2024 19:44:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVh/Tfazr2HX3H9HLVSgqn2h5sWZF5zZ5Zu3TylAEJBkg6WlJX4/E7mdRNyYeqRzmewuTn9VXmXv1FtoOtXhtlcOre2zou7FFXQUDmY6pI/9p/FsbwVr0+8GGlVgHQ9AYdz6tBzr5/i8hIFf+7EspTg8jBmrbfhdhTP3qiwyFvjpwO2in0n4qTOitGh8nK7brPcNu/Kvh21nlOV/qTSz2Rnp1Gbk49vPosP7AWKXM6PoV/qytusk6FagZIAGKefqaqZynnwmgekry/tFV+XDLPJWXhLi4W2ycmDpIRCad/Huk1Yjxqhm2F7DjWvdLC3aIgaUNaY9EbYeOBLtVswBA3q71Sj1eHrmp9KORNCA/U8M8UAnDOI4Yp334RzlA1isNR7FePtaKlAYAN/Vo8T3HErx+2vd6HLGUiyszV6wXoj9Hcm2pveNgVjS2wxW6nYATvDx94n
-Received: from sunil-laptop.dc1.ventanamicro.com ([106.51.83.242])
-        by smtp.gmail.com with ESMTPSA id g10-20020a056830160a00b006ddbfc37c87sm443595otr.49.2024.02.07.19.44.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Feb 2024 19:44:41 -0800 (PST)
-From: Sunil V L <sunilvl@ventanamicro.com>
+	Thu, 08 Feb 2024 06:10:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BC27F61B29;
+	Thu,  8 Feb 2024 06:10:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EA37C433F1;
+	Thu,  8 Feb 2024 06:10:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1707372654;
+	bh=q5NnvPNENXx6lXEqe6lzo8azetgd5THlB6UTUGS4XJc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OQd6SPFXMRyWPgDAZQwxJQOpwAdnF/pAk6Gr7yfLUfqr8HLHNHIAgzh5uK1MFfWar
+	 KDd7yQoMso59HaRBAzMBWhxFfEum4Tuqrlt9y/sAGjrWeltwoRpH9Cb9AQZq63z/tF
+	 zErIg8rBEDWXnJQNWjt7pIxJSTwCs0n6Wd4jSgmRdgf5JtqfbkwgVIEM3R2I/D6C4k
+	 KQYh62E2IC39TzPWROTarfg2PzbVguafe1QNXbQGldWsbwyxFIQj1KK33lILRStR2d
+	 enzgVDBCs5LOlRtkrRWdiI0k7YOtHeE05zPNKO1Wi6IZX7N9dlnMzoT1Mvj+GnPh1m
+	 pSFv+HuMccxqg==
+From: Eric Biggers <ebiggers@kernel.org>
 To: linux-riscv@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 -next 3/3] RISC-V: defconfig: Enable CONFIG_ACPI_CPPC_CPUFREQ
-Date: Thu,  8 Feb 2024 09:14:14 +0530
-Message-Id: <20240208034414.22579-4-sunilvl@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240208034414.22579-1-sunilvl@ventanamicro.com>
-References: <20240208034414.22579-1-sunilvl@ventanamicro.com>
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-crypto@vger.kernel.org,
+	Jerry Shih <jerry.shih@sifive.com>,
+	=?UTF-8?q?Christoph=20M=C3=BCllner?= <christoph.muellner@vrull.eu>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Phoebe Chen <phoebe.chen@sifive.com>,
+	Andy Chiu <andy.chiu@sifive.com>
+Subject: [PATCH riscv/for-next] crypto: riscv - parallelize AES-CBC decryption
+Date: Wed,  7 Feb 2024 22:08:51 -0800
+Message-ID: <20240208060851.154129-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240207_194444_496281_67C1F37F 
-X-CRM114-Status: UNSURE (   6.78  )
+X-CRM114-CacheID: sfid-20240207_221057_398120_48E97870 
+X-CRM114-Status: UNSURE (   7.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,33 +71,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, "Rafael J . Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CONFIG_ACPI_CPPC_CPUFREQ is required to enable CPPC for RISC-V.
+From: Eric Biggers <ebiggers@google.com>
 
-Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+Since CBC decryption is parallelizable, make the RISC-V implementation
+of AES-CBC decryption process multiple blocks at a time, instead of
+processing the blocks one by one.  This should improve performance.
+
+Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/riscv/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/crypto/aes-riscv64-zvkned.S | 24 +++++++++++++++---------
+ 1 file changed, 15 insertions(+), 9 deletions(-)
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index eaf34e871e30..2988ecd3eb4d 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -44,6 +44,7 @@ CONFIG_CPU_FREQ_GOV_USERSPACE=y
- CONFIG_CPU_FREQ_GOV_ONDEMAND=y
- CONFIG_CPU_FREQ_GOV_CONSERVATIVE=m
- CONFIG_CPUFREQ_DT=y
-+CONFIG_ACPI_CPPC_CPUFREQ=m
- CONFIG_VIRTUALIZATION=y
- CONFIG_KVM=m
- CONFIG_ACPI=y
+diff --git a/arch/riscv/crypto/aes-riscv64-zvkned.S b/arch/riscv/crypto/aes-riscv64-zvkned.S
+index 78d4e1186c074..43541aad6386c 100644
+--- a/arch/riscv/crypto/aes-riscv64-zvkned.S
++++ b/arch/riscv/crypto/aes-riscv64-zvkned.S
+@@ -132,33 +132,39 @@ SYM_FUNC_END(aes_ecb_decrypt_zvkned)
+ 	addi		INP, INP, 16
+ 	addi		OUTP, OUTP, 16
+ 	addi		LEN, LEN, -16
+ 	bnez		LEN, 1b
+ 
+ 	vse32.v		v16, (IVP)	// Store next IV
+ 	ret
+ .endm
+ 
+ .macro	aes_cbc_decrypt	keylen
++	srli		LEN, LEN, 2	// Convert LEN from bytes to words
+ 	vle32.v		v16, (IVP)	// Load IV
+ 1:
+-	vle32.v		v17, (INP)	// Load ciphertext block
+-	vmv.v.v		v18, v17	// Save ciphertext block
+-	aes_decrypt	v17, \keylen	// Decrypt
+-	vxor.vv		v17, v17, v16	// XOR with IV or prev ciphertext block
+-	vse32.v		v17, (OUTP)	// Store plaintext block
+-	vmv.v.v		v16, v18	// Next "IV" is prev ciphertext block
+-	addi		INP, INP, 16
+-	addi		OUTP, OUTP, 16
+-	addi		LEN, LEN, -16
++	vsetvli		t0, LEN, e32, m4, ta, ma
++	vle32.v		v20, (INP)	// Load ciphertext blocks
++	vslideup.vi	v16, v20, 4	// Setup prev ciphertext blocks
++	addi		t1, t0, -4
++	vslidedown.vx	v24, v20, t1	// Save last ciphertext block
++	aes_decrypt	v20, \keylen	// Decrypt the blocks
++	vxor.vv		v20, v20, v16	// XOR with prev ciphertext blocks
++	vse32.v		v20, (OUTP)	// Store plaintext blocks
++	vmv.v.v		v16, v24	// Next "IV" is last ciphertext block
++	slli		t1, t0, 2	// Words to bytes
++	add		INP, INP, t1
++	add		OUTP, OUTP, t1
++	sub		LEN, LEN, t0
+ 	bnez		LEN, 1b
+ 
++	vsetivli	zero, 4, e32, m1, ta, ma
+ 	vse32.v		v16, (IVP)	// Store next IV
+ 	ret
+ .endm
+ 
+ // void aes_cbc_encrypt_zvkned(const struct crypto_aes_ctx *key,
+ //			       const u8 *in, u8 *out, size_t len, u8 iv[16]);
+ //
+ // |len| must be nonzero and a multiple of 16 (AES_BLOCK_SIZE).
+ SYM_FUNC_START(aes_cbc_encrypt_zvkned)
+ 	aes_begin	KEYP, 128f, 192f
+
+base-commit: cb4ede926134a65bc3bf90ed58dace8451d7e759
 -- 
-2.34.1
+2.43.0
 
 
 _______________________________________________
