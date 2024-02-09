@@ -4,133 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A87C48297
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Feb 2024 07:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADAFDC4828F
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Feb 2024 11:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gvYMwhJT33jJHYB1UVLBi3HIEicjnZbQB/QhqDzgX2A=; b=IHHbHO7Z+LVu6c
-	9JpwBTIn0Ps2NXGsqFyjG0dIgsXAR8cXPXosk/27ivvLVIfpHoi/6Ux0vxLzOTawCY8peFURPV8nb
-	abiw14PJqK9h9zn0XPuJeuBtTWiP29TbWGENNKRft6RVa10BpswHtL47VBVPwqovsRZXu7mP9BiUi
-	50Id8rYkzpEdVWM24/owd7Mu7MJsDwX3RLCvKc9KaIsLQndpL4ShenWGbWP8GwfWfkJMZRUMOuY5L
-	HH03+MJIiK1+OYNHvY2IzQjS3aiXzydtgZAiLmak2wL9eklME80wJOvw5QdEIAY13doYbZwHxKDQD
-	w8ZGV3nYnTznUFQm5g5Q==;
+	List-Owner; bh=409aqnrmRszUBjUSEIrd1/ieUoEWmfook5MyYd7YzhU=; b=bsT6HxTo0X8LuY
+	K7Fi+S0l/npsY1Kx7YF4KhQTi8/moSWpH+LWItWvAqBqHBA02aYPr3V+k+YNuIt5QHgM8dLg2AIbM
+	aUZkkcqkh0EK0ZYnYgC6ZETf2azj+8yCNBRyq1vQfRWPHfO4C4TXscXTP+XPPwvTtFMy/ajjkh8HL
+	JF+70BWdW3joOXqJRn2l/ArhOjbWsEosGxwZQnpW+B6QtHEPrmOD5s3d6aSWaDTm1cbk91U+HhkGV
+	/MOW6/4Hl7zf4OWkVQhAJ4lqPHob4lBzqNIyQ5tt3n5dNfHOzrkPvbAGg6b8gWvu8+slLcY6TGaLF
+	c15E13Hdr8qPdA8+cTlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rYLku-0000000GOkw-3YBs;
-	Fri, 09 Feb 2024 07:57:04 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rYLkr-0000000GOjA-3WcJ
+	id 1rYOn6-0000000GoWR-0wjQ;
+	Fri, 09 Feb 2024 11:11:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rYOn3-0000000GoUb-2IO9
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Feb 2024 07:57:03 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4101d4c5772so3584635e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Feb 2024 23:56:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1707465413; x=1708070213; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NFU6VprDaen7RWlu2XI3+Yx/fXxu3FdETMuSYSFUvtQ=;
-        b=Gb3URVXswuLhtM7FJ5S+vjcICe8skeZcP74Cg/zkdGBgn3cpF0N1rH1xaKAp/i7m78
-         vfcEbS2JByzWip5PQnZvubFrQtsJit/agy03XFyDkDo/adZWUMM8JHorssSmtA27uiyx
-         uv5RhIpImpR51OAV3UaaCCD2CCCIPHBpmJswUD+qK9ru2OLp6jq6kJlOlcBpIJj44uu4
-         46hbdU43H81EpH0Uuzj/uRuyAAnEFWKp8Zjh1FmxNxJKekGUzWcZbpdN8vnB/zBgJqim
-         AA6Y77n4cDBPlK2LviQzMlluvj46RkyuonBAJLktvwLzFgvt8oMmEc+Nk6wP/vPB7W3X
-         5fCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707465413; x=1708070213;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NFU6VprDaen7RWlu2XI3+Yx/fXxu3FdETMuSYSFUvtQ=;
-        b=kt17IJtd7yyfTbK95MI0BXLMPTJgmLikhc4PINB/Upo7E8WhDzD12no3U4yaRGsaDm
-         TiDgkBHCoUN2cjICzx34YnVWeSeXZhod2cVUa67MlEZU6p+FI0ZTPoPZEnQvt/Jht1E4
-         KMZlRBeiSs5OyYsBjZ9CuZxsfcM11WDVC7ML0adsUItyiom7lBm62Q6iWYfVQcIujwYh
-         qdOvTP7xQacEx9Sdx7hSJGPqJcf89QX/6xh0erUy6iVOa73UoJRPI+p7NECeOBbQiwsb
-         oRoPAZB5upRtlmMNDzb5EnmOKkqOiXY2RdiA+4dZgklGAvCIfBmIokCA3ZsFZ4eEoiiD
-         GNmA==
-X-Forwarded-Encrypted: i=1; AJvYcCXXhogBLEgP2JRULHObSWnwL53N6mJruo9YV5lDnywnL443cUOsNJqoD65dcWhwjsO/99HyXbAnqGj2GCEIdzt8r9T31BqtxeLpowK9cuPt
-X-Gm-Message-State: AOJu0Ywi7ckdO/ckOKE670cQRiHnkI/UsYGrXaQW4vS2un/ReBC5x+tp
-	tcLqUTgYOEQ893ni6lTMlOKhbTSIGa+JsQk5UEOPsFEKND5/oenDoVb/8EuW9TU=
-X-Google-Smtp-Source: AGHT+IG9JKWy/OdmVlDi6L1bm3QCVsr289K5642r1rNClNPlq4kkh3auBxOrGrrAAdShft0u+A+2QA==
-X-Received: by 2002:a05:600c:3512:b0:40f:de25:f9a9 with SMTP id h18-20020a05600c351200b0040fde25f9a9mr310418wmq.15.1707465412889;
-        Thu, 08 Feb 2024 23:56:52 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVWFoFId/14WV+ApBhbMyPMSsicb8EGs2yBnvimkUV9gu2+tr2WSrz0cLKefemk1gFIFD8grfEQnWvPnIRIjB8zpfVgnPZYf5G8tiesgCGr2a1CQtjbAaIWxjjGQyw3V2YtvrDumIJsPP/1T5ANZdVhkMFLQnoLPmkXnythNselXwVMjjyfqFc6aGEKNnrvKrA6N8vD/kwLrDyImWR4/ov/3jTgpMXj/iWuB8vs/2a12e2oL4gYIUvINCNAkZMwOYwEIm7pVjQGyDCKWsAfNXJ+gaESaPE3IBEzvRVkETCnUV8uU/pv1Vew1ETpWE/mhp0BDLEsGyo3qMl2nmtl8uvVd4SennKcDJ7gk3kxaIVBMpeLevQ5KuyV5+uywI3McKvzjm94GEfsHDwngUGY4D46KeJvWmffvyBZzGv+0cWG7Q6GuSIQVUERFwSJMH2oQsptbOVZEiDFY8ZedngHeYaIDFP3UDuOkjvDHBKLdCIydG8cGafNIj31mxJtAA23XoETRkeQjsdhw0MGLYnzvjEAOGLLZD/Kf7fXK+jpdxxgGKEzvuH/RksM8G+WTgYklw==
-Received: from [192.168.1.20] ([178.197.222.62])
-        by smtp.gmail.com with ESMTPSA id bi19-20020a05600c3d9300b004107219c664sm559395wmb.32.2024.02.08.23.56.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 Feb 2024 23:56:52 -0800 (PST)
-Message-ID: <2ca67a77-b51c-4f7f-828f-8d91d8971c75@linaro.org>
-Date: Fri, 9 Feb 2024 08:56:50 +0100
+	Fri, 09 Feb 2024 11:11:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F22DFEC;
+	Fri,  9 Feb 2024 03:12:04 -0800 (PST)
+Received: from [10.57.47.170] (unknown [10.57.47.170])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DCA853F8A4;
+	Fri,  9 Feb 2024 03:11:18 -0800 (PST)
+Message-ID: <72ef475f-513b-4e33-ae85-f7e693a0cd38@arm.com>
+Date: Fri, 9 Feb 2024 12:11:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/17] dt-bindings: clock: renesas,rzg2l-cpg: Update
- #power-domain-cells = <1>
+Subject: Re: [PATCH v1 -next 0/3] RISC-V: ACPI: Enable CPPC based cpufreq
+ support
 Content-Language: en-US
-To: Claudiu <claudiu.beznea@tuxon.dev>, geert+renesas@glider.be,
- mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
- magnus.damm@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu
-Cc: linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-References: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
- <20240208124300.2740313-7-claudiu.beznea.uj@bp.renesas.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20240208124300.2740313-7-claudiu.beznea.uj@bp.renesas.com>
+To: Sunil V L <sunilvl@ventanamicro.com>, linux-riscv@lists.infradead.org,
+ linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>,
+ Atish Kumar Patra <atishp@rivosinc.com>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>,
+ Len Brown <lenb@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>
+References: <20240208034414.22579-1-sunilvl@ventanamicro.com>
+From: Pierre Gondois <pierre.gondois@arm.com>
+In-Reply-To: <20240208034414.22579-1-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240208_235701_916970_16872417 
-X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-CacheID: sfid-20240209_031129_684675_FDEC62FA 
+X-CRM114-Status: UNSURE (   9.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -143,26 +68,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/02/2024 13:42, Claudiu wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+The code looks good to me, so FWIW:
+Reviewed-by: Pierre Gondois <pierre.gondois@arm.com>
+
++Sudeep as this touches cppc/arm in case he didn't see the patches
+
+On 2/8/24 04:44, Sunil V L wrote:
+> This series enables the support for "Collaborative Processor Performance
+> Control (CPPC) on ACPI based RISC-V platforms. It depends on the
+> encoding of CPPC registers as defined in RISC-V FFH spec [2].
 > 
-> The driver will be modified (in the next commits) to be able to specify
-> individual power domain ID for each IP. Update the documentation to cope
-> with this.
-
-You are affecting existing users, so you should explain that you keep
-ABI intact or if you break it, why it is fine to do so.
-
-
-
-Best regards,
-Krzysztof
-
+> CPPC is described in the ACPI spec [1]. RISC-V FFH spec required to
+> enable this, is available at [2].
+> 
+> [1] - https://uefi.org/specs/ACPI/6.5/08_Processor_Configuration_and_Control.html#collaborative-processor-performance-control
+> [2] - https://github.com/riscv-non-isa/riscv-acpi-ffh/releases/download/v1.0.0/riscv-ffh.pdf
+> 
+> The series is based on the LPI support series.
+> Based-on: 20240118062930.245937-1-sunilvl@ventanamicro.com
+> (https://lore.kernel.org/lkml/20240118062930.245937-1-sunilvl@ventanamicro.com/)
+> 
+> Sunil V L (3):
+>    ACPI: RISC-V: Add CPPC driver
+>    cpufreq: Move CPPC configs to common Kconfig and add RISC-V
+>    RISC-V: defconfig: Enable CONFIG_ACPI_CPPC_CPUFREQ
+> 
+>   arch/riscv/configs/defconfig |   1 +
+>   drivers/acpi/riscv/Makefile  |   1 +
+>   drivers/acpi/riscv/cppc.c    | 157 +++++++++++++++++++++++++++++++++++
+>   drivers/cpufreq/Kconfig      |  29 +++++++
+>   drivers/cpufreq/Kconfig.arm  |  26 ------
+>   5 files changed, 188 insertions(+), 26 deletions(-)
+>   create mode 100644 drivers/acpi/riscv/cppc.c
+> 
 
 _______________________________________________
 linux-riscv mailing list
