@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68741C48297
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Feb 2024 16:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE8CC48297
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Feb 2024 16:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=ljS+p6QS+WwT/FZ6RtDh1ZFNm5Vq3LkJhBCUXWKG5nM=; b=pfWrz6DwMazr4YAwsfqCUORipY
-	MxlaH3KgzkgVI4enncW1wdCZDC/CQmHUGUDY8EAjB6mR+AKPb9Lb0Cda8dD3vOSiRVdbkLPvVnUe7
-	ggBjH+RlP8ZB6L7zgszD3fO/Mp0kmZkyrRackwBczLFQXMUcahq/5TxsYX2OwVae6pR5dwOR7qvmN
-	eWjIcfJUXcoAE2gOGplacVlNL9+rLMOJAp+lH7Lp81tE8jrCcEBxxLi466UAMlU2GrKQzwwudSeci
-	wbygQzSc7hP1mqyV98tlRBq2aVZo6/OR432yz8mG3+enZYkzUy2a5x7l1KK3Hq2P4Jv5dPFUBN3QO
-	fBP60JJg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KLMilDRaeqGf/b/XF+fw8xttF6yc1TGwK6Xq0+vlvCg=; b=1GHxvd5eL45T+j
+	iz8Gt7v1OFj0ieSYGcv8D40H10Yyk0poTnoc8Xj09zW2NmCZnipt1y+bK0N/Wz7zAq+e5QmGgY47P
+	tiHDLzhMgbekY5TQKy2LUHmhgU4fwGBSWcqas7PYwS7MSL7j+UxfSIne60ZLOXYbfn7+DQ5wBmSst
+	Kkef5hkUKY47PF46wjJSXDj7fahrBmBnCCTc+bEitNN4dUYzBpDu65RtdIw6seSrCnSAwLG4G4ScX
+	B3QvqJgYZkShVg+d9qE5ouRcYzQu2fAgsVgJhOyNwUg6KFqKaG2POSOqJOusBcqhqy4Z+ZHbKVxr2
+	QamuP73ItwBgj/9v8lig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rYTwL-0000000HY97-2nsW;
-	Fri, 09 Feb 2024 16:41:25 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1rYTxW-0000000HYTy-0XCw;
+	Fri, 09 Feb 2024 16:42:38 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rYTwH-0000000HY89-22hm
+	id 1rYTxT-0000000HYT7-1GBP
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Feb 2024 16:41:23 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6e04fd5e05aso815421b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 09 Feb 2024 08:41:20 -0800 (PST)
+	Fri, 09 Feb 2024 16:42:36 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6e096229192so508670b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 09 Feb 2024 08:42:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1707496880; x=1708101680; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2zcUgQutS3DlGmwc5sEu07E2yjamp4+tUNWDaLkXDGg=;
-        b=XKlNlLTy83yvVGCwLw6YU68wsQE/aqvMYuWvvL5KT2m1+XJ2LGjuMtpLjoJRsxbN2l
-         R8TxNFFi4whnh4sqLnH5QGB4C8JABlkC9mELL+XXbq/0/JhwCXBgn9GNoRkn/5CLd/Up
-         2WnMx0plY1tCZ96MB2rbCL82ZP2KWxXID0MT2w+I6dmNLe4GiLu4UHTFETZkQgXKdZtV
-         rjVKBtP4ArPKC/++SbBprbCQ8TLEq0DOI0De3tcAQ1NVxGNnqDQJJ+GpKMm7NIbD6ldd
-         hPRAOLRvoQ32dLzBf/g2RIxhrlZ3p9gNfjOuwEDZZhDBFSPnFm94Bi9WrCzgaDLfbV1P
-         BolA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707496880; x=1708101680;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1707496953; x=1708101753; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2zcUgQutS3DlGmwc5sEu07E2yjamp4+tUNWDaLkXDGg=;
-        b=A6GTVEozphCW8mLAPZra4XFS7Jw6x0Flc42mInwHHz7KvCS61G5iNeSeVoyWUQzZqx
-         b1+wfp+DYZCEjg5oQ4rZaa21/M4I0Wi/FIfsuWXVAjED2D9atK+rVM8Fpm/7SHszREmN
-         obRLK5btNOAdf7+g2j1PFQW12uRSgc4wOjnjQjn0gamHaqanNrNMS8Kq+/unCkuWdOUK
-         hzTzADOO4BQqjlV7sq6NNpOOtHFFXqmmhGoCxhsRzfW4QcRUjBLyf+6Tn14Kj+SJaHK/
-         CmniMREmAuH+OiR5cq1XzUWQIpdsGPn8CkWioqFZk/ALhy2XxwlrZB3d59EwjxBVXioO
-         dB0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUu4/FKbO5ng++Ny5RJgxZ3VhR+adOG8PKl9vYoubLRySPEWzGi0VBHGtnB2/h8j9v4yl4+vY8+M+0n1OPtSFfyjbBtw2XdjhXEyH8GOEXf
-X-Gm-Message-State: AOJu0Yw9n+13v+5GzP0v5+5g1Eyd3dU3Ib/LVFVo7QGSoENKmcJ6T+05
-	yZ/7twOYmW5Q7u8GF+5O407nJS4eghzDyqD7ryd/9uuP5BiZXZS/I4BTJtZoI0k=
-X-Google-Smtp-Source: AGHT+IH138In2qxnUDyUf5L0gXNV1VbXHmjJHEtnKql2S7mQ4A7aMyRWwAcBnM47BI7S/82MALke/A==
-X-Received: by 2002:a05:6a00:2d90:b0:6e0:4030:ef77 with SMTP id fb16-20020a056a002d9000b006e04030ef77mr2136298pfb.16.1707496879549;
-        Fri, 09 Feb 2024 08:41:19 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW6wu/Bha+p2xiJadb32Pu5nECmFu1bSMq78Yus+Wy9UGejr+P/rAkvSaYFYJpd4eKOMUDwtlXR5p89UC6jkt7GzbRaB16LaAfJvdZA5qsJOFcMQrqMzs/8q3+2FOkBiC2owQCZL1+Z5jjNK6+JZfuehN3+7w9pRTq1NIPmfjiU0jmf6RUsN1XH/GUA125keZ5AVyaEH/JZTQJEzNlNvzc/DzGDYa/D3+APhpCn3IhlaWxIwdc=
+        bh=L1v5hrasURtpD/QMj4+535HVGtxG6NrfgYnEY0yoBLM=;
+        b=AloXvj9FP7bEqK3i0beoTrEaKOKnKA1z7nVnT6kP1kGcw3lXN8qff2/6LRdBB83vEd
+         mk+JqpXs+8DM0YFLVrgbAj+r5QLS5tQTdnftlZmhp/4OwgZRzja9SCkY1f2kcpgyLDZm
+         KEixakGA/3wZEUYZACc4UUAQGTkIgDYI2/CuYpctDfZM80/XDhLxGVH3s0bSZjloQcCl
+         vVRDlcdKVwQecv3dqBoIGwqweqt+fMgBGhMNlORAHwvBn78JlpvHau85/DqOq987mort
+         IvjE2o+kIcC6Nchg99Os3D94O5btsbUFX2bjkxpqQNdtI/KutmySWb/92nJMeWq9nCY8
+         QRyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1707496953; x=1708101753;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=L1v5hrasURtpD/QMj4+535HVGtxG6NrfgYnEY0yoBLM=;
+        b=SmnuFL3GmqlR7jqjAliXFzrdMlIR4aJx09ZMhU54a5uxmi1VFcXb6Awi1lzNBSdKAK
+         KMRdyO2v2wk1dV1Pf+QHom4wLbQEUi8J1Jr+ZYsbLPkmD263NuL9w+Pnm+Z4zpS+NKnY
+         rck9zDXYjcumFZ6VGKnrUvkzZh2BujcNq8MEQszLnsrZQ4H0Hy75nsr+z/JQ2aK5Q2b+
+         SFsuivMis+k6j8k3YsvCObOfd/DSs5JOz5TEUzQqXFi/rAMA/QfsXzlZOWMLZVfjXpKb
+         tt0x2O1LoiHqiNkqMF/9sbgn4YE5ttYFzqOVtStb+TODgM07Kcbm2fZ72sDeRqYgh1zE
+         8HYQ==
+X-Gm-Message-State: AOJu0YwgTGXh2vqtlo/mDd8PsKr3mGVNUmEX5K85v+pYk4/jukihayrZ
+	ssgCxNgRDP2QTuBB+WYZTuCdXcR2NxxSVirrGlHhPpjQS1ppSlJQiqNSEG1FLScjWShjMnklrOr
+	b
+X-Google-Smtp-Source: AGHT+IHQ8ulGq5yLVFV55EPMdjwvCn4c4QEOlCrtTBjH67j3LIx3p7IRoBVmzb9VXfX8b1kwPgADgg==
+X-Received: by 2002:a05:6a20:6f88:b0:19e:a3cc:2496 with SMTP id gv8-20020a056a206f8800b0019ea3cc2496mr2620520pzb.10.1707496952759;
+        Fri, 09 Feb 2024 08:42:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWn5RWWHW8OAa0SKSbuR1orGWLhvB+3zYtjirNj6oNZzHvH3Co8RgbpDbPSFdNKd55FRmpA6YKQv494p3WCS1VpeoU/AC8QH5n9f3Hn
 Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id y2-20020aa78542000000b006e096ff7c91sm728258pfn.100.2024.02.09.08.41.18
+        by smtp.gmail.com with ESMTPSA id x40-20020a056a000be800b006dde10a12b6sm722039pfu.211.2024.02.09.08.42.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Feb 2024 08:41:18 -0800 (PST)
-Date: Fri, 09 Feb 2024 08:41:18 -0800 (PST)
-X-Google-Original-Date: Fri, 09 Feb 2024 08:41:15 PST (-0800)
-Subject: Re: [PATCH] riscv: Fix wrong size passed to local_flush_tlb_range_asid()
-In-Reply-To: <ZbsT16CvwSDXtlAL@snowbird>
-CC: alexghiti@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, geert@linux-m68k.org, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: dennis@kernel.org
-Message-ID: <mhng-df0a3f10-0713-440c-81c4-a47f22fb367a@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        Fri, 09 Feb 2024 08:42:32 -0800 (PST)
+Date: Fri, 09 Feb 2024 08:42:32 -0800 (PST)
+X-Google-Original-Date: Fri, 09 Feb 2024 08:42:19 PST (-0800)
+Subject: [GIT PULL] RISC-V Fixes for 6.8-rc4
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-cb58eea8-c84e-4aaf-ab71-f445d3b46de0@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240209_084121_764557_75F1748F 
-X-CRM114-Status: GOOD (  30.35  )
+X-CRM114-CacheID: sfid-20240209_084235_509921_9FB98DD1 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,67 +84,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 31 Jan 2024 19:45:27 PST (-0800), dennis@kernel.org wrote:
-> Hi Palmer,
->
-> On Wed, Jan 31, 2024 at 12:34:40PM -0800, Palmer Dabbelt wrote:
->> On Mon, 29 Jan 2024 01:01:00 PST (-0800), dennis@kernel.org wrote:
->> > Hi Alexandre,
->> >
->> > On Tue, Jan 23, 2024 at 02:27:30PM +0100, Alexandre Ghiti wrote:
->> > > local_flush_tlb_range_asid() takes the size as argument, not the end of
->> > > the range to flush, so fix this by computing the size from the end and
->> > > the start of the range.
->> > >
->> > > Fixes: 7a92fc8b4d20 ("mm: Introduce flush_cache_vmap_early()")
->> > > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
->> > > ---
->> > >  arch/riscv/mm/tlbflush.c | 2 +-
->> > >  1 file changed, 1 insertion(+), 1 deletion(-)
->> > >
->> > > diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
->> > > index 8d12b26f5ac3..9619965f6501 100644
->> > > --- a/arch/riscv/mm/tlbflush.c
->> > > +++ b/arch/riscv/mm/tlbflush.c
->> > > @@ -68,7 +68,7 @@ static inline void local_flush_tlb_range_asid(unsigned long start,
->> > >
->> > >  void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
->> > >  {
->> > > -	local_flush_tlb_range_asid(start, end, PAGE_SIZE, FLUSH_TLB_NO_ASID);
->> > > +	local_flush_tlb_range_asid(start, end - start, PAGE_SIZE, FLUSH_TLB_NO_ASID);
->> > >  }
->> > >
->> > >  static void __ipi_flush_tlb_all(void *info)
->> > > --
->> > > 2.39.2
->> > >
->> >
->> > Sorry for the delay, I just pulled this into percpu#for-6.8-fixes. I'll
->> > send it to Linus this week.
->>
->> Do you mind if we do a shared tag or something?  It's going to conflict with
->> https://lore.kernel.org/all/20240117140333.2479667-1-vincent.chen@sifive.com/
->> .  No big deal as it's a pretty trivial conflict, but they'll both need
->> stable backports.
->
-> This alone won't need a stable backport, I merged the bug as part of
-> enabling the percpu page allocator in the recent 6.8 merge window.
->
-> That being said, this is the only patch I'm carrying for v6.8. I'm happy
-> to drop it and have you pick it up instead. Saves me a tag and a PR.
-> Lmk if that works for you.
+The following changes since commit 6613476e225e090cc9aad49be7fa504e290dd33d:
 
-Sorry I missed this, but that seems like the easiest way to go here -- 
-the other patch fixes the same bug (and another one), so I think we're 
-safe with just that (which I'm sending to Linus as part of my rc4 fixes 
-now-ish, as I'd need to anyway).  It's d9807d60c145 ("riscv: mm: execute 
-local TLB flush after populating vmemmap"), in case anyone's looking 
-later...
+  Linux 6.8-rc1 (2024-01-21 14:11:32 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.8-rc4
+
+for you to fetch changes up to 3951f6add519a8e954bf78691a412f65b24f4715:
+
+  riscv: Fix arch_tlbbatch_flush() by clearing the batch cpumask (2024-02-07 10:19:37 -0800)
+
+----------------------------------------------------------------
+RISC-V Fixes for 6.8-rc4
+
+* A fix for a missing TLB flush during early boot on SPARSEMEM_VMEMMAP
+  configurations.
+* A handful of fixes to correctly implement the break-before-make
+  behavior requried by the ISA for NAPOT mappings.
+* A fix for a missing TLB flush on intermediate mapping changes.
+* A fix for a build warning about a missing declaration of
+  overflow_stack.
+* A fix for a performace regression related to incorrect tracking of
+  completed batch TLB flushes.
+
+----------------------------------------------------------------
+Alexandre Ghiti (5):
+      riscv: Fix set_huge_pte_at() for NAPOT mapping
+      riscv: Fix hugetlb_mask_last_page() when NAPOT is enabled
+      riscv: Flush the tlb when a page directory is freed
+      riscv: Fix arch_hugetlb_migration_supported() for NAPOT
+      riscv: Fix arch_tlbbatch_flush() by clearing the batch cpumask
+
+Ben Dooks (1):
+      riscv: declare overflow_stack as exported from traps.c
+
+Palmer Dabbelt (1):
+      Merge patch series "svnapot fixes"
+
+Vincent Chen (1):
+      riscv: mm: execute local TLB flush after populating vmemmap
+
+ arch/riscv/include/asm/hugetlb.h    |  3 ++
+ arch/riscv/include/asm/stacktrace.h |  5 +++
+ arch/riscv/include/asm/tlb.h        |  2 +-
+ arch/riscv/include/asm/tlbflush.h   |  1 +
+ arch/riscv/mm/hugetlbpage.c         | 78 ++++++++++++++++++++++++++++++++++---
+ arch/riscv/mm/init.c                |  4 ++
+ arch/riscv/mm/tlbflush.c            |  4 +-
+ 7 files changed, 90 insertions(+), 7 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
