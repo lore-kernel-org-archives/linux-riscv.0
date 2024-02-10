@@ -4,104 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D22BDC48260
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Feb 2024 21:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01670C48260
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Feb 2024 23:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bzwgcmeqHqpONAyFXIaeep5EXZgP9f40SO8rB57fmw0=; b=rsuQeViGQslnv0Tx8iwY2Dca82
-	ltpAN1wJJqkAiVLxO0GDPw+AoAbLxkHikgQ+F5ol6XAaXQtFdx+BLxHAucEWzXdT+wZ1mVqZ03G5W
-	pToS6zlORCh/UBLxiLVDiBPWcYYkcQTDX9cLIvcYk2OXGbhNCz9ATD5Wh1FDBmjpVOQIFtobLGEMw
-	57SUYCwcwUrzWmRHtFNlA4A3TOH5bjTiECSr/MBpZwdf5rBBtbwLqL6R0C9aZ/egbxZANUBs9Yr99
-	Ey5GLr+v0XCiIuqBN3/q3bVmZf4SLyMW6HwBlaBibdgCf7Ndiu/UJz0a775K37/wtwYqPy9LbqBlu
-	p03Cem7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=frImKRL9AdN4k4YY3IysGibs/y0x0sGWKmIyik9gIOk=; b=40aUzo8vXI/kI6
+	+h2M9MQmAXDJb7QlEY1yQjs6+H6e1gAazEauQ6fmPLfZlsrtSHW0SdmeO51HshTgJhMHfiKQaRyVv
+	ziuHK0OCbIG2stdWPduGqAok9nEt2Po2DeaMO8SNRFC/dVEEfNCwOzxkeeR0htq5etbGu0yHUHfrx
+	TlXC8412dDFiH9D0tVZjSJ+yazmh6HDTsVTNnwnVkr1bB2I0zSdBJyoTowjY3BXNy9Xsa7aHwoJNW
+	MJnvvzDijrLJMDqJy2DgJKPKhI1NryVTVDRCAEq014h3NJ3nWsGH/4cm/3pbvoDJUJgsOMV4V+jcP
+	Zgnd0TavjO0DpIBZi02g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rYuu1-000000022f3-0QYa;
-	Sat, 10 Feb 2024 21:28:49 +0000
-Received: from e2i605.smtp2go.com ([103.2.142.93])
+	id 1rYwti-00000002911-0dq8;
+	Sat, 10 Feb 2024 23:36:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rYutx-000000022e7-3apC
-	for linux-riscv@lists.infradead.org;
-	Sat, 10 Feb 2024 21:28:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=smtpservice.net; s=mp6320.a1-4.dyn; x=1707601424; h=Feedback-ID:
-	X-Smtpcorp-Track:Message-ID:Subject:To:From:Date:Reply-To:Sender:
-	List-Unsubscribe; bh=/a1NKqeWXcomDM15U7re5KNGNhB+KStNX+Jjw32PO8k=; b=AfSWZcq9
-	uwCnwEID1h4itCoJV6fKSXRXr4sWCk9WRNGCVwpEaGIYZJCWHVJbNwmnN3XjcB/6KH61M4xMD8ftl
-	VZzneu1a30Yog+OF7DODS/f/IILQcSFe2obSzfP4ybcXaGl5V/CI3LFrz94UhMwr2ynEmT4JxOFk+
-	hlFOuxmtH+/8Ng7s08qdI7TOppG2pD2VJ4u5l9qSYqTP/4O/7/HOIOBsbzOrVtPx9oNdkzMUzL3HT
-	iFZEvCbq/6upKRwV4WnH6WsD42sjL0yU7Ls9OC+AvImtS8GxH7uR4DSBXXNZW5k/PVTOu8VAYqV0L
-	3Ng4cBeD7mLC/LlPNKJrQg2Shw==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fjasle.eu;
- i=@fjasle.eu; q=dns/txt; s=s1174286; t=1707600524; h=from : subject :
- to : message-id : date;
- bh=/a1NKqeWXcomDM15U7re5KNGNhB+KStNX+Jjw32PO8k=;
- b=EjdjswSQBZWl7GR3qQkBualloRRGkomE5n3fEBXD0AchfMSc8uQ+AugUnNSb9KSzw3X3J
- hhsxQ21ixgOaVrJRIcbzdGtUmGG4tBAPIkypc67lXMey3uoUTsVKGp+ybykEJVAtxuuFZkF
- zrcaQzXel5hlD5bRE2LFwCqCB8frOSjRjlGRPH4rHLdJfuMlJ2QUjJEWlXXaSeTHmQ3E8w+
- 2FEB5lSipkAhgT2RedxZKEqMZ5gxZFO7TTLxDuUr3FTIFjk5s6eK+aEFVDIADGHO6DYKbx7
- BFhYxS17k/X6F/CHNoyTCOsrG8x1ee808nvdGM0BjXvBCh+r3Bn9q6rSZ60Q==
-Received: from [10.176.58.103] (helo=SmtpCorp) by smtpcorp.com with esmtpsa
- (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
- (Exim 4.94.2-S2G) (envelope-from <nicolas@fjasle.eu>)
- id 1rYurb-qt4BXu-QO; Sat, 10 Feb 2024 21:26:21 +0000
-Received: from [10.85.249.164] (helo=leknes.fjasle.eu)
- by smtpcorp.com with esmtpsa
- (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
- (Exim 4.96.1-S2G) (envelope-from <nicolas@fjasle.eu>)
- id 1rYurb-9EMoK9-0P; Sat, 10 Feb 2024 21:26:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fjasle.eu; s=mail;
- t=1707600370; bh=2Du69mSeHaxU4Lx7+MOepHIT2fMVUkQRRtGqtvh8tn0=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=NY+lAiZuOqkS5pMrJUpcG65n5ETEJV2Y+6gc5E/FA4KrEooCHnXiFhSd0KsKLU3N/
- 3V9msP+z+BGKPowTYSTTNEmBr+1NIrpx57jUGQwQqM9RCQXeavAWqRwKTkQ9w8VmVT
- HYORQqzNDMTLtRrB3rbNgRNY2yBj7YRn9ojD9DtY=
-Received: by leknes.fjasle.eu (Postfix, from userid 1000)
- id 07A053E9DC; Sat, 10 Feb 2024 22:26:09 +0100 (CET)
-Date: Sat, 10 Feb 2024 22:26:09 +0100
-From: Nicolas Schier <nicolas@fjasle.eu>
-To: Zhang Bingwu <xtex@envs.net>
-Cc: Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Dinh Nguyen <dinguyen@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- "David S. Miller" <davem@davemloft.net>,
- Andreas Larsson <andreas@gaisler.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Zhang Bingwu <xtexchooser@duck.com>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org
-Subject: Re: [PATCH 2/2] kbuild: Create INSTALL_PATH directory if it does not
- exist
-Message-ID: <Zcfp8fn7o74K08g0@fjasle.eu>
-References: <20240210074601.5363-1-xtex@envs.net>
- <20240210074601.5363-3-xtex@envs.net>
+	id 1rYwte-0000000290I-27Fw;
+	Sat, 10 Feb 2024 23:36:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BC8D860BF0;
+	Sat, 10 Feb 2024 23:36:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 673E2C43390;
+	Sat, 10 Feb 2024 23:36:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1707608193;
+	bh=8C4oWiGJS6yH0qp9Eaxr3aYeI/i7oae3HE05t0tAldw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=r6t6/SsaqOeeKJNUPVfZVjJbcNK3RRFmjuHojyVxfSItVDZ2TZuyB0EoFbkGs6cmN
+	 fGZld4TdjiPZzaIrvGq0du2QE1WrRIwg1uaqftL/+TqHZD3PNrucg9KdOFYRvRjKht
+	 Kk1w763J7dFF4u8iFKmo/Al3fa5jdjRgBZmxwu3QQfGQKxR2EAZ/epiWFzxP2MBMLL
+	 6EpLosITDbsxVYxLRJlLLsek+7D2LtphnIXyz/MDB66zxzPmJbFpf348/1QD6IEBDf
+	 JkxUs5J1dYgy0PVeh32WpGx+62i+nsng5YkqPRc8G/xgNnSiNVpMiC7yg4l3Cyh7DN
+	 UQ+VQmrfIJsvQ==
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-40efcb37373so17134765e9.2;
+        Sat, 10 Feb 2024 15:36:33 -0800 (PST)
+X-Gm-Message-State: AOJu0YyBSwcqKyjbyo/RnKtOE2dGES+u3CwZcqusmJe0DK5kMbOO3h1B
+	JiKl3R6mhk33mj2BTLWr5Rt3FQNtY6mqVNbbAYnA8Hg4npFBvYWeOK31/ss5hJ7U34rJsO9fMps
+	pLOiGaZdnt1RjJb7V2DIR/3UAwwU=
+X-Google-Smtp-Source: AGHT+IHoPMgBc81DnEPnPXoeHzmCqVcP4g7071LwOfBl3+AxfjKX8A2egkFqcIRNQszoXkfIPToNa/RR1WwBksr57rI=
+X-Received: by 2002:a19:e048:0:b0:511:68d4:1e39 with SMTP id
+ g8-20020a19e048000000b0051168d41e39mr2050802lfj.0.1707608171430; Sat, 10 Feb
+ 2024 15:36:11 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20240210074601.5363-3-xtex@envs.net>
-X-Smtpcorp-Track: 1rYIrP9EuoK90e.xznh1gL1dyRPk
-Feedback-ID: 1174286m:1174286a9YXZ7r:1174286sDwEn1GXPS
-X-Report-Abuse: Please forward a copy of this message, including all headers,
- to <abuse-report@smtp2go.com>
+References: <20240210074601.5363-1-xtex@envs.net> <20240210074601.5363-2-xtex@envs.net>
+ <ZcdP7CC+OMbp5ZMi@shell.armlinux.org.uk> <ZcfoZKJHkdEh5JmV@fjasle.eu>
+In-Reply-To: <ZcfoZKJHkdEh5JmV@fjasle.eu>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Sun, 11 Feb 2024 08:35:35 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAQPm7PXoKM+id25wX9AtVmmXvE7i8GrGB9etU__EMUwdg@mail.gmail.com>
+Message-ID: <CAK7LNAQPm7PXoKM+id25wX9AtVmmXvE7i8GrGB9etU__EMUwdg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] kbuild: Abort make on install failures
+To: Nicolas Schier <nicolas@fjasle.eu>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Zhang Bingwu <xtex@envs.net>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Dinh Nguyen <dinguyen@kernel.org>, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Zhang Bingwu <xtexchooser@duck.com>, Nathan Chancellor <nathan@kernel.org>, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-parisc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	sparclinux@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240210_132846_520050_9321A88B 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20240210_153634_655671_A13DE3CD 
+X-CRM114-Status: GOOD (  23.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,89 +90,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3611092108568158481=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3611092108568158481==
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature"; boundary="W0xuwF1M0d/5Cjtp"
-Content-Disposition: inline
-
-
---W0xuwF1M0d/5Cjtp
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Feb 10, 2024 at 03:46:01PM +0800 Zhang Bingwu wrote:
-> From: Zhang Bingwu <xtexchooser@duck.com>
->=20
-> If INSTALL_PATH is not a valid directory, create it, like what
-> modules_install and dtbs_install will do in the same situation.
->=20
-> Signed-off-by: Zhang Bingwu <xtexchooser@duck.com>
-> ---
->  scripts/install.sh | 4 ++++
->  1 file changed, 4 insertions(+)
->=20
-> diff --git a/scripts/install.sh b/scripts/install.sh
-> index 9bb0fb44f04a..02b845e7ab33 100755
-> --- a/scripts/install.sh
-> +++ b/scripts/install.sh
-> @@ -20,6 +20,10 @@ do
->  	fi
->  done
-> =20
-> +if [ "${INSTALL_PATH}" !=3D "" ] && ! [ -e "${INSTALL_PATH}" ]; then
-> +	mkdir -p "${INSTALL_PATH}"
-> +fi
-> +
->  # User/arch may have a custom install script
->  for file in "${HOME}/bin/${INSTALLKERNEL}"		\
->  	    "/sbin/${INSTALLKERNEL}"			\
-> --=20
-> 2.43.0
->=20
-
-Thanks.
-
-Reviewed-by: Nicolas Schier <nicolas@jasle.eu>
-
---W0xuwF1M0d/5Cjtp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEh0E3p4c3JKeBvsLGB1IKcBYmEmkFAmXH6fEACgkQB1IKcBYm
-EmkWwhAApeau8lv5luMtDVI0MRTjPUBISiudGax4Vj5+2kq+lpcurNBfDgb8g6vz
-d9eKFrAY4RpiyQA/tfByDJMkOdxjeozILABmF9E/mHAU1ddjG0tdN7dCcoiadZ1C
-nRQsrQ0hMPgl/ohv5Gq6uSBNs9iJ76I8VPAUSGVhSEUXPIlZoPMYgvaKWDrUEKoA
-6T6PTWoCQZ9rTRIRDzuiiXDVnEtF7Yc8qcdU/GhJTaxXuvO0NAZ2we1D7evgQriK
-pvlgl/Z3UEJuoqa7gLW0tP66I1aIoBW89cAmxOMPEbx7ILj2uz94ZmL6qxCh6Ift
-JIjvMM6y/6q6XnQf5a9amudS45/dT8F6+2wuPsWB5mUyUu4Jtj+nP6HgLTQsw3MO
-TblqqeWBw+OZFmoU/F6R2RLTkoS00OxKrNcVSQ4ztsHmbYJZC4uqx3qTdq296LDt
-gfm7Me4IHyqXCpR2TkCNL2L+Y4iABSspsgayVoJMMRdGphz55Aa7tRfpu+M3Su7P
-x21blad5Owsw9AgQwY3Eh7SUmh0ooNgFtC2w3hpwj41Whe1IcAQx8iyAaO5UG802
-fweAOlp41rdel9LwyfuPqG0nFwTf3+pYdqOCTOF68S3EFav85/UDo6Mg9Zgk11Je
-X9KRaCfNIMNh4RXVh5toNthTBAISAYeD8tHQypeyU4J9PunrzFc=
-=PO1M
------END PGP SIGNATURE-----
-
---W0xuwF1M0d/5Cjtp--
-
-
---===============3611092108568158481==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3611092108568158481==--
-
+T24gU3VuLCBGZWIgMTEsIDIwMjQgYXQgNjoyMeKAr0FNIE5pY29sYXMgU2NoaWVyIDxuaWNvbGFz
+QGZqYXNsZS5ldT4gd3JvdGU6Cj4KPiBPbiBTYXQsIEZlYiAxMCwgMjAyNCBhdCAxMDoyOTowMEFN
+ICswMDAwIFJ1c3NlbGwgS2luZyAoT3JhY2xlKSB3cm90ZToKPiA+IE9uIFNhdCwgRmViIDEwLCAy
+MDI0IGF0IDAzOjQ2OjAwUE0gKzA4MDAsIFpoYW5nIEJpbmd3dSB3cm90ZToKPiA+ID4gRnJvbTog
+WmhhbmcgQmluZ3d1IDx4dGV4Y2hvb3NlckBkdWNrLmNvbT4KPiA+ID4KPiA+ID4gU2V0dGluZyAn
+LWUnIGZsYWcgdGVsbHMgc2hlbGxzIHRvIGV4aXQgd2l0aCBlcnJvciBleGl0IGNvZGUgaW1tZWRp
+YXRlbHkKPiA+ID4gYWZ0ZXIgYW55IG9mIGNvbW1hbmRzIGZhaWxzLCBhbmQgY2F1c2VzIG1ha2Uo
+MSkgdG8gcmVnYXJkIHJlY2lwZXMgYXMKPiA+ID4gZmFpbGVkLgo+ID4gPgo+ID4gPiBCZWZvcmUg
+dGhpcywgbWFrZSB3aWxsIHN0aWxsIGNvbnRpbnVlIHRvIHN1Y2NlZWQgZXZlbiBhZnRlciB0aGUK
+PiA+ID4gaW5zdGFsbGF0aW9uIGZhaWxlZCwgZm9yIGV4YW1wbGUsIGZvciBpbnN1ZmZpY2llbnQg
+cGVybWlzc2lvbiBvcgo+ID4gPiBkaXJlY3RvcnkgZG9lcyBub3QgZXhpc3QuCj4gPiA+Cj4gPiA+
+IFNpZ25lZC1vZmYtYnk6IFpoYW5nIEJpbmd3dSA8eHRleGNob29zZXJAZHVjay5jb20+Cj4gPiA+
+IC0tLQo+Cj4gVGhhbmtzIGZvciBmaXhpbmchCj4KPiBbLi4uXQo+ID4gPiBkaWZmIC0tZ2l0IGEv
+YXJjaC9hcm0vYm9vdC9pbnN0YWxsLnNoIGIvYXJjaC9hcm0vYm9vdC9pbnN0YWxsLnNoCj4gPiA+
+IGluZGV4IDllYzExZmFjN2Q4ZC4uMzRlMmM2ZTMxZmQxIDEwMDc1NQo+ID4gPiAtLS0gYS9hcmNo
+L2FybS9ib290L2luc3RhbGwuc2gKPiA+ID4gKysrIGIvYXJjaC9hcm0vYm9vdC9pbnN0YWxsLnNo
+Cj4gPiA+IEBAIC0xNyw2ICsxNyw4IEBACj4gPiA+ICAjICAgJDMgLSBrZXJuZWwgbWFwIGZpbGUK
+PiA+ID4gICMgICAkNCAtIGRlZmF1bHQgaW5zdGFsbCBwYXRoIChibGFuayBpZiByb290IGRpcmVj
+dG9yeSkKPiA+ID4KPiA+ID4gK3NldCAtZQo+ID4gPiArCj4gPgo+ID4gV2hhdCBhYm91dCAjIS9i
+aW4vc2ggLWUgb24gdGhlIGZpcnN0IGxpbmUsIHdoaWNoIGlzIHRoZSBtb3JlIG5vcm1hbCB3YXkK
+PiA+IHRvIGRvIHRoaXMgZm9yIGFuIGVudGlyZSBzY3JpcHQ/Cj4KPiBhcmUgeW91IHN1cmU/ICBJ
+IGNhbiBmaW5kIG1hbnkgbW9yZSBvY2N1cnJlbmNlcyBvZiAnc2V0IC1lJyB0aGFuIHRoZQo+IHNo
+ZWJhbmcgdmVyc2lvbiBpbiB0aGUgTGludXggdHJlZSwgZXNwZWNpYWxseSBpbiB0aGUga2J1aWxk
+IHNjcmlwdHMsIHRodXMKPiBpdCdzIGJpa2Utc2hlZGRpbmcsIGlzbid0IGl0Pwo+Cj4gUmV2aWV3
+ZWQtYnk6IE5pY29sYXMgU2NoaWVyIDxuaWNvbGFzQGZqYXNsZS5ldT4KPgo+IEtpbmQgcmVnYXJk
+cywKPiBOaWNvbGFzCgoKCgoKCldoZW4geW91IHB1dCAtZSBvbiB0aGUgc2hlYmFuZyBsaW5lLCBs
+aWtlCgogICAgIyEvYmluL3NoIC1lCgp0aGUgb3B0aW9uIC1lIGlzIHNldCB3aGVuIHlvdSBkbzoK
+CiAgICAkIGFyY2gvYXJtL2Jvb3QvaW5zdGFsbC5zaAoKCkJ1dCwgLWUgaXMgbm90IHNldCB3aGVu
+IHlvdSBkbzoKCiAgICAkIHNoIGFyY2gvYXJtL2Jvb3QvaW5zdGFsbC5zaAoKCgpUaGUgcmVhc29u
+IGlzIG9idmlvdXMgYmVjYXVzZSB0aGUgbGF0dGVyIGNhc2UKZG9lcyBub3QgdXNlIHRoZSBzaGVi
+YW5nIGxpbmUuCgoKCgpJbiBLYnVpbGQsIHNvbWUgcGxhY2VzIHJ1biB0aGUgc2NyaXB0IGRpcmVj
+dGx5IGxpa2UgdGhlIGZvcm1lciBjYXNlLAphbmQgb3RoZXJzIHVzZSBDT05GSUdfU0hFTEwgbGlr
+ZQoKICAgJChDT05GSUdfU0hFTEwpIGFyY2gvYXJtL2Jvb3QvaW5zdGFsbC5zaAoKClRoZSBpbmNv
+bnNpc3RlbmN5IGlzIG5vdCBuaWNlLCBidXQgdGhhdCBpcyBhIGRpZmZlcmVudCBpc3N1ZS4KCgpU
+aGUgc2VwYXJhdGUgJ3NldCAtZScgc3RhdGVtZW50IHdvcmtzIGZvciBib3RoIGNhc2VzLApzbyBJ
+IHRoaW5rIHRoaXMgaXMgc2FmZXIsIHRob3VnaCBpdCBpcyBraW5kIG9mIGJpa2Utc2hlZGRpbmcu
+CgoKCgoKLS0gCkJlc3QgUmVnYXJkcwpNYXNhaGlybyBZYW1hZGEKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
