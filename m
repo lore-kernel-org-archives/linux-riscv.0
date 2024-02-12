@@ -4,80 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21175C4829B
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Feb 2024 02:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFFAC4829F
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Feb 2024 02:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IJ2PeWnyTz+DZHm4dRJzYjn8aLgUcK3WhWvsNMo+Yls=; b=Dy4vRflb3FFXBo
-	eDq/mYPrNhFSwBrvPz4NE7mECG0AQYZQjysQmM9o54pi/ANgqvVP45dY0siTQ9MsquODUsdtdznIb
-	GOTLLEY3ZyPsMxF0cr6K3GE6XmR5YdCRBnyCKXxkf8GpDJ2QtdZDHz6BpN3IpwAFg8UaU9Rj6NVPu
-	4izKsnVIKdyKw2ceyYyjDI9/ikFfzatd8JMEVnbNydyUgQ+Hhw8bJvHyuRGVDyAyCtyioXaADYJ2r
-	42rLq4IyMl5DPtzlLUi2Yvohf4Dqrk+Qe2didc+YMZnOJ2F0IvPMuE3G02w54R5DRiD9RvFC0OvUf
-	Sjc+1lUAqCL7pigYlEQQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xANw7BaPDmfoNZifOtR7OLV+S50JVBofZgCnzRJ++E8=; b=i+LRdhxTbLARf5
+	KcOJswMH7Jihq6srB+GjnLv2QymYvLls0i9EBhW6BLMNUDriNmFIjZsTl9+paUyDhX+4DctYaEKNw
+	/fAP6memMuS01B2DjvKLqVXJhoMF08wDWFf4Yachb24/+z3waUbLrZ7WEJJWNHceme2wgVt9X3jtQ
+	Gh5INA4uE/uAaxRwfxvz+qIIzof5kDIxdWgHevVW1MD68YHOGykSdZInSl8gnWKMtoUpv8ZvqHOWI
+	ZTOYzudqAX1PNCpn9LhFvNYxNf62+Ujx69EO4b+tuyUxudO/0bSQEwhxYEfgrveZ5KATmYn51Eu/a
+	5J6BizJUypBo7npSSwPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZMTv-00000004DE2-0Y8m;
-	Mon, 12 Feb 2024 02:55:43 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1rZMTn-00000004D9f-0GsO;
+	Mon, 12 Feb 2024 02:55:35 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZMTp-00000004DAf-3K3f
+	id 1rZMTj-00000004D7s-3chj
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Feb 2024 02:55:39 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-785d5e6c87cso46978685a.2
-        for <linux-riscv@lists.infradead.org>; Sun, 11 Feb 2024 18:55:37 -0800 (PST)
+	Mon, 12 Feb 2024 02:55:33 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-6e09a890341so906457b3a.3
+        for <linux-riscv@lists.infradead.org>; Sun, 11 Feb 2024 18:55:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1707706536; x=1708311336; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PK2hM2nZE9ySNRKSB/nk6SwrsE+3tTyo2UQmA0OZOPw=;
-        b=R2di8YpuNLjmiPghwPJl0CAwQiNzeJlVC747DnAw5BRooGxRhJO/DUWdbkDs3H3IT+
-         j1UY8LqL8yFHv1i92JPG1u7QD3oNj2i/al5mgQAnI7NluKDqLgOlVpeYQ1L+7++SQZNR
-         eKSSRHFEYYBJNj8tuDGj3OEYz4pBtmlvRciLPL9yzF7EkgUEFX7wTLDLbIiSHEp5NBZ6
-         YAotrHZDQpjUvs1bUvUZ77r459F6Pk+QIvPx32xM+JzEDUsUbfVRR+fsUiPzntnS0L/U
-         UDenfkXfWpbPvgjcFWLxxb8Dhp1ZG/z1MJVJ86eff6B5xCa7pzP4uh78fXWzphnOD80T
-         nLpQ==
+        d=sifive.com; s=google; t=1707706531; x=1708311331; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=h3AYwIFOJHMYB8Yfmr8ZbFJXyCyieMlwYjbQspEUaOQ=;
+        b=hdVZyjMWVSGu0Se0wKh0m7FWT+GMcZL57neoeWTXKAWXKuEMAY6M6g7KZvtEYP9M8h
+         abaPjM//zUP+kd2H9ZOXy7DhDND76b/pk0j1uhn5IWw/kgWJxA97xLEnQ1TKJD5AEATn
+         Y0OLwl8mXWuYS7eWKWxOMfyWC1AyuYBah0VWfoy3s1m4/v8647RbGRrntViCrpmJl2q0
+         6buc366dL4AWcdqottOBLOeOo7Le1GddYVrflqc1jT3VbMPcnZII9qDjKUmZHCxTgSbT
+         1em36fPkCplLvOiT4q70mOPdvibQA80MYfyUQJZcxPvQfJaHKwXEe96roB116zK4y829
+         sy9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707706536; x=1708311336;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PK2hM2nZE9ySNRKSB/nk6SwrsE+3tTyo2UQmA0OZOPw=;
-        b=oEOc4NZ2rVN37+Mp6vEvx/M/Bu0wGlaYhMHuw4caRqxL/4ToczeoDGh6WQ3ePIhKLi
-         p376N0T6/12CfzjtNCEytyI5b5RyqNfx67Fs4K0EzHvFYu+DFV+wMnmBUGX7gfb6Pv1m
-         vuSOuMXD16trAAJ2Vo+12k4B3JC72cyyYUkwg73TgIfn0jYCitjSU/bmVGfVMpeN1mct
-         cLT4/1d2ivftQju9QYz9iys25ReNOkb4HnEyfE5YH4SjjBwhwpYicpUOOj8sOc/LKOcU
-         h1Qlo7k3YRnhavMFLN+UxDCiitO4TX/YTLLSll3L/kzRvw7iFqBFO6OIZV2HAhsziQFp
-         S/Tg==
-X-Gm-Message-State: AOJu0Yxmk800ibWT00Ru5nfMB1u2H1ugdyr9H/I6U6Tvp3UR9qiWYSXT
-	1GIRoTTaqTf+b5uyTVV9+7eb1QN/HX1g6oprWrnZdRo+X8IGgIzxfIkBSvaUhlI=
-X-Google-Smtp-Source: AGHT+IEJZiiN+n5FqhSyHOC/KRPz1kIg5v3LNtLiqUhxBX3/4QKShWOHHV0lSJwdo/2+wfJXwKlCGQ==
-X-Received: by 2002:a05:620a:4492:b0:785:afa3:6c0b with SMTP id x18-20020a05620a449200b00785afa36c0bmr8529739qkp.52.1707706536469;
-        Sun, 11 Feb 2024 18:55:36 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX+KlvTiXx022Iyrq5kcQK+MzTTlcaxsSbYU2t+6MhI5RpPjrlocOnjYKK/WCv3H83/9SWx7WX/BFI+bbrFB0A4cr9omAmYvnt7rtoYc7xaGrWDlBZz5xD632qkgPpJq6IWM1seYeIr
+        d=1e100.net; s=20230601; t=1707706531; x=1708311331;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=h3AYwIFOJHMYB8Yfmr8ZbFJXyCyieMlwYjbQspEUaOQ=;
+        b=tqZsgFakWMYNS2gBTlDe8TpBbzMRrkdlhDYJIA4CeNu4AnbONLfw6flWyBOwdgXLk8
+         ERlXxCGatZliv7yp/FFd5igxEla2/VTLze6fXOpbxVTcdbB2EWuj7CP0gMUYievv8OEx
+         kUbtrWOzyfz8P8KBSonTt3071OMWQ/Kc4KwNhhPvhxudI1Y1u/5/qByhaBx4hMKmBvg+
+         c9/8uhXpKVzbhSpdk5jDvfsMzPsPtvo1kQOfOZfRmkcCfS2xqbAPYx700nh0C/NQX28G
+         SpnNohxRZLw/OohXKRkgzTx4d6N1uLEpR/BpNVfczV70eSbPcplepUVia//she3FKIP4
+         oXdQ==
+X-Gm-Message-State: AOJu0YxPxR8GT4U9UMW1UFrCbD6SsukDApCCuEVszL2SV4wRu3s6DWVc
+	EaalUb5dRIEa1YdW3MXCYakxoCppEN5ATmVzAVzNzonKg8ElMLRTYPSdiPq27lc=
+X-Google-Smtp-Source: AGHT+IHVn7UkxQepioSD8cVRqZrIIQSswaGmUNp79rrmDndGmc4Za0zL6SwNiLGJaepituGreaaXfA==
+X-Received: by 2002:a05:6a21:2d06:b0:19e:ce71:bb4d with SMTP id tw6-20020a056a212d0600b0019ece71bb4dmr1428086pzb.38.1707706530764;
+        Sun, 11 Feb 2024 18:55:30 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXubKrZzmTdYnKgYksIC7LF2/jitJmpI+rEZAZrqZuUjsezx4fnGP7PrHim6TxQgYg9CzDkcf5BKGh6Sl4hezML4bnOvHsiFNmcnuaq3saQlA+MB9ECyci5CiQpHbTD5wYMtKZJg3FRfKih0ClvVW3Ujf/ANaZw1HuPMprQCa0Aovx7xxtiuVRAi5DhAmIMei32ZkE2QzM1TrU3ttGZC8j8bNHbQtKjXYqTlKGiJtNuXqp4lmEE7y6PuwiVwqwBGM+zgSXq/dwMtveTxZncY1lTI8otEtdvXr+zniNmxzocK/KpTm3oTTBCkEECu+yLu3L79Oijm1Y=
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id lb3-20020a170902fa4300b001d9af77893esm4906443plb.58.2024.02.11.18.55.35
+        by smtp.gmail.com with ESMTPSA id lb3-20020a170902fa4300b001d9af77893esm4906443plb.58.2024.02.11.18.55.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Feb 2024 18:55:36 -0800 (PST)
+        Sun, 11 Feb 2024 18:55:30 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH 6/7] riscv: Use offset_in_page() in text patching functions
-Date: Sun, 11 Feb 2024 18:55:17 -0800
-Message-ID: <20240212025529.1971876-7-samuel.holland@sifive.com>
+	Samuel Holland <samuel.holland@sifive.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jason Baron <jbaron@akamai.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	bpf@vger.kernel.org
+Subject: [PATCH 0/7] riscv: Various text patching improvements
+Date: Sun, 11 Feb 2024 18:55:11 -0800
+Message-ID: <20240212025529.1971876-1-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240212025529.1971876-1-samuel.holland@sifive.com>
-References: <20240212025529.1971876-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240211_185537_853199_02484BFE 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20240211_185532_098295_FE93C526 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,47 +99,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is a bit easier to parse than the equivalent bit manipulation.
+Here are a few changes to minimize calls to stop_machine() and
+flush_icache_*() in the various text patching functions, as well as
+to simplify the code.
 
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
----
 
- arch/riscv/kernel/patch.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Samuel Holland (7):
+  riscv: jump_label: Batch icache maintenance
+  riscv: jump_label: Simplify assembly syntax
+  riscv: kprobes: Use patch_text_nosync() for insn slots
+  riscv: Simplify text patching loops
+  riscv: Pass patch_text() the length in bytes
+  riscv: Use offset_in_page() in text patching functions
+  riscv: Remove extra variable in patch_text_nosync()
 
-diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-index 9aa0050225c0..b0cf050738aa 100644
---- a/arch/riscv/kernel/patch.c
-+++ b/arch/riscv/kernel/patch.c
-@@ -54,7 +54,7 @@ static __always_inline void *patch_map(void *addr, const unsigned int fixmap)
- 	BUG_ON(!page);
- 
- 	return (void *)set_fixmap_offset(fixmap, page_to_phys(page) +
--					 (uintaddr & ~PAGE_MASK));
-+					 offset_in_page(addr));
- }
- 
- static void patch_unmap(int fixmap)
-@@ -65,8 +65,8 @@ NOKPROBE_SYMBOL(patch_unmap);
- 
- static int __patch_insn_set(void *addr, u8 c, size_t len)
- {
-+	bool across_pages = (offset_in_page(addr) + len) > PAGE_SIZE;
- 	void *waddr = addr;
--	bool across_pages = (((uintptr_t)addr & ~PAGE_MASK) + len) > PAGE_SIZE;
- 
- 	/*
- 	 * Only two pages can be mapped at a time for writing.
-@@ -98,8 +98,8 @@ NOKPROBE_SYMBOL(__patch_insn_set);
- 
- static int __patch_insn_write(void *addr, const void *insn, size_t len)
- {
-+	bool across_pages = (offset_in_page(addr) + len) > PAGE_SIZE;
- 	void *waddr = addr;
--	bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
- 	int ret;
- 
- 	/*
+ arch/riscv/include/asm/jump_label.h |  4 ++-
+ arch/riscv/include/asm/patch.h      |  3 +-
+ arch/riscv/kernel/jump_label.c      | 16 ++++++---
+ arch/riscv/kernel/patch.c           | 56 +++++++++++++----------------
+ arch/riscv/kernel/probes/kprobes.c  | 20 ++++++-----
+ arch/riscv/net/bpf_jit_comp64.c     |  7 ++--
+ 6 files changed, 56 insertions(+), 50 deletions(-)
+
 -- 
 2.43.0
 
