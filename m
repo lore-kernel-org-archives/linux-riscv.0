@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFFAC4829F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D46BC4829D
 	for <linux-riscv@archiver.kernel.org>; Mon, 12 Feb 2024 02:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xANw7BaPDmfoNZifOtR7OLV+S50JVBofZgCnzRJ++E8=; b=i+LRdhxTbLARf5
-	KcOJswMH7Jihq6srB+GjnLv2QymYvLls0i9EBhW6BLMNUDriNmFIjZsTl9+paUyDhX+4DctYaEKNw
-	/fAP6memMuS01B2DjvKLqVXJhoMF08wDWFf4Yachb24/+z3waUbLrZ7WEJJWNHceme2wgVt9X3jtQ
-	Gh5INA4uE/uAaxRwfxvz+qIIzof5kDIxdWgHevVW1MD68YHOGykSdZInSl8gnWKMtoUpv8ZvqHOWI
-	ZTOYzudqAX1PNCpn9LhFvNYxNf62+Ujx69EO4b+tuyUxudO/0bSQEwhxYEfgrveZ5KATmYn51Eu/a
-	5J6BizJUypBo7npSSwPw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jNf/CN4e2DEAnnfLRpNEXPc75ByXAMLc1gwsKF8H6mY=; b=AapPL7ALRns5om
+	sS3tRd6XFUAJFKIOeCOx7EZRmxEXVLyzgRJI21e4iUZo6izyQu1KP6H1+AdDIe8b2j2GpgBdSWVkL
+	9Idp0cU4XRtCdK5B1BKzxvNqkhqdvHHFyAl35/D+TE4OhVBypgGsRbpBjj3vRoKwrl5idY9WRsou4
+	pIh/BQwp239voktbuPSkTCzeRrpag+I/G/WPRwEszutLp/TWYw5A0r0GbGNtabCFr6PO41Y9c52/N
+	DjnYa0/ald/havyE6BZE1+bVkNxAOkz5Kd4sQ9WscJC1FxohuhV7o4E1AyxdhxiQMA3AShrlRJ/cI
+	4JUlY4IgTPulFdA9V8SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZMTn-00000004D9f-0GsO;
-	Mon, 12 Feb 2024 02:55:35 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1rZMTo-00000004DAa-3CMr;
+	Mon, 12 Feb 2024 02:55:36 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZMTj-00000004D7s-3chj
+	id 1rZMTl-00000004D8E-1WvH
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Feb 2024 02:55:33 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-6e09a890341so906457b3a.3
-        for <linux-riscv@lists.infradead.org>; Sun, 11 Feb 2024 18:55:31 -0800 (PST)
+	Mon, 12 Feb 2024 02:55:34 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1d780a392fdso23142285ad.3
+        for <linux-riscv@lists.infradead.org>; Sun, 11 Feb 2024 18:55:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1707706531; x=1708311331; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=h3AYwIFOJHMYB8Yfmr8ZbFJXyCyieMlwYjbQspEUaOQ=;
-        b=hdVZyjMWVSGu0Se0wKh0m7FWT+GMcZL57neoeWTXKAWXKuEMAY6M6g7KZvtEYP9M8h
-         abaPjM//zUP+kd2H9ZOXy7DhDND76b/pk0j1uhn5IWw/kgWJxA97xLEnQ1TKJD5AEATn
-         Y0OLwl8mXWuYS7eWKWxOMfyWC1AyuYBah0VWfoy3s1m4/v8647RbGRrntViCrpmJl2q0
-         6buc366dL4AWcdqottOBLOeOo7Le1GddYVrflqc1jT3VbMPcnZII9qDjKUmZHCxTgSbT
-         1em36fPkCplLvOiT4q70mOPdvibQA80MYfyUQJZcxPvQfJaHKwXEe96roB116zK4y829
-         sy9w==
+        d=sifive.com; s=google; t=1707706533; x=1708311333; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Sgb+qYVoGLQC+1tIvOKXrFPvpE4GtMMkuDMIpMcBDRo=;
+        b=gJEK9EChMBpa0p7zmtRcA65oVqcbh3pJw5jx+U6kLF+EgI3WIfTYosPfAZ3E8THF4t
+         +JI4eW05fpzSlVSSQrch45GD47iJ9CpEtWAJVKE8A2eY9lYYvqrpUoJZA1ZYTwsPMdbO
+         Uvb4Yvfc5GdcxE0I667B1Al9Luk1pD5l3BzFuV+CwoRii3ERjG1PubdeJqnOKen6Mel1
+         cFebcp7aVektw8UjmUfitg+DTqZeUYDITWOoHTj2GcUuvp176K4mmC/rsK9NeQzi9IYn
+         G4fBvTWFBbhnU6sHCIHhAbZ7v5MONem1oz56oQ7C4tWe/IbMoX0rJ+ocKxaGkBEVitx0
+         7eLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707706531; x=1708311331;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h3AYwIFOJHMYB8Yfmr8ZbFJXyCyieMlwYjbQspEUaOQ=;
-        b=tqZsgFakWMYNS2gBTlDe8TpBbzMRrkdlhDYJIA4CeNu4AnbONLfw6flWyBOwdgXLk8
-         ERlXxCGatZliv7yp/FFd5igxEla2/VTLze6fXOpbxVTcdbB2EWuj7CP0gMUYievv8OEx
-         kUbtrWOzyfz8P8KBSonTt3071OMWQ/Kc4KwNhhPvhxudI1Y1u/5/qByhaBx4hMKmBvg+
-         c9/8uhXpKVzbhSpdk5jDvfsMzPsPtvo1kQOfOZfRmkcCfS2xqbAPYx700nh0C/NQX28G
-         SpnNohxRZLw/OohXKRkgzTx4d6N1uLEpR/BpNVfczV70eSbPcplepUVia//she3FKIP4
-         oXdQ==
-X-Gm-Message-State: AOJu0YxPxR8GT4U9UMW1UFrCbD6SsukDApCCuEVszL2SV4wRu3s6DWVc
-	EaalUb5dRIEa1YdW3MXCYakxoCppEN5ATmVzAVzNzonKg8ElMLRTYPSdiPq27lc=
-X-Google-Smtp-Source: AGHT+IHVn7UkxQepioSD8cVRqZrIIQSswaGmUNp79rrmDndGmc4Za0zL6SwNiLGJaepituGreaaXfA==
-X-Received: by 2002:a05:6a21:2d06:b0:19e:ce71:bb4d with SMTP id tw6-20020a056a212d0600b0019ece71bb4dmr1428086pzb.38.1707706530764;
-        Sun, 11 Feb 2024 18:55:30 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXubKrZzmTdYnKgYksIC7LF2/jitJmpI+rEZAZrqZuUjsezx4fnGP7PrHim6TxQgYg9CzDkcf5BKGh6Sl4hezML4bnOvHsiFNmcnuaq3saQlA+MB9ECyci5CiQpHbTD5wYMtKZJg3FRfKih0ClvVW3Ujf/ANaZw1HuPMprQCa0Aovx7xxtiuVRAi5DhAmIMei32ZkE2QzM1TrU3ttGZC8j8bNHbQtKjXYqTlKGiJtNuXqp4lmEE7y6PuwiVwqwBGM+zgSXq/dwMtveTxZncY1lTI8otEtdvXr+zniNmxzocK/KpTm3oTTBCkEECu+yLu3L79Oijm1Y=
+        d=1e100.net; s=20230601; t=1707706533; x=1708311333;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Sgb+qYVoGLQC+1tIvOKXrFPvpE4GtMMkuDMIpMcBDRo=;
+        b=MXd663jLID/IQesIeZ7M4/OWnVLe7yicyRN2+rTmoN4E3MrINP+Btb1ZMI5rpL7A3M
+         dMqTzTqmRqB4OM9F1qDoINhL/aSXVvGvuEBPIdaDqbN6HjNLNyie8zkRvFtPzfW8qsVB
+         X/WRDh2gyf8k4eMluxicGIYu9+s1hj8n1hEhOoQ0cKJo5iI6023mgVu72SXIYgYK9gV8
+         zX9xVInHNBmvrPn+gQ33kexSo5euSdsHaOFJZ3A18WFMH/0o6cV/XcVf0tNASid9KtbO
+         c30bthJWjv0+gRx/RDUVx92SDnb8HmOy5ycZemsT/QE8Wjix/IGRCXxWdFaDXgSzQlGo
+         8R+Q==
+X-Gm-Message-State: AOJu0YyVoWtYVkTA2DYfZPHxbxe/1dP/kLkvSWgFiRVbdj92BFjRHcRG
+	ELPp0allRQYZ1+YYMDk/eocetwjJTj1+N2fQjBZkD1qvjZYQlxoFxn7fVssvXng=
+X-Google-Smtp-Source: AGHT+IG+jFJKgyCn1R8EZa/RvpPkjQLUBL0jqkCGBZDbkkg0EEuXrvaReU9MwlXMjKspZqO+X1Axwg==
+X-Received: by 2002:a17:902:da87:b0:1da:2216:f1f8 with SMTP id j7-20020a170902da8700b001da2216f1f8mr6131279plx.39.1707706532745;
+        Sun, 11 Feb 2024 18:55:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWltAXxT4Z5I23HaZAeyreKKr5A6zwnhZx747qv+QqQBOZ2ZZtcTpQ4qqJvcBK3aCnVPXPXY4cKY2s6M2O3dDjODm7lW2CSHWdxxVXcnzqZm36pZpUdtXgFNxzdUykLDhghcMVP9m15
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id lb3-20020a170902fa4300b001d9af77893esm4906443plb.58.2024.02.11.18.55.29
+        by smtp.gmail.com with ESMTPSA id lb3-20020a170902fa4300b001d9af77893esm4906443plb.58.2024.02.11.18.55.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Feb 2024 18:55:30 -0800 (PST)
+        Sun, 11 Feb 2024 18:55:32 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jason Baron <jbaron@akamai.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	bpf@vger.kernel.org
-Subject: [PATCH 0/7] riscv: Various text patching improvements
-Date: Sun, 11 Feb 2024 18:55:11 -0800
-Message-ID: <20240212025529.1971876-1-samuel.holland@sifive.com>
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH 2/7] riscv: jump_label: Simplify assembly syntax
+Date: Sun, 11 Feb 2024 18:55:13 -0800
+Message-ID: <20240212025529.1971876-3-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240212025529.1971876-1-samuel.holland@sifive.com>
+References: <20240212025529.1971876-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240211_185532_098295_FE93C526 
-X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-CacheID: sfid-20240211_185533_432005_411D65AE 
+X-CRM114-Status: UNSURE (   8.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,28 +95,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Here are a few changes to minimize calls to stop_machine() and
-flush_icache_*() in the various text patching functions, as well as
-to simplify the code.
+The idiomatic way to write "jal zero" is "j".
 
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
 
-Samuel Holland (7):
-  riscv: jump_label: Batch icache maintenance
-  riscv: jump_label: Simplify assembly syntax
-  riscv: kprobes: Use patch_text_nosync() for insn slots
-  riscv: Simplify text patching loops
-  riscv: Pass patch_text() the length in bytes
-  riscv: Use offset_in_page() in text patching functions
-  riscv: Remove extra variable in patch_text_nosync()
+ arch/riscv/include/asm/jump_label.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- arch/riscv/include/asm/jump_label.h |  4 ++-
- arch/riscv/include/asm/patch.h      |  3 +-
- arch/riscv/kernel/jump_label.c      | 16 ++++++---
- arch/riscv/kernel/patch.c           | 56 +++++++++++++----------------
- arch/riscv/kernel/probes/kprobes.c  | 20 ++++++-----
- arch/riscv/net/bpf_jit_comp64.c     |  7 ++--
- 6 files changed, 56 insertions(+), 50 deletions(-)
-
+diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
+index 6290b26f4a14..1c768d02bd0c 100644
+--- a/arch/riscv/include/asm/jump_label.h
++++ b/arch/riscv/include/asm/jump_label.h
+@@ -46,7 +46,7 @@ static __always_inline bool arch_static_branch_jump(struct static_key * const ke
+ 		"	.option push				\n\t"
+ 		"	.option norelax				\n\t"
+ 		"	.option norvc				\n\t"
+-		"1:	jal		zero, %l[label]		\n\t"
++		"1:	j		%l[label]		\n\t"
+ 		"	.option pop				\n\t"
+ 		"	.pushsection	__jump_table, \"aw\"	\n\t"
+ 		"	.align		" RISCV_LGPTR "		\n\t"
 -- 
 2.43.0
 
