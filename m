@@ -4,90 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239BBC4829B
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Feb 2024 12:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 656BFC48297
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Feb 2024 13:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=509bS8gQcaPmy88RIAIf9v/NZq8YKsqX6eDmrB19r9I=; b=aEtlZPNGs6rRO0
-	I6DTMpGV4YpcO2N5ayZQAi/qvh5SKl+RSZ3tmWPTg3H5fZqgot7VkqXM5oiuHcdtR+nIJW0ZE/D15
-	cA0VQKY21JiSKXQ84L+SSvSm9+qmuXrU4p+uCu2wPmrFSsLN4v181/CiJH8RlowfzdxwnpYiKbXyb
-	fTInKe6ruQPPwsYf/cRbrMNGWFNpL+ZvwOBEeBVs6X3ljHjIpZsNA4apuSqnp9ptTLmO1s25z8rqo
-	iRMOr20TD9IXSXRHKmvZatm0m5qIeATcMYCj+iRWJ/D0Lvv98sInLOT2muXnuE2rpfsSJUmX6/b08
-	m0591FGEInrVKXCJ8J8g==;
+	List-Owner; bh=7FZq3XnTm8MSMwKXjzM+kN8vISxGtD+Qmod81+rhQKs=; b=ZrX47BkOpM1EXD
+	hP2iszl1WDakh6UU02/yokzwL7ZfGNxHA/pOVzt1F7FqEhClhf5n/sl7vDG3YKpZIEWbsmbd+VNS5
+	a7ZLtdw/lEs0W8NJT+Q2Opg2DA+67fOSa4HtJUKKFgru5jU1iEtDJ4RQmEPhkm/AWRs0jp89l3suW
+	9TzyAkCrQBZfqCOayqFXd/syc4c/W4UYoO3QWCotLZBbkrZXUjyOdxOTCA4D86k0JB4dOvgaCXBXX
+	cwNVheIzoD7WWVI6PUSaPmeFLCJvY/KjRB9qlc6/knQCx6QZ/dZsKFiwqMvj4R3M0kE6QZnoQYjrs
+	pFWCNOm8CZ3ypHo1S9gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZVM5-00000005G8o-3xfH;
-	Mon, 12 Feb 2024 12:24:13 +0000
-Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
+	id 1rZWGX-00000005Tnx-344q;
+	Mon, 12 Feb 2024 13:22:33 +0000
+Received: from out5-smtp.messagingengine.com ([66.111.4.29])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZVM3-00000005G7p-1FNr
+	id 1rZWGU-00000005TlD-1xdU
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Feb 2024 12:24:12 +0000
-Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-363da712713so11494555ab.1
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Feb 2024 04:24:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1707740649; x=1708345449; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5CQJAbVN1hEJxIfRK6BeBiBHbVNEAmKsPHC3r9j+pPA=;
-        b=BLddaAaWksOXxQ5P40DehyQ90wBQPI6OsG8ydlhnbIpXpgbj5u+V9BujJH2ZY5d9qN
-         Av8kTGPp6KCcihT3EKgCFFzOHOQGY3AUjdwI6TfXoVpAqMZvl13EZMIMH2f6hGKzoekt
-         06WdFv/uoRC/5ecxDXgwzC5f6jB3pjIBvSun6RmKJ3GqbT14TTIfkQGimK/toHjkuD4K
-         FyCl+aXXae2UH5OZWNFLI/PKflgYvcb4cfetFkG75q4j92h8taA9hDQ1GXjpApv7Pz0/
-         be2YnJ4JbjtyFg10qQaPv4mj7M26Xblt8NRgw/qOwMI555LKIefSZ/U2e1FsfJiiHCS5
-         foaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707740649; x=1708345449;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5CQJAbVN1hEJxIfRK6BeBiBHbVNEAmKsPHC3r9j+pPA=;
-        b=SXjRv4r+qbS/D2LyLGOLUGMSNyFDpafSuB8lPCpuAXhUBB4Naq6ejF1/IYi8JU8TDw
-         e/y1VfeN9OrLzy3s66q7c2ZzGWEoBfE1bDmWhLRW341LaegGUD5hy6SRDgDk8595MCQH
-         1rLn7HAXnIS/5V1nJXAoxMmiXFXTbm+Ky7qwcmw9PEh9nUn9C9QVi3YyGvWRyc1Uak4h
-         s+ds5iUjC1NAXGUykobTU5ISYZQV3Q3qCYrdj/v1HslJVSca75XZ01C7MBfwdN9yf7mP
-         rn2ACOQnrk6fU2tGYgkJgKHy3kITOobcek2WZxUpE9kkPyz/CdJTFTWmoCtLoC98SBd3
-         BdXw==
-X-Gm-Message-State: AOJu0YzpjBuvRPishjysPS04WfAheluULOVx69zXNqLl98Qxb8DW3E0z
-	oX8tSoo5I6yMz1+LUuqiuE/IED/Qf9EsEW2dmgE+d0tjuji+QLA8xf+azEPqvc5dqVk3cs2dBGu
-	2lZgEe4mUwI6S98MUKpsbQJ0O731oKEW7ajg5+Q==
-X-Google-Smtp-Source: AGHT+IGzhXfq5zT3FYgC1LPkY3wsC1WD62YVWVgEP5W8s001037XANdQn59nNXrbCGSEhsi8pEoYiewroYfMiW87JoM=
-X-Received: by 2002:a92:caca:0:b0:363:e7ff:f378 with SMTP id
- m10-20020a92caca000000b00363e7fff378mr8506844ilq.28.1707740649498; Mon, 12
- Feb 2024 04:24:09 -0800 (PST)
+	Mon, 12 Feb 2024 13:22:32 +0000
+Received: from compute7.internal (compute7.nyi.internal [10.202.2.48])
+	by mailout.nyi.internal (Postfix) with ESMTP id 4768A5C0091;
+	Mon, 12 Feb 2024 08:22:22 -0500 (EST)
+Received: from imap50 ([10.202.2.100])
+  by compute7.internal (MEProxy); Mon, 12 Feb 2024 08:22:22 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
+	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1707744142; x=1707830542; bh=tYVEFq3KKz
+	S37pkWyX/NsqZeEFJtfC+Kq3xqJ9xTUUw=; b=2IDabaR/c5r7d0u6aFiFX+gumQ
+	jMW8jt0nS+HZAdZ8nxsX2VdAaY8xI+1WhfLuLcSK5r53s7Ki/8jsrqiH4bWs9NsV
+	CgcZiMYo7rkHxDJsxDmWpNhj7Z9CaqrReRR0A79n1YnW+nI1PbVHpWjoWlUo7vh7
+	FQNOamToROwO8i7cFOGr/9csN2cLgcvIvWinycxy8BMTBqwxkUjP8SLBwWUT3u2a
+	XilQw2JP/x5FOKCMPsd7cl9k1CmieeZwcaWT0jI1G5XiiGUaehLEXLbrTBhiTBsW
+	wSG6WaEjMHLzdVsmoclglJNuE/Nirz67QF5K2NKr7RJIsDMRDI2Dr5h++YlA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1707744142; x=1707830542; bh=tYVEFq3KKzS37pkWyX/NsqZeEFJt
+	fC+Kq3xqJ9xTUUw=; b=Qu3c62fkEzwLe4zVsFeTcyfEPKecebSJOt9Ijws3FKK/
+	nlX8GLbVeA/SFcc92j7tfxoC+ZqlEMom/zXQa4OzOiAa3LrTK0MefB6hmrhDtUFo
+	5CbnVo7UA2Y6CP5cfPzaFils8r2Jk3BqV4IZREI8ccMKwyK8Nw0tHueUvmGjwRx9
+	h6T5jKo3QAhHPabjdecrdOA5e0X0lz/eOU4p+ePrSjXAN+hA1O9952q1RanGiYmU
+	FNzWKpSUD8nCbsiTCEsdxsbbvhHo6wjxdJuXWS+VLhZe9id538OqaVxsR+/bk7k3
+	ACw2Ydu8dVB5C83yFfKZVfZiBVUz/0ZZvpRnbcA1Fw==
+X-ME-Sender: <xms:jhvKZU_Z3l9oXS-8vieFhUr2clmUpfXFw9mpQHArVcLerTt1K4XcNg>
+    <xme:jhvKZTn8VEqFD0kHe8dg-SA7lJMHrMPENVXBjlSS98NKhAeGBgm6uxTh0is4uVtx0
+    WJ6CMJsPrrgJDzKAg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvledrudefgdegkecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdfuthgv
+    fhgrnhcuqfdktfgvrghrfdcuoehsohhrvggrrhesfhgrshhtmhgrihhlrdgtohhmqeenuc
+    ggtffrrghtthgvrhhnpeejueehgedtueetgefhheejjeeigffhieefjeehuddvueegtdfh
+    heevgfeggfektdenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucevlhhush
+    htvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsohhrvggrrhesfhgr
+    shhtmhgrihhlrdgtohhm
+X-ME-Proxy: <xmx:jhvKZW8b6P0WMstMn4TE8hgAytgqMpybfxscv8mrDCQJl3kDhGvRgg>
+    <xmx:jhvKZRlyoJ426oqFfB_wyZjGy_fyZewuoPV9nLFRngBgiOmbzFpYhw>
+    <xmx:jhvKZT3LDfEg7ERXsYiIIQ2O7fN_9qsoTUI28-EBuo_KlCFyh4nMAw>
+    <xmx:jhvKZU5OPiOkLZOwMGT-L4EMv3Yu6RGdfdchJlPA88gCFUSudcpuCQ>
+Feedback-ID: i84414492:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 1F8501700093; Mon, 12 Feb 2024 08:22:22 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.11.0-alpha0-144-ge5821d614e-fm-20240125.002-ge5821d61
 MIME-Version: 1.0
-References: <cover.1705916069.git.haibo1.xu@intel.com>
-In-Reply-To: <cover.1705916069.git.haibo1.xu@intel.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 12 Feb 2024 17:53:58 +0530
-Message-ID: <CAAhSdy2wFzk0h5MiM5y9Fij0HyWake=7vNuV1MExUxkEtMWShw@mail.gmail.com>
-Subject: Re: [PATCH v5 00/12] RISCV: Add kvm Sstc timer selftests
-To: Haibo Xu <haibo1.xu@intel.com>
-Cc: xiaobo55x@gmail.com, ajones@ventanamicro.com, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atishp@atishpatra.org>, 
-	Guo Ren <guoren@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>, wchen <waylingii@gmail.com>, 
-	Greentime Hu <greentime.hu@sifive.com>, Jisheng Zhang <jszhang@kernel.org>, 
-	Samuel Holland <samuel@sholland.org>, Minda Chen <minda.chen@starfivetech.com>, 
-	Sean Christopherson <seanjc@google.com>, Peter Xu <peterx@redhat.com>, Like Xu <likexu@tencent.com>, 
-	Vipin Sharma <vipinsh@google.com>, Thomas Huth <thuth@redhat.com>, 
-	Aaron Lewis <aaronlewis@google.com>, 
-	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org
+Message-Id: <f1d370c1-a7d8-4240-a15a-a55616f5b4a6@app.fastmail.com>
+In-Reply-To: <20240212022642.1968739-2-samuel.holland@sifive.com>
+References: <20240212022642.1968739-1-samuel.holland@sifive.com>
+ <20240212022642.1968739-2-samuel.holland@sifive.com>
+Date: Mon, 12 Feb 2024 08:21:58 -0500
+From: "Stefan O'Rear" <sorear@fastmail.com>
+To: "Samuel Holland" <samuel.holland@sifive.com>,
+ "Andrew Jones" <ajones@ventanamicro.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@kernel.org
+Subject: Re: [PATCH -fixes 2/2] riscv: Save/restore envcfg CSR during CPU suspend
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240212_042411_586121_E235F56A 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20240212_052231_032836_041EA87D 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,62 +102,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKYW4gMjIsIDIwMjQgYXQgMzoxNeKAr1BNIEhhaWJvIFh1IDxoYWlibzEueHVAaW50
-ZWwuY29tPiB3cm90ZToKPgo+IFRoZSBSSVNDLVYgYXJjaF90aW1lciBzZWxmdGVzdHMgaXMgdXNl
-ZCB0byB2YWxpZGF0ZSBTc3RjIHRpbWVyCj4gZnVuY3Rpb25hbGl0eSBpbiBhIGd1ZXN0LCB3aGlj
-aCBzZXRzIHVwIHBlcmlvZGljIHRpbWVyIGludGVycnVwdHMKPiBhbmQgY2hlY2sgdGhlIGJhc2lj
-IGludGVycnVwdCBzdGF0dXMgdXBvbiBpdHMgcmVjZWlwdC4KPgo+IFRoaXMgS1ZNIHNlbGZ0ZXN0
-cyB3YXMgcG9ydGVkIGZyb20gYWFyY2g2NCBhcmNoX3RpbWVyIGFuZCB0ZXN0ZWQKPiB3aXRoIExp
-bnV4IHY2LjctcmM4IG9uIGEgUWVtdSByaXNjdjY0IHZpcnQgbWFjaGluZS4KPgo+IC0tLQo+IENo
-YW5nZWQgc2luY2UgdjQ6Cj4gICAqIFJlYmFzZWQgdG8gTGludXggNi43LXJjOAo+ICAgKiBBZGRl
-ZCBuZXcgcGF0Y2goMi8xMikgdG8gY2xlYW4gdXAgdGhlIGRhdGEgdHlwZSBpbiBzdHJ1Y3QgdGVz
-dF9hcmdzCj4gICAqIFJlLW9yZGVyZWQgcGF0Y2goMTEvMTEpIGluIHY0IHRvIHBhdGNoKDMvMTIp
-Cj4gICAqIENoYW5nZWQgdGhlIHRpbWVyX2Vycl9tYXJnaW5fdXMgdHlwZSBmcm9tIGludCB0byB1
-aW50MzJfdAo+Cj4gSGFpYm8gWHUgKDExKToKPiAgIEtWTTogYXJtNjQ6IHNlbGZ0ZXN0czogRGF0
-YSB0eXBlIGNsZWFudXAgZm9yIGFyY2hfdGltZXIgdGVzdAo+ICAgS1ZNOiBhcm02NDogc2VsZnRl
-c3RzOiBFbmFibGUgdHVuaW5nIG9mIGVycm9yIG1hcmdpbiBpbiBhcmNoX3RpbWVyCj4gICAgIHRl
-c3QKPiAgIEtWTTogYXJtNjQ6IHNlbGZ0ZXN0czogU3BsaXQgYXJjaF90aW1lciB0ZXN0IGNvZGUK
-PiAgIEtWTTogc2VsZnRlc3RzOiBBZGQgQ09ORklHXzY0QklUIGRlZmluaXRpb24gZm9yIHRoZSBi
-dWlsZAo+ICAgdG9vbHM6IHJpc2N2OiBBZGQgaGVhZGVyIGZpbGUgY3NyLmgKPiAgIHRvb2xzOiBy
-aXNjdjogQWRkIGhlYWRlciBmaWxlIHZkc28vcHJvY2Vzc29yLmgKPiAgIEtWTTogcmlzY3Y6IHNl
-bGZ0ZXN0czogU3dpdGNoIHRvIHVzZSBtYWNybyBmcm9tIGNzci5oCj4gICBLVk06IHJpc2N2OiBz
-ZWxmdGVzdHM6IEFkZCBleGNlcHRpb24gaGFuZGxpbmcgc3VwcG9ydAo+ICAgS1ZNOiByaXNjdjog
-c2VsZnRlc3RzOiBBZGQgZ3Vlc3QgaGVscGVyIHRvIGdldCB2Y3B1IGlkCj4gICBLVk06IHJpc2N2
-OiBzZWxmdGVzdHM6IENoYW5nZSB2Y3B1X2hhc19leHQgdG8gYSBjb21tb24gZnVuY3Rpb24KPiAg
-IEtWTTogcmlzY3Y6IHNlbGZ0ZXN0czogQWRkIHNzdGMgdGltZXIgdGVzdAo+Cj4gUGFvbG8gQm9u
-emluaSAoMSk6Cj4gICBzZWxmdGVzdHMva3ZtOiBGaXggaXNzdWVzIHdpdGggJChTUExJVF9URVNU
-UykKClJlYmFzZWQgb24gTGludXgtNi44LXJjNCBhbmQgcXVldWVkIHRoaXMgc2VyaWVzIGZvciBM
-aW51eC02LjkKClRoYW5rcywKQW51cAoKPgo+ICB0b29scy9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L2Nzci5oICAgICAgICAgICAgfCA1NDEgKysrKysrKysrKysrKysrKysrCj4gIHRvb2xzL2FyY2gv
-cmlzY3YvaW5jbHVkZS9hc20vdmRzby9wcm9jZXNzb3IuaCB8ICAzMiArKwo+ICB0b29scy90ZXN0
-aW5nL3NlbGZ0ZXN0cy9rdm0vTWFrZWZpbGUgICAgICAgICAgfCAgMjcgKy0KPiAgLi4uL3NlbGZ0
-ZXN0cy9rdm0vYWFyY2g2NC9hcmNoX3RpbWVyLmMgICAgICAgIHwgMjk1ICstLS0tLS0tLS0KPiAg
-dG9vbHMvdGVzdGluZy9zZWxmdGVzdHMva3ZtL2FyY2hfdGltZXIuYyAgICAgIHwgMjU5ICsrKysr
-KysrKwo+ICAuLi4vc2VsZnRlc3RzL2t2bS9pbmNsdWRlL2FhcmNoNjQvcHJvY2Vzc29yLmggfCAg
-IDQgLQo+ICAuLi4vc2VsZnRlc3RzL2t2bS9pbmNsdWRlL2t2bV91dGlsX2Jhc2UuaCAgICAgfCAg
-IDkgKwo+ICAuLi4vc2VsZnRlc3RzL2t2bS9pbmNsdWRlL3Jpc2N2L2FyY2hfdGltZXIuaCAgfCAg
-NzEgKysrCj4gIC4uLi9zZWxmdGVzdHMva3ZtL2luY2x1ZGUvcmlzY3YvcHJvY2Vzc29yLmggICB8
-ICA2NSArKy0KPiAgLi4uL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9pbmNsdWRlL3Rlc3RfdXRpbC5o
-IHwgICAyICsKPiAgLi4uL3NlbGZ0ZXN0cy9rdm0vaW5jbHVkZS90aW1lcl90ZXN0LmggICAgICAg
-IHwgIDQ1ICsrCj4gIC4uLi9zZWxmdGVzdHMva3ZtL2xpYi9yaXNjdi9oYW5kbGVycy5TICAgICAg
-ICB8IDEwMSArKysrCj4gIC4uLi9zZWxmdGVzdHMva3ZtL2xpYi9yaXNjdi9wcm9jZXNzb3IuYyAg
-ICAgICB8ICA4NyArKysKPiAgLi4uL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9yaXNjdi9hcmNoX3Rp
-bWVyLmMgIHwgMTExICsrKysKPiAgLi4uL3NlbGZ0ZXN0cy9rdm0vcmlzY3YvZ2V0LXJlZy1saXN0
-LmMgICAgICAgIHwgIDExICstCj4gIDE1IGZpbGVzIGNoYW5nZWQsIDEzNTMgaW5zZXJ0aW9ucygr
-KSwgMzA3IGRlbGV0aW9ucygtKQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9jc3IuaAo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nvci5oCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29s
-cy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vYXJjaF90aW1lci5jCj4gIGNyZWF0ZSBtb2RlIDEwMDY0
-NCB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vaW5jbHVkZS9yaXNjdi9hcmNoX3RpbWVyLmgK
-PiAgY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9pbmNsdWRl
-L3RpbWVyX3Rlc3QuaAo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvdGVzdGluZy9zZWxmdGVz
-dHMva3ZtL2xpYi9yaXNjdi9oYW5kbGVycy5TCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy90
-ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vcmlzY3YvYXJjaF90aW1lci5jCj4KPiAtLQo+IDIuMzQuMQo+
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Sun, Feb 11, 2024, at 9:26 PM, Samuel Holland wrote:
+> The value of the [ms]envcfg CSR is lost when entering a nonretentive
+> idle state, so the CSR must be rewritten when resuming the CPU.
+>
+> Because the [ms]envcfg CSR is part of the base RISC-V privileged ISA
+> specification, it cannot be detected from the ISA string. However, most
+> existing hardware is too old to implement this CSR. As a result, it must
+> be probed at runtime.
+>
+> Extend the logic for the Zicsr ISA extension to probe for the presence
+> of specific CSRs. Since the CSR number is encoded as an immediate value
+> within the csrr instruction, a switch case is necessary for any CSR that
+> must be probed this way. Use the exception table to handle the illegal
+> instruction exception raised when the CSR is not implemented.
+
+We support non-conforming extensions, so we can't assume that if an
+implementation does not provide the Ss1p12 extension which defines senvcfg,
+the corresponding CSR number will not be used for other purposes.
+
+-s
+
+> Cc: stable@kernel.org
+> Fixes: 43c16d51a19b ("RISC-V: Enable cbo.zero in usermode")
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
+>
+>  arch/riscv/include/asm/csr.h     | 23 +++++++++++++++++++++++
+>  arch/riscv/include/asm/suspend.h |  1 +
+>  arch/riscv/kernel/cpufeature.c   | 23 +++++++++++++++++++++++
+>  arch/riscv/kernel/suspend.c      |  2 ++
+>  4 files changed, 49 insertions(+)
+>
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 2468c55933cd..daff95feb817 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -542,6 +542,29 @@
+>  			      : "memory");			\
+>  })
+> 
+> +#define ALT_CSR_READ(csr)					\
+> +({								\
+> +	unsigned long __v;					\
+> +	__asm__ __volatile__ (					\
+> +		ALTERNATIVE("li %[v], 0", "csrr %[v], %[r]", 0,	\
+> +			    csr << 16 | RISCV_ISA_EXT_ZICSR, 1)	\
+> +		: [v] "=r" (__v)				\
+> +		: [r] "i" (csr)					\
+> +		: "memory");					\
+> +	__v;							\
+> +})
+> +
+> +#define ALT_CSR_WRITE(csr, val)					\
+> +({								\
+> +	unsigned long __v = (unsigned long)(val);		\
+> +	__asm__ __volatile__ (					\
+> +		ALTERNATIVE("nop", "csrw %[r], %[v]", 0,	\
+> +			    csr << 16 | RISCV_ISA_EXT_ZICSR, 1)	\
+> +		: : [r] "i" (csr), [v] "rK" (__v)		\
+> +		: "memory");					\
+> +	__v;							\
+> +})
+> +
+>  #endif /* __ASSEMBLY__ */
+> 
+>  #endif /* _ASM_RISCV_CSR_H */
+> diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
+> index 02f87867389a..491296a335d0 100644
+> --- a/arch/riscv/include/asm/suspend.h
+> +++ b/arch/riscv/include/asm/suspend.h
+> @@ -14,6 +14,7 @@ struct suspend_context {
+>  	struct pt_regs regs;
+>  	/* Saved and restored by high-level functions */
+>  	unsigned long scratch;
+> +	unsigned long envcfg;
+>  	unsigned long tvec;
+>  	unsigned long ie;
+>  #ifdef CONFIG_MMU
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index c5b13f7dd482..934090270ae5 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -954,6 +954,27 @@ void riscv_user_isa_enable(void)
+>  }
+> 
+>  #ifdef CONFIG_RISCV_ALTERNATIVE
+> +static bool riscv_cpufeature_probe_csr(u16 csr)
+> +{
+> +	bool ret = false;
+> +
+> +	switch (csr) {
+> +#define PROBE_CSR_CASE(_csr)			\
+> +	case _csr:				\
+> +		asm("1:	csrr zero, %[csr]\n"	\
+> +		    "	li %[r], 1\n"		\
+> +		    "2:\n"			\
+> +		    _ASM_EXTABLE(1b, 2b)	\
+> +			: [r] "+r" (ret)	\
+> +			: [csr] "i" (_csr));	\
+> +		break
+> +	PROBE_CSR_CASE(CSR_ENVCFG);
+> +#undef PROBE_CSR_CASE
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+>  /*
+>   * Alternative patch sites consider 48 bits when determining when to patch
+>   * the old instruction sequence with the new. These bits are broken into a
+> @@ -974,6 +995,8 @@ static bool riscv_cpufeature_patch_check(u16 id, u16 value)
+>  		return true;
+> 
+>  	switch (id) {
+> +	case RISCV_ISA_EXT_ZICSR:
+> +		return riscv_cpufeature_probe_csr(value);
+>  	case RISCV_ISA_EXT_ZICBOZ:
+>  		/*
+>  		 * Zicboz alternative applications provide the maximum
+> diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
+> index 239509367e42..fe544f12a5c5 100644
+> --- a/arch/riscv/kernel/suspend.c
+> +++ b/arch/riscv/kernel/suspend.c
+> @@ -15,6 +15,7 @@
+>  void suspend_save_csrs(struct suspend_context *context)
+>  {
+>  	context->scratch = csr_read(CSR_SCRATCH);
+> +	context->envcfg = ALT_CSR_READ(CSR_ENVCFG);
+>  	context->tvec = csr_read(CSR_TVEC);
+>  	context->ie = csr_read(CSR_IE);
+> 
+> @@ -36,6 +37,7 @@ void suspend_save_csrs(struct suspend_context *context)
+>  void suspend_restore_csrs(struct suspend_context *context)
+>  {
+>  	csr_write(CSR_SCRATCH, context->scratch);
+> +	ALT_CSR_WRITE(CSR_ENVCFG, context->envcfg);
+>  	csr_write(CSR_TVEC, context->tvec);
+>  	csr_write(CSR_IE, context->ie);
+> 
+> -- 
+> 2.43.0
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
