@@ -4,76 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C35C48297
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Feb 2024 11:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0432DC48297
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Feb 2024 11:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=an/cyCyJslBNeE5hIy9E6rv2N1d79YmT3m2SD4aIpgs=; b=UIJKYxBoHJkNDQLT37ZJu7CkLV
-	ocQfrdy2CSOccn0uhJX+t/wmTrI0gV+daUWgay2Yq0rVwHDMoWZV8bLkv9P+9nxnC07xu2Ndn3zEK
-	FfcHt+Um6RMMObfGDmDO1luMmRnD2Bu9gZXSUZNoPYPBXr4naebtTGrip3HphgdcEwIPpwSJMcvqJ
-	ErA1HctZhGxnOgMKgNGRAgYLD35k1m9rpts2NXP74UHQbCGLGgiZNHp30R6BEXJUwmD6f49d6EXvK
-	bTG1pYYfrAJccvZYQ2UzoX8+8PUPsyF8hKoFG3z6onGmVXqKdMs7ZjZUQc7caGPlC8lUPOxwyk5ZE
-	sPjrflXA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wt+m7+aXlX+b8/SMZ81OYAEm5oHSVP/+yUhA4pN8VFk=; b=DqMnX2LiOXdwEj
+	drPoFtlY8EYV5aUmxhweBl6xFW06B19Y8HRC/XjrskXuUqJA2S0LvlCzj7mLWKfOc+fRIkLo6dp+f
+	MCPMmaHaJqW7SmFpD+sh6vErm1NqUhSUkoAKMt3HFs75mDsoXG+3OmvXzL6vYyQOJPgmqxeKIYVbS
+	c5ajTOB/BxT0SO9n526p66wHzong8ktC2bwjIap2axCsXFrbZ8eYqdXgEhk9wLxExAJ65G7eBjEkc
+	8OdFpu/wOh8kVUhIR1ZFRF6P5DUHuVuPJyXFR9PeE2OefPTTaSmlq765R7qcmsRWt37JPD/+tzkd5
+	m/7u8S32xar9sI19UQag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZU2Z-000000051NJ-0bCU;
-	Mon, 12 Feb 2024 10:59:59 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1rZUBK-000000052ZP-1aR7;
+	Mon, 12 Feb 2024 11:09:02 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZU2V-000000051Ll-2fbA
+	id 1rZUBI-000000052YE-02p3
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Feb 2024 10:59:57 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-604a247b168so56839487b3.3
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Feb 2024 02:59:54 -0800 (PST)
+	Mon, 12 Feb 2024 11:09:01 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-51168addef1so5651054e87.1
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Feb 2024 03:08:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1707735593; x=1708340393; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=30RM5+iq9SvHMBxtM7LQaJQAVbJipWzfZQPjP9gfDBE=;
-        b=ge+GTmg2o6MnA3ulQhoIZtYTgKT3DNj5IknVik5xOy6GrunM66U8qGSKbNzWnWnlyx
-         r5beEd5Y0tTBJTDNRbHBZCFRKMWYBZ1Gj+UegFHwi9T7BiUeLv4D7r26ic6AU8tBHyTZ
-         J/InxG6s0m6U7zkew5ZfG1mvQd1xtmV5Tes3CsFac7tEy86iQmw6MDS+ZC/UXPQ1LyrR
-         04Ns0Saksz860BjA/C0mOwfEgE/01TDYE0W1fqFFylZYKFIj2gKYeUluV5g4Oe5Uk5Bg
-         srrbKRmOyGrauGz5wXH61IW5I0KJkJZ/1SYs2keMUYdchFvOog4n3xpYSamNdSi2R3Zc
-         qXqA==
+        d=tuxon.dev; s=google; t=1707736138; x=1708340938; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wgtCKhK82z+I2PwaVcKMp99Q6wqABgNsVHzLAE9dAn0=;
+        b=DMcjXDpfFCjRiwCYr1eZPPK5PD3WX9ged+9CuB4++4YJgbkx9ioNkD7PrfVtPZaL4A
+         f2XUCnqJoN6fQNUSc8ZHAq+ko7H+/xTxI5ETVzIVezT2DOCwXv3yZGZLRjWklKOoL0ZQ
+         T4hgKu8akiSVlbUZQQAgL7hZGcnl+7AgETpnZ6sSqVuSO7YCaE5BZ5bWVcuNzFfq69uQ
+         g8bSSG0CjPCP3YkAmvnPcIqwyug4IMStpADOPlV8mA7ySF7VIWgazSn7gAl6rxjjqnIp
+         5lHzTICvcRgVuQielgkpjnMJhG0Uw8zOW+aYwGXThXWT3yvxtnHz1qdSLXwGM0hJMsFX
+         jmGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707735593; x=1708340393;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=30RM5+iq9SvHMBxtM7LQaJQAVbJipWzfZQPjP9gfDBE=;
-        b=SCU8bO/IO7b93Z8uDP39Hcnf4qRkresrq0vLhzHfUvszPCb4i+XS0jQVTzvG59Q74K
-         qSG0HKPLGlLZ7eTtzIrwImN9Fg/ErHAV8XHP2DmAo8+ttPtDDmGsHeQOO1MhVxA5sopF
-         N1Hq/eqvwm1nzH1OJlozhSeWGb08B/tDVZs4uoQBZtZWVwkfg3ymxRiYLWROvR0QluQ7
-         5rkCxaHsZRKM9vxqHRHIMl8r36xCHyr15pNFQK+XNaB3lSULRc79TjLGKryjcVOl5Lwi
-         hSKAriHfq8wCUVU3UO3YRnSJ+zMzPuK2RN7dKNZKtF3UpGoaMYsW9fApveli3vKtLNNX
-         jwOg==
-X-Gm-Message-State: AOJu0Ywo7vyFbkSyorjsPSlVo4lNgMko7qJ3/AlGrRUE0VvNrBkYvh7R
-	HKbr2yI9mVUjCp6IiGSSaE9QmE2tP4y9H8mDq/zPOU4SGz7Wm79Tx0VAW6xV9+0S8tPH7dXdU3T
-	d/foyZzxViyyrC0hxXw==
-X-Google-Smtp-Source: AGHT+IE/pkRw2FqX1CfFG7R/FtQ1G5wXi7uRgxBi5CMLQIgo7w3agUttYuoD7f7taGNlWx779Z+17omnDJXRCx68
-X-Received: from ericchancf.c.googlers.com ([fda3:e722:ac3:cc00:4f:4b78:c0a8:4139])
- (user=ericchancf job=sendgmr) by 2002:a0d:d681:0:b0:5ff:88f9:96f1 with SMTP
- id y123-20020a0dd681000000b005ff88f996f1mr1938575ywd.9.1707735593682; Mon, 12
- Feb 2024 02:59:53 -0800 (PST)
-Date: Mon, 12 Feb 2024 10:59:46 +0000
-In-Reply-To: <20240212-projector-dangle-7815fa2f7415@wendy>
-Mime-Version: 1.0
-References: <20240212-projector-dangle-7815fa2f7415@wendy>
-X-Mailer: git-send-email 2.43.0.687.g38aa6559b0-goog
-Message-ID: <20240212105946.1241100-1-ericchancf@google.com>
-Subject: [PATCH v2] riscv/fence: Consolidate fence definitions and define __{mb,rmb,wmb}
-From: Eric Chan <ericchancf@google.com>
-To: conor.dooley@microchip.com
-Cc: aou@eecs.berkeley.edu, ericchancf@google.com, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com
+        d=1e100.net; s=20230601; t=1707736138; x=1708340938;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wgtCKhK82z+I2PwaVcKMp99Q6wqABgNsVHzLAE9dAn0=;
+        b=ggxMhVUl1ZgpiM4WJvC3IXZHDbMRy60rFIidcqjVH0M/EU+FKUOidlSrwu5D23huIO
+         kCJ6lKUdSOt+fAhom5I0XEXjDtS6WWWhVsap7eGYPhu9T+8x3HpuX3dSi7Hej98oASU3
+         x1z+htaecs9J/gfgeZMMrd0Bm+/0kXTe5uWBKJIdAooj9SDYqJ3uc55Z6ZSWEaUGboRK
+         /Gl86BNERpBEp+lT2K8xwMuBGfJr4RoxKakuRZs93vYRVo6T7xpfHxpV4Wwmm8w/Yyjk
+         NiFyXEMWn+1cXbLwvn11/n+LYMca7s2y8OI9tkN7Yxa2mxrFWMNz3XSZlb0HCfxj8lg1
+         t46w==
+X-Forwarded-Encrypted: i=1; AJvYcCVMGgS0ERFBivYw2l/S01wfCULJ3iRt4zdbJ4YbJrnS/T5BocbTUhPu1HYZ3TVmR2yg7HjovpWRV0O3mTXsDemcD3R7ECNByaQqTbVHyhKC
+X-Gm-Message-State: AOJu0YzCRBADVmq2vCOaK58XZNNqdSvSJEGLQCOHD7K62qtyHXKoBASJ
+	pexvwPBLKyCHqusucEXBabakOFEj0r6yxhO6ngdpCv1ju4O//PpsEDQ4MLFUZVw=
+X-Google-Smtp-Source: AGHT+IH8gaBRvO6QKQUrPxiD25VWApPudReK8NgbiCQc/XSlHiAxgcfJ7p7cminjrDMRArdPlCn8nA==
+X-Received: by 2002:a05:6512:3b06:b0:511:83b3:a9aa with SMTP id f6-20020a0565123b0600b0051183b3a9aamr4080530lfv.6.1707736137995;
+        Mon, 12 Feb 2024 03:08:57 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX8yeUTmlC6AXe6nz+jYbF13B4T0HRNvlfOzDTAijU9nE/ugflYEEiia18f/syV5symAYoFb/2oWYh4e3d2w/nrU7iEVQfVa8FpOV+37/IrAQ5rxgS8rdSNHDr4TGQ17T54VTKN7KW9duYD5GIDo50lNRZKcUyLTYuQ7fDaDNrFmDTM8e3Wlga5PbZMv+7McplQMP4vflAjvNsxE/DeIPFBTwqTPNaANXD1tHhlKFr0ThOiH1+aX89nYu6S4kuh9GSrNKUZWqkx+si7g4qg3scnhRNFkha4ZBHWxA+hIOBpMbnouvNN/FdOJhwVxjEn32UHy8hial0CUYlH4vLAem1937X1sV6SgLa+4X10YRMNUUtNLrb+MZa/vugHqOqN5t3SdJWW+VG4ZXiXbN+s4rTOg7edeKEtZQN/C5EBb6mdKr7Tj8NMD2rmMWCvGGTBOBpJoh+Htqal3wtS5vMrZUdwAlkGkN9IsfMS8fSdXOYeXCrPGcLTOGgzKPxgpHIyrFpxhoRcLiIj2NYSxnMIPxWoiuYdy17F6gYIh0Rlev7XNYJOSNP1n1rroGj/tXHcSsNfBcDUMFr8aQOTeWgt695zTX5t6IYgLch5
+Received: from [192.168.50.4] ([82.78.167.20])
+        by smtp.gmail.com with ESMTPSA id h17-20020a05600c315100b00410cf4ee021sm2963960wmo.29.2024.02.12.03.08.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Feb 2024 03:08:57 -0800 (PST)
+Message-ID: <4c2369c0-bcd0-47c8-aee5-3c901f7920de@tuxon.dev>
+Date: Mon, 12 Feb 2024 13:08:55 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 01/17] dt-bindings: clock: r9a07g043-cpg: Add power domain
+ IDs
+Content-Language: en-US
+To: Biju Das <biju.das.jz@bp.renesas.com>,
+ "geert+renesas@glider.be" <geert+renesas@glider.be>,
+ "mturquette@baylibre.com" <mturquette@baylibre.com>,
+ "sboyd@kernel.org" <sboyd@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+ "krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "magnus.damm@gmail.com" <magnus.damm@gmail.com>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>
+Cc: "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+References: <20240208124300.2740313-1-claudiu.beznea.uj@bp.renesas.com>
+ <20240208124300.2740313-2-claudiu.beznea.uj@bp.renesas.com>
+ <TYCPR01MB11269DEA9261CA594EECC949686442@TYCPR01MB11269.jpnprd01.prod.outlook.com>
+ <67ad8052-1406-4dcb-9e35-5c42ada28797@tuxon.dev>
+ <TYCPR01MB112698AB206332D13105C064186442@TYCPR01MB11269.jpnprd01.prod.outlook.com>
+ <e170f5f8-f95c-4553-b088-1072345fae53@tuxon.dev>
+ <TYCPR01MB11269015C92AA327DC6BFA76586442@TYCPR01MB11269.jpnprd01.prod.outlook.com>
+ <786f90f4-ba47-46cb-b5e0-e3c42b1b741a@tuxon.dev>
+ <TYCPR01MB11269A240E2EDD460D0B97B9786482@TYCPR01MB11269.jpnprd01.prod.outlook.com>
+From: claudiu beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <TYCPR01MB11269A240E2EDD460D0B97B9786482@TYCPR01MB11269.jpnprd01.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240212_025955_710443_5DC7E8DA 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20240212_030900_088316_4DD7EA83 
+X-CRM114-Status: GOOD (  28.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,301 +117,232 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Disparate fence implementations are consolidated into fence.h.
 
-Introduce __{mb,rmb,wmb}, and rely on the generic definitions
-for {mb,rmb,wmb}. A first consequence is that __{mb,rmb,wmb}
-map to a compiler barrier on !SMP (while their definition remains
-unchanged on SMP).
 
-Introduce RISCV_FULL_BARRIER and use in arch_atomic* function.
-like RISCV_ACQUIRE_BARRIER and RISCV_RELEASE_BARRIER, The fence
-instruction can be eliminated When SMP is not enabled.
+On 12.02.2024 10:59, Biju Das wrote:
+> Hi Claudiu,
+> 
+>> -----Original Message-----
+>> From: claudiu beznea <claudiu.beznea@tuxon.dev>
+>> Sent: Monday, February 12, 2024 8:02 AM
+>> Subject: Re: [PATCH 01/17] dt-bindings: clock: r9a07g043-cpg: Add power
+>> domain IDs
+>>
+>> Hi, Biju,
+>>
+>> On 08.02.2024 21:20, Biju Das wrote:
+>>>
+>>>
+>>>> -----Original Message-----
+>>>> From: claudiu beznea <claudiu.beznea@tuxon.dev>
+>>>> Sent: Thursday, February 8, 2024 4:53 PM
+>>>> To: Biju Das <biju.das.jz@bp.renesas.com>; geert+renesas@glider.be;
+>>>> mturquette@baylibre.com; sboyd@kernel.org; robh@kernel.org;
+>>>> krzysztof.kozlowski+dt@linaro.org; conor+dt@kernel.org;
+>>>> magnus.damm@gmail.com; paul.walmsley@sifive.com; palmer@dabbelt.com;
+>>>> aou@eecs.berkeley.edu
+>>>> Cc: linux-renesas-soc@vger.kernel.org; linux-clk@vger.kernel.org;
+>>>> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-
+>>>> riscv@lists.infradead.org; Claudiu Beznea
+>>>> <claudiu.beznea.uj@bp.renesas.com>
+>>>> Subject: Re: [PATCH 01/17] dt-bindings: clock: r9a07g043-cpg: Add
+>>>> power domain IDs
+>>>>
+>>>>
+>>>>
+>>>> On 08.02.2024 18:28, Biju Das wrote:
+>>>>>
+>>>>>
+>>>>>> -----Original Message-----
+>>>>>> From: claudiu beznea <claudiu.beznea@tuxon.dev>
+>>>>>> Sent: Thursday, February 8, 2024 3:46 PM
+>>>>>> Subject: Re: [PATCH 01/17] dt-bindings: clock: r9a07g043-cpg: Add
+>>>>>> power domain IDs
+>>>>>>
+>>>>>> Hi, Biju,
+>>>>>>
+>>>>>> On 08.02.2024 16:30, Biju Das wrote:
+>>>>>>> Hi Claudiu,
+>>>>>>>
+>>>>>>> Thanks for the patch.
+>>>>>>>
+>>>>>>>> -----Original Message-----
+>>>>>>>> From: Claudiu <claudiu.beznea@tuxon.dev>
+>>>>>>>> Sent: Thursday, February 8, 2024 12:43 PM
+>>>>>>>> Subject: [PATCH 01/17] dt-bindings: clock: r9a07g043-cpg: Add
+>>>>>>>> power domain IDs
+>>>>>>>>
+>>>>>>>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>>>>>>>
+>>>>>>>> Add power domain IDs for RZ/G2UL (R9A07G043) SoC.
+>>>>>>>>
+>>>>>>>> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>>>>>>> ---
+>>>>>>>>  include/dt-bindings/clock/r9a07g043-cpg.h | 48
+>>>>>>>> +++++++++++++++++++++++
+>>>>>>>>  1 file changed, 48 insertions(+)
+>>>>>>>>
+>>>>>>>> diff --git a/include/dt-bindings/clock/r9a07g043-cpg.h
+>>>>>>>> b/include/dt- bindings/clock/r9a07g043-cpg.h index
+>>>>>>>> 77cde8effdc7..eabfeec7ac37
+>>>>>>>> 100644
+>>>>>>>> --- a/include/dt-bindings/clock/r9a07g043-cpg.h
+>>>>>>>> +++ b/include/dt-bindings/clock/r9a07g043-cpg.h
+>>>>>>>> @@ -200,5 +200,53 @@
+>>>>>>>>  #define R9A07G043_AX45MP_CORE0_RESETN	78	/* RZ/Five Only */
+>>>>>>>>  #define R9A07G043_IAX45_RESETN		79	/* RZ/Five Only */
+>>>>>>>>
+>>>>>>>> +/* Power domain IDs. */
+>>>>>>>> +#define R9A07G043_PD_ALWAYS_ON		0
+>>>>>>>> +#define R9A07G043_PD_GIC		1
+>>>>>>>> +#define R9A07G043_PD_IA55		2
+>>>>>>>> +#define R9A07G043_PD_MHU		3
+>>>>>>>> +#define R9A07G043_PD_CORESIGHT		4
+>>>>>>>> +#define R9A07G043_PD_SYC		5
+>>>>>>>> +#define R9A07G043_PD_DMAC		6
+>>>>>>>> +#define R9A07G043_PD_GTM0		7
+>>>>>>>> +#define R9A07G043_PD_GTM1		8
+>>>>>>>> +#define R9A07G043_PD_GTM2		9
+>>>>>>>> +#define R9A07G043_PD_MTU		10
+>>>>>>>> +#define R9A07G043_PD_POE3		11
+>>>>>>>> +#define R9A07G043_PD_WDT0		12
+>>>>>>>> +#define R9A07G043_PD_SPI		13
+>>>>>>>> +#define R9A07G043_PD_SDHI0		14
+>>>>>>>> +#define R9A07G043_PD_SDHI1		15
+>>>>>>>> +#define R9A07G043_PD_ISU		16
+>>>>>>>> +#define R9A07G043_PD_CRU		17
+>>>>>>>> +#define R9A07G043_PD_LCDC		18
+>>>>>>>> +#define R9A07G043_PD_SSI0		19
+>>>>>>>> +#define R9A07G043_PD_SSI1		20
+>>>>>>>> +#define R9A07G043_PD_SSI2		21
+>>>>>>>> +#define R9A07G043_PD_SSI3		22
+>>>>>>>> +#define R9A07G043_PD_SRC		23
+>>>>>>>> +#define R9A07G043_PD_USB0		24
+>>>>>>>> +#define R9A07G043_PD_USB1		25
+>>>>>>>> +#define R9A07G043_PD_USB_PHY		26
+>>>>>>>> +#define R9A07G043_PD_ETHER0		27
+>>>>>>>> +#define R9A07G043_PD_ETHER1		28
+>>>>>>>> +#define R9A07G043_PD_I2C0		29
+>>>>>>>> +#define R9A07G043_PD_I2C1		30
+>>>>>>>> +#define R9A07G043_PD_I2C2		31
+>>>>>>>> +#define R9A07G043_PD_I2C3		32
+>>>>>>>> +#define R9A07G043_PD_SCIF0		33
+>>>>>>>> +#define R9A07G043_PD_SCIF1		34
+>>>>>>>> +#define R9A07G043_PD_SCIF2		35
+>>>>>>>> +#define R9A07G043_PD_SCIF3		36
+>>>>>>>> +#define R9A07G043_PD_SCIF4		37
+>>>>>>>> +#define R9A07G043_PD_SCI0		38
+>>>>>>>> +#define R9A07G043_PD_SCI1		39
+>>>>>>>> +#define R9A07G043_PD_IRDA		40
+>>>>>>>> +#define R9A07G043_PD_RSPI0		41
+>>>>>>>> +#define R9A07G043_PD_RSPI1		42
+>>>>>>>> +#define R9A07G043_PD_RSPI2		43
+>>>>>>>> +#define R9A07G043_PD_CANFD		44
+>>>>>>>> +#define R9A07G043_PD_ADC		45
+>>>>>>>> +#define R9A07G043_PD_TSU		46
+>>>>>>>
+>>>>>>> Not sure from "Table 42.3 Registers for Module Standby Mode"
+>>>>>>>
+>>>>>>> Power domain ID has to be based on CPG_BUS_***_MSTOP or
+>>>>>>> CPG_CLKON_*** As former reduces number of IDs??
+>>>>>>
+>>>>>> If I understand correctly your point here, you want me to describe
+>>>>>> PM domain in DT with something like:
+>>>>>>
+>>>>>> power-domains = <&cpg CPG_BUS_X_MSTOP>;
+>>>>>
+>>>>> MSTOP bits are distinct for each IP.
+>>>>>
+>>>>> <&cpg CPG_BUS_MCPU1_MSTOP x>; x =1..9
+>>>>>
+>>>>> 2=MTU IP
+>>>>>
+>>>>> 4= GPT
+>>>>>
+>>>>> etc...
+>>>>>
+>>>>> Is it something work??
+>>>>
+>>>> It might work. But:
+>>>>
+>>>> - you have to consider that some IPs have more than one MSTOP bit,
+>>>> thus, do
+>>>>   we want to uniquely identify these with all MSTOP bits (thus the
+>>>> 2nd cell
+>>>>   being a bitmask) or only one is enough?
+>>>
+>>> We can have an encoding in that case 8:16 24 bit entries
+>>
+>> I consider this complicates the bindings. I don't consider this is the way
+>> going forward. But I may be wrong. I'll let Geert to give his opinion on
+>> it and change it afterwards, if any.
+>>
+>>>
+>>>> - some HW blocks (e.g. OTFDE_DDR) have no MSTOP bits associated (as of
+>> my
+>>>>   current research), so, only PWRDN
+>>>
+>>> Why do we want to add power domain support for DDR?
+>>
+>> To power it up (in case bootloader does any settings in this area) such
+>> that the system will not block while booting.
+> 
+> DDR is enabled by TF_A and is not touched by linux, so why are we adding
+> Power domain at all in first place. TZC DDR is not accessible in normal world.
+> 
+> So if you don't add DDR power domains, linux doesn't know about any thing about
+> and it should work like current case.
+> 
+>>
+>> It is explained in cover letter:
+>>
+>> The current DT
+>> bindings were updated with module IDs for the modules listed in tables
+>> with name "Registers for Module Standby Mode" (see HW manual) exception
+>> being RZ/G3S where, *due to the power down functionality*, the DDR,
+>> TZCDDR, OTFDE_DDR were also added, to avoid system being blocked due to
+>> the following lines of code from patch 7/17.
+>>
+>> +       /* Prepare for power down the BUSes in power down mode. */
+>> +       if (info->pm_domain_pwrdn_mstop)
+>> +               writel(CPG_PWRDN_MSTOP_ENABLE, priv->base +
+>> + CPG_PWRDN_MSTOP);
+>>
+>>>
+>>>> - some HW blocks have both MSTOP and PWRDN
+>>>
+>>> That will be an array right?
+>>
+>> I'm not sure what you want to say here.
+> 
+> This has to be an array PM domains(multi PM domain) like clocks?
 
-Also clean up the warning with scripts/checkpatch.pl.
+Forgot to reply to this...
 
-Signed-off-by: Eric Chan <ericchancf@google.com>
+Yes, this should work for IPs having both MSTOP and PWRDN. It is an
+alternative to the current implementation. I kept both MSTOP and PWRDN
+under the control of the same PM domain in the current implementation.
 
----
-v1 -> v2: makes compilation pass with allyesconfig instead of
-defconfig only, also satisfy scripts/checkpatch.pl.
-- (__asm__ __volatile__ (RISCV_FENCE_ASM(p, s) : : : "memory"))
-+ ({ __asm__ __volatile__ (RISCV_FENCE_ASM(p, s) : : : "memory"); })
-Thanks Conor help review it.
+But if future hardware implementation will spread the MSTOP bits for one IP
+to more than one register (I don't know if this is likely to happen but it
+may worth considering) then multiple MSTOP bits for the same power domain
+cannot be handled by this approach and describing the domain with register
+offset and bitmask.
 
- arch/riscv/include/asm/atomic.h  | 24 ++++++++++--------------
- arch/riscv/include/asm/barrier.h | 21 ++++++++++-----------
- arch/riscv/include/asm/cmpxchg.h |  5 ++---
- arch/riscv/include/asm/fence.h   | 11 +++++++++--
- arch/riscv/include/asm/io.h      |  8 ++++----
- arch/riscv/include/asm/mmio.h    |  5 +++--
- arch/riscv/include/asm/mmiowb.h  |  2 +-
- 7 files changed, 39 insertions(+), 37 deletions(-)
+> 
+> Or 
+> 
+> It can be  handled as sibliling power domain like sibling clocks in RZ/G2L Gbether.
 
-diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-index f5dfef6c2153..19050d13b6c1 100644
---- a/arch/riscv/include/asm/atomic.h
-+++ b/arch/riscv/include/asm/atomic.h
-@@ -17,13 +17,9 @@
- #endif
+Kind of this implementation was proposed initially (linking the MSTOP to
+the IP clocks inside the clock driver).
 
- #include <asm/cmpxchg.h>
--#include <asm/barrier.h>
+Thank you,
+Claudiu Beznea
 
--#define __atomic_acquire_fence()					\
--	__asm__ __volatile__(RISCV_ACQUIRE_BARRIER "" ::: "memory")
--
--#define __atomic_release_fence()					\
--	__asm__ __volatile__(RISCV_RELEASE_BARRIER "" ::: "memory");
-+#define __atomic_acquire_fence()	RISCV_FENCE(r, rw)
-+#define __atomic_release_fence()	RISCV_FENCE(rw, r)
-
- static __always_inline int arch_atomic_read(const atomic_t *v)
- {
-@@ -207,7 +203,7 @@ static __always_inline int arch_atomic_fetch_add_unless(atomic_t *v, int a, int
- 		"	add      %[rc], %[p], %[a]\n"
- 		"	sc.w.rl  %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		: [a]"r" (a), [u]"r" (u)
-@@ -228,7 +224,7 @@ static __always_inline s64 arch_atomic64_fetch_add_unless(atomic64_t *v, s64 a,
- 		"	add      %[rc], %[p], %[a]\n"
- 		"	sc.d.rl  %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		: [a]"r" (a), [u]"r" (u)
-@@ -248,7 +244,7 @@ static __always_inline bool arch_atomic_inc_unless_negative(atomic_t *v)
- 		"	addi      %[rc], %[p], 1\n"
- 		"	sc.w.rl   %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -268,7 +264,7 @@ static __always_inline bool arch_atomic_dec_unless_positive(atomic_t *v)
- 		"	addi      %[rc], %[p], -1\n"
- 		"	sc.w.rl   %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -288,7 +284,7 @@ static __always_inline int arch_atomic_dec_if_positive(atomic_t *v)
- 		"	bltz     %[rc], 1f\n"
- 		"	sc.w.rl  %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -310,7 +306,7 @@ static __always_inline bool arch_atomic64_inc_unless_negative(atomic64_t *v)
- 		"	addi      %[rc], %[p], 1\n"
- 		"	sc.d.rl   %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -331,7 +327,7 @@ static __always_inline bool arch_atomic64_dec_unless_positive(atomic64_t *v)
- 		"	addi      %[rc], %[p], -1\n"
- 		"	sc.d.rl   %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -352,7 +348,7 @@ static __always_inline s64 arch_atomic64_dec_if_positive(atomic64_t *v)
- 		"	bltz     %[rc], 1f\n"
- 		"	sc.d.rl  %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
-index 110752594228..880b56d8480d 100644
---- a/arch/riscv/include/asm/barrier.h
-+++ b/arch/riscv/include/asm/barrier.h
-@@ -11,28 +11,27 @@
- #define _ASM_RISCV_BARRIER_H
-
- #ifndef __ASSEMBLY__
-+#include <asm/fence.h>
-
- #define nop()		__asm__ __volatile__ ("nop")
- #define __nops(n)	".rept	" #n "\nnop\n.endr\n"
- #define nops(n)		__asm__ __volatile__ (__nops(n))
-
--#define RISCV_FENCE(p, s) \
--	__asm__ __volatile__ ("fence " #p "," #s : : : "memory")
-
- /* These barriers need to enforce ordering on both devices or memory. */
--#define mb()		RISCV_FENCE(iorw,iorw)
--#define rmb()		RISCV_FENCE(ir,ir)
--#define wmb()		RISCV_FENCE(ow,ow)
-+#define __mb()		RISCV_FENCE(iorw, iorw)
-+#define __rmb()		RISCV_FENCE(ir, ir)
-+#define __wmb()		RISCV_FENCE(ow, ow)
-
- /* These barriers do not need to enforce ordering on devices, just memory. */
--#define __smp_mb()	RISCV_FENCE(rw,rw)
--#define __smp_rmb()	RISCV_FENCE(r,r)
--#define __smp_wmb()	RISCV_FENCE(w,w)
-+#define __smp_mb()	RISCV_FENCE(rw, rw)
-+#define __smp_rmb()	RISCV_FENCE(r, r)
-+#define __smp_wmb()	RISCV_FENCE(w, w)
-
- #define __smp_store_release(p, v)					\
- do {									\
- 	compiletime_assert_atomic_type(*p);				\
--	RISCV_FENCE(rw,w);						\
-+	RISCV_FENCE(rw, w);						\
- 	WRITE_ONCE(*p, v);						\
- } while (0)
-
-@@ -40,7 +39,7 @@ do {									\
- ({									\
- 	typeof(*p) ___p1 = READ_ONCE(*p);				\
- 	compiletime_assert_atomic_type(*p);				\
--	RISCV_FENCE(r,rw);						\
-+	RISCV_FENCE(r, rw);						\
- 	___p1;								\
- })
-
-@@ -69,7 +68,7 @@ do {									\
-  * instances the scheduler pairs this with an mb(), so nothing is necessary on
-  * the new hart.
-  */
--#define smp_mb__after_spinlock()	RISCV_FENCE(iorw,iorw)
-+#define smp_mb__after_spinlock()	RISCV_FENCE(iorw, iorw)
-
- #include <asm-generic/barrier.h>
-
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 2f4726d3cfcc..2fee65cc8443 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -8,7 +8,6 @@
-
- #include <linux/bug.h>
-
--#include <asm/barrier.h>
- #include <asm/fence.h>
-
- #define __xchg_relaxed(ptr, new, size)					\
-@@ -313,7 +312,7 @@
- 			"	bne  %0, %z3, 1f\n"			\
- 			"	sc.w.rl %1, %z4, %2\n"			\
- 			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
-+			RISCV_FULL_BARRIER				\
- 			"1:\n"						\
- 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
- 			: "rJ" ((long)__old), "rJ" (__new)		\
-@@ -325,7 +324,7 @@
- 			"	bne %0, %z3, 1f\n"			\
- 			"	sc.d.rl %1, %z4, %2\n"			\
- 			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
-+			RISCV_FULL_BARRIER				\
- 			"1:\n"						\
- 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
- 			: "rJ" (__old), "rJ" (__new)			\
-diff --git a/arch/riscv/include/asm/fence.h b/arch/riscv/include/asm/fence.h
-index 2b443a3a487f..c0fd82d72a0e 100644
---- a/arch/riscv/include/asm/fence.h
-+++ b/arch/riscv/include/asm/fence.h
-@@ -1,12 +1,19 @@
- #ifndef _ASM_RISCV_FENCE_H
- #define _ASM_RISCV_FENCE_H
-
-+#define RISCV_FENCE_ASM(p, s) \
-+	"\tfence " #p "," #s "\n"
-+#define RISCV_FENCE(p, s) \
-+	({ __asm__ __volatile__ (RISCV_FENCE_ASM(p, s) : : : "memory"); })
-+
- #ifdef CONFIG_SMP
--#define RISCV_ACQUIRE_BARRIER		"\tfence r , rw\n"
--#define RISCV_RELEASE_BARRIER		"\tfence rw,  w\n"
-+#define RISCV_ACQUIRE_BARRIER		RISCV_FENCE_ASM(r, rw)
-+#define RISCV_RELEASE_BARRIER		RISCV_FENCE_ASM(rw, w)
-+#define RISCV_FULL_BARRIER		RISCV_FENCE_ASM(rw, rw)
- #else
- #define RISCV_ACQUIRE_BARRIER
- #define RISCV_RELEASE_BARRIER
-+#define RISCV_FULL_BARRIER
- #endif
-
- #endif	/* _ASM_RISCV_FENCE_H */
-diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
-index 42497d487a17..1c5c641075d2 100644
---- a/arch/riscv/include/asm/io.h
-+++ b/arch/riscv/include/asm/io.h
-@@ -47,10 +47,10 @@
-  * sufficient to ensure this works sanely on controllers that support I/O
-  * writes.
-  */
--#define __io_pbr()	__asm__ __volatile__ ("fence io,i"  : : : "memory");
--#define __io_par(v)	__asm__ __volatile__ ("fence i,ior" : : : "memory");
--#define __io_pbw()	__asm__ __volatile__ ("fence iow,o" : : : "memory");
--#define __io_paw()	__asm__ __volatile__ ("fence o,io"  : : : "memory");
-+#define __io_pbr()	RISCV_FENCE(io, i)
-+#define __io_par(v)	RISCV_FENCE(i, ior)
-+#define __io_pbw()	RISCV_FENCE(iow, o)
-+#define __io_paw()	RISCV_FENCE(o, io)
-
- /*
-  * Accesses from a single hart to a single I/O address must be ordered.  This
-diff --git a/arch/riscv/include/asm/mmio.h b/arch/riscv/include/asm/mmio.h
-index 4c58ee7f95ec..06cadfd7a237 100644
---- a/arch/riscv/include/asm/mmio.h
-+++ b/arch/riscv/include/asm/mmio.h
-@@ -12,6 +12,7 @@
- #define _ASM_RISCV_MMIO_H
-
- #include <linux/types.h>
-+#include <asm/fence.h>
- #include <asm/mmiowb.h>
-
- /* Generic IO read/write.  These perform native-endian accesses. */
-@@ -131,8 +132,8 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
-  * doesn't define any ordering between the memory space and the I/O space.
-  */
- #define __io_br()	do {} while (0)
--#define __io_ar(v)	({ __asm__ __volatile__ ("fence i,ir" : : : "memory"); })
--#define __io_bw()	({ __asm__ __volatile__ ("fence w,o" : : : "memory"); })
-+#define __io_ar(v)	RISCV_FENCE(i, ir)
-+#define __io_bw()	RISCV_FENCE(w, o)
- #define __io_aw()	mmiowb_set_pending()
-
- #define readb(c)	({ u8  __v; __io_br(); __v = readb_cpu(c); __io_ar(__v); __v; })
-diff --git a/arch/riscv/include/asm/mmiowb.h b/arch/riscv/include/asm/mmiowb.h
-index 0b2333e71fdc..52ce4a399d9b 100644
---- a/arch/riscv/include/asm/mmiowb.h
-+++ b/arch/riscv/include/asm/mmiowb.h
-@@ -7,7 +7,7 @@
-  * "o,w" is sufficient to ensure that all writes to the device have completed
-  * before the write to the spinlock is allowed to commit.
-  */
--#define mmiowb()	__asm__ __volatile__ ("fence o,w" : : : "memory");
-+#define mmiowb()	RISCV_FENCE(o, w)
-
- #include <linux/smp.h>
- #include <asm-generic/mmiowb.h>
---
-2.43.0.687.g38aa6559b0-goog
+> 
+> Cheers,
+> Biju
 
 _______________________________________________
 linux-riscv mailing list
