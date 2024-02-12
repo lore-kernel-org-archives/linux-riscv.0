@@ -4,80 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C9AC4829E
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Feb 2024 20:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F92C4829E
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Feb 2024 20:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/pnTM7MHOWIKeC9JaH60nAYo0WzPZPaNj0Tuk3bpiLU=; b=SkQh1GmCjIltAP6iw1nrIhYhi1
-	qn+0vMu6z1GJF3x0qUcj2IPfj8dTAivl1VgwkHFRgulHSBJzp6bzTdF4OxUjC8BUDIgaFuaG5P80L
-	J3WPZLo8SoXTzd+neXikcL6i3xqOriyQ/4D/c0J2BIuCPnIeL5ixmGHKAR4ogMnnDEW0bqNCbejKk
-	8w3AiNoxo7SJLmCe8syCpjAWIWDdnEMwLL5FQwFhx2iIfCE0a5COCs13kfKvua+9pfS/86wH8z0Jo
-	t+EkXQbrW/WGwuNhzLOHJfTerCDWrGeeWo/4cMlc511Gid8P+XiCKKzLZAH01Mh6BAOqanidqqdOU
-	n96s2HHg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DbIhzopDzkmsMSYLiD9UBlp8eietzpqKS8hDnhh+Ats=; b=BLxw+IczIT1hnT
+	/x6QsG1+gE7Idz8Qfh/lETCuAsrapER81AKFhMsbqijLgLhWtcRHgEdgZGje/zXvj1w6V4RvVilVE
+	E0Piaf/y64rsWEB659BRZdPdwjG760vX3zG9K42zUfLI2Ojvc5QuTumHORWpbRUZyqISOFeMw4K2M
+	S2enuvJVX7tgUcOlND7U0XGZwHvDhJ+J/lTGHYG1GJ/YZP6+HRs8LD5S70cuSC3Xb/LxAIDVvvVZR
+	uPSUmVB5HKTKwLJ/7jTtBRfZX0+LFJ0WRy6zfKq0srhBpUjYW9XKeVai5zqc17/hraO19PVTZoMI0
+	NQ27TnYDpJHzXrnY51UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZckK-00000006qgg-3rme;
-	Mon, 12 Feb 2024 20:17:44 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rZd32-00000006stm-1keP;
+	Mon, 12 Feb 2024 20:37:04 +0000
+Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZckH-00000006qfu-41mz
+	id 1rZd2y-00000006st4-3hq2
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Feb 2024 20:17:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 53502CE14A0;
-	Mon, 12 Feb 2024 20:17:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35F75C433F1;
-	Mon, 12 Feb 2024 20:17:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707769058;
-	bh=Rj06hafTCiyYS44RXdDjgCx/QrBaExSSWLkRezkp1WA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X+i4Kcy8KwTYZaA9DRB9gp/BAdGBVRfD7bKOCgPjeydbfp0mblshUNNi+P5qU3Ntt
-	 9lSQdgC9J4E0ZScwHXsFpzj7dBZccyZve+F4ps1bMyLKQ12t2tW1LNjEpB3sgxXsbD
-	 tbzqtA+3ken2t/Xtbvn3/2Te6Hr0zJvzXRS2L7fK+nOm8Tey9Q6RN1v42u5lKhQds2
-	 /wOuE+NL7eLCzORsTsJK2K9N3BwYIl0lYBmdSgKDtRV5kixXlRSrNM74oKh67oB4zv
-	 Io2hsp7zoaX2X1V52Hq6eYNDnecdK/TD3sjwSFVCzThrovySIIQlbv8kfJGJHZDUy4
-	 Uvseb6GNI3UbQ==
-Date: Mon, 12 Feb 2024 20:17:31 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Ramon de C Valle <rcvalle@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Wedson Almeida Filho <wedsonaf@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>, rust-for-linux@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, Matthew Maurer <mmaurer@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>
-Subject: Re: [PATCH v1 0/2] RISC-V: enable rust
-Message-ID: <20240212-demotion-blitz-1c9ab85dbc73@spud>
-References: <20240125-bucked-payroll-47f82077b262@wendy>
- <CANiq72k7n0aZrifRRU08N8qLkNe+2EZwijZy5sM7M56n2xYHgQ@mail.gmail.com>
- <20240125-lazy-thrower-744aacc6632a@wendy>
- <CANiq72kb+_utZrYHtoKZQtQazikmkjpVUHpTBcaANizduMF5QQ@mail.gmail.com>
- <20240126-eccentric-jaywalker-3560e2151a92@spud>
- <CANiq72nu2NXUWYanHZd5EXgX4P_v673EWn6SCRW60Es9naraQQ@mail.gmail.com>
- <20240209-rage-keg-1b2982cd17d9@spud>
- <CALNs47sRqAbE=u3=_ciO2oge7Afz-6GBBhW+BwcLRET-TsuxTg@mail.gmail.com>
- <CAOcBZORDaHHH3jTL3GO7OsDubhhyQE0Uy2uAjJpiRzrKBgqaOw@mail.gmail.com>
- <CANiq72=VBFvB9O9c84YxpBBftpfNnnXx-+Xes0h8h6rN3EN5pA@mail.gmail.com>
+	Mon, 12 Feb 2024 20:37:02 +0000
+Received: by mail-vs1-xe36.google.com with SMTP id ada2fe7eead31-46d2085eeebso1692805137.1
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Feb 2024 12:36:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1707770214; x=1708375014; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/Qq/MTNXhRSFGfhT1MpQL4wU8zE0C84XuaSbfhwx1Oc=;
+        b=BuiH+ZlBBTfGX64wNqdoQFR4/bEjXKbT1CaETJTZkU2rLmK6gMAzM+/QO6jztzkd3J
+         1lCB5/sU/Sjs4tY069rFeWZZoSknPmIvxHyaWDj8VRTOd4Y3a1kRsHPY7GaYPhl3CmtK
+         LFwxngWhhuwKFjQuG8nZUDEDIZHJp6RMP17wONq8kkDnbK1iYO39x/RrY/x2TLpDhq1G
+         Fx80WPVF7FZ/aJM81APtStYjKpm8wjt40xPIWDQ0xMlOOLU9yMnTJ1QxRkXQub2Je6oY
+         q11/04V4KnZuMULTup4wLlg88Dbrw5Qia9niJoJTxQ9DDYU+hRM2WOfHk3kVtPbhbVKR
+         6gRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1707770214; x=1708375014;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/Qq/MTNXhRSFGfhT1MpQL4wU8zE0C84XuaSbfhwx1Oc=;
+        b=IcpwHGYb8wgq3n6xoyHAAufK0BvfcV8734ZrVv3BvhHktitoHI8hoQFV9eNOjXh/Vt
+         pV4BWAIDGhBw6xOwDwPiNjG1CJh/cGPmA4DMaRPjZ3i6yyghQC4s61s9W3vtygnUlxbx
+         UVpLwL1UKHvtM95x4SlynNX5oVo88dqiw+kiV+bfoX5BOwCD6JMeo8zYrj9erDYy1yJv
+         7AkagGlbGnTAyfYXzQXatdSfzIqsVeRyp0qjXJfQtytyPzfsrdXDYuC8Sbv3Lyu/R/jv
+         Y626qJxlFQvtYAGBQ1LGzxusEDgiRNnlWRRxHnBAjlsAaFtPZ7wnpoZ9IAGk0NSdIXCL
+         yxXw==
+X-Forwarded-Encrypted: i=1; AJvYcCUbQHlZ5symuC1hgMutDow24oDAbP8byit+UjRUmpNFzFd0Kem/UEE8FLBDJRi+PyHsEGhvvnKxb19N6yi8V3CBGLRbZAOs4httXtxWiIFB
+X-Gm-Message-State: AOJu0Yy8wXxoG057bGCCzc0aMuep7mSk9KhfngTb8SaV+xYWy7dqWIO0
+	ZQrqaSFNgs4jqgejoUW5tZ/ERGoEGbVV2NML/qEYSGji/9OIZqjX1QFDTDroNR1Z+lfL8Du+gAM
+	saERO3zV5iGtKoU8GURzvWZ0sLiD6BNGESF9n
+X-Google-Smtp-Source: AGHT+IFWndKWzDTOT0x0/4s8Etpblas7Df8C2xR5KB9thOTs6aRnFjIThpiH1ujxZsNIy/J6F6pXaMbg0Ae3jkIJHZ8=
+X-Received: by 2002:a67:e947:0:b0:46e:cadc:f340 with SMTP id
+ p7-20020a67e947000000b0046ecadcf340mr645454vso.7.1707770213832; Mon, 12 Feb
+ 2024 12:36:53 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <CANiq72=VBFvB9O9c84YxpBBftpfNnnXx-+Xes0h8h6rN3EN5pA@mail.gmail.com>
+References: <20240117-swiftly-parasail-618d62972d6e@spud> <CANiq72mVKCOAuK4Qe+8AHmpkFwyJsVfx8AqB7ccGi3DYpSSWcw@mail.gmail.com>
+ <20240118-implode-delirium-eefdd86e170e@spud> <CANiq72nx1s_nyvPW86jL7eiOxROr18LfOJqNtw8L42CP+gkhRg@mail.gmail.com>
+ <20240125-bucked-payroll-47f82077b262@wendy> <CANiq72k7n0aZrifRRU08N8qLkNe+2EZwijZy5sM7M56n2xYHgQ@mail.gmail.com>
+ <20240125-lazy-thrower-744aacc6632a@wendy> <CANiq72kb+_utZrYHtoKZQtQazikmkjpVUHpTBcaANizduMF5QQ@mail.gmail.com>
+ <20240126-eccentric-jaywalker-3560e2151a92@spud> <CANiq72nu2NXUWYanHZd5EXgX4P_v673EWn6SCRW60Es9naraQQ@mail.gmail.com>
+ <20240209-rage-keg-1b2982cd17d9@spud> <CALNs47sRqAbE=u3=_ciO2oge7Afz-6GBBhW+BwcLRET-TsuxTg@mail.gmail.com>
+ <CAOcBZOSfN8Yefez_Gy_T3_QTAd4HcLzmMCOoR37K2agWD_U_PQ@mail.gmail.com>
+In-Reply-To: <CAOcBZOSfN8Yefez_Gy_T3_QTAd4HcLzmMCOoR37K2agWD_U_PQ@mail.gmail.com>
+From: Sami Tolvanen <samitolvanen@google.com>
+Date: Mon, 12 Feb 2024 12:36:15 -0800
+Message-ID: <CABCJKueFuDkmUmXWbtA3DveQ719vdZx5kBQE1bZ1f6oD5zYNzA@mail.gmail.com>
+Subject: Re: [PATCH v1 0/2] RISC-V: enable rust
+To: Ramon de C Valle <rcvalle@google.com>
+Cc: Trevor Gross <tmgross@umich.edu>, Conor Dooley <conor@kernel.org>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	linux-riscv@lists.infradead.org, Miguel Ojeda <ojeda@kernel.org>, 
+	Alex Gaynor <alex.gaynor@gmail.com>, Wedson Almeida Filho <wedsonaf@gmail.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, 
+	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Matthew Maurer <mmaurer@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240212_121742_372856_F460DFC5 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20240212_123700_991125_44720BA0 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,72 +102,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1121199483612065992=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============1121199483612065992==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Fnsa84sXGmOTaKtZ"
-Content-Disposition: inline
-
-
---Fnsa84sXGmOTaKtZ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Feb 12, 2024 at 08:11:21PM +0100, Miguel Ojeda wrote:
-> On Mon, Feb 12, 2024 at 8:02=E2=80=AFPM Ramon de C Valle <rcvalle@google.=
-com> wrote:
-> >
-> > Sorry for the late reply. Sami might be the best person to answer this,=
- but KCFI (not CFI) tests are lowered by passes that are architecture speci=
-fic (see https://reviews.llvm.org/D119296), so we'd need to add support for=
- RISC-V. There is no additional work required in the Rust compiler besides =
-enabling it for the new target.
->=20
-> Thanks a lot Ramon!
->=20
-> Then for RISC-V let's go for the `depends on` for the moment, and we
-> can remove when the support lands for RISC-V (ideally when someone has
-> managed to boot it at least under some configuration).
-
-If all you want is a boot under some configuration, that's not
-difficult. After all, I found the original issue by booting a kernel
-with CFI_CLANG enabled on the C side...
-
-> There is no additional work required in the Rust compiler besides enablin=
-g it for the new target.
-
-This is not super clear though, it says "in the Rust compiler", not "in
-the kernel's buildsystem".
-
---Fnsa84sXGmOTaKtZ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZcp82wAKCRB4tDGHoIJi
-0l0+AQDwAn/aq+Fts6yHPXow2miyTAWD/hM47HfQMPIODOb5ZQD/dkB5CAfEyKfu
-rkbwjea4usmgQD4BLThgzp4mlabBVwM=
-=ORjx
------END PGP SIGNATURE-----
-
---Fnsa84sXGmOTaKtZ--
-
-
---===============1121199483612065992==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1121199483612065992==--
-
+T24gTW9uLCBGZWIgMTIsIDIwMjQgYXQgMTE6MDTigK9BTSBSYW1vbiBkZSBDIFZhbGxlIDxyY3Zh
+bGxlQGdvb2dsZS5jb20+IHdyb3RlOgo+Cj4gU29ycnkgZm9yIHRoZSBsYXRlIHJlcGx5LiBTYW1p
+IG1pZ2h0IGJlIHRoZSBiZXN0IHBlcnNvbiB0byBhbnN3ZXIKPiB0aGlzLCBidXQgS0NGSSAobm90
+IENGSSkgdGVzdHMgYXJlIGxvd2VyZWQgYnkgcGFzc2VzIHRoYXQgYXJlCj4gYXJjaGl0ZWN0dXJl
+IHNwZWNpZmljIChzZWUgaHR0cHM6Ly9yZXZpZXdzLmxsdm0ub3JnL0QxMTkyOTYpLCBzbyB3ZSdk
+Cj4gbmVlZCB0byBhZGQgc3VwcG9ydCBmb3IgUklTQy1WLiBUaGVyZSBpcyBubyBhZGRpdGlvbmFs
+IHdvcmsgcmVxdWlyZWQKPiBpbiB0aGUgUnVzdCBjb21waWxlciBiZXNpZGVzIGVuYWJsaW5nIGl0
+IGZvciB0aGUgbmV3IHRhcmdldC4KCkxMVk0gMTcgYWRkZWQgS0NGSSBzdXBwb3J0IGZvciBSSVND
+LVYuIFNvdW5kcyBsaWtlIGl0J3MganVzdCBhCnF1ZXN0aW9uIG9mIHdoZXRoZXIgcnVzdGMgdXNl
+cyBhIG5ldyBlbm91Z2ggdmVyc2lvbiBvZiBMTFZNIHRoZW4/CgpTYW1pCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
