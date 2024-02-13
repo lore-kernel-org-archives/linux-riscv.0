@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50829C4829D
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 00:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8516C4829D
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 00:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fsgBSTGpiFnfN7B6wBHgObU8+1TYzWh/0sMj6DtMOe4=; b=g1Zl+4g7QtR9dM
-	Pg/34NTJtRH9zeJBAUpyt5ehKyAgLw8+ujziTBlL2NWSEsliPEZ2G5jAMeCqNCfD+l4/mncY1O/2R
-	VyUcSGkHaelVjiosAGrhpZOLM5wllTbT7mV6hPEi+I9clMXKNhrV+Ot2XQrmAwCla13cRPIonMEPz
-	8kIfb3jInoTetif0sYxo4cANZ3rgkYkq+ka3WSk21I2eB3vjLN3dVMGt39a86FMq9LOvYSkf2PAle
-	wo2hT/qWRo5YdQ2vhB7mEyq+RBc4SIREby/dt3vNxd8JrdMXL/k+WbPGnPrafUnyjrAorCtltDyB1
-	wrM4YNOMjfrjuActrcQw==;
+	List-Owner; bh=fsgBSTGpiFnfN7B6wBHgObU8+1TYzWh/0sMj6DtMOe4=; b=IPsJpMZgr7CxcO
+	rGgMmztfWtFHR8j+dTV4BXaKEQ3eFnOhzuQNpk3u1Jy00T7cqYFirD1bK8j4Cuy5M7K7hzv32/KaZ
+	P1HZFN/mhCdZALtIU3cxke4fr2MgMtqEO6mEF3IuLJYkrGjElR/YTDiHINU2mvIkILVZefesaTSeQ
+	zubRoB0YdyRCAFknsTqjJnSSNqSEyiGWV4BsKOcsPJuOx8t6Khv1KMRjbfpxmpUC6TyJ6WAyG9nQY
+	0EhSPyte3QRBxAVKouTll/RC4Na1cHnEAWDalJ6JcxRnlQgBMVcRg8ycmR1LbQ4lMyJWt/Ss2oPY5
+	6MGxbVm84nhdShV3mhng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZgWC-00000007MjJ-3lwl;
-	Tue, 13 Feb 2024 00:19:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rZgYG-00000007NU9-0HV2;
+	Tue, 13 Feb 2024 00:21:32 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZgW9-00000007MiE-47jO
+	id 1rZgYD-00000007NSp-1hj7
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Feb 2024 00:19:23 +0000
+	Tue, 13 Feb 2024 00:21:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8F8B3611CB;
-	Tue, 13 Feb 2024 00:19:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BFCAC433F1;
-	Tue, 13 Feb 2024 00:19:18 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id C10ECCE18A6;
+	Tue, 13 Feb 2024 00:21:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 398F2C43394;
+	Tue, 13 Feb 2024 00:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707783560;
+	s=k20201202; t=1707783687;
 	bh=coe5qCrIxtjBe9bpwxvduhBiOdnr8HhwgkBSSur6uTU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aLQiszL5Kc0zTXa7U1t6OSCiLEmFG8TJf/4bRtDL9lxXMpbviu44Oo5URs8MVzJnP
-	 g0xgeH4iXFGFZXo064yl6TOe3xpsjcWw+Lc5TlUBokkKdXSNO+/zaWy7Wm9SBB9bpg
-	 8Zym+iCDETVTAqDfdfwmCXOx17ijlfEvgcBmAov1BrFUPM/C3KK6GTaYdXTBYjfKe5
-	 tWYyZmE0oec8MltlnD6DRNx7GawsrF+ip6uy37eey0RHdgChNpDco6HPslJkd70EZA
-	 TtEmdqsSNd+sayhk3mWrIhzTw13AUjb8doetCSHMnDvK5+gIq+iUepmx7cvFxDrRYE
-	 Y5cabrD+lBRvA==
+	b=KzYd2o8nds3S1FFKKVXQiKFklssHfcDpIb5Nq9P/Se0cqtZcTpK0N3mwwLKEFnK36
+	 gUA97G6A9zh4eODxshwYdXBdLFy/wb5lFP+z7Z9NZwkjlh/5E8tA/suQcVn9dsBDhz
+	 PTEeAkbf7Bd83h2ja7mERKwBrPdRgm2BFSn9S3lI5sxc8jtkvgRGZ6Irn8diUrWDBY
+	 RcbaMYaB44pBB2EY4wLuRb5/jszAxO6F3Aq0WGFLlSo1gwmk7RFwDWvwH3EmqXgE5d
+	 ic2XpaYfAO17eJRENbq14KzFwcA9jPx/6ZB5+Zw5N/cle52fyunZThA8fo6fmMIBbz
+	 0Pimoq1nvy7Vg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -53,18 +53,18 @@ Cc: Andrew Bresticker <abrestic@rivosinc.com>,
 	aou@eecs.berkeley.edu,
 	linux-efi@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.7 32/58] efi: runtime: Fix potential overflow of soft-reserved region size
-Date: Mon, 12 Feb 2024 19:17:38 -0500
-Message-ID: <20240213001837.668862-32-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 27/51] efi: runtime: Fix potential overflow of soft-reserved region size
+Date: Mon, 12 Feb 2024 19:20:04 -0500
+Message-ID: <20240213002052.670571-27-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240213001837.668862-1-sashal@kernel.org>
-References: <20240213001837.668862-1-sashal@kernel.org>
+In-Reply-To: <20240213002052.670571-1-sashal@kernel.org>
+References: <20240213002052.670571-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.7.4
+X-stable-base: Linux 6.6.16
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240212_161922_091205_0FA48255 
+X-CRM114-CacheID: sfid-20240212_162129_628373_D981E010 
 X-CRM114-Status: UNSURE (   9.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
