@@ -4,97 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1553EC4829A
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 10:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A941C48260
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 10:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:CC:Subject
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dkznFA5Qw2EeDUvesY8h3uplK07wmQ+Vi3hLHmn/Ebs=; b=sAfcz3Xx3DrOZw
-	U+fgt3GH4OEWhGC5a7JqJWIBpnY7YpuAgeOgriw1mUa0fbo/vx8Oh4UMyqw02meOjAsxBP3vIzfei
-	p0D+IRJW4CnpBzfnAPtA5BqDZHNzoK0v8CLHFsR7GCD9GLCYyvGldjWKlOT6h7tKfLnG6G3zHzyme
-	M0OzVxHf94M2Y9Wjgu5AIs1LR5UsETvHGoZbQIMQErBJVRrQJIJngXRZ3MAh4ewhGg4t9JPPatvBQ
-	RXQn7amPwIHeV1AF5seWYnnDKWhRenh7DMVOnsA5P3wm6L85Nx7pQXhkka/1mT66K6HRQFOErbmUb
-	o4rUBx4UtdTpXGqa8+JQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EEnUVzxVj98UQvTp54wPcKopwv+H0ai6YE7H9TGIJWk=; b=kNaeu9d4GNY6Yz
+	lHWpXWUTSbyYzP6Ag77wQlTXh097Zcm78u/Rp1pujPxN5DaJx822qmUn14mN8eavElzREvk+lEZun
+	aKGsV+JTpUmOrd4Rka/ynUmwV6j9bSdZOE7WANp4Tz1+K0+sdh+1iOfEKScXgofP3yCMLhTXHIjD+
+	FWmfLzmYlFnS4hfjTEb9kFGD9JOAYfqYqvMDHjLOXaLx0Exdxc4tf8Y2KCvPVlwpKyhLeH+ToyaoW
+	UroyvXlOLduuVlSCnNvYjsM2Bqtre1pqbNrJ5PbmXpXX2Ov9DXdurbLV9xX13us8XBlQYcGtkrZ+c
+	r3tsaq9cHphdtTo+CvDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZpaB-00000008jPw-0a6w;
-	Tue, 13 Feb 2024 10:00:07 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1rZpev-00000008l2l-3zDT;
+	Tue, 13 Feb 2024 10:05:01 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZpa4-00000008jLp-2SHX
-	for linux-riscv@lists.infradead.org;
-	Tue, 13 Feb 2024 10:00:06 +0000
-Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
-	by smtp-out1.suse.de (Postfix) with ESMTP id B674D22002;
-	Tue, 13 Feb 2024 09:59:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1707818398; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=1ZWzJ3oPo3Ib0Ua7vx9StT0Wv7lYZFu4fgLyeQS1pes=;
-	b=aazcc5tevLdTt0WjT8FzXkfjI+oKNQaGJ5R6n524YasDA1Q0fQAL0btyFuZCUz9PMvRpLb
-	1gH3VuTwB16qrJlDFyYNHn0LSdzFez9QmuCeeFPdUu+ekkA3mmwg5k6i6eZPVkKafowYh9
-	TgJbzB/XWnhXdbLEui9LXX1eOQLDr5c=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1707818398;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=1ZWzJ3oPo3Ib0Ua7vx9StT0Wv7lYZFu4fgLyeQS1pes=;
-	b=15BrQU++xcqWxIGQDgUi/HLbUrr9JpnjDLv1l873/VEJjdCBaFEeRBl8WVQz9dFB5Px6p3
-	PNjYQj5UX82yQZCw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1707818398; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=1ZWzJ3oPo3Ib0Ua7vx9StT0Wv7lYZFu4fgLyeQS1pes=;
-	b=aazcc5tevLdTt0WjT8FzXkfjI+oKNQaGJ5R6n524YasDA1Q0fQAL0btyFuZCUz9PMvRpLb
-	1gH3VuTwB16qrJlDFyYNHn0LSdzFez9QmuCeeFPdUu+ekkA3mmwg5k6i6eZPVkKafowYh9
-	TgJbzB/XWnhXdbLEui9LXX1eOQLDr5c=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1707818398;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=1ZWzJ3oPo3Ib0Ua7vx9StT0Wv7lYZFu4fgLyeQS1pes=;
-	b=15BrQU++xcqWxIGQDgUi/HLbUrr9JpnjDLv1l873/VEJjdCBaFEeRBl8WVQz9dFB5Px6p3
-	PNjYQj5UX82yQZCw==
-Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
-	id A038A4A03A6; Tue, 13 Feb 2024 10:59:58 +0100 (CET)
-From: Andreas Schwab <schwab@suse.de>
-To: linux-riscv@lists.infradead.org
-Subject: [PATCH] riscv: use KERN_INFO in do_trap
-CC: Palmer Dabbelt <palmer@dabbelt.com>, Yunhui Cui
- <cuiyunhui@bytedance.com>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>,
- linux-kernel@vger.kernel.org
-X-Yow: What GOOD is a CARDBOARD suitcase ANYWAY?
-Date: Tue, 13 Feb 2024 10:59:58 +0100
-Message-ID: <mvmh6ic1y75.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1rZpeq-00000008l0g-0T1x;
+	Tue, 13 Feb 2024 10:04:59 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1707818693;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Y1HrfL+SrlW2XWR5pU7cGgxYMFs+Qr2zZ76ZBVxutfE=;
+	b=SE49GUQbwTclIrg8Ek0Z3VpThQD1o9FAH8SAfIXoKnzTV3UsTWw9PR3oootZv4e+BrIiEw
+	mdQccGiNG42+Pm2ePTR4i97kp8932eaGmbf9YEyCPmZhmlW6DTxYRik/XdRPpaf/1d9Rj+
+	iw237txMkf2vF9jD/1ZLzDd0rm8LrsgK/C2xIiSWgoOKHIUVHZ9nngnvzOVUFKnc6moxK7
+	BpEj8jkWpHHDobcUxfUsyG+G/u9okIlxlJR4RBySpQ43POtEj6N7+cSAuQiP7GiM5XpWMC
+	zt2UBKcuYOqCl9/NGww8Fi+s6sVfQA4TLjGzQeVeq9V65GziT/r7Yaga1vZYqA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1707818693;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Y1HrfL+SrlW2XWR5pU7cGgxYMFs+Qr2zZ76ZBVxutfE=;
+	b=hwPVCOobELnpGmo9aIjJ/oKtSoM7jE5zNUcYVknaR65ECFvfFEULvht2Ghlz1V5bazoRzP
+	gBUt4M68cX7NwTDg==
+To: Yu Chien Peter Lin <peterlin@andestech.com>, acme@kernel.org,
+ adrian.hunter@intel.com, ajones@ventanamicro.com,
+ alexander.shishkin@linux.intel.com, andre.przywara@arm.com,
+ anup@brainfault.org, aou@eecs.berkeley.edu, atishp@atishpatra.org,
+ conor+dt@kernel.org, conor.dooley@microchip.com, conor@kernel.org,
+ devicetree@vger.kernel.org, evan@rivosinc.com, geert+renesas@glider.be,
+ guoren@kernel.org, heiko@sntech.de, irogers@google.com,
+ jernej.skrabec@gmail.com, jolsa@kernel.org, jszhang@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, locus84@andestech.com, magnus.damm@gmail.com,
+ mark.rutland@arm.com, mingo@redhat.com, n.shubin@yadro.com,
+ namhyung@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ peterlin@andestech.com, peterz@infradead.org,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, rdunlap@infradead.org,
+ robh+dt@kernel.org, samuel@sholland.org, sunilvl@ventanamicro.com,
+ tim609@andestech.com, uwu@icenowy.me, wens@csie.org, will@kernel.org,
+ inochiama@outlook.com, unicorn_wang@outlook.com, wefu@redhat.com
+Cc: Randolph <randolph@andestech.com>, Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH v8 02/10] irqchip/riscv-intc: Allow large non-standard
+ interrupt number
+In-Reply-To: <20240129092553.2058043-3-peterlin@andestech.com>
+References: <20240129092553.2058043-1-peterlin@andestech.com>
+ <20240129092553.2058043-3-peterlin@andestech.com>
+Date: Tue, 13 Feb 2024 11:04:53 +0100
+Message-ID: <877cj8issa.ffs@tglx>
 MIME-Version: 1.0
-Authentication-Results: smtp-out1.suse.de;
-	none
-X-Spamd-Result: default: False [-1.81 / 50.00];
-	 TO_DN_SOME(0.00)[];
-	 RCPT_COUNT_FIVE(0.00)[5];
-	 NEURAL_HAM_SHORT(-0.17)[-0.842];
-	 RCVD_COUNT_ZERO(0.00)[0];
-	 FROM_EQ_ENVFROM(0.00)[];
-	 MIME_TRACE(0.00)[0:+];
-	 MID_RHS_MATCH_FROM(0.00)[];
-	 BAYES_HAM(-0.54)[80.78%];
-	 ARC_NA(0.00)[];
-	 FROM_HAS_DN(0.00)[];
-	 TO_MATCH_ENVRCPT_ALL(0.00)[];
-	 NEURAL_HAM_LONG(-1.00)[-1.000];
-	 MIME_GOOD(-0.10)[text/plain];
-	 DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	 DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email];
-	 FUZZY_BLOCKED(0.00)[rspamd.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240213_020000_808904_4B7419F7 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240213_020456_318874_C1EF66F9 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,36 +93,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Print the instruction dump with info instead of emergency level like the
-rest of the output when printing the information for an unhandled signal.
+On Mon, Jan 29 2024 at 17:25, Yu Chien Peter Lin wrote:
+>  static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
+>  {
+>  	unsigned long cause = regs->cause & ~CAUSE_IRQ_FLAG;
+>  
+> -	if (unlikely(cause >= BITS_PER_LONG))
+> -		panic("unexpected interrupt cause");
+> -
+> -	generic_handle_domain_irq(intc_domain, cause);
+> +	if (generic_handle_domain_irq(intc_domain, cause))
+> +		pr_warn_ratelimited("Failed to handle interrupt (cause: %ld)\n",
+> +				    cause);
 
-Fixes: b8a03a634129 ("riscv: add userland instruction dump to RISC-V splats")
-Signed-off-by: Andreas Schwab <schwab@suse.de>
----
- arch/riscv/kernel/traps.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Either let the cause stick out or you need brackets. See:
 
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index a1b9be3c4332..142f5f5168fb 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -121,7 +121,7 @@ void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
- 		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
- 		pr_cont("\n");
- 		__show_regs(regs);
--		dump_instr(KERN_EMERG, regs);
-+		dump_instr(KERN_INFO, regs);
- 	}
- 
- 	force_sig_fault(signo, code, (void __user *)addr);
--- 
-2.43.1
+  https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#bracket-rules
 
+>  }
+>  
+>  /*
+> @@ -93,6 +95,14 @@ static int riscv_intc_domain_alloc(struct irq_domain *domain,
+>  	if (ret)
+>  		return ret;
+>  
+> +	/*
+> +	 * Only allow hwirq for which we have corresponding standard or
+> +	 * custom interrupt enable register.
+> +	 */
+> +	if ((riscv_intc_nr_irqs <= hwirq && hwirq < riscv_intc_custom_base) ||
+> +	    (riscv_intc_custom_base + riscv_intc_custom_nr_irqs) <= hwirq)
+> +		return -EINVAL;
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+Duh. This mix of ordering required to read this 3 times. What's wrong
+with writing this consistently:
+
+	if ((hwirq >= riscv_intc_nr_irqs && hwirq < riscv_intc_custom_base) ||
+	    (hwirq >= iscv_intc_custom_base + riscv_intc_custom_nr_irqs)
+		return -EINVAL;
+
+Hmm?
+
+> -	pr_info("%d local interrupts mapped\n", BITS_PER_LONG);
+> +	pr_info("%d local interrupts mapped\n", riscv_intc_nr_irqs);
+> +	if (riscv_intc_custom_nr_irqs)
+> +		pr_info("%d custom local interrupts mapped\n",
+> +			riscv_intc_custom_nr_irqs);
+
+See bracket rules.
+  
+>  	return 0;
+>  }
+> @@ -166,6 +178,10 @@ static int __init riscv_intc_init(struct device_node *node,
+>  		return 0;
+>  	}
+>  
+> +	riscv_intc_nr_irqs = BITS_PER_LONG;
+> +	riscv_intc_custom_base = riscv_intc_nr_irqs;
+
+Why don't you initialize the static variables with constants right away?
+
+> +	riscv_intc_custom_nr_irqs = 0;
+
+It's already 0, no?
+
+>  	return riscv_intc_init_common(of_node_to_fwnode(node));
+>  }
+
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
