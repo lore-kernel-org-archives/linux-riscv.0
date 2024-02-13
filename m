@@ -4,105 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 142FDC48260
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 08:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1553EC4829A
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 10:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O5FBrEREmS0iX5JyPg8Ji/pa+ZAZkjorMjCOLuhd0dU=; b=m/YWz1ByRGkRrO
-	LVVKdZvx1Xu5nqmxUUpkzjrLC/1ZL0y9oz8tlkwWw+sdhmojul5vTLh0y6wd3dV4mskc2rhMLRA5u
-	Snykj7WvNYl6154b6jNyQT4D+ymwQzeQtN3FI8uXOd7YhN76CT0jFMJXen9fyXKErJqaqHvH1Fhfx
-	zqLeAHg3HqTd3hcB00ul1d9qOZbr1UzIJQBuqIGFUuwt6163f5KDUUgGEpP43lyunmVPcgrtdBi+N
-	w9JKpSPShDaa/vsD6v6dLhR0zgNPWu1FNRAEikCNhe399124v+dckOE+scRbmLxfGLkwiaEYnTP1x
-	QV5aj3Zvhl2q0guUP/Xg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:CC:Subject
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dkznFA5Qw2EeDUvesY8h3uplK07wmQ+Vi3hLHmn/Ebs=; b=sAfcz3Xx3DrOZw
+	U+fgt3GH4OEWhGC5a7JqJWIBpnY7YpuAgeOgriw1mUa0fbo/vx8Oh4UMyqw02meOjAsxBP3vIzfei
+	p0D+IRJW4CnpBzfnAPtA5BqDZHNzoK0v8CLHFsR7GCD9GLCYyvGldjWKlOT6h7tKfLnG6G3zHzyme
+	M0OzVxHf94M2Y9Wjgu5AIs1LR5UsETvHGoZbQIMQErBJVRrQJIJngXRZ3MAh4ewhGg4t9JPPatvBQ
+	RXQn7amPwIHeV1AF5seWYnnDKWhRenh7DMVOnsA5P3wm6L85Nx7pQXhkka/1mT66K6HRQFOErbmUb
+	o4rUBx4UtdTpXGqa8+JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZoV1-00000008VHN-1G1n;
-	Tue, 13 Feb 2024 08:50:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rZpaB-00000008jPw-0a6w;
+	Tue, 13 Feb 2024 10:00:07 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZoUy-00000008VGU-2Ee0
+	id 1rZpa4-00000008jLp-2SHX
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Feb 2024 08:50:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8BD6561092;
-	Tue, 13 Feb 2024 08:50:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA40DC433F1;
-	Tue, 13 Feb 2024 08:50:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707814239;
-	bh=q/EXQ5TrC5wCxku8z/hIEWVjCy2XD4czkGnjpWgWo9s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Oxy4pqDA+00vFQ+H1Z8J2Jb+czbF0YYLhDFF6Y1bQBFA/wGMjDLOFNiMIEWi9PHbp
-	 gQIyYQQrMA36wBdeX2PSkWVuuEuBcP7HCT7BYbosyi/TeOGZ3hOvNKMLSomgByZvvw
-	 UE/JCTpH0M8v0w5uu7yIC8GNGS/xUNZwWVXcc/UazFI98mc6elSrNIhjRQZg+Zvm3N
-	 IaNE9fhPF0ty+WGwITtbxC/mgvB9EJymgNMp2ksIInI+kZjW522XOr1dgzUB6reouv
-	 rpIwun3fVT7M6LLHtA0AxGq969BZToqTwBFrodJy67T4wZTkcXqOIjMV6+LoJZiBMC
-	 j+wMZCEiU0zBg==
-Message-ID: <136e2760-1734-4426-9fdf-56ce46a08614@kernel.org>
-Date: Tue, 13 Feb 2024 09:50:33 +0100
+	Tue, 13 Feb 2024 10:00:06 +0000
+Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
+	by smtp-out1.suse.de (Postfix) with ESMTP id B674D22002;
+	Tue, 13 Feb 2024 09:59:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1707818398; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=1ZWzJ3oPo3Ib0Ua7vx9StT0Wv7lYZFu4fgLyeQS1pes=;
+	b=aazcc5tevLdTt0WjT8FzXkfjI+oKNQaGJ5R6n524YasDA1Q0fQAL0btyFuZCUz9PMvRpLb
+	1gH3VuTwB16qrJlDFyYNHn0LSdzFez9QmuCeeFPdUu+ekkA3mmwg5k6i6eZPVkKafowYh9
+	TgJbzB/XWnhXdbLEui9LXX1eOQLDr5c=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1707818398;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=1ZWzJ3oPo3Ib0Ua7vx9StT0Wv7lYZFu4fgLyeQS1pes=;
+	b=15BrQU++xcqWxIGQDgUi/HLbUrr9JpnjDLv1l873/VEJjdCBaFEeRBl8WVQz9dFB5Px6p3
+	PNjYQj5UX82yQZCw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1707818398; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=1ZWzJ3oPo3Ib0Ua7vx9StT0Wv7lYZFu4fgLyeQS1pes=;
+	b=aazcc5tevLdTt0WjT8FzXkfjI+oKNQaGJ5R6n524YasDA1Q0fQAL0btyFuZCUz9PMvRpLb
+	1gH3VuTwB16qrJlDFyYNHn0LSdzFez9QmuCeeFPdUu+ekkA3mmwg5k6i6eZPVkKafowYh9
+	TgJbzB/XWnhXdbLEui9LXX1eOQLDr5c=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1707818398;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=1ZWzJ3oPo3Ib0Ua7vx9StT0Wv7lYZFu4fgLyeQS1pes=;
+	b=15BrQU++xcqWxIGQDgUi/HLbUrr9JpnjDLv1l873/VEJjdCBaFEeRBl8WVQz9dFB5Px6p3
+	PNjYQj5UX82yQZCw==
+Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
+	id A038A4A03A6; Tue, 13 Feb 2024 10:59:58 +0100 (CET)
+From: Andreas Schwab <schwab@suse.de>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH] riscv: use KERN_INFO in do_trap
+CC: Palmer Dabbelt <palmer@dabbelt.com>, Yunhui Cui
+ <cuiyunhui@bytedance.com>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>,
+ linux-kernel@vger.kernel.org
+X-Yow: What GOOD is a CARDBOARD suitcase ANYWAY?
+Date: Tue, 13 Feb 2024 10:59:58 +0100
+Message-ID: <mvmh6ic1y75.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -fixes v2 2/4] dt-bindings: riscv: Add ratified privileged
- ISA versions
-Content-Language: en-US
-To: Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Stefan O'Rear <sorear@fastmail.com>
-References: <20240213033744.4069020-1-samuel.holland@sifive.com>
- <20240213033744.4069020-3-samuel.holland@sifive.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20240213033744.4069020-3-samuel.holland@sifive.com>
+Authentication-Results: smtp-out1.suse.de;
+	none
+X-Spamd-Result: default: False [-1.81 / 50.00];
+	 TO_DN_SOME(0.00)[];
+	 RCPT_COUNT_FIVE(0.00)[5];
+	 NEURAL_HAM_SHORT(-0.17)[-0.842];
+	 RCVD_COUNT_ZERO(0.00)[0];
+	 FROM_EQ_ENVFROM(0.00)[];
+	 MIME_TRACE(0.00)[0:+];
+	 MID_RHS_MATCH_FROM(0.00)[];
+	 BAYES_HAM(-0.54)[80.78%];
+	 ARC_NA(0.00)[];
+	 FROM_HAS_DN(0.00)[];
+	 TO_MATCH_ENVRCPT_ALL(0.00)[];
+	 NEURAL_HAM_LONG(-1.00)[-1.000];
+	 MIME_GOOD(-0.10)[text/plain];
+	 DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	 DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email];
+	 FUZZY_BLOCKED(0.00)[rspamd.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240213_005040_713987_AC4B8DEE 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20240213_020000_808904_4B7419F7 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,40 +111,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/02/2024 04:37, Samuel Holland wrote:
-> The baseline for the RISC-V privileged ISA is version 1.10. Using
-> features from newer versions of the privileged ISA requires the
-> supported version to be reported by platform firmware, either in the ISA
-> string (where the binding already accepts version numbers) or in the
-> riscv,isa-extensions property. So far two newer versions are ratified.
-> 
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
+Print the instruction dump with info instead of emergency level like the
+rest of the output when printing the information for an unhandled signal.
 
-Please Cc DT list.
+Fixes: b8a03a634129 ("riscv: add userland instruction dump to RISC-V splats")
+Signed-off-by: Andreas Schwab <schwab@suse.de>
+---
+ arch/riscv/kernel/traps.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Standard disclaimer:
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index a1b9be3c4332..142f5f5168fb 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -121,7 +121,7 @@ void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
+ 		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
+ 		pr_cont("\n");
+ 		__show_regs(regs);
+-		dump_instr(KERN_EMERG, regs);
++		dump_instr(KERN_INFO, regs);
+ 	}
+ 
+ 	force_sig_fault(signo, code, (void __user *)addr);
+-- 
+2.43.1
 
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
 
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline), work on fork of kernel
-(don't, instead use mainline) or you ignore some maintainers (really
-don't). Just use b4 and everything should be fine, although remember
-about `b4 prep --auto-to-cc` if you added new patches to the patchset.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling.
-
-Please kindly resend and include all necessary To/Cc entries.
-
-Best regards,
-Krzysztof
-
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
