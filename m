@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3122C48260
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 22:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98FD1C48260
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 22:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,68 +13,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=Wfhau4lNy2cAl3EGf77+Hf+ilhxK4tjJQtenUD7aXls=; b=FkU2zD6eE4KWkSnyJff6/ysU6x
-	w+W+vaWgot05Sr4Rif0UxQxPZxp8iS1dFV4VQZBAAkW8Uojuvk0crs6PkuDeuYm99q+BmWrdU5xhd
-	Y6ijav4Dpx+vWLNHLnnNDrPVxpSTLyMG9+Iw85PK1lzSNu100DCPqeDt4Mo93tNz+LYvu+XwFjPL5
-	wMGfpGPearrtdpr3ZHo3GnH4QHHfUqFwTqxqGHoa39IwaYOgMHsLQc+LeBeHlvmDRWalyARDNffOi
-	VXzx/MvpZDzBQ8udKEoZev72uG9g1F+/6tz5+PVR1LhG2yLt7Bpk4Hu/OsFvTPNZnMIl9va4iYIN6
-	zqNIF8Xw==;
+	bh=iXZAnt2ZUAEbbQYzaUChTxEQG9iXCpQ4HDBlXWu6vZU=; b=lMgOHWR/qZLEmRMSgwpDcq1d/h
+	Tfi8whl2DFt8aN9Q5EGZWd5NsAAbrBfGiklvPp3zwDoUpDEf5UrnH6jp5GrVKDSOJhOmn2fU7VoiR
+	KFc0sAfRVKdRO4wn0Z9L2EWCHzi8VZpepD+FVz449HtmgIa+p82PppMyNEnbLvTRDGIhvdgfkdMdf
+	a/Yj9EQ/YxFwTbBehXjoWk5VL1HferGlPAICfhiGKJx2BjEKYuUTQYeZQoA5zv1Ct4G1TnPifI0aw
+	ETl++J94cK7SXSOCNKpEQ21cs/433sKmNjQOa8QPouZXyLDbkqGocMhjixaK1gV0gAUzjwaw3x0Tr
+	upitasOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ra1R6-0000000B6c5-2PAd;
-	Tue, 13 Feb 2024 22:39:32 +0000
+	id 1ra1RV-0000000B6lj-0u18;
+	Tue, 13 Feb 2024 22:39:57 +0000
 Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ra1R4-0000000B6b3-3Lvx
+	id 1ra1RS-0000000B6kN-07qX
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Feb 2024 22:39:32 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-5ffee6fcdc1so78635377b3.2
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Feb 2024 14:39:29 -0800 (PST)
+	Tue, 13 Feb 2024 22:39:55 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-5ee22efe5eeso85264957b3.3
+        for <linux-riscv@lists.infradead.org>; Tue, 13 Feb 2024 14:39:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1707863969; x=1708468769; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1707863993; x=1708468793; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2A5s0YU98xz4fK0cK8V3de3MUudesnEU1GM23Fa1guU=;
-        b=Dbal9Evv76jUvUAt89nxCNFBuwaxglrQOw2QegTb2aEt76RlNlu9Pos43j267aVu2A
-         90+7ywlHTdPFAEJozIRZadaq1+2+R0nRn+XuLUMpudyUDXqPdX+EL1H3L6FfCFRWpZis
-         IZJDIsUcQWfGJEfI+MeP2sTvRlUOaaP6A+L2hLaLBdFHrbbi9NorFXD/rFIyuH1ZEmNG
-         RwBxED5Q0TdJGlaStGp8C3Vc4PlM7PTRZmUrjtV+XwLXKwltpftKt7W2K7PE7awHYQb3
-         kpBUcqhDkhYieo26WfWSt7i343lhvmc51wre95GHUooywoJU+l0bxyEh4PGS6Xpr/gwa
-         R4Ug==
+        bh=BS7J64xtqNYr0VkPhgpx0WAA/5MaMJzR/9ev/cheMlM=;
+        b=3tkwz+ruvAPX0QodCOQQYXSwJ9CATXYMeA+eo83ZcEcCfVn4cpqBqRvOMxJi6N29a0
+         VoALjnSI0JPKCRftQxHFWrlN/adAPCqyelwdBdQfvnNGVPmV5ue37wsEpJ+HJ/ScZOcl
+         j/OLZVHpcSw7jCj7BkWYEtfAtFbhDACToau5EJVThQd7RraJubvY+GugbM2Ijs73XtZt
+         siz1097ai7jeMxg+hj/EsN/zMKyWLdfSWeNRspPafqApkeL742zIdaQLHhYNov/yatr3
+         J8leqyagbzLWZswCrrPke1XeomLh84Dq8vNGQHUNlEdYQw+XrYdPDAZkjJvIlrWvc28P
+         o+nQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707863969; x=1708468769;
+        d=1e100.net; s=20230601; t=1707863993; x=1708468793;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2A5s0YU98xz4fK0cK8V3de3MUudesnEU1GM23Fa1guU=;
-        b=GpbM0REnTBYlKuwgY34bfnCw3/fDU2IE7+DnvJzI8fyapBRjOSEbLnUateBGyEqSNo
-         6VyXSvgj++/r4/70R9xedZuQ3brH/Cvd8Nb1DUTO+/J1cXxte7We9S22+lyj1p7DQ3O8
-         0dRgYkMLCiFywSWI/B1OgpfIWarn1AUwg/vBw0MpANHao8nRsYpkvYvWiNzJUQlmtGqK
-         NSMvV3i38UslM65Q2DWjUR/AKBHBJv5LwCpU6Cj1mnj+vc+NoK2sa8yRk2cbRdRj4VA/
-         bmxfn08F4QFxQIvxED1x/bUZmdIBhnokXuzNY/x2Cl45D2F7fchBDnxJBxUSQVWmoyif
-         JjRg==
-X-Gm-Message-State: AOJu0YxG3+3osIkmKGi+38AgtdG1/UP9+Iy9ZzLjLEx9FgL/Z5aCD/F8
-	3kU03Lntn+XFa1OmxCuRqrxk9RhLyk5nS/8V9z0gbXjA8FhnTIPEvwtTt9OvrJzgwYDQkWpqLgq
-	T1HbMFEH9lV5o24HkVg==
-X-Google-Smtp-Source: AGHT+IEIi+wYTmQJyxcKODqt/e4zjlJ+9u4VEaVmzXIRBnTsS/drWHfQ9rn0ZFxxYlAcorE8rSRQo+ev1twJewgu
+        bh=BS7J64xtqNYr0VkPhgpx0WAA/5MaMJzR/9ev/cheMlM=;
+        b=fo38Q0/QofTiKx52/bTX0fBrzbRWprfTW3lw8aS9mmqn90EIcmsLWPAxLjYhQs8+Jr
+         4nBUPlrBYjz3stfXdvWvPvB5Z7BVN81+y5gwTAaosyU1pGarqdQ5yMQlrQnSje+oyu2s
+         s19Crncd96xuDSm1HWUDbKgtgRhqlwm1cv4B4gxRQqRTebuaYO/6X2DMex3VY/PG11DP
+         whrW2NfIFI3TkZTdfAvAT25Sd7dH81L5Sx2GqEvIeJF8p4wdsQ3sUNXbRmcu8hTvFaJP
+         7C+XgA3LifCjjIu5j2zKnyjjjSFJkhzfHr7n1TPA8POLQWATCvbuedpkKI1swOiH2WWq
+         Vkqg==
+X-Gm-Message-State: AOJu0Yy1ywX3jw7RhmhBXfNTo4ZzLx+NySZes8poZTCmdC8jjFk700bw
+	ihLdS+7lgI79JWzRPWOh5nZN7bXD3BN0Grh+sDkAnqG0LhLaw87LklunT+S5mFmZOkx7JpRky0l
+	KSb3IGh7Aty3YyAB6lQ==
+X-Google-Smtp-Source: AGHT+IEaXBKOsL4J4xH6upCv6tFAD1V6p0ocFCwjkV0OENmkH/QGXmVGVcJGhEqn5+7K3WrIETAickdSYwYsSZ2d
 X-Received: from ericchancf.c.googlers.com ([fda3:e722:ac3:cc00:4f:4b78:c0a8:4139])
- (user=ericchancf job=sendgmr) by 2002:a05:6902:1027:b0:dc6:dd76:34cc with
- SMTP id x7-20020a056902102700b00dc6dd7634ccmr45468ybt.1.1707863969224; Tue,
- 13 Feb 2024 14:39:29 -0800 (PST)
-Date: Tue, 13 Feb 2024 22:39:23 +0000
+ (user=ericchancf job=sendgmr) by 2002:a0d:e884:0:b0:5ff:a885:65b with SMTP id
+ r126-20020a0de884000000b005ffa885065bmr136409ywe.10.1707863992743; Tue, 13
+ Feb 2024 14:39:52 -0800 (PST)
+Date: Tue, 13 Feb 2024 22:39:41 +0000
 In-Reply-To: <20240213223810.2595804-1-ericchancf@google.com>
 Mime-Version: 1.0
 References: <20240213223810.2595804-1-ericchancf@google.com>
 X-Mailer: git-send-email 2.43.0.687.g38aa6559b0-goog
-Message-ID: <20240213223923.2597036-1-ericchancf@google.com>
-Subject: [PATCH v5 2/4] riscv/barrier: Define RISCV_FULL_BARRIER
+Message-ID: <20240213223941.2597526-1-ericchancf@google.com>
+Subject: [PATCH v5 3/4] riscv/barrier: Consolidate fence definitions
 From: Eric Chan <ericchancf@google.com>
 To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	ericchancf@google.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240213_143930_851960_D2CDF23D 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240213_143954_092535_1EEC9B78 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,134 +90,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce RISCV_FULL_BARRIER and use in arch_atomic* function.
-like RISCV_ACQUIRE_BARRIER and RISCV_RELEASE_BARRIER, the fence
-instruction can be eliminated When SMP is not enabled.
+Disparate fence implementations are consolidated into fence.h.
+Also introduce RISCV_FENCE_ASM to make fence macro more reusable.
 
 Signed-off-by: Eric Chan <ericchancf@google.com>
 ---
- arch/riscv/include/asm/atomic.h  | 16 ++++++++--------
- arch/riscv/include/asm/cmpxchg.h |  4 ++--
- arch/riscv/include/asm/fence.h   |  2 ++
- 3 files changed, 12 insertions(+), 10 deletions(-)
+v4 -> v5: keep  __atomic_acquire_fence and __atomic_release_fence
+omit-the-fence-on-uniprocessor optimization, and fix the typo of RISCV_RELEASE_BARRIER
+when spliting the patch in v3.
+
+ arch/riscv/include/asm/atomic.h  |  1 -
+ arch/riscv/include/asm/barrier.h |  3 +--
+ arch/riscv/include/asm/cmpxchg.h |  1 -
+ arch/riscv/include/asm/fence.h   | 10 +++++++---
+ arch/riscv/include/asm/io.h      |  8 ++++----
+ arch/riscv/include/asm/mmio.h    |  5 +++--
+ arch/riscv/include/asm/mmiowb.h  |  2 +-
+ 7 files changed, 16 insertions(+), 14 deletions(-)
 
 diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-index f5dfef6c2153..31e6e2e7cc18 100644
+index 31e6e2e7cc18..0e0522e588ca 100644
 --- a/arch/riscv/include/asm/atomic.h
 +++ b/arch/riscv/include/asm/atomic.h
-@@ -207,7 +207,7 @@ static __always_inline int arch_atomic_fetch_add_unless(atomic_t *v, int a, int
- 		"	add      %[rc], %[p], %[a]\n"
- 		"	sc.w.rl  %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		: [a]"r" (a), [u]"r" (u)
-@@ -228,7 +228,7 @@ static __always_inline s64 arch_atomic64_fetch_add_unless(atomic64_t *v, s64 a,
- 		"	add      %[rc], %[p], %[a]\n"
- 		"	sc.d.rl  %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		: [a]"r" (a), [u]"r" (u)
-@@ -248,7 +248,7 @@ static __always_inline bool arch_atomic_inc_unless_negative(atomic_t *v)
- 		"	addi      %[rc], %[p], 1\n"
- 		"	sc.w.rl   %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -268,7 +268,7 @@ static __always_inline bool arch_atomic_dec_unless_positive(atomic_t *v)
- 		"	addi      %[rc], %[p], -1\n"
- 		"	sc.w.rl   %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -288,7 +288,7 @@ static __always_inline int arch_atomic_dec_if_positive(atomic_t *v)
- 		"	bltz     %[rc], 1f\n"
- 		"	sc.w.rl  %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -310,7 +310,7 @@ static __always_inline bool arch_atomic64_inc_unless_negative(atomic64_t *v)
- 		"	addi      %[rc], %[p], 1\n"
- 		"	sc.d.rl   %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -331,7 +331,7 @@ static __always_inline bool arch_atomic64_dec_unless_positive(atomic64_t *v)
- 		"	addi      %[rc], %[p], -1\n"
- 		"	sc.d.rl   %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -352,7 +352,7 @@ static __always_inline s64 arch_atomic64_dec_if_positive(atomic64_t *v)
- 		"	bltz     %[rc], 1f\n"
- 		"	sc.d.rl  %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
-+		RISCV_FULL_BARRIER
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
+@@ -17,7 +17,6 @@
+ #endif
+
+ #include <asm/cmpxchg.h>
+-#include <asm/barrier.h>
+
+ #define __atomic_acquire_fence()					\
+ 	__asm__ __volatile__(RISCV_ACQUIRE_BARRIER "" ::: "memory")
+diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
+index 4c49a8ff2c68..4f4743d7440d 100644
+--- a/arch/riscv/include/asm/barrier.h
++++ b/arch/riscv/include/asm/barrier.h
+@@ -11,13 +11,12 @@
+ #define _ASM_RISCV_BARRIER_H
+
+ #ifndef __ASSEMBLY__
++#include <asm/fence.h>
+
+ #define nop()		__asm__ __volatile__ ("nop")
+ #define __nops(n)	".rept	" #n "\nnop\n.endr\n"
+ #define nops(n)		__asm__ __volatile__ (__nops(n))
+
+-#define RISCV_FENCE(p, s) \
+-	__asm__ __volatile__ ("fence " #p "," #s : : : "memory")
+
+ /* These barriers need to enforce ordering on both devices or memory. */
+ #define __mb()		RISCV_FENCE(iorw,iorw)
 diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 2f4726d3cfcc..a608e4d1a0a4 100644
+index a608e4d1a0a4..2fee65cc8443 100644
 --- a/arch/riscv/include/asm/cmpxchg.h
 +++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -313,7 +313,7 @@
- 			"	bne  %0, %z3, 1f\n"			\
- 			"	sc.w.rl %1, %z4, %2\n"			\
- 			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
-+			RISCV_FULL_BARRIER				\
- 			"1:\n"						\
- 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
- 			: "rJ" ((long)__old), "rJ" (__new)		\
-@@ -325,7 +325,7 @@
- 			"	bne %0, %z3, 1f\n"			\
- 			"	sc.d.rl %1, %z4, %2\n"			\
- 			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
-+			RISCV_FULL_BARRIER				\
- 			"1:\n"						\
- 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
- 			: "rJ" (__old), "rJ" (__new)			\
+@@ -8,7 +8,6 @@
+
+ #include <linux/bug.h>
+
+-#include <asm/barrier.h>
+ #include <asm/fence.h>
+
+ #define __xchg_relaxed(ptr, new, size)					\
 diff --git a/arch/riscv/include/asm/fence.h b/arch/riscv/include/asm/fence.h
-index 2b443a3a487f..6c26c44dfcd6 100644
+index 6c26c44dfcd6..6bcd80325dfc 100644
 --- a/arch/riscv/include/asm/fence.h
 +++ b/arch/riscv/include/asm/fence.h
-@@ -4,9 +4,11 @@
+@@ -1,10 +1,14 @@
+ #ifndef _ASM_RISCV_FENCE_H
+ #define _ASM_RISCV_FENCE_H
+
++#define RISCV_FENCE_ASM(p, s)		"\tfence " #p "," #s "\n"
++#define RISCV_FENCE(p, s) \
++	({ __asm__ __volatile__ (RISCV_FENCE_ASM(p, s) : : : "memory"); })
++
  #ifdef CONFIG_SMP
- #define RISCV_ACQUIRE_BARRIER		"\tfence r , rw\n"
- #define RISCV_RELEASE_BARRIER		"\tfence rw,  w\n"
-+#define RISCV_FULL_BARRIER		"\tfence rw, rw\n"
+-#define RISCV_ACQUIRE_BARRIER		"\tfence r , rw\n"
+-#define RISCV_RELEASE_BARRIER		"\tfence rw,  w\n"
+-#define RISCV_FULL_BARRIER		"\tfence rw, rw\n"
++#define RISCV_ACQUIRE_BARRIER		RISCV_FENCE_ASM(r, rw)
++#define RISCV_RELEASE_BARRIER		RISCV_FENCE_ASM(rw, w)
++#define RISCV_FULL_BARRIER		RISCV_FENCE_ASM(rw, rw)
  #else
  #define RISCV_ACQUIRE_BARRIER
  #define RISCV_RELEASE_BARRIER
-+#define RISCV_FULL_BARRIER
- #endif
- 
- #endif	/* _ASM_RISCV_FENCE_H */
--- 
-2.43.0.687.g38aa6559b0-goog
+diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+index 42497d487a17..1c5c641075d2 100644
+--- a/arch/riscv/include/asm/io.h
++++ b/arch/riscv/include/asm/io.h
+@@ -47,10 +47,10 @@
+  * sufficient to ensure this works sanely on controllers that support I/O
+  * writes.
+  */
+-#define __io_pbr()	__asm__ __volatile__ ("fence io,i"  : : : "memory");
+-#define __io_par(v)	__asm__ __volatile__ ("fence i,ior" : : : "memory");
+-#define __io_pbw()	__asm__ __volatile__ ("fence iow,o" : : : "memory");
+-#define __io_paw()	__asm__ __volatile__ ("fence o,io"  : : : "memory");
++#define __io_pbr()	RISCV_FENCE(io, i)
++#define __io_par(v)	RISCV_FENCE(i, ior)
++#define __io_pbw()	RISCV_FENCE(iow, o)
++#define __io_paw()	RISCV_FENCE(o, io)
 
+ /*
+  * Accesses from a single hart to a single I/O address must be ordered.  This
+diff --git a/arch/riscv/include/asm/mmio.h b/arch/riscv/include/asm/mmio.h
+index 4c58ee7f95ec..06cadfd7a237 100644
+--- a/arch/riscv/include/asm/mmio.h
++++ b/arch/riscv/include/asm/mmio.h
+@@ -12,6 +12,7 @@
+ #define _ASM_RISCV_MMIO_H
+
+ #include <linux/types.h>
++#include <asm/fence.h>
+ #include <asm/mmiowb.h>
+
+ /* Generic IO read/write.  These perform native-endian accesses. */
+@@ -131,8 +132,8 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
+  * doesn't define any ordering between the memory space and the I/O space.
+  */
+ #define __io_br()	do {} while (0)
+-#define __io_ar(v)	({ __asm__ __volatile__ ("fence i,ir" : : : "memory"); })
+-#define __io_bw()	({ __asm__ __volatile__ ("fence w,o" : : : "memory"); })
++#define __io_ar(v)	RISCV_FENCE(i, ir)
++#define __io_bw()	RISCV_FENCE(w, o)
+ #define __io_aw()	mmiowb_set_pending()
+
+ #define readb(c)	({ u8  __v; __io_br(); __v = readb_cpu(c); __io_ar(__v); __v; })
+diff --git a/arch/riscv/include/asm/mmiowb.h b/arch/riscv/include/asm/mmiowb.h
+index 0b2333e71fdc..52ce4a399d9b 100644
+--- a/arch/riscv/include/asm/mmiowb.h
++++ b/arch/riscv/include/asm/mmiowb.h
+@@ -7,7 +7,7 @@
+  * "o,w" is sufficient to ensure that all writes to the device have completed
+  * before the write to the spinlock is allowed to commit.
+  */
+-#define mmiowb()	__asm__ __volatile__ ("fence o,w" : : : "memory");
++#define mmiowb()	RISCV_FENCE(o, w)
+
+ #include <linux/smp.h>
+ #include <asm-generic/mmiowb.h>
+--
+2.43.0.687.g38aa6559b0-goog
 
 _______________________________________________
 linux-riscv mailing list
