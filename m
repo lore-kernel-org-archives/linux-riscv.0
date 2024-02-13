@@ -4,85 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99203C48260
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 12:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D872C48260
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 14:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+JQSfgv6TOWWhcHpPwWVfSUcivoyhS6KZSRI+fwaKxY=; b=OXN+szFTJ7Iitb
-	k2Yl0DC4D04ab409sdbE5H6z5xzWYSGU63inuLhnHh1SDjbh2jaR1Gzzvp5A5esaSDWzebWRQdpyW
-	rbu1OktdPgZ2QmFV1cCcCDYdZsBuY8dUN3ijqjSZ870mpKQf6bLcHQTcSy9q0BYH6qdsyg6pP5qaq
-	5aJO256R8jxPajECTPE9gRNYTe4MQaRUWQT7i4QqMh8Z6mwFe9K1L23zrbKYbB3JioGoGqOASVuv4
-	HSLsM/ic0J70pPMlbKRm5sBzrMkaORLmmkjjEV0NOgSAHTCcsfPfIhLYnMc0FDiCoUU6OnbeEO0a0
-	RhGVGEsUNNRZI5ok2PgA==;
+	List-Owner; bh=UpTBhgCr0ZxaygBul3eWzaV0X1CXk+jZLqf4slvIJYw=; b=m8yAytIhFmsGNU
+	y/T8vnIN4WK8xJz2JOu3osNP8SdpWSl01msJzkGEGpKc8YIctAdhirFdGzZfwOGt2L1cIDGNRqX5o
+	ZRQgeQDPJ5tFjk9xbCsHgWW4jHg3DNkfqiYpF6mrvIXqhNOnJomsGwJCa0jTftHruzivUNfLQvGyD
+	xqwjbjruNRs1ITW5yWfvjg/Exuvm4Ph/UkBk+sxKzndUIE5jd85mKRGWbUhU0u0oI6/Xdn3mxF6BR
+	7izVdgi/jOiJ4P8e4Ebwl0F5JiXuH8ydqr2KOB3Au+IgbeoogMXyaCRNwgBgaUPgUzlsyR7YwsJkC
+	RNI7Sk9StZjSLK+YplMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZsN5-00000009FlC-3S0A;
-	Tue, 13 Feb 2024 12:58:47 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1rZtjL-00000009VCo-30x9;
+	Tue, 13 Feb 2024 14:25:51 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZsN2-00000009FkZ-3COT
+	id 1rZtjI-00000009VAi-3nHR
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Feb 2024 12:58:46 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a29c4bbb2f4so565610166b.1
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Feb 2024 04:58:43 -0800 (PST)
+	Tue, 13 Feb 2024 14:25:50 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a2f22bfb4e6so602631366b.0
+        for <linux-riscv@lists.infradead.org>; Tue, 13 Feb 2024 06:25:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1707829122; x=1708433922; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1707834347; x=1708439147; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=g4agJ1A7KZIyEQouGbFZaSxgaZc9xYgjCUppDYmRrYw=;
-        b=jAqSi4ffprOX2Kk2sVnLNfS7kZ7fFSgmIv1PgRpk/Yn57C6APa1Jraw25UXltqiLxc
-         I1kQJVUy7Km3m8ytpx44PW+pOl7i3EwSCG5GmD0mbpiVm6aRiNiQBLJR/33oUmNRV8UA
-         5EAoEniTNtCABt38lCOWim254IqOD4JUtNlxJ1PLMwWfPLmykc90xPgh6ejQiN2OeZHo
-         27TwLx+iGa9OGkUQDMUCpaRY3EU0q9X0emJ6LCvDVWYeyuP0LHHbgHExddXSQDjMDYTg
-         mKJHfOxRnlCI/BAxGZiC0/y825aimHlfMJTSlDNOKnVTSBy3I6+iAwDhsHiwq4RMA9xj
-         JBVA==
+        bh=PyO3k1PUHkf0DTFKDVTvjkF1slnGeiMvgKzqY1R1vZo=;
+        b=pNPh0/YpbpTn/mFeObnESU0ViGSrJXuX9jm8Yz8RrAUYaRdvBK1uzQMaucqFKHUcNg
+         Hv61rV48yvevgA2bWnkJdFXgikicxuN8cB8SPWpv17lPSx9YzusVGs0mp2IvmEgiDiHa
+         yRqK85mQFuzuKX8jTDEifaaYT0e9u5Kqh5wg+as3MTjopwKU9hAGT/81Gw3nAPKgVhqs
+         mT0J/y8X68OSdKvkZIqlhBW00A2imTeu7sbrW31KfsGdxfrFZUyIIHAL5k1n2uUrQe3P
+         qiQZ+W7cloRr9ne7Wl7eMNfKh7X3c6PtpT9s7DO0JM2fm5D1pgTt45Uc9YmtEVQvo9+Y
+         gvKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707829122; x=1708433922;
+        d=1e100.net; s=20230601; t=1707834347; x=1708439147;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=g4agJ1A7KZIyEQouGbFZaSxgaZc9xYgjCUppDYmRrYw=;
-        b=hi2Wj7n1y5pWHcj3xGV1Y7B0JT97+CTM0M52QI/Gxg7v28hDEHgilMgTulOOTuDxlA
-         mS1pUXcsIgwa3ax0wakVq2b6lTs4RoXG5K/FdY/rXGkh4J2787KggIi+0wgvwjtnu+eW
-         foLyMnR0U0aI0aZYv3ibjlTtTU7edCoPk76fl2ZaPbzBjnYlOKbsuTZUNQr/XomL3I0p
-         3UdOnfpF4oknzgxZRNqGrKegxOzimZ0bN7/AH+rZw2x5mjJA/YHOBbA48aH+qBb6cjXw
-         eiV6ei78YHRF7/eaKJ5QfhSzi71ltXSNpzzVFobHf4NU74doLqjOuwVKjKCPjqsjnQJN
-         U54w==
-X-Gm-Message-State: AOJu0YxK3jvMm5p0bML+DCjcp8pPb4Te0TU+pEcJXhduK22i5Iov66PG
-	FKGquypYzAq1GD922++/EBkOsL4n3sSbrXv96azN4c4Nfk3NUjv7
-X-Google-Smtp-Source: AGHT+IHLPgXjndJjue7JZCBb/Obkgqkz3O5ORbVsw7IyIJPKIogN2/XvGhQzDXSxhNqngAW1Otj59Q==
-X-Received: by 2002:a17:906:5f86:b0:a36:f314:d8be with SMTP id a6-20020a1709065f8600b00a36f314d8bemr6544824eju.38.1707829122035;
-        Tue, 13 Feb 2024 04:58:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW8GmVWpVtXsv9CUGlgzj9xI5iu34FvcBpV3uY1aOPlxcvXc+l3iWpei19GntcgFFyJIg2eg7P6LnYOufUi2XZcFkCkXD3BSw3RWQv60Qn5r/uEtnk1rJEhwmPWmK7IoRsQdPF18sCyHtt0m/09EbqN0KyTZYU++MkE7E0J4Hd08q0jlw2xmMF1bPJzSXtuUt+sayp5fR/ZXOzO+ioJELvmcu20PDMAgyIsjqsho9ZbYV1fzIWfgP+dAZoFn8cu1nMGcwv2Oi82XHAJa3ZpM/tyRpUXmdmUBAIpysqGsCzhWbmiqhPnWHf1KoSyXSQxzFcmvtNGR2/RF1ivkSR7reT44XXl9/iSjUBuq0rmxYY7+75GWVKdYCb/lhjEJeV1UjS+exhDKGBihw==
-Received: from andrea ([31.189.95.98])
-        by smtp.gmail.com with ESMTPSA id st10-20020a170907c08a00b00a3c5e6515d0sm1267324ejc.24.2024.02.13.04.58.40
+        bh=PyO3k1PUHkf0DTFKDVTvjkF1slnGeiMvgKzqY1R1vZo=;
+        b=A5eNSnvHzO5B3DBw2mCtcC1QXkthrsl6B00uqrDPQy/vtxfe4KxB6VxYpaUfIivhbX
+         mmBfzm6aBP79+vZYDhIX+k5ACzlaCGhhB4F+mXgIoxqJClbSt0Uh23p21QV4heYoaD9r
+         9hfyFNDsOP45rrFyoUpkBHfmk0y72IabC3FGG07Tq4K2I3p32TrkyZ/CdHiD3aFy1tEv
+         /7eGb2Sl377mgzX+MeGjutxLehELS0u5iQeSRNLhh9l0LBwQMpKMbZXLlDV3yZ06xjAE
+         SNI7NFdfKzUbSzdb+dSSd1vjCv2MR89v0taqPLNkv4ziQJRiRUrulmRAFbD7nNdcS3/3
+         7iGw==
+X-Forwarded-Encrypted: i=1; AJvYcCURWOFB4vQFESzFfXIeU96rIg2sexcFHcM3T+17BThGYs7Zg92dbhFXlYdFboXj0SytkDam8EG8tS78QolTGVoSXhIWv1ZyDHbNXViAsbY2
+X-Gm-Message-State: AOJu0Yxgb0h/az0tkXyNf8kxvxB1VToaT4ZfrtuBNueN76Q0vK157r45
+	qaOS6fgmxIE9P/1Z+QsvTFUaYDVWwCNg75tnGDn0cQ8rGE1z/LQVXh1vwkQc9F4=
+X-Google-Smtp-Source: AGHT+IEtH690NDhq0BZA5oR5pICFr2zi1bg0SnzYVaGkCrYuaggXr7BA3cC/Af5MJwiwmwG1j0Js6g==
+X-Received: by 2002:a17:906:370e:b0:a38:215c:89b with SMTP id d14-20020a170906370e00b00a38215c089bmr7288005ejc.73.1707834346621;
+        Tue, 13 Feb 2024 06:25:46 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVlYGAXYBwiHE3BQznOgrFzzKQBeyezWk23o9Bc6z2jRt8i3C7MyRV10Yfdg/ke27CwsgZLWRsD/kG73ElRLMI8DAo+x4rXAaBP7jWAkiP+6svR0TzGqcSsd3AuB2IR1ysHKFSgSaYnXiswAgjj07lMzFm9n352edoaLtPTu5m5IGGE
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id y21-20020a170906559500b00a34d0a865ecsm1314906ejp.163.2024.02.13.06.25.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Feb 2024 04:58:41 -0800 (PST)
-Date: Tue, 13 Feb 2024 13:58:37 +0100
-From: Andrea Parri <parri.andrea@gmail.com>
+        Tue, 13 Feb 2024 06:25:46 -0800 (PST)
+Date: Tue, 13 Feb 2024 15:25:44 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
 To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jason Baron <jbaron@akamai.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>, bpf@vger.kernel.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>
-Subject: Re: [PATCH 0/7] riscv: Various text patching improvements
-Message-ID: <ZctnfZWWO3HCiXe5@andrea>
-References: <20240212025529.1971876-1-samuel.holland@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Stefan O'Rear <sorear@fastmail.com>
+Subject: Re: [PATCH -fixes v2 2/4] dt-bindings: riscv: Add ratified
+ privileged ISA versions
+Message-ID: <20240213-88c9d65fd2b6465fc4793f56@orel>
+References: <20240213033744.4069020-1-samuel.holland@sifive.com>
+ <20240213033744.4069020-3-samuel.holland@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240212025529.1971876-1-samuel.holland@sifive.com>
+In-Reply-To: <20240213033744.4069020-3-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240213_045844_862762_1061FE1D 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20240213_062549_012795_9CAF43A1 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +95,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
-
-On Sun, Feb 11, 2024 at 06:55:11PM -0800, Samuel Holland wrote:
-> Here are a few changes to minimize calls to stop_machine() and
-> flush_icache_*() in the various text patching functions, as well as
-> to simplify the code.
+On Mon, Feb 12, 2024 at 07:37:33PM -0800, Samuel Holland wrote:
+> The baseline for the RISC-V privileged ISA is version 1.10. Using
+> features from newer versions of the privileged ISA requires the
+> supported version to be reported by platform firmware, either in the ISA
+> string (where the binding already accepts version numbers) or in the
+> riscv,isa-extensions property. So far two newer versions are ratified.
 > 
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
 > 
-> Samuel Holland (7):
->   riscv: jump_label: Batch icache maintenance
->   riscv: jump_label: Simplify assembly syntax
->   riscv: kprobes: Use patch_text_nosync() for insn slots
->   riscv: Simplify text patching loops
->   riscv: Pass patch_text() the length in bytes
->   riscv: Use offset_in_page() in text patching functions
->   riscv: Remove extra variable in patch_text_nosync()
+> Changes in v2:
+>  - New patch for v2
+> 
+>  .../devicetree/bindings/riscv/extensions.yaml | 20 +++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> index 63d81dc895e5..7faf22df01af 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -121,6 +121,16 @@ properties:
+>              version of the privileged ISA specification.
+>  
+>          # multi-letter extensions, sorted alphanumerically
+> +        - const: sm1p11
+> +          description:
+> +            The standard Machine ISA v1.11, as ratified in the 20190608
+> +            version of the privileged ISA specification.
+> +
+> +        - const: sm1p12
+> +          description:
+> +            The standard Machine ISA v1.12, as ratified in the 20211203
+> +            version of the privileged ISA specification.
+> +
+>          - const: smaia
+>            description: |
+>              The standard Smaia supervisor-level extension for the advanced
+> @@ -134,6 +144,16 @@ properties:
+>              added by other RISC-V extensions in H/S/VS/U/VU modes and as
+>              ratified at commit a28bfae (Ratified (#7)) of riscv-state-enable.
+>  
+> +        - const: ss1p11
+> +          description:
+> +            The standard Supervisor ISA v1.11, as ratified in the 20190608
+> +            version of the privileged ISA specification.
+> +
+> +        - const: ss1p12
+> +          description:
+> +            The standard Supervisor ISA v1.12, as ratified in the 20211203
+> +            version of the privileged ISA specification.
+> +
+>          - const: ssaia
+>            description: |
+>              The standard Ssaia supervisor-level extension for the advanced
+> -- 
+> 2.43.0
+>
 
-This does look like a nice clean-up.  Just curious (a "teach me"-like question),
-how did you test these changes? kselftests, micro-benchmarks, other?
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
-BTW, I recall a parallel work from Alex and Bjorn [1] that might have some minor
-conflict with these changes; + both of them to Cc: for further sync.
+Note, QEMU doesn't add these extensions to the ISA string yet, but I think
+it should start, particularly the profile CPU types which should ensure
+all the profile's mandatory extensions are added to the ISA string in
+order to avoid any confusion.
 
-  Andrea
-
-[1] https://lore.kernel.org/lkml/20240206204607.527195-1-alexghiti@rivosinc.com/
-
-
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
