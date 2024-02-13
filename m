@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A941C48260
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 10:05:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 663E6C48260
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 10:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EEnUVzxVj98UQvTp54wPcKopwv+H0ai6YE7H9TGIJWk=; b=kNaeu9d4GNY6Yz
-	lHWpXWUTSbyYzP6Ag77wQlTXh097Zcm78u/Rp1pujPxN5DaJx822qmUn14mN8eavElzREvk+lEZun
-	aKGsV+JTpUmOrd4Rka/ynUmwV6j9bSdZOE7WANp4Tz1+K0+sdh+1iOfEKScXgofP3yCMLhTXHIjD+
-	FWmfLzmYlFnS4hfjTEb9kFGD9JOAYfqYqvMDHjLOXaLx0Exdxc4tf8Y2KCvPVlwpKyhLeH+ToyaoW
-	UroyvXlOLduuVlSCnNvYjsM2Bqtre1pqbNrJ5PbmXpXX2Ov9DXdurbLV9xX13us8XBlQYcGtkrZ+c
-	r3tsaq9cHphdtTo+CvDw==;
+	List-Owner; bh=dc4RHBSp43WpVTAImZX0/3W/nAeKGix1Iw7rhoyY0ho=; b=W7lfP6LZVB9hab
+	5KL0EbcwF2MzSIClcuezF5QTh5b94xErysjJVc7uw3uwWPa6icJMnnhYQLHHyaCMitkUdlXZLl/XS
+	3nHsa0iCjybxu82fHB2DNJHqm/7bCvlaslw274qttMLoIzasxuleoBhEo6a5MtjWowhHGpeFyJjm4
+	1kLZfgIN24Qt586G5SP36UP/9DLAX3idtabdSfLKGFOZMetBWuawwn64c2yN8S2Kk77iOEfR7bof6
+	6b45iZA26iegaBdbzFF8Dpo56yfNs1Lmez89pFQYnEnvEH8AyGrjf3RjcSBqEc3gYcBUC7cwmYqxO
+	J5/JxC2mPr/BLEbo/wGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZpev-00000008l2l-3zDT;
-	Tue, 13 Feb 2024 10:05:01 +0000
+	id 1rZpzz-00000008ovt-0KSc;
+	Tue, 13 Feb 2024 10:26:47 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZpeq-00000008l0g-0T1x;
-	Tue, 13 Feb 2024 10:04:59 +0000
+	id 1rZpzu-00000008oti-2Naq
+	for linux-riscv@lists.infradead.org;
+	Tue, 13 Feb 2024 10:26:45 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1707818693;
+	s=2020; t=1707820001;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Y1HrfL+SrlW2XWR5pU7cGgxYMFs+Qr2zZ76ZBVxutfE=;
-	b=SE49GUQbwTclIrg8Ek0Z3VpThQD1o9FAH8SAfIXoKnzTV3UsTWw9PR3oootZv4e+BrIiEw
-	mdQccGiNG42+Pm2ePTR4i97kp8932eaGmbf9YEyCPmZhmlW6DTxYRik/XdRPpaf/1d9Rj+
-	iw237txMkf2vF9jD/1ZLzDd0rm8LrsgK/C2xIiSWgoOKHIUVHZ9nngnvzOVUFKnc6moxK7
-	BpEj8jkWpHHDobcUxfUsyG+G/u9okIlxlJR4RBySpQ43POtEj6N7+cSAuQiP7GiM5XpWMC
-	zt2UBKcuYOqCl9/NGww8Fi+s6sVfQA4TLjGzQeVeq9V65GziT/r7Yaga1vZYqA==
+	bh=OirENwRVffLhqg4vLQeXmmc6qTeG6AWtBgzm4/Fep7o=;
+	b=GwkPBvLE/NQAAT43xtyROcGSWgUiucZZB2ec2g3VMikr5ObnhcXmo+RS5IDSmyM1OUGiEd
+	7xS8uBH10ljyxTHAf0TgsO0vUhc8J3cUumyVjdF+tArJNZ5Cb6qbN81/2L4SUuNb1n+xeM
+	lTUKLPRc+bLsZCgPNl5jfAbi8uQEAR9a7o0M/zk8iHPMQOA0sGKzpV8m4ycyLpvhMqIrTG
+	BzH2/fE2hX0EICezQmdB7T4kOaTHuSMg8g41lIojVhpEATsMu34Fr+weMIBkrFDgJ1m7zJ
+	smGA9OsZA5tjREuhcauzD90erNoGucb+l9Ok3++FJGDwNXwNBXF9bmy5HX/vxA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1707818693;
+	s=2020e; t=1707820001;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Y1HrfL+SrlW2XWR5pU7cGgxYMFs+Qr2zZ76ZBVxutfE=;
-	b=hwPVCOobELnpGmo9aIjJ/oKtSoM7jE5zNUcYVknaR65ECFvfFEULvht2Ghlz1V5bazoRzP
-	gBUt4M68cX7NwTDg==
-To: Yu Chien Peter Lin <peterlin@andestech.com>, acme@kernel.org,
- adrian.hunter@intel.com, ajones@ventanamicro.com,
- alexander.shishkin@linux.intel.com, andre.przywara@arm.com,
- anup@brainfault.org, aou@eecs.berkeley.edu, atishp@atishpatra.org,
- conor+dt@kernel.org, conor.dooley@microchip.com, conor@kernel.org,
- devicetree@vger.kernel.org, evan@rivosinc.com, geert+renesas@glider.be,
- guoren@kernel.org, heiko@sntech.de, irogers@google.com,
- jernej.skrabec@gmail.com, jolsa@kernel.org, jszhang@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-sunxi@lists.linux.dev, locus84@andestech.com, magnus.damm@gmail.com,
- mark.rutland@arm.com, mingo@redhat.com, n.shubin@yadro.com,
- namhyung@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
- peterlin@andestech.com, peterz@infradead.org,
- prabhakar.mahadev-lad.rj@bp.renesas.com, rdunlap@infradead.org,
- robh+dt@kernel.org, samuel@sholland.org, sunilvl@ventanamicro.com,
- tim609@andestech.com, uwu@icenowy.me, wens@csie.org, will@kernel.org,
- inochiama@outlook.com, unicorn_wang@outlook.com, wefu@redhat.com
-Cc: Randolph <randolph@andestech.com>, Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v8 02/10] irqchip/riscv-intc: Allow large non-standard
- interrupt number
-In-Reply-To: <20240129092553.2058043-3-peterlin@andestech.com>
-References: <20240129092553.2058043-1-peterlin@andestech.com>
- <20240129092553.2058043-3-peterlin@andestech.com>
-Date: Tue, 13 Feb 2024 11:04:53 +0100
-Message-ID: <877cj8issa.ffs@tglx>
+	bh=OirENwRVffLhqg4vLQeXmmc6qTeG6AWtBgzm4/Fep7o=;
+	b=FTIkVehmdBJJQ8PbMU0GBBiXWHp+VmaePW7Fc9q0HvKZTnjeSpYgSUQrZkAOitKr3WDpHK
+	rs9WULSDRQ3oSFCA==
+To: Nam Cao <namcao@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland
+ <samuel@sholland.org>, Marc Zyngier <maz@kernel.org>, Guo Ren
+ <guoren@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Nam Cao <namcao@linutronix.de>, stable@vger.kernel.org
+Subject: Re: [PATCH v2] irqchip/sifive-plic: enable interrupt if needed
+ before EOI
+In-Reply-To: <20240131081933.144512-1-namcao@linutronix.de>
+References: <20240131081933.144512-1-namcao@linutronix.de>
+Date: Tue, 13 Feb 2024 11:26:40 +0100
+Message-ID: <87wmr8hd7j.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240213_020456_318874_C1EF66F9 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20240213_022642_775773_9447C8D3 
+X-CRM114-Status: GOOD (  26.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,72 +79,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 29 2024 at 17:25, Yu Chien Peter Lin wrote:
->  static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
+Nam!
+
+On Wed, Jan 31 2024 at 09:19, Nam Cao wrote:
+> RISC-V PLIC cannot "end-of-interrupt" (EOI) disabled interrupts, as
+> explained in the description of Interrupt Completion in the PLIC spec:
+>
+> "The PLIC signals it has completed executing an interrupt handler by
+> writing the interrupt ID it received from the claim to the claim/complete
+> register. The PLIC does not check whether the completion ID is the same
+> as the last claim ID for that target. If the completion ID does not match
+> an interrupt source that *is currently enabled* for the target, the
+> completion is silently ignored."
+>
+> Commit 69ea463021be ("irqchip/sifive-plic: Fixup EOI failed when masked")
+> ensured that EOI is successful by enabling interrupt first, before EOI.
+>
+> Commit a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask
+> operations") removed the interrupt enabling code from the previous
+> commit, because it assumes that interrupt should already be enabled at the
+> point of EOI. However, this is incorrect: there is a window after a hart
+> claiming an interrupt and before irq_desc->lock getting acquired,
+> interrupt can be disabled during this window. Thus, EOI can be invoked
+> while the interrupt is disabled, effectively nullify this EOI. This
+> results in the interrupt never gets asserted again, and the device who
+> uses this interrupt appears frozen.
+
+Nice detective work!
+
+> Make sure that interrupt is really enabled before EOI.
+>
+> Fixes: a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask operations")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> ---
+> v2:
+>   - add unlikely() for optimization
+>   - re-word commit message to make it clearer
+>
+>  drivers/irqchip/irq-sifive-plic.c | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index e1484905b7bd..0a233e9d9607 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -148,7 +148,13 @@ static void plic_irq_eoi(struct irq_data *d)
 >  {
->  	unsigned long cause = regs->cause & ~CAUSE_IRQ_FLAG;
+>  	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
 >  
-> -	if (unlikely(cause >= BITS_PER_LONG))
-> -		panic("unexpected interrupt cause");
-> -
-> -	generic_handle_domain_irq(intc_domain, cause);
-> +	if (generic_handle_domain_irq(intc_domain, cause))
-> +		pr_warn_ratelimited("Failed to handle interrupt (cause: %ld)\n",
-> +				    cause);
+> -	writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> +	if (unlikely(irqd_irq_disabled(d))) {
+> +		plic_toggle(handler, d->hwirq, 1);
+> +		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> +		plic_toggle(handler, d->hwirq, 0);
 
-Either let the cause stick out or you need brackets. See:
+It's unfortunate to have this condition in the hotpath, though it should
+be cache hot, easy to predict and compared to the writel() completely in
+the noise.
 
-  https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#bracket-rules
-
+> +	} else {
+> +		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> +	}
 >  }
->  
->  /*
-> @@ -93,6 +95,14 @@ static int riscv_intc_domain_alloc(struct irq_domain *domain,
->  	if (ret)
->  		return ret;
->  
-> +	/*
-> +	 * Only allow hwirq for which we have corresponding standard or
-> +	 * custom interrupt enable register.
-> +	 */
-> +	if ((riscv_intc_nr_irqs <= hwirq && hwirq < riscv_intc_custom_base) ||
-> +	    (riscv_intc_custom_base + riscv_intc_custom_nr_irqs) <= hwirq)
-> +		return -EINVAL;
 
-Duh. This mix of ordering required to read this 3 times. What's wrong
-with writing this consistently:
-
-	if ((hwirq >= riscv_intc_nr_irqs && hwirq < riscv_intc_custom_base) ||
-	    (hwirq >= iscv_intc_custom_base + riscv_intc_custom_nr_irqs)
-		return -EINVAL;
-
-Hmm?
-
-> -	pr_info("%d local interrupts mapped\n", BITS_PER_LONG);
-> +	pr_info("%d local interrupts mapped\n", riscv_intc_nr_irqs);
-> +	if (riscv_intc_custom_nr_irqs)
-> +		pr_info("%d custom local interrupts mapped\n",
-> +			riscv_intc_custom_nr_irqs);
-
-See bracket rules.
-  
->  	return 0;
->  }
-> @@ -166,6 +178,10 @@ static int __init riscv_intc_init(struct device_node *node,
->  		return 0;
->  	}
->  
-> +	riscv_intc_nr_irqs = BITS_PER_LONG;
-> +	riscv_intc_custom_base = riscv_intc_nr_irqs;
-
-Why don't you initialize the static variables with constants right away?
-
-> +	riscv_intc_custom_nr_irqs = 0;
-
-It's already 0, no?
-
->  	return riscv_intc_init_common(of_node_to_fwnode(node));
->  }
+Can the RISCV folks please have a look at this?
 
 Thanks,
 
