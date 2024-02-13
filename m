@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8DD7C4829A
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 18:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34335C4829A
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 19:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:From:In-Reply-To:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/4X/PxnpDeuCv8tHUiLugWte2vpKqgdzUBQUWNfRTqE=; b=YAHZi5QKZnWW3V
-	cogdDlCXt+h2sAn7lI3TYlBUN84wovbVyRejl2Rh6bL0Mob4kK+pP4epahSUWnuyBNpAzH3c1GDR9
-	bfRBkUMzQaJZye1PFJW2aCwQM6OUE8yslyYwjUxnxtHIZlM8qNTjSaugV6uiBOmCCOnLtHY/s9Xj/
-	Lot/D3zbx1FtysF0fzMkOsXZVfnhbC33WJX3syqR1m6AxfShhCwMM1jj6QkZe4YdmBR5vVRHyJrUq
-	/4tdW2NQwKSB5x+eQylq0+6Hy/3DWc6eIUF/28YAx5puEEtordcc/UAI4he+0QiXvUsqxe4UsO0V8
-	LSEmBugI3mezJ74s7G9w==;
+	List-Owner; bh=M7Ep56AHkJK0gFOqbc72R9CnhVCyDM6FkO3zGuoIhe4=; b=ELYN0tr1UN2sP9
+	Gz4dgAX+jmv9YPZOyZ2FIH1jcPkkUqBn/WhXD79XF3fAENqXNbIQu2kW470K1hOudREhvIxFLlXOc
+	MQDJVKAzsrekAhWzdr0g3cbUEdB/DpIUz6t9SRa3H9wbzGXCtHdtcOkoZl4OjPAIsrvD7bxaE4B5q
+	S08MeEW0rUyZ+ECZJlT35Np8YUJe34mhopckbLiaRSpO+5htYJVgG01grA3NTCi5FwQzaPFazWSxv
+	Wiu5RDVnk4QbXCJ/DtC49xFPehE7AAJw57yaXBcuGztBk/EIDqO7CbumVlWRmIEPkb8PPzrT+nZWJ
+	401G5lJWasy9uR54IzXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZxMF-0000000AI1S-2YK8;
-	Tue, 13 Feb 2024 18:18:15 +0000
-Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	id 1rZyfe-0000000AW8e-2Kod;
+	Tue, 13 Feb 2024 19:42:22 +0000
+Received: from mta-04.yadro.com ([89.207.88.248])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rZxMC-0000000AI0l-2LVw
+	id 1rZyfb-0000000AW6x-1aTB
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Feb 2024 18:18:14 +0000
-Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-78684496b10so80396985a.3
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Feb 2024 10:18:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1707848289; x=1708453089; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=X+/YbJCPpm0EK3T37Th2lKCSnThgdS1uZBmxaE4WYMY=;
-        b=M2pAztuHabUy7TSPNxshe5hpFCKGCThN3qi81hQCSWP0V6lfSc+gJxmm7jvn6Pit/y
-         z/z6L9ZCdBQxDbi5N2ry0neU9oudO7vEWRg1rxrxSILA6dQi5pF+dI+9dAzsZSxMrTek
-         C3sAh5JJmBIL4a/Zkzx6ijnBAuv7e6HJq7HwEU3kIRrwqOewla08cpN6PfZRGkPCEYLC
-         jPtG3NhwEKh1wAXlPprrKBHd3CS9wI1WFrUkZh8tjx9oLGZRCSiMU2POb4QbOpMUk2K+
-         95ZeYSQtmIRdsC+aWEqarWVvxe2PQHArFibVV0pM8bFIEEAZ7j90NX+1EGzb5SpwNE1j
-         H2UQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707848289; x=1708453089;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=X+/YbJCPpm0EK3T37Th2lKCSnThgdS1uZBmxaE4WYMY=;
-        b=VuEVJesj0u1qwLf6tGh6h6ZrluMTQAC+G42YfJyAkzDPCgJexEE3kuRU18RfWdPnY3
-         glfk0tTy/Ik5dFQAAmZZ7HPvDe2zUQDU8tCYWMetDlFXDhKSLJqnWtpM3HTdco6PfhfN
-         0QPl9wlg7LKlnkaHXrx3M+SH1qB5XfkdaqfrM6JSBc1TVmjlJ55Tz9KdleLQfGFogI1P
-         kRZzLmArahvslNMQL4IEeKwglpL1U2+7n21J3iCWA2uyuZAX8J+zEd4r6Ugjnv0QFIpx
-         OQwGZmP2GpHAMxDgGPCYODVt28FdPddHoeuVC71H/reqcJ49+ddjBdX7lC1yPIb0YvYw
-         vuqw==
-X-Forwarded-Encrypted: i=1; AJvYcCVfQ7oGz5BU69c/N15G4iMVIE78opN33yBeI4BqteAVfsMehbNjFaIKuGqpDnp8n2RqZMQHmvyYUw6DJVbOMBOoIFlTrIHyfgG7LhgU0Niu
-X-Gm-Message-State: AOJu0YxNzvgK1mQBPPVV6nycpLpP2Njr9uosQ0Uao0I8LdI99O6KyXO5
-	f8S+F0XdyytJu8xvnFME49C7D5W1n3RUcLTWbzKbU+fG9RN1y2PFZA9nGJUPnTQ=
-X-Google-Smtp-Source: AGHT+IEED1duRB9V/QfYpNn/a6siPwseDkG/lIlUu48zJh2xglpQ9h6SRuDpAud2qU+dAsLRiyn2vw==
-X-Received: by 2002:a05:620a:4609:b0:783:f683:e28b with SMTP id br9-20020a05620a460900b00783f683e28bmr511286qkb.34.1707848289467;
-        Tue, 13 Feb 2024 10:18:09 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUBqBu9ONTTKo2Oh6qupzG9ZOkDJpj3+OTM1FGXNQ5hMekCp0uEVCuMmGUmpK9EMsM166EDu187AKnOkxbeNfL/OvBEEJTja82qs4b5dDlVkw1rF0JfWGx4YyRrfyxVtEGsfXawBrepYGsSDNdUHnedCQVCjCzCIePauRUXd2ywKNq/16SlZP07xdR7gzGZ3eEZt61gcy1rbEaKPv2Q2g==
-Received: from [100.64.0.1] ([170.85.8.192])
-        by smtp.gmail.com with ESMTPSA id po3-20020a05620a384300b0078366823711sm3149882qkn.119.2024.02.13.10.18.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 Feb 2024 10:18:09 -0800 (PST)
-Message-ID: <7b9c1298-91fa-411e-8939-a45a6ac87307@sifive.com>
-Date: Tue, 13 Feb 2024 12:18:07 -0600
+	Tue, 13 Feb 2024 19:42:21 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 mta-04.yadro.com CA0D2C0003
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-04;
+	t=1707853330; bh=rZ5MF2fO1HqNFxjtMuE0B4X0JNOf9SQSa1ISUOkaJeQ=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
+	b=pWmhc9UwXcbKgs21Y/G84OEAL0JQQzOvRM8Eqbaqx2u78Zjp73z3DEZHCPaej+gta
+	 3JZ6DxVv7Uc9pbzjSSfYrkud49hDCBb+en0/i6DmW6YyNEZFiNwMPeUB+EtNFxNM1B
+	 Y5Hmta5LNE0SQIexjiX0zQ3sU2fjJgBG/ZrWRBQW5FSBLocaH1v8NIotsyUQqJmE+E
+	 x/DbqljJ0DfbNkEpKaMd0isEX1VnxSGWcK0qQNKLYbPlbGFGNo1d19WQHw/UHrMp/P
+	 6fAvINvJUQi1YYAo6vvPwnw1CMJsagQcRXj7U6/yvezwamqIgwq9teSG1eWOj5LutI
+	 O7Ny5pKQ1kicg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-03;
+	t=1707853330; bh=rZ5MF2fO1HqNFxjtMuE0B4X0JNOf9SQSa1ISUOkaJeQ=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
+	b=JgqLztf2AxMX3VzYNgGeQ6CJ4SPzal2CL9IU29KDwOAKlnC50aP9/zSgRbuMwMsZH
+	 DGzOaEMxiPB5nK4bhkHaLZ1E1g9W6+K7QJ85sY/qHNNOl3uLYmCPzh5sngjbxbXwLs
+	 zymlRQ642sM3uSH9UEtqa7re/Pa1mLJKl3bUDWyFVeB8QFYB1PaToyDjFQFh/OLoic
+	 al3mzjlsg6/my69Dw9rERztknQzt1kDFck75m9PvFps4AfySy6yAUu1uAHJcAeWzFt
+	 yGhbVxg5Y2K5g3KmSg6Afk0vUJ0bBoqFMMk0BUWosnHjkoLMvKN3ptuGfVVVfg5jan
+	 lYTCoO/KMQuoA==
+Message-ID: <4fe4567b-96be-4102-952b-7d39109b2186@yadro.com>
+Date: Tue, 13 Feb 2024 22:42:08 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -fixes v2 3/4] riscv: Add ISA extension parsing for Sm and
- Ss
+Subject: Re: [PATCH RFC v2 riscv/for-next 0/5] Enable ftrace with kernel
+ preemption for RISC-V
 Content-Language: en-US
-To: Stefan O'Rear <sorear@fastmail.com>,
- Andrew Jones <ajones@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20240213033744.4069020-1-samuel.holland@sifive.com>
- <20240213033744.4069020-4-samuel.holland@sifive.com>
- <20240213-1835b458d8cad71a76fa7322@orel>
- <1c93421f-a70b-46ba-a25c-50cde87bf64d@app.fastmail.com>
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <1c93421f-a70b-46ba-a25c-50cde87bf64d@app.fastmail.com>
+To: Andy Chiu <andy.chiu@sifive.com>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>, <rostedt@goodmis.org>,
+	<mingo@redhat.com>, <peterz@infradead.org>, <jpoimboe@kernel.org>,
+	<jbaron@akamai.com>, <ardb@kernel.org>
+CC: <greentime.hu@sifive.com>, <zong.li@sifive.com>, <guoren@kernel.org>,
+	Jessica Clarke <jrtc27@jrtc27.com>, <kernel@esmil.dk>,
+	<linux-riscv@lists.infradead.org>, <linux@yadro.com>
+References: <20220913094252.3555240-1-andy.chiu@sifive.com>
+In-Reply-To: <20220913094252.3555240-1-andy.chiu@sifive.com>
+From: Evgenii Shatokhin <e.shatokhin@yadro.com>
+X-ClientProxiedBy: T-EXCH-06.corp.yadro.com (172.17.10.110) To
+ T-EXCH-10.corp.yadro.com (172.17.11.60)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240213_101812_806905_06A9F8C0 
-X-CRM114-Status: GOOD (  22.87  )
+X-CRM114-CacheID: sfid-20240213_114220_324405_043B498A 
+X-CRM114-Status: GOOD (  28.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,121 +79,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-02-13 11:52 AM, Stefan O'Rear wrote:
-> On Tue, Feb 13, 2024, at 10:14 AM, Andrew Jones wrote:
->> On Mon, Feb 12, 2024 at 07:37:34PM -0800, Samuel Holland wrote:
->>> Previously, all extension version numbers were ignored. However, the
->>> version number is important for these two extensions. The simplest way
->>> to implement this is to use a separate bitmap bit for each supported
->>> version, with each successive version implying all of the previous ones.
->>> This allows alternatives and riscv_has_extension_[un]likely() to work
->>> naturally.
->>>
->>> To avoid duplicate extensions in /proc/cpuinfo, the new successor_id
->>> field allows hiding all but the newest implemented version of an
->>> extension.
->>>
->>> Cc: <stable@vger.kernel.org> # v6.7+
->>> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
->>> ---
->>>
->>> Changes in v2:
->>>  - New patch for v2
->>>
->>>  arch/riscv/include/asm/cpufeature.h |  1 +
->>>  arch/riscv/include/asm/hwcap.h      |  8 ++++++
->>>  arch/riscv/kernel/cpu.c             |  5 ++++
->>>  arch/riscv/kernel/cpufeature.c      | 42 +++++++++++++++++++++++++----
->>>  4 files changed, 51 insertions(+), 5 deletions(-)
->>>
->>> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
->>> index 0bd11862b760..ac71384e7bc4 100644
->>> --- a/arch/riscv/include/asm/cpufeature.h
->>> +++ b/arch/riscv/include/asm/cpufeature.h
->>> @@ -61,6 +61,7 @@ struct riscv_isa_ext_data {
->>>  	const char *property;
->>>  	const unsigned int *subset_ext_ids;
->>>  	const unsigned int subset_ext_size;
->>> +	const unsigned int successor_id;
->>>  };
->>>  
->>>  extern const struct riscv_isa_ext_data riscv_isa_ext[];
->>> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
->>> index 5340f818746b..5b51aa1db15b 100644
->>> --- a/arch/riscv/include/asm/hwcap.h
->>> +++ b/arch/riscv/include/asm/hwcap.h
->>> @@ -80,13 +80,21 @@
->>>  #define RISCV_ISA_EXT_ZFA		71
->>>  #define RISCV_ISA_EXT_ZTSO		72
->>>  #define RISCV_ISA_EXT_ZACAS		73
->>> +#define RISCV_ISA_EXT_SM1p11		74
->>> +#define RISCV_ISA_EXT_SM1p12		75
->>> +#define RISCV_ISA_EXT_SS1p11		76
->>> +#define RISCV_ISA_EXT_SS1p12		77
->>>  
->>>  #define RISCV_ISA_EXT_MAX		128
->>>  #define RISCV_ISA_EXT_INVALID		U32_MAX
->>>  
->>>  #ifdef CONFIG_RISCV_M_MODE
->>> +#define RISCV_ISA_EXT_Sx1p11		RISCV_ISA_EXT_SM1p11
->>> +#define RISCV_ISA_EXT_Sx1p12		RISCV_ISA_EXT_SM1p12
->>>  #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
->>>  #else
->>> +#define RISCV_ISA_EXT_Sx1p11		RISCV_ISA_EXT_SS1p11
->>> +#define RISCV_ISA_EXT_Sx1p12		RISCV_ISA_EXT_SS1p12
->>>  #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
->>>  #endif
->>>  
->>> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
->>> index d11d6320fb0d..2e6b90ed0d51 100644
->>> --- a/arch/riscv/kernel/cpu.c
->>> +++ b/arch/riscv/kernel/cpu.c
->>> @@ -215,6 +215,11 @@ static void print_isa(struct seq_file *f, const unsigned long *isa_bitmap)
->>>  		if (!__riscv_isa_extension_available(isa_bitmap, riscv_isa_ext[i].id))
->>>  			continue;
->>>  
->>> +		/* Only show the newest implemented version of an extension */
->>> +		if (riscv_isa_ext[i].successor_id != RISCV_ISA_EXT_INVALID &&
->>> +		    __riscv_isa_extension_available(isa_bitmap, riscv_isa_ext[i].successor_id))
->>> +			continue;
->>
->> I'm not sure we need this. Expanding Ss1p12 to 'Ss1p11 Ss1p12' and then
->> outputting both in the ISA string doesn't seem harmful to me. Also, using
+Hi,
 
-I was thinking that parsers would be confused by seeing the same extension
-multiple times, but I have no problem with it if folks disagree.
-
->> a successor field instead of supersedes field may make this logic easy,
->> but it'll require updating old code (changing RISCV_ISA_EXT_INVALID to the
->> new version extension ID) when new versions are added. A supersedes field
->> wouldn't require old code updates and would match the profiles spec which
->> have explicit 'Ss1p12 supersedes Ss1p11.' type sentences.
+On 13.09.2022 12:42, Andy Chiu wrote:
+> This patch removes dependency of dynamic ftrace from calling
+> stop_machine(), and makes it compatiable with kernel preemption.
+> Originally, we ran into stack corruptions, or execution of partially
+> updated instructions when starting or stopping ftrace on a fully
+> preemptible kernel configuration. The reason is that kernel periodically
+> calls rcu_momentary_dyntick_idle() on cores waiting for the code-patching
+> core running in ftrace. Though rcu_momentary_dyntick_idle() itself is
+> marked as notrace, it would call a bunch of tracable functions if we
+> configured the kernel as preemptible. For example, these are some functions
+> that happened to have a symbol and have not been marked as notrace on a
+> RISC-V preemptible kernel compiled with GCC-11:
+>   - __rcu_report_exp_rnp()
+>   - rcu_report_exp_cpu_mult()
+>   - rcu_preempt_deferred_qs()
+>   - rcu_preempt_need_deferred_qs()
+>   - rcu_preempt_deferred_qs_irqrestore()
 > 
-> Seconding - suppressing implied extensions in /proc/cpuinfo will require anything
-> that parses /proc/cpuinfo to know about extension implication in order to
-> generate the complete list.
+> Thus, this make it not ideal for us to rely on stop_machine() and
+> handly marked "notrace"s to perform runtime code patching. To remove
+> such dependency, we must make updates of code seemed atomic on running
+> cores. This might not be obvious for RISC-V since it usaually uses a pair
+> of AUIPC + JALR to perform a long jump, which cannot be modified and
+> executed concurrently if we consider preemptions. As such, this patch
+> proposed a way to make it possible. It embeds a 32-bit rel-address data
+> into instructions of each ftrace prologue and jumps indirectly. In this
+> way, we could store and load the address atomically so that the code
+> patching core could run simutaneously with the rest of running cores.
+> 
+> After applying the patchset, we compiled a preemptible kernel with all
+> tracers and ftrace-selftest enabled, and booted it on a 2-core QEMU virt
+> machine. The kernel could boot up successfully, passing all ftrace
+> testsuits. Besides, we ran a script that randomly pick a tracer on every
+> 0~5 seconds. The kernel has sustained over 20K rounds of the test. In
+> contrast, a preemptible kernel without our patch would panic in few
+> rounds on the same machine.
+> 
+> Though we ran into errors when using hwlat or irqsoff tracers together
+> with cpu-online stressor from stress-ng on a preemptible kernel. We
+> believe the reason may be that  percpu workers of the tracers are being
+> queued into unbounded workqueue when cpu get offlined and patches will go
+> through tracing tree.
+> 
+> Additionally, we found patching of tracepoints unsafe since the
+> instructions being patched are not naturally aligned. This may result in
+> 2 half-word stores, which breaks atomicity, during the code patching.
+> 
+> changes in patch v2:
+>   - Enforce alignments on all functions with a compiler workaround.
+>   - Support 64bit addressing for ftrace targets if xlen == 64
+>   - Initialize ftrace target addresses to avoid calling bad address in a
+>     hypothesized case.
+>   - Use LGPTR instead of SZPTR since .align is log-scaled for
+>     mcount-dyn.S
+>   - Require the nop instruction of all jump_labels aligns naturally on
+>     4B.
+> 
+> Andy Chiu (5):
+>    riscv: align ftrace to 4 Byte boundary and increase ftrace prologue
+>      size
+>    riscv: export patch_insn_write
+>    riscv: ftrace: use indirect jump to work with kernel preemption
+>    riscv: ftrace: do not use stop_machine to update code
+>    riscv: align arch_static_branch function
+> 
+>   arch/riscv/Makefile                 |   2 +-
+>   arch/riscv/include/asm/ftrace.h     |  24 ----
+>   arch/riscv/include/asm/jump_label.h |   2 +
+>   arch/riscv/include/asm/patch.h      |   1 +
+>   arch/riscv/kernel/ftrace.c          | 179 ++++++++++++++++++++--------
+>   arch/riscv/kernel/mcount-dyn.S      |  69 ++++++++---
+>   arch/riscv/kernel/patch.c           |   4 +-
+>   7 files changed, 188 insertions(+), 93 deletions(-)
+> 
 
-Well, from an ISA string perspective (i.e. what's shown in /proc/cpuinfo), only
-including the latest version _does_ give you the complete list, because Ss1p11
-and Ss1p12 aren't different extensions. I'm only expanding them to different
-flags inside the kernel so we can avoid storing the version number as an integer
-and doing numeric comparisons at each usage site.
+First of all, thank you for working on making dynamic Ftrace robust in 
+preemptible kernels on RISC-V.
+It is an important use case but, for now, dynamic Ftrace and related 
+tracers cannot be safely used with such kernels.
 
-So /proc/cpuinfo parsers wouldn't need to know about implication, since that's a
-kernel implementation detail. They just need to know how to parse the version
-number from an ISA string. And I would expect them to be able to do that anyway.
+Are there any updates on this series?
+It needs a rebase, of course, but it looks doable.
 
-There would only be backward-compatibility concerns if parsers are doing a
-string match on the whole "ss1p12", which I would consider wrong to start with.
+If I understand the discussion correctly, the only blocker was that 
+using "-falign-functions" was not enough to properly align cold 
+functions and "-fno-guess-branch-probability" would likely have a 
+performance cost.
+
+It seems, GCC developers have recently provided a workaround for that 
+(https://gcc.gnu.org/git/gitweb.cgi?p=gcc.git;h=0f5a9a00e3ab1fe96142f304cfbcf3f63b15f326, 
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=88345#c24).
+
+"-fmin-function-alignment" should help but, I do not know, which GCC 
+versions have got that patch already. In the meantime, one could 
+probably check if "-fmin-function-alignment" is supported by the 
+compiler and use it, if it is.
+
+Thoughts?
 
 Regards,
-Samuel
-
+Evgenii
 
 _______________________________________________
 linux-riscv mailing list
