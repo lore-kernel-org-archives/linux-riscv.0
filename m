@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B119C48BC4
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 09:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF46BC48BEB
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 09:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KvpteX4aNV4BYvva4XGm21AcnM8E68PtCDIVqwTfmbo=; b=fXVjH+zrAnP+kC
-	d4bqFFIEQaePoqxQTotUEqWCd9eHbGiKNPEAAbJBLpxvFdeZMtG7+vGYI/XlgQbb1pIIozTr3qMZk
-	K4DaNub92k0hbaKoX1rEEKjKmInmlzHm7tsysqsGosSUm29iXivwjpF2ryrh7JNCLQcuooQslKSty
-	JD6O/kC8CFmNx+F59j7OO3eNztTSYG7XbziQodkXBl6n/MRBhzl8Z+CzZnWsqihtD1RcIeUSa1Ltz
-	mrl8xLtydMJ8SiEOAomQNcGdM70Ck5kCWZqrOFkNlmWeosiBDc4QbGD/enGiUFSJTeeYVftTmx/D+
-	uqGVDKKaJuj6jxIBDjwQ==;
+	List-Owner; bh=WlSy4mQ503DF7REcI32ZtBhlCYDgemfNVO7fOvgOsIo=; b=meBlPDWY19Q99F
+	Sns2y+2LfL04eINQFN34Z4Ytqna5B8l2NTfVzeJyQJURDgFtI5ox4FdnD9FatDgSXZz+mzNdXKtku
+	iqVba/EDgjKYMDA22KKFO1H89+d5n1AJ6DDUOFDkxWzDKKMXEkI/ZlePiKLu4Li5H338091UtJH0a
+	95zLz0SePqLH+4gawaxuR8NrmeBiMJIXE5zdSaAlYE5hNZ4kpTi/5fTgPhfCSRS8Y0E0r11agfOPW
+	JsTZADhKu3gvkCyIyUG2Jofv7qbERyUsKravo0v8iUgQuw7lXMkMccAtKcj422HPHtaHKud/iRiKC
+	NkNA9fSbS946wi6Ne9tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raBZu-0000000CIMp-09Zt;
-	Wed, 14 Feb 2024 09:29:18 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1raBh1-0000000CM9o-3C6a;
+	Wed, 14 Feb 2024 09:36:39 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raBZr-0000000CIJy-1vcB
+	id 1raBf4-0000000CKMO-3skE
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Feb 2024 09:29:17 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-411d231ea71so8558705e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Feb 2024 01:29:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1707902953; x=1708507753; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0IDjaBFrcqK08V4TvukbGfzSrUeUUgCPpW8iYr8qsNw=;
-        b=jml0g+yubS4KAjRaEf/MYTDj1hzOFrGVyyDHGfmbB0inc5zYSaNSUcdpJujAod6qcx
-         fy8uXxlYiKGgQR90FR5Z2/lOj6aEAOLOaF65aTUsgn8SGuowOqCReUDF30YYCZ7Xq5Eo
-         YEEoKyGrdeCHm3T7KXaTdcQxGNksApBiudLrIiiRqd3BtYbfnbvwO5mh63HrUK3PKfVQ
-         jzNCqYsLmdGMp/WYa0XV9cK8jTXN+ap7VJalSX8kuxeIihHwA6XM4ZC44nCjTumXdPoO
-         m9f3f6Iho37E9RMe7/c0fdfausleDH9LFKvdZoS7q9aRYaYD/yDZ+YA2qREGMYZL342j
-         9rjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707902953; x=1708507753;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0IDjaBFrcqK08V4TvukbGfzSrUeUUgCPpW8iYr8qsNw=;
-        b=dk5uM87vye70q7vfXKcLBuKKZ1TTT9aryrMOcQiqeQ2ZgWnFaeQru4M76ZT5lOaeCA
-         7Dge4ejfxMWK/dk+FAbpkp3nv+aZpu0mRLUUdUIVP8aSdrRPPO9jwJshNaHpD7bBSRkl
-         h9R9+ixyYi1idsZGUinIHxqTXUjm1ehiYtqWhPnJ3/c7QDITxGS0067tzQpxmcF20lrQ
-         EuEFxx8ErSlUVqcfYshr8LjtrCvxCFdul9R6LTfLjiBfUsV/9C3iBb+wdm0D7MRJJEhe
-         KogVa0kZ/J1JvfUKSYNPhPoopYPVpJz+XdnqCpgcPeEj5fRVopvWUSWO2t8nqklqiCeY
-         X+Xg==
-X-Forwarded-Encrypted: i=1; AJvYcCUD786m7A2ZnbD3+OIjIXLp2ThIPyAWCeHPCCzidw51XE/Vv7YyMGvdFYvjfouJ1d7Awn6PTgAyxIg6tcLt8JZRyCX/QTtOwGOz19YfmX1Z
-X-Gm-Message-State: AOJu0Yx2lc3LrhwPdh1+a3qgL8jg8R3A2GSQ8k01/lNM6atTO2dlsOnw
-	10+uwZGakG3Hihi8xg9pVyaUYVvP++P/n5sBvJsclPSUXOB9Yav0Bh2Z5ZAG8TQ=
-X-Google-Smtp-Source: AGHT+IF35kx8fDcqPegx+LX9rbLQtQ9LFkKnwSLkrtYsJzFgxf26jqeRQbcx5k1Pg7huYacEIrcXHQ==
-X-Received: by 2002:a05:600c:a48:b0:410:cc53:a358 with SMTP id c8-20020a05600c0a4800b00410cc53a358mr1975751wmq.16.1707902953626;
-        Wed, 14 Feb 2024 01:29:13 -0800 (PST)
-Received: from localhost (cst-prg-65-8.cust.vodafone.cz. [46.135.65.8])
-        by smtp.gmail.com with ESMTPSA id u3-20020a05600c00c300b00411ec07674esm1012499wmm.31.2024.02.14.01.29.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Feb 2024 01:29:13 -0800 (PST)
-Date: Wed, 14 Feb 2024 10:29:11 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org, 
-	Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
-	Stefan O'Rear <sorear@fastmail.com>, stable@vger.kernel.org
-Subject: Re: [PATCH -fixes v3 2/2] riscv: Save/restore envcfg CSR during CPU
- suspend
-Message-ID: <20240214-cd40380c3969dc9450f05848@orel>
-References: <20240214090206.195754-1-samuel.holland@sifive.com>
- <20240214090206.195754-3-samuel.holland@sifive.com>
+	Wed, 14 Feb 2024 09:34:44 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1raBey-00058u-FP; Wed, 14 Feb 2024 10:34:32 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1raBev-000fDH-8s; Wed, 14 Feb 2024 10:34:29 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1raBev-004Y4h-0e;
+	Wed, 14 Feb 2024 10:34:29 +0100
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-pwm@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org,
+	kernel@pengutronix.de
+Subject: [PATCH v6 073/164] pwm: microchip-core: Make use of devm_pwmchip_alloc() function
+Date: Wed, 14 Feb 2024 10:32:00 +0100
+Message-ID: <c6660b655c1d4c9d79280030e24090a4a4c5dd8b.1707900770.git.u.kleine-koenig@pengutronix.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1707900770.git.u.kleine-koenig@pengutronix.de>
+References: <cover.1707900770.git.u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240214090206.195754-3-samuel.holland@sifive.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2673; i=u.kleine-koenig@pengutronix.de; h=from:subject:message-id; bh=8NjZgFfj2wE1ustUVLaAv2OkflHpwq1PvhDPrTXDAPY=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBlzIieyBwn41Y7+zklJboV7Af2ynNTV0YRCVXb1 pnuBRZw2YSJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZcyIngAKCRCPgPtYfRL+ TrO6B/9d7KmPNjPmxMo6RtQlrvhKEiwfZJtsz7kMjTfarS9BEqKfmLyJ5pF7simY0+0OtB7Uz2V n3x0QbeRnCnWqFuYTvkjh+cs7uLsEmoGp/3VsfMc1oizuQmFqFxBGXoQy7vsvDkGBkkE+Jwp12m pk7z70odg8CGjlk064KkCnc+E2juaZ1O/aqNGy6DG3Fsj+EKmdV7YXYG+AcvV4fbWY9UDcaH3M4 YaBXSs36wRLPiagXsnKj4dW2YRxJhV20XJjgNTeS5c+Ggfe5U3FKA+GWWqn5r12haBnYvxf6ti9 q3ypxEnt9KO/MH/cPccYhDXbd0VvetbF7zq5z0yBA1ZX88tr
+X-Developer-Key: i=u.kleine-koenig@pengutronix.de; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240214_012915_523614_0420D23C 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20240214_013439_165195_54C57E97 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,79 +74,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 14, 2024 at 01:01:57AM -0800, Samuel Holland wrote:
-> The value of the [ms]envcfg CSR is lost when entering a nonretentive
-> idle state, so the CSR must be rewritten when resuming the CPU.
-> 
-> The [ms]envcfg CSR was added in version 1.12 of the privileged ISA, and
-> is used by extensions other than Zicboz. However, the kernel currenly
-> has no way to determine the privileged ISA version. Since Zicboz is the
-> only in-kernel user of this CSR so far, use it as a proxy for
-> determining if the CSR is implemented.
-> 
-> Cc: <stable@vger.kernel.org> # v6.7+
-> Fixes: 43c16d51a19b ("RISC-V: Enable cbo.zero in usermode")
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
-> 
-> Changes in v3:
->  - Check for Zicboz instead of the privileged ISA version
-> 
-> Changes in v2:
->  - Check for privileged ISA v1.12 instead of the specific CSR
->  - Use riscv_has_extension_likely() instead of new ALTERNATIVE()s
-> 
->  arch/riscv/include/asm/suspend.h | 1 +
->  arch/riscv/kernel/suspend.c      | 4 ++++
->  2 files changed, 5 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
-> index 02f87867389a..491296a335d0 100644
-> --- a/arch/riscv/include/asm/suspend.h
-> +++ b/arch/riscv/include/asm/suspend.h
-> @@ -14,6 +14,7 @@ struct suspend_context {
->  	struct pt_regs regs;
->  	/* Saved and restored by high-level functions */
->  	unsigned long scratch;
-> +	unsigned long envcfg;
->  	unsigned long tvec;
->  	unsigned long ie;
->  #ifdef CONFIG_MMU
-> diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
-> index 239509367e42..28166006688e 100644
-> --- a/arch/riscv/kernel/suspend.c
-> +++ b/arch/riscv/kernel/suspend.c
-> @@ -15,6 +15,8 @@
->  void suspend_save_csrs(struct suspend_context *context)
->  {
->  	context->scratch = csr_read(CSR_SCRATCH);
-> +	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_ZICBOZ))
-> +		context->envcfg = csr_read(CSR_ENVCFG);
->  	context->tvec = csr_read(CSR_TVEC);
->  	context->ie = csr_read(CSR_IE);
->  
-> @@ -36,6 +38,8 @@ void suspend_save_csrs(struct suspend_context *context)
->  void suspend_restore_csrs(struct suspend_context *context)
->  {
->  	csr_write(CSR_SCRATCH, context->scratch);
-> +	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_ZICBOZ))
-> +		csr_write(CSR_ENVCFG, context->envcfg);
->  	csr_write(CSR_TVEC, context->tvec);
->  	csr_write(CSR_IE, context->ie);
->  
-> -- 
-> 2.43.0
->
-
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyBwcmVwYXJlcyB0aGUgcHdtLW1pY3JvY2hpcC1jb3JlIGRyaXZlciB0byBmdXJ0aGVyIGNo
+YW5nZXMgb2YgdGhlCnB3bSBjb3JlIG91dGxpbmVkIGluIHRoZSBjb21taXQgaW50cm9kdWNpbmcg
+ZGV2bV9wd21jaGlwX2FsbG9jKCkuIFRoZXJlCmlzIG5vIGludGVuZGVkIHNlbWFudGljYWwgY2hh
+bmdlIGFuZCB0aGUgZHJpdmVyIHNob3VsZCBiZWhhdmUgYXMgYmVmb3JlLgoKQWNrZWQtYnk6IENv
+bm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+ClNpZ25lZC1vZmYtYnk6IFV3
+ZSBLbGVpbmUtS8O2bmlnIDx1LmtsZWluZS1rb2VuaWdAcGVuZ3V0cm9uaXguZGU+Ci0tLQogZHJp
+dmVycy9wd20vcHdtLW1pY3JvY2hpcC1jb3JlLmMgfCAxNyArKysrKysrKy0tLS0tLS0tLQogMSBm
+aWxlIGNoYW5nZWQsIDggaW5zZXJ0aW9ucygrKSwgOSBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQg
+YS9kcml2ZXJzL3B3bS9wd20tbWljcm9jaGlwLWNvcmUuYyBiL2RyaXZlcnMvcHdtL3B3bS1taWNy
+b2NoaXAtY29yZS5jCmluZGV4IGMwYzUzOTY4ZjNlOS4uYzFmMjI4N2I4ZTk3IDEwMDY0NAotLS0g
+YS9kcml2ZXJzL3B3bS9wd20tbWljcm9jaGlwLWNvcmUuYworKysgYi9kcml2ZXJzL3B3bS9wd20t
+bWljcm9jaGlwLWNvcmUuYwpAQCAtNTQsNyArNTQsNiBAQAogI2RlZmluZSBNQ0hQQ09SRVBXTV9U
+SU1FT1VUX01TCTEwMHUKIAogc3RydWN0IG1jaHBfY29yZV9wd21fY2hpcCB7Ci0Jc3RydWN0IHB3
+bV9jaGlwIGNoaXA7CiAJc3RydWN0IGNsayAqY2xrOwogCXZvaWQgX19pb21lbSAqYmFzZTsKIAlz
+dHJ1Y3QgbXV0ZXggbG9jazsgLyogcHJvdGVjdHMgdGhlIHNoYXJlZCBwZXJpb2QgKi8KQEAgLTY1
+LDcgKzY0LDcgQEAgc3RydWN0IG1jaHBfY29yZV9wd21fY2hpcCB7CiAKIHN0YXRpYyBpbmxpbmUg
+c3RydWN0IG1jaHBfY29yZV9wd21fY2hpcCAqdG9fbWNocF9jb3JlX3B3bShzdHJ1Y3QgcHdtX2No
+aXAgKmNoaXApCiB7Ci0JcmV0dXJuIGNvbnRhaW5lcl9vZihjaGlwLCBzdHJ1Y3QgbWNocF9jb3Jl
+X3B3bV9jaGlwLCBjaGlwKTsKKwlyZXR1cm4gcHdtY2hpcF9nZXRfZHJ2ZGF0YShjaGlwKTsKIH0K
+IAogc3RhdGljIHZvaWQgbWNocF9jb3JlX3B3bV9lbmFibGUoc3RydWN0IHB3bV9jaGlwICpjaGlw
+LCBzdHJ1Y3QgcHdtX2RldmljZSAqcHdtLApAQCAtNDQ3LDEzICs0NDYsMTUgQEAgTU9EVUxFX0RF
+VklDRV9UQUJMRShvZiwgbWNocF9jb3JlX29mX21hdGNoKTsKIAogc3RhdGljIGludCBtY2hwX2Nv
+cmVfcHdtX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCiB7CisJc3RydWN0IHB3
+bV9jaGlwICpjaGlwOwogCXN0cnVjdCBtY2hwX2NvcmVfcHdtX2NoaXAgKm1jaHBfY29yZV9wd207
+CiAJc3RydWN0IHJlc291cmNlICpyZWdzOwogCWludCByZXQ7CiAKLQltY2hwX2NvcmVfcHdtID0g
+ZGV2bV9remFsbG9jKCZwZGV2LT5kZXYsIHNpemVvZigqbWNocF9jb3JlX3B3bSksIEdGUF9LRVJO
+RUwpOwotCWlmICghbWNocF9jb3JlX3B3bSkKLQkJcmV0dXJuIC1FTk9NRU07CisJY2hpcCA9IGRl
+dm1fcHdtY2hpcF9hbGxvYygmcGRldi0+ZGV2LCAxNiwgc2l6ZW9mKCptY2hwX2NvcmVfcHdtKSk7
+CisJaWYgKElTX0VSUihjaGlwKSkKKwkJcmV0dXJuIFBUUl9FUlIoY2hpcCk7CisJbWNocF9jb3Jl
+X3B3bSA9IHRvX21jaHBfY29yZV9wd20oY2hpcCk7CiAKIAltY2hwX2NvcmVfcHdtLT5iYXNlID0g
+ZGV2bV9wbGF0Zm9ybV9nZXRfYW5kX2lvcmVtYXBfcmVzb3VyY2UocGRldiwgMCwgJnJlZ3MpOwog
+CWlmIChJU19FUlIobWNocF9jb3JlX3B3bS0+YmFzZSkpCkBAIC00NzAsOSArNDcxLDcgQEAgc3Rh
+dGljIGludCBtY2hwX2NvcmVfcHdtX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYp
+CiAKIAltdXRleF9pbml0KCZtY2hwX2NvcmVfcHdtLT5sb2NrKTsKIAotCW1jaHBfY29yZV9wd20t
+PmNoaXAuZGV2ID0gJnBkZXYtPmRldjsKLQltY2hwX2NvcmVfcHdtLT5jaGlwLm9wcyA9ICZtY2hw
+X2NvcmVfcHdtX29wczsKLQltY2hwX2NvcmVfcHdtLT5jaGlwLm5wd20gPSAxNjsKKwljaGlwLT5v
+cHMgPSAmbWNocF9jb3JlX3B3bV9vcHM7CiAKIAltY2hwX2NvcmVfcHdtLT5jaGFubmVsX2VuYWJs
+ZWQgPSByZWFkYl9yZWxheGVkKG1jaHBfY29yZV9wd20tPmJhc2UgKyBNQ0hQQ09SRVBXTV9FTigw
+KSk7CiAJbWNocF9jb3JlX3B3bS0+Y2hhbm5lbF9lbmFibGVkIHw9CkBAIC00ODUsNyArNDg0LDcg
+QEAgc3RhdGljIGludCBtY2hwX2NvcmVfcHdtX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2Ug
+KnBkZXYpCiAJd3JpdGVsX3JlbGF4ZWQoMVUsIG1jaHBfY29yZV9wd20tPmJhc2UgKyBNQ0hQQ09S
+RVBXTV9TWU5DX1VQRCk7CiAJbWNocF9jb3JlX3B3bS0+dXBkYXRlX3RpbWVzdGFtcCA9IGt0aW1l
+X2dldCgpOwogCi0JcmV0ID0gZGV2bV9wd21jaGlwX2FkZCgmcGRldi0+ZGV2LCAmbWNocF9jb3Jl
+X3B3bS0+Y2hpcCk7CisJcmV0ID0gZGV2bV9wd21jaGlwX2FkZCgmcGRldi0+ZGV2LCBjaGlwKTsK
+IAlpZiAocmV0KQogCQlyZXR1cm4gZGV2X2Vycl9wcm9iZSgmcGRldi0+ZGV2LCByZXQsICJGYWls
+ZWQgdG8gYWRkIHB3bWNoaXBcbiIpOwogCi0tIAoyLjQzLjAKCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
