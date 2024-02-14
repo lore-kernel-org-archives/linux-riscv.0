@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2EDC48BEC
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 09:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE9AC48BED
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 09:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gk6KWTVZ77hMAarrfkjoF4rkygE17pZwCX9EuEM3EAE=; b=TsjtvQ9rdKpD+8
-	6liw80TZ8sHvxAujgnUWqAaRy6N46VZddRswGIeRLPG9Y/3bOShGSgcfDUDb6Ijo+uDAwEzBFs4RC
-	I68//XDTidQhpBNouehV48C8zF1ifp4COHnbWXcO4lvx8FzYe/uSDYO9J1FhaBM7G5SKMmyk+Vtgx
-	MERPEoBYHzozpM4RduB21v8fBKMj86YFutLHESGgHvgLDsYObzQU8Ma/ZN7MtEaQ64/XLaTL2sy/6
-	Il2Xy7Ayy7VMFEOBZe5w5ialEMfz2cckBRDNMm3AaRikcrzTU/+1wbswh3w69gSqKt1A8QuswwA+L
-	KdtFoadKHWCQw//4wuVQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qs/nzOc1h2/F8TUB/mnAOsxiV03Hqt04JkCnsAS/lfE=; b=kLHZ5jmVRKBwRK
+	aFZy4y3QagVzCZ9Xsmq1MVd8RHXq++dKhv0Gs98NjnFt6dAdOK0kpy72rsY2jMdiyV23/q65HOXh9
+	jDIYJxIEwS+QYL+x8EiZF8TDX6NlTjJ3d/Dxxh/ms9EmokcHOOTvd0serJA61kdvSvuo+LCjJR18J
+	jM03tBxI3ObkOYhxSPsf0WVkJoUaaemHYE/NnT4MIvnI10DU6Y9NffRoy2L6Aubo+1t33EnznR/8I
+	rl70vqt/RK1I8Dmfz3qoTljGkr2Lt+r9M8vZP5tKHmUn4GYF6LWHAmcquHqoxRNJOhQG03FUent3e
+	s68ZAminbGkz1XnjAWnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raB9j-0000000CCdO-1PCr;
-	Wed, 14 Feb 2024 09:02:15 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raB9f-0000000CCci-21Ls
-	for linux-riscv@lists.infradead.org;
+	id 1raB9g-0000000CCdE-48IQ;
 	Wed, 14 Feb 2024 09:02:12 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6e08dd0fa0bso431543b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Feb 2024 01:02:10 -0800 (PST)
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1raB9d-0000000CCc7-22BD
+	for linux-riscv@lists.infradead.org;
+	Wed, 14 Feb 2024 09:02:10 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6e0dcf0a936so376915b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Feb 2024 01:02:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1707901330; x=1708506130; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PPRsJ6g4sGjHYOROeqaGh/pr9ekDnpVi90clFxCUkAg=;
-        b=cwj9o13zQclidKBWKY2UMQkw2oUuhGfHr/pWFVCGkac+e+A5K4v7wya1B7sW2jo2YR
-         3C4djTK9Gsr7VauPdPsYjvJNNibNrJ/WhpPLXWa4WMXz/XFJLtjLUhZrvl3/v8bN/M77
-         BAbInSWPGXNB/tGaO2gJOqaP7CGfYpQ2XoQKLuIqu7jnAPcfHIEsEVUDC8BXuKJTYm0B
-         DE2zzLasvLVOtmlA5FHltueTdOj6sWeczjOR9+7j8fZ/+5dfzieTCWTWd+FIXQXuYDGf
-         7/MGtkXlfhubWPRCEwxKIS4XhiMOk86gmRe6xrGzehTEPar1JVQ6+i9LSc7bCU15Lxwg
-         cbSw==
+        d=sifive.com; s=google; t=1707901328; x=1708506128; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PG0IiU/s69rauKmwQQKq0QDss70qdtIt7mVzhoYNTgg=;
+        b=Tf8ENOhepJ4eZunopEe5u03crJbvxuVggiNI34B9DPxc63xNkFRO3MkeZd3c1xoFYU
+         h1akrEFzRHmor4/19f/6mQ2H5if+wa4V202nRGZC5lM4fVEqXyIwrrGnZSFpP1wlngDQ
+         n3xi7mWHzfJpZJaA138m+R9Pz5IhyiOxKyzocPY38wfv+qDkzWYUwSp2haTcgVoQK43D
+         SCHQXotpQJIFtkik+QUfX7mmGWQIDrV83uaaYZljbokog05P6LG771vxLsVu4e7l6om/
+         AVU9mS9/sYErDDmYvgs1rXKcVeku8v1rL+jQNf9aO/CXiW1sreh6p9SpO0lvR6mP49es
+         0iCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707901330; x=1708506130;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PPRsJ6g4sGjHYOROeqaGh/pr9ekDnpVi90clFxCUkAg=;
-        b=Jta3ttitsZ2tlDRow2oDZEi9isIlT0LHBlCx+BQRWc8SfcQwljXRIJKsWMMllDHJOb
-         sH9GVr73uvbQriB3Lh9UJ275tHa/2LSTQFzXevzTqwLpiZlZsrxQm61JeCFRz5mdNdLQ
-         r5L7Z0jqaRplo4THCHdFW0PR9R3ylWP7qQBZUdL4J2kwAxIyuRO7ykJVZbroJ5JDAXqH
-         hWhszIV2orMWklCMQTSPyLTnMIGr627fxaCFj5gCH+Uaw8mrPkZ/9TV2d08HEFzpAqwc
-         MyI58dYRyefMBAPFQUfh3XNAEqCert9HM954dmBTWOdSKhTHFuGM9ifh65fv7o0h2X2o
-         A8RA==
-X-Forwarded-Encrypted: i=1; AJvYcCUS4x3Vl8YzspNUbO1EJ4DbjHfwo/ECSkSKPVAI19zLOpi0l1PFrHUY0Tz/pygDzJjaqlgO+kEwK2W8aCgJM8RyFSgjrkcmeVPgZUnj++Tm
-X-Gm-Message-State: AOJu0YySmppBjdRtKrZaZcoskFYnv9V3DpF/7LcX/PpCmDbjQEq65trE
-	Jsyh8EqxpVHdPjDKNnSiXAdVXtq1eWz7uwcch6Y7+icdkqFFfc/CMXHSpOmUWGI=
-X-Google-Smtp-Source: AGHT+IHy/Pj3hWoJS2WkBJmfY13iMBvhueyDKJ5A/yQfFVGdLE2c2qKte/Hxj8onksRoyE5sotknkQ==
-X-Received: by 2002:a05:6a20:d487:b0:19e:4c37:8737 with SMTP id im7-20020a056a20d48700b0019e4c378737mr2014592pzb.5.1707901330438;
-        Wed, 14 Feb 2024 01:02:10 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVBa/niUfhaptGFm9lpsC7zFdtIR2IEOBXSB0tdcyp6YZbUOgFtfbI/clENDxQCc8TCx8cnV0UJM0uPePynqx9jmQ7hY4b5ASPHIgiC4ZfxONgs2/Bri+S7wIUid9Bd0gcGYFrdshm5ssWW0rX7DOV8ZmKL6m+ulTzguKOnSdLt5I/uYehmsE75yEXVwh5SFONe5K6zDtg+cMtGVcnmC/zs52MkLQukmDPBDfZPnewiiQR2bVV8CVafM5Yknt5+zeqr1cvS7wKO
+        d=1e100.net; s=20230601; t=1707901328; x=1708506128;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PG0IiU/s69rauKmwQQKq0QDss70qdtIt7mVzhoYNTgg=;
+        b=LeEo2ZNArsA0EuG59SBRqH+VTqyzgu9eJNU3HF7wFXPuADEfwIESpTGPbPuhqOhVug
+         VIsIsD845PZFCLE5Q13t+OFL7tIm8yM1gU0QakcxjmnThkQILV617HWxMZONEr4fwRtT
+         A3IDaq9lGTl1Go0dqOscsNzLDRec5TW3P2xVl9xVLaaOB3rL9CqAjlr6BoPpATGT1X8S
+         IKqgQ22XGVMVuZKCj+fYTZ4vdPlokvad5N/mqX7QVfHQdkIbawLe6Ts4OWu/MgZrfsKo
+         MeRQsVZA5p5xu3KRbfOu97q2/GcQI7RX9lXiwCwelA4DnTA94rNytyuAplitHSKwnPuJ
+         QgeA==
+X-Forwarded-Encrypted: i=1; AJvYcCVNX2z/xPgmvtdHevb8NaRNwEHVQpbGI6EEBl97rneFW1UXkuvjFaqFLkwkzxxnj8qkMRRsf6D4p4yPFq+CRvFmgpm7e9oeAWRJR9qTMzwv
+X-Gm-Message-State: AOJu0Yw/NHvuAXU/6LA5n5scd+ExzvLmqmEADbq7x+WcKxrxE30+Y6DX
+	QGBGdyKomhecddSy1mSTezkFAdbfLpJ5tFvxtIpUUtnjZGbrNCOWF/xsassc8GyDT4XiA8MlNWV
+	o
+X-Google-Smtp-Source: AGHT+IFZDfQZGItnAQkonqR/Yikgb4B5zLgUFibXDBjJa1njdREAj5ps9BVVaW/vzNwOz21QNCGcMw==
+X-Received: by 2002:a05:6a21:3997:b0:1a0:587d:5664 with SMTP id ad23-20020a056a21399700b001a0587d5664mr2415076pzc.15.1707901327898;
+        Wed, 14 Feb 2024 01:02:07 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXwx8T69DaHtqPp+CeSq/WLrl/IdHgV6ExI7p/7RvPuv2E7ZTW1x36XoZ7PISg15xVLh/f2Yoh66AZ0ddPdxoWYRc/Ddqchz4mt4vauHE5KkKyhxzoxytAfLtOxiQlLneN61j5HrOVOZ0OqZU830b3Z59XwhPJl6OxtE2a46ojK0hFnlLheuEcNfvhL/FFGX6NIxwyvJm+QIPMCzVbJM2jJtUIygOpb/QKOxPPwS6OA
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id m25-20020a638c19000000b005d7994a08dcsm2476681pgd.36.2024.02.14.01.02.09
+        by smtp.gmail.com with ESMTPSA id m25-20020a638c19000000b005d7994a08dcsm2476681pgd.36.2024.02.14.01.02.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Feb 2024 01:02:10 -0800 (PST)
+        Wed, 14 Feb 2024 01:02:07 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>
 Cc: Andrew Jones <ajones@ventanamicro.com>,
@@ -71,18 +71,15 @@ Cc: Andrew Jones <ajones@ventanamicro.com>,
 	Conor Dooley <conor@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	Stefan O'Rear <sorear@fastmail.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	stable@vger.kernel.org
-Subject: [PATCH -fixes v3 2/2] riscv: Save/restore envcfg CSR during CPU suspend
-Date: Wed, 14 Feb 2024 01:01:57 -0800
-Message-ID: <20240214090206.195754-3-samuel.holland@sifive.com>
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH -fixes v3 0/2] riscv: cbo.zero fixes
+Date: Wed, 14 Feb 2024 01:01:55 -0800
+Message-ID: <20240214090206.195754-1-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240214090206.195754-1-samuel.holland@sifive.com>
-References: <20240214090206.195754-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240214_010211_556472_33E9A8C4 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20240214_010209_727370_9D8776AA 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,65 +96,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The value of the [ms]envcfg CSR is lost when entering a nonretentive
-idle state, so the CSR must be rewritten when resuming the CPU.
+This series fixes a couple of issues related to using the cbo.zero
+instruction in userspace. The first patch fixes a bug where the wrong
+enable bit gets set if the kernel is running in M-mode. The second
+patch fixes a bug where the enable bit gets reset to its default value
+after a nonretentive idle state. I have hardware which reproduces this:
 
-The [ms]envcfg CSR was added in version 1.12 of the privileged ISA, and
-is used by extensions other than Zicboz. However, the kernel currenly
-has no way to determine the privileged ISA version. Since Zicboz is the
-only in-kernel user of this CSR so far, use it as a proxy for
-determining if the CSR is implemented.
+Before this series (or without ss1p12 in the devicetree):
+  $ tools/testing/selftests/riscv/hwprobe/cbo
+  TAP version 13
+  1..3
+  ok 1 Zicboz block size
+  # Zicboz block size: 64
+  Illegal instruction
 
-Cc: <stable@vger.kernel.org> # v6.7+
-Fixes: 43c16d51a19b ("RISC-V: Enable cbo.zero in usermode")
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
----
+After applying this series:
+  $ tools/testing/selftests/riscv/hwprobe/cbo
+  TAP version 13
+  1..3
+  ok 1 Zicboz block size
+  # Zicboz block size: 64
+  ok 2 cbo.zero
+  ok 3 cbo.zero check
+  # Totals: pass:3 fail:0 xfail:0 xpass:0 skip:0 error:0
 
 Changes in v3:
+ - Drop patches added in v2
  - Check for Zicboz instead of the privileged ISA version
 
 Changes in v2:
+ - Add patches to allow parsing the privileged ISA version from the DT
  - Check for privileged ISA v1.12 instead of the specific CSR
  - Use riscv_has_extension_likely() instead of new ALTERNATIVE()s
 
- arch/riscv/include/asm/suspend.h | 1 +
- arch/riscv/kernel/suspend.c      | 4 ++++
- 2 files changed, 5 insertions(+)
+Samuel Holland (2):
+  riscv: Fix enabling cbo.zero when running in M-mode
+  riscv: Save/restore envcfg CSR during CPU suspend
 
-diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
-index 02f87867389a..491296a335d0 100644
---- a/arch/riscv/include/asm/suspend.h
-+++ b/arch/riscv/include/asm/suspend.h
-@@ -14,6 +14,7 @@ struct suspend_context {
- 	struct pt_regs regs;
- 	/* Saved and restored by high-level functions */
- 	unsigned long scratch;
-+	unsigned long envcfg;
- 	unsigned long tvec;
- 	unsigned long ie;
- #ifdef CONFIG_MMU
-diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
-index 239509367e42..28166006688e 100644
---- a/arch/riscv/kernel/suspend.c
-+++ b/arch/riscv/kernel/suspend.c
-@@ -15,6 +15,8 @@
- void suspend_save_csrs(struct suspend_context *context)
- {
- 	context->scratch = csr_read(CSR_SCRATCH);
-+	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_ZICBOZ))
-+		context->envcfg = csr_read(CSR_ENVCFG);
- 	context->tvec = csr_read(CSR_TVEC);
- 	context->ie = csr_read(CSR_IE);
- 
-@@ -36,6 +38,8 @@ void suspend_save_csrs(struct suspend_context *context)
- void suspend_restore_csrs(struct suspend_context *context)
- {
- 	csr_write(CSR_SCRATCH, context->scratch);
-+	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_ZICBOZ))
-+		csr_write(CSR_ENVCFG, context->envcfg);
- 	csr_write(CSR_TVEC, context->tvec);
- 	csr_write(CSR_IE, context->ie);
- 
+ arch/riscv/include/asm/csr.h     | 2 ++
+ arch/riscv/include/asm/suspend.h | 1 +
+ arch/riscv/kernel/cpufeature.c   | 2 +-
+ arch/riscv/kernel/suspend.c      | 4 ++++
+ 4 files changed, 8 insertions(+), 1 deletion(-)
+
 -- 
 2.43.0
 
