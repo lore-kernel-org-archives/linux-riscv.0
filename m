@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0967C48BEB
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 22:42:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A747C48BEB
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 22:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=884PLefTj+hhcETjvvhW7iQWSzPnfNeHt/fm/Ml4P+I=; b=Mk2hYRuKbcLm40
-	TFWhVvZpNP8ccG9vYLBhAeX3/YsdLI3wq2FJEyXT3dbvCVioaiHzfZ8UwqRPp/zRlg3eNxOlsmWrC
-	f6FhOL75szkQBq2eQ9uPC0v8CEkjBt5g+Ykl7ssq7CRfNUepVYzPbgDK58G7Uy7zH+i5RXpqf9BRk
-	aZ6ASUkjCulVgTzodbgttEdvbD7GU/U/XZiYGFdnuJ9B6yXEjq8XBHMkdbq0lVtLrDOAly6QoeJi4
-	11NU98COIHzNFt78p+L2HvWalToKc9YweEiHLOXYU0mpaA+nLv2cv0rSufGT62JSousvyRQ/Ig7MW
-	IcBoHuq28Qyd3TdZgVhA==;
+	List-Owner; bh=Fjaj6B6reRrdfcZuq7q8UBHiXNLvlLZzqE9UeMhQXGU=; b=eeC/F70mUD/1v1
+	OcWvBQFZM7+J9WHtyZ65vPlWLz/yU2Sd8O8Fk+2IzesjodDRhtaKTJCd/eu/maHcVokttd7Q46+ge
+	nnJeGM4QjKLYPMH5ALhfQ46i8ML2P6KmKHPJNNUYEMc5nv3Ms2ZIgVxQ/79EpHaEbTls9Ns/Tnxym
+	VV7WAs0YXmaqRy41hYp/j0i0Y2asJsO2t/YIETrX7IOJJuNcTvHniflBVDMQZbx/i683cpGt4lH0M
+	7FC4eJyFBCRyJbAqO6VaDoLNah9IQ/3QyUF5kMcJLd5Z1/8mYJl3d8n3vzoforBKt3ZpFJsmqV/Dg
+	Z1/SgI36O8NOyeexDREQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raNxb-0000000ET8l-11BA;
-	Wed, 14 Feb 2024 22:42:35 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1raNyD-0000000ETKf-3btN;
+	Wed, 14 Feb 2024 22:43:13 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raNxY-0000000ET86-1vbT
+	id 1raNyB-0000000ETJU-1TEN
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Feb 2024 22:42:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 061D2CE23A2;
-	Wed, 14 Feb 2024 22:42:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F01C6C433F1;
-	Wed, 14 Feb 2024 22:42:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707950549;
-	bh=gDOKWTuLGxFAgQ12MXLWBbnnr1TL1BYLv6cljApQScI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LKSJ67WX3MyMv6KrdvhUVOXfdXMBhUP4msexPKlL9uQE8T2X/BGA3cgDAxsE77PCy
-	 n6GPfDOMF8fjxf+b+EYsUWhLmw+TUWbREbP9mYvLdn2U46HzDJYXGqCQi1ICb/relA
-	 O57gXeBJJe/Kf28mvi5NqJcLftEgXkr0DkEkqBnHHn/1497gPjwZQJ4yXYDdGbPrzE
-	 gBQl/cfxhO4zf+vSzHhIHKt1EdmqwUKI2heX6OQStD/0G9hH/umaXHO+dMQiKQQ8wu
-	 VyykXW6solwe+D9Z82Q8zloM9QNyfss0C763Fd1EOh2+IF0Zfv/5FBknqdXqvqEDmY
-	 hOexDnvsFr9TQ==
-Date: Wed, 14 Feb 2024 14:42:27 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-crypto@vger.kernel.org, Jerry Shih <jerry.shih@sifive.com>,
-	Christoph =?iso-8859-1?Q?M=FCllner?= <christoph.muellner@vrull.eu>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Phoebe Chen <phoebe.chen@sifive.com>,
-	Andy Chiu <andy.chiu@sifive.com>
-Subject: Re: [PATCH riscv/for-next] crypto: riscv - add vector crypto
- accelerated AES-CBC-CTS
-Message-ID: <20240214224227.GA1638@sol.localdomain>
-References: <20240213055442.35954-1-ebiggers@kernel.org>
- <CAMj1kXEjEhZY6zoQQzJioBB6QVGJbCmO2w5T3+T0=iPxHmvYJQ@mail.gmail.com>
+	Wed, 14 Feb 2024 22:43:13 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1d5ce88b51cso33725ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Feb 2024 14:43:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1707950590; x=1708555390; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NNsPK+5tLWvdv+gYlhpHEpHeZeAqpOS89g5+h/Xob8s=;
+        b=PzU7oLSc+2W/qLzVN5MctUKuWPVAbrtQj7D22q05lhtiIJhnskh2XEaQsTt2ASU83I
+         7/iGhN77efOvsqY40CAMJl90nY+nFykm104xRZbzXqkCY/zLxhsj6rrUL6StK96bfa9r
+         d9ezx/CwDefTYzkZcYb+RzZgWscvhp2Ep6IWo5TbZGZuNQZtPbkcjiIt0KPvPNo+Yvx2
+         zNLkLhppz1dE/1PH/ei7ZFcR41+Q7nAnd5+iXNeb6r7SIbw39WzFSfWfrm79YocJR7iX
+         H6bATisXZ1cPGZa8Pw196A10fMz5NyhJWCeTvO3fW7VofXWyTmYRl6VlSoPeaEWKJNWs
+         iWmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1707950590; x=1708555390;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NNsPK+5tLWvdv+gYlhpHEpHeZeAqpOS89g5+h/Xob8s=;
+        b=LiPLjurChj0q3d5t5aPcJmQZjH9WvsHneNg0acA3GqOeNsiF9tOp7yot2i8XIpwy+1
+         koRH+/zkgtN16Pmk7VtNZiGBU04ofdsfbnVwcYqedxPlGMt2JbCxlT2RfW0dYzjIjAt2
+         KGnCvtwkjWC53iwmJVe/uQBm0Q2hr0iJu8F7gV5o2CThQm01WXVFx0FtrbOhx0NzehoI
+         nLHuwR8ThJIg0cqBWwDHF8KiU9E14Gh4JO5FOCSYpZSlGHV92ZAFWFat93iUQ50yqc1J
+         fxUD1kUl9Q7n/HLEMUm8rPlBMgreeRY6GQRQohmpOogq/jErvd6Ubx6XwcOTx0kF28Au
+         FhgA==
+X-Forwarded-Encrypted: i=1; AJvYcCXRwEbtbFOV5wIRwK+g5fS55zWTcJFOWmYQTzLp8KnlA6tP2iZQw4vl0xWXWMF6M44U5ra2Bb18uaRQEdtYaJIMckIdm5yYYHHIbFPjodCw
+X-Gm-Message-State: AOJu0YxAM+XcZBpb+0HZc+naW8fNR0WAKo9eeaCl8TR1dQfBI5KX7hi9
+	bw2scJAK/+JaOPlxGj0tFb7Mno3OrCS4D1RNT4eukR8U6z8lqVpmGPr0W6XFRRCi2d5l9D4sGSC
+	sVI1dTygJvss1Pzg2dk1PTmrA6bhDN9790kty
+X-Google-Smtp-Source: AGHT+IEWmx9o20zsYkRXJyB8zKsCSkKFNQNuZGphQlbFdMF3zSOKzL3jAFucrutS57uN43pDOJxLmDOolU9Ayg9Z7HM=
+X-Received: by 2002:a17:903:42cd:b0:1d9:aa55:e4bd with SMTP id
+ jy13-20020a17090342cd00b001d9aa55e4bdmr401175plb.6.1707950589903; Wed, 14 Feb
+ 2024 14:43:09 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXEjEhZY6zoQQzJioBB6QVGJbCmO2w5T3+T0=iPxHmvYJQ@mail.gmail.com>
+References: <20240214113947.240957-1-leo.yan@linux.dev>
+In-Reply-To: <20240214113947.240957-1-leo.yan@linux.dev>
+From: Ian Rogers <irogers@google.com>
+Date: Wed, 14 Feb 2024 14:42:55 -0800
+Message-ID: <CAP-5=fXqdFrTDY2a2dXK1ehP2AbwPfPF8vYWXgeSMcKh4mS+ow@mail.gmail.com>
+Subject: Re: [PATCH v1 0/4] perf parse-regs: Cleanup config and building
+To: Leo Yan <leo.yan@linux.dev>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, James Clark <james.clark@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen <chenhuacai@kernel.org>, 
+	Ming Wang <wangming01@loongson.cn>, Kan Liang <kan.liang@linux.intel.com>, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240214_144232_865116_EB95FB24 
-X-CRM114-Status: GOOD (  23.17  )
+X-CRM114-CacheID: sfid-20240214_144311_433696_8BD9D305 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,63 +93,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 14, 2024 at 05:34:03PM +0100, Ard Biesheuvel wrote:
-> On Tue, 13 Feb 2024 at 06:57, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > From: Eric Biggers <ebiggers@google.com>
-> >
-> > Add an implementation of cts(cbc(aes)) accelerated using the Zvkned
-> > RISC-V vector crypto extension.  This is mainly useful for fscrypt,
-> > where cts(cbc(aes)) is the "default" filenames encryption algorithm.  In
-> > that use case, typically most messages are short and are block-aligned.
-> 
-> Does this mean the storage space for filenames is rounded up to AES block size?
-
-Yes, in most cases.  fscrypt allows the filenames padding to be configured to be
-4, 8, 16, or 32 bytes.  If it's 16 or 32, which is recommended, then the sizes
-of encrypted filenames are multiples of the AES block size, except for filenames
-longer than 240 bytes which get rounded up to 255 bytes.
-
-> 
-> > The CBC-CTS variant implemented is CS3; this is the variant Linux uses.
-> >
-> > To perform well on short messages, the new implementation processes the
-> > full message in one call to the assembly function if the data is
-> > contiguous.  Otherwise it falls back to CBC operations followed by CTS
-> > at the end.  For decryption, to further improve performance on short
-> > messages, especially block-aligned messages, the CBC-CTS assembly
-> > function parallelizes the AES decryption of all full blocks.
-> 
-> Nice!
-> 
-> > This
-> > improves on the arm64 implementation of cts(cbc(aes)), which always
-> > splits the CBC part(s) from the CTS part, doing the AES decryptions for
-> > the last two blocks serially and usually loading the round keys twice.
-> >
-> 
-> So is the overhead of this sub-optimal approach mostly in the
-> redundant loading of the round keys? Or are there other significant
-> benefits?
-> 
-> If there are, I suppose we might port this improvement to x86 too, but
-> otherwise, I guess it'll only make sense for arm64.
-
-I expect that the serialization of the last two AES decryptions makes the
-biggest difference, followed by the other sources of overhead (loading round
-keys, skcipher_walk, kernel_neon_begin).  It needs to be measured, though.
-
-I'd like to try the same optimization for arm64 and x86.  It's not fun going
-back to SIMD after working with the RISC-V Vector Extension, though!
-
-- Eric
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBGZWIgMTQsIDIwMjQgYXQgMzo0MOKAr0FNIExlbyBZYW4gPGxlby55YW5AbGludXgu
+ZGV2PiB3cm90ZToKPgo+IEN1cnJlbnRseSwgdGhlIHBlcmYgYnVpbGRpbmcgZW5hYmxlcyByZWdp
+c3RlciBwYXJzaW5nIGJhc2VkIG9uIHRoZQo+IHRhcmdldCBhcmNoaXRlY3R1cmUgaGFzIHN1cHBv
+cnRlZCByZWdpc3RlciBmZWF0dXJlLgo+Cj4gRnVydGhlcm1vcmUsIHRoZSBwZXJmIGJ1aWxkaW5n
+IHN5c3RlbSBuZWVkcyB0byBtYWludGFpbiBhIHZhcmlhYmxlCj4gJ05PX1BFUkZfUkVHUycgYW5k
+IGRlZmluZXMgbWFjcm8gJ0hBVkVfUEVSRl9SRUdTX1NVUFBPUlQnIGZvciBzdGF0aWNhbGx5Cj4g
+Y29tcGlsaW5nIHRoZSB0b29sLgo+Cj4gQXMgYSByZXN1bHQsIHRoZSBwZXJmIGhhcyBubyBmbGV4
+aWJpbHR5IGZvciBwYXJzaW5nIHJlZ2lzdGVyIGlmIGFuCj4gYXJjaGl0ZWN0dXJlIGRvZXNuJ3Qg
+c3VwcG9ydCBpdC4gQW5kIHRoZSBzb3VyY2UgZmlsZXMgdXNlIHRoZSBtYWNybwo+ICdIQVZFX1BF
+UkZfUkVHU19TVVBQT1JUJyB0byBzd2l0Y2ggb24gYW5kIG9mZiB0aGUgcmVnaXN0ZXIgcGFyc2lu
+Zwo+IHJlbGF0ZWQgY29kZSwgd2hpY2ggaXMgbm90IGEgZ29vZCBwcmFjdGljZS4KPgo+IFRoaXMg
+c2VyaWVzIGlzIHRvIHJlbW92ZSB0aGUgc3RhdGljIGJ1aWxkaW5nIGZvciByZWdpc3RlciBwYXJz
+aW5nLiBJbgo+IHRoZW9yeSwgd2Ugc2hvdWxkIGNhbiBkeW5hbWljYWxseSBkZXRlY3QgaWYgYW4g
+YXJjaCBoYXMgc3VwcG9ydCB0aGlzCj4gZmVhdHVyZSBhbmQgZnVuY3Rpb25zIGNhbiByZXR1cm4g
+ZXJyb3JzIHdoZW4gdGhlIGZlYXR1cmUgaXMgbm90Cj4gc3VwcG9ydGVkLgo+Cj4gVGhlIGZpcnN0
+IHBhdGNoIGlzIHRvIHJlbW92ZSB1bnVzZWQgYnVpbGQgY29uZmlndXJhdGlvbgo+IENPTkZJR19Q
+RVJGX1JFR1MuCj4KPiBUaGUgc2Vjb25kIHBhdGNoIGlzIHRvIGJ1aWxkIHBlcmYgcmVnaXN0ZXIg
+ZnVuY3Rpb25zLCB3aXRob3V0IHVzaW5nIHRoZQo+IG1hY3JvICdIQVZFX1BFUkZfUkVHU19TVVBQ
+T1JUJyB0byBzdGF0aWNhbGx5IHR1cm4gb24gb3Igb2ZmIGNvZGUuCj4KPiBUaGUgdGhpcmQgcGF0
+Y2ggaXMgdG8gaW50cm9kdWNlIGEgd2VhayBmdW5jdGlvbiBhcmNoX19zYW1wbGVfcmVnX21hc2tz
+KCksCj4gdGhpcyBmdW5jdGlvbiBjYW4gYWxsb3cgdGhlIHRhcmdldCBhcmNoIHRvIHJldHVybiBp
+dHMgc2FtcGxlIHJlZ2lzdGVyCj4gbGlzdC4gIFdpdGggdGhpcyBjaGFuZ2UsIHdlIGNhbiB0b3Rh
+bGx5IHJlbW92ZSB0aGUgbWFjcm8KPiAnSEFWRV9QRVJGX1JFR1NfU1VQUE9SVCcgaW4gdGhlIHNv
+dXJjZSBmaWxlLgo+Cj4gVGhlIGZvcnRoIHBhdGNoIGlzIHRvIGNsZWFuIHVwIHRoZSBNYWtlZmls
+ZSBmb3IgcmVtb3ZpbmcgcmVsZXZhbnQKPiBjb25maWd1cmF0aW9uIGFuZCBtYWNybyBkZWZpbml0
+aW9uLCBhcyB0aGV5IGFyZSBub3QgdXNlZnVsIGFueW1vcmUuCj4KPiBJIHRlc3RlZCB0aGlzIHBh
+dGNoIHNldCBvbiBBcm02NCBhbmQgeDg2IGZvciBidWlsZGluZyBhbmQgZGlkIGEgY3Jvc3MKPiBy
+ZWdpc3RlciBwYXJzaW5nICgncGVyZiByZWNvcmQnIG9uIEFybTY0IGFuZCAncGVyZiByZXBvcnQn
+IG9uIHg4NikuCj4KPgo+IExlbyBZYW4gKDQpOgo+ICAgcGVyZiBidWlsZDogUmVtb3ZlIHVudXNl
+ZCBDT05GSUdfUEVSRl9SRUdTCj4gICBwZXJmIHBhcnNlLXJlZ3M6IEFsd2F5cyBidWlsZCBwZXJm
+IHJlZ2lzdGVyIGZ1bmN0aW9ucwo+ICAgcGVyZiBwYXJzZS1yZWdzOiBJbnRyb2R1Y2UgYSB3ZWFr
+IGZ1bmN0aW9uIGFyY2hfX3NhbXBsZV9yZWdfbWFza3MoKQo+ICAgcGVyZiBidWlsZDogQ2xlYW51
+cCBwZXJmIHJlZ2lzdGVyIGNvbmZpZ3VyYXRpb24KClRoYW5rcyBMZW8sIHRoaXMgaXMgZ3JlYXQg
+Y2xlYW51cCEgU2VyaWVzOgpSZXZpZXdlZC1ieTogSWFuIFJvZ2VycyA8aXJvZ2Vyc0Bnb29nbGUu
+Y29tPgoKSWFuCgo+ICB0b29scy9wZXJmL01ha2VmaWxlLmNvbmZpZyAgICAgICAgICAgICAgICAg
+ICAgfCAyNSAtLS0tLS0tLS0tLS0tLQo+ICB0b29scy9wZXJmL2FyY2gvYXJtL3V0aWwvcGVyZl9y
+ZWdzLmMgICAgICAgICAgfCAgNyArKystCj4gIHRvb2xzL3BlcmYvYXJjaC9hcm02NC91dGlsL21h
+Y2hpbmUuYyAgICAgICAgICB8ICAyICsrCj4gIHRvb2xzL3BlcmYvYXJjaC9hcm02NC91dGlsL3Bl
+cmZfcmVncy5jICAgICAgICB8ICA3ICsrKy0KPiAgdG9vbHMvcGVyZi9hcmNoL2Nza3kvdXRpbC9w
+ZXJmX3JlZ3MuYyAgICAgICAgIHwgIDcgKysrLQo+ICB0b29scy9wZXJmL2FyY2gvbG9vbmdhcmNo
+L3V0aWwvcGVyZl9yZWdzLmMgICAgfCAgNyArKystCj4gIHRvb2xzL3BlcmYvYXJjaC9taXBzL3V0
+aWwvcGVyZl9yZWdzLmMgICAgICAgICB8ICA3ICsrKy0KPiAgdG9vbHMvcGVyZi9hcmNoL3Bvd2Vy
+cGMvdXRpbC9wZXJmX3JlZ3MuYyAgICAgIHwgIDcgKysrLQo+ICB0b29scy9wZXJmL2FyY2gvcmlz
+Y3YvdXRpbC9wZXJmX3JlZ3MuYyAgICAgICAgfCAgNyArKystCj4gIHRvb2xzL3BlcmYvYXJjaC9z
+MzkwL3V0aWwvcGVyZl9yZWdzLmMgICAgICAgICB8ICA3ICsrKy0KPiAgdG9vbHMvcGVyZi9hcmNo
+L3g4Ni91dGlsL3BlcmZfcmVncy5jICAgICAgICAgIHwgIDcgKysrLQo+ICB0b29scy9wZXJmL3V0
+aWwvcGFyc2UtcmVncy1vcHRpb25zLmMgICAgICAgICAgfCAgOCArKy0tLQo+ICAuLi4vdXRpbC9w
+ZXJmLXJlZ3MtYXJjaC9wZXJmX3JlZ3NfYWFyY2g2NC5jICAgfCAgNCAtLS0KPiAgLi4uL3BlcmYv
+dXRpbC9wZXJmLXJlZ3MtYXJjaC9wZXJmX3JlZ3NfYXJtLmMgIHwgIDQgLS0tCj4gIC4uLi9wZXJm
+L3V0aWwvcGVyZi1yZWdzLWFyY2gvcGVyZl9yZWdzX2Nza3kuYyB8ICA0IC0tLQo+ICAuLi4vdXRp
+bC9wZXJmLXJlZ3MtYXJjaC9wZXJmX3JlZ3NfbG9vbmdhcmNoLmMgfCAgNCAtLS0KPiAgLi4uL3Bl
+cmYvdXRpbC9wZXJmLXJlZ3MtYXJjaC9wZXJmX3JlZ3NfbWlwcy5jIHwgIDQgLS0tCj4gIC4uLi91
+dGlsL3BlcmYtcmVncy1hcmNoL3BlcmZfcmVnc19wb3dlcnBjLmMgICB8ICA0IC0tLQo+ICAuLi4v
+dXRpbC9wZXJmLXJlZ3MtYXJjaC9wZXJmX3JlZ3NfcmlzY3YuYyAgICAgfCAgNCAtLS0KPiAgLi4u
+L3BlcmYvdXRpbC9wZXJmLXJlZ3MtYXJjaC9wZXJmX3JlZ3NfczM5MC5jIHwgIDQgLS0tCj4gIC4u
+Li9wZXJmL3V0aWwvcGVyZi1yZWdzLWFyY2gvcGVyZl9yZWdzX3g4Ni5jICB8ICA0IC0tLQo+ICB0
+b29scy9wZXJmL3V0aWwvcGVyZl9yZWdzLmMgICAgICAgICAgICAgICAgICAgfCAxMSArKysrLS0K
+PiAgdG9vbHMvcGVyZi91dGlsL3BlcmZfcmVncy5oICAgICAgICAgICAgICAgICAgIHwgMzQgKy0t
+LS0tLS0tLS0tLS0tLS0tLQo+ICAyMyBmaWxlcyBjaGFuZ2VkLCA2NyBpbnNlcnRpb25zKCspLCAx
+MTIgZGVsZXRpb25zKC0pCj4KPiAtLQo+IDIuMzQuMQo+CgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
