@@ -4,91 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598D3C48BC3
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 12:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B332C48BC3
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 12:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=89MIA3rHyUwkgKUClFtsLCtK0/m8vlXB7ZJOX/TOMeU=; b=oaQOMH58BJf2kG
-	oUq5pklpXUGNg8gNk+52PwhRAKQBiegiqsQkhQMeuZm26v2aeKfsRL8+lh1hVSC09guP1HLSGw2pF
-	/dlREY0DVZmJF6KQZU/uDxjGw2N3IAU3j6mFE1t1Np0Xx1nWeJZ2vz3n0h6hHXJEOVAD8FRkgPT3O
-	oMAzX0R3g1edZ+JkiuMm1fgXNBuv37PbvR9vsp0fqVq6pcvt4AF0lTxjSsvF7QMnOvbgnOYQhdXQS
-	A+qnV5KAoE71DRZpl6/nvHoP2dSt0BxV6d/1j6qvn++czJ0KeqSGgAQVInlTpF2X0a50EuEmUF58o
-	NDDT9geOoEibDkGWMZPQ==;
+	List-Owner; bh=0L5HsNMJS6mrfDBnzcGU5iBW58ATzdc/yvFsWcBmQWo=; b=VcXepKEhtiyJFM
+	2WU4rr1sKsEOY/XdLVUSYDim6EwvZv/+RH1F8XA2p/lZlFnV7HdsjVclHT0ye727D5HiAlx0DFYJL
+	cZyb1RFI94xdumLYXHQ0dDv2WiMrGy4PjBEkdzAPKHjpt0AAaPnmFLwObhTsG6Pc0p0ApDdua7/Cc
+	4cnnxS7u/JH2r8yVyaCYXaBx4qB4LAiU66y9kxF6UrRA9qbHBut2C9nzzS0e3CtmLpeGgaJcBT/YL
+	3cLSduo7YTRAmydUPwnUlX+BtkiVLsKw8+6pvNmoedXimRJcYLuNCKnJHprrZW15kx0brnCZFat4o
+	UgG/3LwDY2OoRVSHex9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raEX2-0000000CrK1-37tp;
-	Wed, 14 Feb 2024 12:38:32 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1raEi6-0000000Cssv-3cmU;
+	Wed, 14 Feb 2024 12:49:58 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raEWy-0000000CrFv-0U0J
-	for linux-riscv@lists.infradead.org;
-	Wed, 14 Feb 2024 12:38:29 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-1d8da50bffaso24695215ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Feb 2024 04:38:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1707914307; x=1708519107; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NHKjtl+TiQN3xkVjk4Gl68ZjMVAysMTJP3yyqxhX3IM=;
-        b=GweRYfsIlbzbT68CzTI2ODVBgNdwPAUJNV1L5RGo9a/WbQQk/WE9bE3MffrHovVDNp
-         sSXpg+E09H1v7aZyCswI5V7HIpy9SBn3OoXCEezsLmXXUxVqyAlEUP2pWafS+LFtCWEb
-         boWq3PvSZ6h6s+xO+XLDxfOd4PYw8mAlLJY0RCF2Y0G3Vba+Smbi39ryrbVmkv2mWIiL
-         A+cY66eVlNzU+vJ5D6krsUgSG4EhAIMjzI3mnz5z+XFPlFlhVpF5NNhigyE3hr1udlvp
-         N3Y7bb0VIvgE0fsnBk7G665sMaBX6tiD+Wnfyhv7ZDM8gRiBIUgtSyWXPnEzaxHoOoFo
-         sxbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707914307; x=1708519107;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NHKjtl+TiQN3xkVjk4Gl68ZjMVAysMTJP3yyqxhX3IM=;
-        b=IU9NEGr/zhqD0sgZXZh/pVZALw4m2II2/0ulqCSMoIZ6BRuPLI/7NhKgTO7DqI4MCd
-         Xg/XL0szPdV+o+/t/VRJRi2IJKKMaIqs9yevZxAvruJ9GVqmrEg+/UdUNiApIm9jDYvl
-         +2kfYrThOoLmgIsX7TzeWsG0Y8L33cy358ClSGRgOvatmviu0eg1Dir4IsuxggFrm8QV
-         2akUe9qVN6u9RGPM8TImOQBBgtnOWSaOPiozABgkuS7qtJpzFK0NK9P4lA+gZHggAhr1
-         Azrfmmq7nSrZtfDGMOpPgVxgkuUVl8dYchgQL0VzmIdOjwdZTF331M92y/LA8gNHTAQo
-         INnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVqHARj1WM2QfQgR57sqsXvSG1G/MEphXcBX2YxNEQB+m6CXoK/TqHD3+jgEaPgnYrPCVXqzpa/AqdrpwyGLMCGxqo5QtizsoUycu/D3pYR
-X-Gm-Message-State: AOJu0YzHtO/ElMIzj0v9nJ0iTOY57beD9BTBz/RHQhT4dOXYoOqD7xhC
-	DlQ+UaA7pob7lyThaRoDiuRgAu0hr8Bh0FCFxD3se48XEWycebw/nhuCQYIPCjs=
-X-Google-Smtp-Source: AGHT+IE4eB6K18FO+NV+30jFVOFBt5sQrSmihTsDMjky3cQtyum08b1pUVZK7T/7CIdCYEPbGH9Wqw==
-X-Received: by 2002:a17:902:eb89:b0:1db:68d5:6281 with SMTP id q9-20020a170902eb8900b001db68d56281mr717883plg.35.1707914307513;
-        Wed, 14 Feb 2024 04:38:27 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU6JYSlk0nXCb0cCSJmJVtMcA3/mi/wxVgTU49YydRY51DqTvVP0HOsuMu+uEiHFW5vdTQBkqUZY9o5tBwRP6TqnEv+nZnUhap2OH+nfGTbEt3lY/Ae/q4i9vdc/StMRf+9juoiTb/5jO4vlL/PqQK3OjSqQ5dh7uzMrrlFalyKWpy+t+tn0Fo0/V2Tp2w0HKwrTY7LYbYAtv4VlJgxcpzDN8v0xk6gU0lKQbcRYPrLUTNWXKMg7VyqN9gdLEg1/FaCxccjnyp/qaIA0HjWXBKEUDaA1hBUn+wc2bETB9VvFzfzckufJ8BKYSQzn3cTVYx9swbNbLAACI5d2s7kS1aF8ZwYTw3o9N7OZFInjwG0TMXNnyBL31t5GwmjElQXq09vk4owgaVGpVZDJGgc292s+M5meW0j8nnGCPfgm/rfrIQxUno++Ly0eMQ/Ng==
-Received: from anup-ubuntu-vm.localdomain ([171.76.87.178])
-        by smtp.gmail.com with ESMTPSA id o20-20020a170902e29400b001d9b749d281sm3041419plc.53.2024.02.14.04.38.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Feb 2024 04:38:27 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Shuah Khan <shuah@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1raEi1-0000000CsrJ-0MJ2;
+	Wed, 14 Feb 2024 12:49:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1707914993; x=1739450993;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=VfFo/DkZzmeQyKntjmarBqvTj2pcgH+G7HGM6HxEwSk=;
+  b=C+SZyq4J6dxhznCmpkjvmy+MGaS5U2l5nRx41CS0BLupO3iyoLrQFtwq
+   BJ09p4KhLgY1jnrwB1UvVd/cr+/uFKMg8mPOLVrZXfn2kkoMCnjOyMVys
+   06ITgTPSgxPSmfeWTFBJG7eCjyYBFeuxTUCEBvOfb64cu+vpEueacGcrj
+   3XhvfcA4wDySrKdmAEZ4QNUixarqaXNbxHtaEZqhWjddpMqbbk2gJ/tC/
+   +sqKqTgMDSRE2B4d0lgr1zoaUokl0Qpr+J0uNWNGJ7DDFtKyEtFriPBju
+   2HJ5FxWp2mk06ybPvs0bdG4n64d367N2BjZP3ySQAQgmGzuJAU2p+mlJk
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10982"; a="1809713"
+X-IronPort-AV: E=Sophos;i="6.06,159,1705392000"; 
+   d="scan'208";a="1809713"
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Feb 2024 04:49:51 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10982"; a="912083870"
+X-IronPort-AV: E=Sophos;i="6.06,159,1705392000"; 
+   d="scan'208";a="912083870"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by fmsmga002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Feb 2024 04:49:33 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.97)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1raEhb-00000004UXT-0JCa;
+	Wed, 14 Feb 2024 14:49:27 +0200
+Date: Wed, 14 Feb 2024 14:49:26 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	James Clark <james.clark@arm.com>, Mark Brown <broonie@kernel.org>,
+	linux-pwm@vger.kernel.org, Hector Martin <marcan@marcan.st>,
+	Sven Peter <sven@svenpeter.dev>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Alexander Shiyan <shc_work@mail.ru>,
+	Benson Leung <bleung@chromium.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 5/5] KVM: riscv: selftests: Add Zacas extension to get-reg-list test
-Date: Wed, 14 Feb 2024 18:07:57 +0530
-Message-Id: <20240214123757.305347-6-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240214123757.305347-1-apatel@ventanamicro.com>
-References: <20240214123757.305347-1-apatel@ventanamicro.com>
+	Michael Walle <mwalle@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Hammer Hsieh <hammerh0314@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+	Sean Anderson <sean.anderson@seco.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Pavel Machek <pavel@ucw.cz>,
+	Lee Jones <lee@kernel.org>,
+	Anjelique Melendez <quic_amelende@quicinc.com>,
+	Bjorn Andersson <quic_bjorande@quicinc.com>,
+	Kees Cook <keescook@chromium.org>, Rob Herring <robh@kernel.org>,
+	linux-doc@vger.kernel.org, kernel@pengutronix.de,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	Guenter Roeck <groeck@chromium.org>,
+	chrome-platform@lists.linux.dev, Fabio Estevam <festevam@gmail.com>,
+	NXP Linux Team <linux-imx@nxp.com>, linux-mips@vger.kernel.org,
+	linux-gpio@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-amlogic@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-samsung-soc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
+	linux-leds@vger.kernel.org
+Subject: Re: [PATCH v6 003/164] pwm: Provide pwmchip_alloc() function and a
+ devm variant of it
+Message-ID: <Zcy21tsntcK80hef@smile.fi.intel.com>
+References: <cover.1707900770.git.u.kleine-koenig@pengutronix.de>
+ <9577d6053a5a52536057dc8654ff567181c2da82.1707900770.git.u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <9577d6053a5a52536057dc8654ff567181c2da82.1707900770.git.u.kleine-koenig@pengutronix.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240214_043828_192082_D23A0581 
-X-CRM114-Status: UNSURE (   8.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240214_044953_195727_85675CF7 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,57 +149,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The KVM RISC-V allows Zacas extension for Guest/VM so let us
-add this extension to get-reg-list test.
+On Wed, Feb 14, 2024 at 10:30:50AM +0100, Uwe Kleine-K=F6nig wrote:
+> This function allocates a struct pwm_chip and driver data. Compared to
+> the status quo the split into pwm_chip and driver data is new, otherwise
+> it doesn't change anything relevant (yet).
+> =
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- tools/testing/selftests/kvm/riscv/get-reg-list.c | 4 ++++
- 1 file changed, 4 insertions(+)
+> The intention is that after all drivers are switched to use this
+> allocation function, its possible to add a struct device to struct
+> pwm_chip to properly track the latter's lifetime without touching all
+> drivers again. Proper lifetime tracking is a necessary precondition to
+> introduce character device support for PWMs (that implements atomic
+> setting and doesn't suffer from the sysfs overhead of the /sys/class/pwm
+> userspace support).
+> =
 
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index 5429453561d7..d334c4c9765f 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -47,6 +47,7 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVINVAL:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVNAPOT:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVPBMT:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZACAS:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZBA:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZBB:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZBC:
-@@ -411,6 +412,7 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
- 		KVM_ISA_EXT_ARR(SVINVAL),
- 		KVM_ISA_EXT_ARR(SVNAPOT),
- 		KVM_ISA_EXT_ARR(SVPBMT),
-+		KVM_ISA_EXT_ARR(ZACAS),
- 		KVM_ISA_EXT_ARR(ZBA),
- 		KVM_ISA_EXT_ARR(ZBB),
- 		KVM_ISA_EXT_ARR(ZBC),
-@@ -933,6 +935,7 @@ KVM_ISA_EXT_SIMPLE_CONFIG(sstc, SSTC);
- KVM_ISA_EXT_SIMPLE_CONFIG(svinval, SVINVAL);
- KVM_ISA_EXT_SIMPLE_CONFIG(svnapot, SVNAPOT);
- KVM_ISA_EXT_SIMPLE_CONFIG(svpbmt, SVPBMT);
-+KVM_ISA_EXT_SIMPLE_CONFIG(zacas, ZACAS);
- KVM_ISA_EXT_SIMPLE_CONFIG(zba, ZBA);
- KVM_ISA_EXT_SIMPLE_CONFIG(zbb, ZBB);
- KVM_ISA_EXT_SIMPLE_CONFIG(zbc, ZBC);
-@@ -987,6 +990,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_svinval,
- 	&config_svnapot,
- 	&config_svpbmt,
-+	&config_zacas,
- 	&config_zba,
- 	&config_zbb,
- 	&config_zbc,
--- 
-2.34.1
+> The new function pwmchip_priv() (obviously?) only works for chips
+> allocated with pwmchip_alloc().
+
+...
+
+> +#define PWMCHIP_ALIGN ARCH_DMA_MINALIGN
+> +
+> +static void *pwmchip_priv(struct pwm_chip *chip)
+> +{
+> +	return (void *)chip + ALIGN(sizeof(*chip), PWMCHIP_ALIGN);
+> +}
+
+Why not use dma_get_cache_alignment() ?
+
+...
+
+> +/* This is the counterpart to pwmchip_alloc */
+
+pwmchip_alloc()
+
+...
+
+> +EXPORT_SYMBOL_GPL(pwmchip_put);
+
+> +EXPORT_SYMBOL_GPL(pwmchip_alloc);
+
+> +EXPORT_SYMBOL_GPL(devm_pwmchip_alloc);
+
+Are these exported via namespace? If no, can they be from day 1?
+
+...
+
+> +static inline void pwmchip_put(struct pwm_chip *chip)
+> +{
+> +}
+
+Can be one line, but it's up to the present style in this header.
+
+-- =
+
+With Best Regards,
+Andy Shevchenko
+
 
 
 _______________________________________________
