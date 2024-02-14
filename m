@@ -4,65 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE670C4829A
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Feb 2024 23:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00219C48260
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 01:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LfEYGPDud3vm9tVHY5KDXKddVuIcJivDxSftqkZ2kQY=; b=rljlBN90VTznZK5aNQlYJ6NRF/
-	86x9qgFktfx2pMmVIqwL8M9wRXZ17ZJGjujoB+lx3/2tczrvopjVW0ip8v+QVhMsHgdq2Wx/wysKB
-	nnnlfpMZxoj52Ah+CYd6x2/m9OzUy5nwj6GhfOAkZy0EM+8BB4SUYuV2YqIxc5b7aQDoJ4zR0oMSk
-	nNGhlZBUR4Wgg3GIrIFEVK74T/q0OxAMTSfqZnJB7OIMMUta1VQLXoa3L/TazJlbV8A33hog0uAj9
-	MclUm8koRIFbxOZQMIzKOWXd4VJng75wTk0xhCezRazADk1+1uG52GDB0U6c/lt5z8BjSnI8dRT3j
-	IM795UoQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vh5+AUCaTONDg9llBdCwUxJma1BgAGQsEGep3KI7WaA=; b=nVBicapxKuXFnJ
+	A2PfqAXP8a/gpJHeUjIVvhe7874vJuAcyZ9LLu+7m/8wTJ9XnMLT344SazuI+HpzWltw87ynhwUR3
+	PCsVS9Kg3egTXd1R81xp1qDkrG/f1IywguVQtfc0QmpaY31OxySI6pmdIXNux3RFULioz900ZP45X
+	QE23ZaT5tAMtCZj32xlDxLWg3Ds/s0lnn0cneDcMOU/orI0EW8gxP8jLwMbSsCe3VhoGn/YEP6qXU
+	taY0O5aoD0ahShYf3hqgwKn6rSlBgsVMUprSFc7AiNDo5/FUDPBOh5C9pQK09SADS17dEZE2hRe5E
+	Sh+yTQgmp5A9V/GJJxMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ra20T-0000000BDeP-2FXM;
-	Tue, 13 Feb 2024 23:16:05 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ra4BM-0000000BSqp-2xS1;
+	Wed, 14 Feb 2024 01:35:28 +0000
+Received: from mail-dm6nam11olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c15::801] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ra20P-0000000BDcG-30YN
+	id 1ra4BI-0000000BSoj-3ysT
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Feb 2024 23:16:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2949A6175C;
-	Tue, 13 Feb 2024 23:16:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46F6CC433C7;
-	Tue, 13 Feb 2024 23:15:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707866160;
-	bh=hinPmoPhl1rsFt6fsXA2B1S8eFJZZOCkprZAD+0tFQc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qn1P7E1uLlh6m2DDVr5QufQ0h9lp023Pt9QfDgeJQ0iTrC4Arm2nEOj9qXSNtB+iM
-	 uWCZFssBBYMtd2vRFTr9t7A36b+2rPwRJwHzffKKwXl+j9GzVVtM5tabPIoDddC8Ea
-	 5XWaO6nZDou0aK+s+NE4AfZw0YhkefrQHwF5Yfp7ZqatPDKmZgaVNSjiwkF1eyi/D2
-	 MLf/E0BB94pO8P8gVfgU3hiVG/R4ebI+Izhletgi38QFYhlsDhbrE/8pfdTNsR3RBr
-	 MJuxCD8vkRlWaat4r4kMb60Po6IDuXC+fbDUgBnYTGBkOYM8zpgaw4groLgPqELm7T
-	 poa4S9B3DD/UQ==
-Date: Tue, 13 Feb 2024 23:15:56 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Stefan O'Rear <sorear@fastmail.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Wed, 14 Feb 2024 01:35:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=iXn9yoZ77s7kCduIICl8lSNEkOyVKjrCVlHAU2xwv20+QP7kJTaRoE9ftqCA3BD4UDJxTp5oNcl+xzxRY+sk6QTt7P78oWsIVKj0cd4Qy3/AcGn1zkiBinvUCKC+mSq6ZXpjzt8ujwN69L3dMsP9jSjuNBkBOirLS2552rrkBjYeKoHlh5+1Lz3EoVmJvAscQKIQ4xS5c0DqN5BuqkB6G7vzXv3VBJ+QEHbMr7YRsr+q2SfDw4b2I07JJ3qc9U3rr6RKSA4msiVobG8BqjmKulYJ4Z4HsObGOll8E2K4IoxqHtUTlKZ9MjtlkF93Xg4BG8ez5CFJnsh26RqoapXP/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QJ3oWre1toO1tJ3fQ/pwva5OqdmfBKn9CMUrFHLt8/c=;
+ b=DR1/uN5HLn2ckfh+X12VTvmLKBn696x1nw2TN01MfekIqSU6q9gxtuSh0nY6mavkuUM9AonNB1uGmg77Nj1rsKDK3wLkvcqln0/CzvqkAZH17E0x34vVjstCP21pPN/wT6qLInH2Emc7hCmycGOTmZSJFvkvws7xM/ky0IJpnHU0p83gme0Pqx0Mh1HUBNg1i2hgyeFaO9GORM/KAhL0/RjxPvGpaBqAWj8SeBCFwLnlabBtP0E4ogPjMx6aU6QiVPlpabXSlCat+6FXVzE0oQHu/Pt2mHWzC97FFTDOrt0Wcfdc6WkzDrXwoP6Uicu3Z2GT4CqGjrND/MKfWz0NKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QJ3oWre1toO1tJ3fQ/pwva5OqdmfBKn9CMUrFHLt8/c=;
+ b=cDnySdk9LyJOHtfun1jIyWjd6EgqwY+YhMn6K42TKnvX/+v9DADP3/m6bk+QyezEwC0HecWsCLkvc8RW12Dg3y2XJi/O2tKO2lcHszgt1yyosOmu7yqUJkynn76ngB7w2oDo+C8lMr1dj0JRpnccWV9o0RNBVkNxBFv5L6gTUDlkUM3yTPhLf3WFtFvPXShk0YY8uTFPKZxywh2fl2fiWy9rBfnmkqQ8zFNendiLP2qnG4Cs8WU0Oohu02mH1DWsg24VnZxIYV8+Z2OuX4BVcEhMz67MunQstJJJqVhLdS/uGBucoJ7SPKentXUOaH7wV1gV550yVnry23eIc0YnwQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by PH7PR20MB4663.namprd20.prod.outlook.com (2603:10b6:510:1d3::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.39; Wed, 14 Feb
+ 2024 01:35:05 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b%2]) with mapi id 15.20.7270.036; Wed, 14 Feb 2024
+ 01:35:05 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH -fixes v2 3/4] riscv: Add ISA extension parsing for Sm
- and Ss
-Message-ID: <20240213-earflap-easing-370492840507@spud>
-References: <20240213033744.4069020-1-samuel.holland@sifive.com>
- <20240213033744.4069020-4-samuel.holland@sifive.com>
- <20240213-dangle-taco-2742f6087a3e@spud>
- <ff3bd436-12f8-4cde-881d-89a005ad85c0@sifive.com>
- <b7ad2bd4-a19e-486e-8be2-3b56f288d5d0@app.fastmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	dlan@gentoo.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 0/2] riscv: sophgo: cv18xx: add top misc system controller
+Date: Wed, 14 Feb 2024 09:35:08 +0800
+Message-ID: <IA1PR20MB4953D95E8657A480813767FCBB4E2@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.1
+X-TMN: [/RIzKeYGoLE0OWLM/butKtI61vcXo3fGt5O9peYt/6OB/XyYityQa9fsG7btveDY]
+X-ClientProxiedBy: SI1PR02CA0017.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::10) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240214013509.135383-1-inochiama@outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <b7ad2bd4-a19e-486e-8be2-3b56f288d5d0@app.fastmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH7PR20MB4663:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8df57fc8-465a-4b8b-14c1-08dc2cfd2ba7
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: ogEBPpSLGDzgVdxd3go1QpG7mbLDxbG1LYgHyGDO5EsxlT1nVhzPmtYyXH9Fp9HA7C46qKSR0wozew3tqdWnL9P9x7x5J5VBodHJLx3Yp4aqxrocwXfrHhOHspLYZ1EtLaFTV5kRaVDBzoIQpwnMWqkTRu2tEvyHxMQ6cInotkFo1jp7Y4MXNri93A7wo8Px4GLZ8q5Gqxm4/MduKn/vY5B6mPZcwcB0rj5ZtlHpS4N54MIq/bUeMdp6Xx2w1cuwU8uHGCIK/uuW4jxKILKQnggKSYFGhYWjkKhu1j5mBJmFYtKBz8U8HwutAzgR+d+kDMWfFeLBDyvHvdEQ+eOsawPcZvwuU16eKMkASveGqcAZgNkNqiDPi9Tq0eszr543ABm1PfMUJ2ThfhQx/TxMl5apyS6vdXB0O74aVGqtHCVohC7hz1Wu7KIWX5oKvl/MxsWEX9aG0uZLolJSvod38exrwtipIOJAkqd6YSYXAXaoWpykzsJHGiCxzV9yKEWiAfHq5IXu77MT6bbHbVkLYUO/cfvjus4riJvTrfkv3ZcMZ/V4k0uLXeTFNxcRxBGohrtIU5GjUdqoeWx8gN1GIkuMOvpYy7MNXh3HVJp2DlrGKhV9m855PlwNzNAl5dTk
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6aBJaTmWl9/A74+91Vpve6FXGd0DxaMbLMwPfgCXK5dsQy5PEssIMEq7Be+k?=
+ =?us-ascii?Q?uai6tXsopxnrlsOAm3bCZQkFXhOyWpwC6OXfLxfzagC+ihTYnavyrvg5zM3H?=
+ =?us-ascii?Q?9fLEdZSZAtH7+9iKDe0RgEIndi8hi9Xyz6IPXBW2SC5hRf+HiZC8vtpqJda9?=
+ =?us-ascii?Q?tKVpzkVHbO2xlxZFNc5KbWfDzjI2hStMC6IViKrlf6YF7MYpW1oMn7HYB6sZ?=
+ =?us-ascii?Q?q19uE1XAtKEBA8NBI2TUztCGBpfJjC1rq1GvH62fV23ow7MXnXwE9A+T3vzn?=
+ =?us-ascii?Q?jxd7ar/bzTs4GZT07mJmzCoT9HbGoy+r6Zx4X++pJCBA5iZ3qCTx5yZMXJf3?=
+ =?us-ascii?Q?hQaeGJ8I3TgezwOwmvOQgQRwwTNgUsO8PISUcRImxDKdMEczWBT8PPknWz/p?=
+ =?us-ascii?Q?hoVTlidg1pthFkYWENxhXlPdWnWZiiUmpOLhZ1+HgOJ8uxBCkXspiMwm2eXA?=
+ =?us-ascii?Q?5og0dSUaGFlDRLlp6dY9ZYF5Y1vQUIxiyu9vYkz6Bc9uMcsuBpFJuX4UWGo1?=
+ =?us-ascii?Q?J0VCzkZN7scziAKTDwGU07DEDKcOl05+nsOlhtnBpQrmARgVw1B8Ylbzgn6N?=
+ =?us-ascii?Q?COXlg+56awEXrZzOxZL64n+Fbzvafa3qJyK0qqQf/gbCFuD5Y3X4O2KLdJuJ?=
+ =?us-ascii?Q?qPrkIcuQRnUJ11uleEuTvv1wt4o1Yqg00seCZngraIjHqCYsD9rv9cwdszRc?=
+ =?us-ascii?Q?IEto78zkCWX7dj1DtNd+L/W5rFMiz+52CnL+Bwh2jly9NCYONHZHtcBgdLeW?=
+ =?us-ascii?Q?1LcpTQTjZu4XlOmHbFyRtz294x9ym0trtJry10tFWmEGvQVgnlqiTAil3xd0?=
+ =?us-ascii?Q?WzTtG9VjXnWxrQ7TUoEwk3xGYYmeSMAX6vSIkr4CkSbT4roqyKF6iwwT1CKk?=
+ =?us-ascii?Q?Q/N5uOcWUFDh/WAmH15AwiUmhtQX3fudBPHXp9Q3bIwxMSJH396L8pROzr3c?=
+ =?us-ascii?Q?3U5bVRbzM9RCCuInrrr4D8pCyE7HkQwjEndoTd2lwO4tstCYoWkQXL5oDdYG?=
+ =?us-ascii?Q?0zwcuHtrP5VsMWtX6Aqh1X+7YbLI17qrZtmttfF93TMMEgW3vPZ52sivdLRC?=
+ =?us-ascii?Q?mASlQQUtuSG9NAcWLxixDEPB4oMIu8vzoh2KaS9Pt1c/W8XOrzsZJWaeWwXJ?=
+ =?us-ascii?Q?llK9+REZ0cisrvO4hk1Y7zIbmWYQICIhR+F6ajKrIOIPAXfXTBjgcDhlTank?=
+ =?us-ascii?Q?vb8sN8jPmyMO3fKCH5A78ABl97g+yb4Rvoom/smEPVqs9ql7To5oRGqq8Ivk?=
+ =?us-ascii?Q?emzF6dBmvPGmoR7oS3BNjN02UvsOvCbLp+iKRqjcNLYUnmd0MZ7Ql20/V1OA?=
+ =?us-ascii?Q?f2M=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8df57fc8-465a-4b8b-14c1-08dc2cfd2ba7
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2024 01:35:05.3232
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR20MB4663
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240213_151601_874278_0E48046C 
-X-CRM114-Status: GOOD (  66.76  )
+X-CRM114-CacheID: sfid-20240213_173524_999665_F631550B 
+X-CRM114-Status: UNSURE (   6.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,372 +132,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2437496613806172291=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add top misc system controller to CV18XX/SG200X series.
 
---===============2437496613806172291==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="AsYNsV7RM7t347ws"
-Content-Disposition: inline
+At least for now, this topctrl dt node has no related driver, because
+it only contains register for other devices, or the subdevice for some
+other purposes. The patch is submitted for providing potential common
+dependency for watchdog, sdhci, usb phy and maybe etc.
 
+Inochi Amaoto (2):
+  dt-bindings: clock: sophgo: Add top misc controller of CV18XX/SG200X
+    series SoC
+  riscv: dts: sophgo: cv18xx: top misc system controller
 
---AsYNsV7RM7t347ws
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+ .../soc/sophgo/sophgo,cv1800-top-syscon.yaml  | 43 +++++++++++++++++++
+ arch/riscv/boot/dts/sophgo/cv18xx.dtsi        |  8 ++++
+ 2 files changed, 51 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml
 
-On Tue, Feb 13, 2024 at 03:43:27PM -0500, Stefan O'Rear wrote:
-> On Tue, Feb 13, 2024, at 3:22 PM, Samuel Holland wrote:
-> > On 2024-02-13 12:07 PM, Conor Dooley wrote:
-> >> On Mon, Feb 12, 2024 at 07:37:34PM -0800, Samuel Holland wrote:
-> >>> Previously, all extension version numbers were ignored. However, the
-> >>> version number is important for these two extensions. The simplest way
-> >>> to implement this is to use a separate bitmap bit for each supported
-> >>> version, with each successive version implying all of the previous on=
-es.
-> >>> This allows alternatives and riscv_has_extension_[un]likely() to work
-> >>> naturally.
-> >>>
-> >>> To avoid duplicate extensions in /proc/cpuinfo, the new successor_id
-> >>> field allows hiding all but the newest implemented version of an
-> >>> extension.
-> >>>
-> >>> Cc: <stable@vger.kernel.org> # v6.7+
-> >>> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> >>> ---
-> >>>
-> >>> Changes in v2:
-> >>>  - New patch for v2
-> >>>
-> >>>  arch/riscv/include/asm/cpufeature.h |  1 +
-> >>>  arch/riscv/include/asm/hwcap.h      |  8 ++++++
-> >>>  arch/riscv/kernel/cpu.c             |  5 ++++
-> >>>  arch/riscv/kernel/cpufeature.c      | 42 +++++++++++++++++++++++++--=
 --
-> >>>  4 files changed, 51 insertions(+), 5 deletions(-)
-> >>>
-> >>> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include=
-/asm/cpufeature.h
-> >>> index 0bd11862b760..ac71384e7bc4 100644
-> >>> --- a/arch/riscv/include/asm/cpufeature.h
-> >>> +++ b/arch/riscv/include/asm/cpufeature.h
-> >>> @@ -61,6 +61,7 @@ struct riscv_isa_ext_data {
-> >>>  	const char *property;
-> >>>  	const unsigned int *subset_ext_ids;
-> >>>  	const unsigned int subset_ext_size;
-> >>> +	const unsigned int successor_id;
-> >>>  };
-> >>> =20
-> >>>  extern const struct riscv_isa_ext_data riscv_isa_ext[];
-> >>> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/=
-hwcap.h
-> >>> index 5340f818746b..5b51aa1db15b 100644
-> >>> --- a/arch/riscv/include/asm/hwcap.h
-> >>> +++ b/arch/riscv/include/asm/hwcap.h
-> >>> @@ -80,13 +80,21 @@
-> >>>  #define RISCV_ISA_EXT_ZFA		71
-> >>>  #define RISCV_ISA_EXT_ZTSO		72
-> >>>  #define RISCV_ISA_EXT_ZACAS		73
-> >>> +#define RISCV_ISA_EXT_SM1p11		74
-> >>> +#define RISCV_ISA_EXT_SM1p12		75
-> >>> +#define RISCV_ISA_EXT_SS1p11		76
-> >>> +#define RISCV_ISA_EXT_SS1p12		77
-> >>> =20
-> >>>  #define RISCV_ISA_EXT_MAX		128
-> >>>  #define RISCV_ISA_EXT_INVALID		U32_MAX
-> >>> =20
-> >>>  #ifdef CONFIG_RISCV_M_MODE
-> >>> +#define RISCV_ISA_EXT_Sx1p11		RISCV_ISA_EXT_SM1p11
-> >>> +#define RISCV_ISA_EXT_Sx1p12		RISCV_ISA_EXT_SM1p12
-> >>>  #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
-> >>>  #else
-> >>> +#define RISCV_ISA_EXT_Sx1p11		RISCV_ISA_EXT_SS1p11
-> >>> +#define RISCV_ISA_EXT_Sx1p12		RISCV_ISA_EXT_SS1p12
-> >>>  #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
-> >>>  #endif
-> >>> =20
-> >>> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> >>> index d11d6320fb0d..2e6b90ed0d51 100644
-> >>> --- a/arch/riscv/kernel/cpu.c
-> >>> +++ b/arch/riscv/kernel/cpu.c
-> >>> @@ -215,6 +215,11 @@ static void print_isa(struct seq_file *f, const =
-unsigned long *isa_bitmap)
-> >>>  		if (!__riscv_isa_extension_available(isa_bitmap, riscv_isa_ext[i].=
-id))
-> >>>  			continue;
-> >>> =20
-> >>> +		/* Only show the newest implemented version of an extension */
-> >>> +		if (riscv_isa_ext[i].successor_id !=3D RISCV_ISA_EXT_INVALID &&
-> >>> +		    __riscv_isa_extension_available(isa_bitmap, riscv_isa_ext[i].s=
-uccessor_id))
-> >>> +			continue;
-> >>> +
-> >>>  		/* Only multi-letter extensions are split by underscores */
-> >>>  		if (strnlen(riscv_isa_ext[i].name, 2) !=3D 1)
-> >>>  			seq_puts(f, "_");
-> >>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufe=
-ature.c
-> >>> index c5b13f7dd482..8e10b50120e9 100644
-> >>> --- a/arch/riscv/kernel/cpufeature.c
-> >>> +++ b/arch/riscv/kernel/cpufeature.c
-> >>> @@ -113,23 +113,29 @@ static bool riscv_isa_extension_check(int id)
-> >>>  	return true;
-> >>>  }
-> >>> =20
-> >>> -#define _RISCV_ISA_EXT_DATA(_name, _id, _subset_exts, _subset_exts_s=
-ize) {	\
-> >>> +#define _RISCV_ISA_EXT_DATA(_name, _id, _subset_exts, _subset_exts_s=
-ize, _successor) {	\
-> >>>  	.name =3D #_name,								\
-> >>>  	.property =3D #_name,							\
-> >>>  	.id =3D _id,								\
-> >>>  	.subset_ext_ids =3D _subset_exts,						\
-> >>> -	.subset_ext_size =3D _subset_exts_size					\
-> >>> +	.subset_ext_size =3D _subset_exts_size,					\
-> >>> +	.successor_id =3D _successor,						\
-> >>>  }
-> >>> =20
-> >>> -#define __RISCV_ISA_EXT_DATA(_name, _id) _RISCV_ISA_EXT_DATA(_name, =
-_id, NULL, 0)
-> >>> +#define __RISCV_ISA_EXT_DATA(_name, _id) \
-> >>> +	_RISCV_ISA_EXT_DATA(_name, _id, NULL, 0, RISCV_ISA_EXT_INVALID)
-> >>> =20
-> >>>  /* Used to declare pure "lasso" extension (Zk for instance) */
-> >>>  #define __RISCV_ISA_EXT_BUNDLE(_name, _bundled_exts) \
-> >>> -	_RISCV_ISA_EXT_DATA(_name, RISCV_ISA_EXT_INVALID, _bundled_exts, AR=
-RAY_SIZE(_bundled_exts))
-> >>> +	_RISCV_ISA_EXT_DATA(_name, RISCV_ISA_EXT_INVALID, \
-> >>> +			    _bundled_exts, ARRAY_SIZE(_bundled_exts), RISCV_ISA_EXT_INVAL=
-ID)
-> >>> =20
-> >>>  /* Used to declare extensions that are a superset of other extension=
-s (Zvbb for instance) */
-> >>>  #define __RISCV_ISA_EXT_SUPERSET(_name, _id, _sub_exts) \
-> >>> -	_RISCV_ISA_EXT_DATA(_name, _id, _sub_exts, ARRAY_SIZE(_sub_exts))
-> >>> +	_RISCV_ISA_EXT_DATA(_name, _id, _sub_exts, ARRAY_SIZE(_sub_exts), R=
-ISCV_ISA_EXT_INVALID)
-> >>> +
-> >>> +#define __RISCV_ISA_EXT_VERSION(_name, _id, _preds, _preds_size, _su=
-ccessor) \
-> >>> +	_RISCV_ISA_EXT_DATA(_name, _id, _preds, _preds_size, _successor)
-> >>> =20
-> >>>  static const unsigned int riscv_zk_bundled_exts[] =3D {
-> >>>  	RISCV_ISA_EXT_ZBKB,
-> >>> @@ -201,6 +207,16 @@ static const unsigned int riscv_zvbb_exts[] =3D {
-> >>>  	RISCV_ISA_EXT_ZVKB
-> >>>  };
-> >>> =20
-> >>> +static const unsigned int riscv_sm_ext_versions[] =3D {
-> >>> +	RISCV_ISA_EXT_SM1p11,
-> >>> +	RISCV_ISA_EXT_SM1p12,
-> >>> +};
-> >>> +
-> >>> +static const unsigned int riscv_ss_ext_versions[] =3D {
-> >>> +	RISCV_ISA_EXT_SS1p11,
-> >>> +	RISCV_ISA_EXT_SS1p12,
-> >>> +};
-> >>> +
-> >>>  /*
-> >>>   * The canonical order of ISA extension names in the ISA string is d=
-efined in
-> >>>   * chapter 27 of the unprivileged specification.
-> >>> @@ -299,8 +315,16 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =
-=3D {
-> >>>  	__RISCV_ISA_EXT_DATA(zvksh, RISCV_ISA_EXT_ZVKSH),
-> >>>  	__RISCV_ISA_EXT_BUNDLE(zvksg, riscv_zvksg_bundled_exts),
-> >>>  	__RISCV_ISA_EXT_DATA(zvkt, RISCV_ISA_EXT_ZVKT),
-> >>> +	__RISCV_ISA_EXT_VERSION(sm1p11, RISCV_ISA_EXT_SM1p11, riscv_sm_ext_=
-versions, 0,
-> >>> +				RISCV_ISA_EXT_SM1p12),
-> >>> +	__RISCV_ISA_EXT_VERSION(sm1p12, RISCV_ISA_EXT_SM1p12, riscv_sm_ext_=
-versions, 1,
-> >>> +				RISCV_ISA_EXT_INVALID),
-> >>>  	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-> >>>  	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
-> >>> +	__RISCV_ISA_EXT_VERSION(ss1p11, RISCV_ISA_EXT_SS1p11, riscv_ss_ext_=
-versions, 0,
-> >>> +				RISCV_ISA_EXT_SS1p12),
-> >>> +	__RISCV_ISA_EXT_VERSION(ss1p12, RISCV_ISA_EXT_SS1p12, riscv_ss_ext_=
-versions, 1,
-> >>> +				RISCV_ISA_EXT_INVALID),
-> >>>  	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
-> >>>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> >>>  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> >>> @@ -414,6 +438,14 @@ static void __init riscv_parse_isa_string(unsign=
-ed long *this_hwcap, struct risc
-> >>>  				;
-> >>> =20
-> >>>  			++ext_end;
-> >>> +
-> >>> +			/*
-> >>> +			 * As a special case for the Sm and Ss extensions, where the vers=
-ion
-> >>> +			 * number is important, include it in the extension name.
-> >>> +			 */
-> >>> +			if (ext_end - ext =3D=3D 2 && tolower(ext[0]) =3D=3D 's' &&
-> >>> +			    (tolower(ext[1]) =3D=3D 'm' || tolower(ext[1]) =3D=3D 's'))
-> >>> +				ext_end =3D isa;
-> >>>  			break;
-> >>>  		default:
-> >>>  			/*
-> >>=20
-> >>=20
-> >> Hmm, looking at all of this (especially this hack to the "old" parser),
-> >> I feel more like these should be promoted to a property of their own.
-> >> The "old" parser was designed to handle numbers, and here when you're
-> >> interested in the values behind the numbers (which is a first iirc), y=
-ou
-> >> don't make any use of that. I don't really want to see a world where
-> >
-> > I had a version of this code that parsed the numbers and stored them as=
- integers
-> > in `struct riscv_isainfo`. It didn't work with of_property_match_string=
-() as
-> > used for riscv,isa-extensions, since that function expects the extensio=
-n name to
-> > be the full string.
+2.43.1
 
-I don't think I actually want what I am about to say, but it's not as if we
-are forced to parse it in that way for all properties. It's handy AF to be
-able to reuse reuse that function, and that was part of my goal originally
-with the property, but we are not locked into using
-of_property_match_string() if there's some specific property where that's
-getting in our way. That's kinda an aside though..
-
-> > Either we would need to change the code to parse a version
-> > number out of each string in the riscv,isa-extensions list (and make th=
-e binding
-> > a bunch of regexes), or we need a separate "extension" entry (and DT bi=
-nding
-> > entry) for each supported version.
->=20
-> Version numbers aren't real, there's no compatibility promise that we can
-> consistently rely on so we treat riscv,isa-extensions as simply containing
-> alphanumeric extensions.  This was an intentional part of simplifying ris=
-cv,isa
-> into riscv,isa-extensions.
-
-You seem to recall my motivations better than I do!
-
-> > I chose the second option, and as a consequence I didn't actually need =
-to parse
-> > the integer value in the ISA string code path either.
-> >
-> >> we have every single iteration of smNpM under the sun in the property,
-> >> because there's a fair bit of churn in the isa. Granted, this applies =
-to
-> >> all the various, the difference for me is the level of churn.
-> >
-> > Indeed. In fact, one thought I had while looking at this code is that w=
-e should
-> > be ignoring any extension in the ISA string with a version < 1.0 or >=
-=3D 2.0,
-> > since those won't be compatible with what we expect.
->=20
-> I might go further and say that we should only accept specific exact vers=
-ions of
-> extensions other than Ss/Sm.
-
-This is what we do, right? Every property is supposed to match to
-exactly the frozen or ratified spec, so they do have exactly one version
-at present. The property descriptions should contain that information.
-
-> This could be revisited after the recent "semver
-> for ISA extensions" policy is tested at least once under real-world condi=
-tions.
->=20
-> Right now we have two ratified versions of Ss/Sm, soon to be three, and o=
-ne
-> ratified version of all other extensions.  I hardly think this is an exce=
-ssive
-> amount of churn.
-
-Yeah, maybe it's fine. I'm just overthinking it and there isn't a
-problem.
-
-> >> Or maybe we can still with the properties you have, but instead of
-> >> treating them like any other extension, handle these separately,
-> >> focusing on the numbering, so that only having the exact version
-> >> supported by a cpu is possible.
-> >
-> > Maybe I'm misunderstanding what you're saying here, but it is already t=
-he case
-> > that the DT for a CPU would only contain the exact version of the privi=
-leged ISA
-> > supported by that CPU.
->=20
-> If privileged spec versions are boolean extensions, then you would say "s=
-s1p11",
-> "ss1p12", "ss1p13" as separate/simultaneous extensions.
-
-> This is needed in order
-> to allow simple support checks as described in the riscv,isa-extensions c=
-over
-> letter.
-
-Yes, it is explicitly a goal of riscv,isa-extensions that you can look
-for a specific extension in the list if that is all you care about. If
-you go and drop ss1p11 because you support ss1p12 it defeats that. I
-don't know off the top of my head how to enforce ss1p12 requiring ss1p11
-in json schema, but I do have an idea of where to start...
-
-> > With this implementation, the fact that the integer version gets expand=
-ed to a
-> > series of flags is supposed to be invisible in the DT and to userspace.=
- I
-> > realize I don't quite succeed there: putting "ss1p13" in the ISA string=
- should
-> > work, but does not.
-> >
-> >> I'm still pretty undecided, I'd like to think about this a little bit,
-> >> but I think we can do better here.
-> >
-> > Sure, no problem. I'm happy to implement whatever we agree on. Though o=
-ne
-> > consideration I had is that this is all in support of fixing a bug in v=
-6.7, so I
-> > wanted the changes to be backportable.
-> >
-> > I suppose the easy way out for backporting is to check for RISCV_ISA_EX=
-T_ZICBOZ
-> > for now, and then solve the larger problem once there is some other use=
-r of the
-> > envcfg CSR (or another Ss1p12 feature).
->=20
-> I support that course of action.
-
-I saw another mail suggesting that Zicbom implied Ss1p12, I think that
-should be reasonable position to take for now.
-
-Cheers,
-Conor.
-
---AsYNsV7RM7t347ws
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZcv4LAAKCRB4tDGHoIJi
-0t99AQDDmipW0/rE80xzw9hdTclhte6GkpZZn2Io2aqlWfceTwD/a0/nfDNaJQ9d
-a6UdQjJORN/DHFRQ9ak2naHPQ+KQpgg=
-=ffp6
------END PGP SIGNATURE-----
-
---AsYNsV7RM7t347ws--
-
-
---===============2437496613806172291==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2437496613806172291==--
-
