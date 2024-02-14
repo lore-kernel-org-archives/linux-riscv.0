@@ -4,103 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A056C48BEB
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 10:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCEAC48BEB
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 10:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/4OJsZEYPQGl9YCHmBb4W2rgwyJExT9HMGQarGaDwG4=; b=ZY7P5+lbFBz7B5
-	gRCmwwJz4U5+kiYfuLRcxOCXvngwFfdotHLQaXUCuQ5Qiuh8tVUIgA3gBVLZ8B3IX6XG2VqYveh5Y
-	gdftQH5A9ksYtYac5SH9Xf13hDqb/pPdFeuTitRG1RuoQukyEcXjUcZcLV/ZiwHoGLn62der9mNB5
-	V1oUesVZTBaWFF+MmAKM7A+6b4s+qzQxoLCDEdrp+5rkIh5WFfEk2T0wgOVLTNNzeCjH8GA4FokfD
-	Cpqf6mDRjPOXKo7k3kZ4e/OclGeUFcHNx4TN8JPgehoBOyrwfHSMN0V5mBXdv7neVGoiBz9zj9VTx
-	7NL1czIh4nxVkeHc1c1w==;
+	List-Owner; bh=o7kCCDwGYM9UOof5DseZd3YYee04d86dkzHtT+nbPKo=; b=Bd7HikAisLRF2O
+	gvmjKCxLdmYh/z9lcrwwsVbL0OJqFV/qI12BmGA1nimFCRCH4qgY1p2MZ2jj8oQtOB1q11/+GDJ1m
+	2sEKw8jR9JPuXjo1vQo7Wao1UUL6vN/aX2RPzRaI3jTn9fypQKrT6X6emGTJBuYdthpvm+PyJWJmO
+	Wf1CcPzQMyYEFT9FWe5B9GUlMVIYMwDBwbKNDvVLisdj30RROZgbPTcEEKgx2Hx5TRlOJ0pav1rKT
+	5uSQAklIbv2eqokXHUr7hB2rPx5ujVsuT0DNFd+aP/QPxWNMW+pHZUp5zGcjGLBunmBrdHpydJtgY
+	hknMK/xvkAcA09WJYy4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raCEL-0000000CUDZ-1mMV;
-	Wed, 14 Feb 2024 10:11:05 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1raCbS-0000000CXiW-47RD;
+	Wed, 14 Feb 2024 10:34:58 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raCEF-0000000CUAX-3vIj
+	id 1raCbQ-0000000CXi3-2HhF
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Feb 2024 10:11:03 +0000
-Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
-	by smtp-out1.suse.de (Postfix) with ESMTP id 0988A22034;
-	Wed, 14 Feb 2024 10:10:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1707905455; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UKHS3Tm9mFG5fwX6aOLXFqUCCVUiA1XcZVTlspPHL4k=;
-	b=hQ59DxE2eGoDgeAPzrKgnd/lATT0UnlL/VauispDaRmzRcWzrHoupVd/iuLFCcp1bWccOm
-	wnRQ9OG0lph7VCAeWQGzfeaCX/KMKNXGjXwh/aA/4BSRpjXMdXADAbkn9RcDHqzCH0yjHo
-	4F0S2cuQUl47fVitwZf/lrQtyIB8/ns=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1707905455;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UKHS3Tm9mFG5fwX6aOLXFqUCCVUiA1XcZVTlspPHL4k=;
-	b=Cijv3v90qAXWqCrQVYxQ0HJ75CdM4G/XjXV4BhnxSqAlbNQFxbiNrf1OOnhumuEhyOJGPc
-	XSJJM0WOCaUFivCA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1707905455; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UKHS3Tm9mFG5fwX6aOLXFqUCCVUiA1XcZVTlspPHL4k=;
-	b=hQ59DxE2eGoDgeAPzrKgnd/lATT0UnlL/VauispDaRmzRcWzrHoupVd/iuLFCcp1bWccOm
-	wnRQ9OG0lph7VCAeWQGzfeaCX/KMKNXGjXwh/aA/4BSRpjXMdXADAbkn9RcDHqzCH0yjHo
-	4F0S2cuQUl47fVitwZf/lrQtyIB8/ns=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1707905455;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UKHS3Tm9mFG5fwX6aOLXFqUCCVUiA1XcZVTlspPHL4k=;
-	b=Cijv3v90qAXWqCrQVYxQ0HJ75CdM4G/XjXV4BhnxSqAlbNQFxbiNrf1OOnhumuEhyOJGPc
-	XSJJM0WOCaUFivCA==
-Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
-	id C1FF44A04EC; Wed, 14 Feb 2024 11:10:54 +0100 (CET)
-From: Andreas Schwab <schwab@suse.de>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org,  Palmer Dabbelt <palmer@dabbelt.com>,
-  Yunhui Cui <cuiyunhui@bytedance.com>,  =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: use KERN_INFO in do_trap
-In-Reply-To: <20240214-exclusion-pluck-fcb6352a8393@spud> (Conor Dooley's
-	message of "Wed, 14 Feb 2024 09:19:09 +0000")
-References: <mvmh6ic1y75.fsf@suse.de>
-	<20240214-exclusion-pluck-fcb6352a8393@spud>
-X-Yow: This is a NO-FRILLS flight -- hold th' CANADIAN BACON!!
-Date: Wed, 14 Feb 2024 11:10:54 +0100
-Message-ID: <mvmttmbz781.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Wed, 14 Feb 2024 10:34:57 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-337d05b8942so4298479f8f.3
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Feb 2024 02:34:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=conchuod.ie; s=google; t=1707906894; x=1708511694; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=oXOXdlKbQ7b8gP1IjielEHY25ZzqNlF3NYnAzC4w8e0=;
+        b=PwgSwAxi6XgygX91tpDnFiO8ITYcf6WNcaihZxn+AUzIIEvgg/brhlochWUp1glHCJ
+         uL/AuHGJI+aUagzrlMI0cbW+1ATkY5e9PGUMPm+zV8l9Ae5l7x9OtpJ68GNEOnxXn6AP
+         VeJ2dP/9UIt1pG4ZbfcQ+WrGsYjcxld7jN93vTDYlZNQtkfZYdrT3/60J4KzfxK3Atrd
+         q4sCKy5F8JtSpiOraJTyvEWa7xXsRy7N1kpOVyMUl86xBk6jb0lNiTrmSIMONDajEdZ5
+         F5siP7T03sgBuhVwOkDgXqOA0qf4MELVLKc1L1khP3wFPp4tt+t7YP8reF1LBH6NmMQ5
+         6Www==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1707906894; x=1708511694;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oXOXdlKbQ7b8gP1IjielEHY25ZzqNlF3NYnAzC4w8e0=;
+        b=ATfMruZeX+O9jXN1gaFNIdGw6UXCQtjL4N+cOwI33XYkH1LvQGU804mfarQDRSFyGl
+         EKX7SfavqsD+6drDWV1FaFTzuS4Ob5uhz29f9tiiTMfyKgC0Ly+8xM1p5NZ2jM+a/tPG
+         F3ZIn3cVXxqxINverqRG9ZTfcDTKZGAn7pscy+T18Jx7q/ALN2Nr/fyt4P+C1lmd09FF
+         VRnKLNorv6UcKRp4MIkYmwsKfyZ+soGgkkOZMCGMUKXj4FeU9jWeANY66q1nWMiq1bu3
+         jvwLZmitZJgNUu8rM4Tp4zQ8sqP3LjSOqsjwl84CWtaYxqx4mrIk2kE3vBVxLKQ9LsOf
+         2YZw==
+X-Gm-Message-State: AOJu0YyDe1XgJb7nZaC2LBNKzNTBUJuppOZs5dW3IlqYSvrt8CGCi3dL
+	qBhdjfh5gOHum2i00ulZvk/k+YalVOQ1M2JFEnVKbprgIOXKHwgfw2BOoV0F0gs=
+X-Google-Smtp-Source: AGHT+IFEPDAfEvDMu8J4XJ0lQXp8hFlITdGR9tguh8nJGFpjGxYLL/K/WaEm+SnPqS0/z0r/zmKOew==
+X-Received: by 2002:a5d:50d1:0:b0:33b:433d:e1d7 with SMTP id f17-20020a5d50d1000000b0033b433de1d7mr1515184wrt.1.1707906894167;
+        Wed, 14 Feb 2024 02:34:54 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCV74FnXZgGq7FLgYrggZY2ycn0bi0uPib5wlWD/R5foh16pmW1mMSUZ8MKgolPvYKxbwkB5Tb2ORQTJzTyV6tnIc7dMp8C5IgUco11J/NRLki8V5qTDkoQzUYbjkZ1A8XE/NDvqGTXJn1Gmb+9TCsy6xwZsfB6E+eOZaCgLf4p92JA+RaN6XglKaS7iO/FjueR2FKEQMp+V+FUUO/dThdc=
+Received: from [192.168.2.9] ([109.77.20.129])
+        by smtp.gmail.com with ESMTPSA id bt9-20020a056000080900b0033b75d0993esm10923171wrb.74.2024.02.14.02.34.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Feb 2024 02:34:53 -0800 (PST)
+Message-ID: <4cd7cee5-7943-42eb-bd26-c0e782f29a48@conchuod.ie>
+Date: Wed, 14 Feb 2024 10:34:51 +0000
 MIME-Version: 1.0
-Authentication-Results: smtp-out1.suse.de;
-	none
-X-Spamd-Result: default: False [-1.89 / 50.00];
-	 ARC_NA(0.00)[];
-	 FROM_HAS_DN(0.00)[];
-	 TO_DN_SOME(0.00)[];
-	 TO_MATCH_ENVRCPT_ALL(0.00)[];
-	 MIME_GOOD(-0.10)[text/plain];
-	 RCPT_COUNT_FIVE(0.00)[6];
-	 DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	 DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email];
-	 FUZZY_BLOCKED(0.00)[rspamd.com];
-	 RCVD_COUNT_ZERO(0.00)[0];
-	 FROM_EQ_ENVFROM(0.00)[];
-	 MIME_TRACE(0.00)[0:+];
-	 MID_RHS_MATCH_FROM(0.00)[];
-	 BAYES_HAM(-1.79)[93.73%]
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: use KERN_INFO in do_trap
+Content-Language: en-US
+To: Andreas Schwab <schwab@suse.de>, Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Yunhui Cui <cuiyunhui@bytedance.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, linux-kernel@vger.kernel.org
+References: <mvmh6ic1y75.fsf@suse.de>
+ <20240214-exclusion-pluck-fcb6352a8393@spud> <mvmttmbz781.fsf@suse.de>
+From: Conor Dooley <mail@conchuod.ie>
+In-Reply-To: <mvmttmbz781.fsf@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240214_021100_147752_E0A6A75B 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240214_023456_624026_1AB6D85C 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,27 +91,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Feb 14 2024, Conor Dooley wrote:
+On 14/02/2024 10:10, Andreas Schwab wrote:
+> On Feb 14 2024, Conor Dooley wrote:
+> 
+>> On Tue, Feb 13, 2024 at 10:59:58AM +0100, Andreas Schwab wrote:
+>>> Print the instruction dump with info instead of emergency level like the
+>>> rest of the output when printing the information for an unhandled signal.
+>>
+>> I'm not entirely sure that this is true, __show_regs() prints with
+>> KERN_DEFAULT, but this certainly is more consistent than it was before.
+> 
+> The first line is printed with pr_info.
 
-> On Tue, Feb 13, 2024 at 10:59:58AM +0100, Andreas Schwab wrote:
->> Print the instruction dump with info instead of emergency level like the
->> rest of the output when printing the information for an unhandled signal.
->
-> I'm not entirely sure that this is true, __show_regs() prints with
-> KERN_DEFAULT, but this certainly is more consistent than it was before.
+Yah, that's what I meant with "more consistent" :)
 
-The first line is printed with pr_info.  Perhaps __show_regs should gain
-a level argument.
+> Perhaps __show_regs should gain
+> a level argument.
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+I wouldn't be averse. There's 3 users, of which one is show_regs().
+I think we could easily add an argument that sets the printk level
+to match the other outputs from the non show_regs() callers. I
+suppose show_regs() could retain the KERN_DEFAULT behaviour unless
+you've got a better idea.
+
 
 _______________________________________________
 linux-riscv mailing list
