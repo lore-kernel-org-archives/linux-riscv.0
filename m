@@ -4,78 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9842CC48BC1
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 15:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C381C48BC3
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 15:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-ID:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=V/5s+nqfFiha1meVOP0WYykfHMsI3mPkfs0KuMrqsEg=; b=F3/Efzu8kPy/fJ
-	eqKWIQBBMNxwO0BpMRkVMwr1LwKr+Xww02rBWhHKwZP62pIahwHcKQNlmjxlZBqeB4krlTdi+vBcF
-	EA/oveAWiMZQ+EzlWxYVpV078G/MMJdBQYgH2BEGPAqEY2x2i2jgyHt6Ow8HAP313XFCILDkSg5XR
-	n88snXzDLmEs0f16Pv7DEAvWfJtUmSZOcpEfn0V1ZsKJ+uUvtVklKwDiT3Nuksl0LEQ6MI4rEzLBN
-	rD8qAswzY4Kx4zNq2P16byTrFi6hKkZYvC/EIXxK3G/ZaHfDQKcSxNFbiaTLKZCO9jK+x00uucDIs
-	lPfNvY+5h8vXpZkBbJaA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OvgrPuTOd1rHJ/OwOmHKgFpr+L7nwMP7jMM0eMQXIis=; b=SEZhwLhEEjXeid
+	CV3qXEPapZr3F0ZjHmy2fh47KkxPmA8WEtSTe61LIIjqy7xUf8+m8V34pTPQEXjzRMaX50ThNTVyh
+	4pnmVgu8qEz1zGeopsM/kTT9FD2/Q674O399lqbA+7jRA+6ckeZ39Gnqtqn8Pmo8yDUR5us6qla2A
+	Z9ZBGysPT1GOWWI3y21q/G0Vwb4vwrw0z/SUEnjbqAOLtkPxRDoBorB3/fM1nfIdbsVpQntWEljBv
+	P+hdeTVSl8+3Dh35nXgNZ+3M850AEgaEcNQE2g1SfTss1jbm75xFi5XGY/rK918EB2SbT9cLO9cbc
+	qFCmBE6N7ZvZj2wIhIqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raHIo-0000000DLVU-3WGw;
-	Wed, 14 Feb 2024 15:36:02 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1raHRB-0000000DMor-0owe;
+	Wed, 14 Feb 2024 15:44:41 +0000
+Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raHIm-0000000DLV7-0vpo
+	id 1raHR7-0000000DMmb-1oKV
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Feb 2024 15:36:01 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-6e0a4823881so2479756b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Feb 2024 07:35:59 -0800 (PST)
+	Wed, 14 Feb 2024 15:44:40 +0000
+Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-7c029beb8c9so244217239f.0
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Feb 2024 07:44:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1707924959; x=1708529759; darn=lists.infradead.org;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:to:cc:subject:date:message-id:reply-to;
-        bh=rsMZabPqQdOyGUzvRmcq12qy26eK1NK8IC3lX9TP0EM=;
-        b=p7lfrh6ML5APbzTsHWhFcST3cS6KRuKixK/Lxe0i09CyCsoakVJKcaj4zlUZ/m6AnH
-         neJmWQYASXEMsrwUKjSLlamm3YU5ECRz4WZFlWap8bWvbAs8X7626bfAoxI15ZoWri0J
-         yLul5WI6s6xrTfAppwtM6ii6y13g1zsXPFjrJ49SdiUuHqRvOFqlnS4BaqWdWGYYikzv
-         yzt3b+yM1HUXUpJxElMKM5YCyvJReaCzA+0nyI3nBINHz+UB2vQ5txGw2iD7P2A4Kenr
-         gHmW2K9QYUuhPGGww0bG0cP9Rf0tSK+m7l8AUdBHSS992oGZPkTvAMvtYsYqacJvX8uL
-         KkJw==
+        d=sifive.com; s=google; t=1707925475; x=1708530275; darn=lists.infradead.org;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8H+tRUVl6VTTJ+I26hI6HADTZ0Un+fCkMERAMbKsgaY=;
+        b=Ho6j4U+IJ4sUoAsvVFce468BCANfRqdDBwvLE4X8h77azQl0OzouL9Va4HbI118XBt
+         tEM2rSWF2TpSS9u45TcUMcmm5KEegEF+1kPULifA4BxKW+owxCx8dFf5kwevfPxE6Mmb
+         XMs4SvH9bh3ehRnpL5yso0XFwTRq5C/FGrAboULhB6o5BewOcjD+BsSKc5HvT+tFjSEG
+         7k68CxXGhYAbXe94UKPJbGmYcOIsedYUFlZxuwGX0D6A6dnTbVY9nHILD4EoE64Effm9
+         C+5vOXEnUGTAKFKjQOO36DPhWpQfdzey+jP0c8CONgSU1eeWa3wR+gMc7hLLY81hV3IR
+         t7ZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707924959; x=1708529759;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rsMZabPqQdOyGUzvRmcq12qy26eK1NK8IC3lX9TP0EM=;
-        b=XEty3eoSnh/V4LdkiW9UHA/bKYEtHonMCBWAWawfzoyUxV7rjtlBCw/aZ4MJIQcq4V
-         Gp0aBNAxAqkmIAhM/QdqY5LkVjKL4eREx+zxuATPBxMu3tHmEfyPDrFAd5HfUxIzmn1c
-         GcTLLW6ukxpm7e5gEiBYGjHQBuCMPbPQ/PP5JvbDGp2MnfIo6c0y3fVRUAXcZiNXjKJg
-         HFo5wFoCe3BFSA/xfjbIJdgOFuDrclg0V3I85G72BqFI/U0ceE3Dk3US9Cm3o4ykSuk2
-         8v6/TAmXE31ee/PNL839SJVypIgDoFgIsvQnx2CRBKflwDpLCYN9tPjt6NN+0j5xUbQf
-         nlRw==
-X-Gm-Message-State: AOJu0YzZKTwnLxscZWQHhukAZZu7lPZ03iDnl3yMDaueJLzwi8MOb6dV
-	6yh6KDh2uIf7qaV7jlnZ6773dyUmJsWtshuZqj8jE93IJ5W0DyA+4jEb8VYba7I=
-X-Google-Smtp-Source: AGHT+IGCj5QYYGRsrk8Q2pygd+6XJjwy1KOMVBJGfPsVyi6BD67Qztrw9Lzw2Qr0q8IX8o3HWd0//A==
-X-Received: by 2002:aa7:8b8e:0:b0:6e0:5281:e0d1 with SMTP id r14-20020aa78b8e000000b006e05281e0d1mr2385582pfd.1.1707924958554;
-        Wed, 14 Feb 2024 07:35:58 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVi2q1qLmAsiIATfz24ig+iFdorSpWUIiVssALGUs9LyD/SA8Svg+RLskFF9Q3UBkfSIXUaqNAHSMROGt6rGhEjBIg8i400pd+JHT7D7ZPZig5ML1gXfZtiDwZSLuOr2IkB5OzqIQu5QHPMiC38TLbMz70t7m9sw126jWAF0Pi8QHsfIZT0cwIeMyzRoPB2O2IuROzwxS/cNdZ4lsd+3Snpc4Q2rdGzDCIMbRaCrt/hh6J393hnZIhkBWLUHHl8xpwy/bHH5iorENgQzCDaVoJKIAmtPkCrSkGDdd2JoKia20r/7sCfPQDtw3KMONjAkn80c8+y8aeq+1rCcVgx+jld/U14DkTxaAae39nF
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id h28-20020a056a00001c00b006dbe4452741sm9508749pfk.72.2024.02.14.07.35.57
+        d=1e100.net; s=20230601; t=1707925475; x=1708530275;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8H+tRUVl6VTTJ+I26hI6HADTZ0Un+fCkMERAMbKsgaY=;
+        b=I1FTVpHpol05EqKzN0iFAU1fYRLFkhPUL4hP4XyIJz0LBOELsYnUbvYqDre+qkR+1S
+         WQh2txKU35j8d4xRO59wZJP6DAQeNrelkc6FCwzlw5243nuKyV+3sPrQBxhAJ2xUqn7S
+         snoSOGJNERQbjcOslM+ul7SqzfPZZ9HpuPglUrxB/EbV/PujGVqgRw4DVdOOPEUIMrgW
+         C0m8RPGPR0AibrHrej6sMV6ohpPzPwY9vdaxb/Dgsu4Njl172q/GM6e9iSUT2IJHi1Ol
+         7FpwWV+vWqblh5SCgwXv6SCBkeQ01w3IkSEfZSzVCeR2riMCibZbDTPk9txRLmhG4DrB
+         73dw==
+X-Gm-Message-State: AOJu0Yw36jFTk9nUZBN1+EPPEhDKsqjNQ+XS3MLPMzfc7Fnw3jYzlzNS
+	lakx6/RNKESjTv7mnxCxzn0lHb66WTK5TDMAhXLjct2ob01XkGaMnOUHo1y4IhA=
+X-Google-Smtp-Source: AGHT+IFSYvJVra1vjtWRcKFPj8EVyDWmX9NPiOhHx5QSIIUGMlUmsQm/kaGm5mHv2EhcHDI6PNBp7Q==
+X-Received: by 2002:a05:6602:5c2:b0:7c4:6b0f:ee7 with SMTP id w2-20020a05660205c200b007c46b0f0ee7mr3689037iox.7.1707925475720;
+        Wed, 14 Feb 2024 07:44:35 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVppKyfQx+1K0Z9etHaCtXFjcZ0ltuX51rMZRw8r7Hn3rqRCqUQHSe34BMQK/vibc3EGnEXzCUDXX4aJ4y12fqw+eikFKbJZP5ND+IEH7dP2qbcptphPDaBqWt6hz5g9bUIJV9GCWSVWJQfbnnJCnu+LWiS+SRarXPQRnWJTg09a0MPqcpWI1tHAeJJhPB9tsBX2LLa5o0Ei26c6kfq9Z/xqc6LTR/9BVl/cNEVsrCWD6pzUEwyt1h8UvE1LbIBZ3ZLy4AoX8qKzUhS5qD94rXCEkllJmhGAkmWyzjq/AkRUe6mlU60S889xjiUSdlaavBP8ScOM07xOKaOA9kzG7a5an3KUfuaOFIjoK/zPTvrWtL54g==
+Received: from localhost (c-98-32-39-159.hsd1.nm.comcast.net. [98.32.39.159])
+        by smtp.gmail.com with ESMTPSA id a26-20020a02ac1a000000b0047133a05f33sm2484253jao.49.2024.02.14.07.44.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Feb 2024 07:35:57 -0800 (PST)
-Subject: [PATCH] tty: hvc: Don't enable the RISC-V SBI console by default
-Date: Wed, 14 Feb 2024 07:34:30 -0800
-Message-ID: <20240214153429.16484-2-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.43.0
+        Wed, 14 Feb 2024 07:44:35 -0800 (PST)
+Date: Wed, 14 Feb 2024 07:44:33 -0800 (PST)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+cc: linux-riscv@lists.infradead.org, Greg KH <gregkh@linuxfoundation.org>, 
+    jirislaby@kernel.org, Atish Patra <atishp@rivosinc.com>, 
+    ajones@ventanamicro.com, apatel@ventanamicro.com, 
+    linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+    linux-serial@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>
+Subject: Re: [PATCH] tty: hvc: Don't enable the RISC-V SBI console by
+ default
+In-Reply-To: <20240214153429.16484-2-palmer@rivosinc.com>
+Message-ID: <0e41108b-2a64-2144-34f1-e7c0f1ec952f@sifive.com>
+References: <20240214153429.16484-2-palmer@rivosinc.com>
 MIME-Version: 1.0
-Cc: Greg KH <gregkh@linuxfoundation.org>, jirislaby@kernel.org,
-  Palmer Dabbelt <palmer@rivosinc.com>, Atish Patra <atishp@rivosinc.com>, ajones@ventanamicro.com,
-  apatel@ventanamicro.com, linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-  linux-serial@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240214_073600_483953_95AA7100 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20240214_074437_548420_4659173D 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,48 +95,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
+On Wed, 14 Feb 2024, Palmer Dabbelt wrote:
 
-The new SBI console has the same problem as the old one: there's only
-one shared backing hardware and no synchronization, so the two drivers
-end up stepping on each other.  This was the same issue the old SBI-0.1
-console drivers had, but that was disabled by default when SBI-0.1 was.
+> From: Palmer Dabbelt <palmer@rivosinc.com>
+> 
+> The new SBI console has the same problem as the old one: there's only
+> one shared backing hardware and no synchronization, so the two drivers
+> end up stepping on each other.  This was the same issue the old SBI-0.1
+> console drivers had, but that was disabled by default when SBI-0.1 was.
+> 
+> So just mark the new driver as nonportable.
+> 
+> Reported-by: Emil Renner Berthing <kernel@esmil.dk>
+> Fixes: 88ead68e764c ("tty: Add SBI debug console support to HVC SBI driver")
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-So just mark the new driver as nonportable.
+Reviewed-by: Paul Walmsley <paul.walmsley@sifive.com>
 
-Reported-by: Emil Renner Berthing <kernel@esmil.dk>
-Fixes: 88ead68e764c ("tty: Add SBI debug console support to HVC SBI driver")
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- drivers/tty/hvc/Kconfig | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/tty/hvc/Kconfig b/drivers/tty/hvc/Kconfig
-index 6e05c5c7bca1..c2a4e88b328f 100644
---- a/drivers/tty/hvc/Kconfig
-+++ b/drivers/tty/hvc/Kconfig
-@@ -108,13 +108,15 @@ config HVC_DCC_SERIALIZE_SMP
- 
- config HVC_RISCV_SBI
- 	bool "RISC-V SBI console support"
--	depends on RISCV_SBI
-+	depends on RISCV_SBI && NONPORTABLE
- 	select HVC_DRIVER
- 	help
- 	  This enables support for console output via RISC-V SBI calls, which
--	  is normally used only during boot to output printk.
-+	  is normally used only during boot to output printk.  This driver
-+	  conflicts with real console drivers and should not be enabled on
-+	  systems that directly access the console.
- 
--	  If you don't know what do to here, say Y.
-+	  If you don't know what do to here, say N.
- 
- config HVCS
- 	tristate "IBM Hypervisor Virtual Console Server support"
--- 
-2.43.0
-
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
