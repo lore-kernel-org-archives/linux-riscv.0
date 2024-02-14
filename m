@@ -4,82 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE9AC48BED
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 09:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C575DC48BC4
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 09:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qs/nzOc1h2/F8TUB/mnAOsxiV03Hqt04JkCnsAS/lfE=; b=kLHZ5jmVRKBwRK
-	aFZy4y3QagVzCZ9Xsmq1MVd8RHXq++dKhv0Gs98NjnFt6dAdOK0kpy72rsY2jMdiyV23/q65HOXh9
-	jDIYJxIEwS+QYL+x8EiZF8TDX6NlTjJ3d/Dxxh/ms9EmokcHOOTvd0serJA61kdvSvuo+LCjJR18J
-	jM03tBxI3ObkOYhxSPsf0WVkJoUaaemHYE/NnT4MIvnI10DU6Y9NffRoy2L6Aubo+1t33EnznR/8I
-	rl70vqt/RK1I8Dmfz3qoTljGkr2Lt+r9M8vZP5tKHmUn4GYF6LWHAmcquHqoxRNJOhQG03FUent3e
-	s68ZAminbGkz1XnjAWnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AlnEeEzPJL4wUUK+gY3GnWAzjS+Nn89+nTQcFIkb2nU=; b=XpTuzLpxZqr0e4GqvnIjBAyOq9
+	4mM4Iy5zY4mE/d938TxOpwH4bZqP1qM1F0jZjIhWN7kAnet7o3rfJ6KnL0u/doXTGuDKfCGSaZjCX
+	kG5HKzcqx86q6M4X856xZed/Rb0/maY7jzx5iHq/ir8XYQr5pygHJzvrFnr9cCJGVzNDd8lf48zm3
+	I7gpTOOKpIQ/nE0UNDSeA3JYEGKunG2BjEvFyT1w8rVP5fR4UowzI1jT8cgSM4uajgPbqv+rkAaXo
+	aM7liBNhoNQ2JtgjjRvkr+QxWTnV8J6NkhZtzBr5sNkB8QYZSXQaxlxix1kk5AqVKkrXzCGwRm1jH
+	O6U/PKMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raB9g-0000000CCdE-48IQ;
-	Wed, 14 Feb 2024 09:02:12 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1raBI7-0000000CEed-3WTl;
+	Wed, 14 Feb 2024 09:10:56 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raB9d-0000000CCc7-22BD
+	id 1raBI4-0000000CEcp-0duu
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Feb 2024 09:02:10 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6e0dcf0a936so376915b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Feb 2024 01:02:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1707901328; x=1708506128; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PG0IiU/s69rauKmwQQKq0QDss70qdtIt7mVzhoYNTgg=;
-        b=Tf8ENOhepJ4eZunopEe5u03crJbvxuVggiNI34B9DPxc63xNkFRO3MkeZd3c1xoFYU
-         h1akrEFzRHmor4/19f/6mQ2H5if+wa4V202nRGZC5lM4fVEqXyIwrrGnZSFpP1wlngDQ
-         n3xi7mWHzfJpZJaA138m+R9Pz5IhyiOxKyzocPY38wfv+qDkzWYUwSp2haTcgVoQK43D
-         SCHQXotpQJIFtkik+QUfX7mmGWQIDrV83uaaYZljbokog05P6LG771vxLsVu4e7l6om/
-         AVU9mS9/sYErDDmYvgs1rXKcVeku8v1rL+jQNf9aO/CXiW1sreh6p9SpO0lvR6mP49es
-         0iCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1707901328; x=1708506128;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PG0IiU/s69rauKmwQQKq0QDss70qdtIt7mVzhoYNTgg=;
-        b=LeEo2ZNArsA0EuG59SBRqH+VTqyzgu9eJNU3HF7wFXPuADEfwIESpTGPbPuhqOhVug
-         VIsIsD845PZFCLE5Q13t+OFL7tIm8yM1gU0QakcxjmnThkQILV617HWxMZONEr4fwRtT
-         A3IDaq9lGTl1Go0dqOscsNzLDRec5TW3P2xVl9xVLaaOB3rL9CqAjlr6BoPpATGT1X8S
-         IKqgQ22XGVMVuZKCj+fYTZ4vdPlokvad5N/mqX7QVfHQdkIbawLe6Ts4OWu/MgZrfsKo
-         MeRQsVZA5p5xu3KRbfOu97q2/GcQI7RX9lXiwCwelA4DnTA94rNytyuAplitHSKwnPuJ
-         QgeA==
-X-Forwarded-Encrypted: i=1; AJvYcCVNX2z/xPgmvtdHevb8NaRNwEHVQpbGI6EEBl97rneFW1UXkuvjFaqFLkwkzxxnj8qkMRRsf6D4p4yPFq+CRvFmgpm7e9oeAWRJR9qTMzwv
-X-Gm-Message-State: AOJu0Yw/NHvuAXU/6LA5n5scd+ExzvLmqmEADbq7x+WcKxrxE30+Y6DX
-	QGBGdyKomhecddSy1mSTezkFAdbfLpJ5tFvxtIpUUtnjZGbrNCOWF/xsassc8GyDT4XiA8MlNWV
-	o
-X-Google-Smtp-Source: AGHT+IFZDfQZGItnAQkonqR/Yikgb4B5zLgUFibXDBjJa1njdREAj5ps9BVVaW/vzNwOz21QNCGcMw==
-X-Received: by 2002:a05:6a21:3997:b0:1a0:587d:5664 with SMTP id ad23-20020a056a21399700b001a0587d5664mr2415076pzc.15.1707901327898;
-        Wed, 14 Feb 2024 01:02:07 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXwx8T69DaHtqPp+CeSq/WLrl/IdHgV6ExI7p/7RvPuv2E7ZTW1x36XoZ7PISg15xVLh/f2Yoh66AZ0ddPdxoWYRc/Ddqchz4mt4vauHE5KkKyhxzoxytAfLtOxiQlLneN61j5HrOVOZ0OqZU830b3Z59XwhPJl6OxtE2a46ojK0hFnlLheuEcNfvhL/FFGX6NIxwyvJm+QIPMCzVbJM2jJtUIygOpb/QKOxPPwS6OA
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id m25-20020a638c19000000b005d7994a08dcsm2476681pgd.36.2024.02.14.01.02.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Feb 2024 01:02:07 -0800 (PST)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Andrew Jones <ajones@ventanamicro.com>,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	Stefan O'Rear <sorear@fastmail.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH -fixes v3 0/2] riscv: cbo.zero fixes
-Date: Wed, 14 Feb 2024 01:01:55 -0800
-Message-ID: <20240214090206.195754-1-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 14 Feb 2024 09:10:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 74F8ACE20B6;
+	Wed, 14 Feb 2024 09:10:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0549C433F1;
+	Wed, 14 Feb 2024 09:10:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1707901849;
+	bh=fNHUiW86EzkCwmyziYTavgpL3+buKSWAsMq0nNd8g1I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FFha+yhylkqUtTXMsTN1o3cC94Lqz5mRBorfN1ynQAhsRuTPCND6xdFvCAVxP8UnH
+	 j53tzf1t/bknwvX7gemXzOBwKvwg8CVxwkbzbwX5gtDZO3Csw0EzdNU97gza31P2y1
+	 W2bSdop/WIJMXVnNYL0hhF3aWfVBDxfOL1mGTf2w1d00WOzXmscT+jsDrhw56r0a78
+	 VJX6YW92hncjV/s+eWF50LC8Z5Fwd2Wgai3eZj6tqaOZ4ZiwCb/frAv/RWXmG+ZTOo
+	 Q6WVUkK0F7/2jrYBin9ZXtjlqMPojSBRXk6HFo8me+lSltqe1QTPPbaDaH35OBG4Q6
+	 9RtTmfcsiTkXQ==
+Date: Wed, 14 Feb 2024 09:10:46 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH] riscv: dts: sifive: add missing #interrupt-cells to pmic
+Message-ID: <20240214-stoplight-banjo-b446d2d322f2@spud>
+References: <20240213-protegee-shoplift-c9bc09f62a7a@spud>
+ <4854dbc3-7c35-432d-b991-0951496eaa2b@sifive.com>
 MIME-Version: 1.0
+In-Reply-To: <4854dbc3-7c35-432d-b991-0951496eaa2b@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240214_010209_727370_9D8776AA 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20240214_011052_420010_A8C05327 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,59 +67,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5963912937168315841=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series fixes a couple of issues related to using the cbo.zero
-instruction in userspace. The first patch fixes a bug where the wrong
-enable bit gets set if the kernel is running in M-mode. The second
-patch fixes a bug where the enable bit gets reset to its default value
-after a nonretentive idle state. I have hardware which reproduces this:
 
-Before this series (or without ss1p12 in the devicetree):
-  $ tools/testing/selftests/riscv/hwprobe/cbo
-  TAP version 13
-  1..3
-  ok 1 Zicboz block size
-  # Zicboz block size: 64
-  Illegal instruction
+--===============5963912937168315841==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="iIM6nDrH4LCobvFl"
+Content-Disposition: inline
 
-After applying this series:
-  $ tools/testing/selftests/riscv/hwprobe/cbo
-  TAP version 13
-  1..3
-  ok 1 Zicboz block size
-  # Zicboz block size: 64
-  ok 2 cbo.zero
-  ok 3 cbo.zero check
-  # Totals: pass:3 fail:0 xfail:0 xpass:0 skip:0 error:0
 
-Changes in v3:
- - Drop patches added in v2
- - Check for Zicboz instead of the privileged ISA version
+--iIM6nDrH4LCobvFl
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Changes in v2:
- - Add patches to allow parsing the privileged ISA version from the DT
- - Check for privileged ISA v1.12 instead of the specific CSR
- - Use riscv_has_extension_likely() instead of new ALTERNATIVE()s
+On Tue, Feb 13, 2024 at 03:49:53PM -0600, Samuel Holland wrote:
+> On 2024-02-13 1:47 PM, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > At W=3D2 dtc complains:
+> > hifive-unmatched-a00.dts:120.10-238.4: Warning (interrupt_provider): /s=
+oc/i2c@10030000/pmic@58: Missing '#interrupt-cells' in interrupt provider
+> >=20
+> > Add the missing property.
+> >=20
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > ---
+> >  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 1 +
+> >  1 file changed, 1 insertion(+)
+>=20
+> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
 
-Samuel Holland (2):
-  riscv: Fix enabling cbo.zero when running in M-mode
-  riscv: Save/restore envcfg CSR during CPU suspend
+Applied so, thanks :)
 
- arch/riscv/include/asm/csr.h     | 2 ++
- arch/riscv/include/asm/suspend.h | 1 +
- arch/riscv/kernel/cpufeature.c   | 2 +-
- arch/riscv/kernel/suspend.c      | 4 ++++
- 4 files changed, 8 insertions(+), 1 deletion(-)
+--iIM6nDrH4LCobvFl
+Content-Type: application/pgp-signature; name="signature.asc"
 
--- 
-2.43.0
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZcyDlgAKCRB4tDGHoIJi
+0qIsAPwM5vDe/hVF8UGr42xgRBmwIis7xs5FoEPp7AVsAj9RTwEA9e1RbbN42Wdl
+R4qJyYFP+7AKO+PT781tnfhDyyVcRAc=
+=WPk+
+-----END PGP SIGNATURE-----
+
+--iIM6nDrH4LCobvFl--
+
+
+--===============5963912937168315841==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5963912937168315841==--
+
