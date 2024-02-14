@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8960C48BC1
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 11:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02BDBC48BC4
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Feb 2024 11:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HOqd5V6liXdRbPwCG7h5xo/XWo+mwdf4MywBxzYodXM=; b=LMIOwiHTho+8PN
-	m0w/J/5NT5Rm3xdhqYeWyZvyJ01ALKjVFysLhztTy95WxZY4Pw6RpwcfKnDtsryQzpFU9NpriLD3h
-	RalXrV5q0z75VsGhaqITaUvsvISqg/bmGrqXeWAKBSs6iQtlattcGwYrJnOxf5fwrBLOLs6BRsDFT
-	Mb6rPTu/yc9fy70sCER2yxX21py+Kp+Cw8AFcvOEi2vXfx2cvkDo2jb5vj8QpCzRR63fRwVrxXWUx
-	VLcsqHkOg2lMwY3egEAtpCSIgjfACgh6mX3GzgCGwKYVwNQ02frC9GLVxuKs9ggEpHbW3FOsObcE5
-	uI7iuWKv8HLq5+R2D/oA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vVz6/fqP4l9DpqjEjK4FPO4N35PeHtmRMH6f7dDzfgk=; b=PRajQFUJw4Yv3/
+	Zy3xlU7vgNskn04WlHnYfGtpiJC9yAe0dlIx36s0Q/sCbgBESV3XAqA5j49o7d6INlbHf/khGB05P
+	V/JjceCHJxaEoTWrQekSeBBWq+8WVBagaOO19U2rhlcc9HKKBz0dtJ4k2h/3tIJi7rAzu/gSb3kzH
+	gqLJDybG+1tlnQCmdH5eXcqdfzV94KtGkz+XviXOGhT3jxQmyj39QDJFllp/Z6fG4x4pnfdWSLILd
+	mit4h1z3YbvDp36jkbruWXh/VTHc7K9mPgKSWUqJZDKhNSLxCe5KatbJfX7dm0JFqVz33CGMpE/bL
+	NLqj8b6w4Z/hCGoQaA/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raDch-0000000Chng-34oX;
-	Wed, 14 Feb 2024 11:40:19 +0000
-Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
+	id 1raDct-0000000Chr2-0oKI;
+	Wed, 14 Feb 2024 11:40:31 +0000
+Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raDce-0000000Chn7-04aH
+	id 1raDcq-0000000Chp8-1C9p
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Feb 2024 11:40:18 +0000
+	Wed, 14 Feb 2024 11:40:29 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1707910810;
+	t=1707910825;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=uT81D9JadSG4shnyPAzeCNq5QuDdA42vAVAwALPxupk=;
-	b=i6yVSl6uTdkrx6HNLprqf5oHzRLgtC5JZQkJuQR6agOvHCg/AMST2eLGx1vFU3A00TNMDc
-	W6HIk/+HvpVx4AhZasgIvsCQXJOr/PttA4KuQJETrVo5d3VvyVx4r36xtpuK4BnKIJ1efl
-	CE0D7myb/TkQwGbDq2rSHjzxZkTlhhI=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=E+jtmsFWXII41uvDY5Lu/Q/m21GTQe10cCp5uwl7EPc=;
+	b=hhqXvhqMo0R0uQJ9/yon2V7+wZQm7vfh7AekzUup5HL44wksP9/4gAGJjhNB4Dy//NkcwL
+	49tqLDhCkilgzb3REtvqkSWtgH+D/9c0h0S0HlEcyXOx3bmRjrL5FXx5P9GbHTuuWkBFaj
+	NcmvDungxvXJ+sX8MgbZThH6bLHUoVM=
 From: Leo Yan <leo.yan@linux.dev>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Namhyung Kim <namhyung@kernel.org>,
@@ -60,14 +61,16 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	linux-csky@vger.kernel.org,
 	linux-riscv@lists.infradead.org
 Cc: Leo Yan <leo.yan@linux.dev>
-Subject: [PATCH v1 0/4] perf parse-regs: Cleanup config and building
-Date: Wed, 14 Feb 2024 19:39:43 +0800
-Message-Id: <20240214113947.240957-1-leo.yan@linux.dev>
+Subject: [PATCH v1 2/4] perf parse-regs: Always build perf register functions
+Date: Wed, 14 Feb 2024 19:39:45 +0800
+Message-Id: <20240214113947.240957-3-leo.yan@linux.dev>
+In-Reply-To: <20240214113947.240957-1-leo.yan@linux.dev>
+References: <20240214113947.240957-1-leo.yan@linux.dev>
 MIME-Version: 1.0
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240214_034016_863563_8ECB5E78 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20240214_034028_490252_3A7050A2 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,59 +87,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the perf building enables register parsing based on the
-target architecture has supported register feature.
+Currently, the macro HAVE_PERF_REGS_SUPPORT is used as a switch to turn
+on or turn off the code of perf registers. If any architecture cannot
+support perf register, it disables the perf register parsing, for both
+the native parsing and cross parsing for other architectures.
 
-Furthermore, the perf building system needs to maintain a variable
-'NO_PERF_REGS' and defines macro 'HAVE_PERF_REGS_SUPPORT' for statically
-compiling the tool.
+To support both the native parsing and cross parsing, the tool should
+always build the perf regs functions. Thus, this patch removes
+HAVE_PERF_REGS_SUPPORT from the perf regs files.
 
-As a result, the perf has no flexibilty for parsing register if an
-architecture doesn't support it. And the source files use the macro
-'HAVE_PERF_REGS_SUPPORT' to switch on and off the register parsing
-related code, which is not a good practice.
-
-This series is to remove the static building for register parsing. In
-theory, we should can dynamically detect if an arch has support this
-feature and functions can return errors when the feature is not
-supported.
-
-The first patch is to remove unused build configuration
-CONFIG_PERF_REGS.
-
-The second patch is to build perf register functions, without using the
-macro 'HAVE_PERF_REGS_SUPPORT' to statically turn on or off code.
-
-The third patch is to introduce a weak function arch__sample_reg_masks(),
-this function can allow the target arch to return its sample register
-list.  With this change, we can totally remove the macro
-'HAVE_PERF_REGS_SUPPORT' in the source file.
-
-The forth patch is to clean up the Makefile for removing relevant
-configuration and macro definition, as they are not useful anymore.
-
-I tested this patch set on Arm64 and x86 for building and did a cross
-register parsing ('perf record' on Arm64 and 'perf report' on x86).
-
-
-Leo Yan (4):
-  perf build: Remove unused CONFIG_PERF_REGS
-  perf parse-regs: Always build perf register functions
-  perf parse-regs: Introduce a weak function arch__sample_reg_masks()
-  perf build: Cleanup perf register configuration
-
- tools/perf/Makefile.config                    | 25 --------------
- tools/perf/arch/arm/util/perf_regs.c          |  7 +++-
- tools/perf/arch/arm64/util/machine.c          |  2 ++
- tools/perf/arch/arm64/util/perf_regs.c        |  7 +++-
- tools/perf/arch/csky/util/perf_regs.c         |  7 +++-
- tools/perf/arch/loongarch/util/perf_regs.c    |  7 +++-
- tools/perf/arch/mips/util/perf_regs.c         |  7 +++-
- tools/perf/arch/powerpc/util/perf_regs.c      |  7 +++-
- tools/perf/arch/riscv/util/perf_regs.c        |  7 +++-
- tools/perf/arch/s390/util/perf_regs.c         |  7 +++-
- tools/perf/arch/x86/util/perf_regs.c          |  7 +++-
- tools/perf/util/parse-regs-options.c          |  8 ++---
+Signed-off-by: Leo Yan <leo.yan@linux.dev>
+---
  .../util/perf-regs-arch/perf_regs_aarch64.c   |  4 ---
  .../perf/util/perf-regs-arch/perf_regs_arm.c  |  4 ---
  .../perf/util/perf-regs-arch/perf_regs_csky.c |  4 ---
@@ -146,10 +107,238 @@ Leo Yan (4):
  .../util/perf-regs-arch/perf_regs_riscv.c     |  4 ---
  .../perf/util/perf-regs-arch/perf_regs_s390.c |  4 ---
  .../perf/util/perf-regs-arch/perf_regs_x86.c  |  4 ---
- tools/perf/util/perf_regs.c                   | 11 ++++--
- tools/perf/util/perf_regs.h                   | 34 +------------------
- 23 files changed, 67 insertions(+), 112 deletions(-)
+ tools/perf/util/perf_regs.c                   |  4 ---
+ tools/perf/util/perf_regs.h                   | 31 -------------------
+ 11 files changed, 71 deletions(-)
 
+diff --git a/tools/perf/util/perf-regs-arch/perf_regs_aarch64.c b/tools/perf/util/perf-regs-arch/perf_regs_aarch64.c
+index 696566c54768..9dcda80d310f 100644
+--- a/tools/perf/util/perf-regs-arch/perf_regs_aarch64.c
++++ b/tools/perf/util/perf-regs-arch/perf_regs_aarch64.c
+@@ -1,7 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
+-#ifdef HAVE_PERF_REGS_SUPPORT
+-
+ #include "../perf_regs.h"
+ #include "../../../arch/arm64/include/uapi/asm/perf_regs.h"
+ 
+@@ -92,5 +90,3 @@ uint64_t __perf_reg_sp_arm64(void)
+ {
+ 	return PERF_REG_ARM64_SP;
+ }
+-
+-#endif
+diff --git a/tools/perf/util/perf-regs-arch/perf_regs_arm.c b/tools/perf/util/perf-regs-arch/perf_regs_arm.c
+index 700fd07cd2aa..e29d130a587a 100644
+--- a/tools/perf/util/perf-regs-arch/perf_regs_arm.c
++++ b/tools/perf/util/perf-regs-arch/perf_regs_arm.c
+@@ -1,7 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
+-#ifdef HAVE_PERF_REGS_SUPPORT
+-
+ #include "../perf_regs.h"
+ #include "../../../arch/arm/include/uapi/asm/perf_regs.h"
+ 
+@@ -56,5 +54,3 @@ uint64_t __perf_reg_sp_arm(void)
+ {
+ 	return PERF_REG_ARM_SP;
+ }
+-
+-#endif
+diff --git a/tools/perf/util/perf-regs-arch/perf_regs_csky.c b/tools/perf/util/perf-regs-arch/perf_regs_csky.c
+index a2841094e096..75b461ef2eba 100644
+--- a/tools/perf/util/perf-regs-arch/perf_regs_csky.c
++++ b/tools/perf/util/perf-regs-arch/perf_regs_csky.c
+@@ -1,7 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
+-#ifdef HAVE_PERF_REGS_SUPPORT
+-
+ #include "../perf_regs.h"
+ #include "../../arch/csky/include/uapi/asm/perf_regs.h"
+ 
+@@ -96,5 +94,3 @@ uint64_t __perf_reg_sp_csky(void)
+ {
+ 	return PERF_REG_CSKY_SP;
+ }
+-
+-#endif
+diff --git a/tools/perf/util/perf-regs-arch/perf_regs_loongarch.c b/tools/perf/util/perf-regs-arch/perf_regs_loongarch.c
+index a9ba0f934123..043f97f4e3ac 100644
+--- a/tools/perf/util/perf-regs-arch/perf_regs_loongarch.c
++++ b/tools/perf/util/perf-regs-arch/perf_regs_loongarch.c
+@@ -1,7 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
+-#ifdef HAVE_PERF_REGS_SUPPORT
+-
+ #include "../perf_regs.h"
+ #include "../../../arch/loongarch/include/uapi/asm/perf_regs.h"
+ 
+@@ -87,5 +85,3 @@ uint64_t __perf_reg_sp_loongarch(void)
+ {
+ 	return PERF_REG_LOONGARCH_R3;
+ }
+-
+-#endif
+diff --git a/tools/perf/util/perf-regs-arch/perf_regs_mips.c b/tools/perf/util/perf-regs-arch/perf_regs_mips.c
+index 5a45830cfbf5..793178fc3c78 100644
+--- a/tools/perf/util/perf-regs-arch/perf_regs_mips.c
++++ b/tools/perf/util/perf-regs-arch/perf_regs_mips.c
+@@ -1,7 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
+-#ifdef HAVE_PERF_REGS_SUPPORT
+-
+ #include "../perf_regs.h"
+ #include "../../../arch/mips/include/uapi/asm/perf_regs.h"
+ 
+@@ -83,5 +81,3 @@ uint64_t __perf_reg_sp_mips(void)
+ {
+ 	return PERF_REG_MIPS_R29;
+ }
+-
+-#endif
+diff --git a/tools/perf/util/perf-regs-arch/perf_regs_powerpc.c b/tools/perf/util/perf-regs-arch/perf_regs_powerpc.c
+index 1f0d682db74a..08636bb09a3a 100644
+--- a/tools/perf/util/perf-regs-arch/perf_regs_powerpc.c
++++ b/tools/perf/util/perf-regs-arch/perf_regs_powerpc.c
+@@ -1,7 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
+-#ifdef HAVE_PERF_REGS_SUPPORT
+-
+ #include "../perf_regs.h"
+ #include "../../../arch/powerpc/include/uapi/asm/perf_regs.h"
+ 
+@@ -141,5 +139,3 @@ uint64_t __perf_reg_sp_powerpc(void)
+ {
+ 	return PERF_REG_POWERPC_R1;
+ }
+-
+-#endif
+diff --git a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
+index e432630be4c5..337b687c655d 100644
+--- a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
++++ b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
+@@ -1,7 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
+-#ifdef HAVE_PERF_REGS_SUPPORT
+-
+ #include "../perf_regs.h"
+ #include "../../../arch/riscv/include/uapi/asm/perf_regs.h"
+ 
+@@ -88,5 +86,3 @@ uint64_t __perf_reg_sp_riscv(void)
+ {
+ 	return PERF_REG_RISCV_SP;
+ }
+-
+-#endif
+diff --git a/tools/perf/util/perf-regs-arch/perf_regs_s390.c b/tools/perf/util/perf-regs-arch/perf_regs_s390.c
+index 1c7a46db778c..d69bba881080 100644
+--- a/tools/perf/util/perf-regs-arch/perf_regs_s390.c
++++ b/tools/perf/util/perf-regs-arch/perf_regs_s390.c
+@@ -1,7 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
+-#ifdef HAVE_PERF_REGS_SUPPORT
+-
+ #include "../perf_regs.h"
+ #include "../../../arch/s390/include/uapi/asm/perf_regs.h"
+ 
+@@ -92,5 +90,3 @@ uint64_t __perf_reg_sp_s390(void)
+ {
+ 	return PERF_REG_S390_R15;
+ }
+-
+-#endif
+diff --git a/tools/perf/util/perf-regs-arch/perf_regs_x86.c b/tools/perf/util/perf-regs-arch/perf_regs_x86.c
+index 873c620f0634..708954a9d35d 100644
+--- a/tools/perf/util/perf-regs-arch/perf_regs_x86.c
++++ b/tools/perf/util/perf-regs-arch/perf_regs_x86.c
+@@ -1,7 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
+-#ifdef HAVE_PERF_REGS_SUPPORT
+-
+ #include "../perf_regs.h"
+ #include "../../../arch/x86/include/uapi/asm/perf_regs.h"
+ 
+@@ -94,5 +92,3 @@ uint64_t __perf_reg_sp_x86(void)
+ {
+ 	return PERF_REG_X86_SP;
+ }
+-
+-#endif
+diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
+index e2275856b570..64724eb58dd5 100644
+--- a/tools/perf/util/perf_regs.c
++++ b/tools/perf/util/perf_regs.c
+@@ -21,8 +21,6 @@ uint64_t __weak arch__user_reg_mask(void)
+ 	return 0;
+ }
+ 
+-#ifdef HAVE_PERF_REGS_SUPPORT
+-
+ const char *perf_reg_name(int id, const char *arch)
+ {
+ 	const char *reg_name = NULL;
+@@ -125,5 +123,3 @@ uint64_t perf_arch_reg_sp(const char *arch)
+ 	pr_err("Fail to find SP register for arch %s, returns 0\n", arch);
+ 	return 0;
+ }
+-
+-#endif
+diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
+index ecd2a5362042..7fd0c7b4cec1 100644
+--- a/tools/perf/util/perf_regs.h
++++ b/tools/perf/util/perf_regs.h
+@@ -27,7 +27,6 @@ int arch_sdt_arg_parse_op(char *old_op, char **new_op);
+ uint64_t arch__intr_reg_mask(void);
+ uint64_t arch__user_reg_mask(void);
+ 
+-#ifdef HAVE_PERF_REGS_SUPPORT
+ extern const struct sample_reg sample_reg_masks[];
+ 
+ const char *perf_reg_name(int id, const char *arch);
+@@ -67,34 +66,4 @@ static inline uint64_t DWARF_MINIMAL_REGS(const char *arch)
+ 	return (1ULL << perf_arch_reg_ip(arch)) | (1ULL << perf_arch_reg_sp(arch));
+ }
+ 
+-#else
+-
+-static inline uint64_t DWARF_MINIMAL_REGS(const char *arch __maybe_unused)
+-{
+-	return 0;
+-}
+-
+-static inline const char *perf_reg_name(int id __maybe_unused, const char *arch __maybe_unused)
+-{
+-	return "unknown";
+-}
+-
+-static inline int perf_reg_value(u64 *valp __maybe_unused,
+-				 struct regs_dump *regs __maybe_unused,
+-				 int id __maybe_unused)
+-{
+-	return 0;
+-}
+-
+-static inline uint64_t perf_arch_reg_ip(const char *arch __maybe_unused)
+-{
+-	return 0;
+-}
+-
+-static inline uint64_t perf_arch_reg_sp(const char *arch __maybe_unused)
+-{
+-	return 0;
+-}
+-
+-#endif /* HAVE_PERF_REGS_SUPPORT */
+ #endif /* __PERF_REGS_H */
 -- 
 2.34.1
 
