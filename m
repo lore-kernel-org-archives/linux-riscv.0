@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F05C4829E
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 11:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 186AFC4829E
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 11:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vwNZJghrursyoaFazbtMuKQhVUIZ11qsqiaPzG63Ts0=; b=iykD1sH55UGIxk
-	rQTkhaozXZl+N8S1Wgokj3v7QdURR9DCEM5vZcjbM5vC3zJWH2vJq0GlDwMhB/ePAR681+axTGfcf
-	tURT2ksV3p2XMFDS6OxcU1zKDNrBuh98fc2PrQbAbsiCVKBOrsC7NUQqGQ9s9IVKYTtz/goD32UeN
-	VxbG3Eht7wxFyx+EBJ+uC6lvfog1CFMJ1FWrKUDi34VHbnIMXVsIDhs4gfIBFNvrjwyAiemocIFZU
-	YUXqXg0W2FOq+OEhu7ikuyaGfG37quu4wqWbhKutpHbdgBnmn+FnShe7ZHm6xkM0Lx7ONcrtaTeEF
-	acbW1arOsMIq3TZ58l4w==;
+	List-Owner; bh=ep7fFn+mqwsnvOTyGOIwjTLxRNs4+ELix5L16U7kA9U=; b=BreNqlhRmcRaQC
+	ZQAUgdTXufcyGC5zzEhWVdmeReIfR5pimzL6dtLerN0jGEQNyTVzrQrrf25Gm8+rIp8fiOvi/QCx4
+	Lxhcsj4UkMXaRDcXILt5zqrMfUIjhOPduPtUJFCIKHfbJRh64A3hHCC5iYQvXp7xIq0oeBumWlFHC
+	+2FNE8osBfwCIfToiM3MGX0cyh85RngfW+on//P30c7Y7S9H5xzjX93Z2Ad+a5D40rj8zzsdles80
+	K8foQLLiqI9vNTdCT8F8r4ycwhSbtMLBL8ti6e4PlRwpfBB6Gjq6JEDWl1e8Geywp/0RjY2bCDePs
+	UFBv4jU0/C3AA5+ZFfSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raaDd-0000000G6ta-37C6;
-	Thu, 15 Feb 2024 11:47:57 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1raaJo-0000000G82p-1ybM;
+	Thu, 15 Feb 2024 11:54:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raaDY-0000000G6rF-3ufj;
-	Thu, 15 Feb 2024 11:47:55 +0000
+	id 1raaJj-0000000G80A-3kcG;
+	Thu, 15 Feb 2024 11:54:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 2B352CE25D1;
-	Thu, 15 Feb 2024 11:47:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DA8CC43390;
-	Thu, 15 Feb 2024 11:47:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CE38C60FC3;
+	Thu, 15 Feb 2024 11:54:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7178DC433F1;
+	Thu, 15 Feb 2024 11:54:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707997670;
-	bh=IvhtK4NnjopFMtWUJDl89y51jh2nXTnQDnXwhvzRRts=;
+	s=k20201202; t=1707998054;
+	bh=NV2hzdoGCwcXaZvnSTHWeivjwUKQ5fCdHMa1ytWL9Ew=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=EPYNgNP3iDA5jyXFdr3i5AMJjnDbD2fVqsKizWPxyDdTn41VHa7W4ym6b6zPcrQWG
-	 oeP0yUCaD5B8i2jNYmqDc8VHWFS+329nYZx1r5K4ra4UPVoMgGNkzlVQhYZXYB2rj0
-	 6zlVKmy9RhJ4oHnYCOKodqr2AC46XNiH31ZUSOg8MJKjqdTucUO4yj2cN+eER4Rgrm
-	 QUfAqlw/07CiLojlOv+KR61lV5iTczboDOuvNQbfoXvRk4dngMIKQAcSLevJQOYNak
-	 mlUhgcuJ3gtQ3Ek0C0WZ8GiAQsa4va0/1NsZzcfteoRrapSMt3UDh65s1BjC++VyWU
-	 K0YwJRlhRhIUQ==
+	b=Ujw1fa04OqwNguPaySPQK3c1jL3GBB0QSGhKd77GINexFekhSXGQjYFk9HtPEUPpC
+	 i+ghfyQNW/bGyXscOyk6pNz1FaxFm3+DJ9NVcGH+pXCIQGPnmuWli3p1zb1X/3teyx
+	 1N5eVmvsbXkx6OhrOLrrk7Yqk4hdsgrYlW6h6HWs9ME4bTYKmLl6RIXAEU5cyD0nXb
+	 LqJNMf4slvJB1yRfM8l4k5BPMKh7lPX51iYwWIwPnt0yMSIMBdDp4Nb4qOTos/Ted6
+	 8j6e82K+MKVm5CWj3H0HX7ooHE1UCOmSv0Q8jLTqFzYWR38QWQgl6MKZjPIG6XVztK
+	 9ezq0lC6PQmwQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1raaDT-003Tve-Iq;
-	Thu, 15 Feb 2024 11:47:47 +0000
-Date: Thu, 15 Feb 2024 11:47:46 +0000
-Message-ID: <86plwy3q59.wl-maz@kernel.org>
+	id 1raaJg-003Tzt-51;
+	Thu, 15 Feb 2024 11:54:12 +0000
+Date: Thu, 15 Feb 2024 11:54:11 +0000
+Message-ID: <86o7ci3puk.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v12 01/25] irqchip/gic-v3: Make gic_irq_domain_select() robust for zero parameter count
-In-Reply-To: <20240127161753.114685-2-apatel@ventanamicro.com>
+Subject: Re: [PATCH v12 04/25] genirq/irqdomain: Add DOMAIN_BUS_DEVICE_IMS
+In-Reply-To: <20240127161753.114685-5-apatel@ventanamicro.com>
 References: <20240127161753.114685-1-apatel@ventanamicro.com>
-	<20240127161753.114685-2-apatel@ventanamicro.com>
+	<20240127161753.114685-5-apatel@ventanamicro.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -64,8 +64,8 @@ X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, palmer@dabbelt.com, paul.walmsley@si
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240215_034753_355810_EF68BD38 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20240215_035416_062405_AB1CAAC9 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,28 +83,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 27 Jan 2024 16:17:29 +0000,
+On Sat, 27 Jan 2024 16:17:32 +0000,
 Anup Patel <apatel@ventanamicro.com> wrote:
 > 
 > From: Thomas Gleixner <tglx@linutronix.de>
 > 
-> Currently the irqdomain select callback is only invoked when the parameter
-> count of the fwspec arguments is not zero. That makes sense because then
-> the match is on the firmware node and eventually on the bus_token, which is
-> already handled in the core code.
-> 
-> The upcoming support for per device MSI domains requires to do real bus
-> token specific checks in the MSI parent domains with a zero parameter
-> count.
-> 
-> Make the gic-v3 select() callback handle that case.
+> Add a new domain bus token to prepare for device MSI which aims to replace
+> the existing platform MSI maze.
 > 
 > Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Marc Zyngier <maz@kernel.org>
+> ---
+>  include/linux/irqdomain_defs.h | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/include/linux/irqdomain_defs.h b/include/linux/irqdomain_defs.h
+> index c29921fd8cd1..4c69151cb9d2 100644
+> --- a/include/linux/irqdomain_defs.h
+> +++ b/include/linux/irqdomain_defs.h
+> @@ -26,6 +26,7 @@ enum irq_domain_bus_token {
+>  	DOMAIN_BUS_DMAR,
+>  	DOMAIN_BUS_AMDVI,
+>  	DOMAIN_BUS_PCI_DEVICE_IMS,
+> +	DOMAIN_BUS_DEVICE_IMS,
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+Only a personal taste, but since we keep calling it "device MSI",
+which it really is, I find it slightly odd to name the token
+"DEVICE_IMS".
+
+From what I understand, IMS is PCIe specific. Platform (and by
+extension device) MSI extends far beyond PCIe. So here, DEVICE_MSI
+would make a lot more sense and avoid confusion.
+
+But hey, I don't have much skin in this game, and I can probably
+mentally rotate the acronym...
 
 	M.
 
