@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 186AFC4829E
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 11:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B97C4829E
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 11:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ep7fFn+mqwsnvOTyGOIwjTLxRNs4+ELix5L16U7kA9U=; b=BreNqlhRmcRaQC
-	ZQAUgdTXufcyGC5zzEhWVdmeReIfR5pimzL6dtLerN0jGEQNyTVzrQrrf25Gm8+rIp8fiOvi/QCx4
-	Lxhcsj4UkMXaRDcXILt5zqrMfUIjhOPduPtUJFCIKHfbJRh64A3hHCC5iYQvXp7xIq0oeBumWlFHC
-	+2FNE8osBfwCIfToiM3MGX0cyh85RngfW+on//P30c7Y7S9H5xzjX93Z2Ad+a5D40rj8zzsdles80
-	K8foQLLiqI9vNTdCT8F8r4ycwhSbtMLBL8ti6e4PlRwpfBB6Gjq6JEDWl1e8Geywp/0RjY2bCDePs
-	UFBv4jU0/C3AA5+ZFfSg==;
+	List-Owner; bh=+J2fawtsIrTO0pvZuOr44JdkGSxQNBkVnsv4kkkbWAg=; b=kGbT8Ut1kRydnQ
+	qzlVPF4e6VnqksPVGVeRFzsF2c8aLZonoH01DxVRq1pNFMxiJHKKH9d/oO4dTrzgpxEwx3H8C0xDv
+	LYt0NIJ+gN/9/r5WR2IAocEhViyuPx9IvEWTc1aHGWv9w8lLw/c2aSKr5XPiSdbEsJAf8oVE4czeP
+	2FF7sN2rkgbHhXCJxxdSOYUQA+aXEGo42cUiaJHHoibMPGVaxr4+cav92SAOvhFIheX9SbEkmhkTB
+	7rwiCfNuBXarqquHKi4bWSU4V2OYAAasL3wLD47nqcwBE4LS39gmm8tKmBmrFg2tNcvgzU+ulorHd
+	hDCBB4FmPV81/UtUjxFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raaJo-0000000G82p-1ybM;
-	Thu, 15 Feb 2024 11:54:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1raaNA-0000000G8yC-0uuP;
+	Thu, 15 Feb 2024 11:57:48 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raaJj-0000000G80A-3kcG;
-	Thu, 15 Feb 2024 11:54:17 +0000
+	id 1raaN7-0000000G8wf-09Sa;
+	Thu, 15 Feb 2024 11:57:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CE38C60FC3;
-	Thu, 15 Feb 2024 11:54:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7178DC433F1;
-	Thu, 15 Feb 2024 11:54:14 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7E74F612AF;
+	Thu, 15 Feb 2024 11:57:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 227AEC433C7;
+	Thu, 15 Feb 2024 11:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1707998054;
-	bh=NV2hzdoGCwcXaZvnSTHWeivjwUKQ5fCdHMa1ytWL9Ew=;
+	s=k20201202; t=1707998264;
+	bh=ZjS4FGsh59FRrV3bPIOZFy21FV9/UD4J8wYNJ7V5MEQ=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Ujw1fa04OqwNguPaySPQK3c1jL3GBB0QSGhKd77GINexFekhSXGQjYFk9HtPEUPpC
-	 i+ghfyQNW/bGyXscOyk6pNz1FaxFm3+DJ9NVcGH+pXCIQGPnmuWli3p1zb1X/3teyx
-	 1N5eVmvsbXkx6OhrOLrrk7Yqk4hdsgrYlW6h6HWs9ME4bTYKmLl6RIXAEU5cyD0nXb
-	 LqJNMf4slvJB1yRfM8l4k5BPMKh7lPX51iYwWIwPnt0yMSIMBdDp4Nb4qOTos/Ted6
-	 8j6e82K+MKVm5CWj3H0HX7ooHE1UCOmSv0Q8jLTqFzYWR38QWQgl6MKZjPIG6XVztK
-	 9ezq0lC6PQmwQ==
+	b=fyqziwEu8JdiAmob0PH9svSFBnqigFzaCsruuY6/sSL8n/lx13X7r+aHvc1fR6ku0
+	 ItZYqHANHGzkuMaai6nZniqcTF0IqTmFZy0R6qtJguVrm1hHSwNtdZpkqPmttdPXGo
+	 XJ8puKluzojxXDHIQIJHsDA75WWcxlWlka7Yd8CQK9MULvbOGdm/+G3RIvIVlAq7FR
+	 GVwQrmyu742daoxjOCs9BO7VF3FrlNa3VSMbpuJYIbTnWUSE0neWsxZklEKiU/1/fd
+	 MgDmUWBG5Bg+CFmCTaeMP4Q4TBHmFm354vPdharLHmZedzJo+89/aOyGTdOQY/O2qM
+	 /WHWZ0IHsL82A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1raaJg-003Tzt-51;
-	Thu, 15 Feb 2024 11:54:12 +0000
-Date: Thu, 15 Feb 2024 11:54:11 +0000
-Message-ID: <86o7ci3puk.wl-maz@kernel.org>
+	id 1raaN3-003U4v-Qq;
+	Thu, 15 Feb 2024 11:57:41 +0000
+Date: Thu, 15 Feb 2024 11:57:41 +0000
+Message-ID: <86mss23poq.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v12 04/25] genirq/irqdomain: Add DOMAIN_BUS_DEVICE_IMS
-In-Reply-To: <20240127161753.114685-5-apatel@ventanamicro.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH v12 00/25] Linux RISC-V AIA Support
+In-Reply-To: <87bk8ig6t2.ffs@tglx>
 References: <20240127161753.114685-1-apatel@ventanamicro.com>
-	<20240127161753.114685-5-apatel@ventanamicro.com>
+	<CAK9=C2Vwtj2gZg-P73yLMxu0rPXQ3YrRRuxq6HcpHMXgs-jHaw@mail.gmail.com>
+	<87bk8ig6t2.ffs@tglx>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, frowand.list@gmail.com, conor+dt@kernel.org, bjorn@kernel.org, atishp@atishpatra.org, ajones@ventanamicro.com, sunilvl@ventanamicro.com, saravanak@google.com, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-SA-Exim-Rcpt-To: tglx@linutronix.de, apatel@ventanamicro.com, paul.walmsley@sifive.com, palmer@dabbelt.com, bjorn@kernel.org, robh+dt@kernel.org, atishp@atishpatra.org, ajones@ventanamicro.com, sunilvl@ventanamicro.com, saravanak@google.com, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, krzysztof.kozlowski+dt@linaro.org, frowand.list@gmail.com, conor+dt@kernel.org, darwi@linutronix.de
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240215_035416_062405_AB1CAAC9 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20240215_035745_185888_94C4F1FB 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,46 +78,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Anup Patel <anup@brainfault.org>, "Ahmed S. Darwish" <darwi@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Frank Rowand <frowand.list@gmail.com>, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 27 Jan 2024 16:17:32 +0000,
-Anup Patel <apatel@ventanamicro.com> wrote:
+On Wed, 14 Feb 2024 19:54:49 +0000,
+Thomas Gleixner <tglx@linutronix.de> wrote:
 > 
-> From: Thomas Gleixner <tglx@linutronix.de>
+> Anup!
 > 
-> Add a new domain bus token to prepare for device MSI which aims to replace
-> the existing platform MSI maze.
+> On Sat, Jan 27 2024 at 21:50, Anup Patel wrote:
+> >> Changes since v11:
+> >>  - Rebased on Linux-6.8-rc1
+> >>  - Included kernel/irq related patches from "genirq, irqchip: Convert ARM
+> >>    MSI handling to per device MSI domains" series by Thomas.
+> >>    (PATCH7, PATCH8, PATCH9, PATCH14, PATCH16, PATCH17, PATCH18, PATCH19,
+> >>     PATCH20, PATCH21, PATCH22, PATCH23, and PATCH32 of
+> >>     https://lore.kernel.org/linux-arm-kernel/20221121135653.208611233@linutronix.de/)
+> >>  - Updated APLIC MSI-mode driver to use the new WIRED_TO_MSI mechanism.
+> >>  - Updated IMSIC driver to support per-device MSI domains for PCI and
+> >>    platform devices.
+> >
+> > I have rebased and included 13 patches (which add per-device MSI domain
+> > infrastructure) from your series [1]. In this series, the IMSIC driver
+> > implements the msi_parent_ops and APLIC driver implements wired-to-msi
+> > bridge using your new infrastructure.
+> >
+> > The remaining 27 patches of your series [1] requires testing on ARM
+> > platforms which I don't have. I suggest these remaining patches to
+> > go as separate series.
 > 
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  include/linux/irqdomain_defs.h | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/include/linux/irqdomain_defs.h b/include/linux/irqdomain_defs.h
-> index c29921fd8cd1..4c69151cb9d2 100644
-> --- a/include/linux/irqdomain_defs.h
-> +++ b/include/linux/irqdomain_defs.h
-> @@ -26,6 +26,7 @@ enum irq_domain_bus_token {
->  	DOMAIN_BUS_DMAR,
->  	DOMAIN_BUS_AMDVI,
->  	DOMAIN_BUS_PCI_DEVICE_IMS,
-> +	DOMAIN_BUS_DEVICE_IMS,
+> Of course. Darwi (in Cc) is going to work on the ARM parts when he
+> returns from vacation. I'm going to apply the infrastructure patches
+> (1-13) in the next days so they are out of the way for you and Darwi,
+> unless someone has any objections.
 
-Only a personal taste, but since we keep calling it "device MSI",
-which it really is, I find it slightly odd to name the token
-"DEVICE_IMS".
+FWIW, I've fiven the first 13 patches a go on two of the most
+problematic platforms (Huawei's D05, and Marvell's McBin). Nothing
+immediately broke, so it's obviously perfect.
 
-From what I understand, IMS is PCIe specific. Platform (and by
-extension device) MSI extends far beyond PCIe. So here, DEVICE_MSI
-would make a lot more sense and avoid confusion.
-
-But hey, I don't have much skin in this game, and I can probably
-mentally rotate the acronym...
+Thanks,
 
 	M.
 
