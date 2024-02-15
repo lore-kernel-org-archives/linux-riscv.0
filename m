@@ -4,101 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEB9C48BEB
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 12:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 167DBC4829E
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 12:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xdFFPK8nfbb1IG8AcrL082VK64BjaxbfRNI78GSkNfs=; b=dFmHKQw01MmjSTU8e3xdgWRQDN
-	A7ojz6MD/R/6jhnxEPRelDObupzKS2cQktIisxELT8vbLfLtofcqUkHBIj0Z6il4p6oSclfZVaGjD
-	QdJ4/vhCVxhbp8XsDiUif+mekYgYfNeuQt2zAcBhgdRzx3iTC/bdHbnTCC23e6YGUl5Ir08zSXuzw
-	Rv5L+n6du2roakTci1H/yjGHYqUW26jbmq/bJtxm0AGbHMQ3/Acede7WXREOSSk9jvbwBjpeKxzVB
-	8ZFm+Sex81LonaIFeV+pB5Ns1TZr5MEP3E7GZG1qjCkuImKaqyB91OlEQSeoVf0I61erIpTo7Ymjt
-	jA6jmKmQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GEaMNWT/JZ5nq+VDH61zkFFWD3qgZMd96v2ngL47SL8=; b=hNA3wW+hCWS5KX
+	SGny3BroV0W8W6T1wATPpBTsNM/AHe55rX3UKWbI6dSo+o7qWwa+BSppcaeodd7AMLyy5nEHr7XXx
+	1VcqsIgTfXNlBDUpoOHdU/qsgsyiY+aC+ChJFk5OG4gvg/Si9yizkxMMQepQKYpgKhauo/TGZ+kYG
+	/VRJ5Dfr9UCQgOwReWLINjPAgQty8JpiNG1cd+Sy8is8MFbuJ6e5PWxmMDo6cRQAw0qEX3o91O7AI
+	h/k0KJf13OdratMF2MoEHfu+JSFic5v8kJ6FDs4iIdxTDuvxpA4RZwr+YOZBfEfjIaSvGNZ8z9QsF
+	a3+GDkNTWald/FZG60sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raaRj-0000000G9zu-3sly;
-	Thu, 15 Feb 2024 12:02:31 +0000
+	id 1rab7M-0000000GHHg-3Dh9;
+	Thu, 15 Feb 2024 12:45:32 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raaRh-0000000G9yb-3enU
+	id 1rab7J-0000000GHFm-02le
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Feb 2024 12:02:31 +0000
+	Thu, 15 Feb 2024 12:45:31 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1raaRB-0000Gm-6C; Thu, 15 Feb 2024 13:01:57 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1rab7B-0003jZ-Iz; Thu, 15 Feb 2024 13:45:21 +0100
+Received: from [2a0a:edc0:0:900:1d::4e] (helo=lupine)
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1raaR5-000sKN-Ds; Thu, 15 Feb 2024 13:01:51 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1raaR5-005KpH-0o;
-	Thu, 15 Feb 2024 13:01:51 +0100
-Date: Thu, 15 Feb 2024 13:01:51 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Michael Walle <mwalle@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-doc@vger.kernel.org, 
-	Linus Walleij <linus.walleij@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Paul Cercueil <paul@crapouillou.net>, linux-tegra@vger.kernel.org, 
-	Conor Dooley <conor.dooley@microchip.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	James Clark <james.clark@arm.com>, Pavel Machek <pavel@ucw.cz>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Guenter Roeck <groeck@chromium.org>, 
-	chrome-platform@lists.linux.dev, Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>, 
-	Fabio Estevam <festevam@gmail.com>, linux-riscv@lists.infradead.org, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	linux-samsung-soc@vger.kernel.org, Bjorn Andersson <quic_bjorande@quicinc.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Sean Anderson <sean.anderson@seco.com>, Benson Leung <bleung@chromium.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Lee Jones <lee@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Hammer Hsieh <hammerh0314@gmail.com>, linux-rockchip@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>, 
-	Michal Simek <michal.simek@amd.com>, NXP Linux Team <linux-imx@nxp.com>, linux-leds@vger.kernel.org, 
-	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	linux-mips@vger.kernel.org, linux-sunxi@lists.linux.dev, platform-driver-x86@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, Kees Cook <keescook@chromium.org>, 
-	Sven Peter <sven@svenpeter.dev>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Ray Jui <rjui@broadcom.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, Vladimir Zapolskiy <vz@mleia.com>, 
-	Hans de Goede <hdegoede@redhat.com>, Mark Brown <broonie@kernel.org>, 
-	linux-mediatek@lists.infradead.org, linux-rpi-kernel@lists.infradead.org, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, linux-amlogic@lists.infradead.org, 
-	Orson Zhai <orsonzhai@gmail.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, 
-	kernel@pengutronix.de, linux-arm-kernel@lists.infradead.org, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Alexander Shiyan <shc_work@mail.ru>, Scott Branden <sbranden@broadcom.com>, 
-	linux-gpio@vger.kernel.org, Daire McNamara <daire.mcnamara@microchip.com>, 
-	Chunyan Zhang <zhang.lyra@gmail.com>, Hector Martin <marcan@marcan.st>, 
-	linux-stm32@st-md-mailman.stormreply.com, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, asahi@lists.linux.dev, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Anjelique Melendez <quic_amelende@quicinc.com>
-Subject: Re: [PATCH v6 003/164] pwm: Provide pwmchip_alloc() function and a
- devm variant of it
-Message-ID: <ws4ybgtvfxqz53vk3i67suipzyqpy5y5fqeee5uf3ua6ow222n@i4ktjuorq3nl>
-References: <cover.1707900770.git.u.kleine-koenig@pengutronix.de>
- <9577d6053a5a52536057dc8654ff567181c2da82.1707900770.git.u.kleine-koenig@pengutronix.de>
- <Zcy21tsntcK80hef@smile.fi.intel.com>
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1rab77-000t5u-9s; Thu, 15 Feb 2024 13:45:17 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1rab77-0007iB-0k;
+	Thu, 15 Feb 2024 13:45:17 +0100
+Message-ID: <8981ec7d30444d2127ee97f5c804f8837ae5c6ce.camel@pengutronix.de>
+Subject: Re: [PATCH v3 2/4] reset: simple: add support for Sophgo SG2042
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
+ chao.wei@sophgo.com,  conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ palmer@dabbelt.com,  paul.walmsley@sifive.com, robh+dt@kernel.org,
+ devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org,  haijiao.liu@sophgo.com,
+ xiaoguang.xing@sophgo.com, guoren@kernel.org,  jszhang@kernel.org,
+ inochiama@outlook.com
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Date: Thu, 15 Feb 2024 13:45:17 +0100
+In-Reply-To: <1cfd7b3ba447942784c4f7aa595e962399e9f617.1706577450.git.unicorn_wang@outlook.com>
+References: <cover.1706577450.git.unicorn_wang@outlook.com>
+	 <1cfd7b3ba447942784c4f7aa595e962399e9f617.1706577450.git.unicorn_wang@outlook.com>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-In-Reply-To: <Zcy21tsntcK80hef@smile.fi.intel.com>
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240215_040229_933613_E6BE7364 
-X-CRM114-Status: GOOD (  28.06  )
+X-CRM114-CacheID: sfid-20240215_044529_161176_F52A8380 
+X-CRM114-Status: UNSURE (   5.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,111 +77,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3328425003299982578=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Di, 2024-01-30 at 09:50 +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+> 
+> Reuse reset-simple driver for the Sophgo SG2042 reset generator.
+> 
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 
---===============3328425003299982578==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eo4pepuhkmuwjzg5"
-Content-Disposition: inline
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
+regards
+Philipp
 
---eo4pepuhkmuwjzg5
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Feb 14, 2024 at 02:49:26PM +0200, Andy Shevchenko wrote:
-> On Wed, Feb 14, 2024 at 10:30:50AM +0100, Uwe Kleine-K=F6nig wrote:
-> > This function allocates a struct pwm_chip and driver data. Compared to
-> > the status quo the split into pwm_chip and driver data is new, otherwise
-> > it doesn't change anything relevant (yet).
-> >=20
-> > The intention is that after all drivers are switched to use this
-> > allocation function, its possible to add a struct device to struct
-> > pwm_chip to properly track the latter's lifetime without touching all
-> > drivers again. Proper lifetime tracking is a necessary precondition to
-> > introduce character device support for PWMs (that implements atomic
-> > setting and doesn't suffer from the sysfs overhead of the /sys/class/pwm
-> > userspace support).
-> >=20
-> > The new function pwmchip_priv() (obviously?) only works for chips
-> > allocated with pwmchip_alloc().
->=20
-> ...
->=20
-> > +#define PWMCHIP_ALIGN ARCH_DMA_MINALIGN
-> > +
-> > +static void *pwmchip_priv(struct pwm_chip *chip)
-> > +{
-> > +	return (void *)chip + ALIGN(sizeof(*chip), PWMCHIP_ALIGN);
-> > +}
->=20
-> Why not use dma_get_cache_alignment() ?
-
-Hmm, that function returns 1 if ARCH_HAS_DMA_MINALIGN isn't defined. The
-idea of using ARCH_DMA_MINALIGN was to ensure that the priv data has the
-same minimal alignment as kmalloc(). Took my inspriration from
-https://lore.kernel.org/r/20240209-counter-align-fix-v2-1-5777ea0a2722@anal=
-og.com
-=2E The implementation of dma_get_cache_alignment suggests that not all
-archs provide ARCH_DMA_MINALIGN? Also there is ARCH_KMALLOC_MINALIGN.
-Hmm, don't know yet what to do here.
-
-> > +/* This is the counterpart to pwmchip_alloc */
->=20
-> pwmchip_alloc()
-
-Ack.
-=20
-> > +EXPORT_SYMBOL_GPL(pwmchip_put);
->=20
-> > +EXPORT_SYMBOL_GPL(pwmchip_alloc);
->=20
-> > +EXPORT_SYMBOL_GPL(devm_pwmchip_alloc);
->=20
-> Are these exported via namespace? If no, can they be from day 1?
-
-I added that to my todo list for all pwm functions. Will address that
-separately.
-
-Thanks for your feedback
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---eo4pepuhkmuwjzg5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmXN/SUACgkQj4D7WH0S
-/k7Wcgf+PH/0QpqNNV4Y2/FkmhtRuwoboRFbLUmPSdsZXmpktX2oCcZmzsdo7ECA
-hWfFTUYhOspa5kHVcw+nxqCLWdGrQfQ4C0LtsPicyPjTXPVpP8W09vwdeatCiqVr
-GxgvULwRl/HxZXMUXZhJ5ToJRT/yuN1CLjpyjnINyIczC+jZFclxgx43quAbXMIf
-SCUAlxTR/Jm/mjCmH2N7Fftk64+hCNWB2gsjkaQsDUwtAelt3/J9u4h2He4NPzPi
-GaEZ3tfrkKkBWoolaCIhY1LqXtT3nU+qiP5t/bPD00DRDM2XtKsjvAk526Lx/OAu
-y+6AtGBx3n9HzXzyJ+bdew1oAMND9g==
-=44B0
------END PGP SIGNATURE-----
-
---eo4pepuhkmuwjzg5--
-
-
---===============3328425003299982578==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3328425003299982578==--
-
