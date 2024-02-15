@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB6DDC48BC4
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 15:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21547C4829E
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 15:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IZNpicftcX0JRs+Py9yuY+O56+yuTfZSPomXPZFcTDc=; b=HQwQz9VcT7gS89
-	h8DpPJWo6dfqEIQ46XDTiKHCphNjTVYye/ryh1fFhN8+PlIT2CCs9Qe65sJKo4pFmSNfj0I0orZZj
-	Iar15lL+KWDo40mhq43wHYR0Uqe6aoeZjrk+QuHmlrEgF716FXgmvvUKoEYI/8dSdFycjou4iD83K
-	X7KnTO49ZW+9aRXSqK23zJlxpMGoDzAGw9BUN9Z4hpsvtdlMEtkwp+88hZuNj1RP+GLIRJ+gHoXb+
-	8/pTClLt+fUPy1IvLwPv1wA1sZRUXcB+kVBSrg4Gcm/IcitRSFRk+eR19XdYzRkixPXWka/Mlhj4u
-	0zo+4YOtEGYZC0w3lhtA==;
+	List-Owner; bh=2kjogl6LxCQ+gh5hY6u0wZQi0zwg9hqmJHX0OrX+N/4=; b=JhtABBlXarLKoH
+	fcXhH+Il6ph4a5g+HoW3Nd4b2aVPwfXX6UQ2l5KXPXtHc8L5awyZri0iPlisbuDUhGth4YLUwGnGT
+	56qMYONTTqcMuR4EyymiWozg0IRCj2RP2D2UrKawNPP7lQp9MdsoX2Sc8ag10osjyWNTUKEvlohJB
+	ShwJ4jK8eO5I/mJ63tq61yJB04v+cRCYX19/KllV1lZBnG82Yj2EJSiK90N8S6ppwvjk65PxQa0pr
+	5MgCYApoMXDifob/yr0MRWPnamhI7X2btR1IicFf7ZdRTuGyPesLrTq68Sws7SdMIpDJCK3sOpIYl
+	e4uiJurPA0NLERS/HfEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1radEl-0000000GeSk-2qP4;
-	Thu, 15 Feb 2024 15:01:19 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1radQT-0000000GgOt-490r;
+	Thu, 15 Feb 2024 15:13:25 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1radEf-0000000GeLO-0ee4;
-	Thu, 15 Feb 2024 15:01:17 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1708009264;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7jurcXevAzLq5b3XNHkngyd9aG7HXv/ajp+hOIdurHE=;
-	b=ACCFDxP4M6h+kPZxC8n5YjerDJytE7XIB0xzvUQXXsvsgxPRymDCIwAOCzBTMwjF/tAC6G
-	5DClIsEIgMg8ovLCONa+WB3EEhNaR0do2/BXAHLP/kwTJWohwek+I2LO/AhhBv4naEVE0e
-	aHQgbFkMm4aV/a+ICweO1zbPNB9N6AaJDpzcUIWsYMFaaN5tq4TzG4KtRQiOI3ZH5zRyML
-	a3IJasqR/LwhLRPH+XRe6Jqq5lcpAy4rh9jyXmQL4Rc0PsGK3z88opG/4JIKCQLL2Mssf8
-	aa1w9c8EObkVpg4klvWcgi5NpujCCu6uXwJBtrkci69IOAL7y7ahvCT+XVT0PQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1708009264;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7jurcXevAzLq5b3XNHkngyd9aG7HXv/ajp+hOIdurHE=;
-	b=KXqXpqo8rLP9B7h0qdTcwSs6/WBr1zOrw9q92FTDKvwl3twYREKP5rQvKTif3BtifKxCaI
-	TvV5B162CoS6pGDQ==
-To: Marc Zyngier <maz@kernel.org>, Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v12 04/25] genirq/irqdomain: Add DOMAIN_BUS_DEVICE_IMS
-In-Reply-To: <86o7ci3puk.wl-maz@kernel.org>
-References: <20240127161753.114685-1-apatel@ventanamicro.com>
- <20240127161753.114685-5-apatel@ventanamicro.com>
- <86o7ci3puk.wl-maz@kernel.org>
-Date: Thu, 15 Feb 2024 16:01:03 +0100
-Message-ID: <87h6i9epqo.ffs@tglx>
+	id 1radQQ-0000000GgOR-3JXq
+	for linux-riscv@lists.infradead.org;
+	Thu, 15 Feb 2024 15:13:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id C0591CE23F1;
+	Thu, 15 Feb 2024 15:13:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC2E3C433F1;
+	Thu, 15 Feb 2024 15:13:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1708010000;
+	bh=yPtGushKE1HruuEyLpEa6VC/zl5SpKlQQqg0Lb6Wd8A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UtvLved+d01mkGf7xzEd9srUoOIy5JPOhruhV3dovutNXl52piRGfwR+Dj3olx5HI
+	 PaPqIuXQr7CYX8nvZhAiG+kSU5oLJcnrKFeTgpIGqZvrSstJFRt/Zn1Pwq00NSdnZZ
+	 MC/WL/7RHLEMsKW8odBbN0RFehhP8/6ckqjNL88MWBs9tF3BB1nf/hOiIMJBfASZX5
+	 REmnJG1LXUyhB1ChaEbn/jVblNpcDpWKDcc25p85HDSbb2KaDmLz8kZ4NmIP+5IH7I
+	 h4zAWbb8/xa1/+gxwfzYYWfVWrOSNoQ5u8Mz8QBZ0OkZvtNVW94T9AYmAT6VZXLiRe
+	 PW3uy4Wq9m/Vg==
+Date: Thu, 15 Feb 2024 09:13:16 -0600
+From: Rob Herring <robh@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: clock: sophgo: Add top misc
+ controller of CV18XX/SG200X series SoC
+Message-ID: <20240215151316.GA89268-robh@kernel.org>
+References: <PH7PR20MB4962F822A64CB127911978AABB4E2@PH7PR20MB4962.namprd20.prod.outlook.com>
+ <PH7PR20MB4962FFFB586489154B1403D6BB4E2@PH7PR20MB4962.namprd20.prod.outlook.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <PH7PR20MB4962FFFB586489154B1403D6BB4E2@PH7PR20MB4962.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240215_070113_356950_7369D62F 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20240215_071323_030527_2D04E08F 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,41 +78,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Frank Rowand <frowand.list@gmail.com>, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 15 2024 at 11:54, Marc Zyngier wrote:
-> On Sat, 27 Jan 2024 16:17:32 +0000,
-> Anup Patel <apatel@ventanamicro.com> wrote:
->>  	DOMAIN_BUS_PCI_DEVICE_IMS,
->> +	DOMAIN_BUS_DEVICE_IMS,
->
-> Only a personal taste, but since we keep calling it "device MSI",
-> which it really is, I find it slightly odd to name the token
-> "DEVICE_IMS".
->
-> From what I understand, IMS is PCIe specific. Platform (and by
-> extension device) MSI extends far beyond PCIe. So here, DEVICE_MSI
-> would make a lot more sense and avoid confusion.
+On Wed, Feb 14, 2024 at 02:33:14PM +0800, Inochi Amaoto wrote:
+> CV18XX/SG200X series SoCs have a special top misc system controller,
+> which provides register access for several devices. In addition to
+> register access, this system controller also contains some subdevices
+> (such as dmamux).
+> 
+> Add bindings for top misc controller of CV18XX/SG200X series SoC.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> ---
+>  .../soc/sophgo/sophgo,cv1800-top-syscon.yaml  | 40 +++++++++++++++++++
+>  1 file changed, 40 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml
+> new file mode 100644
+> index 000000000000..619237532801
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml
+> @@ -0,0 +1,40 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,cv1800-top-syscon.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo CV1800/SG2000 SoC top system controller
+> +
+> +maintainers:
+> +  - Inochi Amaoto <inochiama@outlook.com>
+> +
+> +description:
+> +  The Sophgo CV1800/SG2000 SoC top misc system controller provides
+> +  register access to configure related modules.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: sophgo,cv1800-top-syscon
+> +      - const: syscon
+> +      - const: simple-mfd
 
-That's true, but I chose it intentionally because Interrupt Message
-Store (IMS) is a (PCI) device specific way to store the message contrary
-to PCI/MSI[-X] which has standardized storage.
+You have to define child nodes to be a simple-mfd.
 
-So my thought was that this exactly reflects what the platform device
-requires: device specific message store, aka DMS or DSMS :)
+You could drop it, but I now suspect your binding is incomplete.
 
-> But hey, I don't have much skin in this game, and I can probably
-> mentally rotate the acronym...
-
-I have no strong opinion about it though.
-
-Thanks,
-
-        tglx
+Rob
 
 _______________________________________________
 linux-riscv mailing list
