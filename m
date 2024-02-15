@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2EDC4829E
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 11:27:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F05C4829E
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 11:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0NLcMaXToIFos/appxu9wgfKtMMtGmM4xj/6aEsI4p0=; b=KPOH+brpNm+XMQ
-	qistWsyYP+PlTejdMtt8JQk0YVYpXkxppI2rfkBZc47dtAk5HMUX7wBEKp+76Mm4XVIO+3lisaQkq
-	pB75obTcXK9vlJf2sMRVLUAvlKTic8qToDmPERW7hFwQe+5hHI6+lidQUE6uVgmiZhi7IjGgkCgjP
-	IhojGI9gKcf/x/BJKcCsR4BRq3ORvc3chmrC4GyE4w13wDMG5AvL9/K9Y7lsksYUN2C9dieLwT1Bi
-	fHqoHdihfguHnzN8H+ff6tg6GN4peByy/UP9uQ5mMUzKUMnHnuJZn3WlM7FSTW82QE8sA6kBJFS4N
-	IQAUE8XUX5w3t/MT3Bbg==;
+	List-Owner; bh=vwNZJghrursyoaFazbtMuKQhVUIZ11qsqiaPzG63Ts0=; b=iykD1sH55UGIxk
+	rQTkhaozXZl+N8S1Wgokj3v7QdURR9DCEM5vZcjbM5vC3zJWH2vJq0GlDwMhB/ePAR681+axTGfcf
+	tURT2ksV3p2XMFDS6OxcU1zKDNrBuh98fc2PrQbAbsiCVKBOrsC7NUQqGQ9s9IVKYTtz/goD32UeN
+	VxbG3Eht7wxFyx+EBJ+uC6lvfog1CFMJ1FWrKUDi34VHbnIMXVsIDhs4gfIBFNvrjwyAiemocIFZU
+	YUXqXg0W2FOq+OEhu7ikuyaGfG37quu4wqWbhKutpHbdgBnmn+FnShe7ZHm6xkM0Lx7ONcrtaTeEF
+	acbW1arOsMIq3TZ58l4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raZtq-0000000G25n-0dEn;
-	Thu, 15 Feb 2024 11:27:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raZtn-0000000G24u-32KT
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Feb 2024 11:27:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 121CF1516;
-	Thu, 15 Feb 2024 03:28:07 -0800 (PST)
-Received: from bogus (unknown [10.163.74.245])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9CDD43F7B4;
-	Thu, 15 Feb 2024 03:27:20 -0800 (PST)
-Date: Thu, 15 Feb 2024 11:27:19 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Sunil V L <sunilvl@ventanamicro.com>, linux-riscv@lists.infradead.org,
-	Pierre Gondois <pierre.gondois@arm.com>
-Cc: linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>, Len Brown <lenb@kernel.org>
-Subject: Re: [PATCH v1 -next 0/3] RISC-V: ACPI: Enable CPPC based cpufreq
- support
-Message-ID: <20240215112719.ciq7nrh6tr2ksr5j@bogus>
-References: <20240208034414.22579-1-sunilvl@ventanamicro.com>
- <72ef475f-513b-4e33-ae85-f7e693a0cd38@arm.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <72ef475f-513b-4e33-ae85-f7e693a0cd38@arm.com>
+	id 1raaDd-0000000G6ta-37C6;
+	Thu, 15 Feb 2024 11:47:57 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1raaDY-0000000G6rF-3ufj;
+	Thu, 15 Feb 2024 11:47:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 2B352CE25D1;
+	Thu, 15 Feb 2024 11:47:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DA8CC43390;
+	Thu, 15 Feb 2024 11:47:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1707997670;
+	bh=IvhtK4NnjopFMtWUJDl89y51jh2nXTnQDnXwhvzRRts=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=EPYNgNP3iDA5jyXFdr3i5AMJjnDbD2fVqsKizWPxyDdTn41VHa7W4ym6b6zPcrQWG
+	 oeP0yUCaD5B8i2jNYmqDc8VHWFS+329nYZx1r5K4ra4UPVoMgGNkzlVQhYZXYB2rj0
+	 6zlVKmy9RhJ4oHnYCOKodqr2AC46XNiH31ZUSOg8MJKjqdTucUO4yj2cN+eER4Rgrm
+	 QUfAqlw/07CiLojlOv+KR61lV5iTczboDOuvNQbfoXvRk4dngMIKQAcSLevJQOYNak
+	 mlUhgcuJ3gtQ3Ek0C0WZ8GiAQsa4va0/1NsZzcfteoRrapSMt3UDh65s1BjC++VyWU
+	 K0YwJRlhRhIUQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1raaDT-003Tve-Iq;
+	Thu, 15 Feb 2024 11:47:47 +0000
+Date: Thu, 15 Feb 2024 11:47:46 +0000
+Message-ID: <86plwy3q59.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH v12 01/25] irqchip/gic-v3: Make gic_irq_domain_select() robust for zero parameter count
+In-Reply-To: <20240127161753.114685-2-apatel@ventanamicro.com>
+References: <20240127161753.114685-1-apatel@ventanamicro.com>
+	<20240127161753.114685-2-apatel@ventanamicro.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, frowand.list@gmail.com, conor+dt@kernel.org, bjorn@kernel.org, atishp@atishpatra.org, ajones@ventanamicro.com, sunilvl@ventanamicro.com, saravanak@google.com, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240215_032727_825793_41488059 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20240215_034753_355810_EF68BD38 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,48 +77,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 09, 2024 at 12:11:11PM +0100, Pierre Gondois wrote:
-> The code looks good to me, so FWIW:
-> Reviewed-by: Pierre Gondois <pierre.gondois@arm.com>
+On Sat, 27 Jan 2024 16:17:29 +0000,
+Anup Patel <apatel@ventanamicro.com> wrote:
 > 
-> +Sudeep as this touches cppc/arm in case he didn't see the patches
->
+> From: Thomas Gleixner <tglx@linutronix.de>
+> 
+> Currently the irqdomain select callback is only invoked when the parameter
+> count of the fwspec arguments is not zero. That makes sense because then
+> the match is on the firmware node and eventually on the bus_token, which is
+> already handled in the core code.
+> 
+> The upcoming support for per device MSI domains requires to do real bus
+> token specific checks in the MSI parent domains with a zero parameter
+> count.
+> 
+> Make the gic-v3 select() callback handle that case.
+> 
+> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Marc Zyngier <maz@kernel.org>
 
-Thanks!
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-> On 2/8/24 04:44, Sunil V L wrote:
-> > This series enables the support for "Collaborative Processor Performance
-> > Control (CPPC) on ACPI based RISC-V platforms. It depends on the
-> > encoding of CPPC registers as defined in RISC-V FFH spec [2].
-> > 
-> > CPPC is described in the ACPI spec [1]. RISC-V FFH spec required to
-> > enable this, is available at [2].
-> > 
-> > [1] - https://uefi.org/specs/ACPI/6.5/08_Processor_Configuration_and_Control.html#collaborative-processor-performance-control
-> > [2] - https://github.com/riscv-non-isa/riscv-acpi-ffh/releases/download/v1.0.0/riscv-ffh.pdf
-> > 
-> > The series is based on the LPI support series.
-> > Based-on: 20240118062930.245937-1-sunilvl@ventanamicro.com
-> > (https://lore.kernel.org/lkml/20240118062930.245937-1-sunilvl@ventanamicro.com/)
-> > 
-> > Sunil V L (3):
-> >    ACPI: RISC-V: Add CPPC driver
-> >    cpufreq: Move CPPC configs to common Kconfig and add RISC-V
-> >    RISC-V: defconfig: Enable CONFIG_ACPI_CPPC_CPUFREQ
-> >
+	M.
 
-Looks good to me.
-
-Acked-by: Sudeep Holla <sudeep.holla@arm.com>
-
---
-Regards,
-Sudeep
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
