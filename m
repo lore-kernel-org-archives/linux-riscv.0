@@ -4,87 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB769C48BC4
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 17:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB756C48BC4
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 18:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=4RrG6tzRaxPGrEQAzZf8MQUT0qKRC66L84yzcfOmQiw=; b=lQajYXXdfHwja4VLTJsefpNB9s
-	wEY6L7chWJ0f7/1asw6frefxAa0Nb0x0H8ViExtHEw1hj8IWYph7VSj1OWJ1hQHl+680bHsgp591x
-	xkRTWeWEpjh9a1PRilMHimWn136INpw1DwH+VLn0kpnR3gtxusJszTyCdDWETCch22pMF0orMyvmo
-	myp+S9EpxGYk8hqV9jftWHpaVkD6W32HLudlBhVSbx2Rbu4k9mYvgRM79lTncYubL+XAqJfLtwQzi
-	DoONL1jcSrZ4OTcKp4SISSZJJsMcsl+UlWOUP5/he0KNG8lIsZuMnXxrn9zMCAKGAahRB7X5gwtgc
-	CkduCDVg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mqohIx1Iw4mxVukgMsple+ySiIuIVS+J5szoWxzak2s=; b=Dr/D71jP7Q5GvdxEr8+i5jh0Ga
+	HLoMcW6uzdAvvTq4/YCvjceEzpgT4sSqzA0/qavnHQ748jccCQ0A1oOVdz1Ztl8Q2hLCbZVIyEecg
+	RE24MHKH/UhbYG5CHetbuP6iOd629SKnw+9s53o0EnReSlQDv8bcoJVHlukJBoaUNb0NI0Z4tBl8N
+	ljif4aZFcBGwqVKfo+n6oXReXpx6cA04uBqsYyjr5CnuafZaC1ZAd9Zya6CkmWsqT/vhCKbS5awOs
+	1d2I9P7KzbMx900I7jl23vdAET9dVHItasg6+bHVCOrM0p9FTm5HEq2jdFpz5KHdRKto/4K9xoOVc
+	mrLQ8Hgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rafki-0000000HDju-1uXf;
-	Thu, 15 Feb 2024 17:42:28 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1rag6F-0000000HIKw-2Y6B;
+	Thu, 15 Feb 2024 18:04:43 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rafkf-0000000HDiR-20R3
+	id 1raaDi-0000000G6xk-2lAD
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Feb 2024 17:42:27 +0000
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 6940B3F186
-	for <linux-riscv@lists.infradead.org>; Thu, 15 Feb 2024 17:42:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1708018940;
-	bh=itMxjOpdbsY2nONIH8lkAcrbbGF1rBZB+VhIXId8/HU=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=l2ZeqQwAAocrpHWBeZTTAgqajoTEdOPTF7QeKr3Y2Qux6fbns32zR8WOPPO5kiOdh
-	 mF9bf3ejJ/WW6xjX+BsQZqz0/BtHHJfvgGSCyKpZCwVnJ9ag1ETh0MRFXrbvNZSVoY
-	 f0TOeu9Fta5q5PjB4eP+8Ihz1V33P6lK7JwSFNUdiEIg0AEbBRereDkkKM1wUSfwGC
-	 dLI38AHa+VBwkIvQJfvk6VY8s8WxOCt+MPHtiD9ip4U+h4FU51Qf1lUcOMeQMoQLoF
-	 aGWTm7rm0OTOUK861PBfuilC6+5JShnhhhLeVmRf3jPAL6kQcsjUnhSA/b6TBwUQOJ
-	 QpITTinWrQp1w==
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-3c02a63d499so2074442b6e.3
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Feb 2024 09:42:20 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708018939; x=1708623739;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=itMxjOpdbsY2nONIH8lkAcrbbGF1rBZB+VhIXId8/HU=;
-        b=qgzosHbXyAuqG9mL6pbdxhOKuE4MVosFaOww68oGMytQglHoGCOpyrPufKhpUWQ06a
-         uHrgyHWZsCuaZs57CPVEUH0PP/fRkBQUDCOyUqujxic+T4seQXBLaHLBvkPeE2Obq9aD
-         AG0le86qKQWM9ca0yLXrNxT2lrpBW8RoGpKUUnrfhUIWQkGlFrcIo60DzDXLEV59iZf+
-         6p1IC/8oOGvD/zY1ki03iErUghSh0cMPL/VwAcbnww7gceebMkjigDGOdU2RXWUqqB4n
-         YfA8mXjBauc6yj0n9RY3mfVOSqQXO0YDpBz9r1oaSHibibsIzQo0IIa+4PsnxIASnGG3
-         MTMA==
-X-Gm-Message-State: AOJu0YxKPPRcXHNECwgnSXzeUWkp2qknd7yNZZd3MrKsCuSyAMxoGM/I
-	xOZ2QnVT1Njh14RuZyh5AKYfPCUHzXaGCFmxhdV8yge/gVJ6CMI+zgVc/OUBjjF9s9Zc1XkL8ik
-	kXX6IuoTfvMoQIHYQitYDhWN6dV1QzVJ3akoIImfapd0Ysp2u6Vt1lBnyl+VO2qt+az6Aitu5hp
-	r2VU+kk7LRvGL2VM1hiQsl/ByiEIvHjxwx/tu/UV/YjUOCvQGV+HvVRipv
-X-Received: by 2002:aca:280f:0:b0:3c0:2fd9:5158 with SMTP id 15-20020aca280f000000b003c02fd95158mr2329568oix.49.1708018939361;
-        Thu, 15 Feb 2024 09:42:19 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHU08R5xI0RL8D+bUo0EqTVGH61HjNxSmKOBg31rT3nGy17WIRkBGvEBXjSjDG3faSm+XLyqVOiwzTPAZ1EUzc=
-X-Received: by 2002:aca:280f:0:b0:3c0:2fd9:5158 with SMTP id
- 15-20020aca280f000000b003c02fd95158mr2329556oix.49.1708018939131; Thu, 15 Feb
- 2024 09:42:19 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 Feb 2024 09:42:18 -0800
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <e541754cd564253b2da9efa952479c75bb7fd2d6.1708003477.git.geert+renesas@glider.be>
-References: <e541754cd564253b2da9efa952479c75bb7fd2d6.1708003477.git.geert+renesas@glider.be>
-Mime-Version: 1.0
-Date: Thu, 15 Feb 2024 09:42:18 -0800
-Message-ID: <CAJM55Z92hpGq2f=CsR6CbDh_OzVO7KcvbouyGXxYgn=hNT_nmg@mail.gmail.com>
-Subject: Re: [PATCH resend] riscv: misaligned: Grammar s/disable/disabled/
-To: Geert Uytterhoeven <geert+renesas@glider.be>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	=?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	Thu, 15 Feb 2024 11:48:04 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1raaCf-0007ES-Uk; Thu, 15 Feb 2024 12:46:57 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1raaCW-000sHg-HB; Thu, 15 Feb 2024 12:46:48 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1raaCW-005KD7-12;
+	Thu, 15 Feb 2024 12:46:48 +0100
+Date: Thu, 15 Feb 2024 12:46:48 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: linux-pwm@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>, James Clark <james.clark@arm.com>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mark Brown <broonie@kernel.org>, 
+	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+	Alexander Shiyan <shc_work@mail.ru>, Benson Leung <bleung@chromium.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Paul Cercueil <paul@crapouillou.net>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, 
+	Andy Shevchenko <andy@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Hans de Goede <hdegoede@redhat.com>, Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+	Heiko Stuebner <heiko@sntech.de>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Michael Walle <mwalle@kernel.org>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Hammer Hsieh <hammerh0314@gmail.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>, 
+	Sean Anderson <sean.anderson@seco.com>, Michal Simek <michal.simek@amd.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Robert Foss <rfoss@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, Pavel Machek <pavel@ucw.cz>, 
+	Lee Jones <lee@kernel.org>, Anjelique Melendez <quic_amelende@quicinc.com>, 
+	Bjorn Andersson <quic_bjorande@quicinc.com>, Kees Cook <keescook@chromium.org>, Rob Herring <robh@kernel.org>, 
+	Johan Hovold <johan@kernel.org>, Alex Elder <elder@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Douglas Anderson <dianders@chromium.org>, linux-doc@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, platform-driver-x86@vger.kernel.org, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Guenter Roeck <groeck@chromium.org>, linux-riscv@lists.infradead.org, 
+	Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Jerome Brunet <jbrunet@baylibre.com>, 
+	chrome-platform@lists.linux.dev, linux-samsung-soc@vger.kernel.org, linux-staging@lists.linux.dev, 
+	linux-rockchip@lists.infradead.org, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, NXP Linux Team <linux-imx@nxp.com>, linux-leds@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, Jonas Karlman <jonas@kwiboo.se>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-gpio@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-tegra@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, greybus-dev@lists.linaro.org, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-mips@vger.kernel.org, asahi@lists.linux.dev, 
+	kernel@pengutronix.de, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v6 000/164] pwm: Improve lifetime tracking for pwm_chips
+Message-ID: <frrn4vofjuskb67rxrgnwqrsqioonglp7nidoueumgw2hemhxq@6hrsnivgobuw>
+References: <cover.1707900770.git.u.kleine-koenig@pengutronix.de>
+MIME-Version: 1.0
+In-Reply-To: <cover.1707900770.git.u.kleine-koenig@pengutronix.de>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240215_094225_795872_C4D95D09 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20240215_034802_877332_1C19195C 
+X-CRM114-Status: GOOD (  27.60  )
+X-Mailman-Approved-At: Thu, 15 Feb 2024 10:04:25 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,46 +117,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6218942977611674069=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Geert Uytterhoeven wrote:
-> Fix a wrong conjugation of "disabled".
->
-> Fixes: 7c83232161f609bb ("riscv: add support for misaligned trap handling in S-mode")
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+--===============6218942977611674069==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="t4o747itgdnx5oup"
+Content-Disposition: inline
 
-> ---
->  arch/riscv/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index b49016bb5077b860..84b8200f7a625b07 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -706,7 +706,7 @@ config RISCV_MISALIGNED
->  	default y
->  	help
->  	  Say Y here if you want the kernel to embed support for misaligned
-> -	  load/store for both kernel and userspace. When disable, misaligned
-> +	  load/store for both kernel and userspace. When disabled, misaligned
->  	  accesses will generate SIGBUS in userspace and panic in kernel.
->
->  config RISCV_EFFICIENT_UNALIGNED_ACCESS
-> --
-> 2.34.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--t4o747itgdnx5oup
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+On Wed, Feb 14, 2024 at 10:30:47AM +0100, Uwe Kleine-K=F6nig wrote:
+> this is v6 of the series introducing better lifetime tracking for
+> pwmchips that addresses (for now theoretic) lifetime issues of pwm
+> chips. Addressing these is a necessary precondition to introduce chardev
+> support for PWMs.
+>=20
+> Locking got more complicated due to non-sleeping chips, so I dropped
+> the character device patch because it got still more incomplete now.
+> Also I'm not yet entirely sure about patches #162 and #163 and I expect
+> them to change before they can go in. My plan for the next merge window
+> is to get the patches in up to #160. After that the addition of chardev
+> support (including correct locking) can continue without having to touch
+> the lowlevel driver. So the idea of this series is to get the driver
+> adaptions out of the way as this requires some cross-tree coordination.
+>=20
+> The patches that touch files outside of drivers/pwm include:
+>=20
+>  - gpio: mvebu: Make use of devm_pwmchip_alloc() function
+>    It already has an Ack by Linus Walleij.
+>=20
+>  - drm/bridge: ti-sn65dsi86: Make use of pwmchip_parent() accessor
+>  - drm/bridge: ti-sn65dsi86: Make use of devm_pwmchip_alloc() function
+>    The 2nd already has an Ack by Douglas Anderson which I tend to assume
+>    good enough to merge this via my pwm tree, too. An Ack for the first
+>    patch would be nice.
+>=20
+>  - leds: qcom-lpg: Make use of devm_pwmchip_alloc() function
+>    Already has an Ack by Lee Jones.
+>=20
+>  - staging: greybus: pwm: Change prototype of helpers to prepare further =
+changes
+>  - staging: greybus: pwm: Make use of pwmchip_parent() accessor
+>  - staging: greybus: pwm: Rely on pwm framework to pass a valid hwpwm
+>  - staging: greybus: pwm: Drop unused gb_connection_set_data()
+>  - staging: greybus: pwm: Rework how the number of PWM lines is determined
+>  - staging: greybus: pwm: Make use of devm_pwmchip_alloc() function
+>    The greybus patches already got an Ack by Greg Kroah-Hartman in an
+>    earlier series, but I dropped it as the patches changed considerably.
+
+After getting the needed acks, I pushed out this series in
+
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+
+up to patch #161.
+
+(But don't let you stop looking at the changes, reviews are still
+welcome.)
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--t4o747itgdnx5oup
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmXN+acACgkQj4D7WH0S
+/k6nrwf9Huw1P/RTRggrOHnHFRGpBXi+TWvCPbsOC65CPiHeI7iVxtq/vUtQ4A6L
+CNA0O2W96568TwCEnxxCI6Be+7t8/H/Xb+oTs0yb6hblYkDhxYrXz+wAtoCTWOM8
+MI6xhfufB/JvOhgeX0iVMIx/TOc7gDY0wnFCS7bE15PPxMTjb1yF9Uo3az97CIld
+AF8InyaA81p8dcTlhmHzMa59LEFqoPzmNoySKqTIII7UuHmQRXOqV1RuEmKxN9Ho
+yRvisZgaqoinb8K7tXdw6G8HErBcN1aHM4OQBkZWI0ufVRNzQ8gT1sfoaRlsilOv
+yc/xo9Wl8bLPEKrjcpb9Hv/C+LgzyQ==
+=hkRd
+-----END PGP SIGNATURE-----
+
+--t4o747itgdnx5oup--
+
+
+--===============6218942977611674069==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6218942977611674069==--
+
