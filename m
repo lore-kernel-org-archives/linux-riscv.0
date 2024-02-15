@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A20FC4829E
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 05:27:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 411D0C4829E
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 05:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BN3D04iBvkZVtQzbyhRBBH9O1/UYSvM1RwMwZUTRiRA=; b=oBltj0xB1YMl4f
-	wyGp4gIlPEKXJEZrnOF9s88fPLUp0AkGZJ8h7I+HkVeI9UOZKTAWV6fPE/srxokEqHkj+WM7xQnQH
-	6O7h8HzeOrF4IMn3pOOZdypepCnH1kI5DllMJ9QKXpoDwZcnqjsFH/gLgWlRfTQSz8nDPffMb2zRP
-	vUVDpKWoe2yvgjTd43q/e68NqTHcLfXG5Y+fDnkOafQIzDyZMcRZ4XcfR6o6BNBXQWqSdSJw+crTV
-	wn7GxiPSuRErxavvGKIVqgxvI5Q2DSqMeCOMhB2CUZZkkDRWNXnbfRRht295d/y5GzgaESZi5LcMR
-	XGdbRnUUdSGQmDdzHpUQ==;
+	List-Owner; bh=ZmSwDWAl5/5rulQXWKZJAgMYX+RrzEi1/PZQgUy3pYQ=; b=OZ8j4aefrRFNGf
+	2AD+T9cX/RPJbqN8NlTRNdfyfCjy27RT7s1yQ0s+9RF58kBF6RLztESK0kAI6RoWE9Z/MJUVCTtHb
+	3MCVYNJ3kmZb90zRPSPktRmEkERS2RfvpMfhHqkqQg1NqhKQL2lNT28sORJudpUMWAfNT3QjB9ryh
+	HCOyfniweYDXEWA2CW988Jc4cu0oZP+v9Afro6nxSo2+GMVNEXAPt5d2a9uSYW05PlaPUjY671d95
+	lNNeEPOPVqz016IGOClzl6l78dP0dsqM33sF1pCM6btjytg9zJsEBiWAvw9O8Gt+OlFtQkC4Po9j2
+	tgA614FrNNsejshWFwhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raUHC-0000000F1jY-0sGw;
-	Thu, 15 Feb 2024 05:27:14 +0000
-Received: from out-175.mta1.migadu.com ([95.215.58.175])
+	id 1raUJe-0000000F2U2-1yYy;
+	Thu, 15 Feb 2024 05:29:46 +0000
+Received: from out-187.mta1.migadu.com ([2001:41d0:203:375::bb])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raUH8-0000000F1fr-1B1s
+	id 1raUJb-0000000F2Sn-1GzZ
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Feb 2024 05:27:12 +0000
-Date: Thu, 15 Feb 2024 14:26:50 +0900
+	Thu, 15 Feb 2024 05:29:44 +0000
+Date: Thu, 15 Feb 2024 14:29:28 +0900
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1707974823;
+	t=1707974980;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=FvPObSsaIok6oQHL9ZBe2c4DMn5WAmkQbL3JbetFFmY=;
-	b=qsDnFRPP2HA35Ho3RYm177Y5yuT1mCcE9EuUD9cIhMuCqhMSO8pDUvnUxShIrB5LYoxify
-	KR6bjMPZfeU4Y3POXtUOzFXp7+vDB0kr4msJpvPlCdq5cADj8cO2ZloTH9bs2u4Q4uOnyZ
-	33wVcIyqd8Kb6+IWfCgeLcTopvVoXyI=
+	bh=DJo0Z4lBIwPC8cwQYpRIOozyv+hDmIUKGggHbYocrU8=;
+	b=JMvt0zE8GQid/p0MkbZRVsrGi+W1t/zzYgVElcer9c55Q/gCxwMPmPwlihKR9pJE5PDW6a
+	3TReNnyec55HT7lqFR8vxrbuXYbBEtah7kNXvaRJcOH5q6IAqYdGrmnRZNi1baOoo8DGHb
+	bAuguauFjnb5bxQGCxF8X/D8yC0/wLM=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Itaru Kitayama <itaru.kitayama@linux.dev>
 To: Sean Christopherson <seanjc@google.com>
@@ -58,18 +58,18 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
 	Tom Lendacky <thomas.lendacky@amd.com>,
 	Michael Roth <michael.roth@amd.com>,
 	Peter Gonda <pgonda@google.com>
-Subject: Re: [PATCH v8 04/10] KVM: selftests: Add support for
- allocating/managing protected guest memory
-Message-ID: <Zc2gmlr2zgK690nu@vm3>
+Subject: Re: [PATCH v8 05/10] KVM: selftests: Add support for protected
+ vm_vaddr_* allocations
+Message-ID: <Zc2hOL1y+GIMaMux@vm3>
 References: <20240203000917.376631-1-seanjc@google.com>
- <20240203000917.376631-5-seanjc@google.com>
+ <20240203000917.376631-6-seanjc@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240203000917.376631-5-seanjc@google.com>
+In-Reply-To: <20240203000917.376631-6-seanjc@google.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240214_212710_910811_8633629F 
-X-CRM114-Status: GOOD (  25.70  )
+X-CRM114-CacheID: sfid-20240214_212943_636982_E3613560 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,163 +86,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 02, 2024 at 04:09:10PM -0800, Sean Christopherson wrote:
-> From: Peter Gonda <pgonda@google.com>
+On Fri, Feb 02, 2024 at 04:09:11PM -0800, Sean Christopherson wrote:
+> From: Michael Roth <michael.roth@amd.com>
 > 
-> Add support for differentiating between protected (a.k.a. private, a.k.a.
-> encrypted) memory and normal (a.k.a. shared) memory for VMs that support
-> protected guest memory, e.g. x86's SEV.  Provide and manage a common
-> bitmap for tracking whether a given physical page resides in protected
-> memory, as support for protected memory isn't x86 specific, i.e. adding a
-> arch hook would be a net negative now, and in the future.
+> Test programs may wish to allocate shared vaddrs for things like
+> sharing memory with the guest. Since protected vms will have their
+> memory encrypted by default an interface is needed to explicitly
+> request shared pages.
+> 
+> Implement this by splitting the common code out from vm_vaddr_alloc()
+> and introducing a new vm_vaddr_alloc_shared().
 > 
 > Cc: Paolo Bonzini <pbonzini@redhat.com>
 > Cc: Sean Christopherson <seanjc@google.com>
 > Cc: Vishal Annapurve <vannapurve@google.com>
-> Cc: Ackerley Tng <ackerleytng@google.com>
+> Cc: Ackerly Tng <ackerleytng@google.com>
 > cc: Andrew Jones <andrew.jones@linux.dev>
 > Cc: Tom Lendacky <thomas.lendacky@amd.com>
 > Cc: Michael Roth <michael.roth@amd.com>
-> Originally-by: Michael Roth <michael.roth@amd.com>
+> Signed-off-by: Michael Roth <michael.roth@amd.com>
 > Signed-off-by: Peter Gonda <pgonda@google.com>
-> Co-developed-by: Sean Christopherson <seanjc@google.com>
 > Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  .../selftests/kvm/include/kvm_util_base.h     | 25 +++++++++++++++++--
->  tools/testing/selftests/kvm/lib/kvm_util.c    | 22 +++++++++++++---
->  2 files changed, 41 insertions(+), 6 deletions(-)
+>  .../selftests/kvm/include/kvm_util_base.h     |  3 +++
+>  tools/testing/selftests/kvm/lib/kvm_util.c    | 26 +++++++++++++++----
+>  2 files changed, 24 insertions(+), 5 deletions(-)
 > 
 > diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
-> index d9dc31af2f96..a82149305349 100644
+> index a82149305349..cb3159af6db3 100644
 > --- a/tools/testing/selftests/kvm/include/kvm_util_base.h
 > +++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
-> @@ -46,6 +46,7 @@ typedef uint64_t vm_vaddr_t; /* Virtual Machine (Guest) virtual address */
->  struct userspace_mem_region {
->  	struct kvm_userspace_memory_region2 region;
->  	struct sparsebit *unused_phy_pages;
-> +	struct sparsebit *protected_phy_pages;
->  	int fd;
->  	off_t offset;
->  	enum vm_mem_backing_src_type backing_src_type;
-> @@ -573,6 +574,13 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
->  		uint64_t guest_paddr, uint32_t slot, uint64_t npages,
->  		uint32_t flags, int guest_memfd_fd, uint64_t guest_memfd_offset);
+> @@ -590,6 +590,9 @@ vm_vaddr_t vm_vaddr_unused_gap(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_mi
+>  vm_vaddr_t vm_vaddr_alloc(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_min);
+>  vm_vaddr_t __vm_vaddr_alloc(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_min,
+>  			    enum kvm_mem_region_type type);
+> +vm_vaddr_t vm_vaddr_alloc_shared(struct kvm_vm *vm, size_t sz,
+> +				 vm_vaddr_t vaddr_min,
+> +				 enum kvm_mem_region_type type);
+>  vm_vaddr_t vm_vaddr_alloc_pages(struct kvm_vm *vm, int nr_pages);
+>  vm_vaddr_t __vm_vaddr_alloc_page(struct kvm_vm *vm,
+>  				 enum kvm_mem_region_type type);
+> diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+> index ea677aa019ef..e7f4f84f2e68 100644
+> --- a/tools/testing/selftests/kvm/lib/kvm_util.c
+> +++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+> @@ -1431,15 +1431,17 @@ vm_vaddr_t vm_vaddr_unused_gap(struct kvm_vm *vm, size_t sz,
+>  	return pgidx_start * vm->page_size;
+>  }
 >  
-> +#ifndef vm_arch_has_protected_memory
-> +static inline bool vm_arch_has_protected_memory(struct kvm_vm *vm)
+> -vm_vaddr_t __vm_vaddr_alloc(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_min,
+> -			    enum kvm_mem_region_type type)
+> +static vm_vaddr_t ____vm_vaddr_alloc(struct kvm_vm *vm, size_t sz,
+> +				     vm_vaddr_t vaddr_min,
+> +				     enum kvm_mem_region_type type,
+> +				     bool protected)
+>  {
+>  	uint64_t pages = (sz >> vm->page_shift) + ((sz % vm->page_size) != 0);
+>  
+>  	virt_pgd_alloc(vm);
+> -	vm_paddr_t paddr = vm_phy_pages_alloc(vm, pages,
+> -					      KVM_UTIL_MIN_PFN * vm->page_size,
+> -					      vm->memslots[type]);
+> +	vm_paddr_t paddr = __vm_phy_pages_alloc(vm, pages,
+> +						KVM_UTIL_MIN_PFN * vm->page_size,
+> +						vm->memslots[type], protected);
+>  
+>  	/*
+>  	 * Find an unused range of virtual page addresses of at least
+> @@ -1459,6 +1461,20 @@ vm_vaddr_t __vm_vaddr_alloc(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_min,
+>  	return vaddr_start;
+>  }
+>  
+> +vm_vaddr_t __vm_vaddr_alloc(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_min,
+> +			    enum kvm_mem_region_type type)
 > +{
-> +	return false;
+> +	return ____vm_vaddr_alloc(vm, sz, vaddr_min, type,
+> +				  vm_arch_has_protected_memory(vm));
 > +}
-> +#endif
 > +
->  void vm_mem_region_set_flags(struct kvm_vm *vm, uint32_t slot, uint32_t flags);
->  void vm_mem_region_move(struct kvm_vm *vm, uint32_t slot, uint64_t new_gpa);
->  void vm_mem_region_delete(struct kvm_vm *vm, uint32_t slot);
-> @@ -836,10 +844,23 @@ const char *exit_reason_str(unsigned int exit_reason);
->  
->  vm_paddr_t vm_phy_page_alloc(struct kvm_vm *vm, vm_paddr_t paddr_min,
->  			     uint32_t memslot);
-> -vm_paddr_t vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
-> -			      vm_paddr_t paddr_min, uint32_t memslot);
-> +vm_paddr_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
-> +				vm_paddr_t paddr_min, uint32_t memslot,
-> +				bool protected);
->  vm_paddr_t vm_alloc_page_table(struct kvm_vm *vm);
->  
-> +static inline vm_paddr_t vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
-> +					    vm_paddr_t paddr_min, uint32_t memslot)
+> +vm_vaddr_t vm_vaddr_alloc_shared(struct kvm_vm *vm, size_t sz,
+> +				 vm_vaddr_t vaddr_min,
+> +				 enum kvm_mem_region_type type)
 > +{
-> +	/*
-> +	 * By default, allocate memory as protected for VMs that support
-> +	 * protected memory, as the majority of memory for such VMs is
-> +	 * protected, i.e. using shared memory is effectively opt-in.
-> +	 */
-> +	return __vm_phy_pages_alloc(vm, num, paddr_min, memslot,
-> +				    vm_arch_has_protected_memory(vm));
+> +	return ____vm_vaddr_alloc(vm, sz, vaddr_min, type, false);
 > +}
 > +
 >  /*
->   * ____vm_create() does KVM_CREATE_VM and little else.  __vm_create() also
->   * loads the test binary into guest memory and creates an IRQ chip (x86 only).
-> diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-> index a53caf81eb87..ea677aa019ef 100644
-> --- a/tools/testing/selftests/kvm/lib/kvm_util.c
-> +++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-> @@ -717,6 +717,7 @@ static void __vm_mem_region_delete(struct kvm_vm *vm,
->  	vm_ioctl(vm, KVM_SET_USER_MEMORY_REGION2, &region->region);
->  
->  	sparsebit_free(&region->unused_phy_pages);
-> +	sparsebit_free(&region->protected_phy_pages);
->  	ret = munmap(region->mmap_start, region->mmap_size);
->  	TEST_ASSERT(!ret, __KVM_SYSCALL_ERROR("munmap()", ret));
->  	if (region->fd >= 0) {
-> @@ -1098,6 +1099,8 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
->  	}
->  
->  	region->unused_phy_pages = sparsebit_alloc();
-> +	if (vm_arch_has_protected_memory(vm))
-> +		region->protected_phy_pages = sparsebit_alloc();
->  	sparsebit_set_num(region->unused_phy_pages,
->  		guest_paddr >> vm->page_shift, npages);
->  	region->region.slot = slot;
-> @@ -1924,6 +1927,10 @@ void vm_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
->  			region->host_mem);
->  		fprintf(stream, "%*sunused_phy_pages: ", indent + 2, "");
->  		sparsebit_dump(stream, region->unused_phy_pages, 0);
-> +		if (region->protected_phy_pages) {
-> +			fprintf(stream, "%*sprotected_phy_pages: ", indent + 2, "");
-> +			sparsebit_dump(stream, region->protected_phy_pages, 0);
-> +		}
->  	}
->  	fprintf(stream, "%*sMapped Virtual Pages:\n", indent, "");
->  	sparsebit_dump(stream, vm->vpages_mapped, indent + 2);
-> @@ -2025,6 +2032,7 @@ const char *exit_reason_str(unsigned int exit_reason)
->   *   num - number of pages
->   *   paddr_min - Physical address minimum
->   *   memslot - Memory region to allocate page from
-> + *   protected - True if the pages will be used as protected/private memory
+>   * VM Virtual Address Allocate
 >   *
->   * Output Args: None
->   *
-> @@ -2036,8 +2044,9 @@ const char *exit_reason_str(unsigned int exit_reason)
->   * and their base address is returned. A TEST_ASSERT failure occurs if
->   * not enough pages are available at or above paddr_min.
->   */
-> -vm_paddr_t vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
-> -			      vm_paddr_t paddr_min, uint32_t memslot)
-> +vm_paddr_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
-> +				vm_paddr_t paddr_min, uint32_t memslot,
-> +				bool protected)
->  {
->  	struct userspace_mem_region *region;
->  	sparsebit_idx_t pg, base;
-> @@ -2050,8 +2059,10 @@ vm_paddr_t vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
->  		paddr_min, vm->page_size);
->  
->  	region = memslot2region(vm, memslot);
-> +	TEST_ASSERT(!protected || region->protected_phy_pages,
-> +		    "Region doesn't support protected memory");
-> +
->  	base = pg = paddr_min >> vm->page_shift;
-> -
->  	do {
->  		for (; pg < base + num; ++pg) {
->  			if (!sparsebit_is_set(region->unused_phy_pages, pg)) {
-> @@ -2070,8 +2081,11 @@ vm_paddr_t vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
->  		abort();
->  	}
->  
-> -	for (pg = base; pg < base + num; ++pg)
-> +	for (pg = base; pg < base + num; ++pg) {
->  		sparsebit_clear(region->unused_phy_pages, pg);
-> +		if (protected)
-> +			sparsebit_set(region->protected_phy_pages, pg);
-> +	}
->  
->  	return base * vm->page_size;
->  }
-
-Reviewed-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Reviewied-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
 
 > -- 
 > 2.43.0.594.gd9cf4e227d-goog
