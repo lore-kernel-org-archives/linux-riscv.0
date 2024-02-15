@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 411D0C4829E
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 05:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 778E8C4829E
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 05:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZmSwDWAl5/5rulQXWKZJAgMYX+RrzEi1/PZQgUy3pYQ=; b=OZ8j4aefrRFNGf
-	2AD+T9cX/RPJbqN8NlTRNdfyfCjy27RT7s1yQ0s+9RF58kBF6RLztESK0kAI6RoWE9Z/MJUVCTtHb
-	3MCVYNJ3kmZb90zRPSPktRmEkERS2RfvpMfhHqkqQg1NqhKQL2lNT28sORJudpUMWAfNT3QjB9ryh
-	HCOyfniweYDXEWA2CW988Jc4cu0oZP+v9Afro6nxSo2+GMVNEXAPt5d2a9uSYW05PlaPUjY671d95
-	lNNeEPOPVqz016IGOClzl6l78dP0dsqM33sF1pCM6btjytg9zJsEBiWAvw9O8Gt+OlFtQkC4Po9j2
-	tgA614FrNNsejshWFwhg==;
+	List-Owner; bh=Edt41xFg/0mPSVdPgSBz9VI2WAoaZp8GRw2EMWiRN3s=; b=Mi4WhbuECOtvzO
+	thJ5ieBtevP3Bpyq16fEXDoJpWMGiiWzOAOlDYz9nInAXJmxTK5ST28kmIYkad39PfnZhbziI2Q9H
+	HPN0N9WEFFxNcCtAlNqZYayqE6PsjLLg61KVO2Q+Q7Rs0TswXk8SDVOntybcTQeyMpuFU6MjXKCHW
+	oruQfwRfra99aayhLNQjA+8VKk7mp5pPsUPGhV/U46s+1sr7IRiFg9FtRoSYjB36QpmYknfimIlx8
+	AGjczoXYh2gfKAoX8e4ChkoHTHCmFzMXsuK0PbX7oewydX9JMu+hUKa89ccMVKf+BxMDnh7UlUiJD
+	iimSRNV8XFRmnfGWIGvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raUJe-0000000F2U2-1yYy;
-	Thu, 15 Feb 2024 05:29:46 +0000
-Received: from out-187.mta1.migadu.com ([2001:41d0:203:375::bb])
+	id 1raUbo-0000000F3O9-3tc2;
+	Thu, 15 Feb 2024 05:48:32 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raUJb-0000000F2Sn-1GzZ
+	id 1raUbl-0000000F3NS-33HB
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Feb 2024 05:29:44 +0000
-Date: Thu, 15 Feb 2024 14:29:28 +0900
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1707974980;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DJo0Z4lBIwPC8cwQYpRIOozyv+hDmIUKGggHbYocrU8=;
-	b=JMvt0zE8GQid/p0MkbZRVsrGi+W1t/zzYgVElcer9c55Q/gCxwMPmPwlihKR9pJE5PDW6a
-	3TReNnyec55HT7lqFR8vxrbuXYbBEtah7kNXvaRJcOH5q6IAqYdGrmnRZNi1baOoo8DGHb
-	bAuguauFjnb5bxQGCxF8X/D8yC0/wLM=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Itaru Kitayama <itaru.kitayama@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Vishal Annapurve <vannapurve@google.com>,
-	Ackerley Tng <ackerleytng@google.com>,
-	Andrew Jones <andrew.jones@linux.dev>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Michael Roth <michael.roth@amd.com>,
-	Peter Gonda <pgonda@google.com>
-Subject: Re: [PATCH v8 05/10] KVM: selftests: Add support for protected
- vm_vaddr_* allocations
-Message-ID: <Zc2hOL1y+GIMaMux@vm3>
-References: <20240203000917.376631-1-seanjc@google.com>
- <20240203000917.376631-6-seanjc@google.com>
+	Thu, 15 Feb 2024 05:48:31 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-511ac32fe38so768015e87.1
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Feb 2024 21:48:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1707976107; x=1708580907; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kCR9TmSawra5wUvs4oISeBGT3tqyzqaDdzBDeohv99Y=;
+        b=VKTjhmHLTCHv1pAi/kL7wff4woamwQs1nEYjhbQwYKagJ+Pn/i17p6UTnOdTs4juTD
+         ZQTKYhyq/8uci4/TwTCTkbFM3yLNTrc2OhOZSYckHaO9/FsdGxAAiDvt3wWvdumZIgss
+         4Oi0LE03ZB2nqVWE65/73LevgHBpY9LuQOte0+9wsXAu5Aq4mZToSsDH9IzIe1G2b8vG
+         uAK9O3pkf+VcT93USCLQuO0CtBmpl1pqqdejUXO9wTZFiQ5omvmH1aWITGUk1gbMPloT
+         hF4HGYP7vNVzx+P4RJBOTwmpGvFOlkxvzQ/tYSNw1AT3jqssatLdjFSfijeKPPu074z3
+         K8Rw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1707976107; x=1708580907;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kCR9TmSawra5wUvs4oISeBGT3tqyzqaDdzBDeohv99Y=;
+        b=t7z11Wn9Fik57O6MwLrFJSE0CY7eLtY8bXRpbJo4XBnloakrTg/W2TYLiXoQTYa6h+
+         jYpMLRTaEzt+ltXytD6QgzYZaBm7EIsB5VJiijjQcsQy9r4oGHWtQs5mDCae+nTRDKp8
+         D1NgpItXT63fDP2oHrKnPK0HDyuQHioYyAQ/yfPIY5axDp4SNEgiIaFfO0J52TUp/weT
+         mR3S6uvz9MUeU+LpZ/h64uFIYU1d6NWNjhQssfK0wJv/zKZ2as7+QOqicz4m7dDzwy7/
+         qyYprHc1iy8cIzsQsV8UMIRRGgHFZXwMTQ7GjirA2DmJNUTdbHqtk1154mi+9Z1VAA4y
+         Z+9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUv4KEL9kfeYaeFxgBYfw4O3n51WJawCiMFZdVkL8B9rkTDQlUffILB6kHP1AHtTNjequzBfdP4c+2TagE6IYuUauOn6BnM1DcR8F3q/RrI
+X-Gm-Message-State: AOJu0Yz623fcD2zbawcWxAMp4DfPJC8fMNMn2ZIoTWa0EonkhVUlC5aF
+	h6yI5d/TYbXaOEThmtkhxr31klfxnl9u+wi6JN9sETiBwKSRC8gMksdb+WMj9P9DJqYtYaiiVX+
+	xmN1h3LQE2yIQ+ORMrb+FqnHI96wS1qhunxbmtLCDDPoBDG30
+X-Google-Smtp-Source: AGHT+IFXK7zSd2x0PSl1ap8TU3fQMItsMd1vzwFvuhYCp/fEDN7sIyRsPKR8EwxhBD/qfurWwSMNwN2P4fLnuwKJ9SA=
+X-Received: by 2002:a05:6512:67:b0:511:82b5:b484 with SMTP id
+ i7-20020a056512006700b0051182b5b484mr605399lfo.64.1707976107190; Wed, 14 Feb
+ 2024 21:48:27 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240203000917.376631-6-seanjc@google.com>
-X-Migadu-Flow: FLOW_OUT
+References: <20240127161753.114685-1-apatel@ventanamicro.com>
+ <CAK9=C2Vwtj2gZg-P73yLMxu0rPXQ3YrRRuxq6HcpHMXgs-jHaw@mail.gmail.com> <87bk8ig6t2.ffs@tglx>
+In-Reply-To: <87bk8ig6t2.ffs@tglx>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Thu, 15 Feb 2024 11:18:15 +0530
+Message-ID: <CAK9=C2WsSSHgDF+7ruxx_QF0Lk+Dsx2F2Y-_NabnxrJ_qWhgGQ@mail.gmail.com>
+Subject: Re: [PATCH v12 00/25] Linux RISC-V AIA Support
+To: Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240214_212943_636982_E3613560 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20240214_214829_796530_7C466358 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,106 +84,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, "Ahmed S. Darwish" <darwi@linutronix.de>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Frank Rowand <frowand.list@gmail.com>, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 02, 2024 at 04:09:11PM -0800, Sean Christopherson wrote:
-> From: Michael Roth <michael.roth@amd.com>
-> 
-> Test programs may wish to allocate shared vaddrs for things like
-> sharing memory with the guest. Since protected vms will have their
-> memory encrypted by default an interface is needed to explicitly
-> request shared pages.
-> 
-> Implement this by splitting the common code out from vm_vaddr_alloc()
-> and introducing a new vm_vaddr_alloc_shared().
-> 
-> Cc: Paolo Bonzini <pbonzini@redhat.com>
-> Cc: Sean Christopherson <seanjc@google.com>
-> Cc: Vishal Annapurve <vannapurve@google.com>
-> Cc: Ackerly Tng <ackerleytng@google.com>
-> cc: Andrew Jones <andrew.jones@linux.dev>
-> Cc: Tom Lendacky <thomas.lendacky@amd.com>
-> Cc: Michael Roth <michael.roth@amd.com>
-> Signed-off-by: Michael Roth <michael.roth@amd.com>
-> Signed-off-by: Peter Gonda <pgonda@google.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  .../selftests/kvm/include/kvm_util_base.h     |  3 +++
->  tools/testing/selftests/kvm/lib/kvm_util.c    | 26 +++++++++++++++----
->  2 files changed, 24 insertions(+), 5 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
-> index a82149305349..cb3159af6db3 100644
-> --- a/tools/testing/selftests/kvm/include/kvm_util_base.h
-> +++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
-> @@ -590,6 +590,9 @@ vm_vaddr_t vm_vaddr_unused_gap(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_mi
->  vm_vaddr_t vm_vaddr_alloc(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_min);
->  vm_vaddr_t __vm_vaddr_alloc(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_min,
->  			    enum kvm_mem_region_type type);
-> +vm_vaddr_t vm_vaddr_alloc_shared(struct kvm_vm *vm, size_t sz,
-> +				 vm_vaddr_t vaddr_min,
-> +				 enum kvm_mem_region_type type);
->  vm_vaddr_t vm_vaddr_alloc_pages(struct kvm_vm *vm, int nr_pages);
->  vm_vaddr_t __vm_vaddr_alloc_page(struct kvm_vm *vm,
->  				 enum kvm_mem_region_type type);
-> diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-> index ea677aa019ef..e7f4f84f2e68 100644
-> --- a/tools/testing/selftests/kvm/lib/kvm_util.c
-> +++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-> @@ -1431,15 +1431,17 @@ vm_vaddr_t vm_vaddr_unused_gap(struct kvm_vm *vm, size_t sz,
->  	return pgidx_start * vm->page_size;
->  }
->  
-> -vm_vaddr_t __vm_vaddr_alloc(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_min,
-> -			    enum kvm_mem_region_type type)
-> +static vm_vaddr_t ____vm_vaddr_alloc(struct kvm_vm *vm, size_t sz,
-> +				     vm_vaddr_t vaddr_min,
-> +				     enum kvm_mem_region_type type,
-> +				     bool protected)
->  {
->  	uint64_t pages = (sz >> vm->page_shift) + ((sz % vm->page_size) != 0);
->  
->  	virt_pgd_alloc(vm);
-> -	vm_paddr_t paddr = vm_phy_pages_alloc(vm, pages,
-> -					      KVM_UTIL_MIN_PFN * vm->page_size,
-> -					      vm->memslots[type]);
-> +	vm_paddr_t paddr = __vm_phy_pages_alloc(vm, pages,
-> +						KVM_UTIL_MIN_PFN * vm->page_size,
-> +						vm->memslots[type], protected);
->  
->  	/*
->  	 * Find an unused range of virtual page addresses of at least
-> @@ -1459,6 +1461,20 @@ vm_vaddr_t __vm_vaddr_alloc(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_min,
->  	return vaddr_start;
->  }
->  
-> +vm_vaddr_t __vm_vaddr_alloc(struct kvm_vm *vm, size_t sz, vm_vaddr_t vaddr_min,
-> +			    enum kvm_mem_region_type type)
-> +{
-> +	return ____vm_vaddr_alloc(vm, sz, vaddr_min, type,
-> +				  vm_arch_has_protected_memory(vm));
-> +}
-> +
-> +vm_vaddr_t vm_vaddr_alloc_shared(struct kvm_vm *vm, size_t sz,
-> +				 vm_vaddr_t vaddr_min,
-> +				 enum kvm_mem_region_type type)
-> +{
-> +	return ____vm_vaddr_alloc(vm, sz, vaddr_min, type, false);
-> +}
-> +
->  /*
->   * VM Virtual Address Allocate
->   *
-Reviewied-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-
-> -- 
-> 2.43.0.594.gd9cf4e227d-goog
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBGZWIgMTUsIDIwMjQgYXQgMToyNOKAr0FNIFRob21hcyBHbGVpeG5lciA8dGdseEBs
+aW51dHJvbml4LmRlPiB3cm90ZToKPgo+IEFudXAhCj4KPiBPbiBTYXQsIEphbiAyNyAyMDI0IGF0
+IDIxOjUwLCBBbnVwIFBhdGVsIHdyb3RlOgo+ID4+IENoYW5nZXMgc2luY2UgdjExOgo+ID4+ICAt
+IFJlYmFzZWQgb24gTGludXgtNi44LXJjMQo+ID4+ICAtIEluY2x1ZGVkIGtlcm5lbC9pcnEgcmVs
+YXRlZCBwYXRjaGVzIGZyb20gImdlbmlycSwgaXJxY2hpcDogQ29udmVydCBBUk0KPiA+PiAgICBN
+U0kgaGFuZGxpbmcgdG8gcGVyIGRldmljZSBNU0kgZG9tYWlucyIgc2VyaWVzIGJ5IFRob21hcy4K
+PiA+PiAgICAoUEFUQ0g3LCBQQVRDSDgsIFBBVENIOSwgUEFUQ0gxNCwgUEFUQ0gxNiwgUEFUQ0gx
+NywgUEFUQ0gxOCwgUEFUQ0gxOSwKPiA+PiAgICAgUEFUQ0gyMCwgUEFUQ0gyMSwgUEFUQ0gyMiwg
+UEFUQ0gyMywgYW5kIFBBVENIMzIgb2YKPiA+PiAgICAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
+bGludXgtYXJtLWtlcm5lbC8yMDIyMTEyMTEzNTY1My4yMDg2MTEyMzNAbGludXRyb25peC5kZS8p
+Cj4gPj4gIC0gVXBkYXRlZCBBUExJQyBNU0ktbW9kZSBkcml2ZXIgdG8gdXNlIHRoZSBuZXcgV0lS
+RURfVE9fTVNJIG1lY2hhbmlzbS4KPiA+PiAgLSBVcGRhdGVkIElNU0lDIGRyaXZlciB0byBzdXBw
+b3J0IHBlci1kZXZpY2UgTVNJIGRvbWFpbnMgZm9yIFBDSSBhbmQKPiA+PiAgICBwbGF0Zm9ybSBk
+ZXZpY2VzLgo+ID4KPiA+IEkgaGF2ZSByZWJhc2VkIGFuZCBpbmNsdWRlZCAxMyBwYXRjaGVzICh3
+aGljaCBhZGQgcGVyLWRldmljZSBNU0kgZG9tYWluCj4gPiBpbmZyYXN0cnVjdHVyZSkgZnJvbSB5
+b3VyIHNlcmllcyBbMV0uIEluIHRoaXMgc2VyaWVzLCB0aGUgSU1TSUMgZHJpdmVyCj4gPiBpbXBs
+ZW1lbnRzIHRoZSBtc2lfcGFyZW50X29wcyBhbmQgQVBMSUMgZHJpdmVyIGltcGxlbWVudHMgd2ly
+ZWQtdG8tbXNpCj4gPiBicmlkZ2UgdXNpbmcgeW91ciBuZXcgaW5mcmFzdHJ1Y3R1cmUuCj4gPgo+
+ID4gVGhlIHJlbWFpbmluZyAyNyBwYXRjaGVzIG9mIHlvdXIgc2VyaWVzIFsxXSByZXF1aXJlcyB0
+ZXN0aW5nIG9uIEFSTQo+ID4gcGxhdGZvcm1zIHdoaWNoIEkgZG9uJ3QgaGF2ZS4gSSBzdWdnZXN0
+IHRoZXNlIHJlbWFpbmluZyBwYXRjaGVzIHRvCj4gPiBnbyBhcyBzZXBhcmF0ZSBzZXJpZXMuCj4K
+PiBPZiBjb3Vyc2UuIERhcndpIChpbiBDYykgaXMgZ29pbmcgdG8gd29yayBvbiB0aGUgQVJNIHBh
+cnRzIHdoZW4gaGUKPiByZXR1cm5zIGZyb20gdmFjYXRpb24uIEknbSBnb2luZyB0byBhcHBseSB0
+aGUgaW5mcmFzdHJ1Y3R1cmUgcGF0Y2hlcwo+ICgxLTEzKSBpbiB0aGUgbmV4dCBkYXlzIHNvIHRo
+ZXkgYXJlIG91dCBvZiB0aGUgd2F5IGZvciB5b3UgYW5kIERhcndpLAo+IHVubGVzcyBzb21lb25l
+IGhhcyBhbnkgb2JqZWN0aW9ucy4KPgo+IFRoYW5rcyBmb3IgcGlja2luZyB0aGlzIHVwIGFuZCBk
+cml2aW5nIGl0IGZvcndhcmQhCgpUaGFua3MgVGhvbWFzLCBJIHdpbGwgYmUgc2VuZGluZyB2MTMg
+b2YgdGhpcyBzZXJpZXMgbmV4dCB3ZWVrLgoKRm9yIHRoZSB0aW1lIGJlaW5nLCBJIHdpbGwgY2Fy
+cnkgdGhlIDEzIGluZnJhc3RydWN0dXJlIHBhdGNoZXMgaW4KdGhpcyBzZXJpZXMgdW50aWwgdGhl
+eSBsYW5kIGluIHVwc3RyZWFtIExpbnV4IHNvIHRoYXQgaXQgaXMgZWFzaWVyCmZvciBwZW9wbGUg
+dG8gdHJ5IHRoaXMgc2VyaWVzLgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
