@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 896A9C4829E
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 12:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C09F3C4829E
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Feb 2024 13:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:To:From:Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tqFdpm+oGGCXAutTMKBXEfe5wGOR00jaQvqTQmaH7zc=; b=LRj5YJ1rwcdVyE
-	JhEPY1yh0lZyW2Wjmj0aU/4TFUDKvX7fEIKP93xxd8YTzsCPIjIxUfQ0XSfM5uWf/H1mncJb09O9n
-	BGYEPwrn3/JvX/lUcSlGL0R+JGbSXjL3SNjlhDOWm/iWCObQp+aS0pQO4euv+l0r1SREzohqmdgfQ
-	Iq3Cc9ruWd9Uk9zqvUl6Z/ylnU2siIq7xgc5mCx5VABEequuchJ9kmOd7P17SHj/vdtgF63+o3fbu
-	BYrP2+xCJHJXU0Zq7kzW0dQkBqzleQ8DszIl+EugaLmOPKFhk/Zn6iKukopYVC7Z/GXSZDEqMEoTP
-	eoJO1+bQGNH22PkjWFrg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UO5t+su4xN1sOoq8v3ek5awVQmy2meJ7AyvIx59MaR0=; b=IvCClR1N9NXINvYxhV3CZrimwY
+	GHJrtYh3eNOusJwSBGSVBqIe1XpDGlOaaLsdY0+ze/PyT5Adfd43ORZESk/RDWUoSNMvB2pzFpfab
+	suejBqaDjUToW9RalpoRQYTIgFrRY+cyVDpSlDLOWYAx2AlWHUJcIF2oxnvm+bPins4vFYthn3tWY
+	/xo9VlgsM8/vlHuzcJl+7AHp7SkTnn89c39q/o54Fu4aVoKxI8hknxKekIeBmbrdjO4y4enlZsKo9
+	xnTl2wSsNvJgf0k7C49cg41NB0pgXX6WW1dR0W5mLmn82XtkA1jwE1msCEtUrbC2883irAn0fkbN5
+	2W2vE/Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rab8L-0000000GHer-1Rw4;
-	Thu, 15 Feb 2024 12:46:33 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1rabZR-0000000GLtQ-2aqv;
+	Thu, 15 Feb 2024 13:14:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rab8I-0000000GHeB-26yP
+	id 1rabZO-0000000GLsW-2hp4
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Feb 2024 12:46:31 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1rab8C-0003tl-Hz; Thu, 15 Feb 2024 13:46:24 +0100
-Received: from [2a0a:edc0:0:900:1d::4e] (helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1rab8B-000t60-3w; Thu, 15 Feb 2024 13:46:23 +0100
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1rab8B-0007kP-08;
-	Thu, 15 Feb 2024 13:46:23 +0100
-Message-ID: <4a1a0b142ca58e1c22ba246991d4ee657a4ee91f.camel@pengutronix.de>
-Subject: Re: [PATCH v3 2/4] reset: simple: add support for Sophgo SG2042
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Chen Wang <unicorn_wang@outlook.com>, Chen Wang <unicornxw@gmail.com>, 
- aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org, 
- krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com,  robh+dt@kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
- haijiao.liu@sophgo.com,  xiaoguang.xing@sophgo.com, guoren@kernel.org,
- jszhang@kernel.org,  inochiama@outlook.com
-Date: Thu, 15 Feb 2024 13:46:22 +0100
-In-Reply-To: <MA0P287MB2822E03B61DF33B4438833D9FE4D2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-References: <cover.1706577450.git.unicorn_wang@outlook.com>
-	 <1cfd7b3ba447942784c4f7aa595e962399e9f617.1706577450.git.unicorn_wang@outlook.com>
-	 <MA0P287MB2822E03B61DF33B4438833D9FE4D2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-User-Agent: Evolution 3.46.4-2 
+	Thu, 15 Feb 2024 13:14:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D815C61D96;
+	Thu, 15 Feb 2024 13:14:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 529DDC43394;
+	Thu, 15 Feb 2024 13:14:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1708002869;
+	bh=aUWWrfsL8ZnO6US7lu0C+z2+ofPyZmFmbK5Cal70MlM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dYnpbPv0Jd/r16AM8nCmg/DMjAtayMYZjHFhTD2Q+754ZN2ljgeV1VDZG3MGZeTX8
+	 +ZirYFi1DQaCj00GVwT/fEqDdY9bligPiF0Gj8VJIGxLn7eId+e9KKU2qd9+7CfCqI
+	 lSybdqQjUIlDAAKKIZGNx15OiJzYYsnBc6AUOYez/sBBhYZDDU2/WV0cS/qmGwOl+Y
+	 4lbv5JjayxylxdjSgbt0nJQ/n8YO8zHxATiMcYlKvFvDe4It03omd7MCz+u5ZduP0C
+	 /ssjt8R++j2ddB+AwJyD8A3LmDprJkNmZ7EHq2hZJZBJnGokPsWhn0xXHe91BOzOJC
+	 swfgXOdnpsbgA==
+Date: Thu, 15 Feb 2024 13:14:26 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Stefan O'Rear <sorear@fastmail.com>
+Subject: Re: [PATCH -fixes v2 2/4] dt-bindings: riscv: Add ratified
+ privileged ISA versions
+Message-ID: <20240215-icy-oblong-67adb68a4074@spud>
+References: <20240213033744.4069020-1-samuel.holland@sifive.com>
+ <20240213033744.4069020-3-samuel.holland@sifive.com>
+ <20240213-88c9d65fd2b6465fc4793f56@orel>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+In-Reply-To: <20240213-88c9d65fd2b6465fc4793f56@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240215_044630_559297_D397BABB 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240215_051430_754765_AD82CAE7 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,18 +71,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2656336477929048408=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2hlbiwKCk9uIERvLCAyMDI0LTAyLTE1IGF0IDE2OjU5ICswODAwLCBDaGVuIFdhbmcgd3Jv
-dGU6Cj4gcGluZyB+fn4gCj4KWy4uLl0KPgo+IGhlbGxvLMKgIFBoaWxpcHAsCj4gCj4gQ2FuIHlv
-dSBwbGVhc2UgaGF2ZSBhIGxvb2sgb2YgdGhpcywgSSBoYXZlIGZpeGVkIHRoZSBpc3N1ZSB5b3Ug
-cmFpc2VkIGluIAo+IGxhc3QgdmVyc2lvbiwgYW55IHF1ZXN0aW9uIHBsZWFzZSBmZWVsIGZyZWUg
-bGV0IG1lIGtub3cuCj4gCj4gQlRXLCB3aWxsIHlvdSBwaWNrIHRoaXMgZm9yIHY2LjkgaWYgaXQg
-aXMgb2sgdG8geW91LgoKWWVzLCBJIGludGVuZCB0byBkbyB0aGlzIHRvbW9ycm93LgoKcmVnYXJk
-cwpQaGlsaXBwCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+
+--===============2656336477929048408==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Ty9sdf64Wa8pEu18"
+Content-Disposition: inline
+
+
+--Ty9sdf64Wa8pEu18
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Tue, Feb 13, 2024 at 03:25:44PM +0100, Andrew Jones wrote:
+> On Mon, Feb 12, 2024 at 07:37:33PM -0800, Samuel Holland wrote:
+
+> Note, QEMU doesn't add these extensions to the ISA string yet, but I think
+> it should start, particularly the profile CPU types which should ensure
+> all the profile's mandatory extensions are added to the ISA string in
+> order to avoid any confusion.
+
+Something to note about these "mandatory extensions" that are names for
+things we already assumed were present - they're utterly useless and any
+DT property should note their absence, not presence, in order to be of any
+use. Anything parsing a DT cannot see "svbare" and gain any new
+information, since the lack of it could be something that predates the
+definition of "svbare" or something without "svbare".
+
+Shit, but that's exactly why I deprecated riscv,isa.
+
+Cheers,
+Conor.
+
+--Ty9sdf64Wa8pEu18
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZc4OMQAKCRB4tDGHoIJi
+0gBfAQDHitJRjjkm8BAASaylKf3zcVB6vWarMERcGPovak8WmQD/dIaz8rDrvtlD
+sOoKf0i7vy+Ub2viaSLzs3SD3hV4Two=
+=dUI9
+-----END PGP SIGNATURE-----
+
+--Ty9sdf64Wa8pEu18--
+
+
+--===============2656336477929048408==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2656336477929048408==--
+
