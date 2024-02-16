@@ -4,127 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA175C4829E
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 00:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ADFCC48BC4
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 00:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BZGarC70XANjAeVwk2RWLbpAxeoOUqaTguvE+CR4GKk=; b=zP/bBNR02dj16M
-	/XU7sUTtyqZDgFGr5dLpXMIwFfN2Hfx3GkdCySkHhiPRhDM/0E4myS/fVkeKPeFwWSSbY6qVOHJI3
-	LbgQ9t+VF7sqXiCKiomzf9k6VdOQ0GKySpbC67NO0z8eWPle0Qxl5Bpe79r/20rgGcxoFkfbgLrYD
-	roQrjvuhuzrRRH6k9mN2F2pickAhZdrbRnA69LNCLOoY68RL0iOyZIwcJxbL1NoZbL5GYR7uMU2Am
-	ureYP09HGmZUWnF3S7c0XrK2RfSxjwO1P0tLQ9DH6MP8dIsrsFXp/0uiVnDAEZq9krZZpi0+ahn6q
-	xOYqJOgoXQ8ukZU+++Kg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=s3RzS1SmwQy5ZaV2pyAtkGcM/Uxk8N9/QOdwgiTk7rk=; b=YkD5M8Paebz9el
+	c74SowtTmi4KD6I7LXKgDY/i2zIlPxxUlVIqAa3OqJu85XwvTQTJZDU/05sHHIFtb5deC16GKl7DO
+	1sJciedXPOerbvDKYBdc0UNzmp+bp6WEgA1II1Ed7pvFldwVYC7suNYy0mR21g1n/1TJaJg3GfIqN
+	aKiHHYM9Dgg6/5L0F23XCMAB2sBPf7ZcRXzyWUJiKAQ0P6Y5Y3TtdF1DW17/3SjUHqRGeiEYS5wUT
+	OHCKS832UKcOJdzkNHzmNrqlwf6mMPlkLiN3Mh8XuYySvSjMph96jIIYQzVfxCgnT9EsB3OUVvBU/
+	h8ZUi0KJ+yp+RYqe6MfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ralei-00000000XpF-3oUZ;
-	Fri, 16 Feb 2024 00:00:40 +0000
-Received: from mail-bn8nam12olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2c18::800] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1ralmX-00000000YZe-33aB;
+	Fri, 16 Feb 2024 00:08:45 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raleg-00000000Xos-146z
+	id 1ralmT-00000000YXl-10OS
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Feb 2024 00:00:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=SpHDu/Kah9xa4hYZFshA473LjXSQuTKnqdznAOX6r8PLrLC4lW8jPAfZe5ZvWgXTHCKJHnpPZ58cHPwNVcExAXsCDqaDJPwBh2VlpNdCWn4OCi1fscJ0T4wH0e6yifz2gSzexEJjEa5TpNmHhyR7a2c4LSfcftX6HTurqGMwnhb+cMWcc68OeVvXnUhFdlQqtrUtj5A9whiX1qMc1AhTg5g5T0XnwerMfwDZK2y/2tlnymTwbGzoK2yBd02TRDSLhxjOtyIvGDCSBYm/7++E3uEReNvX2t5phe6yZ5Gz9IQUvHCib1aEfgWWmxI27NN8KxVQdScGL1Mug543X83+kg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vyswYmvK+ldOJPF73JybJxDTxkJw+TSdN6fBn4NWEro=;
- b=bV6rav0VwC1cHPIfgBC5thNlz/CyXVZMYY+4U1Pab5QrOidyI40UlRJ9n7ghVdm0lRVGw5pcr9ckaj6SsbmAIDWznlXJYIC51U3BmoBQ4s5gaK1u5UtgKf5NQwDTNdXR/M9pg1tQaSyUcDit0oUIkyRQ1amBpvrojt5xFwBzIOD34BpFTTPDFfmN/JZSoZuaz7s29vVEDiYhLq/wZg3Aj0C0VVVv6jxWeK+dqtaaYCDulYTKJ8wooheOAhV8FA3tM2fJkxQJk/y1JmiBkxJUY8tKeInAK4qRpT5lt1wTM9CH3kUUVMCzyaFafcvH3MArIpU/Ptd8ECPf8SJFBkz3fw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vyswYmvK+ldOJPF73JybJxDTxkJw+TSdN6fBn4NWEro=;
- b=ApLlvxWOVaimy02xHRLpRFODOuJ5zvaW0CXHNKfftpAzSGVV3jfexXgUtSc5rUoi1DoQKxXQUz+moAkJOMswVE0NmpVLoHJrB6+Yare5YYMf+2/NE29nYbsdDmUOf5FJ9FfmdcXe9BbUejfkfP7DMq5QMziD1d+U2s9uS/n32+wQionblx+avYSZRFA2HG1ilnSkFUjDa4V+dmYSK4A2E9W0ra6h0XowuU5riHRjyW6/JD0Qv1L1RRMBt7FAOK6GYOQpAdjj7mS/g5nsMytLQYfxE6C0kohr/2LLk8vsk0gIXJr4DT0P0L+03EbspR8FpJqidx+WC+d9f71TH4+VNw==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SA0PR20MB3296.namprd20.prod.outlook.com (2603:10b6:806:9b::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7292.27; Fri, 16 Feb
- 2024 00:00:31 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::406a:664b:b8bc:1e6b]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::406a:664b:b8bc:1e6b%2]) with mapi id 15.20.7292.027; Fri, 16 Feb 2024
- 00:00:31 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com,
-	conor@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	p.zabel@pengutronix.de,
-	robh+dt@kernel.org,
+	Fri, 16 Feb 2024 00:08:42 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1d91397bd22so12249695ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Feb 2024 16:08:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1708042120; x=1708646920; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=B80341bISXEJg7kkhbXc2oX5/huCFSNjahGhVu6ondM=;
+        b=QUHiZbokMLBGif8hqB8tT5HoakGoyktNm7IBfryD/jqSyx/k8hiq/OgIrXtI8mqSil
+         zx9C8fO1UUGfV243e2r7tMWHn9S2Oy0bAfDzMp0hnz+eVlbvKZiGaHjn9xALE0YSAPVw
+         TdKOExzW8e4YH06ZuUDQfTOhopI1YqetNdXXj9EYxTkA4D5qvn9VtlIbF3phDQ/Qr2Ut
+         UCMK8xPT/TGaSYp2qp1yd44vZAfcrhMuAxk2JF0cM6nDj7Rzf8Mkd+xW2DDN6iaHvy00
+         rSNBtu7ycAPB6+CwEDYRbO5a+DclKSQT1D3mC+7nxdF20R7hP0UFzG3c8y8aQZcNeM0f
+         K88g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1708042120; x=1708646920;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=B80341bISXEJg7kkhbXc2oX5/huCFSNjahGhVu6ondM=;
+        b=daujhUQ/Trr8NwKu5FPbWpsCRlBGiynXMdybZ9+M7oVV2rbeAj6SoCuP629yYjIBvG
+         rusWafMfM5pjKAm3l9GCdGBMV8s2+u16K7HL2oUbva7lwKeoFgyE52gfL9S1yicmsjam
+         SIPqB2ox2dHWtpy/JAIZHQfZg4XdhTD+vDxpSwN7g03ssVPWRTOAL8UG2HHxQVmwgze+
+         LnKaSqhRD3TzuWihaQepjqbv+xULVxIe/j3SCHaHR+8V8pC/EHJTH81PZAqLtwXyzAwx
+         QGN5SDyE4XqW2G0D6nwdYBm7OTwV1Jd+ukBYzAsuOZUiWjNLfNPs4qpQk58T7SZQ74Yg
+         vxbg==
+X-Forwarded-Encrypted: i=1; AJvYcCXo6lRqjRS6Nvsh2Qq3fjlkwDG7KPcxijdN1/XIyin+2mOkZ3ew6ShFxXc3FFat8gbUsvNL5YRC58lHXxffXKQN/6NZLDabYZCodUYpivq0
+X-Gm-Message-State: AOJu0YyeXHHMh1lm40BJhbs6hXVdAciuYLgrw/diGD12RZhPxyIE1cKn
+	ZL6/Q3zEMBgFrQmo0vdvXoVZMP6Ulbqd0XJLN2BUsjgOkCytiZ7Ol9JLRZLgnF4=
+X-Google-Smtp-Source: AGHT+IEEuF0c7LmW9lUaWum18fP3MSd8qAJyzAs9OeCN6ADixKHSo/WOUDyw9k8YmlyzkxoW0t/waQ==
+X-Received: by 2002:a17:902:e843:b0:1db:299f:5b0e with SMTP id t3-20020a170902e84300b001db299f5b0emr4475230plg.1.1708042120079;
+        Thu, 15 Feb 2024 16:08:40 -0800 (PST)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id bb6-20020a170902bc8600b001db3d365082sm1789486plb.265.2024.02.15.16.08.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Feb 2024 16:08:39 -0800 (PST)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Eric Lin <eric.lin@sifive.com>,
+	Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org,
-	haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	guoren@kernel.org,
-	jszhang@kernel.org,
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v3 3/4] riscv: dts: add reset generator for Sophgo SG2042 SoC
-Date: Fri, 16 Feb 2024 08:00:25 +0800
-Message-ID: <IA1PR20MB495329B03230CF29785A14B3BB4C2@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.43.2
-In-Reply-To: <35c348437b6e18972ccaf90d9c38040caccd1f11.1706577450.git.unicorn_wang@outlook.com>
-References: <35c348437b6e18972ccaf90d9c38040caccd1f11.1706577450.git.unicorn_wang@outlook.com>
-X-TMN: [vs8bMyK/Sct+iTx9B+KRQ/4MMKGfk3J5HKchaFAEupyahuT9e6P+EusKXjk6K2/T]
-X-ClientProxiedBy: SI2PR06CA0003.apcprd06.prod.outlook.com
- (2603:1096:4:186::14) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20240216000026.55513-1-inochiama@outlook.com>
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH v1 0/6] SiFive cache controller PMU drivers
+Date: Thu, 15 Feb 2024 16:08:12 -0800
+Message-ID: <20240216000837.1868917-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA0PR20MB3296:EE_
-X-MS-Office365-Filtering-Correlation-Id: f3a93c28-34e9-4944-d447-08dc2e824ac1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: FbDqT+tojq1h+wFIpA6f9gruyYXiuTjnCCC//tK8vgDhfnY7gYW/1amrb06CSr3OsmBVKoxWPY5rJQQ7BMPfpSog5d2HToV/IF3xPMGYj1xI1aRE9HRH+ONQ8A0kedPB6eowqnHYYphB89w5+OnUTY6VusoF4r8A36Hsb2g0gb7LHml0rdlKif7cgS3Fk3TrH+G1zGVaDVQElDQh9nJwaABFZFr3GsaLPquzi3AEpDTlSZYTOU4hNV5jO5zsKwyCUyeW04rnnJbEvzyJytbPGE97M6r1mvNwCAg9jXSfPUq9/87g6p0ZrGTmP3/d/CudbsAj9e+diHXfVfhriIGWITrh7sg9Q4+/oo/UlD7k1Sadn9PGkJWaYV3aPjGdHCDB6KUfoMCv6DltVUdZGCPV7sA42Ga20KzCyNW2atTt/84di2UucIV1HV/9gLEtZzRErbEoA4QaY23Kyyfv/FJhciDq65f/gXuNnpBFYnZZRYrBVh7ihHofWoWON+5eITxZX0HBtgh9kayDqcPWiJ+61l4xgeDDh06lNT6RN1607uDGRx8CialIe6QaNpnXc71KtIQoXf6LYL9mWAhC4iXPrcJwdBuN+NUb44NKR2xAOuChKMwosmBbJnAJAwJZmnaj
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GnfAYYMsnFZ3PVjcHuRZZLeERZxY+hnMc7XF+xn6M0v0vsewIrQobHuj9xRF?=
- =?us-ascii?Q?0xWcf4tqAG4GUqWW0xlaHXMnuSSi/Z9h59sG6eEBpHSBYNM4hQnJHMtRZNSI?=
- =?us-ascii?Q?DdG2AUKbT0Ea94ivm1E3cwoPXL1LL5CRqdgxh4znAfIn9+2vsExxp8lkJGke?=
- =?us-ascii?Q?zGZFaOVTHVC2xAQV0ygZzamaesO7MIB+JtgPitYiO3m5iKMD8dcnPVfsTGZ0?=
- =?us-ascii?Q?FmEC+NXUUDjlmd5Kw+BRwEflGl1H2b+UL7XQujBEkhppzYIGfg7RCGGuWpk6?=
- =?us-ascii?Q?FYEsMeJrGybfagOO5AGDCwsO2RjESs4o+xTYgZ6MtaA9DkgIRiI490JCqhsy?=
- =?us-ascii?Q?h+i4BsrkBvWoa3EFNR3l/09dpRbmODkd/VHlWayN/H+rZ27qqXpEbc8vWtyE?=
- =?us-ascii?Q?tX3/jI9baUEoibqnlqnR5loAed8mGbbeBo0LXXkmKAiMdDrh6m4c3ArnKevZ?=
- =?us-ascii?Q?9Loye63Yc6yWU05/YRTlWHpx7RSGcJUHcUD8SVvhOdkv2+yRlywmQNAI2tFn?=
- =?us-ascii?Q?4Cjr/Ersm0OtkB0RSKOMa/N6eWSpzj3E4w1tpM7HshnJ/xVJJxazGolH8JRg?=
- =?us-ascii?Q?QiQOFYkXvElCVTmSIRHsBfpSVJiZO8zBk9zUCNg9rIXb3zd2sQehUeKHBthT?=
- =?us-ascii?Q?fr8bYG/ob2aCr4vaxQHiSsKjeVrL1eX4crkUVik4gfRitL1VDBPHquyk74ji?=
- =?us-ascii?Q?Ao6Btml4i5vI6/BcenUUPfeIlNryBLBBKBl1PfvTOX/xvI7rkrrvwiVqEz3Q?=
- =?us-ascii?Q?dWf7ykE8WCyIRJNwxw+9RASJTWbCxcSFlScAL6nSQpZ6KCWAP47tTKFYoVJj?=
- =?us-ascii?Q?bmp4xqrnHcGSszq9UGcWenWcBPaCNmCzc8wRTgMIjxnkgnQcjB8NsFc3nM3F?=
- =?us-ascii?Q?fYpNVY9kttzT9rqaawPOPh7ACnIx3qp55kS7PBLbk6cl4OiToTW6aGDucjru?=
- =?us-ascii?Q?g+pr3T+oQoEDAnduApu2ZovYHm0a9KUet6TjdswqUsBhThcENRr7A/suPXSX?=
- =?us-ascii?Q?vCc7+f9XCU5MmqjtZpDqX9CymLkB2DoyMXA800sQtZ3DQlZQSrRmibK1Jmjr?=
- =?us-ascii?Q?7lzWwBAgwpgkOA+AzD2i4T2+y0P+Mk9S3dtRn01DOmwTya1D9PAOUuvO/Guw?=
- =?us-ascii?Q?+nPcfom8CLw9AhRZZc2s+3gM3aHMc/Ikfyrt2DdSs3ntPsIjbIAbzrdEZBeN?=
- =?us-ascii?Q?hyLiDaquVEuGQA73u8UleCKYtFq2hHk7A9TVkG2e2g9+QQKxzspYBfw7yG8a?=
- =?us-ascii?Q?61ScpCEqEgQiaRfk41NfCtN/1+b/MPSdoi5tQBK+lPTHxjfc0SrPpIBwisUa?=
- =?us-ascii?Q?CIY=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f3a93c28-34e9-4944-d447-08dc2e824ac1
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Feb 2024 00:00:31.6487
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR20MB3296
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240215_160038_321568_9F321265 
-X-CRM114-Status: UNSURE (   6.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240215_160841_317130_D468E1CF 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,50 +100,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->From: Chen Wang <unicorn_wang@outlook.com>
->
->Add reset generator node to device tree for SG2042.
->
+This patch series adds bindings and drivers for the Performance
+Monitoring Units (PMUs) found in three SiFive cache controllers.
 
-LGTM
+Composable Cache and Extensible Cache support system-wide profiling
+with a single hardware instance. Private L2 Cache supports per-task
+profiling with a separate hardware instance per core.
 
-Reviewed-by: Inochi Amaoto <inochiama@outlook.com>
+All three PMUs have a similar register interface and event encoding,
+though the set of supported events is different. The Extensible Cache
+additionally contains a pmCounterInhibit register which allows
+atomically monitoring multiple counters.
 
->Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
->---
-> arch/riscv/boot/dts/sophgo/sg2042.dtsi | 8 ++++++++
-> 1 file changed, 8 insertions(+)
->
->diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
->index ead1cc35d88b..eeb341e16bfd 100644
->--- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
->+++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
->@@ -6,6 +6,8 @@
-> /dts-v1/;
-> #include <dt-bindings/interrupt-controller/irq.h>
->
->+#include <dt-bindings/reset/sophgo,sg2042-reset.h>
->+
-> #include "sg2042-cpus.dtsi"
->
-> / {
->@@ -327,6 +329,12 @@ intc: interrupt-controller@7090000000 {
-> 			riscv,ndev = <224>;
-> 		};
->
->+		rstgen: reset-controller@7030013000 {
->+			compatible = "sophgo,sg2042-reset";
->+			reg = <0x00000070 0x30013000 0x00000000 0x0000000c>;
->+			#reset-cells = <1>;
->+		};
->+
-> 		uart0: serial@7040000000 {
-> 			compatible = "snps,dw-apb-uart";
-> 			reg = <0x00000070 0x40000000 0x00000000 0x00001000>;
->--
->2.25.1
->
->
+All three of these cache controllers (with PMUs) have been integrated in
+SoCs by our customers. However, as none of those SoCs have been publicly
+announced yet, I cannot include SoC-specific compatible strings in this
+version of the devicetree bindings.
+
+This series is a follow-up to Eric Lin's series "[PATCH v2 0/3] Add
+SiFive Private L2 cache and PMU driver":
+https://lore.kernel.org/linux-riscv/20230720135125.21240-1-eric.lin@sifive.com/
+
+Changes in v1:
+ - Add back select: clause to binding
+ - Make sifive,pl2cache1 the fallback for sifive,pl2cache0
+ - Fix the order of the reg property declaration
+ - Document the sifive,perfmon-counters property
+ - Drop the non-PMU part of the PL2 cache driver, as the config register
+   save/restore logic will be moved to M-mode
+ - Add missing events to PL2 sets 2, 4, and 5
+ - Use event_base and config_base to precompute register addresses
+ - Check event validity earlier, in the .event_init hook
+ - Implement .filter for systems where only some CPUs have a PL2
+ - Only allocate percpu data when probing each PL2 instance
+ - Reference count the `struct pmu` to fix unbind/bind crashes
+ - Probe via DT since the PMU driver is now the only PL2 driver
+ - Allow the driver to be built as a module
+
+Eric Lin (4):
+  drivers/perf: Add SiFive Composable Cache PMU driver
+  dt-bindings: cache: Add SiFive Extensible Cache controller
+  drivers/perf: Add SiFive Extensible Cache PMU driver
+  dt-bindings: cache: Add SiFive Private L2 Cache controller
+
+Greentime Hu (1):
+  drivers/perf: Add SiFive Private L2 Cache PMU driver
+
+Samuel Holland (1):
+  dt-bindings: cache: Document the sifive,perfmon-counters property
+
+ .../bindings/cache/sifive,ccache0.yaml        |   5 +
+ .../cache/sifive,extensiblecache0.yaml        | 136 ++++
+ .../bindings/cache/sifive,pl2cache0.yaml      |  81 ++
+ drivers/perf/Kconfig                          |  29 +
+ drivers/perf/Makefile                         |   3 +
+ drivers/perf/sifive_ccache_pmu.c              | 577 ++++++++++++++
+ drivers/perf/sifive_ecache_pmu.c              | 675 ++++++++++++++++
+ drivers/perf/sifive_pl2_pmu.c                 | 748 ++++++++++++++++++
+ include/linux/cpuhotplug.h                    |   2 +
+ 9 files changed, 2256 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/cache/sifive,extensiblecache0.yaml
+ create mode 100644 Documentation/devicetree/bindings/cache/sifive,pl2cache0.yaml
+ create mode 100644 drivers/perf/sifive_ccache_pmu.c
+ create mode 100644 drivers/perf/sifive_ecache_pmu.c
+ create mode 100644 drivers/perf/sifive_pl2_pmu.c
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
