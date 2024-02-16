@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD4FDC48260
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 21:04:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA38C48260
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 21:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3YX26xVrdMvcsOGEkNnuVX3He4mS4422lzc80ETmI54=; b=Nv5jkXN162DDJK
-	bAhV6THKWyHRj/NL3+pCz1RsbqiFnHIicn1fp+NaydjnbVxYi25BDB8yOAFspZl76U9oAhLQtmAY7
-	FIwOyc06sO7P+nO9PakYan+M91/mkprB6Lb/JP7BGlUg5Ah7CEeVEabNKssfBrJ1pIJvPW+3WMZ56
-	/Keh6gKkAq4IjSFmmSbrgHDcD6/gBMwqNJUzdtrJGwdHYvHoNU8qtKQ/9zg0SBwiQC4driI3S0Xwt
-	JFpWJeNC8qYoNDJeDv0zDCiCdg6GnGroJRffOnFAurElVuRxljwANhfpZVTX6MmsBXc8atW4uj9gd
-	IuMaIKRO7wO5qVZvrj+Q==;
+	List-Owner; bh=eRo3qfX09PQV1fPxp/hfaO6eIlb6J2xwZLcaIZ7k0Q8=; b=jwxKHasj9htJP6
+	dezFBeCgNVIwlUIwWp9XSHWBGOwe1FzJZZUqLmR3Tsu6+NuUiRXIimrkaS7GRJJdCnyJkJwrJPSue
+	PspTBYca55bgEEQhXJBe1u7ee09qIlXLKvrvJIOH8iKsMxoJblEmQ4E2UsUhL1eXwNeXt/doa1Jza
+	yic3eE1GzfQQ5SOdelgdaSHgievuP9nT9mLNq1aj7AD5V/U9Mm9x7QzND2soti6vYQ6KfnvlFscPK
+	aqULspxUxNw7KQNUHn34K07BVOKj0XpdVDLuGCcU79s02/RHOxzhJ4QpptEJO1zkZNlwwNrcwpf+8
+	vAReeOJSCArhyEi5i+rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rb5NU-00000003kjD-1M05;
-	Fri, 16 Feb 2024 21:04:12 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1rb5Or-00000003l6F-0hAO;
+	Fri, 16 Feb 2024 21:05:37 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rb5NN-00000003khQ-3K6I;
-	Fri, 16 Feb 2024 21:04:09 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1708117444;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aPil28lXVu/5EuMTMJHAF2NuE7S20nDRKRUxcPw2x9A=;
-	b=09tYLByROgD3bDLYAoILh20drVnloPdm8qHaCVHSa8YslAkk+vHe5GCMRqEPgmXapRXwp7
-	haMLpBFhy7xqoxZcqtyf08Ob2ZjGCB9hHnx50L0qLeyomv7uwZvRwLH5+eCY0q2Kl3SlS8
-	wMobBVNcDkGtumiuGA36kP32BR/n7Od+jQT19U9Hk6sC/MdjnDn31ojtc+Xf3o707kLWlw
-	hJHDBj443oH4lxAbBirQ48SRQP4as2LG7Q3yN3yRzLeFpVFJFq5MfBoxZW7EXofWFsaCyK
-	Owe5hwIfmeW55ddNzU4jbNTyfHMS0Z8JV9K5LFqZln4wBoUDprmPjYu1DfgFbQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1708117444;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aPil28lXVu/5EuMTMJHAF2NuE7S20nDRKRUxcPw2x9A=;
-	b=sTHsysm3f+56VNyke1nWTeQXTpJX/RT7U3ejiMXUtOjW65iwO9Uv6f1hJoBVOWapBEc/Mk
-	3esMRQST3WxV1PBg==
-To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Rob
- Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Frank Rowand
- <frowand.list@gmail.com>, Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v12 23/25] irqchip/riscv-aplic: Add support for MSI-mode
-In-Reply-To: <20240127161753.114685-24-apatel@ventanamicro.com>
-References: <20240127161753.114685-1-apatel@ventanamicro.com>
- <20240127161753.114685-24-apatel@ventanamicro.com>
-Date: Fri, 16 Feb 2024 22:04:03 +0100
-Message-ID: <8734tsce9o.ffs@tglx>
+	id 1rb5Oo-00000003l5o-2xwo
+	for linux-riscv@lists.infradead.org;
+	Fri, 16 Feb 2024 21:05:36 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-a26f73732c5so187352666b.3
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Feb 2024 13:05:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1708117533; x=1708722333; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=shgZmNUDjmgRe3frEU74jFBqUA2SGxRFjX4pA6qgQys=;
+        b=jHNUWyL+4j0u2I0sZRnePGMU1phFJ3XLec5ZZiDRvc8dIIJEf3VVd5bHCpp8hYXAqW
+         CRdNwkUgtuO0/EnYYMj+obDIawNeNHIgDgIUsES/UXm/fP3W8lG4R0SJJa7CXcpxWl/I
+         Gvp4wkn8UqcsMzuyZJTzfsopc4IusXyIazzADzj5F4YQ7tj/dZdhhfF/ZnF46+lcOTiH
+         xwPyFastJPZeO1lW2gA0b0kZl1A01tBEJRDpOjjlqqvbgsKG2+YnI4iDRxCAfMYr3fty
+         9jW59s8XALrXkmJKH5wkwKSn/5JLkIHcdhIUXHfwlmMz8fheF49YeJPz4MnWDe07e5yR
+         2fLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1708117533; x=1708722333;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=shgZmNUDjmgRe3frEU74jFBqUA2SGxRFjX4pA6qgQys=;
+        b=mEvXUqd+ae247hCr/5WiYCucrIUw9tqGgYBqa+b7Q5dNCiB7srd5uSdECQSqqH+3Bb
+         0a1AoCpI0nC3EAev7WDJzCucUjW8VFscrtmXcXHrp8TOjY5wZ8/LaFMxwtKeqHVIe8tM
+         MNcZfpVfTuAbZxe0jLkoMhgJAbQL+ahnaPFhBZj6CAFi6M+R7iCf10YuzgZIZ3opPI0h
+         j3OYZv0abZRdmrFOvNU6J4tUnV9e7ydrMlxNvAzXRnqzEPeelGoVNraJtXTZNo1X2A2D
+         Dwak32u8NuPzZgyCcUyosA5yOPKF8P4p26dlMwyjGHFwfjA+2JI+ylXgvFReiTfXokdf
+         niXA==
+X-Forwarded-Encrypted: i=1; AJvYcCX1c6HkTkno1xJPLSeOpuDv5ODgHxEYWFSv2R616JQYNLjrc6DgAUv2WqCo+lv7i3tq+4iEfIfSAkn33aCqJh/7/4ZlaNH+xgqYLMJCSOwW
+X-Gm-Message-State: AOJu0Yy5g6YGFY2W0gLkmoB8+sPau6PNbmXyPhuz8WL2jDN1OryNaxIe
+	7P4eIcmVrQRmgoEw77qQwsVI3W6YJcb+MCTX+V9mKlKAIxXtIphH
+X-Google-Smtp-Source: AGHT+IHVZYJGn0cvz6Sv6SWm8Y4imXPZlRLwn80Ognqtd4Py8wzXOlhGOcYZENg07BFe4Z/vpViEjw==
+X-Received: by 2002:a17:906:c40c:b0:a3d:568:966e with SMTP id u12-20020a170906c40c00b00a3d0568966emr5022351ejz.6.1708117532761;
+        Fri, 16 Feb 2024 13:05:32 -0800 (PST)
+Received: from andrea ([31.189.39.37])
+        by smtp.gmail.com with ESMTPSA id u8-20020a1709063b8800b00a3cf243de37sm331704ejf.111.2024.02.16.13.05.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Feb 2024 13:05:32 -0800 (PST)
+Date: Fri, 16 Feb 2024 22:05:30 +0100
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Eric Chan <ericchancf@google.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 4/4] riscv/barrier: Resolve checkpatch.pl error
+Message-ID: <Zc/OGnjVKcCuKNA5@andrea>
+References: <20240213223810.2595804-1-ericchancf@google.com>
+ <20240213224000.2597959-1-ericchancf@google.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240213224000.2597959-1-ericchancf@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240216_130406_015308_7A1A45D4 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20240216_130534_807661_FA6050EC 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,55 +88,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 27 2024 at 21:47, Anup Patel wrote:
-> We extend the existing APLIC irqchip driver to support MSI-mode for
-> RISC-V platforms having both wired interrupts and MSIs.
+On Tue, Feb 13, 2024 at 10:40:00PM +0000, Eric Chan wrote:
+> The past form of RISCV_FENCE would cause checkpatch.pl to issue
+> error messages, the example is as follows:
+> ERROR: space required after that ',' (ctx:VxV)
+> +#define __atomic_acquire_fence()       RISCV_FENCE(r,rw)
 
-We? Just s/We//
+Not the "best" example, according to Samuel's feedback and the diff
+below.  How about something like:
 
-> +
-> +static void aplic_msi_irq_unmask(struct irq_data *d)
-> +{
-> +	aplic_irq_unmask(d);
-> +	irq_chip_unmask_parent(d);
-> +}
-> +
-> +static void aplic_msi_irq_mask(struct irq_data *d)
-> +{
-> +	aplic_irq_mask(d);
-> +	irq_chip_mask_parent(d);
-> +}
+ERROR: space required after that ',' (ctx:VxV)
+#10: FILE: arch/riscv/include/asm/barrier.h:28:
++#define __smp_mb()	RISCV_FENCE(rw,rw)
 
-Again asymmetric vs. unmask()
 
-> +static void aplic_msi_irq_eoi(struct irq_data *d)
-> +{
-> +	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
-> +	u32 reg_off, reg_mask;
-> +
-> +	/*
-> +	 * EOI handling only required only for level-triggered
-> +	 * interrupts in APLIC MSI mode.
-> +	 */
-> +
-> +	reg_off = APLIC_CLRIP_BASE + ((d->hwirq / APLIC_IRQBITS_PER_REG) * 4);
-> +	reg_mask = BIT(d->hwirq % APLIC_IRQBITS_PER_REG);
-> +	switch (irqd_get_trigger_type(d)) {
-> +	case IRQ_TYPE_LEVEL_LOW:
-> +		if (!(readl(priv->regs + reg_off) & reg_mask))
-> +			writel(d->hwirq, priv->regs + APLIC_SETIPNUM_LE);
+> -#define __mb()		RISCV_FENCE(iorw,iorw)
+> -#define __rmb()		RISCV_FENCE(ir,ir)
+> -#define __wmb()		RISCV_FENCE(ow,ow)
+> +#define __mb()		RISCV_FENCE(iorw, iorw)
+> +#define __rmb()		RISCV_FENCE(ir, ir)
+> +#define __wmb()		RISCV_FENCE(ow, ow)
 
-A comment what this condition is for would be nice.
+This would go away per my comment to 1/4.
 
-Thanks,
 
-        tglx
+From a less technical viewpoint and FYI, an unwritten rule of "working
+with the Linux kernel community" is:
+
+  Don't forget to keep people who spent time reviewing, or providing
+  feedback to, your patch in the loop/in Cc: in your next iterations;
+  they might be the only people who will be able to provide feedback
+  /suggestions/help in your future life.
+
+;-)
+
+  Andrea
 
 _______________________________________________
 linux-riscv mailing list
