@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B08C48BC4
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 18:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7BC1C48260
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 18:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SF3+dOl80mXQz/bMvSgT7AHWcTquZD3itD/dlyjWMrU=; b=Br/Vv6t6a0OHvO
-	mA08d9jsgpCYsj0lFBD0Bbool113lEeosnZwCdQNWH8Qr/tWwc18Fe6tB9cZz0yZjDU3wQqidgOk5
-	WXVTVU9XkciZkDJPMz5Pga8g6zCdtRzMgrYadbLHBaqA+hP3Gvkr4r+6QCIsIWvhpY84XvNZnpHQo
-	vBQPCqOd55qATL8g4Ucz/CUQ1umS/L6Rm0KR0YCyzH4ihYfMlmEMtHQLd+tX3P19RzuAjHNNNkAk6
-	/uh8umh4zctPka/pdOXWkjkxsC0WnaRyQ2ExfadyIxFJ61FkLeZavfbkURRKUSqUozgFfkqYsufUt
-	Mh1xrP75rdXX8OzA+ACw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=ELBEJnayFgZFfudjac6HxWb8PxRP8iJt8HdCo54WfmI=; b=M6mFokyfFDKGbQBEdCeh8ChiCH
+	hD+57/eQffckURctL7w2AvxuBaKz8iFRAplw2iFFDDF52SJPQ3ynjiCV06IuZCA19sxFidnKHj8Gm
+	rxVb5lXAwKoRH6KVUzfuA5xIqCWtheI7yoS4Y/XGo+QCxMLrzydS/yDDYijkjj/UHY1SqV4/nqP+6
+	nzrqAT54fRrgSWon6vAvMVtu03sQyIEArvfTHTlx21pGV/bPgRktoSTtEt8xHal8m9RKm8vuUS995
+	Seo+1hw0B8EcWdMIVrKgpeMVaT3mMU82pKG5nSDuonb8kc1LU6pAiXAbnYPMGJxYJEvoNQckgb1cQ
+	25Ht5p/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rb38r-00000003N0y-1bVa;
-	Fri, 16 Feb 2024 18:40:57 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1rb3BQ-00000003Nkt-2wto;
+	Fri, 16 Feb 2024 18:43:36 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rb38k-00000003MxA-2vw4;
-	Fri, 16 Feb 2024 18:40:54 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1708108847;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Dj7LuufdWwL+SVl8iJBjtJX+BhhU6HA8hpHGpb95G2k=;
-	b=mu/pj7R92qWz0kEo70/pEinc5+SsIMVdhBSfA6OzWr2Qkt1kZCRc57Als/7ciq6cUvDku1
-	/qgmjdoO06SroVjrLSydBucQeU6rh6dr32CRYFCUun6rOk5GN1Ack2i8mKbDoe05d5HSvJ
-	bxFG93pDm6GhPuWNoTnbacgWquKtZ+J3qKTABJw82bR0GP0D08oTChza7l4ap6OBq0ihL3
-	hs1vfqh7oUqF7AoI1wU/l5iUY2CQ+FTwgWWLuSLCmt1hprRdq75hvIxjHu4ib2AuXoO265
-	VVsGk37fJTIMhRUnT1ZCEZc/G8bWiIyoKZYUjwdiwk8IdPqN2ra6O4gE1c5ZVQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1708108847;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Dj7LuufdWwL+SVl8iJBjtJX+BhhU6HA8hpHGpb95G2k=;
-	b=pRWjx0meUdFCVOeKx6CGD/DhOGpFkPLDESfkGlBrQ06VD86ZaPhP1C8dTpOqt39a1gwDg1
-	yXDCzfQ+GEUGa6CA==
-To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Rob
- Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Frank Rowand
- <frowand.list@gmail.com>, Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v12 18/25] irqchip: Add RISC-V incoming MSI controller
- early driver
-In-Reply-To: <20240127161753.114685-19-apatel@ventanamicro.com>
-References: <20240127161753.114685-1-apatel@ventanamicro.com>
- <20240127161753.114685-19-apatel@ventanamicro.com>
-Date: Fri, 16 Feb 2024 19:40:47 +0100
-Message-ID: <87h6i8ckwg.ffs@tglx>
-MIME-Version: 1.0
+	id 1rb3BN-00000003Njb-0jvy
+	for linux-riscv@lists.infradead.org;
+	Fri, 16 Feb 2024 18:43:34 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-5bdbe2de25fso1990076a12.3
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Feb 2024 10:43:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1708109012; x=1708713812; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eJHBmKqDgQLAotj8Y1RBzz34tisc7RXots8Wfd3qOQk=;
+        b=XQuOnYgBTSL45G8xTekJFL0K6loGXQkuvg5KZ9Q0yZSK4t02JEfRBbbBHe2hL0TSh9
+         OmhmFJJH9kiSLImWtzBez5jdkvXKLB5rPxaASQyYAkzXWuT45eSQue/ArH/DRul+LIQA
+         nGqRumjQmKacEk7EPVaLduino/1897///WDPxCm/3J5rxHXK/T1BUdq4V3fUcqENLRR5
+         8JXmM4rUDEZWUO20XDgZpOdrTaX20qT9XhvpBneIJ/Rrx1Iegfr+WdGpX7KSYM/A/3IS
+         34zaNgiEEpYjAIElfmMMRRxLwExzOVMPCszj9kT2n1D9igwWlNdQ5jTuubZSjL4pwALS
+         QMDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1708109012; x=1708713812;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eJHBmKqDgQLAotj8Y1RBzz34tisc7RXots8Wfd3qOQk=;
+        b=qFXl4rmxSkTuvijQb7Da2MJtX4UdfaVqACrHloOxoOLt77T8B/0HTujjsFX6JZlSVE
+         lUfQ4GzLsWV6UfdgrYt1gHCrFcvxONxQfvUMDj+krxWtCWivsnIS4d6geNQgEhpSgNJz
+         6l8FDuH2jnT3EaN20oN8YQAD5zv71kYt6VrX7RcvRYMrg8jLS5DDTqLdN+yA+ELCitgd
+         piviwbqNFdhPdljBCeLuKV6/BGtCoPyQ4Rd8S06fw5XA24VYkdfuoq0e3YRT/bfIangj
+         luatDA/8c4Eds60aKCl9mleAzjl9F4XSbuVTe5KJRWz6yXUmAya7Y6SAxD2sL7rpDb29
+         zG8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU6n8cgUSPyQ1uSmF0tRfubQPfD5WDrHGmxeTLltXqN09H6Dh3zQdg2NEYHXZJG+Pp5dou6VBHSoqMri/lOoqndxeJSXPW7YDAzA16R1YxR
+X-Gm-Message-State: AOJu0YwKM9tdGPcRKXUpD2G1A1QIl9PzJe4avvpPjFqQ3dcDV3hgfEwB
+	r91HXz4NsuEm5VAs9o+fU4V/zm1galZYTKzUGc9Z59JgXoEWAF1Fbw19qDsjQ5Y=
+X-Google-Smtp-Source: AGHT+IHupLOFRaXioovxDw1rwELdzfrPAACvtmznYDJzzO50HaIDsrCgoi1SlLUvhe4Vma9+UYI6BA==
+X-Received: by 2002:a05:6a20:8043:b0:19e:cae4:7c15 with SMTP id f3-20020a056a20804300b0019ecae47c15mr4841321pza.24.1708109011834;
+        Fri, 16 Feb 2024 10:43:31 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id dq3-20020a056a020f8300b005b7dd356f75sm194808pgb.32.2024.02.16.10.43.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Feb 2024 10:43:31 -0800 (PST)
+Date: Fri, 16 Feb 2024 10:43:31 -0800 (PST)
+X-Google-Original-Date: Fri, 16 Feb 2024 10:43:28 PST (-0800)
+Subject: Re: [PATCH] MAINTAINERS: Update SiFive driver maintainers
+In-Reply-To: <20240215234941.1663791-1-samuel.holland@sifive.com>
+CC: Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+  greentime.hu@sifive.com, linux-riscv@lists.infradead.org, green.wan@sifive.com,
+  samuel.holland@sifive.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: samuel.holland@sifive.com
+Message-ID: <mhng-a672acb9-4e32-4a63-898d-08b10d09d8b8@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240216_104051_173782_0A9C7898 
-X-CRM114-Status: GOOD (  36.79  )
+X-CRM114-CacheID: sfid-20240216_104333_452359_E7BC0A40 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,459 +88,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 27 2024 at 21:47, Anup Patel wrote:
-> +
-> +#ifdef CONFIG_SMP
-> +static irqreturn_t imsic_local_sync_handler(int irq, void *data)
-> +{
-> +	imsic_local_sync();
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static void imsic_ipi_send(unsigned int cpu)
-> +{
-> +	struct imsic_local_config *local =
-> +				per_cpu_ptr(imsic->global.local, cpu);
+On Thu, 15 Feb 2024 15:49:11 PST (-0800), samuel.holland@sifive.com wrote:
+> Add myself as a maintainer for the various SiFive drivers, since I have
+> been performing cleanup activity on these drivers and reviewing patches
+> to them for a while now. Remove Palmer as a maintainer, as he is focused
+> on overall RISC-V architecture support.
+>
+> Collapse some duplicate entries into the main SiFive drivers entry:
+>  - Conor is already maintainer of standalone cache drivers as a whole,
+>    and these files are also covered by the "sifive" file name regex.
+>  - Paul's git tree has not been updated since 2018, and all file names
+>    matching the "fu540" pattern also match the "sifive" pattern.
+>  - Green has not been active on the LKML for a couple of years.
+>
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
+>
+>  MAINTAINERS | 29 +++++------------------------
+>  1 file changed, 5 insertions(+), 24 deletions(-)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 73d898383e51..f1bbb0f82664 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -1395,6 +1395,7 @@ F:	drivers/hwmon/max31760.c
+>
+>  ANALOGBITS PLL LIBRARIES
+>  M:	Paul Walmsley <paul.walmsley@sifive.com>
+> +M:	Samuel Holland <samuel.holland@sifive.com>
+>  S:	Supported
+>  F:	drivers/clk/analogbits/*
+>  F:	include/linux/clk/analogbits*
+> @@ -16725,6 +16726,7 @@ F:	drivers/pci/controller/dwc/*layerscape*
+>  PCI DRIVER FOR FU740
+>  M:	Paul Walmsley <paul.walmsley@sifive.com>
+>  M:	Greentime Hu <greentime.hu@sifive.com>
+> +M:	Samuel Holland <samuel.holland@sifive.com>
+>  L:	linux-pci@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
+> @@ -19968,36 +19970,15 @@ S:	Maintained
+>  F:	drivers/watchdog/simatic-ipc-wdt.c
+>
+>  SIFIVE DRIVERS
+> -M:	Palmer Dabbelt <palmer@dabbelt.com>
+>  M:	Paul Walmsley <paul.walmsley@sifive.com>
+> +M:	Samuel Holland <samuel.holland@sifive.com>
+>  L:	linux-riscv@lists.infradead.org
+>  S:	Supported
+> +F:	drivers/dma/sf-pdma/
+>  N:	sifive
+> +K:	fu[57]40
+>  K:	[^@]sifive
+>
+> -SIFIVE CACHE DRIVER
+> -M:	Conor Dooley <conor@kernel.org>
+> -L:	linux-riscv@lists.infradead.org
+> -S:	Maintained
+> -F:	Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
+> -F:	drivers/cache/sifive_ccache.c
+> -
+> -SIFIVE FU540 SYSTEM-ON-CHIP
+> -M:	Paul Walmsley <paul.walmsley@sifive.com>
+> -M:	Palmer Dabbelt <palmer@dabbelt.com>
+> -L:	linux-riscv@lists.infradead.org
+> -S:	Supported
+> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/pjw/sifive.git
+> -N:	fu540
+> -K:	fu540
+> -
+> -SIFIVE PDMA DRIVER
+> -M:	Green Wan <green.wan@sifive.com>
+> -S:	Maintained
+> -F:	Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+> -F:	drivers/dma/sf-pdma/
+> -
+> -
+>  SILEAD TOUCHSCREEN DRIVER
+>  M:	Hans de Goede <hdegoede@redhat.com>
+>  L:	linux-input@vger.kernel.org
 
-Let it stick out. We switched to line length 100 quite some time
-ago. Applies to the rest of the series too.
+I'm fine not having to maintain the SiFive drivers, the SOC stuff was 
+never really my thing anyway so that's all a bit easier on my end.  So
 
-> +	writel_relaxed(IMSIC_IPI_ID, local->msi_va);
-> +}
-> +
-> +static void imsic_ipi_starting_cpu(void)
-> +{
-> +	/* Enable IPIs for current CPU. */
-> +	__imsic_id_set_enable(IMSIC_IPI_ID);
-> +
-> +	/* Enable virtual IPI used for IMSIC ID synchronization */
-> +	enable_percpu_irq(imsic->ipi_virq, 0);
-> +}
-> +
-> +static void imsic_ipi_dying_cpu(void)
-> +{
-> +	/*
-> +	 * Disable virtual IPI used for IMSIC ID synchronization so
-> +	 * that we don't receive ID synchronization requests.
-> +	 */
-> +	disable_percpu_irq(imsic->ipi_virq);
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-Shouldn't this disable the hardware too, i.e.
-
-          __imsic_id_clear_enable()
-
-?
-
-> +}
-> +
-> +static int __init imsic_ipi_domain_init(void)
-> +{
-> +	int virq;
-> +
-> +	/* Create IMSIC IPI multiplexing */
-> +	virq = ipi_mux_create(IMSIC_NR_IPI, imsic_ipi_send);
-> +	if (virq <= 0)
-> +		return (virq < 0) ? virq : -ENOMEM;
-> +	imsic->ipi_virq = virq;
-> +
-> +	/* First vIRQ is used for IMSIC ID synchronization */
-> +	virq = request_percpu_irq(imsic->ipi_virq, imsic_local_sync_handler,
-> +				  "riscv-imsic-lsync", imsic->global.local);
-> +	if (virq)
-> +		return virq;
-
-Please use a separate 'ret' variable. I had to read this 3 times to make
-sense of it.
-
-> +	irq_set_status_flags(imsic->ipi_virq, IRQ_HIDDEN);
-> +	imsic->ipi_lsync_desc = irq_to_desc(imsic->ipi_virq);
-
-What's so special about this particular IPI that it can't be handled
-like all the other IPIs?
-
-> +static int __init imsic_early_probe(struct fwnode_handle *fwnode)
-> +{
-> +	int rc;
-> +	struct irq_domain *domain;
-
-https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#variable-declarations
-
-> +
-> +	/* Find parent domain and register chained handler */
-> +	domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(),
-> +					  DOMAIN_BUS_ANY);
-> +	if (!domain) {
-> +		pr_err("%pfwP: Failed to find INTC domain\n", fwnode);
-> +		return -ENOENT;
-> +	}
-> +	imsic_parent_irq = irq_create_mapping(domain, RV_IRQ_EXT);
-> +	if (!imsic_parent_irq) {
-> +		pr_err("%pfwP: Failed to create INTC mapping\n", fwnode);
-> +		return -ENOENT;
-> +	}
-> +	irq_set_chained_handler(imsic_parent_irq, imsic_handle_irq);
-> +
-> +	/* Initialize IPI domain */
-> +	rc = imsic_ipi_domain_init();
-> +	if (rc) {
-> +		pr_err("%pfwP: Failed to initialize IPI domain\n", fwnode);
-> +		return rc;
-
-Leaves the chained handler around and enabled.
-
-> diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
-> +
-> +#define imsic_csr_write(__c, __v)		\
-> +do {						\
-> +	csr_write(CSR_ISELECT, __c);		\
-> +	csr_write(CSR_IREG, __v);		\
-> +} while (0)
-
-Any reason why these macros can't be inlines?
-
-> +const struct imsic_global_config *imsic_get_global_config(void)
-> +{
-> +	return imsic ? &imsic->global : NULL;
-> +}
-> +EXPORT_SYMBOL_GPL(imsic_get_global_config);
-
-Why is this exported?
-
-> +#define __imsic_id_read_clear_enabled(__id)		\
-> +	__imsic_eix_read_clear((__id), false)
-> +#define __imsic_id_read_clear_pending(__id)		\
-> +	__imsic_eix_read_clear((__id), true)
-
-Please use inlines.
-
-> +void __imsic_eix_update(unsigned long base_id,
-> +			unsigned long num_id, bool pend, bool val)
-> +{
-> +	unsigned long i, isel, ireg;
-> +	unsigned long id = base_id, last_id = base_id + num_id;
-> +
-> +	while (id < last_id) {
-> +		isel = id / BITS_PER_LONG;
-> +		isel *= BITS_PER_LONG / IMSIC_EIPx_BITS;
-> +		isel += (pend) ? IMSIC_EIP0 : IMSIC_EIE0;
-> +
-> +		ireg = 0;
-> +		for (i = id & (__riscv_xlen - 1);
-> +		     (id < last_id) && (i < __riscv_xlen); i++) {
-> +			ireg |= BIT(i);
-> +			id++;
-> +		}
-
-This lacks a comment what this is doing.
-
-> +
-> +		/*
-> +		 * The IMSIC EIEx and EIPx registers are indirectly
-> +		 * accessed via using ISELECT and IREG CSRs so we
-> +		 * need to access these CSRs without getting preempted.
-> +		 *
-> +		 * All existing users of this function call this
-> +		 * function with local IRQs disabled so we don't
-> +		 * need to do anything special here.
-> +		 */
-> +		if (val)
-> +			imsic_csr_set(isel, ireg);
-> +		else
-> +			imsic_csr_clear(isel, ireg);
-> +	}
-> +}
-> +
-> +void imsic_local_sync(void)
-> +{
-> +	struct imsic_local_priv *lpriv = this_cpu_ptr(imsic->lpriv);
-> +	struct imsic_local_config *mlocal;
-> +	struct imsic_vector *mvec;
-> +	unsigned long flags;
-> +	int i;
-> +
-> +	raw_spin_lock_irqsave(&lpriv->ids_lock, flags);
-> +	for (i = 1; i <= imsic->global.nr_ids; i++) {
-> +		if (i == IMSIC_IPI_ID)
-> +			continue;
-> +
-> +		if (test_bit(i, lpriv->ids_enabled_bitmap))
-> +			__imsic_id_set_enable(i);
-> +		else
-> +			__imsic_id_clear_enable(i);
-> +
-> +		mvec = lpriv->ids_move[i];
-> +		lpriv->ids_move[i] = NULL;
-> +		if (mvec) {
-> +			if (__imsic_id_read_clear_pending(i)) {
-> +				mlocal = per_cpu_ptr(imsic->global.local,
-> +						     mvec->cpu);
-> +				writel_relaxed(mvec->local_id, mlocal->msi_va);
-> +			}
-> +
-> +			imsic_vector_free(&lpriv->vectors[i]);
-> +		}
-
-Again an uncommented piece of magic which you will have forgotten what
-it does 3 month down the road :)
-
-> +
-> +	}
-> +	raw_spin_unlock_irqrestore(&lpriv->ids_lock, flags);
-> +}
-> +
-> +void imsic_local_delivery(bool enable)
-> +{
-> +	if (enable) {
-> +		imsic_csr_write(IMSIC_EITHRESHOLD, IMSIC_ENABLE_EITHRESHOLD);
-> +		imsic_csr_write(IMSIC_EIDELIVERY, IMSIC_ENABLE_EIDELIVERY);
-> +		return;
-> +	}
-> +
-> +	imsic_csr_write(IMSIC_EIDELIVERY, IMSIC_DISABLE_EIDELIVERY);
-> +	imsic_csr_write(IMSIC_EITHRESHOLD, IMSIC_DISABLE_EITHRESHOLD);
-> +}
-> +
-> +#ifdef CONFIG_SMP
-> +static void imsic_remote_sync(unsigned int cpu)
-> +{
-> +	/*
-> +	 * We simply inject ID synchronization IPI to a target CPU
-> +	 * if it is not same as the current CPU. The ipi_send_mask()
-> +	 * implementation of IPI mux will inject ID synchronization
-> +	 * IPI only for CPUs that have enabled it so offline CPUs
-> +	 * won't receive IPI. An offline CPU will unconditionally
-> +	 * synchronize IDs through imsic_starting_cpu() when the
-> +	 * CPU is brought up.
-> +	 */
-> +	if (cpu_online(cpu)) {
-> +		if (cpu != smp_processor_id())
-> +			__ipi_send_mask(imsic->ipi_lsync_desc, cpumask_of(cpu));
-
-Still wondering why this can't use the regular API. There might be a
-reason, but then it wants to be documented.
-
-> +		else
-> +			imsic_local_sync();
-> +	}
-> +}
-> +#else
-> +static inline void imsic_remote_sync(unsigned int cpu)
-> +{
-> +	imsic_local_sync();
-> +}
-> +#endif
-> +
-> +void imsic_vector_mask(struct imsic_vector *vec)
-> +{
-> +	struct imsic_local_priv *lpriv;
-> +	unsigned long flags;
-> +
-> +	lpriv = per_cpu_ptr(imsic->lpriv, vec->cpu);
-> +	if (WARN_ON(&lpriv->vectors[vec->local_id] != vec))
-> +		return;
-> +
-> +	raw_spin_lock_irqsave(&lpriv->ids_lock, flags);
-
-AFAICT, this is used from an irqchip callback:
-
-static void imsic_irq_mask(struct irq_data *d)
-{
-        imsic_vector_mask(irq_data_get_irq_chip_data(d));
-}
-
-So no need to use irqsave() here. Those callbacks run always with
-interrupts disabled when called from the core.
-
-> +void imsic_vector_move(struct imsic_vector *old_vec,
-> +			struct imsic_vector *new_vec)
-> +{
-> +	struct imsic_local_priv *old_lpriv, *new_lpriv;
-> +	unsigned long flags, flags1;
-> +
-> +	if (WARN_ON(old_vec->cpu == new_vec->cpu))
-> +		return;
-> +
-> +	old_lpriv = per_cpu_ptr(imsic->lpriv, old_vec->cpu);
-> +	if (WARN_ON(&old_lpriv->vectors[old_vec->local_id] != old_vec))
-> +		return;
-> +
-> +	new_lpriv = per_cpu_ptr(imsic->lpriv, new_vec->cpu);
-> +	if (WARN_ON(&new_lpriv->vectors[new_vec->local_id] != new_vec))
-> +		return;
-> +
-> +	raw_spin_lock_irqsave(&old_lpriv->ids_lock, flags);
-> +	raw_spin_lock_irqsave(&new_lpriv->ids_lock, flags1);
-
-Lockdep should yell at you for this, rightfully so. And not only because
-of the missing nested() annotation.
-
-Assume there are two CPUs setting affinity for two different interrupts.
-
-CPU0 moves an interrupt to CPU1 and CPU1 moves another interrupt to
-CPU0. The resulting lock order is:
-
-CPU0                     CPU1
-lock(lpriv[CPU0]);       lock(lpriv[CPU1]);
-lock(lpriv[CPU1]);       lock(lpriv[CPU0]);
-
-a classic ABBA deadlock.
-
-You need to take those locks always in the same order. Look at
-double_raw_lock() in kernel/sched/sched.h.
-
-> +	/* Unmask the new vector entry */
-> +	if (test_bit(old_vec->local_id, old_lpriv->ids_enabled_bitmap))
-> +		bitmap_set(new_lpriv->ids_enabled_bitmap,
-> +			   new_vec->local_id, 1);
-
-Either make that one line or please add brackets. See:
-
-  https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#bracket-rules
-
-> +static int __init imsic_local_init(void)
-> +{
-> +	struct imsic_global_config *global = &imsic->global;
-> +	struct imsic_local_priv *lpriv;
-> +	struct imsic_vector *vec;
-> +	int cpu, i;
-> +
-> +	/* Allocate per-CPU private state */
-> +	imsic->lpriv = alloc_percpu(typeof(*(imsic->lpriv)));
-> +	if (!imsic->lpriv)
-> +		return -ENOMEM;
-> +
-> +	/* Setup per-CPU private state */
-> +	for_each_possible_cpu(cpu) {
-> +		lpriv = per_cpu_ptr(imsic->lpriv, cpu);
-> +
-> +		raw_spin_lock_init(&lpriv->ids_lock);
-> +
-> +		/* Allocate enabled bitmap */
-> +		lpriv->ids_enabled_bitmap = bitmap_zalloc(global->nr_ids + 1,
-> +							  GFP_KERNEL);
-> +		if (!lpriv->ids_enabled_bitmap) {
-> +			imsic_local_cleanup();
-> +			return -ENOMEM;
-> +		}
-> +
-> +		/* Allocate move array */
-> +		lpriv->ids_move = kcalloc(global->nr_ids + 1,
-> +					sizeof(*lpriv->ids_move), GFP_KERNEL);
-> +		if (!lpriv->ids_move) {
-> +			imsic_local_cleanup();
-> +			return -ENOMEM;
-> +		}
-> +
-> +		/* Allocate vector array */
-> +		lpriv->vectors = kcalloc(global->nr_ids + 1,
-> +					 sizeof(*lpriv->vectors), GFP_KERNEL);
-> +		if (!lpriv->vectors) {
-> +			imsic_local_cleanup();
-> +			return -ENOMEM;
-
-Third instance of the same pattern. goto cleanup; perhaps?
-
-> +struct imsic_vector *imsic_vector_alloc(unsigned int hwirq,
-> +					const struct cpumask *mask)
-> +{
-> +	struct imsic_vector *vec = NULL;
-> +	struct imsic_local_priv *lpriv;
-> +	unsigned long flags;
-> +	unsigned int cpu;
-> +	int local_id;
-> +
-> +	raw_spin_lock_irqsave(&imsic->matrix_lock, flags);
-> +	local_id = irq_matrix_alloc(imsic->matrix, mask, false, &cpu);
-> +	raw_spin_unlock_irqrestore(&imsic->matrix_lock, flags);
-> +	if (local_id < 0)
-> +		return NULL;
-> +
-> +	lpriv = per_cpu_ptr(imsic->lpriv, cpu);
-> +	vec = &lpriv->vectors[local_id];
-> +	vec->hwirq = hwirq;
-> +
-> +	return vec;
-> +}
-
-...
-
-> +int imsic_hwirq_alloc(void)
-> +{
-> +	int ret;
-> +	unsigned long flags;
-> +
-> +	raw_spin_lock_irqsave(&imsic->hwirqs_lock, flags);
-> +	ret = bitmap_find_free_region(imsic->hwirqs_used_bitmap,
-> +				      imsic->nr_hwirqs, 0);
-> +	raw_spin_unlock_irqrestore(&imsic->hwirqs_lock, flags);
-> +
-> +	return ret;
-> +}
-
-This part is just to create a unique hwirq number, right?
-
-> +
-> +	/* Find number of guest index bits in MSI address */
-> +	rc = of_property_read_u32(to_of_node(fwnode),
-> +				  "riscv,guest-index-bits",
-> +				  &global->guest_index_bits);
-> +	if (rc)
-> +		global->guest_index_bits = 0;
-
-So here you get the index bits, but then 50 lines further down you do
-sanity checking. Wouldn't it make sense to do that right here?
-
-Same for the other bits.
-
-> +
-> +/*
-> + * The IMSIC driver uses 1 IPI for ID synchronization and
-> + * arch/riscv/kernel/smp.c require 6 IPIs so we fix the
-> + * total number of IPIs to 8.
-> + */
-> +#define IMSIC_IPI_ID				1
-> +#define IMSIC_NR_IPI				8
-> +
-> +struct imsic_vector {
-> +	/* Fixed details of the vector */
-> +	unsigned int cpu;
-> +	unsigned int local_id;
-> +	/* Details saved by driver in the vector */
-> +	unsigned int hwirq;
-> +};
-> +
-> +struct imsic_local_priv {
-> +	/* Local state of interrupt identities */
-> +	raw_spinlock_t ids_lock;
-> +	unsigned long *ids_enabled_bitmap;
-> +	struct imsic_vector **ids_move;
-> +
-> +	/* Local vector table */
-> +	struct imsic_vector *vectors;
-
-Please make those structs tabular:
-
-https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#struct-declarations-and-initializers
-
-> +void __imsic_eix_update(unsigned long base_id,
-> +			unsigned long num_id, bool pend, bool val);
-> +
-> +#define __imsic_id_set_enable(__id)		\
-> +	__imsic_eix_update((__id), 1, false, true)
-> +#define __imsic_id_clear_enable(__id)	\
-> +	__imsic_eix_update((__id), 1, false, false)
-
-inlines please.
-
-Thanks,
-
-        tglx
+I do end up picking up some random patches though, mostly because stuff 
+seems to slip through the cracks.  Are you going to have an SOC subtree 
+and send stuff over there?  That seems more manageable on my end, as 
+it's a bit scattered today.
 
 _______________________________________________
 linux-riscv mailing list
