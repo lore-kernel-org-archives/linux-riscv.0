@@ -4,89 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F885C48BEB
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 00:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5C7C4829E
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 00:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SzUKJypUbWjDo3TcbJaamSbxdkonAv6Yhmz3MKOU9o8=; b=VQYZ/OiA6myNw/
-	gqyfLiHWAMraiN5FqvvjDaebO/OLccjNtI+9XrpCCJMKfi9i8AdbKTfJVLM0m3rzhfv7lAea7VfRo
-	p7wQlheokKjABbSKzLIOxa88F1ysh3OtwJF6+WnzIpf8Atv8vgojXsdNWgcBS4vMWk3rfvMqYXqcy
-	lPupfoDBV8bA5CSXmEi1yJyip2IUJ9QpvVx+69N/go4hEtz9V+OA3puLOCd5erG1ebZxLrBvOyCtL
-	UJIZdpueuJtW6ZiPGl8QHJCWipC/nSPGUdmEhbBOtzsODCIhyStqxxxrlzXUSBhEuZ80MGaytNio6
-	Qwkkk7m54dJPWgy6hOqQ==;
+	List-Owner; bh=/vzMYLE06LLG8JlGc+TqYmEmuc0c7uLL2MHHiPRW1/I=; b=2qrhMggREFrxLP
+	JE/yc49g66Z8/G0XFbX9+Is+9BSODWIzeI1eP4xJshiL5LfOBSmLDiVUIhXr4gxKkcHq/cAEatyYc
+	n6s/bXbhjknq8ZqSJsIcsLZBjsVaw7LlK/cgv8l3SaZyGn6AmvfFpk5bEWPWPQV9RqeUz9VB79Fpi
+	DLgb3qGBPdAsoufvfBim5KEHgFRu0m/w5ndT1lveDEXfFO7dFtDj56pOEyEOea+EHRZChrLbTpwbN
+	ERc2UI1TkOQkeQMHUb/nZxGLD3wbcbUF1rZl0B9ALd7yzQuf9js5CzJC6QJIdWZYQCgTrNOuHC3QX
+	APhJZE9ITEFE4jRjc/qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1raln8-00000000Z4B-2YJE;
-	Fri, 16 Feb 2024 00:09:22 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1ramKC-00000000dvG-1Q3a;
+	Fri, 16 Feb 2024 00:43:32 +0000
+Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ralmf-00000000YdA-24ke
+	id 1ramK9-00000000dtw-1zji
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Feb 2024 00:08:57 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1d8aadc624dso12597145ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Feb 2024 16:08:53 -0800 (PST)
+	Fri, 16 Feb 2024 00:43:30 +0000
+Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-7c4949a366fso51217439f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Feb 2024 16:43:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1708042133; x=1708646933; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pGHwuS0ENdmLMLz6bWQqaQXZhO2uE/iwucpykSfpWsk=;
-        b=YdIxGRZ2bqb831ZhYX0Byh4fBuQQGIAou0161St4j+Muz9Kej22t0tja7bW+LBrCSj
-         3vbneukX/aQIyI8hgRODewHrK0DGggp1MI0Om32ID3np7KRxf057spx1Vwz6YK6R3Enn
-         C5DFSw+tvcNOaBJEt46eSztZJHoBQ34G4k1Kd5CmxqxHGOeAEN2Ms3zgBCWm1blKzOKH
-         eCW71hBhI1e5Ym8e6njcFnEcYVRAqK0/cCf2JPlDAWzRDrG8wJJE30Zc98QV4oM+9klx
-         ZWOObc/Im9XBc+JE3KGK1h4cFBE1BRDkTyAIPeqW31dqUI8aPT+ezrnS67hz8TjDLrMy
-         TusA==
+        d=sifive.com; s=google; t=1708044206; x=1708649006; darn=lists.infradead.org;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=906AztgBDa+u1AARHWRp02F7s/rxI61AgVNDIWi+eXM=;
+        b=ZlBxkNlebxFeL3qw2a550GzlPD9dnR5X0TH8Om2p6WbrSaTh7fzN/I9i56l+ot+q8w
+         FBL6g07fcdpw1hGvhZS8SrZ3JPoRlkxnDaUrl4UpPz3szthJ1UjO04lAnDtyhrxivaSY
+         78lRRwy6BsMT7vI0GN7i3mmEiyDql7uJVAkFxXWmeBxI1X4IKTqUS6xrJvVSykrMy7X6
+         OCWIOcpGO+dDbY07wpT6V5Gf9hTdbLS8dTxZbck6TyUaqKuC6lrgMJ0viFiZ9kj6p1yz
+         0sOUjE1oXMtCfASfz1XLxfkIoFCwXm2gS+OXaJgYkY2Zv2Xo1GFd1OrOSf3UCjGcuPnq
+         EMOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708042133; x=1708646933;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pGHwuS0ENdmLMLz6bWQqaQXZhO2uE/iwucpykSfpWsk=;
-        b=XJxCs6C2kCW+pR+/uNYTMlhJmdvfdrzqBpKaTtzrEYKn7Y/QGBqUNsDlFRu4TbVWwE
-         chhdvp+lbfwPw4TqPqnXlMRog737IXYMbm9W0V3AOrpvXgygqTyByM5dAkd1IhJVpfv1
-         VrIxdy7kVCNnEwq+PIB5jFv5kT8CYLXVgcwdKXectppHnK7ZYVwYjOynU2PzD84MEYkY
-         L9wWUmalL+6/LKzQQ10qp5LsczrHZJr5yTPkzmrIrh0CulA9fSmacys/LZ8fiuqMm8og
-         vhPErSl+chef6TLrK52Dq68gnAbzbQIaNjnHKvDm+750hctCQtrCIh6wrc6wR60AKKtB
-         rbVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVMfhZDY5CJ+dJhtyWLhgZQ+7y7oFD6ylnjZb1pfJOxSYyg1L9Xzw8N/mZWKzuAEgiR0luZ8kQ0/TQLQswbnC+EATAtyy3gr9l4lgWWj7Vj
-X-Gm-Message-State: AOJu0YzZ/LEX9riXKB9J2wPSlXYXDAM2Ag6H0qzN2Kk7ji1l05HKi4fQ
-	ZS1vFOWZokkvwrlv3vf/uftriaqWnAB1yOtCLUNi7rjhA0+hfVfitrWtUH0AXsM=
-X-Google-Smtp-Source: AGHT+IGthcOdIu3Gkfl9BOtBJNngVNNV+UiNIDvn/Iv90Cvzn3/WrJ1BIiVXy+QBXOWjOFCbm+O8LA==
-X-Received: by 2002:a17:902:784e:b0:1d9:ba26:effc with SMTP id e14-20020a170902784e00b001d9ba26effcmr3177476pln.51.1708042132885;
-        Thu, 15 Feb 2024 16:08:52 -0800 (PST)
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id bb6-20020a170902bc8600b001db3d365082sm1789486plb.265.2024.02.15.16.08.50
+        d=1e100.net; s=20230601; t=1708044206; x=1708649006;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=906AztgBDa+u1AARHWRp02F7s/rxI61AgVNDIWi+eXM=;
+        b=WmMVt9f/CIHabAHh4+RhPO6O5CH9g9WJgh25iqaxo1pJkl8qLFEk8YN1Ix9m9bhmAe
+         JZ8PUfo1xRtN1ws8x7Rwa40NDhWL8r9O/A/+mmbVrsrEzCE1cKJS64bes2aVyIz0nedD
+         PaQnvZb4RsKj46tUQnt/KEdwN7ffXFb3NdUMYQ7ZDCVP4WQieAKQwoujLk1gh16CQUhq
+         kX+qrGYQWUiv364wZXtluhl+3PQETeBrtP6yqQJj3m4QBmtmZK86meEF6aHmmOQYCNJL
+         V0s++bdxN9dEPPTe7NoMdwWmF0eScOSDCswBkc6CMT+/5Yykm/92uDzmdvVpO6cbyJo6
+         Ewyg==
+X-Forwarded-Encrypted: i=1; AJvYcCUnaN1XwpaCp793xzzIj7j8tjLzPQWxwmYisYOc4q6egnnL3Z9LEMMpaarK1QBP+Wg79MLMRHfFH07bBv5dUtSzzkvjxDaQJi9wilTsMccz
+X-Gm-Message-State: AOJu0Yyup62Nrzpui5tey9gcZjR0r4KiSVNj8MScmKoGf8+ZHiNstESk
+	Bwdd1YH9OfxGJInpiLWNbRDTVQUyY0/pvRdmB0Gjkh/O1lN6aSr8fDp1aRh4Ozk=
+X-Google-Smtp-Source: AGHT+IERnpQSZ7MTb6KfYlV0kBQ6EVjYQL9pSnng2dDwidYnOh6AyMUrOQceP7bFABcYCPnVZeKZSw==
+X-Received: by 2002:a5d:841a:0:b0:7c4:5910:8ab9 with SMTP id i26-20020a5d841a000000b007c459108ab9mr4153852ion.5.1708044206274;
+        Thu, 15 Feb 2024 16:43:26 -0800 (PST)
+Received: from localhost (c-98-32-39-159.hsd1.nm.comcast.net. [98.32.39.159])
+        by smtp.gmail.com with ESMTPSA id l24-20020a02a898000000b004713ba1b284sm609266jam.44.2024.02.15.16.43.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Feb 2024 16:08:51 -0800 (PST)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Eric Lin <eric.lin@sifive.com>,
-	Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v1 5/6] dt-bindings: cache: Add SiFive Private L2 Cache controller
-Date: Thu, 15 Feb 2024 16:08:17 -0800
-Message-ID: <20240216000837.1868917-6-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240216000837.1868917-1-samuel.holland@sifive.com>
-References: <20240216000837.1868917-1-samuel.holland@sifive.com>
+        Thu, 15 Feb 2024 16:43:25 -0800 (PST)
+Date: Thu, 15 Feb 2024 16:43:24 -0800 (PST)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+To: Samuel Holland <samuel.holland@sifive.com>
+cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Greentime Hu <greentime.hu@sifive.com>, linux-riscv@lists.infradead.org, 
+    Green Wan <green.wan@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] MAINTAINERS: Update SiFive driver maintainers
+In-Reply-To: <20240215234941.1663791-1-samuel.holland@sifive.com>
+Message-ID: <114d9cf3-0ebd-56c7-f3e4-57ebc235df45@sifive.com>
+References: <20240215234941.1663791-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240215_160853_785506_2B859A7B 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20240215_164329_721093_27613735 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,118 +92,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Eric Lin <eric.lin@sifive.com>
+On Thu, 15 Feb 2024, Samuel Holland wrote:
 
-Add YAML DT binding documentation for the SiFive Private L2 Cache
-controller. Some functionality and the corresponding register bits were
-removed in the sifive,pl2cache1 version of the hardware, which creates
-the unusual situation where the newer hardware's compatible string is
-the fallback for the older one.
+> Add myself as a maintainer for the various SiFive drivers, since I have
+> been performing cleanup activity on these drivers and reviewing patches
+> to them for a while now. Remove Palmer as a maintainer, as he is focused
+> on overall RISC-V architecture support.
+> 
+> Collapse some duplicate entries into the main SiFive drivers entry:
+>  - Conor is already maintainer of standalone cache drivers as a whole,
+>    and these files are also covered by the "sifive" file name regex.
+>  - Paul's git tree has not been updated since 2018, and all file names
+>    matching the "fu540" pattern also match the "sifive" pattern.
+>  - Green has not been active on the LKML for a couple of years.
+> 
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 
-Signed-off-by: Eric Lin <eric.lin@sifive.com>
-Co-developed-by: Samuel Holland <samuel.holland@sifive.com>
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
----
+Acked-by: Paul Walmsley <paul.walmsley@sifive.com>
 
-Changes in v1:
- - Add back select: clause to binding
- - Make sifive,pl2cache1 the fallback for sifive,pl2cache0
- - Fix the order of the reg property declaration
- - Document the sifive,perfmon-counters property
-
- .../bindings/cache/sifive,pl2cache0.yaml      | 81 +++++++++++++++++++
- 1 file changed, 81 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/cache/sifive,pl2cache0.yaml
-
-diff --git a/Documentation/devicetree/bindings/cache/sifive,pl2cache0.yaml b/Documentation/devicetree/bindings/cache/sifive,pl2cache0.yaml
-new file mode 100644
-index 000000000000..d89e2e5d0a97
---- /dev/null
-+++ b/Documentation/devicetree/bindings/cache/sifive,pl2cache0.yaml
-@@ -0,0 +1,81 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+# Copyright (C) 2023-2024 SiFive, Inc.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/cache/sifive,pl2cache0.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SiFive Private L2 Cache Controller
-+
-+maintainers:
-+  - Eric Lin <eric.lin@sifive.com>
-+
-+description:
-+  The SiFive Private L2 Cache Controller is a per-core cache which communicates
-+  with both the upstream L1 caches and downstream L3 cache or memory, enabling a
-+  high-performance cache subsystem.
-+
-+allOf:
-+  - $ref: /schemas/cache-controller.yaml#
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - sifive,pl2cache1
-+
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - const: sifive,pl2cache0
-+          - const: sifive,pl2cache1
-+          - const: cache
-+      - items:
-+          - const: sifive,pl2cache1
-+          - const: cache
-+
-+  reg:
-+    maxItems: 1
-+
-+  cache-block-size: true
-+  cache-level: true
-+  cache-sets: true
-+  cache-size: true
-+  cache-unified: true
-+
-+  next-level-cache: true
-+
-+  sifive,perfmon-counters:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    default: 0
-+    description: Number of PMU counter registers
-+
-+required:
-+  - compatible
-+  - reg
-+  - cache-block-size
-+  - cache-level
-+  - cache-sets
-+  - cache-size
-+  - cache-unified
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    cache-controller@10104000 {
-+        compatible = "sifive,pl2cache1", "cache";
-+        reg = <0x10104000 0x4000>;
-+        cache-block-size = <64>;
-+        cache-level = <2>;
-+        cache-sets = <512>;
-+        cache-size = <262144>;
-+        cache-unified;
-+        next-level-cache = <&L4>;
-+        sifive,perfmon-counters = <6>;
-+    };
--- 
-2.43.0
+- Paul
 
 
 _______________________________________________
