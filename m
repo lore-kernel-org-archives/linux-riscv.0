@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0ACBC48260
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 17:11:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B08C48BC4
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 18:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C8XqFLwxpFO4KPx0cCDb+Z1d4Yzr3Rbo1mhebxSIT+4=; b=Q5Nr7enwGhUVFf
-	c4c78cMx7yZM/Q00qSvd0JO1P3YpUG9F3Ix8FcpcA0eMe0Hc4cYg4E9K5ys7dlytfQil04BmEJ5bz
-	tZJbbtrLj3FwW60IMfkyYyd+gxyCBAdhLV9SmnH/Sfz7ntpWFCqo5iB08OLpscopMrIqCjrYrhuZL
-	uWExg7AS5nY2wNAVksulqHDDLL6+ODhyjoQdMf641H01q3NRXkX4OW9YxUG6PToAPIqB6bxTBODnB
-	i3c27TRNzug1zMY0ufjnP29kfyC4PCsQNPy7rUb43BHMDmQgWbyYLGrZD+UwASo+fUzOhDnR+vcpD
-	EPnwU5tZBQgd0Ax8drbw==;
+	List-Owner; bh=SF3+dOl80mXQz/bMvSgT7AHWcTquZD3itD/dlyjWMrU=; b=Br/Vv6t6a0OHvO
+	mA08d9jsgpCYsj0lFBD0Bbool113lEeosnZwCdQNWH8Qr/tWwc18Fe6tB9cZz0yZjDU3wQqidgOk5
+	WXVTVU9XkciZkDJPMz5Pga8g6zCdtRzMgrYadbLHBaqA+hP3Gvkr4r+6QCIsIWvhpY84XvNZnpHQo
+	vBQPCqOd55qATL8g4Ucz/CUQ1umS/L6Rm0KR0YCyzH4ihYfMlmEMtHQLd+tX3P19RzuAjHNNNkAk6
+	/uh8umh4zctPka/pdOXWkjkxsC0WnaRyQ2ExfadyIxFJ61FkLeZavfbkURRKUSqUozgFfkqYsufUt
+	Mh1xrP75rdXX8OzA+ACw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rb1kU-000000038dS-20Le;
-	Fri, 16 Feb 2024 17:11:42 +0000
-Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
+	id 1rb38r-00000003N0y-1bVa;
+	Fri, 16 Feb 2024 18:40:57 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rb1kR-000000038WF-1d6X
-	for linux-riscv@lists.infradead.org;
-	Fri, 16 Feb 2024 17:11:40 +0000
-Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-363bd37434dso2411805ab.1
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Feb 2024 09:11:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1708103492; x=1708708292; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=havUKwIuQeWK4aYu8DNjs5scwGn6QvvJ9tZ1EDA7AU4=;
-        b=e915OAxS9lO6LNBzpNjj/JdajCKIzuYVAB7SJsiR29ICvLGGwNAay/6l31krmxNz32
-         Ny7uFQLUAMAwaxBr1vcdW0Ef0CYMtM2hHgE9MnHuclmesUfcmBHprL9IrT7U2uWGMt5F
-         F1UrAfwPNPCpkxYLBKHdfftOo4giw+RAEJSkv1F+JFSidlvOGW2m2nb3wKKwCxlXIYSd
-         q0/kGWRzfM+ss0FEVkT512ERI53b9QPaZCmca19GiU54WzCF+8erATqs+bsuOyGRfVqp
-         SRnmmQLdRJWoPRVuV13PnIWWLONs79Skhot5QiioD+5xVjADL64INrh65QUxpzpS8oE+
-         lTvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708103492; x=1708708292;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=havUKwIuQeWK4aYu8DNjs5scwGn6QvvJ9tZ1EDA7AU4=;
-        b=o8Sr0Aw4c6eG6wrAgmAleLM1j+TWRRBO9LGySQz4UO5XenLx0qSQkt8ZB5jzCxzMLS
-         vyRFap2Q4nvlaFrcvsuXhK0UNMW0riwexTrmLRToWAoMNbkhcj2ViVshB4FslD++9uaj
-         D4bulT9+NV2o64aWtDv9qYBKXudE3aga6aeJahm/5a8ABb7HGFzcqgHtdVdZQFewls3q
-         eDbkKQ7OvGjXSv74SvM/elB2IxDmOd0h/gYMg0Jvpbu/NnmsrVBzYRANEWFKyLhgYk/l
-         hasO1hsOzCJirsE4nWY+HEfrAI6f4leH/4F6k2xz/RxSx2PhWXTh4N4XpYz10z9RGp3Q
-         0nEA==
-X-Forwarded-Encrypted: i=1; AJvYcCX5vWWTxcxmMQnLRW9PmbGpynzlM5CCNKbd96N+B0oXxpPE4L4RljcVI+suDwjL8emsGNEuzNAhBILT/ASo0KL6G4+X5kdU0qF6ev9EJzFQ
-X-Gm-Message-State: AOJu0YxxUM+qQIChu9aLoYs9/ynyjbT7Pc2v9l+t24GH2yi1rw1waOtp
-	H9gbE5v2bDsF4gunnefdb7crB3LCDA+8wrda+XX4ZcvK7OZ1X1vqWMRfGMO2U5Bn30CzvtnNlI7
-	zScqfRpn+Zfh1RF3W11VwvtYq3xSJIDav4XIz/A==
-X-Google-Smtp-Source: AGHT+IF3UAIIWYzEtaz8JDQbpsYiGjzgT5lx1iMPisr8gmFJym7YV9W/quLrJxzPRfygtku2OzFcTAaXVtDz1/yCGVc=
-X-Received: by 2002:a92:c5a6:0:b0:364:1984:f10f with SMTP id
- r6-20020a92c5a6000000b003641984f10fmr4861690ilt.30.1708103492171; Fri, 16 Feb
- 2024 09:11:32 -0800 (PST)
-MIME-Version: 1.0
+	id 1rb38k-00000003MxA-2vw4;
+	Fri, 16 Feb 2024 18:40:54 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1708108847;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Dj7LuufdWwL+SVl8iJBjtJX+BhhU6HA8hpHGpb95G2k=;
+	b=mu/pj7R92qWz0kEo70/pEinc5+SsIMVdhBSfA6OzWr2Qkt1kZCRc57Als/7ciq6cUvDku1
+	/qgmjdoO06SroVjrLSydBucQeU6rh6dr32CRYFCUun6rOk5GN1Ack2i8mKbDoe05d5HSvJ
+	bxFG93pDm6GhPuWNoTnbacgWquKtZ+J3qKTABJw82bR0GP0D08oTChza7l4ap6OBq0ihL3
+	hs1vfqh7oUqF7AoI1wU/l5iUY2CQ+FTwgWWLuSLCmt1hprRdq75hvIxjHu4ib2AuXoO265
+	VVsGk37fJTIMhRUnT1ZCEZc/G8bWiIyoKZYUjwdiwk8IdPqN2ra6O4gE1c5ZVQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1708108847;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Dj7LuufdWwL+SVl8iJBjtJX+BhhU6HA8hpHGpb95G2k=;
+	b=pRWjx0meUdFCVOeKx6CGD/DhOGpFkPLDESfkGlBrQ06VD86ZaPhP1C8dTpOqt39a1gwDg1
+	yXDCzfQ+GEUGa6CA==
+To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Rob
+ Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Frank Rowand
+ <frowand.list@gmail.com>, Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v12 18/25] irqchip: Add RISC-V incoming MSI controller
+ early driver
+In-Reply-To: <20240127161753.114685-19-apatel@ventanamicro.com>
 References: <20240127161753.114685-1-apatel@ventanamicro.com>
- <20240127161753.114685-15-apatel@ventanamicro.com> <87jzn4ctks.ffs@tglx>
-In-Reply-To: <87jzn4ctks.ffs@tglx>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 16 Feb 2024 22:41:20 +0530
-Message-ID: <CAAhSdy2aeyJBcMVre12jGwU52oP9Z=1emB-bcYxygdR3QhP+6w@mail.gmail.com>
-Subject: Re: [PATCH v12 14/25] irqchip/sifive-plic: Convert PLIC driver into a
- platform driver
-To: Thomas Gleixner <tglx@linutronix.de>
+ <20240127161753.114685-19-apatel@ventanamicro.com>
+Date: Fri, 16 Feb 2024 19:40:47 +0100
+Message-ID: <87h6i8ckwg.ffs@tglx>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240216_091139_643137_611A68EB 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20240216_104051_173782_0A9C7898 
+X-CRM114-Status: GOOD (  36.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,67 +73,461 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Frank Rowand <frowand.list@gmail.com>, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBGZWIgMTYsIDIwMjQgYXQgOTowM+KAr1BNIFRob21hcyBHbGVpeG5lciA8dGdseEBs
-aW51dHJvbml4LmRlPiB3cm90ZToKPgo+IE9uIFNhdCwgSmFuIDI3IDIwMjQgYXQgMjE6NDcsIEFu
-dXAgUGF0ZWwgd3JvdGU6Cj4gPiArICAgICBwcml2LT5pcnFkb21haW4gPSBpcnFfZG9tYWluX2Ny
-ZWF0ZV9saW5lYXIoZGV2LT5md25vZGUsIG5yX2lycXMgKyAxLAo+ID4gKyAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICZwbGljX2lycWRvbWFpbl9vcHMsIHBy
-aXYpOwo+ID4gKyAgICAgaWYgKFdBUk5fT04oIXByaXYtPmlycWRvbWFpbikpCj4gPiArICAgICAg
-ICAgICAgIHJldHVybiAtRU5PTUVNOwo+Cj4gV2hpbGUgc29tZSBvZiB0aGUgc3R1ZmYgaXMgY2xl
-YW5lZCB1cCBieSBkZXZtLCB0aGUgZXJyb3IgaGFuZGxpbmcgaW4KPiB0aGlzIGNvZGUgbG9va3Mg
-cHJldHR5IGZyYWdpbGUgYXMgaXQgbGVhdmVzIGluaXRpYWxpemVkIGNvbnRleHRzLAo+IGhhcmR3
-YXJlIHN0YXRlLCBjaGFpbmVkIGhhbmRsZXJzIGV0Yy4gYXJvdW5kLgoKU3VyZSwgbGV0IG1lIHRy
-eSB0byBpbXByb3ZlIHRoZSBlcnJvciBoYW5kbGluZy4KCj4KPiBUaGUgcXVlc3Rpb24gaXMgd2hl
-dGhlciB0aGUgc3lzdGVtIGNhbiBhY3R1YWxseSBib290IG9yIHdvcmsgYXQgYWxsIGlmCj4gYW55
-IG9mIHRoaXMgZmFpbHMuCgpPbiBwbGF0Zm9ybXMgd2l0aCBQTElDLCB0aGUgUExJQyBvbmx5IG1h
-bmFnZXMgd2lyZWQgaW50ZXJydXB0cwp3aGVyZWFzIElQSXMgYXJlIHByb3ZpZGVkIHRocm91Z2gg
-U0JJIChmaXJtd2FyZSBpbnRlcmZhY2UpIHNvIGEKc3lzdGVtIGNhbiBhY3R1YWxseSBjb250aW51
-ZSBhbmQgYm9vdCBmdXJ0aGVyIHdpdGhvdXQgUExJQy4KCkluIGZhY3QsIHdlIGRvIGhhdmUgYSBz
-eW50aGV0aWMgcGxhdGZvcm0gKG5hbWVseSBRRU1VIHNwaWtlKQp3aGVyZSB0aGVyZSBpcyBubyBQ
-TElDIGluc3RhbmNlIGFuZCBMaW51eCBib290cyB1c2luZyBTQkkgYmFzZWQKcG9sbGluZyBjb25z
-b2xlLgoKPgo+ID4gKwo+ID4gICAgICAgLyoKPiA+ICAgICAgICAqIFdlIGNhbiBoYXZlIG11bHRp
-cGxlIFBMSUMgaW5zdGFuY2VzIHNvIHNldHVwIGNwdWhwIHN0YXRlCj4gPiAtICAgICAgKiBhbmQg
-cmVnaXN0ZXIgc3lzY29yZSBvcGVyYXRpb25zIG9ubHkgd2hlbiBjb250ZXh0IGhhbmRsZXIKPiA+
-IC0gICAgICAqIGZvciBjdXJyZW50L2Jvb3QgQ1BVIGlzIHByZXNlbnQuCj4gPiArICAgICAgKiBh
-bmQgcmVnaXN0ZXIgc3lzY29yZSBvcGVyYXRpb25zIG9ubHkgYWZ0ZXIgY29udGV4dCBoYW5kbGVy
-cwo+ID4gKyAgICAgICogb2YgYWxsIG9ubGluZSBDUFVzIGFyZSBpbml0aWFsaXplZC4KPiA+ICAg
-ICAgICAqLwo+ID4gLSAgICAgaGFuZGxlciA9IHRoaXNfY3B1X3B0cigmcGxpY19oYW5kbGVycyk7
-Cj4gPiAtICAgICBpZiAoaGFuZGxlci0+cHJlc2VudCAmJiAhcGxpY19jcHVocF9zZXR1cF9kb25l
-KSB7Cj4gPiArICAgICBjcHVocF9zZXR1cCA9IHRydWU7Cj4gPiArICAgICBmb3JfZWFjaF9vbmxp
-bmVfY3B1KGNwdSkgewo+ID4gKyAgICAgICAgICAgICBoYW5kbGVyID0gcGVyX2NwdV9wdHIoJnBs
-aWNfaGFuZGxlcnMsIGNwdSk7Cj4gPiArICAgICAgICAgICAgIGlmICghaGFuZGxlci0+cHJlc2Vu
-dCkgewo+ID4gKyAgICAgICAgICAgICAgICAgICAgIGNwdWhwX3NldHVwID0gZmFsc2U7Cj4gPiAr
-ICAgICAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gPiArICAgICAgICAgICAgIH0KPiA+ICsgICAg
-IH0KPiA+ICsgICAgIGlmIChjcHVocF9zZXR1cCkgewo+ID4gICAgICAgICAgICAgICBjcHVocF9z
-ZXR1cF9zdGF0ZShDUFVIUF9BUF9JUlFfU0lGSVZFX1BMSUNfU1RBUlRJTkcsCj4gPiAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICJpcnFjaGlwL3NpZml2ZS9wbGljOnN0YXJ0aW5nIiwK
-PiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGxpY19zdGFydGluZ19jcHUsIHBs
-aWNfZHlpbmdfY3B1KTsKPiA+ICAgICAgICAgICAgICAgcmVnaXN0ZXJfc3lzY29yZV9vcHMoJnBs
-aWNfaXJxX3N5c2NvcmVfb3BzKTsKPiA+IC0gICAgICAgICAgICAgcGxpY19jcHVocF9zZXR1cF9k
-b25lID0gdHJ1ZTsKPgo+IEkgZG9uJ3QgdGhpbmsgdGhhdCByZW1vdmluZyB0aGUgc2V0dXAgcHJv
-dGVjdGlvbiBpcyBjb3JyZWN0Lgo+Cj4gQXNzdW1lIHlvdSBoYXZlIG1heGNwdXM9TiBvbiB0aGUg
-a2VybmVsIGNvbW1hbmQgbGluZSwgdGhlbiB0aGUgYWJvdmUKPiBmb3JfZWFjaF9vbmxpbmVfY3B1
-KCkgbG9vcCB3b3VsZCByZXN1bHQgaW4gY3B1aHBfc2V0dXAgPT0gdHJ1ZSB3aGVuIHRoZQo+IGlu
-c3RhbmNlcyBmb3IgdGhlIG5vdCBvbmxpbmVkIENQVXMgYXJlIHNldCB1cCwgbm8/CgpBIHBsYXRm
-b3JtIGNhbiBoYXZlIG11bHRpcGxlIFBMSUMgaW5zdGFuY2VzIHdoZXJlIGVhY2ggUExJQwppbnN0
-YW5jZSB0YXJnZXRzIGEgc3Vic2V0IG9mIEhBUlRzIChvciBDUFVzKS4KClByZXZpb3VzbHkgKGJl
-Zm9yZSB0aGlzIHBhdGNoKSwgd2Ugd2VyZSBwcm9iaW5nIFBMSUMgdmVyeSBlYXJseSBzbyBvbgph
-IHBsYXRmb3JtIHdpdGggbXVsdGlwbGUgUExJQyBpbnN0YW5jZXMsIHdlIG5lZWQgdG8gZW5zdXJl
-IHRoYXQgY3B1aHAKc2V0dXAgaXMgZG9uZSBvbmx5IGFmdGVyIFBMSUMgY29udGV4dCBhc3NvY2lh
-dGVkIHdpdGggYm9vdCBDUFUgaXMKaW5pdGlhbGl6ZWQgaGVuY2UgdGhlIHBsaWNfY3B1aHBfc2V0
-dXBfZG9uZSBjaGVjay4KClRoaXMgcGF0Y2ggY29udmVydHMgUExJQyBkcml2ZXIgaW50byBhIHBs
-YXRmb3JtIGRyaXZlciBzbyBub3cgUExJQwppbnN0YW5jZXMgYXJlIHByb2JlZCBhZnRlciBhbGwg
-YXZhaWxhYmxlIENQVXMgYXJlIGJyb3VnaHQtdXAuIEluIHRoaXMKY2FzZSwgdGhlIGNwdWhwIHNl
-dHVwIG11c3QgYmUgZG9uZSBvbmx5IGFmdGVyIFBMSUMgY29udGV4dCBvZiBhbGwKYXZhaWxhYmxl
-IENQVXMgYXJlIGluaXRpYWxpemVkIG90aGVyd2lzZSBzb21lIG9mIHRoZSBDUFVzIGNyYXNoCmlu
-IHBsaWNfc3RhcnRpbmdfY3B1KCkgZHVlIHRvIGxhY2sgb2YgUExJQyBjb250ZXh0IGluaXRpYWxp
-emF0aW9uLgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+On Sat, Jan 27 2024 at 21:47, Anup Patel wrote:
+> +
+> +#ifdef CONFIG_SMP
+> +static irqreturn_t imsic_local_sync_handler(int irq, void *data)
+> +{
+> +	imsic_local_sync();
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static void imsic_ipi_send(unsigned int cpu)
+> +{
+> +	struct imsic_local_config *local =
+> +				per_cpu_ptr(imsic->global.local, cpu);
+
+Let it stick out. We switched to line length 100 quite some time
+ago. Applies to the rest of the series too.
+
+> +	writel_relaxed(IMSIC_IPI_ID, local->msi_va);
+> +}
+> +
+> +static void imsic_ipi_starting_cpu(void)
+> +{
+> +	/* Enable IPIs for current CPU. */
+> +	__imsic_id_set_enable(IMSIC_IPI_ID);
+> +
+> +	/* Enable virtual IPI used for IMSIC ID synchronization */
+> +	enable_percpu_irq(imsic->ipi_virq, 0);
+> +}
+> +
+> +static void imsic_ipi_dying_cpu(void)
+> +{
+> +	/*
+> +	 * Disable virtual IPI used for IMSIC ID synchronization so
+> +	 * that we don't receive ID synchronization requests.
+> +	 */
+> +	disable_percpu_irq(imsic->ipi_virq);
+
+Shouldn't this disable the hardware too, i.e.
+
+          __imsic_id_clear_enable()
+
+?
+
+> +}
+> +
+> +static int __init imsic_ipi_domain_init(void)
+> +{
+> +	int virq;
+> +
+> +	/* Create IMSIC IPI multiplexing */
+> +	virq = ipi_mux_create(IMSIC_NR_IPI, imsic_ipi_send);
+> +	if (virq <= 0)
+> +		return (virq < 0) ? virq : -ENOMEM;
+> +	imsic->ipi_virq = virq;
+> +
+> +	/* First vIRQ is used for IMSIC ID synchronization */
+> +	virq = request_percpu_irq(imsic->ipi_virq, imsic_local_sync_handler,
+> +				  "riscv-imsic-lsync", imsic->global.local);
+> +	if (virq)
+> +		return virq;
+
+Please use a separate 'ret' variable. I had to read this 3 times to make
+sense of it.
+
+> +	irq_set_status_flags(imsic->ipi_virq, IRQ_HIDDEN);
+> +	imsic->ipi_lsync_desc = irq_to_desc(imsic->ipi_virq);
+
+What's so special about this particular IPI that it can't be handled
+like all the other IPIs?
+
+> +static int __init imsic_early_probe(struct fwnode_handle *fwnode)
+> +{
+> +	int rc;
+> +	struct irq_domain *domain;
+
+https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#variable-declarations
+
+> +
+> +	/* Find parent domain and register chained handler */
+> +	domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(),
+> +					  DOMAIN_BUS_ANY);
+> +	if (!domain) {
+> +		pr_err("%pfwP: Failed to find INTC domain\n", fwnode);
+> +		return -ENOENT;
+> +	}
+> +	imsic_parent_irq = irq_create_mapping(domain, RV_IRQ_EXT);
+> +	if (!imsic_parent_irq) {
+> +		pr_err("%pfwP: Failed to create INTC mapping\n", fwnode);
+> +		return -ENOENT;
+> +	}
+> +	irq_set_chained_handler(imsic_parent_irq, imsic_handle_irq);
+> +
+> +	/* Initialize IPI domain */
+> +	rc = imsic_ipi_domain_init();
+> +	if (rc) {
+> +		pr_err("%pfwP: Failed to initialize IPI domain\n", fwnode);
+> +		return rc;
+
+Leaves the chained handler around and enabled.
+
+> diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+> +
+> +#define imsic_csr_write(__c, __v)		\
+> +do {						\
+> +	csr_write(CSR_ISELECT, __c);		\
+> +	csr_write(CSR_IREG, __v);		\
+> +} while (0)
+
+Any reason why these macros can't be inlines?
+
+> +const struct imsic_global_config *imsic_get_global_config(void)
+> +{
+> +	return imsic ? &imsic->global : NULL;
+> +}
+> +EXPORT_SYMBOL_GPL(imsic_get_global_config);
+
+Why is this exported?
+
+> +#define __imsic_id_read_clear_enabled(__id)		\
+> +	__imsic_eix_read_clear((__id), false)
+> +#define __imsic_id_read_clear_pending(__id)		\
+> +	__imsic_eix_read_clear((__id), true)
+
+Please use inlines.
+
+> +void __imsic_eix_update(unsigned long base_id,
+> +			unsigned long num_id, bool pend, bool val)
+> +{
+> +	unsigned long i, isel, ireg;
+> +	unsigned long id = base_id, last_id = base_id + num_id;
+> +
+> +	while (id < last_id) {
+> +		isel = id / BITS_PER_LONG;
+> +		isel *= BITS_PER_LONG / IMSIC_EIPx_BITS;
+> +		isel += (pend) ? IMSIC_EIP0 : IMSIC_EIE0;
+> +
+> +		ireg = 0;
+> +		for (i = id & (__riscv_xlen - 1);
+> +		     (id < last_id) && (i < __riscv_xlen); i++) {
+> +			ireg |= BIT(i);
+> +			id++;
+> +		}
+
+This lacks a comment what this is doing.
+
+> +
+> +		/*
+> +		 * The IMSIC EIEx and EIPx registers are indirectly
+> +		 * accessed via using ISELECT and IREG CSRs so we
+> +		 * need to access these CSRs without getting preempted.
+> +		 *
+> +		 * All existing users of this function call this
+> +		 * function with local IRQs disabled so we don't
+> +		 * need to do anything special here.
+> +		 */
+> +		if (val)
+> +			imsic_csr_set(isel, ireg);
+> +		else
+> +			imsic_csr_clear(isel, ireg);
+> +	}
+> +}
+> +
+> +void imsic_local_sync(void)
+> +{
+> +	struct imsic_local_priv *lpriv = this_cpu_ptr(imsic->lpriv);
+> +	struct imsic_local_config *mlocal;
+> +	struct imsic_vector *mvec;
+> +	unsigned long flags;
+> +	int i;
+> +
+> +	raw_spin_lock_irqsave(&lpriv->ids_lock, flags);
+> +	for (i = 1; i <= imsic->global.nr_ids; i++) {
+> +		if (i == IMSIC_IPI_ID)
+> +			continue;
+> +
+> +		if (test_bit(i, lpriv->ids_enabled_bitmap))
+> +			__imsic_id_set_enable(i);
+> +		else
+> +			__imsic_id_clear_enable(i);
+> +
+> +		mvec = lpriv->ids_move[i];
+> +		lpriv->ids_move[i] = NULL;
+> +		if (mvec) {
+> +			if (__imsic_id_read_clear_pending(i)) {
+> +				mlocal = per_cpu_ptr(imsic->global.local,
+> +						     mvec->cpu);
+> +				writel_relaxed(mvec->local_id, mlocal->msi_va);
+> +			}
+> +
+> +			imsic_vector_free(&lpriv->vectors[i]);
+> +		}
+
+Again an uncommented piece of magic which you will have forgotten what
+it does 3 month down the road :)
+
+> +
+> +	}
+> +	raw_spin_unlock_irqrestore(&lpriv->ids_lock, flags);
+> +}
+> +
+> +void imsic_local_delivery(bool enable)
+> +{
+> +	if (enable) {
+> +		imsic_csr_write(IMSIC_EITHRESHOLD, IMSIC_ENABLE_EITHRESHOLD);
+> +		imsic_csr_write(IMSIC_EIDELIVERY, IMSIC_ENABLE_EIDELIVERY);
+> +		return;
+> +	}
+> +
+> +	imsic_csr_write(IMSIC_EIDELIVERY, IMSIC_DISABLE_EIDELIVERY);
+> +	imsic_csr_write(IMSIC_EITHRESHOLD, IMSIC_DISABLE_EITHRESHOLD);
+> +}
+> +
+> +#ifdef CONFIG_SMP
+> +static void imsic_remote_sync(unsigned int cpu)
+> +{
+> +	/*
+> +	 * We simply inject ID synchronization IPI to a target CPU
+> +	 * if it is not same as the current CPU. The ipi_send_mask()
+> +	 * implementation of IPI mux will inject ID synchronization
+> +	 * IPI only for CPUs that have enabled it so offline CPUs
+> +	 * won't receive IPI. An offline CPU will unconditionally
+> +	 * synchronize IDs through imsic_starting_cpu() when the
+> +	 * CPU is brought up.
+> +	 */
+> +	if (cpu_online(cpu)) {
+> +		if (cpu != smp_processor_id())
+> +			__ipi_send_mask(imsic->ipi_lsync_desc, cpumask_of(cpu));
+
+Still wondering why this can't use the regular API. There might be a
+reason, but then it wants to be documented.
+
+> +		else
+> +			imsic_local_sync();
+> +	}
+> +}
+> +#else
+> +static inline void imsic_remote_sync(unsigned int cpu)
+> +{
+> +	imsic_local_sync();
+> +}
+> +#endif
+> +
+> +void imsic_vector_mask(struct imsic_vector *vec)
+> +{
+> +	struct imsic_local_priv *lpriv;
+> +	unsigned long flags;
+> +
+> +	lpriv = per_cpu_ptr(imsic->lpriv, vec->cpu);
+> +	if (WARN_ON(&lpriv->vectors[vec->local_id] != vec))
+> +		return;
+> +
+> +	raw_spin_lock_irqsave(&lpriv->ids_lock, flags);
+
+AFAICT, this is used from an irqchip callback:
+
+static void imsic_irq_mask(struct irq_data *d)
+{
+        imsic_vector_mask(irq_data_get_irq_chip_data(d));
+}
+
+So no need to use irqsave() here. Those callbacks run always with
+interrupts disabled when called from the core.
+
+> +void imsic_vector_move(struct imsic_vector *old_vec,
+> +			struct imsic_vector *new_vec)
+> +{
+> +	struct imsic_local_priv *old_lpriv, *new_lpriv;
+> +	unsigned long flags, flags1;
+> +
+> +	if (WARN_ON(old_vec->cpu == new_vec->cpu))
+> +		return;
+> +
+> +	old_lpriv = per_cpu_ptr(imsic->lpriv, old_vec->cpu);
+> +	if (WARN_ON(&old_lpriv->vectors[old_vec->local_id] != old_vec))
+> +		return;
+> +
+> +	new_lpriv = per_cpu_ptr(imsic->lpriv, new_vec->cpu);
+> +	if (WARN_ON(&new_lpriv->vectors[new_vec->local_id] != new_vec))
+> +		return;
+> +
+> +	raw_spin_lock_irqsave(&old_lpriv->ids_lock, flags);
+> +	raw_spin_lock_irqsave(&new_lpriv->ids_lock, flags1);
+
+Lockdep should yell at you for this, rightfully so. And not only because
+of the missing nested() annotation.
+
+Assume there are two CPUs setting affinity for two different interrupts.
+
+CPU0 moves an interrupt to CPU1 and CPU1 moves another interrupt to
+CPU0. The resulting lock order is:
+
+CPU0                     CPU1
+lock(lpriv[CPU0]);       lock(lpriv[CPU1]);
+lock(lpriv[CPU1]);       lock(lpriv[CPU0]);
+
+a classic ABBA deadlock.
+
+You need to take those locks always in the same order. Look at
+double_raw_lock() in kernel/sched/sched.h.
+
+> +	/* Unmask the new vector entry */
+> +	if (test_bit(old_vec->local_id, old_lpriv->ids_enabled_bitmap))
+> +		bitmap_set(new_lpriv->ids_enabled_bitmap,
+> +			   new_vec->local_id, 1);
+
+Either make that one line or please add brackets. See:
+
+  https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#bracket-rules
+
+> +static int __init imsic_local_init(void)
+> +{
+> +	struct imsic_global_config *global = &imsic->global;
+> +	struct imsic_local_priv *lpriv;
+> +	struct imsic_vector *vec;
+> +	int cpu, i;
+> +
+> +	/* Allocate per-CPU private state */
+> +	imsic->lpriv = alloc_percpu(typeof(*(imsic->lpriv)));
+> +	if (!imsic->lpriv)
+> +		return -ENOMEM;
+> +
+> +	/* Setup per-CPU private state */
+> +	for_each_possible_cpu(cpu) {
+> +		lpriv = per_cpu_ptr(imsic->lpriv, cpu);
+> +
+> +		raw_spin_lock_init(&lpriv->ids_lock);
+> +
+> +		/* Allocate enabled bitmap */
+> +		lpriv->ids_enabled_bitmap = bitmap_zalloc(global->nr_ids + 1,
+> +							  GFP_KERNEL);
+> +		if (!lpriv->ids_enabled_bitmap) {
+> +			imsic_local_cleanup();
+> +			return -ENOMEM;
+> +		}
+> +
+> +		/* Allocate move array */
+> +		lpriv->ids_move = kcalloc(global->nr_ids + 1,
+> +					sizeof(*lpriv->ids_move), GFP_KERNEL);
+> +		if (!lpriv->ids_move) {
+> +			imsic_local_cleanup();
+> +			return -ENOMEM;
+> +		}
+> +
+> +		/* Allocate vector array */
+> +		lpriv->vectors = kcalloc(global->nr_ids + 1,
+> +					 sizeof(*lpriv->vectors), GFP_KERNEL);
+> +		if (!lpriv->vectors) {
+> +			imsic_local_cleanup();
+> +			return -ENOMEM;
+
+Third instance of the same pattern. goto cleanup; perhaps?
+
+> +struct imsic_vector *imsic_vector_alloc(unsigned int hwirq,
+> +					const struct cpumask *mask)
+> +{
+> +	struct imsic_vector *vec = NULL;
+> +	struct imsic_local_priv *lpriv;
+> +	unsigned long flags;
+> +	unsigned int cpu;
+> +	int local_id;
+> +
+> +	raw_spin_lock_irqsave(&imsic->matrix_lock, flags);
+> +	local_id = irq_matrix_alloc(imsic->matrix, mask, false, &cpu);
+> +	raw_spin_unlock_irqrestore(&imsic->matrix_lock, flags);
+> +	if (local_id < 0)
+> +		return NULL;
+> +
+> +	lpriv = per_cpu_ptr(imsic->lpriv, cpu);
+> +	vec = &lpriv->vectors[local_id];
+> +	vec->hwirq = hwirq;
+> +
+> +	return vec;
+> +}
+
+...
+
+> +int imsic_hwirq_alloc(void)
+> +{
+> +	int ret;
+> +	unsigned long flags;
+> +
+> +	raw_spin_lock_irqsave(&imsic->hwirqs_lock, flags);
+> +	ret = bitmap_find_free_region(imsic->hwirqs_used_bitmap,
+> +				      imsic->nr_hwirqs, 0);
+> +	raw_spin_unlock_irqrestore(&imsic->hwirqs_lock, flags);
+> +
+> +	return ret;
+> +}
+
+This part is just to create a unique hwirq number, right?
+
+> +
+> +	/* Find number of guest index bits in MSI address */
+> +	rc = of_property_read_u32(to_of_node(fwnode),
+> +				  "riscv,guest-index-bits",
+> +				  &global->guest_index_bits);
+> +	if (rc)
+> +		global->guest_index_bits = 0;
+
+So here you get the index bits, but then 50 lines further down you do
+sanity checking. Wouldn't it make sense to do that right here?
+
+Same for the other bits.
+
+> +
+> +/*
+> + * The IMSIC driver uses 1 IPI for ID synchronization and
+> + * arch/riscv/kernel/smp.c require 6 IPIs so we fix the
+> + * total number of IPIs to 8.
+> + */
+> +#define IMSIC_IPI_ID				1
+> +#define IMSIC_NR_IPI				8
+> +
+> +struct imsic_vector {
+> +	/* Fixed details of the vector */
+> +	unsigned int cpu;
+> +	unsigned int local_id;
+> +	/* Details saved by driver in the vector */
+> +	unsigned int hwirq;
+> +};
+> +
+> +struct imsic_local_priv {
+> +	/* Local state of interrupt identities */
+> +	raw_spinlock_t ids_lock;
+> +	unsigned long *ids_enabled_bitmap;
+> +	struct imsic_vector **ids_move;
+> +
+> +	/* Local vector table */
+> +	struct imsic_vector *vectors;
+
+Please make those structs tabular:
+
+https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#struct-declarations-and-initializers
+
+> +void __imsic_eix_update(unsigned long base_id,
+> +			unsigned long num_id, bool pend, bool val);
+> +
+> +#define __imsic_id_set_enable(__id)		\
+> +	__imsic_eix_update((__id), 1, false, true)
+> +#define __imsic_id_clear_enable(__id)	\
+> +	__imsic_eix_update((__id), 1, false, false)
+
+inlines please.
+
+Thanks,
+
+        tglx
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
