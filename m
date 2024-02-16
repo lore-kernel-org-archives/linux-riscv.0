@@ -4,78 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5C7C4829E
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 00:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52519C4829E
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 00:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/vzMYLE06LLG8JlGc+TqYmEmuc0c7uLL2MHHiPRW1/I=; b=2qrhMggREFrxLP
-	JE/yc49g66Z8/G0XFbX9+Is+9BSODWIzeI1eP4xJshiL5LfOBSmLDiVUIhXr4gxKkcHq/cAEatyYc
-	n6s/bXbhjknq8ZqSJsIcsLZBjsVaw7LlK/cgv8l3SaZyGn6AmvfFpk5bEWPWPQV9RqeUz9VB79Fpi
-	DLgb3qGBPdAsoufvfBim5KEHgFRu0m/w5ndT1lveDEXfFO7dFtDj56pOEyEOea+EHRZChrLbTpwbN
-	ERc2UI1TkOQkeQMHUb/nZxGLD3wbcbUF1rZl0B9ALd7yzQuf9js5CzJC6QJIdWZYQCgTrNOuHC3QX
-	APhJZE9ITEFE4jRjc/qQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=bB8RiJ/44kTpErMgf5w0KV8Kc4HWQCJIaYlZOSYTOcc=; b=ynIl9x7L505yLQA0wzGJTAonPu
+	GHg7lUW+om/DQMWg0Wf1SLhq9wDyXOZJucMTDhsok8FyoNIYtwFjHlGCCPmZ1NnjuDnVbHtBL4jwh
+	bL8vIH6i9WdP6BrH4iFuNulvFXXIgDfQNyfRkxIN5e/K0790C3d2a9vi7QtY4ULR/B2ZwgOtzHfm1
+	MHicYnlcnXRNCwRz8mzYW6iDiXjzEdLbOS7WJBr4Xx5IV8FBw4oLNpD3yYpRpo8qNvqYw2/Yl8BpJ
+	KPrxPqUSObEiO+qhoskEkOFimaQPoNV65L3X1xpXFG4CgOar4rcuglrlXhxKU2cnP9xsRYc/d+l4l
+	PB3VR29A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ramKC-00000000dvG-1Q3a;
-	Fri, 16 Feb 2024 00:43:32 +0000
-Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
+	id 1ramWU-00000000fOG-0vZ0;
+	Fri, 16 Feb 2024 00:56:14 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ramK9-00000000dtw-1zji
+	id 1ramWQ-00000000fMs-28Po
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Feb 2024 00:43:30 +0000
-Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-7c4949a366fso51217439f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Feb 2024 16:43:26 -0800 (PST)
+	Fri, 16 Feb 2024 00:56:12 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-517ab9a4a13so1306110a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Feb 2024 16:56:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1708044206; x=1708649006; darn=lists.infradead.org;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=906AztgBDa+u1AARHWRp02F7s/rxI61AgVNDIWi+eXM=;
-        b=ZlBxkNlebxFeL3qw2a550GzlPD9dnR5X0TH8Om2p6WbrSaTh7fzN/I9i56l+ot+q8w
-         FBL6g07fcdpw1hGvhZS8SrZ3JPoRlkxnDaUrl4UpPz3szthJ1UjO04lAnDtyhrxivaSY
-         78lRRwy6BsMT7vI0GN7i3mmEiyDql7uJVAkFxXWmeBxI1X4IKTqUS6xrJvVSykrMy7X6
-         OCWIOcpGO+dDbY07wpT6V5Gf9hTdbLS8dTxZbck6TyUaqKuC6lrgMJ0viFiZ9kj6p1yz
-         0sOUjE1oXMtCfASfz1XLxfkIoFCwXm2gS+OXaJgYkY2Zv2Xo1GFd1OrOSf3UCjGcuPnq
-         EMOA==
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1708044969; x=1708649769; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dkaCBJuNpLTSIqbfdZvMoBZZaPADj5hawM9y3evJX3c=;
+        b=LV69hfL94WgMn5THykPokF6UEhIuorcm4xRl3yF+VEos0rmHBcTewRYSuM4OvUNobP
+         d7x1XtHNy82mSv6czD4u6zjBOyDiL+nCBTKJm9udghexAf/8RGH1/XBm0FZnh2ANlOuO
+         j1fh1yfw13qkSEQwqqnuby4f2M4e/JVCXBsPagiUZHIQ0svTSFDLmSHNZN7s2oCA/9d8
+         UYYa9Z6+CG80V0ZMgxJRW7HIRO1c2RyByzgRndSRvRd2bEn6yCg0+xZK6+Inrz0yPwKa
+         oK+I4j43FZFa346EF4PfDm63NmRgyNENy/ZFozytASkkjpc/02ZY5vFCrPxWXJO1wV3a
+         gUcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708044206; x=1708649006;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=906AztgBDa+u1AARHWRp02F7s/rxI61AgVNDIWi+eXM=;
-        b=WmMVt9f/CIHabAHh4+RhPO6O5CH9g9WJgh25iqaxo1pJkl8qLFEk8YN1Ix9m9bhmAe
-         JZ8PUfo1xRtN1ws8x7Rwa40NDhWL8r9O/A/+mmbVrsrEzCE1cKJS64bes2aVyIz0nedD
-         PaQnvZb4RsKj46tUQnt/KEdwN7ffXFb3NdUMYQ7ZDCVP4WQieAKQwoujLk1gh16CQUhq
-         kX+qrGYQWUiv364wZXtluhl+3PQETeBrtP6yqQJj3m4QBmtmZK86meEF6aHmmOQYCNJL
-         V0s++bdxN9dEPPTe7NoMdwWmF0eScOSDCswBkc6CMT+/5Yykm/92uDzmdvVpO6cbyJo6
-         Ewyg==
-X-Forwarded-Encrypted: i=1; AJvYcCUnaN1XwpaCp793xzzIj7j8tjLzPQWxwmYisYOc4q6egnnL3Z9LEMMpaarK1QBP+Wg79MLMRHfFH07bBv5dUtSzzkvjxDaQJi9wilTsMccz
-X-Gm-Message-State: AOJu0Yyup62Nrzpui5tey9gcZjR0r4KiSVNj8MScmKoGf8+ZHiNstESk
-	Bwdd1YH9OfxGJInpiLWNbRDTVQUyY0/pvRdmB0Gjkh/O1lN6aSr8fDp1aRh4Ozk=
-X-Google-Smtp-Source: AGHT+IERnpQSZ7MTb6KfYlV0kBQ6EVjYQL9pSnng2dDwidYnOh6AyMUrOQceP7bFABcYCPnVZeKZSw==
-X-Received: by 2002:a5d:841a:0:b0:7c4:5910:8ab9 with SMTP id i26-20020a5d841a000000b007c459108ab9mr4153852ion.5.1708044206274;
-        Thu, 15 Feb 2024 16:43:26 -0800 (PST)
-Received: from localhost (c-98-32-39-159.hsd1.nm.comcast.net. [98.32.39.159])
-        by smtp.gmail.com with ESMTPSA id l24-20020a02a898000000b004713ba1b284sm609266jam.44.2024.02.15.16.43.25
+        d=1e100.net; s=20230601; t=1708044969; x=1708649769;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dkaCBJuNpLTSIqbfdZvMoBZZaPADj5hawM9y3evJX3c=;
+        b=lJ7U8W+LX7ll6Z+21dwn5F9ieHCjIeX/v2zW+MhY1TJPW3wUzeg8JeISVLp9f2wCbe
+         vVBaIFiz+Ok34KxyrNht2Ebcet4UlaLnK/0qPBJUCekhSodX9hMI3NNgR/GGJLw0f/Xt
+         zV5OiDZ1an+LYy+09zofSoOXhmTM1zZNJpFEdG8R7BExlWzzf3GpgHy2VjyPKLR6n/+C
+         tu6sYmY5JPuqtpAauHBODmgyb3SPokoAU46s3/Uwh4je2/JJhVsYYs1KTNOpwlHjfAY4
+         Bvx4eAAy57zC59J45SRZTuyPvu7+2dtRqlanalIUuAMHbZrbOi5CrHETtO62fU1jL6PQ
+         shGA==
+X-Forwarded-Encrypted: i=1; AJvYcCU1VykdKFUVzR3eabaPts1KnJdnCDPI70SzTRarUAaj7/yzssqMTiEigSZb7G3qkPGoR0KFxkVvX9Y/E0y57MYZEfoYcypShnV+HiU5meKR
+X-Gm-Message-State: AOJu0YyB19mtNtKKQr9laD4LQiORSYWJENpeTXmbR9rtNQapsUAFIaJX
+	dFdJNqc1EJn3W49AksrvrG/2ekFasxXv652fyK2WDVghKK1yOsUjq9lFzgYZ8co=
+X-Google-Smtp-Source: AGHT+IHEdkJhS9SoXoCEe/hJTYKY/SrGzTuFOcU7WZTPXR1Lel/kxVf3cz4WYWwmZlHimuBM52+XzQ==
+X-Received: by 2002:a05:6a20:c78d:b0:19e:8af3:8894 with SMTP id hk13-20020a056a20c78d00b0019e8af38894mr4287094pzb.0.1708044968806;
+        Thu, 15 Feb 2024 16:56:08 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id bn15-20020a056a00324f00b006dddd5cc47csm1932099pfb.157.2024.02.15.16.56.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Feb 2024 16:43:25 -0800 (PST)
-Date: Thu, 15 Feb 2024 16:43:24 -0800 (PST)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Greentime Hu <greentime.hu@sifive.com>, linux-riscv@lists.infradead.org, 
-    Green Wan <green.wan@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] MAINTAINERS: Update SiFive driver maintainers
-In-Reply-To: <20240215234941.1663791-1-samuel.holland@sifive.com>
-Message-ID: <114d9cf3-0ebd-56c7-f3e4-57ebc235df45@sifive.com>
-References: <20240215234941.1663791-1-samuel.holland@sifive.com>
-MIME-Version: 1.0
+        Thu, 15 Feb 2024 16:56:08 -0800 (PST)
+Date: Thu, 15 Feb 2024 16:56:08 -0800 (PST)
+X-Google-Original-Date: Thu, 15 Feb 2024 16:56:06 PST (-0800)
+Subject: Re: [PATCH v4 0/4] membarrier: riscv: Core serializing command
+In-Reply-To: <20240131144936.29190-1-parri.andrea@gmail.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  mathieu.desnoyers@efficios.com, paulmck@kernel.org, corbet@lwn.net, mmaas@google.com, hboehm@google.com,
+  striker@us.ibm.com, Charlie Jenkins <charlie@rivosinc.com>, rehn@rivosinc.com,
+  rdunlap@infradead.org, sorear@fastmail.com, linux-riscv@lists.infradead.org,
+  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, parri.andrea@gmail.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: parri.andrea@gmail.com
+Message-ID: <mhng-43090865-0201-48df-a5b0-8b160b3fbb1b@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240215_164329_721093_27613735 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20240215_165610_733945_3CC29BDD 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +90,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Feb 2024, Samuel Holland wrote:
+On Wed, 31 Jan 2024 06:49:32 PST (-0800), parri.andrea@gmail.com wrote:
+> Changes since v3 ([1]):
+>   - amend documentation
+>
+> Changes since v2 ([2]):
+>   - amend inline comments
+>   - drop ARCH_HAS_MEMBARRIER, create membarrrier.rst
+>
+> Changes since v1 ([3]):
+>   - add smp_mb() in switch_mm()
+>   - introduce ARCH_HAS_MEMBARRIER, amend documentation
+>
+> Changes since RFC ([4]):
+>   - introduce prepare_sync_core_cmd()
+>   - fix nosmp builds
+>
+> [1] https://lore.kernel.org/lkml/20240110145533.60234-1-parri.andrea@gmail.com/
+> [2] https://lore.kernel.org/lkml/20231211094414.8078-1-parri.andrea@gmail.com/
+> [3] https://lore.kernel.org/lkml/20231127103235.28442-1-parri.andrea@gmail.com/
+> [4] https://lore.kernel.org/lkml/20230803040111.5101-1-parri.andrea@gmail.com/
+>
+> Andrea Parri (4):
+>   membarrier: riscv: Add full memory barrier in switch_mm()
+>   membarrier: Create Documentation/scheduler/membarrier.rst
+>   locking: Introduce prepare_sync_core_cmd()
+>   membarrier: riscv: Provide core serializing command
+>
+>  .../membarrier-sync-core/arch-support.txt     | 18 ++++++-
+>  Documentation/scheduler/index.rst             |  1 +
+>  Documentation/scheduler/membarrier.rst        | 39 +++++++++++++++
+>  MAINTAINERS                                   |  4 +-
+>  arch/riscv/Kconfig                            |  4 ++
+>  arch/riscv/include/asm/membarrier.h           | 50 +++++++++++++++++++
+>  arch/riscv/include/asm/sync_core.h            | 29 +++++++++++
+>  arch/riscv/mm/context.c                       |  2 +
+>  include/linux/sync_core.h                     | 16 +++++-
+>  init/Kconfig                                  |  3 ++
+>  kernel/sched/core.c                           | 16 ++++--
+>  kernel/sched/membarrier.c                     | 13 +++--
+>  12 files changed, 185 insertions(+), 10 deletions(-)
+>  create mode 100644 Documentation/scheduler/membarrier.rst
+>  create mode 100644 arch/riscv/include/asm/membarrier.h
+>  create mode 100644 arch/riscv/include/asm/sync_core.h
 
-> Add myself as a maintainer for the various SiFive drivers, since I have
-> been performing cleanup activity on these drivers and reviewing patches
-> to them for a while now. Remove Palmer as a maintainer, as he is focused
-> on overall RISC-V architecture support.
-> 
-> Collapse some duplicate entries into the main SiFive drivers entry:
->  - Conor is already maintainer of standalone cache drivers as a whole,
->    and these files are also covered by the "sifive" file name regex.
->  - Paul's git tree has not been updated since 2018, and all file names
->    matching the "fu540" pattern also match the "sifive" pattern.
->  - Green has not been active on the LKML for a couple of years.
-> 
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+I picked these up into my staging tree for the tester this morning, 
+there's a few hiccups from my latest master merge but they don't seem 
+super exciting.  So it might take a bit for these to show up in my 
+for-next, but they're headed in that direction.
 
-Acked-by: Paul Walmsley <paul.walmsley@sifive.com>
+LMK if you guys were aiming for some other tree, or want to do some sort 
+of shared tag for them.  Otherwise they'll show up in linux-next soon.
 
-- Paul
-
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
