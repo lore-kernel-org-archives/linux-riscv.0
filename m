@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53926C48BC3
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Feb 2024 10:04:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06692C48BF5
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Feb 2024 10:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ODIisnbH37vUa/9FlMShYrsljIgDugZfglWZJlHgqxc=; b=OFECI/T02HbL72
-	JGZ6XvNAtXZxOx5FbSf0MsW8xSQIqQDJOyzpHDDY4rRJHA2xEBFXN8v2MVDTcOvKRWo+lWJOlCtAi
-	fhQ4kW8pQvs+q7swPmQ/A2SSQ9fZOzSBy4315P/wmB7JKCmvlvE7nFggDeujhQqXPwXYAFPXoLU5s
-	+SVy4L6vFTYmoq1ZnwhrBQd3U/6ocNtFsh0ZurzR72iT8NRLrFW6uyTOzwc+78LZqHi1D7oP1PW77
-	r6Xk+MhBZO6rHEMxYsG4RZT9tRKNoMekCfIpTFtSDXakTo6Z5sO62zR8glzo+6LuLal3zX2qp3ZIC
-	wpmntPbkWb0rdGfmksJw==;
+	List-Owner; bh=2RwNO8hBUAzC+CVYpT1uCtjwhAwAy0WiCKm2Od1xzn8=; b=V+HtkX5FxxNx4X
+	342Uc44Le9qIeqpNT7d/Q7l1vLcv6wnoXTn6/w1sXltlSQsWKC76H7/NHquiDZxcYJ+xcQHRO3yeM
+	01w2OFoFba/ob56a0fbYVuwgdVQoMwtIYv9vFJ1Zhk4pb0pRz4OUqAZ3hnOnKQya0E+dSB36f0XeA
+	Yqd0RydtXR/MuU3FqnaWy4Damu5JjPal5Y5mcgBDztVs/UTq2ewqroGivrtVj2D8aKu9/veg2nBh/
+	BurWTzzr7hc8oQRxUR2xM/3hC7YneCjsWOGVYE5yVjUHHE2QPRAjXJ/vCnuSVm1nxlBRQKXFQ0hWb
+	HOI2FKtM3wOEW9CucAYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbHY5-00000005Hgd-08Zo;
-	Sat, 17 Feb 2024 10:03:57 +0000
-Received: from mail-ed1-f44.google.com ([209.85.208.44])
+	id 1rbHmb-00000005LNK-2tPg;
+	Sat, 17 Feb 2024 10:18:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbGYw-000000052E0-0UtQ
+	id 1rbGkI-000000055Bk-2dps
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 17 Feb 2024 09:12:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ljoOrlx2Axwigx70XpcEQ7WijCpxq6Ld3/uWv+eU/ig=; b=fEoNH7M82peJhklhFjFWeEcaau
+	cctP6+t6+3HTwaGSDdfnltJQXMa72/QuBApEe7djbAqDrNmSOvSjtI7YVrEKdIdpLM2rQGeOTtKdE
+	VBILPKAjElmndge6tL/hfAmDq4U6gDcHKN9qz+y3FB9WD+C8rH+dfm7m/V7LzEIJl/t2+tUSgAnao
+	M/UR1pd1ERzvjIDmayRRBdwKwybJOy0d2czvbcFXZ7P1Tw0xF0Y7aBz9lp5KLweOpDbe0FFqgNh9Q
+	Sg5L1EoqOkwcicqk0OK0qBjHG/+bVe8VVzdkqxSxS1U2qXrMn7jI3Zr+4KUlLxokBSYb2ntsZkrYo
+	2pWqOpkw==;
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rbGk9-00000000HWF-11FH
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Feb 2024 09:00:47 +0000
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-5600c43caddso3417781a12.2
-        for <linux-riscv@lists.infradead.org>; Sat, 17 Feb 2024 01:00:45 -0800 (PST)
+	Sat, 17 Feb 2024 09:12:24 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-563b7b3e3ecso3017338a12.0
+        for <linux-riscv@lists.infradead.org>; Sat, 17 Feb 2024 01:12:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1708160444; x=1708765244; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1708161139; x=1708765939; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=GKzBi+LFAgyEuEjfDoXiyvKz1ydBsUvzpk3PjBvnaVg=;
-        b=HLiN+S9jXQNpvEvi72XaCfOUPI6YJDNp5GDcvLa3Asxc8cIjCUOrBMi1TDHxbiQaL8
-         njQlJC4NiDF6zcYr9QZ8Wk3efRWY7FdBI9i4RpLhXRT75czkU6yd1X8lH+dCKPBsyRCb
-         6skN4LjjvClOl3u2iD2j4mkyZkTYxp7qPlge7Yn6bVyOoHDj9Iup6jLqjun/jgg12q7t
-         LEPRuhHILkURG2KskTWoJ8j0FLnap5jG3zxDmYsWsQsYawfDTteycuejNq1V/7gZEgFc
-         pJb+y7yTAr7O6SIetMfC7NGeCzHA16vyQ6xYhHOimHqKeLhEDApr4WWPsZwZB+AdGzkr
-         Z23w==
+        bh=ljoOrlx2Axwigx70XpcEQ7WijCpxq6Ld3/uWv+eU/ig=;
+        b=lhImgLnLRetlkYjxPLjWtbRv+UFibfo4dvv45srxMPcwjA270mg2kyqEjy73gNp75P
+         0ZO5mPX/vu6ajANsjrLifg6nmEbE3gty/weq6xqJIIJHW0CgUpztuzcwxEwF7FJh0eKc
+         aFnaOxgqTYoRqKxKoIWuN2Q4ewXsknl65UqZnfg0CJYc77e24Q1UKyQBqp1p2TMnHD1e
+         W/p+PH/GiXuwMIrFV2H5dTigVhCkvB+RpvRgy5OdxaMYD7W197IzbfAOqC/1z0jkrINP
+         lhhUxx4Q/9ohbRR+F0h2XaNFnPkqiWjCW6YyAOpdqxN+0D4SK23upsBd/Jb0Hbjk6D0j
+         pKlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708160444; x=1708765244;
+        d=1e100.net; s=20230601; t=1708161139; x=1708765939;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GKzBi+LFAgyEuEjfDoXiyvKz1ydBsUvzpk3PjBvnaVg=;
-        b=ufi6tScEr8tL1KzsXYTXcp7+C//QFpDaaSJqRh3/Gy0+H1dvU1Q2GGqyXgGiMC8tFm
-         dbNx+DbO4puyuIvhwoS1QF9bkwTvUB1mT5DJAA8Ia6ihNIoA6LW8syvxBKPDFq1HaGER
-         jXI7xgN0qHPVxoXXIMbXCelDpUk0rqswZCNn9KQPqXRs2KWUVypqQoiYG5jRMQcA0i2J
-         J3TDZFKVCDH+IxfEFXpSQuSRuh6be7VATPsffE6/XGlql15DWfut0bmsehuJGRQm3CaU
-         HPCbANatIk2rQqj3G6egM8w5d9BXksk+Nvzg/1u8BCJpS8YWHB+33uLfSvYU9EfR9/WS
-         KFRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX2qYdMzQKg4QGN6yzDgRHlj5ngbzN0JX++R6hL0Q9ERHaz445u604IuIG6uJguSakZDIr0N72xks8/iIZMFD77PJO0EI7W0BQs88jiIBuf
-X-Gm-Message-State: AOJu0YzuV4VBixjEmcHG2vlqg+RhkXb2QKRfnI/rfISheBtL12nh+VIp
-	KFnPqxUBB5mhu/sEpz5nAXOl80qKiDu1RmO5hmfiTCJPfcQAm1vabWU/sFAsAng=
-X-Google-Smtp-Source: AGHT+IEiIbXlJy7R34XiyyLCOxObbvRZ1l18Ghqcpq828SJHnmVu4XPlASav1BKQaKrbmgxgqnoETQ==
-X-Received: by 2002:aa7:d6d6:0:b0:564:3939:8153 with SMTP id x22-20020aa7d6d6000000b0056439398153mr10637edr.28.1708160443777;
-        Sat, 17 Feb 2024 01:00:43 -0800 (PST)
+        bh=ljoOrlx2Axwigx70XpcEQ7WijCpxq6Ld3/uWv+eU/ig=;
+        b=e6ZIm05SjPjkM8ME1sMA1OpzDdQtPE3FtjOu61vV8JD+WlBF2+nEDKIxsirUkJPFHM
+         TcYydh/r34AjXGOg/Wu8tkpmCubRs6SXF/UkTxqXuylz2cnZsWa+5rHhty8SEjgj0ucv
+         sHth1nIxBiSEZHnf9bJH/vnPLuUM1lF8GDSxxnAFwTrybOoGcaHonsxvyZjIXIJiWTKM
+         seNNDcjVzAQDy5hpg/IT6CxzAIwd/Y09kllf2mY1VHIoiXKSIeocklOYTSqE+hFSgU5Z
+         HkobWW6Yvi+I3tDO62TzMmmJ8IXofxPbC53uIFm8pG52/N1Rzi5pyw8QVlpik46IgHrf
+         5UVw==
+X-Forwarded-Encrypted: i=1; AJvYcCXk4PuH5IjTgKm18aEfAWvCkQNs43RQAyiwJNpmzQ/tM7AqiNECU6QWCLJf8ku4YBpmpE1yUu0GG+sDrHl+9ftkHX7Bnus4j5Ie94rRWE7B
+X-Gm-Message-State: AOJu0YzSMmCeu9EAL81YtCA7OPmaMOiel4t2CTq2rUTqxYFNEVfNXEvu
+	o2tA4uPstDugPwLo3bjf7mqP9swRtSS707SWLwJdISwykNuI8aXcvScrzEHVMec=
+X-Google-Smtp-Source: AGHT+IHaLoCjZL3dRqQt6XJR76FH4PWvXe4HLjWNYPGsJs456rnObKvnZQACffInIPZTYRvIYCjAvg==
+X-Received: by 2002:aa7:c646:0:b0:563:f889:24bd with SMTP id z6-20020aa7c646000000b00563f88924bdmr2280506edr.8.1708161139557;
+        Sat, 17 Feb 2024 01:12:19 -0800 (PST)
 Received: from [192.168.0.22] ([78.10.207.130])
-        by smtp.gmail.com with ESMTPSA id e9-20020a50ec89000000b00563e425da56sm711139edr.85.2024.02.17.01.00.42
+        by smtp.gmail.com with ESMTPSA id fd11-20020a056402388b00b0056104738371sm735066edb.65.2024.02.17.01.12.18
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 17 Feb 2024 01:00:43 -0800 (PST)
-Message-ID: <eeb2331d-10e6-4902-91ba-85896a8f0ee1@linaro.org>
-Date: Sat, 17 Feb 2024 10:00:41 +0100
+        Sat, 17 Feb 2024 01:12:19 -0800 (PST)
+Message-ID: <7d7fc53f-1b5d-4f1f-a53f-f0863a79a79c@linaro.org>
+Date: Sat, 17 Feb 2024 10:12:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/6] dt-bindings: cache: Document the
- sifive,perfmon-counters property
+Subject: Re: [PATCH v1 5/6] dt-bindings: cache: Add SiFive Private L2 Cache
+ controller
 Content-Language: en-US
 To: Samuel Holland <samuel.holland@sifive.com>, Will Deacon
  <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -79,7 +94,7 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, devicetree@vger.kernel.org,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
  linux-arm-kernel@lists.infradead.org
 References: <20240216000837.1868917-1-samuel.holland@sifive.com>
- <20240216000837.1868917-2-samuel.holland@sifive.com>
+ <20240216000837.1868917-6-samuel.holland@sifive.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -125,11 +140,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20240216000837.1868917-2-samuel.holland@sifive.com>
+In-Reply-To: <20240216000837.1868917-6-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240217_010046_211764_128CD068 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240217_091222_261936_89F12945 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,20 +161,27 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 16/02/2024 01:08, Samuel Holland wrote:
-> The SiFive Composable Cache controller contains an optional PMU with a
-> configurable number of event counters. Document a property which
-
-Configurable in what context? By chip designers or by OS? Why this
-cannot be deduced from the compatible?
-
-> describes the number of available counters.
+> From: Eric Lin <eric.lin@sifive.com>
 > 
+> Add YAML DT binding documentation for the SiFive Private L2 Cache
+> controller. Some functionality and the corresponding register bits were
+> removed in the sifive,pl2cache1 version of the hardware, which creates
+> the unusual situation where the newer hardware's compatible string is
+> the fallback for the older one.
+> 
+> Signed-off-by: Eric Lin <eric.lin@sifive.com>
+> Co-developed-by: Samuel Holland <samuel.holland@sifive.com>
 > Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 > ---
 > 
->  Documentation/devicetree/bindings/cache/sifive,ccache0.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
->  
+> Changes in v1:
+>  - Add back select: clause to binding
+>  - Make sifive,pl2cache1 the fallback for sifive,pl2cache0
+>  - Fix the order of the reg property declaration
+>  - Document the sifive,perfmon-counters property
+
+This is no v1. Please implement entire feedback from previous v2, v3 or
+whatever it was and reference old posting or continue the numbering.
 
 Best regards,
 Krzysztof
