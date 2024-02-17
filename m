@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA0B6C48260
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Feb 2024 00:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 122C0C48BF5
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Feb 2024 00:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ptPFbJ8UxotF45qfgH5sHp75NPU427fz9g9N7kmBTWY=; b=2ZCeXa8sQ/Om2n
-	P8svzXJSeZDU9f4xRSxCR+jbCnON5jr+/RSRRW5ekEUTCFx+X/GRwB6K+yymfSginM2VO+b/4l6a8
-	TErMJeaFCgyfyFrV0oLjdq6BVcYiABIi4nD9jzAfVehAscbKdEl1FDNLR5H4GDdnKubbNRUP6bYYQ
-	OlCx2qivY+dysLwG1uJB6OWVUjQ51rbYeqmcfozw0MPjIOVjWhZG9mIUUWZkh/Ye9dkndq+O37Spr
-	38Po16oDdzubVD0GKjpdRfGOKKpAbnvniwGOfNdoPNT8LZKYbriYkF4m42lUkNfMyAErSf5c5rU1p
-	O+jnJ/omQR0Gzvohy0Kw==;
+	List-Owner; bh=3MhqTlEqHwr7Ig/1xEQC3A8p23AfeF0bSq02P1U3nW4=; b=u3j91tjaLl2MDc
+	o+0is0X9Gp91U/VtMoh9Afh/zxMZ54/OeRH6lZv5gzALrf0bM0EmDweTG3mNF3gc9Pt0orPVXXCYt
+	QIGsc0gB0a1hJhm0wfVm/mEQwiEy6bGVz0mmutwW8f7r5exy91Fzuukn4esPvs/n8+et7KRay6YmZ
+	3+Y3el/btxn+ggenZu7ptJyJOb1P6nSGJPv1L3C8hS2VA5ogV9svAxLiz5XwY9vuh0pCIRFgXyoGJ
+	bNTVY8RvxMH378FSgWiMYPNnieuR/tY7RM0vmzh2qt3kJu2k1ujPIFhUcjXK3Bllq3HwtdCHD8yWW
+	FyvJBsSIEo7QSiTxOuMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rb93J-00000004J1h-2rDA;
-	Sat, 17 Feb 2024 00:59:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rb93P-00000004J89-2EM3;
+	Sat, 17 Feb 2024 00:59:43 +0000
+Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rb92v-00000004Ifo-3zFp
-	for linux-riscv@bombadil.infradead.org;
-	Sat, 17 Feb 2024 00:59:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=jA2bwMTLdR68IYWhAHQk0vem/FIvLYvJUSgd6oUDROA=; b=pN0FLsZcbffjKyC07Gc1/9kjR8
-	+CmYWY8UDMlyKofQYqu1f7vzEH+EcTmPzbGCfSvoI7vS+pU+Xl+gN0a4GYVG8S4stnFBGa7Htzs+d
-	/nr6cpaC1+eURgAM0Fyl5fBgGEAlGoOjRGmcg1cI2Nsfm+KhCMR73IZbsZqIlPBkwjC7cZ+2RnbfU
-	IscsD8cdOcPHLN9dTfJPW4iCCmsrN7SkDhdCtrCBDWzu96sil8PGXi6CW+8eIznxaAsSO/TQuVD+M
-	KCdq6kIOFWMaobGRjRXRDpI35oqXx4J+3wbA3BxX9BJ9ZFfPdSlsarAmoKTKzIcGOhJSxrbme7A8M
-	3RNqn5Iw==;
-Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rb92R-000000007J0-2Cu9
+	id 1rb92n-00000004IYG-03Jh
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Feb 2024 00:59:04 +0000
-Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-7bed9f5d35dso71079239f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Feb 2024 16:58:41 -0800 (PST)
+	Sat, 17 Feb 2024 00:59:17 +0000
+Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-21e3c16880fso1312128fac.2
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Feb 2024 16:59:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1708131520; x=1708736320; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1708131544; x=1708736344; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jA2bwMTLdR68IYWhAHQk0vem/FIvLYvJUSgd6oUDROA=;
-        b=LfOLsA9ZndzAKGNXeAK065RAoQa6XREfts/chgglP8cfr+LRLTRuTCTrcPIL8iHIi8
-         L7LrVbuuaJZrkUkuPC0C1/MBbA6UpPmSSBnc1iuiKUKZ/c1DfQgZaTy4Pnw+8s+R+mAT
-         FubvaT2p1kh3jJD+zVNLvpT3WHc/XAzF/ioHYdREw9TurMB5K6h0kKv6BY4SPjlJ8fRo
-         rNnVgjPmI2p4CbiNOfLXCuhFpwyw7mkG4Hx5s/1AkGihQkxRxqEpuzMN62BTNXY8oNWH
-         duD6Ovp5OppshNY9+ov7+q2eQPft9dt1dGRm7O0k5FKPyILeGJmHYj7JrCJ0Y0ceyFCF
-         NGpQ==
+        bh=5vDBckQYWb4Du0H7yzxJq6wilfl8k4fp2vqlUJD6o0E=;
+        b=ewmB9M0wcrETYjIrCIsn85VMEI1Eoxj8AOoLb4iaGTCdfAJPqmZrqX5z/AUrbCtsWi
+         LyglXhuKKDFepAaDB94l1NtIsvSQTQ6/g8b+6x31O9rS1DMMG3sDQv+1XN3ECUK7+6Ug
+         RXrq/IDvpnd4tWOSWj++PUmV75/vsnUKd+8g2emdijgTrmkyKL3O2M9Gup7+EAGPtLz0
+         TNg9u9VINFK/E+gU1ncc06DyOSNLjObyQX1O1uratPVO34HNS8e97EpQaLPbREtEOSKy
+         vrOZFGWKMDNfmUO4lWEm6Cqbkn9gAI+c7i2x1v92UeVtdWnq1n8Voc/grCAGmEpcjwlC
+         HyZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708131520; x=1708736320;
+        d=1e100.net; s=20230601; t=1708131544; x=1708736344;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=jA2bwMTLdR68IYWhAHQk0vem/FIvLYvJUSgd6oUDROA=;
-        b=oAHnRtu6b+dNSjpSM2OJfN/x5fW0YpzySxqrxEIOJ9tD0PowxRq5CY/ZzKbD1+vpo4
-         f/WulBglwgemZg+C7U3/5kkv407URR2Rf5tblC8rMqF88djvhvjDvtnqPZe4O046E6ov
-         joG6kvFROhAn88iprJPdfPtqtQbL3N/EkvwfxTalwM8CC4avwQ7ekuZ85+3aX+DEkYhZ
-         UOK5o6XT9O7yqjFTEZU3mSYvtz0FSWEhBuLlLYR8uehLSmRY+sgsdIhfEiVzpphqLfYZ
-         mF5IkMn43eyzDuzIe5FFCdSLgXAT57irD2v3AUBAZYFNnq6bwpLuh1kT40kkSO99GOuy
-         jkmg==
-X-Forwarded-Encrypted: i=1; AJvYcCUEphqn3/h+lvFWQg5FxHnHik/MJLOBJM+LfECk6TxcU1WcOeFDrfyoUt3WzdRrQVQ67j9kgBDq8HDE8aYcjZ7sQ90u5KlMa+SN9Yf6oLgE
-X-Gm-Message-State: AOJu0YxeYeRe8acPFPWGtkmcNF5SnY/tO9M4/Y6miBhUHX1c9Uy4nP/R
-	82XtCjt8v+jgS+CbxPcT+MB8l+wywfs+Ne+T65dXjQd4qb+EqnGi2tW5N13Snk0=
-X-Google-Smtp-Source: AGHT+IEdeqVqcC/VKKKrXOEHY/VeTvf9ltSju1U8A00Dr62R9FD2Xfm3+udDPMEcDgQNQ3u+AM/jrg==
-X-Received: by 2002:a5e:c10c:0:b0:7c7:2e71:bb74 with SMTP id v12-20020a5ec10c000000b007c72e71bb74mr626708iol.4.1708131520123;
-        Fri, 16 Feb 2024 16:58:40 -0800 (PST)
+        bh=5vDBckQYWb4Du0H7yzxJq6wilfl8k4fp2vqlUJD6o0E=;
+        b=k9QN2AhyGW89aq+lv65JKyGCTfnJYjoupTVJo3eiWSq7KgVfCSm5+kLEmMB77as67H
+         EkL8ZcT0k0sdo+hAP7uhbX30X0x6r2vbvKFCfcjCjWGHD1bmc1g0uu4wmjT9yvpdKWXk
+         ikClVuDAyS9CtZyQLA6dXow8BMYvI5YQBwzOnoY8Zv1r1R0iJxG86I3Jj4/GJee1Vc52
+         N0kXj6rh1sz7vW37YCmc7nXZQ7HGx+1K/7vvmPaZQgwTqSMxKbAIjdKD4VwRAiMLwCEm
+         ngMq7F8NyT8WtvN/nnDJY9VJ3GizzZqFpv437ow4R1F594nEJr0ijlF+XHpJIc5roFqB
+         6NPw==
+X-Forwarded-Encrypted: i=1; AJvYcCVMDqBCdt85SPuhqU7n6yLx1pSaQ6PUQMZI15xNP2Q0IFLKPcxBwk8NB5fVQcf7TyEgmO/y2G1QyybEsT1LWMg4Kke1E4ncN7RogFaIsviX
+X-Gm-Message-State: AOJu0Yw0uhAk3CWE5YeWkA8DFWzgrbP8pI6CxRIOnMhktvgris7p2tEq
+	u3Zixe6T/H+pAx38aIcaiQCsXiqemb8QMfXfpwtFcljHP0RK6vI4BONDUM4z7qM=
+X-Google-Smtp-Source: AGHT+IHqkQqjQYTImWOgjE8Z+USH8QzipcCkOvNcsVcXAj1JgydRRCEivR2TUgJmzC2SDHg1vvWlZA==
+X-Received: by 2002:a05:6870:478a:b0:21e:698f:5c91 with SMTP id c10-20020a056870478a00b0021e698f5c91mr3327913oaq.41.1708131544105;
+        Fri, 16 Feb 2024 16:59:04 -0800 (PST)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d188-20020a6336c5000000b005dc89957e06sm487655pga.71.2024.02.16.16.58.37
+        by smtp.gmail.com with ESMTPSA id d188-20020a6336c5000000b005dc89957e06sm487655pga.71.2024.02.16.16.59.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Feb 2024 16:58:39 -0800 (PST)
+        Fri, 16 Feb 2024 16:59:03 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -122,16 +107,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Will Deacon <will@kernel.org>,
 	kaiwenxue1@gmail.com,
 	Yang Jihong <yangjihong1@huawei.com>
-Subject: [PATCH RFC 10/20] dt-bindings: riscv: add Smcntrpmf ISA extension description
-Date: Fri, 16 Feb 2024 16:57:28 -0800
-Message-Id: <20240217005738.3744121-11-atishp@rivosinc.com>
+Subject: [PATCH RFC 19/20] RISC-V: Add hwprobe support for Counter delegation extensions
+Date: Fri, 16 Feb 2024 16:57:37 -0800
+Message-Id: <20240217005738.3744121-20-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240217005738.3744121-1-atishp@rivosinc.com>
 References: <20240217005738.3744121-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240217_005846_247502_57C488F9 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20240216_165905_395696_A07FB58E 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,31 +133,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the description for Smcntrpmf ISA extension
+Even though the counter delegation extensions are all S-mode extension,
+perf tool can use it decide whether it wants to map standard events
+or not. Remapping is not required for if SBI PMU is being used
+for hardware events.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- Documentation/devicetree/bindings/riscv/extensions.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+ Documentation/arch/riscv/hwprobe.rst  | 10 ++++++++++
+ arch/riscv/include/uapi/asm/hwprobe.h |  4 ++++
+ arch/riscv/kernel/sys_hwprobe.c       |  3 +++
+ 3 files changed, 17 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 15adeb60441b..149ecf2a8af3 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -135,6 +135,13 @@ properties:
- 	    directlyi accessible in the supervisor mode. This extension depend
- 	    on Sscsrind, Zihpm, Zicntr extensions.
+diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+index b2bcc9eed9aa..77fa0ed09366 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -188,6 +188,16 @@ The following keys are defined:
+        manual starting from commit 95cf1f9 ("Add changes requested by Ved
+        during signoff")
  
-+	- const: smcntrpmf
-+	  description: |
-+	    The standard Smcntrpmf supervisor-level extension for the machine mode
-+	    to enable privilege mode filtering for cycle and instret counters.
-+	    The Ssccfg extension depends on this as *cfg CSRs are available only
-+	    if smcntrpmf is present.
++  * :c:macro:`RISCV_HWPROBE_EXT_SMCDELEG`: The Smcdeleg extension is supported as
++       defined in the RISC-V Counter Delegation extension manual starting from
++       commit ff61c1f ("switch to v1.0.0 and frozen")
++  * :c:macro:`RISCV_HWPROBE_EXT_SSCCFG`: The Ssccfg extension is supported as
++       defined in the RISC-V Counter Delegation extension manual starting from
++       commit ff61c1f ("switch to v1.0.0 and frozen")
++  * :c:macro:`RISCV_HWPROBE_EXT_SSCSRIND`: The Sscsrind extension is supported as
++       defined in the RISC-V Indirect CSR extension manual starting from
++       commit a28625c ("mark spec as frozen")
 +
-         - const: smstateen
-           description: |
-             The standard Smstateen extension for controlling access to CSRs
+ * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
+   information about the selected set of processors.
+ 
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index 9f2a8e3ff204..fb7c6bd6822a 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -59,6 +59,10 @@ struct riscv_hwprobe {
+ #define		RISCV_HWPROBE_EXT_ZTSO		(1ULL << 33)
+ #define		RISCV_HWPROBE_EXT_ZACAS		(1ULL << 34)
+ #define		RISCV_HWPROBE_EXT_ZICOND	(1ULL << 35)
++#define		RISCV_HWPROBE_EXT_SSCSRIND	(1ULL << 36)
++#define		RISCV_HWPROBE_EXT_SMCDELEG	(1ULL << 37)
++#define		RISCV_HWPROBE_EXT_SSCCFG	(1ULL << 38)
++
+ #define RISCV_HWPROBE_KEY_CPUPERF_0	5
+ #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
+ #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index a7c56b41efd2..befb6582b1ce 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -111,6 +111,9 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
+ 		EXT_KEY(ZTSO);
+ 		EXT_KEY(ZACAS);
+ 		EXT_KEY(ZICOND);
++		EXT_KEY(SSCSRIND);
++		EXT_KEY(SMCDELEG);
++		EXT_KEY(SSCCFG);
+ 
+ 		if (has_vector()) {
+ 			EXT_KEY(ZVBB);
 -- 
 2.34.1
 
