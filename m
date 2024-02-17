@@ -4,63 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F349FC48260
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Feb 2024 21:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 496FDC48BF5
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Feb 2024 00:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YBGuNDw62l8Hmy4S/PAStXM+Td5HxUOQE4DxgcuoNPc=; b=34CGqVn3JYjfnL
-	caaKVwyRt9/2D3l4zJ2pXKccxO8fHvWmNahlLQ3Uwx3O/bfGfevEtScf0E/lZRnHu2WvpQmn2tlH1
-	0ZnwfoOpyj8FF4k+BAMqZ6jTAQz3p25MJwQzl018iYMySIA8Tf5on9PpQVPMOsrPUnI73i7mYpCeA
-	TvIWJawmUORKWgZJyQFbMpgJvkj5gYyYRfcJpu9lXqJRCRl6kMgXSH70zvbLh7/BKmvJtYAlAovpP
-	dKfTb7qy941EhDrplbMfY0V8bxc4fwEMJjZJl8XVSPY0rSxUWQYdrF7QPGkMA49bxaDtlqGPxq8kS
-	QEWupskVmpe/cgedvuww==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3l+LrqgFeQ5f9TtTePTEf6Cik9iNSo09bDe42InTRE0=; b=gwmO8zDFWdmQtW
+	SLI0jFcCZ4uEBt1TENn8p1uefSn1FbgFnEsl7vJA9c34VbgMuZHYdU687fiznZzhNF4phdq48aS1X
+	zj9AdNco1zxptOOlEe5YkmXuqnD0vV1Wqe9gzWFq/RHRIk/zRSOjSjnSbZsrOWQWkE++/hboyr29R
+	55wBQfOdhvoVzdjFNpC5x0Wzj13d9mRWuhmVeangvexCaNRcnETEXl/Q9SS+cAEg47k2Pkw4Y6v7R
+	YqkAD2ykRtRLg7Bhc76yLTQOTAHhl7UMdVUPAO4I7bSFdkrx6FI8rcc0tjMTDCNrsPNDZr2/QEL5i
+	53Rb3bRWyziTM6WOB0UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rb5Oy-00000003l8B-2ySJ;
-	Fri, 16 Feb 2024 21:05:44 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1rb922-00000004HtV-0nZU;
+	Sat, 17 Feb 2024 00:58:18 +0000
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rb5Os-00000003l6G-0YvC;
-	Fri, 16 Feb 2024 21:05:41 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1708117536;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NmEvoquY3BqSFZ0HDkxXKDAY9E0wZEnxUJmSLkCOtxg=;
-	b=vvCnSUsijtARAt8uts96ga74b3dHsnePNt2qBbmO253debzyKJ0adesDq/8mekvm+xz4iY
-	p8otEfvshT8dv0ifaktzky7cdRv7GSc36mgrG9tnvEBgBkR5ZvaLJaLAQMbZEaSuf3oFcF
-	JEEXzOt+8Q/GV1/ltyXEBYD7i03vvlkwlgPAc93+U9vhcvL42d7loSxyjm+sg5byhZawco
-	FENyHeFmGbTBr5CrXBxQQ+wzsYe/PRB9MywSnF9bQvqIneGPA4jcYsS6Tj8ZTMl7J3LOr3
-	QOXHu0jgflSoLqgg5DIk+cX9PgiH/EmK4cMxmW63+wpJf+6g7ozIRBRJkOVO6g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1708117536;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NmEvoquY3BqSFZ0HDkxXKDAY9E0wZEnxUJmSLkCOtxg=;
-	b=fu5NEToUUytvGpRtCWSTHzGJsDi1/IFYPlFboW3xgF/5SAD3bEtn6TbczZv2JjWOw10Qma
-	1FWa28CpyIvTPVBg==
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v12 00/25] Linux RISC-V AIA Support
-In-Reply-To: <87v86pcxcb.ffs@tglx>
-References: <20240127161753.114685-1-apatel@ventanamicro.com>
- <CAK9=C2Vwtj2gZg-P73yLMxu0rPXQ3YrRRuxq6HcpHMXgs-jHaw@mail.gmail.com>
- <87bk8ig6t2.ffs@tglx>
- <CAK9=C2WsSSHgDF+7ruxx_QF0Lk+Dsx2F2Y-_NabnxrJ_qWhgGQ@mail.gmail.com>
- <87v86pcxcb.ffs@tglx>
-Date: Fri, 16 Feb 2024 22:05:36 +0100
-Message-ID: <87zfw0azmn.ffs@tglx>
+	id 1rb91z-00000004HrK-0Cog
+	for linux-riscv@lists.infradead.org;
+	Sat, 17 Feb 2024 00:58:16 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-58e256505f7so1021733eaf.3
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Feb 2024 16:58:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1708131494; x=1708736294; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IzVo2l1UeODXlFr9ZspobMSeOz6FqRsDzZRtwqz0aks=;
+        b=v+sA2JCmo+ngz22Bbhg7bOZHskQscykdJcHj6r0xpfHpzfxJ6silKUk2eHAIql02qR
+         Ucp40J2aF5Fi7YcOwHYIJlQaB7BG43ZuVtW8BKapkU8KjR6JmttBcn2Eyc+x1eMIYI6Z
+         9YGP7xuWY8lMw80SezQfTpnbqOvAxd8TM2H/eF1BAHpNihhUdIf5tp9HdcjoU4IQBhjn
+         X5tlkbPN/FXq5rN/uCp8dmY9USd05wR+4rkko81kDN9Nt5fBT16LGgIA2bO2RdQc4Gvw
+         cnQnBBNdXcf42s4+mm+u4SrqZzBsXiXjdp5HIgDIU+AdWtYREV9jYQBRujpMNXu4HPUs
+         emnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1708131494; x=1708736294;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IzVo2l1UeODXlFr9ZspobMSeOz6FqRsDzZRtwqz0aks=;
+        b=gHTF4iBHgjKClALKvU7Fs2y22ac2LSl+nouvWhh5MTctcMNoqNacYxj/5TB8kLybDy
+         XAAe+ZyQGoqTxnqT5Tf/Mq2mR7j9b0EF7DJ7iO8PchyZRrvsqEkd+7dEJeqJhODcKPQ1
+         8kNhRcBJoJ3PVbaMTDZ45x8OGSwzZ6kk+ae4kIr1BhJjXNe2Xclh4eQjag6dtBIEoNSK
+         c8r2Wv4auOjmTa+7tNBZYJnEouclXAheuaEFMOUcFUGRSwfMT/o3bSOboqyu9Pt+xNVM
+         Np1khEZHOT8fEVAB420JGtC9dHbJpAa9lBigw6zP047phJ2DiiCw80I/nsfvfO3Hie0p
+         WbHg==
+X-Forwarded-Encrypted: i=1; AJvYcCU1QO7op4iu6R/60bBjcaybBgvWusa73dMNIlsJTAvMXBhhFqj/bjyC6O5XsVndcbYMQJTOwHSuRfcBInadueQr26o9+aHKTlVaaWjI1kro
+X-Gm-Message-State: AOJu0YzQXLqKEeB0pcgoa4oApErA9X+vD4K9j5AYiz2AXAR0c0q+jwBx
+	zZRbXhdxgJmSMnyysXQXZE2IffwUM3eiG/mhBmFZCmJ0sjqpy1qZYIFZ43bL1i4=
+X-Google-Smtp-Source: AGHT+IF2qj5VG2aWGKmy+Z/F9xqjxzKMZfdoF+ZXES4kZiPGRVxWB31P4WLI9MkML3OCwmckEUxPAA==
+X-Received: by 2002:a05:6358:659b:b0:178:fd13:d6e4 with SMTP id x27-20020a056358659b00b00178fd13d6e4mr7493295rwh.25.1708131493668;
+        Fri, 16 Feb 2024 16:58:13 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d188-20020a6336c5000000b005dc89957e06sm487655pga.71.2024.02.16.16.58.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Feb 2024 16:58:13 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Adrian Hunter <adrian.hunter@intel.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Christian Brauner <brauner@kernel.org>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Conor Dooley <conor@kernel.org>,
+	devicetree@vger.kernel.org,
+	Evan Green <evan@rivosinc.com>,
+	Guo Ren <guoren@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Ian Rogers <irogers@google.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	James Clark <james.clark@arm.com>,
+	Jing Zhang <renyu.zj@linux.alibaba.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ji Sheng Teoh <jisheng.teoh@starfivetech.com>,
+	John Garry <john.g.garry@oracle.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	linux-doc@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Weilin Wang <weilin.wang@intel.com>,
+	Will Deacon <will@kernel.org>,
+	kaiwenxue1@gmail.com,
+	Yang Jihong <yangjihong1@huawei.com>
+Subject: [PATCH RFC 00/20] Add Counter delegation ISA extension support 
+Date: Fri, 16 Feb 2024 16:57:18 -0800
+Message-Id: <20240217005738.3744121-1-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240216_130538_341415_EC84CFFB 
-X-CRM114-Status: UNSURE (   5.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240216_165815_164904_3213616A 
+X-CRM114-Status: GOOD (  33.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,24 +124,202 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, "Ahmed S.
- Darwish" <darwi@linutronix.de>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Frank Rowand <frowand.list@gmail.com>, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Anup!
+This series adds the counter delegation extension support. It is based on
+very early PoC work done by Kevin Xue and mostly rewritten after that.
+The counter delegation ISA extension(Smcdeleg/Ssccfg) actually depends
+on multiple ISA extensions.
 
-On Thu, Feb 15 2024 at 20:59, Thomas Gleixner wrote:
-> I'm going over the rest of the series after I dealt with my other patch
-> backlog.
+1. S[m|s]csrind : The indirect CSR extension[1] which defines additional
+   5 ([M|S|VS]IREG2-[M|S|VS]IREG6) register to address size limitation of
+   RISC-V CSR address space.
+2. Smstateen: The stateen bit[60] controls the access to the registers
+   indirectly via the above indirect registers.
+3. Smcdeleg/Ssccfg: The counter delegation extensions[2]
 
-Aside of the nitpicks I had, this looks pretty reasonable.
+The counter delegation extension allows Supervisor mode to program the
+hpmevent and hpmcounters directly without needing the assistance from the
+M-mode via SBI calls. This results in a faster perf profiling and very
+few traps. This extension also introduces a scountinhibit CSR which allows
+to stop/start any counter directly from the S-mode. As the counter
+delegation extension potentially can have more than 100 CSRs, the specification
+leverages the indirect CSR extension to save the precious CSR address range.
 
-Thanks,
+Due to the dependency of these extensions, the following extensions must be
+enabled in qemu to use the counter delegation feature in S-mode.
 
-        tglx
+"smstateen=true,sscofpmf=true,ssccfg=true,smcdeleg=true,smcsrind=true,sscsrind=true"
+
+When we access the counters directly in S-mode, we also need to solve the
+following problems.
+
+1. Event to counter mapping
+2. Event encoding discovery
+
+The RISC-V ISA doesn't define any standard either for event encoding or the
+event to counter mapping rules.
+
+Until now, the SBI PMU implementation relies on device tree binding[3] to
+discover the event to counter mapping in RISC-V platform in the firmware. The
+SBI PMU specification[4] defines event encoding for standard perf events as well.
+Thus, the kernel can query the appropriate counter for an given event from the
+firmware.
+
+However, the kernel doesn't need any firmware interaction for hardware
+counters if counter delegation is available in the hardware. Thus, the driver
+needs to discover the above mappings/encodings by itself without any assistance
+from firmware. One of the options considered was to extend the PMU DT parsing
+support to kernel as well. However, that requires additional support in ACPI
+based system. It also needs more infrastructure in the virtualization as well.
+
+This patch series solves the above problem #1 by extending the perf tool in a
+way so that event json file can specify the counter constraints of each event
+and that can be passed to the driver to choose the best counter for a given
+event. The perf stat metric series[5] from Weilin already extend the perf tool
+to parse "Counter" property to specify the hardware counter restriction.
+I have included the patch from Weilin in this series for verification purposes
+only. I will rebase as that series evolves.
+
+This series extends that support by converting comma separated string to a
+bitmap. The counter constraint bitmap is passed to the perf driver via
+newly introduced "counterid_mask" property set in "config2". Even though, this
+is a generic perf tool change, this should not affect any other architecture
+if "counterid_mask" is not mapped. 
+
+@Weilin: Please let me know if there is a better way to solve the problem I
+described. 
+
+The problem #2 is solved by defining a architecture specific override function
+that will replace the perf standard event encoding with an encoding specified
+in the json file with the same event name. The alternate solution considered
+was to specify the encodings in the driver. However, these encodings are vendor
+specific in absence of an ISA guidelines and will become unmanageable with
+so many RISC-V vendors touching the driver for their encoding. 
+
+The override is only required when counter delegation is available in the
+platform which is detected at the runtime. The SBI PMU (current implementation)
+doesn't require any override as it defines the standard event encoding. The
+hwprobe syscall defined for RISC-V is used for this detection in this series.
+A sysfs based property can be explored to do the same but we may require
+hwprobe in future given the churn of extensions in RISC-V. That's why, I went
+with hwprobe. Let me know if anybody thinks that's a bad idea. 
+
+The perf tool also hook allows RISC-V ISA platform vendors to define their
+encoding for any standard perf or ISA event. I have tried to cover all the use
+cases that I am aware of (stat, record, top). Please let me know if I have
+missed any particular use case where architecture hook must be invoked. I am
+also open to any other idea to solve the above said problem.
+
+PATCH organization:
+PATCH 1 is from the perf metric series[5]
+PATCH 2-5 defines and implements the indirect CSR extension.
+PATCH 6-10 defines the other required ISA extensions.
+PATCH 11 just an overall restructure of the RISC-V PMU driver.
+PATCH 12-14 implements the counter delegation extension and new perf tool
+plumbings to solve #1 and #2.
+PATCH 15-16 improves the perf tool support to solve #1 and #2.
+PATCH 17 adds a perf json file for qemu virt machine.
+PATCH 18-20 adds hwprobe mechanism to enable perf to detect if platform supports
+delegation extensions.
+
+There is no change in process to run perf stat/record and will continue to work
+as it is as long as the relevant extensions have been enabled in Qemu.
+
+However, the perf tool needs to be recompiled with as it requires new kenrel
+headers.
+
+The Qemu patches can be found here:
+https://github.com/atishp04/qemu/tree/counter_delegation_rfc
+
+The opensbi patch can be found here:
+https://github.com/atishp04/opensbi/tree/counter_delegation_v1
+
+The Linux kernel patches can be found here:
+https://github.com/atishp04/linux/tree/counter_delegation_rfc
+
+[1] https://github.com/riscv/riscv-indirect-csr-access
+[2] https://github.com/riscv/riscv-smcdeleg-ssccfg
+[3] https://www.kernel.org/doc/Documentation/devicetree/bindings/perf/riscv%2Cpmu.yaml
+[4] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/src/ext-pmu.adoc
+[5] https://lore.kernel.org/all/20240209031441.943012-4-weilin.wang@intel.com/
+
+Atish Patra (17):
+RISC-V: Add Sxcsrind ISA extension definition and parsing
+dt-bindings: riscv: add Sxcsrind ISA extension description
+RISC-V: Define indirect CSR access helpers
+RISC-V: Add Ssccfg ISA extension definition and parsing
+dt-bindings: riscv: add Ssccfg ISA extension description
+RISC-V: Add Smcntrpmf extension parsing
+dt-bindings: riscv: add Smcntrpmf ISA extension description
+RISC-V: perf: Restructure the SBI PMU code
+RISC-V: perf: Modify the counter discovery mechanism
+RISC-V: perf: Implement supervisor counter delegation support
+RISC-V: perf: Use config2 for event to counter mapping
+tools/perf: Add arch hooks to override perf standard events
+tools/perf: Pass the Counter constraint values in the pmu events
+perf: Add json file for virt machine supported events
+tools arch uapi: Sync the uinstd.h header file for RISC-V
+RISC-V: Add hwprobe support for Counter delegation extensions
+tools/perf: Detect if platform supports counter delegation
+
+Kaiwen Xue (2):
+RISC-V: Add Sxcsrind ISA extension CSR definitions
+RISC-V: Add Sscfg extension CSR definition
+
+Weilin Wang (1):
+perf pmu-events: Add functions in jevent.py to parse counter and event
+info for hardware aware grouping
+
+Documentation/arch/riscv/hwprobe.rst          |  10 +
+.../devicetree/bindings/riscv/extensions.yaml |  34 +
+MAINTAINERS                                   |   4 +-
+arch/riscv/include/asm/csr.h                  |  47 ++
+arch/riscv/include/asm/csr_ind.h              |  42 ++
+arch/riscv/include/asm/hwcap.h                |   5 +
+arch/riscv/include/asm/sbi.h                  |   2 +-
+arch/riscv/include/uapi/asm/hwprobe.h         |   4 +
+arch/riscv/kernel/cpufeature.c                |   5 +
+arch/riscv/kernel/sys_hwprobe.c               |   3 +
+arch/riscv/kvm/vcpu_pmu.c                     |   2 +-
+drivers/perf/Kconfig                          |  16 +-
+drivers/perf/Makefile                         |   4 +-
+.../perf/{riscv_pmu.c => riscv_pmu_common.c}  |   0
+.../perf/{riscv_pmu_sbi.c => riscv_pmu_dev.c} | 654 ++++++++++++++----
+include/linux/perf/riscv_pmu.h                |  13 +-
+tools/arch/riscv/include/uapi/asm/unistd.h    |  14 +-
+tools/perf/arch/riscv/util/Build              |   2 +
+tools/perf/arch/riscv/util/evlist.c           |  60 ++
+tools/perf/arch/riscv/util/pmu.c              |  41 ++
+tools/perf/arch/riscv/util/pmu.h              |  11 +
+tools/perf/builtin-record.c                   |   3 +
+tools/perf/builtin-stat.c                     |   2 +
+tools/perf/builtin-top.c                      |   3 +
+.../pmu-events/arch/riscv/arch-standard.json  |  10 +
+tools/perf/pmu-events/arch/riscv/mapfile.csv  |   1 +
+.../pmu-events/arch/riscv/qemu/virt/cpu.json  |  30 +
+.../arch/riscv/qemu/virt/firmware.json        |  68 ++
+tools/perf/pmu-events/jevents.py              | 186 ++++-
+tools/perf/pmu-events/pmu-events.h            |  25 +-
+tools/perf/util/evlist.c                      |   6 +
+tools/perf/util/evlist.h                      |   6 +
+32 files changed, 1167 insertions(+), 146 deletions(-)
+create mode 100644 arch/riscv/include/asm/csr_ind.h
+rename drivers/perf/{riscv_pmu.c => riscv_pmu_common.c} (100%)
+rename drivers/perf/{riscv_pmu_sbi.c => riscv_pmu_dev.c} (61%)
+create mode 100644 tools/perf/arch/riscv/util/evlist.c
+create mode 100644 tools/perf/arch/riscv/util/pmu.c
+create mode 100644 tools/perf/arch/riscv/util/pmu.h
+create mode 100644 tools/perf/pmu-events/arch/riscv/arch-standard.json
+create mode 100644 tools/perf/pmu-events/arch/riscv/qemu/virt/cpu.json
+create mode 100644 tools/perf/pmu-events/arch/riscv/qemu/virt/firmware.json
+
+--
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
