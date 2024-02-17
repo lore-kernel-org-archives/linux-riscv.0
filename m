@@ -4,68 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C557C48BC3
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Feb 2024 14:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65EBAC48BC4
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Feb 2024 14:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mJoB2VdRw53W5kTHyyE86ZJCRJhzTH7bq+Mc5liwWIg=; b=jwDsba0De0ldsz
-	dBt6xhGG3xVzvqf+Yb0esCO8Irr9r/D7EEkkZh9YX+XaikebzfZCd8XRJyYUE2a/mOpToDYiJNr7W
-	ATrpQd+8Dw3f+MSZgg4MrI9hIU+/Ss+fgNMI1OgSBhM+cqxKlejhjgd10ohE2OPTTH0FyARWN89UB
-	RZh8pVSE30EFwJCWnJDngcfw3fKHgvKsOSHTsXIX3hNi0KNALYJIx38HzHW+FIYX6CuYCMBPXV+Up
-	Giy4eJYMZHZVpaEZ9YHKRNVwS5WMtdeRqhN1R3F33dUJyE56HZr55eah7k/94XNIrC2PATeMbfI1/
-	JwXXa7exZ44MA9C2rJUQ==;
+	List-Owner; bh=pkOBcfVyrOa2LI9p0vAGZkFDfKF4aIkGCiOW6QcADH0=; b=Mt/w61v2Z+5sQP
+	ZwAJkwvBjBktOFWPQBHqalFQjOk0Ekb8reicop6EGdgXfdeGdnNzjF7pCJuhxooeH3mN42Pc5GWBt
+	TuZ1OZ3p4uzOEEvaJD19ntdCaP8ARzekFstLymD7OYYSeAlTtiHYKK58+ECeEOK4x8Ghkdt9zBRzs
+	b6VIe7Cg69MzdfyeDrsRJYMeGgyimBHAgPAJuawDb5P8g0RuEUFoIKbjCd9ig/F/riM9JZ+T4nkn6
+	NmHcrh/vkYO6WydvX064lkY22Jl2CN8TUsEgeYABnZKLT27Nb1z7eMaLWKsU9wG661AiCOe2XFniq
+	8ZIz2LjP0pfKkyDNl64Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbLOC-00000005nuX-1poW;
-	Sat, 17 Feb 2024 14:10:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rbLjm-00000005qOQ-1Mze;
+	Sat, 17 Feb 2024 14:32:18 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbLOA-00000005nuA-1GNF
+	id 1rbLjj-00000005qNP-2BzZ
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Feb 2024 14:09:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 220B060EC9;
-	Sat, 17 Feb 2024 14:09:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D281FC433F1;
-	Sat, 17 Feb 2024 14:09:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1708178995;
-	bh=XWQCs6PGhIvYz7XOGx/U7vWKMp1Df65xKPuZVEikzJY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tkwBQsUq9N5YCk6VRvVLPeMnkI2LhwDQ93/E4w32dYebddGCeu4mCrksJV0riWFYT
-	 5PZBd1rZ9XqeHxjzYz5Nx3nZkucqm3ucjZh11p3yuv3kWa3oNJN0eR3+1/umbrEtvh
-	 +y9sLIn0BtwYvL6e+UQ2t1jlTqb7Cpud8ofy46e4By3Uf5ViAa2JhiYk20BC18drGb
-	 82e83J/W8trX/+ZBO1BDGDzDrfU+nZX1UM0Cn2fr4OlqLmnvDwLHOCfNjydE6LHzgg
-	 S6F+Y4l2I4AXW4dNkUVnIqwQ2SN+rUSXY7Oo0UCC5Jln2UM3lAdZCWgWErLURQubfD
-	 cJ9srWOSFDiXQ==
-Date: Sat, 17 Feb 2024 21:56:55 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Liu Gui <kenneth.liu@sophgo.com>,
-	Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/2] riscv: dts: sophgo: cv18xx: add top misc system
- controller
-Message-ID: <ZdC7J-5zUQFHHiNK@xhacker>
-References: <IA1PR20MB4953D95E8657A480813767FCBB4E2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB49533397F35C450DB92B00C7BB4E2@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Sat, 17 Feb 2024 14:32:16 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a26f73732c5so266752966b.3
+        for <linux-riscv@lists.infradead.org>; Sat, 17 Feb 2024 06:32:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1708180333; x=1708785133; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RSNmyfW1+GrF91z+IHvlzjs+mSUvBVEEbhJ3txgTkRM=;
+        b=XY60ENT6bEQRHK6BcEGiv0//KRdiQe4x+rCqmA3cUZu5rySVFyjIZQ9zy7IuJatFkz
+         66AnL2j6E3HA+nw8b/A0qHz7JmZcfBomYTKKt3+MscBlBH1nzSbyJhU9OUO8O+/on7KK
+         cb99uIT2tCR8iZmZAN9hjV04sQog2f7T9qmY14TjPrRt3sY34RQJzqdFpr2/FLCaIffn
+         k3aj5q99xB661PHznSlWPGQ8jF+34nKNLmlfPKDycyHbfYEihDJQAUVz76rct7A07yTg
+         vrJ9IwYaBkBr7F56sAYX12vMKxtQwBxR2sb7A5CIAQnXwNx+bMllGcGEat7QFSWvWafA
+         REfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1708180333; x=1708785133;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RSNmyfW1+GrF91z+IHvlzjs+mSUvBVEEbhJ3txgTkRM=;
+        b=G+nzRaZBuxeWksHFJ4YkhQSau6F/JovzVR/cEKzAInXYh282TC29uuwrI0TrozRzoo
+         7FxUM4YUfhvssld2n4s8Mr3imPUQ3wwLNpsieplAGOoZGQxb1tJfiSudmI2Wdrhs9kzD
+         x4Ht/7T/JQFCBKzK+4QN2uVpZr9hSZaLZHHnz9kaa6PyaJgbZCqHA8jYAXw7WAOesLoT
+         CNOMFb8D3j+4C/VSA3pofjHwat69A8Bd98+JChzQMcDk314BG6oe5RRPMCOZwdEtJ2I3
+         h7B/UhwLSCMm8n2k55DJ8IiOXf4Vc7O38gLYROQPFKOnC7RvkPuU6OgM7Qdp/qfSiKD9
+         6MLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUm8uLea9d0tLeSKq1P1L48gRa3ziZaRKvev5VuQ24Qb1rV+VO+keCjiRGX7pFlLageMNssRnVnTVlEZHMzNdc3gWbvrXGTBW01M8UL3LuT
+X-Gm-Message-State: AOJu0YwA6/C8C+PFz8RUIQNrDh2GMxBurdPJcnlquqh6yywJNrlSRYVG
+	sh4gaa3RssENfY3DOgk0vUocH1BYg6YDGSPk1IiPdlXP+Vyj/jQHNOzsxVXio34=
+X-Google-Smtp-Source: AGHT+IEHTPTKY/XIeJkkRZAe1uiHoV3OVu9/bNG2euicSLCo47n2vzzbLFkKN/YU4XpKxxNmY73JvQ==
+X-Received: by 2002:a17:907:bb8d:b0:a38:a6b2:b329 with SMTP id xo13-20020a170907bb8d00b00a38a6b2b329mr4507277ejc.8.1708180333463;
+        Sat, 17 Feb 2024 06:32:13 -0800 (PST)
+Received: from [192.168.0.22] ([78.10.207.130])
+        by smtp.gmail.com with ESMTPSA id y14-20020a170906448e00b00a379ef08ecbsm1028569ejo.74.2024.02.17.06.32.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 17 Feb 2024 06:32:13 -0800 (PST)
+Message-ID: <99df43cc-37fd-4f50-a086-2864a6545673@linaro.org>
+Date: Sat, 17 Feb 2024 15:32:11 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <IA1PR20MB49533397F35C450DB92B00C7BB4E2@IA1PR20MB4953.namprd20.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: clock: sophgo: Add top misc
+ controller of CV18XX/SG200X series SoC
+Content-Language: en-US
+To: Inochi Amaoto <inochiama@outlook.com>, Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>,
+ Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20240215151316.GA89268-robh@kernel.org>
+ <IA1PR20MB49533FE55F2A0D7FA0CD6949BB4D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <IA1PR20MB49533FE55F2A0D7FA0CD6949BB4D2@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240217_060958_408296_41DBDFC7 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20240217_063215_614532_9020A6E6 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +146,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 14, 2024 at 09:35:55AM +0800, Inochi Amaoto wrote:
-> Add top misc system controller dt node for CV18XX/SG200x.
-
-it's better to delay this patch until users is seen.
-
+On 16/02/2024 00:56, Inochi Amaoto wrote:
+>> On Wed, Feb 14, 2024 at 02:33:14PM +0800, Inochi Amaoto wrote:
+>>> CV18XX/SG200X series SoCs have a special top misc system controller,
+>>> which provides register access for several devices. In addition to
+>>> register access, this system controller also contains some subdevices
+>>> (such as dmamux).
+>>>
+>>> Add bindings for top misc controller of CV18XX/SG200X series SoC.
+>>>
+>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>>> ---
+>>>  .../soc/sophgo/sophgo,cv1800-top-syscon.yaml  | 40 +++++++++++++++++++
+>>>  1 file changed, 40 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml
+>>> new file mode 100644
+>>> index 000000000000..619237532801
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml
+>>> @@ -0,0 +1,40 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,cv1800-top-syscon.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Sophgo CV1800/SG2000 SoC top system controller
+>>> +
+>>> +maintainers:
+>>> +  - Inochi Amaoto <inochiama@outlook.com>
+>>> +
+>>> +description:
+>>> +  The Sophgo CV1800/SG2000 SoC top misc system controller provides
+>>> +  register access to configure related modules.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    items:
+>>> +      - const: sophgo,cv1800-top-syscon
+>>> +      - const: syscon
+>>> +      - const: simple-mfd
+>>
+>> You have to define child nodes to be a simple-mfd.
+>>
+>> You could drop it, but I now suspect your binding is incomplete.
+>>
+>> Rob
 > 
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> ---
->  arch/riscv/boot/dts/sophgo/cv18xx.dtsi | 8 ++++++++
->  1 file changed, 8 insertions(+)
+> Hi Rob,
 > 
-> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> index 2d6f4a4b1e58..dbf018e99c48 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> @@ -53,6 +53,14 @@ soc {
->  		dma-noncoherent;
->  		ranges;
-> 
-> +		topctrl: syscon@3000000 {
+> I have a small questions: Can I drop "simple-mfd" and just add it
+> when the new subdevice is added? I know the binding is just a example,
 
-"sysctrl" is better, the TRM name this as system controller.
+No, because bindings should be complete.
 
-> +			compatible = "sophgo,cv1800-top-syscon",
-> +				     "syscon", "simple-mfd";
-> +			reg = <0x03000000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +		};
-> +
->  		gpio0: gpio@3020000 {
->  			compatible = "snps,dw-apb-gpio";
->  			reg = <0x3020000 0x1000>;
-> --
-> 2.43.1
-> 
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
