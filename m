@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F87C4829E
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 10:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA094C4829E
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 10:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WdfjTUcoWgExttwUaFzfH+4Bzl1ZWG/bKHAmdFcHnlw=; b=dQHSlnEklifGqr
-	l6Y9Ee1pxZtdxyg3ArLocsTJ72g032ZYvNNzY8xBDMrUEKGUcR6vlQxPK5yP/bGh5i/tXkaDf/Z1t
-	6qyiITmmG0HMl4RGZ/g/56lfPT0OlQm6xBww1RL3Qkl6IZZtgVq6eeOwVc+ED8o6gRMOBa0QyZuRJ
-	819/WEc/1niPopY9QxGIzQR/k2abSPcVlA07t0W+vgYS8IhCpEbLwUy+3QBF7Pg2uCCdwdT8yaR4C
-	NnNQ5Zt8VKd7nMFrjoBgugGvPrPfriAAlGQpVoPc0HQ2GnXAT9xVSRswl1Gdk1Fo27APDz3QqzZGt
-	DFSzMp2nSGuUYTIo9Vjg==;
+	List-Owner; bh=e9tYAIsIYkkF6XEsT6G3zRybMUFw9+K2mSo98pp3CxI=; b=2uwpVt47GNp/be
+	agFHLYqaEm/HmfhcApNJCcKmzmnz6FCM4gas8kYzU+IqEw/RwtGOMNZLE6GKajyppn3Ck7BwhMSsn
+	FtdMwDt/BeG48EQ1wDuqWpyuGPKe4rVlbja/JvouvRD7DXPnZX1aZYu6RVfe8tEedksmVlh0rvCQ3
+	PGEOEbm42WfhD0ZKiDRtRLP6AB08A8Ospu0YAQXUaH5ZKtEE/iZWOw2VTy8XtIhuq0rs9uhPmfcyE
+	c/s4ueps8HnmbiRJWkq0HiDgZFgHarCPCmt2XUk22IkcS1kH7oCB1PviNqdTWs94UBxddjC1zp/ny
+	BcFuUcNniCTFu2aQ4qVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbeGt-00000007UDU-0AFM;
-	Sun, 18 Feb 2024 10:19:43 +0000
-Received: from mail-bjschn02on20731.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::731] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1rbeGx-00000007UGw-2hcm;
+	Sun, 18 Feb 2024 10:19:47 +0000
+Received: from mail-bjschn02on2072d.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::72d] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbeGq-00000007U9L-1kO4
+	id 1rbeGr-00000007UAa-2Ih3
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Feb 2024 10:19:41 +0000
+	Sun, 18 Feb 2024 10:19:43 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=g+qYnbcpw3Hcrq2wl1V+ZiY+F4gLF8pUt1FS0rktEfaJdXWvgclqPmqJL+kUIY4u6iVHMkwDbYQZojf1yhUgF3WZNosDx5h72xuA2XRw75MUrPE7PAdlArJYHnm2Trwpjv6UJYkulv0aGtngP74dc5CUewrD5P677kxeI5OpRFQsXFN+8zYPKEaXUDZFpfVwYohzHTEMJcFy2lmVYrssEGVmzTHV60nbvPqTSiNN9Qh7KiCiPdDnhcPWX2Q2XuC2dpCg0nlMvlr+tRDYIXDEnZD+l8M9MKiGrhuhxIYlVCD1Mo8i0KCNzqkL8JbGgzOpo4uV0V27IA5njvNwZj7X0A==
+ b=ipsTQfno2e3qe9KcyO90+o05kw9srjfEI17cLnraaeju0Vb6ZUm4GfaacnFfR8r4s9E9bUsacjhKBzW9qt4XMau0EMjnaqzDLRLez/yAmG863Mx3Fd97HJgJYE4Toy/Cr28LP/Zmkjv1LqrRs+c/EibJTgrnfOslM0InI3HoWCu2mZoje3wcy/xCG87OPHsRzV8/Jhp/xLV5GfPFp4ZM6aPJwDOhCTUgV0yoj3GYGbj6UjRSHMOE+CoHYm0pWDOh/tdsPlBPoUmZuvzfUjkF9qKrOj4TtROvmbbqutU2kW58kEqsbNU8+ZkJCneEwxOC/AT07DVSql4oFLAj5EwtSA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3wPv+43oNHBW6nH51yVeP5rZGEMEmUbqVl4PTOt6gVc=;
- b=Q8FvgReBS+hsdnkJ4x9oxCWT+aEEpgZ6PkBR6AZ+S0TiG6cPw5AgdJgSF0bnU1tSh/4fVbQK3g0Y5eyr+6J+bELWqOusqjynLKswtg09lnevMzkwLsclZx+o4uR6/CaYwkgX7aZNLy5jNwEGj98BdlsBLeIavENmOOF2gxiEwPXW6kBr2+kwOXCDyUhp4qC5K/BH/k+7v6/wXXsk0R3DdUZH8NH1XqOiSXbMtQXmvDmq/s/VQCzAUhMwh8T2MyAAa/ozCjtq4I5DEALPqRcB3nGjEeVaFI1g2XTz09e5B1+6EX4uS2gkSfWGQ/+L/OB1Rr4B+0xItip/TV5kazrMXw==
+ bh=dKh7nmkaSdzB3ghyDF6RJecUyhtYIfwA0UmbLzDOakc=;
+ b=ACsk3dpNTouoZc09ar8GcnFD4OZvf5NF215UVxjV4fYZCW8mpfEZb/dOt25MRxbMrUFKUEVmck6FB0krdnKRYfrFqsQc1TIzXXAPmOPN2yyF0YH8MjKd6z1ZZrIiZvH+7IWpg+OX27pieaEHRGm5aY5ysK7XYlpfyYAaWVTgrtR5S7eCFwngDlJQpMBPMPejkXJVFIMlOOL1scw7xW1JdLh11RXIgnkRf7sYJShoFEp32ykjVPY8WsbGgDCKZv00yHpBxzCSYLajMNkxZzQ/5mGHXLblzun+SKFK3YN10VUg53krUejfRzg9FQ3Y3OrCMs7XR76ttJF79gQtnzQPyQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:25::15) by SHXPR01MB0464.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:1d::23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.50; Sun, 18 Feb
- 2024 10:19:33 +0000
+ 2024 10:19:32 +0000
 Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
  ([fe80::5a5a:fa59:15fd:63dc]) by
  SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::5a5a:fa59:15fd:63dc%3])
- with mapi id 15.20.7249.051; Sun, 18 Feb 2024 10:19:33 +0000
+ with mapi id 15.20.7249.051; Sun, 18 Feb 2024 10:19:32 +0000
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
@@ -69,9 +69,9 @@ Cc: devicetree@vger.kernel.org,
 	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>,
 	Minda Chen <minda.chen@starfivetech.com>
-Subject: [PATCH v15 20/23] PCI: Add PCIE_RESET_CONFIG_DEVICE_WAIT_MS waiting time value
-Date: Sun, 18 Feb 2024 18:19:18 +0800
-Message-Id: <20240218101921.113528-5-minda.chen@starfivetech.com>
+Subject: [PATCH v15 19/23] dt-bindings: PCI: Add StarFive JH7110 PCIe controller
+Date: Sun, 18 Feb 2024 18:19:17 +0800
+Message-Id: <20240218101921.113528-4-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20240218101921.113528-1-minda.chen@starfivetech.com>
 References: <20240218101921.113528-1-minda.chen@starfivetech.com>
@@ -81,54 +81,54 @@ X-ClientProxiedBy: NT0PR01CA0010.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0464:EE_
-X-MS-Office365-Filtering-Correlation-Id: b10fc9eb-a397-4543-27da-08dc306b19f6
+X-MS-Office365-Filtering-Correlation-Id: 366cc90a-f6ee-40d7-e23b-08dc306b196b
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: HUdKA9AzBLNQkjbgL9DM+vmBYsZbpl8lQvMWgiChTfOpDagTk1NogdInkKew9hSuBbyseNzlpHPq8JaQpYjuet5iV8mjdW1Zmlk+CMcB9xhKuOsoka5WE64HSARIur8NRFMSD9j1Ruzko2m4jCfbEHA1Cb56/WGpsSI/cFE6+1+ONejr8Ziydk09mZz7G9d3r6Aii2si1xipijApM/s3EgVjRrv5YBwGAerQ/YegrqtP01T9L8qwqcjb2bQdMCWVfGwlWeGEQgh4ybLSAeEyIwamnt1BeZlGRgef8WZaD5ATBWlX3FUb4RJalXOk35p2n3TKLrrffjcpyxpavYhTJjpLphoh5FGFx/OBN/EWJQHIidvhyhYmfwEWreuGtS4laLZVRPkE3kJl4pD++9i6bsVt9xj0wOfsGNhn2Ytg6T+qVuJkTVnX9c8ysGb4LfUKAAGXtzS5XjLgpLvlNrm9mKjBOuoWmS4srFwtWuFzhtmBP+lvy80zi48xB0bYPQJoQdjHYhcf787VdfuAkAqUyKbjj5Wl9EDzK5n+0d2jNgmldExyb75iAqmASIpmGfNO
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(39830400003)(366004)(346002)(136003)(396003)(230922051799003)(1800799012)(451199024)(186009)(64100799003)(86362001)(83380400001)(40180700001)(40160700002)(38100700002)(36756003)(5660300002)(41320700001)(38350700005)(7416002)(2906002)(66946007)(4326008)(44832011)(54906003)(66476007)(41300700001)(8936002)(66556008)(8676002)(6666004)(52116002)(26005)(508600001)(110136005)(1076003)(107886003)(2616005);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam-Message-Info: gGcShokTfOcXgz1Vg2mCgyrc6JJuGv9LV2Yb+YisJyIHugJYqzi6T60bH8FapVk07w7+uMKFDpfqfpdI8fQPJkOb7Gndv+nHcvVUdNRbBwTGposseT9i5zYHRGrKyZS6FYqXtCUwJd59ulNpw0cNMtzwZ53/Z4B+CF1Opxd7My7PptjZv9sHqw/HH5Iezyd2A/eG+KaY7Cbri92efovxsdJvUD6aOuuUmWnMSyZMKvwFqLohXP0yTHh9IMInCHNqkTF11UcOAKBySQwbdktw1q4K7zRXGzHSFPaO69NKLMNex91t+n4DVbTABrTtT1ZQ+MKa5kcB760KH31k1VQbKfBjAlRC7hwYqXp8W6UTMBNv1ULOGcJEJByzlcGDgkSOBQJfbed9Ioqen0KT9UMUdNtOLOsNh9O/JAfXw9+BdsGoEGsc+xoP4hikrT2WHsweNu2gBPelWyHBfl62eYUbpPJ7PLpj6XgLT8fiXNMFBTf0ueZJbZz2rGJ5fuG0ZHSyxLj2OxQ1d4sWv1IQ8+X7emIZKw8xBHUtyOFpPIFgVAiIbTTGIIioSlwkRNbzXhrO
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(39830400003)(366004)(346002)(136003)(396003)(230922051799003)(1800799012)(451199024)(186009)(64100799003)(86362001)(83380400001)(40180700001)(40160700002)(38100700002)(36756003)(5660300002)(41320700001)(38350700005)(7416002)(2906002)(66946007)(4326008)(44832011)(54906003)(66476007)(41300700001)(8936002)(66556008)(8676002)(6666004)(52116002)(26005)(966005)(508600001)(110136005)(1076003)(107886003)(2616005);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?p4+s72JPOTrLhuJ2NJPaYQXRvLiHBoCCRoH2fO2zJACzD8j/ROJcmZ1oskbV?=
- =?us-ascii?Q?KxY09Crl8J2DdphQmt37qAFCr4OB3LQLIvXsLfQjYQYvvITAgPyHvRD1nWby?=
- =?us-ascii?Q?jnAdDTZ2HcTFIy+/ljsnLw/4ar1yXZF3SOG2JiGy3u68nM/YZ2wJDr+bveEv?=
- =?us-ascii?Q?Ihko3xPmlmjO2o9D25gukNcnkmDvbAuQm4uQjsR9LB3P7bjlRrIfYke72PXo?=
- =?us-ascii?Q?OcoO3pWCO+MBcNpU8hddHbCE4HLiYPnehCSCDmbAl7ogoDrCWg2/2+32xG8p?=
- =?us-ascii?Q?jWA7odmmuWlQl2WzUqg4lBr0cJHOTBIchgc+EtlY8RkPn7r/ZE1nD2/Q1ulS?=
- =?us-ascii?Q?6hZgq//RYDL6tAm4CZsJyu/Dmn5IPnEU44IdL2PdGtU1yXc8GMRInkvgFstN?=
- =?us-ascii?Q?dbsmhmSy+WZweXslQO757wt+4IvOcZpXFCtoC2G38RZkLeCQX+tQIPMXeD0U?=
- =?us-ascii?Q?w/E3Wr+b9AYw3KE2wRD94BJh7xYBd124OTjQ3TsdmU9d8CsLPGjJlUxgtzvv?=
- =?us-ascii?Q?Gr2jfy5xhyOVz5j4YnKPQof7gj6jRW4QRi8PzhDWoKykwJDf92fWHzxtOefV?=
- =?us-ascii?Q?AfHJe86YsZgPghQIH8X/xEIyr+YjVUZYfH+O2RHmgbOHtcXghvWJZJHx4Q5y?=
- =?us-ascii?Q?oWYtolZwUBWbDyTJ1yhH4s5eb4i4fLhg9nrQawWG/bDn+9o3dzlWvooloxH1?=
- =?us-ascii?Q?nGbU8HvVogJZny7+ibi9Zrq2r+v4vfrVU/IMi/yCOWs0eX3oaydrB/eqJyDL?=
- =?us-ascii?Q?lp+sJHSfypLnmOK6nGpPlyy8aasuQqANNA7ZOJi03ArlkQWSl5k3K2m0JFlj?=
- =?us-ascii?Q?abCgq2jyJbmdhromwomaCD+HkrfT7yAjNbBQlzhhJn4ww4OC1pBXQM4Ew3JY?=
- =?us-ascii?Q?EMtn+SsNzjA7852o/RYrDWsyc18IAGAaRGdFG96U6g3fBjTCca/iBOVVC+iS?=
- =?us-ascii?Q?obwRBE+fYP3B4HS+D9EeFVUfMQIDlziv2DN9HZy+R2boCiIeWzndQttR+zOk?=
- =?us-ascii?Q?+TyQ51mtdt/77Odk5+LyiQBc6dd2rpapTzs6AXAA44BI8AWYRQrdP1LjOOPo?=
- =?us-ascii?Q?A3JcZ9/QF5yReAI3aSCzuUIly4+aXgPLK6K2oyxmIAfqOYx26bb7omiGpG6J?=
- =?us-ascii?Q?sKZzxRQ9a46LalyNzDD3//FuFJjXTwrRy7s3rs6v0dTUITvocb6K/q1/hy1m?=
- =?us-ascii?Q?oTYRz/KBCzifFwnTwBOlyP1p+X+x5NklQK/DBLW2oVaCh67MMGzoIW88UbbU?=
- =?us-ascii?Q?Hr61IfWOKxh4DXcHCNl0KQSi41egPYGqyu/4qF+gq28njU55Dp6nSnhMfuYf?=
- =?us-ascii?Q?UeLjNm1NjDTzFoDQTBE0uBGRIpkCvb1WCb1TYRn61gBLozpvskLKK2idwAyI?=
- =?us-ascii?Q?eSJfPGRAk6iT84P0Gj3wt+GvOHODLxGXmK/RoOnDHO37DRQer6D4ahJ522fZ?=
- =?us-ascii?Q?JQgaFXTv59ZURR4YfMBOny18qaNR8m/auiUdVYa5B9DCVeX6GwbNIsHUhXrU?=
- =?us-ascii?Q?9vyJNFUjId13SLx9mwMYP8yVK7PfrFrIN8Cb6EC4oRsMqCVbVtP7dXgOAOnm?=
- =?us-ascii?Q?XCR4jKF57B5fHSuq0cx7iJ7vC5l649HsT3wJGYaBaiX0De9jptFrogbowon5?=
- =?us-ascii?Q?Bw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F57FzcTxmz7E7c5rTFWisOErFWcST1IFEI2gwGtOAKlxDUcx0ouxmBpIscR2?=
+ =?us-ascii?Q?Sp2IFspurJ1KeifTiSAfJzcITQc87qWvTx6xeVW+5R2IrLmWVkz46lBW6kML?=
+ =?us-ascii?Q?LwyNoZvb7aje38kGmRncenK3YgvNX4roLZd5pLcg1CyyD0FJZRI9ceYeM1ds?=
+ =?us-ascii?Q?601fXZV4sc3vRR3WmSUIUMWO9waS9pLjAdRzuiiLnakuh6u4wl2w8TSN6ki0?=
+ =?us-ascii?Q?M8edtumYnloOgRMlNdPzDyf22wclyqZLjhIKnUBPJdaLQcIQoJzHuz6oFz3c?=
+ =?us-ascii?Q?GLeDWm2B5yje/8QwyhK+svMcX9oBrsJy0jjbUX8Ilg2RG3/P5umWtslv8yld?=
+ =?us-ascii?Q?vLzqv+1JlxFpzO2VGlqgtjocpJXR2qjQe/CDaqkmBdseAsmOVzEu1fffXxd6?=
+ =?us-ascii?Q?EXMbN4IGKQW6MsGn4dk/7TBhrVWRfDuj6JpGwMYtwZsFaEGW9OT+V7HlZGoT?=
+ =?us-ascii?Q?MgZcShoLgIxdPZRX0uJ0khIj204f/JeET+4iSh33YTce/fJZ2Imot400fHjh?=
+ =?us-ascii?Q?Ie5Kv0nlt+Bn7PqRUR47MjQSWMQANY7lHlaaXIfKk/VoAiCskJd/uJeOz3bF?=
+ =?us-ascii?Q?cK4IZjQ8rqvfcPOpKabgGhHKiUZC3TCf2KWdCC29ftXdg21Wvrf3MJEnMzgX?=
+ =?us-ascii?Q?IzE2GltE8FF7U2QOolKCfTKrWTcHtrJWJ+Kx8FuBnepUYnuwt0TlGP2F8Mls?=
+ =?us-ascii?Q?GLdX9ZA0ha3TIh2Rza9YVAi5S0lKtoj8GMkRI+gU0HF36h+z1S4CE9pW3JB/?=
+ =?us-ascii?Q?WeoXDN4cp1DG67vjPV8wpaJkYDXNnedie+dx6ahX2CFp1FipUJVRApVMfdLA?=
+ =?us-ascii?Q?MOlsqWy7ZaUOsG/7j6a+CkgsvrqPhVeyTKeJqArvsmbaTJWCJVM07C3tnhWz?=
+ =?us-ascii?Q?axl51F9tcWKlD5cf6rvLUY4+k7/gmNPTlYtKsFEesPeuwnRWuoCdo0Iu78TS?=
+ =?us-ascii?Q?AKWWBwlth+gX0aw2cg4Pv0l0kE9cMmZ3Jm0AGQ4HpAh5pQ+0zRSv724UORep?=
+ =?us-ascii?Q?WrkZWiImzg6QEqXIit9dJyh/jkHRurCtIsl/3GZF246LwhhTxTyckbk2hdwC?=
+ =?us-ascii?Q?p31TNI8Jg1DxtfWOhk83u13Cj5KTGb5IyvRlec9yc+wzp9oUDD7vmamF92bA?=
+ =?us-ascii?Q?UWWVs/++t1/MahU+AkIAvTPBK+HiW85x1TeDHZsWBerELRJrJV2CsklLv0wc?=
+ =?us-ascii?Q?t+QcVq54WA0oK2aPBNOsw+voF4PQ1cUAZxrHKBY3ux3/iDc5hlGU/OUBSvbe?=
+ =?us-ascii?Q?dQ2J4JvO+B0M5NuSY3j01Cw9G4GBX7ARtq4+eDz3qIW55uwqPoaylMnPYdJk?=
+ =?us-ascii?Q?QAUTYFagwXDuc8fdtd/9JC/H5jAg0TfNh2mRSVybMcwwS/MukimNSAU/sdW+?=
+ =?us-ascii?Q?1udehuCh+11kBfQQuKfyJrk2/aVXIExPeOiWnFF4fj29OrvCMbUesD9iQp2h?=
+ =?us-ascii?Q?17BcCJXEWy6npdRdnAaGzs99Be21f4rAIj76yZoWe0mzhoH0r1rRgRgLnTnV?=
+ =?us-ascii?Q?FVkw1phBFMlke0L9pyIOYcc1xvi/86HT2mSmFZvQYKfTaVEshVVBBbm5q5jd?=
+ =?us-ascii?Q?NRdHRNLw14tEKa4Q6eKvSYWjNhGOhAbvamCw41pEbj3b/3ehXdBvX+D4NTSL?=
+ =?us-ascii?Q?TA=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b10fc9eb-a397-4543-27da-08dc306b19f6
+X-MS-Exchange-CrossTenant-Network-Message-Id: 366cc90a-f6ee-40d7-e23b-08dc306b196b
 X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2024 10:19:33.5962
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2024 10:19:32.6815
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5bTzUOZxKGdAeZTUPWb0P7RgSHd+cic4bpwwwzDzFUQdmHmN0MBZs89x89x9HMoQNTg8z/uYkj+0NTmlOxpLMWYEIowvPYIHZvzvos8Yhfs=
+X-MS-Exchange-CrossTenant-UserPrincipalName: f99RjDCCY0t1BQK6Uy98qvBvkRg8z3ZBUMEi08wgCD6WdKmSUNKNfwmuMdSTiSDA5bF82upHy4OuhcJgSGWp6pu3WkQlGCaLeqW/l9k1pLk=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0464
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240218_021940_538770_5C6CBB39 
-X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-CacheID: sfid-20240218_021941_696718_3D07824F 
+X-CRM114-Status: UNSURE (   9.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -146,59 +146,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Kevin Xie <kevin.xie@starfivetech.com>
+Add StarFive JH7110 SoC PCIe controller dt-bindings. JH7110 using PLDA
+XpressRICH PCIe host controller IP.
 
-Add the PCIE_RESET_CONFIG_DEVICE_WAIT_MS macro to define the minimum
-waiting time between exit from a conventional reset and sending the
-first configuration request to the device.
-
-As described in PCI base specification r6.0, section 6.6.1 <Conventional
-Reset>, there are two different use cases of the value:
-
-   - "With a Downstream Port that does not support Link speeds greater
-     than 5.0 GT/s, software must wait a minimum of 100 ms following exit
-     from a Conventional Reset before sending a Configuration Request to
-     the device immediately below that Port."
-
-   - "With a Downstream Port that supports Link speeds greater than
-     5.0 GT/s, software must wait a minimum of 100 ms after Link training
-     completes before sending a Configuration Request to the device
-     immediately below that Port."
-
-Signed-off-by: Kevin Xie <kevin.xie@starfivetech.com>
-Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
 ---
- drivers/pci/pci.h | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++++++++++++++++
+ 1 file changed, 120 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
 
-diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-index e9750b1b19ba..06d76439bcac 100644
---- a/drivers/pci/pci.h
-+++ b/drivers/pci/pci.h
-@@ -22,6 +22,22 @@
-  */
- #define PCIE_PME_TO_L2_TIMEOUT_US	10000
- 
-+/*
-+ * As described in PCI base specification r6.0, section 6.6.1 <Conventional
-+ * Reset>, there are two different use cases of the value:
-+ *
-+ * - "With a Downstream Port that does not support Link speeds greater
-+ *    than 5.0 GT/s, software must wait a minimum of 100 ms following exit
-+ *    from a Conventional Reset before sending a Configuration Request to
-+ *    the device immediately below that Port."
-+ *
-+ * - "With a Downstream Port that supports Link speeds greater than
-+ *    5.0 GT/s, software must wait a minimum of 100 ms after Link training
-+ *    completes before sending a Configuration Request to the device
-+ *    immediately below that Port."
-+ */
-+#define PCIE_RESET_CONFIG_DEVICE_WAIT_MS	100
+diff --git a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+new file mode 100644
+index 000000000000..67151aaa3948
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+@@ -0,0 +1,120 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- extern const unsigned char pcie_link_speed[];
- extern bool pci_early_dump;
- 
++title: StarFive JH7110 PCIe host controller
++
++maintainers:
++  - Kevin Xie <kevin.xie@starfivetech.com>
++
++allOf:
++  - $ref: plda,xpressrich3-axi-common.yaml#
++
++properties:
++  compatible:
++    const: starfive,jh7110-pcie
++
++  clocks:
++    items:
++      - description: NOC bus clock
++      - description: Transport layer clock
++      - description: AXI MST0 clock
++      - description: APB clock
++
++  clock-names:
++    items:
++      - const: noc
++      - const: tl
++      - const: axi_mst0
++      - const: apb
++
++  resets:
++    items:
++      - description: AXI MST0 reset
++      - description: AXI SLAVE0 reset
++      - description: AXI SLAVE reset
++      - description: PCIE BRIDGE reset
++      - description: PCIE CORE reset
++      - description: PCIE APB reset
++
++  reset-names:
++    items:
++      - const: mst0
++      - const: slv0
++      - const: slv
++      - const: brg
++      - const: core
++      - const: apb
++
++  starfive,stg-syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    description:
++      The phandle to System Register Controller syscon node.
++
++  perst-gpios:
++    description: GPIO controlled connection to PERST# signal
++    maxItems: 1
++
++  phys:
++    description:
++      Specified PHY is attached to PCIe controller.
++    maxItems: 1
++
++required:
++  - clocks
++  - resets
++  - starfive,stg-syscon
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pcie@940000000 {
++            compatible = "starfive,jh7110-pcie";
++            reg = <0x9 0x40000000 0x0 0x10000000>,
++                  <0x0 0x2b000000 0x0 0x1000000>;
++            reg-names = "cfg", "apb";
++            #address-cells = <3>;
++            #size-cells = <2>;
++            #interrupt-cells = <1>;
++            device_type = "pci";
++            ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
++                     <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
++            starfive,stg-syscon = <&stg_syscon>;
++            bus-range = <0x0 0xff>;
++            interrupt-parent = <&plic>;
++            interrupts = <56>;
++            interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++            interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
++                            <0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
++                            <0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
++                            <0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
++            msi-controller;
++            clocks = <&syscrg 86>,
++                     <&stgcrg 10>,
++                     <&stgcrg 8>,
++                     <&stgcrg 9>;
++            clock-names = "noc", "tl", "axi_mst0", "apb";
++            resets = <&stgcrg 11>,
++                     <&stgcrg 12>,
++                     <&stgcrg 13>,
++                     <&stgcrg 14>,
++                     <&stgcrg 15>,
++                     <&stgcrg 16>;
++            perst-gpios = <&gpios 26 GPIO_ACTIVE_LOW>;
++            phys = <&pciephy0>;
++
++            pcie_intc0: interrupt-controller {
++                #address-cells = <0>;
++                #interrupt-cells = <1>;
++                interrupt-controller;
++            };
++        };
++    };
 -- 
 2.17.1
 
