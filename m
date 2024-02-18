@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F6E5C4829E
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 11:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667C3C48BF6
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 12:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Qyc6SsQZKUsz/u7ILOUVi1HvpkppGf7k21NN+u4qrp0=; b=PsY+41nNZQDwbkJOnjLDfbxhSR
-	rPldKPEio85hxW8DN0FimFFr26u5t/o3UX+OcE8bXP7qX29LpgBZeJAzgeqE6vvy/MCkHcGO1IB7o
-	wWL7rCGGxfvXfGMPS/rh6u1V8i+74Ioje0pkjA/dEdkuFXlxrJquEZRdcupps0UzI6+TXHQZq0dJq
-	xjLh3Z11OV06eBWY1BDVChH9KEyCD7cKHV4U8eql8sWMqzM1KWUpm75tmHC61DI8JV+du+bxcNEQF
-	f8bWl1edFlCb9xn37rkd68kw+vRSzFZFirhdApng9mbfToMaDN3RZJRV0C+2U+OfcrkeBVeHbUapX
-	HF4J7t4Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CYSLlQa51jM8oyD0sI/5iRDLI+AtoE7HSyugvjSx9QQ=; b=2rJUgXpNJSmtwo9qDd0ICeJHFE
+	wACLwMZgx+SavKdW2+N3OOSAC0Aa+JywQ6spz2lUwJC/Jf5afgWsB7QjpHqaIsPtzisFPZrcUmbPa
+	tDavr42Rx9p44s+dGnqIAtLn33/Dt+rqeDc+Ne66F+5rlmW0Vi92FI/08kzCrqbIpzOF8VqJU1tY8
+	9wG7xX6rs0t2pU8pOEYHGh7lcLChwrIc1RbEPiH67vP6iBZ95u4QulOLHRKQ3z4HK1k7L4YSYEZyg
+	hWbDE9hx/1/whz5vkzzx1SrH8ol/L9OCcadUuwKkU13KiQUaAWHsCp2WaSKXYZ+PHuTPE1F1LLwCE
+	6vrPpzHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbfVC-00000007dOc-0rmA;
-	Sun, 18 Feb 2024 11:38:34 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rbgaK-00000007jKk-30ED;
+	Sun, 18 Feb 2024 12:47:56 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbfV8-00000007dNw-2Mlo
-	for linux-riscv@lists.infradead.org;
-	Sun, 18 Feb 2024 11:38:32 +0000
+	id 1rbgaH-00000007jJQ-0n11;
+	Sun, 18 Feb 2024 12:47:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 4D67ACE0B90;
-	Sun, 18 Feb 2024 11:38:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66BEAC433F1;
-	Sun, 18 Feb 2024 11:38:26 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 70868CE08CF;
+	Sun, 18 Feb 2024 12:47:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28E0DC433F1;
+	Sun, 18 Feb 2024 12:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1708256306;
-	bh=Yu8h4JGO4tvWj2cYo3vHd57h7Iq/HmaQfzIqjJHJ2oQ=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=mXqmIxBcOQLoCwpK3mPZA9iiIi38UIfAumw9D0uLF0iadMUxVbum01FiY+x5QZbkn
-	 E0u6/3gujGnMb0Unw1MLSRjy++Kb53T0suYolS6N38BXY4V062S843jbZ+kPVswi+f
-	 LXMOLKIy4wpqBov1yz0S93xPhVf84x1Mc61VTHhFO9zCZm+YSuVdIZoW5aoz1mmNiM
-	 b50Jxx9+HI4jv0zx9pQ2pRCLmDT/4zTRkMWfHYeT81rSAD+TU1mtuoDOrWgi5SsBqd
-	 H6NbjOtRNqc0SAg7aC8T6X3NU9t1SiznflfpyS1Kw3h9HJ8ScTx5tcZMu7qf2qH9Ta
-	 U4dQfBbmum3AQ==
-Date: Sun, 18 Feb 2024 05:38:25 -0600
+	s=k20201202; t=1708260469;
+	bh=sK2TmZpAQu9k8EAmihVlLcIiBryBY0eXzheo238yJWY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pbHkwCffzFslLALjB4HU3bL93ie308bi65wFrpZuI6Gpn7pfrfK7wd8UQWUCmoURn
+	 8RyCLtsGROOHycaTrVINptPC4tVpYyDZi5l29aW0z1wefwZ3wGYQs9wCzr8M/Km/AH
+	 oiKNs4yxhknja8YCDyCaq1/xaRKxTjvWuCBfQKMNOzoB0WKx/CX3/m2uOFlpONHwiE
+	 c0ZOvnjVV2vMmVFxZzNwhP6+DUP3ctAF0LidKpYRs/pXjisDWnDsDRMk+2T25nXzV4
+	 yf9fhltuGCsyiJf0u04XI2TaY05KfrCeShDca2tcH9MbncQzzObsP6Tj3FuqJnwx65
+	 wUSC7qFLx9ALA==
+Date: Sun, 18 Feb 2024 12:47:39 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Adrian Hunter <adrian.hunter@intel.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Christian Brauner <brauner@kernel.org>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	devicetree@vger.kernel.org, Evan Green <evan@rivosinc.com>,
+	Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	Ian Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>,
+	James Clark <james.clark@arm.com>,
+	Jing Zhang <renyu.zj@linux.alibaba.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ji Sheng Teoh <jisheng.teoh@starfivetech.com>,
+	John Garry <john.g.garry@oracle.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Weilin Wang <weilin.wang@intel.com>, Will Deacon <will@kernel.org>,
+	kaiwenxue1@gmail.com, Yang Jihong <yangjihong1@huawei.com>
+Subject: Re: [PATCH RFC 04/20] dt-bindings: riscv: add Sxcsrind ISA extension
+ description
+Message-ID: <20240218-struggle-grumble-43efdfb9515d@spud>
+References: <20240217005738.3744121-1-atishp@rivosinc.com>
+ <20240217005738.3744121-5-atishp@rivosinc.com>
 MIME-Version: 1.0
-From: Rob Herring <robh@kernel.org>
-To: Minda Chen <minda.chen@starfivetech.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, linux-riscv@lists.infradead.org, 
- Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Kevin Xie <kevin.xie@starfivetech.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, linux-pci@vger.kernel.org, 
- Leyfoon Tan <leyfoon.tan@starfivetech.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
- Mason Huo <mason.huo@starfivetech.com>, Conor Dooley <conor@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-In-Reply-To: <20240218101921.113528-4-minda.chen@starfivetech.com>
-References: <20240218101921.113528-1-minda.chen@starfivetech.com>
- <20240218101921.113528-4-minda.chen@starfivetech.com>
-Message-Id: <170825630433.819611.4605889577951919175.robh@kernel.org>
-Subject: Re: [PATCH v15 19/23] dt-bindings: PCI: Add StarFive JH7110 PCIe
- controller
+In-Reply-To: <20240217005738.3744121-5-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240218_033831_003463_B3CCDE84 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240218_044753_609440_0FB96B20 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,59 +98,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3456730856282839818=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 18 Feb 2024 18:19:17 +0800, Minda Chen wrote:
-> Add StarFive JH7110 SoC PCIe controller dt-bindings. JH7110 using PLDA
-> XpressRICH PCIe host controller IP.
-> 
-> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Rob Herring <robh@kernel.org>
+--===============3456730856282839818==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="mtQyaJDzucCfto0x"
+Content-Disposition: inline
+
+
+--mtQyaJDzucCfto0x
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Feb 16, 2024 at 04:57:22PM -0800, Atish Patra wrote:
+> Add the S[m|s]csrind ISA extension description.
+>=20
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
 > ---
->  .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++++++++++++++++
->  1 file changed, 120 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-> 
+>  .../devicetree/bindings/riscv/extensions.yaml      | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index 63d81dc895e5..77a9f867e36b 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -134,6 +134,20 @@ properties:
+>              added by other RISC-V extensions in H/S/VS/U/VU modes and as
+>              ratified at commit a28bfae (Ratified (#7)) of riscv-state-en=
+able.
+> =20
+> +	- const: smcsrind
+> +          description: |
+> +            The standard Smcsrind supervisor-level extension extends the
 
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
+The indentation here looks weird.
 
-yamllint warnings/errors:
+> +	    indirect CSR access mechanism defined by the Smaia extension. This
+> +	    extension allows other ISA extension to use indirect CSR access
+> +	    mechanism in M-mode.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml:
-Error in referenced schema matching $id: http://devicetree.org/schemas/pci/plda,xpressrich3-axi-common.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.example.dtb: pcie@940000000: False schema does not allow {'compatible': ['starfive,jh7110-pcie'], 'reg': [[9, 1073741824, 0, 268435456], [0, 721420288, 0, 16777216]], 'reg-names': ['cfg', 'apb'], '#address-cells': [[3]], '#size-cells': [[2]], '#interrupt-cells': [[1]], 'device_type': ['pci'], 'ranges': [[2181038080, 0, 805306368, 0, 805306368, 0, 134217728], [3271557120, 9, 0, 9, 0, 0, 1073741824]], 'starfive,stg-syscon': [[4294967295]], 'bus-range': [[0, 255]], 'interrupts': [[56]], 'interrupt-map-mask': [[0, 0, 0, 7]], 'interrupt-map': [[0, 0, 0, 1, 2, 1], [0, 0, 0, 2, 2, 2], [0, 0, 0, 3, 2, 3], [0, 0, 0, 4, 2, 4]], 'msi-controller': True, 'clocks': [[4294967295, 86], [4294967295, 10], [4294967295, 8], [4294967295, 9]], 'clock-names': ['noc', 'tl', 'axi_mst0', 'apb'], 'resets': [[4294967295, 11], [4294967295, 12], [4294967295, 13], [4294967295, 14], [4294967295, 15], [4294967295, 16]], 
- 'perst-gpios': [[4294967295, 26, 1]], 'phys': [[4294967295]], 'interrupt-controller': {'#address-cells': [[0]], '#interrupt-cells': [[1]], 'interrupt-controller': True, 'phandle': [[2]]}, '$nodename': ['pcie@940000000']}
-	from schema $id: http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.example.dtb: pcie@940000000: Unevaluated properties are not allowed ('#address-cells', '#interrupt-cells', '#size-cells', 'bus-range', 'device_type', 'interrupt-controller', 'interrupt-map', 'interrupt-map-mask', 'interrupts', 'msi-controller', 'ranges', 'reg', 'reg-names' were unexpected)
-	from schema $id: http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
+For this, and the other patches in the series, I want a reference to the
+frozen/ratified point for these extensions. See the rest of this file
+for examples.
 
-doc reference errors (make refcheckdocs):
+Cheers,
+Conor.
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20240218101921.113528-4-minda.chen@starfivetech.com
+> +
+> +	- const: sscsrind
+> +          description: |
+> +            The standard Sscsrind supervisor-level extension extends the
+> +	    indirect CSR access mechanism defined by the Ssaia extension. This
+> +	    extension allows other ISA extension to use indirect CSR access
+> +	    mechanism in S-mode.
+> +
+>          - const: ssaia
+>            description: |
+>              The standard Ssaia supervisor-level extension for the advanc=
+ed
+> --=20
+> 2.34.1
+>=20
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+--mtQyaJDzucCfto0x
+Content-Type: application/pgp-signature; name="signature.asc"
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+-----BEGIN PGP SIGNATURE-----
 
-pip3 install dtschema --upgrade
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZdH8awAKCRB4tDGHoIJi
+0u4mAP9fsytyek6UcV7VwruVpbfAA+aCT8dvujmuE+Oy3Gzq/QEAgVGeiO4Z57ek
+bOGtDZTcTAe8Vqrk2tSkrjGvbhOX2wQ=
+=6anZ
+-----END PGP SIGNATURE-----
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+--mtQyaJDzucCfto0x--
 
+
+--===============3456730856282839818==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3456730856282839818==--
+
