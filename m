@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA094C4829E
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 10:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E27EC48BF6
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 10:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e9tYAIsIYkkF6XEsT6G3zRybMUFw9+K2mSo98pp3CxI=; b=2uwpVt47GNp/be
-	agFHLYqaEm/HmfhcApNJCcKmzmnz6FCM4gas8kYzU+IqEw/RwtGOMNZLE6GKajyppn3Ck7BwhMSsn
-	FtdMwDt/BeG48EQ1wDuqWpyuGPKe4rVlbja/JvouvRD7DXPnZX1aZYu6RVfe8tEedksmVlh0rvCQ3
-	PGEOEbm42WfhD0ZKiDRtRLP6AB08A8Ospu0YAQXUaH5ZKtEE/iZWOw2VTy8XtIhuq0rs9uhPmfcyE
-	c/s4ueps8HnmbiRJWkq0HiDgZFgHarCPCmt2XUk22IkcS1kH7oCB1PviNqdTWs94UBxddjC1zp/ny
-	BcFuUcNniCTFu2aQ4qVQ==;
+	List-Owner; bh=Je4CzoGczrFVvIwECIrEn3vzsLlbOsXgQsXzbFFt7QY=; b=NcfSyjtLsi+Np+
+	m8wOQNwYrSbEyjeRBWZNVDWPAoqfs1z339YcWw2IiZ4gj9GTCiH55clorypg9n1eoMhgFDGotUcH/
+	l40BMJob92ehhkKqeElgOukG8VCz+4cb6iAQ6R3fcH3+OJTHIMctbaBU0UrPzYcaIGRj/r4EdeA5t
+	UtvwQ6GQV1wOQEBAHeZupTMBH/jCaRkZrzRv0IQi5RlKubc2+3oygSWQARhl4F0g1t0rl7bw+ygln
+	qE0sDMk5LOAN+Ei6tcdxm/sBIm8JUZQiF8RbO2DQyHcyvIv3hHCvmUAFTdUtgMyof2owUMJk9koF3
+	4rGrolXDmf01ePQAQHLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbeGx-00000007UGw-2hcm;
-	Sun, 18 Feb 2024 10:19:47 +0000
+	id 1rbeH1-00000007UJG-2ZGh;
+	Sun, 18 Feb 2024 10:19:51 +0000
 Received: from mail-bjschn02on2072d.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::72d] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbeGr-00000007UAa-2Ih3
+	id 1rbeGu-00000007UAa-0Axs
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Feb 2024 10:19:43 +0000
+	Sun, 18 Feb 2024 10:19:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ipsTQfno2e3qe9KcyO90+o05kw9srjfEI17cLnraaeju0Vb6ZUm4GfaacnFfR8r4s9E9bUsacjhKBzW9qt4XMau0EMjnaqzDLRLez/yAmG863Mx3Fd97HJgJYE4Toy/Cr28LP/Zmkjv1LqrRs+c/EibJTgrnfOslM0InI3HoWCu2mZoje3wcy/xCG87OPHsRzV8/Jhp/xLV5GfPFp4ZM6aPJwDOhCTUgV0yoj3GYGbj6UjRSHMOE+CoHYm0pWDOh/tdsPlBPoUmZuvzfUjkF9qKrOj4TtROvmbbqutU2kW58kEqsbNU8+ZkJCneEwxOC/AT07DVSql4oFLAj5EwtSA==
+ b=D6du/Nw94005xpKcvc370t+YikyKSoj/1Ut6DnSztz4TAszZjzujSlCM1xXbToA0Hd25XRkvz4EjoGamLw2kqBQjXS+XXKadcAPmxdXDCrTULaTqA/I9OC02JM1Dd6dmvBT99cExmvhoWKOBMLk+72Zl/rZQUUEWuvc7OBJDOeGPnXD1jjZs6wmleMVah9cdoRxcnPx5hsVupmT9RIyVh02Ur6YboW1Z3wO5fb5UPEy04nFn+Pz4y+crVpzHABdC23qtRR3zRpaWJYSdt8o4wOQ2mpVOudmcS0lBxrFPwkeTOVwZOBFn/fy9kQzRIiMSXRvroV7fzL900NWYcK7T8g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dKh7nmkaSdzB3ghyDF6RJecUyhtYIfwA0UmbLzDOakc=;
- b=ACsk3dpNTouoZc09ar8GcnFD4OZvf5NF215UVxjV4fYZCW8mpfEZb/dOt25MRxbMrUFKUEVmck6FB0krdnKRYfrFqsQc1TIzXXAPmOPN2yyF0YH8MjKd6z1ZZrIiZvH+7IWpg+OX27pieaEHRGm5aY5ysK7XYlpfyYAaWVTgrtR5S7eCFwngDlJQpMBPMPejkXJVFIMlOOL1scw7xW1JdLh11RXIgnkRf7sYJShoFEp32ykjVPY8WsbGgDCKZv00yHpBxzCSYLajMNkxZzQ/5mGHXLblzun+SKFK3YN10VUg53krUejfRzg9FQ3Y3OrCMs7XR76ttJF79gQtnzQPyQ==
+ bh=JRrm21BRcALG/c3V+O6g+r9icHsk85hPZnWqZkhA7Z8=;
+ b=aTqnpUtTLdHU8zmG8QD3GkHA3JiLgN77gFbULAEoeyCF12Z+O+wWseTLIfipuzd4dPt/BWCDtL7vdolVEnxD7Lo1dzc/akiSug4VB/tUykxqykRFTzSjwG7Ey377GlfKUVfD7mBRAjlfjHPPxc2KPxLMVNYmLn5X/mT4g8cSHBXwaayu97I3/MApwzjzozdXXlNrp+t6J21IfyvuGVk3Jz07qHHdCh2jWZoiEKNjEOT87rY+T/XKFjT1SSvxWPFfXxgMudhiDHH4nHkwQ0ZWo1ZMHHEfTErIuctBhPZEU7Yk1r8qDHihajGr70012LoCXq0e0Dg51Jak5Bspun6k4w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:25::15) by SHXPR01MB0464.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:1d::23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.50; Sun, 18 Feb
- 2024 10:19:32 +0000
+ 2024 10:19:35 +0000
 Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
  ([fe80::5a5a:fa59:15fd:63dc]) by
  SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::5a5a:fa59:15fd:63dc%3])
- with mapi id 15.20.7249.051; Sun, 18 Feb 2024 10:19:32 +0000
+ with mapi id 15.20.7249.051; Sun, 18 Feb 2024 10:19:35 +0000
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
@@ -69,9 +69,9 @@ Cc: devicetree@vger.kernel.org,
 	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>,
 	Minda Chen <minda.chen@starfivetech.com>
-Subject: [PATCH v15 19/23] dt-bindings: PCI: Add StarFive JH7110 PCIe controller
-Date: Sun, 18 Feb 2024 18:19:17 +0800
-Message-Id: <20240218101921.113528-4-minda.chen@starfivetech.com>
+Subject: [PATCH v15 22/23] PCI: starfive: Offload the NVMe timeout workaround to host drivers.
+Date: Sun, 18 Feb 2024 18:19:20 +0800
+Message-Id: <20240218101921.113528-7-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20240218101921.113528-1-minda.chen@starfivetech.com>
 References: <20240218101921.113528-1-minda.chen@starfivetech.com>
@@ -81,55 +81,54 @@ X-ClientProxiedBy: NT0PR01CA0010.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0464:EE_
-X-MS-Office365-Filtering-Correlation-Id: 366cc90a-f6ee-40d7-e23b-08dc306b196b
+X-MS-Office365-Filtering-Correlation-Id: 229af3de-c65b-41b8-da21-08dc306b1b11
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: gGcShokTfOcXgz1Vg2mCgyrc6JJuGv9LV2Yb+YisJyIHugJYqzi6T60bH8FapVk07w7+uMKFDpfqfpdI8fQPJkOb7Gndv+nHcvVUdNRbBwTGposseT9i5zYHRGrKyZS6FYqXtCUwJd59ulNpw0cNMtzwZ53/Z4B+CF1Opxd7My7PptjZv9sHqw/HH5Iezyd2A/eG+KaY7Cbri92efovxsdJvUD6aOuuUmWnMSyZMKvwFqLohXP0yTHh9IMInCHNqkTF11UcOAKBySQwbdktw1q4K7zRXGzHSFPaO69NKLMNex91t+n4DVbTABrTtT1ZQ+MKa5kcB760KH31k1VQbKfBjAlRC7hwYqXp8W6UTMBNv1ULOGcJEJByzlcGDgkSOBQJfbed9Ioqen0KT9UMUdNtOLOsNh9O/JAfXw9+BdsGoEGsc+xoP4hikrT2WHsweNu2gBPelWyHBfl62eYUbpPJ7PLpj6XgLT8fiXNMFBTf0ueZJbZz2rGJ5fuG0ZHSyxLj2OxQ1d4sWv1IQ8+X7emIZKw8xBHUtyOFpPIFgVAiIbTTGIIioSlwkRNbzXhrO
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(39830400003)(366004)(346002)(136003)(396003)(230922051799003)(1800799012)(451199024)(186009)(64100799003)(86362001)(83380400001)(40180700001)(40160700002)(38100700002)(36756003)(5660300002)(41320700001)(38350700005)(7416002)(2906002)(66946007)(4326008)(44832011)(54906003)(66476007)(41300700001)(8936002)(66556008)(8676002)(6666004)(52116002)(26005)(966005)(508600001)(110136005)(1076003)(107886003)(2616005);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam-Message-Info: v8ckrRPtX0j2XF7tx1lI2RQrqqWrNHT3i70bEguRg1HOYKuoQyjTO27EwKElXlZcvXgoGvzmYUPWpXNy2fICRdvGNjzVYyLD04QEfMRLIAegnCAQhUDOxGbsKHhxkFWXLRrF2t+0o05f+P5LBOdW1JE05uUhn4AlxgBA1vArEhjUwUrAf+w3NHEF6gIJeR/fknGRdeKURzsM5G9Ftz1dxDWs37RjpLUB+bYN4TdLW/9Bo/eTjIeztWCM9Ej6ngXYeItwn8qiN5pLxKeTfRJWEVIRPXmd+vqY2PLZE5zDifx8KrBzA4Ke0CoGt31Sb7bZEVfuwwnipbJI51H4Bt3mkQ3J6ofXDOehK8q1A5YZLK3EUhkcYYBILwjg8wD2NdjxTIFH1t0qsk6vTdmIk9+iZt2eHaOnXgeJUsTV7zTZTDyQMv+qgdwtIx2n8kGJ4rYNCBgIXMM2TFk0Yu5klOua//Cp7UAIM/DAphMisEC31iijT2BSHDABuyx6QItE5NmiAZlEhhGjn+Wfqh/fiYKS8+3oVzNPgO5DyJvYWiOy6dPeNFe0JxLZ9zAOqJoIWrdz
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(39830400003)(366004)(346002)(136003)(396003)(230922051799003)(1800799012)(451199024)(186009)(64100799003)(86362001)(83380400001)(40180700001)(40160700002)(38100700002)(36756003)(5660300002)(41320700001)(38350700005)(7416002)(2906002)(66946007)(4326008)(44832011)(54906003)(66476007)(41300700001)(8936002)(66556008)(8676002)(6666004)(52116002)(26005)(508600001)(110136005)(1076003)(107886003)(2616005);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F57FzcTxmz7E7c5rTFWisOErFWcST1IFEI2gwGtOAKlxDUcx0ouxmBpIscR2?=
- =?us-ascii?Q?Sp2IFspurJ1KeifTiSAfJzcITQc87qWvTx6xeVW+5R2IrLmWVkz46lBW6kML?=
- =?us-ascii?Q?LwyNoZvb7aje38kGmRncenK3YgvNX4roLZd5pLcg1CyyD0FJZRI9ceYeM1ds?=
- =?us-ascii?Q?601fXZV4sc3vRR3WmSUIUMWO9waS9pLjAdRzuiiLnakuh6u4wl2w8TSN6ki0?=
- =?us-ascii?Q?M8edtumYnloOgRMlNdPzDyf22wclyqZLjhIKnUBPJdaLQcIQoJzHuz6oFz3c?=
- =?us-ascii?Q?GLeDWm2B5yje/8QwyhK+svMcX9oBrsJy0jjbUX8Ilg2RG3/P5umWtslv8yld?=
- =?us-ascii?Q?vLzqv+1JlxFpzO2VGlqgtjocpJXR2qjQe/CDaqkmBdseAsmOVzEu1fffXxd6?=
- =?us-ascii?Q?EXMbN4IGKQW6MsGn4dk/7TBhrVWRfDuj6JpGwMYtwZsFaEGW9OT+V7HlZGoT?=
- =?us-ascii?Q?MgZcShoLgIxdPZRX0uJ0khIj204f/JeET+4iSh33YTce/fJZ2Imot400fHjh?=
- =?us-ascii?Q?Ie5Kv0nlt+Bn7PqRUR47MjQSWMQANY7lHlaaXIfKk/VoAiCskJd/uJeOz3bF?=
- =?us-ascii?Q?cK4IZjQ8rqvfcPOpKabgGhHKiUZC3TCf2KWdCC29ftXdg21Wvrf3MJEnMzgX?=
- =?us-ascii?Q?IzE2GltE8FF7U2QOolKCfTKrWTcHtrJWJ+Kx8FuBnepUYnuwt0TlGP2F8Mls?=
- =?us-ascii?Q?GLdX9ZA0ha3TIh2Rza9YVAi5S0lKtoj8GMkRI+gU0HF36h+z1S4CE9pW3JB/?=
- =?us-ascii?Q?WeoXDN4cp1DG67vjPV8wpaJkYDXNnedie+dx6ahX2CFp1FipUJVRApVMfdLA?=
- =?us-ascii?Q?MOlsqWy7ZaUOsG/7j6a+CkgsvrqPhVeyTKeJqArvsmbaTJWCJVM07C3tnhWz?=
- =?us-ascii?Q?axl51F9tcWKlD5cf6rvLUY4+k7/gmNPTlYtKsFEesPeuwnRWuoCdo0Iu78TS?=
- =?us-ascii?Q?AKWWBwlth+gX0aw2cg4Pv0l0kE9cMmZ3Jm0AGQ4HpAh5pQ+0zRSv724UORep?=
- =?us-ascii?Q?WrkZWiImzg6QEqXIit9dJyh/jkHRurCtIsl/3GZF246LwhhTxTyckbk2hdwC?=
- =?us-ascii?Q?p31TNI8Jg1DxtfWOhk83u13Cj5KTGb5IyvRlec9yc+wzp9oUDD7vmamF92bA?=
- =?us-ascii?Q?UWWVs/++t1/MahU+AkIAvTPBK+HiW85x1TeDHZsWBerELRJrJV2CsklLv0wc?=
- =?us-ascii?Q?t+QcVq54WA0oK2aPBNOsw+voF4PQ1cUAZxrHKBY3ux3/iDc5hlGU/OUBSvbe?=
- =?us-ascii?Q?dQ2J4JvO+B0M5NuSY3j01Cw9G4GBX7ARtq4+eDz3qIW55uwqPoaylMnPYdJk?=
- =?us-ascii?Q?QAUTYFagwXDuc8fdtd/9JC/H5jAg0TfNh2mRSVybMcwwS/MukimNSAU/sdW+?=
- =?us-ascii?Q?1udehuCh+11kBfQQuKfyJrk2/aVXIExPeOiWnFF4fj29OrvCMbUesD9iQp2h?=
- =?us-ascii?Q?17BcCJXEWy6npdRdnAaGzs99Be21f4rAIj76yZoWe0mzhoH0r1rRgRgLnTnV?=
- =?us-ascii?Q?FVkw1phBFMlke0L9pyIOYcc1xvi/86HT2mSmFZvQYKfTaVEshVVBBbm5q5jd?=
- =?us-ascii?Q?NRdHRNLw14tEKa4Q6eKvSYWjNhGOhAbvamCw41pEbj3b/3ehXdBvX+D4NTSL?=
- =?us-ascii?Q?TA=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?l4Pfh5CYzOcdzvU/kbIlWK2VZ497ITSpBQH7wV0T1CUtRUbIdE6qKEGCLyfM?=
+ =?us-ascii?Q?H4jiB+5pdFSJEO5KjTCqGRKLooxDZTBBCtxtXcbkJLyoZ00NVzQ0DYvmkuaK?=
+ =?us-ascii?Q?KWx9Ky/nb3PfNCZgD56nwfT3jTEbQYMtJWlFBPfq18xcehqfs33MAFqCEcFZ?=
+ =?us-ascii?Q?WDJNZQTXhFSTZIGSB0+/6Wf3+aw35cyJk6tO0W5f7TXtmOpWzX1dVdn+GwSU?=
+ =?us-ascii?Q?Jvn3YAk2GgROPZdLt+kTIK1ilD2Hz3E9oBZ8su7vzynXo6MLCG1K/1unYKFQ?=
+ =?us-ascii?Q?1Fc5U81MoWRekzBtCFvYIYXDr44tAPlJTK67FN4Yz61avAABL5evBLsNcnHI?=
+ =?us-ascii?Q?EIuXPLgjETD6ctxM6QM+NAGspNzYrko0t+welvo4CQzUBDH8x4Z3ps1hhtPI?=
+ =?us-ascii?Q?g7Bb495bzGiHVBFVSXXYdE222X1/lH+XBtsVH9Rnf+NI/QwpLa1K4efWJwjC?=
+ =?us-ascii?Q?5nNqJb5dI57wIMsxeo3dNrlr8s4v/1w1oASbEdZQvyhr+GQ/2YHWbDJ44fqB?=
+ =?us-ascii?Q?49Q1Yz//Ap8OI2D4pDfZKf5/Pj0BqH2q/psuGl7kEG1lBwrizvlNIpsPlDBP?=
+ =?us-ascii?Q?md9SFvTXJilvPjUmyZ7h7liv1xqqGso2ce5KCEv0tFjKwk+FbjXfzUNHTD7z?=
+ =?us-ascii?Q?plykmLIlRUZTzp+hvymMsTW8kRTHwmp+FKnSHlexku3DPNsLU/Qji6/2n+ky?=
+ =?us-ascii?Q?sjZzxZ49+HmMh2kNoFEhFbX8eWe01atiNnbXdGqcGmQGm7WEDkraIl2EDI4c?=
+ =?us-ascii?Q?VTunZXzHiMXB2QFFyJ9+eQalrclPgQE/e7KAk91Z4Iz0voM+5whTCLet56lf?=
+ =?us-ascii?Q?vmHB9DOezUlkn5S0YCqezzzfKU+bNDirMtoYCZd9gHhJLq5lwZq2PZ7kJZN4?=
+ =?us-ascii?Q?gInxsA8HvIIpVoHBgDS8iuEiYXmSMcwu5fWrg6Z/YZF7tbV88AkV3BP9h9lo?=
+ =?us-ascii?Q?W/vOcwYtZtxpQDpUb52gqsIkNPZUdckFMDMgZU5zs7COEgP9LuHCDC4RwGoA?=
+ =?us-ascii?Q?EvJlJe1JAZ9aZOULyfRotbC/AciV76zWKNiMYd5blsj7XnWcCTgKrZgS3O7S?=
+ =?us-ascii?Q?Ue5AJJ2ZWpsmC5zf1zssnvH59Xyusufo4RUkXDa1oi0WaFtwklOC64GKUg78?=
+ =?us-ascii?Q?7J2u1rZ9sLYI9PTTzsCF1T6PGYavUkO/qnnNJ9ZITHwrrv7NckwN1X/pUrJP?=
+ =?us-ascii?Q?XtHjLq010ZFv5hvEm6BWgSznlPTjgfouH77+YdUW/Y2G0wad02pyMpag/BUr?=
+ =?us-ascii?Q?dnXZIY15LJqJMB1n7yovLRdSWhUVlmnJHFyrL/9GTyk2Y32C35WHBHp51vu/?=
+ =?us-ascii?Q?GAucP2kSa3N1KRA2UD9huTFhddQ+/ZVytTDl8nz8PMWfkFkGIRY+W2/9D1am?=
+ =?us-ascii?Q?w62gnOxPvIzt81mvaEGw4Pa91I6S+24aRWkK3Up4egX3Dsie8Z/T5CA/6bV7?=
+ =?us-ascii?Q?5vPktfAvMfbga4pU+hpXkFLCWkr17UfxCE1/exylpYaqeVzFh4uCId/sGvL/?=
+ =?us-ascii?Q?HyO7V9Zmgosukrrj0elD+C0fEi4WbvBaE20MYL/7iOY8IXgggL9LW9PWGxNZ?=
+ =?us-ascii?Q?QDlnPcDx7RtewuVmeDL0QqAkI1+4kl9rntwucgGvyScPa9Ppe7xshzgGoQov?=
+ =?us-ascii?Q?eQ=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 366cc90a-f6ee-40d7-e23b-08dc306b196b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 229af3de-c65b-41b8-da21-08dc306b1b11
 X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2024 10:19:32.6815
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2024 10:19:35.4870
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: f99RjDCCY0t1BQK6Uy98qvBvkRg8z3ZBUMEi08wgCD6WdKmSUNKNfwmuMdSTiSDA5bF82upHy4OuhcJgSGWp6pu3WkQlGCaLeqW/l9k1pLk=
+X-MS-Exchange-CrossTenant-UserPrincipalName: tdYZqh+6A87vzTOJOUzH45BN/7aqqEd/E0S2tBpqIrmIPzdmahOTGdBSWeyf3ZWXPYcxp8arXX+C+TxmubeqhD0tHqgscQOBdXApSDHSXDw=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0464
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240218_021941_696718_3D07824F 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240218_021944_402652_DEBA1F3D 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,144 +145,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add StarFive JH7110 SoC PCIe controller dt-bindings. JH7110 using PLDA
-XpressRICH PCIe host controller IP.
+From: Kevin Xie <kevin.xie@starfivetech.com>
 
+As the Starfive JH7110 hardware can't keep two inbound post write in
+order all the time, such as MSI messages and NVMe completions. If the
+NVMe completion update later than the MSI, an NVMe IRQ handle will miss.
+
+As a workaround, we will wait a while before going to the generic handle
+here.
+
+Verified with NVMe SSD, USB SSD, R8169 NIC.
+The performance are stable and even higher after this patch.
+
+Signed-off-by: Kevin Xie <kevin.xie@starfivetech.com>
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
 ---
- .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++++++++++++++++
- 1 file changed, 120 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+ drivers/pci/controller/plda/pcie-plda-host.c | 12 ++++++++++++
+ drivers/pci/controller/plda/pcie-plda.h      |  1 +
+ drivers/pci/controller/plda/pcie-starfive.c  |  1 +
+ 3 files changed, 14 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-new file mode 100644
-index 000000000000..67151aaa3948
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-@@ -0,0 +1,120 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH7110 PCIe host controller
-+
-+maintainers:
-+  - Kevin Xie <kevin.xie@starfivetech.com>
-+
-+allOf:
-+  - $ref: plda,xpressrich3-axi-common.yaml#
-+
-+properties:
-+  compatible:
-+    const: starfive,jh7110-pcie
-+
-+  clocks:
-+    items:
-+      - description: NOC bus clock
-+      - description: Transport layer clock
-+      - description: AXI MST0 clock
-+      - description: APB clock
-+
-+  clock-names:
-+    items:
-+      - const: noc
-+      - const: tl
-+      - const: axi_mst0
-+      - const: apb
-+
-+  resets:
-+    items:
-+      - description: AXI MST0 reset
-+      - description: AXI SLAVE0 reset
-+      - description: AXI SLAVE reset
-+      - description: PCIE BRIDGE reset
-+      - description: PCIE CORE reset
-+      - description: PCIE APB reset
-+
-+  reset-names:
-+    items:
-+      - const: mst0
-+      - const: slv0
-+      - const: slv
-+      - const: brg
-+      - const: core
-+      - const: apb
-+
-+  starfive,stg-syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    description:
-+      The phandle to System Register Controller syscon node.
-+
-+  perst-gpios:
-+    description: GPIO controlled connection to PERST# signal
-+    maxItems: 1
-+
-+  phys:
-+    description:
-+      Specified PHY is attached to PCIe controller.
-+    maxItems: 1
-+
-+required:
-+  - clocks
-+  - resets
-+  - starfive,stg-syscon
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        pcie@940000000 {
-+            compatible = "starfive,jh7110-pcie";
-+            reg = <0x9 0x40000000 0x0 0x10000000>,
-+                  <0x0 0x2b000000 0x0 0x1000000>;
-+            reg-names = "cfg", "apb";
-+            #address-cells = <3>;
-+            #size-cells = <2>;
-+            #interrupt-cells = <1>;
-+            device_type = "pci";
-+            ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
-+                     <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
-+            starfive,stg-syscon = <&stg_syscon>;
-+            bus-range = <0x0 0xff>;
-+            interrupt-parent = <&plic>;
-+            interrupts = <56>;
-+            interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+            interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
-+                            <0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
-+                            <0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
-+                            <0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
-+            msi-controller;
-+            clocks = <&syscrg 86>,
-+                     <&stgcrg 10>,
-+                     <&stgcrg 8>,
-+                     <&stgcrg 9>;
-+            clock-names = "noc", "tl", "axi_mst0", "apb";
-+            resets = <&stgcrg 11>,
-+                     <&stgcrg 12>,
-+                     <&stgcrg 13>,
-+                     <&stgcrg 14>,
-+                     <&stgcrg 15>,
-+                     <&stgcrg 16>;
-+            perst-gpios = <&gpios 26 GPIO_ACTIVE_LOW>;
-+            phys = <&pciephy0>;
-+
-+            pcie_intc0: interrupt-controller {
-+                #address-cells = <0>;
-+                #interrupt-cells = <1>;
-+                interrupt-controller;
-+            };
-+        };
-+    };
+diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
+index a18923d7cea6..9e077ddf45c0 100644
+--- a/drivers/pci/controller/plda/pcie-plda-host.c
++++ b/drivers/pci/controller/plda/pcie-plda-host.c
+@@ -13,6 +13,7 @@
+ #include <linux/msi.h>
+ #include <linux/pci_regs.h>
+ #include <linux/pci-ecam.h>
++#include <linux/delay.h>
+ 
+ #include "pcie-plda.h"
+ 
+@@ -44,6 +45,17 @@ static void plda_handle_msi(struct irq_desc *desc)
+ 			       bridge_base_addr + ISTATUS_LOCAL);
+ 		status = readl_relaxed(bridge_base_addr + ISTATUS_MSI);
+ 		for_each_set_bit(bit, &status, msi->num_vectors) {
++			/*
++			 * As the Starfive JH7110 hardware can't keep two
++			 * inbound post write in order all the time, such as
++			 * MSI messages and NVMe completions.
++			 * If the NVMe completion update later than the MSI,
++			 * an NVMe IRQ handle will miss.
++			 * As a workaround, we will wait a while before
++			 * going to the generic handle here.
++			 */
++			if (port->msi_quirk_delay_us)
++				udelay(port->msi_quirk_delay_us);
+ 			ret = generic_handle_domain_irq(msi->dev_domain, bit);
+ 			if (ret)
+ 				dev_err_ratelimited(dev, "bad MSI IRQ %d\n",
+diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+index 04e385758a2f..feccf285dfe8 100644
+--- a/drivers/pci/controller/plda/pcie-plda.h
++++ b/drivers/pci/controller/plda/pcie-plda.h
+@@ -186,6 +186,7 @@ struct plda_pcie_rp {
+ 	int msi_irq;
+ 	int intx_irq;
+ 	int num_events;
++	u16 msi_quirk_delay_us;
+ };
+ 
+ struct plda_event {
+diff --git a/drivers/pci/controller/plda/pcie-starfive.c b/drivers/pci/controller/plda/pcie-starfive.c
+index 9bb9f0e29565..5cfc30572b7f 100644
+--- a/drivers/pci/controller/plda/pcie-starfive.c
++++ b/drivers/pci/controller/plda/pcie-starfive.c
+@@ -391,6 +391,7 @@ static int starfive_pcie_probe(struct platform_device *pdev)
+ 
+ 	plda->host_ops = &sf_host_ops;
+ 	plda->num_events = PLDA_MAX_EVENT_NUM;
++	plda->msi_quirk_delay_us = 1;
+ 	/* mask doorbell event */
+ 	plda->events_bitmap = GENMASK(PLDA_INT_EVENT_NUM - 1, 0)
+ 			     & ~BIT(PLDA_AXI_DOORBELL)
 -- 
 2.17.1
 
