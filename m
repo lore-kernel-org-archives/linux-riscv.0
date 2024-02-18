@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1ABC48BC4
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 15:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1F7C48BC4
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 17:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Os/3bTkW9ecLrK6GokIhdfgBJ0Wl2RSggtOrqi6WE+I=; b=oLarpmsv4LA3Bp
-	UWVnBKzFy084/mYzIA8g5jnmkgtcJDGG4hJKrBBG6/VHgUN3j5uH6zb5Q4bFYBQyUf2Q9bh1O1SgH
-	aQtz1Gw/6JZ4t1Zax40/sQp/al90+Wn33WdwPOZEfd5S+HhDotflkLZGsrmBbCfbGn03EF7f6KB5T
-	FTBx7xdy9dHcsuVWuM+cVvtv4I/SbJ/VntJXS/VBWxTewoyZIjYi9saeFCFX57jaSFbf2exgkE96b
-	gzJmkUvlhRWTRNyAjwOxj+llYJftPG9Wx1mOJ5nJMe1BT1NI/FAjscE1dPUt83m63aWt5b/qCxv09
-	VaSNoQ3UoQtKbalkTiwQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EGkTwmEIgkPX+dJW03kM9tNfmtbiwm9IYHsna4nQp8Q=; b=yZfRhPWpfasWcZE/1OaahHQa4W
+	v3YdeX/AupOEiW3wpxtxryiF3xA+9oh8EJ3HA/Uu5P59kFzBMaN0OQePRQtRNedpL2jF/QKqI6RNI
+	J9acPDHnOt8PELkWzN1nRgONaml5bCxlRmH8QChBinJrph/I1/B3CW0njJ681KIzvtCqzuLfD7i/S
+	ZahIgRaD+oWSsEFtLNLFcg2oH6c4sYJb6TkIkpATNXo6F9LnhWxmNzFI+vx61LnQGC9WXRAZeTYBU
+	eRieT2yX4Fcefxz8/8UOo+IQ30ibMYsRNUPNLhCJ8wS1lYeDEEzxSyd63Z+MTqcgj7P7wzTZ70jFa
+	oxiWNZNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbjRg-00000007z22-3Z5I;
-	Sun, 18 Feb 2024 15:51:12 +0000
-Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
+	id 1rbkZA-000000083tJ-0NTC;
+	Sun, 18 Feb 2024 17:03:00 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbjRZ-00000007z0v-471j
+	id 1rbkZ6-000000083sR-1rA7
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Feb 2024 15:51:10 +0000
-Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-3c15bef14c3so11778b6e.2
-        for <linux-riscv@lists.infradead.org>; Sun, 18 Feb 2024 07:51:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1708271461; x=1708876261; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Idc8kDtuOgl4UHmKMS/zN8wguVju2Qvv8mSJbJg11b8=;
-        b=aVQ7uPAIQexSaDzUK/7xNOazvZfFm98vYMMSE/pLNQ+Vs5usph/sp4oPGKNikV9KVJ
-         XO0gUIJ0naRVC2o9QA7OthdNsVx/WZblRRR1xGjntj16dgenvMb8CzbTDUKHDd89hXE3
-         kKsj7Fdg5TyFSKJS+Y0rufXlROUQrnrHCg1QMu2/RO7oKBKI/ObeSHDEwMf2V2BI4EQx
-         zhKHHfStWFyg61HiKNboHpRBWDEXTk13sqw1Pr7BYzOmoffivCfdLyDe1Q9CQal4edIJ
-         G6Nu4M3z1Mv8hZVL/O/l77wdu4UzvUsCl+8siqk6bPgAt9kixmhxfAK5c+OuZg03pzK3
-         cfEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708271461; x=1708876261;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Idc8kDtuOgl4UHmKMS/zN8wguVju2Qvv8mSJbJg11b8=;
-        b=HK6kdBwqF9GWxrw3Gs1GkTFn6mbpg9BFOBK0eiFKNdaSaRoVvs69xQhRk5Sot3AGja
-         xTsv28WekpjZCfALjoBi+1wkON7uHdMiSL1+eCgQyLT8UudrHSQcoHQvIaNgeDNBaAF2
-         Oh+6/aLQubdrEDqBlGiLquwf2f8MxlyT8dYult2h/ReOn4idE3auP4WMOeJqtq2Rd/f5
-         nGSmJNaOoP2PAEL780GdjSyZKzoos0BQkhjZjwrOFkb4TRruzCCjrytXUJ9a6aFpMrW/
-         THtPrWUHUV5A+Z6uNB0BpJYhk8GQBtshxOcP9D1G7IyZmw8sgTKY9JYoR8AOoRLaAVuc
-         QqLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVRfCK5ncq5qrAZB2XrmDhAaFYiNRkDuodxooDqfNCspcac77SmFPP0lSAZN4aH9CIx1gv5S9FXE7aHUUYNc+hjHY/F55cZiMsAm0maWCpC
-X-Gm-Message-State: AOJu0Yx6tWQTw3YY0kinPQZLJBaaFckOUk8txBYm4pupj95hhbi2L7FQ
-	kDpJFt2cVVC0BqoHXMYq2dhRUymOwMrf6CV2LMaKoZS7UxQyWbxP+n/+TdE8VUM=
-X-Google-Smtp-Source: AGHT+IGjRnlgLzgomv6lW4SHDhuTS8wreb750yO93dETmAN5zA0BYgY7Hc8/Ofnz0yFKKnfSR5f2mQ==
-X-Received: by 2002:a05:6808:2f17:b0:3c0:39ed:4384 with SMTP id gu23-20020a0568082f1700b003c039ed4384mr14131122oib.20.1708271461437;
-        Sun, 18 Feb 2024 07:51:01 -0800 (PST)
-Received: from [100.64.0.1] ([170.85.8.176])
-        by smtp.gmail.com with ESMTPSA id kr19-20020a0562142b9300b0068f5565ba1asm1262117qvb.88.2024.02.18.07.51.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 18 Feb 2024 07:51:01 -0800 (PST)
-Message-ID: <3c2f1c61-89b4-4103-ac45-a2a541de215e@sifive.com>
-Date: Sun, 18 Feb 2024 09:50:59 -0600
+	Sun, 18 Feb 2024 17:02:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id C2826CE0CF5;
+	Sun, 18 Feb 2024 17:02:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5215FC433F1;
+	Sun, 18 Feb 2024 17:02:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1708275771;
+	bh=qWyNRiG421dAjYKLRLROwxCibjuXvtznm1WgYeNyacQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qC+7Iss1WVr/u4uGeMhyAxUJ47KbW7ZzWrqCCepfOj9Oo2GRarYn0G9V1CHzoRrOT
+	 XxJuCN7blczYmeYaDnkSsEN8s82n5GW4SGQ9gXzvKfG6rYbRtbwYZCv+2QJyheSWLl
+	 IPdlv2Ck3ZRFplhYfoJeDPihp5wrJ6c6JUg3v0IRw0eyAC6+z/uFrybRN221zg6vob
+	 Thmylje/yFGHCWDHZ47cFrmJNj3ByHz9ssbkkgiMGDGaPNKAPWtTFn6jt/rxd08YB8
+	 sVvQRhT7whg+lB0DOeMOHwXtXDQbMxxW+7pM6mxIVSjA546WBKuxMN0BwdTGdEd/4d
+	 7o0IDykUZ0g7g==
+Date: Sun, 18 Feb 2024 17:02:46 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Stefan O'Rear <sorear@fastmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH -fixes v2 3/4] riscv: Add ISA extension parsing for Sm
+ and Ss
+Message-ID: <20240218-rotunda-discover-d6d84709807e@spud>
+References: <20240213033744.4069020-1-samuel.holland@sifive.com>
+ <20240213033744.4069020-4-samuel.holland@sifive.com>
+ <20240213-dangle-taco-2742f6087a3e@spud>
+ <ff3bd436-12f8-4cde-881d-89a005ad85c0@sifive.com>
+ <b7ad2bd4-a19e-486e-8be2-3b56f288d5d0@app.fastmail.com>
+ <20240213-earflap-easing-370492840507@spud>
+ <90a7443c-feca-4fbb-8c2e-fa050c0e6141@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/6] dt-bindings: cache: Add SiFive Extensible Cache
- controller
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Eric Lin <eric.lin@sifive.com>, Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- linux-arm-kernel@lists.infradead.org
-References: <20240216000837.1868917-1-samuel.holland@sifive.com>
- <20240216000837.1868917-4-samuel.holland@sifive.com>
- <d655b72e-3094-4b6b-bee8-9677b7c987ce@linaro.org>
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <d655b72e-3094-4b6b-bee8-9677b7c987ce@linaro.org>
+In-Reply-To: <90a7443c-feca-4fbb-8c2e-fa050c0e6141@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240218_075106_086129_B26063C4 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20240218_090256_875646_0D6F2325 
+X-CRM114-Status: GOOD (  33.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,160 +76,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6300155737525051089=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
 
-On 2024-02-17 3:09 AM, Krzysztof Kozlowski wrote:
-> On 16/02/2024 01:08, Samuel Holland wrote:
->> From: Eric Lin <eric.lin@sifive.com>
->>
->> Add YAML DT binding documentation for the SiFive Extensible Cache
->> controller. The Extensible Cache controller interleaves cache blocks
->> across a number of heterogeneous independently-programmed slices. Each
->> slice contains an MMIO interface for configuration, cache maintenance,
->> error reporting, and performance monitoring.
->>
->> +allOf:
->> +  - $ref: /schemas/cache-controller.yaml#
->> +
->> +select:
->> +  properties:
->> +    compatible:
->> +      contains:
->> +        enum:
->> +          - sifive,extensiblecache0
->> +
->> +  required:
->> +    - compatible
->> +
->> +properties:
->> +  compatible:
->> +    items:
->> +      - const: sifive,extensiblecache0
->> +      - const: cache
->> +
->> +  "#address-cells": true
-> 
-> const or enum: [1, 2], depending on the addressing you need here.
-> 
->> +  "#size-cells": true
-> 
-> ditto
-> 
->> +  ranges: true
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  cache-block-size:
->> +    const: 64
->> +
->> +  cache-level: true
-> 
-> 5 is acceptable? I would argue this should be even const.
-> 
->> +  cache-sets: true
->> +  cache-size: true
-> 
-> Some constraints on any of these?
+--===============6300155737525051089==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="r0a/WySfeyXRLwE+"
+Content-Disposition: inline
 
-Thanks for the feedback. I will add the various constraints in v2, though some
-constraints will be somewhat loose as the topology is highly configurable.
 
->> +  cache-unified: true
->> +
->> +patternProperties:
->> +  "^cache-controller@[0-9a-f]+$":
->> +    type: object
->> +    additionalProperties: false
-> 
-> What is this object supposed to represent? Add description.
+--r0a/WySfeyXRLwE+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I will add a description in v2.
+On Sun, Feb 18, 2024 at 09:00:14AM -0600, Samuel Holland wrote:
+> >>>> Or maybe we can still with the properties you have, but instead of
+> >>>> treating them like any other extension, handle these separately,
+> >>>> focusing on the numbering, so that only having the exact version
+> >>>> supported by a cpu is possible.
+> >>>
+> >>> Maybe I'm misunderstanding what you're saying here, but it is already=
+ the case
+> >>> that the DT for a CPU would only contain the exact version of the pri=
+vileged ISA
+> >>> supported by that CPU.
+> >>
+> >> If privileged spec versions are boolean extensions, then you would say=
+ "ss1p11",
+> >> "ss1p12", "ss1p13" as separate/simultaneous extensions.
+> >=20
+> >> This is needed in order
+> >> to allow simple support checks as described in the riscv,isa-extension=
+s cover
+> >> letter.
+> >=20
+> > Yes, it is explicitly a goal of riscv,isa-extensions that you can look
+> > for a specific extension in the list if that is all you care about. If
+> > you go and drop ss1p11 because you support ss1p12 it defeats that.
+>=20
+> Okay, that makes sense, but that is not how the parsing code works right =
+now,
+> which is probably what led me down the wrong path. :)
+>=20
+> To have the intended semantics, we cannot parse _anything_ in
+> riscv,isa-extensions as a "bundled" or "superset" extension.
 
-This object represents a single slice of the cache. Requests from clients are
-interleaved between cache slices depending on the client, the address, etc.
+That's not true I don't think. You can parse as a "bundle" but...
 
-Since there is no strong relationship between client (i.e. CPU) and cache slice,
-the next-level-cache property must point to the top-level EC node, not a slice.
+> Because to
+> accomplish your goal, each extension in the bundle must be listed explici=
+tly, in
+> case the consumer only cares about that one extension.
 
->> +    properties:
->> +      reg:
->> +        maxItems: 1
->> +
->> +      cache-block-size:
->> +        const: 64
->> +
->> +      cache-sets: true
->> +      cache-size: true
->> +      cache-unified: true
-> 
-> cache-level
+=2E..as you note here, the extensions also have to be listed explicitly so
+that they can be detected in isolation if that is all that a consumer
+does.
 
-I will add this in v2. It seemed redundant since the value cannot differ between
-slices.
+> So it sounds like
+> riscv_fill_hwcap_from_ext_list() needs to ignore subset_ext_size/subset_e=
+xt_ids.
 
-Regards,
-Samuel
+Do you mean this:
+if (ext->subset_ext_size) {
+	for (int j =3D 0; j < ext->subset_ext_size; j++) {
+		if (riscv_isa_extension_check(ext->subset_ext_ids[i]))
+			set_bit(ext->subset_ext_ids[j], isainfo->isa);
+	}
+}
 
->> +
->> +      sifive,bm-event-counters:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        default: 0
->> +        description: Number of bucket monitor registers in this slice
->> +
->> +      sifive,cache-ways:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        description: Number of ways in this slice (independent of cache size)
->> +
->> +      sifive,perfmon-counters:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        default: 0
->> +        description: Number of PMU counter registers in this slice
->> +
->> +    required:
->> +      - reg
->> +      - cache-block-size
->> +      - cache-sets
->> +      - cache-size
->> +      - cache-unified
->> +      - sifive,cache-ways
->> +
->> +required:
->> +  - compatible
->> +  - ranges
->> +  - interrupts
->> +  - cache-block-size
->> +  - cache-level
->> +  - cache-sets
->> +  - cache-size
->> +  - cache-unified
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    cache-controller@30040000 {
->> +        compatible = "sifive,extensiblecache0", "cache";
->> +        ranges = <0x30040000 0x30040000 0x10000>;
->> +        interrupts = <0x4>;
-> 
-> You use hex as interrupt numbers on your platforms?
-> 
->> +        cache-block-size = <0x40>;
->> +        cache-level = <3>;
->> +        cache-sets = <0x800>;
-> 
-> Best regards,
-> Krzysztof
-> 
+I think that is fine? If you find the "superset" you can enable the
+individual elements. The problem would just be if someone put only the
+superset in a DT (or ACPI tables) and the software looked for the
+individual element only, but IIRC the kernel currently checks both the
+superset and individual elements.
+It would be possible to check a bundle and then skip looking for the
+individual elements if the bundle was already found if the parsing is
+wont to be sped up.
 
+I think all we need to do is enforce that all individual elements are
+present on a schema validation level (I have no clue what we can do
+for ACPI) and no change is required in the kernel.
+
+Am I misunderstanding what you think is the problem here?
+
+> > I don't know off the top of my head how to enforce ss1p12 requiring ss1=
+p11
+> > in json schema, but I do have an idea of where to start...
+>=20
+> Yeah, this is different from normal "dependencies:" because it is a strin=
+g list.
+
+I think it is actually doable, just will look sorta clunky. I meant to
+go and do it this weekend, but I've been rather sick unfortunately.
+Something similar is definitely doable for compatibles, so either it'll
+"just work" or I may have to extend the validation tooling.
+
+Cheers,
+Conor.
+
+--r0a/WySfeyXRLwE+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZdI3+gAKCRB4tDGHoIJi
+0op+AQD+yswfcNC39kGvy+5LlZblpT5uVA4VMEPH51eOdf6opgEA64Aq9nCRWaUY
+XrJa2JzMMscuYkn0xKBnFl5H5ed3sAs=
+=oPKw
+-----END PGP SIGNATURE-----
+
+--r0a/WySfeyXRLwE+--
+
+
+--===============6300155737525051089==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6300155737525051089==--
+
