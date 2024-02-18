@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667C3C48BF6
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 12:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E4BC48BF6
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 12:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CYSLlQa51jM8oyD0sI/5iRDLI+AtoE7HSyugvjSx9QQ=; b=2rJUgXpNJSmtwo9qDd0ICeJHFE
-	wACLwMZgx+SavKdW2+N3OOSAC0Aa+JywQ6spz2lUwJC/Jf5afgWsB7QjpHqaIsPtzisFPZrcUmbPa
-	tDavr42Rx9p44s+dGnqIAtLn33/Dt+rqeDc+Ne66F+5rlmW0Vi92FI/08kzCrqbIpzOF8VqJU1tY8
-	9wG7xX6rs0t2pU8pOEYHGh7lcLChwrIc1RbEPiH67vP6iBZ95u4QulOLHRKQ3z4HK1k7L4YSYEZyg
-	hWbDE9hx/1/whz5vkzzx1SrH8ol/L9OCcadUuwKkU13KiQUaAWHsCp2WaSKXYZ+PHuTPE1F1LLwCE
-	6vrPpzHg==;
+	bh=4UEFO8OG+U++4lgI5a/cF9t4GmPEcD8RA6cf08DjE00=; b=XvA14ZlZG4axZffSYG/QpwiVol
+	txwyLzQn7rRdFpcNSb8dB2+76Hdo6MuQiUppYfQynEYTNeYsWqcNlgEu/NRf6ejSDqniWwoUQeNyT
+	TWmJk/InuMyp7UIJNQnPleVhptWaJXHzk2A1gyVhY7txn5qxOWZw0HHzkNH179WrLW4gBuxtVZp+j
+	+xkME7PexSnnOlhfsH5T7TIv4yd+57GJp9AZX7IkiHibp6qxwc9eykzlzJMS5vrO5U5SWUZxgsUCn
+	285e0x7CZci5CVl4MXYUdQM23sSPd8P0EUnEFY3KVW1jr4AtaUVkzDgh+9qChh7Xxer7WtP4/Zwt/
+	R/IGpc4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbgaK-00000007jKk-30ED;
-	Sun, 18 Feb 2024 12:47:56 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rbgcj-00000007jcC-0tJN;
+	Sun, 18 Feb 2024 12:50:25 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbgaH-00000007jJQ-0n11;
-	Sun, 18 Feb 2024 12:47:54 +0000
+	id 1rbgcf-00000007jb9-1lMm;
+	Sun, 18 Feb 2024 12:50:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 70868CE08CF;
-	Sun, 18 Feb 2024 12:47:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28E0DC433F1;
-	Sun, 18 Feb 2024 12:47:41 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 6F149CE0BA9;
+	Sun, 18 Feb 2024 12:50:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06FFAC433F1;
+	Sun, 18 Feb 2024 12:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1708260469;
-	bh=sK2TmZpAQu9k8EAmihVlLcIiBryBY0eXzheo238yJWY=;
+	s=k20201202; t=1708260616;
+	bh=ZOuHC5/gemoLsv0gAHH7UQAs52/xaQ/OjKNR4b7C5iU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pbHkwCffzFslLALjB4HU3bL93ie308bi65wFrpZuI6Gpn7pfrfK7wd8UQWUCmoURn
-	 8RyCLtsGROOHycaTrVINptPC4tVpYyDZi5l29aW0z1wefwZ3wGYQs9wCzr8M/Km/AH
-	 oiKNs4yxhknja8YCDyCaq1/xaRKxTjvWuCBfQKMNOzoB0WKx/CX3/m2uOFlpONHwiE
-	 c0ZOvnjVV2vMmVFxZzNwhP6+DUP3ctAF0LidKpYRs/pXjisDWnDsDRMk+2T25nXzV4
-	 yf9fhltuGCsyiJf0u04XI2TaY05KfrCeShDca2tcH9MbncQzzObsP6Tj3FuqJnwx65
-	 wUSC7qFLx9ALA==
-Date: Sun, 18 Feb 2024 12:47:39 +0000
+	b=OSRhxkunjvuVg+kQQrNev5yXaSd763FyHTmF8BVOi3oTkf5Yz8WIvE/LNareLfcxr
+	 GB9AZQ25nviU4M8kNbK1Dpg454Eli1ortScnmzbw7i20Ji3RYdJkpkqh9qDyFeXYfz
+	 Xf0yGZkd6whMp2e8tr8Ay0mtu1J/d9AaY8P03GQsC+8xKQM2Bm4j/RCIZbTg9cWKKA
+	 bCZ/TwBhym8gTzbH/oWsYVkoVdPHeCB8VRQxdj1QkPcti/61YXZ17jD0pzJPkYa+U0
+	 LwOEGuHNJX8SoWikhUPsGQusnIFa0aXaswxiHjizlSzfw7ifaj/nU9NzNMuV1ikYnD
+	 7PB3+V1R9PTJQ==
+Date: Sun, 18 Feb 2024 12:50:06 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Atish Patra <atishp@rivosinc.com>
 Cc: linux-kernel@vger.kernel.org, Adrian Hunter <adrian.hunter@intel.com>,
@@ -77,16 +77,15 @@ Cc: linux-kernel@vger.kernel.org, Adrian Hunter <adrian.hunter@intel.com>,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Weilin Wang <weilin.wang@intel.com>, Will Deacon <will@kernel.org>,
 	kaiwenxue1@gmail.com, Yang Jihong <yangjihong1@huawei.com>
-Subject: Re: [PATCH RFC 04/20] dt-bindings: riscv: add Sxcsrind ISA extension
- description
-Message-ID: <20240218-struggle-grumble-43efdfb9515d@spud>
+Subject: Re: [PATCH RFC 09/20] RISC-V: Add Smcntrpmf extension parsing
+Message-ID: <20240218-contort-profile-53593ed8d391@spud>
 References: <20240217005738.3744121-1-atishp@rivosinc.com>
- <20240217005738.3744121-5-atishp@rivosinc.com>
+ <20240217005738.3744121-10-atishp@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20240217005738.3744121-5-atishp@rivosinc.com>
+In-Reply-To: <20240217005738.3744121-10-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240218_044753_609440_0FB96B20 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20240218_045021_828923_7181DD52 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,88 +97,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3456730856282839818=="
+Content-Type: multipart/mixed; boundary="===============4702519436331203709=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3456730856282839818==
+--===============4702519436331203709==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="mtQyaJDzucCfto0x"
+	protocol="application/pgp-signature"; boundary="jbzKRUs6kj78gPRQ"
 Content-Disposition: inline
 
 
---mtQyaJDzucCfto0x
+--jbzKRUs6kj78gPRQ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Feb 16, 2024 at 04:57:22PM -0800, Atish Patra wrote:
-> Add the S[m|s]csrind ISA extension description.
+On Fri, Feb 16, 2024 at 04:57:27PM -0800, Atish Patra wrote:
+> Smcntrpmf extension allows M-mode to enable privilege mode filtering
+> for cycle/instret counters. However, the cyclecfg/instretcfg CSRs are
+> only available only in Ssccfg only Smcntrpmf is present.
+
+There's some typos in this opening paragraph that makes it hard to
+follow.
+
+>=20
+> That's why, kernel needs to detect presence of Smcntrpmf extension and
+> enable privilege mode filtering for cycle/instret counters.
 >=20
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 > ---
->  .../devicetree/bindings/riscv/extensions.yaml      | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
+>  arch/riscv/include/asm/hwcap.h | 1 +
+>  arch/riscv/kernel/cpufeature.c | 1 +
+>  2 files changed, 2 insertions(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
-cumentation/devicetree/bindings/riscv/extensions.yaml
-> index 63d81dc895e5..77a9f867e36b 100644
-> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> @@ -134,6 +134,20 @@ properties:
->              added by other RISC-V extensions in H/S/VS/U/VU modes and as
->              ratified at commit a28bfae (Ratified (#7)) of riscv-state-en=
-able.
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
+p.h
+> index 5f4401e221ee..b82a8d7a9b3b 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -84,6 +84,7 @@
+>  #define RISCV_ISA_EXT_SMCSRIND		75
+>  #define RISCV_ISA_EXT_SSCCFG            76
+>  #define RISCV_ISA_EXT_SMCDELEG          77
+> +#define RISCV_ISA_EXT_SMCNTRPMF         78
 > =20
-> +	- const: smcsrind
-> +          description: |
-> +            The standard Smcsrind supervisor-level extension extends the
-
-The indentation here looks weird.
-
-> +	    indirect CSR access mechanism defined by the Smaia extension. This
-> +	    extension allows other ISA extension to use indirect CSR access
-> +	    mechanism in M-mode.
-
-For this, and the other patches in the series, I want a reference to the
-frozen/ratified point for these extensions. See the rest of this file
-for examples.
-
-Cheers,
-Conor.
-
-> +
-> +	- const: sscsrind
-> +          description: |
-> +            The standard Sscsrind supervisor-level extension extends the
-> +	    indirect CSR access mechanism defined by the Ssaia extension. This
-> +	    extension allows other ISA extension to use indirect CSR access
-> +	    mechanism in S-mode.
-> +
->          - const: ssaia
->            description: |
->              The standard Ssaia supervisor-level extension for the advanc=
-ed
+>  #define RISCV_ISA_EXT_MAX		128
+>  #define RISCV_ISA_EXT_INVALID		U32_MAX
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 77cc5dbd73bf..c30be2c924e7 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -302,6 +302,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
+>  	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+>  	__RISCV_ISA_EXT_DATA(smcdeleg, RISCV_ISA_EXT_SMCDELEG),
+>  	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
+> +	__RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
+>  	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
+>  	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+>  	__RISCV_ISA_EXT_DATA(sscsrind, RISCV_ISA_EXT_SSCSRIND),
 > --=20
 > 2.34.1
 >=20
 
---mtQyaJDzucCfto0x
+--jbzKRUs6kj78gPRQ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZdH8awAKCRB4tDGHoIJi
-0u4mAP9fsytyek6UcV7VwruVpbfAA+aCT8dvujmuE+Oy3Gzq/QEAgVGeiO4Z57ek
-bOGtDZTcTAe8Vqrk2tSkrjGvbhOX2wQ=
-=6anZ
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZdH8/gAKCRB4tDGHoIJi
+0isjAP4q6xpgI0SAprv3/kjAyM2CkWmD6mwTd7LPsrl/J8GTIwEAn19T671J/0t4
+0ezPoULwYy8T4LILe16iToWJlXnvhAk=
+=28GE
 -----END PGP SIGNATURE-----
 
---mtQyaJDzucCfto0x--
+--jbzKRUs6kj78gPRQ--
 
 
---===============3456730856282839818==
+--===============4702519436331203709==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -190,5 +186,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3456730856282839818==--
+--===============4702519436331203709==--
 
