@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8319FC48BF6
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 14:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42A4FC48BC4
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 15:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qr2Cw1XX29FMPPXAWA2MxyWBM+EHHEo9aygxX11elYU=; b=Jklx1aafJUdZR8
-	NtBdGvU4M4gWYOBC6d3d9IhObw3tEfNsqyKsyM1eeTeQU+C6CpVw8z9rBGS+nI6ChSv5tqMLEv5LD
-	5kIuwdJ+kq/yatxk51NYTVUhxbQ7fNKDRIqdMQTpllDe52/2o3i46o1z3z4x99SWRWflc8W0vQXYj
-	nFTI5yef0o/XhTFKt/R1QmQ+VC+ez+EleiZyYgFcZsAoA3couAYmB2iM+dHw+9/zDiKTIJA3VzM7w
-	fzXnO49bAesdfvb3HPHhBOU2sbJqogSCwlDBWaKcw6M0EK6Q05GTMUtSk3ACwWDP7Bj1b92A9U+Nr
-	xC/fku9Pnr8z6ZkzV8yA==;
+	List-Owner; bh=6MJ9bEQw6mlQ+twF2UXhqwWmf5vja1b2TzznELxWgI8=; b=qRcWvFTPiSPp+G
+	VlvkX8LiTYwry36mYAiQHgCPpFwa26P7fCzOVZI4YW704TDlC59Tu4QcZx5++pnQCybGfxdEte5dY
+	1vqGRmBho962nvzDGqOC9DEaRjTw4xg0Ll96LKE7H8nWfBQgWFblGvCr3b8rv73syT9tlf5+UauHD
+	m7XREvnvx6ngN5+GScJ0b42kR+vKg4vVMfKu7MT9Qd9ncFRka0wllaOiBwKWxkAC0gp0qSM/ZB3T7
+	Y7R5ZkIq6nI+HLrHopH7pkdaMe+jgzFVhOem6ztWUK5SADy0hfDXuiGHWhxAtSI3DZOlXGqNtdItl
+	hnE3wGaR8fdxcyW1MjXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbhqz-00000007pZN-1Idz;
-	Sun, 18 Feb 2024 14:09:13 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1rbieZ-00000007ujO-1VzZ;
+	Sun, 18 Feb 2024 15:00:27 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbhqw-00000007pYp-1ZOa
+	id 1rbieV-00000007ui2-3bCO
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Feb 2024 14:09:11 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-6e3e7d693ebso103186b3a.1
-        for <linux-riscv@lists.infradead.org>; Sun, 18 Feb 2024 06:09:09 -0800 (PST)
+	Sun, 18 Feb 2024 15:00:25 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-6e432beab47so1101990a34.1
+        for <linux-riscv@lists.infradead.org>; Sun, 18 Feb 2024 07:00:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1708265348; x=1708870148; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1708268417; x=1708873217; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=HRGb3mX7HcgDDvjFe46dagDpGQNmLyrCz8IWS2FWblE=;
-        b=LMhq5FulEvVMD5+28L0ZNR1UhHMoVCABVRebuqbhmqNumsideG4ZjRdJEvp+mB7hvP
-         xh5jFSTTT8V/hkW4lPB+2lTPs4MWFYUZqckENErUF2EcY2NJ4Phc18FxUV84bol6DKxj
-         JqBJYZcotv9wXy1o7DBvfzzC6lmJI7UoJuNATbdiBTc+Z+LFTHD0kZZdTqYoTGshSgPP
-         g5QlRsmxvZXOqoXVIJ5vPWi8ta3YELw5YBQV7W4Vblu0Lbfs7suZ3fcwT7NO0StdWUAQ
-         i/AQwQPkuKeAL7VD/HhP/bduVElZKBT6WEB0yjkbjm5nWPimjmD8qV4zkY4e/sAIQygM
-         einA==
+        bh=YYnBOQzEOcAAi3/k4Sm826rCOnB3o3IMwXvp4z4B03c=;
+        b=LCnnujDryUgIwm5IYLIXNFTTUUxgQt9XbspeklRAi0Cyi6oYXEy4P6PgFnk02t62Cp
+         66knWVXYUgd3TtFdd5cvzkJQw92CrM5zsJ/q65r2E11lRX7nppdZzA1EjSV9TMmaEpv+
+         2r0P3lU17Hye0yjB5PTnwDA9CoLzdylw7OTLtSmS+l7O4s+YWwAliLlpoPHzWGcyH48q
+         EaxI8vu9jwRwTCzqt5gc6BvDUvOaC1fj8aqSXZxdQ1iYkobjPvK0WnKqgmmnMpDZYDSL
+         6pfiIk1wI2+tvojGvS6Vjn9KCbN66hqTteR/FBrXVujwnRgiNAWwQplk8zJrLNPGYiDa
+         fVHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708265348; x=1708870148;
+        d=1e100.net; s=20230601; t=1708268417; x=1708873217;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HRGb3mX7HcgDDvjFe46dagDpGQNmLyrCz8IWS2FWblE=;
-        b=BUmuOW33DfYqiOI3PkgvqRBTx5j4KJ/r3fXVl6MSjnzmGjD20/BSyEGGoNmwErMqB6
-         Nc3w8SQMPJ1oW7tadfgbyLVxqg+y0EYZGVyXXr4aCKLNo52FgXI+hgnxMP44ZZkHHGnz
-         vU/t14z0Ml0ymTfeTZ5mVU+oEuJHCvL1QAM0oors5VdpDSY7ZMaKU5HzMMpgvIhXJKsn
-         03awrvq84gUOeZTuFE8ya7jqGkBD4I5PQOSi3pRGQa1oTwAvS8AiB2YxdBXfEy8iWBzW
-         9QUXxDfkwGPHa5bz5rCZL9P0p+GUzdN0GgMlufAVSGYAeK4jQSe9xFHJHCq8w9TfNDLA
-         Hdog==
-X-Forwarded-Encrypted: i=1; AJvYcCWSp0briqW7wLRW7fly7luS4gGaBsxZ2+xSV8/F8XkGqVtrUPh2uziT61rrHSzEUZBNzui082bghlEXzmMbtVwBkaDnEHwkAhQvN2eipJ/S
-X-Gm-Message-State: AOJu0YwgKv4TOLzyOf3WvznrKX4IqOpx1Tu/EYsw+ESoZSe6YV0ywN5E
-	st/il5Gn9O97+pdngpDLjR/hB012ny4rHImseabJN4GhEfwWrFg2Ympa2GJTk04=
-X-Google-Smtp-Source: AGHT+IGZueP1XhtEkxOygwlGosvd1hAAIICkpyELEX/5HlzrfzCc/ANAAbrp0uNstOSRE3cqH8XXRQ==
-X-Received: by 2002:a05:6a20:6f07:b0:19e:5fe5:ff98 with SMTP id gt7-20020a056a206f0700b0019e5fe5ff98mr10072947pzb.52.1708265348435;
-        Sun, 18 Feb 2024 06:09:08 -0800 (PST)
+        bh=YYnBOQzEOcAAi3/k4Sm826rCOnB3o3IMwXvp4z4B03c=;
+        b=JmDPPg5ENJXk9Tb6AW0GepeWR72if3afggxBImhy8F0V1azPyZWRLkJI79R0kB3b3Q
+         WAPCrkEG+xYtuxuu/SDcnj+tzd/l67h3JZEUKO/sANyfD83uKPlzIO7iBjtZNTkHsmi8
+         EXnEmlUiRaNv0gske6W6eGh28dnEpEhVcK0ITsbl2bNnWn+sYQTzJM0PSKFPrTeOxT1a
+         h8jw3JI0DcjgHhiX4iqrdd1BIX7aGeikRp3k0kO/crDafmhH4ofnrKMuQkNSkMFm5LG1
+         XliRXB/QUQBSf5tmP20S7l1Ac4Ly03+NGtIV6jMQ7jeIGM8sTHNqlAqalEMVPIzVYCVI
+         znNA==
+X-Forwarded-Encrypted: i=1; AJvYcCVhyoXNFvFkM6CxXKS274TJn0yHcdC27AF/2cA7CPGfJ9fvaiRBmzduzo6jWvkafVJZ77iIoqbincoKTpGVSTpmeHLOv3Q1VaCSWBD6itBy
+X-Gm-Message-State: AOJu0YxwAh10dU7w1vPVDCP9Oc3pbt4sluFXB1JLEO/xCHSRKYNjIxeW
+	s9L2nxAE2yUi2QQS7LgnIQiAjeY3JLKufk/RsRn2G2R8oxzon8GX7PrNh20wrHk=
+X-Google-Smtp-Source: AGHT+IGRp3AEp9PX2ocswnFBxtOEGeqzjtdyzUlJ4Nf2rGtKqFzy/FpVtaXefQuS72e/ExoLl/XhgA==
+X-Received: by 2002:a05:6358:5389:b0:178:dac3:2b99 with SMTP id z9-20020a056358538900b00178dac32b99mr10932785rwe.1.1708268417100;
+        Sun, 18 Feb 2024 07:00:17 -0800 (PST)
 Received: from [100.64.0.1] ([170.85.8.176])
-        by smtp.gmail.com with ESMTPSA id y5-20020a62ce05000000b006e2dde36edesm2783886pfg.120.2024.02.18.06.09.07
+        by smtp.gmail.com with ESMTPSA id d5-20020ac84e25000000b0042de98f38f3sm1706235qtw.63.2024.02.18.07.00.16
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 18 Feb 2024 06:09:07 -0800 (PST)
-Message-ID: <d947f326-e527-45aa-ae7f-bb5a18efa399@sifive.com>
-Date: Sun, 18 Feb 2024 08:09:05 -0600
+        Sun, 18 Feb 2024 07:00:16 -0800 (PST)
+Message-ID: <90a7443c-feca-4fbb-8c2e-fa050c0e6141@sifive.com>
+Date: Sun, 18 Feb 2024 09:00:14 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -fixes v2 4/4] riscv: Save/restore envcfg CSR during CPU
- suspend
+Subject: Re: [PATCH -fixes v2 3/4] riscv: Add ISA extension parsing for Sm and
+ Ss
 Content-Language: en-US
-To: Stefan O'Rear <sorear@fastmail.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>, Stefan O'Rear <sorear@fastmail.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
 References: <20240213033744.4069020-1-samuel.holland@sifive.com>
- <20240213033744.4069020-5-samuel.holland@sifive.com>
- <20240213-86af3b49821630b5bdd76c0a@orel>
- <937f0593-0bc8-4df3-aa0e-9059acfd7636@app.fastmail.com>
+ <20240213033744.4069020-4-samuel.holland@sifive.com>
+ <20240213-dangle-taco-2742f6087a3e@spud>
+ <ff3bd436-12f8-4cde-881d-89a005ad85c0@sifive.com>
+ <b7ad2bd4-a19e-486e-8be2-3b56f288d5d0@app.fastmail.com>
+ <20240213-earflap-easing-370492840507@spud>
 From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <937f0593-0bc8-4df3-aa0e-9059acfd7636@app.fastmail.com>
+In-Reply-To: <20240213-earflap-easing-370492840507@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240218_060910_634967_9F68ED75 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20240218_070024_132139_A02E85AC 
+X-CRM114-Status: GOOD (  43.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,84 +101,317 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-02-13 11:53 AM, Stefan O'Rear wrote:
-> On Tue, Feb 13, 2024, at 9:49 AM, Andrew Jones wrote:
->> On Mon, Feb 12, 2024 at 07:37:35PM -0800, Samuel Holland wrote:
->>> The value of the [ms]envcfg CSR is lost when entering a nonretentive
->>> idle state, so the CSR must be rewritten when resuming the CPU.
+Hi Conor, Stefan,
+
+Thanks for the discussion!
+
+On 2024-02-13 5:15 PM, Conor Dooley wrote:
+> On Tue, Feb 13, 2024 at 03:43:27PM -0500, Stefan O'Rear wrote:
+>> On Tue, Feb 13, 2024, at 3:22 PM, Samuel Holland wrote:
+>>> On 2024-02-13 12:07 PM, Conor Dooley wrote:
+>>>> On Mon, Feb 12, 2024 at 07:37:34PM -0800, Samuel Holland wrote:
+>>>>> Previously, all extension version numbers were ignored. However, the
+>>>>> version number is important for these two extensions. The simplest way
+>>>>> to implement this is to use a separate bitmap bit for each supported
+>>>>> version, with each successive version implying all of the previous ones.
+>>>>> This allows alternatives and riscv_has_extension_[un]likely() to work
+>>>>> naturally.
+>>>>>
+>>>>> To avoid duplicate extensions in /proc/cpuinfo, the new successor_id
+>>>>> field allows hiding all but the newest implemented version of an
+>>>>> extension.
+>>>>>
+>>>>> Cc: <stable@vger.kernel.org> # v6.7+
+>>>>> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+>>>>> ---
+>>>>>
+>>>>> Changes in v2:
+>>>>>  - New patch for v2
+>>>>>
+>>>>>  arch/riscv/include/asm/cpufeature.h |  1 +
+>>>>>  arch/riscv/include/asm/hwcap.h      |  8 ++++++
+>>>>>  arch/riscv/kernel/cpu.c             |  5 ++++
+>>>>>  arch/riscv/kernel/cpufeature.c      | 42 +++++++++++++++++++++++++----
+>>>>>  4 files changed, 51 insertions(+), 5 deletions(-)
+>>>>>
+>>>>> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+>>>>> index 0bd11862b760..ac71384e7bc4 100644
+>>>>> --- a/arch/riscv/include/asm/cpufeature.h
+>>>>> +++ b/arch/riscv/include/asm/cpufeature.h
+>>>>> @@ -61,6 +61,7 @@ struct riscv_isa_ext_data {
+>>>>>  	const char *property;
+>>>>>  	const unsigned int *subset_ext_ids;
+>>>>>  	const unsigned int subset_ext_size;
+>>>>> +	const unsigned int successor_id;
+>>>>>  };
+>>>>>  
+>>>>>  extern const struct riscv_isa_ext_data riscv_isa_ext[];
+>>>>> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+>>>>> index 5340f818746b..5b51aa1db15b 100644
+>>>>> --- a/arch/riscv/include/asm/hwcap.h
+>>>>> +++ b/arch/riscv/include/asm/hwcap.h
+>>>>> @@ -80,13 +80,21 @@
+>>>>>  #define RISCV_ISA_EXT_ZFA		71
+>>>>>  #define RISCV_ISA_EXT_ZTSO		72
+>>>>>  #define RISCV_ISA_EXT_ZACAS		73
+>>>>> +#define RISCV_ISA_EXT_SM1p11		74
+>>>>> +#define RISCV_ISA_EXT_SM1p12		75
+>>>>> +#define RISCV_ISA_EXT_SS1p11		76
+>>>>> +#define RISCV_ISA_EXT_SS1p12		77
+>>>>>  
+>>>>>  #define RISCV_ISA_EXT_MAX		128
+>>>>>  #define RISCV_ISA_EXT_INVALID		U32_MAX
+>>>>>  
+>>>>>  #ifdef CONFIG_RISCV_M_MODE
+>>>>> +#define RISCV_ISA_EXT_Sx1p11		RISCV_ISA_EXT_SM1p11
+>>>>> +#define RISCV_ISA_EXT_Sx1p12		RISCV_ISA_EXT_SM1p12
+>>>>>  #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
+>>>>>  #else
+>>>>> +#define RISCV_ISA_EXT_Sx1p11		RISCV_ISA_EXT_SS1p11
+>>>>> +#define RISCV_ISA_EXT_Sx1p12		RISCV_ISA_EXT_SS1p12
+>>>>>  #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
+>>>>>  #endif
+>>>>>  
+>>>>> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+>>>>> index d11d6320fb0d..2e6b90ed0d51 100644
+>>>>> --- a/arch/riscv/kernel/cpu.c
+>>>>> +++ b/arch/riscv/kernel/cpu.c
+>>>>> @@ -215,6 +215,11 @@ static void print_isa(struct seq_file *f, const unsigned long *isa_bitmap)
+>>>>>  		if (!__riscv_isa_extension_available(isa_bitmap, riscv_isa_ext[i].id))
+>>>>>  			continue;
+>>>>>  
+>>>>> +		/* Only show the newest implemented version of an extension */
+>>>>> +		if (riscv_isa_ext[i].successor_id != RISCV_ISA_EXT_INVALID &&
+>>>>> +		    __riscv_isa_extension_available(isa_bitmap, riscv_isa_ext[i].successor_id))
+>>>>> +			continue;
+>>>>> +
+>>>>>  		/* Only multi-letter extensions are split by underscores */
+>>>>>  		if (strnlen(riscv_isa_ext[i].name, 2) != 1)
+>>>>>  			seq_puts(f, "_");
+>>>>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+>>>>> index c5b13f7dd482..8e10b50120e9 100644
+>>>>> --- a/arch/riscv/kernel/cpufeature.c
+>>>>> +++ b/arch/riscv/kernel/cpufeature.c
+>>>>> @@ -113,23 +113,29 @@ static bool riscv_isa_extension_check(int id)
+>>>>>  	return true;
+>>>>>  }
+>>>>>  
+>>>>> -#define _RISCV_ISA_EXT_DATA(_name, _id, _subset_exts, _subset_exts_size) {	\
+>>>>> +#define _RISCV_ISA_EXT_DATA(_name, _id, _subset_exts, _subset_exts_size, _successor) {	\
+>>>>>  	.name = #_name,								\
+>>>>>  	.property = #_name,							\
+>>>>>  	.id = _id,								\
+>>>>>  	.subset_ext_ids = _subset_exts,						\
+>>>>> -	.subset_ext_size = _subset_exts_size					\
+>>>>> +	.subset_ext_size = _subset_exts_size,					\
+>>>>> +	.successor_id = _successor,						\
+>>>>>  }
+>>>>>  
+>>>>> -#define __RISCV_ISA_EXT_DATA(_name, _id) _RISCV_ISA_EXT_DATA(_name, _id, NULL, 0)
+>>>>> +#define __RISCV_ISA_EXT_DATA(_name, _id) \
+>>>>> +	_RISCV_ISA_EXT_DATA(_name, _id, NULL, 0, RISCV_ISA_EXT_INVALID)
+>>>>>  
+>>>>>  /* Used to declare pure "lasso" extension (Zk for instance) */
+>>>>>  #define __RISCV_ISA_EXT_BUNDLE(_name, _bundled_exts) \
+>>>>> -	_RISCV_ISA_EXT_DATA(_name, RISCV_ISA_EXT_INVALID, _bundled_exts, ARRAY_SIZE(_bundled_exts))
+>>>>> +	_RISCV_ISA_EXT_DATA(_name, RISCV_ISA_EXT_INVALID, \
+>>>>> +			    _bundled_exts, ARRAY_SIZE(_bundled_exts), RISCV_ISA_EXT_INVALID)
+>>>>>  
+>>>>>  /* Used to declare extensions that are a superset of other extensions (Zvbb for instance) */
+>>>>>  #define __RISCV_ISA_EXT_SUPERSET(_name, _id, _sub_exts) \
+>>>>> -	_RISCV_ISA_EXT_DATA(_name, _id, _sub_exts, ARRAY_SIZE(_sub_exts))
+>>>>> +	_RISCV_ISA_EXT_DATA(_name, _id, _sub_exts, ARRAY_SIZE(_sub_exts), RISCV_ISA_EXT_INVALID)
+>>>>> +
+>>>>> +#define __RISCV_ISA_EXT_VERSION(_name, _id, _preds, _preds_size, _successor) \
+>>>>> +	_RISCV_ISA_EXT_DATA(_name, _id, _preds, _preds_size, _successor)
+>>>>>  
+>>>>>  static const unsigned int riscv_zk_bundled_exts[] = {
+>>>>>  	RISCV_ISA_EXT_ZBKB,
+>>>>> @@ -201,6 +207,16 @@ static const unsigned int riscv_zvbb_exts[] = {
+>>>>>  	RISCV_ISA_EXT_ZVKB
+>>>>>  };
+>>>>>  
+>>>>> +static const unsigned int riscv_sm_ext_versions[] = {
+>>>>> +	RISCV_ISA_EXT_SM1p11,
+>>>>> +	RISCV_ISA_EXT_SM1p12,
+>>>>> +};
+>>>>> +
+>>>>> +static const unsigned int riscv_ss_ext_versions[] = {
+>>>>> +	RISCV_ISA_EXT_SS1p11,
+>>>>> +	RISCV_ISA_EXT_SS1p12,
+>>>>> +};
+>>>>> +
+>>>>>  /*
+>>>>>   * The canonical order of ISA extension names in the ISA string is defined in
+>>>>>   * chapter 27 of the unprivileged specification.
+>>>>> @@ -299,8 +315,16 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>>>>>  	__RISCV_ISA_EXT_DATA(zvksh, RISCV_ISA_EXT_ZVKSH),
+>>>>>  	__RISCV_ISA_EXT_BUNDLE(zvksg, riscv_zvksg_bundled_exts),
+>>>>>  	__RISCV_ISA_EXT_DATA(zvkt, RISCV_ISA_EXT_ZVKT),
+>>>>> +	__RISCV_ISA_EXT_VERSION(sm1p11, RISCV_ISA_EXT_SM1p11, riscv_sm_ext_versions, 0,
+>>>>> +				RISCV_ISA_EXT_SM1p12),
+>>>>> +	__RISCV_ISA_EXT_VERSION(sm1p12, RISCV_ISA_EXT_SM1p12, riscv_sm_ext_versions, 1,
+>>>>> +				RISCV_ISA_EXT_INVALID),
+>>>>>  	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+>>>>>  	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
+>>>>> +	__RISCV_ISA_EXT_VERSION(ss1p11, RISCV_ISA_EXT_SS1p11, riscv_ss_ext_versions, 0,
+>>>>> +				RISCV_ISA_EXT_SS1p12),
+>>>>> +	__RISCV_ISA_EXT_VERSION(ss1p12, RISCV_ISA_EXT_SS1p12, riscv_ss_ext_versions, 1,
+>>>>> +				RISCV_ISA_EXT_INVALID),
+>>>>>  	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+>>>>>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+>>>>>  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+>>>>> @@ -414,6 +438,14 @@ static void __init riscv_parse_isa_string(unsigned long *this_hwcap, struct risc
+>>>>>  				;
+>>>>>  
+>>>>>  			++ext_end;
+>>>>> +
+>>>>> +			/*
+>>>>> +			 * As a special case for the Sm and Ss extensions, where the version
+>>>>> +			 * number is important, include it in the extension name.
+>>>>> +			 */
+>>>>> +			if (ext_end - ext == 2 && tolower(ext[0]) == 's' &&
+>>>>> +			    (tolower(ext[1]) == 'm' || tolower(ext[1]) == 's'))
+>>>>> +				ext_end = isa;
+>>>>>  			break;
+>>>>>  		default:
+>>>>>  			/*
+>>>>
+>>>>
+>>>> Hmm, looking at all of this (especially this hack to the "old" parser),
+>>>> I feel more like these should be promoted to a property of their own.
+>>>> The "old" parser was designed to handle numbers, and here when you're
+>>>> interested in the values behind the numbers (which is a first iirc), you
+>>>> don't make any use of that. I don't really want to see a world where
 >>>
->>> Cc: <stable@vger.kernel.org> # v6.7+
->>> Fixes: 43c16d51a19b ("RISC-V: Enable cbo.zero in usermode")
->>> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
->>> ---
->>>
->>> Changes in v2:
->>>  - Check for privileged ISA v1.12 instead of the specific CSR
->>>  - Use riscv_has_extension_likely() instead of new ALTERNATIVE()s
->>>
->>>  arch/riscv/include/asm/suspend.h | 1 +
->>>  arch/riscv/kernel/suspend.c      | 4 ++++
->>>  2 files changed, 5 insertions(+)
->>>
->>> diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
->>> index 02f87867389a..491296a335d0 100644
->>> --- a/arch/riscv/include/asm/suspend.h
->>> +++ b/arch/riscv/include/asm/suspend.h
->>> @@ -14,6 +14,7 @@ struct suspend_context {
->>>  	struct pt_regs regs;
->>>  	/* Saved and restored by high-level functions */
->>>  	unsigned long scratch;
->>> +	unsigned long envcfg;
->>>  	unsigned long tvec;
->>>  	unsigned long ie;
->>>  #ifdef CONFIG_MMU
->>> diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
->>> index 239509367e42..be03615486ed 100644
->>> --- a/arch/riscv/kernel/suspend.c
->>> +++ b/arch/riscv/kernel/suspend.c
->>> @@ -15,6 +15,8 @@
->>>  void suspend_save_csrs(struct suspend_context *context)
->>>  {
->>>  	context->scratch = csr_read(CSR_SCRATCH);
->>> +	if (riscv_has_extension_likely(RISCV_ISA_EXT_Sx1p12))
->>> +		context->envcfg = csr_read(CSR_ENVCFG);
->>>  	context->tvec = csr_read(CSR_TVEC);
->>>  	context->ie = csr_read(CSR_IE);
->>>  
->>> @@ -36,6 +38,8 @@ void suspend_save_csrs(struct suspend_context *context)
->>>  void suspend_restore_csrs(struct suspend_context *context)
->>>  {
->>>  	csr_write(CSR_SCRATCH, context->scratch);
->>> +	if (riscv_has_extension_likely(RISCV_ISA_EXT_Sx1p12))
->>> +		csr_write(CSR_ENVCFG, context->envcfg);
->>>  	csr_write(CSR_TVEC, context->tvec);
->>>  	csr_write(CSR_IE, context->ie);
->>>  
->>> -- 
->>> 2.43.0
->>>
->>
->> We're still exposing Zicboz to userspace in hwprobe when only
->> RISCV_ISA_EXT_ZICBOZ is present, which will be the case for anything that
->> either doesn't implement 1.12, but does implement Zicboz, or maybe does
->> implement 1.12, but hasn't started putting Ss1p12 in its ISA string yet
->> (e.g. QEMU). We should either stop exposing Zicboz to userspace in those
->> cases (since it won't work) or rethink how we want to determine whether
->> or not we have envcfg CSRs.
+>>> I had a version of this code that parsed the numbers and stored them as integers
+>>> in `struct riscv_isainfo`. It didn't work with of_property_match_string() as
+>>> used for riscv,isa-extensions, since that function expects the extension name to
+>>> be the full string.
 > 
-> opensbi treats the existence of menvcfg as sufficient evidence to prove that
-> the hart supports 1.12.  I wouldn't object to having Zicboz imply Ss1p12/Sm1p12.
+> I don't think I actually want what I am about to say, but it's not as if we
+> are forced to parse it in that way for all properties. It's handy AF to be
+> able to reuse reuse that function, and that was part of my goal originally
+> with the property, but we are not locked into using
+> of_property_match_string() if there's some specific property where that's
+> getting in our way. That's kinda an aside though..
+> 
+>>> Either we would need to change the code to parse a version
+>>> number out of each string in the riscv,isa-extensions list (and make the binding
+>>> a bunch of regexes), or we need a separate "extension" entry (and DT binding
+>>> entry) for each supported version.
+>>
+>> Version numbers aren't real, there's no compatibility promise that we can
+>> consistently rely on so we treat riscv,isa-extensions as simply containing
+>> alphanumeric extensions.  This was an intentional part of simplifying riscv,isa
+>> into riscv,isa-extensions.
+> 
+> You seem to recall my motivations better than I do!
+> 
+>>> I chose the second option, and as a consequence I didn't actually need to parse
+>>> the integer value in the ISA string code path either.
+>>>
+>>>> we have every single iteration of smNpM under the sun in the property,
+>>>> because there's a fair bit of churn in the isa. Granted, this applies to
+>>>> all the various, the difference for me is the level of churn.
+>>>
+>>> Indeed. In fact, one thought I had while looking at this code is that we should
+>>> be ignoring any extension in the ISA string with a version < 1.0 or >= 2.0,
+>>> since those won't be compatible with what we expect.
+>>
+>> I might go further and say that we should only accept specific exact versions of
+>> extensions other than Ss/Sm.
+> 
+> This is what we do, right? Every property is supposed to match to
+> exactly the frozen or ratified spec, so they do have exactly one version
+> at present. The property descriptions should contain that information.
+> 
+>> This could be revisited after the recent "semver
+>> for ISA extensions" policy is tested at least once under real-world conditions.
+>>
+>> Right now we have two ratified versions of Ss/Sm, soon to be three, and one
 
-Zicboz implies menvcfg, yes, but I don't think menvcfg is sufficient to imply
-S[ms]1p12. It's entirely possible for hardware to implement menvcfg but none of
-the other S[ms]1p12 features. Or it may attempt to implement S[ms]1p12, but have
-some bug that prevents it from being compliant, and therefore prevents declaring
-support in the devicetree/ISA string.
+My understanding (from hwprobe.rst and various ML comments) is that Linux
+assumes Ss1p10. That's why I started counting with Ss1p11. It looks like Ss1p10
+was never ratified, but that doesn't prevent us from referencing it in the
+binding, if needed. Should we start enumerating extensions at Ss1p11 or
+something else?
 
-What I think might work best is to have a cpufeature flag for "has the envcfg
-CSR" that doesn't map to anything in the devicetree/ISA string. Then Zicboz can
-imply envcfg, and Ss1p12 can imply envcfg, but we avoid any possible false
-implications going the other direction.
+>> ratified version of all other extensions.  I hardly think this is an excessive
+>> amount of churn.
+> 
+> Yeah, maybe it's fine. I'm just overthinking it and there isn't a
+> problem.
+
+My interpretation of this and the above comments is that we do actually want to
+enumerate every supported "version" of the privileged ISA in the binding, and
+parse them as entirely independent extensions that just happen to have
+similar-looking names. Is that correct?
+
+>>>> Or maybe we can still with the properties you have, but instead of
+>>>> treating them like any other extension, handle these separately,
+>>>> focusing on the numbering, so that only having the exact version
+>>>> supported by a cpu is possible.
+>>>
+>>> Maybe I'm misunderstanding what you're saying here, but it is already the case
+>>> that the DT for a CPU would only contain the exact version of the privileged ISA
+>>> supported by that CPU.
+>>
+>> If privileged spec versions are boolean extensions, then you would say "ss1p11",
+>> "ss1p12", "ss1p13" as separate/simultaneous extensions.
+> 
+>> This is needed in order
+>> to allow simple support checks as described in the riscv,isa-extensions cover
+>> letter.
+> 
+> Yes, it is explicitly a goal of riscv,isa-extensions that you can look
+> for a specific extension in the list if that is all you care about. If
+> you go and drop ss1p11 because you support ss1p12 it defeats that.
+
+Okay, that makes sense, but that is not how the parsing code works right now,
+which is probably what led me down the wrong path. :)
+
+To have the intended semantics, we cannot parse _anything_ in
+riscv,isa-extensions as a "bundled" or "superset" extension. Because to
+accomplish your goal, each extension in the bundle must be listed explicitly, in
+case the consumer only cares about that one extension. So it sounds like
+riscv_fill_hwcap_from_ext_list() needs to ignore subset_ext_size/subset_ext_ids.
+
+> I don't know off the top of my head how to enforce ss1p12 requiring ss1p11
+> in json schema, but I do have an idea of where to start...
+
+Yeah, this is different from normal "dependencies:" because it is a string list.
+
+I think we need to add dependencies in the binding for the bundled extensions as
+well, and maybe even between extensions like "d" and "f".
+
+>>> With this implementation, the fact that the integer version gets expanded to a
+>>> series of flags is supposed to be invisible in the DT and to userspace. I
+>>> realize I don't quite succeed there: putting "ss1p13" in the ISA string should
+>>> work, but does not.
+>>>
+>>>> I'm still pretty undecided, I'd like to think about this a little bit,
+>>>> but I think we can do better here.
+>>>
+>>> Sure, no problem. I'm happy to implement whatever we agree on. Though one
+>>> consideration I had is that this is all in support of fixing a bug in v6.7, so I
+>>> wanted the changes to be backportable.
+>>>
+>>> I suppose the easy way out for backporting is to check for RISCV_ISA_EXT_ZICBOZ
+>>> for now, and then solve the larger problem once there is some other user of the
+>>> envcfg CSR (or another Ss1p12 feature).
+>>
+>> I support that course of action.
+> 
+> I saw another mail suggesting that Zicbom implied Ss1p12, I think that
+> should be reasonable position to take for now.
+
+Like I mentioned in my other email, I don't think Zicboz is sufficient to imply
+Ss1p12. So I'd prefer to either stay with checking Zicboz (like v3 does); or add
+a bit for specifically the existence of the the envcfg CSR, that doesn't map to
+anything in the ISA string (i.e. is not listed in riscv_isa_ext). Of course, if
+we start ignoring subset_ext_ids, I'll have to reconsider how to actually
+implement that.
 
 Regards,
 Samuel
