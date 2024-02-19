@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE445C48BC3
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Feb 2024 11:30:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC96C48BC3
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Feb 2024 11:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZM16SfQZ1pTftN8YIogD7Z1MqRzEo3KQACaYdIdDuTc=; b=whs+bwQ9V4qOVi
-	ZcnbJZf+hrlCMdVdEOwOFJDpBBu+b9SjyZJXdWGW9buFfxhkYvzN1MCOpwU0rceMhkl1GznHf7Zc9
-	3GHie1OTJBXF4fvzTXsJ5M49P1VB9NZ+ecqJps7dqYIfiHdOTCF/U+DDwDa5UDMHN1q4MtqJauLEJ
-	D24GH9bcS7KPzLO6rffQyHsj52qzlGthm3yY3Q4pdt5n349wi1FQ5pJEOIQ22gK8IwXHtWVZB3vww
-	OkegFfo7FhENibzctzzN+lrKg8K4wHPnQ7DLGeNyVe6eDFgXnUTYLakh7b/Zzesz5H3lXsoMIoAxB
-	IFvFMjfrR+wAdzDh7Rqw==;
+	List-Owner; bh=O+v061HQhTFMeJ/FrlW4UpSwi2kWREHgMzYKMYSdfhw=; b=OAe1apIhCLMgH9
+	uH0ZLdTMXMI5Zd+Yr9mUXmwvTBr8CGqz/bm8x9hv2e04qs2vH82cszLnS7SvaF5eTr/aV5Ix5v1ml
+	EWYGOQR5BUAWElu7maP4Xyz3w2gHl5tYxA6gg9dA5/F5lqkW1ilROjJ44/yNZDvJSR2RC507H2SG0
+	RetLe+j5R/+9CMGpXT2opXwyO1Qnca1KqlGVLhq9iN7Dpv4edWQzer6k4P8R3gTBxrH9RvAi3P3XD
+	+G6xZwzK0Z9t8bD1kGPtPfLupqjnxQvlftdHJfA80vIzavxtwWsXkzYxQyXv/KzhJRq1XcaAVEU9d
+	PKOA518SjDmCjYY+ky8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rc1qM-0000000ACdX-0Abl;
-	Mon, 19 Feb 2024 11:29:54 +0000
+	id 1rc20y-0000000AFnS-3vPR;
+	Mon, 19 Feb 2024 11:40:52 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rc1qI-0000000ACbj-0mv1;
-	Mon, 19 Feb 2024 11:29:52 +0000
+	id 1rc20t-0000000AFhM-3KQ9;
+	Mon, 19 Feb 2024 11:40:50 +0000
 Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4TdgFL3jr9z6JB6R;
-	Mon, 19 Feb 2024 19:25:26 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4TdgV25WX9z6JB5f;
+	Mon, 19 Feb 2024 19:36:26 +0800 (CST)
 Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7131C14138F;
-	Mon, 19 Feb 2024 19:29:40 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id AF983140DEA;
+	Mon, 19 Feb 2024 19:40:40 +0800 (CST)
 Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
  (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Mon, 19 Feb
- 2024 11:29:39 +0000
-Date: Mon, 19 Feb 2024 11:29:38 +0000
+ 2024 11:40:40 +0000
+Date: Mon, 19 Feb 2024 11:40:39 +0000
 From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
 To: Samuel Holland <samuel.holland@sifive.com>
 CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, "Eric
@@ -46,12 +46,12 @@ CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, "Eric
 	<linux-riscv@lists.infradead.org>, Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v1 2/6] drivers/perf: Add SiFive Composable Cache PMU
+Subject: Re: [PATCH v1 4/6] drivers/perf: Add SiFive Extensible Cache PMU
  driver
-Message-ID: <20240219112938.00002654@Huawei.com>
-In-Reply-To: <20240216000837.1868917-3-samuel.holland@sifive.com>
+Message-ID: <20240219114039.00004a86@Huawei.com>
+In-Reply-To: <20240216000837.1868917-5-samuel.holland@sifive.com>
 References: <20240216000837.1868917-1-samuel.holland@sifive.com>
-	<20240216000837.1868917-3-samuel.holland@sifive.com>
+	<20240216000837.1868917-5-samuel.holland@sifive.com>
 Organization: Huawei Technologies Research and Development (UK) Ltd.
 X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
@@ -59,8 +59,8 @@ X-Originating-IP: [10.202.227.76]
 X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
  lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240219_032950_554433_6CA466D0 
-X-CRM114-Status: GOOD (  34.84  )
+X-CRM114-CacheID: sfid-20240219_034048_171231_5C1C96ED 
+X-CRM114-Status: GOOD (  25.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +77,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Feb 2024 16:08:14 -0800
+On Thu, 15 Feb 2024 16:08:16 -0800
 Samuel Holland <samuel.holland@sifive.com> wrote:
 
 > From: Eric Lin <eric.lin@sifive.com>
 > 
-> Add a driver for the PMU found in the SiFive Composable Cache
+> Add a driver for the PMU found in the SiFive Extensible Cache
 > controller. This PMU provides a configurable number of counters and a
 > variety of events. Events are grouped into sets. Each counter can count
 > events from only one set at a time; however, it can count any number of
 > events within that set simultaneously. The PMU hardware does not provide
-> an overflow interrupt or a way to atomically control groups of counters.
+> an overflow interrupt.
+> 
+> The counter inhibit register is used to atomically start/stop/read a
+> group of counters so their values can be usefully compared.
 > 
 > Some events can be filtered further by client ID (e.g. CPU or external
 > DMA master). That functionality is not supported by this driver.
 > 
-> This driver further assumes that a single Composable Cache instance is
+> This driver further assumes that a single Extensible Cache instance is
 > shared by all CPUs in the system.
 > 
 > Example usage:
 > 
-> $ perf stat -a -e sifive_ccache_pmu/inner_acquire_block_btot/,
-> 		  sifive_ccache_pmu/inner_acquire_block_hit/,
-> 		  sifive_ccache_pmu/inner_acquire_block_ntob/ ls
+> $ perf stat -e sifive_ecache_pmu/inner_rd_request/,
+> 	       sifive_ecache_pmu/inner_wr_request/,
+> 	       sifive_ecache_pmu/inner_rd_request_hit/,
+> 	       sifive_ecache_pmu/inner_wr_request_hit/ ls
 > 
 >  Performance counter stats for 'system wide':
 > 
->                542      sifive_ccache_pmu/inner_acquire_block_btot/
->              22081      sifive_ccache_pmu/inner_acquire_block_hit/
->              22006      sifive_ccache_pmu/inner_acquire_block_ntob/
+>             148001      sifive_ecache_pmu/inner_rd_request/
+>             121064      sifive_ecache_pmu/inner_wr_request/
+>             113124      sifive_ecache_pmu/inner_rd_request_hit/
+>             120860      sifive_ecache_pmu/inner_wr_request_hit/
 > 
->        0.064672432 seconds time elapsed
+>        0.010643962 seconds time elapsed
 > 
-> Example using numeric event selectors:
+> Example combining the read/write events together within each counter:
 > 
-> $ perf stat -a -e sifive_ccache_pmu/event=0x10001/,
-> 		  sifive_ccache_pmu/event=0x2002/,
-> 		  sifive_ccache_pmu/event=0x4001/ ls
+> $ perf stat -e sifive_ecache_pmu/event=0x601/,
+> 	       sifive_ecache_pmu/event=0xc001/ ls
 > 
 >  Performance counter stats for 'system wide':
 > 
->                478      sifive_ccache_pmu/event=0x10001/
->               4717      sifive_ccache_pmu/event=0x2002/
->              44966      sifive_ccache_pmu/event=0x4001/
+>             262619      sifive_ecache_pmu/event=0x601/
+>             224533      sifive_ecache_pmu/event=0xc001/
 > 
->        0.111027326 seconds time elapsed
+>        0.009794808 seconds time elapsed
 > 
 > Signed-off-by: Eric Lin <eric.lin@sifive.com>
 > Co-developed-by: Samuel Holland <samuel.holland@sifive.com>
@@ -130,209 +133,129 @@ Samuel Holland <samuel.holland@sifive.com> wrote:
 
 Hi Samuel,
 
-A few comments inline.
+Some comments inline. Note this is a driver by review so not very
+thorough!
 
-> diff --git a/drivers/perf/sifive_ccache_pmu.c b/drivers/perf/sifive_ccache_pmu.c
-> new file mode 100644
-> index 000000000000..8c9ef0d09f48
-> --- /dev/null
-> +++ b/drivers/perf/sifive_ccache_pmu.c
-
+Jonathan
 
 > +
-> +#define to_ccache_pmu(p) (container_of(p, struct sifive_ccache_pmu, pmu))
-> +
-> +#ifndef readq
-> +static inline u64 readq(void __iomem *addr)
+> +static u64 read_counter(const struct sifive_ecache_pmu *ecache_pmu, const struct hw_perf_event *hwc)
 > +{
-> +	return readl(addr) | (((u64)readl(addr + 4)) << 32);
-> +}
-> +#endif
+> +	u64 value = 0;
 > +
-> +#ifndef writeq
-> +static inline void writeq(u64 v, void __iomem *addr)
-> +{
-> +	writel(lower_32_bits(v), addr);
-> +	writel(upper_32_bits(v), addr + 4);
-
-Include io-64-nonatomic-lo-hi.h 
-and you shouldn't need these.
-
-> +}
-> +#endif
-
-
+> +	for (int i = 0; i < ecache_pmu->n_slices; i++) {
+> +		void __iomem *base = ecache_pmu->slice[i].base;
 > +
-> +/*
-> + * pmu->stop: stop the counter
-> + */
-> +static void sifive_ccache_pmu_stop(struct perf_event *event, int flags)
-> +{
-> +	struct hw_perf_event *hwc = &event->hw;
-> +
-> +	if (hwc->state & PERF_HES_STOPPED)
-> +		return;
-> +
-> +	/* Disable this counter to count events */
-> +	writeq(0, (void *)hwc->config_base);
+> +		value += readq(base + hwc->event_base);
+Feels like this summing should be a userspace problem.
+Knowing about slice imbalance is often useful (depending on the
+micro architecture obviously!)
 
-Not going to give address space warnings as writeq expects
-__iomem?
 
-> +	sifive_ccache_pmu_read(event);
+> +	}
 > +
-> +	hwc->state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
+> +	return value;
 > +}
 
 
 
-> +/*
-> + * pmu->del: delete the event from the PMU
-Why use multi line comments?
-> + */
-> +static void sifive_ccache_pmu_del(struct perf_event *event, int flags)
-> +{
-> +	struct sifive_ccache_pmu *ccache_pmu = to_ccache_pmu(event->pmu);
-> +	struct hw_perf_event *hwc = &event->hw;
-> +	int idx = hwc->idx;
 > +
-> +	/* Stop and release this counter */
-> +	sifive_ccache_pmu_stop(event, PERF_EF_UPDATE);
-> +
-> +	ccache_pmu->events[idx] = NULL;
-> +	clear_bit(idx, ccache_pmu->used_mask);
-> +
-> +	perf_event_update_userpage(event);
-> +}
-> +
-> +/*
-> + * Driver initialization
-
-Probably drop generic code organization comments like this.
-They just rot over time and provide little benefit.
-
-> + */
-
-...
-
-> +
-> +static int sifive_ccache_pmu_probe(struct platform_device *pdev)
+> +static int sifive_ecache_pmu_probe(struct platform_device *pdev)
 > +{
 > +	struct device *dev = &pdev->dev;
-> +	struct sifive_ccache_pmu *ccache_pmu;
-> +	u32 n_counters;
-> +	int ret;
+> +	struct device_node *ecache_node = dev_of_node(dev);
+> +	struct sifive_ecache_pmu *ecache_pmu;
+> +	struct device_node *slice_node;
+> +	u32 slice_counters;
+> +	int n_slices, ret;
+> +	int i = 0;
 > +
-> +	/* Instances without a sifive,perfmon-counters property do not contain a PMU */
-> +	ret = device_property_read_u32(dev, "sifive,perfmon-counters", &n_counters);
-> +	if (ret || !n_counters)
+> +	n_slices = of_get_available_child_count(ecache_node);
+fwnode_get_available_child_count(dev_fwnode(&pdev->dev));
+
+Not sure why there isn't yet a device version of this (IIRC anyway).
+
+> +	if (!n_slices)
 > +		return -ENODEV;
-if (ret)
-	return ret;
-
-	if (!n_counters)
-		return -ENODEV;
-
-In general don't eat potentially useful return codes.
-
 > +
-> +	ccache_pmu = devm_kzalloc(dev, struct_size(ccache_pmu, events, n_counters), GFP_KERNEL);
-> +	if (!ccache_pmu)
+> +	ecache_pmu = devm_kzalloc(dev, struct_size(ecache_pmu, slice, n_slices), GFP_KERNEL);
+> +	if (!ecache_pmu)
 > +		return -ENOMEM;
 > +
-> +	platform_set_drvdata(pdev, ccache_pmu);
+> +	platform_set_drvdata(pdev, ecache_pmu);
 > +
-> +	ccache_pmu->pmu = (struct pmu) {
+> +	ecache_pmu->pmu = (struct pmu) {
 > +		.parent		= dev,
-> +		.attr_groups	= sifive_ccache_pmu_attr_grps,
+> +		.attr_groups	= sifive_ecache_pmu_attr_grps,
 > +		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
 > +		.task_ctx_nr	= perf_invalid_context,
-> +		.event_init	= sifive_ccache_pmu_event_init,
-> +		.add		= sifive_ccache_pmu_add,
-> +		.del		= sifive_ccache_pmu_del,
-> +		.start		= sifive_ccache_pmu_start,
-> +		.stop		= sifive_ccache_pmu_stop,
-> +		.read		= sifive_ccache_pmu_read,
+> +		.event_init	= sifive_ecache_pmu_event_init,
+> +		.add		= sifive_ecache_pmu_add,
+> +		.del		= sifive_ecache_pmu_del,
+> +		.start		= sifive_ecache_pmu_start,
+> +		.stop		= sifive_ecache_pmu_stop,
+> +		.read		= sifive_ecache_pmu_read,
+> +		.start_txn	= sifive_ecache_pmu_start_txn,
+> +		.commit_txn	= sifive_ecache_pmu_commit_txn,
+> +		.cancel_txn	= sifive_ecache_pmu_cancel_txn,
 > +	};
-> +	ccache_pmu->cpu = nr_cpu_ids;
-> +	ccache_pmu->n_counters = n_counters;
+> +	ecache_pmu->cpu = nr_cpu_ids;
+> +	ecache_pmu->n_counters = ECACHE_PMU_MAX_COUNTERS;
+> +	ecache_pmu->n_slices = n_slices;
 > +
-> +	ccache_pmu->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(ccache_pmu->base))
-> +		return PTR_ERR(ccache_pmu->base);
+> +	for_each_available_child_of_node(ecache_node, slice_node) {
+device_for_each_child_node() (generic handlers only provide the available version btw
+which is non obvious from naming)
+
+> +		struct sifive_ecache_pmu_slice *slice = &ecache_pmu->slice[i++];
 > +
-> +	sifive_ccache_pmu_hw_init(ccache_pmu);
+> +		slice->base = devm_of_iomap(dev, slice_node, 0, NULL);
+> +		if (IS_ERR(slice->base))
+Leaked slice_node
+
+FWIW https://lore.kernel.org/linux-iio/20240217164249.921878-1-jic23@kernel.org/
+adds device_for_each_child_node_scoped() which deals with this stuff using
+cleanup.h magic.
+
+
+> +			return PTR_ERR(slice->base);
 > +
-> +	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_SIFIVE_CCACHE_ONLINE, &ccache_pmu->node);
+> +		/* Get number of counters from slice node */
+> +		ret = of_property_read_u32(slice_node, "sifive,perfmon-counters", &slice_counters);
+Not sure on what perf maintainers want, but I'd go with
+device_property_read etc as in the previous driver.
+
+> +		if (ret)
+leaked slice_node
+
+> +			return dev_err_probe(dev, ret,
+> +					     "Slice %pOF missing sifive,perfmon-counters property\n",
+> +					     slice_node);
+> +
+> +		ecache_pmu->n_counters = min_t(u32, slice_counters, ecache_pmu->n_counters);
+> +	}
+> +
+> +	sifive_ecache_pmu_hw_init(ecache_pmu);
+> +
+> +	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_SIFIVE_ECACHE_ONLINE, &ecache_pmu->node);
 > +	if (ret)
 > +		return dev_err_probe(dev, ret, "Failed to add CPU hotplug instance\n");
-
-you could use devm_add_action_or_reset() and trivial callback to unwind this in remove + error
-paths automatically.  Slight simplification of code, though may end up a line or two longer.
-
-Do the same for perf_pmu_unregister() and you can get rid of remove entirely.
-
 > +
-> +	ret = perf_pmu_register(&ccache_pmu->pmu, "sifive_ccache_pmu", -1);
+> +	ret = perf_pmu_register(&ecache_pmu->pmu, "sifive_ecache_pmu", -1);
 > +	if (ret) {
 > +		dev_err_probe(dev, ret, "Failed to register PMU\n");
 > +		goto err_remove_instance;
+Comments from other review apply here as well so if you agree apply them in both drivers.
+
 > +	}
 > +
 > +	return 0;
 > +
 > +err_remove_instance:
-> +	cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_SIFIVE_CCACHE_ONLINE, &ccache_pmu->node);
+> +	cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_SIFIVE_ECACHE_ONLINE, &ecache_pmu->node);
 > +
 > +	return ret;
 > +}
-> +
-> +static void sifive_ccache_pmu_remove(struct platform_device *pdev)
-> +{
-> +	struct sifive_ccache_pmu *ccache_pmu = platform_get_drvdata(pdev);
-> +
-> +	perf_pmu_unregister(&ccache_pmu->pmu);
-> +	cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_SIFIVE_CCACHE_ONLINE, &ccache_pmu->node);
-> +}
-> +
-> +static const struct of_device_id sifive_ccache_pmu_of_match[] = {
-> +	{ .compatible = "sifive,ccache0" },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(of, sifive_ccache_pmu_of_match);
-> +
-> +static struct platform_driver sifive_ccache_pmu_driver = {
-> +	.probe	= sifive_ccache_pmu_probe,
-> +	.remove_new	= sifive_ccache_pmu_remove,
-
-Is this actually aligning anything in a useful fashion?
-I'd just use a single space instead and not bother. The alignment tends to
-just end up broken and provides little readability advantage.
-
-
-> +	.driver	= {
-> +		.name		= "sifive_ccache_pmu",
-> +		.of_match_table	= sifive_ccache_pmu_of_match,
-> +	},
-> +};
-
-> diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-> index 172d0a743e5d..be6361fdc8ba 100644
-> --- a/include/linux/cpuhotplug.h
-> +++ b/include/linux/cpuhotplug.h
-> @@ -230,6 +230,7 @@ enum cpuhp_state {
->  	CPUHP_AP_PERF_POWERPC_TRACE_IMC_ONLINE,
->  	CPUHP_AP_PERF_POWERPC_HV_24x7_ONLINE,
->  	CPUHP_AP_PERF_POWERPC_HV_GPCI_ONLINE,
-> +	CPUHP_AP_PERF_RISCV_SIFIVE_CCACHE_ONLINE,
-
-Not sure, but can you get away with CPUHP_AP_ONLINE_DYN ?
-Nicer to avoid adding more entries to this list if that is suitable here.
-
->  	CPUHP_AP_PERF_CSKY_ONLINE,
->  	CPUHP_AP_WATCHDOG_ONLINE,
->  	CPUHP_AP_WORKQUEUE_ONLINE,
-
 
 _______________________________________________
 linux-riscv mailing list
