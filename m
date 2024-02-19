@@ -4,134 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E87C48BC4
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Feb 2024 18:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3757BC48BC4
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Feb 2024 03:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9a+sZ8zILSC27fiU+uePEXfwASw54DKQ+/v1+Qr0cFY=; b=3wd8yHO6lnKmxY
-	gxoxLSPjSekwcn/iI9hZRz9dBPJNBIswtGIbkG/momkaictQT+q3AhPW1afn/yrPiVne1exipcSGB
-	cYJ/5cyPcIYqNHPrrd9lV7cvY8U3N1SLry8waGyNSZdbpIxtDBaB0Bxxi0SoXjackbPpOBFJ82Mlj
-	klBpICtlCpLJ1IxPlSowEUBrBynAZZSg7N4zWwYI4BWaNWBT9HZLvIWBGtn8xYVgeOH+A0NSwGoDT
-	2dUdimvECxRuPuMA3cGe/0ASJHvTjAPQjgGmKc1MUBCN3yBVU+knc630WV/HEipysJj+5cbFH2b2e
-	wsN2p0SihJNPoBCoy+eA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sDLRTYIQxaVmmu+OloOIDxLsT/tVoGK8b379D/z56jM=; b=h4UZEDf+W+gtxG
+	+UMb0i2V9WAB71ngCtZvpLDDAkfuKPx2rdMdLdCQeT18dp4NgthnnXdQ+rtScy8nkHS//vpxdDgwe
+	ERi23+lG+nyFU5egd1VWYiPsbh3/McwLnDqM+ybVKqWvkHx/w6Y3fzQYjdF1mjp6yOcT5oYrh6AiL
+	jQE4f+6hvwq2LlmptWdAbLdyqil+VYgY4X9qoJ5+0I5NwMfx4aCTwirHxSvBuzbbJmwkZeEkG7YI+
+	aWPQTnwe1MXeljHbs4CgH/lPe3rkNh5kxSTeG5MYu27l86mD59ARCQt8GuI1hDJ3NTaPxasPHMvMy
+	tBZXnvBhopFEOZVQCfPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbm0s-00000008DHY-264W;
-	Sun, 18 Feb 2024 18:35:42 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1rbuKE-00000008x6D-0i1V;
+	Mon, 19 Feb 2024 03:28:14 +0000
+Received: from mail-sh0chn02on20730.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::730] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rbm0q-00000008DGE-0PYQ
+	id 1rbuKA-00000008x2t-0GX7
 	for linux-riscv@lists.infradead.org;
-	Sun, 18 Feb 2024 18:35:41 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-41263e8b7f8so3143195e9.2
-        for <linux-riscv@lists.infradead.org>; Sun, 18 Feb 2024 10:35:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1708281338; x=1708886138; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=HmhsdjiVydbji9/BcSZQ8XMnnQqt5AZTtEIoi8Kez+o=;
-        b=SwhtN2zZXGxhf/20FjNxPStLpy5eq935HEzznuO4ikgkTJ3vgLfGN/WqDt13EsRNrI
-         UVhA3W7WhPRR+G4SeU+DMp9N1vwwRXzvarnQ4cO/25+RM6Xjq4RW3/ejVh9njX7/BU9a
-         A6XnOTEmpVYg42eQKToEnYt93Jp1plsU2VZbU9k32npRQu9xihogkucdGKJuLgS7ETXj
-         h8W444aA9wHzHiva9BBs0NERNiE9NNFJxZ3jb+TnRI42I+ROt2tF+47VqoPyMlg5hCw9
-         1xvaOVK7aCGw1rYE3JTW+DfZcGtNOPRHF94wJ1otFXZl0NDklcBQQapUxwd/qYwAmiJb
-         dtIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708281338; x=1708886138;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HmhsdjiVydbji9/BcSZQ8XMnnQqt5AZTtEIoi8Kez+o=;
-        b=Rfc1hXdV9AAItAIWQLH54Fpbwml8P+sEz75YAIip3cLCCFuiuOPqNXlkTGrnOYYTNG
-         mwvQidbGjI1J22T8SZRRxyg8NybAntrxNXUnzunXa+dNzBYfUyuIsLwc1TDWzuqXho/j
-         sYP1THE+JcqozXNdIpdnglDr0qgxS47JdQRZM4f+Qk5WZzevT7jQt25lqGK3HYkA7ES5
-         O2/ogHSJYEFKnICSdX5Eal7z5s4wk1TwJLxgCUKT8HcUt08irYX2o8RtOsQKhaH+vqx+
-         JNHFMufaN5Dr4aqvJ2yES61H0by1il+EXyBxwcKggYoBYuYcKjoQpoDjxfVms/LAdo0B
-         k5OQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWWPn6N8bzDIzkwp6W4XEXjSnm8MI071IF4REtqyLQod5JoiEBRygE8m2w6gSw/ii++DEi41gq309Cw3Z2AassWvQ9IdbfDhl9frn6V43W8
-X-Gm-Message-State: AOJu0YwiXpigQq1PDhie0+seeE1ZzDpX0cMADMbCJtLzT7KqzSfS56vN
-	xtbszs2Arcxy4rVfQfmSqW/8kgajW6nYAhvX05PzpykwHbuW+ITiKHuP8ud6UUM=
-X-Google-Smtp-Source: AGHT+IEr8LrLo8rnwBtfp9cUd9o7aqVTJAIclLAIh7GyvHzXVGv0w8CZXc+tD91eJhchPQAPLNQW7w==
-X-Received: by 2002:a05:600c:3502:b0:412:aec:2cfa with SMTP id h2-20020a05600c350200b004120aec2cfamr8677926wmq.1.1708281338234;
-        Sun, 18 Feb 2024 10:35:38 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.222.116])
-        by smtp.gmail.com with ESMTPSA id l20-20020a05600c1d1400b0041256ab5becsm5990592wms.26.2024.02.18.10.35.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 18 Feb 2024 10:35:37 -0800 (PST)
-Message-ID: <6ac4005b-01e6-48c2-971e-d6a127134d13@linaro.org>
-Date: Sun, 18 Feb 2024 19:35:35 +0100
+	Mon, 19 Feb 2024 03:28:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Bdf9pyM5MvAVSfJ1R2WxZnTCvWzUtErkwo3KHN4S1FVYUZdAvmp2UtYl56HUQYxA2DfJ9DMY+Dt6nTC+mn6owWEU2Z7khU9sEH4TEcIEqgYJH7eKtySNzwxyEqZAuPm3FCwrtZXRzba2O24zMucQYSnQ2NuD92GH1fMizwO9OQwiHcjsyvh63CweZpOrVlVo5r8VbA1VlD4H154IhC9cZE3VzMjteQIhf6zP9N93LqDkolTwyEXfzCgwOwtnegaJ6fbWrkhG1PH5wktMn/FY/yEMQetu2BlT8JLlXsz9T/XIY0eG3DNymIdxgruImyof8B3Yqci0pGHaQxuZJs/3vw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gWiVTDcDCc8gvbe3WMo+WgFGdZhkOntSuRCk5fEPzzw=;
+ b=Z6QDsBq+HgUmwU5K7HKy5Fl393S79EjpIk/OOj9Ccuxv8DRp7shAf9HXzYVW1XdaDZXx93874syvB0FTRxkDhqFkIaTCaEyrGa2MPKRWtmCnPEJ+9q0dHN6PQnhw7nqhy8xszea8xgyZ5HgBCjs43lnRgDrxdZwOEsDgc2E87E+s6QO8MYvR6/sbObfm5UP8ifSrm+JJ7zJ3IsCQEQTSWwU3rjVXbcJpmOtNHCn7hB3g4eATbmj0yq5y1kbCeYNekp6lfQzkxvBJh1XSgT+zwP5egMD8a7L3YQfhYF1pkOAvHQkuzPAlhdn56DmYRObwmKZRidQWd9nbBf5XxP/xUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::10) by SHXPR01MB0623.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1d::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.47; Mon, 19 Feb
+ 2024 03:27:48 +0000
+Received: from SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn
+ ([fe80::b0af:4c9d:2058:a344]) by
+ SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn ([fe80::b0af:4c9d:2058:a344%6])
+ with mapi id 15.20.7249.041; Mon, 19 Feb 2024 03:27:48 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Jack Zhu <jack.zhu@starfivetech.com>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: [v3] riscv: dts: starfive: jh7110: Add camera subsystem nodes
+Date: Sun, 18 Feb 2024 19:27:41 -0800
+Message-Id: <20240219032741.18387-1-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+X-ClientProxiedBy: SHXPR01CA0021.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1b::30) To SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::10)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/6] dt-bindings: cache: Document the
- sifive,perfmon-counters property
-To: Samuel Holland <samuel.holland@sifive.com>, Will Deacon
- <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Eric Lin <eric.lin@sifive.com>, Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- linux-arm-kernel@lists.infradead.org
-References: <20240216000837.1868917-1-samuel.holland@sifive.com>
- <20240216000837.1868917-2-samuel.holland@sifive.com>
- <eeb2331d-10e6-4902-91ba-85896a8f0ee1@linaro.org>
- <72221da1-4a1a-4947-a202-9de203032f5c@sifive.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <72221da1-4a1a-4947-a202-9de203032f5c@sifive.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SHXPR01MB0671:EE_|SHXPR01MB0623:EE_
+X-MS-Office365-Filtering-Correlation-Id: bc0d8f27-f8b9-4da8-ffb5-08dc30fabf01
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: VbRVG26ZP3emFPEUBIQ/xWGZeAWbwLPlHvKzmOi9BBDIahl9+7GAA1euOOO6flP0mGEFiMpqBv5Q3gMNTxGlbVeuYZV7KcvIvM7PSVMvfYhUW1O8YT2O7sFZyhtWEPeQQvq6PPDB2KwiU7wIcpSxh7b1C/4AglDlhGEHZDfwQKLhKZxIDSIb03nGkwiUOBzD1lY1GMxlPEZSKFDr/ssnebt/qMVITGlS7K26Q2zG+iU04GR4UDR9nOidJn9iOR+csLpgTGoV0Vrxo9Pyx6g2bJe4twXnkRSpQx9KnO+Rb43WvJxWV/RA0DDVM7E1H7Sx+12pBzYcUTU66OFg6KJqljbbEM22oXGOz7MobhV4z1jCt8Rx4+TvR1h0Ym7tvKvvMCLShReT74l+AndLE5RyHqTfsCj3xhaDwhouVl2yANudIKND3a+zJMHAkVXI911JGSVh+Bp8P5k0zBPZNCvgrR/WgHK5IUZSIStFk0MJgY9xgQ+oHs+BgPxqf0y5HtHAJeYcam5PQattibMF8Nu1+v2/P09LmSjwT//CEe8IOeR82t696M8Z3jbI3XHSUckQ
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(136003)(366004)(39830400003)(346002)(396003)(230922051799003)(64100799003)(451199024)(1800799012)(186009)(7416002)(5660300002)(2906002)(44832011)(41320700001)(38350700005)(2616005)(36756003)(40180700001)(1076003)(26005)(508600001)(52116002)(40160700002)(38100700002)(83380400001)(86362001)(8676002)(4326008)(66946007)(66556008)(8936002)(66476007)(41300700001)(110136005)(54906003)(6666004);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0yI4TFsH/6QwNcdQ8FKSyeiQjczEfjpZFxD9h6r2M/g8AOtFknkiIwvqWfz6?=
+ =?us-ascii?Q?nERasLVF2d8UbJGt/gYAEymfR/Rb8LVDayfzyIrYMbWS3y22uLlq1PQqeE3A?=
+ =?us-ascii?Q?7SfwC3LFI1IcF+Qxoicinq4iq7B7Jnai9t5TmnBchDpu0v/XFk8pMKKcVh9B?=
+ =?us-ascii?Q?qsNYws9HkjaZgjzmpYpc2QsBUBQAgRgULoQ01F73MfX5l8LHdvWZz1SBRoZW?=
+ =?us-ascii?Q?irX4+7msmz8UKKb7BNjuT/Dvh2iv8sK6txyHHhLbDCNkStMG/R+F3EvojiZ1?=
+ =?us-ascii?Q?/nciO0Vm+j82GID+2/3UCOURpdMqU23DmlyhaQrNKvA5hz5v9Y1tP2kRUzoa?=
+ =?us-ascii?Q?mP6rtqvX1ufYsyZUsT5Lp5FtaCgFDe0XNBCUJllbX14CkSbjUaXjqvDW8UB6?=
+ =?us-ascii?Q?i4D5KF4VWC7DQNlgHzMG0/7MxbEjjoLq1JDTIwrtSFn0NDReam0cAu3fm5pa?=
+ =?us-ascii?Q?Fxy24eTTSRyS+PrPmJzSmhHZ/dmBej0yJy3k+qJUI6SSyYAqAB0qZA53NdbG?=
+ =?us-ascii?Q?o6TWHlMMQJ3iT2C7ng+2nwbW6qNP6bb8Gf3HmQKdh5Yb1PeL675B3ro14b23?=
+ =?us-ascii?Q?WRzhJvGFHcYZ/ctySZpROKvN8ft+/vZ+jZlX3+2yp0Q/MVPQT/CqKIzgOWdM?=
+ =?us-ascii?Q?3h7ISaFTUw4jOEcanBeUeitSde/bprPQAzrxBxFRN1FA4nDWxjdWr7J99OQu?=
+ =?us-ascii?Q?wFEll378+y+EFFH/pTklKcc744b4ZYAFNQmcA36WsydW8INkpaF78DZmAx0Z?=
+ =?us-ascii?Q?RPOtOr9h7OLOM3FEuZIiJLEWGSyecypgvk0ptL4dsYiFYbU9mn5trHxzJO8G?=
+ =?us-ascii?Q?0AuuxIwPDhAGdcAtlag3K23AVBmHxjuuk0vV+W55nxswRcsVK13rgrq0y+dL?=
+ =?us-ascii?Q?dd1hHbA/qlxBfgaeVAtU+OyWplBroCObcIGfkYf0qzbdrkE9TP95wKXGv0Xj?=
+ =?us-ascii?Q?SbPphFoAa3HFbchwP6IvjqFr/o85aau72TRFuRRP3RwuVyliZbwOEnFNAzuf?=
+ =?us-ascii?Q?mh2pxqk/f/mFSoeCeTXc3RU7FGjI/NAbz2EPbgDcXAVEc28IsHt8IhEjSEyL?=
+ =?us-ascii?Q?V5rLulXwRkOOx01k9y6ey7n1ncelaRVzDa9rs3BqadI4IS3ZjUJt/DCQJDix?=
+ =?us-ascii?Q?TherEGZJ6Mi1SO0TPmOMjfoJ/gGTsZOd9d1StgMbKWcHsV+yC+KyxSUxs7V8?=
+ =?us-ascii?Q?DnGwFLCfJz0uKS0iZoX5NZ3Ki+PzFc7wvw2qDjDNZSSn1KQSxrStapcm/XKp?=
+ =?us-ascii?Q?fWI+a7zyQrIcoCtc5IPnEIGvpYR1S0QNL4OcttbkgEJvBm4UW2fI04Zu7t0r?=
+ =?us-ascii?Q?kjuzgq2JJPpH+RQJA3T/vXxXyOgQ8gByQ/xZtDUb3NNvYoMttKZ9uyu8yP2E?=
+ =?us-ascii?Q?fIT5/lOy6efP/DgSUcmOqJsGuxMOXkvD4vNGDxJrgrZO3XsOAZyTW/W87bAn?=
+ =?us-ascii?Q?L3yEMCpAwzxToVmIgxDjjWCjZGmG7ctO0MdwXQpIvVkigw76/GFqIu1QzxYP?=
+ =?us-ascii?Q?qaYfmjjvgRMvmqsaJLRm7IMwX1s30NCZtJb/nA/ZgctOCtW1ai1yVxFY2pCJ?=
+ =?us-ascii?Q?w29P0/ksV55GTjw/iIRtgrLd1ofg94brQzC6XPcgLtAdqdVWI7ED12Ua9YUm?=
+ =?us-ascii?Q?t4s98xcsF/q8I3zDGEglE6U=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bc0d8f27-f8b9-4da8-ffb5-08dc30fabf01
+X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2024 03:27:48.5347
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +zrwS6fvvO0Ze5OLm3FcZmoql3xzvmKDlp+Irm526TiHW3LBwx0AcMIrNqqDUzdBPGIWyXnuoj+cwLD8THov4ZOBnL0Dd57wtkl7zXq745rrMNl42IzFaWF9t46+4O3J
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0623
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240218_103540_152617_F5832AEA 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20240218_192810_127188_81B14AA5 
+X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,42 +136,162 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/02/2024 16:29, Samuel Holland wrote:
-> Hi Krzysztof,
-> 
-> On 2024-02-17 3:00 AM, Krzysztof Kozlowski wrote:
->> On 16/02/2024 01:08, Samuel Holland wrote:
->>> The SiFive Composable Cache controller contains an optional PMU with a
->>> configurable number of event counters. Document a property which
->>
->> Configurable in what context? By chip designers or by OS? Why this
->> cannot be deduced from the compatible?
-> 
-> This parameter is configurable by the chip designers.
-> 
-> The information certainly can be deduced from the SoC-specific compatible
-> string, but doing so makes the driver only work on that specific list of SoCs.
+Add camera subsystem nodes for the StarFive JH7110 SoC. They contain the
+dphy-rx, csi2rx, camss nodes.
 
-Usually that's exactly what's expected, so why here usual approach is wrong?
+Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+---
+ .../jh7110-starfive-visionfive-2.dtsi         | 49 ++++++++++++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      | 67 +++++++++++++++++++
+ 2 files changed, 116 insertions(+)
 
-> When provided via a property, the driver can work without changes on any SoC
-> that uses this IP block. (None of the SoCs currently listed in the binding
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index b89e9791efa7..737ee97a3577 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -125,6 +125,55 @@ &tdm_ext {
+ 	clock-frequency = <49152000>;
+ };
 
-Sorry, properties are not a work-around for missing compatibles.
++&camss {
++	assigned-clocks = <&ispcrg JH7110_ISPCLK_DOM4_APB_FUNC>,
++			  <&ispcrg JH7110_ISPCLK_MIPI_RX0_PXL>;
++	assigned-clock-rates = <49500000>, <198000000>;
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++		};
++
++		port@1 {
++			reg = <1>;
++
++			camss_from_csi2rx: endpoint {
++				remote-endpoint = <&csi2rx_to_camss>;
++			};
++		};
++	};
++};
++
++&csi2rx {
++	assigned-clocks = <&ispcrg JH7110_ISPCLK_VIN_SYS>;
++	assigned-clock-rates = <297000000>;
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++
++			/* remote MIPI sensor endpoint */
++		};
++
++		port@1 {
++			reg = <1>;
++
++			csi2rx_to_camss: endpoint {
++				remote-endpoint = <&camss_from_csi2rx>;
++			};
++		};
++	};
++};
++
+ &gmac0 {
+ 	phy-handle = <&phy0>;
+ 	phy-mode = "rgmii-id";
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 45213cdf50dc..6ea1c3f5dded 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -1104,6 +1104,32 @@ pwrc: power-controller@17030000 {
+ 			#power-domain-cells = <1>;
+ 		};
 
-> contain a PMU, so there is no backward compatibility concern with adding the new
-> property.)
-> 
-> My understanding of the purpose of the SoC-specific compatible string is to
-> handle eventualities (silicon bugs, integration quirks, etc.), not to
-> intentionally limit the driver to a narrow list of hardware.
++		csi2rx: csi@19800000 {
++			compatible = "starfive,jh7110-csi2rx", "cdns,csi2rx";
++			reg = <0x0 0x19800000 0x0 0x10000>;
++			clocks = <&ispcrg JH7110_ISPCLK_VIN_SYS>,
++				 <&ispcrg JH7110_ISPCLK_VIN_APB>,
++				 <&ispcrg JH7110_ISPCLK_VIN_PIXEL_IF0>,
++				 <&ispcrg JH7110_ISPCLK_VIN_PIXEL_IF1>,
++				 <&ispcrg JH7110_ISPCLK_VIN_PIXEL_IF2>,
++				 <&ispcrg JH7110_ISPCLK_VIN_PIXEL_IF3>;
++			clock-names = "sys_clk", "p_clk",
++				      "pixel_if0_clk", "pixel_if1_clk",
++				      "pixel_if2_clk", "pixel_if3_clk";
++			resets = <&ispcrg JH7110_ISPRST_VIN_SYS>,
++				 <&ispcrg JH7110_ISPRST_VIN_APB>,
++				 <&ispcrg JH7110_ISPRST_VIN_PIXEL_IF0>,
++				 <&ispcrg JH7110_ISPRST_VIN_PIXEL_IF1>,
++				 <&ispcrg JH7110_ISPRST_VIN_PIXEL_IF2>,
++				 <&ispcrg JH7110_ISPRST_VIN_PIXEL_IF3>;
++			reset-names = "sys", "reg_bank",
++				      "pixel_if0", "pixel_if1",
++				      "pixel_if2", "pixel_if3";
++			phys = <&csi_phy>;
++			phy-names = "dphy";
++			status = "disabled";
++		};
++
+ 		ispcrg: clock-controller@19810000 {
+ 			compatible = "starfive,jh7110-ispcrg";
+ 			reg = <0x0 0x19810000 0x0 0x10000>;
+@@ -1121,6 +1147,47 @@ ispcrg: clock-controller@19810000 {
+ 			power-domains = <&pwrc JH7110_PD_ISP>;
+ 		};
 
-Depends what is the hardware. For most of licensed blocks, the final
-design is the hardware so equals to its compatible.
-
-Best regards,
-Krzysztof
-
++		csi_phy: phy@19820000 {
++			compatible = "starfive,jh7110-dphy-rx";
++			reg = <0x0 0x19820000 0x0 0x10000>;
++			clocks = <&ispcrg JH7110_ISPCLK_M31DPHY_CFG_IN>,
++				 <&ispcrg JH7110_ISPCLK_M31DPHY_REF_IN>,
++				 <&ispcrg JH7110_ISPCLK_M31DPHY_TX_ESC_LAN0>;
++			clock-names = "cfg", "ref", "tx";
++			resets = <&ispcrg JH7110_ISPRST_M31DPHY_HW>,
++				 <&ispcrg JH7110_ISPRST_M31DPHY_B09_AON>;
++			power-domains = <&aon_syscon JH7110_AON_PD_DPHY_RX>;
++			#phy-cells = <0>;
++		};
++
++		camss: isp@19840000 {
++			compatible = "starfive,jh7110-camss";
++			reg = <0x0 0x19840000 0x0 0x10000>,
++			      <0x0 0x19870000 0x0 0x30000>;
++			reg-names = "syscon", "isp";
++			clocks = <&ispcrg JH7110_ISPCLK_DOM4_APB_FUNC>,
++				 <&ispcrg JH7110_ISPCLK_ISPV2_TOP_WRAPPER_C>,
++				 <&ispcrg JH7110_ISPCLK_DVP_INV>,
++				 <&ispcrg JH7110_ISPCLK_VIN_P_AXI_WR>,
++				 <&ispcrg JH7110_ISPCLK_MIPI_RX0_PXL>,
++				 <&syscrg JH7110_SYSCLK_ISP_TOP_CORE>,
++				 <&syscrg JH7110_SYSCLK_ISP_TOP_AXI>;
++			clock-names = "apb_func", "wrapper_clk_c", "dvp_inv",
++				      "axiwr", "mipi_rx0_pxl", "ispcore_2x",
++				      "isp_axi";
++			resets = <&ispcrg JH7110_ISPRST_ISPV2_TOP_WRAPPER_P>,
++				 <&ispcrg JH7110_ISPRST_ISPV2_TOP_WRAPPER_C>,
++				 <&ispcrg JH7110_ISPRST_VIN_P_AXI_RD>,
++				 <&ispcrg JH7110_ISPRST_VIN_P_AXI_WR>,
++				 <&syscrg JH7110_SYSRST_ISP_TOP>,
++				 <&syscrg JH7110_SYSRST_ISP_TOP_AXI>;
++			reset-names = "wrapper_p", "wrapper_c", "axird",
++				      "axiwr", "isp_top_n", "isp_top_axi";
++			power-domains = <&pwrc JH7110_PD_ISP>;
++			interrupts = <92>, <87>, <90>, <88>;
++			status = "disabled";
++		};
++
+ 		voutcrg: clock-controller@295c0000 {
+ 			compatible = "starfive,jh7110-voutcrg";
+ 			reg = <0x0 0x295c0000 0x0 0x10000>;
+--
+2.25.1
 
 _______________________________________________
 linux-riscv mailing list
