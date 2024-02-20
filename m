@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3393C54764
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 06:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5DE8C48BC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 06:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4qOftq90R808rL/2kBub9or6Kbu6PKZIlnyDen+dmXQ=; b=nQaDGOT6IggijB
-	jg6qetnU8PDvwWI9FGn0f1VhKmeh0r6hf2XPWmITPiZh6hGpVIm//+7JBib+csOEaKlHD31D5UeFo
-	x1TNTs0ILfgN11PPq4p8MgOAasF7YmPWhgIWoByHHjTREVqRARzf4xD0f8XxHOa2UUrQDKqjTyM30
-	59k91N2Te+godzMnXiJHb/3mSHxuUzjIKeD3hI3oH0bKqLntdk4QtK1ZKEWfPwdy6hFFq39k1uNMu
-	jUd0LLzSr9UQeKYtJBhqeoSlHa84vwbQIMqONP5YHfyfVUkAXKxqc8qHg8Gd+z6jZWuphkPkIYKol
-	nWHzaZat0Bn3XI3VwkOg==;
+	List-Owner; bh=HkWqd6BtlqeBMmSPYEeSaGOEF4QFg0a32/26k9f8764=; b=4iQKSvXu6abErH
+	kcxsfOClzqo+AOYjjqaX6K7mIudAY1qoXjZdh3L2H3QYcf5KbXI+ZtyGtBRNu1waOEUIQCs+rtjov
+	CvveTzI4Efwuuv575GN/z1heoPd7GnDKKbA9SEaMJfXcsUDrP3438+vgQ+2QjHtAEa6i+qpyGVfpu
+	GzVjZS183PtTLswqzOoB805YuQZ5pb1s73lK0kqp06VlUbB74W6nkemeJSQr6nDmDzIynmhfHCRuB
+	Zs2GA1vMZzvt4NrOAE4mBlClQS5n11ZJXgSCqPcSi0OEtQ8QJ2S1WFxHQD8H9AEzMPrmP55MaE+hJ
+	pzQ3QQPfWDc3/177HQsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcJqi-0000000DOnd-1Kp8;
-	Tue, 20 Feb 2024 06:43:28 +0000
-Received: from mail-bjschn02on2071e.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::71e] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1rcJqo-0000000DOqs-1Slo;
+	Tue, 20 Feb 2024 06:43:34 +0000
+Received: from mail-sh0chn02on2071e.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::71e] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcJqf-0000000DOib-0Ycn
+	id 1rcJql-0000000DOns-06Y6
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Feb 2024 06:43:26 +0000
+	Tue, 20 Feb 2024 06:43:32 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=L9yOY1mvTEL8o4cQarDTX6tloxd4p7tAbW97C2M1PqCnJ6qRn+ohesijkggMGYLZT/cgJ6+b9DgGX26Igr5AOhmVBb3FZG0OjDjmV5OSbORDiH5u3tOlauAdkN/TIYpfoRG0qMn2VB4n9wsVOy3z3HYBMtsL/03MwIy7YA0YzYViqb/usXO1tZqPBFfZZPTnY92tYqIOkNlh5Tek9vAbZ1xcruAjwGmsf96FMbyi8c92ZDrRmOulYjsnqRgOtMF5yubszZf0QN3rLZdLYdOoGRFnk8AteU1a1mqzOX5EG8zlqkhQQ/zrrz+xiNr4DZc52m5I2V+83ZP399Tnvgyx8w==
+ b=HZ5yFD1Hliwr2fuYmJaMQJIrfBLYiwUJVdtT6m4M9yRkCWkQFQJxQUfnLDYQi7eHVtSaHSfT4KcETDShEyXREVna8JT8yvPw2/QgN0F+KVpKUW53a8aPho2F+BUI0o2DyzLIcCrCtEQniK669uWW1fnaPiqE1A1oE+bsWYTcyo7rmSWCAxMf92A+Li3a9Skzgu79dCK6gHeePWeW9DoFuqW4jzbdwdHMDwClIeP8CrAzbOQb3SkdyhJ296dshb6M3aKM/HwGo4OLrstv5fbotcciMPWaYI8zYOVe/OSOUEG1r1yoSA+S47Wbqcx+q5ehsbeUGeiCHSkwcDU/88+b4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9ME+CxejWGcwvddfb8Y1nqhfte9R9xA3PCjUBwVIoAw=;
- b=X6K6Fm+S4z3X9HAcMACBIpSDVf2nSKFcgmHrYiJktPKJkPXnShJK+bkPj2z2Io3LEAPBz5GG1l1X1VvXvQZ6EIvs8bQQmFk8kfGBhEsVf/dUIWBnoglO5mLffRbV9vl03/NEhBiMh363kZnL9+5HETwJNAh545sHQLDgfeoYyW2hWPP/8xJQA/r5cbOCzyAy1bAmeUw57bPZgEWN0JhXR9UaAxfu/YAfeTNjWej/37+6ein5+KY4vImlKZrLXgJMnrOxt0Gsw5X00JjdJdudV5aqsGEu3Vmk3XnhZKl0IouqDF5ZDVtmZvv1huaPgKGGuueLw4xZBydhUvf2poHACg==
+ bh=UM9U8q5stWIMTykF//dTBjE2CSaJzzROOppKT9zt6kQ=;
+ b=NwNfvnseL/rRx7HC7kFXIe9nxFV16AmYnXP3HzR1ANqrX0PB2FJAwIP6jHY1w+GA2WXgWn77V2I1ggSHNB6JyZXEYRTnypCfjHmou76tYM/WbPSKQQceuPHjtVMOkRBmPXGkKfFeZn69onjw4ThKhKw477QqoELZoAv5ByvIvtoksacgas7XHew2dnCX3qCt2FEegWH0PopPcEDV3SZC4QyQeUJBvsQitcr+yVRFWhmSELYXHskcUsHGWIUWI9mrSN1pHVJgRK+vs7Fo/jnpoR06Kd2tkeFYVTf3U2SUQqV3LBSfhI4FqhYqLCHveEEGTDm8KDhxMqAJPsDGlSxzmw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
 Received: from ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:1b::9) by ZQ0PR01MB1239.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:1c::11) with Microsoft SMTP Server (version=TLS1_2,
+ (2406:e500:c550:1b::9) by ZQ0PR01MB1286.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:1b::13) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.47; Tue, 20 Feb
- 2024 06:43:14 +0000
+ 2024 06:43:17 +0000
 Received: from ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
  ([fe80::9d68:58f1:62cc:f1d3]) by
  ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn ([fe80::9d68:58f1:62cc:f1d3%4])
- with mapi id 15.20.7270.047; Tue, 20 Feb 2024 06:43:13 +0000
+ with mapi id 15.20.7270.047; Tue, 20 Feb 2024 06:43:17 +0000
 From: Alex Soo <yuklin.soo@starfivetech.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
@@ -67,9 +67,9 @@ Cc: linux-gpio@vger.kernel.org,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alex Soo <yuklin.soo@starfivetech.com>
-Subject: [RFC PATCH v2 5/6] pinctrl: starfive: jh8100: add pinctrl driver for AON domain
-Date: Tue, 20 Feb 2024 14:42:45 +0800
-Message-ID: <20240220064246.467216-6-yuklin.soo@starfivetech.com>
+Subject: [RFC PATCH v2 6/6] riscv: dts: starfive: jh8100: add pinctrl device tree nodes
+Date: Tue, 20 Feb 2024 14:42:46 +0800
+Message-ID: <20240220064246.467216-7-yuklin.soo@starfivetech.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240220064246.467216-1-yuklin.soo@starfivetech.com>
 References: <20240220064246.467216-1-yuklin.soo@starfivetech.com>
@@ -78,55 +78,55 @@ X-ClientProxiedBy: BJXPR01CA0055.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:1b::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ0PR01MB1302:EE_|ZQ0PR01MB1239:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74c5e447-22b5-440d-80ba-08dc31df363a
+X-MS-TrafficTypeDiagnostic: ZQ0PR01MB1302:EE_|ZQ0PR01MB1286:EE_
+X-MS-Office365-Filtering-Correlation-Id: d22b807d-d043-456b-6572-08dc31df3817
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: tsBYEFFmF3ZOg1lxUvb00+8KEOTm/b+VGQv5J5+y/XHH1/Q4eDlPk5jJDhw6cfNS9eQGtqT5fkb2MbMEOed2sQxDUnLg/XKb2vKXLS+3xQ5npeqp0AlAJfouHoObauIZ2Oi70tMvC+LZG8VZlYEjOK/2NdIFerfc+EMz2wU/jw0ZNpkxRc1G5jS7aOR2Ci4mVhjfpRW7TrPobzyA3xceHD/Yp+5ZfsOc0LUL1cJRu77USQ+7EkZzdN1z0sZy4nuEAr4SXiPVDm5ugZJLqlWGDjkWXgQzjyLdQhsvcdJRDoiTcsY1ueNqzZG/u63PwJI89Tw3xWp9sIsDhY3DsoNk3O7vOJkJp5K745pdKiNp7i585cVw1h2J0Wwxber3gEi2gIJgIJLVAPdVvRwu0psvZ14023DmONg5DBGaOgJiUOv0DsmSEgLLOTGXN1yzw7QTSHuq2ApKd63UplkoQUFfngpGIHF5wsvZjI7/gUjKupS/IlKrwh2cYR2W1sz5vUbf4WCAfGLCnGni1tyBmxG02cEbKa/utyKN/CuWVlR3oga40CTOyGW+5ZK8CfP37QCMCvDTz+LOCYeZwuV+DDBrzQ==
+X-Microsoft-Antispam-Message-Info: gcSYswvhhRQ8f9LCSzFdiNtt450TJvrNKtgheIRh1xECuhqzlfpr30tgyjcgsCAViDjcVMDl+lDBJWUIWQLNPSz2SF6peqhosuBb5sUD5MO1Hl/Xrs9vOW+CCegVr1fztV9G31dGNB8Oesh8GWS7SLIHq984uIrRu0Ul6ZjvQbSAs+WVaXyYMSBL20Hqsgtel63qjEVN4Splidvx8IH4NcAfxBx4vFEVCROjh945FYlfqOvh4nsDzmQAuZ0oa2s3YQviZlVNa6v0f4p+/h/0Ux6fQODCUhs17jhN3UvR/LVFPCJoNElbo2BkGYAHdm4QCCZNYWorJVJpgBuQ7aWSBZaBa7sIR0e4JVk11EvBnEgP+nyHzAkdT64Jby17zN+P/jbIZFHqxeVNvIZPzAviz1bJUCL+umLiALbvDDPWkFkSxRNReL3FfBMkZKykyv86LsLc/6NjNE/CO47ZEPSpvpk4eXy7RnvvuRABjIST9sLdJa9VXPaWknYGw6LPcy0gRlMO8N26GgRAsCPonslxmPrL7uH2X2/uEUKKZO6xVMlpP1gTXJkZwsgOsZNgD8gXxlUEU9O3aLjij8Ksr1QzvA==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(38350700005)(921011);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?G4f/r3yo6w8UHknZC//B0IZfjI+VAG6JCnmsqO7tP+0kNOL6k+0Mz3LJYalz?=
- =?us-ascii?Q?ytmKhGnDjgfzN8vlYTd/0ucoCzzY/6w74lJrQXq1BxoRqogdl7HZ0HCGVVSZ?=
- =?us-ascii?Q?9u+Op5G1U2+68EiGLfJ7Dx6BkHgWsIvrVk24gz+euENTT269KzGu4m6GWZLw?=
- =?us-ascii?Q?PQEr0p2jL6P6APqjS32wtWv1Q62B8lly0jKRAktyyfsBSpVz1+x6KNfUIegS?=
- =?us-ascii?Q?sO1YcHcbggOJIpduou1LPg0mOq1U8L4t1PjTSFpAi7+0URwDlJQsK4GQQ4T6?=
- =?us-ascii?Q?41N/HTHwV4DXXppkyjiV9MiB/CSjgSkdInAsACGrO99s6vNhTRYl8+FTLh2h?=
- =?us-ascii?Q?LjaTFmXQUtPLyvKanNJ3vOxbA7wzz7BwSEcxEFxfd6Vm/A/PxJUtIA3oJug1?=
- =?us-ascii?Q?7p2i5cCel7p8sQfxE0IAOF9T3pEImtwPOB6SDRtKLi907VlvmF95yI8m5miD?=
- =?us-ascii?Q?cC8j9kfZiuoplhwLYMYsYmRD2tBz4mBivqQT57R8siZAvm7hsGSiSHk8U1QX?=
- =?us-ascii?Q?b2we0qgqstuWsX0O4aQh07UDtHsh3fh/W6hvrgzp0PVPDemmyGN4Hdi1jFzO?=
- =?us-ascii?Q?WCuEDHny2VxvHg+Q7P1GVvmC+rra+zWjODkwZvS0nHpnlguZIOP2vYZks8Jc?=
- =?us-ascii?Q?9jccaghemnJ9IYPpvctcpBTbRm2DTz1v9hA6PcjX9Ep9rJaMwgb4M2M51F3p?=
- =?us-ascii?Q?eQDjP4Ki9fQLDqAE3R04etPmR0965juLPu852zCTIvQF3LDszok5jCAqlIUv?=
- =?us-ascii?Q?Z5CTQgMzdBd20Q6FzPrO6D2Ms3OeGKzBjHOviSltp3El1TmqJuhsl4Vy9shT?=
- =?us-ascii?Q?LvpzZhAZe8vmE40jYPwVcPT+K2G0bDsbUHHbFqLQr9xKB1GHXHV9tTUVFdq2?=
- =?us-ascii?Q?YO1zTDWq5WB3HmjFhlU9n6npM9V3uUcnriZN8uzhbgi9trtZKmhSlHH3TxVW?=
- =?us-ascii?Q?uG1O4+seUCjXaIDMFXA92dmpwz9WYqQut3Owrn3ZQMTdjRExV4NtFDvubhez?=
- =?us-ascii?Q?FwoUi5j5rwqgHjithvwk2F57ny2DaUofZefJwiszlLfFBVLpNZ86eM/mXSzz?=
- =?us-ascii?Q?I/0+3F0ImupKTBrmSwWUbfQgIjJBAe68EwRgQUEMAYMvNIRuDLKM7WwC6ylb?=
- =?us-ascii?Q?U2wJriKeccL1NvAapzcIYgJ9srNK094hB5W/ae7w9kNwbWAZNtxLpZwAS2Ed?=
- =?us-ascii?Q?EXA0kIgN/tQwNFwyjR9deKGPrgE0F+j1RS+Uk5CgYjOFd1sTFBmQtsL15FEJ?=
- =?us-ascii?Q?f/iqxhTX9pcVHue5MJlMzlcS2QpQjhQ2In/3LenWvWq2VHpoVINcXrLmehVr?=
- =?us-ascii?Q?62FfBHcKvXmk5/IGFeI9MPCRXfrj80FEkHwhz5nDvxaeZtM0W+M7DbLRGxA/?=
- =?us-ascii?Q?mjDJSfu84GXB1Hs5Fc9p3jaqfXfq3OJPLZmAu1C8aZC1IaUqqLzl/I9oveyk?=
- =?us-ascii?Q?APuhoIkHzuKcf+vDTTOvgfFMkYTWBQLnm3Cl29JgxH2gLFIdXgu/z03LRqpG?=
- =?us-ascii?Q?0NwP/EVKQcH2FTwbHPDucTiQPAyLcbVdtiiX0GZvLjlifBLJ4YQh/UEdsXXR?=
- =?us-ascii?Q?49DXrVxPsMBvRoF1kFxKRf8G6TwYPWaBeW8sxKhHOtwBqe21zH+nd6LXNRfc?=
- =?us-ascii?Q?og=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KVl5P8DHnjLqxs9V9eu0jlvQfyC/uhXlbhpj6d7ZKHp6wc0XoKtMyLV/IJCu?=
+ =?us-ascii?Q?d92jnHYwOeWfxKvvm+2F82jbv8wG2BxFd8lQUp32RRgohutlmuljzXsShlHu?=
+ =?us-ascii?Q?AjZrhHyi7e+GPekE+pze23r6Gkmvt7UBi3oFyjeNrkNhKYWHGo5tNKc09JNJ?=
+ =?us-ascii?Q?4+so8ATMZ+S+vvYGXZjTILB8xGhjW9/UNz97f8V+/WpZLvnoqf6AcaML9YLU?=
+ =?us-ascii?Q?+5TcMkj2hn304dJp1mLD59OK/a9RCSiqGgSwPE9G7j0lvKtTVgsHJSH1O3A7?=
+ =?us-ascii?Q?+CIveH39EXlTbKQOMikOMIxbs4A+6H3bUEq9CswfXNIg18dZEWZgnqfYIYCi?=
+ =?us-ascii?Q?XpVb0VLa6od4mXjD10h566MG88Yvc5RENHcoJ0jDXf8ryRVvf0tLfb9SGICC?=
+ =?us-ascii?Q?iKYBSnEDBNhL2g9VFHKu1nm/etgTlRi4OlUqEAia0MCkm81zAfE0PJx0FK5q?=
+ =?us-ascii?Q?LfsRPTzAYWV/2X1pHy/4vE47bPZUnmcTkaXKgGLqRRcIDqLV3YYqGRfmtDTf?=
+ =?us-ascii?Q?0p6H48Rezsy3niYrb1YLb42yAHYldeCLOn/qNuTyckZi0UpVRuzhiRymlH9z?=
+ =?us-ascii?Q?JGajbfR5zscQvbgEKa11nn04WGFU+ThsFJxfc6RY19jvxFCBX5ygC/60yH4r?=
+ =?us-ascii?Q?HFid8IDpJX5HmCKkQw0/LyhFWaA9h9zYYtNz9hB919D4Y/XlqVtHqsszWKK1?=
+ =?us-ascii?Q?zt43tQluo1qXCDroZ4zm6w98oFBjaLyqJZZroGpohFiztdP8cahBXwBrHKBb?=
+ =?us-ascii?Q?ClT5DFOQDDGTXtjKcx6FSUqCfZK0itM61Vkfy7qHNwaHLyaya1OYdR5cxhnK?=
+ =?us-ascii?Q?JR9eqwYwmkc4xgqCBHpBVyT04ZDd3UzPnlvjNjE7rG7nlcepoy5cWzRN8H7X?=
+ =?us-ascii?Q?0Wsz7R4/xHRkkQhIGRsR1H9tTlYoPNBOGnH1lXEUnriwt5iTgyDrp7yjvfx5?=
+ =?us-ascii?Q?SknrlqArlhWLsQhOfe7UV2+BaWsmHUMcsc07Oqt7upY0YKyuFjlwagQ6mJoL?=
+ =?us-ascii?Q?VXfQK3J+lekQq4OaTuWZqi7DRfOKinWUAoKTUmbKlHu6OKxdzeT78xuf4BaU?=
+ =?us-ascii?Q?mXP/GWxlBh9CzzztdqNcfutCo4n5VzKiOxZa2CQqbbThrJAvoOt7R++NBTEr?=
+ =?us-ascii?Q?7phl/TLriAhgydIIrXP2CE1NCQ5gjuk4csGEBg6hHjjGx9vy3m57wlokcb6K?=
+ =?us-ascii?Q?tSnV/G8VbnFjVRt0VdoL8cm9Xo9Cet1VCTC1it4OUwlmWIHrH0r7r00D+hBq?=
+ =?us-ascii?Q?YMUQbCN6F7U6Of5ZJrh/mndSeAd88MtfmZvKC+NW11l6CeWqTL54Y0b9FfJH?=
+ =?us-ascii?Q?5Ksvm1RHemNtivzMVZqrhzCnacMdrVlgJjMKMku38bpG9UCT8C1LkS6P7lYe?=
+ =?us-ascii?Q?5mXBxF6RyWedFE2sJZ+Zj1qRCv9IvSwcXI6jBCcwt8XYHO4YhU85TVtwplMY?=
+ =?us-ascii?Q?Sse9XF63NjMAhEnpsbBpJv1y7E4fKo1kLo1Uu7vY0SsbegP2p36ff1oOggfB?=
+ =?us-ascii?Q?Q//R16drHbJwx23bVflw7Piqb+EvK/Gxv9nH0J9aPbECbeR+SV4p6hvENih0?=
+ =?us-ascii?Q?MfBOcgA/eJyBjC9C4KN6V5+UATsJtqsRT9EylHeA6exqVqlW4EmxjhkJ9qcT?=
+ =?us-ascii?Q?DQ=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74c5e447-22b5-440d-80ba-08dc31df363a
+X-MS-Exchange-CrossTenant-Network-Message-Id: d22b807d-d043-456b-6572-08dc31df3817
 X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2024 06:43:13.9137
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2024 06:43:17.0433
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UHAT71YZuyZpDvyY09RJ7wpSFnzLSAzxWkBNUrF3xD38h9GxghBFx5lvk4gEe+qLCHW1hYlMxReqBFuSIldsPTuH3msKZWphCRgudIAXVNo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1239
+X-MS-Exchange-CrossTenant-UserPrincipalName: gE+DavRHaAdBBIw0zfyR2Ku90neIXskGR++LNzZSw8LAmOuuuCYX06WldEL3UcbFyJFhihW+ho6YsxKIyxhxf19te5Jp2SuJqLDYYtXocTc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1286
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240219_224325_392418_CB455FE6 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20240219_224331_269987_E376349F 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,256 +143,540 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl driver for AON (always-on) domain.
+Add pinctrl_east/pinctrl_west/pinctrl_gmac/pinctrl_aon device
+tree nodes for JH8100 SoC.
 
 Signed-off-by: Alex Soo <yuklin.soo@starfivetech.com>
 ---
- MAINTAINERS                                   |   7 +
- drivers/pinctrl/starfive/Kconfig              |  14 ++
- drivers/pinctrl/starfive/Makefile             |   1 +
- .../starfive/pinctrl-starfive-jh8100-aon.c    | 154 ++++++++++++++++++
- .../starfive/pinctrl-starfive-jh8100.h        |   4 +
- 5 files changed, 180 insertions(+)
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh8100-aon.c
+ arch/riscv/boot/dts/starfive/jh8100-evb.dts   |   5 +
+ arch/riscv/boot/dts/starfive/jh8100-pinfunc.h | 418 ++++++++++++++++++
+ arch/riscv/boot/dts/starfive/jh8100.dtsi      |  47 ++
+ 3 files changed, 470 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh8100-pinfunc.h
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index beb219107d8c..fa8d2bbb4e47 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20975,6 +20975,13 @@ S:	Maintained
- F:	drivers/reset/starfive/reset-starfive-jh81*
- F:	include/dt-bindings/reset/starfive?jh81*.h
- 
-+STARFIVE JH8100 PINCTRL DRIVERS
-+M:	Alex Soo <yuklin.soo@starfivetech.com>
-+S:	Supported
-+F:	Documentation/devicetree/bindings/pinctrl/starfive,jh81*.yaml
-+F:	drivers/pinctrl/starfive/pinctrl-starfive-jh81*
-+F:	include/dt-bindings/pinctrl/starfive,jh8100-pinctrl.h
+diff --git a/arch/riscv/boot/dts/starfive/jh8100-evb.dts b/arch/riscv/boot/dts/starfive/jh8100-evb.dts
+index c16bc25d8988..270a4bfa137a 100644
+--- a/arch/riscv/boot/dts/starfive/jh8100-evb.dts
++++ b/arch/riscv/boot/dts/starfive/jh8100-evb.dts
+@@ -26,3 +26,8 @@ memory@40000000 {
+ &uart0 {
+ 	status = "okay";
+ };
 +
- STATIC BRANCH/CALL
- M:	Peter Zijlstra <peterz@infradead.org>
- M:	Josh Poimboeuf <jpoimboe@kernel.org>
-diff --git a/drivers/pinctrl/starfive/Kconfig b/drivers/pinctrl/starfive/Kconfig
-index bc123c0bf35e..6c448837f5f6 100644
---- a/drivers/pinctrl/starfive/Kconfig
-+++ b/drivers/pinctrl/starfive/Kconfig
-@@ -94,3 +94,17 @@ config PINCTRL_STARFIVE_JH8100_SYS_GMAC
- 	  This provides syscon registers to indicate voltage level on SDIO1/GMAC1, to indicate
- 	  GMAC1 pads voltage level under different GMAC interface modes, and to configure
- 	  GMAC1 interface slew rate.
-+
-+config PINCTRL_STARFIVE_JH8100_AON
-+	tristate "Always-on pinctrl and GPIO driver for the StarFive JH8100 SoC"
-+	depends on ARCH_STARFIVE  || COMPILE_TEST
-+	depends on OF
-+	select PINCTRL_STARFIVE_JH8100
-+	default ARCH_STARFIVE
-+	help
-+	  Say yes here to support always-on pin control on the StarFive JH8100 SoC.
-+	  This provides an interface to the RGPIO pins not used by other peripherals
-+	  supporting inputs, outputs, configuring pull-up/pull-down and interrupts
-+	  on input changes. And also, the syscon registers to indicate voltage level
-+	  on eMMC/SDIO0/XSPI/RGPIOs/GMAC0, to indicate GMAC0 pads voltage level under
-+	  different GMAC interface modes, and to configure GMAC0 interface slew rate.
-diff --git a/drivers/pinctrl/starfive/Makefile b/drivers/pinctrl/starfive/Makefile
-index 236a693a8aef..46b1ab97779b 100644
---- a/drivers/pinctrl/starfive/Makefile
-+++ b/drivers/pinctrl/starfive/Makefile
-@@ -10,3 +10,4 @@ obj-$(CONFIG_PINCTRL_STARFIVE_JH8100)		+= pinctrl-starfive-jh8100.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JH8100_SYS_EAST)	+= pinctrl-starfive-jh8100-sys-east.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JH8100_SYS_WEST)	+= pinctrl-starfive-jh8100-sys-west.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JH8100_SYS_GMAC)	+= pinctrl-starfive-jh8100-sys-gmac.o
-+obj-$(CONFIG_PINCTRL_STARFIVE_JH8100_AON)	+= pinctrl-starfive-jh8100-aon.o
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-aon.c b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-aon.c
++&pinctrl_aon {
++	wakeup-gpios = <&pinctrl_aon PAD_RGPIO1 GPIO_ACTIVE_HIGH>;
++	wakeup-source;
++};
+diff --git a/arch/riscv/boot/dts/starfive/jh8100-pinfunc.h b/arch/riscv/boot/dts/starfive/jh8100-pinfunc.h
 new file mode 100644
-index 000000000000..0f4a75f3c632
+index 000000000000..3fb16ef62d90
 --- /dev/null
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-aon.c
-@@ -0,0 +1,154 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
++++ b/arch/riscv/boot/dts/starfive/jh8100-pinfunc.h
+@@ -0,0 +1,418 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
 +/*
-+ * Pinctrl / GPIO driver for StarFive JH8100 SoC aon controller
-+ *
-+ * Copyright (C) 2023-2024 StarFive Technology Co., Ltd.
++ * Copyright (C) 2023 StarFive Technology Co., Ltd.
 + * Author: Alex Soo <yuklin.soo@starfivetech.com>
 + *
 + */
 +
-+#include <linux/gpio/driver.h>
-+#include <linux/module.h>
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
++#ifndef __JH8100_PINFUNC_H__
++#define __JH8100_PINFUNC_H__
 +
++/*
++ * mux bits:
++ *  | 31 - 24 | 23 - 16 | 15 - 10 |  9 - 8   |  7 - 0  |
++ *  |  din    |  dout   |  doen   | function | gpio nr |
++ *
++ * dout:     output signal
++ * doen:     output enable signal
++ * din:      optional input signal, 0xff = none
++ * function:
++ * gpio nr:  gpio number, 0 - 63
++ */
++#define GPIOMUX(n, dout, doen, din) ( \
++		(((din)  & 0xff) << 24) | \
++		(((dout) & 0xff) << 16) | \
++		(((doen) & 0x3f) << 10) | \
++		((n) & 0x3f))
++
++#define PINMUX(n, func) ((1 << 10) | (((func) & 0x3) << 8) | ((n) & 0xff))
++
++/* sys_iomux_east dout */
++#define GPOUT_LOW				0
++#define GPOUT_HIGH				1
++#define GPOUT_SYS_CAN0_STBY			2
++#define GPOUT_SYS_CAN0_TST_NEXT_BIT		3
++#define GPOUT_SYS_CAN0_TST_SAMPLE_POINT		4
++#define GPOUT_SYS_CAN0_TXD			5
++#define GPOUT_SYS_I2C0_CLK			6
++#define GPOUT_SYS_I2C0_DATA			7
++#define GPOUT_SYS_I2S0_STEREO_RSCKO		8
++#define GPOUT_SYS_I2S0_STEREO_RWSO		9
++#define GPOUT_SYS_I2S0_STEREO_SDO_0		10
++#define GPOUT_SYS_I2S0_STEREO_SDO_1		11
++#define GPOUT_SYS_I2S0_STEREO_TSCKO		12
++#define GPOUT_SYS_I2S0_STEREO_TWSO		13
++#define GPOUT_SYS_SPI0_MO			14
++#define GPOUT_SYS_SPI0_SS0			15
++#define GPOUT_SYS_SPI0_SS1			16
++#define GPOUT_SYS_SPI0_SS2			17
++#define GPOUT_SYS_SPI0_SS3			18
++#define GPOUT_SYS_SPI0_SCLK			19
++#define GPOUT_SYS_SPI0_SO			20
++#define GPOUT_SYS_UART0_DTR			21
++#define GPOUT_SYS_UART0_RTS			22
++#define GPOUT_SYS_UART0_TX			23
++#define GPOUT_SYS_USB0_DBG_DRIVE_VBUS		24
++#define GPOUT_SYS_PDM_MCLK			25
++#define GPOUT_SYS_PWM_CHANNEL0			26
++#define GPOUT_SYS_PWM_CHANNEL1			27
++#define GPOUT_SYS_PWM_CHANNEL2			28
++#define GPOUT_SYS_PWM_CHANNEL3			29
++#define GPOUT_SYS_PWM_CHANNEL4			30
++#define GPOUT_SYS_PWM_CHANNEL5			31
++#define GPOUT_SYS_PWM_CHANNEL6			32
++#define GPOUT_SYS_PWM_CHANNEL7			33
++#define GPOUT_SYS_SMBUS0_CLK			34
++#define GPOUT_SYS_SMBUS0_DATA			35
++#define GPOUT_SYS_SMBUS0_SUSPEND		36
++#define GPOUT_SYS_CLK_GCLK1			37
++#define GPOUT_SYS_CLK_GCLK2			38
++#define GPOUT_SYS_CLK_GCLK3			39
++#define GPOUT_SYS_CLK_GCLK4			40
++#define GPOUT_SYS_CLK_GCLK6			41
++#define GPOUT_SYS_CLK_GCLK7			42
++#define GPOUT_SYS_MCLK				43
++#define GPOUT_SYS_USB0_TYPEC_DRIVE_VBUS		44
++#define GPOUT_SYS_WATCHDOG0_RESET		45
++#define GPOUT_SYS_CAN1_STBY			46
++#define GPOUT_SYS_CAN1_TST_NEXT_BIT		47
++#define GPOUT_SYS_CAN1_TST_SAMPLE_POINT		48
++#define GPOUT_SYS_CAN1_TXD			49
++#define GPOUT_SYS_I2C1_CLK			50
++#define GPOUT_SYS_I2C1_DATA			51
++#define GPOUT_SYS_I2S1_RSCKO			52
++#define GPOUT_SYS_I2S1_RWSO			53
++#define GPOUT_SYS_I2S1_SDO0			54
++#define GPOUT_SYS_I2S1_SDO1			55
++#define GPOUT_SYS_I2S1_SDO2			56
++#define GPOUT_SYS_I2S1_SDO3			57
++#define GPOUT_SYS_I2S1_SDO4			58
++#define GPOUT_SYS_I2S1_SDO5			59
++#define GPOUT_SYS_I2S1_SDO6			60
++#define GPOUT_SYS_I2S1_SDO7			61
++#define GPOUT_SYS_I2S1_TSCKO			62
++#define GPOUT_SYS_I2S1_TWSO			63
++#define GPOUT_SYS_SDIO1_PU_PD_DATA2		64
++#define GPOUT_SYS_SDIO1_BUS_POWER		65
++#define GPOUT_SYS_SDIO1_RESET			66
++#define GPOUT_SYS_SDIO1_BUS_VOLTAGE_0		67
++#define GPOUT_SYS_SDIO1_BUS_VOLTAGE_1		68
++#define GPOUT_SYS_SDIO1_BUS_VOLTAGE_2		69
++#define GPOUT_SYS_SDIO1_LED			70
++#define GPOUT_SYS_SPI1_MO			71
++#define GPOUT_SYS_SPI1_SS0			72
++#define GPOUT_SYS_SPI1_SS1			73
++#define GPOUT_SYS_SPI1_SS2			74
++#define GPOUT_SYS_SPI1_SS3			75
++#define GPOUT_SYS_SPI1_SCLK			76
++#define GPOUT_SYS_SPI1_SO			77
++#define GPOUT_SYS_UART1_DTR			78
++#define GPOUT_SYS_UART1_RTS			79
++#define GPOUT_SYS_UART1_TX			80
++#define GPOUT_SYS_USB1_DBG_DRIVE_VBUS		81
++#define GPOUT_SYS_I2C2_CLK			82
++#define GPOUT_SYS_I2C2_DATA			83
++#define GPOUT_SYS_UART2_DTR			84
++#define GPOUT_SYS_UART2_RTS			85
++#define GPOUT_SYS_UART2_TX			86
++#define GPOUT_SYS_USB2_DBG_DRIVE_VBUS		87
++#define GPOUT_SYS_I2C3_CLK			88
++#define GPOUT_SYS_I2C3_DATA			89
++#define GPOUT_SYS_UART3_DTR			90
++#define GPOUT_SYS_UART3_RTS			91
++#define GPOUT_SYS_UART3_TX			92
++#define GPOUT_SYS_USB3_DBG_DRIVE_VBUS		93
++#define GPOUT_SYS_I2C4_CLK			94
++#define GPOUT_SYS_I2C4_DATA			95
++#define GPOUT_SYS_UART4_DTR			96
++#define GPOUT_SYS_UART4_RTS			97
++#define GPOUT_SYS_UART4_TX			98
++#define GPOUT_SYS_I2C5_CLK			99
++#define GPOUT_SYS_I2C5_DATA			100
++
++/* sys_iomux_west dout */
++#define GPOUT_SYS_RSVD0				2
++#define GPOUT_SYS_RSVD1				3
++#define GPOUT_SYS_RSVD2				4
++#define GPOUT_SYS_RSVD3				5
++#define GPOUT_SYS_RSVD4				6
++#define GPOUT_SYS_RSVD5				7
++#define GPOUT_SYS_RSVD6				8
++#define GPOUT_SYS_RSVD7				9
++#define GPOUT_SYS_RSVD8				10
++#define GPOUT_SYS_HD_AUDIO0_BCLK		11
++#define GPOUT_SYS_HD_AUDIO0_RST			12
++#define GPOUT_SYS_HD_AUDIO0_SDI0_O		13
++#define GPOUT_SYS_HD_AUDIO0_SDI1_O		14
++#define GPOUT_SYS_HD_AUDIO0_SDO0		15
++#define GPOUT_SYS_HD_AUDIO0_SDO1		16
++#define GPOUT_SYS_HD_AUDIO0_SYNC		17
++#define GPOUT_SYS_HIFI4_JTAG_TDO		18
++#define GPOUT_SYS_CLK_GCLK5			19
++#define GPOUT_SYS_SMBUS1_CLK			20
++#define GPOUT_SYS_SMBUS1_DATA			21
++#define GPOUT_SYS_SMBUS1_SUSPEND		22
++#define GPOUT_SYS_SPI2_MO			23
++#define GPOUT_SYS_SPI2_SS0			24
++#define GPOUT_SYS_SPI2_SS1			25
++#define GPOUT_SYS_SPI2_SS2			26
++#define GPOUT_SYS_SPI2_SS3			27
++#define GPOUT_SYS_SPI2_SCLK			28
++#define GPOUT_SYS_SPI2_SO			29
++#define GPOUT_SYS_UART5_DTR			30
++#define GPOUT_SYS_UART5_RTS			31
++#define GPOUT_SYS_UART5_TX			32
++#define GPOUT_SYS_I2C6_CLK			33
++#define GPOUT_SYS_I2C6_DATA			34
++#define GPOUT_SYS_UART6_DTR			35
++#define GPOUT_SYS_UART6_RTS			36
++#define GPOUT_SYS_UART6_TX			37
++#define GPOUT_SYS_I2C7_CLK			38
++#define GPOUT_SYS_I2C7_DATA			39
++
++/* aon_iomux dout */
++#define GPOUT_AON_CLK_32K			2
++#define GPOUT_AON_CLK_GCLK0			3
++#define GPOUT_AON_CLK_GCLK_OSC			4
++#define GPOUT_AON_SIG_STUB_POWER_EN_O		5
++#define GPOUT_AON_EMMC_PU_PD_DATA2		6
++#define GPOUT_AON_EMMC_BUS_POWER		7
++#define GPOUT_AON_EMMC_BUS_VOLTAGE_0		8
++#define GPOUT_AON_EMMC_BUS_VOLTAGE_1		9
++#define GPOUT_AON_EMMC_BUS_VOLTAGE_2		10
++#define GPOUT_AON_EMMC_LED			11
++#define GPOUT_AON_SDIO0_PU_PD_DATA2		12
++#define GPOUT_AON_SDIO0_BUS_POWER		13
++#define GPOUT_AON_SDIO0_RESET			14
++#define GPOUT_AON_SDIO0_BUS_VOLTAGE_0		15
++#define GPOUT_AON_SDIO0_BUS_VOLTAGE_1		16
++#define GPOUT_AON_SDIO0_BUS_VOLTAGE_2		17
++#define GPOUT_AON_SDIO0_LED			18
++#define GPOUT_AON_JTAG_TDO			19
++#define GPOUT_AON_SCP_POWER_EN			20
++#define GPOUT_AON_WATCHDOG1_RESET		21
++#define GPOUT_AON_UART7_TX			22
++#define GPOUT_AON_I2C8_CLK			23
++#define GPOUT_AON_I2C8_DATA			24
++
++/* sys_iomux_east doen */
++#define GPOEN_SYS_ENABLE			0
++#define GPOEN_SYS_DISABLE			1
++#define GPOEN_SYS_I2C0_CLK			2
++#define GPOEN_SYS_I2C0_DATA			3
++#define GPOEN_SYS_I2S0_STEREO_SDOE_0		4
++#define GPOEN_SYS_I2S0_STEREO_SDOE_1		5
++#define GPOEN_SYS_SPI0_N_MO_EN			6
++#define GPOEN_SYS_SPI0_N_SCLK_EN		7
++#define GPOEN_SYS_SPI0_N_SO_EN			8
++#define GPOEN_SYS_SPI0_N_SS_EN			9
++#define GPOEN_SYS_PWM_CHANNEL0			10
++#define GPOEN_SYS_PWM_CHANNEL1			11
++#define GPOEN_SYS_PWM_CHANNEL2			12
++#define GPOEN_SYS_PWM_CHANNEL3			13
++#define GPOEN_SYS_PWM_CHANNEL4			14
++#define GPOEN_SYS_PWM_CHANNEL5			15
++#define GPOEN_SYS_PWM_CHANNEL6			16
++#define GPOEN_SYS_PWM_CHANNEL7			17
++#define GPOEN_SYS_SMBUS0_CLK			18
++#define GPOEN_SYS_SMBUS0_DATA			19
++#define GPOEN_SYS_SMBUS0_ALERT			20
++#define GPOEN_SYS_I2C1_CLK			21
++#define GPOEN_SYS_I2C1_DATA			22
++#define GPOEN_SYS_I2S1_SDO0			23
++#define GPOEN_SYS_I2S1_SDO1			24
++#define GPOEN_SYS_I2S1_SDO2			25
++#define GPOEN_SYS_I2S1_SDO3			26
++#define GPOEN_SYS_I2S1_SDO4			27
++#define GPOEN_SYS_I2S1_SDO5			28
++#define GPOEN_SYS_I2S1_SDO6			29
++#define GPOEN_SYS_I2S1_SDO7			30
++#define GPOEN_SYS_SPI1_N_MO_EN			31
++#define GPOEN_SYS_SPI1_N_SCLK_EN		32
++#define GPOEN_SYS_SPI1_N_SO_EN			33
++#define GPOEN_SYS_SPI1_N_SS_EN			34
++#define GPOEN_SYS_I2C2_CLK			35
++#define GPOEN_SYS_I2C2_DATA			36
++#define GPOEN_SYS_I2C3_CLK			37
++#define GPOEN_SYS_I2C3_DATA			38
++#define GPOEN_SYS_I2C4_CLK			39
++#define GPOEN_SYS_I2C4_DATA			40
++#define GPOEN_SYS_I2C5_CLK			41
++#define GPOEN_SYS_I2C5_DATA			42
++
++/* sys_iomux_west doen */
++#define GPOEN_SYS_RSVD0				2
++#define GPOEN_SYS_RSVD1				3
++#define GPOEN_SYS_RSVD2				4
++#define GPOEN_SYS_RSVD3				5
++#define GPOEN_SYS_RSVD4				6
++#define GPOEN_SYS_RSVD5				7
++#define GPOEN_SYS_RSVD6				8
++#define GPOEN_SYS_HD_AUDIO0_SDI0		9
++#define GPOEN_SYS_HD_AUDIO0_SDI1		10
++#define GPOEN_SYS_HIFI4_JTAG_TDO		11
++#define GPOEN_SYS_SMBUS1_CLK			12
++#define GPOEN_SYS_SMBUS1_DATA			13
++#define GPOEN_SYS_SMBUS1_ALERT			14
++#define GPOEN_SYS_SPI2_MO			15
++#define GPOEN_SYS_SPI2_SCLK			16
++#define GPOEN_SYS_SPI2_SO			17
++#define GPOEN_SYS_SPI2_SS			18
++#define GPOEN_SYS_I2C6_CLK			19
++#define GPOEN_SYS_I2C6_DATA			20
++#define GPOEN_SYS_I2C7_CLK			21
++#define GPOEN_SYS_I2C7_DATA			22
++
++/* aon_iomux doen */
++#define GPOEN_AON_JTAG_TDO			2
++#define GPOEN_AON_I2C8_CLK			3
++#define GPOEN_AON_I2C8_DATA			4
++
++/* sys_iomux din */
++#define GPI_NONE				255
++
++/* sys_iomux_east din */
++#define GPI_SYS_CAN0_RXD			0
++#define GPI_SYS_I2C0_CLK			1
++#define GPI_SYS_I2C0_DATA			2
++#define GPI_SYS_SPI0_SCLK			3
++#define GPI_SYS_SPI0_MI				4
++#define GPI_SYS_SPI0_SS_N			5
++#define GPI_SYS_SPI0_SI				6
++#define GPI_SYS_UART0_CTS			7
++#define GPI_SYS_UART0_DCD			8
++#define GPI_SYS_UART0_DSR			9
++#define GPI_SYS_UART0_RI			10
++#define GPI_SYS_UART0_RX			11
++#define GPI_SYS_USB0_DBG_OVERCURRENT		12
++#define GPI_SYS_PDM_DMIC0			13
++#define GPI_SYS_PDM_DMIC1			14
++#define GPI_SYS_I2SRX0_SDIN0			15
++#define GPI_SYS_I2SRX0_SDIN1			16
++#define GPI_SYS_SMBUS0_CLK			17
++#define GPI_SYS_SMBUS0_DATA			18
++#define GPI_SYS_SMBUS0_ALERT			19
++#define GPI_SYS_JTAG_TCK			20
++#define GPI_SYS_MCLK_EXT			21
++#define GPI_SYS_I2SRX0_BCLK			22
++#define GPI_SYS_I2SRX0_LRCK			23
++#define GPI_SYS_I2STX0_BCLK			24
++#define GPI_SYS_I2STX0_LRCK			25
++#define GPI_SYS_SPI0_SCLK_IN0			26
++#define GPI_SYS_SPI0_SCLK_IN1			27
++#define GPI_SYS_I2S0_STEREO_RX_BCLK		28
++#define GPI_SYS_I2S0_STEREO_RX_LRCK		29
++#define GPI_SYS_I2S0_STEREO_TX_BCLK		30
++#define GPI_SYS_I2S0_STEREO_TX_LRCK		31
++#define GPI_SYS_I2S1_RX_BCLK			32
++#define GPI_SYS_I2S1_RX_LRCK			33
++#define GPI_SYS_I2S1_TX_BCLK			34
++#define GPI_SYS_I2S1_TX_LRCK			35
++#define GPI_SYS_USB0_TYPEC_OVERCURRENT		36
++#define GPI_SYS_CAN1_RXD			37
++#define GPI_SYS_I2C1_CLK			38
++#define GPI_SYS_I2C1_DATA			39
++#define GPI_SYS_I2S1_SDI_0			40
++#define GPI_SYS_I2S1_SDI_1			41
++#define GPI_SYS_I2S1_SDI_2			42
++#define GPI_SYS_I2S1_SDI_3			43
++#define GPI_SYS_I2S1_SDI_4			44
++#define GPI_SYS_I2S1_SDI_5			45
++#define GPI_SYS_I2S1_SDI_6			46
++#define GPI_SYS_I2S1_SDI_7			47
++#define GPI_SYS_SDIO1_CARD_DETECT		48
++#define GPI_SYS_SDIO1_WRITE_PROTECT		49
++#define GPI_SYS_SPI1_EXT_CLK			50
++#define GPI_SYS_SPI1_MI				51
++#define GPI_SYS_SPI1_SS_IN			52
++#define GPI_SYS_SPI1_SI				53
++#define GPI_SYS_UART1_CTS			54
++#define GPI_SYS_UART1_DCD			55
++#define GPI_SYS_UART1_DSR			56
++#define GPI_SYS_UART1_RI			57
++#define GPI_SYS_UART1_RX			58
++#define GPI_SYS_USB1_DBG_OVERCURRENT		59
++#define GPI_SYS_I2C2_CLK			60
++#define GPI_SYS_I2C2_DATA			61
++#define GPI_SYS_UART2_CTS			62
++#define GPI_SYS_UART2_DCD			63
++#define GPI_SYS_UART2_DSR			64
++#define GPI_SYS_UART2_RI			65
++#define GPI_SYS_UART2_RX			66
++#define GPI_SYS_USB2_DBG_OVERCURRENT		67
++#define GPI_SYS_I2C3_CLK			68
++#define GPI_SYS_I2C3_DATA			69
++#define GPI_SYS_UART3_CTS			70
++#define GPI_SYS_UART3_DCD			71
++#define GPI_SYS_UART3_DSR			72
++#define GPI_SYS_UART3_RI			73
++#define GPI_SYS_UART3_RX			74
++#define GPI_SYS_USB3_DBG_OVERCURRENT		75
++#define GPI_SYS_I2C4_CLK			76
++#define GPI_SYS_I2C4_DATA			77
++#define GPI_SYS_UART4_CTS			78
++#define GPI_SYS_UART4_DCD			79
++#define GPI_SYS_UART4_DSR			80
++#define GPI_SYS_UART4_RI			81
++#define GPI_SYS_UART4_RX			82
++#define GPI_SYS_I2C5_CLK			83
++#define GPI_SYS_I2C5_DATA			84
++
++/* sys_iomux_west din */
++#define GPI_SYS_RSVD0				0
++#define GPI_SYS_RSVD1				1
++#define GPI_SYS_RSVD2				2
++#define GPI_SYS_RSVD3				3
++#define GPI_SYS_RSVD4				4
++#define GPI_SYS_RSVD5				5
++#define GPI_SYS_RSVD6				6
++#define GPI_SYS_HD_AUDIO0_SDI0_I		7
++#define GPI_SYS_HD_AUDIO0_SDI1_I		8
++#define GPI_SYS_HIFI4_JTAG_TDI			9
++#define GPI_SYS_HIFI4_JTAG_TMS			10
++#define GPI_SYS_HIFI4_JTAG_RST			11
++#define GPI_SYS_RSVD7				12
++#define GPI_SYS_HIFI4_JTAG_TCK			13
++#define GPI_SYS_RSVD8				14
++#define GPI_SYS_SPI0_SCLK_IN2			15
++#define GPI_SYS_SMBUS1_CLK			16
++#define GPI_SYS_SMBUS1_DATA			17
++#define GPI_SYS_SMBUS1_ALERT			18
++#define GPI_SYS_SPI2_EXT_CLK			19
++#define GPI_SYS_SPI2_MI				20
++#define GPI_SYS_SPI2_SS_IN			21
++#define GPI_SYS_SPI2_SI				22
++#define GPI_SYS_UART5_CTS			23
++#define GPI_SYS_UART5_DCD			24
++#define GPI_SYS_UART5_DSR			25
++#define GPI_SYS_UART5_RI			26
++#define GPI_SYS_UART5_RX			27
++#define GPI_SYS_I2C6_CLK			28
++#define GPI_SYS_I2C6_DATA			29
++#define GPI_SYS_UART6_CTS			30
++#define GPI_SYS_UART6_DCD			31
++#define GPI_SYS_UART6_DSR			32
++#define GPI_SYS_UART6_RI			33
++#define GPI_SYS_UART6_RX			34
++#define GPI_SYS_I2C7_CLK			35
++#define GPI_SYS_I2C7_DATA			36
++
++/* aon_iomux din */
++#define GPI_AON_JTAG_TCK			0
++#define GPI_AON_SIG_STUB_RESERVED_0		1
++#define GPI_AON_SIG_STUB_RESERVED_1		2
++#define GPI_AON_SIG_STUB_RESERVED_2		3
++#define GPI_AON_XSPI0_GP_OPEN_DRAIN_0		4
++#define GPI_AON_XSPI0_GP_OPEN_DRAIN_1		5
++#define GPI_AON_XSPI0_GP_OPEN_DRAIN_2		6
++#define GPI_AON_XSPI0_GP_OPEN_DRAIN_3		7
++#define GPI_AON_SDIO0_CARD_DETECTION		8
++#define GPI_AON_SDIO0_WRITE_PROTECTION		9
++#define GPI_AON_SRC_BUF_JTAG_RST		10
++#define GPI_AON_JTAG_TDI			11
++#define GPI_AON_JTAG_TMS			12
++#define GPI_AON_UART7_RX			13
++#define GPI_AON_I2C8_CLK			14
++#define GPI_AON_I2C8_DATA			15
++
++#endif
+diff --git a/arch/riscv/boot/dts/starfive/jh8100.dtsi b/arch/riscv/boot/dts/starfive/jh8100.dtsi
+index 5ba826e38ead..b7c440298ad9 100644
+--- a/arch/riscv/boot/dts/starfive/jh8100.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh8100.dtsi
+@@ -5,6 +5,8 @@
+ 
+ /dts-v1/;
+ #include <dt-bindings/clock/starfive,jh8100-crg.h>
++#include <dt-bindings/gpio/gpio.h>
 +#include <dt-bindings/pinctrl/starfive,jh8100-pinctrl.h>
-+
-+#include "../core.h"
-+#include "../pinconf.h"
-+#include "../pinmux.h"
-+#include "pinctrl-starfive-jh8100.h"
-+
-+#define JH8100_AON_NGPIO		16
-+#define JH8100_AON_GC_BASE		64
-+
-+/* registers */
-+#define JH8100_AON_DOEN			0x00
-+#define JH8100_AON_DOUT			0x10
-+#define JH8100_AON_GPI			0x20
-+#define JH8100_AON_GPIOIN		0x54
-+
-+#define JH8100_AON_GPIOEN		0x34
-+#define JH8100_AON_GPIOIS		0x38
-+#define JH8100_AON_GPIOIC		0x3c
-+#define JH8100_AON_GPIOIBE		0x40
-+#define JH8100_AON_GPIOIEV		0x44
-+#define JH8100_AON_GPIOIE		0x48
-+#define JH8100_AON_GPIORIS		0x4c
-+#define JH8100_AON_GPIOMIS		0x50
-+
-+static const struct pinctrl_pin_desc jh8100_aon_pins[] = {
-+	PINCTRL_PIN(PAD_RGPIO0,		"AON_RGPIO0"),
-+	PINCTRL_PIN(PAD_RGPIO1,		"AON_RGPIO1"),
-+	PINCTRL_PIN(PAD_RGPIO2,		"AON_RGPIO2"),
-+	PINCTRL_PIN(PAD_RGPIO3,		"AON_RGPIO3"),
-+	PINCTRL_PIN(PAD_RGPIO4,		"AON_RGPIO4"),
-+	PINCTRL_PIN(PAD_RGPIO5,		"AON_RGPIO5"),
-+	PINCTRL_PIN(PAD_RGPIO6,		"AON_RGPIO6"),
-+	PINCTRL_PIN(PAD_RGPIO7,		"AON_RGPIO7"),
-+	PINCTRL_PIN(PAD_RGPIO8,		"AON_RGPIO8"),
-+	PINCTRL_PIN(PAD_RGPIO9,		"AON_RGPIO9"),
-+	PINCTRL_PIN(PAD_RGPIO10,	"AON_RGPIO10"),
-+	PINCTRL_PIN(PAD_RGPIO11,	"AON_RGPIO11"),
-+	PINCTRL_PIN(PAD_RGPIO12,	"AON_RGPIO12"),
-+	PINCTRL_PIN(PAD_RGPIO13,	"AON_RGPIO13"),
-+	PINCTRL_PIN(PAD_RGPIO14,	"AON_RGPIO14"),
-+	PINCTRL_PIN(PAD_RGPIO15,	"AON_RGPIO15"),
-+};
-+
-+#ifdef CONFIG_PM_SLEEP
-+static int jh8100_aon_pinctrl_suspend(struct device *dev)
-+{
-+	struct jh8100_pinctrl *sfp;
-+	int i;
-+
-+	sfp = dev_get_drvdata(dev);
-+	if (!sfp)
-+		return -EINVAL;
-+
-+	if (device_may_wakeup(dev))
-+		enable_irq_wake(sfp->wakeup_irq);
-+
-+	for (i = 0; i < sfp->info->nregs; i++)
-+		sfp->jh8100_aon_regs[i] = readl_relaxed(sfp->base + (i * 4));
-+
-+	return pinctrl_force_sleep(sfp->pctl);
-+}
-+
-+static int jh8100_aon_pinctrl_resume(struct device *dev)
-+{
-+	struct jh8100_pinctrl *sfp;
-+	int i;
-+
-+	sfp = dev_get_drvdata(dev);
-+	if (!sfp)
-+		return -EINVAL;
-+
-+	if (device_may_wakeup(dev))
-+		disable_irq_wake(sfp->wakeup_irq);
-+
-+	for (i = 0; i < sfp->info->nregs; i++)
-+		writel_relaxed(sfp->jh8100_aon_regs[i], sfp->base + (i * 4));
-+
-+	return pinctrl_force_default(sfp->pctl);
-+}
-+#endif
-+
-+static SIMPLE_DEV_PM_OPS(jh8100_aon_pinctrl_dev_pm_ops,
-+			 jh8100_aon_pinctrl_suspend,
-+			 jh8100_aon_pinctrl_resume);
-+
-+static const struct jh8100_gpio_irq_reg jh8100_aon_irq_reg = {
-+	.is_reg_base	= JH8100_AON_GPIOIS,
-+	.ic_reg_base	= JH8100_AON_GPIOIC,
-+	.ibe_reg_base	= JH8100_AON_GPIOIBE,
-+	.iev_reg_base	= JH8100_AON_GPIOIEV,
-+	.ie_reg_base	= JH8100_AON_GPIOIE,
-+	.ris_reg_base	= JH8100_AON_GPIORIS,
-+	.mis_reg_base	= JH8100_AON_GPIOMIS,
-+	.ien_reg_base   = JH8100_AON_GPIOEN,
-+};
-+
-+static const struct jh8100_pinctrl_domain_info jh8100_aon_pinctrl_info = {
-+	.pins				= jh8100_aon_pins,
-+	.npins				= ARRAY_SIZE(jh8100_aon_pins),
-+	.ngpios				= JH8100_AON_NGPIO,
-+	.gc_base			= JH8100_AON_GC_BASE,
-+	.name				= JH8100_AON_DOMAIN_NAME,
-+	.nregs				= JH8100_AON_REG_NUM,
-+	.dout_reg_base			= JH8100_AON_DOUT,
-+	.dout_mask			= GENMASK(4, 0),
-+	.doen_reg_base			= JH8100_AON_DOEN,
-+	.doen_mask			= GENMASK(2, 0),
-+	.gpi_reg_base			= JH8100_AON_GPI,
-+	.gpi_mask			= GENMASK(4, 0),
-+	.gpioin_reg_base		= JH8100_AON_GPIOIN,
-+	.irq_reg			= &jh8100_aon_irq_reg,
-+	.mis_pin_num			= JH8100_AON_NGPIO
-+};
-+
-+static const struct of_device_id jh8100_aon_pinctrl_of_match[] = {
-+	{
-+		.compatible = "starfive,jh8100-aon-pinctrl",
-+		.data = &jh8100_aon_pinctrl_info,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, jh8100_aon_pinctrl_of_match);
-+
-+static struct platform_driver jh8100_aon_pinctrl_driver = {
-+	.probe = jh8100_pinctrl_probe,
-+	.driver = {
-+		.name = "starfive-jh8100-aon-pinctrl",
-+#ifdef CONFIG_PM_SLEEP
-+		.pm = &jh8100_aon_pinctrl_dev_pm_ops,
-+#endif
-+		.of_match_table = jh8100_aon_pinctrl_of_match,
-+	},
-+};
-+module_platform_driver(jh8100_aon_pinctrl_driver);
-+
-+MODULE_DESCRIPTION("Pinctrl driver for StarFive JH8100 SoC aon controller");
-+MODULE_AUTHOR("Alex Soo <yuklin.soo@starfivetech.com>");
-+MODULE_LICENSE("GPL v2");
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
-index 4652885feaa2..b4042a7f7936 100644
---- a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
-@@ -16,13 +16,16 @@
- #define JH8100_SYS_W_DOMAIN_NAME	"jh8100-sys-west"
- #define JH8100_SYS_E_DOMAIN_NAME	"jh8100-sys-east"
- #define JH8100_SYS_G_DOMAIN_NAME	"jh8100-sys-gmac"
-+#define JH8100_AON_DOMAIN_NAME		"jh8100-aon"
+ #include <dt-bindings/reset/starfive,jh8100-crg.h>
  
- #define JH8100_SYS_W_REG_NUM		44
- #define JH8100_SYS_E_REG_NUM		116
- #define JH8100_SYS_G_REG_NUM		19
-+#define JH8100_AON_REG_NUM		65
+ / {
+@@ -563,6 +565,19 @@ uart4: serial@121a0000  {
+ 			status = "disabled";
+ 		};
  
- #define JH8100_SYS_W_GPO_PDA_00_15_CFG	0x074
- #define JH8100_SYS_E_GPO_PDA_00_47_CFG	0x114
-+#define JH8100_AON_GPO_PDA_00_15_CFG	0x90
++		pinctrl_east: pinctrl@122d0000 {
++			compatible = "starfive,jh8100-sys-pinctrl-east",
++				     "syscon", "simple-mfd";
++			reg = <0x0 0x122d0000 0x0 0x10000>;
++			clocks = <&necrg JH8100_NECLK_IOMUX_EAST_PCLK>;
++			resets = <&necrg JH8100_NERST_SYS_IOMUX_E>;
++			interrupts = <182>;
++			interrupt-controller;
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&pinctrl_east 0 0 48>;
++		};
++
+ 		necrg: clock-controller@12320000 {
+ 			compatible = "starfive,jh8100-necrg";
+ 			reg = <0x0 0x12320000 0x0 0x10000>;
+@@ -634,6 +649,19 @@ nwcrg: clock-controller@123c0000 {
+ 			#reset-cells = <1>;
+ 		};
  
- struct jh8100_pinctrl {
- 	struct device *dev;
-@@ -37,6 +40,7 @@ struct jh8100_pinctrl {
- 	unsigned int jh8100_sys_west_regs[JH8100_SYS_W_REG_NUM];
- 	unsigned int jh8100_sys_east_regs[JH8100_SYS_E_REG_NUM];
- 	unsigned int jh8100_sys_gmac_regs[JH8100_SYS_G_REG_NUM];
-+	unsigned int jh8100_aon_regs[JH8100_AON_REG_NUM];
- 	/* wakeup */
- 	int wakeup_gpio;
- 	int wakeup_irq;
++		pinctrl_west: pinctrl@123e0000 {
++			compatible = "starfive,jh8100-sys-pinctrl-west",
++				     "syscon", "simple-mfd";
++			reg = <0x0 0x123e0000 0x0 0x10000>;
++			clocks = <&nwcrg JH8100_NWCLK_IOMUX_WEST_PCLK>;
++			resets = <&nwcrg JH8100_NWRST_SYS_IOMUX_W>;
++			interrupts = <183>;
++			interrupt-controller;
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&pinctrl_west 0 0 16>;
++		};
++
+ 		syscrg: clock-controller@126d0000 {
+ 			compatible = "starfive,jh8100-syscrg";
+ 			reg = <0x0 0x126d0000 0x0 0x10000>;
+@@ -656,6 +684,13 @@ swcrg: clock-controller@12720000 {
+ 			#reset-cells = <1>;
+ 		};
+ 
++		pinctrl_gmac: pinctrl@12770000 {
++			compatible = "starfive,jh8100-sys-pinctrl-gmac",
++				     "syscon", "simple-mfd";
++			status = "disabled";
++			reg = <0x0 0x12770000 0x0 0x10000>;
++		};
++
+ 		uart5: serial@127d0000  {
+ 			compatible = "starfive,jh8100-uart", "cdns,uart-r1p8";
+ 			reg = <0x0 0x127d0000 0x0 0x10000>;
+@@ -674,6 +709,18 @@ uart6: serial@127e0000  {
+ 			status = "disabled";
+ 		};
+ 
++		pinctrl_aon: pinctrl@1f300000 {
++			compatible = "starfive,jh8100-aon-pinctrl",
++				     "syscon", "simple-mfd";
++			reg = <0x0 0x1f300000 0x0 0x10000>;
++			resets = <&aoncrg JH8100_AONRST_AON_IOMUX_PRESETN>;
++			interrupts = <160>;
++			interrupt-controller;
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&pinctrl_aon 0 0 16>;
++		};
++
+ 		aoncrg: clock-controller@1f310000 {
+ 			compatible = "starfive,jh8100-aoncrg";
+ 			reg = <0x0 0x1f310000 0x0 0x10000>;
 -- 
 2.43.0
 
