@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A7CCC48BC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 23:43:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60117C48BC4
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 23:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+mUxSRHWFPVzU6ifI46y/1fmOxfwfZy9Z9hr4PsG1oo=; b=TCUADwRNFVQuTp
-	uAKgd+CSOqfBR6k+kzFpSZf8pYi6YwzsMMTXigXEKYGTeA5c0FPZZMI5aHOGov7BZJ/6rJAGHR0AX
-	bBWQxmsdiyhfUkn5M5Q3STuJ50ejmVlyUykL4+VIonBqag/R9B2QvspikHRMGSl6n3IdgGuT1hKGT
-	Smcs3fjr/86gccZKM+zNOWG+RRws9AX39/tBPXF/Nlgm4z1PjYEF5549M0snN6ZIMTGw4Lle9dDF6
-	O328Ge006bP3BYmULCfGwcXwUfWzGnxBS3XCMbP6+wPxyzQc1hT/0WxvcDjUYsEo0jK4CFKi9J6Qb
-	TFmM4dI/f5/8AeSrfn5A==;
+	List-Owner; bh=zdB/AqSrmf46tjJ7HOrUEv25yG4SkggTyjTPxdrPOeM=; b=I9d6Iz8/fqMNhN
+	5BccFqgG4klTfwcaZauvdbQzhhLkM0W9vqDAXInIEtEaCuq8vITpIQgoABwxAk6R1u65+zk54WrJc
+	mg/HC5fWMvXf+N7vkuTnOPhnrJnnAQaHCwUMj7vf0ptVyo/0zzlbEIIBwLVgY6qj7Dm1mX5Ll53aE
+	wtlxNZKPAZ83vSqK7Cox0/b5C7AyBVNkFfTVjMfA9T9QLscWTnkob7A+RbQKc7Ok12pVZhQQNaCHQ
+	TwviufEAUW8wEupAr7XPsqSozInroESJ25otQzCbjNVePlzna2L5XVmw0uK2IPyktFw+3QrjzDOkG
+	pKnR4U8n7CWXw1EhR8ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcZlO-0000000GX8P-0GDS;
-	Tue, 20 Feb 2024 23:43:02 +0000
-Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
+	id 1rcZw6-0000000GYK5-3T42;
+	Tue, 20 Feb 2024 23:54:06 +0000
+Received: from brightrain.aerifal.cx ([2001:19f0:5:42::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcZlK-0000000GX7v-2XUF
+	id 1rcZw2-0000000GYIN-2IKZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Feb 2024 23:43:00 +0000
-Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-3c0d59a219dso3905287b6e.0
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Feb 2024 15:42:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1708472577; x=1709077377; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rUPZxx4yc0Fym2aKmm76DxOfwl43+C+AKFEvJFvt0CE=;
-        b=zopt7GKKxvGWyGX8Zn3FKWcOYW69g5Cz8vcKLkd1ZLz0Js1wM7goElekF9sIT/a0yp
-         ZV66iEtKQICM9lGorOGwHhcLwm+04m5eJ+wpOmBSoJOm7t3e1BiFRueTFXUnPPgc/8sF
-         pi27FnNOIc6xXtcxD1DNZIpl23dVixejoT3dH9MP9kP9HFZgi0Cv2Hl5ThAbIi1ikz9b
-         Lb9lriT5GKpUlOc8QxvZ5kggaVYhI4zT5tczFDdSAleSR67ALG7cAoVoSguqWGa+lGs8
-         h0ubuWB/zvdsMPpYZXikvmNINNDzK0d58/fcaosAj7GnsRNuhTif49Nxc/KDilbV2mPZ
-         a//w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708472577; x=1709077377;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rUPZxx4yc0Fym2aKmm76DxOfwl43+C+AKFEvJFvt0CE=;
-        b=D0ZZxoQQ2U6YbV7lR19Eej391tNUxaXxBDpp7BZLx4XW4Kek/P47Tki+6nR+9w2BRA
-         7TGayIZF2iTSLvTIPmVj2DlCBueSA6VGh1VfT578cysOfPVmTAN0OSnFNL6Y4YO8n19z
-         9xdl6bKc+zVtbuaaTrTkH5kgndXEI/S+16e3gRXJihzOxpMZ1kQ+o8hoMnAgLpbi+1/N
-         942NPoh83leOElj7g09LDXjfVdU1p25wv047Qk3KW4uXfFFB6qdFmiRqY6DUmhYIJ4Uc
-         I8unIhMpO0hC6Yy7mdwlqLvGy2t0Cymcd8mEgigGdaPOURyr4AEvmk6HgajHUTsbieZr
-         i2Fg==
-X-Forwarded-Encrypted: i=1; AJvYcCXMkgSCPBuJr/p2w0l2vUNEgiFv5xo30OiQ51kYJhLxmGbpFFJH75ekvELFjUvIMdYBo49qALNu/Qtv5Ch9HgHsTSZ1kLfBBcKnPCoen+xk
-X-Gm-Message-State: AOJu0YwWWIg6/TI+aND8ixUkS1oO7lPd6uecGU8lJ7QPiFwsWKuair3M
-	eDvt625HaOs3XoOwwb2HtUDC+k+ycnHsFgQR2Fme28yoOAfgm3/rOASxPDXU3ug=
-X-Google-Smtp-Source: AGHT+IGB8ll+ozYI3O381NSidlwWWtxrXnCXwOmpDex8sV8coE6I7gWpQPn7NnyYF6GY6vUHK3eedA==
-X-Received: by 2002:a05:6808:2f11:b0:3c1:5d20:179b with SMTP id gu17-20020a0568082f1100b003c15d20179bmr8468422oib.9.1708472576861;
-        Tue, 20 Feb 2024 15:42:56 -0800 (PST)
-Received: from [10.0.16.226] ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id o19-20020a637313000000b005dbed0ffb10sm7179064pgc.83.2024.02.20.15.42.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Feb 2024 15:42:56 -0800 (PST)
-Message-ID: <3cd9c332-1187-4204-94c9-34a3c4f5958c@rivosinc.com>
-Date: Tue, 20 Feb 2024 15:42:55 -0800
+	Tue, 20 Feb 2024 23:54:04 +0000
+Date: Tue, 20 Feb 2024 18:54:16 -0500
+From: "dalias@libc.org" <dalias@libc.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
+	"musl@lists.openwall.com" <musl@lists.openwall.com>,
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"corbet@lwn.net" <corbet@lwn.net>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"broonie@kernel.org" <broonie@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"debug@rivosinc.com" <debug@rivosinc.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"arnd@arndb.de" <arnd@arndb.de>, "maz@kernel.org" <maz@kernel.org>,
+	"oleg@redhat.com" <oleg@redhat.com>,
+	"fweimer@redhat.com" <fweimer@redhat.com>,
+	"keescook@chromium.org" <keescook@chromium.org>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"ebiederm@xmission.com" <ebiederm@xmission.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"brauner@kernel.org" <brauner@kernel.org>,
+	"thiago.bauermann@linaro.org" <thiago.bauermann@linaro.org>,
+	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"sorear@fastmail.com" <sorear@fastmail.com>
+Subject: Re: [musl] Re: [PATCH v8 00/38] arm64/gcs: Provide support for GCS
+ in userspace
+Message-ID: <20240220235415.GP4163@brightrain.aerifal.cx>
+References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
+ <22a53b78-10d7-4a5a-a01e-b2f3a8c22e94@app.fastmail.com>
+ <4c7bdf8fde9cc45174f10b9221fa58ffb450b755.camel@intel.com>
+ <20240220185714.GO4163@brightrain.aerifal.cx>
+ <9fc9c45ff6e14df80ad023e66ff7a978bd4ec91c.camel@intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: hwprobe: export Zihintpause ISA extension
-Content-Language: en-US
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Robbin Ehn <rehn@rivosinc.com>
-References: <20240219154905.528301-1-cleger@rivosinc.com>
-From: Atish Patra <atishp@rivosinc.com>
-In-Reply-To: <20240219154905.528301-1-cleger@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <9fc9c45ff6e14df80ad023e66ff7a978bd4ec91c.camel@intel.com>
+User-Agent: Mutt/1.5.21 (2010-09-15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240220_154258_894810_131EAE23 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20240220_155402_845276_B5A0AE21 
+X-CRM114-Status: GOOD (  44.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,53 +90,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMi8xOS8yNCAwNzo0OSwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+IEV4cG9ydCB0aGUgWmlo
-aW50cGF1c2UgSVNBIGV4dGVuc2lvbiB0aHJvdWdoIGh3cHJvYmUgd2hpY2ggYWxsb3dzIHVzaW5n
-Cj4gInBhdXNlIiBpbnN0cnVjdGlvbnMuIFNvbWUgdXNlcnNwYWNlIGFwcGxpY2F0aW9ucyAoT3Bl
-bkpESyBmb3IKPiBpbnN0YW5jZSkgdXNlcyB0aGlzIHRvIGhhbmRsZSBzb21lIGxvY2tpbmcgYmFj
-ay1vZmYuCj4gCj4gU2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3Np
-bmMuY29tPgo+IAo+IC0tLQo+ICAgRG9jdW1lbnRhdGlvbi9hcmNoL3Jpc2N2L2h3cHJvYmUucnN0
-ICB8IDQgKysrKwo+ICAgYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2h3cHJvYmUuaCB8IDEg
-Kwo+ICAgYXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYyAgICAgICB8IDEgKwo+ICAgMyBm
-aWxlcyBjaGFuZ2VkLCA2IGluc2VydGlvbnMoKykKPiAKPiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRh
-dGlvbi9hcmNoL3Jpc2N2L2h3cHJvYmUucnN0IGIvRG9jdW1lbnRhdGlvbi9hcmNoL3Jpc2N2L2h3
-cHJvYmUucnN0Cj4gaW5kZXggYjJiY2M5ZWVkOWFhLi4wMDEyYzg0MzM2MTMgMTAwNjQ0Cj4gLS0t
-IGEvRG9jdW1lbnRhdGlvbi9hcmNoL3Jpc2N2L2h3cHJvYmUucnN0Cj4gKysrIGIvRG9jdW1lbnRh
-dGlvbi9hcmNoL3Jpc2N2L2h3cHJvYmUucnN0Cj4gQEAgLTE4OCw2ICsxODgsMTAgQEAgVGhlIGZv
-bGxvd2luZyBrZXlzIGFyZSBkZWZpbmVkOgo+ICAgICAgICAgIG1hbnVhbCBzdGFydGluZyBmcm9t
-IGNvbW1pdCA5NWNmMWY5ICgiQWRkIGNoYW5nZXMgcmVxdWVzdGVkIGJ5IFZlZAo+ICAgICAgICAg
-IGR1cmluZyBzaWdub2ZmIikKPiAgIAo+ICsgICogOmM6bWFjcm86YFJJU0NWX0hXUFJPQkVfRVhU
-X1pJSElOVFBBVVNFYDogVGhlIFppaGludHBhdXNlIGV4dGVuc2lvbiBpcwo+ICsgICAgICAgc3Vw
-cG9ydGVkIGFzIGRlZmluZWQgaW4gdGhlIFJJU0MtViBJU0EgbWFudWFsIHN0YXJ0aW5nIGZyb20g
-Y29tbWl0IGNvbW1pdAo+ICsgICAgICAgZDhhYjVjNzhjMjA3ICgiWmloaW50cGF1c2UgaXMgcmF0
-aWZpZWQiKS4KPiArCj4gICAqIDpjOm1hY3JvOmBSSVNDVl9IV1BST0JFX0tFWV9DUFVQRVJGXzBg
-OiBBIGJpdG1hc2sgdGhhdCBjb250YWlucyBwZXJmb3JtYW5jZQo+ICAgICBpbmZvcm1hdGlvbiBh
-Ym91dCB0aGUgc2VsZWN0ZWQgc2V0IG9mIHByb2Nlc3NvcnMuCj4gICAKPiBkaWZmIC0tZ2l0IGEv
-YXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2h3cHJvYmUuaCBiL2FyY2gvcmlzY3YvaW5jbHVk
-ZS91YXBpL2FzbS9od3Byb2JlLmgKPiBpbmRleCA5ZjJhOGUzZmYyMDQuLjMxYzU3MGNiZDFjNSAx
-MDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oCj4gKysr
-IGIvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2h3cHJvYmUuaAo+IEBAIC01OSw2ICs1OSw3
-IEBAIHN0cnVjdCByaXNjdl9od3Byb2JlIHsKPiAgICNkZWZpbmUJCVJJU0NWX0hXUFJPQkVfRVhU
-X1pUU08JCSgxVUxMIDw8IDMzKQo+ICAgI2RlZmluZQkJUklTQ1ZfSFdQUk9CRV9FWFRfWkFDQVMJ
-CSgxVUxMIDw8IDM0KQo+ICAgI2RlZmluZQkJUklTQ1ZfSFdQUk9CRV9FWFRfWklDT05ECSgxVUxM
-IDw8IDM1KQo+ICsjZGVmaW5lCQlSSVNDVl9IV1BST0JFX0VYVF9aSUhJTlRQQVVTRQkoMVVMTCA8
-PCAzNikKPiAgICNkZWZpbmUgUklTQ1ZfSFdQUk9CRV9LRVlfQ1BVUEVSRl8wCTUKPiAgICNkZWZp
-bmUJCVJJU0NWX0hXUFJPQkVfTUlTQUxJR05FRF9VTktOT1dOCSgwIDw8IDApCj4gICAjZGVmaW5l
-CQlSSVNDVl9IV1BST0JFX01JU0FMSUdORURfRU1VTEFURUQJKDEgPDwgMCkKPiBkaWZmIC0tZ2l0
-IGEvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3N5
-c19od3Byb2JlLmMKPiBpbmRleCBhN2M1NmI0MWVmZDIuLjEwMDhkMjU4ODBlMSAxMDA2NDQKPiAt
-LS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zeXNfaHdwcm9iZS5jCj4gKysrIGIvYXJjaC9yaXNjdi9r
-ZXJuZWwvc3lzX2h3cHJvYmUuYwo+IEBAIC0xMTEsNiArMTExLDcgQEAgc3RhdGljIHZvaWQgaHdw
-cm9iZV9pc2FfZXh0MChzdHJ1Y3QgcmlzY3ZfaHdwcm9iZSAqcGFpciwKPiAgIAkJRVhUX0tFWSha
-VFNPKTsKPiAgIAkJRVhUX0tFWShaQUNBUyk7Cj4gICAJCUVYVF9LRVkoWklDT05EKTsKPiArCQlF
-WFRfS0VZKFpJSElOVFBBVVNFKTsKPiAgIAo+ICAgCQlpZiAoaGFzX3ZlY3RvcigpKSB7Cj4gICAJ
-CQlFWFRfS0VZKFpWQkIpOwoKUmV2aWV3ZWQtYnk6IEF0aXNoIFBhdHJhIDxhdGlzaHBAcml2b3Np
-bmMuY29tPgoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On Tue, Feb 20, 2024 at 11:30:22PM +0000, Edgecombe, Rick P wrote:
+> On Tue, 2024-02-20 at 13:57 -0500, Rich Felker wrote:
+> > On Tue, Feb 20, 2024 at 06:41:05PM +0000, Edgecombe, Rick P wrote:
+> > > Hmm, could the shadow stack underflow onto the real stack then? Not
+> > > sure how bad that is. INCSSP (incrementing the SSP register on x86)
+> > > loops are not rare so it seems like something that could happen.
+> > 
+> > Shadow stack underflow should fault on attempt to access
+> > non-shadow-stack memory as shadow-stack, no?
+> 
+> Maybe I'm misunderstanding. I thought the proposal included allowing
+> shadow stack access to convert normal address ranges to shadow stack,
+> and normal writes to convert shadow stack to normal.
+
+As I understood the original discussion of the proposal on IRC, it was
+only one-way (from shadow to normal). Unless I'm missing something,
+making it one-way is necessary to catch situations where the shadow
+stack would become compromised.
+
+> > > Shadow stacks currently have automatic guard gaps to try to prevent
+> > > one
+> > > thread from overflowing onto another thread's shadow stack. This
+> > > would
+> > > somewhat opens that up, as the stack guard gaps are usually
+> > > maintained
+> > > by userspace for new threads. It would have to be thought through
+> > > if
+> > > these could still be enforced with checking at additional spots.
+> > 
+> > I would think the existing guard pages would already do that if a
+> > thread's shadow stack is contiguous with its own data stack.
+> 
+> The difference is that the kernel provides the guard gaps, where this
+> would rely on userspace to do it. It is not a showstopper either.
+> 
+> I think my biggest question on this is how does it change the
+> capability for two threads to share a shadow stack. It might require
+> some special rules around the syscall that writes restore tokens. So
+> I'm not sure. It probably needs a POC.
+
+Why would they be sharing a shadow stack?
+
+> > From the musl side, I have always looked at the entirely of shadow
+> > stack stuff with very heavy skepticism, and anything that breaks
+> > existing interface contracts, introduced places where apps can get
+> > auto-killed because a late resource allocation fails, or requires
+> > applications to code around the existence of something that should be
+> > an implementation detail, is a non-starter. To even consider shadow
+> > stack support, it must truely be fully non-breaking.
+> 
+> The manual assembly stack switching and JIT code in the apps needs to
+> be updated. I don't think there is a way around it.
+
+Indeed, I'm not talking about programs with JIT/manual stack-switching
+asm, just anything using existing APIs for control of stack --
+pthread_setstack, makecontext, sigaltstack, etc.
+
+> I agree though that the late allocation failures are not great. Mark is
+> working on clone3 support which should allow moving the shadow stack
+> allocation to happen in userspace with the normal stack. Even for riscv
+> though, doesn't it need to update a new register in stack switching?
+
+If clone is called with signals masked, it's probably not necessary
+for the kernel to set the shadow stack register as part of clone3.
+
+> BTW, x86 shadow stack has a mode where the shadow stack is writable
+> with a special instruction (WRSS). It enables the SSP to be set
+> arbitrarily by writing restore tokens. We discussed this as an option
+> to make the existing longjmp() and signal stuff work more transparently
+> for glibc.
+> 
+> > 
+> > > > _Without_ doing this, sigaltstack cannot be used to recover from
+> > > > stack
+> > > > overflows if the shadow stack limit is reached first, and
+> > > > makecontext
+> > > > cannot be supported without memory leaks and unreportable error
+> > > > conditions.
+> > > 
+> > > FWIW, I think the makecontext() shadow stack leaking is a bad idea.
+> > > I
+> > > would prefer the existing makecontext() interface just didn't
+> > > support
+> > > shadow stack, rather than the leaking solution glibc does today.
+> > 
+> > AIUI the proposal by Stefan makes it non-leaking because it's just
+> > using normal memory that reverts to normal usage on any
+> > non-shadow-stack access.
+> > 
+> 
+> Right, but does it break any existing apps anyway (because of small
+> ucontext stack sizes)?
+> 
+> BTW, when I talk about "not supporting" I don't mean the app should
+> crash. I mean it should instead run normally, just without shadow stack
+> enabled. Not sure if that was clear. Since shadow stack is not
+> essential for an application to function, it is only security hardening
+> on top.
+> 
+> Although determining if an application supports shadow stack has turned
+> out to be difficult in practice. Handling dlopen() is especially hard.
+
+One reasonable thing to do, that might be preferable to overengineered
+solutions, is to disable shadow-stack process-wide if an interface
+incompatible with it is used (sigaltstack, pthread_create with an
+attribute setup using pthread_attr_setstack, makecontext, etc.), as
+well as if an incompatible library is is dlopened. This is much more
+acceptable than continuing to run with shadow stacks managed sloppily
+by the kernel and async killing the process on OOM, and is probably
+*more compatible* with apps than changing the minimum stack size
+requirements out from under them.
+
+The place where it's really needed to be able to allocate the shadow
+stack synchronously under userspace control, in order to harden normal
+applications that aren't doing funny things, is in pthread_create
+without a caller-provided stack.
+
+Rich
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
