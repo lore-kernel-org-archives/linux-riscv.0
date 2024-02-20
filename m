@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEBCC48BC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 03:08:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C289C48BC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 03:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=p5NRlecyD7xyY++PApYiNxO9WAi+zPbBr8YuSHOKlO4=; b=Bz8ewPGr6NZmbk
-	f1cTIR2UmZgzAC2w0SqNsWSJi/9G5d4lgWoA2AB7/Iz8MQ1c8o6W+BX7rpKnN+m48X2Ik4KSMZvHf
-	tTMsuHBL0fCM14Fr2uSXtHvfFa/0o0jKaduct5JWXZL5u2XX3I0Ldj7HM2SS9wHsYwGxr1b4V/dpR
-	TC1pxJRiAbAmcWdLYca6QP6BWmamlyw4VxNCdXlNMn/4+G3/ONCNWDl0hXhWTYI5dNR6P53Viccw6
-	9fPEb6PGBxv6EbuZQWFVcI9MazDfAZHEHlt7ztq7Pm3H1CWSE2g25eWMPoZfYXOo2CGVM/11ROalV
-	/OvPV65WIyCAlWuw+l3A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8NYFaIoQNPGu7z4J7GI1lDxBjyNpW2UzMeNNOnPiTh8=; b=3GmCPMPEuzrhp9
+	kKQXmqiKmIFvISwUbdwygNXcUM4tudavrwQbeG9pef7XBEQRwARu6EK1dClTCIDsQDLpFFHYMioKK
+	ehnSBPzsno6RNES/OyLjho0SE3ivprqsQuG/VDyBs0bdyU9EeBq8p0gKyYuYPK6fGYMHDskvjZmfm
+	kKvuDdvp655VUOwGOjeuEU8TrmEqeC+Ulrgs5haG+iaO4mg8ngKaq5kPl0KwPfxbl77ENDnKOzAZM
+	CVnKpGgdE+XQAvYaf3DuH+m0coqc6em3wi+QypqM0/Jsg+W/ooEYXPue5rcoiguWX9rgTdR1cYsdk
+	ItByGTUl1Dxn4m1wQFsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcGUS-0000000CwJd-0inf;
-	Tue, 20 Feb 2024 03:08:16 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1rcGV0-0000000CwPy-2Z7M;
+	Tue, 20 Feb 2024 03:08:50 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcGUP-0000000CwJ7-3b5J
+	id 1rcGUx-0000000CwPA-3BMv
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Feb 2024 03:08:15 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-6ddca59e336so2677994a34.0
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Feb 2024 19:08:13 -0800 (PST)
+	Tue, 20 Feb 2024 03:08:49 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-6e2f12059f4so2521192a34.0
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Feb 2024 19:08:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1708398492; x=1709003292; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=FV/8aar0yjeTSlwivEYZd0KdO8GyrBPEBvQRJPw14pw=;
-        b=jb9ZdQEbnyvsjtbxIQwZNHtoJw6iI7Yhy41m29kqroHlJ+A5mMXpo93KTNAjvkERQ+
-         +e/4A2YNmxdaSaNzbUmFYaulqmYaSKEDy/+xHc00XjmShugvUcZcab/RbhglAlVqy3+H
-         3py6glLL6Yjzg4h27w147YzgKGoMlaIpJ4uw5kaXqRlPzZYMEgGygOqp2tW1LaTRFLTW
-         F3cXG6jV8iRnkTA17JyPP9qmXNVfF3EgCEiupDajK/Q65+ba6U8piYqz7kivDZqLTKJG
-         l6KsPM47G2NKL7ZDMaUOksENpEkQokBeRiUrzzIE3fjFzS91FRSfvuSKv2tnhSanzB8h
-         rZIw==
+        d=gmail.com; s=20230601; t=1708398526; x=1709003326; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FvyDKytI3LByIiwfwmYUFkoNWJX9ByqcE9gyEaLOuuM=;
+        b=DyaknjbMVRsbxHHldYPCkR7MyGkBtvyGBXYnr4h2EMXzzc8w58MLXxK/cahTVUcv2/
+         pMelmemhFegm2JrTw/oXXPgnzU1UZ4vamPxGOpBac4RO8t1dR/Dunu6gymzCM4ggjo2j
+         314Fm9Q/hBP5R1UpYNyoFBsX0ITNoXEMhMDo4v63cCw75VrnlADSIWjwRFoiXEEBNAoB
+         PFS1r9n51wZqVKKMB34fwB+lW9r8GVVcNXZu30mn8/aDO8ZMK8x87uI26gfW6V3yCmRY
+         L+Huq01D8bpoOzumBU5LPIQBeiVhEXQeNgtect/pPmYuiFnzls3aFd0F+wydxhzCpJjN
+         CTHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708398492; x=1709003292;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FV/8aar0yjeTSlwivEYZd0KdO8GyrBPEBvQRJPw14pw=;
-        b=YbhIUwSCm+06FhmDXazP9RSqew1v8VbF51Nh7W42DMckXyy/+fE0qRaTXmmwYxPK6z
-         /0k6pbtb7xtdGJrkvxD4Fbwml2k/1B8u4io713Ytc5n7HDPJ/Y08aXHBzM0ABlkleHIF
-         FNSTqO6lOERy5xXKKPxQDkZ40qU3DQnW4J2c+7ewnPhqse5VCQr2NMyi0QqeAX8Ilml2
-         kQJDV3ZllDa9SVzM7GBHkC3KGJxIVPDyIIZr3dy71GEcCZfF6efd3lPhyQiPIeH+enEr
-         t3XZ+ODYSlv8PsjwhDWHX5eK5UgsV6Oh0c5hxa4X1l/e+/0SQ2uJCKZdDzC94spxAx3V
-         CdjA==
-X-Forwarded-Encrypted: i=1; AJvYcCUyDPi6YM6FXsKRdGOlDtLyvabBijNJ14JalmAHm0Fk6xvDBxvlmORL2dMRMg/XzTdCJyD8KXJb74+xIW7dSzD6o6rdS6BI+SOffBcC9y2q
-X-Gm-Message-State: AOJu0YyUI007S8BO7c7Hdd9/Bmxo1/A+TR3jGy4sA8/TmkuabJS+MpN4
-	i80Oq/VdoRYOR3vYxKd+fd5YujnP3WIu54NTT5iWuoq0jysbU1hh
-X-Google-Smtp-Source: AGHT+IG0bfS6KPLR4IvZ0y5QiKbxUNdumXv5cywZDVqFev9EJ1l2x/LgPwu3c7iVJStL6K2dzBIYhg==
-X-Received: by 2002:a05:6830:1bf6:b0:6e2:e6cc:2fb7 with SMTP id k22-20020a0568301bf600b006e2e6cc2fb7mr7605825otb.15.1708398492174;
-        Mon, 19 Feb 2024 19:08:12 -0800 (PST)
+        d=1e100.net; s=20230601; t=1708398526; x=1709003326;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FvyDKytI3LByIiwfwmYUFkoNWJX9ByqcE9gyEaLOuuM=;
+        b=dF6wzq+B3z4yNibJNGQlh/YS+x4T/NO9tT9j2tcXA6wfVlgwDeL+LrD3awAUpZ3OFH
+         R8D/vD82zL8pxQ9e1Fn0tNe8vG9o5yE8esYJzukTlmK9JyyTxYY2VQ3ZP6nTpP2B/HfU
+         AfB1qJ7IlZmCyl3wlz8JtkikmY56Xj+Nou4hOp+yf0FxXdQpP6VB32DUjaKkm2yojQBL
+         VzMy+Gs4TF1ECyuALrUYm4aCVJb0VztmhAt8v1ym1+oEgM44VcWEp3ALiwteb0WP/4j1
+         +S/fcsL+V1pqJDXbPJeqyqtbXYOcutRX9rWO8o9DFgGm1IGmt1AD/+dCcj1tmFTvSWoh
+         WivQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWXxC9WUWl1/CKF36w3ikOcwR6Fi8dWkuwV+/YfVLXpRMlDaxhTe7hV7MKmWUS1bFCI4N7dsYkX4v9JhZUQubiX+bspPa0H6RH22UGsUqBR
+X-Gm-Message-State: AOJu0YxwCAXrIxwHXB1A2A0DDf82DTEEqz7wZrnYnOlhWoTKdxavN04i
+	95zKFtuEE1ANl+zFfU/rOKAeU7BQslfyBXJs6cxshH4frnMSMQvC
+X-Google-Smtp-Source: AGHT+IHZPHDxduRznjnFT9HJ9VF/En0gTBhG8lGkybmmExK+w12IUjEuvgusnbsbKQfOQT1nK12MVQ==
+X-Received: by 2002:a9d:66c9:0:b0:6e2:f24d:697c with SMTP id t9-20020a9d66c9000000b006e2f24d697cmr16288749otm.11.1708398526492;
+        Mon, 19 Feb 2024 19:08:46 -0800 (PST)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id r3-20020a056830120300b006e2dec92b91sm1164311otp.20.2024.02.19.19.08.10
+        by smtp.gmail.com with ESMTPSA id dq20-20020a0568300ed400b006e2e8cb4da6sm1160483otb.16.2024.02.19.19.08.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Feb 2024 19:08:11 -0800 (PST)
+        Mon, 19 Feb 2024 19:08:46 -0800 (PST)
 From: Chen Wang <unicornxw@gmail.com>
 To: aou@eecs.berkeley.edu,
 	chao.wei@sophgo.com,
@@ -83,15 +84,18 @@ To: aou@eecs.berkeley.edu,
 	jszhang@kernel.org,
 	inochiama@outlook.com,
 	samuel.holland@sifive.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v11 0/5] riscv: sophgo: add clock support for sg2042
-Date: Tue, 20 Feb 2024 11:08:04 +0800
-Message-Id: <cover.1708397315.git.unicorn_wang@outlook.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v11 1/5] dt-bindings: clock: sophgo: add pll clocks for SG2042
+Date: Tue, 20 Feb 2024 11:08:39 +0800
+Message-Id: <92448a1ca9ad8f713dbdbf3453f1a5db0ca47d9b.1708397315.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1708397315.git.unicorn_wang@outlook.com>
+References: <cover.1708397315.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240219_190813_934533_59408B9B 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20240219_190847_826110_95920783 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,159 +114,89 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-This series adds clock controller support for sophgo sg2042.
+Add bindings for the pll clocks for Sophgo SG2042.
 
-Thanks,
-Chen
-
+Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
+Reviewed-by: Guo Ren <guoren@kernel.org>
 ---
-
-Changes in v11:
-
-  The patch series is based on v6.8-rc5.
-
-  Quick fixed some dt_binding_check errors reported by Rob.
-
-Changes in v10:
-
-  The patch series is based on v6.8-rc4. You can simply review or test the
-  patches at the link [11].
-
-  Add input clocks for rpgate & clkgen.
-
-Changes in v9:
-  The patch series is based on v6.8-rc2. You can simply review or test the
-  patches at the link [10].
-
-  From this version, drop the system-controller node due to there is no actual
-  device corresponding to it in IC design. SYS_CTRL is just a registers segment
-  defined on TRM for misc functions. Now three clock-controllers are defined for
-  SG2042, the control registers of the three clock-controllers are scattered in
-  different memory address spaces:
-  - the first one is for pll clocks;
-  - the second one is for gate clocks for RP subsystem;
-  - the third one is for div/mux, and gate clocks working for other subsystem
-    than RP subsystem.
-
-Changes in v8:
-  The patch series is based on v6.7. You can simply review or test the
-  patches at the link [9].
-  
-  In this version, the main change is to split one clock provider into two.
-  Strictly follow the hardware instructions, in the memoymap, the control
-  registers of some clocks are defined in the SYS_CTRL segment, and the
-  control registers of other clocks are defined in the CLOCK segment.
-  Therefore, the new design defines two clock controllers, one as a child
-  node of the system control and the other as an independent clock controller
-  node.
-
-  This modification involves a major modification to the binding files, so
-  the reviewed-by tags has been deleted.
-
-Changes in v7:
-  The patch series is based on v6.7. You can simply review or test the
-  patches at the link [8].
-  - fixed initval issue.
-  - fixed pll clk crash issue.
-  - fixed warning reported by <lkp@intel.com>
-  - code optimization as per review comments.
-  - code cleanup and style improvements as per review comments and checkpatch
-    with "--strict"
-
-Changes in v6:
-  The patch series is based on v6.7-rc1. You can simply review or test the
-  patches at the link [7].
-  - fixed some warnings/errors reported by kernel test robot <lkp@intel.com>.
-
-Changes in v5:
-  The patch series is based on v6.7-rc1. You can simply review or test the
-  patches at the link [6].
-  - dt-bindings: improved yaml, such as:
-    - add vendor prefix for system-ctrl property for clock generator.
-    - Add explanation for system-ctrl property.
-  - move sophgo,sg2042-clkgen.yaml to directly under clock folder.
-  - fixed bugs for driver Makefile/Kconfig
-  - continue cleaning-up debug print for driver code.
-
-Changes in v4:
-  The patch series is based on v6.7-rc1. You can simply review or test the
-  patches at the link [5].
-  - dt-bindings: fixed a dt_binding_check error.
-
-Changes in v3:
-  The patch series is based on v6.7-rc1. You can simply review or test the
-  patches at the link [3].
-  - DTS: don't use syscon but define sg2042 specific system control node. More
-    background info can read [4].
-  - Updating minor issues in dt-bindings as per input from reviews.
-
-Changes in v2:
-  The patch series is based on v6.7-rc1. You can simply review or test the
-  patches at the link [2].
-  - Squashed the patch adding clock definitions with the patch adding the
-    binding for the clock controller.
-  - Updating dt-binding for syscon, remove oneOf for property compatible;
-    define clock controller as child of syscon.
-  - DTS changes: merge sg2042-clock.dtsi into sg2042.dtsi; move clock-frequency
-    property of osc to board devicethree due to the oscillator is outside the
-    SoC.
-  - Fixed some bugs in driver code during testing, including removing warnings
-    for rv32_defconfig.
-  - Updated MAINTAINERS info.
-
-Changes in v1:
-  The patch series is based on v6.7-rc1. You can simply review or test the
-  patches at the link [1].
-
-Link: https://lore.kernel.org/linux-riscv/cover.1699879741.git.unicorn_wang@outlook.com/ [1]
-Link: https://lore.kernel.org/linux-riscv/cover.1701044106.git.unicorn_wang@outlook.com/ [2]
-Link: https://lore.kernel.org/linux-riscv/cover.1701691923.git.unicorn_wang@outlook.com/ [3]
-Link: https://lore.kernel.org/linux-riscv/MA0P287MB03329AE180378E1A2E034374FE82A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM/ [4]
-Link: https://lore.kernel.org/linux-riscv/cover.1701734442.git.unicorn_wang@outlook.com/ [5]
-Link: https://lore.kernel.org/linux-riscv/cover.1701938395.git.unicorn_wang@outlook.com/ [6]
-Link: https://lore.kernel.org/linux-riscv/cover.1701997033.git.unicorn_wang@outlook.com/ [7]
-Link: https://lore.kernel.org/linux-riscv/cover.1704694903.git.unicorn_wang@outlook.com/ [8]
-Link: https://lore.kernel.org/linux-riscv/cover.1705388518.git.unicorn_wang@outlook.com/ [9]
-Link: https://lore.kernel.org/linux-riscv/cover.1706854074.git.unicorn_wang@outlook.com/ [10]
-Link: https://lore.kernel.org/linux-riscv/cover.1708223519.git.unicorn_wang@outlook.com/ [11]
-
----
-
-Chen Wang (5):
-  dt-bindings: clock: sophgo: add pll clocks for SG2042
-  dt-bindings: clock: sophgo: add RP gate clocks for SG2042
-  dt-bindings: clock: sophgo: add clkgen for SG2042
-  clk: sophgo: Add SG2042 clock driver
-  riscv: dts: add clock generator for Sophgo SG2042 SoC
-
- .../bindings/clock/sophgo,sg2042-clkgen.yaml  |   49 +
- .../bindings/clock/sophgo,sg2042-pll.yaml     |   45 +
- .../bindings/clock/sophgo,sg2042-rpgate.yaml  |   43 +
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |   12 +
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        |   48 +
- drivers/clk/Kconfig                           |    1 +
- drivers/clk/Makefile                          |    1 +
- drivers/clk/sophgo/Kconfig                    |    8 +
- drivers/clk/sophgo/Makefile                   |    2 +
- drivers/clk/sophgo/clk-sophgo-sg2042.c        | 1401 +++++++++++++++++
- drivers/clk/sophgo/clk-sophgo-sg2042.h        |  233 +++
- .../dt-bindings/clock/sophgo,sg2042-clkgen.h  |  111 ++
- include/dt-bindings/clock/sophgo,sg2042-pll.h |   14 +
- .../dt-bindings/clock/sophgo,sg2042-rpgate.h  |   58 +
- 14 files changed, 2026 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/sophgo,sg2042-clkgen.yaml
+ .../bindings/clock/sophgo,sg2042-pll.yaml     | 45 +++++++++++++++++++
+ include/dt-bindings/clock/sophgo,sg2042-pll.h | 14 ++++++
+ 2 files changed, 59 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/clock/sophgo,sg2042-pll.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/sophgo,sg2042-rpgate.yaml
- create mode 100644 drivers/clk/sophgo/Kconfig
- create mode 100644 drivers/clk/sophgo/Makefile
- create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.c
- create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.h
- create mode 100644 include/dt-bindings/clock/sophgo,sg2042-clkgen.h
  create mode 100644 include/dt-bindings/clock/sophgo,sg2042-pll.h
- create mode 100644 include/dt-bindings/clock/sophgo,sg2042-rpgate.h
 
-
-base-commit: b401b621758e46812da61fa58a67c3fd8d91de0d
+diff --git a/Documentation/devicetree/bindings/clock/sophgo,sg2042-pll.yaml b/Documentation/devicetree/bindings/clock/sophgo,sg2042-pll.yaml
+new file mode 100644
+index 000000000000..b9af733e8a73
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/sophgo,sg2042-pll.yaml
+@@ -0,0 +1,45 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/sophgo,sg2042-pll.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Sophgo SG2042 PLL Clock Generator
++
++maintainers:
++  - Chen Wang <unicorn_wang@outlook.com>
++
++properties:
++  compatible:
++    const: sophgo,sg2042-pll
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Oscillator(Clock Generation IC) for Main/Fixed PLL (25 MHz)
++      - description: Oscillator(Clock Generation IC) for DDR PLL 0 (25 MHz)
++      - description: Oscillator(Clock Generation IC) for DDR PLL 1 (25 MHz)
++
++  '#clock-cells':
++    const: 1
++    description:
++      See <dt-bindings/clock/sophgo,sg2042-pll.h> for valid indices.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - '#clock-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@10000000 {
++      compatible = "sophgo,sg2042-pll";
++      reg = <0x10000000 0x10000>;
++      clocks = <&cgi_main>, <&cgi_dpll0>, <&cgi_dpll1>;
++      #clock-cells = <1>;
++    };
+diff --git a/include/dt-bindings/clock/sophgo,sg2042-pll.h b/include/dt-bindings/clock/sophgo,sg2042-pll.h
+new file mode 100644
+index 000000000000..2d519b3bf51c
+--- /dev/null
++++ b/include/dt-bindings/clock/sophgo,sg2042-pll.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause */
++/*
++ * Copyright (C) 2023 Sophgo Technology Inc. All rights reserved.
++ */
++
++#ifndef __DT_BINDINGS_SOPHGO_SG2042_PLL_H__
++#define __DT_BINDINGS_SOPHGO_SG2042_PLL_H__
++
++#define MPLL_CLK			0
++#define FPLL_CLK			1
++#define DPLL0_CLK			2
++#define DPLL1_CLK			3
++
++#endif /* __DT_BINDINGS_SOPHGO_SG2042_PLL_H__ */
 -- 
 2.25.1
 
