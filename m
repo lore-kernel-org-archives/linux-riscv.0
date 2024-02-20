@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3795C48BC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 13:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4D6C48BC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 13:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4LXhgQsoLqY/NYsEHGvMj+4kc127jEMXlxC4MJqfWD4=; b=eomJa2gvWMovol
-	5Cp8JH7T+An4Jap8mvp4NTNREBSxydB1feTsO3nKYcsa3xDu8Z569nRV1I/dQTR9jxdzHR/4hODk/
-	iYWsJ6FvKqzjXBiIwKTj5fnqYDyjbV/LF9PMCh3erHHwZGNqqLTAp2Oeqj9oSnWBF1LQY3A+NrHMW
-	oqj91lzGTKNDnOUmFtcYGqYxAccLjHX+uykM+fRR59O/9Y/ZDS8xoSvyUkjgN+tX1qDt/LkHiY7lW
-	OkAKMaalCDhTuqLyamg/nFUWNby+VXzP04vogY7RulsIbk/6+iYoOL8wxdAClLqC0Z3Iyh7BXXLOs
-	AWWZAqNlHz+KpLr/vnhA==;
+	List-Owner; bh=5EyIJw50QetKht6ihRG2djuOylgGh43UBtiRDK4k+G0=; b=OiEHU+JtHUvdRZ
+	hF5MSNEUwSc1il+Acsp0RfzdsAxG5gjoHqWgb8fZ58govDNSrmVQESFVFbgxdM9w9jsNIKe4oOUeN
+	UP4KuucQCQuTzfNOLRBWnd3uEOcCfYNgFE3vjoqnrkRqKzIvWrtp5MyS0Sex4qBJ7LgThwgiiPpGY
+	LcI/wlLrnPimSvd+qLtSEyDy02ZwbOXztNBtj7Q9ZwuO2fGIBc1k9mffO0J4y6lOqHyQR2FVxfIpg
+	rZIlPoFfsnNu2qI4WQAq30EeBL/B6o7L5J7/sN5BgUyk7PQ+NseUGRkh6IswunJPnsgeYkIgr2SJk
+	B//ikt+lF192ERsHgCeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcQHe-0000000EvWY-3Ms1;
-	Tue, 20 Feb 2024 13:35:42 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1rcQMp-0000000EwwX-0HHX;
+	Tue, 20 Feb 2024 13:41:03 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcQHa-0000000EvU5-1q3h;
-	Tue, 20 Feb 2024 13:35:41 +0000
+	id 1rcQMk-0000000Ewut-2iyY;
+	Tue, 20 Feb 2024 13:41:01 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1708436137;
+	s=2020; t=1708436457;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=LxDrWUoqTF4UCOljm+/CQR8VV7wFryZe0gkav5P0KMk=;
-	b=aVVHgztb0p2AuL7Y//VQvDZYfGZpXQN5XWAcU8UBDLmGuuETChzmXxLmq5h5ScgwFHze7S
-	Qrbsh+puub63PQj4UbpCR45FNa6xbU4Htl+DfH8tEgeaP7w7kXFOMM+RfLgQ6e4+PNFGaB
-	Q3KaF1ce77yqiwkNitCdX/QZSHpUOhWKeeGFnpV/K1p+kEB2Jz+P8N0ni980o9883Wp7bm
-	qWzLleftZ7h+m920QAYEEuWBD3wTd2m8qpRTNrrVe7whar0/kLfTzf68DS+lRE7j0+hf3o
-	uTpC+D08M49/FMfib/WWMXMz73OUCnDvjoQQlyJnygpS7/Pehj0sYTqxx7Rrew==
+	bh=RERjxgu8dqdL6aUr837paWAP3NAbeqyENHSlhkJ7sJc=;
+	b=3FzLow9j1OLGi62YTb/xPduwMDyy2OL4cGeobfLs0rjJoz9MtV1ffOAl2Nm6oEofTI+AZ/
+	laPmvLOjhmWOPp66A4oP4SaRk20DRrCXRSdloKczm21/m4pVcQeZbMfIgbzYU6ecHzRx/N
+	xaJ58GwCWyWgLTunV9W+vWs3lE0HveIHwrHhSQgS7MwC3mkdCFuAT58+Yl9BcPQlOsIwqG
+	oU0DQY84nC6P/tfXxBPSMBXGCgftWN31rL2SbuBOUhuMhklAeMXYLqIvM2bdXuZEVKzMj9
+	8hzb5rSCiEIvqNksYGqAHzVtld/NVTbkYyPUQgTh/urBlEEzCUmvMBQwdxm2ag==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1708436137;
+	s=2020e; t=1708436457;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=LxDrWUoqTF4UCOljm+/CQR8VV7wFryZe0gkav5P0KMk=;
-	b=5gi5BJKHwq+Hpu0n4anP6RYba/28i4acUk2Iqiwo1Rx6puv3PfE5WN6+88/uq/aFjix3jx
-	geSB/GUV9HTRSGAQ==
+	bh=RERjxgu8dqdL6aUr837paWAP3NAbeqyENHSlhkJ7sJc=;
+	b=nKDEH5izTI650ZGE5NgM3CY9zurMtqKTsRCVaPMSnjgdPpTIKmVr94JSPJI6Q2nxyv+yXt
+	EOLe514i4KzxWhDA==
 To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Rob
  Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
  <krzysztof.kozlowski+dt@linaro.org>, Frank Rowand
  <frowand.list@gmail.com>, Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v13 08/13] irqchip/riscv-imsic: Add device MSI domain
- support for PCI devices
-In-Reply-To: <20240220060718.823229-9-apatel@ventanamicro.com>
+Subject: Re: [PATCH v13 10/13] irqchip: Add RISC-V advanced PLIC driver for
+ direct-mode
+In-Reply-To: <20240220060718.823229-11-apatel@ventanamicro.com>
 References: <20240220060718.823229-1-apatel@ventanamicro.com>
- <20240220060718.823229-9-apatel@ventanamicro.com>
-Date: Tue, 20 Feb 2024 14:35:36 +0100
-Message-ID: <8734tni7h3.ffs@tglx>
+ <20240220060718.823229-11-apatel@ventanamicro.com>
+Date: Tue, 20 Feb 2024 14:40:56 +0100
+Message-ID: <87zfvvgsnr.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240220_053538_649097_3F9C591D 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240220_054058_848176_E780BB5F 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,18 +80,66 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Tue, Feb 20 2024 at 11:37, Anup Patel wrote:
->  static bool imsic_init_dev_msi_info(struct device *dev,
->  				    struct irq_domain *domain,
->  				    struct irq_domain *real_parent,
-> @@ -218,6 +241,7 @@ static bool imsic_init_dev_msi_info(struct device *dev,
->  
->  	/* MSI parent domain specific settings */
->  	switch (real_parent->bus_token) {
-> +	case DOMAIN_BUS_PCI_MSI:
+> +/*
+> + * To handle an APLIC direct interrupts, we just read the CLAIMI register
+> + * which will return highest priority pending interrupt and clear the
+> + * pending bit of the interrupt. This process is repeated until CLAIMI
+> + * register return zero value.
+> + */
+> +static void aplic_direct_handle_irq(struct irq_desc *desc)
+> +{
+> +	struct aplic_idc *idc = this_cpu_ptr(&aplic_idcs);
+> +	struct irq_domain *irqdomain = idc->direct->irqdomain;
+> +	struct irq_chip *chip = irq_desc_get_chip(desc);
+> +	irq_hw_number_t hw_irq;
+> +	int irq;
+> +
+> +	chained_irq_enter(chip, desc);
+> +
+> +	while ((hw_irq = readl(idc->regs + APLIC_IDC_CLAIMI))) {
+> +		hw_irq = hw_irq >> APLIC_IDC_TOPI_ID_SHIFT;
+> +		irq = irq_find_mapping(irqdomain, hw_irq);
+> +
+> +		if (unlikely(irq <= 0))
+> +			dev_warn_ratelimited(idc->direct->priv.dev,
+> +					     "hw_irq %lu mapping not found\n", hw_irq);
 
-	case DOMAIN_BUS_PCI_DEVICE_MSIX:
+Lacks brackets. See Documentation....
 
-?
+> +		else
+> +			generic_handle_irq(irq);
+> +	}
+> +
+> +static int aplic_direct_starting_cpu(unsigned int cpu)
+> +{
+> +	if (aplic_direct_parent_irq)
+> +		enable_percpu_irq(aplic_direct_parent_irq,
+> +				  irq_get_trigger_type(aplic_direct_parent_irq));
+
+Ditto.
+
+> +	return 0;
+> +}
+
+> +void aplic_init_hw_global(struct aplic_priv *priv, bool msi_mode)
+> +{
+> +	u32 val;
+> +#ifdef CONFIG_RISCV_M_MODE
+> +	u32 valH;
+
+No camel case please.
+
+> +
+> +	if (msi_mode) {
+> +		val = lower_32_bits(priv->msicfg.base_ppn);
+> +		valH = FIELD_PREP(APLIC_xMSICFGADDRH_BAPPN, upper_32_bits(priv->msicfg.base_ppn));
+> +		valH |= FIELD_PREP(APLIC_xMSICFGADDRH_LHXW, priv->msicfg.lhxw);
+> +		valH |= FIELD_PREP(APLIC_xMSICFGADDRH_HHXW, priv->msicfg.hhxw);
+> +		valH |= FIELD_PREP(APLIC_xMSICFGADDRH_LHXS, priv->msicfg.lhxs);
+> +		valH |= FIELD_PREP(APLIC_xMSICFGADDRH_HHXS, priv->msicfg.hhxs);
+> +		writel(val, priv->regs + APLIC_xMSICFGADDR);
+> +		writel(valH, priv->regs + APLIC_xMSICFGADDRH);
+> +	}
 
 Thanks,
 
