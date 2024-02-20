@@ -4,56 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EEBBC48BC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 19:04:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB5CC48BC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 19:09:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bSSUKqttezPQLA2fDvVsCFDzIFMybwaw8ijeBBUGLy0=; b=Ac2JejDWGS1Xr+
-	1NEmPMaZsLUOG9vGi6Z9N+7qAf7QbAMQMez7ogfwCinEYt1oOVh4s5MOR/CsVEWJ+jItlmoXBe9FQ
-	5JZ07+dqfvKtCGRPygnoSzhTElCZlxca367Rjuk9wn4aiK1RmLY3IPwXk2b2u+AkfasHR0CM+J64C
-	ZSM+NXMF5O3CnFZZ8QtbLOPgflkacymLD7HxQ2F3B04qpuwIye1N+tlAnkwqJBvmpxJ+HvJfulppV
-	z1iHC1jZEII0uDeAD7lUvrjD+8rPr/Uuow3FiV8zbVNe3ZlTlnQC2EdwrUgqgkkMXgRwBkpW2ihOp
-	ZgNukkRgaKnP4WqMSOrQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lNMkpr9ztYN1hxn9ffVdC8xLzXSJmHV0cu+DrZ8FNq8=; b=U52ytphw1Lt3ci
+	OYF7SZAyTcdkZpXM22Z2LODFURHDyNlJtXPMR/nu8Uucr2zPeiy+yCD76+NOVulZgL0RVq1HVWFgN
+	K2bWaTctGTgiVYc0uvr7Fd9f4/VWmNTK+wcqqoTJEXckKQuCmT9mrU7CEY9n5k+60H4TBIr6tUDsL
+	04tfVLO4SPF2VOITq7z7Hj/kwAkjohLhouuvIkX1D4zfQ7Gt6wdZNqw8SfPH/4iqZZL/4cBEEIn3f
+	J3RDVdbV6lU/JGyGabspWWGgxgaSDkqYBepUTPFDSSC+SHvNWnHFK+i8jpduIVKrQuoKLkuw4omxs
+	4TvwgsIKr1ABdYpnZYng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcVQ3-0000000FtCS-2m3P;
-	Tue, 20 Feb 2024 19:04:43 +0000
-Received: from out203-205-221-202.mail.qq.com ([203.205.221.202])
+	id 1rcVUB-0000000Ftbt-3wyp;
+	Tue, 20 Feb 2024 19:08:59 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcVQ0-0000000FtBL-3SWp
+	id 1rcVUA-0000000Ftbh-1naW
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 20 Feb 2024 19:08:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	Date:Subject:Cc:To:From:Message-ID:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=u7KHD7RG1W+C5tk/BT6KiPSWci7A42fZiVpBZLG4M2Q=; b=ac/kRgS2KjgbRnKslNlUM/7aiH
+	B1pW2UaauRaBFJf9vq5vtTHXfxv1XVVm3iVNJKvshP2N5AbGBLr3SVXHQH7DvmC6SA87oQ5928KeG
+	/ZthXlYC+NNBSh0A0VKebJp95M9tzySLCBsjftR1CVBrJDoOWwIAqeTfm9a3XLYmN+G8me2Id6WpE
+	fbEyaB+Dq9WWqD/Bbs6r7JVmAvXopYRv9HZiF0FzTb5iPeV/l01cNYQ2ZtURt/T2CTQ3CrtF96g8u
+	M3aBotfNVhGPW8nXrpq/9ZisyDXuD4AOSk+aZ4nXX6hHDAWCcJo7eyIipjZppmwUAIBUUwgm6swG1
+	KHfm+FSw==;
+Received: from out162-62-58-211.mail.qq.com ([162.62.58.211])
+	by casper.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rcVU6-0000000GLCH-2QRu
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Feb 2024 19:04:42 +0000
+	Tue, 20 Feb 2024 19:08:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1708455872; bh=pFI8FnzNKc7+k3g3nC6wduGRD05uGcNCchPjmG7qSZQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=xH4Vlx+Iw1qBWB6+s8znzfa+isssUZmB+StD6rZKsVelT6ZDRVtSJ19bj65HuqGpx
-	 Usq7bhzKhMOLO2Du9Ed3b15Btq8xMF10SuSytGaQL3harArxxQrGm+atQPw5N185Wt
-	 7bt8rDXMOHFCdLB5pgUgfoXh8ugEkNovzBppR7eQ=
+	t=1708456117; bh=u7KHD7RG1W+C5tk/BT6KiPSWci7A42fZiVpBZLG4M2Q=;
+	h=From:To:Cc:Subject:Date;
+	b=kwRMhzUrBSgZ3BVXhiLWASLO+cfgmWpcxOMlCLRws2GdFNGOB7+kuniSViGw5I7IS
+	 afANUySMWbZ7TXWf1wMJsq4JMuAvA+4em4VQQfShVt15FAnJQSyX7o28MHZMs9BVZv
+	 d1u66ABKAh4Nrc6iYLCcG8af6/wvUBa3KrMjNcso=
 Received: from cyy-pc.lan ([240e:379:2240:ef00:159c:db93:bdcd:c9c6])
-	by newxmesmtplogicsvrszc5-1.qq.com (NewEsmtp) with SMTP
-	id 11B84C23; Wed, 21 Feb 2024 03:04:27 +0800
-X-QQ-mid: xmsmtpt1708455867tqokz8oa2
-Message-ID: <tencent_C9E0DAC75884B0346EF2250A5E68673BA20A@qq.com>
-X-QQ-XMAILINFO: NiDupExshEc70XaZcuHgb8zjvf3CU1GVRuohbIeat/MxFt3rjbDuW0+/qs/vNI
-	 brFaK+gI/D/pbti3ER5TG6xRXTKOUWNd9FPRoxKGvovkb30i0zGP6AjYCtkTefdNvZwOBEOM6wYu
-	 ZcoxioPhd7iwsUHf/g/WhPgrQZc1nTjSNwHW1UCeQo6zXWO3v5mmX5TEpbByeSawtIYkfWCHzrWx
-	 ApKUmp36gVV+dR5Tu5gqOZdhVtn7y8ei3V+DxRoQ9tiAtYWq6LGsKJ8iCOqOQt/VIlSqb6zbYaRt
-	 ClzLW/bkWzJYC7juZOP3zHWUjDj0SpCKnx7sJgLzJ3rRK3v7d51WW+6YNiBzw2rY7XOk6gXhaAqp
-	 U92TOemu2sPUobqYSutBxT7vc2IGO5uDIV7gSLmm3cJdNwP5XbngCGxZxvzBrWe7d9/rh417HpGV
-	 /7DiTJK+VH/Rf9lpx2xgo0PP3N736whsCCja4B8f7KIb339SNLesD4et4+9yRY+ZK47Ivcmmrfct
-	 qNjHDKOjg5n3XC+Hbvy6LRkd6QtOf3lFDEadGDY+Jydg0lqMS9IYwxBclw+Pw6E8SSRJHAGwADBt
-	 +klC+wtdaqHn089ymz6GyY824nSTJWIxW/uK83mTYrCmbxujPIkjU81Qmvk9ruNBYNYE06S9O5rT
-	 0eqCXfb9f3BHhg1GZQ71bFPYJEBBl7UmSIa+qz435Hh9QAdkB4FsE4iO9JQnhraigg1q9nm7NMb7
-	 ZHcGPYIJ6HAEZqw1T3RADbj1An7bqZ/k5ogRNouk9f1oKKkJulKeckLpfxSQ/qFgkT7VHwF1I8oE
-	 XGfoKXAO0Y6TBytuSsNhSBaDVE6GdDp7nelwB+MnywgPQeTz56gkh9plZgTD4sBcVhTxo0PoUJmz
-	 cD/1AQwMANrzY4LbAE32IKPm3luCliRZSc1H2CrckUXb/5yZcPGkWOUjo8tnT7XcK7615nfTFPgQ
-	 8uncXOXFsPjydH3WWWFpIttl3xFTtcWLxuWhWPNaRVYtAejZVLHtNYjxlvQh+PeRXhu3t9V6TKry
-	 e6rZ4yNz+lnStBmh+PbBdo2R02HGQ=
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+	by newxmesmtplogicsvrszc5-0.qq.com (NewEsmtp) with SMTP
+	id 87A7667; Wed, 21 Feb 2024 03:02:07 +0800
+X-QQ-mid: xmsmtpt1708455727tbv094zbu
+Message-ID: <tencent_AB625442CC1BCFF86E04D7B5891C43719109@qq.com>
+X-QQ-XMAILINFO: NYdHd+5EbUy1IztpfkAF9XOfYQ2NVGTyri3rjQSIy/snEhaonuY3QLUJufgv6v
+	 i0sVwFO2yVlC0yzQLvN5XohOm2ODbp+JZWvB0sReiCQU9AHq8wVnqtGq6dDYUCWEDunbiLR6QcKY
+	 JrSJuMWeWtOtcTzVtPFIGPeMGujjltZoBzE1/jfe7MEhEpg31EL9cpryD6B5pqzdJLSLWw2f8xMv
+	 cwEfocgIzTMScbXZNItQv11F9yGw5xGZp5Jin8ZiED4IgcFnzo+zD2yisTSqVdyAkT2OZSlaxaGA
+	 vdaciIrghLbTCm1opuuAQAyEXNLSxcfJApzsxr5rtipTVBtuNOiGKgPvxnzjr+8Tyzj6T/BHtuXW
+	 d1YRwWDfK39GiLIike7/gSDwecJCJ7ZAMzXhrEw6Pp3bmrp3nYVEJF5lLv/BiQ8RPWHTENz0mEG0
+	 V17rYYCpBeIVPjUwoJNeilvfQ8bitThMobmE3Te3ZWOrI04OGkTLygc5cjxxxQDlVYNSMM+cEHve
+	 iVx+P5N4d/uXufURiD1ZnS5gvZZVARZLldNDaaxiqWb/jE0e7qVZuS+xg30PqVi+itKaA/rRgm93
+	 E2j4Zc/CPCL78E8pyjij/7baNbu0v7eHjolhFgE5UDE82K15E/eHvTlWT9aWytqDeQoyriD+rdfL
+	 J/feLH60fE6PuUR1uwSNrTOuANgmTj73Ldv8PGVTj4tO+JgCcH7yMIv4OD8CY3/dgqU/VWlHJp2G
+	 JE9vqgjq4m+kS69Hhd8Yj0IZIevXDTNAwc3kQ087UF5SbYpUa5ZkSMmZrnawYu4/31yNTcKaE1fi
+	 5ksrhME0UajffWdSVHvHABXd/YuT+3eBQMBSrxUli1wtxLplB37Nrq2Sz5/+9dqUQnHwxNhasySH
+	 7+89ze/GCe2V5V67pMOtERtNyMBW45jwMij5MD0M23PvwULpni115jxI6aZER8CQcT2gazI4FLEY
+	 MhmiXySCUt+bKcr9osQEbVBJGEKHsj+Mrg5einmD1g2kR1ddqL3oAB+mVyveK2CnHQsRG2mPUoWG
+	 VHnK2IxT78Lya67o6P
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
 From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -66,16 +81,14 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Rob Herring <robh+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	Yangyu Chen <cyy@cyyself.name>
-Subject: [RFC PATCH 1/1] riscv: dts: Allow BUILTIN_DTB for all socs
-Date: Wed, 21 Feb 2024 03:03:57 +0800
-X-OQ-MSGID: <20240220190357.3391307-1-cyy@cyyself.name>
+Subject: [RFC PATCH 0/1] riscv: dts: Allow BUILTIN_DTB for all socs
+Date: Wed, 21 Feb 2024 03:01:53 +0800
+X-OQ-MSGID: <20240220190153.3390862-1-cyy@cyyself.name>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <tencent_AB625442CC1BCFF86E04D7B5891C43719109@qq.com>
-References: <tencent_AB625442CC1BCFF86E04D7B5891C43719109@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240220_110441_212653_9163BA27 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20240220_190855_154250_C065717B 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,103 +108,32 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 The BUILTIN_DTB kernel feature on RISC-V only works on K210 SoC only. This
 patch moved this configuration to entire riscv.
 
-Signed-off-by: Yangyu Chen <cyy@cyyself.name>
----
+Although BUILTIN_DTB is not a good choice for most platforms, it is likely
+to be a debug feature when some bootloader will always override something
+like the memory node in the device tree to adjust the memory size from SPD
+or configuration resistor, which makes it hard to do some debugging. As an
+example, some platforms with numa like sg2042 only support sv39 will fail
+to boot when there is no ZONE_HIGHMEM patch with 128G memory. If we want
+a kernel without this patch to boot, we need to write the memory nodes 
+in the DT manually.
+
+Also, changing DT on some platforms is not easy. For Milk-V Pioneer, the
+boot procedure is ZSBL -> OpenSBI -> LinuxBoot -> Linux. If DT gets
+changed, OpenSBI or LinuxBoot may refuse to boot. And there is some bug on
+LinuxBoot now which does not consume --dtb argument on kexec and always
+uses DT from memory. So I would like to do debugging on DT using
+BUILTIN_DTB, which makes it very simple, I can even install the kernel in
+the distro's way and provide a kernel package for other users to test.
+
+Yangyu Chen (1):
+  riscv: dts: Allow BUILTIN_DTB for all socs
+
  arch/riscv/Kconfig                  | 16 ++++++++++++++-
  arch/riscv/Kconfig.socs             | 32 -----------------------------
  arch/riscv/boot/dts/Makefile        |  2 +-
  arch/riscv/boot/dts/canaan/Makefile |  2 --
  4 files changed, 16 insertions(+), 36 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index b49016bb5077..23d501561e64 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -996,7 +996,21 @@ config RISCV_ISA_FALLBACK
- config BUILTIN_DTB
- 	bool "Built-in device tree"
- 	depends on OF && NONPORTABLE
--	default y if XIP_KERNEL
-+	default y if XIP_KERNEL || SOC_CANAAN
-+	help
-+	  Build a device tree into the Linux image.
-+	  This option should be selected if no bootloader is being used.
-+	  If unsure, say Y.
-+
-+
-+config BUILTIN_DTB_SOURCE
-+	string "Built-in device tree source"
-+	depends on BUILTIN_DTB
-+	default "canaan/k210_generic" if SOC_CANAAN
-+	help
-+	  DTS file path (without suffix, relative to arch/riscv/boot/dts)
-+	  for the DTS file that will be used to produce the DTB linked into the
-+	  kernel.
- 
- endmenu # "Boot options"
- 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index e08e91c49abe..623de5f8a208 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -84,36 +84,4 @@ config SOC_CANAAN
- 	help
- 	  This enables support for Canaan Kendryte K210 SoC platform hardware.
- 
--if ARCH_CANAAN
--
--config ARCH_CANAAN_K210_DTB_BUILTIN
--	def_bool SOC_CANAAN_K210_DTB_BUILTIN
--
--config SOC_CANAAN_K210_DTB_BUILTIN
--	bool "Builtin device tree for the Canaan Kendryte K210"
--	depends on ARCH_CANAAN
--	default y
--	select OF
--	select BUILTIN_DTB
--	help
--	  Build a device tree for the Kendryte K210 into the Linux image.
--	  This option should be selected if no bootloader is being used.
--	  If unsure, say Y.
--
--config ARCH_CANAAN_K210_DTB_SOURCE
--	string
--	default SOC_CANAAN_K210_DTB_SOURCE
--
--config SOC_CANAAN_K210_DTB_SOURCE
--	string "Source file for the Canaan Kendryte K210 builtin DTB"
--	depends on ARCH_CANAAN
--	depends on ARCH_CANAAN_K210_DTB_BUILTIN
--	default "k210_generic"
--	help
--	  Base name (without suffix, relative to arch/riscv/boot/dts/canaan)
--	  for the DTS file that will be used to produce the DTB linked into the
--	  kernel.
--
--endif # ARCH_CANAAN
--
- endmenu # "SoC selection"
-diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-index 72030fd727af..318239d9423b 100644
---- a/arch/riscv/boot/dts/Makefile
-+++ b/arch/riscv/boot/dts/Makefile
-@@ -8,4 +8,4 @@ subdir-y += sophgo
- subdir-y += starfive
- subdir-y += thead
- 
--obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
-+obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix .dtb.o, $(CONFIG_BUILTIN_DTB_SOURCE))
-\ No newline at end of file
-diff --git a/arch/riscv/boot/dts/canaan/Makefile b/arch/riscv/boot/dts/canaan/Makefile
-index 520623264c87..987d1f0c41f0 100644
---- a/arch/riscv/boot/dts/canaan/Makefile
-+++ b/arch/riscv/boot/dts/canaan/Makefile
-@@ -5,5 +5,3 @@ dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_bit.dtb
- dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_dock.dtb
- dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_go.dtb
- dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maixduino.dtb
--
--obj-$(CONFIG_ARCH_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .dtb.o, $(CONFIG_ARCH_CANAAN_K210_DTB_SOURCE))
 -- 
 2.43.0
 
