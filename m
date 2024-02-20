@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D839C48BC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 02:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF97C48BC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 02:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,57 +13,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-reply-to:Subject:Cc:To:From:References:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=u+K7tOn4Oi3NCndCISIhofluvQbPPragXgPV6faFyew=; b=KDRyTGi9IJHEAHRZEILD6ey5oa
-	W9w1RLpMwByhEPoat83Sb/oylN93SGfn1AgKPrcREKx/K91Q+WjJl3XijK+FO3OqhIzVAJEBPhxi8
-	4WOkjVLWndmDAJdf/swpExot+uvfpuvjSdjiL4GNYs+RrrvOMkMapvTcJlXckrPT7hbw92Rnb8zJ2
-	CkILFqHxcdxw5QS+4kw+Z7EqXqnw9Qa5k68Lkel6n6W1JZy3fpQAyxwCWa+NHGmRozhIrQ002LKZp
-	AnnvPRpLFhn2TCDuBsfBX+HhmIqfaJxNoVzAxf/S1gp5mBVXwAgIUs6aavu3hy/ufgJQ3NkA1kZ+1
-	pehA8cBA==;
+	bh=95OEUShPouo5Ov2DgPMQL94rrfh1Xo0BDOmL29kVO88=; b=TNCyggeKrVJvJzcZOVQ2u98xZm
+	mskTHDjCCMYbbpIHuRDZIicE9gVwJQUhvKcSXSZRYWzsN0+bhfZTauQsKSYvKGZ69djEtglZC34wG
+	uHKo+naBX3GlxwF27nO8u5ITccCkS+l5G/QQWi6Yi4FE0Ptq6zgP0JO+GjJP6OqbQGtyD0XC+mz1k
+	u7omrreoiJKdLPekXaHnYD1Anq7bNeEmj1RwynCM5PpRADPr7kaEqZhYYD8Vvh6HnC5CLpnjs+tuV
+	W6WXubsJVzIdW3leAXcin5OIZddOLby5lWi3zFHjcFM5AGgEHzNbnSMwIipXH8RTaClJ+Nn9g24/Y
+	PF2R/WeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcFRJ-0000000CnvJ-2yjx;
-	Tue, 20 Feb 2024 02:00:57 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1rcFSp-0000000CoDP-1TzS;
+	Tue, 20 Feb 2024 02:02:31 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcFRF-0000000Cnt9-2WDl
+	id 1rcFSm-0000000CoC2-3QYu
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Feb 2024 02:00:55 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-5cfd95130c6so2980654a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Feb 2024 18:00:51 -0800 (PST)
+	Tue, 20 Feb 2024 02:02:30 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-6e3bdea186cso780606b3a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Feb 2024 18:02:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1708394450; x=1708999250; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1708394545; x=1708999345; darn=lists.infradead.org;
         h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
          :user-agent:references:from:to:cc:subject:date:message-id:reply-to;
-        bh=TPVEuybRyh8o5XcrU4e2hriNxyZdgI2hibiqaIMVscs=;
-        b=X8VnJuQoUrBF811CWJXvEozuqyWQHSoCbMUkYGpE8sEpqRDZPLhqNbroUB5FpLe5R8
-         LgahaXQfSuShqtA339hVkl2ycvjbkOoSRG20HTbBR5WEzpkNMszk2sN9jX5lRigAaLGb
-         jIVxdnO57Z28IG70K9v/BqoOC3JL6zxcfRE9jmONQ1MNFgm4remt9qsWTpRN78O1Uhg+
-         ENU8r+Ndojz939+bqTE9M9gqp+iRqh457PtgMgTukCcLhuasLJknuXqmX6HDKWp9EIul
-         xCQK4LTK8rOte/dIBdFj0UOQzmmnPKeu3YUkHekE+kJtZVAgCniDZKnUBXlw+npdRWd7
-         BD5w==
+        bh=gGuBNyvpaV2ObDTkL/I2kZTcUQ/VEw4s3L6Fk4TZnkY=;
+        b=mbXcT1aM2xaKcKMRNY3crOSTX3RGNXkFzTUdoR4hUmAcFgezdTfwW6JKFYYGaIFL0e
+         JmUV+q+uqWTm/1thjcMp4t/vPTzBbxdPNT1ybX0MeYy3/kLVv/3irbqJ0u7pPeexI4Np
+         JrlGUMi8JKplPkrqHuIMv8l+S3gOu+lY15dUxhc5/j6uEFulExBXWZs9I4niOOwSXBBm
+         erL1XkA0EgD5fte+FphPaMmifzB0iMPzzPuH0zOzLdcwECG7gR7jNJvg2w2BlRe49fdH
+         MFhzjQWTge1SD/SzJ2D8UH9rbKVyn3xpkHKhQqxhs5HF01fLGpDHygAT3Opu3Bd6rMfn
+         CZ5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708394450; x=1708999250;
+        d=1e100.net; s=20230601; t=1708394545; x=1708999345;
         h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
          :user-agent:references:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=TPVEuybRyh8o5XcrU4e2hriNxyZdgI2hibiqaIMVscs=;
-        b=nTBU/m/WADA3cuHxTVEb6Fw1AXmvyEKYhhq7tu5KC5AuY1qv2viqLSXnLSd9yMQa3e
-         sqWWFpmiM8wsTgXHAQ/inbPBKabxVrtE0hBvmLvWbK5mK8kmvP5YFJ5D7ASpxXUjIL5Y
-         VXoI19jED11rn+6DQ6MxtQpRU17IItl/2ni2AbNv783zlPWiWm5VFQnAxOEsbUhb4quZ
-         rgcnAI+JvWToxv6jbyFFGSfcJIQ5PTDQg0cTOKrffybtZsIrutjvstksWAvyZgR4DijO
-         uTkg/0v58YXnNsEnSmTbHKaP9HoILsEDEpuPJdAnZ7QbT2YHj64XYo12pTfxyUWeSeeJ
-         Jxkg==
-X-Forwarded-Encrypted: i=1; AJvYcCU7shimRQk3x08B2f6Yc3XIQTxaT6m9iPkwdSM5469tbB3grNSIVaE0vYR+0lSLp2CaT5jLhj01377FXS7METgiqJcQaDyPWHDfFX+Y4bmD
-X-Gm-Message-State: AOJu0YwojFlxoE7n6zO+Ehu9AGxagBB5R1FlhRNu7mJN2SMiaJ9aVZLn
-	4OXQcoLov/P+Ymzx9ZafijhWdUWsrm08/3J62adphuz7DQQfcsgV8Vbp6AkAi20=
-X-Google-Smtp-Source: AGHT+IHQRCR15jZ5TkL4psb84wN2RgNzkdO9BEfcOkiOYvFiSNgotMA3Enz/ysz1JOMgmumVFviryA==
-X-Received: by 2002:a17:90a:de0d:b0:299:3332:a649 with SMTP id m13-20020a17090ade0d00b002993332a649mr8755614pjv.18.1708394450582;
-        Mon, 19 Feb 2024 18:00:50 -0800 (PST)
+        bh=gGuBNyvpaV2ObDTkL/I2kZTcUQ/VEw4s3L6Fk4TZnkY=;
+        b=QKwOrpsEKZ0VSeEIX54ZTyBR1p1rJoRS4Ei46OGSphaz7G+ziU+P1+72gFALHpw6Ua
+         BM9/I0I2iKbPKthXMyZxygKuqlJLp+vOuaSXCFKz/ICHElsUxcvIuom3iXtdImtt69H1
+         8DUUrvQzQi+ULkDdRPIgyXYWxHmFBRaZREAlt4R/l30WUqVLfsnh0rsQQs0037U2utZG
+         QiV7FlgVGtQ7aU7B/pbbtezx4URQ0/6uccPwvlUYX7RgPbsLZ+YrbP1d9H5tVHujXmBS
+         Gn3XemGlKJCG2fxgqBCC9uqvVnS831y2d13BFZUoq0ywl691Nw4FSsX+Mlzlsll7Hi9M
+         USgA==
+X-Forwarded-Encrypted: i=1; AJvYcCVMNwnEsFRH6S/7UbzMpHVE1vVizVWR7hhi1bnKBz8O6gwvqrd58AZwQZZhhMBPgWGEJQbTwIuSqWwljL8ULbRQ/XCDyhmUmonPndpS29+H
+X-Gm-Message-State: AOJu0YyxuqSdc35a3tDQP2SZXklF2fJeH80qaBG4hjmJeXUafEI4mKHW
+	29fba/pl/OmrHhDx6yWbsIo4692UITGVC41CfZqyuCjW/3yMHNRcdxRrHY6ePzI=
+X-Google-Smtp-Source: AGHT+IF+n0ZLGWj8WZb6XJ83RSBfvZlmkL20FWmLTPsaWPlBrtsNjb413QMtpYGMBguWkAb2CMTxlg==
+X-Received: by 2002:a05:6a20:354c:b0:19c:8d73:721e with SMTP id f12-20020a056a20354c00b0019c8d73721emr9670649pze.36.1708394545367;
+        Mon, 19 Feb 2024 18:02:25 -0800 (PST)
 Received: from localhost ([2804:14d:7e39:8470:a328:9cae:8aed:4821])
-        by smtp.gmail.com with ESMTPSA id z19-20020a17090acb1300b00296e2434e7esm6167416pjt.53.2024.02.19.18.00.48
+        by smtp.gmail.com with ESMTPSA id s8-20020a17090a948800b00299354e8828sm5949155pjo.51.2024.02.19.18.02.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Feb 2024 18:00:49 -0800 (PST)
+        Mon, 19 Feb 2024 18:02:24 -0800 (PST)
 References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
+ <20240203-arm64-gcs-v8-20-c9fec77673ef@kernel.org>
 User-agent: mu4e 1.10.8; emacs 29.1
 From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
 To: Mark Brown <broonie@kernel.org>
@@ -84,15 +85,14 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
  linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org,
  linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v8 00/38] arm64/gcs: Provide support for GCS in userspace
-In-reply-to: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
-Date: Mon, 19 Feb 2024 23:00:46 -0300
-Message-ID: <878r3f99o1.fsf@linaro.org>
+Subject: Re: [PATCH v8 20/38] arm64/gcs: Ensure that new threads have a GCS
+In-reply-to: <20240203-arm64-gcs-v8-20-c9fec77673ef@kernel.org>
+Date: Mon, 19 Feb 2024 23:02:22 -0300
+Message-ID: <874je399ld.fsf@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240219_180053_797002_504413DA 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240219_180228_892112_E90BF384 
+X-CRM114-Status: GOOD (  24.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,23 +110,73 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-Hello,
-
 Mark Brown <broonie@kernel.org> writes:
 
-> Changes in v8:
-> - Invalidate signal cap token on stack when consuming.
-> - Typo and other trivial fixes.
-> - Don't try to use process_vm_write() on GCS, it intentionally does not
->   work.
-> - Fix leak of thread GCSs.
-> - Rebase onto latest clone3() series.
-> - Link to v7: https://lore.kernel.org/r/20231122-arm64-gcs-v7-0-201c483bd775@kernel.org
+> When a new thread is created by a thread with GCS enabled the GCS needs
+> to be specified along with the regular stack.  clone3() has been
+> extended to support this case, allowing userspace to explicitly specify
+> the size and location of the GCS.  The specified GCS must have a valid
+> GCS token at the top of the stack, as though userspace were pivoting to
+> the new GCS.  This will be consumed on use.  At present we do not
+> atomically consume the token, this will be addressed in a future
+> revision.
+>
+> Unfortunately plain clone() is not extensible and existing clone3()
+> users will not specify a stack so all existing code would be broken if
+> we mandated specifying the stack explicitly.  For compatibility with
+> these cases and also x86 (which did not initially implement clone3()
+> support for shadow stacks) if no GCS is specified we will allocate one
+> thread so when a thread is created which has GCS enabled allocate one
+  ~~~~~~
 
-Thank you for addressing my comments. I still have a few nets and
-questions in a few patches, but regardless of them:
+This "thread" seems extraneous in the sentence. Remove it?
 
-Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+> for it.  We follow the extensively discussed x86 implementation and
+> allocate min(RLIMIT_STACK, 4G).  Since the GCS only stores the call
+
+Isn't it min(RLIMIT_STACK/2, 2G), as seen in gcs_size()? If true, this
+size should also be fixed in Documentation/arch/arm64/gcs.rst.
+
+> stack and not any variables this should be more than sufficient for most
+> applications.
+>
+> GCSs allocated via this mechanism then it will be freed when the thread
+> exits, those explicitly configured by the user will not.
+
+I'm not sure I parsed this sentence correctly. Is it missing an "If" at
+the beginning?
+
+> +unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
+> +				     const struct kernel_clone_args *args)
+> +{
+> +	unsigned long addr, size, gcspr_el0;
+> +
+> +	/* If the user specified a GCS use it. */
+> +	if (args->shadow_stack_size) {
+> +		if (!system_supports_gcs())
+> +			return (unsigned long)ERR_PTR(-EINVAL);
+> +
+> +		addr = args->shadow_stack;
+> +		size = args->shadow_stack_size;
+> +
+> +		/*
+> +		 * There should be a token, there might be an end of
+> +		 * stack marker.
+> +		 */
+> +		gcspr_el0 = addr + size - (2 * sizeof(u64));
+> +		if (!gcs_consume_token(tsk, gcspr_el0)) {
+
+Should this code validate the end of stack marker? Or doesn't it matter
+whether the marker is correct or not?
+
+> +			gcspr_el0 += sizeof(u64);
+> +			if (!gcs_consume_token(tsk, gcspr_el0))
+> +				return (unsigned long)ERR_PTR(-EINVAL);
+> +		}
+> +
+> +		/* Userspace is responsible for unmapping */
+> +		tsk->thread.gcspr_el0 = gcspr_el0 + sizeof(u64);
+> +	} else {
 
 -- 
 Thiago
