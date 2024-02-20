@@ -4,70 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C857DC48BC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 14:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB601C48BC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 15:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=glXVSvQNzxX9PF8xMWyLdusZ/v4uGD0nC7rIgFTfkHE=; b=bIUf5TslDMZJyF
-	bW9TtXzKKoqy6TZI/EY8OVTzvoph83ACwW3DhnOLs+xqpN9O+QGpUStwJgDUTELxAVREfQHMFdUHP
-	ew0/n03/+CWDRk8HFw/TZ2ioIXV/czoZdrc7pKRdAr624nPZlNUiqijicM1RmJPrLoqHtSraTsL4u
-	7u5Es3UK1Qynp/O/RQUso+qlPcMtqvjKgW5Y3ogcu0tEZJpIlGSLqXOjITtOhIePtE68v1P4xg6S2
-	/UHRfpKUhppmVQ9P2DOBHtLLB2x4EiGGYSz+VomzcpBI+DwB5NK+5TUeVXUK0YneF0RY+6T8Vu9Hm
-	gqk/RbUSBdBn9rfwUhhA==;
+	List-Owner; bh=9eRWFQDDzWXVDZZBlXl6J1TvbZFxq0fCOzpTfekV0DE=; b=z4ACwPY+gMYN8R
+	7ZAXkT96SEqgxrtnPfY5jOlDYjAs47vuDxyShjg+tL3XXjHpGJvm0p7Wz90pmhrCYte4lovTqaCCM
+	Ihsq8HboEZlxkFWHQcpTH8T8GxNG48u1Hc78aV6VbNP/JxrqvM1DPjNEDBjpVabBiqRSA7Q9gVKen
+	f57OC1ZL1mPbmmGvRHFOR8qjlsd8qgXL2vOmtDK/Pbml/yW3lWro+8a66GcuGIQmqXNksJtAntDZj
+	qexSl7UGpAB2GAOVGDr8MkxFJ8RX5D31SMtLwiuUjs/I2f2XTLpTBVWlPrp2bHyRfzpHlWm5LvncK
+	jSu+NSzDrQ3RejM8J9LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcQvt-0000000F4QS-0N0O;
-	Tue, 20 Feb 2024 14:17:17 +0000
-Received: from mta-04.yadro.com ([89.207.88.248])
+	id 1rcRpD-0000000FDjJ-2uyc;
+	Tue, 20 Feb 2024 15:14:27 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcQvp-0000000F4MG-22RN
-	for linux-riscv@lists.infradead.org;
-	Tue, 20 Feb 2024 14:17:16 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 mta-04.yadro.com E2459C0002
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-04;
-	t=1708438624; bh=k2ObZaO3tTSKgzQNljaCR3L7u89j4RlP/F+yf6Ry//0=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
-	b=NJyzOnABs1PQQRm1P6q7jDZHtzAK2ow6LO2YGkl/ImEkArJJWGVrCUN0WjJAz9dDn
-	 KYsFnVNJwWyigEDfEWidwAjivyEA3h9it9ccmUS7AegpbLMgXtg39rGwSasRcMssPA
-	 bou8CXNK8KQNlgnSCRmrbpF0PkNnujyaNBkqw/cqDKf99K/OSR/mQUF+0qeAkIIVRf
-	 fBcb1kWARvb2N9Ng4ZVSfoT0CROmZbymXrzeJy7Ed1FPLTEEuCu8z6AgBXwHRTNyeX
-	 XtAGTc5J3xW/v6+ifoVtpLkRZGDkC0usb7KDad6ZQ5iHJasZGoaTxImkzeBy3jnknG
-	 OrojyEG3RAVPw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-03;
-	t=1708438624; bh=k2ObZaO3tTSKgzQNljaCR3L7u89j4RlP/F+yf6Ry//0=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
-	b=AQ9kKXuVGr2uWNiiOnyg7To+5I7qv+vj18MzncvSj0T84Fq/WcEarNpZjfoxkWQeJ
-	 ZVHUiVdbebi1gYTPl58r4vFOa52SoYpAji2N3kFgqOf4xyavwhXMV14La6f1K2Ka7F
-	 dsR07FFTiXcpLkGXzcm5x9Wn7ZhX2FXESSMOgF+V324rxSnxrbRBaXxxzs0kVymyat
-	 vmWHb0TWttzS0SIEChZlPJGiZJiC5yd7K3qkYHAmt1fb1mH/W/+MZ8zcTcxXEsOzNm
-	 tfpHLGy6otrWHxU0JXRybnN2KGLSyDzqF98/Kt5521R18yYZuIF8gmGns5mZDGYsI+
-	 EHqIsWRLeSUPA==
-Message-ID: <dcc5976d-635a-4710-92df-94a99653314e@yadro.com>
-Date: Tue, 20 Feb 2024 17:17:02 +0300
+	id 1rcRp5-0000000FDgi-30bm;
+	Tue, 20 Feb 2024 15:14:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qgc8OUZCtZPjwVAIjMqiHy7ikwaI1Mbu1Mp1IdFRzDs=; b=Xy5iv0WrTLeAO0Yk5KZRnMdKyj
+	P5Il3QQ+baeCRbUTHw+M2pQGpzCvY2kVMWyp3dXDSELRc5Ju3nfd11YBuUEHjVI4tFW2/xraLQejU
+	8tft/vHldbP7aGpknVnTEenRzyIrR0qgmIZkTDpzWNYBWSARs/hgaqJkstanzehwL6LPfJLIeqFLo
+	gUb/82YcOQPZlEGA8PE5OTomL+YF+FqTubxG54uf45edRw2uSwN7RfBx+Du1NGHDAZjqfMWrmpglo
+	yS8bLYhbsuhKYbVHwDGhCbqZMUPo3WgWbTMTAIMeCbEX6XIBN4y0pMZBZKVgW6FRGfRXxX28yVi92
+	FpAy11Fw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45522)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1rcRoq-00033P-2v;
+	Tue, 20 Feb 2024 15:14:05 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1rcRok-0000xX-ST; Tue, 20 Feb 2024 15:13:58 +0000
+Date: Tue, 20 Feb 2024 15:13:58 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, acpica-devel@lists.linuxfoundation.org,
+	linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org,
+	Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com,
+	James Morse <james.morse@arm.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Subject: Re: [PATCH RFC v4 02/15] ACPI: processor: Register all CPUs from
+ acpi_processor_get_info()
+Message-ID: <ZdTBtt0oR6Q1RcAB@shell.armlinux.org.uk>
+References: <Zbp5xzmFhKDAgHws@shell.armlinux.org.uk>
+ <E1rVDmU-0027YP-Jz@rmk-PC.armlinux.org.uk>
+ <CAJZ5v0iiJpUWq5GMSnKFWQTzn_bdwoQz9m=hDaXNg4Lj_ePF4g@mail.gmail.com>
+ <ZdSMk93c1I6x973h@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v2 riscv/for-next 3/5] riscv: ftrace: use indirect
- jump to work with kernel preemption
-Content-Language: en-US
-To: Andy Chiu <andy.chiu@sifive.com>
-CC: <greentime.hu@sifive.com>, <zong.li@sifive.com>, <guoren@kernel.org>,
-	<kernel@esmil.dk>, <linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
-	<paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>, <rostedt@goodmis.org>,
-	<mingo@redhat.com>, <jpoimboe@kernel.org>, <jbaron@akamai.com>,
-	<peterz@infradead.org>, <ardb@kernel.org>, <linux@yadro.com>
-References: <20220913094252.3555240-1-andy.chiu@sifive.com>
- <20220913094252.3555240-4-andy.chiu@sifive.com>
-From: Evgenii Shatokhin <e.shatokhin@yadro.com>
-In-Reply-To: <20220913094252.3555240-4-andy.chiu@sifive.com>
-X-ClientProxiedBy: T-EXCH-06.corp.yadro.com (172.17.10.110) To
- T-EXCH-10.corp.yadro.com (172.17.11.60)
+Content-Disposition: inline
+In-Reply-To: <ZdSMk93c1I6x973h@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240220_061714_502108_43F556C5 
-X-CRM114-Status: GOOD (  38.81  )
+X-CRM114-CacheID: sfid-20240220_071419_932651_A326AD3D 
+X-CRM114-Status: GOOD (  52.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,615 +86,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 13.09.2022 12:42, Andy Chiu wrote:
-> In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
-> forming a jump that jumps to an address over 4K. This may cause errors
-> if we want to enable kernel preemption and remove dependency from
-> patching code with stop_machine(). For example, if a task was switched
-> out on auipc. And, if we changed the ftrace function before it was
-> switched back, then it would jump to an address that has updated 11:0
-> bits mixing with previous XLEN:12 part.
-> 
-> p: patched area performed by dynamic ftrace
-> ftrace_prologue:
-> p|	REG_S	ra, -SZREG(sp)
-> p|	auipc	ra, 0x? ------------> preempted
-> 					...
-> 				change ftrace function
-> 					...
-> p|	jalr	-?(ra) <------------- switched back
-> p|	REG_L	ra, -SZREG(sp)
-> func:
-> 	xxx
-> 	ret
-> 
-> To prevent such condition, we proposed a way to load or store target
-> addresses atomically. We store a 8 bytes aligned full-width absolute
-> address into each ftrace prologue and use a jump at front to decide
-> whether we should take ftrace detour. To reduce footprint of ftrace
-> prologues, we clobber t0, and we move ra (re-)storing into
-> ftrace_{regs_}caller. This is similar to ARM64, which also clobbers x9 at
-> each prologue.
-> 
-> Also, we initialize the target at startup to take care of a case where
-> REG_L happened before the update of the ftrace target.
-> 
-> .align 2  # if it happen to be 8B-aligned
-> ftrace_prologue:
-> p|	{j	func} | {auipc	t0}
-> 	j	ftrace_cont
-> p|	.dword	0x? <=== storing the address to a 8B aligned space can be
-> 			 considered atomic to read sides using REG_L
-> ftrace_cont:
-> 	REG_L	t0, 8(t0) <=== read side
-> 	jalr	t0, t0
-> func:
-> 	xxx
-> 	ret
-> 
-> .align 2  # if it is 4B but not 8B-aligned
-> ftrace_prologue:
-> p|	{j	func} | {auipc	t0}
-> 	REG_L	t0, 0xc(t0) <=== read side
-> 	j	ftrace_cont
-> p|	.dword	0x? <=== the target address
-> ftrace_cont:
-> 	jalr	t0, t0
-> func:
-> 	xxx
-> 	ret
-> 
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
-> ---
->   arch/riscv/include/asm/ftrace.h |  24 -----
->   arch/riscv/kernel/ftrace.c      | 173 ++++++++++++++++++++++----------
->   arch/riscv/kernel/mcount-dyn.S  |  69 ++++++++++---
->   3 files changed, 176 insertions(+), 90 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-> index 04dad3380041..eaa611e491fc 100644
-> --- a/arch/riscv/include/asm/ftrace.h
-> +++ b/arch/riscv/include/asm/ftrace.h
-> @@ -47,30 +47,6 @@ struct dyn_arch_ftrace {
->    */
->   
->   #define MCOUNT_ADDR		((unsigned long)MCOUNT_NAME)
-> -#define JALR_SIGN_MASK		(0x00000800)
-> -#define JALR_OFFSET_MASK	(0x00000fff)
-> -#define AUIPC_OFFSET_MASK	(0xfffff000)
-> -#define AUIPC_PAD		(0x00001000)
-> -#define JALR_SHIFT		20
-> -#define JALR_BASIC		(0x000080e7)
-> -#define AUIPC_BASIC		(0x00000097)
-> -#define NOP4			(0x00000013)
-> -
-> -#define make_call(caller, callee, call)					\
-> -do {									\
-> -	call[0] = to_auipc_insn((unsigned int)((unsigned long)callee -	\
-> -				(unsigned long)caller));		\
-> -	call[1] = to_jalr_insn((unsigned int)((unsigned long)callee -	\
-> -			       (unsigned long)caller));			\
-> -} while (0)
-> -
-> -#define to_jalr_insn(offset)						\
-> -	(((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_BASIC)
-> -
-> -#define to_auipc_insn(offset)						\
-> -	((offset & JALR_SIGN_MASK) ?					\
-> -	(((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) | AUIPC_BASIC) :	\
-> -	((offset & AUIPC_OFFSET_MASK) | AUIPC_BASIC))
->   
->   /*
->    * Let auipc+jalr be the basic *mcount unit*, so we make it 8 bytes here.
-> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-> index 2086f6585773..84b9e280dd1f 100644
-> --- a/arch/riscv/kernel/ftrace.c
-> +++ b/arch/riscv/kernel/ftrace.c
-> @@ -23,31 +23,29 @@ void ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
->   }
->   
->   static int ftrace_check_current_call(unsigned long hook_pos,
-> -				     unsigned int *expected)
-> +				     unsigned long expected_addr)
->   {
-> -	unsigned int replaced[2];
-> -	unsigned int nops[2] = {NOP4, NOP4};
-> +	unsigned long replaced;
->   
-> -	/* we expect nops at the hook position */
-> -	if (!expected)
-> -		expected = nops;
-> +	/* we expect ftrace_stub at the hook position */
-> +	if (!expected_addr)
-> +		expected_addr = (unsigned long) ftrace_stub;
->   
->   	/*
->   	 * Read the text we want to modify;
->   	 * return must be -EFAULT on read error
->   	 */
-> -	if (copy_from_kernel_nofault(replaced, (void *)hook_pos,
-> -			MCOUNT_INSN_SIZE))
-> +	if (copy_from_kernel_nofault(&replaced, (void *)hook_pos,
-> +			(sizeof(unsigned long))))
->   		return -EFAULT;
->   
->   	/*
->   	 * Make sure it is what we expect it to be;
->   	 * return must be -EINVAL on failed comparison
->   	 */
-> -	if (memcmp(expected, replaced, sizeof(replaced))) {
-> -		pr_err("%p: expected (%08x %08x) but got (%08x %08x)\n",
-> -		       (void *)hook_pos, expected[0], expected[1], replaced[0],
-> -		       replaced[1]);
-> +	if (expected_addr != replaced) {
-> +		pr_err("%p: expected (%016lx) but got (%016lx)\n",
-> +		       (void *)hook_pos, expected_addr, replaced);
->   		return -EINVAL;
->   	}
->   
-> @@ -57,55 +55,96 @@ static int ftrace_check_current_call(unsigned long hook_pos,
->   static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
->   				bool enable)
->   {
-> -	unsigned int call[2];
-> -	unsigned int nops[2] = {NOP4, NOP4};
-> +	unsigned long call = target;
-> +	unsigned long nops = (unsigned long)ftrace_stub;
->   
-> -	make_call(hook_pos, target, call);
-> -
-> -	/* Replace the auipc-jalr pair at once. Return -EPERM on write error. */
-> +	/* Replace the target address at once. Return -EPERM on write error. */
->   	if (patch_text_nosync
-> -	    ((void *)hook_pos, enable ? call : nops, MCOUNT_INSN_SIZE))
-> +	    ((void *)hook_pos, enable ? &call : &nops, sizeof(unsigned long)))
->   		return -EPERM;
->   
->   	return 0;
->   }
->   
->   /*
-> - * Put 5 instructions with 16 bytes at the front of function within
-> - * patchable function entry nops' area.
-> - *
-> - * 0: REG_S  ra, -SZREG(sp)
-> - * 1: auipc  ra, 0x?
-> - * 2: jalr   -?(ra)
-> - * 3: REG_L  ra, -SZREG(sp)
-> + * Place 4 instructions and a destination address in the patchable function
-> + * entry.
->    *
->    * So the opcodes is:
-> - * 0: 0xfe113c23 (sd)/0xfe112e23 (sw)
-> - * 1: 0x???????? -> auipc
-> - * 2: 0x???????? -> jalr
-> - * 3: 0xff813083 (ld)/0xffc12083 (lw)
-> + * INSN_SKIPALL  : J     PC + 0x18 (when disabled, jump to the function)
-> + * INSN_AUIPC    : AUIPC T0, 0 (when enabled, load address of trampoline)
-> + * INSN_LOAD(off): REG_L T0, off(T0) (load address stored in the tramp)
-> + * INSN_SKIPTRAMP: J     PC + 0x10 (skip tramp since they are not instructions)
-> + * INSN_JALR     : JALR  T0, T0 (jump to the destination)
-> + *
-> + * At runtime, we want to patch the jump target atomically in order to work with
-> + * kernel preemption. If we patched with a pair of AUIPC + JALR and a task was
-> + * preempted after loading upper bits with AUIPC. Then things would mess up if
-> + * we updated the jump target before the task were switched back.
-> + *
-> + * We also want to align all patchable function entries to 4-byte boundaries and,
-> + * the jump target to a 8 Bytes aligned address so that each of them could be
-> + * natually updated and observed by patching and running cores.
-> + *
-> + * To make sure target addresses are 8-byte aligned, we have to consider
-> + * following scenarios:
-> + *
-> + * First if the starting address of the patchable entry is aligned to an 8-byte
-> + * boundary:
-> + * | ADDR   | COMPILED | DISABLED         | ENABLED                |
-> + * +--------+----------+------------------+------------------------+
-> + * | 0x00   | NOP      | J     FUNC       | AUIPC T0, 0            |
-> + * | 0x04   | NOP      | J     0x10                                |
-> + * | 0x08   | NOP      | 8-byte aligned target address (low)       |
-> + * | 0x0C   | NOP      |                               (high)      |
-> + * | 0x10   | NOP      | REG_L T0, 8(T0)                           |
-> + * | 0x14   | NOP      | JALR  T0, T0                              |
-> + * | FUNC   | X                                                    |
-> + *
-> + * If not, then it starts at a 4- but not 8-byte aligned address. In such cases,
-> + * We re-arrange code and the trampoline in order to natually align it.
-> + * | ADDR   | COMPILED | DISABLED         | ENABLED                |
-> + * +--------+----------+------------------+------------------------+
-> + * | 0x04   | NOP      | J     FUNC       | AUIPC T0, 0            |
-> + * | 0x08   | NOP      | REG_L T0, 0xC(T0)                         |
-> + * | 0x0C   | NOP      | J     0x18                                |
-> + * | 0x10   | NOP      | 8-byte aligned target address (low)       |
-> + * | 0x14   | NOP      |                               (high)      |
-> + * | 0x18   | NOP      | JALR  T0, T0                              |
-> + * | FUNC   | X                                                    |
->    */
-> +
->   #if __riscv_xlen == 64
-> -#define INSN0	0xfe113c23
-> -#define INSN3	0xff813083
-> -#elif __riscv_xlen == 32
-> -#define INSN0	0xfe112e23
-> -#define INSN3	0xffc12083
-> +#define INSN_LD_T0_OFF(off) ((0x2b283) | ((off) << 20))
-> +# elif __riscv_xlen == 32
-> +#define INSN_LD_T0_OFF(off) ((0x2a283) | ((off) << 20))
->   #endif
->   
-> -#define FUNC_ENTRY_SIZE	16
-> -#define FUNC_ENTRY_JMP	4
-> +#define INSN_SKIPALL	0x0180006f
-> +#define INSN_AUIPC	0x00000297
-> +#define INSN_LOAD(off)	INSN_LD_T0_OFF(off)
-> +#define INSN_SKIPTRAMP	0x00c0006f
-> +#define INSN_JALR	0x000282e7
-> +#define INSN_SIZE	4
->   
->   int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
->   {
-> -	unsigned int call[4] = {INSN0, 0, 0, INSN3};
-> -	unsigned long target = addr;
-> -	unsigned long caller = rec->ip + FUNC_ENTRY_JMP;
-> -
-> -	call[1] = to_auipc_insn((unsigned int)(target - caller));
-> -	call[2] = to_jalr_insn((unsigned int)(target - caller));
-> +	unsigned int call[1] = {INSN_AUIPC};
-> +	void *tramp;
-> +	unsigned long patch_addr = rec->ip;
-> +
-> +	if (IS_ALIGNED(patch_addr, 8)) {
-> +		tramp = (void *) (patch_addr + 0x8);
-> +	} else if (IS_ALIGNED(patch_addr, 4)) {
-> +		tramp = (void *) (patch_addr + 0xc);
-> +	} else {
-> +		pr_warn("cannot patch: function must be 4-Byte or 8-Byte aligned\n");
-> +		return -EINVAL;
-> +	}
-> +	WARN_ON(!IS_ALIGNED((unsigned long)tramp, 8));
-> +	patch_insn_write(tramp, &addr, sizeof(unsigned long));
->   
-> -	if (patch_text_nosync((void *)rec->ip, call, FUNC_ENTRY_SIZE))
-> +	if (patch_text_nosync((void *)patch_addr, &call, INSN_SIZE))
->   		return -EPERM;
->   
->   	return 0;
-> @@ -114,14 +153,49 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
->   int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
->   		    unsigned long addr)
->   {
-> -	unsigned int nops[4] = {NOP4, NOP4, NOP4, NOP4};
-> +	unsigned int nops[1] = {INSN_SKIPALL};
-> +	unsigned long patch_addr = rec->ip;
->   
-> -	if (patch_text_nosync((void *)rec->ip, nops, FUNC_ENTRY_SIZE))
-> +	if (patch_text_nosync((void *)patch_addr, nops, INSN_SIZE))
->   		return -EPERM;
->   
->   	return 0;
->   }
->   
-> +extern void ftrace_no_caller(void);
-> +static void ftrace_make_default_tramp(unsigned int *tramp)
-> +{
-> +	*((unsigned long *)tramp) = (unsigned long) &ftrace_no_caller;
-> +}
-> +
-> +int __ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec,
-> +		    unsigned long addr)
-> +{
-> +	unsigned int nops[6];
-> +	unsigned int *tramp;
-> +	unsigned long patch_addr = rec->ip;
-> +
-> +	nops[0] = INSN_SKIPALL;
-> +	if (IS_ALIGNED(patch_addr, 8)) {
-> +		nops[1] = INSN_SKIPTRAMP;
-> +		nops[4] = INSN_LOAD(0x8);
-> +		tramp = &nops[2];
-> +	} else if (IS_ALIGNED(patch_addr, 4)) {
-> +		nops[1] = INSN_LOAD(0xc);
-> +		nops[2] = INSN_SKIPTRAMP;
-> +		tramp = &nops[3];
-> +	} else {
-> +		pr_warn("start address must be 4-Byte aligned\n");
-> +		return -EINVAL;
-> +	}
-> +	ftrace_make_default_tramp(tramp);
-> +	nops[5] = INSN_JALR;
-> +
-> +	if (patch_text_nosync((void *)patch_addr, nops, sizeof(nops)))
-> +		return -EPERM;
-> +
-> +	return 0;
-> +}
->   
->   /*
->    * This is called early on, and isn't wrapped by
-> @@ -135,7 +209,7 @@ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
->   	int out;
->   
->   	ftrace_arch_code_modify_prepare();
-> -	out = ftrace_make_nop(mod, rec, MCOUNT_ADDR);
-> +	out = __ftrace_init_nop(mod, rec, MCOUNT_ADDR);
->   	ftrace_arch_code_modify_post_process();
->   
->   	return out;
-> @@ -158,17 +232,14 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
->   int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
->   		       unsigned long addr)
->   {
-> -	unsigned int call[2];
-> -	unsigned long caller = rec->ip + FUNC_ENTRY_JMP;
->   	int ret;
->   
-> -	make_call(caller, old_addr, call);
-> -	ret = ftrace_check_current_call(caller, call);
-> +	ret = ftrace_check_current_call(rec->ip, old_addr);
-
-I suppose, the location of the handler's address should be used here, 
-rather than the start address of the function. I mean, rec->ip + 8 or 
-rec->ip + 12, depending on the alignment of the function.
-
-Without this fix, the boottime function graph test fails as follows:
-
-[   39.360356] Testing tracer function_graph:
-[   44.648661] (____ptrval____): expected (ffffffff8000d838) but got 
-(00c0006f00000297)
-[   44.649805] ------------[ ftrace bug ]------------
-[   44.650102] ftrace failed to modify
-[   44.650135] [<ffffffff800fdba0>] 
-trace_selftest_dynamic_test_func+0x0/0x28
-[   44.650966]  actual:   97:02:00:00:6f:00:c0:00
-[   44.651684] Updating ftrace call site to call a different ftrace function
-[   44.652366] ftrace record flags: e1180002
-[   44.652798]  (2) R
-                 expected tramp: ffffffff8000d73c
-
-The byte sequence 97:02:00:00:6f:00:c0:00 is the pair of instructions 
-"auipc t0,0x0; j 0x10" rather than the address of the Ftrace trampoline.
-
->   
->   	if (ret)
->   		return ret;
->   
-> -	return __ftrace_modify_call(caller, addr, true);
-> +	return __ftrace_modify_call(rec->ip, addr, true);
-
-Same here.
-
-I am currently testing a rebased version of the patchset with the kernel 
-6.8.0-rc4.
-
-With the following fix the issue goes away and all boottime tests of the 
-tracers pass in QEMU:
------------------------
-
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index ad9eebfad0d5..cc89b0927622 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -142,20 +142,30 @@ static int __ftrace_modify_call(unsigned long 
-hook_pos, unsigned long target,
-  #define INSN_JALR	0x000282e7
-  #define INSN_SIZE	4
-
--int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
-+static inline unsigned long ftrace_tramp_addr(struct dyn_ftrace *rec)
-  {
--	unsigned int call[1] = {INSN_AUIPC};
--	void *tramp;
-  	unsigned long patch_addr = rec->ip;
-
-  	if (IS_ALIGNED(patch_addr, 8)) {
--		tramp = (void *) (patch_addr + 0x8);
-+		return patch_addr + 0x8;
-  	} else if (IS_ALIGNED(patch_addr, 4)) {
--		tramp = (void *) (patch_addr + 0xc);
-+		return patch_addr + 0xc;
-  	} else {
--		pr_warn("cannot patch: function must be 4-Byte or 8-Byte aligned\n");
--		return -EINVAL;
-+		pr_warn("cannot patch: start of the function must be 4-byte aligned\n");
-+		return 0;
-  	}
-+}
-+
-+int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
-+{
-+	unsigned int call[1] = {INSN_AUIPC};
-+	void *tramp;
-+	unsigned long patch_addr = rec->ip;
-+
-+	tramp = (void *)ftrace_tramp_addr(rec);
-+	if (!tramp)
-+		return -EINVAL;
-+
-  	WARN_ON(!IS_ALIGNED((unsigned long)tramp, 8));
-  	patch_insn_write(tramp, &addr, sizeof(unsigned long));
-
-@@ -248,13 +257,18 @@ int ftrace_modify_call(struct dyn_ftrace *rec, 
-unsigned long old_addr,
-  		       unsigned long addr)
-  {
-  	int ret;
-+	unsigned long tramp;
-+
-+	tramp = ftrace_tramp_addr(rec);
-+	if (!tramp)
-+		return -EINVAL;
-
--	ret = ftrace_check_current_call(rec->ip, old_addr);
-+	ret = ftrace_check_current_call(tramp, old_addr);
-
-  	if (ret)
-  		return ret;
-
--	return __ftrace_modify_call(rec->ip, addr, true);
-+	return __ftrace_modify_call(tramp, addr, true);
-  }
-  #endif
-
------------------------
-
->   }
->   #endif
->   
-> diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-> index d171eca623b6..f8ee63e4314b 100644
-> --- a/arch/riscv/kernel/mcount-dyn.S
-> +++ b/arch/riscv/kernel/mcount-dyn.S
-> @@ -13,7 +13,7 @@
->   
->   	.text
->   
-> -#define FENTRY_RA_OFFSET	12
-> +#define FENTRY_RA_OFFSET	24
->   #define ABI_SIZE_ON_STACK	72
->   #define ABI_A0			0
->   #define ABI_A1			8
-> @@ -25,7 +25,12 @@
->   #define ABI_A7			56
->   #define ABI_RA			64
->   
-> +# t0 points to return of ftrace
-> +# ra points to the return address of traced function
-> +
->   	.macro SAVE_ABI
-> +	REG_S	ra, -SZREG(sp)
-> +	mv	ra, t0
->   	addi	sp, sp, -SZREG
->   	addi	sp, sp, -ABI_SIZE_ON_STACK
->   
-> @@ -53,10 +58,14 @@
->   
->   	addi	sp, sp, ABI_SIZE_ON_STACK
->   	addi	sp, sp, SZREG
-> +	mv	t0, ra
-> +	REG_L	ra, -SZREG(sp)
->   	.endm
->   
->   #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
->   	.macro SAVE_ALL
-> +	REG_S	ra, -SZREG(sp)
-> +	mv	ra, t0
->   	addi	sp, sp, -SZREG
->   	addi	sp, sp, -PT_SIZE_ON_STACK
->   
-> @@ -138,9 +147,18 @@
->   
->   	addi	sp, sp, PT_SIZE_ON_STACK
->   	addi	sp, sp, SZREG
-> +	mv	t0, ra # t0 is equal to ra here
-> +	REG_L	ra, -SZREG(sp)
->   	.endm
->   #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
->   
-> +# perform a full fence before re-running the ftrae entry if we run into this
-> +ENTRY(ftrace_no_caller)
-> +	fence	rw, rw
-> +	fence.i
-> +	jr	-FENTRY_RA_OFFSET(t0)
-> +ENDPROC(ftrace_no_caller)
-> +
->   ENTRY(ftrace_caller)
->   	SAVE_ABI
->   
-> @@ -150,9 +168,9 @@ ENTRY(ftrace_caller)
->   	REG_L	a1, ABI_SIZE_ON_STACK(sp)
->   	mv	a3, sp
->   
-> -ftrace_call:
-> -	.global ftrace_call
-> -	call	ftrace_stub
-> +ftrace_call_site:
-> +	REG_L	ra, ftrace_call
-> +	jalr	0(ra)
->   
->   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
->   	addi	a0, sp, ABI_SIZE_ON_STACK
-> @@ -161,12 +179,12 @@ ftrace_call:
->   #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
->   	mv	a2, s0
->   #endif
-> -ftrace_graph_call:
-> -	.global ftrace_graph_call
-> -	call	ftrace_stub
-> +ftrace_graph_call_site:
-> +	REG_L	ra, ftrace_graph_call
-> +	jalr	0(ra)
->   #endif
->   	RESTORE_ABI
-> -	ret
-> +	jr	t0
->   ENDPROC(ftrace_caller)
->   
->   #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
-> @@ -179,9 +197,9 @@ ENTRY(ftrace_regs_caller)
->   	REG_L	a1, PT_SIZE_ON_STACK(sp)
->   	mv	a3, sp
->   
-> -ftrace_regs_call:
-> -	.global ftrace_regs_call
-> -	call	ftrace_stub
-> +ftrace_regs_call_site:
-> +	REG_L	ra, ftrace_regs_call
-> +	jalr	0(ra)
->   
->   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
->   	addi	a0, sp, PT_RA
-> @@ -190,12 +208,33 @@ ftrace_regs_call:
->   #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
->   	mv	a2, s0
->   #endif
-> -ftrace_graph_regs_call:
-> -	.global ftrace_graph_regs_call
-> -	call	ftrace_stub
-> +ftrace_graph_regs_call_site:
-> +	REG_L	ra, ftrace_graph_regs_call
-> +	jalr	0(ra)
->   #endif
->   
->   	RESTORE_ALL
-> -	ret
-> +	jr	t0
->   ENDPROC(ftrace_regs_caller)
->   #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
-> +
-> +.align RISCV_LGPTR
-> +ftrace_call:
-> +	.global ftrace_call
-> +	RISCV_PTR ftrace_stub
-> +
-> +.align RISCV_LGPTR
-> +ftrace_graph_call:
-> +	.global ftrace_graph_call
-> +	RISCV_PTR ftrace_stub
-> +
-> +.align RISCV_LGPTR
-> +ftrace_regs_call:
-> +	.global ftrace_regs_call
-> +	RISCV_PTR ftrace_stub
-> +
-> +.align RISCV_LGPTR
-> +ftrace_graph_regs_call:
-> +	.global ftrace_graph_regs_call
-> +	RISCV_PTR ftrace_stub
-> +
-
-Regards,
-Evgenii
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBGZWIgMjAsIDIwMjQgYXQgMTE6Mjc6MTVBTSArMDAwMCwgUnVzc2VsbCBLaW5nIChP
+cmFjbGUpIHdyb3RlOgo+IE9uIFRodSwgRmViIDE1LCAyMDI0IGF0IDA4OjIyOjI5UE0gKzAxMDAs
+IFJhZmFlbCBKLiBXeXNvY2tpIHdyb3RlOgo+ID4gT24gV2VkLCBKYW4gMzEsIDIwMjQgYXQgNTo1
+MOKAr1BNIFJ1c3NlbGwgS2luZyA8cm1rK2tlcm5lbEBhcm1saW51eC5vcmcudWs+IHdyb3RlOgo+
+ID4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9hY3BpL2FjcGlfcHJvY2Vzc29yLmMgYi9kcml2ZXJz
+L2FjcGkvYWNwaV9wcm9jZXNzb3IuYwo+ID4gPiBpbmRleCBjZjdjMWNjYTY5ZGQuLmE2OGM0NzVj
+ZGVhNSAxMDA2NDQKPiA+ID4gLS0tIGEvZHJpdmVycy9hY3BpL2FjcGlfcHJvY2Vzc29yLmMKPiA+
+ID4gKysrIGIvZHJpdmVycy9hY3BpL2FjcGlfcHJvY2Vzc29yLmMKPiA+ID4gQEAgLTMxNCw2ICsz
+MTQsMTggQEAgc3RhdGljIGludCBhY3BpX3Byb2Nlc3Nvcl9nZXRfaW5mbyhzdHJ1Y3QgYWNwaV9k
+ZXZpY2UgKmRldmljZSkKPiA+ID4gICAgICAgICAgICAgICAgICAgICAgICAgY3B1ZnJlcV9hZGRf
+ZGV2aWNlKCJhY3BpLWNwdWZyZXEiKTsKPiA+ID4gICAgICAgICB9Cj4gPiA+Cj4gPiA+ICsgICAg
+ICAgLyoKPiA+ID4gKyAgICAgICAgKiBSZWdpc3RlciBDUFVzIHRoYXQgYXJlIHByZXNlbnQuIGdl
+dF9jcHVfZGV2aWNlKCkgaXMgdXNlZCB0byBza2lwCj4gPiA+ICsgICAgICAgICogZHVwbGljYXRl
+IENQVSBkZXNjcmlwdGlvbnMgZnJvbSBmaXJtd2FyZS4KPiA+ID4gKyAgICAgICAgKi8KPiA+ID4g
+KyAgICAgICBpZiAoIWludmFsaWRfbG9naWNhbF9jcHVpZChwci0+aWQpICYmIGNwdV9wcmVzZW50
+KHByLT5pZCkgJiYKPiA+ID4gKyAgICAgICAgICAgIWdldF9jcHVfZGV2aWNlKHByLT5pZCkpIHsK
+PiA+ID4gKyAgICAgICAgICAgICAgIGludCByZXQgPSBhcmNoX3JlZ2lzdGVyX2NwdShwci0+aWQp
+Owo+ID4gPiArCj4gPiA+ICsgICAgICAgICAgICAgICBpZiAocmV0KQo+ID4gPiArICAgICAgICAg
+ICAgICAgICAgICAgICByZXR1cm4gcmV0Owo+ID4gPiArICAgICAgIH0KPiA+ID4gKwo+ID4gPiAg
+ICAgICAgIC8qCj4gPiA+ICAgICAgICAgICogIEV4dHJhIFByb2Nlc3NvciBvYmplY3RzIG1heSBi
+ZSBlbnVtZXJhdGVkIG9uIE1QIHN5c3RlbXMgd2l0aAo+ID4gPiAgICAgICAgICAqICBsZXNzIHRo
+YW4gdGhlIG1heCAjIG9mIENQVXMuIFRoZXkgc2hvdWxkIGJlIGlnbm9yZWQgX2lmZgo+ID4gCj4g
+PiBUaGlzIGlzIGludGVyZXN0aW5nLCBiZWNhdXNlIHJpZ2h0IGJlbG93IHRoZXJlIGlzIHRoZSBm
+b2xsb3dpbmcgY29kZToKPiA+IAo+ID4gICAgIGlmIChpbnZhbGlkX2xvZ2ljYWxfY3B1aWQocHIt
+PmlkKSB8fCAhY3B1X3ByZXNlbnQocHItPmlkKSkgewo+ID4gICAgICAgICBpbnQgcmV0ID0gYWNw
+aV9wcm9jZXNzb3JfaG90YWRkX2luaXQocHIpOwo+ID4gCj4gPiAgICAgICAgIGlmIChyZXQpCj4g
+PiAgICAgICAgICAgICByZXR1cm4gcmV0Owo+ID4gICAgIH0KPiA+IAo+ID4gYW5kIGFjcGlfcHJv
+Y2Vzc29yX2hvdGFkZF9pbml0KCkgZXNzZW50aWFsbHkgY2FsbHMgYXJjaF9yZWdpc3Rlcl9jcHUo
+KQo+ID4gd2l0aCBzb21lIGV4dHJhIHRoaW5ncyBhcm91bmQgaXQgKG1vcmUgYWJvdXQgdGhhdCBi
+ZWxvdykuCj4gPiAKPiA+IEkgZG8gcmVhbGl6ZSB0aGF0IGFjcGlfcHJvY2Vzc29yX2hvdGFkZF9p
+bml0KCkgaXMgZGVmaW5lZCB1bmRlcgo+ID4gQ09ORklHX0FDUElfSE9UUExVR19DUFUsIHNvIGZv
+ciB0aGUgc2FrZSBvZiB0aGUgYXJndW1lbnQgbGV0J3MKPiA+IGNvbnNpZGVyIGFuIGFyY2hpdGVj
+dHVyZSB3aGVyZSBDT05GSUdfQUNQSV9IT1RQTFVHX0NQVSBpcyBzZXQuCj4gPiAKPiA+IFNvIHdo
+eSBhcmUgdGhlIHR3byBjb25kaXRpb25hbHMgdGhhdCBhbG1vc3QgY29udHJhZGljdCBlYWNoIG90
+aGVyIGJvdGgKPiA+IG5lZWRlZD8gIEl0IGxvb2tzIGxpa2UgdGhlIG5ldyBjb2RlIGNvdWxkIGJl
+IGNvbWJpbmVkIHdpdGgKPiA+IGFjcGlfcHJvY2Vzc29yX2hvdGFkZF9pbml0KCkgdG8gZG8gdGhl
+IHJpZ2h0IHRoaW5nIGluIGFsbCBjYXNlcy4KPiA+IAo+ID4gTm93LCBhY3BpX3Byb2Nlc3Nvcl9o
+b3RhZGRfaW5pdCgpIGRvZXMgc29tZSBleHRyYSB0aGluZ3MgdGhhdCBsb29rCj4gPiBsaWtlIHRo
+ZXkgc2hvdWxkIGJlIGRvbmUgYnkgdGhlIG5ldyBjb2RlIHRvby4KPiA+IAo+ID4gMS4gSXQgY2hl
+Y2tzIGludmFsaWRfcGh5c19jcHVpZCgpIHdoaWNoIGFwcGVhcnMgdG8gYmUgYSBnb29kIGlkZWEg
+dG8gbWUuCj4gPiAKPiA+IDIuIEl0IHVzZXMgbG9ja2luZyBhcm91bmQgYXJjaF9yZWdpc3Rlcl9j
+cHUoKSB3aGljaCBkb2Vzbid0IHNlZW0KPiA+IHVucmVhc29uYWJsZSBlaXRoZXIuCj4gPiAKPiA+
+IDMuIEl0IGNhbGxzIGFjcGlfbWFwX2NwdSgpIGFuZCBJJ20gbm90IHN1cmUgd2h5IHRoaXMgaXMg
+bm90IGRvbmUgYnkKPiA+IHRoZSBuZXcgY29kZS4KPiA+IAo+ID4gVGhlIG9ubHkgdGhpbmcgdGhh
+dCBjYW4gYmUgZHJvcHBlZCBmcm9tIGl0IGlzIHRoZSBfU1RBIGNoZWNrIEFGQUlDUywKPiA+IGJl
+Y2F1c2UgYWNwaV9wcm9jZXNzb3JfYWRkKCkgd29uJ3QgZXZlbiBiZSBjYWxsZWQgaWYgdGhlIENQ
+VSBpcyBub3QKPiA+IHByZXNlbnQgKGFuZCBub3QgZW5hYmxlZCBhZnRlciB0aGUgZmlyc3QgcGF0
+Y2gpLgo+ID4gCj4gPiBTbyB3aHkgZG9lcyB0aGUgY29kZSBub3QgZG8gMSAtIDMgYWJvdmU/Cj4g
+Cj4gSG9uZXN0bHksIEknbSBvdXQgb2YgbXkgZGVwdGggd2l0aCB0aGlzIGFuZCBjYW4ndCBhbnN3
+ZXIgeW91cgo+IHF1ZXN0aW9ucyAtIGFuZCBJIHJlYWxseSBkb24ndCB3YW50IHRvIHRyeSBmaWRk
+bGluZyB3aXRoIHRoaXMgY29kZQo+IGJlY2F1c2UgaXQncyBqdXN0IHRvbyBpY2t5IChldmVuIGlu
+IGl0cyBjdXJyZW50IGZvcm0gaW4gbWFpbmxpbmUpCj4gdG8gYmUgdW5kZXJzdGFuZGFibGUgdG8g
+YW55b25lIHdobyBoYXNuJ3QgZ2FpbmVkIGEgZGV0YWlsZWQga25vd2xlZGdlCj4gb2YgdGhpcyBj
+b2RlLgo+IAo+IEl0J3MgZ29pbmcgdG8gcmVxdWlyZSBhIGxvdCBvZiBhbmFseXNpcyAtIGhvdyBh
+Y3BpX21hcF9jcHVpZCgpIGJlaGF2ZXMKPiBpbiBhbGwgY2lyY3Vtc3RhbmNlcywgd2hhdCB0aGlz
+IG1lYW5zIGZvciBpbnZhbGlkX2xvZ2ljYWxfY3B1aWQoKSBhbmQKPiBpbnZhbGlkX3BoeXNfY3B1
+aWQoKSwgd2hhdCBwYXRocyB3aWxsIGJlIHRha2VuIGluIGVhY2ggY2FzZS4gVGhpcyBjb2RlCj4g
+aXMgYWxyZWFkeSBqdXN0IHRvbyBoYWlyeSBmb3Igc29tZW9uZSB3aG8gaXNuJ3QgYW4gZXhwZXJp
+ZW5jZWQgQUNQSQo+IGhhY2tlciB0byBiZSBhYmxlIHRvIGZvbGxvdyBhbmQgSSBkb24ndCBzZWUg
+YW4gb2J2aW91cyB3YXkgdG8gbWFrZSBpdAo+IG1vcmUgcmVhZGFibGUuCj4gCj4gSmFtZXMnIGFk
+ZGl0aW9ucyBtYWtlIGl0IGV2ZW4gbW9yZSBjb21wbGV4IGFuZCBsZXNzIHJlYWRhYmxlLgoKQXMg
+YW4gaWxsdXN0cmF0aW9uIG9mIHRoZSBwcm9ibGVtcyBJJ20gaGF2aW5nIGhlcmUsIEkgd2FzIGp1
+c3Qgd3JpdGluZwphIHJlcGx5IHRvIHRoaXMgd2l0aCBhIHN1Z2dlc3Rpb24gb2YgdHJhbnNmb3Jt
+aW5nIHRoaXMgY29kZSB1bHRpbWF0ZWx5CnRvOgoKCWlmICghZ2V0X2NwdV9kZXZpY2UocHItPmlk
+KSkgewoJCWludCByZXQ7CgoJCWlmICghaW52YWxpZF9sb2dpY2FsX2NwdWlkKHByLT5pZCkgJiYg
+Y3B1X3ByZXNlbnQocHItPmlkKSkKCQkJcmV0ID0gYWNwaV9wcm9jZXNzb3JfbWFrZV9lbmFibGVk
+KHByKTsKCQllbHNlCgkJCXJldCA9IGFjcGlfcHJvY2Vzc29yX21ha2VfcHJlc2VudChwcik7CgoJ
+CWlmIChyZXQpCgkJCXJldHVybiByZXQ7Cgl9CgooYWNwaV9wcm9jZXNzb3JfbWFrZV9wcmVzZW50
+KCkgd291bGQgYmUgYWNwaV9wcm9jZXNzb3JfaG90YWRkX2luaXQoKQphbmQgYWNwaV9wcm9jZXNz
+b3JfbWFrZV9lbmFibGVkKCkgd291bGQgYmUgYXJjaF9yZWdpc3Rlcl9jcHUoKSBhdCB0aGlzCnBv
+aW50LikKClRoZW4gSSByZWFsaXNlZCB0aGF0J3MgYSBiYWQgaWRlYSAtIGJlY2F1c2Ugd2UgcmVh
+bGx5IG5lZWQgdG8gY2hlY2sKdGhhdCBwci0+aWQgaXMgdmFsaWQgYmVmb3JlIGNhbGxpbmcgZ2V0
+X2NwdV9kZXZpY2UoKSBvbiBpdCwgc28gdGhpcwp3b24ndCB3b3JrLiBUaGF0IGxlYXZlcyB1cyB3
+aXRoOgoKCWludCByZXQ7CgoJaWYgKGludmFsaWRfbG9naWNhbF9jcHVpZChwci0+aWQpIHx8ICFj
+cHVfcHJlc2VudChwci0+aWQpKSB7CgkJLyogeDg2IGV0LmFsLiBwYXRoICovCgkJcmV0ID0gYWNw
+aV9wcm9jZXNzb3JfbWFrZV9wcmVzZW50KHByKTsKCX0gZWxzZSBpZiAoIWdldF9jcHVfZGV2aWNl
+KHByLT5pZCkpIHsKCQkvKiBBcm02NCBwYXRoICovCgkJcmV0ID0gYWNwaV9wcm9jZXNzb3JfbWFr
+ZV9lbmFibGVkKHByKTsKCX0gZWxzZSB7CgkJcmV0ID0gMDsKCX0KCglpZiAocmV0KQoJCXJldHVy
+biByZXQ7CgpOb3csIHRoZSBuZXh0IHRyYW5zZm9ybWF0aW9uIHdvdWxkIGJlIHRvIG1vdmUgIWdl
+dF9jcHVfZGV2aWNlKHByLT5pZCkKaW50byBhY3BpX3Byb2Nlc3Nvcl9tYWtlX2VuYWJsZWQoKSB3
+aGljaCB3b3VsZCBlbGltaW5hdGUgb25lIG9mIHRob3NlCmlmKCkgbGVncy4KCk5vdywgaWYgd2Ug
+d2FudCB0byBzb21laG93IG1ha2UgdGhlIGNhbGwgdG8gYXJjaF9yZWdzdGVyX2NwdSgpIGNvbW1v
+bgppbiB0aGVzZSB0d28gcGF0aHMsIHRoZSBuZXh0IHF1ZXN0aW9uIGlzIHdoYXQgYXJlIHRoZSBf
+cHJlY2lzZV8Kc2VtYW50aWNzIG9mIGFjcGlfbWFwX2NwdSgpLCBwYXJ0aWN1bGFybHkgd2l0aCBy
+ZXNwZWN0IHRvIGl0Cm1vZGlmeWluZyBwci0+aWQuIElzIGl0IGd1YXJhbnRlZWQgdG8gYWx3YXlz
+IGdpdmUgdGhlIHNhbWUgcmVzdWx0CmZvciB0aGUgc2FtZSBwcm9jZXNzb3IgZGVzY3JpYmVkIGlu
+IEFDUEk/IFdoYXQgYWNwaV9tYXBfY3B1KCkgYW55d2F5LApJIGNhbiBmaW5kIG5vIGRvY3VtZW50
+YXRpb24gZm9yIGl0LgoKVGhlbiB0aGVyZSdzIHRoZSBxdWVzdGlvbiB3aGV0aGVyIGNhbGxpbmcg
+YWNwaV91bm1hcF9jcHUoKSBzaG91bGQgYmUKZG9uZSBvbiB0aGUgZmFpbHVyZSBwYXRoIGlmIGFy
+Y2hfcmVnaXN0ZXJfY3B1KCkgZmFpbHMsIHdoaWNoIGlzIGRvbmUKZm9yIHRoZSB4ODYgcGF0aCBi
+dXQgbm90IHRoZSBBcm02NCBwYXRoLiBTaG91bGQgaXQgYmUgZG9uZSBmb3IgdGhlCkFybTY0IHBh
+dGg/IEkndmUgbm8gaWRlYSwgYnV0IGFzIEFybTY0IGRvZXNuJ3QgaW1wbGVtZW50IGVpdGhlciBv
+Zgp0aGVzZSB0d28gZnVuY3Rpb25zLCBJIGd1ZXNzIHRoZXkgY291bGQgYmUgc3R1YmJlZCBvdXQg
+YW5kIHRodXMgYmUKbm8tb3BzIC0gYnV0IHRoZW4gd2Ugb3BlbiBhIGhvbGUgd2hlcmUgaWYgcHIt
+PmlkIGlzIGludmFsaWQsIHdlCmVuZCB1cCBwYXNzaW5nIHRoYXQgaW52YWxpZCB2YWx1ZSB0byBh
+cmNoX3JlZ2lzdGVyX2NwdSgpIHdoaWNoIEknbQpxdWl0ZSBzdXJlIHdpbGwgZXhwbG9kZSB3aXRo
+IGEgbmVnYXRpdmUgQ1BVIG51bWJlci4KClNvLCB0byBteSBtaW5kLCB3aGF0IHlvdSdyZSBlZmZl
+Y3RpdmVseSBhc2tpbmcgZm9yIGlzIGEgdG90YWwgcmV3cml0ZQpvZiBhbGwgdGhlIGNvZGUgaW4g
+YW5kIGNhbGxlZCBieSBhY3BpX3Byb2Nlc3Nvcl9nZXRfaW5mbygpLi4uIGFuZCB0aGF0CmlzIG5v
+dCBzb21ldGhpbmcgSSBhbSB3aWxsaW5nIHRvIGRvIChiZWNhdXNlIGl0J3MgdG9vIGZhciBvdXRz
+aWRlIG9mCm15IGtub3dsZWRnZSBhcmVhLikKCkFzIEkgc2FpZCBpbiBteSByZXBseSB0byBwYXRj
+aCAxLCBJIHRoaW5rIHlvdXIgY29tbWVudHMgb24gcGF0Y2ggMgptYWtlIEFybTY0IHZjcHUgaG90
+cGx1ZyB1bmFjaGlldmFibGUgaW4gYSByZWFzb25hYmxlIHRpbWUgZnJhbWUsIGFuZApjZXJ0YWlu
+bHkgb3V0c2lkZSB0aGUgYm91bmRzIG9mIHdoYXQgSSBjYW4gZG8gdG8gcHJvZ3Jlc3MgdGhpcy4K
+ClNvLCBhdCB0aGlzIHBvaW50IEknbSBnb2luZyB0byBzdGFuZCBkb3duIGZyb20gZnVydGhlciBw
+YXJ0aWNpcGF0aW9uCndpdGggdGhpcyBwYXRjaCBzZXQgYXMgSSBiZWxpZXZlIEkndmUgcmVhY2hl
+ZCB0aGUgbGltaXQgb2Ygd2hhdCBJIGNhbgpkbyB0byBwcm9ncmVzcyBpdC4KCi0tIApSTUsncyBQ
+YXRjaCBzeXN0ZW06IGh0dHBzOi8vd3d3LmFybWxpbnV4Lm9yZy51ay9kZXZlbG9wZXIvcGF0Y2hl
+cy8KRlRUUCBpcyBoZXJlISA4ME1icHMgZG93biAxME1icHMgdXAuIERlY2VudCBjb25uZWN0aXZp
+dHkgYXQgbGFzdCEKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
