@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D56BC48BC4
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 20:03:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42FFFC48BC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 20:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U0hqHSw9Ck63Hhhy5oAyuQNlF21Fzl0WqcY/QQqSMBI=; b=5CKlDjvGsAyIhk
-	F4ICjuaCIU2c79/wp9f6rcr3hcyZSIv8PEYSfBH0lGQ9lYCMJPuyxEASLDlXn/b/CTYH1DfJZ982C
-	SLjdNsD8GePk1wasm3XzT78u+6+nUzpBeI2z5ejDPJF8QlcDISM7VL4LiG9bOR7lD6RREkqsxIbKC
-	RRi9ngtuh367/QjezWaJitgzGz1YrQaeKSGGnBWm3NTmaVZ90rZygbVDOdLBHsQl+XH6/ql8k13h1
-	IEvUb1GIMi5JhTxr4vrlDj0GQ6Vk4FFUavpKYzI53LiQkfjUvHzqpIOA5y9+CtfDdE5vJvMAWqQYa
-	meeqnE6zC1bPoTdYM20Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+isaNp8mGrZ/mJdzGx7hiJxRqe8znjU9KyXm5/JmiY4=; b=3u4ppxpFaHGKEYpzwhtCQbbGFI
+	zcudBdDBytbsrWoyOIFehFXzqD3oBRiaPG+noHHe9s46TVMROQsWQbAnscETBoLIbDGzvOA+I56p5
+	BLUVMDSI37kmBmGFCcdWk7rnjk9zEpTga2ywusyUuj517owPwCQ2QNaSYB8O+hfNmlBqDWZLU1bsR
+	qrAeHJWjvULb5a6qIHRO6apJO4JUPG746u0uBAILlMDDJOQ0sB3oNs2iXZ2EMx3GzPVTVUXpM9zFL
+	5I/9Ssskg2l/YoWS4L8E+kt+87XoNZZBUecIkeEXx7xvaO9DfU/8EsS1sbsIo/I0gDeKNj2IJ9o+e
+	OBXPTeig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcWLJ-0000000G32g-2Lpk;
-	Tue, 20 Feb 2024 20:03:53 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1rcWVp-0000000G4tG-1Hef;
+	Tue, 20 Feb 2024 20:14:45 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcWLE-0000000G2zj-2Vzk;
-	Tue, 20 Feb 2024 20:03:51 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1708459424;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jJRsPsyZ6zDS1QWFQN2wLBFM6mS+0QImDjTMgSPiL7I=;
-	b=aYQmsEOwQopLCUpYpAQuDyrIpn/ZjclA2riggfw0WWir8TT6NmiPQZJzpeC9YRHKgp0rWt
-	k9TQyzVThpxVBDmox2nnESsknS5oTRd4VzFt0IU9vtyq1EJQHNR2c8XYNJ501UxxiXHAvM
-	kXdsE5fN2sy9MVO94uyCUiwX4v8h1pq6bevWl8yrwk+XqoCaj9mBmXHCJGdlZPtLIuvqLX
-	3q+Zma5P0XbwLUpcToklgoNTEsCISC+ORpEWQc1gQ0abV9ucGF0qXfXXUnwwqsBvpXZvEQ
-	4wLIzGkKNOg+Vur2e3RHi5rEfoxeWqrJBnwmSEj0b/eNkGMG09MxRmsKO7Z1XQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1708459424;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jJRsPsyZ6zDS1QWFQN2wLBFM6mS+0QImDjTMgSPiL7I=;
-	b=0bZpy8Ucv4te6DfmhFa1QQKyXrhJJterh1+UZ0hC/H+1QXta7TTSsn4wIZdFftqnZDB7KQ
-	v4NtqSu0q+WZZFDw==
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v13 08/13] irqchip/riscv-imsic: Add device MSI domain
- support for PCI devices
-In-Reply-To: <CAK9=C2UgYpVtjFZ4NLzOCP6f3LQ=Fx7kPMywwQyFiNMcKmPyLw@mail.gmail.com>
-References: <20240220060718.823229-1-apatel@ventanamicro.com>
- <20240220060718.823229-9-apatel@ventanamicro.com> <8734tni7h3.ffs@tglx>
- <CAK9=C2UgYpVtjFZ4NLzOCP6f3LQ=Fx7kPMywwQyFiNMcKmPyLw@mail.gmail.com>
-Date: Tue, 20 Feb 2024 21:03:43 +0100
-Message-ID: <87jzmyhpi8.ffs@tglx>
+	id 1rcWVl-0000000G4s7-3r9D;
+	Tue, 20 Feb 2024 20:14:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 227C6CE19BF;
+	Tue, 20 Feb 2024 20:14:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0852DC433C7;
+	Tue, 20 Feb 2024 20:14:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1708460079;
+	bh=PhnmgydTViRe3a3Z0MeKX2O9Z2j/9jkmyt+EI/YkIDg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=livCMehgZsyylqxmsXVj6i8xUdU6xpehFod2AwCiN5tpwFKJ1EI6uVpnpUk1SD1pP
+	 GAOlkj14vHO/qPvkX0d2id7JAYJfmORLe28tPRQkxNkQE6Rd+nls0vM8PGBKwrFQaU
+	 Z6Hn1f36OwFyKU9OKK+mfymo53Iz1gvB0Pk8YA6mTWUndRC5NI4pVkVYdWAFBH06HP
+	 wpOkoK5yJIv0PkCR2AWd/nyXrwJz1hOuoOPB1/Rw7cDtv6Mla+4AxXh12qp+hhLjEp
+	 yd71FoqwR1k2BDtT0dWYNV11Xg/QhMr2farOiz7zqwo8yti2+//d2OrlM8Ac/4z8v3
+	 SQyYG8IyDqVJw==
+Date: Tue, 20 Feb 2024 20:14:30 +0000
+From: Mark Brown <broonie@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "corbet@lwn.net" <corbet@lwn.net>, "ardb@kernel.org" <ardb@kernel.org>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
+	"keescook@chromium.org" <keescook@chromium.org>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"debug@rivosinc.com" <debug@rivosinc.com>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"oleg@redhat.com" <oleg@redhat.com>,
+	"arnd@arndb.de" <arnd@arndb.de>,
+	"ebiederm@xmission.com" <ebiederm@xmission.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"sorear@fastmail.com" <sorear@fastmail.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"brauner@kernel.org" <brauner@kernel.org>,
+	"fweimer@redhat.com" <fweimer@redhat.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"thiago.bauermann@linaro.org" <thiago.bauermann@linaro.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"musl@lists.openwall.com" <musl@lists.openwall.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v8 00/38] arm64/gcs: Provide support for GCS in userspace
+Message-ID: <527e2b4d-5d2b-4993-a30a-834e77a23a40@sirena.org.uk>
+References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
+ <22a53b78-10d7-4a5a-a01e-b2f3a8c22e94@app.fastmail.com>
+ <4c7bdf8fde9cc45174f10b9221fa58ffb450b755.camel@intel.com>
 MIME-Version: 1.0
+In-Reply-To: <4c7bdf8fde9cc45174f10b9221fa58ffb450b755.camel@intel.com>
+X-Cookie: E = MC ** 2 +- 3db
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240220_120348_812375_3D80B9F4 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20240220_121442_323305_FFF37F25 
+X-CRM114-Status: GOOD (  30.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,30 +99,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Frank Rowand <frowand.list@gmail.com>, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2340892387051593291=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBGZWIgMjAgMjAyNCBhdCAyMjo1MSwgQW51cCBQYXRlbCB3cm90ZToKCj4gT24gVHVl
-LCBGZWIgMjAsIDIwMjQgYXQgNzowNeKAr1BNIFRob21hcyBHbGVpeG5lciA8dGdseEBsaW51dHJv
-bml4LmRlPiB3cm90ZToKPj4KPj4gT24gVHVlLCBGZWIgMjAgMjAyNCBhdCAxMTozNywgQW51cCBQ
-YXRlbCB3cm90ZToKPj4gPiAgc3RhdGljIGJvb2wgaW1zaWNfaW5pdF9kZXZfbXNpX2luZm8oc3Ry
-dWN0IGRldmljZSAqZGV2LAo+PiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBz
-dHJ1Y3QgaXJxX2RvbWFpbiAqZG9tYWluLAo+PiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICBzdHJ1Y3QgaXJxX2RvbWFpbiAqcmVhbF9wYXJlbnQsCj4+ID4gQEAgLTIxOCw2ICsy
-NDEsNyBAQCBzdGF0aWMgYm9vbCBpbXNpY19pbml0X2Rldl9tc2lfaW5mbyhzdHJ1Y3QgZGV2aWNl
-ICpkZXYsCj4+ID4KPj4gPiAgICAgICAvKiBNU0kgcGFyZW50IGRvbWFpbiBzcGVjaWZpYyBzZXR0
-aW5ncyAqLwo+PiA+ICAgICAgIHN3aXRjaCAocmVhbF9wYXJlbnQtPmJ1c190b2tlbikgewo+PiA+
-ICsgICAgIGNhc2UgRE9NQUlOX0JVU19QQ0lfTVNJOgo+Pgo+PiAgICAgICAgIGNhc2UgRE9NQUlO
-X0JVU19QQ0lfREVWSUNFX01TSVg6Cj4+Cj4+ID8KPgo+IEFjdHVhbGx5LCB0aGUgRE9NQUlOX0JV
-U19QQ0lfTVNJIGlzIG5vdCBuZWVkZWQgYmVjYXVzZQo+IHRoZSByZWFsIHBhcmVudCBkb21haW4g
-aXMgYWx3YXlzIHRoZSBJTVNJQyBiYXNlIGlycV9kb21haW4KPiBzbyBET01BSU5fQlVTX05FWFVT
-IGlzIHN1ZmZpY2llbnQuCgpJbmRlZWQuIE9idmlvdXNseSBJIGNhbid0IHJlYWQuCgo+IEJldHRl
-ciB0byBqdXN0IGRyb3AgRE9NQUlOX0JVU19QQ0lfTVNJIGZyb20gdGhpcyBzd2l0Y2ggY2FzZSA/
-CgpZZXMuIEkgYWN0dWFsbHkgd291bGQgYmUgYSBidWcgaWYgdGhhdCBlbmRzIHVwIGFzIHRoZSBy
-ZWFsIHBhcmVudApkb21haW4uCgpUaGFua3MsCgogICAgICAgdGdseAoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============2340892387051593291==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LFlVuq7xn7hg1UEJ"
+Content-Disposition: inline
+
+
+--LFlVuq7xn7hg1UEJ
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Feb 20, 2024 at 06:41:05PM +0000, Edgecombe, Rick P wrote:
+> On Tue, 2024-02-20 at 11:36 -0500, Stefan O'Rear wrote:
+
+> > 2. Shadow stack faults on non-shadow stack pages, if flexible shadow
+> > stack
+> > =A0=A0 handling is in effect, cause the affected page to become a shadow
+> > stack
+> > =A0=A0 page.=A0 When this happens, the page filled with invalid address
+> > tokens.
+
+> Hmm, could the shadow stack underflow onto the real stack then? Not
+> sure how bad that is. INCSSP (incrementing the SSP register on x86)
+> loops are not rare so it seems like something that could happen.
+
+Yes, they'd trash any pages of normal stack they touch as they do so but
+otherwise seems similar to overflow.
+
+> The situation (for arm and riscv too I think?) is that some
+> applications will just not work automatically due to custom stack
+> switching implementations. (user level threading libraries, JITs, etc).
+> So=A0I think it should be ok to ask for apps to change to enable shadow
+> stack and we should avoid doing anything too awkward in pursuit of
+> getting it to work completely transparently.
+
+Yes, on arm64 anything that rewrites or is otherwise clever with the
+stack is going to have to understand that the GCS exists on arm64 and do
+matching rewrites/updates for the GCS.  This includes anything that
+switches stacks, it will need to use GCS specific instructions to change
+the current shadow stack pointer.
+
+> > MAP_SHARED; I consider this sufficiently perverse application
+> > behavior that
+> > it is not necessary to ensure exclusive use of the underlying pages
+> > while
+> > a shadow stack pte exists.=A0 (Applications that use MAP_SHARED for
+> > stacks
+> > do not get the full benefit of the shadow stack but they keep
+> > POSIX.1-2004
+> > conformance, applications that allocate stacks exclusively in
+> > MAP_PRIVATE
+> > memory lose no security.)
+
+> On x86 we don't support MAP_SHARED shadow stacks. There is a whole
+> snarl around the dirty bit in the PTE. I'm not sure it's impossible but
+> it was gladly avoided. There is also a benefit in avoiding having them
+> get mapped as writable in a different context.
+
+Similarly for arm64, I think we can physically do it IIRC but between
+having to map via map_shadow_stack() for security reasons and it just
+generally not seeming like a clever idea the implementation shouldn't
+actually let you get a MAP_SHARED GCS it's not something that's been
+considered.
+
+> > I am substantially less familiar with GCS and SHSTK than with
+> > Zicfiss.
+> > It is likely that a syscall or other mechanism is needed to
+> > initialize the
+> > shadow stack in flexible memory for makecontext.
+
+> The ucontext stacks (and alt shadow stacks is the plan) need to have a
+> "restore token". So, yea, you would probably need some syscall to
+> "convert" the normal stack memory into shadow stack with a restore
+> token.
+
+Similar considerations for GCS, we need tokens and we don't want
+userspace to be able to write by itself in the normal case.
+
+--LFlVuq7xn7hg1UEJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmXVCCUACgkQJNaLcl1U
+h9CH3gf+IJkDKy0uUAtsKGOEXiHDZs6dgXAT43RbQM/ofajONSRA7nEWsZHy7IWP
+Tcz0hVz2/ellXMMRHdtDCKYxE3ugSuE8UQSOLGt2B3R1TDmgkXPW8GWOtV/eIUYS
+rJEPCtPF35R3ezGjIYnLBQvSoFNjD4TNyygIvjh6d3Wc8m+aXtiC/whvINTuzOVv
+SnYa3aFliCl153Ck0/3GzAiFCbGFUY3qVhKBwbk6MLITlRf9mF5bLp8e5Zzf49yj
+9qGcHcDETmpcxDVRJ7oAzh8gqQqein8FOyFDkREnT59O7DdNNTx8m/K29UOnBuLF
+z/qP3IZSjbKlJ3d/XfSVG0mTnYnohw==
+=e50G
+-----END PGP SIGNATURE-----
+
+--LFlVuq7xn7hg1UEJ--
+
+
+--===============2340892387051593291==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2340892387051593291==--
+
