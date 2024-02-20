@@ -4,79 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ABAFC48BC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 20:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20329C48BC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 20:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tYUNt59CweEaVGqFi0Y+AMJ9ODiI/gvjk7gmX4sZG5U=; b=XxLl40Wn7d1EjJ
-	Ls81PxvrbrJroguS7umBVAsukl7X3U1dWl8QsBS1+HbbfEz78cw2di2MlfwDXxZrEflJv8ewVQ8/t
-	/Baf5t80ztsCygF7CUJZilisd1+w5jzDfYFss2ALLTE2dr0j4twh+/8pmShszjQhLOgqaTW23geYE
-	l3YcttV+Uif6VRwXDkqohMWSe+KiCIQi6SzD2pLQE05u/AeYeWXPHDsRgqiP11QEs+F7NYYvMW/Nk
-	VMgibCo6kgm8XH/jPvZdgKc2meRyOtcK/aKHDxVqKyNOq+3K3J8QqHCTApjxIo9dXu8yNUuI0pANn
-	gum+DxphfLkT1gDC89FQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CXbSN37Y+CgH2SnXSaOeCC+lVSPJwJaq3smw4TMpgCE=; b=DCwtRULgshHSMw
+	m1Q+gulg7HwGqTfv1nBZD/7aC65m1zIfFV2hYFscFuQGAdqfF4qVUJw/a0fuZknOdWnXgoLRJZQBM
+	gEyhrsSRNvAiOMWt89rOhcMqLpI+TVaKQ8F26t5/jm5OX+yolSDwkgxSiJdFeXq0Fejhsq1TW1/wA
+	TuKG/JAwo48R7gyQiQEJsKh7mkiG9fJFO57UonENWu5wXmWj/0JQ8cN6voX2VYYKJSTwIIX378LFb
+	HQP9/ZrDI+yTqgSjSoJbYjh3MgH7ja5I6rNgoV5MxAIBfLqTPq2UNYZ3BPM3Aa6AzcZhnMULM3JuD
+	W84AY28eKrgZGqFG57Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcWnS-0000000G7zN-1UH7;
-	Tue, 20 Feb 2024 20:32:58 +0000
-Received: from brightrain.aerifal.cx ([2001:19f0:5:42::1])
+	id 1rcWnu-0000000G863-3YdK;
+	Tue, 20 Feb 2024 20:33:26 +0000
+Received: from mx0a-00823401.pphosted.com ([148.163.148.104])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcWnP-0000000G7wu-0lwS
-	for linux-riscv@lists.infradead.org;
-	Tue, 20 Feb 2024 20:32:56 +0000
-Date: Tue, 20 Feb 2024 13:57:15 -0500
-From: Rich Felker <dalias@libc.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "corbet@lwn.net" <corbet@lwn.net>, "ardb@kernel.org" <ardb@kernel.org>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
-	"keescook@chromium.org" <keescook@chromium.org>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"debug@rivosinc.com" <debug@rivosinc.com>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"oleg@redhat.com" <oleg@redhat.com>,
-	"arnd@arndb.de" <arnd@arndb.de>,
-	"ebiederm@xmission.com" <ebiederm@xmission.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"sorear@fastmail.com" <sorear@fastmail.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"broonie@kernel.org" <broonie@kernel.org>,
-	"brauner@kernel.org" <brauner@kernel.org>,
-	"fweimer@redhat.com" <fweimer@redhat.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"thiago.bauermann@linaro.org" <thiago.bauermann@linaro.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"musl@lists.openwall.com" <musl@lists.openwall.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [musl] Re: [PATCH v8 00/38] arm64/gcs: Provide support for GCS
- in userspace
-Message-ID: <20240220185714.GO4163@brightrain.aerifal.cx>
-References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
- <22a53b78-10d7-4a5a-a01e-b2f3a8c22e94@app.fastmail.com>
- <4c7bdf8fde9cc45174f10b9221fa58ffb450b755.camel@intel.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <4c7bdf8fde9cc45174f10b9221fa58ffb450b755.camel@intel.com>
-User-Agent: Mutt/1.5.21 (2010-09-15)
+	id 1rcWnr-0000000G82R-2YcA;
+	Tue, 20 Feb 2024 20:33:25 +0000
+Received: from pps.filterd (m0355086.ppops.net [127.0.0.1])
+	by mx0a-00823401.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 41KJDXCa003915;
+	Tue, 20 Feb 2024 20:33:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=motorola.com; h=
+	from:to:cc:subject:date:message-id; s=DKIM202306; bh=apTduRvBWpk
+	BsoALNYmwCiUzyclrqb5Qqfle8axRCBQ=; b=TCM9V8XExFWvbGVqBcf32wkNxb+
+	BrfAh7wITVBSxO18Poqt5IgDbcjXMCl/VaVDbZwOEwbvOj7EeUlK1f/xMJAq6Sdc
+	U8QWrc+4tRL0xT+xN/vq8GeuVulsDE7m4je2OFTbm2gRlF/OPCrOB74ewg75HmSq
+	KStzACWZEXUh7ExFSOYMLkmXAzp0vHx6eSCSNPVrTlGhW9oCqqspLFSNQARFJ3MJ
+	b/ucayKYZxdIAU6650Bjwzwsehfvo+FtpOaVoAzEMD8elDEbBgTzG2f0TlICEgen
+	HJ/O8kdJxYrtUK9S/mJWn97aDSgo4e3PxZM/wYKwKpMNdV1HTjda54mLMvQ==
+Received: from ilclpfpp01.lenovo.com ([144.188.128.67])
+	by mx0a-00823401.pphosted.com (PPS) with ESMTPS id 3wd21w05e0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 20 Feb 2024 20:33:15 +0000 (GMT)
+Received: from ilclmmrp01.lenovo.com (ilclmmrp01.mot.com [100.65.83.165])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ilclpfpp01.lenovo.com (Postfix) with ESMTPS id 4TfWLy1rvZzdDsy;
+	Tue, 20 Feb 2024 20:33:14 +0000 (UTC)
+Received: from ilclasset01.mot.com (ilclasset01.mot.com [100.64.7.105])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mbland)
+	by ilclmmrp01.lenovo.com (Postfix) with ESMTPSA id 4TfWLy0zLHz3n3fr;
+	Tue, 20 Feb 2024 20:33:14 +0000 (UTC)
+From: Maxwell Bland <mbland@motorola.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: gregkh@linuxfoundation.org, agordeev@linux.ibm.com,
+        akpm@linux-foundation.org, andreyknvl@gmail.com, andrii@kernel.org,
+        aneesh.kumar@kernel.org, aou@eecs.berkeley.edu, ardb@kernel.org,
+        arnd@arndb.de, ast@kernel.org, borntraeger@linux.ibm.com,
+        bpf@vger.kernel.org, brauner@kernel.org, catalin.marinas@arm.com,
+        christophe.leroy@csgroup.eu, cl@linux.com, daniel@iogearbox.net,
+        dave.hansen@linux.intel.com, david@redhat.com, dennis@kernel.org,
+        dvyukov@google.com, glider@google.com, gor@linux.ibm.com,
+        guoren@kernel.org, haoluo@google.com, hca@linux.ibm.com,
+        hch@infradead.org, john.fastabend@gmail.com, jolsa@kernel.org,
+        kasan-dev@googlegroups.com, kpsingh@kernel.org,
+        linux-arch@vger.kernel.org, linux@armlinux.org.uk,
+        linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        lstoakes@gmail.com, mark.rutland@arm.com, martin.lau@linux.dev,
+        meted@linux.ibm.com, michael.christie@oracle.com, mjguzik@gmail.com,
+        mpe@ellerman.id.au, mst@redhat.com, muchun.song@linux.dev,
+        naveen.n.rao@linux.ibm.com, npiggin@gmail.com, palmer@dabbelt.com,
+        paul.walmsley@sifive.com, quic_nprakash@quicinc.com,
+        quic_pkondeti@quicinc.com, rick.p.edgecombe@intel.com,
+        ryabinin.a.a@gmail.com, ryan.roberts@arm.com, samitolvanen@google.com,
+        sdf@google.com, song@kernel.org, surenb@google.com,
+        svens@linux.ibm.com, tj@kernel.org, urezki@gmail.com,
+        vincenzo.frascino@arm.com, will@kernel.org, wuqiang.matt@bytedance.com,
+        yonghong.song@linux.dev, zlim.lnx@gmail.com, mbland@motorola.com,
+        awheeler@motorola.com
+Subject: [PATCH 0/4] arm64: mm: support dynamic vmalloc/pmd configuration
+Date: Tue, 20 Feb 2024 14:32:52 -0600
+Message-Id: <20240220203256.31153-1-mbland@motorola.com>
+X-Mailer: git-send-email 2.17.1
+X-Proofpoint-GUID: doXRsqZ8zYPmc1DRvfdxdFLT0EPlBuO3
+X-Proofpoint-ORIG-GUID: doXRsqZ8zYPmc1DRvfdxdFLT0EPlBuO3
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-02-20_06,2024-02-20_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 clxscore=1011
+ spamscore=0 mlxscore=0 priorityscore=1501 mlxlogscore=509 phishscore=0
+ bulkscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2402120000
+ definitions=main-2402200146
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240220_123255_544827_34C33D69 
-X-CRM114-Status: GOOD (  41.03  )
+X-CRM114-CacheID: sfid-20240220_123323_927963_FC846A73 
+X-CRM114-Status: GOOD (  24.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,107 +110,153 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBGZWIgMjAsIDIwMjQgYXQgMDY6NDE6MDVQTSArMDAwMCwgRWRnZWNvbWJlLCBSaWNr
-IFAgd3JvdGU6Cj4gSGksCj4gCj4gSSB3b3JrZWQgb24gdGhlIHg4NiBrZXJuZWwgc2hhZG93IHN0
-YWNrIHN1cHBvcnQuIEkgdGhpbmsgaXQgaXMgYW4KPiBpbnRlcmVzdGluZyBzdWdnZXN0aW9uLiBT
-b21lIHF1ZXN0aW9ucyBiZWxvdywgYW5kIEkgd2lsbCB0aGluayBtb3JlIG9uCj4gaXQuCj4gCj4g
-T24gVHVlLCAyMDI0LTAyLTIwIGF0IDExOjM2IC0wNTAwLCBTdGVmYW4gTydSZWFyIHdyb3RlOgo+
-ID4gV2hpbGUgZGlzY3Vzc2luZyB0aGUgQUJJIGltcGxpY2F0aW9ucyBvZiBzaGFkb3cgc3RhY2tz
-IGluIHRoZSBjb250ZXh0Cj4gPiBvZgo+ID4gWmljZmlzcyBhbmQgbXVzbCBhIGZldyBkYXlzIGFn
-bywgSSBoYWQgdGhlIGZvbGxvd2luZyBpZGVhIGZvciBob3cgdG8KPiA+IHNvbHZlCj4gPiB0aGUg
-c291cmNlIGNvbXBhdGliaWxpdHkgcHJvYmxlbXMgd2l0aCBzaGFkb3cgc3RhY2tzIGluIFBPU0lY
-LjEtMjAwNAo+ID4gYW5kCj4gPiBQT1NJWC4xLTIwMTc6Cj4gPiAKPiA+IDEuIEludHJvZHVjZSBh
-ICJmbGV4aWJsZSBzaGFkb3cgc3RhY2sgaGFuZGxpbmciIG9wdGlvbi7CoCBGb3Igd2hhdAo+ID4g
-Zm9sbG93cywKPiA+IMKgwqAgaXQgZG9lc24ndCBtYXR0ZXIgaWYgdGhpcyBpcyBzeXN0ZW0td2lk
-ZSwgcGVyLW1tLCBvciBwZXItdm1hLgo+ID4gCj4gPiAyLiBTaGFkb3cgc3RhY2sgZmF1bHRzIG9u
-IG5vbi1zaGFkb3cgc3RhY2sgcGFnZXMsIGlmIGZsZXhpYmxlIHNoYWRvdwo+ID4gc3RhY2sKPiA+
-IMKgwqAgaGFuZGxpbmcgaXMgaW4gZWZmZWN0LCBjYXVzZSB0aGUgYWZmZWN0ZWQgcGFnZSB0byBi
-ZWNvbWUgYSBzaGFkb3cKPiA+IHN0YWNrCj4gPiDCoMKgIHBhZ2UuwqAgV2hlbiB0aGlzIGhhcHBl
-bnMsIHRoZSBwYWdlIGZpbGxlZCB3aXRoIGludmFsaWQgYWRkcmVzcwo+ID4gdG9rZW5zLgo+IAo+
-IEhtbSwgY291bGQgdGhlIHNoYWRvdyBzdGFjayB1bmRlcmZsb3cgb250byB0aGUgcmVhbCBzdGFj
-ayB0aGVuPyBOb3QKPiBzdXJlIGhvdyBiYWQgdGhhdCBpcy4gSU5DU1NQIChpbmNyZW1lbnRpbmcg
-dGhlIFNTUCByZWdpc3RlciBvbiB4ODYpCj4gbG9vcHMgYXJlIG5vdCByYXJlIHNvIGl0IHNlZW1z
-IGxpa2Ugc29tZXRoaW5nIHRoYXQgY291bGQgaGFwcGVuLgoKU2hhZG93IHN0YWNrIHVuZGVyZmxv
-dyBzaG91bGQgZmF1bHQgb24gYXR0ZW1wdCB0byBhY2Nlc3MKbm9uLXNoYWRvdy1zdGFjayBtZW1v
-cnkgYXMgc2hhZG93LXN0YWNrLCBubz8KCj4gPiDCoMKgIEZhdWx0cyBmcm9tIG5vbi1zaGFkb3ct
-c3RhY2sgYWNjZXNzZXMgdG8gYSBzaGFkb3ctc3RhY2sgcGFnZSB3aGljaAo+ID4gd2FzCj4gPiDC
-oMKgIGNyZWF0ZWQgYnkgdGhlIHByZXZpb3VzIHBhcmFncmFwaCB3aWxsIGNhdXNlIHRoZSBwYWdl
-IHRvIHJldmVydCB0bwo+ID4gwqDCoCBub24tc2hhZG93LXN0YWNrIHVzYWdlLCB3aXRoIG9yIHdp
-dGhvdXQgY2xlYXJpbmcuCj4gCj4gV29uJ3QgdGhpcyBwcmV2ZW50IGNhdGNoaW5nIHN0YWNrIG92
-ZXJmbG93cyB3aGVuIHRoZXkgaGFwcGVuPyBBbgo+IG92ZXJmbG93IHdpbGwganVzdCB0dXJuIHRo
-ZSBzaGFkb3cgc3RhY2sgaW50byBub3JtYWwgc3RhY2sgYW5kIG9ubHkgZ2V0Cj4gZGV0ZWN0ZWQg
-d2hlbiB0aGUgc2hhZG93IHN0YWNrIHVud2luZHM/CgpJIGRvbid0IHRoaW5rIHRoYXQncyBhcyBi
-aWcgYSBwcm9ibGVtIGFzIGl0IHNvdW5kcyBsaWtlLiBJdCBtaWdodCBtYWtlCnBpbnBvaW50aW5n
-IHRoZSBzcG90IGF0IHdoaWNoIHRoaW5ncyB3ZW50IHdyb25nIHRha2UgYSBsaXR0bGUgYml0IG1v
-cmUKd29yaywgYnV0IGl0IHNob3VsZCBub3QgYWRtaXQgYW55IHdyb25nLWV4ZWN1dGlvbi4KCj4g
-QSByZWxhdGVkIHF1ZXN0aW9uIHdvdWxkIGJlIGhvdyB0byBoYW5kbGUgdGhlIGV4cGFuZGluZyBu
-YXR1cmUgb2YgdGhlCj4gaW5pdGlhbCBzdGFjay4gSSBndWVzcyB0aGUgaW5pdGlhbCBzdGFjayBj
-b3VsZCBiZSBzcGVjaWFsIGFuZCBoYXZlIGEKPiBzZXBhcmF0ZSBzaGFkb3cgc3RhY2suCgpUaGF0
-IHNlZW1zIGZpbmUuCgo+ID4gwqDCoCBJbXBvcnRhbnQ6IGEgc2hhZG93IHN0YWNrIG9wZXJhdGlv
-biBjYW4gb25seSBsb2FkIGEgdmFsaWQgYWRkcmVzcwo+ID4gZnJvbQo+ID4gwqDCoCBhIHBhZ2Ug
-aWYgdGhhdCBwYWdlIGhhcyBiZWVuIGluIGNvbnRpbnVvdXMgc2hhZG93IHN0YWNrIHVzZSBzaW5j
-ZQo+ID4gdGhlCj4gPiDCoMKgIGFkZHJlc3Mgd2FzIHdyaXR0ZW4gYnkgYW5vdGhlciBzaGFkb3cg
-c3RhY2sgb3BlcmF0aW9uOyB0aGUKPiA+IGZsZXhpYmlsaXR5Cj4gPiDCoMKgIGRlbGF5cyBlcnJv
-ciByZXBvcnRpbmcgaW4gY2FzZXMgb2Ygc3RyYXkgd3JpdGVzIGJ1dCBpdCBuZXZlcgo+ID4gYWxs
-b3dzIGZvcgo+ID4gwqDCoCBjb3JydXB0aW9uIG9mIHNoYWRvdyBzdGFjayBvcGVyYXRpb24uCj4g
-Cj4gU2hhZG93IHN0YWNrcyBjdXJyZW50bHkgaGF2ZSBhdXRvbWF0aWMgZ3VhcmQgZ2FwcyB0byB0
-cnkgdG8gcHJldmVudCBvbmUKPiB0aHJlYWQgZnJvbSBvdmVyZmxvd2luZyBvbnRvIGFub3RoZXIg
-dGhyZWFkJ3Mgc2hhZG93IHN0YWNrLiBUaGlzIHdvdWxkCj4gc29tZXdoYXQgb3BlbnMgdGhhdCB1
-cCwgYXMgdGhlIHN0YWNrIGd1YXJkIGdhcHMgYXJlIHVzdWFsbHkgbWFpbnRhaW5lZAo+IGJ5IHVz
-ZXJzcGFjZSBmb3IgbmV3IHRocmVhZHMuIEl0IHdvdWxkIGhhdmUgdG8gYmUgdGhvdWdodCB0aHJv
-dWdoIGlmCj4gdGhlc2UgY291bGQgc3RpbGwgYmUgZW5mb3JjZWQgd2l0aCBjaGVja2luZyBhdCBh
-ZGRpdGlvbmFsIHNwb3RzLgoKSSB3b3VsZCB0aGluayB0aGUgZXhpc3RpbmcgZ3VhcmQgcGFnZXMg
-d291bGQgYWxyZWFkeSBkbyB0aGF0IGlmIGEKdGhyZWFkJ3Mgc2hhZG93IHN0YWNrIGlzIGNvbnRp
-Z3VvdXMgd2l0aCBpdHMgb3duIGRhdGEgc3RhY2suCgo+ID4gMy4gU3RhbmRhcmRzLWRlZmluZWQg
-b3BlcmF0aW9ucyB3aGljaCB1c2UgYSB1c2VyLXByb3ZpZGVkIHN0YWNrCj4gPiDCoMKgIChtYWtl
-Y29udGV4dCwgc2lnYWx0c3RhY2ssIHB0aHJlYWRfYXR0cl9zZXRzdGFjaykgdXNlIGEgc3VicmFu
-Z2UKPiA+IG9mIHRoZQo+ID4gwqDCoCBwcm92aWRlZCBzdGFjayBmb3Igc2hhZG93IHN0YWNrIHN0
-b3JhZ2UuwqAgSSBwcm9wb3NlIHRvIHVzZSBhCj4gPiBzaGFkb3cKPiA+IMKgwqAgc3RhY2sgc2l6
-ZSBvZiAxLzMyIG9mIHRoZSBwcm92aWRlZCBzdGFjayBzaXplLCByb3VuZGVkIHVwIHRvIGEKPiA+
-IHBvc2l0aXZlCj4gPiDCoMKgIGludGVnZXIgbnVtYmVyIG9mIHBhZ2VzLCBhbmQgcGxhY2UgdGhl
-IHNoYWRvdyBzdGFjayBhbGxvY2F0aW9uIGF0Cj4gPiB0aGUKPiA+IMKgwqAgbG93ZXN0IHBhZ2Ut
-YWxpZ25lZCBhZGRyZXNzIGluc2lkZSB0aGUgcHJvdmlkZWQgc3RhY2sgcmVnaW9uLgo+ID4gCj4g
-PiDCoMKgIFNpbmNlIHBhZ2UgdXNhZ2UgaXMgZmxleGlibGUsIG5vIGNoYW5nZSBpbiBwYWdlIHBl
-cm1pc3Npb25zIGlzCj4gPiDCoMKgIGltbWVkaWF0ZWx5IG5lZWRlZDsgdGhpcyBtZXJlbHkgc2V0
-cyB0aGUgaW5pdGlhbCBzaGFkb3cgc3RhY2sKPiA+IHBvaW50ZXIgZm9yCj4gPiDCoMKgIHRoZSBu
-ZXcgY29udGV4dC4KPiA+IAo+ID4gwqDCoCBJZiB0aGUgc2hhZG93IHN0YWNrIGdyZXcgaW4gdGhl
-IG9wcG9zaXRlIGRpcmVjdGlvbiB0byB0aGUKPiA+IGFyY2hpdGVjdHVyYWwKPiA+IMKgwqAgc3Rh
-Y2ssIGl0IHdvdWxkIG5vdCBiZSBuZWNlc3NhcnkgdG8gcGljayBhIGZpeGVkIGRpcmVjdGlvbi4K
-PiA+IAo+ID4gNC4gU0lHU1RLU1ogYW5kIE1JTlNJR1NUS1NaIGFyZSBpbmNyZWFzZWQgYnkgMiBw
-YWdlcyB0byBwcm92aWRlCj4gPiBzdWZmaWNpZW50Cj4gPiDCoMKgIHNwYWNlIGZvciBhIG1pbmlt
-dW0tc2l6ZWQgc2hhZG93IHN0YWNrIHJlZ2lvbiBhbmQgd29yc3QgY2FzZQo+ID4gYWxpZ25tZW50
-Lgo+IAo+IERvIGFsbCBtYWtlY29udGV4dCgpIGNhbGxlcnMgZW5zdXJlIHRoZSBzaXplIGlzIGdy
-ZWF0ZXIgdGhhbiB0aGlzPwo+IAo+IEkgZ3Vlc3MgZ2xpYmMncyBtYWtlY29udGV4dCgpIGNvdWxk
-IGRvIHRoaXMgc2NoZW1lIHRvIHByZXZlbnQgbGVha2luZwo+IHdpdGhvdXQgYW55IGNoYW5nZXMg
-dG8gdGhlIGtlcm5lbC4gQmFzaWNhbGx5IHN0ZWFsIGEgbGl0dGxlIG9mIHRoZQo+IHN0YWNrIGFk
-ZHJlc3MgcmFuZ2UgYW5kIG92ZXJ3cml0ZSBpdCB3aXRoIGEgc2hhZG93IHN0YWNrIG1hcHBpbmcu
-IEJ1dAo+IG9ubHkgaWYgdGhlIGFwcHMgbGVhdmUgZW5vdWdoIHJvb20uIElmIHRoZXkgbmVlZCB0
-byBiZSB1cGRhdGVkLCB0aGVuCj4gdGhleSBjb3VsZCBiZSB1cGRhdGVkIHRvIG1hbmFnZSB0aGVp
-ciBvd24gc2hhZG93IHN0YWNrcyB0b28gSSB0aGluay4KCkZyb20gdGhlIG11c2wgc2lkZSwgSSBo
-YXZlIGFsd2F5cyBsb29rZWQgYXQgdGhlIGVudGlyZWx5IG9mIHNoYWRvdwpzdGFjayBzdHVmZiB3
-aXRoIHZlcnkgaGVhdnkgc2tlcHRpY2lzbSwgYW5kIGFueXRoaW5nIHRoYXQgYnJlYWtzCmV4aXN0
-aW5nIGludGVyZmFjZSBjb250cmFjdHMsIGludHJvZHVjZWQgcGxhY2VzIHdoZXJlIGFwcHMgY2Fu
-IGdldAphdXRvLWtpbGxlZCBiZWNhdXNlIGEgbGF0ZSByZXNvdXJjZSBhbGxvY2F0aW9uIGZhaWxz
-LCBvciByZXF1aXJlcwphcHBsaWNhdGlvbnMgdG8gY29kZSBhcm91bmQgdGhlIGV4aXN0ZW5jZSBv
-ZiBzb21ldGhpbmcgdGhhdCBzaG91bGQgYmUKYW4gaW1wbGVtZW50YXRpb24gZGV0YWlsLCBpcyBh
-IG5vbi1zdGFydGVyLiBUbyBldmVuIGNvbnNpZGVyIHNoYWRvdwpzdGFjayBzdXBwb3J0LCBpdCBt
-dXN0IHRydWVseSBiZSBmdWxseSBub24tYnJlYWtpbmcuCgo+ID4gX1dpdGhvdXRfIGRvaW5nIHRo
-aXMsIHNpZ2FsdHN0YWNrIGNhbm5vdCBiZSB1c2VkIHRvIHJlY292ZXIgZnJvbQo+ID4gc3RhY2sK
-PiA+IG92ZXJmbG93cyBpZiB0aGUgc2hhZG93IHN0YWNrIGxpbWl0IGlzIHJlYWNoZWQgZmlyc3Qs
-IGFuZCBtYWtlY29udGV4dAo+ID4gY2Fubm90IGJlIHN1cHBvcnRlZCB3aXRob3V0IG1lbW9yeSBs
-ZWFrcyBhbmQgdW5yZXBvcnRhYmxlIGVycm9yCj4gPiBjb25kaXRpb25zLgo+IAo+IEZXSVcsIEkg
-dGhpbmsgdGhlIG1ha2Vjb250ZXh0KCkgc2hhZG93IHN0YWNrIGxlYWtpbmcgaXMgYSBiYWQgaWRl
-YS4gSQo+IHdvdWxkIHByZWZlciB0aGUgZXhpc3RpbmcgbWFrZWNvbnRleHQoKSBpbnRlcmZhY2Ug
-anVzdCBkaWRuJ3Qgc3VwcG9ydAo+IHNoYWRvdyBzdGFjaywgcmF0aGVyIHRoYW4gdGhlIGxlYWtp
-bmcgc29sdXRpb24gZ2xpYmMgZG9lcyB0b2RheS4KCkFJVUkgdGhlIHByb3Bvc2FsIGJ5IFN0ZWZh
-biBtYWtlcyBpdCBub24tbGVha2luZyBiZWNhdXNlIGl0J3MganVzdAp1c2luZyBub3JtYWwgbWVt
-b3J5IHRoYXQgcmV2ZXJ0cyB0byBub3JtYWwgdXNhZ2Ugb24gYW55Cm5vbi1zaGFkb3ctc3RhY2sg
-YWNjZXNzLgoKUmljaAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+Reworks ARM's virtual memory allocation infrastructure to support
+dynamic enforcement of page middle directory PXNTable restrictions
+rather than only during the initial memory mapping. Runtime enforcement
+of this bit prevents write-then-execute attacks, where malicious code is
+staged in vmalloc'd data regions, and later the page table is changed to
+make this code executable.
+
+Previously the entire region from VMALLOC_START to VMALLOC_END was
+vulnerable, but now the vulnerable region is restricted to the 2GB
+reserved by module_alloc, a region which is generally read-only and more
+difficult to inject staging code into, e.g., data must pass the BPF
+verifier. These changes also set the stage for other systems, such as
+KVM-level (EL2) changes to mark page tables immutable and code page
+verification changes, forging a path toward complete mitigation of
+kernel exploits on ARM.
+
+Implementing this required minimal changes to the generic vmalloc
+interface in the kernel to allow architecture overrides of some vmalloc
+wrapper functions, refactoring vmalloc calls to use a standard interface
+in the generic kernel, and passing the address parameter already passed
+into PTE allocation to the pte_allocate child function call.
+
+The new arm64 vmalloc wrapper functions ensure vmalloc data is not
+allocated into the region reserved for module_alloc. arm64 BPF and
+kprobe code also see a two-line-change ensuring their allocations abide
+by the segmentation of code from data. Finally, arm64's pmd_populate
+function is modified to set the PXNTable bit appropriately.
+
+Signed-off-by: Maxwell Bland <mbland@motorola.com>
+
+---
+
+After Mark Rutland's feedback last week on my more minimal patch, see
+
+<CAP5Mv+ydhk=Ob4b40ZahGMgT-5+-VEHxtmA=-LkJiEOOU+K6hw@mail.gmail.com>
+
+I adopted a more sweeping and more correct overhaul of ARM's virtual
+memory allocation infrastructure to support these changes. This patch
+guarantees our ability to write future systems with a strong and
+accessible distinction between code and data at the page allocation
+layer, bolstering the guarantees of complementary contributions, i.e.
+W^X and kCFI.
+
+The current patch minimally reduces available vmalloc space, removing
+the 2GB that should be reserved for code allocations regardless, and I
+feel really benefits the kernel by making several memory allocation
+interfaces more uniform, and providing hooks for non-ARM architectures
+to follow suit.
+
+I have done some minimal runtime testing using Torvald's test-tlb script
+on a QEMU VM, but maybe more extensive benchmarking is needed?
+
+Size: Before Patch -> After Patch
+4k: 4.09ns  4.15ns  4.41ns  4.43ns -> 3.68ns  3.73ns  3.67ns  3.73ns 
+8k: 4.22ns  4.19ns  4.30ns  4.15ns -> 3.99ns  3.89ns  4.12ns  4.04ns 
+16k: 3.97ns  4.31ns  4.30ns  4.28ns -> 4.03ns  3.98ns  4.06ns  4.06ns 
+32k: 3.82ns  4.51ns  4.25ns  4.31ns -> 3.99ns  4.09ns  4.07ns  5.17ns 
+64k: 4.50ns  5.59ns  6.13ns  6.14ns -> 4.23ns  4.26ns  5.91ns  5.93ns 
+128k: 5.06ns  4.47ns  6.75ns  6.69ns -> 4.47ns  4.71ns  6.54ns  6.44ns 
+256k: 4.83ns  4.43ns  6.62ns  6.21ns -> 4.39ns  4.62ns  6.71ns  6.65ns 
+512k: 4.45ns  4.75ns  6.19ns  6.65ns -> 4.86ns  5.26ns  7.77ns  6.68ns 
+1M: 4.72ns  4.73ns  6.74ns  6.47ns -> 4.29ns  4.45ns  6.87ns  6.59ns 
+2M: 4.66ns  4.86ns  14.49ns  15.00ns -> 4.53ns  4.57ns  15.91ns  15.90ns 
+4M: 4.85ns  4.95ns  15.90ns  15.98ns -> 4.48ns  4.74ns  17.27ns  17.36ns 
+6M: 4.94ns  5.03ns  17.19ns  17.31ns -> 4.70ns  4.93ns  18.02ns  18.23ns 
+8M: 5.05ns  5.18ns  17.49ns  17.64ns -> 4.96ns  5.07ns  18.84ns  18.72ns 
+16M: 5.55ns  5.79ns  20.99ns  23.70ns -> 5.46ns  5.72ns  22.76ns  26.51ns
+32M: 8.54ns  9.06ns  124.61ns 125.07ns -> 8.43ns  8.59ns  116.83ns 138.83ns
+64M: 8.42ns  8.63ns  196.17ns 204.52ns -> 8.26ns  8.43ns  193.49ns 203.85ns
+128M: 8.31ns  8.58ns  230.46ns 242.63ns -> 8.22ns  8.39ns  227.99ns 240.29ns
+256M: 8.80ns  8.80ns  248.24ns 261.68ns -> 8.35ns  8.55ns  250.18ns 262.20ns
+
+Note I also chose to enforce PXNTable at the PMD layer only (for now),
+since the 194 descriptors which are affected by this change on my
+testing setup are not sufficient to warrant enforcement at a coarser
+granularity.
+
+The architecture-independent changes (I term "generic") can be
+classified only as refactoring, but I feel are also major improvements
+in that they standardize most uses of the vmalloc interface across the
+kernel.
+
+Note this patch reduces the arm64 allocated region for BPF and kprobes,
+but only to match with the existing allocation choices made by the
+generic kernel. I will admit I do not understand why BPF JIT allocation
+code was duplicated into arm64, but I also feel that this was either an
+artifact or that these overrides for generic allocation should require a
+specific KConfig as they trade off between security and space. That
+said, I have chosen not to wrap this patch in a KConfig interface, as I
+feel the changes provide significant benefit to the arm64 kernel's
+baseline security, though a KConfig could certainly be added if the
+maintainers see the need.
+
+Maxwell Bland (4):
+  mm/vmalloc: allow arch-specific vmalloc_node overrides
+  mm: pgalloc: support address-conditional pmd allocation
+  arm64: separate code and data virtual memory allocation
+  arm64: dynamic enforcement of pmd-level PXNTable
+
+ arch/arm/kernel/irq.c               |  2 +-
+ arch/arm64/include/asm/pgalloc.h    | 11 +++++-
+ arch/arm64/include/asm/vmalloc.h    |  8 ++++
+ arch/arm64/include/asm/vmap_stack.h |  2 +-
+ arch/arm64/kernel/efi.c             |  2 +-
+ arch/arm64/kernel/module.c          |  7 ++++
+ arch/arm64/kernel/probes/kprobes.c  |  2 +-
+ arch/arm64/mm/Makefile              |  3 +-
+ arch/arm64/mm/trans_pgd.c           |  2 +-
+ arch/arm64/mm/vmalloc.c             | 57 +++++++++++++++++++++++++++++
+ arch/arm64/net/bpf_jit_comp.c       |  5 ++-
+ arch/powerpc/kernel/irq.c           |  2 +-
+ arch/riscv/include/asm/irq_stack.h  |  2 +-
+ arch/s390/hypfs/hypfs_diag.c        |  2 +-
+ arch/s390/kernel/setup.c            |  6 +--
+ arch/s390/kernel/sthyi.c            |  2 +-
+ include/asm-generic/pgalloc.h       | 18 +++++++++
+ include/linux/mm.h                  |  4 +-
+ include/linux/vmalloc.h             | 15 +++++++-
+ kernel/bpf/syscall.c                |  4 +-
+ kernel/fork.c                       |  4 +-
+ kernel/scs.c                        |  3 +-
+ lib/objpool.c                       |  2 +-
+ lib/test_vmalloc.c                  |  6 +--
+ mm/hugetlb_vmemmap.c                |  4 +-
+ mm/kasan/init.c                     | 22 ++++++-----
+ mm/memory.c                         |  4 +-
+ mm/percpu.c                         |  2 +-
+ mm/pgalloc-track.h                  |  3 +-
+ mm/sparse-vmemmap.c                 |  2 +-
+ mm/util.c                           |  3 +-
+ mm/vmalloc.c                        | 39 +++++++-------------
+ 32 files changed, 176 insertions(+), 74 deletions(-)
+ create mode 100644 arch/arm64/mm/vmalloc.c
+
+
+base-commit: b401b621758e46812da61fa58a67c3fd8d91de0d
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
