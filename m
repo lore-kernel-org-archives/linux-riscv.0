@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08F8CC54787
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 06:43:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25124C54764
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Feb 2024 06:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lq7G+zdK4iAuOK8Q5D12Vq4i5FSI/1/h4iC+ibyyNZ8=; b=vK9tSuBCM8w3Bm
-	/toHH/+trQr2UqeBLswWnemRD4fdfDzBEW7N+EEJiH30Xhrv03+AWhvDRbQh/Ki0JMd18gqnWe7nJ
-	g1Noudw39UOUNPojrwxWbNk7u9CTkCLJAHH7GNda/tHArnuI28A30brJ/xYjDutVSdmqfXlOhYyyA
-	+z9mT2qNI/GH2PomVcNb7wiIT62TfNJarXulCFw3QgHH4kPWohYx6+9anECbX3fK5wVjdg/fvU/Ug
-	Wb5LWTt/GNI3ArTe9AOXN/HkMlfujmg6rm/bwalPgED3Z3D3PRhGV+3D0P/IFR3kMTyL8Ne1wzQ3Q
-	GwvSaryS6ZMCVXi1jAow==;
+	List-Owner; bh=QLtDHNLz6yZpIbXvoIhd+ocf/8IUj7W7/3y7UiSIPsQ=; b=R53OT4SHHVhGi+
+	hi4V5j6PzDdqmDwpH+gwePyDYfkhU/3IPtWC2ow+GwqCeIfS+ASptNyqa/r9d2cy/rdeghjh0Z8yT
+	KmRrvCPWtNUwyF47aeXJehRJpYKc0YaWtSakTVT8ioAOrhk3A+lX9A9TT2sBq1Mbkt8wbCqFpiN74
+	w9rZcfKtpY1xJEFBkqDHamJ+TiCBlWtqXI2gHRCleeqmtp27sqJ15C9ey4LENkuwzL5DK6lMTkZum
+	yKS/V382jRJiOYULpBbG9yqBM2jHfeDbboxOeRjNnNUpRvpPahJvSu7+Y7gdEJqFeK5ai5sX6p6Fw
+	J7OX1Xsnqn9MwKCH7rxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcJqe-0000000DOlR-1cg0;
-	Tue, 20 Feb 2024 06:43:24 +0000
+	id 1rcJqX-0000000DOjo-311p;
+	Tue, 20 Feb 2024 06:43:17 +0000
 Received: from mail-bjschn02on2071e.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::71e] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcJqb-0000000DOib-3BUU
+	id 1rcJqU-0000000DOib-0Rrf
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Feb 2024 06:43:23 +0000
+	Tue, 20 Feb 2024 06:43:17 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=AurWyJFzYK0TBJN7kSTID15wnsFTtfoP2WAAA6bd6ciKFvRnS/cC1ij07qqa7zEtHzhG09p8yUNPVVk6DFO7KEAZBuBQbQzgd3maKPpieS+IdhMMPRghw6ffKoZsilcIww1EbDkAAYTg50dBhabTAN7m1H7gqOHUXheF+8mbsL/Gkyn1Kn/mN93pqiqJIpNShfDhrUv5jLvF+lD2bAFsnf0GVsK2lsmIbz2wNHnRlHMJqbGjCKjVRa82iPR46v8EuZ8L9p64HD3QXLZEumQWcPaTHpI1Xp3bFDzASW31qN5bUmCAOfEuhQ3785bG+lL8KgfAdGwBri2eB3hUOUbEXw==
+ b=hNAjHe5X4pyiDMEbtk4TyRKlb/wW4gxq+K5U/wBQ8lhp42j964g2+YtmkeqaElq/tGrymKStEoWtQ6RJHFNl5Oh4x4igKlaXW9xXLuEqPFy+AnYM3oRKc5IRL/enrMRwF8xgN5at7UwApwXDrX2FcOS+Cp7HvkTr/g08nc97b7bVrHcSILiZ0P5PKerRGmihztkBjUs/jGoX4FxWxz7urCiUOHIrE73EsQO1vhdQjY6UhidT48nOua0hNyYqH+gRmtMvOvEeOQ9Iht3uve7ctEe0g5bkyNJ/GR6uX9zyPYi0pWENZK3gLNCf6S53GD0NitXXS7hvCWt/4Drew8ZKFw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vkHW2dhT8C5P2CS97e6m94pna1V8koDUyMxCGBYomc4=;
- b=Qo7oOWoQJJMAVu2NaxsnA6Y1SIkpgPBxElGPgcK60YRixt3ZZOkeuAMtwGzddtkyUy/WH2kBBba/FUbhTelSXRIvd/rz8pbDF4GUh+gpLQYiNLjATZaWvdnXfhi1tPtlmIaIV1SH1uNZ5Hj9KOSwECuKLGLrs6YCXRnYF2zkYciFNkHjQVlaa4KUOO1rWR7vx7WeNAnCGfu2CEw/Ry//Fee6gaoRJLrEq773hPdNCPfVWerGlSVTVZhnv46X1190WZU5hRxsv+oj88vDSOPPOmF8QH5wNytCNXpmiZQ4YbMT9h7CCV3FH+elPAZEAL9sxtBVEHy2w/4TutyxNoA6CA==
+ bh=7m707WKCzg4oC2tVoc5csl1vgaGbxNvwE9rhPrMvzzs=;
+ b=hhkWfb00DihgvOhal5HjHh8JJiiZkshNBvX4umk4nE2AVQUkg4gErble74UqO3NSExmzOzDBtFRFJaZXR1JV1170SOk054HO9vSlh4rdvjJ1aL11cJzjHnDoSTOyeNiedx1aeDb1HtFWkeOKtM+Wt/xB7tqD5D5Nn64wdSf5y8xHxKpBvISegEgVtiMyL7n5/8imdEu1SDi+KLTukBgMCQTrxsT4um69VWa49i1aPHt2mVKLLWguKo04PQUFOipP3cm7D+qyyXhnCT7vhIRi7bWj6hdeo2M563JG2EFuMTjixZQuhrN2pPJsUy5ehDw0hc2ZJw7KpJGHJSJvhKyUSw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:1b::9) by ZQ0PR01MB1239.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:1c::11) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.47; Tue, 20 Feb
- 2024 06:43:07 +0000
+ 2024 06:43:01 +0000
 Received: from ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
  ([fe80::9d68:58f1:62cc:f1d3]) by
  ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn ([fe80::9d68:58f1:62cc:f1d3%4])
- with mapi id 15.20.7270.047; Tue, 20 Feb 2024 06:43:07 +0000
+ with mapi id 15.20.7270.047; Tue, 20 Feb 2024 06:43:01 +0000
 From: Alex Soo <yuklin.soo@starfivetech.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
@@ -67,9 +67,9 @@ Cc: linux-gpio@vger.kernel.org,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alex Soo <yuklin.soo@starfivetech.com>
-Subject: [RFC PATCH v2 3/6] pinctrl: starfive: jh8100: add pinctrl driver for sys_west domain
-Date: Tue, 20 Feb 2024 14:42:43 +0800
-Message-ID: <20240220064246.467216-4-yuklin.soo@starfivetech.com>
+Subject: [RFC PATCH v2 1/6] dt-bindings: pinctrl: starfive: Add JH8100 pinctrl
+Date: Tue, 20 Feb 2024 14:42:41 +0800
+Message-ID: <20240220064246.467216-2-yuklin.soo@starfivetech.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240220064246.467216-1-yuklin.soo@starfivetech.com>
 References: <20240220064246.467216-1-yuklin.soo@starfivetech.com>
@@ -79,54 +79,54 @@ X-ClientProxiedBy: BJXPR01CA0055.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: ZQ0PR01MB1302:EE_|ZQ0PR01MB1239:EE_
-X-MS-Office365-Filtering-Correlation-Id: d11f398d-35b5-49b2-b758-08dc31df3280
+X-MS-Office365-Filtering-Correlation-Id: 637624e5-0f14-4641-9fb9-08dc31df2e99
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: oIXgILgYiNOMepGCbQ3Qa4BbZpTYwuTKHpwaotffRA+j7mgcB5JPOCHFbUtg9gHyV6SmVjLTQXpwO26qa0oKeyMp7TRzdwJMZrtmK7G0ICyST5jbLRZ9rT0dRjyZtrSBCmP5pG8YfYTK7XzSyUAOHHYZ7Bp3ZLWmRKyG0kPVClUf+VNsaXu59UTEebZ7m44EKBAEElkXUtk9JSRuBNI22O8fcoKSNrhteTzdJpJSUYXfHJb9fmJBZVPW/3GTF0mgOdOrRrhQtf7h6/yocxzFK2vqo7Ha4PJb24+lTyvvCcY6UHecRnL4g6oJ454V4b0rOPoDUD2TA1v4jsy3BP2D761XRhNAC8yGY0uByhEH2ON6sJqGTKFIGUl+t6JPhA8ViM0+vZSRr+znMZq8BOdMXZg9sW1Zd1oIzsvYN24Rw08l0mUjywTo2yaoNhqsTaLBhdjlyOxfgwptGbpToy0sSoNybEbKx94xLYfltuAoo0/McDHWW1gbG1T15j8pnf4p0uV5/jTdoGAssLQ33CzyNTUOnGNp8hWTjuTYlQjj5NpeWLUVwfDiUzXWZXURUQqTQugWsEZUePEOmlC/Akkwfg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(38350700005)(921011);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam-Message-Info: tdtQNYDwOfj/SavflfiqyV5quuDII2TJHV6sZ5t98g2GnbpDUPumQ+6RCP3gnl+DI47i/dyAkMPtlaAVlfybPaBvLP7YVLL4CRVUoaS4kpnjXn8SZ+hkMhNx2Po4Jo7CLghJgqG1MQ8WN8dnHiPC5Nj8u4DWMBUq0XADUCfb6swerCGkVNI8empR2ZiSDABuSK0coqAhh8PZaDqYb3geOXttjQtoR/n3UCcfL5kdMWEFCCUkS6ru3G2eiycLumiBwRQEUokfc7weMuF5xj1QVRY7We6YZd0cCRBvShxoDLVpLKdHks7wds5TqUqzn/fuWnWdTVBQsrt8ouprgume7rnWcGTOGHyJ25HHTLUh4Zj0lB1bJNA5i0MvkiCIctgqZJ79preSb5oOcVLXC3SEmHzWCoz0z4kwyCarK0KkUvla9uiDlO8vUjFXolbWlTTLo3xfd9tsCObgRrHuaV4ITpiwfwrWvIhk7OWc/PIwGPWkbagk0XanUHTQpR2VZTwsU6lPhUKAaxrPsNtlxtO/YoHy1xEN0apO8fI+gfPsH3wMWilOJ7nEfFAyPhyrxI73KAHZe4G26xCR5yltJ0sopQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(230273577357003)(38350700005)(921011);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3U+Cun4r2K8PtwAMrqporU3888lFMucT8Za1ApE8m96tI+F2lC+/7AqhiYqb?=
- =?us-ascii?Q?RcFW5z4ifzfmXfChgdkOqZJ8NYu5w5CQSADpctljYOBNa77TCemhfTXnMeGZ?=
- =?us-ascii?Q?88tXFebNuKVTR4/UwZXkPToSb6m7L82PYn+rBxjj3PRNuT++L8qeU/gEuR06?=
- =?us-ascii?Q?/XYKlxUk2LBBSwUTAewx2EV+ghqkDzoE0NFuGteiPSKnYU5b9Rc68wq3e/5g?=
- =?us-ascii?Q?Ya/PDeDzOtWB36Dx+ikCc1NBzC8kIPyThIBbUhVDonGU2KG1vDy+srKJQshz?=
- =?us-ascii?Q?V+5PWQYfJyeStSLqBqorFREcmhlstO7iFUoTacscbXlSUSEOuc4jFThONWE6?=
- =?us-ascii?Q?F/Cfl0xF8pPdWnUVfVKKlQaQ568WPKW3qzW7mBCQFhfdn79DarDwUh6e4AEh?=
- =?us-ascii?Q?4BUCNoxWz38l9mbxYxtjTR2yRbCKDYdUlOMw/fVkorbJliBgy8FHm1pcpyAr?=
- =?us-ascii?Q?Mq+ZRLW9TCWDQrcRmhYtOvh1Lm/wiLkO036WpjNQt2j5FvzMQq0Z6U2jtrNw?=
- =?us-ascii?Q?3METi9gnzziTFSH5h3QCPAG4i0NAEue0Py8Jnla/iUOnjtDkRQ1XB1IIfvY3?=
- =?us-ascii?Q?XQdDYCTAuDznJ53QqWVRTh06O6GBahCwMOymH6spFQuYyMs7AftnNtDHcHI6?=
- =?us-ascii?Q?J6QmgsVdawrJR7y3Kl11hvexH9kdHvP6WENyS8/RljSlJYZ30lqMe0Vpo6/8?=
- =?us-ascii?Q?6H9Qk+RWvp+j6p1JOGne2U+ZKZhA/1ep7RN+J/UzBOn47T70GpWHI9U1q1So?=
- =?us-ascii?Q?OPmp/q7O+eSuLyGOqDG/yKG204jcDZQQbcajhQzoAH2/4ywMVZ7fWi5A9bEG?=
- =?us-ascii?Q?HWp94xoq7D+9qNWsGFV068nKhbQWRxNNuMSm1ae/vUq03Lu3X4Yh5rski3VR?=
- =?us-ascii?Q?6jMHF5lE2q8Tck3IhPdMGdHpjbS1NHxi8M5e95ULSEUKSeWJQ3IvF9ghvY7W?=
- =?us-ascii?Q?g9RKblS7+ElCX+aDrMyyNcUFwcxkmCE7ZBUNajizieXjcjZaFUgjS14HiYfH?=
- =?us-ascii?Q?XRC5yEtBgJBnBagkP51CiaDoZWTyKhDOzd11tbo+9C/AiVFs3CwTfdWXIHcM?=
- =?us-ascii?Q?WRvKlAhHpIVuYEvkFXpJ904a2pCsg57/XAwxjqn1dPbSF61x9UnRfJrViY5E?=
- =?us-ascii?Q?J+hQjLfMf0TmphXtrHGyWAYZ5kIMVR3h1D5DTOgxIlz6S0ISSC9htbUvprt7?=
- =?us-ascii?Q?Ie5708tkJPKrqxvmlKptPBGTEctRfknOXFkn5Hhqugys34wtyUMfYAGxwhDY?=
- =?us-ascii?Q?MhQQb3DNC4nxG7RdOvfcdDRmV77jWiqhso0PJQ1t+Le2/ikFQYqeXjFmG9tZ?=
- =?us-ascii?Q?crVh6FvzODNtK6MX5tfIsXg9k2mfYVqzK8tH+k2t79BLpKAZ47exrpACofMu?=
- =?us-ascii?Q?+yhJtPdGOQUhmF1RKfFDm4XuD6XQoVx+iCh6ge0AsEDsGifUoE3eb4Kvy7qZ?=
- =?us-ascii?Q?Vpk/AhlcvAQNx/IEDYwgcMgR/9SkO9yNwmpW0CMgosamacF07JGy+KUngfQC?=
- =?us-ascii?Q?TV5s+0bUOpUaDRltKcCuNvihQDbBJhVrClKppQNJOwiyxmmcxQGkunnL+d9K?=
- =?us-ascii?Q?PuBSBPQe/4/ZLkHleR8JHC53wjWHJfHA0GzwkbP/tQq3QIGXwj530wR/Koos?=
- =?us-ascii?Q?2w=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?L8KWDZcN9BrWx/xabV9snfdC2UQOpI4l4L2JsS+BmCwfAXR+82fUlPHkBMcu?=
+ =?us-ascii?Q?SEdSI8LNf8cd2TPCk370MP937Rw7UW+9qkNDTbWRHOGBTwFJXw+QoLVCYxs5?=
+ =?us-ascii?Q?psEiNVjw8WVU1plh5J499VQKjsA7Nv5OEvcZvE0HcbSAAuQ6emurZrlVyFAf?=
+ =?us-ascii?Q?eASOMQItu8ai5fDrv11/rJkNEHJcuTKnfYR+uH+Jx6ked9D6bzoSadxNiZ9C?=
+ =?us-ascii?Q?PPmIZ5elpozZVCGgkt1tMp1WSgGYHireLsqhqHDFq3HX+tlZRir54Tp20kmH?=
+ =?us-ascii?Q?RfVF2roHB35zaEAmI1Rw5J8o67mI3fLZcBNKKswywSWoe7yWtGJ0uR7YGcMz?=
+ =?us-ascii?Q?Gopj6fNNiZx/RPpUlKq3jN+H2oxUlPDksWp6j9bgAAtjzuevLgqjHaN6oAme?=
+ =?us-ascii?Q?owl6AP5gBOBtheGmVGlJdWMZHYV6GlQBrd2C4DM66qA4a44qoPG4Lk/pllOx?=
+ =?us-ascii?Q?Vo/yOhngKnf6nSeXcOJ88Nqz1/2pndIiDZzkrtY56ln3m0XraCeBCE6n1JF9?=
+ =?us-ascii?Q?W+raB6sLukG6ekDy7ma24FNvbGC25/+mNOIS32SVVG2LfYhPbZ5jIe53brSX?=
+ =?us-ascii?Q?F61uFk00suwlH2Dl318ETXB3ozI9NntAC3TXrR1JRaxZQOOWlamMwXqmiOAh?=
+ =?us-ascii?Q?8CmIPS561Ihjd2epG5VAiMdLzbyoLS3CJ5wQbXQLCkW6xa0AV1kyjKGvqZXJ?=
+ =?us-ascii?Q?P8fqN2fnYjn4qeG8UszBqf2ujvyuRlb6BsqSjVDnZG3V1OIWC7IYObmMvZi5?=
+ =?us-ascii?Q?eXWQeKIJY7CSw0Bsgx8WpqtTw5jkyoddTC9qpcPylpliXBqWlx1dFlCaVPbJ?=
+ =?us-ascii?Q?XqdNW3x8nZaDaMjBYlJ9ZCws4c8xnsssqe2HBypAbxlMMGpTCqlmeTGTXXsV?=
+ =?us-ascii?Q?5Z3ooDf8n6G57k1jLYXozEwfX6hjRP3Y1+NYZqmUqV67yk1ti6tW1AbNsxL5?=
+ =?us-ascii?Q?Yxt1b29fFOIn+BPow4yWm4FpmZ8/iD8NE6qwdaMYJC7PT4udzvpabnrT2rp+?=
+ =?us-ascii?Q?x0tp9mPUYQ5+uWXwIvB5UIfpFUcgRLKLF9HDb/7KUmZ5LrNeC3SqH/xmWfWS?=
+ =?us-ascii?Q?6WOPvX4V0OrN+0JlKdIzsjoSqEbaaTxk+kcadBp1vCPCsHaupXJiQv7HT2jl?=
+ =?us-ascii?Q?okNoBQ1EQDcRs5rWEr4YqpeSr6KJQ92Vr81hJc7hH1b4x0aKeiUPhinR15dS?=
+ =?us-ascii?Q?D7lghQVFHiLpPhiOqUnWKHc4PmzoHCh9uvd5zbASjwU+CLO7yCpZMZNV+hgS?=
+ =?us-ascii?Q?/L8b3H5a54u7yLnfxl5whiwV1SEio36IbfaVwslto2NHeUwJWuRKIzVT8+XT?=
+ =?us-ascii?Q?NUuHnpysj0pGJpoFalcZcjxAQY4ktY3dMAANvktBMqn7bzPfp7T08efOL/IO?=
+ =?us-ascii?Q?iJ4vcwd0Em+kFSYqCrh595l14sIJulAG7hSRkzGOgzvsz7lEaDwoiZlbifhY?=
+ =?us-ascii?Q?+VP+4G4Mk/QIAGPqofkidDX1QxCFu4hLeqdl9SvbonUDgKj81/X+xBZyUAEE?=
+ =?us-ascii?Q?jiShjh95Zcywd3NeTJm93mk2TPGIz5zXVU3S+/u+DL6xtFwPGGaQOB8L0wZu?=
+ =?us-ascii?Q?SdfDbS/hL8b1tZfMlZunjTIcTMKKd/Gp09M+TDmepBfD8h371YrUr8K08Prx?=
+ =?us-ascii?Q?UQ=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d11f398d-35b5-49b2-b758-08dc31df3280
+X-MS-Exchange-CrossTenant-Network-Message-Id: 637624e5-0f14-4641-9fb9-08dc31df2e99
 X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB1302.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2024 06:43:07.6420
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2024 06:43:01.2451
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3vF2NG+eBeb7w/FjYOBBPOoinaeSp2AzHj8X5XA/erCzcFYp1jlm+q3wl/SGJvHm6kjQItccdsdgoeAIkDMJziXuCh4GHtbhS3SdPBzIwrU=
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2RVlBFz/kFU3vP7Jyza0DiCKIH244PRO1Vn6IP//AVn2srZW3E5YQNmIYjlrJzXOp4wvckbMRS07mgy4kxT00/mSdbCYLqVSrmBA59vR9CU=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240219_224321_830082_B91204CD 
-X-CRM114-Status: GOOD (  22.01  )
+X-CRM114-CacheID: sfid-20240219_224314_390586_1E461162 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,246 +143,1022 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl driver for sys_west domain.
+Add documentation and header file for JH8100 pinctrl driver.
 
 Signed-off-by: Alex Soo <yuklin.soo@starfivetech.com>
 ---
- drivers/pinctrl/starfive/Kconfig              |  12 ++
- drivers/pinctrl/starfive/Makefile             |   1 +
- .../pinctrl-starfive-jh8100-sys-west.c        | 168 ++++++++++++++++++
- .../starfive/pinctrl-starfive-jh8100.h        |   4 +
- 4 files changed, 185 insertions(+)
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c
+ .../pinctrl/starfive,jh8100-aon-pinctrl.yaml  | 261 ++++++++++++++++++
+ .../starfive,jh8100-sys-east-pinctrl.yaml     | 223 +++++++++++++++
+ .../starfive,jh8100-sys-gmac-pinctrl.yaml     | 163 +++++++++++
+ .../starfive,jh8100-sys-west-pinctrl.yaml     | 220 +++++++++++++++
+ .../pinctrl/starfive,jh8100-pinctrl.h         | 103 +++++++
+ 5 files changed, 970 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh8100-aon-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-east-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-gmac-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-west-pinctrl.yaml
+ create mode 100644 include/dt-bindings/pinctrl/starfive,jh8100-pinctrl.h
 
-diff --git a/drivers/pinctrl/starfive/Kconfig b/drivers/pinctrl/starfive/Kconfig
-index afcbf9d4dc8d..d78f161a636c 100644
---- a/drivers/pinctrl/starfive/Kconfig
-+++ b/drivers/pinctrl/starfive/Kconfig
-@@ -70,3 +70,15 @@ config PINCTRL_STARFIVE_JH8100_SYS_EAST
- 	  This also provides an interface to the GPIO pins not used by other
- 	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
- 	  and interrupts on input changes.
-+
-+config PINCTRL_STARFIVE_JH8100_SYS_WEST
-+	tristate "StarFive JH8100 SoC System IOMUX-West pinctrl and GPIO driver"
-+	depends on ARCH_STARFIVE  || COMPILE_TEST
-+	depends on OF
-+	select PINCTRL_STARFIVE_JH8100
-+	default ARCH_STARFIVE
-+	help
-+	  Say yes here to support system iomux-west pin control on the StarFive JH8100 SoC.
-+	  This also provides an interface to the GPIO pins not used by other
-+	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
-+	  and interrupts on input changes.
-diff --git a/drivers/pinctrl/starfive/Makefile b/drivers/pinctrl/starfive/Makefile
-index 45698c502b48..784465157ae2 100644
---- a/drivers/pinctrl/starfive/Makefile
-+++ b/drivers/pinctrl/starfive/Makefile
-@@ -8,3 +8,4 @@ obj-$(CONFIG_PINCTRL_STARFIVE_JH7110_AON)	+= pinctrl-starfive-jh7110-aon.o
- 
- obj-$(CONFIG_PINCTRL_STARFIVE_JH8100)		+= pinctrl-starfive-jh8100.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JH8100_SYS_EAST)	+= pinctrl-starfive-jh8100-sys-east.o
-+obj-$(CONFIG_PINCTRL_STARFIVE_JH8100_SYS_WEST)	+= pinctrl-starfive-jh8100-sys-west.o
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c
+diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-aon-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-aon-pinctrl.yaml
 new file mode 100644
-index 000000000000..0aebb30596af
+index 000000000000..ada40deca993
 --- /dev/null
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c
-@@ -0,0 +1,168 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
++++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-aon-pinctrl.yaml
+@@ -0,0 +1,261 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/starfive,jh8100-aon-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH8100 AON (always-on) Pin Controller
++
++description: |
++  Pinctrl bindings for JH8100 RISC-V SoC from StarFive Technology Ltd.
++
++  The JH8100 SoC has 4 pinctrl domains - sys_east, sys_west, sys_gmac, and aon.
++  This document provides an overview of the "aon" pinctrl domain.
++
++  The "aon" domain has a pin controller which provides
++  - I/O multiplexing for peripheral signals specific to this domain.
++  - GPIO pins which support external GPIO interrupts or external wake-up.
++  - syscon registers to configure device I/O reference voltage.
++
++  In the AON Pin Controller, the pins named PAD_RGPIO0 to PAD_GPIO15 can be
++  multiplexed and have configurable bias, drive strength, schmitt trigger etc.
++  Only peripherals in the AON domain can have their I/O go through the 16
++  "PAD_RGPIOs". This includes I2C, UART, watchdog, eMMC, SDIO0, XSPI etc.
++
++  All these peripherals can be connected to any of the 16 PAD_RGPIOs in such a way
++  that any iopad can be set up to be controlled by any of the peripherals.
++
++  The pin muxing is illustrated by the diagram below.
++                          _____________
++                         |             |
++    RGPIO0 --------------|             |--- PAD_RGPIO0
++    RGPIO1 --------------| AON I/O MUX |--- PAD_RGPIO1
++      ...                |             |       ...
++    I2C8 SDA interface --|             |--- PAD_RGPIO15
++                         |             |
++                          -------------
++
++  The AON Pin Controller provides syscon registers to configure
++
++  1.  reference voltage of
++     - eMMC I/O interface
++         supported voltage - 1.8V
++     - SDIO0 I/O interface
++         supported voltage - 3.3V, 1.8V
++     - PAD_RGPIO bank
++        - 16 PAD_RGPIOs (PAD_RGPIO0 to PAD_GPIO15)
++        - all devices attached to PAD_RGPIOs must use I/O voltage 3.3V.
++     - XSPI I/O interface
++         supported voltage level - 3.3V
++
++     Regulator supplies the device voltage, and each device has a corresponding syscon
++     register bit [1:0] that must be configured to indicate the device voltage level.
++
++     +--------+--------+-------------------+
++     | Bit[1] | Bit[0] | Reference Voltage |
++     +--------+--------+-------------------+
++     |   0    |   0    |     3.3 V         |
++     +--------+--------+-------------------+
++     |   0    |   1    |     2.5 V         |
++     +--------+--------+-------------------+
++     |   1    |   x    |     1.8 V         |
++     +--------+--------+-------------------+
++
++  2. reference voltage and slew rate of GMAC0
++
++     Voltage level on GMAC0 interface is dependent on the PHY that it is pairing with. The
++     supported voltage levels are 3.3V, 2.5V, and 1.8V.
++
++     GMAC0 has 2 set of syscon registers -
++
++     2.1 PAD_VREF_GMAC0_syscon - bit [1:0] must be configured to indicate the voltage level on
++     GMAC0 interface. The default setting is 3.3V.
++
++     +--------+--------+-----------------------------------+
++     | Bit[1] | Bit[0] | GMAC0 Interface Reference Voltage |
++     +--------+--------+-----------------------------------+
++     |   0    |   0    |        3.3V                       |
++     +--------+--------+-----------------------------------+
++     |   0    |   1    |        2.5V                       |
++     +--------+--------+-----------------------------------+
++     |   1    |   x    |        1.8V                       |
++     +--------+--------+-----------------------------------+
++
++     2.2 PAD_GMAC0_<SIGNAL_NAME>_syscon - each GMAC0 pad has a corresponding syscon bit [0] set
++     to 0 by default. When GMAC0 mode is RGMII and voltage level is 2.5V, the bit [0] must be
++     set to 1.
++
++     +-------------+-----------------------+---------+
++     | GMAC0 Mode  |  GMAC0 Voltage Level  |  Bit[0] |
++     +-------------+-----------------------+---------+
++     |             |        3.3V           |    0    |
++     |             |-----------------------+---------+
++     |   RGMII     |        2.5V           |    1    |
++     |             |-----------------------+---------+
++     |             |        1.8V           |    0    |
++     +-------------+-----------------------+---------+
++     |             |        3.3V           |    0    |
++     |             |-----------------------+---------+
++     |   RMII      |        2.5V           |    0    |
++     |             |-----------------------+---------+
++     |             |        1.8V           |    0    |
++     +-------------+-----------------------+---------+
++
++     the bit [2] can be used to configure GMAC0 signal slew rate,
++
++     +--------+-----------+
++     | Bit[2] | Slew Rate |
++     +--------+-----------+
++     |   0    |   Fast    |
++     +--------+-----------+
++     |   1    |   Slow    |
++     +--------+-----------+
++
++  Under any circumstances, the syscon register's reference voltage setting must not be
++  lower than the actual device voltage, otherwise, the device I/O pads will get damaged.
++
++  Follow the guidelines below when configure reference voltage -
++
++  To increase the device voltage, set bit [1:0] to the new operating state first before
++  raising the actual voltage to the higher operating point.
++
++  To decrease the device voltage, hold bit [1:0] to the current operating state until
++  the actual voltage has stabilized at the lower operating point before changing the
++  setting.
++
++  Alternatively, a device voltage change can always be initiated by first setting syscon
++  register bit [1:0] = 0, the safe 3.3V startup condition, before changing the device
++  voltage. Then once the actual voltage is changed and has stabilized at the new operating
++  point, bit [1:0] can be reset as appropriate.
++
++maintainers:
++  - Alex Soo <yuklin.soo@starfivetech.com>
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - const: starfive,jh8100-aon-pinctrl
++          - const: syscon
++          - const: simple-mfd
++
++  reg:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++  gpio-controller: true
++
++  '#gpio-cells':
++    const: 2
++
++  gpio-ranges:
++    maxItems: 1
++
++  wakeup-gpios:
++    maxItems: 1
++    description: GPIO pin to be used for waking up the system from sleep mode.
++
++  wakeup-source:
++    maxItems: 1
++    description: to indicate pinctrl has wakeup capability.
++
++patternProperties:
++  '-grp$':
++    type: object
++    additionalProperties: false
++    patternProperties:
++      '-pins$':
++        type: object
++        description: |
++          A pinctrl node should contain at least one subnode representing the
++          pinctrl groups available in the domain. Each subnode will list the
++          pins it needs, and how they should be configured, with regard to
++          muxer configuration, bias, input enable/disable, input schmitt
++          trigger enable/disable, slew-rate and drive strength.
++        allOf:
++          - $ref: /schemas/pinctrl/pincfg-node.yaml
++          - $ref: /schemas/pinctrl/pinmux-node.yaml
++        additionalProperties: false
++
++        properties:
++          pinmux:
++            description: |
++              The list of GPIOs and their mux settings or function select.
++              The GPIOMUX and PINMUX macros are used to configure the
++              I/O multiplexing and function selection respectively.
++
++          bias-disable: true
++
++          bias-pull-up:
++            type: boolean
++
++          bias-pull-down:
++            type: boolean
++
++          drive-strength-microamp:
++            enum: [ 2000, 4000, 8000, 12000 ]
++
++          input-enable: true
++
++          input-disable: true
++
++          input-schmitt-enable: true
++
++          input-schmitt-disable: true
++
++          slew-rate:
++            enum: [ 0, 1 ]
++            default: 0
++            description: |
++                0: slow (half frequency)
++                1: fast
++
++required:
++  - compatible
++  - reg
++  - resets
++  - interrupts
++  - interrupt-controller
++  - gpio-controller
++  - '#gpio-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pinctrl_aon: pinctrl@1f300000 {
++            compatible = "starfive,jh8100-aon-pinctrl", "syscon", "simple-mfd";
++            reg = <0x0 0x1f300000 0x0 0x10000>;
++            resets = <&aoncrg 0>;
++            interrupts = <160>;
++            interrupt-controller;
++            gpio-controller;
++            #gpio-cells = <2>;
++            gpio-ranges = <&pinctrl_aon 0 0 16>;
++
++            i2c7_pins: i2c7-grp {
++                i2c7-scl-pins {
++                    pinmux = <0x23265409>;
++                    bias-pull-up;
++                    input-enable;
++                };
++
++                i2c7-sda-pins {
++                    pinmux = <0x2427580a>;
++                    bias-pull-up;
++                    input-enable;
++                };
++            };
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-east-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-east-pinctrl.yaml
+new file mode 100644
+index 000000000000..3ea336cb7563
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-east-pinctrl.yaml
+@@ -0,0 +1,223 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/starfive,jh8100-sys-east-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH8100 SYS_EAST Pin Controller
++
++description: |
++  Pinctrl bindings for JH8100 RISC-V SoC from StarFive Technology Ltd.
++
++  The JH8100 SoC has 4 pinctrl domains - sys_east, sys_west, sys_gmac, and aon.
++  This document provides an overview of the "sys_east" pinctrl domain.
++
++  The "sys_east" domain has a pin controller which provides
++  - I/O multiplexing for peripheral signals specific to this domain.
++  - function selection for GPIO pads.
++  - GPIO interrupt handling.
++  - syscon for device voltage reference.
++
++  In the SYS_EAST Pin Controller, the pins named PAD_GPIO0_E to PAD_GPIO47_E can
++  be multiplexed and have configurable bias, drive strength, schmitt trigger etc.
++  Only peripherals in the SYS_EAST domain can have their I/O go through the 48
++  "PAD_GPIOs". This includes CANs, I2Cs, I2Ss, SPIs, UARTs, PWMs, SMBUS0, SDIO1 etc.
++
++  All these peripherals can be connected to any of the 48 PAD_GPIOs in such a way
++  that any iopad can be set up to be controlled by any of the peripherals.
++
++  The pin muxing is illustrated by the diagram below.
++                                 __________________
++                                |                  |
++    GPIO0 ----------------------|                  |--- PAD_GPIO0_E
++    GPIO1 ----------------------| SYS_EAST I/O MUX |--- PAD_GPIO1_E
++    GPIO2 ----------------------|                  |--- PAD_GPIO2_E
++      ...                       |                  |      ...
++    I2C0 Clock interface -------|                  |--- PAD_GPIO9_E
++    I2C0 Data interface  -------|                  |--- PAD_GPIO10_E
++      ...                       |                  |      ...
++    UART0 transmit interface ---|                  |--- PAD_GPIO20_E
++    UART0 receive interface ----|                  |--- PAD_GPIO21_E
++      ...                       |                  |       ...
++    GPIO47 ---------------------|                  |--- PAD_GPIO47_E
++                                |                  |
++                                 ------------------
++
++  Alternatively, the "PAD_GPIOs" can be multiplexed to other peripherals through
++  function selection. Each iopad has a maximum of up to 3 functions - 0, 1, and 2.
++  Function 0 is the default function or peripheral signal of an iopad.
++  The function 1 and function 2 are other optional functions or peripheral signals
++  available to an iopad. The function selection can be carried out by writing the
++  function number to the iopad function select register.
++
++  The "sys_east" domain has 4 PAD_GPIO banks -
++  E0 - 16 PAD_GPIOs (PAD_GPIO0_E to PAD_GPIO15_E)
++  E1 - 16 PAD_GPIOs (PAD_GPIO16_E to PAD_GPIO31_E)
++  E2 -  8 PAD_GPIOs (PAD_GPIO32_E to PAD_GPIO39_E)
++  E3 -  8 PAD_GPIOs (PAD_GPIO40_E to PAD_GPIO47_E)
++
++  Each PAD_GPIO bank can be set to a voltage level 3.3V or 1.8V. All devices attached
++  to the PAD_GPIOs must use the same I/O voltage level as the bank voltage setting.
++  This allows user to select different I/O voltages for their devices. For instance,
++  the UART have 3.3V/1.8V requirement, the UART devices that use 1.8V are attached
++  to a PAD_GPIO bank which is configured to 1.8V.
++
++  Regulators supply voltages to the PAD_GPIO banks, and each PAD_GPIO bank has a corresponding
++  syscon bit [1:0] that must be configured to indicate its voltage level. The default setting
++  is 3.3V.
++
++  +--------+--------+-------------------+
++  | Bit[1] | Bit[0] | Reference Voltage |
++  +--------+--------+-------------------+
++  |   0    |   0    |     3.3 V         |
++  +--------+--------+-------------------+
++  |   1    |   x    |     1.8 V         |
++  +--------+--------+-------------------+
++
++  Under any circumstances, the syscon register's reference voltage setting must not be
++  lower than the actual device voltage, otherwise, the device I/O pads will get damaged.
++
++  Follow the guidelines below when configure reference voltage -
++
++  To increase the device voltage, set bit [1:0] to the new operating state first before
++  raising the actual voltage to the higher operating point.
++
++  To decrease the device voltage, hold bit [1:0] to the current operating state until
++  the actual voltage has stabilized at the lower operating point before changing the
++  setting.
++
++  Alternatively, a device voltage change can always be initiated by first setting syscon
++  register bit [1:0] = 0, the safe 3.3V startup condition, before changing the device
++  voltage. Then once the actual voltage is changed and has stabilized at the new operating
++  point, bit [1:0] can be reset as appropriate.
++
++maintainers:
++  - Alex Soo <yuklin.soo@starfivetech.com>
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - const: starfive,jh8100-sys-pinctrl-east
++          - const: syscon
++          - const: simple-mfd
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++  gpio-controller: true
++
++  '#gpio-cells':
++    const: 2
++
++  gpio-ranges:
++    maxItems: 1
++
++  gpio-line-names: true
++
++patternProperties:
++  '-grp$':
++    type: object
++    additionalProperties: false
++    patternProperties:
++      '-pins$':
++        type: object
++        description: |
++          A pinctrl node should contain at least one subnode representing the
++          pinctrl groups available in the domain. Each subnode will list the
++          pins it needs, and how they should be configured, with regard to
++          muxer configuration, bias, input enable/disable, input schmitt
++          trigger enable/disable, slew-rate and drive strength.
++        allOf:
++          - $ref: /schemas/pinctrl/pincfg-node.yaml
++          - $ref: /schemas/pinctrl/pinmux-node.yaml
++        additionalProperties: false
++
++        properties:
++          pinmux:
++            description: |
++              The list of GPIOs and their mux settings or function select.
++              The GPIOMUX and PINMUX macros are used to configure the
++              I/O multiplexing and function selection respectively.
++
++          bias-disable: true
++
++          bias-pull-up:
++            type: boolean
++
++          bias-pull-down:
++            type: boolean
++
++          drive-strength-microamp:
++            enum: [ 2000, 4000, 8000, 12000 ]
++
++          input-enable: true
++
++          input-disable: true
++
++          input-schmitt-enable: true
++
++          input-schmitt-disable: true
++
++          slew-rate:
++            enum: [ 0, 1 ]
++            default: 0
++            description: |
++                0: slow (half frequency)
++                1: fast
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - resets
++  - interrupts
++  - interrupt-controller
++  - gpio-controller
++  - '#gpio-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pinctrl_east: pinctrl@122d0000 {
++            compatible = "starfive,jh8100-sys-pinctrl-east", "syscon", "simple-mfd";
++            reg = <0x0 0x122d0000 0x0 0x10000>;
++            clocks = <&syscrg_ne 153>;
++            resets = <&syscrg_ne 48>;
++            interrupts = <182>;
++            interrupt-controller;
++            gpio-controller;
++            #gpio-cells = <2>;
++            gpio-ranges = <&pinctrl_east 0 0 48>;
++
++            smbus0_pins: smbus0-grp {
++                smbus0-scl-pins {
++                    pinmux = <0x1122480b>;
++                    bias-pull-up;
++                    input-enable;
++                };
++
++                smbus0-sda-pins {
++                    pinmux = <0x12234c0c>;
++                    bias-pull-up;
++                    input-enable;
++                };
++            };
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-gmac-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-gmac-pinctrl.yaml
+new file mode 100644
+index 000000000000..879b096f61f1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-gmac-pinctrl.yaml
+@@ -0,0 +1,163 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/starfive,jh8100-sys-gmac-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH8100 SYS_GMAC Pin Controller
++
++description: |
++  Pinctrl bindings for JH8100 RISC-V SoC from StarFive Technology Ltd.
++
++  The JH8100 SoC has 4 pinctrl domains - sys_east, sys_west, sys_gmac, and aon.
++  This document provides an overview of the "sys_gmac" pinctrl domain.
++
++  The "sys_gmac" domain has a pin-controller which provides syscon registers to
++  configure device reference voltage and slew rate.
++
++  The SYS_GMAC Pin Controller does not have any PAD_GPIOs, therefore, it does not
++  support the GPIO pad I/O Multiplexing and interrupt handling.
++
++  The SYS_GMAC Pin Controller provides syscon registers to configure
++
++  1. reference voltage of SDIO1
++
++     The supported voltage levels are 3.3V and 1.8V
++
++     The bit [1:0] must be configured to indicate the SDIO1 voltage level.
++
++     +--------+--------+--------------------------+
++     | Bit[1] | Bit[0] |  SDIO1 Reference Voltage |
++     +--------+--------+--------------------------+
++     |   0    |   0    |       3.3 V              |
++     +--------+--------+--------------------------+
++     |   1    |   0    |       1.8 V              |
++     +--------+--------+--------------------------+
++
++  2. reference voltage and slew rate of GMAC1
++
++     Voltage level on GMAC1 interface is dependent on the PHY that it is pairing with. The
++     supported voltage levels are 3.3V, 2.5V, and 1.8V.
++
++     GMAC1 has 2 set of syscon registers -
++
++     2.1 PAD_VREF_GMAC1_syscon - bit [1:0] must be configured to indicate the voltage level on
++     GMAC1 interface. The default setting is 3.3V.
++
++     +--------+--------+-----------------------------------+
++     | Bit[1] | Bit[0] | GMAC1 Interface Reference Voltage |
++     +--------+--------+-----------------------------------+
++     |   0    |   0    |        3.3V                       |
++     +--------+--------+-----------------------------------+
++     |   0    |   1    |        2.5V                       |
++     +--------+--------+-----------------------------------+
++     |   1    |   x    |        1.8V                       |
++     +--------+--------+-----------------------------------+
++
++     2.2 PAD_GMAC1_<SIGNAL_NAME>_syscon - each GMAC1 pad has a corresponding syscon bit [0] set
++     to 0 by default. When GMAC1 mode is RGMII and voltage level is 2.5V, the bit [0] must be
++     set to 1.
++
++     +-------------+-----------------------+---------+
++     | GMAC1 Mode  |  GMAC1 Voltage Level  |  Bit[0] |
++     +-------------+-----------------------+---------+
++     |             |        3.3V           |    0    |
++     |             |-----------------------+---------+
++     |   RGMII     |        2.5V           |    1    |
++     |             |-----------------------+---------+
++     |             |        1.8V           |    0    |
++     +-------------+-----------------------+---------+
++     |             |        3.3V           |    0    |
++     |             |-----------------------+---------+
++     |   RMII      |        2.5V           |    0    |
++     |             |-----------------------+---------+
++     |             |        1.8V           |    0    |
++     +-------------+-----------------------+---------+
++
++     the bit [2] can be used to configure the GMAC1 signal slew rate,
++
++     +--------+-----------+
++     | Bit[2] | Slew Rate |
++     +--------+-----------+
++     |   0    |   Fast    |
++     +--------+-----------+
++     |   1    |   Slow    |
++     +--------+-----------+
++
++  Under any circumstances, the syscon register's reference voltage setting must not be
++  lower than the actual voltage, otherwise, the device I/O pads will get damaged.
++
++  Follow the guidelines below when configure reference voltage -
++
++  To increase the device voltage, set bit [1:0] to the new operating state first before
++  raising the actual voltage to the higher operating point.
++
++  To decrease the device voltage, hold bit [1:0] to the current operating state until
++  the actual voltage has stabilized at the lower operating point before changing the
++  setting.
++
++  Alternatively, a device voltage change can always be initiated by first setting syscon
++  register bit [1:0] = 0, the safe 3.3V startup condition, before changing the device
++  voltage. Then once the actual voltage is changed and has stabilized at the new operating
++  point, bit [1:0] can be reset as appropriate.
++
++maintainers:
++  - Alex Soo <yuklin.soo@starfivetech.com>
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - const: starfive,jh8100-sys-pinctrl-gmac
++          - const: syscon
++          - const: simple-mfd
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++patternProperties:
++  '-grp$':
++    type: object
++    additionalProperties: false
++    patternProperties:
++      '-pins$':
++        type: object
++        description: |
++          A pinctrl node should contain at least one subnode representing the
++          pinctrl groups available in the domain. Each subnode will list the
++          pins it needs, and how they should be configured, with regard to
++          muxer configuration, bias, input enable/disable, input schmitt
++          trigger enable/disable, slew-rate and drive strength.
++        allOf:
++          - $ref: /schemas/pinctrl/pincfg-node.yaml
++          - $ref: /schemas/pinctrl/pinmux-node.yaml
++        additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - resets
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pinctrl_gmac: pinctrl@12770000 {
++            compatible = "starfive,jh8100-sys-pinctrl-gmac", "syscon", "simple-mfd";
++            reg = <0x0 0x12770000 0x0 0x10000>;
++            clocks = <&gmac_sdio_crg 16>;
++            resets = <&gmac_sdio_crg 3>;
++        };
++
++    };
+diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-west-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-west-pinctrl.yaml
+new file mode 100644
+index 000000000000..431dd540d32c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-west-pinctrl.yaml
+@@ -0,0 +1,220 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/starfive,jh8100-sys-west-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH8100 SYS_WEST Pin Controller
++
++description: |
++  Pinctrl bindings for JH8100 RISC-V SoC from StarFive Technology Ltd.
++
++  The JH8100 SoC has 4 pinctrl domains - sys_east, sys_west, sys_gmac, and aon.
++  This document provides an overview of the "sys_west" pinctrl domain.
++
++  The "sys_west" domain has a pin-controller which provides
++  - I/O multiplexing for peripheral signals specific to this domain.
++  - function selection for GPIO pads.
++  - GPIO interrupt handling.
++  - syscon for device voltage reference.
++
++  In the SYS_WEST Pin Controller, the pins named PAD_GPIO0_W to PAD_GPIO15_W can
++  be multiplexed and have configurable bias, drive strength, schmitt trigger etc.
++  Only peripherals in the SYS_WEST domain can have their I/O go through the 16
++  "PAD_GPIOs". This includes I2Cs, HD_AUDIO, HIFI4, SPIs, UARTs, SMBUS1 etc.
++
++  All these peripherals can be connected to any of the 16 PAD_GPIOs in such a way
++  that any iopad can be set up to be controlled by any of the peripherals.
++
++  The pin muxing is illustrated by the diagram below.
++                                 __________________
++                                |                  |
++    GPIO0 ----------------------|                  |--- PAD_GPIO0_W
++    GPIO1 ----------------------| SYS_WEST I/O MUX |--- PAD_GPIO1_W
++    GPIO2 ----------------------|                  |--- PAD_GPIO2_W
++      ...                       |                  |      ...
++    HIFI4 JTAG TDO interface ---|                  |--- PAD_GPIO10_W
++    HIFI4 JTAG TDI interface ---|                  |--- PAD_GPIO11_W
++    SMBUS1 Data interface  -----|                  |--- PAD_GPIO12_W
++    SMBUS1 Clock interface -----|                  |--- PAD_GPIO13_W
++      ...                       |                  |      ...
++    GPIO14 ---------------------|                  |--- PAD_GPIO14_W
++    GPIO15 ---------------------|                  |--- PAD_GPIO15_W
++                                |                  |
++                                 ------------------
++
++  Alternatively, the "PAD_GPIOs" can be multiplexed to other peripherals through
++  function selection. Each iopad has a maximum of up to 3 functions - 0, 1, and 2.
++  Function 0 is the default function or peripheral signal of an iopad.
++  The function 1 and function 2 are other optional functions or peripheral signals
++  available to an iopad. The function selection can be carried out by writing the
++  function number to the iopad function select register.
++
++  The "sys_west" domain has one PAD_GPIO bank -
++  W0 - 16 PAD_GPIOs (PAD_GPIO0_W to PAD_GPIO15_W)
++
++  The PAD_GPIO bank can be set to voltage level 3.3V or 1.8V. All devices attached
++  to the PAD_GPIOs must use the same I/O voltage level as the bank voltage setting.
++  This allows user to select different I/O voltages for their devices. For instance,
++  the UART have 3.3V/1.8V requirement, the UART devices that use 1.8V are attached
++  to a PAD_GPIO bank which is configured to 1.8V.
++
++  Regulator supplies voltage to the PAD_GPIO bank, and the PAD_GPIO bank has a
++  corresponding syscon bit [1:0] that must be configured to indicate its voltage
++  level. The default voltage setting of each PAD_GPIO bank is 3.3V.
++
++  +--------+--------+-------------------+
++  | Bit[1] | Bit[0] | Reference Voltage |
++  +--------+--------+-------------------+
++  |   0    |   0    |     3.3 V         |
++  +--------+--------+-------------------+
++  |   1    |   x    |     1.8 V         |
++  +--------+--------+-------------------+
++
++  Under any circumstances, the syscon register's reference voltage setting must not be
++  lower than the actual device voltage, otherwise, the device I/O pads will get damaged.
++
++  Follow the guidelines below when configure reference voltage -
++
++  To increase the device voltage, set bit [1:0] to the new operating state first before
++  raising the actual voltage to the higher operating point.
++
++  To decrease the device voltage, hold bit [1:0] to the current operating state until
++  the actual voltage has stabilized at the lower operating point before changing the
++  setting.
++
++  Alternatively, a device voltage change can always be initiated by first setting syscon
++  register bit [1:0] = 0, the safe 3.3V startup condition, before changing the device
++  voltage. Then once the actual voltage is changed and has stabilized at the new operating
++  point, bit [1:0] can be reset as appropriate.
++
++maintainers:
++  - Alex Soo <yuklin.soo@starfivetech.com>
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - const: starfive,jh8100-sys-pinctrl-west
++          - const: syscon
++          - const: simple-mfd
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++  gpio-controller: true
++
++  '#gpio-cells':
++    const: 2
++
++  gpio-ranges:
++    maxItems: 1
++
++  gpio-line-names: true
++
++patternProperties:
++  '-grp$':
++    type: object
++    additionalProperties: false
++    patternProperties:
++      '-pins$':
++        type: object
++        description: |
++          A pinctrl node should contain at least one subnode representing the
++          pinctrl groups available in the domain. Each subnode will list the
++          pins it needs, and how they should be configured, with regard to
++          muxer configuration, bias, input enable/disable, input schmitt
++          trigger enable/disable, slew-rate and drive strength.
++        allOf:
++          - $ref: /schemas/pinctrl/pincfg-node.yaml
++          - $ref: /schemas/pinctrl/pinmux-node.yaml
++        additionalProperties: false
++
++        properties:
++          pinmux:
++            description: |
++              The list of GPIOs and their mux settings or function select.
++              The GPIOMUX and PINMUX macros are used to configure the
++              I/O multiplexing and function selection respectively.
++
++          bias-disable: true
++
++          bias-pull-up:
++            type: boolean
++
++          bias-pull-down:
++            type: boolean
++
++          drive-strength-microamp:
++            enum: [ 2000, 4000, 8000, 12000 ]
++
++          input-enable: true
++
++          input-disable: true
++
++          input-schmitt-enable: true
++
++          input-schmitt-disable: true
++
++          slew-rate:
++            enum: [ 0, 1 ]
++            default: 0
++            description: |
++                0: slow (half frequency)
++                1: fast
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - resets
++  - interrupts
++  - interrupt-controller
++  - gpio-controller
++  - '#gpio-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pinctrl_west: pinctrl@123e0000 {
++            compatible = "starfive,jh8100-sys-pinctrl-west", "syscon", "simple-mfd";
++            reg = <0x0 0x123e0000 0x0 0x10000>;
++            clocks = <&syscrg_nw 6>;
++            resets = <&syscrg_nw 1>;
++            interrupts = <183>;
++            interrupt-controller;
++            gpio-controller;
++            #gpio-cells = <2>;
++            gpio-ranges = <&pinctrl_west 0 0 16>;
++
++            smbus1_pins: smbus1-grp {
++                smbus1-scl-pins {
++                    pinmux = <0x1014300d>;
++                    bias-pull-up;
++                    input-enable;
++                };
++
++                smbus1-sda-pins {
++                    pinmux = <0x1115340c>;
++                    bias-pull-up;
++                    input-enable;
++                };
++            };
++        };
++    };
+diff --git a/include/dt-bindings/pinctrl/starfive,jh8100-pinctrl.h b/include/dt-bindings/pinctrl/starfive,jh8100-pinctrl.h
+new file mode 100644
+index 000000000000..055bac7eb2a6
+--- /dev/null
++++ b/include/dt-bindings/pinctrl/starfive,jh8100-pinctrl.h
+@@ -0,0 +1,103 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
 +/*
-+ * Pinctrl / GPIO driver for StarFive JH8100 SoC sys west controller
-+ *
 + * Copyright (C) 2023-2024 StarFive Technology Co., Ltd.
-+ * Author: Alex Soo <yuklin.soo@starfivetech.com>
-+ *
 + */
 +
-+#include <linux/gpio/driver.h>
-+#include <linux/module.h>
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
++#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JH8100_H__
++#define __DT_BINDINGS_PINCTRL_STARFIVE_JH8100_H__
 +
-+#include <dt-bindings/pinctrl/starfive,jh8100-pinctrl.h>
++/* sys_iomux_west pins */
++#define PAD_GPIO0_W				0
++#define PAD_GPIO1_W				1
++#define PAD_GPIO2_W				2
++#define PAD_GPIO3_W				3
++#define PAD_GPIO4_W				4
++#define PAD_GPIO5_W				5
++#define PAD_GPIO6_W				6
++#define PAD_GPIO7_W				7
++#define PAD_GPIO8_W				8
++#define PAD_GPIO9_W				9
++#define PAD_GPIO10_W				10
++#define PAD_GPIO11_W				11
++#define PAD_GPIO12_W				12
++#define PAD_GPIO13_W				13
++#define PAD_GPIO14_W				14
++#define PAD_GPIO15_W				15
 +
-+#include "../core.h"
-+#include "../pinmux.h"
-+#include "../pinconf.h"
-+#include "pinctrl-starfive-jh8100.h"
++/* sys_iomux_east pins */
++#define PAD_GPIO0_E				0
++#define PAD_GPIO1_E				1
++#define PAD_GPIO2_E				2
++#define PAD_GPIO3_E				3
++#define PAD_GPIO4_E				4
++#define PAD_GPIO5_E				5
++#define PAD_GPIO6_E				6
++#define PAD_GPIO7_E				7
++#define PAD_GPIO8_E				8
++#define PAD_GPIO9_E				9
++#define PAD_GPIO10_E				10
++#define PAD_GPIO11_E				11
++#define PAD_GPIO12_E				12
++#define PAD_GPIO13_E				13
++#define PAD_GPIO14_E				14
++#define PAD_GPIO15_E				15
++#define PAD_GPIO16_E				16
++#define PAD_GPIO17_E				17
++#define PAD_GPIO18_E				18
++#define PAD_GPIO19_E				19
++#define PAD_GPIO20_E				20
++#define PAD_GPIO21_E				21
++#define PAD_GPIO22_E				22
++#define PAD_GPIO23_E				23
++#define PAD_GPIO24_E				24
++#define PAD_GPIO25_E				25
++#define PAD_GPIO26_E				26
++#define PAD_GPIO27_E				27
++#define PAD_GPIO28_E				28
++#define PAD_GPIO29_E				29
++#define PAD_GPIO30_E				30
++#define PAD_GPIO31_E				31
++#define PAD_GPIO32_E				32
++#define PAD_GPIO33_E				33
++#define PAD_GPIO34_E				34
++#define PAD_GPIO35_E				35
++#define PAD_GPIO36_E				36
++#define PAD_GPIO37_E				37
++#define PAD_GPIO38_E				38
++#define PAD_GPIO39_E				39
++#define PAD_GPIO40_E				40
++#define PAD_GPIO41_E				41
++#define PAD_GPIO42_E				42
++#define PAD_GPIO43_E				43
++#define PAD_GPIO44_E				44
++#define PAD_GPIO45_E				45
++#define PAD_GPIO46_E				46
++#define PAD_GPIO47_E				47
 +
-+#define JH8100_SYS_W_NGPIO			16
-+#define JH8100_SYS_W_GC_BASE			0
++/* aon_iomux pins */
++#define PAD_RGPIO0				0
++#define PAD_RGPIO1				1
++#define PAD_RGPIO2				2
++#define PAD_RGPIO3				3
++#define PAD_RGPIO4				4
++#define PAD_RGPIO5				5
++#define PAD_RGPIO6				6
++#define PAD_RGPIO7				7
++#define PAD_RGPIO8				8
++#define PAD_RGPIO9				9
++#define PAD_RGPIO10				10
++#define PAD_RGPIO11				11
++#define PAD_RGPIO12				12
++#define PAD_RGPIO13				13
++#define PAD_RGPIO14				14
++#define PAD_RGPIO15				15
 +
-+/* registers */
-+#define JH8100_SYS_W_DOEN			0x000
-+#define JH8100_SYS_W_DOUT			0x010
-+#define JH8100_SYS_W_GPI			0x020
-+#define JH8100_SYS_W_GPIOIN			0x068
++#define GPOUT_LOW				0
++#define GPOUT_HIGH				1
 +
-+#define JH8100_SYS_W_GPIOEN			0x048
-+#define JH8100_SYS_W_GPIOIS0			0x04c
-+#define JH8100_SYS_W_GPIOIC0			0x050
-+#define JH8100_SYS_W_GPIOIBE0			0x054
-+#define JH8100_SYS_W_GPIOIEV0			0x058
-+#define JH8100_SYS_W_GPIOIE0			0x05c
-+#define JH8100_SYS_W_GPIORIS0			0x060
-+#define JH8100_SYS_W_GPIOMIS0			0x064
++#define GPOEN_ENABLE				0
++#define GPOEN_DISABLE				1
 +
-+static const struct pinctrl_pin_desc jh8100_sys_w_pins[] = {
-+	PINCTRL_PIN(PAD_GPIO0_W,	"SYS_W_GPIO0"),
-+	PINCTRL_PIN(PAD_GPIO1_W,	"SYS_W_GPIO1"),
-+	PINCTRL_PIN(PAD_GPIO2_W,	"SYS_W_GPIO2"),
-+	PINCTRL_PIN(PAD_GPIO3_W,	"SYS_W_GPIO3"),
-+	PINCTRL_PIN(PAD_GPIO4_W,	"SYS_W_GPIO4"),
-+	PINCTRL_PIN(PAD_GPIO5_W,	"SYS_W_GPIO5"),
-+	PINCTRL_PIN(PAD_GPIO6_W,	"SYS_W_GPIO6"),
-+	PINCTRL_PIN(PAD_GPIO7_W,	"SYS_W_GPIO7"),
-+	PINCTRL_PIN(PAD_GPIO8_W,	"SYS_W_GPIO8"),
-+	PINCTRL_PIN(PAD_GPIO9_W,	"SYS_W_GPIO9"),
-+	PINCTRL_PIN(PAD_GPIO10_W,	"SYS_W_GPIO10"),
-+	PINCTRL_PIN(PAD_GPIO11_W,	"SYS_W_GPIO11"),
-+	PINCTRL_PIN(PAD_GPIO12_W,	"SYS_W_GPIO12"),
-+	PINCTRL_PIN(PAD_GPIO13_W,	"SYS_W_GPIO13"),
-+	PINCTRL_PIN(PAD_GPIO14_W,	"SYS_W_GPIO14"),
-+	PINCTRL_PIN(PAD_GPIO15_W,	"SYS_W_GPIO15"),
-+};
++#define GPI_NONE				255
 +
-+static const struct jh8100_gpio_func_sel
-+	jh8100_sys_w_func_sel[ARRAY_SIZE(jh8100_sys_w_pins)] = {
-+	[PAD_GPIO0_W]    = { 0xb4,  0, 2 },
-+	[PAD_GPIO1_W]    = { 0xb4, 12, 2 },
-+	[PAD_GPIO2_W]    = { 0xb4, 14, 2 },
-+	[PAD_GPIO3_W]    = { 0xb4, 16, 2 },
-+	[PAD_GPIO4_W]    = { 0xb4, 18, 2 },
-+	[PAD_GPIO5_W]    = { 0xb4, 20, 2 },
-+	[PAD_GPIO6_W]    = { 0xb4, 22, 2 },
-+	[PAD_GPIO7_W]    = { 0xb4, 24, 2 },
-+	[PAD_GPIO8_W]    = { 0xb4, 26, 2 },
-+	[PAD_GPIO9_W]    = { 0xb4, 28, 2 },
-+	[PAD_GPIO10_W]   = { 0xb4,  2, 2 },
-+	[PAD_GPIO11_W]   = { 0xb4,  4, 2 },
-+	[PAD_GPIO12_W]   = { 0xb4,  6, 2 },
-+	[PAD_GPIO13_W]   = { 0xb4,  8, 2 },
-+	[PAD_GPIO14_W]   = { 0xb4, 10, 2 },
-+};
-+
-+#ifdef CONFIG_PM_SLEEP
-+static int jh8100_sys_w_pinctrl_suspend(struct device *dev)
-+{
-+	struct jh8100_pinctrl *sfp;
-+	int i;
-+
-+	sfp = dev_get_drvdata(dev);
-+	if (!sfp)
-+		return -EINVAL;
-+
-+	for (i = 0; i < sfp->info->nregs; i++)
-+		sfp->jh8100_sys_west_regs[i] = readl_relaxed(sfp->base + (i * 4));
-+
-+	return pinctrl_force_sleep(sfp->pctl);
-+}
-+
-+static int jh8100_sys_w_pinctrl_resume(struct device *dev)
-+{
-+	struct jh8100_pinctrl *sfp;
-+	int i;
-+
-+	sfp = dev_get_drvdata(dev);
-+	if (!sfp)
-+		return -EINVAL;
-+
-+	for (i = 0; i < sfp->info->nregs; i++)
-+		writel_relaxed(sfp->jh8100_sys_west_regs[i], sfp->base + (i * 4));
-+
-+	return pinctrl_force_default(sfp->pctl);
-+}
 +#endif
-+
-+static SIMPLE_DEV_PM_OPS(jh8100_sys_w_pinctrl_dev_pm_ops,
-+			 jh8100_sys_w_pinctrl_suspend,
-+			 jh8100_sys_w_pinctrl_resume);
-+
-+static const struct jh8100_gpio_irq_reg jh8100_sys_w_irq_reg = {
-+	.is_reg_base	= JH8100_SYS_W_GPIOIS0,
-+	.ic_reg_base	= JH8100_SYS_W_GPIOIC0,
-+	.ibe_reg_base	= JH8100_SYS_W_GPIOIBE0,
-+	.iev_reg_base	= JH8100_SYS_W_GPIOIEV0,
-+	.ie_reg_base	= JH8100_SYS_W_GPIOIE0,
-+	.ris_reg_base	= JH8100_SYS_W_GPIORIS0,
-+	.mis_reg_base	= JH8100_SYS_W_GPIOMIS0,
-+	.ien_reg_base	= JH8100_SYS_W_GPIOEN,
-+};
-+
-+static const struct jh8100_pinctrl_domain_info jh8100_sys_w_pinctrl_info = {
-+	.pins				= jh8100_sys_w_pins,
-+	.npins				= ARRAY_SIZE(jh8100_sys_w_pins),
-+	.ngpios				= JH8100_SYS_W_NGPIO,
-+	.gc_base			= JH8100_SYS_W_GC_BASE,
-+	.name				= JH8100_SYS_W_DOMAIN_NAME,
-+	.nregs				= JH8100_SYS_W_REG_NUM,
-+	.dout_reg_base			= JH8100_SYS_W_DOUT,
-+	.dout_mask			= GENMASK(5, 0),
-+	.doen_reg_base			= JH8100_SYS_W_DOEN,
-+	.doen_mask			= GENMASK(4, 0),
-+	.gpi_reg_base			= JH8100_SYS_W_GPI,
-+	.gpi_mask			= GENMASK(4, 0),
-+	.gpioin_reg_base		= JH8100_SYS_W_GPIOIN,
-+	.func_sel			= jh8100_sys_w_func_sel,
-+	.irq_reg			= &jh8100_sys_w_irq_reg,
-+	.mis_pin_num			= JH8100_SYS_W_NGPIO,
-+};
-+
-+static const struct of_device_id jh8100_sys_w_pinctrl_of_match[] = {
-+	{
-+		.compatible = "starfive,jh8100-sys-pinctrl-west",
-+		.data = &jh8100_sys_w_pinctrl_info,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, jh8100_sys_w_pinctrl_of_match);
-+
-+static struct platform_driver jh8100_sys_w_pinctrl_driver = {
-+	.probe = jh8100_pinctrl_probe,
-+	.driver = {
-+		.name = "starfive-jh8100-sys-pinctrl-west",
-+#ifdef CONFIG_PM_SLEEP
-+		.pm = &jh8100_sys_w_pinctrl_dev_pm_ops,
-+#endif
-+		.of_match_table = jh8100_sys_w_pinctrl_of_match,
-+	},
-+};
-+module_platform_driver(jh8100_sys_w_pinctrl_driver);
-+
-+MODULE_DESCRIPTION("Pinctrl driver for StarFive JH8100 SoC sys west controller");
-+MODULE_AUTHOR("Alex Soo <yuklin.soo@starfivetech.com>");
-+MODULE_LICENSE("GPL v2");
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
-index 920cdd8b6376..92d3b5d6de40 100644
---- a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
-@@ -13,10 +13,13 @@
- #include <linux/pinctrl/pinconf-generic.h>
- #include <linux/pinctrl/pinmux.h>
- 
-+#define JH8100_SYS_W_DOMAIN_NAME	"jh8100-sys-west"
- #define JH8100_SYS_E_DOMAIN_NAME	"jh8100-sys-east"
- 
-+#define JH8100_SYS_W_REG_NUM		44
- #define JH8100_SYS_E_REG_NUM		116
- 
-+#define JH8100_SYS_W_GPO_PDA_00_15_CFG	0x074
- #define JH8100_SYS_E_GPO_PDA_00_47_CFG	0x114
- 
- struct jh8100_pinctrl {
-@@ -29,6 +32,7 @@ struct jh8100_pinctrl {
- 	/* register read/write mutex */
- 	struct mutex mutex;
- 	const struct jh8100_pinctrl_domain_info *info;
-+	unsigned int jh8100_sys_west_regs[JH8100_SYS_W_REG_NUM];
- 	unsigned int jh8100_sys_east_regs[JH8100_SYS_E_REG_NUM];
- 	/* wakeup */
- 	int wakeup_gpio;
 -- 
 2.43.0
 
