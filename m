@@ -4,33 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516A1C5478A
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 19:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 537B2C5478A
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 19:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XcP0TWirwigb0p1pBTpaLtnEiTHNyV7mSXKogdRn3tc=; b=LPF2ixHakwcgIb
-	cYIbOxy9UXdh9SZxKPZz/UpCBSOGVcYp/r0k1R47g6wRN4Ngxkku4DeCUQepGLj6FJbk1jH4zg81T
-	N1/017bNiUL0KIUYuP8BXjW04zuKA+nyqtAlqHZCBgKGeRs3SDctEuercOKgn/uqQFv9cKKfz/1ue
-	fIvPDM3mdN6sltLv2h+e4qb9FJ8SiORxyOL/oDyHHEf3aTH6iJQa1MuxWlJ3VgMcIFwwSObgD7B5r
-	cV7mBoGKlV5ad54fJ3UDP7MJdkV5dahhIFyFHmm2F/xuzj+44tR7V96lsZ0yrnRWANkPyAdhwqFr2
-	MedZE9WFxbQTUvCHt8aQ==;
+	List-Owner; bh=UhPaKtuVoJRLZq6OMDQhnfITsZ2LwbOfa42BGzlLobQ=; b=01KQo697yXYTc1
+	FFgI/dpQTw3wP6fxrOmP/Gy0bkic4KSAp0VwEeMr4kTa4wZdLi6Zt/13wYgnSE1JHCKJR1iuyu9CN
+	B2yeQwDZ9CLyWlMNxAULQ2x/yB3d1Qake3ulxOiZfvyTqdwzxZsqppH4lqBYNHVa3SL7xB2KkC1A9
+	iya9V2JXrdY3C6F2MKW06r8s5uTHnGv1Jk5+7GY7uPuN1Xpwsie7d6ELiT/9uCUBQlev3OhKhZTtY
+	jDTdSpjhinR3Tbqj3KC/42IGu8hgB7ffg9KFX6liUyQ5SfmtNED5LLJPQXDtJQJMrJpCQ49EtBz/a
+	hBKrTZDW9y5DFkfy77dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcrva-00000002DSz-2v8B;
-	Wed, 21 Feb 2024 19:06:47 +0000
+	id 1rcrz8-00000002EDG-2dPl;
+	Wed, 21 Feb 2024 19:10:26 +0000
 Received: from brightrain.aerifal.cx ([2001:19f0:5:42::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcrvN-00000002DOY-0zrO
+	id 1rcrz5-00000002EBo-3Qde
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Feb 2024 19:06:36 +0000
-Date: Wed, 21 Feb 2024 14:06:39 -0500
+	Wed, 21 Feb 2024 19:10:25 +0000
+Date: Wed, 21 Feb 2024 14:10:39 -0500
 From: "dalias@libc.org" <dalias@libc.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+To: Mark Brown <broonie@kernel.org>
+Cc: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
 	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
 	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
 	"musl@lists.openwall.com" <musl@lists.openwall.com>,
@@ -40,7 +41,6 @@ Cc: "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
 	"corbet@lwn.net" <corbet@lwn.net>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
 	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"broonie@kernel.org" <broonie@kernel.org>,
 	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
 	"palmer@dabbelt.com" <palmer@dabbelt.com>,
 	"debug@rivosinc.com" <debug@rivosinc.com>,
@@ -66,24 +66,24 @@ Cc: "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
 	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
 Subject: Re: [musl] Re: [PATCH v8 00/38] arm64/gcs: Provide support for GCS
  in userspace
-Message-ID: <20240221190639.GU4163@brightrain.aerifal.cx>
-References: <20240220235415.GP4163@brightrain.aerifal.cx>
+Message-ID: <20240221191039.GV4163@brightrain.aerifal.cx>
+References: <20240220185714.GO4163@brightrain.aerifal.cx>
+ <9fc9c45ff6e14df80ad023e66ff7a978bd4ec91c.camel@intel.com>
+ <20240220235415.GP4163@brightrain.aerifal.cx>
  <a57d6c7eada4b9a7c35addbc8556f5b53a0c3e6f.camel@intel.com>
  <20240221012736.GQ4163@brightrain.aerifal.cx>
  <d18f060d-37ac-48b1-9f67-a5c5db79b34e@sirena.org.uk>
  <20240221145800.GR4163@brightrain.aerifal.cx>
  <4a3809e8-61b2-4341-a868-292ba6e64e8a@sirena.org.uk>
  <20240221175717.GS4163@brightrain.aerifal.cx>
- <f4a54297767eb098d903404cbe8860d655d79bed.camel@intel.com>
- <20240221183055.GT4163@brightrain.aerifal.cx>
- <c3085fbe10193dfe59b25bc7da776e60779b0e8c.camel@intel.com>
+ <b41e39d1-29f9-4958-9728-6781e72230f8@sirena.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <c3085fbe10193dfe59b25bc7da776e60779b0e8c.camel@intel.com>
+In-Reply-To: <b41e39d1-29f9-4958-9728-6781e72230f8@sirena.org.uk>
 User-Agent: Mutt/1.5.21 (2010-09-15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240221_110633_702431_1004D45E 
-X-CRM114-Status: GOOD (  30.06  )
+X-CRM114-CacheID: sfid-20240221_111024_186544_0513DAC5 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,62 +100,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 21, 2024 at 06:53:44PM +0000, Edgecombe, Rick P wrote:
-> On Wed, 2024-02-21 at 13:30 -0500, dalias@libc.org wrote:
-> > > 3 is the cleanest and safest I think, and it was thought it might
-> > > not
-> > > need kernel help, due to a scheme Florian had to direct signals to
-> > > specific threads. It's my preference at this point.
-> > 
-> > The operations where the shadow stack has to be processed need to be
-> > executable from async-signal context, so this imposes a requirement
-> > to
-> > block all signals around the lock. This makes all longjmps a heavy,
-> > multi-syscall operation rather than O(1) userspace operation. I do
-> > not
-> > think this is an acceptable implementation, especially when there are
-> > clearly superior alternatives without that cost or invasiveness.
+On Wed, Feb 21, 2024 at 06:32:20PM +0000, Mark Brown wrote:
+> On Wed, Feb 21, 2024 at 12:57:19PM -0500, dalias@libc.org wrote:
+> > On Wed, Feb 21, 2024 at 05:36:12PM +0000, Mark Brown wrote:
 > 
-> That is a good point. Could the per-thread locks be nestable to address
-> this? We just need to know if a thread *might* be using shadow stacks.
-> So we really just need a per-thread count.
-
-Due to arbitrarily nestable signal frames, no, this does not suffice.
-An interrupted operation using the lock could be arbitrarily delayed,
-even never execute again, making any call to dlopen deadlock.
-
-> > > 1 and 2 are POCed here, if you are interested:
-> > > https://github.com/rpedgeco/linux/commits/shstk_suppress_rfc/
-> > 
-> > I'm not clear why 2 (suppression of #CP) is desirable at all. If
-> > shadow stack is being disabled, it should just be disabled, with
-> > minimal fault handling to paper over any racing operations at the
-> > moment it's disabled. Leaving it on with extreme slowness to make it
-> > not actually do anything does not seem useful.
+> > > This feels like it's getting complicated and I fear it may be an uphill
+> > > struggle to get such code merged, at least for arm64.  My instinct is
+> > > that it's going to be much more robust and generally tractable to let
+> > > things run to some suitable synchronisation point and then disable
+> > > there, but if we're going to do that then userspace can hopefully
+> > > arrange to do the disabling itself through the standard disable
+> > > interface anyway.  Presumably it'll want to notice things being disabled
+> > > at some point anyway?  TBH that's been how all the prior proposals for
+> > > process wide disable I've seen were done.
 > 
-> The benefit is that code that is using shadow stack instructions won't
-> crash if it relies on them working. For example RDSSP turns into a NOP
-> if shadow stack is disabled, and the intrinsic is written such that a
-> NULL pointer is returned if shadow stack is disabled. The shadow stack
-> is normally readable, and this happens in glibc sometimes. So if there
-> was code like:
+> > If it's possible to disable per-thread rather than per-process, some
+> > things are easier. Disabling on account of using alt stacks only needs
 > 
->    long foo = *(long *)_get_ssp();
+> Both x86 and arm64 currently track shadow stack enablement per thread,
+> not per process, so it's not just possible to do per thread it's the
+> only thing we're currently implementing.  I think the same is true for
+> RISC-V but I didn't look as closely at that yet.
+
+That's nice! It allows still keeping part of the benefit of SS in
+programs which have some threads running with custom stacks. We do
+however need a global-disable option for dlopen. In musl this could be
+done via the same mechanism ("synccall") used for set*id -- it's
+basically userspace IPI. But just having a native operation would be
+nicer, and would probably help glibc where I don't think they
+abstracted their set*id mechanism to do other things like this.
+
+> > If folks on the kernel side are not going to be amenable to doing the
+> > things that are easy for the kernel to make it work without breaking
+> > compatibility with existing interfaces, but that are impossible or
+> > near-impossible for userspace to do, this seems like a dead-end. And I
+> > suspect an operation to "disable shadow stack, but without making
+> > threads still in SS-critical sections crash" is going to be
+> > necessary..
 > 
-> ...then it could suddenly read a NULL pointer if shadow stack got
-> disabled. (notice, it's not even a "shadow stack access" fault-wise. So
-> it was looked at as somewhat more robust. But neither 1 or 2 are
-> perfect for apps that are manually using shadow stack instructions.
+> Could you be more specific as to the easy things that you're referencing
+> here?
 
-It's fine to turn RDSSP into an actual emulated read of the SSP, or at
-least an emulated load of zero so that uninitialized data is not left
-in the target register. If doing the latter, code working with the
-shadow stack just needs to be prepared for the possibility that it
-could be async-disabled, and check the return value.
-
-I have not looked at all the instructions that become #UD but I
-suspect they all have reasonable trivial ways to implement a
-"disabled" version of them that userspace can act upon reasonably.
+Basically the ARCH_SHSTK_SUPPRESS_UD proposal.
 
 Rich
 
