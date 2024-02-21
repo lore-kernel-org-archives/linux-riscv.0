@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4972C48BC3
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 11:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F226C48BF6
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 11:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S91loozfKCbxJzEGjHq5Bn6cE59lRSAHp/fH2EJqzCY=; b=NAOyrAcHhEKbyc
-	oqO5u6f9WZeTqEr5EeN/hKSZo5wAWw1vNqB1bI8X3+mpIDzhC47dLSkloTco0/gZzZAWBrhqgSs5v
-	98L3R8N142sxbMV60TBILaQFQsaHIZ65qKndMRpHxH1WOVZ3FBR6LfCLExXKHsYBC7NX22aVUuO7k
-	wonNBO/936y6GOXf7JVePFNzYzyEpeafhsQDKEEsVzTlGmdYdc7FAWyVb44vPMuPjhmMi3rD42vMu
-	dzwc0Gp08oIu8lkFB3nVq1QBCT7puLICO9UBJeyrD0eCNkvu3Wewl+JtJ5jeArkUp695xL4k7xAZM
-	TiouyCY1ixizcKYQmO4g==;
+	List-Owner; bh=5GlrmlyAJrJ12K3iKJU0P8cKbVqRnxJlBS/USBHFM+E=; b=QD5gWn1dyscw0R
+	a0eE9rGyYrJS+1nYw0gaMwLVl9e3YOLdxzoJTGlrIvs2+X93xb3LQ2WWdljHqtouMoOQ08AX1+1+R
+	/r/jqiAXfWU0GMA6BdCDzkj/Jf9WSY6vj3Vlc4Ribb7LfMt3I6/2jbDwPMu+/yWGgJVsDKXXT3xKu
+	JaM8aPdGq68ZLNu+zxN1VxpDO4deBlVgiNgZABrHABmKtjH8IJZu6Zfo2jZvoJmP88IzIUFYXiMhu
+	3GXbpQkFA0ZBQfRfHR/mGFO1CnWM7j3oEtem2EyxT/5w+O1+tDEWxo2qRm3aahO/rIE3ttY1jplxd
+	pnjHOB62zRUhngUSE5dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcl6d-00000000lAU-3SLa;
-	Wed, 21 Feb 2024 11:49:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rclCM-00000000lv6-0o0F;
+	Wed, 21 Feb 2024 11:55:38 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcl6a-00000000l8w-3ZOT
+	id 1rclCI-00000000ltC-0Tbs
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Feb 2024 11:49:42 +0000
+	Wed, 21 Feb 2024 11:55:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1708516180;
+	s=mimecast20190719; t=1708516532;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bin7AzDlChDSAGWFKufeiYIoVcIyTk+S1hiBB6egTbw=;
-	b=TwtdKqhcXk+5x9U/s0uXYK2UwKi+ryAn152LJTpN9lwzZx3yePbRiXUcW8vs4yLFokD0qX
-	1B3wEv02Hm3gdk62oSLSOTrO2EfSwGHbtB0hWffwQbWSqN3/rTymrNdI5tJNfjPOKIVUts
-	JsrdV1Um+0VVm75sc7CIY/h+pPa2rBk=
-Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com
- [209.85.161.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=PLsLM/ECtgqgj6YScdKuDzdQeO2PVy2fvKFbE23nuA4=;
+	b=gNnIhRuwWXTUPY94+SLGU4tBD9l1D8CovC5/vKWMsRxSlPhO0cBiF7pFB87rnB2tPz8nlg
+	CfGMNE02QxUeMZoUBo4mmcfUsIsK6cXArci/zzuUbYND48wcArZo8zcGHK2oMZrjIseIlr
+	Sz0tdoqwe0K0Dyl0iMU/DpEAjjqFupA=
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
+ [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-554--PM-Aaf9N3y6M6fg3Tud4A-1; Wed, 21 Feb 2024 06:49:36 -0500
-X-MC-Unique: -PM-Aaf9N3y6M6fg3Tud4A-1
-Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-5a0168a3df5so207256eaf.0
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Feb 2024 03:49:36 -0800 (PST)
+ us-mta-619-vVMa6fDGM5iEEZK7zf3FNA-1; Wed, 21 Feb 2024 06:55:31 -0500
+X-MC-Unique: vVMa6fDGM5iEEZK7zf3FNA-1
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-6e36ee0fd27so251291b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Feb 2024 03:55:31 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708516175; x=1709120975;
+        d=1e100.net; s=20230601; t=1708516530; x=1709121330;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bin7AzDlChDSAGWFKufeiYIoVcIyTk+S1hiBB6egTbw=;
-        b=HcrlJoGjmgd8yTxmhRm19i3Qmlrm+09U0btiDnOw++SFFXqPUxY+VAiq+zffjk1vDZ
-         MjtS/REpk0894D0YTZpGJtwslQ+bIfnVKAGeU2mr3J47bCOZfT/uG+pSsVU5vedDaGlL
-         N4Un/m2JDnCyL4nq6FMGwdwZ/lZmYsqg4Su5YNU67rlr2N9LZOJa7I+aMqGcFFIoSROr
-         u4vk4nfNoDDa+Nmv0qwEI/B4MhTww+WV+b64R3Kj+X/DywcaXsKkITfejjwTzaY5qrQU
-         0qtDmMmW64Lwie5T5voqH04MoUT7tAoiRadOnbpG1HjbCn6exGew5k4nnEZJDemabtEg
-         THSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWvTy7H89dmq24FLN7a8jWGjILest+Pdh5t6hMo2IDuvj0ssEKLaPVngA5jETy/hHI5ePiqfWBqAgHfkKmL9eTGFz2nZcXSky5zf3jaXvWg
-X-Gm-Message-State: AOJu0YwEey2qQlMbRxLuIIKQmSbtP/3vXg1XKRhXk+EOhe5Y9XlPcKl8
-	HlyGaKQiQoMhawS3cU/9AnafcjHCY2EdlMfO8DaCqzgHLWDgZ8BZUWA1Nf0EKCnOOSmWHSeIlBp
-	AdffUMhpaJe8XAjKUAP4d+Y+0rGvNpD64mlSlO3uaiYfF0n0oVTfgpn9zdCLQpYPNeg==
-X-Received: by 2002:a05:6358:e49a:b0:178:9f1d:65e3 with SMTP id by26-20020a056358e49a00b001789f1d65e3mr16912418rwb.0.1708516175542;
-        Wed, 21 Feb 2024 03:49:35 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGzL228YTGBKB2uXR1bZQUntRIhXzOYaVH/u+cU7rZshqOXYoJ5XOeq8q0ePg1PQ/TTyms+Jw==
-X-Received: by 2002:a05:6358:e49a:b0:178:9f1d:65e3 with SMTP id by26-20020a056358e49a00b001789f1d65e3mr16912401rwb.0.1708516175144;
-        Wed, 21 Feb 2024 03:49:35 -0800 (PST)
+        bh=PLsLM/ECtgqgj6YScdKuDzdQeO2PVy2fvKFbE23nuA4=;
+        b=ZJSm5WK/2VuFElu4/nu75tJ7pUbo6G76e6EhuHU5m0j0FzB0Hq/ZleKGyf11wQvx21
+         8Z1RauTWKZQ3k0dgAnMEHK0396SJy4RSzZ19UmpYTNeVbcic/tiFkDcpFAZXVTh+VcXu
+         jV8k/cYiS2LCqg4uEKHlcYnO398ZOEgA9wY/72lNBzuebu6xO9l5P5eyg3Hh9K1FDAW9
+         dLXat0+kjTO9qu4T5Pj7ZNeeKXHDpCMaOErb0gmjGTfl93eGkCS/kxyqXbSyLftekv9b
+         sH+czCOOD88Rjz0zg1lbaC083f9z1Wt6vJOWTkqXZH/oIitEPxXtPq0vJfygqcXitzzO
+         jXeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUXasPQkwI3cxR5qVkoYVwIldt4qz/MTYYOkQL/JoDxBUydU1QNq+NkAjJ3nVNmajdGNkfM4N8Zt5W2JvqQyzEIQQw+qxS+ld5QfB9O/E3j
+X-Gm-Message-State: AOJu0YzohuUhyNHv9GuDkjRoZsybEp1bQbNO0ZLR1HzdOHvKdtNzv/Aj
+	afZ7nb4c7NJKi8yb17BFyyIrH+3XwKXRBL+Ip5dsW/Cx+IrmIVdMC+tXp0h4bd7YcTzE8kSfa75
+	kj9WB9adpeNeNotZbqfKrjrrOAADG3ZykqXjuzCrVEY5yy2VFDTrX+k+Mezfr6Pw09Q==
+X-Received: by 2002:a05:6a21:3397:b0:1a0:cd02:b2f1 with SMTP id yy23-20020a056a21339700b001a0cd02b2f1mr196499pzb.3.1708516530441;
+        Wed, 21 Feb 2024 03:55:30 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGRO+9lM9EY5N92dCc9bYoUlt/pUN8sgkXoKwNhU9AZ+BNLKu2lSvew+Aw+SPUl5ZIlIuODvw==
+X-Received: by 2002:a05:6a21:3397:b0:1a0:cd02:b2f1 with SMTP id yy23-20020a056a21339700b001a0cd02b2f1mr196492pzb.3.1708516530136;
+        Wed, 21 Feb 2024 03:55:30 -0800 (PST)
 Received: from x1n ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id w24-20020aa78598000000b006e4695e519csm5146763pfn.194.2024.02.21.03.49.28
+        by smtp.gmail.com with ESMTPSA id b3-20020a170902a9c300b001dc0955c635sm4149309plr.244.2024.02.21.03.55.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Feb 2024 03:49:34 -0800 (PST)
-Date: Wed, 21 Feb 2024 19:49:22 +0800
+        Wed, 21 Feb 2024 03:55:29 -0800 (PST)
+Date: Wed, 21 Feb 2024 19:55:17 +0800
 From: Peter Xu <peterx@redhat.com>
 To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
@@ -93,19 +93,20 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
 	Christoph Hellwig <hch@infradead.org>,
 	Lorenzo Stoakes <lstoakes@gmail.com>,
 	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v2 10/13] mm/gup: Handle huge pud for follow_pud_mask()
-Message-ID: <ZdXjQjow4fa41ORD@x1n>
+Subject: Re: [PATCH v2 06/13] mm/gup: Drop folio_fast_pin_allowed() in hugepd
+ processing
+Message-ID: <ZdXkpYEuRAxoLtHI@x1n>
 References: <20240103091423.400294-1-peterx@redhat.com>
- <20240103091423.400294-11-peterx@redhat.com>
- <20240115184900.GV734935@nvidia.com>
+ <20240103091423.400294-7-peterx@redhat.com>
+ <20240115183748.GR734935@nvidia.com>
 MIME-Version: 1.0
-In-Reply-To: <20240115184900.GV734935@nvidia.com>
+In-Reply-To: <20240115183748.GR734935@nvidia.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240221_034940_971308_879AA19D 
-X-CRM114-Status: GOOD (  24.08  )
+X-CRM114-CacheID: sfid-20240221_035535_083489_4FEF8F20 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,117 +123,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 15, 2024 at 02:49:00PM -0400, Jason Gunthorpe wrote:
-> On Wed, Jan 03, 2024 at 05:14:20PM +0800, peterx@redhat.com wrote:
-> > diff --git a/mm/gup.c b/mm/gup.c
-> > index 63845b3ec44f..760406180222 100644
-> > --- a/mm/gup.c
-> > +++ b/mm/gup.c
-> > @@ -525,6 +525,70 @@ static struct page *no_page_table(struct vm_area_struct *vma,
-> >  	return NULL;
-> >  }
-> >  
-> > +#ifdef CONFIG_PGTABLE_HAS_HUGE_LEAVES
-> > +static struct page *follow_huge_pud(struct vm_area_struct *vma,
-> > +				    unsigned long addr, pud_t *pudp,
-> > +				    int flags, struct follow_page_context *ctx)
-> > +{
-> > +	struct mm_struct *mm = vma->vm_mm;
-> > +	struct page *page;
-> > +	pud_t pud = *pudp;
-> > +	unsigned long pfn = pud_pfn(pud);
-> > +	int ret;
-> > +
-> > +	assert_spin_locked(pud_lockptr(mm, pudp));
-> > +
-> > +	if ((flags & FOLL_WRITE) && !pud_write(pud))
-> > +		return NULL;
-> > +
-> > +	if (!pud_present(pud))
-> > +		return NULL;
-> > +
-> > +	pfn += (addr & ~PUD_MASK) >> PAGE_SHIFT;
-> > +
-> > +#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
-> > +	if (pud_devmap(pud)) {
+On Mon, Jan 15, 2024 at 02:37:48PM -0400, Jason Gunthorpe wrote:
+> > Drop that check, not only because it'll never be true for hugepd per any
+> > known plan, but also it paves way for reusing the function outside
+> > fast-gup.
 > 
-> Can this use IS_ENABLED(CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD) ?
+> I didn't see any other caller of this function in this series? When
+> does this re-use happen??
 
-Sure.
+It's reused in patch 12 ("mm/gup: Handle hugepd for follow_page()").
 
-> 
-> > +		/*
-> > +		 * device mapped pages can only be returned if the caller
-> > +		 * will manage the page reference count.
-> > +		 *
-> > +		 * At least one of FOLL_GET | FOLL_PIN must be set, so
-> > +		 * assert that here:
-> > +		 */
-> > +		if (!(flags & (FOLL_GET | FOLL_PIN)))
-> > +			return ERR_PTR(-EEXIST);
-> > +
-> > +		if (flags & FOLL_TOUCH)
-> > +			touch_pud(vma, addr, pudp, flags & FOLL_WRITE);
-> > +
-> > +		ctx->pgmap = get_dev_pagemap(pfn, ctx->pgmap);
-> > +		if (!ctx->pgmap)
-> > +			return ERR_PTR(-EFAULT);
-> > +	}
-> > +#endif	/* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
-> > +	page = pfn_to_page(pfn);
-> > +
-> > +	if (!pud_devmap(pud) && !pud_write(pud) &&
-> > +	    gup_must_unshare(vma, flags, page))
-> > +		return ERR_PTR(-EMLINK);
-> > +
-> > +	ret = try_grab_page(page, flags);
-> > +	if (ret)
-> > +		page = ERR_PTR(ret);
-> > +	else
-> > +		ctx->page_mask = HPAGE_PUD_NR - 1;
-> > +
-> > +	return page;
-> > +}
-> > +#else  /* CONFIG_PGTABLE_HAS_HUGE_LEAVES */
-> > +static struct page *follow_huge_pud(struct vm_area_struct *vma,
-> > +				    unsigned long addr, pud_t *pudp,
-> > +				    int flags, struct follow_page_context *ctx)
-> > +{
-> > +	return NULL;
-> > +}
-> > +#endif	/* CONFIG_PGTABLE_HAS_HUGE_LEAVES */
-> > +
-> >  static int follow_pfn_pte(struct vm_area_struct *vma, unsigned long address,
-> >  		pte_t *pte, unsigned int flags)
-> >  {
-> > @@ -760,11 +824,11 @@ static struct page *follow_pud_mask(struct vm_area_struct *vma,
-> >  
-> >  	pudp = pud_offset(p4dp, address);
-> >  	pud = READ_ONCE(*pudp);
-> > -	if (pud_none(pud))
-> > +	if (pud_none(pud) || !pud_present(pud))
-> >  		return no_page_table(vma, flags, address);
-> 
-> Isn't 'pud_none() || !pud_present()' redundent? A none pud is
-> non-present, by definition?
-
-Hmm yes, seems redundant.  Let me drop it.
-
-> 
-> > -	if (pud_devmap(pud)) {
-> > +	if (pud_huge(pud)) {
-> >  		ptl = pud_lock(mm, pudp);
-> > -		page = follow_devmap_pud(vma, address, pudp, flags, &ctx->pgmap);
-> > +		page = follow_huge_pud(vma, address, pudp, flags, ctx);
-> >  		spin_unlock(ptl);
-> >  		if (page)
-> >  			return page;
-> 
-> Otherwise it looks OK to me
-> 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-
-Thanks!
+Thanks,
 
 -- 
 Peter Xu
