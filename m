@@ -4,139 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26593C5478A
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 18:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0C7DC5478A
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 18:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CBf9Fgr+3TJHnMrGB5fRRYruk90ATq2VDfvq2q80C6M=; b=OHfRAxTpus6VKMZIIxlPuGpuKw
-	YBFMalF0NqXWRzX18REqKOOy1FAQppbabhLSx0gF6X6fK+zAC0EEEnoBzEr5ZgqCADfbHdyAJ95u8
-	QjBScapcBkTF7WJqrWJSBOtD7PVar3sQ/C5yLDB0DyeO8b7U6v5zgUvNiLVWQGggfVw2dfUmydUJ+
-	1VieZK1mDIGJS+sHcWyUPcw1/zESJWYonXolqGgQsHcknhwkzV3MJGLlJV6S27GNY1uXoe085UA27
-	3Ug1Z79z2oqI7XU7Mn/dZpKCgHZbvqxQvDpdjihzamK03f/ahpstQnUd4jS+aEHMPWuiAekURDBgC
-	+w9Y+xuA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pILf6Sm00ZFquVz83VHZqA/TWE5c+3516smYPQgOylA=; b=C8FdTzpuklUVie
+	nw2nrpmd0rH4taOlNsW89PyeURG3lUzQBTV5RuNJVFZpsq7AY06497cln5qPWw+MlCl+W3RtkozeK
+	r5Yg4qLTWpFKpXN1RTBN1jt9OWB77xYmZ+Q4GkRd1rHo5Q8uwILbyDm3xQhPT/UW6sSgbsuNjiqyp
+	OxiHxrgD7btODSxjzgAjkNQUhR7Z7nRlkSE89ypXlz6RJncrIy1mpdkJPiloObquOnFkG+/LJO3Bg
+	jzjSBSivwOaxCsGLOt1ZkKOwzF3VJ2xWdgDLnhxFlLC/G1BZ0euCkzoN0qjAXBFDnq3Q+U926c4W8
+	KrpCNgag6Up2DwOV//GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcrG2-0000000242p-3KUB;
-	Wed, 21 Feb 2024 18:23:50 +0000
-Received: from mail-bn8nam11on20600.outbound.protection.outlook.com ([2a01:111:f403:2414::600] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1rcrMx-000000026mI-0QWr;
+	Wed, 21 Feb 2024 18:30:59 +0000
+Received: from brightrain.aerifal.cx ([2001:19f0:5:42::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcrFw-000000023zi-0yF6;
-	Wed, 21 Feb 2024 18:23:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=gW3t7oX02y/gW6mC6scT4qGc1HAxgKgETdCZD1iGoUxX8aKAhz6ehChU3sidLYxPggWwvLNgUClZuwrvnDqXbcUxuUrJtrgzMmbaiFr6S1InoUYZxlxUdCZRBAQEttL/cDZw7T8JjHbIfT7T2Er1AyyLzBx104Gm/rM4Vy8tu3aXcne0Tb6LefJKX4uhnO8aRs1tInEqCGYC4Jswy68cDbD2yPrnMcAmuLqaeMVDt81FclHKhm/FTFvgJTHY5DTqZc/HKr+NFYB4MlyXr/NVnqACEmuGcA9J3Ff4tkblwacpOnuH4U+kWUnLAWBvx2KFG93MV+FtOiP0uoMXb6ayMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YtgQWZh+c9k1dsHP7FwbrT84soF9jUumLbQLyyg0264=;
- b=jLeNw/dnvPtJSc61opsytVHkC8WcOkgzj11Z5Mt04w52G2GpMH2wA70WbfbBreWKXjUEijJte1SU/OPlMMOKCknigQopLPkQtgoWkHHDOHfCU/IYwJ90DjTG81aMUachWV+3gAS3ZdIGoOSf7zHxjd0SB9pM9jY2is2mGabziT2M1eqXPRFTuwJSrCcPat5nLvBwyOkxaXwsZZlFp6QZQdiqqVpSsRDXTs2O6ZhLNq/8ECWpubkZbm9Uw1e69njZy1FM+Y806rR6XCm489n3vZE1SyhMwDbxbN5iJwJsDRIAYWQo+rel0T6TrmrxeeHpbDgA8OHqX+WpfwupamYkWg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YtgQWZh+c9k1dsHP7FwbrT84soF9jUumLbQLyyg0264=;
- b=VAu0lW3CTd7t3Iq5Tc2f2qpI3RfR83SXQAgaSnpaI1SqJEyYsVsjzBm0C6FhDugY8l5ZjLfD8e9p3FvEdZ6XdSHpD1OXbr2XDOsCpuVZB4W+fddQqFAMPnqrqTwXvl/g1j6Sn9nKLUoJQntY0iv1EuaqK91V9mJ1m8ORANr5ksk=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from BL1PR12MB5874.namprd12.prod.outlook.com (2603:10b6:208:396::17)
- by MW3PR12MB4556.namprd12.prod.outlook.com (2603:10b6:303:52::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7316.21; Wed, 21 Feb
- 2024 18:23:30 +0000
-Received: from BL1PR12MB5874.namprd12.prod.outlook.com
- ([fe80::251:b545:952c:18dd]) by BL1PR12MB5874.namprd12.prod.outlook.com
- ([fe80::251:b545:952c:18dd%7]) with mapi id 15.20.7316.018; Wed, 21 Feb 2024
- 18:23:30 +0000
-Message-ID: <cc9a1951-e76c-470d-a4d1-8ad67bae5794@amd.com>
-Date: Wed, 21 Feb 2024 12:23:25 -0600
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 00/10] KVM: selftests: Add SEV smoke test
-To: Sean Christopherson <seanjc@google.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>, Andrew Jones
- <andrew.jones@linux.dev>, Tom Lendacky <thomas.lendacky@amd.com>,
- Michael Roth <michael.roth@amd.com>, Peter Gonda <pgonda@google.com>
-References: <20240203000917.376631-1-seanjc@google.com>
-Content-Language: en-US
-From: Carlos Bilbao <carlos.bilbao@amd.com>
-In-Reply-To: <20240203000917.376631-1-seanjc@google.com>
-X-ClientProxiedBy: DM6PR08CA0059.namprd08.prod.outlook.com
- (2603:10b6:5:1e0::33) To BL1PR12MB5874.namprd12.prod.outlook.com
- (2603:10b6:208:396::17)
+	id 1rcrMe-000000026e8-2DaH
+	for linux-riscv@lists.infradead.org;
+	Wed, 21 Feb 2024 18:30:50 +0000
+Date: Wed, 21 Feb 2024 13:30:55 -0500
+From: "dalias@libc.org" <dalias@libc.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "broonie@kernel.org" <broonie@kernel.org>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
+	"musl@lists.openwall.com" <musl@lists.openwall.com>,
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"corbet@lwn.net" <corbet@lwn.net>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"debug@rivosinc.com" <debug@rivosinc.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"arnd@arndb.de" <arnd@arndb.de>, "maz@kernel.org" <maz@kernel.org>,
+	"oleg@redhat.com" <oleg@redhat.com>,
+	"fweimer@redhat.com" <fweimer@redhat.com>,
+	"keescook@chromium.org" <keescook@chromium.org>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"ebiederm@xmission.com" <ebiederm@xmission.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"brauner@kernel.org" <brauner@kernel.org>,
+	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"thiago.bauermann@linaro.org" <thiago.bauermann@linaro.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"sorear@fastmail.com" <sorear@fastmail.com>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
+Subject: Re: [musl] Re: [PATCH v8 00/38] arm64/gcs: Provide support for GCS
+ in userspace
+Message-ID: <20240221183055.GT4163@brightrain.aerifal.cx>
+References: <20240220185714.GO4163@brightrain.aerifal.cx>
+ <9fc9c45ff6e14df80ad023e66ff7a978bd4ec91c.camel@intel.com>
+ <20240220235415.GP4163@brightrain.aerifal.cx>
+ <a57d6c7eada4b9a7c35addbc8556f5b53a0c3e6f.camel@intel.com>
+ <20240221012736.GQ4163@brightrain.aerifal.cx>
+ <d18f060d-37ac-48b1-9f67-a5c5db79b34e@sirena.org.uk>
+ <20240221145800.GR4163@brightrain.aerifal.cx>
+ <4a3809e8-61b2-4341-a868-292ba6e64e8a@sirena.org.uk>
+ <20240221175717.GS4163@brightrain.aerifal.cx>
+ <f4a54297767eb098d903404cbe8860d655d79bed.camel@intel.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5874:EE_|MW3PR12MB4556:EE_
-X-MS-Office365-Filtering-Correlation-Id: 20b75b53-0261-47a0-434d-08dc330a349a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: Mfj8PbRpkEM2pjl6eRlI6rwUWpOOy1W3DOduEy+R+4O1NkZUh80im677i9DVQ6fSA0A5kgRfmqLHzD9jUIFqc5ayg4ZmxGcJfHFuDCwRFh1g1dHZNXF3hX0JJXNXpjGh7GtVVgMSQBg/HBYgb4kZedM95zYK5H56kXO0V5gP8vBj4ghCmr2KiCW6Xx9lUoJb7YPCKzaSZwYn/rySxI+15CFtKjY5iLdTbMoaOgPfc0NKqA68q+8OCsO0lehW3c0lAMoxfcYtzoX/z3788ZS5McU/x31dm0rHiwOqDSRP+j/UWVX12AspetCR5/3rSsekUN+4y3o5BMrFbmlgR/D6QJpK/ubWupuScscmF8XIVS5p9aoIwVerrxOLGuVf4UG4b2P35FfOcGBQhhW5yYARq5O6ewjnCm0vJbAXmKM9g2tlLGBPx9qmtsfNsVWmYnP2/7F5AxVBQh5yx1A54A1S+gDw3GmyYl+FrYLsGCfRSLtGfoXXW7XyDjrD0J29YWC6F1qd3K9C+AQ5VigeJGiUF+48WKjSGqTdy37ZkpsHTHhFh3aU4bUFB61jfjS8yWNsddtUTFmPsBTDX4ieZ8Dv5A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5874.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(921011);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cVFNOGcyL1dFRmx0VXQ0SkVib3V0RzlBYnhUVzNjZUxkekdjMTgxUXZYa3M0?=
- =?utf-8?B?Ung3OHg3emN0THZVdGhlNzlkVUgxZkc3Q1ZZL3Z0TXJnaWJiYzR1N3dXeGxt?=
- =?utf-8?B?bkNlLzdhbUozUlhGUkFsWHJ4V3JrRk96MUxERmJBMnB3cEIyUGJzam9ER0J3?=
- =?utf-8?B?TnFzelRpVlkxblJpa3l5MmJaTU5jTVR1MWUrWU8rcE1qOWlyaytOa1VpOVZH?=
- =?utf-8?B?bmFOYkxpVVo1YVl2L2FvVlo2S015Y2pWOEhNaVV1bldRMm9kclJ2VTdrR2pQ?=
- =?utf-8?B?VFdndUhvNXNINXZhYmVHUVdqcDRVclNFUnMvOE82aGx3eWRTblBtNFkrR3JB?=
- =?utf-8?B?aFFVc3hvK0NMbW8rTGI5NW5vL1FOT1E4VjVGUG14d2lqamVZb1ZTaWRwMmRO?=
- =?utf-8?B?NFYwZlEzVVc2dnNUT00zeWo0R05SN3VYNXJlTmt5VjB2UlVQdDQ5OHowUGxS?=
- =?utf-8?B?UEY4NmlmWTM2VU1NTVZsOXlBSW1sZVhoazBrTjVLbWZDSS9OSlczSXkrVUJ0?=
- =?utf-8?B?WTNYRmlWNllIajM1MFplWlpYNWRPVlVpNUtSSW16L01Hd3Mwb20rRzVhT1NR?=
- =?utf-8?B?aVQxZXdLbmNTR2cvcEpMcStpZ2x5Tnk4QzVudmtrUStnbmdVY3N3c285bEFR?=
- =?utf-8?B?akE2V0k0d1dPaGt3WUgxTTcxcHFjZmFrWi9GcVQvdnJEY0NXdjNJQ2hVend5?=
- =?utf-8?B?NVlSVi9YV0xYMkR4Q0NCTi9RQlpIRlVZTUtaRDVKbmVHcVFocEdxNzZoM0ZE?=
- =?utf-8?B?ZFZRYWp0MjkyMFE4b3JtR3VRd1R5bUN3OG9VVjNqS1Rtb3lVbEFNSG5JNy9Q?=
- =?utf-8?B?WWF0RDdzMzAwQUpKOFowTW93djB6L0oybFNockNFamNncGtYM1RCUFIyM1I5?=
- =?utf-8?B?eEViNFR2NEFPdFJYV1ZoL2djTWZZa0NlK0NybXdlanlWYU1KQ1hWS2hubzZm?=
- =?utf-8?B?M1gvZHZ6eEVRZ3FlTGFTZUY1NGU3L2dCWTBiRDNDU1hpTkI2ck4zeEZxaU1j?=
- =?utf-8?B?Ym1zbGd3Ui9yc3RlMUFrVWg4c29TZUpWcDBvbHJuZDAxOEZ2SlVoTk5GRUlx?=
- =?utf-8?B?ZFpqV1VWd2dOMEsvSkdXV0xKMzBIZjMyUmpLUEE1QWFTR2gyWWdYV1JwNnBt?=
- =?utf-8?B?NjlUQnYyNlpvS0QxZElOdnNDN042YW5Hc1VJWjY1Y3o3aTNRcHNyaGk4WTIx?=
- =?utf-8?B?RHo0RlVDOWo0NUtiK3hkK0lHNk84QW11dGRjdHR2S0R2eDIyQXBYSm5lRXZC?=
- =?utf-8?B?M2FsRCtmTzF6NmJOTW9hQ0dxM1FRTHNmTzdxb1NLbXlTSlhFdkJNV3ZzS3Ix?=
- =?utf-8?B?cjZkY3JsdkFoaXluSTMyOUlwL3Y3Q1ExNjVKMGNmeUgyMEp5aEYwYitSdXlX?=
- =?utf-8?B?blVNSHBPeko0dFRmRWNCTXdZTEkvc1BYY3Y2TzIyVHlLQSs5NDFEYURmZTMw?=
- =?utf-8?B?WDU5SVRYampYUVlUSmRZVmF2ZnM5MzZxbjBVL0UvK0VFSDY1UFlZMkhQT3Zn?=
- =?utf-8?B?ZzBhbzRRZHRGMVBIZ0RQaXRUY0gzSkQ1WStWVHp4dTdsSmI1QmltNC96OVhR?=
- =?utf-8?B?MG9DMkZjOWN5Q0ZiR041WlNJMnpIV3hhQU10a1pOZWNJK1hxNmJrVndsOUJj?=
- =?utf-8?B?TGtKV0lWS2VVeHFNeTEzeXVNSjU1TzJ1MElSNUtRMkJ1aWpxdFpZUXR1dUR0?=
- =?utf-8?B?QzE5WUUxU2tGYVA0WlFnbmFieHFLc0FremsyZDJPb3l3aUVhZTVienhIMW1n?=
- =?utf-8?B?OXJENUtEc0dUR28xdjBHRXdWb2tranErcHRMeXNtMXU3clB6TWsyc2duM05h?=
- =?utf-8?B?ZUFWSVlndUJNWnh5MW8wazJuUXU5RjV0bThNb0ZqQk5rdllDbHJRMk5MeUVt?=
- =?utf-8?B?eHNzdEYrRFBPcVplTDY5c2NqUE5mWUIweDlzM0tXdU1OdUwvZFpDang4c25k?=
- =?utf-8?B?MkFrMS9nVjRzbDNvTUNJRFB6SGVrQ1QvcVUzbTZDQTlQNXV2N2VLT3NHVUFZ?=
- =?utf-8?B?UHJ3Q1NHb0VoV1gyZ1R6Y2JKQTNaWExVYjJUWVFPR2xhOSs0R0ZTVlBteE5Q?=
- =?utf-8?B?dk95RUlsd0pqMForbSs1YjEyblFmZUhnWmFDc1JNTUpvdzkwY0s5enBZWlc5?=
- =?utf-8?Q?nhiH0MMnElw0IRvhg3/LZr6ar?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 20b75b53-0261-47a0-434d-08dc330a349a
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5874.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Feb 2024 18:23:30.6266
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LQ/lkzbsS68u6XzNYMtQaH3hBBBcseFbH414oprakJ62zeJQ4eHYN4o+Gz9dD9X+S9DIb86/XQHOh6FyR4ccqg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4556
+Content-Disposition: inline
+In-Reply-To: <f4a54297767eb098d903404cbe8860d655d79bed.camel@intel.com>
+User-Agent: Mutt/1.5.21 (2010-09-15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240221_102345_798447_5510C193 
-X-CRM114-Status: GOOD (  22.99  )
+X-CRM114-CacheID: sfid-20240221_103046_412513_B9C3E3E8 
+X-CRM114-Status: GOOD (  44.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,139 +95,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-On 2/2/24 18:09, Sean Christopherson wrote:
-> Add a basic SEV smoke test.  Unlike the intra-host migration tests, this
-> one actually runs a small chunk of code in the guest.
-> 
-> v8:
->   - Undo the kvm.h uAPI breakage.
->   - Take advantage of "struct vm_shape", introduced by the guest_memfd
->     selftests, to simply tracking the SEV/SEV-ES subtypes.
->   - Rename the test to "sev_smoke_test" instead of "sev_all_boot_test",
->     as the "all" is rather nonsensical, and the test isn't booting anything
->     in the traditional sense of the word.
->   - Drop vm->protected and instead add an arch hook to query if the VM has
->     protected memory.
->   - Assert that the target memory region supports protected memory when
->     allocating protected memory.
->   - Allocate protected_phy_pages for memory regions if and only if the VM
->     supports protected memory.
->   - Rename kvm_host.h to kvm_util_arch.h, and move it to selftests/kvm where
->     it belongs.
->   - Fix up some SoB goofs.
->   - Convert the intrahost SEV/SEV-ES migration tests to use common ioctl()
->     wrappers.
-> 
-> V7
->   * https://lore.kernel.org/all/20231218161146.3554657-1-pgonda@google.com
->   * See https://github.com/sean-jc/linux/tree/x86/sev_selftests_for_peter.
->   * I kept is_pt_protected because without it the page tables are never
->   readable. Its used for the elf loading in kvm_vm_elf_load().
-> 
-> V6
->   * Updated SEV VM create function based on Seanjc's feedback and new
->     changes to VM creation functions.
->   * Removed pte_me_mask based on feedback.
->   * Fixed s_bit usage based on TDX
->   * Fixed bugs and took Ackerly's code for enc_region setup code.
-> 
-> V5
->   * Rebase onto seanjc@'s latest ucall pool series.
->   * More review changes based on seanjc:
->   ** use protected instead of encrypted outside of SEV specific files
->   ** Swap memcrypt struct for kvm_vm_arch arch specific struct
->   ** Make protected page table data agnostic of address bit stealing specifics
->      of SEV
->   ** Further clean up for SEV library to just vm_sev_create_one_vcpu()
->   * Due to large changes moved more authorships from mroth@ to pgonda@. Gave
->     originally-by tags to mroth@ as suggested by Seanjc for this.
-> 
-> V4
->   * Rebase ontop of seanjc@'s latest Ucall Pool series:
->     https://lore.kernel.org/linux-arm-kernel/20220825232522.3997340-8-seanjc@google.com/
->   * Fix up review comments from seanjc
->   * Switch authorship on 2 patches because of significant changes, added
->   * Michael as suggested-by or originally-by.
-> 
-> V3
->   * Addressed more of andrew.jones@ in ucall patches.
->   * Fix build in non-x86 archs.
-> 
-> V2
->   * Dropped RFC tag
->   * Correctly separated Sean's ucall patches into 2 as originally
->     intended.
->   * Addressed andrew.jones@ in ucall patches.
->   * Fixed ucall pool usage to work for other archs
-> 
-> V1
->   * https://lore.kernel.org/all/20220715192956.1873315-1-pgonda@google.com/
-> 
-> Ackerley Tng (1):
->    KVM: selftests: Add a macro to iterate over a sparsebit range
-> 
-> Michael Roth (2):
->    KVM: selftests: Make sparsebit structs const where appropriate
->    KVM: selftests: Add support for protected vm_vaddr_* allocations
-> 
-> Peter Gonda (5):
->    KVM: selftests: Add support for allocating/managing protected guest
->      memory
->    KVM: selftests: Explicitly ucall pool from shared memory
->    KVM: selftests: Allow tagging protected memory in guest page tables
->    KVM: selftests: Add library for creating and interacting with SEV
->      guests
->    KVM: selftests: Add a basic SEV smoke test
-> 
-> Sean Christopherson (2):
->    KVM: selftests: Extend VM creation's @shape to allow control of VM
->      subtype
->    KVM: selftests: Use the SEV library APIs in the intra-host migration
->      test
-> 
->   tools/testing/selftests/kvm/Makefile          |   2 +
->   .../kvm/include/aarch64/kvm_util_arch.h       |   7 +
->   .../selftests/kvm/include/kvm_util_base.h     |  50 ++++++-
->   .../kvm/include/riscv/kvm_util_arch.h         |   7 +
->   .../kvm/include/s390x/kvm_util_arch.h         |   7 +
->   .../testing/selftests/kvm/include/sparsebit.h |  56 +++++---
->   .../kvm/include/x86_64/kvm_util_arch.h        |  23 ++++
->   .../selftests/kvm/include/x86_64/processor.h  |   8 ++
->   .../selftests/kvm/include/x86_64/sev.h        | 110 +++++++++++++++
->   tools/testing/selftests/kvm/lib/kvm_util.c    |  67 +++++++--
->   tools/testing/selftests/kvm/lib/sparsebit.c   |  48 +++----
->   .../testing/selftests/kvm/lib/ucall_common.c  |   3 +-
->   .../selftests/kvm/lib/x86_64/processor.c      |  32 ++++-
->   tools/testing/selftests/kvm/lib/x86_64/sev.c  | 128 ++++++++++++++++++
->   .../selftests/kvm/x86_64/sev_migrate_tests.c  |  67 +++------
->   .../selftests/kvm/x86_64/sev_smoke_test.c     |  58 ++++++++
->   16 files changed, 570 insertions(+), 103 deletions(-)
->   create mode 100644 tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h
->   create mode 100644 tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
->   create mode 100644 tools/testing/selftests/kvm/include/s390x/kvm_util_arch.h
->   create mode 100644 tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
->   create mode 100644 tools/testing/selftests/kvm/include/x86_64/sev.h
->   create mode 100644 tools/testing/selftests/kvm/lib/x86_64/sev.c
->   create mode 100644 tools/testing/selftests/kvm/x86_64/sev_smoke_test.c
-> 
-> 
-> base-commit: 60eedcfceda9db46f1b333e5e1aa9359793f04fb
-
-Tested-by: Carlos Bilbao <carlos.bilbao@amd.com>
-
-Tested including TEST_REQUIRE(kvm_cpu_has(X86_FEATURE_SEV)); in main() too.
-
-Thanks,
-Carlos
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBGZWIgMjEsIDIwMjQgYXQgMDY6MTI6MzBQTSArMDAwMCwgRWRnZWNvbWJlLCBSaWNr
+IFAgd3JvdGU6Cj4gT24gV2VkLCAyMDI0LTAyLTIxIGF0IDEyOjU3IC0wNTAwLCBkYWxpYXNAbGli
+Yy5vcmcgd3JvdGU6Cj4gPiA+IFRoaXMgZmVlbHMgbGlrZSBpdCdzIGdldHRpbmcgY29tcGxpY2F0
+ZWQgYW5kIEkgZmVhciBpdCBtYXkgYmUgYW4KPiA+ID4gdXBoaWxsCj4gPiA+IHN0cnVnZ2xlIHRv
+IGdldCBzdWNoIGNvZGUgbWVyZ2VkLCBhdCBsZWFzdCBmb3IgYXJtNjQuwqAgTXkgaW5zdGluY3QK
+PiA+ID4gaXMKPiA+ID4gdGhhdCBpdCdzIGdvaW5nIHRvIGJlIG11Y2ggbW9yZSByb2J1c3QgYW5k
+IGdlbmVyYWxseSB0cmFjdGFibGUgdG8KPiA+ID4gbGV0Cj4gPiA+IHRoaW5ncyBydW4gdG8gc29t
+ZSBzdWl0YWJsZSBzeW5jaHJvbmlzYXRpb24gcG9pbnQgYW5kIHRoZW4gZGlzYWJsZQo+ID4gPiB0
+aGVyZSwgYnV0IGlmIHdlJ3JlIGdvaW5nIHRvIGRvIHRoYXQgdGhlbiB1c2Vyc3BhY2UgY2FuIGhv
+cGVmdWxseQo+ID4gPiBhcnJhbmdlIHRvIGRvIHRoZSBkaXNhYmxpbmcgaXRzZWxmIHRocm91Z2gg
+dGhlIHN0YW5kYXJkIGRpc2FibGUKPiA+ID4gaW50ZXJmYWNlIGFueXdheS7CoCBQcmVzdW1hYmx5
+IGl0J2xsIHdhbnQgdG8gbm90aWNlIHRoaW5ncyBiZWluZwo+ID4gPiBkaXNhYmxlZAo+ID4gPiBh
+dCBzb21lIHBvaW50IGFueXdheT/CoCBUQkggdGhhdCdzIGJlZW4gaG93IGFsbCB0aGUgcHJpb3Ig
+cHJvcG9zYWxzCj4gPiA+IGZvcgo+ID4gPiBwcm9jZXNzIHdpZGUgZGlzYWJsZSBJJ3ZlIHNlZW4g
+d2VyZSBkb25lLgo+ID4gCj4gPiBJZiBpdCdzIHBvc3NpYmxlIHRvIGRpc2FibGUgcGVyLXRocmVh
+ZCByYXRoZXIgdGhhbiBwZXItcHJvY2Vzcywgc29tZQo+ID4gdGhpbmdzIGFyZSBlYXNpZXIuIERp
+c2FibGluZyBvbiBhY2NvdW50IG9mIHVzaW5nIGFsdCBzdGFja3Mgb25seQo+ID4gbmVlZHMKPiA+
+IHRvIGJlIGRvbmUgb24gdGhlIHRocmVhZHMgdXNpbmcgdGhvc2Ugc3RhY2tzLiBIb3dldmVyLCBm
+b3IgZGxvcGVuCj4gPiBwdXJwb3NlcyB5b3UgbmVlZCBhIHdheSB0byBkaXNhYmxlIHNoYWRvdyBz
+dGFjayBmb3IgdGhlIHdob2xlCj4gPiBwcm9jZXNzLgo+ID4gSW5pdGlhbGx5IHRoaXMgaXMgb25s
+eSBuZWVkZWQgZm9yIHRoZSB0aHJlYWQgdGhhdCBjYWxsZWQgZGxvcGVuLCBidXQKPiA+IGl0IG5l
+ZWRzIHRvIGhhdmUgcHJvcGFnYXRlZCB0byBhbnkgdGhyZWFkIHRoYXQgc3luY2hyb25pemVzIHdp
+dGgKPiA+IGNvbXBsZXRpb24gb2YgdGhlIGNhbGwgdG8gZGxvcGVuIGJ5IHRoZSB0aW1lIHRoYXQg
+c3luY2hyb25pemF0aW9uCj4gPiBvY2N1cnMsIGFuZCBzaW5jZSB0aGF0IHN5bmNocm9uaXphdGlv
+biBjYW4gaGFwcGVuIGluIGxvdHMgb2YKPiA+IGRpZmZlcmVudAo+ID4gd2F5cyB0aGF0IGFyZSBw
+dXJlbHkgdXNlcnNwYWNlICh0aGFua3MgdG8gZnV0ZXhlcyBiZWluZyB1c2Vyc3BhY2UgaW4KPiA+
+IHRoZSB1bmNvbnRlbmRlZCBjYXNlKSwgSSBkb24ndCBzZWUgYW55IHdheSB0byBtYWtlIGl0IHdv
+cmsgd2l0aG91dAo+ID4gZXh0cmVtZWx5IGludmFzaXZlLCBoaWdoLWNvc3QgY2hlY2tzLgo+IAo+
+IEZvciBnbGliYydzIHVzZSwgd2UgdGFsa2VkIGFib3V0IGEgY291cGxlIG9mIG9wdGlvbnMuCj4g
+MS4gQSBtb2RlIHRvIHN0YXJ0IHN1cHByZXNzaW5nIHRoZSAjVUQncyBmcm9tIHRoZSBzaGFkb3cg
+c3RhY2sKPiBpbnN0cnVjdGlvbnMKPiAyLiBBIG1vZGUgdG8gc3RhcnQgc3VwcHJlc3NpbmcgI0NQ
+cyAodGhlIGV4Y2VwdGlvbiB0aGF0IGhhcHBlbnMgd2hlbgo+IHRoZSBzaGFkb3cgc3RhY2sgZG9l
+c24ndCBtYXRjaCkuIFNvIHRoZSBzaGFkb3cgc3RhY2sgaW5zdHJ1Y3Rpb25zCj4gY29udGludWUg
+dG8gb3BlcmF0ZSBub3JtYWxseSwgYnV0IGlmIHRoZSBzaGFkb3cgc3RhY2sgZ2V0cyBtaXNtYXRj
+aGVkCj4gZHVlIHRvIGxhY2sgb2Ygc3VwcG9ydCwgdGhlIHJldCBpcyBlbXVsYXRlZC4gSXQgcHJv
+YmFibHkgaXMgc2FmZXIgKGJ1dAo+IHN0aWxsIG5vdCBwZXJmZWN0KSwgYnV0IHRoZSBwZXJmb3Jt
+YW5jZSBwZW5hbHR5IG9mIGVtdWxhdGluZyBldmVyeSBSRVQKPiBhZnRlciB0aGluZ3MgZ2V0IHNj
+cmV3ZWQgdXAgd291bGQgYmUgYSBzaWduaWZpY2FudCBkb3duIHNpZGUuIFRoZXJlCj4gYWxzbyBu
+ZWVkcyB0byBiZSBjbGVhbiBoYW5kbGluZyBvZiBzaGFkb3cgc3RhY2sgI1BGcy4KPiAzLiBQZXIt
+dGhyZWFkIGxvY2tpbmcgdGhhdCBpcyB1c2VkIGFyb3VuZCBhbGwgc2hhZG93IHN0YWNrIG9wZXJh
+dGlvbnMKPiB0aGF0IGNvdWxkIGJlIHNlbnNpdGl2ZSB0byBkaXNhYmxpbmcuIFRoaXMgY291bGQg
+YmUgbWF5YmUgZXhwb3NlZCB0bwo+IGFwcHMgaW4gY2FzZSB0aGV5IHdhbnQgdG8gdXNlIHNoYWRv
+dyBzdGFjayBpbnN0cnVjdGlvbnMgbWFudWFsbHkuIFRoZW4KPiBkdXJpbmcgZGxvcGVuKCkgaXQg
+d2FpdHMgdW50aWwgaXQgY2FuIGNsZWFubHkgZGlzYWJsZSBzaGFkb3cgc3RhY2sgZm9yCj4gZWFj
+aCB0aHJlYWQuIEluIGVhY2ggY3JpdGljYWwgc2VjdGlvbnMgdGhlcmUgYXJlIGNoZWNrcyBmb3Ig
+d2hldGhlcgo+IHNoYWRvdyBzdGFjayBpcyBzdGlsbCBlbmFibGVkLgo+IAo+IDMgaXMgdGhlIGNs
+ZWFuZXN0IGFuZCBzYWZlc3QgSSB0aGluaywgYW5kIGl0IHdhcyB0aG91Z2h0IGl0IG1pZ2h0IG5v
+dAo+IG5lZWQga2VybmVsIGhlbHAsIGR1ZSB0byBhIHNjaGVtZSBGbG9yaWFuIGhhZCB0byBkaXJl
+Y3Qgc2lnbmFscyB0bwo+IHNwZWNpZmljIHRocmVhZHMuIEl0J3MgbXkgcHJlZmVyZW5jZSBhdCB0
+aGlzIHBvaW50LgoKVGhlIG9wZXJhdGlvbnMgd2hlcmUgdGhlIHNoYWRvdyBzdGFjayBoYXMgdG8g
+YmUgcHJvY2Vzc2VkIG5lZWQgdG8gYmUKZXhlY3V0YWJsZSBmcm9tIGFzeW5jLXNpZ25hbCBjb250
+ZXh0LCBzbyB0aGlzIGltcG9zZXMgYSByZXF1aXJlbWVudCB0bwpibG9jayBhbGwgc2lnbmFscyBh
+cm91bmQgdGhlIGxvY2suIFRoaXMgbWFrZXMgYWxsIGxvbmdqbXBzIGEgaGVhdnksCm11bHRpLXN5
+c2NhbGwgb3BlcmF0aW9uIHJhdGhlciB0aGFuIE8oMSkgdXNlcnNwYWNlIG9wZXJhdGlvbi4gSSBk
+byBub3QKdGhpbmsgdGhpcyBpcyBhbiBhY2NlcHRhYmxlIGltcGxlbWVudGF0aW9uLCBlc3BlY2lh
+bGx5IHdoZW4gdGhlcmUgYXJlCmNsZWFybHkgc3VwZXJpb3IgYWx0ZXJuYXRpdmVzIHdpdGhvdXQg
+dGhhdCBjb3N0IG9yIGludmFzaXZlbmVzcy4KCj4gMSBhbmQgMiBhcmUgUE9DZWQgaGVyZSwgaWYg
+eW91IGFyZSBpbnRlcmVzdGVkOgo+IGh0dHBzOi8vZ2l0aHViLmNvbS9ycGVkZ2Vjby9saW51eC9j
+b21taXRzL3Noc3RrX3N1cHByZXNzX3JmYy8KCkknbSBub3QgY2xlYXIgd2h5IDIgKHN1cHByZXNz
+aW9uIG9mICNDUCkgaXMgZGVzaXJhYmxlIGF0IGFsbC4gSWYKc2hhZG93IHN0YWNrIGlzIGJlaW5n
+IGRpc2FibGVkLCBpdCBzaG91bGQganVzdCBiZSBkaXNhYmxlZCwgd2l0aAptaW5pbWFsIGZhdWx0
+IGhhbmRsaW5nIHRvIHBhcGVyIG92ZXIgYW55IHJhY2luZyBvcGVyYXRpb25zIGF0IHRoZQptb21l
+bnQgaXQncyBkaXNhYmxlZC4gTGVhdmluZyBpdCBvbiB3aXRoIGV4dHJlbWUgc2xvd25lc3MgdG8g
+bWFrZSBpdApub3QgYWN0dWFsbHkgZG8gYW55dGhpbmcgZG9lcyBub3Qgc2VlbSB1c2VmdWwuCgpJ
+cyB0aGVyZSBzb21lIHdheSBmb2xrcyBoYXZlIGluIG1pbmQgdG8gdXNlIG9wdGlvbiAyIHRvIGxh
+emlseSBkaXNhYmxlCnNoYWRvdyBzdGFjayBvbmNlIHRoZSBmaXJzdCBTUy1pbmNvbXBhdGlibGUg
+Y29kZSBpcyBleGVjdXRlZCwgd2hlbgpleGVjdXRpb24gaXMgdGhlbiBrbm93biBub3QgdG8gYmUg
+aW4gdGhlIG1pZGRsZSBvZiBhIFNTLWNyaXRpY2FsCnNlY3Rpb24sIGluc3RlYWQgb2YgZG9pbmcg
+aXQgcmlnaHQgYXdheT8gSSBkb24ndCBzZWUgaG93IHRoaXMgY291bGQKd29yaywgc2luY2UgdGhl
+IFNTLWluY29tcGF0aWJsZSBjb2RlIGNvdWxkIGJlIHJ1bm5pbmcgZnJvbSBhIHNpZ25hbApoYW5k
+bGVyIHRoYXQgaW50ZXJydXB0ZWQgYW4gU1MtY3JpdGljYWwgc2VjdGlvbi4KCj4gPiBJZiBmb2xr
+cyBvbiB0aGUga2VybmVsIHNpZGUgYXJlIG5vdCBnb2luZyB0byBiZSBhbWVuYWJsZSB0byBkb2lu
+ZyB0aGUKPiA+IHRoaW5ncyB0aGF0IGFyZSBlYXN5IGZvciB0aGUga2VybmVsIHRvIG1ha2UgaXQg
+d29yayB3aXRob3V0IGJyZWFraW5nCj4gPiBjb21wYXRpYmlsaXR5IHdpdGggZXhpc3RpbmcgaW50
+ZXJmYWNlcywgYnV0IHRoYXQgYXJlIGltcG9zc2libGUgb3IKPiA+IG5lYXItaW1wb3NzaWJsZSBm
+b3IgdXNlcnNwYWNlIHRvIGRvLCB0aGlzIHNlZW1zIGxpa2UgYSBkZWFkLWVuZC4gQW5kCj4gPiBJ
+Cj4gPiBzdXNwZWN0IGFuIG9wZXJhdGlvbiB0byAiZGlzYWJsZSBzaGFkb3cgc3RhY2ssIGJ1dCB3
+aXRob3V0IG1ha2luZwo+ID4gdGhyZWFkcyBzdGlsbCBpbiBTUy1jcml0aWNhbCBzZWN0aW9ucyBj
+cmFzaCIgaXMgZ29pbmcgdG8gYmUKPiA+IG5lY2Vzc2FyeS4uCj4gCj4gSSB0aGluayB3ZSBoYXZl
+IHRvIHdvcmsgdGhyb3VnaCBhbGwgdGhlIGFsdGVybmF0aXZlIGJlZm9yZSB3ZSBjYW4KPiBhY2N1
+c2UgdGhlIGtlcm5lbCBvZiBub3QgYmVpbmcgYW1lbmFibGUuIElzIHRoZXJlIHNvbWV0aGluZyB0
+aGF0IHlvdQo+IHdvdWxkIGxpa2UgdG8gc2VlIG91dCBvZiB0aGlzIGNvbnZlcnNhdGlvbiB0aGF0
+IGlzIG5vdCBoYXBwZW5pbmc/CgpObywgSSB3YXMganVzdCBpbnRlcnByZXRpbmcgInVwaGlsbCBi
+YXR0bGUiLiBJIHJlYWxseSBkbyBub3Qgd2FudCB0bwplbmdhZ2UgaW4gYW4gdXBoaWxsIGJhdHRs
+ZSBmb3IgdGhlIHNha2Ugb2YgbWFraW5nIGl0IHByYWN0aWNhbCB0bwpzdXBwb3J0IHNvbWV0aGlu
+ZyB0aGF0IHdhcyBuZXZlciBteSBnb2FsIHRvIGJlZ2luIHdpdGguIElmIEknbQptaXNyZWFkaW5n
+IHRoaXMsIG9yIGlmIG90aGVycyBhcmUgd2lsbGluZyB0byBwdXQgdGhlIGVmZm9ydCBpbnRvIHRo
+YXQKImJhdHRsZSIsIEknZCBiZSBoYXBweSB0byBiZSBtaXN0YWtlbiBhYm91dCAibm90IGFtZW5h
+YmxlIi4KClJpY2gKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
