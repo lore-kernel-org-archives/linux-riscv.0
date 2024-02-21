@@ -4,86 +4,239 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A35C5478A
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 17:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D48C5478A
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 17:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oFOjDootx2p0pA5jHh9xcmgEX+O8sOTBNrUNPOzqBrg=; b=EISp+7jYof6Rdp
-	LB7+5iedKA4fCuRhsMEEOYGldFDGSoeFIbojq/Nk5WiZbmvYVeS9E4/wRVEgHS2FgI0mGfzVtMKnF
-	gzOyYQEOdQP5VOkbsjS9f+bkDfYr9MAVoWm1fVFFkFzrioS6ppBwAUfaXi0YddqpOEXr3bx8ZLWPu
-	NIEqjwyL2g9xWb0KHuCctPWIRjyRxs6oDuIH8OdYaLzgHLTX22XOZLy07zj6SMW98l4TTu+mWo7El
-	QeFc2IeXZK7JzXQEVWQcpoz5oVVIhBxi64SCQP5pW/aFByLYhxqGsoZXrjb02SRuGDNQatf3HPJUu
-	ZV1qb6Q28+iU5J8tr4Gg==;
+	List-Owner; bh=LkTG9e1Ja0qlJMVFGPcEcSA15PoDL4VD7mW/5vvpVus=; b=QFrXC06K1gwerz
+	iRZAqRCKjDIDI6eAx/SHLqNYG03hXt4/rnh8OxRu+bbURN8R9D/OWNPiTzIAUz6ncAPSRkDwdWWBZ
+	dyRZ1y2LfDBGNFGWHzWcXszHl/cAw4hWblh2XDB5YkGb8qhZIMpf9C3aa8+kR79YKMWHl4Vuo+8gh
+	7qmITN60f+c+TIpoR6SlgvGrHFmtlXe/rnPZ0EPBzbaB8ygr69xfyP0z37d5Cih+v/V5QjcfEOBsH
+	pK7xYLbIlU2eX1xChoawqmH9c3xBeNCahaxU18HYD+O76QJ+Zz7SQurA5po6Z7kb3IfuioPIkdr8Y
+	FJieiyDx9gdYWVaCcyYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcqqE-00000001zxQ-2yOK;
-	Wed, 21 Feb 2024 17:57:10 +0000
-Received: from brightrain.aerifal.cx ([2001:19f0:5:42::1])
+	id 1rcqqL-0000000201s-2K5W;
+	Wed, 21 Feb 2024 17:57:17 +0000
+Received: from mx0b-00823401.pphosted.com ([148.163.152.46])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcqqB-00000001zv1-04w1
-	for linux-riscv@lists.infradead.org;
-	Wed, 21 Feb 2024 17:57:09 +0000
-Date: Wed, 21 Feb 2024 12:57:19 -0500
-From: "dalias@libc.org" <dalias@libc.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
-	"musl@lists.openwall.com" <musl@lists.openwall.com>,
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"corbet@lwn.net" <corbet@lwn.net>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"debug@rivosinc.com" <debug@rivosinc.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"arnd@arndb.de" <arnd@arndb.de>, "maz@kernel.org" <maz@kernel.org>,
-	"oleg@redhat.com" <oleg@redhat.com>,
-	"fweimer@redhat.com" <fweimer@redhat.com>,
-	"keescook@chromium.org" <keescook@chromium.org>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"ebiederm@xmission.com" <ebiederm@xmission.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"brauner@kernel.org" <brauner@kernel.org>,
-	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"thiago.bauermann@linaro.org" <thiago.bauermann@linaro.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"sorear@fastmail.com" <sorear@fastmail.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
-Subject: Re: [musl] Re: [PATCH v8 00/38] arm64/gcs: Provide support for GCS
- in userspace
-Message-ID: <20240221175717.GS4163@brightrain.aerifal.cx>
-References: <22a53b78-10d7-4a5a-a01e-b2f3a8c22e94@app.fastmail.com>
- <4c7bdf8fde9cc45174f10b9221fa58ffb450b755.camel@intel.com>
- <20240220185714.GO4163@brightrain.aerifal.cx>
- <9fc9c45ff6e14df80ad023e66ff7a978bd4ec91c.camel@intel.com>
- <20240220235415.GP4163@brightrain.aerifal.cx>
- <a57d6c7eada4b9a7c35addbc8556f5b53a0c3e6f.camel@intel.com>
- <20240221012736.GQ4163@brightrain.aerifal.cx>
- <d18f060d-37ac-48b1-9f67-a5c5db79b34e@sirena.org.uk>
- <20240221145800.GR4163@brightrain.aerifal.cx>
- <4a3809e8-61b2-4341-a868-292ba6e64e8a@sirena.org.uk>
+	id 1rcqqI-00000001zzU-3W7n;
+	Wed, 21 Feb 2024 17:57:16 +0000
+Received: from pps.filterd (m0355091.ppops.net [127.0.0.1])
+	by mx0b-00823401.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 41LEiEDV020144;
+	Wed, 21 Feb 2024 17:57:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=motorola.com; h=
+	from:to:cc:subject:date:message-id:references:in-reply-to
+	:content-type:content-transfer-encoding:mime-version; s=
+	DKIM202306; bh=ohdBdAmRjzn/ur1B1BUK4Ux1Xy+rpyuKbSwdnqUhuWg=; b=f
+	dTtH0q3ZY6IpYl5V8g81DtyXM5ei4YERSVSOS1+fsGhjlfeCrz1/y7KiLTOCToSe
+	5rmC6CFAXjSCpUjoXkRdliy0C/9R2+2USBc7URGI5w4e0rfRFhtVgVsexUxEGX4L
+	2HjljtwFxswLb/K/HlDeZJf+E9oaJyEB2W7JwRqMnhJAycXWO+sVAw2f391PZ9yh
+	P23nUl7CdX3FxC3ezA3FVWGJ8pSskHYl3AumrneFlam6B/FEUK3sx/gxr0cvngcS
+	Ddr6bIT/mBtf4Hv3UuyeptEKCLm+hjHEvaJDVigVm1qvPWIfMYQreDa3BxupHLtr
+	5MJ1f5acZ34YwLdL96oAA==
+Received: from apc01-psa-obe.outbound.protection.outlook.com (mail-psaapc01lp2040.outbound.protection.outlook.com [104.47.26.40])
+	by mx0b-00823401.pphosted.com (PPS) with ESMTPS id 3wda6dt3hf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 21 Feb 2024 17:57:09 +0000 (GMT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=FJAqPp7I2/x0U7z/WH+JEVKGhZw21OoDA5H70BsaDTOh/XQk7lRx0S0CljPBqDKkvTT9R0zU+gXOemIayv6/Nf+mgNIeeWXU9EXu0c9cxK0/qZnbkSaTt9R44ApQesSFbe5AxMUicwj93kfj2lDvAT62qUZ3XYYS/qV+Kptw9Xn9su0XnMBy1N9SipzgVI117OZfJSuoe5WGTRvh179C+0/tBV7W4xgRHi/TJwwChejeNo8Hwkm4QP55AyXH1HFgpPuBF174ogisfXCF41Y2PQfuSc6EHFCQprKKr4lwRhNcc/4lutGfAXCHfThiBqwcg7Kf6H3aQt+mnGbhtpzBfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ohdBdAmRjzn/ur1B1BUK4Ux1Xy+rpyuKbSwdnqUhuWg=;
+ b=TfIzPVOLga6zuLvOhHK5d2HTkHgVFYQE/Buuwy31BV4y6I3C111MRnhRRwwnNZ/gRuyzbcgVMcL69fxfY86Iwt6BDYrzar+1830HS/cuJULcHGJmlV4X3D2jVumNqmWrv0esiyWWrR9mBgziO6iHzSgZ5GHK5Gm0X2i2E9RBnWRJdsay6C4If4+Ji6ZrYAfvpHfUYxoYaUjnpFB5763efQLgM9PH1Hbw5gfnMEKBfhisHJhfw4Z3WAWeKbhyCqDa6wK5BCpZD5tqC37RIFXP9X/Pi87AUzmnZBVLhD7fQUWbxA2+1Sl1Mwpx4VoAdjhWuThutveyCKS9frhvu0vcog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=motorola.com; dmarc=pass action=none header.from=motorola.com;
+ dkim=pass header.d=motorola.com; arc=none
+Received: from SEZPR03MB6786.apcprd03.prod.outlook.com (2603:1096:101:66::5)
+ by PUZPR03MB6101.apcprd03.prod.outlook.com (2603:1096:301:b8::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7316.21; Wed, 21 Feb
+ 2024 17:57:05 +0000
+Received: from SEZPR03MB6786.apcprd03.prod.outlook.com
+ ([fe80::dbc8:b80e:efaf:2d74]) by SEZPR03MB6786.apcprd03.prod.outlook.com
+ ([fe80::dbc8:b80e:efaf:2d74%6]) with mapi id 15.20.7292.036; Wed, 21 Feb 2024
+ 17:57:05 +0000
+From: Maxwell Bland <mbland@motorola.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+CC: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+        "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>,
+        "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+        "andreyknvl@gmail.com" <andreyknvl@gmail.com>,
+        "andrii@kernel.org"
+	<andrii@kernel.org>,
+        "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>,
+        "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+        "ardb@kernel.org"
+	<ardb@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
+        "ast@kernel.org"
+	<ast@kernel.org>,
+        "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
+        "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+        "brauner@kernel.org"
+	<brauner@kernel.org>,
+        "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+        "cl@linux.com" <cl@linux.com>,
+        "daniel@iogearbox.net" <daniel@iogearbox.net>,
+        "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+        "david@redhat.com" <david@redhat.com>,
+        "dennis@kernel.org"
+	<dennis@kernel.org>,
+        "dvyukov@google.com" <dvyukov@google.com>,
+        "glider@google.com" <glider@google.com>,
+        "gor@linux.ibm.com"
+	<gor@linux.ibm.com>,
+        "guoren@kernel.org" <guoren@kernel.org>,
+        "haoluo@google.com" <haoluo@google.com>,
+        "hca@linux.ibm.com"
+	<hca@linux.ibm.com>,
+        "hch@infradead.org" <hch@infradead.org>,
+        "john.fastabend@gmail.com" <john.fastabend@gmail.com>,
+        "jolsa@kernel.org"
+	<jolsa@kernel.org>,
+        "kasan-dev@googlegroups.com"
+	<kasan-dev@googlegroups.com>,
+        "kpsingh@kernel.org" <kpsingh@kernel.org>,
+        "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+        "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+        "linux-efi@vger.kernel.org"
+	<linux-efi@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        "linux-mm@kvack.org" <linux-mm@kvack.org>,
+        "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+        "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+        "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+        "lstoakes@gmail.com" <lstoakes@gmail.com>,
+        "mark.rutland@arm.com"
+	<mark.rutland@arm.com>,
+        "martin.lau@linux.dev" <martin.lau@linux.dev>,
+        "meted@linux.ibm.com" <meted@linux.ibm.com>,
+        "michael.christie@oracle.com"
+	<michael.christie@oracle.com>,
+        "mjguzik@gmail.com" <mjguzik@gmail.com>,
+        "mpe@ellerman.id.au" <mpe@ellerman.id.au>,
+        "mst@redhat.com" <mst@redhat.com>,
+        "muchun.song@linux.dev" <muchun.song@linux.dev>,
+        "naveen.n.rao@linux.ibm.com"
+	<naveen.n.rao@linux.ibm.com>,
+        "npiggin@gmail.com" <npiggin@gmail.com>,
+        "palmer@dabbelt.com" <palmer@dabbelt.com>,
+        "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>,
+        "quic_nprakash@quicinc.com"
+	<quic_nprakash@quicinc.com>,
+        "quic_pkondeti@quicinc.com"
+	<quic_pkondeti@quicinc.com>,
+        "rick.p.edgecombe@intel.com"
+	<rick.p.edgecombe@intel.com>,
+        "ryabinin.a.a@gmail.com"
+	<ryabinin.a.a@gmail.com>,
+        "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+        "samitolvanen@google.com" <samitolvanen@google.com>,
+        "sdf@google.com"
+	<sdf@google.com>,
+        "song@kernel.org" <song@kernel.org>,
+        "surenb@google.com"
+	<surenb@google.com>,
+        "svens@linux.ibm.com" <svens@linux.ibm.com>,
+        "tj@kernel.org" <tj@kernel.org>, "urezki@gmail.com" <urezki@gmail.com>,
+        "vincenzo.frascino@arm.com" <vincenzo.frascino@arm.com>,
+        "will@kernel.org"
+	<will@kernel.org>,
+        "wuqiang.matt@bytedance.com" <wuqiang.matt@bytedance.com>,
+        "yonghong.song@linux.dev" <yonghong.song@linux.dev>,
+        "zlim.lnx@gmail.com"
+	<zlim.lnx@gmail.com>,
+        Andrew Wheeler <awheeler@motorola.com>
+Subject: Re: [PATCH 0/4] arm64: mm: support dynamic vmalloc/pmd configuration
+Thread-Topic: [PATCH 0/4] arm64: mm: support dynamic vmalloc/pmd configuration
+Thread-Index: AQHaZO9h6psKGO7SGk25OSRe9qGB2A==
+Date: Wed, 21 Feb 2024 17:57:05 +0000
+Message-ID: <SEZPR03MB6786142493B476B96F46081BB4572@SEZPR03MB6786.apcprd03.prod.outlook.com>
+References: <20240220203256.31153-1-mbland@motorola.com>
+ <4368e86f-d6aa-4db8-b4cf-42174191dcf9@csgroup.eu>
+In-Reply-To: <4368e86f-d6aa-4db8-b4cf-42174191dcf9@csgroup.eu>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEZPR03MB6786:EE_|PUZPR03MB6101:EE_
+x-ms-office365-filtering-correlation-id: 9d9aa498-b3b2-4238-42ef-08dc330683e8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: EHZlv0SDyyBCswKHz8QhE6+fKjEQfTEOEOnsfEw8WEdafdcTxkcxZBO2/vj6FFUY2v9/9trYiQ6ovPZrHiLJRt0AYlbyDtvArwJM8Pfm8CQ5jYEjeE1tZwtXD05V5CIw5SHjSlz1Yy3e9xCLSCB0AXbwDq6ZJEdTY2XRxV9DwabpXTcJTE6s9SM3szosTeRI4kH/l9HiEoPpq6l3XOMqylPfo1GnRoNxPyb03Amwn2a8RlHgbQUG694iehl8XtHLPjP7S6BVy6mVilX7MgyDk+u47GjmaC4xNnCbrLfAG5p9MKDnXYsFXuej2a69o4viRvs2xDrjQ3z+uSAfX8hG43l/7pT5F9UQ+oNptrSSiJgD9KQFRV4Z+/Be/hcwGm0dgXQ7AIj4DzbYdms/ea+d58bFLMg5QDMT993ljeu9kyj+EBq/ycwVZSpMx9aU2wPkYtQzAcaeot9XMivuQSmQPoDjEnZj1IANgS91tY27ATWnzHCaESeO8t6Z7Cag88jsqB3Wvb0ZswuW9YMal2BkUKTfkZARtarjcU8/Fj56yIBqDDmAMxNmZjwqTHo/TvqPbvCPRMSp2P47w3npSvC4MkqC5aKgl3+sYOSY+Bro06Q=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR03MB6786.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(38070700009);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RDJlSTlhVzdGcnRNVC9PdWlqSTl1R2JlQi9BcW5LTW9sME51VG94SmtpdkdF?=
+ =?utf-8?B?azRDOHRvSHI5VS96b1Jld1lEcTZRZitZTndxaUZDS29ueFk5RWg1SEFleU9K?=
+ =?utf-8?B?WE9MZUVBTGdDZm9qSDdSUHV5QnhDeGgrTDM5STRyR1JzSGFURm8wN0lOYnpM?=
+ =?utf-8?B?SEZCSGIrZUJtS2dUaHhYZ0JqVk40ZnNrcTRUd29CQUNpckY2TmpTdHJTTkh1?=
+ =?utf-8?B?YzlyU1AzdnZaUGlaMXdXTllEc0xOWE5laUM2aDZPVDYxOThlM1hmbFJ0NWIw?=
+ =?utf-8?B?Y3JCU000NkZBMTVnM0FHaWIzVDd4aUtqRWxKdFJsWmN1cWV0Q1BYQlFBOUth?=
+ =?utf-8?B?M29iaFFQbUhKYnh3c04rK20xc1I2U3BFdXdvbUIrYU1oV3I1akU0eW1odFQ2?=
+ =?utf-8?B?Q3F0dEZERk44M2xjQ0FoN0hxeFc2YUE4ZkFKOG9IYnNBUll5bVBRNVZVTmN6?=
+ =?utf-8?B?Tkh1UW5XRUVXZkF3Y3hwZkd3MjNUOWJHdldDUG13Q3lmZy9aL2tkSEdOb2tK?=
+ =?utf-8?B?M3U5bnpZNnRyZVRadzY3c29TT2lCTU9HYjA1OWxRS0lUZFpHM2dvVE9ZSklH?=
+ =?utf-8?B?eTBPd21EQ0xjZC9IQkpPUVZ5elduZVpnejFIUFJKNXlFQ2xmRW5YclBtN09N?=
+ =?utf-8?B?aDRxdGlzMzZ0MVZERU1tZzVFTERnMXhQbVNoODRocU05cEZZbXBXcDJXTi8x?=
+ =?utf-8?B?dnJuZFQzYmNBb3J2U0c0S3lBeG4wMEhmNzM5ZThlYmNscVR4eUF0aVh4M3hV?=
+ =?utf-8?B?M0cvUExwZmp1eE55VEJ4NUlsTWpqcjB5U1M1V1NVZ2V2dHpVb3NBMjlXQTh5?=
+ =?utf-8?B?NkxvOUdjK280Z2pYakF3VE5jL3JxYUJjNTF4U0dickhwM3JRRjcxVktkTUFW?=
+ =?utf-8?B?R1MyTU53T0E3MFdUeXRRaWxMNXR6ekRhNnBLVHZVZ1pkMG0wNXlURnk5YnJq?=
+ =?utf-8?B?N0hlM1YzNEVNNTUyNDM3N1NZV2hUNlNTaS90eE5EZXdBNVRIY043aFgwQTBk?=
+ =?utf-8?B?VkhkRVV0cnJZcm8wQkZuMTZnWE5aUzJjZmhwcjUyRm9EMDFwQ2N0QUFMc2dv?=
+ =?utf-8?B?bUhvNHZkc2N3OXR6VXFkVnFRZ1k0YlR6SnFEZzF3WkVYU1N1WTk4U3B0U2Zk?=
+ =?utf-8?B?aW9kdjB4RGFqd1pPTVJkeDVmSmJiVnR1UTl3UWY1WmpOZGNSQ0cvNW9xUzJ3?=
+ =?utf-8?B?S0FrZmJVUko1UHdaTXBCZUY0ZDlPS2M5eVB0Q2hQdDZnNGhOcTUwTDdHcEkr?=
+ =?utf-8?B?NlVkMll6QTQwTk83TWU3QVk0SE9nTjByWk52c0FUQmVZcURuYTh5MXptODda?=
+ =?utf-8?B?WkRFd3JsdkFUQ3FkQmlUSkpsUGRYSU5RODNoM29pQmFLUDNaTS9xY3hlSEJK?=
+ =?utf-8?B?NUR5U2lVU1ZHVU5tZTBITGp2WWlINTNnTnpoY0dqODRhSHlHcGVBMERQQ3R1?=
+ =?utf-8?B?UEthYWpVRmZxMkI5MXhJNWlMZHYyd0VSMldmeGNlOXd4ZUFjQk5DUkVGNmUy?=
+ =?utf-8?B?THpkL1FLU29VOEpPMmlralQ2VUdGTkl4R0JvK3Yva20rLzltWmtnbFdyZFdI?=
+ =?utf-8?B?WXFLRElwMkZRKzI4TDZITjU4UWh2MnhOWmVSNkNMZ1UwNXlCNjdYRXdmb3Zl?=
+ =?utf-8?B?cnVxaUtJbk45WlVVcm14N2paQlN4VHZxbWFCTzFpbncxRE1USzgxVWFNNHZt?=
+ =?utf-8?B?VDdjaXl6Q1lQbzJqMWF2Z0dBdmxDcVY5eUdGTHdlZW1GWlZBNHVoMFlvcU45?=
+ =?utf-8?B?Wm5wRjVLSFZ3VkxaeDZuOGwxOHBVK3pyTjBZL2NMYjdXUWFzT1F3OWtiWjJT?=
+ =?utf-8?B?ZDgrbWNlWmZ3OWlmOTdmS29vcG5kS2UxTlV6SUpvMzBBN05TRlRIQ1loZjBz?=
+ =?utf-8?B?SGw2cmE0LzFnMCtTcXVRZjlTYWJIK0lZZlBvbnM1aGNDN2d1aXRIT3hwMy8x?=
+ =?utf-8?B?NFlkN202b25UQjFINm1qckJpQitZMS9zb2dhUzhNUlcrTXg0RXFnSE9pUjZO?=
+ =?utf-8?B?WTFaazdVR29zSkJXMTRqSER0MVhQZ1l5Slg3dEs1Vk9yek16Zlh5OElxLy9l?=
+ =?utf-8?B?amZ0UHJlSWlyYmtMQkdVeGhWSTBSSElzcmt1Z1UyMmFnQnc0a0Z1bUR3eEJk?=
+ =?utf-8?Q?KjjA=3D?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <4a3809e8-61b2-4341-a868-292ba6e64e8a@sirena.org.uk>
-User-Agent: Mutt/1.5.21 (2010-09-15)
+X-OriginatorOrg: motorola.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR03MB6786.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9d9aa498-b3b2-4238-42ef-08dc330683e8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Feb 2024 17:57:05.5478
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 5c7d0b28-bdf8-410c-aa93-4df372b16203
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: YPFU8MGPpDCKjjZb95ddjheCAP3uJp6GUxYh1ARNI5BJGmk2nK4mXgKhdZbUBsjkzKFz3ru8xaW7USi2mSF6QA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR03MB6101
+X-Proofpoint-GUID: t_vz-c102zLvZ-9DS63pGkPli8NM-ato
+X-Proofpoint-ORIG-GUID: t_vz-c102zLvZ-9DS63pGkPli8NM-ato
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-02-21_05,2024-02-21_02,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ suspectscore=0 phishscore=0 spamscore=0 clxscore=1015 bulkscore=0
+ mlxscore=0 priorityscore=1501 adultscore=0 impostorscore=0 mlxlogscore=999
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2402120000 definitions=main-2402210139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240221_095707_310298_F7004A7B 
-X-CRM114-Status: GOOD (  30.38  )
+X-CRM114-CacheID: sfid-20240221_095715_067576_F2D9587F 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,61 +253,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 21, 2024 at 05:36:12PM +0000, Mark Brown wrote:
-> On Wed, Feb 21, 2024 at 09:58:01AM -0500, dalias@libc.org wrote:
-> > On Wed, Feb 21, 2024 at 01:53:10PM +0000, Mark Brown wrote:
-> > > On Tue, Feb 20, 2024 at 08:27:37PM -0500, dalias@libc.org wrote:
-> > > > On Wed, Feb 21, 2024 at 12:35:48AM +0000, Edgecombe, Rick P wrote:
+> On Wednesday, February 21, 2024 at 1:32 AM, Christophe Leroy wrote:
 > 
-> > > > > (INCSSP, RSTORSSP, etc). These are a collection of instructions that
-> > > > > allow limited control of the SSP. When shadow stack gets disabled,
-> > > > > these suddenly turn into #UD generating instructions. So any other
-> > > > > threads executing those instructions when shadow stack got disabled
-> > > > > would be in for a nasty surprise.
+> On powerpc (book3s/32) we have more or less the same although it is not
+> directly linked to PMDs: the virtual 4G address space is split in
+> segments of 256M. On each segment there's a bit called NX to forbit
+> execution. Vmalloc space is allocated in a segment with NX bit set while
+> Module spare is allocated in a segment with NX bit unset. We never have
+> to override vmalloc wrappers. All consumers of exec memory allocate it
+> using module_alloc() while vmalloc() provides non-exec memory.
 > 
-> > > > This is the kernel's problem if that's happening. It should be
-> > > > trapping these and returning immediately like a NOP if shadow stack
-> > > > has been disabled, not generating SIGILL.
-> 
-> > > I'm not sure that's going to work out well, all it takes is some code
-> > > that's looking at the shadow stack and expecting something to happen as
-> > > a result of the instructions it's executing and we run into trouble.  A
-> 
-> > I said NOP but there's no reason it strictly needs to be a NOP. It
-> > could instead do something reasonable to convey the state of racing
-> > with shadow stack being disabled.
-> 
-> This feels like it's getting complicated and I fear it may be an uphill
-> struggle to get such code merged, at least for arm64.  My instinct is
-> that it's going to be much more robust and generally tractable to let
-> things run to some suitable synchronisation point and then disable
-> there, but if we're going to do that then userspace can hopefully
-> arrange to do the disabling itself through the standard disable
-> interface anyway.  Presumably it'll want to notice things being disabled
-> at some point anyway?  TBH that's been how all the prior proposals for
-> process wide disable I've seen were done.
+> For modules, all you have to do is select
+> ARCH_WANTS_MODULES_DATA_IN_VMALLOC and module data will be allocated
+> using vmalloc() hence non-exec memory in our case.
 
-If it's possible to disable per-thread rather than per-process, some
-things are easier. Disabling on account of using alt stacks only needs
-to be done on the threads using those stacks. However, for dlopen
-purposes you need a way to disable shadow stack for the whole process.
-Initially this is only needed for the thread that called dlopen, but
-it needs to have propagated to any thread that synchronizes with
-completion of the call to dlopen by the time that synchronization
-occurs, and since that synchronization can happen in lots of different
-ways that are purely userspace (thanks to futexes being userspace in
-the uncontended case), I don't see any way to make it work without
-extremely invasive, high-cost checks.
+This critique has led me to some valuable ideas, and I can definitely find a simpler
+approach without overrides.
 
-If folks on the kernel side are not going to be amenable to doing the
-things that are easy for the kernel to make it work without breaking
-compatibility with existing interfaces, but that are impossible or
-near-impossible for userspace to do, this seems like a dead-end. And I
-suspect an operation to "disable shadow stack, but without making
-threads still in SS-critical sections crash" is going to be
-necessary..
+I do want to mention changes to how VMALLOC_* and MODULE_* constants
+are used on arm64 may introduce other issues. See discussion/code on the patch
+that motivated this patch at:
 
-Rich
+https://lore.kernel.org/all/CAP5Mv+ydhk=Ob4b40ZahGMgT-5+-VEHxtmA=-LkJiEOOU+K6hw@mail.gmail.com/
+
+In short, maybe the issue of code/data intermixing requires a rework of arm64
+memory infrastructure, but I see a potentially elegant solution here based on the
+comments given on this patch.
+
+Thanks,
+Maxwell
 
 _______________________________________________
 linux-riscv mailing list
