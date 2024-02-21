@@ -4,109 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F226C48BF6
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 11:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41AF0C48BC3
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 11:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5GlrmlyAJrJ12K3iKJU0P8cKbVqRnxJlBS/USBHFM+E=; b=QD5gWn1dyscw0R
-	a0eE9rGyYrJS+1nYw0gaMwLVl9e3YOLdxzoJTGlrIvs2+X93xb3LQ2WWdljHqtouMoOQ08AX1+1+R
-	/r/jqiAXfWU0GMA6BdCDzkj/Jf9WSY6vj3Vlc4Ribb7LfMt3I6/2jbDwPMu+/yWGgJVsDKXXT3xKu
-	JaM8aPdGq68ZLNu+zxN1VxpDO4deBlVgiNgZABrHABmKtjH8IJZu6Zfo2jZvoJmP88IzIUFYXiMhu
-	3GXbpQkFA0ZBQfRfHR/mGFO1CnWM7j3oEtem2EyxT/5w+O1+tDEWxo2qRm3aahO/rIE3ttY1jplxd
-	pnjHOB62zRUhngUSE5dA==;
+	List-Owner; bh=PfAeXH1EeTpS1wSS9eKTTiETAvNfnX00agH/Zc3wPgs=; b=i2KTS3dfEA6Huk
+	Ubi+M/DlHiRA05TFa1PQf/0RKpyMYnACKz1RJX+G5hNM8cEFY6THwPbohXg2kOCpV9dGfXVM4fayR
+	KrZ2PDuV4AQkymRzbrbQkbq0C2biG57tW1VWiOJJh87Xq28BoCdzNfQ593cmPPbGlxgLRG31b7Hg3
+	tPihtOJrr+yKXdZZYfhi1vRePC5mthZcA8jQr4p8vJuCIVLUnDDmRvRa9LgC5YZ5CNH4SFB5lftcj
+	Y9KcCEV9zR+6MHa+WJ1fYkHYh/7E9Nwkr6TX1ixyqK51EJdIgifrz3S1zO58k56YMk3aF/Xgutip/
+	12ebHyyP3+VG2zQDtcIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rclCM-00000000lv6-0o0F;
-	Wed, 21 Feb 2024 11:55:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rclG7-00000000mP1-3282;
+	Wed, 21 Feb 2024 11:59:31 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rclCI-00000000ltC-0Tbs
-	for linux-riscv@lists.infradead.org;
-	Wed, 21 Feb 2024 11:55:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1708516532;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PLsLM/ECtgqgj6YScdKuDzdQeO2PVy2fvKFbE23nuA4=;
-	b=gNnIhRuwWXTUPY94+SLGU4tBD9l1D8CovC5/vKWMsRxSlPhO0cBiF7pFB87rnB2tPz8nlg
-	CfGMNE02QxUeMZoUBo4mmcfUsIsK6cXArci/zzuUbYND48wcArZo8zcGHK2oMZrjIseIlr
-	Sz0tdoqwe0K0Dyl0iMU/DpEAjjqFupA=
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
- [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-619-vVMa6fDGM5iEEZK7zf3FNA-1; Wed, 21 Feb 2024 06:55:31 -0500
-X-MC-Unique: vVMa6fDGM5iEEZK7zf3FNA-1
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-6e36ee0fd27so251291b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Feb 2024 03:55:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708516530; x=1709121330;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PLsLM/ECtgqgj6YScdKuDzdQeO2PVy2fvKFbE23nuA4=;
-        b=ZJSm5WK/2VuFElu4/nu75tJ7pUbo6G76e6EhuHU5m0j0FzB0Hq/ZleKGyf11wQvx21
-         8Z1RauTWKZQ3k0dgAnMEHK0396SJy4RSzZ19UmpYTNeVbcic/tiFkDcpFAZXVTh+VcXu
-         jV8k/cYiS2LCqg4uEKHlcYnO398ZOEgA9wY/72lNBzuebu6xO9l5P5eyg3Hh9K1FDAW9
-         dLXat0+kjTO9qu4T5Pj7ZNeeKXHDpCMaOErb0gmjGTfl93eGkCS/kxyqXbSyLftekv9b
-         sH+czCOOD88Rjz0zg1lbaC083f9z1Wt6vJOWTkqXZH/oIitEPxXtPq0vJfygqcXitzzO
-         jXeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUXasPQkwI3cxR5qVkoYVwIldt4qz/MTYYOkQL/JoDxBUydU1QNq+NkAjJ3nVNmajdGNkfM4N8Zt5W2JvqQyzEIQQw+qxS+ld5QfB9O/E3j
-X-Gm-Message-State: AOJu0YzohuUhyNHv9GuDkjRoZsybEp1bQbNO0ZLR1HzdOHvKdtNzv/Aj
-	afZ7nb4c7NJKi8yb17BFyyIrH+3XwKXRBL+Ip5dsW/Cx+IrmIVdMC+tXp0h4bd7YcTzE8kSfa75
-	kj9WB9adpeNeNotZbqfKrjrrOAADG3ZykqXjuzCrVEY5yy2VFDTrX+k+Mezfr6Pw09Q==
-X-Received: by 2002:a05:6a21:3397:b0:1a0:cd02:b2f1 with SMTP id yy23-20020a056a21339700b001a0cd02b2f1mr196499pzb.3.1708516530441;
-        Wed, 21 Feb 2024 03:55:30 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGRO+9lM9EY5N92dCc9bYoUlt/pUN8sgkXoKwNhU9AZ+BNLKu2lSvew+Aw+SPUl5ZIlIuODvw==
-X-Received: by 2002:a05:6a21:3397:b0:1a0:cd02:b2f1 with SMTP id yy23-20020a056a21339700b001a0cd02b2f1mr196492pzb.3.1708516530136;
-        Wed, 21 Feb 2024 03:55:30 -0800 (PST)
-Received: from x1n ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id b3-20020a170902a9c300b001dc0955c635sm4149309plr.244.2024.02.21.03.55.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Feb 2024 03:55:29 -0800 (PST)
-Date: Wed, 21 Feb 2024 19:55:17 +0800
-From: Peter Xu <peterx@redhat.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	James Houghton <jthoughton@google.com>,
-	David Hildenbrand <david@redhat.com>,
-	"Kirill A . Shutemov" <kirill@shutemov.name>,
-	Yang Shi <shy828301@gmail.com>, linux-riscv@lists.infradead.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Rik van Riel <riel@surriel.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Mike Rapoport <rppt@kernel.org>, John Hubbard <jhubbard@nvidia.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andrew Jones <andrew.jones@linux.dev>,
-	linuxppc-dev@lists.ozlabs.org,
-	Mike Kravetz <mike.kravetz@oracle.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	Christoph Hellwig <hch@infradead.org>,
-	Lorenzo Stoakes <lstoakes@gmail.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v2 06/13] mm/gup: Drop folio_fast_pin_allowed() in hugepd
- processing
-Message-ID: <ZdXkpYEuRAxoLtHI@x1n>
-References: <20240103091423.400294-1-peterx@redhat.com>
- <20240103091423.400294-7-peterx@redhat.com>
- <20240115183748.GR734935@nvidia.com>
+	id 1rclG4-00000000mNz-0Z1j;
+	Wed, 21 Feb 2024 11:59:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A5DFA61447;
+	Wed, 21 Feb 2024 11:59:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7916C433C7;
+	Wed, 21 Feb 2024 11:59:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1708516766;
+	bh=icr+Ws7AdDS8MhLtU6pYh5gnTY6nWC5oeWHCPgrtqac=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=b7osNXPcai2BCK0LMvdyyVsWjG8RLcrHGFG+6UbibZYadg2QRj/Z1m97e21ExmSir
+	 oaIgimntM9xsZx7LwugvwJsbiyP9wjgCgJSNyamLpQLD7IrsCp8fKlSbI1jcVV9xK7
+	 /D/P9Ly3/hwyJZQ8oVUDUNDuX/4NNKz7dH9hcOCb8gtPFRnNDAQ/7o5Mzn3WZ3D6Ar
+	 MrNWSLpU4k9tIZNkBl5aK6z5RH8wg7h/2beqT0F9JWnbT6MdTJg0UONe6QvH1yBlB3
+	 UgAhnRaDhOuDIPN84qqxS/sEjIi+j0qodNBdSHukYfN5Z7CLZTEJj4kuVpL1WW7hU3
+	 klWq4Xxg8m6qw==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Rob
+ Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Frank Rowand
+ <frowand.list@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
+ devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Marc
+ Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>,
+ linux-kernel@vger.kernel.org, Atish Patra <atishp@atishpatra.org>,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Andrew Jones <ajones@ventanamicro.com>
+Subject: Re: [PATCH v13 06/13] irqchip: Add RISC-V incoming MSI controller
+ early driver
+In-Reply-To: <CAK9=C2Xnzg3KAVETXN+ZGLWhVtaJuU4uXs3WH2ZondkBJMHFcA@mail.gmail.com>
+References: <20240220060718.823229-1-apatel@ventanamicro.com>
+ <20240220060718.823229-7-apatel@ventanamicro.com>
+ <87frxnfj3p.fsf@all.your.base.are.belong.to.us>
+ <CAK9=C2Xnzg3KAVETXN+ZGLWhVtaJuU4uXs3WH2ZondkBJMHFcA@mail.gmail.com>
+Date: Wed, 21 Feb 2024 12:59:22 +0100
+Message-ID: <874je2yqn9.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-In-Reply-To: <20240115183748.GR734935@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240221_035535_083489_4FEF8F20 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20240221_035928_306276_EA9B7E68 
+X-CRM114-Status: GOOD (  21.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,28 +77,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 15, 2024 at 02:37:48PM -0400, Jason Gunthorpe wrote:
-> > Drop that check, not only because it'll never be true for hugepd per any
-> > known plan, but also it paves way for reusing the function outside
-> > fast-gup.
-> 
-> I didn't see any other caller of this function in this series? When
-> does this re-use happen??
-
-It's reused in patch 12 ("mm/gup: Handle hugepd for follow_page()").
-
-Thanks,
-
--- 
-Peter Xu
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QW51cCBQYXRlbCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+IHdyaXRlczoKCj4+ID4gK3ZvaWQg
+aW1zaWNfdmVjdG9yX21hc2soc3RydWN0IGltc2ljX3ZlY3RvciAqdmVjKQo+PiA+ICt7Cj4+ID4g
+KyAgICAgc3RydWN0IGltc2ljX2xvY2FsX3ByaXYgKmxwcml2Owo+PiA+ICsKPj4gPiArICAgICBs
+cHJpdiA9IHBlcl9jcHVfcHRyKGltc2ljLT5scHJpdiwgdmVjLT5jcHUpOwo+PiA+ICsgICAgIGlm
+IChXQVJOX09OKCZscHJpdi0+dmVjdG9yc1t2ZWMtPmxvY2FsX2lkXSAhPSB2ZWMpKQo+PiA+ICsg
+ICAgICAgICAgICAgcmV0dXJuOwo+PiA+ICsKPj4gPiArICAgICAvKgo+PiA+ICsgICAgICAqIFRo
+aXMgZnVuY3Rpb24gaXMgY2FsbGVkIHRocm91Z2ggTGludXggaXJxIHN1YnN5c3RlbSB3aXRoCj4+
+ID4gKyAgICAgICogaXJxcyBkaXNhYmxlZCBzbyBubyBuZWVkIHRvIHNhdmUvcmVzdG9yZSBpcnEg
+ZmxhZ3MuCj4+ID4gKyAgICAgICovCj4+ID4gKwo+PiA+ICsgICAgIHJhd19zcGluX2xvY2soJmxw
+cml2LT5sb2NrKTsKPj4gPiArCj4+ID4gKyAgICAgdmVjLT5lbmFibGUgPSBmYWxzZTsKPj4gPiAr
+ICAgICBiaXRtYXBfc2V0KGxwcml2LT5kaXJ0eV9iaXRtYXAsIHZlYy0+bG9jYWxfaWQsIDEpOwo+
+PiA+ICsgICAgIF9faW1zaWNfcmVtb3RlX3N5bmMobHByaXYsIHZlYy0+Y3B1KTsKPj4gPiArCj4+
+ID4gKyAgICAgcmF3X3NwaW5fdW5sb2NrKCZscHJpdi0+bG9jayk7Cj4+ID4gK30KPj4KPj4gUmVh
+bGx5IG5pY2UgdGhhdCB5b3UncmUgdXNpbmcgYSB0aW1lciBmb3IgdGhlIHZlY3RvciBhZmZpbml0
+eSBjaGFuZ2UsCj4+IGFuZCBnb3QgcmlkIG9mIHRoZSBzcGVjaWFsL3dlaXJkIElNU0lDL3N5bmMg
+SVBJLiBDYW4geW91IHJlYWxseSB1c2UgYQo+PiB0aW1lciBmb3IgbWFzay91bm1hc2s/IFRoYXQg
+bWFrZXMgdGhlIG1hc2svdW5tYXNrIG9wZXJhdGlvbgo+PiBhc3luY2hyb25vdXMhCj4+Cj4+IFRo
+YXQgd2FzIHdoYXQgSSB3YXMgdHJ5aW5nIHRvIGdldCB0aG91Z2ggd2l0aCB0aGlzIGNvbW1lbnQ6
+Cj4+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2Lzg3c2YyNG1vMWcuZnNmQGFs
+bC55b3VyLmJhc2UuYXJlLmJlbG9uZy50by51cy8KPj4KPj4gQWxzbywgdXNpbmcgdGhlIHNtcF8q
+IElQSSBmdW5jdGlvbnMsIHlvdSBjYW4gcGFzcyBhcmd1bWVudHMsIHNvIHlvdQo+PiBkb24ndCBu
+ZWVkIHRoZSBkaXJ0eV9iaXRtYXAgdHJhY2tpbmcgdGhlIGNoYW5nZXMuCj4KPiBUaGUgbWFzay91
+bm1hc2sgb3BlcmF0aW9ucyBhcmUgY2FsbGVkIHdpdGggaXJxcyBkaXNhYmxlZCBzbyBpZgo+IENQ
+VSBYIGRvZXMgc3luY2hyb25vdXMgSVBJIHRvIGFub3RoZXIgQ1BVIFkgZnJvbSBtYXNrL3VubWFz
+awo+IG9wZXJhdGlvbiB0aGVuIHdoaWxlIENQVSBYIGlzIHdhaXRpbmcgZm9yIElQSSB0byBjb21w
+bGV0ZSBpdCBjYW5ub3QKPiByZWNlaXZlIElQSSBmcm9tIG90aGVyIENQVXMgd2hpY2ggY2FuIGxl
+YWQgdG8gY3Jhc2hlcyBhbmQgc3RhbGxzLgo+Cj4gSW4gZ2VuZXJhbCwgd2Ugc2hvdWxkIG5vdCBk
+byBhbnkgYmxvY2svYnVzeS13YWl0IHdvcmsgaW4KPiBtYXNrL3VubWFzayBvcGVyYXRpb24gb2Yg
+YW4gaXJxY2hpcCBkcml2ZXIuCgpIbW0sIE9LLiBTdGlsbCwgYSBiaXQgb2RkIHRoYXQgd2hlbiB0
+aGUgLmlycV9tYXNrIGNhbGxiYWNrIHJldHVybiwgdGhlCm1hc2tpbmcgaXMgbm90IGFjdHVhbGx5
+IGNvbXBsZXRlZC4KCjEuIENQVSAwIHRyaWVzIHRvIG1hc2sgYW4gaW50ZXJydXB0IHRyaWVkIHRv
+IENQVSAxLgoyLiBUaGUgdGltZXIgaXMgcXVldWVkIG9uIENQVSAxLgozLiBUaGUgY2FsbCBpcnFf
+bWFzayByZXR1cm5zIG9uIENQVSAwCjQuIC4uLnRoZSBpcnEgaXMgbWFza2VkIGF0IHNvbWUgZnV0
+dXJlIHBvaW50LCBkZXRlcm1pbmVkIGJ5IHRoZSBjYWxsYmFjawogICBhdCBDUFUgMQoKSXMgdGhh
+dCB0aGUgZXhwZWN0ZWQgb3V0Y29tZT8KClRoZXJlIGFyZSAuaXJxX21hc2sgaW1wbGVtZW50YXRp
+b24gdGhhdCBkb2VzIHNlZW0gdG8gZ28gYXQgbGVuZ3RoCihibG9ja2luZykgdG8gcGVyZm9ybSB0
+aGUgbWFzaywgZS5nLjogZ2ljX21hc2tfaXJxKCkgd2hpY2ggY2FsbHMKZ2ljX3tyZSx9ZGlzdF93
+YWl0X2Zvcl9yd3AgdGhhdCBoYXZlIHNsZWVwL3JldHJ5IGxvb3BzLiBUaGUgR0lDMyBJVFMKY29k
+ZSBoYXMgc2ltaWxhciB0aGluZ3MgZ29pbmcgb24uCgpJJ20gbm90IHNheWluZyB5b3UncmUgd3Jv
+bmcsIEknbSBqdXN0IHRyeWluZyB0byB3cmFwIG15IGhlYWQgYXJvdW5kIHRoZQptYXNraW5nIHNl
+bWFudGljcy4KCj4gVGhlIEFJQSBJTVNJQyBzcGVjIGFsbG93cyBzZXR0aW5nIElEIHBlbmRpbmcg
+Yml0IHVzaW5nIE1TSSB3cml0ZQo+IGlycmVzcGVjdGl2ZSB3aGV0aGVyIElEIGlzIGVuYWJsZWQg
+b3Igbm90IGJ1dCB0aGUgaW50ZXJydXB0IHdpbGwgYmUKPiB0YWtlbiBvbmx5IGFmdGVyIElEIGlz
+IGVuYWJsZWQuIEluIG90aGVyIHdvcmRzLCB0aGVyZSB3aWxsIGJlIG5vCj4gbG9zcyBvZiBpbnRl
+cnJ1cHQgd2l0aCBkZWxheWVkIG1hc2svdW5tYXNrIHVzaW5nIGFzeW5jIElQSSBvcgo+IGxhenkg
+dGltZXIuCgpObyBsb3NzLCBidXQgd2UgbWlnaHQgKmdldCogYW4gaW50ZXJydXB0IHdoZW4gd2Ug
+ZXhwbGljaXRseSBhc2tlZCBub3QgdG8KZ2V0IGFueS4gTWF5YmUgdGhhdCdzIG9rPwoKCkJqw7Zy
+bgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
