@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 712F4C48BC4
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 00:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C636C48BC3
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 01:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hh/sjB1unkKwvPJliRv8onblvTjbTNWUAjRlcxjc7Yc=; b=muFctAeUbDzJobR7c0GLbyV4Yn
-	mcFPjQfixJPQb7D39OaJ+Y4I+if4CnALf5iWjGq9qvFFUxLFe3BI73rrkCJa88ztPmI79oT5dh4Kw
-	uAzPmPjz0l44TSt2aY+6qBK+2qbMssc4mZMB0lrpVcW0HhWbSjwUxKryEncPkSJnHcogvkup6FLWm
-	GfRF+rU5cLMx8Rwc3pBf9wrzZzRoOyGMEBfQMImo6JmYGPlqlHt4q6RUG6tJjWy61cXUa3ZPaDGYU
-	kELzwr26UG9ycx9Vpcy2NwaH3MzE6diZQurtEeKu0HnCDEs3LPAxJs7p03Ec1FizhgPsWzOxjO744
-	KQfM1PEQ==;
+	bh=pQGkC8Ajn1xOph34DcMOnZ6Ge02RjmwB+YjNDU6MXe8=; b=zQjdaztckHqCVMECAfPw430pif
+	E64fyzb6nKajsISjhWT4NAAOPAYzFDaverWC63fqecfMisAFdUEezTYX4YHQ7ZW5huXw/C361UR/7
+	ciab/QMuWbTX2LDbotfJUAP3YhKlgxyMg83zANAY7ITvNRQp43gLh8gR+HV/P20IRFPyWEn5VVknG
+	Yy4Ht9CTV1Y2HXSP5UCIctg5kdcIiR9sywH3otb5A1SRn1PR/Z0v1PsAyVH1j8cZcEOXT7Pbb+77q
+	duB/6qcanL5aRmMgRAOYiSweK2M82/FHNlxOeS8BrTmhR5UQW7q/q3y5lRggTSGdIs+gmqpjcSFgt
+	JLwyTVSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcajM-0000000Gf2C-0KiD;
-	Wed, 21 Feb 2024 00:45:00 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rcb8o-0000000Gi0U-09DP;
+	Wed, 21 Feb 2024 01:11:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcajI-0000000Gezt-1Lnq;
-	Wed, 21 Feb 2024 00:44:57 +0000
+	id 1rcb8l-0000000Ghzu-25MK
+	for linux-riscv@lists.infradead.org;
+	Wed, 21 Feb 2024 01:11:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id C36D2CE1B33;
-	Wed, 21 Feb 2024 00:44:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C393C433F1;
-	Wed, 21 Feb 2024 00:44:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 81EE661370;
+	Wed, 21 Feb 2024 01:11:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A791C433F1;
+	Wed, 21 Feb 2024 01:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1708476293;
-	bh=RgYHLlEs8Obx/1+1Ex9Dia48d76DvmFNDuLMAR9oXbs=;
+	s=k20201202; t=1708477874;
+	bh=btJOLopJktgGi2/wGoVtv1QtxSSCjSdVjxE6aY9Ek/k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EO1AKxM9atAW5ijESg1UGQbijOEntefJ4W7hvVziFA0UrM4OUrijGVaBzcLEs6wYr
-	 OjSIBHChIOgwKca7pXNbM5Cobz19+3leTFG2K/9EVjkOotzvVw0v6ez05ByOvLbcwV
-	 +CEf8bXXKN6XhhDI0KQZwE7hmlaMqLtNtNfWohmrOO5PLVL5FNBfFfrfun8qdbWle6
-	 BBkj3Iud3EUQQytsOc+psDxTBNOG28HZowRKkkW/VLD4pWv0zXFVJLZNdlQZAg0FeB
-	 on/Je8QMYpg2sD3Y5jNv2RyOVaFeGMIIzBve14j+nne6Gk0zkfJUvj0vvAw6pPQKrV
-	 0fcsjUUDb1b7Q==
-Date: Wed, 21 Feb 2024 00:44:43 +0000
-From: Mark Brown <broonie@kernel.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "dalias@libc.org" <dalias@libc.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
-	"musl@lists.openwall.com" <musl@lists.openwall.com>,
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"corbet@lwn.net" <corbet@lwn.net>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"debug@rivosinc.com" <debug@rivosinc.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"arnd@arndb.de" <arnd@arndb.de>, "maz@kernel.org" <maz@kernel.org>,
-	"oleg@redhat.com" <oleg@redhat.com>,
-	"fweimer@redhat.com" <fweimer@redhat.com>,
-	"keescook@chromium.org" <keescook@chromium.org>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"ebiederm@xmission.com" <ebiederm@xmission.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"brauner@kernel.org" <brauner@kernel.org>,
-	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"thiago.bauermann@linaro.org" <thiago.bauermann@linaro.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"sorear@fastmail.com" <sorear@fastmail.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
-Subject: Re: [musl] Re: [PATCH v8 00/38] arm64/gcs: Provide support for GCS
- in userspace
-Message-ID: <cffc9c7e-ba1c-4894-a455-8b2d687182cd@sirena.org.uk>
-References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
- <22a53b78-10d7-4a5a-a01e-b2f3a8c22e94@app.fastmail.com>
- <4c7bdf8fde9cc45174f10b9221fa58ffb450b755.camel@intel.com>
- <20240220185714.GO4163@brightrain.aerifal.cx>
- <9fc9c45ff6e14df80ad023e66ff7a978bd4ec91c.camel@intel.com>
- <20240220235415.GP4163@brightrain.aerifal.cx>
- <a57d6c7eada4b9a7c35addbc8556f5b53a0c3e6f.camel@intel.com>
+	b=S54bans2BlnZaSoevee1TwMnZ3Z3UqHKYFnM5eKUMAyIF7yl9wKF/twxUlPaTSb0b
+	 /f28cCjcxKNP2CauQPQkAOm5BDzn0pFNTKoAfjTRFNpbUJtx8YWqFB3ZFwDfujXraD
+	 mbwAGAA0YBqF7CW7/G784mvdaWhs2M7pHiI9ckbEBsL41Z92cbc4X3RgwTKRG8acRx
+	 3ICgwweV5lMk5U0vSPVuNJOxCnvB2Y6Zwgb3eMZMgY8fSuazrimy1VOwxmT0SD+Aim
+	 SYenZvlu2BNC9JFJ2qOKr1cQoSERvBjV11btcAJ66vimZQSsTOQe/2ggI7PBCti7ac
+	 LRLMVB6gao3XA==
+Date: Wed, 21 Feb 2024 01:11:09 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Yangyu Chen <cyy@cyyself.name>
+Cc: linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh+dt@kernel.org>,
+	devicetree@vger.kernel.org
+Subject: Re: [RFC PATCH 1/1] riscv: dts: Allow BUILTIN_DTB for all socs
+Message-ID: <20240221-numerator-grill-1e5603841a8d@spud>
+References: <tencent_AB625442CC1BCFF86E04D7B5891C43719109@qq.com>
+ <tencent_C9E0DAC75884B0346EF2250A5E68673BA20A@qq.com>
 MIME-Version: 1.0
-In-Reply-To: <a57d6c7eada4b9a7c35addbc8556f5b53a0c3e6f.camel@intel.com>
-X-Cookie: E = MC ** 2 +- 3db
+In-Reply-To: <tencent_C9E0DAC75884B0346EF2250A5E68673BA20A@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240220_164456_737163_F8E15749 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20240220_171115_674459_7410B1E8 
+X-CRM114-Status: GOOD (  25.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,58 +72,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4579058415422023954=="
+Content-Type: multipart/mixed; boundary="===============5491562056349169362=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4579058415422023954==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zmCyS0Odp0mOsqor"
+--===============5491562056349169362==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Fp5d1QqaibeYLKMo"
 Content-Disposition: inline
 
 
---zmCyS0Odp0mOsqor
+--Fp5d1QqaibeYLKMo
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Feb 21, 2024 at 12:35:48AM +0000, Edgecombe, Rick P wrote:
+On Wed, Feb 21, 2024 at 03:03:57AM +0800, Yangyu Chen wrote:
+> The BUILTIN_DTB kernel feature on RISC-V only works on K210 SoC only. This
+> patch moved this configuration to entire riscv.
+>=20
+> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 
-> doing. But those threads might be using shadow stack instructions
-> (INCSSP, RSTORSSP, etc). These are a collection of instructions that
-> allow limited control of the SSP. When shadow stack gets disabled,
-> these suddenly turn into #UD generating instructions. So any other
-> threads executing those instructions when shadow stack got disabled
-> would be in for a nasty surprise.
+A passing remark here only:
+The detail in the cover letter belongs in the commit message. There's
+very little value in a cover letter for a one patch "series" - it
+either will duplicate information from the commit message (and is
+therefore useless) or, as in this case, splits information that should
+be in the commit message away from it.
 
-> Glibc's permissive mode (that disables shadow stack when dlopen()ing a
-> DSO that doesn't support shadow stack) is quite limited because of
-> this. There was a POC for working around it, but I'll stop there for
-> now, to not spam you with the details. I'm not sure of arm and risc-v
-> details on this specific corner, but for x86.
+Thanks,
+Conor.
 
-We have the same issue with disabling GCS causing GCS instructions to
-become undefined.
+> ---
+>  arch/riscv/Kconfig                  | 16 ++++++++++++++-
+>  arch/riscv/Kconfig.socs             | 32 -----------------------------
+>  arch/riscv/boot/dts/Makefile        |  2 +-
+>  arch/riscv/boot/dts/canaan/Makefile |  2 --
+>  4 files changed, 16 insertions(+), 36 deletions(-)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index b49016bb5077..23d501561e64 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -996,7 +996,21 @@ config RISCV_ISA_FALLBACK
+>  config BUILTIN_DTB
+>  	bool "Built-in device tree"
+>  	depends on OF && NONPORTABLE
+> -	default y if XIP_KERNEL
+> +	default y if XIP_KERNEL || SOC_CANAAN
+> +	help
+> +	  Build a device tree into the Linux image.
+> +	  This option should be selected if no bootloader is being used.
+> +	  If unsure, say Y.
+> +
+> +
+> +config BUILTIN_DTB_SOURCE
+> +	string "Built-in device tree source"
+> +	depends on BUILTIN_DTB
+> +	default "canaan/k210_generic" if SOC_CANAAN
+> +	help
+> +	  DTS file path (without suffix, relative to arch/riscv/boot/dts)
+> +	  for the DTS file that will be used to produce the DTB linked into the
+> +	  kernel.
+> =20
+>  endmenu # "Boot options"
+> =20
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index e08e91c49abe..623de5f8a208 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -84,36 +84,4 @@ config SOC_CANAAN
+>  	help
+>  	  This enables support for Canaan Kendryte K210 SoC platform hardware.
+> =20
+> -if ARCH_CANAAN
+> -
+> -config ARCH_CANAAN_K210_DTB_BUILTIN
+> -	def_bool SOC_CANAAN_K210_DTB_BUILTIN
+> -
+> -config SOC_CANAAN_K210_DTB_BUILTIN
+> -	bool "Builtin device tree for the Canaan Kendryte K210"
+> -	depends on ARCH_CANAAN
+> -	default y
+> -	select OF
+> -	select BUILTIN_DTB
+> -	help
+> -	  Build a device tree for the Kendryte K210 into the Linux image.
+> -	  This option should be selected if no bootloader is being used.
+> -	  If unsure, say Y.
+> -
+> -config ARCH_CANAAN_K210_DTB_SOURCE
+> -	string
+> -	default SOC_CANAAN_K210_DTB_SOURCE
+> -
+> -config SOC_CANAAN_K210_DTB_SOURCE
+> -	string "Source file for the Canaan Kendryte K210 builtin DTB"
+> -	depends on ARCH_CANAAN
+> -	depends on ARCH_CANAAN_K210_DTB_BUILTIN
+> -	default "k210_generic"
+> -	help
+> -	  Base name (without suffix, relative to arch/riscv/boot/dts/canaan)
+> -	  for the DTS file that will be used to produce the DTB linked into the
+> -	  kernel.
+> -
+> -endif # ARCH_CANAAN
+> -
+>  endmenu # "SoC selection"
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index 72030fd727af..318239d9423b 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -8,4 +8,4 @@ subdir-y +=3D sophgo
+>  subdir-y +=3D starfive
+>  subdir-y +=3D thead
+> =20
+> -obj-$(CONFIG_BUILTIN_DTB) :=3D $(addsuffix /, $(subdir-y))
+> +obj-$(CONFIG_BUILTIN_DTB) :=3D $(addsuffix .dtb.o, $(CONFIG_BUILTIN_DTB_=
+SOURCE))
+> \ No newline at end of file
+> diff --git a/arch/riscv/boot/dts/canaan/Makefile b/arch/riscv/boot/dts/ca=
+naan/Makefile
+> index 520623264c87..987d1f0c41f0 100644
+> --- a/arch/riscv/boot/dts/canaan/Makefile
+> +++ b/arch/riscv/boot/dts/canaan/Makefile
+> @@ -5,5 +5,3 @@ dtb-$(CONFIG_ARCH_CANAAN) +=3D sipeed_maix_bit.dtb
+>  dtb-$(CONFIG_ARCH_CANAAN) +=3D sipeed_maix_dock.dtb
+>  dtb-$(CONFIG_ARCH_CANAAN) +=3D sipeed_maix_go.dtb
+>  dtb-$(CONFIG_ARCH_CANAAN) +=3D sipeed_maixduino.dtb
+> -
+> -obj-$(CONFIG_ARCH_CANAAN_K210_DTB_BUILTIN) +=3D $(addsuffix .dtb.o, $(CO=
+NFIG_ARCH_CANAAN_K210_DTB_SOURCE))
+> --=20
+> 2.43.0
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---zmCyS0Odp0mOsqor
+--Fp5d1QqaibeYLKMo
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmXVR3oACgkQJNaLcl1U
-h9BO9Qf/bgPI/9ROkHiV6cP5ag9FVPBuoU4y8o043FWrLxXipYjgLbjIps3r7NYd
-VLNWiX+sScsGrwtujlkAC3JYU0QAro+3+MY0cp+MjZopgqrEpOHlREM+dZO4FSB+
-BH4GTQgpADdgkbaukCb71Yd8D8HkPkpjvvsEGO6Kv2Bq4kMF6w2sd5O/llI+5BPN
-0v1hps6/0VWFICJibmb4hRIRPMjb91mxGQRdpF8OTCgHa0w4UXaTHLttIE3iqCd4
-nyeOZPkoIxUv3fYTVZjAqm6emWXXodOaOQrOtjTM1shBFck2DtY+hJJopNkuwE2j
-qeuz0TLv83oNLhiCiSUgT5gKjQrvdA==
-=VhGm
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZdVNrQAKCRB4tDGHoIJi
+0sFAAP4h5Qi4wUH4zI2ZIpYCW4U7sB6GTty5lWkHW6FWrypX4AD/TYWKB0d+Ksve
+mhB9mhYApbgHPMDwnSKtULPRnM7Hswg=
+=hNmM
 -----END PGP SIGNATURE-----
 
---zmCyS0Odp0mOsqor--
+--Fp5d1QqaibeYLKMo--
 
 
---===============4579058415422023954==
+--===============5491562056349169362==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -167,5 +237,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4579058415422023954==--
+--===============5491562056349169362==--
 
