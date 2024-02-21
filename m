@@ -4,62 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C41C48BC3
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 11:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4972C48BC3
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 11:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nnksl2Gd+N09cCMjSK3zM82Is2+DOlgc6dizWNaPg3o=; b=b1QC82xHhlQNAsXvqTiCoQ58V+
-	5WWjOJhPUHAopYcf4f5NsQQHkucoZLl/AtoDiRkFC1p/yya+OhOy4JJWvT/bphFQA1S5EbCGKfPqY
-	4O4gD7AV4P2AsuzVVz3qwGvgEYDS8dVXN00P7B+ppnBGhXE+yHaRjEFtmKzht46ipKmId8GaUmX0Z
-	SC5LmOUe1s6UQGC8XLSGZ9ZVPeFrdDf4Y+cdBgcVvxy0qRNZyTU5rSsyJIVagBZHtFGcvx35b9Z/L
-	ZD/lTCR2fBLNzT/Da6B2tRbBt7hp+WxRpwW1YnK2G3bkLk0RMwwUMPlny9Y61qLnDytKxn8tjmnAC
-	wOsp+BQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=S91loozfKCbxJzEGjHq5Bn6cE59lRSAHp/fH2EJqzCY=; b=NAOyrAcHhEKbyc
+	oqO5u6f9WZeTqEr5EeN/hKSZo5wAWw1vNqB1bI8X3+mpIDzhC47dLSkloTco0/gZzZAWBrhqgSs5v
+	98L3R8N142sxbMV60TBILaQFQsaHIZ65qKndMRpHxH1WOVZ3FBR6LfCLExXKHsYBC7NX22aVUuO7k
+	wonNBO/936y6GOXf7JVePFNzYzyEpeafhsQDKEEsVzTlGmdYdc7FAWyVb44vPMuPjhmMi3rD42vMu
+	dzwc0Gp08oIu8lkFB3nVq1QBCT7puLICO9UBJeyrD0eCNkvu3Wewl+JtJ5jeArkUp695xL4k7xAZM
+	TiouyCY1ixizcKYQmO4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rckod-00000000h1b-2FDP;
-	Wed, 21 Feb 2024 11:31:07 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rcl6d-00000000lAU-3SLa;
+	Wed, 21 Feb 2024 11:49:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rckoa-00000000gzO-1cHf
+	id 1rcl6a-00000000l8w-3ZOT
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Feb 2024 11:31:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 65C8ECE1D2B;
-	Wed, 21 Feb 2024 11:31:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D8BCC433F1;
-	Wed, 21 Feb 2024 11:30:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1708515061;
-	bh=R06aAEMhs4VND/RSzWUYXOWMIOf4o7CtU24ik/gBYso=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KDaPoHyg0AHRcXQMxanR12gVR12clkhaAkwfKJCuJzmieyysXJRL9eC6SSH6dTa+r
-	 HCsjYMivTJUX7bKJLQVWT9nXnfedTTBy8Hn+pr8Suf014f+f8dap/wwR1GCj20jMkz
-	 4iORMgd7Hl+JTKLIpPn8UE+9TvHOtTwakxCKPgXF5/hWBj7+msySjnAtNIup4dIEqj
-	 WmQztSkiw3aUB8pbyvo85E9XXRGvH70OtAMF3LNRhbYoHv/7Iw/YZZ/HZV4c+EWwFA
-	 UXyoXCMHo7GRT734ub1xahDq7M/Gy5+0vUuYJHxoGr0is8QtBFWas3hI31JqicvcuC
-	 5FUbGRU7CRnyA==
-Date: Wed, 21 Feb 2024 11:30:57 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh+dt@kernel.org>,
-	devicetree@vger.kernel.org
-Subject: Re: [RFC PATCH 0/1] riscv: dts: Allow BUILTIN_DTB for all socs
-Message-ID: <20240221-islamic-quartered-3863e44bc862@spud>
-References: <tencent_AB625442CC1BCFF86E04D7B5891C43719109@qq.com>
+	Wed, 21 Feb 2024 11:49:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1708516180;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bin7AzDlChDSAGWFKufeiYIoVcIyTk+S1hiBB6egTbw=;
+	b=TwtdKqhcXk+5x9U/s0uXYK2UwKi+ryAn152LJTpN9lwzZx3yePbRiXUcW8vs4yLFokD0qX
+	1B3wEv02Hm3gdk62oSLSOTrO2EfSwGHbtB0hWffwQbWSqN3/rTymrNdI5tJNfjPOKIVUts
+	JsrdV1Um+0VVm75sc7CIY/h+pPa2rBk=
+Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com
+ [209.85.161.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-554--PM-Aaf9N3y6M6fg3Tud4A-1; Wed, 21 Feb 2024 06:49:36 -0500
+X-MC-Unique: -PM-Aaf9N3y6M6fg3Tud4A-1
+Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-5a0168a3df5so207256eaf.0
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Feb 2024 03:49:36 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1708516175; x=1709120975;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bin7AzDlChDSAGWFKufeiYIoVcIyTk+S1hiBB6egTbw=;
+        b=HcrlJoGjmgd8yTxmhRm19i3Qmlrm+09U0btiDnOw++SFFXqPUxY+VAiq+zffjk1vDZ
+         MjtS/REpk0894D0YTZpGJtwslQ+bIfnVKAGeU2mr3J47bCOZfT/uG+pSsVU5vedDaGlL
+         N4Un/m2JDnCyL4nq6FMGwdwZ/lZmYsqg4Su5YNU67rlr2N9LZOJa7I+aMqGcFFIoSROr
+         u4vk4nfNoDDa+Nmv0qwEI/B4MhTww+WV+b64R3Kj+X/DywcaXsKkITfejjwTzaY5qrQU
+         0qtDmMmW64Lwie5T5voqH04MoUT7tAoiRadOnbpG1HjbCn6exGew5k4nnEZJDemabtEg
+         THSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWvTy7H89dmq24FLN7a8jWGjILest+Pdh5t6hMo2IDuvj0ssEKLaPVngA5jETy/hHI5ePiqfWBqAgHfkKmL9eTGFz2nZcXSky5zf3jaXvWg
+X-Gm-Message-State: AOJu0YwEey2qQlMbRxLuIIKQmSbtP/3vXg1XKRhXk+EOhe5Y9XlPcKl8
+	HlyGaKQiQoMhawS3cU/9AnafcjHCY2EdlMfO8DaCqzgHLWDgZ8BZUWA1Nf0EKCnOOSmWHSeIlBp
+	AdffUMhpaJe8XAjKUAP4d+Y+0rGvNpD64mlSlO3uaiYfF0n0oVTfgpn9zdCLQpYPNeg==
+X-Received: by 2002:a05:6358:e49a:b0:178:9f1d:65e3 with SMTP id by26-20020a056358e49a00b001789f1d65e3mr16912418rwb.0.1708516175542;
+        Wed, 21 Feb 2024 03:49:35 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGzL228YTGBKB2uXR1bZQUntRIhXzOYaVH/u+cU7rZshqOXYoJ5XOeq8q0ePg1PQ/TTyms+Jw==
+X-Received: by 2002:a05:6358:e49a:b0:178:9f1d:65e3 with SMTP id by26-20020a056358e49a00b001789f1d65e3mr16912401rwb.0.1708516175144;
+        Wed, 21 Feb 2024 03:49:35 -0800 (PST)
+Received: from x1n ([43.228.180.230])
+        by smtp.gmail.com with ESMTPSA id w24-20020aa78598000000b006e4695e519csm5146763pfn.194.2024.02.21.03.49.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Feb 2024 03:49:34 -0800 (PST)
+Date: Wed, 21 Feb 2024 19:49:22 +0800
+From: Peter Xu <peterx@redhat.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	James Houghton <jthoughton@google.com>,
+	David Hildenbrand <david@redhat.com>,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Yang Shi <shy828301@gmail.com>, linux-riscv@lists.infradead.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Rik van Riel <riel@surriel.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Mike Rapoport <rppt@kernel.org>, John Hubbard <jhubbard@nvidia.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	linuxppc-dev@lists.ozlabs.org,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v2 10/13] mm/gup: Handle huge pud for follow_pud_mask()
+Message-ID: <ZdXjQjow4fa41ORD@x1n>
+References: <20240103091423.400294-1-peterx@redhat.com>
+ <20240103091423.400294-11-peterx@redhat.com>
+ <20240115184900.GV734935@nvidia.com>
 MIME-Version: 1.0
-In-Reply-To: <tencent_AB625442CC1BCFF86E04D7B5891C43719109@qq.com>
+In-Reply-To: <20240115184900.GV734935@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240221_033104_837949_AED5B698 
-X-CRM114-Status: GOOD (  30.39  )
+X-CRM114-CacheID: sfid-20240221_034940_971308_879AA19D 
+X-CRM114-Status: GOOD (  24.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,103 +117,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5663854104456835921=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 15, 2024 at 02:49:00PM -0400, Jason Gunthorpe wrote:
+> On Wed, Jan 03, 2024 at 05:14:20PM +0800, peterx@redhat.com wrote:
+> > diff --git a/mm/gup.c b/mm/gup.c
+> > index 63845b3ec44f..760406180222 100644
+> > --- a/mm/gup.c
+> > +++ b/mm/gup.c
+> > @@ -525,6 +525,70 @@ static struct page *no_page_table(struct vm_area_struct *vma,
+> >  	return NULL;
+> >  }
+> >  
+> > +#ifdef CONFIG_PGTABLE_HAS_HUGE_LEAVES
+> > +static struct page *follow_huge_pud(struct vm_area_struct *vma,
+> > +				    unsigned long addr, pud_t *pudp,
+> > +				    int flags, struct follow_page_context *ctx)
+> > +{
+> > +	struct mm_struct *mm = vma->vm_mm;
+> > +	struct page *page;
+> > +	pud_t pud = *pudp;
+> > +	unsigned long pfn = pud_pfn(pud);
+> > +	int ret;
+> > +
+> > +	assert_spin_locked(pud_lockptr(mm, pudp));
+> > +
+> > +	if ((flags & FOLL_WRITE) && !pud_write(pud))
+> > +		return NULL;
+> > +
+> > +	if (!pud_present(pud))
+> > +		return NULL;
+> > +
+> > +	pfn += (addr & ~PUD_MASK) >> PAGE_SHIFT;
+> > +
+> > +#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
+> > +	if (pud_devmap(pud)) {
+> 
+> Can this use IS_ENABLED(CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD) ?
 
---===============5663854104456835921==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="6BDdXDRGwPxzf+xE"
-Content-Disposition: inline
+Sure.
 
+> 
+> > +		/*
+> > +		 * device mapped pages can only be returned if the caller
+> > +		 * will manage the page reference count.
+> > +		 *
+> > +		 * At least one of FOLL_GET | FOLL_PIN must be set, so
+> > +		 * assert that here:
+> > +		 */
+> > +		if (!(flags & (FOLL_GET | FOLL_PIN)))
+> > +			return ERR_PTR(-EEXIST);
+> > +
+> > +		if (flags & FOLL_TOUCH)
+> > +			touch_pud(vma, addr, pudp, flags & FOLL_WRITE);
+> > +
+> > +		ctx->pgmap = get_dev_pagemap(pfn, ctx->pgmap);
+> > +		if (!ctx->pgmap)
+> > +			return ERR_PTR(-EFAULT);
+> > +	}
+> > +#endif	/* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
+> > +	page = pfn_to_page(pfn);
+> > +
+> > +	if (!pud_devmap(pud) && !pud_write(pud) &&
+> > +	    gup_must_unshare(vma, flags, page))
+> > +		return ERR_PTR(-EMLINK);
+> > +
+> > +	ret = try_grab_page(page, flags);
+> > +	if (ret)
+> > +		page = ERR_PTR(ret);
+> > +	else
+> > +		ctx->page_mask = HPAGE_PUD_NR - 1;
+> > +
+> > +	return page;
+> > +}
+> > +#else  /* CONFIG_PGTABLE_HAS_HUGE_LEAVES */
+> > +static struct page *follow_huge_pud(struct vm_area_struct *vma,
+> > +				    unsigned long addr, pud_t *pudp,
+> > +				    int flags, struct follow_page_context *ctx)
+> > +{
+> > +	return NULL;
+> > +}
+> > +#endif	/* CONFIG_PGTABLE_HAS_HUGE_LEAVES */
+> > +
+> >  static int follow_pfn_pte(struct vm_area_struct *vma, unsigned long address,
+> >  		pte_t *pte, unsigned int flags)
+> >  {
+> > @@ -760,11 +824,11 @@ static struct page *follow_pud_mask(struct vm_area_struct *vma,
+> >  
+> >  	pudp = pud_offset(p4dp, address);
+> >  	pud = READ_ONCE(*pudp);
+> > -	if (pud_none(pud))
+> > +	if (pud_none(pud) || !pud_present(pud))
+> >  		return no_page_table(vma, flags, address);
+> 
+> Isn't 'pud_none() || !pud_present()' redundent? A none pud is
+> non-present, by definition?
 
---6BDdXDRGwPxzf+xE
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hmm yes, seems redundant.  Let me drop it.
 
-Hey,
+> 
+> > -	if (pud_devmap(pud)) {
+> > +	if (pud_huge(pud)) {
+> >  		ptl = pud_lock(mm, pudp);
+> > -		page = follow_devmap_pud(vma, address, pudp, flags, &ctx->pgmap);
+> > +		page = follow_huge_pud(vma, address, pudp, flags, ctx);
+> >  		spin_unlock(ptl);
+> >  		if (page)
+> >  			return page;
+> 
+> Otherwise it looks OK to me
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-On Wed, Feb 21, 2024 at 03:01:53AM +0800, Yangyu Chen wrote:
-> The BUILTIN_DTB kernel feature on RISC-V only works on K210 SoC only. This
-> patch moved this configuration to entire riscv.
+Thanks!
 
-To be honest, I would rather delete BUILTIN_DTB (and the configurations
-that depend on it) than expand its usefulness.
+-- 
+Peter Xu
 
-> Although BUILTIN_DTB is not a good choice for most platforms, it is likely
-> to be a debug feature when some bootloader will always override something
-> like the memory node in the device tree to adjust the memory size from SPD
-> or configuration resistor, which makes it hard to do some debugging.
-
-My inclination here is to say "fix your bootloader" and if that's not
-possible, chainload a bootloader that allows you control over
-modifications to your devicetree.
-
-> As an
-> example, some platforms with numa like sg2042 only support sv39 will fail
-> to boot when there is no ZONE_HIGHMEM patch with 128G memory. If we want
-> a kernel without this patch to boot, we need to write the memory nodes=20
-> in the DT manually.
-
-If, as Alex suggests, there's a way to gain support some more memory in
-sv39, we should do so - but it is worth mentioning that highmem is on the
-removal list for the kernel, so mainline support for that is highly
-unlikely.
-
-> Also, changing DT on some platforms is not easy. For Milk-V Pioneer, the
-> boot procedure is ZSBL -> OpenSBI -> LinuxBoot -> Linux. If DT gets
-> changed, OpenSBI or LinuxBoot may refuse to boot. And there is some bug on
-> LinuxBoot now which does not consume --dtb argument on kexec and always
-> uses DT from memory.
-
-I don't use Linuxboot, but let me try to understand. Linuxboot uses kexec
-to boot the main Linux kernel, but the dtb you want to use is not used, and
-instead the one that Linuxboot itself was booted with is used?
-
-It sounds like Linuxboot has a --dtb argumet that is meant to be used to
-set the dtb for the next stage, but that argument is being ignored?
-
-That sounds like a pretty serious issue with Linuxboot which should be
-fixed - what am I missing?
-
-> So I would like to do debugging on DT using
-> BUILTIN_DTB, which makes it very simple,
-
-> I can even install the kernel in
-> the distro's way and provide a kernel package for other users to test.
-
-I'm not sure what you mean by this, other distros manage to create
-kernel packages without using builtin dtbs.
-
-Thanks,
-Conor.
-
---6BDdXDRGwPxzf+xE
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZdXe8QAKCRB4tDGHoIJi
-0vrYAP9VXm6khUlWB8q8p1RxXCZDwC0wOdqAAu2teabf2mgMbAEA0oaXGtQIWT+6
-hRyOdPEH0c08Xd4EhI/UdYf2kNSMkwc=
-=yHib
------END PGP SIGNATURE-----
-
---6BDdXDRGwPxzf+xE--
-
-
---===============5663854104456835921==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5663854104456835921==--
-
