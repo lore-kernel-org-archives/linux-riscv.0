@@ -4,103 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A012C5478B
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 17:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA6BC48BEB
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Feb 2024 17:36:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hoEWUqNG1oj2KMNYVutMJPSnyDbrsZskHAEzoif7G4A=; b=M64cia5O+zel9R
-	jVVnnDZF1e9R5gWT/TkGNltAF/o/eEEWZ+MSHZIfSRbbjFe8cUUMycb/DHSeD7Fa41+zXMrtcCDpr
-	3fasIlm0OvnUmJRYbIC9trRy0LF1wAAnm/7Yq4BQDzH/zZYVxJzNZ3cTtKF7qydTtrsgeV+X6UL+y
-	S8Yf8hW1nORsM5i11wtWKRREOZcdbfSqqMoxQri0rLoqnF61qAq1Um0NUcCr1Inhfn+IeG+3j8gZ8
-	hVyjrJE44N5ogVrYynK7hVbZPeAEUvM2k6Aa/EYC/BqkG9OKoeIE58Yot3N0YDs7cTmEvONfzZmrQ
-	xrqyY0+kHg+HCj8FO0Ug==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ccO8uX+qrLoxfku8lbhDgplF6mZdo5MeyIC1kcmPa6w=; b=fTAVJB9yzB2kjzXWT2Cu+H0/Bf
+	xq0hwVGOnjtemS7YP+ynRy+SAtN9+CfIEPcA5jF5KV3yX70pekPNtEw2XCaoYXUCyYJrrGKHolVm1
+	0+B2v1ZSOERxOePAQmKL/9e5ZjK8B3vIhSZlDKpGzX7ghxIpB06qsrz+OB42cZZYMuP6AeDkuTG3Z
+	Ul6mD0ccSF7Lp1m17D2wixwC6jJTatrKFT31seneC5Q7vW7KLPG+dz+cEIy4F7tuAloD81pM69OOT
+	SwTEexwijYm4VlxWVkkgi3T9JJrGbMv1itKiHarY3L7OE0w2VZTSETMDxV0x2/vN3RM8fOq/cZ7T4
+	gzK0V7Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcqQG-00000001vng-253m;
-	Wed, 21 Feb 2024 17:30:20 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1rcqWD-00000001wem-0ci5;
+	Wed, 21 Feb 2024 17:36:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcqQC-00000001vmV-2Veo;
-	Wed, 21 Feb 2024 17:30:18 +0000
-Received: from pps.filterd (m0353726.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 41LHQErZ018984;
-	Wed, 21 Feb 2024 17:30:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : date :
- mime-version : subject : to : cc : references : from : in-reply-to :
- content-type : content-transfer-encoding; s=pp1;
- bh=ssDlj8Gj906RYJ+kd7oHUcLMb8QUhPVR1jtt/Kk46L0=;
- b=Vq1c/uTzgV94liau2prJfYP3wX3LLcqlfNu4V4iDZSGwWMOxReQAZOU6EP3ae7swxkNo
- ZBUONDmTYaq9aczD+0IvfuyuhoHePSP+T1ikLrEdHa7Iz1ieGl+VbZy9Sk4dn1WxxrJV
- ak2SWFp7NB9qUSi4VKGc/FurNKZVjQQXlukC4vbiM8lq++nVTnfWh9GP20kbU3cg9Km2
- QuWAQTp107chup3qGIkNguPIMpt4b3D1OlQDY6RRPEqXGe3DiGhqyZvwmDgy70bjto3t
- J1JxZw4adxZO4iMzU7La/qrzj2nodgJhn++K2ZfU+XMo+/tcZ20/LcFjZlfA5MTUoMPe AQ== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3wdmjc1ypq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Feb 2024 17:30:03 +0000
-Received: from m0353726.ppops.net (m0353726.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 41LHQCCx018881;
-	Wed, 21 Feb 2024 17:30:02 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3wdmjc1ynu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Feb 2024 17:30:02 +0000
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 41LGpAjb003596;
-	Wed, 21 Feb 2024 17:30:01 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 3wb74trwc4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Feb 2024 17:30:01 +0000
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 41LHTw9Q27918916
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 21 Feb 2024 17:30:00 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E387B20040;
-	Wed, 21 Feb 2024 17:29:57 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CAA8D20043;
-	Wed, 21 Feb 2024 17:29:49 +0000 (GMT)
-Received: from [9.61.61.120] (unknown [9.61.61.120])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 21 Feb 2024 17:29:49 +0000 (GMT)
-Message-ID: <e1bd53c6-ad9a-46d5-9f49-ecdd64d98f61@linux.ibm.com>
-Date: Wed, 21 Feb 2024 22:59:47 +0530
+	id 1rcqW8-00000001wcu-2eZW;
+	Wed, 21 Feb 2024 17:36:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E04F161587;
+	Wed, 21 Feb 2024 17:36:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 569D2C433F1;
+	Wed, 21 Feb 2024 17:36:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1708536983;
+	bh=yiMUcDHHU5n4NoQ84wGw656HnuqVIwBmqSIpUYSySM0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O12n148tnxl0hHrH0KNUw308nap2CMfsjiJaCO+G6etl5udAA3V57bqbWZBFQUGZs
+	 Kj4x4GxnB2NHbhBuzMjO33ReX0o4unLwDVUsx7rE6BrK0mSY+AQVi1U20errE3mUk7
+	 nVTIbjx7vjPf0I68CWxX1fA4b1OFc0RyrKyDq5swD9NlwBDQWruvA/i+WNXsvWkpRM
+	 uYyCW+odtKyrAny0HBpdXJaxNnNh93OFpmEFT500VAoVKZsfjMLpKQM8nF17WmQNVZ
+	 f7b+uqFxyhSA53z6Utjz7HKlp+QYfzdvrhQRfPQSg/ENFM+J0kh3Y5lihL5FmDHnX1
+	 07XkRuq4u5RdA==
+Date: Wed, 21 Feb 2024 17:36:12 +0000
+From: Mark Brown <broonie@kernel.org>
+To: "dalias@libc.org" <dalias@libc.org>
+Cc: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
+	"musl@lists.openwall.com" <musl@lists.openwall.com>,
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"corbet@lwn.net" <corbet@lwn.net>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"debug@rivosinc.com" <debug@rivosinc.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"arnd@arndb.de" <arnd@arndb.de>, "maz@kernel.org" <maz@kernel.org>,
+	"oleg@redhat.com" <oleg@redhat.com>,
+	"fweimer@redhat.com" <fweimer@redhat.com>,
+	"keescook@chromium.org" <keescook@chromium.org>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"ebiederm@xmission.com" <ebiederm@xmission.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"brauner@kernel.org" <brauner@kernel.org>,
+	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"thiago.bauermann@linaro.org" <thiago.bauermann@linaro.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"sorear@fastmail.com" <sorear@fastmail.com>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
+Subject: Re: [musl] Re: [PATCH v8 00/38] arm64/gcs: Provide support for GCS
+ in userspace
+Message-ID: <4a3809e8-61b2-4341-a868-292ba6e64e8a@sirena.org.uk>
+References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
+ <22a53b78-10d7-4a5a-a01e-b2f3a8c22e94@app.fastmail.com>
+ <4c7bdf8fde9cc45174f10b9221fa58ffb450b755.camel@intel.com>
+ <20240220185714.GO4163@brightrain.aerifal.cx>
+ <9fc9c45ff6e14df80ad023e66ff7a978bd4ec91c.camel@intel.com>
+ <20240220235415.GP4163@brightrain.aerifal.cx>
+ <a57d6c7eada4b9a7c35addbc8556f5b53a0c3e6f.camel@intel.com>
+ <20240221012736.GQ4163@brightrain.aerifal.cx>
+ <d18f060d-37ac-48b1-9f67-a5c5db79b34e@sirena.org.uk>
+ <20240221145800.GR4163@brightrain.aerifal.cx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/14] kexec: split crashkernel reservation code out
- from crash_core.c
-To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
-Cc: linux-s390@vger.kernel.org, piliu@redhat.com, linux-sh@vger.kernel.org,
-        x86@kernel.org, kexec@lists.infradead.org, linux-mips@vger.kernel.org,
-        ebiederm@xmission.com, loongarch@lists.linux.dev,
-        hbathini@linux.ibm.com, linux-riscv@lists.infradead.org,
-        linuxppc-dev@lists.ozlabs.org, akpm@linux-foundation.org,
-        linux-arm-kernel@lists.infradead.org, viro@zeniv.linux.org.uk
-References: <20240119145241.769622-1-bhe@redhat.com>
- <20240119145241.769622-2-bhe@redhat.com>
-Content-Language: en-US
-From: Sourabh Jain <sourabhjain@linux.ibm.com>
-In-Reply-To: <20240119145241.769622-2-bhe@redhat.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 1X7jDKhl1zUKRy2B_adMLzM9iC8HO1cV
-X-Proofpoint-ORIG-GUID: Uw2D97QjE83VJR5woF4jbJ6EWAOoQuw_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
- definitions=2024-02-21_04,2024-02-21_02,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- priorityscore=1501 suspectscore=0 mlxlogscore=999 bulkscore=0 phishscore=0
- mlxscore=0 clxscore=1011 lowpriorityscore=0 adultscore=0 spamscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2311290000 definitions=main-2402210135
+In-Reply-To: <20240221145800.GR4163@brightrain.aerifal.cx>
+X-Cookie: The second best policy is dishonesty.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240221_093016_902475_2E8960DE 
-X-CRM114-Status: GOOD (  24.46  )
+X-CRM114-CacheID: sfid-20240221_093624_792828_D055ECA1 
+X-CRM114-Status: GOOD (  24.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,164 +108,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============7380138926304465497=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Baoquan,
 
-Thank you for reorganizing the kexec and kdump code with a well-defined
-configuration structure.
+--===============7380138926304465497==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="SXzKVr6cSzokmvVK"
+Content-Disposition: inline
 
-While reviewing the patch series, I noticed a few typos.
 
-On 19/01/24 20:22, Baoquan He wrote:
-> Both kdump and fa_dump of ppc rely on crashkernel reservation. Move the
-> relevant codes into separate files:
-> crash_reserve.c, include/linux/crash_reserve.h.
->
-> And also add config item CRASH_RESERVE to control its enabling of the
-> codes. And update config items which has relationship with crashkernel
-> reservation.
->
-> And also change ifdeffery from CONFIG_CRASH_CORE to CONFIG_CRASH_RESERVE
-> when those scopes are only crashkernel reservation related.
->
-> And also rename arch/XXX/include/asm/{crash_core.h => crash_reserve.h}
-> on arm64, x86 and risc-v because those architectures' crash_core.h
-> is only related to crashkernel reservation.
->
-> Signed-off-by: Baoquan He <bhe@redhat.com>
-> ---
->   arch/arm64/Kconfig                            |   2 +-
->   .../asm/{crash_core.h => crash_reserve.h}     |   4 +-
->   arch/powerpc/Kconfig                          |   1 +
->   arch/powerpc/mm/nohash/kaslr_booke.c          |   4 +-
->   arch/riscv/Kconfig                            |   2 +-
->   .../asm/{crash_core.h => crash_reserve.h}     |   4 +-
->   arch/x86/Kconfig                              |   2 +-
->   .../asm/{crash_core.h => crash_reserve.h}     |   6 +-
->   include/linux/crash_core.h                    |  40 --
->   include/linux/crash_reserve.h                 |  48 ++
->   include/linux/kexec.h                         |   1 +
->   kernel/Kconfig.kexec                          |   5 +-
->   kernel/Makefile                               |   1 +
->   kernel/crash_core.c                           | 438 -----------------
->   kernel/crash_reserve.c                        | 464 ++++++++++++++++++
->   15 files changed, 531 insertions(+), 491 deletions(-)
->   rename arch/arm64/include/asm/{crash_core.h => crash_reserve.h} (81%)
->   rename arch/riscv/include/asm/{crash_core.h => crash_reserve.h} (78%)
->   rename arch/x86/include/asm/{crash_core.h => crash_reserve.h} (92%)
->   create mode 100644 include/linux/crash_reserve.h
->   create mode 100644 kernel/crash_reserve.c
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index ea01a2c43efa..d96bc3c67ec6 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1501,7 +1501,7 @@ config ARCH_SUPPORTS_CRASH_DUMP
->   	def_bool y
->   
->   config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-> -	def_bool CRASH_CORE
-> +	def_bool CRASH_RESERVE
->   
->   config TRANS_TABLE
->   	def_bool y
-> diff --git a/arch/arm64/include/asm/crash_core.h b/arch/arm64/include/asm/crash_reserve.h
-> similarity index 81%
-> rename from arch/arm64/include/asm/crash_core.h
-> rename to arch/arm64/include/asm/crash_reserve.h
-> index 9f5c8d339f44..4afe027a4e7b 100644
-> --- a/arch/arm64/include/asm/crash_core.h
-> +++ b/arch/arm64/include/asm/crash_reserve.h
-> @@ -1,6 +1,6 @@
->   /* SPDX-License-Identifier: GPL-2.0-only */
-> -#ifndef _ARM64_CRASH_CORE_H
-> -#define _ARM64_CRASH_CORE_H
-> +#ifndef _ARM64_CRASH_RESERVE_H
-> +#define _ARM64_CRASH_RESERVE_H
->   
->   /* Current arm64 boot protocol requires 2MB alignment */
->   #define CRASH_ALIGN                     SZ_2M
-> diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-> index 414b978b8010..6aeab95f0edd 100644
-> --- a/arch/powerpc/Kconfig
-> +++ b/arch/powerpc/Kconfig
-> @@ -691,6 +691,7 @@ config FA_DUMP
->   	bool "Firmware-assisted dump"
->   	depends on PPC64 && (PPC_RTAS || PPC_POWERNV)
->   	select CRASH_CORE
-> +	select CRASH_RESERVE
->   	select CRASH_DUMP
->   	help
->   	  A robust mechanism to get reliable kernel crash dump with
-> diff --git a/arch/powerpc/mm/nohash/kaslr_booke.c b/arch/powerpc/mm/nohash/kaslr_booke.c
-> index b4f2786a7d2b..cdff129abb14 100644
-> --- a/arch/powerpc/mm/nohash/kaslr_booke.c
-> +++ b/arch/powerpc/mm/nohash/kaslr_booke.c
-> @@ -13,7 +13,7 @@
->   #include <linux/delay.h>
->   #include <linux/memblock.h>
->   #include <linux/libfdt.h>
-> -#include <linux/crash_core.h>
-> +#include <linux/crash_reserve.h>
->   #include <linux/of.h>
->   #include <linux/of_fdt.h>
->   #include <asm/cacheflush.h>
-> @@ -173,7 +173,7 @@ static __init bool overlaps_region(const void *fdt, u32 start,
->   
->   static void __init get_crash_kernel(void *fdt, unsigned long size)
->   {
-> -#ifdef CONFIG_CRASH_CORE
-> +#ifdef CONFIG_CRASH_RESERVE
->   	unsigned long long crash_size, crash_base;
->   	int ret;
->   
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index b549499eb363..37a438c23deb 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -712,7 +712,7 @@ config ARCH_SUPPORTS_CRASH_DUMP
->   	def_bool y
->   
->   config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-> -	def_bool CRASH_CORE
-> +	def_bool CRASH_RESERVE
->   
->   config COMPAT
->   	bool "Kernel support for 32-bit U-mode"
-> diff --git a/arch/riscv/include/asm/crash_core.h b/arch/riscv/include/asm/crash_reserve.h
-> similarity index 78%
-> rename from arch/riscv/include/asm/crash_core.h
-> rename to arch/riscv/include/asm/crash_reserve.h
-> index e1874b23feaf..013962e63587 100644
-> --- a/arch/riscv/include/asm/crash_core.h
-> +++ b/arch/riscv/include/asm/crash_reserve.h
-> @@ -1,6 +1,6 @@
->   /* SPDX-License-Identifier: GPL-2.0-only */
-> -#ifndef _RISCV_CRASH_CORE_H
-> -#define _RISCV_CRASH_CORE_H
-> +#ifndef _RISCV_CRASH_RESERVE_H
-> +#define _RISCV_CRASH_RESERVE_H
->   
->   #define CRASH_ALIGN			PMD_SIZE
->   
-> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-> index 5edec175b9bf..71417c5b228c 100644
-> --- a/arch/x86/Kconfig
-> +++ b/arch/x86/Kconfig
-> @@ -2106,7 +2106,7 @@ config ARCH_SUPPORTS_CRASH_HOTPLUG
->   	def_bool y
->   
->   config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-> -	def_bool CRASH_CORE
-> +	def_bool CRASH_RESEERVE
+--SXzKVr6cSzokmvVK
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-%s/CRASH_RESEERVE/CRASH_RESERVE? - Sourabh
+On Wed, Feb 21, 2024 at 09:58:01AM -0500, dalias@libc.org wrote:
+> On Wed, Feb 21, 2024 at 01:53:10PM +0000, Mark Brown wrote:
+> > On Tue, Feb 20, 2024 at 08:27:37PM -0500, dalias@libc.org wrote:
+> > > On Wed, Feb 21, 2024 at 12:35:48AM +0000, Edgecombe, Rick P wrote:
+
+> > > > (INCSSP, RSTORSSP, etc). These are a collection of instructions that
+> > > > allow limited control of the SSP. When shadow stack gets disabled,
+> > > > these suddenly turn into #UD generating instructions. So any other
+> > > > threads executing those instructions when shadow stack got disabled
+> > > > would be in for a nasty surprise.
+
+> > > This is the kernel's problem if that's happening. It should be
+> > > trapping these and returning immediately like a NOP if shadow stack
+> > > has been disabled, not generating SIGILL.
+
+> > I'm not sure that's going to work out well, all it takes is some code
+> > that's looking at the shadow stack and expecting something to happen as
+> > a result of the instructions it's executing and we run into trouble.  A
+
+> I said NOP but there's no reason it strictly needs to be a NOP. It
+> could instead do something reasonable to convey the state of racing
+> with shadow stack being disabled.
+
+This feels like it's getting complicated and I fear it may be an uphill
+struggle to get such code merged, at least for arm64.  My instinct is
+that it's going to be much more robust and generally tractable to let
+things run to some suitable synchronisation point and then disable
+there, but if we're going to do that then userspace can hopefully
+arrange to do the disabling itself through the standard disable
+interface anyway.  Presumably it'll want to notice things being disabled
+at some point anyway?  TBH that's been how all the prior proposals for
+process wide disable I've seen were done.
+
+--SXzKVr6cSzokmvVK
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmXWNIwACgkQJNaLcl1U
+h9CDBQf/b2osUy8IL9ugqihJXvxZdZ2gjHyphrXKAEbbUT4oT2dVS/P4nlvlYurY
+9IML2O8yTSshh0R+WaZCQ28PqhVENeRSLmgsuSIDiSrLY66okGApL4XVaAWAek2d
+KvQ3CU5OkGfGONdHJpiaDdcQbFBuEvUq258Kv+jUJnTKUnmFIjGeM1SIZzQMbrUH
+6cXrpAA0Pqc5yrwYFzYxky0ZScQRgr1RQMV43e7IbCtfGnFfbvevfzgWwzZINjf9
+kjz8RcfyhXuAoW1sAaXsPz49nL0NGr4l5riEdr3SmDYyvhJ5LEpDnFtANzD4lD3E
+cZMNKqJyog/SgaLaqh6dMTlV5Qd9gw==
+=pmML
+-----END PGP SIGNATURE-----
+
+--SXzKVr6cSzokmvVK--
+
+
+--===============7380138926304465497==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7380138926304465497==--
+
