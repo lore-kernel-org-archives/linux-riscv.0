@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E93CC48BEB
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 08:41:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CECCC48BEB
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 08:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5pXuubz4TWqjJOyBNkZTQm35VJkJkYAHzYaTIo4EySI=; b=0xAY7R27x8v0GD
-	3yerf7dkHrvsU+Axh2IVxI3XNBmxXbtUTwCR7kG29hMotpaA8weRMwYR8awYDTwdpXWADopVO+MFG
-	t4OpLEFPFUobnI8m09azM4O50QUS4PqMqGl/TdpLFMH2phiukqmtEkvOvDI+k+QqU/n9JUC6FuyHH
-	kWFj0MuUmBc6C25GBWskVaV/md/oHE51tvX0RQy0mV9NgPrspOFenmtWR8KPbY3U/KPVEb2FBBfTK
-	GvRYvKUGcUv6/zFNNuEXII6CXxsY+2JfmyG+X3mJHm/3beChGx3EyafO2FY+a8m8QUXAL36jrm14q
-	JUuLcWaMvJhbK3fzuHRg==;
+	List-Owner; bh=dXSVDZpBKFw8n+qP1TLCveJ2hm460fCtUL2mKhBon3c=; b=wavN3LLChQQIM1
+	jUdy/eHE42eBAps+72Z+tNXUm2oakzvdqr7MYR6g4kR9vx1izWm6hRuqaycglebxsi1wM4WfMdhKZ
+	wngfd02vkZgXd/AEmv+2Lv33aKCKn1Ka5Bk/wmPUPZmnN6jig2mGdK4VJXWuKyaEnkKQieY2dpiZD
+	Noo39HLkn6t1pvZM6OnYdZOttHucW54VMUb6rvbKaOIzabTD7MXD1B4+Hh9vYS9pMxT/QNBpbsfNO
+	5j7dltR0jZLUneI+pDYsPOuTDFbYMIcRUbeyqppc5CAuUi86J0oiXYhRssMgXfzSKRJmtIqwbbtJ+
+	pi89eGVd/i1LgKDtHiEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd4e4-000000044d0-40Sh;
-	Thu, 22 Feb 2024 08:41:32 +0000
+	id 1rd4eA-000000044gb-0Fyh;
+	Thu, 22 Feb 2024 08:41:38 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd4do-000000044PU-4B96;
-	Thu, 22 Feb 2024 08:41:20 +0000
+	id 1rd4dr-000000044Rk-19Wg;
+	Thu, 22 Feb 2024 08:41:21 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 41M8eDoD074546;
-	Thu, 22 Feb 2024 16:40:13 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 41M8eN6k074612;
+	Thu, 22 Feb 2024 16:40:23 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Thu, 22 Feb 2024
- 16:40:09 +0800
+ 16:40:19 +0800
 From: Yu Chien Peter Lin <peterlin@andestech.com>
 To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <alexander.shishkin@linux.intel.com>, <andre.przywara@arm.com>,
@@ -56,19 +56,20 @@ To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <tim609@andestech.com>, <uwu@icenowy.me>, <wens@csie.org>,
         <will@kernel.org>, <inochiama@outlook.com>, <unicorn_wang@outlook.com>,
         <wefu@redhat.com>
-Subject: [PATCH v9 04/10] dt-bindings: riscv: Add Andes interrupt controller compatible string
-Date: Thu, 22 Feb 2024 16:39:40 +0800
-Message-ID: <20240222083946.3977135-5-peterlin@andestech.com>
+CC: Atish Patra <atishp@rivosinc.com>
+Subject: [PATCH v9 06/10] perf: RISC-V: Eliminate redundant interrupt enable/disable operations
+Date: Thu, 22 Feb 2024 16:39:42 +0800
+Message-ID: <20240222083946.3977135-7-peterlin@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240222083946.3977135-1-peterlin@andestech.com>
 References: <20240222083946.3977135-1-peterlin@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 41M8eDoD074546
+X-MAIL: Atcsqr.andestech.com 41M8eN6k074612
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240222_004117_370355_7CBFB1CF 
-X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-CacheID: sfid-20240222_004119_713857_18BACA23 
+X-CRM114-Status: UNSURE (   8.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,61 +87,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add "andestech,cpu-intc" compatible string to indicate that
-Andes specific local interrupt is supported on the core,
-e.g. AX45MP cores have 3 types of non-standard local interrupt
-which can be handled in supervisor mode:
-
-- Slave port ECC error interrupt
-- Bus write transaction error interrupt
-- Performance monitor overflow interrupt
-
-These interrupts are enabled/disabled via a custom register
-SLIE instead of the standard interrupt enable register SIE.
+The interrupt enable/disable operations are already performed by the
+IRQ chip functions riscv_intc_irq_unmask()/riscv_intc_irq_mask() during
+enable_percpu_irq()/disable_percpu_irq(). It can be done only once.
 
 Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 ---
+This patch allows us to drop unnecessary ALT_SBI_PMU_OVF_{DISABLE,ENABLE}
+in the initial PATCH3 [1].
+
+[1] https://patchwork.kernel.org/project/linux-riscv/patch/20230907021635.1002738-4-peterlin@andestech.com/
+
 Changes v1 -> v2:
   - New patch
 Changes v2 -> v3:
-  - Updated commit message
-  - Fixed possible compatibles for Andes INTC
+  - No change
 Changes v3 -> v4:
-  - Add const entry instead of enum (Suggested by Conor)
+  - No change
 Changes v4 -> v5:
-  - Include Conor's Acked-by
-  - Include Prabhakar's Reviewed-by
+  - No change
 Changes v5 -> v6:
   - No change
 Changes v6 -> v7:
   - No change
 Changes v7 -> v8:
-  - No change
+  - Include Reviewed-by tags from Atish
 Changes v8 -> v9:
   - No change
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/perf/riscv_pmu_sbi.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 9d8670c00e3b..6ccd75cbbc59 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -106,7 +106,11 @@ properties:
-         const: 1
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 16acd4dcdb96..2edbc37abadf 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -781,7 +781,6 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ 	if (riscv_pmu_use_irq) {
+ 		cpu_hw_evt->irq = riscv_pmu_irq;
+ 		csr_clear(CSR_IP, BIT(riscv_pmu_irq_num));
+-		csr_set(CSR_IE, BIT(riscv_pmu_irq_num));
+ 		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
+ 	}
  
-       compatible:
--        const: riscv,cpu-intc
-+        oneOf:
-+          - items:
-+              - const: andestech,cpu-intc
-+              - const: riscv,cpu-intc
-+          - const: riscv,cpu-intc
+@@ -792,7 +791,6 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
+ {
+ 	if (riscv_pmu_use_irq) {
+ 		disable_percpu_irq(riscv_pmu_irq);
+-		csr_clear(CSR_IE, BIT(riscv_pmu_irq_num));
+ 	}
  
-       interrupt-controller: true
- 
+ 	/* Disable all counters access for user mode now */
 -- 
 2.34.1
 
