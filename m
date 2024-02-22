@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C32FAC5478C
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 20:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3282EC48BF8
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 20:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=CF0CNtzMM36Itbu694lGVFcldZtne65cXNhSV7kdtEA=; b=HkE9PWKijEkn+Hz5UMxNUFHQrj
-	DEzdVIMaNujXW7/vE1nj2ihTmSJGNU1fO+efVEcS1zUZt/nHoPX1GKrJsmMcu6pFkWvmj9qrcMdJ4
-	t8Sbu2VhJ4l+twZGfAqdl0JbbPUYSqRcLgfAznDvoc3UzVMTvl1TTYJsoKipw+6gso4020ZpB6rPs
-	fwBeFSfM6RyvIJt8ZKeX/xJEOzC2yO2Xp1WjLLbNHj1IIFwCTZfwWqIzDjWmDJ2x6pmrvxmuAylu/
-	z08syXjVOZnkkOk1HZY4RLfbFWAOyy3uPjCLPekFX/y6tRYgbY8cQ1+os0sz6H6elWOCLSlDCXE++
-	oQb3qSLg==;
+	bh=RPyyS+QkFU/b5S4Q12SiPv4y7dV/d4tHr9z6uZPz+s4=; b=4w1pj7Rs1xcJFzH+hhVCFxLex3
+	eBCNyFkTzZ0x1tUpXSA5PYjKKGmto/NQCAcL909ziZFeaCy2D01IRzhWSxAkJnFkFTDu4ZmwdxR5L
+	mL3RLvAP7I4LKVLp5Jrx4A2kkstkC04zEgjREQcNwNNvNfbagGEBLq7TWS9aGmJGVbA4krOA/lRkZ
+	UFD/aMlNB9VvlpU6HkAzPcdey/fw3nmuo5Me9mDIOCLDydpXRh4hE6rsOLrA10YiZOsa9z+8IP5eT
+	A3JX1/LSiMCCTaQL0abM9zx8MJ7qmfuU7BO3AzqEXwYeMLNRNHRZPvboPSrWLRnM2e/jWTNptqIwg
+	bSqKYjSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdFas-00000006THk-0iQC;
-	Thu, 22 Feb 2024 20:22:58 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1rdG8s-00000006Zag-3fzj;
+	Thu, 22 Feb 2024 20:58:06 +0000
+Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdFam-00000006TGX-3on0
+	id 1rdG8o-00000006ZYV-34u7
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Feb 2024 20:22:54 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1d7431e702dso2066325ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 12:22:52 -0800 (PST)
+	Thu, 22 Feb 2024 20:58:04 +0000
+Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-21f8665908bso77034fac.3
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 12:58:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1708633372; x=1709238172; darn=lists.infradead.org;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1708635481; x=1709240281; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=AvT+skZuVtuaziWCz2kmemhaijwUBiIAPgW6NDDOZYI=;
-        b=KCq/J4KMHpKshHtkaO+Q7Wo6HsweiAoM+sh9i8YdqI3abLaiZ6I3oQp09ZWcyRmdLy
-         fUZC2UpybJyjHNCxrR/aAi3mhGGDX8R19fwu9kTBKpH+C/Kb79ReL+SVhId5jCwC2cek
-         WZY3JvmQb+gfmy4lwTXiHvIaSN8Yo0R2ih5wIFM8tDfZ4lmH4lhdohrUCfb2Ou+DnhPT
-         v55lhqWbpUAUsze6OqSMmvosdSIVhdzT1RU2/7fxt3VtCh0cjp7WmCxUEse73KNv72Sb
-         Q3ysPgXHj1ImuwMtMLPqNA55s1aMIewO/x0sIQbJDctv5dIjH8Db7cSL2BDIpAjz8HzW
-         AFVA==
+        bh=F/JstmNsXGrATrdQJrqYAdriIsItVvYWhgpEZTS+OEc=;
+        b=da4DfPNqtz8YQN/WIgtXpnM/yDy21Z4CYMPYcb8BBkUDE3/uKTtKFxdDTTCCvc0+iC
+         KRIx3rZSh/+uAy173vOmNO0V2J768yetNenssaKeTvmyjfyoGXrabShussSHtVIiAsO8
+         2hZDepaQjcHSSYSRfj03r/WpHlVCt7UOS81QF5n3/v1TXIFSfizRwfFTLgzOUjZqB6MY
+         nilh1LHMBW1PWP6Kd4i9yGWgP9kkfajAWR6YmgOY5EOrLa+1Tq2C59c0gAPHJW6YRdow
+         fpxBXHpzCTFvBYeQiWdvZJ0xq1+daYiuA/kRG5i3k//6TbCcER3u4jN8RlVsXK5YI8yY
+         +6YQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708633372; x=1709238172;
+        d=1e100.net; s=20230601; t=1708635481; x=1709240281;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AvT+skZuVtuaziWCz2kmemhaijwUBiIAPgW6NDDOZYI=;
-        b=eD6WDuzfc1apF0vTYAEmu8oTnH71CktcMYqfhmgkpGSqGTiq64shGgHKwdDxv//W6F
-         qamjwZBYaniIvzeJVT/KlMslmPLSbP5lBfAT3yUBkmwbVxygvStxYexEdEfl3h0KrqOR
-         V6g6FCqWyzJ1wkZ5j2dQeO5cW55ldK2qKp6cmBeXzE7llJ24ug47SMPvs2E3CmkueE3t
-         S7klqZErpX3iDJhFcaThgNkf8ta85pPRHjcKw+4qh51XVvZMeJWx/QTHwv6R8MTkD9MH
-         rsXnQpd9gPxb0ec4hyxUGrTAmIrhtfdT8fKDhGgxd5CeMMRpMC7l+jALW56jsQOA6VzH
-         mBQw==
-X-Forwarded-Encrypted: i=1; AJvYcCXuQwwqzZv4M5rN/M2yxY9/uvGKg0KH0rEy3g6QcBDeHMnMZ3oMFHuGIJlfroxGVWiopgkjIimH/bBMwPTzLfHFD9M1nxr4ZHsLxEtsgVZV
-X-Gm-Message-State: AOJu0YzCcei1Y6VTeWjObUjBYaeowye80mmyi7msZIze8oB/UtV/8oei
-	BX/tOh739oIzIDUEZQVwXnw7FJntINJ7FfAp8P3PoPaMgk+Eg8LwE3gn6hBJbV7aI6c85NPMVlq
-	adKo=
-X-Google-Smtp-Source: AGHT+IFX4Geggl92/IhMKrsNdt44zGVSwXSPbnf0r4+rgv+x/pEZjNOybydm0AF02MocpX49oCjQPA==
-X-Received: by 2002:a17:902:db11:b0:1db:f049:6315 with SMTP id m17-20020a170902db1100b001dbf0496315mr15282166plx.51.1708633371738;
-        Thu, 22 Feb 2024 12:22:51 -0800 (PST)
+        bh=F/JstmNsXGrATrdQJrqYAdriIsItVvYWhgpEZTS+OEc=;
+        b=sadm9d/qKSK207GW7wGguH+nJtUE+1p5JmoHKsRl6jfcX3ZEWO8Tqd7IY+wJD6MjwD
+         NWUtC4sOsgrd7eGaNyEh6uif3HLv0faAqykhOKX06wcwKyDUEIZ8W9cjn/ZUYSfeyCj0
+         OemG1qWLg61LKyWLqzVzAhpWsEYGDBqddCT5JjVyHDC4wnCnYJI5+N8CtwixVvE9x48u
+         I99n07wa5dAHrbTJa4+F4jFAAqjaopFEXSk6k2hhPYIPiXWmEg1cRcn3e6FWm6plZKHS
+         JDy48ORgWpA6A9EpbwFXcXBystzG8wx0br18gHn6baGfdvF+YsMEmp3s+GXbl2pofUpV
+         4fZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV5RV8pnoIpXzBW/6/TB35poWPjIHh6d2w7xXg6BE6HY0RVNs/f5B8xcGrBy0beLJ1yad0NhlRlaQ8H94OrCI6OtAf2Zt7MpfzO0EjdMjRe
+X-Gm-Message-State: AOJu0YwRfylPjLl9QifabJ0d085NvMcyoh/OmrBFofkH+Gk0eWF3dVrN
+	m9jY1j+gUYLtspOebpfRNqlK48XlXX0EcsEDsPY1244QJjlzqldR/bFnecofZWs=
+X-Google-Smtp-Source: AGHT+IFzHbOMj9bR4XwoTV78+XQQDpkce4tWRSTpsF1S4rvhPsRaNJYaAkOqP1nVzW664TOOaBFWYA==
+X-Received: by 2002:a05:6870:3306:b0:219:48a9:2d08 with SMTP id x6-20020a056870330600b0021948a92d08mr84346oae.12.1708635481161;
+        Thu, 22 Feb 2024 12:58:01 -0800 (PST)
 Received: from localhost ([50.213.54.97])
-        by smtp.gmail.com with ESMTPSA id km16-20020a17090327d000b001d9fc826522sm2839647plb.239.2024.02.22.12.22.51
+        by smtp.gmail.com with ESMTPSA id u2-20020a656702000000b005dc26144d96sm9549017pgf.75.2024.02.22.12.58.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Feb 2024 12:22:51 -0800 (PST)
-Date: Thu, 22 Feb 2024 12:22:51 -0800 (PST)
-X-Google-Original-Date: Thu, 22 Feb 2024 12:22:43 PST (-0800)
-Subject: Re: [PATCH v2] riscv: mm: fix NOCACHE_THEAD does not set bit[61] correctly
-In-Reply-To: <CAHVXubg8NKBdeutbwrJh5hdZwhRFsgyTPknM=xUhV=VG+o2Lrw@mail.gmail.com>
-CC: cyy@cyyself.name, linux-riscv@lists.infradead.org, jszhang@kernel.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, guoren@kernel.org, linux-kernel@vger.kernel.org
+        Thu, 22 Feb 2024 12:58:00 -0800 (PST)
+Date: Thu, 22 Feb 2024 12:58:00 -0800 (PST)
+X-Google-Original-Date: Thu, 22 Feb 2024 12:57:58 PST (-0800)
+Subject: Re: [RFC PATCH 0/1] riscv: dts: Allow BUILTIN_DTB for all socs
+In-Reply-To: <ac11967c-3ab4-42be-86ca-0d40c35eee04@ghiti.fr>
+CC: cyy@cyyself.name, linux-riscv@lists.infradead.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, Conor Dooley <conor@kernel.org>,
+  linux-kernel@vger.kernel.org, masahiroy@kernel.org, robh+dt@kernel.org, devicetree@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alexghiti@rivosinc.com
-Message-ID: <mhng-4faa415d-93d9-46fc-b2f3-3b08c0de28ee@palmer-ri-x1c9a>
+To: alex@ghiti.fr
+Message-ID: <mhng-a0b00545-1522-4045-a4fe-97c3fbb8b082@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240222_122252_970685_4D5693AC 
-X-CRM114-Status: GOOD (  20.30  )
+X-CRM114-CacheID: sfid-20240222_125803_020332_D4713687 
+X-CRM114-Status: GOOD (  28.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,46 +88,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMSBGZWIgMjAyNCAwNjowMDo0OSBQU1QgKC0wODAwKSwgYWxleGdoaXRpQHJpdm9z
-aW5jLmNvbSB3cm90ZToKPiBIaSBZYW5neXUsCj4KPiBPbiBXZWQsIEZlYiAyMSwgMjAyNCBhdCA0
-OjA04oCvQU0gWWFuZ3l1IENoZW4gPGN5eUBjeXlzZWxmLm5hbWU+IHdyb3RlOgo+Pgo+PiBQcmV2
-aW91cyBjb21taXQgZGJmYmRhM2JkNmJmICgicmlzY3Y6IG1tOiB1cGRhdGUgVC1IZWFkIG1lbW9y
-eSB0eXBlCj4+IGRlZmluaXRpb25zIikgZnJvbSBwYXRjaCBbMV0gbWlzc2VkIGEgYDxgIGZvciBi
-aXQgc2hpZnRpbmcsIHJlc3VsdCBpbgo+PiBiaXQoNjEpIGRvZXMgbm90IHNldCBpbiBfUEFHRV9O
-T0NBQ0hFX1RIRUFEIGFuZCBsZWF2ZXMgYml0KDApIHNldCBpbnN0ZWFkLgo+PiBUaGlzIHBhdGNo
-IGdldCB0aGlzIGZpeGVkLgo+Pgo+PiBDaGFuZ2VzIHNpbmNlIHYxOgo+PiAqIHJld29yZCBjb21t
-aXQgbWVzc2FnZSBhbmQgYWRkIHJldmlld2VkLWJ5Cj4+Cj4+IExpbms6IGh0dHBzOi8vbG9yZS5r
-ZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjMwOTEyMDcyNTEwLjI1MTAtMS1qc3poYW5nQGtlcm5l
-bC5vcmcvIFsxXQo+PiBGaXhlczogZGJmYmRhM2JkNmJmICgicmlzY3Y6IG1tOiB1cGRhdGUgVC1I
-ZWFkIG1lbW9yeSB0eXBlIGRlZmluaXRpb25zIikKPj4gU2lnbmVkLW9mZi1ieTogWWFuZ3l1IENo
-ZW4gPGN5eUBjeXlzZWxmLm5hbWU+Cj4+IFJldmlld2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2Vy
-bmVsLm9yZz4KPj4gUmV2aWV3ZWQtYnk6IEppc2hlbmcgWmhhbmcgPGpzemhhbmdAa2VybmVsLm9y
-Zz4KPj4gLS0tCj4+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUtNjQuaCB8IDIgKy0K
-Pj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+Pgo+PiBk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLTY0LmggYi9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL3BndGFibGUtNjQuaAo+PiBpbmRleCBiNDIwMTdkNzY5MjQuLmI5OWJk
-NjYxMDdhNiAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLTY0
-LmgKPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLTY0LmgKPj4gQEAgLTEz
-Niw3ICsxMzYsNyBAQCBlbnVtIG5hcG90X2NvbnRfb3JkZXIgewo+PiAgICogMTAwMTAgLSBJTyAg
-IFN0cm9uZ2x5LW9yZGVyZWQsIE5vbi1jYWNoZWFibGUsIE5vbi1idWZmZXJhYmxlLCBTaGFyZWFi
-bGUsIE5vbi10cnVzdGFibGUKPj4gICAqLwo+PiAgI2RlZmluZSBfUEFHRV9QTUFfVEhFQUQgICAg
-ICAgICAgICAgICAgKCgxVUwgPDwgNjIpIHwgKDFVTCA8PCA2MSkgfCAoMVVMIDw8IDYwKSkKPj4g
-LSNkZWZpbmUgX1BBR0VfTk9DQUNIRV9USEVBRCAgICAoKDFVTCA8IDYxKSB8ICgxVUwgPDwgNjAp
-KQo+PiArI2RlZmluZSBfUEFHRV9OT0NBQ0hFX1RIRUFEICAgICgoMVVMIDw8IDYxKSB8ICgxVUwg
-PDwgNjApKQo+PiAgI2RlZmluZSBfUEFHRV9JT19USEVBRCAgICAgICAgICgoMVVMIDw8IDYzKSB8
-ICgxVUwgPDwgNjApKQo+PiAgI2RlZmluZSBfUEFHRV9NVE1BU0tfVEhFQUQgICAgIChfUEFHRV9Q
-TUFfVEhFQUQgfCBfUEFHRV9JT19USEVBRCB8ICgxVUwgPDwgNTkpKQo+Pgo+PiAtLQo+PiAyLjQz
-LjAKPj4KPgo+IEkgZmVlbCBwcmV0dHkgY29uZmlkZW50IG9uIHRoaXMgb25lIDopCgpZYSwgc29y
-cnkgSSBtaXNzZWQgaXQgdGhlIGZpcnN0IHRpbWUgYXJvdW5kIC0tIHRoYXQncyBhIGJpdCBlbWJh
-cmFzc2luZyAKOykuICBJdCBzaG91bGQgc2hvdyB1cCBvbiBmaXhlcyBzb29uLCBqdXN0IHF1ZXVl
-ZCB1cCBiZWhpbmQgc29tZSBvdGhlciAKcGF0Y2hlcyBidXQgdGhlIHRlc3RlciBpcyBiYWNrIGFs
-aXZlIHNvIHRoaW5nIHNob3VsZCBiZSBzYW5lIGFnYWluLgoKPiBSZXZpZXdlZC1ieTogQWxleGFu
-ZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+Cj4gVGhhbmtzLAo+Cj4gQWxleAoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, 20 Feb 2024 12:46:57 PST (-0800), alex@ghiti.fr wrote:
+> Hi Yangyu,
+>
+> On 20/02/2024 20:01, Yangyu Chen wrote:
+>> The BUILTIN_DTB kernel feature on RISC-V only works on K210 SoC only. This
+>> patch moved this configuration to entire riscv.
+>>
+>> Although BUILTIN_DTB is not a good choice for most platforms, it is likely
+>> to be a debug feature when some bootloader will always override something
+>> like the memory node in the device tree to adjust the memory size from SPD
+>> or configuration resistor, which makes it hard to do some debugging. As an
+>> example, some platforms with numa like sg2042 only support sv39 will fail
+>> to boot when there is no ZONE_HIGHMEM patch with 128G memory. If we want
+
+I guess that's a surprising one, but there's always some Kconfig entries 
+that are necessary to set in order to get platforms to boot -- at a bare 
+minimum errata and drivers, for example.
+
+> Orthogonal to this patch, but if needs be, we can fix this issue with
+> 128G on sv39 by changing the sv39 address space layout, we still have
+> room to gain the 4G you miss, at that time I was pretty sure that amount
+> of memory would come with sv48 :)
+
+That seems like a reasonable way to go, as long as it's not overly 
+complex.
+
+>
+> Thanks,
+>
+> Alex
+>
+>
+>> a kernel without this patch to boot, we need to write the memory nodes
+>> in the DT manually.
+>>
+>> Also, changing DT on some platforms is not easy. For Milk-V Pioneer, the
+>> boot procedure is ZSBL -> OpenSBI -> LinuxBoot -> Linux. If DT gets
+>> changed, OpenSBI or LinuxBoot may refuse to boot. And there is some bug on
+>> LinuxBoot now which does not consume --dtb argument on kexec and always
+>> uses DT from memory. So I would like to do debugging on DT using
+
+I'd argue those are bootloader/firmware bugs.
+
+>> BUILTIN_DTB, which makes it very simple, I can even install the kernel in
+>> the distro's way and provide a kernel package for other users to test.
+>>
+>> Yangyu Chen (1):
+>>    riscv: dts: Allow BUILTIN_DTB for all socs
+>>
+>>   arch/riscv/Kconfig                  | 16 ++++++++++++++-
+>>   arch/riscv/Kconfig.socs             | 32 -----------------------------
+>>   arch/riscv/boot/dts/Makefile        |  2 +-
+>>   arch/riscv/boot/dts/canaan/Makefile |  2 --
+>>   4 files changed, 16 insertions(+), 36 deletions(-)
+>>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
