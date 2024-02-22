@@ -4,53 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D254C48BF8
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 13:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1463DC54788
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 13:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IRNCLz/SUAwL/bkbGjagTp97CTAYT6cveI3fMxYvrKA=; b=bhwspu1bYacVwE
-	35no2eONpPSv23j+d3M8NG+CbmeA4t9N3sZp39xjd/+Hq+PipH7wxyZWrUNIFnnnw822GlAYgHn35
-	YIGUBjam1zey9QLPPe0OsRy2AganKxayErXP+KRqyy6L9CLhDErJhB7nS/o1zbrGypTy72jBVra8E
-	twdwrB/E9hnbcPk9WbZQTZd5SNfviTDmkGd8FWi1uFIzZSN0T0BtdESaD5Zr7gQQsKMtzG/vHzN/w
-	iwFDPscS5z8k3LCA92+A2zvPpxtFKB9bgIomdFYBIKAhGAykAFCJ3UfN28X4XqWQ/ICIjFTf7D+II
-	gpClF2IntvfetiSRAAEw==;
+	List-Owner; bh=ENZlYS8nxSCEbwWH/NP3RM87Vm6mRHJcg7pj2iEax0U=; b=FpecDtcYEKxz88
+	r+1KjrrXNb1UoRCOSW9zWR0KeZdfRqqRHoaQNNEAYyszNvmyZFSOxMFsYTaVdOiN0LvoNuqEQe9ee
+	4DbZCMFesgVgrt2045uLo0W7HMqTrUVZF1Pfe5G8IkDevpzI6v8mfYByOKdRg0x6MwI8FJv4aAlA/
+	KwNrYPurv09xXLp5vzW7bOzxDoQ31Rc81DB9GebW1h3TvX8hH3DOx1LLMlSEYqy7eMQbPGEgEFzEj
+	CYC1hFTRk2yrm2LD/05ESv9pG5teKM2MbCulVomAZbT9WtB2D4NEXFnm+5qRdJQ+kcK4meYigFlxs
+	mT3/MFE+wF3CoGvAsdAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd8hw-00000004w3r-28a9;
-	Thu, 22 Feb 2024 13:01:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd8hs-00000004w2l-13qx;
-	Thu, 22 Feb 2024 13:01:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2727DDA7;
-	Thu, 22 Feb 2024 05:02:16 -0800 (PST)
-Received: from [10.57.10.154] (unknown [10.57.10.154])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 39A963F762;
-	Thu, 22 Feb 2024 05:01:35 -0800 (PST)
-Message-ID: <e42b76a9-fc5f-4ab7-96a2-629261a9c983@arm.com>
-Date: Thu, 22 Feb 2024 13:01:32 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 02/25] genirq/irqdomain: Remove the param count
- restriction from select()
-Content-Language: en-US
+	id 1rd8tY-00000004xil-2GEW;
+	Thu, 22 Feb 2024 13:13:48 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rd8tU-00000004xgI-3sF8;
+	Thu, 22 Feb 2024 13:13:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 821B5CE2295;
+	Thu, 22 Feb 2024 13:13:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21CADC433F1;
+	Thu, 22 Feb 2024 13:13:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1708607616;
+	bh=MbENokeI9PUY9gmhafxiQFG9i+/znCgTXAZEO2pR1D0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=ku47UswlrQW3XlqS3h0ikrchgU3HJschH2qvnH733wa9ZGvYzpW8Q6piRfczQ90/3
+	 yIJ3IOyK9Co5eO+n3SftKdMEWWzIWpxZ/m5S6SDN5roVVAErAf7qd6gV8QpB1iYsPI
+	 xpnRecMXxPxsk4rxnA1CbJdhHaybbAFT24gYhVlySCa9IBnAuE8EZh7ZDlrGLlmgrM
+	 ERtcRNXsZZn0hjBeH4JNUg5uRzvbtfJYRw2LsaKZdgz5jbMdbJfK3znlaF5tu8ERLM
+	 jwbMsxSm2//EDqnEUnx1JI55oxVE7zQacNyVrZK6JA7kaY+pnVyMgVBN43EO8iP7fC
+	 cbxAFhXGqyRsQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Frank Rowand <frowand.list@gmail.com>, Conor Dooley <conor+dt@kernel.org>
-References: <20240127161753.114685-1-apatel@ventanamicro.com>
- <20240127161753.114685-3-apatel@ventanamicro.com>
-From: Aishwarya TCV <aishwarya.tcv@arm.com>
-In-Reply-To: <20240127161753.114685-3-apatel@ventanamicro.com>
+ <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas
+ Gleixner <tglx@linutronix.de>, Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Frank Rowand
+ <frowand.list@gmail.com>, Conor Dooley <conor+dt@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org,
+ Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>,
+ Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Atish
+ Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Andrew Jones
+ <ajones@ventanamicro.com>
+Subject: Re: [PATCH v14 11/18] irqchip: Add RISC-V incoming MSI controller
+ early driver
+In-Reply-To: <20240222094006.1030709-12-apatel@ventanamicro.com>
+References: <20240222094006.1030709-1-apatel@ventanamicro.com>
+ <20240222094006.1030709-12-apatel@ventanamicro.com>
+Date: Thu, 22 Feb 2024 14:13:33 +0100
+Message-ID: <87r0h4tzeq.fsf@all.your.base.are.belong.to.us>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240222_050144_442478_3036F923 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20240222_051345_340171_DB45BB0B 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,252 +75,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Mark Brown <broonie@kernel.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 27/01/2024 16:17, Anup Patel wrote:
-> From: Thomas Gleixner <tglx@linutronix.de>
-> 
-> Now that the GIC-v3 callback can handle invocation with a fwspec parameter
-> count of 0 lift the restriction in the core code and invoke select()
-> unconditionally when the domain provides it.
-> 
-> Preparatory change for per device MSI domains.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
-
-Hi Thomas/Anup
-
-Currently when booting the kernel against next-master(next-20240222)
-with Arm64 on Qualcomm boards RB5/DB845C, the kernel is resulting in
-boot failures for our CI. I can send the full logs if required. Most
-other boards seem to be fine.
-
-A bisect (full log below) identified this patch as introducing the
-failure. Bisected it on the tag "next-20240220" at repo
-"https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git".
-
-This works fine on Linux v6.8-rc5
-
-
-Sample log from failure against run on RB5:
-------
-07:03:06.985934  <6>[    1.727034] Trying to probe devices needed for
-running init ...
-07:03:16.905972  <6>[   11.624040] platform 998000.serial: deferred
-probe pending: platform: wait for supplier
-/soc@0/pinctrl@f100000/qup-uart6-default-state
-07:03:16.906250  <6>[   11.636743] platform 1c08000.pcie: deferred probe
-pending: platform: wait for supplier
-/soc@0/pinctrl@f100000/pcie1-default-state
-07:03:16.906400  <6>[   11.648976] platform a90000.serial: deferred
-probe pending: (reason unknown)
-07:03:16.945462  <6>[   11.656490] platform 1c10000.pcie: deferred probe
-pending: platform: wait for supplier
-/soc@0/pinctrl@f100000/pcie2-default-state
-07:03:16.950476  <6>[   11.668723] platform c440000.spmi: deferred probe
-pending: platform: supplier b220000.interrupt-controller not ready
-07:03:16.950635  <6>[   11.679800] platform a6f8800.usb: deferred probe
-pending: platform: supplier b220000.interrupt-controller not ready
-07:03:16.950781  <6>[   11.690778] platform a8f8800.usb: deferred probe
-pending: platform: supplier b220000.interrupt-controller not ready
-07:03:16.950923  <6>[   11.701761] platform leds: deferred probe
-pending: leds-gpio: Failed to get GPIO '/leds/led-user4'
-07:03:16.989720  <6>[   11.711226] platform f100000.pinctrl: deferred
-probe pending: platform: supplier b220000.interrupt-controller not ready
-07:03:16.994769  <6>[   11.722567] platform 18591000.cpufreq: deferred
-probe pending: qcom-cpufreq-hw: Failed to find icc paths
-07:03:16.994929  <6>[   11.732573] platform
-b220000.interrupt-controller: deferred probe pending: (reason unknown)
-07:03:16.995076  <4>[   11.741438] qnoc-sm8250 1500000.interconnect:
-sync_state() pending due to 1d84000.ufshc
-07:03:17.034092  <4>[   11.749935] qnoc-sm8250 163d000.interconnect:
-sync_state() pending due to 1d84000.ufshc
-07:03:17.034331  <4>[   11.758430] qnoc-sm8250 16e0000.interconnect:
-sync_state() pending due to 1d84000.ufshc
-07:03:17.039326  <4>[   11.766916] qnoc-sm8250 163d000.interconnect:
-sync_state() pending due to 1dfa000.crypto
-07:03:17.039482  <4>[   11.775495] qnoc-sm8250 1700000.interconnect:
-sync_state() pending due to 1dfa000.crypto
-07:03:17.039623  <4>[   11.784081] qnoc-sm8250 163d000.interconnect:
-sync_state() pending due to 9091000.pmu
-07:03:17.039759  <4>[   11.792389] qnoc-sm8250 9100000.interconnect:
-sync_state() pending due to 90b6400.pmu
-07:03:17.078467  <4>[   11.800705] qnoc-sm8250 9100000.interconnect:
-sync_state() pending due to 1d84000.ufshc
-07:03:17.083560  <4>[   11.809198] qnoc-sm8250 1500000.interconnect:
-sync_state() pending due to a6f8800.usb
-07:03:17.083720  <4>[   11.817508] qnoc-sm8250 9100000.interconnect:
-sync_state() pending due to a6f8800.usb
-07:03:17.083866  <4>[   11.825825] qnoc-sm8250 163d000.interconnect:
-sync_state() pending due to a6f8800.usb
-07:03:17.084006  <4>[   11.834140] qnoc-sm8250 16e0000.interconnect:
-sync_state() pending due to a6f8800.usb
-07:03:17.122721  <4>[   11.842456] qnoc-sm8250 1500000.interconnect:
-sync_state() pending due to a8f8800.usb
-07:03:17.127829  <4>[   11.850766] qnoc-sm8250 9100000.interconnect:
-sync_state() pending due to a8f8800.usb
-07:03:17.127989  <4>[   11.859076] qnoc-sm8250 163d000.interconnect:
-sync_state() pending due to a8f8800.usb
-07:03:17.128144  <4>[   11.867388] qnoc-sm8250 16e0000.interconnect:
-sync_state() pending due to a8f8800.usb
-07:03:17.128286  <4>[   11.875706] qnoc-sm8250 163d000.interconnect:
-sync_state() pending due to aa00000.video-codec
-07:03:17.167089  <4>[   11.884733] qnoc-sm8250 1740000.interconnect:
-sync_state() pending due to aa00000.video-codec
-07:03:17.172232  <4>[   11.893760] qnoc-sm8250 1500000.interconnect:
-sync_state() pending due to aa00000.video-codec
-07:03:17.172404  <4>[   11.902780] qnoc-sm8250 9100000.interconnect:
-sync_state() pending due to aa00000.video-codec
-07:03:17.172564  <4>[   11.911805] qnoc-sm8250 163d000.interconnect:
-sync_state() pending due to ae00000.display-subsystem
-07:03:17.172705  <4>[   11.921359] qnoc-sm8250 1740000.interconnect:
-sync_state() pending due to ae00000.display-subsystem
-07:03:17.211346  <4>[   11.930932] qcom-rpmhpd
-18200000.rsc:power-controller: sync_state() pending due to
-17300000.remoteproc
-07:03:17.216527  <4>[   11.940758] qcom-rpmhpd
-18200000.rsc:power-controller: sync_state() pending due to
-ae00000.display-subsystem
-07:03:17.216694  <4>[   11.951113] qcom-rpmhpd
-18200000.rsc:power-controller: sync_state() pending due to
-aa00000.video-codec
-07:03:17.216840  <4>[   11.960935] qcom-rpmhpd
-18200000.rsc:power-controller: sync_state() pending due to 8804000.mmc
-07:03:17.255721  <4>[   11.970059] qcom-rpmhpd
-18200000.rsc:power-controller: sync_state() pending due to
-8300000.remoteproc
-07:03:17.255962  <4>[   11.979795] qnoc-sm8250 163d000.interconnect:
-sync_state() pending due to 884000.i2c
-07:03:17.261054  <4>[   11.988021] qnoc-sm8250 16e0000.interconnect:
-sync_state() pending due to 884000.i2c
-07:03:17.261220  <4>[   11.996242] qnoc-sm8250 1500000.interconnect:
-sync_state() pending due to 884000.i2c
-07:03:17.261366  <4>[   12.004465] qnoc-sm8250 9100000.interconnect:
-sync_state() pending due to 884000.i2c
-07:03:17.261506  <4>[   12.012691] qnoc-sm8250 interconnect-qup-virt:
-sync_state() pending due to 884000.i2c
-07:03:17.300099  <4>[   12.021008] qcom-rpmhpd
-18200000.rsc:power-controller: sync_state() pending due to 884000.i2c
-07:03:17.305306  <4>[   12.030029] qnoc-sm8250 163d000.interconnect:
-sync_state() pending due to 980000.spi
-07:03:17.305467  <4>[   12.038254] qnoc-sm8250 1700000.interconnect:
-sync_state() pending due to 980000.spi
-07:03:17.305613  <4>[   12.046479] qnoc-sm8250 1500000.interconnect:
-sync_state() pending due to 980000.spi
-07:03:17.305754  <4>[   12.054705] qnoc-sm8250 9100000.interconnect:
-sync_state() pending due to 980000.spi
-07:03:17.344314  <4>[   12.062927] qnoc-sm8250 interconnect-qup-virt:
-sync_state() pending due to 980000.spi
-07:03:17.349541  <4>[   12.071244] qcom-rpmhpd
-18200000.rsc:power-controller: sync_state() pending due to 980000.spi
-07:03:17.349701  <4>[   12.080272] qnoc-sm8250 163d000.interconnect:
-sync_state() pending due to 990000.i2c
-07:03:17.349846  <4>[   12.088494] qnoc-sm8250 1700000.interconnect:
-sync_state() pending due to 990000.i2c
-07:03:17.349986  <4>[   12.096713] qnoc-sm8250 1500000.interconnect:
-sync_state() pending due to 990000.i2c
-07:03:17.388758  <4>[   12.104937] qnoc-sm8250 9100000.interconnect:
-sync_state() pending due to 990000.i2c
-07:03:17.388993  <4>[   12.113158] qnoc-sm8250 interconnect-qup-virt:
-sync_state() pending due to 990000.i2c
-07:03:17.394156  <4>[   12.121473] qcom-rpmhpd
-18200000.rsc:power-controller: sync_state() pending due to 990000.i2c
-07:03:17.394314  <4>[   12.130504] qnoc-sm8250 163d000.interconnect:
-sync_state() pending due to 994000.i2c
-07:03:17.394458  <4>[   12.138733] qnoc-sm8250 1700000.interconnect:
-sync_state() pending due to 994000.i2c
-07:03:17.394598  <4>[   12.146958] qnoc-sm8250 1500000.interconnect:
-sync_state() pending due to 994000.i2c
-07:03:17.433035  <4>[   12.155179] qnoc-sm8250 9100000.interconnect:
-sync_state() pending due to 994000.i2c
-07:03:17.438301  <4>[   12.163405] qnoc-sm8250 interconnect-qup-virt:
-sync_state() pending due to 994000.i2c
-07:03:17.438461  <4>[   12.171722] qcom-rpmhpd
-18200000.rsc:power-controller: sync_state() pending due to 994000.i2c
-07:03:17.438607  <4>[   12.180742] qnoc-sm8250 1500000.interconnect:
-sync_state() pending due to 998000.serial
-07:03:17.438748  <4>[   12.189235] qnoc-sm8250 9100000.interconnect:
-sync_state() pending due to 998000.serial
-07:03:17.477464  <4>[   12.197719] qnoc-sm8250 interconnect-qup-virt:
-sync_state() pending due to 998000.serial
-07:03:17.482759  <4>[   12.206299] qcom-rpmhpd
-18200000.rsc:power-controller: sync_state() pending due to 998000.serial
-07:03:17.482918  <4>[   12.215592] qnoc-sm8250 1500000.interconnect:
-sync_state() pending due to a90000.serial
-07:03:17.483065  <4>[   12.224084] qnoc-sm8250 9100000.interconnect:
-sync_state() pending due to a90000.serial
-07:03:17.483207  <4>[   12.232576] qnoc-sm8250 interconnect-qup-virt:
-sync_state() pending due to a90000.serial
-07:03:17.503624  <4>[   12.241158] qcom-rpmhpd
-18200000.rsc:power-controller: sync_state() pending due to a90000.serial
-------
-
-
-Bisect log:
-------
-git bisect start
-# good: [b401b621758e46812da61fa58a67c3fd8d91de0d] Linux 6.8-rc5
-git bisect good b401b621758e46812da61fa58a67c3fd8d91de0d
-# bad: [2d5c7b7eb345249cb34d42cbc2b97b4c57ea944e] Add linux-next
-specific files for 20240220
-git bisect bad 2d5c7b7eb345249cb34d42cbc2b97b4c57ea944e
-# good: [d0427d6bc95f2dae2595859f39c2de343479c909] Merge branch
-'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git
-git bisect good d0427d6bc95f2dae2595859f39c2de343479c909
-# good: [4c165a847139a6564d28e0f4d8e9fc9c67f22359] Merge branch
-'for-next' of
-git://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git
-git bisect good 4c165a847139a6564d28e0f4d8e9fc9c67f22359
-# bad: [4dfc8ee8540b799d604551c41c82a9e07089e20e] Merge branch
-'tty-next' of git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git
-git bisect bad 4dfc8ee8540b799d604551c41c82a9e07089e20e
-# bad: [1fad63263f1650f15d5bd174391a53d3e600c327] Merge branch
-'rcu/next' of
-git://git.kernel.org/pub/scm/linux/kernel/git/paulmck/linux-rcu.git
-git bisect bad 1fad63263f1650f15d5bd174391a53d3e600c327
-# bad: [0ced0254dca0bc06b09cfe31d6af411856379ea0] Merge branch into
-tip/master: 'x86/vdso'
-git bisect bad 0ced0254dca0bc06b09cfe31d6af411856379ea0
-# good: [218b13db258c091e646857fc962ef45fe2163054] Merge branch
-'x86/core' into x86/merge, to ease integration testing
-git bisect good 218b13db258c091e646857fc962ef45fe2163054
-# bad: [0b1902960678524b91f9ee3c94fc6561cfa1ead9] Merge branch into
-tip/master: 'timers/ptp'
-git bisect bad 0b1902960678524b91f9ee3c94fc6561cfa1ead9
-# bad: [fa4d750326d50e3cc7801ada3d641daf14a4cb9d] Merge branch into
-tip/master: 'irq/msi'
-git bisect bad fa4d750326d50e3cc7801ada3d641daf14a4cb9d
-# good: [9e04f6432c7ebaf33d5ce9a6e15bc544da316e54] Merge branch into
-tip/master: 'irq/core'
-git bisect good 9e04f6432c7ebaf33d5ce9a6e15bc544da316e54
-# bad: [1a4671ff7a903e87e4e76213e200bb8bcfa942e4] platform-msi: Remove
-unused interfaces
-git bisect bad 1a4671ff7a903e87e4e76213e200bb8bcfa942e4
-# bad: [ac81e94ab001c2882e89c9b61417caea64b800df] genirq/msi: Extend
-msi_parent_ops
-git bisect bad ac81e94ab001c2882e89c9b61417caea64b800df
-# bad: [de1ff306dcf4546d6a8863b1f956335e0d3fbb9b] genirq/irqdomain:
-Remove the param count restriction from select()
-git bisect bad de1ff306dcf4546d6a8863b1f956335e0d3fbb9b
-# good: [15137825100422c4c393c87af5aa5a8fa297b1f3] irqchip/gic-v3: Make
-gic_irq_domain_select() robust for zero parameter count
-git bisect good 15137825100422c4c393c87af5aa5a8fa297b1f3
-# first bad commit: [de1ff306dcf4546d6a8863b1f956335e0d3fbb9b]
-genirq/irqdomain: Remove the param count restriction from select()
-------
-
-Thanks,
-Aishwarya
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QW51cCBQYXRlbCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+IHdyaXRlczoKCj4gZGlmZiAtLWdp
+dCBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtc3RhdGUuYyBiL2RyaXZlcnMvaXJx
+Y2hpcC9pcnEtcmlzY3YtaW1zaWMtc3RhdGUuYwo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5k
+ZXggMDAwMDAwMDAwMDAwLi4wYzE5ZmZiOWNhM2UKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvZHJp
+dmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1zdGF0ZS5jCj4gQEAgLTAsMCArMSw4NzAgQEAK
+ClsuLi5dCgo+ICtzdGF0aWMgdm9pZCBfX2ltc2ljX2xvY2FsX3N5bmMoc3RydWN0IGltc2ljX2xv
+Y2FsX3ByaXYgKmxwcml2KQo+ICt7Cj4gKwlzdHJ1Y3QgaW1zaWNfbG9jYWxfY29uZmlnICptbG9j
+YWw7Cj4gKwlzdHJ1Y3QgaW1zaWNfdmVjdG9yICp2ZWMsICptdmVjOwo+ICsJaW50IGk7Cj4gKwo+
+ICsJbG9ja2RlcF9hc3NlcnRfaGVsZCgmbHByaXYtPmxvY2spOwo+ICsKPiArCS8qIFRoaXMgcGFp
+cnMgd2l0aCB0aGUgYmFycmllciBpbiBfX2ltc2ljX3JlbW90ZV9zeW5jKCkuICovCj4gKwlzbXBf
+bWIoKTsKCkknbSB0cnlpbmcgdG8gZmlndXJlIG91dCB3aHkgdGhpcyBiYXJyaWVyIGlzIG5lZWRl
+ZD8gQWxsIHRoZSB1cGRhdGVzIGFyZQpkb25lIGJlaGluZCB0aGUgc3BpbmxvY2tzLiBJZiB0aGVy
+ZSdyZSBzb21lIG9yZGVyaW5nIGNvbnN0cmFpbnRzIHRoYXQKSSdtIG1pc3NpbmcsIHBsZWFzZSBk
+b2N1bWVudCB0aGVtLgoKPiArCj4gKwlmb3JfZWFjaF9zZXRfYml0KGksIGxwcml2LT5kaXJ0eV9i
+aXRtYXAsIGltc2ljLT5nbG9iYWwubnJfaWRzICsgMSkgewo+ICsJCWlmICghaSB8fCBpID09IElN
+U0lDX0lQSV9JRCkKPiArCQkJZ290byBza2lwOwo+ICsJCXZlYyA9ICZscHJpdi0+dmVjdG9yc1tp
+XTsKPiArCj4gKwkJaWYgKFJFQURfT05DRSh2ZWMtPmVuYWJsZSkpCj4gKwkJCV9faW1zaWNfaWRf
+c2V0X2VuYWJsZShpKTsKPiArCQllbHNlCj4gKwkJCV9faW1zaWNfaWRfY2xlYXJfZW5hYmxlKGkp
+Owo+ICsKPiArCQkvKgo+ICsJCSAqIElmIHRoZSBJRCB3YXMgYmVpbmcgbW92ZWQgdG8gYSBuZXcg
+SUQgb24gc29tZSBvdGhlciBDUFUKPiArCQkgKiB0aGVuIHdlIGNhbiBnZXQgYSBNU0kgZHVyaW5n
+IHRoZSBtb3ZlbWVudCBzbyBjaGVjayB0aGUKPiArCQkgKiBJRCBwZW5kaW5nIGJpdCBhbmQgcmUt
+dHJpZ2dlciB0aGUgbmV3IElEIG9uIG90aGVyIENQVQo+ICsJCSAqIHVzaW5nIE1NSU8gd3JpdGUu
+Cj4gKwkJICovCj4gKwkJbXZlYyA9IFJFQURfT05DRSh2ZWMtPm1vdmUpOwo+ICsJCVdSSVRFX09O
+Q0UodmVjLT5tb3ZlLCBOVUxMKTsKCm12ZWMgPSB4Y2hnKCZ2ZWMtPm1vdmUsIE5VTEwpID8KCj4g
+KwkJaWYgKG12ZWMgJiYgbXZlYyAhPSB2ZWMpIHsKPiArCQkJaWYgKF9faW1zaWNfaWRfcmVhZF9j
+bGVhcl9wZW5kaW5nKGkpKSB7Cj4gKwkJCQltbG9jYWwgPSBwZXJfY3B1X3B0cihpbXNpYy0+Z2xv
+YmFsLmxvY2FsLCBtdmVjLT5jcHUpOwo+ICsJCQkJd3JpdGVsX3JlbGF4ZWQobXZlYy0+bG9jYWxf
+aWQsIG1sb2NhbC0+bXNpX3ZhKTsKPiArCQkJfQo+ICsKPiArCQkJaW1zaWNfdmVjdG9yX2ZyZWUo
+Jmxwcml2LT52ZWN0b3JzW2ldKTsKPiArCQl9Cj4gKwo+ICtza2lwOgo+ICsJCWJpdG1hcF9jbGVh
+cihscHJpdi0+ZGlydHlfYml0bWFwLCBpLCAxKTsKPiArCX0KPiArfQo+ICsKPiArdm9pZCBpbXNp
+Y19sb2NhbF9zeW5jX2FsbCh2b2lkKQo+ICt7Cj4gKwlzdHJ1Y3QgaW1zaWNfbG9jYWxfcHJpdiAq
+bHByaXYgPSB0aGlzX2NwdV9wdHIoaW1zaWMtPmxwcml2KTsKPiArCXVuc2lnbmVkIGxvbmcgZmxh
+Z3M7Cj4gKwo+ICsJcmF3X3NwaW5fbG9ja19pcnFzYXZlKCZscHJpdi0+bG9jaywgZmxhZ3MpOwo+
+ICsJYml0bWFwX2ZpbGwobHByaXYtPmRpcnR5X2JpdG1hcCwgaW1zaWMtPmdsb2JhbC5ucl9pZHMg
+KyAxKTsKPiArCV9faW1zaWNfbG9jYWxfc3luYyhscHJpdik7Cj4gKwlyYXdfc3Bpbl91bmxvY2tf
+aXJxcmVzdG9yZSgmbHByaXYtPmxvY2ssIGZsYWdzKTsKPiArfQo+ICsKPiArdm9pZCBpbXNpY19s
+b2NhbF9kZWxpdmVyeShib29sIGVuYWJsZSkKPiArewo+ICsJaWYgKGVuYWJsZSkgewo+ICsJCWlt
+c2ljX2Nzcl93cml0ZShJTVNJQ19FSVRIUkVTSE9MRCwgSU1TSUNfRU5BQkxFX0VJVEhSRVNIT0xE
+KTsKPiArCQlpbXNpY19jc3Jfd3JpdGUoSU1TSUNfRUlERUxJVkVSWSwgSU1TSUNfRU5BQkxFX0VJ
+REVMSVZFUlkpOwo+ICsJCXJldHVybjsKPiArCX0KPiArCj4gKwlpbXNpY19jc3Jfd3JpdGUoSU1T
+SUNfRUlERUxJVkVSWSwgSU1TSUNfRElTQUJMRV9FSURFTElWRVJZKTsKPiArCWltc2ljX2Nzcl93
+cml0ZShJTVNJQ19FSVRIUkVTSE9MRCwgSU1TSUNfRElTQUJMRV9FSVRIUkVTSE9MRCk7Cj4gK30K
+PiArCj4gKyNpZmRlZiBDT05GSUdfU01QCj4gK3N0YXRpYyB2b2lkIGltc2ljX2xvY2FsX3RpbWVy
+X2NhbGxiYWNrKHN0cnVjdCB0aW1lcl9saXN0ICp0aW1lcikKPiArewo+ICsJc3RydWN0IGltc2lj
+X2xvY2FsX3ByaXYgKmxwcml2ID0gdGhpc19jcHVfcHRyKGltc2ljLT5scHJpdik7Cj4gKwl1bnNp
+Z25lZCBsb25nIGZsYWdzOwo+ICsKPiArCXJhd19zcGluX2xvY2tfaXJxc2F2ZSgmbHByaXYtPmxv
+Y2ssIGZsYWdzKTsKPiArCV9faW1zaWNfbG9jYWxfc3luYyhscHJpdik7Cj4gKwlyYXdfc3Bpbl91
+bmxvY2tfaXJxcmVzdG9yZSgmbHByaXYtPmxvY2ssIGZsYWdzKTsKPiArfQo+ICsKPiArc3RhdGlj
+IHZvaWQgX19pbXNpY19yZW1vdGVfc3luYyhzdHJ1Y3QgaW1zaWNfbG9jYWxfcHJpdiAqbHByaXYs
+IHVuc2lnbmVkIGludCBjcHUpCj4gK3sKPiArCWxvY2tkZXBfYXNzZXJ0X2hlbGQoJmxwcml2LT5s
+b2NrKTsKPiArCj4gKwkvKgo+ICsJICogRW5zdXJlIHRoYXQgY2hhbmdlcyB0byB2ZWN0b3IgZW5h
+YmxlLCB2ZWN0b3IgbW92ZSBhbmQKPiArCSAqIGRpcnR5IGJpdG1hcCBhcmUgdmlzaWJsZSB0byB0
+aGUgdGFyZ2V0IENQVS4KCi4uLndoaWNoIGNhc2UgdGhlIHNwaW5sb2NrKHMpIGFyZSBlbm91Z2gs
+IG5vPwoKPiArCSAqCj4gKwkgKiBUaGlzIHBhaXJzIHdpdGggdGhlIGJhcnJpZXIgaW4gX19pbXNp
+Y19sb2NhbF9zeW5jKCkuCj4gKwkgKi8KPiArCXNtcF9tYigpOwo+ICsKPiArCS8qCj4gKwkgKiBX
+ZSBzY2hlZHVsZSBhIHRpbWVyIG9uIHRoZSB0YXJnZXQgQ1BVIGlmIHRoZSB0YXJnZXQgQ1BVIGlz
+IG5vdAo+ICsJICogc2FtZSBhcyB0aGUgY3VycmVudCBDUFUuIEFuIG9mZmxpbmUgQ1BVIHdpbGwg
+dW5jb25kaXRpb25hbGx5Cj4gKwkgKiBzeW5jaHJvbml6ZSBJRHMgdGhyb3VnaCBpbXNpY19zdGFy
+dGluZ19jcHUoKSB3aGVuIHRoZQo+ICsJICogQ1BVIGlzIGJyb3VnaHQgdXAuCj4gKwkgKi8KPiAr
+CWlmIChjcHVfb25saW5lKGNwdSkpIHsKPiArCQlpZiAoY3B1ID09IHNtcF9wcm9jZXNzb3JfaWQo
+KSkgewo+ICsJCQlfX2ltc2ljX2xvY2FsX3N5bmMobHByaXYpOwo+ICsJCQlyZXR1cm47Cj4gKwkJ
+fQoKTWF5YmUgbW92ZSB0aGlzIGlmLWNsYXVzZSBvdXQgZnJvbSB0aGUgY3B1X29ubGluZSgpLCBh
+bmQgb25seSBoYXZlCnNvbWV0aGluZyBsaWtlCiAgaWYgKGNwdV9vbmxpbmUoY3B1KSAmJiAhdGlt
+ZXJfcGVuZGluZygmbHByaXYtPnRpbWVyKSkgeyAuLi4gfQppbnNpZGUgdGhlIENPTkZJR19TTVAg
+Z3VhcmQuLi4KCj4gKwo+ICsJCWlmICghdGltZXJfcGVuZGluZygmbHByaXYtPnRpbWVyKSkgewo+
+ICsJCQlscHJpdi0+dGltZXIuZXhwaXJlcyA9IGppZmZpZXMgKyAxOwo+ICsJCQlhZGRfdGltZXJf
+b24oJmxwcml2LT50aW1lciwgY3B1KTsKPiArCQl9Cj4gKwl9Cj4gK30KPiArI2Vsc2UKPiArc3Rh
+dGljIHZvaWQgX19pbXNpY19yZW1vdGVfc3luYyhzdHJ1Y3QgaW1zaWNfbG9jYWxfcHJpdiAqbHBy
+aXYsIHVuc2lnbmVkIGludCBjcHUpCj4gK3sKPiArCWxvY2tkZXBfYXNzZXJ0X2hlbGQoJmxwcml2
+LT5sb2NrKTsKPiArCV9faW1zaWNfbG9jYWxfc3luYyhscHJpdik7Cj4gK30KPiArI2VuZGlmCgou
+Li53aGVyZSB3ZSBjYW4gZ2V0IHJpZCBvZiB0aGlzIHNwZWNpYWwgIVNNUCBhbGwgdG9nZXRoZXIg
+Zm9yIHRoaXMKZnVuY3Rpb24uCgo+ICsKPiArdm9pZCBpbXNpY192ZWN0b3JfbWFzayhzdHJ1Y3Qg
+aW1zaWNfdmVjdG9yICp2ZWMpCj4gK3sKPiArCXN0cnVjdCBpbXNpY19sb2NhbF9wcml2ICpscHJp
+djsKPiArCj4gKwlscHJpdiA9IHBlcl9jcHVfcHRyKGltc2ljLT5scHJpdiwgdmVjLT5jcHUpOwo+
+ICsJaWYgKFdBUk5fT05fT05DRSgmbHByaXYtPnZlY3RvcnNbdmVjLT5sb2NhbF9pZF0gIT0gdmVj
+KSkKPiArCQlyZXR1cm47Cj4gKwo+ICsJLyoKPiArCSAqIFRoaXMgZnVuY3Rpb24gaXMgY2FsbGVk
+IHRocm91Z2ggTGludXggaXJxIHN1YnN5c3RlbSB3aXRoCj4gKwkgKiBpcnFzIGRpc2FibGVkIHNv
+IG5vIG5lZWQgdG8gc2F2ZS9yZXN0b3JlIGlycSBmbGFncy4KPiArCSAqLwo+ICsKPiArCXJhd19z
+cGluX2xvY2soJmxwcml2LT5sb2NrKTsKPiArCj4gKwl2ZWMtPmVuYWJsZSA9IGZhbHNlOwoKU2hv
+dWxkIGhhdmUgV1JJVEVfT05DRSB0byBtYWtlIHRoZSBjaGVja2VycyBoYXBweS4KCj4gKwliaXRt
+YXBfc2V0KGxwcml2LT5kaXJ0eV9iaXRtYXAsIHZlYy0+bG9jYWxfaWQsIDEpOwo+ICsJX19pbXNp
+Y19yZW1vdGVfc3luYyhscHJpdiwgdmVjLT5jcHUpOwo+ICsKPiArCXJhd19zcGluX3VubG9jaygm
+bHByaXYtPmxvY2spOwo+ICt9Cj4gKwo+ICt2b2lkIGltc2ljX3ZlY3Rvcl91bm1hc2soc3RydWN0
+IGltc2ljX3ZlY3RvciAqdmVjKQo+ICt7Cj4gKwlzdHJ1Y3QgaW1zaWNfbG9jYWxfcHJpdiAqbHBy
+aXY7Cj4gKwo+ICsJbHByaXYgPSBwZXJfY3B1X3B0cihpbXNpYy0+bHByaXYsIHZlYy0+Y3B1KTsK
+PiArCWlmIChXQVJOX09OX09OQ0UoJmxwcml2LT52ZWN0b3JzW3ZlYy0+bG9jYWxfaWRdICE9IHZl
+YykpCj4gKwkJcmV0dXJuOwo+ICsKPiArCS8qCj4gKwkgKiBUaGlzIGZ1bmN0aW9uIGlzIGNhbGxl
+ZCB0aHJvdWdoIExpbnV4IGlycSBzdWJzeXN0ZW0gd2l0aAo+ICsJICogaXJxcyBkaXNhYmxlZCBz
+byBubyBuZWVkIHRvIHNhdmUvcmVzdG9yZSBpcnEgZmxhZ3MuCj4gKwkgKi8KPiArCj4gKwlyYXdf
+c3Bpbl9sb2NrKCZscHJpdi0+bG9jayk7Cj4gKwo+ICsJdmVjLT5lbmFibGUgPSB0cnVlOwoKRGl0
+by4KCj4gKwliaXRtYXBfc2V0KGxwcml2LT5kaXJ0eV9iaXRtYXAsIHZlYy0+bG9jYWxfaWQsIDEp
+Owo+ICsJX19pbXNpY19yZW1vdGVfc3luYyhscHJpdiwgdmVjLT5jcHUpOwo+ICsKPiArCXJhd19z
+cGluX3VubG9jaygmbHByaXYtPmxvY2spOwo+ICt9Cj4gKwo+ICtzdGF0aWMgYm9vbCBpbXNpY192
+ZWN0b3JfbW92ZV91cGRhdGUoc3RydWN0IGltc2ljX2xvY2FsX3ByaXYgKmxwcml2LCBzdHJ1Y3Qg
+aW1zaWNfdmVjdG9yICp2ZWMsCj4gKwkJCQkgICAgIGJvb2wgbmV3X2VuYWJsZSwgc3RydWN0IGlt
+c2ljX3ZlY3RvciAqbmV3X21vdmUpCj4gK3sKPiArCXVuc2lnbmVkIGxvbmcgZmxhZ3M7Cj4gKwli
+b29sIGVuYWJsZWQ7Cj4gKwo+ICsJcmF3X3NwaW5fbG9ja19pcnFzYXZlKCZscHJpdi0+bG9jaywg
+ZmxhZ3MpOwo+ICsKPiArCS8qIFVwZGF0ZSBlbmFibGUgYW5kIG1vdmUgZGV0YWlscyAqLwo+ICsJ
+ZW5hYmxlZCA9IFJFQURfT05DRSh2ZWMtPmVuYWJsZSk7Cj4gKwlXUklURV9PTkNFKHZlYy0+ZW5h
+YmxlLCBuZXdfZW5hYmxlKTsKCkFnYWluLCB4Y2hnKCkgd291bGQgYmUgZWFzaWVyIHRvIHJlYWQu
+CgoKQmrDtnJuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
