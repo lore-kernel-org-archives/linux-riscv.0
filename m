@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEA9C47DD9
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 21:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADDDAC5478C
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 21:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mcMS7waSICCa9iCVDc4ZT63JtYBgz4hibKVoHvLwil0=; b=bhzYH2yRb/pRAP
-	G/UuSaJETspXo8lvqrrIVwGIhWwqxlRojfU/CoHkrV8UVsUbfu8yvh6R5F833p99t6vo5SMWMGlGD
-	MbCw0TD9LwIs6p+ZXHat+54zUQQ8OjQTf2Ximc15Td2ulZ2ri3SLrCFP6JtIHA874CP2RFO+pBsYS
-	tufhr7GIE0IyhWX/1U/QbrKHscXgyltYCUmNmgbMxWLZHVXi/M232ShYXDNMpTgML06/hfepw69p/
-	xeRue8KXo83s6uNErEDYfl5aLH1+1OIAndJ8lnOXF9o3jD1i9ID/aUOs5qTXFMgOgCp86+kr7Ej5i
-	5u7lfFF1z1zgqcrA1D4w==;
+	List-Owner; bh=cQqko3+KEHBaIebLtVT26US6sJ10qgJmnZrQP2oKa4M=; b=tkBg3KF6mVzGZA
+	ucIwRYz/9tYN8Jh/wsjjA/6e1OYoGK0yUuqCNJWebIRC8CccpsoETBirsUcvEXahI6oSQjQi84/Ek
+	2TBEkl1PPvg0264339g98Ex1Nffu5PumIUrGBG27UfquB7/YW40DxJYbEyAqlXVmxh+iS9Fopv4qN
+	kbk1s2zc0SwjcRa0Iu3BVcz1X3vxJfm8sJppBOVNwMk2c+Whrn1PLqLuIG6AhTcCvwsiPsGkK64WX
+	YQ9WpnN9H53yAxE7jx7p0DAuzuE+4KixvaKiTj/mVKuS/pHijskJcVCEfhDbpI+at/e8N6AJzgG8l
+	SOH9TfKe83XhznEpIhhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdGih-00000006g5H-2u38;
-	Thu, 22 Feb 2024 21:35:07 +0000
+	id 1rdGkU-00000006gw1-0RCv;
+	Thu, 22 Feb 2024 21:36:58 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdGhd-00000006fpv-0ZG5;
-	Thu, 22 Feb 2024 21:34:36 +0000
+	id 1rdGkL-00000006gsY-2F5h;
+	Thu, 22 Feb 2024 21:36:54 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1708637638;
+	s=2020; t=1708637808;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PrJ6YaFxatvY2iijd5Wqk9LxjgKfLoik+dqgECHQvCc=;
-	b=E8IKGWFobvMuydi/MYlCGtioOqkIyOjB766pK5NO0O5XAbWMgtCQk2EakY7kz56uIkMp3A
-	fJbScBQ7wtn6rKFXSCse7HAP0zIHNNRFq8Ui3HnKIRcHVv/O9A7dOQ6zsE4xtAO/3shZDu
-	23y7JebnE1ZqgWTCB3f+GBIYWpf2KD4JcGH/n7wROMMpEU5bjsYRQQkyvREUxOWN/82puZ
-	yudaq144aPD64IIrSwauXD1UAtqhEMgF3BHJg+rFhOCmk9oLQQttGgkoVbUWVsWI1tTVVf
-	mqGzlP45wJkqZqOGx/jyqNSr6gyeRP5Z+KfnumjcBO+2r6ws4mpxbJxuDmtoag==
+	bh=ysPo6JrAY4nGWCiZuUlITPDn7XnJnDVfKZs7jRkBAW4=;
+	b=mHY/ep6f/6+Zhj4+fZRHJ34d2lfiHP1EuInqjDkWFDCaiz/e8s95zPGbT8M0Ad++Dzyjmb
+	oVY+D2yqHO9WQbM0zwWCA5C3UGCs+gQ3z590Ucxghlf4Dlr41VPiQF9YgQYZMLeUawEiAa
+	Rnc0moqmMGO4SebkjihxwYdCTGbaE8vxFP+Vadvxo7Yltc9LG8tDTKxbNnV9fYjvOpOKXA
+	IVzZemMDik58mgm0f4adOVww1qNlUCp6hVusO9YpY3wPgYHU/R6LCbNdfHNpPLOSKZiLCu
+	6a7wcJJnpMSyhcj5Qeg9peFN2J/35vITOcTokZCnmz0jPiz2SksBNd0ahFfwWg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1708637638;
+	s=2020e; t=1708637808;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PrJ6YaFxatvY2iijd5Wqk9LxjgKfLoik+dqgECHQvCc=;
-	b=fDIU63ciUTcRIKaxF7jIPyC9HLb4PBqsycE7avUV7D+2/qWfEpyl+pqC54WNOiNeW+0k7b
-	moIvBy70qNb/RwAw==
+	bh=ysPo6JrAY4nGWCiZuUlITPDn7XnJnDVfKZs7jRkBAW4=;
+	b=6v3VMHzFcbvBoIrwVbn04/STMyA/qaJsgeXvHkOW1vMOCTZyQDFr2zoK8GtfRgUV7KtM1v
+	sGwpCMRcO4QbnbAQ==
 To: Yu Chien Peter Lin <peterlin@andestech.com>, acme@kernel.org,
  adrian.hunter@intel.com, ajones@ventanamicro.com,
  alexander.shishkin@linux.intel.com, andre.przywara@arm.com,
@@ -65,19 +65,18 @@ To: Yu Chien Peter Lin <peterlin@andestech.com>, acme@kernel.org,
  robh+dt@kernel.org, samuel@sholland.org, sunilvl@ventanamicro.com,
  tim609@andestech.com, uwu@icenowy.me, wens@csie.org, will@kernel.org,
  inochiama@outlook.com, unicorn_wang@outlook.com, wefu@redhat.com
-Cc: Randolph <randolph@andestech.com>, Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v9 02/10] irqchip/riscv-intc: Allow large non-standard
- interrupt number
-In-Reply-To: <20240222083946.3977135-3-peterlin@andestech.com>
+Cc: Randolph <randolph@andestech.com>
+Subject: Re: [PATCH v9 03/10] irqchip/riscv-intc: Introduce Andes hart-level
+ interrupt controller
+In-Reply-To: <20240222083946.3977135-4-peterlin@andestech.com>
 References: <20240222083946.3977135-1-peterlin@andestech.com>
- <20240222083946.3977135-3-peterlin@andestech.com>
-Date: Thu, 22 Feb 2024 22:33:58 +0100
-Message-ID: <87r0h4dvzt.ffs@tglx>
+ <20240222083946.3977135-4-peterlin@andestech.com>
+Date: Thu, 22 Feb 2024 22:36:47 +0100
+Message-ID: <87o7c8dvv4.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240222_133402_634530_DE734C60 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240222_133649_826958_188DCFF1 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,23 +94,43 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Thu, Feb 22 2024 at 16:39, Yu Chien Peter Lin wrote:
-> Currently, the implementation of the RISC-V INTC driver uses the
-> interrupt cause as the hardware interrupt number, with a maximum of
-> 64 interrupts. However, the platform can expand the interrupt number
-> further for custom local interrupts.
+> Add support for the Andes hart-level interrupt controller. This
+> controller provides interrupt mask/unmask functions to access the
+> custom register (SLIE) where the non-standard S-mode local interrupt
+> enable bits are located. The base of custom interrupt number is set
+> to 256.
 >
-> To fully utilize the available local interrupt sources, switch
-> to using irq_domain_create_tree() that creates the radix tree
-> map, add global variables (riscv_intc_nr_irqs, riscv_intc_custom_base
-> and riscv_intc_custom_nr_irqs) to determine the valid range of local
-> interrupt number (hwirq).
+> To share the riscv_intc_domain_map() with the generic RISC-V INTC and
+> ACPI, add a chip parameter to riscv_intc_init_common(), so it can be
+> passed to the irq_domain_set_info() as a private data.
+>
+> Andes hart-level interrupt controller requires the "andestech,cpu-intc"
+> compatible string to be present in interrupt-controller of cpu node to
+> enable the use of custom local interrupt source.
+> e.g.,
+>
+>   cpu0: cpu@0 {
+>       compatible = "andestech,ax45mp", "riscv";
+>       ...
+>       cpu0-intc: interrupt-controller {
+>           #interrupt-cells = <0x01>;
+>           compatible = "andestech,cpu-intc", "riscv,cpu-intc";
+>           interrupt-controller;
+>       };
+>   };
 >
 > Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
 > Reviewed-by: Randolph <randolph@andestech.com>
 > Reviewed-by: Anup Patel <anup@brainfault.org>
-> Reviewed-by: Atish Patra <atishp@rivosinc.com>
 
 Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
+
+Palmer, feel free to take this through the riscv tree. I have no other
+changes pending against that driver.
+
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
