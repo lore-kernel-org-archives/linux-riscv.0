@@ -4,116 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 551CFC48BEB
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 00:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757FDC48BEB
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 00:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jCwcaGNUD4OESqS20fXhQXvck7Nc/4FwG/C5naLNhYs=; b=uz6JGMKmGHj189
-	MhRaqjXxiz7xCQV4Utl/OMa6IXd4YozU4XM67At556nmrlk1WtnjYA1FPKBuiElSxTsgLDA6zwKtC
-	XKED3uokHx9yKVHPWTUaHTswNp8eK2UznJkEfvsS7/XPRD/uGRl+vhXavhqZlXKwocSe9SzFmAkmD
-	XZF6wrxjEraw0fk2nW7BJzAoeExa1Cbrb9vIyqK9oxtI36AL3bk72jvMhAgKfS7eBnyg8PcoR1DvH
-	H8cVks24EeBl4Q98Cuh24WVk0t/gM6nyyJ4gsIey9tItSmaI7m2FkpuZd58qqJnvn7mSI9LckdV4c
-	OA5tU9aML2mMrJEZNR5g==;
+	List-Owner; bh=tyFxjkEGQd3/+xhzGjheFcz9f/dnEGSjw0Xd16jekr4=; b=xV/S5skZ/m3YKo
+	POyQUA49ZMglZ30qhqCEu9UIqsKLUaUTsd4O+0bhfoArr0sc0Xc2S5Z6e7rFE0CecFy3mJuDUFCQb
+	ogVp9qd5gF7yF/h/BpeHq4c99zjNDRu9EiPvzUwuyUsExK4mAtqKJjlYSCGSefwfvhDRKf0RDYAOS
+	RcBtuHt+ft8sbPwkeBNoOzWm/ElYNensKaWOdXDTK3H2/l7jpXr8faPXsQiuMggsYHI0qEQ4M9qGS
+	jZB32O9dRiuvc4mLtMATgAECB24jJZZlweZcYA2uofpNU981cqnrfaTaolaiVq0QDZk+Ccw3bO3jy
+	8yxIsCSxwm+iH5dLav5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcwwV-000000032IV-28EG;
-	Thu, 22 Feb 2024 00:28:03 +0000
-Received: from mail-dm3nam02olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2c05::800] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1rcx3c-000000033U1-3PHl;
+	Thu, 22 Feb 2024 00:35:24 +0000
+Received: from mail-mw2nam12olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2805::801] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rcwwS-000000032EG-3spE
+	id 1rcx3Z-000000033Po-0uLn
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Feb 2024 00:28:02 +0000
+	Thu, 22 Feb 2024 00:35:22 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=a1VfRJC9ByPMqiZYTdBYA2/KgSZLpunEal5HAsVOu1zKBGv1YWkxLi7fq++AMHgrPHEk6G5C9mUGRLieYDIKuZhi1FjEMkxeM0i18hR5mpNVBrZIw9IdSqOG7pGM924R+nvIcWBVcYfbqcs+IgwtcXxEcezsjNF93g/ZAcTn56ORT2rtP4iU8vHnOcSQWnQA8xx7lwjNY3Xxyk1K/v8Fp6trZyMecEAFeGmk2zHB/D4Q8AhDVkNEvx9u8ANR4X85Ofm4zVSYsRXdhxJSR1OTK1au48878siHAQqGVJqTZQxYrjo1DHZcPbGGCA3YHgFwXBpx/+KE34x8Xf1TXds3Jw==
+ b=YZhZ+YA2Vo2nWhMvuz22PFNxZ5P3ZQz11spSBvrD2dVrzunHYPvut+C7frB4OBI2Pf8yveEFbM1HBCnM0+spYaeC8FroETxq0QO0OCwStAhZy2M+Zf73G0yAERgxHoLpWa8moiy6h41ofNtlIS5WYHuG/l46VA+f2tThNvtx5yikxoqJdwO7ywnUR8CMdkiyXpvGp1j3DEuQ/ZhfdICJ+Q4z9EkYkwzdnDd7G/CvXkCqDdxKfh1LoAXtraK9DKttSQAQzR0gdmDVtacL8uohcxXwSpliGXCOGa0bD6WjQxip8rMNvCgr1iVivXgrF9Z0mMn+HX0yBhGL2JZd4F4W+w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LUZNmy6/jkchcP9jkCbhH77kEkiBzT8gWXjBE9cD0fc=;
- b=Zdp3HReE9/4AKcVGrQjg7sSI79Bctd28+jCt0dTAiMrqPWu3blEwZDphOUUENaApxq8y14CAaNfMfrRF6gyeJPYzi76tl5/Ph9FuuMsidvlQh+2ox7miWqGzmR+VU1LAYhf/yvmS5u4Y8PUIoLT9VoYcU1EjgiVjI2TRKtQf3+OcEfIq+YVcZ7toJEXGqWd101T3v/vUOwBSHoHOuiMD9UJPnmlqjse+4LC7U1OdP5+N0QLXaYT7MM3GljFz1vzzfALoo8hNFnoK6dJ+j1j94ceHx/p8dwmtTJlR91sgrhWDn6uM7vZ9sOOZuVIhArvgm4zn1SL+ZohcrcHhgCWwaw==
+ bh=dWDDekQEJV684nc0ZTl8i8Hp2zBf39zJvPD93w9V0fo=;
+ b=TEYJDU4elBzFrbbneFrkRFPzmiGvxySK/KDUlitw9zwXyc4Giwx71LpR+8AKek1FcLImtx8hJS05wZOrTZRFHo+PmRMBuVaWG3mh5mrpPW7S6vU9A1hcih29DC8ZqN+FzZ35B3UpFVjPz/dzkGU+pmJSvF8scwr6/Qg72kFVZoOm9/u4DWoUckX5J+GD26y5UQRN22H/dP5J9hKPIWapYqPmJBNBRTdcPguFZ9UymJENCQyiO0UPUFlH3YeRhJmhrXaJAb94OsfeoHwAahp5YLMTZEZ895DQ1I1Dej3vbjxPVwWn1gvnJI/SnA5INmbbkMnCXNyVHtXYZNqV2+0o7w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LUZNmy6/jkchcP9jkCbhH77kEkiBzT8gWXjBE9cD0fc=;
- b=on+VAhT3CWUlRxdPNxakszNvNMhHU2U/CJqx1lIbRjW+4vytOf2Xh1iidLo+4Xl+705vR3+cQY8JkQbBca9A2oq/Nl+lTIVCWiNgNX1Wb7prsX/8tpnPOwDrGy+/Q5y/WlkhQ2AMIdUFE3THEgetAgov7CaRVmxsUb1yA3K7yyqHYOY2rmSLqp7UZWtwGt/byelAYu1dG7hl+oAvH+H1SMBqoTtCm/AMOKBnp9SgiMTixGT2l8nA/k1rYT3JrPZk07UCRE/Suj/Vck7TC9R3+JGgQW6xQcyXfw4hvVjYRlt3J1TfGirj6+sJ05tY+k59BtjpzbMHqBcKqhlIizdQHQ==
+ bh=dWDDekQEJV684nc0ZTl8i8Hp2zBf39zJvPD93w9V0fo=;
+ b=mIXfz4e/zolkZsEcFV7+vYTjbTBvi2wvEbxTcxxepArCs+FEaUr8AZJfjdPACCVByk/FgefITud21rLRrRwqHrO1+gn6EPB0drMpGzaFNo+LjhTbJsqdZ8NAKn3lDy7NxawPxBM6PIWqZN2nE9Er0iE+P6YM2N2iiaNjVfNOINWHLDbFIRGhoHtLZwbB6yfJsdLxPZSiSPgz3KTnC46sBcXhZ+BfkLHgmas7hrrJv0GdNxaj/uef6BMnrZL5AXmPZaaGdZNrZ7NWCY7wqxWWF5RBil+EeYvCZB0tTOYAxur9c1gV3GYsOydLWN2uqHLiuWL7F3ybY0NX0QJMSBd7Iw==
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by CH3PR20MB5627.namprd20.prod.outlook.com (2603:10b6:610:147::16) with
+ by LV8PR20MB7362.namprd20.prod.outlook.com (2603:10b6:408:231::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7292.39; Thu, 22 Feb
- 2024 00:27:52 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7316.21; Thu, 22 Feb
+ 2024 00:35:07 +0000
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::8615:efe2:7c8e:2041]) by IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::8615:efe2:7c8e:2041%3]) with mapi id 15.20.7316.018; Thu, 22 Feb 2024
- 00:27:52 +0000
-Date: Thu, 22 Feb 2024 08:28:00 +0800
+ 00:35:07 +0000
+Date: Thu, 22 Feb 2024 08:35:14 +0800
 From: Inochi Amaoto <inochiama@outlook.com>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	p.zabel@pengutronix.de, robh+dt@kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com, 
-	xiaoguang.xing@sophgo.com, guoren@kernel.org, jszhang@kernel.org, 
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH v3 3/4] riscv: dts: add reset generator for Sophgo SG2042
- SoC
-Message-ID: <IA1PR20MB4953D0DF7E89CF234A7C571DBB562@IA1PR20MB4953.namprd20.prod.outlook.com>
+To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu, 
+	chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
+	palmer@dabbelt.com, paul.walmsley@sifive.com, p.zabel@pengutronix.de, 
+	robh+dt@kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, 
+	guoren@kernel.org, jszhang@kernel.org
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@outlook.com>
+Subject: Re: [PATCH v3 4/4] riscv: dts: add resets property for uart node
+Message-ID: <IA1PR20MB495398760802EC53FF4F7EEFBB562@IA1PR20MB4953.namprd20.prod.outlook.com>
 References: <cover.1706577450.git.unicorn_wang@outlook.com>
- <b2f5d7cd2d3fccfc00cf4563d2dd7363b0fa2fca.1706577450.git.unicorn_wang@outlook.com>
+ <807f75e433a0f900da40ebb6a448349c98580072.1706577450.git.unicorn_wang@outlook.com>
 Content-Disposition: inline
-In-Reply-To: <b2f5d7cd2d3fccfc00cf4563d2dd7363b0fa2fca.1706577450.git.unicorn_wang@outlook.com>
-X-TMN: [aNq4GR5kWQUTjyZ1i23YcvTvy9bLzdlc3PKtEb846l0=]
-X-ClientProxiedBy: TYCP286CA0341.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:38e::9) To IA1PR20MB4953.namprd20.prod.outlook.com
+In-Reply-To: <807f75e433a0f900da40ebb6a448349c98580072.1706577450.git.unicorn_wang@outlook.com>
+X-TMN: [i8JBX8/3XrzS/fEoi8mwWMx0UH3Xc4+zKeGH7RR0V40=]
+X-ClientProxiedBy: PU1PR01CA0044.apcprd01.prod.exchangelabs.com
+ (2603:1096:803:16::32) To IA1PR20MB4953.namprd20.prod.outlook.com
  (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <stp5fkkfubszqjnne7wdgzvlwvfhc3sb5ncj57r4nuansqdr6p@hvjj44tlzc3n>
+X-Microsoft-Original-Message-ID: <ntff3xdu2jjhxexhe5zfh6wo6sbnh6x7t75azu4z4fd3vzv3hf@p4cubsgfxx3m>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CH3PR20MB5627:EE_
-X-MS-Office365-Filtering-Correlation-Id: fafe54c4-a507-4faf-365c-08dc333d1b29
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|LV8PR20MB7362:EE_
+X-MS-Office365-Filtering-Correlation-Id: 170be070-ca80-4575-fbd6-08dc333e1e93
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: zb01evmVclUMb9/ktBeIQT2Gn1no71zXiy/tfxxf5p2EjipctS8g4bVkGSKjuYgxd0bScJ4xuO06uYa9HcwFiTJvfAz329ahnLgimMQaZuZeH3ZPYkkW5yjApm6U79hIUdjdVkfmbO2AFyB1hASWK3Qc1w6LnQNG9mjuHKlwBy65z8jYDNXXpyYf6yRyLnHtifK6cu3Ltu5uDGU3orfiSwIKpBUSOpsqJxcMKsCvKwaA9RxKmdhr32vsLH3bKtQFbuCowysGjOASiTXABQJg74jc36wV3TJDnd9H9C955ujip4D/1ggQUlc2hKvpnRsFI7Q31zeq92PEwj44B5tN9M9e5Gyhr6uAyOVllFffv8o75mOchtJ3gyNEg/DiMRKesuoL20h8QbhtOpomPMlrQUFVqmUsFXH8CBBh26rdMFeRTkA69Sbf4bwhGKIVh1JWOtuAB8kFSWtHXOdgsZuAqxbMYfMWO3l2iW5zjNW1tmDQlTI1FN1nkeHhjEVoHnLp+87DHY71ZUnlPNosYJ6gOMTQNt5u2dPpVJ7gRC3nc6YqSG/if8LvlesJrtBHoK5R
+X-Microsoft-Antispam-Message-Info: 2lNT+mKQ23WVjD9hkBXfMQoR7jwfVpTJuW9HTZFlZWLRVkVmr2kHCqRCj7CVEmgEc+pBokSSBgNFe13HM5odR0J5cYW1jC1TkAeACS8i25Qs9JLIqSpZ6vyiTaGoKYB9A7t6cDSCuNLHSwO8BIiMs+Q95PW8ZSeXNXdALQ84s/c/bKWnJWq5voGx/MIW2NlBuC6kVwpthyCg1R0nRf1LL/tzPIdDwRI0v/23EnOrw0iHbx6JfUN/rOvpA7oz6aveU8IMZxRIp0dyr5Z3b0AdHA01Ye+iZwEUp9XiDu9ieE6QJOgKbqwxV3+Y52nuzwwyoMho9FXTgNLeC8YT2TN1+cn+DMVN785cp/oflKbzmhTJeglytgV4OQf2gCFe4YmaNbgnOAjQ5TeFj7JRBh1TIyxw0KQc3g/NpLzHFeYjNTO6J7cnJQOF27oKsCtrX/O5+mVG8o1OG5jM6Df+/EtoP5x9itYJ7EllmTzI4mGDlz0JQV560N6O3dqKGpgfEaYmU5D9NA5IRxglwD3bJX1zvtA28QiHM5wkLj0v8sK3OlqEdV4yVAwvm58WV/j79ojwsucN6GL7Iv9lqVsBTKcKGvkf/raYdDdKMPPd/zec1J4=
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KR+IvEn74OIzFultDCH306vatysS6thcVowABwET1ntL1nbTStBd5C5MN3Hl?=
- =?us-ascii?Q?3c6H5QOu23M3R3RMIIePhEQ4LgH3Y+r26YlD+tNAM2mcPS7hSa0sZNEtM2ih?=
- =?us-ascii?Q?A8q1N+7EYg1BJNP08OhhyWRjfvX7sJoN0UCXIW8rH+tqdY9jMVt5PF2wHtyT?=
- =?us-ascii?Q?ZG5RtaRv9N7GfCJToRVroEvzMSOSaM2O3AOYOqKUIc8e/BbcKab1yTj/0Xh6?=
- =?us-ascii?Q?Zvcg0rH9RJkG1nQTgVSAYMRaqLa7U5xePJ1ab5w1AARYmSjBQwp3087CT5CV?=
- =?us-ascii?Q?VbZYh8sVIwjI088WIdvgY1StL/YM3mxB1i0bgT4cnE0RodZyZbXUXQgrWDdC?=
- =?us-ascii?Q?AveJEJqKnugfbtYM5QeceJeHP+FQvedMtMH+IA44sqoxMtFhNnkz5XOHWUSk?=
- =?us-ascii?Q?Bq0hIHDDmXdjq8Eu8aj4WC/KT9AEGwrgmrWVP12J52TVedTs5ULeSNIy5maR?=
- =?us-ascii?Q?+YX2HGS1Sager/cAV9Ynj/eKBrKHQPd4Xe5g/XD/xyrU+Nj3dkopG1KU8Wye?=
- =?us-ascii?Q?HzdbBzQ8zxR5T1OLVBKxPYrPGHwq4wG3Kfsfyt8sStVluoCRr9BTQH6Urvpm?=
- =?us-ascii?Q?wtXj9XL7D3rNy4t8MQMJJBOX5WIX4WQbxlBorXbAJyVCsQvVEZ6oeVKJEn4v?=
- =?us-ascii?Q?byVvEbp6S1WAafrFsrNMQ5kwOez0f3U5m9pks+KIjONEXziIOZCKEWz8LwMm?=
- =?us-ascii?Q?wsqLHIipCZ93gEgF8CnTYq1RrxrnXWNQKkZ46FM4yDvJf6AShnKdyfm8/bJH?=
- =?us-ascii?Q?rJJtV3YoyHiTQjMfCroF/If7AWNm1KFtK4Chkg7SUq35bVGqY4hqTy1SAttQ?=
- =?us-ascii?Q?916s86DLtKKJRKaWXYZ8egkg1sdjGklRsnJ89eWeFYtrBiS9X5h5SJ7r0ucK?=
- =?us-ascii?Q?RxSonYw0es7iWm4DdGR5a6qXFKNVZXhIJgkLft3fskospMtUOZiHU5KwwepX?=
- =?us-ascii?Q?1i11ZaQZBBjXKdrF0fGXS4ycJWUcKzd0kiMw393K9ZODqcq7a+LELiPbRZIh?=
- =?us-ascii?Q?3kg7Ieux5h2N3fSc3yDaQ4wXZDapR7gFjVAfGCUi0+Q1tlwcug9jgh0aiwni?=
- =?us-ascii?Q?lmOHTAVzPz/HPhR1XCfdty9a6rK8jhmgFnwIIhQocVhllPkxCGmIec57c7Vn?=
- =?us-ascii?Q?9SgkJvxWs7OUWqnR4k/D6xdww3nN7EW7ue9KLSKniTgs/wAoauHqhwob15EO?=
- =?us-ascii?Q?6sRRDVT/QVojNa2E+RqzqFsJ0kV4sZhypViEh0NnDHgpCx8SpxRmJGsFABZg?=
- =?us-ascii?Q?dA2RLd6/qxh1pF3wuOP1?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eUm03l1Dn/3rfalrgZ96ehWzsEJKuZpugTLiatPPBEtv7LT3m0cI6wWVa4fe?=
+ =?us-ascii?Q?UKAjiDJsH8Xd4CLUWg69Q8Ylk6d5jDBi1ER8c//MfmRI5GxKMzCFWBoztjDx?=
+ =?us-ascii?Q?xpW2Ssi7wQzlgz3/aAXeQRBudDIXu6cYD95rrfRRza+kDvgv8GNGbbsPTV5i?=
+ =?us-ascii?Q?kkpADVS065bS38l+sWtMn7mQpP7YFk7AHwhvmDvnXNeCf6B4JiVLMWTEKd62?=
+ =?us-ascii?Q?YiWYA2PASgTwoy7huElaE520+5U14ljgw3LIa8qrTeiPBFooFiBbY/Z24SNz?=
+ =?us-ascii?Q?rQVGJhicxpPvFJk4Dqxoy809U/bLJg1WIrIGy7ecKHKB8t6lxQp2DIxQknyi?=
+ =?us-ascii?Q?vbHqej/Z3Syo9XyiyiURStX8KHHifUFx+taztKw3yh4ebNNilcPXBjN1iPDO?=
+ =?us-ascii?Q?m+WcFVPXk6NRmcDrICItSrDXhCm4hCkYZkAlJV+zrgwY/sLEuf2ekk62/pPL?=
+ =?us-ascii?Q?RD8lyztotVRFpy7Es7KA6iM5SrecFeuUIL4bGjIAH7d20x40SD28PAYFYLUD?=
+ =?us-ascii?Q?UvTFFVcHMH0VSks0BrDW6nOWxQIIykk3kpZlXUcNGJdJhrZbIU3FReCAUnMx?=
+ =?us-ascii?Q?NrXmO2wAwxAIw6onFStibktSTXwsPNF2PnelGw5bYScyAAp17bSeE88/+n9i?=
+ =?us-ascii?Q?uK8BYwVzp3wfCI+A6dFnEyUAMF+X6JypoO6V0d6r3FqgO/Ra4hN7eyy8RKzz?=
+ =?us-ascii?Q?Yi8M97ta2X9v3a5gpE79DCiUtTKB9K5HlCFjNyI5nN6T/hy7yaExHTgYi9RO?=
+ =?us-ascii?Q?9PpqDbLPKx/Vkt57ficTlseyVTerSCCdv0Yh59ZtbFsgpB8O9xgpntRpdJFs?=
+ =?us-ascii?Q?oejCPXt92RqNLa7IYVm4i7T5Wi5ayVTlizZRETQyrfwHmlt9FioINOR2giK5?=
+ =?us-ascii?Q?JdXeVzRUKPzTA/7vxMXK6UL1EZnzTScYk3xYUdk4I/M39a8ruf2PXPp3Y6QX?=
+ =?us-ascii?Q?eb0FcV0bMwlZEiMs4SWhB5enxvT3v5MdX5KiS6/696s3EIDIFwYU6TGdsDJj?=
+ =?us-ascii?Q?zSY0sUK4bUZ31wPw6GMxr5nlIhkLtYLqcngAPClvLxAwxe/DwXdqJlBBctIV?=
+ =?us-ascii?Q?yt2IgjqpVvE7AWB+GcGe4Bo/GtwSrnTssB8bBV9Qopigp/3zxjEPrjeOosTp?=
+ =?us-ascii?Q?Kg/NclX+o5K/IKBKCYCg8tZwm5JFHQBJO9SWfL/4P4Bbf1qhFM5FHorQF9Co?=
+ =?us-ascii?Q?LqWafBRSfWLu2yn1o2Q0uZXpZqGmdMgzSsY0z+zdNRPaR4lfB9ExLfWqmF3M?=
+ =?us-ascii?Q?pvaG0rIq0FzKQnjgEEld?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fafe54c4-a507-4faf-365c-08dc333d1b29
+X-MS-Exchange-CrossTenant-Network-Message-Id: 170be070-ca80-4575-fbd6-08dc333e1e93
 X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Feb 2024 00:27:52.4049
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Feb 2024 00:35:07.5964
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR20MB5627
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR20MB7362
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240221_162801_071575_2A3BE660 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20240221_163521_466347_BB5E442B 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,42 +134,29 @@ LGTM
 
 Reviewed-by: Inochi Amaoto <inochiama@outlook.com>
 
-On Tue, Jan 30, 2024 at 09:50:32AM +0800, Chen Wang wrote:
+On Tue, Jan 30, 2024 at 09:50:51AM +0800, Chen Wang wrote:
 > From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> Add reset generator node to device tree for SG2042.
+> Add resets property for uart0 for completeness, although it is
+> deasserted by default.
 > 
 > Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 > ---
->  arch/riscv/boot/dts/sophgo/sg2042.dtsi | 8 ++++++++
->  1 file changed, 8 insertions(+)
+>  arch/riscv/boot/dts/sophgo/sg2042.dtsi | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 > diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> index ead1cc35d88b..eeb341e16bfd 100644
+> index eeb341e16bfd..81fda312f988 100644
 > --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
 > +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> @@ -6,6 +6,8 @@
->  /dts-v1/;
->  #include <dt-bindings/interrupt-controller/irq.h>
->  
-> +#include <dt-bindings/reset/sophgo,sg2042-reset.h>
-> +
->  #include "sg2042-cpus.dtsi"
->  
->  / {
-> @@ -327,6 +329,12 @@ intc: interrupt-controller@7090000000 {
->  			riscv,ndev = <224>;
+> @@ -343,6 +343,7 @@ uart0: serial@7040000000 {
+>  			clock-frequency = <500000000>;
+>  			reg-shift = <2>;
+>  			reg-io-width = <4>;
+> +			resets = <&rstgen RST_UART0>;
+>  			status = "disabled";
 >  		};
->  
-> +		rstgen: reset-controller@7030013000 {
-> +			compatible = "sophgo,sg2042-reset";
-> +			reg = <0x00000070 0x30013000 0x00000000 0x0000000c>;
-> +			#reset-cells = <1>;
-> +		};
-> +
->  		uart0: serial@7040000000 {
->  			compatible = "snps,dw-apb-uart";
->  			reg = <0x00000070 0x40000000 0x00000000 0x00001000>;
+>  	};
 > -- 
 > 2.25.1
 > 
