@@ -4,110 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FA1C48BF8
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 08:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01AC6C48BEB
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 08:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c9IubCM5y3saA3OmfEGfbRMg/xM46K7hkI6bM3HpVg4=; b=d3kF4On987kdD+
-	/2VwAZk0xHfUiI6v+hPqiYrrTLB6xeCFf6n1vHd9kusmBHc7ELItcQWouRmnRaMZxyMzs03NWnoYb
-	rNUl8ocxyV8lNFocNV/qNoJEqoAcD1ko5W53EiAcr4GwC/Z0VMnSDdUS/E3vbyXtFC1+o6Ew31wsj
-	bQjd5ZAOUftUH6LvDNUYfCraApojx+1E31C01sy89/+R5cjbC/HCanEtCVQcQOkvveahuerVv7b/F
-	dwAsv+dTEp2297afm/U5bNOIbw/aYSBNSd7ypBHlJDvcjPHXN4gs1ST6rbksk1xZIyM5Ll2AVEe/z
-	yLFeR95DGxoQM8KrQRWQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=re427FYBnT3iq31caRltQm629+8UwR981GXamHSmSww=; b=gFWQcgnDzViuZB
+	fN0uGh34GMZgxMjIoTEUqkgtpJosOPNFSQLtNm9UeZjAaBGDYAMrtuzAQvj+WXampcIup8vAUXeiE
+	B6BQxOjrtFwZ6uUUhavc8puY6VBy7imU6Z3LCyNDslrg6DyB5TUZIxVwXjOJ9mRG4tyE5zAQzG27X
+	nlPi8EnUQnii1ARzKj/X0IoxbbwE0Zi+GvIK7G5po0dB1DEIv7kMfxoNHvT+Zo0K2Ve9iqgT774Aj
+	XtEHaycExhL9VxuLENAqIzokmsi9+pT6yrie3uWgtc829z1cbxG7eVqkZSjqFq/B1BUGBT6bMTZu5
+	v5QNVXCuJjHs5mWeMehA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd45l-00000003vng-056M;
-	Thu, 22 Feb 2024 08:06:05 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rd4CB-00000003wx7-0bV5;
+	Thu, 22 Feb 2024 08:12:43 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd45i-00000003vlg-0LTz
+	id 1rd4C8-00000003wwa-2ZLb
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Feb 2024 08:06:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1708589161;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Qz0IA0kUehz+OG0swe7slV1s58KjzFRhgWAnSqUkqI=;
-	b=AuD6+Io5sqJWAI+SCRmH030znA0I/k+Vt++jv2KkjHMIUXEXUjKhahmQ5ixCMSv1lVTYSU
-	HGke7QT5fq/DZe0xIYb3X4L6Rv1XzZ0miA+OwadFyDRZm8OoYhyjWgtA0p4Vv5XGL/9deI
-	qyq5gAXldeZIKVQpibPVsgZ1Cr0dMm8=
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com
- [209.85.210.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-490-iEVkpYYtNzyVAAcHZJYqSA-1; Thu, 22 Feb 2024 03:04:53 -0500
-X-MC-Unique: iEVkpYYtNzyVAAcHZJYqSA-1
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-6e430252451so2031466a34.1
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 00:04:53 -0800 (PST)
+	Thu, 22 Feb 2024 08:12:42 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-5ce07cf1e5dso5924155a12.2
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 00:12:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1708589559; x=1709194359; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=srJ7CIKPfZgDl9Um7d4eDADM8otcquGOUbdJDDVwdH0=;
+        b=NRzxLolbQSETKhaUthepCcr+iJDfI2g+yCWLXkygv8ZQolCGdRD8meZDnMu4yTmtxQ
+         XfE2s5m1jpjXeSmqbwBi5TpJ3NeWNZqa1G/grg7hskG3B6lzAKc8iOeIGZJgQu2w2kQB
+         Wu4kIyewSKBgrfZbOFf/4y8aBktAqjaVajYoRrdGSK75AUwazBT3LLegTDX427I1/djV
+         PGuAgo4WKSO1tYKOTu1DNNAHEjzHRP10AVI4Z31VXkchQ+JVvlht5LBGw17veoz+nKF3
+         8PwIXj2uP7j1zownwf2tP2T3vEuAuN0Pdyu43fO8w4caS4T7sSYx+yKXP6aLxMfbptgI
+         3L0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708589092; x=1709193892;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2Qz0IA0kUehz+OG0swe7slV1s58KjzFRhgWAnSqUkqI=;
-        b=ms25fvcpvGYl1wEQ4Ayo9aRiIqUbkEACdW4aD6pS6MWPQmS2bAtkxcXssd1RqNCb/K
-         DN5Hm6yYN6eS7e773v8faT9HHHs9S40KuxHPTUpLrgysdP0naEZ2QlWI03Kg9Avaqa5e
-         zTJ8d3b3t8+/L1eLlsF5sJm6mMr//UHWjcS3yh0CtJ9mhkClyUksl71SEMIJI36cFvlM
-         e6CmiIKamBMs7bXyrXK3fFTbpyHv5erOjqzRg/a50ilS46J+oMzqFDvswhLphjDFcdch
-         k0vp0MCmwWQZCVDNjtgoXDOhSSRH8UUFhbjzXe75NCJkoRsTs5N6ZB7Frn6AK1v2kNGZ
-         oxKg==
-X-Forwarded-Encrypted: i=1; AJvYcCUcZiviNNlTchGl+O4eC0w7CHYSp5KTj0U2YNiO5shBiLMlIMlYuoiRabffv6u0gaxz4EBaBGU4zM/2CnaJKvinLJOtyC/kmBFCCEehvwLw
-X-Gm-Message-State: AOJu0YxYPs4Ez0WniUHGJYwG0t1nE8rtBy4+8YJUCxVbvpJr9eA46MVc
-	DA4pQVnPre1tRiNMGGpdhyBdNeuXdTIik4/iERcMlR8VzrKL/B41Wohp+E/+9j/npm/5amp6isg
-	vXlET1tAKiroA2K/W02/St5gMNh+vl3l9hzlpPIZf7OkAiKJWLc9YTBNqGbsA3ZAyzA==
-X-Received: by 2002:a05:6359:4113:b0:176:6149:5558 with SMTP id kh19-20020a056359411300b0017661495558mr16051624rwc.1.1708589092270;
-        Thu, 22 Feb 2024 00:04:52 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFZ/pl9m1WfSqai2cvVXv5Lf1ZKvJ4xKR9ln5/WSKPeld/1kI04FNn1XDkCL6gJC29eFxMWrw==
-X-Received: by 2002:a05:6359:4113:b0:176:6149:5558 with SMTP id kh19-20020a056359411300b0017661495558mr16051606rwc.1.1708589091922;
-        Thu, 22 Feb 2024 00:04:51 -0800 (PST)
-Received: from x1n ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id a21-20020a056a0011d500b006e0d1e6036bsm10300214pfu.129.2024.02.22.00.04.45
+        d=1e100.net; s=20230601; t=1708589559; x=1709194359;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=srJ7CIKPfZgDl9Um7d4eDADM8otcquGOUbdJDDVwdH0=;
+        b=fs260dt8bMAqUEZaZQ+xq9fICcDsyNRFM8/WwYweBUUoNa+MVXX0Ruo8ekg4YbaqC2
+         1YDv4r5m47tbcuIgIcvIOwd4tHTRsaZ2zCuTd4pDogrC2m01UzEIAmRpMOztPBPXvCiS
+         faPJ6i4mqDArN1oczu/GKnHkI7k2FQE8n1oAHQjPa919rAgvt04gASIJ/nq3O2k4qz53
+         7CDwEkesex8LIu+Xsp7AJL5HDnTpBHCuYHZKi+f+tDDHWVE32aMmttylCW8lpwy8NnuQ
+         Lvn3rUjejXM2Bai8ZhBI0j+P5z9voBl533u91bnSN85vn4D4wOAPNcI4iBTe395HMJID
+         BQPg==
+X-Gm-Message-State: AOJu0YwR17c0NFBz8j2spLe0Mhp0VjGyvl4C8v/1tIr6iC9o2bXbdL5h
+	qHDrcTQtAUQIS6phj6Psi7GoeNT0gmOSgmrN9Cvj+aY9Jc1Yk53UYNYxaYYg83gCcMmO8Yxi2P7
+	aL9v6bWWgNkwz6GQ6oCjSXJs5Wu4FMgdFCWx6K8EZYRB6QieD4rteQNB7I8MGQDDqTp6olIpnqz
+	F6Xky5X/X4qH+7VLWPGbY4MT+BYLhznI0Ejhzw6RnvLAQRm2//AWc=
+X-Google-Smtp-Source: AGHT+IH1M21xaAm9IWGe9uyygy5ZFYZAnDH5YlVy5Z+XKY/q4Ud1AAgANQ7ADpjUjZtqZ4J+0WXtEQ==
+X-Received: by 2002:a05:6a21:31c8:b0:1a0:8a46:c3bf with SMTP id zb8-20020a056a2131c800b001a08a46c3bfmr15856784pzb.21.1708589558614;
+        Thu, 22 Feb 2024 00:12:38 -0800 (PST)
+Received: from hsinchu15.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id lf8-20020a170902fb4800b001db5ea825b2sm9412796plb.123.2024.02.22.00.12.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Feb 2024 00:04:51 -0800 (PST)
-Date: Thu, 22 Feb 2024 16:04:38 +0800
-From: Peter Xu <peterx@redhat.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	James Houghton <jthoughton@google.com>,
-	David Hildenbrand <david@redhat.com>,
-	"Kirill A . Shutemov" <kirill@shutemov.name>,
-	Yang Shi <shy828301@gmail.com>, linux-riscv@lists.infradead.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Rik van Riel <riel@surriel.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Mike Rapoport <rppt@kernel.org>, John Hubbard <jhubbard@nvidia.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andrew Jones <andrew.jones@linux.dev>,
-	linuxppc-dev@lists.ozlabs.org,
-	Mike Kravetz <mike.kravetz@oracle.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	Christoph Hellwig <hch@infradead.org>,
-	Lorenzo Stoakes <lstoakes@gmail.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v2 03/13] mm: Provide generic pmd_thp_or_huge()
-Message-ID: <ZdcAFpRijQdaYV2A@x1n>
-References: <20240103091423.400294-1-peterx@redhat.com>
- <20240103091423.400294-4-peterx@redhat.com>
- <20240115175551.GP734935@nvidia.com>
- <ZdXEYfs_xhS_9gRo@x1n>
- <20240221125753.GQ13330@nvidia.com>
+        Thu, 22 Feb 2024 00:12:38 -0800 (PST)
+From: Nylon Chen <nylon.chen@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org,
+	conor@kernel.org,
+	robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu,
+	thierry.reding@gmail.com,
+	u.kleine-koenig@pengutronix.de
+Cc: vincent.chen@sifive.com,
+	zong.li@sifive.com,
+	nylon.chen@sifive.com,
+	nylon7717@gmail.com
+Subject: [PATCH v9 0/3] Change PWM-controlled LED pin active mode and algorithm
+Date: Thu, 22 Feb 2024 16:12:28 +0800
+Message-ID: <20240222081231.213406-1-nylon.chen@sifive.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <20240221125753.GQ13330@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240222_000602_200644_629ED81F 
-X-CRM114-Status: GOOD (  34.58  )
+X-CRM114-CacheID: sfid-20240222_001240_696945_EDF93B2B 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,103 +104,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 21, 2024 at 08:57:53AM -0400, Jason Gunthorpe wrote:
-> On Wed, Feb 21, 2024 at 05:37:37PM +0800, Peter Xu wrote:
-> > On Mon, Jan 15, 2024 at 01:55:51PM -0400, Jason Gunthorpe wrote:
-> > > On Wed, Jan 03, 2024 at 05:14:13PM +0800, peterx@redhat.com wrote:
-> > > > From: Peter Xu <peterx@redhat.com>
-> > > > 
-> > > > ARM defines pmd_thp_or_huge(), detecting either a THP or a huge PMD.  It
-> > > > can be a helpful helper if we want to merge more THP and hugetlb code
-> > > > paths.  Make it a generic default implementation, only exist when
-> > > > CONFIG_MMU.  Arch can overwrite it by defining its own version.
-> > > > 
-> > > > For example, ARM's pgtable-2level.h defines it to always return false.
-> > > > 
-> > > > Keep the macro declared with all config, it should be optimized to a false
-> > > > anyway if !THP && !HUGETLB.
-> > > > 
-> > > > Signed-off-by: Peter Xu <peterx@redhat.com>
-> > > > ---
-> > > >  include/linux/pgtable.h | 4 ++++
-> > > >  mm/gup.c                | 3 +--
-> > > >  2 files changed, 5 insertions(+), 2 deletions(-)
-> > > > 
-> > > > diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> > > > index 466cf477551a..2b42e95a4e3a 100644
-> > > > --- a/include/linux/pgtable.h
-> > > > +++ b/include/linux/pgtable.h
-> > > > @@ -1362,6 +1362,10 @@ static inline int pmd_write(pmd_t pmd)
-> > > >  #endif /* pmd_write */
-> > > >  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
-> > > >  
-> > > > +#ifndef pmd_thp_or_huge
-> > > > +#define pmd_thp_or_huge(pmd)	(pmd_huge(pmd) || pmd_trans_huge(pmd))
-> > > > +#endif
-> > > 
-> > > Why not just use pmd_leaf() ?
-> > > 
-> > > This GUP case seems to me exactly like what pmd_leaf() should really
-> > > do and be used for..
-> > 
-> > I think I mostly agree with you, and these APIs are indeed confusing.  IMHO
-> > the challenge is about the risk of breaking others on small changes in the
-> > details where evil resides.
-> 
-> These APIs are super confusing, which is why I brought it up.. Adding
-> even more subtly different variations is not helping.
-> 
-> I think pmd_leaf means the entry is present and refers to a physical
-> page not another radix level.
-> 
-> > > eg x86 does:
-> > > 
-> > > #define pmd_leaf	pmd_large
-> > > static inline int pmd_large(pmd_t pte)
-> > > 	return pmd_flags(pte) & _PAGE_PSE;
-> > > 
-> > > static inline int pmd_trans_huge(pmd_t pmd)
-> > > 	return (pmd_val(pmd) & (_PAGE_PSE|_PAGE_DEVMAP)) == _PAGE_PSE;
-> > > 
-> > > int pmd_huge(pmd_t pmd)
-> > >         return !pmd_none(pmd) &&
-> > >                 (pmd_val(pmd) & (_PAGE_PRESENT|_PAGE_PSE)) != _PAGE_PRESENT;
-> > 
-> > For example, here I don't think it's strictly pmd_leaf()? As pmd_huge()
-> > will return true if PRESENT=0 && PSE=0 (as long as none pte ruled out
-> > first), while pmd_leaf() will return false; I think that came from
-> > cbef8478bee5. 
-> 
-> Yikes, but do you even want to handle non-present entries in GUP
-> world? Isn't everything gated by !present in the first place?
+According to the circuit diagram of User LEDs - RGB described in the
+manual hifive-unleashed-a00.pdf[0] and hifive-unmatched-schematics-v3.pdf[1].
 
-I am as confused indeed.
+The behavior of PWM is acitve-high.
 
-> 
-> > Besides that, there're also other cases where it's not clear of such direct
-> > replacement, not until further investigated.  E.g., arm-3level has:
-> > 
-> > #define pmd_leaf(pmd)		pmd_sect(pmd)
-> > #define pmd_sect(pmd)		((pmd_val(pmd) & PMD_TYPE_MASK) == \
-> > 						 PMD_TYPE_SECT)
-> > #define PMD_TYPE_SECT		(_AT(pmdval_t, 1) << 0)
-> > 
-> > While pmd_huge() there relies on PMD_TABLE_BIT ()
-> 
-> I looked at tht, it looked OK.. 
-> 
-> #define PMD_TYPE_MASK               (_AT(pmdval_t, 3) << 0)
-> #define PMD_TABLE_BIT               (_AT(pmdval_t, 1) << 1)
-> 
-> It is the same stuff, just a little confusingly written
+According to the descriptionof PWM for pwmcmp in SiFive FU740-C000 Manual[2].
 
-True, my eyes decided to skip all the shifts. :-( Ok then, let me see
-whether I can give it a stab on the pXd_huge() mess.
+The pwm algorithm is (PW) pulse active time  = (D) duty * (T) period.
+The `frac` variable is pulse "inactive" time so we need to invert it.
 
-Thanks,
+So this patchset removes active-low in DTS and adds reverse logic to the driver.
+
+Updated patches: 1
+New patches: 0
+Unchanged patches: 2
+
+Links:
+- [0]: https://sifive.cdn.prismic.io/sifive/c52a8e32-05ce-4aaf-95c8-7bf8453f8698_hifive-unleashed-a00-schematics-1.pdf
+- [1]: https://sifive.cdn.prismic.io/sifive/6a06d6c0-6e66-49b5-8e9e-e68ce76f4192_hifive-unmatched-schematics-v3.pdf
+- [2]: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b16acba_fu740-c000-manual-v1p6.pdf
+
+Changed in v9:
+ - Fix commit message to adhere to 75 columns rule.
+ - Update commit message's subject.
+ - Add a variable for inactive logic.
+
+Changed in v8:
+ - Fix Signed-off-by and Co-developed-by typo.
+
+Changed in v7:
+ - Remove active-low strings from hifive-unleashed-a00.dts file.
+
+Changed in v6:
+ - Separate the idempotent test bug fixes into a new patch.
+ - Move the reversing the duty before the line checking
+   state->enabled.
+ - Fix the algorithm and change it to take the minimum value first and
+   then reverse it.
+
+Changed in v5:
+ - Add the updates to the PWM algorithm based on version 2 back in.
+ - Replace div64_ul with DIV_ROUND_UP_ULL to correct the error in the
+   period value of the idempotent test in pwm_apply_state_debug.
+
+Changed in v4:
+ - Remove previous updates to the PWM algorithm.
+
+Changed in v3:
+ - Convert the reference link to standard link.
+ - Move the inverted function before taking the minimum value.
+ - Change polarity check condition(high and low).
+ - Pick the biggest period length possible that is not bigger than the
+   requested period.
+
+Changed in v2:
+ - Convert the reference link to standard link.
+ - Fix typo: s/sifive unmatched:/sifive: unmatched:/.
+ - Remove active-low from hifive-unleashed-a00.dts.
+ - Include this reference link in the dts and pwm commit messages.
+
+Nylon Chen (3):
+  riscv: dts: sifive: unleashed/unmatched: Remove PWM controlled LED's
+    active-low properties
+  pwm: sifive: change the PWM controlled LED algorithm
+  pwm: sifive: Fix the error in the idempotent test within the
+    pwm_apply_state_debug function
+
+ arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts | 12 ++++--------
+ arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 12 ++++--------
+ drivers/pwm/pwm-sifive.c                            | 12 +++++++-----
+ 3 files changed, 15 insertions(+), 21 deletions(-)
 
 -- 
-Peter Xu
+2.43.0
 
 
 _______________________________________________
