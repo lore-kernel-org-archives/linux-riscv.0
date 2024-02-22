@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 060D0C48BF8
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 09:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69925C48BF8
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 09:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S5dWOs5BhIzRqy6GPTeABpvH91Pyo+rROeMZBxrb57M=; b=kHIawlijZzrRbh
-	5tcLEqsW6eTcLQ1M8TVnSmS6vChQOY4sqvhEUUUY+rv7ybXe9LOhQU+5oKwDChs5r/4nOMhz+IBU6
-	inGwKgsb/GHIJ81QeBEABlu68yF5md4eBW1eOkuHr1PhGxmvCbdENvzhVE6b3NLQgZZF35PAONQK6
-	b+iTAIUNdt91Lzs61tZ76UmSTRiFzjwDorUPSgh0hsedkeVxS81W/Q1nM2JKfkh4k1CQqpca+PwF6
-	l8SjFjNNUq419wNo/AW7b4k/6MdQqAUXKF2tIoK7zUm4fPgKqtqqSkP/up10hv71U2fip5fGZwLgd
-	SZZOHSXwBiccm/DwIKbQ==;
+	List-Owner; bh=YjglAuOxHrKbn68vwEbI6wVkkkFyAR7oQdiNMidA4h0=; b=zxPSC2Cwcg21ml
+	dkgkqGu3L27zU/sP3xAu4kAU8VYTNvo64Wkzpa0GQPb1ANFMllgaOcZcaADurw3keQ8xb1MFeSes+
+	u2YU+QiF3rfRf6Qgr7lS19VjJngZRAqnkki058NANPaw0H5qEzVCMfTDfwTjsB4RR0Gewjc6G3f2E
+	X+RaAswFAOl7i5HiRlojP6VefA5xzPmPKkyNutnq6dF1k1LIe9yitWJV8ZGh11F8OtsepP5pbP2T5
+	bxp8q7kP/cUo6cagGqtUGZ9C61ZVyDskJDW42s3KySz2v0YjkqDyFphUZkj/vUJYwP96RzVIIdVBu
+	f50W4iJ3YCNWleyPa09g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd5ZU-00000004I3M-2g7v;
-	Thu, 22 Feb 2024 09:40:52 +0000
-Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
+	id 1rd5Zs-00000004ILh-16Vj;
+	Thu, 22 Feb 2024 09:41:16 +0000
+Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd5ZM-00000004HwE-3IJw
+	id 1rd5ZT-00000004I27-33s1
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Feb 2024 09:40:46 +0000
-Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-595b3644acbso289961eaf.1
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 01:40:43 -0800 (PST)
+	Thu, 22 Feb 2024 09:40:55 +0000
+Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-3bb9d54575cso1036597b6e.2
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 01:40:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1708594842; x=1709199642; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1708594850; x=1709199650; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4Mzp7gOUhADSPQHe9BbGbbZnz24qrFAsUkCIt0RA8CU=;
-        b=hKkzRKut1kAkclFxM6n9VwjI0U4VnC9cjrxLr7gvU9RX6yQvejRKWlihqjh15Vngi/
-         +Hs0GJ2RC60NDC4sG+UGjj8wrVdC+1f4ud9tleiW+zdrsQN1LOtjzrOtP7kywIm5mJEs
-         cvcgQp/tI+opeXHaoPZG08dNZHjdmXTtr+jr6h8dyDW8/2Mww5YALTpg+xm+47bHA6BK
-         LkblhVDBQvYXrolUGFLUlnsrnBHg5K1dvkgFGsQKOylwydVlvAY4Urd1ZWDDuQ0hDBTl
-         iUhA/Y6TQSZk93k5zDkxat9swSrUluR6lgvA4pRZicuSFoknoRDfb1L4dsRkZWWaMG33
-         W5IQ==
+        bh=n8Ocksk32SLy+uqf+lOwT2Rti1KnrinKQe1UyB1vdGY=;
+        b=iFGpE3SKFqgmfpV2p1FqG/+BYj3PQMRsuDrVN7t1ZZ/ABHvdCr0kdpF8csTnP5Amjr
+         uKfrlVcJQzfyeonpzYlJNN2HhoJqBR12rNOrFqbK3hEw0EPK6XBXy7eNJlQQRZMuU636
+         sHtHQclOeVLHW8mCadXUZ+Vmg1CtoLpxQwarLEoSEIg96+Ki4nj1zUWPMMkj5UojSvWg
+         HW4T6jifudMdSwQn2e2nuBQ3cB93hB1+08vTQYRcQzxy/U2sbWLDyxzC/8sox3rTrVAo
+         ZvLmqBwjrwKa0ZNru7Ieqo+/FJHs2ySQBM0CgQVkL2CoEe87K0E6xbx6exrgyge9wTNO
+         sa+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708594842; x=1709199642;
+        d=1e100.net; s=20230601; t=1708594850; x=1709199650;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=4Mzp7gOUhADSPQHe9BbGbbZnz24qrFAsUkCIt0RA8CU=;
-        b=NFC7Cw+T4wHcOkUVGa5lmDWgjH+N52M8+bed59Gd3qU0FEi5+kwNx7e3aTSooUzi8V
-         pAJNthU+kVm/R3fWpAHsfT6GWx49rqmNR4BXSZ/yg1kAQpZzJCwCIOolAQsMrWaGn3+y
-         zEiiExzIoYgXSxW2KsurkYEkcJDpKLF4gt/bYiwbmUIps2Okq+7wmPkZVg5AcTvRi078
-         QLBT3/iPcbndxugVdBoO7q0dWcjMBJtiIdyl10lIzkxxPL43lV0LD26Cl5ZPuodCr/y1
-         CxQ6eMPKgbvft4M3xGH4e5E2fMW6EFQ+LtkY2JdJcV5TFeArJqwuCXMGC3Xn2Hjmbuja
-         XKcg==
-X-Forwarded-Encrypted: i=1; AJvYcCUWuSonI2b2JM8L77H8OS0yAebAQVS8tUyCq8QkZniwS68O3oQbSqUZTlhA5Vj4hFZHM3L6MqqlraAaT8OGDRPzOykoVPIGWfGku6Q5IS8D
-X-Gm-Message-State: AOJu0Yy1BISL344EpnPzSWs7ry8LukHyR/Y+6QNXPIpboonKbaBnQP3T
-	GTMAFM7MhZ3dvpySQO4yK4qZpdXreMwPyyIm1c8VBleuArZ+zGnr7H1OJBWEjBA=
-X-Google-Smtp-Source: AGHT+IFzj7gpBHsAbfHA1HB2Ahj3EaOotj58ypEPbvRRGrv+4AcOMimIZzwgpDeKvAl20quCShvtNQ==
-X-Received: by 2002:a05:6871:4e43:b0:21e:9dbd:ce3b with SMTP id uj3-20020a0568714e4300b0021e9dbdce3bmr938781oab.6.1708594842413;
-        Thu, 22 Feb 2024 01:40:42 -0800 (PST)
+        bh=n8Ocksk32SLy+uqf+lOwT2Rti1KnrinKQe1UyB1vdGY=;
+        b=VRp3P/F3UXs3tHgxsx/x2YXrv5M8e1dlN0L/b/1Q/I8YJME/F4CkCayURFnFUyqIvG
+         qKgoMatg8mfaQ4K10YoIVnWtImuXjLgAejSslVAeu3xmyj/s/jzpp45eCsNGcLmGjpdS
+         05UEhHCH0EhnP6rDe6NLlJeEFFs45VUVc6Y2bUVfFa+RrNaUWV0jGHHmLG6ubAX5Dxuu
+         8cLmx0mvej8YsZvz0jSQuyvzB2MEw0Q2cQG/TelvdbQrbtEGPNYVm9dQiGQeH04kI5RJ
+         3yUIm6jnLuyJfF3Fhr3rhma8QxEcOgjltwIppCvGgcsnRIlnJGGtGNJgR4MHxZFS26Fc
+         Fa9g==
+X-Forwarded-Encrypted: i=1; AJvYcCVItgvjDyDUQJTWfvQkOA6eBMPATI7xNbgsJwnOpMfsLn08zGG7keey3DdmqxGKCGKcp6THUq0vt6pYJH7tU3mza8YzJxWgfCNGfbfZLiLt
+X-Gm-Message-State: AOJu0YzHVO+2i5x3AYOCLZraU7FJCWqcjKani0DsSNhaJn7APA4o54eW
+	zoNlLWqgRl0Iba9DshdWE8ICC/rZK9nyIk+Y0GJVJRtDWE45S8n9439mFDNHlZ0=
+X-Google-Smtp-Source: AGHT+IH5OKcKJyZKoiJWHlEtV4ymh6yBEg2cp7+WIXAmpNd3ymvmgUIHcqDcQqaA486cA4C3qr2pMw==
+X-Received: by 2002:a05:6808:1306:b0:3c1:82ae:d61a with SMTP id y6-20020a056808130600b003c182aed61amr14216oiv.14.1708594850533;
+        Thu, 22 Feb 2024 01:40:50 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id n15-20020a05680803af00b003c17c2b8d09sm130699oie.31.2024.02.22.01.40.35
+        by smtp.gmail.com with ESMTPSA id n15-20020a05680803af00b003c17c2b8d09sm130699oie.31.2024.02.22.01.40.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Feb 2024 01:40:42 -0800 (PST)
+        Thu, 22 Feb 2024 01:40:50 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -71,16 +71,16 @@ To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Frank Rowand <frowand.list@gmail.com>,
 	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v14 03/18] irqchip/sifive-plic: Use devm_xyz() for managed allocation
-Date: Thu, 22 Feb 2024 15:09:51 +0530
-Message-Id: <20240222094006.1030709-4-apatel@ventanamicro.com>
+Subject: [PATCH v14 04/18] irqchip/sifive-plic: Use riscv_get_intc_hwnode() to get parent fwnode
+Date: Thu, 22 Feb 2024 15:09:52 +0530
+Message-Id: <20240222094006.1030709-5-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240222094006.1030709-1-apatel@ventanamicro.com>
 References: <20240222094006.1030709-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240222_014044_876911_7EF8330F 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20240222_014052_084949_0198ECF4 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,112 +98,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use devm_xyz() for allocations and mappings managed by the
-Linux device driver framework.
+The RISC-V INTC irqdomain is always the parent irqdomain of SiFive PLIC
+so use riscv_get_intc_hwnode() to get the parent fwnode similar to other
+RISC-V drivers which use local interrupts.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/irqchip/irq-sifive-plic.c | 49 ++++++++++---------------------
- 1 file changed, 16 insertions(+), 33 deletions(-)
+ drivers/irqchip/irq-sifive-plic.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 3d7a61c35572..558ae63795d9 100644
+index 558ae63795d9..615498071b6e 100644
 --- a/drivers/irqchip/irq-sifive-plic.c
 +++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -435,39 +435,30 @@ static int plic_probe(struct platform_device *pdev)
- 			plic_quirks = (unsigned long)id->data;
- 	}
+@@ -422,6 +422,7 @@ static int plic_probe(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+ 	unsigned long plic_quirks = 0;
+ 	struct plic_handler *handler;
++	struct irq_domain *domain;
+ 	struct plic_priv *priv;
+ 	bool cpuhp_setup;
+ 	unsigned int cpu;
+@@ -501,8 +502,9 @@ static int plic_probe(struct platform_device *pdev)
+ 		}
  
--	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
- 	if (!priv)
- 		return -ENOMEM;
- 
- 	priv->dev = dev;
- 	priv->plic_quirks = plic_quirks;
- 
--	priv->regs = of_iomap(to_of_node(dev->fwnode), 0);
--	if (WARN_ON(!priv->regs)) {
--		error = -EIO;
--		goto out_free_priv;
--	}
-+	priv->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (WARN_ON(!priv->regs))
-+		return -EIO;
- 
--	error = -EINVAL;
- 	of_property_read_u32(to_of_node(dev->fwnode), "riscv,ndev", &nr_irqs);
- 	if (WARN_ON(!nr_irqs))
--		goto out_iounmap;
-+		return -EINVAL;
- 
- 	priv->nr_irqs = nr_irqs;
- 
--	priv->prio_save = bitmap_alloc(nr_irqs, GFP_KERNEL);
-+	priv->prio_save = devm_bitmap_zalloc(dev, nr_irqs, GFP_KERNEL);
- 	if (!priv->prio_save)
--		goto out_free_priority_reg;
-+		return -ENOMEM;
- 
- 	nr_contexts = of_irq_count(to_of_node(dev->fwnode));
- 	if (WARN_ON(!nr_contexts))
--		goto out_free_priority_reg;
--
--	error = -ENOMEM;
--	priv->irqdomain = irq_domain_add_linear(to_of_node(dev->fwnode), nr_irqs + 1,
--						&plic_irqdomain_ops, priv);
--	if (WARN_ON(!priv->irqdomain))
--		goto out_free_priority_reg;
-+		return -EINVAL;
- 
- 	for (i = 0; i < nr_contexts; i++) {
- 		struct of_phandle_args parent;
-@@ -538,10 +529,10 @@ static int plic_probe(struct platform_device *pdev)
- 			i * CONTEXT_ENABLE_SIZE;
- 		handler->priv = priv;
- 
--		handler->enable_save =  kcalloc(DIV_ROUND_UP(nr_irqs, 32),
--						sizeof(*handler->enable_save), GFP_KERNEL);
-+		handler->enable_save = devm_kcalloc(dev, DIV_ROUND_UP(nr_irqs, 32),
-+						    sizeof(*handler->enable_save), GFP_KERNEL);
- 		if (!handler->enable_save)
--			goto out_free_enable_reg;
-+			return -ENOMEM;
- done:
- 		for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
- 			plic_toggle(handler, hwirq, 0);
-@@ -551,6 +542,11 @@ static int plic_probe(struct platform_device *pdev)
- 		nr_handlers++;
- 	}
- 
-+	priv->irqdomain = irq_domain_add_linear(to_of_node(dev->fwnode), nr_irqs + 1,
-+						&plic_irqdomain_ops, priv);
-+	if (WARN_ON(!priv->irqdomain))
-+		return -ENOMEM;
-+
- 	/*
- 	 * We can have multiple PLIC instances so setup cpuhp state
- 	 * and register syscore operations only once after context
-@@ -577,19 +573,6 @@ static int plic_probe(struct platform_device *pdev)
- 	dev_info(dev, "mapped %d interrupts with %d handlers for %d contexts.\n",
- 		 nr_irqs, nr_handlers, nr_contexts);
- 	return 0;
--
--out_free_enable_reg:
--	for_each_cpu(cpu, cpu_present_mask) {
--		handler = per_cpu_ptr(&plic_handlers, cpu);
--		kfree(handler->enable_save);
--	}
--out_free_priority_reg:
--	kfree(priv->prio_save);
--out_iounmap:
--	iounmap(priv->regs);
--out_free_priv:
--	kfree(priv);
--	return error;
- }
- 
- static struct platform_driver plic_driver = {
+ 		/* Find parent domain and register chained handler */
+-		if (!plic_parent_irq && irq_find_host(parent.np)) {
+-			plic_parent_irq = irq_of_parse_and_map(to_of_node(dev->fwnode), i);
++		domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(), DOMAIN_BUS_ANY);
++		if (!plic_parent_irq && domain) {
++			plic_parent_irq = irq_create_mapping(domain, RV_IRQ_EXT);
+ 			if (plic_parent_irq)
+ 				irq_set_chained_handler(plic_parent_irq,
+ 							plic_handle_irq);
 -- 
 2.34.1
 
