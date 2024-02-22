@@ -4,84 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB86C48BEB
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 10:46:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75991C48BF8
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 12:51:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LkmveTYMFfZF1nTUugiRACOn5b0cPCh2IlGIxiPxVm0=; b=1xos8D6RbM8YZ3
-	YIdHfcE3Z4tskVVbIzYqCGeOu4960gH5nUHkX2vpgEaQwukeBMrSBGi8Hf6JrLXY7Vcat4vLFhpc0
-	SsKjKGkzKJpD4KLohNeUiB6F6TTtYxWe/HNdr/Mm1Peh2RBocblEZ1T6drDi8tI3t6hYrBne9M1nS
-	uCaNNP+nkmZMWFHhlRhVwsYb+MpA7O8lm/xAFH8RJsgzUEoknKEWCtBkfbiPRId880wRsFgf3+Vo7
-	0bGX1nP6RbNcTQ7qTLkbWesbRZ5XlBrDEpwET2TbtI9zCPqP8ZVAcVWAzMqbqzLckPEMgK9oV2VNr
-	l6vdtlPR0UpyUriQcEcQ==;
+	List-Owner; bh=q7bp2fD8PaPoKWc7nWAysh5w38BLHIJC9CZQab2ocnE=; b=dy6AxGESwymTGy
+	j2X+OLnOaD+sdelfVFw8ZJmsafuVSFMmdwmls3APAp6UGXhuX7/1i+jaV6g0/95w4cdp4Y2EhtEFw
+	TcWUKLdIZ1gI7tvV6RziZ5gVQ7aG5V0K0A89dtGtvoAvPKEv6ChJKvcykI6ANNvxAvmjJGnhGRPqv
+	EsIeNfmdcdoMqoxOB9vKsEMiImiBkfXNOyf5Cmq3nOjP128+GECVRGPMqw4oomTybocmjNSmB/zBG
+	UXBxhw4awiz+IfQSBhLaV/fx4P64c9Tyj7TJWc08n1dn/OnbtqwG7ArS4nFVQgx+sG1xYFDyEfVHO
+	MnmyGIhCnIrtgWgNwWbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd6af-00000004X0j-0Zk4;
-	Thu, 22 Feb 2024 10:46:09 +0000
-Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
+	id 1rd8Xe-00000004tmh-3VoE;
+	Thu, 22 Feb 2024 12:51:10 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd5b6-00000004JM4-2GwR
+	id 1rd8Xb-00000004tl3-2Vt0
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Feb 2024 09:42:39 +0000
-Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-3c03d6e5e56so7318290b6e.1
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 01:42:32 -0800 (PST)
+	Thu, 22 Feb 2024 12:51:09 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-5d862e8b163so2393912a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 04:51:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1708594951; x=1709199751; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1708606266; x=1709211066; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=71v8gbBOdtXGvo9g+2jtAQQQGBX8E4yEXl9JiWYqu5c=;
-        b=jp4ufkisZ99q1/b2ZJa5+C+X5AvvpUpwGfmDhYVxV4X5hdcH2rz56ECbuH9xFSLS1j
-         tvDTcQp4cswAQMURK12Cmd84/7SelEUHusqIgrWf2++4tDSrr/yeqGMUzMVJXKadAwX5
-         FWgwyc4rS4yVTpovggtrHSToQn8HABRqYukEQ7lSAOpyapb2DcmTskxWTdTpS7dmAnR1
-         c25gWXlSy2HSV2x/T1fSySlaI0VcqlAdqr/9DStsRtqBpX3fxGl9brXaKCVS1ibKQ0/d
-         +AhiZjz0rRuLPNZLfheqvRYeDDBVPFcZa3TjDPS3e6q7IflWu97+RFpeG97GaNsc1Bp1
-         GorA==
+        bh=JuwAWrKDu1e5t4umhFsz7T/5diX1pTYK82qJWje4hkM=;
+        b=OrkgjXaQHu6bbDcQtGmtr2OVy2v4zrJVeVAcRlbjKD2UamC//LRCTjN5Ubc0KOYk8v
+         CNEMw1ioo3VyrCGyyAvkx+Hhv69oFCmvCLiGbdJFNWRTLloxPflO/LLzIuu2yG2FqZC1
+         0p1Nee1MQk7FWt58JReWHHGnWX3Vv/5qnJNLJMDzLu0Zp2iPybV5qtpNnoLAB+nNmLOM
+         5E7E62M/mv+RtrvVQhEoCZu476lYllNOFDBaisSVu62WsGIftfjGmnwayC4ryaXxEpwP
+         EkiPVcphla8MPczx+fOw6OlqE8JtaNGoqbBjveigHeIqQUyRtfC66n/8Fa+09wXm4yRM
+         Lmtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708594951; x=1709199751;
+        d=1e100.net; s=20230601; t=1708606266; x=1709211066;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=71v8gbBOdtXGvo9g+2jtAQQQGBX8E4yEXl9JiWYqu5c=;
-        b=epVwiVJ+laQaiRAPg75XOVz54a6gMo8y8UuYaqWeK1ZwHcyCkr0IIypxlIE8r4H+Y2
-         syLvpm76wGTOf4s3l24kTqiyPtepR7Pdu9Q966VGByIaRxA2DT/Nmd/kuCJgoIE7de6m
-         uxHqmSBFeWomS/mFQuVyyPmALw/BDmMlhqYkHvUmwOdDcHK8X+gtXD9ss92qTes9I2KK
-         1zAeJ/z3jNoWdoY6r56wHncHqJInj2TpVMSpsiZ2l8FCHgnHNMZTCxJaFAa0vnE2fdb6
-         nytC3Jm3tSFfyG6/Avds2P2j5s9N1tSpTAFG1ZBLJ85svtESriTaKZzr/3+MCibrbcO+
-         0umg==
-X-Forwarded-Encrypted: i=1; AJvYcCUrISwDkkFK6E0IGMuLlqaAWhKPRIPz0fn+CrBLUbw4rHi7/SIV4TfAWFt5al8f4ggOfWCaqwbZ8AzftzeW/C/fnN2SDSPYU/6WLGjqTk4O
-X-Gm-Message-State: AOJu0YwJqm3l67rTKc+Klj0YWfm7UyhV/4I48rbHncN5GW6D27Fc+mlV
-	zpJdEPQP3fOXQujVeVVuHlNdc8zxBiZ6mDZKjHL4BahfbKO2p8plj6l3SJ7l5Sc=
-X-Google-Smtp-Source: AGHT+IF0y2dY34ltcK7epyszLwVDXzQXA+TqKHzDIczRSHobiYjOfHtewc2vswxjV5CnvZL2ARs9rQ==
-X-Received: by 2002:a05:6808:3011:b0:3c0:32ad:7422 with SMTP id ay17-20020a056808301100b003c032ad7422mr28344533oib.5.1708594951517;
-        Thu, 22 Feb 2024 01:42:31 -0800 (PST)
-Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id n15-20020a05680803af00b003c17c2b8d09sm130699oie.31.2024.02.22.01.42.24
+        bh=JuwAWrKDu1e5t4umhFsz7T/5diX1pTYK82qJWje4hkM=;
+        b=Ui2FNcz8CojnhQk3NYw7ZooktHPW/KHAieknCp7H5ihCG7t6lGDZi4k9VyNZ2Fnrmh
+         S6IzfikcyDp0etQkpeP19FaPLeITFDAGT5WfZ+u5pNPiGdpMWbowvy9duQOafjbm01rK
+         Qyui2OCnhK2UrERuJHwkH4upXmJwxIc+TvWrqsG3dAlc6qT4kKD8o8oEl6N+8gG9c/ut
+         ArnKnAGugmFLKqHtenk5a1whzqK2nceyfPnWRBfuTaGuQtqv7Klgn6EKWW9GTWcT0LqH
+         CJmw+Yz8m/Cu7hZm9W2OF5IKzrKqbQG5sgYFxv+FybpUXjGsPRi6b2EaTa1cZJkxv4FS
+         Igrw==
+X-Gm-Message-State: AOJu0Yy6etrs4Tl69jvN/EW8iybEBUt0W25+UOnetdCAzAuG7oNUYFIz
+	bqiwBSTRdF/byMyIYId4/iZAac5l0sV8USa/etxsDJyVufnISv0tqxPL2HNEWCxX24iSk3jrfqh
+	y
+X-Google-Smtp-Source: AGHT+IGDnbx1AQNKvK0en3U+xfkxPHfdBufxMOu9UAiAIpFlxTxmhpHnLsLyVE1XX0tuJpWd7vKq9w==
+X-Received: by 2002:a17:902:ed05:b0:1dc:51ac:88ef with SMTP id b5-20020a170902ed0500b001dc51ac88efmr1056056pld.6.1708606265710;
+        Thu, 22 Feb 2024 04:51:05 -0800 (PST)
+Received: from aryabhatta.. ([49.37.248.155])
+        by smtp.gmail.com with ESMTPSA id k5-20020a170902e90500b001db7599aba0sm9898438pld.24.2024.02.22.04.51.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Feb 2024 01:42:31 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v14 17/18] RISC-V: Select APLIC and IMSIC drivers
-Date: Thu, 22 Feb 2024 15:10:05 +0530
-Message-Id: <20240222094006.1030709-18-apatel@ventanamicro.com>
+        Thu, 22 Feb 2024 04:51:05 -0800 (PST)
+From: Himanshu Chauhan <hchauhan@ventanamicro.com>
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Subject: [RFC PATCH 1/2] riscv: Add SBI debug trigger extension and function ids
+Date: Thu, 22 Feb 2024 18:20:58 +0530
+Message-Id: <20240222125059.13331-2-hchauhan@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240222094006.1030709-1-apatel@ventanamicro.com>
-References: <20240222094006.1030709-1-apatel@ventanamicro.com>
+In-Reply-To: <20240222125059.13331-1-hchauhan@ventanamicro.com>
+References: <20240222125059.13331-1-hchauhan@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240222_014233_056894_89D642CE 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240222_045107_664296_21BAF5E9 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,35 +90,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The QEMU virt machine supports AIA emulation and quite a few RISC-V
-platforms with AIA support are under development so select APLIC and
-IMSIC drivers for all RISC-V platforms.
+Debug trigger extension is a proposed SBI extension to support
+native debugging in S-mode and VS-mode.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+The proposal for the extension can be found at:
+https://lists.riscv.org/g/sig-hypervisors/message/361
+
+This patch adds the extension and the function IDs defined
+by the extension.
+
+Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
 ---
- arch/riscv/Kconfig | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/include/asm/sbi.h | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index bffbd869a068..569f2b6fd60a 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -162,6 +162,8 @@ config RISCV
- 	select PCI_DOMAINS_GENERIC if PCI
- 	select PCI_MSI if PCI
- 	select RISCV_ALTERNATIVE if !XIP_KERNEL
-+	select RISCV_APLIC
-+	select RISCV_IMSIC
- 	select RISCV_INTC
- 	select RISCV_TIMER if RISCV_SBI
- 	select SIFIVE_PLIC
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 6e68f8dff76b..e79ff1a2f387 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -34,6 +34,9 @@ enum sbi_ext_id {
+ 	SBI_EXT_DBCN = 0x4442434E,
+ 	SBI_EXT_STA = 0x535441,
+ 
++	/* SBI Debug Trigger Extension */
++	SBI_EXT_DBTR = 0x44425452,
++
+ 	/* Experimentals extensions must lie within this range */
+ 	SBI_EXT_EXPERIMENTAL_START = 0x08000000,
+ 	SBI_EXT_EXPERIMENTAL_END = 0x08FFFFFF,
+@@ -124,6 +127,34 @@ enum sbi_ext_susp_sleep_type {
+ 	SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM = 0,
+ };
+ 
++/* SBI debug triggers function IDs */
++enum sbi_ext_dbtr_fid {
++	SBI_EXT_DBTR_NUM_TRIGGERS = 0,
++	SBI_EXT_DBTR_SETUP_SHMEM,
++	SBI_EXT_DBTR_TRIG_READ,
++	SBI_EXT_DBTR_TRIG_INSTALL,
++	SBI_EXT_DBTR_TRIG_UPDATE,
++	SBI_EXT_DBTR_TRIG_UNINSTALL,
++	SBI_EXT_DBTR_TRIG_ENABLE,
++	SBI_EXT_DBTR_TRIG_DISABLE,
++};
++
++struct sbi_dbtr_data_msg {
++	unsigned long tstate;
++	unsigned long tdata1;
++	unsigned long tdata2;
++	unsigned long tdata3;
++};
++
++struct sbi_dbtr_id_msg {
++	unsigned long idx;
++};
++
++struct sbi_dbtr_shmem_entry {
++        struct sbi_dbtr_data_msg data;
++        struct sbi_dbtr_id_msg id;
++};
++
+ enum sbi_ext_pmu_fid {
+ 	SBI_EXT_PMU_NUM_COUNTERS = 0,
+ 	SBI_EXT_PMU_COUNTER_GET_INFO,
 -- 
 2.34.1
 
