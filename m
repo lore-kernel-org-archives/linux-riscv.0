@@ -4,93 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DDEC5478C
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 08:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E9EC48BF8
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 08:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6DYN4ocmb78vhqDCRP7TuzFrcmjusiw7LrjuJLPYJwE=; b=MzcZLhotuCy0o+
-	3cIRUicin5FSdjCSIWvSW3b791D+W3jTLvcR48I1Nur04/uq9wpR9PQAVfKmdPNzFgJOdkW8P/LCX
-	MR+Uq3fZKDRiuk7GDl/D4o2hndbYSQuj+jk4LMK2vAZr6z7gGUzk8KLsCypC08q1q103Z2P9pf2mE
-	/4Co4A47Rii6UDIIAEUxh+GP/Xj/c4iUSJAvNyX5Z7fymbw3RHYJBltm789DOe8U4f3Ruh8z7/taF
-	VlDlavcNB8xCOKQki6D/3R/ZFXqdVYLBCxTWIZYi0sj39dr+SbGhGVDwYfIR8fCpYtUf3ke/UJMu7
-	dIWdGCpZXhxAgoc2ExJQ==;
+	List-Owner; bh=QI7QpdOV2Yl8/S4noqzZR3v8mvnVjGCHtgpsHDPtT/4=; b=iooCX+9EWfjz6d
+	c6QcBODei7CdODhBVb840svp3MRlsweJAjGS4DvKIYx+fSlKeenkkZqVv6kNr9ZIwU9kh/oB0RFGN
+	FC6+35ECu7N3FVuFhIK5UFwcpcCguHSkJYobLPOgE1SbS2z6kLYwlqTMd2OZxAkU/IsDS7A7ngBKY
+	6mvJ9V8tMYnTsh1SCRqN45L4MpjIyrC3hvBChv01/JxZXWZctjDIHXWD9GyWUFnS/z/ukNd3Cdss6
+	xmdgcjNUciAwGw6Lpu0B8kI/tij+mzdCEM8QiO/8/Q/nPNhpt2MEs9+cBa7tHFM9CErE/MlbtAaz0
+	MJ2yx2cJVGKeTXYbYGtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd4CQ-00000003x1I-0Wkh;
-	Thu, 22 Feb 2024 08:12:58 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1rd4df-000000044LC-0CSv;
+	Thu, 22 Feb 2024 08:41:07 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rd4CN-00000003x0B-3jHa
-	for linux-riscv@lists.infradead.org;
-	Thu, 22 Feb 2024 08:12:57 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1d934c8f8f7so70940375ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 00:12:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1708589574; x=1709194374; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OzNGUpNoXsKa0F+bV/ekx8aAYd7ltTcTmTe5buoxy74=;
-        b=icfzpIMH7H8lQ2oUEMfWR30vlkhtrlgfdEZCrz4hqaiIhPU4WId3Zg7fIZMvZ/EuvJ
-         WAp1svzOTItXt/h3S1uWtQ4ajlpUGm0SEHhGrTEvXHYemEbvqHyGvATgq1TZ2/DdQz5T
-         mfZLZbmLWqFhO2t6mVUKS99k24jc9i2OfhkVAL9teqvd6tk7C4AZuVEFs+Wr96jk8Sm1
-         oiz9uga0wHxycFWdfbrERQFJBeixgtgOLGIB2DXEJMSmFBicufKvC6pVRu4rPgKcyxHt
-         AAUsWu0mDLHNMxjVv2ibTVpixZ6vjWU9Wvs/h6uk1C/RiMffe0wj+MRPjM1N+QnTuJwn
-         ENTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708589574; x=1709194374;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OzNGUpNoXsKa0F+bV/ekx8aAYd7ltTcTmTe5buoxy74=;
-        b=DmT30a59IikyC2f/df7VO+c1Pp2faTWqx+25zwSKydvGh0s6uDyA4EuqRqjA+jj2K5
-         nVazIjD55TTAAoWZj4GmgCaHakichzUwsASj9wAsGsJTnM7HY9dvo8B3FaXj4DWnotae
-         64us6HOC98KFqtIkgUSqA3kXZENc9iEdzBFNGWq4N2GwjQUZ6MBpUsJWdAVlCLe63VbT
-         EVMSCDUif/cZvIyiZWmfPEX+xkK3nMkc+rwasWnrVYOrqS+tFSv1O/WQdkqqb7nmBtni
-         jcSDu35DycMsbcZLcmHETg4CeGHX0+2Ver0dy/hMY8Z6dwOtuFmBybAr/vxaQRgvxTGU
-         iQ7Q==
-X-Gm-Message-State: AOJu0YzBrA9uwb/H1RIBZ639CXRqmADRyqBdCDqQn6saPvw4Ig9rdwbu
-	8yg7/9xgNITNkSRaYkbN+3K4rnrM0E0ByOTDz7IKZW4t9v5ZWSH4fQVf/uYM3/SOqIuddjhoxpM
-	ZWGCr0qGgdjN2rC0s2Q/IdJN6Viaq6b8lnwfwd8m1HGNLMGN2gUpaaY0ssnBtPFvYu7SR8ZSMIa
-	mx2PQV2nSES7eJ+NjKQ/HZi8o9nWbcfBsU34vICkdTnX9IOS0t+RM=
-X-Google-Smtp-Source: AGHT+IEz666lsZSApoJrluiCUnkDERHUYNU92etsFfiWP0DNhuFqgQPyMZWzIbTM8mytE5tfogyXLA==
-X-Received: by 2002:a17:903:22c6:b0:1db:d42f:fde9 with SMTP id y6-20020a17090322c600b001dbd42ffde9mr16038641plg.41.1708589574353;
-        Thu, 22 Feb 2024 00:12:54 -0800 (PST)
-Received: from hsinchu15.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id lf8-20020a170902fb4800b001db5ea825b2sm9412796plb.123.2024.02.22.00.12.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Feb 2024 00:12:53 -0800 (PST)
-From: Nylon Chen <nylon.chen@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org,
-	conor@kernel.org,
-	robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu,
-	thierry.reding@gmail.com,
-	u.kleine-koenig@pengutronix.de
-Cc: vincent.chen@sifive.com,
-	zong.li@sifive.com,
-	nylon.chen@sifive.com,
-	nylon7717@gmail.com
-Subject: [PATCH v9 3/3] pwm: sifive: Fix the error in the idempotent test within the pwm_apply_state_debug function
-Date: Thu, 22 Feb 2024 16:12:31 +0800
-Message-ID: <20240222081231.213406-4-nylon.chen@sifive.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240222081231.213406-1-nylon.chen@sifive.com>
-References: <20240222081231.213406-1-nylon.chen@sifive.com>
+	id 1rd4da-000000044IF-1jmJ;
+	Thu, 22 Feb 2024 08:41:03 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 41M8dwbg074270;
+	Thu, 22 Feb 2024 16:39:58 +0800 (+08)
+	(envelope-from peterlin@andestech.com)
+Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Thu, 22 Feb 2024
+ 16:39:54 +0800
+From: Yu Chien Peter Lin <peterlin@andestech.com>
+To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
+        <alexander.shishkin@linux.intel.com>, <andre.przywara@arm.com>,
+        <anup@brainfault.org>, <aou@eecs.berkeley.edu>,
+        <atishp@atishpatra.org>, <conor+dt@kernel.org>,
+        <conor.dooley@microchip.com>, <conor@kernel.org>,
+        <devicetree@vger.kernel.org>, <evan@rivosinc.com>,
+        <geert+renesas@glider.be>, <guoren@kernel.org>, <heiko@sntech.de>,
+        <irogers@google.com>, <jernej.skrabec@gmail.com>, <jolsa@kernel.org>,
+        <jszhang@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-perf-users@vger.kernel.org>,
+        <linux-renesas-soc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-sunxi@lists.linux.dev>, <locus84@andestech.com>,
+        <magnus.damm@gmail.com>, <mark.rutland@arm.com>, <mingo@redhat.com>,
+        <n.shubin@yadro.com>, <namhyung@kernel.org>, <palmer@dabbelt.com>,
+        <paul.walmsley@sifive.com>, <peterlin@andestech.com>,
+        <peterz@infradead.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <rdunlap@infradead.org>, <robh+dt@kernel.org>, <samuel@sholland.org>,
+        <sunilvl@ventanamicro.com>, <tglx@linutronix.de>,
+        <tim609@andestech.com>, <uwu@icenowy.me>, <wens@csie.org>,
+        <will@kernel.org>, <inochiama@outlook.com>, <unicorn_wang@outlook.com>,
+        <wefu@redhat.com>
+CC: Charles Ci-Jyun Wu <dminus@andestech.com>,
+        Leo Yu-Chi Liang
+	<ycliang@andestech.com>
+Subject: [PATCH v9 01/10] riscv: errata: Rename defines for Andes
+Date: Thu, 22 Feb 2024 16:39:37 +0800
+Message-ID: <20240222083946.3977135-2-peterlin@andestech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240222083946.3977135-1-peterlin@andestech.com>
+References: <20240222083946.3977135-1-peterlin@andestech.com>
 MIME-Version: 1.0
+X-Originating-IP: [10.0.15.183]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 41M8dwbg074270
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240222_001255_951786_B2EFF1AA 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20240222_004102_727625_C1F9361A 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,36 +88,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Round the result to the nearest whole number. This ensures that
-real_period is always a reasonable integer that is not lower than the
-actual value.
+Use "ANDES" rather than "ANDESTECH" to unify the naming
+convention with directory, file names, Kconfig options
+and other definitions.
 
-e.g.
-$ echo 110 > /sys/devices/platform/led-controller-1/leds/d12/brightness
-$ .apply is not idempotent (ena=1 pol=0 1739692/4032985) -> (ena=1 pol=0 1739630/4032985)
-
-Co-developed-by: Zong Li <zong.li@sifive.com>
-Signed-off-by: Zong Li <zong.li@sifive.com>
-Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
+Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+Reviewed-by: Charles Ci-Jyun Wu <dminus@andestech.com>
+Reviewed-by: Leo Yu-Chi Liang <ycliang@andestech.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
- drivers/pwm/pwm-sifive.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes v1 -> v2:
+  - No change
+Changes v2 -> v3:
+  - Rewrite commit message (suggested by Conor)
+Changes v3 -> v4:
+  - Include Conor's Acked-by tag
+Changes v4 -> v5:
+  - Include Prabhakar's RB tag
+Changes v5 -> v6:
+  - No change
+Changes v6 -> v7:
+  - No change
+Changes v7 -> v8:
+  - No change
+Changes v8 -> v9:
+  - No change
+---
+ arch/riscv/errata/andes/errata.c       | 10 +++++-----
+ arch/riscv/include/asm/errata_list.h   |  4 ++--
+ arch/riscv/include/asm/vendorid_list.h |  2 +-
+ arch/riscv/kernel/alternative.c        |  2 +-
+ 4 files changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-index a586cfe4191b..bebcbebacccd 100644
---- a/drivers/pwm/pwm-sifive.c
-+++ b/drivers/pwm/pwm-sifive.c
-@@ -101,7 +101,7 @@ static void pwm_sifive_update_clock(struct pwm_sifive_ddata *ddata,
+diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes/errata.c
+index 17a904869724..f2708a9494a1 100644
+--- a/arch/riscv/errata/andes/errata.c
++++ b/arch/riscv/errata/andes/errata.c
+@@ -18,9 +18,9 @@
+ #include <asm/sbi.h>
+ #include <asm/vendorid_list.h>
  
- 	/* As scale <= 15 the shift operation cannot overflow. */
- 	num = (unsigned long long)NSEC_PER_SEC << (PWM_SIFIVE_CMPWIDTH + scale);
--	ddata->real_period = div64_ul(num, rate);
-+	ddata->real_period = DIV_ROUND_UP_ULL(num, rate);
- 	dev_dbg(ddata->chip.dev,
- 		"New real_period = %u ns\n", ddata->real_period);
- }
+-#define ANDESTECH_AX45MP_MARCHID	0x8000000000008a45UL
+-#define ANDESTECH_AX45MP_MIMPID		0x500UL
+-#define ANDESTECH_SBI_EXT_ANDES		0x0900031E
++#define ANDES_AX45MP_MARCHID		0x8000000000008a45UL
++#define ANDES_AX45MP_MIMPID		0x500UL
++#define ANDES_SBI_EXT_ANDES		0x0900031E
+ 
+ #define ANDES_SBI_EXT_IOCP_SW_WORKAROUND	1
+ 
+@@ -32,7 +32,7 @@ static long ax45mp_iocp_sw_workaround(void)
+ 	 * ANDES_SBI_EXT_IOCP_SW_WORKAROUND SBI EXT checks if the IOCP is missing and
+ 	 * cache is controllable only then CMO will be applied to the platform.
+ 	 */
+-	ret = sbi_ecall(ANDESTECH_SBI_EXT_ANDES, ANDES_SBI_EXT_IOCP_SW_WORKAROUND,
++	ret = sbi_ecall(ANDES_SBI_EXT_ANDES, ANDES_SBI_EXT_IOCP_SW_WORKAROUND,
+ 			0, 0, 0, 0, 0, 0);
+ 
+ 	return ret.error ? 0 : ret.value;
+@@ -50,7 +50,7 @@ static void errata_probe_iocp(unsigned int stage, unsigned long arch_id, unsigne
+ 
+ 	done = true;
+ 
+-	if (arch_id != ANDESTECH_AX45MP_MARCHID || impid != ANDESTECH_AX45MP_MIMPID)
++	if (arch_id != ANDES_AX45MP_MARCHID || impid != ANDES_AX45MP_MIMPID)
+ 		return;
+ 
+ 	if (!ax45mp_iocp_sw_workaround())
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index ea33288f8a25..96025eec5631 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -12,8 +12,8 @@
+ #include <asm/vendorid_list.h>
+ 
+ #ifdef CONFIG_ERRATA_ANDES
+-#define ERRATA_ANDESTECH_NO_IOCP	0
+-#define ERRATA_ANDESTECH_NUMBER		1
++#define ERRATA_ANDES_NO_IOCP 0
++#define ERRATA_ANDES_NUMBER 1
+ #endif
+ 
+ #ifdef CONFIG_ERRATA_SIFIVE
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index e55407ace0c3..2f2bb0c84f9a 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -5,7 +5,7 @@
+ #ifndef ASM_VENDOR_LIST_H
+ #define ASM_VENDOR_LIST_H
+ 
+-#define ANDESTECH_VENDOR_ID	0x31e
++#define ANDES_VENDOR_ID		0x31e
+ #define SIFIVE_VENDOR_ID	0x489
+ #define THEAD_VENDOR_ID		0x5b7
+ 
+diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+index 319a1da0358b..0128b161bfda 100644
+--- a/arch/riscv/kernel/alternative.c
++++ b/arch/riscv/kernel/alternative.c
+@@ -43,7 +43,7 @@ static void riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info
+ 
+ 	switch (cpu_mfr_info->vendor_id) {
+ #ifdef CONFIG_ERRATA_ANDES
+-	case ANDESTECH_VENDOR_ID:
++	case ANDES_VENDOR_ID:
+ 		cpu_mfr_info->patch_func = andes_errata_patch_func;
+ 		break;
+ #endif
 -- 
-2.43.0
+2.34.1
 
 
 _______________________________________________
