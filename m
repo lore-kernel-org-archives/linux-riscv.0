@@ -4,79 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADDDAC5478C
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 21:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68B3C5478C
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Feb 2024 22:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
+	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cQqko3+KEHBaIebLtVT26US6sJ10qgJmnZrQP2oKa4M=; b=tkBg3KF6mVzGZA
-	ucIwRYz/9tYN8Jh/wsjjA/6e1OYoGK0yUuqCNJWebIRC8CccpsoETBirsUcvEXahI6oSQjQi84/Ek
-	2TBEkl1PPvg0264339g98Ex1Nffu5PumIUrGBG27UfquB7/YW40DxJYbEyAqlXVmxh+iS9Fopv4qN
-	kbk1s2zc0SwjcRa0Iu3BVcz1X3vxJfm8sJppBOVNwMk2c+Whrn1PLqLuIG6AhTcCvwsiPsGkK64WX
-	YQ9WpnN9H53yAxE7jx7p0DAuzuE+4KixvaKiTj/mVKuS/pHijskJcVCEfhDbpI+at/e8N6AJzgG8l
-	SOH9TfKe83XhznEpIhhg==;
+	List-Owner; bh=2GN29gYLuB26vElK5O0GWPacKvtWtCBNA56SauFs5pU=; b=x5rCSwRO3xlvM6
+	YNIujjy9AgTGj/v09lHrVFiCWNedxiCe7mzGF/gEzy8YMlGVoAJl556A/Cma7k3dBcu/7vFhq4aqa
+	C5lsEiq8FrlEYNfRM30cxJZQpB0bj8gzCctREtl2ZZnUSmvAkg5XINM5sEi3WUs+RGN3jioIk6h8e
+	7xNI8G1oFZLIEbsvNkw3G/owx09DMuzKcdf5HdEIgGgWBYoow2iljaZsB1hBhE9ufrR7ovnKOR7PC
+	gFF7uKi3Tk9q6FTzB2A7Cr3jcdn1CujBQbMRYfxshb/v1tDD/mkpsHGkDpKU2v1NEeTBPZW66IAXR
+	kXdQq45POJA2xgL/Ceaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdGkU-00000006gw1-0RCv;
-	Thu, 22 Feb 2024 21:36:58 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1rdHli-00000006sDf-09I7;
+	Thu, 22 Feb 2024 22:42:18 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdGkL-00000006gsY-2F5h;
-	Thu, 22 Feb 2024 21:36:54 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1708637808;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ysPo6JrAY4nGWCiZuUlITPDn7XnJnDVfKZs7jRkBAW4=;
-	b=mHY/ep6f/6+Zhj4+fZRHJ34d2lfiHP1EuInqjDkWFDCaiz/e8s95zPGbT8M0Ad++Dzyjmb
-	oVY+D2yqHO9WQbM0zwWCA5C3UGCs+gQ3z590Ucxghlf4Dlr41VPiQF9YgQYZMLeUawEiAa
-	Rnc0moqmMGO4SebkjihxwYdCTGbaE8vxFP+Vadvxo7Yltc9LG8tDTKxbNnV9fYjvOpOKXA
-	IVzZemMDik58mgm0f4adOVww1qNlUCp6hVusO9YpY3wPgYHU/R6LCbNdfHNpPLOSKZiLCu
-	6a7wcJJnpMSyhcj5Qeg9peFN2J/35vITOcTokZCnmz0jPiz2SksBNd0ahFfwWg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1708637808;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ysPo6JrAY4nGWCiZuUlITPDn7XnJnDVfKZs7jRkBAW4=;
-	b=6v3VMHzFcbvBoIrwVbn04/STMyA/qaJsgeXvHkOW1vMOCTZyQDFr2zoK8GtfRgUV7KtM1v
-	sGwpCMRcO4QbnbAQ==
-To: Yu Chien Peter Lin <peterlin@andestech.com>, acme@kernel.org,
- adrian.hunter@intel.com, ajones@ventanamicro.com,
- alexander.shishkin@linux.intel.com, andre.przywara@arm.com,
- anup@brainfault.org, aou@eecs.berkeley.edu, atishp@atishpatra.org,
- conor+dt@kernel.org, conor.dooley@microchip.com, conor@kernel.org,
- devicetree@vger.kernel.org, evan@rivosinc.com, geert+renesas@glider.be,
- guoren@kernel.org, heiko@sntech.de, irogers@google.com,
- jernej.skrabec@gmail.com, jolsa@kernel.org, jszhang@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-sunxi@lists.linux.dev, locus84@andestech.com, magnus.damm@gmail.com,
- mark.rutland@arm.com, mingo@redhat.com, n.shubin@yadro.com,
- namhyung@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
- peterlin@andestech.com, peterz@infradead.org,
- prabhakar.mahadev-lad.rj@bp.renesas.com, rdunlap@infradead.org,
- robh+dt@kernel.org, samuel@sholland.org, sunilvl@ventanamicro.com,
- tim609@andestech.com, uwu@icenowy.me, wens@csie.org, will@kernel.org,
- inochiama@outlook.com, unicorn_wang@outlook.com, wefu@redhat.com
-Cc: Randolph <randolph@andestech.com>
-Subject: Re: [PATCH v9 03/10] irqchip/riscv-intc: Introduce Andes hart-level
- interrupt controller
-In-Reply-To: <20240222083946.3977135-4-peterlin@andestech.com>
-References: <20240222083946.3977135-1-peterlin@andestech.com>
- <20240222083946.3977135-4-peterlin@andestech.com>
-Date: Thu, 22 Feb 2024 22:36:47 +0100
-Message-ID: <87o7c8dvv4.ffs@tglx>
-MIME-Version: 1.0
+	id 1rdHle-00000006sCP-2Qvf
+	for linux-riscv@lists.infradead.org;
+	Thu, 22 Feb 2024 22:42:15 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-608575317f8so4400557b3.3
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 14:42:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1708641732; x=1709246532; darn=lists.infradead.org;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jFvVQg9UZb065hqoLsESeNre8JaYtsdQOcTRgkYVRKY=;
+        b=NBSqsBa/rEJumSwiXAAFdbtccM7nCgiJqE9boqUAV8/brOykbf3V5fqOIcuEisD0vy
+         +NFicUGKEGUg0AZd5y1nKFta5xDNPzjHaImtdr2ndDJiva/3bPWJ62NIUPtS/jO7rN5m
+         QLb+ZXmS5SlJM8hxCqQPD3KAdwhtsCaRsq2Ys2V1wpoox53HeorVOX8ComHBNKbGo81U
+         6n5zVfH0TYGS4zb2qHZy/DOJp1AswUq0S/fQKRUnkayNH/bxxvxSxcSOJvwm2kNoJ0bM
+         5jn2BogA9Ze0DIMTdcMkt5m8qwImkvA153YTPuk/5S1cWATKDyMbi5CXjSiFD6uCnfc3
+         WW0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1708641732; x=1709246532;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jFvVQg9UZb065hqoLsESeNre8JaYtsdQOcTRgkYVRKY=;
+        b=LA1W8tWG9Bn/fzt6OhyB+rpGHagXExY32z6/K86XTHvywly0fQpUlPPDZZRPqpQGu5
+         ujNgdDVtP0BqnBrxpvCE6ltsJPO8nk6et+Kax6VOssVoHu6uHdZiP0FQPW0pClzE5wQ+
+         13fD0ygMefMndXV/Tpu+jYqDDyEBd/MvFd9KLqx4A3tzXNea0kUJ+YBpD6TaR0bswhKy
+         lT/GwPOv8D3SeEw1gBxQUhdROiYxYvYPLhKKLp0DVYO/2FufYnQZzMjGKhwdbQD3jPAc
+         jYdwLJMQN/lYSli2Uf4y98vODGufe/hjcbYIPWZpq95rdXKX70L5adgYLaJTeumGhdwQ
+         /u0w==
+X-Forwarded-Encrypted: i=1; AJvYcCVSBgnFmL3AzPf0xKIDHHQvls+mJY8zxXWD5Sr1eslrhZz2K00UPkJS22FewZ4VvSgjTG29SZzXqdVvmosg6GA95ZDUg7VWQOK/cX5s7cot
+X-Gm-Message-State: AOJu0YyjGmYqBl3CNXiZm1k9jm7N4UbQ4mKlVFmzz5IkCmH+UYA8K6IU
+	8uepoEB1/Tw9EKIajWnM59ilIN06fp7n4EXYIEwA91PnDy21UAaG5tEek/EhAi810tmIRx3vz54
+	nIA==
+X-Google-Smtp-Source: AGHT+IEn84VsOMK3xly4fJg9p4ZGQL4jC+l+k5U6BnNNTDUyy7r/Gzq9iPM6OigIQq722pMhxaceeSC3g0o=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a81:9242:0:b0:608:20df:8b0a with SMTP id
+ j63-20020a819242000000b0060820df8b0amr102171ywg.6.1708641732562; Thu, 22 Feb
+ 2024 14:42:12 -0800 (PST)
+Date: Thu, 22 Feb 2024 14:42:10 -0800
+In-Reply-To: <ZcKYRsNUAngWGy2a@google.com>
+Mime-Version: 1.0
+References: <20240203000917.376631-1-seanjc@google.com> <20240203000917.376631-11-seanjc@google.com>
+ <ZcKYRsNUAngWGy2a@google.com>
+Message-ID: <ZdfNwhe2s0Mn2gB4@google.com>
+Subject: Re: [PATCH v8 10/10] KVM: selftests: Add a basic SEV smoke test
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Vishal Annapurve <vannapurve@google.com>, 
+	Ackerley Tng <ackerleytng@google.com>, Andrew Jones <andrew.jones@linux.dev>, 
+	Tom Lendacky <thomas.lendacky@amd.com>, Michael Roth <michael.roth@amd.com>, 
+	Peter Gonda <pgonda@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240222_133649_826958_188DCFF1 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20240222_144214_653172_41B3A6A4 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,44 +99,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 22 2024 at 16:39, Yu Chien Peter Lin wrote:
-> Add support for the Andes hart-level interrupt controller. This
-> controller provides interrupt mask/unmask functions to access the
-> custom register (SLIE) where the non-standard S-mode local interrupt
-> enable bits are located. The base of custom interrupt number is set
-> to 256.
->
-> To share the riscv_intc_domain_map() with the generic RISC-V INTC and
-> ACPI, add a chip parameter to riscv_intc_init_common(), so it can be
-> passed to the irq_domain_set_info() as a private data.
->
-> Andes hart-level interrupt controller requires the "andestech,cpu-intc"
-> compatible string to be present in interrupt-controller of cpu node to
-> enable the use of custom local interrupt source.
-> e.g.,
->
->   cpu0: cpu@0 {
->       compatible = "andestech,ax45mp", "riscv";
->       ...
->       cpu0-intc: interrupt-controller {
->           #interrupt-cells = <0x01>;
->           compatible = "andestech,cpu-intc", "riscv,cpu-intc";
->           interrupt-controller;
->       };
->   };
->
-> Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
-> Reviewed-by: Randolph <randolph@andestech.com>
-> Reviewed-by: Anup Patel <anup@brainfault.org>
+On Tue, Feb 06, 2024, Sean Christopherson wrote:
+> On Fri, Feb 02, 2024, Sean Christopherson wrote:
+> > +int main(int argc, char *argv[])
+> > +{
+> > +	TEST_REQUIRE(is_kvm_sev_supported());
+> 
+> This also needs
+> 
+> 	TEST_REQUIRE(kvm_cpu_has(X86_FEATURE_SEV));
+> 
+> to handle the case where the platform supports SEV, i.e. /dev/sev exists, but
+> KVM doesn't support SEV, e.g. if TDP is disabled, if SEV was explicitly disabled
+> via module param, etc.
 
-Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
-
-Palmer, feel free to take this through the riscv tree. I have no other
-changes pending against that driver.
-
-Thanks,
-
-        tglx
+Thinking more about this, I think we should simply delete is_kvm_sev_supported().
+(a) it obviously doesn't query _KVM_ support, and (b) if KVM says SEV is supported,
+then it darn well actually be supported.
 
 _______________________________________________
 linux-riscv mailing list
