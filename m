@@ -4,66 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58125C54E49
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Feb 2024 11:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDFBC54798
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Feb 2024 12:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJOiIQi3LMVZqIDn7hsocXVZ2R60V5Fe9vUu4jtXolY=; b=40SnpcC1TkPmmhxRgApJB7lyUz
-	wrkZYqouY9JIzukKO9+w9Au19RGskgjpKH9OxOhNWyeJ6w65TdAqdufTzhOUp6v07HdsPdpkjtLS8
-	Ohm1sKH8rtQmEWWhwvaLVEg9Uy53AZMN5o95a2Jtl9SFKpPpHxAWg5do6Z0JhDAPGrjNvGVqa9IB/
-	AOLN8W8IJoR4dBF8WfJIyAitE4eaV2OvhDafgglR4X7ahq8B1Vi+8zcSCtjL50ihHmzPKbuzDWQ6v
-	R7gHhfLyYJBRAb8rEkzbKBB0zqFUPsAP7Knxv6Fkx0W9/HXRSuNMhGxqnPcmibaxtFcWxe0kQ6ezf
-	5WaOMFRQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DqFGeNQ8FRodqSGSHL0qT7GAGwhUGrCBdXkjQoV+3bs=; b=ICI6gYOXEtSy4N
+	g7DHni5VPCZ018wr/AZ/cxMSX1jNzeNwCwADxrFvgV5m+oMZ7iYRjt8mGG0p9oqQnjGVtfjChu3kR
+	shHAalSiBhDWSwzo0SVEcudGcXqzs7pbq9iL26t9pJIEJr+jPMopNh38+XUaubpv+ieCb/QWCOSQq
+	7zF72QqNTRHYZFYdPefuns/hgmBMwk21j0cvUiwxBil6VcF3Mh9Cm+Kla0G0r18J2ivMESuNic7Jr
+	lHGLEOPCACmawHmMU/IdHFJ/WZZV/Z0QuR8p/kqiBOCZkpnaWfiXxxMpzvm3lMq+m+IUg0y6CAke0
+	mP/BgHZ24PT6Q3x7mDCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdTuX-00000009ASX-1Jdv;
-	Fri, 23 Feb 2024 11:40:23 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rdUIp-00000009GFX-1c7D;
+	Fri, 23 Feb 2024 12:05:19 +0000
+Received: from mail-tycjpn01on20600.outbound.protection.outlook.com ([2a01:111:f403:2019::600] helo=JPN01-TYC-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdTtl-00000009A9i-300r
-	for linux-riscv@lists.infradead.org;
-	Fri, 23 Feb 2024 11:39:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id D3540CE2301;
-	Fri, 23 Feb 2024 11:39:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 135CFC433C7;
-	Fri, 23 Feb 2024 11:39:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1708688355;
-	bh=W1EZlzIrLFHKafLcbOnnHszzlaYoezY3kK+xhHhq64I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aJc0hWRqnYwibP/uyaZ7etm2qnhJct/f568CwQewP0Nj4B3GHIPmPAD+4pO8ae23s
-	 1DvwoKw4TXi8tFLE9+NJvZXl0wNAdrDS1toPC8Nx/WHrvpYoyeLGymEgI5bjsPtejU
-	 akXSGAsIFIMzt1JSfxqdj++8Op8hOOEreZNQeRYxJviBE1FzdjUHkm4CA6F/oOyQCg
-	 IxDMM/uRLag2XNyXjU93buJEz7tE1R61sn4Q9OZ9Fupq/as8gzOpVfAiFyzpucXv24
-	 1PBH/biuAHCUrH8ytb4A894hIuXa0pRbh+SnLcwvRVY/BriA9ZriGGJJnaSEH74ikt
-	 Bgkb1Gs07qxQQ==
-Date: Fri, 23 Feb 2024 11:39:10 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh+dt@kernel.org>,
-	devicetree@vger.kernel.org
-Subject: Re: [RFC PATCH 0/1] riscv: dts: Allow BUILTIN_DTB for all socs
-Message-ID: <20240223-amino-barbell-59214fa9aa95@spud>
-References: <tencent_AB625442CC1BCFF86E04D7B5891C43719109@qq.com>
- <20240221-islamic-quartered-3863e44bc862@spud>
- <tencent_DF3D7C2E8248DA188E3FB8DF31FE21478D08@qq.com>
- <20240222-crawlers-prankish-ecf425d1f0b5@spud>
- <tencent_AF1B1DF96C041FB57D1C4770356254431E09@qq.com>
+	id 1rdTJ5-000000093P5-0QLh;
+	Fri, 23 Feb 2024 11:01:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=BBu1dZutIsI5Bp7YUkCuBbZEFshc6ovOhIiR/hmNaoIVqzuIJIwhjJiTwuDdfPEs8AVbvAyrCiv2LCELtI9tUaeZYq25v/PCc1YabuVhm3PIVDwCNNeOdJk05uyhFsCtHF0dgadChv/aIEA7xD/WqMnFPyxeD6azqktT8/CT49B+Lz7EpnU4XfPsBxnfOXA0hFrtAiNWc9GMsh9k4DQ+fnkhXh0lAwosIR1uFO3lE5q8dlFrUgWPcyIK3L3B0D6bM9Nbg0mrRDq7GwGgl9ebjbRM1ZnkVriH9WnhM7qYcJvY6ta5ZjKJ8M/D8PqyIgxMTFtWBQ0AwurmDUZKoVtg7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Q614cY1iCuMg131Uqrgkpu94aKn4lGgmM3cnkgIwHVk=;
+ b=CTFA09kCF/d9ocktvefhdk75RL2An31rYUaELcYQWLJjvZl1d2jwz6Fj9CM5Ryfg+MfdjijtSe8Pvs3nqWyZ4DPzj/khYFFHyuxfbxbgxSVu2kFbcD4Nf32bvxROjNewAEBgRUVPCRk6Bpb+f+I7GfB1CQRLWc6W9Zy3Qx4ArBP10SXzEVy6RBOn0q7pp0p1duDWk4Z79CrNCiC92SLi+kGJ/9GUbEJhj90HpEQgsRCFHiIcOOFPVAW9FZdIYtqspf48y/sd+wH4lrgV6SokEkm8sLMNI7HGveN7xKRJcfSwaAnlNQVLB5CYmjelxWYOjFFRCBzXdaDnTPQ0xRQpkg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Q614cY1iCuMg131Uqrgkpu94aKn4lGgmM3cnkgIwHVk=;
+ b=QeBeL3BphQeFJkaNn5JDvEDTGJw9uxwKnhVZK++V4NhLwAS6D6CVB3AUKKO+BiujsgsCXetrAFkngMObg0bd0KirEaiSKzJNwnETKck/Av+yRqDq4CgR0sLXhpPxOkHF8LRmwUqh3b/cmG26S3OqMB6Ps5ixoYGxnFAvomfbyFY=
+Received: from TYCPR01MB11269.jpnprd01.prod.outlook.com
+ (2603:1096:400:3c0::10) by TYWPR01MB8283.jpnprd01.prod.outlook.com
+ (2603:1096:400:164::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7316.24; Fri, 23 Feb
+ 2024 11:01:18 +0000
+Received: from TYCPR01MB11269.jpnprd01.prod.outlook.com
+ ([fe80::6719:535a:7217:9f0]) by TYCPR01MB11269.jpnprd01.prod.outlook.com
+ ([fe80::6719:535a:7217:9f0%3]) with mapi id 15.20.7316.023; Fri, 23 Feb 2024
+ 11:01:18 +0000
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Marek Szyprowski <m.szyprowski@samsung.com>, Anup Patel
+	<apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Frank Rowand <frowand.list@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: RE: [PATCH v12 02/25] genirq/irqdomain: Remove the param count
+ restriction from select()
+Thread-Topic: [PATCH v12 02/25] genirq/irqdomain: Remove the param count
+ restriction from select()
+Thread-Index: AQHaZkJDw9NLoYRbNkuhzQYScggLGrEXvPCAgAAEdwCAAABXsA==
+Date: Fri, 23 Feb 2024 11:01:18 +0000
+Message-ID: <TYCPR01MB11269D56CFF46F731F932245886552@TYCPR01MB11269.jpnprd01.prod.outlook.com>
+References: <20240127161753.114685-1-apatel@ventanamicro.com>
+	<20240127161753.114685-3-apatel@ventanamicro.com>
+	<CGME20240223102258eucas1p119f38e40f769c883c0a502e9e26be888@eucas1p1.samsung.com>
+	<481aa3b9-55c2-4ccb-bb4a-58b924d77ad7@samsung.com>
+	<TYCPR01MB112692BF27640D12CEF5987BE86552@TYCPR01MB11269.jpnprd01.prod.outlook.com>
+ <870534fc-eaa6-4da6-9180-a051443fbaa6@samsung.com>
+In-Reply-To: <870534fc-eaa6-4da6-9180-a051443fbaa6@samsung.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYCPR01MB11269:EE_|TYWPR01MB8283:EE_
+x-ms-office365-filtering-correlation-id: 2ed49418-a8d1-4a61-8974-08dc345ec327
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: dvphegWgH/64zNP3HzOhTqMU12IgRXmpXF7PAX+wVDbK+IVNpG3yet+hFbiSp0XuuIsIC6dME0jIadNZJXk78KkkMXRqlcTVtWgtdASlvi3utCht3o4NzJTK8Xhgn1KE/zwZL0EgXHxX8oSmVacAdB6Ef7kyNurZyv71K6Y7jY2cuUUfAD/LNiNWUwlLCMeFtlYdhrgEbYxydPZmUFx3vSRdE32MFDYuVYEGpOAgN3LriHbd45dtO0rWxElXxXiczLcoBWxiHLZgsKYpjpYXwfwOfJcoVCJh08HCPUqUCUZaX9ATyW0sMkPYIk+wocPUMP5auGMSbAXlJM+QaL7tncQFCn+PxxXHOXkJbLU6rrQIFvarhvQX7F31fJIRTtWX4YLeu1agQ4KXYE591DZeAL3appMRjhUYiuGTSZKBlz7seVmE5VtEURZHA/spRU9BDfARULup6KOZ2gGuvAySt56dnBr0hUmDTmCpY//XhVv6S0OVS4l5ZCPF303Hxne0iZn1ZLrpvSY3vlKtAfF1iQKg3PqsFXklvCr4oZZ6I7G1e4tq7i0AMV+h6mh9J2oAFYYbZXi5JR1jSkig/BBOsHP1NreCL59aG5JPJJrjoKYCyD6ppDRD2nEVd1RbWHb7
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB11269.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(38070700009);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?Ry55aUs23CCfCLFHXwGIJyv3daKvuf5/apKqzRCldti9oI5EuoIUFbYzxU?=
+ =?iso-8859-1?Q?aRQyb8cS893c3K65FfIx46Fgrs0NmyWjkZ3aYEsNwvetCt45aJ4zRtuKNM?=
+ =?iso-8859-1?Q?xpn/5lmlfq0AvHnmSRiuuTqDjmFykM3Vxe7JM451Pxi6UheMYG2lAWJ6iX?=
+ =?iso-8859-1?Q?vhOqJRyjdFmkBpaUym3jhqiLcoyN5MVwmBfmE8LGVaEuueMy8563stnKyO?=
+ =?iso-8859-1?Q?nMZm/b87PVd8ugcRoTibo6quErNzBCVBxNIySM+Ec6vnN0i+6ZgAGDXH89?=
+ =?iso-8859-1?Q?whIfiIUWwNth0OLV0bnx5Cqb5vu85X6xfr9paMIl15gxjO1Cm0YniI5xoV?=
+ =?iso-8859-1?Q?FXwadRmjXBnEkZIoeef+2VcOBs0ebPaYGDfqL44XcEgoW6JTWNDdjBamUO?=
+ =?iso-8859-1?Q?DUPiiWjhA+w9Ln+uVYlJSZpwtN8ckZDUEDNe9MNiO5Qn1YHMLPmj1o0RHR?=
+ =?iso-8859-1?Q?20mRxJI06tjT+sr/13Uv2vLo/BWcOC+6SEuRA+zQLAq6lvuGo2Ad/R0S5e?=
+ =?iso-8859-1?Q?1pxWFYTK5A7+d/rj4n2FOnfTiZXS19U+o5Uu9uWgIbNpiwZlVgjBWizT6T?=
+ =?iso-8859-1?Q?O0FSBoSQ2vO4clyHxMxDVRe/8BH69Ig4ixz4HU5vr4myoGGop+rFrhojJL?=
+ =?iso-8859-1?Q?GlttCf1VS5Cq+szp9pgOi9CE0XxeHOhTcS401FA3vCLr4sm5rmZmh7Rnck?=
+ =?iso-8859-1?Q?yFSmVu3Yi87K4Sq5733tFrROLHP+wMNmH4SoVxl+NDNzFkDv+9R9woPthq?=
+ =?iso-8859-1?Q?VMvW5dWzNFpXGSVmabcr/x8nym6YRXRxmVOanA4zUt/KZPQyGq4MftbZ+n?=
+ =?iso-8859-1?Q?8DRKmkKaezMYhXQKTCQmley5+yyBj6zNsNTfKtomtiXUPa3WbQAgpQReFp?=
+ =?iso-8859-1?Q?ebPjkRTjBjabRd86Lm2z1DnaW3iSDfrgfyZmd97rwSyq73+ct3vc7PWdOB?=
+ =?iso-8859-1?Q?U4n3Rc/oV4DVFEg07gYzrdcwo4qFmIFgjQHzqPr64wt2+0g0Ly2TXF02uz?=
+ =?iso-8859-1?Q?5bL1ak98TWjwmQUXZhS8e5SACuDbi9PJkqCu3XEtpuI32yJRt7KGmSgjIu?=
+ =?iso-8859-1?Q?f6OudMaAM9Hh0rdvV4ly7/C0Q2SLe3kijFf3Sn7Ymi8vOlfC2GTSLCjeEG?=
+ =?iso-8859-1?Q?Jn0wh1Qs1JEztokXeCq2hD5c9F0C9Dvxaeow9GGhZjQBHPcz386MF2OM7n?=
+ =?iso-8859-1?Q?oj2jzpWM3yB4UQrfNoMbNXtsKL1VZ7IR4ZrKXauiHoXltocc0jXpB3MFo3?=
+ =?iso-8859-1?Q?T5gdnjwKvd9WVDx6xgI4cvt2whUy7A+YMjkBKFMD3cmoTz7AdD3R/2xijN?=
+ =?iso-8859-1?Q?yoVRJHRtWU8BoG+L4hZ4t8XZ2q27jjNKXHfxkl8eQNvXkAIguRJLAnlfkK?=
+ =?iso-8859-1?Q?mlA6GaWJna46qDnPBeS/ktRPND2xZRtjRQuTcupTL5Mrgn/4sYHmzR5pVr?=
+ =?iso-8859-1?Q?wzwE7VzGcgY1zcZ7m34kDrMTz7qO7IiC1xdWeNMkoKWVeAjYkHSjRrUPXf?=
+ =?iso-8859-1?Q?8pzZBKkHykuzL6euPtm3w9nPbYv46vkAwV1uRkH5DC8zpNHNnKBYFY0Uuz?=
+ =?iso-8859-1?Q?mXrvmfYCFKIyD2B/hpU7Na4OgBfrNfwXKwlv+sCrAf1/1h7JCpkChDGtv6?=
+ =?iso-8859-1?Q?Ok8x14F4jrx0G6wmsxwGQqeZ5dgewuqGv03Z3coKLKyNsapMPID3Tplw?=
+ =?iso-8859-1?Q?=3D=3D?=
 MIME-Version: 1.0
-In-Reply-To: <tencent_AF1B1DF96C041FB57D1C4770356254431E09@qq.com>
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB11269.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ed49418-a8d1-4a61-8974-08dc345ec327
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Feb 2024 11:01:18.4890
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 8yQMKd+Nc9rLcGm3SUYZzNLSDT2qqE3gjN8RhWJEtMCMGKQBkT5yiVH/vL5byqtufPz/a37GOkxJLWmdc9AoGwqNWhxLIv86dUE75OSB4uE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYWPR01MB8283
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240223_033926_777561_C3F533FB 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20240223_030137_934119_EE0DD049 
+X-CRM114-Status: GOOD (  25.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,82 +141,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6502404152816442551=="
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>, Atish Patra <atishp@atishpatra.org>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Marek Szyprowski,
 
---===============6502404152816442551==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="YWxBLTxQFvyXO2f2"
-Content-Disposition: inline
+> -----Original Message-----
+> From: Marek Szyprowski <m.szyprowski@samsung.com>
+> Sent: Friday, February 23, 2024 10:57 AM
+> Subject: Re: [PATCH v12 02/25] genirq/irqdomain: Remove the param count
+> restriction from select()
+> 
+> On 23.02.2024 11:45, Biju Das wrote:
+> >> On 27.01.2024 17:17, Anup Patel wrote:
+> >>> From: Thomas Gleixner <tglx@linutronix.de>
+> >>>
+> >>> Now that the GIC-v3 callback can handle invocation with a fwspec
+> >>> parameter count of 0 lift the restriction in the core code and
+> >>> invoke
+> >>> select() unconditionally when the domain provides it.
+> >>>
+> >>> Preparatory change for per device MSI domains.
+> >>>
+> >>> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+> >>> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> >>
+> >> This patch landed recently in linux-next (next-20240221) as commit
+> >> de1ff306dcf4 ("genirq/irqdomain: Remove the param count restriction
+> >> from select()"). I've noticed that it breaks booting of Qualcomm's
+> >> Robotics
+> >> RB5 ARM64 board (arch/arm64/boot/dts/qcom/qrb5165-rb5.dts). Booting
+> >> freezes after "clk: Disabling unused clocks", but this is probably a
+> >> consequence of some earlier failure. Reverting $subject on top of
+> >> next-20240221 fixes this problem. Let me know how can I help
+> >> debugging this issue.
+> >>
+> >>
+> >>> ---
+> >>>    kernel/irq/irqdomain.c | 2 +-
+> >>>    1 file changed, 1 insertion(+), 1 deletion(-)
+> >>>
+> >>> diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c index
+> >>> 0bdef4fe925b..8fee37918195 100644
+> >>> --- a/kernel/irq/irqdomain.c
+> >>> +++ b/kernel/irq/irqdomain.c
+> >>> @@ -448,7 +448,7 @@ struct irq_domain
+> >>> *irq_find_matching_fwspec(struct
+> >> irq_fwspec *fwspec,
+> >>>    	 */
+> >>>    	mutex_lock(&irq_domain_mutex);
+> >>>    	list_for_each_entry(h, &irq_domain_list, link) {
+> >>> -		if (h->ops->select && fwspec->param_count)
+> >>> +		if (h->ops->select)
+> >>>    			rc = h->ops->select(h, fwspec, bus_token);
+> >>>    		else if (h->ops->match)
+> >>>    			rc = h->ops->match(h, to_of_node(fwnode),
+> bus_token);
+> > This patch looks reverted on todays's next. But there was a fix for
+> > fixing the issue you mentioned [1]
+> >
+> > [1]
+> > https://jpn01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flore
+> > .kernel.org%2Fall%2F170844679345.398.17551290253758129895.tip-bot2%40t
+> > ip-bot2%2F&data=05%7C02%7Cbiju.das.jz%40bp.renesas.com%7Cffce754120ba4
+> > ff0f8d708dc345e1c1a%7C53d82571da1947e49cb4625a166a4a2a%7C0%7C0%7C63844
+> > 2825998732581%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2lu
+> > MzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=lYLVpa4tz2fEU1Jc
+> > DDGUF6eigi2YJuGDouMXrJSlibo%3D&reserved=0
+> 
+> Thanks! Today's next seems to be broken on ARM64 (doesn't compile here),
+> so I've missed it.
+
+FYI, ARM64 defconfig works for me.
+Linux smarc-rzg2l 6.8.0-rc5-next-20240223-gfebe82167ab7 #1430 SMP PREEMPT Fri Feb 23 07:41:52 GMT 2024 aarch64 GNU/Linux
+
+Cheers,
+Biju
 
 
---YWxBLTxQFvyXO2f2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Feb 23, 2024 at 03:42:01PM +0800, Yangyu Chen wrote:
-> To sum up, I agree with the reasons to refuse it for debugging purposes. I
-> am wondering what to do next. After reviewing the code carefully, I found
-> this feature not only for K210 but also for other SoCs. But for other SoC=
-s,
-> it is broken as it will link multiple dtbs to the kernel, but the kernel
-> will always pick up the first dtb to use as discussed on this thread [2].
-> That is because SOC_BUILTIN_DTB_DECLARE is removed from this patch [3] th=
-en
-> no code to select for multiple dtbs now. And makefiles on other soc which=
- is
-> on the mainline kernel currently will build every dtb object file from th=
-is
-> patch [4]. So this feature for other SoCs is broken now.
->=20
-> Choices might be one of the following:
->=20
-> 1. Remove BUILTIN_DTB feature if K210 support get removed
-> 2. Continue to add this feature to get this work for other socs
->=20
-> I prefer to continue to get this feature to work. Not only for my debuggi=
-ng
-> purposes but also for fixes.
-
-My email might have been a bit unclear because I responded to things out
-of order. My final thoughts were that we should apply a v2 (or 3 etc) of
-this patch if for no other reason than fixing BUILTIN_DTB. I could not
-really justify refusing your changes when a patch fixing BUILTIN_DTB for
-the non-k210 platforms that support it would look almost identical to
-this patch. Apologies if you misunderstood.
-
-I left some comments on the patch itself with a v2 in mind.
-
-Thanks,
-Conor.
-
---YWxBLTxQFvyXO2f2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZdiD3gAKCRB4tDGHoIJi
-0ix7AP4yMMgNUyiA1o4UrMBOtHcThn4TBnzGlxw++LdHRXz5dQD/X0dO6ukK7Mq+
-8u/+x6VnQEcRzl+/0IyWAT/pD/FS8ws=
-=7EAC
------END PGP SIGNATURE-----
-
---YWxBLTxQFvyXO2f2--
-
-
---===============6502404152816442551==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6502404152816442551==--
-
