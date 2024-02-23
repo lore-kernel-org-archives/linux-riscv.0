@@ -4,109 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E25DC5478C
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Feb 2024 05:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1705EC48BC4
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Feb 2024 06:23:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iQA6LTaheaQZAXLRwfBPX2vswo8mNwg0YkGuzAVojYs=; b=enrzZoRvCw9GaN6MhwxcRgOe2m
-	pIuKld7cHfBHP/rNK7aPOvgEBsQu+OdwPfh0ZcwlLeMPnAHg7gevidNYYhz8hGfJRi3OvvSYFQLYx
-	Lh7SSdrqt3ctZYJVXKmjdGVw2Ij5cPQBy9LmcXUhVn29xZQYRnHz/ivdHONNZL9O2zYV8VbjJFBNo
-	vS8qRCFMEYNDs4os+USH9xq/WFlv/0BJ8XAFLPH27xg+yuEiFe0kC/WzPo7M+1uPLEPIA27+ExGW3
-	/C3VKjPdi+FieI7yKSoXIlgpAiTDNeQ9Faipk0urj0R5XkQnq131d+m5kxo1jP67CMNzjKvRB2uBB
-	X99vQ3Kg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KpuxORtIKm08RG805nMmq6I+u10PZ5b4nLugy3+jHS4=; b=a5x8thnrjG0Vo4
+	2b98tp1BW2LINpUwIszQWdKf3zxG3KyaRI9DyLVbBhvkqEcUPpxcUpi9H/CTEB8TnqJWiqAMZ2ri1
+	P1AV9mPdtdTOZ966m33uwowFGefuw5DYKGyXlXumxJWFZZAfyzppb5K/+R6rWd+YFXR82pjiHSgRW
+	0hjpCqVzWXLMo/3JEoIRP6D2b08Q5itWwpgWyzhfyoZinEBFpXMukvILb5RvA8hUT7qIucgWo0Q5t
+	sufeigfowoHCZQ5MueZPEkPhT7vMd9S4496JCrAJBCzCZQw0Anx3sr7be8SnFSq+G3OKelJnuU041
+	L9hPSMpz8t3DdL08Z46g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdOK2-000000082Lp-2T2g;
-	Fri, 23 Feb 2024 05:42:13 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1rdOxe-0000000881K-14gr;
+	Fri, 23 Feb 2024 06:23:06 +0000
+Received: from mail-mw2nam10olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c12::801] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdOJs-000000082DF-37uU;
-	Fri, 23 Feb 2024 05:42:05 +0000
-Received: from pps.filterd (m0353722.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 41N5RXw3004732;
-	Fri, 23 Feb 2024 05:41:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : date :
- subject : to : cc : references : from : in-reply-to : content-type :
- content-transfer-encoding : mime-version; s=pp1;
- bh=9W7fRpp8Cej2/m5IqM60+RYoP+1x8jnLMKf+yYsewb0=;
- b=YO0gqY9t0bx79WYOElJAN7nfMxSwEMvUjlvxhvpKChKkvWhhMbq5C6e3f3JID70WzZUB
- rPBCjbR++48o+ovfcULGU+OdjbZ4R8nFMX5SfUQvDcU0Ieojf7C0+3Pkk+i3qZBGKol6
- xdbYSNp6gBIDl484VQG7sXpbA3VO+BD4S6UYLA6sTLlR6W8gezf4EYZD4aKIu+DMpJd5
- 35eQJeacQafTSwc5cDy7sngWhidEKvsxUgYCF14kz3QykXv+1dQdF2126FH4VuUD3E8h
- muSaq9/gRXVvHlCI57GSuG3fKPKwp+Bz7a/oHCw+PHPETndzRum38dBSdp42+48oPJUB sg== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3wen7vg7n8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 23 Feb 2024 05:41:52 +0000
-Received: from m0353722.ppops.net (m0353722.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 41N5Sx6S007880;
-	Fri, 23 Feb 2024 05:41:51 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3wen7vg7mu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 23 Feb 2024 05:41:51 +0000
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 41N3awRg031187;
-	Fri, 23 Feb 2024 05:41:50 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 3wb9bmawmw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 23 Feb 2024 05:41:50 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 41N5fkDf9503378
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 23 Feb 2024 05:41:48 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B6C262004B;
-	Fri, 23 Feb 2024 05:41:46 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9D0082004D;
-	Fri, 23 Feb 2024 05:41:42 +0000 (GMT)
-Received: from [9.43.109.8] (unknown [9.43.109.8])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 23 Feb 2024 05:41:42 +0000 (GMT)
-Message-ID: <386202f8-852c-477e-b9c4-f37896559a34@linux.ibm.com>
-Date: Fri, 23 Feb 2024 11:11:41 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/14] Split crash out from kexec and clean up related
- config items
-Content-Language: en-US
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-s390@vger.kernel.org, Baoquan He <bhe@redhat.com>, piliu@redhat.com,
-        linux-sh@vger.kernel.org, x86@kernel.org, kexec@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
-        ebiederm@xmission.com, loongarch@lists.linux.dev,
-        linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        linux-arm-kernel@lists.infradead.org, viro@zeniv.linux.org.uk
-References: <20240119145241.769622-1-bhe@redhat.com>
- <9101bb07-70f1-476c-bec9-ec67e9899744@linux.ibm.com>
- <Zb8D1ASrgX0qVm9z@MiWiFi-R3L-srv>
- <559f2595-1477-4ef0-80e4-85ae8b426de7@linux.ibm.com>
- <20240221125752.36fbfe9c307496313198b60f@linux-foundation.org>
- <3393a42f-d9b3-4031-bdef-78bb2ce758f1@linux.ibm.com>
- <20240222132936.e7dc50acbf5d1b653cb2e02c@linux-foundation.org>
-From: Hari Bathini <hbathini@linux.ibm.com>
-In-Reply-To: <20240222132936.e7dc50acbf5d1b653cb2e02c@linux-foundation.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 1e6y87d1DlwScItsjN2uRAkEKSoC1BFr
-X-Proofpoint-ORIG-GUID: dp_4k7D0Bmax-JRhiGBq4xwolmlG7ETz
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+	id 1rdOxW-000000087tV-26nb
+	for linux-riscv@lists.infradead.org;
+	Fri, 23 Feb 2024 06:23:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=SEyTs2hPhjPfRum8CcNj6UsjzaZw9MsodsUsRac8cm1+Y27neQMRz1CNXLRG0EmQbyFrE10KNTUJeuQkldyLlY45otwEzlC3C2meISlZpS9tuXX3250/R3BAbB8Z6hxi0hnDtO2zqL4VvqbqhVAQPaPRYLHdRRqgO6Fq58n+4gLK098Rvg0XCaxVoFmo3ujX/srlsM3DFdcA+kFmb+tMtO8p92B5PI9arW4sj6nnS1xwW+uh2M7411NL6O0Bli18LsaXIYaub5qNy8fPie7VRUX7RqUa4uDPhlbLPSekcBSFbJVUpy/buvHX3UtH60KjxtSQFzTiej2IhmhPGrKvyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aqSridJMXPFKunDrW1ANSV0J8pNUt+gGcMuXiwqj+/U=;
+ b=ZCKAKLR9RgbAC0Mt5eZy/Umd25iJRPAM6viATw4fo5agXm+YbYc0z3YQO9uTMNoKtCmcU3L3oYp9QxbXVJj3E+yFok2S4qrKWJhQ9edp0P7zIGv/Fp/C2BZQ7zqXC6kpzRY6MTrlosKU2wLvlw5MNenaBVk93uWIsHHKjHCmF7vS9PF9BJ6fyMeflGiEOfacEzoN6Qab5vEKo3IwpqOQpsxG6HnEnd8D32xOH1pQTL9n1LSnGxjlSGU5R4TNEx1fr9r7mvcosHzN0qzmqMbzDeDG3BVt5GQ4OV0p+AwVuVbz5mVkbMrSezSTY1SUjObY8n2moM9mPTgefqp+sc6QvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aqSridJMXPFKunDrW1ANSV0J8pNUt+gGcMuXiwqj+/U=;
+ b=Ab5SS05tMpvDyWOix0btRcnkXS4btgKAPDxGuiFZdxJ67KTkyJZM6YOFbcFAGu+xNPF4uXaLKSKNNg8UkX37GuJTf9lNCYW9suyoWkhjAvKWxI2fkuOjky6iatrtPIMMZgw8oxx0psuZ74L1DD8ZJASzA3c2x70DZsXV5i93bqnSZecFv5SJzIN6GLo4fxPC2U5KI7tRbj6HDA11YF3XKSUA6oUV0fQpqmRSvS9abW5IMj4A851kqIDXgmT5nV4oRJa7zO4kGYvSFj28py+tW25gtbvDfrpf342CdcVlPgq/PY7ce6AeW8895p87ojjR5HygDfQWRZ0iseasty5SjA==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by BLAPR20MB4129.namprd20.prod.outlook.com (2603:10b6:208:334::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7316.24; Fri, 23 Feb
+ 2024 06:22:35 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::8615:efe2:7c8e:2041]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::8615:efe2:7c8e:2041%3]) with mapi id 15.20.7316.018; Fri, 23 Feb 2024
+ 06:22:35 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Conor Dooley <conor@kernel.org>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2] MAINTAINERS: Setup proper info for SOPHGO vendor support
+Date: Fri, 23 Feb 2024 14:22:38 +0800
+Message-ID: <IA1PR20MB4953991E1042FF0057AFB83DBB552@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.2
+In-Reply-To: <IA1PR20MB4953B158F6F575840F3D4267BB7D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB4953B158F6F575840F3D4267BB7D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-TMN: [MFXvf2xN+zPvoyZo41kA+CeQwC9b/SCQ58fXtGjBi44=]
+X-ClientProxiedBy: TYCP286CA0112.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:29c::7) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <170866929772.213456.12954850815385987104.b4-ty@outlook.com>
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
- definitions=2024-02-22_15,2024-02-22_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 bulkscore=0
- malwarescore=0 mlxlogscore=999 lowpriorityscore=0 adultscore=0
- priorityscore=1501 impostorscore=0 phishscore=0 suspectscore=0
- clxscore=1015 spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2311290000 definitions=main-2402230038
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|BLAPR20MB4129:EE_
+X-MS-Office365-Filtering-Correlation-Id: ffaacf49-b961-4254-bd91-08dc3437d348
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: iA3lJ9naNaCSRgN+9HtjVWNJv2qt5qHg3/BpQv1QRkBhBAHaavQUMX6BHWn57TmVlOeX6TzKOrl1oqdA/yQzgikE30U+ghmvGFyjPSrpLrEWLLAlX7lSVDvUHJuMAqJBbC8bKfEuyx9gFjswcVKhGqh9Kj+veTUyW8E1iQoOOqtNEuVNxFwuXmQ4sB8vdPek8Im+Dom/areGL1jdP1VFZrDJUrZIkP+p0Met68/CuW1DFXlQoMbRQWg1hYzV1GFHWVY8iAoR9SQLZZT4ctP0sssC33LwzKHyt0biSUhOmHck+5+/eoA0MOkR2rPly6lYFyWf4BVaUpEgyLBV1vqX2KpTW4lrCCi1nDe8U53JJmEJzTqG0w074MbJhq72PFNQBLurkkaQ/qTDWczh+cHnuRnU8kvTNq5d9WRtp5dlx0KxJNmpMvjrIZpwgpxxqr7l4ovMxHYYuTAI2BFDUKbMKLKGg8MMbeKcYgZtt2Z5nhuAI7TAHFUH2EeET3dPE7qPYU3Mb59bqO/1JjdTiuT+MC5DkaWnCiYN2+t9V4wws75On0yXPJbqS9fYWoUOUbNbcgoqeeTpessB0Mh9ZSMVSQ==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?amJLMDhCbGJDUGpHdXd5OVlFWVA5VndZankzZThHaVgwK3I2dGttTWdpdHFz?=
+ =?utf-8?B?bVp3cHBKcnVWZ3Z0SWcxSHJwMUFSNGFXM1FrNWs0M2RqRzJDU3dWY1lWeHQy?=
+ =?utf-8?B?T0JqT2V0Yk9TSlB0TEtqSVJ3UnJjTUQ0TUFnUHhaV0hJVXRlNEFKVU53Zmpn?=
+ =?utf-8?B?Qys2UVdqNzFNYnRvdFhXL2tUUWk1ZFRsK00wVVN6OE5SSTcxaTJVK2lrbzhM?=
+ =?utf-8?B?WU1YYXdxSzViRE4xa082MWZnYmEraFk3MkpqbUREOTI5S2prWjE1R2F4ai9h?=
+ =?utf-8?B?YW9Gb0dCT0dNTW1XZXJIdmpwZVRERXc4KzJEdjlxWFlBUnFBUnRsNGY4TWtL?=
+ =?utf-8?B?WFlub3BGVEhreDJnTGp3NHJuRkFUTkpRZm5UWVl2dFdyUGNjcWgzb2U3TGlx?=
+ =?utf-8?B?eHM1UkpMT1l1YW5CWHczWUZUWHRQcVg2cFhxSjZaL3NwTU5mRFZTYkI5M0Z6?=
+ =?utf-8?B?aFNWWS9vckZwUzM0U2JzaVFLVUtvN2JNalcraGx5Z3lCRnZwekxndXVEZXhT?=
+ =?utf-8?B?bXB5VEdhWnJHQ1JCOWR6V0l1eHMwY3ZteXhVMzV6S2Nka3IyNWNJSnhyN2RP?=
+ =?utf-8?B?L1gyTy8xOEU2YTA5MVFieWFEeXY4VzRUUzVrNUN6dHFNZGNQNlEvb1lRMzB3?=
+ =?utf-8?B?NWw2b1RaejVZeVY3VElaSjNHbURMaWMwbFFSOHFkVmdSS05tT01oMVpXby9n?=
+ =?utf-8?B?U3EraXpsOXhlL3dwL0F1eU56Z0lvZUZaNFFCNG03YWY2NEh1UlozTTJCL3k5?=
+ =?utf-8?B?YXFJZHo4ZWxnK2RDcmdnck0wbDNSZW84U2F3cW9Pa1BybTdBbzVkSWdFVFZN?=
+ =?utf-8?B?dGs0S1hENVRRdHcyVzNxNC9wWlRvUmNPcEhhdTFTZ3BDMGg1dU9abUhNTFdj?=
+ =?utf-8?B?UVArLzlHbmR2NGVvYlFPMWNPMFBWUUp3dTczR2lNTUd4RVR3Ym1LS1lnSDAy?=
+ =?utf-8?B?UVkyd3o4bCtwOXlBWHJ1TG9yOHVGbkhDQlRxcEE2Z2ROZklIc2N2TnVNdnU4?=
+ =?utf-8?B?K3VNVzdUYmEzNzZMdlM5WWxTbVNOWVYyL1dwYXd0ZEZ0elk0bTdOdmpwcDFG?=
+ =?utf-8?B?MGdDNzlrVm93Rzk3Ti9yand0K2FlQVBGT241WWVhN0ZrMXZwT2UxYXorbnNH?=
+ =?utf-8?B?bS9aZUdFeWp0dG5kWXJhSVlvZ3Nub0FERUluTW5wSkpSZ1lEeHV1emVMY3k3?=
+ =?utf-8?B?bGxiZ3NUazNEODlxZ0tyWkYwV1ZJU2lPZGQxaGJUNk9GWUx5YnhITkg4TUdu?=
+ =?utf-8?B?b0NOTUVBd3FOZ25xWGNodkIyRlVPenRKWlNERGtocy9VeER6bUJGOVZ5aUtX?=
+ =?utf-8?B?RUJTNW51Vk9rOE40eXJzOHBvM3JhOHhFZFppZjJZWStRNnp1c1RJVkdDd0t0?=
+ =?utf-8?B?dS9XNGd4dXh6Nkx5VzR4SSttdmtSL1JPU0Fsc29hRis5ZG5LVTB6NTdZTUky?=
+ =?utf-8?B?N0NnSHpXVzJPOXdqUjFqNUtBdEJTTXl4QTNmUWg2WW9mWEJmQ00zWEwvc1dk?=
+ =?utf-8?B?YkxScnRhdDRVbDdRSEJHVzd4U0hrdkJ5N2x0UVMzWFgwc08rdWhlZ3AvOTRE?=
+ =?utf-8?B?eFcwcGk3dThDNXprbVBLUnlvQWVFVE5sd2U1dnN6NVRlSHcwL25ybERaSDhG?=
+ =?utf-8?B?ZkEzSDlKRU9LRWtSSTdtOUlvSU1nL2xFTzczNkpQQmo5bVloY3hnRk5ZV3BK?=
+ =?utf-8?Q?0KuN/eE/8oKytsoGjfWO?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ffaacf49-b961-4254-bd91-08dc3437d348
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Feb 2024 06:22:35.4374
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR20MB4129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240222_214202_052852_14AA604D 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20240222_222258_779926_4CC90E00 
+X-CRM114-Status: UNSURE (   5.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,68 +133,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 23/02/24 2:59 am, Andrew Morton wrote:
-> On Thu, 22 Feb 2024 10:47:29 +0530 Hari Bathini <hbathini@linux.ibm.com> wrote:
+On Tue, 30 Jan 2024 09:40:42 +0800, Inochi Amaoto wrote:
+> Add git tree that maintaines sophgo vendor code.
+> Also replace Chao Wei with myself, since he does not have enough time.
+> Since sophgo vendor code is maintained, remove itself from
+> `RISC-V MISC SOC`
 > 
->>
->>
->> On 22/02/24 2:27 am, Andrew Morton wrote:
->>> On Wed, 21 Feb 2024 11:15:00 +0530 Hari Bathini <hbathini@linux.ibm.com> wrote:
->>>
->>>> On 04/02/24 8:56 am, Baoquan He wrote:
->>>>>>> Hope Hari and Pingfan can help have a look, see if
->>>>>>> it's doable. Now, I make it either have both kexec and crash enabled, or
->>>>>>> disable both of them altogether.
->>>>>>
->>>>>> Sure. I will take a closer look...
->>>>> Thanks a lot. Please feel free to post patches to make that, or I can do
->>>>> it with your support or suggestion.
->>>>
->>>> Tested your changes and on top of these changes, came up with the below
->>>> changes to get it working for powerpc:
->>>>
->>>>    
->>>> https://lore.kernel.org/all/20240213113150.1148276-1-hbathini@linux.ibm.com/
->>>
->>> So can we take it that you're OK with Baoquan's series as-is?
->>
->> Hi Andrew,
->>
->> If you mean
->>
->> v3 (https://lore.kernel.org/all/20240124051254.67105-1-bhe@redhat.com/)
->> +
->> follow-up from Baoquan
->> (https://lore.kernel.org/all/Zb8D1ASrgX0qVm9z@MiWiFi-R3L-srv/)
->>
->> Yes.
->>
 > 
-> Can I add your Acked-by: and/or Tested-by: to the patches in this series?
 
-Sure, Andrew.
+Applied to sophgo/for-next, thanks!
 
-Acked-by: Hari Bathini <hbathini@linux.ibm.com>
+[1/1] MAINTAINERS: Setup proper info for SOPHGO vendor support
+      https://github.com/sophgo/linux/commit/0f46e1339ef113f0dedf7ad376452cc722dbcfe6
 
-for..
+Thanks,
+Inochi
 
-Patches 1-5 & 8 in:
-
-   https://lore.kernel.org/all/20240124051254.67105-1-bhe@redhat.com/
-
-and this follow-up patch:
-
-   https://lore.kernel.org/all/Zb8D1ASrgX0qVm9z@MiWiFi-R3L-srv/
-
-Thanks
-Hari
 
 _______________________________________________
 linux-riscv mailing list
