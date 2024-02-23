@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 530DAC5478C
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Feb 2024 13:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2FEC5478C
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Feb 2024 13:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v5lesqqyMS0U2CpRZ6rlV4BgLU92sdZxH0ga5Kkxu7I=; b=NPfczGfbT8KjDR
-	tvOAeVg0vHdFYEJTI36BMCeThkV8e10GC1gQTlGqCUtZutsVuZhB6gMjxYYGLPSBuwLsSPazU3w3+
-	akJDnyVQyQfcm5bV0SAtARG+OpR6jjl+0Dc0SUFXOKOuEonYnNOKYTtUFgd+jlcEebCQcy9h4Nmvp
-	Juc+rxbyq2dg3/IHrFHzVtBSjZ0UbG5wIdRhLFdZ96LjEqsbzX7tnFnpz93aLGXzwLBZylQYTaLFj
-	M187KQiHDnuW4IPSdkcXobrAjfJW6uUPK5ejVuDeWP+PPBjlCeQx4QBN1xIcsDiov4hjJUX7RhOJg
-	2iHE4EvO0ch3WdMLHhkQ==;
+	List-Owner; bh=XsNvPDrRz2iPQbo3BgBT9b0mCiH2vqq61Xq2LoMlQ70=; b=bdwnUcZmDeZSaI
+	oC8ADPS8+E8M2fmqUT5WjkzLYZq+4x7IOlnHH7+lVA+ep7XoPENl5ldp5njlc8578yPkNuh24vu6n
+	Y/7iY1vUZXkczRdUjzZJ5bb03eSjn3YieinFCs/MKBF/LJkIEKIdXdxIQ7b0QhvoaEgP8Bu7DVkvJ
+	9aPqYxyvr1x/FCoeRzRVPcJiWJJSzC6qWUzpG8cutImkulb0e0FHA+wmB+6XhtHeJmCJqJynjSQY6
+	NxN7PGoYwEZf8hb8+s+krVVyo9c3+YXA7nIkXVJDV7orOJoA1gp9Nl6BihDUSZGvZg5RRvgiSUh9f
+	EDKqDTHGdgSx60KNcB1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdVlG-00000009b9m-20QU;
-	Fri, 23 Feb 2024 13:38:46 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rdVlA-00000009b75-2OPV;
+	Fri, 23 Feb 2024 13:38:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdVlE-00000009b7t-0nKg
+	id 1rdVl8-00000009b5T-07Pv
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Feb 2024 13:38:45 +0000
+	Fri, 23 Feb 2024 13:38:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id C9EAECE2BFE;
-	Fri, 23 Feb 2024 13:38:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84281C433C7;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 63D68634B4;
 	Fri, 23 Feb 2024 13:38:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 611A5C433A6;
+	Fri, 23 Feb 2024 13:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1708695521;
-	bh=GBY3CxtFjRdlkWk0xQcPhghSUX/TMHc7PXVii3OW0UI=;
+	s=k20201202; t=1708695517;
+	bh=VltUvQLlmLwkpl8kRnLO58R3H1pbUYjiNeAYAhm4vK4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NAYoe9WaOvWjK1nqOgnvCRLfNM1vZZ77ud9LwZ25q4toItC75bJj1HTjri6c2gXdA
-	 qx6gYl6UK3FaZPRWQtXRkeKeMNxLZH7BloLltp+gB9ahCt1OG+0ZTwxb3EoKpi6GYN
-	 Mbq4hQSa43Hf4YoY1B0DUu9QUvy3j4JJyAdd74AV3Avzt5xg6Ox4FylJRDHG1oSfts
-	 zB8IHxJFvZpDcgNweVSDpkC0wMuv3OWRL6SRzq91BNBWy7zk/+idBiurodqRLm6qSt
-	 lGDm6eVu3pt63byZpq3ks1rLII5B+W750e8gG1wICoaebGb7eaw3n4SUrkPrpfsh/r
-	 UHJujfNg9x3dg==
+	b=Na5p+TP86HhyZXIS9INaL8dQBTOiswdRzULSa5FNq46+4a22pnBtTtloyqFR8cWc8
+	 n8yn1MMy2W7P2cqPCBcS0OBpjP8xSadnJJcXmWRnWauvwKGLaTU4cll8SATYAhUv17
+	 cYr9GnNe6g5JhklC6GcTpLtBe8w85TjlaGno0uWLbIrlH/aNG/uJRDYpZM3bkdYj3O
+	 6K09xONc0jMaq1Kpvw0KdV/Jv/lw63QSQ/NRvdyygkYqtcjNvcy+e76orulwxLVITl
+	 SAMd1plaBCYXZCO4bQkgBlK3+NOpjLRsMt5hBqFLEl/aBsq/mk/quDjslSCEZG5OE4
+	 rVGmCyn2+AIGw==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
@@ -61,19 +61,20 @@ Cc: conor@kernel.org,
 	rust-for-linux@vger.kernel.org,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: [PATCH v2 2/3] scripts: generate_rust_target: enable building on RISC-V
-Date: Fri, 23 Feb 2024 13:38:04 +0000
-Message-ID: <20240223-employee-pessimism-03ba0b58db6b@spud>
+	llvm@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: [PATCH v2 1/3] rust: make mutually exclusive with CFI_CLANG
+Date: Fri, 23 Feb 2024 13:38:03 +0000
+Message-ID: <20240223-perjury-preshow-fc2cf73d552e@spud>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240223-leverage-walmart-5424542cd8bd@spud>
 References: <20240223-leverage-walmart-5424542cd8bd@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1601; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=p3JdpTjlU4Gcdumuom76iCrubxUFIi9NJkWxSpqwhJ0=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKk35u/5lrFAdfnzD1GuIt8lz140CmXaqXr44cXs8KWGK R2WOsGHOkpZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRPSsYGSan/60+PG/FqTAG kUlzFlW8U7p6xSjmJYeo5ZTlD5iZ9rkxMnwt/bL+85NpTZyR6SErzVtmXlqpyCW6YMKvR3qGn5M 3MbMDAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1069; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=CGpXuPYcXKOyMHoYWd5SM3467xfR+bc0vpqwYOI3iyQ=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKk35u8JtHm+ZsH5Sc/CPbpmzj1yYUtL5lVNtfKQGyezj SYVXz8p0FHKwiDGwSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJzJRhZHj+yWvHNJapDg0f b5+5HpMl+Cir0HdTfvXKf1lxFjVqwf4M/4v2a3lvq1kyS7umuGfKg7ig3pUBuwU4+zsuViUvVFZ YygsA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240223_053844_664310_F1D95677 
-X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-CacheID: sfid-20240223_053838_213472_119B80EA 
+X-CRM114-Status: UNSURE (   8.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,47 +92,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Miguel Ojeda <ojeda@kernel.org>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Add the required bits from rust-for-linux to enable generating a RISC-V
-target for rust. The script, written by Miguel, was originally a
-config file contributed by Gary.
+On RISC-V, and presumably x86/arm64, if CFI_CLANG is enabled loading a
+rust module will trigger a kernel panic. Support for sanitisers,
+including kcfi (CFI_CLANG), is in the works, but for now they're
+nightly-only options in rustc. Make RUST depend on !CFI_CLANG to prevent
+configuring a kernel without symmetrical support for kfi.
 
-Co-developed-by: Gary Guo <gary@garyguo.net>
-Signed-off-by: Gary Guo <gary@garyguo.net>
-Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+Fixes: 2f7ab1267dc9 ("Kbuild: add Rust support")
+cc: stable@vger.kernel.org
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- scripts/generate_rust_target.rs | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+This probably needs to go to stable. The correct fixes tag for that I am
+not sure of however, but since CFI_CLANG predates RUST, I blamed the
+commit adding rust support.
+---
+ init/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/scripts/generate_rust_target.rs b/scripts/generate_rust_target.rs
-index 416c6b89e806..942ddca57ee4 100644
---- a/scripts/generate_rust_target.rs
-+++ b/scripts/generate_rust_target.rs
-@@ -171,6 +171,22 @@ fn main() {
-         ts.push("llvm-target", "loongarch64-linux-gnusf");
-         ts.push("llvm-abiname", "lp64s");
-         ts.push("target-pointer-width", "64");
-+    } else if cfg.has("RISCV") {
-+        if cfg.has("64BIT") {
-+            ts.push("arch", "riscv64");
-+            ts.push("data-layout", "e-m:e-p:64:64-i64:64-i128:128-n64-S128");
-+            ts.push("llvm-target", "riscv64-linux-gnu");
-+            ts.push("target-pointer-width", "64");
-+        } else {
-+            panic!("32-bit RISC-V is an unsupported architecture");
-+        }
-+        ts.push("code-model", "medium");
-+        ts.push("disable-redzone", true);
-+        let mut features = "+m,+a".to_string();
-+        if cfg.has("RISCV_ISA_C") {
-+            features += ",+c";
-+        }
-+        ts.push("features", features);
-     } else {
-         panic!("Unsupported architecture");
-     }
+diff --git a/init/Kconfig b/init/Kconfig
+index 8d4e836e1b6b..6cf05824859e 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -1895,6 +1895,7 @@ config RUST
+ 	bool "Rust support"
+ 	depends on HAVE_RUST
+ 	depends on RUST_IS_AVAILABLE
++	depends on !CFI_CLANG
+ 	depends on !MODVERSIONS
+ 	depends on !GCC_PLUGINS
+ 	depends on !RANDSTRUCT
 -- 
 2.43.0
 
