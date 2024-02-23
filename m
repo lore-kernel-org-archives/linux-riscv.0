@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E2FC47DD9
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Feb 2024 00:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47A20C54798
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Feb 2024 00:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZRCl51tMi5ZUPsclStGAorr0xEw2EY/Tq0HIjdzrP4E=; b=SXRKVxBtY+h/j8
-	YwHd2oWltDU/scIs3JRbtb1sT5BVD4Czj93cF/PAN4U1YU6S1meJV4F1F0RZXPfnZctkwvfMbdZUx
-	yxlhSGNR410vQB6mjzTo0984+RK0a6oWVPJKnpGTWkIx2WFAHPrYpGmANi86weP70NUe8OqkoJ9p6
-	jDM10JjkrCBAVWUGDpT2N9UPO4J5T02Qq5LUUpTSe9f9c2wyCYzOxzROrvNCdHl/vwD4Rwrp+s6Io
-	/DL3zeAnfDkPoK/bcZ4KbmbUt1i5oKtpqE3Xbc9QtyHegSclRQNANmUaZjU94N6ee2fs7yAliD64/
-	F7ffQA1Xun6pldnIT88g==;
+	List-Owner; bh=GRnm8qkP2yz4zT4QL8RllDwO7o/EDvxQfv/mKuwjkWc=; b=cld5JmFGgmMBel
+	YQ+wsdkHXXrabbJASeCYF7ETgfbCZpCMNrDzp3iSj/F5bKjECatbkta4QTR4NIsG3PWDw4M9ROjH5
+	6Yr70MDtCw9s025/iGFJon5PjpmN/wS7NW68n12R9OwKzKiTaXZisBqfNxWcVwSewFDvZKVxqx/PA
+	FNV2UnGiXobHegWH5PE7MlyWcEwhfTFJzEc0rByVzfAaQy4aYNOMgHZMNHtXKlt9B9+IJSuNCnioh
+	s4IEFrFZoC6EAZ2NqJasdgVoS61ca/XgmjwqZNp/z8P8mp2g3lSBlpReMP5F1aouH0WFDLwxyXAEB
+	0BJTwstvdBS3X/uh5M3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdJh8-00000007Ezb-3eZc;
-	Fri, 23 Feb 2024 00:45:43 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1rdJhH-00000007F5E-0RfC;
+	Fri, 23 Feb 2024 00:45:52 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rdJel-00000007Dt3-1m1M
+	id 1rdJem-00000007Dtr-1Hi8
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Feb 2024 00:43:18 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-5dcab65d604so242262a12.3
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 16:43:14 -0800 (PST)
+	Fri, 23 Feb 2024 00:43:20 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-6e089fc10c9so141411b3a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Feb 2024 16:43:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1708648993; x=1709253793; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1708648995; x=1709253795; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=VHEHpfFT3fq5ZUYVbA7KHyxL3TWLbo6jAAmdD67Ha7M=;
-        b=teEwxduQ15sV93Z4ZY6Tc3Ghh9OoepNcbNmbKOv4UG/IGAj7FBQy0e3vvuIHiaPHmP
-         hwEN6pDz7BwbmMrV/x7i4nhDfL+aDGagFUhHqGb0B/Zmx/kDOdm2sN2AuT7fReE17a8P
-         UVPBvhWSlFRtX1S02ZDMhY2khEfxwWh4QIyrEQh9+ieSQeHBVtNY8lz3adL2FoBmP1JS
-         ZhNKsRthwOW0uIQ1JTYTJdGspy5sAS5jMup5sgEo58DWwCnM6zE4sD0987YHwZjfJ/cG
-         uSloqfAP9dJo6fo0HUxKcbL5DYt1zakCAAHL28wYNb7Vg3TUWspeENCQJSLnYckItXCt
-         72Qg==
+        bh=5xSck0kmkPmdifT3b5IqGmDzhnUFDNPygC9r66kostc=;
+        b=sqMZa+CY714d9T+PSaPpTgJBH6B9jLzGbrX278O6nIM8OGsPZb/ewa2VOtteAH+SMM
+         yiZQMr2Mc/1BRza0Evzg0RGL0m/1xlnd1r52O9gAB5dvhQUHlZ02qkQEObrxIX5nanx/
+         See3zkdxSmzi2lmdO0fbCu68TzCA3KZ/iimmksc1d5D1pO3PU+3VVwOmj9I2uGNLrH/V
+         HJnzIN6Ck9L0fRTe1/qgG0OsV9BEpg59wCIP23TkPkQXM1wAVNhiVhct3aF8TjXzsynz
+         OOC2SyYfJmivC2lObw3JJ008JH261I1Tz/RirU0JtsVIRlxH/9gt1wdIlF/qCDaa0CW0
+         AhpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708648993; x=1709253793;
+        d=1e100.net; s=20230601; t=1708648995; x=1709253795;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=VHEHpfFT3fq5ZUYVbA7KHyxL3TWLbo6jAAmdD67Ha7M=;
-        b=JQDgeIoRbKMMLowkq00XrwOuXdlrOASAwmGHT1auvBHSDcXtDniuiBHbPfoKJSkVmv
-         yVIfY+TPoswuRoPJBQ8oFZoTdby5H00KGOeHNBYeDcO3QtvrRE1fnMC++hyu3lJONgPU
-         7y0GE04VszOxDX0/dB0CuocIRVMGE1/jJ8ACefhbqJ3+mulh+vy7OZ7ZeLaNXCCZMfsk
-         u42tFInRI5tcWKYZPweOjvi+D5XBCvy2fZhUdlK9BHHYiODFKNqlO27TTHboOf8vHdNS
-         KTWx2r/nBE2Mj1HHt2VSvO9Z5T4f/BugMuU99VPRgNsVNbqcazUBqQk89yAwgsRY57k+
-         NpZA==
-X-Forwarded-Encrypted: i=1; AJvYcCXxSdyDTGxsf+210EpBPs7RAWP/qPWZR3Cf5WqMUOE+Qk0ZsF8Ud6PC/Y4EhcvAiiZlqsrkh2S0XlWu1GQdU0PrMGVln7U7/okhs293B0MN
-X-Gm-Message-State: AOJu0YyutzfDI5yuSFMLRcM6CR6TMKnNqqQFbqNYqHpjp/vA+ihg+MfP
-	FonVmHpf8rwYRz9dLk2BBeAKpb8NbCK6+2TTBRsKBLtlFK1C9TkoBa+UnvcB6atcMepsWB934rL
-	9Dg==
-X-Google-Smtp-Source: AGHT+IHOzHa69AmDUbZ+OQC4gdWd8eKNcA+4/Rl+KkHknT13uIbfHPqOmsB/BAUR4nyvpq5uPcFzKjJ/Uj0=
+        bh=5xSck0kmkPmdifT3b5IqGmDzhnUFDNPygC9r66kostc=;
+        b=bXfHuZMaKY7/vCyaEZQ3wPftVAcAfLM0iav6F4todUr5x6hsDbW/5quAbKMIJoAKR2
+         QyhwhTsjrU7uiwJh4hAHuoCG6TLC6/DF49J2pGD5GKTwrsxJvDBrdrZ5hWNlFpdKJhWn
+         4259RZGyq2b9Fz2YcS/DRhORrtvfAM2sdbjnagAS11lgrG87D+YgaKhQD+6gI2HXwO6O
+         AN9kba+4LMzQLjNb9LahRpjLyzHuO02QRAU0BXjDNwvjeiEQC6qmV2YwM3IsE4+a23WW
+         9G0PJUeBUkhh6llRQbr3h9jyZlLeFfNp7/JJuRWPMTviyrdwNY3h6keUQYg1L8Gp7T5e
+         WvPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVFwFSFRp8WryZ6ZjcqyjPn8X3imhDtyWPeVhhW4JsSS+y+ERo/GA9RmzEu4hLsC++UrqJcAfkR39GrgUUUI3tP+IUQVdYKBp7oLeZCPmjk
+X-Gm-Message-State: AOJu0Yxzcg6doiooeFgaDRvoJekrhN9XsoWWiETR8wVRgZ+O5jCpHA6J
+	r0O3DxXpkdxbt3A7uFp97pTNwogec5OhRi7kdti3sZy/hPlGS+kRRyjTIp93qLlD1n3WwZwGFFe
+	g0A==
+X-Google-Smtp-Source: AGHT+IFB6M2rOVCDVxCF+KOWKQZKQwIJ1lp1wD007XU4N9VSw/D1xYHfznSXOlgl1HSeFtLBBbcKp5MS4rw=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a65:6d14:0:b0:5cd:9ea4:c99 with SMTP id
- bf20-20020a656d14000000b005cd9ea40c99mr900pgb.6.1708648993312; Thu, 22 Feb
- 2024 16:43:13 -0800 (PST)
-Date: Thu, 22 Feb 2024 16:42:53 -0800
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:23c7:b0:6e4:d2ba:b4c4 with SMTP id
+ g7-20020a056a0023c700b006e4d2bab4c4mr40112pfc.3.1708648995172; Thu, 22 Feb
+ 2024 16:43:15 -0800 (PST)
+Date: Thu, 22 Feb 2024 16:42:54 -0800
 In-Reply-To: <20240223004258.3104051-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240223004258.3104051-1-seanjc@google.com>
 X-Mailer: git-send-email 2.44.0.rc0.258.g7320e95886-goog
-Message-ID: <20240223004258.3104051-7-seanjc@google.com>
-Subject: [PATCH v9 06/11] KVM: selftests: Explicitly ucall pool from shared memory
+Message-ID: <20240223004258.3104051-8-seanjc@google.com>
+Subject: [PATCH v9 07/11] KVM: selftests: Allow tagging protected memory in
+ guest page tables
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
@@ -83,9 +84,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Michael Roth <michael.roth@amd.com>, Carlos Bilbao <carlos.bilbao@amd.com>, 
 	Peter Gonda <pgonda@google.com>, Itaru Kitayama <itaru.kitayama@fujitsu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240222_164315_681186_7C0EF92E 
-X-CRM114-Status: UNSURE (   7.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240222_164316_511586_47F0F9E5 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,9 +105,14 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Peter Gonda <pgonda@google.com>
 
-Allocate the common ucall pool using vm_vaddr_alloc_shared() so that the
-ucall structures will be placed in shared (unencrypted) memory for VMs
-with support for protected (encrypted) memory, e.g. x86's SEV.
+Add support for tagging and untagging guest physical address, e.g. to
+allow x86's SEV and TDX guests to embed shared vs. private information in
+the GPA.  SEV (encryption, a.k.a. C-bit) and TDX (shared, a.k.a. S-bit)
+steal bits from the guest's physical address space that is consumed by the
+CPU metadata, i.e. effectively aliases the "real" GPA.
+
+Implement generic "tagging" so that the shared vs. private metadata can be
+managed by x86 without bleeding too many details into common code.
 
 Cc: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Sean Christopherson <seanjc@google.com>
@@ -117,27 +122,214 @@ cc: Andrew Jones <andrew.jones@linux.dev>
 Cc: Tom Lendacky <thomas.lendacky@amd.com>
 Cc: Michael Roth <michael.roth@amd.com>
 Tested-by: Carlos Bilbao <carlos.bilbao@amd.com>
+Originally-by: Michael Roth <michael.roth@amd.com>
 Signed-off-by: Peter Gonda <pgonda@google.com>
-[sean: massage changelog]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/lib/ucall_common.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ .../kvm/include/aarch64/kvm_util_arch.h       |  7 +++++++
+ .../selftests/kvm/include/kvm_util_base.h     | 13 ++++++++++++
+ .../kvm/include/riscv/kvm_util_arch.h         |  7 +++++++
+ .../kvm/include/s390x/kvm_util_arch.h         |  7 +++++++
+ .../kvm/include/x86_64/kvm_util_arch.h        | 21 +++++++++++++++++++
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 17 +++++++++++++++
+ .../selftests/kvm/lib/x86_64/processor.c      | 15 ++++++++++++-
+ 7 files changed, 86 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h
+ create mode 100644 tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+ create mode 100644 tools/testing/selftests/kvm/include/s390x/kvm_util_arch.h
+ create mode 100644 tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
 
-diff --git a/tools/testing/selftests/kvm/lib/ucall_common.c b/tools/testing/selftests/kvm/lib/ucall_common.c
-index 816a3fa109bf..f5af65a41c29 100644
---- a/tools/testing/selftests/kvm/lib/ucall_common.c
-+++ b/tools/testing/selftests/kvm/lib/ucall_common.c
-@@ -29,7 +29,8 @@ void ucall_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa)
- 	vm_vaddr_t vaddr;
- 	int i;
+diff --git a/tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h b/tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h
+new file mode 100644
+index 000000000000..218f5cdf0d86
+--- /dev/null
++++ b/tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h
+@@ -0,0 +1,7 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _TOOLS_LINUX_ASM_ARM64_KVM_HOST_H
++#define _TOOLS_LINUX_ASM_ARM64_KVM_HOST_H
++
++struct kvm_vm_arch {};
++
++#endif  // _TOOLS_LINUX_ASM_ARM64_KVM_HOST_H
+diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
+index cb3159af6db3..4b266dc0c9bd 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util_base.h
++++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
+@@ -18,9 +18,11 @@
+ #include <linux/types.h>
  
--	vaddr = __vm_vaddr_alloc(vm, sizeof(*hdr), KVM_UTIL_MIN_VADDR, MEM_REGION_DATA);
-+	vaddr = vm_vaddr_alloc_shared(vm, sizeof(*hdr), KVM_UTIL_MIN_VADDR,
-+				      MEM_REGION_DATA);
- 	hdr = (struct ucall_header *)addr_gva2hva(vm, vaddr);
- 	memset(hdr, 0, sizeof(*hdr));
+ #include <asm/atomic.h>
++#include <asm/kvm.h>
  
+ #include <sys/ioctl.h>
+ 
++#include "kvm_util_arch.h"
+ #include "sparsebit.h"
+ 
+ /*
+@@ -113,6 +115,9 @@ struct kvm_vm {
+ 	vm_vaddr_t idt;
+ 	vm_vaddr_t handlers;
+ 	uint32_t dirty_ring_size;
++	uint64_t gpa_tag_mask;
++
++	struct kvm_vm_arch arch;
+ 
+ 	/* Cache of information for binary stats interface */
+ 	int stats_fd;
+@@ -605,6 +610,12 @@ void *addr_gva2hva(struct kvm_vm *vm, vm_vaddr_t gva);
+ vm_paddr_t addr_hva2gpa(struct kvm_vm *vm, void *hva);
+ void *addr_gpa2alias(struct kvm_vm *vm, vm_paddr_t gpa);
+ 
++
++static inline vm_paddr_t vm_untag_gpa(struct kvm_vm *vm, vm_paddr_t gpa)
++{
++	return gpa & ~vm->gpa_tag_mask;
++}
++
+ void vcpu_run(struct kvm_vcpu *vcpu);
+ int _vcpu_run(struct kvm_vcpu *vcpu);
+ 
+@@ -1114,4 +1125,6 @@ void kvm_selftest_arch_init(void);
+ 
+ void kvm_arch_vm_post_create(struct kvm_vm *vm);
+ 
++bool vm_is_gpa_protected(struct kvm_vm *vm, vm_paddr_t paddr);
++
+ #endif /* SELFTEST_KVM_UTIL_BASE_H */
+diff --git a/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h b/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+new file mode 100644
+index 000000000000..c8280d5659ce
+--- /dev/null
++++ b/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+@@ -0,0 +1,7 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _TOOLS_LINUX_ASM_RISCV_KVM_HOST_H
++#define _TOOLS_LINUX_ASM_RISCV_KVM_HOST_H
++
++struct kvm_vm_arch {};
++
++#endif  // _TOOLS_LINUX_ASM_RISCV_KVM_HOST_H
+diff --git a/tools/testing/selftests/kvm/include/s390x/kvm_util_arch.h b/tools/testing/selftests/kvm/include/s390x/kvm_util_arch.h
+new file mode 100644
+index 000000000000..4c4c1c1e4bf8
+--- /dev/null
++++ b/tools/testing/selftests/kvm/include/s390x/kvm_util_arch.h
+@@ -0,0 +1,7 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _TOOLS_LINUX_ASM_S390_KVM_HOST_H
++#define _TOOLS_LINUX_ASM_S390_KVM_HOST_H
++
++struct kvm_vm_arch {};
++
++#endif  // _TOOLS_LINUX_ASM_S390_KVM_HOST_H
+diff --git a/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h b/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
+new file mode 100644
+index 000000000000..17bb38236d97
+--- /dev/null
++++ b/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _TOOLS_LINUX_ASM_X86_KVM_HOST_H
++#define _TOOLS_LINUX_ASM_X86_KVM_HOST_H
++
++#include <stdbool.h>
++#include <stdint.h>
++
++struct kvm_vm_arch {
++	uint64_t c_bit;
++	uint64_t s_bit;
++};
++
++static inline bool __vm_arch_has_protected_memory(struct kvm_vm_arch *arch)
++{
++	return arch->c_bit || arch->s_bit;
++}
++
++#define vm_arch_has_protected_memory(vm) \
++	__vm_arch_has_protected_memory(&(vm)->arch)
++
++#endif  // _TOOLS_LINUX_ASM_X86_KVM_HOST_H
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index e7f4f84f2e68..19511137d1ae 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -1597,6 +1597,8 @@ void *addr_gpa2hva(struct kvm_vm *vm, vm_paddr_t gpa)
+ {
+ 	struct userspace_mem_region *region;
+ 
++	gpa = vm_untag_gpa(vm, gpa);
++
+ 	region = userspace_mem_region_find(vm, gpa, gpa);
+ 	if (!region) {
+ 		TEST_FAIL("No vm physical memory at 0x%lx", gpa);
+@@ -2305,3 +2307,18 @@ void __attribute((constructor)) kvm_selftest_init(void)
+ 
+ 	kvm_selftest_arch_init();
+ }
++
++bool vm_is_gpa_protected(struct kvm_vm *vm, vm_paddr_t paddr)
++{
++	sparsebit_idx_t pg = 0;
++	struct userspace_mem_region *region;
++
++	if (!vm_arch_has_protected_memory(vm))
++		return false;
++
++	region = userspace_mem_region_find(vm, paddr, paddr);
++	TEST_ASSERT(region, "No vm physical memory at 0x%lx", paddr);
++
++	pg = paddr >> vm->page_shift;
++	return sparsebit_is_set(region->protected_phy_pages, pg);
++}
+diff --git a/tools/testing/selftests/kvm/lib/x86_64/processor.c b/tools/testing/selftests/kvm/lib/x86_64/processor.c
+index 615d05247470..6c1d2c0ec584 100644
+--- a/tools/testing/selftests/kvm/lib/x86_64/processor.c
++++ b/tools/testing/selftests/kvm/lib/x86_64/processor.c
+@@ -157,6 +157,8 @@ static uint64_t *virt_create_upper_pte(struct kvm_vm *vm,
+ {
+ 	uint64_t *pte = virt_get_pte(vm, parent_pte, vaddr, current_level);
+ 
++	paddr = vm_untag_gpa(vm, paddr);
++
+ 	if (!(*pte & PTE_PRESENT_MASK)) {
+ 		*pte = PTE_PRESENT_MASK | PTE_WRITABLE_MASK;
+ 		if (current_level == target_level)
+@@ -200,6 +202,8 @@ void __virt_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr, int level)
+ 		    "Physical address beyond maximum supported,\n"
+ 		    "  paddr: 0x%lx vm->max_gfn: 0x%lx vm->page_size: 0x%x",
+ 		    paddr, vm->max_gfn, vm->page_size);
++	TEST_ASSERT(vm_untag_gpa(vm, paddr) == paddr,
++		    "Unexpected bits in paddr: %lx", paddr);
+ 
+ 	/*
+ 	 * Allocate upper level page tables, if not already present.  Return
+@@ -222,6 +226,15 @@ void __virt_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr, int level)
+ 	TEST_ASSERT(!(*pte & PTE_PRESENT_MASK),
+ 		    "PTE already present for 4k page at vaddr: 0x%lx", vaddr);
+ 	*pte = PTE_PRESENT_MASK | PTE_WRITABLE_MASK | (paddr & PHYSICAL_PAGE_MASK);
++
++	/*
++	 * Neither SEV nor TDX supports shared page tables, so only the final
++	 * leaf PTE needs manually set the C/S-bit.
++	 */
++	if (vm_is_gpa_protected(vm, paddr))
++		*pte |= vm->arch.c_bit;
++	else
++		*pte |= vm->arch.s_bit;
+ }
+ 
+ void virt_arch_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr)
+@@ -496,7 +509,7 @@ vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
+ 	 * No need for a hugepage mask on the PTE, x86-64 requires the "unused"
+ 	 * address bits to be zero.
+ 	 */
+-	return PTE_GET_PA(*pte) | (gva & ~HUGEPAGE_MASK(level));
++	return vm_untag_gpa(vm, PTE_GET_PA(*pte)) | (gva & ~HUGEPAGE_MASK(level));
+ }
+ 
+ static void kvm_setup_gdt(struct kvm_vm *vm, struct kvm_dtable *dt)
 -- 
 2.44.0.rc0.258.g7320e95886-goog
 
