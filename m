@@ -4,71 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5DDC48BF6
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 12:33:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F74C54E49
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 12:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IK230zWeTaXCiez9+Nq13hl3b7D1NBIfvxp50OAHXc8=; b=X2o0a690y0XQkJ
-	4SLFYsU2kzvkhnoi4CxcOYMjJFaXjSbZWoAP8Yl0Hkdl1QOxj6bG8oqEpt3yNq4u5fqShnbIkpQ2s
-	Gwuc7nPHwc56a5vVE5sCx10qB8aJW6v6T18KmWfK6cLB6iDUBr4/8AruueD6hEMrYLH0S4TUJGCsd
-	sCq4Tu8k9kycFdkjAJFtat4LFRyC1ZxQ2X8Te1DRh/Dxx1jyv6o6Ya4ysVF+hss4hyeniZt1Yfkso
-	vcTGSN2jPwkpNxjfvqsJoAlZ94jMBQRrRCNILV3WErYd3uq65w1VYs4suroETXKR79vqaE2TeW4G7
-	LpL8m0or6cDcMaL5XgNw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:From:Cc:To
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mKFZx17Ty3TkDDhfp5D7QcmnljeN0a1mcZ9hcc1jdXA=; b=18Vl5LkGkJWfnF
+	4CVViXRS39wit1ZDpjn9cgz747D4LW8IOXaGL4nh4vWE9x7HVdDLZkFe1zvCOebEd4vX2sMREHF4p
+	xzbQCyUfCcGXC1axoy4j4qLjbr4QhF0h+bq82KdyPsbY7Tg1/I0Cw5alTBBBH5O5e+M3iFEQ4KIAo
+	IxaAMd5+3/LU5piloBWYKeQD4wmJqIRd8X8Xs3Gpp8VoE+VZCArZx/sHnSg3taqZ+EXTMhas0Z2SU
+	6MbnBHCapT48xOQCZbrMqz6oEziiOALu5PhHiFrgdUYJsd8W/7tXJlrtMNLQrh5UxhV/oPl4YuLEE
+	8Xqee4QUEndPBGkLjVaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reaAu-00000000bNX-2dIh;
-	Mon, 26 Feb 2024 12:33:40 +0000
-Received: from mail-ot1-f51.google.com ([209.85.210.51])
+	id 1reaB4-00000000bQL-11Af;
+	Mon, 26 Feb 2024 12:33:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reaAp-00000000bLU-3B9M;
-	Mon, 26 Feb 2024 12:33:37 +0000
-Received: by mail-ot1-f51.google.com with SMTP id 46e09a7af769-6e48e42a350so1099491a34.1;
-        Mon, 26 Feb 2024 04:33:35 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708950814; x=1709555614;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=C7Jt6uOGYEF2aQdl/7Fp6F1BKKNUfz+MFg3gqXg/aVI=;
-        b=Yybi0gbhgeh4q5iBxi+4OcWesD2SMRJhSQqDOfYxMkfUvSFLwPvfhVxMYAhTK+KqrM
-         hZLHf0n+fXxiErZfGD+/GuZlawLUeNl2QGLFnpS4OLP3jPUWIX7nXnYosEB/c5kLdsOd
-         fGXoakSWnzBLp4TfCzx8pqIaCPgFkMRvva3cfhhMbDM+2C7UDW5SrLuKOyNUUjKI9FvO
-         4u4RmQMR6tfJyC/ydF/aq4+Ys/9Jzz2WVvOyBbjPi2cqrUe5QN+CUomM+uR8TWwy/wjs
-         YARvWQAxNmp8kHKhOjZ///Cg0BA0bK+fpvYwKWtUC8kP7dlUm6XnP0zBe2+9z7SQ6r5V
-         COpA==
-X-Forwarded-Encrypted: i=1; AJvYcCVGtm7a61wkcSR9RBlzpALaquCu1aqZKFYk8NI/3xcWdIG0T7PZSTviSfMYUV2l5HPeATryFHGI9AZRNwW2B5JBryYrlkzoULLV3J54leM5mOtMeCdc5QYOUduKRM0E4QmsBuwSjQR8tyowPz6yN1K+JUXFDQA=
-X-Gm-Message-State: AOJu0YxIUr2tt1oFCz6muc5v+TjHD4gD4KlczdfNw3y2MG5vY1UUYac+
-	6Fpo91ut8NNg56m3KFpmjIFMjiZSblzgRWK9SvraA+5pIjwNYSXje2z+KDC1/Uk=
-X-Google-Smtp-Source: AGHT+IFLh3aPRjeWcZy9HXkRTjm8lMR8B4xLkwBWajQDoUb3zegXb9KzVJrRHP4NyD59wq7RmNLFcQ==
-X-Received: by 2002:a9d:6652:0:b0:6e2:e00d:8e41 with SMTP id q18-20020a9d6652000000b006e2e00d8e41mr7363014otm.17.1708950814313;
-        Mon, 26 Feb 2024 04:33:34 -0800 (PST)
-Received: from mail-qt1-f173.google.com (mail-qt1-f173.google.com. [209.85.160.173])
-        by smtp.gmail.com with ESMTPSA id v25-20020ac873d9000000b0042e51739e44sm2395419qtp.32.2024.02.26.04.33.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 26 Feb 2024 04:33:34 -0800 (PST)
-Received: by mail-qt1-f173.google.com with SMTP id d75a77b69052e-42e4f706847so15381151cf.2;
-        Mon, 26 Feb 2024 04:33:34 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW19OXTHSISiu2QucuQvBBzSFOQKY8g6uE9On0aWBVr5ZBzGneUFan1ktjxV4VGGTbCdkI0LyMBAQ7yKr4HGQCmpwDDmRlMgCltZGu0mJyCNTNzfsHxrpbWHYE8R6WnMkZOI6uvHV0kh3AExhf4AetaTaY8byw=
-X-Received: by 2002:a05:6902:3c5:b0:dc2:2041:fc49 with SMTP id
- g5-20020a05690203c500b00dc22041fc49mr4426711ybs.5.1708950484424; Mon, 26 Feb
- 2024 04:28:04 -0800 (PST)
+	id 1reaAz-00000000bOc-2EZo
+	for linux-riscv@lists.infradead.org;
+	Mon, 26 Feb 2024 12:33:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1107A610E8;
+	Mon, 26 Feb 2024 12:33:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8289BC433F1;
+	Mon, 26 Feb 2024 12:33:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1708950824;
+	bh=wVQlL2U8g7hE8sr/5fPX6lRZxcgR3+PpKYQHRVqax4A=;
+	h=Subject:To:Cc:From:Date:From;
+	b=RihbiZB1imKq2nsNRTEq2tPgzI/AVz+FDIPO/vW1vi845E08Qq68Pkkm1yOMv0RHv
+	 0aGuI/8Hfs9U69ahyPKzxbdbQEZ89dgGyX43fVHDWpXILw8NdD4JAi8/X6jaUK+GUQ
+	 wHeZRh+tmIm+L14KgnOfCBSJPwxq+xVEzzeCWZpk=
+Subject: Patch "irqchip/sifive-plic: Enable interrupt if needed before EOI" has been added to the 6.1-stable tree
+To: gregkh@linuxfoundation.org,guoren@kernel.org,linux-riscv@lists.infradead.org,maz@kernel.org,namcao@linutronix.de,palmer@dabbelt.com,paul.walmsley@sifive.com,samuel@sholland.org,tglx@linutronix.de
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Mon, 26 Feb 2024 13:33:13 +0100
+Message-ID: <2024022613-strode-dastardly-5e43@gregkh>
 MIME-Version: 1.0
-References: <20240222083946.3977135-1-peterlin@andestech.com> <20240222083946.3977135-6-peterlin@andestech.com>
-In-Reply-To: <20240222083946.3977135-6-peterlin@andestech.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 26 Feb 2024 13:27:52 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWzzrQBq-RzFnfr8pXgeUOuqG8CwCjwDOwfCJzGQ=ZDJA@mail.gmail.com>
-Message-ID: <CAMuHMdWzzrQBq-RzFnfr8pXgeUOuqG8CwCjwDOwfCJzGQ=ZDJA@mail.gmail.com>
-Subject: Re: [PATCH v9 05/10] riscv: dts: renesas: r9a07g043f: Update
- compatible string to use Andes INTC
-To: Yu Chien Peter Lin <peterlin@andestech.com>
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240226_043335_818691_E051F714 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20240226_043346_061259_1C582250 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +62,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, irogers@google.com, heiko@sntech.de, geert+renesas@glider.be, alexander.shishkin@linux.intel.com, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, guoren@kernel.org, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, will@kernel.org, linux-renesas-soc@vger.kernel.org, tim609@andestech.com, samuel@sholland.org, anup@brainfault.org, unicorn_wang@outlook.com, magnus.damm@gmail.com, jernej.skrabec@gmail.com, peterz@infradead.org, wens@csie.org, mingo@redhat.com, jszhang@kernel.org, inochiama@outlook.com, linux-sunxi@lists.linux.dev, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, andre.przywara@arm.com, locus84@andestech.com, acme@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, atishp@atishpatra.org, namhyung@kernel.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, n.shubin@yadro.com, rdunlap@infradead.org, adrian.hunter@intel.com, conor@kernel.org, linux-perf-users@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com, jolsa@kernel.org, wefu@redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBGZWIgMjIsIDIwMjQgYXQgOTo0MOKAr0FNIFl1IENoaWVuIFBldGVyIExpbgo8cGV0
-ZXJsaW5AYW5kZXN0ZWNoLmNvbT4gd3JvdGU6Cj4gVGhlIEFuZGVzIGhhcnQtbGV2ZWwgaW50ZXJy
-dXB0IGNvbnRyb2xsZXIgKEFuZGVzIElOVEMpIGFsbG93cyBBWDQ1TVAKPiBjb3JlcyB0byBoYW5k
-bGUgY3VzdG9tIGxvY2FsIGludGVycnVwdHMsIHN1Y2ggYXMgdGhlIHBlcmZvcm1hbmNlCj4gY291
-bnRlciBvdmVyZmxvdyBpbnRlcnJ1cHQuCj4KPiBTaWduZWQtb2ZmLWJ5OiBZdSBDaGllbiBQZXRl
-ciBMaW4gPHBldGVybGluQGFuZGVzdGVjaC5jb20+Cj4gUmV2aWV3ZWQtYnk6IEdlZXJ0IFV5dHRl
-cmhvZXZlbiA8Z2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU+Cj4gUmV2aWV3ZWQtYnk6IExhZCBQcmFi
-aGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbT4KPiBUZXN0ZWQt
-Ynk6IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNv
-bT4KPiAtLS0KPiBDaGFuZ2VzIHYxIC0+IHYyOgo+ICAgLSBOZXcgcGF0Y2gKPiBDaGFuZ2VzIHYy
-IC0+IHYzOgo+ICAgLSBGaXhlZCBwb3NzaWJsZSBjb21wYXRpYmxlcyBmb3IgQW5kZXMgSU5UQwo+
-IENoYW5nZXMgdjMgLT4gdjQ6Cj4gICAtIE5vIGNoYW5nZQo+IENoYW5nZXMgdjQgLT4gdjU6Cj4g
-ICAtIEluY2x1ZGUgR2VlcnQncyBSZXZpZXdlZC1ieQo+ICAgLSBJbmNsdWRlIFByYWJoYWthcidz
-IFJldmlld2VkL1Rlc3RlZC1ieQo+IENoYW5nZXMgdjUgLT4gdjY6Cj4gICAtIE5vIGNoYW5nZQo+
-IENoYW5nZXMgdjYgLT4gdjc6Cj4gICAtIE5vIGNoYW5nZQo+IENoYW5nZXMgdjcgLT4gdjg6Cj4g
-ICAtIE5vIGNoYW5nZQo+IENoYW5nZXMgdjggLT4gdjk6Cj4gICAtIE5vIGNoYW5nZQoKQWNrZWQt
-Ynk6IEdlZXJ0IFV5dHRlcmhvZXZlbiA8Z2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU+CnNvIFBhbG1l
-ciBjYW4gcGljayBpdCB1cCB3aXRoIHRoZSByZXN0IG9mIHRoZSBzZXJpZXMKKHRoZSBSZW5lc2Fz
-IHRyZWUgaW1lcmdlIHdpbmRvdyBmb3IgdjYuOSBoYXMgY2xvc2VkKQoKR3J7b2V0amUsZWV0aW5n
-fXMsCgogICAgICAgICAgICAgICAgICAgICAgICBHZWVydAoKLS0gCkdlZXJ0IFV5dHRlcmhvZXZl
-biAtLSBUaGVyZSdzIGxvdHMgb2YgTGludXggYmV5b25kIGlhMzIgLS0gZ2VlcnRAbGludXgtbTY4
-ay5vcmcKCkluIHBlcnNvbmFsIGNvbnZlcnNhdGlvbnMgd2l0aCB0ZWNobmljYWwgcGVvcGxlLCBJ
-IGNhbGwgbXlzZWxmIGEgaGFja2VyLiBCdXQKd2hlbiBJJ20gdGFsa2luZyB0byBqb3VybmFsaXN0
-cyBJIGp1c3Qgc2F5ICJwcm9ncmFtbWVyIiBvciBzb21ldGhpbmcgbGlrZSB0aGF0LgogICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIC0tIExpbnVzIFRvcnZhbGRzCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+This is a note to let you know that I've just added the patch titled
+
+    irqchip/sifive-plic: Enable interrupt if needed before EOI
+
+to the 6.1-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+
+The filename of the patch is:
+     irqchip-sifive-plic-enable-interrupt-if-needed-before-eoi.patch
+and it can be found in the queue-6.1 subdirectory.
+
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
+
+
+From 9c92006b896c767218aabe8947b62026a571cfd0 Mon Sep 17 00:00:00 2001
+From: Nam Cao <namcao@linutronix.de>
+Date: Wed, 31 Jan 2024 09:19:33 +0100
+Subject: irqchip/sifive-plic: Enable interrupt if needed before EOI
+
+From: Nam Cao <namcao@linutronix.de>
+
+commit 9c92006b896c767218aabe8947b62026a571cfd0 upstream.
+
+RISC-V PLIC cannot "end-of-interrupt" (EOI) disabled interrupts, as
+explained in the description of Interrupt Completion in the PLIC spec:
+
+"The PLIC signals it has completed executing an interrupt handler by
+writing the interrupt ID it received from the claim to the claim/complete
+register. The PLIC does not check whether the completion ID is the same
+as the last claim ID for that target. If the completion ID does not match
+an interrupt source that *is currently enabled* for the target, the
+completion is silently ignored."
+
+Commit 69ea463021be ("irqchip/sifive-plic: Fixup EOI failed when masked")
+ensured that EOI is successful by enabling interrupt first, before EOI.
+
+Commit a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask
+operations") removed the interrupt enabling code from the previous
+commit, because it assumes that interrupt should already be enabled at the
+point of EOI.
+
+However, this is incorrect: there is a window after a hart claiming an
+interrupt and before irq_desc->lock getting acquired, interrupt can be
+disabled during this window. Thus, EOI can be invoked while the interrupt
+is disabled, effectively nullify this EOI. This results in the interrupt
+never gets asserted again, and the device who uses this interrupt appears
+frozen.
+
+Make sure that interrupt is really enabled before EOI.
+
+Fixes: a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask operations")
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Samuel Holland <samuel@sholland.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Guo Ren <guoren@kernel.org>
+Cc: linux-riscv@lists.infradead.org
+Cc: <stable@vger.kernel.org>
+Link: https://lore.kernel.org/r/20240131081933.144512-1-namcao@linutronix.de
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ drivers/irqchip/irq-sifive-plic.c |    8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -144,7 +144,13 @@ static void plic_irq_eoi(struct irq_data
+ {
+ 	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+ 
+-	writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
++	if (unlikely(irqd_irq_disabled(d))) {
++		plic_toggle(handler, d->hwirq, 1);
++		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
++		plic_toggle(handler, d->hwirq, 0);
++	} else {
++		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
++	}
+ }
+ 
+ #ifdef CONFIG_SMP
+
+
+Patches currently in stable-queue which might be from namcao@linutronix.de are
+
+queue-6.1/irqchip-sifive-plic-enable-interrupt-if-needed-before-eoi.patch
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
