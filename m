@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC10C48BF6
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 16:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 705A1C48BF6
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 16:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yrtqjVRhuVfq0rJ4S7DJl32SSN2CmifAbnJnpJr9UdM=; b=G3931M2ES9F/NUFCVgeokHC6Eb
-	D4uv2cPyo0ibMCpibMjE2w1qfbhr1IfKChGi78ZwQx/jasJzF42x3KvlLdShqkuTIHYOlP0NqZZwf
-	rfjbgCXdvcp/7/N5OPD8k1WBADU+GlUuzD4wwVcGHSBeJqXLZ3WZucjcTiqX9EOIGex3IbC7CF0CC
-	n61dMXIlsO7uUGzyyzOH089jXsLL+Kc/q1ASv64cUnScg6xgQxB+1Do8XjKnQCNDtm/xnm01jLkb4
-	k0UhNoNyVvJ/lvfY9mSj0G1gRPwsdS5TTM2Qb9Ci0aXd+P8hEBNjWrv/VgTlj+g/E9TrJaCoLEfeM
-	b7lNz2xA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oaC5qt3j2dE9curfJhj5dVZwsVkhKIfqTPSowxmNVzE=; b=Nb2fpMWRalbPIn
+	T2xtm2rAl30TxRrQ4r5EfHzkbBVvOIajfs3OsW7KnO2LEgCiFlk0BUE22WCkeugVhoe6bC5xg4W51
+	iXb+yl8uTEUMz8Oul5nJYqug5ulFxZqScAH3K4QxGZjeXHASb0AZPsZzZuFv+yoLdwJeRrNQ0oWOO
+	ydH8LVI/Z6CAHam+MHTr28t9iyVteT/kNAs52a8QZ7V5ZO2dAmhj/oX8Mqx6RXLFoyQysKwHX46Da
+	ZApF7qtMaILDhqXNTNzRnujhTE/n2xaYA5GXGfuZAikLn3SbH8Rh6b/GqraFhRPAquDw3CCcAf7XF
+	1oV9F+7jssOiVJx6HodA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1redRN-00000001Ye8-1MKA;
-	Mon, 26 Feb 2024 16:02:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1redcr-00000001b4w-2faH;
+	Mon, 26 Feb 2024 16:14:45 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1redRK-00000001Yd8-3cl4
-	for linux-riscv@lists.infradead.org;
-	Mon, 26 Feb 2024 16:02:52 +0000
+	id 1redcl-00000001b2t-0eIi;
+	Mon, 26 Feb 2024 16:14:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0A72560DC0;
-	Mon, 26 Feb 2024 16:02:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42EC6C433C7;
-	Mon, 26 Feb 2024 16:02:47 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 68305CE181F;
+	Mon, 26 Feb 2024 16:14:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5D63C433C7;
+	Mon, 26 Feb 2024 16:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1708963369;
-	bh=CJxmj18L+u9NtRIEmmMRA0bmpUKvIcZuLUTtSw+eVhA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZOE+VB5n2vFS70HFpzM8RFYpzuENj0G42xI2p0I0i083vDmCWs1nN4o+tdgESD+BD
-	 Zke7NWQXlGtu5KalcwhCS5KSbk7+6QYhbi8uHVnTtBFsJL/BL5P2CzZmY/unE+QXJK
-	 ssVdIyRHCR7+E2RLbBlagOdNYzFDpQWuU8uOuZcmDtchqUXJ38vigv3hESk4HigKMr
-	 +rFnfgbT+thKe3IEHIRjGuv+6foURL3PMQu8VKAAJWSI8ttH5KsfuVRQ8PIVGpJO5z
-	 CBXa19wdCYRlIDXD/1FdRNQuaxm2J9w9RBazb1cTjUTiiHJQg4PbRIDPRMy1M8MUWl
-	 EmGeVwjfXTVYA==
-Date: Mon, 26 Feb 2024 16:02:44 +0000
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	s=k20201202; t=1708964073;
+	bh=zxbqCp3xg1MTZv6nVkuYc0VOPy7Z/0KoLu5xdBZOcDY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ouv+E5W1cQ1zHWEvJshxERHNgYSjJzR7JdvZMtKsmjTnnYsjb50xz7yQ6NNDLjL+R
+	 zIivYPxRBLqLiotGJhvVTBVfzRjkLFR+UKz+Blle7mLm83hZaxjZLxJiSIm8KsFpk8
+	 T2yQYC7g3LmUbscrU9t5jUZdMHfRtyoT7a/p66cZn/Wi8wvAOCFlueNWvORfaCli+Z
+	 S5t1BgjPEeJ3eGf1KMTEe7SIO0Rv5QLKXRaKqNQXL1yQWzRzHXLOOgf0gh7VMNEgGS
+	 /h/uyIFz30OGZTAygrSMurYRpnmZAOjoQMG9QUrFxlxLnbjp2UPK2IvIxVWUAhRAM9
+	 8PLY/d6Nx9Yzg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Kees Cook <keescook@chromium.org>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Matt Turner <mattst88@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Helge Deller <deller@gmx.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	x86@kernel.org,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Jan Kiszka <jan.kiszka@siemens.com>,
+	Kieran Bingham <kbingham@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
 	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH] riscv: deprecate CONFIG_MMU=n
-Message-ID: <20240226-pajamas-okay-51e16426b0f5@spud>
-References: <20240226140649.293254-1-cleger@rivosinc.com>
- <40dee2c1-ff24-40b2-a13c-6934139ba869@sifive.com>
- <ea356036-5a0b-47ea-aafb-f9813cc6ec9b@rivosinc.com>
+	linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org
+Subject: [PATCH 0/4] arch: mm, vdso: consolidate PAGE_SIZE definition
+Date: Mon, 26 Feb 2024 17:14:10 +0100
+Message-Id: <20240226161414.2316610-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-In-Reply-To: <ea356036-5a0b-47ea-aafb-f9813cc6ec9b@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240226_080250_968747_E4FF24A8 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20240226_081441_142650_59285C86 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,63 +106,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0442541598458351361=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Arnd Bergmann <arnd@arndb.de>
 
---===============0442541598458351361==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ubQpPdZaAd0QnS6C"
-Content-Disposition: inline
+Naresh noticed that the newly added usage of the PAGE_SIZE macro in
+include/vdso/datapage.h introduced a build regression. I had an older
+patch that I revived to have this defined through Kconfig rather than
+through including asm/page.h, which is not allowed in vdso code.
 
+I rebased and tested on top of the tip/timers/core branch that
+introduced the regression. If these patches get added, the
+compat VDSOs all build again, but the changes are a bit invasive.
 
---ubQpPdZaAd0QnS6C
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+      Arnd
 
-On Mon, Feb 26, 2024 at 04:25:24PM +0100, Cl=E9ment L=E9ger wrote:
-> I guess I could also mark XIP as deprecated.=20
+Link: https://lore.kernel.org/lkml/CA+G9fYtrXXm_KO9fNPz3XaRxHV7UD_yQp-TEuPQrNRHU+_0W_Q@mail.gmail.com/
+Link: https://lore.kernel.org/all/65dc6c14.170a0220.f4a3f.91dd@mx.google.com/
 
-I'm not so sure, people recently added XIP support to QEMU (and sent
-kernel fixes in December). XIP is also not nearly as much of a problem
-to support, there's far less that it does differently, the main barrier
-was the inability to test it which is no longer the case.
-That said, XIP is gonna kill itself off I feel as it does not support
-runtime patching and therefore is extremely limited on extensions, given
-we use alternatives for all of that (although I suppose if someone has a
-usecase they could make nasty macros worse and implement a compiletime
-switch in the alternatives too).
+Arnd Bergmann (4):
+  arch: consolidate existing CONFIG_PAGE_SIZE_*KB definitions
+  arch: simplify architecture specific page size configuration
+  arch: define CONFIG_PAGE_SIZE_*KB on all architectures
+  vdso: avoid including asm/page.h
 
-Cheers,
-Conor.
+ arch/Kconfig                       | 58 ++++++++++++++++++++++++++++--
+ arch/alpha/Kconfig                 |  1 +
+ arch/alpha/include/asm/page.h      |  2 +-
+ arch/arc/Kconfig                   |  3 ++
+ arch/arc/include/uapi/asm/page.h   |  6 ++--
+ arch/arm/Kconfig                   |  1 +
+ arch/arm/include/asm/page.h        |  2 +-
+ arch/arm64/Kconfig                 | 29 +++++++--------
+ arch/arm64/include/asm/page-def.h  |  2 +-
+ arch/csky/Kconfig                  |  1 +
+ arch/csky/include/asm/page.h       |  2 +-
+ arch/hexagon/Kconfig               | 25 +++----------
+ arch/hexagon/include/asm/page.h    |  6 +---
+ arch/loongarch/Kconfig             | 21 ++++-------
+ arch/loongarch/include/asm/page.h  | 10 +-----
+ arch/m68k/Kconfig                  |  3 ++
+ arch/m68k/Kconfig.cpu              |  2 ++
+ arch/m68k/include/asm/page.h       |  6 +---
+ arch/microblaze/Kconfig            |  1 +
+ arch/microblaze/include/asm/page.h |  2 +-
+ arch/mips/Kconfig                  | 58 +++---------------------------
+ arch/mips/include/asm/page.h       | 16 +--------
+ arch/nios2/Kconfig                 |  1 +
+ arch/nios2/include/asm/page.h      |  2 +-
+ arch/openrisc/Kconfig              |  1 +
+ arch/openrisc/include/asm/page.h   |  2 +-
+ arch/parisc/Kconfig                |  3 ++
+ arch/parisc/include/asm/page.h     | 10 +-----
+ arch/powerpc/Kconfig               | 31 ++++------------
+ arch/powerpc/include/asm/page.h    |  2 +-
+ arch/riscv/Kconfig                 |  1 +
+ arch/riscv/include/asm/page.h      |  2 +-
+ arch/s390/Kconfig                  |  1 +
+ arch/s390/include/asm/page.h       |  2 +-
+ arch/sh/include/asm/page.h         | 13 +------
+ arch/sh/mm/Kconfig                 | 42 +++++++---------------
+ arch/sparc/Kconfig                 |  2 ++
+ arch/sparc/include/asm/page_32.h   |  2 +-
+ arch/sparc/include/asm/page_64.h   |  3 +-
+ arch/um/Kconfig                    |  1 +
+ arch/um/include/asm/page.h         |  2 +-
+ arch/x86/Kconfig                   |  1 +
+ arch/x86/include/asm/page_types.h  |  2 +-
+ arch/xtensa/Kconfig                |  1 +
+ arch/xtensa/include/asm/page.h     |  2 +-
+ include/vdso/datapage.h            |  4 +--
+ scripts/gdb/linux/constants.py.in  |  2 +-
+ scripts/gdb/linux/mm.py            |  2 +-
+ 48 files changed, 153 insertions(+), 241 deletions(-)
 
-
---ubQpPdZaAd0QnS6C
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZdy2JAAKCRB4tDGHoIJi
-0nVMAQDYR93JQOut9mfMM8BH9MJ1F4/P4n478Z+nECkRjgzk8wD+K0fPpyls98as
-yyR2HfqkmqE6DQSWZpf9BlfbolsuVQ0=
-=IP3Z
------END PGP SIGNATURE-----
-
---ubQpPdZaAd0QnS6C--
-
-
---===============0442541598458351361==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+2.39.2
+To: Thomas Gleixner <tglx@linutronix.de>
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>
+To: Kees Cook <keescook@chromium.org>
+To: Anna-Maria Behnsen <anna-maria@linutronix.de>
+Cc: Matt Turner <mattst88@gmail.com>
+Cc: Vineet Gupta <vgupta@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Guo Ren <guoren@kernel.org>
+Cc: Brian Cain <bcain@quicinc.com>
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Michal Simek <monstr@monstr.eu>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: Helge Deller <deller@gmx.de>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: Andreas Larsson <andreas@gaisler.com>
+Cc: Richard Weinberger <richard@nod.at>
+Cc: x86@kernel.org
+Cc: Max Filippov <jcmvbkbc@gmail.com>
+Cc: Andy Lutomirski <luto@kernel.org>
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: Jan Kiszka <jan.kiszka@siemens.com>
+Cc: Kieran Bingham <kbingham@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-alpha@vger.kernel.org
+Cc: linux-snps-arc@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: loongarch@lists.linux.dev
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-openrisc@vger.kernel.org
+Cc: linux-parisc@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-sh@vger.kernel.org
+Cc: sparclinux@vger.kernel.org
+Cc: linux-um@lists.infradead.org
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0442541598458351361==--
-
