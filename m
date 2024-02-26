@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F164C5478C
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 04:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0348C5478C
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 04:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kNzFoRVy87CQYKLivVcypS8BFGucoh1i0eoyzlphxhk=; b=3Fe+yn4iXBju84
-	MA303cPj8ye+4SNvrmcYoQMvHXcImlBgCd6z5dbzKBROV5NND3UtkK2NloW2oVygxCwTwKwoMXRVs
-	tLwxsQbBBzwmcUnJCXPSUAzo/tYZFYxiiEWVcjXJZCWo1wVg8Ln2o58ZazCBIXOHdVRTFzCE14I1M
-	WEI6Qo94IfmQmLLLDLMDCj4pbNwHVygRCDgBYYg28AX+bOIpo9k9hvIvn7jHDK2BRqqiw+jPpMpLA
-	8T5Y9CZYFy1N+PIxzQf9Sa1wzGQmVjSIOkNxChhD8yGNf2K4bnVhhFfZ9npR6YCC+QEIYatCe8u3K
-	eckawcPbNhSn+NCnAO0w==;
+	List-Owner; bh=+fdBSEgsN8T4RrnBNzv1INJ8BfXjLNe4mXBMe95tIMI=; b=za/iueQOtrfPJl
+	BNIDSxi+G22dE2N+9A2Ik9KKfe0gOci76bvhSlmUYvDIdgOViRLC1loVTBrGOfJlwTPURLC6Yn7xP
+	DcX2gG4y+hEaepeO4hCnufg39w5WNuUJYVA48BZDh2c++Eo1NwCnDf6fMmt/1+oxetOMu/AxyvNAE
+	9DgqenygNIH/dSD5gw092yWOTPxG/TqwGjuzF7jP9S5HJH5B0cKgAbFOkEmWqLDZ8upIlTvaVpVma
+	6n9vSmsUKZsjYxeBE90lPFJK85gniBDPNmjGpc/JjIB08dbvuWD7UWt1CSUzXJmcZPJE8zfbRHLd8
+	nQR5E2W7P8QFHAm+vVow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reSJI-0000000GNir-0eNy;
-	Mon, 26 Feb 2024 04:09:48 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1reSJp-0000000GOAT-1ocq;
+	Mon, 26 Feb 2024 04:10:21 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reSIv-0000000GNRF-0nwC
+	id 1reSJF-0000000GNhM-2T06
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Feb 2024 04:09:30 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1dbae7b8ff2so10242645ad.3
-        for <linux-riscv@lists.infradead.org>; Sun, 25 Feb 2024 20:09:23 -0800 (PST)
+	Mon, 26 Feb 2024 04:09:53 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1d918008b99so18772425ad.3
+        for <linux-riscv@lists.infradead.org>; Sun, 25 Feb 2024 20:09:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1708920563; x=1709525363; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1708920585; x=1709525385; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CiqobbaTZGToIizH7YEjH5rrAclq8QumllxtxL7qHRY=;
-        b=ZsY/uPws1offDIhQCf7HZvKyypiUl7brpclTmNntSVCxKr3BtXlOsqb8UTNMJUOzEj
-         /xeonWnNnCP+/QC/qbj6Xe3x6qGWZxak24mUjPOR/pFaP1D+pxSy4/ZGjuPQSX0WcuMX
-         tBZOhFdOrIGvd4NWiGGCaHOJlgBUPOCopWqUVHKVf0wrDG/u4SMVLllTHyCfPGlBwiFJ
-         5z1uzd3KNikB2c+efgsGfX+HvbUnsuhBZJQN+ggDxufxncflNgNfMxXJAqBQjYM8/IYW
-         hk+nwdIUY424AKIlrCCa2m7kIB+xw80zTOutzXNU/x+M9tVP7liEAaMsFuQKYHCDxuaR
-         b/TQ==
+        bh=QI4aqAmAGveFqtunFvSRZVDquEgvdVoykJrGG/5E5MY=;
+        b=NAd0l5NFuIDsPQ4/Vq+qTbaW/AODW4J3RYhoA/FttwwOrHtJb31raxYMpvigYHZWXZ
+         hKE3emrtSSvuywFcNzO/bLuXd/GBL4VSFqIdtGKtxTpV+pzf3C2g4DB8dfH5Rz6fSOoN
+         StcmULg387oJkIbX5YaffXngTQYvwDlm+UPzTJMLj/6tgUuU6ynykvKh2qbq4lp5HILD
+         FJEs1haobwi1LkI/DCtfAm2twrxLG+XhMvdByNzhIEW5dccZMmHfCWFctOT/R5ayFbWh
+         5OQ1mjs+9UlU4t+SRl7oQQEZ5ktNn3AqGdIa8ACFIv/LmJvBYwnwwBcXj8fW9mjxydrF
+         ldRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708920563; x=1709525363;
+        d=1e100.net; s=20230601; t=1708920585; x=1709525385;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CiqobbaTZGToIizH7YEjH5rrAclq8QumllxtxL7qHRY=;
-        b=GPzNawxbs+OH318f+7LysmbSOb5u5O8K/dPJz5cLHtcyEGWcn5aPg7mgEMhQmNpJNw
-         KSIi4abKYX+rWOjzplNhpVCfd4ORSQNJJl1NVyi7Yqv07x3Vgpg8dOHkVpMaT4Xg1I9T
-         sz66a7aAmkrDnJntCkyN0Bq28NmFuEEKm0sc3XsqnRprH/gJHT2TOkPlZWZmA/UAPR+y
-         NADNt0nWiYUa0hACAXmj/piawn0LbgzUWY76ITrbwqTc/lfIHAOqol4BayXkLkYcakbL
-         ltm4LaYR1HGthWVYgiPsK5Gycxe5TMd5TEiide19V/0gWk7RBLyXR2YVcOib2jOxZs5Y
-         3v8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX45kt+2OgkRwkSlp78OlDLMIX5MQjjmGH+ymjhlzrfcj4F3Et3vpz7tkCNYD7+RMgXaOCubZtG4wGPPcR4iDc6FuzOzq/gqcQ8WlyjqDYf
-X-Gm-Message-State: AOJu0Yysw6O/YsfLNSD1e6g+OaFu1ZxV640nzYhSnoUu+RASieDGmLeS
-	WtrlI4kdsBDGC+kETYBDe4GtWs12zQOF22fousPWy81bFYAcQYUeyACJRLONsX4=
-X-Google-Smtp-Source: AGHT+IEnlkNJq3RMVWpTM27dhnDbkZflCY5IsdBH8Nf2a/upQFNwrqECqK7qpi+OjwC5Bm30ITux3w==
-X-Received: by 2002:a17:902:e849:b0:1dc:abf0:14ee with SMTP id t9-20020a170902e84900b001dcabf014eemr205795plg.22.1708920563025;
-        Sun, 25 Feb 2024 20:09:23 -0800 (PST)
+        bh=QI4aqAmAGveFqtunFvSRZVDquEgvdVoykJrGG/5E5MY=;
+        b=Bc18wWAbmEHf3H4/kMDXJQIIOXKk+F4+SQddqCNKlOEW9lXdzd+c+zy9h2M8Q9RUmh
+         FO1l44QHum5CkJJB21IgB6kKDxovQTpeSXrvfxS22gNm+xu04l7H6yYsMKbjZPveS3i7
+         tKHlLOPrIIbMV2WEcr8ZnFYcolGnEJmjkMHzbDmdCxrVk7mpbAn6TEzodkkAUlHNw5fK
+         7TkI/waMZRTeg9jOk0bklZozHX/KHpjXixK6pPuJA+QD3X9AvmGn6RSHBn9/8xmxGR6O
+         VovLik65KBs5F13w1hvTfpEhZ3jYxdAlqIlEL4xtRimDb0qJvb4i6wXxNJKbnLAktOBe
+         Hl8A==
+X-Forwarded-Encrypted: i=1; AJvYcCX4X1vhFzGsyCq478HJxImt2slAlZ8Pq1Sgd91+LPkeNwgfewUp7b+cl0XCuVsMKb4o+4s2y1VfiStD1No8ApbsTW98vKT1VlWVrI5IO2Ya
+X-Gm-Message-State: AOJu0Yx3js/MnT7/VxNHPVRtMV8nBxCLGoQ6mamr5UcXGYawtWjXVXFX
+	8APiWpARveqSXlWH9087lc2kwyl58CIE0JBvyQiJ1esMRYfHv4saSIWa6Xgeph4=
+X-Google-Smtp-Source: AGHT+IGfXOZhaYYA9LHFzrYPZWo49M/KTuS9HhSC71ZjAppl3HPA4pI/ZuZivkm+OKj8AEatBdN5gg==
+X-Received: by 2002:a17:903:548:b0:1db:9a8c:7e6f with SMTP id jo8-20020a170903054800b001db9a8c7e6fmr5436763plb.29.1708920584847;
+        Sun, 25 Feb 2024 20:09:44 -0800 (PST)
 Received: from localhost.localdomain ([171.76.86.62])
-        by smtp.gmail.com with ESMTPSA id d11-20020a170902654b00b001dc6f7e794dsm3023258pln.16.2024.02.25.20.09.18
+        by smtp.gmail.com with ESMTPSA id d11-20020a170902654b00b001dc6f7e794dsm3023258pln.16.2024.02.25.20.09.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Feb 2024 20:09:22 -0800 (PST)
+        Sun, 25 Feb 2024 20:09:44 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -71,16 +71,16 @@ To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Frank Rowand <frowand.list@gmail.com>,
 	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v15 04/10] irqchip/riscv-imsic: Add device MSI domain support for platform devices
-Date: Mon, 26 Feb 2024 09:37:40 +0530
-Message-Id: <20240226040746.1396416-5-apatel@ventanamicro.com>
+Subject: [PATCH v15 08/10] irqchip/riscv-aplic: Add support for MSI-mode
+Date: Mon, 26 Feb 2024 09:37:44 +0530
+Message-Id: <20240226040746.1396416-9-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240226040746.1396416-1-apatel@ventanamicro.com>
 References: <20240226040746.1396416-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240225_200925_430398_8C17A0A0 
-X-CRM114-Status: GOOD (  30.32  )
+X-CRM114-CacheID: sfid-20240225_200945_951398_52C7E067 
+X-CRM114-Status: GOOD (  29.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,394 +98,355 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Linux platform MSI support allows per-device MSI domains so add
-a platform irqchip driver for RISC-V IMSIC which provides a base IRQ
-domain with MSI parent support for platform device domains.
+The RISC-V advanced platform-level interrupt controller (APLIC) has
+two modes of operation: 1) Direct mode and 2) MSI mode.
+(For more details, refer https://github.com/riscv/riscv-aia)
 
-The IMSIC platform driver assumes that the IMSIC state is already
-initialized by the IMSIC early driver.
+In APLIC MSI-mode, wired interrupts are forwared as message signaled
+interrupts (MSIs) to CPUs via IMSIC.
+
+Extend the existing APLIC irqchip driver to support MSI-mode for
+RISC-V platforms having both wired interrupts and MSIs.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/irqchip/Makefile                   |   2 +-
- drivers/irqchip/irq-riscv-imsic-platform.c | 343 +++++++++++++++++++++
- drivers/irqchip/irq-riscv-imsic-state.h    |   1 +
- 3 files changed, 345 insertions(+), 1 deletion(-)
- create mode 100644 drivers/irqchip/irq-riscv-imsic-platform.c
+ drivers/irqchip/Kconfig                |   6 +
+ drivers/irqchip/Makefile               |   1 +
+ drivers/irqchip/irq-riscv-aplic-main.c |   2 +-
+ drivers/irqchip/irq-riscv-aplic-main.h |   8 +
+ drivers/irqchip/irq-riscv-aplic-msi.c  | 263 +++++++++++++++++++++++++
+ 5 files changed, 279 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/irqchip/irq-riscv-aplic-msi.c
 
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index dbc8811d3764..806b5fccb3e8 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -551,6 +551,12 @@ config RISCV_APLIC
+ 	depends on RISCV
+ 	select IRQ_DOMAIN_HIERARCHY
+ 
++config RISCV_APLIC_MSI
++	bool
++	depends on RISCV_APLIC
++	select GENERIC_MSI_IRQ
++	default RISCV_APLIC
++
+ config RISCV_IMSIC
+ 	bool
+ 	depends on RISCV
 diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index d714724387ce..abca445a3229 100644
+index 7f8289790ed8..47995fdb2c60 100644
 --- a/drivers/irqchip/Makefile
 +++ b/drivers/irqchip/Makefile
-@@ -95,7 +95,7 @@ obj-$(CONFIG_QCOM_MPM)			+= irq-qcom-mpm.o
- obj-$(CONFIG_CSKY_MPINTC)		+= irq-csky-mpintc.o
+@@ -96,6 +96,7 @@ obj-$(CONFIG_CSKY_MPINTC)		+= irq-csky-mpintc.o
  obj-$(CONFIG_CSKY_APB_INTC)		+= irq-csky-apb-intc.o
  obj-$(CONFIG_RISCV_INTC)		+= irq-riscv-intc.o
--obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o
-+obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o irq-riscv-imsic-platform.o
+ obj-$(CONFIG_RISCV_APLIC)		+= irq-riscv-aplic-main.o irq-riscv-aplic-direct.o
++obj-$(CONFIG_RISCV_APLIC_MSI)		+= irq-riscv-aplic-msi.o
+ obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o irq-riscv-imsic-platform.o
  obj-$(CONFIG_SIFIVE_PLIC)		+= irq-sifive-plic.o
  obj-$(CONFIG_IMX_IRQSTEER)		+= irq-imx-irqsteer.o
- obj-$(CONFIG_IMX_INTMUX)		+= irq-imx-intmux.o
-diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+index 160ff99d6979..774a0c97fdab 100644
+--- a/drivers/irqchip/irq-riscv-aplic-main.c
++++ b/drivers/irqchip/irq-riscv-aplic-main.c
+@@ -187,7 +187,7 @@ static int aplic_probe(struct platform_device *pdev)
+ 	if (is_of_node(dev->fwnode))
+ 		msi_mode = of_property_present(to_of_node(dev->fwnode), "msi-parent");
+ 	if (msi_mode)
+-		rc = -ENODEV;
++		rc = aplic_msi_setup(dev, regs);
+ 	else
+ 		rc = aplic_direct_setup(dev, regs);
+ 	if (rc)
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.h b/drivers/irqchip/irq-riscv-aplic-main.h
+index 4cfbadf37ddc..4393927d8c80 100644
+--- a/drivers/irqchip/irq-riscv-aplic-main.h
++++ b/drivers/irqchip/irq-riscv-aplic-main.h
+@@ -40,5 +40,13 @@ int aplic_irqdomain_translate(struct irq_fwspec *fwspec, u32 gsi_base,
+ void aplic_init_hw_global(struct aplic_priv *priv, bool msi_mode);
+ int aplic_setup_priv(struct aplic_priv *priv, struct device *dev, void __iomem *regs);
+ int aplic_direct_setup(struct device *dev, void __iomem *regs);
++#ifdef CONFIG_RISCV_APLIC_MSI
++int aplic_msi_setup(struct device *dev, void __iomem *regs);
++#else
++static inline int aplic_msi_setup(struct device *dev, void __iomem *regs)
++{
++	return -ENODEV;
++}
++#endif
+ 
+ #endif
+diff --git a/drivers/irqchip/irq-riscv-aplic-msi.c b/drivers/irqchip/irq-riscv-aplic-msi.c
 new file mode 100644
-index 000000000000..35291bf90d65
+index 000000000000..b2a25e011bb2
 --- /dev/null
-+++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -0,0 +1,343 @@
++++ b/drivers/irqchip/irq-riscv-aplic-msi.c
+@@ -0,0 +1,263 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
 + * Copyright (C) 2022 Ventana Micro Systems Inc.
 + */
 +
-+#define pr_fmt(fmt) "riscv-imsic: " fmt
-+#include <linux/bitmap.h>
++#include <linux/bitfield.h>
++#include <linux/bitops.h>
 +#include <linux/cpu.h>
 +#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/irq.h>
 +#include <linux/irqchip.h>
-+#include <linux/irqdomain.h>
++#include <linux/irqchip/riscv-aplic.h>
++#include <linux/irqchip/riscv-imsic.h>
 +#include <linux/module.h>
 +#include <linux/msi.h>
++#include <linux/of_irq.h>
 +#include <linux/platform_device.h>
-+#include <linux/spinlock.h>
++#include <linux/printk.h>
 +#include <linux/smp.h>
 +
-+#include "irq-riscv-imsic-state.h"
++#include "irq-riscv-aplic-main.h"
 +
-+static bool imsic_cpu_page_phys(unsigned int cpu, unsigned int guest_index,
-+				phys_addr_t *out_msi_pa)
++static void aplic_msi_irq_unmask(struct irq_data *d)
 +{
-+	struct imsic_global_config *global;
-+	struct imsic_local_config *local;
-+
-+	global = &imsic->global;
-+	local = per_cpu_ptr(global->local, cpu);
-+
-+	if (BIT(global->guest_index_bits) <= guest_index)
-+		return false;
-+
-+	if (out_msi_pa)
-+		*out_msi_pa = local->msi_pa + (guest_index * IMSIC_MMIO_PAGE_SZ);
-+
-+	return true;
++	aplic_irq_unmask(d);
++	irq_chip_unmask_parent(d);
 +}
 +
-+static void imsic_irq_mask(struct irq_data *d)
++static void aplic_msi_irq_mask(struct irq_data *d)
 +{
-+	imsic_vector_mask(irq_data_get_irq_chip_data(d));
++	irq_chip_mask_parent(d);
++	aplic_irq_mask(d);
 +}
 +
-+static void imsic_irq_unmask(struct irq_data *d)
++static void aplic_msi_irq_eoi(struct irq_data *d)
 +{
-+	imsic_vector_unmask(irq_data_get_irq_chip_data(d));
-+}
-+
-+static int imsic_irq_retrigger(struct irq_data *d)
-+{
-+	struct imsic_vector *vec = irq_data_get_irq_chip_data(d);
-+	struct imsic_local_config *local;
-+
-+	if (WARN_ON(!vec))
-+		return -ENOENT;
-+
-+	local = per_cpu_ptr(imsic->global.local, vec->cpu);
-+	writel_relaxed(vec->local_id, local->msi_va);
-+	return 0;
-+}
-+
-+static void imsic_irq_compose_vector_msg(struct imsic_vector *vec, struct msi_msg *msg)
-+{
-+	phys_addr_t msi_addr;
-+
-+	if (WARN_ON(!vec))
-+		return;
-+
-+	if (WARN_ON(!imsic_cpu_page_phys(vec->cpu, 0, &msi_addr)))
-+		return;
-+
-+	msg->address_hi = upper_32_bits(msi_addr);
-+	msg->address_lo = lower_32_bits(msi_addr);
-+	msg->data = vec->local_id;
-+}
-+
-+static void imsic_irq_compose_msg(struct irq_data *d, struct msi_msg *msg)
-+{
-+	imsic_irq_compose_vector_msg(irq_data_get_irq_chip_data(d), msg);
-+}
-+
-+#ifdef CONFIG_SMP
-+static void imsic_msi_update_msg(struct irq_data *d, struct imsic_vector *vec)
-+{
-+	struct msi_msg msg = { };
-+
-+	imsic_irq_compose_vector_msg(vec, &msg);
-+	irq_data_get_irq_chip(d)->irq_write_msi_msg(d, &msg);
-+}
-+
-+static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask_val,
-+				  bool force)
-+{
-+	struct imsic_vector *old_vec, *new_vec;
-+	struct irq_data *pd = d->parent_data;
-+
-+	old_vec = irq_data_get_irq_chip_data(pd);
-+	if (WARN_ON(!old_vec))
-+		return -ENOENT;
-+
-+	/* If old vector cpu belongs to the target cpumask then do nothing */
-+	if (cpumask_test_cpu(old_vec->cpu, mask_val))
-+		return IRQ_SET_MASK_OK_DONE;
-+
-+	/* If move is already in-flight then return failure */
-+	if (imsic_vector_get_move(old_vec))
-+		return -EBUSY;
-+
-+	/* Get a new vector on the desired set of CPUs */
-+	new_vec = imsic_vector_alloc(old_vec->hwirq, mask_val);
-+	if (!new_vec)
-+		return -ENOSPC;
-+
-+	/* Point device to the new vector */
-+	imsic_msi_update_msg(d, new_vec);
-+
-+	/* Update irq descriptors with the new vector */
-+	pd->chip_data = new_vec;
-+
-+	/* Update effective affinity of parent irq data */
-+	irq_data_update_effective_affinity(pd, cpumask_of(new_vec->cpu));
-+
-+	/* Move state of the old vector to the new vector */
-+	imsic_vector_move(old_vec, new_vec);
-+
-+	return IRQ_SET_MASK_OK_DONE;
-+}
-+#endif
-+
-+static struct irq_chip imsic_irq_base_chip = {
-+	.name			= "IMSIC",
-+	.irq_mask		= imsic_irq_mask,
-+	.irq_unmask		= imsic_irq_unmask,
-+	.irq_retrigger		= imsic_irq_retrigger,
-+	.irq_compose_msi_msg	= imsic_irq_compose_msg,
-+	.flags			= IRQCHIP_SKIP_SET_WAKE |
-+				  IRQCHIP_MASK_ON_SUSPEND,
-+};
-+
-+static int imsic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
-+				  unsigned int nr_irqs, void *args)
-+{
-+	struct imsic_vector *vec;
-+
-+	/* Multi-MSI is not supported yet. */
-+	if (nr_irqs > 1)
-+		return -EOPNOTSUPP;
-+
-+	vec = imsic_vector_alloc(virq, cpu_online_mask);
-+	if (!vec)
-+		return -ENOSPC;
-+
-+	irq_domain_set_info(domain, virq, virq, &imsic_irq_base_chip, vec,
-+			    handle_simple_irq, NULL, NULL);
-+	irq_set_noprobe(virq);
-+	irq_set_affinity(virq, cpu_online_mask);
-+
-+	return 0;
-+}
-+
-+static void imsic_irq_domain_free(struct irq_domain *domain, unsigned int virq,
-+				  unsigned int nr_irqs)
-+{
-+	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
-+
-+	imsic_vector_free(irq_data_get_irq_chip_data(d));
-+	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
-+}
-+
-+static int imsic_irq_domain_select(struct irq_domain *domain, struct irq_fwspec *fwspec,
-+				   enum irq_domain_bus_token bus_token)
-+{
-+	const struct msi_parent_ops *ops = domain->msi_parent_ops;
-+	u32 busmask = BIT(bus_token);
-+
-+	if (fwspec->fwnode != domain->fwnode || fwspec->param_count != 0)
-+		return 0;
-+
-+	/* Handle pure domain searches */
-+	if (bus_token == ops->bus_select_token)
-+		return 1;
-+
-+	return !!(ops->bus_select_mask & busmask);
-+}
-+
-+#ifdef CONFIG_GENERIC_IRQ_DEBUGFS
-+static void imsic_irq_debug_show(struct seq_file *m, struct irq_domain *d,
-+				 struct irq_data *irqd, int ind)
-+{
-+	if (!irqd) {
-+		imsic_vector_debug_show_summary(m, ind);
-+		return;
-+	}
-+
-+	imsic_vector_debug_show(m, irq_data_get_irq_chip_data(irqd), ind);
-+}
-+#endif
-+
-+static const struct irq_domain_ops imsic_base_domain_ops = {
-+	.alloc		= imsic_irq_domain_alloc,
-+	.free		= imsic_irq_domain_free,
-+	.select		= imsic_irq_domain_select,
-+#ifdef CONFIG_GENERIC_IRQ_DEBUGFS
-+	.debug_show	= imsic_irq_debug_show,
-+#endif
-+};
-+
-+static bool imsic_init_dev_msi_info(struct device *dev,
-+				    struct irq_domain *domain,
-+				    struct irq_domain *real_parent,
-+				    struct msi_domain_info *info)
-+{
-+	const struct msi_parent_ops *pops = real_parent->msi_parent_ops;
-+
-+	/* MSI parent domain specific settings */
-+	switch (real_parent->bus_token) {
-+	case DOMAIN_BUS_NEXUS:
-+		if (WARN_ON_ONCE(domain != real_parent))
-+			return false;
-+#ifdef CONFIG_SMP
-+		info->chip->irq_set_affinity = imsic_irq_set_affinity;
-+#endif
-+		break;
-+	default:
-+		WARN_ON_ONCE(1);
-+		return false;
-+	}
-+
-+	/* Is the target supported? */
-+	switch (info->bus_token) {
-+	case DOMAIN_BUS_DEVICE_MSI:
-+		/*
-+		 * Per-device MSI should never have any MSI feature bits
-+		 * set. It's sole purpose is to create a dumb interrupt
-+		 * chip which has a device specific irq_write_msi_msg()
-+		 * callback.
-+		 */
-+		if (WARN_ON_ONCE(info->flags))
-+			return false;
-+
-+		/* Core managed MSI descriptors */
-+		info->flags |= MSI_FLAG_ALLOC_SIMPLE_MSI_DESCS |
-+			       MSI_FLAG_FREE_MSI_DESCS;
-+		break;
-+	case DOMAIN_BUS_WIRED_TO_MSI:
-+		break;
-+	default:
-+		WARN_ON_ONCE(1);
-+		return false;
-+	}
-+
-+	/* Use hierarchial chip operations re-trigger */
-+	info->chip->irq_retrigger = irq_chip_retrigger_hierarchy;
++	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
++	u32 reg_off, reg_mask;
 +
 +	/*
-+	 * Mask out the domain specific MSI feature flags which are not
-+	 * supported by the real parent.
++	 * EOI handling is required only for level-triggered interrupts
++	 * when APLIC is in MSI mode.
 +	 */
-+	info->flags &= pops->supported_flags;
 +
-+	/* Enforce the required flags */
-+	info->flags |= pops->required_flags;
-+
-+	return true;
++	reg_off = APLIC_CLRIP_BASE + ((d->hwirq / APLIC_IRQBITS_PER_REG) * 4);
++	reg_mask = BIT(d->hwirq % APLIC_IRQBITS_PER_REG);
++	switch (irqd_get_trigger_type(d)) {
++	case IRQ_TYPE_LEVEL_LOW:
++		/*
++		 * If the rectified input value of the source is still low
++		 * then set the interrupt pending bit so that interrupt is
++		 * re-triggered via MSI.
++		 */
++		if (!(readl(priv->regs + reg_off) & reg_mask))
++			writel(d->hwirq, priv->regs + APLIC_SETIPNUM_LE);
++		break;
++	case IRQ_TYPE_LEVEL_HIGH:
++		/*
++		 * If the rectified input value of the source is still high
++		 * then set the interrupt pending bit so that interrupt is
++		 * re-triggered via MSI.
++		 */
++		if (readl(priv->regs + reg_off) & reg_mask)
++			writel(d->hwirq, priv->regs + APLIC_SETIPNUM_LE);
++		break;
++	}
 +}
 +
-+#define MATCH_PLATFORM_MSI		BIT(DOMAIN_BUS_PLATFORM_MSI)
++static void aplic_msi_write_msg(struct irq_data *d, struct msi_msg *msg)
++{
++	unsigned int group_index, hart_index, guest_index, val;
++	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
++	struct aplic_msicfg *mc = &priv->msicfg;
++	phys_addr_t tppn, tbppn, msg_addr;
++	void __iomem *target;
 +
-+static const struct msi_parent_ops imsic_msi_parent_ops = {
-+	.supported_flags	= MSI_GENERIC_FLAGS_MASK,
-+	.required_flags		= MSI_FLAG_USE_DEF_DOM_OPS |
-+				  MSI_FLAG_USE_DEF_CHIP_OPS,
-+	.bus_select_token	= DOMAIN_BUS_NEXUS,
-+	.bus_select_mask	= MATCH_PLATFORM_MSI,
-+	.init_dev_msi_info	= imsic_init_dev_msi_info,
++	/* For zeroed MSI, simply write zero into the target register */
++	if (!msg->address_hi && !msg->address_lo && !msg->data) {
++		target = priv->regs + APLIC_TARGET_BASE;
++		target += (d->hwirq - 1) * sizeof(u32);
++		writel(0, target);
++		return;
++	}
++
++	/* Sanity check on message data */
++	WARN_ON(msg->data > APLIC_TARGET_EIID_MASK);
++
++	/* Compute target MSI address */
++	msg_addr = (((u64)msg->address_hi) << 32) | msg->address_lo;
++	tppn = msg_addr >> APLIC_xMSICFGADDR_PPN_SHIFT;
++
++	/* Compute target HART Base PPN */
++	tbppn = tppn;
++	tbppn &= ~APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
++	tbppn &= ~APLIC_xMSICFGADDR_PPN_LHX(mc->lhxw, mc->lhxs);
++	tbppn &= ~APLIC_xMSICFGADDR_PPN_HHX(mc->hhxw, mc->hhxs);
++	WARN_ON(tbppn != mc->base_ppn);
++
++	/* Compute target group and hart indexes */
++	group_index = (tppn >> APLIC_xMSICFGADDR_PPN_HHX_SHIFT(mc->hhxs)) &
++		     APLIC_xMSICFGADDR_PPN_HHX_MASK(mc->hhxw);
++	hart_index = (tppn >> APLIC_xMSICFGADDR_PPN_LHX_SHIFT(mc->lhxs)) &
++		     APLIC_xMSICFGADDR_PPN_LHX_MASK(mc->lhxw);
++	hart_index |= (group_index << mc->lhxw);
++	WARN_ON(hart_index > APLIC_TARGET_HART_IDX_MASK);
++
++	/* Compute target guest index */
++	guest_index = tppn & APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
++	WARN_ON(guest_index > APLIC_TARGET_GUEST_IDX_MASK);
++
++	/* Update IRQ TARGET register */
++	target = priv->regs + APLIC_TARGET_BASE;
++	target += (d->hwirq - 1) * sizeof(u32);
++	val = FIELD_PREP(APLIC_TARGET_HART_IDX, hart_index);
++	val |= FIELD_PREP(APLIC_TARGET_GUEST_IDX, guest_index);
++	val |= FIELD_PREP(APLIC_TARGET_EIID, msg->data);
++	writel(val, target);
++}
++
++static void aplic_msi_set_desc(msi_alloc_info_t *arg, struct msi_desc *desc)
++{
++	arg->desc = desc;
++	arg->hwirq = (u32)desc->data.icookie.value;
++}
++
++static int aplic_msi_translate(struct irq_domain *d, struct irq_fwspec *fwspec,
++			       unsigned long *hwirq, unsigned int *type)
++{
++	struct msi_domain_info *info = d->host_data;
++	struct aplic_priv *priv = info->data;
++
++	return aplic_irqdomain_translate(fwspec, priv->gsi_base, hwirq, type);
++}
++
++static const struct msi_domain_template aplic_msi_template = {
++	.chip = {
++		.name			= "APLIC-MSI",
++		.irq_mask		= aplic_msi_irq_mask,
++		.irq_unmask		= aplic_msi_irq_unmask,
++		.irq_set_type		= aplic_irq_set_type,
++		.irq_eoi		= aplic_msi_irq_eoi,
++#ifdef CONFIG_SMP
++		.irq_set_affinity	= irq_chip_set_affinity_parent,
++#endif
++		.irq_write_msi_msg	= aplic_msi_write_msg,
++		.flags			= IRQCHIP_SET_TYPE_MASKED |
++					  IRQCHIP_SKIP_SET_WAKE |
++					  IRQCHIP_MASK_ON_SUSPEND,
++	},
++
++	.ops = {
++		.set_desc		= aplic_msi_set_desc,
++		.msi_translate		= aplic_msi_translate,
++	},
++
++	.info = {
++		.bus_token		= DOMAIN_BUS_WIRED_TO_MSI,
++		.flags			= MSI_FLAG_USE_DEV_FWNODE,
++		.handler		= handle_fasteoi_irq,
++	},
 +};
 +
-+int imsic_irqdomain_init(void)
++int aplic_msi_setup(struct device *dev, void __iomem *regs)
 +{
-+	struct imsic_global_config *global;
++	const struct imsic_global_config *imsic_global;
++	struct aplic_priv *priv;
++	struct aplic_msicfg *mc;
++	phys_addr_t pa;
++	int rc;
 +
-+	if (!imsic || !imsic->fwnode) {
-+		pr_err("early driver not probed\n");
++	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	rc = aplic_setup_priv(priv, dev, regs);
++	if (rc) {
++		dev_err(dev, "failed to create APLIC context\n");
++		return rc;
++	}
++	mc = &priv->msicfg;
++
++	/*
++	 * The APLIC outgoing MSI config registers assume target MSI
++	 * controller to be RISC-V AIA IMSIC controller.
++	 */
++	imsic_global = imsic_get_global_config();
++	if (!imsic_global) {
++		dev_err(dev, "IMSIC global config not found\n");
 +		return -ENODEV;
 +	}
 +
-+	if (imsic->base_domain) {
-+		pr_err("%pfwP: irq domain already created\n", imsic->fwnode);
-+		return -ENODEV;
++	/* Find number of guest index bits (LHXS) */
++	mc->lhxs = imsic_global->guest_index_bits;
++	if (APLIC_xMSICFGADDRH_LHXS_MASK < mc->lhxs) {
++		dev_err(dev, "IMSIC guest index bits big for APLIC LHXS\n");
++		return -EINVAL;
 +	}
 +
-+	/* Create Base IRQ domain */
-+	imsic->base_domain = irq_domain_create_tree(imsic->fwnode,
-+						    &imsic_base_domain_ops, imsic);
-+	if (!imsic->base_domain) {
-+		pr_err("%pfwP: failed to create IMSIC base domain\n", imsic->fwnode);
++	/* Find number of HART index bits (LHXW) */
++	mc->lhxw = imsic_global->hart_index_bits;
++	if (APLIC_xMSICFGADDRH_LHXW_MASK < mc->lhxw) {
++		dev_err(dev, "IMSIC hart index bits big for APLIC LHXW\n");
++		return -EINVAL;
++	}
++
++	/* Find number of group index bits (HHXW) */
++	mc->hhxw = imsic_global->group_index_bits;
++	if (APLIC_xMSICFGADDRH_HHXW_MASK < mc->hhxw) {
++		dev_err(dev, "IMSIC group index bits big for APLIC HHXW\n");
++		return -EINVAL;
++	}
++
++	/* Find first bit position of group index (HHXS) */
++	mc->hhxs = imsic_global->group_index_shift;
++	if (mc->hhxs < (2 * APLIC_xMSICFGADDR_PPN_SHIFT)) {
++		dev_err(dev, "IMSIC group index shift should be >= %d\n",
++			(2 * APLIC_xMSICFGADDR_PPN_SHIFT));
++		return -EINVAL;
++	}
++	mc->hhxs -= (2 * APLIC_xMSICFGADDR_PPN_SHIFT);
++	if (APLIC_xMSICFGADDRH_HHXS_MASK < mc->hhxs) {
++		dev_err(dev, "IMSIC group index shift big for APLIC HHXS\n");
++		return -EINVAL;
++	}
++
++	/* Compute PPN base */
++	mc->base_ppn = imsic_global->base_addr >> APLIC_xMSICFGADDR_PPN_SHIFT;
++	mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
++	mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_LHX(mc->lhxw, mc->lhxs);
++	mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_HHX(mc->hhxw, mc->hhxs);
++
++	/* Setup global config and interrupt delivery */
++	aplic_init_hw_global(priv, true);
++
++	/* Set the APLIC device MSI domain if not available */
++	if (!dev_get_msi_domain(dev)) {
++		/*
++		 * The device MSI domain for OF devices is only set at the
++		 * time of populating/creating OF device. If the device MSI
++		 * domain is discovered later after the OF device is created
++		 * then we need to set it explicitly before using any platform
++		 * MSI functions.
++		 *
++		 * In case of APLIC device, the parent MSI domain is always
++		 * IMSIC and the IMSIC MSI domains are created later through
++		 * the platform driver probing so we set it explicitly here.
++		 */
++		if (is_of_node(dev->fwnode))
++			of_msi_configure(dev, to_of_node(dev->fwnode));
++	}
++
++	if (!msi_create_device_irq_domain(dev, MSI_DEFAULT_DOMAIN, &aplic_msi_template,
++					  priv->nr_irqs + 1, priv, priv)) {
++		dev_err(dev, "failed to create MSI irq domain\n");
 +		return -ENOMEM;
 +	}
-+	imsic->base_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
-+	imsic->base_domain->msi_parent_ops = &imsic_msi_parent_ops;
 +
-+	irq_domain_update_bus_token(imsic->base_domain, DOMAIN_BUS_NEXUS);
-+
-+	global = &imsic->global;
-+	pr_info("%pfwP:  hart-index-bits: %d,  guest-index-bits: %d\n",
-+		imsic->fwnode, global->hart_index_bits, global->guest_index_bits);
-+	pr_info("%pfwP: group-index-bits: %d, group-index-shift: %d\n",
-+		imsic->fwnode, global->group_index_bits, global->group_index_shift);
-+	pr_info("%pfwP: per-CPU IDs %d at base PPN %pa\n",
-+		imsic->fwnode, global->nr_ids, &global->base_addr);
-+	pr_info("%pfwP: total %d interrupts available\n",
-+		imsic->fwnode, num_possible_cpus() * (global->nr_ids - 1));
++	/* Advertise the interrupt controller */
++	pa = priv->msicfg.base_ppn << APLIC_xMSICFGADDR_PPN_SHIFT;
++	dev_info(dev, "%d interrupts forwared to MSI base %pa\n", priv->nr_irqs, &pa);
 +
 +	return 0;
 +}
-+
-+static int imsic_platform_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+
-+	if (imsic && imsic->fwnode != dev->fwnode) {
-+		dev_err(dev, "fwnode mismatch\n");
-+		return -ENODEV;
-+	}
-+
-+	return imsic_irqdomain_init();
-+}
-+
-+static const struct of_device_id imsic_platform_match[] = {
-+	{ .compatible = "riscv,imsics" },
-+	{}
-+};
-+
-+static struct platform_driver imsic_platform_driver = {
-+	.driver = {
-+		.name		= "riscv-imsic",
-+		.of_match_table	= imsic_platform_match,
-+	},
-+	.probe = imsic_platform_probe,
-+};
-+builtin_platform_driver(imsic_platform_driver);
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
-index 8ec9649d0d01..5ae2f69b035b 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.h
-+++ b/drivers/irqchip/irq-riscv-imsic-state.h
-@@ -103,5 +103,6 @@ void imsic_vector_debug_show_summary(struct seq_file *m, int ind);
- void imsic_state_online(void);
- void imsic_state_offline(void);
- int imsic_setup_state(struct fwnode_handle *fwnode);
-+int imsic_irqdomain_init(void);
- 
- #endif
 -- 
 2.34.1
 
