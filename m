@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2315C48BF6
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 14:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56013C48BF6
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 14:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RNliYPU07cjRcaiy4d89W6QcmWJ3d8XX4MIw5PMT+O0=; b=e97O5oVR191wM+
-	Sdfa8rbCuTFEhKtqMqcCqyTOYi9FBJyAJp8yNQu5NdnYYJw34T+40Wz+pG3EPvuBgDqFJGr8npdjA
-	vSzypr2lviVA8f3cAF7OOVRGV0tHbJjdfnPiVvsRhylmtGkSEwyfl36eTmu5tziVCo1BSVoAxoO99
-	19jbJ6Iww3n7WQSbvT3ur5lBdbkZ6xB+mcjJTtV4/wAQBi3jbRJOxSRcoXplJQ5KIEb9YMAfJ1bCB
-	L6ti08z4wqdiubiwXWGt7KP16DaC4KvnRCgTzaHjHWQvPDi8n3I7LPAbduY6kfQDT+eoKpKkxj2rt
-	ZDKrRCPShh/bgXJ+HsLQ==;
+	List-Owner; bh=Ux6LaqniYOUS5wgWdRew2gAxDE4TCYzEYTlV7exJ8Xo=; b=bER8Y3lR7/y3nF
+	W/9L68PwOi4vKJ8+mvCCjrSy981Il1P94/0yc50CitUq3EAbLFwBCjJIhqOGtygKSICpir22ka9J/
+	x50r22bM0vH66Ap8RpbQrm22CdqIAxBOlrUoYaV0xADSXwTxZfLHw51trUfH9YCZVqA01cwgkbQaR
+	PGUdzctP9xDWTX9MrewL23SX00YDppGW1ZcMhGBcjhSyiPUL1+py9GFS8UxdQJUG5lexEIy0jE8SD
+	t7c2zFDUl+oB38uhd9eXmH5KTrdgXv7UnQfZog3rYH8DIxtBOUivf/h1x0rxWIuJTsZPv+k7GpIod
+	jzXfgdOA40HmnjDq4rzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reblm-000000014NB-28eF;
-	Mon, 26 Feb 2024 14:15:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1recQA-00000001HYp-0Oxk;
+	Mon, 26 Feb 2024 14:57:34 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rebli-000000014LL-3VHf
+	id 1recQ6-00000001HWi-3xAp
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Feb 2024 14:15:48 +0000
+	Mon, 26 Feb 2024 14:57:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A3FEE60302;
-	Mon, 26 Feb 2024 14:15:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B29EDC433C7;
-	Mon, 26 Feb 2024 14:15:41 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 9D32DCE12B8;
+	Mon, 26 Feb 2024 14:57:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8177AC433C7;
+	Mon, 26 Feb 2024 14:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1708956945;
-	bh=iqKxUW8vw4K5O4nubqAcfgPBbMUQaHd5GGqHmxDzISg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i3VWTstbv5SE2tnhmV3R6JAPgBJiWiqOGyORUY4mMWfiGNlrkTf+jJyJZqqMgtiUi
-	 LWUgJP/G3sFXboNmHfoXnYA+rRLqilVtTRIcb4aP/S5D8WRgp4o7NSwQMzakEGHUDf
-	 9fV4gQABQOmeFNDC1Wd88XG4zzThWvl6FDdD5mlHc4Piouh151cCBRRj0LxE6VJJzd
-	 48xUQYH0SYuQvDgM5KfaalL8Au8F1QY4glfyh8FSpyKhrRAcKQJ4QzHCjqQdumpy+/
-	 HDHiOb8q68NcvswOErwFJp2Xr3/jCaA/0HMjkM0vMa1Tm/2OiKr6hupDMirm05OWxs
-	 ybtmnDsW6Vh8w==
-Date: Mon, 26 Feb 2024 22:02:25 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
-Cc: u.kleine-koenig@pengutronix.de, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dlan@gentoo.org, inochiama@outlook.com
-Subject: Re: [PATCH v3 2/2] pwm: sophgo: add pwm support for Sophgo CV1800 SoC
-Message-ID: <ZdyZ8SvqbpllDDeY@xhacker>
-References: <20240223082014.109385-1-qiujingbao.dlmu@gmail.com>
- <20240223082632.109767-1-qiujingbao.dlmu@gmail.com>
+	s=k20201202; t=1708959447;
+	bh=sPrQVnmnSPaSkztqFXjNFHxol/WrC9nhR5tw9QxJAlg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PxbLvpIJEYlHpdr1A8xYVZRVEbIsK/+s101mjGkyPaiXKiPlcVWfV2SiMgC/jEhP+
+	 pQ06pJ9ltxPT4xzdZVPbL5vPpsXFsMWNNY7WFaQchZgDkrqta2QfSXLaRZ+TMlXRsV
+	 wcJseGzQbaBG4yMbJMQ8ctIV42ivMZcMBzyDTYsfYg4qytm99Bfyth0btOZvBHrzf5
+	 NTsW19P3iTQp1Cu+X93N5fQ/whpRMnjv2RYLnoXDfR2z6Y/KXZPcq/x5K/NeMuSKKy
+	 ro7+4jgNNjBpkEoEFsSxPksi74HqjL7p/YvTAkn7feRnNRHCW20UNUiGZCC5K0qFqz
+	 wP7R/3P8DyLGQ==
+Message-ID: <07675649-181a-4509-a595-d7ff9230e402@kernel.org>
+Date: Mon, 26 Feb 2024 06:57:26 -0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240223082632.109767-1-qiujingbao.dlmu@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: deprecate CONFIG_MMU=n
+Content-Language: en-US
+To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+ Andrew Jones <ajones@ventanamicro.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, Atish Patra <atishp@rivosinc.com>
+References: <20240226140649.293254-1-cleger@rivosinc.com>
+From: Damien Le Moal <dlemoal@kernel.org>
+Organization: Western Digital Research
+In-Reply-To: <20240226140649.293254-1-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240226_061547_159270_B1D5B3D9 
-X-CRM114-Status: GOOD (  39.99  )
+X-CRM114-CacheID: sfid-20240226_065731_355586_813C6C01 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,354 +73,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 23, 2024 at 04:26:32PM +0800, Jingbao Qiu wrote:
-> Implement the PWM driver for CV1800.
-> 
-> Signed-off-by: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
-> ---
->  drivers/pwm/Kconfig      |  10 ++
->  drivers/pwm/Makefile     |   1 +
->  drivers/pwm/pwm-cv1800.c | 259 +++++++++++++++++++++++++++++++++++++++
->  3 files changed, 270 insertions(+)
->  create mode 100644 drivers/pwm/pwm-cv1800.c
-> 
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 4b956d661755..455f07af94f7 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -186,6 +186,16 @@ config PWM_CROS_EC
->  	  PWM driver for exposing a PWM attached to the ChromeOS Embedded
->  	  Controller.
->  
-> +config PWM_CV1800
-> +	tristate "Sophgo CV1800 PWM driver"
-> +	depends on ARCH_SOPHGO || COMPILE_TEST
-> +	help
-> +	  Generic PWM framework driver for the Sophgo CV1800 series
-> +	  SoCs.
-> +
-> +	  To compile this driver as a module, build the dependecies
-> +	  as modules, this will be called pwm-cv1800.
-> +
->  config PWM_DWC_CORE
->  	tristate
->  	depends on HAS_IOMEM
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index c5ec9e168ee7..6c3c4a07a316 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -15,6 +15,7 @@ obj-$(CONFIG_PWM_CLK)		+= pwm-clk.o
->  obj-$(CONFIG_PWM_CLPS711X)	+= pwm-clps711x.o
->  obj-$(CONFIG_PWM_CRC)		+= pwm-crc.o
->  obj-$(CONFIG_PWM_CROS_EC)	+= pwm-cros-ec.o
-> +obj-$(CONFIG_PWM_CV1800)	+= pwm-cv1800.o
->  obj-$(CONFIG_PWM_DWC_CORE)	+= pwm-dwc-core.o
->  obj-$(CONFIG_PWM_DWC)		+= pwm-dwc.o
->  obj-$(CONFIG_PWM_EP93XX)	+= pwm-ep93xx.o
-> diff --git a/drivers/pwm/pwm-cv1800.c b/drivers/pwm/pwm-cv1800.c
-> new file mode 100644
-> index 000000000000..da1309dc0091
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-cv1800.c
-> @@ -0,0 +1,259 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * pwm-cv1800.c: PWM driver for Sophgo cv1800
-> + *
-> + * Author: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
-> + *
-> + * Limitations:
-> + * - It output low when PWM channel disabled.
-> + * - This pwm device supports dynamic loading of PWM parameters. When PWMSTART
-> + *   is written from 0 to 1, the register value (HLPERIODn, PERIODn) will be
-> + *   temporarily stored inside the PWM. If you want to dynamically change the
-> + *   waveform during PWM output, after writing the new value to HLPERIODn and
-> + *   PERIODn, write 1 and then 0 to PWMUPDATE[n] to make the new value effective.
-> + * - Supports up to Rate/2 output, and the lowest is about Rate/(2^30-1).
-> + * - By setting HLPERIODn to 0, can produce 100% duty cycle.
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +#include <linux/regmap.h>
-> +
-> +#define PWM_CV1800_HLPERIOD_BASE 0x00
-> +#define PWM_CV1800_PERIOD_BASE 0x04
-> +#define PWM_CV1800_PWM_CV1800_POLARITY 0x40
-> +#define PWM_CV1800_START 0x44
-> +#define PWM_CV1800_DONE 0x48
-> +#define PWM_CV1800_UPDATE 0x4c
-> +#define PWM_CV1800_OE 0xd0
-> +
-> +#define PWM_CV1800_HLPERIOD(n) (PWM_CV1800_HLPERIOD_BASE + ((n) * 0x08))
-> +#define PWM_CV1800_PERIOD(n) (PWM_CV1800_PERIOD_BASE + ((n) * 0x08))
-> +
-> +#define PWM_CV1800_UPDATE_MASK(n) (BIT(0) << (n))
-> +#define PWM_CV1800_OE_MASK(n) (BIT(0) << (n))
-> +#define PWM_CV1800_START_MASK(n) (BIT(0) << (n))
-> +
-> +#define PWM_CV1800_MAXPERIOD (BIT(30) - 1)
-> +#define PWM_CV1800_MINPERIOD BIT(1)
-> +#define PWM_CV1800_MINHLPERIOD BIT(0)
-> +#define PWM_CV1800_PERIOD_RESET BIT(1)
-> +#define PWM_CV1800_HLPERIOD_RESET BIT(0)
-> +#define PWM_CV1800_REG_DISABLE 0x0U
-> +#define PWM_CV1800_REG_ENABLE(n) (BIT(0) << (n))
-> +
-> +struct cv1800_pwm {
-> +	struct regmap *map;
-> +	struct clk *clk;
-> +	unsigned long clk_rate;
-> +};
-> +
-> +static inline struct cv1800_pwm *to_cv1800_pwm_dev(struct pwm_chip *chip)
-> +{
-> +	return pwmchip_get_drvdata(chip);
-> +}
-> +
-> +static const struct regmap_config cv1800_pwm_regmap_config = {
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +};
-> +
-> +static int cv1800_pwm_enable(struct pwm_chip *chip, struct pwm_device *pwm,
-> +			     bool enable)
-> +{
-> +	struct cv1800_pwm *priv = to_cv1800_pwm_dev(chip);
-> +	u32 pwm_enable;
-> +
-> +	regmap_read(priv->map, PWM_CV1800_START, &pwm_enable);
-
-what's the reason of using regmap?
-
-> +	pwm_enable &= PWM_CV1800_START_MASK(pwm->hwpwm);
-> +
-> +	/*
-> +	 * If the parameters are changed during runtime, Register needs
-> +	 * to be updated to take effect.
-> +	 */
-> +	if (pwm_enable && enable) {
-> +		regmap_update_bits(priv->map, PWM_CV1800_UPDATE,
-> +				   PWM_CV1800_UPDATE_MASK(pwm->hwpwm),
-> +				   PWM_CV1800_REG_ENABLE(pwm->hwpwm));
-> +		regmap_update_bits(priv->map, PWM_CV1800_UPDATE,
-> +				   PWM_CV1800_UPDATE_MASK(pwm->hwpwm),
-> +				   PWM_CV1800_REG_DISABLE);
-> +	} else if (!pwm_enable && enable) {
-> +		regmap_update_bits(priv->map, PWM_CV1800_OE,
-
-I believe this isn't correct.
-TRM says setting OE as 1 means output enable, while 0 means input.
-So I guess the controller may support pwm capture, but I didn't
-get too much information about pwm capture of the controller from
-the TRM, so can you please check and implement the .capture hook
-if it's supported?
-
-> +				   PWM_CV1800_OE_MASK(pwm->hwpwm),
-> +				   PWM_CV1800_REG_ENABLE(pwm->hwpwm));
-> +		regmap_update_bits(priv->map, PWM_CV1800_START,
-> +				   PWM_CV1800_START_MASK(pwm->hwpwm),
-> +				   PWM_CV1800_REG_ENABLE(pwm->hwpwm));
-> +	} else if (pwm_enable && !enable) {
-> +		regmap_update_bits(priv->map, PWM_CV1800_OE,
-
-ditto
-
-> +				   PWM_CV1800_OE_MASK(pwm->hwpwm),
-> +				   PWM_CV1800_REG_DISABLE);
-> +		regmap_update_bits(priv->map, PWM_CV1800_START,
-> +				   PWM_CV1800_START_MASK(pwm->hwpwm),
-> +				   PWM_CV1800_REG_DISABLE);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int cv1800_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-> +			    const struct pwm_state *state)
-> +{
-> +	struct cv1800_pwm *priv = to_cv1800_pwm_dev(chip);
-> +	u32 period_val, hlperiod_val;
-> +	u64 tem;
-> +
-> +	if (state->polarity != PWM_POLARITY_NORMAL)
-> +		return -EINVAL;
-
-This is wrong. Per the TRM, The POLARITY(offset 0x040) reg can set the
-polarity, so both PWM_POLARITY_NORMAL and PWM_POLARITY_INVERSED are supported.
-
-> +
-> +	/*
-> +	 * This hardware use PERIOD and HLPERIOD registers to represent PWM waves.
-> +	 *
-> +	 * The meaning of PERIOD is how many clock cycles (from the clock source)
-> +	 * are used to represent PWM waves.
-> +	 * PERIOD = rate(MHz) / target(MHz)
-> +	 * PERIOD = period(ns) * rate(Hz) / NSEC_PER_SEC
-> +	 * The meaning of HLPERIOD is the number of low-level cycles in PERIOD.
-> +	 * HLPERIOD = PERIOD - rate(MHz) / duty(MHz)
-> +	 * HLPERIOD = PERIOD - (duty(ns) * rate(Hz) / NSEC_PER_SEC)
-> +	 */
-> +	tem = mul_u64_u64_div_u64(state->period, priv->clk_rate, NSEC_PER_SEC);
-> +	if (tem < PWM_CV1800_MINPERIOD)
-> +		return -EINVAL;
-> +
-> +	if (tem > PWM_CV1800_MAXPERIOD)
-> +		tem = PWM_CV1800_MAXPERIOD;
-> +
-> +	period_val = (u32)tem;
-> +
-> +	tem = mul_u64_u64_div_u64(state->duty_cycle, priv->clk_rate,
-> +				  NSEC_PER_SEC);
-> +	if (tem > period_val)
-> +		return -EINVAL;
-> +	hlperiod_val = period_val - (u32)tem;
-> +
-> +	regmap_write(priv->map, PWM_CV1800_PERIOD(pwm->hwpwm), period_val);
-> +	regmap_write(priv->map, PWM_CV1800_HLPERIOD(pwm->hwpwm), hlperiod_val);
-> +
-> +	cv1800_pwm_enable(chip, pwm, state->enabled);
-> +
-> +	return 0;
-> +}
-> +
-> +static int cv1800_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
-> +				struct pwm_state *state)
-> +{
-> +	struct cv1800_pwm *priv = to_cv1800_pwm_dev(chip);
-> +	u32 period_val, hlperiod_val;
-> +	u64 period_ns = 0;
-> +	u64 duty_ns = 0;
-> +	u32 enable = 0;
-> +
-> +	regmap_read(priv->map, PWM_CV1800_PERIOD(pwm->hwpwm), &period_val);
-> +	regmap_read(priv->map, PWM_CV1800_HLPERIOD(pwm->hwpwm), &hlperiod_val);
-> +
-> +	if (period_val != PWM_CV1800_PERIOD_RESET ||
-> +	    hlperiod_val != PWM_CV1800_HLPERIOD_RESET) {
-> +		period_ns = DIV_ROUND_UP_ULL(period_val * NSEC_PER_SEC, priv->clk_rate);
-> +		duty_ns = DIV_ROUND_UP_ULL(hlperiod_val * period_ns, period_val);
-> +
-> +		regmap_read(priv->map, PWM_CV1800_START, &enable);
-> +
-> +		enable &= PWM_CV1800_START_MASK(pwm->hwpwm);
-> +	}
-> +
-> +	state->period = period_ns;
-> +	state->duty_cycle = duty_ns;
-> +	state->enabled = enable;
-> +	state->polarity = PWM_POLARITY_NORMAL;
-
-This is not correct, see above.
-
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct pwm_ops cv1800_pwm_ops = {
-> +	.apply = cv1800_pwm_apply,
-> +	.get_state = cv1800_pwm_get_state,
-> +};
-> +
-> +static void devm_clk_rate_exclusive_put(void *data)
-> +{
-> +	struct clk *clk = data;
-> +
-> +	clk_rate_exclusive_put(clk);
-> +}
-> +
-> +static int cv1800_pwm_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct cv1800_pwm *priv;
-> +	struct pwm_chip *chip;
-> +	void __iomem *base;
-> +	int ret;
-> +
-> +	chip = devm_pwmchip_alloc(dev, 4, sizeof(*priv));
-
-it's better to replace magic "4" with proper macro.
-
-> +	if (!chip)
-> +		return PTR_ERR(chip);
-> +
-> +	priv = to_cv1800_pwm_dev(chip);
-> +
-> +	base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(base))
-> +		return PTR_ERR(base);
-> +
-> +	priv->map = devm_regmap_init_mmio(&pdev->dev, base,
-> +					  &cv1800_pwm_regmap_config);
-> +	if (IS_ERR(priv->map))
-> +		return PTR_ERR(priv->map);
-> +
-> +	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-> +	if (IS_ERR(priv->clk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk),
-> +				     "clk not found\n");
-> +
-> +	ret = clk_rate_exclusive_get(priv->clk);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "failed to get exclusive rate\n");
-> +
-> +	ret = devm_add_action_or_reset(&pdev->dev, devm_clk_rate_exclusive_put,
-> +				       priv->clk);
-> +	if (ret) {
-> +		clk_rate_exclusive_put(priv->clk);
-> +		return ret;
-> +	}
-> +
-> +	priv->clk_rate = clk_get_rate(priv->clk);
-> +	if (!priv->clk_rate)
-> +		return dev_err_probe(&pdev->dev, -EINVAL,
-> +				     "Invalid clock rate: %lu\n",
-> +				     priv->clk_rate);
-> +
-> +	chip->ops = &cv1800_pwm_ops;
-> +
-> +	return devm_pwmchip_add(dev, chip);
-> +}
-> +
-> +static const struct of_device_id cv1800_pwm_dt_ids[] = {
-> +	{ .compatible = "sophgo,cv1800-pwm" },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, cv1800_pwm_dt_ids);
-> +
-> +static struct platform_driver cv1800_pwm_driver = {
-> +	.driver = {
-> +		.name = "cv1800-pwm",
-> +		.of_match_table = cv1800_pwm_dt_ids,
-> +	},
-> +	.probe = cv1800_pwm_probe,
-> +};
-> +module_platform_driver(cv1800_pwm_driver);
-> +
-> +MODULE_AUTHOR("Jingbao Qiu");
-> +MODULE_DESCRIPTION("Sophgo cv1800 PWM Driver");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.25.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyNC8wMi8yNiA2OjA2LCBDbMOpbWVudCBMw6lnZXIgd3JvdGU6Cj4gRGVwcmVjYXRpb24g
+b2YgTk9NTVUgc3VwcG9ydCBmb3IgcmlzY3Ygd2FzIGRpc2N1c3NlZCBkdXJpbmcgTFBDIDIwMjMK
+PiBbMV0uIFJlYXNvbnMgZm9yIHRoaXMgaW52b2x2ZXMgbGFjayBvZiB1c2VycyBhcyB3ZWxsIGFz
+IG1haW50ZW5hbmNlCj4gZWZmb3J0cyB0byBzdXBwb3J0IHRoaXMgbW9kZS4gcHNBQkkgRkRQSUMg
+c3BlY2lmaWNhdGlvbiBhbHNvIG5ldmVyCj4gbWFkZSBpdCB1cHN0cmVhbSBhbmQgbGFzdCBwdWJs
+aWMgbWVzc2FnZXMgb2YgdGhpcyBkZXZlbG9wbWVudCBzZWVtcyB0bwo+IGRhdGUgYmFjayBmcm9t
+IDIwMjAgWzJdLiBQbGFuIHRoZSBkZXByZWNhdGlvbiB0byBiZSBkb25lIGluIDIgeWVhcnMgZnJv
+bQo+IG5vdy4gTWFyayB0aGUgS2NvbmZpZyBvcHRpb24gYXMgZGVwcmVjYXRlZCBieSBhZGRpbmcg
+YSBuZXcgZHVtbXkgb3B0aW9uCj4gd2hpY2ggZXhwbGljaXRseSBkaXNwbGF5cyB0aGUgZGVwcmVj
+YXRpb24gaW4gY2FzZSBvZiBDT05GSUdfTU1VPW4uIFRoaXMgb3B0aW9uCj4gaXMgc2VsZWN0ZWQg
+aW5kaXJlY3RseSBieSBDT05GSUdfUklTQ1ZfTV9NT0RFIHNpbmNlIGFuIG9wdGlvbiBjYW4gbm90
+Cj4gc2VsZWN0IGFub3RoZXIgb25lIGRpcmVjdGx5IHdpdGggYSAic2VsZWN0IiBpbiBjYXNlIG9m
+IHN1Y2ggQ09ORklHPW4uCj4gQWRkaXRpb25hbGx5LCBkaXNwbGF5IGEgcHJfZXJyKCkgbWVzc2Fn
+ZSBhdCBib290IHRpbWUgaW4gY2FzZSBvZiBOT01NVQo+IGJ1aWxkIHRvIHdhcm4gYWJvdXQgdXBj
+b21pbmcgZGVwcmVjYXRpb24uCj4gCj4gTGluazogaHR0cHM6Ly9scGMuZXZlbnRzL2V2ZW50LzE3
+L2NvbnRyaWJ1dGlvbnMvMTQ3OC8gWzFdCj4gTGluazogaHR0cHM6Ly9ncm91cHMuZ29vZ2xlLmNv
+bS9hL2dyb3Vwcy5yaXNjdi5vcmcvZy9zdy1kZXYvYy9aallVSnN3a25RNC9tL1dZUlJ5bFR3QUFB
+SiBbMl0KPiBTaWduZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5j
+b20+Cj4gCj4gLS0tCj4gIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgfCA4ICsrKysrKysrCj4g
+IGFyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMgfCA0ICsrKysKPiAgMiBmaWxlcyBjaGFuZ2VkLCAx
+MiBpbnNlcnRpb25zKCspCj4gCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2Fy
+Y2gvcmlzY3YvS2NvbmZpZwo+IGluZGV4IGJmZmJkODY5YTA2OC4uOGRhNThjMTAyZDNmIDEwMDY0
+NAo+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+
+IEBAIC0yMjEsNiArMjIxLDcgQEAgY29uZmlnIEFSQ0hfTU1BUF9STkRfQ09NUEFUX0JJVFNfTUFY
+Cj4gICMgc2V0IGlmIHdlIHJ1biBpbiBtYWNoaW5lIG1vZGUsIGNsZWFyZWQgaWYgd2UgcnVuIGlu
+IHN1cGVydmlzb3IgbW9kZQo+ICBjb25maWcgUklTQ1ZfTV9NT0RFCj4gIAlib29sCj4gKwlzZWxl
+Y3QgTk9NTVUKPiAgCWRlZmF1bHQgIU1NVQo+ICAKPiAgIyBzZXQgaWYgd2UgYXJlIHJ1bm5pbmcg
+aW4gUy1tb2RlIGFuZCBjYW4gdXNlIFNCSSBjYWxscwo+IEBAIC0yMzYsNiArMjM3LDEzIEBAIGNv
+bmZpZyBNTVUKPiAgCSAgU2VsZWN0IGlmIHlvdSB3YW50IE1NVS1iYXNlZCB2aXJ0dWFsaXNlZCBh
+ZGRyZXNzaW5nIHNwYWNlCj4gIAkgIHN1cHBvcnQgYnkgcGFnZWQgbWVtb3J5IG1hbmFnZW1lbnQu
+IElmIHVuc3VyZSwgc2F5ICdZJy4KPiAgCj4gK2NvbmZpZyBOT01NVQo+ICsJZGVwZW5kcyBvbiAh
+TU1VCj4gKwlib29sICJOT01NVSBrZXJuZWwgKERFUFJFQ0FURUQpIgo+ICsJaGVscAo+ICsJICBO
+T01NVSBrZXJuZWwgaXMgZGVwcmVjYXRlZCBhbmQgaXMgc2NoZWR1bGVkIGZvciByZW1vdmFsIGJ5
+Cj4gKwkgIHRoZSBiZWdpbm5pbmcgb2YgMjAyNy4KCjIgeWVhcnMgZnJvbSBub3cgaXMgMjAyNi4u
+LgoKPiArCj4gIGNvbmZpZyBQQUdFX09GRlNFVAo+ICAJaGV4Cj4gIAlkZWZhdWx0IDB4QzAwMDAw
+MDAgaWYgMzJCSVQgJiYgTU1VCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3NldHVw
+LmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4gaW5kZXggNGY3M2MwYWU0NGIyLi44Nzk5
+ODE2ZWYwYTYgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwo+ICsrKyBi
+L2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMKPiBAQCAtMjk1LDYgKzI5NSwxMCBAQCB2b2lkIF9f
+aW5pdCBzZXR1cF9hcmNoKGNoYXIgKipjbWRsaW5lX3ApCj4gIAlyaXNjdl9zZXRfZG1hX2NhY2hl
+X2FsaWdubWVudCgpOwo+ICAKPiAgCXJpc2N2X3VzZXJfaXNhX2VuYWJsZSgpOwo+ICsKPiArI2lm
+ICFkZWZpbmVkKENPTkZJR19NTVUpCgoJaWYgKCFJU19FTkFCTEVEKENPTkZJR19NTVUpKQoKd291
+bGQgYmUgbW9yZSBlbGVnYW50IGhlcmUuLi4KCj4gKwlwcl9lcnIoIlJJU0MtViBOT01NVSBzdXBw
+b3J0IGlzIGRlcHJlY2F0ZWQgYW5kIHNjaGVkdWxlZCBmb3IgcmVtb3ZhbCBieSB0aGUgYmVnaW5u
+aW5nIG9mIDIwMjdcbiIpOwoKV2h5IHByX2VycigpID8gcHJfd2FybigpIHNlZW1zIG1vcmUgYXBw
+cm9wcmlhdGUuCgo+ICsjZW5kaWYKPiAgfQo+ICAKPiAgYm9vbCBhcmNoX2NwdV9pc19ob3RwbHVn
+Z2FibGUoaW50IGNwdSkKCi0tIApEYW1pZW4gTGUgTW9hbApXZXN0ZXJuIERpZ2l0YWwgUmVzZWFy
+Y2gKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
