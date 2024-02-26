@@ -4,100 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE96CC48BF6
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 16:15:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE91C48BF6
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 17:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lQSUSm3wAzPyfyH/WQuGnFqFyfR9bvgtTQmGx7OhJq0=; b=Zc95MiXfV3t4J2
-	YIbV1Evi3Tsi0oQ7SOfxZbruhqlZFYjUwuTf5hcDfk0o1i6YnZ4zwDSxMq/HkOWlsLFoR/M+22MnT
-	iM6qZTIiAfvH9iB3MQVvdy8LenqPj7kmo9aE2k8zuxhyzqny5PldEbo9JcZUk8rDAQ0CRamxtaywk
-	YMu8R7DGgPq7C/TLpFo/dI74GvIPFGNu7OgeM4p1cdBuojZ6gFsluDzacVPQHXxn6Fo30hahCtwlw
-	BMVD9A0bC2OkF8f3TzKBxtPHcqPkUEIXhA3n+S2+fVE7yoHBvjP1uOieIe0TicQ4lY+gIi0CzUIoz
-	MURroiNBqqhYQPmsXzUw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8zvpbFBvphfsWNlNVtJvgTGdeY1sEDbVDjBBSrtc0WU=; b=YelZRMmg2cOfVuoi/Rw97swfPz
+	3+rZhcD4JeMOKyDrH10Zn/qSOTbqTQCWBLiiSarj79T98nsAvjW+8V5Uc1uzBAZ8Url2awo++5Xa0
+	mOzBDR86hnICjUpWtvDxIihxCwT7cEgE+7bHHPSOSxoSPcSVgjSlwyAiEJLb3zx8IrcjcYWeu2KDh
+	J2vW9ZvDgbbmp0/3rQCuvv35XBny5Wqmb96e4uqogbETcwlzEEEGmh+AJ/DguQwKFRdkGTq6rGwCf
+	tiaQwfQu/X088jdd5XopNWtrZPdm7nvx8F11vdACxu+MsXGsATEvcw0HpUxZFMsRjao24jZ8qV3Iw
+	N7TJVofA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1redds-00000001bm1-2csG;
-	Mon, 26 Feb 2024 16:15:49 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1reeRc-00000001pUw-1Zcp;
+	Mon, 26 Feb 2024 17:07:12 +0000
+Received: from mail-dm6nam12on20600.outbound.protection.outlook.com ([2a01:111:f403:2417::600] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reddJ-00000001bNQ-2v5Z;
-	Mon, 26 Feb 2024 16:15:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id C2BDDCE18A4;
-	Mon, 26 Feb 2024 16:15:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC888C433B2;
-	Mon, 26 Feb 2024 16:15:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1708964110;
-	bh=AO14Twor4Epqfova99BdXRAOjLIWQcQyPi3BUqYZmuA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZiZAMuXYiDyR2hDknZ4xgVy8TWczoqlYaz+54BPEoKIfJs4BSV182oJ1ZYu9Y5JbD
-	 WmVlYt52eCJD6AGhn7U0y3EC75bLKVFGbI7wGmXiVDKgZPTwDaVuTJTSVkJKvUISzS
-	 2XRA3a5n6YOmUElWz/EoUJbwtBXGMm0MnBobEcfj+6UoFFgUN+ewdn1/f3BBURGCAf
-	 oK4FRWPsN9e+IXZu64v2vjYmcNQRQ8eM254ceqdZ/GIQhQ58ktIQY1PjwK8pNlnHUX
-	 azFtrkzqYG46sjmhqFVs4snXAZo3hTMRuuCQkCC5flzHnC0ice4Qu8BYIkByoxWD5F
-	 EP1u+qVkKv5IQ==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Matt Turner <mattst88@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Guo Ren <guoren@kernel.org>,
-	Brian Cain <bcain@quicinc.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Helge Deller <deller@gmx.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	x86@kernel.org,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Jan Kiszka <jan.kiszka@siemens.com>,
-	Kieran Bingham <kbingham@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	Linux Kernel Functional Testing <lkft@linaro.org>
-Subject: [PATCH 4/4] vdso: avoid including asm/page.h
-Date: Mon, 26 Feb 2024 17:14:14 +0100
-Message-Id: <20240226161414.2316610-5-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20240226161414.2316610-1-arnd@kernel.org>
-References: <20240226161414.2316610-1-arnd@kernel.org>
+	id 1reeRY-00000001pT9-3Xe7;
+	Mon, 26 Feb 2024 17:07:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ZS7ZUQgcX01y+lahC2zCp9e0/H/2eAHCQJGOblAyTdKPiy5vMjBhb/HwuSbhA5zfLfPeik7l5qzLTQZ+7zCzIWW9fb4DcdkOn/M5XjrNHo1kqxyAJ14RODz2kn0xYMIGew3IlmdWeHcCn/0RGnYFpc9gF0yZLMgHR/8UjxElq4hAF/vj6PaiAq0wVZsfuL7gErBl7HsGJ5aS99+rvJyDy+gAJc82L2x6yO16cd8O/0eqfdBeLR2PLoOXeGrOvf0lZ9KO8/W3Y/au9Ljwtf3FoB30265fEeI1qyyXyriOWqkM1/GE1apNFG3LQpaARiXdcs1mZCkbKEcqRsDdH+VeGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Rs4u5JbO+QiZE1KGgEwdIipW9PYRwVjgEFeDW9jqMng=;
+ b=YzCfFS0MijW/DKzhowV5y35ObTpg4EvfD4/WcTQmNWInoly829De28Fe6ZWD/xlJXkhvo40zGNOKTk7CJF8LAW1nNSgU0c9Z69jp8dcLcDlrl74rcXoZ5B7P+nhFRM42ozxgbM5bn1qShwXwnRWiLqxKD0SbEFsFFnSprS4+GldubWZ07iNzafQsZBUjnfACdiNbSBi6ewjNDIiDE4YZUbKWEM4A0tebYxQEONtFWMrsOiBWw1YM8NyyftHKRTFniO28zylIjUDe89c8bBK3oyHKIsB6nAmgzKAzRCjsb5N+NSr4CwZBFVtrR1S9sEHDOJKLS8r3zRA8eP9+pi1shw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Rs4u5JbO+QiZE1KGgEwdIipW9PYRwVjgEFeDW9jqMng=;
+ b=crm4Nf/DPGd71pc+CgzNpXjkEDPFLtiAKGVNX/g2RBOwtdcUIt4M7lqgzTyHNjPAZNWifH3NNriF3CJv4sb5MUtVhLB0pZXjuFba9ysApy4836yJaWZ6gdpPOMGzdwp+sUgvYntcrDtZfbnoiDTV03Ad+3j+xXbitznHkSfwit8=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from BL1PR12MB5874.namprd12.prod.outlook.com (2603:10b6:208:396::17)
+ by SJ1PR12MB6193.namprd12.prod.outlook.com (2603:10b6:a03:459::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7316.33; Mon, 26 Feb
+ 2024 17:06:51 +0000
+Received: from BL1PR12MB5874.namprd12.prod.outlook.com
+ ([fe80::14ab:832a:11af:bfec]) by BL1PR12MB5874.namprd12.prod.outlook.com
+ ([fe80::14ab:832a:11af:bfec%4]) with mapi id 15.20.7316.032; Mon, 26 Feb 2024
+ 17:06:51 +0000
+Message-ID: <5e360765-3398-4b72-ba7c-4df0958bc5d3@amd.com>
+Date: Mon, 26 Feb 2024 11:06:48 -0600
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 00/11] KVM: selftests: Add SEV and SEV-ES smoke tests
+Content-Language: en-US
+To: Sean Christopherson <seanjc@google.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>, Andrew Jones
+ <andrew.jones@linux.dev>, Tom Lendacky <thomas.lendacky@amd.com>,
+ Michael Roth <michael.roth@amd.com>, Peter Gonda <pgonda@google.com>,
+ Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+ "Giani, Dhaval" <dhaval.giani@amd.com>
+References: <20240223004258.3104051-1-seanjc@google.com>
+From: Carlos Bilbao <carlos.bilbao@amd.com>
+In-Reply-To: <20240223004258.3104051-1-seanjc@google.com>
+X-ClientProxiedBy: SN1PR12CA0112.namprd12.prod.outlook.com
+ (2603:10b6:802:21::47) To BL1PR12MB5874.namprd12.prod.outlook.com
+ (2603:10b6:208:396::17)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL1PR12MB5874:EE_|SJ1PR12MB6193:EE_
+X-MS-Office365-Filtering-Correlation-Id: cbd44372-03f6-4128-a18d-08dc36ed535f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: AosjKrc34U19icGF82O4B3ERQo1BCp7lYoD+pvGz+CMtdDuwomutVxZpaCPKeRWWHwuSPU4kOQtm/v/d5MK0kgCKqhCS89ObNUqZN+2OKtRjSDdIlMouDDnhE32bBMmWuG3UDCc5oiKp9/JgvdypQVoXyGuuMcdqwqM3Arf6aff/uCPaB/du1hHIY983n0LhO81sweZnyBbHDeEFLT5vPg2cGjqLHk5MeWgXL7jLOWzZ1jFARuLd0r0U1CZRRSyNl3XD6L8R388VzjXtvXtVoXzY4KK4KpesEmGot21dCDewpAUVx3THH7aoSUoVbHjIId0gRBqR67xkCBhpZguewD9dfPOlOB2D7Hj6WaV0vULLciMpVKVfRacP82JsXcJYtu3OQa+pxfE51wiRqhYz7N6CmpJgZ8e05bGqe6uw1LxoxcDGqHIukqDfWBT+vpPiJSr/CruMM55nPMC4cAWhUWidJb8x85Rsom0WWGwJP8Q5rrsQWUrfbeoRc9gsy/qJGBfk22UzScCTX3fDiFxl+1oZYZLdCy/j/sRTNoVxO6kLhv7OF5mFSzyN7YCnpoHYrfwzobxHXWAQudMHJi8ES2UqhYz61Uk6+uXN49sDTUujxyTC5G9/L8nGClRZ8x74mq7XgvlbyFybUZaJVP/z57I10HVIPFh4jf+iunvhmU6mawqUnMqsynlgAXRKs5Xo
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5874.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(921011);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NGEzaUJVZHZaK1BwVVlEOHRpa3I2SThuSnVodGtiQmRFcldzSzlHcTV4dnAy?=
+ =?utf-8?B?YXo4TVd0QW8vMHc4aWdMdTZnNnQrRm9NeXpqU2psSWpRTk11b3YyUk4vMFJs?=
+ =?utf-8?B?ZjY1Q3RZcEJ6L0ZseXE2eDlnMzFIWlMxc1RydUtaUktWK0NqanNiaGVNYUY5?=
+ =?utf-8?B?eUVCQmg4aGhlb3J4bjJtTTFEb1JuNDgwR05KWWhqcEJiRjJKbExOMzVDL1E1?=
+ =?utf-8?B?NXMvYlg1aHFLZHNtTmdwb3g5alBtRWVwRjV2RWFERWg5cXlGajdzZzlPNEFa?=
+ =?utf-8?B?ZU1wdHRENUIyamo0VnRaalE1YWlmc3VGb1pCSjQ3RGRISUxKS3dvVTUyRnN1?=
+ =?utf-8?B?ZDNBUjNiRURZUVZKdlJ0bVZNdW5TdkcrY1h6MTZvT2R1SUFqMUJjRzZIZTAz?=
+ =?utf-8?B?NlhZU3BscVpyS1VJL1BQZ3JDWllDNGZPYWdCcDZ5cTdHdllqRFgyd0ljSEpJ?=
+ =?utf-8?B?d2taR1R4aytxdmZZZlNoVDF3VGdRaEgrL0FUSGgybURTTkZ0RGZUK2ExelZP?=
+ =?utf-8?B?aUYwbEVwOEU4aXpoZSt5YlB3S3FpY3NFSjhkTVByUUZ0TVhCK0MwdnVlZ0I5?=
+ =?utf-8?B?QnFjdFpJR1E4eXE0STRMcFVPcEFnc2hERm8rVnRoUmdKY3Z0K0d0dldZUXZN?=
+ =?utf-8?B?cG9GWHFaQnJ5bWtiNC9CcG1lZ3JQT0tXd2c4K2Z2K01hZXQzRVlNNHZoQ2Zh?=
+ =?utf-8?B?S2dJMXlDSTVvdUtOam5DOVpkZGs1Nkl4RHhKU3NXK1VJL0pPYzZVOFVIS3Y2?=
+ =?utf-8?B?TFp5QXhpYlZVaVBUeU80dzIraEJQQ0NOdXUvNTF4VkMzRDhKSTRPdG1TQ3ZR?=
+ =?utf-8?B?MC9mclhVV2V3UEtwNk5MWXduRm13ZXBlZ3RMVk4zSXhQK0NsTC8ycXFDcE42?=
+ =?utf-8?B?dDlKTXlJWkNBS3l0QktuT3hXZmxIRzlscng5RjM5OVJPL0I1dEFlSU9wUHJl?=
+ =?utf-8?B?SDBxcnJjbDltbjdxcFladXBTRlBxZEhQTUF4enRXTkUrUVZkK1hVU2ZhR05x?=
+ =?utf-8?B?bmo5cEs5bStpZFJEZUFZVGs4RjlZTFZ5YlRSR1BmcG16cmJvUHNZbUl4UExU?=
+ =?utf-8?B?bVVBT2R5VVhqR0VsSUo2WEpmc1JsVEp0eDk0TnZtU21lZ2EzbUNVZFAyVzE5?=
+ =?utf-8?B?MkpoS1A0Nlg1T3BZdUduZzZ4UmlsMkRyc25mRU52Zno3MVlzd0NRSFFUNHJH?=
+ =?utf-8?B?SGE0eTkzNnVhdzVwYkplQ0NFTXo4Yis2MXR5aFhteFhHVFk3Y2Iyb0xRZmtC?=
+ =?utf-8?B?Nm9EbERWdVN6RkdydTJ3NXA4cFRCUCtYVHRZRzZJVTdZaHJxTVlua0VCUWZS?=
+ =?utf-8?B?MlZ5WVNocU92VFZZRkwvbEpsNnVRb20ydkdqS3BZTFdLdDNqZkg3K2dlYXRj?=
+ =?utf-8?B?b21kYXRXbE94b1FmTGJ2VWFEUjFQektyQUpLVlFRUDJzQjZIbVNqVGk2SjlC?=
+ =?utf-8?B?TFRjenBNWGUvTjhaTk9mU2tmSU9KV2t0d0JVdUkzRnY3OHB6K0VjdGV1Y2dU?=
+ =?utf-8?B?QXVvdW5peTFtRVY3U3N2bGJMQUg5eFNtR1AwQy8rR0duSmNvWVozamRjQjJq?=
+ =?utf-8?B?M3FrWlJkNGI1VFlYMmhkSnYrUlJKb1NNaU1Gb2dONVBtZk5JWktNcjc3b0t1?=
+ =?utf-8?B?MytZdWdzajViV0IzVkFHVHd5NDVWenVGRzM3cWZwZWdFWWlid281Q1Y4QlV6?=
+ =?utf-8?B?S0VQUHNZMllSS1NZVDI3SG0yV2QwQTBmS2k3dWt6MTJzNGsxQzllTjl6ODJV?=
+ =?utf-8?B?U3hnK25Ia3piTXhrV1ZSclN1MkVSakVCRy9makd1SGEwUUxVU0JYdW1VUDho?=
+ =?utf-8?B?V3NNT2F4TEoyMGJYLzJLZEw1RlJyU1hPZEdzVmU1RGNraHlBV28vdFltMHl4?=
+ =?utf-8?B?TnBxdnZTWVcrN2l4QWxNUGtnR2NNVXljSERqMjdRZHRUd0xpbFFYaXFIVVpR?=
+ =?utf-8?B?SWtNTnJsM1FqUDJDaGo1MkkzUTNxTEk1bkFoY0NYaEc4U2lWL3VQV0ZsQ0ky?=
+ =?utf-8?B?anZsaVlDTWhYQkh2bGVFeEZHZkJYeCt3VkltK0xiYmRMc0JWRGY0NTZKV0ZI?=
+ =?utf-8?B?dGo3eXNRdkZkZGtsMXhIUlJUdDFrNTZUeml2UUI0eEhzNHBnNi9TVUgwREN6?=
+ =?utf-8?Q?jkLDNWwMpZVHzfjQScXhihg7d?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cbd44372-03f6-4128-a18d-08dc36ed535f
+X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5874.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2024 17:06:51.5016
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZHHA/oFbWvCIKLp54lqyxwsr/g2I0QfDx6ZprdGX04xiRuhNSbJ//NA9O7ZiK088Vr3IAy9nas7wP43WqcpOiQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6193
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240226_081514_400896_DAD0BABB 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20240226_090708_949761_E1B215CB 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,68 +150,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+Hello,
 
-The recent change to the vdso_data_store broke building compat VDSO
-on at least arm64 because it includes headers outside of the include/vdso/
-namespace:
+On 2/22/24 18:42, Sean Christopherson wrote:
+> Add basic SEV and SEV-ES smoke tests.  Unlike the intra-host migration tests,
+> this one actually runs a small chunk of code in the guest.
+> 
+> Unless anyone strongly objects to the quick and dirty approach I've taken for
+> SEV-ES, I'll get all of this queued for 6.9 soon-ish.
+> 
+> As for _why_ I added the quick-and-dirty SEV-ES testcase, I have a series to
+> cleanup __svm_sev_es_vcpu_run(), and found out that apparently I have a version
+> of OVMF that doesn't quite have to the right <something> for SEV-ES, and so I
+> could even get a "real" VM to reach KVM_RUN.  I assumed (correctly, yay!) that
+> hacking together a selftest would be faster than figuring out what firmware
+> magic I am missing.
 
-In file included from arch/arm64/include/asm/lse.h:5,
-                 from arch/arm64/include/asm/cmpxchg.h:14,
-                 from arch/arm64/include/asm/atomic.h:16,
-                 from include/linux/atomic.h:7,
-                 from include/asm-generic/bitops/atomic.h:5,
-                 from arch/arm64/include/asm/bitops.h:25,
-                 from include/linux/bitops.h:68,
-                 from arch/arm64/include/asm/memory.h:209,
-                 from arch/arm64/include/asm/page.h:46,
-                 from include/vdso/datapage.h:22,
-                 from lib/vdso/gettimeofday.c:5,
-                 from <command-line>:
-arch/arm64/include/asm/atomic_ll_sc.h:298:9: error: unknown type name 'u128'
-  298 |         u128 full;
+Tested-by: Carlos Bilbao <carlos.bilbao@amd.com>
 
-Use an open-coded page size calculation based on the new CONFIG_PAGE_SHIFT
-Kconfig symbol instead.
+> 
+> v9:
+>   - Drop is_kvm_sev_supported() and rely purely on KVM capabilities.
+>   - Check X86_FEATURE_SEV to ensure SEV is actually enabled.
+>   - Collect tags. [Carlos, Itaru]
+> 
+> v8:
+>   - https://lore.kernel.org/all/cc9a1951-e76c-470d-a4d1-8ad67bae5794@amd.com
+>   - Undo the kvm.h uAPI breakage.
+>   - Take advantage of "struct vm_shape", introduced by the guest_memfd
+>     selftests, to simply tracking the SEV/SEV-ES subtypes.
+>   - Rename the test to "sev_smoke_test" instead of "sev_all_boot_test",
+>     as the "all" is rather nonsensical, and the test isn't booting anything
+>     in the traditional sense of the word.
+>   - Drop vm->protected and instead add an arch hook to query if the VM has
+>     protected memory.
+>   - Assert that the target memory region supports protected memory when
+>     allocating protected memory.
+>   - Allocate protected_phy_pages for memory regions if and only if the VM
+>     supports protected memory.
+>   - Rename kvm_host.h to kvm_util_arch.h, and move it to selftests/kvm where
+>     it belongs.
+>   - Fix up some SoB goofs.
+>   - Convert the intrahost SEV/SEV-ES migration tests to use common ioctl()
+>     wrappers.
+> 
+> Ackerley Tng (1):
+>    KVM: selftests: Add a macro to iterate over a sparsebit range
+> 
+> Michael Roth (2):
+>    KVM: selftests: Make sparsebit structs const where appropriate
+>    KVM: selftests: Add support for protected vm_vaddr_* allocations
+> 
+> Peter Gonda (5):
+>    KVM: selftests: Add support for allocating/managing protected guest
+>      memory
+>    KVM: selftests: Explicitly ucall pool from shared memory
+>    KVM: selftests: Allow tagging protected memory in guest page tables
+>    KVM: selftests: Add library for creating and interacting with SEV
+>      guests
+>    KVM: selftests: Add a basic SEV smoke test
+> 
+> Sean Christopherson (3):
+>    KVM: selftests: Extend VM creation's @shape to allow control of VM
+>      subtype
+>    KVM: selftests: Use the SEV library APIs in the intra-host migration
+>      test
+>    KVM: selftests: Add a basic SEV-ES smoke test
+> 
+>   tools/testing/selftests/kvm/Makefile          |   2 +
+>   .../kvm/include/aarch64/kvm_util_arch.h       |   7 ++
+>   .../selftests/kvm/include/kvm_util_base.h     |  50 +++++++-
+>   .../kvm/include/riscv/kvm_util_arch.h         |   7 ++
+>   .../kvm/include/s390x/kvm_util_arch.h         |   7 ++
+>   .../testing/selftests/kvm/include/sparsebit.h |  56 ++++++---
+>   .../kvm/include/x86_64/kvm_util_arch.h        |  23 ++++
+>   .../selftests/kvm/include/x86_64/processor.h  |   8 ++
+>   .../selftests/kvm/include/x86_64/sev.h        | 107 ++++++++++++++++
+>   tools/testing/selftests/kvm/lib/kvm_util.c    |  67 ++++++++--
+>   tools/testing/selftests/kvm/lib/sparsebit.c   |  48 ++++----
+>   .../testing/selftests/kvm/lib/ucall_common.c  |   3 +-
+>   .../selftests/kvm/lib/x86_64/processor.c      |  32 ++++-
+>   tools/testing/selftests/kvm/lib/x86_64/sev.c  | 114 ++++++++++++++++++
+>   .../selftests/kvm/x86_64/sev_migrate_tests.c  |  67 ++++------
+>   .../selftests/kvm/x86_64/sev_smoke_test.c     |  88 ++++++++++++++
+>   16 files changed, 583 insertions(+), 103 deletions(-)
+>   create mode 100644 tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h
+>   create mode 100644 tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+>   create mode 100644 tools/testing/selftests/kvm/include/s390x/kvm_util_arch.h
+>   create mode 100644 tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
+>   create mode 100644 tools/testing/selftests/kvm/include/x86_64/sev.h
+>   create mode 100644 tools/testing/selftests/kvm/lib/x86_64/sev.c
+>   create mode 100644 tools/testing/selftests/kvm/x86_64/sev_smoke_test.c
+> 
+> 
+> base-commit: 60eedcfceda9db46f1b333e5e1aa9359793f04fb
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Fixes: a0d2fcd62ac2 ("vdso/ARM: Make union vdso_data_store available for all architectures")
-Link: https://lore.kernel.org/lkml/CA+G9fYtrXXm_KO9fNPz3XaRxHV7UD_yQp-TEuPQrNRHU+_0W_Q@mail.gmail.com/
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- include/vdso/datapage.h | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
-
-diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
-index 7ba44379a095..2c39a67d7e23 100644
---- a/include/vdso/datapage.h
-+++ b/include/vdso/datapage.h
-@@ -19,8 +19,6 @@
- #include <vdso/time32.h>
- #include <vdso/time64.h>
- 
--#include <asm/page.h>
--
- #ifdef CONFIG_ARCH_HAS_VDSO_DATA
- #include <asm/vdso/data.h>
- #else
-@@ -128,7 +126,7 @@ extern struct vdso_data _timens_data[CS_BASES] __attribute__((visibility("hidden
-  */
- union vdso_data_store {
- 	struct vdso_data	data[CS_BASES];
--	u8			page[PAGE_SIZE];
-+	u8			page[1ul << CONFIG_PAGE_SHIFT];
- };
- 
- /*
--- 
-2.39.2
-
+Thanks,
+Carlos
 
 _______________________________________________
 linux-riscv mailing list
