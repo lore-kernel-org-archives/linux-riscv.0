@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDFBFC48BF6
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 06:51:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC32C5478C
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 08:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/N7zwozR4aWKxSFydPMCu5Q/hS7Slm+Sqek8tuDWBT8=; b=argRqpr597cfM8
-	sfVDa+BmdNy5JPWpYWd2IvzXMSp+bwn3E6hcvCnrVNPM4VTVci6zFlSgoAZUkyUktwTD4iIdZoJGe
-	HpOIMVtgA7m9DU9ibmmjbOq4ZvVKzUoX/TBtrfomzdKBkpPjWLzb76UI0MneuLlz/Jo0n40ouSSJ6
-	ZYwuURDzKuP/X09ufDA99CKI84mk7Gk9ov3fMF3xm/rCTqxQmjqTxde9YLpyrarIW2yA2FDg+9P59
-	bue6dg/iMfPbbI5Z/lnxxUdrjp/PThZzHJcGup7bRYAk+X03c1JhmKx0E3SPcevJ7aXolR/GDPksm
-	xfBi4gbnC97AGUdGfVJw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=89BogIz2BI4pN/HiwWBgR6i2HEEoSWE7qfXY1bIjCoY=; b=YiJZKKbjnU0P319JpIoJykphZo
+	+bh/peolcbYH3K6YXfxHvMLVJyxJcqlL7UJvwxYVcYJbJw9AqTp3iF/R6ZBM8DMYjNbPUdaR9IrqB
+	LboL7J2bFKBEbTXvD/fsVifMD8TnvDr9ygvY5IRMsQyHNnjjn+0+4ls3+maFCcqayy8TUXjL4MU3Q
+	WfKgG/i0L9QZcZijADHyqfTWo2WSTXs0zPwLJDvbG/Qa76GSCzE5w2xVKBqI6TxcQXwlWVjUU34ir
+	Kbqw6dFAScSkWEVojT6NG/WBAQyZciYxIQiDIZG8UOQE7FXKRsW+TAXK+lRokdJCMFfJDz6OzyBuh
+	iB/5omAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reUpi-0000000Ghve-1KOZ;
-	Mon, 26 Feb 2024 06:51:26 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1reW5i-0000000GwFI-3Zkj;
+	Mon, 26 Feb 2024 08:12:02 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reUpf-0000000Ghv3-1PzQ
+	id 1reW5f-0000000GwB6-0Qw3
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Feb 2024 06:51:24 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1dc98892850so7405255ad.0
-        for <linux-riscv@lists.infradead.org>; Sun, 25 Feb 2024 22:51:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1708930282; x=1709535082; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9ZJDZa4dE6I7qh1K4oWjwqQuf4TRNeOV/pDFBmxz1NI=;
-        b=d7MlwZhSRJXcCbf3J/QK2iZnHwPLt5GtCaCh+JkN6FJDtab1ZVrAbWizolCTb/PBwB
-         XBn4lc45hClbjUAc7f/V9rIueSKmL6+LrvG1VnjCZxV51b6FXF3S1JI77N5FVbQc6RDD
-         vPm0GE12K4xNW5+L5gd9kbHE4RRT8Ng0fi4ndvFFGNoCqbz2NmYdpLFHDpFEnM1m1YNB
-         0tuqfxb3i3vQDo/+/BMf3BiGtUNfEok4xWxcZsok1fH84nkVJnvpZF+89jwdYq1rs50f
-         qr+zB0m7dPvA7KZDti3CRpYubDYwA9wxsAP2Wqu6rpdzgF+lxt3nJGRoIP3lFeTzLXgm
-         6Evw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708930282; x=1709535082;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9ZJDZa4dE6I7qh1K4oWjwqQuf4TRNeOV/pDFBmxz1NI=;
-        b=gDMPdwJRSRPYzGKknsfpTTqd6xXJyrWgwBeTzSN2kPekUwpuWWHbA+IG/dqvjN08Yk
-         2umBv9RW0/uay4+C2myHcoOuk6j0DF+s40+pNc7ca9OcxoVe2uc/o4jI5NzJqOeDyNhd
-         JEQhHcjHNxuGdt6V6V+p9Ht3DsWittU/qz2HAYiBepyuXFTHNFG6pcCBS2nNR8TRuh1w
-         s5tMUdlyGccMgnq5XSQxr6D75U5V1FWOL6+cmFUUknDHhFfZVIqghhhRPaXEAULXF3gw
-         3s+y4jZCfVOxvcfXtOne/LEt+JfqYqzLjPN00QL7oDuuEY2VtJJEcVNTqzglSlKLcuE+
-         N4GQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX7ZoRQRkRiaCb61TWwbsTRhh3HOVFsUuQEwDWigR9zr+6Kf2gnoHvY85enWdC6/LEEEFnLejFxi+jx/1ZtPGHj6ijuC290uMrOWSn1C0wR
-X-Gm-Message-State: AOJu0YzulIUVp4bPXhLAxLpjJaNgmPtCRxeKWLA3am/FLKBr3Z4gSRKx
-	kKC2Voa07X7avVi1QOACFopgKBk00xoBJN//bDj54BTR2ojszyN1rcj1L4IzoK8=
-X-Google-Smtp-Source: AGHT+IG+iLuHhzs/rqyv0mUJKiLZSB9huPbBXlKg4PKw62MWaoX8Gy2Vo+Uwin2x0VVilQL/hJd7ow==
-X-Received: by 2002:a17:903:189:b0:1dc:692:2843 with SMTP id z9-20020a170903018900b001dc06922843mr8971565plg.5.1708930281569;
-        Sun, 25 Feb 2024 22:51:21 -0800 (PST)
-Received: from nickhu-X1C-TW.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id u11-20020a170903308b00b001d937bc5602sm3238871plc.227.2024.02.25.22.51.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Feb 2024 22:51:20 -0800 (PST)
-From: Nick Hu <nick.hu@sifive.com>
-To: anup@brainfault.org,
-	rafael@kernel.org,
-	daniel.lezcano@linaro.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: zong.li@sifive.com,
-	Nick Hu <nick.hu@sifive.com>
-Subject: [PATCH] cpuidle: riscv-sbi: Add cluster_pm_enter()/exit()
-Date: Mon, 26 Feb 2024 14:51:13 +0800
-Message-Id: <20240226065113.1690534-1-nick.hu@sifive.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 26 Feb 2024 08:12:01 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1reW59-0007kh-6J; Mon, 26 Feb 2024 09:11:27 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1reW55-002xHu-LS; Mon, 26 Feb 2024 09:11:23 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1reW55-00BVKV-1q;
+	Mon, 26 Feb 2024 09:11:23 +0100
+Date: Mon, 26 Feb 2024 09:11:23 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>, 
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	William Qiu <william.qiu@starfivetech.com>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, 
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] dt-bindings: pwm: opencores: Add compatible for StarFive
+ JH8100
+Message-ID: <opzxowacxsagwgw3l33p6y7omzjokus2bi3ol5wizfwjwi2s44@3p5frb4ysji7>
+References: <20240226033945.816974-1-jisheng.teoh@starfivetech.com>
 MIME-Version: 1.0
+In-Reply-To: <20240226033945.816974-1-jisheng.teoh@starfivetech.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240225_225123_476626_1C73F281 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20240226_001159_188362_3B5D771F 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,84 +75,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4464631810088978062=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the cpus in the same cluster are all in the idle state, the kernel
-might put the cluster into a deeper low power state. Call the
-cluster_pm_enter() before entering the low power state and call the
-cluster_pm_exit() after the cluster woken up.
 
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
----
- drivers/cpuidle/cpuidle-riscv-sbi.c | 24 ++++++++++++++++++++++--
- 1 file changed, 22 insertions(+), 2 deletions(-)
+--===============4464631810088978062==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rca4flnr32kuc7cm"
+Content-Disposition: inline
 
-diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
-index e8094fc92491..298dc76a00cf 100644
---- a/drivers/cpuidle/cpuidle-riscv-sbi.c
-+++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-@@ -394,6 +394,7 @@ static int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
- {
- 	struct genpd_power_state *state = &pd->states[pd->state_idx];
- 	u32 *pd_state;
-+	int ret;
- 
- 	if (!state->data)
- 		return 0;
-@@ -401,6 +402,10 @@ static int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
- 	if (!sbi_cpuidle_pd_allow_domain_state)
- 		return -EBUSY;
- 
-+	ret = cpu_cluster_pm_enter();
-+	if (ret)
-+		return ret;
-+
- 	/* OSI mode is enabled, set the corresponding domain state. */
- 	pd_state = state->data;
- 	sbi_set_domain_state(*pd_state);
-@@ -408,6 +413,19 @@ static int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
- 	return 0;
- }
- 
-+static int sbi_cpuidle_pd_power_on(struct generic_pm_domain *pd)
-+{
-+	struct genpd_power_state *state = &pd->states[pd->state_idx];
-+
-+	if (!state->data)
-+		return 0;
-+
-+	if (!sbi_cpuidle_pd_allow_domain_state)
-+		return -EBUSY;
-+
-+	return cpu_cluster_pm_exit();
-+}
-+
- struct sbi_pd_provider {
- 	struct list_head link;
- 	struct device_node *node;
-@@ -433,10 +451,12 @@ static int sbi_pd_init(struct device_node *np)
- 	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN;
- 
- 	/* Allow power off when OSI is available. */
--	if (sbi_cpuidle_use_osi)
-+	if (sbi_cpuidle_use_osi) {
- 		pd->power_off = sbi_cpuidle_pd_power_off;
--	else
-+		pd->power_on = sbi_cpuidle_pd_power_on;
-+	} else {
- 		pd->flags |= GENPD_FLAG_ALWAYS_ON;
-+	}
- 
- 	/* Use governor for CPU PM domains if it has some states to manage. */
- 	pd_gov = pd->states ? &pm_domain_cpu_gov : NULL;
--- 
-2.34.1
 
+--rca4flnr32kuc7cm
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+On Mon, Feb 26, 2024 at 11:39:45AM +0800, Ji Sheng Teoh wrote:
+> StarFive JH8100 uses the same OpenCores PWM controller as JH7110.
+> Mark JH8100 as compatible to the OpenCores PWM controller.
+>=20
+> Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> Signed-off-by: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
+>=20
+> ---
+>=20
+> This patch depends on patch [1] ("dt-bindings: pwm: Add bindings for
+> OpenCores PWM Controller") in Conor's riscv-dt-for-next branch.
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commi=
+t/?h=3Driscv-dt-for-next&id=3D2529085831b01fcd02ff58ab4e2596d3b31bcf80
+
+I recommend to make use of git format-patch's --base parameter to
+additionally(!) make this information available to the build bots.
+
+Looks fine to me.
+
+Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+
+Coner: If you're happy with this patch, please apply it in the same way
+as the initial OpenCores PWM Controller binding patch.
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--rca4flnr32kuc7cm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmXcR6oACgkQj4D7WH0S
+/k7wTQgAsgA+AFOOP3+++k2BuC4anQCkeyI3AcDzpTBTk5QyC+DV7CR82aNjU5Sr
+zdmvrqgBqdnBfCed75PotH8o0HeH7omhQ7kOys5qBs3G0fhi7jxQTr/gHd9twA4R
+LlOdBlm9CSakAKEv9jbag0k//CYif0aGsf0cTNpF2RX6+gkoj5iOFbRkVd3gtizu
+fbuLkbQ/2M3K4NZN5Tf8cAjU9FKEza5KU9xO+PhOIUGiis9F7ccSkv40PVj1rz7m
+fbP85x6bvFBU+2bReKeA+GFCksHyItrMNLDktayQYjr9ktyxIZdARrB/astRo55s
+LcZaVDOA+uw0EMm4M/y+U8HI8xdvww==
+=8D5M
+-----END PGP SIGNATURE-----
+
+--rca4flnr32kuc7cm--
+
+
+--===============4464631810088978062==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4464631810088978062==--
+
