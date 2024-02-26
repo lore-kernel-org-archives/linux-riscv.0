@@ -4,87 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C272C54798
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 01:40:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80FC7C5478C
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 03:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=siC+cfxroKsgSh6Dfp7Z+ptxBygzL6k/MxP6kbbQNcU=; b=DnU5ebNXUec6zx
-	+UjeUeEs+djY3u41kOGzuniyjxlv9YmCQTffZ1of/bg/zPEhxFzi2q35S5oIpKI0S4RyI99wzdXC2
-	cFjFAN2vuWgObYpu1MvIXE1RuD80MwqQ/Q8lT9/WX5PS6gyU3jphPt/qaE9Nw1Qpmk3yUILQwL+43
-	Og3lbt5bZ0qbIRCMnlQ0bY6MNufhxHhNbYEnRK7uTp0ooHnIoMhEISJlEY+3wmxRBiqmIfJTTvxVz
-	zXlXHid3ZDcPD4WOHD2gZ6u4xWvzBkGIFy9BhWMkkoECCVVrowulql4vcJ7ZQ6haMihmzaMNJEe56
-	w5faL1FDdXD89oh0OQow==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pfsYBngMkrWhzEY5yzoc+4tvY9z9jKCCSHu+L7rTX1E=; b=R+rKQtPOh3sXfy
+	k0QuUpaVGqNDW6SaQID+GDVnVvKZqh8TAmRP81bw4qhDE0LPbQczpdPn5d2+Et4svgjag8hv9YpdJ
+	EAv/Bbsqtao+mV6oAlvYXK29KTCy3YBC1IyaidNVaMh5T1yEX/coClwKvW7ZIGUi5uaA+7RoG4PH3
+	RQy1YjS6anozBgHzx+5e88gKucJBig0Yba9K8YT6NJB0tii/lqapJNBLuAaswtGPCjlsNlVnTdG3h
+	MpJM14cx1lV4QX8znt8xGrAR+iEuyQBqFispW+In/KHtWWk0TD8da5/PaRYMix22NfhYb93CAWa95
+	DfHfYinok/jy8DWj0SlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rePyg-0000000G5pM-1YaI;
-	Mon, 26 Feb 2024 01:40:22 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1reRsd-0000000GIvX-0Nj1;
+	Mon, 26 Feb 2024 03:42:15 +0000
+Received: from mail-bjschn02on20729.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::729] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rePye-0000000G5ou-0SKp
+	id 1reRsZ-0000000GIuW-2Oj3
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Feb 2024 01:40:21 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-6d9f94b9186so2299558b3a.0
-        for <linux-riscv@lists.infradead.org>; Sun, 25 Feb 2024 17:40:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1708911618; x=1709516418; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gao7hRUfZpXivOmhIfnNUfW8TTK3M/4khJ9JgCKSDQQ=;
-        b=WqIFtJiZRd+o/Z0cfN8i9f8N99oBwXyXa/0ifQuVGvdr3TeViTw3HNbXRZ/WbmX9//
-         eOl1epy9sOpEG4epDEv8ItlB1xU+0JE/DpMvEnwuJPSR3RdCUUuM7wkjJkqVrNb7hqAa
-         jj28h0eMad0N5xP+Ejpr4S892AiJfpSxFC7c2VJkXWIvBdTSiRD5/Tn89FkDnARk+rZA
-         2bqOEC1pq41z/T/sDTJYL/ocg5DJUmG8v2gOtk+fLg0XNsxMJ6M0147I9WS8iSC3vImd
-         aCv7VYOZxR/WFI8qsj2zj4XAaeUMX6aKhrBBUiaMeSCLIsMhOS+sqobLPzq8sa5IAg+L
-         8JFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1708911618; x=1709516418;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gao7hRUfZpXivOmhIfnNUfW8TTK3M/4khJ9JgCKSDQQ=;
-        b=OF21mnKVs+RJj4U/4s3qHG2e5DSNS+deJDqrkRoJSLSZqTjaiRrXEmedABLbzUPaNy
-         HKAlgNr8RPhxoN8ezWj6ADsTST7TIIfpwaIpG9Hmwyg8p6a1ToaYUU17hNop5oEVyjTv
-         o2ZSu922oLsn8yR8IP0Qr9hgVdBnAWfJ9gf1UvpiIPviweBLkDdnINpmuy5/MHqldKBX
-         p9WHvB7qniHIXGx3kTnBQryJbtECO5XqkadvVdh4jBgw2Og5B5NI+O5yyjhxCebI6w2E
-         Dyf355PH4lKZEa38c+PYU5sHpzGKz2TzlrDcMTaqBZJQvM6O7nSnhIxOLCw1H4NCyU5V
-         LANw==
-X-Gm-Message-State: AOJu0Yzd4vlyq9o/kpMI8fsXEbodA7sbiICGV2uDMZdrgvnnpAadfR2c
-	0bR7Q4pe7oV9thm9RR5sh86g5BIP3EKyZ4WQh+0g9/Q1zXkUtQm6btMLIUz0CxDGLZ1Imjjqsqf
-	D
-X-Google-Smtp-Source: AGHT+IHTuQoynqJXhnnP1IcEo6E63UPeUVZkFOzSf4oem6puafXcOc8BzJSUIQCfain5+m3MPFeN0g==
-X-Received: by 2002:a05:6a00:14c5:b0:6e5:2f27:5235 with SMTP id w5-20020a056a0014c500b006e52f275235mr1867135pfu.11.1708911618546;
-        Sun, 25 Feb 2024 17:40:18 -0800 (PST)
-Received: from ?IPv6:2402:7500:5dc:7e53:808:399a:34d8:b170? ([2402:7500:5dc:7e53:808:399a:34d8:b170])
-        by smtp.gmail.com with ESMTPSA id e17-20020aa79811000000b006e45c5d7720sm2903150pfl.93.2024.02.25.17.40.16
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 25 Feb 2024 17:40:17 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
-Subject: Re: [PATCH riscv/for-next] crypto: riscv - parallelize AES-CBC
- decryption
-From: Jerry Shih <jerry.shih@sifive.com>
-In-Reply-To: <20240210181240.GA1098@sol.localdomain>
-Date: Mon, 26 Feb 2024 09:40:14 +0800
-Cc: linux-riscv@lists.infradead.org,
- Palmer Dabbelt <palmer@dabbelt.com>,
- linux-crypto@vger.kernel.org,
- =?utf-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>,
- Heiko Stuebner <heiko@sntech.de>,
- Phoebe Chen <phoebe.chen@sifive.com>,
- Andy Chiu <andy.chiu@sifive.com>
-Message-Id: <71CC95E2-D5A2-4158-ADD2-C28216B00F3A@sifive.com>
-References: <20240208060851.154129-1-ebiggers@kernel.org>
- <04703246-6EF6-4B54-B8F1-96EDEC2FBA6B@sifive.com>
- <20240210181240.GA1098@sol.localdomain>
-To: Eric Biggers <ebiggers@kernel.org>
-X-Mailer: Apple Mail (2.3445.9.7)
+	Mon, 26 Feb 2024 03:42:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=OiXdRT0E8Csk9XwWF7tM4xH02ZIct2MLJyjXI7jdRjOpeYk6+0DYQuuWagvJkw/Wm73Yj5IYNwzQewdw2zFcLQrdFFdUFiVk3Qp+5GxRhiQiuzfFCQd01N5POQ+b2XVsMzNYS2w7Nc3pUfqmW7yQSGDjeHzOE3vA235WxUenM3dNaXN3H1Wpc1NuvMUHqib2oYx44Tjy/2KD1gzslBzyqgcj0Fz77stI02s6Cn+/2rZ4tJV8Wi+zTZwosq+mDEhL6JUmpDW44wToqGqbezfIkYQdT9Orb3oLNyo81Aq68YucELULX4keAutDRzPOyQqeZAk3ypL34+ZnLU7S9PMyDw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SYk9dwd+yZMVuVtJcySlzSb2Q2EM8dQK6yUJq+8ALv0=;
+ b=PEq0lhr+OSXsetdL6txn4mU4NT7RCEaE0VIJAzAU6oQJeKU1WmVXMHgX8NymyO7CKHqyVD4dhtGG+RUE0PG7HQm20CbMtldfLtlMovsyLT4mMaQJVSbn0i7YoE0juIEdBckDq210fzHxAy6Q/nhjKn34pTE6ug/gcqx8gjqlA+WjpNTtqfOITru+RrsCSyedrqx8B9PpROYNzMvYmYWPWesbMBPA0JUnFpBML/5t42mvCHrEgNfTGQc7rTURXVXwFOMDRD0/Vz8H8mlgmkH9KnZB44EhPqXxCb950ck2nFiC+24gcmZP+0ApWRYEc+5ET2eVstwk5PjBdDW7k1hcRw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:19::6) by ZQ0PR01MB1063.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:d::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.47; Mon, 26 Feb
+ 2024 03:41:51 +0000
+Received: from ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn
+ ([fe80::d0fb:daf7:3f8b:868c]) by
+ ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn ([fe80::d0fb:daf7:3f8b:868c%3])
+ with mapi id 15.20.7270.047; Mon, 26 Feb 2024 03:41:51 +0000
+From: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	William Qiu <william.qiu@starfivetech.com>
+Cc: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] dt-bindings: pwm: opencores: Add compatible for StarFive JH8100
+Date: Mon, 26 Feb 2024 11:39:45 +0800
+Message-ID: <20240226033945.816974-1-jisheng.teoh@starfivetech.com>
+X-Mailer: git-send-email 2.43.0
+X-ClientProxiedBy: SH0PR01CA0018.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:5::30) To ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:19::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZQ0PR01MB1160:EE_|ZQ0PR01MB1063:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9dd6ee04-37af-4115-d4b6-08dc367cde2d
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 1veJGaj9i4mQDGYHNk9MtyjZdJ1DXPBf9V3SdFbVq8LubOfve4paOLs/2eATdPitD3+FfvMm3ZrhQI9a3NJCDUKnou6OfvWFkmMvkKD4Nq9v1XHhML/du1TmY0amrVeZJ5ObHcKLf0jsCx3N13H3owqtYG1mBAnANMgPays5a///2RmC0BtOKbMCI6xzTv1kwF3Lf32VRgVlKAXQA58GY+Y7DCyXYpjb4liuXMy1+GWlmk6oV9OJd0mLdlvR/VFapORiGqjnXOMRtjceIvSxIkXgvi7mbwD2pq0zYoQYnr2gnOzQIK4P41HI2ZI7gIrDhQTgsi7RMRGACwGvQeC4n+U+wuU1JlVbvuUi1byiygCd1zoBLKLgjJEf2leEE0qIoVdXJzap2BMs2Wwb7tOnYaexytwbK6JTxv8edmM6rmhrqkYZ7aJ3o+9KxTpa47DwsCEUXWK9l2IdiLxspedJEj2CEypMFvDKJ6che1obhdXYEzCLVWnE4Yo03wZFC55gvtcLjEui3PCWX613JdYzZFPczonoTHMeaJFrSRIs18gskVD69fibt49jNUDCxBK1uvPR8jPwJ2paGJbDMl6Hz05mrIr8EbNaBza6/eeYtcbaOdzOLmOeziZlqQIxpExk
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(38350700005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hPMzxJeTJzEyGfCEym4QScS4IG12GVvrDRlyLpAhD/iItk0yE7ypflku/jtU?=
+ =?us-ascii?Q?C/6M2wyXGnNQYzDPlabK40bGvvPvUWEQa7dz1cR/tzooX193bU6+pv4lq8Ru?=
+ =?us-ascii?Q?4Ev9dihnHoNMAPsf6drv4cGsIaOkK3EoG+zKcnoj/8lSITWthV/+Uzc9EA9Y?=
+ =?us-ascii?Q?B1Mydyv5b4QkPJyYREOmySmrx74SwMPRWWvE6m/J1TXCt/PPH1ElNTi2r0kg?=
+ =?us-ascii?Q?OvUVncjYrpSmaPu6CVk7JGj0UDY9uhIIS8JQPs56ynAGDu+cqRQpiiEvWtLZ?=
+ =?us-ascii?Q?1Ev9Yt6mtooW0dSLDdIGo6UmNgJHhcT27kGbuvllbplqtfn4/EjqLBZxgGLa?=
+ =?us-ascii?Q?bJY1P9FCUkP55Ev4P1IwHcNQtgpxEYOQ6eNyxJLOHl023c8OS1Cqx8l34FVt?=
+ =?us-ascii?Q?GNXX/TRbOAWGMScZ8H0Nnp66XD2yRG330+sMDXszANxq46jBpzeSJwzoMUK2?=
+ =?us-ascii?Q?Ru/rw11vjPUqROOryix3y1aTpYDOWWjQD5vobzlOLkyYNPNym78vXZ55ONCF?=
+ =?us-ascii?Q?WLHinjF69xq+EsmNg8nQy7F3CiejuokJxjPSaYA8bOylq9aQ4Ugd1CFtQH1j?=
+ =?us-ascii?Q?Q6F/JamKPhcOGNhGPDAlzexwSxABDNQRDiM0wvRqIAruRsLYMtERX+jLunYR?=
+ =?us-ascii?Q?QLjJmaPBt6B0dtfJPN4JNsquL8laSYKAVbv06Nw3Qn9RTLmToK14axjJlc8A?=
+ =?us-ascii?Q?cNcDcfBJpZOWV704zhXg6bVJg/LjZsI63KmlghundSFmcLnT7tte93LVwbtH?=
+ =?us-ascii?Q?+JVEtia7t1/xvToK5/kboIBT1sFJ3aD0VjKaIEarhSbuhTGgYUTVsKc8O9k+?=
+ =?us-ascii?Q?ltftL0sNVcNlI0e79n/oTKjwOh+CtHLh8g+595p3rdPMT5GGOTLij0c2u3lU?=
+ =?us-ascii?Q?FSawdE1FWja4Y40Iv+yBhXwd85n+sYSkSmOr5tnpAbje8h1DotBo4AYiyVtK?=
+ =?us-ascii?Q?kpT3l5ZXhYRaZ7auL3/a4y1XEVOKS2WJU7yElzJTcY6bztyrgCmbyVJqWyGA?=
+ =?us-ascii?Q?sOZs1fE/rWjjXmT0ob36lpk2XqsQW9lCa0Gh514LM47YT2f2+CYkgQS9MzlT?=
+ =?us-ascii?Q?mWAwgn8DYyByFB4BPWiR5Mf8Yq7KxQfxejaJ462s21qMkJN/FaPfE+6IQ1Sl?=
+ =?us-ascii?Q?7xBflgzMWw3KA1LpNfG270gfHIaFRZrDhmSXZcMafGzK+zvhxsBwsYttcJkb?=
+ =?us-ascii?Q?MeSJ4Fd82vvGRxwCJrjb391zwEUtUx+92HPiq+zw2TBYK6iTeG8PsT7EtSUe?=
+ =?us-ascii?Q?JWVvqst0Oz9pfe9T/W4G6ABDE5ZOH2vyuleyt0OzQ1NZLLv27U4nbIoOWr53?=
+ =?us-ascii?Q?lr7UHfbuG0dg9Qto11ucqyzUyuw37++tXscl+QGOnu0a4RbgeW+BkHcbfrSi?=
+ =?us-ascii?Q?vCdFmS8N0mm/+y1OllN3zEGiNiRX0GeCuzT5AXd07RhDQnw39KzzCE8mdG9t?=
+ =?us-ascii?Q?K21cbaCFqy+/zTxoQF8obAPx4+vQUKfbDnsqj5tYml/3xqBLMjL0fFQ+EmeZ?=
+ =?us-ascii?Q?CU0nI7CtqTxbHpDm1kMCs27ryfUR39ZVUYZOwlaR+yeX2ahfHFGRZhYmh7YI?=
+ =?us-ascii?Q?uUHynUODGGjq2s8bzLcnoeKEQM1idJ37JUqCmAoEQQ4hnSQNhv/XR2Es122G?=
+ =?us-ascii?Q?Ew=3D=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9dd6ee04-37af-4115-d4b6-08dc367cde2d
+X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2024 03:41:51.3147
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GX19UHCwlk+A+WRDCa1F3tKrOgGJJ1hbGWARuOuJJjtNHTu8d/+ofox3CmiKkC6sQ3cmE1qfqUs9+tNJvyEfjJGbdPKZ+IpdwM5OkA5se/0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240225_174020_229962_FA8819A5 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20240225_194211_639712_94FD8BA5 
+X-CRM114-Status: UNSURE (   7.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,61 +138,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Feb 11, 2024, at 02:12, Eric Biggers <ebiggers@kernel.org> wrote:
-> On Sat, Feb 10, 2024 at 11:25:27PM +0800, Jerry Shih wrote:
->>> .macro	aes_cbc_decrypt	keylen
->>> +	srli		LEN, LEN, 2	// Convert LEN from bytes to words
->>> 	vle32.v		v16, (IVP)	// Load IV
->>> 1:
->>> -	vle32.v		v17, (INP)	// Load ciphertext block
->>> -	vmv.v.v		v18, v17	// Save ciphertext block
->>> -	aes_decrypt	v17, \keylen	// Decrypt
->>> -	vxor.vv		v17, v17, v16	// XOR with IV or prev ciphertext block
->>> -	vse32.v		v17, (OUTP)	// Store plaintext block
->>> -	vmv.v.v		v16, v18	// Next "IV" is prev ciphertext block
->>> -	addi		INP, INP, 16
->>> -	addi		OUTP, OUTP, 16
->>> -	addi		LEN, LEN, -16
->>> +	vsetvli		t0, LEN, e32, m4, ta, ma
->>> +	vle32.v		v20, (INP)	// Load ciphertext blocks
->>> +	vslideup.vi	v16, v20, 4	// Setup prev ciphertext blocks
->>> +	addi		t1, t0, -4
->>> +	vslidedown.vx	v24, v20, t1	// Save last ciphertext block
->> 
->> Do we need to setup the `e32, len=t0` for next IV?
->> I think we only need 128bit IV (with VL=4).
->> 
->>> +	aes_decrypt	v20, \keylen	// Decrypt the blocks
->>> +	vxor.vv		v20, v20, v16	// XOR with prev ciphertext blocks
->>> +	vse32.v		v20, (OUTP)	// Store plaintext blocks
->>> +	vmv.v.v		v16, v24	// Next "IV" is last ciphertext block
->> 
->> Same VL issue here.
-> 
-> It's true that the vslidedown.vx and vmv.v.v only need vl=4.  But it also works
-> fine with vl unchanged.  It just results in some extra data being moved in the
-> registers.  My hypothesis is that this is going to be faster than having the
-> three extra instructions per loop iteration to change the vl to 4 twice.
-> 
-> I still have no real hardware to test on, so I have no quantitative data.  All I
-> can do is go with my instinct which is that the shorter version will be better.
-> 
-> If you have access to a real CPU that supports the RISC-V vector crypto
-> extensions, I'd be interested in the performance you get from each variant.
-> (Of course, different RISC-V CPU implementations may have quite different
-> performance characteristics, so that still won't be definitive.)
+StarFive JH8100 uses the same OpenCores PWM controller as JH7110.
+Mark JH8100 as compatible to the OpenCores PWM controller.
 
-Hi Eric,
-Thank you. I think the extra vl doesn't affect performance significantly. The main
-tasks are still the aes body.
-The original implementation is enough right now.
+Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Signed-off-by: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
 
-> In general, this level of micro-optimization probably needs to be wait until
-> there are a variety of CPUs to test on.  We know that parallelizing the
-> algorithms is helpful, so we should do that, as this patch does.  But the
-> effects of small variations in the instruction sequences are currently unclear.
-> 
-> - Eric
+---
+
+This patch depends on patch [1] ("dt-bindings: pwm: Add bindings for
+OpenCores PWM Controller") in Conor's riscv-dt-for-next branch.
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=riscv-dt-for-next&id=2529085831b01fcd02ff58ab4e2596d3b31bcf80
+
+---
+ Documentation/devicetree/bindings/pwm/opencores,pwm.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+index 0b85dd861dfd..52a59d245cdb 100644
+--- a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+@@ -23,6 +23,7 @@ properties:
+       - enum:
+           - starfive,jh7100-pwm
+           - starfive,jh7110-pwm
++          - starfive,jh8100-pwm
+       - const: opencores,pwm-v1
+ 
+   reg:
+-- 
+2.43.0
 
 
 _______________________________________________
