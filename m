@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C10AC54E49
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 09:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D118DC48BF6
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 10:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ERkm5DAigoI8INNKD3RGwq+Q02KIjhDLqzZoCGan7Q=; b=T47rwp1XbR92uZMhKPjVweg6aj
-	gX+00qvmuRMitelizbvBNNP8GoDHhpV/IyQhnqY9xxkRUq08NlpHy54oY9v2rNM2ie5UrCGnFPKKw
-	5rfLUBY7mXRAxlOvqi0vl+R9/y1J6SdlHEjb0P6niPB6zMHmVogHfhNdT/HIjDBhyBIqvO4eLJxji
-	kESnSl3KKddcRVc8Ff7lrEIKkd5mIrQXFnXpJPdZV2ENEBP76+LiAi9vuA5QKRL5QBmGgHaKcjnOn
-	H1096kU+W9YVEVZ2xJ1GCCiub/t0ON68UJX7l3oBzSQdk29+5ZkWI8crhlvpTQQwdTIwZMBMcc3ar
-	KJDeXmZg==;
+	bh=h60F2U1yRjyrnz3A4vS36MKX47iE3pYh8kc6qOZdStU=; b=m78d63XysX0rWoeULRYFv9lOXm
+	AiNj7EHnLL+P/JNUDgnGGiCJUCJ8Gia28Kcy52bNUWzO6hlx0lXdQNVumfU0LQTt1c2uhuylYOFsV
+	lMyru15ziJEpezEpo2qX47CZnvgO3dHqFS9UnohvdIm508chqv96H+ZVObG/hMBpH0Dvu3C33Ybeo
+	S1G4FcA2eQ6pMS9jEVv4itCbS6Ee2hdJktrbaeUKlpvqBfK8dPTUKrDyvpKhGeFRMCyvnRn3+8X0T
+	uEEavN2IyqOxFbyL3U08rewv/Dnh/tuWWvDwTqIdx1c1Ssh7oDna/qlWewOT+7MUa3zpFX00Yt7IR
+	H6a9p64A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reXa4-0000000HQaG-05Gj;
-	Mon, 26 Feb 2024 09:47:28 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1reXnT-0000000HViK-4A21;
+	Mon, 26 Feb 2024 10:01:20 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reXZz-0000000HQWL-21Wn
+	id 1reXnO-0000000HVeg-2r50
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Feb 2024 09:47:25 +0000
+	Mon, 26 Feb 2024 10:01:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1708940843; x=1740476843;
+  t=1708941674; x=1740477674;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=GUBUJnhCJ+5svJV4Frsq2xuX833M2pcxXkLKdnw/2XQ=;
-  b=1299ajWgzbIUFWWz0TOdoC+Tiv8nPbsiCJgikfmwYHyqc3IWCrW+XWhA
-   p/0ZhvP79c/JIPFK9hoCYDilUHskaEHqSDU5h7jxR8ZiOeWzphPZ/X3Q+
-   JvrG0Qt+0IHMiOjKnf+rK1pXjn4Ra9OXn6JKvpr1f00SOmfwmCmSuJiJO
-   1RbFwPBIezQE+OGeFbNyUd0kYHS9yl7u/Sj6r3p/YKuFIrNpunKt4N0Y1
-   5zAs6JUwMGANbRTv/R1u0U5YAnUOYcuquqbXcsc2FX32taHddF49oqgMU
-   RRSRlEtqqbKeq8MbiaUs26rfVKVoMbseM0wYivmDZTcPO3Bpblaastq5x
-   g==;
-X-CSE-ConnectionGUID: 3TUWboU7Q1e+0wVDoOdcMg==
-X-CSE-MsgGUID: Th18ok6cRYSjDiY187FfJw==
+  bh=20R+xqDeDVw9ZtogwM2IQU2YVHkmY//AxAOlDJCpmQY=;
+  b=rwPgmw/bG9U/olWHwrTsFTpdUdwsxH7ZPBkrB57KqjjFU4OSz05cNOLO
+   Ma+SfFybTWElpbDDnSoYfKwYAl+FfeFzc4IR5SnGPg4uoplcErMsB2t1A
+   B8Cl5oLgqKoPxQ8CWjAuZ6FRNOhMeaDB8BRMryVE0g9UlHvI5A8N4uw0S
+   8MpTU3WBTR2gbdwa/J1ndQ/Zsh+cGiKP8hnEn46yf1RgCrcHp0lu2nFRm
+   5AtHobdNL/7+9xW+yWhPpXm4peWeA8RG833XwKJmx3ygD8Is6G8izEbUS
+   RV77DuO4/9d2n7mIoH+7iPkSaJF8un6+BGzzyr0WQu0L7NZMiJ1peJVse
+   A==;
+X-CSE-ConnectionGUID: gRuuUu1JT96ZGupzs5M00w==
+X-CSE-MsgGUID: hu0OAtBmSMyULpQwlqszwA==
 X-IronPort-AV: E=Sophos;i="6.06,185,1705388400"; 
-   d="asc'?scan'208";a="16814562"
+   d="asc'?scan'208";a="18370423"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Feb 2024 02:47:20 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Feb 2024 03:01:11 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 26 Feb 2024 02:46:59 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ 15.1.2507.35; Mon, 26 Feb 2024 03:01:06 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Mon, 26 Feb 2024 02:46:58 -0700
-Date: Mon, 26 Feb 2024 09:46:15 +0000
+ Transport; Mon, 26 Feb 2024 03:01:03 -0700
+Date: Mon, 26 Feb 2024 10:00:21 +0000
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+CC: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>, Conor Dooley
+	<conor+dt@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
 	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/1] dt-bindings: riscv: cpus: reg matches hart ID
-Message-ID: <20240226-esteemed-bagginess-7373abcdcefe@wendy>
-References: <20240128180621.85686-1-heinrich.schuchardt@canonical.com>
- <20240128-simile-endocrine-9e8af979d361@spud>
+	<aou@eecs.berkeley.edu>, William Qiu <william.qiu@starfivetech.com>, Ley Foon
+ Tan <leyfoon.tan@starfivetech.com>, <linux-pwm@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH] dt-bindings: pwm: opencores: Add compatible for StarFive
+ JH8100
+Message-ID: <20240226-greasily-balcony-cee5014f5b8b@wendy>
+References: <20240226033945.816974-1-jisheng.teoh@starfivetech.com>
+ <opzxowacxsagwgw3l33p6y7omzjokus2bi3ol5wizfwjwi2s44@3p5frb4ysji7>
 MIME-Version: 1.0
-In-Reply-To: <20240128-simile-endocrine-9e8af979d361@spud>
+In-Reply-To: <opzxowacxsagwgw3l33p6y7omzjokus2bi3ol5wizfwjwi2s44@3p5frb4ysji7>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240226_014723_811637_FC4EFDA1 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20240226_020116_056679_A4CBE87F 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,52 +88,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7709916467055894082=="
+Content-Type: multipart/mixed; boundary="===============8034113909702380657=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7709916467055894082==
+--===============8034113909702380657==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="6pjag9RV18K1QWjn"
+	protocol="application/pgp-signature"; boundary="qIf1NVTAKfLs5NKT"
 Content-Disposition: inline
 
---6pjag9RV18K1QWjn
-Content-Type: text/plain; charset=us-ascii
+--qIf1NVTAKfLs5NKT
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sun, Jan 28, 2024 at 06:20:46PM +0000, Conor Dooley wrote:
-> On Sun, Jan 28, 2024 at 07:06:21PM +0100, Heinrich Schuchardt wrote:
-> > Add a description to the CPU reg property to clarify that
-> > the reg property must match the hart ID.
+On Mon, Feb 26, 2024 at 09:11:23AM +0100, Uwe Kleine-K=F6nig wrote:
+> Hello,
 >=20
-> That is the expected usage alright. Did you come across something where
-> it was not being used in that way?
+> On Mon, Feb 26, 2024 at 11:39:45AM +0800, Ji Sheng Teoh wrote:
+> > StarFive JH8100 uses the same OpenCores PWM controller as JH7110.
+> > Mark JH8100 as compatible to the OpenCores PWM controller.
+> >=20
+> > Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> > Signed-off-by: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
+> >=20
+> > ---
+> >=20
+> > This patch depends on patch [1] ("dt-bindings: pwm: Add bindings for
+> > OpenCores PWM Controller") in Conor's riscv-dt-for-next branch.
+> > [1] https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/com=
+mit/?h=3Driscv-dt-for-next&id=3D2529085831b01fcd02ff58ab4e2596d3b31bcf80
 >=20
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> I recommend to make use of git format-patch's --base parameter to
+> additionally(!) make this information available to the build bots.
 
-I think I pinged Palmer to grab this, but since it's been a month and
-not picked up, I've gone and applied this.
+I like the "additionally" :)
+>=20
+> Looks fine to me.
+>=20
+> Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+>=20
+> Coner: If you're happy with this patch, please apply it in the same way
+> as the initial OpenCores PWM Controller binding patch.
 
-Thanks,
+Ye, I can do. Although, I suppose this is an example of why the driver
+maintainers applying the bindings is preferred, even if the driver patch
+itself isn't ready or there is no driver patch.
+
+Cheers,
 Conor.
 
-
---6pjag9RV18K1QWjn
+--qIf1NVTAKfLs5NKT
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZdxd5wAKCRB4tDGHoIJi
-0rpKAQDtHi/6j4X2TxwcayQZ0w2Lut2Pa5wamAt/W3HRnT4ENAD/cOo9XIvgbe7q
-tntBZhh1qRKSOacwcfw2GY4q5z0E+A4=
-=ZusI
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZdxhNAAKCRB4tDGHoIJi
+0sfGAP4gXa3ZQBTcw4KYOWpO4Y9Hl56JOtYMdxzTr8/ALwaDwAD/WwrHnl741xey
+Tfp2k4uQHY/CONnty4macPOekNyY4wI=
+=Oyq2
 -----END PGP SIGNATURE-----
 
---6pjag9RV18K1QWjn--
+--qIf1NVTAKfLs5NKT--
 
 
---===============7709916467055894082==
+--===============8034113909702380657==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -141,5 +163,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7709916467055894082==--
+--===============8034113909702380657==--
 
