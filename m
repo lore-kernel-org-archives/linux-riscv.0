@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76C3C54E49
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 13:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 698E5C54E49
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 13:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:From:Cc:To
 	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3w+njFYXLovOu9bKItxuaxLmLxDQuLDZLpzxsC0gyDk=; b=EKlt3bnh6mVKGP
-	UpNabBSLnw7IUX/nwUxbI27uoEqjXvbIAMp+9iIc04MTI4QYHkmuX9aBThDJZF+9bZnK6J9fj4S0j
-	Q8RqpCFLZm/dzvZV4cqfrzyWINi8V9r52NmsiQv3NNeNgu24dksRrHVG+16B2aPsQl3X33QSM/7s+
-	HceWJSC4cY/3cRW2TnuOawtlgcCqiRjVZ402q9EGhkgyXUIPDFJ/dXkDATgs4qxEwPBxmS9YvgeQd
-	q8J0s+BGg8jiVL+RH5+HKaJKHKmB/AXdm1CH/XswYstA4KlNi2ZeA5IYxapPqplYA/gpf3S3MDt0r
-	0jYUJ215hiVtdG8bWJYg==;
+	List-Owner; bh=dtJWynyWJmmhiIWjA7kKXh5VbVoozcUN5BXruKprxck=; b=Vb/p6cDrmseWM0
+	6CuLWaz4gGToolyGgLht60ZjUXBVkxigMAw0ASvlKctSLvHHOfxSK6Gn7xdMdPmDlhCk46gAoP3Bh
+	ZMu0CXr40gDs9qELWIm4VPhIHcgCTfHPkP4SSw/kwDBYNQAJPklA8o0yZarlb2Zw8tU2p9A6MCgXT
+	+WZ7a/UYy1qlDqFhfxz1GhoHIhLTqIbe2amtaCNghSbDic22TyxyCZx/sIxZZ9tWmiqOtLv6pI3OM
+	wjNWdOWWGBHVYN84gMNQVL6u//1e9gDL2AmFECRL+4cqHJd2hlr2NBOJfwIuJfnFaYCvgzNdUMLZ1
+	VRPJf0dZVqV1DHTm4Qyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reaoY-00000000mWH-2cTi;
-	Mon, 26 Feb 2024 13:14:38 +0000
+	id 1reapd-00000000mth-2Zbb;
+	Mon, 26 Feb 2024 13:15:45 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reaoV-00000000mUt-1GLX
+	id 1reapZ-00000000msj-2NeA
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Feb 2024 13:14:37 +0000
+	Mon, 26 Feb 2024 13:15:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 95614CE17ED;
-	Mon, 26 Feb 2024 13:14:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81701C433C7;
-	Mon, 26 Feb 2024 13:14:31 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 45850CE0E38;
+	Mon, 26 Feb 2024 13:15:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35386C433C7;
+	Mon, 26 Feb 2024 13:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1708953271;
-	bh=QMn84hOJLB+qyDGoqeXwTRhkyMub1a0bp/BC9B7nbL8=;
+	s=korg; t=1708953338;
+	bh=Z8x3GMxjzCm1bG8he0aKOodAAPGe693zTF2SziVL15Q=;
 	h=Subject:To:Cc:From:Date:From;
-	b=f+uF8dCrrHVP4lP4EC5n1cTO8Ljdr8qBbNsqKvAzEfdaymddKPjDoxfNzyizILQ0f
-	 ise0iO6+NRbLtzgyq+FlwfkciMqogFnbdl88l18rz1AamnO3aKjT+mUX/jk04nMqjl
-	 FkOIvgKTMw+SLnlOR/mDXFyEt7jyH3EZQ1BJHab0=
-Subject: Patch "irqchip/sifive-plic: Enable interrupt if needed before EOI" has been added to the 6.6-stable tree
+	b=iHyRGSdrqE1hUR7A3sGF7Vf7aj2Ze9Ryksmn54gK0eQYPBrkZz8x1NwChc4oZmNu6
+	 jGRLyU7jqM9/sUWzYUlSNr5c1fBFKNDsgcoudA+NwqwVnFvr5vl6jyw32ZUB0hCa60
+	 +5SLxkJ2cCNvslsSBHArhUiRmZzWVzzlUwxh7hoQ=
+Subject: Patch "irqchip/sifive-plic: Enable interrupt if needed before EOI" has been added to the 6.7-stable tree
 To: gregkh@linuxfoundation.org,guoren@kernel.org,linux-riscv@lists.infradead.org,maz@kernel.org,namcao@linutronix.de,palmer@dabbelt.com,paul.walmsley@sifive.com,samuel@sholland.org,tglx@linutronix.de
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
-Date: Mon, 26 Feb 2024 14:14:06 +0100
-Message-ID: <2024022605-sixteen-spinster-02d2@gregkh>
+Date: Mon, 26 Feb 2024 14:14:31 +0100
+Message-ID: <2024022631-subdivide-rage-2443@gregkh>
 MIME-Version: 1.0
 X-stable: commit
 X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240226_051435_800357_47C3870F 
+X-CRM114-CacheID: sfid-20240226_051542_136674_110F8A3A 
 X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,12 +72,12 @@ This is a note to let you know that I've just added the patch titled
 
     irqchip/sifive-plic: Enable interrupt if needed before EOI
 
-to the 6.6-stable tree which can be found at:
+to the 6.7-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
      irqchip-sifive-plic-enable-interrupt-if-needed-before-eoi.patch
-and it can be found in the queue-6.6 subdirectory.
+and it can be found in the queue-6.7 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
@@ -156,7 +156,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 Patches currently in stable-queue which might be from namcao@linutronix.de are
 
-queue-6.6/irqchip-sifive-plic-enable-interrupt-if-needed-before-eoi.patch
+queue-6.7/irqchip-sifive-plic-enable-interrupt-if-needed-before-eoi.patch
 
 _______________________________________________
 linux-riscv mailing list
