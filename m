@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B301C54798
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 16:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 199E1C5478C
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 16:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tjlG692egYSL/8xyf2F8MIOUmkWnuD/LtqaUX9aR1c0=; b=cVGaek4drMIswU
-	nDGfAjFTRRo1uaacABo1iAaZf6lRWiamjd+Ysj5k2wfw5NwoYt8sR7/KjY20iNE6jRX8/tUbLR/aZ
-	VmDb5iyN9WLMmqDBtNko1dtsTDyBhc//Zl0ACjUVK55sl5FEOZuMUrFqCwrAN/DjO/orsDE3qrYIl
-	50KYP+hV3J0V/IKG++dug71Vbm8aWcAewBV0goCnDuyHd142yAqhOujhgtJEY8z7xz8oy4yoV3WKE
-	JRbpDYgBIBdZUjbEbQJOr22LOeX+Pvh9lD6+xuf1HatC6h8SCt3LrXNoUeEjG44RC7KJMj1o4posf
-	SXWIb7Q5/HpHt89QHpOQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=cKTzsGtzbAKOOnae96uQWCmBu5uuKOVzRsvVpuTzGkg=; b=Ld+Ow62MlynqcyHlLOZ7UYYga4
+	HhOLd668PVoT34junon8wW/wKD7o/j3d0aVY5f7XvJ3rkPGL+ZKNirw5aLn8ejKOQOj94EIjX65jr
+	MYpEBe7YhSNz66X5P4g2AVoWoConejVNGdReFcJ6cO7lDvZUsXQBeOXJDmixZ5LYJxX8Elmqf7CCh
+	G2fZxqUYZVGso+ibRD6ZdtpQhyGId4/C7oynXkPHI5zzlzbnKhcDne0Z7JfyFmTGBPXPg3Y7ZaAeC
+	k9KuZpqbku6v+Swa9mnYmwRzoUjhpqiLtPtG3PHlYnrAEAvOxbTRPBaIKGwj7b9Nu+deg+Gt7zIMq
+	d6/3zx3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf0OC-00000005zO9-1uQ9;
-	Tue, 27 Feb 2024 16:33:08 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1rf0Tm-000000060kJ-44S9;
+	Tue, 27 Feb 2024 16:38:54 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf0O8-00000005zLn-1QlW
+	id 1rf0Tk-000000060im-1VCr
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Feb 2024 16:33:07 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1709051574;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SyV9bHeQYh2STSu1Aki+bC1PiR0RG4rZPyWUkh6MdoI=;
-	b=R0+sMRFv9b8X+E5PlHqAnffQ9ul2R0l+89oJsQQqPEMzobmGax2CGW1kgeoxp2g7FE7y/H
-	ZduHQ6oyjWkm9ZA5CLqotQqDCEtKhwhNagXbhtZj6x2P+eXwHgq8bn9YKdtPqmPMLZ9XkY
-	0M9kSqf3ORH7ZF9SDePLRmHMbqIQkX3kvhftVrbUGqMyDdK+NZuwrz7YR5i9fjoBUyHlEZ
-	SK+iNEKoWW3HFdwTwutyndjzwqx2Aso9GloWF+coyojZ7RwUTRw16z46SpvLt8Du7dXC26
-	ttqFrpCCC/bMioXhJFtXB4Q09O1kXf9MzyxWlYi+Q24GgLZuajw5i7BshrGUfw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1709051574;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SyV9bHeQYh2STSu1Aki+bC1PiR0RG4rZPyWUkh6MdoI=;
-	b=mfiDY1/jYFYVkT3N2Y3yq9fwkvbnzRzZ3jJHlKwl01nm/DAsIpCmKZZwXdjDRmVLCuGQl6
-	9QNGSBRBpVnBP7Cg==
-To: Xingyu Wu <xingyu.wu@starfivetech.com>, Daniel Lezcano
- <daniel.lezcano@linaro.org>, Emil Renner Berthing
- <emil.renner.berthing@canonical.com>, Christophe JAILLET
- <christophe.jaillet@wanadoo.fr>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, Rob
- Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Walker
- Chen <walker.chen@starfivetech.com>, Xingyu Wu
- <xingyu.wu@starfivetech.com>, linux-kernel@vger.kernel.org, Conor Dooley
- <conor@kernel.org>
-Subject: Re: [PATCH v8 2/3] clocksource: Add JH7110 timer driver
-In-Reply-To: <20231219145402.7879-3-xingyu.wu@starfivetech.com>
-References: <20231219145402.7879-1-xingyu.wu@starfivetech.com>
- <20231219145402.7879-3-xingyu.wu@starfivetech.com>
-Date: Tue, 27 Feb 2024 17:32:54 +0100
-Message-ID: <877cipamvd.ffs@tglx>
-MIME-Version: 1.0
+	Tue, 27 Feb 2024 16:38:53 +0000
+Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-3651c1e1022so17505885ab.0
+        for <linux-riscv@lists.infradead.org>; Tue, 27 Feb 2024 08:38:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1709051930; x=1709656730; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HBYvHRNVmUQHuF4u6D8aV99gBzMfLHOJu7wZkaD6DE8=;
+        b=wvcNiPDJXdQSlhxw4HmJeBNFwz9r1bTRgD2M6ce847NE96UGQCegxV/LlZYeBGKfQD
+         VSMiT86ifYcqFqfRWGdHo05FAhtoDVKi4oOcp7N/tM1Pxx5svEcSozv5zbb4gfCkz8tp
+         hKtwtqGUo+sTydz6xrSXvgXrqTQwBKlvWH7ciNcxrLblRdCw80ceuM2rC+WBtz9aE8Hx
+         iEwrDfwq4XgttsDItEmXUEZHTd8EQOmkF+7gCyldt9lpfpaaLbVsRw7ZC9SfQoOWLTf5
+         k+ohteiPV6H73culhc/2Kwt6SJ96ickYI/5Ai9rcmf6RUfec6JV+5G0p7CyO9lUyOuvK
+         KWJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709051930; x=1709656730;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HBYvHRNVmUQHuF4u6D8aV99gBzMfLHOJu7wZkaD6DE8=;
+        b=Z53AdjMDv6Dc96hNSVk71FZcNeb0yd92wlNr5ciRrtOJpX+IdKkUVv23jbN/qUrzWt
+         2fZm2q2JJ0wTODuHM+RMq5dday8LfFgnEIGyYhT4j8eLbV082FOTJncUgyKTJwIPtn20
+         geEEbMzJzKjOe8jkK2hR1DJuqoFwbs6Oj/G/bN2GmUNOJQh5RnrPl7VsCxiiUodbvZme
+         5Wc9koDlyJh8qdJWmZ+codxTOjJ/BfRfE22ulwCh70c9fG7Halw4CTcFjEYkkGHJu2HU
+         GQss0WyzV6UsOyyBDwub3cnqWHmkDlVyo+asm8dpMPlr20qq0M3Tj5hqaBBbMtzLsvFV
+         CiiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXuhy/DAgjaIoAoQ/R447Tlp659bIXwtLnSa6b2vq0lJksOFJU2/qS/KKuZidnwVwA1T+RcEXhBCqOeBe628uUSSQG81p5VNQ6ybAygNbHo
+X-Gm-Message-State: AOJu0Yw26zyFmT8PR3c31vN9nHnzKqCkZ5eCY8id99IFv68xvOS9yEFg
+	CtAYGlx0gyxWd4ngiC85Vc439f2GRzq6Hk8HOizw5niWeT8NWRDnrlz/pujXWYc=
+X-Google-Smtp-Source: AGHT+IF/piMzSGTcKm+9pvDU30C2+pCT5esgldW0sjMlovL7AeIarCO2Czmdb8PlN8+u1fgjCQQDcg==
+X-Received: by 2002:a05:6e02:1bce:b0:365:24d9:9477 with SMTP id x14-20020a056e021bce00b0036524d99477mr14656459ilv.15.1709051930522;
+        Tue, 27 Feb 2024 08:38:50 -0800 (PST)
+Received: from localhost ([50.213.54.97])
+        by smtp.gmail.com with ESMTPSA id ls22-20020a056a00741600b006e533caee00sm3465541pfb.155.2024.02.27.08.38.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Feb 2024 08:38:50 -0800 (PST)
+Date: Tue, 27 Feb 2024 08:38:50 -0800 (PST)
+X-Google-Original-Date: Tue, 27 Feb 2024 08:38:48 PST (-0800)
+Subject: Re: [PATCH] riscv: deprecate CONFIG_MMU=n
+In-Reply-To: <a49546e8-6749-4458-98da-67fd37b7df18@rivosinc.com>
+CC: lohr85@gmail.com, Conor Dooley <conor@kernel.org>, samuel.holland@sifive.com,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, ajones@ventanamicro.com,
+  dlemoal@kernel.org, Bjorn Topel <bjorn@rivosinc.com>, Atish Patra <atishp@rivosinc.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: cleger@rivosinc.com
+Message-ID: <mhng-a3b495e6-aca6-4137-a3c1-8fcacafd8596@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_083304_692465_4A7A9F02 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20240227_083852_566502_AF218393 
+X-CRM114-Status: GOOD (  31.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,178 +89,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 19 2023 at 22:54, Xingyu Wu wrote:
-> +
-> +struct jh7110_clkevt {
-> +	struct clk *clk;
-> +	struct reset_control *rst;
-> +	void __iomem *base;
-> +	u32 reload_val;
-> +	int irq;
-> +	char name[sizeof("jh7110-timer.chX")];
-> +};
-> +
-> +struct jh7110_timer_priv {
-> +	struct reset_control *prst;
-> +	struct device *dev;
-> +	struct jh7110_clkevt clkevt[JH7110_TIMER_CH_MAX];
-> +};
-
-Please format your data structures according to documentation:
-
-https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#struct-declarations-and-initializers
-
-> +/* IRQ handler for the timer */
-> +static irqreturn_t jh7110_timer_interrupt(int irq, void *data)
-> +{
-> +	struct clock_event_device *evt = data;
-> +	struct jh7110_clkevt *clkevt = &jh7110_timer_info.clkevt[0];
-> +	u8 cpu_id = smp_processor_id();
-> +	u32 reg = readl(clkevt->base + JH7110_TIMER_INT_STATUS);
-
-https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#variable-declarations
-
-> +	/* Check interrupt status and channel(cpu) ID */
-> +	if (!(reg & BIT(cpu_id)))
-> +		return IRQ_NONE;
-> +
-> +	clkevt = &jh7110_timer_info.clkevt[cpu_id];
-> +	writel(JH7110_TIMER_INT_CLR_ENA, (clkevt->base + JH7110_TIMER_INT_CLR));
-> +
-> +	if (evt->event_handler)
-> +		evt->event_handler(evt);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int jh7110_timer_set_periodic(struct clock_event_device *evt)
-> +{
-> +	struct jh7110_clkevt *clkevt = JH7110_PERCPU_GET_CLKEVT;
-> +
-> +	writel(JH7110_TIMER_MODE_CONTIN, clkevt->base + JH7110_TIMER_CTL);
-> +	return 0;
-> +}
-> +
-> +static int jh7110_timer_set_oneshot(struct clock_event_device *evt)
-> +{
-> +	struct jh7110_clkevt *clkevt = JH7110_PERCPU_GET_CLKEVT;
-> +
-> +	writel(JH7110_TIMER_MODE_SINGLE, clkevt->base + JH7110_TIMER_CTL);
-> +	return 0;
-> +}
-> +
-> +static int jh7110_timer_set_next_event(unsigned long next,
-> +				       struct clock_event_device *evt)
-> +{
-> +	struct jh7110_clkevt *clkevt = JH7110_PERCPU_GET_CLKEVT;
-> +
-> +	writel(JH7110_TIMER_MODE_SINGLE, clkevt->base + JH7110_TIMER_CTL);
-> +	writel(next, clkevt->base + JH7110_TIMER_LOAD);
-> +
-> +	return jh7110_timer_start(clkevt);
-> +}
-> +
-> +static DEFINE_PER_CPU(struct clock_event_device, jh7110_clock_event) = {
-> +	.features = CLOCK_EVT_FEAT_PERIODIC | CLOCK_EVT_FEAT_ONESHOT,
-> +	.rating = JH7110_CLOCKEVENT_RATING,
-> +	.set_state_shutdown = jh7110_timer_shutdown,
-> +	.set_state_periodic = jh7110_timer_set_periodic,
-> +	.set_state_oneshot = jh7110_timer_set_oneshot,
-> +	.set_state_oneshot_stopped = jh7110_timer_shutdown,
-> +	.tick_resume = jh7110_timer_tick_resume,
-> +	.set_next_event = jh7110_timer_set_next_event,
-> +	.suspend = jh7110_timer_suspend,
-> +	.resume = jh7110_timer_resume,
-> +};
-
-See formatting rules.
-
-> +static int jh7110_timer_starting_cpu(unsigned int cpu)
-> +{
-> +	struct clock_event_device *evt = per_cpu_ptr(&jh7110_clock_event, cpu);
-> +	struct jh7110_timer_priv *priv = &jh7110_timer_info;
-> +	int ret;
-> +	u32 rate;
-> +
-> +	if (cpu >= JH7110_TIMER_CH_MAX)
-> +		return -ENOMEM;
-> +
-> +	ret = clk_prepare_enable(priv->clkevt[cpu].clk);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = reset_control_deassert(priv->clkevt[cpu].rst);
-> +	if (ret)
-> +		return ret;
-> +
-> +	rate = clk_get_rate(priv->clkevt[cpu].clk);
-> +	evt->cpumask = cpumask_of(cpu);
-> +	evt->irq = priv->clkevt[cpu].irq;
-> +	evt->name = priv->clkevt[cpu].name;
-> +	clockevents_config_and_register(evt, rate, JH7110_TIMER_MIN_TICKS,
-> +					JH7110_TIMER_MAX_TICKS);
-> +
-> +	ret = devm_request_irq(priv->dev, evt->irq, jh7110_timer_interrupt,
-> +			       IRQF_TIMER | IRQF_IRQPOLL,
-> +			       evt->name, evt);
-
-How is this all supposed to work from a CPU hotplug state callback which
-runs in the early bringup phase with interrupts disabled? clk_prepare()
-which is invoked from clk_prepare_enable() can sleep and
-devm_request_irq() can sleep too.
-
-Did you ever test this with the required debug config options enabled?
-
-  https://www.kernel.org/doc/html/latest/process/submit-checklist.html
-
-Obviously not.
-
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = irq_set_affinity(evt->irq, cpumask_of(cpu));
-> +	if (ret)
-> +		return ret;
-> +	/* Use one-shot mode */
-> +	writel(JH7110_TIMER_MODE_SINGLE, (priv->clkevt[cpu].base + JH7110_TIMER_CTL));
-> +
-> +	return jh7110_timer_start(&priv->clkevt[cpu]);
-> +}
-> +
-> +static void jh7110_timer_release(void *data)
-> +{
-> +	struct jh7110_timer_priv *priv = data;
-> +	int i;
-> +
-> +	for (i = 0; i < JH7110_TIMER_CH_MAX; i++) {
-> +		/* Disable each channel of timer */
-> +		if (priv->clkevt[i].base)
-> +			writel(JH7110_TIMER_DIS, priv->clkevt[i].base + JH7110_TIMER_ENABLE);
-> +
-> +		/* Avoid no initialization in the loop of the probe */
-> +		if (!IS_ERR_OR_NULL(priv->clkevt[i].rst))
-> +			reset_control_assert(priv->clkevt[i].rst);
-> +
-> +		if (!IS_ERR_OR_NULL(priv->clkevt[i].clk))
-> +			clk_disable_unprepare(priv->clkevt[i].clk);
-
-Same problem. And of course this does not undo the other steps of
-jh7110_timer_starting_cpu() so if you offline a CPU and then online it
-again the callback will fail because the clockevent is already
-registered and the interrupt requested. Clearly untested too.
-
-Thanks,
-
-        tglx
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAyNyBGZWIgMjAyNCAwMToxMTo0MSBQU1QgKC0wODAwKSwgY2xlZ2VyQHJpdm9zaW5j
+LmNvbSB3cm90ZToKPgo+Cj4gT24gMjYvMDIvMjAyNCAyMDowMCwgQ2hhcmxlcyBMb2hyIHdyb3Rl
+Ogo+PiBXT0FIISBQbGVhc2UgRE8gTk9UIGRlcHJlY2F0ZSBOT01NVS4gSSB1c2UgdGhlIE5PTU1V
+IGJ1aWxkIGNvbnN0YW50bHkKPj4gYW5kIE5PTU1VIExpbnV4IG9uIFJJU0MtViBpcyB0aGUgYXZl
+bnVlIHVzZWQgYnkgbWFueSBGUEdBIHNvZnQgY29yZXMKPj4gZm9yIExpbnV4LCBhcyB3ZWxsIGFz
+IHNvbWUgbGltaXRlZCBzeXN0ZW1zLgoKT0suCgpJIGp1c3QgYnVpbGQgdGVzdCB0aGlzIHN0dWZm
+LCBhcyBJIGRvbid0IHJlYWxseSBoYXZlIGEgdXNlIGZvciBpdCAKcGVyc29uYWxseS4gIEkgZmln
+dXJlZCBpZiBub2JvZHkncyByZXBvcnRpbmcgYnVncyB0aGVuIHByb2JhYmx5IGl0J3MgCmJyb2tl
+biBhbmQgbm9ib2R5J3Mgbm90aWNlZCBiZWNhdXNlIG5vYm9keSdzIHVzaW5nIGl0LgoKPj4gSSBn
+ZXQgbmV3IGNvcGllcyBvZiB0aGUga2VybmVsIHdoZW4gdGhlcmUgYXJlIHJlbGVhc2VzIGFuZCB0
+ZXN0IHRoZW0KPj4gZnJlcXVlbnRseSB0byBtYWtlIHN1cmUgZXZlcnl0aGluZyBpcyBzdGlsbCB3
+b3JraW5nIGFzIGV4cGVjdGVkLgoKSSdkIGFjdHVhbGx5IGV4cGVjdGVkIGl0IHRvIGJlIGJyb2tl
+biwgYnV0IEkgZ3Vlc3Mgd2UgbWFuYWdlZCB0byBhdm9pZCAKc2NyZXdpbmcgdGhpbmdzIHVwIDsp
+Cgo+PiBGb3IgdXMgd2UganVzdCBkb24ndCBjYXJlIGFib3V0IFhJUC4gSSBtZWFuIGlmIHNvbWVv
+bmUgZGlkIHB1c2ggaXQKPj4gdGhyb3VnaCB0byBmcnVpdGlvbiwgSSdkIGFsc28gdGVzdCBhbmQg
+dXNlIGl0LCBidXQgSSB1cmdlIHlvdSBwbGVhc2UKPj4gZG8gbm90IGRlcHJlY2F0ZSB0aGlzLiAg
+V2hpbGUgaXQncyBzb21ldGltZXMgbmVlZGVkIGEgYml0IG9mIGEKPj4gY3JlYXRpdmUgYnVpbGQg
+dG8gZ2V0IGV2ZXJ5dGhpbmcgd29ya2luZywgSSd2ZSBuZXZlciBuZWVkZWQgdG8gcGF0Y2gKPj4g
+YW55dGhpbmcgaW4gdGhlIGtlcm5lbCBiZXlvbmQgcGF0Y2hpbmcgaW4gYSBjdXN0b20gY29uc29s
+ZSBmb3Igc2VyaWFsCj4+IG91dHB1dC4KPj4KPgo+IEhleSBDaGFybGVzLAo+Cj4gTm8gd29ycmll
+cywgd2UgYWN0dWFsbHkgZGlkIG5vdCBleHBlY3RlZCBOT01NVSB0byBoYXZlICpzbyBtYW55KiB1
+c2Vycy4KPiBJIGd1ZXNzIGRlcHJlY2F0aW5nIHN0dWZmIGlzIGEgZ29vZCB3YXkgdG8gaGF2ZSBp
+bW1lZGlhdGUgZmVlZGJhY2sgOykuCj4gSGF2aW5nIEZEUElDIHBzQUJJIHRvIGJlIG1lcmdlZCB1
+cHN0cmVhbSBjb3VsZCBhbHNvIHByb2JhYmx5IGJlIGEKPiBwb3NpdGl2ZSBwb2ludCB0b3dhcmQg
+YSBiZXR0ZXIgTk9NTVUgc3VwcG9ydC4KCllhLCB0aGF0J3MgcHJvYmFibHkgdGhlIHJpZ2h0IHdh
+eSB0byBkbyBpdC4gIFRvdWNoaW5nIGFueXRoaW5nIGluIHRoZSAKcHNBQkkgaXMgcHJldHR5IG1p
+c2VyYWJsZSwgdGhvdWdoLCBzbyBJIGRvbid0IHJlYWxseSB3YW50IHRvIGZvcmNlIApwZW9wbGUg
+dG8gZG8gaXQuLi4KCj4+IEkgYW0gaGFwcHkgdG8gZGlzY3VzcyB0aGUgcG9zc2liaWxpdHkgb2Yg
+bWUgYW5kIG9yIG9uZSBvZiB0aGUgb3RoZXIKPj4gUklTQy1WIHNvZnQgKEZQR0EpIGNvcmUgcGVv
+cGxlIHN0ZXBwaW5nIHVwIHRvIHRyeSB0byBiZSBtb3JlIGFjdGl2ZSwKPj4gYnV0IHNvIGZhciB3
+ZSd2ZSBqdXN0IGJlZW4gdmVyeSB3ZWxsIHNlcnZpY2VkIGJ5IHRoZSBjdXJyZW50IE5PTU1VCj4+
+IExpbnV4IHNldHVwLgo+Cj4gSXQgY291bGQgcHJvYmFibHkgYmUgbmljZSB0byBoYXZlIHNvbWUg
+ZmVlZGJhY2svVGVzdGVkLWJ5OiBmcm9tIE5PTU1VCj4gdXNlcnMgZm9yIG5ldyByZWxlYXNlcyB0
+aGVuLgoKSGF2aW5nIG1vcmUgdXBzdHJlYW0gaW50ZXJhY3Rpb24gZnJvbSB1c2VycyBpcyBhbHdh
+eXMgYXBwcmVjaWF0ZWQsIAp0aGF0J3MgdGhlIGJlc3Qgd2F5IHRvIHByb3ZlIHBlb3BsZSBhcmUg
+dXNpbmcgdGhlIGNvZGUuICBJZiB5b3UgZ3V5cyAKaGF2ZSB0aGUgdGltZSBpdCdkIGJlIGdyZWF0
+IHRvIGdldCB0aGlzIGludG8gc29tZSBzb3J0IG9mIENJLCBpZGVhbGx5IApydW5uaW5nIG9uIHNv
+bWUgcmVhbCBwbGF0Zm9ybS4KCj4gVGhhbmtzLAo+Cj4gQ2zDqW1lbnQKPgo+Pgo+PiBDaGFybGVz
+Cj4+Cj4+Cj4+IE9uIE1vbiwgRmViIDI2LCAyMDI0IGF0IDg6MDPigK9BTSBDb25vciBEb29sZXkg
+PGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+Pj4KPj4+IE9uIE1vbiwgRmViIDI2LCAyMDI0IGF0
+IDA0OjI1OjI0UE0gKzAxMDAsIENsw6ltZW50IEzDqWdlciB3cm90ZToKPj4+PiBJIGd1ZXNzIEkg
+Y291bGQgYWxzbyBtYXJrIFhJUCBhcyBkZXByZWNhdGVkLgo+Pj4KPj4+IEknbSBub3Qgc28gc3Vy
+ZSwgcGVvcGxlIHJlY2VudGx5IGFkZGVkIFhJUCBzdXBwb3J0IHRvIFFFTVUgKGFuZCBzZW50Cj4+
+PiBrZXJuZWwgZml4ZXMgaW4gRGVjZW1iZXIpLiBYSVAgaXMgYWxzbyBub3QgbmVhcmx5IGFzIG11
+Y2ggb2YgYSBwcm9ibGVtCj4+PiB0byBzdXBwb3J0LCB0aGVyZSdzIGZhciBsZXNzIHRoYXQgaXQg
+ZG9lcyBkaWZmZXJlbnRseSwgdGhlIG1haW4gYmFycmllcgo+Pj4gd2FzIHRoZSBpbmFiaWxpdHkg
+dG8gdGVzdCBpdCB3aGljaCBpcyBubyBsb25nZXIgdGhlIGNhc2UuCj4+PiBUaGF0IHNhaWQsIFhJ
+UCBpcyBnb25uYSBraWxsIGl0c2VsZiBvZmYgSSBmZWVsIGFzIGl0IGRvZXMgbm90IHN1cHBvcnQK
+Pj4+IHJ1bnRpbWUgcGF0Y2hpbmcgYW5kIHRoZXJlZm9yZSBpcyBleHRyZW1lbHkgbGltaXRlZCBv
+biBleHRlbnNpb25zLCBnaXZlbgo+Pj4gd2UgdXNlIGFsdGVybmF0aXZlcyBmb3IgYWxsIG9mIHRo
+YXQgKGFsdGhvdWdoIEkgc3VwcG9zZSBpZiBzb21lb25lIGhhcyBhCj4+PiB1c2VjYXNlIHRoZXkg
+Y291bGQgbWFrZSBuYXN0eSBtYWNyb3Mgd29yc2UgYW5kIGltcGxlbWVudCBhIGNvbXBpbGV0aW1l
+Cj4+PiBzd2l0Y2ggaW4gdGhlIGFsdGVybmF0aXZlcyB0b28pLgo+Pj4KPj4+IENoZWVycywKPj4+
+IENvbm9yLgo+Pj4KPj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCj4+PiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPj4+IGxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKPj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
