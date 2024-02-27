@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 586DEC5478C
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 12:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282E8C54798
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 12:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H34DPRNoYzB0sKuVPbIskrPdiJ9yxrGmOw3YX2bsfjM=; b=WaHy92xXM/qh+z
-	1NbiV3WJtq1Qg4gvSszvS/VKcg6jvkz5picpmCr3fF23ndWk/XZvuKt7JhUofJf+yH3xjR3pCj9C1
-	xDcXQ/naP/EfFs8e+FDgiRjkJOw1ce++T1ZT/oKJSG77dHvDToIVjqCzzD9Zb9yvXS5MAtnKP8DRO
-	7xPkT4sLbcbM0kcTV31A3Th8OWysN3k7Z7Jhfvt3Nd+PKgfITZBzOgm1OSAs3Bcp7/wdyFDPOAMy7
-	bkhbyp7pEqwHf15G9GQJnvUsF21aHat5sRsPqnij/rymUaq6WU2A7VUmf6jaSh6aB83v8WSepB/sv
-	mqptbaKr/XvJMQ5aM+xw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7f6n2sT/28aDfo0mTZOUK4VZhca9R1tckn06Juws/T4=; b=VAmlxVrREyEsS0weS0h4MYgxEh
+	2sbiEv9/hyM7tZEqITNGU0KJmtTMjkh+yrqrs/vEkmEEwv8kSisKZl0W4enEvcvlUjgX59KV6K+Gp
+	aeReZNaknVwEbSNb0FjMCEdH9Cb41JCD5B4YL58/MvRXh/IOiiB/gNVf0bV6OIVNl9DK5n4OXApwj
+	RCD6OPJCTLH2jCkn1lxOfSXMdxD35KD/g67pKQHcq15PKK2gQwJUnnuFkP9SwkmOJn1nvi2XLYKON
+	5l71RXfEgwAadKSM1wv1w8M3ovdet8U2cMhjihJW9S79HiBDyRpbwxmIOSyKMFSfrATrrJ3FntyWv
+	dNzpIpfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rewLg-000000056xV-2COo;
-	Tue, 27 Feb 2024 12:14:16 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1rewMZ-000000057d8-2tgO;
+	Tue, 27 Feb 2024 12:15:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rewKY-00000005632-1rIb
+	id 1rewMJ-000000057Sh-443F
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 27 Feb 2024 12:14:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=77Bq2jOnqM0lJEjXQ9w5yraQAp1L7LHW/ihqVcm9RPo=; b=lOiQiXZR0B9h1cujqsYaNJ5t5L
+	U4CLeRbk3OXS6PnjadtlHnw0tvsfWjhXHkWj6Y5TUfYQQnjcAnEgtffYNrd38NfyfL0JKq65/jol3
+	/ou6igY19GSgsT5iW9bqik/aV38vlcoArPXUxdNHGNpuyWBHdRMEqgpl3SiA+WpxelWocqYW6CrXH
+	p28H/6UYUao1AdrX0qtqvGLDMfldvuLhCem/I466Mt8c1Yc60yDdobaf0JN/lojFKOPquA2CpEq6B
+	wD1NqwJTJxHN3QAmcA+WIeneFZZfXDTVCkj3Mrgxf6QN+HvNq42lvn317XuI2weLoS4V0EPulX2pZ
+	JVf4D1OA==;
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rewMG-00000001jsE-1m13
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Feb 2024 12:13:08 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-299dba8fd24so2252808a91.2
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Feb 2024 04:13:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1709035984; x=1709640784; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PNfuFy5Ba+D5qLkPXV/F9tZVKt/ke8CC3TLHGloyd2k=;
-        b=gQ4zLWBhoRla3Yt4wll8tOV4HdF39TOAZp6Zv0l4gzb7YLFqHdyxp9zztidO3RSZd4
-         SNx8fpnBKPdc9UZ+KEZhe3alaq/RxL2QiwJin0/8c9tKjQP0CsXEiZfWqXC6ocOdZCrU
-         q45Zelk8qQKl+0pW/85oEazUVOZQD87gMu+rkuzSk0kJVhL5qzNIV/AubyFM6FyRig2i
-         KBZsojEaP9u++K9zD77fcCKqPu8S5uWAKlV4ym72urCXRurNvUODOF99DyOiaQ0rSGZn
-         I8DBJlL0EVqVfMFBET6uqdm2xRR0vcZ9uD87IQezVQ+blsc6sHl11YUQHcL+8uNynFUK
-         vbnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709035984; x=1709640784;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PNfuFy5Ba+D5qLkPXV/F9tZVKt/ke8CC3TLHGloyd2k=;
-        b=H0JNI5Z+9Z8iHaihSpWgHooyiuHZFGA4VAlPh0l3dqAzsryXzuTZ4OhKrJme4P3/45
-         J0swStkkw0qCCBcIX4NQHBw+BiigNQ9dn2JXpeFbpfkqjsyqUANtwwLHbZI1MchbHErc
-         g12cXCibczq7iiyD3nIz3Eetmwk2IqoPjXIEgmAobEHcyl/E+4v1BBnccNeJY1fWUtcJ
-         NPEl0RE8CUyotjM44CBer6jzVZ/3BNlxlnxU81zQZPVqFopUtnLTG8XOAl1pZhqJF96d
-         kenxunhFAWQLAHnTWePmaXJZN0sdTaW2JGGYIlNByCrVm6wN5d15G27Pkd3FB7evIfHo
-         bxqA==
-X-Forwarded-Encrypted: i=1; AJvYcCUDCyuUuZjOdaHAH0he86lFhDjofHNh8M3B4uLd689AtGUgcFqGoPGPBD0ZfGiAQI6fjqUMNz+9ng8kOvKIVj4XB9hTvO30qA0oReVlJcIP
-X-Gm-Message-State: AOJu0YxAggW26/XCXz8TBAyXLLyvD2LmmT0pdRtLch1MYRHnhZ4UMWPk
-	+wmLOhkS1FbIwqDggVoWk4Dv7v+U3joRsJ12XFCO52It9hSfEFezA7HXLUg7XBhLV0YoHGjDa1Z
-	NWRai2yi9j78ioG2xsdA1sh3/7T4=
-X-Google-Smtp-Source: AGHT+IEZrxxC5KTd1mUmyNpa02ckU0dvc0XT6naKz7W71hSie5HLJAV5L6JVbDjYli/t99gdzmOA0c0J+BbxKw9TRZg=
-X-Received: by 2002:a17:90a:1b85:b0:299:6a7f:3f55 with SMTP id
- w5-20020a17090a1b8500b002996a7f3f55mr6019384pjc.45.1709035984277; Tue, 27 Feb
- 2024 04:13:04 -0800 (PST)
+	Tue, 27 Feb 2024 12:14:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1709036092; x=1740572092;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=fSrXRCpTEpQRkMIDKSjqJaiu1Qp1gr1z2GJ9vNCAs4U=;
+  b=ksraICjaTEBh3HbfZH3vMA8/emppzS6paAKMjLnGcPjvvHKm/QtpVpIz
+   t73KrQZrKOupLnZlqLlUaDcmVT0bClvKUd0kO55N9Hi42qiQYwnzYjILJ
+   aDj5R0xgZTlj9O8YgIzCBUWscjdI7s86dD3dmWre/9XfwJrq3b6I9rHsH
+   js+MU5Q3xYHpkEBMDEenNItKmvKLcyhNo4b/VXVhSGZbBfOydrhfkcKR/
+   zveol4FFI76b7xHhsz82uSP714f2O4nkOnjpNPVvGM9wncLolM4NLsxZ8
+   fNlcNS5eQuJcBAtS4FxOWiAcC95SxBG0CnInhv2+BywILiWvKrVHmSq9m
+   g==;
+X-CSE-ConnectionGUID: EC6mGCUkTgeb01x5BvwdWA==
+X-CSE-MsgGUID: AaXkTeu7TIif8MCz6FcBNA==
+X-IronPort-AV: E=Sophos;i="6.06,187,1705388400"; 
+   d="asc'?scan'208";a="16882459"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2024 05:14:37 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 27 Feb 2024 05:14:28 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Tue, 27 Feb 2024 05:14:28 -0700
+Date: Tue, 27 Feb 2024 12:13:45 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Samuel Holland <samuel.holland@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 0/4] riscv: 64-bit NOMMU fixes and enhancements
+Message-ID: <20240227-footage-porridge-949a43ee8ecb@wendy>
+References: <20240227003630.3634533-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
-References: <20240223-leverage-walmart-5424542cd8bd@spud> <20240223-employee-pessimism-03ba0b58db6b@spud>
- <CANiq72ngEZskjH0f=8+cJuQsFTK227bGCxe5G0STMHuPbZYnXg@mail.gmail.com>
- <20240227-resolved-deceit-4a59a6af5b71@wendy> <CANiq72mwM+4Oh-H5WmRoqQ_nE1w-eJ1wn-nEwS=BR9JRwzxMMQ@mail.gmail.com>
- <20240227-glove-underwire-f562a56cf2c7@wendy>
-In-Reply-To: <20240227-glove-underwire-f562a56cf2c7@wendy>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Tue, 27 Feb 2024 13:12:51 +0100
-Message-ID: <CANiq72=f03_bw9B8ww8UxHkVyP2F7ZPyvC+KWCyhO3Nk1yqdaw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] scripts: generate_rust_target: enable building on RISC-V
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
-	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, 
-	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+In-Reply-To: <20240227003630.3634533-1-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_041306_651167_268D99D6 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20240227_121453_015632_06569C9B 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,26 +95,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============1851690337237279508=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBGZWIgMjcsIDIwMjQgYXQgMTI6MDXigK9QTSBDb25vciBEb29sZXkKPGNvbm9yLmRv
-b2xleUBtaWNyb2NoaXAuY29tPiB3cm90ZToKPgo+IE15IHBvaW50IHRob3VnaCB3YXMgbW9yZQo+
-IHRoYXQgZWl0aGVyIHRoaXMgd2FzIGFjY2VwdGFibGUgZm9yIHY2Ljkgb3Igd291bGQgYmUgdjYu
-MTAgbWF0ZXJpYWwKPiB3aXRoIHRoZSBzYW1lIG1lY2hhbmlzbSBhcyBhcm02NC4gUmViYXNpbmcg
-YWZ0ZXIgdjYuOS1yYzEgYnV0IG5vdAo+IGFkYXB0aW5nIHRvIHRoYXQgd2F5IG9mIGRvaW5nIHRo
-aW5ncyBpcyB3aGF0IHNlZW1lZCBzaWxseSB0byBtZSwgc2luY2UKPiBpZiBhIHJlc2VuZCBpcyBy
-ZXF1aXJlZCB0aGVuIHRoZSBvdGhlciBpbXByb3ZlbWVudHMgc2hvdWxkIGJlIGNhcnJpZWQKPiBv
-dXQgYXQgdGhlIHNhbWUgdGltZS4KCklmIGF2b2lkaW5nIHRoZSBgdGFyZ2V0Lmpzb25gIGlzIHBv
-c3NpYmxlLCBkZWZpbml0ZWx5LgoKSSBkaWRuJ3Qgd2FudCB0byBhc3N1bWUgaXQgaXMsIHRob3Vn
-aCAtLSBlLmcuIHRoZSBuYXRpdmUgaW50ZWdlcgp3aWR0aHMgeW91IGhhdmUgaXMgNjQgYnV0IHRo
-ZSBidWlsdC1pbiB0YXJnZXRzIHVzZSAzMjo2NCAocGVyaGFwcwp0aGVyZSBpcyBhIHdheSB0byB0
-d2VhayBpdCB3aXRoIGFuIExMVk0gcGFyYW0gdmlhIGAtQ2xsdm0tYXJnc2AsIGJ1dCBJCmRvbid0
-IHNlZSBhbnkgb2J2aW91cyB3YXkgZnJvbSBhIHF1aWNrIGxvb2s7IGBvcHRgIGRvZXMgaGF2ZSBp
-dCwKdGhvdWdoKS4KCihUaGF0IGlzIHdoeSB3ZSBzdXBwb3J0ZWQgYHRhcmdldC5qc29uYCwgc2lu
-Y2UgaXQgZ2l2ZXMgdGhlIG1vc3QKZnJlZWRvbSBpbiB0aGUgYmVnaW5uaW5nLikKCkNoZWVycywK
-TWlndWVsCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+--===============1851690337237279508==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="CO1sGIa2Mft349oV"
+Content-Disposition: inline
+
+--CO1sGIa2Mft349oV
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Feb 26, 2024 at 04:34:45PM -0800, Samuel Holland wrote:
+> This series aims to improve support for NOMMU, specifically by making it
+> easier to test NOMMU kernels in QEMU and on various widely-available
+> hardware (errata permitting). After all, everything supports Svbare...
+>=20
+> After applying this series, a NOMMU kernel based on defconfig (changing
+> only the three options below*) boots to userspace on QEMU when passed as
+> -kernel.
+>=20
+>   # CONFIG_RISCV_M_MODE is not set
+>   # CONFIG_MMU is not set
+>   CONFIG_NONPORTABLE=3Dy
+>=20
+> *if you are using LLD, you must also disable BPF_SYSCALL and KALLSYMS,
+> because LLD bails on out-of-range references to undefined weak symbols.
+
+That's not new to these patches though, right? IIRC that's an existing
+issue.
+
+Cheers,
+Conor.
+
+>=20
+>=20
+> Samuel Holland (4):
+>   riscv: Fix TASK_SIZE on 64-bit NOMMU
+>   riscv: Fix loading 64-bit NOMMU kernels past the start of RAM
+>   riscv: Remove MMU dependency from Zbb and Zicboz
+>   riscv: Allow NOMMU kernels to run in S-mode
+>=20
+>  arch/riscv/Kconfig               | 17 ++++++++++-------
+>  arch/riscv/include/asm/page.h    |  2 +-
+>  arch/riscv/include/asm/pgtable.h |  2 +-
+>  arch/riscv/mm/init.c             |  2 +-
+>  4 files changed, 13 insertions(+), 10 deletions(-)
+>=20
+> --=20
+> 2.43.0
+>=20
+
+--CO1sGIa2Mft349oV
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd3R+QAKCRB4tDGHoIJi
+0n0qAP4husn7Rq5mjuLx/yxtyV7nKMyhO3tT1JDLr71TEIcUmAD/a+xbAGs6K7dA
+FvSbJPEadfhLnQI2kFIU0j/68ieDFwM=
+=prhB
+-----END PGP SIGNATURE-----
+
+--CO1sGIa2Mft349oV--
+
+
+--===============1851690337237279508==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1851690337237279508==--
+
