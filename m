@@ -4,132 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 470B6C54798
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 11:46:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE0EC5478C
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 11:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e9tYAIsIYkkF6XEsT6G3zRybMUFw9+K2mSo98pp3CxI=; b=eBd86q35eCrunP
-	KXwHKGfkhtSsqkw82WgjDPOUD83e8nRCIPvRSFEOiBFv2ujnKlswsG8pODS/cYR0kYD0RBGvHeC/p
-	t6gjRXwq+Zla8Zelo3ONoGm9jgY2cTcthXhpgmDyPP/CX3pYn5/pSMyfNnl0pZ+ay4zOxFMwQw9kZ
-	PEYZrQX2xTPo0rlii5Ja8j0FueSjcO/Uh4wZ1X65QxctKWH6+MJO4cPAXShzsKqX43HyvbpBSr8QX
-	k3hISER8Pj6LkYnEySSD1cx5x7fbha20fZCQKUILzfTIEHZf9Bd7kBmh5V5S519YCPm771GDHFtjB
-	81MRS58yb7lOVTKx1tIQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cDQuYaalg3NIPT1nFdHGzuYp/E2Cberu9mqW3uW4V4o=; b=MOTCNZYSsBh2NUGX18D7hs66ft
+	7h0Z5aQoFAJkzAmdKhkuBeOHzrCrBVy8SBShof2xfKlNt0auEIrqke6OaeUcBwmuPPv7m0+v4k5xG
+	1SXFptbZ5xoSclFd0uVUTR6SI5Jc9xENnxGx1tbf+qSXu1/tyB2n2w0I1XxHFkLwS8O+vGgs1es6z
+	EVccW1nN4FiIpmGaLXRtOGZAHZhZ8jhMoq8JDNoEsvKtZHFIAG3t/0NwocM+joQR0PmFltQTnGgXs
+	kdTIi7hHuv3C1H/vdbVAxSGbKGESD5hTvQSDhtflgLJCixbHGCkw8klNysTSdhemlSPHfzkE27W6J
+	hA2mW/Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1revus-00000004ze9-3pGl;
-	Tue, 27 Feb 2024 11:46:34 +0000
-Received: from mail-bjschn02on2072e.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::72e] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1rew1X-0000000511n-21wT;
+	Tue, 27 Feb 2024 11:53:27 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reuoe-00000004lEl-1aAU
+	id 1rew1F-000000050ss-0ZB9
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Feb 2024 10:36:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=R8bVlD3BDnFai3IZ76+eknamDp3QJrGDqaBSLhIcjfiEtG9Td7Z5cgCQ6ZF91eEWjWuPM2v/RwUoaUqPR/7IjxkTJaeq+xLtKrCND4DKI2blHYFzyLldpH7EdBguMkBwAZFmOVO4LgBxiOLxb4iuipbhWjhh1apWE8BSPzntTIA10DLp72NUxLVWb2WSYk4qUOSgK5VkgbqwT5/9rOPekxe94ooHjGPyMxLOhi2ASssHane5nVr3a4DZ0be9x8NICBeQeGua0pbEZn21Sv8LIBZkUIBAlOXdNKyMttEjflmj9DePtyKwuIcXLQW4o9vaiQLQuyZjG+KCJdYt09vNZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dKh7nmkaSdzB3ghyDF6RJecUyhtYIfwA0UmbLzDOakc=;
- b=S8VfzSQf/F9zasoBp60TH86cppt6YH4bD0beKqYDtCJat/NUVMep5o5tnS5nvxq1wBbYbqb4t/SLkP8rhmAeiYjFtCt4N+dfuK2NX+kCAOIkc8djJTrNfUThygyR3SAeKAjB7khSb2/jgrng3+R49oyXD69RxNwRebjm+oBDKRd3LeT6zH777Zg7OR3fQVM7SHsJ8kuDBJ7SE1GWPsyQxPQf22Cb6sM7K7rff68qhTn8a+96q79daUjCggk6F99hFieVuwhnn+SfEsWV3acMg7ecij1zPzCPbKsXxVdnS9QmDHViqog37JEh0FpnAcb5yKvcM0+gEuVwwEtdc9zVAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:25::15) by SHXPR01MB0496.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:1f::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.47; Tue, 27 Feb
- 2024 10:35:49 +0000
-Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- ([fe80::5a5a:fa59:15fd:63dc]) by
- SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::5a5a:fa59:15fd:63dc%3])
- with mapi id 15.20.7270.047; Tue, 27 Feb 2024 10:35:49 +0000
-From: Minda Chen <minda.chen@starfivetech.com>
-To: Conor Dooley <conor@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>,
-	Minda Chen <minda.chen@starfivetech.com>
-Subject: [PATCH v15,RESEND 19/23] dt-bindings: PCI: Add StarFive JH7110 PCIe controller
-Date: Tue, 27 Feb 2024 18:35:18 +0800
-Message-Id: <20240227103522.80915-20-minda.chen@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20240227103522.80915-1-minda.chen@starfivetech.com>
-References: <20240227103522.80915-1-minda.chen@starfivetech.com>
-X-ClientProxiedBy: NT0PR01CA0003.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510::15) To SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:25::15)
+	Tue, 27 Feb 2024 11:53:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1709034789; x=1740570789;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=QpM2Gj+iE1842oLmR/JSz14T461jLNYwC4WotBRHz8w=;
+  b=ZTsDYbfTO+AsrHOaIejSbOlZ+tDEZ2deusk0O/Ki7tO9jD9Rw0BD70E0
+   t/bk1b5SLcdLbDIAnv9gYef5+ZIXyfU+9qVU+UkIMk0LJH5NhPFf8U5Jt
+   FvbDZVokMfyy0Tqm1jKgbj437fWHhALRzGshyZItrJwy8ByUZr7g8Zena
+   oRjT62sMwEfEl2P6tYIsGFNuRGnmCMydRN5ojRbAQFtWFcEJA9SSNgzfP
+   ccTsu3RETNefv/NzRJ+7jV7+p7SjifDnlOsWACm8U3dQQA93CtdL/6Eot
+   kvVHjsbdnlMwunlgjFWE+AJkOE8HEM8/wH4jz6ac5Tf8Tm9rspw9dOZ5a
+   w==;
+X-CSE-ConnectionGUID: OPUfXbZxS9CqWDIW5F1xSQ==
+X-CSE-MsgGUID: RWzb322QQCeBS6neIPwO3w==
+X-IronPort-AV: E=Sophos;i="6.06,187,1705388400"; 
+   d="asc'?scan'208";a="16885482"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2024 04:53:08 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 27 Feb 2024 04:52:42 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Tue, 27 Feb 2024 04:52:41 -0700
+Date: Tue, 27 Feb 2024 11:51:58 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Samuel Holland <samuel.holland@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 3/4] riscv: Remove MMU dependency from Zbb and Zicboz
+Message-ID: <20240227-bonehead-stonework-d56052265b35@wendy>
+References: <20240227003630.3634533-1-samuel.holland@sifive.com>
+ <20240227003630.3634533-4-samuel.holland@sifive.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0496:EE_
-X-MS-Office365-Filtering-Correlation-Id: 49c8d5ee-2c30-410a-6deb-08dc377fdd2f
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: K4rfD9vkI5XNvEC6lp/ejKgUta4TIcS1DLFNAZVUBA3eGOCO9hTYJ3I4DmdGgxXTIsOydlMV8yOI/WZU+r3HjZYaA6aIWQymYCtrc2p7CecqpUnEmlN3JLcV0KXm+H3vPif/wIYGtghdOgMJA1jnx26UlaWQr0lcm04ZIsnDTUN5I1OPVfkx61n1ydBP5bL6l3fSkxJRZfBctpx0eqY0rMdwd1Ig14veIFhWWNxmPrWf6Tou95il0DLncxE5uMiHUwWOCdydnDVTYnvut7PE4SqU2PbD3O/4R8x+00Wg0HZtWW7Td/uhdgDwO7Ydn3kQvHvE5oZpD9ig2vkKPkHMw0mALK7lMliO6PXgqhl7XIrh8idmD74kgDRCD5Lw5huuftL/RSXTCSeoRW+ocuh9oIxxfMDXdikrUWolUsBYIA2sjwjWciNrwbh7pZatLXigHRkoudrikCL6D9K86zs1DuEFvvLVd4Krr8FlWqM3NXcmyCdqn27h0rZ0V8ElTZIPIYPChi5BjOtkV7H0gPtRngzq3mvr4DmoCgGhomcUXyMLFNg/qEz2XArUZCAm692mApus6yKxIbvTtQG2+TDtDxAxllac+EWaupi0PSbjZwY/NHcWmQ/CEiuCZdKPgC9Z
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(38350700005);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UY79KnfCaZaw1qBJ2UwqTJv78YTTu0eu9eyKmpsbwjOXlFsLToItsTuQmm0S?=
- =?us-ascii?Q?lKT1uNukC3KEJvxdRjhzsWAt6N/o3tQ8n/vl77DsARk9lQ5MKmDrFKNRoCDV?=
- =?us-ascii?Q?tSTZxNspP5I3YabbKKHr/bc/6BsW22JwvpS1HHyz4IlJNjYmL0FpPhKDwGxu?=
- =?us-ascii?Q?P7tt83V18CdRMRgNy7KZs2r8NFUBq7xSnG24aFkBu7v5GZSfrt5hBFprnEIa?=
- =?us-ascii?Q?6TMs0p5AtECjV+zeFj9VsCw41rwkvfwS/86nq6t/pMkrGtPZzQRMJ4qRZ3wl?=
- =?us-ascii?Q?/CVPizEv+V27zC4qG4xbs+sLjvF4hacmVsJBIEvW9ePGdiy26Iyerqwur4J+?=
- =?us-ascii?Q?hnRDDKzs572bDVD0m6AQPlABash4VD26G00jJbVHOu/HphMIrfQJaer20/9Q?=
- =?us-ascii?Q?WOP4vIwy1k1z3iNsVFyJixqUHs5gnA/+LitCMC0gmYh8xHecCyI9DWegOiqN?=
- =?us-ascii?Q?sWX6xoq8JgFPqMu1PXHqRaqslFNYbutWKwS9F2oUxsberf8XDwByx5H/KFYP?=
- =?us-ascii?Q?p0rNf1XdvIMM2uI2fBuQ+ne9oePlhCud5SQJ9KycPmSs/JjsqboeqNWvNqvW?=
- =?us-ascii?Q?gZOOnA7StKjOC4bFGm/ZroHzgkudcSyjSUR8Gf7VCwCgpt3LsNPwOZ/+o+Kq?=
- =?us-ascii?Q?p0rIAj72CTe4OkaLvIKm2BrDkAVc0lYg2Eaw6wZyRc92JHZmUInDQBT244oA?=
- =?us-ascii?Q?uSPjaam8p3nDrTH6cL4uT/SQSVVKJuzIZ6WVN2PJhXtqxZdu+dlU1BaLp6z1?=
- =?us-ascii?Q?lgANSMh14h/9Rpfja+9Cu1W1ETHvfF2C/02qm3Hynm/QAIavu7OjAGZbiT2a?=
- =?us-ascii?Q?kI+iMcAQ7CM/8BQNciW65+FZzUY1ENKQDc91OiYoNolnLFdfrraoVMRYAHUb?=
- =?us-ascii?Q?dSDdYPbKhhJIrMx7jDh1sTE6o6GRiE45B3+VVmqXclr0wnc7UbfCv0hljDAz?=
- =?us-ascii?Q?RwYpxMxymdkwc9jkM1EHe+vplXbS6OvacnU4bWifdzlnsNm7gGdxvgf5Z5Fg?=
- =?us-ascii?Q?Bn6Ri+wrs2bRLNJvFZWzwmzEmULUvBqYl3BdFnpNE5RC+B9L8sRzhCTbFQJA?=
- =?us-ascii?Q?o2cQAlZtVmmU+7QxR9bEvPv2V07sP/atYptVYM8FwANPVMszSwNKfcOky04U?=
- =?us-ascii?Q?UcCFYtX6P2WTejTQ46IEIbUZBQ2m8y7b0xTMv55j+TBGIZNFr3yF6JfQUyb9?=
- =?us-ascii?Q?g4bCITQInkjDY5Q5MBAaS/6lBvG5VI3QdNfF2NdCVwT6TU2K6JC5shfAvdz3?=
- =?us-ascii?Q?MkYkFriQsHoK8zp04q/JCCb7N+u0Gkcy2TFIw6FkddmaUueHp6ZLhHmefHWo?=
- =?us-ascii?Q?iNdGWmQ6MwpM1xq+lVt3aOlSiCIcbOhBY94WsRytat2VbGLHfy79mAB3qcSX?=
- =?us-ascii?Q?CUzm6AhfM+DPLAxJRucDGNvDC7RDAGZE1CaX7bPrC08hnn3e4H8g6YvnbVEm?=
- =?us-ascii?Q?MDA65jIkStsagVjWn/jzu6GcLbBRLJfJUlDFUP8KJMY5iMmx0iiAnXcYI7XH?=
- =?us-ascii?Q?IJPwvFP0WK+PTVuJIOaM8IwFX+yA8zCryRpnwFhxFmazSz2gPotJybp2QUJU?=
- =?us-ascii?Q?28/s2ClwrXzWfC7WV7EB0UpiCIM/leRYKqU0rZzLTM2lL4Q7zMj9dbUFqXrp?=
- =?us-ascii?Q?sg=3D=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 49c8d5ee-2c30-410a-6deb-08dc377fdd2f
-X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2024 10:35:49.2228
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dQXDccumKJW5coy572kIBSGozqdPzhCbcy8po55MXmV1ok8XDyzEKDenGkU/AYH6nO5k3Zfw3sumAmznASCM9vRNTuoWo1Iy/ynx/CHgAec=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0496
+In-Reply-To: <20240227003630.3634533-4-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_023604_640617_B683F137 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20240227_035309_351899_D06ABC2C 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,154 +81,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8572546791714958906=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add StarFive JH7110 SoC PCIe controller dt-bindings. JH7110 using PLDA
-XpressRICH PCIe host controller IP.
+--===============8572546791714958906==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="MVkIfoCLD1B37PLh"
+Content-Disposition: inline
 
-Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+--MVkIfoCLD1B37PLh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Feb 26, 2024 at 04:34:48PM -0800, Samuel Holland wrote:
+> The Zbb and Zicboz ISA extensions have no dependency on an MMU and are
+> equally useful on NOMMU kernels.
+>=20
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
----
- .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++++++++++++++++
- 1 file changed, 120 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
 
-diff --git a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-new file mode 100644
-index 000000000000..67151aaa3948
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-@@ -0,0 +1,120 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH7110 PCIe host controller
-+
-+maintainers:
-+  - Kevin Xie <kevin.xie@starfivetech.com>
-+
-+allOf:
-+  - $ref: plda,xpressrich3-axi-common.yaml#
-+
-+properties:
-+  compatible:
-+    const: starfive,jh7110-pcie
-+
-+  clocks:
-+    items:
-+      - description: NOC bus clock
-+      - description: Transport layer clock
-+      - description: AXI MST0 clock
-+      - description: APB clock
-+
-+  clock-names:
-+    items:
-+      - const: noc
-+      - const: tl
-+      - const: axi_mst0
-+      - const: apb
-+
-+  resets:
-+    items:
-+      - description: AXI MST0 reset
-+      - description: AXI SLAVE0 reset
-+      - description: AXI SLAVE reset
-+      - description: PCIE BRIDGE reset
-+      - description: PCIE CORE reset
-+      - description: PCIE APB reset
-+
-+  reset-names:
-+    items:
-+      - const: mst0
-+      - const: slv0
-+      - const: slv
-+      - const: brg
-+      - const: core
-+      - const: apb
-+
-+  starfive,stg-syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    description:
-+      The phandle to System Register Controller syscon node.
-+
-+  perst-gpios:
-+    description: GPIO controlled connection to PERST# signal
-+    maxItems: 1
-+
-+  phys:
-+    description:
-+      Specified PHY is attached to PCIe controller.
-+    maxItems: 1
-+
-+required:
-+  - clocks
-+  - resets
-+  - starfive,stg-syscon
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        pcie@940000000 {
-+            compatible = "starfive,jh7110-pcie";
-+            reg = <0x9 0x40000000 0x0 0x10000000>,
-+                  <0x0 0x2b000000 0x0 0x1000000>;
-+            reg-names = "cfg", "apb";
-+            #address-cells = <3>;
-+            #size-cells = <2>;
-+            #interrupt-cells = <1>;
-+            device_type = "pci";
-+            ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
-+                     <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
-+            starfive,stg-syscon = <&stg_syscon>;
-+            bus-range = <0x0 0xff>;
-+            interrupt-parent = <&plic>;
-+            interrupts = <56>;
-+            interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+            interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
-+                            <0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
-+                            <0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
-+                            <0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
-+            msi-controller;
-+            clocks = <&syscrg 86>,
-+                     <&stgcrg 10>,
-+                     <&stgcrg 8>,
-+                     <&stgcrg 9>;
-+            clock-names = "noc", "tl", "axi_mst0", "apb";
-+            resets = <&stgcrg 11>,
-+                     <&stgcrg 12>,
-+                     <&stgcrg 13>,
-+                     <&stgcrg 14>,
-+                     <&stgcrg 15>,
-+                     <&stgcrg 16>;
-+            perst-gpios = <&gpios 26 GPIO_ACTIVE_LOW>;
-+            phys = <&pciephy0>;
-+
-+            pcie_intc0: interrupt-controller {
-+                #address-cells = <0>;
-+                #interrupt-cells = <1>;
-+                interrupt-controller;
-+            };
-+        };
-+    };
--- 
-2.17.1
+Cheers,
+Conor.
 
+> ---
+>=20
+>  arch/riscv/Kconfig | 2 --
+>  1 file changed, 2 deletions(-)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index bffbd869a068..ef53c00470d6 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -581,7 +581,6 @@ config TOOLCHAIN_HAS_ZBB
+>  config RISCV_ISA_ZBB
+>  	bool "Zbb extension support for bit manipulation instructions"
+>  	depends on TOOLCHAIN_HAS_ZBB
+> -	depends on MMU
+>  	depends on RISCV_ALTERNATIVE
+>  	default y
+>  	help
+> @@ -613,7 +612,6 @@ config RISCV_ISA_ZICBOM
+> =20
+>  config RISCV_ISA_ZICBOZ
+>  	bool "Zicboz extension support for faster zeroing of memory"
+> -	depends on MMU
+>  	depends on RISCV_ALTERNATIVE
+>  	default y
+>  	help
+> --=20
+> 2.43.0
+>=20
+
+--MVkIfoCLD1B37PLh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd3M3gAKCRB4tDGHoIJi
+0iVOAP4xnKemNhs85COxEne/mehKUX1aV+ACJN779DXpaUB2ywD+KRmu/SwerYwl
+Ooozck02olX3pPxzIw9S73glhdreTA4=
+=1ooj
+-----END PGP SIGNATURE-----
+
+--MVkIfoCLD1B37PLh--
+
+
+--===============8572546791714958906==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8572546791714958906==--
+
