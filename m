@@ -4,53 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5D4C5478C
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 19:18:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948A4C54798
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 19:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TZHWk/n96Gqu0PPjp1AzLhyTYdFxBCEE5lYlU+5ztwc=; b=dBhTl4/fY3UayR
-	BmSCnfQvJI8rBPf+5ZYxOnGEGMnRZV4RNFlpH5TKHxJwX3K8RfQyqEAQlBkw1zcu4ER8tfPzbekKb
-	YJSjKy5n5CjbjY2ubR7c4bgdVAyzVLDBAp1pzxiRWHtl+uvLOl9fKLSOJ3iEap6kWYZgcf3cuqc01
-	nsNpswraOba/6ghqX/KhkftVPed7HkaFwYgTGOvdYIhoArhpk610Zl4wQbnzDGpqgSWMEul9fFCzx
-	5/D0HcR19uZTzwvEvq1Y8EkaH4nfqmfXchExo/9dVaGDG9i3YtLIj5gROTzjbFPT5e8wnE9THkzea
-	/2lrkc5luYBj5tVqkDwQ==;
+	List-Owner; bh=ekdX6en5tXjS5QQGBI1NY9mVmqole8cCDN8/hS3bXIo=; b=wV/uFQhvyx7SpS
+	DhKkcbj3inkHdGCTq/LWTpgBcWKTadGDYp7T/seMl5y+OBIMTTq+SAQuakg/UUkBClyNpy3f3z5jy
+	+ATfFlsezFucmVd/0Is8Gin4LiFzZug6YIiucIokscgWrvCKGrg8EdrLA3IVmuF2InMUF+MxZXgPm
+	qATnkVTiOp0oiSE13EHms+X98sVHmaGLbthfOgMFvBtpwJ2f/y0Q1oA/Khmwoece2EEwb+gwnKqJi
+	3QSjjqNVY/dim7WhDER/EU73GEwY3lyeBjs4bTwcR6BKBpNryA3CZzvg2g1R8goOYmqz8RyRPWV1j
+	vpFd+/y+Km63dXw7WhPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf2xi-00000006aR6-0Fl1;
-	Tue, 27 Feb 2024 19:17:58 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1rf2zo-00000006axs-3ZQz;
+	Tue, 27 Feb 2024 19:20:08 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf2xd-00000006aPY-2IVm;
-	Tue, 27 Feb 2024 19:17:55 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 45012E0008;
-	Tue, 27 Feb 2024 19:17:45 +0000 (UTC)
-Message-ID: <e0ed5873-fd41-49f2-be7f-a6cff42f2023@ghiti.fr>
-Date: Tue, 27 Feb 2024 20:17:44 +0100
+	id 1rf2zm-00000006awt-08Uz
+	for linux-riscv@lists.infradead.org;
+	Tue, 27 Feb 2024 19:20:07 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6e55afcf513so93305b3a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 27 Feb 2024 11:20:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709061605; x=1709666405; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LjU6LlOMoMfkxYT5TjTMLLN7YZEywYOA9lg639yTU1E=;
+        b=WtVF93gYMorOr1xcp5J9QJ4lebNUo9DNIwPeQxzn74Louu8dKeBizrZ10Yuow0KY2L
+         ghmyEuWEov3yb1ZrMW9gALDLPbJNoXQnuSFZP9FyoiJPpP+SI4iHlqS3bK3OqxMA+hev
+         BVBSWqYzkndvhhQDnFzBqPgjxEf5TFyfD/ZNh0voCfaqAKK+2cjpcSPKqK0/JarQKSWD
+         S28B7VsFzKL6HavSZxYukRHQkBIA1eBz0lJvVkwhUIlLKSGKndZAzU62meojDP1tXEu9
+         3+DV+uCQdDjihOXFSM01oMKau/bJBFW6hVrG/wf8N7AshYJ7bLcfXYpGQsJsKL1PVqPt
+         rh4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709061605; x=1709666405;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LjU6LlOMoMfkxYT5TjTMLLN7YZEywYOA9lg639yTU1E=;
+        b=gzhc0QGnGQR5s+8u8bop58tFAH/+8Ra1VlUdnudc+u/X4PKkiAEmriasfWFgbUUbu+
+         rZG/2/WHuRD0hRpXN7AQm4KwS/qzwG1lM4e8FhtxChnmXUNNg3vi01Uxh03MrXV6w1nv
+         rZtnEN5nharCDQRGkuE6rSNQim5dqw1NDpbthb9BSdJenittTd0op8ZhuCw4+s1d6u3Y
+         lp77/rYFIEF/ar/fzSyAOMHqVaixEQSoUaJzdbvtnPvUHm6UbshtuNJpnfhUzCrgpUBv
+         rJKka7ksg0AZEuMwwrXbEdtaJy/zlFFcLc81QWRupo+Avr+kAjfCZ/2K6a2R/hQQhsdB
+         ZWZw==
+X-Forwarded-Encrypted: i=1; AJvYcCVTY1dJMe37tqydcA5CZZAbLLVUcIfgtLLmSGBgV+RpH/PnIm6IummROBMEngjY3G0rtEnMbNPn71ez9O+gwDtiykVI92Kw5NYtfFbG2U5R
+X-Gm-Message-State: AOJu0Yw2UsVKvSjqjZFv1iWQCg07Z0bZ0RsAcx9dmakOYsaDr72SjhFH
+	uBSFUM+lwwPrTHKcp/XA7p18xlVnQODIRgzIIg1QnK1KWO6mo0Mf0sqP4fOo9m0=
+X-Google-Smtp-Source: AGHT+IGTsFO5Y+MUw+Dr+fwRnhGBCvict5u69UQFPCgZkAlJCy5uDoFE3U+pMRfAan3Q8Hi9tDNlUw==
+X-Received: by 2002:a05:6a20:d706:b0:1a0:f7d0:e652 with SMTP id iz6-20020a056a20d70600b001a0f7d0e652mr3323640pzb.49.1709061605039;
+        Tue, 27 Feb 2024 11:20:05 -0800 (PST)
+Received: from ghost ([50.213.54.97])
+        by smtp.gmail.com with ESMTPSA id k25-20020a635619000000b005bdbe9a597fsm6128331pgb.57.2024.02.27.11.20.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Feb 2024 11:20:04 -0800 (PST)
+Date: Tue, 27 Feb 2024 11:20:02 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
+	Eric Biggers <ebiggers@kernel.org>, Evan Green <evan@rivosinc.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
+Subject: Re: [PATCH v4 2/2] riscv: Set unalignment speed at compile time
+Message-ID: <Zd414nBtjHcsYWnL@ghost>
+References: <20240216-disable_misaligned_probe_config-v4-0-dc01e581c0ac@rivosinc.com>
+ <20240216-disable_misaligned_probe_config-v4-2-dc01e581c0ac@rivosinc.com>
+ <20240227-condone-impeach-9469dffc6b47@wendy>
+ <Zd4nMa+x28omuhiF@ghost>
+ <20240227-citable-scanning-1fd48c96b758@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2,RESEND 2/2] drivers: perf: ctr_get_width function for
- legacy is not defined
-Content-Language: en-US
-To: Vadim Shakirov <vadim.shakirov@syntacore.com>,
- linux-riscv@lists.infradead.org
-Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexandre Ghiti <alexghiti@rivosinc.com>, Atish Patra <atishp@rivosinc.com>
-References: <20240227170002.188671-1-vadim.shakirov@syntacore.com>
- <20240227170002.188671-3-vadim.shakirov@syntacore.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240227170002.188671-3-vadim.shakirov@syntacore.com>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <20240227-citable-scanning-1fd48c96b758@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_111753_885060_9D4FE3A6 
-X-CRM114-Status: GOOD (  23.22  )
+X-CRM114-CacheID: sfid-20240227_112006_097085_FE2F8890 
+X-CRM114-Status: GOOD (  49.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,122 +97,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vadim,
+On Tue, Feb 27, 2024 at 06:48:54PM +0000, Conor Dooley wrote:
+> On Tue, Feb 27, 2024 at 10:17:21AM -0800, Charlie Jenkins wrote:
+> > On Tue, Feb 27, 2024 at 11:39:25AM +0000, Conor Dooley wrote:
+> > > On Fri, Feb 16, 2024 at 12:33:19PM -0800, Charlie Jenkins wrote:
+> 
+> > > > +config RISCV_EMULATED_UNALIGNED_ACCESS
+> > > > +	bool "Assume the CPU expects emulated unaligned memory accesses"
+> > > > +	depends on NONPORTABLE
+> > > 
+> > > This is portable too, right?
+> > 
+> > I guess so? I think I would prefer to have the probing being the only
+> > portable option.
+> 
+> I dunno, I think there could be value to someone in always emulating
+> this in the kernel and I don't think that should relegate them to the
+> naughty step, given it can work everywhere.
 
-On 27/02/2024 18:00, Vadim Shakirov wrote:
-> With parameters CONFIG_RISCV_PMU_LEGACY=y and CONFIG_RISCV_PMU_SBI=n
-> linux kernel crashes when you try perf record:
->
-> $ perf record ls
-> [ 46.749286] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
-> [ 46.750199] Oops [#1]
-> [ 46.750342] Modules linked in:
-> [ 46.750608] CPU: 0 PID: 107 Comm: perf-exec Not tainted 6.6.0 #2
-> [ 46.750906] Hardware name: riscv-virtio,qemu (DT)
-> [ 46.751184] epc : 0x0
-> [ 46.751430] ra : arch_perf_update_userpage+0x54/0x13e
-> [ 46.751680] epc : 0000000000000000 ra : ffffffff8072ee52 sp : ff2000000022b8f0
-> [ 46.751958] gp : ffffffff81505988 tp : ff6000000290d400 t0 : ff2000000022b9c0
-> [ 46.752229] t1 : 0000000000000001 t2 : 0000000000000003 s0 : ff2000000022b930
-> [ 46.752451] s1 : ff600000028fb000 a0 : 0000000000000000 a1 : ff600000028fb000
-> [ 46.752673] a2 : 0000000ae2751268 a3 : 00000000004fb708 a4 : 0000000000000004
-> [ 46.752895] a5 : 0000000000000000 a6 : 000000000017ffe3 a7 : 00000000000000d2
-> [ 46.753117] s2 : ff600000028fb000 s3 : 0000000ae2751268 s4 : 0000000000000000
-> [ 46.753338] s5 : ffffffff8153e290 s6 : ff600000863b9000 s7 : ff60000002961078
-> [ 46.753562] s8 : ff60000002961048 s9 : ff60000002961058 s10: 0000000000000001
-> [ 46.753783] s11: 0000000000000018 t3 : ffffffffffffffff t4 : ffffffffffffffff
-> [ 46.754005] t5 : ff6000000292270c t6 : ff2000000022bb30
-> [ 46.754179] status: 0000000200000100 badaddr: 0000000000000000 cause: 000000000000000c
-> [ 46.754653] Code: Unable to access instruction at 0xffffffffffffffec.
-> [ 46.754939] ---[ end trace 0000000000000000 ]---
-> [ 46.755131] note: perf-exec[107] exited with irqs disabled
-> [ 46.755546] note: perf-exec[107] exited with preempt_count 4
->
-> This happens because in the legacy case the ctr_get_width function was not
-> defined, but it is used in arch_perf_update_userpage.
->
-> Also remove extra check in riscv_pmu_ctr_get_width_mask
->
-> Signed-off-by: Vadim Shakirov <vadim.shakirov@syntacore.com>
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> ---
->   drivers/perf/riscv_pmu.c        | 18 +++++-------------
->   drivers/perf/riscv_pmu_legacy.c |  8 +++++++-
->   2 files changed, 12 insertions(+), 14 deletions(-)
->
-> diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-> index 0dda70e1ef90..c78a6fd6c57f 100644
-> --- a/drivers/perf/riscv_pmu.c
-> +++ b/drivers/perf/riscv_pmu.c
-> @@ -150,19 +150,11 @@ u64 riscv_pmu_ctr_get_width_mask(struct perf_event *event)
->   	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
->   	struct hw_perf_event *hwc = &event->hw;
->   
-> -	if (!rvpmu->ctr_get_width)
-> -	/**
-> -	 * If the pmu driver doesn't support counter width, set it to default
-> -	 * maximum allowed by the specification.
-> -	 */
-> -		cwidth = 63;
-> -	else {
-> -		if (hwc->idx == -1)
-> -			/* Handle init case where idx is not initialized yet */
-> -			cwidth = rvpmu->ctr_get_width(0);
-> -		else
-> -			cwidth = rvpmu->ctr_get_width(hwc->idx);
-> -	}
-> +	if (hwc->idx == -1)
-> +		/* Handle init case where idx is not initialized yet */
-> +		cwidth = rvpmu->ctr_get_width(0);
-> +	else
-> +		cwidth = rvpmu->ctr_get_width(hwc->idx);
->   
->   	return GENMASK_ULL(cwidth, 0);
->   }
-> diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
-> index a85fc9a15f03..fa0bccf4edf2 100644
-> --- a/drivers/perf/riscv_pmu_legacy.c
-> +++ b/drivers/perf/riscv_pmu_legacy.c
-> @@ -37,6 +37,12 @@ static int pmu_legacy_event_map(struct perf_event *event, u64 *config)
->   	return pmu_legacy_ctr_get_idx(event);
->   }
->   
-> +/* cycle & instret are always 64 bit, one bit less according to SBI spec */
-> +static int pmu_legacy_ctr_get_width(int idx)
-> +{
-> +	return 63;
-> +}
-> +
->   static u64 pmu_legacy_read_ctr(struct perf_event *event)
->   {
->   	struct hw_perf_event *hwc = &event->hw;
-> @@ -111,7 +117,7 @@ static void pmu_legacy_init(struct riscv_pmu *pmu)
->   	pmu->ctr_stop = NULL;
->   	pmu->event_map = pmu_legacy_event_map;
->   	pmu->ctr_get_idx = pmu_legacy_ctr_get_idx;
-> -	pmu->ctr_get_width = NULL;
-> +	pmu->ctr_get_width = pmu_legacy_ctr_get_width;
->   	pmu->ctr_clear_idx = NULL;
->   	pmu->ctr_read = pmu_legacy_read_ctr;
->   	pmu->event_mapped = pmu_legacy_event_mapped;
+Alright, I will remove the nonportable.
 
+> 
+> 
+> > > > +config RISCV_SLOW_UNALIGNED_ACCESS
+> > > > +	bool "Assume the CPU supports slow unaligned memory accesses"
+> > > > +	depends on NONPORTABLE
+> > > > +	help
+> > > > +	  Assume that the CPU supports slow unaligned memory accesses. When
+> > > > +	  enabled, this option improves the performance of the kernel on such
+> > > > +	  CPUs.
+> > > 
+> > > Does it? Are you sure that generating unaligned accesses on systems
+> > > where they are slow is a performance increase?
+> > > That said, I don't really see this option actually doing anything other
+> > > than setting the value for hwprobe, so I don't actually know what the
+> > > effect of this option actually is on the kernel's performance.
+> > > 
+> > > Generally I would like to suggest a change from "CPU" to "system" here,
+> > > since the slow cases that exist are mostly because the unaligned access
+> > > is actually emulated in firmware.
+> > 
+> > It would be ideal if "emulated" was used for any case of emulated
+> > accesses (firmware or in the kernel).  Doing emulated accesses will be
+> > orders of magnitude slower than a processor that "slowly" handles the
+> > accesses.
+> > 
+> > So even if the processor performs a "slow" access, it could still be
+> > beneficial for the kernel to do the misaligned access rather than manual
+> > do the alignment.
+> 
+> Right. But, at least from a probing perspective, SLOW is what gets
+> selected when firmware emulates the unaligned access so to userspace
+> seeing slow means that the performance could be horrifically bad:
+> 
+> |     rzfive:
+> |         cpu0: Ratio of byte access time to unaligned word access is
+> | 1.05, unaligned accesses are fast
+> | 
+> |     icicle:
+> | 
+> |         cpu1: Ratio of byte access time to unaligned word access is
+> | 0.00, unaligned accesses are slow
+> |         cpu2: Ratio of byte access time to unaligned word access is
+> | 0.00, unaligned accesses are slow
+> |         cpu3: Ratio of byte access time to unaligned word access is
+> | 0.00, unaligned accesses are slow
+> | 
+> |         cpu0: Ratio of byte access time to unaligned word access is
+> | 0.00, unaligned accesses are slow
+> | 
+> |     k210:
+> | 
+> |         cpu1: Ratio of byte access time to unaligned word access is
+> | 0.02, unaligned accesses are slow
+> |         cpu0: Ratio of byte access time to unaligned word access is
+> | 0.02, unaligned accesses are slow
+> | 
+> |     starlight:
+> | 
+> |         cpu1: Ratio of byte access time to unaligned word access is
+> | 0.01, unaligned accesses are slow
+> |         cpu0: Ratio of byte access time to unaligned word access is
+> | 0.02, unaligned accesses are slow
+> | 
+> |     vexriscv/orangecrab:
+> | 
+> |         cpu0: Ratio of byte access time to unaligned word access is
+> | 0.00, unaligned accesses are slow
+>  https://lore.kernel.org/all/CAMuHMdVtXGjP8VFMiv-7OMFz1XvfU1cz=Fw4jL3fcp4wO1etzQ@mail.gmail.com/
 
-Thanks for the resend, this one slipped through...
+If the accesses are horrifically slow then maybe they should be flagged
+as emulated rather than slow by the probe.
 
-Let's add the fixes tag:
+> 
+> > Currently there is no place that takes into account this "slow" option
+> > but I wanted to leave it open for future optimizations.
+> 
+> I don't think you can really do much optimisation if you detect that it
+> is slow, and since this option is analogous to detecting slow I dunno if
+> you can do anything here either? This option really just seems to me to
+> mean "don't do any optimisations for unaligned being fast but also don't
+> emulate it in the kernel".
 
-Fixes: cc4c07c89aad ("drivers: perf: Implement perf event mmap support 
-in the SBI backend")
+I am fine with that being the meaning of this option. However, on a
+system that has misaligned accesses that are twice as slow as correctly
+aligned accesses, the misaligned accesses would reasonably be selected
+as "slow". However, something like the checksum functions would still
+probably want to do the misaligned accesses because performing the
+alignment would be even slower. This is all hypothetical and not a
+"real" use case so maybe I am optimizing where no optimization is
+needed.
 
-Thanks again,
+> 
+> > > > However, the kernel will run much more slowly, or will not be
+> > > > +	  able to run at all, on CPUs that do not support unaligned memory
+> > > > +	  accesses.
+> > > > +
+> > > >  config RISCV_EFFICIENT_UNALIGNED_ACCESS
+> > > >  	bool "Assume the CPU supports fast unaligned memory accesses"
+> > > >  	depends on NONPORTABLE
+> > > >  	select DCACHE_WORD_ACCESS if MMU
+> > > >  	select HAVE_EFFICIENT_UNALIGNED_ACCESS
+> > > >  	help
+> > > > -	  Say Y here if you want the kernel to assume that the CPU supports
+> > > > -	  efficient unaligned memory accesses.  When enabled, this option
+> > > > -	  improves the performance of the kernel on such CPUs.  However, the
+> > > > -	  kernel will run much more slowly, or will not be able to run at all,
+> > > > -	  on CPUs that do not support efficient unaligned memory accesses.
+> > > > +	  Assume that the CPU supports fast unaligned memory accesses. When
+> > > > +	  enabled, this option improves the performance of the kernel on such
+> > > > +	  CPUs.  However, the kernel will run much more slowly, or will not be
+> > > > +	  able to run at all, on CPUs that do not support efficient unaligned
+> > > > +	  memory accesses.
+> > > > +
+> > > > +config RISCV_UNSUPPORTED_UNALIGNED_ACCESS
+> > > 
+> > > This option needs to be removed. The uabi states that unaligned access
+> > > is supported in userspace, if the cpu or firmware does not implement
+> > > unaligned access then the kernel must emulate it.
+> > 
+> > Should it removed from hwprobe as well then?
+> 
+> No, I actually suggested that it be documented etc. Originally
+> "UNSUPPORTED" was "UNKNOWN" and nothing more than the default value but
+> I suggested that it be documented since that would allow a system that
+> did not have the same uabi problem to use all the same defines.
+> Technically it is possible for unaligned access to be unsupported, if
+> you have a kernel that does not have the emulator but does have the
+> hwprobe stuff supported. I think there was about a 6 month period where
+> this was the case, so combine that with firmware that does not do the
+> emulation and unaligned accesses are unsupported.
 
-Alex
+Sounds great, will remove :)
+
+- Charlie
+
+> 
+> Cheers,
+> Conor.
+
 
 
 _______________________________________________
