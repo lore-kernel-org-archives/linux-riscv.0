@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948A4C54798
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 19:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F565C5478C
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 19:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ekdX6en5tXjS5QQGBI1NY9mVmqole8cCDN8/hS3bXIo=; b=wV/uFQhvyx7SpS
-	DhKkcbj3inkHdGCTq/LWTpgBcWKTadGDYp7T/seMl5y+OBIMTTq+SAQuakg/UUkBClyNpy3f3z5jy
-	+ATfFlsezFucmVd/0Is8Gin4LiFzZug6YIiucIokscgWrvCKGrg8EdrLA3IVmuF2InMUF+MxZXgPm
-	qATnkVTiOp0oiSE13EHms+X98sVHmaGLbthfOgMFvBtpwJ2f/y0Q1oA/Khmwoece2EEwb+gwnKqJi
-	3QSjjqNVY/dim7WhDER/EU73GEwY3lyeBjs4bTwcR6BKBpNryA3CZzvg2g1R8goOYmqz8RyRPWV1j
-	vpFd+/y+Km63dXw7WhPg==;
+	List-Owner; bh=8pRZtVUw93jOF8BwlQ4kb4BfE4DCEU6zErtGZJLNLgs=; b=0bWqg+F0m86/nl
+	8dRi3oWVe9OP4PIwALBXTnC0HnXByLg+m3OV8nhNnsC+AWS+OmX/mCJiBy//JaTc/432gAP5vw+cY
+	3xSNQL/WN+mq+YH9Q3friSi8l+loJJ1W6Q8kFaguvhHJR+vcHZu56bac0T3tPEHEJhYnZndDyHSnd
+	vq0oQvW91yGHLyud36RYBxyjD7c/RyUvbQ8mMfnU9hbuNVfR987p+T94D+dC5csyD80Qug+dnxRew
+	d9VImFtiZLmcpDu4zAasty8tXN5WylsD1lc6G1wVIgqr1ooJYXZ/dXxs8jMJ6n9i1TBH9Z8qtBZtM
+	+7sKSRTBTsxYaEeQEATw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf2zo-00000006axs-3ZQz;
-	Tue, 27 Feb 2024 19:20:08 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1rf31t-00000006bRK-30u4;
+	Tue, 27 Feb 2024 19:22:17 +0000
+Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf2zm-00000006awt-08Uz
+	id 1rf31r-00000006bQf-11DH
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Feb 2024 19:20:07 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6e55afcf513so93305b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Feb 2024 11:20:05 -0800 (PST)
+	Tue, 27 Feb 2024 19:22:16 +0000
+Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-36503a4980aso10653545ab.3
+        for <linux-riscv@lists.infradead.org>; Tue, 27 Feb 2024 11:22:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709061605; x=1709666405; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LjU6LlOMoMfkxYT5TjTMLLN7YZEywYOA9lg639yTU1E=;
-        b=WtVF93gYMorOr1xcp5J9QJ4lebNUo9DNIwPeQxzn74Louu8dKeBizrZ10Yuow0KY2L
-         ghmyEuWEov3yb1ZrMW9gALDLPbJNoXQnuSFZP9FyoiJPpP+SI4iHlqS3bK3OqxMA+hev
-         BVBSWqYzkndvhhQDnFzBqPgjxEf5TFyfD/ZNh0voCfaqAKK+2cjpcSPKqK0/JarQKSWD
-         S28B7VsFzKL6HavSZxYukRHQkBIA1eBz0lJvVkwhUIlLKSGKndZAzU62meojDP1tXEu9
-         3+DV+uCQdDjihOXFSM01oMKau/bJBFW6hVrG/wf8N7AshYJ7bLcfXYpGQsJsKL1PVqPt
-         rh4w==
+        d=sifive.com; s=google; t=1709061734; x=1709666534; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=daBiu+dTDOsAsy2yhxY8tXjMmdUYISpdMVSBjsClfNY=;
+        b=SoZxlkHw8Fc+4wJ1hiZvxAgHBGgKoL+okx2+jiC9ZmswWXpzehxDrnpVE9cJVfWYoW
+         XUZah7fjPQ+SVqa0ZUEg0pHYpFYVx3Q4vNttJdGjO7StNIzlA3ehi/CNb919rECEn0RL
+         lVVK4F+rzEATTSiMfxzufWbENRLL0AFDR/vJrJqKoWb+R29jlxLYCXE7cwVXb46Q1fim
+         T2q7NnvKJ645lpuppbPRdSUj9yQARKaEi49iHIHt6dLkXb/kgS5pBEvF5QbQxBp62dQk
+         iPHKDPpEs6gxopBS0NNDMaYnmMY8/Didk/X7pz0CxtLBFQZ2AyNHS2XgJQuRkhKVOg3L
+         XKrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709061605; x=1709666405;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LjU6LlOMoMfkxYT5TjTMLLN7YZEywYOA9lg639yTU1E=;
-        b=gzhc0QGnGQR5s+8u8bop58tFAH/+8Ra1VlUdnudc+u/X4PKkiAEmriasfWFgbUUbu+
-         rZG/2/WHuRD0hRpXN7AQm4KwS/qzwG1lM4e8FhtxChnmXUNNg3vi01Uxh03MrXV6w1nv
-         rZtnEN5nharCDQRGkuE6rSNQim5dqw1NDpbthb9BSdJenittTd0op8ZhuCw4+s1d6u3Y
-         lp77/rYFIEF/ar/fzSyAOMHqVaixEQSoUaJzdbvtnPvUHm6UbshtuNJpnfhUzCrgpUBv
-         rJKka7ksg0AZEuMwwrXbEdtaJy/zlFFcLc81QWRupo+Avr+kAjfCZ/2K6a2R/hQQhsdB
-         ZWZw==
-X-Forwarded-Encrypted: i=1; AJvYcCVTY1dJMe37tqydcA5CZZAbLLVUcIfgtLLmSGBgV+RpH/PnIm6IummROBMEngjY3G0rtEnMbNPn71ez9O+gwDtiykVI92Kw5NYtfFbG2U5R
-X-Gm-Message-State: AOJu0Yw2UsVKvSjqjZFv1iWQCg07Z0bZ0RsAcx9dmakOYsaDr72SjhFH
-	uBSFUM+lwwPrTHKcp/XA7p18xlVnQODIRgzIIg1QnK1KWO6mo0Mf0sqP4fOo9m0=
-X-Google-Smtp-Source: AGHT+IGTsFO5Y+MUw+Dr+fwRnhGBCvict5u69UQFPCgZkAlJCy5uDoFE3U+pMRfAan3Q8Hi9tDNlUw==
-X-Received: by 2002:a05:6a20:d706:b0:1a0:f7d0:e652 with SMTP id iz6-20020a056a20d70600b001a0f7d0e652mr3323640pzb.49.1709061605039;
-        Tue, 27 Feb 2024 11:20:05 -0800 (PST)
-Received: from ghost ([50.213.54.97])
-        by smtp.gmail.com with ESMTPSA id k25-20020a635619000000b005bdbe9a597fsm6128331pgb.57.2024.02.27.11.20.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Feb 2024 11:20:04 -0800 (PST)
-Date: Tue, 27 Feb 2024 11:20:02 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
-	Eric Biggers <ebiggers@kernel.org>, Evan Green <evan@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
-Subject: Re: [PATCH v4 2/2] riscv: Set unalignment speed at compile time
-Message-ID: <Zd414nBtjHcsYWnL@ghost>
-References: <20240216-disable_misaligned_probe_config-v4-0-dc01e581c0ac@rivosinc.com>
- <20240216-disable_misaligned_probe_config-v4-2-dc01e581c0ac@rivosinc.com>
- <20240227-condone-impeach-9469dffc6b47@wendy>
- <Zd4nMa+x28omuhiF@ghost>
- <20240227-citable-scanning-1fd48c96b758@spud>
+        d=1e100.net; s=20230601; t=1709061734; x=1709666534;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=daBiu+dTDOsAsy2yhxY8tXjMmdUYISpdMVSBjsClfNY=;
+        b=nZwbxycaBISMk4e/FAm2eMVjsEaNEDNKRfqhHYhI1/9FmGLifHREvZGVo5Z2xbZ2kh
+         j7DLQTpvoSVpNvBFxpWj8TTdeyimq7EFGBMnYJ2TFWsMr7YWCKAqDy+Yal5RM+HOAyXu
+         PhmOWYWNx/3+ZioxsAKI/d94l4IUPCwnx4ipx4Z5f4r6cETYo44RK5KElmVgUGmXxM9M
+         9KHadx1TtX2w4Yab6RsmkXyXMD+0kZix8d9Y0VOD9O69jicvYnUJNZHmmTq88vn1oYuv
+         ZJLsE7ueG5rOiGsa6dhdLv3hcU7HEl9/DWxFPTXj8pI2njlLgsyRdhHzNaSh9BbU6uH6
+         a5nw==
+X-Forwarded-Encrypted: i=1; AJvYcCUHot0BJbS7ORcK/1Cvyj9PQM7mziPDQM97YeUeaw6zbcIWzGykIYphnVjeVd+swGy1GAsdrCDKXicpQv5D2pSF3on2zTKx2aZEWF5xXaBo
+X-Gm-Message-State: AOJu0YzbfZMTmIHT0r/ir99iYXIYi0AHHB6/4nQxxU3aYD/AeunmPIYC
+	7WOdLTOG3Pn9a9/iP39CcwJrdeMnbxSxo9PUv7a6py9je59dS7T2IjEUoss0vX8=
+X-Google-Smtp-Source: AGHT+IE7+ucmoeU4TVIjogt9kPNfNJP4dPyAQIAV+r9O+fZrVXXrMhT/VTNnYBXqseweoo204evXfQ==
+X-Received: by 2002:a92:650f:0:b0:365:c81:e02d with SMTP id z15-20020a92650f000000b003650c81e02dmr11843728ilb.14.1709061734132;
+        Tue, 27 Feb 2024 11:22:14 -0800 (PST)
+Received: from [100.64.0.1] ([170.85.6.200])
+        by smtp.gmail.com with ESMTPSA id o2-20020a056e02114200b00364187af517sm2269051ill.80.2024.02.27.11.22.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 27 Feb 2024 11:22:13 -0800 (PST)
+Message-ID: <9673cbe7-41ec-4261-9be8-fc5191ade56c@sifive.com>
+Date: Tue, 27 Feb 2024 13:22:12 -0600
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240227-citable-scanning-1fd48c96b758@spud>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] riscv: Fix loading 64-bit NOMMU kernels past the
+ start of RAM
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20240227003630.3634533-1-samuel.holland@sifive.com>
+ <20240227003630.3634533-3-samuel.holland@sifive.com>
+ <20240227-unfitting-rectangle-cd0f23a4f3f1@wendy>
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <20240227-unfitting-rectangle-cd0f23a4f3f1@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_112006_097085_FE2F8890 
-X-CRM114-Status: GOOD (  49.26  )
+X-CRM114-CacheID: sfid-20240227_112215_348375_F4FA06B0 
+X-CRM114-Status: GOOD (  20.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,165 +97,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 27, 2024 at 06:48:54PM +0000, Conor Dooley wrote:
-> On Tue, Feb 27, 2024 at 10:17:21AM -0800, Charlie Jenkins wrote:
-> > On Tue, Feb 27, 2024 at 11:39:25AM +0000, Conor Dooley wrote:
-> > > On Fri, Feb 16, 2024 at 12:33:19PM -0800, Charlie Jenkins wrote:
-> 
-> > > > +config RISCV_EMULATED_UNALIGNED_ACCESS
-> > > > +	bool "Assume the CPU expects emulated unaligned memory accesses"
-> > > > +	depends on NONPORTABLE
-> > > 
-> > > This is portable too, right?
-> > 
-> > I guess so? I think I would prefer to have the probing being the only
-> > portable option.
-> 
-> I dunno, I think there could be value to someone in always emulating
-> this in the kernel and I don't think that should relegate them to the
-> naughty step, given it can work everywhere.
+Hi Conor,
 
-Alright, I will remove the nonportable.
-
+On 2024-02-27 6:18 AM, Conor Dooley wrote:
+> On Mon, Feb 26, 2024 at 04:34:47PM -0800, Samuel Holland wrote:
+>> commit 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear
+>> mapping") added logic to allow using RAM below the kernel load address.
+>> However, this does not work for NOMMU, where PAGE_OFFSET is fixed to the
+>> kernel load address. Since that range of memory corresponds to PFNs
+>> below ARCH_PFN_OFFSET, mm initialization runs off the beginning of
+>> mem_map and corrupts adjacent kernel memory. Fix this by restoring the
+>> previous behavior for NOMMU kernels.
+>>
+>> Fixes: 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear mapping")
 > 
-> 
-> > > > +config RISCV_SLOW_UNALIGNED_ACCESS
-> > > > +	bool "Assume the CPU supports slow unaligned memory accesses"
-> > > > +	depends on NONPORTABLE
-> > > > +	help
-> > > > +	  Assume that the CPU supports slow unaligned memory accesses. When
-> > > > +	  enabled, this option improves the performance of the kernel on such
-> > > > +	  CPUs.
-> > > 
-> > > Does it? Are you sure that generating unaligned accesses on systems
-> > > where they are slow is a performance increase?
-> > > That said, I don't really see this option actually doing anything other
-> > > than setting the value for hwprobe, so I don't actually know what the
-> > > effect of this option actually is on the kernel's performance.
-> > > 
-> > > Generally I would like to suggest a change from "CPU" to "system" here,
-> > > since the slow cases that exist are mostly because the unaligned access
-> > > is actually emulated in firmware.
-> > 
-> > It would be ideal if "emulated" was used for any case of emulated
-> > accesses (firmware or in the kernel).  Doing emulated accesses will be
-> > orders of magnitude slower than a processor that "slowly" handles the
-> > accesses.
-> > 
-> > So even if the processor performs a "slow" access, it could still be
-> > beneficial for the kernel to do the misaligned access rather than manual
-> > do the alignment.
-> 
-> Right. But, at least from a probing perspective, SLOW is what gets
-> selected when firmware emulates the unaligned access so to userspace
-> seeing slow means that the performance could be horrifically bad:
-> 
-> |     rzfive:
-> |         cpu0: Ratio of byte access time to unaligned word access is
-> | 1.05, unaligned accesses are fast
-> | 
-> |     icicle:
-> | 
-> |         cpu1: Ratio of byte access time to unaligned word access is
-> | 0.00, unaligned accesses are slow
-> |         cpu2: Ratio of byte access time to unaligned word access is
-> | 0.00, unaligned accesses are slow
-> |         cpu3: Ratio of byte access time to unaligned word access is
-> | 0.00, unaligned accesses are slow
-> | 
-> |         cpu0: Ratio of byte access time to unaligned word access is
-> | 0.00, unaligned accesses are slow
-> | 
-> |     k210:
-> | 
-> |         cpu1: Ratio of byte access time to unaligned word access is
-> | 0.02, unaligned accesses are slow
-> |         cpu0: Ratio of byte access time to unaligned word access is
-> | 0.02, unaligned accesses are slow
-> | 
-> |     starlight:
-> | 
-> |         cpu1: Ratio of byte access time to unaligned word access is
-> | 0.01, unaligned accesses are slow
-> |         cpu0: Ratio of byte access time to unaligned word access is
-> | 0.02, unaligned accesses are slow
-> | 
-> |     vexriscv/orangecrab:
-> | 
-> |         cpu0: Ratio of byte access time to unaligned word access is
-> | 0.00, unaligned accesses are slow
->  https://lore.kernel.org/all/CAMuHMdVtXGjP8VFMiv-7OMFz1XvfU1cz=Fw4jL3fcp4wO1etzQ@mail.gmail.com/
+> This commit was a year ago, why has nobody reported this as being an
+> issue before?
 
-If the accesses are horrifically slow then maybe they should be flagged
-as emulated rather than slow by the probe.
+I can think of a few reasons:
+1) NOMMU users are likely to be using RV32, which is not affected.
+2) Before patch 4 of this series, NOMMU implied M-mode, so there was nothing in
+the way to prevent loading Linux at the very beginning of RAM. (U-Boot/SPL
+relocates itself to the end of RAM, so it would not cause a problem.)
+3) Platforms where RAM does not begin at exactly 0x80000000 would be affected,
+there are several workarounds: change the start of RAM (for soft cores), change
+PAGE_OFFSET, or change the memory ranges in the devicetree to exclude anything
+below PAGE_OFFSET.
 
-> 
-> > Currently there is no place that takes into account this "slow" option
-> > but I wanted to leave it open for future optimizations.
-> 
-> I don't think you can really do much optimisation if you detect that it
-> is slow, and since this option is analogous to detecting slow I dunno if
-> you can do anything here either? This option really just seems to me to
-> mean "don't do any optimisations for unaligned being fast but also don't
-> emulate it in the kernel".
+It's possible that nobody was affected, but it's still technically a regression
+(a hypothetical platform with RAM from 0x40000000 to 0xc0000000 would crash
+instead of only being able to use half its RAM), so I thought it still deserved
+the Fixes: tag.
 
-I am fine with that being the meaning of this option. However, on a
-system that has misaligned accesses that are twice as slow as correctly
-aligned accesses, the misaligned accesses would reasonably be selected
-as "slow". However, something like the checksum functions would still
-probably want to do the misaligned accesses because performing the
-alignment would be even slower. This is all hypothetical and not a
-"real" use case so maybe I am optimizing where no optimization is
-needed.
+Regards,
+Samuel
 
-> 
-> > > > However, the kernel will run much more slowly, or will not be
-> > > > +	  able to run at all, on CPUs that do not support unaligned memory
-> > > > +	  accesses.
-> > > > +
-> > > >  config RISCV_EFFICIENT_UNALIGNED_ACCESS
-> > > >  	bool "Assume the CPU supports fast unaligned memory accesses"
-> > > >  	depends on NONPORTABLE
-> > > >  	select DCACHE_WORD_ACCESS if MMU
-> > > >  	select HAVE_EFFICIENT_UNALIGNED_ACCESS
-> > > >  	help
-> > > > -	  Say Y here if you want the kernel to assume that the CPU supports
-> > > > -	  efficient unaligned memory accesses.  When enabled, this option
-> > > > -	  improves the performance of the kernel on such CPUs.  However, the
-> > > > -	  kernel will run much more slowly, or will not be able to run at all,
-> > > > -	  on CPUs that do not support efficient unaligned memory accesses.
-> > > > +	  Assume that the CPU supports fast unaligned memory accesses. When
-> > > > +	  enabled, this option improves the performance of the kernel on such
-> > > > +	  CPUs.  However, the kernel will run much more slowly, or will not be
-> > > > +	  able to run at all, on CPUs that do not support efficient unaligned
-> > > > +	  memory accesses.
-> > > > +
-> > > > +config RISCV_UNSUPPORTED_UNALIGNED_ACCESS
-> > > 
-> > > This option needs to be removed. The uabi states that unaligned access
-> > > is supported in userspace, if the cpu or firmware does not implement
-> > > unaligned access then the kernel must emulate it.
-> > 
-> > Should it removed from hwprobe as well then?
-> 
-> No, I actually suggested that it be documented etc. Originally
-> "UNSUPPORTED" was "UNKNOWN" and nothing more than the default value but
-> I suggested that it be documented since that would allow a system that
-> did not have the same uabi problem to use all the same defines.
-> Technically it is possible for unaligned access to be unsupported, if
-> you have a kernel that does not have the emulator but does have the
-> hwprobe stuff supported. I think there was about a 6 month period where
-> this was the case, so combine that with firmware that does not do the
-> emulation and unaligned accesses are unsupported.
-
-Sounds great, will remove :)
-
-- Charlie
-
-> 
-> Cheers,
-> Conor.
-
+>> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+>> ---
+>>
+>>  arch/riscv/include/asm/page.h | 2 +-
+>>  arch/riscv/mm/init.c          | 2 +-
+>>  2 files changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+>> index 57e887bfa34c..94b3d6930fc3 100644
+>> --- a/arch/riscv/include/asm/page.h
+>> +++ b/arch/riscv/include/asm/page.h
+>> @@ -89,7 +89,7 @@ typedef struct page *pgtable_t;
+>>  #define PTE_FMT "%08lx"
+>>  #endif
+>>  
+>> -#ifdef CONFIG_64BIT
+>> +#if defined(CONFIG_64BIT) && defined(CONFIG_MMU)
+>>  /*
+>>   * We override this value as its generic definition uses __pa too early in
+>>   * the boot process (before kernel_map.va_pa_offset is set).
+>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+>> index fa34cf55037b..0c00efc75643 100644
+>> --- a/arch/riscv/mm/init.c
+>> +++ b/arch/riscv/mm/init.c
+>> @@ -232,7 +232,7 @@ static void __init setup_bootmem(void)
+>>  	 * In 64-bit, any use of __va/__pa before this point is wrong as we
+>>  	 * did not know the start of DRAM before.
+>>  	 */
+>> -	if (IS_ENABLED(CONFIG_64BIT))
+>> +	if (IS_ENABLED(CONFIG_64BIT) && IS_ENABLED(CONFIG_MMU))
+>>  		kernel_map.va_pa_offset = PAGE_OFFSET - phys_ram_base;
+>>  
+>>  	/*
+>> -- 
+>> 2.43.0
+>>
 
 
 _______________________________________________
