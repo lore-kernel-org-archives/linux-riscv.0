@@ -4,82 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD00C54798
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 10:17:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A1FC5478C
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 10:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PtgcA7N6iS+ge/bl3I+1s6tTt/v3bqOaFClQljYkFxo=; b=EbSLNvHUMs8XWohk2NJUzOIMkz
-	dwJ/VlwnR+b2q2y/uhC4gjghBkwL8V1cAXMmOQHCvUrs8j7AKQi96psja1W3/IZLHSkKBiC4keCpv
-	onHe7g1/i8XZyQn34vDPBiBAu1hqqexjRHVYvAho42CTv1yvJM1Fh1vjRakWuTsJO2x7t22cTu00C
-	RW7idrw3i2fOW17NwLh3eMPf+6/8hmxM2IgrkAgBeYivVilR2rjz6IDCGA7J5BBIV25+Xhj7Ov3/9
-	NLfQ1UI5mBFLz/DFC1p1wNhWhM9IyCGmy+8eLNCxNNbF3iZ6E7mKeQNFfmv7xr3k4LNOW60piHLrf
-	x6sbpW6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BDAjjPqF1HFuyRTgYdkQL+Wf6Zl1UIajApncB65LJMY=; b=3p/qL470O76Aso
+	rOld7HAhFn9ma53+HxJd3TG6j4CjBotPKnbgFqPjSG60ChsFhhlZKFOEwe5ZXI+sz0bnyCpFjWhYO
+	uAfaOe9M7gcwSSRviEWbquVRxYsUH4jdj4dHCJKCHNz7N/WiicU72c4Ldk8scCE0v1LDVs3IF6lu6
+	sRqpYTNlrhz/O/drwt88e9YwlDBOdc5oCu5QHBSB9H8+YmcHFwgpZ79XL1pbxG1sRhyEvs1UJOCbs
+	v9NRUoe0hU6RmerPjkr2oGHFNRBaiIl6gZEWE5pbyFgel+LVT0AkTQqjq4h6Li8N4TSc+VgR5+DmP
+	K17fMhRqL3JjfxDTrRnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reuWz-00000004gzZ-3JQS;
-	Tue, 27 Feb 2024 10:17:49 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1reuoL-00000004lHj-1BKF;
+	Tue, 27 Feb 2024 10:35:45 +0000
+Received: from mail-bjschn02on2072e.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::72e] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reuWt-00000004gvz-0V82
+	id 1reuoG-00000004lEl-3nCv
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Feb 2024 10:17:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1709029062; x=1740565062;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BCYUXwloy7tx6CRy691yjbouMr/IoorgoY29ZokBmYE=;
-  b=ybC+BVUJgzou+CI5al+qwjYyEMIKqTbwgt+seo2rGNUAwpjO3uC/iho8
-   03o0R2Ipnvf63xRs/sx18Q019EYSzwAO+dB4mqeHnNnSUudr/h5F+FMCd
-   5/b/E1ZijgX+O/3T7awSPngNo1KYzhRZNP9OeZvUiFtBvhImoW0jJS408
-   JG+DY5Gb9MizrIY8UJ0wWEF2r32mFqF70MwBlArpMkivHWIP5MlpB/wyQ
-   w5D1uHcm+2hdmSL6toKJxCq6gwRbZWyBraunNlIUW4z6RyGEG8DA42x+j
-   crEeFtB/4mSHadsJuKp2gh9pTqy/51zZCzVSkNjnTzoao3ueJGjzEL3G7
-   g==;
-X-CSE-ConnectionGUID: LY36k2aJTB+eb3sMK+kGPw==
-X-CSE-MsgGUID: hIqM4eg7QzWgtrOMupVYnQ==
-X-IronPort-AV: E=Sophos;i="6.06,187,1705388400"; 
-   d="asc'?scan'208";a="16878492"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2024 03:17:41 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 27 Feb 2024 03:17:12 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Tue, 27 Feb 2024 03:17:09 -0700
-Date: Tue, 27 Feb 2024 10:16:26 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>, Miguel
- Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Wedson Almeida
- Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo
-	<gary@garyguo.net>, =?iso-8859-1?Q?Bj=F6rn?= Roy Baron
-	<bjorn3_gh@protonmail.com>, Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Nathan
- Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>, <rust-for-linux@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<llvm@lists.linux.dev>
-Subject: Re: [PATCH v2 2/3] scripts: generate_rust_target: enable building on
- RISC-V
-Message-ID: <20240227-resolved-deceit-4a59a6af5b71@wendy>
-References: <20240223-leverage-walmart-5424542cd8bd@spud>
- <20240223-employee-pessimism-03ba0b58db6b@spud>
- <CANiq72ngEZskjH0f=8+cJuQsFTK227bGCxe5G0STMHuPbZYnXg@mail.gmail.com>
+	Tue, 27 Feb 2024 10:35:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=i+V0FbOrTOZhPIWb/tehuoZUyNGK3u4NeudB+iq/a2BxqGbO/aYaE0DtzyjVe8SpLfXgS3DS5mmrysBn0lVB//m1qD2zXJok+FsRNTs8wNBONQk5fxKiN/NWN0M/cDInIbdTAsqdU5mL4foQW9/GFyO/Gtc+SJ16QlldA/9ZZBmy0cH8fYSepcP3rtQxG+qy/lEn7sKb5BoNBdn4PDJpwT672oYSHx+IwEjGu0vuxsW1moAYNncHOyDeAXCmE7nlg3B/ZCMPSxdFCAyJXw+oi6joj7sOUOwTzqBpz7mYQIQiWf9GBdwDbg0MRTzDjy4sXA3AbhDYC5Ld7coPnP7cOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vTje0ALVDFVTLXaFJ/d5aQDDyaSpWhyjgAzo6CfB/Hs=;
+ b=FYiZecIPEZkbc0G3gGCKdSxkjbPVQxGDKrHPO9BMOZTxC+6xeC6+NJfZ17+T9CuD3HkHCXIWu2lRt06yVPEw6Ep0/dhM/ksQfB4MW8VTApZjyMz42z5eM1siMx7GtV9y8ofBeuF/4jnv7MuYUon/FOVrEsPs/TlsXlfu00ozzHqdb8izxUkLpIsrjAjjkEBhfWhHPRKhG3cVj3G7mp82QzaQJQTK4wQQaWGZoieBwaohbgEHDhYD59ECp4AHn0LqqCawRW8yGLUbJunwL8WG/Rm81DWo20/v17eQpzVQxt+iF1XNpx1VSHw2mi/LTp0BxTvwkVfpBMpiwxqDy5yTXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15) by SHXPR01MB0496.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1f::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.47; Tue, 27 Feb
+ 2024 10:35:35 +0000
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ ([fe80::5a5a:fa59:15fd:63dc]) by
+ SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::5a5a:fa59:15fd:63dc%3])
+ with mapi id 15.20.7270.047; Tue, 27 Feb 2024 10:35:35 +0000
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>,
+	Minda Chen <minda.chen@starfivetech.com>
+Subject: [PATCH v15,RESEND 06/23] PCI: microchip: Move PCIe host data structures to plda-pcie.h
+Date: Tue, 27 Feb 2024 18:35:05 +0800
+Message-Id: <20240227103522.80915-7-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20240227103522.80915-1-minda.chen@starfivetech.com>
+References: <20240227103522.80915-1-minda.chen@starfivetech.com>
+X-ClientProxiedBy: NT0PR01CA0003.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510::15) To SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15)
 MIME-Version: 1.0
-In-Reply-To: <CANiq72ngEZskjH0f=8+cJuQsFTK227bGCxe5G0STMHuPbZYnXg@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0496:EE_
+X-MS-Office365-Filtering-Correlation-Id: 14884185-adf6-431d-7ddb-08dc377fd53b
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: Fp4iZGgjWARwEqtCUnKrQhIkPRNqBsB3LcDaGkr60WkARXgYu6IXLMr5ouyuv+NrF5FOspOcr1pyBE6E0Pa/ZZANUdbe5JUlt7VxL79wn4xC5hBGtoyOQxF8z9rHkik2L9WqfDw7qH8+XG8FWiqKWd7VJ1ccHKrWUDfDODZm+Faf17lTE7pjthanxagK5+L7FJXXONiUfw/aGJyrWfR3btEmdneXm2H0JI+UA6BiNSDMG3g9/4707sGSVq03TuMKJLhatuOW1dPVKOk9bcluOkRW9eXccn91Ss1u4/Os1PAo8YhtkhrQtdP82fg3HGQ3SNwk/Sf9GVKTltLN1i+k0L/tI8TfZArz5dTn4+IGpyjTWMST3jmJ0H9kvsZn+cn46ZWpkZQay00gj2Yj44ts3YqnYjA6mWcl63EHs3SW3+mEpGOCVrE1u+ECRNIlfe3DNywIg6Cj+jMLKh5r1C2pwpH/pBVlhbVj+uZlqOuUmh5scURoRNJblY1L6SFurZJbWfxYaG2mBvYq/ueyuwxYltfvOhtnmA8K+jeSouxQRcT4fZSx7Y+ldz9E+Nc6VsfXliuIwFwDYZNAPPZHuL+zv3t/nvBh5ivXnc5JaQq/clnNavDBmIbbRmJXLJBZ2uVz
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(38350700005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JLFevc/ODYjiPm9aASThGrENi38gMdTn2Aqrk1HiO0w22WJddsgKq6A2RPzM?=
+ =?us-ascii?Q?Jz0T1tgdITDO0mlKcw0npRqEtxLoz6VQ4uRC9FvCMQex3gu6hg/wyT8E+iza?=
+ =?us-ascii?Q?qtM9NA9XNLBEfEEJsiQG1CZels44jetNtpIephItQ1TyH5tmPCAZmOMLyJBI?=
+ =?us-ascii?Q?MVqT2VEzS+/kga6tga9SidWtvWCJlTmwSh6gdZj0C240I8OEt9+XUiU5BC9Y?=
+ =?us-ascii?Q?R1/dJCffH/h32DLhnXegWzUW6Spwiv3db2bv2xTO67hEFhaL9lIUlDl8U2hN?=
+ =?us-ascii?Q?QU0E1+2CCUh4dyH8ltwticlDFNbusPePuT9WOjZBUHIqQEiPWiRuXmj7taiv?=
+ =?us-ascii?Q?GjrAE3md/RV03GaTjAzd5b9DU+EOKgqhXmbBx4OnLy1/vBPGqcpdtFN6Sk6Q?=
+ =?us-ascii?Q?+E7Q+eVAfxhFnuO13sMiobarmA2kxJdPoxGU19Lij/A94JiXhbm7Pa8Kg3ZL?=
+ =?us-ascii?Q?yD/WorNdn+r2bb8THpVDNapj1AP87HeiM7CoShS+PiMWGdGyONdONpMBUIz9?=
+ =?us-ascii?Q?XKhZ1F8+TqzXO2zim8RKRqEMfwJm3v+3WE4TXy530OZTOb/cBcNBm94GvpP1?=
+ =?us-ascii?Q?xwHhrqrrf2CxsC9zQN2ZPiLRFdp0g9v32nPm/ReIVWmzUOyvq5UWzDqkJ1u0?=
+ =?us-ascii?Q?3A+HUwV2Z+rhCovOJ9GY9QPfQMgBCg/bK+4Sn1sB+fkVgmT2SSyR6RzqP2HF?=
+ =?us-ascii?Q?i2SekQkwvjHUpHMDgkxHDpdQwbO2IF81kVOvr84lOS9daHYD1HhHNjeiZPBc?=
+ =?us-ascii?Q?1+ghW9aBp+GKRPScJWx8OQEYzNoyHrDJrLOJvZ+TWG6ID+pLcTujOypBRHnb?=
+ =?us-ascii?Q?bGkHjUhp5N7STHkRRFq1GRHzBxkZUMIOqWswXBs6IUBsyz3uev+syxRy6i6E?=
+ =?us-ascii?Q?/ljmwvIp2udVUedeDPV4kJeoaTAe1NvVwEtlBqpMhTjbSJXZAhjFc+6FE+LL?=
+ =?us-ascii?Q?Q/t0tdfalIg7AvMhrcrpm/ANq9iWioz10G8j6fMbdODF/yBsC9M4rvwc/HZl?=
+ =?us-ascii?Q?Ays7szQQgDvxRF3Qhvz4nyEzZ7j6zhx7kb9fpCIdL9VxFm0vPJKeMZywpv8W?=
+ =?us-ascii?Q?+OOiBd8yVp7hVvZnPfMDYCGNsSpqRmol71QAeIy8npIMESc91pgGMLcyi8Dr?=
+ =?us-ascii?Q?LnBlIxASjWwtNEW3mkwamDLnd33GwRJfmi3ieIawQ4IRFwdqTcd5Ss6/5tFc?=
+ =?us-ascii?Q?Rdh0nkHR9PbGLxc41JP2Y5vDfbnXK5sX7l0vJsDt4dMOyE9gfWgcVBshjwOv?=
+ =?us-ascii?Q?s1kXrHz3dtoweHgiUVv4IypbeVdQZFLAx14xTaAZD7HvSZS1h+zZLyOL4RE7?=
+ =?us-ascii?Q?B7BOxCsOYfwVKze0T2+We/WfHFse7AmI9UioXuqPe+oz3JdhS2WO+t/MmGjq?=
+ =?us-ascii?Q?q1PbmNc0B2kFXxYdnLopz7dYr5v5H1sPQ2b0QIxgrspbqrj/2/nNvkAr22Jq?=
+ =?us-ascii?Q?h+thB98dHdjzFXwqbdkj2lv5xAX83J1TvlaX+VYuk4G/w4XlDfygn/P59eUg?=
+ =?us-ascii?Q?Pi9632f06QBXY9cv8+ZQ2vtRbvuiMwH/Epdaqrj2IZglMkVw2N9WCEUsMTzo?=
+ =?us-ascii?Q?NF6MF3Tf2U20+JphacUam6uebICK1XYv7nB/Uj3CIVsnjgLMwQGrLp7rGBEO?=
+ =?us-ascii?Q?ZQ=3D=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14884185-adf6-431d-7ddb-08dc377fd53b
+X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2024 10:35:35.9008
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jcVTx4KxVwIV5XvS+XV4OeYPYpH7vyU5hzmbcq2lig4bPW/TI7D4zL0eBTAUAefqFEMidvZS07rFYKxqV90whNvsva8RsMimcKfvs+QFBa8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0496
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_021743_307375_4C27E116 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20240227_023540_973281_CDAF0211 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,83 +141,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6631375105699171332=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6631375105699171332==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Q7uzvEFdRZs2AO5O"
-Content-Disposition: inline
+Move the common data structures definition to head file for these two data
+structures can be re-used.
 
---Q7uzvEFdRZs2AO5O
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../pci/controller/plda/pcie-microchip-host.c | 20 ------------------
+ drivers/pci/controller/plda/pcie-plda.h       | 21 +++++++++++++++++++
+ 2 files changed, 21 insertions(+), 20 deletions(-)
 
-On Fri, Feb 23, 2024 at 03:39:47PM +0100, Miguel Ojeda wrote:
+diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+index df0736f688ce..a554a56cc0e8 100644
+--- a/drivers/pci/controller/plda/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -21,9 +21,6 @@
+ #include "../../pci.h"
+ #include "pcie-plda.h"
+ 
+-/* Number of MSI IRQs */
+-#define PLDA_MAX_NUM_MSI_IRQS			32
+-
+ /* PCIe Bridge Phy and Controller Phy offsets */
+ #define MC_PCIE1_BRIDGE_ADDR			0x00008000u
+ #define MC_PCIE1_CTRL_ADDR			0x0000a000u
+@@ -179,23 +176,6 @@ struct event_map {
+ 	u32 event_bit;
+ };
+ 
+-struct plda_msi {
+-	struct mutex lock;		/* Protect used bitmap */
+-	struct irq_domain *msi_domain;
+-	struct irq_domain *dev_domain;
+-	u32 num_vectors;
+-	u64 vector_phy;
+-	DECLARE_BITMAP(used, PLDA_MAX_NUM_MSI_IRQS);
+-};
+-
+-struct plda_pcie_rp {
+-	struct device *dev;
+-	struct irq_domain *intx_domain;
+-	struct irq_domain *event_domain;
+-	raw_spinlock_t lock;
+-	struct plda_msi msi;
+-	void __iomem *bridge_addr;
+-};
+ 
+ struct mc_pcie {
+ 	struct plda_pcie_rp plda;
+diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+index 65e0f3b72184..9ca66916c609 100644
+--- a/drivers/pci/controller/plda/pcie-plda.h
++++ b/drivers/pci/controller/plda/pcie-plda.h
+@@ -6,6 +6,9 @@
+ #ifndef _PCIE_PLDA_H
+ #define _PCIE_PLDA_H
+ 
++/* Number of MSI IRQs */
++#define PLDA_MAX_NUM_MSI_IRQS			32
++
+ /* PCIe Bridge Phy Regs */
+ #define PCIE_PCI_IRQ_DW0			0xa8
+ #define  MSIX_CAP_MASK				BIT(31)
+@@ -105,4 +108,22 @@ enum plda_int_event {
+ 
+ #define PLDA_MAX_EVENT_NUM			(PLDA_NUM_DMA_EVENTS + PLDA_INT_EVENT_NUM)
+ 
++struct plda_msi {
++	struct mutex lock;		/* Protect used bitmap */
++	struct irq_domain *msi_domain;
++	struct irq_domain *dev_domain;
++	u32 num_vectors;
++	u64 vector_phy;
++	DECLARE_BITMAP(used, PLDA_MAX_NUM_MSI_IRQS);
++};
++
++struct plda_pcie_rp {
++	struct device *dev;
++	struct irq_domain *intx_domain;
++	struct irq_domain *event_domain;
++	raw_spinlock_t lock;
++	struct plda_msi msi;
++	void __iomem *bridge_addr;
++};
++
+ #endif
+-- 
+2.17.1
 
-> Conor Dooley <conor@kernel.org> wrote:
-
-> Thanks for this Connor!
-
-
-
-
-> arm64 is sending these for 6.9:
->=20
->     https://git.kernel.org/arm64/c/f82811e22b48
->     https://git.kernel.org/arm64/c/724a75ac9542
->=20
-> So it would be nice to see if it may be already possible to enable it
-> via a builtin target + flags instead of the custom target, e.g. arm64
-> does:
->=20
->     KBUILD_RUSTFLAGS +=3D --target=3Daarch64-unknown-none -Ctarget-featur=
-e=3D"-neon"
->=20
-> and so on.
->=20
-> If it does not work, it would be good to know what would be needed for
-> RISC-V and put it into the unstable features / wanted features list
-> for Rust.
-
-Sure, I'll take a look.
-
-> Either way, it is not a blocker (although you will need a rebase after
-> arm64 lands to use the `target.json` in the right places).
-
-Nah, I think that is silly. Either this goes in as-is, and there's
-fixup done by Linus, or the thing should be converted to match arm64,
-assuming that that is possible.
-
-Cheers,
-Conor.
-
---Q7uzvEFdRZs2AO5O
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd22egAKCRB4tDGHoIJi
-0i2xAQCRgFXg1ZapmwoJszFsyzygxNYjswLT1sD8OtIU1BPdWgEAwEJBWvVFMPMo
-eBGiUJpqcMZ92Gg1yEfHXhd17awAWww=
-=SKPI
------END PGP SIGNATURE-----
-
---Q7uzvEFdRZs2AO5O--
-
-
---===============6631375105699171332==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6631375105699171332==--
-
