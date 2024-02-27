@@ -4,134 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A87C5478C
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 15:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1367FC54798
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 16:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E6FYU7eckFwREKdn3H1HmrmuzLdMVBHYVTImAtsPnhU=; b=godOi2RW5WJNe8
-	uUGWc4LNLF6oAZ7VvBRTYvsZW3rz3+61dJo5nHMfzMyurVRIrQk9ZkNLNN5dpAE8uUI5nwTpGz4Zg
-	O/i7YDMi5mgtm0J5mXGuFXso4Va4KCO41adg7zpwtyPgrdKf8EY4FaMgsy65t+2pslm9ExU1q2zpf
-	fWaC+TVtmMkkABiwOGjmWjnh/elkYWbcTuSGF05ZZRFXe6+ergUrYBtHQXU1xLfEk8K6EaKDIZ/Xj
-	08ddHrvxERnuXzHuVam1sXAjNDVCyrwgOE5JImP9ZiisnXSzNHt7WmC/6vniDG6jIbjz0hQQMj9Wj
-	hCBmYYH+crICQd0dk16g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d7PaaQ7fm11syzLb7fcR4morO5yH8ipSVsVy4ICmPhc=; b=t0xw1KfeSkaHwnpWFTrMTwlapa
+	1JcxZsYLmvB0z0MMAv3HWIGaxu4Px5aCP+3cuVR5hXd0hRRMPBmcVDk/tAJnkSx3wiOGyMkkW9MZP
+	vITL7995X+T2MCbnwctE36yLML+dKP3hzIixXXeFEpheceSmyDcDCEHXbMLf4rd2jnk6koB1EjTLR
+	XS7n+4qIZ6oDXnWD2w9bjOc2RSBGzdjog0tBlX0+9I5oDwzQ8KXrziMt9+2J0tN62BlMbUGEEkU2Z
+	Ory9SO1BAbkvhDcD/ib0W/UoVJ7wahcCfjbMvyz+AEyCFRdTcKNcTXqrDc3kwXiitC0KmRQ4b3m8T
+	jqJJXi8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rezhR-00000005qq0-0CAg;
-	Tue, 27 Feb 2024 15:48:57 +0000
-Received: from flow5-smtp.messagingengine.com ([103.168.172.140])
+	id 1rf06G-00000005vmx-3rq4;
+	Tue, 27 Feb 2024 16:14:36 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rezhN-00000005qoK-2L7G;
-	Tue, 27 Feb 2024 15:48:54 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailflow.nyi.internal (Postfix) with ESMTP id 0E22F200094;
-	Tue, 27 Feb 2024 10:48:51 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute5.internal (MEProxy); Tue, 27 Feb 2024 10:48:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1709048931;
-	 x=1709056131; bh=ybbnN0+SobfyxbHHH4ZELWrRQvYBzt/PThTgohkZVK8=; b=
-	Uj8nTtuXWeEi/jXfJb5n+JbsF1HSR0x3KgfCm6wqbBwTdbvkhRqJ3Yq98CMAeG5r
-	D/GO+gsxXcyWzUSYVXbRGbhBL/Z62QpHxQL4Nwm51CeelVfQrM0VsRmYU5oQiksk
-	K0/XMoHjN3ofZ1Z5lt03aTV2rHIKloqb+z/hoNnTFtklsNNfr3RZjbgENs0es2gb
-	IDGbBSGW0xc7Je2i9GyV0TikqeTQ8ZIH5rJ4x5Zc8k491PIy0z0afqdlN46J0Dyh
-	GwV1UL/IypRhnck5jK4xrsxLBGUV4OhZP+DMMw5EqYb3GTEee00bKrSNOVOQW2Of
-	C/8GqY9nA4ZbWGv/r1HmIQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1709048931; x=
-	1709056131; bh=ybbnN0+SobfyxbHHH4ZELWrRQvYBzt/PThTgohkZVK8=; b=h
-	Y1txy5S4iu4CgzO1d33RQRTVdIFEUhjhCu5bud7oeKr3YK+aS49Q7U3ClfbHqdDi
-	1Qn/NXLKPd6IvD9u+mdo6jUi/KerXGwKqXU19Z54fEINfjHSApkWghFTcS4W/D9z
-	bsuvJAFYYdOULYWSgsXdENf8NuVwaZV5nSsSdhul8qQvwBokhTpI/C4zH6thcdJh
-	bnr/GHXwlUup2+3kPL1y1HI4RcBsijL0XYOj/FHZT6izdSVL9jmjE+Sv7hDo4FzA
-	ReVIikHX+Zzdb6tpZ5dMHS/HBnj9HUKp1GKOSPqZGRRmEAJNIjOaV9BN4ViQqd2y
-	/UEth2/MdcbGXPG2wRf0g==
-X-ME-Sender: <xms:YgTeZTjQ2h_cNZ8jalaG9yLuQqXC07isf9GGcrOmBfNOKOEulyuU8A>
-    <xme:YgTeZQAU0_LLiTKPpNYMDEOZ3KF4sj8-pyoo1S0mcZ4WuXW9vxRtrWSOshLIwEkGN
-    rSu-Vae63C6tVsVR-A>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvledrgeehgdehiecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgfgsehtqhertderreejnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepgeefjeehvdelvdffieejieejiedvvdfhleeivdelveehjeelteegudektdfg
-    jeevnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:YgTeZTHcN2-Yez8UX5mfvZ1mSJnr_0tSCCXpqVxUG-IHqIPIoNvmcg>
-    <xmx:YgTeZQQzrErr268F2CxBpd9lwv9mwfSPdqVRsNCxYMDirZwuyZpTug>
-    <xmx:YgTeZQwVGz3Yu09b5df-6afMzKl0E5RnQicJLgSLEI6srfnAno_efg>
-    <xmx:YwTeZaeeqww0pq-Uj1Spmu0Q0w5FIsyXzvjrxIQzMA-5KGL3vLMjzLwEdE0>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 407DCB6008F; Tue, 27 Feb 2024 10:48:50 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.11.0-alpha0-153-g7e3bb84806-fm-20240215.007-g7e3bb848
+	id 1rf06D-00000005vkn-29EI;
+	Tue, 27 Feb 2024 16:14:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 4DA14CE1776;
+	Tue, 27 Feb 2024 16:14:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88E15C433C7;
+	Tue, 27 Feb 2024 16:14:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1709050469;
+	bh=Z0zdHdGOC4SxL9F4fOxTZqBNKee6nTHQxhkxmuHIUy0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Bu6/7a9p0+arHtaKXxCctuJK9G25JMzbW0pwbRP43HOmbuMNqCWXbIHivT+3SBYMZ
+	 9Z4ouUH+AyfxbDMLHdHU7+7mkkDnVNyGnBHUcB+ZwwNRmRP51FhkAYq5CKL3UTbmoE
+	 DB+xHeddLTXOtf9IKAqE0dvA/4PIWfU3ueNrn5DlO8HzLcOUtj8WjCcyUj6BNlb/xU
+	 QbrcoC9cCuJ2bgEi1WNIcoMF7bSZ/e2/IG9KnSFMFnxBa2xeCX2bgrZGyUBPqxS/BC
+	 mTscCuzUtLrJRJPe3S4yN50sSOYiYXLMTnAeH9A8fHrDV4npTQ3Xx1CJbJABG24CJK
+	 KMCdpzNDk0URw==
+Date: Tue, 27 Feb 2024 16:14:20 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v8 33/38] kselftest/arm64: Add a GCS test program built
+ with the system libc
+Message-ID: <4adb0c7e-34a1-4c50-b011-6e31ef8813a7@sirena.org.uk>
+References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
+ <20240203-arm64-gcs-v8-33-c9fec77673ef@kernel.org>
+ <87sf1n7uea.fsf@linaro.org>
+ <9b899b4e-7410-4c3b-967b-7794dac742e4@sirena.org.uk>
+ <87ttlzsyro.fsf@linaro.org>
 MIME-Version: 1.0
-Message-Id: <1b857914-bc1d-4b9a-b3f1-4eabd8db9810@app.fastmail.com>
-In-Reply-To: <b737a088-c811-45eb-b143-d24e6cdf7eea@csgroup.eu>
-References: <20240226161414.2316610-1-arnd@kernel.org>
- <20240226161414.2316610-2-arnd@kernel.org>
- <764fafb0-2206-4ab1-84ea-ebb7848c8ff2@sifive.com>
- <83450530-c908-4abc-bab7-88c50a3143ff@app.fastmail.com>
- <b737a088-c811-45eb-b143-d24e6cdf7eea@csgroup.eu>
-Date: Tue, 27 Feb 2024 16:48:29 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Samuel Holland" <samuel.holland@sifive.com>,
- "Arnd Bergmann" <arnd@kernel.org>, "Thomas Gleixner" <tglx@linutronix.de>,
- "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
- "Kees Cook" <keescook@chromium.org>,
- "Anna-Maria Gleixner" <anna-maria@linutronix.de>
-Cc: "x86@kernel.org" <x86@kernel.org>,
- "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
- "Andreas Larsson" <andreas@gaisler.com>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "Max Filippov" <jcmvbkbc@gmail.com>, guoren <guoren@kernel.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "Jan Kiszka" <jan.kiszka@siemens.com>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "Richard Weinberger" <richard@nod.at>, "Helge Deller" <deller@gmx.de>,
- "Huacai Chen" <chenhuacai@kernel.org>,
- "Russell King" <linux@armlinux.org.uk>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Vineet Gupta" <vgupta@kernel.org>, "Matt Turner" <mattst88@gmail.com>,
- "linux-snps-arc@lists.infradead.org"
- <linux-snps-arc@lists.infradead.org>,
- "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
- "Kieran Bingham" <kbingham@kernel.org>,
- "linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
- "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
- "Andy Lutomirski" <luto@kernel.org>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "Brian Cain" <bcain@quicinc.com>,
- "Michal Simek" <monstr@monstr.eu>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
-Subject: Re: [PATCH 1/4] arch: consolidate existing CONFIG_PAGE_SIZE_*KB definitions
+In-Reply-To: <87ttlzsyro.fsf@linaro.org>
+X-Cookie: Please go away.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_074853_682232_E1C3C9A9 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240227_081434_012277_40AA275C 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,30 +93,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6733681840124202984=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBGZWIgMjcsIDIwMjQsIGF0IDE2OjQ0LCBDaHJpc3RvcGhlIExlcm95IHdyb3RlOgo+
-IExlIDI3LzAyLzIwMjQgw6AgMTY6NDAsIEFybmQgQmVyZ21hbm4gYSDDqWNyaXTCoDoKPj4gT24g
-TW9uLCBGZWIgMjYsIDIwMjQsIGF0IDE3OjU1LCBTYW11ZWwgSG9sbGFuZCB3cm90ZToKPgo+Cj4g
-Rm9yIDI1NksgcGFnZXMsIHBvd2VycGMgaGFzIHRoZSBmb2xsb3dpbmcgaGVscC4gSSB0aGluayB5
-b3Ugc2hvdWxkIGhhdmUgCj4gaXQgdG9vOgo+Cj4gCSAgVGhlIGtlcm5lbCB3aWxsIG9ubHkgYmUg
-YWJsZSB0byBydW4gYXBwbGljYXRpb25zIHRoYXQgaGF2ZSBiZWVuCj4gCSAgY29tcGlsZWQgd2l0
-aCAnLXptYXgtcGFnZS1zaXplJyBzZXQgdG8gMjU2SyAodGhlIGRlZmF1bHQgaXMgNjRLKSB1c2lu
-Zwo+IAkgIGJpbnV0aWxzIGxhdGVyIHRoYW4gMi4xNy41MC4wLjMsIG9yIGJ5IHBhdGNoaW5nIHRo
-ZSBFTEZfTUFYUEFHRVNJWkUKPiAJICBkZWZpbml0aW9uIGZyb20gMHgxMDAwMCB0byAweDQwMDAw
-IGluIG9sZGVyIHZlcnNpb25zLgoKSSBkb24ndCB0aGluayB3ZSBuZWVkIHRvIG1lbnRpb24gcHJl
-LTIuMTggYmludXRpbHMgYW55IG1vcmUsIGJ1dCB0aGUKcmVzdCBzZWVtcyB1c2VmdWwsIGNoYW5n
-ZWQgdGhlIHRleHQgbm93IHRvCgpjb25maWcgUEFHRV9TSVpFXzI1NktCCiAgICAgICAgYm9vbCAi
-MjU2S2lCIHBhZ2VzIgogICAgICAgIGRlcGVuZHMgb24gSEFWRV9QQUdFX1NJWkVfMjU2S0IKICAg
-ICAgICBoZWxwCiAgICAgICAgICAyNTZLaUIgcGFnZXMgaGF2ZSBsaXR0bGUgcHJhY3RpY2FsIHZh
-bHVlIGR1ZSB0byB0aGVpciBleHRyZW1lCiAgICAgICAgICBtZW1vcnkgdXNhZ2UuICBUaGUga2Vy
-bmVsIHdpbGwgb25seSBiZSBhYmxlIHRvIHJ1biBhcHBsaWNhdGlvbnMKICAgICAgICAgIHRoYXQg
-aGF2ZSBiZWVuIGNvbXBpbGVkIHdpdGggJy16bWF4LXBhZ2Utc2l6ZScgc2V0IHRvIDI1NktpQgog
-ICAgICAgICAgKHRoZSBkZWZhdWx0IGlzIDY0S2lCIG9yIDRLaUIgb24gbW9zdCBhcmNoaXRlY3R1
-cmVzKS4KCiAgICAgIEFybmQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+
+--===============6733681840124202984==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4XK/IPqd7iEUtIhJ"
+Content-Disposition: inline
+
+
+--4XK/IPqd7iEUtIhJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Thu, Feb 22, 2024 at 11:24:59PM -0300, Thiago Jung Bauermann wrote:
+> Mark Brown <broonie@kernel.org> writes:
+
+> My rootfs is Ubuntu 22.04.3. In case it's useful, my kernel config is
+> here:
+
+> https://people.linaro.org/~thiago.bauermann/gcs/config-v6.8.0-rc2
+
+Does using defconfig make a difference for you?
+
+> Here are some firmware versions from early boot:
+
+These are (as you'd expect) the same.
+
+> It looks like our main differences are the kernel config and the distro.
+
+Indeed.
+
+--4XK/IPqd7iEUtIhJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmXeClsACgkQJNaLcl1U
+h9BabAf/cpgfEVM3rUB3E+ztSqzGFbC8vSFUf7Y8lhyyC2yCzJVvWROYle2Au1N4
+JRDVph/nZGsbGjyJOWDudsQ8IfPw6m95s+21HkGPq7WI+97Y7gxQtf93zeMPr7Pd
+HWCr3QDaCFB+Fi6cdhukIJ+Q0HmaQExEt5Enpg5/ntl1oqafk6GiF5f2Ltzno+UG
+dWc07BNatMpKKSMict51j5K1n0Penjgc4B99WpRG3Vj5ErhBDRKjmTwTNW7qfRdE
+zxAHyE1N+Q4QSsXeQUXtsLMPP1ieXKLPbf5FwcaKIZMuOS03xP5kKJZ3jmn/DOVq
+V4ZcQAzA+dxVvH8SWCA8MFdxHym1mQ==
+=vAyG
+-----END PGP SIGNATURE-----
+
+--4XK/IPqd7iEUtIhJ--
+
+
+--===============6733681840124202984==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6733681840124202984==--
+
