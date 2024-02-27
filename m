@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1367FC54798
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 16:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B301C54798
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 16:33:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d7PaaQ7fm11syzLb7fcR4morO5yH8ipSVsVy4ICmPhc=; b=t0xw1KfeSkaHwnpWFTrMTwlapa
-	1JcxZsYLmvB0z0MMAv3HWIGaxu4Px5aCP+3cuVR5hXd0hRRMPBmcVDk/tAJnkSx3wiOGyMkkW9MZP
-	vITL7995X+T2MCbnwctE36yLML+dKP3hzIixXXeFEpheceSmyDcDCEHXbMLf4rd2jnk6koB1EjTLR
-	XS7n+4qIZ6oDXnWD2w9bjOc2RSBGzdjog0tBlX0+9I5oDwzQ8KXrziMt9+2J0tN62BlMbUGEEkU2Z
-	Ory9SO1BAbkvhDcD/ib0W/UoVJ7wahcCfjbMvyz+AEyCFRdTcKNcTXqrDc3kwXiitC0KmRQ4b3m8T
-	jqJJXi8w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tjlG692egYSL/8xyf2F8MIOUmkWnuD/LtqaUX9aR1c0=; b=cVGaek4drMIswU
+	nDGfAjFTRRo1uaacABo1iAaZf6lRWiamjd+Ysj5k2wfw5NwoYt8sR7/KjY20iNE6jRX8/tUbLR/aZ
+	VmDb5iyN9WLMmqDBtNko1dtsTDyBhc//Zl0ACjUVK55sl5FEOZuMUrFqCwrAN/DjO/orsDE3qrYIl
+	50KYP+hV3J0V/IKG++dug71Vbm8aWcAewBV0goCnDuyHd142yAqhOujhgtJEY8z7xz8oy4yoV3WKE
+	JRbpDYgBIBdZUjbEbQJOr22LOeX+Pvh9lD6+xuf1HatC6h8SCt3LrXNoUeEjG44RC7KJMj1o4posf
+	SXWIb7Q5/HpHt89QHpOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf06G-00000005vmx-3rq4;
-	Tue, 27 Feb 2024 16:14:36 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rf0OC-00000005zO9-1uQ9;
+	Tue, 27 Feb 2024 16:33:08 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf06D-00000005vkn-29EI;
-	Tue, 27 Feb 2024 16:14:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 4DA14CE1776;
-	Tue, 27 Feb 2024 16:14:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88E15C433C7;
-	Tue, 27 Feb 2024 16:14:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709050469;
-	bh=Z0zdHdGOC4SxL9F4fOxTZqBNKee6nTHQxhkxmuHIUy0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Bu6/7a9p0+arHtaKXxCctuJK9G25JMzbW0pwbRP43HOmbuMNqCWXbIHivT+3SBYMZ
-	 9Z4ouUH+AyfxbDMLHdHU7+7mkkDnVNyGnBHUcB+ZwwNRmRP51FhkAYq5CKL3UTbmoE
-	 DB+xHeddLTXOtf9IKAqE0dvA/4PIWfU3ueNrn5DlO8HzLcOUtj8WjCcyUj6BNlb/xU
-	 QbrcoC9cCuJ2bgEi1WNIcoMF7bSZ/e2/IG9KnSFMFnxBa2xeCX2bgrZGyUBPqxS/BC
-	 mTscCuzUtLrJRJPe3S4yN50sSOYiYXLMTnAeH9A8fHrDV4npTQ3Xx1CJbJABG24CJK
-	 KMCdpzNDk0URw==
-Date: Tue, 27 Feb 2024 16:14:20 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v8 33/38] kselftest/arm64: Add a GCS test program built
- with the system libc
-Message-ID: <4adb0c7e-34a1-4c50-b011-6e31ef8813a7@sirena.org.uk>
-References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
- <20240203-arm64-gcs-v8-33-c9fec77673ef@kernel.org>
- <87sf1n7uea.fsf@linaro.org>
- <9b899b4e-7410-4c3b-967b-7794dac742e4@sirena.org.uk>
- <87ttlzsyro.fsf@linaro.org>
+	id 1rf0O8-00000005zLn-1QlW
+	for linux-riscv@lists.infradead.org;
+	Tue, 27 Feb 2024 16:33:07 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1709051574;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SyV9bHeQYh2STSu1Aki+bC1PiR0RG4rZPyWUkh6MdoI=;
+	b=R0+sMRFv9b8X+E5PlHqAnffQ9ul2R0l+89oJsQQqPEMzobmGax2CGW1kgeoxp2g7FE7y/H
+	ZduHQ6oyjWkm9ZA5CLqotQqDCEtKhwhNagXbhtZj6x2P+eXwHgq8bn9YKdtPqmPMLZ9XkY
+	0M9kSqf3ORH7ZF9SDePLRmHMbqIQkX3kvhftVrbUGqMyDdK+NZuwrz7YR5i9fjoBUyHlEZ
+	SK+iNEKoWW3HFdwTwutyndjzwqx2Aso9GloWF+coyojZ7RwUTRw16z46SpvLt8Du7dXC26
+	ttqFrpCCC/bMioXhJFtXB4Q09O1kXf9MzyxWlYi+Q24GgLZuajw5i7BshrGUfw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1709051574;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SyV9bHeQYh2STSu1Aki+bC1PiR0RG4rZPyWUkh6MdoI=;
+	b=mfiDY1/jYFYVkT3N2Y3yq9fwkvbnzRzZ3jJHlKwl01nm/DAsIpCmKZZwXdjDRmVLCuGQl6
+	9QNGSBRBpVnBP7Cg==
+To: Xingyu Wu <xingyu.wu@starfivetech.com>, Daniel Lezcano
+ <daniel.lezcano@linaro.org>, Emil Renner Berthing
+ <emil.renner.berthing@canonical.com>, Christophe JAILLET
+ <christophe.jaillet@wanadoo.fr>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, Rob
+ Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Walker
+ Chen <walker.chen@starfivetech.com>, Xingyu Wu
+ <xingyu.wu@starfivetech.com>, linux-kernel@vger.kernel.org, Conor Dooley
+ <conor@kernel.org>
+Subject: Re: [PATCH v8 2/3] clocksource: Add JH7110 timer driver
+In-Reply-To: <20231219145402.7879-3-xingyu.wu@starfivetech.com>
+References: <20231219145402.7879-1-xingyu.wu@starfivetech.com>
+ <20231219145402.7879-3-xingyu.wu@starfivetech.com>
+Date: Tue, 27 Feb 2024 17:32:54 +0100
+Message-ID: <877cipamvd.ffs@tglx>
 MIME-Version: 1.0
-In-Reply-To: <87ttlzsyro.fsf@linaro.org>
-X-Cookie: Please go away.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_081434_012277_40AA275C 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20240227_083304_692465_4A7A9F02 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,67 +80,178 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6733681840124202984=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Dec 19 2023 at 22:54, Xingyu Wu wrote:
+> +
+> +struct jh7110_clkevt {
+> +	struct clk *clk;
+> +	struct reset_control *rst;
+> +	void __iomem *base;
+> +	u32 reload_val;
+> +	int irq;
+> +	char name[sizeof("jh7110-timer.chX")];
+> +};
+> +
+> +struct jh7110_timer_priv {
+> +	struct reset_control *prst;
+> +	struct device *dev;
+> +	struct jh7110_clkevt clkevt[JH7110_TIMER_CH_MAX];
+> +};
 
---===============6733681840124202984==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4XK/IPqd7iEUtIhJ"
-Content-Disposition: inline
+Please format your data structures according to documentation:
+
+https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#struct-declarations-and-initializers
+
+> +/* IRQ handler for the timer */
+> +static irqreturn_t jh7110_timer_interrupt(int irq, void *data)
+> +{
+> +	struct clock_event_device *evt = data;
+> +	struct jh7110_clkevt *clkevt = &jh7110_timer_info.clkevt[0];
+> +	u8 cpu_id = smp_processor_id();
+> +	u32 reg = readl(clkevt->base + JH7110_TIMER_INT_STATUS);
+
+https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#variable-declarations
+
+> +	/* Check interrupt status and channel(cpu) ID */
+> +	if (!(reg & BIT(cpu_id)))
+> +		return IRQ_NONE;
+> +
+> +	clkevt = &jh7110_timer_info.clkevt[cpu_id];
+> +	writel(JH7110_TIMER_INT_CLR_ENA, (clkevt->base + JH7110_TIMER_INT_CLR));
+> +
+> +	if (evt->event_handler)
+> +		evt->event_handler(evt);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int jh7110_timer_set_periodic(struct clock_event_device *evt)
+> +{
+> +	struct jh7110_clkevt *clkevt = JH7110_PERCPU_GET_CLKEVT;
+> +
+> +	writel(JH7110_TIMER_MODE_CONTIN, clkevt->base + JH7110_TIMER_CTL);
+> +	return 0;
+> +}
+> +
+> +static int jh7110_timer_set_oneshot(struct clock_event_device *evt)
+> +{
+> +	struct jh7110_clkevt *clkevt = JH7110_PERCPU_GET_CLKEVT;
+> +
+> +	writel(JH7110_TIMER_MODE_SINGLE, clkevt->base + JH7110_TIMER_CTL);
+> +	return 0;
+> +}
+> +
+> +static int jh7110_timer_set_next_event(unsigned long next,
+> +				       struct clock_event_device *evt)
+> +{
+> +	struct jh7110_clkevt *clkevt = JH7110_PERCPU_GET_CLKEVT;
+> +
+> +	writel(JH7110_TIMER_MODE_SINGLE, clkevt->base + JH7110_TIMER_CTL);
+> +	writel(next, clkevt->base + JH7110_TIMER_LOAD);
+> +
+> +	return jh7110_timer_start(clkevt);
+> +}
+> +
+> +static DEFINE_PER_CPU(struct clock_event_device, jh7110_clock_event) = {
+> +	.features = CLOCK_EVT_FEAT_PERIODIC | CLOCK_EVT_FEAT_ONESHOT,
+> +	.rating = JH7110_CLOCKEVENT_RATING,
+> +	.set_state_shutdown = jh7110_timer_shutdown,
+> +	.set_state_periodic = jh7110_timer_set_periodic,
+> +	.set_state_oneshot = jh7110_timer_set_oneshot,
+> +	.set_state_oneshot_stopped = jh7110_timer_shutdown,
+> +	.tick_resume = jh7110_timer_tick_resume,
+> +	.set_next_event = jh7110_timer_set_next_event,
+> +	.suspend = jh7110_timer_suspend,
+> +	.resume = jh7110_timer_resume,
+> +};
+
+See formatting rules.
+
+> +static int jh7110_timer_starting_cpu(unsigned int cpu)
+> +{
+> +	struct clock_event_device *evt = per_cpu_ptr(&jh7110_clock_event, cpu);
+> +	struct jh7110_timer_priv *priv = &jh7110_timer_info;
+> +	int ret;
+> +	u32 rate;
+> +
+> +	if (cpu >= JH7110_TIMER_CH_MAX)
+> +		return -ENOMEM;
+> +
+> +	ret = clk_prepare_enable(priv->clkevt[cpu].clk);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = reset_control_deassert(priv->clkevt[cpu].rst);
+> +	if (ret)
+> +		return ret;
+> +
+> +	rate = clk_get_rate(priv->clkevt[cpu].clk);
+> +	evt->cpumask = cpumask_of(cpu);
+> +	evt->irq = priv->clkevt[cpu].irq;
+> +	evt->name = priv->clkevt[cpu].name;
+> +	clockevents_config_and_register(evt, rate, JH7110_TIMER_MIN_TICKS,
+> +					JH7110_TIMER_MAX_TICKS);
+> +
+> +	ret = devm_request_irq(priv->dev, evt->irq, jh7110_timer_interrupt,
+> +			       IRQF_TIMER | IRQF_IRQPOLL,
+> +			       evt->name, evt);
+
+How is this all supposed to work from a CPU hotplug state callback which
+runs in the early bringup phase with interrupts disabled? clk_prepare()
+which is invoked from clk_prepare_enable() can sleep and
+devm_request_irq() can sleep too.
+
+Did you ever test this with the required debug config options enabled?
+
+  https://www.kernel.org/doc/html/latest/process/submit-checklist.html
+
+Obviously not.
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = irq_set_affinity(evt->irq, cpumask_of(cpu));
+> +	if (ret)
+> +		return ret;
+> +	/* Use one-shot mode */
+> +	writel(JH7110_TIMER_MODE_SINGLE, (priv->clkevt[cpu].base + JH7110_TIMER_CTL));
+> +
+> +	return jh7110_timer_start(&priv->clkevt[cpu]);
+> +}
+> +
+> +static void jh7110_timer_release(void *data)
+> +{
+> +	struct jh7110_timer_priv *priv = data;
+> +	int i;
+> +
+> +	for (i = 0; i < JH7110_TIMER_CH_MAX; i++) {
+> +		/* Disable each channel of timer */
+> +		if (priv->clkevt[i].base)
+> +			writel(JH7110_TIMER_DIS, priv->clkevt[i].base + JH7110_TIMER_ENABLE);
+> +
+> +		/* Avoid no initialization in the loop of the probe */
+> +		if (!IS_ERR_OR_NULL(priv->clkevt[i].rst))
+> +			reset_control_assert(priv->clkevt[i].rst);
+> +
+> +		if (!IS_ERR_OR_NULL(priv->clkevt[i].clk))
+> +			clk_disable_unprepare(priv->clkevt[i].clk);
+
+Same problem. And of course this does not undo the other steps of
+jh7110_timer_starting_cpu() so if you offline a CPU and then online it
+again the callback will fail because the clockevent is already
+registered and the interrupt requested. Clearly untested too.
+
+Thanks,
+
+        tglx
 
 
---4XK/IPqd7iEUtIhJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Thu, Feb 22, 2024 at 11:24:59PM -0300, Thiago Jung Bauermann wrote:
-> Mark Brown <broonie@kernel.org> writes:
-
-> My rootfs is Ubuntu 22.04.3. In case it's useful, my kernel config is
-> here:
-
-> https://people.linaro.org/~thiago.bauermann/gcs/config-v6.8.0-rc2
-
-Does using defconfig make a difference for you?
-
-> Here are some firmware versions from early boot:
-
-These are (as you'd expect) the same.
-
-> It looks like our main differences are the kernel config and the distro.
-
-Indeed.
-
---4XK/IPqd7iEUtIhJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmXeClsACgkQJNaLcl1U
-h9BabAf/cpgfEVM3rUB3E+ztSqzGFbC8vSFUf7Y8lhyyC2yCzJVvWROYle2Au1N4
-JRDVph/nZGsbGjyJOWDudsQ8IfPw6m95s+21HkGPq7WI+97Y7gxQtf93zeMPr7Pd
-HWCr3QDaCFB+Fi6cdhukIJ+Q0HmaQExEt5Enpg5/ntl1oqafk6GiF5f2Ltzno+UG
-dWc07BNatMpKKSMict51j5K1n0Penjgc4B99WpRG3Vj5ErhBDRKjmTwTNW7qfRdE
-zxAHyE1N+Q4QSsXeQUXtsLMPP1ieXKLPbf5FwcaKIZMuOS03xP5kKJZ3jmn/DOVq
-V4ZcQAzA+dxVvH8SWCA8MFdxHym1mQ==
-=vAyG
------END PGP SIGNATURE-----
-
---4XK/IPqd7iEUtIhJ--
-
-
---===============6733681840124202984==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6733681840124202984==--
-
