@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91658C5478C
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Feb 2024 21:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 269CCC48BF6
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 00:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SUh/jio5H5/fAD3TQcY3Yu4B+DQCzFDbN1wED/5rhX8=; b=Qy+XUmRRoLkAqh8dILpqJKEJWG
-	rq1gV8NOjJsDA5fbYGQY6PABaeKc5ZDFv7F1s2bst1bB8+yIjvkPo/lvWDpKzv0tzwoLQ4iagPRV/
-	wHhYOsgU4S28IMNBnCGPBP0F1Z3JmTvQhtviTp1fjyUf0I/L7bkEljJ8+Bhdc59WDC9D3q4/jTjBr
-	uaKCrbbOEw6dMrNzK+cKujvwKLEwQOeMfqyGIwbmToXcKG7LGiROnztriRjjRWxr+Ca396BllR45D
-	95uuJCNqBb+m9v5Eh3tjh8MJl/kr57/TBKnqZYyIJNAJOl4eLaDHk+WfbkfvWMS+H0Ku6ItYmXrUU
-	YrBcx8HQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iMtk5sve19558JMPjxP8LcJBblEF3+WBFbTeEH7O2w8=; b=whCBRGIOvP65Ac
+	/EfLrvbr3f44Gdy28nYts+GyyraQJqcu+dVIKA67N0bLlbSSUsVcbLSDV8dWJiwMsou3PDZXWzhuu
+	5jd1MPFajrcCjN8UVG6ncDcJ93oATJtgyyxctHBh2nlyh9RvrY+vQW9g+ffPsjTe5P1xTSWMc1VQQ
+	xrFtHEkDPA0Q98xhySq+q+GOdSiNHxhoOmb+uVFwhLlOfVG+b7gtY0I2g/O2C1xUrvrzHX2ZB7ylI
+	DQCX020dqDjK/bkULmaQLtVNF62sNw3WI1KLS9RE34nzUfC1K30C6gi3f4jBCFo2RvU+uSOb7CyjO
+	pnQRBd/KQ4J+Df/030ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reiY9-00000002hhz-16E3;
-	Mon, 26 Feb 2024 21:30:13 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1relSZ-000000036yz-0Y4s;
+	Tue, 27 Feb 2024 00:36:39 +0000
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reiY5-00000002hgT-3C0a
+	id 1relSV-000000036x5-2JhE
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Feb 2024 21:30:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id BB410CE1748;
-	Mon, 26 Feb 2024 21:30:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51282C433F1;
-	Mon, 26 Feb 2024 21:30:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1708983005;
-	bh=zjn4FAEggIcuF3yKsLZHJqmJCdDBGnSpMPbFVggTO3g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DItVn8FzrzmNOghOMNojZv1uKdkDrHaNOjPUSbdrFyk9RGrqvJpYljlQEb1YwYPHq
-	 mGpH26IyFXbI8Ejwq+3VKEB+SjnIE5q5AjBUiUZJaAyphPyM8em7Q2gFdhXvYgoVbm
-	 N2nkA1sfeWI1mBHNCq6RE6KW1w8izhS6NmXmiKC6N1yr+MSk08/ARMZOtrnWuKAHZK
-	 zaT7ACH/FKu4FjFP1NespKDQ4zFigtHVQVYFI7nxIDDDyZNtD/PewlcCmuGwtYB5Qp
-	 8FpRak7ynTOBnnCfgZo3Z6THMS9eQOnlyr7VVOwvXRRaeCaArtf/W6iSrWeBoeAb6Q
-	 81IEiB8G9Oskw==
-Date: Mon, 26 Feb 2024 21:29:59 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Charles Lohr <lohr85@gmail.com>
-Cc: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH] riscv: deprecate CONFIG_MMU=n
-Message-ID: <20240226-jolt-earwig-91c7b0eb868f@spud>
-References: <20240226140649.293254-1-cleger@rivosinc.com>
- <40dee2c1-ff24-40b2-a13c-6934139ba869@sifive.com>
- <ea356036-5a0b-47ea-aafb-f9813cc6ec9b@rivosinc.com>
- <20240226-pajamas-okay-51e16426b0f5@spud>
- <CAGu26P_v9FjYq9Bncvfd-dBhdHQevvN3HpO1nqjA2hYFCpG7hg@mail.gmail.com>
+	Tue, 27 Feb 2024 00:36:36 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-6e49518f375so1040327a34.1
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Feb 2024 16:36:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1708994194; x=1709598994; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7lRQpFKqbWbNQreMqz6Xcr3vDFL47RlEenB0ubeR/xU=;
+        b=J54WuJWOOGvE4z7qNFmYbGKe0VRuQYes9pvY+KoQhF1pmJCbI74XjrB5ilr70Ctqcp
+         nzuRAuMSNeA0epsDukpihYXyw94conFQzN4lpHirujxwq1EHwqqpx7u6dp6n5ZlY8bDf
+         YuYECBw5u1ki4aNMuCkyxJUoEYX8yLhTwJLe471ucdbW4G/vlJ9QxEkHP0fLW+AZCBBG
+         IkgDNIa1bOEzkxDryHMovydBhkiTxhxt+580BQgelbZCTs0iZkJTDV8Xv351vz9MuCK+
+         mmrdigFtREzzbLiKRYMmit6dv/MesH9UBmyF21cYXr7vbYuYVqSbxISWBvD84Y/6Mkom
+         wbTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1708994194; x=1709598994;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7lRQpFKqbWbNQreMqz6Xcr3vDFL47RlEenB0ubeR/xU=;
+        b=X+n20SdGtmXdyq9HHHrwGLWSkRC6aXVRboso4q9lmt7/IZG/X3MRFVLXKcpqvEECs7
+         Np/YcKdGzrM+MgZmPvjFNxh6BsZzsCQJhK9zpikY7AGmH9jQHFLyyrD0Bza7RQX23y+7
+         0nNQEclbqKdur55hF9dEJGSbI1V7s3YZYDOCLpgznPLpQ0xaVn1Ea2s6wFem7Cm6GiN3
+         6BvtxKpyoh5UUDIzGyXLvKLvDSWuvOXwOpZ76++C6+qC4CBWT6kndbBGngd8pVcelv3q
+         uw2FJkWpH+sJLVOXlXF6k5HrLUpNypO00Y2BlT8zN3gU6SMMM9rmBgOQcBluJo6XQpJc
+         UkuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWmaK0+dO2mbvmHUFOhkHjUTYEarJG6dMfEerB3gMHfvr0qKQKxyPhjrzVnRGgr9avdVuiJD7g1Z2DUW9cgXcQKZJ0NG9p3uV9Y8ClpaMyW
+X-Gm-Message-State: AOJu0Yy0wtNk+QqV4gpEK47+63uIRweGd+JNj/9kKyuGIfX7s9eztVVu
+	h0T32qvHusBdljwT/vrI7AAGimHbuc2A/GX0+iYPJLDFOKOjCDTatHwFVDMu3no=
+X-Google-Smtp-Source: AGHT+IETqa/FMi7iqDX9bT4O6ZZw50Wgo3XrJ3ohDt+qe+AARTjahlEi4fDnuqyU8dRL02wMEtDtwA==
+X-Received: by 2002:a9d:7845:0:b0:6e4:85d3:3e65 with SMTP id c5-20020a9d7845000000b006e485d33e65mr9808993otm.8.1708994194200;
+        Mon, 26 Feb 2024 16:36:34 -0800 (PST)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id z25-20020a631919000000b005dc85821c80sm4504117pgl.12.2024.02.26.16.36.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Feb 2024 16:36:33 -0800 (PST)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH 1/4] riscv: Fix TASK_SIZE on 64-bit NOMMU
+Date: Mon, 26 Feb 2024 16:34:46 -0800
+Message-ID: <20240227003630.3634533-2-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240227003630.3634533-1-samuel.holland@sifive.com>
+References: <20240227003630.3634533-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <CAGu26P_v9FjYq9Bncvfd-dBhdHQevvN3HpO1nqjA2hYFCpG7hg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240226_133010_175518_ED5117E1 
-X-CRM114-Status: GOOD (  27.28  )
+X-CRM114-CacheID: sfid-20240226_163635_680380_F974D99E 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,106 +89,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5367403185308235391=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On NOMMU, userspace memory can come from anywhere in physical RAM. The
+current definition of TASK_SIZE is wrong if any RAM exists above 4G,
+causing spurious failures in the userspace access routines.
 
---===============5367403185308235391==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="r/gcDu4EFBEr9fnP"
-Content-Disposition: inline
+Fixes: 6bd33e1ece52 ("riscv: add nommu support")
+Fixes: c3f896dcf1e4 ("mm: switch the test_vmalloc module to use __vmalloc_node")
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
 
+ arch/riscv/include/asm/pgtable.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---r/gcDu4EFBEr9fnP
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 0c94260b5d0c..a564a39e5676 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -882,7 +882,7 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+ #define PAGE_SHARED		__pgprot(0)
+ #define PAGE_KERNEL		__pgprot(0)
+ #define swapper_pg_dir		NULL
+-#define TASK_SIZE		0xffffffffUL
++#define TASK_SIZE		_AC(-1, UL)
+ #define VMALLOC_START		_AC(0, UL)
+ #define VMALLOC_END		TASK_SIZE
+ 
+-- 
+2.43.0
 
-On Mon, Feb 26, 2024 at 11:00:41AM -0800, Charles Lohr wrote:
-> WOAH! Please DO NOT deprecate NOMMU. I use the NOMMU build constantly
-> and NOMMU Linux on RISC-V is the avenue used by many FPGA soft cores
-> for Linux, as well as some limited systems.
->=20
-> I get new copies of the kernel when there are releases and test them
-> frequently to make sure everything is still working as expected.
-
-That is great - it is good to know that people are actively testing.
-I was aware that a lot of the soft core folks did run nommu kernels (and
-I know some do use XIP also) but everything I ever saw was running on
-old kernels (5.x).
-
-> On Mon, Feb 26, 2024 at 8:03=E2=80=AFAM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Mon, Feb 26, 2024 at 04:25:24PM +0100, Cl=C3=A9ment L=C3=A9ger wrote:
-> > > I guess I could also mark XIP as deprecated.
-> >
-> > I'm not so sure, people recently added XIP support to QEMU (and sent
-> > kernel fixes in December). XIP is also not nearly as much of a problem
-> > to support, there's far less that it does differently, the main barrier
-> > was the inability to test it which is no longer the case.
-> > That said, XIP is gonna kill itself off I feel as it does not support
-> > runtime patching and therefore is extremely limited on extensions, given
-> > we use alternatives for all of that (although I suppose if someone has a
-> > usecase they could make nasty macros worse and implement a compiletime
-> > switch in the alternatives too).
-
-> For us we just don't care about XIP. I mean if someone did push it
-> through to fruition, I'd also test and use it, but I urge you please
-> do not deprecate this.
-
-XIP does work. What I was talking about here was supporting something
-"fancier" than rv{32,64}imafdc.
-
-> While it's sometimes needed a bit of a
-> creative build to get everything working, I've never needed to patch
-> anything in the kernel beyond patching in a custom console for serial
-> output.
->=20
-> I am happy to discuss the possibility of me and or one of the other
-> RISC-V soft (FPGA) core people stepping up to try to be more active,
-> but so far we've just been very well serviced by the current NOMMU
-> Linux setup.
-
-Most of the issues aren't with nommu actually working, it is the extra
-effort in development as it has to be accounted for. I would estimate
-that 2/3 of the build issues I report on this list are nommu. The
-best thing that you can do to ensure support for things you use is:
-a) scream when someone wants to remove it
-b) actively let people know you're using it
-
-Seems like you're doing a) but maybe getting someone that provides
-Tested-bys whenever you test the releases would be good.
-
-Cheers,
-Conor.
-
-
---r/gcDu4EFBEr9fnP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd0C1wAKCRB4tDGHoIJi
-0u/MAQCeW2ubw3mJ60qwhWI9XYdVEt3d//hBXTomA1zTo7JPogEAjynbFf7kHRRo
-t6KM+bwe0KkDGAzlO9lor7hooH2m2A8=
-=JHXN
------END PGP SIGNATURE-----
-
---r/gcDu4EFBEr9fnP--
-
-
---===============5367403185308235391==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5367403185308235391==--
-
