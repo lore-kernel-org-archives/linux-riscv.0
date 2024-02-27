@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B25ABC54798
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 10:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0DBC54798
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 10:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e7colV521O8sosHzLY6giYOih67IVE76Q5oEd1t5UWk=; b=jD3yPdRRRUxgzW
-	37jJmSOszFqCPatUoLsMhbYsfpUvy8jkt1jq/4J1jgAgefe3B9MQKm+8GnoIL7hgJbfezsuxEyvkn
-	D0GS76RdO3ZvL3yqFtI/SCJx/jpwVGUkrOvNvb6T2wEEUR69dODR0Rugtay3zL1oQkJfKeIL84Ymn
-	9IdNy3sHqC/zVED9I9+ufiOtlnUSgHgOpoGDAi45e6OedEoonQ/0zjNLlMZolBzd9XyqQH0JqBeb6
-	WPVZotA2lZNaP6ySWM7ubP6kfLXwCRGdHpbt4YABK2iaug2iMBht+EbYppIqhlTtbRVq0zupToGsJ
-	ni1WZ9hs17ubz3U4SjJw==;
+	List-Owner; bh=g6FzgD7fUpv/D7ivZYWzPKNH6D26wnKXMe48BKrt7WU=; b=Kwlxn+Bk12qaIg
+	SS1IAaraG54RXEYmdCCOrLfGbm23iUahrmK6Oqhx8fb3WdznuHWwaU8/IDkCX8kBH/o45sRT2WoF2
+	BcJV4zXlhzp5VEBC786cCM7xIIO10ngZvWGXc1ALNV2r9jfPzJXi5emWBl+xrRpc/sGemG/oqLi4o
+	BVra9CaoiXNNfgguyzonTKrIfveloiuGXS2S2CVDvmHa9yzYtwfdvTGbHDakDwrXtY3NYR/wNyMgA
+	9HUtupQ6HHuIVK2mcFjKkj+2psgRiXpAQD3IsN8igWiIk85OmTpOQJlWiPeRFpLoRKWpyg2ZSsFCC
+	ov1ZqzlyiRPmddNPiDFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reuoP-00000004lJo-1w8S;
-	Tue, 27 Feb 2024 10:35:49 +0000
-Received: from mail-bjschn02on2072e.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::72e] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1reuoQ-00000004lKC-1gar;
+	Tue, 27 Feb 2024 10:35:50 +0000
+Received: from mail-sh0chn02on2070a.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::70a] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reuoI-00000004lEl-2LBp
+	id 1reuoJ-00000004lEG-3aql
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Feb 2024 10:35:43 +0000
+	Tue, 27 Feb 2024 10:35:45 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=XRSydzml7PWfEjpxMpP3RVZ6sZy/DS8rmqjmgNtQazRaY93FRJ8T8Y3t9fFHU/BK1RSPRBvOsNbvNqfCopv6JByIslaYzjxX1GrBXg2F4BMOPC3HZJg+SaQS0unPuk32cbEcxhS7Gnk6HpS/QCha/nGwS7V62XfBKQ2PH+Q2KGwVbEin4Clh9QRgjyrH5m/6miWwBA6J3XWuOW2rzN/ZVhyeZGf3GMz2QDggsFRAgOvinDp+BB//CqG7oSF/ysRcePANQvQpoEHRCiF0QDpunoG2FMMnaXE6sCGP0KgQGSs6Zv9jUWLqpCZib8ycDeuwwLeGbz6VwGg67rgKdmPopw==
+ b=oJZCHK6KvD3waTAjQRJ08VH8/hpSzf8ggUUYsBZVHqJ6JRJAn7yem39uuQNyxfzV/ZomUOvU6ssdM5Ls/xP6ijbH7Hk3Adv3GM79c0fxw9dtoqyBZt1yS1zWoqVrboI68EVZ3lC3NgNhOP0T6wTRc+gJ+17gcMcXUNClRe9kFIMm/pxKYOWBGUHYmCgX9j8v7aVZtPxCnw+j1zX8itkvss70tu3+RBkVd1CVkvYMd6GBM/ffe+EVS6+3y+uETH/vXSHPWzoKk2O/BV9qPCRBDSHD+oaEZweFCYD8vYOMnfgPPdj87FUtj6pWaKdnzRlrhV1BzIP5rg+aNydJ0bo/xg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Pc2T6SbVvFNGAc7jANlqkHZ/EYw1YXpAsFWAuojjcfk=;
- b=jA/hkyxMQ+lRW+YmqO2nfvazBQP59AQiIAvo7+voTHuP8R8EWC1X6aGRxPh3zKaAuiUWoPOkBo45UBYGcuJ/3aj9OgSPwXDFJ+uHKplLRK2OhoJk64MyyRoVVjPmmpYdQwjEPBrBi0RSVertPF9yuUzxy1Za69YnXYgw3BsSd1/yU9iYUdSra2rFWjQMr/uSJZ5DwrZj875R6+bbVtPuNEDXozytBY+waBF8Y1B6gBvCAKKpHak4o2/UOIe/L214Eedno/q7MohY76h46yZViRlFmDNRPZPu70HGPUaIPc9G+n3SJbXBiEH1qvyyBuOr62uPbLL6WgkLxE5WyMAsNw==
+ bh=qx5Yb/mH7vkRlelY89RpGgyd0V1vSjgcQXjlTiRgDK8=;
+ b=GZA7Uc0L6WXhi3s0qH88IzlhmVOrga6+vk8EMAfOTY4RgWdvAFItwl5F7g4sVNGf3ch7ZXsO03MOooWrltZth6bhSCvQ8TZ/hGXd0YLOch9P1h9+HoKOyitJ2n/H3qAAVQovKS+Mewe9CVaWiF5GtIQkeWKG9xoX+BFgCeGOV8qmRvZJKcWqwBRyPdJBbOlGJoIj+PVBxxbIPMxTo6gfChQ2077TeV12KXP9SJwtL2lb4SYBX2giBKoRtcyB1OIIH1m40LF/ykM6HLPMwRWXEai3+dcRgIWN0Ff1UzvQ6orbcOSC1KF9pMcgIwoYc5fFkOfLhB9udmD23MrFFq1i+A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
 Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:25::15) by SHXPR01MB0496.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:1f::21) with Microsoft SMTP Server (version=TLS1_2,
+ (2406:e500:c311:25::15) by SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.47; Tue, 27 Feb
- 2024 10:35:36 +0000
+ 2024 10:35:33 +0000
 Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
  ([fe80::5a5a:fa59:15fd:63dc]) by
  SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::5a5a:fa59:15fd:63dc%3])
- with mapi id 15.20.7270.047; Tue, 27 Feb 2024 10:35:36 +0000
+ with mapi id 15.20.7270.047; Tue, 27 Feb 2024 10:35:33 +0000
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
@@ -70,9 +70,9 @@ Cc: devicetree@vger.kernel.org,
 	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>,
 	Minda Chen <minda.chen@starfivetech.com>
-Subject: [PATCH v15,RESEND 07/23] PCI: microchip: Rename two setup functions
-Date: Tue, 27 Feb 2024 18:35:06 +0800
-Message-Id: <20240227103522.80915-8-minda.chen@starfivetech.com>
+Subject: [PATCH v15,RESEND 04/23] PCI: microchip: Add bridge_addr field to struct mc_pcie
+Date: Tue, 27 Feb 2024 18:35:03 +0800
+Message-Id: <20240227103522.80915-5-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20240227103522.80915-1-minda.chen@starfivetech.com>
 References: <20240227103522.80915-1-minda.chen@starfivetech.com>
@@ -81,55 +81,55 @@ X-ClientProxiedBy: NT0PR01CA0003.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:25::15)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0496:EE_
-X-MS-Office365-Filtering-Correlation-Id: bd46fcfe-bee5-4f2e-738b-08dc377fd5d6
+X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_
+X-MS-Office365-Filtering-Correlation-Id: c1665225-4f7c-4e08-6b3d-08dc377fd3fe
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: zi6rnaXtmRZn/bUwzcxhyVmejHeE/nxK/JqjUCunaB7aIcCMDNmOKtmYzGKM76GxuKPiQMddUIDyDYRi+kCwC9gMhwkOknLd1IpynQazS06RlEUpCBCT8Za/WZKo5YGVo6sPt1cyDR/L1W1TdjVrI/0eKzzuXerIdNrtLnhLDLRAtCgbsIXJJF9zRK1ENQXjDpg7Znh278GV8cjBaGfzNfBfTTUhyMqpAlyMil4Tmy8teFJWEOZeOhQ5VnlDM73GE64rtKjsEOre31vtZTzxHTgDtQM/XCcNvGCrfcBAXHw2niwAZ/6lplU6+2nBKZusV5FOpu9NAUj/SVI2PJLYxi0BtpdJDNcU3rObSuAJydmYMdWU25ietl+dafl2X12osXH+k0yAKTQIyYunpcdfpTimeziBC/TqtlclvkRrSjknLLXkeENBCSTmy7rVQylj2WL2nWCkqjPIcNBhoNavrlAhggfZMLXOl+2Sbk2VEO9LWLMqWubYILc2ZXlKIYGarYLUTh9uLXhzdnwNnG4YCkkpLW4tN1vqk2b8mFwpIwQ4WXK70QTFXiUwWSipnUfNaRCQ+Wv6dgi009yoHuiXIeS33+cNH8im3xl600HgcWyLjXNGlk9vpI/5sVEE8/oc
+X-Microsoft-Antispam-Message-Info: SPl9KL2pN0VV1GORtBctEBmiHcEHjSktz6i+GUnmD1HcCd0I113RCWRwa3LpdmYyVCHW7CnKET1Rxs/SPJTQKtopGQGdWgeetPD/+46dZSb+IvgDROHR7MESbVHAL5otm0zn4wDriA/VfQkLHQ8fCsGXgClUhOgtqkHHHXEYWsFy1yZ9ctBBE30/ULBUcl6ag59KBi2aURvKkKEA1hrVVZFdVMJai7bhNKYPa9Gf253wO5pQww8PuHlHTBN5FCclnno/Iw90cqQNgA3MlD7OGjUFsoAga4E99ZVeB0M9gPxW7/B/aQOpkgLSxhP6gisJHHf68UUvXU+w6H3jPMS8PcHtjVkbHpjGRQcC0HBslvfaUTeP3qljx+12QKz7ke3JiIu8uWOyGZaAPr9yIzBM5RCm4fEF8VagEPVS4TL4W/dCVjvIJ0G1HgNKcQr0diPQiX7mhbhmmKTktlK1zYDt2lu+/EW/gfjqkNg5fAas3eosgyk35avtFGXLF8HUqDtn54OF4Lj0rd/AYTQ/7GQY59qkLPCjVZtaXo/Jxiybkxso6YYI+f6UGTfuaPR5wU8GlJjJWSL+/xJ3P2QeO7updi3jQ0uorrMHPfJiMFuxswxo6qiaMumJThd/MEKjnQZH
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(38350700005);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ojHRq+fYKQpKbt+ldQi3ER3mpnMwjeJCxiV/wezm7uhpwPVMR4OkZ3GzAU3w?=
- =?us-ascii?Q?WTugtehvmwUNmqld0AVgjAe7waLf7phx0wKzML6BSmByTEkXSJAQZQ92wxzG?=
- =?us-ascii?Q?zTGtU5QV1fgu5n6e7x0shd1LnGm93F1y7quXPilHWInjltn57z2dlKcgQpTR?=
- =?us-ascii?Q?Tu9Sdq/c0jTSkTLmHMXlXIoewYEuTNx2CJNcuqSrLjhaBoBmyUHxng9M+L5v?=
- =?us-ascii?Q?msuTYS/SvsmN6+Va1MPemdp+JMRtIpGwY/ShlGFqluUmjvWNpSAqNUrN+2l4?=
- =?us-ascii?Q?DBZxWeSIA/OtGg/jldPmgL3syBcYTf1vPgYWnY7BmoxIMog9QYT1Bl5Kv55/?=
- =?us-ascii?Q?AwNpHqZrjHMeITAt/QltqcV0+3i2snBM7Bdd8yruDOBtet16qVCd35J7zw3x?=
- =?us-ascii?Q?FHS/Qfpk01wFjXgf4PD4IHP6v8gWDZkDIzTggXtKXUwoPzcew5ZynEqnuKBV?=
- =?us-ascii?Q?3qtalSQkvCmoOPAQHd8sVHVTI7NbXMxz9zj3fJPRarehT888tUvFbznfAWrx?=
- =?us-ascii?Q?ZKpnGRKVii9AvhDx935um8gq1OOM1jLv6Gr7T8I773VgTw3rtyKk+g6qqfW1?=
- =?us-ascii?Q?ePo7GpCbjbC913yMCy9W7AMVyeYiuSU9gbpNjguoYNK2315cxDj0UHxfx+kq?=
- =?us-ascii?Q?IQLYlr0VsvBtESIHq+KXy7HXG4gGHtM1R4rnQGz36nyOfAKBoxylxdpL4erV?=
- =?us-ascii?Q?5bTmwBhNc6DZGhpBEJbRGhZdMd2/bOXsf4sIjk7OyZ/mjGBf9BtUpUNQxbAN?=
- =?us-ascii?Q?Ref+YSG/5l2YBSPywF86AXO5gc1rvAhmE0A3Be9ORXIaNB6RnWvf5h6CcIdf?=
- =?us-ascii?Q?AWYRfbxg5+xUt4ua28ZzSJDXJcWa+LEQHH+3pUBtlrEvzYCjUNkExSSTV40T?=
- =?us-ascii?Q?1d8aI2qOa3KfKTQIC6orOeGQ6C4/KkmEbm5J+PDtyb0BnKoL8GaBv7luMuj4?=
- =?us-ascii?Q?JjFtsZG97F6e80P4lv/rEY+BABloTj6rOzqLrsWYprlVPWUe6rJ1k+r4AeZO?=
- =?us-ascii?Q?BxWIkgnmIfiYdRfXOr0DN0IsmSD5j7btCXJqTdWgT77Gi7Yjo/IbJEyXRvTh?=
- =?us-ascii?Q?jMQz5B/VVSFlpQyp/s+fgmaz4JfF1K+7s9roEdObvTAZa/7SShUxtHigivRC?=
- =?us-ascii?Q?tjN27bduTIuoHuxKmPRYC55G9lNBcxlk+xq1TQA5W0C8j73GpGE5QZ6totZP?=
- =?us-ascii?Q?ctNVXmm19LZzzt0WnC3NbrK1i4Kv3qFMwzpwfbnHBDTEzet4uHWJqSluCAfp?=
- =?us-ascii?Q?2k98gTfIszP7YiVmjs1u3wq4HYDKU7LSkoQqNmpGTSycKDB9+or8mPUKFfeO?=
- =?us-ascii?Q?1Db1Mlgn5KZwLSbYMNPE2WIPQXSkTOJRVoVplJSBueYJHwTXdJaDhbySozBY?=
- =?us-ascii?Q?7HCgeqLwtdUOGNK0ToKO6x1WgD/JzVf9IctpZHjgnJZGluoJT5DQ5JUGpv/G?=
- =?us-ascii?Q?vqvf9N/QmeUnUcdzWUxMKaJ55kNeUgq56ltrPUfhRWOvtKOScbf3pZN2odeJ?=
- =?us-ascii?Q?Xv0tB5y5PfHsBOPbKuzT9NGsORtOPUJy6Z8RAnkfhArvidkLa5naXTgmkMKj?=
- =?us-ascii?Q?aBmkbet1FbJ6566OWIMmbW+Sj1AgDZ6sz4w+QiEOWaq4hSccEd6hdgzGLF2r?=
- =?us-ascii?Q?OQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Mms9U2L2q6vhuO9IEXPR7mJI0IlA/KWHQiiJxvwoQw6rmRwq84Fxiv9SilxV?=
+ =?us-ascii?Q?wjjyebdNJj4dMLiKyVj/9M/8r5LBPy1KNxnYcrMazTKeDmrdVhW1N3C3F2Nc?=
+ =?us-ascii?Q?Rdz+TBG9Y+RCJzNhFU7/J0iiXjTWYUZlGYLFwEdCDkEnhZecGvz8+ub4vvcr?=
+ =?us-ascii?Q?jHsL3SJbN30CReXRlcOtuc7ljuhiZlEbugzEFZEPlLsjvi/lUpJuzgHd1LLf?=
+ =?us-ascii?Q?/dRVzSbVGl0VJ+iSeajRdHxheu6XqVwWV7da5ZQhmMgIYyU6o+bfqyil8o2f?=
+ =?us-ascii?Q?n+Klkju9IS1jBxDaIhoK9r4bGC85nbF3BxTqc0cMOIOZ7hd2krdcmKdIqBBX?=
+ =?us-ascii?Q?iJAIeXb/0qOdngbH1OEEnkfMjFLHJsq0AQx2p6rGCkk2ufeM8wJB1McSgdcR?=
+ =?us-ascii?Q?caj4Nokn2X0qcAVPd2qbROXAfa2M/+3NXVliPUM8ZOVrIMHEm9T0i36rH9CM?=
+ =?us-ascii?Q?AHbzEzSZ77ER+ySb2Pvy3COP9VE/iFsOFhxBbiRutZYuBmWR2qmGCQ/4jZ1u?=
+ =?us-ascii?Q?fttTnr94PYci/E/MhkzeGOUXW4bBALyaM90aOyu81aQbaF8ejFSm7qEDFqUj?=
+ =?us-ascii?Q?Xw46YZKhUaEThjfkLv5JddDxrmowObpFIBSWUUnwzepcSQqXF5qN+2kkIwVd?=
+ =?us-ascii?Q?snfco0jOGNzZQYJRdrY3xdys6L5mkEmQhzRyw8ulOfej4x/ZcN8CtZXar5QK?=
+ =?us-ascii?Q?7XSA7RIhks7hVoSOAshYclfsCGN308SmAksPlFh0AUmucs+CUlewbGTyaA61?=
+ =?us-ascii?Q?/JrMfO10f6uaXUerk/iIJSAYdpVa8Rdm5ttYJLYujWAyhSxThOG0Hd0g4OSZ?=
+ =?us-ascii?Q?ABCl7NXa9Gs29AN4egBr2RDxxCqBfABBWvFxyuxtvuKI0fu4iSMgoM5vBKvz?=
+ =?us-ascii?Q?uCAkfvllKISCjzSVCPgMPZkM3j5OtHbAsFhQWnvgbmvdXhvBO/bjlO4FoKLK?=
+ =?us-ascii?Q?KQf7YZFsc6z/Y2QTCZv03QKjzzl7NCNUEcby4svD/Cd0slqo0J6K2L7JKaPK?=
+ =?us-ascii?Q?7k1HPD72Mu5Q+zbrRYNi13Z1k3kpHo9aEBfN1yI9ofpoBlT91fQ4ZxvHXD/C?=
+ =?us-ascii?Q?+OLKSzQMo16HktkWWx0NKk/WMAjdkeYZoeKXYV3DqZraHBOHFD1FaKg9EiI3?=
+ =?us-ascii?Q?iE9yvNKkzKK6VRBuea7XOFUsGkZ/5GAdcFcv+C1kYCG8dpOd8eQn25ez99f4?=
+ =?us-ascii?Q?M4nfw1MU+WAg9t6MIhYvm6zRUxt85z1HuAkLAFcRTNsNixa56zp/sv2uPxXA?=
+ =?us-ascii?Q?dECjbpKHJwwMTchm8fr6ChMztzTra8Ux5DQVlPSIN1Ru4V3Ka5a9BrgpgCMM?=
+ =?us-ascii?Q?FrVcxtJsVZJ7iJRMrKIofrAgEWT/HQGxWJ573iBKJgRrUdUGtJYAsIr2WQLi?=
+ =?us-ascii?Q?IPR9NAPzyaUfyDstF4aeJz7lkNydOs5+zTxNShs683mlqaS+8tXvxMEeeTLo?=
+ =?us-ascii?Q?HlcP8shAr3kQzN1WcOW2ghu+LFR4pPhNKYfW85lK7y+cM8pUUugD+b91fr0B?=
+ =?us-ascii?Q?37iis9MbhbbUxMvl5LEV4bcjpJFtI9t/vLSF/VayYWNRf21gTzdtoPv3RlDo?=
+ =?us-ascii?Q?s5dQCLdM7b9uwWfzU3NkGALNKQS/bRTcjKwIjxdLVii6KkzekNX7G2KjZiaX?=
+ =?us-ascii?Q?+g=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bd46fcfe-bee5-4f2e-738b-08dc377fd5d6
+X-MS-Exchange-CrossTenant-Network-Message-Id: c1665225-4f7c-4e08-6b3d-08dc377fd3fe
 X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2024 10:35:36.9075
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2024 10:35:33.8142
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Mf7aF14yOlw4CaQG/wKu1wK0uC7YMgAeCk86xhJsn3rykKmnOgfta5KLX3Vy9dGUQ8LSGiSboNIR/bszC804b5vN7rq9e1kulZQCGahPMtw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0496
+X-MS-Exchange-CrossTenant-UserPrincipalName: S6r/wcpTI4z263xNIiJSuYI1UX8kCx9nfCyrYcGGJE1WpQDs/iNFTnjPF3MQO/LYRGI9oPiCAoLO5mndspCF4lPDk0+XlIdRI53fl1pQuAg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0863
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_023542_700727_1384E0F9 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20240227_023543_929889_FDF1BB9F 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,79 +146,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Rename two setup functions to plda prefix. Prepare to re-use these two
-setup function.
+For bridge address base is common PLDA field, Add this to struct mc_pcie
+first.
 
-For two setup functions names are similar, rename mc_pcie_setup_windows()
-to plda_pcie_setup_iomems().
+INTx and MSI codes interrupts codes will get the bridge base address from
+port->bridge_addr. These codes will be changed to common codes.
+axi_base_addr is Microchip its own data.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../pci/controller/plda/pcie-microchip-host.c | 24 +++++++++----------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+ .../pci/controller/plda/pcie-microchip-host.c | 23 ++++++++-----------
+ 1 file changed, 9 insertions(+), 14 deletions(-)
 
 diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-index a554a56cc0e8..9b367927cd32 100644
+index d9030d550482..c55ede80a6d0 100644
 --- a/drivers/pci/controller/plda/pcie-microchip-host.c
 +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-@@ -838,9 +838,9 @@ static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
- 	return mc_allocate_msi_domains(port);
- }
+@@ -195,6 +195,7 @@ struct mc_pcie {
+ 	struct irq_domain *event_domain;
+ 	raw_spinlock_t lock;
+ 	struct mc_msi msi;
++	void __iomem *bridge_addr;
+ };
  
--static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
--				 phys_addr_t axi_addr, phys_addr_t pci_addr,
--				 size_t size)
-+static void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
-+				   phys_addr_t axi_addr, phys_addr_t pci_addr,
-+				   size_t size)
- {
- 	u32 atr_sz = ilog2(size) - 1;
- 	u32 val;
-@@ -876,8 +876,8 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
- 	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
- }
- 
--static int mc_pcie_setup_windows(struct platform_device *pdev,
--				 struct plda_pcie_rp *port)
-+static int plda_pcie_setup_iomems(struct platform_device *pdev,
-+				  struct plda_pcie_rp *port)
- {
- 	void __iomem *bridge_base_addr = port->bridge_addr;
- 	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
-@@ -888,9 +888,9 @@ static int mc_pcie_setup_windows(struct platform_device *pdev,
- 	resource_list_for_each_entry(entry, &bridge->windows) {
- 		if (resource_type(entry->res) == IORESOURCE_MEM) {
- 			pci_addr = entry->res->start - entry->offset;
--			mc_pcie_setup_window(bridge_base_addr, index,
--					     entry->res->start, pci_addr,
--					     resource_size(entry->res));
-+			plda_pcie_setup_window(bridge_base_addr, index,
-+					       entry->res->start, pci_addr,
-+					       resource_size(entry->res));
- 			index++;
- 		}
- 	}
-@@ -1023,15 +1023,15 @@ static int mc_platform_init(struct pci_config_window *cfg)
+ struct cause {
+@@ -339,8 +340,7 @@ static void mc_handle_msi(struct irq_desc *desc)
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+ 	struct device *dev = port->dev;
+ 	struct mc_msi *msi = &port->msi;
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	unsigned long status;
+ 	u32 bit;
  	int ret;
+@@ -365,8 +365,7 @@ static void mc_handle_msi(struct irq_desc *desc)
+ static void mc_msi_bottom_irq_ack(struct irq_data *data)
+ {
+ 	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	u32 bitpos = data->hwirq;
  
- 	/* Configure address translation table 0 for PCIe config space */
--	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
--			     cfg->res.start,
--			     resource_size(&cfg->res));
-+	plda_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
-+			       cfg->res.start,
-+			       resource_size(&cfg->res));
+ 	writel_relaxed(BIT(bitpos), bridge_base_addr + ISTATUS_MSI);
+@@ -488,8 +487,7 @@ static void mc_handle_intx(struct irq_desc *desc)
+ 	struct mc_pcie *port = irq_desc_get_handler_data(desc);
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+ 	struct device *dev = port->dev;
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	unsigned long status;
+ 	u32 bit;
+ 	int ret;
+@@ -514,8 +512,7 @@ static void mc_handle_intx(struct irq_desc *desc)
+ static void mc_ack_intx_irq(struct irq_data *data)
+ {
+ 	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
  
- 	/* Need some fixups in config space */
- 	mc_pcie_enable_msi(port, cfg->win);
+ 	writel_relaxed(mask, bridge_base_addr + ISTATUS_LOCAL);
+@@ -524,8 +521,7 @@ static void mc_ack_intx_irq(struct irq_data *data)
+ static void mc_mask_intx_irq(struct irq_data *data)
+ {
+ 	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	unsigned long flags;
+ 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
+ 	u32 val;
+@@ -540,8 +536,7 @@ static void mc_mask_intx_irq(struct irq_data *data)
+ static void mc_unmask_intx_irq(struct irq_data *data)
+ {
+ 	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	unsigned long flags;
+ 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
+ 	u32 val;
+@@ -896,8 +891,7 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+ static int mc_pcie_setup_windows(struct platform_device *pdev,
+ 				 struct mc_pcie *port)
+ {
+-	void __iomem *bridge_base_addr =
+-		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+ 	struct resource_entry *entry;
+ 	u64 pci_addr;
+@@ -1081,6 +1075,7 @@ static int mc_host_probe(struct platform_device *pdev)
+ 	mc_disable_interrupts(port);
  
- 	/* Configure non-config space outbound ranges */
--	ret = mc_pcie_setup_windows(pdev, &port->plda);
-+	ret = plda_pcie_setup_iomems(pdev, &port->plda);
- 	if (ret)
- 		return ret;
+ 	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	port->bridge_addr = bridge_base_addr;
  
+ 	/* Allow enabling MSI by disabling MSI-X */
+ 	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
 -- 
 2.17.1
 
