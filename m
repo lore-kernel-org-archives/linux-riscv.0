@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B712BC54798
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 11:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DAD2C5478C
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 11:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4Vw61yo5NnjHfTFv4k9nqE72CmdvBb6G6OIvLC/VrM4=; b=aECfqCsmL8EJWG
-	XMSNvs6KWVmv5eTHs6NCGgGSZqbHvxJX33jFPKbKOrKhVEHMG7TkhjuI9FDhosz8gmDfBzWHYmoVw
-	siNslnyc/4eDktcm23S1mHUjcYx6WCjAjBbv1zENE8kQwa2XW3pZTXREKNER0QAtbNyc7tCXWTNhM
-	/Omg0DFA6+Qpl9RAoP+GgJCekSvRI0fH98raHiKklV7yP0OJ3Iox7emDzhSxvgcn7oKkDmKbuZgIe
-	ULjzgBS3umFPgvKcumlVNe1M54Pf90cWzR5lA155uPaXsnX0BYlng/qbBnXlC14gSzoSGfnVM7KyM
-	QUdgkrxJup/4j6v7taPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C8kJGwC/WS2KiOdVYhv7tUwh5ZR6OiV6JhbIIX3sGRI=; b=tmwRfcdGolGS2s7Ck1cB80KBHj
+	9/fk8SUvEjNU9A27MKEtDflTYB+DzFpHxY7XAHRcxw8WXnRQWDaMuGeuM/VMHNkhpGvy1ASFIdLpG
+	tM77MKRCcrbEMMg3hh7zXDHlUCfkpczfh098zbAxJoQf0t8GLpefOPP+V4CMLMcjAoE6AphYmHgZP
+	mN7eOyY1hxpZ737kIpxfPTC9I/2NwqaDvu1YY0fFfmKN7T/7bqQBuenRnRdmrBrGi0FYn9QQYP0cY
+	rnlYJ1rDDjb1fgQBiXqxJBlC5OYO60MxHM8ULCaRfcJ3HcMaem10IevvR0KLaQHEmmU9ikzalcjer
+	cANM138A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1revOV-00000004toQ-0jgp;
-	Tue, 27 Feb 2024 11:13:07 +0000
-Received: from mail-io1-f54.google.com ([209.85.166.54])
+	id 1revp7-00000004yZa-3u3D;
+	Tue, 27 Feb 2024 11:40:37 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1revOQ-00000004tmz-2Sb5;
-	Tue, 27 Feb 2024 11:13:03 +0000
-Received: by mail-io1-f54.google.com with SMTP id ca18e2360f4ac-7bb5fda069bso239957639f.0;
-        Tue, 27 Feb 2024 03:13:00 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709032379; x=1709637179;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Y4Tv6sdcFEpWvZL/hYJEF+Ju7qt4AFqMkWFUs5NrLKU=;
-        b=Fx/UWjTBB0vV69yjYR/HYeGmigEYxo2ktBhygY/pRRgiKCyzIjatzT/qR47y/DEHJb
-         4GqZGNoMJ6EMYYrlvLCU5hb0k5L1S/LHeTz+hwERkPGPSV6Fla1MXRL6ijN4fuBLGbrA
-         nZXkBLEeyQfPtBHXoStniY5bxeKdFPUlmaqNHtGSqAkw6YUcmjw5VqpoTY7OX7kqGBhj
-         OxvuBY9hbOFGy9lDSk5RTIozwMWTCUwmT9gdOnKoBSIYlhSfcvVmMX6jVRWFCnC+Omnp
-         N01asSEyzGkNC0jqtm/cR7Ads7xIEq2bev5SP8ByWhhKT9wQs6ARWGA7BhaOZceCX6Ki
-         zKfg==
-X-Forwarded-Encrypted: i=1; AJvYcCUZg+7vOj93i0126wNMhUtg4Y60YYzSa7WTMOHnu45HhEgKg/7LH9tzjbLpbIuJSlKQ/lf+3oE7NiZLrx42tB4J0nGv5iSs8q3+BT+Ji4Ly1z52L7GvJEKUdvyMFfsR+PWX/tKLZRf0M3/nZggTzs9gkXSgbQKB5oi1pOpcYkMK6JcKjvlzbk/M0KBLUiZWyZauTZ1/jrd/vkJfBlcz7md6V5gx1Rl8KwQcye/Wt1UWSMDtAPsy8zk=
-X-Gm-Message-State: AOJu0YyEq1fvyCPYQJOtDeRKQa0cKel8NSmicpe0CNzXDcRcwyblC/Ae
-	EEg/iv+e6xcTsgCiCK7ferqVlrdCxxiQQWsmxwgPOfpQSQnWem8Dq4RBr+xueW2Qvw==
-X-Google-Smtp-Source: AGHT+IGzhwvYBWxQVYC8fUrv+Wj9OZAam2OMs89EA17nhi4LxFLRrIwjApYg51vCmebPSi5o29yGZg==
-X-Received: by 2002:a05:6602:3f88:b0:7c7:b815:ff93 with SMTP id fb8-20020a0566023f8800b007c7b815ff93mr10704981iob.17.1709032379015;
-        Tue, 27 Feb 2024 03:12:59 -0800 (PST)
-Received: from mail-io1-f49.google.com (mail-io1-f49.google.com. [209.85.166.49])
-        by smtp.gmail.com with ESMTPSA id eo4-20020a0566024b0400b007c7a55ea0b6sm1729890iob.48.2024.02.27.03.12.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Feb 2024 03:12:58 -0800 (PST)
-Received: by mail-io1-f49.google.com with SMTP id ca18e2360f4ac-7bb5fda069bso239956639f.0;
-        Tue, 27 Feb 2024 03:12:58 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUYiFtN8XQcQclMGSJpkIj4Z7EiAqN1UO1yVlBZImKZxT3LzidKlaE0Kw5aUZUmLTFnomHsDLD7Azes7phP84nEUUoGvK6+GpHyhYmCP/6uHuGJpp+sEE6AgO2iPlr1saseFUx9umjd5RZkzwiOIEbAXr0cUhgGaSKKAFmJ8EZPQh4pP/gRIXrOCUkgh+LzlA3piG+qUepUiVO7Wv99/ljzVhp2p9Gjwp74drEnrZWLokWiBQC9hbU=
-X-Received: by 2002:a5b:ecc:0:b0:dc6:c32f:6126 with SMTP id
- a12-20020a5b0ecc000000b00dc6c32f6126mr1607871ybs.22.1709032357452; Tue, 27
- Feb 2024 03:12:37 -0800 (PST)
+	id 1revp5-00000004yYs-0pUm
+	for linux-riscv@lists.infradead.org;
+	Tue, 27 Feb 2024 11:40:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1709034034; x=1740570034;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=nAcqQcoVlavgogzMMv0AJtTW2BknoALl9ZTHNc2lkI8=;
+  b=kSeDrIgFF1JRGGkh9yWECoNrD2xbBYcBvm4wcsmqVzUNigNIjZsMM6LW
+   7034H1IKhG0wdIda5lhGCPPZwvzn046qjd94UBRygpVzsmw+n1Wp3xFpE
+   NjeV1kmR9xMTlDjosqlFR95gdcUzjCsofSbBYdB3d4lTLiSdwCtVMmOQo
+   o4ig0s4Uhs37CF28Y6GF4JsW/BGwEvxQVsC8tcV1f9hhCzPRRKkInMd88
+   qnRpNQN/332kr09bEPS2AXEgbPCKwm/ZU/O3HlbveRxgHRzQQBkqPaHgu
+   YpWFjrGIaNC2ftmG1LiDRkH6eptYVk2Onz02rxIKMqNJJjcym5wjBhaY0
+   w==;
+X-CSE-ConnectionGUID: bVyENMktQsa0J3zoirwwlw==
+X-CSE-MsgGUID: KyHdUvHKQ+mwrCRxqQUDzg==
+X-IronPort-AV: E=Sophos;i="6.06,187,1705388400"; 
+   d="asc'?scan'208";a="18453223"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2024 04:40:33 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 27 Feb 2024 04:40:10 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Tue, 27 Feb 2024 04:40:08 -0700
+Date: Tue, 27 Feb 2024 11:39:25 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH v4 2/2] riscv: Set unalignment speed at compile time
+Message-ID: <20240227-condone-impeach-9469dffc6b47@wendy>
+References: <20240216-disable_misaligned_probe_config-v4-0-dc01e581c0ac@rivosinc.com>
+ <20240216-disable_misaligned_probe_config-v4-2-dc01e581c0ac@rivosinc.com>
 MIME-Version: 1.0
-References: <20240226161414.2316610-1-arnd@kernel.org> <20240226161414.2316610-4-arnd@kernel.org>
- <CAMuHMdWRBQF95fJ+NkPUdvpu5VfRm2WyTnvdqB1Xe7d4vsvY2g@mail.gmail.com> <164616c2-94f6-40e8-86e0-850dc8da212e@app.fastmail.com>
-In-Reply-To: <164616c2-94f6-40e8-86e0-850dc8da212e@app.fastmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 27 Feb 2024 12:12:24 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXQYPtL0J4Phm81S1qWpi7no=1r4uStbLd8zbjn7fcWQw@mail.gmail.com>
-Message-ID: <CAMuHMdXQYPtL0J4Phm81S1qWpi7no=1r4uStbLd8zbjn7fcWQw@mail.gmail.com>
-Subject: Re: [PATCH 3/4] arch: define CONFIG_PAGE_SIZE_*KB on all architectures
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Arnd Bergmann <arnd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Kees Cook <keescook@chromium.org>, 
-	Anna-Maria Gleixner <anna-maria@linutronix.de>, Matt Turner <mattst88@gmail.com>, 
-	Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, guoren <guoren@kernel.org>, 
-	Brian Cain <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michal Simek <monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Andreas Larsson <andreas@gaisler.com>, 
-	Richard Weinberger <richard@nod.at>, x86@kernel.org, Max Filippov <jcmvbkbc@gmail.com>, 
-	Andy Lutomirski <luto@kernel.org>, Jan Kiszka <jan.kiszka@siemens.com>, 
-	Kieran Bingham <kbingham@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-hexagon@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
-	linux-mips@vger.kernel.org, 
-	"linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
-	Greg Ungerer <gerg@linux-m68k.org>
+In-Reply-To: <20240216-disable_misaligned_probe_config-v4-2-dc01e581c0ac@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_031302_636178_56F588DE 
-X-CRM114-Status: GOOD (  30.19  )
+X-CRM114-CacheID: sfid-20240227_034035_406751_D41FF7AD 
+X-CRM114-Status: GOOD (  40.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,52 +79,219 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
+Content-Type: multipart/mixed; boundary="===============7871317492122383161=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQXJuZCwKCkNDIEdyZWcKCk9uIFR1ZSwgRmViIDI3LCAyMDI0IGF0IDExOjU54oCvQU0gQXJu
-ZCBCZXJnbWFubiA8YXJuZEBhcm5kYi5kZT4gd3JvdGU6Cj4gT24gVHVlLCBGZWIgMjcsIDIwMjQs
-IGF0IDA5OjU0LCBHZWVydCBVeXR0ZXJob2V2ZW4gd3JvdGU6Cj4gPj4gZGlmZiAtLWdpdCBhL2Fy
-Y2gvbTY4ay9LY29uZmlnLmNwdSBiL2FyY2gvbTY4ay9LY29uZmlnLmNwdQo+ID4+IGluZGV4IDlk
-Y2YyNDVjOWNiZi4uYzc3N2ExMjk3NjhhIDEwMDY0NAo+ID4+IC0tLSBhL2FyY2gvbTY4ay9LY29u
-ZmlnLmNwdQo+ID4+ICsrKyBiL2FyY2gvbTY4ay9LY29uZmlnLmNwdQo+ID4+IEBAIC0zMCw2ICsz
-MCw3IEBAIGNvbmZpZyBDT0xERklSRQo+ID4+ICAgICAgICAgc2VsZWN0IEdFTkVSSUNfQ1NVTQo+
-ID4+ICAgICAgICAgc2VsZWN0IEdQSU9MSUIKPiA+PiAgICAgICAgIHNlbGVjdCBIQVZFX0xFR0FD
-WV9DTEsKPiA+PiArICAgICAgIHNlbGVjdCBIQVZFX1BBR0VfU0laRV84S0IgaWYgIU1NVQo+ID4K
-PiA+IC4uLi4gaWYgeW91IHdvdWxkIGRyb3AgdGhlICFNTVUtZGVwZW5kZW5jeSBoZXJlLgo+ID4K
-PiA+Pgo+ID4+ICBlbmRjaG9pY2UKPiA+Pgo+ID4+IEBAIC00NSw2ICs0Niw3IEBAIGNvbmZpZyBN
-NjgwMDAKPiA+PiAgICAgICAgIHNlbGVjdCBHRU5FUklDX0NTVU0KPiA+PiAgICAgICAgIHNlbGVj
-dCBDUFVfTk9fRUZGSUNJRU5UX0ZGUwo+ID4+ICAgICAgICAgc2VsZWN0IEhBVkVfQVJDSF9IQVNI
-Cj4gPj4gKyAgICAgICBzZWxlY3QgSEFWRV9QQUdFX1NJWkVfNEtCCj4gPgo+ID4gUGVyaGFwcyBy
-ZXBsYWNlIHRoaXMgYnkKPiA+Cj4gPiAgICAgY29uZmlnIE02OEtDTEFTU0lDCj4gPiAgICAgICAg
-ICAgICBib29sICJDbGFzc2ljIE02OEsgQ1BVIGZhbWlseSBzdXBwb3J0Igo+ID4gICAgICAgICAg
-ICAgc2VsZWN0IEhBVkVfQVJDSF9QRk5fVkFMSUQKPiA+ICAgKyAgICAgICAgIHNlbGVjdCBIQVZF
-X1BBR0VfU0laRV80S0IgaWYgIU1NVQo+ID4KPiA+IHNvIGl0IGNvdmVycyBhbGwgNjgweDAgQ1BV
-cyB3aXRob3V0IE1NVT8KPgo+IEkgd2FzIGEgYml0IHVuc3VyZSBhYm91dCBob3cgdG8gYmVzdCBk
-byB0aGlzIHNpbmNlIHRoZXJlCj4gaXMgbm90IHJlYWxseSBhIG5lZWQgZm9yIGEgZml4ZWQgcGFn
-ZSBzaXplIG9uIG5vbW11IGtlcm5lbHMsCj4gd2hlcmVhcyB0aGUgdGhyZWUgTU1VIGNvbmZpZ3Mg
-Y2xlYXJseSB0aWUgdGhlIHBhZ2Ugc2l6ZSB0bwo+IHRoZSBNTVUgcmF0aGVyIHRoYW4gdGhlIHBs
-YXRmb3JtLgo+Cj4gVGhlcmUgc2hvdWxkIGJlIG5vIHJlYXNvbiBmb3IgY29sZGZpcmUgdG8gaGF2
-ZSBhIGRpZmZlcmVudAo+IHBhZ2Ugc2l6ZSBmcm9tIGRyYWdvbmJhbGwgaWYgbmVpdGhlciBvZiB0
-aGVtIGFjdHVhbGx5IHVzZXMKPiBoYXJkd2FyZSBwYWdlcywgc28gb25lIG9mIHRoZW0gY291bGQg
-YmUgY2hhbmdlZCBsYXRlci4KCkluZGVlZCwgaW4gdGhlb3J5LCBQQUdFX1NJWkUgZG9lc24ndCBt
-YXR0ZXIgZm9yIG5vbW11LCBidXQgdGhlIGNvbmNlcHQKb2YgcGFnZXMgaXMgdXNlZCBhbGwgb3Zl
-ciB0aGUgcGxhY2UgaW4gTGludXguCgpJJ20gbW9zdGx5IHdvcnJpZWQgYWJvdXQgc29tZSBDb2xk
-ZmlyZSBjb2RlIHJlbHlpbmcgb24gdGhlIGFjdHVhbCB2YWx1ZQpvZiBQQUdFX1NJWkUgaW4gc29t
-ZSBvdGhlciBjb250ZXh0LiBlLmcuIGZvciBjb25maWd1cmluZyBub24tY2FjaGVhYmxlCnJlZ2lv
-bnMuCgpBbmQgZG9lcyB0aGlzIGltcGFjdCBydW5uaW5nIG5vbW11IGJpbmFyaWVzIG9uIGEgc3lz
-dGVtIHdpdGggTU1VPwpJLmUuIGlmIG5vbW11IGJpbmFyaWVzIHdlcmUgYnVpbHQgd2l0aCBhIDQg
-S2lCIFBBR0VfU0laRSwgZG8gdGhleQpzdGlsbCBydW4gb24gTU1VIHN5c3RlbXMgd2l0aCBhbiA4
-IEtpQiBQQUdFX1NJWkUgKGNvbGRmaXJlIGFuZCBzdW4zKSwKb3IgYXJlIHRoZXJlIHNvbWUgc3Vi
-dGxldGllcyB0byB0YWtlIGludG8gYWNjb3VudD8KCkdye29ldGplLGVldGluZ31zLAoKICAgICAg
-ICAgICAgICAgICAgICAgICAgR2VlcnQKCi0tIApHZWVydCBVeXR0ZXJob2V2ZW4gLS0gVGhlcmUn
-cyBsb3RzIG9mIExpbnV4IGJleW9uZCBpYTMyIC0tIGdlZXJ0QGxpbnV4LW02OGsub3JnCgpJbiBw
-ZXJzb25hbCBjb252ZXJzYXRpb25zIHdpdGggdGVjaG5pY2FsIHBlb3BsZSwgSSBjYWxsIG15c2Vs
-ZiBhIGhhY2tlci4gQnV0CndoZW4gSSdtIHRhbGtpbmcgdG8gam91cm5hbGlzdHMgSSBqdXN0IHNh
-eSAicHJvZ3JhbW1lciIgb3Igc29tZXRoaW5nIGxpa2UgdGhhdC4KICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAtLSBMaW51cyBUb3J2YWxkcwoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+--===============7871317492122383161==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="qwP6EXChpel/sZvo"
+Content-Disposition: inline
+
+--qwP6EXChpel/sZvo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Feb 16, 2024 at 12:33:19PM -0800, Charlie Jenkins wrote:
+> Introduce Kconfig options to set the kernel unaligned access support.
+> These options provide a non-portable alternative to the runtime
+> unaligned access probe.
+>=20
+> To support this, the unaligned access probing code is moved into it's
+> own file and gated behind a new RISCV_PROBE_UNALIGNED_ACCESS_SUPPORT
+> option.
+>=20
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  arch/riscv/Kconfig                          |  58 +++++-
+>  arch/riscv/include/asm/cpufeature.h         |  30 +++-
+>  arch/riscv/kernel/Makefile                  |   6 +-
+>  arch/riscv/kernel/cpufeature.c              | 255 ----------------------=
+----
+>  arch/riscv/kernel/misaligned_access_speed.c | 265 ++++++++++++++++++++++=
+++++++
+>  arch/riscv/kernel/probe_emulated_access.c   |  64 +++++++
+>  arch/riscv/kernel/sys_hwprobe.c             |  25 +++
+>  arch/riscv/kernel/traps_misaligned.c        |  54 +-----
+>  8 files changed, 442 insertions(+), 315 deletions(-)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index bffbd869a068..3cf700adc43b 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -690,25 +690,71 @@ config THREAD_SIZE_ORDER
+>  config RISCV_MISALIGNED
+
+
+Why can we not make up our minds on what to call this? The majority of
+users are "unaligned" but the file you add and this config option are
+"misaligned."
+
+>  	bool "Support misaligned load/store traps for kernel and userspace"
+>  	select SYSCTL_ARCH_UNALIGN_ALLOW
+> +	depends on RISCV_PROBE_UNALIGNED_ACCESS || RISCV_EMULATED_UNALIGNED_ACC=
+ESS
+>  	default y
+>  	help
+>  	  Say Y here if you want the kernel to embed support for misaligned
+>  	  load/store for both kernel and userspace. When disable, misaligned
+>  	  accesses will generate SIGBUS in userspace and panic in kernel.
+> =20
+> +choice
+> +	prompt "Unaligned Accesses Support"
+> +	default RISCV_PROBE_UNALIGNED_ACCESS
+> +	help
+> +	  This selects the hardware support for unaligned accesses. This
+> +	  information is used by the kernel to perform optimizations. It is also
+> +	  exposed to user space via the hwprobe syscall. The hardware will be
+> +	  probed at boot by default.
+> +
+> +config RISCV_PROBE_UNALIGNED_ACCESS
+> +	bool "Probe for hardware unaligned access support"
+> +	help
+> +	  During boot, the kernel will run a series of tests to determine the
+> +	  speed of unaligned accesses. This is the only portable option. This
+> +	  probing will dynamically determine the speed of unaligned accesses on
+> +	  the boot hardware.
+> +
+> +config RISCV_EMULATED_UNALIGNED_ACCESS
+> +	bool "Assume the CPU expects emulated unaligned memory accesses"
+> +	depends on NONPORTABLE
+
+This is portable too, right?
+
+> +	select RISCV_MISALIGNED
+> +	help
+> +	  Assume that the CPU expects emulated unaligned memory accesses.
+> +	  When enabled, this option notifies the kernel and userspace that
+> +	  unaligned memory accesses will be emulated by the kernel.
+
+> To enforce
+> +	  this expectation, RISCV_MISALIGNED is selected by this option.
+
+Drop this IMO, let Kconfig handle displaying the dependencies.
+
+> +
+> +config RISCV_SLOW_UNALIGNED_ACCESS
+> +	bool "Assume the CPU supports slow unaligned memory accesses"
+> +	depends on NONPORTABLE
+> +	help
+> +	  Assume that the CPU supports slow unaligned memory accesses. When
+> +	  enabled, this option improves the performance of the kernel on such
+> +	  CPUs.
+
+Does it? Are you sure that generating unaligned accesses on systems
+where they are slow is a performance increase?
+That said, I don't really see this option actually doing anything other
+than setting the value for hwprobe, so I don't actually know what the
+effect of this option actually is on the kernel's performance.
+
+Generally I would like to suggest a change from "CPU" to "system" here,
+since the slow cases that exist are mostly because the unaligned access
+is actually emulated in firmware.
+
+> However, the kernel will run much more slowly, or will not be
+> +	  able to run at all, on CPUs that do not support unaligned memory
+> +	  accesses.
+> +
+>  config RISCV_EFFICIENT_UNALIGNED_ACCESS
+>  	bool "Assume the CPU supports fast unaligned memory accesses"
+>  	depends on NONPORTABLE
+>  	select DCACHE_WORD_ACCESS if MMU
+>  	select HAVE_EFFICIENT_UNALIGNED_ACCESS
+>  	help
+> -	  Say Y here if you want the kernel to assume that the CPU supports
+> -	  efficient unaligned memory accesses.  When enabled, this option
+> -	  improves the performance of the kernel on such CPUs.  However, the
+> -	  kernel will run much more slowly, or will not be able to run at all,
+> -	  on CPUs that do not support efficient unaligned memory accesses.
+> +	  Assume that the CPU supports fast unaligned memory accesses. When
+> +	  enabled, this option improves the performance of the kernel on such
+> +	  CPUs.  However, the kernel will run much more slowly, or will not be
+> +	  able to run at all, on CPUs that do not support efficient unaligned
+> +	  memory accesses.
+> +
+> +config RISCV_UNSUPPORTED_UNALIGNED_ACCESS
+
+This option needs to be removed. The uabi states that unaligned access
+is supported in userspace, if the cpu or firmware does not implement
+unaligned access then the kernel must emulate it.
+
+> +	bool "Assume the CPU doesn't support unaligned memory accesses"
+> +	depends on NONPORTABLE
+> +	help
+> +	  Assume that the CPU doesn't support unaligned memory accesses. Only
+> +	  select this option if there is no registered trap handler to emulate
+> +	  unaligned accesses.
+> =20
+> -	  If unsure what to do here, say N.
+> +endchoice
+> =20
+>  endmenu # "Platform type"
+
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm=
+/cpufeature.h
+> index eb3ac304fc42..928ad3384406 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -33,10 +33,26 @@ extern struct riscv_isainfo hart_isa[NR_CPUS];
+> =20
+>  void riscv_user_isa_enable(void);
+> =20
+> -#ifdef CONFIG_RISCV_MISALIGNED
+> +#if defined(CONFIG_RISCV_MISALIGNED)
+> +#if defined(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)
+>  bool unaligned_ctl_available(void);
+>  bool check_unaligned_access_emulated(int cpu);
+>  void unaligned_emulation_finish(void);
+> +#elif defined(CONFIG_RISCV_EMULATED_UNALIGNED_ACCESS)
+> +static inline bool unaligned_ctl_available(void)
+> +{
+> +	return true;
+> +}
+> +
+> +static inline bool check_unaligned_access_emulated(int cpu)
+> +{
+> +	return true;
+> +}
+> +
+> +static inline void unaligned_emulation_finish(void) {}
+> +#else
+> +#error "CONFIG_RISCV_MISALIGNED is only supported if CONFIG_RISCV_PROBE_=
+UNALIGNED_ACCESS or CONFIG_RISCV_EMULATED_UNALIGNED_ACCESS is selected."
+
+Why is this an error? Enforce this in Kconfig (you already have) and drop
+the clause.
+
+Cheers,
+Conor.
+
+--qwP6EXChpel/sZvo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd3J7QAKCRB4tDGHoIJi
+0ia+AQCU5YCXF9J0kaM+Tt9OAbetH7+JzZR2O/sLLeCFxZg9GQD+KADsdA0Xelx3
+k1fmt+5ayKCVcruP4O6xdFtjtpGOUgo=
+=fwKH
+-----END PGP SIGNATURE-----
+
+--qwP6EXChpel/sZvo--
+
+
+--===============7871317492122383161==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7871317492122383161==--
+
