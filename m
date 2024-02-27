@@ -4,66 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13478C54798
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 14:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D8CC5478C
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 14:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YM0pou0s+tJiASEyDrHrGHsKpuhATWPrKZu6P58nZJo=; b=GxIRhZV4pIyEC5
-	tTtoG2nG9lhRIgXhivGkrq/xgyvmG9ZMAhkCDEkbjLqO5ZpWU87sSEoOq8q2xl8OlSpTF+17UrHmc
-	wTOve5RDTnkIwuGIcW8vA7B6sXPUfzq7SQYKv0ex/DBwiM3MzFX+984yuYQTnDyI0lqPVr/wmWbwU
-	lfZL1/wd4TYYEYXn61PJD3Gqg89uygTpOoUPm2OIXP+CtE8nhgGsByBKIO9pK44aNoFehB3Le+bCE
-	knpwo/sCYGDHHC9EoJWXRvgbx78XS/9na61gq8oQNHcnJIng/Y6T/nutE0lUAnP/wzmBCf+a0gAJT
-	lqvTHHDhebDFWJRPBccA==;
+	List-Owner; bh=Pw4kTKr2+nkW1/JzOlcvShmT2nZtwLpApEQIJOoEqRw=; b=iK9Ma8jz562dks
+	d/JzLvW4zr4IP5PUUEOLg8mcNy1KNv+BDFcBzOB/Ewx6kjfKdH9hDTzJ8W5Hac5McLCK12zmLSLJY
+	htSG8bIGpsbAqkWXFR+I5CgIC9aTBNlN1TIIL5bPnaUSDCYlHTD4RLRF0hDMM31yBIvD+YtSsPorm
+	+kJTpVyAxYRGD92m+H72KfPqnuY7i44h9OJm+/IyYf+IndmVRrCTBgFsz9JxmZa3GQCWF2II6kcn4
+	UtX99xsQc8CYbPhBmyBv9s4xE36CmGjynmHDO9rLYR8ES48Z2kdcmo6XbYGBzbBTjdIpBTenI5uin
+	Ziv33r6m5lNkrdcT0NvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reyGq-00000005YB1-3Nkz;
-	Tue, 27 Feb 2024 14:17:24 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1reyIY-00000005Yca-1MqB;
+	Tue, 27 Feb 2024 14:19:10 +0000
+Received: from new2-smtp.messagingengine.com ([66.111.4.224])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1reyGm-00000005Y8n-0WZ9
-	for linux-riscv@lists.infradead.org;
-	Tue, 27 Feb 2024 14:17:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id C1950CE1D01;
-	Tue, 27 Feb 2024 14:17:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA86EC433C7;
-	Tue, 27 Feb 2024 14:17:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1709043437;
-	bh=VsrTB/tql4nkYzusXn+iCSmffjbdlr9OqJIvhRB0OsM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kgn5jNrRtueo3qvqLtmR7duX+rja7D1FUsr4cDpnWyG32pStH6aY7vrANU1MXplgX
-	 Z9CT97kTzABKFuWj1yYiJhYqbI7rnKmGOubfpHGzC6vmHEIPeFGnSI6QHuJm7ijdmZ
-	 syW4+RMO4qVhff96gxtqrhXZMs4PoqdryY3ZBAQY=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Nam Cao <namcao@linutronix.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 6.1 108/195] irqchip/sifive-plic: Enable interrupt if needed before EOI
-Date: Tue, 27 Feb 2024 14:26:09 +0100
-Message-ID: <20240227131614.031609537@linuxfoundation.org>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <20240227131610.391465389@linuxfoundation.org>
-References: <20240227131610.391465389@linuxfoundation.org>
-User-Agent: quilt/0.67
-X-stable: review
-X-Patchwork-Hint: ignore
+	id 1reyIT-00000005YYO-3qHr;
+	Tue, 27 Feb 2024 14:19:08 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailnew.nyi.internal (Postfix) with ESMTP id 8717758176A;
+	Tue, 27 Feb 2024 09:19:00 -0500 (EST)
+Received: from imap51 ([10.202.2.101])
+  by compute5.internal (MEProxy); Tue, 27 Feb 2024 09:19:00 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1709043540;
+	 x=1709050740; bh=lgwXV027qrMgBZRGGg484htOjeaxN2ck0Zcve0Dmzhs=; b=
+	lPUTGKxSZWT3KviA8nwQtQixUNSRKDoofN2NivSWKtva1+uopGcYEEr4RC46c0a4
+	vwDyryLlG3/SO1o0IgHaIAKElGDgOIftHdg/t1LowfBfp6kWJ/02DSeWOd9gO01Y
+	i2xNDAt65lcr61a9rbStiacnnPLSzVXxNfz+qirJEOwE6l4Mjsb9FPSq6beDfONs
+	IfFnZ9bxqqqY3xHHTJ0xelGfB0mkN5vK/R1PlQWSfAeazO2LUPLczof7Is+mk4YY
+	dS7xeAUB8mFbzZwvSoSrgsd+tbYj/Jm83Sm5bzumIEzMe8eZVlLb2zqJj5ACbn1Q
+	xHdhr1utw0PFFSmpN8T17A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1709043540; x=
+	1709050740; bh=lgwXV027qrMgBZRGGg484htOjeaxN2ck0Zcve0Dmzhs=; b=N
+	PNMT8iDaqBhcmripVnSD6nS3Lv42kN3UYBW99FRUWa3TpEGbwqC5etBXkzZPJQ97
+	b46+HgX1sO+sVYOqI7WWoftMMpP1d6mFgSc+COHXzownsJ7ep9c7luzipVKN/JSm
+	WvBS91t32eqhnz4okM6kGJHX7ja6nxAsDWD2f8/n1iyXi5CXN1O8cRQmzdP0MN3P
+	lXLGSaSOyRMNG2Klv5JGjNbEL+jZ99PzUXZkK0dRYXnY7Sh9tCeVVIPOdKairDq/
+	hVJllB8wVwsQCnLlNf4DWkeeaaUPJ42yyj0cK8PqRkYPiog+0wCNiowoUDAfMSZ0
+	TxOSo3YO5XIRZlykzYViQ==
+X-ME-Sender: <xms:Uu_dZWjk9CPDDtuHUq0spRBOyt_ieWSB_NQxrFGLmr24EkUFHc8YHg>
+    <xme:Uu_dZXDMUFx8ZF-9sPWppPSzjc83i6I1db9CmveKWGMIeJFPSdAeNSa88BpcqoNFB
+    jVJuLbK_PRbbcnDDkw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvledrgeehgdefkecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgfgsehtqhertderreejnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepgeefjeehvdelvdffieejieejiedvvdfhleeivdelveehjeelteegudektdfg
+    jeevnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:Uu_dZeEDtHRL9UWe85NwoKrx0otX3SNqDfDiZ5hOf70Z6GsgUqDdIw>
+    <xmx:Uu_dZfQ4cWIo6G3rC1HFzafsQ2XymenYLV7MaNYtE0ltPhY45Lm3AA>
+    <xmx:Uu_dZTw8lPg-bwLBWej0tpp3R0mNAVRklOB_4I0L7nRbPx69459aug>
+    <xmx:VO_dZbOruGZOL_Pr3S4l_raiy6WMSNlORBuJgrWys66FFVcptlS8dQ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 8FBCAB6008D; Tue, 27 Feb 2024 09:18:58 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.11.0-alpha0-153-g7e3bb84806-fm-20240215.007-g7e3bb848
 MIME-Version: 1.0
+Message-Id: <7b62e73d-d3fa-4432-807d-c2e667814b17@app.fastmail.com>
+In-Reply-To: <CAMuHMdXQYPtL0J4Phm81S1qWpi7no=1r4uStbLd8zbjn7fcWQw@mail.gmail.com>
+References: <20240226161414.2316610-1-arnd@kernel.org>
+ <20240226161414.2316610-4-arnd@kernel.org>
+ <CAMuHMdWRBQF95fJ+NkPUdvpu5VfRm2WyTnvdqB1Xe7d4vsvY2g@mail.gmail.com>
+ <164616c2-94f6-40e8-86e0-850dc8da212e@app.fastmail.com>
+ <CAMuHMdXQYPtL0J4Phm81S1qWpi7no=1r4uStbLd8zbjn7fcWQw@mail.gmail.com>
+Date: Tue, 27 Feb 2024 15:18:38 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Geert Uytterhoeven" <geert@linux-m68k.org>
+Cc: "Arnd Bergmann" <arnd@kernel.org>,
+ "Thomas Gleixner" <tglx@linutronix.de>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "Kees Cook" <keescook@chromium.org>,
+ "Anna-Maria Gleixner" <anna-maria@linutronix.de>,
+ "Matt Turner" <mattst88@gmail.com>, "Vineet Gupta" <vgupta@kernel.org>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, guoren <guoren@kernel.org>,
+ "Brian Cain" <bcain@quicinc.com>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "Michal Simek" <monstr@monstr.eu>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Helge Deller" <deller@gmx.de>, "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ "Andreas Larsson" <andreas@gaisler.com>,
+ "Richard Weinberger" <richard@nod.at>, x86@kernel.org,
+ "Max Filippov" <jcmvbkbc@gmail.com>, "Andy Lutomirski" <luto@kernel.org>,
+ "Jan Kiszka" <jan.kiszka@siemens.com>,
+ "Kieran Bingham" <kbingham@kernel.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, "Greg Ungerer" <gerg@linux-m68k.org>
+Subject: Re: [PATCH 3/4] arch: define CONFIG_PAGE_SIZE_*KB on all architectures
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_061720_676760_7E06C0B2 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20240227_061906_851091_C0CDF165 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,83 +132,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-6.1-stable review patch.  If anyone has any objections, please let me know.
-
-------------------
-
-From: Nam Cao <namcao@linutronix.de>
-
-commit 9c92006b896c767218aabe8947b62026a571cfd0 upstream.
-
-RISC-V PLIC cannot "end-of-interrupt" (EOI) disabled interrupts, as
-explained in the description of Interrupt Completion in the PLIC spec:
-
-"The PLIC signals it has completed executing an interrupt handler by
-writing the interrupt ID it received from the claim to the claim/complete
-register. The PLIC does not check whether the completion ID is the same
-as the last claim ID for that target. If the completion ID does not match
-an interrupt source that *is currently enabled* for the target, the
-completion is silently ignored."
-
-Commit 69ea463021be ("irqchip/sifive-plic: Fixup EOI failed when masked")
-ensured that EOI is successful by enabling interrupt first, before EOI.
-
-Commit a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask
-operations") removed the interrupt enabling code from the previous
-commit, because it assumes that interrupt should already be enabled at the
-point of EOI.
-
-However, this is incorrect: there is a window after a hart claiming an
-interrupt and before irq_desc->lock getting acquired, interrupt can be
-disabled during this window. Thus, EOI can be invoked while the interrupt
-is disabled, effectively nullify this EOI. This results in the interrupt
-never gets asserted again, and the device who uses this interrupt appears
-frozen.
-
-Make sure that interrupt is really enabled before EOI.
-
-Fixes: a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask operations")
-Signed-off-by: Nam Cao <namcao@linutronix.de>
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Samuel Holland <samuel@sholland.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>
-Cc: linux-riscv@lists.infradead.org
-Cc: <stable@vger.kernel.org>
-Link: https://lore.kernel.org/r/20240131081933.144512-1-namcao@linutronix.de
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- drivers/irqchip/irq-sifive-plic.c |    8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
-
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -144,7 +144,13 @@ static void plic_irq_eoi(struct irq_data
- {
- 	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
- 
--	writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-+	if (unlikely(irqd_irq_disabled(d))) {
-+		plic_toggle(handler, d->hwirq, 1);
-+		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-+		plic_toggle(handler, d->hwirq, 0);
-+	} else {
-+		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-+	}
- }
- 
- #ifdef CONFIG_SMP
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBGZWIgMjcsIDIwMjQsIGF0IDEyOjEyLCBHZWVydCBVeXR0ZXJob2V2ZW4gd3JvdGU6
+Cj4gT24gVHVlLCBGZWIgMjcsIDIwMjQgYXQgMTE6NTnigK9BTSBBcm5kIEJlcmdtYW5uIDxhcm5k
+QGFybmRiLmRlPiB3cm90ZToKPj4gT24gVHVlLCBGZWIgMjcsIDIwMjQsIGF0IDA5OjU0LCBHZWVy
+dCBVeXR0ZXJob2V2ZW4gd3JvdGU6Cj4+IEkgd2FzIGEgYml0IHVuc3VyZSBhYm91dCBob3cgdG8g
+YmVzdCBkbyB0aGlzIHNpbmNlIHRoZXJlCj4+IGlzIG5vdCByZWFsbHkgYSBuZWVkIGZvciBhIGZp
+eGVkIHBhZ2Ugc2l6ZSBvbiBub21tdSBrZXJuZWxzLAo+PiB3aGVyZWFzIHRoZSB0aHJlZSBNTVUg
+Y29uZmlncyBjbGVhcmx5IHRpZSB0aGUgcGFnZSBzaXplIHRvCj4+IHRoZSBNTVUgcmF0aGVyIHRo
+YW4gdGhlIHBsYXRmb3JtLgo+Pgo+PiBUaGVyZSBzaG91bGQgYmUgbm8gcmVhc29uIGZvciBjb2xk
+ZmlyZSB0byBoYXZlIGEgZGlmZmVyZW50Cj4+IHBhZ2Ugc2l6ZSBmcm9tIGRyYWdvbmJhbGwgaWYg
+bmVpdGhlciBvZiB0aGVtIGFjdHVhbGx5IHVzZXMKPj4gaGFyZHdhcmUgcGFnZXMsIHNvIG9uZSBv
+ZiB0aGVtIGNvdWxkIGJlIGNoYW5nZWQgbGF0ZXIuCj4KPiBJbmRlZWQsIGluIHRoZW9yeSwgUEFH
+RV9TSVpFIGRvZXNuJ3QgbWF0dGVyIGZvciBub21tdSwgYnV0IHRoZSBjb25jZXB0Cj4gb2YgcGFn
+ZXMgaXMgdXNlZCBhbGwgb3ZlciB0aGUgcGxhY2UgaW4gTGludXguCj4KPiBJJ20gbW9zdGx5IHdv
+cnJpZWQgYWJvdXQgc29tZSBDb2xkZmlyZSBjb2RlIHJlbHlpbmcgb24gdGhlIGFjdHVhbCB2YWx1
+ZQo+IG9mIFBBR0VfU0laRSBpbiBzb21lIG90aGVyIGNvbnRleHQuIGUuZy4gZm9yIGNvbmZpZ3Vy
+aW5nIG5vbi1jYWNoZWFibGUKPiByZWdpb25zLgoKUmlnaHQsIGFueSBjaGFuZ2UgaGVyZSB3b3Vs
+ZCBoYXZlIHRvIGJlIGNhcmVmdWxseSB0ZXN0ZWQuIEkgd291bGQKZXhwZWN0IHRoYXQgYSA0SyBw
+YWdlIHNpemUgd291bGQgcmVkdWNlIG1lbW9yeSBjb25zdW1wdGlvbiBldmVuIG9uCk5PTU1VIHN5
+c3RlbXMgdGhhdCBzaG91bGQgaGF2ZSB0aGUgc2FtZSB0cmFkZW9mZnMgZm9yIHJlcHJlc2VudGlu
+ZwpmaWxlcyBpbiB0aGUgcGFnZSBjYWNoZSBhbmQgaW4gbWVtX21hcFtdLgoKPiBBbmQgZG9lcyB0
+aGlzIGltcGFjdCBydW5uaW5nIG5vbW11IGJpbmFyaWVzIG9uIGEgc3lzdGVtIHdpdGggTU1VPwo+
+IEkuZS4gaWYgbm9tbXUgYmluYXJpZXMgd2VyZSBidWlsdCB3aXRoIGEgNCBLaUIgUEFHRV9TSVpF
+LCBkbyB0aGV5Cj4gc3RpbGwgcnVuIG9uIE1NVSBzeXN0ZW1zIHdpdGggYW4gOCBLaUIgUEFHRV9T
+SVpFIChjb2xkZmlyZSBhbmQgc3VuMyksCj4gb3IgYXJlIHRoZXJlIHNvbWUgc3VidGxldGllcyB0
+byB0YWtlIGludG8gYWNjb3VudD8KCkFzIGZhciBhcyBJIHVuZGVyc3RhbmQsIGJpbmFyaWVzIGhh
+dmUgdG8gYmUgYnVpbHQgYW5kIGxpbmtlZCBmb3IKdGhlIGxhcmdlc3QgcGFnZSBzaXplIHRoZXkg
+Y2FuIHJ1biBvbiwgc28gcnVubmluZyB0aGVtIG9uIGEga2VybmVsCndpdGggc21hbGxlciBwYWdl
+IHNpemUgdXN1YWxseSB3b3Jrcy4KCk9uZSBub3RhYmxlIGV4Y2VwdGlvbiBpcyBzeXNfbW1hcDIo
+KSwgd2hpY2ggb24gbW9zdCBhcmNoaXRlY3R1cmVzCnRha2VzIHVuaXRzIG9mIDRLaUIgYnV0IG9u
+IG02OGsgaXMgYWN0dWFsbHkgd3JpdHRlbiB0byB0YWtlClBBR0VfU0laRSB1bml0cy4gQXMgQWwg
+cG9pbnRlZCBvdXQgaW4gZjhiNzI1NjA5NmEyICgiVW5pZnkKc3lzX21tYXAqIiksIGl0IGhhcyBh
+bHdheXMgYmVlbiB3cm9uZyBvbiBzdW4zLCBwcmVzdW1hYmx5CmJlY2F1c2UgdXNlcnMgb2YgdGhh
+dCBwcmVkYXRlIG1vZGVybiBnbGliYy4gUnVubmluZyBjb2xkZmlyZQpub21tdSBiaW5hcmllcyBv
+biBjb2xkZmlyZSBtbXUga2VybmVscyB3b3VsZCBydW4gaW50byB0aGUgc2FtZQpidWcgaWYgZWl0
+aGVyIG9mIHRoZW0gY2hhbmdlcyBQQUdFX1NJWkUuIElmIHlvdSBjYW4gcnVuCmNvbGRmaXJlIG5v
+bW11IGJpbmFyaWVzIG9uIGNsYXNzaWMgbTY4aywgdGhhdCBpcyBhbHJlYWR5CmJyb2tlbiBpbiB0
+aGUgc2FtZSB3YXkuCgogICAgICBBcm5kCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
