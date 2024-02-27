@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A87C54798
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 12:34:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C71C54798
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 12:37:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=onGHExQT4CqIqo4ieaQzsgKb80S2l3AryjxgTSWmdBE=; b=buizISjXQewfY6
-	yu3Fw/Uc3wSu7At5dfWQj6fVOVKX6nGJa238D5akuc6YPj6fKmsqsYqSrRK8kILga/kNikW3j6O+9
-	wMCdmJBkFgLsS4OiQTI6r3CtsNd5tCbxFyNMffSY/Vn85Bwt541caTvAw8IhGLJ/2toBMzdMIYL8v
-	zG2+/rsE9edrPD9ZODfk5UlUfHHj5vVMjs7wEtXnxWlaTgJG4MYlpSraeofM7hz3t+HorX4h7p7ot
-	xkdKkDHIrufpMyp/KwBsgmRpMR2LYEVYvfXF378Ltn7zY7Vbyt/w6c/4uRkW9SYDINPg0Vi9pgdOr
-	uemwPpEzEO4EH4WsMwMw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CQ+76CtJF/8QAUfqgAKZ565VpKRVgjXjDq8Im3rvp0A=; b=jdg5o0p/Ofw+aUrnBrau/f+Skv
+	VKRq/m1SQ5okuBbfl/2ZJk/swwHnfeDragjET+vrdgsvZmOOMw8E5Aq8R9qVhRwALE7Eov/94kBcw
+	/LbKcBS5o+/QdpTGsJQD6QT6fNeDEpLlEZka6NIk379v/ml7o+KYJCYU43iDLfa++ylh//hnVvXyw
+	FVr7nrtymK4w4qMMn6qZnWQt5R4apzW5W9LDvlqqLFrkjOhr7wsyQGww7Me0rKJiWJWaM0yUYICKM
+	cg9pa3zPZdW4YqTM8I67rzPefGGjJuzW94wKTm7edLLM284E23qHD8ZRU9p4BzldPCkyrsYpLuDTA
+	c+eKHuaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rewfH-00000005D4Y-07Jq;
-	Tue, 27 Feb 2024 12:34:31 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1rewiA-00000005DQW-0UZW;
+	Tue, 27 Feb 2024 12:37:30 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rewfE-00000005D46-39oK
+	id 1rewi6-00000005DQA-3ow6
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Feb 2024 12:34:30 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-29954bb87b4so2889024a91.2
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Feb 2024 04:34:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1709037267; x=1709642067; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=N9j9qlONozduTz+bniTZX4spLz7Dtuw1zBMBtIuIeC0=;
-        b=aUhkyqgt7oQGZ7JopEggvjTZCvL5YBUHwrjMC+jq+qNLWMBMheJMbKGIR+STc3B5Qm
-         5ziZ4lY21/M2eg4iXk2iQNnhxukqierr+9namn0mmTZYsi0JMe6oloAyaLkPPwF2AKgs
-         /fP4XKUHtJvmObQC0fPb5eiJ3zRjT5HjWhVRRGMQdBHwmC9xnCrvEdCo7EaHCLaY9ktv
-         y7fEqDxjZNtLrIydedqe7j46VOT/lRbJQPsdIImXCpE4+oEJPfbk5grk0n7dzYP1b1yF
-         WfqbF3yCbUGqXiiUf+NT/SK9S69WpAxA3gqLUHbwgST5i3COof0exJUw9VmKEwBTBzuy
-         fWKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709037267; x=1709642067;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=N9j9qlONozduTz+bniTZX4spLz7Dtuw1zBMBtIuIeC0=;
-        b=dhMdlRC/C86dfJdleFWlILoDae65sf49YRzocAyQqaeM+Cvj/hQIMLd7tJO/CTzkXj
-         ZC7fJhpgMBALixpjBT9bb0l3YgCO/NP8Opadjiy6tzaWAtKIibkQXQRRloEE3FjfGyRo
-         hcX3gmdgrnCbG50sMnRSIwE5Yupeu9kH1vRAoKen3c0zcEeAhHggLyYzM6uoXZxmac1a
-         VF1tN1PmLiiMRT7WSq/l5eYVPWPGP3YUWf3lup88ihwEWLZKN55hXVJ9C0lwzjZ9RHCj
-         iNT3rfEBUR9OwrIJ8FiBKCsu6lhPc2d8StfmXxfHG2KrZPKDt1CBb9Ev4eTEtoWBeCX7
-         YM6g==
-X-Forwarded-Encrypted: i=1; AJvYcCWs3Qep37nhbuguyInoRUVt9q8Z4r7HodsrQw24zci/ILniRX7PqgsM8lTFfGHkFL3c6NmhPOmkOA/7KJ2jQBrYKEDohoZvl0jEglYuHQjy
-X-Gm-Message-State: AOJu0YzPgme6GXlWwSEP8s72YwedtlGw1pbaGLC3pqu8OM9pW0RnREwO
-	Uaxq6FiZhA8uDddH/bIQo0mgsjAFBmvErXbzr37hND9ER+HIcMlOTPgqc7TlHICxXGZX8PeIXEj
-	QZ0yUjQLN6JO+cBYEgwywe9RdZgI=
-X-Google-Smtp-Source: AGHT+IEuXAPX9FOqOhNJb3Owku+lxeLjmPjbeDLcLvCF79H6OR73WYykC8gycjj0GEybh553JRImPRMosUkl+JhzaAA=
-X-Received: by 2002:a17:90a:5804:b0:299:389e:b611 with SMTP id
- h4-20020a17090a580400b00299389eb611mr5540528pji.47.1709037266902; Tue, 27 Feb
- 2024 04:34:26 -0800 (PST)
+	Tue, 27 Feb 2024 12:37:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1709037446; x=1740573446;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vL3h/IKG2Lc53EUgGT8KSBiS7JMMvvCh4EzUmuDxQuI=;
+  b=hqnyz1zyUmFx0mZVDgnVpoyeyc98LDGtGQqep23JBNikKIOmNQtYPZZw
+   Cpuaj2zj+Tzm0OaYn44FFbNiuhZfKCPVdGz4bqc/rVeOuj93HTV9CN3ID
+   0vqVDPNwN1LlkGgg6dO0qVneqptTd78uraVSU1GLMEt8UF5bFzo2ii90Q
+   RNP9MJ7o1yZboZmqIZe/ZRdV97d7QsDFyiK0FAlxRLtdXL66fleo2VY86
+   50RQy2yTVxaNjlJRWxY329KQi+Izk05Pvl1r85tnpjmce0o3oXpAzA1SS
+   pmFp//244xdLHXb8kLtfifufNI+wMWrmwzWBCHmBDOkH0qH7QZB1Jxv9Z
+   Q==;
+X-CSE-ConnectionGUID: RIjtrF0uTky5IbYLb0NUFw==
+X-CSE-MsgGUID: VyN+l4VUTNyBBErAHgla5w==
+X-IronPort-AV: E=Sophos;i="6.06,187,1705388400"; 
+   d="asc'?scan'208";a="16883354"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2024 05:37:25 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 27 Feb 2024 05:37:09 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Tue, 27 Feb 2024 05:37:06 -0700
+Date: Tue, 27 Feb 2024 12:36:23 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>, Miguel
+ Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Wedson Almeida
+ Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo
+	<gary@garyguo.net>, =?iso-8859-1?Q?Bj=F6rn?= Roy Baron
+	<bjorn3_gh@protonmail.com>, Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Nathan
+ Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>, <rust-for-linux@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<llvm@lists.linux.dev>
+Subject: Re: [PATCH v2 2/3] scripts: generate_rust_target: enable building on
+ RISC-V
+Message-ID: <20240227-swarm-serpent-2010b255f68a@wendy>
+References: <20240223-leverage-walmart-5424542cd8bd@spud>
+ <20240223-employee-pessimism-03ba0b58db6b@spud>
+ <CANiq72ngEZskjH0f=8+cJuQsFTK227bGCxe5G0STMHuPbZYnXg@mail.gmail.com>
+ <20240227-resolved-deceit-4a59a6af5b71@wendy>
+ <CANiq72mwM+4Oh-H5WmRoqQ_nE1w-eJ1wn-nEwS=BR9JRwzxMMQ@mail.gmail.com>
+ <20240227-glove-underwire-f562a56cf2c7@wendy>
+ <CANiq72=f03_bw9B8ww8UxHkVyP2F7ZPyvC+KWCyhO3Nk1yqdaw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20240223-leverage-walmart-5424542cd8bd@spud> <20240223-perjury-preshow-fc2cf73d552e@spud>
- <CANiq72=mCnm0mKOw5K44PmZ+jF=67jxEEkcXP-E0O8CaUrps=w@mail.gmail.com> <20240227-uncertain-amaze-6197e627ad95@wendy>
-In-Reply-To: <20240227-uncertain-amaze-6197e627ad95@wendy>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Tue, 27 Feb 2024 13:34:14 +0100
-Message-ID: <CANiq72=geBobqM0Dc2yv=NjAc3MWXhOrDHfuJ84TgQ+XVxBo0w@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] rust: make mutually exclusive with CFI_CLANG
-To: Conor Dooley <conor.dooley@microchip.com>, Nathan Chancellor <nathan@kernel.org>
-Cc: Conor Dooley <conor@kernel.org>, Matthew Maurer <mmaurer@google.com>, 
-	linux-riscv@lists.infradead.org, Miguel Ojeda <ojeda@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Wedson Almeida Filho <wedsonaf@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, 
-	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org, 
-	Sami Tolvanen <samitolvanen@google.com>, Ramon de C Valle <rcvalle@google.com>
+In-Reply-To: <CANiq72=f03_bw9B8ww8UxHkVyP2F7ZPyvC+KWCyhO3Nk1yqdaw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_043428_811633_83E9004A 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20240227_043727_078216_219AF4D8 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,22 +95,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============1242045111340382716=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBGZWIgMjcsIDIwMjQgYXQgMTE6NTTigK9BTSBDb25vciBEb29sZXkKPGNvbm9yLmRv
-b2xleUBtaWNyb2NoaXAuY29tPiB3cm90ZToKPgo+IEkgZGlkIHRyeSB0byB0ZXN0IGl0IGJ1dCBJ
-IHJhbiBpbnRvIHRvbyBtYW55IHRvb2xjaGFpbiBpc3N1ZXMgLSBteQo+IG9sZGVyIGNvcGllcyBv
-ZiBMTFZNIChwcmUgMTcpIGFyZSBub3QgbXVsdGlhcmNoIGFzIEkgYnVpbHQgdGhlbSBieSBoYW5k
-Cj4gd2l0aCBQR08gZm9yIHg4NiBhbmQgUklTQy1WLiBNeSBMTFZNIDE3IGlzIGZyb20ga2VybmVs
-Lm9yZyBhbmQgaGFzIG5vCj4gbGliY2xhbmcuIEFuZCB0aGVuIHRoZSBjb3B5IG9mIExMVk0gMTgg
-b24ga2VybmVsLm9yZyBhcHBhcmVudGx5IGRvZXMgbm90Cj4gc3VwcG9ydCBrY2ZpIGF0IGFsbC4g
-SSBnYXZlIHVwIHRoZXJlLCBidXQgSSBkb24ndCBzZWUgaG93IHRoaXMgd291bGQgbm90CgpJIGFz
-a2VkIE5hdGhhbiB0byBhZGQgbGliY2xhbmcgYSBmZXcgZGF5cyBhZ28sIGFuZCBoZSB2ZXJ5IHF1
-aWNrbHkgZGlkCml0IGZvciBMTFZNIDE4IC0tIHRob3VnaCBJIGRvbid0IGtub3cgdGhlIHBsYW4g
-Zm9yIHRoZSBvdGhlcnMuIEkganVzdApwaW5nZWQgaW4gdGhhdCB0aHJlYWQuCgpDaGVlcnMsCk1p
-Z3VlbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+--===============1242045111340382716==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="lgqlciDgvTDbCOgO"
+Content-Disposition: inline
+
+--lgqlciDgvTDbCOgO
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Feb 27, 2024 at 01:12:51PM +0100, Miguel Ojeda wrote:
+> On Tue, Feb 27, 2024 at 12:05=E2=80=AFPM Conor Dooley
+> <conor.dooley@microchip.com> wrote:
+> >
+> > My point though was more
+> > that either this was acceptable for v6.9 or would be v6.10 material
+> > with the same mechanism as arm64. Rebasing after v6.9-rc1 but not
+> > adapting to that way of doing things is what seemed silly to me, since
+> > if a resend is required then the other improvements should be carried
+> > out at the same time.
+>=20
+> If avoiding the `target.json` is possible, definitely.
+>=20
+> I didn't want to assume it is, though -- e.g. the native integer
+> widths you have is 64 but the built-in targets use 32:64 (perhaps
+> there is a way to tweak it with an LLVM param via `-Cllvm-args`, but I
+> don't see any obvious way from a quick look; `opt` does have it,
+> though).
+
+Looking closer at those targets, all of them enable compressed
+instructors, but we support hardware that does not support them.
+I think that means we are stuck with the custom targets.
+
+I could badger Palmer to pick this up tomorrow, provided you're okay
+with the gist of this series.
+
+Cheers,
+Conor.
+
+--lgqlciDgvTDbCOgO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd3XRwAKCRB4tDGHoIJi
+0pwnAQDKxa0TynZPieVRztR0zcy3tmhfLcVSi9lF1+smiaRObwD/S98C/1BHyqaa
+o69/XjNcE1BNOR9mwoXX9xRD9UA01Qc=
+=I1HU
+-----END PGP SIGNATURE-----
+
+--lgqlciDgvTDbCOgO--
+
+
+--===============1242045111340382716==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1242045111340382716==--
+
