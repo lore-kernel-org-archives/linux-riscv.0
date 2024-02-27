@@ -4,129 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B84DC48BF6
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 02:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AEDC48BF6
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 02:21:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yyOmxHjk/5/1qV6TXxpF6TIJWB0/SZ01pYbNZ5Hpa7Y=; b=sGrwtyvl4V/aJb
-	3JVcdwIIQO6YLorTnkmHZk1rfeT9J4CZxDxhGsWXyhslDmv6jWtrbViv6qb4GHhp7oKg+vAtC+Ye5
-	OV+jZ3fJMp1NLozj4rhoQKJjkVPQaiSD+9iMp/UUzuuNr6W8EFhgXTNdCoGNdGW9U5ljbTpqk/bzi
-	5+yO5JP+FuAQ4AH90Z6HYcdYohBZcJCWTnbLMBaIeUmIMygN/sOhfdEyxEuvH9DQgFEw1tSPDQyXx
-	a1woZ7LA+tm6twOF/vOV3TCCUH/e+wvUfWvdBT91wFTb9m3K+awtqa8tZIMbQUZGzgdfkU9vypVBP
-	rlRYqRig2aU4moR2jlNA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=g+OjdEojHWcAmGUmzEmOsUSsNPX+vGu2d4+LdkGLoiA=; b=GYK/byGXdVsTSP0t/CVapSwh7n
+	npLaGyT4mYuq6CAvMr6a0ONJlic2jd2XvHAYMAli2UwIsiS4YGnapVV6Oc4nxF/Hip4peX69McdC1
+	AAZHLp2o6unfBnN1u5Wlnbphc6vBPtOCZ+TWXFKI7zfs5bxh7s0L3Q5a1n4Ek10Pw1Pkfxea8oIDz
+	taGjVw7HsAaavSFn+n6WntzOZqvC+vKUGbJks3ziYuD/ymRBMWpvkjenK1DCfNNGOrqHgTtkbUn4t
+	h4KWr/4/gDu/vwmZ4tyEIgbnk7Ty7D+pKaL1bgC+R/18WEPMm8ij+aWbqtdzhJTSYXADERUupgjtY
+	/zLYdd5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1remma-00000003Ogs-0DzD;
-	Tue, 27 Feb 2024 02:01:24 +0000
-Received: from mail-sh0chn02on20720.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::720] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1ren6L-00000003S2p-2gZf;
+	Tue, 27 Feb 2024 02:21:49 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1remmX-00000003Ofc-1e3p
+	id 1ren6E-00000003RyW-421Q
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Feb 2024 02:01:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=GJG9ecQIg9BoowzmRPvbSTBUS/2l4xo+uU3Q3EKa/bIsvi5Gaarh1QtARuqZqcN0pW+oj4qzgkBIZcZdXm47MjiH/vuzAgQBCA9ISfDYI0VjzZoyUvR36midWKwua1WyqWrc/utw3MxDCskT8yDqMgiTEIHWSkaJpSn7uK6wJoyY9a9H/O9Ew2dVLCT8nQ09DIZ5kntcIxxeyvkBS6LRrCZQBcpG9VOfS91utNTzox2bLgQk6bg4rUA6ftQZ4RQu5ev7ZZJLR8IGr5dCYniI8EugDnrw66w/lQONWR2oFQqaCKkH3Uy+cmycUQHrcO5ulDDqAgAzy0G8gcKCuT0ztg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uP/uCjvH8rULe/GeZo6TBM8HDRbxNQedOIwo23BFRqI=;
- b=UgPHHBfP5Q4mKSq+IdmS72tKrLAU8pnqCzI3Pg261Iav1NvNq1AQfyA3jy0T+/LhiUscXkaXqZGp0fX5Y/jgrRKJW4RJtMnwH6FIF+UQjwUa1HcjR9Rq91Ak/f17UasuHluOpTtO32ixq/JWpljup41LTeJ+OdPjVehWg8pZC5eymdJH8ap1ee2XYltimbDlvw3RKLBie2gdeK9Vl+V/AxEgY/JPHtOQTmVe2wOhVVVAqo5FMne9fiG2WogzgIa756RQhEG4Pg9j32sWxhdOuBblqGg8FE0KfhhRZcOblwPBkAFBRjP3kaoVq3yNQYYHFYXqRJW3eFi15ykjW+ad4Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:19::6) by ZQ0PR01MB1304.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:19::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.47; Tue, 27 Feb
- 2024 02:01:11 +0000
-Received: from ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn
- ([fe80::d0fb:daf7:3f8b:868c]) by
- ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn ([fe80::d0fb:daf7:3f8b:868c%3])
- with mapi id 15.20.7270.047; Tue, 27 Feb 2024 02:01:11 +0000
-From: JiSheng Teoh <jisheng.teoh@starfivetech.com>
-To: Conor Dooley <conor.dooley@microchip.com>,
-	=?iso-8859-1?Q?Uwe_Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-CC: Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, William Qiu <william.qiu@starfivetech.com>, Leyfoon
- Tan <leyfoon.tan@starfivetech.com>, "linux-pwm@vger.kernel.org"
-	<linux-pwm@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH] dt-bindings: pwm: opencores: Add compatible for StarFive
- JH8100
-Thread-Topic: [PATCH] dt-bindings: pwm: opencores: Add compatible for StarFive
- JH8100
-Thread-Index: AQHaaGW7VzRQ9wtUqUKZWkKdga1H6rEcRfqAgAAecoCAAQwPkA==
-Date: Tue, 27 Feb 2024 02:01:11 +0000
-Message-ID: <ZQ0PR01MB11608585A27081C61ACB93F8EB59A@ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn>
-References: <20240226033945.816974-1-jisheng.teoh@starfivetech.com>
- <opzxowacxsagwgw3l33p6y7omzjokus2bi3ol5wizfwjwi2s44@3p5frb4ysji7>
- <20240226-greasily-balcony-cee5014f5b8b@wendy>
-In-Reply-To: <20240226-greasily-balcony-cee5014f5b8b@wendy>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ0PR01MB1160:EE_|ZQ0PR01MB1304:EE_
-x-ms-office365-filtering-correlation-id: 1296ecae-ee53-4433-d698-08dc3737f877
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: IK5Tbh1sxvxZn26uJxcxnJM7ZL4SlLvHrzKExe0ML2CDv/NfMNEpDsg75RaqmBoVk3zBp8AmL7YK0MvfmtypLyZwa5LH6b1z2rR8N8cOCPnX4anH7Blok2E207EYQcgr+LRG0cerauKo6BeWRhls0MSfQXIr5lFPztpZkyT0kRNdhQGOy1dYjetxuoRiE2MNVwUQa3Nlj0y7NoczmcKzO2LdnOIc2fJfKaju5t4p/qpCyMjTVB1DbSRq2XnwQWwndJDEoF+ZuhS8d7FzA47atxIhhQLLXZ/kLkfsbriGEBUlrISSBmg3aJ/g05jGcMV/O9iedrfZMV1EsZNKEFYprdDb4J/oEvB6WJVqkxt0HMWz3DDxSUvnS0BpxRra/WSwwKiLMzl/+kDF6P8LtFcm2gum/MPUXNd+5vuSaLiAkTfKHVaTmqs2IjnetmNpR27L9Kzsi7vztWRvQx3/Tf+D6C7f64feVDzWpCjNrgy5N/Gc2Z3nFoxNg2BREf6nMxskCwxKaZQ3fOD1zepkpvJloj0XGU9ERL99yIIB77MRDzOrxhGzdhzVjEvfgDA5qcsZ2cYmaYqlRQZKHpPjBmwxNoBfxPhPvBw3T5ckeofqdnL3CxIJoEAr9eg6xkR1oukQ
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(38070700009);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?XEoGErlho1AAYwB0dDidiqhs1+Y6e1cUZeTMYVw9KHepCsR0b290LfpRXj?=
- =?iso-8859-1?Q?Ez6eLPoQiqQCzUedHBDS29GRLhSQGwTSCA4IHTuIvuw2bihFjEGauVmzWa?=
- =?iso-8859-1?Q?UfOR26Ru06QU/W6CnmHoyQsS16LaT9MS5CDzOp+F1T+i+Q28WM1Eb3NCZJ?=
- =?iso-8859-1?Q?PoZfO7SvT1NnoXwFLDf9kd0Vv7WKJgeQjDKw6xvq3bsi+iewhIl5m2rUJI?=
- =?iso-8859-1?Q?pg3MVA8QmGghXVfr3livsfBwETWSo6S6YrAiDeVXXHlGeCsqT2x9Uc4ZCf?=
- =?iso-8859-1?Q?q8hqr28klkSmcklCTqigjVGzt35zYQ4OcZck4h1CcL19cXjpV3cfH5R6Cg?=
- =?iso-8859-1?Q?nPanzc6QqTsDiK7f36H405AcRT8pov/MbJcRLPQ2Fa3QCJfvegsHWisslM?=
- =?iso-8859-1?Q?HEVGdSpV9/uPj6pAFgva8b/p3NGfgUm/gq+ttULlFJmOBVLyS+nXtvmmc3?=
- =?iso-8859-1?Q?ArwhsNAbEdqKRY1IRdh5Tha6Z+Pe+DF5IIX45VgMqRvd8ZuNfGNZ4eJtHF?=
- =?iso-8859-1?Q?iVEd6CCkKZAlDHZUlGZiIEq1vbw7ATJzynbaC1uu4kzCr8cRPjuC7WSUw8?=
- =?iso-8859-1?Q?EAAXDOktLei8woulHC3kJkWqHq1zhwg7FCoko1viUW9eOoFdinZkFuWRXE?=
- =?iso-8859-1?Q?1a8Wi0DVk8RPsUp5ARsWaka/JxMjG4Pu7jr75NxsvD6esfp+/I10eZtjSY?=
- =?iso-8859-1?Q?QErTLbJF1I21xdtVtYy/3QSC1eZ1KNGmmtuNXkyt1p8Vw+/UMq31q1Hwbn?=
- =?iso-8859-1?Q?F9Boa1V9A0G2jcq+5dMeNHLhdrvSpH5T5aIz2ncTysde9p3aDcEwnf1B7u?=
- =?iso-8859-1?Q?cM9H7UZHsMPEhrjtGQPh8BdMok6Vc/sH2iIIGsq6Trr2+oAtVfZU836GNd?=
- =?iso-8859-1?Q?HQzhmcoEr8Z/LsnGbkngTw6OlCp7dg/V91WCzeFPyJi8FDdKO7ysaRWwI/?=
- =?iso-8859-1?Q?R9SwWq3yUFKoYEVCQrzLOkqEuHb0CXcPLIaIV9C38+kkl0hfyLL8OTs5wA?=
- =?iso-8859-1?Q?XvH5lOw9eGJA2NYpAbiKA4KZc26n/+qyeblhKfhutZkGyyXA5zkGzP7/tN?=
- =?iso-8859-1?Q?WYpugOA9TUQYCODKNc97H7IMS6Cs+z356XkT4CGzNsyFXcy2fuA6I9NnVM?=
- =?iso-8859-1?Q?R6Wim7ztR2id3ZMbN0oCbz/adoIWCR3pMy1UtNGUfUJC736RHb4FbZ9ldh?=
- =?iso-8859-1?Q?/NYEpVEoSgQziDUcqFqNFDT0NYh7BC91dSppG1oJARtuFm6KcCTUi/ZU2v?=
- =?iso-8859-1?Q?Y/JqUG+MSIFVr+vfJlHwyQsotiM178W5Lscuq76aA6+N4p3mXfa1lt9F5Y?=
- =?iso-8859-1?Q?w6UZtBMHmGnkjHKRd/pZs5Dur9sF99aMWRXVvPbs6qZOg280kY1xxeRvRQ?=
- =?iso-8859-1?Q?MYKk3/0jfOIfxw8b6uo3lFb9zA6f46WMhV94icTBbLxjEwka+xb/t6RkW7?=
- =?iso-8859-1?Q?VbkUiOQ4NuYRE8Iepbvac/FWaB/mm7hLI4K6SXqFX2M+k3YwNPQpC+08e1?=
- =?iso-8859-1?Q?GHSPBcJm0psYDWgfxJzoM+CBGGDXurlb1muLD3iP6+BJ0WzpG692yUhqy6?=
- =?iso-8859-1?Q?P+68AqWqbEKhtIstPn8Wi7bnf5NxJKrHZlAib8NeFbkFYdBDtITXbuDo+f?=
- =?iso-8859-1?Q?H08aQMPoQKYaB/tB5UOszG9uqczfd0kClfRmSBWpFr9dWTAKS3iAnfuA?=
- =?iso-8859-1?Q?=3D=3D?=
-MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB1160.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1296ecae-ee53-4433-d698-08dc3737f877
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Feb 2024 02:01:11.0983
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 8jAt54IDIELoJSMHu2ZclQgbHUlAiS3QNhpgrF9wiEDPyCmdRl8kaC9V2bi9esCk+ZNT0Fu0+cSa82q1WPK+IiPnWc6YXmTIVDWyP5ey0D8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1304
+	Tue, 27 Feb 2024 02:21:46 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-dcc0bcf9256so4800270276.3
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Feb 2024 18:21:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1709000500; x=1709605300; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ghn/tsXt4bBeTaeh+x2q+YtPRUVSTzvBJxsTub2q9Gk=;
+        b=vwjl9rocMtSOKcAlOshcz5GoJct6J4szVteVmshBGowe+Av9zJlIFgboO3oBWDqzKW
+         DHTbGZEqoGGgOXiWgR+UZawx+5YYYCrkd9uifljsI+YE9IZCYYMt5Zh5QLm6srQ2nUfo
+         IkuP3WPzs3Sg8GFD/rOHfZ+hjcRDf+SRy42sczF50nn4xDHvspia4GaNq5mZ1TVvzwLs
+         K5be3rOJodMTXy7BMfPC83tov7mXP2yqzhFhhNbjUa+1xWcSWfItASM+tmLhOshCvty6
+         a80fmtV30glHDA+Fq8Xz0qSsoBtTShtHpKZ05UC5dbnLq3gmZc0KoEGhoW4uK86BcAdM
+         gqLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709000500; x=1709605300;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ghn/tsXt4bBeTaeh+x2q+YtPRUVSTzvBJxsTub2q9Gk=;
+        b=hMnqyKgt/5G4uxoxL1AZRJkOcO9k01qzCeKJSomfoZGdU973qpQG+G8kiruxtxQcFJ
+         8SvJxmy1ZBvqU3rSDeSz1Bq737lFd5XQr0HmLoGgQPmSk8RPy+shFbKu1ueyo2TyXED8
+         qTQ1gEYS6sHkFDxNZDuLAv+Qwv295d+Pp+XTiKYcwBb1BwLjfNosRV/ShBu6uabXYHVM
+         E1x2rBPHCKwBGzvD6LvWG3QJ+9Q5FZPzsCgAIN7mbJOBgoGjuSx7CpPScXLyFnPLmmhR
+         qzHSFqZeJdb7vrwJjWclYhqqvnUCd8VbFVOnhUmKsi2VfAhK+NayYcrODYzu/22y/moh
+         atgg==
+X-Forwarded-Encrypted: i=1; AJvYcCVBNxzuhAZoUUVF/Nvw7RrtCBu+OeGPigXoKEM1tQHl2Um83DsQFieDMrVuROLZXapoc2vtBKuM8Y1CUbvwHifKjaY4begQCRWrMIca882x
+X-Gm-Message-State: AOJu0Yz6yvmDN7uQi8ByCiKxkbE+c8Kfch556/DL+nJZFnTIR82oY5uF
+	+YVoXI4sL680FKCTDA78PqgX0dKg6Ivdd6kQkWvUhNSKJblNZ8yKMm92+SQtVKiPP+pHSlgdjW/
+	FCA==
+X-Google-Smtp-Source: AGHT+IFOi9/tmN8AF5ckfIwhjyqA6w0EovzljiE14qM4BRVcycQBgccSndGNhkATEmtZADwvG8qyMKYgWso=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a05:6902:a89:b0:dcd:2f3e:4d18 with SMTP id
+ cd9-20020a0569020a8900b00dcd2f3e4d18mr49885ybb.12.1709000499927; Mon, 26 Feb
+ 2024 18:21:39 -0800 (PST)
+Date: Mon, 26 Feb 2024 18:21:10 -0800
+In-Reply-To: <20240223004258.3104051-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20240223004258.3104051-1-seanjc@google.com>
+X-Mailer: git-send-email 2.44.0.278.ge034bb2e1d-goog
+Message-ID: <170900037528.3692126.18029642068469384283.b4-ty@google.com>
+Subject: Re: [PATCH v9 00/11] KVM: selftests: Add SEV and SEV-ES smoke tests
+From: Sean Christopherson <seanjc@google.com>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Andrew Jones <andrew.jones@linux.dev>, Tom Lendacky <thomas.lendacky@amd.com>, 
+	Michael Roth <michael.roth@amd.com>, Carlos Bilbao <carlos.bilbao@amd.com>, 
+	Peter Gonda <pgonda@google.com>, Itaru Kitayama <itaru.kitayama@fujitsu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240226_180121_463338_E62A7577 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20240226_182143_082141_E12872B4 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,55 +96,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On Mon, Feb 26, 2024 at 09:11:23AM +0100, Uwe Kleine-K=F6nig wrote:
-> > Hello,
-> >
-> > On Mon, Feb 26, 2024 at 11:39:45AM +0800, Ji Sheng Teoh wrote:
-> > > StarFive JH8100 uses the same OpenCores PWM controller as JH7110.
-> > > Mark JH8100 as compatible to the OpenCores PWM controller.
-> > >
-> > > Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> > > Signed-off-by: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
-> > >
-> > > ---
-> > >
-> > > This patch depends on patch [1] ("dt-bindings: pwm: Add bindings for
-> > > OpenCores PWM Controller") in Conor's riscv-dt-for-next branch.
-> > > [1]
-> > > https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/comm
-> > > it/?h=3Driscv-dt-for-next&id=3D2529085831b01fcd02ff58ab4e2596d3b31bcf=
-80
-> >
-> > I recommend to make use of git format-patch's --base parameter to
-> > additionally(!) make this information available to the build bots.
-> =
+On Thu, 22 Feb 2024 16:42:47 -0800, Sean Christopherson wrote:
+> Add basic SEV and SEV-ES smoke tests.  Unlike the intra-host migration tests,
+> this one actually runs a small chunk of code in the guest.
+> 
+> Unless anyone strongly objects to the quick and dirty approach I've taken for
+> SEV-ES, I'll get all of this queued for 6.9 soon-ish.
+> 
+> As for _why_ I added the quick-and-dirty SEV-ES testcase, I have a series to
+> cleanup __svm_sev_es_vcpu_run(), and found out that apparently I have a version
+> of OVMF that doesn't quite have to the right <something> for SEV-ES, and so I
+> could even get a "real" VM to reach KVM_RUN.  I assumed (correctly, yay!) that
+> hacking together a selftest would be faster than figuring out what firmware
+> magic I am missing.
+> 
+> [...]
 
-> I like the "additionally" :)
+Applied to kvm-x86 selftests, thanks!
 
-Alright, I will take note of that. Thanks =
+[01/11] KVM: selftests: Extend VM creation's @shape to allow control of VM subtype
+        https://github.com/kvm-x86/linux/commit/309d1ad7b6ff
+[02/11] KVM: selftests: Make sparsebit structs const where appropriate
+        https://github.com/kvm-x86/linux/commit/6077c3ce4021
+[03/11] KVM: selftests: Add a macro to iterate over a sparsebit range
+        https://github.com/kvm-x86/linux/commit/8811565ff68e
+[04/11] KVM: selftests: Add support for allocating/managing protected guest memory
+        https://github.com/kvm-x86/linux/commit/29e749e8faff
+[05/11] KVM: selftests: Add support for protected vm_vaddr_* allocations
+        https://github.com/kvm-x86/linux/commit/1e3af7cf984a
+[06/11] KVM: selftests: Explicitly ucall pool from shared memory
+        https://github.com/kvm-x86/linux/commit/5ef7196273b6
+[07/11] KVM: selftests: Allow tagging protected memory in guest page tables
+        https://github.com/kvm-x86/linux/commit/a8446cd81de8
+[08/11] KVM: selftests: Add library for creating and interacting with SEV guests
+        https://github.com/kvm-x86/linux/commit/f3ff1e9b2f9c
+[09/11] KVM: selftests: Use the SEV library APIs in the intra-host migration test
+        https://github.com/kvm-x86/linux/commit/0837ddb51f9b
+[10/11] KVM: selftests: Add a basic SEV smoke test
+        https://github.com/kvm-x86/linux/commit/5101f1e27683
+[11/11] KVM: selftests: Add a basic SEV-ES smoke test
+        https://github.com/kvm-x86/linux/commit/f3750b0c7f6e
 
-
-> >
-> > Looks fine to me.
-> >
-> > Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-> >
-> > Coner: If you're happy with this patch, please apply it in the same
-> > way as the initial OpenCores PWM Controller binding patch.
-> =
-
-> Ye, I can do. Although, I suppose this is an example of why the driver ma=
-intainers applying the bindings is preferred, even if the driver
-> patch itself isn't ready or there is no driver patch.
-> =
-
-> Cheers,
-> Conor.
+--
+https://github.com/kvm-x86/linux/tree/next
 
 _______________________________________________
 linux-riscv mailing list
