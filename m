@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E54C5478C
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 12:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717C8C54798
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 13:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i5Qqm7v20FB6CP8k/FONjTTZt3WfhssYm34tkpH5tcE=; b=Mxx1ow7ZOEcGvy
-	sXLsth3CoROkXEz2Oj0YkJ1a4BW5OWHRsB4K/ZsTsJIr9Rz7GhR/T7g/+8TNczkQQa5itexExE6dP
-	KsMIdFDYT6YQSNm058oZBOVGDeLoWSBG47GOV7gejwDrKOMaU+LSrnHIZp9MxByepjPQcWZQoARtp
-	G3b4dLDRrXSVWDNvjNM8LInCCKhnFIcG08wNs0sbqkEbgMY8XTK87epYBWCUf7cHrA8X1fPj4e0Q/
-	oSBrKjfvH1dU0wND8/HmTWpUaVP2qnIzygCiklvjc6Vj5Ebs+b08KR594g5su2NGoY2F8/4N8KcS3
-	iiDAx26ijIqS0W27rhTg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uOj+EQ66q4G6ligZtb4q+bqbgvg2SKD10GKjhxIxR0o=; b=ezCJdrnD2YKzWczNiR2GNnKfzG
+	AtSm055xsqeXv2NT7LZeuJIumpDlHh5yj17aKZh82LQye09Ho+OZRqcyi+WVzTsmDwArZRX4B+hd5
+	FYu3j+L2pqWbukRUalW5/kaLC719XeKihe/vjSS520fqfvsUwsMbTtqYZnrTfU6EhnP/RlZhNQiIY
+	Y1Wsk58PXA3LX69k4OPWsDViuX+qXzk3R6gUFuCBRXPX76JW3KMAu62tV6+nwOn5oTj7jp4vqtox0
+	08TwCIVHeF/dkMCZZELLRmnGBTrN8SrR+r+xoAYxq2CV3GNP5FKTjvHV/00sN55kfcFoCT28LZJ3t
+	yrloVgSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rex1k-00000005HJy-3mPV;
-	Tue, 27 Feb 2024 12:57:44 +0000
-Received: from gandalf.ozlabs.org ([150.107.74.76])
+	id 1rex7K-00000005Il5-3MsD;
+	Tue, 27 Feb 2024 13:03:30 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rex1h-00000005HIT-1xsj;
-	Tue, 27 Feb 2024 12:57:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
-	s=201909; t=1709038654;
-	bh=swDhxalnop+40QyzTwmELhQq8fYEaBd8gs0d47AC/h8=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=lbeHOiisvAviMzJQIz1moD9CMIwDWnyEkMBx5y4p+r5c4IjQoB18qgrlVCvB1x8lp
-	 iw5qgUFtP6yhK80WEdbT7VjiMz5ok3ncpSQJrzolcOlwZxH0A6OqtUbvamzsIkn3yn
-	 RBV09p6PQKg3ejTTuOeVaiqbz3dvd4in83oOIMRRq6JTZgTEUiakFeAj3srmtE6C78
-	 mi6JAHZh6pFZdAUi8XVUbjcFAS71GtwQc2qeDeH5P4Xuct27XPV7LT/rxZnWTHu126
-	 fiuYYKa4gKtFpVdOYRIR7pO1OxjT3IRFVQPGGzi+xxv3ckTfZSwTY4PM6V5s6Vt2Jl
-	 0WyDEwagYDlRA==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4Tkcvp132Mz4wbQ;
-	Tue, 27 Feb 2024 23:57:26 +1100 (AEDT)
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>, Arnd Bergmann
- <arnd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino
- <vincenzo.frascino@arm.com>, Kees Cook <keescook@chromium.org>, Anna-Maria
- Behnsen <anna-maria@linutronix.de>
-Cc: Arnd Bergmann <arnd@arndb.de>, Matt Turner <mattst88@gmail.com>, Vineet
- Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, Catalin
- Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>, Brian Cain
- <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>, Geert
- Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller
- <deller@gmx.de>, Palmer Dabbelt <palmer@dabbelt.com>, John Paul Adrian
- Glaubitz <glaubitz@physik.fu-berlin.de>, Andreas Larsson
- <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>,
- "x86@kernel.org" <x86@kernel.org>, Max Filippov <jcmvbkbc@gmail.com>, Andy
- Lutomirski <luto@kernel.org>, Jan Kiszka <jan.kiszka@siemens.com>, Kieran
- Bingham <kbingham@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
- "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-csky@vger.kernel.org"
- <linux-csky@vger.kernel.org>, "linux-hexagon@vger.kernel.org"
- <linux-hexagon@vger.kernel.org>, "loongarch@lists.linux.dev"
- <loongarch@lists.linux.dev>, "linux-m68k@lists.linux-m68k.org"
- <linux-m68k@lists.linux-m68k.org>, "linux-mips@vger.kernel.org"
- <linux-mips@vger.kernel.org>, "linux-openrisc@vger.kernel.org"
- <linux-openrisc@vger.kernel.org>, "linux-parisc@vger.kernel.org"
- <linux-parisc@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
- <linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
- <linux-s390@vger.kernel.org>, "linux-sh@vger.kernel.org"
- <linux-sh@vger.kernel.org>, "sparclinux@vger.kernel.org"
- <sparclinux@vger.kernel.org>, "linux-um@lists.infradead.org"
- <linux-um@lists.infradead.org>, Linux Kernel Functional Testing
- <lkft@linaro.org>
-Subject: Re: [PATCH 4/4] vdso: avoid including asm/page.h
-In-Reply-To: <80bc4de5-a351-4ac0-93c8-80c8d80fb202@csgroup.eu>
-References: <20240226161414.2316610-1-arnd@kernel.org>
- <20240226161414.2316610-5-arnd@kernel.org>
- <80bc4de5-a351-4ac0-93c8-80c8d80fb202@csgroup.eu>
-Date: Tue, 27 Feb 2024 23:57:25 +1100
-Message-ID: <87h6hu5akq.fsf@mail.lhotse>
+	id 1rex7H-00000005Ijq-3YWb
+	for linux-riscv@lists.infradead.org;
+	Tue, 27 Feb 2024 13:03:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1709039008; x=1740575008;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=MXbXhXbeu0cQ9TFbNb7UEonPBK55rX+buvq6bECICU8=;
+  b=0uYMkiUvEMU/7chg5/YLLIuyUE5VDcWea6F2X4qHuQznb8WE0v+C1hCu
+   5ejT2dKIuX82/Bi8y+cJkrfPWbEcd4jh50+5+1jBGQRZmHRgZnigk99g8
+   bL9WwyN7ECLUGSiru4QkNAhpoq8y89xK2A26wu4wlR1qJv/sijXcjDxqr
+   9qFA5Ri96cQPZh+hSyk0wWgYBqsBzUzUf0znQdBs5Xhr2zI5MxglVzBGT
+   BogjLafBDRtaz2pbbQiZ9ccecxNzkLbj0oxUyHSgWc2Q7kTovufM2r7bi
+   KyuDqzUR6Xma/ISEK9Uu+qrgk0hWNanPSBZXZ33Hsmrrd5WtozewcWJ8f
+   Q==;
+X-CSE-ConnectionGUID: we5qw0mfT+K6Mg0u+ozr0g==
+X-CSE-MsgGUID: mMGKrDnoRIqlIlHrvTgxew==
+X-IronPort-AV: E=Sophos;i="6.06,187,1705388400"; 
+   d="asc'?scan'208";a="247636234"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2024 06:03:22 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 27 Feb 2024 06:02:58 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Tue, 27 Feb 2024 06:02:54 -0700
+Date: Tue, 27 Feb 2024 13:02:11 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+CC: Nathan Chancellor <nathan@kernel.org>, Conor Dooley <conor@kernel.org>,
+	Matthew Maurer <mmaurer@google.com>, <linux-riscv@lists.infradead.org>,
+	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Wedson
+ Almeida Filho <wedsonaf@gmail.com>, Boqun Feng <boqun.feng@gmail.com>, Gary
+ Guo <gary@garyguo.net>, =?iso-8859-1?Q?Bj=F6rn?= Roy Baron
+	<bjorn3_gh@protonmail.com>, Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Nick
+ Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>,
+	<rust-for-linux@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>,
+	<stable@vger.kernel.org>, Sami Tolvanen <samitolvanen@google.com>, Ramon de C
+ Valle <rcvalle@google.com>
+Subject: Re: [PATCH v2 1/3] rust: make mutually exclusive with CFI_CLANG
+Message-ID: <20240227-unwind-canteen-3da9b07af10c@wendy>
+References: <20240223-leverage-walmart-5424542cd8bd@spud>
+ <20240223-perjury-preshow-fc2cf73d552e@spud>
+ <CANiq72=mCnm0mKOw5K44PmZ+jF=67jxEEkcXP-E0O8CaUrps=w@mail.gmail.com>
+ <20240227-uncertain-amaze-6197e627ad95@wendy>
+ <CANiq72=geBobqM0Dc2yv=NjAc3MWXhOrDHfuJ84TgQ+XVxBo0w@mail.gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <CANiq72=geBobqM0Dc2yv=NjAc3MWXhOrDHfuJ84TgQ+XVxBo0w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_045741_983309_D964406E 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240227_050328_118750_3DC2B9A8 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,23 +94,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============5932192058525654637=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q2hyaXN0b3BoZSBMZXJveSA8Y2hyaXN0b3BoZS5sZXJveUBjc2dyb3VwLmV1PiB3cml0ZXM6Cj4g
-TGUgMjYvMDIvMjAyNCDDoCAxNzoxNCwgQXJuZCBCZXJnbWFubiBhIMOpY3JpdMKgOgo+PiBGcm9t
-OiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPgo+PiAKPj4gVGhlIHJlY2VudCBjaGFuZ2Ug
-dG8gdGhlIHZkc29fZGF0YV9zdG9yZSBicm9rZSBidWlsZGluZyBjb21wYXQgVkRTTwo+PiBvbiBh
-dCBsZWFzdCBhcm02NCBiZWNhdXNlIGl0IGluY2x1ZGVzIGhlYWRlcnMgb3V0c2lkZSBvZiB0aGUg
-aW5jbHVkZS92ZHNvLwo+PiBuYW1lc3BhY2U6Cj4KPiBJIHVuZGVyc3RhbmQgdGhhdCBwb3dlcnBj
-NjQgYWxzbyBoYXMgYW4gaXNzdWUsIHNlZSAKPiBodHRwczovL3BhdGNod29yay5vemxhYnMub3Jn
-L3Byb2plY3QvbGludXhwcGMtZGV2L3BhdGNoLzIwMjMxMjIxMTIwNDEwLjIyMjY2NzgtMS1tcGVA
-ZWxsZXJtYW4uaWQuYXUvCgpZZWFoLCBhbmQgdGhhdCBwYXRjaCB3b3VsZCBzaWxlbnRseSBjb25m
-bGljdCB3aXRoIHRoaXMgc2VyaWVzLCB3aGljaCBpcwpub3QgaWRlYWwuCgpJIGNvdWxkIGRlbGF5
-IG1lcmdpbmcgbXkgcGF0Y2ggYWJvdmUgdW50aWwgYWZ0ZXIgdGhpcyBzZXJpZXMgZ29lcyBpbiwK
-bWluZSBvbmx5IGZpeGVzIGEgZmFpcmx5IG9ic2N1cmUgYnVpbGQgd2FybmluZy4KCmNoZWVycwoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+--===============5932192058525654637==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="W8J+rAw6y6pbbfl0"
+Content-Disposition: inline
+
+--W8J+rAw6y6pbbfl0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Feb 27, 2024 at 01:34:14PM +0100, Miguel Ojeda wrote:
+> On Tue, Feb 27, 2024 at 11:54=E2=80=AFAM Conor Dooley
+> <conor.dooley@microchip.com> wrote:
+> >
+> > I did try to test it but I ran into too many toolchain issues - my
+> > older copies of LLVM (pre 17) are not multiarch as I built them by hand
+> > with PGO for x86 and RISC-V. My LLVM 17 is from kernel.org and has no
+> > libclang. And then the copy of LLVM 18 on kernel.org apparently does not
+> > support kcfi at all. I gave up there, but I don't see how this would not
+>=20
+> I asked Nathan to add libclang a few days ago, and he very quickly did
+> it for LLVM 18 -- though I don't know the plan for the others. I just
+> pinged in that thread.
+
+I had actually said it to him on IRC already (although he is CCed here)
+but I just noticed that this was my fault - I symlinked incorrectly
+after downloading the toolchain. kcfi is detected fine with llvm18.
+I'll give testing another try.
+
+--W8J+rAw6y6pbbfl0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd3dUwAKCRB4tDGHoIJi
+0iscAQCFqXISaMEU8lWDJeRHwsnAImvV4ocTSMxS5RJFKcJHqQD/a/u0vuVtSyp7
+18rvQE+YASYYpq5tCU08KsgXCbSU7gI=
+=o4T8
+-----END PGP SIGNATURE-----
+
+--W8J+rAw6y6pbbfl0--
+
+
+--===============5932192058525654637==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5932192058525654637==--
+
