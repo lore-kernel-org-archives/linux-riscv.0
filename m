@@ -4,101 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A55C54E41
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 19:09:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5D4C5478C
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 19:18:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
-	In-reply-to:Subject:Cc:To:From:References:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=MzalakFrITBBpgetQ3I5bLq21AFJh0oCZe8764MwG+w=; b=kZvXAyGX1wacSdyrWTG4qTnC2O
-	A9BNKKftgioeYcgTbHKB6HIHfqrfweDVXlvtuUe+2P5wbv1VY1DeYHy7p+nxflA7zJURuPMzWRxYL
-	MDxtKtnbmrNORWotkCOf7xB7WVToSG2Fz6P/XRoW1/dnaeu0gbUKq2tkhevHEOYfV6Arx/zvoEqD4
-	svHbXRVYbiMjRq7zPdcrX8FyxZemRWpVjpGtzK6YziFFRHXuhH8iy/TGtPwLwMtOnNmGB/tmElNLR
-	JE5UKEOaTxOuaral107g3gumQJoOBB4UOIYLNPgcO0JIhFahOQbuVOcGm4+nM2bPm8ZFF0W+ybyw7
-	P8kIlcog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TZHWk/n96Gqu0PPjp1AzLhyTYdFxBCEE5lYlU+5ztwc=; b=dBhTl4/fY3UayR
+	BmSCnfQvJI8rBPf+5ZYxOnGEGMnRZV4RNFlpH5TKHxJwX3K8RfQyqEAQlBkw1zcu4ER8tfPzbekKb
+	YJSjKy5n5CjbjY2ubR7c4bgdVAyzVLDBAp1pzxiRWHtl+uvLOl9fKLSOJ3iEap6kWYZgcf3cuqc01
+	nsNpswraOba/6ghqX/KhkftVPed7HkaFwYgTGOvdYIhoArhpk610Zl4wQbnzDGpqgSWMEul9fFCzx
+	5/D0HcR19uZTzwvEvq1Y8EkaH4nfqmfXchExo/9dVaGDG9i3YtLIj5gROTzjbFPT5e8wnE9THkzea
+	/2lrkc5luYBj5tVqkDwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf2p2-00000006Z0t-3sPx;
-	Tue, 27 Feb 2024 19:09:00 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1rf2xi-00000006aR6-0Fl1;
+	Tue, 27 Feb 2024 19:17:58 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf2oz-00000006YzU-3a2i
-	for linux-riscv@lists.infradead.org;
-	Tue, 27 Feb 2024 19:08:59 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-6de3141f041so3015141b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Feb 2024 11:08:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1709060937; x=1709665737; darn=lists.infradead.org;
-        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
-         :user-agent:references:from:to:cc:subject:date:message-id:reply-to;
-        bh=aDa40DJKClW8mXYqnyP7bggV377JTuxgqEkMOwvAuyk=;
-        b=lEnp6ixnjYIs2gXvONN47Xo4LlK78+048w3TObR1YNVcS4lOLeAmyBylur0cGFKDv4
-         u9Iz4WBo8M9LHZ6JeeEX0g5M2ihzGsuvdVGKbMgxPE6GwlvohdxCCKePJFOzATsitudB
-         3TzVr50IEm6Xsb7emF6kHoWlaXlnhLN7sX4OyRjPZn3qq4UyNq1u957NxakVSnTmELh7
-         YyQY5HypL0NDwJY6E6SmVAXD4vPHQQO8GQr8Zb2N4iwbaH/azUwJBO6BEhdMZP8SZ5ZQ
-         5s7VfLh1clhr7g74q5LI6PWEt/+zvaYoylmE9MjyzPkzIShIcVXmNrP+beoxsf8ASF7l
-         Z3ew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709060937; x=1709665737;
-        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
-         :user-agent:references:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aDa40DJKClW8mXYqnyP7bggV377JTuxgqEkMOwvAuyk=;
-        b=LNqix6uiVJiLUc4RPF5LKowFc3lApg2gunxOCWaURZCYqE90kgCMYEiauQZb7d/scZ
-         mn88dk7HXH4/AHK8d+9ebwcKb6FkblmDqPflLEdxjEOCX2leVnTHMeMX30WeeWjEglvp
-         w31Lk3Nw8TZ263nEXjMnmXw4+ZesPWBQ47W32rCdI6ZI4HFpeRG8vdnMfqKpYZIBVfYl
-         MoD5vlGo8qXDdBG4q298gzM9pYWND1yp6XqH2I7x4Y793PDZ3QjViRdDEm7JAP33d+yj
-         rfMF5J9JSjP7Gx8337DLWoybr6+M1eTGIsAEsz4sSw2xbTCi0wP1kF7/Smy6cmpc0G7t
-         t3hA==
-X-Forwarded-Encrypted: i=1; AJvYcCXKkNZ+EPe7lbbqYbrQvLrXd1+sqTnhoStGmkTEGTJB00/LKSO7fzssVyouza8Il5k2AeNQ1LkGJak+1fY+0XEyhJuEut3EWklXyx2DT5Z9
-X-Gm-Message-State: AOJu0Yy9vXaEsB4awlkhIh8o6WMS8W7+t/njQ7xd99IbHC7LJTUUyudy
-	1VkMp0JD6adi6WVyc4iQjsFfvQjZbRHJZNQJiTvdgbwQAba/S+pEbkibB7S7fIU=
-X-Google-Smtp-Source: AGHT+IGtXhFFwEJ+AgMWI6EdwH6IahppDs+nYPC080WdpMAQ57X/AOuTkrytFfwmna6ljKJ3aYPMfQ==
-X-Received: by 2002:a62:aa0c:0:b0:6e5:54a6:5a9c with SMTP id e12-20020a62aa0c000000b006e554a65a9cmr1287142pff.17.1709060936644;
-        Tue, 27 Feb 2024 11:08:56 -0800 (PST)
-Received: from localhost ([2804:14d:7e39:8470:d617:f08f:e330:49c1])
-        by smtp.gmail.com with ESMTPSA id u3-20020a62d443000000b006e24991dd5bsm6713883pfl.98.2024.02.27.11.08.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Feb 2024 11:08:56 -0800 (PST)
-References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
- <20240203-arm64-gcs-v8-33-c9fec77673ef@kernel.org>
- <87sf1n7uea.fsf@linaro.org>
- <9b899b4e-7410-4c3b-967b-7794dac742e4@sirena.org.uk>
- <87ttlzsyro.fsf@linaro.org>
- <4adb0c7e-34a1-4c50-b011-6e31ef8813a7@sirena.org.uk>
-User-agent: mu4e 1.10.8; emacs 29.1
-From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Andrew Morton
- <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
- <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, Suzuki K
- Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, Oleg
- Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees
- Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>, "Rick P.
- Edgecombe" <rick.p.edgecombe@intel.com>, Deepak Gupta
- <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, Szabolcs Nagy
- <Szabolcs.Nagy@arm.com>, "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Florian Weimer <fweimer@redhat.com>, Christian
- Brauner <brauner@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v8 33/38] kselftest/arm64: Add a GCS test program built
- with the system libc
-In-reply-to: <4adb0c7e-34a1-4c50-b011-6e31ef8813a7@sirena.org.uk>
-Date: Tue, 27 Feb 2024 16:08:53 -0300
-Message-ID: <87plwh912y.fsf@linaro.org>
+	id 1rf2xd-00000006aPY-2IVm;
+	Tue, 27 Feb 2024 19:17:55 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 45012E0008;
+	Tue, 27 Feb 2024 19:17:45 +0000 (UTC)
+Message-ID: <e0ed5873-fd41-49f2-be7f-a6cff42f2023@ghiti.fr>
+Date: Tue, 27 Feb 2024 20:17:44 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2,RESEND 2/2] drivers: perf: ctr_get_width function for
+ legacy is not defined
+Content-Language: en-US
+To: Vadim Shakirov <vadim.shakirov@syntacore.com>,
+ linux-riscv@lists.infradead.org
+Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Alexandre Ghiti <alexghiti@rivosinc.com>, Atish Patra <atishp@rivosinc.com>
+References: <20240227170002.188671-1-vadim.shakirov@syntacore.com>
+ <20240227170002.188671-3-vadim.shakirov@syntacore.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240227170002.188671-3-vadim.shakirov@syntacore.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_110857_907619_EE560B4D 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240227_111753_885060_9D4FE3A6 
+X-CRM114-Status: GOOD (  23.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,29 +62,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Vadim,
 
-Mark Brown <broonie@kernel.org> writes:
-
-> [[PGP Signed Part:Undecided]]
-> On Thu, Feb 22, 2024 at 11:24:59PM -0300, Thiago Jung Bauermann wrote:
->> Mark Brown <broonie@kernel.org> writes:
+On 27/02/2024 18:00, Vadim Shakirov wrote:
+> With parameters CONFIG_RISCV_PMU_LEGACY=y and CONFIG_RISCV_PMU_SBI=n
+> linux kernel crashes when you try perf record:
 >
->> My rootfs is Ubuntu 22.04.3. In case it's useful, my kernel config is
->> here:
+> $ perf record ls
+> [ 46.749286] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+> [ 46.750199] Oops [#1]
+> [ 46.750342] Modules linked in:
+> [ 46.750608] CPU: 0 PID: 107 Comm: perf-exec Not tainted 6.6.0 #2
+> [ 46.750906] Hardware name: riscv-virtio,qemu (DT)
+> [ 46.751184] epc : 0x0
+> [ 46.751430] ra : arch_perf_update_userpage+0x54/0x13e
+> [ 46.751680] epc : 0000000000000000 ra : ffffffff8072ee52 sp : ff2000000022b8f0
+> [ 46.751958] gp : ffffffff81505988 tp : ff6000000290d400 t0 : ff2000000022b9c0
+> [ 46.752229] t1 : 0000000000000001 t2 : 0000000000000003 s0 : ff2000000022b930
+> [ 46.752451] s1 : ff600000028fb000 a0 : 0000000000000000 a1 : ff600000028fb000
+> [ 46.752673] a2 : 0000000ae2751268 a3 : 00000000004fb708 a4 : 0000000000000004
+> [ 46.752895] a5 : 0000000000000000 a6 : 000000000017ffe3 a7 : 00000000000000d2
+> [ 46.753117] s2 : ff600000028fb000 s3 : 0000000ae2751268 s4 : 0000000000000000
+> [ 46.753338] s5 : ffffffff8153e290 s6 : ff600000863b9000 s7 : ff60000002961078
+> [ 46.753562] s8 : ff60000002961048 s9 : ff60000002961058 s10: 0000000000000001
+> [ 46.753783] s11: 0000000000000018 t3 : ffffffffffffffff t4 : ffffffffffffffff
+> [ 46.754005] t5 : ff6000000292270c t6 : ff2000000022bb30
+> [ 46.754179] status: 0000000200000100 badaddr: 0000000000000000 cause: 000000000000000c
+> [ 46.754653] Code: Unable to access instruction at 0xffffffffffffffec.
+> [ 46.754939] ---[ end trace 0000000000000000 ]---
+> [ 46.755131] note: perf-exec[107] exited with irqs disabled
+> [ 46.755546] note: perf-exec[107] exited with preempt_count 4
 >
->> https://people.linaro.org/~thiago.bauermann/gcs/config-v6.8.0-rc2
+> This happens because in the legacy case the ctr_get_width function was not
+> defined, but it is used in arch_perf_update_userpage.
 >
-> Does using defconfig make a difference for you?
+> Also remove extra check in riscv_pmu_ctr_get_width_mask
+>
+> Signed-off-by: Vadim Shakirov <vadim.shakirov@syntacore.com>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Reviewed-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>   drivers/perf/riscv_pmu.c        | 18 +++++-------------
+>   drivers/perf/riscv_pmu_legacy.c |  8 +++++++-
+>   2 files changed, 12 insertions(+), 14 deletions(-)
+>
+> diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+> index 0dda70e1ef90..c78a6fd6c57f 100644
+> --- a/drivers/perf/riscv_pmu.c
+> +++ b/drivers/perf/riscv_pmu.c
+> @@ -150,19 +150,11 @@ u64 riscv_pmu_ctr_get_width_mask(struct perf_event *event)
+>   	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+>   	struct hw_perf_event *hwc = &event->hw;
+>   
+> -	if (!rvpmu->ctr_get_width)
+> -	/**
+> -	 * If the pmu driver doesn't support counter width, set it to default
+> -	 * maximum allowed by the specification.
+> -	 */
+> -		cwidth = 63;
+> -	else {
+> -		if (hwc->idx == -1)
+> -			/* Handle init case where idx is not initialized yet */
+> -			cwidth = rvpmu->ctr_get_width(0);
+> -		else
+> -			cwidth = rvpmu->ctr_get_width(hwc->idx);
+> -	}
+> +	if (hwc->idx == -1)
+> +		/* Handle init case where idx is not initialized yet */
+> +		cwidth = rvpmu->ctr_get_width(0);
+> +	else
+> +		cwidth = rvpmu->ctr_get_width(hwc->idx);
+>   
+>   	return GENMASK_ULL(cwidth, 0);
+>   }
+> diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+> index a85fc9a15f03..fa0bccf4edf2 100644
+> --- a/drivers/perf/riscv_pmu_legacy.c
+> +++ b/drivers/perf/riscv_pmu_legacy.c
+> @@ -37,6 +37,12 @@ static int pmu_legacy_event_map(struct perf_event *event, u64 *config)
+>   	return pmu_legacy_ctr_get_idx(event);
+>   }
+>   
+> +/* cycle & instret are always 64 bit, one bit less according to SBI spec */
+> +static int pmu_legacy_ctr_get_width(int idx)
+> +{
+> +	return 63;
+> +}
+> +
+>   static u64 pmu_legacy_read_ctr(struct perf_event *event)
+>   {
+>   	struct hw_perf_event *hwc = &event->hw;
+> @@ -111,7 +117,7 @@ static void pmu_legacy_init(struct riscv_pmu *pmu)
+>   	pmu->ctr_stop = NULL;
+>   	pmu->event_map = pmu_legacy_event_map;
+>   	pmu->ctr_get_idx = pmu_legacy_ctr_get_idx;
+> -	pmu->ctr_get_width = NULL;
+> +	pmu->ctr_get_width = pmu_legacy_ctr_get_width;
+>   	pmu->ctr_clear_idx = NULL;
+>   	pmu->ctr_read = pmu_legacy_read_ctr;
+>   	pmu->event_mapped = pmu_legacy_event_mapped;
 
-No, I still get the same result with the defconfig.
 
--- 
-Thiago
+Thanks for the resend, this one slipped through...
+
+Let's add the fixes tag:
+
+Fixes: cc4c07c89aad ("drivers: perf: Implement perf event mmap support 
+in the SBI backend")
+
+Thanks again,
+
+Alex
+
 
 _______________________________________________
 linux-riscv mailing list
