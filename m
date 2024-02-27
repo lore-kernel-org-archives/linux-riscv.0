@@ -4,70 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DAD2C5478C
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 11:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 470B6C54798
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Feb 2024 11:46:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C8kJGwC/WS2KiOdVYhv7tUwh5ZR6OiV6JhbIIX3sGRI=; b=tmwRfcdGolGS2s7Ck1cB80KBHj
-	9/fk8SUvEjNU9A27MKEtDflTYB+DzFpHxY7XAHRcxw8WXnRQWDaMuGeuM/VMHNkhpGvy1ASFIdLpG
-	tM77MKRCcrbEMMg3hh7zXDHlUCfkpczfh098zbAxJoQf0t8GLpefOPP+V4CMLMcjAoE6AphYmHgZP
-	mN7eOyY1hxpZ737kIpxfPTC9I/2NwqaDvu1YY0fFfmKN7T/7bqQBuenRnRdmrBrGi0FYn9QQYP0cY
-	rnlYJ1rDDjb1fgQBiXqxJBlC5OYO60MxHM8ULCaRfcJ3HcMaem10IevvR0KLaQHEmmU9ikzalcjer
-	cANM138A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=e9tYAIsIYkkF6XEsT6G3zRybMUFw9+K2mSo98pp3CxI=; b=eBd86q35eCrunP
+	KXwHKGfkhtSsqkw82WgjDPOUD83e8nRCIPvRSFEOiBFv2ujnKlswsG8pODS/cYR0kYD0RBGvHeC/p
+	t6gjRXwq+Zla8Zelo3ONoGm9jgY2cTcthXhpgmDyPP/CX3pYn5/pSMyfNnl0pZ+ay4zOxFMwQw9kZ
+	PEYZrQX2xTPo0rlii5Ja8j0FueSjcO/Uh4wZ1X65QxctKWH6+MJO4cPAXShzsKqX43HyvbpBSr8QX
+	k3hISER8Pj6LkYnEySSD1cx5x7fbha20fZCQKUILzfTIEHZf9Bd7kBmh5V5S519YCPm771GDHFtjB
+	81MRS58yb7lOVTKx1tIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1revp7-00000004yZa-3u3D;
-	Tue, 27 Feb 2024 11:40:37 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1revus-00000004ze9-3pGl;
+	Tue, 27 Feb 2024 11:46:34 +0000
+Received: from mail-bjschn02on2072e.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::72e] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1revp5-00000004yYs-0pUm
+	id 1reuoe-00000004lEl-1aAU
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Feb 2024 11:40:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1709034034; x=1740570034;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=nAcqQcoVlavgogzMMv0AJtTW2BknoALl9ZTHNc2lkI8=;
-  b=kSeDrIgFF1JRGGkh9yWECoNrD2xbBYcBvm4wcsmqVzUNigNIjZsMM6LW
-   7034H1IKhG0wdIda5lhGCPPZwvzn046qjd94UBRygpVzsmw+n1Wp3xFpE
-   NjeV1kmR9xMTlDjosqlFR95gdcUzjCsofSbBYdB3d4lTLiSdwCtVMmOQo
-   o4ig0s4Uhs37CF28Y6GF4JsW/BGwEvxQVsC8tcV1f9hhCzPRRKkInMd88
-   qnRpNQN/332kr09bEPS2AXEgbPCKwm/ZU/O3HlbveRxgHRzQQBkqPaHgu
-   YpWFjrGIaNC2ftmG1LiDRkH6eptYVk2Onz02rxIKMqNJJjcym5wjBhaY0
-   w==;
-X-CSE-ConnectionGUID: bVyENMktQsa0J3zoirwwlw==
-X-CSE-MsgGUID: KyHdUvHKQ+mwrCRxqQUDzg==
-X-IronPort-AV: E=Sophos;i="6.06,187,1705388400"; 
-   d="asc'?scan'208";a="18453223"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2024 04:40:33 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 27 Feb 2024 04:40:10 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Tue, 27 Feb 2024 04:40:08 -0700
-Date: Tue, 27 Feb 2024 11:39:25 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Subject: Re: [PATCH v4 2/2] riscv: Set unalignment speed at compile time
-Message-ID: <20240227-condone-impeach-9469dffc6b47@wendy>
-References: <20240216-disable_misaligned_probe_config-v4-0-dc01e581c0ac@rivosinc.com>
- <20240216-disable_misaligned_probe_config-v4-2-dc01e581c0ac@rivosinc.com>
+	Tue, 27 Feb 2024 10:36:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=R8bVlD3BDnFai3IZ76+eknamDp3QJrGDqaBSLhIcjfiEtG9Td7Z5cgCQ6ZF91eEWjWuPM2v/RwUoaUqPR/7IjxkTJaeq+xLtKrCND4DKI2blHYFzyLldpH7EdBguMkBwAZFmOVO4LgBxiOLxb4iuipbhWjhh1apWE8BSPzntTIA10DLp72NUxLVWb2WSYk4qUOSgK5VkgbqwT5/9rOPekxe94ooHjGPyMxLOhi2ASssHane5nVr3a4DZ0be9x8NICBeQeGua0pbEZn21Sv8LIBZkUIBAlOXdNKyMttEjflmj9DePtyKwuIcXLQW4o9vaiQLQuyZjG+KCJdYt09vNZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dKh7nmkaSdzB3ghyDF6RJecUyhtYIfwA0UmbLzDOakc=;
+ b=S8VfzSQf/F9zasoBp60TH86cppt6YH4bD0beKqYDtCJat/NUVMep5o5tnS5nvxq1wBbYbqb4t/SLkP8rhmAeiYjFtCt4N+dfuK2NX+kCAOIkc8djJTrNfUThygyR3SAeKAjB7khSb2/jgrng3+R49oyXD69RxNwRebjm+oBDKRd3LeT6zH777Zg7OR3fQVM7SHsJ8kuDBJ7SE1GWPsyQxPQf22Cb6sM7K7rff68qhTn8a+96q79daUjCggk6F99hFieVuwhnn+SfEsWV3acMg7ecij1zPzCPbKsXxVdnS9QmDHViqog37JEh0FpnAcb5yKvcM0+gEuVwwEtdc9zVAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15) by SHXPR01MB0496.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1f::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.47; Tue, 27 Feb
+ 2024 10:35:49 +0000
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ ([fe80::5a5a:fa59:15fd:63dc]) by
+ SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::5a5a:fa59:15fd:63dc%3])
+ with mapi id 15.20.7270.047; Tue, 27 Feb 2024 10:35:49 +0000
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>,
+	Minda Chen <minda.chen@starfivetech.com>
+Subject: [PATCH v15,RESEND 19/23] dt-bindings: PCI: Add StarFive JH7110 PCIe controller
+Date: Tue, 27 Feb 2024 18:35:18 +0800
+Message-Id: <20240227103522.80915-20-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20240227103522.80915-1-minda.chen@starfivetech.com>
+References: <20240227103522.80915-1-minda.chen@starfivetech.com>
+X-ClientProxiedBy: NT0PR01CA0003.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510::15) To SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15)
 MIME-Version: 1.0
-In-Reply-To: <20240216-disable_misaligned_probe_config-v4-2-dc01e581c0ac@rivosinc.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0496:EE_
+X-MS-Office365-Filtering-Correlation-Id: 49c8d5ee-2c30-410a-6deb-08dc377fdd2f
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: K4rfD9vkI5XNvEC6lp/ejKgUta4TIcS1DLFNAZVUBA3eGOCO9hTYJ3I4DmdGgxXTIsOydlMV8yOI/WZU+r3HjZYaA6aIWQymYCtrc2p7CecqpUnEmlN3JLcV0KXm+H3vPif/wIYGtghdOgMJA1jnx26UlaWQr0lcm04ZIsnDTUN5I1OPVfkx61n1ydBP5bL6l3fSkxJRZfBctpx0eqY0rMdwd1Ig14veIFhWWNxmPrWf6Tou95il0DLncxE5uMiHUwWOCdydnDVTYnvut7PE4SqU2PbD3O/4R8x+00Wg0HZtWW7Td/uhdgDwO7Ydn3kQvHvE5oZpD9ig2vkKPkHMw0mALK7lMliO6PXgqhl7XIrh8idmD74kgDRCD5Lw5huuftL/RSXTCSeoRW+ocuh9oIxxfMDXdikrUWolUsBYIA2sjwjWciNrwbh7pZatLXigHRkoudrikCL6D9K86zs1DuEFvvLVd4Krr8FlWqM3NXcmyCdqn27h0rZ0V8ElTZIPIYPChi5BjOtkV7H0gPtRngzq3mvr4DmoCgGhomcUXyMLFNg/qEz2XArUZCAm692mApus6yKxIbvTtQG2+TDtDxAxllac+EWaupi0PSbjZwY/NHcWmQ/CEiuCZdKPgC9Z
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(38350700005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UY79KnfCaZaw1qBJ2UwqTJv78YTTu0eu9eyKmpsbwjOXlFsLToItsTuQmm0S?=
+ =?us-ascii?Q?lKT1uNukC3KEJvxdRjhzsWAt6N/o3tQ8n/vl77DsARk9lQ5MKmDrFKNRoCDV?=
+ =?us-ascii?Q?tSTZxNspP5I3YabbKKHr/bc/6BsW22JwvpS1HHyz4IlJNjYmL0FpPhKDwGxu?=
+ =?us-ascii?Q?P7tt83V18CdRMRgNy7KZs2r8NFUBq7xSnG24aFkBu7v5GZSfrt5hBFprnEIa?=
+ =?us-ascii?Q?6TMs0p5AtECjV+zeFj9VsCw41rwkvfwS/86nq6t/pMkrGtPZzQRMJ4qRZ3wl?=
+ =?us-ascii?Q?/CVPizEv+V27zC4qG4xbs+sLjvF4hacmVsJBIEvW9ePGdiy26Iyerqwur4J+?=
+ =?us-ascii?Q?hnRDDKzs572bDVD0m6AQPlABash4VD26G00jJbVHOu/HphMIrfQJaer20/9Q?=
+ =?us-ascii?Q?WOP4vIwy1k1z3iNsVFyJixqUHs5gnA/+LitCMC0gmYh8xHecCyI9DWegOiqN?=
+ =?us-ascii?Q?sWX6xoq8JgFPqMu1PXHqRaqslFNYbutWKwS9F2oUxsberf8XDwByx5H/KFYP?=
+ =?us-ascii?Q?p0rNf1XdvIMM2uI2fBuQ+ne9oePlhCud5SQJ9KycPmSs/JjsqboeqNWvNqvW?=
+ =?us-ascii?Q?gZOOnA7StKjOC4bFGm/ZroHzgkudcSyjSUR8Gf7VCwCgpt3LsNPwOZ/+o+Kq?=
+ =?us-ascii?Q?p0rIAj72CTe4OkaLvIKm2BrDkAVc0lYg2Eaw6wZyRc92JHZmUInDQBT244oA?=
+ =?us-ascii?Q?uSPjaam8p3nDrTH6cL4uT/SQSVVKJuzIZ6WVN2PJhXtqxZdu+dlU1BaLp6z1?=
+ =?us-ascii?Q?lgANSMh14h/9Rpfja+9Cu1W1ETHvfF2C/02qm3Hynm/QAIavu7OjAGZbiT2a?=
+ =?us-ascii?Q?kI+iMcAQ7CM/8BQNciW65+FZzUY1ENKQDc91OiYoNolnLFdfrraoVMRYAHUb?=
+ =?us-ascii?Q?dSDdYPbKhhJIrMx7jDh1sTE6o6GRiE45B3+VVmqXclr0wnc7UbfCv0hljDAz?=
+ =?us-ascii?Q?RwYpxMxymdkwc9jkM1EHe+vplXbS6OvacnU4bWifdzlnsNm7gGdxvgf5Z5Fg?=
+ =?us-ascii?Q?Bn6Ri+wrs2bRLNJvFZWzwmzEmULUvBqYl3BdFnpNE5RC+B9L8sRzhCTbFQJA?=
+ =?us-ascii?Q?o2cQAlZtVmmU+7QxR9bEvPv2V07sP/atYptVYM8FwANPVMszSwNKfcOky04U?=
+ =?us-ascii?Q?UcCFYtX6P2WTejTQ46IEIbUZBQ2m8y7b0xTMv55j+TBGIZNFr3yF6JfQUyb9?=
+ =?us-ascii?Q?g4bCITQInkjDY5Q5MBAaS/6lBvG5VI3QdNfF2NdCVwT6TU2K6JC5shfAvdz3?=
+ =?us-ascii?Q?MkYkFriQsHoK8zp04q/JCCb7N+u0Gkcy2TFIw6FkddmaUueHp6ZLhHmefHWo?=
+ =?us-ascii?Q?iNdGWmQ6MwpM1xq+lVt3aOlSiCIcbOhBY94WsRytat2VbGLHfy79mAB3qcSX?=
+ =?us-ascii?Q?CUzm6AhfM+DPLAxJRucDGNvDC7RDAGZE1CaX7bPrC08hnn3e4H8g6YvnbVEm?=
+ =?us-ascii?Q?MDA65jIkStsagVjWn/jzu6GcLbBRLJfJUlDFUP8KJMY5iMmx0iiAnXcYI7XH?=
+ =?us-ascii?Q?IJPwvFP0WK+PTVuJIOaM8IwFX+yA8zCryRpnwFhxFmazSz2gPotJybp2QUJU?=
+ =?us-ascii?Q?28/s2ClwrXzWfC7WV7EB0UpiCIM/leRYKqU0rZzLTM2lL4Q7zMj9dbUFqXrp?=
+ =?us-ascii?Q?sg=3D=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49c8d5ee-2c30-410a-6deb-08dc377fdd2f
+X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2024 10:35:49.2228
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dQXDccumKJW5coy572kIBSGozqdPzhCbcy8po55MXmV1ok8XDyzEKDenGkU/AYH6nO5k3Zfw3sumAmznASCM9vRNTuoWo1Iy/ynx/CHgAec=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0496
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_034035_406751_D41FF7AD 
-X-CRM114-Status: GOOD (  40.08  )
+X-CRM114-CacheID: sfid-20240227_023604_640617_B683F137 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,219 +141,154 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
-Content-Type: multipart/mixed; boundary="===============7871317492122383161=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7871317492122383161==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qwP6EXChpel/sZvo"
-Content-Disposition: inline
+Add StarFive JH7110 SoC PCIe controller dt-bindings. JH7110 using PLDA
+XpressRICH PCIe host controller IP.
 
---qwP6EXChpel/sZvo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
+---
+ .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++++++++++++++++
+ 1 file changed, 120 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
 
-On Fri, Feb 16, 2024 at 12:33:19PM -0800, Charlie Jenkins wrote:
-> Introduce Kconfig options to set the kernel unaligned access support.
-> These options provide a non-portable alternative to the runtime
-> unaligned access probe.
->=20
-> To support this, the unaligned access probing code is moved into it's
-> own file and gated behind a new RISCV_PROBE_UNALIGNED_ACCESS_SUPPORT
-> option.
->=20
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
->  arch/riscv/Kconfig                          |  58 +++++-
->  arch/riscv/include/asm/cpufeature.h         |  30 +++-
->  arch/riscv/kernel/Makefile                  |   6 +-
->  arch/riscv/kernel/cpufeature.c              | 255 ----------------------=
-----
->  arch/riscv/kernel/misaligned_access_speed.c | 265 ++++++++++++++++++++++=
-++++++
->  arch/riscv/kernel/probe_emulated_access.c   |  64 +++++++
->  arch/riscv/kernel/sys_hwprobe.c             |  25 +++
->  arch/riscv/kernel/traps_misaligned.c        |  54 +-----
->  8 files changed, 442 insertions(+), 315 deletions(-)
->=20
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index bffbd869a068..3cf700adc43b 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -690,25 +690,71 @@ config THREAD_SIZE_ORDER
->  config RISCV_MISALIGNED
+diff --git a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+new file mode 100644
+index 000000000000..67151aaa3948
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+@@ -0,0 +1,120 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 PCIe host controller
++
++maintainers:
++  - Kevin Xie <kevin.xie@starfivetech.com>
++
++allOf:
++  - $ref: plda,xpressrich3-axi-common.yaml#
++
++properties:
++  compatible:
++    const: starfive,jh7110-pcie
++
++  clocks:
++    items:
++      - description: NOC bus clock
++      - description: Transport layer clock
++      - description: AXI MST0 clock
++      - description: APB clock
++
++  clock-names:
++    items:
++      - const: noc
++      - const: tl
++      - const: axi_mst0
++      - const: apb
++
++  resets:
++    items:
++      - description: AXI MST0 reset
++      - description: AXI SLAVE0 reset
++      - description: AXI SLAVE reset
++      - description: PCIE BRIDGE reset
++      - description: PCIE CORE reset
++      - description: PCIE APB reset
++
++  reset-names:
++    items:
++      - const: mst0
++      - const: slv0
++      - const: slv
++      - const: brg
++      - const: core
++      - const: apb
++
++  starfive,stg-syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    description:
++      The phandle to System Register Controller syscon node.
++
++  perst-gpios:
++    description: GPIO controlled connection to PERST# signal
++    maxItems: 1
++
++  phys:
++    description:
++      Specified PHY is attached to PCIe controller.
++    maxItems: 1
++
++required:
++  - clocks
++  - resets
++  - starfive,stg-syscon
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pcie@940000000 {
++            compatible = "starfive,jh7110-pcie";
++            reg = <0x9 0x40000000 0x0 0x10000000>,
++                  <0x0 0x2b000000 0x0 0x1000000>;
++            reg-names = "cfg", "apb";
++            #address-cells = <3>;
++            #size-cells = <2>;
++            #interrupt-cells = <1>;
++            device_type = "pci";
++            ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
++                     <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
++            starfive,stg-syscon = <&stg_syscon>;
++            bus-range = <0x0 0xff>;
++            interrupt-parent = <&plic>;
++            interrupts = <56>;
++            interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++            interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
++                            <0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
++                            <0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
++                            <0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
++            msi-controller;
++            clocks = <&syscrg 86>,
++                     <&stgcrg 10>,
++                     <&stgcrg 8>,
++                     <&stgcrg 9>;
++            clock-names = "noc", "tl", "axi_mst0", "apb";
++            resets = <&stgcrg 11>,
++                     <&stgcrg 12>,
++                     <&stgcrg 13>,
++                     <&stgcrg 14>,
++                     <&stgcrg 15>,
++                     <&stgcrg 16>;
++            perst-gpios = <&gpios 26 GPIO_ACTIVE_LOW>;
++            phys = <&pciephy0>;
++
++            pcie_intc0: interrupt-controller {
++                #address-cells = <0>;
++                #interrupt-cells = <1>;
++                interrupt-controller;
++            };
++        };
++    };
+-- 
+2.17.1
 
-
-Why can we not make up our minds on what to call this? The majority of
-users are "unaligned" but the file you add and this config option are
-"misaligned."
-
->  	bool "Support misaligned load/store traps for kernel and userspace"
->  	select SYSCTL_ARCH_UNALIGN_ALLOW
-> +	depends on RISCV_PROBE_UNALIGNED_ACCESS || RISCV_EMULATED_UNALIGNED_ACC=
-ESS
->  	default y
->  	help
->  	  Say Y here if you want the kernel to embed support for misaligned
->  	  load/store for both kernel and userspace. When disable, misaligned
->  	  accesses will generate SIGBUS in userspace and panic in kernel.
-> =20
-> +choice
-> +	prompt "Unaligned Accesses Support"
-> +	default RISCV_PROBE_UNALIGNED_ACCESS
-> +	help
-> +	  This selects the hardware support for unaligned accesses. This
-> +	  information is used by the kernel to perform optimizations. It is also
-> +	  exposed to user space via the hwprobe syscall. The hardware will be
-> +	  probed at boot by default.
-> +
-> +config RISCV_PROBE_UNALIGNED_ACCESS
-> +	bool "Probe for hardware unaligned access support"
-> +	help
-> +	  During boot, the kernel will run a series of tests to determine the
-> +	  speed of unaligned accesses. This is the only portable option. This
-> +	  probing will dynamically determine the speed of unaligned accesses on
-> +	  the boot hardware.
-> +
-> +config RISCV_EMULATED_UNALIGNED_ACCESS
-> +	bool "Assume the CPU expects emulated unaligned memory accesses"
-> +	depends on NONPORTABLE
-
-This is portable too, right?
-
-> +	select RISCV_MISALIGNED
-> +	help
-> +	  Assume that the CPU expects emulated unaligned memory accesses.
-> +	  When enabled, this option notifies the kernel and userspace that
-> +	  unaligned memory accesses will be emulated by the kernel.
-
-> To enforce
-> +	  this expectation, RISCV_MISALIGNED is selected by this option.
-
-Drop this IMO, let Kconfig handle displaying the dependencies.
-
-> +
-> +config RISCV_SLOW_UNALIGNED_ACCESS
-> +	bool "Assume the CPU supports slow unaligned memory accesses"
-> +	depends on NONPORTABLE
-> +	help
-> +	  Assume that the CPU supports slow unaligned memory accesses. When
-> +	  enabled, this option improves the performance of the kernel on such
-> +	  CPUs.
-
-Does it? Are you sure that generating unaligned accesses on systems
-where they are slow is a performance increase?
-That said, I don't really see this option actually doing anything other
-than setting the value for hwprobe, so I don't actually know what the
-effect of this option actually is on the kernel's performance.
-
-Generally I would like to suggest a change from "CPU" to "system" here,
-since the slow cases that exist are mostly because the unaligned access
-is actually emulated in firmware.
-
-> However, the kernel will run much more slowly, or will not be
-> +	  able to run at all, on CPUs that do not support unaligned memory
-> +	  accesses.
-> +
->  config RISCV_EFFICIENT_UNALIGNED_ACCESS
->  	bool "Assume the CPU supports fast unaligned memory accesses"
->  	depends on NONPORTABLE
->  	select DCACHE_WORD_ACCESS if MMU
->  	select HAVE_EFFICIENT_UNALIGNED_ACCESS
->  	help
-> -	  Say Y here if you want the kernel to assume that the CPU supports
-> -	  efficient unaligned memory accesses.  When enabled, this option
-> -	  improves the performance of the kernel on such CPUs.  However, the
-> -	  kernel will run much more slowly, or will not be able to run at all,
-> -	  on CPUs that do not support efficient unaligned memory accesses.
-> +	  Assume that the CPU supports fast unaligned memory accesses. When
-> +	  enabled, this option improves the performance of the kernel on such
-> +	  CPUs.  However, the kernel will run much more slowly, or will not be
-> +	  able to run at all, on CPUs that do not support efficient unaligned
-> +	  memory accesses.
-> +
-> +config RISCV_UNSUPPORTED_UNALIGNED_ACCESS
-
-This option needs to be removed. The uabi states that unaligned access
-is supported in userspace, if the cpu or firmware does not implement
-unaligned access then the kernel must emulate it.
-
-> +	bool "Assume the CPU doesn't support unaligned memory accesses"
-> +	depends on NONPORTABLE
-> +	help
-> +	  Assume that the CPU doesn't support unaligned memory accesses. Only
-> +	  select this option if there is no registered trap handler to emulate
-> +	  unaligned accesses.
-> =20
-> -	  If unsure what to do here, say N.
-> +endchoice
-> =20
->  endmenu # "Platform type"
-
-> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm=
-/cpufeature.h
-> index eb3ac304fc42..928ad3384406 100644
-> --- a/arch/riscv/include/asm/cpufeature.h
-> +++ b/arch/riscv/include/asm/cpufeature.h
-> @@ -33,10 +33,26 @@ extern struct riscv_isainfo hart_isa[NR_CPUS];
-> =20
->  void riscv_user_isa_enable(void);
-> =20
-> -#ifdef CONFIG_RISCV_MISALIGNED
-> +#if defined(CONFIG_RISCV_MISALIGNED)
-> +#if defined(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)
->  bool unaligned_ctl_available(void);
->  bool check_unaligned_access_emulated(int cpu);
->  void unaligned_emulation_finish(void);
-> +#elif defined(CONFIG_RISCV_EMULATED_UNALIGNED_ACCESS)
-> +static inline bool unaligned_ctl_available(void)
-> +{
-> +	return true;
-> +}
-> +
-> +static inline bool check_unaligned_access_emulated(int cpu)
-> +{
-> +	return true;
-> +}
-> +
-> +static inline void unaligned_emulation_finish(void) {}
-> +#else
-> +#error "CONFIG_RISCV_MISALIGNED is only supported if CONFIG_RISCV_PROBE_=
-UNALIGNED_ACCESS or CONFIG_RISCV_EMULATED_UNALIGNED_ACCESS is selected."
-
-Why is this an error? Enforce this in Kconfig (you already have) and drop
-the clause.
-
-Cheers,
-Conor.
-
---qwP6EXChpel/sZvo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd3J7QAKCRB4tDGHoIJi
-0ia+AQCU5YCXF9J0kaM+Tt9OAbetH7+JzZR2O/sLLeCFxZg9GQD+KADsdA0Xelx3
-k1fmt+5ayKCVcruP4O6xdFtjtpGOUgo=
-=fwKH
------END PGP SIGNATURE-----
-
---qwP6EXChpel/sZvo--
-
-
---===============7871317492122383161==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7871317492122383161==--
-
