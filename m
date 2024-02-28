@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEE5C5478C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 03:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D15C47DD9
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 05:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Cc:Date:Message-Id:Subject:
-	Mime-Version:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=84dycsv/tY+irQZOG8VlBvru3efAy6+pj5u/vAWgCmY=; b=2yJ
-	0ciPJ8899vDgNaviDnRm4uuYSYZbFLRdROFBYYT71dgpdE3OT8qohlEZKk2JZ3w2VQz5w/iDpGeF9
-	D3UoyoNyYR4BvjI7LYd0EiXRSPtBz91q1lN+K2ILl9e0fxwpr4OE8Bv7/hRPhiLnWsHCPkrGM4acg
-	oHqYzE70ooW8+thb2Jgq7N0Yg4yBNxmdZkBCM1ZGRWFvWLv7HxPVyGXEGAX5v5Bm5PHf8Iau/nHNL
-	BvbmgAXCTIBu6cgsuf3+ajOMfb6KMEmKIeRXMTsxmOmb6iXI9Tuh1baVcd0Pj4c6aD6pfXB8nYlx3
-	Vc/GR/547eEDTVrVMxrGl9SdaWDxZlw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TC9zV2GVNvNaRQaAaJ3xDqod71/2lzvf9YXSwR2oHJE=; b=mIOc2B/OenlgBB
+	idhHl+V4GtjxxUH1ylXFy4e/j05EyISO54ZKInATRELxWY4/w/YDXlz54n+VMkBC72AlY2T5cOZCy
+	8GHgSVxbfyXGR2rEtKjlPuxF4HaoppRDfw2Ah0fVdH9RlLyalQtA2GvlphWcWsh2CZaeaxgAZTi0U
+	Mlpdx8rz/nKffXMVR8xmwEOXYY1RZqPR4vu0NhKc9RQe0xw0uV4z21rR9DTvOCylfrWc1JpzGHCJO
+	oNZejvSZO9mzZslOevBFr0bK3TqZfmCMDQSSFXl0cl0fvI5UkWYNxcgqX0i5zrk1ziCTE9lGeNpKJ
+	t0U0SOhSF01XSazhrpUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfAx5-00000007tYI-3JRj;
-	Wed, 28 Feb 2024 03:49:51 +0000
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfAx1-00000007tVP-3yfW
+	id 1rfCZ4-000000085bP-06hb;
+	Wed, 28 Feb 2024 05:33:10 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rfCZ1-000000085ZM-0xMm
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 03:49:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=pku.edu.cn; s=dkim; h=Received:From:Content-Type:
-	Content-Transfer-Encoding:Mime-Version:Subject:Message-Id:Date:
-	Cc:To; bh=duqQuA0+jCKFtODOoRpkaSM6yTZVpx/9mzEVGr69PcU=; b=toWcGG
-	U0lgwU1XYSQaBlXnd1F3wsRjzVmjCiL9M7fOgbDQQOwC7HNDVd/+cemI2loYewl6
-	hXmszAaOQfC1kPMoJPjmxagfHwX+9zLCkC0m6MVjw5R8DsyVCDiTNQDk/3/5O7EK
-	n5pd1auagiypcYoY5Apd/KrtcJRFf+3d+F8lk=
-Received: from smtpclient.apple (unknown [10.7.111.29])
-	by front02 (Coremail) with SMTP id 54FpogDHHwxKrd5lpSUyAQ--.9732S2;
-	Wed, 28 Feb 2024 11:49:30 +0800 (CST)
-From: =?utf-8?B?6Zu35Y2a5ra1?= <garthlei@pku.edu.cn>
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.400.31\))
-Subject: RISC-V PMU driver issue
-Message-Id: <CC51D53B-846C-4D81-86FC-FBF969D0A0D6@pku.edu.cn>
-Date: Wed, 28 Feb 2024 11:49:20 +0800
-Cc: linux-riscv@lists.infradead.org
-To: Atish Patra <atishp@atishpatra.org>
-X-Mailer: Apple Mail (2.3774.400.31)
-X-CM-TRANSID: 54FpogDHHwxKrd5lpSUyAQ--.9732S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtF1fZw1UJF13Gr4ftr48Xrb_yoWkGrb_GF
-	ykXr9rJwsIyanYqasrtr47XayIqr48u3s5Ar18Ww13Kr95XFnxGw1vkFy8tr4xtFZaqrn8
-	tFZ3Xw1I9wnIvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb2AYjsxI4VWkCwAYFVCjjxCrM7CY07I20VC2zVCF04k26cxKx2IY
-	s7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4
-	kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_
-	Cr1j6rxdM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
-	xl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMxAIw28IcVCj
-	z48v1sIEY20_Kr1UJr1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
-	WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1Y6r17MIIYrxkI7VAK
-	I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r
-	4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY
-	6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07j04E_UUUUU=
-X-CM-SenderInfo: isrqijqrtqijo6sn3hxhgxhubq/1tbiAgEBBWXeGUgH7AABsH
+	Wed, 28 Feb 2024 05:33:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1709098387; x=1740634387;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=z/BnArCvPNt7MT9ga2Arel3xPYZRjie7hVWYkQTMgwg=;
+  b=GITP6HdYfCpafAlE+B/XbTF+tYCQrMNQt8F7SMHRmqT59TWS9YmU+8MY
+   NTp+PN+0TSoxNOvMyCknRmVp24tRx4WsmWCjr7OxALov2xaVCqjSbD44V
+   sbiSIi56qnLK/NPtg+w/41mAx6IqVnPv8wchi5IF7XTuqjxGhLM6eVxaU
+   EaLpd1rfuYXyoqvqmSLfP1i0edjjSE4TIYxATj5WbUXD4Q9Da93SvG84/
+   UuCm8YQI7RBkE2Ct11AoJKFZ8HrxwkeVFLfMTxA0Ce7/9kobPqXkec/C7
+   xmZqpkxX5h5I8HRA8zL3JuMqlsQFnW6rlRzwLP3w9689oN7eyQZcWIdb9
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10996"; a="20935834"
+X-IronPort-AV: E=Sophos;i="6.06,190,1705392000"; 
+   d="scan'208";a="20935834"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2024 21:33:05 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.06,190,1705392000"; 
+   d="scan'208";a="12031899"
+Received: from wufei-optiplex-7090.sh.intel.com ([10.239.158.51])
+  by orviesa003.jf.intel.com with ESMTP; 27 Feb 2024 21:33:03 -0800
+From: Fei Wu <fei2.wu@intel.com>
+To: atishp@atishpatra.org,
+	anup@brainfault.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: Fei Wu <fei2.wu@intel.com>
+Subject: [PATCH v2] perf: RISCV: Fix panic on pmu overflow handler
+Date: Wed, 28 Feb 2024 13:38:22 +0800
+Message-Id: <20240228053822.2610915-1-fei2.wu@intel.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_194948_547523_4182DD9C 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240227_213307_333382_F4234EBE 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,14 +84,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+(1 << idx) of int is not desired when setting bits in unsigned long
+overflowed_ctrs, use BIT() instead. This panic happens when running
+'perf record -e branches' on sophgo sg2042.
 
-I am having problems with the RISC-V PMU driver. The overflow handler of my custom perf event kernel counter seems to read an incorrect value from the event.
-It seems that the issue lies in the function `riscv_pmu_event_set_period`, which sets `prev_count` to a new value but does not modify the underlying hardware counter. When `perf_event_read_value` gets called later in the user-defined overflow handler, `riscv_pmu_event_update` will update the `count` field again based on the unmodified hardware counter value and the modified `prev_count` field, which causes an incorrect reading.
-I noticed that other PMU drivers, such as the ARM one, write to the underlying counter in their set_period functions, which prevents the problem. However, the RISC-V SBI specification does not have such an API to write to a counter without starting it. Using `local64_read(&hw_evt->period_left) <= 0` directly as the guard condition to place `riscv_pmu_event_set_period(event)` after it seems to work, but I am not sure whether it can cause other issues.
+[  273.311852] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000098
+[  273.320851] Oops [#1]
+[  273.323179] Modules linked in:
+[  273.326303] CPU: 0 PID: 1475 Comm: perf Not tainted 6.6.0-rc3+ #9
+[  273.332521] Hardware name: Sophgo Mango (DT)
+[  273.336878] epc : riscv_pmu_ctr_get_width_mask+0x8/0x62
+[  273.342291]  ra : pmu_sbi_ovf_handler+0x2e0/0x34e
+[  273.347091] epc : ffffffff80aecd98 ra : ffffffff80aee056 sp : fffffff6e36928b0
+[  273.354454]  gp : ffffffff821f82d0 tp : ffffffd90c353200 t0 : 0000002ade4f9978
+[  273.361815]  t1 : 0000000000504d55 t2 : ffffffff8016cd8c s0 : fffffff6e3692a70
+[  273.369180]  s1 : 0000000000000020 a0 : 0000000000000000 a1 : 00001a8e81800000
+[  273.376540]  a2 : 0000003c00070198 a3 : 0000003c00db75a4 a4 : 0000000000000015
+[  273.383901]  a5 : ffffffd7ff8804b0 a6 : 0000000000000015 a7 : 000000000000002a
+[  273.391327]  s2 : 000000000000ffff s3 : 0000000000000000 s4 : ffffffd7ff8803b0
+[  273.398773]  s5 : 0000000000504d55 s6 : ffffffd905069800 s7 : ffffffff821fe210
+[  273.406139]  s8 : 000000007fffffff s9 : ffffffd7ff8803b0 s10: ffffffd903f29098
+[  273.413660]  s11: 0000000080000000 t3 : 0000000000000003 t4 : ffffffff8017a0ca
+[  273.421022]  t5 : ffffffff8023cfc2 t6 : ffffffd9040780e8
+[  273.426437] status: 0000000200000100 badaddr: 0000000000000098 cause: 000000000000000d
+[  273.434512] [<ffffffff80aecd98>] riscv_pmu_ctr_get_width_mask+0x8/0x62
+[  273.441169] [<ffffffff80076bd8>] handle_percpu_devid_irq+0x98/0x1ee
+[  273.447562] [<ffffffff80071158>] generic_handle_domain_irq+0x28/0x36
+[  273.454151] [<ffffffff8047a99a>] riscv_intc_irq+0x36/0x4e
+[  273.459659] [<ffffffff80c944de>] handle_riscv_irq+0x4a/0x74
+[  273.465442] [<ffffffff80c94c48>] do_irq+0x62/0x92
+[  273.470360] Code: 0420 60a2 6402 5529 0141 8082 0013 0000 0013 0000 (6d5c) b783
+[  273.477921] ---[ end trace 0000000000000000 ]---
+[  273.482630] Kernel panic - not syncing: Fatal exception in interrupt
 
-Thank you,
-Bohan Lei
+Signed-off-by: Fei Wu <fei2.wu@intel.com>
+---
+ drivers/perf/riscv_pmu_sbi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 16acd4dcdb96..335171db9647 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -731,14 +731,14 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 		/* compute hardware counter index */
+ 		hidx = info->csr - CSR_CYCLE;
+ 		/* check if the corresponding bit is set in sscountovf */
+-		if (!(overflow & (1 << hidx)))
++		if (!(overflow & BIT(hidx)))
+ 			continue;
+ 
+ 		/*
+ 		 * Keep a track of overflowed counters so that they can be started
+ 		 * with updated initial value.
+ 		 */
+-		overflowed_ctrs |= 1 << lidx;
++		overflowed_ctrs |= BIT(lidx);
+ 		hw_evt = &event->hw;
+ 		riscv_pmu_event_update(event);
+ 		perf_sample_data_init(&data, 0, hw_evt->last_period);
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
