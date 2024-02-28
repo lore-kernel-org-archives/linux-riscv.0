@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CCE9C5478C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 13:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4FDC47DD9
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 13:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ISHOQe5ckFOPtIXNKDAd3vGqTcPDwxtQzbmXqzoFnOY=; b=gMIw+zsd3airGw
-	bumwASVLNqQrs4H4PHFjOZ46dGs7H7kEj8B7LFy4loSQy8uhNVvW2/xvejjCjli2cRdw9A3zHHez8
-	51GC/QXmvPb0o2Ml8qbV4aAdzPcPiqWIo/5kVu8F6H92Ae7FKIIQXkhxZylDG0ItSVT2rKx3GlklO
-	o5sxk128n4sGjortgbaGOaF2b+oCqwe32qmhjnds7f6kh5IwQhLRj2foTmKVHl34PKwgbvDwCzXup
-	K8yZWTUuHdvr9AVWHt9P+iri34/dSnCFOaeQIl235J9J0W8GfCR/nib5b5EBgfcT5TlrvYWMF5XNX
-	4uUUCtHL//IPLFpSuYJQ==;
+	List-Owner; bh=G0ipq2qK+y7tAVcsNAcgeNNEJZDLBrPOQseBxNTd32Q=; b=gTWCLxC+PcHL/o
+	o6XtxYjYbIwEnK2F3TXGWN07TemXzCPBanlUC4j8ICWvxZIg5f0HzyC/11IXId0oKGcrzjA1kr8mK
+	PoDeqn28vRf5u4owo3b/d7kV0sbkLF4szOaIyy1fsIGWnaFkT3uJ3mXWTk/AGfLTc+INK3H4VO3ZP
+	2QqefjvLQWLeelPWt7gLdPuYV7VDrBJovxYzopDArz5cuQA58ekmoBdPvwhWGxI866txYh/tdIggd
+	zRz2MLqPl6ZVo1JiLo7Y8zrOAPeHvzaZ0nShWxCSAXVCR/iGgUFMmzHBLeZp8+cYbZDQaFEP/9xGQ
+	Sf83q4HgVYEoFMxwnSMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfJb7-00000009NPH-2mOQ;
-	Wed, 28 Feb 2024 13:03:45 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1rfJbV-00000009NaA-0H95;
+	Wed, 28 Feb 2024 13:04:09 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfJb5-00000009NOG-0uv0
+	id 1rfJbP-00000009NVD-0EzA
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 13:03:44 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-55a5e7fa471so7441993a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Feb 2024 05:03:42 -0800 (PST)
+	Wed, 28 Feb 2024 13:04:04 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-dcc86086c9fso5713051276.3
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Feb 2024 05:04:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1709125421; x=1709730221; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yFXQvGUsk1gt0qCtFqOPcrEsIWVhxYHprqeQMVcPhiQ=;
-        b=OrbtJWDZdiMGA6LFej0AN9/Ral4AQqMAEDuYeBcCGNcUXF3c98OY7z2PPHYgOyw7jr
-         ql0AtW/hkPlt8ra+qKA2951vovTBjzo/Y+1y6Nn6b1p+yqfZ+hvwOaSxm2Hfjl5cPRf7
-         8Qx+NXgQj8sLtYD3Jzs4iRmvu4svMm27ylyH4FSAse7BYm2T9WzpIUmQGqNv5xbP6SCg
-         VD/jqYnznRKd6tk+kCeajfJjRBejPmYpkqRB/JMl1ZyerTHqnzhg5jWjU0mFULhvdx49
-         pU5G6y7ucq4Y81+49Kj0PNin5ztQ6B+j9K9W76A0bctFX9Bu65YMvmsJynIBHJnp52D0
-         c/nw==
+        d=linaro.org; s=google; t=1709125441; x=1709730241; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=X4xrPKeqtgEGV9Q4IBEmk+WaDilZyeoAcRRC9Axa6hc=;
+        b=YZ04bZGWCQzhDBiflYNLfbuQLsh6l5MDKYTxhtaCbFg9qOPLN4mHQZ75NwSV+zUpCK
+         RglxpCJRrTGN9cmEXD4tTb5bYSOqqPpK/83sYN43h1cVI6KddeBMK+uZ+SqpXnwn8kPY
+         gvuWTTxHsEgw5V5/UIRZEZGTf/6W92SgDhe875l9hatMjINIMnNyZMkNwQ5pUP1Ltj7E
+         Eyyxf3qwkrtN3/qLCwDuNzBDm1rmvAFTFrHFKYPLaok583QGR83L8sOEOUDkYMNNGzZG
+         6TjhJGBcN8Q0jatoFeffvgHpNN+3bdrlX0V1ah1FWX7LJzVe3YpCnlB8SIneaRXclY8/
+         Y+3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709125421; x=1709730221;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yFXQvGUsk1gt0qCtFqOPcrEsIWVhxYHprqeQMVcPhiQ=;
-        b=YtUEs/txjAInaJ9uKcvNVtx8Onfx2VlZrq6kl81rGkE3ujMPlkm3Tirwa5B5oRf89S
-         al+lv4aPhhXLSZoXa6wzF6EYbRmhHUgxBt73GRjG+6Gp4xYYdXD0wx7KZcUpwemz+TgP
-         7WS8SWhtyPh+Ginu1MvKIZf5r6CcZMK0ynnN3Z869bcU3UCBFNkdVD9Ovi0eppph121f
-         Nxlgz4UHwR4QZm1oIgiBc9n9X3MCCCjkYQUUhGB1RNhy822WZyiPaURhR/YzxxQS0K4S
-         Drmsy/VY8mnqRrWD+7i1yw4p+gvztAbaIjNc/zt0KRsP2a/XnaSIXQPuFh2tght/aj7Z
-         n1yQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVoOyfLBEySGpuZM4B4SNP7OUXGT0NX+qkwstwm3IZQJc7EfUJ+KVFu4tcLUzzWU8/KxIX8cFOSQ3UrAgVSTpHbgxM59zPwTGqEaCRG49kq
-X-Gm-Message-State: AOJu0YxrDk//obMgQjEcGVzwT7hct9eZYLCIsMDLzimz3gcvm8wCLKfi
-	+xmi2rnZ+DPFPk1R0vIGlQ6vlqQjhQEI286abHzAZ9FVRUDqnvM45f5mO6DNzfU=
-X-Google-Smtp-Source: AGHT+IGvHaZpaUKN38zrJM3JDTNxolRHG6m9JTolps7oKVeZD8z9mLSzqZ67XkfY3F7ks+tZteHSgA==
-X-Received: by 2002:aa7:d80e:0:b0:566:d15:1458 with SMTP id v14-20020aa7d80e000000b005660d151458mr4961658edq.21.1709125421040;
-        Wed, 28 Feb 2024 05:03:41 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id fe9-20020a056402390900b0056470bf320asm500629edb.43.2024.02.28.05.03.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Feb 2024 05:03:40 -0800 (PST)
-Date: Wed, 28 Feb 2024 14:03:39 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 1/5] RISC-V: KVM: Forward SEED CSR access to user space
-Message-ID: <20240228-e87f7a9a9cf6fa701e621f41@orel>
-References: <20240214123757.305347-1-apatel@ventanamicro.com>
- <20240214123757.305347-2-apatel@ventanamicro.com>
+        d=1e100.net; s=20230601; t=1709125441; x=1709730241;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=X4xrPKeqtgEGV9Q4IBEmk+WaDilZyeoAcRRC9Axa6hc=;
+        b=VLcZoS+ApQOAVpb/SydessBCYao2NbnQoVYEit145F6PMX5TW89Ql6x1p+Kot1yc+A
+         MNaX+M93VV80ya6NF8bT1WhD7wCee3JhAT/Aa7p9mpIWEW2UKZ2PcWVaKZp8HteK2RaI
+         +kLe3RJSw5LsBSQaP36c68Q9vmoggq7EI+YIinEF7LouR01Ju8AvQSpOhjTef7QzPvzm
+         uf8nmwErV5xX3m0AO/49+RunD5br16LsvKEZoYdj7MXxxHk3KbUrnAm5LTzGGWK2GagG
+         /4nzDmighgUCQU+X+y8yT0y70SyFXqcMIvgTXpkRnkKRmnkoC34ZVXTtppwXSa2GTXJy
+         6nXg==
+X-Forwarded-Encrypted: i=1; AJvYcCVVXIjemePpIZOvrA8MzKN7NaGSRzoiKVvxO5PfZpvH9Fla6ZyqI1r6vn2yw0TTg/0YZm26WyQHgZ+7G2BMPXOTt0RUAd+gNkwaucTNMyNq
+X-Gm-Message-State: AOJu0YwT7Yaey5QaPu6rfm3pSrUxZqiOP2PDQvNf2bfRFHNOXvlio9kL
+	AnKZvZmlNM4/L/T69t5lPsdh5uX/uMs8QFL7RKJuRCKFw5GSaT4Zx9vzfjiwBYLJQzEA49QA+A6
+	PvhmOUcGgkHBgEpqShTMJ30CQYUxoaMcnFAAMkx7Y+q102Mwr
+X-Google-Smtp-Source: AGHT+IGfbfWQ26vfcOGPm96x3PWRIKRsRzOqFj+BnyrgrRljfJCRT/1aUOwJAvx2MvOjZjDrvH/UChy9Nm4zE+AZOHU=
+X-Received: by 2002:a25:9c02:0:b0:dcc:2f94:591a with SMTP id
+ c2-20020a259c02000000b00dcc2f94591amr1934963ybo.12.1709125441193; Wed, 28 Feb
+ 2024 05:04:01 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240214123757.305347-2-apatel@ventanamicro.com>
+References: <20240217144202.3808-1-jszhang@kernel.org>
+In-Reply-To: <20240217144202.3808-1-jszhang@kernel.org>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Wed, 28 Feb 2024 14:03:25 +0100
+Message-ID: <CAPDyKFptc2K3PfrzQxzWctnCNbqRZVOmDDLDe9uWLUPp1Q7_Vw@mail.gmail.com>
+Subject: Re: [PATCH 0/2] mmc: sdhci-of-dwcmshc: support Sophgo CV1800B and SG2002
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, linux-mmc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_050343_323046_664EBF9E 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20240228_050403_200371_61F836A7 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,58 +92,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 14, 2024 at 06:07:53PM +0530, Anup Patel wrote:
-> The SEED CSR access from VS/VU mode (guest) will always trap to
-> HS-mode (KVM) when Zkr extension is available to the Guest/VM.
-> 
-> We must forward this CSR access to KVM user space so that it
-> can be emulated based on the method chosen by VMM.
-> 
-> Fixes: f370b4e668f0 ("RISC-V: KVM: Allow scalar crypto extensions for Guest/VM")
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/kvm/vcpu_insn.c | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
-> index 7a6abed41bc1..ee7215f4071f 100644
-> --- a/arch/riscv/kvm/vcpu_insn.c
-> +++ b/arch/riscv/kvm/vcpu_insn.c
-> @@ -7,6 +7,8 @@
->  #include <linux/bitops.h>
->  #include <linux/kvm_host.h>
->  
-> +#include <asm/cpufeature.h>
-> +
->  #define INSN_OPCODE_MASK	0x007c
->  #define INSN_OPCODE_SHIFT	2
->  #define INSN_OPCODE_SYSTEM	28
-> @@ -213,9 +215,20 @@ struct csr_func {
->  		    unsigned long wr_mask);
->  };
->  
-> +static int seed_csr_rmw(struct kvm_vcpu *vcpu, unsigned int csr_num,
-> +			unsigned long *val, unsigned long new_val,
-> +			unsigned long wr_mask)
-> +{
-> +	if (!riscv_isa_extension_available(vcpu->arch.isa, ZKR))
-> +		return KVM_INSN_ILLEGAL_TRAP;
-> +
-> +	return KVM_INSN_EXIT_TO_USER_SPACE;
-> +}
-> +
->  static const struct csr_func csr_funcs[] = {
->  	KVM_RISCV_VCPU_AIA_CSR_FUNCS
->  	KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS
-> +	{ .base = CSR_SEED, .count = 1, .func = seed_csr_rmw },
->  };
->  
->  /**
-> -- 
-> 2.34.1
+On Sat, 17 Feb 2024 at 15:55, Jisheng Zhang <jszhang@kernel.org> wrote:
+>
+> Add support for the mmc controller in the Sophgo CV1800B and SG2002
+> with corresponding new compatible strings. Implement custom sdhci_ops.
+> Currently, only sd card and no-1-8-v is implemented and tested, I will
+> try to find a board with emmc and sd/sdio sdr104 support.
+>
+>
+> Jisheng Zhang (2):
+>   dt-bindings: mmc: sdhci-of-dwcmhsc: Add Sophgo CV1800B and SG2002
+>     support
+>   mmc: sdhci-of-dwcmshc: Add support for Sophgo CV1800B and SG2002
+>
+>  .../bindings/mmc/snps,dwcmshc-sdhci.yaml      |  2 +
+>  drivers/mmc/host/sdhci-of-dwcmshc.c           | 66 +++++++++++++++++++
+>  2 files changed, 68 insertions(+)
 >
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Applied for next, thanks!
+
+Kind regards
+Uffe
 
 _______________________________________________
 linux-riscv mailing list
