@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D89C5478C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 02:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEE5C5478C
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 03:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=bM0z+YtPSD5Du/eQwmSjayBjtpkgIULHx+YCYD7h7oU=; b=kaPRxW1CDuotKYRUHHGK7ThNDt
-	cv5Fz+N62meMPYid73VFrujfUL04PHxXm50hlZ9YcjWkFRJcF+g1H7r3GXMkS4xaGTfGbQaPBL4Cf
-	tzhuGV+iCU0+QPJxeIgbvrqFsu5PwdjwtPRtjEoI6oBWaTlrkjnufbqaHVTxNylJfG33xhaMJt/5x
-	GmA87TQxE7TVKt+6wh0aaPy6EiGWWKKvf2RiCOhDI1xEb+sEYU7m8kmFDBMHuvs7eSHcteKvj1hFr
-	g8Ba5S/KQqN73ulA9Z0GAooVtF4vxPvVGkrr7EMKWdUG7DJPPRzCcgoGidZEaTtZ6BqFa0Ky8FNYx
-	wAtW2yHQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:Cc:Date:Message-Id:Subject:
+	Mime-Version:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=84dycsv/tY+irQZOG8VlBvru3efAy6+pj5u/vAWgCmY=; b=2yJ
+	0ciPJ8899vDgNaviDnRm4uuYSYZbFLRdROFBYYT71dgpdE3OT8qohlEZKk2JZ3w2VQz5w/iDpGeF9
+	D3UoyoNyYR4BvjI7LYd0EiXRSPtBz91q1lN+K2ILl9e0fxwpr4OE8Bv7/hRPhiLnWsHCPkrGM4acg
+	oHqYzE70ooW8+thb2Jgq7N0Yg4yBNxmdZkBCM1ZGRWFvWLv7HxPVyGXEGAX5v5Bm5PHf8Iau/nHNL
+	BvbmgAXCTIBu6cgsuf3+ajOMfb6KMEmKIeRXMTsxmOmb6iXI9Tuh1baVcd0Pj4c6aD6pfXB8nYlx3
+	Vc/GR/547eEDTVrVMxrGl9SdaWDxZlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf9RM-00000007fhw-2QD9;
-	Wed, 28 Feb 2024 02:13:00 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rf9RJ-00000007fgA-0Uo3
+	id 1rfAx5-00000007tYI-3JRj;
+	Wed, 28 Feb 2024 03:49:51 +0000
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rfAx1-00000007tVP-3yfW
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 02:12:58 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-608cf88048eso68191267b3.0
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Feb 2024 18:12:53 -0800 (PST)
+	Wed, 28 Feb 2024 03:49:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1709086373; x=1709691173; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ug25ooKz3qoCHEHw9pjGJUPzAeGvqTHR1DcTVlpibj0=;
-        b=pYVVCWzE23y4bORQ54CIIA9DhiWeg+JsOYE+XRP5iUj0HI3Si68X3zbk5Shc3HcOP+
-         UloaLFOl+LE8gj18N1PjvbmTM8WiJuJfArJAMjCxzateFMiwvRXXaAI8RdWMtRD9bEk8
-         /a2un37VO/x3ktA1YcYQm+iVz5NyEnkbUyOonI7HAiNA9HjiFk+fhmjh6BLyECJL8Eaz
-         hj7YyPO2hSi/en9kjlnmkyQ3zYI4knT+IvWM/RC1/yrd7xo7U88Z6iG/DoCC5/G7U+BT
-         Lr9Qzvq/5FNhVN7IeSIV7iAhHcwpu7Qv1D0dLLvUNzjHdQlv+V/8NXao23Wj8bENZP/P
-         rRFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709086373; x=1709691173;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ug25ooKz3qoCHEHw9pjGJUPzAeGvqTHR1DcTVlpibj0=;
-        b=ABZHaN63ZkqRaNzDDShAQVTKAF1727EBR60SgWtv0i0T6+bn9iAK25DLvc7zwePsf4
-         mDKPq/8xZXTySkdgSzSCeH9RZICxMmwIstzUORzbVNUjyIAGJI6tLzeuJv+hqzj21uy2
-         82rnwpu9Kq4AiDs2e6B0O661TockRhbpB6zEH+EJfPgTpZZOlq/rOZeyAvDSEfzl4V8f
-         GLo3dE9waMwz98xZsu3ZolYaYzQpR2wc/omiHo8Kdf6GMdfoCUpQvHkZVCycDAxtGAdt
-         I5E7O3oguPkRsRoB/2rKa6YyB+6lfV88/F/ZS48AwpwrfN2RGY+1VrbDz6ZHZt2DwZ+k
-         K4Pg==
-X-Forwarded-Encrypted: i=1; AJvYcCVBGq+O+0C+8/MUG6qcLFBIV/sBg48WKTUsvmQZL3iYooxbbBdZda2FaSNaIwp8bUFWxD2H2/VciaBmnNB7nP+3vEHfSQ/lIJ0smTATHGiQ
-X-Gm-Message-State: AOJu0YwSvO2Jx4xT9Qz+CU67GplYVZG98ufWBjvOcbFXyyMWyX8b+C/I
-	dKgdV5GenRLuqxsH9hr/ogNk3HQVnfcCcB7bPZTB11rL4LI5l/3XumkoJj+tGm6+K+E2ygaiJnn
-	OYg==
-X-Google-Smtp-Source: AGHT+IEWMTeeW/rW6Q/Vg95tNiBAFAaIWQo0WCsJMra9fasHaexVBEMkZqZy6bCuf2Vx83BD3Y0c2GDEzj0=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:ab02:0:b0:dcf:411d:67b9 with SMTP id
- u2-20020a25ab02000000b00dcf411d67b9mr330040ybi.5.1709086372730; Tue, 27 Feb
- 2024 18:12:52 -0800 (PST)
-Date: Tue, 27 Feb 2024 18:12:51 -0800
-In-Reply-To: <75d37243-e2a3-421a-b74f-ccbe307fef96@intel.com>
-Mime-Version: 1.0
-References: <20240223004258.3104051-1-seanjc@google.com> <20240223004258.3104051-8-seanjc@google.com>
- <75d37243-e2a3-421a-b74f-ccbe307fef96@intel.com>
-Message-ID: <Zd6Wo0hQu11L4aPc@google.com>
-Subject: Re: [PATCH v9 07/11] KVM: selftests: Allow tagging protected memory
- in guest page tables
-From: Sean Christopherson <seanjc@google.com>
-To: Xiaoyao Li <xiaoyao.li@intel.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Vishal Annapurve <vannapurve@google.com>, 
-	Ackerley Tng <ackerleytng@google.com>, Andrew Jones <andrew.jones@linux.dev>, 
-	Tom Lendacky <thomas.lendacky@amd.com>, Michael Roth <michael.roth@amd.com>, 
-	Carlos Bilbao <carlos.bilbao@amd.com>, Peter Gonda <pgonda@google.com>, 
-	Itaru Kitayama <itaru.kitayama@fujitsu.com>
+	d=pku.edu.cn; s=dkim; h=Received:From:Content-Type:
+	Content-Transfer-Encoding:Mime-Version:Subject:Message-Id:Date:
+	Cc:To; bh=duqQuA0+jCKFtODOoRpkaSM6yTZVpx/9mzEVGr69PcU=; b=toWcGG
+	U0lgwU1XYSQaBlXnd1F3wsRjzVmjCiL9M7fOgbDQQOwC7HNDVd/+cemI2loYewl6
+	hXmszAaOQfC1kPMoJPjmxagfHwX+9zLCkC0m6MVjw5R8DsyVCDiTNQDk/3/5O7EK
+	n5pd1auagiypcYoY5Apd/KrtcJRFf+3d+F8lk=
+Received: from smtpclient.apple (unknown [10.7.111.29])
+	by front02 (Coremail) with SMTP id 54FpogDHHwxKrd5lpSUyAQ--.9732S2;
+	Wed, 28 Feb 2024 11:49:30 +0800 (CST)
+From: =?utf-8?B?6Zu35Y2a5ra1?= <garthlei@pku.edu.cn>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.400.31\))
+Subject: RISC-V PMU driver issue
+Message-Id: <CC51D53B-846C-4D81-86FC-FBF969D0A0D6@pku.edu.cn>
+Date: Wed, 28 Feb 2024 11:49:20 +0800
+Cc: linux-riscv@lists.infradead.org
+To: Atish Patra <atishp@atishpatra.org>
+X-Mailer: Apple Mail (2.3774.400.31)
+X-CM-TRANSID: 54FpogDHHwxKrd5lpSUyAQ--.9732S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtF1fZw1UJF13Gr4ftr48Xrb_yoWkGrb_GF
+	ykXr9rJwsIyanYqasrtr47XayIqr48u3s5Ar18Ww13Kr95XFnxGw1vkFy8tr4xtFZaqrn8
+	tFZ3Xw1I9wnIvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb2AYjsxI4VWkCwAYFVCjjxCrM7CY07I20VC2zVCF04k26cxKx2IY
+	s7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4
+	kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_
+	Cr1j6rxdM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
+	xl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMxAIw28IcVCj
+	z48v1sIEY20_Kr1UJr1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
+	WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1Y6r17MIIYrxkI7VAK
+	I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r
+	4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY
+	6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07j04E_UUUUU=
+X-CM-SenderInfo: isrqijqrtqijo6sn3hxhgxhubq/1tbiAgEBBWXeGUgH7AABsH
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240227_181257_180336_808E9D42 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20240227_194948_547523_4182DD9C 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,31 +82,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 28, 2024, Xiaoyao Li wrote:
-> On 2/23/2024 8:42 AM, Sean Christopherson wrote:
-> ...
-> > diff --git a/tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h b/tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h
-> > new file mode 100644
-> > index 000000000000..218f5cdf0d86
-> > --- /dev/null
-> > +++ b/tools/testing/selftests/kvm/include/aarch64/kvm_util_arch.h
-> > @@ -0,0 +1,7 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +#ifndef _TOOLS_LINUX_ASM_ARM64_KVM_HOST_H
-> > +#define _TOOLS_LINUX_ASM_ARM64_KVM_HOST_H
-> 
-> Since the file name is changed from kvm_host.h (in v7) to kvm_util_arch.h,
-> we need to update it as well.
-> 
-> Ditto for other archs
+Hi all,
 
-Ugh, nice catch.  I'll fixup and force push (likely tomorrow).
+I am having problems with the RISC-V PMU driver. The overflow handler of my custom perf event kernel counter seems to read an incorrect value from the event.
+It seems that the issue lies in the function `riscv_pmu_event_set_period`, which sets `prev_count` to a new value but does not modify the underlying hardware counter. When `perf_event_read_value` gets called later in the user-defined overflow handler, `riscv_pmu_event_update` will update the `count` field again based on the unmodified hardware counter value and the modified `prev_count` field, which causes an incorrect reading.
+I noticed that other PMU drivers, such as the ARM one, write to the underlying counter in their set_period functions, which prevents the problem. However, the RISC-V SBI specification does not have such an API to write to a counter without starting it. Using `local64_read(&hw_evt->period_left) <= 0` directly as the guard condition to place `riscv_pmu_event_set_period(event)` after it seems to work, but I am not sure whether it can cause other issues.
 
-> > +struct kvm_vm_arch {};
-> > +
-> > +#endif  // _TOOLS_LINUX_ASM_ARM64_KVM_HOST_H
-> 
-> 
+Thank you,
+Bohan Lei
 
 _______________________________________________
 linux-riscv mailing list
