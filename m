@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F69C5478C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 17:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E69EC47DD9
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 17:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E53FVUFYlyoZFDFzvAmRNQ67J4ctLMWMHy+cHB5xNFA=; b=Kdru0bel700t6H
-	nwnOvtqs3wdhik+6XTilgLHDIMli0VQRnoUrticRv6wnyYXb9vcQCwxXsDWWYlvAILk2ZGkvkbku1
-	Dfk0H2mSNaIoV+9OSNIdgWHGpx/tvqxflUbVZme812/K4ZChUeGU+WTOfbIdbr1yXbV4andITZ/D9
-	HdynRIUt3VJbT15nmCn0ZDOjaVbrGMu2p3jlvR722XBFKp09nGlQ9coFJfW1iEeL4DFjyhw0UrpAV
-	in1agVKVA/OfoYGuAoiIWST2qiaYHi1kfBpSE9q9q/vdrpUETljsCkXxqXC8lDdOimvl/GBQ0Lpfm
-	X6dqzJPljz0JG9REmqTA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZwgrLQy8iAwOPZfIVjPNf8ArOcDLu6erO0FPoRwe5CU=; b=X7tEdQ3vRMZYbp
+	VxAKk1TjTME11riZP1dDix2gmjHF6g6q+80lslgL5zqL8i4H5S2RBpm0fvjAW/JLJSDqtUbWFoU5T
+	BSCYFsEKdEA+JPwODS3evAPL1d+hUijQLQTCZpQZurr3Bf0jLrRrTHqXOe5aWGSfCtqM5/dm1m8kX
+	Plj8gOEJrsR+A355DadkHsWPyv/+1r6JRhKsnfgX0oOw+PoLKvg8/SMv2w0lNhEvHolWTBcnRgcrn
+	kQEcwRg/DGsSya7Unvx1MClHGvQ4TrMJx6MMT8S3ooFvS+r7Jdas8q8eTfzIjpOhQy7KICJqa9ldt
+	2N0lh2PoBql/RZwwCzeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfNLO-0000000ADfg-3BZV;
-	Wed, 28 Feb 2024 17:03:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rfO63-0000000AMUG-2ejb;
+	Wed, 28 Feb 2024 17:51:59 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfNLK-0000000ADeY-0VX3
+	id 1rfO60-0000000AMRX-1me3
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 17:03:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1894361856;
-	Wed, 28 Feb 2024 17:03:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87A94C433F1;
-	Wed, 28 Feb 2024 17:03:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709139820;
-	bh=S/6RXer/Iy4usF2UTMTh4mOioXIr0Eu6d5gI1EUscEU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pj1JrxiE2ap21L8oriZilmCozDhK4djbGRyvjaMBqOvXS9dJJhvyfA6hl7D5pTiND
-	 rwuNFKpEEZOoFATtUe57ZqQVGjuwUFFE3f0nrglB9YaTbzAxfzzaQ6/JofE5Wqj8fr
-	 Gh+R4T/etyKm2OFRBT2ESUIpxbDniN4ahGAV1jx1ltdMsFv+Grd1z16iA9hFkaI/IA
-	 l2ssZNbzb2F4rnYZLTO3Yon7/qbaS7pPIHruFS9pAVXMMoXNR61P52pTd7x6MccmLh
-	 3eVMOte9WwNbZ9uVbDQWIrbX4cbT5p1AHZscaoCFTjOmayxOEDZE7Yg76TDAOPllAI
-	 9+cF2nP+dalwg==
-Date: Wed, 28 Feb 2024 11:03:38 -0600
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Alex Soo <yuklin.soo@starfivetech.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
-	Jianlong Huang <jianlong.huang@starfivetech.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Drew Fustini <drew@beagleboard.org>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Wed, 28 Feb 2024 17:51:58 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2d23a22233fso62633781fa.2
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Feb 2024 09:51:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709142714; x=1709747514; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2PXWhKeObjvrv5a0sp4dojdugZSvAvimHcwo4W++JCk=;
+        b=M14pO9b16slDVtwx9U6D+Rw5IoaxXoerSaMjvUAyJP70SbrKh2pIhjzS+DV96BLaku
+         cS8gY00Vm2NRIn8Zs64+Xv8/45TqkYehp7F2GNW1+Dh3nLQ0aNveQA6ym7o/KCbneQzz
+         /AVh5RYkvdDSHDMJdUdXajOoCXZtkRnSmKr4mMS1VRwqcAR9wqn5wcdxmAoVQSXb1aod
+         tRbnym4+kETsBtF2KDuH6QDkm6quaJp4wm1I++LlynR3MJYG6SpR/g2DcmfGstbd7CU1
+         IIj+pvHJBG8Kg/bb1laXYuB8Q3HkaJB2zKiiScoG4So9DIOso46bcDznB8fQMyf46gAp
+         K+eA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709142714; x=1709747514;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2PXWhKeObjvrv5a0sp4dojdugZSvAvimHcwo4W++JCk=;
+        b=oLclCdSGXVn5l92a+VQ1k8LNKoSssdh5OHU3vuAc9tZK2sbXgHSlYdHgCxpZYEgepl
+         OUz1xZabzephoRcsgEAJQbSnpIaddBvMPe7ZfcmkUjCL5f8bqypg9o6c2nYYBfnpc+gy
+         OY3zXryOVdML9bhtNhIXZ1OnCxP4p0CedqHpZm8keJSmryPK96kXt43m4b60dPm39lQx
+         0/Qx0Ooj/twR153/hZfPOtWL0o1Xd6tXNsvmQwf+k8sH4R9plPvoVM6lODoOhsLeIYNl
+         QyT21Tr/do7GxW/RK8iv2J0tNFoLCyCmaQVPUYjYc9Rc10qRvDwNt4ZVr/ImckL6vwX7
+         cefg==
+X-Forwarded-Encrypted: i=1; AJvYcCUZHWr7H3yEYfkWKGDdUJDFC7reZLMRwXOSUiht/zOZ1YfCBmXfHFn78sUNycO7g+UWvKT9XHxZ+q2+wcmd6Y7TdMXpl7PDje15kdN73YmY
+X-Gm-Message-State: AOJu0YwAe1bNq4InqOoiIwbQuLFTLgtglfcEPtAhu2W++S5QAw2BsTcD
+	Z2/Bb09hTu1Z801K6SsDOGAQR0bvzzBc91zuz6YAGJzCshEco6WDr0/Mod3gaMQhxY6I34mMe30
+	9
+X-Google-Smtp-Source: AGHT+IHx7VzXebFCK9PVoydXjk9GVjtk6uMFBqmfk4DW/VbXqUm0WiQ9809xGiewPieJ0e9vq8pkKg==
+X-Received: by 2002:a2e:994c:0:b0:2d2:3017:c144 with SMTP id r12-20020a2e994c000000b002d23017c144mr8654944ljj.39.1709142714369;
+        Wed, 28 Feb 2024 09:51:54 -0800 (PST)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id m20-20020a7bca54000000b0041290251dc2sm2706543wml.14.2024.02.28.09.51.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Feb 2024 09:51:54 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [RFC PATCH v2 1/6] dt-bindings: pinctrl: starfive: Add JH8100
- pinctrl
-Message-ID: <20240228170338.GA239206-robh@kernel.org>
-References: <20240220064246.467216-1-yuklin.soo@starfivetech.com>
- <20240220064246.467216-2-yuklin.soo@starfivetech.com>
- <1a11cee2-2ef1-4ce0-8cc1-63c6cc97863f@linaro.org>
- <20240220-bottling-reverence-e0ee08f48ccc@spud>
- <cafccf8d-b8f7-44cb-bc41-3c7a908fd1e4@linaro.org>
- <20240223002443.GA3877354-robh@kernel.org>
- <caea26e2-6598-4796-b199-4ee5b1b9cd30@linaro.org>
- <20240224-smudgy-eldercare-d5d8640d9961@spud>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrea Parri <andrea@rivosinc.com>,
+	Anup Patel <anup@brainfault.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH 0/2] riscv: fix patching with IPI
+Date: Wed, 28 Feb 2024 18:51:47 +0100
+Message-Id: <20240228175149.162646-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240224-smudgy-eldercare-d5d8640d9961@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_090342_891083_53065BFB 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20240228_095156_529712_8646DB23 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,38 +101,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 24, 2024 at 07:20:30PM +0000, Conor Dooley wrote:
-> On Sat, Feb 24, 2024 at 09:46:53AM +0100, Krzysztof Kozlowski wrote:
-> > > I would like a solution though. The only idea I have is passing 
-> > > SystemReady cert, but that's an Arm thing.
-> 
-> I don't know jack about SystemReady
+patch 1 removes a useless memory barrier and patch 2 actually fixes the
+issue with IPI in the patching code.
 
-AIUI, Risc-V is working on something similar... 
+Changes in v2:
+- Add patch 1 and then remove the memory barrier from patch 2 as
+  suggested by Andrea
+- Convert atomic_inc into an atomic_inc with release semantics as
+  suggested by Andrea
 
-The primary intent of it is to enable installing off-the-shelf OSs.
+Alexandre Ghiti (2):
+  riscv: Remove superfluous smp_mb()
+  riscv: Fix text patching when IPI are used
 
-> - I had it in my head that it was a
-> system level certification. I am wondering how you think that
-> SystemReady certification would apply to a whole binding (I can see it
-> being a per-compatible thing, but that would be a mess I am sure).
+ arch/riscv/include/asm/patch.h |  1 +
+ arch/riscv/kernel/ftrace.c     | 42 ++++++++++++++++++++++++++++++----
+ arch/riscv/kernel/patch.c      | 19 ++++++++-------
+ 3 files changed, 50 insertions(+), 12 deletions(-)
 
-There's a lot of pieces, but I'll stick to the DT aspects (which is 
-SystemReady IR band). Certification applies to a specific firmware build 
-(which includes the DTB) on a specific board. The testing requirements 
-at the moment (for 2.x) are every binding (compatible) must have a 
-schema, but warnings are allowed. 
+-- 
+2.39.2
 
-So a "stable" tag would apply to a DTS as a whole. That of course 
-implies that everything within the DTS is stable too. 
-
-One wrinkle is that SR has no direct requirement that the DTB come from 
-anything upstream. Indirectly, the schemas must exist and be upstream 
-(or acked on the lists) and various distro kernels have to actually 
-boot. For that reason, if we had some tag, it would have to be 
-distinct from SR.
-
-Rob
 
 _______________________________________________
 linux-riscv mailing list
