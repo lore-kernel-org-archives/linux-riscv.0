@@ -4,53 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150B8C5478C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 16:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F69C5478C
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 17:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=I/5kPhX/DuVDkn7ahiMZJag2ng7MxKK1CBRg3R+L21o=; b=UYT
-	xu3d2rp8lg4EgTjYxECacY3KZKdMIIUMfW7BaV79LlSdGylCmisotq71DF6ArPzDNpViLv1ZSQySs
-	VDIwqkeWzYGi8wrf9TdoQBJTdEKV1dtI7yLU/L+Z+JQ3dyeO+DRqv5zi0Q+yPTVSeCr7GnQRWzLCd
-	GxFhxNc/VGSTdmxFXT6E/qoz50W74T0DIvexNFeQeGVSrCnY+6fAOawIJhHl012n7y5atkIJWe2hx
-	5yJnjjBDm7CBfbLJexGkCzTQjYTdQO8j+iUVF5jm/lENe4HDAyXmSAUY4mwd2XD4q/XOEwFBBb9PZ
-	JYRvaNFIaQyX65knfnnHwypxgsCJCkA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=E53FVUFYlyoZFDFzvAmRNQ67J4ctLMWMHy+cHB5xNFA=; b=Kdru0bel700t6H
+	nwnOvtqs3wdhik+6XTilgLHDIMli0VQRnoUrticRv6wnyYXb9vcQCwxXsDWWYlvAILk2ZGkvkbku1
+	Dfk0H2mSNaIoV+9OSNIdgWHGpx/tvqxflUbVZme812/K4ZChUeGU+WTOfbIdbr1yXbV4andITZ/D9
+	HdynRIUt3VJbT15nmCn0ZDOjaVbrGMu2p3jlvR722XBFKp09nGlQ9coFJfW1iEeL4DFjyhw0UrpAV
+	in1agVKVA/OfoYGuAoiIWST2qiaYHi1kfBpSE9q9q/vdrpUETljsCkXxqXC8lDdOimvl/GBQ0Lpfm
+	X6dqzJPljz0JG9REmqTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfMOX-0000000A1Gp-2czW;
-	Wed, 28 Feb 2024 16:02:57 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rfNLO-0000000ADfg-3BZV;
+	Wed, 28 Feb 2024 17:03:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfMOS-0000000A1DI-3lqg
+	id 1rfNLK-0000000ADeY-0VX3
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 16:02:55 +0000
+	Wed, 28 Feb 2024 17:03:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id B177ECE2249;
-	Wed, 28 Feb 2024 16:02:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CCFDC433C7;
-	Wed, 28 Feb 2024 16:02:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1894361856;
+	Wed, 28 Feb 2024 17:03:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87A94C433F1;
+	Wed, 28 Feb 2024 17:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709136170;
-	bh=aXJkIAwWj9xpcFU+o9UjZRp43MneGwGTCwdOS5EUX5U=;
-	h=Date:From:To:Subject:From;
-	b=KljLfg5U2DO6YFFDOUbOirdqz4PUXrlEHfP3TS6yQjh8rjp/eQon7e/QF3rTu7hM7
-	 qZQXgdZ6fYjeFEer5bXgps3KYaxx+Rur9dWCU8N49bYEIrt5BCXP3Izy4v3Sol13J6
-	 ZGZBD2B5O/+OsYzUZ2HtriAyk5bq4+nYQLjmEpoUB7cydViwZQUyPIQNNng5rtsByk
-	 an/FASSjS4GocdvmpWQDUG9sH4+wuEk3njSvGtmBjkwDT5qbTcR1tNw4OEziMjpQdl
-	 XMBVZZg2aMWew+SkuYIJp7NqzQv81ut0tBITFHpC4zxu7XGmW5fL+Q6y6FX9NRhp99
-	 YwdlAe0f2V4/Q==
-Date: Wed, 28 Feb 2024 16:02:47 +0000
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org, andy.chiu@sifive.com
-Subject: vector status when vlen doesn't match
-Message-ID: <20240228-vicinity-cornstalk-4b8eb5fe5730@spud>
+	s=k20201202; t=1709139820;
+	bh=S/6RXer/Iy4usF2UTMTh4mOioXIr0Eu6d5gI1EUscEU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pj1JrxiE2ap21L8oriZilmCozDhK4djbGRyvjaMBqOvXS9dJJhvyfA6hl7D5pTiND
+	 rwuNFKpEEZOoFATtUe57ZqQVGjuwUFFE3f0nrglB9YaTbzAxfzzaQ6/JofE5Wqj8fr
+	 Gh+R4T/etyKm2OFRBT2ESUIpxbDniN4ahGAV1jx1ltdMsFv+Grd1z16iA9hFkaI/IA
+	 l2ssZNbzb2F4rnYZLTO3Yon7/qbaS7pPIHruFS9pAVXMMoXNR61P52pTd7x6MccmLh
+	 3eVMOte9WwNbZ9uVbDQWIrbX4cbT5p1AHZscaoCFTjOmayxOEDZE7Yg76TDAOPllAI
+	 9+cF2nP+dalwg==
+Date: Wed, 28 Feb 2024 11:03:38 -0600
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Alex Soo <yuklin.soo@starfivetech.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Jianlong Huang <jianlong.huang@starfivetech.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Drew Fustini <drew@beagleboard.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [RFC PATCH v2 1/6] dt-bindings: pinctrl: starfive: Add JH8100
+ pinctrl
+Message-ID: <20240228170338.GA239206-robh@kernel.org>
+References: <20240220064246.467216-1-yuklin.soo@starfivetech.com>
+ <20240220064246.467216-2-yuklin.soo@starfivetech.com>
+ <1a11cee2-2ef1-4ce0-8cc1-63c6cc97863f@linaro.org>
+ <20240220-bottling-reverence-e0ee08f48ccc@spud>
+ <cafccf8d-b8f7-44cb-bc41-3c7a908fd1e4@linaro.org>
+ <20240223002443.GA3877354-robh@kernel.org>
+ <caea26e2-6598-4796-b199-4ee5b1b9cd30@linaro.org>
+ <20240224-smudgy-eldercare-d5d8640d9961@spud>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240224-smudgy-eldercare-d5d8640d9961@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_080254_410655_DC300759 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20240228_090342_891083_53065BFB 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,109 +89,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6174985743152637779=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, Feb 24, 2024 at 07:20:30PM +0000, Conor Dooley wrote:
+> On Sat, Feb 24, 2024 at 09:46:53AM +0100, Krzysztof Kozlowski wrote:
+> > > I would like a solution though. The only idea I have is passing 
+> > > SystemReady cert, but that's an Arm thing.
+> 
+> I don't know jack about SystemReady
 
---===============6174985743152637779==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="RnGIVzrQ8eCFEwF8"
-Content-Disposition: inline
+AIUI, Risc-V is working on something similar... 
 
+The primary intent of it is to enable installing off-the-shelf OSs.
 
---RnGIVzrQ8eCFEwF8
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> - I had it in my head that it was a
+> system level certification. I am wondering how you think that
+> SystemReady certification would apply to a whole binding (I can see it
+> being a per-compatible thing, but that would be a mess I am sure).
 
-Yo Andy,
+There's a lot of pieces, but I'll stick to the DT aspects (which is 
+SystemReady IR band). Certification applies to a specific firmware build 
+(which includes the DTB) on a specific board. The testing requirements 
+at the moment (for 2.x) are every binding (compatible) must have a 
+schema, but warnings are allowed. 
 
-I was wondering if you could clarify something that came up today on
-IRC.
+So a "stable" tag would apply to a DTS as a whole. That of course 
+implies that everything within the DTS is stable too. 
 
-When we enable vector we check vlenb and if it doesn't match the kernel
-is suppose to not support vector. We do this in a few places, the first
-is in riscv_fill_hwcap():
+One wrinkle is that SR has no direct requirement that the DTB come from 
+anything upstream. Indirectly, the schemas must exist and be upstream 
+(or acked on the lists) and various distro kernels have to actually 
+boot. For that reason, if we had some tag, it would have to be 
+distinct from SR.
 
-	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
-		riscv_v_setup_vsize();
-		/*
-		 * ISA string in device tree might have 'v' flag, but
-		 * CONFIG_RISCV_ISA_V is disabled in kernel.
-		 * Clear V flag in elf_hwcap if CONFIG_RISCV_ISA_V is disabled.
-		 */
-		if (!IS_ENABLED(CONFIG_RISCV_ISA_V))
-			elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
-	}
-
-Why does this riscv_v_setup_vsize() failing have no impact? Because this
-is called only once on the boot CPU, right? I feel like it deserves a
-comment as to why.
-
-But the main thing I was wondering about was the other time it is called,
-in smp_callin():
-	if (has_vector()) {
-		if (riscv_v_setup_vsize())
-			elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
-	}
-
-If this fails, we clear the HWCAP bit, but I am not immediately grasping
-how this affects the rest of the kernel.
-has_vector() just checks if the extension is supported by all cores on
-the cpu using either an alternative or the extension support bitmap.
-There are lots of sites in the kernel that use has_vector() as the
-gating check (as far as I can tell), so if vlen does not match between
-CPUs should we not be returning an error for has_vector()?
-
-The alternative that has_vector() relies on is patched before the non-boot
-CPUs are enabled, so we cannot modify the result once the non-boot CPUs
-are in their callin functions and detect a vlen mismatch while at at the
-same time using it in smp_calling(), so should this code be changed to
-something along the lines of:
-
-	if (riscv_has_extension_unlikely(v)) {
-		if (riscv_v_setup_vsize()) {
-			elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
-			riscv_v_vlen_mismatch = true;
-		}
-	}
-and then has_vector() becomes something like
-static __always_inline bool has_vector(void)
-{
-	return riscv_has_extension_unlikely(RISCV_ISA_EXT_v) && unlikely(riscv_v_vlen_mismatch);
-}
-Probably there's value to be gained in static branches etc here, but I
-was just trying to explain what I was getting at. Maybe I am missing
-something though? I do remember talking about this back when the vector
-patches were still in review.
-
-Thanks,
-Conor.
-
---RnGIVzrQ8eCFEwF8
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd9ZJgAKCRB4tDGHoIJi
-0gU7AQCgVakKCnADApb9BiBg63it5wbo0U3nVWTT++H4q9SK5gEAk9+VES+wq6tH
-UGCeZ8xeIcCNkhDQch2N/ho71Y9r7AU=
-=q7DL
------END PGP SIGNATURE-----
-
---RnGIVzrQ8eCFEwF8--
-
-
---===============6174985743152637779==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Rob
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6174985743152637779==--
-
