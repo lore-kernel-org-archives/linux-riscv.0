@@ -4,61 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC0DC5478C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 21:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58E1C5478C
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 21:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7+TRKSv5qmQl3O6OPlkaKxp3XrOHWRYbPBWn8TTG8ys=; b=QNcui3nnHRdMlC
-	J/5t0kH6CPc89tGJPTkdvV02xCQBywhp6c/QZifUbjVt6CZR1ialhVE0yrbD+yKMSlefhk3VzjV/X
-	7alvwi9x4NYBg9gOrGeHl+j/+3L+YvTjFibJWU+7dVw+UsM04cw1mvpm/pY3+PNnB1LfnJjuoDMTu
-	3WXjO7/xO57cZSQsEew607ShUBbmJPk/KHYtZUcMiEswIkqN6CunOgz7+n4xfO/LMfWJxb6bwkbPZ
-	9sb58FJDptzC/Aer1AVY5vBpb8XgnjplBdpgw7a2dQhpOP9AAfnlaXKdEFlZcToaF1a//1uKDCJu7
-	HZ9f0kpaKuMhWcp/+9Zg==;
+	List-Owner; bh=ZdVSzt4YAm7gRZSIHMve7psHhDt+VvcEruMMZbAGYCc=; b=vqs+YsrHloijlu
+	g7EXmKnOA/Tep2x7X5I2Wr4nY62c2CCpgdME6LHitmuaMVbNrtcxTd8zcGUluXpFwVbOnvm3cbg2i
+	7VyTSO21czEt/lZ1ZpvuJf3Nsul8bNuEaVCpFWEZBAgJ1SCg5XppofemJbgvrNRKcWfxx3tXmvteC
+	c7bWp86VNOgO2fDmcyzCdjJtGUCYQOhaVM5uRWKSoMnoL7WcDZNIp+JiH4ybgnZJ3VIY1jnH5GBXB
+	Reyds5RQ8soA0zG9/D6tYZXr9/k0fLZ5Yc+FCWkc2oyfmJ8Svsq+fUiAml+t3QfYN/fd5nRRbUbTH
+	c7B/86/S7v6N1HF9r57w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfR2c-0000000AvLx-3XiO;
-	Wed, 28 Feb 2024 21:00:38 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rfR8J-0000000Aw79-2wjm;
+	Wed, 28 Feb 2024 21:06:31 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfR2a-0000000AvKa-1nu7
-	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 21:00:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id B19E7CE22ED;
-	Wed, 28 Feb 2024 21:00:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id F2917C433F1;
-	Wed, 28 Feb 2024 21:00:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709154034;
-	bh=MSAWTfEVrwEWwdECtjngCmanvERiNCcF+LUfK8Are3I=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=hgPHfMT8OI+cOAWCtHn9IIN6athVXtYUGOB28+882FsvFGo220tulqrRArVm3oQtn
-	 bJvuj9oGnbQTtxtWooAMcJBmxnii3fdIVumskFy8lLrcppYhxHF5gpNWIVVsG8+CrT
-	 LZI69QH0SjcDKQN14D6r1PdJD/EsSJ63XRmeIMFN8eKFiM5YGNLemWYCQTVtceF/ri
-	 xD2aZv7JZfyYLMeISrH11qR8Lws+gUl/bvjJvE958G5EBp3S8R8QeqZT2xsh0a+JvK
-	 SBDC7EhS8D+6yivDMgSxeTwvzf50T0gKcxbs4Nvz9MRHVsSBKcNEmde02QcWxJXFTH
-	 jVjbFQBKlTRHA==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D076AD88FAF;
-	Wed, 28 Feb 2024 21:00:33 +0000 (UTC)
+	id 1rfR8F-0000000Aw69-1tue;
+	Wed, 28 Feb 2024 21:06:28 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-33d36736d4eso147793f8f.1;
+        Wed, 28 Feb 2024 13:06:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1709154383; x=1709759183; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=0a8qBD6vozPIAISnQHJRWdPKOWiVN4p5/6pJZQ2dXnQ=;
+        b=EWvanMDJHa0HS7JPNME10mrgzsG/X9rmZww6rERSAYc1dERGb16hODpExPjokWHfjP
+         EQWaTBu5s8E9yw+F6Avgx8+T4NRNAiRpMSI8dX3ExjkoeRJkjAU7u9Z20iehuqeA537Z
+         1w3SA9+10T+nfBrXeTAIeeMtfnZxKMNb3lP2B2VPoXyusD/DgbPiyopKJBP+7AcFgKXu
+         hSEHAMnWeEkPI/K7VKHrzcHYg+fnV3ZM54N5FSOzIxP3801aNZ5FAA05huNta9tUEnBO
+         Rokk6K5URFFguAp0xOfflcrG98AHFRs0zJ0WRMu0C6+3uzd9gnVwcYZRXzDQBos0wCo5
+         +zlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709154383; x=1709759183;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0a8qBD6vozPIAISnQHJRWdPKOWiVN4p5/6pJZQ2dXnQ=;
+        b=QuJ+SPc3pE71TKMf0TMv6T0A6KFBwDKQNvV3ariOE/6IxMribosS/EO5NyyVFvuknM
+         rTq1LRkBn79eoFEet8q/oxX9hL+hcVLaPl6yRDJkM+Qq9Mp1Ipl/gVClKjMU2eosGenW
+         WuQkomab+x4IfVQgV/QPjqwxzPUwVCtWafceUNfAv5uNX5j8lsAq0/3kC84Dq28N+Txg
+         sMMNWhzySPJfXu8dlVhLvlTmY8vFtYeQI1THuoCQi/Zp0C7DksSWRC/lXJ2rrg8LWw/N
+         yBkV6iN6mVXTXQlfujfCPoPxCv09y5TZacaBWdhVj6B0ng1uAHdeTROormvFFzRYikfU
+         S27w==
+X-Forwarded-Encrypted: i=1; AJvYcCUxR3CpxkEYa8Br8Im7a3pm+dKOwlphrik1vzaMGL9eP/8ewkov1j1FqukT//rrxdlVsnGvTxmG4cuGBAMb2pTJj/gmsPoxu/R8S6TaNkfSYsy5C0DceY8qx63qwa6x0g4RXfyntk2dk1O5ssdAa7CHT2XgROE/VrOTZ+uXEb72snyc4AAyfEUw5b/2fv6kPQUy6IxrrgJgJ4+RSakmAWmZFApNiJknx/R6Gb2VPE9h044MTEe4cGU=
+X-Gm-Message-State: AOJu0Yw8HerEaAXsZJEiTocwofhneVPwTOB2mWzUhZ6iO/HdJ0rgr8k6
+	bl+6GXXcqBwtkfxsznKAgpHUWxJMAaojveA0clyyWcaenxSLZVVF
+X-Google-Smtp-Source: AGHT+IHczATb7A8ZRTaH383CIQ4ejybI9MzL/yjlqycOyBbx2+IYQRI3gE2POfqlKMAC8LKmr3GeXg==
+X-Received: by 2002:a5d:618d:0:b0:33d:f51f:2da5 with SMTP id j13-20020a5d618d000000b0033df51f2da5mr46406wru.7.1709154383088;
+        Wed, 28 Feb 2024 13:06:23 -0800 (PST)
+Received: from localhost (cpc1-brnt4-2-0-cust862.4-2.cable.virginm.net. [86.9.131.95])
+        by smtp.gmail.com with ESMTPSA id m1-20020adfa3c1000000b0033d67791dc0sm15568132wrb.43.2024.02.28.13.06.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Feb 2024 13:06:21 -0800 (PST)
+Date: Wed, 28 Feb 2024 21:06:21 +0000
+From: Stafford Horne <shorne@gmail.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Kees Cook <keescook@chromium.org>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Arnd Bergmann <arnd@arndb.de>, Matt Turner <mattst88@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Guo Ren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>, x86@kernel.org,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Jan Kiszka <jan.kiszka@siemens.com>,
+	Kieran Bingham <kbingham@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org
+Subject: Re: [PATCH 3/4] arch: define CONFIG_PAGE_SIZE_*KB on all
+ architectures
+Message-ID: <Zd-gTf6mvVdPEovO@antec>
+References: <20240226161414.2316610-1-arnd@kernel.org>
+ <20240226161414.2316610-4-arnd@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH] RISC-V: fix check for zvkb with tip-of-tree clang
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170915403384.31531.3005880789311750599.git-patchwork-notify@kernel.org>
-Date: Wed, 28 Feb 2024 21:00:33 +0000
-References: <20240127090055.124336-1-ebiggers@kernel.org>
-In-Reply-To: <20240127090055.124336-1-ebiggers@kernel.org>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-crypto@vger.kernel.org,
- llvm@lists.linux.dev, brandon.wu@sifive.com, nathan@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20240226161414.2316610-4-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_130036_680185_EAC12E08 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240228_130627_520392_B4057AE0 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +124,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Sat, 27 Jan 2024 01:00:54 -0800 you wrote:
-> From: Eric Biggers <ebiggers@google.com>
+On Mon, Feb 26, 2024 at 05:14:13PM +0100, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> LLVM commit 8e01042da9d3 ("[RISCV] Add missing dependency check for Zvkb
-> (#79467)") broke the check used by the TOOLCHAIN_HAS_VECTOR_CRYPTO
-> kconfig symbol because it made zvkb start depending on v or zve*.  Fix
-> this by specifying both v and zvkb when checking for support for zvkb.
+> Most architectures only support a single hardcoded page size. In order
+> to ensure that each one of these sets the corresponding Kconfig symbols,
+> change over the PAGE_SHIFT definition to the common one and allow
+> only the hardware page size to be selected.
 > 
-> [...]
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  arch/alpha/Kconfig                 | 1 +
+>  arch/alpha/include/asm/page.h      | 2 +-
+>  arch/arm/Kconfig                   | 1 +
+>  arch/arm/include/asm/page.h        | 2 +-
+>  arch/csky/Kconfig                  | 1 +
+>  arch/csky/include/asm/page.h       | 2 +-
+>  arch/m68k/Kconfig                  | 3 +++
+>  arch/m68k/Kconfig.cpu              | 2 ++
+>  arch/m68k/include/asm/page.h       | 6 +-----
+>  arch/microblaze/Kconfig            | 1 +
+>  arch/microblaze/include/asm/page.h | 2 +-
+>  arch/nios2/Kconfig                 | 1 +
+>  arch/nios2/include/asm/page.h      | 2 +-
+>  arch/openrisc/Kconfig              | 1 +
+>  arch/openrisc/include/asm/page.h   | 2 +-
+>  arch/riscv/Kconfig                 | 1 +
+>  arch/riscv/include/asm/page.h      | 2 +-
+>  arch/s390/Kconfig                  | 1 +
+>  arch/s390/include/asm/page.h       | 2 +-
+>  arch/sparc/Kconfig                 | 2 ++
+>  arch/sparc/include/asm/page_32.h   | 2 +-
+>  arch/sparc/include/asm/page_64.h   | 3 +--
+>  arch/um/Kconfig                    | 1 +
+>  arch/um/include/asm/page.h         | 2 +-
+>  arch/x86/Kconfig                   | 1 +
+>  arch/x86/include/asm/page_types.h  | 2 +-
+>  arch/xtensa/Kconfig                | 1 +
+>  arch/xtensa/include/asm/page.h     | 2 +-
+>  28 files changed, 32 insertions(+), 19 deletions(-)
+....
+> diff --git a/arch/openrisc/Kconfig b/arch/openrisc/Kconfig
+> index fd9bb76a610b..3586cda55bde 100644
+> --- a/arch/openrisc/Kconfig
+> +++ b/arch/openrisc/Kconfig
+> @@ -25,6 +25,7 @@ config OPENRISC
+>  	select GENERIC_CPU_DEVICES
+>  	select HAVE_PCI
+>  	select HAVE_UID16
+> +	select HAVE_PAGE_SIZE_8KB
+>  	select GENERIC_ATOMIC64
+>  	select GENERIC_CLOCKEVENTS_BROADCAST
+>  	select GENERIC_SMP_IDLE_THREAD
+> diff --git a/arch/openrisc/include/asm/page.h b/arch/openrisc/include/asm/page.h
+> index 44fc1fd56717..7925ce09ab5a 100644
+> --- a/arch/openrisc/include/asm/page.h
+> +++ b/arch/openrisc/include/asm/page.h
+> @@ -18,7 +18,7 @@
+>  
+>  /* PAGE_SHIFT determines the page size */
+>  
+> -#define PAGE_SHIFT      13
+> +#define PAGE_SHIFT      CONFIG_PAGE_SHIFT
+>  #ifdef __ASSEMBLY__
+>  #define PAGE_SIZE       (1 << PAGE_SHIFT)
+>  #else
 
-Here is the summary with links:
-  - RISC-V: fix check for zvkb with tip-of-tree clang
-    https://git.kernel.org/riscv/c/886516fae2b7
+For the openrisc bits,
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Acked-by: Stafford Horne <shorne@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
