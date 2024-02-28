@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D6D8C47DD9
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 15:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CFEAC47DD9
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 15:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dq3Xh2Ogg6BOo6oc5b21gY4z9aaJ8rR+YFmEPBl8qNE=; b=YNpFeziN28LOPk
-	bMaazyXoeaoY876lhmnQZ3uSawzum5kvWPKKA+XxjzyIPZivWJBLEM2BkdGw+AfyAVvRgH3586W6W
-	r2pjP6OrYG2iVggAInqDDXjYobrbZ+DV6E5+xeXbBQNrzuJA2ZCtGO8lc5UHC5VXnbzv4bMmJgx8i
-	4dN9zoG+/qgDwH84ir+hafWke8ZVmCZrg6hrc1VzmGwP6QdIhj0Svz2F0rx2EoOfmbfaeIbi/Y1+Y
-	c06nCtWP4bS8U4dKN0S6Bm13/mYHN/T/L1EkgXrBkytDKyWjLaTPyFzR4lqKqsTJCmU4c/jjjDYg4
-	Iq28ev0OS5+NwHP7zgzQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IiyEbJl4x7NgZnbulB6+V0Bsu0CCy4fEyJSk5Wy2gOw=; b=33x7uWacJCQnliA/cFt/qFRafV
+	RLbdKOx4TSjgwQwWvadyQytNmPgqj3wzAxrjj636uFpLoZLY3qSuebvrN0gHfZDehcSjiVDLEJ5BV
+	0mFvhswQwMwBIQX+hstLzJVU9Iy94pXjEqsa4v5+3yqPGg7hd7SmaDgCTkCPpWwxYmtmm1Azh6ejs
+	KXLiV2K1NXYaIm4MQ5eyHVSC5XVGaEFkd4BZjwpAXAxQsCxByh45Nnp3jwQDBNZA1E0dNVvB8lkhG
+	Ll1yI2nCDyySaJADwD9XzS8SI4fgRq7ARE3Ht5ZVya2e0DoXrtm/pIrm7Zri9WMifgTGKVVcc//h/
+	OYY2w/6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfLZs-00000009poP-0OFh;
-	Wed, 28 Feb 2024 15:10:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rfLkc-00000009sDu-3FK8;
+	Wed, 28 Feb 2024 15:21:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfLZp-00000009pm5-1dmO
+	id 1rfLka-00000009sDE-2xT1
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 15:10:34 +0000
+	Wed, 28 Feb 2024 15:21:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 350B5618C1;
-	Wed, 28 Feb 2024 15:10:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CD5D9C433F1;
-	Wed, 28 Feb 2024 15:10:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2043B6187A;
+	Wed, 28 Feb 2024 15:21:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BFB2C433F1;
+	Wed, 28 Feb 2024 15:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709133029;
-	bh=Hl4aguKOTd8JlLqCsXIN7K+U/MvNiYnC1LzWdx7ZBq0=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=oq9+Wk21fB3vdeq1PxsrpEc6OYKE8ugwMPUiHXnzSzt0I1QhRZBqNX1jBK2QB0zfy
-	 yPlEtVWMmXrxLN34z+5fBmQ46+f3zD66tkOhozaVrDUVpS9sr+VghyVXor3YpDzq2U
-	 cj1p6vYpSvWJK2rJ+T/HGJjUAl4KOjA3AY3VXxyUnDN0YuE6W0U20Ux+UCHWpdjd9M
-	 lTlh8f+Dh0klWreWUZ3+yoq+wNqrDeCuqGM42PvXPan/xBnaf38uGHO8zhzVIAkSVK
-	 680qGQ5knv1t4Y9escBw9XxPK7B2qi1C590U9MFEgyj2xu2gnIlIXzKRKdGpSVemRY
-	 oVUIHSu8k7TWQ==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id B2121C595D2;
-	Wed, 28 Feb 2024 15:10:29 +0000 (UTC)
+	s=k20201202; t=1709133699;
+	bh=Y2o0FRacDS3mFULfR5wkJ8AGuzyyqfzfYbMEDh5ISvY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=f5+3am7dFzyNH3svpjQNbZ18bBVtGFxJN9sYU/AQsZYlh3HKOvEJYXZ/RP46/wB9e
+	 9u3I88AkDbLXdc3tiysjSX8/xSjhNJrflJLTTrNcKBJQlYqAPSiP3h6CxsgaEE+93F
+	 iQQQqm8aoy1QBv2qJSH18Sxg1aBveIEx5HvgfXiuK1qeYjQjZ8rAZSZ1EM+KiaTaS4
+	 F5+O1tTzYS4lkpYK3g0htvY34Q90IBR8LO7nwTXxM2H7cX3oek7Ykm7dnKsvbfH/d1
+	 yX5CDPTLtye3G6wpj4bStDej7Sv6ci9x1lPa2OLitkURzHJbYN+WB5Mgt3YprRcLsJ
+	 AhmpXBWJ+Aclw==
+Date: Wed, 28 Feb 2024 15:21:36 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/4] riscv: Allow NOMMU kernels to run in S-mode
+Message-ID: <20240228-reverence-vaseline-590175d7901e@spud>
+References: <20240227003630.3634533-1-samuel.holland@sifive.com>
+ <20240227003630.3634533-5-samuel.holland@sifive.com>
+ <20240227-seventh-overgrown-2fa453e8a775@wendy>
+ <21e03db9-efb7-4e26-9b0d-4931afd62194@sifive.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] drivers: perf: ctr_get_width function for legacy is not
- defined
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170913302972.9913.1220229545519276494.git-patchwork-notify@kernel.org>
-Date: Wed, 28 Feb 2024 15:10:29 +0000
-References: <20231205092555.35617-1-vadim.shakirov@syntacore.com>
-In-Reply-To: <20231205092555.35617-1-vadim.shakirov@syntacore.com>
-To: Vadim Shakirov <vadim.shakirov@syntacore.com>
-Cc: linux-riscv@lists.infradead.org, atishp@atishpatra.org,
- anup@brainfault.org, will@kernel.org, mark.rutland@arm.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alexghiti@rivosinc.com, ajones@ventanamicro.com, linux-kernel@vger.kernel.org
+In-Reply-To: <21e03db9-efb7-4e26-9b0d-4931afd62194@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_071033_554713_A304CD8F 
-X-CRM114-Status: UNSURE (   8.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240228_072140_914862_DE351219 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,61 +70,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6163314405042442908=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Tue, 5 Dec 2023 12:25:54 +0300 you wrote:
-> With parameters CONFIG_RISCV_PMU_LEGACY=y and CONFIG_RISCV_PMU_SBI=n
-> linux kernel crashes when you try perf record:
-> 
-> $ perf record ls
-> [   46.749286] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
-> [   46.750199] Oops [#1]
-> [   46.750342] Modules linked in:
-> [   46.750608] CPU: 0 PID: 107 Comm: perf-exec Not tainted 6.6.0 #2
-> [   46.750906] Hardware name: riscv-virtio,qemu (DT)
-> [   46.751184] epc : 0x0
-> [   46.751430]  ra : arch_perf_update_userpage+0x54/0x13e
-> [   46.751680] epc : 0000000000000000 ra : ffffffff8072ee52 sp : ff2000000022b8f0
-> [   46.751958]  gp : ffffffff81505988 tp : ff6000000290d400 t0 : ff2000000022b9c0
-> [   46.752229]  t1 : 0000000000000001 t2 : 0000000000000003 s0 : ff2000000022b930
-> [   46.752451]  s1 : ff600000028fb000 a0 : 0000000000000000 a1 : ff600000028fb000
-> [   46.752673]  a2 : 0000000ae2751268 a3 : 00000000004fb708 a4 : 0000000000000004
-> [   46.752895]  a5 : 0000000000000000 a6 : 000000000017ffe3 a7 : 00000000000000d2
-> [   46.753117]  s2 : ff600000028fb000 s3 : 0000000ae2751268 s4 : 0000000000000000
-> [   46.753338]  s5 : ffffffff8153e290 s6 : ff600000863b9000 s7 : ff60000002961078
-> [   46.753562]  s8 : ff60000002961048 s9 : ff60000002961058 s10: 0000000000000001
-> [   46.753783]  s11: 0000000000000018 t3 : ffffffffffffffff t4 : ffffffffffffffff
-> [   46.754005]  t5 : ff6000000292270c t6 : ff2000000022bb30
-> [   46.754179] status: 0000000200000100 badaddr: 0000000000000000 cause: 000000000000000c
-> [   46.754653] Code: Unable to access instruction at 0xffffffffffffffec.
-> [   46.754939] ---[ end trace 0000000000000000 ]---
-> [   46.755131] note: perf-exec[107] exited with irqs disabled
-> [   46.755546] note: perf-exec[107] exited with preempt_count 4
-> 
-> [...]
-
-Here is the summary with links:
-  - [1/2] drivers: perf: ctr_get_width function for legacy is not defined
-    https://git.kernel.org/riscv/c/682dc133f83e
-  - [2/2] drivers: perf: added capabilities for legacy PMU
-    https://git.kernel.org/riscv/c/65730fe8f4fb
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+--===============6163314405042442908==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="mJowefI5gHiXMm/u"
+Content-Disposition: inline
 
 
+--mJowefI5gHiXMm/u
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Feb 27, 2024 at 01:02:11PM -0600, Samuel Holland wrote:
+> Hi Conor,
+>=20
+> On 2024-02-27 6:24 AM, Conor Dooley wrote:
+> > On Mon, Feb 26, 2024 at 04:34:49PM -0800, Samuel Holland wrote:
+> >> For ease of testing, it is convenient to run NOMMU kernels in supervis=
+or
+> >> mode. The only required change is to offset the kernel load address,
+> >> since the beginning of RAM is usually reserved for M-mode firmware.
+> >>
+> >> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> >> ---
+> >>
+> >>  arch/riscv/Kconfig | 15 ++++++++++-----
+> >>  1 file changed, 10 insertions(+), 5 deletions(-)
+> >>
+> >> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> >> index ef53c00470d6..0dc09b2ac2f6 100644
+> >> --- a/arch/riscv/Kconfig
+> >> +++ b/arch/riscv/Kconfig
+> >> @@ -64,7 +64,7 @@ config RISCV
+> >>  	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
+> >>  	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
+> >>  	select BUILDTIME_TABLE_SORT if MMU
+> >> -	select CLINT_TIMER if !MMU
+> >> +	select CLINT_TIMER if RISCV_M_MODE
+> >>  	select CLONE_BACKWARDS
+> >>  	select COMMON_CLK
+> >>  	select CPU_PM if CPU_IDLE || HIBERNATION || SUSPEND
+> >> @@ -220,8 +220,12 @@ config ARCH_MMAP_RND_COMPAT_BITS_MAX
+> >> =20
+> >>  # set if we run in machine mode, cleared if we run in supervisor mode
+> >>  config RISCV_M_MODE
+> >> -	bool
+> >> -	default !MMU
+> >> +	bool "Build a kernel that runs in machine mode"
+> >> +	depends on !MMU
+> >> +	default y
+> >> +	help
+> >> +	  Select this option if you want to run the kernel in M-mode,
+> >> +	  without the assistance of any other firmware.
+> >> =20
+> >>  # set if we are running in S-mode and can use SBI calls
+> >>  config RISCV_SBI
+> >> @@ -238,8 +242,9 @@ config MMU
+> >> =20
+> >>  config PAGE_OFFSET
+> >>  	hex
+> >> -	default 0xC0000000 if 32BIT && MMU
+> >> -	default 0x80000000 if !MMU
+> >> +	default 0x80000000 if !MMU && RISCV_M_MODE
+> >> +	default 0x80200000 if !MMU
+> >> +	default 0xc0000000 if 32BIT
+> >>  	default 0xff60000000000000 if 64BIT
+> >=20
+> > The first default seen with a passing condition is the default chosen,
+> > right?
+>=20
+> Yes, exactly. It's not required for the conditions to all be disjoint.
+
+I had actually gone and checked was doing the right thing, but I didn't
+manage to convince myself that this was intended behaviour rather than
+an implementation detail. What I saw in the docs for default was:
+"If multiple default values are visible, only the first defined one is acti=
+ve"
+and I suppose "visible" is what is used to cover the if part.
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Cheers,
+Conor.
+
+--mJowefI5gHiXMm/u
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd9PgAAKCRB4tDGHoIJi
+0p9fAP4oVyq079FR8VVeHLxfQpN1jV17v4VmsjHPNWksXn+mNQD/Rv7JMAR+mJbV
+LAy3Zpg/8TRlPfdbhnqwRAmKtOvdoQ0=
+=hrDd
+-----END PGP SIGNATURE-----
+
+--mJowefI5gHiXMm/u--
+
+
+--===============6163314405042442908==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6163314405042442908==--
+
