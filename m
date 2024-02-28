@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75545C5478C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 11:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CCE9C5478C
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 13:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Q7f6U6qMkqU7+8a1SrwTiW72bVO7jlzhKNmw3zWYSSI=; b=bYIPtH5utx4nYL
-	ErmOKSbXc+KHH5jid3BwJfW73vsjcPcoMYFtqvPoHeRJ37APuKGuMTJMB817Z4+sZjAO181bBk1YG
-	h7L+agKW6dGPFz0RLG6XEwbZTPNX6m/xGmm1i4j6mhSy6G7yYcW7babDtyjKrkruPEmTQkaHJzme/
-	RgMDDGpm58/6Gmdm1E/oo0J/bAcseQ9kEfZ+25pj7i9LxTJhFdDEs5MMYeqSIbX/XHOQGOqs0XVzR
-	A1WfwzJ4nI07YG/52bcowFxJjD3WSz0mLTc61L+jXoc+y+SNb76fZ/eoSqSj7UP/Ju/xh9Tl0L59s
-	6KzJMoR+p/GpjA1lX1IQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ISHOQe5ckFOPtIXNKDAd3vGqTcPDwxtQzbmXqzoFnOY=; b=gMIw+zsd3airGw
+	bumwASVLNqQrs4H4PHFjOZ46dGs7H7kEj8B7LFy4loSQy8uhNVvW2/xvejjCjli2cRdw9A3zHHez8
+	51GC/QXmvPb0o2Ml8qbV4aAdzPcPiqWIo/5kVu8F6H92Ae7FKIIQXkhxZylDG0ItSVT2rKx3GlklO
+	o5sxk128n4sGjortgbaGOaF2b+oCqwe32qmhjnds7f6kh5IwQhLRj2foTmKVHl34PKwgbvDwCzXup
+	K8yZWTUuHdvr9AVWHt9P+iri34/dSnCFOaeQIl235J9J0W8GfCR/nib5b5EBgfcT5TlrvYWMF5XNX
+	4uUUCtHL//IPLFpSuYJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfISK-00000009749-0onp;
-	Wed, 28 Feb 2024 11:50:36 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1rfJb7-00000009NPH-2mOQ;
+	Wed, 28 Feb 2024 13:03:45 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfIRM-000000096jz-2BcP
+	id 1rfJb5-00000009NOG-0uv0
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 11:49:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1709120976; x=1740656976;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Qcal8Ty64aIwuJm9sMzxN+fh8PzyQM8kaqQ/aZv5CWY=;
-  b=Gl4HU8aJ3hyusOlSYuJ/PI+Rkt2iY/at+VmtnaVwKC+1TUcvv7YYsFX6
-   aC/vmy+Rkci9yZSiIs5ujZsbGyO7huEni/EJjQUM0sneIlzA/CliQZMzD
-   ixRJPEYPIuEdyd7AlIuWPp/qX5J6NttSpyjPrUmOFcm/HVe5R2RjBDEOB
-   H23Kn4BGjJ0iJeO+zMODRnjyZJJtW0ioHMCUx/rI6VQuvOswZyPlPlu6h
-   +qV72tGABx8W5MgRA47yUj596p77xBeXe4REAy3t0jQo6y8Y7O+qVjUS+
-   7noxAprhBmXvzgntznx9GcRfDZN24xZx71T9pNhQsjdWAJLwbicquXB5R
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10996"; a="3633237"
-X-IronPort-AV: E=Sophos;i="6.06,190,1705392000"; 
-   d="scan'208";a="3633237"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Feb 2024 03:49:35 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.06,190,1705392000"; 
-   d="scan'208";a="7619107"
-Received: from wufei-optiplex-7090.sh.intel.com ([10.239.158.51])
-  by fmviesa006.fm.intel.com with ESMTP; 28 Feb 2024 03:49:32 -0800
-From: Fei Wu <fei2.wu@intel.com>
-To: atishp@atishpatra.org,
-	anup@brainfault.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Fei Wu <fei2.wu@intel.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH v4] perf: RISCV: Fix panic on pmu overflow handler
-Date: Wed, 28 Feb 2024 19:54:25 +0800
-Message-Id: <20240228115425.2613856-1-fei2.wu@intel.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 28 Feb 2024 13:03:44 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-55a5e7fa471so7441993a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Feb 2024 05:03:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1709125421; x=1709730221; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yFXQvGUsk1gt0qCtFqOPcrEsIWVhxYHprqeQMVcPhiQ=;
+        b=OrbtJWDZdiMGA6LFej0AN9/Ral4AQqMAEDuYeBcCGNcUXF3c98OY7z2PPHYgOyw7jr
+         ql0AtW/hkPlt8ra+qKA2951vovTBjzo/Y+1y6Nn6b1p+yqfZ+hvwOaSxm2Hfjl5cPRf7
+         8Qx+NXgQj8sLtYD3Jzs4iRmvu4svMm27ylyH4FSAse7BYm2T9WzpIUmQGqNv5xbP6SCg
+         VD/jqYnznRKd6tk+kCeajfJjRBejPmYpkqRB/JMl1ZyerTHqnzhg5jWjU0mFULhvdx49
+         pU5G6y7ucq4Y81+49Kj0PNin5ztQ6B+j9K9W76A0bctFX9Bu65YMvmsJynIBHJnp52D0
+         c/nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709125421; x=1709730221;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yFXQvGUsk1gt0qCtFqOPcrEsIWVhxYHprqeQMVcPhiQ=;
+        b=YtUEs/txjAInaJ9uKcvNVtx8Onfx2VlZrq6kl81rGkE3ujMPlkm3Tirwa5B5oRf89S
+         al+lv4aPhhXLSZoXa6wzF6EYbRmhHUgxBt73GRjG+6Gp4xYYdXD0wx7KZcUpwemz+TgP
+         7WS8SWhtyPh+Ginu1MvKIZf5r6CcZMK0ynnN3Z869bcU3UCBFNkdVD9Ovi0eppph121f
+         Nxlgz4UHwR4QZm1oIgiBc9n9X3MCCCjkYQUUhGB1RNhy822WZyiPaURhR/YzxxQS0K4S
+         Drmsy/VY8mnqRrWD+7i1yw4p+gvztAbaIjNc/zt0KRsP2a/XnaSIXQPuFh2tght/aj7Z
+         n1yQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVoOyfLBEySGpuZM4B4SNP7OUXGT0NX+qkwstwm3IZQJc7EfUJ+KVFu4tcLUzzWU8/KxIX8cFOSQ3UrAgVSTpHbgxM59zPwTGqEaCRG49kq
+X-Gm-Message-State: AOJu0YxrDk//obMgQjEcGVzwT7hct9eZYLCIsMDLzimz3gcvm8wCLKfi
+	+xmi2rnZ+DPFPk1R0vIGlQ6vlqQjhQEI286abHzAZ9FVRUDqnvM45f5mO6DNzfU=
+X-Google-Smtp-Source: AGHT+IGvHaZpaUKN38zrJM3JDTNxolRHG6m9JTolps7oKVeZD8z9mLSzqZ67XkfY3F7ks+tZteHSgA==
+X-Received: by 2002:aa7:d80e:0:b0:566:d15:1458 with SMTP id v14-20020aa7d80e000000b005660d151458mr4961658edq.21.1709125421040;
+        Wed, 28 Feb 2024 05:03:41 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id fe9-20020a056402390900b0056470bf320asm500629edb.43.2024.02.28.05.03.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Feb 2024 05:03:40 -0800 (PST)
+Date: Wed, 28 Feb 2024 14:03:39 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, 
+	Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 1/5] RISC-V: KVM: Forward SEED CSR access to user space
+Message-ID: <20240228-e87f7a9a9cf6fa701e621f41@orel>
+References: <20240214123757.305347-1-apatel@ventanamicro.com>
+ <20240214123757.305347-2-apatel@ventanamicro.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240214123757.305347-2-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_034936_863816_BB01AAF9 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20240228_050343_323046_664EBF9E 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,88 +96,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-(1 << idx) of int is not desired when setting bits in unsigned long
-overflowed_ctrs, use BIT() instead. This panic happens when running
-'perf record -e branches' on sophgo sg2042.
+On Wed, Feb 14, 2024 at 06:07:53PM +0530, Anup Patel wrote:
+> The SEED CSR access from VS/VU mode (guest) will always trap to
+> HS-mode (KVM) when Zkr extension is available to the Guest/VM.
+> 
+> We must forward this CSR access to KVM user space so that it
+> can be emulated based on the method chosen by VMM.
+> 
+> Fixes: f370b4e668f0 ("RISC-V: KVM: Allow scalar crypto extensions for Guest/VM")
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/kvm/vcpu_insn.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+> index 7a6abed41bc1..ee7215f4071f 100644
+> --- a/arch/riscv/kvm/vcpu_insn.c
+> +++ b/arch/riscv/kvm/vcpu_insn.c
+> @@ -7,6 +7,8 @@
+>  #include <linux/bitops.h>
+>  #include <linux/kvm_host.h>
+>  
+> +#include <asm/cpufeature.h>
+> +
+>  #define INSN_OPCODE_MASK	0x007c
+>  #define INSN_OPCODE_SHIFT	2
+>  #define INSN_OPCODE_SYSTEM	28
+> @@ -213,9 +215,20 @@ struct csr_func {
+>  		    unsigned long wr_mask);
+>  };
+>  
+> +static int seed_csr_rmw(struct kvm_vcpu *vcpu, unsigned int csr_num,
+> +			unsigned long *val, unsigned long new_val,
+> +			unsigned long wr_mask)
+> +{
+> +	if (!riscv_isa_extension_available(vcpu->arch.isa, ZKR))
+> +		return KVM_INSN_ILLEGAL_TRAP;
+> +
+> +	return KVM_INSN_EXIT_TO_USER_SPACE;
+> +}
+> +
+>  static const struct csr_func csr_funcs[] = {
+>  	KVM_RISCV_VCPU_AIA_CSR_FUNCS
+>  	KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS
+> +	{ .base = CSR_SEED, .count = 1, .func = seed_csr_rmw },
+>  };
+>  
+>  /**
+> -- 
+> 2.34.1
+>
 
-[  273.311852] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000098
-[  273.320851] Oops [#1]
-[  273.323179] Modules linked in:
-[  273.326303] CPU: 0 PID: 1475 Comm: perf Not tainted 6.6.0-rc3+ #9
-[  273.332521] Hardware name: Sophgo Mango (DT)
-[  273.336878] epc : riscv_pmu_ctr_get_width_mask+0x8/0x62
-[  273.342291]  ra : pmu_sbi_ovf_handler+0x2e0/0x34e
-[  273.347091] epc : ffffffff80aecd98 ra : ffffffff80aee056 sp : fffffff6e36928b0
-[  273.354454]  gp : ffffffff821f82d0 tp : ffffffd90c353200 t0 : 0000002ade4f9978
-[  273.361815]  t1 : 0000000000504d55 t2 : ffffffff8016cd8c s0 : fffffff6e3692a70
-[  273.369180]  s1 : 0000000000000020 a0 : 0000000000000000 a1 : 00001a8e81800000
-[  273.376540]  a2 : 0000003c00070198 a3 : 0000003c00db75a4 a4 : 0000000000000015
-[  273.383901]  a5 : ffffffd7ff8804b0 a6 : 0000000000000015 a7 : 000000000000002a
-[  273.391327]  s2 : 000000000000ffff s3 : 0000000000000000 s4 : ffffffd7ff8803b0
-[  273.398773]  s5 : 0000000000504d55 s6 : ffffffd905069800 s7 : ffffffff821fe210
-[  273.406139]  s8 : 000000007fffffff s9 : ffffffd7ff8803b0 s10: ffffffd903f29098
-[  273.413660]  s11: 0000000080000000 t3 : 0000000000000003 t4 : ffffffff8017a0ca
-[  273.421022]  t5 : ffffffff8023cfc2 t6 : ffffffd9040780e8
-[  273.426437] status: 0000000200000100 badaddr: 0000000000000098 cause: 000000000000000d
-[  273.434512] [<ffffffff80aecd98>] riscv_pmu_ctr_get_width_mask+0x8/0x62
-[  273.441169] [<ffffffff80076bd8>] handle_percpu_devid_irq+0x98/0x1ee
-[  273.447562] [<ffffffff80071158>] generic_handle_domain_irq+0x28/0x36
-[  273.454151] [<ffffffff8047a99a>] riscv_intc_irq+0x36/0x4e
-[  273.459659] [<ffffffff80c944de>] handle_riscv_irq+0x4a/0x74
-[  273.465442] [<ffffffff80c94c48>] do_irq+0x62/0x92
-[  273.470360] Code: 0420 60a2 6402 5529 0141 8082 0013 0000 0013 0000 (6d5c) b783
-[  273.477921] ---[ end trace 0000000000000000 ]---
-[  273.482630] Kernel panic - not syncing: Fatal exception in interrupt
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
-Signed-off-by: Fei Wu <fei2.wu@intel.com>
----
- drivers/perf/riscv_pmu_sbi.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 16acd4dcdb96..452aab49db1e 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -512,7 +512,7 @@ static void pmu_sbi_set_scounteren(void *arg)
- 
- 	if (event->hw.idx != -1)
- 		csr_write(CSR_SCOUNTEREN,
--			  csr_read(CSR_SCOUNTEREN) | (1 << pmu_sbi_csr_index(event)));
-+			  csr_read(CSR_SCOUNTEREN) | BIT(pmu_sbi_csr_index(event)));
- }
- 
- static void pmu_sbi_reset_scounteren(void *arg)
-@@ -521,7 +521,7 @@ static void pmu_sbi_reset_scounteren(void *arg)
- 
- 	if (event->hw.idx != -1)
- 		csr_write(CSR_SCOUNTEREN,
--			  csr_read(CSR_SCOUNTEREN) & ~(1 << pmu_sbi_csr_index(event)));
-+			  csr_read(CSR_SCOUNTEREN) & ~BIT(pmu_sbi_csr_index(event)));
- }
- 
- static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
-@@ -731,14 +731,14 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 		/* compute hardware counter index */
- 		hidx = info->csr - CSR_CYCLE;
- 		/* check if the corresponding bit is set in sscountovf */
--		if (!(overflow & (1 << hidx)))
-+		if (!(overflow & BIT(hidx)))
- 			continue;
- 
- 		/*
- 		 * Keep a track of overflowed counters so that they can be started
- 		 * with updated initial value.
- 		 */
--		overflowed_ctrs |= 1 << lidx;
-+		overflowed_ctrs |= BIT(lidx);
- 		hw_evt = &event->hw;
- 		riscv_pmu_event_update(event);
- 		perf_sample_data_init(&data, 0, hw_evt->last_period);
--- 
-2.34.1
-
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
