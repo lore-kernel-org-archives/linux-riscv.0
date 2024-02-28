@@ -4,56 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 114AFC54E41
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 10:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75545C5478C
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 11:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AL0JUhOaMZUKy2qOrQXpJl41/Pv9hjW50HWgXZzhCKM=; b=zyJCMXMLmTNKYiIIH95b7syTlU
-	jYk3iP5UmOLs15Iz9uGXTV9+91l7azsX4ihNtXdYCXTywB+xohe98rtopQmWdTz0wJuhm1Txliw7E
-	32ZFjj3eGH6BLUM1iapppMdNYrTwba+T3pmo31V0CJhxLBAnEVXn8R3MCVHGj/r/utesIZiCq+H2D
-	m3uBVG3DtJKcWV77vcYHGV/Ydn7T3pgzlyf7bcts8VfrT3l+Ta+FCjananKig75lOMhA4Vlb0ULFT
-	6Enb/C1Nngzw6qmSWkSKsnXtT56ZIdxmz7+UPR+8Rc2Fwqq/+e+gL8eT4RdAjnseLMfJauWEltaj6
-	dBsPSFqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Q7f6U6qMkqU7+8a1SrwTiW72bVO7jlzhKNmw3zWYSSI=; b=bYIPtH5utx4nYL
+	ErmOKSbXc+KHH5jid3BwJfW73vsjcPcoMYFtqvPoHeRJ37APuKGuMTJMB817Z4+sZjAO181bBk1YG
+	h7L+agKW6dGPFz0RLG6XEwbZTPNX6m/xGmm1i4j6mhSy6G7yYcW7babDtyjKrkruPEmTQkaHJzme/
+	RgMDDGpm58/6Gmdm1E/oo0J/bAcseQ9kEfZ+25pj7i9LxTJhFdDEs5MMYeqSIbX/XHOQGOqs0XVzR
+	A1WfwzJ4nI07YG/52bcowFxJjD3WSz0mLTc61L+jXoc+y+SNb76fZ/eoSqSj7UP/Ju/xh9Tl0L59s
+	6KzJMoR+p/GpjA1lX1IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfHPP-00000008rQq-0DQT;
-	Wed, 28 Feb 2024 10:43:31 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rfISK-00000009749-0onp;
+	Wed, 28 Feb 2024 11:50:36 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfHPL-00000008rPR-3uva
+	id 1rfIRM-000000096jz-2BcP
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 10:43:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 0486DCE20E7;
-	Wed, 28 Feb 2024 10:43:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A759EC433C7;
-	Wed, 28 Feb 2024 10:43:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709117005;
-	bh=+PNQdYZp5tbsIrdA8nTu1RfAGQZkhr7Zkz00Q7/gAUw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eJAHOj4zdO9enJQy5VFMdXPDBguUh4tM/45N335HJWEfvQAZd4nTk7MQpqp/oNhkE
-	 ouJd7dR7oo4uLOsusAg7Wqu/QxPRmL4vdSFA7bheMMK/yvgNwlcv66OEr2Fz42phdA
-	 R9cD0+zmBSErmIdfMDw3GBPIB5I3rLcGX4BA8AHeQuAGFLnUhLi62TRsolSdEoTM8w
-	 WmJDuX2VkdAiNvA56P7enErrMADYdQWQJLdyiudeT03pX342V5cRb+Z8VG+iNj+jgv
-	 SjQ5TKjxvnNB6/4hh1/SxIwNaeaVbK3EwBftCI/YTijEvuDrK5yjIHqLuIJPNM/BxW
-	 Hxt6XMkeBOE+w==
-Date: Wed, 28 Feb 2024 10:43:20 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Subject: Re: [PATCH v5 2/2] riscv: Set unaligned access speed at compile time
-Message-ID: <20240228-denote-subscribe-9832cddbd307@spud>
-References: <20240227-disable_misaligned_probe_config-v5-0-b6853846e27a@rivosinc.com>
- <20240227-disable_misaligned_probe_config-v5-2-b6853846e27a@rivosinc.com>
+	Wed, 28 Feb 2024 11:49:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1709120976; x=1740656976;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Qcal8Ty64aIwuJm9sMzxN+fh8PzyQM8kaqQ/aZv5CWY=;
+  b=Gl4HU8aJ3hyusOlSYuJ/PI+Rkt2iY/at+VmtnaVwKC+1TUcvv7YYsFX6
+   aC/vmy+Rkci9yZSiIs5ujZsbGyO7huEni/EJjQUM0sneIlzA/CliQZMzD
+   ixRJPEYPIuEdyd7AlIuWPp/qX5J6NttSpyjPrUmOFcm/HVe5R2RjBDEOB
+   H23Kn4BGjJ0iJeO+zMODRnjyZJJtW0ioHMCUx/rI6VQuvOswZyPlPlu6h
+   +qV72tGABx8W5MgRA47yUj596p77xBeXe4REAy3t0jQo6y8Y7O+qVjUS+
+   7noxAprhBmXvzgntznx9GcRfDZN24xZx71T9pNhQsjdWAJLwbicquXB5R
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10996"; a="3633237"
+X-IronPort-AV: E=Sophos;i="6.06,190,1705392000"; 
+   d="scan'208";a="3633237"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Feb 2024 03:49:35 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.06,190,1705392000"; 
+   d="scan'208";a="7619107"
+Received: from wufei-optiplex-7090.sh.intel.com ([10.239.158.51])
+  by fmviesa006.fm.intel.com with ESMTP; 28 Feb 2024 03:49:32 -0800
+From: Fei Wu <fei2.wu@intel.com>
+To: atishp@atishpatra.org,
+	anup@brainfault.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: Fei Wu <fei2.wu@intel.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: [PATCH v4] perf: RISCV: Fix panic on pmu overflow handler
+Date: Wed, 28 Feb 2024 19:54:25 +0800
+Message-Id: <20240228115425.2613856-1-fei2.wu@intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <20240227-disable_misaligned_probe_config-v5-2-b6853846e27a@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_024328_353875_47EEFC7B 
-X-CRM114-Status: GOOD (  27.08  )
+X-CRM114-CacheID: sfid-20240228_034936_863816_BB01AAF9 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,216 +81,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
-Content-Type: multipart/mixed; boundary="===============3625807182611151125=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+(1 << idx) of int is not desired when setting bits in unsigned long
+overflowed_ctrs, use BIT() instead. This panic happens when running
+'perf record -e branches' on sophgo sg2042.
 
---===============3625807182611151125==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0Z+bsYN10/Aht3x5"
-Content-Disposition: inline
+[  273.311852] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000098
+[  273.320851] Oops [#1]
+[  273.323179] Modules linked in:
+[  273.326303] CPU: 0 PID: 1475 Comm: perf Not tainted 6.6.0-rc3+ #9
+[  273.332521] Hardware name: Sophgo Mango (DT)
+[  273.336878] epc : riscv_pmu_ctr_get_width_mask+0x8/0x62
+[  273.342291]  ra : pmu_sbi_ovf_handler+0x2e0/0x34e
+[  273.347091] epc : ffffffff80aecd98 ra : ffffffff80aee056 sp : fffffff6e36928b0
+[  273.354454]  gp : ffffffff821f82d0 tp : ffffffd90c353200 t0 : 0000002ade4f9978
+[  273.361815]  t1 : 0000000000504d55 t2 : ffffffff8016cd8c s0 : fffffff6e3692a70
+[  273.369180]  s1 : 0000000000000020 a0 : 0000000000000000 a1 : 00001a8e81800000
+[  273.376540]  a2 : 0000003c00070198 a3 : 0000003c00db75a4 a4 : 0000000000000015
+[  273.383901]  a5 : ffffffd7ff8804b0 a6 : 0000000000000015 a7 : 000000000000002a
+[  273.391327]  s2 : 000000000000ffff s3 : 0000000000000000 s4 : ffffffd7ff8803b0
+[  273.398773]  s5 : 0000000000504d55 s6 : ffffffd905069800 s7 : ffffffff821fe210
+[  273.406139]  s8 : 000000007fffffff s9 : ffffffd7ff8803b0 s10: ffffffd903f29098
+[  273.413660]  s11: 0000000080000000 t3 : 0000000000000003 t4 : ffffffff8017a0ca
+[  273.421022]  t5 : ffffffff8023cfc2 t6 : ffffffd9040780e8
+[  273.426437] status: 0000000200000100 badaddr: 0000000000000098 cause: 000000000000000d
+[  273.434512] [<ffffffff80aecd98>] riscv_pmu_ctr_get_width_mask+0x8/0x62
+[  273.441169] [<ffffffff80076bd8>] handle_percpu_devid_irq+0x98/0x1ee
+[  273.447562] [<ffffffff80071158>] generic_handle_domain_irq+0x28/0x36
+[  273.454151] [<ffffffff8047a99a>] riscv_intc_irq+0x36/0x4e
+[  273.459659] [<ffffffff80c944de>] handle_riscv_irq+0x4a/0x74
+[  273.465442] [<ffffffff80c94c48>] do_irq+0x62/0x92
+[  273.470360] Code: 0420 60a2 6402 5529 0141 8082 0013 0000 0013 0000 (6d5c) b783
+[  273.477921] ---[ end trace 0000000000000000 ]---
+[  273.482630] Kernel panic - not syncing: Fatal exception in interrupt
 
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+Signed-off-by: Fei Wu <fei2.wu@intel.com>
+---
+ drivers/perf/riscv_pmu_sbi.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
---0Z+bsYN10/Aht3x5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 16acd4dcdb96..452aab49db1e 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -512,7 +512,7 @@ static void pmu_sbi_set_scounteren(void *arg)
+ 
+ 	if (event->hw.idx != -1)
+ 		csr_write(CSR_SCOUNTEREN,
+-			  csr_read(CSR_SCOUNTEREN) | (1 << pmu_sbi_csr_index(event)));
++			  csr_read(CSR_SCOUNTEREN) | BIT(pmu_sbi_csr_index(event)));
+ }
+ 
+ static void pmu_sbi_reset_scounteren(void *arg)
+@@ -521,7 +521,7 @@ static void pmu_sbi_reset_scounteren(void *arg)
+ 
+ 	if (event->hw.idx != -1)
+ 		csr_write(CSR_SCOUNTEREN,
+-			  csr_read(CSR_SCOUNTEREN) & ~(1 << pmu_sbi_csr_index(event)));
++			  csr_read(CSR_SCOUNTEREN) & ~BIT(pmu_sbi_csr_index(event)));
+ }
+ 
+ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
+@@ -731,14 +731,14 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 		/* compute hardware counter index */
+ 		hidx = info->csr - CSR_CYCLE;
+ 		/* check if the corresponding bit is set in sscountovf */
+-		if (!(overflow & (1 << hidx)))
++		if (!(overflow & BIT(hidx)))
+ 			continue;
+ 
+ 		/*
+ 		 * Keep a track of overflowed counters so that they can be started
+ 		 * with updated initial value.
+ 		 */
+-		overflowed_ctrs |= 1 << lidx;
++		overflowed_ctrs |= BIT(lidx);
+ 		hw_evt = &event->hw;
+ 		riscv_pmu_event_update(event);
+ 		perf_sample_data_init(&data, 0, hw_evt->last_period);
+-- 
+2.34.1
 
-On Tue, Feb 27, 2024 at 03:13:14PM -0800, Charlie Jenkins wrote:
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwpr=
-obe.c
-> index a7c56b41efd2..69df8eaad9e7 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -147,8 +147,10 @@ static bool hwprobe_ext0_has(const struct cpumask *c=
-pus, unsigned long ext)
->  	return (pair.value & ext);
->  }
-> =20
-> +#if defined(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)
->  static u64 hwprobe_misaligned(const struct cpumask *cpus)
->  {
-
-> +	return RISCV_HWPROBE_MISALIGNED_FAST;
-
-This looks like a left over testing hack.
-
->  	int cpu;
->  	u64 perf =3D -1ULL;
-> =20
-> @@ -169,6 +171,27 @@ static u64 hwprobe_misaligned(const struct cpumask *=
-cpus)
-> =20
->  	return perf;
->  }
-> +#elif defined(CONFIG_RISCV_EMULATED_UNALIGNED_ACCESS)
-> +static u64 hwprobe_misaligned(const struct cpumask *cpus)
-> +{
-> +	return RISCV_HWPROBE_MISALIGNED_EMULATED;
-> +}
-> +#elif defined(CONFIG_RISCV_SLOW_UNALIGNED_ACCESS)
-> +static u64 hwprobe_misaligned(const struct cpumask *cpus)
-> +{
-> +	return RISCV_HWPROBE_MISALIGNED_SLOW;
-> +}
-> +#elif defined(CONFIG_RISCV_EFFICIENT_UNALIGNED_ACCESS)
-> +static u64 hwprobe_misaligned(const struct cpumask *cpus)
-> +{
-> +	return RISCV_HWPROBE_MISALIGNED_FAST;
-> +}
-> +#elif defined(CONFIG_RISCV_UNSUPPORTED_UNALIGNED_ACCESS)
-> +static u64 hwprobe_misaligned(const struct cpumask *cpus)
-> +{
-> +	return RISCV_HWPROBE_MISALIGNED_UNSUPPORTED;
-> +}
-> +#endif
-
-I'm curious why we need multiple definitions of this here. My first
-question is why we cannot have
-if (IS_ENABLED(foo))
-	return bar;
-inside the existing function for these cases.
-
-My second question would be why fiddle with this in hwprobe at all?
-I was specifically wondering why the kernel would not track this
-information in the per-cpu variable misaligned_access_speed and the
-syscall code could be left in the dark about how this is implemented.
-
-> =20
->  static void hwprobe_one_pair(struct riscv_hwprobe *pair,
->  			     const struct cpumask *cpus)
-> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/tra=
-ps_misaligned.c
-> index 8ded225e8c5b..ba6763dd9895 100644
-> --- a/arch/riscv/kernel/traps_misaligned.c
-> +++ b/arch/riscv/kernel/traps_misaligned.c
-> @@ -398,8 +398,6 @@ union reg_data {
->  	u64 data_u64;
->  };
-> =20
-> -static bool unaligned_ctl __read_mostly;
-> -
->  /* sysctl hooks */
->  int unaligned_enabled __read_mostly =3D 1;	/* Enabled by default */
-> =20
-> @@ -413,7 +411,9 @@ int handle_misaligned_load(struct pt_regs *regs)
-> =20
->  	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
-> =20
-> +#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
-
-if (IS_ENABLED()), no?
-But perhaps more interestingly - why is this being set here at all?
-My understanding of the emulated stuff was that if the in-kernel
-emulation was enabled, it would be used unless the CPU itself supported
-fast accesses. I would expect this to be advertised to userspace once
-the system has booted, not set the first time that a cpu emulates an
-access,
-I feel like I need to take a look at how this has been implemented, I
-never really looked too closely at it and how it is enabled does not
-match my expectations.
-
-Cheers,
-Conor.
-
->  	*this_cpu_ptr(&misaligned_access_speed) =3D RISCV_HWPROBE_MISALIGNED_EM=
-ULATED;
-> +#endif
-> =20
->  	if (!unaligned_enabled)
->  		return -1;
-> @@ -595,53 +595,3 @@ int handle_misaligned_store(struct pt_regs *regs)
-> =20
->  	return 0;
->  }
-> -
-> -bool check_unaligned_access_emulated(int cpu)
-> -{
-> -	long *mas_ptr =3D per_cpu_ptr(&misaligned_access_speed, cpu);
-> -	unsigned long tmp_var, tmp_val;
-> -	bool misaligned_emu_detected;
-> -
-> -	*mas_ptr =3D RISCV_HWPROBE_MISALIGNED_UNKNOWN;
-> -
-> -	__asm__ __volatile__ (
-> -		"       "REG_L" %[tmp], 1(%[ptr])\n"
-> -		: [tmp] "=3Dr" (tmp_val) : [ptr] "r" (&tmp_var) : "memory");
-> -
-> -	misaligned_emu_detected =3D (*mas_ptr =3D=3D RISCV_HWPROBE_MISALIGNED_E=
-MULATED);
-> -	/*
-> -	 * If unaligned_ctl is already set, this means that we detected that all
-> -	 * CPUS uses emulated misaligned access at boot time. If that changed
-> -	 * when hotplugging the new cpu, this is something we don't handle.
-> -	 */
-> -	if (unlikely(unaligned_ctl && !misaligned_emu_detected)) {
-> -		pr_crit("CPU misaligned accesses non homogeneous (expected all emulate=
-d)\n");
-> -		while (true)
-> -			cpu_relax();
-> -	}
-> -
-> -	return misaligned_emu_detected;
-> -}
-> -
-> -void unaligned_emulation_finish(void)
-> -{
-> -	int cpu;
-> -
-> -	/*
-> -	 * We can only support PR_UNALIGN controls if all CPUs have misaligned
-> -	 * accesses emulated since tasks requesting such control can run on any
-> -	 * CPU.
-> -	 */
-> -	for_each_present_cpu(cpu) {
-> -		if (per_cpu(misaligned_access_speed, cpu) !=3D
-> -					RISCV_HWPROBE_MISALIGNED_EMULATED) {
-> -			return;
-> -		}
-> -	}
-> -	unaligned_ctl =3D true;
-> -}
-> -
-> -bool unaligned_ctl_available(void)
-> -{
-> -	return unaligned_ctl;
-> -}
->=20
-> --=20
-> 2.43.2
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---0Z+bsYN10/Aht3x5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd8OSAAKCRB4tDGHoIJi
-0ltiAQC8i6Hx0y+ThDW1JOhn9VP0EVcTCCjoHjdHFb3bJQv6dAEAqI6mYHq1XL/n
-xcu3yEaeOzw+8xd7doxNLfYmIeuGLQg=
-=Ba3T
------END PGP SIGNATURE-----
-
---0Z+bsYN10/Aht3x5--
-
-
---===============3625807182611151125==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3625807182611151125==--
-
