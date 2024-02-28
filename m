@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CFEAC47DD9
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 15:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FD0C5478C
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 15:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IiyEbJl4x7NgZnbulB6+V0Bsu0CCy4fEyJSk5Wy2gOw=; b=33x7uWacJCQnliA/cFt/qFRafV
-	RLbdKOx4TSjgwQwWvadyQytNmPgqj3wzAxrjj636uFpLoZLY3qSuebvrN0gHfZDehcSjiVDLEJ5BV
-	0mFvhswQwMwBIQX+hstLzJVU9Iy94pXjEqsa4v5+3yqPGg7hd7SmaDgCTkCPpWwxYmtmm1Azh6ejs
-	KXLiV2K1NXYaIm4MQ5eyHVSC5XVGaEFkd4BZjwpAXAxQsCxByh45Nnp3jwQDBNZA1E0dNVvB8lkhG
-	Ll1yI2nCDyySaJADwD9XzS8SI4fgRq7ARE3Ht5ZVya2e0DoXrtm/pIrm7Zri9WMifgTGKVVcc//h/
-	OYY2w/6A==;
+	bh=2kvZM6PY2YChM0yWDdlVgzl87M99+cSk6F5zXevDZYQ=; b=WLssu8Df9ZbgV4AHxFGQ6GbOVM
+	EjSeM59dwzOB7jCKgOga8ssUX3MiLRQA2lqagvRjgpwN8FHfYCGDgU4YfCbHQmj2nT7cBeKqdLgmw
+	gD0qcvw7ZRKg/P50FD9Ehx/LhKAFtosG49dDqb9+g9imRIFTLiNB0R1AEKM/uz+lp+EVv4CgqdVMx
+	Yge7R4P27m6ZlUAp+PT2DDJac+K84fYsMzzgqgh6D1PzhkH1QhX0zAG1bmDxpLeuxrCwbRBvBFCR6
+	NX5Y7shkZGcWfehl9VPx73Rrrr8szU95xtDMoQnP4ekv6K+ej3+YfN5Zj5PoSUMnexYZ79IQrhAbA
+	Ph0cVo1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfLkc-00000009sDu-3FK8;
-	Wed, 28 Feb 2024 15:21:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rfM04-00000009v87-0QaI;
+	Wed, 28 Feb 2024 15:37:40 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfLka-00000009sDE-2xT1
+	id 1rfM00-00000009v5v-2VcG
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 15:21:42 +0000
+	Wed, 28 Feb 2024 15:37:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2043B6187A;
-	Wed, 28 Feb 2024 15:21:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BFB2C433F1;
-	Wed, 28 Feb 2024 15:21:38 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id D2A67CE21D0;
+	Wed, 28 Feb 2024 15:37:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5628C433C7;
+	Wed, 28 Feb 2024 15:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709133699;
-	bh=Y2o0FRacDS3mFULfR5wkJ8AGuzyyqfzfYbMEDh5ISvY=;
+	s=k20201202; t=1709134654;
+	bh=K6qcyY7tmKWlPwGFAWfBA2nTcEkDy4NjDJTddRb/t88=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f5+3am7dFzyNH3svpjQNbZ18bBVtGFxJN9sYU/AQsZYlh3HKOvEJYXZ/RP46/wB9e
-	 9u3I88AkDbLXdc3tiysjSX8/xSjhNJrflJLTTrNcKBJQlYqAPSiP3h6CxsgaEE+93F
-	 iQQQqm8aoy1QBv2qJSH18Sxg1aBveIEx5HvgfXiuK1qeYjQjZ8rAZSZ1EM+KiaTaS4
-	 F5+O1tTzYS4lkpYK3g0htvY34Q90IBR8LO7nwTXxM2H7cX3oek7Ykm7dnKsvbfH/d1
-	 yX5CDPTLtye3G6wpj4bStDej7Sv6ci9x1lPa2OLitkURzHJbYN+WB5Mgt3YprRcLsJ
-	 AhmpXBWJ+Aclw==
-Date: Wed, 28 Feb 2024 15:21:36 +0000
+	b=VBbUo0BSkLc1goRk+1bILw3JXxuPO45gtApjIESIr+gZ6qaqZ8e2co3Ns1HZaxItg
+	 msP9WS7J1W84wjFIUkCkmn3RXwpO0QSA33aAhBHGiptNYX/zPhV4M1zTyco++lgyPO
+	 YwBfySTgUpqBBcI2AidKGkwmCwWBjjOgKXmKHefN6uRsb5s/ex6wMWDoyPLxZEK/8h
+	 kgM4ZMNqI7WweDxblbx9wlEfY6c5ejINnPjZTjt80BkwxpdYntbIN1rL8A9ny8tSjz
+	 AE75D4NrWvCDVzPdjKWrJ6y2GEtFz7P8E3mhAu2V1qnXt67h1gJCt2dXVHBoedoZha
+	 kVQqYPFjmsZvA==
+Date: Wed, 28 Feb 2024 15:37:30 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Samuel Holland <samuel.holland@sifive.com>
 Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] riscv: Allow NOMMU kernels to run in S-mode
-Message-ID: <20240228-reverence-vaseline-590175d7901e@spud>
+Subject: Re: [PATCH 2/4] riscv: Fix loading 64-bit NOMMU kernels past the
+ start of RAM
+Message-ID: <20240228-cavity-aground-d1e8072a2c0d@spud>
 References: <20240227003630.3634533-1-samuel.holland@sifive.com>
- <20240227003630.3634533-5-samuel.holland@sifive.com>
- <20240227-seventh-overgrown-2fa453e8a775@wendy>
- <21e03db9-efb7-4e26-9b0d-4931afd62194@sifive.com>
+ <20240227003630.3634533-3-samuel.holland@sifive.com>
+ <20240227-unfitting-rectangle-cd0f23a4f3f1@wendy>
+ <9673cbe7-41ec-4261-9be8-fc5191ade56c@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <21e03db9-efb7-4e26-9b0d-4931afd62194@sifive.com>
+In-Reply-To: <9673cbe7-41ec-4261-9be8-fc5191ade56c@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_072140_914862_DE351219 
-X-CRM114-Status: GOOD (  22.44  )
+X-CRM114-CacheID: sfid-20240228_073736_893794_E03273C5 
+X-CRM114-Status: GOOD (  21.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,109 +71,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6163314405042442908=="
+Content-Type: multipart/mixed; boundary="===============0417227946669556817=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6163314405042442908==
+--===============0417227946669556817==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="mJowefI5gHiXMm/u"
+	protocol="application/pgp-signature"; boundary="29t4/8GEDLrsNf/T"
 Content-Disposition: inline
 
 
---mJowefI5gHiXMm/u
+--29t4/8GEDLrsNf/T
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Feb 27, 2024 at 01:02:11PM -0600, Samuel Holland wrote:
+On Tue, Feb 27, 2024 at 01:22:12PM -0600, Samuel Holland wrote:
 > Hi Conor,
 >=20
-> On 2024-02-27 6:24 AM, Conor Dooley wrote:
-> > On Mon, Feb 26, 2024 at 04:34:49PM -0800, Samuel Holland wrote:
-> >> For ease of testing, it is convenient to run NOMMU kernels in supervis=
-or
-> >> mode. The only required change is to offset the kernel load address,
-> >> since the beginning of RAM is usually reserved for M-mode firmware.
+> On 2024-02-27 6:18 AM, Conor Dooley wrote:
+> > On Mon, Feb 26, 2024 at 04:34:47PM -0800, Samuel Holland wrote:
+> >> commit 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear
+> >> mapping") added logic to allow using RAM below the kernel load address.
+> >> However, this does not work for NOMMU, where PAGE_OFFSET is fixed to t=
+he
+> >> kernel load address. Since that range of memory corresponds to PFNs
+> >> below ARCH_PFN_OFFSET, mm initialization runs off the beginning of
+> >> mem_map and corrupts adjacent kernel memory. Fix this by restoring the
+> >> previous behavior for NOMMU kernels.
 > >>
-> >> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> >> ---
-> >>
-> >>  arch/riscv/Kconfig | 15 ++++++++++-----
-> >>  1 file changed, 10 insertions(+), 5 deletions(-)
-> >>
-> >> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> >> index ef53c00470d6..0dc09b2ac2f6 100644
-> >> --- a/arch/riscv/Kconfig
-> >> +++ b/arch/riscv/Kconfig
-> >> @@ -64,7 +64,7 @@ config RISCV
-> >>  	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
-> >>  	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
-> >>  	select BUILDTIME_TABLE_SORT if MMU
-> >> -	select CLINT_TIMER if !MMU
-> >> +	select CLINT_TIMER if RISCV_M_MODE
-> >>  	select CLONE_BACKWARDS
-> >>  	select COMMON_CLK
-> >>  	select CPU_PM if CPU_IDLE || HIBERNATION || SUSPEND
-> >> @@ -220,8 +220,12 @@ config ARCH_MMAP_RND_COMPAT_BITS_MAX
-> >> =20
-> >>  # set if we run in machine mode, cleared if we run in supervisor mode
-> >>  config RISCV_M_MODE
-> >> -	bool
-> >> -	default !MMU
-> >> +	bool "Build a kernel that runs in machine mode"
-> >> +	depends on !MMU
-> >> +	default y
-> >> +	help
-> >> +	  Select this option if you want to run the kernel in M-mode,
-> >> +	  without the assistance of any other firmware.
-> >> =20
-> >>  # set if we are running in S-mode and can use SBI calls
-> >>  config RISCV_SBI
-> >> @@ -238,8 +242,9 @@ config MMU
-> >> =20
-> >>  config PAGE_OFFSET
-> >>  	hex
-> >> -	default 0xC0000000 if 32BIT && MMU
-> >> -	default 0x80000000 if !MMU
-> >> +	default 0x80000000 if !MMU && RISCV_M_MODE
-> >> +	default 0x80200000 if !MMU
-> >> +	default 0xc0000000 if 32BIT
-> >>  	default 0xff60000000000000 if 64BIT
+> >> Fixes: 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear mapp=
+ing")
 > >=20
-> > The first default seen with a passing condition is the default chosen,
-> > right?
+> > This commit was a year ago, why has nobody reported this as being an
+> > issue before?
 >=20
-> Yes, exactly. It's not required for the conditions to all be disjoint.
+> I can think of a few reasons:
+> 1) NOMMU users are likely to be using RV32, which is not affected.
+> 2) Before patch 4 of this series, NOMMU implied M-mode, so there was noth=
+ing in
+> the way to prevent loading Linux at the very beginning of RAM. (U-Boot/SPL
+> relocates itself to the end of RAM, so it would not cause a problem.)
+> 3) Platforms where RAM does not begin at exactly 0x80000000 would be affe=
+cted,
+> there are several workarounds: change the start of RAM (for soft cores), =
+change
+> PAGE_OFFSET, or change the memory ranges in the devicetree to exclude any=
+thing
+> below PAGE_OFFSET.
+>=20
+> It's possible that nobody was affected, but it's still technically a regr=
+ession
+> (a hypothetical platform with RAM from 0x40000000 to 0xc0000000 would cra=
+sh
+> instead of only being able to use half its RAM), so I thought it still de=
+served
+> the Fixes: tag.
 
-I had actually gone and checked was doing the right thing, but I didn't
-manage to convince myself that this was intended behaviour rather than
-an implementation detail. What I saw in the docs for default was:
-"If multiple default values are visible, only the first defined one is acti=
-ve"
-and I suppose "visible" is what is used to cover the if part.
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Right, thanks for explaining.
 
 Cheers,
 Conor.
 
---mJowefI5gHiXMm/u
+--29t4/8GEDLrsNf/T
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd9PgAAKCRB4tDGHoIJi
-0p9fAP4oVyq079FR8VVeHLxfQpN1jV17v4VmsjHPNWksXn+mNQD/Rv7JMAR+mJbV
-LAy3Zpg/8TRlPfdbhnqwRAmKtOvdoQ0=
-=hrDd
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd9TOgAKCRB4tDGHoIJi
+0vk6AP0TSxofF/mXzet5PRaY+C3fUEgn0adwntRDThmt24rOkwD9Gvlsb3xwmGcN
+f0hJY0qds2ScDTzQXUVTxVY6hE0krQ0=
+=oZgb
 -----END PGP SIGNATURE-----
 
---mJowefI5gHiXMm/u--
+--29t4/8GEDLrsNf/T--
 
 
---===============6163314405042442908==
+--===============0417227946669556817==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -183,5 +159,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6163314405042442908==--
+--===============0417227946669556817==--
 
