@@ -4,85 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F6AAC5478C
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 22:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9CBC5475B
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 23:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=U4hBDwzZ9cN1ABZIrL/e3rZMfOXvaecBzd2Ib6BMvTc=; b=BAIBkXBCI2fBoQs083cEZ4MZgh
-	qCy6h9jW8ZGg2uVXbJW4dflm62YQoHUhI9HFa2hmRbJp47SyY3vQXhA+FazpgktkczVlfPTahX8hz
-	F9ntIbk7sZdsxcPLZaK8vfLFfCX+AklaGp0xBG+lF4vkwKXL3qkRBd5/zNmf82LnJbPqJ3sLBf7mi
-	rEmH1MSgE9+1REipgcyOY93P6XKmyYZCKFKVewmcdUO0XU/Dg1CpG00hvi2pCRubZwWW2aOkw1cvJ
-	Z9e//j4OmbMKZf/N2ZgvKF+gaOE5JrF7iGnEHtBnSoWaERrIk8DJus5nSvzkGv8LYr8C0XW/h1Jpe
-	aUjVJt4w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q6fz8x2hu3BH8adt104eqoVB6XO/aoqYOaFT+tT5HdM=; b=A4Tk67pN/2gjGcNg4+3XykcUyC
+	2cZCgtCCcPHVWoK7KKmEyCBfxouzdihFGzqL0LPXkIk6eOeYUQq+bjeFN1CIa60KtHW1OlV6+sjwE
+	59WAE+z6HlmKjQFjNRGkQEYXLLre+RfIAOsESls3NOmsygR4Pg6BRQ23hkKtkfC34jVGTfsqh692o
+	iPaCvhJLAsCCmdXdg/9iD2mUCHMHpgmjNDIlJEu8qpE2NUUGWNTqHhl+F5oP77St8o3JY/gSMfQd6
+	WchRI6X4+zvm3dRr9NRaXSsBztlsY+pTKWC/eyac3OaD7pxXyszRt0ueZTuGlmidrNC4rKC/SgIx9
+	K+ClJNaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfSbI-0000000B9X6-2utS;
-	Wed, 28 Feb 2024 22:40:32 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1rfTPz-0000000BIHV-3tcn;
+	Wed, 28 Feb 2024 23:32:55 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfSbE-0000000B9Vr-40n7
+	id 1rfTPx-0000000BIH1-0Teq
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 22:40:30 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6087ffdac8cso4000217b3.2
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Feb 2024 14:40:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1709160027; x=1709764827; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=l+UTQgqjeTeuB4joWxs/sUGJ8L/gPUO2H1zeCMeGlUc=;
-        b=RTKhRdzD/N2UlNuBkoHSqdSCuB3Ih3ShnfvJ00nCvwhRvQ/F9+nc6dAi9hYFSvl0zR
-         YTCZKGzTz8fYx1at6SR14xy5A20wBqhZdry5mkT6/+hDWJ8FGNveiTYxdR3P829QIYMr
-         8dfhwKJOyLfncsiUX8IkLUr5/rA+xyh9pFDJZSlAXwozsQH3AGwNaBdnipqUsjVAP+0C
-         kA4rv1RYHVh4mlAFsLg5yZKrMzZj4GVe4FN4+y7yXwQ7Twdtf+NupdKTneW90rsNy1As
-         fB3BswVXolIrf8P9e2+7HddwZIFcjAicZCj1P4gdoQsx2Jvyg08OEEFwgMjS/uZfKLj3
-         Bdjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709160027; x=1709764827;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=l+UTQgqjeTeuB4joWxs/sUGJ8L/gPUO2H1zeCMeGlUc=;
-        b=krobklvqSV7RFmPfjq0JVaaVDLQsaJ9469vkbciSeziMOTPikZvJjdt86ZQd4ktsD2
-         yu1eH5pSz2vrzO+0JyStmxNGZXjqE8frGNPZvcKX0WGhH8m21JCdSh7gPiwr9PE6UD6P
-         LauuEB54eGcULGypoRgfdzijXOd+WBjE3S9g/0jhkRatkQtnQHkaoNSiJOpksVY6a//4
-         xeaY9YOKY8acebO7H2pQXEUTx643Munr/k3Wj3FQSZs3+86YCf7MukqLLoD4opNssIv5
-         7kcOwPnFn1q5fH1WD0n6l5oTJSvzfEvO8V1UDdhzSEa53OlhD2JoaCgb4na3NZCum3GW
-         UxRg==
-X-Forwarded-Encrypted: i=1; AJvYcCVmUaLaqYsM/Des4314JBaj2S8CCSgrzbvLVArVyktpa02CdOFbVKf3QWMCJykJ06Q7g+a0rDzm5Bg7fchofZ5HEDheqSkkr30YBKYjf/ai
-X-Gm-Message-State: AOJu0Yyi9eQ0zGoL2lAHjJQKApVvZ+SPwDf2AVKvBwlFvtHDDbvL9t2N
-	NagxhFDjXJYDLQdXVh+TP+MeTl4h/LML84NAR7Areyw/DQufdH9bOosG7yTmj6VxKRwZJsSF8V0
-	o7A==
-X-Google-Smtp-Source: AGHT+IFUPZtJnUkx4ZeqCTT90Ca+tWDsq48kFwktE+9CygIbxZw4LB/eimUqGjDzbeY7BpvlpduVfE/E17k=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:abc2:0:b0:dc7:48ce:d17f with SMTP id
- v60-20020a25abc2000000b00dc748ced17fmr140494ybi.10.1709160027352; Wed, 28 Feb
- 2024 14:40:27 -0800 (PST)
-Date: Wed, 28 Feb 2024 14:40:20 -0800
-In-Reply-To: <170900037528.3692126.18029642068469384283.b4-ty@google.com>
-Mime-Version: 1.0
-References: <20240223004258.3104051-1-seanjc@google.com> <170900037528.3692126.18029642068469384283.b4-ty@google.com>
-Message-ID: <Zd-2VK2kvMr_t1jx@google.com>
-Subject: Re: [PATCH v9 00/11] KVM: selftests: Add SEV and SEV-ES smoke tests
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Andrew Jones <andrew.jones@linux.dev>, Tom Lendacky <thomas.lendacky@amd.com>, 
-	Michael Roth <michael.roth@amd.com>, Carlos Bilbao <carlos.bilbao@amd.com>, 
-	Peter Gonda <pgonda@google.com>, Itaru Kitayama <itaru.kitayama@fujitsu.com>
+	Wed, 28 Feb 2024 23:32:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 78172CE12B8;
+	Wed, 28 Feb 2024 23:32:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E037BC433C7;
+	Wed, 28 Feb 2024 23:32:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1709163170;
+	bh=qg4EozW7EL64gvikm5/4LJs+LZV9Wa0bJNmbBrHGl/E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VeTWy+Dk3JGddAaCS2DnxpTwVNYuKnoV4dwTDdC3r3yWx6IZ1UGc7A9oe3gYKCkdi
+	 oJU+aYN6HO2vElDYevRCxS7WbwZ1KQ+1pDAzBGQOzNI2m2Yl+WAoGbOZhkmyPCcP7O
+	 po95UzFBxDTV1cY7+35E08ReOuK29hl+iCw91RVSIMjqpGhAL/5ANell0Y7w3/cBm4
+	 WpsnyCX4F3yC0qrTLhT7giqkAXt27WxujMDyqvioytwjOZZyoxeA+gQ2ozNDqlxvO3
+	 xDg3+9JBppaBGhsNqtDIjLB+91mTckjTGjZ859ATz11XNPYxD43Zg9GC6MN8Ccb/r3
+	 1Mnhe1sNMy5lA==
+Date: Wed, 28 Feb 2024 23:32:47 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org, andy.chiu@sifive.com
+Subject: Re: vector status when vlen doesn't match
+Message-ID: <20240228-durably-anymore-19d6c7d79f43@spud>
+References: <20240228-vicinity-cornstalk-4b8eb5fe5730@spud>
+ <mhng-5f6c5913-f2a0-4a04-9904-fc360cab91c5@palmer-ri-x1c9a>
+MIME-Version: 1.0
+In-Reply-To: <mhng-5f6c5913-f2a0-4a04-9904-fc360cab91c5@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_144029_054327_4609A138 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20240228_153253_535600_4E84D47E 
+X-CRM114-Status: GOOD (  55.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,80 +66,168 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4517731943358082653=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 26, 2024, Sean Christopherson wrote:
-> On Thu, 22 Feb 2024 16:42:47 -0800, Sean Christopherson wrote:
-> > Add basic SEV and SEV-ES smoke tests.  Unlike the intra-host migration tests,
-> > this one actually runs a small chunk of code in the guest.
-> > 
-> > Unless anyone strongly objects to the quick and dirty approach I've taken for
-> > SEV-ES, I'll get all of this queued for 6.9 soon-ish.
-> > 
-> > As for _why_ I added the quick-and-dirty SEV-ES testcase, I have a series to
-> > cleanup __svm_sev_es_vcpu_run(), and found out that apparently I have a version
-> > of OVMF that doesn't quite have to the right <something> for SEV-ES, and so I
-> > could even get a "real" VM to reach KVM_RUN.  I assumed (correctly, yay!) that
-> > hacking together a selftest would be faster than figuring out what firmware
-> > magic I am missing.
-> > 
-> > [...]
-> 
-> Applied to kvm-x86 selftests, thanks!
-> 
-> [01/11] KVM: selftests: Extend VM creation's @shape to allow control of VM subtype
->         https://github.com/kvm-x86/linux/commit/309d1ad7b6ff
-> [02/11] KVM: selftests: Make sparsebit structs const where appropriate
->         https://github.com/kvm-x86/linux/commit/6077c3ce4021
-> [03/11] KVM: selftests: Add a macro to iterate over a sparsebit range
->         https://github.com/kvm-x86/linux/commit/8811565ff68e
-> [04/11] KVM: selftests: Add support for allocating/managing protected guest memory
->         https://github.com/kvm-x86/linux/commit/29e749e8faff
-> [05/11] KVM: selftests: Add support for protected vm_vaddr_* allocations
->         https://github.com/kvm-x86/linux/commit/1e3af7cf984a
-> [06/11] KVM: selftests: Explicitly ucall pool from shared memory
->         https://github.com/kvm-x86/linux/commit/5ef7196273b6
-> [07/11] KVM: selftests: Allow tagging protected memory in guest page tables
->         https://github.com/kvm-x86/linux/commit/a8446cd81de8
-> [08/11] KVM: selftests: Add library for creating and interacting with SEV guests
->         https://github.com/kvm-x86/linux/commit/f3ff1e9b2f9c
-> [09/11] KVM: selftests: Use the SEV library APIs in the intra-host migration test
->         https://github.com/kvm-x86/linux/commit/0837ddb51f9b
-> [10/11] KVM: selftests: Add a basic SEV smoke test
->         https://github.com/kvm-x86/linux/commit/5101f1e27683
-> [11/11] KVM: selftests: Add a basic SEV-ES smoke test
->         https://github.com/kvm-x86/linux/commit/f3750b0c7f6e
 
-FYI, the hashes changed due to a force push to squash a bug in a different
-series.
+--===============4517731943358082653==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="gBXhnTvGdFfNlZO1"
+Content-Disposition: inline
 
-[1/11] KVM: selftests: Extend VM creation's @shape to allow control of VM subtype
-      https://github.com/kvm-x86/linux/commit/126190379c57
-[2/11] KVM: selftests: Make sparsebit structs const where appropriate
-      https://github.com/kvm-x86/linux/commit/35f50c91c43e
-[3/11] KVM: selftests: Add a macro to iterate over a sparsebit range
-      https://github.com/kvm-x86/linux/commit/57e19f057758
-[4/11] KVM: selftests: Add support for allocating/managing protected guest memory
-      https://github.com/kvm-x86/linux/commit/cd8eb2913205
-[5/11] KVM: selftests: Add support for protected vm_vaddr_* allocations
-      https://github.com/kvm-x86/linux/commit/d210eebb51a2
-[6/11] KVM: selftests: Explicitly ucall pool from shared memory
-      https://github.com/kvm-x86/linux/commit/31e00dae72fd
-[7/11] KVM: selftests: Allow tagging protected memory in guest page tables
-      https://github.com/kvm-x86/linux/commit/bf47e87c65be
-[8/11] KVM: selftests: Add library for creating and interacting with SEV guests
-      https://github.com/kvm-x86/linux/commit/bdceeebcddb8
-[9/11] KVM: selftests: Use the SEV library APIs in the intra-host migration test
-      https://github.com/kvm-x86/linux/commit/8b174eb9d289
-[10/11] KVM: selftests: Add a basic SEV smoke test
-      https://github.com/kvm-x86/linux/commit/faa0d7027de3
-[11/11] KVM: selftests: Add a basic SEV-ES smoke test
-      https://github.com/kvm-x86/linux/commit/974ba6f0e595
+
+--gBXhnTvGdFfNlZO1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Feb 28, 2024 at 01:56:51PM -0800, Palmer Dabbelt wrote:
+> On Wed, 28 Feb 2024 08:02:47 PST (-0800), Conor Dooley wrote:
+> > Yo Andy,
+> >=20
+> > I was wondering if you could clarify something that came up today on
+> > IRC.
+> >=20
+> > When we enable vector we check vlenb and if it doesn't match the kernel
+> > is suppose to not support vector. We do this in a few places, the first
+> > is in riscv_fill_hwcap():
+> >=20
+> > 	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
+> > 		riscv_v_setup_vsize();
+> > 		/*
+> > 		 * ISA string in device tree might have 'v' flag, but
+> > 		 * CONFIG_RISCV_ISA_V is disabled in kernel.
+> > 		 * Clear V flag in elf_hwcap if CONFIG_RISCV_ISA_V is disabled.
+> > 		 */
+> > 		if (!IS_ENABLED(CONFIG_RISCV_ISA_V))
+> > 			elf_hwcap &=3D ~COMPAT_HWCAP_ISA_V;
+> > 	}
+> >=20
+> > Why does this riscv_v_setup_vsize() failing have no impact? Because this
+> > is called only once on the boot CPU, right? I feel like it deserves a
+> > comment as to why.
+>=20
+> Unless I'm missing something, that first call can't fail: there's no
+> previous riscv_v_size set, so there's nothing to trigger the failure.
+>=20
+> Might warrant a comment, though...
+
+Yeah. I did write (or maybe moreso remodel) that function so I know it
+only gets called on the boot CPU, I was just pointing out what is not
+immediately obvious about that particular callsite.
+
+> > But the main thing I was wondering about was the other time it is calle=
+d,
+> > in smp_callin():
+> > 	if (has_vector()) {
+> > 		if (riscv_v_setup_vsize())
+> > 			elf_hwcap &=3D ~COMPAT_HWCAP_ISA_V;
+> > 	}
+> >=20
+> > If this fails, we clear the HWCAP bit, but I am not immediately grasping
+> > how this affects the rest of the kernel.
+>=20
+> I think it's actually a bug: we're not clearing the bit in riscv_isa, so
+> this only ends up disabling the V bit in AT_HWCAP and thus doesn't do
+> anything in the kernel.
+
+Yeah, that's what I was getting at - I could not see how disabling it in
+hwcap would make a difference either in the kernel or in hwprobe. I was
+not sure if I was missing something in terms of the
+userspace-using-vector side of things, but I was pretty sure that
+hwprobe and in-kernel vector had this bug.
+
+> > has_vector() just checks if the extension is supported by all cores on
+> > the cpu using either an alternative or the extension support bitmap.
+> > There are lots of sites in the kernel that use has_vector() as the
+> > gating check (as far as I can tell), so if vlen does not match between
+> > CPUs should we not be returning an error for has_vector()?
+> >=20
+> > The alternative that has_vector() relies on is patched before the non-b=
+oot
+> > CPUs are enabled, so we cannot modify the result once the non-boot CPUs
+> > are in their callin functions and detect a vlen mismatch while at at the
+> > same time using it in smp_calling(), so should this code be changed to
+> > something along the lines of:
+> >=20
+> > 	if (riscv_has_extension_unlikely(v)) {
+> > 		if (riscv_v_setup_vsize()) {
+> > 			elf_hwcap &=3D ~COMPAT_HWCAP_ISA_V;
+> > 			riscv_v_vlen_mismatch =3D true;
+> > 		}
+> > 	}
+> > and then has_vector() becomes something like
+> > static __always_inline bool has_vector(void)
+> > {
+> > 	return riscv_has_extension_unlikely(RISCV_ISA_EXT_v) && unlikely(riscv=
+_v_vlen_mismatch);
+> > }
+> >=20
+> > Probably there's value to be gained in static branches etc here, but I
+> > was just trying to explain what I was getting at. Maybe I am missing
+> > something though? I do remember talking about this back when the vector
+> > patches were still in review.
+>=20
+> I actually don't think that alone fixes it: even if we make has_vector()
+> respect the changes from the new CPU (whether we re-apply the alternatives
+> or make a more dynamic check), we'd need to make sure the code that has
+> already looked at has_vector() doesn't get scheduled on one of the
+> shorter-VLENB CPUs.
+
+Is it possible to have that happen given this is in smp_callin()?
+I guess the concern is some sort of hotplug situations, given that a CPU
+could be hotplugged into a fully running system with a vlen mismatch.
+
+> So maybe the right answer here is to flip things around, and just refuse =
+to
+> enable CPUs that come in with a VLENB different than the boot CPU?  That =
+way
+> we could avoid being broken by systems that behave this way,
+
+smp_callin() doesn't return an error to report a failure, but it does
+have a completion. I suppose we would just return early from
+smp_callin() so that the completion never gets completed, in turn
+causing __cpu_up() to fail?
+
+> if someone ends
+> up building one then they can figure out how to make it work better.
+
+Apparently the next gen sophgo product does. Not sure if people will wnt
+to run across all the cores though, apparently they different by a lot
+more than vlen.
+A DT property would allow us to get the vlen info before the CPUs have
+themselves been brought up. Apparently there are Zvl extensions for
+this, but I'd rather just have a property like we have for the cbo
+sizes if it comes to DT properties.
+
+Cheers,
+Conor.
+
+--gBXhnTvGdFfNlZO1
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd/CnwAKCRB4tDGHoIJi
+0vs6AP47dUMLPnnTFeCtKzm8MISBIQRYiByxBvhyL36MAJwS8wD+PJwUxJW35WHH
+YuWgaESWoYmOzx+as0mYKkFA2p7l0gQ=
+=XZvC
+-----END PGP SIGNATURE-----
+
+--gBXhnTvGdFfNlZO1--
+
+
+--===============4517731943358082653==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4517731943358082653==--
+
