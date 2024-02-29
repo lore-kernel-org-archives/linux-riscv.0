@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B9DAC54798
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 20:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 452BCC48BF6
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 20:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JCPsDu+uoPxN/Mm/0cbYHSLRc1Sz2PkPrUWCpOkBtEY=; b=JhLDvqqnfmGiW4
-	7G8NdgEaIKTWitCk0SDUrWswaugK+8xOZ/7BuQmGHeM0I6bWYTxiJIomeiL0v14RiMkS3OpOSVuxB
-	ZkSzKa1voFgbq1HIzvdfuLbzMY6wkYbivm48umCQquKPkwi/OgFKwiJZc2hf+Ic8jfk6mzfUH34RL
-	5aedqSAPNOXgXES6doHfH7wik6wWwgM9zhwqZ06zvALNmSn0XfDZCqw0iwTsDH9X8lbiD7I0M/0VX
-	BT5jnhQQ1D0r73ZwimpsK8CrcpRemk7y+p2+UWRgD5rYp20UqTqW657BgEPT8gPSZAmYlgCPBzsKP
-	znu7lO9tIOYEIeiEKVYw==;
+	List-Owner; bh=4iaDs6BJay6zCu/Dd2xNJZP1iNFtJFicAtW4Nd2LJIA=; b=WXDs3lju8gRlYl
+	gwOcnjLN3OZIhjtfUtknleXf1lOOH+LxK/rbgTjPIu7srxmnilXtOQyO5nouLvGjuVkOaVPBjKJyS
+	Z1cyLckIEqQieqc5W1s/FlKtwYxiPJfRF7kYv437WkDI7KPvL/qEuMzqqH50mXGBv5H6nYER8LOGb
+	mtRd3D9qrm5LW3b2OXBjiMzbsOaE9Eh4UKaWxOyjUe4H7yghFjGgazbJu62eaEALvYHLUmGMC4sxD
+	45dnUIgsIDIJOMmMbil8Uom/uUPKpRlNw2F6iYTG/kul/DjdZ9biNTYbqfRAMxVykkcu5jy1JIxEJ
+	M+JZSAvY+GQ9JdPJTYvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfnDQ-0000000F7ty-2aHr;
-	Thu, 29 Feb 2024 20:41:16 +0000
+	id 1rfnDz-0000000F8E7-0sgf;
+	Thu, 29 Feb 2024 20:41:51 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfnCw-0000000F7e7-1sQq
+	id 1rfnDN-0000000F7sB-1HvS
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 20:40:49 +0000
+	Thu, 29 Feb 2024 20:41:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E93E1612B4;
-	Thu, 29 Feb 2024 20:40:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 022D6C433F1;
-	Thu, 29 Feb 2024 20:40:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B48F56133B;
+	Thu, 29 Feb 2024 20:41:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBCEDC433F1;
+	Thu, 29 Feb 2024 20:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709239245;
-	bh=T/akRPi5ao0d12BmCz3WEgH+FPHY9KHNebOOEFBHkBM=;
+	s=k20201202; t=1709239272;
+	bh=lDJ/WcAUElCfR9BHJ0p9gKCvoLwlAhMexx0r5bWWcn4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EFQol4sVU2+K8g+pqLmbEc0eSBftT1N/OQVdjBoQHD8OUWSy3KNVThXj4t/Iar+dY
-	 lm9MvfkkypkxUdm7mJhSPsI6a3MF7ptGoteFFCSoVnJ57YudlGN72MVVItxStLqyen
-	 JBzdEeKE8B29IiMX+tYc5RE8KzhCLf9i1Ctnr8s/1ItScvVHX2YPb+cgnjfWUpWKHg
-	 +v+0kJaLIshKRyNcIEkuo56DoXTegBIJOm0kxd18v/Q3+II7V5V/4eF9rzlTqX/D/5
-	 1C9f8lq8+bGSAeIyvt1lnvQgk2GmiEJ18wpwG7f6WAY9V80tirZJrP5pB0avoNTI5M
-	 +F/nWzJ5crBBg==
+	b=D+zI7BpjWt3bAu2rSQ7RpMZvdJy7NEVKnrX+TSI4Y33jGY1jcDc780CPRWXe9Pu1F
+	 9Wr5IUX1EnyrbfW/m7ILptwomULiLpAx82alljWVxHW6Q7BsQ1MFg7FRugaP8tOAW8
+	 GEh9I7DVwLYo8oA2tR1q+VBbGUMm/jo8ExJUO9L7AItXtGcOR6BrIc0Nu7LucLenqj
+	 +kPA/pLF2Na58sEGOKUzoQuLQ1VpuGSpSzZIQZKjHI3lAqx3Y5N/6o18EqKMefjUq1
+	 nlfDnYRJbMEp8d14Wcs/oVGavmcxXey5aSdHxfMzBXI9i9E730nPmVUF9JnMibzdqJ
+	 FANIzg1suIcDg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Sasha Levin <sashal@kernel.org>,
-	conor@kernel.org,
 	robh+dt@kernel.org,
 	krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com,
+	conor+dt@kernel.org,
 	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.1 04/12] riscv: dts: sifive: add missing #interrupt-cells to pmic
-Date: Thu, 29 Feb 2024 15:40:26 -0500
-Message-ID: <20240229204039.2861519-4-sashal@kernel.org>
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.15 3/9] riscv: dts: sifive: add missing #interrupt-cells to pmic
+Date: Thu, 29 Feb 2024 15:40:59 -0500
+Message-ID: <20240229204107.2861780-3-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240229204039.2861519-1-sashal@kernel.org>
-References: <20240229204039.2861519-1-sashal@kernel.org>
+In-Reply-To: <20240229204107.2861780-1-sashal@kernel.org>
+References: <20240229204107.2861780-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.79
+X-stable-base: Linux 5.15.149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_124048_451394_D8C4C4CD 
-X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-CacheID: sfid-20240229_124113_653052_23A4AFAA 
+X-CRM114-Status: UNSURE (   7.18  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,17 +103,17 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 1 insertion(+)
 
 diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-index 07387f9c135ca..72b87b08ab444 100644
+index b40990210fb50..3c621f31b5fd2 100644
 --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
 +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-@@ -123,6 +123,7 @@ pmic@58 {
+@@ -70,6 +70,7 @@ pmic@58 {
  		interrupt-parent = <&gpio>;
  		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
  		interrupt-controller;
 +		#interrupt-cells = <2>;
  
- 		onkey {
- 			compatible = "dlg,da9063-onkey";
+ 		regulators {
+ 			vdd_bcore1: bcore1 {
 -- 
 2.43.0
 
