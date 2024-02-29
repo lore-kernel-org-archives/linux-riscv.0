@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D15C54E55
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 23:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E804C48BF6
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 23:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UNOyvpC7hg+dXhVvY+5DnwKC4yiOvXAAI+NWZeUu6qg=; b=R9FXlZq+lHrUeS
-	iUSwWX19CLaZCYVQMPxDsxZZoOAHEdb5E5DTs8VOrAdfv9AIW7WKl2RUgHhJL7IUU+pIhnH6eQf5M
-	e8zdyWqTIyWcKny2b0aDEchzJFNT40IpwgYfpJxzRGj08hk58MCBKpiPKxUoS8RXFxiJGIzHD5Y12
-	Co944eH48DRVYamuNYx96QK0d4W9Ymj6TJnzBU6hDi3jCaLrNBAW4/bi4hnlvtbqOEv2Nn9eslI++
-	u42+rUslJK5BSvAWyBOLy28HtPC9fyaPI1SPRR9CNj+QbG9LnSjhp41MHkvT6/Oj/TI+QNU2XXkQ9
-	e49Oe2yso0aL3FO4U/WQ==;
+	List-Owner; bh=qbD4tVatc4PnGqA+eQ5vWYpT5pSILCuLHSi1E8AV81s=; b=tpGqBakf9/LMS1
+	mI/axY6v8Q0cCkf1mJGEC5WokUCwv5pcdZ+2emnjjwL9tE8i9d2t7yPamdCeQRbEyEm6KBbERwmjF
+	wvDzG/Dl49AFjaqjjlkAxGQPazVupQwxdidDSiGUhXM9XykrYEU9CeRyZHztW+sATIs5eM8+px7FG
+	2A8ZKh2xULwwrAJpC0VoRjXk8k6S9+pxHacXx5umX16yaZJ0jCKdATIFMTYCu7hZQVBn21d/YFX+S
+	BU/lD3Jc0Co6hFj1LDjybEBWaS6FIZHWLV2n2uoqtfCrRqxD2qtjnauc/qIk+Hz9Z3K20Zu18l2yK
+	wCXXNdbeSSqTmZ/bs1ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfpjT-0000000Fa35-2Mqh;
-	Thu, 29 Feb 2024 23:22:31 +0000
-Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
+	id 1rfpjV-0000000Fa52-2di1;
+	Thu, 29 Feb 2024 23:22:33 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfpjF-0000000FZtX-1sPs
+	id 1rfpjF-0000000FZuD-3oPX
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 23:22:19 +0000
-Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-3651c1e1022so7353655ab.0
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 15:22:16 -0800 (PST)
+	Thu, 29 Feb 2024 23:22:20 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6e56d594b31so866172b3a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 15:22:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1709248936; x=1709853736; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1709248937; x=1709853737; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nL3CU8jW9vVfZeENVgIQs2Z0lmYtCUXWU5kIlhxMA+M=;
-        b=Sk7Q4/E/9St2uAKEv0/9KU194sx4KeqdiV1g70Jy8MPaH/3TMR/nKyh/UkXt/355JQ
-         5DkLt6VSBf6WTiRqcLGE/7mR4QImABgebOEXyA0PjHa6kCa0LKGFCwDjZqw10WrAky/y
-         6/oS1FM4SwnBUiQELkdF4J3VK8iTK1fw7rjGaZOcJa6TL3zzUVQ1fRkrRxMi5BB9NNaw
-         RL+TeZ6YEnQGO/kYzK8cZqkbywEYThWJ5pDG3o2pd668H7rtNge7+AMcFAAusfHho+rG
-         tiDCU73z607jxiPSZkZfwAHYYqssCNY5SpVSnZg7+3cdg+9v2SEJ9wnX/r9pGXFZx6xv
-         kIGQ==
+        bh=1/3iO4NfkALka4Buc8Img0QDYdUTnf5/4SNG0fcN5rQ=;
+        b=QD2HWwR1SuyjA5OJpKwB/3yeT2K8TVIkR7tuXfTrdkhMMR++uN3UhXIQeR1PDsD8EU
+         NauFD2IL7t+6qn9KQw4MddRMx19jx5mXzNvek2Y+cZbQzAr1vvGT5gkrdBXl5VKwlpiE
+         XHqyjrnXq9WAMrBIR0JvxygqgZtXROL1g5ZllyREnO9h9ufVrLAVbGVXTzUVj/qUPgkn
+         qt5ZA2Zeq7C09ZU/C/Y4EMFgpYhOrLNkyAtOY3M3e6DFkIPiIf3JDQG2sAy58bejbZzI
+         zDbie1J4h00IsvdEwKUBaV3zqIAoRdpQw8TKJrnHWN1J9U0TNL+LAoxNJLbNSBzxED6y
+         ZXwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709248936; x=1709853736;
+        d=1e100.net; s=20230601; t=1709248937; x=1709853737;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=nL3CU8jW9vVfZeENVgIQs2Z0lmYtCUXWU5kIlhxMA+M=;
-        b=NVPH+EglpoxnUeELIvZOFgY3HLzDLKl7pVUmfm2jXPCdsgYyqVys/O1u991dchvz6J
-         xBEGVOPlFPlU5uZPE7bFTBzlotz+W/KltzJB2GMZkDCcCLQYjqizCdlRO9hI36JamfTs
-         dDPkpaj8MOD9kaB0j3U/gdDVlvMgDulSl+8bcs2g50fjt4GAJqnwYS8Gswr2FvbwbuCU
-         N3yKBPFcNXqujSOnQM+dMx6Jcl9Ecq292krzZaatkWu8QzZgT5b45tX8Y3DmqLQmMzWf
-         1OMEmpt70tKTI/gkrw0ysm+62XKbeTHFxgQu7x3/PbCzluezD0ZDXQFd013i0aWldh1b
-         9onw==
-X-Forwarded-Encrypted: i=1; AJvYcCWIMbLw1R7NIAp8zO+V3bUYDqymH176N0/StOnbBOaT6dL2wUubWZK7foVhT+CXPdnqZoiYMDCovpkqAVoJkcAedN8xGFot0j1y7UEI/7vb
-X-Gm-Message-State: AOJu0YwZ6dTlsq4yl/t1GbNF1qU57JGQRhn+SaCyr+k9khRSRuB4dKWU
-	7GmtvEjeDVpL3vWUP8iQHtDelpmPh/6RSE+cEqpF12evfaXg7Tk9neHX2jdj+KU=
-X-Google-Smtp-Source: AGHT+IEuQOuQ50R8qoZP0RbIoJTNSdVCKrs4lRWLzJ+znFdHc+eSLoYj/Ypw4BmFNiQ++vK2RkPm8w==
-X-Received: by 2002:a05:6e02:1b8f:b0:365:ae26:5827 with SMTP id h15-20020a056e021b8f00b00365ae265827mr159548ili.5.1709248936255;
-        Thu, 29 Feb 2024 15:22:16 -0800 (PST)
+        bh=1/3iO4NfkALka4Buc8Img0QDYdUTnf5/4SNG0fcN5rQ=;
+        b=BsIF2xA7faTGUESgOItf/BGVWvo8JQ0auEYdb5pC+hKeNSPPqWMCnfRON2WbHdPihb
+         6ouHYKqj+RkX8G9VZlQtPyAynrJJ/j71QnRVKbFFh1Tuxh1jJJa4FSG3qputbTj2bjRq
+         B1zC66c2Kydv3vs0pPUlLZJHKgFPyUG5edLCLq8N8AXFwoMLvdf5ynf6aevmgWXv4Llw
+         hRgCunMawdB6EwUYFf2A4102ZmN3Xp9ImLBOEG35GawJU/kZFJKa1AEHPZMM6X2nvlp2
+         A7xaWMN7kAhxfm3bLAcctOkmqdc5Ssm+ZL6XR9UqURpXk7bqNJbwL43m3juknst6M/TQ
+         8W0g==
+X-Forwarded-Encrypted: i=1; AJvYcCVTQRh6EwxssRdg72Ca27vPRHD7lhdUwZaou9Q81OopyVL5al+SgmilBwcTjy8+5r0IPTxhQZgzZYBRLEcX3IXwUJrgtsX9cfA84V7xPzFY
+X-Gm-Message-State: AOJu0YyGf1KK8wOz4YU5a99UnfheSQpN1nX+1yZlTMJisMW8LmrT4Qs0
+	6devKXB25I1vDeAoh/As4utVds43NorLXzB4eLzLlgzj+ZVXpNRQ76Seii4fmC4=
+X-Google-Smtp-Source: AGHT+IHEWuHXVZ/LoNCuQjq9ikFwqlpYM8ivEnjNJqMVh5lQ2hbDE0NnP51hssPDjMbEUOy86+sdSg==
+X-Received: by 2002:a05:6a00:14cf:b0:6e5:a996:5201 with SMTP id w15-20020a056a0014cf00b006e5a9965201mr172471pfu.10.1709248937282;
+        Thu, 29 Feb 2024 15:22:17 -0800 (PST)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id c6-20020aa78806000000b006e55aa75d6csm1779719pfo.122.2024.02.29.15.22.15
+        by smtp.gmail.com with ESMTPSA id c6-20020aa78806000000b006e55aa75d6csm1779719pfo.122.2024.02.29.15.22.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Feb 2024 15:22:15 -0800 (PST)
+        Thu, 29 Feb 2024 15:22:16 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
@@ -72,16 +72,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Jisheng Zhang <jszhang@kernel.org>,
 	Yunhui Cui <cuiyunhui@bytedance.com>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v5 03/13] riscv: Use IPIs for remote cache/TLB flushes by default
-Date: Thu, 29 Feb 2024 15:21:44 -0800
-Message-ID: <20240229232211.161961-4-samuel.holland@sifive.com>
+Subject: [PATCH v5 04/13] riscv: mm: Broadcast kernel TLB flushes only when needed
+Date: Thu, 29 Feb 2024 15:21:45 -0800
+Message-ID: <20240229232211.161961-5-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.43.1
 In-Reply-To: <20240229232211.161961-1-samuel.holland@sifive.com>
 References: <20240229232211.161961-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_152217_590776_299CE4E8 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20240229_152218_044986_642677E2 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,278 +98,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-An IPI backend is always required in an SMP configuration, but an SBI
-implementation is not. For example, SBI will be unavailable when the
-kernel runs in M mode.
+__flush_tlb_range() avoids broadcasting TLB flushes when an mm context
+is only active on the local CPU. Apply this same optimization to TLB
+flushes of kernel memory when only one CPU is online. This check can be
+constant-folded when SMP is disabled.
 
-Generally, IPIs are assumed to be faster than SBI calls due to the SBI
-context switch overhead. However, when SBI is used as the IPI backend,
-then the context switch cost must be paid anyway, and performing the
-cache/TLB flush directly in the SBI implementation is more efficient
-than inserting an interrupt to the kernel. This is the only scenario
-where riscv_ipi_set_virq_range()'s use_for_rfence parameter is false.
-
-Thus, it makes sense for remote fences to use IPIs by default, and make
-the SBI remote fence extension the special case.
-
-sbi_ipi_init() already checks riscv_ipi_have_virq_range(), so it only
-calls riscv_ipi_set_virq_range() when no other IPI device is available.
-So we can move the static key and drop the use_for_rfence parameter.
-
-Furthermore, the static branch only makes sense when CONFIG_RISCV_SBI is
-enabled. Optherwise, IPIs must be used. Add a fallback definition of
-riscv_use_sbi_for_rfence() which handles this case and removes the need
-to check CONFIG_RISCV_SBI elsewhere, such as in cacheflush.c.
-
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-Changes in v5:
- - Also switch to riscv_use_sbi_for_rfence() in asm/pgalloc.h
+(no changes since v4)
 
 Changes in v4:
  - New patch for v4
 
- arch/riscv/include/asm/pgalloc.h  |  7 ++++---
- arch/riscv/include/asm/sbi.h      |  4 ++++
- arch/riscv/include/asm/smp.h      | 15 ++-------------
- arch/riscv/kernel/sbi-ipi.c       | 11 ++++++++++-
- arch/riscv/kernel/smp.c           | 11 +----------
- arch/riscv/mm/cacheflush.c        |  5 ++---
- arch/riscv/mm/tlbflush.c          | 31 ++++++++++++++-----------------
- drivers/clocksource/timer-clint.c |  2 +-
- 8 files changed, 38 insertions(+), 48 deletions(-)
+ arch/riscv/mm/tlbflush.c | 18 +++++-------------
+ 1 file changed, 5 insertions(+), 13 deletions(-)
 
-diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
-index 87468f67951a..6578054977ef 100644
---- a/arch/riscv/include/asm/pgalloc.h
-+++ b/arch/riscv/include/asm/pgalloc.h
-@@ -8,6 +8,7 @@
- #define _ASM_RISCV_PGALLOC_H
- 
- #include <linux/mm.h>
-+#include <asm/sbi.h>
- #include <asm/tlb.h>
- 
- #ifdef CONFIG_MMU
-@@ -90,10 +91,10 @@ static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
- 
- static inline void riscv_tlb_remove_ptdesc(struct mmu_gather *tlb, void *pt)
- {
--	if (riscv_use_ipi_for_rfence())
--		tlb_remove_page_ptdesc(tlb, pt);
--	else
-+	if (riscv_use_sbi_for_rfence())
- 		tlb_remove_ptdesc(tlb, pt);
-+	else
-+		tlb_remove_page_ptdesc(tlb, pt);
- }
- 
- #define pud_free pud_free
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 6e68f8dff76b..ea84392ca9d7 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -375,8 +375,12 @@ unsigned long riscv_cached_marchid(unsigned int cpu_id);
- unsigned long riscv_cached_mimpid(unsigned int cpu_id);
- 
- #if IS_ENABLED(CONFIG_SMP) && IS_ENABLED(CONFIG_RISCV_SBI)
-+DECLARE_STATIC_KEY_FALSE(riscv_sbi_for_rfence);
-+#define riscv_use_sbi_for_rfence() \
-+	static_branch_unlikely(&riscv_sbi_for_rfence)
- void sbi_ipi_init(void);
- #else
-+static inline bool riscv_use_sbi_for_rfence(void) { return false; }
- static inline void sbi_ipi_init(void) { }
- #endif
- 
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index 0d555847cde6..7ac80e9f2288 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -49,12 +49,7 @@ void riscv_ipi_disable(void);
- bool riscv_ipi_have_virq_range(void);
- 
- /* Set the IPI interrupt numbers for arch (called by irqchip drivers) */
--void riscv_ipi_set_virq_range(int virq, int nr, bool use_for_rfence);
--
--/* Check if we can use IPIs for remote FENCEs */
--DECLARE_STATIC_KEY_FALSE(riscv_ipi_for_rfence);
--#define riscv_use_ipi_for_rfence() \
--	static_branch_unlikely(&riscv_ipi_for_rfence)
-+void riscv_ipi_set_virq_range(int virq, int nr);
- 
- /* Check other CPUs stop or not */
- bool smp_crash_stop_failed(void);
-@@ -104,16 +99,10 @@ static inline bool riscv_ipi_have_virq_range(void)
- 	return false;
- }
- 
--static inline void riscv_ipi_set_virq_range(int virq, int nr,
--					    bool use_for_rfence)
-+static inline void riscv_ipi_set_virq_range(int virq, int nr)
- {
- }
- 
--static inline bool riscv_use_ipi_for_rfence(void)
--{
--	return false;
--}
--
- #endif /* CONFIG_SMP */
- 
- #if defined(CONFIG_HOTPLUG_CPU) && (CONFIG_SMP)
-diff --git a/arch/riscv/kernel/sbi-ipi.c b/arch/riscv/kernel/sbi-ipi.c
-index a4559695ce62..1026e22955cc 100644
---- a/arch/riscv/kernel/sbi-ipi.c
-+++ b/arch/riscv/kernel/sbi-ipi.c
-@@ -13,6 +13,9 @@
- #include <linux/irqdomain.h>
- #include <asm/sbi.h>
- 
-+DEFINE_STATIC_KEY_FALSE(riscv_sbi_for_rfence);
-+EXPORT_SYMBOL_GPL(riscv_sbi_for_rfence);
-+
- static int sbi_ipi_virq;
- 
- static void sbi_ipi_handle(struct irq_desc *desc)
-@@ -72,6 +75,12 @@ void __init sbi_ipi_init(void)
- 			  "irqchip/sbi-ipi:starting",
- 			  sbi_ipi_starting_cpu, NULL);
- 
--	riscv_ipi_set_virq_range(virq, BITS_PER_BYTE, false);
-+	riscv_ipi_set_virq_range(virq, BITS_PER_BYTE);
- 	pr_info("providing IPIs using SBI IPI extension\n");
-+
-+	/*
-+	 * Use the SBI remote fence extension to avoid
-+	 * the extra context switch needed to handle IPIs.
-+	 */
-+	static_branch_enable(&riscv_sbi_for_rfence);
- }
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 45dd4035416e..8e6eb64459af 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -171,10 +171,7 @@ bool riscv_ipi_have_virq_range(void)
- 	return (ipi_virq_base) ? true : false;
- }
- 
--DEFINE_STATIC_KEY_FALSE(riscv_ipi_for_rfence);
--EXPORT_SYMBOL_GPL(riscv_ipi_for_rfence);
--
--void riscv_ipi_set_virq_range(int virq, int nr, bool use_for_rfence)
-+void riscv_ipi_set_virq_range(int virq, int nr)
- {
- 	int i, err;
- 
-@@ -197,12 +194,6 @@ void riscv_ipi_set_virq_range(int virq, int nr, bool use_for_rfence)
- 
- 	/* Enabled IPIs for boot CPU immediately */
- 	riscv_ipi_enable();
--
--	/* Update RFENCE static key */
--	if (use_for_rfence)
--		static_branch_enable(&riscv_ipi_for_rfence);
--	else
--		static_branch_disable(&riscv_ipi_for_rfence);
- }
- 
- static const char * const ipi_names[] = {
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index 55a34f2020a8..47c485bc7df0 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -21,7 +21,7 @@ void flush_icache_all(void)
- {
- 	local_flush_icache_all();
- 
--	if (IS_ENABLED(CONFIG_RISCV_SBI) && !riscv_use_ipi_for_rfence())
-+	if (riscv_use_sbi_for_rfence())
- 		sbi_remote_fence_i(NULL);
- 	else
- 		on_each_cpu(ipi_remote_fence_i, NULL, 1);
-@@ -69,8 +69,7 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
- 		 * with flush_icache_deferred().
- 		 */
- 		smp_mb();
--	} else if (IS_ENABLED(CONFIG_RISCV_SBI) &&
--		   !riscv_use_ipi_for_rfence()) {
-+	} else if (riscv_use_sbi_for_rfence()) {
- 		sbi_remote_fence_i(&others);
- 	} else {
- 		on_each_cpu_mask(&others, ipi_remote_fence_i, NULL, 1);
 diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 8d12b26f5ac3..0373661bd1c4 100644
+index 0373661bd1c4..8cdb082f00ca 100644
 --- a/arch/riscv/mm/tlbflush.c
 +++ b/arch/riscv/mm/tlbflush.c
-@@ -78,10 +78,10 @@ static void __ipi_flush_tlb_all(void *info)
- 
- void flush_tlb_all(void)
- {
--	if (riscv_use_ipi_for_rfence())
--		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
--	else
-+	if (riscv_use_sbi_for_rfence())
- 		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
-+	else
-+		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
- }
- 
- struct flush_tlb_range_data {
-@@ -102,7 +102,6 @@ static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
+@@ -102,22 +102,15 @@ static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
  			      unsigned long start, unsigned long size,
  			      unsigned long stride)
  {
--	struct flush_tlb_range_data ftd;
- 	bool broadcast;
+-	bool broadcast;
++	unsigned int cpu;
  
  	if (cpumask_empty(cmask))
-@@ -118,20 +117,18 @@ static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
- 		broadcast = true;
- 	}
+ 		return;
  
--	if (broadcast) {
--		if (riscv_use_ipi_for_rfence()) {
--			ftd.asid = asid;
--			ftd.start = start;
--			ftd.size = size;
--			ftd.stride = stride;
--			on_each_cpu_mask(cmask,
--					 __ipi_flush_tlb_range_asid,
--					 &ftd, 1);
--		} else
--			sbi_remote_sfence_vma_asid(cmask,
--						   start, size, asid);
+-	if (cmask != cpu_online_mask) {
+-		unsigned int cpuid;
++	cpu = get_cpu();
+ 
+-		cpuid = get_cpu();
+-		/* check if the tlbflush needs to be sent to other CPUs */
+-		broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
 -	} else {
-+	if (!broadcast) {
+-		broadcast = true;
+-	}
+-
+-	if (!broadcast) {
++	/* Check if the TLB flush needs to be sent to other CPUs. */
++	if (cpumask_any_but(cmask, cpu) >= nr_cpu_ids) {
  		local_flush_tlb_range_asid(start, size, stride, asid);
-+	} else if (riscv_use_sbi_for_rfence()) {
-+		sbi_remote_sfence_vma_asid(cmask, start, size, asid);
-+	} else {
-+		struct flush_tlb_range_data ftd;
-+
-+		ftd.asid = asid;
-+		ftd.start = start;
-+		ftd.size = size;
-+		ftd.stride = stride;
-+		on_each_cpu_mask(cmask, __ipi_flush_tlb_range_asid, &ftd, 1);
+ 	} else if (riscv_use_sbi_for_rfence()) {
+ 		sbi_remote_sfence_vma_asid(cmask, start, size, asid);
+@@ -131,8 +124,7 @@ static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
+ 		on_each_cpu_mask(cmask, __ipi_flush_tlb_range_asid, &ftd, 1);
  	}
  
- 	if (cmask != cpu_online_mask)
-diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
-index 09fd292eb83d..0bdd9d7ec545 100644
---- a/drivers/clocksource/timer-clint.c
-+++ b/drivers/clocksource/timer-clint.c
-@@ -251,7 +251,7 @@ static int __init clint_timer_init_dt(struct device_node *np)
- 	}
+-	if (cmask != cpu_online_mask)
+-		put_cpu();
++	put_cpu();
+ }
  
- 	irq_set_chained_handler(clint_ipi_irq, clint_ipi_interrupt);
--	riscv_ipi_set_virq_range(rc, BITS_PER_BYTE, true);
-+	riscv_ipi_set_virq_range(rc, BITS_PER_BYTE);
- 	clint_clear_ipi();
- #endif
- 
+ static inline unsigned long get_mm_asid(struct mm_struct *mm)
 -- 
 2.43.1
 
