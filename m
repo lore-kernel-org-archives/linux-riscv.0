@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB79C54798
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 10:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10B15C54798
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 10:12:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H+PqrF8mTTyjeZ7cHdJbwnL1yiI9pRzonSYS6cN6ubg=; b=utUUFKrNPHocYR
-	52cHCacBWN6gFJG54iHF9cG+O0BXn3IL6vNzvQPv7FFTUCA4JyxbMxUFBIMOZGK51PkfhnpFHahK1
-	QIB4MBYdZXUfD/dVtr5YHa9mrSmi8R2/Q8pj7CVu4oUBxCVAZPxr6DmuADMHKoYSgqgpZfNFj6rfe
-	jkUt36kyl48PyWljjrmuZ7nixYUvcW06ub4cTGEhi79S5Kp82SeyRhUxd81KUkns2IMrCVPDn5Aon
-	F/Sd2efpq3xqXqKb1+WivsCNHGlyHLv7tnO0Y+pFBBBd1A9tFeinHT19k6C6x3VQuJppVmI7KsSVW
-	yE+UuBSHVFjXSe3NzfVQ==;
+	List-Owner; bh=5wDEMRy1ueyTdEK2m/iTIELkrY+n52SixYrV0pLAlNk=; b=ZRh4OVP5oWFue8
+	y/fr5PfEe9VVGLCn0AvlP8qCe5e/XT7MrRsqxB0Al/6mDudW0ywaq+y94HGQ4wTgbFcxou+NnjQFL
+	nc+zxcLe1FJ7ybt0o9LVXre9vkkyBGbqvNJP8BYhyIQMerAEiXE6j0bK7hpXS3fpt0FkPD3Ufsuty
+	yy6gpZhlqwbnu9FEeSK8YVOfjzQaWIi8AbOeR8tA2B0rwAZzQwIjteb/FmAtooqxXkL3Ua41ehLrZ
+	LyYsDE/IlOO1hqsWQUjlL+IjEsjdiWesfJF63zDieJ8ZhDo5HyVNyScNcGsGh0M8MMfglRiM/+4P8
+	b64AzncQNgH7QA6XVRWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfdEg-0000000D30Z-3FcU;
-	Thu, 29 Feb 2024 10:01:54 +0000
+	id 1rfdOT-0000000D5We-2DsK;
+	Thu, 29 Feb 2024 10:12:01 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfdEe-0000000D2zo-1Bh7
+	id 1rfdOR-0000000D5Vx-07O7
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 10:01:53 +0000
+	Thu, 29 Feb 2024 10:12:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1BF72615AD;
-	Thu, 29 Feb 2024 10:01:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 301D5C433C7;
-	Thu, 29 Feb 2024 10:01:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5715561949;
+	Thu, 29 Feb 2024 10:11:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23793C433C7;
+	Thu, 29 Feb 2024 10:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709200908;
-	bh=0EvAP/k3RYWfB4nfZLvIefXSHFryrqEoAdsNstyND9A=;
+	s=k20201202; t=1709201518;
+	bh=ys71Qx73aPY+VvXGSfhGOgZv22qzv2kHK8MnQN0BY3k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tq0nbs3uLnKCLIVkPa0855Ew6lEJ8NSJ53kKT41FCB6zoxM9uJyJcPc6EEeYk/Ii3
-	 N9O3nBW48txXwUZeUqA9bWvmUMQrfaaZ+BAhl8KDvj/FSTPBXS8tcro3ta2ilCfRAC
-	 7zoTTaJOjWhsH9Ul+77Jag+or2uPZWgXgyBaGCqQhIif4R2luSePgjzbLyJpDeEsEm
-	 LRnc3CM/IroJNzXfriPkqCt3VJk/WcTuBphH9rlCmwsooJ3SHSIb540u2AB8b3t1Gf
-	 IghH6xFkLzA69TnyKjFIiTmHoPQ2dOTjy/33h7zjW1KF98muLHDxQmQJT7/DPj9URP
-	 YUU9fS8+EPC6w==
-Date: Thu, 29 Feb 2024 11:01:41 +0100
+	b=deKmNk14SQ6tTxx6rCfLZzN7hYIKIW75kokl9PfIG3cbavQCl+/a8Fn+QN6hQzrNd
+	 AFukfcZrb+eD1Ze2axFkIf7NWk9FbeUQqAslWdbF/ISVmtdLftZm6l3VDiDz1CDtYC
+	 BFOFHGA/YHiU9AgfYSrkXEi9YvTi2hyEjPobAsFOYmZOVqVHP7Noy/0QoeqTkPn9F/
+	 IHuqN6F7zcmPzKeo1Z4VDE4moJQ0L2UT4Y2o8nymSq/2mBBimd+uoqsCrDV+JN8Wp/
+	 Sl7bMONcGrdVL+Dn92ZgAju2hvsIKt8TE58IQUN+pRbkuzrX0JVJncA468Mr63y2BQ
+	 Tdh9/Wb0UK9cA==
+Date: Thu, 29 Feb 2024 11:11:50 +0100
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
 To: Minda Chen <minda.chen@starfivetech.com>
 Cc: Conor Dooley <conor@kernel.org>,
@@ -62,17 +62,17 @@ Cc: Conor Dooley <conor@kernel.org>,
 	Mason Huo <mason.huo@starfivetech.com>,
 	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v15,RESEND 05/23] PCI: microchip: Rename two PCIe data
- structures
-Message-ID: <ZeBWBfMlS4nxMZJ2@lpieralisi>
+Subject: Re: [PATCH v15,RESEND 03/23] PCI: microchip: Move PLDA IP register
+ macros to pcie-plda.h
+Message-ID: <ZeBYZtxqqXn5TlvL@lpieralisi>
 References: <20240227103522.80915-1-minda.chen@starfivetech.com>
- <20240227103522.80915-6-minda.chen@starfivetech.com>
+ <20240227103522.80915-4-minda.chen@starfivetech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240227103522.80915-6-minda.chen@starfivetech.com>
+In-Reply-To: <20240227103522.80915-4-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_020152_436542_733CC8B0 
-X-CRM114-Status: GOOD (  30.41  )
+X-CRM114-CacheID: sfid-20240229_021159_209550_392246B2 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,373 +89,294 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 27, 2024 at 06:35:04PM +0800, Minda Chen wrote:
-> Add PLDA PCIe related data structures by rename data structure name from
-> mc_* to plda_*.
-> 
-> axi_base_addr is stayed in struct mc_pcie for it's microchip its own data.
-
-Here in "for it's microchip" you mean "since it's microchip" own data.
-
-Please fix this "for" usage in all commit logs, I noticed it is
-a recurrent mistake you make I can do it but it is tedious.
-
-Don't resend another version yet, I am trying to see what I can
-take from this one.
-
-> The event interrupt codes is still using struct mc_pcie because the event
-
-"code", please not "codes". Please fix it everywhere in your patch
-series, same as above.
-
-Lorenzo
-
-> interrupt codes can not be re-used.
+On Tue, Feb 27, 2024 at 06:35:02PM +0800, Minda Chen wrote:
+> Move PLDA PCIe host controller IP registers macros to pcie-plda.h,
+> including bridge registers and PLDA IRQ event number.
 > 
 > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
 > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  .../pci/controller/plda/pcie-microchip-host.c | 96 ++++++++++---------
->  1 file changed, 53 insertions(+), 43 deletions(-)
+>  MAINTAINERS                                   |   8 ++
+>  .../pci/controller/plda/pcie-microchip-host.c | 108 +++---------------
+>  drivers/pci/controller/plda/pcie-plda.h       | 108 ++++++++++++++++++
+>  3 files changed, 132 insertions(+), 92 deletions(-)
+>  create mode 100644 drivers/pci/controller/plda/pcie-plda.h
 > 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 9f7e907c8749..fc9576e69a71 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -16814,6 +16814,14 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/pci/layerscape-pcie-gen4.txt
+>  F:	drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
+>  
+> +PCI DRIVER FOR PLDA PCIE IP
+> +M:	Daire McNamara <daire.mcnamara@microchip.com>
+> +M:	Kevin Xie <kevin.xie@starfivetech.com>
+> +L:	linux-pci@vger.kernel.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/pci/plda,*
+
+This is an unrelated change. It belongs to the patch adding DT bindings
+or I am reading it wrong ?
+
+Lorenzo
+
+> +F:	drivers/pci/controller/plda/*plda*
+> +
+>  PCI DRIVER FOR RENESAS R-CAR
+>  M:	Marek Vasut <marek.vasut+renesas@gmail.com>
+>  M:	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
 > diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-> index c55ede80a6d0..df0736f688ce 100644
+> index cb09a8137e25..d9030d550482 100644
 > --- a/drivers/pci/controller/plda/pcie-microchip-host.c
 > +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-> @@ -22,7 +22,7 @@
->  #include "pcie-plda.h"
+> @@ -19,6 +19,7 @@
+>  #include <linux/platform_device.h>
+>  
+>  #include "../../pci.h"
+> +#include "pcie-plda.h"
 >  
 >  /* Number of MSI IRQs */
-> -#define MC_MAX_NUM_MSI_IRQS			32
-> +#define PLDA_MAX_NUM_MSI_IRQS			32
+>  #define MC_MAX_NUM_MSI_IRQS			32
+> @@ -30,84 +31,6 @@
+>  #define MC_PCIE_BRIDGE_ADDR			(MC_PCIE1_BRIDGE_ADDR)
+>  #define MC_PCIE_CTRL_ADDR			(MC_PCIE1_CTRL_ADDR)
 >  
->  /* PCIe Bridge Phy and Controller Phy offsets */
->  #define MC_PCIE1_BRIDGE_ADDR			0x00008000u
-> @@ -179,25 +179,29 @@ struct event_map {
->  	u32 event_bit;
->  };
+> -/* PCIe Bridge Phy Regs */
+> -#define PCIE_PCI_IRQ_DW0			0xa8
+> -#define  MSIX_CAP_MASK				BIT(31)
+> -#define  NUM_MSI_MSGS_MASK			GENMASK(6, 4)
+> -#define  NUM_MSI_MSGS_SHIFT			4
+> -
+> -#define IMASK_LOCAL				0x180
+> -#define  DMA_END_ENGINE_0_MASK			0x00000000u
+> -#define  DMA_END_ENGINE_0_SHIFT			0
+> -#define  DMA_END_ENGINE_1_MASK			0x00000000u
+> -#define  DMA_END_ENGINE_1_SHIFT			1
+> -#define  DMA_ERROR_ENGINE_0_MASK		0x00000100u
+> -#define  DMA_ERROR_ENGINE_0_SHIFT		8
+> -#define  DMA_ERROR_ENGINE_1_MASK		0x00000200u
+> -#define  DMA_ERROR_ENGINE_1_SHIFT		9
+> -#define  A_ATR_EVT_POST_ERR_MASK		0x00010000u
+> -#define  A_ATR_EVT_POST_ERR_SHIFT		16
+> -#define  A_ATR_EVT_FETCH_ERR_MASK		0x00020000u
+> -#define  A_ATR_EVT_FETCH_ERR_SHIFT		17
+> -#define  A_ATR_EVT_DISCARD_ERR_MASK		0x00040000u
+> -#define  A_ATR_EVT_DISCARD_ERR_SHIFT		18
+> -#define  A_ATR_EVT_DOORBELL_MASK		0x00000000u
+> -#define  A_ATR_EVT_DOORBELL_SHIFT		19
+> -#define  P_ATR_EVT_POST_ERR_MASK		0x00100000u
+> -#define  P_ATR_EVT_POST_ERR_SHIFT		20
+> -#define  P_ATR_EVT_FETCH_ERR_MASK		0x00200000u
+> -#define  P_ATR_EVT_FETCH_ERR_SHIFT		21
+> -#define  P_ATR_EVT_DISCARD_ERR_MASK		0x00400000u
+> -#define  P_ATR_EVT_DISCARD_ERR_SHIFT		22
+> -#define  P_ATR_EVT_DOORBELL_MASK		0x00000000u
+> -#define  P_ATR_EVT_DOORBELL_SHIFT		23
+> -#define  PM_MSI_INT_INTA_MASK			0x01000000u
+> -#define  PM_MSI_INT_INTA_SHIFT			24
+> -#define  PM_MSI_INT_INTB_MASK			0x02000000u
+> -#define  PM_MSI_INT_INTB_SHIFT			25
+> -#define  PM_MSI_INT_INTC_MASK			0x04000000u
+> -#define  PM_MSI_INT_INTC_SHIFT			26
+> -#define  PM_MSI_INT_INTD_MASK			0x08000000u
+> -#define  PM_MSI_INT_INTD_SHIFT			27
+> -#define  PM_MSI_INT_INTX_MASK			0x0f000000u
+> -#define  PM_MSI_INT_INTX_SHIFT			24
+> -#define  PM_MSI_INT_MSI_MASK			0x10000000u
+> -#define  PM_MSI_INT_MSI_SHIFT			28
+> -#define  PM_MSI_INT_AER_EVT_MASK		0x20000000u
+> -#define  PM_MSI_INT_AER_EVT_SHIFT		29
+> -#define  PM_MSI_INT_EVENTS_MASK			0x40000000u
+> -#define  PM_MSI_INT_EVENTS_SHIFT		30
+> -#define  PM_MSI_INT_SYS_ERR_MASK		0x80000000u
+> -#define  PM_MSI_INT_SYS_ERR_SHIFT		31
+> -#define  NUM_LOCAL_EVENTS			15
+> -#define ISTATUS_LOCAL				0x184
+> -#define IMASK_HOST				0x188
+> -#define ISTATUS_HOST				0x18c
+> -#define IMSI_ADDR				0x190
+> -#define ISTATUS_MSI				0x194
+> -
+> -/* PCIe Master table init defines */
+> -#define ATR0_PCIE_WIN0_SRCADDR_PARAM		0x600u
+> -#define  ATR0_PCIE_ATR_SIZE			0x25
+> -#define  ATR0_PCIE_ATR_SIZE_SHIFT		1
+> -#define ATR0_PCIE_WIN0_SRC_ADDR			0x604u
+> -#define ATR0_PCIE_WIN0_TRSL_ADDR_LSB		0x608u
+> -#define ATR0_PCIE_WIN0_TRSL_ADDR_UDW		0x60cu
+> -#define ATR0_PCIE_WIN0_TRSL_PARAM		0x610u
+> -
+> -/* PCIe AXI slave table init defines */
+> -#define ATR0_AXI4_SLV0_SRCADDR_PARAM		0x800u
+> -#define  ATR_SIZE_SHIFT				1
+> -#define  ATR_IMPL_ENABLE			1
+> -#define ATR0_AXI4_SLV0_SRC_ADDR			0x804u
+> -#define ATR0_AXI4_SLV0_TRSL_ADDR_LSB		0x808u
+> -#define ATR0_AXI4_SLV0_TRSL_ADDR_UDW		0x80cu
+> -#define ATR0_AXI4_SLV0_TRSL_PARAM		0x810u
+> -#define  PCIE_TX_RX_INTERFACE			0x00000000u
+> -#define  PCIE_CONFIG_INTERFACE			0x00000001u
+> -
+> -#define ATR_ENTRY_SIZE				32
+> -
+>  /* PCIe Controller Phy Regs */
+>  #define SEC_ERROR_EVENT_CNT			0x20
+>  #define DED_ERROR_EVENT_CNT			0x24
+> @@ -179,20 +102,21 @@
+>  #define EVENT_LOCAL_DMA_END_ENGINE_1		12
+>  #define EVENT_LOCAL_DMA_ERROR_ENGINE_0		13
+>  #define EVENT_LOCAL_DMA_ERROR_ENGINE_1		14
+> -#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		15
+> -#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		16
+> -#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	17
+> -#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		18
+> -#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		19
+> -#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		20
+> -#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	21
+> -#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		22
+> -#define EVENT_LOCAL_PM_MSI_INT_INTX		23
+> -#define EVENT_LOCAL_PM_MSI_INT_MSI		24
+> -#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		25
+> -#define EVENT_LOCAL_PM_MSI_INT_EVENTS		26
+> -#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		27
+> -#define NUM_EVENTS				28
+> +#define NUM_MC_EVENTS				15
+> +#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + PLDA_AXI_POST_ERR)
+> +#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + PLDA_AXI_FETCH_ERR)
+> +#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + PLDA_AXI_DISCARD_ERR)
+> +#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + PLDA_AXI_DOORBELL)
+> +#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + PLDA_PCIE_POST_ERR)
+> +#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + PLDA_PCIE_FETCH_ERR)
+> +#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + PLDA_PCIE_DISCARD_ERR)
+> +#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + PLDA_PCIE_DOORBELL)
+> +#define EVENT_LOCAL_PM_MSI_INT_INTX		(NUM_MC_EVENTS + PLDA_INTX)
+> +#define EVENT_LOCAL_PM_MSI_INT_MSI		(NUM_MC_EVENTS + PLDA_MSI)
+> +#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		(NUM_MC_EVENTS + PLDA_AER_EVENT)
+> +#define EVENT_LOCAL_PM_MSI_INT_EVENTS		(NUM_MC_EVENTS + PLDA_MISC_EVENTS)
+> +#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		(NUM_MC_EVENTS + PLDA_SYS_ERR)
+> +#define NUM_EVENTS				(NUM_MC_EVENTS + PLDA_INT_EVENT_NUM)
 >  
-> -struct mc_msi {
-> +struct plda_msi {
->  	struct mutex lock;		/* Protect used bitmap */
->  	struct irq_domain *msi_domain;
->  	struct irq_domain *dev_domain;
->  	u32 num_vectors;
->  	u64 vector_phy;
-> -	DECLARE_BITMAP(used, MC_MAX_NUM_MSI_IRQS);
-> +	DECLARE_BITMAP(used, PLDA_MAX_NUM_MSI_IRQS);
->  };
->  
-> -struct mc_pcie {
-> -	void __iomem *axi_base_addr;
-> +struct plda_pcie_rp {
->  	struct device *dev;
->  	struct irq_domain *intx_domain;
->  	struct irq_domain *event_domain;
->  	raw_spinlock_t lock;
-> -	struct mc_msi msi;
-> +	struct plda_msi msi;
->  	void __iomem *bridge_addr;
->  };
->  
-> +struct mc_pcie {
-> +	struct plda_pcie_rp plda;
-> +	void __iomem *axi_base_addr;
+>  #define PCIE_EVENT_CAUSE(x, s)	\
+>  	[EVENT_PCIE_ ## x] = { __stringify(x), s }
+> diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+> new file mode 100644
+> index 000000000000..65e0f3b72184
+> --- /dev/null
+> +++ b/drivers/pci/controller/plda/pcie-plda.h
+> @@ -0,0 +1,108 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * PLDA PCIe host controller driver
+> + */
+> +
+> +#ifndef _PCIE_PLDA_H
+> +#define _PCIE_PLDA_H
+> +
+> +/* PCIe Bridge Phy Regs */
+> +#define PCIE_PCI_IRQ_DW0			0xa8
+> +#define  MSIX_CAP_MASK				BIT(31)
+> +#define  NUM_MSI_MSGS_MASK			GENMASK(6, 4)
+> +#define  NUM_MSI_MSGS_SHIFT			4
+> +
+> +#define IMASK_LOCAL				0x180
+> +#define  DMA_END_ENGINE_0_MASK			0x00000000u
+> +#define  DMA_END_ENGINE_0_SHIFT			0
+> +#define  DMA_END_ENGINE_1_MASK			0x00000000u
+> +#define  DMA_END_ENGINE_1_SHIFT			1
+> +#define  DMA_ERROR_ENGINE_0_MASK		0x00000100u
+> +#define  DMA_ERROR_ENGINE_0_SHIFT		8
+> +#define  DMA_ERROR_ENGINE_1_MASK		0x00000200u
+> +#define  DMA_ERROR_ENGINE_1_SHIFT		9
+> +#define  A_ATR_EVT_POST_ERR_MASK		0x00010000u
+> +#define  A_ATR_EVT_POST_ERR_SHIFT		16
+> +#define  A_ATR_EVT_FETCH_ERR_MASK		0x00020000u
+> +#define  A_ATR_EVT_FETCH_ERR_SHIFT		17
+> +#define  A_ATR_EVT_DISCARD_ERR_MASK		0x00040000u
+> +#define  A_ATR_EVT_DISCARD_ERR_SHIFT		18
+> +#define  A_ATR_EVT_DOORBELL_MASK		0x00000000u
+> +#define  A_ATR_EVT_DOORBELL_SHIFT		19
+> +#define  P_ATR_EVT_POST_ERR_MASK		0x00100000u
+> +#define  P_ATR_EVT_POST_ERR_SHIFT		20
+> +#define  P_ATR_EVT_FETCH_ERR_MASK		0x00200000u
+> +#define  P_ATR_EVT_FETCH_ERR_SHIFT		21
+> +#define  P_ATR_EVT_DISCARD_ERR_MASK		0x00400000u
+> +#define  P_ATR_EVT_DISCARD_ERR_SHIFT		22
+> +#define  P_ATR_EVT_DOORBELL_MASK		0x00000000u
+> +#define  P_ATR_EVT_DOORBELL_SHIFT		23
+> +#define  PM_MSI_INT_INTA_MASK			0x01000000u
+> +#define  PM_MSI_INT_INTA_SHIFT			24
+> +#define  PM_MSI_INT_INTB_MASK			0x02000000u
+> +#define  PM_MSI_INT_INTB_SHIFT			25
+> +#define  PM_MSI_INT_INTC_MASK			0x04000000u
+> +#define  PM_MSI_INT_INTC_SHIFT			26
+> +#define  PM_MSI_INT_INTD_MASK			0x08000000u
+> +#define  PM_MSI_INT_INTD_SHIFT			27
+> +#define  PM_MSI_INT_INTX_MASK			0x0f000000u
+> +#define  PM_MSI_INT_INTX_SHIFT			24
+> +#define  PM_MSI_INT_MSI_MASK			0x10000000u
+> +#define  PM_MSI_INT_MSI_SHIFT			28
+> +#define  PM_MSI_INT_AER_EVT_MASK		0x20000000u
+> +#define  PM_MSI_INT_AER_EVT_SHIFT		29
+> +#define  PM_MSI_INT_EVENTS_MASK			0x40000000u
+> +#define  PM_MSI_INT_EVENTS_SHIFT		30
+> +#define  PM_MSI_INT_SYS_ERR_MASK		0x80000000u
+> +#define  PM_MSI_INT_SYS_ERR_SHIFT		31
+> +#define  NUM_LOCAL_EVENTS			15
+> +#define ISTATUS_LOCAL				0x184
+> +#define IMASK_HOST				0x188
+> +#define ISTATUS_HOST				0x18c
+> +#define IMSI_ADDR				0x190
+> +#define ISTATUS_MSI				0x194
+> +
+> +/* PCIe Master table init defines */
+> +#define ATR0_PCIE_WIN0_SRCADDR_PARAM		0x600u
+> +#define  ATR0_PCIE_ATR_SIZE			0x25
+> +#define  ATR0_PCIE_ATR_SIZE_SHIFT		1
+> +#define ATR0_PCIE_WIN0_SRC_ADDR			0x604u
+> +#define ATR0_PCIE_WIN0_TRSL_ADDR_LSB		0x608u
+> +#define ATR0_PCIE_WIN0_TRSL_ADDR_UDW		0x60cu
+> +#define ATR0_PCIE_WIN0_TRSL_PARAM		0x610u
+> +
+> +/* PCIe AXI slave table init defines */
+> +#define ATR0_AXI4_SLV0_SRCADDR_PARAM		0x800u
+> +#define  ATR_SIZE_SHIFT				1
+> +#define  ATR_IMPL_ENABLE			1
+> +#define ATR0_AXI4_SLV0_SRC_ADDR			0x804u
+> +#define ATR0_AXI4_SLV0_TRSL_ADDR_LSB		0x808u
+> +#define ATR0_AXI4_SLV0_TRSL_ADDR_UDW		0x80cu
+> +#define ATR0_AXI4_SLV0_TRSL_PARAM		0x810u
+> +#define  PCIE_TX_RX_INTERFACE			0x00000000u
+> +#define  PCIE_CONFIG_INTERFACE			0x00000001u
+> +
+> +#define ATR_ENTRY_SIZE				32
+> +
+> +enum plda_int_event {
+> +	PLDA_AXI_POST_ERR,
+> +	PLDA_AXI_FETCH_ERR,
+> +	PLDA_AXI_DISCARD_ERR,
+> +	PLDA_AXI_DOORBELL,
+> +	PLDA_PCIE_POST_ERR,
+> +	PLDA_PCIE_FETCH_ERR,
+> +	PLDA_PCIE_DISCARD_ERR,
+> +	PLDA_PCIE_DOORBELL,
+> +	PLDA_INTX,
+> +	PLDA_MSI,
+> +	PLDA_AER_EVENT,
+> +	PLDA_MISC_EVENTS,
+> +	PLDA_SYS_ERR,
+> +	PLDA_INT_EVENT_NUM
 > +};
 > +
->  struct cause {
->  	const char *sym;
->  	const char *str;
-> @@ -313,7 +317,7 @@ static struct mc_pcie *port;
->  
->  static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *ecam)
->  {
-> -	struct mc_msi *msi = &port->msi;
-> +	struct plda_msi *msi = &port->plda.msi;
->  	u16 reg;
->  	u8 queue_size;
->  
-> @@ -336,10 +340,10 @@ static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *ecam)
->  
->  static void mc_handle_msi(struct irq_desc *desc)
->  {
-> -	struct mc_pcie *port = irq_desc_get_handler_data(desc);
-> +	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
->  	struct irq_chip *chip = irq_desc_get_chip(desc);
->  	struct device *dev = port->dev;
-> -	struct mc_msi *msi = &port->msi;
-> +	struct plda_msi *msi = &port->msi;
->  	void __iomem *bridge_base_addr = port->bridge_addr;
->  	unsigned long status;
->  	u32 bit;
-> @@ -364,7 +368,7 @@ static void mc_handle_msi(struct irq_desc *desc)
->  
->  static void mc_msi_bottom_irq_ack(struct irq_data *data)
->  {
-> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
->  	void __iomem *bridge_base_addr = port->bridge_addr;
->  	u32 bitpos = data->hwirq;
->  
-> @@ -373,7 +377,7 @@ static void mc_msi_bottom_irq_ack(struct irq_data *data)
->  
->  static void mc_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
->  {
-> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
->  	phys_addr_t addr = port->msi.vector_phy;
->  
->  	msg->address_lo = lower_32_bits(addr);
-> @@ -400,8 +404,8 @@ static struct irq_chip mc_msi_bottom_irq_chip = {
->  static int mc_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
->  				   unsigned int nr_irqs, void *args)
->  {
-> -	struct mc_pcie *port = domain->host_data;
-> -	struct mc_msi *msi = &port->msi;
-> +	struct plda_pcie_rp *port = domain->host_data;
-> +	struct plda_msi *msi = &port->msi;
->  	unsigned long bit;
->  
->  	mutex_lock(&msi->lock);
-> @@ -425,8 +429,8 @@ static void mc_irq_msi_domain_free(struct irq_domain *domain, unsigned int virq,
->  				   unsigned int nr_irqs)
->  {
->  	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
-> -	struct mc_pcie *port = irq_data_get_irq_chip_data(d);
-> -	struct mc_msi *msi = &port->msi;
-> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(d);
-> +	struct plda_msi *msi = &port->msi;
->  
->  	mutex_lock(&msi->lock);
->  
-> @@ -456,11 +460,11 @@ static struct msi_domain_info mc_msi_domain_info = {
->  	.chip = &mc_msi_irq_chip,
->  };
->  
-> -static int mc_allocate_msi_domains(struct mc_pcie *port)
-> +static int mc_allocate_msi_domains(struct plda_pcie_rp *port)
->  {
->  	struct device *dev = port->dev;
->  	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
-> -	struct mc_msi *msi = &port->msi;
-> +	struct plda_msi *msi = &port->msi;
->  
->  	mutex_init(&port->msi.lock);
->  
-> @@ -484,7 +488,7 @@ static int mc_allocate_msi_domains(struct mc_pcie *port)
->  
->  static void mc_handle_intx(struct irq_desc *desc)
->  {
-> -	struct mc_pcie *port = irq_desc_get_handler_data(desc);
-> +	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
->  	struct irq_chip *chip = irq_desc_get_chip(desc);
->  	struct device *dev = port->dev;
->  	void __iomem *bridge_base_addr = port->bridge_addr;
-> @@ -511,7 +515,7 @@ static void mc_handle_intx(struct irq_desc *desc)
->  
->  static void mc_ack_intx_irq(struct irq_data *data)
->  {
-> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
->  	void __iomem *bridge_base_addr = port->bridge_addr;
->  	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
->  
-> @@ -520,7 +524,7 @@ static void mc_ack_intx_irq(struct irq_data *data)
->  
->  static void mc_mask_intx_irq(struct irq_data *data)
->  {
-> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
->  	void __iomem *bridge_base_addr = port->bridge_addr;
->  	unsigned long flags;
->  	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
-> @@ -535,7 +539,7 @@ static void mc_mask_intx_irq(struct irq_data *data)
->  
->  static void mc_unmask_intx_irq(struct irq_data *data)
->  {
-> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
->  	void __iomem *bridge_base_addr = port->bridge_addr;
->  	unsigned long flags;
->  	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
-> @@ -625,21 +629,22 @@ static u32 local_events(struct mc_pcie *port)
->  	return val;
->  }
->  
-> -static u32 get_events(struct mc_pcie *port)
-> +static u32 get_events(struct plda_pcie_rp *port)
->  {
-> +	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
->  	u32 events = 0;
->  
-> -	events |= pcie_events(port);
-> -	events |= sec_errors(port);
-> -	events |= ded_errors(port);
-> -	events |= local_events(port);
-> +	events |= pcie_events(mc_port);
-> +	events |= sec_errors(mc_port);
-> +	events |= ded_errors(mc_port);
-> +	events |= local_events(mc_port);
->  
->  	return events;
->  }
->  
->  static irqreturn_t mc_event_handler(int irq, void *dev_id)
->  {
-> -	struct mc_pcie *port = dev_id;
-> +	struct plda_pcie_rp *port = dev_id;
->  	struct device *dev = port->dev;
->  	struct irq_data *data;
->  
-> @@ -655,7 +660,7 @@ static irqreturn_t mc_event_handler(int irq, void *dev_id)
->  
->  static void mc_handle_event(struct irq_desc *desc)
->  {
-> -	struct mc_pcie *port = irq_desc_get_handler_data(desc);
-> +	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
->  	unsigned long events;
->  	u32 bit;
->  	struct irq_chip *chip = irq_desc_get_chip(desc);
-> @@ -672,12 +677,13 @@ static void mc_handle_event(struct irq_desc *desc)
->  
->  static void mc_ack_event_irq(struct irq_data *data)
->  {
-> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-> +	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
->  	u32 event = data->hwirq;
->  	void __iomem *addr;
->  	u32 mask;
->  
-> -	addr = port->axi_base_addr + event_descs[event].base +
-> +	addr = mc_port->axi_base_addr + event_descs[event].base +
->  		event_descs[event].offset;
->  	mask = event_descs[event].mask;
->  	mask |= event_descs[event].enb_mask;
-> @@ -687,13 +693,14 @@ static void mc_ack_event_irq(struct irq_data *data)
->  
->  static void mc_mask_event_irq(struct irq_data *data)
->  {
-> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-> +	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
->  	u32 event = data->hwirq;
->  	void __iomem *addr;
->  	u32 mask;
->  	u32 val;
->  
-> -	addr = port->axi_base_addr + event_descs[event].base +
-> +	addr = mc_port->axi_base_addr + event_descs[event].base +
->  		event_descs[event].mask_offset;
->  	mask = event_descs[event].mask;
->  	if (event_descs[event].enb_mask) {
-> @@ -717,13 +724,14 @@ static void mc_mask_event_irq(struct irq_data *data)
->  
->  static void mc_unmask_event_irq(struct irq_data *data)
->  {
-> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-> +	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
->  	u32 event = data->hwirq;
->  	void __iomem *addr;
->  	u32 mask;
->  	u32 val;
->  
-> -	addr = port->axi_base_addr + event_descs[event].base +
-> +	addr = mc_port->axi_base_addr + event_descs[event].base +
->  		event_descs[event].mask_offset;
->  	mask = event_descs[event].mask;
->  
-> @@ -811,7 +819,7 @@ static int mc_pcie_init_clks(struct device *dev)
->  	return 0;
->  }
->  
-> -static int mc_pcie_init_irq_domains(struct mc_pcie *port)
-> +static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
->  {
->  	struct device *dev = port->dev;
->  	struct device_node *node = dev->of_node;
-> @@ -889,7 +897,7 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
->  }
->  
->  static int mc_pcie_setup_windows(struct platform_device *pdev,
-> -				 struct mc_pcie *port)
-> +				 struct plda_pcie_rp *port)
->  {
->  	void __iomem *bridge_base_addr = port->bridge_addr;
->  	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
-> @@ -970,7 +978,7 @@ static void mc_disable_interrupts(struct mc_pcie *port)
->  	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
->  }
->  
-> -static int mc_init_interrupts(struct platform_device *pdev, struct mc_pcie *port)
-> +static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp *port)
->  {
->  	struct device *dev = &pdev->dev;
->  	int irq;
-> @@ -1043,12 +1051,12 @@ static int mc_platform_init(struct pci_config_window *cfg)
->  	mc_pcie_enable_msi(port, cfg->win);
->  
->  	/* Configure non-config space outbound ranges */
-> -	ret = mc_pcie_setup_windows(pdev, port);
-> +	ret = mc_pcie_setup_windows(pdev, &port->plda);
->  	if (ret)
->  		return ret;
->  
->  	/* Address translation is up; safe to enable interrupts */
-> -	ret = mc_init_interrupts(pdev, port);
-> +	ret = mc_init_interrupts(pdev, &port->plda);
->  	if (ret)
->  		return ret;
->  
-> @@ -1059,6 +1067,7 @@ static int mc_host_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
->  	void __iomem *bridge_base_addr;
-> +	struct plda_pcie_rp *plda;
->  	int ret;
->  	u32 val;
->  
-> @@ -1066,7 +1075,8 @@ static int mc_host_probe(struct platform_device *pdev)
->  	if (!port)
->  		return -ENOMEM;
->  
-> -	port->dev = dev;
-> +	plda = &port->plda;
-> +	plda->dev = dev;
->  
->  	port->axi_base_addr = devm_platform_ioremap_resource(pdev, 1);
->  	if (IS_ERR(port->axi_base_addr))
-> @@ -1075,7 +1085,7 @@ static int mc_host_probe(struct platform_device *pdev)
->  	mc_disable_interrupts(port);
->  
->  	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-> -	port->bridge_addr = bridge_base_addr;
-> +	plda->bridge_addr = bridge_base_addr;
->  
->  	/* Allow enabling MSI by disabling MSI-X */
->  	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
-> @@ -1087,10 +1097,10 @@ static int mc_host_probe(struct platform_device *pdev)
->  	val &= NUM_MSI_MSGS_MASK;
->  	val >>= NUM_MSI_MSGS_SHIFT;
->  
-> -	port->msi.num_vectors = 1 << val;
-> +	plda->msi.num_vectors = 1 << val;
->  
->  	/* Pick vector address from design */
-> -	port->msi.vector_phy = readl_relaxed(bridge_base_addr + IMSI_ADDR);
-> +	plda->msi.vector_phy = readl_relaxed(bridge_base_addr + IMSI_ADDR);
->  
->  	ret = mc_pcie_init_clks(dev);
->  	if (ret) {
+> +#define PLDA_NUM_DMA_EVENTS			16
+> +
+> +#define PLDA_MAX_EVENT_NUM			(PLDA_NUM_DMA_EVENTS + PLDA_INT_EVENT_NUM)
+> +
+> +#endif
 > -- 
 > 2.17.1
 > 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
