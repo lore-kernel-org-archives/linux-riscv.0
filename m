@@ -4,79 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C073FC48BF6
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 23:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A895C48BF6
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Mar 2024 00:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=i571gimOCPP1dLeF286X85tokKGPG7QrC+BVffhst7g=; b=fm2ZyfwNWIfRzopjAPYipFs/kS
-	PzVvfRYGhcAcz3x4IVxP9c8Viv/tX9Mhgh0S5s7IpObSj0tXNB3CgdfNRETfXtUoz9HUyo6i9Vaut
-	Z3uSGySptvzZV8tKCEwCX+g3GIQttOxI9Q3zzqKJFLJqFY+Jr72Bkxe4EYhnu/8mriaGFefc01hX8
-	+ZeAcyaH3o16+CZqk4igyviDesICPL8LgzHy30wIq4ncahZW+EiQL0WdT86N5NKXjvzrQqSheGPcp
-	BI2ZXBcYG5/v11+ll4CLlDFHLU0RqSE8n1g/Frxy7+waUDVxirSM8qEubCNg0qZq+Vi6yIzxnRBMa
-	kW7UX+fw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=z0IbOwokXgmxVZaz4iN34hpmtQ2UZ3zQv4QXGOfEgjY=; b=u6Z2atLrF8BLxE
+	MRxFHgYY2JyvQzYDczBOO3cThEBwVHaG8YJ1CvNmrK1LF8LjDZmU9PmYrifWq9OpMf1uqEBtZgRYR
+	M81t4tdWTxrWzExmtCl+ceCPtfTyvi4r4OIpNSR0tzLgBEflS6RznjMlfcbARwqhvtOzEgwjYFisK
+	UfEl8nMcYBb0BNXhYwcA0toF8R17wCW51OaaPyzPW5UhANUHxK1Q4vqUyMMpJqwKPghZxfCL0H+zx
+	tx+8XF4KE+IiRHXtLhneUyrpXghEs91GrXUzSuDRcqqhcW35NMNZPIzJdQpFp/4N+FGJfyl5WOlkk
+	q0iyj3cfQBQt8rzGhQAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfq15-0000000Fepf-18PS;
-	Thu, 29 Feb 2024 23:40:43 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1rfqov-0000000Fkud-20Gp;
+	Fri, 01 Mar 2024 00:32:13 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfq12-0000000Feow-08ZS
+	id 1rfpjL-0000000FZxh-3tcW
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 23:40:41 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-6e56da425b5so1194653b3a.0
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 15:40:39 -0800 (PST)
+	Thu, 29 Feb 2024 23:22:26 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-6e58a984ea1so1084434b3a.2
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 15:22:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1709250039; x=1709854839; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lx8BWhywoDIgpgt+e03ZrIqlEHq0YVesZbrDMn3IG9M=;
-        b=vsiz1eaVh908NNfvtqLCvw5axRCUr+Q9hBv/EmtPwNXqEBxGOTtlJYmCZnDWeWrLmx
-         PNRoReESUBziFhAOWKHjaqzBAJ+cCkBrg0E3OakFdlBkglDJ1smggdLGH/OQuGOYc8CR
-         pZTzNm63KzSEmy4vEn6bid/oJj+4Tm3OyMnpekCZkOtC5ZAedptYRLrw1nlbsYGTsn+M
-         6MZ0X2Wp+WMEOcbdD52ClIT3cmIq5s4Rcc4q2dF2YaUn0PBh523sKObiyVkg6JasKGJL
-         ACSbQj/FVkc671y4rDw0WwnYZjAALWxhOqMRxHk27Sh9vRmYbLELxoOJPLFmIgPV0B1c
-         VuGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709250039; x=1709854839;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=sifive.com; s=google; t=1709248943; x=1709853743; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lx8BWhywoDIgpgt+e03ZrIqlEHq0YVesZbrDMn3IG9M=;
-        b=Da2C9drayn9stbsn3beRO6XfZN5JvY7S6H6NknjDG3Fq3PzkviJKcy7Q+ULAK9coz4
-         qdn/XmUZ828pF+0CKL25RNnDBl2yBjiFScXT5s6DvuGC4ueDpAbFH/k3S3y9siaQAaG3
-         pOQTQzqJAjB0mC/xgWglM1TNyiSgMwInfZNSw3k6jys37/DF/z8gV+244y69qFGavkYe
-         XmJUH09kz9QxnvwyYRD6KGiQyMNlkIadN9EdxpQoI7V4TWnPv9ynDnrCoB7Xbc8myGkw
-         kwwsg3Oo3fA5ZaOIZB5HE4upQ5PMu8lYtmNi21gSqNopWRo+CjiW8EXmH596lDsuQ8v0
-         xh4g==
-X-Forwarded-Encrypted: i=1; AJvYcCUWpM+YfgzYFOkpi9Z1rr6qiKTrLnprrsa+I5ttMbWxdj/InbDZXIQPZg433iVPXQjZcotkgc47UjKuWrLrPWBAWrtFOuYoVYmeSj0cgou2
-X-Gm-Message-State: AOJu0YxNOGiFq9yoFEStZ15gfc2w7/vIhNOmOCgCnSf9vJamgE0cCN3O
-	22kmiUsU8wUa+ZYBisHMkxM7vgXYgmfO6f+vzgFYCrRlBZNKlBrpuyUPrHuyKeL1pTLyjDhjlv1
-	b
-X-Google-Smtp-Source: AGHT+IEP0KUN5vieOSkjcb6f/9wrtZCWTiS6hFvutEkB79kR+hMPoz0zBj3WKb8OwHFOckN1Bdptdw==
-X-Received: by 2002:a05:6a00:188b:b0:6e5:9698:7cb9 with SMTP id x11-20020a056a00188b00b006e596987cb9mr278229pfh.4.1709250038519;
-        Thu, 29 Feb 2024 15:40:38 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id k16-20020aa79990000000b006e59615812fsm1693015pfh.213.2024.02.29.15.40.37
+        bh=lukLV3IzObY+fmX3TTuFURPx1t0s+LwQl+LTSkieoBQ=;
+        b=ncD/diID9xPBjoJxhi1UzumSLcXd7YhsqbEYTZpX/2hn7GpIoiH7TYsHub1CH38NiW
+         aNEIosgMDyiMycFTVAIws9bXWPY7JWwbjbll4+nCx8ooZBuGu3dl2y0SptfjDR2AvBCF
+         l2fyaMJX2Ip85y1ICON9XoY/aUQsQGyeyAd+iBUBbvbCLdG4Gh02Z8feR0Jk6YHmkW46
+         oqVtx53Bf1QAheSgph6Q+BVZsvolsP0nnv3Ri8jp3HqA4004WlXbe2McsUJXeUdfG7DH
+         wIy4p5u5w2ucVtSeJPGJBWLxRHFoBICWZBOXEeoE6mwj/mG61q/ECk0Ni4ZaSJymv4S3
+         FxVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709248943; x=1709853743;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lukLV3IzObY+fmX3TTuFURPx1t0s+LwQl+LTSkieoBQ=;
+        b=oHL8xjqiVAPa1sKOjYZFcerX6OasGawxLeq3H4QTTOQfdOsXxfQKWJE+ySOy9h4pIi
+         fmSdW0Q4REHBNqLsprZpaSIhskmEKgnZr4cdalcUZiQED3qY2bLAa9g4Q1dw2f3FPc9a
+         FlTRP2QaAMpy9e3Eu1ekq3kD8sOt8G4qx7UBNj9O+xPLoYjqPUirPEzCwdrU30vpmF1B
+         I+GoNG+NDcEOLdPbSXQTuylnvNI4RFxTCtCJPu5jLbAiynDGGdEWeGotVRzETAg877UC
+         zZ766s7skHnOdLdR/7RqemVVUDMsKSSfGV6Lg4KYetUGLrCSyCl3xUHK5lg+HAroIy0L
+         5GLw==
+X-Forwarded-Encrypted: i=1; AJvYcCUSwO8J4mwidA5vtFKpntjGutioswlo/dsWa5VkatNb9i4iOv/M0A2LBukigjYqaKnRb1qVa6ksByr/lYhLpVg0LdtpkDwBNDwkgrSr2L4Z
+X-Gm-Message-State: AOJu0YxKRYNOS4g5SyTsUXXd3DbEPNK2GL0dfgP1GRPXwWlsYx25y2XD
+	4WM6Z+re7flJP3pzrGjCYU/koTxc98MCJ1CnUH8lkZ9F0f0Xi4RNwlI0MIGAvUEyFABaz4/Jmpl
+	r
+X-Google-Smtp-Source: AGHT+IFn2rYTQCqOuHVpuGhcF7BC7asS4ROedWcgIAd4N2h6ux4X4gjzLV3woCw85UyqGNmjtKX//g==
+X-Received: by 2002:a05:6a00:1955:b0:6e5:5116:2cb5 with SMTP id s21-20020a056a00195500b006e551162cb5mr172054pfk.15.1709248942678;
+        Thu, 29 Feb 2024 15:22:22 -0800 (PST)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id c6-20020aa78806000000b006e55aa75d6csm1779719pfo.122.2024.02.29.15.22.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Feb 2024 15:40:37 -0800 (PST)
-Date: Thu, 29 Feb 2024 15:40:37 -0800 (PST)
-X-Google-Original-Date: Thu, 29 Feb 2024 15:40:31 PST (-0800)
-Subject: Re: [PATCH -fixes v4 2/3] riscv: Add a custom ISA extension for the [ms]envcfg CSR
-In-Reply-To: <20240229-establish-itinerary-5d08f6c3ee43@spud>
-CC: samuel.holland@sifive.com, ajones@ventanamicro.com, linux-kernel@vger.kernel.org,
-  alex@ghiti.fr, linux-riscv@lists.infradead.org, sorear@fastmail.com, stable@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-0128d165-88ba-4952-b875-c35b06ce9224@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        Thu, 29 Feb 2024 15:22:22 -0800 (PST)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH v5 09/13] riscv: mm: Introduce cntx2asid/cntx2version helper macros
+Date: Thu, 29 Feb 2024 15:21:50 -0800
+Message-ID: <20240229232211.161961-10-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.43.1
+In-Reply-To: <20240229232211.161961-1-samuel.holland@sifive.com>
+References: <20240229232211.161961-1-samuel.holland@sifive.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_154040_320784_4536434E 
-X-CRM114-Status: GOOD (  35.16  )
+X-CRM114-CacheID: sfid-20240229_152224_244260_FD3424E9 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,58 +94,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Feb 2024 10:30:10 PST (-0800), Conor Dooley wrote:
-> On Thu, Feb 29, 2024 at 10:23:39AM -0800, Palmer Dabbelt wrote:
->> On Wed, 28 Feb 2024 02:12:14 PST (-0800), Conor Dooley wrote:
->> > On Tue, Feb 27, 2024 at 10:55:34PM -0800, Samuel Holland wrote:
->> > > The [ms]envcfg CSR was added in version 1.12 of the RISC-V privileged
->> > > ISA (aka S[ms]1p12). However, bits in this CSR are defined by several
->> > > other extensions which may be implemented separately from any particular
->> > > version of the privileged ISA (for example, some unrelated errata may
->> > > prevent an implementation from claiming conformance with Ss1p12). As a
->> > > result, Linux cannot simply use the privileged ISA version to determine
->> > > if the CSR is present. It must also check if any of these other
->> > > extensions are implemented. It also cannot probe the existence of the
->> > > CSR at runtime, because Linux does not require Sstrict, so (in the
->> > > absence of additional information) it cannot know if a CSR at that
->> > > address is [ms]envcfg or part of some non-conforming vendor extension.
->> > > 
->> > > Since there are several standard extensions that imply the existence of
->> > > the [ms]envcfg CSR, it becomes unwieldy to check for all of them
->> > > wherever the CSR is accessed. Instead, define a custom Xlinuxenvcfg ISA
->> > > extension bit that is implied by the other extensions and denotes that
->> > > the CSR exists as defined in the privileged ISA, containing at least one
->> > > of the fields common between menvcfg and senvcfg.
->> > 
->> > > This extension does not need to be parsed from the devicetree or ISA
->> > > string because it can only be implemented as a subset of some other
->> > > standard extension.
->> > 
->> > NGL, every time I look at the superset stuff I question whether or not
->> > it is a good implementation, but it is nice to see that it at least
->> > makes the creation of quasi-extension flags like this straightforward.
->> 
->> We can always add it to the DT list as a proper extension, but I think for
->> this sort of stuff it's good enough for now
->
-> Perhaps good enough forever. I was not advocating for adding it as a
-> permitted DT property - I was just saying that I didn't the complexity
-> that you mention below, but I was pleasantly surprised that the stuff
-> ?Evan? and I came up with allows for this kind of inferred "extension"
-> without any changes.
+When using the ASID allocator, the MM context ID contains two values:
+the ASID in the lower bits, and the allocator version number in the
+remaining bits. Use macros to make this separation more obvious.
 
-Ya, I'm in the same boat.  I think we can get away without putting these 
-into DT until we end up with something odd going on, like some other 
-flavor of *envcf from some vendor being weird.
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
 
->> -- we've already got a bunch of
->> complexity for the proper ISA-defined extension dependencies, so it's not
->> like we could really get away from it entirely.
+(no changes since v1)
+
+ arch/riscv/include/asm/mmu.h |  3 +++
+ arch/riscv/mm/context.c      | 12 ++++++------
+ arch/riscv/mm/tlbflush.c     |  2 +-
+ 3 files changed, 10 insertions(+), 7 deletions(-)
+
+diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+index 355504b37f8e..a550fbf770be 100644
+--- a/arch/riscv/include/asm/mmu.h
++++ b/arch/riscv/include/asm/mmu.h
+@@ -26,6 +26,9 @@ typedef struct {
+ #endif
+ } mm_context_t;
+ 
++#define cntx2asid(cntx)		((cntx) & asid_mask)
++#define cntx2version(cntx)	((cntx) & ~asid_mask)
++
+ void __init create_pgd_mapping(pgd_t *pgdp, uintptr_t va, phys_addr_t pa,
+ 			       phys_addr_t sz, pgprot_t prot);
+ #endif /* __ASSEMBLY__ */
+diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+index ba8eb3944687..b562b3c44487 100644
+--- a/arch/riscv/mm/context.c
++++ b/arch/riscv/mm/context.c
+@@ -81,7 +81,7 @@ static void __flush_context(void)
+ 		if (cntx == 0)
+ 			cntx = per_cpu(reserved_context, i);
+ 
+-		__set_bit(cntx & asid_mask, context_asid_map);
++		__set_bit(cntx2asid(cntx), context_asid_map);
+ 		per_cpu(reserved_context, i) = cntx;
+ 	}
+ 
+@@ -102,7 +102,7 @@ static unsigned long __new_context(struct mm_struct *mm)
+ 	lockdep_assert_held(&context_lock);
+ 
+ 	if (cntx != 0) {
+-		unsigned long newcntx = ver | (cntx & asid_mask);
++		unsigned long newcntx = ver | cntx2asid(cntx);
+ 
+ 		/*
+ 		 * If our current CONTEXT was active during a rollover, we
+@@ -115,7 +115,7 @@ static unsigned long __new_context(struct mm_struct *mm)
+ 		 * We had a valid CONTEXT in a previous life, so try to
+ 		 * re-use it if possible.
+ 		 */
+-		if (!__test_and_set_bit(cntx & asid_mask, context_asid_map))
++		if (!__test_and_set_bit(cntx2asid(cntx), context_asid_map))
+ 			return newcntx;
+ 	}
+ 
+@@ -168,7 +168,7 @@ static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
+ 	 */
+ 	old_active_cntx = atomic_long_read(&per_cpu(active_context, cpu));
+ 	if (old_active_cntx &&
+-	    ((cntx & ~asid_mask) == atomic_long_read(&current_version)) &&
++	    (cntx2version(cntx) == atomic_long_read(&current_version)) &&
+ 	    atomic_long_cmpxchg_relaxed(&per_cpu(active_context, cpu),
+ 					old_active_cntx, cntx))
+ 		goto switch_mm_fast;
+@@ -177,7 +177,7 @@ static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
+ 
+ 	/* Check that our ASID belongs to the current_version. */
+ 	cntx = atomic_long_read(&mm->context.id);
+-	if ((cntx & ~asid_mask) != atomic_long_read(&current_version)) {
++	if (cntx2version(cntx) != atomic_long_read(&current_version)) {
+ 		cntx = __new_context(mm);
+ 		atomic_long_set(&mm->context.id, cntx);
+ 	}
+@@ -191,7 +191,7 @@ static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
+ 
+ switch_mm_fast:
+ 	csr_write(CSR_SATP, virt_to_pfn(mm->pgd) |
+-		  ((cntx & asid_mask) << SATP_ASID_SHIFT) |
++		  (cntx2asid(cntx) << SATP_ASID_SHIFT) |
+ 		  satp_mode);
+ 
+ 	if (need_flush_tlb)
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index 22870f213188..e194e14e5b2b 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -109,7 +109,7 @@ static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
+ static inline unsigned long get_mm_asid(struct mm_struct *mm)
+ {
+ 	return static_branch_unlikely(&use_asid_allocator) ?
+-			atomic_long_read(&mm->context.id) & asid_mask : FLUSH_TLB_NO_ASID;
++			cntx2asid(atomic_long_read(&mm->context.id)) : FLUSH_TLB_NO_ASID;
+ }
+ 
+ void flush_tlb_mm(struct mm_struct *mm)
+-- 
+2.43.1
+
 
 _______________________________________________
 linux-riscv mailing list
