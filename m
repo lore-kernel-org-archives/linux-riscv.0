@@ -4,78 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CDDDC54E41
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 14:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2918EC54E41
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 14:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QGNVF66cIW10cl3dnWbjx1H9zOQBTv9oHIKvOEEHgbA=; b=AGUnJ517jxrfqN
-	MZ/L3XHLjLm2GiUwiESS3AOtQVfOtHFHwdvEcCjDhgb6HIQyJjQCQUE8fnNIs1HbR9xYDFsi9kLrZ
-	0bGVVMkRQwkTo2ph56UvzkMVoCCK5rIgBKeUmr1BbWhp6CF+L1HG3FELpEg+sMzlkoheDSxmXXEgd
-	e0Uzzg63Uymleba0SqcmH8p/iWafprlemtP9U2Oh7qMhiJj9wpW7JESycKXEQSZllmdgst3FGdm0m
-	o0oJ4klF23prp8kJgpXW7GcoeG9X/6URmdzXTGwOJeihi/uTkHhoWwv87FH7v+smdlwQk5hauoBiy
-	O+F3+yFDzKjCcRxSRW9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pMUqME6wt1XcMj6a8e1htAKyzXbXO7zd97iQMeUrGXA=; b=sfnlL5GJj81HevmyNPIT3fccqi
+	ez+ZgQvWjpu0bGcZ9jhwNT1UYTAkp1Z9qgzKJNLMsSHD/ktR5wk64Wqw6HSNQlpc4sUsbBVehJPwB
+	MjGb39UMOQNU+Z61Y2jfcnJTuax6kwjgcBiE6L4L/fDxgNCSX0+gHyLCuX9hYO++uW7vgWEG9965T
+	Z8DatT7DMw7rO/O+jE7BNsm8lmcMWuoM+3th9I9dYdcFGm1y8IKtHn4eu4kB7VbzQDLEJBX6fU18j
+	YTl+HidLvnpUCIqqWa+UbrWbU3NiiPqSX8Vjc/nSGDLowQLaf4ndF4WWzEXw7qJXv48pQXFT1QAgD
+	hJf1h44w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfhZ5-0000000Dtnq-2FUE;
-	Thu, 29 Feb 2024 14:39:15 +0000
-Received: from mailgate.ics.forth.gr ([139.91.1.2])
+	id 1rfhhO-0000000DvMb-3D3w;
+	Thu, 29 Feb 2024 14:47:50 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfhZ1-0000000Dtg2-24V0
+	id 1rfhhM-0000000DvM9-0InZ
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 14:39:14 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
-	by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id 41TEcnbb003040
-	for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 16:38:49 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
-	q=dns/txt; i=@ics.forth.gr; t=1709217524; x=1711809524;
-	h=From:Sender:Reply-To:Subject:Date:Message-Id:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=2AP36O4Q237gvx6XJTGzq6ubQkJU6MDVVUBj66241MQ=;
-	b=SDLN/OI2xDX4iAwWgKj4Qy1whzd5dUHAigjwL/yaMJVTK0vEBn/+3OssC8LzZ2rU
-	o+KFcUjY8rYNOccxgDvN0fVVrECnAtANXnRXHlg/VOAPFM9EOoEeFdZD5PsjbbPE
-	I60NQyHDAOQ9v9u8SecCVQ2hHiStR+g4/BszaPmMQBvN2B0NoDNSC8uoF7cW6SKC
-	yJ1x2spyL68Pg9tFTnLz6kRR55hEzETkC9e7pJ24Z5FfHSz2gWtmf613bD0pdHRo
-	Jvg0Hx/IGoKSE+G7BFgFXNjgD2gHmnH5G3kWgB10KPt2tlJPSC7wyJ0Xo9XAvbp/
-	cKZSRbs5QtKU/Dmqz7NJlw==;
-X-AuditID: 8b5b014d-a17eb70000002178-e1-65e096f4feaf
-Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
-	by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id 67.EC.08568.4F690E56; Thu, 29 Feb 2024 16:38:44 +0200 (EET)
-X-ICS-AUTH-INFO: Authenticated user: dvlachos at ics.forth.gr
-From: Dimitris Vlachos <dvlachos@ics.forth.gr>
-To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        palmer@dabbelt.com, alexghiti@rivosinc.com, paul.walmsley@sifive.com
-Cc: clameter@sgi.com, akpm@linux-foundation.org, rppt@kernel.org,
-        arnd@arndb.de, mick@ics.forth.gr, csd4492@csd.uoc.gr,
-        maraz@ics.forth.gr
-Subject: [PATCH -fixes] riscv: Sparse-Memory/vmemmap out-of-bounds fix
-Date: Thu, 29 Feb 2024 16:38:33 +0200
-Message-Id: <20240229143833.107724-1-dvlachos@ics.forth.gr>
-X-Mailer: git-send-email 2.39.2
+	Thu, 29 Feb 2024 14:47:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 7F1D3CE1A4E;
+	Thu, 29 Feb 2024 14:47:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BC8AC433F1;
+	Thu, 29 Feb 2024 14:47:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1709218064;
+	bh=jh4m+J4zq3Gu+gnq/+2As4uXbPdMVPKk+9KMHCLN9zQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j6fF6HksNrTtgooDxky8LzQyR6jZlbe/EdbD3aH6D6I7XV4bb9Sv9zPhTPjka6vof
+	 CiSLDXBq8dHl/RLR5o6+My7r9cPIOSt7GcwEUwHRCgWgjLzueBEuUc3dd18Q5Xbtap
+	 xGNPlkm3HUApv9sz/yFFZ43TU/yVrivoLd+vqZnFdEY9twKJg6iMeJyqMvkJgy/6Ag
+	 T9yK+Q2XHTE+zaC8RL7jPf1qREopuyGsQa9am6UesgWWx7oi+fyUFo1NVgAAkBm5j2
+	 jHO/CoVTJ/ZhAi1jxEymKIW94KRytmGa3p4POWy77HnxQg7SEwImA+VSW6ICsUXYIl
+	 DJ0EDqQK5rGCQ==
+Date: Thu, 29 Feb 2024 14:47:39 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH v5 2/2] riscv: Set unaligned access speed at compile time
+Message-ID: <20240229-ship-frail-52cd06745fc2@spud>
+References: <20240227-disable_misaligned_probe_config-v5-0-b6853846e27a@rivosinc.com>
+ <20240227-disable_misaligned_probe_config-v5-2-b6853846e27a@rivosinc.com>
+ <20240228-denote-subscribe-9832cddbd307@spud>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrGLMWRmVeSWpSXmKPExsXSHT1dWffLtAepBnt3iVvMWb+GzeJx43FG
-	i7+TjrFbrG9cx26x5mmIxeVdc9gstn1uYbOY0f+f1aL53Tl2i5eXe5gt2mbxWxxZv53Jgcfj
-	969JjB6fLv9i8Xjz8iWLx8NNl5g8Nq3qZPM4MeM3i8fmJfUeN2ZFeNy9/pLJ41LzdXaPz5vk
-	ArijuGxSUnMyy1KL9O0SuDK+ntvEWHCEq2LNwQVMDYw/OLoYOTkkBEwk3l4/zghiCwkcYZQ4
-	MdcXIm4rsXfBcSYQm01AT2L9/D3sXYxcHCICExglfr0/zAziMAvMYZS48aqbHaRKWMBN4vO5
-	D2CTWARUJVrutrOB2LwC1hKNN/YBNXAATZWXWPxAAiIsKHFy5hMWkDCzgLrE+nlCIGFmoIrm
-	rbOZJzDyzkJSNQuhahaSqgWMzKsYBRLLjPUyk4v10vKLSjL00os2MYKDntF3B+PtzW/1DjEy
-	cTAeYpTgYFYS4ZURvJsqxJuSWFmVWpQfX1Sak1p8iFGag0VJnPeE7YJkIYH0xJLU7NTUgtQi
-	mCwTB6dUA9NREy2jmIOZ7dyqp4Ii1Fia7Or5bnxoq/v0oG7z3dasqYdYyhqV/65sbpdWvcoU
-	1F6//K3aixcxf/y+vRR29bzD+4VpRofJjVvGymnSDUzrfP4Ve7AkKJbF3a1dbR/h385W/Eyq
-	2+GoRCX/j2fMbS4S+U+60+9Lmx9wn2CVWMFRd55XRW9Pc1ES7+FniZnx+9n0jl1at7iNf/l7
-	ZZtdyVJ8b4Ji2+VVzjVMd9E5uivO+Yj2pCgmjg/NOyY+bIrNn7GpqFl/i1pr28U+ia2hLq7f
-	eff8fWZ8c3n87+UvPupa7JksM/XHrv+1j7bkiZqr2sYIxX+8ofve9UBV2a6lpwQcLp2qbxFa
-	HlKj97lKiaU4I9FQi7moOBEAp+Zj+OkCAAA=
+In-Reply-To: <20240228-denote-subscribe-9832cddbd307@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_063912_019432_05AE876B 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240229_064748_589296_19EEC2B4 
+X-CRM114-Status: GOOD (  21.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,34 +66,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
+Content-Type: multipart/mixed; boundary="===============5712852449383194717=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T2Zmc2V0IHZtZW1tYXAgc28gdGhhdCB0aGUgZmlyc3QgcGFnZSBvZiB2bWVtbWFwIHdpbGwgYmUg
-bWFwcGVkCnRvIHRoZSBmaXJzdCBwYWdlIG9mIHBoeXNpY2FsIG1lbW9yeSBpbiBvcmRlciB0byBl
-bnN1cmUgdGhhdAp2bWVtbWFw4oCZcyBib3VuZHMgd2lsbCBiZSByZXNwZWN0ZWQgZHVyaW5nCnBm
-bl90b19wYWdlKCkvcGFnZV90b19wZm4oKSBvcGVyYXRpb25zLgpUaGUgY29udmVyc2lvbiBtYWNy
-b3Mgd2lsbCBwcm9kdWNlIGNvcnJlY3QgU1YzOS80OC81NyBhZGRyZXNzZXMKZm9yIGV2ZXJ5IHBv
-c3NpYmxlL3ZhbGlkIERSQU1fQkFTRSBpbnNpZGUgdGhlIHBoeXNpY2FsIG1lbW9yeSBsaW1pdHMu
-CgpUaGlzIGlzIHRoZSBsaW5rIHRvIHRoZSByZWxldmFudCBjb252ZXJzYXRpb24gYW5kIGJ1ZyBy
-ZXBvcnQuCkxpbmsgOmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjQwMjAy
-MTM1MDMwLjQyMjY1LTEtY3NkNDQ5MkBjc2QudW9jLmdyCgpDby1kZXZlbG9wZWQtYnk6IEFsZXhh
-bmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KU2lnbmVkLW9mZi1ieTogRGltaXRy
-aXMgVmxhY2hvcyA8ZHZsYWNob3NAaWNzLmZvcnRoLmdyPgpSZXBvcnRlZC1ieTogRGltaXRyaXMg
-VmxhY2hvcyA8ZHZsYWNob3NAaWNzLmZvcnRoLmdyPgotLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vcGd0YWJsZS5oIHwgMiArLQogMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRl
-bGV0aW9uKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgg
-Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAppbmRleCAwYzk0MjYwYjUuLjg3NWM5
-YTA3OSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKKysrIGIv
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKQEAgLTg0LDcgKzg0LDcgQEAKICAqIERl
-ZmluZSB2bWVtbWFwIGZvciBwZm5fdG9fcGFnZSAmIHBhZ2VfdG9fcGZuIGNhbGxzLiBOZWVkZWQg
-aWYga2VybmVsCiAgKiBpcyBjb25maWd1cmVkIHdpdGggQ09ORklHX1NQQVJTRU1FTV9WTUVNTUFQ
-IGVuYWJsZWQuCiAgKi8KLSNkZWZpbmUgdm1lbW1hcAkJKChzdHJ1Y3QgcGFnZSAqKVZNRU1NQVBf
-U1RBUlQpCisjZGVmaW5lIHZtZW1tYXAJCSgoc3RydWN0IHBhZ2UgKilWTUVNTUFQX1NUQVJUIC0g
-KHBoeXNfcmFtX2Jhc2UgPj4gUEFHRV9TSElGVCkpCiAKICNkZWZpbmUgUENJX0lPX1NJWkUgICAg
-ICBTWl8xNk0KICNkZWZpbmUgUENJX0lPX0VORCAgICAgICBWTUVNTUFQX1NUQVJUCi0tIAoyLjM5
-LjIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============5712852449383194717==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="g9ScbAqWRYzLUy4l"
+Content-Disposition: inline
+
+
+--g9ScbAqWRYzLUy4l
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Clement,
+
+On Wed, Feb 28, 2024 at 10:43:20AM +0000, Conor Dooley wrote:
+> > @@ -413,7 +411,9 @@ int handle_misaligned_load(struct pt_regs *regs)
+> > =20
+> >  	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
+> > =20
+> > +#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
+>=20
+> if (IS_ENABLED()), no?
+> But perhaps more interestingly - why is this being set here at all?
+> My understanding of the emulated stuff was that if the in-kernel
+> emulation was enabled, it would be used unless the CPU itself supported
+> fast accesses.
+
+> I would expect this to be advertised to userspace once
+> the system has booted, not set the first time that a cpu emulates an
+> access,
+> I feel like I need to take a look at how this has been implemented, I
+> never really looked too closely at it and how it is enabled does not
+> match my expectations.
+
+I did look at this more closely and I understand why this is being done.
+In the vast majority of situations I think it is going to work perfectly
+fine, since that first access is going to be during the boot time
+probing.
+=2E
+> >  	*this_cpu_ptr(&misaligned_access_speed) =3D RISCV_HWPROBE_MISALIGNED_=
+EMULATED;
+> > +#endif
+> > =20
+> >  	if (!unaligned_enabled)
+> >  		return -1;
+
+This is in the diff, so I am commenting here. Firstly, why does this
+return -1 and not a regular negative errno?
+
+Secondly, this looks pretty suspect to me - if the sysctl is used to
+disable the emulation things like hwprobe will still report that access
+is emulated if during boot it was enabled.
+I think that if this condition is hit, we actually need to change the
+per-cpu variable to set the alignment to unsupported, given the
+emulation will (at present & if my understanding is correct) only be
+enabled when there's not underlying support for unaligned accesses.
+
+Thoughts?
+
+Cheers,
+Conor.
+
+--g9ScbAqWRYzLUy4l
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZeCY9QAKCRB4tDGHoIJi
+0iavAQCKIPyb10Y8b3+7ZYXeg6e+2o/56nXBEM1MzBoN3u1bqgEAgblW8u6KNYrj
+CdDilNguaeoiA2W9aHSsGlJRULWc7Qg=
+=V4Ha
+-----END PGP SIGNATURE-----
+
+--g9ScbAqWRYzLUy4l--
+
+
+--===============5712852449383194717==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5712852449383194717==--
+
