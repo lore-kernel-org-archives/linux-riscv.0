@@ -4,75 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C5B0C48BF6
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 15:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D61C54E41
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 15:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l22lFMsHVH+PxwGeOUMUnIqCiyicRHBfJk0lEzZprTU=; b=WNZDrlymh0VF/L
-	9TMlmtm8gIq4F0ZYAeWjAm7y35NC+Nd7Xrk4G9i4a7VKISRAO1gW+Ms4MLVfdwrU6COkW7kOd7+Vd
-	ME91DxHTs9WGITMpNqXgZ+TYH1Gtqn5pA4SNPRaIahRRmxTqEsTHERLBx6O5BQWJLwrsQ5BepDbTI
-	Hyj2yEJVvp5xcGIh2S8DA6fsesFX0hNwA3B2XHkz+6GUdjVGeYmgnCg/rysJ8UnSSH6vc1v75mB4E
-	JEI6gCEiaDFq6r6ZW3EfQkDSpZyQVskncfzMNu8fhLwIldQExcHYzj+QdX5eLgUhuwJVOHfUVWCyA
-	UFeZnVobGpGRdQVJNSjQ==;
+	List-Owner; bh=4rFkVU179Th6pAtzhSFaAZeSaH7jklVH18bQtWIZJWo=; b=o/iBjbPNV0diyB
+	xwGQQXwI9S1+Ol/QIwAL/NCGuGVNK2CrW7un9wwor/W/+t0bPgZOFFM7lSPQsmxPyROgzbEdrjTc9
+	ize+TD7svEeGCCT2AzXRo2HNatB0hzHiz2vzX04Szdt7YvXqz1peFwGXxW6zZrv+VMLJksKrvYVm7
+	d9oM6wukOjB6INLckfOe8BWivcCYbdo2Z76K6KBBzhK27/eEmHTx7tiP/x1t9UtR/RsGfx4UziOlA
+	vSP0CxfkaHQw+pUUWYkm+KEvaly4k9RAQNAQWriezyoGR67Dd1+QaHTODLdXJQilvFdBpFZDiDUuU
+	OViaqz+mCqqF/ZOJgm/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfi1n-0000000Dzig-3AAZ;
-	Thu, 29 Feb 2024 15:08:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rfiV4-0000000E5WJ-3b3c;
+	Thu, 29 Feb 2024 15:39:10 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfi1k-0000000Dzhy-1mmr
+	id 1rfiV0-0000000E5Va-2dZD
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 15:08:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B30ED60BC8;
-	Thu, 29 Feb 2024 15:08:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8C5DC43394;
-	Thu, 29 Feb 2024 15:08:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709219331;
-	bh=1Zyw6/15dc8py4UHaheILppIr29j2DVuoJ+GnLmxmI0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qbE142naa92rUgW7jL/DgquUxvIA8orHcRMgUTDyddce65pfDrm5hqA2gW1XhNEW1
-	 M9mhn4t1LH5FmGr+9vxIZj3lWezTgwutUTT9MFvgOEbxD3MUXBEe2+gj4i08VwWHnU
-	 AZRLl0FrHrOBNbBj3B9joRiitw1QbIUaM58sENEelec+3rzJe+v9gtvOJ1DxJBcLVC
-	 Q992XY0FVty+LT18+GMGFLjH+GGFEJ1RwHcuUU8sIFGQGNxQ6B3B/4vFkw5Aq7alGS
-	 57Xq1IPbNKu1IcM0c12i1Q/3MttMRGg6tdlxmEibgCn3P5lMdEJsiugpx10dhXtF+l
-	 hPvdF3nQRkfWg==
-Date: Thu, 29 Feb 2024 16:08:43 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Minda Chen <minda.chen@starfivetech.com>
-Cc: Conor Dooley <conor@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v15,RESEND 22/23] PCI: starfive: Offload the NVMe timeout
- workaround to host drivers.
-Message-ID: <ZeCd+xqE6x2ZFtJN@lpieralisi>
-References: <20240227103522.80915-1-minda.chen@starfivetech.com>
- <20240227103522.80915-23-minda.chen@starfivetech.com>
+	Thu, 29 Feb 2024 15:39:08 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4F7B720008;
+	Thu, 29 Feb 2024 15:38:59 +0000 (UTC)
+Message-ID: <97fec9bc-3b19-4b4e-8627-81c6f9298c4c@ghiti.fr>
+Date: Thu, 29 Feb 2024 16:38:59 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240227103522.80915-23-minda.chen@starfivetech.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH -fixes] riscv: Sparse-Memory/vmemmap out-of-bounds fix
+Content-Language: en-US
+To: Dimitris Vlachos <dvlachos@ics.forth.gr>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ palmer@dabbelt.com, alexghiti@rivosinc.com, paul.walmsley@sifive.com
+Cc: clameter@sgi.com, akpm@linux-foundation.org, rppt@kernel.org,
+ arnd@arndb.de, mick@ics.forth.gr, csd4492@csd.uoc.gr, maraz@ics.forth.gr
+References: <20240229143833.107724-1-dvlachos@ics.forth.gr>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240229143833.107724-1-dvlachos@ics.forth.gr>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_070852_591101_5CC07349 
-X-CRM114-Status: GOOD (  24.43  )
+X-CRM114-CacheID: sfid-20240229_073906_822255_30179EA8 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,111 +58,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 27, 2024 at 06:35:21PM +0800, Minda Chen wrote:
-> From: Kevin Xie <kevin.xie@starfivetech.com>
-> 
-> As the Starfive JH7110 hardware can't keep two inbound post write in
-> order all the time, such as MSI messages and NVMe completions. If the
-> NVMe completion update later than the MSI, an NVMe IRQ handle will miss.
-
-Please explain what the problem is and what "NVMe completions" means
-given that you are talking about posted writes.
-
-If you have a link to an erratum write-up it would certainly help.
-
-This looks completely broken to me, if the controller can't guarantee
-PCIe transactions ordering it is toast, there is not even a point
-considering mainline merging.
-
-> As a workaround, we will wait a while before going to the generic
-> handle here.
-> 
-> Verified with NVMe SSD, USB SSD, R8169 NIC.
-> The performance are stable and even higher after this patch.
-
-I assume this is a joke even though it does not make me laugh.
-
-Thanks,
-Lorenzo
-
-> 
-> Signed-off-by: Kevin Xie <kevin.xie@starfivetech.com>
-> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> ---
->  drivers/pci/controller/plda/pcie-plda-host.c | 12 ++++++++++++
->  drivers/pci/controller/plda/pcie-plda.h      |  1 +
->  drivers/pci/controller/plda/pcie-starfive.c  |  1 +
->  3 files changed, 14 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
-> index a18923d7cea6..9e077ddf45c0 100644
-> --- a/drivers/pci/controller/plda/pcie-plda-host.c
-> +++ b/drivers/pci/controller/plda/pcie-plda-host.c
-> @@ -13,6 +13,7 @@
->  #include <linux/msi.h>
->  #include <linux/pci_regs.h>
->  #include <linux/pci-ecam.h>
-> +#include <linux/delay.h>
->  
->  #include "pcie-plda.h"
->  
-> @@ -44,6 +45,17 @@ static void plda_handle_msi(struct irq_desc *desc)
->  			       bridge_base_addr + ISTATUS_LOCAL);
->  		status = readl_relaxed(bridge_base_addr + ISTATUS_MSI);
->  		for_each_set_bit(bit, &status, msi->num_vectors) {
-> +			/*
-> +			 * As the Starfive JH7110 hardware can't keep two
-> +			 * inbound post write in order all the time, such as
-> +			 * MSI messages and NVMe completions.
-> +			 * If the NVMe completion update later than the MSI,
-> +			 * an NVMe IRQ handle will miss.
-> +			 * As a workaround, we will wait a while before
-> +			 * going to the generic handle here.
-> +			 */
-> +			if (port->msi_quirk_delay_us)
-> +				udelay(port->msi_quirk_delay_us);
->  			ret = generic_handle_domain_irq(msi->dev_domain, bit);
->  			if (ret)
->  				dev_err_ratelimited(dev, "bad MSI IRQ %d\n",
-> diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
-> index 04e385758a2f..feccf285dfe8 100644
-> --- a/drivers/pci/controller/plda/pcie-plda.h
-> +++ b/drivers/pci/controller/plda/pcie-plda.h
-> @@ -186,6 +186,7 @@ struct plda_pcie_rp {
->  	int msi_irq;
->  	int intx_irq;
->  	int num_events;
-> +	u16 msi_quirk_delay_us;
->  };
->  
->  struct plda_event {
-> diff --git a/drivers/pci/controller/plda/pcie-starfive.c b/drivers/pci/controller/plda/pcie-starfive.c
-> index 9bb9f0e29565..5cfc30572b7f 100644
-> --- a/drivers/pci/controller/plda/pcie-starfive.c
-> +++ b/drivers/pci/controller/plda/pcie-starfive.c
-> @@ -391,6 +391,7 @@ static int starfive_pcie_probe(struct platform_device *pdev)
->  
->  	plda->host_ops = &sf_host_ops;
->  	plda->num_events = PLDA_MAX_EVENT_NUM;
-> +	plda->msi_quirk_delay_us = 1;
->  	/* mask doorbell event */
->  	plda->events_bitmap = GENMASK(PLDA_INT_EVENT_NUM - 1, 0)
->  			     & ~BIT(PLDA_AXI_DOORBELL)
-> -- 
-> 2.17.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgRGltaXRyaSwKCk9uIDI5LzAyLzIwMjQgMTU6MzgsIERpbWl0cmlzIFZsYWNob3Mgd3JvdGU6
+Cj4gT2Zmc2V0IHZtZW1tYXAgc28gdGhhdCB0aGUgZmlyc3QgcGFnZSBvZiB2bWVtbWFwIHdpbGwg
+YmUgbWFwcGVkCj4gdG8gdGhlIGZpcnN0IHBhZ2Ugb2YgcGh5c2ljYWwgbWVtb3J5IGluIG9yZGVy
+IHRvIGVuc3VyZSB0aGF0Cj4gdm1lbW1hcOKAmXMgYm91bmRzIHdpbGwgYmUgcmVzcGVjdGVkIGR1
+cmluZwo+IHBmbl90b19wYWdlKCkvcGFnZV90b19wZm4oKSBvcGVyYXRpb25zLgo+IFRoZSBjb252
+ZXJzaW9uIG1hY3JvcyB3aWxsIHByb2R1Y2UgY29ycmVjdCBTVjM5LzQ4LzU3IGFkZHJlc3Nlcwo+
+IGZvciBldmVyeSBwb3NzaWJsZS92YWxpZCBEUkFNX0JBU0UgaW5zaWRlIHRoZSBwaHlzaWNhbCBt
+ZW1vcnkgbGltaXRzLgo+Cj4gVGhpcyBpcyB0aGUgbGluayB0byB0aGUgcmVsZXZhbnQgY29udmVy
+c2F0aW9uIGFuZCBidWcgcmVwb3J0Lgo+IExpbmsgOmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xp
+bnV4LXJpc2N2LzIwMjQwMjAyMTM1MDMwLjQyMjY1LTEtY3NkNDQ5MkBjc2QudW9jLmdyCj4KPiBD
+by1kZXZlbG9wZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4K
+CgpZb3UgY2FuIHN3aXRjaCB0aGF0IHRvIGEgU3VnZ2VzdGVkLWJ5LCBJIGRpZCBub3Qgd3JpdGUg
+dGhlIGNvZGUgbm9yIHRlc3QgCmFueXRoaW5nIDopCgoKPiBTaWduZWQtb2ZmLWJ5OiBEaW1pdHJp
+cyBWbGFjaG9zIDxkdmxhY2hvc0BpY3MuZm9ydGguZ3I+Cj4gUmVwb3J0ZWQtYnk6IERpbWl0cmlz
+IFZsYWNob3MgPGR2bGFjaG9zQGljcy5mb3J0aC5ncj4KCgpJIHRoaW5rIGNoZWNrcGF0Y2ggd2ls
+bCBjb21wbGFpbiB0aGF0IGEgTGluayBvciBDbG9zZXMgdGFnIHNob3VsZCBmb2xsb3cgCmEgUmVw
+b3J0ZWQtYnk6IEkgd291bGQgbW92ZSB0aGUgTGluayB0YWcgaW4geW91ciBjb21taXQgbWVzc2Fn
+ZSBoZXJlLgoKQW5kIHdlIG1pc3MgYSBGaXhlcyB0YWcgdG9vLCBJIHdvdWxkIGdvIGZvcjoKCkZp
+eGVzOiBkOTVmMWE1NDJjM2QgKCJSSVNDLVY6IEltcGxlbWVudCBzcGFyc2VtZW0iKQoKCj4gLS0t
+Cj4gICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCB8IDIgKy0KPiAgIDEgZmlsZSBj
+aGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9w
+Z3RhYmxlLmgKPiBpbmRleCAwYzk0MjYwYjUuLjg3NWM5YTA3OSAxMDA2NDQKPiAtLS0gYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vcGd0YWJsZS5oCj4gQEAgLTg0LDcgKzg0LDcgQEAKPiAgICAqIERlZmluZSB2bWVtbWFwIGZv
+ciBwZm5fdG9fcGFnZSAmIHBhZ2VfdG9fcGZuIGNhbGxzLiBOZWVkZWQgaWYga2VybmVsCj4gICAg
+KiBpcyBjb25maWd1cmVkIHdpdGggQ09ORklHX1NQQVJTRU1FTV9WTUVNTUFQIGVuYWJsZWQuCj4g
+ICAgKi8KPiAtI2RlZmluZSB2bWVtbWFwCQkoKHN0cnVjdCBwYWdlICopVk1FTU1BUF9TVEFSVCkK
+PiArI2RlZmluZSB2bWVtbWFwCQkoKHN0cnVjdCBwYWdlICopVk1FTU1BUF9TVEFSVCAtIChwaHlz
+X3JhbV9iYXNlID4+IFBBR0VfU0hJRlQpKQo+ICAgCj4gICAjZGVmaW5lIFBDSV9JT19TSVpFICAg
+ICAgU1pfMTZNCj4gICAjZGVmaW5lIFBDSV9JT19FTkQgICAgICAgVk1FTU1BUF9TVEFSVAoKWW91
+IGNhbiBhZGQ6CgpSZXZpZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3Np
+bmMuY29tPgoKVGhhbmtzLAoKQWxleAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
