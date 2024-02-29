@@ -4,63 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6066C48BF6
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 22:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E3DC48BF6
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 22:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X7B6s+QZr2suKYol5462v487epvLvAa0V36ZKMXI6XY=; b=Gk543OKDUEeyTt
-	pR/SQxz4/1AgnOsPCQtrGvjRpRUQ34I5mcp4t4hROgEmhLYxd/IfhKEiWft9Bo4HldT+EYuHp44+u
-	wt5tGIxQieOutMVPhOovsHN6PbQE/YG6Ld1wc8wMfHPyauBwu8OLV5tLSUmtCq3hYMAVlFzhMFF0x
-	gZcPF6ZlOWe4ekvpcxHDvMvCfPbAo3UhY4YyOWhsjITTF4L4jpldzgeC/cn6Vawyn4Oa6hE92+fHX
-	lg46YMrNeANfrP0jccjAMQF3fE3v1rizpUsYROz/4CCpWrh6r2Fguyx7SQWQEfqb7/BYxhy6AYomf
-	GWyKC/Bpb1/rjx8FPAaw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
+	In-reply-to:Subject:Cc:To:From:References:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=RAZiBLq8CL+HeD1fr++R9yL1T7LVsJ8ewjLReiXJRbw=; b=uKlaihrJp+5inYKB1UP1EUtM8T
+	6AUOqTT0nu4FbNYcLyUroKMIeQcMt6un9FZgOkeJenJeZ9yxu6naen7kz7WMrGg0YqfJyJUnS3WhF
+	wVzA+a1nzr+q/nN0BWEwwehfgBVjAT/nwokai3wcecVmA8X93z+LtF0cnozhk/rbioOehuEHdX7mI
+	RvucM8oPA+QW1F3d5MxDxcfe2Gb214wckIpSGFkCypTmSC1HvxspE4ajK4HXFPQ5yym3UOBtBuhFT
+	LAOLq/jzPxyCw2tZ9NHXmXKe9GL4Kv6B4gjGK3iFHgeyek2q+uoPrk6NC5Sw5MKXScQ0+XPyD610j
+	V3yAtfOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfobv-0000000FQ8x-2pu0;
-	Thu, 29 Feb 2024 22:10:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rfofD-0000000FR4m-39Zk;
+	Thu, 29 Feb 2024 22:14:03 +0000
+Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfobs-0000000FQ7D-0wWs
+	id 1rfofA-0000000FR2a-0qHF
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 22:10:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7E9BF6133D;
-	Thu, 29 Feb 2024 22:10:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CDF00C433A6;
-	Thu, 29 Feb 2024 22:10:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709244634;
-	bh=W6eOc8kPa7vvpD1zip2/JSn/BkY9XxDFR3rIhaQnalg=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=j8u9tpQ5Ka83UQtCI1wDmrXxj55f+GHizGHXKVMAsGT36l4Duj9VIIC2aJ/+CB/mZ
-	 wic3jahFicHTkDCn3MaFBtR3amtTfqAp8Gaz9uN4sismYebkm7xbpFd04m1msA19Z+
-	 psBHVGVO1uf4B90D/7QMm/CVknnVjArdAGgW4hgYeFYYN3V7i5EVwnGQqE9+sGUId5
-	 T0h6+5i2j9uxHl7t5BleyhQh30RZnNnAo1KPAZw7hqlr0wawRvKIFTX3b86FO/LOvh
-	 UKYYIkF/Vgl1PixoHKvGv7/TJ8OlBzR9onjDzFxlL7AElccDQhjM63HLna2y6wL1i0
-	 jKIdrjOo7LoVg==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id B0543D990A8;
-	Thu, 29 Feb 2024 22:10:34 +0000 (UTC)
+	Thu, 29 Feb 2024 22:14:01 +0000
+Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-3c1a9b567edso610137b6e.3
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 14:13:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1709244838; x=1709849638; darn=lists.infradead.org;
+        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
+         :user-agent:references:from:to:cc:subject:date:message-id:reply-to;
+        bh=F0bbqczj3Keglw64JiNfdvO4M759XtAlzANrlsOPWOc=;
+        b=UiU9yTfPWT8nNGbi5TCCEuQhWrmxSDLVUzKyn9ywgomuTu0ZvouwWKF41Jaq1/130F
+         zTrIm39OCrSl349Jum/KCVCznh65eSefP85CE5r1ME/rDYlsPCRtLlckSui0VhqrasNW
+         Q2cBtY/WX0MAAdeSebx72Q8+dV623wC8KPeY3yBgnUMnfpF6GAbQ2fLzD1bnAn+yxi9d
+         kMlH/QwNFAFie8k4C/OcdvRtOUNKG1KvqGON0opXpXC+R+Rz7QD/j+4VwNV/Td6jhHRL
+         v+tjQM1o42cEkNzzhyw5/FkqLjkfUhe2l+O+oOhDmvnR6d9npP7a+Bcgbdqvyxp0zVJO
+         wdig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709244838; x=1709849638;
+        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
+         :user-agent:references:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=F0bbqczj3Keglw64JiNfdvO4M759XtAlzANrlsOPWOc=;
+        b=uFKTtgwPllCRd9bAUxxzTwLpGUHXdJpq9icIvy24l8DeHo4QIy9C6I3LjQWlCRaZmC
+         WwudEgwD3mNzxCFiE6zfxoS7So1UoTkCmKCthgLUVf6LjLLVMzxUbjQnzTEyMhNAxudl
+         Uzg+5DHrKMS9xpSGDxFjcJvz225AFs0yYcj8lK5udlUpSdRxAmbWPRAROruA/LArKOYd
+         LkkMqnVpplIFY7gClt5rfYcN6/Axa5EgG+yy2pTVISFGBBUfrOmnZvQdfG8A0eCUMxXG
+         xn5WuH28zMMzUMVDf1vE/mtL7YjpqYp54ad2HjdwLuMcbg8F+M9Vs0oBcgMuNHGfRw7f
+         dfSg==
+X-Forwarded-Encrypted: i=1; AJvYcCXaxOFLjCN6Cm1UNZaCKuIYLAzeWZtqCHJBwGwdCM8T2ZZCBJWiksCRLY7hqHnN2Mu5R5Sg2zkU1RgeRyD31/h2SWMS4SDrfWIGghu6z3ER
+X-Gm-Message-State: AOJu0Yz1x1wDx8nJ3eIxWEqxuJkT6bFpTZBoiMJjzTy3kjASdmqtsc2n
+	YLDER3KJNF91weWNjkJd2MbzKCf0O3Y9pGOwInCB54ooYc37Dusiq70Dl6igQHE=
+X-Google-Smtp-Source: AGHT+IHdJxypAmK3qvNYc2vGOAmkw9y2ZwPcLUGqtAKe2grsU0Su0E62P6Tt4LBvrgbMxt6+5DcYzg==
+X-Received: by 2002:a05:6808:438f:b0:3c1:c2e6:b046 with SMTP id dz15-20020a056808438f00b003c1c2e6b046mr3051822oib.23.1709244837897;
+        Thu, 29 Feb 2024 14:13:57 -0800 (PST)
+Received: from localhost ([2804:14d:7e39:8470:a90b:ac37:af4a:feb9])
+        by smtp.gmail.com with ESMTPSA id ei4-20020a056a0080c400b006e57e220ceasm1771460pfb.6.2024.02.29.14.13.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Feb 2024 14:13:57 -0800 (PST)
+References: <20240203-arm64-gcs-v8-0-c9fec77673ef@kernel.org>
+ <20240203-arm64-gcs-v8-33-c9fec77673ef@kernel.org>
+ <87sf1n7uea.fsf@linaro.org>
+ <9b899b4e-7410-4c3b-967b-7794dac742e4@sirena.org.uk>
+ <87ttlzsyro.fsf@linaro.org>
+ <c710a6b1-cf58-4e32-ada0-c0b256a62b2c@sirena.org.uk>
+User-agent: mu4e 1.10.8; emacs 29.1
+From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Andrew Morton
+ <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
+ <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, Suzuki K
+ Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, Oleg
+ Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees
+ Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>, "Rick P.
+ Edgecombe" <rick.p.edgecombe@intel.com>, Deepak Gupta
+ <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, Szabolcs Nagy
+ <Szabolcs.Nagy@arm.com>, "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Florian Weimer <fweimer@redhat.com>, Christian
+ Brauner <brauner@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v8 33/38] kselftest/arm64: Add a GCS test program built
+ with the system libc
+In-reply-to: <c710a6b1-cf58-4e32-ada0-c0b256a62b2c@sirena.org.uk>
+Date: Thu, 29 Feb 2024 19:13:55 -0300
+Message-ID: <878r329avw.fsf@linaro.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH -fixes v2] riscv: Sparse-Memory/vmemmap out-of-bounds fix
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170924463471.14902.12448827543196020525.git-patchwork-notify@kernel.org>
-Date: Thu, 29 Feb 2024 22:10:34 +0000
-References: <20240229191723.32779-1-dvlachos@ics.forth.gr>
-In-Reply-To: <20240229191723.32779-1-dvlachos@ics.forth.gr>
-To: Dimitris Vlachos <dvlachos@ics.forth.gr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- palmer@dabbelt.com, alexghiti@rivosinc.com, paul.walmsley@sifive.com,
- clameter@sgi.com, akpm@linux-foundation.org, rppt@kernel.org, arnd@arndb.de,
- mick@ics.forth.gr, csd4492@csd.uoc.gr, maraz@ics.forth.gr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_141036_355276_206785F4 
-X-CRM114-Status: UNSURE (   7.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240229_141400_297952_A449E475 
+X-CRM114-Status: GOOD (  20.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,25 +109,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZml4ZXMp
-CmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIFRodSwgMjkgRmVi
-IDIwMjQgMjE6MTc6MjMgKzAyMDAgeW91IHdyb3RlOgo+IE9mZnNldCB2bWVtbWFwIHNvIHRoYXQg
-dGhlIGZpcnN0IHBhZ2Ugb2Ygdm1lbW1hcCB3aWxsIGJlIG1hcHBlZAo+IHRvIHRoZSBmaXJzdCBw
-YWdlIG9mIHBoeXNpY2FsIG1lbW9yeSBpbiBvcmRlciB0byBlbnN1cmUgdGhhdAo+IHZtZW1tYXDi
-gJlzIGJvdW5kcyB3aWxsIGJlIHJlc3BlY3RlZCBkdXJpbmcKPiBwZm5fdG9fcGFnZSgpL3BhZ2Vf
-dG9fcGZuKCkgb3BlcmF0aW9ucy4KPiBUaGUgY29udmVyc2lvbiBtYWNyb3Mgd2lsbCBwcm9kdWNl
-IGNvcnJlY3QgU1YzOS80OC81NyBhZGRyZXNzZXMKPiBmb3IgZXZlcnkgcG9zc2libGUvdmFsaWQg
-RFJBTV9CQVNFIGluc2lkZSB0aGUgcGh5c2ljYWwgbWVtb3J5IGxpbWl0cy4KPiAKPiBbLi4uXQoK
-SGVyZSBpcyB0aGUgc3VtbWFyeSB3aXRoIGxpbmtzOgogIC0gWy1maXhlcyx2Ml0gcmlzY3Y6IFNw
-YXJzZS1NZW1vcnkvdm1lbW1hcCBvdXQtb2YtYm91bmRzIGZpeAogICAgaHR0cHM6Ly9naXQua2Vy
-bmVsLm9yZy9yaXNjdi9jL2ExMWRkNDlkY2I5MwoKWW91IGFyZSBhd2Vzb21lLCB0aGFuayB5b3Uh
-Ci0tIApEZWV0LWRvb3QtZG90LCBJIGFtIGEgYm90LgpodHRwczovL2tvcmcuZG9jcy5rZXJuZWwu
-b3JnL3BhdGNod29yay9wd2JvdC5odG1sCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+
+Mark Brown <broonie@kernel.org> writes:
+
+> [[PGP Signed Part:Undecided]]
+> On Thu, Feb 22, 2024 at 11:24:59PM -0300, Thiago Jung Bauermann wrote:
+>> Mark Brown <broonie@kernel.org> writes:
+>
+>> > I believe based on prior discussions that you're running this using
+>> > shrinkwrap - can you confirm exactly how please, including things like
+>> > which firmware configuration you're using?  I'm using current git with
+>> >
+>> >   shrinkwrap run \
+>> >         --rtvar KERNEL=arch/arm64/boot/Image \
+>> >         --rtvar ROOTFS=${ROOTFS} \
+>> >         --rtvar CMDLINE="${CMDLINE}" \
+>> >         --overlay=arch/v9.4.yaml ns-edk2.yaml
+>> >
+>> > and a locally built yocto and everything seems perfectly happy.
+>> 
+>> Yes, this is how I'm running it:
+>> 
+>>   CMDLINE="Image dtb=fdt.dtb console=ttyAMA0 earlycon=pl011,0x1c090000 root=/dev/vda2 ip=dhcp maxcpus=1"
+>> 
+>>   shrinkwrap run \
+>>       --rtvar=KERNEL=Image-gcs-v8-v6.7-rc4-14743-ga551a7d7af93 \
+>
+> I guess that's bitrotted?
+
+Ah, sorry. When I renamed the Image I messed up the kernel version in the
+filename, but I did confirm via "uname -r" that I was running the
+correct version: 6.8.0-rc2-ga551a7d7af93.
+
+>> My rootfs is Ubuntu 22.04.3. In case it's useful, my kernel config is
+>> here:
+>
+> ...
+>
+>> https://people.linaro.org/~thiago.bauermann/gcs/config-v6.8.0-rc2
+>
+> Thanks, it seems to be something in your config that's making a
+> difference - I can see issues with that.  Hopefully that'll help me get
+> to the bottom of this quickly.  I spent a bunch of time fighting with
+> Ubuntu images to get them running but once I did they didn't seem to
+> make much difference.
+
+In that case, it's interesting that I still run into the problem with
+the defconfig. One thing I failed to mention and perhaps is relevant
+considering your result, is that I didn't copy the modules into the disk
+image, so the FVP was running just with was built into the kernel.
+
+That was actually the main reason for me to use a custom config:
+I didn't want to have to deal with kernel modules, so I created a config
+that didn't have any.
+
+-- 
+Thiago
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
