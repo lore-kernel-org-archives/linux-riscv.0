@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616CAC54798
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 12:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E400C54798
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 12:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5NSYZ7IS+e5rauYdpUj/USFhujI71RaXmOijq9r5MIk=; b=kcXKZSJuqerdfW
-	kcFNmG/PlPPb+bJJ+R7MnhR1ldt6gH51w4k/vLEfW8ycPIFTkqsrTwZeumeQf94yx5/FWWrpvas/u
-	IUKxxkl/GrF4Ua5O6lOwYr7QJqrON5vKhBzUN0WMouGdlYyzONcr/2HCg6IRU72LNqzn3kz8mIw2i
-	/dUfTiWJuQmngTKXpieDKe4t/bTCalK7QmvHV6phhRGYHSlHj/9U7APIFAWsaEj5bFZUPcZLrLnko
-	iS1Q3966zvnxsGCq5hKAhSxtrYKbVF20Uyv7eaRcZ9zeA2eaHn7kU51c5wQ4999SrZ0QQ6jwAxFmh
-	gDZnilPnrZU/sEi7J3cQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nvJxV3YmhpCzMNWbX/McCmQuQId+Qcmg3/A0MbARfNI=; b=NmLdFMfoyguC8p
+	vaazWvVDIX9F9xfPE4uSbXUlXTa85ky4PkpHfAKtLHDwqqzAen9TWbZj4jlhN70qBbSOgT1fZ+s0e
+	KRBuAKB1mqUjB2kwt8ntxJ0Pwb3m0S9N4cZ8BTjov+HgQchgYGkY2iYyc3SvvbgZ0SDq9Cg3/5ZMP
+	WfHsnHdKas5Spgqlza+PYg/gTiIF4vbl4eA/R9fhs+FFo5dnY9NXeIjuPvCYwk+X44YKsAK4yYFP3
+	nOrtyevZ7J8UBr7VpYU1zQQDDq6lmjyPqrGqbTjyHve43o/svwBnghkqquoLAe77x5bSTI1pUpCV9
+	pv+pzNhFWG3r3AZPapEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rffFk-0000000DSVk-3YcN;
-	Thu, 29 Feb 2024 12:11:08 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1rffGf-0000000DSkY-01O3;
+	Thu, 29 Feb 2024 12:12:05 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rffFd-0000000DSRm-1v3y
+	id 1rffGb-0000000DSje-35BR
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 12:11:07 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-2d311081954so3561451fa.2
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 04:11:00 -0800 (PST)
+	Thu, 29 Feb 2024 12:12:03 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-412af1c91f3so6094995e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 04:12:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709208659; x=1709813459; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3uSDH9PeEDZXjS7+X8GDOuU6r1LyJ3/UzSH+DzMzHV4=;
-        b=S9n1WnnganURmZkFqJ0wzXErcnfYJKjzKOFqCAlgkG5bFFpxSfKdTPWULZkoQbMQfE
-         PBDFUFyAZwDdH86qVqUArhLQZo05q2Ylcp8z1q2iCAwq6xusxmRZUQJ0YsYWy/77hkPM
-         0dIpci2h7hflpPQkyTvD29N1NdpgUqPxEj3C9DASQ4YvctIt3AQR3GaCoN/1CFzv1HLZ
-         2YLJaj8ZMC2MxGgDekdAcDa2naMcbvG206b1m5LbQ0L+dklb8ghZKGPPX+o/73JmLavv
-         LTR8iF++hsQTP5EvPeEKVCJskipHSLl/opbDRCKZ7XzrCQ1dcfQEZikPB8496AeetXM0
-         OrKg==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709208720; x=1709813520; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sQF1yLtoiSlCctJ+RE39C/7ki1uh9viRU9s1V0y1lKc=;
+        b=hVTH7KalZEFVtVimMmgfeUdFqw37j3o7RfnplsrrwvUwkXSgbe/l8wyYSK4KXq7nyC
+         N8R5rTHQrUHZjmsx49bZIEixCODOFDn80GBDo2M8XOFOUdOjKIuwZ8BpVkd/yURprBaT
+         q4DYF3G7NWgdjmSdzgDozM7YsoUQaThkh/3dRpaSyoSPpNE95OHziaOCPGtaU6ADMe1+
+         Ay9uGaWdKxCNUOQWAxFurSo0mliGUAMeVmlWZBTuPwRLsApc/KysxNDf+01unUWc6HlD
+         fYWLiYHMXbn4EtC2j3uHklCAKz7gym2bhyri8bZ5Yn9EzLCs4n5JftMUovVY6EJ8TktJ
+         Vq5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709208659; x=1709813459;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3uSDH9PeEDZXjS7+X8GDOuU6r1LyJ3/UzSH+DzMzHV4=;
-        b=pDfDPifFhScCOJqlDYn+BHUqrGLyPVIp+nZpSWdjVAEyp+9PNZKThVolCmUWDtQG0T
-         ZM+KG0pc3RS6IbVm1BWANTrtWIc3Fus15a1DmlM4kvO46fVCk3PWWXZQhlJ73Rvrva91
-         21KAh0jR9UimfSqeWGxcuBCzVFga40LEcONwZ5cR8r0CTFLOVLc9H57DxRf/xR0YKh0A
-         E2M3X3g2fCfL5haKTuZcrLlb2nJmG618j6ATB/N+Dj/W9h/9FvYLAF+5YcMHhBTZekZC
-         9jO76uQXXW+DQPzG6oef+2OGSNuDpa+dVvc+rafvWZTSIuo4woAMPv5/jB8gstpXUmrx
-         XoMw==
-X-Forwarded-Encrypted: i=1; AJvYcCX+NScZPepjEgoIU7CaR+igd61q081Yl0SU1n9SMDjBHFfr8htCuQmctg2HFsQ1bu8khkXiyXtxI9qX8zFBnuULKltS8mgSQD+92SDm73zv
-X-Gm-Message-State: AOJu0Yw7edshcWCoiVGX+1qhdPuwOSAVtnwYQd+tAPq044Ww6EDFuiU4
-	JP2yxUjQEGhSbBLWghEC9Io5RkNvxNYpOGyzbfoMDom9HeBBWlk1kZdbcRnKazE=
-X-Google-Smtp-Source: AGHT+IFiP2+0+aXlKLINZxbd8+wcbG7KYr1oKHoklHZdOQh9SVwwVbbn9h4qAc5ttY+lg8ux9QWdxA==
-X-Received: by 2002:a05:6512:acc:b0:512:e57d:c9c9 with SMTP id n12-20020a0565120acc00b00512e57dc9c9mr1885133lfu.13.1709208658724;
-        Thu, 29 Feb 2024 04:10:58 -0800 (PST)
+        d=1e100.net; s=20230601; t=1709208720; x=1709813520;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sQF1yLtoiSlCctJ+RE39C/7ki1uh9viRU9s1V0y1lKc=;
+        b=eJFAfEgS2xT6rm/P2W6wycit4omxLXx1z0rfWMW1rZsqTccIuZLhIxD93QWxUbO5Rl
+         +NVY6TYBikBzuAa3wI8N+l1jEptOoPA0NCzPPf6fr/m4W5y/uuWCy8jmjX7G/8PK2rpQ
+         6gLV9Xv7ekerSNIRvE9Tj+k4Krf9wHlO3MoRe3WZ7FMV3M4M/HoU4V0kvF3yk9BUDruy
+         mYvr9GeB33t5AJ9JHQhoOrgxJQ2+2e04at1ddI4KqMlsuUBQjqNyBwq0Pql48FyLuc2A
+         6nYekGmKaegt1EBH2NQJgDaX1AtyuICk2MFJEkZOPq1zqW7KTlHftP8MJGu7jsOSqykD
+         7jdw==
+X-Forwarded-Encrypted: i=1; AJvYcCUe5xhjRhr8cqjGMEsCQi8MTfr4BaSpALVv5KPTy5f/RxvQ/hIwKEkILvvQ1XlKZ680OdxSxDiMPFe4rXClM3nIRhJshwStnXPZIJFyep7P
+X-Gm-Message-State: AOJu0YxPNVMfbTVTcKRn9CiMhGLrJXmc9a2tYmsxQG+fR7lMMyrGm6gK
+	6XJamZjxftBRKZG5rgIsPXTeKVKSTprdW/wk3glTTef0nQxxi1+k5dwdu2fEXh4=
+X-Google-Smtp-Source: AGHT+IHfRGAEIEth4r9z2kyk2vnllBD0U8y+Yoxb/4kYE6ynYOIB5eFJyLQx9/3aYLh47mInURi5ig==
+X-Received: by 2002:a05:600c:4ecd:b0:412:bca4:f23d with SMTP id g13-20020a05600c4ecd00b00412bca4f23dmr1340384wmq.29.1709208719846;
+        Thu, 29 Feb 2024 04:11:59 -0800 (PST)
 Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id i16-20020a5d55d0000000b0033cffd1a302sm1602795wrw.57.2024.02.29.04.10.58
+        by smtp.gmail.com with ESMTPSA id k40-20020a05600c1ca800b00412b643b5a3sm1922750wms.11.2024.02.29.04.11.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Feb 2024 04:10:58 -0800 (PST)
+        Thu, 29 Feb 2024 04:11:59 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -75,15 +76,18 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-trace-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v3 0/2] riscv: fix patching with IPI
-Date: Thu, 29 Feb 2024 13:10:54 +0100
-Message-Id: <20240229121056.203419-1-alexghiti@rivosinc.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrea Parri <parri.andrea@gmail.com>
+Subject: [PATCH v3 1/2] riscv: Remove superfluous smp_mb()
+Date: Thu, 29 Feb 2024 13:10:55 +0100
+Message-Id: <20240229121056.203419-2-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240229121056.203419-1-alexghiti@rivosinc.com>
+References: <20240229121056.203419-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_041101_755498_DED305AC 
-X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-CacheID: sfid-20240229_041201_798078_4B97D4BE 
+X-CRM114-Status: UNSURE (   9.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,30 +105,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-patch 1 removes a useless memory barrier and patch 2 actually fixes the
-issue with IPI in the patching code.
+This memory barrier is not needed and not documented so simply remove
+it.
 
-Changes in v3:
-- Remove wrong cleanup as noted by Samuel
-- Enhance comment about usage of release semantics as suggested by
-  Andrea
-- Add RBs from Andrea
+Suggested-by: Andrea Parri <andrea@rivosinc.com>
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Andrea Parri <parri.andrea@gmail.com>
+---
+ arch/riscv/kernel/patch.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-Changes in v2:
-- Add patch 1 and then remove the memory barrier from patch 2 as
-  suggested by Andrea
-- Convert atomic_inc into an atomic_inc with release semantics as
-  suggested by Andrea
-
-Alexandre Ghiti (2):
-  riscv: Remove superfluous smp_mb()
-  riscv: Fix text patching when IPI are used
-
- arch/riscv/include/asm/patch.h |  1 +
- arch/riscv/kernel/ftrace.c     | 44 ++++++++++++++++++++++++++++++----
- arch/riscv/kernel/patch.c      | 17 +++++++++----
- 3 files changed, 53 insertions(+), 9 deletions(-)
-
+diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+index 37e87fdcf6a0..0b5c16dfe3f4 100644
+--- a/arch/riscv/kernel/patch.c
++++ b/arch/riscv/kernel/patch.c
+@@ -239,7 +239,6 @@ static int patch_text_cb(void *data)
+ 	} else {
+ 		while (atomic_read(&patch->cpu_count) <= num_online_cpus())
+ 			cpu_relax();
+-		smp_mb();
+ 	}
+ 
+ 	return ret;
 -- 
 2.39.2
 
