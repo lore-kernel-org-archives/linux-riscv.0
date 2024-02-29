@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A441C5478C
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 00:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA3AC5475B
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 01:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=yXXYZ/hm+XtwXlE1WIO4ox2p0TAJwOqJbMaCGe8lvsM=; b=iGY+2j+Ajv7R7P59UmiZZylKUf
-	EMXzs2SoNHW/JyuErIrsQsBopnsXsuQrIBx5d1Z7PX+fnAYbvzIQPZxcVEQ48/nxfSwcroa4vlfHy
-	fuhxJgTsH5BAJpxWVwHnT4fhllgaHtYc2x+cPrSkerWuwQ2erij96LqAF9bBtEBFEBvoeQ806CWxh
-	diQf7LNBRHB+cl5gw1czonRif/C99R/CGKgPPP0wf/orolkVTxIiqjUUSjKjBZ5RZ4tuNqmgPURsF
-	eCwIkPY9Rdae/kejwkLCUfg6fPWIUM6uZbf/+aoG7rm6tprT3BsIFC8TE910+hB4LX2EghSa3RdOY
-	pnEyNG8Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8kY5/v/wBps7aD6SIekepT3MaSJyqmaGDUv02I0y2JA=; b=C9BVa6CQjmisRp
+	DvN84/fGscEQ1IfFFuZAUIrszujtIOzbWdatcNKa6UdJMnB9EQ/e7Ro5y5wQS1LMUjGYoy6wfwmqX
+	PZ5NtAH8KCzX68VmhZAGbM4puL3x+pnT8D0XZMsw1FporEigWNbtwJVFxSuWQBgGEXZFFvkuaPXOw
+	4WycLNPoyEGhORfPmratDtKPRRH0Gt+uIY/wPzwjAvFtBZhhfupMTmd/tDuJ9YcapltbD+J7tgJmE
+	jZ6tP1k4OHk9ixsoMnOJdfxaJR52N/sDdKEGBJXSw5OXDFigsO59N68NYCwntZydsxzpdQx2oXwbO
+	PUmmcoYMOvlm9HFFoYoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfUi8-0000000BTuz-0BHN;
-	Thu, 29 Feb 2024 00:55:44 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1rfUo0-0000000BW2N-2eh2;
+	Thu, 29 Feb 2024 01:01:48 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfUi3-0000000BTs0-3vsK
+	id 1rfUnv-0000000BVyC-0VE1
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 00:55:42 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-29902c06980so242032a91.2
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Feb 2024 16:55:38 -0800 (PST)
+	Thu, 29 Feb 2024 01:01:45 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1dcafff3c50so3579775ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Feb 2024 17:01:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1709168138; x=1709772938; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eliV97qbvjzlWA6WTHOIiPM9PEq5O0yXOeFOONF3xgI=;
-        b=SsfKO/GI8qLh//XGG5QqWzxDcxax1R4TMHEMPTvTRszTew0DM7hzL9Z6qofNshALDU
-         NCeyi7ZrjQDGYX1JB9g4FZAEewQzGnYy45K2qFD44+dXIUTmb6wpChxli5BbwqkE3/6X
-         ASuvLlBV1G8Yxq8iL2gDPEZryN6qdMp+AOebqSngsCq0eN0cqzM6bUE0F2P65dGzoVYb
-         ZcvZjZrAVvXolWGZ1qEjkWFkIweNF2HQT/ZsGcFlqHwSEHzg2IlZTBkV74+y+VoxBRit
-         Mr2TefscQnXFfNzf9njvyB78jeXXcY0P5rAu3WOQTDCQx1o7uDuwFNrCptf6AXa7VvgS
-         A34g==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709168502; x=1709773302; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HblTcnp394YnoDG8K1yJz0F3T1kb+qA3LFW6mA061oQ=;
+        b=zSmrq7S7oYAQrw18W325/oJERn1xUksq0KpJ/iRMlf4a3HqcuWoXra9bg6MDZ94Kwf
+         MrIjeMtwljUSM5yTj0lyBRIIdAbjcoSBsfWzFrLbTJvcKJtQhrZ+fkEggK2r2YI9LShL
+         MlkNbaZlFf9TaqPPa2nV2VWotPRPFhpD1zws7D0C8OAGjvjPsiOWJolrP6CPqn+3PQ2V
+         RU1roXmFHgHuc+/UbfnqQ4wcHihSt5EuKebU/kDW2XOhMmj/WX4SEQ6inKJhkRBLNm4O
+         SiQAGkS0LtgWku2yjkbvAA79E1FUTbdyqzCMkvjSh07YmnBWADXHw9YIm29dDVFeLR/X
+         BZdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709168138; x=1709772938;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eliV97qbvjzlWA6WTHOIiPM9PEq5O0yXOeFOONF3xgI=;
-        b=Iz4tFDJv9IkaV0mfN8O78yDgjVJKj1nwUu99QHe1oVbChlLeuFZJzL3wOV71Yh22+G
-         pLEejcFwYitZysB8qGv2qhn+NQQnLcVIcmadwNWdSdUQc6cSq3T0kMCR6GFulMHy2mp4
-         hjWwcJEE7eVtNdQkL/msF2Nb5q9VKXwNaztBVYPDCy+eDU2JTuVLHfWJ6g7cQAt9eGc4
-         ZmDef3lVhiq1pfX8G3OzGjn6St7nrga4jl1XmOOY59YjkkzV9fSaAxpFbLXVR9404cy+
-         FJccEV0Op5bwInWC5TCKAiWwEx1yRAwOXzjvECldxrDZLkOgnB7p4ItvKO8e0XW35Idk
-         M7IQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX3ya7SeWGCypZO4yOcniysimOed4e5RCiOj9HrvcaL1WuL6B5Kew8lKT1iNqrKTgyISmJNb5gGjtJxDE3C9lya25gGg8288+ZO4gg0HVAI
-X-Gm-Message-State: AOJu0Yxt0UE60XAbta/yPM3qQxiUGTtujEged++NUj0FFQeXeWYXI3Pj
-	m/yKAt6cszOYMhkE8ZyEjNcWtYv/bC5tRJEqU1jxuOSBLO0wYJr3lpN67eCKf7TzviRrq+frE/6
-	oPQ==
-X-Google-Smtp-Source: AGHT+IGzoolXH5/Ep5baoVnZ7lanocljLeHRfew+WA071KUPfkGU9QcYsHqkuQzMw7/1VGlx+YyYgvht8/s=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:90b:1b49:b0:299:dbe9:353b with SMTP id
- nv9-20020a17090b1b4900b00299dbe9353bmr2092pjb.9.1709168138371; Wed, 28 Feb
- 2024 16:55:38 -0800 (PST)
-Date: Wed, 28 Feb 2024 16:55:36 -0800
-In-Reply-To: <Zd-2VK2kvMr_t1jx@google.com>
-Mime-Version: 1.0
-References: <20240223004258.3104051-1-seanjc@google.com> <170900037528.3692126.18029642068469384283.b4-ty@google.com>
- <Zd-2VK2kvMr_t1jx@google.com>
-Message-ID: <Zd_WCJtlPpJVDcyg@google.com>
-Subject: Re: [PATCH v9 00/11] KVM: selftests: Add SEV and SEV-ES smoke tests
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Andrew Jones <andrew.jones@linux.dev>, Tom Lendacky <thomas.lendacky@amd.com>, 
-	Michael Roth <michael.roth@amd.com>, Carlos Bilbao <carlos.bilbao@amd.com>, 
-	Peter Gonda <pgonda@google.com>, Itaru Kitayama <itaru.kitayama@fujitsu.com>
+        d=1e100.net; s=20230601; t=1709168502; x=1709773302;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HblTcnp394YnoDG8K1yJz0F3T1kb+qA3LFW6mA061oQ=;
+        b=i2pLYWD4Gmbbcz2z+A0KP3I3y4gmFAzn66SXZ0LBNcRCbRgKQIYlpzuy2sc+3d+m7m
+         4IzwbNxMd+C4aFnbaZNQMFRUiQCQr2BnWjqikhJgEWZe7jHHVwUWKhkDRZ3Y0hdQhM2E
+         KTOeTLdfWTErMrtXWRnQt7gsLfe4mE4zSYU9p2Jx2Opz9lL//SBcmP2taGOXTFDAtyag
+         OJcG6QCvNzO4RqShXKkNs92CpZsDr8FEb9IPax5o5CF1ExgaPwWoqzXyaEQOBMe2ISL2
+         ZJcGmrPwlBu9Up1F7a7YI8mvqI+dkn1Pa+EPaxUpGI5okrfh2Hn1R8UjMJ7E8ZPD9Ss7
+         gI8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXBS1gCMI8ZxtT99X49aO2dIMHwv8dum4omu6n/EOsnGk6qNdBquvFEoKiDsdMxyH5R6wrG5uc59d2fngxwE4Fu/3oj00fW9lmiqYczqmNO
+X-Gm-Message-State: AOJu0YyRAmNturiigpH5G1HgyFbCFLnQ1mH04EL8AAeQ8jE6/tQAVBf/
+	nZ6LXGedWQ7CqXm1WXSpdiZZtQ/mmeA5vLGsFqjsRVWUVy6Xwt5AqQVJMAWCfWg=
+X-Google-Smtp-Source: AGHT+IE3EoPGsdFclFvRDWfRYVZWWLAH0J8AC7cApC27AtlADtRH/eNCGj/wCsz/QpBzKLXQlYW82g==
+X-Received: by 2002:a17:902:b717:b0:1da:eed:f25b with SMTP id d23-20020a170902b71700b001da0eedf25bmr501419pls.46.1709168501873;
+        Wed, 28 Feb 2024 17:01:41 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id j14-20020a170902da8e00b001dc8d6a9d40sm78043plx.144.2024.02.28.17.01.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Feb 2024 17:01:41 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v4 00/15] RISC-V SBI v2.0 PMU improvements and Perf sampling in KVM guest
+Date: Wed, 28 Feb 2024 17:01:15 -0800
+Message-Id: <20240229010130.1380926-1-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_165540_001962_8F8D5FC1 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240228_170143_416786_CD17392E 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,63 +83,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-kselftest@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, kvm@vger.kernel.org, Will Deacon <will@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Paolo Bonzini <pbonzini@redhat.com>, Guo Ren <guoren@kernel.org>, kvm-riscv@lists.infradead.org, Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Shuah Khan <shuah@kernel.org>, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 28, 2024, Sean Christopherson wrote:
-> FYI, the hashes changed due to a force push to squash a bug in a different
-> series.
-> 
-> [1/11] KVM: selftests: Extend VM creation's @shape to allow control of VM subtype
->       https://github.com/kvm-x86/linux/commit/126190379c57
-> [2/11] KVM: selftests: Make sparsebit structs const where appropriate
->       https://github.com/kvm-x86/linux/commit/35f50c91c43e
-> [3/11] KVM: selftests: Add a macro to iterate over a sparsebit range
->       https://github.com/kvm-x86/linux/commit/57e19f057758
-> [4/11] KVM: selftests: Add support for allocating/managing protected guest memory
->       https://github.com/kvm-x86/linux/commit/cd8eb2913205
-> [5/11] KVM: selftests: Add support for protected vm_vaddr_* allocations
->       https://github.com/kvm-x86/linux/commit/d210eebb51a2
-> [6/11] KVM: selftests: Explicitly ucall pool from shared memory
->       https://github.com/kvm-x86/linux/commit/31e00dae72fd
-> [7/11] KVM: selftests: Allow tagging protected memory in guest page tables
->       https://github.com/kvm-x86/linux/commit/bf47e87c65be
-> [8/11] KVM: selftests: Add library for creating and interacting with SEV guests
->       https://github.com/kvm-x86/linux/commit/bdceeebcddb8
-> [9/11] KVM: selftests: Use the SEV library APIs in the intra-host migration test
->       https://github.com/kvm-x86/linux/commit/8b174eb9d289
-> [10/11] KVM: selftests: Add a basic SEV smoke test
->       https://github.com/kvm-x86/linux/commit/faa0d7027de3
-> [11/11] KVM: selftests: Add a basic SEV-ES smoke test
->       https://github.com/kvm-x86/linux/commit/974ba6f0e595
+This series implements SBI PMU improvements done in SBI v2.0[1] i.e. PMU snapshot
+and fw_read_hi() functions. 
 
-That didn't last long.  I forgot that I needed to change the include guards in
-kvm_util_arch.h.  New-new hashes:
+SBI v2.0 introduced PMU snapshot feature which allows the SBI implementation
+to provide counter information (i.e. values/overflow status) via a shared
+memory between the SBI implementation and supervisor OS. This allows to minimize
+the number of traps in when perf being used inside a kvm guest as it relies on
+SBI PMU + trap/emulation of the counters. 
 
-[1/11] KVM: selftests: Extend VM creation's @shape to allow control of VM subtype
-      https://github.com/kvm-x86/linux/commit/126190379c57
-[2/11] KVM: selftests: Make sparsebit structs const where appropriate
-      https://github.com/kvm-x86/linux/commit/35f50c91c43e
-[3/11] KVM: selftests: Add a macro to iterate over a sparsebit range
-      https://github.com/kvm-x86/linux/commit/57e19f057758
-[4/11] KVM: selftests: Add support for allocating/managing protected guest memory
-      https://github.com/kvm-x86/linux/commit/cd8eb2913205
-[5/11] KVM: selftests: Add support for protected vm_vaddr_* allocations
-      https://github.com/kvm-x86/linux/commit/d210eebb51a2
-[6/11] KVM: selftests: Explicitly ucall pool from shared memory
-      https://github.com/kvm-x86/linux/commit/31e00dae72fd
-[7/11] KVM: selftests: Allow tagging protected memory in guest page tables
-      https://github.com/kvm-x86/linux/commit/be1bd4c5394f
-[8/11] KVM: selftests: Add library for creating and interacting with SEV guests
-      https://github.com/kvm-x86/linux/commit/ae20eef5323c
-[9/11] KVM: selftests: Use the SEV library APIs in the intra-host migration test
-      https://github.com/kvm-x86/linux/commit/69f8e15ab61f
-[10/11] KVM: selftests: Add a basic SEV smoke test
-      https://github.com/kvm-x86/linux/commit/be250ff437fa
-[11/11] KVM: selftests: Add a basic SEV-ES smoke test
-      https://github.com/kvm-x86/linux/commit/40e09b3ccfac
+The current set of ratified RISC-V specification also doesn't allow scountovf
+to be trap/emulated by the hypervisor. The SBI PMU snapshot bridges the gap
+in ISA as well and enables perf sampling in the guest. However, LCOFI in the
+guest only works via IRQ filtering in AIA specification. That's why, AIA
+has to be enabled in the hardware (at least the Ssaia extension) in order to
+use the sampling support in the perf. 
+
+Here are the patch wise implementation details.
+
+PATCH 1,6,7 : Generic cleanups/improvements.
+PATCH 2,3,10 : FW_READ_HI function implementation
+PATCH 4-5: Add PMU snapshot feature in sbi pmu driver
+PATCH 6-7: KVM implementation for snapshot and sampling in kvm guests
+PATCH 11-15: KVM selftests for SBI PMU extension
+
+The series is based on kvm-next and is available at:
+
+https://github.com/atishp04/linux/tree/kvm_pmu_snapshot_v4
+
+The series is based on kvm-riscv/queue branch + fixes suggested on the following
+series
+https://patchwork.kernel.org/project/kvm/cover/cover.1705916069.git.haibo1.xu@intel.com/
+
+The kvmtool patch is also available at:
+https://github.com/atishp04/kvmtool/tree/sscofpmf
+
+It also requires Ssaia ISA extension to be present in the hardware in order to
+get perf sampling support in the guest. In Qemu virt machine, it can be done
+by the following config.
+
+```
+-cpu rv64,sscofpmf=true,x-ssaia=true
+```
+
+There is no other dependencies on AIA apart from that. Thus, Ssaia must be disabled
+for the guest if AIA patches are not available. Here is the example command.
+
+```
+./lkvm-static run -m 256 -c2 --console serial -p "console=ttyS0 earlycon" --disable-ssaia -k ./Image --debug 
+```
+
+The series has been tested only in Qemu.
+Here is the snippet of the perf running inside a kvm guest.
+
+===================================================
+$ perf record -e cycles -e instructions perf bench sched messaging -g 5
+...
+$ Running 'sched/messaging' benchmark:
+...
+[   45.928723] perf_duration_warn: 2 callbacks suppressed
+[   45.929000] perf: interrupt took too long (484426 > 483186), lowering kernel.perf_event_max_sample_rate to 250
+$ 20 sender and receiver processes per group
+$ 5 groups == 200 processes run
+
+     Total time: 14.220 [sec]
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.117 MB perf.data (1942 samples) ]
+$ perf report --stdio
+$ To display the perf.data header info, please use --header/--header-only optio>
+$
+$
+$ Total Lost Samples: 0
+$
+$ Samples: 943  of event 'cycles'
+$ Event count (approx.): 5128976844
+$
+$ Overhead  Command          Shared Object                Symbol               >
+$ ........  ...............  ...........................  .....................>
+$
+     7.59%  sched-messaging  [kernel.kallsyms]            [k] memcpy
+     5.48%  sched-messaging  [kernel.kallsyms]            [k] percpu_counter_ad>
+     5.24%  sched-messaging  [kernel.kallsyms]            [k] __sbi_rfence_v02_>
+     4.00%  sched-messaging  [kernel.kallsyms]            [k] _raw_spin_unlock_>
+     3.79%  sched-messaging  [kernel.kallsyms]            [k] set_pte_range
+     3.72%  sched-messaging  [kernel.kallsyms]            [k] next_uptodate_fol>
+     3.46%  sched-messaging  [kernel.kallsyms]            [k] filemap_map_pages
+     3.31%  sched-messaging  [kernel.kallsyms]            [k] handle_mm_fault
+     3.20%  sched-messaging  [kernel.kallsyms]            [k] finish_task_switc>
+     3.16%  sched-messaging  [kernel.kallsyms]            [k] clear_page
+     3.03%  sched-messaging  [kernel.kallsyms]            [k] mtree_range_walk
+     2.42%  sched-messaging  [kernel.kallsyms]            [k] flush_icache_pte
+
+===================================================
+
+[1] https://github.com/riscv-non-isa/riscv-sbi-doc
+
+Changes from v3->v4:
+1. Added selftests.
+2. Fixed an issue to clear the interrupt pending bits.
+3. Fixed the counter index in snapshot memory start function.
+
+Changes from v2->v3:
+1. Fixed a patchwork warning on patch6.
+2. Fixed a comment formatting & nit fix in PATCH 3 & 5.
+3. Moved the hvien update and sscofpmf enabling to PATCH 9 from PATCH 8.
+
+Changes from v1->v2:
+1. Fixed warning/errors from patchwork CI.
+2. Rebased on top of kvm-next.
+3. Added Acked-by tags.
+
+Changes from RFC->v1:
+1. Addressed all the comments on RFC series.
+2. Removed PATCH2 and merged into later patches.
+3. Added 2 more patches for minor fixes.
+4. Fixed KVM boot issue without Ssaia and made sscofpmf in guest dependent on
+   Ssaia in the host.
+
+Atish Patra (15):
+RISC-V: Fix the typo in Scountovf CSR name
+RISC-V: Add FIRMWARE_READ_HI definition
+drivers/perf: riscv: Read upper bits of a firmware counter
+RISC-V: Add SBI PMU snapshot definitions
+drivers/perf: riscv: Implement SBI PMU snapshot function
+RISC-V: KVM: No need to update the counter value during reset
+RISC-V: KVM: No need to exit to the user space if perf event failed
+RISC-V: KVM: Implement SBI PMU Snapshot feature
+RISC-V: KVM: Add perf sampling support for guests
+RISC-V: KVM: Support 64 bit firmware counters on RV32
+KVM: riscv: selftests: Add Sscofpmf to get-reg-list test
+KVM: riscv: selftests: Add SBI PMU extension definitions
+KVM: riscv: selftests: Add SBI PMU selftest
+KVM: riscv: selftests: Add a test for PMU snapshot functionality
+KVM: riscv: selftests: Add a test for counter overflow
+
+arch/riscv/include/asm/csr.h                  |   5 +-
+arch/riscv/include/asm/errata_list.h          |   2 +-
+arch/riscv/include/asm/kvm_vcpu_pmu.h         |  14 +-
+arch/riscv/include/asm/sbi.h                  |  12 +
+arch/riscv/include/uapi/asm/kvm.h             |   1 +
+arch/riscv/kvm/aia.c                          |   5 +
+arch/riscv/kvm/vcpu.c                         |  14 +-
+arch/riscv/kvm/vcpu_onereg.c                  |   9 +-
+arch/riscv/kvm/vcpu_pmu.c                     | 247 +++++++-
+arch/riscv/kvm/vcpu_sbi_pmu.c                 |  15 +-
+drivers/perf/riscv_pmu.c                      |   1 +
+drivers/perf/riscv_pmu_sbi.c                  | 229 ++++++-
+include/linux/perf/riscv_pmu.h                |   6 +
+tools/testing/selftests/kvm/Makefile          |   1 +
+.../selftests/kvm/include/riscv/processor.h   |  92 +++
+.../selftests/kvm/lib/riscv/processor.c       |  12 +
+.../selftests/kvm/riscv/get-reg-list.c        |   4 +
+tools/testing/selftests/kvm/riscv/sbi_pmu.c   | 588 ++++++++++++++++++
+18 files changed, 1212 insertions(+), 45 deletions(-)
+create mode 100644 tools/testing/selftests/kvm/riscv/sbi_pmu.c
+
+--
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
