@@ -4,80 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1331DC48BF6
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 19:23:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3802C48BF6
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 20:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WfkvP34AzrF1LIf4/E5thbok/ZMW/M0JHk0PQOKUntY=; b=tuXUia0Fk+gGnN
-	tjRXYRc5wZAcBroLdN1pWBm4kON1Fu3LFO5RLPyfloIiN+Ny3eXB6ghSeva/imTIPpCNJ9BAhOdQh
-	mlguV9clofNNW86BIIEfnHVJeG65Ghmy+QyJJNdi7srwthtBl49QOZgnlCB9FgFDcoSMITheZSnT5
-	IOXJXMqiyXnWG3iAhL9jXmE4IS7Av5TWk1ZFHfjaJP+8kTjuhXs6OpJddiKZQI+XaJ0oGg4JiEjR2
-	qRoeChvFb0Y+z2Ubd3MmsDdgjrDSUNCfrdninFakQxa6GJPagV5Zq2xX04ZHZVC3aY8mwgj16HGQw
-	qzP/1i6EH0BedEJHjyXA==;
+	List-Owner; bh=JCPsDu+uoPxN/Mm/0cbYHSLRc1Sz2PkPrUWCpOkBtEY=; b=j7WHcUhfFgBSb0
+	hszCc2HFQqablmbM2qtYW5ShVTI/gDmo9ncRi11os8nSxYNIawuyDiJg6NkD1dEZecJo9Q0i0Ope2
+	+NYoM/hRpJozP0y75+O1e23e4N46Ioh8Hm5faVXUh9vNcOjjYCqRn5PhS1xWguuoZd6bShdXVMH1/
+	p3C0/Zi9Y2cY2TwaF1rbTdsy5jo0h1lWdaUl6Fb0KsYHA/laMxKVbgc/cNgGDS/78NeKPKeEX1Uk3
+	1LCkx7ljO9CRenXcVDKae+CjEUR7vEG0bLgy1bFCkmX9S+c+la/geeu5txFCya8qh0RflfTrxObLd
+	BF2xt763pBSLDjtJjcHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rflzx-0000000Er04-3wfB;
-	Thu, 29 Feb 2024 19:23:17 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1rfnA9-0000000F6FG-3c3R;
+	Thu, 29 Feb 2024 20:37:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rflzv-0000000EqzN-1fKB
+	id 1rfnA0-0000000F69g-17mB
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 19:23:16 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1d95d67ff45so11317465ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 11:23:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709234593; x=1709839393; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Tuk7a+vKCe6RTEYqyB1hLiNO0I5Nq8cXBO1DhIdc6iw=;
-        b=dmUt9wM7c8941qUPCyrAVJjJFW85SxrVnDIPxsZ40slQLclluq/OCH/320gyeKGI0Z
-         4V5fKPu3YIRfYtBn3fLIkClrKNbI+ZIUd0wzhZWn+geuf22+FPtG5bYk0O0F+hYAFKFE
-         V09nM683rf39GjgrqLdNEa4MzqAwcQ61ZYJ2k+oZXpvzqUkygwBn+0rzTmlsBrgTti/l
-         3OSZGeoFYIU2bjICHiLnmDpBw962kEcM4q64w1wfbvT9555dE/+Xq7OkVPJRuA90X6RU
-         LpwLsLNmZVCG9mf2b2RZQM7Fz5H4g1ZHKAqhNYwOG6+VdLYpQNgwfKt474sVwikkbCIW
-         18Fg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709234593; x=1709839393;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Tuk7a+vKCe6RTEYqyB1hLiNO0I5Nq8cXBO1DhIdc6iw=;
-        b=D8htHxzN2wHcJzyoQWMBqplA1X/UMAiuwsyc4/ibPZlHGv3U/7A0qfvR537PSihnNX
-         r3fLkNCwPvw4T/xyBN3NWpvIX+pqe11Uwz+3Av+2Xe66nlT4wRA8muPnh2Q/p8kAqGQ7
-         PKjnBd6JHAA23rvksZTHNKSHkVGPX8LMUEati0wzmWxnU4b0QIPD08KI13D+KBsxUfaa
-         k+U7c6aevzmp7wnD5Uwsmx2goCIFC3GlVpMJkXMn+KisTSOSrE/pOqAGAr9nVZqsQ/5c
-         TDVSBkgDHVAHjslU9sGdR5hMn2bLx/cnLY2b7UXbi/LjCcLadpN/LzxXNQSa76L4v9ZH
-         HLfw==
-X-Forwarded-Encrypted: i=1; AJvYcCV2PU/vwP1vYZcvEzaseHKAaFWIVC18e9m3SjwGcy1PJv4zLcBo3hN2QrR2ohgnNbdg4pRXYxEN/ia+z78LggowX5r3HHk50C0+p69FvOqx
-X-Gm-Message-State: AOJu0YxWH/yuG+fwpZDQ0P3GYSSPLzp3Lc2A836tMyPM8u/MJK31uEyd
-	bomvLBRVGdJmzKiQsOJweQgV1G83M8SkoE1LqZiEfQa/FElC8rrEEjII8KzWlUU=
-X-Google-Smtp-Source: AGHT+IHUzPkndAgTV7P4u3begGmiBUm2ct/M7Ax0MCC20stQ6rwpWin83UXCLvAEaE3gIAiJUl43+Q==
-X-Received: by 2002:a17:902:ce8e:b0:1dc:d4f9:fd1b with SMTP id f14-20020a170902ce8e00b001dcd4f9fd1bmr3924446plg.7.1709234593472;
-        Thu, 29 Feb 2024 11:23:13 -0800 (PST)
-Received: from ghost (mobile-166-137-160-039.mycingular.net. [166.137.160.39])
-        by smtp.gmail.com with ESMTPSA id i9-20020a170902c94900b001dcc09487e8sm1861463pla.50.2024.02.29.11.23.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Feb 2024 11:23:12 -0800 (PST)
-Date: Thu, 29 Feb 2024 11:23:08 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v5 2/2] riscv: Set unaligned access speed at compile time
-Message-ID: <ZeDZnIemm06yU4KF@ghost>
-References: <20240227-disable_misaligned_probe_config-v5-0-b6853846e27a@rivosinc.com>
- <20240227-disable_misaligned_probe_config-v5-2-b6853846e27a@rivosinc.com>
- <20240229-company-taste-daa305961e3a@spud>
- <ZeDO4CVOi6q4u8Lt@ghost>
- <20240229-dolphin-pennant-eef41ce44043@spud>
+	Thu, 29 Feb 2024 20:37:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C29C461381;
+	Thu, 29 Feb 2024 20:37:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC154C433B2;
+	Thu, 29 Feb 2024 20:37:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1709239063;
+	bh=T/akRPi5ao0d12BmCz3WEgH+FPHY9KHNebOOEFBHkBM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=uH1hQs+Uc4ytqtrE09JCLb94Lf2WJEC8cOf6UhJ25B0vftYFF8ifI7ETjkDmeW0El
+	 DTWhPQEqo2nL54kJ/UwN6HZUygNxdclRk9fVsYjSQ7I2juRMDIdX1RoVabSCR9aAdb
+	 e/iy40FzlajZUYysdSfg1uv4PZIlo0NpZeqnvsz8XbE6wtEv0ucb+v57ngjQa8Uu5I
+	 WahslylSiZ0xty6M5K7mE/zd1PIrlrAReKtxDuoENEUQ0M1+k66RzLtXWVuxcKWdFU
+	 aDbN0gzfkrA4HNo8GkjiQLxWoEEmqHGxWLvhlM9MYT0CaJUTJcjQSrqBzHwQen/zbx
+	 VbswSbLW3QANQ==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Sasha Levin <sashal@kernel.org>,
+	conor@kernel.org,
+	robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.7 07/24] riscv: dts: sifive: add missing #interrupt-cells to pmic
+Date: Thu, 29 Feb 2024 15:36:47 -0500
+Message-ID: <20240229203729.2860356-7-sashal@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240229203729.2860356-1-sashal@kernel.org>
+References: <20240229203729.2860356-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240229-dolphin-pennant-eef41ce44043@spud>
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.7.6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_112315_500882_ED557BC2 
-X-CRM114-Status: GOOD (  65.30  )
+X-CRM114-CacheID: sfid-20240229_123744_391471_F8DA2CC9 
+X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,182 +81,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 29, 2024 at 06:49:33PM +0000, Conor Dooley wrote:
-> On Thu, Feb 29, 2024 at 10:37:20AM -0800, Charlie Jenkins wrote:
-> > On Thu, Feb 29, 2024 at 12:26:37PM +0000, Conor Dooley wrote:
-> > > On Tue, Feb 27, 2024 at 03:13:14PM -0800, Charlie Jenkins wrote:
-> > > 
-> > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > > index bffbd869a068..ad0a9c1f8802 100644
-> > > > --- a/arch/riscv/Kconfig
-> > > > +++ b/arch/riscv/Kconfig
-> > > > @@ -690,25 +690,58 @@ config THREAD_SIZE_ORDER
-> > > >  config RISCV_MISALIGNED
-> > > >  	bool "Support misaligned load/store traps for kernel and userspace"
-> > > >  	select SYSCTL_ARCH_UNALIGN_ALLOW
-> > > > +	depends on RISCV_PROBE_UNALIGNED_ACCESS || RISCV_EMULATED_UNALIGNED_ACCESS
-> > > >  	default y
-> > > >  	help
-> > > >  	  Say Y here if you want the kernel to embed support for misaligned
-> > > >  	  load/store for both kernel and userspace. When disable, misaligned
-> > > >  	  accesses will generate SIGBUS in userspace and panic in kernel.
-> > > >  
-> > > > +choice
-> > > > +	prompt "Unaligned Accesses Support"
-> > > > +	default RISCV_PROBE_UNALIGNED_ACCESS
-> > > > +	help
-> > > > +	  This selects the hardware support for unaligned accesses. This
-> > > > +	  information is used by the kernel to perform optimizations. It is also
-> > > > +	  exposed to user space via the hwprobe syscall. The hardware will be
-> > > > +	  probed at boot by default.
-> > > > +
-> > > > +config RISCV_PROBE_UNALIGNED_ACCESS
-> > > > +	bool "Probe for hardware unaligned access support"
-> > > > +	help
-> > > > +	  During boot, the kernel will run a series of tests to determine the
-> > > > +	  speed of unaligned accesses. This probing will dynamically determine
-> > > > +	  the speed of unaligned accesses on the boot hardware.
-> > > > +
-> > > > +config RISCV_EMULATED_UNALIGNED_ACCESS
-> > > > +	bool "Assume the system expects emulated unaligned memory accesses"
-> > > > +	help
-> > > > +	  Assume that the system expects emulated unaligned memory accesses.
-> > > > +	  When enabled, this option notifies the kernel and userspace that
-> > > > +	  unaligned memory accesses will be emulated by either the kernel or
-> > > > +	  firmware.
-> > > > +
-> > > > +config RISCV_SLOW_UNALIGNED_ACCESS
-> > > > +	bool "Assume the system supports slow unaligned memory accesses"
-> > > > +	depends on NONPORTABLE
-> > > > +	help
-> > > > +	  Assume that the system supports slow unaligned memory accesses. The
-> > > > +	  kernel may not be able to run at all on systems that do not support
-> > > > +	  unaligned memory accesses.
-> > > > +
-> > > >  config RISCV_EFFICIENT_UNALIGNED_ACCESS
-> > > > -	bool "Assume the CPU supports fast unaligned memory accesses"
-> > > > +	bool "Assume the system supports fast unaligned memory accesses"
-> > > >  	depends on NONPORTABLE
-> > > >  	select DCACHE_WORD_ACCESS if MMU
-> > > >  	select HAVE_EFFICIENT_UNALIGNED_ACCESS
-> > > >  	help
-> > > > -	  Say Y here if you want the kernel to assume that the CPU supports
-> > > > -	  efficient unaligned memory accesses.  When enabled, this option
-> > > > -	  improves the performance of the kernel on such CPUs.  However, the
-> > > > -	  kernel will run much more slowly, or will not be able to run at all,
-> > > > -	  on CPUs that do not support efficient unaligned memory accesses.
-> > > > +	  Assume that the system supports fast unaligned memory accesses. When
-> > > > +	  enabled, this option improves the performance of the kernel on such
-> > > > +	  systems.  However, the kernel will run much more slowly, or will not
-> > > > +	  be able to run at all, on systems that do not support efficient
-> > > > +	  unaligned memory accesses.
-> > > >  
-> > > > -	  If unsure what to do here, say N.
-> > > > +endchoice
-> > > 
-> > > Thinking about this some more, you've got 6 different options here:
-> > > 
-> > > 1 probed with no emulation available (choice set to probe + RISCV_MISALIGNED=n)
-> > > 2 probe with in-kernel emulation available (choice set to probe + RISCV_MISALIGNED=y)
-> > > 3 in-kernel emulation only (choice set to emulated + RISCV_MISALIGNED=y)
-> > > 4 no in-kernel emulation but report emulated (choice set to emulated + RISCV_MISALIGNED=n)
-> > > 5 slow unaligned (choice set to slow)
-> > > 6 fast unaligned (choice set to fast)
-> > > 
-> > > Out of these, only 2 and 3 are portable options, since 1, 4 and 5 will
-> > > cause uabi issues if the CPUs or firmware does not support unaligned
-> > > access & 6 will not run in the same circumstances.
-> > > 
-> > > My first thought here was about the motivation for the patch and what it
-> > > has resulted in. Being able to support HAVE_EFFICIENT_ALIGNED_ACCESS is
-> > > pretty nice, but it then seems like beyond that we are introducing
-> > > configuration for configurations sake, without looking at what the
-> > > resultant kernels will be useful for. Having 6 different options for how
-> > > the kernel can be configured in this way seems excessive and I don't
-> > > really get why some of them are even useful.
-> > > 
-> > > Take for example situation 4. Unless I have misunderstood the Kconfig
-> > > options above, if you configure a kernel in that way, it will always
-> > > report as emulated, but there is no emulation provided. This just seems
-> > > like a option that's only purpose is setting a hwprobe value, which is
-> > > a dog wagging the tail situation to me.
-> > 
-> > This goes back to my earlier comment that it would make sense for
-> > somebody to select "emulated" even if the unaligned address is being
-> > emulated by firmware. However, there may be no users for this and if
-> > needed we can add that in the future.
-> 
-> I don't think that is going to provide any useful information, give you
-> will never be able to know if slow means "slow but done by the cpu" or
-> "slow but emulated by the firmware".
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Okay makes sense. If somebody has a usecase in the future it would be
-easy to change without breaking any UABI.
+[ Upstream commit ce6b6d1513965f500a05f3facf223fa01fd74920 ]
 
-> 
-> > > The other thing is about what options are actually marked as
-> > > NONPORTABLE, given it is done in the choice option - but whether or not
-> > > something is actually non-portable actually depends on whether or not
-> > > the in-kernel emulator exists.
-> > > 
-> > > I think what I would do here is simplify this quite a bit, starting by
-> > > making RISCV_MISALIGNED an internal option that users cannot enable but
-> > > is selected by the PORTABLE choice options. I would then re-work the
-> > > choice options a bit. My 4 would be:
-> > > 
-> > > 1 probe: probe at boot time, falling back to emulated if not performant
-> > > 2 emulated: always emulate it in the kernel
-> > > 3 slow: don't probe or emulate in the kernel
-> > > 4 fast: Your current fast option
-> > 
-> > Emulated doesn't mean that the kernel will always emulate the unaligned
-> > accesses. It means that the kernel has the ability to emulate them. It
-> > will only emulate them if the CPU traps on unaligned accesses. Kernel
-> > code can choose to forcefully align an address it thinks may cause an
-> > unaligned access, but that's slightly different from emulated.
-> 
-> Sure, make option 2 "don't probe at boot time, emulate it in the kernel
-> if we trap". I suppose in this case though, to get a correct output in
-> hwprobe you'd have to still attempt an unaligned access at boot time to
-> see if you trap but it will not perform the speed test?
+At W=2 dtc complains:
+hifive-unmatched-a00.dts:120.10-238.4: Warning (interrupt_provider): /soc/i2c@10030000/pmic@58: Missing '#interrupt-cells' in interrupt provider
 
-Are you trying to cover the case here that the kernel is compiled as
-"emulate unaligned accesses" but the kernel isn't actually needed to
-emulate unaligned accesses? Seems like if the kernel is compiled as
-such it would make sense to report emulated with the assumption that if
-the kernel isn't emulating it, something else is.
+Add the missing property.
 
-> 
-> > Emulated is much slower than "slow", so it seems like it unfairly
-> > penalizes "slow" to group the options for firmware emulated with a CPU
-> > that actually just does slow unaligned accesses.
-> 
-> As I said in my previous email, "slow" has a huge variance and may not
-> be meaningfully faster. I wonder if it might actually even be slower on
-> some systems that emulate it in firmware?
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-I have no real data and can only speculate. Your 4 options seem to cover
-all of the "meaningful" use cases so I can make the change in a new
-version.
-
-- Charlie
-
-> 
-> > > 1 & 2 select RISCV_UNALIGNED and are portable because they contain the
-> > > emulated support and thus satisfy the UABI constaints.
-> > > 3 & 4 are marked NONPORTABLE. I think 3 will run on systems that don't
-> > > support unaligned accesses but it will have UABI problems. 4 for the
-> > > reason mentioned in the Kconfig option above.
-> > > 
-> > > I think that that gives you 4 meaningful options, what do you think?
-> 
-
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+index 07387f9c135ca..72b87b08ab444 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+@@ -123,6 +123,7 @@ pmic@58 {
+ 		interrupt-parent = <&gpio>;
+ 		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
+ 		interrupt-controller;
++		#interrupt-cells = <2>;
+ 
+ 		onkey {
+ 			compatible = "dlg,da9063-onkey";
+-- 
+2.43.0
 
 
 _______________________________________________
