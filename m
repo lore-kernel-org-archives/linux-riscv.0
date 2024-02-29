@@ -4,57 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9CBC5475B
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Feb 2024 23:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EF54C5475B
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 00:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q6fz8x2hu3BH8adt104eqoVB6XO/aoqYOaFT+tT5HdM=; b=A4Tk67pN/2gjGcNg4+3XykcUyC
-	2cZCgtCCcPHVWoK7KKmEyCBfxouzdihFGzqL0LPXkIk6eOeYUQq+bjeFN1CIa60KtHW1OlV6+sjwE
-	59WAE+z6HlmKjQFjNRGkQEYXLLre+RfIAOsESls3NOmsygR4Pg6BRQ23hkKtkfC34jVGTfsqh692o
-	iPaCvhJLAsCCmdXdg/9iD2mUCHMHpgmjNDIlJEu8qpE2NUUGWNTqHhl+F5oP77St8o3JY/gSMfQd6
-	WchRI6X4+zvm3dRr9NRaXSsBztlsY+pTKWC/eyac3OaD7pxXyszRt0ueZTuGlmidrNC4rKC/SgIx9
-	K+ClJNaQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qUeNfEUEU8tH6dYgWMSKxcuSdohHiLK6BRdJwQyINJI=; b=LeXg9eJ+dmoK3g
+	A8jJRtVzch76FR2I+AEjpQ97YuG6rlyoXlXfOHYNFxAcAFr33W6F5Wl7ia2tffkSYvUn6HbeCxpOV
+	HXfhEfAndiqzfIgD3WsM7I1kWXG0vKdkIrHnT1Gcc0UobzVT8EsADzOkeK+KXialMpYxEjaZh3hlt
+	pspDTO3RVPOe43zFDhad4CHYB8UnN7q/Xm8oQbvPaoYSFwGKOxP9lFXVZrvQus/yY8EEzLtXc84mP
+	MEvSjmgrpvrnSfJTRYAj2ghEfHtPqxQmuFzdB7rHulq+oqdjCn9iXxAk4vwFEIkdi5vprUj1Iu3lI
+	CD33frLOw3BOBfrP9zUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfTPz-0000000BIHV-3tcn;
-	Wed, 28 Feb 2024 23:32:55 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rfU7L-0000000BNOY-25CZ;
+	Thu, 29 Feb 2024 00:17:43 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfTPx-0000000BIH1-0Teq
+	id 1rfU7H-0000000BNMB-2WFf
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Feb 2024 23:32:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 78172CE12B8;
-	Wed, 28 Feb 2024 23:32:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E037BC433C7;
-	Wed, 28 Feb 2024 23:32:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709163170;
-	bh=qg4EozW7EL64gvikm5/4LJs+LZV9Wa0bJNmbBrHGl/E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VeTWy+Dk3JGddAaCS2DnxpTwVNYuKnoV4dwTDdC3r3yWx6IZ1UGc7A9oe3gYKCkdi
-	 oJU+aYN6HO2vElDYevRCxS7WbwZ1KQ+1pDAzBGQOzNI2m2Yl+WAoGbOZhkmyPCcP7O
-	 po95UzFBxDTV1cY7+35E08ReOuK29hl+iCw91RVSIMjqpGhAL/5ANell0Y7w3/cBm4
-	 WpsnyCX4F3yC0qrTLhT7giqkAXt27WxujMDyqvioytwjOZZyoxeA+gQ2ozNDqlxvO3
-	 xDg3+9JBppaBGhsNqtDIjLB+91mTckjTGjZ859ATz11XNPYxD43Zg9GC6MN8Ccb/r3
-	 1Mnhe1sNMy5lA==
-Date: Wed, 28 Feb 2024 23:32:47 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, andy.chiu@sifive.com
-Subject: Re: vector status when vlen doesn't match
-Message-ID: <20240228-durably-anymore-19d6c7d79f43@spud>
-References: <20240228-vicinity-cornstalk-4b8eb5fe5730@spud>
- <mhng-5f6c5913-f2a0-4a04-9904-fc360cab91c5@palmer-ri-x1c9a>
+	Thu, 29 Feb 2024 00:17:41 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-a3f3d0d2787so51513566b.3
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Feb 2024 16:17:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1709165857; x=1709770657; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=r8rCAw2z9zs66RJeYr65+ZavbW8aat8OfjJwJ3rblxo=;
+        b=UpD+m43Jzeex3d3iqW0OlC88HsQC/d0VQo9x4Ok/HZzDzlRXTqcrAHU57jpUtPYVq3
+         I/0XFut6+AqLqi23J5M7KTUBwLAQqELNt158mMxZHbidylXjqq8BSuiSuv4iVIqZNU7h
+         xcy8TSw00VxkExqg18NfCUJZ3bIg/f7LTtc2Aq8BlFiRLJyxBND7GgV/7QldAn8TIpdr
+         PF6nXigdF86paUzRnAZRbeiHqYnddZ3Nhe8GmjgffH5kJ6J4dzIH2IVBcPJ0gJ+/IHgx
+         vCdlJVFrytHXgzGBFpvFiPCjq17bO5Fv+xAVWRG7K5NhfvqNFVJc/MyXSVtvKquA2og0
+         vyqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709165857; x=1709770657;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=r8rCAw2z9zs66RJeYr65+ZavbW8aat8OfjJwJ3rblxo=;
+        b=SVDV+05IebTHNntqRwSPp8jC7BAWt6M4VTd12D163VwPDISPsJvGhkVJ9afuN7Ry2J
+         1/IjspkE9mRrfOfT4FShY4Y/IfOL6/esWwMAjbw8dgQCXK8ldEcOmIbKvDwwPHwVPN/f
+         NSasceFVBWxSANB5W2gqhiUNWk8hEl/y0tK5K3yFLaCJn6Pkh4B6HkWlhlAvPUZHgN4O
+         xLVtRPfsOXt7IvRbSsQ5tOK8G6R/bQ3Xxqg2u+cCJq4wv0Vs9N/hWphLQNcNY1BJY/xD
+         1t1TlxYRDVH5EtNSO9LCnwjE+3YfAdXlY86DQ+HiduGzU89s3roADTDGJw8DD4eALfiz
+         qPhA==
+X-Forwarded-Encrypted: i=1; AJvYcCXIcsePmD/LmBPZ/eDeXL/CDjMpbA5GpIg5K4g8SGolO0Fub3zrsLjv1G9DLo2bwyqymhwZaE+DUVHKops1Wgwgr8JwUp9SKZfUp+FOeCNX
+X-Gm-Message-State: AOJu0YyBkYPZsWQhKn2bBY4T0KakYg3eJlry61Bq8DvVFHNV0cd2XiHE
+	wGN5D/qpllouFPMFnrZYDfQCOux+b0OzlTKIXrNIfgQK6i8Z7EIx
+X-Google-Smtp-Source: AGHT+IEz4pXkzI7v7mnnRyh2MjDkBgjqqrHxiELiDYhG8SJx+250Pq7fVPqhPfscjqy2xoAEZQfv2g==
+X-Received: by 2002:a17:906:7ad0:b0:a43:9857:8112 with SMTP id k16-20020a1709067ad000b00a4398578112mr312730ejo.20.1709165856356;
+        Wed, 28 Feb 2024 16:17:36 -0800 (PST)
+Received: from andrea ([31.189.122.3])
+        by smtp.gmail.com with ESMTPSA id ce18-20020a170906b25200b00a3f2dcdf18dsm69575ejb.33.2024.02.28.16.17.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Feb 2024 16:17:35 -0800 (PST)
+Date: Thu, 29 Feb 2024 01:17:31 +0100
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrea Parri <andrea@rivosinc.com>,
+	Anup Patel <anup@brainfault.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] riscv: Remove superfluous smp_mb()
+Message-ID: <Zd/NG9IveQpamdDc@andrea>
+References: <20240228175149.162646-1-alexghiti@rivosinc.com>
+ <20240228175149.162646-2-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <mhng-5f6c5913-f2a0-4a04-9904-fc360cab91c5@palmer-ri-x1c9a>
+Content-Disposition: inline
+In-Reply-To: <20240228175149.162646-2-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_153253_535600_4E84D47E 
-X-CRM114-Status: GOOD (  55.80  )
+X-CRM114-CacheID: sfid-20240228_161739_663731_B818070A 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,168 +97,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4517731943358082653=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Feb 28, 2024 at 06:51:48PM +0100, Alexandre Ghiti wrote:
+> This memory barrier is not needed and not documented so simply remove
+> it.
+> 
+> Suggested-by: Andrea Parri <andrea@rivosinc.com>
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
---===============4517731943358082653==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="gBXhnTvGdFfNlZO1"
-Content-Disposition: inline
+Reviewed-by: Andrea Parri <parri.andrea@gmail.com>
 
-
---gBXhnTvGdFfNlZO1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Feb 28, 2024 at 01:56:51PM -0800, Palmer Dabbelt wrote:
-> On Wed, 28 Feb 2024 08:02:47 PST (-0800), Conor Dooley wrote:
-> > Yo Andy,
-> >=20
-> > I was wondering if you could clarify something that came up today on
-> > IRC.
-> >=20
-> > When we enable vector we check vlenb and if it doesn't match the kernel
-> > is suppose to not support vector. We do this in a few places, the first
-> > is in riscv_fill_hwcap():
-> >=20
-> > 	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
-> > 		riscv_v_setup_vsize();
-> > 		/*
-> > 		 * ISA string in device tree might have 'v' flag, but
-> > 		 * CONFIG_RISCV_ISA_V is disabled in kernel.
-> > 		 * Clear V flag in elf_hwcap if CONFIG_RISCV_ISA_V is disabled.
-> > 		 */
-> > 		if (!IS_ENABLED(CONFIG_RISCV_ISA_V))
-> > 			elf_hwcap &=3D ~COMPAT_HWCAP_ISA_V;
-> > 	}
-> >=20
-> > Why does this riscv_v_setup_vsize() failing have no impact? Because this
-> > is called only once on the boot CPU, right? I feel like it deserves a
-> > comment as to why.
->=20
-> Unless I'm missing something, that first call can't fail: there's no
-> previous riscv_v_size set, so there's nothing to trigger the failure.
->=20
-> Might warrant a comment, though...
-
-Yeah. I did write (or maybe moreso remodel) that function so I know it
-only gets called on the boot CPU, I was just pointing out what is not
-immediately obvious about that particular callsite.
-
-> > But the main thing I was wondering about was the other time it is calle=
-d,
-> > in smp_callin():
-> > 	if (has_vector()) {
-> > 		if (riscv_v_setup_vsize())
-> > 			elf_hwcap &=3D ~COMPAT_HWCAP_ISA_V;
-> > 	}
-> >=20
-> > If this fails, we clear the HWCAP bit, but I am not immediately grasping
-> > how this affects the rest of the kernel.
->=20
-> I think it's actually a bug: we're not clearing the bit in riscv_isa, so
-> this only ends up disabling the V bit in AT_HWCAP and thus doesn't do
-> anything in the kernel.
-
-Yeah, that's what I was getting at - I could not see how disabling it in
-hwcap would make a difference either in the kernel or in hwprobe. I was
-not sure if I was missing something in terms of the
-userspace-using-vector side of things, but I was pretty sure that
-hwprobe and in-kernel vector had this bug.
-
-> > has_vector() just checks if the extension is supported by all cores on
-> > the cpu using either an alternative or the extension support bitmap.
-> > There are lots of sites in the kernel that use has_vector() as the
-> > gating check (as far as I can tell), so if vlen does not match between
-> > CPUs should we not be returning an error for has_vector()?
-> >=20
-> > The alternative that has_vector() relies on is patched before the non-b=
-oot
-> > CPUs are enabled, so we cannot modify the result once the non-boot CPUs
-> > are in their callin functions and detect a vlen mismatch while at at the
-> > same time using it in smp_calling(), so should this code be changed to
-> > something along the lines of:
-> >=20
-> > 	if (riscv_has_extension_unlikely(v)) {
-> > 		if (riscv_v_setup_vsize()) {
-> > 			elf_hwcap &=3D ~COMPAT_HWCAP_ISA_V;
-> > 			riscv_v_vlen_mismatch =3D true;
-> > 		}
-> > 	}
-> > and then has_vector() becomes something like
-> > static __always_inline bool has_vector(void)
-> > {
-> > 	return riscv_has_extension_unlikely(RISCV_ISA_EXT_v) && unlikely(riscv=
-_v_vlen_mismatch);
-> > }
-> >=20
-> > Probably there's value to be gained in static branches etc here, but I
-> > was just trying to explain what I was getting at. Maybe I am missing
-> > something though? I do remember talking about this back when the vector
-> > patches were still in review.
->=20
-> I actually don't think that alone fixes it: even if we make has_vector()
-> respect the changes from the new CPU (whether we re-apply the alternatives
-> or make a more dynamic check), we'd need to make sure the code that has
-> already looked at has_vector() doesn't get scheduled on one of the
-> shorter-VLENB CPUs.
-
-Is it possible to have that happen given this is in smp_callin()?
-I guess the concern is some sort of hotplug situations, given that a CPU
-could be hotplugged into a fully running system with a vlen mismatch.
-
-> So maybe the right answer here is to flip things around, and just refuse =
-to
-> enable CPUs that come in with a VLENB different than the boot CPU?  That =
-way
-> we could avoid being broken by systems that behave this way,
-
-smp_callin() doesn't return an error to report a failure, but it does
-have a completion. I suppose we would just return early from
-smp_callin() so that the completion never gets completed, in turn
-causing __cpu_up() to fail?
-
-> if someone ends
-> up building one then they can figure out how to make it work better.
-
-Apparently the next gen sophgo product does. Not sure if people will wnt
-to run across all the cores though, apparently they different by a lot
-more than vlen.
-A DT property would allow us to get the vlen info before the CPUs have
-themselves been brought up. Apparently there are Zvl extensions for
-this, but I'd rather just have a property like we have for the cbo
-sizes if it comes to DT properties.
-
-Cheers,
-Conor.
-
---gBXhnTvGdFfNlZO1
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZd/CnwAKCRB4tDGHoIJi
-0vs6AP47dUMLPnnTFeCtKzm8MISBIQRYiByxBvhyL36MAJwS8wD+PJwUxJW35WHH
-YuWgaESWoYmOzx+as0mYKkFA2p7l0gQ=
-=XZvC
------END PGP SIGNATURE-----
-
---gBXhnTvGdFfNlZO1--
-
-
---===============4517731943358082653==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+  Andrea
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4517731943358082653==--
-
