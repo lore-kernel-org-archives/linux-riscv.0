@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3467C48BF6
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 05:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB79C54798
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 10:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:From:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZZ8EuQ2FBg5jZVTkf1seMH2ub7zp2dqW/riRk3XcqoM=; b=xc1Oo7Vnte4h9y
-	zHWbSNFwOI5KZJpUd5EmTALyrK7h2P6JfSjyW7/CGHR61u6mJrqIjq9G58Q9wf/Pk+im/tkUzfPwX
-	fgsH3IKeDulc4zvmfTtwJCSGMThnpVz/1/luvxxD4ca322WllOUx4GXGpbLEWxjkGHwg0EftRxB2H
-	ab7qtsfxK/jkJHdKW/DmjZcXFs+C+lA/7iaThlnYoolMyCJM93+3nQHL5d/gHWa2COoip4+NTKNHU
-	rNnUCHt+fD2icjIWpaDnldYjTuO7hwqOxMN7oKX8BnKkNWzlH/KTIo1RI+iDqU7TGJpQYw+kDUR4W
-	U0HwK7xIu1JLcHvA2JDw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H+PqrF8mTTyjeZ7cHdJbwnL1yiI9pRzonSYS6cN6ubg=; b=utUUFKrNPHocYR
+	52cHCacBWN6gFJG54iHF9cG+O0BXn3IL6vNzvQPv7FFTUCA4JyxbMxUFBIMOZGK51PkfhnpFHahK1
+	QIB4MBYdZXUfD/dVtr5YHa9mrSmi8R2/Q8pj7CVu4oUBxCVAZPxr6DmuADMHKoYSgqgpZfNFj6rfe
+	jkUt36kyl48PyWljjrmuZ7nixYUvcW06ub4cTGEhi79S5Kp82SeyRhUxd81KUkns2IMrCVPDn5Aon
+	F/Sd2efpq3xqXqKb1+WivsCNHGlyHLv7tnO0Y+pFBBBd1A9tFeinHT19k6C6x3VQuJppVmI7KsSVW
+	yE+UuBSHVFjXSe3NzfVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfYdq-0000000C81b-0UX6;
-	Thu, 29 Feb 2024 05:07:34 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1rfdEg-0000000D30Z-3FcU;
+	Thu, 29 Feb 2024 10:01:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfYdn-0000000C7zc-0cSl
+	id 1rfdEe-0000000D2zo-1Bh7
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 05:07:32 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1dcad814986so5041395ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Feb 2024 21:07:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1709183246; x=1709788046; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=C9gLjb3OEuSRdMJTCKb4yFPoWUD6chtHPJ13NEtxwpk=;
-        b=jH66DEPdPdFIH1VPTlBhkm4guvOAOuyBkXT/JcO2EkdC6QRYdX8eQ6HBNfJaZ5eQnH
-         XL4F393YjxYrD+46w6GH4apyJ18SgbV5k7uFLD5ixiUVItBrnLtNHgtHSzexr9EUEIfZ
-         bu8wmzek5Qid8LpGOpGPJqq+QQHPeCjCiAOySERNqjRR0OuQN8HB19g7LX2F3x8Rw27M
-         AIIfCRN/Vd6AOJu81GSSu7PlHoTa9FTcO0kY/gb+PJaA1XK6SOkkblQEatQ/bKB3aH6q
-         /aXK+ishLpBul2P8d8t5rDsvSG7Ie26varizwCBsSpMHuMv9FTppvp3y4xyZS3Oi2Sv3
-         GCaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709183246; x=1709788046;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=C9gLjb3OEuSRdMJTCKb4yFPoWUD6chtHPJ13NEtxwpk=;
-        b=Q3Jzhy9TqsYjh4iTsOCnQs4kJB9ZLZKwQcEs3FNk4ZCsHvySkR3bf9D98Jo1srgiPg
-         aKCCHA/8gM2AWP7NuGQJy96dk5kGD79zmXat/t3ai7qA0Mm2hENYZ8fYximolKuTslSl
-         zovMQ1A00maE1yGwxRamGltkpq7/gk6wONx+5DNGPTAqjnTyehXLQ3YYiN5vBHltJ54B
-         zBF6xdkYADHCSZMqjqwFztHGoAcny111BPOFoQsIsShFuhovhGKZ2GszcI/4bC6ZSRsm
-         +S9mKuI8XJITHZIV/0G+pIss62OyIm+TvIJNc8/lWeaVXWBa53EoS/E/+LCy3uzWmEkv
-         kNsw==
-X-Forwarded-Encrypted: i=1; AJvYcCWwqTNcerpzuXjyM3tFL7ZkUX8HzxBsXFkVfBkRoe7PPIUjc8+wGLacgIaVf3+A3r7DXPbg20ZuwYt02ZQ5z0lYa/Id/DRWSwZyz2Xj4Vsq
-X-Gm-Message-State: AOJu0YxfC7WUnbVuUvDtIm7kaIemOUqKTCvOAwrRaajIz6NBGS60Au0b
-	3d165ojbFP3Xe0VdmKva4ENwWl5E59GAn6badFe17bqTYA5c38SAtG7WEX55VIMNf+4NUKL5KXQ
-	SK9k=
-X-Google-Smtp-Source: AGHT+IG1E9Me8/ViL7MPla0Akx0APSdhNxaHB+8HRwUMcZom2Jj+iE0yJvEyEiVZm3UH6+AzQ9ppgw==
-X-Received: by 2002:a17:902:ff01:b0:1dc:caaa:7c95 with SMTP id f1-20020a170902ff0100b001dccaaa7c95mr871435plj.15.1709183246540;
-        Wed, 28 Feb 2024 21:07:26 -0800 (PST)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id i9-20020a170902c94900b001dcc09487e8sm362649pla.50.2024.02.28.21.07.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Feb 2024 21:07:25 -0800 (PST)
-Message-ID: <65e0110d.170a0220.d6b09.16c4@mx.google.com>
-Date: Wed, 28 Feb 2024 21:07:25 -0800 (PST)
+	Thu, 29 Feb 2024 10:01:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1BF72615AD;
+	Thu, 29 Feb 2024 10:01:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 301D5C433C7;
+	Thu, 29 Feb 2024 10:01:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1709200908;
+	bh=0EvAP/k3RYWfB4nfZLvIefXSHFryrqEoAdsNstyND9A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tq0nbs3uLnKCLIVkPa0855Ew6lEJ8NSJ53kKT41FCB6zoxM9uJyJcPc6EEeYk/Ii3
+	 N9O3nBW48txXwUZeUqA9bWvmUMQrfaaZ+BAhl8KDvj/FSTPBXS8tcro3ta2ilCfRAC
+	 7zoTTaJOjWhsH9Ul+77Jag+or2uPZWgXgyBaGCqQhIif4R2luSePgjzbLyJpDeEsEm
+	 LRnc3CM/IroJNzXfriPkqCt3VJk/WcTuBphH9rlCmwsooJ3SHSIb540u2AB8b3t1Gf
+	 IghH6xFkLzA69TnyKjFIiTmHoPQ2dOTjy/33h7zjW1KF98muLHDxQmQJT7/DPj9URP
+	 YUU9fS8+EPC6w==
+Date: Thu, 29 Feb 2024 11:01:41 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: Conor Dooley <conor@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+Subject: Re: [PATCH v15,RESEND 05/23] PCI: microchip: Rename two PCIe data
+ structures
+Message-ID: <ZeBWBfMlS4nxMZJ2@lpieralisi>
+References: <20240227103522.80915-1-minda.chen@starfivetech.com>
+ <20240227103522.80915-6-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-X-Kernelci-Tree: riscv
-X-Kernelci-Branch: for-next
-X-Kernelci-Kernel: v6.8-rc1-37-g886516fae2b73
-X-Kernelci-Report-Type: build
-Subject: riscv/for-next build: 8 builds: 0 failed, 8 passed,
- 2 warnings (v6.8-rc1-37-g886516fae2b73)
-To: kernelci-results@groups.io, kernel-ci-triage@rivosinc.com,
- linux-riscv@lists.infradead.org
-From: "kernelci.org bot" <bot@kernelci.org>
+Content-Disposition: inline
+In-Reply-To: <20240227103522.80915-6-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240228_210731_438201_8E749668 
-X-CRM114-Status: UNSURE (   2.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240229_020152_436542_733CC8B0 
+X-CRM114-Status: GOOD (  30.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,54 +84,380 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cmlzY3YvZm9yLW5leHQgYnVpbGQ6IDggYnVpbGRzOiAwIGZhaWxlZCwgOCBwYXNzZWQsIDIgd2Fy
-bmluZ3MgKHY2LjgtcmMxLTM3LWc4ODY1MTZmYWUyYjczKQoKRnVsbCBCdWlsZCBTdW1tYXJ5OiBo
-dHRwczovL2tlcm5lbGNpLm9yZy9idWlsZC9yaXNjdi9icmFuY2gvZm9yLW5leHQva2VybmVsL3Y2
-LjgtcmMxLTM3LWc4ODY1MTZmYWUyYjczLwoKVHJlZTogcmlzY3YKQnJhbmNoOiBmb3ItbmV4dApH
-aXQgRGVzY3JpYmU6IHY2LjgtcmMxLTM3LWc4ODY1MTZmYWUyYjczCkdpdCBDb21taXQ6IDg4NjUx
-NmZhZTJiNzNhMTU3ODYwMGU5NTYzMTQzNjc4NWYzZTQ0ZDYKR2l0IFVSTDogaHR0cHM6Ly9naXQu
-a2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvcmlzY3YvbGludXguZ2l0CkJ1aWx0
-OiAxIHVuaXF1ZSBhcmNoaXRlY3R1cmUKCldhcm5pbmdzIERldGVjdGVkOgoKcmlzY3Y6CiAgICBk
-ZWZjb25maWcgKGdjYy0xMCk6IDEgd2FybmluZwogICAgZGVmY29uZmlnK0NPTkZJR19TTVA9biAo
-Z2NjLTEwKTogMSB3YXJuaW5nCgoKV2FybmluZ3Mgc3VtbWFyeToKCiAgICAyICAgIHNlY3VyaXR5
-L3NlY3VyaXR5LmM6ODEwOjI6IHdhcm5pbmc6IOKAmG1lbWNweeKAmSBvZmZzZXQgMzIgaXMgb3V0
-IG9mIHRoZSBib3VuZHMgWzAsIDBdIFstV2FycmF5LWJvdW5kc10KCj09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09CgpEZXRhaWxlZCBwZXItZGVmY29uZmlnIGJ1aWxkIHJlcG9ydHM6CgotLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLQpkZWZjb25maWcgKHJpc2N2LCBnY2MtMTApIOKAlCBQQVNTLCAwIGVycm9y
-cywgMSB3YXJuaW5nLCAwIHNlY3Rpb24gbWlzbWF0Y2hlcwoKV2FybmluZ3M6CiAgICBzZWN1cml0
-eS9zZWN1cml0eS5jOjgxMDoyOiB3YXJuaW5nOiDigJhtZW1jcHnigJkgb2Zmc2V0IDMyIGlzIG91
-dCBvZiB0aGUgYm91bmRzIFswLCAwXSBbLVdhcnJheS1ib3VuZHNdCgotLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLQpkZWZjb25maWcgKHJpc2N2LCBjbGFuZy0xNikg4oCUIFBBU1MsIDAgZXJyb3JzLCAw
-IHdhcm5pbmdzLCAwIHNlY3Rpb24gbWlzbWF0Y2hlcwoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0K
-ZGVmY29uZmlnK0NPTkZJR19TTVA9biAocmlzY3YsIGdjYy0xMCkg4oCUIFBBU1MsIDAgZXJyb3Jz
-LCAxIHdhcm5pbmcsIDAgc2VjdGlvbiBtaXNtYXRjaGVzCgpXYXJuaW5nczoKICAgIHNlY3VyaXR5
-L3NlY3VyaXR5LmM6ODEwOjI6IHdhcm5pbmc6IOKAmG1lbWNweeKAmSBvZmZzZXQgMzIgaXMgb3V0
-IG9mIHRoZSBib3VuZHMgWzAsIDBdIFstV2FycmF5LWJvdW5kc10KCi0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tCmRlZmNvbmZpZytDT05GSUdfU01QPW4gKHJpc2N2LCBjbGFuZy0xNikg4oCUIFBBU1Ms
-IDAgZXJyb3JzLCAwIHdhcm5pbmdzLCAwIHNlY3Rpb24gbWlzbWF0Y2hlcwoKLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0Kbm9tbXVfazIxMF9kZWZjb25maWcgKHJpc2N2LCBnY2MtMTApIOKAlCBQQVNT
-LCAwIGVycm9ycywgMCB3YXJuaW5ncywgMCBzZWN0aW9uIG1pc21hdGNoZXMKCi0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tCm5vbW11X2syMTBfZGVmY29uZmlnIChyaXNjdiwgY2xhbmctMTYpIOKAlCBQ
-QVNTLCAwIGVycm9ycywgMCB3YXJuaW5ncywgMCBzZWN0aW9uIG1pc21hdGNoZXMKCi0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tCm5vbW11X2syMTBfc2RjYXJkX2RlZmNvbmZpZyAocmlzY3YsIGNsYW5n
-LTE2KSDigJQgUEFTUywgMCBlcnJvcnMsIDAgd2FybmluZ3MsIDAgc2VjdGlvbiBtaXNtYXRjaGVz
-CgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpub21tdV9rMjEwX3NkY2FyZF9kZWZjb25maWcgKHJp
-c2N2LCBnY2MtMTApIOKAlCBQQVNTLCAwIGVycm9ycywgMCB3YXJuaW5ncywgMCBzZWN0aW9uIG1p
-c21hdGNoZXMKCi0tLQpGb3IgbW9yZSBpbmZvIHdyaXRlIHRvIDxpbmZvQGtlcm5lbGNpLm9yZz4K
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Feb 27, 2024 at 06:35:04PM +0800, Minda Chen wrote:
+> Add PLDA PCIe related data structures by rename data structure name from
+> mc_* to plda_*.
+> 
+> axi_base_addr is stayed in struct mc_pcie for it's microchip its own data.
+
+Here in "for it's microchip" you mean "since it's microchip" own data.
+
+Please fix this "for" usage in all commit logs, I noticed it is
+a recurrent mistake you make I can do it but it is tedious.
+
+Don't resend another version yet, I am trying to see what I can
+take from this one.
+
+> The event interrupt codes is still using struct mc_pcie because the event
+
+"code", please not "codes". Please fix it everywhere in your patch
+series, same as above.
+
+Lorenzo
+
+> interrupt codes can not be re-used.
+> 
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../pci/controller/plda/pcie-microchip-host.c | 96 ++++++++++---------
+>  1 file changed, 53 insertions(+), 43 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+> index c55ede80a6d0..df0736f688ce 100644
+> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
+> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+> @@ -22,7 +22,7 @@
+>  #include "pcie-plda.h"
+>  
+>  /* Number of MSI IRQs */
+> -#define MC_MAX_NUM_MSI_IRQS			32
+> +#define PLDA_MAX_NUM_MSI_IRQS			32
+>  
+>  /* PCIe Bridge Phy and Controller Phy offsets */
+>  #define MC_PCIE1_BRIDGE_ADDR			0x00008000u
+> @@ -179,25 +179,29 @@ struct event_map {
+>  	u32 event_bit;
+>  };
+>  
+> -struct mc_msi {
+> +struct plda_msi {
+>  	struct mutex lock;		/* Protect used bitmap */
+>  	struct irq_domain *msi_domain;
+>  	struct irq_domain *dev_domain;
+>  	u32 num_vectors;
+>  	u64 vector_phy;
+> -	DECLARE_BITMAP(used, MC_MAX_NUM_MSI_IRQS);
+> +	DECLARE_BITMAP(used, PLDA_MAX_NUM_MSI_IRQS);
+>  };
+>  
+> -struct mc_pcie {
+> -	void __iomem *axi_base_addr;
+> +struct plda_pcie_rp {
+>  	struct device *dev;
+>  	struct irq_domain *intx_domain;
+>  	struct irq_domain *event_domain;
+>  	raw_spinlock_t lock;
+> -	struct mc_msi msi;
+> +	struct plda_msi msi;
+>  	void __iomem *bridge_addr;
+>  };
+>  
+> +struct mc_pcie {
+> +	struct plda_pcie_rp plda;
+> +	void __iomem *axi_base_addr;
+> +};
+> +
+>  struct cause {
+>  	const char *sym;
+>  	const char *str;
+> @@ -313,7 +317,7 @@ static struct mc_pcie *port;
+>  
+>  static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *ecam)
+>  {
+> -	struct mc_msi *msi = &port->msi;
+> +	struct plda_msi *msi = &port->plda.msi;
+>  	u16 reg;
+>  	u8 queue_size;
+>  
+> @@ -336,10 +340,10 @@ static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *ecam)
+>  
+>  static void mc_handle_msi(struct irq_desc *desc)
+>  {
+> -	struct mc_pcie *port = irq_desc_get_handler_data(desc);
+> +	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+>  	struct irq_chip *chip = irq_desc_get_chip(desc);
+>  	struct device *dev = port->dev;
+> -	struct mc_msi *msi = &port->msi;
+> +	struct plda_msi *msi = &port->msi;
+>  	void __iomem *bridge_base_addr = port->bridge_addr;
+>  	unsigned long status;
+>  	u32 bit;
+> @@ -364,7 +368,7 @@ static void mc_handle_msi(struct irq_desc *desc)
+>  
+>  static void mc_msi_bottom_irq_ack(struct irq_data *data)
+>  {
+> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+>  	void __iomem *bridge_base_addr = port->bridge_addr;
+>  	u32 bitpos = data->hwirq;
+>  
+> @@ -373,7 +377,7 @@ static void mc_msi_bottom_irq_ack(struct irq_data *data)
+>  
+>  static void mc_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>  {
+> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+>  	phys_addr_t addr = port->msi.vector_phy;
+>  
+>  	msg->address_lo = lower_32_bits(addr);
+> @@ -400,8 +404,8 @@ static struct irq_chip mc_msi_bottom_irq_chip = {
+>  static int mc_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  				   unsigned int nr_irqs, void *args)
+>  {
+> -	struct mc_pcie *port = domain->host_data;
+> -	struct mc_msi *msi = &port->msi;
+> +	struct plda_pcie_rp *port = domain->host_data;
+> +	struct plda_msi *msi = &port->msi;
+>  	unsigned long bit;
+>  
+>  	mutex_lock(&msi->lock);
+> @@ -425,8 +429,8 @@ static void mc_irq_msi_domain_free(struct irq_domain *domain, unsigned int virq,
+>  				   unsigned int nr_irqs)
+>  {
+>  	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
+> -	struct mc_pcie *port = irq_data_get_irq_chip_data(d);
+> -	struct mc_msi *msi = &port->msi;
+> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(d);
+> +	struct plda_msi *msi = &port->msi;
+>  
+>  	mutex_lock(&msi->lock);
+>  
+> @@ -456,11 +460,11 @@ static struct msi_domain_info mc_msi_domain_info = {
+>  	.chip = &mc_msi_irq_chip,
+>  };
+>  
+> -static int mc_allocate_msi_domains(struct mc_pcie *port)
+> +static int mc_allocate_msi_domains(struct plda_pcie_rp *port)
+>  {
+>  	struct device *dev = port->dev;
+>  	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
+> -	struct mc_msi *msi = &port->msi;
+> +	struct plda_msi *msi = &port->msi;
+>  
+>  	mutex_init(&port->msi.lock);
+>  
+> @@ -484,7 +488,7 @@ static int mc_allocate_msi_domains(struct mc_pcie *port)
+>  
+>  static void mc_handle_intx(struct irq_desc *desc)
+>  {
+> -	struct mc_pcie *port = irq_desc_get_handler_data(desc);
+> +	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+>  	struct irq_chip *chip = irq_desc_get_chip(desc);
+>  	struct device *dev = port->dev;
+>  	void __iomem *bridge_base_addr = port->bridge_addr;
+> @@ -511,7 +515,7 @@ static void mc_handle_intx(struct irq_desc *desc)
+>  
+>  static void mc_ack_intx_irq(struct irq_data *data)
+>  {
+> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+>  	void __iomem *bridge_base_addr = port->bridge_addr;
+>  	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
+>  
+> @@ -520,7 +524,7 @@ static void mc_ack_intx_irq(struct irq_data *data)
+>  
+>  static void mc_mask_intx_irq(struct irq_data *data)
+>  {
+> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+>  	void __iomem *bridge_base_addr = port->bridge_addr;
+>  	unsigned long flags;
+>  	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
+> @@ -535,7 +539,7 @@ static void mc_mask_intx_irq(struct irq_data *data)
+>  
+>  static void mc_unmask_intx_irq(struct irq_data *data)
+>  {
+> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+>  	void __iomem *bridge_base_addr = port->bridge_addr;
+>  	unsigned long flags;
+>  	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
+> @@ -625,21 +629,22 @@ static u32 local_events(struct mc_pcie *port)
+>  	return val;
+>  }
+>  
+> -static u32 get_events(struct mc_pcie *port)
+> +static u32 get_events(struct plda_pcie_rp *port)
+>  {
+> +	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
+>  	u32 events = 0;
+>  
+> -	events |= pcie_events(port);
+> -	events |= sec_errors(port);
+> -	events |= ded_errors(port);
+> -	events |= local_events(port);
+> +	events |= pcie_events(mc_port);
+> +	events |= sec_errors(mc_port);
+> +	events |= ded_errors(mc_port);
+> +	events |= local_events(mc_port);
+>  
+>  	return events;
+>  }
+>  
+>  static irqreturn_t mc_event_handler(int irq, void *dev_id)
+>  {
+> -	struct mc_pcie *port = dev_id;
+> +	struct plda_pcie_rp *port = dev_id;
+>  	struct device *dev = port->dev;
+>  	struct irq_data *data;
+>  
+> @@ -655,7 +660,7 @@ static irqreturn_t mc_event_handler(int irq, void *dev_id)
+>  
+>  static void mc_handle_event(struct irq_desc *desc)
+>  {
+> -	struct mc_pcie *port = irq_desc_get_handler_data(desc);
+> +	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+>  	unsigned long events;
+>  	u32 bit;
+>  	struct irq_chip *chip = irq_desc_get_chip(desc);
+> @@ -672,12 +677,13 @@ static void mc_handle_event(struct irq_desc *desc)
+>  
+>  static void mc_ack_event_irq(struct irq_data *data)
+>  {
+> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+> +	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
+>  	u32 event = data->hwirq;
+>  	void __iomem *addr;
+>  	u32 mask;
+>  
+> -	addr = port->axi_base_addr + event_descs[event].base +
+> +	addr = mc_port->axi_base_addr + event_descs[event].base +
+>  		event_descs[event].offset;
+>  	mask = event_descs[event].mask;
+>  	mask |= event_descs[event].enb_mask;
+> @@ -687,13 +693,14 @@ static void mc_ack_event_irq(struct irq_data *data)
+>  
+>  static void mc_mask_event_irq(struct irq_data *data)
+>  {
+> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+> +	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
+>  	u32 event = data->hwirq;
+>  	void __iomem *addr;
+>  	u32 mask;
+>  	u32 val;
+>  
+> -	addr = port->axi_base_addr + event_descs[event].base +
+> +	addr = mc_port->axi_base_addr + event_descs[event].base +
+>  		event_descs[event].mask_offset;
+>  	mask = event_descs[event].mask;
+>  	if (event_descs[event].enb_mask) {
+> @@ -717,13 +724,14 @@ static void mc_mask_event_irq(struct irq_data *data)
+>  
+>  static void mc_unmask_event_irq(struct irq_data *data)
+>  {
+> -	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
+> +	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+> +	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
+>  	u32 event = data->hwirq;
+>  	void __iomem *addr;
+>  	u32 mask;
+>  	u32 val;
+>  
+> -	addr = port->axi_base_addr + event_descs[event].base +
+> +	addr = mc_port->axi_base_addr + event_descs[event].base +
+>  		event_descs[event].mask_offset;
+>  	mask = event_descs[event].mask;
+>  
+> @@ -811,7 +819,7 @@ static int mc_pcie_init_clks(struct device *dev)
+>  	return 0;
+>  }
+>  
+> -static int mc_pcie_init_irq_domains(struct mc_pcie *port)
+> +static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
+>  {
+>  	struct device *dev = port->dev;
+>  	struct device_node *node = dev->of_node;
+> @@ -889,7 +897,7 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+>  }
+>  
+>  static int mc_pcie_setup_windows(struct platform_device *pdev,
+> -				 struct mc_pcie *port)
+> +				 struct plda_pcie_rp *port)
+>  {
+>  	void __iomem *bridge_base_addr = port->bridge_addr;
+>  	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+> @@ -970,7 +978,7 @@ static void mc_disable_interrupts(struct mc_pcie *port)
+>  	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
+>  }
+>  
+> -static int mc_init_interrupts(struct platform_device *pdev, struct mc_pcie *port)
+> +static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp *port)
+>  {
+>  	struct device *dev = &pdev->dev;
+>  	int irq;
+> @@ -1043,12 +1051,12 @@ static int mc_platform_init(struct pci_config_window *cfg)
+>  	mc_pcie_enable_msi(port, cfg->win);
+>  
+>  	/* Configure non-config space outbound ranges */
+> -	ret = mc_pcie_setup_windows(pdev, port);
+> +	ret = mc_pcie_setup_windows(pdev, &port->plda);
+>  	if (ret)
+>  		return ret;
+>  
+>  	/* Address translation is up; safe to enable interrupts */
+> -	ret = mc_init_interrupts(pdev, port);
+> +	ret = mc_init_interrupts(pdev, &port->plda);
+>  	if (ret)
+>  		return ret;
+>  
+> @@ -1059,6 +1067,7 @@ static int mc_host_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev = &pdev->dev;
+>  	void __iomem *bridge_base_addr;
+> +	struct plda_pcie_rp *plda;
+>  	int ret;
+>  	u32 val;
+>  
+> @@ -1066,7 +1075,8 @@ static int mc_host_probe(struct platform_device *pdev)
+>  	if (!port)
+>  		return -ENOMEM;
+>  
+> -	port->dev = dev;
+> +	plda = &port->plda;
+> +	plda->dev = dev;
+>  
+>  	port->axi_base_addr = devm_platform_ioremap_resource(pdev, 1);
+>  	if (IS_ERR(port->axi_base_addr))
+> @@ -1075,7 +1085,7 @@ static int mc_host_probe(struct platform_device *pdev)
+>  	mc_disable_interrupts(port);
+>  
+>  	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+> -	port->bridge_addr = bridge_base_addr;
+> +	plda->bridge_addr = bridge_base_addr;
+>  
+>  	/* Allow enabling MSI by disabling MSI-X */
+>  	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
+> @@ -1087,10 +1097,10 @@ static int mc_host_probe(struct platform_device *pdev)
+>  	val &= NUM_MSI_MSGS_MASK;
+>  	val >>= NUM_MSI_MSGS_SHIFT;
+>  
+> -	port->msi.num_vectors = 1 << val;
+> +	plda->msi.num_vectors = 1 << val;
+>  
+>  	/* Pick vector address from design */
+> -	port->msi.vector_phy = readl_relaxed(bridge_base_addr + IMSI_ADDR);
+> +	plda->msi.vector_phy = readl_relaxed(bridge_base_addr + IMSI_ADDR);
+>  
+>  	ret = mc_pcie_init_clks(dev);
+>  	if (ret) {
+> -- 
+> 2.17.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
