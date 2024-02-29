@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0C9C54798
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 23:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C073FC48BF6
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 23:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rLB3xJwyDt+V4H9HcdYD7X17kR2W/K5QMJXAG7DV0No=; b=w+wBgY+oz2D+sZ
-	wjdY4ID0mjYhLtzxubLq6ZDCZTncT27HY4e57Jf0Yx9snPBw2h7JtvoKT37BfgmKmYL2DBmMj/eCd
-	2RFkg3vS1cxtdcTF0ihbcteiRvbDnHU158fmibpHTp/hZ1PJ3OKkIINi1gxP34pDi0KNTU6O4FP2Y
-	A9ZBkVizwV75TvQOfFCZCzNtrvl4Bxvt9t5lsSDatq+NeluM2egZgqYhQmF/Dm/Hg88nA5wOGz+Yf
-	NN0/ykR4ZBRyGiLDCnX9nDrTr7JajdlJiaWYEyHdkLFOCoEI09ZdDNYme+k2MjPkfTopI1+Vx/2XD
-	3wTJIxbzBJswLyfgBeEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=i571gimOCPP1dLeF286X85tokKGPG7QrC+BVffhst7g=; b=fm2ZyfwNWIfRzopjAPYipFs/kS
+	PzVvfRYGhcAcz3x4IVxP9c8Viv/tX9Mhgh0S5s7IpObSj0tXNB3CgdfNRETfXtUoz9HUyo6i9Vaut
+	Z3uSGySptvzZV8tKCEwCX+g3GIQttOxI9Q3zzqKJFLJqFY+Jr72Bkxe4EYhnu/8mriaGFefc01hX8
+	+ZeAcyaH3o16+CZqk4igyviDesICPL8LgzHy30wIq4ncahZW+EiQL0WdT86N5NKXjvzrQqSheGPcp
+	BI2ZXBcYG5/v11+ll4CLlDFHLU0RqSE8n1g/Frxy7+waUDVxirSM8qEubCNg0qZq+Vi6yIzxnRBMa
+	kW7UX+fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfpkQ-0000000Falf-0ta1;
-	Thu, 29 Feb 2024 23:23:30 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1rfq15-0000000Fepf-18PS;
+	Thu, 29 Feb 2024 23:40:43 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfpjQ-0000000FZzr-10zG
+	id 1rfq12-0000000Feow-08ZS
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 23:22:30 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3c19e18470aso851590b6e.1
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 15:22:26 -0800 (PST)
+	Thu, 29 Feb 2024 23:40:41 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-6e56da425b5so1194653b3a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 15:40:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1709248946; x=1709853746; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hwpkv2OuO7YHUplKH98oFVfOa+CFbclxXNu0ysmduyU=;
-        b=PfNG9M6gWuR1ksO6LejCbQDRd+YX7gPt+DlcfQ2QoyB2D7dHSi0HytU3855fw7Sx6F
-         Rj60ZxXhCE/3vJ17vDkVy0HuIOUSvnfbd+A6F1YnuLJFjsAYUUM0pRyuO6jEO5Wfe9gJ
-         pqkMoJQPudeXK0kcT29E1z9N7Gw26ek+i4j3AhvgKeNNYzDS8RgtJuVVn0/Z9tPJ5cZ0
-         +NXQxDop4KxuQUy0dn+BSmtzlorarKpuc+3BGh5d6+anQy7yoMoLtBilMrBWVIdzVyx4
-         pt5rXRYIvH6++Nn+Et3+zneN0yT8gxeXOH+tAy8LntwNj4rTiaflZ80yS9Rc1sIfGfGP
-         x7tA==
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1709250039; x=1709854839; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lx8BWhywoDIgpgt+e03ZrIqlEHq0YVesZbrDMn3IG9M=;
+        b=vsiz1eaVh908NNfvtqLCvw5axRCUr+Q9hBv/EmtPwNXqEBxGOTtlJYmCZnDWeWrLmx
+         PNRoReESUBziFhAOWKHjaqzBAJ+cCkBrg0E3OakFdlBkglDJ1smggdLGH/OQuGOYc8CR
+         pZTzNm63KzSEmy4vEn6bid/oJj+4Tm3OyMnpekCZkOtC5ZAedptYRLrw1nlbsYGTsn+M
+         6MZ0X2Wp+WMEOcbdD52ClIT3cmIq5s4Rcc4q2dF2YaUn0PBh523sKObiyVkg6JasKGJL
+         ACSbQj/FVkc671y4rDw0WwnYZjAALWxhOqMRxHk27Sh9vRmYbLELxoOJPLFmIgPV0B1c
+         VuGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709248946; x=1709853746;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hwpkv2OuO7YHUplKH98oFVfOa+CFbclxXNu0ysmduyU=;
-        b=qbH1sxmvs0ZzdHz5CYbuvnvJ2Owk7W6i7nqKw3zH2uKB5jghCq0y/IODpyk/kHIiIT
-         sK77qEoTqbzNvV1kQqtpBWGQZLPn5UW91CvJ79FS3MygkubFqNiRgSCPkeNNr8FC2kkr
-         PYKn87Hw8HsEtu+2aSJsRyd0rbFqq1TLG7r9xpBUnKYy4GxQy91Agb2SjYVAXcSrtwHo
-         gFNhaTwc4lrIqqC+QZpempoNsAquIDKc88fbZYtokml9WdbrDHishIgI4YkYL1qXBhHR
-         7AWI8fiET8Ekp/P2vUCuddfIfXDDY5wk/NUJT/cQDI+yIE00+J8vUKKYpWe7hhzSo/jb
-         3mHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU3eU1BPASINsv1M8sCX5e5Z+lMwz/OVN9M6LKVN5sW/nZPvBRBRlg043l7K1afhgAnXz9DAmpEkpjrwVDmTcG1MJZlBz2zm+kT/Fbr45z1
-X-Gm-Message-State: AOJu0YwNZNXTU7liJGaqe3ak681MyQD1Xbm8WgnT3hWpldBc5l3r8ELv
-	guhSTJjMy88mFsYYVqkEWrZ5qnKxBxh0dwupnULdfpJ7eXmXMiS0r8atueu+ak8=
-X-Google-Smtp-Source: AGHT+IHmmt9lzZLUCIFAbm5GqyPJaePE9QFXJ4x/3NAo+fPZmowQvwtei5P759brqGkqtPXCOnb8SQ==
-X-Received: by 2002:a05:6808:17a7:b0:3c1:af49:222b with SMTP id bg39-20020a05680817a700b003c1af49222bmr47209oib.37.1709248945851;
-        Thu, 29 Feb 2024 15:22:25 -0800 (PST)
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id c6-20020aa78806000000b006e55aa75d6csm1779719pfo.122.2024.02.29.15.22.25
+        d=1e100.net; s=20230601; t=1709250039; x=1709854839;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lx8BWhywoDIgpgt+e03ZrIqlEHq0YVesZbrDMn3IG9M=;
+        b=Da2C9drayn9stbsn3beRO6XfZN5JvY7S6H6NknjDG3Fq3PzkviJKcy7Q+ULAK9coz4
+         qdn/XmUZ828pF+0CKL25RNnDBl2yBjiFScXT5s6DvuGC4ueDpAbFH/k3S3y9siaQAaG3
+         pOQTQzqJAjB0mC/xgWglM1TNyiSgMwInfZNSw3k6jys37/DF/z8gV+244y69qFGavkYe
+         XmJUH09kz9QxnvwyYRD6KGiQyMNlkIadN9EdxpQoI7V4TWnPv9ynDnrCoB7Xbc8myGkw
+         kwwsg3Oo3fA5ZaOIZB5HE4upQ5PMu8lYtmNi21gSqNopWRo+CjiW8EXmH596lDsuQ8v0
+         xh4g==
+X-Forwarded-Encrypted: i=1; AJvYcCUWpM+YfgzYFOkpi9Z1rr6qiKTrLnprrsa+I5ttMbWxdj/InbDZXIQPZg433iVPXQjZcotkgc47UjKuWrLrPWBAWrtFOuYoVYmeSj0cgou2
+X-Gm-Message-State: AOJu0YxNOGiFq9yoFEStZ15gfc2w7/vIhNOmOCgCnSf9vJamgE0cCN3O
+	22kmiUsU8wUa+ZYBisHMkxM7vgXYgmfO6f+vzgFYCrRlBZNKlBrpuyUPrHuyKeL1pTLyjDhjlv1
+	b
+X-Google-Smtp-Source: AGHT+IEP0KUN5vieOSkjcb6f/9wrtZCWTiS6hFvutEkB79kR+hMPoz0zBj3WKb8OwHFOckN1Bdptdw==
+X-Received: by 2002:a05:6a00:188b:b0:6e5:9698:7cb9 with SMTP id x11-20020a056a00188b00b006e596987cb9mr278229pfh.4.1709250038519;
+        Thu, 29 Feb 2024 15:40:38 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id k16-20020aa79990000000b006e59615812fsm1693015pfh.213.2024.02.29.15.40.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Feb 2024 15:22:25 -0800 (PST)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v5 12/13] riscv: mm: Preserve global TLB entries when switching contexts
-Date: Thu, 29 Feb 2024 15:21:53 -0800
-Message-ID: <20240229232211.161961-13-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.43.1
-In-Reply-To: <20240229232211.161961-1-samuel.holland@sifive.com>
-References: <20240229232211.161961-1-samuel.holland@sifive.com>
-MIME-Version: 1.0
+        Thu, 29 Feb 2024 15:40:37 -0800 (PST)
+Date: Thu, 29 Feb 2024 15:40:37 -0800 (PST)
+X-Google-Original-Date: Thu, 29 Feb 2024 15:40:31 PST (-0800)
+Subject: Re: [PATCH -fixes v4 2/3] riscv: Add a custom ISA extension for the [ms]envcfg CSR
+In-Reply-To: <20240229-establish-itinerary-5d08f6c3ee43@spud>
+CC: samuel.holland@sifive.com, ajones@ventanamicro.com, linux-kernel@vger.kernel.org,
+  alex@ghiti.fr, linux-riscv@lists.infradead.org, sorear@fastmail.com, stable@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-0128d165-88ba-4952-b875-c35b06ce9224@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_152228_390840_FCC86B34 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20240229_154040_320784_4536434E 
+X-CRM114-Status: GOOD (  35.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,54 +88,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If the CPU does not support multiple ASIDs, all MM contexts use ASID 0.
-In this case, it is still beneficial to flush the TLB by ASID, as the
-single-ASID variant of the sfence.vma instruction preserves TLB entries
-for global (kernel) pages.
+On Thu, 29 Feb 2024 10:30:10 PST (-0800), Conor Dooley wrote:
+> On Thu, Feb 29, 2024 at 10:23:39AM -0800, Palmer Dabbelt wrote:
+>> On Wed, 28 Feb 2024 02:12:14 PST (-0800), Conor Dooley wrote:
+>> > On Tue, Feb 27, 2024 at 10:55:34PM -0800, Samuel Holland wrote:
+>> > > The [ms]envcfg CSR was added in version 1.12 of the RISC-V privileged
+>> > > ISA (aka S[ms]1p12). However, bits in this CSR are defined by several
+>> > > other extensions which may be implemented separately from any particular
+>> > > version of the privileged ISA (for example, some unrelated errata may
+>> > > prevent an implementation from claiming conformance with Ss1p12). As a
+>> > > result, Linux cannot simply use the privileged ISA version to determine
+>> > > if the CSR is present. It must also check if any of these other
+>> > > extensions are implemented. It also cannot probe the existence of the
+>> > > CSR at runtime, because Linux does not require Sstrict, so (in the
+>> > > absence of additional information) it cannot know if a CSR at that
+>> > > address is [ms]envcfg or part of some non-conforming vendor extension.
+>> > > 
+>> > > Since there are several standard extensions that imply the existence of
+>> > > the [ms]envcfg CSR, it becomes unwieldy to check for all of them
+>> > > wherever the CSR is accessed. Instead, define a custom Xlinuxenvcfg ISA
+>> > > extension bit that is implied by the other extensions and denotes that
+>> > > the CSR exists as defined in the privileged ISA, containing at least one
+>> > > of the fields common between menvcfg and senvcfg.
+>> > 
+>> > > This extension does not need to be parsed from the devicetree or ISA
+>> > > string because it can only be implemented as a subset of some other
+>> > > standard extension.
+>> > 
+>> > NGL, every time I look at the superset stuff I question whether or not
+>> > it is a good implementation, but it is nice to see that it at least
+>> > makes the creation of quasi-extension flags like this straightforward.
+>> 
+>> We can always add it to the DT list as a proper extension, but I think for
+>> this sort of stuff it's good enough for now
+>
+> Perhaps good enough forever. I was not advocating for adding it as a
+> permitted DT property - I was just saying that I didn't the complexity
+> that you mention below, but I was pleasantly surprised that the stuff
+> ?Evan? and I came up with allows for this kind of inferred "extension"
+> without any changes.
 
-This optimization is recommended by the RISC-V privileged specification:
+Ya, I'm in the same boat.  I think we can get away without putting these 
+into DT until we end up with something odd going on, like some other 
+flavor of *envcf from some vendor being weird.
 
-  If the implementation does not provide ASIDs, or software chooses
-  to always use ASID 0, then after every satp write, software should
-  execute SFENCE.VMA with rs1=x0. In the common case that no global
-  translations have been modified, rs2 should be set to a register
-  other than x0 but which contains the value zero, so that global
-  translations are not flushed.
-
-It is not possible to apply this optimization when using the ASID
-allocator, because that code must flush the TLB for all ASIDs at once
-when incrementing the version number.
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
----
-
-(no changes since v1)
-
- arch/riscv/mm/context.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 0bf6d0070a14..60cb0b82240e 100644
---- a/arch/riscv/mm/context.c
-+++ b/arch/riscv/mm/context.c
-@@ -200,7 +200,7 @@ static void set_mm_noasid(struct mm_struct *mm)
- {
- 	/* Switch the page table and blindly nuke entire local TLB */
- 	csr_write(CSR_SATP, virt_to_pfn(mm->pgd) | satp_mode);
--	local_flush_tlb_all();
-+	local_flush_tlb_all_asid(0);
- }
- 
- static inline void set_mm(struct mm_struct *prev,
--- 
-2.43.1
-
+>> -- we've already got a bunch of
+>> complexity for the proper ISA-defined extension dependencies, so it's not
+>> like we could really get away from it entirely.
 
 _______________________________________________
 linux-riscv mailing list
