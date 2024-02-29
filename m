@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 787CFC48BF6
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 20:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B9DAC54798
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 20:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JCPsDu+uoPxN/Mm/0cbYHSLRc1Sz2PkPrUWCpOkBtEY=; b=APB65/WOos2rzU
-	yK0gom6C0+atrlHlmVRv8zvNrzAfo1L6vXh9EVdTfcdmTaqOzHC6U2ZkKNCCEgBhYGjtRcsN2bCL5
-	eUjreKlTNdGS8UMqxF6q2sstdUGO8PcQCRE6IlRHf+pPCmPGg7RviMr5xhXcaQ4IYz9tTZXGST0nD
-	3i8UoQ8YFaVSEKMF/mZRWgy6Kvd5r4HIlX3vMKnPjiTBdmh3BdVEkEbagW/MdR7bwveWuYKqdcnsr
-	sS6U7ZJ6pn/jKLUZAj5FC8O7afwoTotToxEo3cvjEq5mauyxBxU26GTaVmtRSWq1seov1IiAZp7+q
-	5T0dUeOwUKXmp4NyVZrw==;
+	List-Owner; bh=JCPsDu+uoPxN/Mm/0cbYHSLRc1Sz2PkPrUWCpOkBtEY=; b=JhLDvqqnfmGiW4
+	7G8NdgEaIKTWitCk0SDUrWswaugK+8xOZ/7BuQmGHeM0I6bWYTxiJIomeiL0v14RiMkS3OpOSVuxB
+	ZkSzKa1voFgbq1HIzvdfuLbzMY6wkYbivm48umCQquKPkwi/OgFKwiJZc2hf+Ic8jfk6mzfUH34RL
+	5aedqSAPNOXgXES6doHfH7wik6wWwgM9zhwqZ06zvALNmSn0XfDZCqw0iwTsDH9X8lbiD7I0M/0VX
+	BT5jnhQQ1D0r73ZwimpsK8CrcpRemk7y+p2+UWRgD5rYp20UqTqW657BgEPT8gPSZAmYlgCPBzsKP
+	znu7lO9tIOYEIeiEKVYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfnCL-0000000F7Mv-3JIL;
-	Thu, 29 Feb 2024 20:40:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rfnDQ-0000000F7ty-2aHr;
+	Thu, 29 Feb 2024 20:41:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfnBz-0000000F7CL-45bc
+	id 1rfnCw-0000000F7e7-1sQq
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 20:39:49 +0000
+	Thu, 29 Feb 2024 20:40:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4957160DF2;
-	Thu, 29 Feb 2024 20:39:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51519C433C7;
-	Thu, 29 Feb 2024 20:39:45 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E93E1612B4;
+	Thu, 29 Feb 2024 20:40:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 022D6C433F1;
+	Thu, 29 Feb 2024 20:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709239186;
+	s=k20201202; t=1709239245;
 	bh=T/akRPi5ao0d12BmCz3WEgH+FPHY9KHNebOOEFBHkBM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=deoqmt4ua4PUWjlHnXFLMz9R4ZKUCqaEdrq0FT6qYTE1YlDDFzg0WxicWtbbr+crS
-	 zwXDsb9Q1rq+XxU0zY8ol11QBMN1fgEn5BaV+ocekYbgvsYuctCbfGMu9owZWYPn71
-	 nN1wj9+ogE1a9hvML6j1dutNUZbdl+m3lDybhBSc0hYzjn3tVu1Ezzr7QlFZSB7K0i
-	 LPm8BmDm4n/D3EZWrCz4M763Iq7Jjft8NyoKOtRGCx/+vwLH+jbe5di+bO63eSGqZf
-	 6VpkcxF/Ydvfes7OKDw/PTAngz3I9oNtNoc2Os2CYDFpFMzp00pMJ/mo8kKrqohUGY
-	 9ls2/9aIlpWwQ==
+	b=EFQol4sVU2+K8g+pqLmbEc0eSBftT1N/OQVdjBoQHD8OUWSy3KNVThXj4t/Iar+dY
+	 lm9MvfkkypkxUdm7mJhSPsI6a3MF7ptGoteFFCSoVnJ57YudlGN72MVVItxStLqyen
+	 JBzdEeKE8B29IiMX+tYc5RE8KzhCLf9i1Ctnr8s/1ItScvVHX2YPb+cgnjfWUpWKHg
+	 +v+0kJaLIshKRyNcIEkuo56DoXTegBIJOm0kxd18v/Q3+II7V5V/4eF9rzlTqX/D/5
+	 1C9f8lq8+bGSAeIyvt1lnvQgk2GmiEJ18wpwG7f6WAY9V80tirZJrP5pB0avoNTI5M
+	 +F/nWzJ5crBBg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Sasha Levin <sashal@kernel.org>,
+	conor@kernel.org,
 	robh+dt@kernel.org,
 	krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org,
-	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
 	aou@eecs.berkeley.edu,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.6 06/22] riscv: dts: sifive: add missing #interrupt-cells to pmic
-Date: Thu, 29 Feb 2024 15:38:59 -0500
-Message-ID: <20240229203933.2861006-6-sashal@kernel.org>
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.1 04/12] riscv: dts: sifive: add missing #interrupt-cells to pmic
+Date: Thu, 29 Feb 2024 15:40:26 -0500
+Message-ID: <20240229204039.2861519-4-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240229203933.2861006-1-sashal@kernel.org>
-References: <20240229203933.2861006-1-sashal@kernel.org>
+In-Reply-To: <20240229204039.2861519-1-sashal@kernel.org>
+References: <20240229204039.2861519-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.6.18
+X-stable-base: Linux 6.1.79
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_123948_227442_DDC50391 
+X-CRM114-CacheID: sfid-20240229_124048_451394_D8C4C4CD 
 X-CRM114-Status: UNSURE (   6.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
