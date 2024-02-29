@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF65DC48BF6
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 19:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1331DC48BF6
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 19:23:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=b/TEiQokWDHCKD1rTeWH8o8UXARRzmGpkl9RR5C8sPo=; b=Saj/Zgqc75mt/eQExOtXmnbU61
-	8+P9OAQqXdCl9RTL64OVojL6JYWi5CQuCfUX0M1l3zxBYR2Gfc0SX4KalwQ6UzaPpi74AtQN2KQvS
-	fi3aehIUac8GPo2jK1Q41H4qy/IVxyNYMWskuWMs3LHfa97alUFTr83PynCMrUTD4gyhwepP7JZ8s
-	OdJw5LXHgt4yT7rLGmpq+1sClstDrw+Hy5+uX2fuwwixAA/udkuqx2aemnpO4d1DjoDiDGYJ1mQk4
-	oaD0DF44kikqSPy54oFlN2DIOMhi3h9OdCaXDKbOou8jSKiv/7nPKHF9kaLTxRqkGiXzSBJNDnDAn
-	QjYKufzQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WfkvP34AzrF1LIf4/E5thbok/ZMW/M0JHk0PQOKUntY=; b=tuXUia0Fk+gGnN
+	tjRXYRc5wZAcBroLdN1pWBm4kON1Fu3LFO5RLPyfloIiN+Ny3eXB6ghSeva/imTIPpCNJ9BAhOdQh
+	mlguV9clofNNW86BIIEfnHVJeG65Ghmy+QyJJNdi7srwthtBl49QOZgnlCB9FgFDcoSMITheZSnT5
+	IOXJXMqiyXnWG3iAhL9jXmE4IS7Av5TWk1ZFHfjaJP+8kTjuhXs6OpJddiKZQI+XaJ0oGg4JiEjR2
+	qRoeChvFb0Y+z2Ubd3MmsDdgjrDSUNCfrdninFakQxa6GJPagV5Zq2xX04ZHZVC3aY8mwgj16HGQw
+	qzP/1i6EH0BedEJHjyXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rflyP-0000000EqgI-2GAl;
-	Thu, 29 Feb 2024 19:21:41 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1rflzx-0000000Er04-3wfB;
+	Thu, 29 Feb 2024 19:23:17 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rflyL-0000000EqfM-2zLF
+	id 1rflzv-0000000EqzN-1fKB
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 19:21:39 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6e56787e691so1598189b3a.0
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 11:21:35 -0800 (PST)
+	Thu, 29 Feb 2024 19:23:16 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1d95d67ff45so11317465ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 11:23:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1709234495; x=1709839295; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tI0BeeYqM9dH4CtDmNU5Z89KyVB0ENS6fdLlu9zwgwk=;
-        b=Zbl+9nmMxSrUMD7SZn9DzeWF0la9hYguM5JphTL9hgl456vFR0awVY6gtwfIRmrsuu
-         yv3l+S6TvJM1bWURGnFWxQOH0Cii2WkPrg2zuomjMaa/ObMgZE50dznsjnE7iz7EKaxV
-         ko1zEUScgp8dwkvQJ5S8KXciN6BSgnKTR3pWMSvrYO0VH3r2m28D99jB9EWb+W0+Hjns
-         qFtngNSD9zPO3DNhfstOsmPKmiX27g/kitv1eJm/xMfeb4TURefQlEyf8iIgij2hmTlF
-         fkZox003YRj/Z0DoFEu9txfEim54jWuWAEJHqR2dgF0bsWTfZYf/4PZt8nZjdKt1OBr5
-         Yhbw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709234593; x=1709839393; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Tuk7a+vKCe6RTEYqyB1hLiNO0I5Nq8cXBO1DhIdc6iw=;
+        b=dmUt9wM7c8941qUPCyrAVJjJFW85SxrVnDIPxsZ40slQLclluq/OCH/320gyeKGI0Z
+         4V5fKPu3YIRfYtBn3fLIkClrKNbI+ZIUd0wzhZWn+geuf22+FPtG5bYk0O0F+hYAFKFE
+         V09nM683rf39GjgrqLdNEa4MzqAwcQ61ZYJ2k+oZXpvzqUkygwBn+0rzTmlsBrgTti/l
+         3OSZGeoFYIU2bjICHiLnmDpBw962kEcM4q64w1wfbvT9555dE/+Xq7OkVPJRuA90X6RU
+         LpwLsLNmZVCG9mf2b2RZQM7Fz5H4g1ZHKAqhNYwOG6+VdLYpQNgwfKt474sVwikkbCIW
+         18Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709234495; x=1709839295;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1709234593; x=1709839393;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tI0BeeYqM9dH4CtDmNU5Z89KyVB0ENS6fdLlu9zwgwk=;
-        b=eFR4L367XlER+LoTjby6VH+I1CZhPI8nF5tCIyF4Gx9Lsf4CeNDuR5Btb3gv+PeXgt
-         WKKI46oHMaBx6HkXKFhxQ3denXyH/I4Yo9x4dEXug7EmPhGVPaZWnLTxyxNpwFX808mH
-         5v+vxzqTHc2M9QFdh+iyhfoJ9hZUjcwd9mP8ihY5IZDvpcCRN3zJTzc5CX06FtFUXw1p
-         02/DTpugUj8KNR958y0jffFTjimKrOelb5u+PPssivZsOgb5LDmbD0TGyth84zeWqCWM
-         USUdPwvSzKoNjfW9mJq1mPAmn1nxG+pRAqNVO3nenj8W6eka7sC3QGsFl5hD37UASHS0
-         eUqw==
-X-Forwarded-Encrypted: i=1; AJvYcCXMDqjWGV1nvu8f0D439hUU04ZwYBdZz/yWt4yUyZUr3XVwSDw9RORq0FDIrF0v7y2MRuqU71nzvrsB3cLiSGGQL3HDi9ITykxa9U1IRoQi
-X-Gm-Message-State: AOJu0YwzxVaKvi9hRw0QiQS2Gf9YlDbudnTb0D2G9iZQWStEiVVnimrY
-	/fNQ/kLqdDNuUm6CE2Z7G9tUpxZODl9VmTJkv8VvWUa3XyTPqmCDiIdoRdQQfps=
-X-Google-Smtp-Source: AGHT+IEb+gGTWSZJgyAaR/j/macgR4G7Qn8rFIkQpEZb0vtMqMn8yLy4/Fk0QWniPKOilz8fvl9fwA==
-X-Received: by 2002:a05:6a20:e616:b0:1a1:209e:99da with SMTP id my22-20020a056a20e61600b001a1209e99damr4015579pzb.28.1709234494948;
-        Thu, 29 Feb 2024 11:21:34 -0800 (PST)
-Received: from localhost ([50.213.54.97])
-        by smtp.gmail.com with ESMTPSA id e6-20020aa798c6000000b006e4f18784cfsm1625915pfm.124.2024.02.29.11.21.34
+        bh=Tuk7a+vKCe6RTEYqyB1hLiNO0I5Nq8cXBO1DhIdc6iw=;
+        b=D8htHxzN2wHcJzyoQWMBqplA1X/UMAiuwsyc4/ibPZlHGv3U/7A0qfvR537PSihnNX
+         r3fLkNCwPvw4T/xyBN3NWpvIX+pqe11Uwz+3Av+2Xe66nlT4wRA8muPnh2Q/p8kAqGQ7
+         PKjnBd6JHAA23rvksZTHNKSHkVGPX8LMUEati0wzmWxnU4b0QIPD08KI13D+KBsxUfaa
+         k+U7c6aevzmp7wnD5Uwsmx2goCIFC3GlVpMJkXMn+KisTSOSrE/pOqAGAr9nVZqsQ/5c
+         TDVSBkgDHVAHjslU9sGdR5hMn2bLx/cnLY2b7UXbi/LjCcLadpN/LzxXNQSa76L4v9ZH
+         HLfw==
+X-Forwarded-Encrypted: i=1; AJvYcCV2PU/vwP1vYZcvEzaseHKAaFWIVC18e9m3SjwGcy1PJv4zLcBo3hN2QrR2ohgnNbdg4pRXYxEN/ia+z78LggowX5r3HHk50C0+p69FvOqx
+X-Gm-Message-State: AOJu0YxWH/yuG+fwpZDQ0P3GYSSPLzp3Lc2A836tMyPM8u/MJK31uEyd
+	bomvLBRVGdJmzKiQsOJweQgV1G83M8SkoE1LqZiEfQa/FElC8rrEEjII8KzWlUU=
+X-Google-Smtp-Source: AGHT+IHUzPkndAgTV7P4u3begGmiBUm2ct/M7Ax0MCC20stQ6rwpWin83UXCLvAEaE3gIAiJUl43+Q==
+X-Received: by 2002:a17:902:ce8e:b0:1dc:d4f9:fd1b with SMTP id f14-20020a170902ce8e00b001dcd4f9fd1bmr3924446plg.7.1709234593472;
+        Thu, 29 Feb 2024 11:23:13 -0800 (PST)
+Received: from ghost (mobile-166-137-160-039.mycingular.net. [166.137.160.39])
+        by smtp.gmail.com with ESMTPSA id i9-20020a170902c94900b001dcc09487e8sm1861463pla.50.2024.02.29.11.23.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Feb 2024 11:21:34 -0800 (PST)
-Date: Thu, 29 Feb 2024 11:21:34 -0800 (PST)
-X-Google-Original-Date: Thu, 29 Feb 2024 11:21:32 PST (-0800)
-Subject: Re: [PATCH v2 0/3] RISC-V: mm: do not treat hint addr on mmap as the upper bound to search
-In-Reply-To: <tencent_3E8D4B7CAE824BDA238EA2B821310F21EE08@qq.com>
-CC: cyy@cyyself.name, alexghiti@rivosinc.com, andy.chiu@sifive.com,
-  Charlie Jenkins <charlie@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, guoren@kernel.org,
-  jszhang@kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-  linux-kselftest@vger.kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-  Paul Walmsley <paul.walmsley@sifive.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: cyy@cyyself.name
-Message-ID: <mhng-67b02dff-5423-466d-bd90-f3ad3a3ab6a9@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+        Thu, 29 Feb 2024 11:23:12 -0800 (PST)
+Date: Thu, 29 Feb 2024 11:23:08 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH v5 2/2] riscv: Set unaligned access speed at compile time
+Message-ID: <ZeDZnIemm06yU4KF@ghost>
+References: <20240227-disable_misaligned_probe_config-v5-0-b6853846e27a@rivosinc.com>
+ <20240227-disable_misaligned_probe_config-v5-2-b6853846e27a@rivosinc.com>
+ <20240229-company-taste-daa305961e3a@spud>
+ <ZeDO4CVOi6q4u8Lt@ghost>
+ <20240229-dolphin-pennant-eef41ce44043@spud>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240229-dolphin-pennant-eef41ce44043@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_112137_790179_EE26BCA4 
-X-CRM114-Status: GOOD (  38.17  )
+X-CRM114-CacheID: sfid-20240229_112315_500882_ED557BC2 
+X-CRM114-Status: GOOD (  65.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,98 +89,183 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Feb 2024 04:10:03 PST (-0800), cyy@cyyself.name wrote:
-> This patch has not been reviewed for more than a month. There is another patch that did the same fix but in another way and still has not been reviewed like this. I'm here to do a comparison of some choices briefly to let the maintainer understand the issues and the solutions. I think it's time to make a decision before the next Linux LTS v6.9. As a number of sv48 chips will be released this year.
->
-> Issues:
->
-> Since commit add2cc6b6515 ("RISC-V: mm: Restrict address space for sv39,sv48,sv57") from patch [1], userspace software cannot create virtual address memory mapping on the hint address if the address larger than (1<<38) on sv48, sv57 capable CPU using mmap without MAP_FIXED set.
->
-> This is because since that commit, the hint address is treated as the upper bound to create the mapping when the hint address is larger than (1<<38).
->
-> Existing regression for userspace software since that commit:
-> - box64 [2]
+On Thu, Feb 29, 2024 at 06:49:33PM +0000, Conor Dooley wrote:
+> On Thu, Feb 29, 2024 at 10:37:20AM -0800, Charlie Jenkins wrote:
+> > On Thu, Feb 29, 2024 at 12:26:37PM +0000, Conor Dooley wrote:
+> > > On Tue, Feb 27, 2024 at 03:13:14PM -0800, Charlie Jenkins wrote:
+> > > 
+> > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > > index bffbd869a068..ad0a9c1f8802 100644
+> > > > --- a/arch/riscv/Kconfig
+> > > > +++ b/arch/riscv/Kconfig
+> > > > @@ -690,25 +690,58 @@ config THREAD_SIZE_ORDER
+> > > >  config RISCV_MISALIGNED
+> > > >  	bool "Support misaligned load/store traps for kernel and userspace"
+> > > >  	select SYSCTL_ARCH_UNALIGN_ALLOW
+> > > > +	depends on RISCV_PROBE_UNALIGNED_ACCESS || RISCV_EMULATED_UNALIGNED_ACCESS
+> > > >  	default y
+> > > >  	help
+> > > >  	  Say Y here if you want the kernel to embed support for misaligned
+> > > >  	  load/store for both kernel and userspace. When disable, misaligned
+> > > >  	  accesses will generate SIGBUS in userspace and panic in kernel.
+> > > >  
+> > > > +choice
+> > > > +	prompt "Unaligned Accesses Support"
+> > > > +	default RISCV_PROBE_UNALIGNED_ACCESS
+> > > > +	help
+> > > > +	  This selects the hardware support for unaligned accesses. This
+> > > > +	  information is used by the kernel to perform optimizations. It is also
+> > > > +	  exposed to user space via the hwprobe syscall. The hardware will be
+> > > > +	  probed at boot by default.
+> > > > +
+> > > > +config RISCV_PROBE_UNALIGNED_ACCESS
+> > > > +	bool "Probe for hardware unaligned access support"
+> > > > +	help
+> > > > +	  During boot, the kernel will run a series of tests to determine the
+> > > > +	  speed of unaligned accesses. This probing will dynamically determine
+> > > > +	  the speed of unaligned accesses on the boot hardware.
+> > > > +
+> > > > +config RISCV_EMULATED_UNALIGNED_ACCESS
+> > > > +	bool "Assume the system expects emulated unaligned memory accesses"
+> > > > +	help
+> > > > +	  Assume that the system expects emulated unaligned memory accesses.
+> > > > +	  When enabled, this option notifies the kernel and userspace that
+> > > > +	  unaligned memory accesses will be emulated by either the kernel or
+> > > > +	  firmware.
+> > > > +
+> > > > +config RISCV_SLOW_UNALIGNED_ACCESS
+> > > > +	bool "Assume the system supports slow unaligned memory accesses"
+> > > > +	depends on NONPORTABLE
+> > > > +	help
+> > > > +	  Assume that the system supports slow unaligned memory accesses. The
+> > > > +	  kernel may not be able to run at all on systems that do not support
+> > > > +	  unaligned memory accesses.
+> > > > +
+> > > >  config RISCV_EFFICIENT_UNALIGNED_ACCESS
+> > > > -	bool "Assume the CPU supports fast unaligned memory accesses"
+> > > > +	bool "Assume the system supports fast unaligned memory accesses"
+> > > >  	depends on NONPORTABLE
+> > > >  	select DCACHE_WORD_ACCESS if MMU
+> > > >  	select HAVE_EFFICIENT_UNALIGNED_ACCESS
+> > > >  	help
+> > > > -	  Say Y here if you want the kernel to assume that the CPU supports
+> > > > -	  efficient unaligned memory accesses.  When enabled, this option
+> > > > -	  improves the performance of the kernel on such CPUs.  However, the
+> > > > -	  kernel will run much more slowly, or will not be able to run at all,
+> > > > -	  on CPUs that do not support efficient unaligned memory accesses.
+> > > > +	  Assume that the system supports fast unaligned memory accesses. When
+> > > > +	  enabled, this option improves the performance of the kernel on such
+> > > > +	  systems.  However, the kernel will run much more slowly, or will not
+> > > > +	  be able to run at all, on systems that do not support efficient
+> > > > +	  unaligned memory accesses.
+> > > >  
+> > > > -	  If unsure what to do here, say N.
+> > > > +endchoice
+> > > 
+> > > Thinking about this some more, you've got 6 different options here:
+> > > 
+> > > 1 probed with no emulation available (choice set to probe + RISCV_MISALIGNED=n)
+> > > 2 probe with in-kernel emulation available (choice set to probe + RISCV_MISALIGNED=y)
+> > > 3 in-kernel emulation only (choice set to emulated + RISCV_MISALIGNED=y)
+> > > 4 no in-kernel emulation but report emulated (choice set to emulated + RISCV_MISALIGNED=n)
+> > > 5 slow unaligned (choice set to slow)
+> > > 6 fast unaligned (choice set to fast)
+> > > 
+> > > Out of these, only 2 and 3 are portable options, since 1, 4 and 5 will
+> > > cause uabi issues if the CPUs or firmware does not support unaligned
+> > > access & 6 will not run in the same circumstances.
+> > > 
+> > > My first thought here was about the motivation for the patch and what it
+> > > has resulted in. Being able to support HAVE_EFFICIENT_ALIGNED_ACCESS is
+> > > pretty nice, but it then seems like beyond that we are introducing
+> > > configuration for configurations sake, without looking at what the
+> > > resultant kernels will be useful for. Having 6 different options for how
+> > > the kernel can be configured in this way seems excessive and I don't
+> > > really get why some of them are even useful.
+> > > 
+> > > Take for example situation 4. Unless I have misunderstood the Kconfig
+> > > options above, if you configure a kernel in that way, it will always
+> > > report as emulated, but there is no emulation provided. This just seems
+> > > like a option that's only purpose is setting a hwprobe value, which is
+> > > a dog wagging the tail situation to me.
+> > 
+> > This goes back to my earlier comment that it would make sense for
+> > somebody to select "emulated" even if the unaligned address is being
+> > emulated by firmware. However, there may be no users for this and if
+> > needed we can add that in the future.
+> 
+> I don't think that is going to provide any useful information, give you
+> will never be able to know if slow means "slow but done by the cpu" or
+> "slow but emulated by the firmware".
 
-Is this the same regression as before?  IIUC the real issue there is 
-that userspace wasn't passing MAP_FIXED and expecting a fixed address to 
-be mapped.  That's just a bug in userspace.
+Okay makes sense. If somebody has a usecase in the future it would be
+easy to change without breaking any UABI.
 
-Is there any software that uses mmap() in a legal way that the flags 
-patch caused a regression in?  If that's the case then we'll need to 
-figure out what it's doing so we can avoid the regression.
+> 
+> > > The other thing is about what options are actually marked as
+> > > NONPORTABLE, given it is done in the choice option - but whether or not
+> > > something is actually non-portable actually depends on whether or not
+> > > the in-kernel emulator exists.
+> > > 
+> > > I think what I would do here is simplify this quite a bit, starting by
+> > > making RISCV_MISALIGNED an internal option that users cannot enable but
+> > > is selected by the PORTABLE choice options. I would then re-work the
+> > > choice options a bit. My 4 would be:
+> > > 
+> > > 1 probe: probe at boot time, falling back to emulated if not performant
+> > > 2 emulated: always emulate it in the kernel
+> > > 3 slow: don't probe or emulate in the kernel
+> > > 4 fast: Your current fast option
+> > 
+> > Emulated doesn't mean that the kernel will always emulate the unaligned
+> > accesses. It means that the kernel has the ability to emulate them. It
+> > will only emulate them if the CPU traps on unaligned accesses. Kernel
+> > code can choose to forcefully align an address it thinks may cause an
+> > unaligned access, but that's slightly different from emulated.
+> 
+> Sure, make option 2 "don't probe at boot time, emulate it in the kernel
+> if we trap". I suppose in this case though, to get a correct output in
+> hwprobe you'd have to still attempt an unaligned access at boot time to
+> see if you trap but it will not perform the speed test?
 
-The only thing I can think of are realloc-type schemes, where rounding 
-the hint address down would result in performance problems.  I don't 
-know of anything like that specifically, but I think Charlie's patch 
-would fix it.
+Are you trying to cover the case here that the kernel is compiled as
+"emulate unaligned accesses" but the kernel isn't actually needed to
+emulate unaligned accesses? Seems like if the kernel is compiled as
+such it would make sense to report emulated with the assumption that if
+the kernel isn't emulating it, something else is.
 
-> Some choices are:
->
-> 1. Do not change it
->
-> Con:
->
-> This behavior is not the same as x86, arm64, and powerpc when treating memory address space larger than 48-bit. On x86, arm64, and powerpc, if the hint address is larger than 48-bit, mmap will not limit the upper bound to use.
->
-> Also, these ISAs limit the mmap to 48-bit by default. However, RISC-V currently uses sv39 by default, which is not the same as the document and commit message.
+> 
+> > Emulated is much slower than "slow", so it seems like it unfairly
+> > penalizes "slow" to group the options for firmware emulated with a CPU
+> > that actually just does slow unaligned accesses.
+> 
+> As I said in my previous email, "slow" has a huge variance and may not
+> be meaningfully faster. I wonder if it might actually even be slower on
+> some systems that emulate it in firmware?
 
-IIUC arm64/amd64 started with 48-bit-capable hardware and kernels, and 
-thus the only regression was when moving to the larger VA spaces.  We 
-started with sv39-based VA space, 
+I have no real data and can only speculate. Your 4 options seem to cover
+all of the "meaningful" use cases so I can make the change in a new
+version.
 
-> 2. Use my patch
->
-> which limits the upper bound of mmap to 47-bit by default, if the hint address is larger than (1<<47), then no limit.
->
-> Pros: Let the behavior of mmap align with x86, arm64, powerpc
->
-> Cons: A new regression for software that assumes mmap will not return an address larger than the hint address if the hint address is larger than (1<<38) as it has been documented on RISC-V since v6.6. However, there is no change in the widespread sv39 systems we use now.
+- Charlie
 
-The OpenJDK and Go people have at least talked about using the interface 
-as it is currently defined.  I'm trying to chase down some of the folks 
-around here who understand that stuff, but it might take a bit...
+> 
+> > > 1 & 2 select RISCV_UNALIGNED and are portable because they contain the
+> > > emulated support and thus satisfy the UABI constaints.
+> > > 3 & 4 are marked NONPORTABLE. I think 3 will run on systems that don't
+> > > support unaligned accesses but it will have UABI problems. 4 for the
+> > > reason mentioned in the Kconfig option above.
+> > > 
+> > > I think that that gives you 4 meaningful options, what do you think?
+> 
 
-> 3. Use Charlie's patch [3]
->
-> which adjusts the upper bound to hint address + size.
 
-IMO we can call that compatible with the docs.  There's sort of a grey 
-area in "A hint address passed to mmap will cause the largest
-address space that fits entirely into the hint to be used" as to how 
-that hint address is used, but I think interpreting it as the base 
-address is sane and we can just update the docs.
-
-This also should fix the realloc-type cases I can think of, though those 
-are sort of theoretical right now.
-
-> Pros: Still has upper-bound limit using hint address but allows userspace to create mapping on the hint address without MAP_FIXED set.
->
-> Cons: That patch will introduce a new regression even for the sv39 system when creating mmap with the same hint address more than one time if the hint address is less than round-gap.
-
-I'm not quite sure what you're trying to say there.  If users are 
-passing a hint that's already allocated then they're not going to get 
-that address allocated, so as long as we give them something else we're 
-OK.
-
-We might want to take more advantage of the clause in the docs that 
-allows larger addresses to be allocated under memory pressure to avoid 
-too many allocation failures, but that applies to any of these schemes.
-
-> 4. Some new ideas currently are not on the mailing list
->
-> Hope this issue can be fixed before the Linux v6.9 release.
->
-> Thanks,
-> Yangyu Chen
->
-> [1] https://lore.kernel.org/linux-riscv/20230809232218.849726-2-charlie@rivosinc.com/
-> [2] https://github.com/ptitSeb/box64/commit/5b700cb6e6f397d2074c49659f7f9915f4a33c5f
-> [3] https://lore.kernel.org/linux-riscv/20240130-use_mmap_hint_address-v3-0-8a655cfa8bcb@rivosinc.com/
 
 _______________________________________________
 linux-riscv mailing list
