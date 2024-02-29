@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB83AC48BF6
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 18:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1583DC54798
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Feb 2024 19:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zlQqVa0ckquOuIqJlry1CRLxwKbBUldceHVkoyr9CzQ=; b=U7TMAQ/tvgKK8MaCx89dT0rsXe
-	68OfSREZk7u58uZxsQQOFz2pHVx7QO6NxN1iyPiZyYd/tRrUx47Nff+DmOOqxaJeRGTxkctybninH
-	LXRYhcfCIGrpxLhpX1FOyFkyllgaEhBpzc+qWRsBmE3iA69VdDGffCdh26FhrL3Z6dgQUnMYUGtiW
-	mP25yEN98FTO6bD4XRxxyZfiI6LQteupkhJY7n2c8UB/BmDGGAT6gTtG5sxQG65OonhYUDQrqpyXk
-	VKRMZLxd8XRyUQauNZ6oIEmgcXeqsSU6xPoFnG9ilHvGJvQ05E2t5W9Ty2Xsbs2d8KaXPjrJ7ZhY+
-	nGrqBFfg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:From:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rwYH9KX976eWPUPI3sTpF4UUbrlyq2rBVO9WpX21j1U=; b=T99rYP+tMsyjcD
+	9Qbbv3jal+WgexTAad34KdT83frE1RvDqDvS0kt8NFTlRqUDA4+BzpQx3VD3SqA0GGOsoGWP0LJmA
+	wjLdI7xZO5T1XfZHJmDj6qfDG6RYup6ZfijGG6GSk9ydvkYfaYQiqJkKASUak+9h/AmABobbN3bNx
+	e9Jlf87bHpiBV95iXlgDYEh/TmK7NK5NaeX/JlEBzeOpU9UvuTXpEjuX0D1vqyCMwznSzrUSsZfM4
+	Wgl1L5c2NNfhzaRGJgVqQ30MYpDMy8CRwz4YYszwonvgZtwXt1lCu3tRNd0J/EKoXaYjtz6Kb8bZH
+	V6UVTzKns6OBlqaNUaYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rflTU-0000000EmSa-0zp6;
-	Thu, 29 Feb 2024 18:49:44 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rflqZ-0000000EpiI-1M79;
+	Thu, 29 Feb 2024 19:13:35 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rflTR-0000000EmS0-1jr4
+	id 1rflqW-0000000EpfA-2HwO
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Feb 2024 18:49:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id AD9C6CE1766;
-	Thu, 29 Feb 2024 18:49:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2533C433F1;
-	Thu, 29 Feb 2024 18:49:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709232578;
-	bh=g3CmCefCR3WTlSDWS7AR0w1JmH5qdIML/k+fMyWnZrs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Lh0u6oAqD+hlx1hr9y6lWjo1N6YgUMLDJDpuWiS0Qsh9aktJTaqnCGj0WauHkzlNM
-	 AN4E6QBpTX9WB7AvcuOASBJ2H2L3e5sa2Yh4IjJzdqk03hgB8WyYio2IpOFBMRqScS
-	 miLCXbLetiRnKs7tDaGHb0oHxRX3eRDe4ELtRf/lpCTkdUG6/aA/AehF2E4Hd3MGvy
-	 CDucI063YmGTdqoom/N0fIVz6j0rWpKCmSssXB0D5USm/aYk9zG+2KL/VyPakdiSfN
-	 WJL8czU0lKr4DwBJDDcRK+7VUVmQ1hPWMvpM7cM3N7Naczb5zcMJz2I/QGYn7zWQcz
-	 /7SZqunHlDWLg==
-Date: Thu, 29 Feb 2024 18:49:33 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Subject: Re: [PATCH v5 2/2] riscv: Set unaligned access speed at compile time
-Message-ID: <20240229-dolphin-pennant-eef41ce44043@spud>
-References: <20240227-disable_misaligned_probe_config-v5-0-b6853846e27a@rivosinc.com>
- <20240227-disable_misaligned_probe_config-v5-2-b6853846e27a@rivosinc.com>
- <20240229-company-taste-daa305961e3a@spud>
- <ZeDO4CVOi6q4u8Lt@ghost>
+	Thu, 29 Feb 2024 19:13:34 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-6e56d594b31so737160b3a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Feb 2024 11:13:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1709234004; x=1709838804; darn=lists.infradead.org;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=gDcArbucJdyaAvLy60oXS6bCVhoffqyHS70y5f6zPQM=;
+        b=iYpuwqcrrLh+x+gchlnJ9bmE4SALqgLL3TDw3IrW+xMWVjQTgAWmTpwJ5aku7w14et
+         ngNWhVcE4pgXMuEJwDRbZmzRRy2nvjvfexIA/lcMJ69Y8Oan8D6AnlyJd5sFynXDghnL
+         CygIxGNIfX9tLOAMM9dJ4cwn2PL91Fpzgq0CInOrnSECWIOtndCnD4P5pwVDOjxAGBPZ
+         QlZNApd2xWG7vHLXoxQG68ftNMPBj0Mj9YmUkM2WttZr7o8w4G5gGqwGesYKqD+dUGAR
+         Gazm6o69xXv4k1jcMHwcq7Q2IowYgBEa1y/LoP5DzdPdgmgcKGOq8YIV5xT6ApJxe1aX
+         Fd3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709234004; x=1709838804;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gDcArbucJdyaAvLy60oXS6bCVhoffqyHS70y5f6zPQM=;
+        b=EW2y1QeNWoDZc7zUmk1W5lZwWoy4yB4XiRaN6GQHew5syTkW6jeNHvK9YEZT/tdUS3
+         TvR/vZoF4R1XOcIlE6cxGn8GNJUM/g1NweyL+dKlXAWHL6KH7dYmuwn2rrgDrdPmNTvU
+         UF//vFYvPbR/bXahqSGmepnu4zYNL9CaIwhXcAsX3t6vmPG0xjrwcxWNnqoM5hlDqvuk
+         Il21eLgMcuKmyKtl7qJLE9ykuVBkqxcZo2mOWJfGQMukXhY+HNAaGLbIs9F9cz98Ba2j
+         EWWjHdSzg5UCtXK55bN8mkX6R4vVqAgKoM51VfpysrtIghUHh6UvAuisjIoH/vEUYpDx
+         ynWA==
+X-Forwarded-Encrypted: i=1; AJvYcCXR+a7/HkllqswlEh66GdsMGXjzoQURm4fubIIQwBxUxtBjknvyQeR8Gb5cJvo8SRdql7pnvEiyz5zOJQiI71re1nSqBsYsIMkSAag8m0I+
+X-Gm-Message-State: AOJu0Yxz0ntdCEKqCfR9bluR0RmA3cv9b+Tv0MmKaCRtjTnrNlKsl544
+	aQpU/RvhQxA1GKEZgxttOUeDpd673BrIprl9YJYASHRKhjWfa9owxcdNagr0bIc=
+X-Google-Smtp-Source: AGHT+IEbfm719PUIN8oU5mkeKRlaNBnBkv6AVCHW3upsRPy0WGosIkm+9XpZnSckdfNF7n7iqP8yaA==
+X-Received: by 2002:a17:902:f813:b0:1dc:bcb3:f552 with SMTP id ix19-20020a170902f81300b001dcbcb3f552mr2762237plb.66.1709234004612;
+        Thu, 29 Feb 2024 11:13:24 -0800 (PST)
+Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
+        by smtp.gmail.com with ESMTPSA id p23-20020aa78617000000b006e091a254adsm1623909pfn.30.2024.02.29.11.13.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Feb 2024 11:13:24 -0800 (PST)
+Message-ID: <65e0d754.a70a0220.f6721.7b16@mx.google.com>
+Date: Thu, 29 Feb 2024 11:13:24 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <ZeDO4CVOi6q4u8Lt@ghost>
+X-Kernelci-Tree: riscv
+X-Kernelci-Branch: fixes
+X-Kernelci-Kernel: riscv-for-linus-6.8-rc4-13-g680945f0aa508
+X-Kernelci-Report-Type: build
+Subject: riscv/fixes build: 8 builds: 0 failed, 8 passed,
+ 2 warnings (riscv-for-linus-6.8-rc4-13-g680945f0aa508)
+To: kernelci-results@groups.io, kernel-ci-triage@rivosinc.com,
+ linux-riscv@lists.infradead.org
+From: "kernelci.org bot" <bot@kernelci.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240229_104941_834553_9DE8CE68 
-X-CRM114-Status: GOOD (  57.30  )
+X-CRM114-CacheID: sfid-20240229_111332_808855_06193872 
+X-CRM114-Status: UNSURE (   2.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,213 +89,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
-Content-Type: multipart/mixed; boundary="===============6112064132611683832=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============6112064132611683832==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="RHgBMEh0Tn/kbG98"
-Content-Disposition: inline
-
-
---RHgBMEh0Tn/kbG98
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Feb 29, 2024 at 10:37:20AM -0800, Charlie Jenkins wrote:
-> On Thu, Feb 29, 2024 at 12:26:37PM +0000, Conor Dooley wrote:
-> > On Tue, Feb 27, 2024 at 03:13:14PM -0800, Charlie Jenkins wrote:
-> >=20
-> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > index bffbd869a068..ad0a9c1f8802 100644
-> > > --- a/arch/riscv/Kconfig
-> > > +++ b/arch/riscv/Kconfig
-> > > @@ -690,25 +690,58 @@ config THREAD_SIZE_ORDER
-> > >  config RISCV_MISALIGNED
-> > >  	bool "Support misaligned load/store traps for kernel and userspace"
-> > >  	select SYSCTL_ARCH_UNALIGN_ALLOW
-> > > +	depends on RISCV_PROBE_UNALIGNED_ACCESS || RISCV_EMULATED_UNALIGNED=
-_ACCESS
-> > >  	default y
-> > >  	help
-> > >  	  Say Y here if you want the kernel to embed support for misaligned
-> > >  	  load/store for both kernel and userspace. When disable, misaligned
-> > >  	  accesses will generate SIGBUS in userspace and panic in kernel.
-> > > =20
-> > > +choice
-> > > +	prompt "Unaligned Accesses Support"
-> > > +	default RISCV_PROBE_UNALIGNED_ACCESS
-> > > +	help
-> > > +	  This selects the hardware support for unaligned accesses. This
-> > > +	  information is used by the kernel to perform optimizations. It is=
- also
-> > > +	  exposed to user space via the hwprobe syscall. The hardware will =
-be
-> > > +	  probed at boot by default.
-> > > +
-> > > +config RISCV_PROBE_UNALIGNED_ACCESS
-> > > +	bool "Probe for hardware unaligned access support"
-> > > +	help
-> > > +	  During boot, the kernel will run a series of tests to determine t=
-he
-> > > +	  speed of unaligned accesses. This probing will dynamically determ=
-ine
-> > > +	  the speed of unaligned accesses on the boot hardware.
-> > > +
-> > > +config RISCV_EMULATED_UNALIGNED_ACCESS
-> > > +	bool "Assume the system expects emulated unaligned memory accesses"
-> > > +	help
-> > > +	  Assume that the system expects emulated unaligned memory accesses.
-> > > +	  When enabled, this option notifies the kernel and userspace that
-> > > +	  unaligned memory accesses will be emulated by either the kernel or
-> > > +	  firmware.
-> > > +
-> > > +config RISCV_SLOW_UNALIGNED_ACCESS
-> > > +	bool "Assume the system supports slow unaligned memory accesses"
-> > > +	depends on NONPORTABLE
-> > > +	help
-> > > +	  Assume that the system supports slow unaligned memory accesses. T=
-he
-> > > +	  kernel may not be able to run at all on systems that do not suppo=
-rt
-> > > +	  unaligned memory accesses.
-> > > +
-> > >  config RISCV_EFFICIENT_UNALIGNED_ACCESS
-> > > -	bool "Assume the CPU supports fast unaligned memory accesses"
-> > > +	bool "Assume the system supports fast unaligned memory accesses"
-> > >  	depends on NONPORTABLE
-> > >  	select DCACHE_WORD_ACCESS if MMU
-> > >  	select HAVE_EFFICIENT_UNALIGNED_ACCESS
-> > >  	help
-> > > -	  Say Y here if you want the kernel to assume that the CPU supports
-> > > -	  efficient unaligned memory accesses.  When enabled, this option
-> > > -	  improves the performance of the kernel on such CPUs.  However, the
-> > > -	  kernel will run much more slowly, or will not be able to run at a=
-ll,
-> > > -	  on CPUs that do not support efficient unaligned memory accesses.
-> > > +	  Assume that the system supports fast unaligned memory accesses. W=
-hen
-> > > +	  enabled, this option improves the performance of the kernel on su=
-ch
-> > > +	  systems.  However, the kernel will run much more slowly, or will =
-not
-> > > +	  be able to run at all, on systems that do not support efficient
-> > > +	  unaligned memory accesses.
-> > > =20
-> > > -	  If unsure what to do here, say N.
-> > > +endchoice
-> >=20
-> > Thinking about this some more, you've got 6 different options here:
-> >=20
-> > 1 probed with no emulation available (choice set to probe + RISCV_MISAL=
-IGNED=3Dn)
-> > 2 probe with in-kernel emulation available (choice set to probe + RISCV=
-_MISALIGNED=3Dy)
-> > 3 in-kernel emulation only (choice set to emulated + RISCV_MISALIGNED=
-=3Dy)
-> > 4 no in-kernel emulation but report emulated (choice set to emulated + =
-RISCV_MISALIGNED=3Dn)
-> > 5 slow unaligned (choice set to slow)
-> > 6 fast unaligned (choice set to fast)
-> >=20
-> > Out of these, only 2 and 3 are portable options, since 1, 4 and 5 will
-> > cause uabi issues if the CPUs or firmware does not support unaligned
-> > access & 6 will not run in the same circumstances.
-> >=20
-> > My first thought here was about the motivation for the patch and what it
-> > has resulted in. Being able to support HAVE_EFFICIENT_ALIGNED_ACCESS is
-> > pretty nice, but it then seems like beyond that we are introducing
-> > configuration for configurations sake, without looking at what the
-> > resultant kernels will be useful for. Having 6 different options for how
-> > the kernel can be configured in this way seems excessive and I don't
-> > really get why some of them are even useful.
-> >=20
-> > Take for example situation 4. Unless I have misunderstood the Kconfig
-> > options above, if you configure a kernel in that way, it will always
-> > report as emulated, but there is no emulation provided. This just seems
-> > like a option that's only purpose is setting a hwprobe value, which is
-> > a dog wagging the tail situation to me.
->=20
-> This goes back to my earlier comment that it would make sense for
-> somebody to select "emulated" even if the unaligned address is being
-> emulated by firmware. However, there may be no users for this and if
-> needed we can add that in the future.
-
-I don't think that is going to provide any useful information, give you
-will never be able to know if slow means "slow but done by the cpu" or
-"slow but emulated by the firmware".
-
-> > The other thing is about what options are actually marked as
-> > NONPORTABLE, given it is done in the choice option - but whether or not
-> > something is actually non-portable actually depends on whether or not
-> > the in-kernel emulator exists.
-> >=20
-> > I think what I would do here is simplify this quite a bit, starting by
-> > making RISCV_MISALIGNED an internal option that users cannot enable but
-> > is selected by the PORTABLE choice options. I would then re-work the
-> > choice options a bit. My 4 would be:
-> >=20
-> > 1 probe: probe at boot time, falling back to emulated if not performant
-> > 2 emulated: always emulate it in the kernel
-> > 3 slow: don't probe or emulate in the kernel
-> > 4 fast: Your current fast option
->=20
-> Emulated doesn't mean that the kernel will always emulate the unaligned
-> accesses. It means that the kernel has the ability to emulate them. It
-> will only emulate them if the CPU traps on unaligned accesses. Kernel
-> code can choose to forcefully align an address it thinks may cause an
-> unaligned access, but that's slightly different from emulated.
-
-Sure, make option 2 "don't probe at boot time, emulate it in the kernel
-if we trap". I suppose in this case though, to get a correct output in
-hwprobe you'd have to still attempt an unaligned access at boot time to
-see if you trap but it will not perform the speed test?
-
-> Emulated is much slower than "slow", so it seems like it unfairly
-> penalizes "slow" to group the options for firmware emulated with a CPU
-> that actually just does slow unaligned accesses.
-
-As I said in my previous email, "slow" has a huge variance and may not
-be meaningfully faster. I wonder if it might actually even be slower on
-some systems that emulate it in firmware?
-
-> > 1 & 2 select RISCV_UNALIGNED and are portable because they contain the
-> > emulated support and thus satisfy the UABI constaints.
-> > 3 & 4 are marked NONPORTABLE. I think 3 will run on systems that don't
-> > support unaligned accesses but it will have UABI problems. 4 for the
-> > reason mentioned in the Kconfig option above.
-> >=20
-> > I think that that gives you 4 meaningful options, what do you think?
-
-
---RHgBMEh0Tn/kbG98
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZeDRvQAKCRB4tDGHoIJi
-0uLbAP9EkOlrmXqXDmXwhQuFR4n96SjxTLwNUO7NxCY114XrxQEA8eG8jvK0H2EP
-T/+eAiYGoInxBD9gSiL1NYiVz0CdAAA=
-=xNU8
------END PGP SIGNATURE-----
-
---RHgBMEh0Tn/kbG98--
-
-
---===============6112064132611683832==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6112064132611683832==--
-
+cmlzY3YvZml4ZXMgYnVpbGQ6IDggYnVpbGRzOiAwIGZhaWxlZCwgOCBwYXNzZWQsIDIgd2Fybmlu
+Z3MgKHJpc2N2LWZvci1saW51cy02LjgtcmM0LTEzLWc2ODA5NDVmMGFhNTA4KQoKRnVsbCBCdWls
+ZCBTdW1tYXJ5OiBodHRwczovL2tlcm5lbGNpLm9yZy9idWlsZC9yaXNjdi9icmFuY2gvZml4ZXMv
+a2VybmVsL3Jpc2N2LWZvci1saW51cy02LjgtcmM0LTEzLWc2ODA5NDVmMGFhNTA4LwoKVHJlZTog
+cmlzY3YKQnJhbmNoOiBmaXhlcwpHaXQgRGVzY3JpYmU6IHJpc2N2LWZvci1saW51cy02LjgtcmM0
+LTEzLWc2ODA5NDVmMGFhNTA4CkdpdCBDb21taXQ6IDY4MDk0NWYwYWE1MDg0ZDQ5YmJmYjcwNWNh
+MTYyZmMwMGNjMTQ2YWUKR2l0IFVSTDogaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xp
+bnV4L2tlcm5lbC9naXQvcmlzY3YvbGludXguZ2l0CkJ1aWx0OiAxIHVuaXF1ZSBhcmNoaXRlY3R1
+cmUKCldhcm5pbmdzIERldGVjdGVkOgoKcmlzY3Y6CiAgICBkZWZjb25maWcgKGdjYy0xMCk6IDEg
+d2FybmluZwogICAgZGVmY29uZmlnK0NPTkZJR19TTVA9biAoZ2NjLTEwKTogMSB3YXJuaW5nCgoK
+V2FybmluZ3Mgc3VtbWFyeToKCiAgICAyICAgIHNlY3VyaXR5L3NlY3VyaXR5LmM6ODEwOjI6IHdh
+cm5pbmc6IOKAmG1lbWNweeKAmSBvZmZzZXQgMzIgaXMgb3V0IG9mIHRoZSBib3VuZHMgWzAsIDBd
+IFstV2FycmF5LWJvdW5kc10KCj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CgpEZXRhaWxlZCBwZXIt
+ZGVmY29uZmlnIGJ1aWxkIHJlcG9ydHM6CgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpkZWZjb25m
+aWcgKHJpc2N2LCBnY2MtMTApIOKAlCBQQVNTLCAwIGVycm9ycywgMSB3YXJuaW5nLCAwIHNlY3Rp
+b24gbWlzbWF0Y2hlcwoKV2FybmluZ3M6CiAgICBzZWN1cml0eS9zZWN1cml0eS5jOjgxMDoyOiB3
+YXJuaW5nOiDigJhtZW1jcHnigJkgb2Zmc2V0IDMyIGlzIG91dCBvZiB0aGUgYm91bmRzIFswLCAw
+XSBbLVdhcnJheS1ib3VuZHNdCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpkZWZjb25maWcgKHJp
+c2N2LCBjbGFuZy0xNikg4oCUIFBBU1MsIDAgZXJyb3JzLCAwIHdhcm5pbmdzLCAwIHNlY3Rpb24g
+bWlzbWF0Y2hlcwoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KZGVmY29uZmlnK0NPTkZJR19TTVA9
+biAocmlzY3YsIGdjYy0xMCkg4oCUIFBBU1MsIDAgZXJyb3JzLCAxIHdhcm5pbmcsIDAgc2VjdGlv
+biBtaXNtYXRjaGVzCgpXYXJuaW5nczoKICAgIHNlY3VyaXR5L3NlY3VyaXR5LmM6ODEwOjI6IHdh
+cm5pbmc6IOKAmG1lbWNweeKAmSBvZmZzZXQgMzIgaXMgb3V0IG9mIHRoZSBib3VuZHMgWzAsIDBd
+IFstV2FycmF5LWJvdW5kc10KCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCmRlZmNvbmZpZytDT05G
+SUdfU01QPW4gKHJpc2N2LCBjbGFuZy0xNikg4oCUIFBBU1MsIDAgZXJyb3JzLCAwIHdhcm5pbmdz
+LCAwIHNlY3Rpb24gbWlzbWF0Y2hlcwoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0Kbm9tbXVfazIx
+MF9kZWZjb25maWcgKHJpc2N2LCBnY2MtMTApIOKAlCBQQVNTLCAwIGVycm9ycywgMCB3YXJuaW5n
+cywgMCBzZWN0aW9uIG1pc21hdGNoZXMKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCm5vbW11X2sy
+MTBfZGVmY29uZmlnIChyaXNjdiwgY2xhbmctMTYpIOKAlCBQQVNTLCAwIGVycm9ycywgMCB3YXJu
+aW5ncywgMCBzZWN0aW9uIG1pc21hdGNoZXMKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCm5vbW11
+X2syMTBfc2RjYXJkX2RlZmNvbmZpZyAocmlzY3YsIGNsYW5nLTE2KSDigJQgUEFTUywgMCBlcnJv
+cnMsIDAgd2FybmluZ3MsIDAgc2VjdGlvbiBtaXNtYXRjaGVzCgotLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLQpub21tdV9rMjEwX3NkY2FyZF9kZWZjb25maWcgKHJpc2N2LCBnY2MtMTApIOKAlCBQQVNT
+LCAwIGVycm9ycywgMCB3YXJuaW5ncywgMCBzZWN0aW9uIG1pc21hdGNoZXMKCi0tLQpGb3IgbW9y
+ZSBpbmZvIHdyaXRlIHRvIDxpbmZvQGtlcm5lbGNpLm9yZz4KCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
