@@ -4,78 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEE98C5478C
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Mar 2024 09:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E3DC5475B
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Mar 2024 10:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m6Hs6MI0G0Kbmds7mY9z1SBt/tnafmX2NFX5kBCBaFc=; b=QHTTgw5ScDdyWQ
-	8hqoCBGtPxXb8YMCc+gHBkRhrDtbB3ef2NqH4mceXeNilvXIkF2CfiLw7To8Er6Mq99ggyeCnUQeC
-	fOdVv+lslP+2Vh4wnJABQvljspF+rZt9uVWOgpABLw8UJz29MebO71Lsc4bK1qUKU8yYMH6IjALyu
-	tPdrv/cjb7qi6+Nv2RTPZQQPBCPlyYvHplQX9Kl3H/QanO8vfNmsjgUk8wUbv/e2IAmQMbnICFWyL
-	SHniDjjpip2R0ENDYp3A8Z1FdJ62NBLcnMyaRc/PmuMKpdYcxvOgQRjOlXQyvzIKWb3t4q7gksVgb
-	N4V4Am9SE/5qYCh3wFUg==;
+	List-Owner; bh=2zWPjJTLHYaFJgmwSLRQdlaXaPRpmn/zY5+2KQBPn5I=; b=4/p5vdp/8f9T04
+	WQVWXi9HuI09RcZjWGGQusxhkrgY9+tlbpaO0s2Br6SUqZwrIjEd9F7rwWG0e41V3Tm2cc/ohm8h7
+	Or1L8Y/skhSNI+FexwvoXoi29VT5lAITg7MJEjpkRQtEvgzrXz/SUz2KjzyxA4z3e3sWCTBt8I5t6
+	ici79TAgAc14xKOiLb++OIEkNQWRqWehbe18SI23yNIcHMdZ0pqJNKdj6Rhk4N+TA0g9NbTHfANW0
+	tvqOcrGliH4Cirs2fPkz0eOVex3gWjPVe6l4TBy96ej81GJE/Htsmqb331vLA87iRg5tg87UmKoqG
+	v2emks/xKnSZgD6RRW5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfzZG-0000000HFPA-1UWH;
-	Fri, 01 Mar 2024 09:52:38 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfzZD-0000000HFMi-0gJm
-	for linux-riscv@lists.infradead.org;
-	Fri, 01 Mar 2024 09:52:36 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-a26fa294e56so355513966b.0
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Mar 2024 01:52:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1709286753; x=1709891553; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=j9QHyWahfs9gCWf7uMaefOcLnvNGoebBSGi+N5cc4JQ=;
-        b=IWHHKlFxZu+/K6ZfTMpcMksO7Ol5Kr5VWUU/8psSx/yxzDsqmbFp8uq9NI4XaYRM9q
-         d7tG3xr582gMVRsQI7Hh5yGsYavSrzHzWqXlfZYDTmkpGBxMX+3nB/IZxAW7N9oPkcxV
-         bENfn0BK2alz72wL2dKIkoFRNXMol7DmXYRBdEHj0djjy5N3EDu/M297Vzxwgctgd5iy
-         c4H4wseiR8dk3On22me8a833mh3LWi5rcPA45rM/BVfprEiZ0qTCHqcUE9lPfcMfboCI
-         71tGowVEh6NvTHI6hD+az6jBqhWrE/LfsrBU8xOhm6OoSMlIxcw9/om7MozVrCQ5pRcg
-         n9kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709286753; x=1709891553;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=j9QHyWahfs9gCWf7uMaefOcLnvNGoebBSGi+N5cc4JQ=;
-        b=pYgu0FVcXa/UkD+EdVwDpsueV2J1Qgkw/PkJuJPBeKHBt6yz+1C6XV374E1xUIqKll
-         CYTv9t8Nvinl4S6GP5xXsW0EbfOkpyNR1c/zHuj2pQL6lPAbsjPpCVgm7WCc4SLoVy8N
-         q8OGnUS85PFkrCf7OwJ+eYjqt7b8FO/ilg9Uf3fMEa0TEZB6oYk5EzSq6KxxM9aB8bj4
-         kY84m7N8eIMzhAcaxVKmuuPPny4cDGqt6O2yeIL6esn3IN8drxgRKkRoWflrE8h3llsA
-         rhoqP46m3RryDcKa9/OeGKM02AODB0XOqcezUF/5z67Z0Xd0ki+ed8DBnyG+QQXAh+Rv
-         lrNg==
-X-Forwarded-Encrypted: i=1; AJvYcCWzicxDEyfSiAM1sYBUZ8Sqha19PRHSuH+btsWj4Q0suID53F6pi1HHqR3/6c+Kd0fOLki2r6bqkjP3ksPJjFrxRBbo7TobCbjf2vDjxGgN
-X-Gm-Message-State: AOJu0Ywqk0bqrPTjjYX8P23CWeiV+35F973cZMcX9BBXTED3mBypS4EL
-	rsTZZinzNbYR3Zweh1XduE2/B4c7MdBOjuUktiXSQpleKZ8G1yAg5EYaztkFgrY=
-X-Google-Smtp-Source: AGHT+IFFb5bzOks+lqs/185Lu0au521O/ZsFgW4Nrk2H88MGDv0vRN/r6X3wkkf9qeHNHigHYwOjLA==
-X-Received: by 2002:a17:906:a197:b0:a43:af0b:c1c0 with SMTP id s23-20020a170906a19700b00a43af0bc1c0mr980628ejy.16.1709286753092;
-        Fri, 01 Mar 2024 01:52:33 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id vu2-20020a170907a64200b00a43bf7ef577sm1535120ejc.188.2024.03.01.01.52.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Mar 2024 01:52:32 -0800 (PST)
-Date: Fri, 1 Mar 2024 10:52:31 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v4 03/15] drivers/perf: riscv: Read upper bits of a
- firmware counter
-Message-ID: <20240301-36ababe3e198d3d7573f316e@orel>
-References: <20240229010130.1380926-1-atishp@rivosinc.com>
- <20240229010130.1380926-4-atishp@rivosinc.com>
+	id 1rg0OY-0000000HQkZ-2Ptz;
+	Fri, 01 Mar 2024 10:45:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rg0OU-0000000HQhu-2Hzn;
+	Fri, 01 Mar 2024 10:45:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C3E211FB;
+	Fri,  1 Mar 2024 02:46:11 -0800 (PST)
+Received: from [10.57.68.58] (unknown [10.57.68.58])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 191AD3F762;
+	Fri,  1 Mar 2024 02:45:30 -0800 (PST)
+Message-ID: <b99f47f9-18d0-4619-aae7-19274197b85e@arm.com>
+Date: Fri, 1 Mar 2024 10:45:28 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240229010130.1380926-4-atishp@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/9] Merge arm64/riscv hugetlbfs contpte support
+Content-Language: en-GB
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton
+ <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-mm@kvack.org
+References: <20240301091455.246686-1-alexghiti@rivosinc.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20240301091455.246686-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240301_015235_247727_C0CE9DB7 
-X-CRM114-Status: GOOD (  22.79  )
+X-CRM114-CacheID: sfid-20240301_024534_943124_F80E2864 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,91 +63,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, linux-kselftest@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, kvm@vger.kernel.org, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Paolo Bonzini <pbonzini@redhat.com>, Guo Ren <guoren@kernel.org>, kvm-riscv@lists.infradead.org, Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Shuah Khan <shuah@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 28, 2024 at 05:01:18PM -0800, Atish Patra wrote:
-> SBI v2.0 introduced a explicit function to read the upper 32 bits
-> for any firmwar counter width that is longer than 32bits.
+Hi Alexandre,
 
-firmware
+I confess I haven't looked at the patches yet, but this cover letter raises a
+few quesions for me. I'll aim to look at the actual patches in due course.
 
-> This is only applicable for RV32 where firmware counter can be
-> 64 bit.
+On 01/03/2024 09:14, Alexandre Ghiti wrote:
+> This patchset intends to merge the contiguous ptes hugetlbfs implementation
+> of arm64 and riscv.
 > 
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Anup Patel <anup@brainfault.org>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  drivers/perf/riscv_pmu_sbi.c | 20 ++++++++++++++++----
->  1 file changed, 16 insertions(+), 4 deletions(-)
+> Both arm64 and riscv support the use of contiguous ptes to map pages that
+> are larger than the default page table size, respectively called contpte
+> and svnapot.
 > 
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 16acd4dcdb96..ea0fdb589f0d 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -35,6 +35,8 @@
->  PMU_FORMAT_ATTR(event, "config:0-47");
->  PMU_FORMAT_ATTR(firmware, "config:63");
->  
-> +static bool sbi_v2_available;
-> +
->  static struct attribute *riscv_arch_formats_attr[] = {
->  	&format_attr_event.attr,
->  	&format_attr_firmware.attr,
-> @@ -488,16 +490,23 @@ static u64 pmu_sbi_ctr_read(struct perf_event *event)
->  	struct hw_perf_event *hwc = &event->hw;
->  	int idx = hwc->idx;
->  	struct sbiret ret;
-> -	union sbi_pmu_ctr_info info;
->  	u64 val = 0;
-> +	union sbi_pmu_ctr_info info = pmu_ctr_list[idx];
->  
->  	if (pmu_sbi_is_fw_event(event)) {
->  		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
->  				hwc->idx, 0, 0, 0, 0, 0);
-> -		if (!ret.error)
-> -			val = ret.value;
-> +		if (ret.error)
-> +			return 0;
-> +
-> +		val = ret.value;
-> +		if (IS_ENABLED(CONFIG_32BIT) && sbi_v2_available && info.width >= 32) {
-> +			ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ_HI,
-> +					hwc->idx, 0, 0, 0, 0, 0);
-> +			if (!ret.error)
+> The riscv implementation differs from the arm64's in that the LSBs of the
+> pfn of a svnapot pte are used to store the size of the mapping, allowing
+> for future sizes to be added (for now only 64KB is supported). That's an
+> issue for the core mm code which expects to find the *real* pfn a pte points
+> to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
+> and restores the size of the mapping when it is written to a page table.
 
-Getting an error here indicates a buggy SBI. Maybe we should have a
-warn-once?
+Yes that makes sense to me. The intention for mTHP (!hugetlb) is to fully
+encapsulate PTEs beind set_ptes(), ptep_get() and friends, so what's actually
+written to the pgtable is arch-specific and well abstracted.
 
-> +				val |= ((u64)ret.value << 32);
-> +		}
->  	} else {
-> -		info = pmu_ctr_list[idx];
->  		val = riscv_pmu_ctr_read_csr(info.csr);
->  		if (IS_ENABLED(CONFIG_32BIT))
->  			val = ((u64)riscv_pmu_ctr_read_csr(info.csr + 0x80)) << 31 | val;
-> @@ -1108,6 +1117,9 @@ static int __init pmu_sbi_devinit(void)
->  		return 0;
->  	}
->  
-> +	if (sbi_spec_version >= sbi_mk_version(2, 0))
-> +		sbi_v2_available = true;
-> +
->  	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_RISCV_STARTING,
->  				      "perf/riscv/pmu:starting",
->  				      pmu_sbi_starting_cpu, pmu_sbi_dying_cpu);
-> -- 
-> 2.34.1
->
+> 
+> The following patches are just merges of the 2 different implementations
+> that currently exist in arm64 and riscv which are very similar. It paves
+> the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
+> reimplementing the same in riscv.
 
-Either way,
+You seem to be talking about both hugetlb (which uses the "huge" pte helpers)
+and contpte for THP (i.e. mTHP, which uses the regular pte helpers). They are
+pretty separate in my mind, so not sure why you would be modifying them both in
+the same series?
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Thanks,
+Ryan
+
+> 
+> This patchset was tested by running the libhugetlbfs testsuite with 64KB
+> and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
+> 
+> [1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-ryan.roberts@arm.com/
+> 
+> Alexandre Ghiti (9):
+>   riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
+>   riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
+>   mm: Use common huge_ptep_get() function for riscv/arm64
+>   mm: Use common set_huge_pte_at() function for riscv/arm64
+>   mm: Use common huge_pte_clear() function for riscv/arm64
+>   mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
+>   mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
+>   mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
+>   mm: Use common huge_ptep_clear_flush() function for riscv/arm64
+> 
+>  arch/arm64/Kconfig                  |   1 +
+>  arch/arm64/include/asm/pgtable.h    |  59 +++++-
+>  arch/arm64/mm/hugetlbpage.c         | 291 +---------------------------
+>  arch/riscv/Kconfig                  |   1 +
+>  arch/riscv/include/asm/hugetlb.h    |   2 +-
+>  arch/riscv/include/asm/pgtable-64.h |  11 ++
+>  arch/riscv/include/asm/pgtable.h    | 120 +++++++++++-
+>  arch/riscv/mm/hugetlbpage.c         | 227 ----------------------
+>  mm/Kconfig                          |   3 +
+>  mm/Makefile                         |   1 +
+>  mm/contpte.c                        | 268 +++++++++++++++++++++++++
+>  11 files changed, 456 insertions(+), 528 deletions(-)
+>  create mode 100644 mm/contpte.c
+> 
 
 
 _______________________________________________
