@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38349C5475B
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Mar 2024 16:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 502E8C5475B
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Mar 2024 16:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3l/52T4Re5fFbnKk/SAzk3/M4VkpIEyiyginr3Yj/j0=; b=Tcp+PbIL2yF/Ds
-	pQYVeKTUs10IihLPVDjnGqnmllgvZKTbIoEjK498ViRLhbkJAgoxQs8e9b5FfdmMyWZLxekJZmbkC
-	uW5J115xGtZ4JwfEGu8O2ZUKJMb1qY0OM4Gfn/CSUx+tM3s9Z++beArKfW5aa2EcKE22vp9fDO3SB
-	YBqZgzHZ+95A8g6HOOMuXW1XPyCYl2FjmwTGtkHHz6j5Y7H0i6u/TZ63pww0mvJer8uAiyrE/rd0m
-	DSnUdcpedGVofA/WZA4ZV+aUaz3sx9rw71tKeJdM8ELbMOV/MUfJqq/tR1XiiCr6Il0Sxyj1xxAmo
-	5dQqMVUX+RnUOGr4tjkg==;
+	List-Owner; bh=SPXlE6eT1sOQqxZmDms/guUs13emLpzNPxfHYO0lkoU=; b=YnTa3Myez/QI9X
+	D9WaS32y1ATiqg1TJuOELUfo5M4lC6wFKVADGm3lwTkfR3d+YWIlCc7gQ/3km9Kz9z1qmDeYh7kwX
+	Vs2cT4JdoDJGRHKuBwCHxzvSnC0gCmZ4RiIoqoH6e+L2OhSqRt6d8UxIYSZxHUaQHEZOcHp5F2mCW
+	L+0bridvoSjcf2THjnXU9bEKxtRt0yGTce/AG/f3vbygjh9Nb/vYMQwtNzL1bet+oT9xZwi3gmPSI
+	7Ngnsrwl86/+JsE4Hlpg1y3uBkxBskPsF8MSxmzPSKq3GdFNoBSBYZKnoRKlG9vqtQcSY9zHDH4Le
+	l2wBQfmQyAC7EwiX8xlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rg5Wa-000000012ve-07aD;
-	Fri, 01 Mar 2024 16:14:16 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rg5w9-000000018tX-0AoT;
+	Fri, 01 Mar 2024 16:40:41 +0000
+Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rg5WW-000000012uq-3z26
+	id 1rg5w5-000000018rt-1Y9I
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Mar 2024 16:14:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id D3535CE08BE;
-	Fri,  1 Mar 2024 16:14:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B3EEC433C7;
-	Fri,  1 Mar 2024 16:14:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709309650;
-	bh=BikzDK1QW0K2bWi7muKUljDgu1skoyyFPZELijkX52k=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TEOzgbzVFsLomQFvAfuSVAfDEuhsD4VvQdASJ6LjNj10+td2wi0MCxU4FIP3pi0V7
-	 a1TdcPajbG1NfAVladYc6nqtbsgm3GdUE8uSqAUN76NLm1P3oOASJQ4NOcT87a7FzR
-	 a6Zk/13yRchQIQ8WyZpiIKujV3KCDpKc44CQgFzPorDsheHjwjGq4M6uDjEkuMLGuv
-	 x8Fkbl1iqCWIZsmUnn511pkATzZudzJ7jsOqi3iuhNBT6HV6r2eTimTDV9+4RhQZxM
-	 PZjiakJ1gh/Tjya4WNczaoQIZ7roUSxYyfZEpOHv4dc8uTxI0L6Y5Azs4Tgl0QTplD
-	 MbhZGTNc1pykA==
-From: Conor Dooley <conor@kernel.org>
-To: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jack Zhu <jack.zhu@starfivetech.com>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [v3] riscv: dts: starfive: jh7110: Add camera subsystem nodes
-Date: Fri,  1 Mar 2024 16:14:00 +0000
-Message-ID: <20240301-wildfire-glue-983d58132599@spud>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240219032741.18387-1-changhuang.liang@starfivetech.com>
-References: <20240219032741.18387-1-changhuang.liang@starfivetech.com>
+	Fri, 01 Mar 2024 16:40:39 +0000
+Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-365c96e2605so8770225ab.0
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Mar 2024 08:40:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1709311236; x=1709916036; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0xpVEUPupFJ4mY5Qxb0D2y0+A3GchrSV23FNcC1i+jo=;
+        b=F0vjarbES0DcCzPngot10Yc3IIB/wn21alqnB5Y30xp3tcTYQg6bPwGRr8HP0RQRAr
+         b7zHdFwLb0lZfUwrr6xt9sNNZA1n3j0tY/Xw/vApXV2cGWgO3DcLP7nOB4/GAlWKJzwH
+         Oyt/zVOeyG8C4/FY3w3Ltz+bvHRcFSe/YrFkEQENvwIperhqy5N6XgtYly0sgQJfToGB
+         DRSOkkMrlbrHbkbPJv1H4UMUtWSopzL6VLHjP9+iJIoVRxLbfN3e/CqbVOy1wjCqXZPA
+         2LTNYVKoPcuE96qtONQNmvNf4alsTqONUyiJbCwRkRFF7dA02+qU0LDpi4Y4N0VsxlVP
+         FmTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709311236; x=1709916036;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0xpVEUPupFJ4mY5Qxb0D2y0+A3GchrSV23FNcC1i+jo=;
+        b=aU13+vJjgowR39LUhqE+KmvEXQ+P8i0+Ib8qkHuiGWMVtvfzrjoLNQ8/NRFtt28LV6
+         Sizdm4VNYLW3Sl+2qRz831z+HIIiDMqneuamT2bklzJo+T3RTjkUV2SGynlICffrUE9G
+         Zk+kC3Is9Xa8KRJefYFr7E8+Fuc2tYn+2INP4pQLrd7tsu4Jfe4g05FRMaa3rT7RcZkg
+         e7dFVxrZ/3WUwVN9k2znl2pCEahkIN5CqlkC/C1tPW7dfKz6ggv7KSxJCWpF/cNj2VDv
+         b0XDRiZzlXUkuvRZATKr1dGlLizxanydlI3ccVnobb2KBqJAF/Pk3Opz52DJ46k3dOcp
+         +5DQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUTNFpp+shwPUCGyfFg9Eh3MtGSfnrxm2k6Pg2GfTX4irSUVxZDGln5dufPpfOHgPlQ6WYMxr6YuNL5suqI103fyAWQUTCVmbMxPBLvRO/J
+X-Gm-Message-State: AOJu0Yzm0qw26S4DJwY9xAi3ygtCqPKrqPJXxntpu2XwzVxKohZjinkp
+	3EOBCdeiBW6x40QDeXWiz79kjbbWs9NalZWd8r66ZY7oIGqdc02e14dpPGpuV1tI2k7PR+1bt9O
+	WIwirmtshngSwPD3XQ1DwyDDGUoJhN+EjFG14XQ==
+X-Google-Smtp-Source: AGHT+IFA/8ZsTPlrzqpqMe1C7sAim+Tu77L5L4EC5Mu3PiP55/jHP04OSuPWwGne0ZjJhx4bUxIrY3D6GoIF2d46Q1U=
+X-Received: by 2002:a92:c24e:0:b0:365:c1fc:dc07 with SMTP id
+ k14-20020a92c24e000000b00365c1fcdc07mr2509460ilo.0.1709311235987; Fri, 01 Mar
+ 2024 08:40:35 -0800 (PST)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=355; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=caay3mRU/JhC/YsFIkNMgzQjqWb0CeveGJRpWt2VyHA=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKkP/x03ZRMI+/XnQ7JJfsT3mQumPClRPfv3XWH47x9vh TuVZ3D96ShlYRDjYJAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBENixl+CuzbQHLC3uW2w1f 791QF1ryMNCNP8f9iIV7BsvOAh/9kr2MDH3cs4Rz1yz8W+G18e7FDdkWKlNPz9ixe+2WSf3P8rc cZWYHAA==
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+References: <20240214123757.305347-1-apatel@ventanamicro.com>
+In-Reply-To: <20240214123757.305347-1-apatel@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 1 Mar 2024 22:10:25 +0530
+Message-ID: <CAAhSdy3ObzJHgF0QL9QqKVm37F83HzdF28A5107fm0dLFxoOLQ@mail.gmail.com>
+Subject: Re: [PATCH 0/5] KVM RISC-V report few more ISA extensions through ONE_REG
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
+	Shuah Khan <shuah@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240301_081413_192560_90F77D6C 
-X-CRM114-Status: UNSURE (   4.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240301_084037_672231_434F1FEC 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,28 +88,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-On Sun, 18 Feb 2024 19:27:41 -0800, Changhuang Liang wrote:
-> Add camera subsystem nodes for the StarFive JH7110 SoC. They contain the
-> dphy-rx, csi2rx, camss nodes.
-> 
-> 
-
-Applied to riscv-dt-for-next, thanks!
-
-[1/1] riscv: dts: starfive: jh7110: Add camera subsystem nodes
-      https://git.kernel.org/conor/c/28ecaaa5af19
-
-Thanks,
-Conor.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBGZWIgMTQsIDIwMjQgYXQgNjowOOKAr1BNIEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50
+YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IFRoaXMgc2VyaWVzIGV4dGVuZHMgdGhlIEtWTSBSSVND
+LVYgT05FX1JFRyBpbnRlcmZhY2UgdG8gcmVwb3J0IGZldyBtb3JlCj4gSVNBIGV4dGVuc2lvbnMg
+bmFtZWx5OiBadHNvIGFuZCBaYWNhcy4gVGhlc2UgZXh0ZW5zaW9ucyBhcmUgYWxyZWFkeQo+IHN1
+cHBvcnRlZCBieSB0aGUgSFdQUk9CRSBpbnRlcmZhY2UgaW4gTGludXgtNi44IGtlcm5lbC4KPgo+
+IFRvIHRlc3QgdGhlc2UgcGF0Y2hlcywgdXNlIEtWTVRPT0wgZnJvbSB0aGUgcmlzY3ZfbW9yZV9l
+eHRzX3JvdW5kMl92MQo+IGJyYW5jaCBhdDogaHR0cHM6Ly9naXRodWIuY29tL2F2cGF0ZWwva3Zt
+dG9vbC5naXQKPgo+IFRoZXNlIHBhdGNoZXMgY2FuIGFsc28gYmUgZm91bmQgaW4gdGhlIHJpc2N2
+X2t2bV9tb3JlX2V4dHNfcm91bmQyX3YxCj4gYnJhbmNoIGF0OiBodHRwczovL2dpdGh1Yi5jb20v
+YXZwYXRlbC9saW51eC5naXQKPgo+IEFudXAgUGF0ZWwgKDUpOgo+ICAgUklTQy1WOiBLVk06IEZv
+cndhcmQgU0VFRCBDU1IgYWNjZXNzIHRvIHVzZXIgc3BhY2UKPiAgIFJJU0MtVjogS1ZNOiBBbGxv
+dyBadHNvIGV4dGVuc2lvbiBmb3IgR3Vlc3QvVk0KPiAgIEtWTTogcmlzY3Y6IHNlbGZ0ZXN0czog
+QWRkIFp0c28gZXh0ZW5zaW9uIHRvIGdldC1yZWctbGlzdCB0ZXN0Cj4gICBSSVNDLVY6IEtWTTog
+QWxsb3cgWmFjYXMgZXh0ZW5zaW9uIGZvciBHdWVzdC9WTQo+ICAgS1ZNOiByaXNjdjogc2VsZnRl
+c3RzOiBBZGQgWmFjYXMgZXh0ZW5zaW9uIHRvIGdldC1yZWctbGlzdCB0ZXN0CgpRdWV1ZWQgdGhp
+cyBzZXJpZXMgZm9yIExpbnV4LTYuOQoKVGhhbmtzLApBbnVwCgo+Cj4gIGFyY2gvcmlzY3YvaW5j
+bHVkZS91YXBpL2FzbS9rdm0uaCAgICAgICAgICAgICAgICB8ICAyICsrCj4gIGFyY2gvcmlzY3Yv
+a3ZtL3ZjcHVfaW5zbi5jICAgICAgICAgICAgICAgICAgICAgICB8IDEzICsrKysrKysrKysrKysK
+PiAgYXJjaC9yaXNjdi9rdm0vdmNwdV9vbmVyZWcuYyAgICAgICAgICAgICAgICAgICAgIHwgIDQg
+KysrKwo+ICB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vcmlzY3YvZ2V0LXJlZy1saXN0LmMg
+fCAgOCArKysrKysrKwo+ICA0IGZpbGVzIGNoYW5nZWQsIDI3IGluc2VydGlvbnMoKykKPgo+IC0t
+Cj4gMi4zNC4xCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
