@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 807A4C5475B
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Mar 2024 09:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55492C5475B
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Mar 2024 09:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=stOjYDIGLcqT1vPmj88Ljl3nt4HzwX1Ds98ieWKZNy8=; b=qDuOj8pjHX81td
-	k2I3kgyXa4xbgclKfVw6SUc7dnCELNXKJikyBRbJqVcfBhxXHWIAmQtwg8+VyzYXChmNk3veC3cJx
-	9hHy3Qeh7wv6iKvL4zgHbLFV/yKtckjHGNvcSD7vPYmj/sD8XTfYwp0BF5MctMUS7wmyoCkpPmCOw
-	J0lgd+8heo0xd0lpDI/ug+jx3HUpgvEMQ4XQ59HKkcZZ51DFTXufqHXD84uzhtUWen14qIm5usuBs
-	xeWkYiK6gC/tYF499PttQQ8YIYXIVQnKvwqxqnmn8YqVw0MRCptCgK6Cxln9vKea0JQ6TpE2lgkAi
-	nat3g9xHRryupMxluRiQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3yAtOhFI/TbpCL7nf4SktjyzYEqF3wIOZKL7OfI4lOU=; b=4m+zrVJF/9XLwbFBX22hw0D2rv
+	6zG+BE2fccUe6KVDWL9wPNT8l8GLAkAbBncLS+go+uPTLIkwFkfbC3hrrqZnmTap1Bw04mNS1IkkM
+	YSxZAqrAlFb4DhncvS7KDKp7DxQrDF4Jp11m6QOvoFAlrWhDJdCBXx5Q80ZlZunvgE0PQRRMMfWds
+	pod8PgRTG1tJAE6DsgD82R66OnVqwoqX4V9lvgS8yK6hVEfOycPCOzO3fUv4u+cwZb+2sDvlPiujJ
+	MG0sOmyVbvNOoYN7aCyY4MpuvJcGWYZTPbCuPaeqei+Aiqc62FARnPATIiYbLPlGULJHXFmW01Nd5
+	n94sLO5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfz8A-0000000H8wy-3mS6;
-	Fri, 01 Mar 2024 09:24:39 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1rfzBd-0000000HAVM-3NeO;
+	Fri, 01 Mar 2024 09:28:13 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rfz80-0000000H8qL-1z7v
+	id 1rfzBa-0000000HAT4-3uRc
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Mar 2024 09:24:30 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2d28464c554so22619181fa.3
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Mar 2024 01:24:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709285061; x=1709889861; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K12kuYfal65hYkuTm7CnsK9zS+VdU7mNn9HZDxR8IYY=;
-        b=VDQ0CCWFZEADSAs3oKIJtUcpiHr+ktQ5Dl77nm9oEsZVnQC2vhITYVhm0VUPgQ1L/4
-         jg46UZw4oQJ8P5s2VHgUPbzruICtDv/RmEjFM8Lv/zziY1nDQHfWy4triDwooQTGl6Cz
-         2J2DIWdvhpZR2FdJimI4NtPqpL7U0eCuMKrIUZXb4KobbG7AJYgALMPT+tdyx7QMf1vr
-         LvN5kq9jreAFNqHZWDzUWKiTOq39H3KX0TDjD2s3WfrzxWQJYgQbaB8MA/xTNA2DF14G
-         6jNxsL1Fyhyrz/pe3KX9loP9vgnaX1oyeNA2NU9g2ftNLfm9rw6OkX8FycCipnHEsNnw
-         VfOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709285061; x=1709889861;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K12kuYfal65hYkuTm7CnsK9zS+VdU7mNn9HZDxR8IYY=;
-        b=q6KnNoDTuIkyoCMdywHTBrn0lrj0Ai7hTX8me+6eTdw3Ja5ZTJM8oRdONnd14fv8CM
-         GktP427Y2Zcffd02CngSH+yjuK/kDdX1gqMeU6l8yzndXD5rsKXkWO8Ad1nHCx6rVSYA
-         Iqz784nlennN85WSC2WPdcmF2SUqRrvCPkgS9Rig5JuFalsOayJk0Tb6ARdqLZl5hsUF
-         72/RRS4N/BYz5D6btPRAJmNRCHmFPAyDIxpW+w16ekd3cW5TL27jR4fUoK3HKUHXrMKL
-         Tu4nCnlW9IEdoK7IsD6N/A9V3ute2dWG+uMFCTyZb0fe/hWA17laHb8y+h+OjAVZbRjX
-         UuyA==
-X-Forwarded-Encrypted: i=1; AJvYcCX1mp7N7qKqkuhQkI1ALG+DUdSxTM2Rlp+xSESQk4+irGXErg9PjTAJS3TDWSKVuf2QujzHrBV20aNmPV74qCni0J52HgM5+8ZrHLyXsPWN
-X-Gm-Message-State: AOJu0YylTRP+gPbjZkaUK1ybKT/zmliRI6cpLyvXnInUKSzxnaLhYEpD
-	H8j4tquw8ki8OgXdMfbW5PlDlpDng++dRdarTk7Sz234Einux5OGtLw8JiCMJpU=
-X-Google-Smtp-Source: AGHT+IFt+kCs8abRI8MZlthQ5rKNhpeiYCQtIBul4mlcyfPmRwi1Z8kSKZm+NO/gjQvAypId4axWxw==
-X-Received: by 2002:a2e:9909:0:b0:2d2:92a2:9a84 with SMTP id v9-20020a2e9909000000b002d292a29a84mr731669lji.43.1709285061585;
-        Fri, 01 Mar 2024 01:24:21 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id w15-20020a05600c474f00b00412ca1dc2e4sm649267wmo.7.2024.03.01.01.24.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Mar 2024 01:24:21 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-mm@kvack.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH 9/9] mm: Use common huge_ptep_clear_flush() function for riscv/arm64
-Date: Fri,  1 Mar 2024 10:14:55 +0100
-Message-Id: <20240301091455.246686-10-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20240301091455.246686-1-alexghiti@rivosinc.com>
-References: <20240301091455.246686-1-alexghiti@rivosinc.com>
+	Fri, 01 Mar 2024 09:28:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1709285290; x=1740821290;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=l7/w/M9Qg8/uTF4RCzKi8u0Y/0s8UezyrPjWXYLzReY=;
+  b=nxN47rxPVmDfIEvUR+LLuVx1RJ4TmJ1/C+HgAUgxgp71d+1yU0Q4qGI5
+   AQAA+eVCGD9EUXfzE4GIjBzeii3ffyuMAxUIMVv8BcRRIuy7v5gTsaJqI
+   /4qdSW79m+Gh9sYe3ayswUQUHJmaiYzx2EHzqYAAZzarbf82x/rBPRLGQ
+   9Oc72DsQhax74wGocSUBW46yUP8OTU7mR0QS3cCYz8q4xa6Vdb5Kf7ZRW
+   72bvRVPa01fdqnOTWutOoWyOx8OzZBnoy1hccdtjWVmElh+I2eoZSMJYH
+   T4fCsgJKKnmethqU7OZjH8LF6HsDBIPmap7Wk0tOkOYV7P7JrtDEsK/i5
+   Q==;
+X-CSE-ConnectionGUID: ygVnSIYfQEKFz2nIe+wEow==
+X-CSE-MsgGUID: v34koBgySemG9lkf8xSESQ==
+X-IronPort-AV: E=Sophos;i="6.06,195,1705388400"; 
+   d="asc'?scan'208";a="17056042"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 01 Mar 2024 02:28:07 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 1 Mar 2024 02:27:44 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Fri, 1 Mar 2024 02:27:41 -0700
+Date: Fri, 1 Mar 2024 09:26:58 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH v5 2/2] riscv: Set unaligned access speed at compile time
+Message-ID: <20240301-reload-gristle-b417fe02f980@wendy>
+References: <20240227-disable_misaligned_probe_config-v5-0-b6853846e27a@rivosinc.com>
+ <20240227-disable_misaligned_probe_config-v5-2-b6853846e27a@rivosinc.com>
+ <20240229-company-taste-daa305961e3a@spud>
+ <ZeDO4CVOi6q4u8Lt@ghost>
+ <20240229-dolphin-pennant-eef41ce44043@spud>
+ <ZeDZnIemm06yU4KF@ghost>
 MIME-Version: 1.0
+In-Reply-To: <ZeDZnIemm06yU4KF@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240301_012429_014658_16F031E6 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20240301_012811_199221_D56880CB 
+X-CRM114-Status: GOOD (  23.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,204 +83,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Eric Biggers <ebiggers@kernel.org>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
+Content-Type: multipart/mixed; boundary="===============5277043725294184606=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After some adjustments, both architectures have the same implementation
-so move it to the generic code.
+--===============5277043725294184606==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="OWPJFMUiteII9XLr"
+Content-Disposition: inline
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/arm64/mm/hugetlbpage.c | 61 -------------------------------------
- arch/riscv/mm/hugetlbpage.c | 51 -------------------------------
- mm/contpte.c                | 15 +++++++++
- 3 files changed, 15 insertions(+), 112 deletions(-)
+--OWPJFMUiteII9XLr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-index d6ddaf282a94..8a273b9816d7 100644
---- a/arch/arm64/mm/hugetlbpage.c
-+++ b/arch/arm64/mm/hugetlbpage.c
-@@ -119,53 +119,6 @@ int find_num_contig(struct mm_struct *mm, unsigned long addr,
- 	return CONT_PTES;
- }
- 
--/*
-- * Changing some bits of contiguous entries requires us to follow a
-- * Break-Before-Make approach, breaking the whole contiguous set
-- * before we can change any entries. See ARM DDI 0487A.k_iss10775,
-- * "Misprogramming of the Contiguous bit", page D4-1762.
-- *
-- * This helper performs the break step.
-- */
--static pte_t get_clear_contig(struct mm_struct *mm,
--			     unsigned long addr,
--			     pte_t *ptep,
--			     unsigned long pgsize,
--			     unsigned long ncontig)
--{
--	pte_t orig_pte = ptep_get(ptep);
--	unsigned long i;
--
--	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++) {
--		pte_t pte = ptep_get_and_clear(mm, addr, ptep);
--
--		/*
--		 * If HW_AFDBM is enabled, then the HW could turn on
--		 * the dirty or accessed bit for any page in the set,
--		 * so check them all.
--		 */
--		if (pte_dirty(pte))
--			orig_pte = pte_mkdirty(orig_pte);
--
--		if (pte_young(pte))
--			orig_pte = pte_mkyoung(orig_pte);
--	}
--	return orig_pte;
--}
--
--static pte_t get_clear_contig_flush(struct mm_struct *mm,
--				    unsigned long addr,
--				    pte_t *ptep,
--				    unsigned long pgsize,
--				    unsigned long ncontig)
--{
--	pte_t orig_pte = get_clear_contig(mm, addr, ptep, pgsize, ncontig);
--	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
--
--	flush_tlb_range(&vma, addr, addr + (pgsize * ncontig));
--	return orig_pte;
--}
--
- pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
- 		      unsigned long addr, unsigned long sz)
- {
-@@ -284,20 +237,6 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
- 	return entry;
- }
- 
--pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
--			    unsigned long addr, pte_t *ptep)
--{
--	struct mm_struct *mm = vma->vm_mm;
--	size_t pgsize;
--	int ncontig;
--
--	if (!pte_cont(READ_ONCE(*ptep)))
--		return ptep_clear_flush(vma, addr, ptep);
--
--	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
--	return get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
--}
--
- static int __init hugetlbpage_init(void)
- {
- 	if (pud_sect_supported())
-diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-index e6cbb6fb2904..caf1db6f8f20 100644
---- a/arch/riscv/mm/hugetlbpage.c
-+++ b/arch/riscv/mm/hugetlbpage.c
-@@ -121,42 +121,6 @@ unsigned long hugetlb_mask_last_page(struct hstate *h)
- 	return 0UL;
- }
- 
--static pte_t get_clear_contig(struct mm_struct *mm,
--			      unsigned long addr,
--			      pte_t *ptep,
--			      unsigned long pte_num)
--{
--	pte_t orig_pte = ptep_get(ptep);
--	unsigned long i;
--
--	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++) {
--		pte_t pte = ptep_get_and_clear(mm, addr, ptep);
--
--		if (pte_dirty(pte))
--			orig_pte = pte_mkdirty(orig_pte);
--
--		if (pte_young(pte))
--			orig_pte = pte_mkyoung(orig_pte);
--	}
--
--	return orig_pte;
--}
--
--static pte_t get_clear_contig_flush(struct mm_struct *mm,
--				    unsigned long addr,
--				    pte_t *ptep,
--				    unsigned long pte_num)
--{
--	pte_t orig_pte = get_clear_contig(mm, addr, ptep, pte_num);
--	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
--	bool valid = !pte_none(orig_pte);
--
--	if (valid)
--		flush_tlb_range(&vma, addr, addr + (PAGE_SIZE * pte_num));
--
--	return orig_pte;
--}
--
- pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
- {
- 	unsigned long order;
-@@ -173,21 +137,6 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
- 	return entry;
- }
- 
--pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
--			    unsigned long addr,
--			    pte_t *ptep)
--{
--	pte_t pte = ptep_get(ptep);
--	int pte_num;
--
--	if (!pte_napot(pte))
--		return ptep_clear_flush(vma, addr, ptep);
--
--	pte_num = arch_contpte_get_num_contig(vma->vm_mm, addr, ptep, 0, NULL);
--
--	return get_clear_contig_flush(vma->vm_mm, addr, ptep, pte_num);
--}
--
- static bool is_napot_size(unsigned long size)
- {
- 	unsigned long order;
-diff --git a/mm/contpte.c b/mm/contpte.c
-index f7f26d2cfa23..445e5ebe46b4 100644
---- a/mm/contpte.c
-+++ b/mm/contpte.c
-@@ -23,6 +23,7 @@
-  * huge_ptep_get_and_clear()
-  * huge_ptep_set_access_flags()
-  * huge_ptep_set_wrprotect()
-+ * huge_ptep_clear_flush()
-  */
- 
- pte_t huge_ptep_get(pte_t *ptep)
-@@ -251,3 +252,17 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
- 
- 	set_contptes(mm, addr, ptep, pte, ncontig, pgsize);
- }
-+
-+pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
-+			    unsigned long addr, pte_t *ptep)
-+{
-+	struct mm_struct *mm = vma->vm_mm;
-+	size_t pgsize;
-+	int ncontig;
-+
-+	if (!pte_cont(ptep_get(ptep)))
-+		return ptep_clear_flush(vma, addr, ptep);
-+
-+	ncontig = arch_contpte_get_num_contig(mm, addr, ptep, 0, &pgsize);
-+	return get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
-+}
--- 
-2.39.2
+On Thu, Feb 29, 2024 at 11:23:08AM -0800, Charlie Jenkins wrote:
+> > > > 1 probe: probe at boot time, falling back to emulated if not perfor=
+mant
+> > > > 2 emulated: always emulate it in the kernel
+> > > > 3 slow: don't probe or emulate in the kernel
+> > > > 4 fast: Your current fast option
+> > >=20
+> > > Emulated doesn't mean that the kernel will always emulate the unalign=
+ed
+> > > accesses. It means that the kernel has the ability to emulate them. It
+> > > will only emulate them if the CPU traps on unaligned accesses. Kernel
+> > > code can choose to forcefully align an address it thinks may cause an
+> > > unaligned access, but that's slightly different from emulated.
+> >=20
+> > Sure, make option 2 "don't probe at boot time, emulate it in the kernel
+> > if we trap". I suppose in this case though, to get a correct output in
+> > hwprobe you'd have to still attempt an unaligned access at boot time to
+> > see if you trap but it will not perform the speed test?
+>=20
+> Are you trying to cover the case here that the kernel is compiled as
+> "emulate unaligned accesses" but the kernel isn't actually needed to
+> emulate unaligned accesses?
 
+Nope, the case "don't probe at boot time, emulate it in the kernel if
+we trap" which is replacing 2 above.
+
+> Seems like if the kernel is compiled as
+> such it would make sense to report emulated with the assumption that if
+> the kernel isn't emulating it, something else is.
+
+Or maybe nothing is emulating it, we don't know. Feels to me like it
+should report slow by default, given that's the option you can infer the
+least information from, and then report emulated on trap.
+
+--OWPJFMUiteII9XLr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZeGfXgAKCRB4tDGHoIJi
+0md+AQC9ln9J1hgmg38Hb8NELNWiEuurKRN0vtr8/lu8ceH4fQD/RjZiXsoMUXMx
+e4Gjfj0VS2ezNPwHU685ZVn5/3sqogI=
+=dmRT
+-----END PGP SIGNATURE-----
+
+--OWPJFMUiteII9XLr--
+
+
+--===============5277043725294184606==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5277043725294184606==--
+
