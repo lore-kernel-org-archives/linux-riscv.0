@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC80FC48BF6
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 08:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 800CFC48BF6
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 08:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xovy848/WOFWv6QRjnIcYfO4bgbmvBzceEFH9AQAozQ=; b=SkfxsUlL+ayoIO
-	DS8nFO6HauYyD3U+DKfiI0xpIgME4ZRtg2QqAESzSNkcx3SNLzIISrvCSl712TY35yyIXCkh2LbaN
-	bv23i65mW3j28sQzokzS89DR6ewpM8TNLX1GKNTTDpNVkwB+9d8XeQbycp3O92AC9OtXSYFGTHVcm
-	ZiAfq8H65ir+Uj08+w/176YqHIJ2OI9x8F4cFjUPD3SJCl3qIV3HvWMR8r6qOT2B3GgjfmUcic++y
-	6kwgT+d6WEf5D5JKLvm2Dfdtq+gynq8kWcPfFBcxZc3HrBrtHjijiSB85FfPgOip4ZaeSa1ogUbdF
-	Jq/OIoxNKaSes/AabpNg==;
+	List-Owner; bh=983I+fQVwGkdA01Tha/cZ7Zpf1m3MvAvRXT5I8HywLU=; b=EGOmV37hxhT1H0
+	dDkL8NIqPBnLxbVkKcQkz5W3+hosnq6RnOttDrmfJ/iPxbgqJg/7uUCj3bj7kN+3DczR4SThl0/tp
+	nx5cz9czn85NXsgv3VsGj5ILoeikNIAoo7nGiFGRdGZxOv8IQjtkt/zMCvQl+k9YiJI2G3E8HTAKA
+	43Fv2bqr51DEELUHpIrOg2N1aiWKeXv5Wde8LOsNQy54AOGwhxlsA1kkOjpcJcUISCY4zu6K0MHv5
+	YJQdn1AK+EcddLrojvR1WFQFanY5fY/2AEbJCFUqODjSM31me8z1CS0OjCLwLoWwxB2ZCPMTYNFDb
+	L0IOlK8+PRtlbhH2lPAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rh3QT-000000084oe-0CN4;
-	Mon, 04 Mar 2024 08:11:57 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1rh3S8-000000085EV-0us7;
+	Mon, 04 Mar 2024 08:13:40 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rh3QQ-000000084o4-0ZWX
+	id 1rh3S4-000000085CY-38qV
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Mar 2024 08:11:55 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-33e444c202fso78044f8f.3
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Mar 2024 00:11:53 -0800 (PST)
+	Mon, 04 Mar 2024 08:13:38 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-33d146737e6so3087012f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Mar 2024 00:13:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1709539912; x=1710144712; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1709540015; x=1710144815; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=PuGYwI8XWNcdtH5o1abzcPhx8A0mjNetGD+1BKOovGk=;
-        b=BT00GXOzhkQIDbB5uvZjfVEqU/SeeIiqNg1hq65zVt8skLhMhtFIoSFyOfwLBTVXQW
-         ZudXFVBoQJrbdTV1odjwNWuEWR5Q0HOc+zMA8Q0z852tzQAiRNuA9kKYhvJQ+LGTkTmz
-         z/1rUTnKD3tNkMdd2TC5HF+R9jcgMPo2qpZehE2mByfBOz8lh04mDIbWZkXSTcDHb0ZQ
-         HFSGMSji2egMeStUn503d/RcfxQvA4awPDMUOnuDp8sAsYtrxWeFrw54pS+U1B97keQC
-         GmaJHYY7V9IQttLstu4LYVGRRkp4mmgzPxTafFz/Rs8xc09VOL64Nl5nWBGUCaxKrzMg
-         YoqA==
+        bh=ZeicVjFWQLYWEbgTMQ1yeqci8fFDXO86y2K2X4IlkOY=;
+        b=LWyo1145LX2yFgWMXAgX+dki8rIQu0BCx7EzPVUrSPPHZjXYPJ5qWMEj6uSAxaBQjf
+         eG548nCUrIO/96k8ZiuS+lE0avTtXlAGfXHkf9/jSGZTYbWniHZsWEfsziBJVMFbiQmi
+         tyJsSRBTB/+J++zyERHoy53hsrqI3zPpUG/9AXEfCDxOXWB9MmQVM3vTPgy9z//S2MWg
+         8KAcvnJ8CsXK+70UJArr34vMDow83g9EkCoz5Jqk1e9xGEJYF7TH4351CLoOBdHdd9CG
+         OEXD2j60ZIhZd0kCJVjq2ANYQ90N5PlCPnzGoeVs6IpwDgoK1mJ96eqk9kZxxZkMXIf+
+         KYuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709539912; x=1710144712;
+        d=1e100.net; s=20230601; t=1709540015; x=1710144815;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PuGYwI8XWNcdtH5o1abzcPhx8A0mjNetGD+1BKOovGk=;
-        b=L1GMw+uroLsvsTFfP+d88yGqrykS4TVjTtewPU2kgDAu8EMMgyR+y7vVKh6ONChk79
-         6VUXwcWHh70YrgSEzpeG6gtDFVBg1a07piRzr9lhq2cp1v9Q+WRvcyv+PjyvgipLcJ1m
-         BOOv22sPJFa6Dje9loFVvHqxomoLfiGLKD4FG+8ZQnfy9N5M85wsJtf6MV62hF1loIlB
-         ANGuKFblHsLqzm2aJTxS678P7Wyn4FBgdBnySysYcOgkXgmqGCUnhAVPC70+vIALQ/6V
-         a+52rhkbFBUX/krr4Pk4f3i4wPxT3S4PuRFNpudDQYy5McHVk1Yf6+0KpESgh2gYqmHx
-         IV8g==
-X-Forwarded-Encrypted: i=1; AJvYcCX0685NyukFfr2c22nsnEeEazVARqKw4yVsdm7tqMJ188M8QGJoEYRxrerVQgS8oMQHirifhuMjOAzMGJh8k8uusEo1+kMAG4ovhcEEcsHb
-X-Gm-Message-State: AOJu0YxrQtIK2mkVYSiIZrvtGy03fGbMAY/jiWjZHoks1QrGYiGQdFf+
-	V+12anZ8GYneYMbeWeYe0uqcOb07x3BLhYIxzKQaZIS3NMj4pQvB9ucdvF+8bRM=
-X-Google-Smtp-Source: AGHT+IE1Qtnzv6QuEZsAk4wcrJFACFpPoafoXnJKgjkFkkmeQNqjsjRbk2WzsTz2qTNdVa7sL4jlWA==
-X-Received: by 2002:adf:9dd0:0:b0:33e:1ee0:6293 with SMTP id q16-20020adf9dd0000000b0033e1ee06293mr8143843wre.14.1709539912363;
-        Mon, 04 Mar 2024 00:11:52 -0800 (PST)
+        bh=ZeicVjFWQLYWEbgTMQ1yeqci8fFDXO86y2K2X4IlkOY=;
+        b=V13vU13rTGvMCmn9j8csA5MINsQrqkxDiC4lcvDcu47n77FH3fDFhO49SyXQPmZ0lV
+         R2Vy65Q7lFfPYuip8E/JVzW4cbeCLs1ojyrQdIQ04jUi1GPYzw2wekzaTMe9tPanRil6
+         IhTYn5aCwgLMB/BHbWNYWmSj9G/816jM4YJuL+4p9UYoFA1vw35b4hEH63L6i162RmuN
+         VYQKfkl3swNoMkWg3HpiRSuZQ8EMQvOmEnw67l5qFY38evc5+asomjldHo9e/xLnYiyk
+         bQw8ccZna1pVn17rKTsS6bZpb7BiIxVjRhGicmqAoY+sUxBIxfBB69dRqpaFHvmApu2E
+         OLmg==
+X-Forwarded-Encrypted: i=1; AJvYcCWeCBJSk8rvcHuEr9ckdRkkh0aSuM6r0ltbcYUbDYrzsD7XuvNBKXoAuV4Cq1oWqb7NG55faYM3TZfo+3gYiHUXxJ8iyMWzsKBeqsNCRVtc
+X-Gm-Message-State: AOJu0Yysq2J+XNnkP2yUxlL1Ia0WtCy+o31yIB36z3DVp48qVVcOa3dp
+	fM16rdNKP0xgypgKWgTfdHk9ghIa6pIdoG3vmrxykN8HIiZavRpR30HJH3SNMgk=
+X-Google-Smtp-Source: AGHT+IG8Yscjdvp7or7AcmXjxfdDmuq0Jm51hAQQ9qhH5ZBgQX9/+ik+vnjUFNxTM6bSBdO6gmrXpA==
+X-Received: by 2002:a5d:670e:0:b0:33d:31dc:cff7 with SMTP id o14-20020a5d670e000000b0033d31dccff7mr6671420wru.32.1709540014825;
+        Mon, 04 Mar 2024 00:13:34 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.222.97])
-        by smtp.gmail.com with ESMTPSA id b7-20020a05600003c700b0033e44b23921sm117559wrg.24.2024.03.04.00.11.51
+        by smtp.gmail.com with ESMTPSA id q1-20020adfab01000000b0033ce727e728sm11567761wrc.94.2024.03.04.00.13.33
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Mar 2024 00:11:51 -0800 (PST)
-Message-ID: <7c3c578a-d662-4485-ad15-47250ad0e935@linaro.org>
-Date: Mon, 4 Mar 2024 09:11:50 +0100
+        Mon, 04 Mar 2024 00:13:34 -0800 (PST)
+Message-ID: <534c93a2-8bc5-42b3-b7c6-2a3fe63c197f@linaro.org>
+Date: Mon, 4 Mar 2024 09:13:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dt-bindings: add Canaan K230 boards compatible
- strings
+Subject: Re: [PATCH 4/5] riscv: dts: add initial canmv-k230 and k230-evb dts
 Content-Language: en-US
 To: Yangyu Chen <cyy@cyyself.name>, linux-riscv@lists.infradead.org
 Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
@@ -78,7 +77,7 @@ Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
  Guo Ren <guoren@kernel.org>, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <tencent_E15F8FE0B6769E6338AE690C7F4844A31706@qq.com>
- <tencent_D5188EA5B85A31AC21588DBD7C7482ACDA08@qq.com>
+ <tencent_1DB2D1914F4E30569BC4B103B724A6214405@qq.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -124,10 +123,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <tencent_D5188EA5B85A31AC21588DBD7C7482ACDA08@qq.com>
+In-Reply-To: <tencent_1DB2D1914F4E30569BC4B103B724A6214405@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240304_001154_214529_DAD2AEB0 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20240304_001336_967502_088CDC98 
+X-CRM114-Status: GOOD (  24.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,48 +144,187 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 03/03/2024 14:26, Yangyu Chen wrote:
-> Since K230 was released, K210 is no longer the only SoC in the Kendryte
-> series, so remove the K210 string from the description. Also, add two
-> boards based on k230 to compatible strings to allow them to be used in the
-> dt.
+> Add initial dts for CanMV-K230 and K230-EVB powered by Canaan Kendryte
+> K230 SoC [1].
+> 
+> Some key considerations:
+> - Only enable BigCore which is 1.6GHz RV64GCBV
+> 
+> Since is there cache coherence between two cores remains a mystery since
+> they have a dedicated L2 Cache. And the factory SDK uses it for other OS
+> by default.
+> 
+> Meanwhile, although docs from Canaan said 1.6GHz Core with Vector is
+> CPU1, the csr.mhartid of this core is 0.
+> 
+> - Support for "zba" "zbb" "zbc" "zbs" are tested by hand
+> 
+> The user manual of C908 from T-Head does not document it specifically.
+> It just said it supports B extension V1.0-rc1. [2]
+> 
+> - Support for "zicbom" is tested by hand
+> 
+> Have tested with some out-of-tree drivers that need DMA and they do not
+> come to the dts currently.
+> 
+> - Cache parameters are inferred from T-Head docs [2] and Cannan docs [1]
+> 
+> L1i: 32KB, VIPT 4-Way set-associative, 64B Cacheline
+> L1d: 32KB, VIPT 4-Way set-associative, 64B Cacheline
+> L2: 256KB, PIPI 16-way set-associative, 64B Cacheline
+> 
+> The numbers of cache sets are calculated from these parameters.
+> 
+> - MMU only supports Sv39
+> 
+> Since T-Head docs [2] says C908 should support sv48. However, it will fail
+> during the kernel probe. I also tested it by hand on M-Mode software,
+> writing sv48 to satp.mode will not trap but will leave the csr unchanged.
+> 
+> [1] https://developer.canaan-creative.com/k230/dev/zh/00_hardware/K230_datasheet.html#chapter-1-introduction
+> [2] https://occ-intl-prod.oss-ap-southeast-1.aliyuncs.com/resource//1699268369347/XuanTie-C908-UserManual.pdf
 > 
 > Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 > ---
->  Documentation/devicetree/bindings/riscv/canaan.yaml | 13 ++++++++++++-
->  1 file changed, 12 insertions(+), 1 deletion(-)
+>  arch/riscv/boot/dts/canaan/Makefile       |   2 +
+>  arch/riscv/boot/dts/canaan/canmv-k230.dts |  23 ++++
+>  arch/riscv/boot/dts/canaan/k230-evb.dts   |  23 ++++
+>  arch/riscv/boot/dts/canaan/k230.dtsi      | 146 ++++++++++++++++++++++
+>  4 files changed, 194 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/canaan/canmv-k230.dts
+>  create mode 100644 arch/riscv/boot/dts/canaan/k230-evb.dts
+>  create mode 100644 arch/riscv/boot/dts/canaan/k230.dtsi
 > 
-> diff --git a/Documentation/devicetree/bindings/riscv/canaan.yaml b/Documentation/devicetree/bindings/riscv/canaan.yaml
-> index 41fd11f70a49..444758db964e 100644
-> --- a/Documentation/devicetree/bindings/riscv/canaan.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/canaan.yaml
-> @@ -10,7 +10,7 @@ maintainers:
->    - Damien Le Moal <dlemoal@kernel.org>
->  
->  description:
-> -  Canaan Kendryte K210 SoC-based boards
-> +  Canaan Kendryte SoC-based boards
->  
->  properties:
->    $nodename:
-> @@ -42,6 +42,17 @@ properties:
->        - items:
->            - const: canaan,kendryte-k210
->  
-> +      - items:
-> +          - const: canaan,k230-usip-lp3-evb
-> +          - const: canaan,kendryte-k230
+> diff --git a/arch/riscv/boot/dts/canaan/Makefile b/arch/riscv/boot/dts/canaan/Makefile
+> index 987d1f0c41f0..b4a0ec668f9a 100644
+> --- a/arch/riscv/boot/dts/canaan/Makefile
+> +++ b/arch/riscv/boot/dts/canaan/Makefile
+> @@ -5,3 +5,5 @@ dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_bit.dtb
+>  dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_dock.dtb
+>  dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_go.dtb
+>  dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maixduino.dtb
+> +dtb-$(CONFIG_ARCH_CANAAN) += k230-evb.dtb
+> +dtb-$(CONFIG_ARCH_CANAAN) += canmv-k230.dtb
+> \ No newline at end of file
+
+Please fix patch errors.
+
+> diff --git a/arch/riscv/boot/dts/canaan/canmv-k230.dts b/arch/riscv/boot/dts/canaan/canmv-k230.dts
+> new file mode 100644
+> index 000000000000..09777616d30e
+
+
+...
+
+> +&uart0 {
+> +	status = "okay";
+> +};
+> diff --git a/arch/riscv/boot/dts/canaan/k230.dtsi b/arch/riscv/boot/dts/canaan/k230.dtsi
+> new file mode 100644
+> index 000000000000..4317bda38142
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/canaan/k230.dtsi
+> @@ -0,0 +1,146 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
+> + */
 > +
-> +      - items:
-> +          - const: canaan,canmv-k230
-
-Why this is not part of previous entry in an enum?
-
-> +          - const: canaan,kendryte-k230
+> +#include <dt-bindings/interrupt-controller/irq.h>
 > +
-> +      - items:
-> +          - const: canaan,kendryte-k230
+> +/dts-v1/;
+> +/ {
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +	compatible = "canaan,kendryte-k230";
+> +
+> +	aliases {
+> +		serial0 = &uart0;
+> +	};
+> +
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		timebase-frequency = <27000000>;
+> +
+> +		cpu@0 {
+> +			compatible = "thead,c908", "riscv";
+> +			device_type = "cpu";
+> +			reg = <0>;
+> +			riscv,isa = "rv64imafdcv_zba_zbb_zbc_zbs_zicbom_svpbmt";
+> +			riscv,isa-base = "rv64i";
+> +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "v", "zba", "zbb",
+> +					       "zbc", "zbs", "zicbom", "zicntr", "zicsr",
+> +					       "zifencei", "zihpm", "svpbmt";
+> +			riscv,cbom-block-size = <64>;
+> +			d-cache-block-size = <64>;
+> +			d-cache-sets = <128>;
+> +			d-cache-size = <32768>;
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <128>;
+> +			i-cache-size = <32768>;
+> +			next-level-cache = <&l2_cache>;
+> +			mmu-type = "riscv,sv39";
+> +
+> +			cpu0_intc: interrupt-controller {
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +				#interrupt-cells = <1>;
+> +			};
+> +		};
+> +
+> +		l2_cache: l2-cache {
+> +			compatible = "cache";
+> +			cache-block-size = <64>;
+> +			cache-level = <2>;
+> +			cache-size = <262144>;
+> +			cache-sets = <256>;
+> +			cache-unified;
+> +		};
+> +	};
+> +
+> +	soc {
+> +		compatible = "simple-bus";
+> +		interrupt-parent = <&plic>;
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		dma-noncoherent;
+> +		ranges;
+> +
+> +		plic: interrupt-controller@f00000000 {
+> +			compatible = "thead,c900-plic";
+> +			reg = <0xf 0x00000000 0x0 0x04000000>;
+> +			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+> +			interrupt-controller;
+> +			reg-names = "control";
+> +			#address-cells = <0>;
+> +			#interrupt-cells = <2>;
+> +			riscv,ndev = <208>;
+> +		};
+> +
+> +		clint: timer@f04000000 {
+> +			compatible = "thead,c900-clint";
+> +			reg = <0xf 0x04000000 0x0 0x04000000>;
+> +			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
+> +		};
+> +
+> +		apb_clk: apb-clk-clock {
 
-Usually you cannot run SoCs alone. What does it represent (in real life)?
+Only MMIO-nodes go to soc. Such stubs go outside.
+
+It does not look like you tested the DTS against bindings. Please run
+`make dtbs_check W=1` (see
+Documentation/devicetree/bindings/writing-schema.rst or
+https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+for instructions).
+
+> +			compatible = "fixed-clock";
+> +			clock-frequency = <50000000>;
+> +			clock-output-names = "apb_clk";
+> +			#clock-cells = <0>;
+> +		};
+> +
+
 
 Best regards,
 Krzysztof
