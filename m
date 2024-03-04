@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D03C48BF6
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 09:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A1DDC5478C
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 10:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CZ8LBRa4uboe2kfzm6jcWa/pJBt7K9Ze4Vh2BK7HG/o=; b=e+EU1H3MhKe+PO
-	BXIGemMmnTo2xmFvB4CvijLiEtOweQ5fe99czI/1weHnZdejWLRNS8+oA2VbkhabO3MraMQZ+p1Gj
-	XnYNGkUyg8lH5xMSDsJ2pdykbiCb9y6RWkryHtN0WnOy6bFM7vr8ORZ5H6dO1cGhqw4KfOUSa8bNL
-	aMzF0QdDoTIGTVCq/eSqRa1C5Iz+AXzg0SG6jc3D55LMPd3lvPGx/ADpOI1rnBy3uRt+CsTjCvPtV
-	ib/qLGbZKhMVBXR0+7vaVEUMHibqIPq8VnnAbHBCP4AL4AvZ9Kdt42B/7/WWIYqgmH2lkme7bvzeE
-	j6VaBxRLkjg+VZv2/V1A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qFkVD0O3RQm7ZuqqhjdolhHi/pJrWdDp7KzVBq11jDA=; b=tC4Y2XittWFsxxIMxvkoZe6JkH
+	mqMyixhC8N5/+nXPClJN9ny1xl4u7Vprk0n3sBlxWfXefp9by1i8YsNmzOMEFq1iG8PvSJFQxPBrP
+	TlKjgj7naKSOu6Q21CqHv12Hi4p2rybHVg2/4TdIheNkzECm7s018a5VZphmEiytwyfn4YVdS4vA6
+	nQ+P+D2bzfIkeRkOZ+uV5nWjXHUxehncuQp2GzyrjB9cLJWagEOBR/z8VYkIUPJcwGccrRn/mog2J
+	VdNw4Tpxwo5R289KxSwVk8cmE8irLjua8azxipzzBnmym0TuWNLsCz5siuA2tU5sdNv+6GCQRLJy6
+	IPkcp+7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rh4aT-00000008Nh4-01Oa;
-	Mon, 04 Mar 2024 09:26:21 +0000
-Received: from smtpbgeu1.qq.com ([52.59.177.22])
+	id 1rh5Za-00000008brQ-3SRK;
+	Mon, 04 Mar 2024 10:29:31 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rh4aK-00000008NNQ-3Kes
+	id 1rh51J-00000008VXF-4AIT
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Mar 2024 09:26:19 +0000
-X-QQ-mid: bizesmtp77t1709544338tbvh7m0l
-X-QQ-Originating-IP: /8qetr6ORn/X+N+f2KO84Qws+LjhcD+YICaQ7LCYY1w=
-Received: from localhost ( [112.22.30.30])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 04 Mar 2024 17:25:37 +0800 (CST)
-X-QQ-SSF: 01400000000000505000000A0000000
-X-QQ-FEAT: qPPBrXN7Wh+uu+Oshg+pJH+InOcUFIlvm2eJlW3zNBPIzyTLwKQAunGD3FCwb
-	zwyMY7CdMV2tZ54TuJOawKbq57h5TE6z3bq9+dKiI2AsgkqwjjDfTVg5lIaoVkDLYq9zDYr
-	B+NC4YSSdaexh+v2RbdouhF0KG8MQkHwfvAV9dKQd2ZpKw6mCjxCjr+vxi4lVnO4DffIhy7
-	Bp8bES/XvFY32VFOiR49STQmxEgSBPeNzmBJpHKaqsWPOBFUfSoc6ImedCXlvonCQvw/XkC
-	ToAlhHse/0shw2Jkgra+fw3FaQQJiDxuxXp4XT6UWxSGLDZ60zcvXXmre+31R0+pdOe9C28
-	zxShzXKHft+hSESzzPFzcWabdAqyOZNshksj13TcTCY2nogMtqgP9uLM22wzb+VL3jwi//t
-	nBkaCl93UStK79lsqDOIhQ==
-X-QQ-GoodBg: 2
-X-BIZMAIL-ID: 14106722739390484581
-From: Dawei Li <dawei.li@shingroup.cn>
-To: conor.dooley@microchip.com,
-	daire.mcnamara@microchip.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Dawei Li <dawei.li@shingroup.cn>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] firmware: microchip: Fix over-requested allocation size
-Date: Mon,  4 Mar 2024 17:25:32 +0800
-Message-Id: <20240304092532.125751-1-dawei.li@shingroup.cn>
-X-Mailer: git-send-email 2.27.0
+	Mon, 04 Mar 2024 09:54:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1709546045; x=1741082045;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=AdFn9XLJWQqe0dLUDaSJYnhDPaicR7vWmLQPaoGeX3w=;
+  b=ilD5+4cdQNlPrYreqMy5psqEwgU989HvkthLpApIvEW16qRrs/dAc5JW
+   LBXCPVCOL2odGL8l76gLEKszl9paX2+DelAekYXgovads9gsLrJqVV03Z
+   tcbjnCcg7IrAYkbA99Vs0G1FO2R6VQS1DdGKGHgEKd/ZomajFGKjKDz7o
+   +I/S9GTLN8ESiUhebp7tfqqolTGse5azFzrxFGjf/ECs9dvBUXuKsQUgN
+   mYm/HkMMCNY425y1TcumWROYD5ZsXHjZB+QWaEXw4cw/8x/fI1QfIDym8
+   YT+5Xcwavhz0raETpUc2sZWIIn9jDWvoXGzhvKo5OtfYmUB3OS/lohGY7
+   g==;
+X-CSE-ConnectionGUID: ZJsDVXyFTta/H+MNZycEbA==
+X-CSE-MsgGUID: 0T2mkppsRHm+zl/8ZK18Og==
+X-IronPort-AV: E=Sophos;i="6.06,203,1705388400"; 
+   d="asc'?scan'208";a="17149560"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Mar 2024 02:53:50 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 4 Mar 2024 02:53:37 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Mon, 4 Mar 2024 02:53:36 -0700
+Date: Mon, 4 Mar 2024 09:52:52 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Dawei Li <dawei.li@shingroup.cn>
+CC: <daire.mcnamara@microchip.com>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] firmware: microchip: Fix over-requested allocation size
+Message-ID: <20240304-dislike-enchanted-bab883cdd609@wendy>
+References: <20240304092532.125751-1-dawei.li@shingroup.cn>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:shingroup.cn:qybglogicsvrgz:qybglogicsvrgz5a-1
+In-Reply-To: <20240304092532.125751-1-dawei.li@shingroup.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240304_012613_653916_E6D44D01 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20240304_015406_382796_D7BD1DA4 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,45 +80,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5337962259100797615=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cocci warnings: (new ones prefixed by >>)
->> drivers/firmware/microchip/mpfs-auto-update.c:387:72-78:
-   ERROR: application of sizeof to pointer
-   drivers/firmware/microchip/mpfs-auto-update.c:170:72-78:
-   ERROR: application of sizeof to pointer
+--===============5337962259100797615==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="QfI9bt87W6Fw+2hP"
+Content-Disposition: inline
 
-response_msg is a pointer to u32, so the size of element it points to is
-supposed to be a multiple of sizeof(u32), rather than sizeof(u32 *).
+--QfI9bt87W6Fw+2hP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202403040516.CYxoWTXw-lkp@intel.com/
-Signed-off-by: Dawei Li <dawei.li@shingroup.cn>
----
- drivers/firmware/microchip/mpfs-auto-update.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hey,
 
-diff --git a/drivers/firmware/microchip/mpfs-auto-update.c b/drivers/firmware/microchip/mpfs-auto-update.c
-index 682e417be5a3..7ea3cdb917bc 100644
---- a/drivers/firmware/microchip/mpfs-auto-update.c
-+++ b/drivers/firmware/microchip/mpfs-auto-update.c
-@@ -384,7 +384,7 @@ static int mpfs_auto_update_available(struct mpfs_auto_update_priv *priv)
- 	u32 *response_msg;
- 	int ret;
- 
--	response_msg = devm_kzalloc(priv->dev, AUTO_UPDATE_FEATURE_RESP_SIZE * sizeof(response_msg),
-+	response_msg = devm_kzalloc(priv->dev, AUTO_UPDATE_FEATURE_RESP_SIZE * sizeof(u32),
- 				    GFP_KERNEL);
- 	if (!response_msg)
- 		return -ENOMEM;
--- 
-2.27.0
+On Mon, Mar 04, 2024 at 05:25:32PM +0800, Dawei Li wrote:
+> cocci warnings: (new ones prefixed by >>)
+> >> drivers/firmware/microchip/mpfs-auto-update.c:387:72-78:
+>    ERROR: application of sizeof to pointer
+>    drivers/firmware/microchip/mpfs-auto-update.c:170:72-78:
+>    ERROR: application of sizeof to pointer
+>=20
+> response_msg is a pointer to u32, so the size of element it points to is
+> supposed to be a multiple of sizeof(u32), rather than sizeof(u32 *).
+>=20
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202403040516.CYxoWTXw-lkp@i=
+ntel.com/
+> Signed-off-by: Dawei Li <dawei.li@shingroup.cn>
+> ---
+>  drivers/firmware/microchip/mpfs-auto-update.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/firmware/microchip/mpfs-auto-update.c b/drivers/firm=
+ware/microchip/mpfs-auto-update.c
+> index 682e417be5a3..7ea3cdb917bc 100644
+> --- a/drivers/firmware/microchip/mpfs-auto-update.c
+> +++ b/drivers/firmware/microchip/mpfs-auto-update.c
+> @@ -384,7 +384,7 @@ static int mpfs_auto_update_available(struct mpfs_aut=
+o_update_priv *priv)
+>  	u32 *response_msg;
+>  	int ret;
+> =20
+> -	response_msg =3D devm_kzalloc(priv->dev, AUTO_UPDATE_FEATURE_RESP_SIZE =
+* sizeof(response_msg),
+> +	response_msg =3D devm_kzalloc(priv->dev, AUTO_UPDATE_FEATURE_RESP_SIZE =
+* sizeof(u32),
 
+Why not use `sizeof(*response_msg)`?
+
+Cheers,
+Conor.
+
+>  				    GFP_KERNEL);
+>  	if (!response_msg)
+>  		return -ENOMEM;
+> --=20
+> 2.27.0
+>=20
+
+--QfI9bt87W6Fw+2hP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZeWZ8wAKCRB4tDGHoIJi
+0gNkAQDrYx1n8zCrpLlvIsxyn7lq+cHSOFFk09yS527hkWOx1QD/XtVUb9uF9ym5
+eciZRxHMosB+KXsKQLAG2/26fBdUXQQ=
+=uSlh
+-----END PGP SIGNATURE-----
+
+--QfI9bt87W6Fw+2hP--
+
+
+--===============5337962259100797615==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5337962259100797615==--
+
