@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692DEC48BF6
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 20:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A202FC5478C
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 20:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/sMptL48IO32OYrPGADQv4wGIP2SMFvvLvYO+RdJTVg=; b=IzF7t0Huxm4pSgGxtbwoFG+VxC
-	sGYRSk8LaxlX3rNzpzrXcKr7zqBVR/KrvJWdDnt1O7EWeNthScjo4FUlrwL8v6kxIGbeKnS03u8ZO
-	y0WfN2Fr+c4v6qVNBfGZIAiPBpHGdTh6FFdfhIW5FJ2h9fnGjCzWYsDsgnFWm1k7pMOZHne2qK+5S
-	b8k8o5bApsRo5LRX8+P0liYClJhlCxq3z+/9WW+cLWYgYGB9hcAPspN7On3Lfk++Xvug57+IFx+gD
-	2OHAMx2fyoE7P25BeDCOjVSr9SKl5T2oECaWeUh4Q6gtUOxCzPjqXcZ9z3HrBS/eoUbbSw+P0G7eY
-	169kHicg==;
+	bh=l2VqXBnkZucujjH5X6VCGxTRuRRKdPQzTcdqGRCoFCw=; b=qze+yybIy4Xjn/nTGx6Y2XMewI
+	2HOmGnbl/q12wntR1fEEL9z4NNrS11hnuGcQVWiEsQGoYncdueP7zVcn6wYE011pFY57PrgKx0JUJ
+	Powf/bmUIh85m56pl+bmWQrhOxeJHMsE8EHK8cCCdFFKMI4vVBuOkZQ6fD5bmdC18xwZJnXpljwf0
+	MxVJjdD+MIVXeiiVeaC8eEO36bdJMHSiJ6aAgfJ4+UcZfJMNwSIEtQGAM8w/A2GECnGP6vJgL8FVj
+	p/Rkz1BwCAMCDNZgLD2ODD6SXweV9VQ9X/SzUHQ2612N4NwWjHJ9BrLbxhcQb+KeodJKWceiieH6f
+	VNQvykIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhEzz-0000000AcaN-2gPs;
-	Mon, 04 Mar 2024 20:33:23 +0000
+	id 1rhF0S-0000000AchU-431u;
+	Mon, 04 Mar 2024 20:33:55 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhEzx-0000000AcZx-1Yd3
+	id 1rhF0P-0000000Acgb-0A5w
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Mar 2024 20:33:22 +0000
+	Mon, 04 Mar 2024 20:33:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7C851CE170D;
-	Mon,  4 Mar 2024 20:33:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A327C433C7;
-	Mon,  4 Mar 2024 20:33:16 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 1B2FBCE069F;
+	Mon,  4 Mar 2024 20:33:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 223AAC433C7;
+	Mon,  4 Mar 2024 20:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709584398;
-	bh=kpA/7pn9mASzroHmqDoFxSE2elACiXObSuvnlyB3WC4=;
+	s=k20201202; t=1709584426;
+	bh=+vUgXfLly9564GB6TAKpG+X4isiloia4IJPGxEv0M0Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l0p/wUtlCENa0byHYGPMmupleg8lrPhhXs1o1qKUEb+SRYVOrehff1u1dEjYMoawr
-	 4pc2tOJQFbjUUnLq0ETNLwgdIeUS/FYMtrLqM+Lyj/TNhEZwVEX9Vo3H1SJOmRhj6q
-	 xUbh+9H0MF1vOxas6WZd6Nax+MzUY9+C6rP3Yvf2iHB0Kx3HsE7vc3Oj2lNfwHYWBh
-	 AWbitvC/2Nmm2kZ75G+mf9CWOAGxD9AJf8AxHVp720gjU5swjYVPwFijnWu28tt5HF
-	 YXAn8mBz+paSX03iBMcIrSgwrbcfwGeft11VA1kM/fOpD/SerTeMK6o8v01xcbnKnQ
-	 ZC72KDaIDdvOA==
-Date: Mon, 4 Mar 2024 20:33:14 +0000
+	b=NThvY6bNrXVL3/dcCQa4m/D/F83UuO/S1jXhCSTc1RXQCdegroAN6Rt7/m8mjmuuy
+	 blnOr0Fp5boFs5wIPF54FgzOLIo1YDfCBIEtxn23+/tBzykNemik0NQRisU4Nw/edb
+	 MwD54cmY0WCMX9gMhwc7mlpi/r8N7VgbYcOeJuRTUXFRWMm6wTzs34+qoXWQJe7riQ
+	 BxloNcbO5GN2OFkVfuSfXulw4QXDvrUAhsBfM0msb6MRfslFWOX6wSYqDZQ/vfzPjf
+	 lVwzknc2yNuPiT5cZbHyOORbdcgq/jiHqoLGPU7x6JYV7s4zGUkrVEV7enE+IGZo1k
+	 MnEx/bzuFMjqw==
+Date: Mon, 4 Mar 2024 20:33:41 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Yangyu Chen <cyy@cyyself.name>
 Cc: linux-riscv@lists.infradead.org, Damien Le Moal <dlemoal@kernel.org>,
@@ -52,16 +52,15 @@ Cc: linux-riscv@lists.infradead.org, Damien Le Moal <dlemoal@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/7] dt-bindings: interrupt-controller: Add Canaan
- K230 PLIC
-Message-ID: <20240304-froth-ecosphere-9ee29b2085ec@spud>
+Subject: Re: [PATCH v2 3/7] dt-bindings: timer: Add Canaan K230 CLINT
+Message-ID: <20240304-skinny-old-2fbbb0ee6aa5@spud>
 References: <tencent_64A9B4B31C2D70D5633042461AC9F80C0509@qq.com>
- <tencent_23A08076AB6331AE43CC64C87FA3081F8006@qq.com>
+ <tencent_84166A6B39E6E062C4F8872436FAF1D10A0A@qq.com>
 MIME-Version: 1.0
-In-Reply-To: <tencent_23A08076AB6331AE43CC64C87FA3081F8006@qq.com>
+In-Reply-To: <tencent_84166A6B39E6E062C4F8872436FAF1D10A0A@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240304_123321_610626_9541F32D 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20240304_123349_272233_BD3B53F9 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,68 +72,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6586746177896172573=="
+Content-Type: multipart/mixed; boundary="===============3074532846287134407=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6586746177896172573==
+--===============3074532846287134407==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CACqwa9A6+6CIXkZ"
+	protocol="application/pgp-signature"; boundary="amzJJAj79FLb+Rx5"
 Content-Disposition: inline
 
 
---CACqwa9A6+6CIXkZ
+--amzJJAj79FLb+Rx5
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Mar 04, 2024 at 11:16:23PM +0800, Yangyu Chen wrote:
-> Add compatible string for Canaan K230 PLIC.
+On Mon, Mar 04, 2024 at 11:16:22PM +0800, Yangyu Chen wrote:
+> Add compatible string for Canaan K230 CLINT.
 >=20
 > Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 > ---
->  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
+>  Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
 >  1 file changed, 1 insertion(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifiv=
-e,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/=
-sifive,plic-1.0.0.yaml
-> index 709b2211276b..da147faf32bd 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-=
-1.0.0.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-=
-1.0.0.yaml
-> @@ -69,6 +69,7 @@ properties:
->                - sophgo,cv1812h-plic
->                - sophgo,sg2042-plic
->                - thead,th1520-plic
-> +              - canaan,k230-plic
-
-Add this in alphanumerical order please.
-
->            - const: thead,c900-plic
+> diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/=
+Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> index fced6f2d8ecb..9840a21c40ca 100644
+> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> @@ -37,6 +37,7 @@ properties:
+>            - const: sifive,clint0        # SiFive CLINT v0 IP block
 >        - items:
->            - const: sifive,plic-1.0.0
+>            - enum:
+> +              - canaan,k230-clint
+
+Same here, alphanumerically sorted please.
+
+>                - allwinner,sun20i-d1-clint
+>                - sophgo,cv1800b-clint
+>                - sophgo,cv1812h-clint
 > --=20
 > 2.43.0
 >=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---CACqwa9A6+6CIXkZ
+--amzJJAj79FLb+Rx5
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZeYwCgAKCRB4tDGHoIJi
-0stTAPwKRfMRoeIDnrMRXeK7RYpCbLmlvm8J8cf/OixdlnJk9gD+KTSYTpv8jygT
-ZSw3TqHWSdZ0u27JE6N5rE2R2h7pMw0=
-=tgwG
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZeYwJQAKCRB4tDGHoIJi
+0rECAP9gFv7OMFq/elzlpBLldmYGelbKu5hYdGkAyRIValwYFQD/atngNqIRUpkp
+qzJLvCosjFdXcsD/Ab7HF4RmtsYnJQ0=
+=NR9C
 -----END PGP SIGNATURE-----
 
---CACqwa9A6+6CIXkZ--
+--amzJJAj79FLb+Rx5--
 
 
---===============6586746177896172573==
+--===============3074532846287134407==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -145,5 +146,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6586746177896172573==--
+--===============3074532846287134407==--
 
