@@ -4,82 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35018C5478C
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 18:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C40FC48BF6
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 18:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=tO4dHC1rCAVSW78thm+j7/8g8nBt5T7SUxv3MStGEwI=; b=0OVSQ3fjJowULZt15KHVwfJRK8
-	XLYk1BOaD+c1IP8LUJhQQ9iyO91tVMZUe8ahwIuWBFcv87CjMsx4p8ozPkFOpjO2KiengFVHz2wtP
-	WDzdlmRJSSLsv53QjYPgG9Ahthv9OWhXpk7HJiLwQ35yaTeIS5QHy6bzW5fWAy7R6vvJM2Vqusd6Q
-	/UTiUPEuTRuCRlRjLIH6qOFY0DwOOcixhTMs0P8XMGFPpvYSSKVCWbGiHhCyJh4DpdNMNu2xmgRba
-	4jmVCJRv60Ywz+VchFP9mJpeXV8amNnkFTopaQDUbWkiFcobHJzkBcG+Y34Q+7U8eT7AWXuH7ao3Q
-	PWT+TERg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jzyk6YFHpiqZ0WzYHUQePPCvOyzlycfEfOJQslSWoYg=; b=2qQz0HGhgx/+RlzwGJoMSS+U/N
+	IUwwlb0qAs6tNosf6YReTSGelsxeRLXY8XOpEBFl5K3RosboMkXo5FCMtsMvbjSU36t6rOVNpnFbc
+	YnPK4Jn+y8inDWAmjV1EdosWGGiUwF2TAxP6fWX6S/ODDb1gle5U9/PH0exQofxZb6wjjLKl50Nuo
+	SwpNsc9G5O1SO4pr5X3WFnnEU6+8C/HvQxYYpo6ZTYab+UyoCLSpMbmNosxxkNn9XUYrXJE52gQ3G
+	3Y/TXEoa/wqqV6wknl2URu3e668V9xh+xI0+IXz1KOpZSplQY+jAimUd70ICTr2CiUxKjVo7D/8Pu
+	OD5d93ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhCji-0000000A7t5-3OwM;
-	Mon, 04 Mar 2024 18:08:26 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1rhDR9-0000000AGCO-39Vd;
+	Mon, 04 Mar 2024 18:53:19 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhCjf-0000000A7pq-1LBf
+	id 1rhDR7-0000000AGAc-02aH
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Mar 2024 18:08:25 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-5d8b887bb0cso4298585a12.2
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Mar 2024 10:08:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1709575693; x=1710180493; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aizblNvc9Cf2btttMWelCC6kMijS1p5vy42920jDwTY=;
-        b=xJ4HkxZmqQjZYnWn1+SS8omAovJJbS7BK+viCu68asfdx85C7wbbZDCH0CVKKnWjUS
-         HpQMV4cYr4ky8Mb5vKpinNMpDljisjAHSkd6+0KuyBa2Fv0xQGp427xwCYTEMLASZaZF
-         1InSVfRFCe08nLH0gls37zboBWVZPFZsLs4ZhRwe5EVov1L4hNH3dgeKnNrUOqkhG8sL
-         PfxdlHor48TrAMclmwvV8ea3+jsovAzrXhiifENRaomFzMcPjGRXp/gKpFocdXAHuxgC
-         7EZlAefXb8Rw4tkPcWc9vprkuTSMJt16JjQW4+7rkiw57OIan2nmgCDsqe90xNEBkgCe
-         Ze1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709575693; x=1710180493;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aizblNvc9Cf2btttMWelCC6kMijS1p5vy42920jDwTY=;
-        b=PiQ1aOYGo6jb24ZxVHdfa6XEKPFBeSDN6H8QPjZ2bCn+5luLzCk5vI7DdSX5KOMxqt
-         sxNoCvzMQw7tfmg+k7HnFFTrnrVRDeYLY2qiTKRehny0qOadV8fKz9YSRCuCF+tPL2pT
-         kZkN8XF/Ier8HKBdgIPxWkt5c9GsrtZbKhKsXusTt7YRVRQFwFR/yTjTQOuo1IvHiooJ
-         jofXiNOUgzu3NW0tIeCPs/7OGAwupIS1RomaByDZjIvGUkhWDogx+vLMsMfKpY+4UgKN
-         eDVMRFjs477Ki/f3QMRIWOeujqLRVXY9LQvyVb011yM8fIDHz34AQSXMpXp2kM9ivuiw
-         80FA==
-X-Forwarded-Encrypted: i=1; AJvYcCVQkoegx24mckYDeY/5TuCWAs5Prt9PcvyKFdH3q7+NbkWWrmTPYcbr1g4+mBFaT5CbHJT+JovLaLgZmixHNoudMIytChwyO6KCqb+Z65Sy
-X-Gm-Message-State: AOJu0Yxave9R7F3tdBFPzxxNzJXYWSn1E4ZVlxEf/Z9TAiJ69i/Xgd9R
-	pIktFV2lsyMpnehuT9BvqKuc7Srk1x4oAv6henk21H24AJtT8oP+S51EM2MLIlk=
-X-Google-Smtp-Source: AGHT+IFhlrCJ7z/RMUFxQQf2zMzCvbw2MLdNLsKVNf46b6Rg0IEtkQiqwfm6zGkZbeAOroe6+Tng3g==
-X-Received: by 2002:a17:90a:8a0e:b0:29a:a08d:4809 with SMTP id w14-20020a17090a8a0e00b0029aa08d4809mr7511710pjn.2.1709575693052;
-        Mon, 04 Mar 2024 10:08:13 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id l3-20020a17090ac58300b0029b2e00359esm5161382pjt.36.2024.03.04.10.08.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Mar 2024 10:08:06 -0800 (PST)
-Date: Mon, 04 Mar 2024 10:08:06 -0800 (PST)
-X-Google-Original-Date: Mon, 04 Mar 2024 10:08:04 PST (-0800)
-Subject: Re: [PATCH v15,RESEND 22/23] PCI: starfive: Offload the NVMe timeout workaround to host drivers.
-In-Reply-To: <ZeCd+xqE6x2ZFtJN@lpieralisi>
-CC: minda.chen@starfivetech.com, Conor Dooley <conor@kernel.org>, kw@linux.com,
-  robh+dt@kernel.org, bhelgaas@google.com, tglx@linutronix.de, daire.mcnamara@microchip.com,
-  emil.renner.berthing@canonical.com, krzysztof.kozlowski+dt@linaro.org, devicetree@vger.kernel.org,
-  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, p.zabel@pengutronix.de, mason.huo@starfivetech.com,
-  leyfoon.tan@starfivetech.com, kevin.xie@starfivetech.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: lpieralisi@kernel.org
-Message-ID: <mhng-87e7ef5a-d60b-4057-960d-41bc901b6c7f@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	Mon, 04 Mar 2024 18:53:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 7ACE9CE12BA;
+	Mon,  4 Mar 2024 18:53:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39F1FC433F1;
+	Mon,  4 Mar 2024 18:53:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1709578393;
+	bh=V37rd8PiGAomhKd4+inZBZxarQhrmyPY3/x1sHNH0Fg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=chh0mb+LqnBnkw4LaW7GXGcf4MUfQbxrI1GPiO3rGliHt+iEnuPpVrGL74YA+11eB
+	 YKqeYxSxlpofVGMQM0Ja6YGuaQetDJzVb60hbUJEDi1PlVG4cEb4nVdlDtqRQ9JXbq
+	 xBD4P6A8pk6pRh83Ib26Riarw33D4f+xUWUobiJzyUK37lSJ4MH4DTgL1ty+ROff6f
+	 yEAplu4CapIknsh9V56kknwXU5O2uknTdnA6forEuztZiC95OLeI4Uc2V1tdzE6bh5
+	 qZm+mAKS/4704cicL872uYrMIEY/X9AfbnztAqIguotzkk9tiEBGdZBMHcp4/LRSmc
+	 /PYattFbOnngQ==
+Date: Mon, 4 Mar 2024 18:53:09 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-riscv@lists.infradead.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	devicetree@vger.kernel.org, linux-serial@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [RFC] Inconsistent sifive,fu540-c000-uart binding.
+Message-ID: <20240304-whomever-gladly-d43da7ad2fe6@spud>
+References: <20240304105947.SJcVAdr1@linutronix.de>
+MIME-Version: 1.0
+In-Reply-To: <20240304105947.SJcVAdr1@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240304_100823_573933_F9B7D678 
-X-CRM114-Status: GOOD (  31.40  )
+X-CRM114-CacheID: sfid-20240304_105317_249495_6539670F 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,133 +69,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============8647755370309105582=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Feb 2024 07:08:43 PST (-0800), lpieralisi@kernel.org wrote:
-> On Tue, Feb 27, 2024 at 06:35:21PM +0800, Minda Chen wrote:
->> From: Kevin Xie <kevin.xie@starfivetech.com>
->>
->> As the Starfive JH7110 hardware can't keep two inbound post write in
->> order all the time, such as MSI messages and NVMe completions. If the
->> NVMe completion update later than the MSI, an NVMe IRQ handle will miss.
->
-> Please explain what the problem is and what "NVMe completions" means
-> given that you are talking about posted writes.
->
-> If you have a link to an erratum write-up it would certainly help.
 
-I think we really need to see that errata document.  Our formal memory 
-model doesn't account for device interactions so it's possible there's 
-just some arch fence we can make stronger in order to get things ordered 
-again -- we've had similar problems with some other RISC-V chips, and 
-while it ends up being slow at least it's correct.
+--===============8647755370309105582==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="9HC0fzGtO/m/qkzE"
+Content-Disposition: inline
 
-> This looks completely broken to me, if the controller can't guarantee
-> PCIe transactions ordering it is toast, there is not even a point
-> considering mainline merging.
 
-I wouldn't be at all surprised if that's the case.  Without some 
-concrete ISA mechanisms here we're sort of just stuck hoping the SOC 
-vendors do the right thing, which is always terrifying.
+--9HC0fzGtO/m/qkzE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I'm not really a PCIe person so this is all a bit vague, but IIRC we had 
-a bunch of possible PCIe ordering violations in the SiFive memory system 
-back when I was there and we never really got a scheme for making sure 
-things were correct.
+On Mon, Mar 04, 2024 at 11:59:47AM +0100, Sebastian Andrzej Siewior wrote:
+> | $ git grep fu540-c000-uart
+> | Documentation/devicetree/bindings/serial/sifive-serial.yaml:          -=
+ sifive,fu540-c000-uart
+> | Documentation/devicetree/bindings/serial/sifive-serial.yaml:        com=
+patible =3D "sifive,fu540-c000-uart", "sifive,uart0";
+> | Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.tx=
+t:"sifive,fu540-c000-uart".  This way, if SoC-specific
+> | Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.tx=
+t:    compatible =3D "sifive,fu540-c000-uart", "sifive,uart0";
+> | arch/riscv/boot/dts/sifive/fu540-c000.dtsi:                     compati=
+ble =3D "sifive,fu540-c000-uart", "sifive,uart0";
+> | arch/riscv/boot/dts/sifive/fu540-c000.dtsi:                     compati=
+ble =3D "sifive,fu540-c000-uart", "sifive,uart0";
+> | drivers/tty/serial/sifive.c:OF_EARLYCON_DECLARE(sifive, "sifive,fu540-c=
+000-uart0",
+> | drivers/tty/serial/sifive.c:    { .compatible =3D "sifive,fu540-c000-ua=
+rt0" },
+>=20
+> note that the driver has a trailing 0 in the binding while the yaml
+> description and the DT part does not.
+> The 'sifive,uart' has a trailing 0 where the 0 denotes the version UART
+> IP.
+>=20
+> Was this also intended for the fu540-c000-uart binding? Should the 0 be
+> added everywhere or removed from the driver?
 
-So I think we really do need to see that errata document to know what's 
-possible here.  Folks have been able to come up with clever solutions to 
-these problems before, maybe we'll get lucky again.
+I suspect that the driver is what's incorrect, given there's little
+value in putting the IP version in the SoC-specific compatible as it's
+a fixed implementation. I'd change the driver to match the bindings.
 
->> As a workaround, we will wait a while before going to the generic
->> handle here.
->>
->> Verified with NVMe SSD, USB SSD, R8169 NIC.
->> The performance are stable and even higher after this patch.
->
-> I assume this is a joke even though it does not make me laugh.
+Cheers,
+Conor.
 
-So you're new to RISC-V, then?  It gets way worse than this ;)
+--9HC0fzGtO/m/qkzE
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> Thanks,
-> Lorenzo
->
->>
->> Signed-off-by: Kevin Xie <kevin.xie@starfivetech.com>
->> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
->> ---
->>  drivers/pci/controller/plda/pcie-plda-host.c | 12 ++++++++++++
->>  drivers/pci/controller/plda/pcie-plda.h      |  1 +
->>  drivers/pci/controller/plda/pcie-starfive.c  |  1 +
->>  3 files changed, 14 insertions(+)
->>
->> diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
->> index a18923d7cea6..9e077ddf45c0 100644
->> --- a/drivers/pci/controller/plda/pcie-plda-host.c
->> +++ b/drivers/pci/controller/plda/pcie-plda-host.c
->> @@ -13,6 +13,7 @@
->>  #include <linux/msi.h>
->>  #include <linux/pci_regs.h>
->>  #include <linux/pci-ecam.h>
->> +#include <linux/delay.h>
->>
->>  #include "pcie-plda.h"
->>
->> @@ -44,6 +45,17 @@ static void plda_handle_msi(struct irq_desc *desc)
->>  			       bridge_base_addr + ISTATUS_LOCAL);
->>  		status = readl_relaxed(bridge_base_addr + ISTATUS_MSI);
->>  		for_each_set_bit(bit, &status, msi->num_vectors) {
->> +			/*
->> +			 * As the Starfive JH7110 hardware can't keep two
->> +			 * inbound post write in order all the time, such as
->> +			 * MSI messages and NVMe completions.
->> +			 * If the NVMe completion update later than the MSI,
->> +			 * an NVMe IRQ handle will miss.
->> +			 * As a workaround, we will wait a while before
->> +			 * going to the generic handle here.
->> +			 */
->> +			if (port->msi_quirk_delay_us)
->> +				udelay(port->msi_quirk_delay_us);
->>  			ret = generic_handle_domain_irq(msi->dev_domain, bit);
->>  			if (ret)
->>  				dev_err_ratelimited(dev, "bad MSI IRQ %d\n",
->> diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
->> index 04e385758a2f..feccf285dfe8 100644
->> --- a/drivers/pci/controller/plda/pcie-plda.h
->> +++ b/drivers/pci/controller/plda/pcie-plda.h
->> @@ -186,6 +186,7 @@ struct plda_pcie_rp {
->>  	int msi_irq;
->>  	int intx_irq;
->>  	int num_events;
->> +	u16 msi_quirk_delay_us;
->>  };
->>
->>  struct plda_event {
->> diff --git a/drivers/pci/controller/plda/pcie-starfive.c b/drivers/pci/controller/plda/pcie-starfive.c
->> index 9bb9f0e29565..5cfc30572b7f 100644
->> --- a/drivers/pci/controller/plda/pcie-starfive.c
->> +++ b/drivers/pci/controller/plda/pcie-starfive.c
->> @@ -391,6 +391,7 @@ static int starfive_pcie_probe(struct platform_device *pdev)
->>
->>  	plda->host_ops = &sf_host_ops;
->>  	plda->num_events = PLDA_MAX_EVENT_NUM;
->> +	plda->msi_quirk_delay_us = 1;
->>  	/* mask doorbell event */
->>  	plda->events_bitmap = GENMASK(PLDA_INT_EVENT_NUM - 1, 0)
->>  			     & ~BIT(PLDA_AXI_DOORBELL)
->> --
->> 2.17.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZeYYkgAKCRB4tDGHoIJi
+0hLtAQCeh/vjouGnruLo6WjBW4ItX+rl8PSOfBxPoyZ6qLT1pAD/VFIkqqRSQoJT
+5af4p39+MyG3lRoOA+H3k7VIM/w0xAE=
+=qY/D
+-----END PGP SIGNATURE-----
+
+--9HC0fzGtO/m/qkzE--
+
+
+--===============8647755370309105582==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8647755370309105582==--
+
