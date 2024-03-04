@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A67F0C5478C
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 15:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ECBCC5478C
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 15:17:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VmzVMQMU0GmMFXbjGXm7fcRk9KC1leFtHxDOmveDveY=; b=h6b0e/vYHdoavL
-	Zl1GrhbG7n9hLjvYOcx6BhTapqbYfKBiryXd4A1ffRXiG6Pk7+agMWZ2kSGws12JegmGc+EpqlZ5M
-	y+ptihxDB0W9hkK2wu5KH98Jo3f1/4MoXb7L+fOCCxKj0IGLsKSEMIhKAwo4de+2LGzTGPkB2Cefw
-	k8NEpc9ePQuZO/mPUbkRfzI88IyxOYrrDSSY0f+eI9Zcn99t0xKbsMQw6qQD/cbTpXoi8FOZAoiDv
-	FwglzszBJuHKvQPJ2kBlWRDUzkBmDkQU2sVzaEI4AHFa5hs57soG71qBUx6aKneq7TwiFrQ4X/mCe
-	zWcJMywi9j0Do31j78SQ==;
+	List-Owner; bh=jwz3jHDGnmK583rkXeZhfU4nzw1pTkWEOO2znolW7/E=; b=e1Ys3WLCmZVPeA
+	hie1+tpZrQ22q2RsZf3c3R0fi8IyrsfSzilmRNd2JY0z6wgmj0u81URBlA1kLXK1xULwqj2d9g7G+
+	GoaqI1GdzX5h+w2yc9HRDT64MRGcGmJxcNj6uHinWgzP4N1RGNJD3OH1FPGfnEVH3F/I+IMnTJ+6q
+	x468Xn1kkiOwmBTeFBBeNYvXCKe1sGHgizKkVWwHAos4ABr7uv7wdz3hOiZ18xm9YsKHu9YJsdtP2
+	AMyUdHGQGr2YIaW7mn0yPdHmeIAtAkDIDOH1f8wyUvmqCCPiX088tP5Elacx1HP/z/NUOLy4Ik1UF
+	JpdrsmiF2ZSHcnXdNnvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhA3r-00000009XLa-1wdS;
-	Mon, 04 Mar 2024 15:17:03 +0000
-Received: from out203-205-221-242.mail.qq.com ([203.205.221.242])
+	id 1rhA3u-00000009XNr-3Urs;
+	Mon, 04 Mar 2024 15:17:06 +0000
+Received: from out203-205-221-210.mail.qq.com ([203.205.221.210])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhA3h-00000009XCc-1TBp
+	id 1rhA3h-00000009XE5-2gFW
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Mar 2024 15:16:56 +0000
+	Mon, 04 Mar 2024 15:16:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1709565408; bh=0+JXxUau3OkyJeeGutyiyK3QETtDeC61mbo4iJi+WJQ=;
+	t=1709565410; bh=Zq7j+pO9atzoOOHePaxM6b0KaYKNJGrtsSo0TfDn0y8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=zMZnaViRsfpH/EcpyRYr/MYac3GZTcF+iSEmTT8D+QKGbPhn+FvRjOFugZhkLvyK1
-	 uUM/ggRQN8JjEuEJ+pB+EHhmdWtPpyBorNnjL3aGFsZhSweKrSOrHJATJvfKQEBIYL
-	 qcxwd+eTFjNq4lv1nXCqz3uJIh1rKvBGyALC5vk8=
+	b=tKhV0KcKbi3Z3cCBkgQQ44qTruieoW0apVY5TC0CCNKH8cT58DkFrVyPWKWir1gNW
+	 3XgFiiVxhdf6xHwi0xVXzALhfeqZTqQ1DVMd//PyBk8dAmbG/660jT1BRVUfjfLzRB
+	 pJSaQe20khusIvP7P41P30LUJbXd7sST/oLZGx08=
 Received: from cyy-pc.lan ([240e:379:2240:e500:994d:62ab:74a6:932b])
 	by newxmesmtplogicsvrszb6-0.qq.com (NewEsmtp) with SMTP
 	id 42726AAD; Mon, 04 Mar 2024 23:16:39 +0800
-X-QQ-mid: xmsmtpt1709565406ti8xoznv3
-Message-ID: <tencent_23A08076AB6331AE43CC64C87FA3081F8006@qq.com>
-X-QQ-XMAILINFO: NX3IH4pixvQA+Il7G9Idge2OWHMvE5RPgPBSoWeYsrW7Dx9cnsEv9kw/bcUdvh
-	 V4ai4Pewg6j/09bHaCBhnbkn+wyxDM2RKGdyGac5C5vuuQh+MVgJhff5rZDg/2TkjlPYXThH5xZl
-	 wsfo6W0SuilP7sxMyDkBMzY6PqjlMjrT2lK/I4Q75bJBL6aAmfab75GXPLEgen2f/CN/hcr+6Vf5
-	 Wsw+g05TrIaj5Sq2DRMgFiLQ9SA5FkD2xyJniplHoOSXcrq5jnXnDfydDR1B0UrvDa7dVMVK7uJe
-	 cmKCTGVOXdkW4fU5BKWjKzFKu0puqVGlmpNo4PPLf+Z6qei6Mb0JxW2EpXNsmQb0MgA95FrqbXyO
-	 q2UBwGnJHZ9hGMK/tiBbh7CSn0qzW3cA8GWHDbiGVaf1c2OYx8cb6TrnFnYL5BBngmixE/yA+ke7
-	 u8VTGpzymxcphKzlozq3w2fESNeK/SlegbbbYhz/fUB/Cm4wO/rqkhiznE4jMFDhprQKCBjzss63
-	 6uuXTrJTzvi/U14yKQVFfZMTZDZDq35sDpVWo4ByAf3SX38vlv2V3oFbUJR+Ze6r4l57Oo2S4W0L
-	 tqDW304xB1wZb34hnbBdyNB3pRbzLI9rLbMmcOopO/O7fa5GvN1MRyi1QD/gFB85ZGgB2qD5pVBR
-	 fyqXVmaXCgdeMiNOQhU975Rh6f8Ec6AMnEjrxvZdquUYsXsTa5C5GEg+OYl0w6th3gBh7Uw5iKp+
-	 NojD6niXJ1TTSJlrqOXJeGtFcEgYy3X3f4eghsZL/Qv+/yOREh6NkMVsmZNR32JWgB0EgDZFiEVT
-	 1QYCd5J2/FCp2Ps62V7ELJy99ol+xXlWf7FR7rf4Gq8Vw6q0jgOJoVaZqJul0pHJORmVJTExbmoB
-	 aZYjTTOtiVkML3ERoOp/TNYxO0/Ah/lynP0PnouSLNtYlXLlNHzkh+iiVOYegu26Uud9D1XbcLwD
-	 TPx0UwZqloYnki6LvmKQgvT0iixuUPNnSuUM7Jnq6hOlqAaCtch9/h7b6c9rA7rDJVwpWx7uhnaw
-	 biRtYSFAJsuD87Q8a6
-X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-mid: xmsmtpt1709565408tx6g6kx2w
+Message-ID: <tencent_CB98AA10FE4664BE0F410BED454764DCE007@qq.com>
+X-QQ-XMAILINFO: OM81xDxpmoVkDm+I0fbFX/1HJ5fb/wJR3WA281dpFCJUX+Y9svJyFTnWk0b8Wt
+	 BBmm2rtsHQyvqlRqS2sd3Cps94Fe/wscI9DMghzT6HYz+Cu2dDl/dRH7KRYt+XietT3N1wj64vbz
+	 VYdnu13rxhB21jkieir24daSNqVfvDaqMzibq+PE+Ut0JUrNJ++fmX4nOTgy6E5kU4NV1LvHugeX
+	 vfcJV1Wz+1EkvlOvnZeZqtdAx86XAnvra8U00nY5p+Jq5HFUoqgfQwSS2kGl02l08meWQN0SF70I
+	 YGgRvyhL7Rlfgl9U80FACVscHLI/JmQIfBNr6nu2BsuCkHcCukrPzNKXsbreKo7Ta15PznGlOyP2
+	 bEsT1eh7ijip57Jp26NsPSw+gx6QBWK2VCisXtb9J92Km8D5nU+MY8XX6pZlOrEd7do8F1v+TbN2
+	 c3KrvmUdlnd8ALIsCSSYB4tDgFT7Rt5np0rhT4we6eMxfufZzigDAvbuqXwJqb7R35mQVYmNzUWM
+	 ZwlgTx5PD/uG9vHuUSTIykPVCEXGJvGijfDWNMZLMr0CvyGMVu+h4B+6TlEuPhNE1/JdCEq2RvVj
+	 CtYUozqcbC+spPi3W7lrxcryl3fwVOr9pYOAY4gJXlN+pvrXF1mz7zqqgUJ3DlyFHPQTKMfeUBo1
+	 +iVmq1aKA7jLx4vxMpn9GIO7qEv+/bYU/h/f8D98X28SAJCOaE1kcSKJRSCellXBLDmHKZGtzAPo
+	 TJHPmL4eAgKusBmKfyZCO1+kdh/Z2YIF6yzgTE4HA8UxhyjzGmFLZuHhi2cTgbYeOacU376K3YaL
+	 AhKmhou5AlnYwfgj+XI2JMQzQYDbD+SDFanEEU1Dq8wA723oLJdZwnwcdfrszbhoLmbP2qS9K4P5
+	 +EFjnkWL7WdchhJOhLwu+iox8TcJ0o7YaRdFmA0p/+5zuHzBLP48bX59AyZMlgKTpzVLLWp5d9MC
+	 rqorNR6TJY8rOyvNIzaqFM8VuQRs8qHLRtrzN6fSRu36ZQgZOzXoiYXgZAH/n/PyJ5cPmDudZPUW
+	 DAhfE3QRYjrUVyUqGD7XucC3ooVVA=
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
 From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
 Cc: Conor Dooley <conor@kernel.org>,
@@ -66,17 +66,18 @@ Cc: Conor Dooley <conor@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH v2 4/7] dt-bindings: interrupt-controller: Add Canaan K230 PLIC
-Date: Mon,  4 Mar 2024 23:16:23 +0800
-X-OQ-MSGID: <20240304151626.759150-4-cyy@cyyself.name>
+	Yangyu Chen <cyy@cyyself.name>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2 5/7] riscv: Kconfig.socs: Allow SOC_CANAAN with MMU for K230
+Date: Mon,  4 Mar 2024 23:16:24 +0800
+X-OQ-MSGID: <20240304151626.759150-5-cyy@cyyself.name>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <tencent_64A9B4B31C2D70D5633042461AC9F80C0509@qq.com>
 References: <tencent_64A9B4B31C2D70D5633042461AC9F80C0509@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240304_071653_873840_B157DF94 
-X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-CacheID: sfid-20240304_071656_404437_62E5D866 
+X-CRM114-Status: UNSURE (   9.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,25 +95,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for Canaan K230 PLIC.
+Since K230 was released, SOC_CANAAN is no longer only referred to the K210.
+Remove it depends on !MMU will allow building dts for K230 and remove the
+K210 string from the help message.
 
 Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/Kconfig.socs | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index 709b2211276b..da147faf32bd 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -69,6 +69,7 @@ properties:
-               - sophgo,cv1812h-plic
-               - sophgo,sg2042-plic
-               - thead,th1520-plic
-+              - canaan,k230-plic
-           - const: thead,c900-plic
-       - items:
-           - const: sifive,plic-1.0.0
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 623de5f8a208..b4e9b7f75510 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -75,13 +75,12 @@ config ARCH_CANAAN
+ 	def_bool SOC_CANAAN
+ 
+ config SOC_CANAAN
+-	bool "Canaan Kendryte K210 SoC"
+-	depends on !MMU
++	bool "Canaan Kendryte SoC"
+ 	select CLINT_TIMER if RISCV_M_MODE
+ 	select ARCH_HAS_RESET_CONTROLLER
+ 	select PINCTRL
+ 	select COMMON_CLK
+ 	help
+-	  This enables support for Canaan Kendryte K210 SoC platform hardware.
++	  This enables support for Canaan Kendryte SoC platform hardware.
+ 
+ endmenu # "SoC selection"
 -- 
 2.43.0
 
