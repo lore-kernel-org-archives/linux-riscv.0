@@ -4,133 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC0BC48BF6
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 12:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE29FC5478C
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 13:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wNvFfNTvoraQgft3yGJMsqaliIVwxHDwdqmTBu26syE=; b=aU0yxoMBLyLXPQ
-	NnQbOivDfr2K20EDozOgSgsfZnw6/4k9xYvJX8XkVulpyKCX3ghriNPzaodNTiyXIHs0JOQkpYq3f
-	kAVLGy+vi1o/IQ0rUbJEmvSChtMtaFVDE1d4Nczk8keT4zDvJtkmaAG7lBYuG9i/JZ8xGDMyCYzn4
-	hu8qLJ8umvpmcTOYAwJrdd3MdRchnggtiUZheVJzFzCREe/Wdsjma6LA2BRGnu8MhmWkx/Is+khXC
-	rxS99t0nmfKszAcDU3O+PvTRGAVWRgcK3eEWHHG2dOru9tXlOPJ5I106aPanPr6KfM9yhMS7KkNB1
-	4t4HzHNKFoHGOzHKtsEw==;
+	List-Owner; bh=PwecXTw42x3hLwCKT/qeRWw5QSrgXl8Whna+eyp/5KI=; b=mzzLwWtEghTWhW
+	yyxCr2Zxm8RrLc+H4uN2KMLvzxAlk0RZMvJFXQHkpnLgM+u/KZHiRAo+sQ8yvUMLLPkpyaKJjJlw6
+	SdDzK3R8JKVLRA2DP6W6ZzPuZqcaWdIJhClzOjI7WBrbD+Q0Jcil9MaJnlc5icvc/geo4fWjSCIXd
+	asvDhg3dW9qxuKWc9BOIlTK0UxKIQxBRCtb5wtQ9MKJ3NZ/05kaJpjShmQOXh7WDa/fBiZif1f0zo
+	uwjCOa++JZYqoJfULpgSisLETNjb/7CVmSXbsiCf7eKxBSrYubEEcbPo38WeTz5/GDA8j33rffCc/
+	E3bnOsDcjTuL0swM8eHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rh7oq-00000009344-0kEe;
-	Mon, 04 Mar 2024 12:53:24 +0000
-Received: from mail-sh0chn02on20714.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::714] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1rh8Z2-00000009CMt-1h4a;
+	Mon, 04 Mar 2024 13:41:08 +0000
+Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rh7ok-0000000932U-1ZsY
+	id 1rh8Yz-00000009CLI-3QCW
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Mar 2024 12:53:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=hdODi3GhUip+VpSOWq5YQkWfNI7S9YctMpA+rbiBVqOP4tlGJso8WmWaZ42fGuZsjDBYlZBnjirV6gRKox4ixDxqUZybWINXwljw+azSZpBeF6wsBu5LJzhim9D/vORUZ5yd1+dCe230x/rJ9vbaKIEwkO2G80atwMSzqA5xJqG4UAcGXp3xtlQ3aLmJjghcva1L2YtTF+u8FyYp7wriIb2yl56O9gUoAf/qcjqKshG0rbHF4teR7oswOGch2LyuZo2/dLnUtyhToCy0cuyqVgLcAQ28RNyo7vhsaVHzPR3ucw0ohIg24jZN0EPW9476QChnps2TESeQTwpIZNTnsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cuLgaCec2X4iRlkDxeTa7P0vo5cmxd69iq/V87PCF9Y=;
- b=VqBkB1YEnVM45AWYE4cRwCR6R9s5xxYU+8pZVN/eLDNwouND3DEwBwMiWhc5kizk1pL4UuELWnepF9CJuBUocyakoF3j6z721sRJiFr8ew/fFYy+nBBOdqFZZ+ODXasGxAuaE5xOBq02sEL0mbL/Xx0Bieo3DgHq1t7DFPVaeyGGWAvTGRlpNpKRYYk/RBuIaxkY5QfFcM8t3rz/36V3mkf/2RkSOa1VWrSlGOKKJW8dsBgPHnl2+9qHgJCCy2+Y0IqbssD3wJL9Af7iigYZERO+Mx1LIHTvGKzoqd1vNaAYA9AlLM9GGsw4FGdHD1Jwg7NnK6a8LYnhXOQmG9KokA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550::13) by ZQ0PR01MB1205.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:1a::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7316.51; Mon, 4 Mar
- 2024 12:52:59 +0000
-Received: from ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn
- ([fe80::521f:319d:d2e0:8b91]) by
- ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn ([fe80::521f:319d:d2e0:8b91%4])
- with mapi id 15.20.7316.032; Mon, 4 Mar 2024 12:52:59 +0000
-From: Kevin Xie <kevin.xie@starfivetech.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Minda Chen
-	<minda.chen@starfivetech.com>
-CC: Conor Dooley <conor@kernel.org>, =?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?=
-	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
-	<bhelgaas@google.com>, Thomas Gleixner <tglx@linutronix.de>, Daire McNamara
-	<daire.mcnamara@microchip.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp
- Zabel <p.zabel@pengutronix.de>, Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>
-Subject: Re: [PATCH v15,RESEND 21/23] PCI: starfive: Add JH7110 PCIe
- controller
-Thread-Topic: [PATCH v15,RESEND 21/23] PCI: starfive: Add JH7110 PCIe
- controller
-Thread-Index: AQHaaWi8BSKFyVphIUWdBo9IckSBIrEhYxMAgAYv43A=
-Date: Mon, 4 Mar 2024 12:52:59 +0000
-Message-ID: <ZQ0PR01MB098190462A6A394DA292BBE58223A@ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn>
-References: <20240227103522.80915-1-minda.chen@starfivetech.com>
- <20240227103522.80915-22-minda.chen@starfivetech.com>
- <ZeCThFcD2HBg8/bx@lpieralisi>
-In-Reply-To: <ZeCThFcD2HBg8/bx@lpieralisi>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ0PR01MB0981:EE_|ZQ0PR01MB1205:EE_
-x-ms-office365-filtering-correlation-id: f2b54047-ea85-439b-fd3f-08dc3c4a051c
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: QTphUh/LN8KHmG9m7BmkerHtHZ9iy6p4bqmqW/7bszO6B84Lr5ujBu9YRPjMJ0C0B/G+lDzwkKlj1UbEl9GXRwGL+AylQWqDfDfnEUF1pE2gb13DKMy00tdW8WTKS03bM/whMTxdBFDrVTR1TS6pWRcbq82UUXCZ9YKMHaejQe9S2BHqPFOOK+v2JWAIo4LjOsX/zRwIHWoVBLo9hBhXGS/PNMQfpyhkElcsC7phuWIQNGFiogaBhvNF0B2Td1Ky7x7jDWd5vVxdDZuY02Cp6x0pB0sJT1ryuwJ6ore4ceZD728eV6vPWgG8woCfohT+CxxRxQ6mjUxwV+g9nrrY6j4fyYm7id+wOo778tphLbTIiEkWAzQcgUShIhiK5t4KS3G90gdiEhxGP5tcDP2frRut8Qxd1O6F/zZZOFw0d0dCQO3wXfnDeyYujhcNMIrdSY++UMqJdqmCFcTmXGC3MzsfAZY39NQLIfHB5yn/TeIEVYd6pqGHef5goV3wYLSSx21HPsHPqatZ45cmi4Ch52RF2LJT0dmjqLw+q3b5nJpSceMA09V6L659eEdu1czUnF6Ogzex7AeQwTXygn3Z7sHBGtdraUnhc9FSbJlXXNAI7AS1YBR3ZhWUVvHS84EA
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(41320700004)(38070700009);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?6lniIDTPobBD5zcLSUxHLgj1INA0blJhXaLdV3KBYShwzibrZc+vcabKVn?=
- =?iso-8859-2?Q?H1JppykKF24G8Q8wHqxfHvRh1k+M4t0+M/gjGf2Kt4MSl8X1OBluUBQ6Z5?=
- =?iso-8859-2?Q?eZhl7yYdsE7tAPv5q9A6jU7bssYrcUAc4PRaZCi/8e+2oXwE5TuHsMsV+r?=
- =?iso-8859-2?Q?+v+/Osv46XxX1rdeM0cFrV+0omjerOTJjpaKNmUDV4NNfgi4v1dfaSS3KH?=
- =?iso-8859-2?Q?ywSDmi0/AhsgIlYWSatjGkjVyqGC9LMb1gwxgJdXI7Xy8w1Nf4266A5cGx?=
- =?iso-8859-2?Q?yWtiDgRTFRFilRc37wPwcos/DnW2rbNnl8IyUCDMNEXtvkxS73NhCogLHh?=
- =?iso-8859-2?Q?yJcBEWDjOOPa2EAzIZ0rJh1u/tNuuaEkWmoC+CT1FAO+2w41oJxNX6UVaR?=
- =?iso-8859-2?Q?9RHdXxHrGFXVXWwii6TbuaMqHf6Jyyhuqt5fBsExih5PKSuidN3eV5FPGJ?=
- =?iso-8859-2?Q?qspL7Q8b5pcOhKmWouo+u+Yg3tf320oS2lIL6Fi6gtkIvRPzJD8qqz/Cx1?=
- =?iso-8859-2?Q?4ueTHX937U+vlBVRvr0WY8Z3KIB/4I0oCrvMg8OQADq2NwcSWMGDWdnY3e?=
- =?iso-8859-2?Q?Zmma6GG/g4c7pghzdlgSbf289PXI4IH+5nbOSxjR7gCG3HnYlj63neIbmX?=
- =?iso-8859-2?Q?ZScOjWPjbS0QbQztGLqb7TKh6C99x8SxUFm0UteYFrmlM4ySLyA70wTxH2?=
- =?iso-8859-2?Q?5+mlP+jHkNpYaH8PBwDFCKiDbhqyJZAnvyrzNhIrQ96i4s/dopuxYSfwku?=
- =?iso-8859-2?Q?XzMy3cSDvTFZ2tcNKfdNjflvqvFihV4bFJNrbIBXuJ04c9Aq2YETDz041K?=
- =?iso-8859-2?Q?iJ6NWfofwMiDdw2l1zQ1hbxnSLxA2aUqh88Xih9tDJScjRAHlX34Je9iG5?=
- =?iso-8859-2?Q?UEv573QYfCqFdDlLovi/9k87YWoTVJCwsftRGC93A86g39O2uei2PoYAbi?=
- =?iso-8859-2?Q?Sua+8FPdATvllvYy4KZS/x17FyqebIrpAxqreH74N/6g1sZ1t8OyVPXUSc?=
- =?iso-8859-2?Q?i2US3miLQ1NwQORSwciUv46n3sU1PacZrf6HUFlU1eBVphgJvivtdOYi+J?=
- =?iso-8859-2?Q?Em0LeHOuxNuUyXDlsEEeMIrlurOAgCqjISBgYQGcB8IMCVIcef04rF1kJI?=
- =?iso-8859-2?Q?gE8UNFJOhFwgrxFy9Z2QY0VOudb+/cbqM+InLKsWlryPuGseAHzCcw+iFO?=
- =?iso-8859-2?Q?nXkmJ8LbZVAb+WJeR9yWItazhUsMQoLeYJultU6ktBIYDT9Ld3j9TmZHGk?=
- =?iso-8859-2?Q?kpPbqPkVB+yyouHpXtON4oWOwYgSBo8o4sLONBC6AWug6vu7NII9EBImtl?=
- =?iso-8859-2?Q?mtilF2CJVci96aGucr1ghJQvEE199CC+1/hrDfenHNxqOOtHJ77ixsqnNO?=
- =?iso-8859-2?Q?9lrhv8E7YTlMp/BhZ1XbtwPeRIKPfbXL73cZ4nDqHLpk4fqFFV98iNMv9g?=
- =?iso-8859-2?Q?cMQzSR2vvH1OosuWfAAG2YoUNpBBDs19flWF/vIBaHXgHfP1SzC4QS4/GA?=
- =?iso-8859-2?Q?NnJ1AcRxDJvE8bwcE6hGugVtn8Pn9OkzRqlI1WCipWGyx5atTrbPZBsFj3?=
- =?iso-8859-2?Q?+6AqgJ49nKURBwd5SFe9amRqG0YLglwdEgBKXPWUlIxCY6ehBzQXRfuafk?=
- =?iso-8859-2?Q?qvCUH0KGfqcStLyry6CgHMmkS6LNz7n7ODeuPUoXYl/op41yGXMMEmPg?=
- =?iso-8859-2?Q?=3D=3D?=
+	Mon, 04 Mar 2024 13:41:07 +0000
+Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-59fdcf8ebbcso3038806eaf.3
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Mar 2024 05:41:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1709559663; x=1710164463; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5/dHCpgDDmSuBOfKLpH4euKRiDvMD04w7x34y1sbbGY=;
+        b=VTbQQ9nist1ZLSEneQI7WGwsT+slxJIveWareH9YMpKm/SKnMwDxwRbp8eqKnkTe7Q
+         2sTeLE2WiOkt3zc43H3W7CPC4O1j6NzyoIj2bf6Dtu9rUm8Ee/Ck0qMUnuMOsoW7IeWV
+         b7NmaBR89WDPIX3fyQyyrhPOd5hj/Uz8PLxcj7xyln5HYzksgqNs/bQMQNcwP1BiaqQE
+         8UTW1ROjP20cIWCMkz+2pqiuF0EKq+myxp9JayKsCprC19V1YH1I55mOmUne3VhyzJtE
+         Hl2T8i0o6ix0Vuqgx0J+9pGRAh5WYqFsg7nKWi0on7DGMOhBwWfbifQpamf7WOKs4ylS
+         6xsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709559663; x=1710164463;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5/dHCpgDDmSuBOfKLpH4euKRiDvMD04w7x34y1sbbGY=;
+        b=H/PhliHlZ0Khnt6qR8c3aJOCAo7KGYmMdIRxcDUL8D4DAQ4Z0SzJYhjHqYI+ncl+Vc
+         5FiBAD99DZXieAF9IFUxh4uQ/vTh/MT2TZ2biYtlpl4KK1qRhWcqNcZS6dnmzSETQ6d3
+         ss4WaJdbrqu0nTTj8WH9v9dwvcbcB8+q8vrbW7jdi98zsLQjPBCN4NtLGkuQDisPjwvo
+         yuGCNAiyNJESb1NtfvtNf0eH7IudJjoncSr2qLpGu4cFb4eyY16NvL92nno48bfQV5o1
+         0pW7lDx4SgpN2Gzqg0P/myikqnLTPXHvgWQSqyWMpKm1Ry7PmNmu3Z0f2CpQZu1gs2jb
+         pDKg==
+X-Forwarded-Encrypted: i=1; AJvYcCWNAnvzesCn6OseJvW1gFhL7AA8VKVgMHRh6+foy9B5pCVhwaLGjEKebzedVdFA7CeSi3GI3QsUaQt4//kdtn9GvdzrgDwrdUSUwSRK+xAC
+X-Gm-Message-State: AOJu0YxU8kfYm7VzoNXxsHQkZCJOr7EoEHqeYxWzRRM+9ApEytn6UuNa
+	XcHVLYOqkO6l0adJ8zTEb/GIlkw8af7LAYwQlYzt5vCOQpGvPECz5Klm4v1kqae9C5IdeNzjTwn
+	3fnwKe8i/E7HEPqvl5GG62Nys18U=
+X-Google-Smtp-Source: AGHT+IGApFrYWTCxf7o+Xw3AU3j0mc3yLDQDYin1YtShfj5gmezRzs9SAsWTz6aEslad9W0wPmt7sBbXkXDMb2pSQo4=
+X-Received: by 2002:a4a:2559:0:b0:5a1:15a2:114c with SMTP id
+ v25-20020a4a2559000000b005a115a2114cmr4854461ooe.0.1709559663519; Mon, 04 Mar
+ 2024 05:41:03 -0800 (PST)
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: f2b54047-ea85-439b-fd3f-08dc3c4a051c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Mar 2024 12:52:59.0654
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: lM55YT3CnU3zYaCoaf4LLoE6LnkzumqdHWRBljuZgKE6VQI/INoMxJCQTU9Sr83zvNqg7SR8cVgMVxL9I1w5WXNTy2PJ/Qv2ydvpvT2M6CQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1205
+References: <20240304085933.1246964-1-qiujingbao.dlmu@gmail.com>
+ <20240304090248.1247215-1-qiujingbao.dlmu@gmail.com> <91f0a339-ac0e-49df-bd26-dbfe1485308f@linaro.org>
+In-Reply-To: <91f0a339-ac0e-49df-bd26-dbfe1485308f@linaro.org>
+From: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
+Date: Mon, 4 Mar 2024 21:40:52 +0800
+Message-ID: <CAJRtX8TPz_jTvPmuBW8t=mC+BR1kWmu=GS9K1k6ys7U9u0ENFw@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] pwm: sophgo: add pwm support for Sophgo CV1800 SoC
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: u.kleine-koenig@pengutronix.de, robh+dt@kernel.org, 
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	dlan@gentoo.org, inochiama@outlook.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240304_045318_644185_07EAE70E 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20240304_054105_918591_3DE2916D 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,405 +90,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On Tue, Feb 27, 2024 at 06:35:20PM +0800, Minda Chen wrote:
-> > Add StarFive JH7110 SoC PCIe controller platform driver codes, JH7110
-> > with PLDA host PCIe core.
-> >
-> > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> > Co-developed-by: Kevin Xie <kevin.xie@starfivetech.com>
-> > Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
-> > ---
-> >  MAINTAINERS                                 |   7 +
-> >  drivers/pci/controller/plda/Kconfig         |  12 +
-> >  drivers/pci/controller/plda/Makefile        |   1 +
-> >  drivers/pci/controller/plda/pcie-plda.h     |  71 ++-
-> >  drivers/pci/controller/plda/pcie-starfive.c | 473
-> > ++++++++++++++++++++
-> >  5 files changed, 563 insertions(+), 1 deletion(-)  create mode 100644
-> > drivers/pci/controller/plda/pcie-starfive.c
-> >
-> > diff --git a/MAINTAINERS b/MAINTAINERS index
-> > fc9576e69a71..d3b0a0fb754f 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -17078,6 +17078,13 @@ S:	Maintained
-> >  F:	Documentation/devicetree/bindings/pci/socionext,uniphier-pcie*
-> >  F:	drivers/pci/controller/dwc/pcie-uniphier*
-> >
-> > +PCIE DRIVER FOR STARFIVE JH71x0
-> > +M:	Kevin Xie <kevin.xie@starfivetech.com>
-> > +L:	linux-pci@vger.kernel.org
-> > +S:	Maintained
-> > +F:	Documentation/devicetree/bindings/pci/starfive*
-> > +F:	drivers/pci/controller/plda/pcie-starfive.c
-> > +
-> >  PCIE DRIVER FOR ST SPEAR13XX
-> >  M:	Pratyush Anand <pratyush.anand@gmail.com>
-> >  L:	linux-pci@vger.kernel.org
-
-> > diff --git a/drivers/pci/controller/plda/pcie-plda.h
-> > b/drivers/pci/controller/plda/pcie-plda.h
-> > index 7b69891700a4..04e385758a2f 100644
-> > --- a/drivers/pci/controller/plda/pcie-plda.h
-> > +++ b/drivers/pci/controller/plda/pcie-plda.h
-> > @@ -10,10 +10,20 @@
-> >  #define PLDA_MAX_NUM_MSI_IRQS			32
-> >
-> >  /* PCIe Bridge Phy Regs */
-> > +#define GEN_SETTINGS				0x80
-> > +#define  RP_ENABLE				1
-> > +#define PCIE_PCI_IDS_DW1			0x9c
-> > +#define  IDS_CLASS_CODE_SHIFT			16
-> > +#define  REVISION_ID_MASK			GENMASK(7, 0)
-> > +#define  CLASS_CODE_ID_MASK			GENMASK(31, 8)
-> >  #define PCIE_PCI_IRQ_DW0			0xa8
-> >  #define  MSIX_CAP_MASK				BIT(31)
-> >  #define  NUM_MSI_MSGS_MASK			GENMASK(6, 4)
-> >  #define  NUM_MSI_MSGS_SHIFT			4
-> > +#define PCI_MISC				0xb4
-> > +#define  PHY_FUNCTION_DIS			BIT(15)
-> > +#define PCIE_WINROM				0xfc
-> > +#define  PREF_MEM_WIN_64_SUPPORT		BIT(3)
-> >
-> >  #define IMASK_LOCAL				0x180
-> >  #define  DMA_END_ENGINE_0_MASK			0x00000000u
-> > @@ -65,6 +75,8 @@
-> >  #define ISTATUS_HOST				0x18c
-> >  #define IMSI_ADDR				0x190
-> >  #define ISTATUS_MSI				0x194
-> > +#define PMSG_SUPPORT_RX				0x3f0
-> > +#define  PMSG_LTR_SUPPORT			BIT(2)
-> >
-> >  /* PCIe Master table init defines */
-> >  #define ATR0_PCIE_WIN0_SRCADDR_PARAM		0x600u
-> > @@ -86,6 +98,8 @@
-> >  #define  PCIE_TX_RX_INTERFACE			0x00000000u
-> >  #define  PCIE_CONFIG_INTERFACE			0x00000001u
-> >
-> > +#define CONFIG_SPACE_ADDR_OFFSET		0x1000u
-> > +
-> >  #define ATR_ENTRY_SIZE				32
-> >
-> >  enum plda_int_event {
-> > @@ -200,4 +214,59 @@ static inline void plda_set_default_msi(struct
-> plda_msi *msi)
-> >  	msi->vector_phy = IMSI_ADDR;
-> >  	msi->num_vectors = PLDA_MAX_NUM_MSI_IRQS;  } -#endif
-> > +
-> > +static inline void plda_pcie_enable_root_port(struct plda_pcie_rp
-> > +*plda) {
-> > +	u32 value;
-> > +
-> > +	value = readl_relaxed(plda->bridge_addr + GEN_SETTINGS);
-> > +	value |= RP_ENABLE;
-> > +	writel_relaxed(value, plda->bridge_addr + GEN_SETTINGS); }
-> > +
-> > +static inline void plda_pcie_set_standard_class(struct plda_pcie_rp
-> > +*plda) {
-> > +	u32 value;
-> > +
-> > +	/* set class code and reserve revision id */
-> > +	value = readl_relaxed(plda->bridge_addr + PCIE_PCI_IDS_DW1);
-> > +	value &= REVISION_ID_MASK;
-> > +	value |= (PCI_CLASS_BRIDGE_PCI << IDS_CLASS_CODE_SHIFT);
-> > +	writel_relaxed(value, plda->bridge_addr + PCIE_PCI_IDS_DW1); }
-> > +
-> > +static inline void plda_pcie_set_pref_win_64bit(struct plda_pcie_rp
-> > +*plda) {
-> > +	u32 value;
-> > +
-> > +	value = readl_relaxed(plda->bridge_addr + PCIE_WINROM);
-> > +	value |= PREF_MEM_WIN_64_SUPPORT;
-> > +	writel_relaxed(value, plda->bridge_addr + PCIE_WINROM); }
-> 
-> What does this do ?
-> 
-
-This is an internal register to enable the prefetchable memory window
-64-bit addressing support. ( disabled by default)
-After this enable configuration, the address translation config in DTS
-and ATU about 64-bit prefetchable memory are useful.
-
-I will add the annotation here in the next version.
-
-> > +static inline void plda_pcie_disable_ltr(struct plda_pcie_rp *plda) {
-> > +	u32 value;
-> > +
-> > +	value = readl_relaxed(plda->bridge_addr + PMSG_SUPPORT_RX);
-> > +	value &= ~PMSG_LTR_SUPPORT;
-> > +	writel_relaxed(value, plda->bridge_addr + PMSG_SUPPORT_RX); }
-> > +
-> > +static inline void plda_pcie_disable_func(struct plda_pcie_rp *plda)
-> > +{
-> > +	u32 value;
-> > +
-> > +	value = readl_relaxed(plda->bridge_addr + PCI_MISC);
-> > +	value |= PHY_FUNCTION_DIS;
-> > +	writel_relaxed(value, plda->bridge_addr + PCI_MISC); }
-> > +
-> > +static inline void plda_pcie_write_rc_bar(struct plda_pcie_rp *plda,
-> > +u64 val) {
-> > +	void __iomem *addr = plda->bridge_addr +
-> CONFIG_SPACE_ADDR_OFFSET;
-> > +
-> > +	writel_relaxed(lower_32_bits(val), addr + PCI_BASE_ADDRESS_0);
-> > +	writel_relaxed(upper_32_bits(val), addr + PCI_BASE_ADDRESS_1); }
-> > +#endif /* _PCIE_PLDA_H */
-> > diff --git a/drivers/pci/controller/plda/pcie-starfive.c
-> > b/drivers/pci/controller/plda/pcie-starfive.c
-> > new file mode 100644
-> > index 000000000000..9bb9f0e29565
-> > --- /dev/null
-> > +++ b/drivers/pci/controller/plda/pcie-starfive.c
-> > @@ -0,0 +1,473 @@
-> > +// SPDX-License-Identifier: GPL-2.0+
-> > +/*
-> > + * PCIe host controller driver for StarFive JH7110 Soc.
-> > + *
-> > + * Copyright (C) 2023 StarFive Technology Co., Ltd.
-> > + */
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/clk.h>
-> > +#include <linux/delay.h>
-> > +#include <linux/gpio/consumer.h>
-> > +#include <linux/interrupt.h>
-> > +#include <linux/kernel.h>
-> > +#include <linux/mfd/syscon.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of_address.h>
-> > +#include <linux/of_irq.h>
-> > +#include <linux/of_pci.h>
-> > +#include <linux/pci.h>
-> > +#include <linux/phy/phy.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/pm_runtime.h>
-> > +#include <linux/regmap.h>
-> > +#include <linux/reset.h>
-> > +#include "../../pci.h"
-> > +
-> > +#include "pcie-plda.h"
-> > +
-> > +#define PCIE_FUNC_NUM			4
-> > +
-> > +/* system control */
-> > +#define STG_SYSCON_PCIE0_BASE			0x48
-> > +#define STG_SYSCON_PCIE1_BASE			0x1f8
-> > +
-> > +#define STG_SYSCON_AR_OFFSET			0x78
-> > +#define STG_SYSCON_AXI4_SLVL_AR_MASK		GENMASK(22, 8)
-> > +#define STG_SYSCON_AXI4_SLVL_PHY_AR(x)
-> 	FIELD_PREP(GENMASK(20, 17), x)
-> > +#define STG_SYSCON_AW_OFFSET			0x7c
-> > +#define STG_SYSCON_AXI4_SLVL_AW_MASK		GENMASK(14, 0)
-> > +#define STG_SYSCON_AXI4_SLVL_PHY_AW(x)
-> 	FIELD_PREP(GENMASK(12, 9), x)
-> > +#define STG_SYSCON_CLKREQ			BIT(22)
-> > +#define STG_SYSCON_CKREF_SRC_MASK		GENMASK(19, 18)
-> > +#define STG_SYSCON_RP_NEP_OFFSET		0xe8
-> > +#define STG_SYSCON_K_RP_NEP			BIT(8)
-> > +#define STG_SYSCON_LNKSTA_OFFSET		0x170
-> > +#define DATA_LINK_ACTIVE			BIT(5)
-> > +
-> > +/* Parameters for the waiting for link up routine */
-> > +#define LINK_WAIT_MAX_RETRIES	10
-> > +#define LINK_WAIT_USLEEP_MIN	90000
-> > +#define LINK_WAIT_USLEEP_MAX	100000
-> > +
-> > +struct starfive_jh7110_pcie {
-> > +	struct plda_pcie_rp plda;
-> > +	struct reset_control *resets;
-> > +	struct clk_bulk_data *clks;
-> > +	struct regmap *reg_syscon;
-> > +	struct gpio_desc *power_gpio;
-> > +	struct gpio_desc *reset_gpio;
-> > +	struct phy *phy;
-> > +
-> > +	unsigned int stg_pcie_base;
-> > +	int num_clks;
-> > +};
-> > +
-> > +/*
-> > + * The BAR0/1 of bridge should be hidden during enumeration to
-> > + * avoid the sizing and resource allocation by PCIe core.
-> 
-> Please explain. This is what's preventing this driver to re-use the
-> PCI_HOST_COMMON infrastructure and it is unclear why.
-> 
-
-Sorry, we didn't explain it clearly enough here.
-JH7110 PCIe port BAR0/1 is configured as 64-bit prefetchable memory
-space, PCIe read and write requests targeting BAR0/1 are routed to so
-called 'Bridge Configuration space' in PLDA datasheet, which contains
-the bridge internal registers, such as interrupt, DMA & ATU registers...
-
-JH7110 can access the Bridge Configuration space by local bus, and don`t
-want the bridge internal registers accessed by the DMA from EP devices.
-Thus, they are unimplemented and should be hidden.
-
-I will modify the annotation in next version if you think it is ok.
-
-> > + */
-> > +static bool starfive_pcie_hide_rc_bar(struct pci_bus *bus, unsigned int
-> devfn,
-> > +				      int offset)
-> > +{
-> > +	if (pci_is_root_bus(bus) && !devfn &&
-> > +	    (offset == PCI_BASE_ADDRESS_0 || offset == PCI_BASE_ADDRESS_1))
-> > +		return true;
-> > +
-> > +	return false;
-> > +}
-> > +
-> > +static int starfive_pcie_config_write(struct pci_bus *bus, unsigned int devfn,
-> > +				      int where, int size, u32 value) {
-> > +	if (starfive_pcie_hide_rc_bar(bus, devfn, where))
-> > +		return PCIBIOS_SUCCESSFUL;
-> > +
-> > +	return pci_generic_config_write(bus, devfn, where, size, value); }
-> > +
-> > +static int starfive_pcie_config_read(struct pci_bus *bus, unsigned int devfn,
-> > +				     int where, int size, u32 *value) {
-> > +	if (starfive_pcie_hide_rc_bar(bus, devfn, where)) {
-> > +		*value = 0;
-> > +		return PCIBIOS_SUCCESSFUL;
-> > +	}
-> > +
-> > +	return pci_generic_config_read(bus, devfn, where, size, value); }
-> > +
-> > +static int starfive_pcie_parse_dt(struct starfive_jh7110_pcie *pcie,
-> > +				  struct device *dev)
-> > +{
-> > +	int domain_nr;
-> > +
-> > +	pcie->num_clks = devm_clk_bulk_get_all(dev, &pcie->clks);
-> > +	if (pcie->num_clks < 0)
-> > +		return dev_err_probe(dev, pcie->num_clks,
-> > +				     "failed to get pcie clocks\n");
-> > +
-> > +	pcie->resets = devm_reset_control_array_get_exclusive(dev);
-> > +	if (IS_ERR(pcie->resets))
-> > +		return dev_err_probe(dev, PTR_ERR(pcie->resets),
-> > +				     "failed to get pcie resets");
-> > +
-> > +	pcie->reg_syscon =
-> > +		syscon_regmap_lookup_by_phandle(dev->of_node,
-> > +						"starfive,stg-syscon");
-> > +
-> > +	if (IS_ERR(pcie->reg_syscon))
-> > +		return dev_err_probe(dev, PTR_ERR(pcie->reg_syscon),
-> > +				     "failed to parse starfive,stg-syscon\n");
-> > +
-> > +	pcie->phy = devm_phy_optional_get(dev, NULL);
-> > +	if (IS_ERR(pcie->phy))
-> > +		return dev_err_probe(dev, PTR_ERR(pcie->phy),
-> > +				     "failed to get pcie phy\n");
-> > +
-> > +	domain_nr = of_get_pci_domain_nr(dev->of_node);
-> > +
-> > +	if (domain_nr < 0 || domain_nr > 1)
-> > +		return dev_err_probe(dev, -ENODEV,
-> > +				     "failed to get valid pcie domain\n");
-> > +
-> > +	if (domain_nr == 0)
-> > +		pcie->stg_pcie_base = STG_SYSCON_PCIE0_BASE;
-> > +	else
-> > +		pcie->stg_pcie_base = STG_SYSCON_PCIE1_BASE;
-> 
-> I don't agree with this. The domain number is a software allocated value
-> attached to a controller. It is written nowhere that you can't swap them and
-> leave this code path broken.
-> 
-
-We set 'linux,pci-domain = <0>' in our pcie0 DTS node, and <1> for 
-pcie1. The value should be static now.
-
-As the STG system controller defines different bases in PCIe RP0 & RP1,
-we have to identify which controller is doing the hardware initialization.
-We discussed this before with other maintainers, do you have a better
-suggestion?
-
-> > +	pcie->reset_gpio = devm_gpiod_get_optional(dev, "perst",
-> > +						   GPIOD_OUT_HIGH);
-> > +	if (IS_ERR(pcie->reset_gpio))
-> > +		return dev_err_probe(dev, PTR_ERR(pcie->reset_gpio),
-> > +				     "failed to get perst-gpio\n");
-> > +
-> > +	pcie->power_gpio = devm_gpiod_get_optional(dev, "enable",
-> > +						   GPIOD_OUT_LOW);
-> > +	if (IS_ERR(pcie->power_gpio))
-> > +		return dev_err_probe(dev, PTR_ERR(pcie->power_gpio),
-> > +				     "failed to get power-gpio\n");
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static struct pci_ops starfive_pcie_ops = {
-> > +	.map_bus	= plda_pcie_map_bus,
-> 
-> It looks like this is an ECAM driver with the read/config quirks for read/write in
-> the method below. Please explain why they are needed.
-> 
-
-Yes, that's for the hide RC BAR operations mentioned above.
-
-> > +	.read           = starfive_pcie_config_read,
-> > +	.write          = starfive_pcie_config_write,
-> > +};
-> > +
-> > +static int starfive_pcie_clk_rst_init(struct starfive_jh7110_pcie
-> > +*pcie) {
-> > +	struct device *dev = pcie->plda.dev;
-> > +	int ret;
-> > +
-> > +	/* PCIe PCI Standard Configuration Identification Settings. */
-> > +	plda_pcie_set_standard_class(plda);
-> > +
-> > +	/*
-> > +	 * The LTR message forwarding of PCIe Message Reception was set by
-> > +core
-> 
-> "LTR message forwarding of PCIe Message Reception".
-> 
-> What is this referring to ?
-> 
-
-Sorry, this sentence is ambiguous.
-"PCIe Message Reception" is a register to enable the function about forwarding
-specific PCIe messages to AXI application, such as ATS/LTR/OBFF messages...
-Here we clear bit 2 to disable the LTR message forwarding to the AXI application.
-
-I will modify the annotation in next version if you think it is ok.
-
-Thank you for your valuable comments.
-Kevin.
-
-> Thanks,
-> Lorenzo
-> 
-> > +	 * as default, but the forward id & addr are also need to be reset.
-> > +	 * If we do not disable LTR message forwarding here, or set a legal
-> > +	 * forwarding address, the kernel will get stuck after the driver probe.
-> > +	 * To workaround, disable the LTR message forwarding support on
-> > +	 * PCIe Message Reception.
-> > +	 */
-> > +	plda_pcie_disable_ltr(plda);
-> > +
-> > +	/* Prefetchable memory window 64-bit addressing support */
-> > +	plda_pcie_set_pref_win_64bit(plda);
-> > +
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBNYXIgNCwgMjAyNCBhdCA2OjE14oCvUE0gS3J6eXN6dG9mIEtvemxvd3NraQo8a3J6
+eXN6dG9mLmtvemxvd3NraUBsaW5hcm8ub3JnPiB3cm90ZToKPgo+IE9uIDA0LzAzLzIwMjQgMTA6
+MDIsIEppbmdiYW8gUWl1IHdyb3RlOgo+ID4gSW1wbGVtZW50IHRoZSBQV00gZHJpdmVyIGZvciBD
+VjE4MDAuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogSmluZ2JhbyBRaXUgPHFpdWppbmdiYW8uZGxt
+dUBnbWFpbC5jb20+Cj4KPiAuLi4KPgo+ID4gKwo+ID4gKyAgICAgcmV0ID0gZGV2bV9hZGRfYWN0
+aW9uX29yX3Jlc2V0KCZwZGV2LT5kZXYsIGRldm1fY2xrX3JhdGVfZXhjbHVzaXZlX3B1dCwKPiA+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcml2LT5jbGspOwo+ID4gKyAg
+ICAgaWYgKHJldCkgewo+ID4gKyAgICAgICAgICAgICBjbGtfcmF0ZV9leGNsdXNpdmVfcHV0KHBy
+aXYtPmNsayk7Cj4gPiArICAgICAgICAgICAgIHJldHVybiByZXQ7Cj4KPiBQbGVhc2UgdGVzdCB0
+aGlzIHBhdGggLSB5b3UgaGF2ZSBkb3VibGUgcHV0Lgo+CgpUaGFuayB5b3UgZm9yIHlvdXIgcmVw
+bHkuIFlvdSdyZSByaWdodC4gSWYgdGhlCmRldm1fYWRkX2FjdGlvbl9vcl9yZXNldCgpICBmdW5j
+dGlvbgpmYWlscyB0byBhZGQgYW4gYWN0aW9uLCBpdCB3aWxsIGNhbGwgdGhlIGFjdGlvbi4KCkJ5
+IHRoZSB3YXksIGlmIEkgbmVlZCB0byByZXNlbmQgdGhlIHBhdGNoLCBzaG91bGQgSSB3YWl0IGZv
+ciB0aGUKbWFpbnRhaW5lciB0byByZXZpZXcgaXQsIG9yCnNob3VsZCBJIGltbWVkaWF0ZWx5IGNv
+cnJlY3QgdGhpcyBlcnJvciBhbmQgcmVzZW5kIGl0LgoKQmVzdCByZWdhcmRzLApKaW5nYmFvIFFp
+dQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
