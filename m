@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF20C48BF6
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 10:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 055DBC5478C
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2024 10:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6YSmsjNyfiAOFOiwOyj3W81XzJTk8jdFTem0RDntUX4=; b=QB2AWj3NqgI+Ea
-	BbDsvLJIk4HDKOIVrymCNT4/rggpO9R1uKjMj6ybvWLqGOLFZirtjII4yabHXiQkyf+1ae2RyaOYx
-	BKDpJrg+2EeRgrTQTDkc3vAKzVU/J36/7BBH1iltXwSIUT7Blw4Bz0fwETXQrAcseQuTubJTd5CBK
-	7rpEDhRuncMqOeVfKeQTgixEh1Z9yMleVfO3DiQ5MBWbJWJjZTT/Zjrj1J3qwM8/2VV+p6V/jaiS6
-	TwlRhUahNS6mOZTQggyf9Z2b23TO4PEcY+cnvf/T43bptDS7zwf/vcDNY0VjN4c7F51LvBgucW1sk
-	b0znOZ5/9jQhee+DzkWQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Eu+bfwDrHXyqljOIxSD9Xdi/2P7JWGdMnQB1o5+5jns=; b=FUpXtF/0z50n2q4GtzjoBrUtqH
+	ZIMCSxVqs7vxbNrRNWf8NZciVUd3gpReEWKOLs4zs47sixoOHdRiGcwD8m5fBgyzlsbZkk47LCpj4
+	ukO71pTyl/ZcBl9VGY4KEQTosbiItpcMgFjVj3G/bBlL0XjV+e/haTQIiibLqsnaf7FSSi3LiSWBN
+	VV3ddfROvmFhrjQBik7La9xATv740jYV5lOjQpckY1RxdnTwmjbQEWyPsi8wynjZggBJd7q00nx45
+	4H1qs4AyCTbmyxKQxmyrvBvS/G3xSe9rUZ2XzsaKtiQ52SYvgjpWceyWIHsGej7+QbrZUkEq0n2b9
+	QSmVVsEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rh5Zj-00000008bxT-1xFk;
-	Mon, 04 Mar 2024 10:29:39 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1rh5aT-00000008cUj-0ZoP;
+	Mon, 04 Mar 2024 10:30:25 +0000
+Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rh58o-00000008Wid-2diw
+	id 1rh5Kr-00000008YTr-2NOu
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 04 Mar 2024 10:14:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=RJSHTAS026eHaV1QNQCmIUMIqEKz6C6nIPpDZDW3dhM=; b=nBIEjUxsG2rCl13VaUaDCZuZaC
+	Ep/rLNwL1Xo7Q1JPK4InL0+QJdGrzYMcxbd6jR2hJhevEatSdcdhZppYhKlPar1mN7HURqKIm9zzp
+	O7EMDnraUmRRy6YpUrdAse+dIV+4mKfM73a5bYDbX3pk0AUlnvK09aL912l16UU+SydV6xJv0Gy8c
+	ScdJw/DC7I1km5XajWYdA+8shQdN5D7Z1Vc6D/zM36pYh5O48vG+Rw/v2SeyYprrDXuISj0CBYHJ1
+	ddkmNXAbYpJEKlIW8PetHj0Xljq1Emx9e42I4tym6HvmgZ8FGvBEC21bfP8Go1r7wlxvkBErhatGL
+	vt7Uhe2A==;
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rh5KN-00000004mzM-0UgZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Mar 2024 10:01:56 +0000
-X-QQ-mid: bizesmtp83t1709546464tu9e1xsu
-X-QQ-Originating-IP: kh9aUmyxjyUl4zwZL1fChSvzQIYaeJHkGEmOd9fAvBQ=
-Received: from localhost ( [112.22.30.30])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 04 Mar 2024 18:01:03 +0800 (CST)
-X-QQ-SSF: 01400000000000505000000A0000000
-X-QQ-FEAT: +oIWmpEafD8OVAQfNNpTjIHw8qZhJIYDRrXOZUtmxSmzmlacXcINFLIpaIMVt
-	huQSSluLBpbnu7UeOPiaU+D5ZRAiHAYgyNlyp8yb98m0dzevjhiPyzPdWF4x36miGPHU/a+
-	iG2GmJlMxZwNtfhbiFn5WDklX23pYbAIaTD6RLCUVnDthdxk4nXdqZmZJdLBvm2Yg/q8rz8
-	l90RIkO0EaoSKWkiHAVUJvsVel6OFJw5XA6YubVcadD5X4TYZ3aEDGvFnH1X2lpC+Iqw4G0
-	m9nwHcp4yA3Jli9cEA40/tFCPD/v4iYM+m9bFnxUWvl6THUQCqXkZ+4Ebkmkn4Gb1xVHBG/
-	QkbpLaU3hS8KxJCfgtOeT+pDhva6PAZKgWMVi2mPoHro2Seums8QcY3oD2XaGquOK9BclSR
-	fcnWn53r8HVbny0pQUT4ig==
-X-QQ-GoodBg: 2
-X-BIZMAIL-ID: 5907862964829062476
-Date: Mon, 4 Mar 2024 18:01:03 +0800
-From: Dawei Li <dawei.li@shingroup.cn>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: daire.mcnamara@microchip.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] firmware: microchip: Fix over-requested allocation size
-Message-ID: <04A659134520CC60+ZeWb3xHvErS113zU@centos8>
-References: <20240304092532.125751-1-dawei.li@shingroup.cn>
- <20240304-dislike-enchanted-bab883cdd609@wendy>
+	Mon, 04 Mar 2024 10:14:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1709547227; x=1741083227;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=sJ4KOxVtmcc7XeECsdsqOlAheKAO0mDagIQEbtEy1/U=;
+  b=Dz8M72Mp1dZJrPNRwcBFZS5RYOWILvY1A4x4jmI4SCwg8TYVQ7riSwZQ
+   0WZmsPkuDk4sYh2YXlr7wuI+6R2fdME2C6edKNrdoyKKkehdq8EvOZGqj
+   DGKQwPHL1ytpcOr3xjb384U4T/jaXArK8WC23U2EDCLRQNKbjzRjj+4l6
+   kK3Zs2UKLQlt2kFZbW4Azfdr70naTd5Mj/GJGjh8DllvrO1ZJTkx12FcD
+   QXyoZtD3MBsAyR3EpDuIZEFt4EJgZO+7imJu+B/NWcMjtIZPR51C2vCyV
+   5lmiQ9feV85Rd93C/BhFNIEGles9lcsVLDPXNBv15V7GGmcXT6jNtAv97
+   g==;
+X-CSE-ConnectionGUID: Goj1IDGUTvCf0ooKZ5NpOg==
+X-CSE-MsgGUID: NuxxthElRJ2+wV0lAx3k4g==
+X-IronPort-AV: E=Sophos;i="6.06,203,1705388400"; 
+   d="asc'?scan'208";a="247916573"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Mar 2024 03:13:10 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 4 Mar 2024 03:12:58 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Mon, 4 Mar 2024 03:12:56 -0700
+Date: Mon, 4 Mar 2024 10:12:12 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Yangyu Chen <cyy@cyyself.name>
+CC: <linux-riscv@lists.infradead.org>, Conor Dooley <conor@kernel.org>, Rob
+ Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/5] dt-bindings: riscv: Add T-HEAD C908 compatible
+Message-ID: <20240304-password-swerve-f82a682fb619@wendy>
+References: <tencent_E15F8FE0B6769E6338AE690C7F4844A31706@qq.com>
+ <tencent_BD3B8D107CA98249DA8D8EFDB862310A2108@qq.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240304-dislike-enchanted-bab883cdd609@wendy>
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:shingroup.cn:qybglogicsvrgz:qybglogicsvrgz5a-1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240304_020153_673749_C5556E6A 
-X-CRM114-Status: GOOD (  18.83  )
+In-Reply-To: <tencent_BD3B8D107CA98249DA8D8EFDB862310A2108@qq.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,71 +97,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3151145144072602984=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+--===============3151145144072602984==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ugvRUHfMu+512og8"
+Content-Disposition: inline
 
-Thanks for the quick review.
+--ugvRUHfMu+512og8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Mar 04, 2024 at 09:52:52AM +0000, Conor Dooley wrote:
-> Hey,
-> 
-> On Mon, Mar 04, 2024 at 05:25:32PM +0800, Dawei Li wrote:
-> > cocci warnings: (new ones prefixed by >>)
-> > >> drivers/firmware/microchip/mpfs-auto-update.c:387:72-78:
-> >    ERROR: application of sizeof to pointer
-> >    drivers/firmware/microchip/mpfs-auto-update.c:170:72-78:
-> >    ERROR: application of sizeof to pointer
-> > 
-> > response_msg is a pointer to u32, so the size of element it points to is
-> > supposed to be a multiple of sizeof(u32), rather than sizeof(u32 *).
-> > 
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Closes: https://lore.kernel.org/oe-kbuild-all/202403040516.CYxoWTXw-lkp@intel.com/
-> > Signed-off-by: Dawei Li <dawei.li@shingroup.cn>
-> > ---
-> >  drivers/firmware/microchip/mpfs-auto-update.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/firmware/microchip/mpfs-auto-update.c b/drivers/firmware/microchip/mpfs-auto-update.c
-> > index 682e417be5a3..7ea3cdb917bc 100644
-> > --- a/drivers/firmware/microchip/mpfs-auto-update.c
-> > +++ b/drivers/firmware/microchip/mpfs-auto-update.c
-> > @@ -384,7 +384,7 @@ static int mpfs_auto_update_available(struct mpfs_auto_update_priv *priv)
-> >  	u32 *response_msg;
-> >  	int ret;
-> >  
-> > -	response_msg = devm_kzalloc(priv->dev, AUTO_UPDATE_FEATURE_RESP_SIZE * sizeof(response_msg),
-> > +	response_msg = devm_kzalloc(priv->dev, AUTO_UPDATE_FEATURE_RESP_SIZE * sizeof(u32),
-> 
-> Why not use `sizeof(*response_msg)`?
+On Sun, Mar 03, 2024 at 09:26:23PM +0800, Yangyu Chen wrote:
+> The thead,c908 is a RISC-V CPU core from T-HEAD Semiconductor which used
+> in Canaan Kendryte K230 SoC.
+>=20
+> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 
-Because checkpatch complains about 100-character violation and I don't
-want to wrap lines :)
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-I will respin V2 as you suggested.
+Cheers,
+Conor.
 
-Thanks,
+> ---
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Document=
+ation/devicetree/bindings/riscv/cpus.yaml
+> index 9d8670c00e3b..e853a7fcee8a 100644
+> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> @@ -47,6 +47,7 @@ properties:
+>                - sifive,u74
+>                - sifive,u74-mc
+>                - thead,c906
+> +              - thead,c908
+>                - thead,c910
+>                - thead,c920
+>            - const: riscv
+> --=20
+> 2.43.0
+>=20
 
-    Dawei
+--ugvRUHfMu+512og8
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> 
-> Cheers,
-> Conor.
-> 
-> >  				    GFP_KERNEL);
-> >  	if (!response_msg)
-> >  		return -ENOMEM;
-> > -- 
-> > 2.27.0
-> > 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZeWefAAKCRB4tDGHoIJi
+0lyxAQDRzUkuJwBkpYeAvRrCLhGNK9XYFWh7fKJrI7yo2WVD/QEAik6+0zb4XGGW
+M8ScvQFXGFBwYs1ke00bhDaARkvIOgg=
+=+dYI
+-----END PGP SIGNATURE-----
+
+--ugvRUHfMu+512og8--
 
 
+--===============3151145144072602984==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3151145144072602984==--
+
