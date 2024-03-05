@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F8D5C5478C
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 07:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3199C54E41
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 08:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rwNxTGUsA7T6+eWFTd8rEdfOh/MZz6fSjYFoK0vA5Io=; b=do3MfZCNqyBxVU
-	+UI6uQVgow2FzqvQv+BL+fzOwsUbmkNsva2RnYuao+yuAXYNfvfO2pCcpNBeLuwvUdHW1AdK5SBpk
-	D1rg9L/EhUJS5FIn0XFnI3Y6bC8ZbsTjQ5rsNNRN/AU0UDX9H3c7wSSxxkpUSrvKdCm59v1g1wXB1
-	UYrspI1MsDw1haS/ysAMtaFtkTbtGdpNhtL1vlaW8quugGBswZQ+3/yCYkgiqVL0x9GbyZ8/zXLuY
-	UI9L2lbPoDjMI9BbwgIkYMjyV9IAa9YpyTBoftMavGe7XcNosJkbVsBBPmXqDwFiQNLkdGecIBGST
-	8kN6IavDRNfaA8Bma32w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UqE82arbtD692ypM9x8RB517NyUJRXBqyw8wxWTnIvo=; b=bH35mAFJKAPdISoVLlRH6lqmoq
+	n7LCjbYZVMxBAkZHpZ1tzBOM0NSd17vnN1Nna1WBN5xgZAaoaCVzCCPJuo5DmpkrPvD3XZ9A1clOS
+	if4pESHkahM3gPFPJ2kkdQrwe1v9cbUK/fkOD8wA3Q+R+biMlTEPsyuRUCHn9zz/p16ovNB5JArIW
+	jbhSY3MvHcGEGnWXGZC8c6H+1MQXu9ifVLbNOdG/bJHHCVNt5kXL8BAxo4K3uPNqRQ27JqWdl0ur1
+	xec1T7C2ecshW9XGJwVJMWi6ZDgLV1SSBvDWofAV0BBx8xZztoPQ1/Iv0Qgm74ffua+7HlMYbhrUg
+	JGLMt9dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhPRs-0000000CPwT-09IF;
-	Tue, 05 Mar 2024 07:42:52 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1rhPjC-0000000CUjI-32j4;
+	Tue, 05 Mar 2024 08:00:46 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhPRo-0000000CPvm-1r7x
+	id 1rhPj7-0000000CUf0-1L4c
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Mar 2024 07:42:49 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2d109e82bd0so64042361fa.3
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Mar 2024 23:42:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1709624565; x=1710229365; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1yacK9hpiPuhyJxzTeAxFGss0ekxT9wkeTcOYVFT5O0=;
-        b=SkTyFd9snY2Xs4g2UqjpcvtRo6RTHrAivj0q76y/GOKyYGY2+yVmGX0sq2BKOL1nmB
-         mxfNzNrnWk6xzehJFDZvH6CqBQyX6/Reg4QmsK+yy83mG5mSFf1K3VeYu03Re+X9V8AQ
-         0I/FfFb8CuGqNOK3YaE/6yIj8qLU5fKFJsCkiZZQ1FJmYOHqZ3o1vvSRwmGZnKruAHpe
-         leu8vFXLQJUcM6sC53cxSuhf1mZtZvwme9dD4ypqy9Lw5ncYpwAnLSsSbuSO2zxyduiR
-         Vq91wUyEP1Ovqgp9texNZ8f/bmAIoHUtqXr2AEsHAUXuuviSBZHiix/n912ckULhcKCB
-         q3Bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709624565; x=1710229365;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1yacK9hpiPuhyJxzTeAxFGss0ekxT9wkeTcOYVFT5O0=;
-        b=B/v+nUvFlR/BbpOM6drgd44FFx6aR7hIAmk08GHpMriceXVlEK1mHCeYEFZyN9RS6y
-         BWcJLie2ld3seJ7Brl7W9MJFH2lpoIGs6frXpoobEtM8eadYl2HfG9eOFO87VzqlPFi/
-         gAMo7uYQstZ9XlKKAxZW9qbmpQiOmGG9bjUuIP48dwyn9fsXIMN7YHelUE7ahwnTFZf2
-         lJJi2/gb9gyUqgsi5kEp3yXbhqLb53z8octgefHMfUMrEjn0EtGOrHxqg3kuZIASAxVQ
-         x7OEqbWaHUYmoQzj1WwDT8N0yDOHc01HToZzNS9Lk+eJHhV6aXBhrYFreySN9lYBy7Xy
-         jiBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXjZpJPGN/K++jyC4ENFsSEoq0RubJwCbPMw33KlwgxIv49CW7hMjyOeAF5dntFhIsjXTK9gf+RtGBLB8yFy6QmAPWc8ZY9ypijWCCxcVT7
-X-Gm-Message-State: AOJu0YzaJw2eStW7IFwOHT31Nyn7UerAI9csmvO2i1fvGXzjYTh4Pnhb
-	JISPMIayOwORIlw8i0r/pt9ZoZR/ll0AO6Cmwp1N9iSfrswkqJoDENMSeZasO+S1QzWbdammDlj
-	vr2NakziK7O9ACj9WMOTtkF8WEfY=
-X-Google-Smtp-Source: AGHT+IH3ogEE3gS9kmBu6JCdtMvf/PW5rL/fmSyuLCQWSV1sV1Mmkgo71z6sH2+EquAbsW+oxtRPML/1nmNxh73v3b8=
-X-Received: by 2002:a05:651c:1683:b0:2d2:ef14:593e with SMTP id
- bd3-20020a05651c168300b002d2ef14593emr506670ljb.48.1709624564715; Mon, 04 Mar
- 2024 23:42:44 -0800 (PST)
+	Tue, 05 Mar 2024 08:00:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1709625640; x=1741161640;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gWFAJuQry3gzF9uH7O4D0aDTDmuwfZxjmqEXA+RPFLQ=;
+  b=OloVcACqesIsW79fmpmLY1r1J0SHhB73mEf04hau2A9WvN7E/e6vi7JJ
+   JcCe9MPMyEjiWzsSzFINNQZjOtBPPKy187+8PbMJ5YZBQ0PQNfiLXZz+g
+   UkiBSsPNBGf+ESLq7TqRgJdukx2MQf4JgMjF6WywRrUcYLeAAbzAgI+PW
+   1Josu6XifzvLR7v3sslNk7XDkeH7VacKiyNPf8jhj29FQovwq07hiZ9oj
+   FhNwzVoDl2kEsZrtdpsQWPNOaX14LUEzalCdn8+9auWrVAKDTjH+AYhi5
+   8sJzmBaXMeHmzK+GFLVdAg3X24xBivMHQkxBprri/Lk+junHmVJP5cWuJ
+   g==;
+X-CSE-ConnectionGUID: aFDr3hW/QMqfVKlnMUlmNA==
+X-CSE-MsgGUID: 6fJ54n74SV+WjGmrURhuaQ==
+X-IronPort-AV: E=Sophos;i="6.06,205,1705388400"; 
+   d="asc'?scan'208";a="18837278"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Mar 2024 01:00:35 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 5 Mar 2024 01:00:24 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Tue, 5 Mar 2024 01:00:21 -0700
+Date: Tue, 5 Mar 2024 07:59:37 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Anup Patel <apatel@ventanamicro.com>
+CC: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>, Conor Dooley
+	<conor@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>, Anup Patel
+	<anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrea Parri
+	<andrea@rivosinc.com>, Samuel Holland <samuel.holland@sifive.com>, Steven
+ Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-trace-kernel@vger.kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, Andrea Parri
+	<parri.andrea@gmail.com>
+Subject: Re: [PATCH v3 2/2] riscv: Fix text patching when IPI are used
+Message-ID: <20240305-sarcasm-ending-0f7946490aea@wendy>
+References: <20240229121056.203419-1-alexghiti@rivosinc.com>
+ <20240229121056.203419-3-alexghiti@rivosinc.com>
+ <20240304-makeshift-bakeshop-26c9611de1a3@spud>
+ <87msrdzqxi.fsf@all.your.base.are.belong.to.us>
+ <CAK9=C2Xjgr9_H-sHkmAAc95dAm2jd+_dxLUxSM3RM3NrQJFKGQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <cover.1706603678.git.haibo1.xu@intel.com> <ZeajHkn6dTQ3krsL@sunil-laptop>
-In-Reply-To: <ZeajHkn6dTQ3krsL@sunil-laptop>
-From: Haibo Xu <xiaobo55x@gmail.com>
-Date: Tue, 5 Mar 2024 15:42:32 +0800
-Message-ID: <CAJve8on1B7psLYX+Qei0Uxc=GbrGYq52OqV+ZFND9PkPMnyj=g@mail.gmail.com>
-Subject: Re: [PATCH 0/4] Add ACPI NUMA support for RISC-V
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Haibo Xu <haibo1.xu@intel.com>, ajones@ventanamicro.com, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Robert Moore <robert.moore@intel.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	Guo Ren <guoren@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Greentime Hu <greentime.hu@sifive.com>, 
-	Anup Patel <apatel@ventanamicro.com>, Sami Tolvanen <samitolvanen@google.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
-	Baoquan He <bhe@redhat.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Arnd Bergmann <arnd@arndb.de>, James Morse <james.morse@arm.com>, Evan Green <evan@rivosinc.com>, 
-	Samuel Holland <samuel.holland@sifive.com>, Yang Li <yang.lee@linux.alibaba.com>, 
-	Tony Luck <tony.luck@intel.com>, Ard Biesheuvel <ardb@kernel.org>, Yuntao Wang <ytcoode@gmail.com>, 
-	Dan Williams <dan.j.williams@intel.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Alison Schofield <alison.schofield@intel.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	acpica-devel@lists.linux.dev
+In-Reply-To: <CAK9=C2Xjgr9_H-sHkmAAc95dAm2jd+_dxLUxSM3RM3NrQJFKGQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240304_234248_506409_47007C8A 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20240305_000041_564394_FFF9C65E 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +92,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============1295144599445966034=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXIgNSwgMjAyNCBhdCAxMjo0NOKAr1BNIFN1bmlsIFYgTCA8c3VuaWx2bEB2ZW50
-YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IEhpIEhhaWJvLAo+IE9uIFdlZCwgSmFuIDMxLCAyMDI0
-IGF0IDEwOjMxOjU3QU0gKzA4MDAsIEhhaWJvIFh1IHdyb3RlOgo+ID4gVGhpcyBwYXRjaCBzZXJp
-ZXMgZW5hYmxlIFJJU0MtViBBQ1BJIE5VTUEgc3VwcG9ydCB3aGljaCB3YXMgYmFzZWQgb24KPiA+
-IHRoZSByZWNlbnRseSBhcHByb3ZlZCBBQ1BJIEVDUlsxXS4KPiA+Cj4gPiBQYXRjaCAxLzQgaXMg
-Z2VuZXJhdGVkIGZyb20gdGhlIGFjcGljYSBQUlsyXSBhbmQgc2hvdWxkIGJlIG1lcmdlZCB0aHJv
-dWdoCj4gPiB0aGUgYWNwaWNhIHByb2plY3QuIER1ZSB0byB0aGlzIGRlcGVuZGVuY3ksIG90aGVy
-IDMgcGF0Y2hlcyBjYW4gb25seSBiZQo+ID4gbWVyZ2VkIGFmdGVyIHRoZSBjb3JyZXNwb25kaW5n
-IEFDUElDQSBwYXRjaCB3YXMgcHVsbGVkIGludG8gbGludXguCj4gPgo+ID4gUGF0Y2ggMi80IGFk
-ZCB0aGUgY29tbW9uIFNSQVQgUklOVEMgYWZmaW5pdHkgc3RydWN0dXJlIGhhbmRsZXIuCj4gPiBQ
-YXRjaCAzLzQgYWRkIFJJU0MtViBzcGVjaWZpYyBhY3BpX251bWEuYyBmaWxlIHRvIHBhcnNlIE5V
-TUEgaW5mb3JtYXRpb24KPiA+IGZyb20gU1JBVCBhbmQgU0xJVCBBQ1BJIHRhYmxlcy4KPiA+IFBh
-dGNoIDQvNCBhZGQgY29ycmVzcG9uZGluZyBBQ1BJX05VTUEgY29uZmlnIGZvciBSSVNDLVYgS2Nv
-bmZpZy4KPiA+Cj4gPiBCYXNlZC1vbjogaHR0cHM6Ly9naXRodWIuY29tL2xpbnV4LXJpc2N2L2xp
-bnV4LXJpc2N2L3RyZWUvZm9yLW5leHQKPiA+Cj4gPiBbMV0gaHR0cHM6Ly9tYW50aXMudWVmaS5v
-cmcvbWFudGlzL3ZpZXcucGhwP2lkPTI0MzMKPgo+IFBsZWFzZSBhdm9pZCBwcm92aWRpbmcgbWFu
-dGlzIGxpbmsuIEl0IGlzIG5vdCB1c2VmdWwgZm9yIHBlb3BsZSB3aG8gYXJlCj4gbm90IFVFRkkg
-bWVtYmVycy4gQmV0dGVyIHRvIHByb3ZpZGUgdGhlIGxpbmsgdG8gdGhlIFBERiB2ZXJzaW9uIG9m
-IHRoZQo+IEVDUiBhcHByb3ZlZC4KPgoKU3VyZS4gV2lsbCB1cGRhdGUgd2l0aCBhIFBERiBsaW5r
-IGluIHYyLgoKVGhhbmtzLApIYWlibwoKPiBUaGFua3MsCj4gU3VuaWwKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+--===============1295144599445966034==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ofyVMJD7bERZqUGb"
+Content-Disposition: inline
+
+--ofyVMJD7bERZqUGb
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Mar 05, 2024 at 08:33:30AM +0530, Anup Patel wrote:
+> On Tue, Mar 5, 2024 at 1:54=E2=80=AFAM Bj=C3=B6rn T=C3=B6pel <bjorn@kerne=
+l.org> wrote:
+> >
+> > Conor Dooley <conor@kernel.org> writes:
+> >
+> > > On Thu, Feb 29, 2024 at 01:10:56PM +0100, Alexandre Ghiti wrote:
+> > >> For now, we use stop_machine() to patch the text and when we use IPI=
+s for
+> > >> remote icache flushes (which is emitted in patch_text_nosync()), the=
+ system
+> > >> hangs.
+> > >>
+> > >> So instead, make sure every CPU executes the stop_machine() patching
+> > >> function and emit a local icache flush there.
+> > >>
+> > >> Co-developed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@rivosinc.com>
+> > >> Signed-off-by: Bj=C3=B6rn T=C3=B6pel <bjorn@rivosinc.com>
+> > >> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> > >> Reviewed-by: Andrea Parri <parri.andrea@gmail.com>
+> > >
+> > > What commit does this fix?
+> >
+> > Hmm. The bug is exposed when the AIA IPI are introduced, and used
+> > (instead of the firmware-based).
+> >
+> > I'm not sure this is something we'd like backported, but rather a
+> > prerequisite to AIA.
+> >
+> > @Anup @Alex WDYT?
+> >
+>=20
+> The current text patching never considered IPIs being injected
+> directly in S-mode from hart to another so we are seeing this
+> issue now with AIA IPIs.
+>=20
+> We certainly don't need to backport this fix since it's more
+> of a preparatory fix for AIA IPIs.
+
+Whether or not this is backportable, if it fixes a bug, it should get
+a Fixes: tag for the commit that it fixes. Fixes: isn't "the backport"
+tag, cc: stable is.
+
+--ofyVMJD7bERZqUGb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZebQ6QAKCRB4tDGHoIJi
+0qg3AQD+yvdHglvWYh8y5lWj9K/+QDa9GdWm0cjqVDuvHYScUgD9FI61pKq1ci91
+LXvSARs1oJvF0xK/zbm2iRwaXt4gCAw=
+=F+Fw
+-----END PGP SIGNATURE-----
+
+--ofyVMJD7bERZqUGb--
+
+
+--===============1295144599445966034==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1295144599445966034==--
+
