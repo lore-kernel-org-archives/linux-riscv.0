@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B904C54E41
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 17:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E613AC54E4A
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 17:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tD5540K9BpUwJsBizWg1CiCHazkudYqVGw/z4rgdwUE=; b=gcNjArSD5iytNbqI1VkUUzMAhi
-	odqS+3fiYH5mp6NfNgrEaGeFokufZzUAVRQAwu9f4HYekBK34HBEtKg9E/dQX18IuVVNlN+vmEUzl
-	JvAucOEj4NyKB9PvcLNhyqGdfaQKbJ7Q8Gxkk8BPdPSod2G/66TGcBPoZS/+1ulcpRgVmVttqskYW
-	5jeG7D3HB//zWK9Nt8cmMR/Vdd+DBmQneX592yHJ3YoHASw9RkaWyP8naNXDsGuS+p5X471/xUirO
-	l8bAxiB6Y40cWXBX6XvUbr8Je3Yjll6TDZiQdBbkOQh27wTP/O+MCot3D3+u4USpGhV4ZQfMsAH2T
-	RytA1agQ==;
+	bh=iHjF9QVIeiTeur29V7/DwtXK3mHrbPEMpu8My9MVLZo=; b=3cn5aLXsa6mC/tGIMJjRhQfpl0
+	Vi/4o+28x6wJp0bprtMZSiz8QRXZtASG6SbNu4jJTO7ftYRBjsxllyIo+l4w/w/XDIWAJFuHKHxDG
+	Jk4N5ZxxkkmR4KALx7P0n8Q8UbD84wWz2hF4NuVsMYlUCgtjuBtb65cgnqdelrXX7k8a6Z2CQWsTV
+	sfMpfNlt+ReuggYP91EXe4tcT8aLc+SxYao3jRKhXXXJZs5QiK2B5qLZZTMQVwxGJaHPYN06DNzfa
+	fv+j0WFR4pIkxDGV9wgL2+FtLX+oW5wQzTpRpGQ4RUxFTZf4frW7P2pk09ItHI/hOrK3ikmMctwfa
+	xWJpXmnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhYTY-0000000EfQA-3tro;
-	Tue, 05 Mar 2024 17:21:12 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rhYXI-0000000Eg3i-3M94;
+	Tue, 05 Mar 2024 17:25:04 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhYTR-0000000EfOk-3VsE
+	id 1rhYXF-0000000Eg07-0Fao
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Mar 2024 17:21:10 +0000
+	Tue, 05 Mar 2024 17:25:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id D7C92CE1CE8;
-	Tue,  5 Mar 2024 17:21:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AADEAC43390;
-	Tue,  5 Mar 2024 17:21:00 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 14F1BCE1D32;
+	Tue,  5 Mar 2024 17:24:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11305C433F1;
+	Tue,  5 Mar 2024 17:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709659263;
-	bh=u/5agPX/lDQGtNbFvNrArovCNgzjSoaqePko/71LzPA=;
+	s=k20201202; t=1709659491;
+	bh=QsenZAH1ku6PvZX7ejloa6VeWLc+wSXNgpDQ7jBBw5U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jLh68MSAY+lVY1J2FtZLY48K1b81meFAuTM98dQCDx/YN8N8VdfVtxT1fwI6ZEBTH
-	 kmXVOwXzXuoC/fKP+poyLcgqsH1MVL0JExkC5jZdgoGEV94kG7Whw2oGB9Sb0/va/i
-	 sPom6z6JzJENMaaZMWFNlmXkbwY9oSCWEjrEUnu0jDtgd7WNgq36ld5OLZRXf1h+Vs
-	 +uVjvKqF+1Z0nRHxf0cZgLMVagOXc6c74/+dPJeYsgJO6ObDWXVsB/dpH6/wfw0V0q
-	 eqm5suN4eKt4cFETc6ZVGggx+JROVMqGCEN0NO/d6TqX6RGKv6bgdQGJn9SVEmskHw
-	 BiJv3YSN0VM5A==
-Date: Tue, 5 Mar 2024 17:20:58 +0000
+	b=YwuXR1oOn3cAnb66aX7pDqhqWQLptn4H9mnfjQtk/eTS9nk8mhADs3PIdTBJtx1v+
+	 eXYLcsE8SLBPnVvzQPmrR0WRuPjOwBtyluyHD/lk6499LHFcOSRPLxAIJg5uJ+z4pp
+	 q6tCLX6KoE6uIeS7G8tTGq0y/9S5pb6Y5+pSis931MFL0rAYzY3fsYxUrcLAmeCvSd
+	 hF5K+Xaz2Z2kDqD4eIAl0woUZKrIQki6a5BJSF44bN0Bl3IIPIhWGSG8V6tPyGKSc5
+	 l9Ir+vsBnXa/O+oRyIz1BpUXjV+XwEp7486g39dzlv+pC1fmgXkyKW9o6fI6yuO7Zi
+	 KJWXqw++Ejd+A==
+Date: Tue, 5 Mar 2024 17:24:46 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Yangyu Chen <cyy@cyyself.name>
-Cc: Damien Le Moal <dlemoal@kernel.org>, linux-riscv@lists.infradead.org,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>, krzysztof.kozlowski+dt@linaro.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 5/7] riscv: Kconfig.socs: Allow SOC_CANAAN with MMU
- for K230
-Message-ID: <20240305-fascism-enrich-06483ddeb149@spud>
-References: <tencent_BB2364BBF1812F4E304F7BDDD11E57356605@qq.com>
- <tencent_0432DA968E39B81431F921F38D747C008208@qq.com>
- <ef8df22f-dac8-4652-bf17-d10254e6abfb@kernel.org>
- <tencent_E56A833916E00EC7B4840C34FAF1250ADE0A@qq.com>
+	Albert Ou <aou@eecs.berkeley.edu>, guoren@kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 6/7] riscv: dts: add initial canmv-k230 and k230-evb
+ dts
+Message-ID: <20240305-ripcord-engraving-af3310d62a67@spud>
+References: <mhng-f1aa91d4-211f-4eb4-a94d-a9d88b0d3f6a@palmer-ri-x1c9>
+ <7A86D933-B85F-4B29-8D6D-AB414A42AC06@cyyself.name>
+ <tencent_B2C1146D4947315C8018AE90EDC64F3E6207@qq.com>
+ <20240305-shorten-disallow-eae65fdc8fdb@spud>
+ <tencent_3638D6E106C784859837E6F3C10BDA688F0A@qq.com>
 MIME-Version: 1.0
-In-Reply-To: <tencent_E56A833916E00EC7B4840C34FAF1250ADE0A@qq.com>
+In-Reply-To: <tencent_3638D6E106C784859837E6F3C10BDA688F0A@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240305_092106_253195_0B30D295 
-X-CRM114-Status: GOOD (  22.97  )
+X-CRM114-CacheID: sfid-20240305_092501_301674_FE91B387 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,106 +75,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8343042689889878648=="
+Content-Type: multipart/mixed; boundary="===============1034167433524501734=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8343042689889878648==
+--===============1034167433524501734==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="kCqjEWLK9A+dep2C"
+	protocol="application/pgp-signature"; boundary="vhZQxYF104MnbLU5"
 Content-Disposition: inline
 
 
---kCqjEWLK9A+dep2C
+--vhZQxYF104MnbLU5
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Mar 05, 2024 at 03:47:15PM +0800, Yangyu Chen wrote:
-> On 2024/3/5 07:46, Damien Le Moal wrote:
-> > On 3/5/24 06:05, Yangyu Chen wrote:
-> > > Since K230 was released, SOC_CANAAN is no longer only referred to the=
- K210.
-> > > Remove it depends on !MMU will allow building dts for K230 and remove=
- the
-> > > K210 string from the help message.
-> > >=20
-> > > Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > ---
-> > >   arch/riscv/Kconfig.socs | 5 ++---
-> > >   1 file changed, 2 insertions(+), 3 deletions(-)
-> > >=20
-> > > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> > > index 623de5f8a208..b4e9b7f75510 100644
-> > > --- a/arch/riscv/Kconfig.socs
-> > > +++ b/arch/riscv/Kconfig.socs
-> > > @@ -75,13 +75,12 @@ config ARCH_CANAAN
-> > >   	def_bool SOC_CANAAN
-> > >   config SOC_CANAAN
-> > > -	bool "Canaan Kendryte K210 SoC"
-> > > -	depends on !MMU
+On Wed, Mar 06, 2024 at 01:17:29AM +0800, Yangyu Chen wrote:
+> > On Mar 6, 2024, at 01:01, Conor Dooley <conor@kernel.org> wrote:
+> > On Wed, Mar 06, 2024 at 12:37:16AM +0800, Yangyu Chen wrote:
+
+> >>> Link: https://github.com/cyyself/opensbi/commit/b113c1c01d700314a4a69=
+6297ec09031a9399354
+> >>>=20
+> >>> Furthermore, I wonder whether a CPU node like this would be acceptabl=
+e.
+> >>> I don't have any other details of how another CPU from K230 SoC works=
+ on
+> >>> Linux.
 > >=20
-> > This seems wrong to me. The k210 support does require no-mmu. So why re=
-move
-> > this ?
+> > A CPU node like what? It is not clear to me.
 >=20
-> It just allows SOC_CANAAN to be selected when MMU=3Dy. With this patch,
-> nommu_k210_defconfig still works.
+> It in the k230.dtsi file. Only has big core there.
 
-I think the concern here is that this would allow people to build a
-kernel for the k120 with the MMU enabled, not that the existing nommu
-build will be affected.
+The node that is currently there looks fine to me.
 
-Maybe you could squash in something like the following?
-
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index b4e9b7f75510..75d55059163f 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -72,15 +72,19 @@ config SOC_VIRT
- 	  This enables support for QEMU Virt Machine.
-=20
- config ARCH_CANAAN
--	def_bool SOC_CANAAN
-+	bool "Canaan Kendryte SoCs"
-+	help
-+	  This enables support for Canaan Kendryte SoC platform hardware.
-=20
- config SOC_CANAAN
--	bool "Canaan Kendryte SoC"
-+	bool "Canaan Kendryte K210 SoC"
-+	depends on !MMU
-+	depends on ARCH_CANAAN
- 	select CLINT_TIMER if RISCV_M_MODE
- 	select ARCH_HAS_RESET_CONTROLLER
- 	select PINCTRL
- 	select COMMON_CLK
- 	help
--	  This enables support for Canaan Kendryte SoC platform hardware.
-+	  This enables support for Canaan Kendryte K210 SoC platform hardware.
-=20
- endmenu # "SoC selection"
-
-(Which reminds me, I really need to go and finish sorting out the ARCH_
-stuff)
-
---kCqjEWLK9A+dep2C
+--vhZQxYF104MnbLU5
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZedUegAKCRB4tDGHoIJi
-0mvGAP46YoIzshNQyc4YEgagEXQXzIwdeALQV+PKRlM2tCe2FQEAvnZO3VGbXelI
-c9WuUEV6/uQa3XYyXDrSIxQdWFWinQo=
-=oH7D
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZedVXgAKCRB4tDGHoIJi
+0saeAP4pPuYdIfPpajZxYSLmdBJkzM9jXmO55zWBkmcKkm1OrwEAjXqI9zESV97A
+Cl7lBRtyzckFGrJKMW1RI+mIFSqnGgg=
+=bd1D
 -----END PGP SIGNATURE-----
 
---kCqjEWLK9A+dep2C--
+--vhZQxYF104MnbLU5--
 
 
---===============8343042689889878648==
+--===============1034167433524501734==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -186,5 +135,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8343042689889878648==--
+--===============1034167433524501734==--
 
