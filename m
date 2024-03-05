@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D87C54798
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 21:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6FE9C54798
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 23:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=3twY41MjqIWxmV6MGfJA/C+cjoQBEiubC5QuihvnsOA=; b=eh6YkJVXdUJ7CmzWNOjlqsRRvB
-	O18S3OsocDPycCgMCK9CfBPpbzKwnp6Sjpk/z6UKhi15ntQR5ngdToH2EU4JjHn9xN2z6PU6ok3GN
-	q9BCAaJMo2W5p11fhE6Bv5gUex2RYom9KBKoosmlF+6NLueg9olllZxuVKuFNd0MujpPc0HCKvVaZ
-	MFhBRe40zAifQT7vyiweBHF+W0KouW32lrRSM29ZNxQoHagcW6nCX59uXeLprJlhqrNX2ZROnKfQa
-	06hilu/cPGQ6qpzySJ8L1/GQmC2hVHTxX7+JSFdDV+zr/M1bR6ET973GKH1r2GXhEgc8mvJ30CPOS
-	wjOP72kg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OXcfhgfbqOFVWh733Xh9mGxnvCAcPEixGk6w0jLbZv8=; b=G2UQ7M7SDMKeQV
+	ZwLDuFpQtuFkCpiSzKmr2odpUlwWbBv6d6mWIAOB7mGYXXsSKodax2aEqszb5Qgh11EaI1sVSf7s3
+	rIRxwqCS5rlVDI0jxiCQICBS3B5hmACmoMiV5kIZifJRiGMzaSyrZ5qQvTm3UojwdTWZRnHzP03OG
+	FDTbmddvCLPcLRjcmSuy6e0DU4li+VPMo10sb3hND95xJHxvjdg8kwiWmJoaouOgWtN2NxDKfni/X
+	NISflCpYwXPnHIPE98ZSophbqBxmZY2to5j/H2NUYWo6zxGAMOD2kC5w4rLlwGT4OQSe2qYoPAbnA
+	TGE2dEyMS5YSEEKUuzsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhc8u-0000000FINh-42tb;
-	Tue, 05 Mar 2024 21:16:08 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1rhe7G-0000000Facz-0J3V;
+	Tue, 05 Mar 2024 23:22:34 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhc8q-0000000FILE-01lQ
+	id 1rhe7C-0000000FabY-1JF2
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Mar 2024 21:16:07 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1dca3951ad9so2556695ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Mar 2024 13:15:56 -0800 (PST)
+	Tue, 05 Mar 2024 23:22:32 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-53fbf2c42bfso5457420a12.3
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Mar 2024 15:22:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1709673355; x=1710278155; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fiBn8FM4g6SLp0BGLWgmHRyv4STvpdqrSJ1Zy2Fii/A=;
-        b=h68sItQmP8rIjACosMUbGfZTeQu3kfYCA61aiWyAjUmm3SBprFW9PhhK87/ujWW+PA
-         Qktng5QoOsC+Tj9pJoOGdtxC7C1VISNmPHiVC3+lYsT5yC2g4uUZnmzMgKrdLTCFt3ri
-         F6exJRYDwpU+S3nIGB85eCDB8+eSX9Npl9SVWUcY4nByecv7QS+jUlV/v7rZFQ4XdjOA
-         2LNuQc3qh+I2gyrx8gisNjXEv4zZxG89TAlA00nVMSZotAxUAp/F3ceX1Qoq4ijxUB6t
-         0puPtiUtQx9oOzz938oyBZlKE+5GBxvETNf9ozuuqq3WYXATHEyPcompk+hbYrnFEf0+
-         vVYQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709680948; x=1710285748; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=R4U2Xkw/IBgvoNoGeIYqYiemkRY93cmWxyD/xaF/gu4=;
+        b=MiU43txikGbu/LXOuNBndL86A3h3ZcBHwB0Uhp2v/O/rpxW8H7K7g9bf4OID4yNGJ2
+         L+K5ZNwEegoqQVvJ2/dHwnHcJWwtMtrrW7mkeU0+ZWDgoxRD6qcGKLCxI5exwEyR5N4w
+         0F3VoqDseak16+OkUZ0Pxz2nLWMBBUp7QCLyLX075I0ODR7MKToogGmYUU/y2f4PONn7
+         y+TAn6VmZFNhozxTLzca6XeWcKg+LGZWpaj3+hniEO4loW84RmPBh1ioUq0kSTGq0ivv
+         gSQRDyAr5HTK8gOmAe44OabnF7r06Na0k1wuRAXbtNtaGboYQZ+hp9tRMKKpdQKot3FK
+         z+oQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709673355; x=1710278155;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fiBn8FM4g6SLp0BGLWgmHRyv4STvpdqrSJ1Zy2Fii/A=;
-        b=DEamdY3HiAIkgoI/SJwI6JjZTQQqDjHeB8yX06rI1k8WO6fM5GRmDjmyVvMi5Fuokn
-         YeVS/VRUy8ZKR+lZl9DAclQWLzg/X2MaduD/6BEn5VZfkcbPmPPdLL8EmjxLpPK5Hk9W
-         irl4UfX0QuVK0GLg6ti1KXQSDZ6AWP77wbjFuFKiocwJSQfygQ82yZApfkeMRpeMCzLq
-         ZxG5cQ6WgLIwdx5pbivnIVSyG1AdRF2x2Y6bPTi2hKVtpkrv5UDb9ynTTg5Ey1338vqB
-         kwGC2TBDoBMtu1Gd4YzZ6sAi46UJ61kDgZoSBta4FvXLod3NV18mrIKhM36DbX9EFFml
-         yeDA==
-X-Gm-Message-State: AOJu0YwJpH6kzBp4LOSkvDRXw6IapcNR9bth1gc4wQb4zHMlxzZ1X+Y6
-	Hu2zZKWPOwu6tJ8lxE8bJS/xmHLW+yCjQJIQHPpgWwr0cSYrZbSqOCirDYZYxmP+mbPCLhRwe08
-	9
-X-Google-Smtp-Source: AGHT+IHh5G0L+3SfyyNdkveVZXtvX8KU042f9OgNbdPuwmamHBWHlAkygbRToiaIR/tqbjsFPbVIXA==
-X-Received: by 2002:a17:902:ecd2:b0:1db:f696:b09 with SMTP id a18-20020a170902ecd200b001dbf6960b09mr3603069plh.14.1709673355319;
-        Tue, 05 Mar 2024 13:15:55 -0800 (PST)
-Received: from localhost ([50.213.54.97])
-        by smtp.gmail.com with ESMTPSA id y5-20020a170902ed4500b001dbb06b6133sm11021831plb.127.2024.03.05.13.15.54
+        d=1e100.net; s=20230601; t=1709680948; x=1710285748;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=R4U2Xkw/IBgvoNoGeIYqYiemkRY93cmWxyD/xaF/gu4=;
+        b=BAnx5drFoK/HurgkyLWclBtNiU1SdUf4K68jgpQ0QVzF9L95SluFjxYmLjMvuvIMPd
+         Y095Va6YV5soOZYL16Ja3Q1+e8S0wbwgewfG+XCOEElDEQx0T7DIiY4czZRXsSKzfKYO
+         tC6tnv8f/rjJZ48rqYKRP9DHRgJiTnMi0zDCyky18nwcttft5JlWCNVT1qStkjMgwQHu
+         e+u2t8IRTPifsgTdZJEcavmx9M70/9z5neInCfwnlKEGI0tm6CaHsWhSgYrw5bmU9cgo
+         ryOzGw32YcwO8qpJN0xPKbhE7/rtD3ZUJFtWRDZKB9D6qhmP6dm8yy66oFG3qjVDkmWP
+         0v+g==
+X-Gm-Message-State: AOJu0YzjV9RF2BpO57enGdc3fPrFtOauLtP+e1dhAJdfcYs0+PJf5/Ge
+	4UdkZ+34OhQm+zU8vtyGlxFYXJ+u6V5ndvkmwQw/CNvvtMAAtDDuKx0qcn6sn1I=
+X-Google-Smtp-Source: AGHT+IHMRmxHiMb/Kmx0F2hLj8iRRMjaNRQUVODlVPukYARpd+a2KaUJJPnOKWnaEIr+cFIgSRnr7w==
+X-Received: by 2002:a05:6a20:9381:b0:1a1:4d85:5d73 with SMTP id x1-20020a056a20938100b001a14d855d73mr3830127pzh.25.1709680948217;
+        Tue, 05 Mar 2024 15:22:28 -0800 (PST)
+Received: from ghost ([50.213.54.97])
+        by smtp.gmail.com with ESMTPSA id p12-20020aa7860c000000b006e50e79f155sm9469415pfn.60.2024.03.05.15.22.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Mar 2024 13:15:54 -0800 (PST)
-Date: Tue, 05 Mar 2024 13:15:54 -0800 (PST)
-X-Google-Original-Date: Tue, 05 Mar 2024 13:15:53 PST (-0800)
-Subject: Re: [PATCH v3] riscv: dts: Move BUILTIN_DTB_SOURCE to common Kconfig
-In-Reply-To: <tencent_88FEE0A2C5E0852436A2F1A1087E6803380A@qq.com>
-CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org,
-  masahiroy@kernel.org, alex@ghiti.fr, robh+dt@kernel.org, devicetree@vger.kernel.org,
-  cyy@cyyself.name, Conor Dooley <conor.dooley@microchip.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: cyy@cyyself.name
-Message-ID: <mhng-5b86ee53-13eb-45b0-9b41-641224de3f3b@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+        Tue, 05 Mar 2024 15:22:27 -0800 (PST)
+Date: Tue, 5 Mar 2024 15:22:21 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, Atish Patra <atishp@rivosinc.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v11 0/4] riscv: Create and document
+ PR_RISCV_SET_ICACHE_FLUSH_CTX prctl
+Message-ID: <ZeepLbzqeQbGRWNm@ghost>
+References: <20240212-fencei-v11-0-e1327f25fe10@rivosinc.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240212-fencei-v11-0-e1327f25fe10@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240305_131604_302490_38D00E32 
-X-CRM114-Status: GOOD (  33.77  )
+X-CRM114-CacheID: sfid-20240305_152230_585732_41D2B317 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,194 +97,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 28 Feb 2024 00:52:54 PST (-0800), cyy@cyyself.name wrote:
-> The BUILTIN_DTB_SOURCE was only configured for K210 before. Since
-> SOC_BUILTIN_DTB_DECLARE was removed at commit d5805af9fe9f ("riscv: Fix
-> builtin DTB handling") from patch [1], the kernel cannot choose one of the
-> dtbs from then on and always take the first one dtb to use. Then, another
-> commit 0ddd7eaffa64 ("riscv: Fix BUILTIN_DTB for sifive and microchip soc")
-> from patch [2] supports BUILTIN_DTB_SOURCE for other SoCs. However, this
-> feature will only work if the Kconfig we use links the dtb we expected in
-> the first place as mentioned in the thread [3]. Thus, a config
-> BUILTIN_DTB_SOURCE is needed for all SoCs to choose one dtb to use.
->
-> For some considerations, this patch also removes default y if XIP_KERNEL
-> for BUILTIN_DTB, as this requires setting a proper dtb to use on the
-> BUILTIN_DTB_SOURCE, else the kernel with XIP but does not set
-> BUILTIN_DTB_SOURCE or unselect BUILTIN_DTB will not boot.
->
-> Also, this patch removes the default dtb string for k210 from Kconfig to
-> nommu_k210_defconfig and nommu_k210_sdcard_defconfig to avoid complex
-> Kconfig settings for other SoCs in the future.
->
-> [1] https://lore.kernel.org/linux-riscv/20201208073355.40828-5-damien.lemoal@wdc.com/
-> [2] https://lore.kernel.org/linux-riscv/20210604120639.1447869-1-alex@ghiti.fr/
-> [3] https://lore.kernel.org/linux-riscv/CAK7LNATt_56mO2Le4v4EnPnAfd3gC8S_Sm5-GCsfa=qXy=8Lrg@mail.gmail.com/
->
-> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Feb 12, 2024 at 03:36:25PM -0800, Charlie Jenkins wrote:
+> Improve the performance of icache flushing by creating a new prctl flag
+> PR_RISCV_SET_ICACHE_FLUSH_CTX. The interface is left generic to allow
+> for future expansions such as with the proposed J extension [1].
+> =
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Documentation is also provided to explain the use case.
+> =
+
+> Patch sent to add PR_RISCV_SET_ICACHE_FLUSH_CTX to man-pages [2].
+> =
+
+> [1] https://github.com/riscv/riscv-j-extension
+> [2] https://lore.kernel.org/linux-man/20240124-fencei_prctl-v1-1-0bddafce=
+f331@rivosinc.com
+> =
+
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+> Changes in v11:
+> - Add back PR_RISCV_CTX_SW_FENCEI_OFF (Samuel)
+> - Fix under nosmp (Samuel)
+> - Change set_prev_cpu (Samuel)
+> - Fixup example testcase in docs
+> - Change wording of documentation slightly (Alejandor Colomar)
+> - Link to v10: https://lore.kernel.org/r/20240124-fencei-v10-0-a25971f430=
+1d@rivosinc.com
+> =
+
+> Changes in v10:
+> - Fix fence.i condition to properly only flush on migration (Alex)
+> - Fix documentation wording (Alex)
+> - Link to v9: https://lore.kernel.org/r/20240123-fencei-v9-0-71411bfe8d71=
+@rivosinc.com
+> =
+
+> Changes in v9:
+> - Remove prev_cpu from mm (Alex)
+> - Link to v8: https://lore.kernel.org/r/20240116-fencei-v8-0-43a42134f021=
+@rivosinc.com
+> =
+
+> Changes in v8:
+> - Only flush icache if migrated to different cpu (Alex)
+> - Move flushing to switch_to to catch per-thread flushing properly
+> - Link to v7: https://lore.kernel.org/r/20240112-fencei-v7-0-78f0614e1db0=
+@rivosinc.com
+> =
+
+> Changes in v7:
+> - Change "per_thread" parameter to "scope" and provide constants for the
+>   parameter.
+> - Link to v6: https://lore.kernel.org/r/20240109-fencei-v6-0-04116e51445c=
+@rivosinc.com
+> =
+
+> Changes in v6:
+> - Fixup documentation formatting
+> - Link to v5: https://lore.kernel.org/r/20240108-fencei-v5-0-aa1e51d7222f=
+@rivosinc.com
+> =
+
+> Changes in v5:
+> - Minor documentation changes (Randy)
+> - Link to v4: https://lore.kernel.org/r/20240107-fencei-v4-0-d4cf2fb905d3=
+@rivosinc.com
+> =
+
+> Changes in v4:
+> - Add OFF flag to disallow fence.i in userspace (Atish)
+> - Fix documentation issues (Atish)
+> - Link to v3: https://lore.kernel.org/r/20231213-fencei-v3-0-b75158238eb7=
+@rivosinc.com
+> =
+
+> Changes in v3:
+> - Check if value force_icache_flush set on thread, rather than in mm
+>   twice (Cl=E9ment)
+> - Link to v2: https://lore.kernel.org/r/20231130-fencei-v2-0-2cb623ab1b1f=
+@rivosinc.com
+> =
+
+> Changes in v2:
+> - Fix kernel-doc comment (Conor)
+> - Link to v1: https://lore.kernel.org/r/20231122-fencei-v1-0-bec0811cb212=
+@rivosinc.com
+> =
 
 > ---
-> Changes since v2:
-> - some fixes on format and grammar
-> - v2: https://lore.kernel.org/linux-riscv/tencent_61DFA8E0B13696A3256E538C4BC856633406@qq.com/
->
-> Changes since v1:
-> - remove default y for BULTIN_DTB in any cases
-> - remove default DTB_SOURCE for k210 and moved to its defconfig file
-> - remove building dtb object file for other SoCs
-> - reword help message to say N if unsure for BUILTIN_DTB_SOURCE
-> - reword commit message
-> - v1: https://lore.kernel.org/linux-riscv/tencent_AB625442CC1BCFF86E04D7B5891C43719109@qq.com/
->
+> Charlie Jenkins (4):
+>       riscv: Remove unnecessary irqflags processor.h include
+>       riscv: Include riscv_set_icache_flush_ctx prctl
+>       documentation: Document PR_RISCV_SET_ICACHE_FLUSH_CTX prctl
+>       cpumask: Add assign cpu
+> =
+
+>  Documentation/arch/riscv/cmodx.rst |  98 +++++++++++++++++++++++++++++++=
++++
+>  Documentation/arch/riscv/index.rst |   1 +
+>  arch/riscv/include/asm/irqflags.h  |   1 -
+>  arch/riscv/include/asm/mmu.h       |   2 +
+>  arch/riscv/include/asm/processor.h |  12 +++++
+>  arch/riscv/include/asm/switch_to.h |  23 ++++++++
+>  arch/riscv/mm/cacheflush.c         | 105 +++++++++++++++++++++++++++++++=
+++++++
+>  arch/riscv/mm/context.c            |  18 +++++--
+>  include/linux/cpumask.h            |  16 ++++++
+>  include/uapi/linux/prctl.h         |   6 +++
+>  kernel/sys.c                       |   6 +++
+>  11 files changed, 282 insertions(+), 6 deletions(-)
 > ---
->  arch/riscv/Kconfig                            | 14 +++++++-
->  arch/riscv/Kconfig.socs                       | 32 -------------------
->  arch/riscv/boot/dts/Makefile                  |  2 +-
->  arch/riscv/boot/dts/canaan/Makefile           |  2 --
->  arch/riscv/boot/dts/microchip/Makefile        |  1 -
->  arch/riscv/boot/dts/sifive/Makefile           |  1 -
->  arch/riscv/configs/nommu_k210_defconfig       |  2 ++
->  .../riscv/configs/nommu_k210_sdcard_defconfig |  2 ++
->  8 files changed, 18 insertions(+), 38 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 85c899d0133a..3d6d93d71257 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -1000,7 +1000,19 @@ config RISCV_ISA_FALLBACK
->  config BUILTIN_DTB
->  	bool "Built-in device tree"
->  	depends on OF && NONPORTABLE
-> -	default y if XIP_KERNEL
-> +	help
-> +	  Build a device tree into the Linux image.
-> +	  This option should be selected if no bootloader is being used.
-> +	  If unsure, say N.
-> +
-> +
-> +config BUILTIN_DTB_SOURCE
-> +	string "Built-in device tree source"
-> +	depends on BUILTIN_DTB
-> +	help
-> +	  DTS file path (without suffix, relative to arch/riscv/boot/dts)
-> +	  for the DTS file that will be used to produce the DTB linked into the
-> +	  kernel.
->
->  endmenu # "Boot options"
->
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index e08e91c49abe..623de5f8a208 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -84,36 +84,4 @@ config SOC_CANAAN
->  	help
->  	  This enables support for Canaan Kendryte K210 SoC platform hardware.
->
-> -if ARCH_CANAAN
-> -
-> -config ARCH_CANAAN_K210_DTB_BUILTIN
-> -	def_bool SOC_CANAAN_K210_DTB_BUILTIN
-> -
-> -config SOC_CANAAN_K210_DTB_BUILTIN
-> -	bool "Builtin device tree for the Canaan Kendryte K210"
-> -	depends on ARCH_CANAAN
-> -	default y
-> -	select OF
-> -	select BUILTIN_DTB
-> -	help
-> -	  Build a device tree for the Kendryte K210 into the Linux image.
-> -	  This option should be selected if no bootloader is being used.
-> -	  If unsure, say Y.
-> -
-> -config ARCH_CANAAN_K210_DTB_SOURCE
-> -	string
-> -	default SOC_CANAAN_K210_DTB_SOURCE
-> -
-> -config SOC_CANAAN_K210_DTB_SOURCE
-> -	string "Source file for the Canaan Kendryte K210 builtin DTB"
-> -	depends on ARCH_CANAAN
-> -	depends on ARCH_CANAAN_K210_DTB_BUILTIN
-> -	default "k210_generic"
-> -	help
-> -	  Base name (without suffix, relative to arch/riscv/boot/dts/canaan)
-> -	  for the DTS file that will be used to produce the DTB linked into the
-> -	  kernel.
-> -
-> -endif # ARCH_CANAAN
-> -
->  endmenu # "SoC selection"
-> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-> index 72030fd727af..fdae05bbf556 100644
-> --- a/arch/riscv/boot/dts/Makefile
-> +++ b/arch/riscv/boot/dts/Makefile
-> @@ -8,4 +8,4 @@ subdir-y += sophgo
->  subdir-y += starfive
->  subdir-y += thead
->
-> -obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
-> +obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix .dtb.o, $(CONFIG_BUILTIN_DTB_SOURCE))
-> diff --git a/arch/riscv/boot/dts/canaan/Makefile b/arch/riscv/boot/dts/canaan/Makefile
-> index 520623264c87..987d1f0c41f0 100644
-> --- a/arch/riscv/boot/dts/canaan/Makefile
-> +++ b/arch/riscv/boot/dts/canaan/Makefile
-> @@ -5,5 +5,3 @@ dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_bit.dtb
->  dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_dock.dtb
->  dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_go.dtb
->  dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maixduino.dtb
-> -
-> -obj-$(CONFIG_ARCH_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .dtb.o, $(CONFIG_ARCH_CANAAN_K210_DTB_SOURCE))
-> diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
-> index 45adc4926e79..e177815bf1a2 100644
-> --- a/arch/riscv/boot/dts/microchip/Makefile
-> +++ b/arch/riscv/boot/dts/microchip/Makefile
-> @@ -4,4 +4,3 @@ dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-m100pfsevp.dtb
->  dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-polarberry.dtb
->  dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-sev-kit.dtb
->  dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-tysom-m.dtb
-> -obj-$(CONFIG_BUILTIN_DTB) += $(addsuffix .o, $(dtb-y))
-> diff --git a/arch/riscv/boot/dts/sifive/Makefile b/arch/riscv/boot/dts/sifive/Makefile
-> index 6a5fbd4ed96a..495bf760a909 100644
-> --- a/arch/riscv/boot/dts/sifive/Makefile
-> +++ b/arch/riscv/boot/dts/sifive/Makefile
-> @@ -1,4 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0
->  dtb-$(CONFIG_ARCH_SIFIVE) += hifive-unleashed-a00.dtb \
->  			     hifive-unmatched-a00.dtb
-> -obj-$(CONFIG_BUILTIN_DTB) += $(addsuffix .o, $(dtb-y))
-> diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
-> index 146c46d0525b..7e75200543f4 100644
-> --- a/arch/riscv/configs/nommu_k210_defconfig
-> +++ b/arch/riscv/configs/nommu_k210_defconfig
-> @@ -33,6 +33,8 @@ CONFIG_SMP=y
->  CONFIG_NR_CPUS=2
->  CONFIG_CMDLINE="earlycon console=ttySIF0"
->  CONFIG_CMDLINE_FORCE=y
-> +CONFIG_BUILTIN_DTB=y
-> +CONFIG_BUILTIN_DTB_SOURCE="canaan/k210_generic"
->  # CONFIG_SECCOMP is not set
->  # CONFIG_STACKPROTECTOR is not set
->  # CONFIG_GCC_PLUGINS is not set
-> diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-> index 95d8d1808f19..0ba353e9ca71 100644
-> --- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
-> +++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-> @@ -25,6 +25,8 @@ CONFIG_SMP=y
->  CONFIG_NR_CPUS=2
->  CONFIG_CMDLINE="earlycon console=ttySIF0 root=/dev/mmcblk0p1 rootwait ro"
->  CONFIG_CMDLINE_FORCE=y
-> +CONFIG_BUILTIN_DTB=y
-> +CONFIG_BUILTIN_DTB_SOURCE="canaan/k210_generic"
->  # CONFIG_SECCOMP is not set
->  # CONFIG_STACKPROTECTOR is not set
->  # CONFIG_GCC_PLUGINS is not set
+> base-commit: 6613476e225e090cc9aad49be7fa504e290dd33d
+> change-id: 20231117-fencei-f9f60d784fa0
+> -- =
+
+> - Charlie
+> =
+
+
+Copy Samuel Holland on this patch.
+
+- Charlie
+
 
 _______________________________________________
 linux-riscv mailing list
