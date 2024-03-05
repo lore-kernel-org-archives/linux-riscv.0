@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B03C54798
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 19:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888F1C54798
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 19:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TkfmDCl9Y09e5XXoJ0ZMJqo/2CdnbQkMG91JpA4J3cs=; b=U937d/EiYJ1W0v
-	URs0uaxqqGnJJ1ilSuRy/RbdjwMD8AWS28Cez6DbEPB337Q86LAZjXnWgMl/VfsVRVK5y2tcfpmwj
-	4Oz2SModvJTrAfl/Q+PA0rXd00C3Px1JEAFw2O7H0ET3S5PV5KpxlMTDP3fyajJULUliiB7GVugaO
-	QLMHQonMkWZ3JoXekD03Y/uzVFhwRePcMkuv7Tb4SXv5GZlzu2FV3uXnnU6VNWppaXfHG0oEAu5+o
-	wA5RKvw10BbvloifyMk/eTt9RB/xzGwhM2QtpcQt0OtdMCMHmUE/yZjqbC4lSr1ISOuwtDNCOcbve
-	eVSXyP0Z5bhOvbCWhwsQ==;
+	List-Owner; bh=BeegECuPx+LG71ssHaWAID9iYYuJ0IWSYL7nVPsZ7Cc=; b=vCvM9ZSVp8DiJO
+	V14uTuTyEnL8WBU8aq1V+6gw1n0Y6fE6PJ/d0lljZRMjDG5VC6TC/n44MxfcU3biNIGihuCPZBzDf
+	r8Gg6IyBAkWUUGioXK4zPC4jDmtnknj5ELHvI/wHZj6jlcG3XXc6BbwSg6xJudaSFQB/WOWLxnzfK
+	qIuBACs8FE5EMlHrqhevxVNP7OqQUzjvUidC42SQG++01wQtcBtKQyUQ7X/dk/HKFwAdgNxNW3Qjd
+	+yeeTdcM+J466GopsTAbJTFyDE0v5BT1DlBcu1HfbwmwZPXchDCCjmE9Jiz1BnDeKZsah2CzCdHQ8
+	AmltLi86Vcu/q3pDs5zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhaLK-0000000EzmA-27OX;
-	Tue, 05 Mar 2024 19:20:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rhabP-0000000F1qG-2B13;
+	Tue, 05 Mar 2024 19:37:27 +0000
+Received: from out203-205-221-155.mail.qq.com ([203.205.221.155])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhaLI-0000000EzkB-0pq5
+	id 1rhabM-0000000F1ou-18O1
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Mar 2024 19:20:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ED1266172D;
-	Tue,  5 Mar 2024 19:20:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6602AC433F1;
-	Tue,  5 Mar 2024 19:20:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709666446;
-	bh=DyJQQmbsgQrz6iSKr4cw5IeReFBVxq+EZYyLAZ8uZ8M=;
-	h=From:To:Cc:Subject:Date:From;
-	b=XD9Yt+o95PQZ9mxZo5k1nXOBSoRXsQhic6o7L8sO++U0psT51u9K8NvKSkarDgeI/
-	 CYU+/hTnH+MuXUlztngk9FKrTX01wNXo1jiqp2wHnR9DthYaQm5GH8l+n4DVKexKEN
-	 NOvGT0NExdO6Fn8Wd7uz4DaeZUK/vXToAUN8vqSjPz/t3vCKNJVz3SpiBkyiURLWQV
-	 g+aKV9eHytqIh1hewWqTl5wj5yZ0ISZvzLuHxF5DeE0+EDOz8Qcv1iK9+tOOsxLFXT
-	 hRttUJy6Kg8fnvsvv195G+v6fUXmV03rPvWjG1N1M93VOo7rjH1fK8yr8jaERa8smk
-	 gUX4E6Kr4AnHA==
-From: Conor Dooley <conor@kernel.org>
+	Tue, 05 Mar 2024 19:37:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1709667433; bh=xYAKlJMz8tHhX/SyBJ+u8i1ukaT80u/oUuBPwp95/WU=;
+	h=From:To:Cc:Subject:Date;
+	b=e9wo2dGSaNWPUjmsHmAKIZxBMRwMwKo64HlJcexDxQCtgevWlJCvM97413CDu04iS
+	 oOpZ6AZZILPXg3B1UYuEnA1E0bXsajCBXOHI/Y+nFtTCjWHjI1AV6Yj3Na2Qa+SKRv
+	 Sb35t18407gs5YTYP2RfJCex7b1xHLYrhsE7znzE=
+Received: from cyy-pc.lan ([240e:379:2267:e200:bd8:e8f9:fb59:de48])
+	by newxmesmtplogicsvrsza1-0.qq.com (NewEsmtp) with SMTP
+	id 94902851; Wed, 06 Mar 2024 03:37:09 +0800
+X-QQ-mid: xmsmtpt1709667429tgqpk2n0q
+Message-ID: <tencent_587730262984A011834F42D0563BC6B10405@qq.com>
+X-QQ-XMAILINFO: N/WmRbclY25GpsCj3Jk0kjwcDv7v3MKRfVs0UMJTow0ftTa8kEOsfezNzLxNMp
+	 jvWOfRXPWhg8CyVlVBXl4fXZ5SyrLZUnWTNoCPvZ6E0GHTAYqjrMBzB78l5VUSo897LdD6A+Jatg
+	 k+aTUjZXII0ycuflDIRBkCJCaT5GHFeDnSQ+vJjw/Hs9mSK1ZPjPgsrlmsgR0X3JKZXUqmkn4dJn
+	 MvhEVKDC4Vv1eb5DsCX7YgrZnr5Q/XmSzP+tfJ3gMaqNSPOpdWZbRHNmzRNZNl1DyITxtMrLTuDF
+	 nWQCYSWd+FefMoeKYYNwN5zsP6E1JqBIPKQtyIRVS0gdqIpFdk1KDDekw2bGART3loZCAtogIPLJ
+	 gwnBuBFQ0dTtJfjDUd/a6gAfb7VLEWxVSZX2qH8LO3rqS2Vtd/eEA9F6Vz6EEh9d9xCuioxV3a+u
+	 6caUI7bLhqiXz50PBmr2YZ5CHu61T4Kejy17Yj3/yTyOQrN+eupE6RifpNFxu1f7B3fvrdqt45/o
+	 CCGyFgvpaxVa8ebi7RO+slM7+d8MI/KUcgjts7gNyfQdetJv4Hh5PPBHThotd66c1fGSUN7tjG23
+	 EvcLFnbpWhQVc3iytUyuVExBiFfsk0xfd21ov/Zes1mcVWgUXkiTpEOldYigZzCRNnFHXMqTnkSK
+	 vPKqmvF6jx9H5lPZVR0PyVydHXW2+DUevERFMoNE/iD50i3sQOQJOaIzhXIZN164VxSRp0m5L1bb
+	 nZi4xPX9UtqQlxnwQmLo5kLhYy9HZ5ArsNpI4lnLz1Yi57aXUCXtfDoWhPDXFP3+7qGRT3L6Bnys
+	 Q/a+fN0k+xDZ3SyimiPDerzeJYbAHpiJ0Hmeo3uG3UXRjh7fIwS8aRX6r3nH9ZZUKs1NX6CH94DT
+	 OGwIH33RgdUcaxrVZe7J9Duwc7rqHtaoU9j2ozeUi/KRfrl8Wc8/uCsJ792pnrY/a9LGLBbifKEq
+	 JscTYyKot+Ue7vhvNIBU1bzoSdksLPBraurjgYPubpuEB4rgwf4DBl25boXxjXSj1zqnknScTZ4I
+	 IU7Yplol568zFPtL9xMCu5DssHykI=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
+From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
+Cc: Conor Dooley <conor@kernel.org>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: [PATCH v1] RISC-V: drop SOC_MICROCHIP_POLARFIRE for ARCH_MICROCHIP
-Date: Tue,  5 Mar 2024 19:20:28 +0000
-Message-ID: <20240305-fled-undrilled-41dc0c46bb29@spud>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [PATCH v4 0/7] riscv: add initial support for Canaan Kendryte K230
+Date: Wed,  6 Mar 2024 03:36:08 +0800
+X-OQ-MSGID: <20240305193608.1084130-1-cyy@cyyself.name>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1803; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=sEnLy/zbRnuP6bn1D/dW722m4kLnHrHtwrR1+7kP0uw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnPC2oq3YXTEvpnP5KymJ60NFDlvf7rG9bFsW7cUxes2 n7zHGNKRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbiPIOR4cqhnKTZ2oL/7yv+ S8r9XiQtbjPhmfjKmy3Ky4IubD3VYc/I8O5L+paVzJn7YuR2xGQpX9B0jZb5LJBvVVRyTS2v0yO CAQA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240305_112048_521742_2066B1B2 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20240305_113724_648663_F64C9AE4 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,60 +91,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+K230 is an ideal chip for RISC-V Vector 1.0 evaluation now. Add initial
+support for it to allow more people to participate in building drivers
+to mainline for it.
 
-SOC_MICROCHIP_POLARFIRE doesn't have any remaining in-kernel users, so
-time has come to remove it. Foolish auld me left the "POLARFIRE" in the
-new, hidden, config option when I renamed it and changed all of the
-users however. As HPSC has been announced, and is not a PolarFire,
-drop mention of that specific FPGA family from the new user-visible
-config option.
+This kernel has been tested upon factory SDK [1] with
+k230_evb_only_linux_defconfig and patched mainline opensbi [2] to skip
+locked pmp and successfully booted to busybox on initrd with this log [3].
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-CC: Paul Walmsley <paul.walmsley@sifive.com>
-CC: Palmer Dabbelt <palmer@dabbelt.com>
-CC: Conor Dooley <conor.dooley@microchip.com>
-CC: linux-riscv@lists.infradead.org
----
- arch/riscv/Kconfig.socs      | 8 ++++----
- arch/riscv/configs/defconfig | 2 +-
- 2 files changed, 5 insertions(+), 5 deletions(-)
+[1] https://github.com/kendryte/k230_sdk
+[2] https://github.com/cyyself/opensbi/tree/k230
+[3] https://gist.github.com/cyyself/b9445f38cc3ba1094924bd41c9086176
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index e08e91c49abe..5fd2e9f425d1 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -1,12 +1,12 @@
- menu "SoC selection"
- 
- config ARCH_MICROCHIP_POLARFIRE
--	def_bool SOC_MICROCHIP_POLARFIRE
-+	def_bool ARCH_MICROCHIP
- 
--config SOC_MICROCHIP_POLARFIRE
--	bool "Microchip PolarFire SoCs"
-+config ARCH_MICROCHIP
-+	bool "Microchip SoCs"
- 	help
--	  This enables support for Microchip PolarFire SoC platforms.
-+	  This enables support for Microchip SoC platforms.
- 
- config ARCH_RENESAS
- 	bool "Renesas RISC-V SoCs"
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 89a009a580fe..5cfc0338ad5c 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -25,7 +25,7 @@ CONFIG_BLK_DEV_INITRD=y
- CONFIG_EXPERT=y
- # CONFIG_SYSFS_SYSCALL is not set
- CONFIG_PROFILING=y
--CONFIG_SOC_MICROCHIP_POLARFIRE=y
-+CONFIG_ARCH_MICROCHIP=y
- CONFIG_ARCH_RENESAS=y
- CONFIG_SOC_SIFIVE=y
- CONFIG_ARCH_SOPHGO=y
+Changes since v3:
+- Refactor Kconfig.soc which uses ARCH_CANAAN for regular Canaan SoCs and
+  rename SOC_CANAAN to SOC_CANAAN_K210 for K210 in patch [5/7]
+- Sort dt-binding stings on Cannan SoCs in alphanumerical order
+
+v3: https://lore.kernel.org/linux-riscv/tencent_BB2364BBF1812F4E304F7BDDD11E57356605@qq.com/
+
+Changes since v2:
+- Add MIT License to dts file
+- Sort dt-binding stings in alphanumerical order
+- Sort filename in dts Makefile in alphanumerical order
+- Rename canmv-k230.dts to k230-canmv.dts
+
+v2: https://lore.kernel.org/linux-riscv/tencent_64A9B4B31C2D70D5633042461AC9F80C0509@qq.com/
+
+Changes since v1:
+- Patch dt-bindings in clint and plic
+- Use enum in K230 compatible dt bindings
+- Fix dts to pass `make dtbs_check`
+- Add more details in commit message
+
+v1: https://lore.kernel.org/linux-riscv/tencent_E15F8FE0B6769E6338AE690C7F4844A31706@qq.com/
+
+Yangyu Chen (7):
+  dt-bindings: riscv: Add T-HEAD C908 compatible
+  dt-bindings: add Canaan K230 boards compatible strings
+  dt-bindings: timer: Add Canaan K230 CLINT
+  dt-bindings: interrupt-controller: Add Canaan K230 PLIC
+  riscv: Kconfig.socs: Split ARCH_CANAAN and SOC_CANAAN_K210
+  riscv: dts: add initial canmv-k230 and k230-evb dts
+  riscv: config: enable ARCH_CANAAN in defconfig
+
+ .../sifive,plic-1.0.0.yaml                    |   1 +
+ .../devicetree/bindings/riscv/canaan.yaml     |   8 +-
+ .../devicetree/bindings/riscv/cpus.yaml       |   1 +
+ .../bindings/timer/sifive,clint.yaml          |   1 +
+ arch/riscv/Kconfig.socs                       |   8 +-
+ arch/riscv/Makefile                           |   2 +-
+ arch/riscv/boot/dts/canaan/Makefile           |   2 +
+ arch/riscv/boot/dts/canaan/k230-canmv.dts     |  24 +++
+ arch/riscv/boot/dts/canaan/k230-evb.dts       |  24 +++
+ arch/riscv/boot/dts/canaan/k230.dtsi          | 140 ++++++++++++++++++
+ arch/riscv/configs/defconfig                  |   1 +
+ arch/riscv/configs/nommu_k210_defconfig       |   3 +-
+ .../riscv/configs/nommu_k210_sdcard_defconfig |   3 +-
+ drivers/clk/Kconfig                           |   4 +-
+ drivers/pinctrl/Kconfig                       |   4 +-
+ drivers/reset/Kconfig                         |   4 +-
+ drivers/soc/Makefile                          |   2 +-
+ drivers/soc/canaan/Kconfig                    |   4 +-
+ 18 files changed, 220 insertions(+), 16 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/canaan/k230-canmv.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k230-evb.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k230.dtsi
+
 -- 
 2.43.0
 
