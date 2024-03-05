@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467D8C54798
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 18:38:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B03C54798
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 19:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zcgLpcze4x+B/uz3wofqRtaedS9TrFi2Wo4SjhyLq68=; b=NiH529L8kz5X84
-	urzOnrENlxN6HjY+EnqOveq+V9Npjb7ocTT3mggfdH6EnvGXQyzZ6IQ9OVJcAQkuwfXxnJTjYytYT
-	C6y18926k9l6qZJTsZT3xQ0StU/Yzl9QGoQppnMnfKFMTOuvSZeir9TjlT38Jzx9mFDfitKmF+upo
-	aSb6J6J+irr/50SWBODxt8ubLbNOd3K67TWr6+Gh3CH35pB2OydoEda5R04WA1USql0jnwCFKlWWi
-	56CgJ0lXxr9wPreVX4jfnOPz+t7JM9d4tkmmZ7NdVkqCr3CzaPckyit0js+dOo/g4gxeYNeAdeSu9
-	SUe/fy/9DsmFnAoApDUw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TkfmDCl9Y09e5XXoJ0ZMJqo/2CdnbQkMG91JpA4J3cs=; b=U937d/EiYJ1W0v
+	URs0uaxqqGnJJ1ilSuRy/RbdjwMD8AWS28Cez6DbEPB337Q86LAZjXnWgMl/VfsVRVK5y2tcfpmwj
+	4Oz2SModvJTrAfl/Q+PA0rXd00C3Px1JEAFw2O7H0ET3S5PV5KpxlMTDP3fyajJULUliiB7GVugaO
+	QLMHQonMkWZ3JoXekD03Y/uzVFhwRePcMkuv7Tb4SXv5GZlzu2FV3uXnnU6VNWppaXfHG0oEAu5+o
+	wA5RKvw10BbvloifyMk/eTt9RB/xzGwhM2QtpcQt0OtdMCMHmUE/yZjqbC4lSr1ISOuwtDNCOcbve
+	eVSXyP0Z5bhOvbCWhwsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhZgE-0000000Esh0-2Edv;
-	Tue, 05 Mar 2024 18:38:22 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rhaLK-0000000EzmA-27OX;
+	Tue, 05 Mar 2024 19:20:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhZgA-0000000Ese8-2XL8
+	id 1rhaLI-0000000EzkB-0pq5
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Mar 2024 18:38:20 +0000
+	Tue, 05 Mar 2024 19:20:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 98D48CE1E00;
-	Tue,  5 Mar 2024 18:38:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F1AAC433C7;
-	Tue,  5 Mar 2024 18:38:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ED1266172D;
+	Tue,  5 Mar 2024 19:20:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6602AC433F1;
+	Tue,  5 Mar 2024 19:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709663895;
-	bh=jpAm1zYYQsLEehQYoa1ojXYdsiZS6ytxodAFhX2P7Vg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O5IaiDThotBkXPvaVZJNGJwNzbX4phN9vU+0m3EZVajRn5ZUSBJrvWPFFQTjUm5Ke
-	 566mBpxxMHEREV4gBHQm4f6Wqnpi8Onb5tzB2+pUYAUCIMnkxm0WJSk79Oa71u1OzK
-	 Rx6jfA1DOOKgzAoLC5sPUcNhTkrlnY8r3GWQQ96xUtWCV+qFr2lTN1jCLOcPEu0y/a
-	 YCO7MydRi18XWiaURiAXeHuLhu2d7FizVE30i5SkIfgkuPkNHk3sm2N1QUXFSQ2jFQ
-	 nChN/bzWLxp0zRjIqkJ/56PorfYXne8N49eCoieqsfG3PNR4qxkh12VmaXJGV8m6ED
-	 lgxxTUfYaI3NA==
+	s=k20201202; t=1709666446;
+	bh=DyJQQmbsgQrz6iSKr4cw5IeReFBVxq+EZYyLAZ8uZ8M=;
+	h=From:To:Cc:Subject:Date:From;
+	b=XD9Yt+o95PQZ9mxZo5k1nXOBSoRXsQhic6o7L8sO++U0psT51u9K8NvKSkarDgeI/
+	 CYU+/hTnH+MuXUlztngk9FKrTX01wNXo1jiqp2wHnR9DthYaQm5GH8l+n4DVKexKEN
+	 NOvGT0NExdO6Fn8Wd7uz4DaeZUK/vXToAUN8vqSjPz/t3vCKNJVz3SpiBkyiURLWQV
+	 g+aKV9eHytqIh1hewWqTl5wj5yZ0ISZvzLuHxF5DeE0+EDOz8Qcv1iK9+tOOsxLFXT
+	 hRttUJy6Kg8fnvsvv195G+v6fUXmV03rPvWjG1N1M93VOo7rjH1fK8yr8jaERa8smk
+	 gUX4E6Kr4AnHA==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-kernel@vger.kernel.org,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	David Gow <davidgow@google.com>,
-	Rae Moar <rmoar@google.com>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	kunit-dev@googlegroups.com,
-	wireguard@lists.zx2c4.com,
-	netdev@vger.kernel.org
-Subject: [PATCH v1 2/2] RISC-V: drop SOC_VIRT for ARCH_VIRT
-Date: Tue,  5 Mar 2024 18:37:06 +0000
-Message-ID: <20240305-stress-earflap-d7ddb8655a4d@spud>
+	Palmer Dabbelt <palmer@dabbelt.com>
+Subject: [PATCH v1] RISC-V: drop SOC_MICROCHIP_POLARFIRE for ARCH_MICROCHIP
+Date: Tue,  5 Mar 2024 19:20:28 +0000
+Message-ID: <20240305-fled-undrilled-41dc0c46bb29@spud>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240305-praying-clad-c4fbcaa7ed0a@spud>
-References: <20240305-praying-clad-c4fbcaa7ed0a@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4198; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=SLlSaZ+G4FwHZPlvuZ1ianZDFUhekawPuNsTN8M0NIc=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnP04KKXSUf5cTo/6v+/e+ixs77UTo717P2my9J05y0o ff93ktJHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhIdjQjw17OXRd2OTK6nl2i oPE4fl7zvb07y+3+Mkq3Jb6SbTqiPYfhv/fam6sPncvMsT5fPeny3KrCV9/+2Z4S2aem9zfoFdd xMX4A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1803; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=sEnLy/zbRnuP6bn1D/dW722m4kLnHrHtwrR1+7kP0uw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnPC2oq3YXTEvpnP5KymJ60NFDlvf7rG9bFsW7cUxes2 n7zHGNKRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbiPIOR4cqhnKTZ2oL/7yv+ S8r9XiQtbjPhmfjKmy3Ky4IubD3VYc/I8O5L+paVzJn7YuR2xGQpX9B0jZb5LJBvVVRyTS2v0yO CAQA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240305_103819_005439_4E5A4B11 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20240305_112048_521742_2066B1B2 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,118 +76,58 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The ARCH_ and SOC_ versions of this symbol have persisted for quite a
-while now in parallel. Generated .config files from previous LTS kernels
-should have both. Finally remove SOC_VIRT and update all config files
-using it.
+SOC_MICROCHIP_POLARFIRE doesn't have any remaining in-kernel users, so
+time has come to remove it. Foolish auld me left the "POLARFIRE" in the
+new, hidden, config option when I renamed it and changed all of the
+users however. As HPSC has been announced, and is not a PolarFire,
+drop mention of that specific FPGA family from the new user-visible
+config option.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-I had a 1.5 year old ack from Jason that I dropped due to the passage of
-time.
-
 CC: Paul Walmsley <paul.walmsley@sifive.com>
 CC: Palmer Dabbelt <palmer@dabbelt.com>
-CC: Albert Ou <aou@eecs.berkeley.edu>
-CC: Brendan Higgins <brendan.higgins@linux.dev>
-CC: David Gow <davidgow@google.com>
-CC: Rae Moar <rmoar@google.com>
-CC: "Jason A. Donenfeld" <Jason@zx2c4.com>
-CC: Shuah Khan <shuah@kernel.org>
+CC: Conor Dooley <conor.dooley@microchip.com>
 CC: linux-riscv@lists.infradead.org
-CC: linux-kernel@vger.kernel.org
-CC: linux-kselftest@vger.kernel.org
-CC: kunit-dev@googlegroups.com
-CC: wireguard@lists.zx2c4.com
-CC: netdev@vger.kernel.org
 ---
- arch/riscv/Kconfig.socs                                    | 3 ---
- arch/riscv/configs/defconfig                               | 2 +-
- arch/riscv/configs/nommu_virt_defconfig                    | 2 +-
- tools/testing/kunit/qemu_configs/riscv.py                  | 2 +-
- tools/testing/selftests/wireguard/qemu/arch/riscv32.config | 2 +-
- tools/testing/selftests/wireguard/qemu/arch/riscv64.config | 2 +-
- 6 files changed, 5 insertions(+), 8 deletions(-)
+ arch/riscv/Kconfig.socs      | 8 ++++----
+ arch/riscv/configs/defconfig | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index e85ffb63c48d..dcbfb659839c 100644
+index e08e91c49abe..5fd2e9f425d1 100644
 --- a/arch/riscv/Kconfig.socs
 +++ b/arch/riscv/Kconfig.socs
-@@ -52,9 +52,6 @@ config ARCH_THEAD
- 	  This enables support for the RISC-V based T-HEAD SoCs.
+@@ -1,12 +1,12 @@
+ menu "SoC selection"
  
- config ARCH_VIRT
--	def_bool SOC_VIRT
--
--config SOC_VIRT
- 	bool "QEMU Virt Machine"
- 	select CLINT_TIMER if RISCV_M_MODE
- 	select POWER_RESET
+ config ARCH_MICROCHIP_POLARFIRE
+-	def_bool SOC_MICROCHIP_POLARFIRE
++	def_bool ARCH_MICROCHIP
+ 
+-config SOC_MICROCHIP_POLARFIRE
+-	bool "Microchip PolarFire SoCs"
++config ARCH_MICROCHIP
++	bool "Microchip SoCs"
+ 	help
+-	  This enables support for Microchip PolarFire SoC platforms.
++	  This enables support for Microchip SoC platforms.
+ 
+ config ARCH_RENESAS
+ 	bool "Renesas RISC-V SoCs"
 diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index ab3bab313d56..8d46a9137b1e 100644
+index 89a009a580fe..5cfc0338ad5c 100644
 --- a/arch/riscv/configs/defconfig
 +++ b/arch/riscv/configs/defconfig
-@@ -32,7 +32,7 @@ CONFIG_ARCH_SOPHGO=y
- CONFIG_SOC_STARFIVE=y
- CONFIG_ARCH_SUNXI=y
- CONFIG_ARCH_THEAD=y
--CONFIG_SOC_VIRT=y
-+CONFIG_ARCH_VIRT=y
- CONFIG_SMP=y
- CONFIG_HOTPLUG_CPU=y
- CONFIG_PM=y
-diff --git a/arch/riscv/configs/nommu_virt_defconfig b/arch/riscv/configs/nommu_virt_defconfig
-index b794e2f8144e..de8143d1f738 100644
---- a/arch/riscv/configs/nommu_virt_defconfig
-+++ b/arch/riscv/configs/nommu_virt_defconfig
-@@ -24,7 +24,7 @@ CONFIG_EXPERT=y
- CONFIG_SLUB=y
- CONFIG_SLUB_TINY=y
- # CONFIG_MMU is not set
--CONFIG_SOC_VIRT=y
-+CONFIG_ARCH_VIRT=y
- CONFIG_NONPORTABLE=y
- CONFIG_SMP=y
- CONFIG_CMDLINE="root=/dev/vda rw earlycon=uart8250,mmio,0x10000000,115200n8 console=ttyS0"
-diff --git a/tools/testing/kunit/qemu_configs/riscv.py b/tools/testing/kunit/qemu_configs/riscv.py
-index 12a1d525978a..c87758030ff7 100644
---- a/tools/testing/kunit/qemu_configs/riscv.py
-+++ b/tools/testing/kunit/qemu_configs/riscv.py
-@@ -13,7 +13,7 @@ if not os.path.isfile(OPENSBI_PATH):
- 
- QEMU_ARCH = QemuArchParams(linux_arch='riscv',
- 			   kconfig='''
--CONFIG_SOC_VIRT=y
-+CONFIG_ARCH_VIRT=y
- CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
- CONFIG_SERIAL_OF_PLATFORM=y
-diff --git a/tools/testing/selftests/wireguard/qemu/arch/riscv32.config b/tools/testing/selftests/wireguard/qemu/arch/riscv32.config
-index 2fc36efb166d..2500eaa9b469 100644
---- a/tools/testing/selftests/wireguard/qemu/arch/riscv32.config
-+++ b/tools/testing/selftests/wireguard/qemu/arch/riscv32.config
-@@ -2,7 +2,7 @@ CONFIG_NONPORTABLE=y
- CONFIG_ARCH_RV32I=y
- CONFIG_MMU=y
- CONFIG_FPU=y
--CONFIG_SOC_VIRT=y
-+CONFIG_ARCH_VIRT=y
- CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
- CONFIG_SERIAL_OF_PLATFORM=y
-diff --git a/tools/testing/selftests/wireguard/qemu/arch/riscv64.config b/tools/testing/selftests/wireguard/qemu/arch/riscv64.config
-index dc266f3b1915..29a67ac67766 100644
---- a/tools/testing/selftests/wireguard/qemu/arch/riscv64.config
-+++ b/tools/testing/selftests/wireguard/qemu/arch/riscv64.config
-@@ -1,7 +1,7 @@
- CONFIG_ARCH_RV64I=y
- CONFIG_MMU=y
- CONFIG_FPU=y
--CONFIG_SOC_VIRT=y
-+CONFIG_ARCH_VIRT=y
- CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
- CONFIG_SERIAL_OF_PLATFORM=y
+@@ -25,7 +25,7 @@ CONFIG_BLK_DEV_INITRD=y
+ CONFIG_EXPERT=y
+ # CONFIG_SYSFS_SYSCALL is not set
+ CONFIG_PROFILING=y
+-CONFIG_SOC_MICROCHIP_POLARFIRE=y
++CONFIG_ARCH_MICROCHIP=y
+ CONFIG_ARCH_RENESAS=y
+ CONFIG_SOC_SIFIVE=y
+ CONFIG_ARCH_SOPHGO=y
 -- 
 2.43.0
 
