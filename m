@@ -4,64 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDF6C54E41
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 17:01:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E30CC54798
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Mar 2024 17:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kt1eGlYCWSj22qBWhOFa/4m0+3cCRrdzODC4vUR7fqc=; b=3QhuUfkafMLeO02DYsNkBxnin5
-	xU+abDWv3VxKF5lHNU/mY8iZdssm3l4l2NcvMjso1+8ac5mKhV2bASHsSH0Jrk6Xwm6rW/Qr2ZMcI
-	mxY9CXvGr3edotIbVW+Cg6TMZFXXJDiB4qCNeHT7+wEORhPPzm+/usY7TRCazrBLwkf0GjpUsP/Jq
-	/hrdoPrKlFOshMMHisFMlnK7KBL7EJdkbuM+sUyy6Js4JSym5PXF2xdpBWk1PyFxJ8e5vXh9+LwXO
-	VjL4XuBtUQ1QgYsUGkfkfGlJjl802s95Oqp6GwHN+xdeCOpfkNoYlQgPAJCif/56JldJR+BkGUMPm
-	BGmc4JEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2qlTNTqt8Zl/tnuTq8bGGpEl45GYylzQ86XIlpYzvws=; b=EyddV9f8yhp09u
+	zMMa1dPhOtGkn5UTxsI79ALz5qSLRZdzti7TmIJn4vezh9Vzy+3PxHeKxPP2NnTfBrjoYKrdIZhrl
+	A7toYMlJZw06ZRDyVUqR/rwsTbXs4GBjwW8jHpqfPPyINFZU1uizixxSUAwFulUi45xKAOLAx74gu
+	EdJWsE4o6Ndc9Yvq0tSnDCamUx1cQrvUo7KEYrRnxr1MT38rEu0I3PdKnFzTjdvJVArcx2+bLvAtR
+	1T1GaKf/vSIu/8t7o/lwN4yV2zY4dsbvUIZUTbYDhg3WqAnWEQRDMupwYbPgxnU6/2SIuGtFNnicq
+	ZSHqf0ktbTnEdE+IYSaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhYAj-0000000EbE0-0Z1Z;
-	Tue, 05 Mar 2024 17:01:45 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rhYL4-0000000Edni-49gj;
+	Tue, 05 Mar 2024 17:12:26 +0000
+Received: from mail-os0jpn01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2815::800] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhYAf-0000000EbCZ-1Qsw
+	id 1rhYL0-0000000Edki-2YTu
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Mar 2024 17:01:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7A105CE1CF5;
-	Tue,  5 Mar 2024 17:01:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F502C433F1;
-	Tue,  5 Mar 2024 17:01:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709658098;
-	bh=4qZMQUT97qziMrbEkR0c+mNUfDn+AAkaDuZWbsUSINQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fU42HUNXNJ2YEmsFtU0BPLIyXXoSJjZmBlfqPyEq1dHLm9X3835jn+VMyfHVT+/1y
-	 A0ZCzfbXW9Se2xrf/Kn+gVNWPzxaENVbUSrIl2Bz64IKKGOaPa6u7gsTItt5XgOoPa
-	 s5nyJ69oQhhZZazxcFpA6TGBUPhoUHusXjf+cD3thL+qWodMJ/YKtkckTvzMxhYarg
-	 34zbBKhN1NBLTr0JU0x6hKmr7ktJeSDPSpAc9lZwSJk/UN7WgOxzktJKk1YVM5hJG2
-	 GlOZgjF3qnO7l4Y7fgj+mk0hFBhLQrhhbFBQANDh9gaA1zuRbGZ1GhryE0Drl3k+a7
-	 RL9pB9EDhaZ7A==
-Date: Tue, 5 Mar 2024 17:01:34 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-	dlemoal@kernel.org, robh+dt@kernel.org,
+	Tue, 05 Mar 2024 17:12:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=BuvVJNwyyULhhswCllfwO/AvAknFKJ9AbiQkTK2Pe933HzMQ3eu0T7JC128yeJT2kOnIlvVrrtOJrF6Zw6bZU2CZlES34+pEyPbGzC3PmstSmrFcPTbVJFdJRq9tTqDL5ruaZdJ1iuhFEtv7H5x0042BVRyA2slGy2FIcpoHjWmZLIgpPcKij8YkYorqJx8IHk892IK+VgJWDMem9lNVwH/w9AGuqNG12ESvrqUnmvO58GOw1Gl1Jk8h7ojYdsJQUL1Umt2sUDyS120cfGIRhg7K0POJruxOLyyDWyouT8ESfGcjbSmZFiNvyQCreZsJQkbYuelwL9jV/1YP6Ck3Hg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fC34xXFEVTT4H1SXjDaCdDjPKcnsfvXpqRoIzd4dDOs=;
+ b=WdT5HNXprz2TapJ1tW9MOzJ1Z1uGMkNKR0R56LC36JrP9YFU+IEj9AZVHFVCklxCnfnHhOUXTZo1X7VpMTaq0Y4hxO8LLur4apqY/WJqja44p/9OVM3P1lHfrzSZosG1aqYshPSj1LkQH9kC8S36lBfZbNHrcN+bG4lQzag/Vh8RUM7CJ5luIB1olek32z4C2dQUmKA5Vh43YnSNxv1oMjRv15gIXaYnJ8GeaS/TSmlrHrUnu1rHUUrHJWzCKeIxCH3dCRHL6BpUuWA+bZiJHjFXNQe6i5GBrQvwruw7GBGoU47mVVIbExAp+KkP6oxFcrfsuayk9mGS+pYKJQxssg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fC34xXFEVTT4H1SXjDaCdDjPKcnsfvXpqRoIzd4dDOs=;
+ b=rOz3LM8ZWpBGtIIUXumrCgZmeSYkqXvIRoBfMnQ52CEO9ogoah2TjcOAvyFk5WzrSLAmm6oPhXbFFZnc8yMrqVtxI6qu4pbbpYUjHdNBeL81EPlPjAXJF9uyCKXjiq6tzkgvq1MH4QMaEVzevTo+mFPN/NxmuI56kUVPG840adf7iV712Wtiin3albwUpsw3Wgeve/jJInGcBZWmVVKZcHfEn7NI/gZJdI5Vpx+S64x9aZxf2pUJbmwGu/WsDJY0IYYqCmPeFzWlAIqkQTo/9vhxUFaIyxtqx3iqaFLkWzhNuzjdde6507EWM6YtYISxFLh3FTb56DlCT/6+4qr8Sw==
+Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:23e::10)
+ by TY3P286MB3455.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:3af::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7339.32; Tue, 5 Mar
+ 2024 17:12:10 +0000
+Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::58f5:1590:22a9:6f6]) by TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::58f5:1590:22a9:6f6%4]) with mapi id 15.20.7339.035; Tue, 5 Mar 2024
+ 17:12:10 +0000
+From: Shengyu Qu <wiagn233@outlook.com>
+To: ganboing@gmail.com,
+	kernel@esmil.dk,
+	conor@kernel.org,
+	robh+dt@kernel.org,
 	krzysztof.kozlowski+dt@linaro.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, guoren@kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 6/7] riscv: dts: add initial canmv-k230 and k230-evb
- dts
-Message-ID: <20240305-shorten-disallow-eae65fdc8fdb@spud>
-References: <mhng-f1aa91d4-211f-4eb4-a94d-a9d88b0d3f6a@palmer-ri-x1c9>
- <7A86D933-B85F-4B29-8D6D-AB414A42AC06@cyyself.name>
- <tencent_B2C1146D4947315C8018AE90EDC64F3E6207@qq.com>
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	lee@kernel.org,
+	andre.przywara@arm.com,
+	jernej.skrabec@gmail.com,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Shengyu Qu <wiagn233@outlook.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v1] riscv: dts: starfive: Remove PMIC interrupt info for Visionfive 2 board
+Date: Wed,  6 Mar 2024 01:11:50 +0800
+Message-ID: <TY3P286MB2611C5F5833F3E3E1AE838CA98222@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
+X-Mailer: git-send-email 2.39.2
+X-TMN: [tKBi5BbeYBV+myFWcrlbnJ5gZ6FT8als]
+X-ClientProxiedBy: TYCPR01CA0121.jpnprd01.prod.outlook.com
+ (2603:1096:400:26d::8) To TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:23e::10)
+X-Microsoft-Original-Message-ID: <20240305171150.13755-1-wiagn233@outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <tencent_B2C1146D4947315C8018AE90EDC64F3E6207@qq.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY3P286MB2611:EE_|TY3P286MB3455:EE_
+X-MS-Office365-Filtering-Correlation-Id: dbc42375-0bfd-42b6-c194-08dc3d3764e8
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: xfYjMz9AAVsbA/VbzbP1wYwue4Y+sGITcYhCHi0odP7Hj+MmtBRMSVNlBB0D+H/OE8okvK8nqb3bf3i9L9Yt7um0FBAzRqEBzOAgwqFif6SyVQwObeiBQuYesCYZrVNHB4CHFuY9pTORFcoBI5ULLZKivniG9LIbERLqccvq2QOXHivxleTvzrwCG4TAHeAh3+quOyMcMAKuD2Z8Brh0z/0UVH9PIWbWeIXskQnJ5ujDszDofP1InuTA3CLFljJaWM9pRuhlna1tc7ZynfuC4S/9k0gmyVouxdN9L8SB1O/ZpBCOUBpEl/kunT/TqXpitfj+GT6VAFwD3bAfKBidqfNh0LMBNyRvIShRcAPQVG8lhkwBF4QI+bdLhybSOQizlLfbGkL8eYSFwpyk+gGlamxsTzqbX1AZXvc1MfSaKQJMN8818r3TRlDi73LiZ3gbZPdbdHWIeuxY04QvxOkZzSyvCDEzz9rXWqVllyeBrOErUSjNRuFMSe/G8ACGr55Hktj/DioIWMHx8mFcDapmvjm0QURcOu7LyixAi6b9dmxtvsma6Vunllng+qUMl3NNV3BIcMKeKBZkSTk7oo2YykJNOocmR8lWk1H5WUIK0BPUoxtQFiV/Uv75rB2L4z/y
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?y5NxXv1c2n60D8/yG30FhBeN9LQ82wQQkzz2pSzb2Z9xfavioLpoyRTx7IPC?=
+ =?us-ascii?Q?9akr6hdrFt19KIo/W/C5C4cXZf8/vuRS4sOLthxQR+NyRDQWXvelUN1xiZsR?=
+ =?us-ascii?Q?Hpl5iu0VoDtyJKkp+n4PGfOD6+vazCPI240FRzwDcmexPNSFf3Ro+JDLyqZL?=
+ =?us-ascii?Q?iSwXwc85f6xy5tyJSuWFB4QPRxrvp1q2Zk96FBCWwEtGLEksZsCArYndW1UE?=
+ =?us-ascii?Q?6E2caANcjiPcDCEWm1WhbXKdNpTY/6XEeTKsPaC0F+j+kpokf3JXGX7pKNlL?=
+ =?us-ascii?Q?h/4C8cHSXMiaOc7SDAyaLv/fPE8IJIby9Y9vtYPWTHdLwJoP/zaeH7fgCrPV?=
+ =?us-ascii?Q?HBnD2pm6b0L5tqSE2J8OIe2l0B7NuYBkVAMHZEc2xFizGjZbM/3SVrVSahVQ?=
+ =?us-ascii?Q?gaoIcimzeLfdhuPoHDLDbpGKC13cMCxYetMBI9Ig0MWfjBHK9pMbnBvSMKfw?=
+ =?us-ascii?Q?+OwhtWiX/sQh7/85/RF0TFeo1vtQpPxFT9uCZ9gT3UHIHP6ODhCN4u9+ZYL8?=
+ =?us-ascii?Q?snkr31Y6pM7Km6YzkhGhUEXHRuud++9vLht+EV2GW4A9s0P5fH5YQwu1JaKe?=
+ =?us-ascii?Q?r1oexOs0WZxIlikU2rM5MrtOUWucWG6urVJp1fFIjFTfcOzDQDdHW6hV9Sn5?=
+ =?us-ascii?Q?5S5OUeypFwn+34fNwXaOT3PLZ7dc9LB/yU4NyaAOzsTKxw8K51mEeuSsg/WE?=
+ =?us-ascii?Q?pQoQfhMQ0leX962yPe+PTAipwivGCiboaAoUqrns1VPC+YMmxpELspCcRUmZ?=
+ =?us-ascii?Q?k2g/mKz4qPzoIkd3PyjOK9gWkYMDYVuCIinP1e+ZqUqbXQHm747TB7u1BfgC?=
+ =?us-ascii?Q?TIaCDxstVbBGfGwUgM+LJqNBGoNvOzd/G/7c36wfo3AXjbKfmBa9WmI5Pt+P?=
+ =?us-ascii?Q?u9iKa7EkYqaIC3uLcOop5GW/k7Hgwp94XsL3J17tO84JWope//2aBFPbZRpS?=
+ =?us-ascii?Q?8Uz7bW+C9EDoybMMpWmavBTwkyoNP2F6ApcPw7rE+pIx27ArRq6torTVEW20?=
+ =?us-ascii?Q?x9wsHVrRk1yxW0wAdoKM6+ol74rIk39nZ38Hf7D5HJrD0rBrueXccybW1XFC?=
+ =?us-ascii?Q?UrS+f+ESZCh2ScYUXvnWgSSWn5ky+gKRCv8/aNJiChA086rOBoC+Akjrf9EE?=
+ =?us-ascii?Q?j68GbvGF/dHcGZNQgtA7c2MEq5uJyJ9ePWrIh/YgKuXKFlnG/qbN4t5g8E5W?=
+ =?us-ascii?Q?Kb0Tae4juQ35CvvfZC5IrWcUTWXVzh98Yce3MwezxBdkv6A8OFg2t5L/dRc?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dbc42375-0bfd-42b6-c194-08dc3d3764e8
+X-MS-Exchange-CrossTenant-AuthSource: TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2024 17:12:10.7724
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY3P286MB3455
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240305_090141_775430_53921205 
-X-CRM114-Status: GOOD (  25.41  )
+X-CRM114-CacheID: sfid-20240305_091222_684805_596ADE50 
+X-CRM114-Status: UNSURE (   6.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,112 +131,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9064057348922380020=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Since commit b2cb2ae22278f1918f7526b89760ee00b4a81393 ("mfd: axp20x:
+Generalise handling without interrupt"), interrupt info part for the
+AXP15060 PMIC is not needed anymore for Statfive Visionfive 2 board.
+And this would cause kernel to try to enable interrupt line 0, which is
+not expected. So delete this part from device tree.
 
---===============9064057348922380020==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="7/iNqzShui/y+tHK"
-Content-Disposition: inline
+Cc: stable@vger.kernel.org
+Fixes: b2cb2ae22278 ("mfd: axp20x: Generalise handling without interrupt")
+Reported-by: Bo Gan <ganboing@gmail.com>
+Signed-off-by: Shengyu Qu <wiagn233@outlook.com>
+---
+ arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 3 ---
+ 1 file changed, 3 deletions(-)
 
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index b89e9791efa7..6bebabe3fa37 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -189,9 +189,6 @@ &i2c5 {
+ 	axp15060: pmic@36 {
+ 		compatible = "x-powers,axp15060";
+ 		reg = <0x36>;
+-		interrupts = <0>;
+-		interrupt-controller;
+-		#interrupt-cells = <1>;
+ 
+ 		regulators {
+ 			vcc_3v3: dcdc1 {
+-- 
+2.39.2
 
---7/iNqzShui/y+tHK
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey,
-
-Just chiming so that things don't get misinterpreted.
-
-On Wed, Mar 06, 2024 at 12:37:16AM +0800, Yangyu Chen wrote:
-> > On Mar 6, 2024, at 00:22, Yangyu Chen <cyy@cyyself.name> wrote:
-> >> On Mar 5, 2024, at 23:54, Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> >> On Mon, 04 Mar 2024 13:06:00 PST (-0800), cyy@cyyself.name wrote:
-> >>> - Svpbmt and T-Head MAEE both supported
-> >>>=20
-> >>> T-Head C908 does support both Svpbmt and T-Head MAEE for page-based m=
-emory
-> >>> attributes and is controlled by csr.mxstatus. If the kernel wants to =
-use
-> >>> svpbmt, the m-mode software should set BIT(21) of csr.mxstatus to zero
-> >>> before entering the s-mode kernel. Otherwise, the kernel will not boo=
-t as 0
-> >>> on T-Head MAEE represent to NonCachable Memory and it will lose dirty=
- cache
-> >>> lines modification that haven't been written back to the memory.
-> >>=20
-> >> So I guess we need the bootloader to just be accurate here?  ie: whate=
-ver
-> >> extension it tells S-mode kernels is enabled is how S-mode behaves, and
-> >> then this should just work itself out.
-
-Correct, the bootloader/firmware "just" needs to write this bit to match
-what it passes to onwards in the devicetree.
-
-> > Yes. Currently, I have patched OpenSBI to disable MAEE. Conor Dooley sa=
-id
-> > from a public irc group that he wants to control the enable of T-Head
-
-(#riscv on libera, the usual location)
-
-I also suggested that that, given we can use the standard extensions,
-we should use them instead of the custom extensions/errata.
-
-> > variation of zicbom and svpbmt from dts, in addition to mimplid or
-> > something now.
-
-Correct. I'm find with the impid =3D=3D archid =3D=3D 0 condition, given th=
-at's
-what we need to keep to avoid regressions, but if any future T-Head CPUs
-want to enable MAEE (ERRATA_THEAD_PBMT) or the custom CMOs
-(ERRATA_THEAD_CMO) these should be enabled from DT. Particularly when
-these CPUs can be configured to either use the T-Head versions or the
-standard extensions.
-
-> > I think that will be a better way for the bootloader to tell
-> > the kernel whether the T-Head MAEE should be enabled.
-
-You've got three options I guess. You could patch the DT in the bootloader,
-or use a fixed DT that matches the bootloader, or you could use the DT
-passed to the bootloader and parse the extensions to decide whether or not
-to enable MAEE or Svpbmt. Seems you're going for option 2.
-
-> > Link: https://github.com/cyyself/opensbi/commit/b113c1c01d700314a4a6962=
-97ec09031a9399354
-> >=20
-> > Furthermore, I wonder whether a CPU node like this would be acceptable.
-> > I don't have any other details of how another CPU from K230 SoC works on
-> > Linux.
-
-A CPU node like what? It is not clear to me.
-
---7/iNqzShui/y+tHK
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZedP7gAKCRB4tDGHoIJi
-0vlUAQDOzEPBUwFNFekPyZA1wxs/XJG2IBFzn18OERTkISZkDQEArky2FzLuZ9b1
-IyeQgq4Qy6fuiT9qN796R8RzZPoXDwg=
-=mHae
------END PGP SIGNATURE-----
-
---7/iNqzShui/y+tHK--
-
-
---===============9064057348922380020==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9064057348922380020==--
-
