@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 333DDC54E41
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 22:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB99DC54E41
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 23:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AMWPcAS1+gkxETicaGIHNuB0p9DELE0ImVDCJ3bYtuo=; b=C0ln/Lup6V0EJs
-	J++hE79aVbJuQLNoL7yZsKN35ClsikbmKgYMDFVYorIJYoBx2eS+uVXk1RLv+awnIEAfY4iPjN7WY
-	4YIJm/tND+oU83i8fdkWs7JJ3aP60pEOJ5n7VyC5XiUPckwYG6VYjx3m5+Qwij7soxtvXpU5ffxFi
-	wpzflCj0JHUCN/3xXikmxbr+A8lczgt9YpFYIRVkWpfa1idniYlqOCX7tDy7qBwRCzFl53tYKKAnb
-	gYuG8QrY/sFKLNfARgRdMmAqNfgdcQnyxRFgwVh2rCWZpS891/4iSgnGhwYjXsUFFM6KU+c7daizY
-	9isRfVilLWG0OZaX/CLg==;
+	List-Owner; bh=Y7rHEzB+CefuVGXyk7i9JbnXEw4rBr7KIYICcpfAMsM=; b=4sj88fYv8JA7O8
+	lPPHD7DsGg71Gq2QmQyzqnuaPwVkSAV/pJmWUSTUdnjGvrGuf1HOggomiI6/unvbnUP+e36P4Da/J
+	kWs7wpwMWPnjTeQwwOxXw4V4m2WAHEy42z6gz66cfLxg0CuPLNCLsKvWz6yDaG41EESrM12f3qlph
+	k5xwBqqwqVPXwrpJN75NMzTOk3GkGcBmyZeWXefpUlBUyvQ9wN86dO/cFhwOeVECMdESzyN7/EpZg
+	572XAykMcFZer1xsPEle9Ztu1P2Ev8sGn3q3TzPMHmt77Pk6qtPmL4n9/OKpLkaTZKZQNB8eDZrOv
+	Z23ZnO3T42DJjaZpAQRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhzwA-000000026s7-2Atw;
-	Wed, 06 Mar 2024 22:40:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ri0t3-00000002HUm-2hN0;
+	Wed, 06 Mar 2024 23:41:25 +0000
+Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3] helo=gandalf.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhzw7-000000026rI-3HiX
-	for linux-riscv@lists.infradead.org;
-	Wed, 06 Mar 2024 22:40:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 16E6B61B0F;
-	Wed,  6 Mar 2024 22:40:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id ACA27C433F1;
-	Wed,  6 Mar 2024 22:40:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709764830;
-	bh=AEovCiiEXVApMoLVDcg5c4GHI5Cl3cHsFPUm+rDkwAU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=s5KWhNTA0B37vZARTbe3FnPyfrscIhrgVJeAE7ArWE+INoia81W5brE+KrUqhfASi
-	 mcT/1a/2j8PHwHO5oOMxxXNONqdJiMJiwKthFZOdz4gdDaL7RrHSb72rH+hHGurXmR
-	 n87I6DnaLfLfQSMTcGATB0f6Kw1sdUb4w6oZDTNNmBC9P5Rexn0fAIbzeUkOLDxsFc
-	 cocO4Vg2I0aiUqs3TplON8l7JhYBi0OhoJU2tvZ7FTGJ9SxsC9zUboQerCkuzrGAsJ
-	 qPKmKlb+Vo3YXPamsW16rISA2XYDn0OXSq/ULW24pWNAi5GNufr9SerZotEkmHtOXZ
-	 Trlkw8tOPjDew==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 86753C3274B;
-	Wed,  6 Mar 2024 22:40:30 +0000 (UTC)
+	id 1ri0sy-00000002HQ6-0q8Y;
+	Wed, 06 Mar 2024 23:41:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
+	s=201909; t=1709768472;
+	bh=OHx3bVLlXnvaD4Lk/LqRAXihRU8d5iuk+jHowRU57+A=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=dfxSn7ESt9feXa7Ah5VgnrgsTR94t0TrfqG0PcTuTf3mOM2nYClb7KzncEO44oWvJ
+	 z177IwNoKxwaRwuRElWO9dM9vGP1BGgcQEfox5PbPq0mqdcUVphkGszRXScQ0d7mcO
+	 jW4ikoUKpq/rq3DBl50CSj6CPBHJDbwDqtBF6NxW+foiGgFyBpZYE+I728npTZNMg3
+	 1t/2+QbQypMyzr9+0O+l4J8vO9YugJeJGU6R2JxmPiIz07vqQ4qeSoMI/Ta1CVt4Pi
+	 EW9aQ8ONAeTLEZ2I6yd+B+il/wLckJElOl67KFtvN0q8NsP2LkndTztEXc4YygJJsv
+	 te7iy+1YEdhjg==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4Tqppm50HGz4wcN;
+	Thu,  7 Mar 2024 10:41:04 +1100 (AEDT)
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: Arnd Bergmann <arnd@kernel.org>, Anna-Maria Behnsen
+ <anna-maria@linutronix.de>, Thomas Gleixner <tglx@linutronix.de>, Vincenzo
+ Frascino <vincenzo.frascino@arm.com>, Kees Cook <keescook@chromium.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Matt Turner <mattst88@gmail.com>, Vineet
+ Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, Catalin
+ Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>, Brian Cain
+ <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller
+ <deller@gmx.de>, Christophe Leroy <christophe.leroy@csgroup.eu>, Palmer
+ Dabbelt <palmer@dabbelt.com>, John Paul Adrian Glaubitz
+ <glaubitz@physik.fu-berlin.de>, Andreas Larsson <andreas@gaisler.com>,
+ Richard Weinberger <richard@nod.at>, x86@kernel.org, Max Filippov
+ <jcmvbkbc@gmail.com>, Andy Lutomirski <luto@kernel.org>, Jan Kiszka
+ <jan.kiszka@siemens.com>, Kieran Bingham <kbingham@kernel.org>, Andrew
+ Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] arch: consolidate existing CONFIG_PAGE_SIZE_*KB
+ definitions
+In-Reply-To: <20240306141453.3900574-2-arnd@kernel.org>
+References: <20240306141453.3900574-1-arnd@kernel.org>
+ <20240306141453.3900574-2-arnd@kernel.org>
+Date: Thu, 07 Mar 2024 10:41:02 +1100
+Message-ID: <87sf13nd2p.fsf@mail.lhotse>
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next 0/1] Support kCFI + BPF on riscv64
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <170976483053.9451.12256048383404087701.git-patchwork-notify@kernel.org>
-Date: Wed, 06 Mar 2024 22:40:30 +0000
-References: <20240303170207.82201-1-puranjay12@gmail.com>
-In-Reply-To: <20240303170207.82201-1-puranjay12@gmail.com>
-To: Puranjay Mohan <puranjay12@gmail.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@google.com, haoluo@google.com, jolsa@kernel.org, luke.r.nels@gmail.com,
- xi.wang@gmail.com, bjorn@kernel.org, samitolvanen@google.com,
- peterz@infradead.org, keescook@chromium.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_144031_895505_2636A349 
-X-CRM114-Status: UNSURE (   6.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240306_154120_663912_9E9767F6 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,41 +94,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Arnd,
 
-This patch was applied to bpf/bpf-next.git (master)
-by Daniel Borkmann <daniel@iogearbox.net>:
+Arnd Bergmann <arnd@kernel.org> writes:
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> These four architectures define the same Kconfig symbols for configuring
+> the page size. Move the logic into a common place where it can be shared
+> with all other architectures.
+>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> Changes from v1:
+>  - improve Kconfig help texts
+>  - fix Hexagon Kconfig
+>
+>  arch/Kconfig                      | 92 ++++++++++++++++++++++++++++++-
+>  arch/hexagon/Kconfig              | 24 ++------
+>  arch/hexagon/include/asm/page.h   |  6 +-
+>  arch/loongarch/Kconfig            | 21 ++-----
+>  arch/loongarch/include/asm/page.h | 10 +---
+>  arch/mips/Kconfig                 | 58 ++-----------------
+>  arch/mips/include/asm/page.h      | 16 +-----
+>  arch/sh/include/asm/page.h        | 13 +----
+>  arch/sh/mm/Kconfig                | 42 ++++----------
+>  9 files changed, 121 insertions(+), 161 deletions(-)
 
-On Sun,  3 Mar 2024 17:02:06 +0000 you wrote:
-> With CONFIG_CFI_CLANG, the compiler injects a type preamble immediately
-> before each function and a check to validate the target function type
-> before indirect calls:
-> 
->   ; type preamble
->     .word <id>
->   function:
->     ...
->   ; indirect call check
->     lw      t1, -4(a0)
->     lui     t2, <hi20>
->     addiw   t2, t2, <lo12>
->     beq     t1, t2, .Ltmp0
->     ebreak
->   .Ltmp0:
->     jarl    a0
-> 
-> [...]
+There's a few "help" lines missing, which breaks the build:
 
-Here is the summary with links:
-  - [bpf-next,1/1] riscv64/cfi,bpf: Support kCFI + BPF on riscv64
-    https://git.kernel.org/bpf/bpf-next/c/dfd646d117b7
+  arch/Kconfig:1134: syntax error
+  arch/Kconfig:1133: invalid statement
+  arch/Kconfig:1134: invalid statement
+  arch/Kconfig:1135:warning: ignoring unsupported character '.'
+  arch/Kconfig:1135:warning: ignoring unsupported character '.'
+  arch/Kconfig:1135: invalid statement
+  arch/Kconfig:1136: invalid statement
+  arch/Kconfig:1137:warning: ignoring unsupported character '.'
+  arch/Kconfig:1137: invalid statement
+  arch/Kconfig:1143: syntax error
+  arch/Kconfig:1142: invalid statement
+  arch/Kconfig:1143: invalid statement
+  arch/Kconfig:1144:warning: ignoring unsupported character '.'
+  arch/Kconfig:1144: invalid statement
+  arch/Kconfig:1145: invalid statement
+  arch/Kconfig:1146: invalid statement
+  arch/Kconfig:1147: invalid statement
+  arch/Kconfig:1148:warning: ignoring unsupported character '.'
+  arch/Kconfig:1148: invalid statement
+  make[4]: *** [../scripts/kconfig/Makefile:85: syncconfig] Error 1
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Fixup diff is:
+
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 56d45a75f625..f2295fa3b48c 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -1130,6 +1130,7 @@ config PAGE_SIZE_16KB
+ config PAGE_SIZE_32KB
+        bool "32KiB pages"
+        depends on HAVE_PAGE_SIZE_32KB
++       help
+          Using 32KiB page size will result in slightly higher performance
+          kernel at the price of higher memory consumption compared to
+          16KiB pages.  This option is available only on cnMIPS cores.
+@@ -1139,6 +1140,7 @@ config PAGE_SIZE_32KB
+ config PAGE_SIZE_64KB
+        bool "64KiB pages"
+        depends on HAVE_PAGE_SIZE_64KB
++       help
+          Using 64KiB page size will result in slightly higher performance
+          kernel at the price of much higher memory consumption compared to
+          4KiB or 16KiB pages.
 
 
+cheers
 
 _______________________________________________
 linux-riscv mailing list
