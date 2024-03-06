@@ -4,82 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB9BC54E55
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 17:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED21DC5475B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 17:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ArGkqKYApJAST7r++lqVNFekeII+b1UPPwNA760tC+0=; b=sK8bk/NJfrxG7j
-	ZP5Q93YaJ1RvWGoXDJcgmth42jYz/XK2D0s77drFrOmB7xX4JIkgJn+K69B84lnhnkMcLkhcB9H/v
-	+1vRP8wlDms8H/EXhyGdH6PKrgyjuBHNGQOe5GNlcmQkySKCiaOwBXVKbW/pwp8AaNgvXyUYlrCcK
-	FYBis4Yftmhy8RBcCXmouiwP6/RTjugY6ID6SICA6x6Ld13I4YDvI6o5mQYwIvDdRvmfAD0RKozn/
-	mdCd/Dy8Jj0U/3IWOci9rTiXSWNdYaH1H/DtHW815gOgcN4/dcIJx2IC7xliEB8eTU2C/wl28rgPl
-	JDomWwlnZ78iM/WOPYEg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0xLdfCcqSU9uaJkquCeVomjjPtoz2YAO7hrrobjAKpY=; b=lHL1LpgHAiobtz
+	MXfldbQ8hHFXlsecsRh9fa9mUcywm6bRdGaM68upx8nUpaE8ulXqOeqiEHt6DU3C4g/rwCbpPV/HC
+	zQvcBaaO6ULTBFjz5+Xxg3x+hkbR6igqu7OVQg0a1d4jloxCTfI94K9drNbmbnap9C0hDae9XZ/4Z
+	zZsCUrZGFf7GSMIRKJNAiIx7GFNyfRylc4UWmZXjQvMoJ+2zPWm/rNckxDmY1Up484Eb3LYTk8mr3
+	catEYbyyTTNPwlLUs903zFAlrltnUcJ2r6DUQ9D9rYTfT0ygq2Vu41ySJDcOcCAOgrEw50FB5HpiT
+	NzGiWA/TV4xCd13JUbLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhuu8-000000019q9-2BAX;
-	Wed, 06 Mar 2024 17:18:08 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1rhv06-00000001BOW-1W5E;
+	Wed, 06 Mar 2024 17:24:18 +0000
+Received: from mail-bjschn02on20727.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::727] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhuu0-000000019nd-3YEK;
-	Wed, 06 Mar 2024 17:18:05 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1709745479;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/OQqHSSiFO9QvgB4mY2J+LyWd+etZHTC3EZIIQab4fo=;
-	b=gDCCIQT1qxbWXTzhufSmoNS52MsO6T6khcDRU4R/DvjT4G7MoNh9Ky1nmGGMUA5kBJGmB5
-	azsjDUOsuP8fnYd10g8AahY82D+0bOAV5U3WP5daAn+croDLWUY3Ux3Xh7i9JWhMGu7ILz
-	CZx/MWC+XoyW1OE1/HgI9ImOzMQ3Hsu7ZGgFD0XsFBH1gJkU/OqCW7ZFdp75gTfSAIe5PP
-	r0Jjoh6AeTDkw4LFACDFt43V3o5FzJyQ23zOJdJCOPm4FdIlpDNblApjxSKyFng8p2xu18
-	6rz3+EZYW43r4daGc6RkeHzoLH9pHS88uirHCfRuC4FSfS7+MEcP8Bkyg26BgA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1709745479;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/OQqHSSiFO9QvgB4mY2J+LyWd+etZHTC3EZIIQab4fo=;
-	b=Ba8NRrLO9SKa1kou0+rIbBztNEAwJsDv3WFMK2NllzRQnMhckZV3x6THtTFG81tO6REjSx
-	6aQnDwMJIY/8bAAA==
-To: Arnd Bergmann <arnd@kernel.org>, Anna-Maria Behnsen
- <anna-maria@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Kees Cook <keescook@chromium.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Matt Turner <mattst88@gmail.com>, Vineet
- Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, Catalin
- Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>, Brian Cain
- <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>, Geert
- Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller
- <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Palmer Dabbelt <palmer@dabbelt.com>, John
- Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Andreas Larsson
- <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>,
- x86@kernel.org, Max Filippov <jcmvbkbc@gmail.com>, Andy Lutomirski
- <luto@kernel.org>, Jan Kiszka <jan.kiszka@siemens.com>, Kieran Bingham
- <kbingham@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org
-Subject: Re: [v2 PATCH 0/3] arch: mm, vdso: consolidate PAGE_SIZE definition
-In-Reply-To: <20240306141453.3900574-1-arnd@kernel.org>
-References: <20240306141453.3900574-1-arnd@kernel.org>
-Date: Wed, 06 Mar 2024 18:17:58 +0100
-Message-ID: <87wmqfth2x.ffs@tglx>
+	id 1rhv02-00000001BMS-0n6o
+	for linux-riscv@lists.infradead.org;
+	Wed, 06 Mar 2024 17:24:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=nA9y2LV8QqJJwyZG6VML+ebxhu1x512Ke1raKIQFI/iH07oGbnToGA6F1DAQldweUcD7Efel/0LnSsxnKra7fyKpJcEnrABPTPzceYKuTDS8oWkS0NpVkOxK2K2tRy1uUXImT5+sE//6yBATq+NHmSV42oUnRpINXhbr8WbhbGPAfvDxUCX26Hubd9h0g8t5+uibugbAiOswVvhuM8HRqD5n4CCXSPYxIhR2xuLWCYmqJzEISsau3w7X1hn2en+vJR7z/s2jJmPzJP4FEkvrOwpEjnVZNAtAeq6vP76+shHyF9N/WCvBrggR6546bwKl3sHZ2Vs5bbU0HghL4hYFOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rjPu3HmoRqXxTMrq8/4Xh/+FRgsoE/H1VR/fH/N3uEM=;
+ b=nqNN+PoSk4ApZytMsykfFIJYqb6f91d4wRBTG0U2SH4Ncs3/RuV8nKCeI2B1wkI+wB5hBDwyDz9ygnlwHy9Wntpf1y8Bhw84eZNXu/CFMwyHn5SWsr5aNdU8XHN3El0Eih8ykhsWORiHoVtFagl5xcEin2q9KprK0FBSQhUp+U+MstOJpAtwv5su2wBL2Yc/ZHjtsB/TSKvgCPpewsAgHWqpjUgS0wSL6Vm9rqiyk8A6i77OJHaP2rDtK4zmDCzhLEb9U44bxByBtLRXmBt1YWT5ZPGlRpsbm84OzF1vPidEWEZ78uhbvYw4PTOUQGY+/F9ULWMLWilMlGyCXsw28w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:f::12) by ZQZPR01MB1043.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:f::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7316.41; Wed, 6 Mar
+ 2024 17:23:58 +0000
+Received: from ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
+ ([fe80::f2cf:d7c2:e40b:d36e]) by
+ ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn ([fe80::f2cf:d7c2:e40b:d36e%5])
+ with mapi id 15.20.7270.046; Wed, 6 Mar 2024 17:23:58 +0000
+From: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: atishp@rivosinc.com,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ley Foon Tan <lftan.linux@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v3] clocksource: timer-riscv: Clear timer interrupt on timer initialization
+Date: Thu,  7 Mar 2024 01:23:30 +0800
+Message-ID: <20240306172330.255844-1-leyfoon.tan@starfivetech.com>
+X-Mailer: git-send-email 2.43.0
+X-ClientProxiedBy: BJSPR01CA0012.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:c::24) To ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:f::12)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZQZPR01MB0979:EE_|ZQZPR01MB1043:EE_
+X-MS-Office365-Filtering-Correlation-Id: bc5e1a72-6791-4f6e-1b24-08dc3e023529
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: iH39KKqYwZopLnHPLu+H9Wfea7LrAtSoEwTfOlbN60JngROcpA9wHX0bdOmHzklQKHbAcbLzMZLRRLAXwwRHk5LEKfjdmfAsR8OkNitm9DicpgTDRv9J5xzstR8U+7bM+H0PgqahCb4joMBlc1ICIf4/cj5GPkTwQ4de4C6JpkBoQcbj8bDztzaEngB0EfjFMs9Mm94IghDyCizuyPoc0YA//IGEdvZbxyjR4iOuzjoHtZEqO/UomJTBsR5LiLscCzbDD99Hy//FBuYjkvlTBP8vMUTZegMqA8zjOqxAYDzP5MOktApyxYnfcAFxh4s8neUH68+zaczJyUETaYLF8k/Gu6GYNXqG3GNWarKzijVKbAhLzSF2fRbXd2iw6EnWyUU6MsiRCmPS1vK8TL3WdJa+r+5vJEG4vbdwsJnmiJ62bP2MkI95RjMaG7my167Mm+5qGf8PJuEcdvJ0am3CXsBmst+8+cC4P393c0zp2iCP9alqNHUkKFlaiD2xK/itMHtPS5U79b/EHUll2KsdcSjzlJljbi9RWtHImeNpPLdnmRu8OtjOvCVKuFtZlY8wsRjKg3G+uLPQUxoSULOEdH11d1cMaayn9byxPxcKWfWVDyqaj2KYnIuo8hnEzSjl
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(41320700004)(38350700005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?s12m7vI4iOByP3EoE/70ntbeK5DYTdHCdSAvC8RjeATvlQEP+i+QJf1o+72e?=
+ =?us-ascii?Q?2/8vtKgcb2RHIRGY2u+P9M95Z/hL4U0/ttHy0FhD9U9B+pQ6cvgAbZ/Bx9d6?=
+ =?us-ascii?Q?cWcrVkfkdKBi4zdm1kE+du+bwDZhf/89aHCpHMP9VKLyyPP3bVIbnZ3Tz3M8?=
+ =?us-ascii?Q?dKqNU5iZtwERjS7BDT+vmBIwg+hv/iBzVQ8Xq5tGj7C+jxI9Jm8ZR+t2sVRy?=
+ =?us-ascii?Q?vB4+2mdTccxp63YvyHaOxOL3YJu8NL7o8Pqok5G0esMZz9CfFDS3xTVOYxxQ?=
+ =?us-ascii?Q?Jd4HU3XlWKkvvCK310uDL9Qqy0awa+w7EKmfwL7gUmqCrFx2ohGUPg4TMxiZ?=
+ =?us-ascii?Q?SZCiZ9T1NPAAVf/L2IvlvUSRxDnqd/TtOzLPWHbX5SIKE9oNUqbNIJet9rvJ?=
+ =?us-ascii?Q?5zH+yJDtlgWls+3X2Sa04wOYWM9xpLNki+K79frtEhLKYiIkr8FetGq6Q2t3?=
+ =?us-ascii?Q?i5ppwo4RDxlm6wKkgf/1r3SVmbgg3WL8nwePxDcg3xhoMaeJMJPjLHmr5FUo?=
+ =?us-ascii?Q?PoUcj/bwX8cQemBytq1ZWJ0FykhiuiE5FiAgujWVoUA4d5kvcQ1ARAuoQtZy?=
+ =?us-ascii?Q?6klcnnzwaRWmVPxBgiE1KsKjHwJgpycCuy36eNGDCJ9b4EwskjCCB9eUzw2V?=
+ =?us-ascii?Q?H2uZ9arueyHHMxeFeyGTLdyHfgjcELviD3EFUSQQurL5Z01Kg/7+c5niuvmi?=
+ =?us-ascii?Q?RqX1OsctJ+FfP5iTVMqjiCP5ucBLB+tesPyE8V5Ztw8IrhJZU3Yb8DhIyBr9?=
+ =?us-ascii?Q?2yAZ6Lie7HZzoPh3ububat7EfKpdloB9G4C3ZTHt19loyT++cf3OE9Jf0clc?=
+ =?us-ascii?Q?0iOt28QyuPqOlJ5xgoFMIeOw+msUclHK+7B/LkTfig3tOwi3pp2Q8E+9Urlp?=
+ =?us-ascii?Q?sYDjl71S31PwKUAGaOD7dKrpnA0sqmhkYjM18iHxWy/7jo8CO9U29IX5xrmQ?=
+ =?us-ascii?Q?Im+DhR97paeZvIrtgoERjuRgleLYYedInHzMMth3JaVA6sVxkPaHCt55sF3Z?=
+ =?us-ascii?Q?382PqKEfs3NIjsO6EJAKFfJU5dZqNyqZzzibxbc0NCa3mxOVRcs9T/kBWko9?=
+ =?us-ascii?Q?WOHdnZoJGK6xQBw3KBRXdj0+9mhNT7ga0jcYZ31EtrZzXSnDJp7JQRRlbix+?=
+ =?us-ascii?Q?uHrQbVOxmMdvhFzLME4cUGNdMIL/67x/+YbbJDjrVKj8EhbuXyWRNysVn4vW?=
+ =?us-ascii?Q?iWpZAzBvLjGpGt9xhEpMkoeIVd50LSc6dcR9yqSEPnMY92hM9L06FtxEtHId?=
+ =?us-ascii?Q?EcI2K53m1qffg82B5fldr8OqmakLBRTT3o5nZKEye+idQCRvWYeMezy8Tlva?=
+ =?us-ascii?Q?hQHRgup/r7O95OCLftZlceU/OiBA7dobjK5ze/Sgs3xpz8/YeXskz5mxXVbB?=
+ =?us-ascii?Q?FLXSaXD6b/6GM0HoJt65VE1DORjFrJSZh3zdNykCJPMQdnsPwL+7nA9wFKp1?=
+ =?us-ascii?Q?oD0sf1GQnLLJdiZ3VTBl2Rrpa1EwUWGKciEP2TE07X63PrGxZcM4qMDckWK3?=
+ =?us-ascii?Q?miciC0MnMYH7RKnAg5PXRNjTz8tbWaD/E1ZdRjqfV209UEhmMSlpqYLXn9hK?=
+ =?us-ascii?Q?5JD2Mn2INKXVkUYa6dmBUPTkFAYKZ4k/NjHSAnSPAzqUGuGp0MX4OHbSwPue?=
+ =?us-ascii?Q?cmq6s2KfocuGkDyaoba+St4=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bc5e1a72-6791-4f6e-1b24-08dc3e023529
+X-MS-Exchange-CrossTenant-AuthSource: ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2024 17:23:58.4846
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3Jmw5zhTrAkPDbGFlCtDB7So/u5ZcrMIwoOOmMCsNaMPSbG7/MCQgLOb8J9TP2OoeefTZ1v5AosMUidI62cHs+ABNjQCpLI8u5XHzrjDQXA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQZPR01MB1043
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_091801_053408_2438A941 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20240306_092414_256483_3495C5C5 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,21 +136,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 06 2024 at 15:14, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> Naresh noticed that the newly added usage of the PAGE_SIZE macro in
-> include/vdso/datapage.h introduced a build regression. I had an older
-> patch that I revived to have this defined through Kconfig rather than
-> through including asm/page.h, which is not allowed in vdso code.
->
-> The vdso patch series now has a temporary workaround, but I still want to
-> get this into v6.9 so we can place the hack with CONFIG_PAGE_SIZE
-> in the vdso.
+In the RISC-V specification, the stimecmp register doesn't have a default
+value. To prevent the timer interrupt from being triggered during timer
+initialization, clear the timer interrupt by writing stimecmp with a
+maximum value.
 
-Thank you for cleaning this up!
+Fixes: 9f7a8ff6391f ("RISC-V: Prefer sstc extension if available")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 
-      tglx
+---
+v3:
+Resolved comment from Samuel Holland.
+- Function riscv_clock_event_stop() needs to be called before
+  clockevents_config_and_register(), move riscv_clock_event_stop().
+
+v2:
+Resolved comments from Anup.
+- Moved riscv_clock_event_stop() to riscv_timer_starting_cpu().
+- Added Fixes tag
+---
+ drivers/clocksource/timer-riscv.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index e66dcbd66566..79bb9a98baa7 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -108,6 +108,9 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
+ {
+ 	struct clock_event_device *ce = per_cpu_ptr(&riscv_clock_event, cpu);
+ 
++	/* Clear timer interrupt */
++	riscv_clock_event_stop();
++
+ 	ce->cpumask = cpumask_of(cpu);
+ 	ce->irq = riscv_clock_event_irq;
+ 	if (riscv_timer_cannot_wake_cpu)
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
