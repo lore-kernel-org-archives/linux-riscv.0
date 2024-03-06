@@ -4,37 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7048FC54E41
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 20:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0924C5475B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 20:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M4gc72HxospPLhJSi0QJeDFje8c7kQ5uIhSXlYrpnpk=; b=hO8FR1s4BCBNB3atToBql6Jqbo
-	wL45YtGWbLQi7XAGvOvhZCyt3B2twKXMKtsqW1woQIuD2u3UQ+7EDwnyU3L4xtUoP92hYvz8mrHw2
-	hZOyvvi+dWrz4dzwmrmfcL+dd2Fgqj/VwjuYxg5uhTad1UAenSl9VrppfvkTCkB/WKtyuD6wqtkg6
-	Skoc443UBGKKsBgc5RbVpmfLoSPVkBqSUTF1B1LSNNxv/sgvICwphEehmxbNpUHxQCNk1uJkaRZrI
-	WZjgzQy26lOx5+QR0O9/3iiDggD+pjrxY4CloVsPRPQiQVkN7lIOlMBLwBALl9gIA/Ko/fD1K8yfo
-	Kk8tpFBg==;
+	List-Unsubscribe:List-Id:In-Reply-To:Cc:References:To:From:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dqNjPSBsL8KHFBikGH2xbDHBB/2COIAT9Xf106uNWQE=; b=MpfWpemjSIiw0w
+	5DBnWGZgFBHB1OnzbOHgH5ggphSdpuIz7OTvcuAN7Lnzw+A9ATCCraEQ7402fHcY18H0Ss9oaE9U4
+	AgwyGif+2JV1i1MMNxm7o+VhWUcoFXjILgrafUO8ZgM5bx7qwa8f7v086qOe7Mdx0LdYWOwHrrCAd
+	lkz8jQzlK713taF+qCR58Sonk9ZDXUbxRdrER4Nfe8G5lf6Dd3Jg4eFKFE4x7ut29+y+bbq+boDLZ
+	NTZDS/3E6/GQhUN25LThxkkmarbzMZoEwhWKHAU3ui94d2xVCSrQnFGEU7WOaBIFdlutpTYCda4vT
+	saqVyneBWV5OKiaDbYtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhxzi-00000001pWC-16tM;
-	Wed, 06 Mar 2024 20:36:06 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1rhy1l-00000001pqI-0kGW;
+	Wed, 06 Mar 2024 20:38:13 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhxze-00000001pUv-1hwd
+	id 1rhy1h-00000001ppF-0VMx
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Mar 2024 20:36:05 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A12AB240003;
-	Wed,  6 Mar 2024 20:35:50 +0000 (UTC)
-Message-ID: <34c9d54a-0f19-4671-8b05-9adf3b6c9a1a@ghiti.fr>
-Date: Wed, 6 Mar 2024 21:35:49 +0100
+	Wed, 06 Mar 2024 20:38:11 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 06D2B1C0004;
+	Wed,  6 Mar 2024 20:38:01 +0000 (UTC)
+Message-ID: <60a1ad85-7bca-45ef-91be-8f1b3cfc9011@ghiti.fr>
+Date: Wed, 6 Mar 2024 21:38:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [RFC PATCH] riscv: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
 Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
 To: Puranjay Mohan <puranjay12@gmail.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -50,12 +51,14 @@ To: Puranjay Mohan <puranjay12@gmail.com>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-trace-kernel@vger.kernel.org
 References: <20240306165904.108141-1-puranjay12@gmail.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240306165904.108141-1-puranjay12@gmail.com>
+ <34c9d54a-0f19-4671-8b05-9adf3b6c9a1a@ghiti.fr>
+Cc: Evgenii Shatokhin <e.shatokhin@yadro.com>,
+ Andy Chiu <andy.chiu@sifive.com>
+In-Reply-To: <34c9d54a-0f19-4671-8b05-9adf3b6c9a1a@ghiti.fr>
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_123602_768024_92266FBC 
-X-CRM114-Status: GOOD (  45.47  )
+X-CRM114-CacheID: sfid-20240306_123809_544207_5CB92EDE 
+X-CRM114-Status: GOOD (  32.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,405 +70,343 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Puranjay,
-
-On 06/03/2024 17:59, Puranjay Mohan wrote:
-> This patch enables support for DYNAMIC_FTRACE_WITH_CALL_OPS on RISC-V.
-> This allows each ftrace callsite to provide an ftrace_ops to the common
-> ftrace trampoline, allowing each callsite to invoke distinct tracer
-> functions without the need to fall back to list processing or to
-> allocate custom trampolines for each callsite. This significantly speeds
-> up cases where multiple distinct trace functions are used and callsites
-> are mostly traced by a single tracer.
->
-> The idea and most of the implementation is taken from the ARM64's
-> implementation of the same feature. The idea is to place a pointer to
-> the ftrace_ops as a literal at a fixed offset from the function entry
-> point, which can be recovered by the common ftrace trampoline.
->
-> We use -fpatchable-function-entry to reserve 8 bytes above the function
-> entry by emitting 2 4 byte or 4 2 byte  nops depending on the presence of
-> CONFIG_RISCV_ISA_C. These 8 bytes are patched at runtime with a pointer
-> to the associated ftrace_ops for that callsite. Functions are aligned to
-> 8 bytes to make sure that the accesses to this literal are atomic.
->
-> This approach allows for directly invoking ftrace_ops::func even for
-> ftrace_ops which are dynamically-allocated (or part of a module),
-> without going via ftrace_ops_list_func.
->
-> I've benchamrked this with the ftrace_ops sample module on Qemu, with
-> the next version, I will provide benchmarks on real hardware:
->
-> Without this patch:
->
-> +-----------------------+-----------------+----------------------------+
-> |  Number of tracers    | Total time (ns) | Per-call average time      |
-> |-----------------------+-----------------+----------------------------|
-> | Relevant | Irrelevant |    100000 calls | Total (ns) | Overhead (ns) |
-> |----------+------------+-----------------+------------+---------------|
-> |        0 |          0 |        15615700 |        156 |             - |
-> |        0 |          1 |        15917600 |        159 |             - |
-> |        0 |          2 |        15668000 |        156 |             - |
-> |        0 |         10 |        14971500 |        149 |             - |
-> |        0 |        100 |        15417600 |        154 |             - |
-> |        0 |        200 |        15387000 |        153 |             - |
-> |----------+------------+-----------------+------------+---------------|
-> |        1 |          0 |       119906800 |       1199 |          1043 |
-> |        1 |          1 |       137428600 |       1374 |          1218 |
-> |        1 |          2 |       159562400 |       1374 |          1218 |
-> |        1 |         10 |       302099900 |       3020 |          2864 |
-> |        1 |        100 |      2008785500 |      20087 |         19931 |
-> |        1 |        200 |      3965221900 |      39652 |         39496 |
-> |----------+------------+-----------------+------------+---------------|
-> |        1 |          0 |       119166700 |       1191 |          1035 |
-> |        2 |          0 |       157999900 |       1579 |          1423 |
-> |       10 |          0 |       425370100 |       4253 |          4097 |
-> |      100 |          0 |      3595252100 |      35952 |         35796 |
-> |      200 |          0 |      7023485700 |      70234 |         70078 |
-> +----------+------------+-----------------+------------+---------------+
->
-> Note: per-call overhead is estimated relative to the baseline case with
-> 0 relevant tracers and 0 irrelevant tracers.
->
-> With this patch:
->
-> +-----------------------+-----------------+----------------------------+
-> |   Number of tracers   | Total time (ns) | Per-call average time      |
-> |-----------------------+-----------------+----------------------------|
-> | Relevant | Irrelevant |    100000 calls | Total (ns) | Overhead (ns) |
-> |----------+------------+-----------------+------------+---------------|
-> |        0 |          0 |        15254600 |        152 |             - |
-> |        0 |          1 |        16136700 |        161 |             - |
-> |        0 |          2 |        15329500 |        153 |             - |
-> |        0 |         10 |        15148800 |        151 |             - |
-> |        0 |        100 |        15746900 |        157 |             - |
-> |        0 |        200 |        15737400 |        157 |             - |
-> |----------+------------+-----------------+------------+---------------|
-> |        1 |          0 |        47909000 |        479 |           327 |
-> |        1 |          1 |        48297400 |        482 |           330 |
-> |        1 |          2 |        47314100 |        473 |           321 |
-> |        1 |         10 |        47844900 |        478 |           326 |
-> |        1 |        100 |        46591900 |        465 |           313 |
-> |        1 |        200 |        47178900 |        471 |           319 |
-> |----------+------------+-----------------+------------+---------------|
-> |        1 |          0 |        46715800 |        467 |           315 |
-> |        2 |          0 |       155134500 |       1551 |          1399 |
-> |       10 |          0 |       442672800 |       4426 |          4274 |
-> |      100 |          0 |      4092353900 |      40923 |         40771 |
-> |      200 |          0 |      7135796400 |      71357 |         71205 |
-> +----------+------------+-----------------+------------+---------------+
->
-> Note: per-call overhead is estimated relative to the baseline case with
-> 0 relevant tracers and 0 irrelevant tracers.
->
-> As can be seen from the above:
->
->   a) Whenever there is a single relevant tracer function associated with a
->      tracee, the overhead of invoking the tracer is constant, and does not
->      scale with the number of tracers which are *not* associated with that
->      tracee.
->
->   b) The overhead for a single relevant tracer has dropped to ~1/3 of the
->      overhead prior to this series (from 1035ns to 315ns). This is largely
->      due to permitting calls to dynamically-allocated ftrace_ops without
->      going through ftrace_ops_list_func.
->
-> Why is this patch a RFC patch:
->   1. I saw some rcu stalls on Qemu and need to debug them and see if they
->      were introduced by this patch.
-
-
-FYI, I'm currently working on debugging such issues (and other) with the 
-*current* ftrace implementation, so probably not caused by your 
-patchset. But keep debugging too, maybe this introduces other issues or 
-even better, you'll find the root cause :)
-
-
->   2. This needs to be tested thoroughly on real hardware.
->   3. Seeking reviews to fix any fundamental problems with this patch that I
->      might have missed due to my lack of RISC-V architecture knowledge.
->   4. I would like to benchmark this on real hardware and put the results in
->      the commit message.
->
-> Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
-> ---
->   arch/riscv/Kconfig              |  2 ++
->   arch/riscv/Makefile             |  8 +++++
->   arch/riscv/include/asm/ftrace.h |  3 ++
->   arch/riscv/kernel/asm-offsets.c |  3 ++
->   arch/riscv/kernel/ftrace.c      | 59 +++++++++++++++++++++++++++++++++
->   arch/riscv/kernel/mcount-dyn.S  | 42 ++++++++++++++++++++---
->   6 files changed, 112 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 0bfcfec67ed5..e474742e23b2 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -78,6 +78,7 @@ config RISCV
->   	select EDAC_SUPPORT
->   	select FRAME_POINTER if PERF_EVENTS || (FUNCTION_TRACER && !DYNAMIC_FTRACE)
->   	select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY if DYNAMIC_FTRACE
-> +	select FUNCTION_ALIGNMENT_8B if DYNAMIC_FTRACE_WITH_CALL_OPS
-
-
-A recent discussion [1] states that -falign-functions cannot guarantee 
-this alignment for all code and that gcc developers came up with a new 
-option [2]: WDYT? I have added Andy and Evgenii in +cc to help on that.
-
-[1] 
-https://lore.kernel.org/linux-riscv/4fe4567b-96be-4102-952b-7d39109b2186@yadro.com/
-[2] 
-https://gcc.gnu.org/git/gitweb.cgi?p=gcc.git;h=0f5a9a00e3ab1fe96142f304cfbcf3f63b15f326
-
-
->   	select GENERIC_ARCH_TOPOLOGY
->   	select GENERIC_ATOMIC64 if !64BIT
->   	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
-> @@ -127,6 +128,7 @@ config RISCV
->   	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
->   	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
->   	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
-> +	select HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS if (DYNAMIC_FTRACE_WITH_REGS && !CFI_CLANG)
->   	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
->   	select HAVE_FUNCTION_GRAPH_TRACER
->   	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 252d63942f34..875ad5dc3d32 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -14,12 +14,20 @@ endif
->   ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
->   	LDFLAGS_vmlinux += --no-relax
->   	KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
-> +ifeq ($(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS), y)
-> +ifeq ($(CONFIG_RISCV_ISA_C),y)
-> +	CC_FLAGS_FTRACE := -fpatchable-function-entry=8,4
-> +else
-> +	CC_FLAGS_FTRACE := -fpatchable-function-entry=4,2
-> +endif
-> +else
->   ifeq ($(CONFIG_RISCV_ISA_C),y)
->   	CC_FLAGS_FTRACE := -fpatchable-function-entry=4
->   else
->   	CC_FLAGS_FTRACE := -fpatchable-function-entry=2
->   endif
->   endif
-> +endif
->   
->   ifeq ($(CONFIG_CMODEL_MEDLOW),y)
->   KBUILD_CFLAGS_MODULE += -mcmodel=medany
-> diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-> index 329172122952..c9a84222c9ea 100644
-> --- a/arch/riscv/include/asm/ftrace.h
-> +++ b/arch/riscv/include/asm/ftrace.h
-> @@ -28,6 +28,9 @@
->   void MCOUNT_NAME(void);
->   static inline unsigned long ftrace_call_adjust(unsigned long addr)
->   {
-> +	if (IS_ENABLED(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS))
-> +		return addr + 8;
-> +
->   	return addr;
->   }
->   
-> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> index a03129f40c46..7d7c4b486852 100644
-> --- a/arch/riscv/kernel/asm-offsets.c
-> +++ b/arch/riscv/kernel/asm-offsets.c
-> @@ -488,4 +488,7 @@ void asm_offsets(void)
->   	DEFINE(STACKFRAME_SIZE_ON_STACK, ALIGN(sizeof(struct stackframe), STACK_ALIGN));
->   	OFFSET(STACKFRAME_FP, stackframe, fp);
->   	OFFSET(STACKFRAME_RA, stackframe, ra);
-> +#ifdef CONFIG_FUNCTION_TRACER
-> +	DEFINE(FTRACE_OPS_FUNC,		offsetof(struct ftrace_ops, func));
-> +#endif
->   }
-> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-> index f5aa24d9e1c1..e2e75e15d32e 100644
-> --- a/arch/riscv/kernel/ftrace.c
-> +++ b/arch/riscv/kernel/ftrace.c
-> @@ -82,9 +82,52 @@ static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
->   	return 0;
->   }
->   
-> +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-> +static const struct ftrace_ops *riscv64_rec_get_ops(struct dyn_ftrace *rec)
-> +{
-> +	const struct ftrace_ops *ops = NULL;
-> +
-> +	if (rec->flags & FTRACE_FL_CALL_OPS_EN) {
-> +		ops = ftrace_find_unique_ops(rec);
-> +		WARN_ON_ONCE(!ops);
-> +	}
-> +
-> +	if (!ops)
-> +		ops = &ftrace_list_ops;
-> +
-> +	return ops;
-> +}
-> +
-> +static int ftrace_rec_set_ops(const struct dyn_ftrace *rec,
-> +			      const struct ftrace_ops *ops)
-> +{
-> +	unsigned long literal = rec->ip - 8;
-> +
-> +	return patch_text_nosync((void *)literal, &ops, sizeof(ops));
-> +}
-> +
-> +static int ftrace_rec_set_nop_ops(struct dyn_ftrace *rec)
-> +{
-> +	return ftrace_rec_set_ops(rec, &ftrace_nop_ops);
-> +}
-> +
-> +static int ftrace_rec_update_ops(struct dyn_ftrace *rec)
-> +{
-> +	return ftrace_rec_set_ops(rec, riscv64_rec_get_ops(rec));
-> +}
-> +#else
-> +static int ftrace_rec_set_nop_ops(struct dyn_ftrace *rec) { return 0; }
-> +static int ftrace_rec_update_ops(struct dyn_ftrace *rec) { return 0; }
-> +#endif
-> +
->   int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
->   {
->   	unsigned int call[2];
-> +	int ret;
-> +
-> +	ret = ftrace_rec_update_ops(rec);
-> +	if (ret)
-> +		return ret;
->   
->   	make_call_t0(rec->ip, addr, call);
->   
-> @@ -98,6 +141,11 @@ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
->   		    unsigned long addr)
->   {
->   	unsigned int nops[2] = {NOP4, NOP4};
-> +	int ret;
-> +
-> +	ret = ftrace_rec_set_nop_ops(rec);
-> +	if (ret)
-> +		return ret;
->   
->   	if (patch_text_nosync((void *)rec->ip, nops, MCOUNT_INSN_SIZE))
->   		return -EPERM;
-> @@ -125,6 +173,13 @@ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
->   
->   int ftrace_update_ftrace_func(ftrace_func_t func)
->   {
-> +	/*
-> +	 * When using CALL_OPS, the function to call is associated with the
-> +	 * call site, and we don't have a global function pointer to update.
-> +	 */
-> +	if (IS_ENABLED(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS))
-> +		return 0;
-> +
->   	int ret = __ftrace_modify_call((unsigned long)&ftrace_call,
->   				       (unsigned long)func, true, true);
->   	if (!ret) {
-> @@ -147,6 +202,10 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
->   	make_call_t0(caller, old_addr, call);
->   	ret = ftrace_check_current_call(caller, call);
->   
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = ftrace_rec_update_ops(rec);
->   	if (ret)
->   		return ret;
->   
-> diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-> index b7561288e8da..cb241e36e514 100644
-> --- a/arch/riscv/kernel/mcount-dyn.S
-> +++ b/arch/riscv/kernel/mcount-dyn.S
-> @@ -191,11 +191,35 @@
->   	.endm
->   
->   	.macro PREPARE_ARGS
-> -	addi	a0, t0, -FENTRY_RA_OFFSET
-> +	addi	a0, t0, -FENTRY_RA_OFFSET	// ip (callsite's auipc insn)
-> +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-> +	/*
-> +	 * When CALL_OPS is enabled (2 or 4) nops [8B] are placed before the
-> +	 * function entry, these are later overwritten with the pointer to the
-> +	 * associated struct ftrace_ops.
-> +	 *
-> +	 * -8: &ftrace_ops of the associated tracer function.
-> +	 *<ftrace enable>:
-> +	 *  0: auipc  t0/ra, 0x?
-> +	 *  4: jalr   t0/ra, ?(t0/ra)
-> +	 *
-> +	 * -8: &ftrace_nop_ops
-> +	 *<ftrace disable>:
-> +	 *  0: nop
-> +	 *  4: nop
-> +	 *
-> +	 * t0 is set to ip+8 after the jalr is executed at the callsite,
-> +	 * so we find the associated op at t0-16.
-> +	 */
-> +	mv 	a1, ra				// parent_ip
-> +	REG_L   a2, -16(t0)			// op
-> +	REG_L   ra, FTRACE_OPS_FUNC(a2)		// op->func
-> +#else
->   	la	a1, function_trace_op
-> -	REG_L	a2, 0(a1)
-> -	mv	a1, ra
-> -	mv	a3, sp
-> +	REG_L	a2, 0(a1)			// op
-> +	mv	a1, ra				// parent_ip
-> +#endif
-> +	mv	a3, sp				// regs
->   	.endm
->   
->   #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
-> @@ -233,8 +257,12 @@ SYM_FUNC_START(ftrace_regs_caller)
->   	SAVE_ABI_REGS 1
->   	PREPARE_ARGS
->   
-> +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-> +	jalr ra
-> +#else
->   SYM_INNER_LABEL(ftrace_regs_call, SYM_L_GLOBAL)
->   	call	ftrace_stub
-> +#endif
->   
->   	RESTORE_ABI_REGS 1
->   	bnez	t1, .Ldirect
-> @@ -247,9 +275,13 @@ SYM_FUNC_START(ftrace_caller)
->   	SAVE_ABI_REGS 0
->   	PREPARE_ARGS
->   
-> -SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
-> +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-> +	jalr ra
-> +#else
-> +SYM_INNER_LABEL(ftrace_regs_call, SYM_L_GLOBAL)
->   	call	ftrace_stub
->   
-> +#endif
->   	RESTORE_ABI_REGS 0
->   	jr	t0
->   SYM_FUNC_END(ftrace_caller)
-
-
-As I'm diving into ftrace right now, I'll give a proper review soon. But 
-as a note, I noticed that the function_graph tracer, when enabled, makes 
-the whole system unresponsive (but still up, just very slow). A fix I 
-sent recently seems to really improve that if you're interested in 
-testing it (I am :)). You can find it here: 
-https://lore.kernel.org/linux-riscv/20240229121056.203419-1-alexghiti@rivosinc.com/
-
-Thanks,
-
-Alex
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+K2NjIEFuZHkgYW5kIEV2Z2VuaWkKCk9uIDA2LzAzLzIwMjQgMjE6MzUsIEFsZXhhbmRyZSBHaGl0
+aSB3cm90ZToKPiBIaSBQdXJhbmpheSwKPgo+IE9uIDA2LzAzLzIwMjQgMTc6NTksIFB1cmFuamF5
+IE1vaGFuIHdyb3RlOgo+PiBUaGlzIHBhdGNoIGVuYWJsZXMgc3VwcG9ydCBmb3IgRFlOQU1JQ19G
+VFJBQ0VfV0lUSF9DQUxMX09QUyBvbiBSSVNDLVYuCj4+IFRoaXMgYWxsb3dzIGVhY2ggZnRyYWNl
+IGNhbGxzaXRlIHRvIHByb3ZpZGUgYW4gZnRyYWNlX29wcyB0byB0aGUgY29tbW9uCj4+IGZ0cmFj
+ZSB0cmFtcG9saW5lLCBhbGxvd2luZyBlYWNoIGNhbGxzaXRlIHRvIGludm9rZSBkaXN0aW5jdCB0
+cmFjZXIKPj4gZnVuY3Rpb25zIHdpdGhvdXQgdGhlIG5lZWQgdG8gZmFsbCBiYWNrIHRvIGxpc3Qg
+cHJvY2Vzc2luZyBvciB0bwo+PiBhbGxvY2F0ZSBjdXN0b20gdHJhbXBvbGluZXMgZm9yIGVhY2gg
+Y2FsbHNpdGUuIFRoaXMgc2lnbmlmaWNhbnRseSBzcGVlZHMKPj4gdXAgY2FzZXMgd2hlcmUgbXVs
+dGlwbGUgZGlzdGluY3QgdHJhY2UgZnVuY3Rpb25zIGFyZSB1c2VkIGFuZCBjYWxsc2l0ZXMKPj4g
+YXJlIG1vc3RseSB0cmFjZWQgYnkgYSBzaW5nbGUgdHJhY2VyLgo+Pgo+PiBUaGUgaWRlYSBhbmQg
+bW9zdCBvZiB0aGUgaW1wbGVtZW50YXRpb24gaXMgdGFrZW4gZnJvbSB0aGUgQVJNNjQncwo+PiBp
+bXBsZW1lbnRhdGlvbiBvZiB0aGUgc2FtZSBmZWF0dXJlLiBUaGUgaWRlYSBpcyB0byBwbGFjZSBh
+IHBvaW50ZXIgdG8KPj4gdGhlIGZ0cmFjZV9vcHMgYXMgYSBsaXRlcmFsIGF0IGEgZml4ZWQgb2Zm
+c2V0IGZyb20gdGhlIGZ1bmN0aW9uIGVudHJ5Cj4+IHBvaW50LCB3aGljaCBjYW4gYmUgcmVjb3Zl
+cmVkIGJ5IHRoZSBjb21tb24gZnRyYWNlIHRyYW1wb2xpbmUuCj4+Cj4+IFdlIHVzZSAtZnBhdGNo
+YWJsZS1mdW5jdGlvbi1lbnRyeSB0byByZXNlcnZlIDggYnl0ZXMgYWJvdmUgdGhlIGZ1bmN0aW9u
+Cj4+IGVudHJ5IGJ5IGVtaXR0aW5nIDIgNCBieXRlIG9yIDQgMiBieXRlwqAgbm9wcyBkZXBlbmRp
+bmcgb24gdGhlIAo+PiBwcmVzZW5jZSBvZgo+PiBDT05GSUdfUklTQ1ZfSVNBX0MuIFRoZXNlIDgg
+Ynl0ZXMgYXJlIHBhdGNoZWQgYXQgcnVudGltZSB3aXRoIGEgcG9pbnRlcgo+PiB0byB0aGUgYXNz
+b2NpYXRlZCBmdHJhY2Vfb3BzIGZvciB0aGF0IGNhbGxzaXRlLiBGdW5jdGlvbnMgYXJlIGFsaWdu
+ZWQgdG8KPj4gOCBieXRlcyB0byBtYWtlIHN1cmUgdGhhdCB0aGUgYWNjZXNzZXMgdG8gdGhpcyBs
+aXRlcmFsIGFyZSBhdG9taWMuCj4+Cj4+IFRoaXMgYXBwcm9hY2ggYWxsb3dzIGZvciBkaXJlY3Rs
+eSBpbnZva2luZyBmdHJhY2Vfb3BzOjpmdW5jIGV2ZW4gZm9yCj4+IGZ0cmFjZV9vcHMgd2hpY2gg
+YXJlIGR5bmFtaWNhbGx5LWFsbG9jYXRlZCAob3IgcGFydCBvZiBhIG1vZHVsZSksCj4+IHdpdGhv
+dXQgZ29pbmcgdmlhIGZ0cmFjZV9vcHNfbGlzdF9mdW5jLgo+Pgo+PiBJJ3ZlIGJlbmNoYW1ya2Vk
+IHRoaXMgd2l0aCB0aGUgZnRyYWNlX29wcyBzYW1wbGUgbW9kdWxlIG9uIFFlbXUsIHdpdGgKPj4g
+dGhlIG5leHQgdmVyc2lvbiwgSSB3aWxsIHByb3ZpZGUgYmVuY2htYXJrcyBvbiByZWFsIGhhcmR3
+YXJlOgo+Pgo+PiBXaXRob3V0IHRoaXMgcGF0Y2g6Cj4+Cj4+ICstLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLSstLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwo+PiB8
+wqAgTnVtYmVyIG9mIHRyYWNlcnPCoMKgwqAgfCBUb3RhbCB0aW1lIChucykgfCBQZXItY2FsbCBh
+dmVyYWdlIHRpbWXCoMKgwqDCoMKgIHwKPj4gfC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0t
+LS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS18Cj4+IHwgUmVsZXZhbnQg
+fCBJcnJlbGV2YW50IHzCoMKgwqAgMTAwMDAwIGNhbGxzIHwgVG90YWwgKG5zKSB8IE92ZXJoZWFk
+IChucykgfAo+PiB8LS0tLS0tLS0tLSstLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0rLS0t
+LS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLXwKPj4gfMKgwqDCoMKgwqDCoMKgIDAgfMKgwqDCoMKg
+wqDCoMKgwqDCoCAwIHzCoMKgwqDCoMKgwqDCoCAxNTYxNTcwMCB8wqDCoMKgwqDCoMKgwqAgMTU2
+IHzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSB8Cj4+IHzCoMKgwqDCoMKgwqDCoCAwIHzCoMKg
+wqDCoMKgwqDCoMKgwqAgMSB8wqDCoMKgwqDCoMKgwqAgMTU5MTc2MDAgfMKgwqDCoMKgwqDCoMKg
+IDE1OSB8wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gfAo+PiB8wqDCoMKgwqDCoMKgwqAgMCB8
+wqDCoMKgwqDCoMKgwqDCoMKgIDIgfMKgwqDCoMKgwqDCoMKgIDE1NjY4MDAwIHzCoMKgwqDCoMKg
+wqDCoCAxNTYgfMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHwKPj4gfMKgwqDCoMKgwqDCoMKg
+IDAgfMKgwqDCoMKgwqDCoMKgwqAgMTAgfMKgwqDCoMKgwqDCoMKgIDE0OTcxNTAwIHzCoMKgwqDC
+oMKgwqDCoCAxNDkgfMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHwKPj4gfMKgwqDCoMKgwqDC
+oMKgIDAgfMKgwqDCoMKgwqDCoMKgIDEwMCB8wqDCoMKgwqDCoMKgwqAgMTU0MTc2MDAgfMKgwqDC
+oMKgwqDCoMKgIDE1NCB8wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gfAo+PiB8wqDCoMKgwqDC
+oMKgwqAgMCB8wqDCoMKgwqDCoMKgwqAgMjAwIHzCoMKgwqDCoMKgwqDCoCAxNTM4NzAwMCB8wqDC
+oMKgwqDCoMKgwqAgMTUzIHzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSB8Cj4+IHwtLS0tLS0t
+LS0tKy0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0rLS0tLS0tLS0t
+LS0tLS0tfAo+PiB8wqDCoMKgwqDCoMKgwqAgMSB8wqDCoMKgwqDCoMKgwqDCoMKgIDAgfMKgwqDC
+oMKgwqDCoCAxMTk5MDY4MDAgfMKgwqDCoMKgwqDCoCAxMTk5IHzCoMKgwqDCoMKgwqDCoMKgwqAg
+MTA0MyB8Cj4+IHzCoMKgwqDCoMKgwqDCoCAxIHzCoMKgwqDCoMKgwqDCoMKgwqAgMSB8wqDCoMKg
+wqDCoMKgIDEzNzQyODYwMCB8wqDCoMKgwqDCoMKgIDEzNzQgfMKgwqDCoMKgwqDCoMKgwqDCoCAx
+MjE4IHwKPj4gfMKgwqDCoMKgwqDCoMKgIDEgfMKgwqDCoMKgwqDCoMKgwqDCoCAyIHzCoMKgwqDC
+oMKgwqAgMTU5NTYyNDAwIHzCoMKgwqDCoMKgwqAgMTM3NCB8wqDCoMKgwqDCoMKgwqDCoMKgIDEy
+MTggfAo+PiB8wqDCoMKgwqDCoMKgwqAgMSB8wqDCoMKgwqDCoMKgwqDCoCAxMCB8wqDCoMKgwqDC
+oMKgIDMwMjA5OTkwMCB8wqDCoMKgwqDCoMKgIDMwMjAgfMKgwqDCoMKgwqDCoMKgwqDCoCAyODY0
+IHwKPj4gfMKgwqDCoMKgwqDCoMKgIDEgfMKgwqDCoMKgwqDCoMKgIDEwMCB8wqDCoMKgwqDCoCAy
+MDA4Nzg1NTAwIHzCoMKgwqDCoMKgIDIwMDg3IHwgMTk5MzEgfAo+PiB8wqDCoMKgwqDCoMKgwqAg
+MSB8wqDCoMKgwqDCoMKgwqAgMjAwIHzCoMKgwqDCoMKgIDM5NjUyMjE5MDAgfMKgwqDCoMKgwqAg
+Mzk2NTIgfCAzOTQ5NiB8Cj4+IHwtLS0tLS0tLS0tKy0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0t
+LS0tLSstLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tfAo+PiB8wqDCoMKgwqDCoMKgwqAgMSB8
+wqDCoMKgwqDCoMKgwqDCoMKgIDAgfMKgwqDCoMKgwqDCoCAxMTkxNjY3MDAgfMKgwqDCoMKgwqDC
+oCAxMTkxIHzCoMKgwqDCoMKgwqDCoMKgwqAgMTAzNSB8Cj4+IHzCoMKgwqDCoMKgwqDCoCAyIHzC
+oMKgwqDCoMKgwqDCoMKgwqAgMCB8wqDCoMKgwqDCoMKgIDE1Nzk5OTkwMCB8wqDCoMKgwqDCoMKg
+IDE1NzkgfMKgwqDCoMKgwqDCoMKgwqDCoCAxNDIzIHwKPj4gfMKgwqDCoMKgwqDCoCAxMCB8wqDC
+oMKgwqDCoMKgwqDCoMKgIDAgfMKgwqDCoMKgwqDCoCA0MjUzNzAxMDAgfMKgwqDCoMKgwqDCoCA0
+MjUzIHzCoMKgwqDCoMKgwqDCoMKgwqAgNDA5NyB8Cj4+IHzCoMKgwqDCoMKgIDEwMCB8wqDCoMKg
+wqDCoMKgwqDCoMKgIDAgfMKgwqDCoMKgwqAgMzU5NTI1MjEwMCB8wqDCoMKgwqDCoCAzNTk1MiB8
+IDM1Nzk2IHwKPj4gfMKgwqDCoMKgwqAgMjAwIHzCoMKgwqDCoMKgwqDCoMKgwqAgMCB8wqDCoMKg
+wqDCoCA3MDIzNDg1NzAwIHzCoMKgwqDCoMKgIDcwMjM0IHwgNzAwNzggfAo+PiArLS0tLS0tLS0t
+LSstLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0t
+LS0tLSsKPj4KPj4gTm90ZTogcGVyLWNhbGwgb3ZlcmhlYWQgaXMgZXN0aW1hdGVkIHJlbGF0aXZl
+IHRvIHRoZSBiYXNlbGluZSBjYXNlIHdpdGgKPj4gMCByZWxldmFudCB0cmFjZXJzIGFuZCAwIGly
+cmVsZXZhbnQgdHJhY2Vycy4KPj4KPj4gV2l0aCB0aGlzIHBhdGNoOgo+Pgo+PiArLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLSsKPj4gfMKgwqAgTnVtYmVyIG9mIHRyYWNlcnPCoMKgIHwgVG90YWwgdGltZSAobnMpIHwg
+UGVyLWNhbGwgYXZlcmFnZSB0aW1lwqDCoMKgwqDCoCB8Cj4+IHwtLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLSstLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tfAo+PiB8
+IFJlbGV2YW50IHwgSXJyZWxldmFudCB8wqDCoMKgIDEwMDAwMCBjYWxscyB8IFRvdGFsIChucykg
+fCBPdmVyaGVhZCAobnMpIHwKPj4gfC0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0t
+LS0tLS0tKy0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS18Cj4+IHzCoMKgwqDCoMKgwqDCoCAw
+IHzCoMKgwqDCoMKgwqDCoMKgwqAgMCB8wqDCoMKgwqDCoMKgwqAgMTUyNTQ2MDAgfMKgwqDCoMKg
+wqDCoMKgIDE1MiB8wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gfAo+PiB8wqDCoMKgwqDCoMKg
+wqAgMCB8wqDCoMKgwqDCoMKgwqDCoMKgIDEgfMKgwqDCoMKgwqDCoMKgIDE2MTM2NzAwIHzCoMKg
+wqDCoMKgwqDCoCAxNjEgfMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHwKPj4gfMKgwqDCoMKg
+wqDCoMKgIDAgfMKgwqDCoMKgwqDCoMKgwqDCoCAyIHzCoMKgwqDCoMKgwqDCoCAxNTMyOTUwMCB8
+wqDCoMKgwqDCoMKgwqAgMTUzIHzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSB8Cj4+IHzCoMKg
+wqDCoMKgwqDCoCAwIHzCoMKgwqDCoMKgwqDCoMKgIDEwIHzCoMKgwqDCoMKgwqDCoCAxNTE0ODgw
+MCB8wqDCoMKgwqDCoMKgwqAgMTUxIHzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSB8Cj4+IHzC
+oMKgwqDCoMKgwqDCoCAwIHzCoMKgwqDCoMKgwqDCoCAxMDAgfMKgwqDCoMKgwqDCoMKgIDE1NzQ2
+OTAwIHzCoMKgwqDCoMKgwqDCoCAxNTcgfMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHwKPj4g
+fMKgwqDCoMKgwqDCoMKgIDAgfMKgwqDCoMKgwqDCoMKgIDIwMCB8wqDCoMKgwqDCoMKgwqAgMTU3
+Mzc0MDAgfMKgwqDCoMKgwqDCoMKgIDE1NyB8wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gfAo+
+PiB8LS0tLS0tLS0tLSstLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0t
+Ky0tLS0tLS0tLS0tLS0tLXwKPj4gfMKgwqDCoMKgwqDCoMKgIDEgfMKgwqDCoMKgwqDCoMKgwqDC
+oCAwIHzCoMKgwqDCoMKgwqDCoCA0NzkwOTAwMCB8wqDCoMKgwqDCoMKgwqAgNDc5IHzCoMKgwqDC
+oMKgwqDCoMKgwqDCoCAzMjcgfAo+PiB8wqDCoMKgwqDCoMKgwqAgMSB8wqDCoMKgwqDCoMKgwqDC
+oMKgIDEgfMKgwqDCoMKgwqDCoMKgIDQ4Mjk3NDAwIHzCoMKgwqDCoMKgwqDCoCA0ODIgfMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIDMzMCB8Cj4+IHzCoMKgwqDCoMKgwqDCoCAxIHzCoMKgwqDCoMKgwqDC
+oMKgwqAgMiB8wqDCoMKgwqDCoMKgwqAgNDczMTQxMDAgfMKgwqDCoMKgwqDCoMKgIDQ3MyB8wqDC
+oMKgwqDCoMKgwqDCoMKgwqAgMzIxIHwKPj4gfMKgwqDCoMKgwqDCoMKgIDEgfMKgwqDCoMKgwqDC
+oMKgwqAgMTAgfMKgwqDCoMKgwqDCoMKgIDQ3ODQ0OTAwIHzCoMKgwqDCoMKgwqDCoCA0NzggfMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIDMyNiB8Cj4+IHzCoMKgwqDCoMKgwqDCoCAxIHzCoMKgwqDCoMKg
+wqDCoCAxMDAgfMKgwqDCoMKgwqDCoMKgIDQ2NTkxOTAwIHzCoMKgwqDCoMKgwqDCoCA0NjUgfMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIDMxMyB8Cj4+IHzCoMKgwqDCoMKgwqDCoCAxIHzCoMKgwqDCoMKg
+wqDCoCAyMDAgfMKgwqDCoMKgwqDCoMKgIDQ3MTc4OTAwIHzCoMKgwqDCoMKgwqDCoCA0NzEgfMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIDMxOSB8Cj4+IHwtLS0tLS0tLS0tKy0tLS0tLS0tLS0tLSstLS0t
+LS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tfAo+PiB8wqDCoMKgwqDC
+oMKgwqAgMSB8wqDCoMKgwqDCoMKgwqDCoMKgIDAgfMKgwqDCoMKgwqDCoMKgIDQ2NzE1ODAwIHzC
+oMKgwqDCoMKgwqDCoCA0NjcgfMKgwqDCoMKgwqDCoMKgwqDCoMKgIDMxNSB8Cj4+IHzCoMKgwqDC
+oMKgwqDCoCAyIHzCoMKgwqDCoMKgwqDCoMKgwqAgMCB8wqDCoMKgwqDCoMKgIDE1NTEzNDUwMCB8
+wqDCoMKgwqDCoMKgIDE1NTEgfMKgwqDCoMKgwqDCoMKgwqDCoCAxMzk5IHwKPj4gfMKgwqDCoMKg
+wqDCoCAxMCB8wqDCoMKgwqDCoMKgwqDCoMKgIDAgfMKgwqDCoMKgwqDCoCA0NDI2NzI4MDAgfMKg
+wqDCoMKgwqDCoCA0NDI2IHzCoMKgwqDCoMKgwqDCoMKgwqAgNDI3NCB8Cj4+IHzCoMKgwqDCoMKg
+IDEwMCB8wqDCoMKgwqDCoMKgwqDCoMKgIDAgfMKgwqDCoMKgwqAgNDA5MjM1MzkwMCB8wqDCoMKg
+wqDCoCA0MDkyMyB8IDQwNzcxIHwKPj4gfMKgwqDCoMKgwqAgMjAwIHzCoMKgwqDCoMKgwqDCoMKg
+wqAgMCB8wqDCoMKgwqDCoCA3MTM1Nzk2NDAwIHzCoMKgwqDCoMKgIDcxMzU3IHwgNzEyMDUgfAo+
+PiArLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0t
+Ky0tLS0tLS0tLS0tLS0tLSsKPj4KPj4gTm90ZTogcGVyLWNhbGwgb3ZlcmhlYWQgaXMgZXN0aW1h
+dGVkIHJlbGF0aXZlIHRvIHRoZSBiYXNlbGluZSBjYXNlIHdpdGgKPj4gMCByZWxldmFudCB0cmFj
+ZXJzIGFuZCAwIGlycmVsZXZhbnQgdHJhY2Vycy4KPj4KPj4gQXMgY2FuIGJlIHNlZW4gZnJvbSB0
+aGUgYWJvdmU6Cj4+Cj4+IMKgIGEpIFdoZW5ldmVyIHRoZXJlIGlzIGEgc2luZ2xlIHJlbGV2YW50
+IHRyYWNlciBmdW5jdGlvbiBhc3NvY2lhdGVkIAo+PiB3aXRoIGEKPj4gwqDCoMKgwqAgdHJhY2Vl
+LCB0aGUgb3ZlcmhlYWQgb2YgaW52b2tpbmcgdGhlIHRyYWNlciBpcyBjb25zdGFudCwgYW5kIAo+
+PiBkb2VzIG5vdAo+PiDCoMKgwqDCoCBzY2FsZSB3aXRoIHRoZSBudW1iZXIgb2YgdHJhY2VycyB3
+aGljaCBhcmUgKm5vdCogYXNzb2NpYXRlZCB3aXRoIAo+PiB0aGF0Cj4+IMKgwqDCoMKgIHRyYWNl
+ZS4KPj4KPj4gwqAgYikgVGhlIG92ZXJoZWFkIGZvciBhIHNpbmdsZSByZWxldmFudCB0cmFjZXIg
+aGFzIGRyb3BwZWQgdG8gfjEvMyBvZiAKPj4gdGhlCj4+IMKgwqDCoMKgIG92ZXJoZWFkIHByaW9y
+IHRvIHRoaXMgc2VyaWVzIChmcm9tIDEwMzVucyB0byAzMTVucykuIFRoaXMgaXMgCj4+IGxhcmdl
+bHkKPj4gwqDCoMKgwqAgZHVlIHRvIHBlcm1pdHRpbmcgY2FsbHMgdG8gZHluYW1pY2FsbHktYWxs
+b2NhdGVkIGZ0cmFjZV9vcHMgd2l0aG91dAo+PiDCoMKgwqDCoCBnb2luZyB0aHJvdWdoIGZ0cmFj
+ZV9vcHNfbGlzdF9mdW5jLgo+Pgo+PiBXaHkgaXMgdGhpcyBwYXRjaCBhIFJGQyBwYXRjaDoKPj4g
+wqAgMS4gSSBzYXcgc29tZSByY3Ugc3RhbGxzIG9uIFFlbXUgYW5kIG5lZWQgdG8gZGVidWcgdGhl
+bSBhbmQgc2VlIGlmIAo+PiB0aGV5Cj4+IMKgwqDCoMKgIHdlcmUgaW50cm9kdWNlZCBieSB0aGlz
+IHBhdGNoLgo+Cj4KPiBGWUksIEknbSBjdXJyZW50bHkgd29ya2luZyBvbiBkZWJ1Z2dpbmcgc3Vj
+aCBpc3N1ZXMgKGFuZCBvdGhlcikgd2l0aCAKPiB0aGUgKmN1cnJlbnQqIGZ0cmFjZSBpbXBsZW1l
+bnRhdGlvbiwgc28gcHJvYmFibHkgbm90IGNhdXNlZCBieSB5b3VyIAo+IHBhdGNoc2V0LiBCdXQg
+a2VlcCBkZWJ1Z2dpbmcgdG9vLCBtYXliZSB0aGlzIGludHJvZHVjZXMgb3RoZXIgaXNzdWVzIAo+
+IG9yIGV2ZW4gYmV0dGVyLCB5b3UnbGwgZmluZCB0aGUgcm9vdCBjYXVzZSA6KQo+Cj4KPj4gwqAg
+Mi4gVGhpcyBuZWVkcyB0byBiZSB0ZXN0ZWQgdGhvcm91Z2hseSBvbiByZWFsIGhhcmR3YXJlLgo+
+PiDCoCAzLiBTZWVraW5nIHJldmlld3MgdG8gZml4IGFueSBmdW5kYW1lbnRhbCBwcm9ibGVtcyB3
+aXRoIHRoaXMgcGF0Y2ggCj4+IHRoYXQgSQo+PiDCoMKgwqDCoCBtaWdodCBoYXZlIG1pc3NlZCBk
+dWUgdG8gbXkgbGFjayBvZiBSSVNDLVYgYXJjaGl0ZWN0dXJlIGtub3dsZWRnZS4KPj4gwqAgNC4g
+SSB3b3VsZCBsaWtlIHRvIGJlbmNobWFyayB0aGlzIG9uIHJlYWwgaGFyZHdhcmUgYW5kIHB1dCB0
+aGUgCj4+IHJlc3VsdHMgaW4KPj4gwqDCoMKgwqAgdGhlIGNvbW1pdCBtZXNzYWdlLgo+Pgo+PiBT
+aWduZWQtb2ZmLWJ5OiBQdXJhbmpheSBNb2hhbiA8cHVyYW5qYXkxMkBnbWFpbC5jb20+Cj4+IC0t
+LQo+PiDCoCBhcmNoL3Jpc2N2L0tjb25maWfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAg
+MiArKwo+PiDCoCBhcmNoL3Jpc2N2L01ha2VmaWxlwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzC
+oCA4ICsrKysrCj4+IMKgIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnRyYWNlLmggfMKgIDMgKysK
+Pj4gwqAgYXJjaC9yaXNjdi9rZXJuZWwvYXNtLW9mZnNldHMuYyB8wqAgMyArKwo+PiDCoCBhcmNo
+L3Jpc2N2L2tlcm5lbC9mdHJhY2UuY8KgwqDCoMKgwqAgfCA1OSArKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysKPj4gwqAgYXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TwqAgfCA0
+MiArKysrKysrKysrKysrKysrKysrKy0tLQo+PiDCoCA2IGZpbGVzIGNoYW5nZWQsIDExMiBpbnNl
+cnRpb25zKCspLCA1IGRlbGV0aW9ucygtKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9L
+Y29uZmlnIGIvYXJjaC9yaXNjdi9LY29uZmlnCj4+IGluZGV4IDBiZmNmZWM2N2VkNS4uZTQ3NDc0
+MmUyM2IyIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPj4gKysrIGIvYXJjaC9y
+aXNjdi9LY29uZmlnCj4+IEBAIC03OCw2ICs3OCw3IEBAIGNvbmZpZyBSSVNDVgo+PiDCoMKgwqDC
+oMKgIHNlbGVjdCBFREFDX1NVUFBPUlQKPj4gwqDCoMKgwqDCoCBzZWxlY3QgRlJBTUVfUE9JTlRF
+UiBpZiBQRVJGX0VWRU5UUyB8fCAoRlVOQ1RJT05fVFJBQ0VSICYmIAo+PiAhRFlOQU1JQ19GVFJB
+Q0UpCj4+IMKgwqDCoMKgwqAgc2VsZWN0IEZUUkFDRV9NQ09VTlRfVVNFX1BBVENIQUJMRV9GVU5D
+VElPTl9FTlRSWSBpZiAKPj4gRFlOQU1JQ19GVFJBQ0UKPj4gK8KgwqDCoCBzZWxlY3QgRlVOQ1RJ
+T05fQUxJR05NRU5UXzhCIGlmIERZTkFNSUNfRlRSQUNFX1dJVEhfQ0FMTF9PUFMKPgo+Cj4gQSBy
+ZWNlbnQgZGlzY3Vzc2lvbiBbMV0gc3RhdGVzIHRoYXQgLWZhbGlnbi1mdW5jdGlvbnMgY2Fubm90
+IGd1YXJhbnRlZSAKPiB0aGlzIGFsaWdubWVudCBmb3IgYWxsIGNvZGUgYW5kIHRoYXQgZ2NjIGRl
+dmVsb3BlcnMgY2FtZSB1cCB3aXRoIGEgbmV3IAo+IG9wdGlvbiBbMl06IFdEWVQ/IEkgaGF2ZSBh
+ZGRlZCBBbmR5IGFuZCBFdmdlbmlpIGluICtjYyB0byBoZWxwIG9uIHRoYXQuCj4KPiBbMV0gCj4g
+aHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvNGZlNDU2N2ItOTZiZS00MTAyLTk1
+MmItN2QzOTEwOWIyMTg2QHlhZHJvLmNvbS8KPiBbMl0gCj4gaHR0cHM6Ly9nY2MuZ251Lm9yZy9n
+aXQvZ2l0d2ViLmNnaT9wPWdjYy5naXQ7aD0wZjVhOWEwMGUzYWIxZmU5NjE0MmYzMDRjZmJjZjNm
+NjNiMTVmMzI2Cj4KPgo+PiDCoMKgwqDCoMKgIHNlbGVjdCBHRU5FUklDX0FSQ0hfVE9QT0xPR1kK
+Pj4gwqDCoMKgwqDCoCBzZWxlY3QgR0VORVJJQ19BVE9NSUM2NCBpZiAhNjRCSVQKPj4gwqDCoMKg
+wqDCoCBzZWxlY3QgR0VORVJJQ19DTE9DS0VWRU5UU19CUk9BRENBU1QgaWYgU01QCj4+IEBAIC0x
+MjcsNiArMTI4LDcgQEAgY29uZmlnIFJJU0NWCj4+IMKgwqDCoMKgwqAgc2VsZWN0IEhBVkVfRFlO
+QU1JQ19GVFJBQ0UgaWYgIVhJUF9LRVJORUwgJiYgTU1VICYmIAo+PiAoQ0xBTkdfU1VQUE9SVFNf
+RFlOQU1JQ19GVFJBQ0UgfHwgR0NDX1NVUFBPUlRTX0RZTkFNSUNfRlRSQUNFKQo+PiDCoMKgwqDC
+oMKgIHNlbGVjdCBIQVZFX0RZTkFNSUNfRlRSQUNFX1dJVEhfRElSRUNUX0NBTExTCj4+IMKgwqDC
+oMKgwqAgc2VsZWN0IEhBVkVfRFlOQU1JQ19GVFJBQ0VfV0lUSF9SRUdTIGlmIEhBVkVfRFlOQU1J
+Q19GVFJBQ0UKPj4gK8KgwqDCoCBzZWxlY3QgSEFWRV9EWU5BTUlDX0ZUUkFDRV9XSVRIX0NBTExf
+T1BTIGlmIAo+PiAoRFlOQU1JQ19GVFJBQ0VfV0lUSF9SRUdTICYmICFDRklfQ0xBTkcpCj4+IMKg
+wqDCoMKgwqAgc2VsZWN0IEhBVkVfRlRSQUNFX01DT1VOVF9SRUNPUkQgaWYgIVhJUF9LRVJORUwK
+Pj4gwqDCoMKgwqDCoCBzZWxlY3QgSEFWRV9GVU5DVElPTl9HUkFQSF9UUkFDRVIKPj4gwqDCoMKg
+wqDCoCBzZWxlY3QgSEFWRV9GVU5DVElPTl9HUkFQSF9SRVRWQUwgaWYgSEFWRV9GVU5DVElPTl9H
+UkFQSF9UUkFDRVIKPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvTWFrZWZpbGUgYi9hcmNoL3Jp
+c2N2L01ha2VmaWxlCj4+IGluZGV4IDI1MmQ2Mzk0MmYzNC4uODc1YWQ1ZGMzZDMyIDEwMDY0NAo+
+PiAtLS0gYS9hcmNoL3Jpc2N2L01ha2VmaWxlCj4+ICsrKyBiL2FyY2gvcmlzY3YvTWFrZWZpbGUK
+Pj4gQEAgLTE0LDEyICsxNCwyMCBAQCBlbmRpZgo+PiDCoCBpZmVxICgkKENPTkZJR19EWU5BTUlD
+X0ZUUkFDRSkseSkKPj4gwqDCoMKgwqDCoCBMREZMQUdTX3ZtbGludXggKz0gLS1uby1yZWxheAo+
+PiDCoMKgwqDCoMKgIEtCVUlMRF9DUFBGTEFHUyArPSAtRENDX1VTSU5HX1BBVENIQUJMRV9GVU5D
+VElPTl9FTlRSWQo+PiAraWZlcSAoJChDT05GSUdfRFlOQU1JQ19GVFJBQ0VfV0lUSF9DQUxMX09Q
+UyksIHkpCj4+ICtpZmVxICgkKENPTkZJR19SSVNDVl9JU0FfQykseSkKPj4gK8KgwqDCoCBDQ19G
+TEFHU19GVFJBQ0UgOj0gLWZwYXRjaGFibGUtZnVuY3Rpb24tZW50cnk9OCw0Cj4+ICtlbHNlCj4+
+ICvCoMKgwqAgQ0NfRkxBR1NfRlRSQUNFIDo9IC1mcGF0Y2hhYmxlLWZ1bmN0aW9uLWVudHJ5PTQs
+Mgo+PiArZW5kaWYKPj4gK2Vsc2UKPj4gwqAgaWZlcSAoJChDT05GSUdfUklTQ1ZfSVNBX0MpLHkp
+Cj4+IMKgwqDCoMKgwqAgQ0NfRkxBR1NfRlRSQUNFIDo9IC1mcGF0Y2hhYmxlLWZ1bmN0aW9uLWVu
+dHJ5PTQKPj4gwqAgZWxzZQo+PiDCoMKgwqDCoMKgIENDX0ZMQUdTX0ZUUkFDRSA6PSAtZnBhdGNo
+YWJsZS1mdW5jdGlvbi1lbnRyeT0yCj4+IMKgIGVuZGlmCj4+IMKgIGVuZGlmCj4+ICtlbmRpZgo+
+PiDCoCDCoCBpZmVxICgkKENPTkZJR19DTU9ERUxfTUVETE9XKSx5KQo+PiDCoCBLQlVJTERfQ0ZM
+QUdTX01PRFVMRSArPSAtbWNtb2RlbD1tZWRhbnkKPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vZnRyYWNlLmggCj4+IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9mdHJhY2Uu
+aAo+PiBpbmRleCAzMjkxNzIxMjI5NTIuLmM5YTg0MjIyYzllYSAxMDA2NDQKPj4gLS0tIGEvYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9mdHJhY2UuaAo+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2Z0cmFjZS5oCj4+IEBAIC0yOCw2ICsyOCw5IEBACj4+IMKgIHZvaWQgTUNPVU5UX05BTUUo
+dm9pZCk7Cj4+IMKgIHN0YXRpYyBpbmxpbmUgdW5zaWduZWQgbG9uZyBmdHJhY2VfY2FsbF9hZGp1
+c3QodW5zaWduZWQgbG9uZyBhZGRyKQo+PiDCoCB7Cj4+ICvCoMKgwqAgaWYgKElTX0VOQUJMRUQo
+Q09ORklHX0RZTkFNSUNfRlRSQUNFX1dJVEhfQ0FMTF9PUFMpKQo+PiArwqDCoMKgwqDCoMKgwqAg
+cmV0dXJuIGFkZHIgKyA4Owo+PiArCj4+IMKgwqDCoMKgwqAgcmV0dXJuIGFkZHI7Cj4+IMKgIH0K
+Pj4gwqAgZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2FzbS1vZmZzZXRzLmMgCj4+IGIv
+YXJjaC9yaXNjdi9rZXJuZWwvYXNtLW9mZnNldHMuYwo+PiBpbmRleCBhMDMxMjlmNDBjNDYuLjdk
+N2M0YjQ4Njg1MiAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvYXNtLW9mZnNldHMu
+Ywo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9hc20tb2Zmc2V0cy5jCj4+IEBAIC00ODgsNCAr
+NDg4LDcgQEAgdm9pZCBhc21fb2Zmc2V0cyh2b2lkKQo+PiDCoMKgwqDCoMKgIERFRklORShTVEFD
+S0ZSQU1FX1NJWkVfT05fU1RBQ0ssIEFMSUdOKHNpemVvZihzdHJ1Y3QgCj4+IHN0YWNrZnJhbWUp
+LCBTVEFDS19BTElHTikpOwo+PiDCoMKgwqDCoMKgIE9GRlNFVChTVEFDS0ZSQU1FX0ZQLCBzdGFj
+a2ZyYW1lLCBmcCk7Cj4+IMKgwqDCoMKgwqAgT0ZGU0VUKFNUQUNLRlJBTUVfUkEsIHN0YWNrZnJh
+bWUsIHJhKTsKPj4gKyNpZmRlZiBDT05GSUdfRlVOQ1RJT05fVFJBQ0VSCj4+ICvCoMKgwqAgREVG
+SU5FKEZUUkFDRV9PUFNfRlVOQyzCoMKgwqDCoMKgwqDCoCBvZmZzZXRvZihzdHJ1Y3QgZnRyYWNl
+X29wcywgZnVuYykpOwo+PiArI2VuZGlmCj4+IMKgIH0KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlz
+Y3Yva2VybmVsL2Z0cmFjZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvZnRyYWNlLmMKPj4gaW5kZXgg
+ZjVhYTI0ZDllMWMxLi5lMmU3NWUxNWQzMmUgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3Yva2Vy
+bmVsL2Z0cmFjZS5jCj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2Z0cmFjZS5jCj4+IEBAIC04
+Miw5ICs4Miw1MiBAQCBzdGF0aWMgaW50IF9fZnRyYWNlX21vZGlmeV9jYWxsKHVuc2lnbmVkIGxv
+bmcgCj4+IGhvb2tfcG9zLCB1bnNpZ25lZCBsb25nIHRhcmdldCwKPj4gwqDCoMKgwqDCoCByZXR1
+cm4gMDsKPj4gwqAgfQo+PiDCoCArI2lmZGVmIENPTkZJR19EWU5BTUlDX0ZUUkFDRV9XSVRIX0NB
+TExfT1BTCj4+ICtzdGF0aWMgY29uc3Qgc3RydWN0IGZ0cmFjZV9vcHMgKnJpc2N2NjRfcmVjX2dl
+dF9vcHMoc3RydWN0IAo+PiBkeW5fZnRyYWNlICpyZWMpCj4+ICt7Cj4+ICvCoMKgwqAgY29uc3Qg
+c3RydWN0IGZ0cmFjZV9vcHMgKm9wcyA9IE5VTEw7Cj4+ICsKPj4gK8KgwqDCoCBpZiAocmVjLT5m
+bGFncyAmIEZUUkFDRV9GTF9DQUxMX09QU19FTikgewo+PiArwqDCoMKgwqDCoMKgwqAgb3BzID0g
+ZnRyYWNlX2ZpbmRfdW5pcXVlX29wcyhyZWMpOwo+PiArwqDCoMKgwqDCoMKgwqAgV0FSTl9PTl9P
+TkNFKCFvcHMpOwo+PiArwqDCoMKgIH0KPj4gKwo+PiArwqDCoMKgIGlmICghb3BzKQo+PiArwqDC
+oMKgwqDCoMKgwqAgb3BzID0gJmZ0cmFjZV9saXN0X29wczsKPj4gKwo+PiArwqDCoMKgIHJldHVy
+biBvcHM7Cj4+ICt9Cj4+ICsKPj4gK3N0YXRpYyBpbnQgZnRyYWNlX3JlY19zZXRfb3BzKGNvbnN0
+IHN0cnVjdCBkeW5fZnRyYWNlICpyZWMsCj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIGNvbnN0IHN0cnVjdCBmdHJhY2Vfb3BzICpvcHMpCj4+ICt7Cj4+ICvCoMKgwqAgdW5z
+aWduZWQgbG9uZyBsaXRlcmFsID0gcmVjLT5pcCAtIDg7Cj4+ICsKPj4gK8KgwqDCoCByZXR1cm4g
+cGF0Y2hfdGV4dF9ub3N5bmMoKHZvaWQgKilsaXRlcmFsLCAmb3BzLCBzaXplb2Yob3BzKSk7Cj4+
+ICt9Cj4+ICsKPj4gK3N0YXRpYyBpbnQgZnRyYWNlX3JlY19zZXRfbm9wX29wcyhzdHJ1Y3QgZHlu
+X2Z0cmFjZSAqcmVjKQo+PiArewo+PiArwqDCoMKgIHJldHVybiBmdHJhY2VfcmVjX3NldF9vcHMo
+cmVjLCAmZnRyYWNlX25vcF9vcHMpOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgaW50IGZ0cmFjZV9y
+ZWNfdXBkYXRlX29wcyhzdHJ1Y3QgZHluX2Z0cmFjZSAqcmVjKQo+PiArewo+PiArwqDCoMKgIHJl
+dHVybiBmdHJhY2VfcmVjX3NldF9vcHMocmVjLCByaXNjdjY0X3JlY19nZXRfb3BzKHJlYykpOwo+
+PiArfQo+PiArI2Vsc2UKPj4gK3N0YXRpYyBpbnQgZnRyYWNlX3JlY19zZXRfbm9wX29wcyhzdHJ1
+Y3QgZHluX2Z0cmFjZSAqcmVjKSB7IHJldHVybiAwOyB9Cj4+ICtzdGF0aWMgaW50IGZ0cmFjZV9y
+ZWNfdXBkYXRlX29wcyhzdHJ1Y3QgZHluX2Z0cmFjZSAqcmVjKSB7IHJldHVybiAwOyB9Cj4+ICsj
+ZW5kaWYKPj4gKwo+PiDCoCBpbnQgZnRyYWNlX21ha2VfY2FsbChzdHJ1Y3QgZHluX2Z0cmFjZSAq
+cmVjLCB1bnNpZ25lZCBsb25nIGFkZHIpCj4+IMKgIHsKPj4gwqDCoMKgwqDCoCB1bnNpZ25lZCBp
+bnQgY2FsbFsyXTsKPj4gK8KgwqDCoCBpbnQgcmV0Owo+PiArCj4+ICvCoMKgwqAgcmV0ID0gZnRy
+YWNlX3JlY191cGRhdGVfb3BzKHJlYyk7Cj4+ICvCoMKgwqAgaWYgKHJldCkKPj4gK8KgwqDCoMKg
+wqDCoMKgIHJldHVybiByZXQ7Cj4+IMKgIMKgwqDCoMKgwqAgbWFrZV9jYWxsX3QwKHJlYy0+aXAs
+IGFkZHIsIGNhbGwpOwo+PiDCoCBAQCAtOTgsNiArMTQxLDExIEBAIGludCBmdHJhY2VfbWFrZV9u
+b3Aoc3RydWN0IG1vZHVsZSAqbW9kLCBzdHJ1Y3QgCj4+IGR5bl9mdHJhY2UgKnJlYywKPj4gwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdW5zaWduZWQgbG9uZyBhZGRyKQo+PiDCoCB7Cj4+IMKg
+wqDCoMKgwqAgdW5zaWduZWQgaW50IG5vcHNbMl0gPSB7Tk9QNCwgTk9QNH07Cj4+ICvCoMKgwqAg
+aW50IHJldDsKPj4gKwo+PiArwqDCoMKgIHJldCA9IGZ0cmFjZV9yZWNfc2V0X25vcF9vcHMocmVj
+KTsKPj4gK8KgwqDCoCBpZiAocmV0KQo+PiArwqDCoMKgwqDCoMKgwqAgcmV0dXJuIHJldDsKPj4g
+wqAgwqDCoMKgwqDCoCBpZiAocGF0Y2hfdGV4dF9ub3N5bmMoKHZvaWQgKilyZWMtPmlwLCBub3Bz
+LCBNQ09VTlRfSU5TTl9TSVpFKSkKPj4gwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiAtRVBFUk07
+Cj4+IEBAIC0xMjUsNiArMTczLDEzIEBAIGludCBmdHJhY2VfaW5pdF9ub3Aoc3RydWN0IG1vZHVs
+ZSAqbW9kLCBzdHJ1Y3QgCj4+IGR5bl9mdHJhY2UgKnJlYykKPj4gwqAgwqAgaW50IGZ0cmFjZV91
+cGRhdGVfZnRyYWNlX2Z1bmMoZnRyYWNlX2Z1bmNfdCBmdW5jKQo+PiDCoCB7Cj4+ICvCoMKgwqAg
+LyoKPj4gK8KgwqDCoMKgICogV2hlbiB1c2luZyBDQUxMX09QUywgdGhlIGZ1bmN0aW9uIHRvIGNh
+bGwgaXMgYXNzb2NpYXRlZCB3aXRoIHRoZQo+PiArwqDCoMKgwqAgKiBjYWxsIHNpdGUsIGFuZCB3
+ZSBkb24ndCBoYXZlIGEgZ2xvYmFsIGZ1bmN0aW9uIHBvaW50ZXIgdG8gCj4+IHVwZGF0ZS4KPj4g
+K8KgwqDCoMKgICovCj4+ICvCoMKgwqAgaWYgKElTX0VOQUJMRUQoQ09ORklHX0RZTkFNSUNfRlRS
+QUNFX1dJVEhfQ0FMTF9PUFMpKQo+PiArwqDCoMKgwqDCoMKgwqAgcmV0dXJuIDA7Cj4+ICsKPj4g
+wqDCoMKgwqDCoCBpbnQgcmV0ID0gX19mdHJhY2VfbW9kaWZ5X2NhbGwoKHVuc2lnbmVkIGxvbmcp
+JmZ0cmFjZV9jYWxsLAo+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgKHVuc2lnbmVkIGxvbmcpZnVuYywgdHJ1ZSwgdHJ1ZSk7Cj4+IMKgwqDCoMKgwqAg
+aWYgKCFyZXQpIHsKPj4gQEAgLTE0Nyw2ICsyMDIsMTAgQEAgaW50IGZ0cmFjZV9tb2RpZnlfY2Fs
+bChzdHJ1Y3QgZHluX2Z0cmFjZSAqcmVjLCAKPj4gdW5zaWduZWQgbG9uZyBvbGRfYWRkciwKPj4g
+wqDCoMKgwqDCoCBtYWtlX2NhbGxfdDAoY2FsbGVyLCBvbGRfYWRkciwgY2FsbCk7Cj4+IMKgwqDC
+oMKgwqAgcmV0ID0gZnRyYWNlX2NoZWNrX2N1cnJlbnRfY2FsbChjYWxsZXIsIGNhbGwpOwo+PiDC
+oCArwqDCoMKgIGlmIChyZXQpCj4+ICvCoMKgwqDCoMKgwqDCoCByZXR1cm4gcmV0Owo+PiArCj4+
+ICvCoMKgwqAgcmV0ID0gZnRyYWNlX3JlY191cGRhdGVfb3BzKHJlYyk7Cj4+IMKgwqDCoMKgwqAg
+aWYgKHJldCkKPj4gwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiByZXQ7Cj4+IMKgIGRpZmYgLS1n
+aXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9tY291bnQtZHluLlMgCj4+IGIvYXJjaC9yaXNjdi9rZXJu
+ZWwvbWNvdW50LWR5bi5TCj4+IGluZGV4IGI3NTYxMjg4ZThkYS4uY2IyNDFlMzZlNTE0IDEwMDY0
+NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9tY291bnQtZHluLlMKPj4gKysrIGIvYXJjaC9y
+aXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TCj4+IEBAIC0xOTEsMTEgKzE5MSwzNSBAQAo+PiDCoMKg
+wqDCoMKgIC5lbmRtCj4+IMKgIMKgwqDCoMKgwqAgLm1hY3JvIFBSRVBBUkVfQVJHUwo+PiAtwqDC
+oMKgIGFkZGnCoMKgwqAgYTAsIHQwLCAtRkVOVFJZX1JBX09GRlNFVAo+PiArwqDCoMKgIGFkZGnC
+oMKgwqAgYTAsIHQwLCAtRkVOVFJZX1JBX09GRlNFVMKgwqDCoCAvLyBpcCAoY2FsbHNpdGUncyBh
+dWlwYyBpbnNuKQo+PiArI2lmZGVmIENPTkZJR19EWU5BTUlDX0ZUUkFDRV9XSVRIX0NBTExfT1BT
+Cj4+ICvCoMKgwqAgLyoKPj4gK8KgwqDCoMKgICogV2hlbiBDQUxMX09QUyBpcyBlbmFibGVkICgy
+IG9yIDQpIG5vcHMgWzhCXSBhcmUgcGxhY2VkIGJlZm9yZSAKPj4gdGhlCj4+ICvCoMKgwqDCoCAq
+IGZ1bmN0aW9uIGVudHJ5LCB0aGVzZSBhcmUgbGF0ZXIgb3ZlcndyaXR0ZW4gd2l0aCB0aGUgcG9p
+bnRlciAKPj4gdG8gdGhlCj4+ICvCoMKgwqDCoCAqIGFzc29jaWF0ZWQgc3RydWN0IGZ0cmFjZV9v
+cHMuCj4+ICvCoMKgwqDCoCAqCj4+ICvCoMKgwqDCoCAqIC04OiAmZnRyYWNlX29wcyBvZiB0aGUg
+YXNzb2NpYXRlZCB0cmFjZXIgZnVuY3Rpb24uCj4+ICvCoMKgwqDCoCAqPGZ0cmFjZSBlbmFibGU+
+Ogo+PiArwqDCoMKgwqAgKsKgIDA6IGF1aXBjwqAgdDAvcmEsIDB4Pwo+PiArwqDCoMKgwqAgKsKg
+IDQ6IGphbHLCoMKgIHQwL3JhLCA/KHQwL3JhKQo+PiArwqDCoMKgwqAgKgo+PiArwqDCoMKgwqAg
+KiAtODogJmZ0cmFjZV9ub3Bfb3BzCj4+ICvCoMKgwqDCoCAqPGZ0cmFjZSBkaXNhYmxlPjoKPj4g
+K8KgwqDCoMKgICrCoCAwOiBub3AKPj4gK8KgwqDCoMKgICrCoCA0OiBub3AKPj4gK8KgwqDCoMKg
+ICoKPj4gK8KgwqDCoMKgICogdDAgaXMgc2V0IHRvIGlwKzggYWZ0ZXIgdGhlIGphbHIgaXMgZXhl
+Y3V0ZWQgYXQgdGhlIGNhbGxzaXRlLAo+PiArwqDCoMKgwqAgKiBzbyB3ZSBmaW5kIHRoZSBhc3Nv
+Y2lhdGVkIG9wIGF0IHQwLTE2Lgo+PiArwqDCoMKgwqAgKi8KPj4gK8KgwqDCoCBtdsKgwqDCoMKg
+IGExLCByYcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvLyBwYXJlbnRfaXAKPj4gK8Kg
+wqDCoCBSRUdfTMKgwqAgYTIsIC0xNih0MCnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC8vIG9wCj4+
+ICvCoMKgwqAgUkVHX0zCoMKgIHJhLCBGVFJBQ0VfT1BTX0ZVTkMoYTIpwqDCoMKgwqDCoMKgwqAg
+Ly8gb3AtPmZ1bmMKPj4gKyNlbHNlCj4+IMKgwqDCoMKgwqAgbGHCoMKgwqAgYTEsIGZ1bmN0aW9u
+X3RyYWNlX29wCj4+IC3CoMKgwqAgUkVHX0zCoMKgwqAgYTIsIDAoYTEpCj4+IC3CoMKgwqAgbXbC
+oMKgwqAgYTEsIHJhCj4+IC3CoMKgwqAgbXbCoMKgwqAgYTMsIHNwCj4+ICvCoMKgwqAgUkVHX0zC
+oMKgwqAgYTIsIDAoYTEpwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvLyBvcAo+PiArwqDCoMKgIG12
+wqDCoMKgIGExLCByYcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvLyBwYXJlbnRfaXAK
+Pj4gKyNlbmRpZgo+PiArwqDCoMKgIG12wqDCoMKgIGEzLCBzcMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCAvLyByZWdzCj4+IMKgwqDCoMKgwqAgLmVuZG0KPj4gwqAgwqAgI2VuZGlmIC8q
+IENPTkZJR19EWU5BTUlDX0ZUUkFDRV9XSVRIX1JFR1MgKi8KPj4gQEAgLTIzMyw4ICsyNTcsMTIg
+QEAgU1lNX0ZVTkNfU1RBUlQoZnRyYWNlX3JlZ3NfY2FsbGVyKQo+PiDCoMKgwqDCoMKgIFNBVkVf
+QUJJX1JFR1MgMQo+PiDCoMKgwqDCoMKgIFBSRVBBUkVfQVJHUwo+PiDCoCArI2lmZGVmIENPTkZJ
+R19EWU5BTUlDX0ZUUkFDRV9XSVRIX0NBTExfT1BTCj4+ICvCoMKgwqAgamFsciByYQo+PiArI2Vs
+c2UKPj4gwqAgU1lNX0lOTkVSX0xBQkVMKGZ0cmFjZV9yZWdzX2NhbGwsIFNZTV9MX0dMT0JBTCkK
+Pj4gwqDCoMKgwqDCoCBjYWxswqDCoMKgIGZ0cmFjZV9zdHViCj4+ICsjZW5kaWYKPj4gwqAgwqDC
+oMKgwqDCoCBSRVNUT1JFX0FCSV9SRUdTIDEKPj4gwqDCoMKgwqDCoCBibmV6wqDCoMKgIHQxLCAu
+TGRpcmVjdAo+PiBAQCAtMjQ3LDkgKzI3NSwxMyBAQCBTWU1fRlVOQ19TVEFSVChmdHJhY2VfY2Fs
+bGVyKQo+PiDCoMKgwqDCoMKgIFNBVkVfQUJJX1JFR1MgMAo+PiDCoMKgwqDCoMKgIFBSRVBBUkVf
+QVJHUwo+PiDCoCAtU1lNX0lOTkVSX0xBQkVMKGZ0cmFjZV9jYWxsLCBTWU1fTF9HTE9CQUwpCj4+
+ICsjaWZkZWYgQ09ORklHX0RZTkFNSUNfRlRSQUNFX1dJVEhfQ0FMTF9PUFMKPj4gK8KgwqDCoCBq
+YWxyIHJhCj4+ICsjZWxzZQo+PiArU1lNX0lOTkVSX0xBQkVMKGZ0cmFjZV9yZWdzX2NhbGwsIFNZ
+TV9MX0dMT0JBTCkKPj4gwqDCoMKgwqDCoCBjYWxswqDCoMKgIGZ0cmFjZV9zdHViCj4+IMKgICsj
+ZW5kaWYKPj4gwqDCoMKgwqDCoCBSRVNUT1JFX0FCSV9SRUdTIDAKPj4gwqDCoMKgwqDCoCBqcsKg
+wqDCoCB0MAo+PiDCoCBTWU1fRlVOQ19FTkQoZnRyYWNlX2NhbGxlcikKPgo+Cj4gQXMgSSdtIGRp
+dmluZyBpbnRvIGZ0cmFjZSByaWdodCBub3csIEknbGwgZ2l2ZSBhIHByb3BlciByZXZpZXcgc29v
+bi4gCj4gQnV0IGFzIGEgbm90ZSwgSSBub3RpY2VkIHRoYXQgdGhlIGZ1bmN0aW9uX2dyYXBoIHRy
+YWNlciwgd2hlbiBlbmFibGVkLCAKPiBtYWtlcyB0aGUgd2hvbGUgc3lzdGVtIHVucmVzcG9uc2l2
+ZSAoYnV0IHN0aWxsIHVwLCBqdXN0IHZlcnkgc2xvdykuIEEgCj4gZml4IEkgc2VudCByZWNlbnRs
+eSBzZWVtcyB0byByZWFsbHkgaW1wcm92ZSB0aGF0IGlmIHlvdSdyZSBpbnRlcmVzdGVkIAo+IGlu
+IHRlc3RpbmcgaXQgKEkgYW0gOikpLiBZb3UgY2FuIGZpbmQgaXQgaGVyZTogCj4gaHR0cHM6Ly9s
+b3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyNDAyMjkxMjEwNTYuMjAzNDE5LTEtYWxleGdo
+aXRpQHJpdm9zaW5jLmNvbS8KPgo+IFRoYW5rcywKPgo+IEFsZXgKPgo+Cj4gX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
