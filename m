@@ -4,52 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED94C54E41
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 20:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7048FC54E41
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 20:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CU8OxAQKpssX32j1gXWRLnWPbPY/HyDn6+KkXPtZNa0=; b=m+zXUBSfzlg6Fb
-	aW5VC5eAUSyEU+c7tzoqI44yTSYFKonC6w7ZzJ03U5KvfBbvqH4xfw3sWNYXAx0cTYlTGYp/gyY4r
-	V8BODUxKqT1wBU+mcbmKCbB9LFG2jpXLNrzDwJfCl8eBmvsdWfKjcdc4O4kWQYqxn21QuJHQJlbfT
-	GTnSHLenvtmdbb7kH3FDNzyiipAfqcHEziTODgwH9FDjZo52RHfkD2FEW/SLgKCtE1pbFdGKBtZrz
-	1Ylk0F0tr2k5/WkiEqsbzCBWxZ3sx+VDtmUh3ZZUHWCbQwCtQC6y7ekrrqwvxZ2eLvtXmGLo6U0v5
-	ib+KSAsP7wxP6ml8IJYg==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M4gc72HxospPLhJSi0QJeDFje8c7kQ5uIhSXlYrpnpk=; b=hO8FR1s4BCBNB3atToBql6Jqbo
+	wL45YtGWbLQi7XAGvOvhZCyt3B2twKXMKtsqW1woQIuD2u3UQ+7EDwnyU3L4xtUoP92hYvz8mrHw2
+	hZOyvvi+dWrz4dzwmrmfcL+dd2Fgqj/VwjuYxg5uhTad1UAenSl9VrppfvkTCkB/WKtyuD6wqtkg6
+	Skoc443UBGKKsBgc5RbVpmfLoSPVkBqSUTF1B1LSNNxv/sgvICwphEehmxbNpUHxQCNk1uJkaRZrI
+	WZjgzQy26lOx5+QR0O9/3iiDggD+pjrxY4CloVsPRPQiQVkN7lIOlMBLwBALl9gIA/Ko/fD1K8yfo
+	Kk8tpFBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhxdJ-00000001mO7-284e;
-	Wed, 06 Mar 2024 20:12:57 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1rhxzi-00000001pWC-16tM;
+	Wed, 06 Mar 2024 20:36:06 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhxdG-00000001mMz-1xxd
+	id 1rhxze-00000001pUv-1hwd
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Mar 2024 20:12:56 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 2539120002;
-	Wed,  6 Mar 2024 20:12:50 +0000 (UTC)
-Message-ID: <ca097f2a-59ec-4945-9860-5e380e1665e4@ghiti.fr>
-Date: Wed, 6 Mar 2024 21:12:50 +0100
+	Wed, 06 Mar 2024 20:36:05 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A12AB240003;
+	Wed,  6 Mar 2024 20:35:50 +0000 (UTC)
+Message-ID: <34c9d54a-0f19-4671-8b05-9adf3b6c9a1a@ghiti.fr>
+Date: Wed, 6 Mar 2024 21:35:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: compat_vdso: install compat_vdso.so.dbg to
- /lib/modules/*/vdso/
+Subject: Re: [RFC PATCH] riscv: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
 Content-Language: en-US
-To: Masahiro Yamada <masahiroy@kernel.org>,
+To: Puranjay Mohan <puranjay12@gmail.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-References: <20231117125807.1058477-1-masahiroy@kernel.org>
- <CAK7LNAStoCja1gnoFmsKikbzGZmKTcTu+Vc7v9zg8B9hwsH+iQ@mail.gmail.com>
- <CAK7LNATVAcj-pa_G-NGBTr9doCACGk1nKCNbxM50-M0mi9q=7w@mail.gmail.com>
+ Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Sami Tolvanen <samitolvanen@google.com>, Guo Ren <guoren@kernel.org>,
+ Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+ Deepak Gupta <debug@rivosinc.com>,
+ Sia Jee Heng <jeeheng.sia@starfivetech.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, Song Shuai <suagrfillet@gmail.com>,
+ =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Al Viro <viro@zeniv.linux.org.uk>, Jisheng Zhang <jszhang@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org
+References: <20240306165904.108141-1-puranjay12@gmail.com>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CAK7LNATVAcj-pa_G-NGBTr9doCACGk1nKCNbxM50-M0mi9q=7w@mail.gmail.com>
+In-Reply-To: <20240306165904.108141-1-puranjay12@gmail.com>
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_121254_671280_5B1243E4 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20240306_123602_768024_92266FBC 
+X-CRM114-Status: GOOD (  45.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,45 +67,405 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTWFzYWhpcm8sCgpPbiAyNC8wMi8yMDI0IDA0OjM3LCBNYXNhaGlybyBZYW1hZGEgd3JvdGU6
-Cj4gUGluZyB4IDIgPwo+Cj4KPgo+Cj4KPiBPbiBTdW4sIEphbiAyMSwgMjAyNCBhdCA2OjQ44oCv
-QU0gTWFzYWhpcm8gWWFtYWRhIDxtYXNhaGlyb3lAa2VybmVsLm9yZz4gd3JvdGU6Cj4+IE9uIEZy
-aSwgTm92IDE3LCAyMDIzIGF0IDk6NTjigK9QTSBNYXNhaGlybyBZYW1hZGEgPG1hc2FoaXJveUBr
-ZXJuZWwub3JnPiB3cm90ZToKPj4+ICdtYWtlIHZkc29faW5zdGFsbCcgaW5zdGFsbHMgZGVidWcg
-dmRzbyBmaWxlcyB0byAvbGliL21vZHVsZXMvKi92ZHNvLy4KPj4+Cj4+PiBPbmx5IGZvciB0aGUg
-Y29tcGF0IHZkc28gb24gcmlzY3YsIHRoZSBpbnN0YWxsYXRpb24gZGVzdGluYXRpb24gZGlmZmVy
-czsKPj4+IGNvbXBhdF92ZHNvLnNvLmRiZyBpcyBpbnN0YWxsZWQgdG8gL2xpYi9tb2R1bGUvKi9j
-b21wYXRfdmRzby8uCj4+Pgo+Pj4gVG8gZm9sbG93IHRoZSBzdGFuZGFyZCBpbnN0YWxsIGRlc3Rp
-bmF0aW9uIGFuZCBzaW1wbGlmeSB0aGUgdmRzb19pbnN0YWxsCj4+PiBsb2dpYywgY2hhbmdlIHRo
-ZSBpbnN0YWxsIGRlc3RpbmF0aW9uIHRvIHN0YW5kYXJkIC9saWIvbW9kdWxlcy8qL3Zkc28vLgo+
-Pj4KPj4+IFNpZ25lZC1vZmYtYnk6IE1hc2FoaXJvIFlhbWFkYSA8bWFzYWhpcm95QGtlcm5lbC5v
-cmc+Cj4+PiAtLS0KPj4KPj4gUGluZz8KPj4gKGluIGNhc2UgInlldCBtb3JlIFJJU0MtViB1cGRh
-dGVzIiBoYXBwZW5zKQo+Pgo+Pgo+Pgo+Pgo+Pj4gICBhcmNoL3Jpc2N2L01ha2VmaWxlIHwgMiAr
-LQo+Pj4gICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPj4+
-Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9NYWtlZmlsZSBiL2FyY2gvcmlzY3YvTWFrZWZp
-bGUKPj4+IGluZGV4IGE3NGJlNzg2NzhlYi4uNWNiZTU5NjM0NWMxIDEwMDY0NAo+Pj4gLS0tIGEv
-YXJjaC9yaXNjdi9NYWtlZmlsZQo+Pj4gKysrIGIvYXJjaC9yaXNjdi9NYWtlZmlsZQo+Pj4gQEAg
-LTE0Niw3ICsxNDYsNyBAQCBlbmRpZgo+Pj4gICBlbmRpZgo+Pj4KPj4+ICAgdmRzby1pbnN0YWxs
-LXkgICAgICAgICAgICAgICAgICs9IGFyY2gvcmlzY3Yva2VybmVsL3Zkc28vdmRzby5zby5kYmcK
-Pj4+IC12ZHNvLWluc3RhbGwtJChDT05GSUdfQ09NUEFUKSAgKz0gYXJjaC9yaXNjdi9rZXJuZWwv
-Y29tcGF0X3Zkc28vY29tcGF0X3Zkc28uc28uZGJnOi4uL2NvbXBhdF92ZHNvL2NvbXBhdF92ZHNv
-LnNvCj4+PiArdmRzby1pbnN0YWxsLSQoQ09ORklHX0NPTVBBVCkgICs9IGFyY2gvcmlzY3Yva2Vy
-bmVsL2NvbXBhdF92ZHNvL2NvbXBhdF92ZHNvLnNvLmRiZwo+Pj4KPj4+ICAgaWZuZXEgKCQoQ09O
-RklHX1hJUF9LRVJORUwpLHkpCj4+PiAgIGlmZXEgKCQoQ09ORklHX1JJU0NWX01fTU9ERSkkKENP
-TkZJR19BUkNIX0NBTkFBTikseXkpCj4+PiAtLQo+Pj4gMi40MC4xCj4+Pgo+Pgo+PiAtLQo+PiBC
-ZXN0IFJlZ2FyZHMKPj4gTWFzYWhpcm8gWWFtYWRhCj4KPgo+IC0tCj4gQmVzdCBSZWdhcmRzCj4g
-TWFzYWhpcm8gWWFtYWRhCj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2CgoKQ291bGRuJ3QgY2hhbmdpbmcgdGhpcyBsaWJyYXJ5IGluc3RhbGwg
-cGF0aCBicmVhayBzb21lIGV4aXN0aW5nIAphcHBsaWNhdGlvbj8gSSBtZWFuIGl0IGtpbmQgb2Yg
-YnJlYWtzIHdoZXJlIHRoZSBsaWJyYXJ5IGlzIGV4cGVjdGVkIHRvIApiZSByaWdodD8KClRoYW5r
-cywKCkFsZXgKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+Hi Puranjay,
+
+On 06/03/2024 17:59, Puranjay Mohan wrote:
+> This patch enables support for DYNAMIC_FTRACE_WITH_CALL_OPS on RISC-V.
+> This allows each ftrace callsite to provide an ftrace_ops to the common
+> ftrace trampoline, allowing each callsite to invoke distinct tracer
+> functions without the need to fall back to list processing or to
+> allocate custom trampolines for each callsite. This significantly speeds
+> up cases where multiple distinct trace functions are used and callsites
+> are mostly traced by a single tracer.
+>
+> The idea and most of the implementation is taken from the ARM64's
+> implementation of the same feature. The idea is to place a pointer to
+> the ftrace_ops as a literal at a fixed offset from the function entry
+> point, which can be recovered by the common ftrace trampoline.
+>
+> We use -fpatchable-function-entry to reserve 8 bytes above the function
+> entry by emitting 2 4 byte or 4 2 byte  nops depending on the presence of
+> CONFIG_RISCV_ISA_C. These 8 bytes are patched at runtime with a pointer
+> to the associated ftrace_ops for that callsite. Functions are aligned to
+> 8 bytes to make sure that the accesses to this literal are atomic.
+>
+> This approach allows for directly invoking ftrace_ops::func even for
+> ftrace_ops which are dynamically-allocated (or part of a module),
+> without going via ftrace_ops_list_func.
+>
+> I've benchamrked this with the ftrace_ops sample module on Qemu, with
+> the next version, I will provide benchmarks on real hardware:
+>
+> Without this patch:
+>
+> +-----------------------+-----------------+----------------------------+
+> |  Number of tracers    | Total time (ns) | Per-call average time      |
+> |-----------------------+-----------------+----------------------------|
+> | Relevant | Irrelevant |    100000 calls | Total (ns) | Overhead (ns) |
+> |----------+------------+-----------------+------------+---------------|
+> |        0 |          0 |        15615700 |        156 |             - |
+> |        0 |          1 |        15917600 |        159 |             - |
+> |        0 |          2 |        15668000 |        156 |             - |
+> |        0 |         10 |        14971500 |        149 |             - |
+> |        0 |        100 |        15417600 |        154 |             - |
+> |        0 |        200 |        15387000 |        153 |             - |
+> |----------+------------+-----------------+------------+---------------|
+> |        1 |          0 |       119906800 |       1199 |          1043 |
+> |        1 |          1 |       137428600 |       1374 |          1218 |
+> |        1 |          2 |       159562400 |       1374 |          1218 |
+> |        1 |         10 |       302099900 |       3020 |          2864 |
+> |        1 |        100 |      2008785500 |      20087 |         19931 |
+> |        1 |        200 |      3965221900 |      39652 |         39496 |
+> |----------+------------+-----------------+------------+---------------|
+> |        1 |          0 |       119166700 |       1191 |          1035 |
+> |        2 |          0 |       157999900 |       1579 |          1423 |
+> |       10 |          0 |       425370100 |       4253 |          4097 |
+> |      100 |          0 |      3595252100 |      35952 |         35796 |
+> |      200 |          0 |      7023485700 |      70234 |         70078 |
+> +----------+------------+-----------------+------------+---------------+
+>
+> Note: per-call overhead is estimated relative to the baseline case with
+> 0 relevant tracers and 0 irrelevant tracers.
+>
+> With this patch:
+>
+> +-----------------------+-----------------+----------------------------+
+> |   Number of tracers   | Total time (ns) | Per-call average time      |
+> |-----------------------+-----------------+----------------------------|
+> | Relevant | Irrelevant |    100000 calls | Total (ns) | Overhead (ns) |
+> |----------+------------+-----------------+------------+---------------|
+> |        0 |          0 |        15254600 |        152 |             - |
+> |        0 |          1 |        16136700 |        161 |             - |
+> |        0 |          2 |        15329500 |        153 |             - |
+> |        0 |         10 |        15148800 |        151 |             - |
+> |        0 |        100 |        15746900 |        157 |             - |
+> |        0 |        200 |        15737400 |        157 |             - |
+> |----------+------------+-----------------+------------+---------------|
+> |        1 |          0 |        47909000 |        479 |           327 |
+> |        1 |          1 |        48297400 |        482 |           330 |
+> |        1 |          2 |        47314100 |        473 |           321 |
+> |        1 |         10 |        47844900 |        478 |           326 |
+> |        1 |        100 |        46591900 |        465 |           313 |
+> |        1 |        200 |        47178900 |        471 |           319 |
+> |----------+------------+-----------------+------------+---------------|
+> |        1 |          0 |        46715800 |        467 |           315 |
+> |        2 |          0 |       155134500 |       1551 |          1399 |
+> |       10 |          0 |       442672800 |       4426 |          4274 |
+> |      100 |          0 |      4092353900 |      40923 |         40771 |
+> |      200 |          0 |      7135796400 |      71357 |         71205 |
+> +----------+------------+-----------------+------------+---------------+
+>
+> Note: per-call overhead is estimated relative to the baseline case with
+> 0 relevant tracers and 0 irrelevant tracers.
+>
+> As can be seen from the above:
+>
+>   a) Whenever there is a single relevant tracer function associated with a
+>      tracee, the overhead of invoking the tracer is constant, and does not
+>      scale with the number of tracers which are *not* associated with that
+>      tracee.
+>
+>   b) The overhead for a single relevant tracer has dropped to ~1/3 of the
+>      overhead prior to this series (from 1035ns to 315ns). This is largely
+>      due to permitting calls to dynamically-allocated ftrace_ops without
+>      going through ftrace_ops_list_func.
+>
+> Why is this patch a RFC patch:
+>   1. I saw some rcu stalls on Qemu and need to debug them and see if they
+>      were introduced by this patch.
+
+
+FYI, I'm currently working on debugging such issues (and other) with the 
+*current* ftrace implementation, so probably not caused by your 
+patchset. But keep debugging too, maybe this introduces other issues or 
+even better, you'll find the root cause :)
+
+
+>   2. This needs to be tested thoroughly on real hardware.
+>   3. Seeking reviews to fix any fundamental problems with this patch that I
+>      might have missed due to my lack of RISC-V architecture knowledge.
+>   4. I would like to benchmark this on real hardware and put the results in
+>      the commit message.
+>
+> Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
+> ---
+>   arch/riscv/Kconfig              |  2 ++
+>   arch/riscv/Makefile             |  8 +++++
+>   arch/riscv/include/asm/ftrace.h |  3 ++
+>   arch/riscv/kernel/asm-offsets.c |  3 ++
+>   arch/riscv/kernel/ftrace.c      | 59 +++++++++++++++++++++++++++++++++
+>   arch/riscv/kernel/mcount-dyn.S  | 42 ++++++++++++++++++++---
+>   6 files changed, 112 insertions(+), 5 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 0bfcfec67ed5..e474742e23b2 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -78,6 +78,7 @@ config RISCV
+>   	select EDAC_SUPPORT
+>   	select FRAME_POINTER if PERF_EVENTS || (FUNCTION_TRACER && !DYNAMIC_FTRACE)
+>   	select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY if DYNAMIC_FTRACE
+> +	select FUNCTION_ALIGNMENT_8B if DYNAMIC_FTRACE_WITH_CALL_OPS
+
+
+A recent discussion [1] states that -falign-functions cannot guarantee 
+this alignment for all code and that gcc developers came up with a new 
+option [2]: WDYT? I have added Andy and Evgenii in +cc to help on that.
+
+[1] 
+https://lore.kernel.org/linux-riscv/4fe4567b-96be-4102-952b-7d39109b2186@yadro.com/
+[2] 
+https://gcc.gnu.org/git/gitweb.cgi?p=gcc.git;h=0f5a9a00e3ab1fe96142f304cfbcf3f63b15f326
+
+
+>   	select GENERIC_ARCH_TOPOLOGY
+>   	select GENERIC_ATOMIC64 if !64BIT
+>   	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
+> @@ -127,6 +128,7 @@ config RISCV
+>   	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
+>   	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+>   	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+> +	select HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS if (DYNAMIC_FTRACE_WITH_REGS && !CFI_CLANG)
+>   	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+>   	select HAVE_FUNCTION_GRAPH_TRACER
+>   	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 252d63942f34..875ad5dc3d32 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -14,12 +14,20 @@ endif
+>   ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
+>   	LDFLAGS_vmlinux += --no-relax
+>   	KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
+> +ifeq ($(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS), y)
+> +ifeq ($(CONFIG_RISCV_ISA_C),y)
+> +	CC_FLAGS_FTRACE := -fpatchable-function-entry=8,4
+> +else
+> +	CC_FLAGS_FTRACE := -fpatchable-function-entry=4,2
+> +endif
+> +else
+>   ifeq ($(CONFIG_RISCV_ISA_C),y)
+>   	CC_FLAGS_FTRACE := -fpatchable-function-entry=4
+>   else
+>   	CC_FLAGS_FTRACE := -fpatchable-function-entry=2
+>   endif
+>   endif
+> +endif
+>   
+>   ifeq ($(CONFIG_CMODEL_MEDLOW),y)
+>   KBUILD_CFLAGS_MODULE += -mcmodel=medany
+> diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+> index 329172122952..c9a84222c9ea 100644
+> --- a/arch/riscv/include/asm/ftrace.h
+> +++ b/arch/riscv/include/asm/ftrace.h
+> @@ -28,6 +28,9 @@
+>   void MCOUNT_NAME(void);
+>   static inline unsigned long ftrace_call_adjust(unsigned long addr)
+>   {
+> +	if (IS_ENABLED(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS))
+> +		return addr + 8;
+> +
+>   	return addr;
+>   }
+>   
+> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> index a03129f40c46..7d7c4b486852 100644
+> --- a/arch/riscv/kernel/asm-offsets.c
+> +++ b/arch/riscv/kernel/asm-offsets.c
+> @@ -488,4 +488,7 @@ void asm_offsets(void)
+>   	DEFINE(STACKFRAME_SIZE_ON_STACK, ALIGN(sizeof(struct stackframe), STACK_ALIGN));
+>   	OFFSET(STACKFRAME_FP, stackframe, fp);
+>   	OFFSET(STACKFRAME_RA, stackframe, ra);
+> +#ifdef CONFIG_FUNCTION_TRACER
+> +	DEFINE(FTRACE_OPS_FUNC,		offsetof(struct ftrace_ops, func));
+> +#endif
+>   }
+> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+> index f5aa24d9e1c1..e2e75e15d32e 100644
+> --- a/arch/riscv/kernel/ftrace.c
+> +++ b/arch/riscv/kernel/ftrace.c
+> @@ -82,9 +82,52 @@ static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
+>   	return 0;
+>   }
+>   
+> +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+> +static const struct ftrace_ops *riscv64_rec_get_ops(struct dyn_ftrace *rec)
+> +{
+> +	const struct ftrace_ops *ops = NULL;
+> +
+> +	if (rec->flags & FTRACE_FL_CALL_OPS_EN) {
+> +		ops = ftrace_find_unique_ops(rec);
+> +		WARN_ON_ONCE(!ops);
+> +	}
+> +
+> +	if (!ops)
+> +		ops = &ftrace_list_ops;
+> +
+> +	return ops;
+> +}
+> +
+> +static int ftrace_rec_set_ops(const struct dyn_ftrace *rec,
+> +			      const struct ftrace_ops *ops)
+> +{
+> +	unsigned long literal = rec->ip - 8;
+> +
+> +	return patch_text_nosync((void *)literal, &ops, sizeof(ops));
+> +}
+> +
+> +static int ftrace_rec_set_nop_ops(struct dyn_ftrace *rec)
+> +{
+> +	return ftrace_rec_set_ops(rec, &ftrace_nop_ops);
+> +}
+> +
+> +static int ftrace_rec_update_ops(struct dyn_ftrace *rec)
+> +{
+> +	return ftrace_rec_set_ops(rec, riscv64_rec_get_ops(rec));
+> +}
+> +#else
+> +static int ftrace_rec_set_nop_ops(struct dyn_ftrace *rec) { return 0; }
+> +static int ftrace_rec_update_ops(struct dyn_ftrace *rec) { return 0; }
+> +#endif
+> +
+>   int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
+>   {
+>   	unsigned int call[2];
+> +	int ret;
+> +
+> +	ret = ftrace_rec_update_ops(rec);
+> +	if (ret)
+> +		return ret;
+>   
+>   	make_call_t0(rec->ip, addr, call);
+>   
+> @@ -98,6 +141,11 @@ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
+>   		    unsigned long addr)
+>   {
+>   	unsigned int nops[2] = {NOP4, NOP4};
+> +	int ret;
+> +
+> +	ret = ftrace_rec_set_nop_ops(rec);
+> +	if (ret)
+> +		return ret;
+>   
+>   	if (patch_text_nosync((void *)rec->ip, nops, MCOUNT_INSN_SIZE))
+>   		return -EPERM;
+> @@ -125,6 +173,13 @@ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
+>   
+>   int ftrace_update_ftrace_func(ftrace_func_t func)
+>   {
+> +	/*
+> +	 * When using CALL_OPS, the function to call is associated with the
+> +	 * call site, and we don't have a global function pointer to update.
+> +	 */
+> +	if (IS_ENABLED(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS))
+> +		return 0;
+> +
+>   	int ret = __ftrace_modify_call((unsigned long)&ftrace_call,
+>   				       (unsigned long)func, true, true);
+>   	if (!ret) {
+> @@ -147,6 +202,10 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
+>   	make_call_t0(caller, old_addr, call);
+>   	ret = ftrace_check_current_call(caller, call);
+>   
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = ftrace_rec_update_ops(rec);
+>   	if (ret)
+>   		return ret;
+>   
+> diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
+> index b7561288e8da..cb241e36e514 100644
+> --- a/arch/riscv/kernel/mcount-dyn.S
+> +++ b/arch/riscv/kernel/mcount-dyn.S
+> @@ -191,11 +191,35 @@
+>   	.endm
+>   
+>   	.macro PREPARE_ARGS
+> -	addi	a0, t0, -FENTRY_RA_OFFSET
+> +	addi	a0, t0, -FENTRY_RA_OFFSET	// ip (callsite's auipc insn)
+> +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+> +	/*
+> +	 * When CALL_OPS is enabled (2 or 4) nops [8B] are placed before the
+> +	 * function entry, these are later overwritten with the pointer to the
+> +	 * associated struct ftrace_ops.
+> +	 *
+> +	 * -8: &ftrace_ops of the associated tracer function.
+> +	 *<ftrace enable>:
+> +	 *  0: auipc  t0/ra, 0x?
+> +	 *  4: jalr   t0/ra, ?(t0/ra)
+> +	 *
+> +	 * -8: &ftrace_nop_ops
+> +	 *<ftrace disable>:
+> +	 *  0: nop
+> +	 *  4: nop
+> +	 *
+> +	 * t0 is set to ip+8 after the jalr is executed at the callsite,
+> +	 * so we find the associated op at t0-16.
+> +	 */
+> +	mv 	a1, ra				// parent_ip
+> +	REG_L   a2, -16(t0)			// op
+> +	REG_L   ra, FTRACE_OPS_FUNC(a2)		// op->func
+> +#else
+>   	la	a1, function_trace_op
+> -	REG_L	a2, 0(a1)
+> -	mv	a1, ra
+> -	mv	a3, sp
+> +	REG_L	a2, 0(a1)			// op
+> +	mv	a1, ra				// parent_ip
+> +#endif
+> +	mv	a3, sp				// regs
+>   	.endm
+>   
+>   #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+> @@ -233,8 +257,12 @@ SYM_FUNC_START(ftrace_regs_caller)
+>   	SAVE_ABI_REGS 1
+>   	PREPARE_ARGS
+>   
+> +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+> +	jalr ra
+> +#else
+>   SYM_INNER_LABEL(ftrace_regs_call, SYM_L_GLOBAL)
+>   	call	ftrace_stub
+> +#endif
+>   
+>   	RESTORE_ABI_REGS 1
+>   	bnez	t1, .Ldirect
+> @@ -247,9 +275,13 @@ SYM_FUNC_START(ftrace_caller)
+>   	SAVE_ABI_REGS 0
+>   	PREPARE_ARGS
+>   
+> -SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
+> +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
+> +	jalr ra
+> +#else
+> +SYM_INNER_LABEL(ftrace_regs_call, SYM_L_GLOBAL)
+>   	call	ftrace_stub
+>   
+> +#endif
+>   	RESTORE_ABI_REGS 0
+>   	jr	t0
+>   SYM_FUNC_END(ftrace_caller)
+
+
+As I'm diving into ftrace right now, I'll give a proper review soon. But 
+as a note, I noticed that the function_graph tracer, when enabled, makes 
+the whole system unresponsive (but still up, just very slow). A fix I 
+sent recently seems to really improve that if you're interested in 
+testing it (I am :)). You can find it here: 
+https://lore.kernel.org/linux-riscv/20240229121056.203419-1-alexghiti@rivosinc.com/
+
+Thanks,
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
