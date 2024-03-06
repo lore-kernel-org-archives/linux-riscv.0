@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87985C5475B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 17:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 080AEC54E41
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 17:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WhfK2LlmvvhqaKe5p9x91xDzxxrWGC5JuxW7Qa5ivxk=; b=jp9l1uN7KHe0jR
-	iuzpMXjddl6I2InEEtaOwMIRf9Fy0+Vvnp/gO8BcxuxG+U0TMAapxW1e1sZYV4dPDprWoOOhYRQP3
-	mE6ag7PqZkNHu0OM51DvfwOdNx65MVU2xONzjrftFaty0qXGPr1AIqC/N5xMA4KUXgXura9ZjYolt
-	aSbzVidFKjN1rHLd7vLNQAm5lGMYkilcDGJ6rH5/akZPxA6mkm3453RmdRQPKSRn7Ugv+10JlfuF6
-	D2j5t0WMXNaKeEdCXLUMXSI7Tlo0XFE2/pCYYggZZHCQn3rYLOQ5FrUVXfofWmH0vbgAsk7wMgQHV
-	bQOTr+RTUvK68AzIKKuQ==;
+	List-Owner; bh=hpDaH8BsLMeyJncceCZhCl4r3F4mp058kKLVKecKeKE=; b=w7CPlmjj5OVFhk
+	IpYMpcHr2lOMvKHQmB8orHum5aBOvIekvLrDhdpOPegI0oPvx6DrBqvPH8qm82yOLL00A1941IB36
+	yud/JNmoDC2mshAOBCOexSZm5Up1jJubclyJ6Iki3D2z9amB2Ng0YweZ/9o0Ea6Q5cYXkrIKb6Hgc
+	rGcaHUUHxU5Fp5KKldMVmSuSduYRKVALDF/fzCW69nZVPKC2Gy0WvEnk0REx+cQzm58AmwNFiuo+e
+	2obTDqkZjKUYNU46684HoqoiM9fOJe4mWsDcSF/k05VrjoNTw7W/Yl6/wLO8vWZR1HyLZefnaXksO
+	idj/4b9BeTMq24h2OlgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhuoR-0000000181b-0yAA;
-	Wed, 06 Mar 2024 17:12:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rhuqz-000000018dj-0gxC;
+	Wed, 06 Mar 2024 17:14:53 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhuoO-0000000180W-0E78
-	for linux-riscv@lists.infradead.org;
-	Wed, 06 Mar 2024 17:12:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6CB24616D7
-	for <linux-riscv@lists.infradead.org>; Wed,  6 Mar 2024 17:12:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AF72C433A6
-	for <linux-riscv@lists.infradead.org>; Wed,  6 Mar 2024 17:12:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709745131;
-	bh=2qzpLpQnn8H/E5sxCIi6Nw1Lgq2F1o1a0Kzj4iP6/HE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=eAu0MoXIxajSQQaL1LT0wSKdAeRRyrrqtfu8uHL5NK6Fo4ueVjLvZrm6In+I2aN+P
-	 C4o4B2HDf4p87eAqtB2nH25/+ea+yZOQPuwcnVAVNvwHtA9yrPgEOeQFDnZBLTdxqZ
-	 nn3AL1tnZVxtUVECtZgu6qnEnumr+MYQ+ofCleEIk0EsLEBcmxczK4KAblyFAkTPxu
-	 ENsZV1gkOx901rIg9qDGK6My6wusgClqj4xX1f+cIjCBw33KMeMFcXnKR0F6rqxzq6
-	 uBTeVMVhvI8aK6K35MylHj1Bsoh/rXUZI8CZmUA217HbPNxzJIVUBQa7TrjwxpScFZ
-	 Nt521NH0ci+9w==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-51344bebe2fso3956948e87.2
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Mar 2024 09:12:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUzKyncI78V5fAu+9a8Yd27x8+pt502BdSUD2v+8IjpNCub7f5TrdIIe3wdl7wHSqKrm6OD6PQmvAKIjmUQpBtokXRiPHO4Mvlb05yJ+tBK
-X-Gm-Message-State: AOJu0YwkrRs2mnumJ6qVgLGp2CqKKW4+ccyc/3i2zO6rw5N+VWMghqRD
-	lJAgHgaH678zoFfJcRVMZYTzFlUjqILZtyCi2Hax7jK9LnoYyROexkB3R1TazIfV/e/u74EUwZ7
-	rtd3bvuFPoXDC41SFAmAOO0RwkOk=
-X-Google-Smtp-Source: AGHT+IG8eOJw1BG9B4w1h55rfk9MeAdIqds6IcnkJPTcRCygr6hWs82XXKFP4nRlcZVuq4gRW/lGwGDNEdsAEYlYU+c=
-X-Received: by 2002:a05:6512:3489:b0:513:1a38:2406 with SMTP id
- v9-20020a056512348900b005131a382406mr3648590lfr.13.1709745129142; Wed, 06 Mar
- 2024 09:12:09 -0800 (PST)
+	id 1rhuqt-000000018ba-0mnv;
+	Wed, 06 Mar 2024 17:14:50 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1709745282;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vp8CgcEh2+XD1rrYCq9vFCOWhJV6Gj0UcBPHVO/mG3I=;
+	b=hLcCHGoDD+mz8ZbKjQeB5xXhhoPU/fE2kNC3hQNfd1ma/u8J/zddviA/HqdTgqdG3oVELs
+	yVs1/hPOwmAOTuivi7bn/t5AdXxzOgCbrjnNic9a7P3UD6t9DbBcDDZEQv9mdkZ5gNQmWv
+	7vbCgHbSJECaiSNWreeRIZmRe08ButQng2h/CGVRcpYXfkeDvP8s8MUjoaw0ejkV2aOd6J
+	GhCC5IBZxfnMkFg4BEdSUxSJkuNwB3HEKPGk8Ts8FrpJGs4nl/zkw473YhePn+NXGru8W6
+	nrJgDF25SYoVsf+V+wjNsd9UV9qsXdOpH54xyHauuhHRCs6LH5fgqRzBOaZs6A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1709745282;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vp8CgcEh2+XD1rrYCq9vFCOWhJV6Gj0UcBPHVO/mG3I=;
+	b=r2OKQF+b39Jbfxu8K1wz0pKjaanVs2rF1CqBPX6sZtQq8gqd45t5LNMwP4WV+c9wRqAr36
+	puBSYY3XgU94OPAA==
+To: Arnd Bergmann <arnd@kernel.org>, Anna-Maria Behnsen
+ <anna-maria@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Kees Cook <keescook@chromium.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Matt Turner <mattst88@gmail.com>, Vineet
+ Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, Catalin
+ Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>, Brian Cain
+ <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller
+ <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Palmer Dabbelt <palmer@dabbelt.com>, John
+ Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Andreas Larsson
+ <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>,
+ x86@kernel.org, Max Filippov <jcmvbkbc@gmail.com>, Andy Lutomirski
+ <luto@kernel.org>, Jan Kiszka <jan.kiszka@siemens.com>, Kieran Bingham
+ <kbingham@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] arch: consolidate existing CONFIG_PAGE_SIZE_*KB
+ definitions
+In-Reply-To: <20240306141453.3900574-2-arnd@kernel.org>
+References: <20240306141453.3900574-1-arnd@kernel.org>
+ <20240306141453.3900574-2-arnd@kernel.org>
+Date: Wed, 06 Mar 2024 18:14:42 +0100
+Message-ID: <875xxzuvst.ffs@tglx>
 MIME-Version: 1.0
-References: <CAMj1kXH1oMbONoHFMPaatfaqrHNE2ryfrG7kw-7J-eFsuXkK-Q@mail.gmail.com>
- <mhng-c53211c1-4708-459a-bdc5-6e013c2adaee@palmer-ri-x1c9>
- <CAMj1kXEFqMx8qUHQEbg=OqbG-H0Zpj-nWu=a6qhhvNEZPO7f4Q@mail.gmail.com> <CAMj1kXG4SXsBfNqWMRUJ+AVv=6trWUAow-f8Mk5oKCpO=WueFg@mail.gmail.com>
-In-Reply-To: <CAMj1kXG4SXsBfNqWMRUJ+AVv=6trWUAow-f8Mk5oKCpO=WueFg@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Wed, 6 Mar 2024 18:11:57 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHcisgPkkmkEM8AGDkmW64B-Sfp96ag457xV9uqxy3yVg@mail.gmail.com>
-Message-ID: <CAMj1kXHcisgPkkmkEM8AGDkmW64B-Sfp96ag457xV9uqxy3yVg@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH 3/3] efistub: fix missed the initialization
- of gp
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: cuiyunhui@bytedance.com, Paul Walmsley <paul.walmsley@sifive.com>, 
-	aou@eecs.berkeley.edu, xuzhipeng.1973@bytedance.com, alexghiti@rivosinc.com, 
-	samitolvanen@google.com, bp@alien8.de, xiao.w.wang@intel.com, 
-	jan.kiszka@siemens.com, kirill.shutemov@linux.intel.com, nathan@kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-efi@vger.kernel.org, Conor Dooley <conor@kernel.org>, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Pedro Falcato <pedro.falcato@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_091212_200948_56F791F6 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20240306_091447_396233_11825105 
+X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,52 +99,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 6 Mar 2024 at 17:15, Ard Biesheuvel <ardb@kernel.org> wrote:
+On Wed, Mar 06 2024 at 15:14, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 >
-> On Wed, 6 Mar 2024 at 16:44, Ard Biesheuvel <ardb@kernel.org> wrote:
-> >
-> > On Wed, 6 Mar 2024 at 16:21, Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> > >
-...
-> > >
-> > > The UEFI spec says "UEFI firmware must neither trust the
-> > > values of tp and gp nor make an assumption of owning the write access to
-> > > these register in any circumstances".  It's kind of vague what "UEFI
-> > > firmware" means here, but I think it's reasonable to assume that the
-> > > kernel (and thus the EFI stub) is not included there.
-> > >
-> > > So under that interpretation, the kernel (including the EFI stub) would
-> > > be allowed to overwrite GP with whatever it wants.
-> > >
-...
+> These four architectures define the same Kconfig symbols for configuring
+> the page size. Move the logic into a common place where it can be shared
+> with all other architectures.
+>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-After some more consideration, I concluded that using GP in code that
-executes in the context of EFI is never safe.
-
-Taking the typical Linux/EFI boot sequence as an example, where GRUB
-is loaded by the system firmware, and the Linux EFI stub is loaded by
-GRUB, it is easy to spot the problem: GRUB exposes the initial ramdisk
-via the LoadFile2 protocol, which is essentially a callback interface.
-
-If we assume that EFI apps can use GP as they like, we cannot safely
-call this callback interface without restoring GP to its original
-value, since we have no idea whether GRUB (or some other loader) is
-relying on its value. And in addition to synchronous callbacks, there
-may be EFI event callbacks registered by GRUB that are signaled by the
-system firmware asynchronously, which means GRUB code could be called
-behind our backs. Without any guidance in the UEFI spec on how GP
-needs to be managed across such boundaries, we should assume that GP
-needs to be restored to the old value in each of those cases, but this
-is impossible for async event handlers.
-
-We might conclude then that using GP is only safe for EFI apps if they
-don't install protocols or register for EFI events, but that would
-still imply that we should restore GP to its old value upon exit.
-
-So without a strong argument why GP relaxations need to be supported
-in the EFI stub, I don't think we should consider these changes. If
-there are any issues in the current code that result in inadvertent GP
-relaxations, we should address those instead.
+Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
 
 _______________________________________________
 linux-riscv mailing list
