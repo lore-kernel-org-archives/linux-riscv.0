@@ -4,122 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED21DC5475B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 17:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCE4C5475B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 18:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0xLdfCcqSU9uaJkquCeVomjjPtoz2YAO7hrrobjAKpY=; b=lHL1LpgHAiobtz
-	MXfldbQ8hHFXlsecsRh9fa9mUcywm6bRdGaM68upx8nUpaE8ulXqOeqiEHt6DU3C4g/rwCbpPV/HC
-	zQvcBaaO6ULTBFjz5+Xxg3x+hkbR6igqu7OVQg0a1d4jloxCTfI94K9drNbmbnap9C0hDae9XZ/4Z
-	zZsCUrZGFf7GSMIRKJNAiIx7GFNyfRylc4UWmZXjQvMoJ+2zPWm/rNckxDmY1Up484Eb3LYTk8mr3
-	catEYbyyTTNPwlLUs903zFAlrltnUcJ2r6DUQ9D9rYTfT0ygq2Vu41ySJDcOcCAOgrEw50FB5HpiT
-	NzGiWA/TV4xCd13JUbLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=iCvxiNXZSzH3FgAOQfqFz6ssYcz5aBZWCo0j9iebHCc=; b=zWU
+	zyX4DBdrYsFu8x9hOW1sEqajHB39dFafPthwOdAVe4xsabgv63TsYz9fTSC1IldHqGtAfBfoXLu2U
+	HKyYryzRzwUmf6ugfylbNwh2MN7/3JoRd46TRYQ0AZDsQ4aGFa7SljDSsVe+3AxrL9kYUwjNMTIf2
+	dhZVjWpB3p4fLXmLg80Pm1W1odbHYqJuy5xmK8UJiCKXspJG/JMQmbR5aYR5KpV3siRHGu1+CW682
+	BqQgWdI8fCfLyoiAjtYuY0cOZ2f9GFDTfYbDCIxDXV57Ch2smYsXZhtdE9c5wCFrRfy2REuFBau4C
+	vl1Um1ayzzkhRqSrGAa7bSsZ57Z1JWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhv06-00000001BOW-1W5E;
-	Wed, 06 Mar 2024 17:24:18 +0000
-Received: from mail-bjschn02on20727.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::727] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1rhvgh-00000001LA1-0Ok2;
+	Wed, 06 Mar 2024 18:08:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhv02-00000001BMS-0n6o
+	id 1rhvgd-00000001L8Z-0o1v
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Mar 2024 17:24:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=nA9y2LV8QqJJwyZG6VML+ebxhu1x512Ke1raKIQFI/iH07oGbnToGA6F1DAQldweUcD7Efel/0LnSsxnKra7fyKpJcEnrABPTPzceYKuTDS8oWkS0NpVkOxK2K2tRy1uUXImT5+sE//6yBATq+NHmSV42oUnRpINXhbr8WbhbGPAfvDxUCX26Hubd9h0g8t5+uibugbAiOswVvhuM8HRqD5n4CCXSPYxIhR2xuLWCYmqJzEISsau3w7X1hn2en+vJR7z/s2jJmPzJP4FEkvrOwpEjnVZNAtAeq6vP76+shHyF9N/WCvBrggR6546bwKl3sHZ2Vs5bbU0HghL4hYFOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rjPu3HmoRqXxTMrq8/4Xh/+FRgsoE/H1VR/fH/N3uEM=;
- b=nqNN+PoSk4ApZytMsykfFIJYqb6f91d4wRBTG0U2SH4Ncs3/RuV8nKCeI2B1wkI+wB5hBDwyDz9ygnlwHy9Wntpf1y8Bhw84eZNXu/CFMwyHn5SWsr5aNdU8XHN3El0Eih8ykhsWORiHoVtFagl5xcEin2q9KprK0FBSQhUp+U+MstOJpAtwv5su2wBL2Yc/ZHjtsB/TSKvgCPpewsAgHWqpjUgS0wSL6Vm9rqiyk8A6i77OJHaP2rDtK4zmDCzhLEb9U44bxByBtLRXmBt1YWT5ZPGlRpsbm84OzF1vPidEWEZ78uhbvYw4PTOUQGY+/F9ULWMLWilMlGyCXsw28w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:f::12) by ZQZPR01MB1043.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:f::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7316.41; Wed, 6 Mar
- 2024 17:23:58 +0000
-Received: from ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
- ([fe80::f2cf:d7c2:e40b:d36e]) by
- ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn ([fe80::f2cf:d7c2:e40b:d36e%5])
- with mapi id 15.20.7270.046; Wed, 6 Mar 2024 17:23:58 +0000
-From: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: atishp@rivosinc.com,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ley Foon Tan <lftan.linux@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3] clocksource: timer-riscv: Clear timer interrupt on timer initialization
-Date: Thu,  7 Mar 2024 01:23:30 +0800
-Message-ID: <20240306172330.255844-1-leyfoon.tan@starfivetech.com>
-X-Mailer: git-send-email 2.43.0
-X-ClientProxiedBy: BJSPR01CA0012.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:c::24) To ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:f::12)
+	Wed, 06 Mar 2024 18:08:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 91366614AD;
+	Wed,  6 Mar 2024 18:08:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 414D9C433C7;
+	Wed,  6 Mar 2024 18:08:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1709748494;
+	bh=aNvdoVB8CYkClyqqn06SdWt2NUie0KzhPE48rEF9VIU=;
+	h=Date:From:List-Id:To:Cc:Subject:From;
+	b=pimsxjFhK+zyfYVmU1R9cldV/XdlNrXnhVvAHkPtupRuB9DnZawtNO7v7HSD2LDfa
+	 3mDvleMRg5H/ab55L3/SHvlrLwfKFAXjh0MT407rknDKyhjXVPq6fkh7DHqRT8YGLe
+	 74U2vLc6/FnxXCqWfVajtaO2KNPnvc2dZH8Aiv+ahsvdlV66Ud+3cYFBfbf3KR149p
+	 ifACxqXlWHcyPPImTqc9xR0eQAs6wkQL1BFvUHW3k7yj4Dddh79rbPzZxyUkxEG9QG
+	 ABQ9VeuOz3xkZ7ZX57Tu2M9KgMS9RauulJpW1AjE29ogbQuvBtAJ6h2cR9ya00QD06
+	 xgOy6AHYnY/Lg==
+Date: Wed, 6 Mar 2024 18:08:11 +0000
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, palmer@dabbelt.com, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V Devicetree fixes for v6.8-final
+Message-ID: <20240306-waltz-facial-9e4e1b792053@spud>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQZPR01MB0979:EE_|ZQZPR01MB1043:EE_
-X-MS-Office365-Filtering-Correlation-Id: bc5e1a72-6791-4f6e-1b24-08dc3e023529
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: iH39KKqYwZopLnHPLu+H9Wfea7LrAtSoEwTfOlbN60JngROcpA9wHX0bdOmHzklQKHbAcbLzMZLRRLAXwwRHk5LEKfjdmfAsR8OkNitm9DicpgTDRv9J5xzstR8U+7bM+H0PgqahCb4joMBlc1ICIf4/cj5GPkTwQ4de4C6JpkBoQcbj8bDztzaEngB0EfjFMs9Mm94IghDyCizuyPoc0YA//IGEdvZbxyjR4iOuzjoHtZEqO/UomJTBsR5LiLscCzbDD99Hy//FBuYjkvlTBP8vMUTZegMqA8zjOqxAYDzP5MOktApyxYnfcAFxh4s8neUH68+zaczJyUETaYLF8k/Gu6GYNXqG3GNWarKzijVKbAhLzSF2fRbXd2iw6EnWyUU6MsiRCmPS1vK8TL3WdJa+r+5vJEG4vbdwsJnmiJ62bP2MkI95RjMaG7my167Mm+5qGf8PJuEcdvJ0am3CXsBmst+8+cC4P393c0zp2iCP9alqNHUkKFlaiD2xK/itMHtPS5U79b/EHUll2KsdcSjzlJljbi9RWtHImeNpPLdnmRu8OtjOvCVKuFtZlY8wsRjKg3G+uLPQUxoSULOEdH11d1cMaayn9byxPxcKWfWVDyqaj2KYnIuo8hnEzSjl
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(41320700004)(38350700005);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?s12m7vI4iOByP3EoE/70ntbeK5DYTdHCdSAvC8RjeATvlQEP+i+QJf1o+72e?=
- =?us-ascii?Q?2/8vtKgcb2RHIRGY2u+P9M95Z/hL4U0/ttHy0FhD9U9B+pQ6cvgAbZ/Bx9d6?=
- =?us-ascii?Q?cWcrVkfkdKBi4zdm1kE+du+bwDZhf/89aHCpHMP9VKLyyPP3bVIbnZ3Tz3M8?=
- =?us-ascii?Q?dKqNU5iZtwERjS7BDT+vmBIwg+hv/iBzVQ8Xq5tGj7C+jxI9Jm8ZR+t2sVRy?=
- =?us-ascii?Q?vB4+2mdTccxp63YvyHaOxOL3YJu8NL7o8Pqok5G0esMZz9CfFDS3xTVOYxxQ?=
- =?us-ascii?Q?Jd4HU3XlWKkvvCK310uDL9Qqy0awa+w7EKmfwL7gUmqCrFx2ohGUPg4TMxiZ?=
- =?us-ascii?Q?SZCiZ9T1NPAAVf/L2IvlvUSRxDnqd/TtOzLPWHbX5SIKE9oNUqbNIJet9rvJ?=
- =?us-ascii?Q?5zH+yJDtlgWls+3X2Sa04wOYWM9xpLNki+K79frtEhLKYiIkr8FetGq6Q2t3?=
- =?us-ascii?Q?i5ppwo4RDxlm6wKkgf/1r3SVmbgg3WL8nwePxDcg3xhoMaeJMJPjLHmr5FUo?=
- =?us-ascii?Q?PoUcj/bwX8cQemBytq1ZWJ0FykhiuiE5FiAgujWVoUA4d5kvcQ1ARAuoQtZy?=
- =?us-ascii?Q?6klcnnzwaRWmVPxBgiE1KsKjHwJgpycCuy36eNGDCJ9b4EwskjCCB9eUzw2V?=
- =?us-ascii?Q?H2uZ9arueyHHMxeFeyGTLdyHfgjcELviD3EFUSQQurL5Z01Kg/7+c5niuvmi?=
- =?us-ascii?Q?RqX1OsctJ+FfP5iTVMqjiCP5ucBLB+tesPyE8V5Ztw8IrhJZU3Yb8DhIyBr9?=
- =?us-ascii?Q?2yAZ6Lie7HZzoPh3ububat7EfKpdloB9G4C3ZTHt19loyT++cf3OE9Jf0clc?=
- =?us-ascii?Q?0iOt28QyuPqOlJ5xgoFMIeOw+msUclHK+7B/LkTfig3tOwi3pp2Q8E+9Urlp?=
- =?us-ascii?Q?sYDjl71S31PwKUAGaOD7dKrpnA0sqmhkYjM18iHxWy/7jo8CO9U29IX5xrmQ?=
- =?us-ascii?Q?Im+DhR97paeZvIrtgoERjuRgleLYYedInHzMMth3JaVA6sVxkPaHCt55sF3Z?=
- =?us-ascii?Q?382PqKEfs3NIjsO6EJAKFfJU5dZqNyqZzzibxbc0NCa3mxOVRcs9T/kBWko9?=
- =?us-ascii?Q?WOHdnZoJGK6xQBw3KBRXdj0+9mhNT7ga0jcYZ31EtrZzXSnDJp7JQRRlbix+?=
- =?us-ascii?Q?uHrQbVOxmMdvhFzLME4cUGNdMIL/67x/+YbbJDjrVKj8EhbuXyWRNysVn4vW?=
- =?us-ascii?Q?iWpZAzBvLjGpGt9xhEpMkoeIVd50LSc6dcR9yqSEPnMY92hM9L06FtxEtHId?=
- =?us-ascii?Q?EcI2K53m1qffg82B5fldr8OqmakLBRTT3o5nZKEye+idQCRvWYeMezy8Tlva?=
- =?us-ascii?Q?hQHRgup/r7O95OCLftZlceU/OiBA7dobjK5ze/Sgs3xpz8/YeXskz5mxXVbB?=
- =?us-ascii?Q?FLXSaXD6b/6GM0HoJt65VE1DORjFrJSZh3zdNykCJPMQdnsPwL+7nA9wFKp1?=
- =?us-ascii?Q?oD0sf1GQnLLJdiZ3VTBl2Rrpa1EwUWGKciEP2TE07X63PrGxZcM4qMDckWK3?=
- =?us-ascii?Q?miciC0MnMYH7RKnAg5PXRNjTz8tbWaD/E1ZdRjqfV209UEhmMSlpqYLXn9hK?=
- =?us-ascii?Q?5JD2Mn2INKXVkUYa6dmBUPTkFAYKZ4k/NjHSAnSPAzqUGuGp0MX4OHbSwPue?=
- =?us-ascii?Q?cmq6s2KfocuGkDyaoba+St4=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bc5e1a72-6791-4f6e-1b24-08dc3e023529
-X-MS-Exchange-CrossTenant-AuthSource: ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2024 17:23:58.4846
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3Jmw5zhTrAkPDbGFlCtDB7So/u5ZcrMIwoOOmMCsNaMPSbG7/MCQgLOb8J9TP2OoeefTZ1v5AosMUidI62cHs+ABNjQCpLI8u5XHzrjDQXA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQZPR01MB1043
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_092414_256483_3495C5C5 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240306_100815_385523_4F6E4955 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,53 +63,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4049670070562370566=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In the RISC-V specification, the stimecmp register doesn't have a default
-value. To prevent the timer interrupt from being triggered during timer
-initialization, clear the timer interrupt by writing stimecmp with a
-maximum value.
 
-Fixes: 9f7a8ff6391f ("RISC-V: Prefer sstc extension if available")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+--===============4049670070562370566==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="xRXufZSFrzlx0kDP"
+Content-Disposition: inline
 
----
-v3:
-Resolved comment from Samuel Holland.
-- Function riscv_clock_event_stop() needs to be called before
-  clockevents_config_and_register(), move riscv_clock_event_stop().
 
-v2:
-Resolved comments from Anup.
-- Moved riscv_clock_event_stop() to riscv_timer_starting_cpu().
-- Added Fixes tag
----
- drivers/clocksource/timer-riscv.c | 3 +++
- 1 file changed, 3 insertions(+)
+--xRXufZSFrzlx0kDP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index e66dcbd66566..79bb9a98baa7 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -108,6 +108,9 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
- {
- 	struct clock_event_device *ce = per_cpu_ptr(&riscv_clock_event, cpu);
- 
-+	/* Clear timer interrupt */
-+	riscv_clock_event_stop();
-+
- 	ce->cpumask = cpumask_of(cpu);
- 	ce->irq = riscv_clock_event_irq;
- 	if (riscv_timer_cannot_wake_cpu)
--- 
-2.43.0
+Hey Arnd,
 
+I know it is pretty late in the day here for fixes, and I would've kept
+the builtin dtb fix as v6.9 material, but Geert reported yesterday that
+boot was broken on the jh7100 platforms due to a fix that I sent in my
+last PR.
+
+Thanks,
+Conor.
+
+The following changes since commit ce6b6d1513965f500a05f3facf223fa01fd74920:
+
+  riscv: dts: sifive: add missing #interrupt-cells to pmic (2024-02-14 09:09:33 +0000)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-dt-fixes-for-v6.8-final
+
+for you to fetch changes up to 2672031b20f6681514bef14ddcfe8c62c2757d11:
+
+  riscv: dts: Move BUILTIN_DTB_SOURCE to common Kconfig (2024-03-06 00:08:32 +0000)
+
+----------------------------------------------------------------
+RISC-V Devicetree fixes for v6.8-final
+
+Starfive:
+The previous cleanup broke boot on the jh7100 as the driver depended on
+the fallback clock name created based on the node-name when
+clock-output-names is not present. Add clock-output-names to restore
+working order.
+
+Generic:
+BUILTIN_DTB has been broken for ages on any platform other than the
+nommu Canaan k210 SoC as the first dtb built (in alphanumerical order),
+would get built into the image. This didn't get fixed for ages because
+nobody actually cared about running it other than the k210 enough to
+fix it. The folks doing Sophgo SG2042 development have come along and
+fixed it, as they want to use builtin dtbs. linux-boot on that platform
+reuses the dtb it was provided by OpenSBI when booting linux proper,
+which is unfortunately not possible to boot a mainline kernel with.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Krzysztof Kozlowski (1):
+      riscv: dts: starfive: jh7100: fix root clock names
+
+Yangyu Chen (1):
+      riscv: dts: Move BUILTIN_DTB_SOURCE to common Kconfig
+
+ arch/riscv/Kconfig                             | 14 ++++++++++-
+ arch/riscv/Kconfig.socs                        | 32 --------------------------
+ arch/riscv/boot/dts/Makefile                   |  2 +-
+ arch/riscv/boot/dts/canaan/Makefile            |  2 --
+ arch/riscv/boot/dts/microchip/Makefile         |  1 -
+ arch/riscv/boot/dts/sifive/Makefile            |  1 -
+ arch/riscv/boot/dts/starfive/jh7100.dtsi       |  4 ++++
+ arch/riscv/configs/nommu_k210_defconfig        |  2 ++
+ arch/riscv/configs/nommu_k210_sdcard_defconfig |  2 ++
+ 9 files changed, 22 insertions(+), 38 deletions(-)
+
+--xRXufZSFrzlx0kDP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZeixCgAKCRB4tDGHoIJi
+0sVUAQDA0DHhq7ioR+8EQAm5wUw5VjdsZ8xm+lipPkOywGpuTQEAtH6cyvFfdSSl
+1RrJXne0Nn4UF+8FZg0bgzJNtFhTtQk=
+=rXKb
+-----END PGP SIGNATURE-----
+
+--xRXufZSFrzlx0kDP--
+
+
+--===============4049670070562370566==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4049670070562370566==--
+
