@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D39AC54E41
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 13:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12949C5475B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 13:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VSigiKB1Ks6LKzKMIaBWxJNC6gytoMJ7wxKg4YrQYJY=; b=H9h3RASF3H3+gv7pivMSOwabno
-	weYj3ruMxml420rttkCWNIA4RIApR850E4fCD5a8ygjevDIligvAcT25yQFLaCZW/sMBSwidhkViF
-	+t+2zupWR14jA/vNJ+pYj+DnNhFQMJ9v3JYBE0qgXnbwzz7CoymU+U7z+sIFDP8KT0EwZWJSA/RSa
-	CJm49BVtY9UzDUrGJDiQNEdDDAWBnp1zavqbZGfPJO5hxsxNcAF9btoZ+H+8lAzEyUu4ubEemNxri
-	P/I6LwKk3dcNw5P1estogYagzPFRYQBscanXJxA6RBChZEFzg+HcNGvwgSB+or/NKscmIMtT9ce+4
-	fuoL/ZSQ==;
+	bh=dtoDgbngewinYaWeVvadsc+Eyv+qzoK2Kt88h0nDgB8=; b=UYPxh3UAfLkZB1gwLAvolXFv9F
+	qrXX/yC/2643I0s3ZYT+D+NX56WfOx5NV/b22qyYh7XkHbbrYqZJMZ3Hh4AY119I4NrvXdv9NTztg
+	cedDTpWL04ciMe0BCn04VfMqXR1Gq1ihtaadcJ9jTR/OOzaGLdMCPNTiTuDN9r4qz8ntDx8ERw+Ez
+	Nu8N5p/g26lkLdRp1IijUVkMxmR4xMqg1xBWcjMXATeucjvq9rpl8A5T83+Hv+u5MB8n+zeT6BI8m
+	H3ySrOpDW7gAPjyeqisMpEUyUzpZN9byt8Qoy6Bmnq792AwTBIV8L+Wq1wwNZyUrb1Bl1nE2/D0UW
+	7BH4Um5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhr4e-00000000LOs-15Wu;
-	Wed, 06 Mar 2024 13:12:44 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1rhrDI-00000000N3j-3VOK;
+	Wed, 06 Mar 2024 13:21:40 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhr4a-00000000LMu-329u
+	id 1rhrDF-00000000N2x-0eIA
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Mar 2024 13:12:42 +0000
+	Wed, 06 Mar 2024 13:21:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1709730760; x=1741266760;
+  t=1709731296; x=1741267296;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=zc2zZ6M5U5YJr4cZh6IDmp+6jTvsRZlZFYiNFJlAj2M=;
-  b=emRuNyJCyKTViAx29lqSbQ55Wagf9KY8QNAdObr6zAmDNHNotWW/4Lwn
-   KVIkNkMBY6TSPjL6UXHUVLQ+rxrOnZxpH1E3uvbi+s7D/vQYOGwMAq9CF
-   2XyMkcJLGoVhKJ1me9FdtpgGdq3D5AeTY/xqJodFa9TiBDz3rSz6DKC8R
-   x+V/a1TXGtnlNTk4m6CkPDpW88uwb8VlKytr8SUOABLJHr0aZzZOFFtoC
-   4bGGvyVJGtMAPLkiJUjXM+PHCbc54TeMnb5x5NSw00Ik774aPGCOI2HS8
-   VKLO26jis3DGJQBYxhETQQThW37DeWX7qL7yRhqtxipHsa/MsI0Gml5Ny
+  bh=x6saRHVg0VfK1dnvwUWzELfx+mRt+YMbrULENEEZOVE=;
+  b=B1Unxr3xXjDV5DhfWfZnKy6D7Qju88Q/LT77u6dVZuaCNwgAivVA+4tg
+   O682kneFWX9vXFzKLDDWkRshR26O4UNtLQ0yqZJZRGC46/nRfz/hHNCW9
+   YknOSXYSGTh8FBCyHGoDK0lRYEktqHzY19jKnEiJmh9gCVCIdyBjp3WHa
+   zOXsXVFSTinqG5x1oJxBd33mYLU42qUuJeb5QYPN7QP0V+y5HEaCIrSZU
+   ASJ5aXdcWmVIS3U1HRYSr6sKfXRoEFdVVaZqTFQ9WGG71uAZ6d93uB/jL
+   PN9O8Es2s4XBWJ8lbhD9BHRIiaLwFftqQlM7qUyFpbMvQqdCTXENrfi8O
    A==;
-X-CSE-ConnectionGUID: It6AnLiDS5GINWmYX8VNaw==
-X-CSE-MsgGUID: M2/mz+qiSvaT8qbC98gVHA==
+X-CSE-ConnectionGUID: MbkuSMWuTa2dMHhEfXhTsQ==
+X-CSE-MsgGUID: 7mh+FgpZTSy/sDRKCR9T0A==
 X-IronPort-AV: E=Sophos;i="6.06,208,1705388400"; 
-   d="asc'?scan'208";a="18925469"
+   d="asc'?scan'208";a="184556607"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Mar 2024 06:12:37 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Mar 2024 06:21:34 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 6 Mar 2024 06:12:30 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ 15.1.2507.35; Wed, 6 Mar 2024 06:20:24 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Wed, 6 Mar 2024 06:12:28 -0700
-Date: Wed, 6 Mar 2024 13:11:43 +0000
+ Transport; Wed, 6 Mar 2024 06:20:21 -0700
+Date: Wed, 6 Mar 2024 13:19:37 +0000
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Charlie Jenkins <charlie@rivosinc.com>
-Subject: Re: [PATCH v6 2/4] riscv: Only check online cpus for emulated
- accesses
-Message-ID: <20240306-spry-retread-56d6c8dce327@wendy>
+Subject: Re: [PATCH v6 3/4] riscv: Decouple emulated unaligned accesses from
+ access speed
+Message-ID: <20240306-tactless-decathlon-b0df16517b1b@wendy>
 References: <20240301-disable_misaligned_probe_config-v6-0-612ebd69f430@rivosinc.com>
- <20240301-disable_misaligned_probe_config-v6-2-612ebd69f430@rivosinc.com>
+ <20240301-disable_misaligned_probe_config-v6-3-612ebd69f430@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20240301-disable_misaligned_probe_config-v6-2-612ebd69f430@rivosinc.com>
+In-Reply-To: <20240301-disable_misaligned_probe_config-v6-3-612ebd69f430@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_051240_976756_508B1A7C 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20240306_052137_282001_1D5026FD 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,72 +81,66 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
-Content-Type: multipart/mixed; boundary="===============2000749976692502321=="
+Content-Type: multipart/mixed; boundary="===============0246275115822031236=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2000749976692502321==
+--===============0246275115822031236==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CLY4JT0rzhj1XS62"
+	protocol="application/pgp-signature"; boundary="0+iLppiDSyfXGqPN"
 Content-Disposition: inline
 
---CLY4JT0rzhj1XS62
+--0+iLppiDSyfXGqPN
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Mar 01, 2024 at 05:45:33PM -0800, Charlie Jenkins wrote:
-> The unaligned access checker only sets valid values for online cpus.
-> Check for these values on online cpus rather than on present cpus.
->=20
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> Fixes: 71c54b3d169d ("riscv: report misaligned accesses emulation to hwpr=
-obe")
+On Fri, Mar 01, 2024 at 05:45:34PM -0800, Charlie Jenkins wrote:
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> -void unaligned_emulation_finish(void)
+> +bool check_unaligned_access_emulated_all_cpus(void)
+>  {
+>  	int cpu;
+> =20
+> -	/*
+> -	 * We can only support PR_UNALIGN controls if all CPUs have misaligned
+> -	 * accesses emulated since tasks requesting such control can run on any
+> -	 * CPU.
+> -	 */
 
-Cheers,
-Conor.
+Why was this comment removed? This patch doesn't change the situations
+in which PR_UNALIGN is allowed, right?
 
-> ---
->  arch/riscv/kernel/traps_misaligned.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/tra=
-ps_misaligned.c
-> index 8ded225e8c5b..c2ed4e689bf9 100644
-> --- a/arch/riscv/kernel/traps_misaligned.c
-> +++ b/arch/riscv/kernel/traps_misaligned.c
-> @@ -632,7 +632,7 @@ void unaligned_emulation_finish(void)
->  	 * accesses emulated since tasks requesting such control can run on any
->  	 * CPU.
->  	 */
-> -	for_each_present_cpu(cpu) {
-> +	for_each_online_cpu(cpu) {
->  		if (per_cpu(misaligned_access_speed, cpu) !=3D
->  					RISCV_HWPROBE_MISALIGNED_EMULATED) {
->  			return;
+> -	for_each_online_cpu(cpu) {
+> -		if (per_cpu(misaligned_access_speed, cpu) !=3D
+> -					RISCV_HWPROBE_MISALIGNED_EMULATED) {
+> -			return;
+> -		}
+> -	}
+> +	for_each_online_cpu(cpu)
+> +		if (check_unaligned_access_emulated(cpu))
+> +			return false;
+> +
+>  	unaligned_ctl =3D true;
+> +	return true;
+>  }
 
-I went looking to see what the practical differences were between
-"present" and "possible", cos I'd never really seen much code using
-"present". Turns out present and possible are essentially the same on
-riscv. TIL.
 
---CLY4JT0rzhj1XS62
+--0+iLppiDSyfXGqPN
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZehrjwAKCRB4tDGHoIJi
-0nKQAQC/tSJTZ1Iyv8vL/KUSfV1d92ey0waFTZfCGSIMtUCNYgEA3wE18AO5OlwU
-9ZQodv7iKYlcM9xT0XbN4zjDfJsrmAw=
-=A42a
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZehtaQAKCRB4tDGHoIJi
+0nqQAP9qDs9BXRRIcemNZkKQPjQ7O1zObSc+rYvFSFXl5n2dCgD+LIqa+Incg/HH
+X0NiaSTSjXLgY8Y3hcOJ/2aMZ1V8dQA=
+=VVCG
 -----END PGP SIGNATURE-----
 
---CLY4JT0rzhj1XS62--
+--0+iLppiDSyfXGqPN--
 
 
---===============2000749976692502321==
+--===============0246275115822031236==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -157,5 +151,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2000749976692502321==--
+--===============0246275115822031236==--
 
