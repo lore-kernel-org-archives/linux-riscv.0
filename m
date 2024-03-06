@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E14A3C54E41
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 20:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BE2AC5475B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 20:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FiQpQ6lOPrRHuPDsWjbOTDgMwdcIvI5Cfdoy0wAOQp0=; b=E9HUUPXRDF2GVn
-	5qJFwWLP/5ksPdjdbXoRBKmgQDpVyY4UDmyxzY7cgt4wdYtz400/8yWYxZTZ6/PREhnk1lcmwIlFt
-	ONv2KP0HXMcbUmJA5p9Smc5o/xRK6LBe5HVGaiIC2ozHr71phL+6D2RioufT6dccJnW378DPmDZxN
-	ZNkkTfvk7yszrHKnsdRboISJDEL1DHMqgugW3vAxproHueWMGlDRpqOe61EKM/eV6rvkDdx0krHMt
-	hdpEVcSqHatvRA9+WgW99vxYomjfopsPt+ycpaQuImWJFuEGGud5yZJVMiDtLvni8+n2XFyOxUU1P
-	DK/3ni8UYCv4wjyH48iA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iS4Urjzi14qCLKNvYN0CpxI9AnF7bn3kt6oDRTAIQzI=; b=0g3RR1qOrH91z5
+	3zifMxG9e3zZeugun09w23p/lJOGCcIC8V1bwiuE3lpGlQV3JkzVJvpkLIZDuoVtRNrsIXQMgyC8J
+	xX/jdCCvTe6KYnE0jWJX75Y7dJkSFQH2ViETU6YS6auvSxPHWmhvs6V8Vz4twSEfPp2cb/NPy9E38
+	Ev0M/KVri0JWIWaX3DArqc8qUMXOAcI+gSZ8SfXvQRb/8lB7pkFDJrtoUsyleHj6uzuUtAMXhBUph
+	iJXMlY9vcWdwY9scVyPmt14wWyB6KyS58XARJIOFtxdLOAk0i8DQaBRFN9R2W6ZbpQoVq2RO4JZhb
+	5VXJM9qIH9AX1LxrsWqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhxVB-00000001jpd-1WGT;
-	Wed, 06 Mar 2024 20:04:33 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1rhxVD-00000001jrC-3Dci;
+	Wed, 06 Mar 2024 20:04:35 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhxV8-00000001jnn-245a
+	id 1rhxVA-00000001jnr-2TrQ
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Mar 2024 20:04:32 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1dba177c596so1223615ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Mar 2024 12:04:29 -0800 (PST)
+	Wed, 06 Mar 2024 20:04:34 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1dd0d46ecc3so1003915ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Mar 2024 12:04:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709755469; x=1710360269; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qKUay/eboC7v6g8jePCucowgEylXLTR6sMxM4Bv1SF8=;
-        b=2WYTfuZ/5FgQljGY1SPVP5zp2KqtZATUepml1I0BAwezVhxsSt1nyAJrmuSo0VbSOm
-         xSwKCjQeaQcm/Erpzmq/Vqhtedp0WCSe8sq1LmhHCR0P51nBD8kUD8c85blpHg6Qwsya
-         aSiiwIeVCeLiXEdp9Y45wWBexD5ExIqgHLU5lEnGqE/fm5bnyx9jwid7uK5qUqAck8iN
-         izizJB4GhY403efuPY4cw9IQGYHjZskbXJi5/98RdYciK2qOvRYcRtW5er5pq6/MfjNM
-         nJz9mT3ulV1OwnDnFLkMpbl58JobWdShIFjbgux4xoqzOAqk6vkYp4eMK4G1+6fFcIHO
-         z8nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709755469; x=1710360269;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709755470; x=1710360270; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qKUay/eboC7v6g8jePCucowgEylXLTR6sMxM4Bv1SF8=;
-        b=dTkOhhWBx6VXcyGN+6RMAS1H80f7QIq/xVw5mWQbCWgRWd8luxQFN2iDHRNV99bt3r
-         VmAQWn5985KSOTLELib+bYyXy5avxVFEx2nUHiLdPqTMuRIZsK+rhl7anGfu9bzoQNiG
-         1bUFBqFJNg+xuwsF04ZqQ1SKdbridgPvepGz1Je6Qr4lWAEi1GMU0P5oWZxfL6NcWQBa
-         9OWFoVELmzsRmPErQX8nRm0ItmjGkCQBELypW9sOXFvv6lT0bhUOTajJp+O+DT+iPrBU
-         nhhzZoGaA8N0xm9H+O8c4NQd5rB7Zs33nA4tPGUxdeZxbQyoF2lpyxYHZAzTqUPUvrYn
-         QcCw==
-X-Gm-Message-State: AOJu0YyoOtb1JrXo9OvoYQI/GhJL6OfMfkxLwWJkAox0gcEuIHOR0msd
-	yz0WnWem2lKs3aQluEAhtjNrwzQ+vTt5jAaQmkGwiZ0kmuspsKdb3t9PIgFpYaM=
-X-Google-Smtp-Source: AGHT+IFcRftRFdHRA7STML/iSxC0fVuC2YX2iC0np1Vii+/hyKYKXEUuZ+g+4TvJ8a4sfCUIx1o79g==
-X-Received: by 2002:a17:902:f68b:b0:1db:b96f:4a50 with SMTP id l11-20020a170902f68b00b001dbb96f4a50mr1469650plg.14.1709755469033;
-        Wed, 06 Mar 2024 12:04:29 -0800 (PST)
+        bh=3EVtHtZkQ3gl1JI+EwyEBrvg+iHnnWLYEsQB5N3MR4A=;
+        b=ARKEILe4dFVYp/HSXiJqdoBQYHB5DEnE0UzntuiQYIVfCOqUeJwRcKnzLysOvJoOM2
+         s8yYI5bvWRx2r6ZQimk5Fvshms87tVeRqIaImGhF7FdpCRH3yps2LsPhbAfPvbwTdnSK
+         JSJ/HoFZXC4DkmcCP1gLML3Xfhvk1KxdkODMwJ4DmJsojjx3Dgr5S44P2LvHRGzy4jlI
+         eYVXenigX+ONrEMcg/ODFzFYOa+TMiSwoqEiKur+oCJL9EZQMIWo7vtMh6d+QG41xQAU
+         fiCR5v1JfCT7Tb8FIjGWvG9KaVtnwQcgZO/1BG9XalFEZlunECtohcl6xXvIIjnseUsN
+         /vsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709755470; x=1710360270;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3EVtHtZkQ3gl1JI+EwyEBrvg+iHnnWLYEsQB5N3MR4A=;
+        b=ICOay2MdFQ2QBnSmbvkqy0FZXoixwPoz5qm/jSJ486Y8havRYFzevrk6Za/T/6yGP0
+         xd00/Y3PejcdqE1oE5J7J96InJonDDyQSp7Udb9nIcussq3FVekf0/i7ihP21BY6klNl
+         nl7ZrrqK0NnBPeNlnlW8I6P2EFdVxFxOh4uQpEc8G+3/by5WD7SB1LoxEh8wqqiHD/Hn
+         F1IpGc+dsI1kdU28foeC0YRAsKIcOIpMaORctpCip9vbHq1+SujSZUOQ0BHUqMBfA7MX
+         7yuDoXH3gFYdlriOgWSCjswppoYhTSiEOnki5xx3pouKTQQlolyCDvLJQegC5x+qoM0A
+         srHw==
+X-Gm-Message-State: AOJu0YzsqQPz3NSIi0qwYMZmhfpeGquqiFM9Qyn2iyDx0c99ScRaKUZ2
+	O+TyySzVYSGzwnxRiPW8C71BNLbDfkvdIUbwNF2lpdEvg4FJ47oIZYdU75t4/H4=
+X-Google-Smtp-Source: AGHT+IH7qCYemZ9Fv29kGH+ngcAW1wIPaHrs6Rzhtk+olBLCSYpKDmZzT/TWRu2OtakOAUqT9RbrtQ==
+X-Received: by 2002:a17:902:e892:b0:1dc:744f:5317 with SMTP id w18-20020a170902e89200b001dc744f5317mr7603710plg.50.1709755470277;
+        Wed, 06 Mar 2024 12:04:30 -0800 (PST)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id m10-20020a170902db0a00b001dd42bbb08asm874913plx.253.2024.03.06.12.04.27
+        by smtp.gmail.com with ESMTPSA id m10-20020a170902db0a00b001dd42bbb08asm874913plx.253.2024.03.06.12.04.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Mar 2024 12:04:28 -0800 (PST)
+        Wed, 06 Mar 2024 12:04:29 -0800 (PST)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Subject: [PATCH v7 0/4] riscv: Use Kconfig to set unaligned access speed
-Date: Wed, 06 Mar 2024 12:00:00 -0800
-Message-Id: <20240306-disable_misaligned_probe_config-v7-0-6c90419e7a96@rivosinc.com>
+Date: Wed, 06 Mar 2024 12:00:01 -0800
+Subject: [PATCH v7 1/4] riscv: lib: Introduce has_fast_unaligned_access
+ function
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAEDL6GUC/43Qy2rDMBAF0F8JWtdFb8lZ9T9KMXqMkoHEClIxL
- cH/XiWbmGKwV8O9i3Nh7qRCQajkeLiTAhNWzGML5u1AwtmNJ+gwtkw45ZIywbqI1fkLDNd2L3g
- aIQ63kj0MIY8JTx2VwoETRqVekKbcCiT8eS58frV8xvqdy+9zcGKPdr89sY52vY1MKehDdPaj4
- JQrjuE95Ct58BN/kZzuIHkjjQlCWw/ReL5CiiXJt0nRyCBl6lmiwnu9QsoFyfQ2KRsZA2WgLAv
- UhRVSLUhutknVSK+tElZq4MatkPpFij2/1I3UjIOPuk9S0H/kPM9/03iv8HACAAA=
+Message-Id: <20240306-disable_misaligned_probe_config-v7-1-6c90419e7a96@rivosinc.com>
+References: <20240306-disable_misaligned_probe_config-v7-0-6c90419e7a96@rivosinc.com>
+In-Reply-To: <20240306-disable_misaligned_probe_config-v7-0-6c90419e7a96@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
  Jisheng Zhang <jszhang@kernel.org>, Evan Green <evan@rivosinc.com>, 
@@ -81,16 +80,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1709755467; l=3010;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1709755467; l=3372;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=lTFn9I0Y3b7Ejl8OaTTiYWgoS6zNgQwuVEQYPtx30SE=;
- b=8MyknLAmGtODfurxjwQVAiKmK3GpXVKDJV0yFZpoxyv/K1imsgOekLb25lWMFMgTfg5vAl5WN
- a1og6lbKqyAAyjG2R1kLCR4dQauYz6Wnh2mmOCNxauABgjHrh1e+Zyz
+ bh=FzR0GpkIwoZRYWxFyEryVlUwRX7agq76vtFdOU7VZ+M=;
+ b=j5FrAhWN5NKWo/uoDCnKRVwC+pEcmVZD3Ik3AEgIdvZs2qy2QlaslIBnPi0QfAYB7of1L9SiA
+ U1GUl1BflS1CjE+0hvYkkMgQbTVzvSCa3r0QvML215SYBVyiy3Wja5q
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_120430_956132_0A26E79F 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20240306_120432_759884_A836C221 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,63 +101,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SWYgdGhlIGhhcmR3YXJlIHVuYWxpZ25lZCBhY2Nlc3Mgc3BlZWQgaXMga25vd24gYXQgY29tcGls
-ZSB0aW1lLCBpdCBpcwpwb3NzaWJsZSB0byBhdm9pZCBydW5uaW5nIHRoZSB1bmFsaWduZWQgYWNj
-ZXNzIHNwZWVkIHByb2JlIHRvIHNwZWVkdXAKYm9vdC10aW1lLgoKU2lnbmVkLW9mZi1ieTogQ2hh
-cmxpZSBKZW5raW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4KLS0tCkNoYW5nZXMgaW4gdjc6Ci0g
-Rml4IGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3NfZW11bGF0ZWRfYWxsX2NwdXMgdG8gcmV0dXJuIGZh
-bHNlIHdoZW4gYW55CiAgY3B1IGhhcyBlbXVsYXRlZCBhY2Nlc3NlcwotIEZpeCB3b3JkaW5nIGlu
-IEtjb25maWcgKENvbm9yKQotIExpbmsgdG8gdjY6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3Iv
-MjAyNDAzMDEtZGlzYWJsZV9taXNhbGlnbmVkX3Byb2JlX2NvbmZpZy12Ni0wLTYxMmViZDY5ZjQz
-MEByaXZvc2luYy5jb20KCkNoYW5nZXMgaW4gdjY6Ci0gQ29uc29saWRhdGUgS2NvbmZpZyBpbnRv
-IDQgb3B0aW9ucyAocHJvYmUsIGVtdWxhdGVkLCBzbG93LAogIGVmZmljaWVudCkKLSBDaGFuZ2Ug
-dGhlIGJlaGF2aW9yIG9mICJlbXVsYXRlZCIgdG8gYWxsb3cgaHdwcm9iZSB0byByZXR1cm4gInNs
-b3ciIGlmCiAgdW5hbGlnbmVkIGFjY2Vzc2VzIGFyZSBub3QgZW11bGF0ZWQgYnkgdGhlIGtlcm5l
-bAotIFdpdGggdGhpcyBjb25zb2xpZGF0aW9uLCBjaGVja191bmFsaWduZWRfYWNjZXNzX2VtdWxh
-dGVkIGlzIGFibGUgdG8gYmUKICBtb3ZlZCBiYWNrIGludG8gdGhlIG9yaWdpbmFsIGZpbGUgKHRy
-YXBzX21pc2FsaWduZWQuYykKLSBMaW5rIHRvIHY1OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9y
-LzIwMjQwMjI3LWRpc2FibGVfbWlzYWxpZ25lZF9wcm9iZV9jb25maWctdjUtMC1iNjg1Mzg0NmUy
-N2FAcml2b3NpbmMuY29tCgpDaGFuZ2VzIGluIHY1OgotIENsYXJpZnkgS2NvbmZpZyBvcHRpb25z
-IGZyb20gQ29ub3IncyBmZWVkYmFjawotIFVzZSAidW5hbGlnbmVkIiBpbnN0ZWFkIG9mICJtaXNh
-bGlnbmVkIiBpbiBpbnRyb2R1Y2VkIGZpbGUvZnVuY3Rpb24uCiAgVGhpcyBpcyBhIGJpdCBoYXJk
-IHRvIHN0YW5kYXJkaXplIGJlY2F1c2UgdGhlIHJpc2N2IG1hbnVhbCBzYXlzCiAgIm1pc2FsaWdu
-ZWQiIGJ1dCB0aGUgZXhpc3RpbmcgTGludXggY29uZmlncyBzYXkgInVuYWxpZ25lZCIuCi0gTGlu
-ayB0byB2NDogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI0MDIxNi1kaXNhYmxlX21pc2Fs
-aWduZWRfcHJvYmVfY29uZmlnLXY0LTAtZGMwMWU1ODFjMGFjQHJpdm9zaW5jLmNvbQoKQ2hhbmdl
-cyBpbiB2NDoKLSBBZGQgYWRkaXRpb25hbCBLY29uZmlnIG9wdGlvbnMgZm9yIHRoZSBvdGhlciB1
-bmFsaWduZWQgYWNjZXNzIHNwZWVkcwotIExpbmsgdG8gdjM6IGh0dHBzOi8vbG9yZS5rZXJuZWwu
-b3JnL3IvMjAyNDAyMDItZGlzYWJsZV9taXNhbGlnbmVkX3Byb2JlX2NvbmZpZy12My0wLWM0NGY5
-MWYwM2JiNkByaXZvc2luYy5jb20KCkNoYW5nZXMgaW4gdjM6Ci0gUmV2ZXJ0IGNoYW5nZSB0byBj
-c3VtIChFcmljKQotIENoYW5nZSBpZm5kZWZzIGZvciBpZmRlZnMgKEVyaWMpCi0gQ2hhbmdlIGNv
-bmZpZyBpbiBNYWtlZmlsZSAoRWxsaW90L0VyaWMpCi0gTGluayB0byB2MjogaHR0cHM6Ly9sb3Jl
-Lmtlcm5lbC5vcmcvci8yMDI0MDIwMS1kaXNhYmxlX21pc2FsaWduZWRfcHJvYmVfY29uZmlnLXYy
-LTAtNzdjMzY4YmVkN2IyQHJpdm9zaW5jLmNvbQoKQ2hhbmdlcyBpbiB2MjoKLSBNb3ZlIGFyb3Vu
-ZCBkZWZpbml0aW9ucyB0byByZWR1Y2UgaWZkZWZzIChDbMOpbWVudCkKLSBNYWtlIFJJU0NWX01J
-U0FMSUdORUQgZGVwZW5kIG9uICFIQVZFX0VGRklDSUVOVF9VTkFMSUdORURfQUNDRVNTCiAgKENs
-w6ltZW50KQotIExpbmsgdG8gdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNDAxMzEt
-ZGlzYWJsZV9taXNhbGlnbmVkX3Byb2JlX2NvbmZpZy12MS0wLTk4ZDE1NWU5Y2RhOEByaXZvc2lu
-Yy5jb20KCi0tLQpDaGFybGllIEplbmtpbnMgKDQpOgogICAgICByaXNjdjogbGliOiBJbnRyb2R1
-Y2UgaGFzX2Zhc3RfdW5hbGlnbmVkX2FjY2VzcyBmdW5jdGlvbgogICAgICByaXNjdjogT25seSBj
-aGVjayBvbmxpbmUgY3B1cyBmb3IgZW11bGF0ZWQgYWNjZXNzZXMKICAgICAgcmlzY3Y6IERlY291
-cGxlIGVtdWxhdGVkIHVuYWxpZ25lZCBhY2Nlc3NlcyBmcm9tIGFjY2VzcyBzcGVlZAogICAgICBy
-aXNjdjogU2V0IHVuYWxpZ25lZCBhY2Nlc3Mgc3BlZWQgYXQgY29tcGlsZSB0aW1lCgogYXJjaC9y
-aXNjdi9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDYwICsrKystLQogYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9jcHVmZWF0dXJlLmggICAgICAgIHwgIDMxICsrLS0KIGFyY2gvcmlz
-Y3Yva2VybmVsL01ha2VmaWxlICAgICAgICAgICAgICAgICB8ICAgNCArLQogYXJjaC9yaXNjdi9r
-ZXJuZWwvY3B1ZmVhdHVyZS5jICAgICAgICAgICAgIHwgMjU1IC0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tCiBhcmNoL3Jpc2N2L2tlcm5lbC9zeXNfaHdwcm9iZS5jICAgICAgICAgICAgfCAgMTUg
-KysKIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYyAgICAgICB8ICAxNyArLQog
-YXJjaC9yaXNjdi9rZXJuZWwvdW5hbGlnbmVkX2FjY2Vzc19zcGVlZC5jIHwgMjgyICsrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrCiBhcmNoL3Jpc2N2L2xpYi9jc3VtLmMgICAgICAgICAgICAg
-ICAgICAgICAgfCAgIDcgKy0KIDggZmlsZXMgY2hhbmdlZCwgMzc4IGluc2VydGlvbnMoKyksIDI5
-MyBkZWxldGlvbnMoLSkKLS0tCmJhc2UtY29tbWl0OiA2NjEzNDc2ZTIyNWUwOTBjYzlhYWQ0OWJl
-N2ZhNTA0ZTI5MGRkMzNkCmNoYW5nZS1pZDogMjAyNDAxMzEtZGlzYWJsZV9taXNhbGlnbmVkX3By
-b2JlX2NvbmZpZy0wNDNhZWEzNzVmOTMKLS0gCi0gQ2hhcmxpZQoKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Create has_fast_unaligned_access to avoid needing to explicitly check
+the fast_misaligned_access_speed_key static key.
+
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Reviewed-by: Evan Green <evan@rivosinc.com>
+---
+ arch/riscv/include/asm/cpufeature.h | 11 ++++++++---
+ arch/riscv/kernel/cpufeature.c      |  6 +++---
+ arch/riscv/lib/csum.c               |  7 ++-----
+ 3 files changed, 13 insertions(+), 11 deletions(-)
+
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+index 5a626ed2c47a..466e1f591919 100644
+--- a/arch/riscv/include/asm/cpufeature.h
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -1,6 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0-only */
+ /*
+- * Copyright 2022-2023 Rivos, Inc
++ * Copyright 2022-2024 Rivos, Inc
+  */
+ 
+ #ifndef _ASM_CPUFEATURE_H
+@@ -53,6 +53,13 @@ static inline bool check_unaligned_access_emulated(int cpu)
+ static inline void unaligned_emulation_finish(void) {}
+ #endif
+ 
++DECLARE_STATIC_KEY_FALSE(fast_unaligned_access_speed_key);
++
++static __always_inline bool has_fast_unaligned_accesses(void)
++{
++	return static_branch_likely(&fast_unaligned_access_speed_key);
++}
++
+ unsigned long riscv_get_elf_hwcap(void);
+ 
+ struct riscv_isa_ext_data {
+@@ -135,6 +142,4 @@ static __always_inline bool riscv_cpu_has_extension_unlikely(int cpu, const unsi
+ 	return __riscv_isa_extension_available(hart_isa[cpu].isa, ext);
+ }
+ 
+-DECLARE_STATIC_KEY_FALSE(fast_misaligned_access_speed_key);
+-
+ #endif
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 89920f84d0a3..7878cddccc0d 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -810,14 +810,14 @@ static void check_unaligned_access_nonboot_cpu(void *param)
+ 		check_unaligned_access(pages[cpu]);
+ }
+ 
+-DEFINE_STATIC_KEY_FALSE(fast_misaligned_access_speed_key);
++DEFINE_STATIC_KEY_FALSE(fast_unaligned_access_speed_key);
+ 
+ static void modify_unaligned_access_branches(cpumask_t *mask, int weight)
+ {
+ 	if (cpumask_weight(mask) == weight)
+-		static_branch_enable_cpuslocked(&fast_misaligned_access_speed_key);
++		static_branch_enable_cpuslocked(&fast_unaligned_access_speed_key);
+ 	else
+-		static_branch_disable_cpuslocked(&fast_misaligned_access_speed_key);
++		static_branch_disable_cpuslocked(&fast_unaligned_access_speed_key);
+ }
+ 
+ static void set_unaligned_access_static_branches_except_cpu(int cpu)
+diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
+index af3df5274ccb..7178e0acfa22 100644
+--- a/arch/riscv/lib/csum.c
++++ b/arch/riscv/lib/csum.c
+@@ -3,7 +3,7 @@
+  * Checksum library
+  *
+  * Influenced by arch/arm64/lib/csum.c
+- * Copyright (C) 2023 Rivos Inc.
++ * Copyright (C) 2023-2024 Rivos Inc.
+  */
+ #include <linux/bitops.h>
+ #include <linux/compiler.h>
+@@ -318,10 +318,7 @@ unsigned int do_csum(const unsigned char *buff, int len)
+ 	 * branches. The largest chunk of overlap was delegated into the
+ 	 * do_csum_common function.
+ 	 */
+-	if (static_branch_likely(&fast_misaligned_access_speed_key))
+-		return do_csum_no_alignment(buff, len);
+-
+-	if (((unsigned long)buff & OFFSET_MASK) == 0)
++	if (has_fast_unaligned_accesses() || (((unsigned long)buff & OFFSET_MASK) == 0))
+ 		return do_csum_no_alignment(buff, len);
+ 
+ 	return do_csum_with_alignment(buff, len);
+
+-- 
+2.43.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
