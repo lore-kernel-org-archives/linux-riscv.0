@@ -4,58 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C8DC5475B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 18:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8040C54E49
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 19:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GFq8jBleDWI+oR1GWaK/bfT+n70mN/iAxAiQvhVM6Bs=; b=rlE7hvRQWSYoDTCh3VWX1351gi
-	JN52JfQNRpsoEPxz1ymsgr6zN8wgxCrFi14qF5dJLRHwBx5h3+SWilNJWLNGtRS5HTqUgogNWj8OG
-	pdGqihTyyb0umCzBbzzHqY2DnwXx7/MILZsNSez8V/eSlsXA+wkGKzrML5AHSBulHpKRvlnDOo7Zd
-	XH4GoaAKzQaXgoAh6oka4cQL8Wg+4C98uC2Pg63lZJ0B5R0l07dfuleBAQSVdPxET1U/yZixEoEc7
-	H+hkDc/2WPL83k7pH1Jvg/UuP+QxuKuXCdsb6+mfCDL88/SntgAHJ/UhBOqldOcm/USGm9v9Umg2U
-	qMxzsz5g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=id2Hi0FmMpFK6+8M9qMj2zvuRct9hI2+ZgpffVdo4m8=; b=r0xOgRV1TXZ9Br
+	zyTO6Fht0zX/pSrLgmTgZdObVYMZY1deHqiDYHwt4gT+iOiBk61AEzYwd6xIxAmJ3ovpgEMiJfbHn
+	Z1S/J6hJB6w1QtZlSbGeZl5H4d2cn8JYupxXn+aAmhv938bWuxJnPIBIeZ2B2onVC+UxyRXGJH4RX
+	AD2Cv1TFggjmmZtX1BgtOKM/zGYClKRKlZ8qH5c0S3LwrbQO5osfxC7XYrwRxY5jgG1Ba618IYg0h
+	1GCjyqzfHqcTPAuk0f+Lm0fur8+xGn+gVfKnrS+XPaG9XALQht4n+4BqKlS7oo0fzHDtn/ihM5gv6
+	C5Kz/Fh8qaIoOeNgSUQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhw77-00000001ToX-2adv;
-	Wed, 06 Mar 2024 18:35:37 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rhx3z-00000001e18-1usN;
+	Wed, 06 Mar 2024 19:36:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhw74-00000001Tko-0H13
+	id 1rhvx7-00000001OdO-2fsX
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 06 Mar 2024 18:25:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=2Y5GuVIgcMEMa1wdjCxyxHdeavu9gb67/KgkXVHvPFs=; b=DyKyhxpx1ht36iB5Ue2vYzYnn9
+	i9Jza0EWX6cpYrMiyko7HkPJ+m8wBF5zP+mVEEsByNmtNmo1oPnrLdjIfRW3z3ddy0aJ+UvYKucsL
+	rBpoS3bZy+VKs9dOe0LIIrS6Q+qGbXZrb+Nn4Zx4W5Z/KXaXkE1u2cwsURRKBNXqYf5YTtJNKcajH
+	R34oNlTBLxCeZbDcROaG75wzctFz/NSVMQ8B2kM7rua6jC3Y1yNxaOpvgJqmrwgtJEfe7n7vvKo88
+	tTVyn/oHEU4fz6idenZ9AW+k9zmve8LmBRYUJPPVl4uG5q0W7wRur3LRYJjDnh15cmFuBX+Kj6Jdq
+	mOgThLxg==;
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rhvx2-00000006EPq-3qgf
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Mar 2024 18:35:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 02398CE2314;
-	Wed,  6 Mar 2024 18:35:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5331C43390;
-	Wed,  6 Mar 2024 18:35:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709750131;
-	bh=zmBinXKZQKNHCz0LtnMkq9ehI1d7BPLGv1+fCXX2m6c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ETw2EC0J/ohU7u0K634Esd3Evhl2l9bJFPOjSMc68sb+83MbI/IApHw6vVAjo9tU0
-	 r+OEkxX32lwhNtb4ksxN2IAtMLoF1WKP4JN88zQPH6ZCCJeLARyyhwzWqniFmnAo4W
-	 p4Av+eD8DUBbKSHzdAHTpWYjLhSuQs8+HjugMS8/+2/JbhhgNDTZLPoc4VMbbVCLNo
-	 XqaVQIu8+zFWNCHTHngltJoscx/5sdUc/956vel7Aofay5YZJ2flIowHOZ3KS6Dj3f
-	 OmGO4frp+PrVt2Q/3wbrnkoxMRvIkOoTkuFirR/PCElp0Te32+IYfamV9tn9IpvmKN
-	 25u0UK9k+2FmA==
-Date: Wed, 6 Mar 2024 18:35:26 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Subject: Re: [PATCH v6 4/4] riscv: Set unaligned access speed at compile time
-Message-ID: <20240306-football-payday-8c9fa3e17ee9@spud>
+	Wed, 06 Mar 2024 18:25:16 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-6e6381df003so29474b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Mar 2024 10:25:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1709749509; x=1710354309; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2Y5GuVIgcMEMa1wdjCxyxHdeavu9gb67/KgkXVHvPFs=;
+        b=FilKAqF60GhFhVCZvR5HjLL/U7rFQbv6ywIlaAbdnW2SHSq3ulU2nHpOKnEHrlLBGt
+         xAfDyink3Vzmo9deLMBxrqfpd6XtzVKA34iMnI3fyh+3ODpDbmfnCzo+hQTsZDkv8spj
+         Zp5ievXE0TqYhlwlQKYVdGVyhV6Mh6PP+D1WgKtcVCTQpfUUDvebJyJl3B4Xy5LJ5XeM
+         3ry5gMF1DwyAVbP30D5xqHCjty7Gcl3k80t31SaLVtWi2WGqGQ1SthzRQM1N0p+IyJXx
+         bJPbi6/VBHi4xWp8F052cZcc+JPa0mrXu0sz8IHyNj8rGZZYChKVWf4S1dmyydCBNTtp
+         KoPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709749509; x=1710354309;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2Y5GuVIgcMEMa1wdjCxyxHdeavu9gb67/KgkXVHvPFs=;
+        b=sNDc3+xI5wvpx6BHHxkcyf3E1nG4bcm4iZUaLIVN3dd943oApBP1kyK0wsqE7WZ854
+         BkwgmN92VoAzgMBXc+UjxQJpmW5+26QZvWT2qdhNQaIdT2lDsz7mO2WC3BA/XxVcFUvw
+         8FsFHYU9IFOu06NDR2ivgB0MB7XHrEoxLfijyY41ePzA+IZPOtywc8POSmQlyJRaJqYt
+         CG0T5SoaS1MjgZkbJbLMFsr5PKH4Ci1W+AGVs/IgmxNPEcj011OQ0Vn+RZG/4FIG4kcY
+         iCXvjE3Yra9Z/vVuFvioaXjRkuPRArhP3Sa+VPhyjbb/6zRExu1Bn8klu+W/VV89Z/h8
+         w5dA==
+X-Forwarded-Encrypted: i=1; AJvYcCWu/DYr4lSTiVSQ6Aedjfy5G1zA1w4V+71uAKB5jTJXqGlG8dWMbgUo0fV9YD50n2bNE5KXjILnPh07cOR00gAlhi05p/tBN6/C/z6Ggg8g
+X-Gm-Message-State: AOJu0Yw9zkylHOUWX7cPj/eu8cOD2GAAe9b/JflZhSvTKgWadJutKk0b
+	MwZ03rmjnn5BuFYV8dVRVw7T+m+/PQ8bkJDrFkaqo6BO9PhLtVjcxmhWJGp6P+I=
+X-Google-Smtp-Source: AGHT+IFzBSLMGaJ08Dnj/BOlVEgA32D3g8w6QsqRlEsrWvsKtK4rYL3jf902EvY1b1GzhFtzX6klyA==
+X-Received: by 2002:a05:6a00:a86:b0:6e6:5374:411a with SMTP id b6-20020a056a000a8600b006e65374411amr1699696pfl.18.1709749509245;
+        Wed, 06 Mar 2024 10:25:09 -0800 (PST)
+Received: from ghost ([2600:1010:b05d:dc52:3fa4:a88f:2bde:e9a])
+        by smtp.gmail.com with ESMTPSA id f17-20020a63e311000000b005dc4da2121fsm11201406pgh.6.2024.03.06.10.25.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Mar 2024 10:25:08 -0800 (PST)
+Date: Wed, 6 Mar 2024 10:25:05 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v6 3/4] riscv: Decouple emulated unaligned accesses from
+ access speed
+Message-ID: <Zei1Ac8RKNJu01Fs@ghost>
 References: <20240301-disable_misaligned_probe_config-v6-0-612ebd69f430@rivosinc.com>
- <20240301-disable_misaligned_probe_config-v6-4-612ebd69f430@rivosinc.com>
- <20240306-bring-gullible-72ec4260fd56@spud>
- <Zei2wrx4oFB5lj6i@ghost>
+ <20240301-disable_misaligned_probe_config-v6-3-612ebd69f430@rivosinc.com>
+ <20240306-tactless-decathlon-b0df16517b1b@wendy>
 MIME-Version: 1.0
-In-Reply-To: <Zei2wrx4oFB5lj6i@ghost>
+Content-Disposition: inline
+In-Reply-To: <20240306-tactless-decathlon-b0df16517b1b@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_103534_331724_43A5840F 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20240306_182513_429376_0C31FD53 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,69 +103,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
-Content-Type: multipart/mixed; boundary="===============4297663674047522175=="
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 06, 2024 at 01:19:37PM +0000, Conor Dooley wrote:
+> On Fri, Mar 01, 2024 at 05:45:34PM -0800, Charlie Jenkins wrote:
+> 
+> > -void unaligned_emulation_finish(void)
+> > +bool check_unaligned_access_emulated_all_cpus(void)
+> >  {
+> >  	int cpu;
+> >  
+> > -	/*
+> > -	 * We can only support PR_UNALIGN controls if all CPUs have misaligned
+> > -	 * accesses emulated since tasks requesting such control can run on any
+> > -	 * CPU.
+> > -	 */
+> 
+> Why was this comment removed? This patch doesn't change the situations
+> in which PR_UNALIGN is allowed, right?
 
---===============4297663674047522175==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="t+tSty/uiOvKCNKB"
-Content-Disposition: inline
+I'll add it back, that was unintentional. Thank you.
 
+- Charlie
 
---t+tSty/uiOvKCNKB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Mar 06, 2024 at 10:32:34AM -0800, Charlie Jenkins wrote:
-> On Wed, Mar 06, 2024 at 04:19:33PM +0000, Conor Dooley wrote:
-> > On Fri, Mar 01, 2024 at 05:45:35PM -0800, Charlie Jenkins wrote:
-
-> > > +
-> > > +choice
-> > > +	prompt "Unaligned Accesses Support"
-> > > +	default RISCV_PROBE_UNALIGNED_ACCESS
-> > > +	help
-> >=20
-> > > +	  This selects the hardware support for unaligned accesses. This
-> >=20
-> > "This determines what level of support for..."
-
-Reading this back, s/what/the/
-
-> > > +	  information is used by the kernel to perform optimizations. It is=
- also
-> > > +	  exposed to user space via the hwprobe syscall. The hardware will =
-be
-> > > +	  probed at boot by default.
-
---t+tSty/uiOvKCNKB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZei3bgAKCRB4tDGHoIJi
-0iu0AQD87A294NjKr8yzgLFZSsbEa1a8agxZE11Zt8Rf9X5hKwEAvdf9re1vk0l0
-wSoxYqqmGV1l4EMCzZlnHdClqrtCiQ4=
-=9lC8
------END PGP SIGNATURE-----
-
---t+tSty/uiOvKCNKB--
+> 
+> > -	for_each_online_cpu(cpu) {
+> > -		if (per_cpu(misaligned_access_speed, cpu) !=
+> > -					RISCV_HWPROBE_MISALIGNED_EMULATED) {
+> > -			return;
+> > -		}
+> > -	}
+> > +	for_each_online_cpu(cpu)
+> > +		if (check_unaligned_access_emulated(cpu))
+> > +			return false;
+> > +
+> >  	unaligned_ctl = true;
+> > +	return true;
+> >  }
+> 
 
 
---===============4297663674047522175==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4297663674047522175==--
-
