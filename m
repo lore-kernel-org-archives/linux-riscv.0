@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 080AEC54E41
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 17:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB4A5C5475B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2024 17:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hpDaH8BsLMeyJncceCZhCl4r3F4mp058kKLVKecKeKE=; b=w7CPlmjj5OVFhk
-	IpYMpcHr2lOMvKHQmB8orHum5aBOvIekvLrDhdpOPegI0oPvx6DrBqvPH8qm82yOLL00A1941IB36
-	yud/JNmoDC2mshAOBCOexSZm5Up1jJubclyJ6Iki3D2z9amB2Ng0YweZ/9o0Ea6Q5cYXkrIKb6Hgc
-	rGcaHUUHxU5Fp5KKldMVmSuSduYRKVALDF/fzCW69nZVPKC2Gy0WvEnk0REx+cQzm58AmwNFiuo+e
-	2obTDqkZjKUYNU46684HoqoiM9fOJe4mWsDcSF/k05VrjoNTw7W/Yl6/wLO8vWZR1HyLZefnaXksO
-	idj/4b9BeTMq24h2OlgA==;
+	List-Owner; bh=oOfmcDE75oGFmDF1ipzgdNqO90H+5fssStwMcX4TORw=; b=SwNdNC1OfyNRAy
+	cT25w4ydhRTCB2J+6n37xDOcbT2vDihurZPzdpkPN9imfSm+Uq6jyohQsA182vst9w6Lio/8H0gbU
+	MM/p8VBmt6ktTcfGVNLm2rjHCHHHlKrvMlk5hH70rs2PP+Fw3X7t20wGJmNIF0ihyx498Eeyr4E2A
+	owvn9j2VM9dxgYGAaH9C+oZm9HvThAyhg0XHSAVc5hprOAdGDhNAiETiNGYYLvdC9+LtuJC/1nEM+
+	9ECOeEbw1h9dPpsUyXDBGCYKsvWWoKecELhS+AmJOR8VuAiop+MpFxuzjF9vBAyo9JCzrv/IHuTTy
+	7XcfX9naMp84yyt/wDBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhuqz-000000018dj-0gxC;
-	Wed, 06 Mar 2024 17:14:53 +0000
+	id 1rhusF-0000000196p-1hvQ;
+	Wed, 06 Mar 2024 17:16:11 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rhuqt-000000018ba-0mnv;
-	Wed, 06 Mar 2024 17:14:50 +0000
+	id 1rhus8-0000000193p-0gqB;
+	Wed, 06 Mar 2024 17:16:08 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1709745282;
+	s=2020; t=1709745362;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Vp8CgcEh2+XD1rrYCq9vFCOWhJV6Gj0UcBPHVO/mG3I=;
-	b=hLcCHGoDD+mz8ZbKjQeB5xXhhoPU/fE2kNC3hQNfd1ma/u8J/zddviA/HqdTgqdG3oVELs
-	yVs1/hPOwmAOTuivi7bn/t5AdXxzOgCbrjnNic9a7P3UD6t9DbBcDDZEQv9mdkZ5gNQmWv
-	7vbCgHbSJECaiSNWreeRIZmRe08ButQng2h/CGVRcpYXfkeDvP8s8MUjoaw0ejkV2aOd6J
-	GhCC5IBZxfnMkFg4BEdSUxSJkuNwB3HEKPGk8Ts8FrpJGs4nl/zkw473YhePn+NXGru8W6
-	nrJgDF25SYoVsf+V+wjNsd9UV9qsXdOpH54xyHauuhHRCs6LH5fgqRzBOaZs6A==
+	bh=bRnUqxYmz7US3PiJQqP3g2Rv7dTwvUQyVio9ZZY8LKI=;
+	b=x/PfoZyLbxCtOLtwhNHZrAjQXk47NM0qm+OUuf1jx9diwAf0o8l0QrENFNc7WZ0SAcP2iu
+	1E3xoLIGmEOu+hfn0K2lPNJvO3b46lm0DOxOiCCku7OS5SbvnNXS1k5nodzwqKqNeT+fYS
+	RkGr9j0rFdgc3W9X3lUHXNB8NKrW75TUo1Im1jkI3tbQA3Xu8jc29FwyOiIOPW69kZ5gI2
+	HFqFMyez91owlk6gDCMWjLsasDv2ZUcIrJ1LGI20cJzK1UAtbOHuYuAhisXVvC2Z9efSuo
+	0ZgOB7XFUmDTVtjkDtaAS4S/3WfhiuenOt6DaTQZiQk6K2C7Z37rod5h/TSpug==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1709745282;
+	s=2020e; t=1709745362;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Vp8CgcEh2+XD1rrYCq9vFCOWhJV6Gj0UcBPHVO/mG3I=;
-	b=r2OKQF+b39Jbfxu8K1wz0pKjaanVs2rF1CqBPX6sZtQq8gqd45t5LNMwP4WV+c9wRqAr36
-	puBSYY3XgU94OPAA==
+	bh=bRnUqxYmz7US3PiJQqP3g2Rv7dTwvUQyVio9ZZY8LKI=;
+	b=LO7ZB53rWp+dyfEzJwj+/7uvMaejjC+uiKbRNMUR/894l60M5BZc+f+41YHx9zRBlkGwEN
+	IuyIzAJJmTm/VdBw==
 To: Arnd Bergmann <arnd@kernel.org>, Anna-Maria Behnsen
  <anna-maria@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>,
  Kees Cook <keescook@chromium.org>
@@ -71,17 +71,17 @@ Cc: Arnd Bergmann <arnd@arndb.de>, Matt Turner <mattst88@gmail.com>, Vineet
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
  linux-um@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] arch: consolidate existing CONFIG_PAGE_SIZE_*KB
- definitions
-In-Reply-To: <20240306141453.3900574-2-arnd@kernel.org>
+Subject: Re: [PATCH v2 2/3] arch: simplify architecture specific page size
+ configuration
+In-Reply-To: <20240306141453.3900574-3-arnd@kernel.org>
 References: <20240306141453.3900574-1-arnd@kernel.org>
- <20240306141453.3900574-2-arnd@kernel.org>
-Date: Wed, 06 Mar 2024 18:14:42 +0100
-Message-ID: <875xxzuvst.ffs@tglx>
+ <20240306141453.3900574-3-arnd@kernel.org>
+Date: Wed, 06 Mar 2024 18:16:02 +0100
+Message-ID: <8734t3uvql.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_091447_396233_11825105 
-X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-CacheID: sfid-20240306_091604_637734_09258BF9 
+X-CRM114-Status: UNSURE (   7.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,10 +102,15 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On Wed, Mar 06 2024 at 15:14, Arnd Bergmann wrote:
 > From: Arnd Bergmann <arnd@arndb.de>
 >
-> These four architectures define the same Kconfig symbols for configuring
-> the page size. Move the logic into a common place where it can be shared
-> with all other architectures.
+> arc, arm64, parisc and powerpc all have their own Kconfig symbols
+> in place of the common CONFIG_PAGE_SIZE_4KB symbols. Change these
+> so the common symbols are the ones that are actually used, while
+> leaving the arhcitecture specific ones as the user visible
+> place for configuring it, to avoid breaking user configs.
 >
+> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu> (powerpc32)
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+> Acked-by: Helge Deller <deller@gmx.de> # parisc
 > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
 Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
