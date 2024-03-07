@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4678C54E4A
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Mar 2024 21:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29343C54798
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Mar 2024 22:18:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Cc:Date:In-Reply-To:From:
-	Subject:Mime-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6D+B8lafFRbz5rgvuhaGxxYByt7028EyGEDtfy9RKcM=; b=zUJ3ene86UUAH/
-	1yZ+YGc3MkxA33mJB539R5rqun8W1kj/uiwd2gKWAUq/dSIWk3eiL8fjogEYtGNzTTk7IsDPipjJN
-	A8aNJARDVxjbAhXJWNmx+FdhcGTth/UqOqb1pf77MRE1fLtSVyQfK3X/kau6boWspc1VqQOXBVBOh
-	RcLFal50pMiw54Q5/JufpzwKWJBMFEvuTmAz3eUbijkMsqq27CqKyeGYH+ZgPDzQCFUaUn0VYJzLq
-	F5BTBjVSsHYt0F7trt2xRCEsI8IBf09xlDcOHOi0xqLG+yFqyZl3yw/9YumxujQn7/dcasYlzWcUh
-	B6m6417MN7hZaSZtLNuw==;
+	List-Owner; bh=oIanIWjd8XP9cpdDdRlOVG0SSDwwD+94/2JLHcQTE7A=; b=4cL+0or8uPv42G
+	9Ajp9uoieMvWf3FVWILZ8m4Z8UN1lOJIGL0l5IK8yEPcTw7l+0grZrWxcrd/87hZ8K+1SlV7qyBKf
+	PYZ7TeBjwU8HZHTQDzS80xhyhI2Qm3QQ55LGDAGQnVkL5MxqREOCFVXo1b+zTyQYawgu9BlHHh/UW
+	MrLff/RgUcjUlWq42MYHNIu+NYSBMcGsZwksVlMfIdMZWFd2yBCJymzoze4Qyvnun3LNCPNoVJO27
+	7Gb3yd5MazEFJCjYGqn1zjXdaKq6nSfWtX4dPqIJ/wyjoItkid8p8CIEZolaJ9nLK6VLQYvFLIjB8
+	1EJrX/YaG1Ox/iU6TPvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1riKuS-00000006Nhn-0qqU;
-	Thu, 07 Mar 2024 21:04:12 +0000
-Received: from out162-62-57-252.mail.qq.com ([162.62.57.252])
+	id 1riM3k-00000006cZm-3J1q;
+	Thu, 07 Mar 2024 22:17:52 +0000
+Received: from out-171.mta0.migadu.com ([91.218.175.171])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1riKuN-00000006Nf0-238X
+	id 1riM3f-00000006cX8-3AAT
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 Mar 2024 21:04:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1709845428; bh=ILcslGL5KiBT0UroAuLyiR9xQW1TYfMJ9QBrV7cZqgY=;
-	h=Subject:From:In-Reply-To:Date:Cc:References:To;
-	b=SGBc9NeA2HPEZcVO0j6yRn09+ELJdZSkRXfhUOW6mbf0yFXTGNzPkYbe0kJ1DAQel
-	 o+dRipR8P78DUhEmoZiyYL9/xa0KO6RojiaSTC6023WvWfHBUqEXB+rRE/nUV2YaFO
-	 Iw3T7ireHyYbRJGU2ngu6G/aEf+3vP+JkeL8FJa8=
-Received: from smtpclient.apple ([2001:da8:c800:d084:3ceb:d122:f739:7103])
-	by newxmesmtplogicsvrszb9-1.qq.com (NewEsmtp) with SMTP
-	id ED036EB; Fri, 08 Mar 2024 05:03:45 +0800
-X-QQ-mid: xmsmtpt1709845425tg7r8viig
-Message-ID: <tencent_FF86EF51905CFBDF1102F721663984B2F105@qq.com>
-X-QQ-XMAILINFO: MjZkc9TfnG+XBf4pOjkLwGkiLxvORHG6HQ2COPhjIIZmP046+YvS1B43jWTfLp
-	 MTDp3htXS21B+IxChL+E0RMIj82edeY+voSpKQoIy/x/XmsyY4IXd5/J+kVemx34tVIBLU5qSHjb
-	 dWuNzw/btFbtk2+O7setlKTz1rDUy0et6AQFPsTu874uzNBva0ZJWXGAMvRy7YoQ4Ewi1ElVDACt
-	 AXCU66LW2qxtFHTKWDKsHQbAdAUY/pka7OShqNTyJSNsel6h2kXEwvC+oKyzSlvYJ0g3IqBFPWFv
-	 KNwTn4mU2e24HWUoO0gMdFmOeVcB6c8UF+Ta8xt9HFOVh+X6xBFPks7e4gfXBWpqcavtOg6IAJAz
-	 Csgz80iqZsLiEoSxmJs9+7o9bmp3NlLYpR8Qinackqol9SiF8S1qsjeiaOjhTzyTwcYZWYwFRh7O
-	 2SQyEYu5Y/HkUlu2Z4HNItZbkM14mcaplqD6Vu1MW7b62w93Hm+sIRV8Yizj95dtu7Rp5zMRC75C
-	 JdzA3BYmnb/EzhCM4WhLz2b/liLEHSTtBXNPc6bklshuzWAH9CHSJd1S75O0XIA1TsNOQK++XOKu
-	 CgtHdWHG1uidX5rtmahJuBGrdMO64v/ektei9BVwT5ZQnnG4cUYrUAiCbLielrqxSanXZphQHg6A
-	 71Ff9Wss8MZmawPR1o0di/pKHecYSpfFpjhp21ezNOp6U3pjDd273L63WDyEabIqu4xOXYyEcYGH
-	 m2sV8brOiF7YBK64vE0zbwOhi0DMwpclB1tSDxHXEo8lwbwyaKalBNKHdRa/dCcSiwmtDdyewj0F
-	 lrwcoM7kd6MzyxziwVfPShNhs0N+FdbC274QIdolGZruhzBsKDuOwZiw0bHfza4qSb9gykUCMoiy
-	 TkT9MYx+a6HcOdG/6eFgh8kg7wSkl4WVF3UNPFpOfcVa9Kc9I3PjppyS9iDNB3x7jAMu6ZiKaRQt
-	 CqHup8WKZvrHvdxLvGT4BXK6z9tVRMlbE7ElCs25XAVzLn2RexDTRVGfpgukr9
-X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.400.31\))
-Subject: Re: [PATCH v3 5/7] riscv: Kconfig.socs: Allow SOC_CANAAN with MMU for
- K230
-From: Yangyu Chen <cyy@cyyself.name>
-In-Reply-To: <311bdf17-c16f-41d8-8366-10f9b00adf27@kernel.org>
-Date: Fri, 8 Mar 2024 05:03:34 +0800
-Cc: Conor Dooley <conor@kernel.org>,
- linux-riscv@lists.infradead.org,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Guo Ren <guoren@kernel.org>,
- devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Conor Dooley <conor.dooley@microchip.com>
-X-OQ-MSGID: <AF27E48D-1DD4-48B6-BD68-7188FFFD87D2@cyyself.name>
-References: <tencent_BB2364BBF1812F4E304F7BDDD11E57356605@qq.com>
- <tencent_0432DA968E39B81431F921F38D747C008208@qq.com>
- <ef8df22f-dac8-4652-bf17-d10254e6abfb@kernel.org>
- <tencent_E56A833916E00EC7B4840C34FAF1250ADE0A@qq.com>
- <20240305-fascism-enrich-06483ddeb149@spud>
- <311bdf17-c16f-41d8-8366-10f9b00adf27@kernel.org>
-To: Damien Le Moal <dlemoal@kernel.org>
-X-Mailer: Apple Mail (2.3774.400.31)
+	Thu, 07 Mar 2024 22:17:49 +0000
+Date: Thu, 7 Mar 2024 22:17:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1709849860;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vYSZIyK2isZFgtLWNp5tqo04dM1Ssq7AMjL+0jjmigk=;
+	b=lF9P/7XKffvo6S5bw+4ysZaBIjZG/dHK8JhCDJA2mGMWzAK2oaEfpUzw7dj97wwGyTXJk0
+	wC8kkhkP8rXTBQYQT+Ary6L3NMfXgHBNmuAleTwon/jqaZKHFBd56XfDWnar0Iu4xK/HZO
+	2HBOd4bd6ljj8WvXppsSnlg3XzPOvPY=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Colin Ian King <colin.i.king@gmail.com>
+Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH][next] KVM: selftests: Fix spelling mistake "trigged" ->
+ "triggered"
+Message-ID: <Zeo8_ulDb4wYI_rO@linux.dev>
+References: <20240307081951.1954830-1-colin.i.king@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240307081951.1954830-1-colin.i.king@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240307_130408_118622_A524C73F 
-X-CRM114-Status: GOOD (  25.73  )
+X-CRM114-CacheID: sfid-20240307_141748_001668_5AEF523F 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,122 +80,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Thanks for the fix Colin. Paolo/Anup, up to you how you want to play it,
+I see the 6.9 PR is already out for riscv.
 
+Acked-by: Oliver Upton <oliver.upton@linux.dev>
 
-> On Mar 6, 2024, at 07:58, Damien Le Moal <dlemoal@kernel.org> wrote:
+On Thu, Mar 07, 2024 at 08:19:51AM +0000, Colin Ian King wrote:
+> There are spelling mistakes in __GUEST_ASSERT messages. Fix them.
 > 
-> On 3/6/24 02:20, Conor Dooley wrote:
->> On Tue, Mar 05, 2024 at 03:47:15PM +0800, Yangyu Chen wrote:
->>> On 2024/3/5 07:46, Damien Le Moal wrote:
->>>> On 3/5/24 06:05, Yangyu Chen wrote:
->>>>> Since K230 was released, SOC_CANAAN is no longer only referred to the K210.
->>>>> Remove it depends on !MMU will allow building dts for K230 and remove the
->>>>> K210 string from the help message.
->>>>> 
->>>>> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
->>>>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->>>>> ---
->>>>>  arch/riscv/Kconfig.socs | 5 ++---
->>>>>  1 file changed, 2 insertions(+), 3 deletions(-)
->>>>> 
->>>>> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
->>>>> index 623de5f8a208..b4e9b7f75510 100644
->>>>> --- a/arch/riscv/Kconfig.socs
->>>>> +++ b/arch/riscv/Kconfig.socs
->>>>> @@ -75,13 +75,12 @@ config ARCH_CANAAN
->>>>>   def_bool SOC_CANAAN
->>>>>  config SOC_CANAAN
->>>>> - bool "Canaan Kendryte K210 SoC"
->>>>> - depends on !MMU
->>>> 
->>>> This seems wrong to me. The k210 support does require no-mmu. So why remove
->>>> this ?
->>> 
->>> It just allows SOC_CANAAN to be selected when MMU=y. With this patch,
->>> nommu_k210_defconfig still works.
->> 
->> I think the concern here is that this would allow people to build a
->> kernel for the k120 with the MMU enabled, not that the existing nommu
->> build will be affected.
+> Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+> ---
+>  tools/testing/selftests/kvm/aarch64/arch_timer.c | 2 +-
+>  tools/testing/selftests/kvm/riscv/arch_timer.c   | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
 > 
-> Yes, this is my concern. Apologies for the lack of clarity.
-> 
-
-Hi,
-
-Thanks for the review comments. After thinking about it for a while,
-I think we don't need to change it as we have changed the help
-message which deleted the "K210". And the dts on k210.dtsi shows
-mmu-type is riscv.none, I think if someone noticed this would know
-why it fails to boot on the S-Mode MMU Kernel on K210. The only
-special thing for ARCH_CANAAN is that a loader.bin will be built
-when M-Mode is on arch/riscv/Makefile. However, Canaan has no other
-M-Mode chips except for K210. So I think we don't need to change
-it.
-
-Another reason is that SOC_CANAAN for K210 is somehow hard to change.
-If we continue using SOC_CANAAN for K210 but not for other Canaan
-SoCs such as K230, it will cause some confusion to users. If we
-rename SOC_CANAAN to SOC_CANAAN_K210, it will change many drivers
-in many subsystems like my patch v5 [1]. So I don't think we need
-to fix it.
-
-
-If we don't change it, A concern for this is that some drivers for
-K210 will be built when SOC_CANAAN=y and if we add this to defconfig,
-all riscv builds will also build some K210 drivers even on MMU. But
-I think this will not be a problem just need some memory/storage
-for a slightly bigger kernel. Also, we will enable some new configs
-in defconfig when a new soc gets supported, it's normal for K210
-SoC drivers.
-
-Thus, I think we don't need to change it. If you have some other
-opinions, please let me know.
-
-[1] https://lore.kernel.org/linux-riscv/tencent_6F35FEF31908DE6AEB385AE30AC658863C0A@qq.com/
-
-Thanks,
-Yangyu Chen
-
->> 
->> Maybe you could squash in something like the following?
->> 
->> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
->> index b4e9b7f75510..75d55059163f 100644
->> --- a/arch/riscv/Kconfig.socs
->> +++ b/arch/riscv/Kconfig.socs
->> @@ -72,15 +72,19 @@ config SOC_VIRT
->>   This enables support for QEMU Virt Machine.
->> 
->> config ARCH_CANAAN
->> - def_bool SOC_CANAAN
->> + bool "Canaan Kendryte SoCs"
->> + help
->> +   This enables support for Canaan Kendryte SoC platform hardware.
->> 
->> config SOC_CANAAN
->> - bool "Canaan Kendryte SoC"
->> + bool "Canaan Kendryte K210 SoC"
->> + depends on !MMU
->> + depends on ARCH_CANAAN
->> select CLINT_TIMER if RISCV_M_MODE
->> select ARCH_HAS_RESET_CONTROLLER
->> select PINCTRL
->> select COMMON_CLK
->> help
->> -   This enables support for Canaan Kendryte SoC platform hardware.
->> +   This enables support for Canaan Kendryte K210 SoC platform hardware.
->> 
->> endmenu # "SoC selection"
->> 
->> (Which reminds me, I really need to go and finish sorting out the ARCH_
->> stuff)
-> 
+> diff --git a/tools/testing/selftests/kvm/aarch64/arch_timer.c b/tools/testing/selftests/kvm/aarch64/arch_timer.c
+> index ddba2c2fb5de..16ac74d07d68 100644
+> --- a/tools/testing/selftests/kvm/aarch64/arch_timer.c
+> +++ b/tools/testing/selftests/kvm/aarch64/arch_timer.c
+> @@ -136,7 +136,7 @@ static void guest_run_stage(struct test_vcpu_shared_data *shared_data,
+>  		irq_iter = READ_ONCE(shared_data->nr_iter);
+>  		__GUEST_ASSERT(config_iter + 1 == irq_iter,
+>  				"config_iter + 1 = 0x%lx, irq_iter = 0x%lx.\n"
+> -				"  Guest timer interrupt was not trigged within the specified\n"
+> +				"  Guest timer interrupt was not triggered within the specified\n"
+>  				"  interval, try to increase the error margin by [-e] option.\n",
+>  				config_iter + 1, irq_iter);
+>  	}
+> diff --git a/tools/testing/selftests/kvm/riscv/arch_timer.c b/tools/testing/selftests/kvm/riscv/arch_timer.c
+> index e22848f747c0..0f9cabd99fd4 100644
+> --- a/tools/testing/selftests/kvm/riscv/arch_timer.c
+> +++ b/tools/testing/selftests/kvm/riscv/arch_timer.c
+> @@ -60,7 +60,7 @@ static void guest_run(struct test_vcpu_shared_data *shared_data)
+>  		irq_iter = READ_ONCE(shared_data->nr_iter);
+>  		__GUEST_ASSERT(config_iter + 1 == irq_iter,
+>  				"config_iter + 1 = 0x%x, irq_iter = 0x%x.\n"
+> -				"  Guest timer interrupt was not trigged within the specified\n"
+> +				"  Guest timer interrupt was not triggered within the specified\n"
+>  				"  interval, try to increase the error margin by [-e] option.\n",
+>  				config_iter + 1, irq_iter);
+>  	}
 > -- 
-> Damien Le Moal
-> Western Digital Research
+> 2.39.2
+> 
 
-
+-- 
+Thanks,
+Oliver
 
 _______________________________________________
 linux-riscv mailing list
