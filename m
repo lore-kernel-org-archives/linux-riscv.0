@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D5CC48BF6
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Mar 2024 06:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C0CAC48BF6
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Mar 2024 07:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vsaVi0KBo05ie8MgxqaWDSE1Xol9/O6fVjuYdhZWU1Q=; b=Dc2xWoF11lDi/q
-	fEPV+PU8jj7h4di3+eBW17aigvBZZOR/wGnuCNIa+7XQPO9qKfh8WDAM8AT1PsbjGWVQSEnLfHTKz
-	4aZ11b9l+JFDVdrVWlcHMHN/3COXtZ8YRk/eIKW6h26y6al4AfW5tlHrAX+eeZAUYwxAqOu8PWEq/
-	iqF1ayzAE4Obc9Ghtvn8B+yEDSVHUKjmySLf6lc2YOrlVvUTgXL70WWHIgQ//mRy/v7gK368yrXo0
-	m+0MHtWnh/vGwJDGDYvlzhfkBreLb+iLRjRRFuWMq2mR5T5SCNEAtSRQhXPLGUMhRggFn5d6vLcKy
-	Qddn9hvDhfoi2PMx23fg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nNVa/5IGGIIER7DcvmBcp/WYPJ+6BuahYShZVvYCNPE=; b=ogL6KdbtGj2gOsfR426GvrL7+J
+	M49gH0A532Bo+pKUOuVNQqcYVSUqbfYmJ6osspwku2q+VgneUh4pF+K7cbrbTWKioaHH9mlsXhLF+
+	t2Sz/NtIPTjUIJZzV8rdrMibepD2SqtFahVgvKzEjpKOKwjHJYRiKHcOrEjDG6MrEw7TY8TiAgoIe
+	HEgxOlag4Ik3/BQU4IDZJj+MIiYNMKakQMKeRdU1Wrz/6ylXtZ6rKuluBGBrt6yUyutujtsjWFz9f
+	xJBrLvGNNyNV9k5w62glAZFjLmESXvEI0Xwz47SFgPJeqaOnohCx9TLFQR3lH5VA4Fl9eyNBe0CCN
+	jPHmQr1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ri7Vb-00000003JH4-3vXV;
-	Thu, 07 Mar 2024 06:45:39 +0000
-Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
+	id 1ri8WB-00000003VFx-3z3o;
+	Thu, 07 Mar 2024 07:50:19 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ri7VY-00000003JFb-0DT3
+	id 1ri8W8-00000003VFF-3pVD
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 Mar 2024 06:45:37 +0000
-Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-365aff1fa8dso1169235ab.2
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Mar 2024 22:45:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1709793933; x=1710398733; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=jFdoT6NxUd7wijjg0PVr8J+9hYlZ4u3LPtuf4wizZgI=;
-        b=Oobtn411F97ceiA8VymrnYEvNc+535rv6FyimEo7FKgiWW5JEMKzfg7PCgBqnIjn+L
-         dwOjAq0VsWUH3CxXd+rQb/3aKffPvXeZidVD/nxUAKCex8BEPHteFjSiUqsn7fgZ1v5V
-         qpILfu3MGol2mhO1EmHI5PYoVjali+pTnIzdAcAu3ZAEZELSU5VS8V/SV2WOhoY7HF7H
-         vmxCFP0sVxpuDiFfxcOywuWpKOU1+PluJS4tznBF1MGRyeXMXjeYvi23uEapNwojmYnW
-         O0dwfj+PWchMCON+Em3gWnaMjjj4dpOlngzxFDMhSpmmkQ4IERKinTr9b1Ds2PqNWduq
-         42Aw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709793933; x=1710398733;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jFdoT6NxUd7wijjg0PVr8J+9hYlZ4u3LPtuf4wizZgI=;
-        b=CLG9zHqmXOK75qHeYeJPfMNRf6cM7Lv7TYn4Yo/ln8gAAJHFFmgdhTTWFXyZCGMo6a
-         5HZLmUNxlx/NA9iEuG1hmU70l4H6yRXd2yTLQRGWtjBGkmKCI5c62ULMz7aS7tcf92ix
-         1Lhrb5GKlIJufHdu6okqZEwToORLc2yXGKEOIC0j5iOH4CAlp45DsoIq2y1NH2lcdnxL
-         V1LSg8v2+3tc3ubv+FDJRzg3djvCIic4h0DYClIqmigjyx3hYUJewtCkqbj0yXSr4VpS
-         McHFFcdc0LSgoiv5xyl5TTmphym2j28K/ys7ZYtcuAdE22u8c/YOxUWwQJmDay3l9gJ5
-         ZM/w==
-X-Forwarded-Encrypted: i=1; AJvYcCU4UY1m5kxq/H+K5PZxjxF5/nmsgaLtWQle3lYq17ADsok0Dq+T6Rp3KUWICvrlH6i+WghLwTQ2HPSRrZAehMo1zinsoQ7AtNRuOIgVXvdN
-X-Gm-Message-State: AOJu0YxK5dLvKfOOkx81aY/1G1gPOOpEAY8ho57eSxISAENG7r8d+4YJ
-	TyosxAgyhqyoiknqkGu+cm1rm77iDD9xEw0F7J5HfTsWhAPd1LtHByn6BWXSE/ezqaQdCSSMrsS
-	BkB6RZw+fftBYCUsdVXiwYTGW5tyv1FBlRmER4w==
-X-Google-Smtp-Source: AGHT+IF968ZqmYYThRYVmnBpyJc6Q8Hnnpb/12/shALsyC4DrXEZfzmp+mUo2vV3lFDMBhD2/0h1w0r5r0TJ414mxHs=
-X-Received: by 2002:a05:6e02:148d:b0:365:1dd9:ee6b with SMTP id
- n13-20020a056e02148d00b003651dd9ee6bmr25804253ilk.25.1709793933163; Wed, 06
- Mar 2024 22:45:33 -0800 (PST)
+	Thu, 07 Mar 2024 07:50:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1709797816; x=1741333816;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zaZejvaxya+QcPBAYnl0R1xoXRC+3MKw9yhltV+Izyk=;
+  b=CWxXVfGxL2q+zuAuqnB3zFJZHZEAvV7yM5yqq1T0a7UGDQUgsTiAFGNu
+   5+bqxmhI2jo1k01LWml/r1/rUbmLhGbKOxwEnF5/npPSSiT/8m1igc7Lx
+   wDsvEAkwdZVvSkiBS+z7DdPHMwutknT161nUXOHbjKIV6xDrVmFKHm35E
+   8YvntkJSMuCRjXNc5Lw1ndg8mBdzo652PigUliUPDGyJRQUk1bw7ruhcI
+   n75VDK2AZO+9gJ96yT4cetwH6IesuE8kmMAbG7gILm5sXTKoJ2JvjVfG5
+   oyR3vE6LrzlHKQEZl02I53aE2WitRhYhglI6OuKNitg1WRF84XKPnNfNU
+   Q==;
+X-CSE-ConnectionGUID: GFFPYmVfTf+KMi7QeExFDg==
+X-CSE-MsgGUID: U1mtnhNgTSWbawu19moz/Q==
+X-IronPort-AV: E=Sophos;i="6.06,210,1705388400"; 
+   d="asc'?scan'208";a="184603276"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 07 Mar 2024 00:50:14 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 7 Mar 2024 00:50:03 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Thu, 7 Mar 2024 00:50:01 -0700
+Date: Thu, 7 Mar 2024 07:49:17 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH v7 1/4] riscv: lib: Introduce has_fast_unaligned_access
+ function
+Message-ID: <20240307-coronary-snagged-cf3409df8f7a@wendy>
+References: <20240306-disable_misaligned_probe_config-v7-0-6c90419e7a96@rivosinc.com>
+ <20240306-disable_misaligned_probe_config-v7-1-6c90419e7a96@rivosinc.com>
 MIME-Version: 1.0
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 7 Mar 2024 12:15:21 +0530
-Message-ID: <CAAhSdy1rYFoYjCRWTPouiT=tiN26Z_v3Y36K2MyDrcCkRs1Luw@mail.gmail.com>
-Subject: [GIT PULL] KVM/riscv changes for 6.9
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, 
-	Atish Patra <atishp@rivosinc.com>, KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+In-Reply-To: <20240306-disable_misaligned_probe_config-v7-1-6c90419e7a96@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_224536_318509_1B7E09BF 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240306_235017_045289_D6FF8678 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,99 +80,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
+Content-Type: multipart/mixed; boundary="===============4222834785842664270=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
+--===============4222834785842664270==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="sY3+K8PtRfDhOk5h"
+Content-Disposition: inline
 
-We have the following KVM RISC-V changes for 6.9:
-1) Exception and interrupt handling for selftests
-2) Sstc (aka arch_timer) selftest
-3) Forward seed CSR access to KVM user space
-4) Ztso extension support for Guest/VM
-5) Zacas extension support for Guest/VM
+--sY3+K8PtRfDhOk5h
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Please pull.
+On Wed, Mar 06, 2024 at 12:00:01PM -0800, Charlie Jenkins wrote:
 
-Regards,
-Anup
+$subject: riscv: lib: Introduce has_fast_unaligned_access function
 
-The following changes since commit d206a76d7d2726f3b096037f2079ce0bd3ba329b:
+nit - s/ function/()/ & put the () after function names in commit
+messages please.
 
-  Linux 6.8-rc6 (2024-02-25 15:46:06 -0800)
+> Create has_fast_unaligned_access to avoid needing to explicitly check
+> the fast_misaligned_access_speed_key static key.
+>=20
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> Reviewed-by: Evan Green <evan@rivosinc.com>
 
-are available in the Git repository at:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.9-1
+Cheers,
+Conor.
 
-for you to fetch changes up to d8c0831348e78fdaf67aa95070bae2ef8e819b05:
+> ---
+>  arch/riscv/include/asm/cpufeature.h | 11 ++++++++---
+>  arch/riscv/kernel/cpufeature.c      |  6 +++---
+>  arch/riscv/lib/csum.c               |  7 ++-----
+>  3 files changed, 13 insertions(+), 11 deletions(-)
+>=20
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm=
+/cpufeature.h
+> index 5a626ed2c47a..466e1f591919 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -1,6 +1,6 @@
+>  /* SPDX-License-Identifier: GPL-2.0-only */
+>  /*
+> - * Copyright 2022-2023 Rivos, Inc
+> + * Copyright 2022-2024 Rivos, Inc
+>   */
+> =20
+>  #ifndef _ASM_CPUFEATURE_H
+> @@ -53,6 +53,13 @@ static inline bool check_unaligned_access_emulated(int=
+ cpu)
+>  static inline void unaligned_emulation_finish(void) {}
+>  #endif
+> =20
+> +DECLARE_STATIC_KEY_FALSE(fast_unaligned_access_speed_key);
+> +
+> +static __always_inline bool has_fast_unaligned_accesses(void)
+> +{
+> +	return static_branch_likely(&fast_unaligned_access_speed_key);
+> +}
+> +
+>  unsigned long riscv_get_elf_hwcap(void);
+> =20
+>  struct riscv_isa_ext_data {
+> @@ -135,6 +142,4 @@ static __always_inline bool riscv_cpu_has_extension_u=
+nlikely(int cpu, const unsi
+>  	return __riscv_isa_extension_available(hart_isa[cpu].isa, ext);
+>  }
+> =20
+> -DECLARE_STATIC_KEY_FALSE(fast_misaligned_access_speed_key);
+> -
+>  #endif
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 89920f84d0a3..7878cddccc0d 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -810,14 +810,14 @@ static void check_unaligned_access_nonboot_cpu(void=
+ *param)
+>  		check_unaligned_access(pages[cpu]);
+>  }
+> =20
+> -DEFINE_STATIC_KEY_FALSE(fast_misaligned_access_speed_key);
+> +DEFINE_STATIC_KEY_FALSE(fast_unaligned_access_speed_key);
+> =20
+>  static void modify_unaligned_access_branches(cpumask_t *mask, int weight)
+>  {
+>  	if (cpumask_weight(mask) =3D=3D weight)
+> -		static_branch_enable_cpuslocked(&fast_misaligned_access_speed_key);
+> +		static_branch_enable_cpuslocked(&fast_unaligned_access_speed_key);
+>  	else
+> -		static_branch_disable_cpuslocked(&fast_misaligned_access_speed_key);
+> +		static_branch_disable_cpuslocked(&fast_unaligned_access_speed_key);
+>  }
+> =20
+>  static void set_unaligned_access_static_branches_except_cpu(int cpu)
+> diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
+> index af3df5274ccb..7178e0acfa22 100644
+> --- a/arch/riscv/lib/csum.c
+> +++ b/arch/riscv/lib/csum.c
+> @@ -3,7 +3,7 @@
+>   * Checksum library
+>   *
+>   * Influenced by arch/arm64/lib/csum.c
+> - * Copyright (C) 2023 Rivos Inc.
+> + * Copyright (C) 2023-2024 Rivos Inc.
+>   */
+>  #include <linux/bitops.h>
+>  #include <linux/compiler.h>
+> @@ -318,10 +318,7 @@ unsigned int do_csum(const unsigned char *buff, int =
+len)
+>  	 * branches. The largest chunk of overlap was delegated into the
+>  	 * do_csum_common function.
+>  	 */
+> -	if (static_branch_likely(&fast_misaligned_access_speed_key))
+> -		return do_csum_no_alignment(buff, len);
+> -
+> -	if (((unsigned long)buff & OFFSET_MASK) =3D=3D 0)
+> +	if (has_fast_unaligned_accesses() || (((unsigned long)buff & OFFSET_MAS=
+K) =3D=3D 0))
+>  		return do_csum_no_alignment(buff, len);
+> =20
+>  	return do_csum_with_alignment(buff, len);
+>=20
+> --=20
+> 2.43.2
+>=20
 
-  KVM: riscv: selftests: Add Zacas extension to get-reg-list test
-(2024-03-06 20:53:44 +0530)
+--sY3+K8PtRfDhOk5h
+Content-Type: application/pgp-signature; name="signature.asc"
 
-----------------------------------------------------------------
-KVM/riscv changes for 6.9
+-----BEGIN PGP SIGNATURE-----
 
-- Exception and interrupt handling for selftests
-- Sstc (aka arch_timer) selftest
-- Forward seed CSR access to KVM userspace
-- Ztso extension support for Guest/VM
-- Zacas extension support for Guest/VM
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZelxZAAKCRB4tDGHoIJi
+0hJKAQC2W/fGv9uhQGFJKKVUxs4qVTbkPKTSpM7O//BztxDsbQEAvy0LTEPXat2c
+sWGUnjelciGQEV/dSAdDnYTNHFkXsws=
+=wVOO
+-----END PGP SIGNATURE-----
 
-----------------------------------------------------------------
-Anup Patel (5):
-      RISC-V: KVM: Forward SEED CSR access to user space
-      RISC-V: KVM: Allow Ztso extension for Guest/VM
-      KVM: riscv: selftests: Add Ztso extension to get-reg-list test
-      RISC-V: KVM: Allow Zacas extension for Guest/VM
-      KVM: riscv: selftests: Add Zacas extension to get-reg-list test
+--sY3+K8PtRfDhOk5h--
 
-Haibo Xu (11):
-      KVM: arm64: selftests: Data type cleanup for arch_timer test
-      KVM: arm64: selftests: Enable tuning of error margin in arch_timer test
-      KVM: arm64: selftests: Split arch_timer test code
-      KVM: selftests: Add CONFIG_64BIT definition for the build
-      tools: riscv: Add header file csr.h
-      tools: riscv: Add header file vdso/processor.h
-      KVM: riscv: selftests: Switch to use macro from csr.h
-      KVM: riscv: selftests: Add exception handling support
-      KVM: riscv: selftests: Add guest helper to get vcpu id
-      KVM: riscv: selftests: Change vcpu_has_ext to a common function
-      KVM: riscv: selftests: Add sstc timer test
 
-Paolo Bonzini (1):
-      selftests/kvm: Fix issues with $(SPLIT_TESTS)
-
- arch/riscv/include/uapi/asm/kvm.h                  |   2 +
- arch/riscv/kvm/vcpu_insn.c                         |  13 +
- arch/riscv/kvm/vcpu_onereg.c                       |   4 +
- tools/arch/riscv/include/asm/csr.h                 | 541 +++++++++++++++++++++
- tools/arch/riscv/include/asm/vdso/processor.h      |  32 ++
- tools/testing/selftests/kvm/Makefile               |  27 +-
- tools/testing/selftests/kvm/aarch64/arch_timer.c   | 295 +----------
- tools/testing/selftests/kvm/arch_timer.c           | 259 ++++++++++
- .../selftests/kvm/include/aarch64/processor.h      |   4 -
- .../testing/selftests/kvm/include/kvm_util_base.h  |   2 +
- .../selftests/kvm/include/riscv/arch_timer.h       |  71 +++
- .../selftests/kvm/include/riscv/processor.h        |  72 ++-
- tools/testing/selftests/kvm/include/test_util.h    |   2 +
- tools/testing/selftests/kvm/include/timer_test.h   |  45 ++
- tools/testing/selftests/kvm/lib/riscv/handlers.S   | 101 ++++
- tools/testing/selftests/kvm/lib/riscv/processor.c  |  87 ++++
- tools/testing/selftests/kvm/riscv/arch_timer.c     | 111 +++++
- tools/testing/selftests/kvm/riscv/get-reg-list.c   |  19 +-
- 18 files changed, 1380 insertions(+), 307 deletions(-)
- create mode 100644 tools/arch/riscv/include/asm/csr.h
- create mode 100644 tools/arch/riscv/include/asm/vdso/processor.h
- create mode 100644 tools/testing/selftests/kvm/arch_timer.c
- create mode 100644 tools/testing/selftests/kvm/include/riscv/arch_timer.h
- create mode 100644 tools/testing/selftests/kvm/include/timer_test.h
- create mode 100644 tools/testing/selftests/kvm/lib/riscv/handlers.S
- create mode 100644 tools/testing/selftests/kvm/riscv/arch_timer.c
+--===============4222834785842664270==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4222834785842664270==--
+
