@@ -4,86 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19EB1C5475B
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Mar 2024 01:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D21C5475B
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Mar 2024 02:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=khKWqcKMqzAg2Qzm/a0ZKtirjZeYfM/mh/6XNrPEhHo=; b=34+TUD2yRFUc0Y
-	tPjqyyGqw9Hc8fdvT63i8frJzeE+hVMItY+4Dd/YV2DpMmw304F1EDzpyEuImzTJXg9Nrx0BQFW7T
-	g9uRAHId74T7Uo/1ax0eEr+V2C9ClkZFLm+csOTHnXjMBJ3PJYNbEYCMmO789HnRGa7dh3f2vjN+i
-	SVkAKpMM8RvYUZkynVqxKgcktfu/vb8GA34VhIAIFYEIh9oCjytZDDXFhoXH/Q0USx2+RNIbURjDc
-	rAnLVZqkD4slczGqJh7BP56ZgNprLva+wQI93IUC5ctERsdzCps11pljd4OW9TCpr0Ds+u+UXBo7L
-	WgYv/exjoLQvNw1P5eAA==;
+	List-Owner; bh=TyyIZjJkO0LoZ/FMcF+cou9rlRJ4O9xzcI3/6zKwwd4=; b=ikWN85sv4EtCaL
+	Xv0EvltK25w395eX8HwdnEb+OyEbFYT4L+QVp1RYEp4mG5MDwQUpJYnyEK2Kp1hlb22w4W4H2drGi
+	LH0rKBz9ePfqffzcNnX2lm6uBkUN2+Kj6KGlwnglel86nNDFJXnZegcMAez4RPzVMj8GOXF0xMmaV
+	72kVxM42VoHu+NlmccdFkTn/Kqa6d3TdFRDm4HgBq17fd7BGwozuo7BEVbJfZEXdTDLaclqTy7j0Q
+	AW8bu4VuyWodrZDQ3TNgo7e/jGyMY+4X/4REcNvDwaSsPRVhUVcTf2Nvp4AK8p7JDSrdNC6j5o3Rx
+	Z9MQmc13p5jgijbEVqMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ri2jG-00000002YC4-0vjO;
-	Thu, 07 Mar 2024 01:39:26 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1ri3nw-00000002i6U-2qCH;
+	Thu, 07 Mar 2024 02:48:20 +0000
+Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ri2jC-00000002YBb-2arE
+	id 1ri3nt-00000002i32-0q4n
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 Mar 2024 01:39:24 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7882177f683so23889285a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Mar 2024 17:39:21 -0800 (PST)
+	Thu, 07 Mar 2024 02:48:18 +0000
+Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-364f794f237so1552605ab.1
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Mar 2024 18:48:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1709775561; x=1710380361; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=k0SbDUA41eUP+9zdTARSNuV/ete68uPUC1r8MIz84hU=;
-        b=Uluh1encEHK1jL+xKw1nBGQOKMfN5clkh41gruG8XV0t1atS3xLyqXUMYOwP6OfGF+
-         1v2DFRphVCTlPh4gauXLqFb3rCLCHhdphcCeChGvcB2O97ZFqahr5nlNKRM/mldsiV+x
-         h1LdgP1P4vgfNBd/UwUWrR4/gijhBpmcJJJ4K8TCBSVwt8QH3rnpxTLd19B/Lh26fjvC
-         6oqVrdKfL6Q8wIBDzsUL9EjwnxPx0tk/xhuPkiWrcHHQ4R9eMwSzQpsTEcmW/qxgKbz3
-         Iha4uDyveYXzXZ3EIJVtR5WsfJkx/UIaNhtyh097bAYg+UfkVylbF07+DWf1rTewcrpw
-         wegA==
+        d=sifive.com; s=google; t=1709779695; x=1710384495; darn=lists.infradead.org;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3Z5d/26bHgqiMApGVsGr3aD7SjWMpb6gdnyVYgaIBs8=;
+        b=C01SVGL63BQ21mzBxDsjZ+AD68IQwlMTWMBXVakTGvh45ty4SOh9k7sSTDz+o3rsCt
+         LNeWVyiUqkiBVWvWrS19eP5CKe5S2INJE35HWgBnVsRDEfIPp5bTzi9UL+eD4TIQ75+K
+         BA6Yswy4nQRJJKqGYmVJFp0Irk6hrVIWICFNznsXthgOzzrRvHb2J7ycsan8lK/8VdDb
+         Xxv1qQzVYYdgn/p6U0PlnBQqPlrJs9SA53TfVpRPaNmiMZOmanzKStLx9ksEKGN/Bob+
+         Hb44OKZQfIOpzgLj7uxjL5Egdkm2oPFk8JZvPyoFp9n5NsScQ138E2iEp4/ntxYjFYau
+         odnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709775561; x=1710380361;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=k0SbDUA41eUP+9zdTARSNuV/ete68uPUC1r8MIz84hU=;
-        b=ULeKVAeYX2oZ8p/vSBsbKmPgFGJqbALJ0eqoQW/ZqDyb+V5tKOraF+zWlOi1B8ZQgO
-         g3VrxmEnX9uQM6FfUGyIwmL896UR2uZKqRIhjxHhzy+4r5LqzOVPzhDaKml51MLIJge+
-         V/0TWmeNcJHnyJlF+MgusT0BiZg0DzpPzo8VZ2AXH/y+nclzpfByEMEWbJds/SSwslRe
-         36c80LwpeJdjq12Y8gYN/oqJ5tuc0Dz1imL2dVazqr/aR4JbOy2xOAKF+3WNbC9z0P3C
-         QL63vhJ3PQzkcurv8O9o0bfQsDRBRGQOE5A6vTzznArvBJ9PFXDk8Avyr0wmDt8CvcCY
-         gLxw==
-X-Forwarded-Encrypted: i=1; AJvYcCVSOg00wRS5mvdF3WGspkcO3vPJyov3D0hdMvteADkCJtXbuJuSArAIyLBl2Cz6VmlwA32gChKG1l/KAkSqsInM76gLQynyr5lKzgTZjJm8
-X-Gm-Message-State: AOJu0Yy+VekbkVjKMNDPnzpzrKVCYalymn410Q0UJ5qonLMRPU17QBEv
-	gyQ9nWU1vyafCa8P94EB+Mig4zkp261/ZZdfHUb+kqMXZvJe34kW7FFZfW4NvNiqxLNJXHOszGg
-	k
-X-Google-Smtp-Source: AGHT+IFf4x9Pki+DLL/Ppvd38GvUMxQXysG3pCfvxlDIle3QnJYGBL2zBqSfeuh5GWFIcMGvQW1/Qw==
-X-Received: by 2002:a05:620a:244a:b0:788:2cc6:1232 with SMTP id h10-20020a05620a244a00b007882cc61232mr7778482qkn.16.1709775561159;
-        Wed, 06 Mar 2024 17:39:21 -0800 (PST)
-Received: from [100.64.0.1] ([170.85.8.176])
-        by smtp.gmail.com with ESMTPSA id a21-20020a05620a02f500b0078833092600sm2649809qko.30.2024.03.06.17.39.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Mar 2024 17:39:20 -0800 (PST)
-Message-ID: <ddf63d8b-7818-4c25-a83a-255ea45ea027@sifive.com>
-Date: Wed, 6 Mar 2024 19:39:19 -0600
+        d=1e100.net; s=20230601; t=1709779695; x=1710384495;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3Z5d/26bHgqiMApGVsGr3aD7SjWMpb6gdnyVYgaIBs8=;
+        b=kqKXzF+OZSqcFg55p3mY9/FYj6r/IZl5KY+XXzg4uphLqMPREdV2FduvMCHEMf9guV
+         Mo9GbMKw38BT4pr16sbWTtuz1aa4C+c550AJqOkMY1vRvWowANj+H6zXhUy3qftU1+o5
+         t1WosKAeo///jPipZmusK0sGTFMsF6Wr3wtQed2mUOOHO66/+1Rj4bPGACtzapPvPVWS
+         +td0y7zzvZ/6piqGSRcoueqMSEywnTLkw0iFjzLwQUFRlUCTjHqXcr8ajxtljBhGB+DP
+         NtPJ3yFD0ZjuugMgmKXOTLJ9iUyp6lUuPgr881UotPW4sLeMgvb3hRtFU3h0XVTb3JVT
+         38Nw==
+X-Forwarded-Encrypted: i=1; AJvYcCWMpaGWbd0igUqdsY/yCv3cLGYikjDsURto2FNspgXHknSFingx71lio7fVeGmFBUlVVJNsjYi3k2s2wv7ijk6KRLvmim/2q+6SBptg1vSO
+X-Gm-Message-State: AOJu0YzlmXXXBZmDJblYqOsuXYcjnlYV6TvZL1Ao5gwqLd1RKlwBSYLd
+	6cZYVWrGlKjs//C+RJbyApcifiJTtjNhMyHTw3XBn+miBNHuPODiARFulvh11WQ=
+X-Google-Smtp-Source: AGHT+IEyF0UCk5AncTHMUs17I2OeHhjTtTpuQHRLuE8Gkg6yydzKB2koqNVCqN1HEtdGNtMpZAviXQ==
+X-Received: by 2002:a05:6e02:1a6a:b0:364:21b4:f59a with SMTP id w10-20020a056e021a6a00b0036421b4f59amr21762216ilv.14.1709779695359;
+        Wed, 06 Mar 2024 18:48:15 -0800 (PST)
+Received: from localhost (c-98-32-39-159.hsd1.nm.comcast.net. [98.32.39.159])
+        by smtp.gmail.com with ESMTPSA id z13-20020a029f0d000000b00474fc6638eesm1392353jal.76.2024.03.06.18.48.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Mar 2024 18:48:14 -0800 (PST)
+Date: Wed, 6 Mar 2024 18:48:13 -0800 (PST)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+To: Conor Dooley <conor@kernel.org>
+cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+    linux-riscv@lists.infradead.org, 
+    Samuel Holland <samuel.holland@sifive.com>, devicetree@vger.kernel.org, 
+    linux-serial@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [RFC] Inconsistent sifive,fu540-c000-uart binding.
+In-Reply-To: <20240304-whomever-gladly-d43da7ad2fe6@spud>
+Message-ID: <229b34c1-5419-93ae-0a6f-a21cf4e4a276@sifive.com>
+References: <20240304105947.SJcVAdr1@linutronix.de> <20240304-whomever-gladly-d43da7ad2fe6@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/18] serial: sifive: Use uart_prepare_sysrq_char() to
- handle sysrq.
-Content-Language: en-US
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- linux-serial@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-References: <20240301215246.891055-1-bigeasy@linutronix.de>
- <20240301215246.891055-13-bigeasy@linutronix.de>
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <20240301215246.891055-13-bigeasy@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240306_173922_752567_56293312 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20240306_184817_315978_2DB8E4E2 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,25 +92,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-03-01 3:45 PM, Sebastian Andrzej Siewior wrote:
-> The port lock is a spinlock_t which is becomes a sleeping lock on PREEMPT_RT.
-> The driver splits the locking function into two parts: local_irq_save() and
-> uart_port_lock() and this breaks PREEMPT_RT.
-> 
-> Handle sysrq requests sysrq once the port lock is dropped.
-> Remove the special case in the console write routine an always use the
-> complete locking function.
-> 
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: linux-riscv@lists.infradead.org
-> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> ---
->  drivers/tty/serial/sifive.c | 17 +++++++----------
->  1 file changed, 7 insertions(+), 10 deletions(-)
+On Mon, 4 Mar 2024, Conor Dooley wrote:
 
-Acked-by: Samuel Holland <samuel.holland@sifive.com>
-Tested-by: Samuel Holland <samuel.holland@sifive.com>
+> On Mon, Mar 04, 2024 at 11:59:47AM +0100, Sebastian Andrzej Siewior wrote:
+> > | $ git grep fu540-c000-uart
+> > | Documentation/devicetree/bindings/serial/sifive-serial.yaml:          - sifive,fu540-c000-uart
+> > | Documentation/devicetree/bindings/serial/sifive-serial.yaml:        compatible = "sifive,fu540-c000-uart", "sifive,uart0";
+> > | Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt:"sifive,fu540-c000-uart".  This way, if SoC-specific
+> > | Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt:    compatible = "sifive,fu540-c000-uart", "sifive,uart0";
+> > | arch/riscv/boot/dts/sifive/fu540-c000.dtsi:                     compatible = "sifive,fu540-c000-uart", "sifive,uart0";
+> > | arch/riscv/boot/dts/sifive/fu540-c000.dtsi:                     compatible = "sifive,fu540-c000-uart", "sifive,uart0";
+> > | drivers/tty/serial/sifive.c:OF_EARLYCON_DECLARE(sifive, "sifive,fu540-c000-uart0",
+> > | drivers/tty/serial/sifive.c:    { .compatible = "sifive,fu540-c000-uart0" },
+> > 
+> > note that the driver has a trailing 0 in the binding while the yaml
+> > description and the DT part does not.
+> > The 'sifive,uart' has a trailing 0 where the 0 denotes the version UART
+> > IP.
+> > 
+> > Was this also intended for the fu540-c000-uart binding? Should the 0 be
+> > added everywhere or removed from the driver?
+> 
+> I suspect that the driver is what's incorrect, given there's little
+> value in putting the IP version in the SoC-specific compatible as it's
+> a fixed implementation. I'd change the driver to match the bindings.
+
+Agreed
+
+
+- Paul
 
 
 _______________________________________________
