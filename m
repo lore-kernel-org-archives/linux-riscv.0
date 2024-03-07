@@ -4,64 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2AC6C54E49
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Mar 2024 08:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6EC8C48BF6
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Mar 2024 08:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=duGG3jj3afK4vuastDU2MaEcP8U4CO/c4O8bXoCSO+w=; b=wOPNIR1BKWhlJc
-	sSzfzm/vB02UxueqcH4Ttxr2d1o2QNwsUGueMqGZYw2ILZcBQH9L1g8m6+dY7nfWYfLIwuT0YlHdA
-	1hRhhtvNNGK/kXQTdNdGQKll/J7nNiVZ83SpYJ+XhZgSzEkTLHRdAJAibdiNg3gP3POYmvQS91OuO
-	t0vpKyAAxZmS/Yspi0A0hpA0BBUXZXA1uv4HbhGgBsD+gSw750RslSMW/1gFWhQMW6GqP/94mFyq3
-	ulwXn8pFq9D3pkwS7yV0p9BRzFdKBuqBr0Dy50NbP7g8Ss4L9iGoKlJPa2RMm1o7oH1j3amFyGjA4
-	bwW4BlSu8Vo7bqXFKAAg==;
+	List-Owner; bh=s7+pznHs34GiPpJyd5CcZhMDRU7nGi3yaCAa3F/TliQ=; b=oSeNazl5MdjIyB
+	JIWxvh/+qjRHYCpJAe5jvm5MVHehr9wuprHsnjiCNXg8RfkFq8O798eoP8+cjMbHOA1W8MSAK4WdQ
+	3Tn7/4F+VY5MyMcxNqqntranhESHvmBfYFTy14S/NUEnp2/TYRmsn8Rbp5oQrThpKh458azUigi+v
+	Pf7JUsicrSUN6yri7MqT2+QUwJTb+v676+tr3zirvkHhy5cFtbYHlkbGATGSAGhTkqhDKF39bq/Di
+	BB2BWJ0vRi7E1h/kbu/tbhAbzmEL7BGNfDRKSmI6o+lmC8FmGg4VG+hm+Ow8Kjd+UOQqRAI6ALhNS
+	cE41wV89yZBhwZ9rFeTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ri8x7-00000003aSI-3dbW;
-	Thu, 07 Mar 2024 08:18:09 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1ri8yv-00000003apI-0363;
+	Thu, 07 Mar 2024 08:20:01 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ri8x5-00000003aRl-0GAf
-	for linux-riscv@lists.infradead.org;
-	Thu, 07 Mar 2024 08:18:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1709799487; x=1741335487;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=0eSjyN2LlC9Wrx63xy7rOACa0dzQKMyCRU8Nm4Mq0Hg=;
-  b=FNFXqnbv8bBioXZ5xDG2fF9OAKXnmEEZPbZcCLW/lBzwDui1cCnWgHnf
-   pcvJp3PqvItPViXkQ3KOAXnIgv/11Jio2avgPcUGxmcOQxVkQpKCAf8UY
-   LD4U/i2M40+c4FEBNqV+IMD6VO9nLOQOvq1Ti24cCQx6kWxwHg+WX3yT0
-   Va688wrS/AyVDEDbiRY0CdV2Uy1Na1tmrUq776Mv7MQanyCNvSHN1H7p9
-   ZDqzruka8nemdopGFY4po5bbWnSP4XUrkp+q3LbuOfU42XHBtHu11af2Y
-   gOFIFnjxT5oRukI/l6pnyk/VsNRMlthploKkSTxhgCMmw4bgeWLLPVgTt
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,11005"; a="4577442"
-X-IronPort-AV: E=Sophos;i="6.06,210,1705392000"; 
-   d="scan'208";a="4577442"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Mar 2024 00:18:05 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.06,210,1705392000"; 
-   d="scan'208";a="14598959"
-Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
-  by fmviesa003.fm.intel.com with ESMTP; 07 Mar 2024 00:18:02 -0800
-From: Haibo Xu <haibo1.xu@intel.com>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org
-Subject: [PATCH] riscv: dmi: Add SMBIOS/DMI support
-Date: Thu,  7 Mar 2024 16:31:54 +0800
-Message-Id: <20240307083154.346542-1-haibo1.xu@intel.com>
-X-Mailer: git-send-email 2.34.1
+	id 1ri8yq-00000003anx-092d;
+	Thu, 07 Mar 2024 08:19:57 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-412ea23a750so3623135e9.0;
+        Thu, 07 Mar 2024 00:19:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1709799593; x=1710404393; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q3cfeh/qgTCzNyqJWZG5K1iEv2VogtsczNtBj4FEYbc=;
+        b=ScZDQK3YbLqk278jCcNGWmSZ9TNjkpxEi56Qhc7/Q6gYZjqkixhmtrIwe5wRAk92RM
+         Tc/YZE/PWgObHmXckZk1tgkFE/RGK5o66f4Liv2GOdOoNgQfCFW4lOQeCMQhCTsdVcHH
+         xIoWBT/TcvUo5nhOLCeXBCSMZmuu+lXAXMu0eCBt94QGGkwvL8BrGg/23AI6/bic54WC
+         6qk8Kj8GzdPt/3s/dG5sFbYyfWXr2nos0yxPrGErQ3MYyu6+rpqgFEwIn9A/XfbbdE1T
+         +B5PuynDmg9P59olFX518jPMEcQ2pSQ/C/6V4Ttkfsci/v/YmswaOJSdCFHQwMqJ5SZX
+         Nonw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1709799593; x=1710404393;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Q3cfeh/qgTCzNyqJWZG5K1iEv2VogtsczNtBj4FEYbc=;
+        b=j6weGiAHm+WASN9Yt4mgHJWBozT4KTXrIl5uIQpSVQt+L7NyLBU91/wtUZxeNVGmd8
+         RO3yNAoG1zHhqvNHvlew/ziRJTY+WGgbjObT2bT1lPHNXurLDeCX9VIWRewi55UCSYSf
+         T0sKssdDEZopQqwr6/JylHUwQ9VoM7S94T/lU1vda0HjP2Pkt5gqj+Ac1emjC/o1ux9i
+         J6JdBH5xjdWnW7y0yCbtQeTrXr5+6l4CN+jQzZKU8dX3dnMHGCwH0q1wUM6xf94Ux8bv
+         4EHnOnQ2hEc40EN8AABYzEs2Rp//yrRWWHgWHjYDOpz9eZjfDf7rQ0cIMy+F33tkGlh7
+         LUBA==
+X-Forwarded-Encrypted: i=1; AJvYcCWr3CwCcCYE4nY2z/rl9r504VYDcOPffe2y5/JD663/g02N01XRqn7vPXo/9UynsEn/ropAW//xo0uJwXO+/055clPOZX98apUlP311kaen5mTjPeISAu0vuqZZH1HSZkpGjItrO0qWYhY+VtDfbHrKbkTwFjAukxFRIp+8S/gNBmTZCQFVlp1G7mlvRper1g5sqc8/
+X-Gm-Message-State: AOJu0Yxc2AT7BSAxUAd2/KF2sIQHvMJ5c47PfgIBV9WUwOSBtr3AC5B3
+	0oyXRevb/7FHfoklrJg/ORCpcgH+ARCyMyvPHFKl3Ev8XyjzJQ0O
+X-Google-Smtp-Source: AGHT+IHxp22ZICjNl26x1Qf0pwp3S9ZJz469LBsA59Wew3XXWy7W/Otp9bwAH8nrbisN+qEZRG5Xig==
+X-Received: by 2002:a05:600c:4f91:b0:413:119:33e2 with SMTP id n17-20020a05600c4f9100b00413011933e2mr701067wmq.14.1709799593095;
+        Thu, 07 Mar 2024 00:19:53 -0800 (PST)
+Received: from localhost (cpc154979-craw9-2-0-cust193.16-3.cable.virginm.net. [80.193.200.194])
+        by smtp.gmail.com with ESMTPSA id fb12-20020a05600c520c00b00412f81ba413sm1788954wmb.11.2024.03.07.00.19.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Mar 2024 00:19:52 -0800 (PST)
+From: Colin Ian King <colin.i.king@gmail.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Cc: kernel-janitors@vger.kernel.org
+Subject: [PATCH][next] KVM: selftests: Fix spelling mistake "trigged" -> "triggered"
+Date: Thu,  7 Mar 2024 08:19:51 +0000
+Message-Id: <20240307081951.1954830-1-colin.i.king@gmail.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240307_001807_197890_162C7944 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20240307_001956_295291_2E2FE96D 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,106 +101,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, Haibo Xu <haibo1.xu@intel.com>, palmer@dabbelt.com, paul.walmsley@sifive.com, xiaobo55x@gmail.com, ardb@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable the dmi driver for riscv which would allow access the
-SMBIOS info through some userspace file(/sys/firmware/dmi/*).
+There are spelling mistakes in __GUEST_ASSERT messages. Fix them.
 
-The change was based on that of arm64 and has been verified
-by dmidecode tool.
-
-Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
 ---
- arch/riscv/Kconfig                   | 11 +++++++++++
- arch/riscv/include/asm/dmi.h         | 29 ++++++++++++++++++++++++++++
- drivers/firmware/efi/riscv-runtime.c | 13 +++++++++++++
- 3 files changed, 53 insertions(+)
- create mode 100644 arch/riscv/include/asm/dmi.h
+ tools/testing/selftests/kvm/aarch64/arch_timer.c | 2 +-
+ tools/testing/selftests/kvm/riscv/arch_timer.c   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 0bfcfec67ed5..a123a3e7e5f3 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -918,6 +918,17 @@ config EFI
- 	  allow the kernel to be booted as an EFI application. This
- 	  is only useful on systems that have UEFI firmware.
- 
-+config DMI
-+	bool "Enable support for SMBIOS (DMI) tables"
-+	depends on EFI
-+	default y
-+	help
-+	  This enables SMBIOS/DMI feature for systems.
-+
-+	  This option is only useful on systems that have UEFI firmware.
-+	  However, even with this option, the resultant kernel should
-+	  continue to boot on existing non-UEFI platforms.
-+
- config CC_HAVE_STACKPROTECTOR_TLS
- 	def_bool $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=tp -mstack-protector-guard-offset=0)
- 
-diff --git a/arch/riscv/include/asm/dmi.h b/arch/riscv/include/asm/dmi.h
-new file mode 100644
-index 000000000000..a861043f02dc
---- /dev/null
-+++ b/arch/riscv/include/asm/dmi.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2024 Intel Corporation
-+ *
-+ * based on arch/arm64/include/asm/dmi.h
-+ *
-+ * This file is subject to the terms and conditions of the GNU General Public
-+ * License.  See the file "COPYING" in the main directory of this archive
-+ * for more details.
-+ */
-+
-+#ifndef __ASM_DMI_H
-+#define __ASM_DMI_H
-+
-+#include <linux/io.h>
-+#include <linux/slab.h>
-+
-+/*
-+ * According to section 2.3.6 of the UEFI spec, the firmware should not
-+ * request a virtual mapping for configuration tables such as SMBIOS.
-+ * This means we have to map them before use.
-+ */
-+#define dmi_early_remap(x, l)		ioremap_prot(x, l, _PAGE_KERNEL)
-+#define dmi_early_unmap(x, l)		iounmap(x)
-+#define dmi_remap(x, l)			ioremap_prot(x, l, _PAGE_KERNEL)
-+#define dmi_unmap(x)			iounmap(x)
-+#define dmi_alloc(l)			kzalloc(l, GFP_KERNEL)
-+
-+#endif
-diff --git a/drivers/firmware/efi/riscv-runtime.c b/drivers/firmware/efi/riscv-runtime.c
-index 09525fb5c240..c3bfb9e77e02 100644
---- a/drivers/firmware/efi/riscv-runtime.c
-+++ b/drivers/firmware/efi/riscv-runtime.c
-@@ -152,3 +152,16 @@ void arch_efi_call_virt_teardown(void)
- {
- 	efi_virtmap_unload();
- }
-+
-+static int __init riscv_dmi_init(void)
-+{
-+	/*
-+	 * On riscv, DMI depends on UEFI, and dmi_setup() needs to
-+	 * be called early because dmi_id_init(), which is an arch_initcall
-+	 * itself, depends on dmi_scan_machine() having been called already.
-+	 */
-+	dmi_setup();
-+
-+	return 0;
-+}
-+core_initcall(riscv_dmi_init);
+diff --git a/tools/testing/selftests/kvm/aarch64/arch_timer.c b/tools/testing/selftests/kvm/aarch64/arch_timer.c
+index ddba2c2fb5de..16ac74d07d68 100644
+--- a/tools/testing/selftests/kvm/aarch64/arch_timer.c
++++ b/tools/testing/selftests/kvm/aarch64/arch_timer.c
+@@ -136,7 +136,7 @@ static void guest_run_stage(struct test_vcpu_shared_data *shared_data,
+ 		irq_iter = READ_ONCE(shared_data->nr_iter);
+ 		__GUEST_ASSERT(config_iter + 1 == irq_iter,
+ 				"config_iter + 1 = 0x%lx, irq_iter = 0x%lx.\n"
+-				"  Guest timer interrupt was not trigged within the specified\n"
++				"  Guest timer interrupt was not triggered within the specified\n"
+ 				"  interval, try to increase the error margin by [-e] option.\n",
+ 				config_iter + 1, irq_iter);
+ 	}
+diff --git a/tools/testing/selftests/kvm/riscv/arch_timer.c b/tools/testing/selftests/kvm/riscv/arch_timer.c
+index e22848f747c0..0f9cabd99fd4 100644
+--- a/tools/testing/selftests/kvm/riscv/arch_timer.c
++++ b/tools/testing/selftests/kvm/riscv/arch_timer.c
+@@ -60,7 +60,7 @@ static void guest_run(struct test_vcpu_shared_data *shared_data)
+ 		irq_iter = READ_ONCE(shared_data->nr_iter);
+ 		__GUEST_ASSERT(config_iter + 1 == irq_iter,
+ 				"config_iter + 1 = 0x%x, irq_iter = 0x%x.\n"
+-				"  Guest timer interrupt was not trigged within the specified\n"
++				"  Guest timer interrupt was not triggered within the specified\n"
+ 				"  interval, try to increase the error margin by [-e] option.\n",
+ 				config_iter + 1, irq_iter);
+ 	}
 -- 
-2.34.1
+2.39.2
 
 
 _______________________________________________
