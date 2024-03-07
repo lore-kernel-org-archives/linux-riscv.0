@@ -4,66 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74738C54E49
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Mar 2024 11:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E832BC48BF6
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Mar 2024 12:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aFOLLGBq97CR/d5gHGYKQqCPJR4KNRiuKBX8cYVrq/Y=; b=Hzw8EHLK5t+osk
-	l/UgkZqMjtu5fGMRH8xG0sDZ+pX2Ms3G3fg86ZBuoEKcS4xwk45na8JXAyJJf2Ow3BiGDVygnbYFR
-	9M9f9wgWLRzkmmsdzK9wPLm68M50FEH1ACyZyZfhrrBIJE0Pz2ZVuqTCVJjd9x0oPryw/qPAvpGqK
-	W2BvrFD+BA2EXcWMmVt1SUS2q6ynxkxkHFtJiBavUkpDdMWsQYgxi0q0YIDjW0F71/ACC/85jsuuY
-	wG7JfNJZOj2TTaQCT5snsZ19wmtm5opwf7OTuDGW098ix0H8im8KVp10W5eoHhECU920IkBwqq7El
-	qDPYidrsd89KntvdGnGg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cyYuauz4XgWmIUgvRRPOLlMHuVtSR7JW8Wu1jsaCHuk=; b=3HuQb67ZeAxGWG
+	k745MR8mqXR7hU/76YTvWZWLioOdHbPeg8SjwvM4wlSfdCO3RBYJktoYz3hMW6ehsyYfCZUFOiv1C
+	8iv3D/JknKmh7nDKOUqcZWrrVPFbgnB3ArkJD+YdM31Q5XBhLU6R01NsCp/TvwqsNMQJMRrqXKL/i
+	d6vYS/hCD0X0RxGojyBe0aHqmYJ/kAO9Z+pJOTox4uN2bPSgBpziUQI+eUPATRn/BLk23yRFiKCiC
+	hjin9jgnC/amhIdQmCC4Lm+yTLyUrl8X8UvWR8PzHbXB4h04R5ManMPwoCqRjRIH1PZG1/u+V+qKF
+	RvQH259o2woQQv5iQQiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1riBUh-00000004BxJ-0F3W;
-	Thu, 07 Mar 2024 11:00:59 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1riCkv-00000004XP2-3Ygy;
+	Thu, 07 Mar 2024 12:21:49 +0000
+Received: from mail-os0jpn01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2815::800] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1riBUe-00000004Bwm-0dN1
+	id 1riCkt-00000004XO1-0bho
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 Mar 2024 11:00:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 6DEA9CE249C
-	for <linux-riscv@lists.infradead.org>; Thu,  7 Mar 2024 11:00:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A94F8C43394
-	for <linux-riscv@lists.infradead.org>; Thu,  7 Mar 2024 11:00:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709809251;
-	bh=2srlf9ydqNNrrFB5EuLcASZHo+Kr5YFVq2nvvdfqvqw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=bKmO+tKJ/1YQQr0/VIfw/hwyUuDcDVmE8Xr+X09NbD3m6vup/kJ7F7uioHQTS7Kz9
-	 hQnIoUTa6Mj4wgjC6uiCtJ9T0RKKH7i2A/0+5SvyAZ3Cg6G0wc9WuL3P6Y3ERq05xi
-	 iWYNxcNORNwHdgQMc0oUjszSPSZKvji/hau++X6YhCZHirPh7ujTUwmg/DQFUxqJnC
-	 BougHGudyy21ivSHBewZLEsAZyrQ3GBLXVkPklkHP1+HkUNwu7WjP/DQDW5mcg8m33
-	 9t68U/wWQ2Het/PxZ+Gs0Iec3QwqjVjGQ3KKHCqkJRX+He03/tl7InvLXgjFnKhZju
-	 YYaVN8Vcz8iNQ==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-512ed314881so729678e87.2
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Mar 2024 03:00:51 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUO1J3+OKYEHoX4kqdwLvVwc71TJMOZasC4ed/2kVHI+zMpykKjy86ZA4HFhyq4uuk/J7rufc1zaS2tGE9xicyJnEZZppbKarD61P716bkS
-X-Gm-Message-State: AOJu0YywViOrQW/a/2a+T9hgtMn77j+WtnKeJxcFBa2G2cSTUgpGnxL1
-	13vu6/btc1hZIZjUX4ir9af6QvAHY8xJr+GJfM2B3FEGuEnv0L5QvanRnct/gKmHQWOmURN/CZU
-	neC40pZqUM8O+U3ng8cAD7qLlQEM=
-X-Google-Smtp-Source: AGHT+IGV8i7TFek29fxBdK51QG520w2M1NKZWOoV5ynz9gcTXt09JyCjzQToUkh2vicgw3X/8DaYefI7A5gjjn2BEyM=
-X-Received: by 2002:a05:6512:234b:b0:512:fdb3:7a9e with SMTP id
- p11-20020a056512234b00b00512fdb37a9emr1278036lfu.31.1709809249630; Thu, 07
- Mar 2024 03:00:49 -0800 (PST)
+	Thu, 07 Mar 2024 12:21:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=YsBWOMxAnIM/SsmiszGv6tY0yM/OCPFjFvhlaaSwNgo804st7RqYLTHhXYRs0BOhR5362kS/qY6CgSh5a4CQr5Ufg5gFZF/K61W6RcHBi0PsMv1/ScnvZHmxU8RLzCj4H83KwzwcPD/a8/vFSjbMHjgTRWYFK+EtfXBj9XNKCOalJFBNWbnydvi4SYQGRt/5pJda/8GKscw5Uuk8K7g9XWYCeLTbAiT4z9Va5guGM1SwS0pH9U3k8EIxkKFigDACzyRAo6pJauUCMYInqSG0o4NC6TWl56Ws/jKUOkJVc4rJiXL9gdY2Xm62cp8bUtZUfOpbeahrtuaszP/MFMRpFg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RsCG3cgOJZo2jiioi32KTYtquGqPkcSozAkI1HJ1YXQ=;
+ b=GotQGlTVQey0OrqFse66zB/zyGA8GaKrfbLPuuhxdTHVg3MnZMEgkiOvEoNrojqyqD5o8qBBACOUxZ9/1vDdXFxwtsEk+8Q5dS0jwQPCA2rV6i3MJv/BpAAFNuUBZySUDbOqlFGMBpnLq1TQb0RYSzN0k+oyceFCOE86z/DVWPITZhumjRPWTfUS2VSjF0rn/pHiXkldwJ5BQi0gkQNe2Fby/U41seCsGqPv5wIiUEARF12hLByAfFXcLxYsKUlqSO3sX1zh2s1umXJyKdqwlE4lrMhAD2YbVV4OGfW/9k/W442uNnOvDH/malxvMGnWfyacBTZ1NZMeP7zd1JSxUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RsCG3cgOJZo2jiioi32KTYtquGqPkcSozAkI1HJ1YXQ=;
+ b=WKXP8rBtK1f0RxtO/kFFcOlf0G/RVk8BA6OlSgPWxr+Tlxir8yyMjM94jrLy57UJ1uh4eauE2r/w1JDF+mf3pwMeQRs0fn1yo2GYs1M7IDiTF/Aim5bDuCkrrTer+mQQESBou9rXO0LWKEkjzvOZNnbWGBjhn8c0/7DTWx8PTtNAg8kW1E6/xCZUUy+1LSSf8g4kNLHaG/nxz+hUNzgVT9LqzD03Aab0iNK2OrQ1turmPz+SVupo8G+tJuDdmJQ3WVZooxkdwVLMXEfXfv4QzWhoZm4W6z8opqjHlWdMQF4BOc3DZrEsAUQVKNlTIr/tWs19IOvi3URV0IM32LYAzg==
+Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:23e::10)
+ by TY3P286MB3661.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:36f::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7362.24; Thu, 7 Mar
+ 2024 12:21:34 +0000
+Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::955c:c8b2:efd6:1308]) by TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::955c:c8b2:efd6:1308%6]) with mapi id 15.20.7362.024; Thu, 7 Mar 2024
+ 12:21:33 +0000
+From: Shengyu Qu <wiagn233@outlook.com>
+To: ganboing@gmail.com,
+	kernel@esmil.dk,
+	robh@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	conor+dt@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org,
+	Shengyu Qu <wiagn233@outlook.com>
+Subject: [PATCH v2] riscv: dts: starfive: Remove PMIC interrupt info for Visionfive 2 board
+Date: Thu,  7 Mar 2024 20:21:12 +0800
+Message-ID: <TY3P286MB26116B828A34D614C09F4E8898202@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
+X-Mailer: git-send-email 2.39.2
+X-TMN: [AIxjkWDhVW/eLW/WuNBGqIIhBzMcTF8v]
+X-ClientProxiedBy: PU1PR01CA0032.apcprd01.prod.exchangelabs.com
+ (2603:1096:803:16::20) To TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:23e::10)
+X-Microsoft-Original-Message-ID: <20240307122112.4455-1-wiagn233@outlook.com>
 MIME-Version: 1.0
-References: <20240307083154.346542-1-haibo1.xu@intel.com>
-In-Reply-To: <20240307083154.346542-1-haibo1.xu@intel.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 7 Mar 2024 12:00:38 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGF_PNLYsLugQnm=gW08XuLEbd_C0-4YYzkH1aYRGSaYg@mail.gmail.com>
-Message-ID: <CAMj1kXGF_PNLYsLugQnm=gW08XuLEbd_C0-4YYzkH1aYRGSaYg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: dmi: Add SMBIOS/DMI support
-To: Haibo Xu <haibo1.xu@intel.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY3P286MB2611:EE_|TY3P286MB3661:EE_
+X-MS-Office365-Filtering-Correlation-Id: cab24302-0a38-49ab-0fc9-08dc3ea12055
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: CYmqwhdpQa7KDAhce1OlodwoDdAO+gHLvxYspU3Y/bW8QZ1aAYfzGtb8FhVSw4EVTa5miOCcUZQ8VtF1uOGL+zNZ2Gvp4hG5sig8huT5D5m+x1IwQN+3o+PrfUWcVuLoiaqoGXMPszvrpVDXsMVY8uuNUu/isectELe3bf/Qfi0O0vCPyO+BHF7T1UziobBCofr3tfOXDOHlZiu7Aj8HKchYyYt//Deae8vTN91k6UjnFiiVju7qbRn5xciDW3iojo+xmEePt/+MGBRrHYcAgBSsl6xUpPVOKOWAa8Zhw8HGGQzjUEm20WQJccWFxYJOgwozNyy4TMCVP+vc/pynLs30uJqNoBF6r7ipbIgWq52x5fNrbcvJ7NaoQyr3J691CdbBn8pLi/1+4aUwCfaBRm/FNhHBvEB7+Hbrf3vaB0SBBXFjscUcu3OZiZN1moZq0+nHcJf/Q2spVSga6EToUVqbH6/VV0P6Le5lI8IibeLkgS8dQkII5wLkrYvyi0J84Ebf9ZefCOujCtKm/Phn2+wSGXVm/agWC0GPIanQntksKadhj4UskzVjyQwO+0QU1ja/yq8To049Kn3UAUrjoPx7Ba6YMKErgMXgX9pqCYcTBPt29ZcSRVZTCreuVCc8m4vApFomYeasp7BSx0R3HWJM78pzhAtKZU96vFkn3qV+uhElSuzvDO4+HlvxI91B
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sbS6hbh6hhj8U1N08Ya9gUixQBbexijl/do8yxeeoii3JwoGlQ7xHTLltvvw?=
+ =?us-ascii?Q?dm4tmwQdUHLqyDIhURhkE6SUrhtNCTmRMntEIMzNfaznPDaIq4CGzJdgs++E?=
+ =?us-ascii?Q?M2TQgWwHMhYBkszd3zT0COBnl6TB4oP6qAtU/mRqk4FTtk79Be9CkQ7CT6VE?=
+ =?us-ascii?Q?hNFQeWVKYa00WiSd7RQhsdAXVWECBUPUjyJhTp1t/TGR8VESI1udA3Od8CJX?=
+ =?us-ascii?Q?R5D9yBBOljgOl4swUmFVuedvQ8C55IzzB0BnTpK6UKaYJabN/Av4qPtL3UmF?=
+ =?us-ascii?Q?5lNNbz6PGUQz2GfyOmGMkJRR3iHglgFOSNQkVqPnXg+TMT2Bp8jBpS87iUiN?=
+ =?us-ascii?Q?kB7uUxY67nckDxHnbs6Bn7f3sUTcX5/A2MHdaIEsw1vLfV4hn1kz7qvjuoId?=
+ =?us-ascii?Q?hKUDU1RH5WtxwGS8rQ9looOON2g+5z13oMY8PzxEBktWA8IPlvKNGr9auFVq?=
+ =?us-ascii?Q?C3UaP8FPK3OG5AaKLJc/GkXlbGN4BnyjZqkYEaVkKNU/C5FlZFMXJx30qrTc?=
+ =?us-ascii?Q?qzlPic8LMtXTl1IAO8oPfqH6q4xp7csj9zTPaVHaJXK2EHxydJoZqqy7jNvY?=
+ =?us-ascii?Q?vy3WP4WlzTr+2991IZroCzFHFncAK/jMgT/mkUpjpdbHYhi/E7QunhlUs+hH?=
+ =?us-ascii?Q?pphh2eIkEr7PVs7fiq6egCdqRZ9P3T1VK7INKlhK9XnS/PbXwzt0ZGgadDjV?=
+ =?us-ascii?Q?Gici4STo8L1OtXFjMsiNESsjsL9ENwJjqJcX7FvAcYC8ULHcUc5ESO/3WoAw?=
+ =?us-ascii?Q?nUxusZyUj8xpFOo4B4Y3y18PH+kDQzj5+hXzxkaYfALUHWKk7TLT47KROmBX?=
+ =?us-ascii?Q?KkhWxdKgAv6tY+ihdh07tt502JR0ksBgfuV0o3vvXiOEGi/4wWowH134Ji53?=
+ =?us-ascii?Q?Q2hHfZbnxElhdRVClO+3zxP1VNRu/LwRVXdKZe7H2rdS7ckHloUPoMKe9tVk?=
+ =?us-ascii?Q?Vk9RUlEPeHyHOYneuUJnX0Yh6eivYph7UxuXbtGybBZCthu2SyyegfR/fzVP?=
+ =?us-ascii?Q?tyCbx+vAx3vbf2D8csEa9T5Q7w30qc0O2BxqvadetsduN7a8aLsbdDVJkh2o?=
+ =?us-ascii?Q?COCMqJ6CmE+TTqm7hsmqQtkOOp5MQ25KzOargJyNvOjDoMRmKeJkT8Wb/WVn?=
+ =?us-ascii?Q?xmBfR+bJDJs5j0EMOzmrmyl0LhwE2d12CXusaFhNuCev6VobR/1gk89jNd9j?=
+ =?us-ascii?Q?00fMhXg5Dq5sJYAKzLODIQnt2cs6GycuDqNvJMbgC7i+11i9mblyjIJ2RfM?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cab24302-0a38-49ab-0fc9-08dc3ea12055
+X-MS-Exchange-CrossTenant-AuthSource: TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2024 12:21:33.9346
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY3P286MB3661
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240307_030056_584947_BDC2EBB1 
-X-CRM114-Status: GOOD (  32.64  )
+X-CRM114-CacheID: sfid-20240307_042147_220988_351F7B9C 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,131 +128,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, xiaobo55x@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Haibo,
+Interrupt line number of the AXP15060 PMIC is not a necessary part of
+its device tree. And this would cause kernel to try to enable interrupt
+line 0, which is not expected. So delete this part from device tree.
 
-Some notes below.
+Cc: stable@vger.kernel.org
+Reported-by: Bo Gan <ganboing@gmail.com>
+Link: https://lore.kernel.org/all/c8b6e960-2459-130f-e4e4-7c9c2ebaa6d3@gmail.com/
+Signed-off-by: Shengyu Qu <wiagn233@outlook.com>
+---
+ arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
 
-On Thu, 7 Mar 2024 at 09:18, Haibo Xu <haibo1.xu@intel.com> wrote:
->
-> Enable the dmi driver for riscv which would allow access the
-> SMBIOS info through some userspace file(/sys/firmware/dmi/*).
->
-> The change was based on that of arm64 and has been verified
-> by dmidecode tool.
->
-> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
-> ---
->  arch/riscv/Kconfig                   | 11 +++++++++++
->  arch/riscv/include/asm/dmi.h         | 29 ++++++++++++++++++++++++++++
->  drivers/firmware/efi/riscv-runtime.c | 13 +++++++++++++
->  3 files changed, 53 insertions(+)
->  create mode 100644 arch/riscv/include/asm/dmi.h
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 0bfcfec67ed5..a123a3e7e5f3 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -918,6 +918,17 @@ config EFI
->           allow the kernel to be booted as an EFI application. This
->           is only useful on systems that have UEFI firmware.
->
-> +config DMI
-> +       bool "Enable support for SMBIOS (DMI) tables"
-> +       depends on EFI
-> +       default y
-> +       help
-> +         This enables SMBIOS/DMI feature for systems.
-> +
-> +         This option is only useful on systems that have UEFI firmware.
-> +         However, even with this option, the resultant kernel should
-> +         continue to boot on existing non-UEFI platforms.
-> +
->  config CC_HAVE_STACKPROTECTOR_TLS
->         def_bool $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=tp -mstack-protector-guard-offset=0)
->
-> diff --git a/arch/riscv/include/asm/dmi.h b/arch/riscv/include/asm/dmi.h
-> new file mode 100644
-> index 000000000000..a861043f02dc
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/dmi.h
-> @@ -0,0 +1,29 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2024 Intel Corporation
-> + *
-> + * based on arch/arm64/include/asm/dmi.h
-> + *
-> + * This file is subject to the terms and conditions of the GNU General Public
-> + * License.  See the file "COPYING" in the main directory of this archive
-> + * for more details.
-> + */
-> +
-> +#ifndef __ASM_DMI_H
-> +#define __ASM_DMI_H
-> +
-> +#include <linux/io.h>
-> +#include <linux/slab.h>
-> +
-> +/*
-> + * According to section 2.3.6 of the UEFI spec, the firmware should not
-> + * request a virtual mapping for configuration tables such as SMBIOS.
-> + * This means we have to map them before use.
-> + */
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index 45b58b6f3df8..7783d464d529 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -238,7 +238,6 @@ &i2c5 {
+ 	axp15060: pmic@36 {
+ 		compatible = "x-powers,axp15060";
+ 		reg = <0x36>;
+-		interrupts = <0>;
+ 		interrupt-controller;
+ 		#interrupt-cells = <1>;
+ 
+-- 
+2.39.2
 
-You can drop this comment, it is not really accurate.
-
-'Requesting a virtual mapping' means the memory is mapped by the OS
-into the EFI page tables before calling a runtime service, so that the
-firmware (which runs under the OS's memory translation regime) can
-access the contents.
-
-SMBIOS tables are informational and for consumption by the OS only,
-not by the runtime service implementations themselves, and so they can
-be omitted from the EFI runtime page tables.
-
-
-> +#define dmi_early_remap(x, l)          ioremap_prot(x, l, _PAGE_KERNEL)
-> +#define dmi_early_unmap(x, l)          iounmap(x)
-> +#define dmi_remap(x, l)                        ioremap_prot(x, l, _PAGE_KERNEL)
-> +#define dmi_unmap(x)                   iounmap(x)
-
-Why not use memremap() here? That will reuse the linear map if it
-happens to already cover the region.
-
-> +#define dmi_alloc(l)                   kzalloc(l, GFP_KERNEL)
-> +
-> +#endif
-> diff --git a/drivers/firmware/efi/riscv-runtime.c b/drivers/firmware/efi/riscv-runtime.c
-> index 09525fb5c240..c3bfb9e77e02 100644
-> --- a/drivers/firmware/efi/riscv-runtime.c
-> +++ b/drivers/firmware/efi/riscv-runtime.c
-> @@ -152,3 +152,16 @@ void arch_efi_call_virt_teardown(void)
->  {
->         efi_virtmap_unload();
->  }
-> +
-> +static int __init riscv_dmi_init(void)
-> +{
-> +       /*
-> +        * On riscv, DMI depends on UEFI, and dmi_setup() needs to
-> +        * be called early because dmi_id_init(), which is an arch_initcall
-> +        * itself, depends on dmi_scan_machine() having been called already.
-> +        */
-> +       dmi_setup();
-> +
-> +       return 0;
-> +}
-> +core_initcall(riscv_dmi_init);
-> --
-> 2.34.1
->
->
 
 _______________________________________________
 linux-riscv mailing list
