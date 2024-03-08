@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1CC3C54E4A
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2024 09:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C9EBC54E4A
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2024 10:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=F3KDB4BUNknndSeMyy1z0N31dKiwxGhO13TnBuf+loY=; b=J2GH6OI8uiYM/q27xvoFLWxb3Y
-	P/ZQmH+nKU0WhNxT1IPw4pGrxymgYJYYpxutl6VwzipsToKJWExGdjnvyDEYi2sqmZ7l+4AZfNe0T
-	GPiNwzPJ0FNZybjFf4/Bko5y3dHPH/NJVbNOdQUcJd3lVvkw0/Qy3GcwxuM+xZDWvPIHEPa7kDhwN
-	eD4pVCr8xvchIgH7pDBF/HOdyEWP0Vb16vPYqunh5UyEiIymDCfOAK9v5Pwy15hguEyojbfYGXMDo
-	2Iny5n6AR/ecuoHECAsep9M1iQIwsWWdS0TEUIEDU9Y0VfEwFWp5So1iCjDKZzcVOKXkaXFvMO3rZ
-	jDAxdXqg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XPhTARyy0+EhK4dCeGmKqurZ0jyRKmimDQpX2PUYGWg=; b=WoB9gjB6kJdm5O
+	7qKweTmdKV44Y2vruOpVjQkx63gd3Yf/dw4pxEsameAZ+GPnCQxPHxsTve5mVvfj8oGS4srJ5DwZa
+	OEFMpUt16HEcd4KdJM4svIeUUfj4s14ekwOloxuVGUcsmXr0/ZuStwcb0Nd9Tag6QPrzGwUveUZGC
+	mTmXsrjFFr1Cx0GHRt5Wm4RM0bSgxTWJcNMIhBiQMk2vZQUIp/m5/wGhWeOxwcWTyi6LdvqNyN9Dh
+	fd9Vt0hWMa9VWwM7a0pbeDp95eb0WvXN3hN3Y1ThqQk9b2jK+08RFxEBw5PtlBB/FSGtctTsMxD3z
+	9G7+87PGow00eD58IfYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1riWu4-00000008dm2-2JkU;
-	Fri, 08 Mar 2024 09:52:36 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1riXHE-00000008ivA-1hsD;
+	Fri, 08 Mar 2024 10:16:32 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1riWu0-00000008dlQ-0NMm
+	id 1riXHA-00000008isl-3PKl
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Mar 2024 09:52:35 +0000
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 03C633FA61
-	for <linux-riscv@lists.infradead.org>; Fri,  8 Mar 2024 09:52:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1709891547;
-	bh=SuoktzUVOHfmeIXEcLMg0wlnX/ibuHT8z/+W2rAnHaI=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=DStOXZeptIVXT2R0b/t63jkJY+pozC9fvFMRO/0uZD/YTzT1hPhc6V+MGqGbY43UQ
-	 DInGCjOyDuJg0yK0fV2Ta9xxhr5a4ZyuGGPA7AN9JOBl+PAZk8xH+ZWiO0ZW3PhKB2
-	 srpkqNmTI0smAJ/dZIfYrqGHVKY//CYfp4y5ESGY6eyjonV4xMZYejsQhrIvVLy+CT
-	 emwrs+Z0s421/KjAuffuQtiwSJNOTNBwU3IG4U3nr1EeR5s1T0uXFl88DMp8aHHBAV
-	 CdpiVLrMRKzUBYfo3e+XERDY//A5GPcgLbXlYJzkLqYAcnanaH7QqInYJeYItyfWQq
-	 iE2R8klUljPTA==
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-42f01892811so17409641cf.2
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Mar 2024 01:52:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709891546; x=1710496346;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SuoktzUVOHfmeIXEcLMg0wlnX/ibuHT8z/+W2rAnHaI=;
-        b=rg6aZTBaEt75LGxoyt+ZaqqrycX3N6E2Rft2qV+6vFvgi7/vb/d78fVK0vXI/sKg+0
-         JHpD5XuZE298SyxNCZmRRgcq16IilEksMUDofcmmtneIaedGZWEn1rj8nLmNdcusXiDm
-         YRBgCX+t4PEVbIUAiAnIL/yZ6tvM+EzfZkGx83jhdCYuNL9AjWkYnkojesMfdR9B0+54
-         wOA8uyKWuVObk9LhUZBag+RQRSujpLMzmpqi5owqRBi1I/Kt5oi8oIXnImK5M5FFAwbH
-         2/vubjQBaxSV5pU80oCiZs1gUcpjsVgNOs5BnJshZqMJrkzX5l9qGQLAixMOzNBED8W/
-         3crA==
-X-Gm-Message-State: AOJu0YzpRpaH+8LHmrBVsteLRY95zBTe8wX06FAzpiJWp+VolXj1o+/X
-	zrUUG0OMotHDtjiOiZFRjNCj5ncF7jqLMvMzRzZBioa/srAopBFtisBEplI8hC3NC4bUqHXreER
-	zYF/udGajG8HccGWhPVA5ydNdMwOeO5KzgSPSZnJ4iMGLdsTwvqmQ0Md3B2eV/AhX50ALFpAM6P
-	hR08xRc/hMPPQFBPoruf1QPk5AE+J0p8368gv4dCzE10tW/0H9lEmqUA+E
-X-Received: by 2002:ac8:7d51:0:b0:42e:9fb4:d2c9 with SMTP id h17-20020ac87d51000000b0042e9fb4d2c9mr11880676qtb.66.1709891545744;
-        Fri, 08 Mar 2024 01:52:25 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IH1PKyI4eqLjtSxgxrIzXNSZirfvR7JdFZykmdV7eUoPbaWEFoYcxvdDPNxIC2IQmrMsiVQTDHJatJzD4yPN8o=
-X-Received: by 2002:ac8:7d51:0:b0:42e:9fb4:d2c9 with SMTP id
- h17-20020ac87d51000000b0042e9fb4d2c9mr11880663qtb.66.1709891545209; Fri, 08
- Mar 2024 01:52:25 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 8 Mar 2024 01:52:24 -0800
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20240307-disable_misaligned_probe_config-v8-4-55d696cb398b@rivosinc.com>
-References: <20240307-disable_misaligned_probe_config-v8-0-55d696cb398b@rivosinc.com>
- <20240307-disable_misaligned_probe_config-v8-4-55d696cb398b@rivosinc.com>
-Mime-Version: 1.0
-Date: Fri, 8 Mar 2024 01:52:24 -0800
-Message-ID: <CAJM55Z9SYA=QMg0Wg-e0Q8nOTP6qSKkc+kxHMGOmmmWrEcVf7w@mail.gmail.com>
-Subject: Re: [PATCH v8 4/4] riscv: Set unaligned access speed at compile time
-To: Charlie Jenkins <charlie@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jisheng Zhang <jszhang@kernel.org>, Evan Green <evan@rivosinc.com>, 
-	=?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
-	Eric Biggers <ebiggers@kernel.org>, Elliot Berman <quic_eberman@quicinc.com>, 
-	Charles Lohr <lohr85@gmail.com>, Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	Fri, 08 Mar 2024 10:16:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id EB163CE2569;
+	Fri,  8 Mar 2024 10:16:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0534C43394;
+	Fri,  8 Mar 2024 10:16:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1709892986;
+	bh=sr34wHQR+GgEvXvJDRqEnla88k1cwdRe+zsxhA2KPFk=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=EJedCYhXdgxyKjMGasPYqipqYYnAZ65LM3kQ+MHKrTlT9ZQ6rN+iU1TjJzblviJlf
+	 Bp0hjP/p0J+cqLJIc+OoPiaXTDVcq3/JNysNf8vghkPPjzzT04VAd13OhUxFgtUkNO
+	 UZYcqCM7BCzjgfhi22rKrbkYVKw+9r8SjfIRYuNnE7FVE3I+drOz8NvYcWzQulUUL6
+	 VYrhEdiK/NfyqFLsn4IrrH6lKiiJNVx6HDIe6BNPQRVQkAUt+LbYtqAsbaT1uFhkcR
+	 Cm5AuETZI2VtDtymRdum/yjwzIB0IFswVkTbhlI18Jyd1jaTdIkL7kpFHYKmFDPpGx
+	 HYJ3JRpC1CkMQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Puranjay Mohan <puranjay12@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Steven Rostedt
+ <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Sami Tolvanen <samitolvanen@google.com>,
+ Guo Ren <guoren@kernel.org>, Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+ Deepak Gupta <debug@rivosinc.com>, Sia Jee Heng
+ <jeeheng.sia@starfivetech.com>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, Song
+ Shuai <suagrfillet@gmail.com>, =?utf-8?Q?Cl=C3=A9ment_L=C3=A9ger?=
+ <cleger@rivosinc.com>, Al
+ Viro <viro@zeniv.linux.org.uk>, Jisheng Zhang <jszhang@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH] riscv: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
+In-Reply-To: <CANk7y0gbQdYw0V+CEv-z8wFGXnki8KSn4c8+i0iZ1UFNCg7wJQ@mail.gmail.com>
+References: <20240306165904.108141-1-puranjay12@gmail.com>
+ <87ttlhdeqb.fsf@all.your.base.are.belong.to.us>
+ <CANk7y0gbQdYw0V+CEv-z8wFGXnki8KSn4c8+i0iZ1UFNCg7wJQ@mail.gmail.com>
+Date: Fri, 08 Mar 2024 11:16:23 +0100
+Message-ID: <87jzmdowp4.fsf@all.your.base.are.belong.to.us>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240308_015232_663459_2BFA7DE1 
-X-CRM114-Status: GOOD (  43.55  )
+X-CRM114-CacheID: sfid-20240308_021629_325070_9F84FAB7 
+X-CRM114-Status: GOOD (  28.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,863 +79,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Charlie Jenkins wrote:
-> Introduce Kconfig options to set the kernel unaligned access support.
-> These options provide a non-portable alternative to the runtime
-> unaligned access probe.
->
-> To support this, the unaligned access probing code is moved into it's
-> own file and gated behind a new RISCV_PROBE_UNALIGNED_ACCESS_SUPPORT
-> option.
->
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  arch/riscv/Kconfig                         |  60 ++++--
->  arch/riscv/include/asm/cpufeature.h        |  24 +--
->  arch/riscv/kernel/Makefile                 |   4 +-
->  arch/riscv/kernel/cpufeature.c             | 272 ----------------------------
->  arch/riscv/kernel/sys_hwprobe.c            |  13 ++
->  arch/riscv/kernel/traps_misaligned.c       |   2 +
->  arch/riscv/kernel/unaligned_access_speed.c | 282 +++++++++++++++++++++++++++++
->  7 files changed, 361 insertions(+), 296 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index bffbd869a068..28c1e75ea88a 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -688,27 +688,63 @@ config THREAD_SIZE_ORDER
->  	  affects irq stack size, which is equal to thread stack size.
->
->  config RISCV_MISALIGNED
-> -	bool "Support misaligned load/store traps for kernel and userspace"
-> +	bool
->  	select SYSCTL_ARCH_UNALIGN_ALLOW
-> -	default y
->  	help
-> -	  Say Y here if you want the kernel to embed support for misaligned
-> -	  load/store for both kernel and userspace. When disable, misaligned
-> -	  accesses will generate SIGBUS in userspace and panic in kernel.
-> +	  Embed support for misaligned load/store for both kernel and userspace.
-> +	  When disabled, misaligned accesses will generate SIGBUS in userspace
-> +	  and panic in the kernel.
-
-Hmm.. this is *may* generate SIGBUS in userspace and panic the kernel. The CPU
-could support unaligned access natively or there might be a handler in M-mode,
-right?
-
-> +
-> +choice
-> +	prompt "Unaligned Accesses Support"
-> +	default RISCV_PROBE_UNALIGNED_ACCESS
-> +	help
-> +	  This determines the level of support for unaligned accesses. This
-> +	  information is used by the kernel to perform optimizations. It is also
-> +	  exposed to user space via the hwprobe syscall. The hardware will be
-> +	  probed at boot by default.
-> +
-> +config RISCV_PROBE_UNALIGNED_ACCESS
-> +	bool "Probe for hardware unaligned access support"
-> +	select RISCV_MISALIGNED
-> +	help
-> +	  During boot, the kernel will run a series of tests to determine the
-> +	  speed of unaligned accesses. This probing will dynamically determine
-> +	  the speed of unaligned accesses on the underlying system. If unaligned
-> +	  memory accesses trap into the kernel as they are not supported by the
-> +	  system, the kernel will emulate the unaligned accesses to preserve the
-> +	  UABI.
-> +
-> +config RISCV_EMULATED_UNALIGNED_ACCESS
-> +	bool "Emulate unaligned access where system support is missing"
-> +	select RISCV_MISALIGNED
-> +	help
-> +	  If unaligned memory accesses trap into the kernel as they are not
-> +	  supported by the system, the kernel will emulate the unaligned
-> +	  accesses to preserve the UABI. When the underlying system does support
-> +	  unaligned accesses, the unaligned accesses are assumed to be slow.
-
-It's still not quite clear to me when you'd want to choose this over probing
-above. Assuming the probe measures correctly this can only result in a kernel
-that behaves the same or slower than with the option above, right?
-
-> +
-> +config RISCV_SLOW_UNALIGNED_ACCESS
-> +	bool "Assume the system supports slow unaligned memory accesses"
-> +	depends on NONPORTABLE
-> +	help
-> +	  Assume that the system supports slow unaligned memory accesses. The
-> +	  kernel and userspace programs may not be able to run at all on systems
-> +	  that do not support unaligned memory accesses.
-
-Again you're just explicitly saying no to the optimizations the kernel might do
-if it detects fast unaligned access, only here you'll also crash if they're not
-handled by the CPU or M-mode. Why would you want that?
-
-I'm probably missing something, but the only reason I can think of is if you
-want build a really small kernel and save the few bytes for the handler and
-probing code.
-
-/Emil
-
->  config RISCV_EFFICIENT_UNALIGNED_ACCESS
-> -	bool "Assume the CPU supports fast unaligned memory accesses"
-> +	bool "Assume the system supports fast unaligned memory accesses"
->  	depends on NONPORTABLE
->  	select DCACHE_WORD_ACCESS if MMU
->  	select HAVE_EFFICIENT_UNALIGNED_ACCESS
->  	help
-> -	  Say Y here if you want the kernel to assume that the CPU supports
-> -	  efficient unaligned memory accesses.  When enabled, this option
-> -	  improves the performance of the kernel on such CPUs.  However, the
-> -	  kernel will run much more slowly, or will not be able to run at all,
-> -	  on CPUs that do not support efficient unaligned memory accesses.
-> +	  Assume that the system supports fast unaligned memory accesses. When
-> +	  enabled, this option improves the performance of the kernel on such
-> +	  systems. However, the kernel and userspace programs will run much more
-> +	  slowly, or will not be able to run at all, on systems that do not
-> +	  support efficient unaligned memory accesses.
->
-> -	  If unsure what to do here, say N.
-> +endchoice
->
->  endmenu # "Platform type"
->
-> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-> index 6fec91845aa0..46061f5e9764 100644
-> --- a/arch/riscv/include/asm/cpufeature.h
-> +++ b/arch/riscv/include/asm/cpufeature.h
-> @@ -28,37 +28,39 @@ struct riscv_isainfo {
->
->  DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
->
-> -DECLARE_PER_CPU(long, misaligned_access_speed);
-> -
->  /* Per-cpu ISA extensions. */
->  extern struct riscv_isainfo hart_isa[NR_CPUS];
->
->  void riscv_user_isa_enable(void);
->
-> -#ifdef CONFIG_RISCV_MISALIGNED
-> -bool unaligned_ctl_available(void);
-> +#if defined(CONFIG_RISCV_MISALIGNED)
->  bool check_unaligned_access_emulated_all_cpus(void);
->  void unaligned_emulation_finish(void);
-> +bool unaligned_ctl_available(void);
-> +DECLARE_PER_CPU(long, misaligned_access_speed);
->  #else
->  static inline bool unaligned_ctl_available(void)
->  {
->  	return false;
->  }
-> -
-> -static inline bool check_unaligned_access_emulated(int cpu)
-> -{
-> -	return false;
-> -}
-> -
-> -static inline void unaligned_emulation_finish(void) {}
->  #endif
->
-> +#if defined(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)
->  DECLARE_STATIC_KEY_FALSE(fast_unaligned_access_speed_key);
->
->  static __always_inline bool has_fast_unaligned_accesses(void)
->  {
->  	return static_branch_likely(&fast_unaligned_access_speed_key);
->  }
-> +#else
-> +static __always_inline bool has_fast_unaligned_accesses(void)
-> +{
-> +	if (IS_ENABLED(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS))
-> +		return true;
-> +	else
-> +		return false;
-> +}
-> +#endif
->
->  unsigned long riscv_get_elf_hwcap(void);
->
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index f71910718053..c8085126a6f9 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -38,7 +38,6 @@ extra-y += vmlinux.lds
->  obj-y	+= head.o
->  obj-y	+= soc.o
->  obj-$(CONFIG_RISCV_ALTERNATIVE) += alternative.o
-> -obj-y	+= copy-unaligned.o
->  obj-y	+= cpu.o
->  obj-y	+= cpufeature.o
->  obj-y	+= entry.o
-> @@ -62,6 +61,9 @@ obj-y	+= tests/
->  obj-$(CONFIG_MMU) += vdso.o vdso/
->
->  obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_misaligned.o
-> +obj-$(CONFIG_RISCV_MISALIGNED)	+= unaligned_access_speed.o
-> +obj-$(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)	+= copy-unaligned.o
-> +
->  obj-$(CONFIG_FPU)		+= fpu.o
->  obj-$(CONFIG_RISCV_ISA_V)	+= vector.o
->  obj-$(CONFIG_RISCV_ISA_V)	+= kernel_mode_vector.o
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index abb3a2f53106..319670af5704 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -11,7 +11,6 @@
->  #include <linux/cpu.h>
->  #include <linux/cpuhotplug.h>
->  #include <linux/ctype.h>
-> -#include <linux/jump_label.h>
->  #include <linux/log2.h>
->  #include <linux/memory.h>
->  #include <linux/module.h>
-> @@ -21,20 +20,12 @@
->  #include <asm/cacheflush.h>
->  #include <asm/cpufeature.h>
->  #include <asm/hwcap.h>
-> -#include <asm/hwprobe.h>
->  #include <asm/patch.h>
->  #include <asm/processor.h>
->  #include <asm/vector.h>
->
-> -#include "copy-unaligned.h"
-> -
->  #define NUM_ALPHA_EXTS ('z' - 'a' + 1)
->
-> -#define MISALIGNED_ACCESS_JIFFIES_LG2 1
-> -#define MISALIGNED_BUFFER_SIZE 0x4000
-> -#define MISALIGNED_BUFFER_ORDER get_order(MISALIGNED_BUFFER_SIZE)
-> -#define MISALIGNED_COPY_SIZE ((MISALIGNED_BUFFER_SIZE / 2) - 0x80)
-> -
->  unsigned long elf_hwcap __read_mostly;
->
->  /* Host ISA bitmap */
-> @@ -43,11 +34,6 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
->  /* Per-cpu ISA extensions. */
->  struct riscv_isainfo hart_isa[NR_CPUS];
->
-> -/* Performance information */
-> -DEFINE_PER_CPU(long, misaligned_access_speed);
-> -
-> -static cpumask_t fast_misaligned_access;
-> -
->  /**
->   * riscv_isa_extension_base() - Get base extension word
->   *
-> @@ -706,264 +692,6 @@ unsigned long riscv_get_elf_hwcap(void)
->  	return hwcap;
->  }
->
-> -static int check_unaligned_access(void *param)
-> -{
-> -	int cpu = smp_processor_id();
-> -	u64 start_cycles, end_cycles;
-> -	u64 word_cycles;
-> -	u64 byte_cycles;
-> -	int ratio;
-> -	unsigned long start_jiffies, now;
-> -	struct page *page = param;
-> -	void *dst;
-> -	void *src;
-> -	long speed = RISCV_HWPROBE_MISALIGNED_SLOW;
-> -
-> -	if (IS_ENABLED(CONFIG_RISCV_MISALIGNED) &&
-> -	    per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_UNKNOWN)
-> -		return 0;
-> -
-> -	/* Make an unaligned destination buffer. */
-> -	dst = (void *)((unsigned long)page_address(page) | 0x1);
-> -	/* Unalign src as well, but differently (off by 1 + 2 = 3). */
-> -	src = dst + (MISALIGNED_BUFFER_SIZE / 2);
-> -	src += 2;
-> -	word_cycles = -1ULL;
-> -	/* Do a warmup. */
-> -	__riscv_copy_words_unaligned(dst, src, MISALIGNED_COPY_SIZE);
-> -	preempt_disable();
-> -	start_jiffies = jiffies;
-> -	while ((now = jiffies) == start_jiffies)
-> -		cpu_relax();
-> -
-> -	/*
-> -	 * For a fixed amount of time, repeatedly try the function, and take
-> -	 * the best time in cycles as the measurement.
-> -	 */
-> -	while (time_before(jiffies, now + (1 << MISALIGNED_ACCESS_JIFFIES_LG2))) {
-> -		start_cycles = get_cycles64();
-> -		/* Ensure the CSR read can't reorder WRT to the copy. */
-> -		mb();
-> -		__riscv_copy_words_unaligned(dst, src, MISALIGNED_COPY_SIZE);
-> -		/* Ensure the copy ends before the end time is snapped. */
-> -		mb();
-> -		end_cycles = get_cycles64();
-> -		if ((end_cycles - start_cycles) < word_cycles)
-> -			word_cycles = end_cycles - start_cycles;
-> -	}
-> -
-> -	byte_cycles = -1ULL;
-> -	__riscv_copy_bytes_unaligned(dst, src, MISALIGNED_COPY_SIZE);
-> -	start_jiffies = jiffies;
-> -	while ((now = jiffies) == start_jiffies)
-> -		cpu_relax();
-> -
-> -	while (time_before(jiffies, now + (1 << MISALIGNED_ACCESS_JIFFIES_LG2))) {
-> -		start_cycles = get_cycles64();
-> -		mb();
-> -		__riscv_copy_bytes_unaligned(dst, src, MISALIGNED_COPY_SIZE);
-> -		mb();
-> -		end_cycles = get_cycles64();
-> -		if ((end_cycles - start_cycles) < byte_cycles)
-> -			byte_cycles = end_cycles - start_cycles;
-> -	}
-> -
-> -	preempt_enable();
-> -
-> -	/* Don't divide by zero. */
-> -	if (!word_cycles || !byte_cycles) {
-> -		pr_warn("cpu%d: rdtime lacks granularity needed to measure unaligned access speed\n",
-> -			cpu);
-> -
-> -		return 0;
-> -	}
-> -
-> -	if (word_cycles < byte_cycles)
-> -		speed = RISCV_HWPROBE_MISALIGNED_FAST;
-> -
-> -	ratio = div_u64((byte_cycles * 100), word_cycles);
-> -	pr_info("cpu%d: Ratio of byte access time to unaligned word access is %d.%02d, unaligned accesses are %s\n",
-> -		cpu,
-> -		ratio / 100,
-> -		ratio % 100,
-> -		(speed == RISCV_HWPROBE_MISALIGNED_FAST) ? "fast" : "slow");
-> -
-> -	per_cpu(misaligned_access_speed, cpu) = speed;
-> -
-> -	/*
-> -	 * Set the value of fast_misaligned_access of a CPU. These operations
-> -	 * are atomic to avoid race conditions.
-> -	 */
-> -	if (speed == RISCV_HWPROBE_MISALIGNED_FAST)
-> -		cpumask_set_cpu(cpu, &fast_misaligned_access);
-> -	else
-> -		cpumask_clear_cpu(cpu, &fast_misaligned_access);
-> -
-> -	return 0;
-> -}
-> -
-> -static void check_unaligned_access_nonboot_cpu(void *param)
-> -{
-> -	unsigned int cpu = smp_processor_id();
-> -	struct page **pages = param;
-> -
-> -	if (smp_processor_id() != 0)
-> -		check_unaligned_access(pages[cpu]);
-> -}
-> -
-> -DEFINE_STATIC_KEY_FALSE(fast_unaligned_access_speed_key);
-> -
-> -static void modify_unaligned_access_branches(cpumask_t *mask, int weight)
-> -{
-> -	if (cpumask_weight(mask) == weight)
-> -		static_branch_enable_cpuslocked(&fast_unaligned_access_speed_key);
-> -	else
-> -		static_branch_disable_cpuslocked(&fast_unaligned_access_speed_key);
-> -}
-> -
-> -static void set_unaligned_access_static_branches_except_cpu(int cpu)
-> -{
-> -	/*
-> -	 * Same as set_unaligned_access_static_branches, except excludes the
-> -	 * given CPU from the result. When a CPU is hotplugged into an offline
-> -	 * state, this function is called before the CPU is set to offline in
-> -	 * the cpumask, and thus the CPU needs to be explicitly excluded.
-> -	 */
-> -
-> -	cpumask_t fast_except_me;
-> -
-> -	cpumask_and(&fast_except_me, &fast_misaligned_access, cpu_online_mask);
-> -	cpumask_clear_cpu(cpu, &fast_except_me);
-> -
-> -	modify_unaligned_access_branches(&fast_except_me, num_online_cpus() - 1);
-> -}
-> -
-> -static void set_unaligned_access_static_branches(void)
-> -{
-> -	/*
-> -	 * This will be called after check_unaligned_access_all_cpus so the
-> -	 * result of unaligned access speed for all CPUs will be available.
-> -	 *
-> -	 * To avoid the number of online cpus changing between reading
-> -	 * cpu_online_mask and calling num_online_cpus, cpus_read_lock must be
-> -	 * held before calling this function.
-> -	 */
-> -
-> -	cpumask_t fast_and_online;
-> -
-> -	cpumask_and(&fast_and_online, &fast_misaligned_access, cpu_online_mask);
-> -
-> -	modify_unaligned_access_branches(&fast_and_online, num_online_cpus());
-> -}
-> -
-> -static int lock_and_set_unaligned_access_static_branch(void)
-> -{
-> -	cpus_read_lock();
-> -	set_unaligned_access_static_branches();
-> -	cpus_read_unlock();
-> -
-> -	return 0;
-> -}
-> -
-> -arch_initcall_sync(lock_and_set_unaligned_access_static_branch);
-> -
-> -static int riscv_online_cpu(unsigned int cpu)
-> -{
-> -	static struct page *buf;
-> -
-> -	/* We are already set since the last check */
-> -	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_UNKNOWN)
-> -		goto exit;
-> -
-> -	buf = alloc_pages(GFP_KERNEL, MISALIGNED_BUFFER_ORDER);
-> -	if (!buf) {
-> -		pr_warn("Allocation failure, not measuring misaligned performance\n");
-> -		return -ENOMEM;
-> -	}
-> -
-> -	check_unaligned_access(buf);
-> -	__free_pages(buf, MISALIGNED_BUFFER_ORDER);
-> -
-> -exit:
-> -	set_unaligned_access_static_branches();
-> -
-> -	return 0;
-> -}
-> -
-> -static int riscv_offline_cpu(unsigned int cpu)
-> -{
-> -	set_unaligned_access_static_branches_except_cpu(cpu);
-> -
-> -	return 0;
-> -}
-> -
-> -/* Measure unaligned access speed on all CPUs present at boot in parallel. */
-> -static int check_unaligned_access_speed_all_cpus(void)
-> -{
-> -	unsigned int cpu;
-> -	unsigned int cpu_count = num_possible_cpus();
-> -	struct page **bufs = kzalloc(cpu_count * sizeof(struct page *),
-> -				     GFP_KERNEL);
-> -
-> -	if (!bufs) {
-> -		pr_warn("Allocation failure, not measuring misaligned performance\n");
-> -		return 0;
-> -	}
-> -
-> -	/*
-> -	 * Allocate separate buffers for each CPU so there's no fighting over
-> -	 * cache lines.
-> -	 */
-> -	for_each_cpu(cpu, cpu_online_mask) {
-> -		bufs[cpu] = alloc_pages(GFP_KERNEL, MISALIGNED_BUFFER_ORDER);
-> -		if (!bufs[cpu]) {
-> -			pr_warn("Allocation failure, not measuring misaligned performance\n");
-> -			goto out;
-> -		}
-> -	}
-> -
-> -	/* Check everybody except 0, who stays behind to tend jiffies. */
-> -	on_each_cpu(check_unaligned_access_nonboot_cpu, bufs, 1);
-> -
-> -	/* Check core 0. */
-> -	smp_call_on_cpu(0, check_unaligned_access, bufs[0], true);
-> -
-> -	/*
-> -	 * Setup hotplug callbacks for any new CPUs that come online or go
-> -	 * offline.
-> -	 */
-> -	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
-> -				  riscv_online_cpu, riscv_offline_cpu);
-> -
-> -out:
-> -	for_each_cpu(cpu, cpu_online_mask) {
-> -		if (bufs[cpu])
-> -			__free_pages(bufs[cpu], MISALIGNED_BUFFER_ORDER);
-> -	}
-> -
-> -	kfree(bufs);
-> -	return 0;
-> -}
-> -
-> -#ifdef CONFIG_RISCV_MISALIGNED
-> -static int check_unaligned_access_all_cpus(void)
-> -{
-> -	bool all_cpus_emulated = check_unaligned_access_emulated_all_cpus();
-> -
-> -	if (!all_cpus_emulated)
-> -		return check_unaligned_access_speed_all_cpus();
-> -
-> -	return 0;
-> -}
-> -#else
-> -static int check_unaligned_access_all_cpus(void)
-> -{
-> -	return check_unaligned_access_speed_all_cpus();
-> -}
-> -#endif
-> -
-> -arch_initcall(check_unaligned_access_all_cpus);
-> -
->  void riscv_user_isa_enable(void)
->  {
->  	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_ZICBOZ))
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> index a7c56b41efd2..8cae41a502dd 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -147,6 +147,7 @@ static bool hwprobe_ext0_has(const struct cpumask *cpus, unsigned long ext)
->  	return (pair.value & ext);
->  }
->
-> +#if defined(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)
->  static u64 hwprobe_misaligned(const struct cpumask *cpus)
->  {
->  	int cpu;
-> @@ -169,6 +170,18 @@ static u64 hwprobe_misaligned(const struct cpumask *cpus)
->
->  	return perf;
->  }
-> +#else
-> +static u64 hwprobe_misaligned(const struct cpumask *cpus)
-> +{
-> +	if (IS_ENABLED(CONFIG_RISCV_EFFICIENT_UNALIGNED_ACCESS))
-> +		return RISCV_HWPROBE_MISALIGNED_FAST;
-> +
-> +	if (IS_ENABLED(CONFIG_RISCV_EMULATED_UNALIGNED_ACCESS) && unaligned_ctl_available())
-> +		return RISCV_HWPROBE_MISALIGNED_EMULATED;
-> +
-> +	return RISCV_HWPROBE_MISALIGNED_SLOW;
-> +}
-> +#endif
->
->  static void hwprobe_one_pair(struct riscv_hwprobe *pair,
->  			     const struct cpumask *cpus)
-> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
-> index e55718179f42..2adb7c3e4dd5 100644
-> --- a/arch/riscv/kernel/traps_misaligned.c
-> +++ b/arch/riscv/kernel/traps_misaligned.c
-> @@ -413,7 +413,9 @@ int handle_misaligned_load(struct pt_regs *regs)
->
->  	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
->
-> +#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
->  	*this_cpu_ptr(&misaligned_access_speed) = RISCV_HWPROBE_MISALIGNED_EMULATED;
-> +#endif
->
->  	if (!unaligned_enabled)
->  		return -1;
-> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> new file mode 100644
-> index 000000000000..52264ea4f0bd
-> --- /dev/null
-> +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> @@ -0,0 +1,282 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright 2024 Rivos Inc.
-> + */
-> +
-> +#include <linux/cpu.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/jump_label.h>
-> +#include <linux/mm.h>
-> +#include <linux/smp.h>
-> +#include <linux/types.h>
-> +#include <asm/cpufeature.h>
-> +#include <asm/hwprobe.h>
-> +
-> +#include "copy-unaligned.h"
-> +
-> +#define MISALIGNED_ACCESS_JIFFIES_LG2 1
-> +#define MISALIGNED_BUFFER_SIZE 0x4000
-> +#define MISALIGNED_BUFFER_ORDER get_order(MISALIGNED_BUFFER_SIZE)
-> +#define MISALIGNED_COPY_SIZE ((MISALIGNED_BUFFER_SIZE / 2) - 0x80)
-> +
-> +DEFINE_PER_CPU(long, misaligned_access_speed);
-> +
-> +#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
-> +static cpumask_t fast_misaligned_access;
-> +static int check_unaligned_access(void *param)
-> +{
-> +	int cpu = smp_processor_id();
-> +	u64 start_cycles, end_cycles;
-> +	u64 word_cycles;
-> +	u64 byte_cycles;
-> +	int ratio;
-> +	unsigned long start_jiffies, now;
-> +	struct page *page = param;
-> +	void *dst;
-> +	void *src;
-> +	long speed = RISCV_HWPROBE_MISALIGNED_SLOW;
-> +
-> +	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_UNKNOWN)
-> +		return 0;
-> +
-> +	/* Make an unaligned destination buffer. */
-> +	dst = (void *)((unsigned long)page_address(page) | 0x1);
-> +	/* Unalign src as well, but differently (off by 1 + 2 = 3). */
-> +	src = dst + (MISALIGNED_BUFFER_SIZE / 2);
-> +	src += 2;
-> +	word_cycles = -1ULL;
-> +	/* Do a warmup. */
-> +	__riscv_copy_words_unaligned(dst, src, MISALIGNED_COPY_SIZE);
-> +	preempt_disable();
-> +	start_jiffies = jiffies;
-> +	while ((now = jiffies) == start_jiffies)
-> +		cpu_relax();
-> +
-> +	/*
-> +	 * For a fixed amount of time, repeatedly try the function, and take
-> +	 * the best time in cycles as the measurement.
-> +	 */
-> +	while (time_before(jiffies, now + (1 << MISALIGNED_ACCESS_JIFFIES_LG2))) {
-> +		start_cycles = get_cycles64();
-> +		/* Ensure the CSR read can't reorder WRT to the copy. */
-> +		mb();
-> +		__riscv_copy_words_unaligned(dst, src, MISALIGNED_COPY_SIZE);
-> +		/* Ensure the copy ends before the end time is snapped. */
-> +		mb();
-> +		end_cycles = get_cycles64();
-> +		if ((end_cycles - start_cycles) < word_cycles)
-> +			word_cycles = end_cycles - start_cycles;
-> +	}
-> +
-> +	byte_cycles = -1ULL;
-> +	__riscv_copy_bytes_unaligned(dst, src, MISALIGNED_COPY_SIZE);
-> +	start_jiffies = jiffies;
-> +	while ((now = jiffies) == start_jiffies)
-> +		cpu_relax();
-> +
-> +	while (time_before(jiffies, now + (1 << MISALIGNED_ACCESS_JIFFIES_LG2))) {
-> +		start_cycles = get_cycles64();
-> +		mb();
-> +		__riscv_copy_bytes_unaligned(dst, src, MISALIGNED_COPY_SIZE);
-> +		mb();
-> +		end_cycles = get_cycles64();
-> +		if ((end_cycles - start_cycles) < byte_cycles)
-> +			byte_cycles = end_cycles - start_cycles;
-> +	}
-> +
-> +	preempt_enable();
-> +
-> +	/* Don't divide by zero. */
-> +	if (!word_cycles || !byte_cycles) {
-> +		pr_warn("cpu%d: rdtime lacks granularity needed to measure unaligned access speed\n",
-> +			cpu);
-> +
-> +		return 0;
-> +	}
-> +
-> +	if (word_cycles < byte_cycles)
-> +		speed = RISCV_HWPROBE_MISALIGNED_FAST;
-> +
-> +	ratio = div_u64((byte_cycles * 100), word_cycles);
-> +	pr_info("cpu%d: Ratio of byte access time to unaligned word access is %d.%02d, unaligned accesses are %s\n",
-> +		cpu,
-> +		ratio / 100,
-> +		ratio % 100,
-> +		(speed == RISCV_HWPROBE_MISALIGNED_FAST) ? "fast" : "slow");
-> +
-> +	per_cpu(misaligned_access_speed, cpu) = speed;
-> +
-> +	/*
-> +	 * Set the value of fast_misaligned_access of a CPU. These operations
-> +	 * are atomic to avoid race conditions.
-> +	 */
-> +	if (speed == RISCV_HWPROBE_MISALIGNED_FAST)
-> +		cpumask_set_cpu(cpu, &fast_misaligned_access);
-> +	else
-> +		cpumask_clear_cpu(cpu, &fast_misaligned_access);
-> +
-> +	return 0;
-> +}
-> +
-> +static void check_unaligned_access_nonboot_cpu(void *param)
-> +{
-> +	unsigned int cpu = smp_processor_id();
-> +	struct page **pages = param;
-> +
-> +	if (smp_processor_id() != 0)
-> +		check_unaligned_access(pages[cpu]);
-> +}
-> +
-> +DEFINE_STATIC_KEY_FALSE(fast_unaligned_access_speed_key);
-> +
-> +static void modify_unaligned_access_branches(cpumask_t *mask, int weight)
-> +{
-> +	if (cpumask_weight(mask) == weight)
-> +		static_branch_enable_cpuslocked(&fast_unaligned_access_speed_key);
-> +	else
-> +		static_branch_disable_cpuslocked(&fast_unaligned_access_speed_key);
-> +}
-> +
-> +static void set_unaligned_access_static_branches_except_cpu(int cpu)
-> +{
-> +	/*
-> +	 * Same as set_unaligned_access_static_branches, except excludes the
-> +	 * given CPU from the result. When a CPU is hotplugged into an offline
-> +	 * state, this function is called before the CPU is set to offline in
-> +	 * the cpumask, and thus the CPU needs to be explicitly excluded.
-> +	 */
-> +
-> +	cpumask_t fast_except_me;
-> +
-> +	cpumask_and(&fast_except_me, &fast_misaligned_access, cpu_online_mask);
-> +	cpumask_clear_cpu(cpu, &fast_except_me);
-> +
-> +	modify_unaligned_access_branches(&fast_except_me, num_online_cpus() - 1);
-> +}
-> +
-> +static void set_unaligned_access_static_branches(void)
-> +{
-> +	/*
-> +	 * This will be called after check_unaligned_access_all_cpus so the
-> +	 * result of unaligned access speed for all CPUs will be available.
-> +	 *
-> +	 * To avoid the number of online cpus changing between reading
-> +	 * cpu_online_mask and calling num_online_cpus, cpus_read_lock must be
-> +	 * held before calling this function.
-> +	 */
-> +
-> +	cpumask_t fast_and_online;
-> +
-> +	cpumask_and(&fast_and_online, &fast_misaligned_access, cpu_online_mask);
-> +
-> +	modify_unaligned_access_branches(&fast_and_online, num_online_cpus());
-> +}
-> +
-> +static int lock_and_set_unaligned_access_static_branch(void)
-> +{
-> +	cpus_read_lock();
-> +	set_unaligned_access_static_branches();
-> +	cpus_read_unlock();
-> +
-> +	return 0;
-> +}
-> +
-> +arch_initcall_sync(lock_and_set_unaligned_access_static_branch);
-> +
-> +static int riscv_online_cpu(unsigned int cpu)
-> +{
-> +	static struct page *buf;
-> +
-> +	/* We are already set since the last check */
-> +	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_UNKNOWN)
-> +		goto exit;
-> +
-> +	buf = alloc_pages(GFP_KERNEL, MISALIGNED_BUFFER_ORDER);
-> +	if (!buf) {
-> +		pr_warn("Allocation failure, not measuring misaligned performance\n");
-> +		return -ENOMEM;
-> +	}
-> +
-> +	check_unaligned_access(buf);
-> +	__free_pages(buf, MISALIGNED_BUFFER_ORDER);
-> +
-> +exit:
-> +	set_unaligned_access_static_branches();
-> +
-> +	return 0;
-> +}
-> +
-> +static int riscv_offline_cpu(unsigned int cpu)
-> +{
-> +	set_unaligned_access_static_branches_except_cpu(cpu);
-> +
-> +	return 0;
-> +}
-> +
-> +/* Measure unaligned access speed on all CPUs present at boot in parallel. */
-> +static int check_unaligned_access_speed_all_cpus(void)
-> +{
-> +	unsigned int cpu;
-> +	unsigned int cpu_count = num_possible_cpus();
-> +	struct page **bufs = kzalloc(cpu_count * sizeof(struct page *),
-> +				     GFP_KERNEL);
-> +
-> +	if (!bufs) {
-> +		pr_warn("Allocation failure, not measuring misaligned performance\n");
-> +		return 0;
-> +	}
-> +
-> +	/*
-> +	 * Allocate separate buffers for each CPU so there's no fighting over
-> +	 * cache lines.
-> +	 */
-> +	for_each_cpu(cpu, cpu_online_mask) {
-> +		bufs[cpu] = alloc_pages(GFP_KERNEL, MISALIGNED_BUFFER_ORDER);
-> +		if (!bufs[cpu]) {
-> +			pr_warn("Allocation failure, not measuring misaligned performance\n");
-> +			goto out;
-> +		}
-> +	}
-> +
-> +	/* Check everybody except 0, who stays behind to tend jiffies. */
-> +	on_each_cpu(check_unaligned_access_nonboot_cpu, bufs, 1);
-> +
-> +	/* Check core 0. */
-> +	smp_call_on_cpu(0, check_unaligned_access, bufs[0], true);
-> +
-> +	/*
-> +	 * Setup hotplug callbacks for any new CPUs that come online or go
-> +	 * offline.
-> +	 */
-> +	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
-> +				  riscv_online_cpu, riscv_offline_cpu);
-> +
-> +out:
-> +	for_each_cpu(cpu, cpu_online_mask) {
-> +		if (bufs[cpu])
-> +			__free_pages(bufs[cpu], MISALIGNED_BUFFER_ORDER);
-> +	}
-> +
-> +	kfree(bufs);
-> +	return 0;
-> +}
-> +
-> +static int check_unaligned_access_all_cpus(void)
-> +{
-> +	bool all_cpus_emulated = check_unaligned_access_emulated_all_cpus();
-> +
-> +	if (!all_cpus_emulated)
-> +		return check_unaligned_access_speed_all_cpus();
-> +
-> +	return 0;
-> +}
-> +#else /* CONFIG_RISCV_PROBE_UNALIGNED_ACCESS */
-> +static int check_unaligned_access_all_cpus(void)
-> +{
-> +	check_unaligned_access_emulated_all_cpus();
-> +
-> +	return 0;
-> +}
-> +#endif
-> +
-> +arch_initcall(check_unaligned_access_all_cpus);
->
-> --
-> 2.43.2
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UHVyYW5qYXkgTW9oYW4gPHB1cmFuamF5MTJAZ21haWwuY29tPiB3cml0ZXM6Cgo+IEhpIEJqw7Zy
+biwKPgo+IE9uIFRodSwgTWFyIDcsIDIwMjQgYXQgODoyN+KAr1BNIEJqw7ZybiBUw7ZwZWwgPGJq
+b3JuQGtlcm5lbC5vcmc+IHdyb3RlOgo+Pgo+PiBQdXJhbmpheSEKPj4KPj4gUHVyYW5qYXkgTW9o
+YW4gPHB1cmFuamF5MTJAZ21haWwuY29tPiB3cml0ZXM6Cj4+Cj4+ID4gVGhpcyBwYXRjaCBlbmFi
+bGVzIHN1cHBvcnQgZm9yIERZTkFNSUNfRlRSQUNFX1dJVEhfQ0FMTF9PUFMgb24gUklTQy1WLgo+
+PiA+IFRoaXMgYWxsb3dzIGVhY2ggZnRyYWNlIGNhbGxzaXRlIHRvIHByb3ZpZGUgYW4gZnRyYWNl
+X29wcyB0byB0aGUgY29tbW9uCj4+ID4gZnRyYWNlIHRyYW1wb2xpbmUsIGFsbG93aW5nIGVhY2gg
+Y2FsbHNpdGUgdG8gaW52b2tlIGRpc3RpbmN0IHRyYWNlcgo+PiA+IGZ1bmN0aW9ucyB3aXRob3V0
+IHRoZSBuZWVkIHRvIGZhbGwgYmFjayB0byBsaXN0IHByb2Nlc3Npbmcgb3IgdG8KPj4gPiBhbGxv
+Y2F0ZSBjdXN0b20gdHJhbXBvbGluZXMgZm9yIGVhY2ggY2FsbHNpdGUuIFRoaXMgc2lnbmlmaWNh
+bnRseSBzcGVlZHMKPj4gPiB1cCBjYXNlcyB3aGVyZSBtdWx0aXBsZSBkaXN0aW5jdCB0cmFjZSBm
+dW5jdGlvbnMgYXJlIHVzZWQgYW5kIGNhbGxzaXRlcwo+PiA+IGFyZSBtb3N0bHkgdHJhY2VkIGJ5
+IGEgc2luZ2xlIHRyYWNlci4KPj4gPgo+PiA+IFRoZSBpZGVhIGFuZCBtb3N0IG9mIHRoZSBpbXBs
+ZW1lbnRhdGlvbiBpcyB0YWtlbiBmcm9tIHRoZSBBUk02NCdzCj4+ID4gaW1wbGVtZW50YXRpb24g
+b2YgdGhlIHNhbWUgZmVhdHVyZS4gVGhlIGlkZWEgaXMgdG8gcGxhY2UgYSBwb2ludGVyIHRvCj4+
+ID4gdGhlIGZ0cmFjZV9vcHMgYXMgYSBsaXRlcmFsIGF0IGEgZml4ZWQgb2Zmc2V0IGZyb20gdGhl
+IGZ1bmN0aW9uIGVudHJ5Cj4+ID4gcG9pbnQsIHdoaWNoIGNhbiBiZSByZWNvdmVyZWQgYnkgdGhl
+IGNvbW1vbiBmdHJhY2UgdHJhbXBvbGluZS4KPj4KPj4gTm90IHJlYWxseSBhIHJldmlldywgYnV0
+IHNvbWUgbW9yZSBiYWNrZ3JvdW5kOyBBbm90aGVyIHJhdGlvbmFsZSAob24tdG9wCj4+IG9mIHRo
+ZSBpbXByb3ZlZCBwZXItY2FsbCBwZXJmb3JtYW5jZSEpIGZvciBDQUxMX09QUyB3YXMgdG8gdXNl
+IGl0IHRvCj4+IGJ1aWxkIGZ0cmFjZSBkaXJlY3QgY2FsbCBzdXBwb3J0ICh3aGljaCBCUEYgdXNl
+cyBhIGxvdCEpLiBNYXJrLCBwbGVhc2UKPj4gY29ycmVjdCBtZSBpZiBJJ20gbHlpbmcgaGVyZSEK
+Pj4KPj4gT24gQXJtNjQsIENBTExfT1BTIG1ha2VzIGl0IHBvc3NpYmxlIHRvIGltcGxlbWVudCBk
+aXJlY3QgY2FsbHMsIHdoaWxlCj4+IG9ubHkgcGF0Y2hpbmcgb25lIEJMIGluc3RydWN0aW9uIC0t
+IG5pY2UhCj4+Cj4+IE9uIFJJU0MtViB3ZSBjYW5ub3QgdXNlIHVzZSB0aGUgc2FtZSBpZGVhcyBh
+cyBBcm02NCBzdHJhaWdodCBvZmYsCj4+IGJlY2F1c2UgdGhlIHJhbmdlIG9mIGphbCAoY29tcGFy
+ZSB0byBCTCkgaXMgc2ltcGx5IHRvbyBzaG9ydCAoKy8tMU0pLgo+PiBTbywgb24gUklTQy1WIHdl
+IG5lZWQgdG8gdXNlIGEgZnVsbCBhdWlwYy9qYWwgcGFpciAodGhlIHRleHQgcGF0Y2hpbmcKPj4g
+c3RvcnkgaXMgYW5vdGhlciBjaGFwdGVyLCBidXQgbGV0J3MgbGVhdmUgdGhhdCBhc2lkZSBmb3Ig
+bm93KS4gU2luY2Ugd2UKPj4gaGF2ZSB0byBwYXRjaCBtdWx0aXBsZSBpbnN0cnVjdGlvbnMsIHRo
+ZSBjbW9keCBzaXR1YXRpb24gZG9lc24ndCByZWFsbHkKPj4gaW1wcm92ZSB3aXRoIENBTExfT1BT
+Lgo+Pgo+PiBMZXQncyBzYXkgdGhhdCB3ZSBjb250aW51ZSBidWlsZGluZyBvbiB5b3VyIHBhdGNo
+IGFuZCBpbXBsZW1lbnQgZGlyZWN0Cj4+IGNhbGxzIG9uIENBTExfT1BTIGZvciBSSVNDLVYgYXMg
+d2VsbC4KPj4KPj4gRnJvbSBGbG9yZW50J3MgY29tbWl0IG1lc3NhZ2UgZm9yIGRpcmVjdCBjYWxs
+czoKPj4KPj4gICB8ICAgIFRoZXJlIGFyZSBhIGZldyBjYXNlcyB0byBkaXN0aW5ndWlzaDoKPj4g
+ICB8ICAgIC0gSWYgYSBkaXJlY3QgY2FsbCBvcHMgaXMgdGhlIG9ubHkgb25lIHRyYWNpbmcgYSBm
+dW5jdGlvbjoKPj4gICB8ICAgICAgLSBJZiB0aGUgZGlyZWN0IGNhbGxlZCB0cmFtcG9saW5lIGlz
+IHdpdGhpbiB0aGUgcmVhY2ggb2YgYSBCTAo+PiAgIHwgICAgICAgIGluc3RydWN0aW9uCj4+ICAg
+fCAgICAgICAgIC0+IHRoZSBmdHJhY2UgcGF0Y2hzaXRlIGp1bXBzIHRvIHRoZSB0cmFtcG9saW5l
+Cj4+ICAgfCAgICAgIC0gRWxzZQo+PiAgIHwgICAgICAgICAtPiB0aGUgZnRyYWNlIHBhdGNoc2l0
+ZSBqdW1wcyB0byB0aGUgZnRyYWNlX2NhbGxlciB0cmFtcG9saW5lIHdoaWNoCj4+ICAgfCAgICAg
+ICAgICAgIHJlYWRzIHRoZSBvcHMgcG9pbnRlciBpbiB0aGUgcGF0Y2hzaXRlIGFuZCBqdW1wcyB0
+byB0aGUgZGlyZWN0Cj4+ICAgfCAgICAgICAgICAgIGNhbGwgYWRkcmVzcyBzdG9yZWQgaW4gdGhl
+IG9wcwo+PiAgIHwgICAgLSBFbHNlCj4+ICAgfCAgICAgIC0+IHRoZSBmdHJhY2UgcGF0Y2hzaXRl
+IGp1bXBzIHRvIHRoZSBmdHJhY2VfY2FsbGVyIHRyYW1wb2xpbmUgYW5kIGl0cwo+PiAgIHwgICAg
+ICAgICBvcHMgbGl0ZXJhbCBwb2ludHMgdG8gZnRyYWNlX2xpc3Rfb3BzIHNvIGl0IGl0ZXJhdGVz
+IG92ZXIgYWxsCj4+ICAgfCAgICAgICAgIHJlZ2lzdGVyZWQgZnRyYWNlIG9wcywgaW5jbHVkaW5n
+IHRoZSBkaXJlY3QgY2FsbCBvcHMgYW5kIGNhbGxzIGl0cwo+PiAgIHwgICAgICAgICBjYWxsX2Rp
+cmVjdF9mdW5jcyBoYW5kbGVyIHdoaWNoIHN0b3JlcyB0aGUgZGlyZWN0IGNhbGxlZAo+PiAgIHwg
+ICAgICAgICB0cmFtcG9saW5lJ3MgYWRkcmVzcyBpbiB0aGUgZnRyYWNlX3JlZ3MgYW5kIHRoZSBm
+dHJhY2VfY2FsbGVyCj4+ICAgfCAgICAgICAgIHRyYW1wb2xpbmUgd2lsbCByZXR1cm4gdG8gdGhh
+dCBhZGRyZXNzIGluc3RlYWQgb2YgcmV0dXJuaW5nIHRvIHRoZQo+PiAgIHwgICAgICAgICB0cmFj
+ZWQgZnVuY3Rpb24KPj4KPj4gT24gUklTQy1WLCB3aGVyZSBhdWlwYy9qYWxyIGlzIHVzZWQsIHRo
+ZSBkaXJlY3QgY2FsbGVkIHRyYW1wb2xpbmUgd291bGQKPj4gYWx3YXlzIGJlIHJlYWNoYWJsZSwg
+YW5kIHRoZW4gZmlyc3QgRWxzZS1jbGF1c2Ugd291bGQgbmV2ZXIgYmUgZW50ZXJlZC4KPj4gVGhp
+cyBtZWFucyB0aGUgdGhlIHBlcmZvcm1hbmNlIGZvciBkaXJlY3QgY2FsbHMgd291bGQgYmUgdGhl
+IHNhbWUgYXMgdGhlCj4+IG9uZSB3ZSBoYXZlIHRvZGF5IChpLmUuIG5vIHJlZ3Jlc3Npb24hKS4K
+Pj4KPj4gUklTQy1WIGRvZXMgbGlrZSB4ODYgZG9lcyAoLWlzaCkgLS0gcGF0Y2ggbXVsdGlwbGUg
+aW5zdHJ1Y3Rpb25zLCBsb25nCj4+IHJlYWNoLgo+Pgo+PiBBcm02NCB1c2VzIENBTExfT1BTIGFu
+ZCBwYXRjaCBvbmUgaW5zdHJ1Y3Rpb24gQkwuCj4+Cj4+IE5vdywgd2l0aCB0aGlzIGJhY2tncm91
+bmQgaW4gbWluZCwgY29tcGFyZWQgdG8gd2hhdCB3ZSBoYXZlIHRvZGF5LAo+PiBDQUxMX09QUyB3
+b3VsZCBnaXZlIHVzIChhZ2FpbiBhc3N1bWluZyB3ZSdyZSB1c2luZyBpdCBmb3IgZGlyZWN0IGNh
+bGxzKToKPj4KPj4gKiBCZXR0ZXIgcGVyZm9ybWFuY2UgZm9yIHRyYWNlciBwZXItY2FsbCAoZmFz
+dGVyIG9wcyBsb29rdXApIEdPT0QKPgo+IF4gdGhpcyB3YXMgdGhlIG9ubHkgbW90aXZhdGlvbiBm
+b3IgbWUgdG8gaW1wbGVtZW50IHRoaXMgcGF0Y2guCj4KPiBJIGRvbid0IHRoaW5rIGltcGxlbWVu
+dGluZyBkaXJlY3QgY2FsbHMgb3ZlciBjYWxsIG9wcyBpcyBmcnVpdGZ1bCBmb3IKPiBSSVNDLVYg
+YmVjYXVzZSBvbmNlCj4gdGhlIGF1aXBjL2phbHIgY2FuIGJlIHBhdGNoZWQgYXRvbWljYWxseSwg
+dGhlIGRpcmVjdCBjYWxsIHRyYW1wb2xpbmUKPiBpcyBhbHdheXMgcmVhY2hhYmxlLgo+IFNvbHZp
+bmcgdGhlIGF0b21pYyB0ZXh0IHBhdGNoaW5nIHByb2JsZW0gd291bGQgYmUgZnVuISEgSSBhbSBl
+YWdlciB0bwo+IHNlZSBob3cgaXQgd2lsbCBiZQo+IHNvbHZlZC4KCkdpdmVuIHRoZSB1cGNvbWlu
+ZyBaamlkIHNwZWMsIHdlJ2xsIHNvb24gYmUgaW4gYSBtdWNoIGJldHRlciBwbGFjZSB3aGVyZQp3
+ZSBjYW4gcmVhc29uIGFib3V0IGNtb2R4LgoKPj4gKiBMYXJnZXIgdGV4dCBzaXplIChmdW5jdGlv
+biBhbGlnbm1lbnQgKyBleHRyYSBub3BzKSBCQUQKPj4gKiBTYW1lIGRpcmVjdCBjYWxsIHBlcmZv
+cm1hbmNlIE5FVVRSQUwKPj4gKiBTYW1lIGNvbXBsaWNhdGVkIHRleHQgcGF0Y2hpbmcgcmVxdWly
+ZWQgTkVVVFJBTAo+Pgo+PiBJdCB3b3VsZCBiZSBpbnRlcmVzdGluZyB0byBzZWUgaG93IHRoZSBw
+ZXItY2FsbCBwZXJmb3JtYW5jZSB3b3VsZAo+PiBpbXByb3ZlIG9uIHg4NiB3aXRoIENBTExfT1BT
+ISA7LSkKPgo+IElmIEkgcmVtZW1iZXIgZnJvbSBTdGV2ZW4ncyB0YWxrLCB4ODYgdXNlcyBkeW5h
+bWljYWxseSBhbGxvY2F0ZWQgdHJhbXBvbGluZXMKPiBmb3IgcGVyIGNhbGxzaXRlIHRyYWNlcnMs
+IHdvdWxkIENBTExfT1BTIHByb3ZpZGUgYmV0dGVyIHBlcmZvcm1hbmNlIHRoYW4gdGhhdD8KClBy
+b2JhYmx5IG5vdCwgYW5kIGl0IHdhcyByZWFsbHkgYSB0b25ndWUtaW4tY2hlZWsgY29tbWVudCAt
+LSBub3RoaW5nIEkKZW5jb3VyYWdlIHlvdSB0byBkbyEKCk5vdywgSSB0aGluayBhIGJldHRlciBh
+cHByb2FjaCBmb3IgUklTQy1WIHdvdWxkIGJlIGltcGxlbWVudGluZyB3aGF0IHg4NgpoYXMgKGFy
+Y2hfZnRyYWNlX3VwZGF0ZV90cmFtcG9saW5lKCkpLCByYXRoZXIgdGhhbiBDQUxMX09QUyBmb3Ig
+UklTQy1WLgoKVGhvdWdodHM/CgoKQmrDtnJuCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
