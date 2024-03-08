@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C9EBC54E4A
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2024 10:16:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 666F8C5475B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2024 10:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XPhTARyy0+EhK4dCeGmKqurZ0jyRKmimDQpX2PUYGWg=; b=WoB9gjB6kJdm5O
-	7qKweTmdKV44Y2vruOpVjQkx63gd3Yf/dw4pxEsameAZ+GPnCQxPHxsTve5mVvfj8oGS4srJ5DwZa
-	OEFMpUt16HEcd4KdJM4svIeUUfj4s14ekwOloxuVGUcsmXr0/ZuStwcb0Nd9Tag6QPrzGwUveUZGC
-	mTmXsrjFFr1Cx0GHRt5Wm4RM0bSgxTWJcNMIhBiQMk2vZQUIp/m5/wGhWeOxwcWTyi6LdvqNyN9Dh
-	fd9Vt0hWMa9VWwM7a0pbeDp95eb0WvXN3hN3Y1ThqQk9b2jK+08RFxEBw5PtlBB/FSGtctTsMxD3z
-	9G7+87PGow00eD58IfYQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xHQnCPbE8ba0cEKPptrjcMgyygXQlAga8DbMQGN5mtg=; b=jj9NxRW++Uy7I7DJSZljjHS9i0
+	78ZobS6OZdBb0zTFg/yv1tVrTo8d2AJ2jANBpPajrJNeMqqMfb4WnSZfzGmN5IK3SYMZEvFbDUVid
+	CoGnDq/ydbwExsF7pkT+Hqspm5nhqDorZuFhpokWSSuVskTcaxpTWNgCE6ySuqzW30pwWEE97f4eH
+	nEcWNAvszewkY+qNuRngiF9Efdas5+nf9A1JpEsDrNuGNOuPsA22YksyXXkbyjUTA63EjrOT+L9t6
+	iFiJzPqA5sjgVHQBw5Eo4Zo6ewV4UYrPCNS31pmIyuQG3BeiTHoFSM8ZOb3lMRSaX4+mAJ3gHvPSZ
+	aT4I3+4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1riXHE-00000008ivA-1hsD;
-	Fri, 08 Mar 2024 10:16:32 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1riXtX-00000008rHg-0U7h;
+	Fri, 08 Mar 2024 10:56:07 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1riXHA-00000008isl-3PKl
+	id 1riXtT-00000008rFb-3T3D
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Mar 2024 10:16:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id EB163CE2569;
-	Fri,  8 Mar 2024 10:16:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0534C43394;
-	Fri,  8 Mar 2024 10:16:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1709892986;
-	bh=sr34wHQR+GgEvXvJDRqEnla88k1cwdRe+zsxhA2KPFk=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=EJedCYhXdgxyKjMGasPYqipqYYnAZ65LM3kQ+MHKrTlT9ZQ6rN+iU1TjJzblviJlf
-	 Bp0hjP/p0J+cqLJIc+OoPiaXTDVcq3/JNysNf8vghkPPjzzT04VAd13OhUxFgtUkNO
-	 UZYcqCM7BCzjgfhi22rKrbkYVKw+9r8SjfIRYuNnE7FVE3I+drOz8NvYcWzQulUUL6
-	 VYrhEdiK/NfyqFLsn4IrrH6lKiiJNVx6HDIe6BNPQRVQkAUt+LbYtqAsbaT1uFhkcR
-	 Cm5AuETZI2VtDtymRdum/yjwzIB0IFswVkTbhlI18Jyd1jaTdIkL7kpFHYKmFDPpGx
-	 HYJ3JRpC1CkMQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Puranjay Mohan <puranjay12@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Steven Rostedt
- <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Sami Tolvanen <samitolvanen@google.com>,
- Guo Ren <guoren@kernel.org>, Ley Foon Tan <leyfoon.tan@starfivetech.com>,
- Deepak Gupta <debug@rivosinc.com>, Sia Jee Heng
- <jeeheng.sia@starfivetech.com>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, Song
- Shuai <suagrfillet@gmail.com>, =?utf-8?Q?Cl=C3=A9ment_L=C3=A9ger?=
- <cleger@rivosinc.com>, Al
- Viro <viro@zeniv.linux.org.uk>, Jisheng Zhang <jszhang@kernel.org>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] riscv: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
-In-Reply-To: <CANk7y0gbQdYw0V+CEv-z8wFGXnki8KSn4c8+i0iZ1UFNCg7wJQ@mail.gmail.com>
-References: <20240306165904.108141-1-puranjay12@gmail.com>
- <87ttlhdeqb.fsf@all.your.base.are.belong.to.us>
- <CANk7y0gbQdYw0V+CEv-z8wFGXnki8KSn4c8+i0iZ1UFNCg7wJQ@mail.gmail.com>
-Date: Fri, 08 Mar 2024 11:16:23 +0100
-Message-ID: <87jzmdowp4.fsf@all.your.base.are.belong.to.us>
+	Fri, 08 Mar 2024 10:56:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1709895363; x=1741431363;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vXkMUwP2iGNOK6Xz2bMKT4lqKsvSco6aYYOJrkgKviU=;
+  b=Z09BIoJdUdn1M+zhQ6zAe7LH1UtCrlK3Yv99RSb4sF2ICzxr8JS4eZDA
+   p6I4CODjOEB9KdEa/30GKbaZ9+httVXBAbTpkgFN3KYQW+DvZMCe70jFn
+   LIjLnoDMtURNW32E+Nj8yJpjyAQrs1yKjuKhLBTaI682VGL/QjRLvvnuO
+   ta4wKy+kTFDrK8ZMBqx1946DswGvdLoamQpaIdUd0Pz6ErYB/YtNkJj8L
+   8sZrTZtRq0AYJ0uJLDMZxxlcXvACsA3CAIQPlUV3/UtEp8NyTgPiYetZ2
+   3AW7GdzBVa4Foyw7WD3CNHK/aCO8ezKuqTBH9yEO49DQWSywOVOakeIUe
+   w==;
+X-CSE-ConnectionGUID: PZ5niwm1Rr+UCEdoA/m20g==
+X-CSE-MsgGUID: mFoPl2fYRp+cuyl44O5MCA==
+X-IronPort-AV: E=Sophos;i="6.07,109,1708412400"; 
+   d="asc'?scan'208";a="184667445"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 08 Mar 2024 03:55:58 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 8 Mar 2024 03:55:28 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Fri, 8 Mar 2024 03:55:26 -0700
+Date: Fri, 8 Mar 2024 10:54:41 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Subject: Re: [PATCH v8 4/4] riscv: Set unaligned access speed at compile time
+Message-ID: <20240308-docile-pretense-b44c3a84d8b2@wendy>
+References: <20240307-disable_misaligned_probe_config-v8-0-55d696cb398b@rivosinc.com>
+ <20240307-disable_misaligned_probe_config-v8-4-55d696cb398b@rivosinc.com>
+ <CAJM55Z9SYA=QMg0Wg-e0Q8nOTP6qSKkc+kxHMGOmmmWrEcVf7w@mail.gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <CAJM55Z9SYA=QMg0Wg-e0Q8nOTP6qSKkc+kxHMGOmmmWrEcVf7w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240308_021629_325070_9F84FAB7 
-X-CRM114-Status: GOOD (  28.57  )
+X-CRM114-CacheID: sfid-20240308_025604_152092_B7327C4F 
+X-CRM114-Status: GOOD (  33.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,95 +80,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
+Content-Type: multipart/mixed; boundary="===============7007463426693133514=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UHVyYW5qYXkgTW9oYW4gPHB1cmFuamF5MTJAZ21haWwuY29tPiB3cml0ZXM6Cgo+IEhpIEJqw7Zy
-biwKPgo+IE9uIFRodSwgTWFyIDcsIDIwMjQgYXQgODoyN+KAr1BNIEJqw7ZybiBUw7ZwZWwgPGJq
-b3JuQGtlcm5lbC5vcmc+IHdyb3RlOgo+Pgo+PiBQdXJhbmpheSEKPj4KPj4gUHVyYW5qYXkgTW9o
-YW4gPHB1cmFuamF5MTJAZ21haWwuY29tPiB3cml0ZXM6Cj4+Cj4+ID4gVGhpcyBwYXRjaCBlbmFi
-bGVzIHN1cHBvcnQgZm9yIERZTkFNSUNfRlRSQUNFX1dJVEhfQ0FMTF9PUFMgb24gUklTQy1WLgo+
-PiA+IFRoaXMgYWxsb3dzIGVhY2ggZnRyYWNlIGNhbGxzaXRlIHRvIHByb3ZpZGUgYW4gZnRyYWNl
-X29wcyB0byB0aGUgY29tbW9uCj4+ID4gZnRyYWNlIHRyYW1wb2xpbmUsIGFsbG93aW5nIGVhY2gg
-Y2FsbHNpdGUgdG8gaW52b2tlIGRpc3RpbmN0IHRyYWNlcgo+PiA+IGZ1bmN0aW9ucyB3aXRob3V0
-IHRoZSBuZWVkIHRvIGZhbGwgYmFjayB0byBsaXN0IHByb2Nlc3Npbmcgb3IgdG8KPj4gPiBhbGxv
-Y2F0ZSBjdXN0b20gdHJhbXBvbGluZXMgZm9yIGVhY2ggY2FsbHNpdGUuIFRoaXMgc2lnbmlmaWNh
-bnRseSBzcGVlZHMKPj4gPiB1cCBjYXNlcyB3aGVyZSBtdWx0aXBsZSBkaXN0aW5jdCB0cmFjZSBm
-dW5jdGlvbnMgYXJlIHVzZWQgYW5kIGNhbGxzaXRlcwo+PiA+IGFyZSBtb3N0bHkgdHJhY2VkIGJ5
-IGEgc2luZ2xlIHRyYWNlci4KPj4gPgo+PiA+IFRoZSBpZGVhIGFuZCBtb3N0IG9mIHRoZSBpbXBs
-ZW1lbnRhdGlvbiBpcyB0YWtlbiBmcm9tIHRoZSBBUk02NCdzCj4+ID4gaW1wbGVtZW50YXRpb24g
-b2YgdGhlIHNhbWUgZmVhdHVyZS4gVGhlIGlkZWEgaXMgdG8gcGxhY2UgYSBwb2ludGVyIHRvCj4+
-ID4gdGhlIGZ0cmFjZV9vcHMgYXMgYSBsaXRlcmFsIGF0IGEgZml4ZWQgb2Zmc2V0IGZyb20gdGhl
-IGZ1bmN0aW9uIGVudHJ5Cj4+ID4gcG9pbnQsIHdoaWNoIGNhbiBiZSByZWNvdmVyZWQgYnkgdGhl
-IGNvbW1vbiBmdHJhY2UgdHJhbXBvbGluZS4KPj4KPj4gTm90IHJlYWxseSBhIHJldmlldywgYnV0
-IHNvbWUgbW9yZSBiYWNrZ3JvdW5kOyBBbm90aGVyIHJhdGlvbmFsZSAob24tdG9wCj4+IG9mIHRo
-ZSBpbXByb3ZlZCBwZXItY2FsbCBwZXJmb3JtYW5jZSEpIGZvciBDQUxMX09QUyB3YXMgdG8gdXNl
-IGl0IHRvCj4+IGJ1aWxkIGZ0cmFjZSBkaXJlY3QgY2FsbCBzdXBwb3J0ICh3aGljaCBCUEYgdXNl
-cyBhIGxvdCEpLiBNYXJrLCBwbGVhc2UKPj4gY29ycmVjdCBtZSBpZiBJJ20gbHlpbmcgaGVyZSEK
-Pj4KPj4gT24gQXJtNjQsIENBTExfT1BTIG1ha2VzIGl0IHBvc3NpYmxlIHRvIGltcGxlbWVudCBk
-aXJlY3QgY2FsbHMsIHdoaWxlCj4+IG9ubHkgcGF0Y2hpbmcgb25lIEJMIGluc3RydWN0aW9uIC0t
-IG5pY2UhCj4+Cj4+IE9uIFJJU0MtViB3ZSBjYW5ub3QgdXNlIHVzZSB0aGUgc2FtZSBpZGVhcyBh
-cyBBcm02NCBzdHJhaWdodCBvZmYsCj4+IGJlY2F1c2UgdGhlIHJhbmdlIG9mIGphbCAoY29tcGFy
-ZSB0byBCTCkgaXMgc2ltcGx5IHRvbyBzaG9ydCAoKy8tMU0pLgo+PiBTbywgb24gUklTQy1WIHdl
-IG5lZWQgdG8gdXNlIGEgZnVsbCBhdWlwYy9qYWwgcGFpciAodGhlIHRleHQgcGF0Y2hpbmcKPj4g
-c3RvcnkgaXMgYW5vdGhlciBjaGFwdGVyLCBidXQgbGV0J3MgbGVhdmUgdGhhdCBhc2lkZSBmb3Ig
-bm93KS4gU2luY2Ugd2UKPj4gaGF2ZSB0byBwYXRjaCBtdWx0aXBsZSBpbnN0cnVjdGlvbnMsIHRo
-ZSBjbW9keCBzaXR1YXRpb24gZG9lc24ndCByZWFsbHkKPj4gaW1wcm92ZSB3aXRoIENBTExfT1BT
-Lgo+Pgo+PiBMZXQncyBzYXkgdGhhdCB3ZSBjb250aW51ZSBidWlsZGluZyBvbiB5b3VyIHBhdGNo
-IGFuZCBpbXBsZW1lbnQgZGlyZWN0Cj4+IGNhbGxzIG9uIENBTExfT1BTIGZvciBSSVNDLVYgYXMg
-d2VsbC4KPj4KPj4gRnJvbSBGbG9yZW50J3MgY29tbWl0IG1lc3NhZ2UgZm9yIGRpcmVjdCBjYWxs
-czoKPj4KPj4gICB8ICAgIFRoZXJlIGFyZSBhIGZldyBjYXNlcyB0byBkaXN0aW5ndWlzaDoKPj4g
-ICB8ICAgIC0gSWYgYSBkaXJlY3QgY2FsbCBvcHMgaXMgdGhlIG9ubHkgb25lIHRyYWNpbmcgYSBm
-dW5jdGlvbjoKPj4gICB8ICAgICAgLSBJZiB0aGUgZGlyZWN0IGNhbGxlZCB0cmFtcG9saW5lIGlz
-IHdpdGhpbiB0aGUgcmVhY2ggb2YgYSBCTAo+PiAgIHwgICAgICAgIGluc3RydWN0aW9uCj4+ICAg
-fCAgICAgICAgIC0+IHRoZSBmdHJhY2UgcGF0Y2hzaXRlIGp1bXBzIHRvIHRoZSB0cmFtcG9saW5l
-Cj4+ICAgfCAgICAgIC0gRWxzZQo+PiAgIHwgICAgICAgICAtPiB0aGUgZnRyYWNlIHBhdGNoc2l0
-ZSBqdW1wcyB0byB0aGUgZnRyYWNlX2NhbGxlciB0cmFtcG9saW5lIHdoaWNoCj4+ICAgfCAgICAg
-ICAgICAgIHJlYWRzIHRoZSBvcHMgcG9pbnRlciBpbiB0aGUgcGF0Y2hzaXRlIGFuZCBqdW1wcyB0
-byB0aGUgZGlyZWN0Cj4+ICAgfCAgICAgICAgICAgIGNhbGwgYWRkcmVzcyBzdG9yZWQgaW4gdGhl
-IG9wcwo+PiAgIHwgICAgLSBFbHNlCj4+ICAgfCAgICAgIC0+IHRoZSBmdHJhY2UgcGF0Y2hzaXRl
-IGp1bXBzIHRvIHRoZSBmdHJhY2VfY2FsbGVyIHRyYW1wb2xpbmUgYW5kIGl0cwo+PiAgIHwgICAg
-ICAgICBvcHMgbGl0ZXJhbCBwb2ludHMgdG8gZnRyYWNlX2xpc3Rfb3BzIHNvIGl0IGl0ZXJhdGVz
-IG92ZXIgYWxsCj4+ICAgfCAgICAgICAgIHJlZ2lzdGVyZWQgZnRyYWNlIG9wcywgaW5jbHVkaW5n
-IHRoZSBkaXJlY3QgY2FsbCBvcHMgYW5kIGNhbGxzIGl0cwo+PiAgIHwgICAgICAgICBjYWxsX2Rp
-cmVjdF9mdW5jcyBoYW5kbGVyIHdoaWNoIHN0b3JlcyB0aGUgZGlyZWN0IGNhbGxlZAo+PiAgIHwg
-ICAgICAgICB0cmFtcG9saW5lJ3MgYWRkcmVzcyBpbiB0aGUgZnRyYWNlX3JlZ3MgYW5kIHRoZSBm
-dHJhY2VfY2FsbGVyCj4+ICAgfCAgICAgICAgIHRyYW1wb2xpbmUgd2lsbCByZXR1cm4gdG8gdGhh
-dCBhZGRyZXNzIGluc3RlYWQgb2YgcmV0dXJuaW5nIHRvIHRoZQo+PiAgIHwgICAgICAgICB0cmFj
-ZWQgZnVuY3Rpb24KPj4KPj4gT24gUklTQy1WLCB3aGVyZSBhdWlwYy9qYWxyIGlzIHVzZWQsIHRo
-ZSBkaXJlY3QgY2FsbGVkIHRyYW1wb2xpbmUgd291bGQKPj4gYWx3YXlzIGJlIHJlYWNoYWJsZSwg
-YW5kIHRoZW4gZmlyc3QgRWxzZS1jbGF1c2Ugd291bGQgbmV2ZXIgYmUgZW50ZXJlZC4KPj4gVGhp
-cyBtZWFucyB0aGUgdGhlIHBlcmZvcm1hbmNlIGZvciBkaXJlY3QgY2FsbHMgd291bGQgYmUgdGhl
-IHNhbWUgYXMgdGhlCj4+IG9uZSB3ZSBoYXZlIHRvZGF5IChpLmUuIG5vIHJlZ3Jlc3Npb24hKS4K
-Pj4KPj4gUklTQy1WIGRvZXMgbGlrZSB4ODYgZG9lcyAoLWlzaCkgLS0gcGF0Y2ggbXVsdGlwbGUg
-aW5zdHJ1Y3Rpb25zLCBsb25nCj4+IHJlYWNoLgo+Pgo+PiBBcm02NCB1c2VzIENBTExfT1BTIGFu
-ZCBwYXRjaCBvbmUgaW5zdHJ1Y3Rpb24gQkwuCj4+Cj4+IE5vdywgd2l0aCB0aGlzIGJhY2tncm91
-bmQgaW4gbWluZCwgY29tcGFyZWQgdG8gd2hhdCB3ZSBoYXZlIHRvZGF5LAo+PiBDQUxMX09QUyB3
-b3VsZCBnaXZlIHVzIChhZ2FpbiBhc3N1bWluZyB3ZSdyZSB1c2luZyBpdCBmb3IgZGlyZWN0IGNh
-bGxzKToKPj4KPj4gKiBCZXR0ZXIgcGVyZm9ybWFuY2UgZm9yIHRyYWNlciBwZXItY2FsbCAoZmFz
-dGVyIG9wcyBsb29rdXApIEdPT0QKPgo+IF4gdGhpcyB3YXMgdGhlIG9ubHkgbW90aXZhdGlvbiBm
-b3IgbWUgdG8gaW1wbGVtZW50IHRoaXMgcGF0Y2guCj4KPiBJIGRvbid0IHRoaW5rIGltcGxlbWVu
-dGluZyBkaXJlY3QgY2FsbHMgb3ZlciBjYWxsIG9wcyBpcyBmcnVpdGZ1bCBmb3IKPiBSSVNDLVYg
-YmVjYXVzZSBvbmNlCj4gdGhlIGF1aXBjL2phbHIgY2FuIGJlIHBhdGNoZWQgYXRvbWljYWxseSwg
-dGhlIGRpcmVjdCBjYWxsIHRyYW1wb2xpbmUKPiBpcyBhbHdheXMgcmVhY2hhYmxlLgo+IFNvbHZp
-bmcgdGhlIGF0b21pYyB0ZXh0IHBhdGNoaW5nIHByb2JsZW0gd291bGQgYmUgZnVuISEgSSBhbSBl
-YWdlciB0bwo+IHNlZSBob3cgaXQgd2lsbCBiZQo+IHNvbHZlZC4KCkdpdmVuIHRoZSB1cGNvbWlu
-ZyBaamlkIHNwZWMsIHdlJ2xsIHNvb24gYmUgaW4gYSBtdWNoIGJldHRlciBwbGFjZSB3aGVyZQp3
-ZSBjYW4gcmVhc29uIGFib3V0IGNtb2R4LgoKPj4gKiBMYXJnZXIgdGV4dCBzaXplIChmdW5jdGlv
-biBhbGlnbm1lbnQgKyBleHRyYSBub3BzKSBCQUQKPj4gKiBTYW1lIGRpcmVjdCBjYWxsIHBlcmZv
-cm1hbmNlIE5FVVRSQUwKPj4gKiBTYW1lIGNvbXBsaWNhdGVkIHRleHQgcGF0Y2hpbmcgcmVxdWly
-ZWQgTkVVVFJBTAo+Pgo+PiBJdCB3b3VsZCBiZSBpbnRlcmVzdGluZyB0byBzZWUgaG93IHRoZSBw
-ZXItY2FsbCBwZXJmb3JtYW5jZSB3b3VsZAo+PiBpbXByb3ZlIG9uIHg4NiB3aXRoIENBTExfT1BT
-ISA7LSkKPgo+IElmIEkgcmVtZW1iZXIgZnJvbSBTdGV2ZW4ncyB0YWxrLCB4ODYgdXNlcyBkeW5h
-bWljYWxseSBhbGxvY2F0ZWQgdHJhbXBvbGluZXMKPiBmb3IgcGVyIGNhbGxzaXRlIHRyYWNlcnMs
-IHdvdWxkIENBTExfT1BTIHByb3ZpZGUgYmV0dGVyIHBlcmZvcm1hbmNlIHRoYW4gdGhhdD8KClBy
-b2JhYmx5IG5vdCwgYW5kIGl0IHdhcyByZWFsbHkgYSB0b25ndWUtaW4tY2hlZWsgY29tbWVudCAt
-LSBub3RoaW5nIEkKZW5jb3VyYWdlIHlvdSB0byBkbyEKCk5vdywgSSB0aGluayBhIGJldHRlciBh
-cHByb2FjaCBmb3IgUklTQy1WIHdvdWxkIGJlIGltcGxlbWVudGluZyB3aGF0IHg4NgpoYXMgKGFy
-Y2hfZnRyYWNlX3VwZGF0ZV90cmFtcG9saW5lKCkpLCByYXRoZXIgdGhhbiBDQUxMX09QUyBmb3Ig
-UklTQy1WLgoKVGhvdWdodHM/CgoKQmrDtnJuCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+--===============7007463426693133514==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="nNYYXJCx7WAmCO2a"
+Content-Disposition: inline
+
+--nNYYXJCx7WAmCO2a
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Mar 08, 2024 at 01:52:24AM -0800, Emil Renner Berthing wrote:
+> Charlie Jenkins wrote:
+
+> >  config RISCV_MISALIGNED
+> > -	bool "Support misaligned load/store traps for kernel and userspace"
+> > +	bool
+> >  	select SYSCTL_ARCH_UNALIGN_ALLOW
+> > -	default y
+> >  	help
+> > -	  Say Y here if you want the kernel to embed support for misaligned
+> > -	  load/store for both kernel and userspace. When disable, misaligned
+> > -	  accesses will generate SIGBUS in userspace and panic in kernel.
+> > +	  Embed support for misaligned load/store for both kernel and userspa=
+ce.
+> > +	  When disabled, misaligned accesses will generate SIGBUS in userspace
+> > +	  and panic in the kernel.
+>=20
+> Hmm.. this is *may* generate SIGBUS in userspace and panic the kernel. Th=
+e CPU
+> could support unaligned access natively or there might be a handler in M-=
+mode,
+> right?
+
+Correct. The last sentence could become "When disabled, and there is no
+support in hardware or firmware, unsigned accesses will...". That said,
+this option is no longer user visible, so we could really simplify the
+hell out of this option to just mention that it controls building the
+in-kernel emulator.
+
+> > +choice
+> > +	prompt "Unaligned Accesses Support"
+> > +	default RISCV_PROBE_UNALIGNED_ACCESS
+> > +	help
+> > +	  This determines the level of support for unaligned accesses. This
+> > +	  information is used by the kernel to perform optimizations. It is a=
+lso
+> > +	  exposed to user space via the hwprobe syscall. The hardware will be
+> > +	  probed at boot by default.
+> > +
+> > +config RISCV_PROBE_UNALIGNED_ACCESS
+> > +	bool "Probe for hardware unaligned access support"
+> > +	select RISCV_MISALIGNED
+> > +	help
+> > +	  During boot, the kernel will run a series of tests to determine the
+> > +	  speed of unaligned accesses. This probing will dynamically determine
+> > +	  the speed of unaligned accesses on the underlying system. If unalig=
+ned
+> > +	  memory accesses trap into the kernel as they are not supported by t=
+he
+> > +	  system, the kernel will emulate the unaligned accesses to preserve =
+the
+> > +	  UABI.
+> > +
+> > +config RISCV_EMULATED_UNALIGNED_ACCESS
+> > +	bool "Emulate unaligned access where system support is missing"
+> > +	select RISCV_MISALIGNED
+> > +	help
+> > +	  If unaligned memory accesses trap into the kernel as they are not
+> > +	  supported by the system, the kernel will emulate the unaligned
+> > +	  accesses to preserve the UABI. When the underlying system does supp=
+ort
+> > +	  unaligned accesses, the unaligned accesses are assumed to be slow.
+>=20
+> It's still not quite clear to me when you'd want to choose this over prob=
+ing
+> above. Assuming the probe measures correctly this can only result in a ke=
+rnel
+> that behaves the same or slower than with the option above, right?
+
+Aye, mostly the same - some people don't want the boot-time overhead
+of actually running the profiling code, so this option is for them.
+Maybe that's not such a big deal anymore with the improvements to do it
+in parallel, but given how bad performance on some of the systems is
+when firmware does the emulation, it is definitely still noticeable.
+I know we definitely have customers that care about their boot time very
+strongly, so I can imagine they'd be turning this off.
+
+> > +
+> > +config RISCV_SLOW_UNALIGNED_ACCESS
+> > +	bool "Assume the system supports slow unaligned memory accesses"
+> > +	depends on NONPORTABLE
+> > +	help
+> > +	  Assume that the system supports slow unaligned memory accesses. The
+> > +	  kernel and userspace programs may not be able to run at all on syst=
+ems
+> > +	  that do not support unaligned memory accesses.
+>=20
+> Again you're just explicitly saying no to the optimizations the kernel mi=
+ght do
+> if it detects fast unaligned access, only here you'll also crash if they'=
+re not
+> handled by the CPU or M-mode. Why would you want that?
+>=20
+> I'm probably missing something, but the only reason I can think of is if =
+you
+> want build a really small kernel and save the few bytes for the handler a=
+nd
+> probing code.
+
+Aye, just to allow you to disable the in-kernel emulator. That's
+currently a choice that is presented to people, so this option preserves
+that. IMO this is by far the least useful option and is locked behind
+NONPORTABLE anyway. Maybe we could delete it, and if someone really wants
+it, it would not be all that much of a hassle to add back in the future?
+
+--nNYYXJCx7WAmCO2a
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZerucQAKCRB4tDGHoIJi
+0mYvAQDA4Z//e444zAvLcCQ11CntZbnOPnEpaTmVf2TcOSn8FQD/bWM68sqlUJ8F
+8ndc7uMmJh0Lk1xAl9DJK/ONWQOWiwU=
+=4z8b
+-----END PGP SIGNATURE-----
+
+--nNYYXJCx7WAmCO2a--
+
+
+--===============7007463426693133514==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7007463426693133514==--
+
