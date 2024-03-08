@@ -4,93 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BBE6C54E4A
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2024 13:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1B0C5475B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2024 14:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=GUz1wBamHXoJ9Xtb1BL01WN3/AAqIuOqPWXF5+CoYTQ=; b=MvsCKzh+BdtnaM5QO/7L1kxaEY
-	f9Z79lprJWFsZzY9tszIJs8AGjmmrlkyJ5HuwBdYk5YxpnSwnwEeZ70b80fyyh3tiIuM53zF5whNp
-	v0zJVlwAO0HstdHkRwwj94vkzMUHKYKVdkU/wXJtOSPQvKQ+d48b9ByY6wCMLWCTLPOPjTzOpsbhK
-	Oy/geb3F46Nzt80Pg/ewunDOV2wBGWxQt6gHVagU2XSFQcfnCzPJSuoB8ON3t7YT9MU6pFP6OHmkj
-	aMp/S7QuNMphxR1wYwVhSwNsSzudamD4ZP9oHDGvdhnO6qU7jyu9xkWHAb+iXzVOgLNK4zxZqMoId
-	TA2/KyVQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jBie4XLKs36O1yJRyT9puzlBwIGCzpkhF21D96fJEzY=; b=KRqQ3fdtDKyoZm
+	KGugqcB2LLIgcdKQrbKb9gLChypqG6jeoCaWdengqzlVHSWOQzu+bURyFsrPZSvSnbuYGBvC2ercP
+	1QR6oPtMpDFfD0mwbCKRxHVYRMYSsDMHDJzSRALAJvbsXDjtFGstImkRjDar5yvgrCKzjl5gC2CjG
+	gT7BgU3PaZEgxey5QrnTM8D2w5qz59T5SgMhKgxeZUCS/yCdDzjUFUIBpNC2vkEzbBwV9cYwpcWJb
+	ugn6lTh1thh1WRlZA78T6IqwVEzof0y6Ut9H1NJF93+7CZ+3bp4hx/a+azkIOz2NI0dqBBBf13g2c
+	XNDQvbeU1uIg7R9c+a+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1riaNV-00000009KAR-1L84;
-	Fri, 08 Mar 2024 13:35:13 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1riayN-00000009Usy-1Eq8;
+	Fri, 08 Mar 2024 14:13:19 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1riaNR-00000009K9V-3R14
+	id 1riayK-00000009Ur6-0aV2
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Mar 2024 13:35:11 +0000
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 6D61F4112B
-	for <linux-riscv@lists.infradead.org>; Fri,  8 Mar 2024 13:35:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1709904906;
-	bh=KfFTaYyXhA0LmPtbUGAWhlL1dAhtAs2GiC0vdA6Ii4k=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=Ci5TbygRVz9bqLMCHO6UanZTU+MYD3PswDmMZ6+2OYZUs3d/P+AwXdMZTjw1+jiT3
-	 ufSeSn7gAaEFPZw8+UJ1wNNTTtjQ2BR+k5/gI51OXkFZOmq9+J42AdzbcPvJgIcGpU
-	 c5gV2nqpl+Qp/u/iUvuA2/NkpqEg+lkPG50X3BtUNFvR5zD8thkH97hfXqqRtI9DS2
-	 zIE+kv1okDkAJytZR80q7kMXF+SC8QN7M3l+DZQ4tso3IuQQvyqzOFkQ8bpmZSjG2v
-	 x8ytvCdkQNd034YGJuyhTqfOB4UlplYM6xNoRvVy9DMR6ofkSiUofD6jd9RvW7Ca5f
-	 bRn1M5cZsvkvQ==
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-42eea8e559fso6602551cf.3
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Mar 2024 05:35:06 -0800 (PST)
+	Fri, 08 Mar 2024 14:13:17 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-512ed314881so2029130e87.2
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Mar 2024 06:13:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1709907194; x=1710511994; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=TNAmhFzSeaD6wR6KJ/UAf/8iGn+xyB1175NpyMI2DQU=;
+        b=C6sCoN7j1tbAo90fSui5bOThtuyp/qj0QvgxxkEfSDz2tZ+NUdgFct3Pmy96RTDSDZ
+         MTXwvp++8+6ED62vNyQ5cKYxTImUJ75Fnu488SrjEuTy1WbfMq7zLL/sFseEoehaFQKM
+         c0DFW5z2SDjpqyG5v6GdzU+xiBlbnkVSB14XHtxpbhaszoqZAmjM37mWPMI3owu1h8MG
+         WQAexY6wNOZiMOjERYO4mdC2Ws4ZQ+FEkQ/J1yu6nFPgh9KOcBT8QvY7J1vaxKo+53yV
+         NbcKnvB9oO9/gJP5cxbvitKoqaKx0Ys8h9OcnPgMki+fQgoaDBf6IOZS/lhcJ8q9FLau
+         UP/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709904904; x=1710509704;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KfFTaYyXhA0LmPtbUGAWhlL1dAhtAs2GiC0vdA6Ii4k=;
-        b=BAj+22pTvhrVFrf9SAYGWLqPwC66c8S4bZFROO7/MKdYag2FVGfwPEd/zz/hX6m2Ca
-         JTfOk5jUZp6khvHgyhbIecn564dHdi05lHkeFjc5ps335/xeqifdhVICYVvm+U6JLQsJ
-         GR2Ik2DzQ2UDfL4/YfsgePZMx6HGqsZw6Kp2F+j2ODjGPSbSMZFZ+/IBZfP+/7nwgWgG
-         EQl2ikf1/+sPvIQhbKQC/OYbpvRTycnO9E8URSUku0UCpFlwoBGqROwukqLjw8LNbfEj
-         QjYn2+OcD7f6B22OhaeOBnLuDjiRPJB2urIiZBZICAoMNVLxUoIMT03IpPqjfJIQ5KRh
-         +l+A==
-X-Forwarded-Encrypted: i=1; AJvYcCX93p7NRIIgjpkk3WE1rA6JME1xNZv4R8p+wYUWfY30LyF4Zhuy76OHgKaIy3LGYIjv6jy/5VaebMEEUZfWM4FjkKRcaqzeYyoZLcMTmmF2
-X-Gm-Message-State: AOJu0YxHYes7wlzhvg4rtroSCDWGUnf4ioVEbi7cJ5nYM/I1OMwpAsgN
-	Y3jKqC88e/MqylHNPpoqLTmrj3diFGGfRbaQTIiVrRMqefFpjIgvqmp2ak4miBiCthL+V+uZKyF
-	Nj83AO/AH3vE/vlU7++NYqd64WsC900/vM8sT5TkNr6kT12U0tFlpZlEAki8xOVUHvQ+hhODAMO
-	PYzNXyKsTL1xNLMN/EnTKehSR8asWBzonUDetUHwCsrCyXUWByHCBic6iW
-X-Received: by 2002:ac8:5792:0:b0:42e:d641:b17c with SMTP id v18-20020ac85792000000b0042ed641b17cmr12663734qta.62.1709904903816;
-        Fri, 08 Mar 2024 05:35:03 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGFWPweaTc5T39BhG+37jBadbuOfJ1uLHa+LrhI0fCpfgsFaZBrzlrJv3P3sJsRMiH/4i9DBQ2T5AYcKlGfOrs=
-X-Received: by 2002:ac8:5792:0:b0:42e:d641:b17c with SMTP id
- v18-20020ac85792000000b0042ed641b17cmr12663713qta.62.1709904903530; Fri, 08
- Mar 2024 05:35:03 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 8 Mar 2024 05:35:03 -0800
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20240308-docile-pretense-b44c3a84d8b2@wendy>
-References: <20240307-disable_misaligned_probe_config-v8-0-55d696cb398b@rivosinc.com>
- <20240307-disable_misaligned_probe_config-v8-4-55d696cb398b@rivosinc.com>
- <CAJM55Z9SYA=QMg0Wg-e0Q8nOTP6qSKkc+kxHMGOmmmWrEcVf7w@mail.gmail.com> <20240308-docile-pretense-b44c3a84d8b2@wendy>
-Mime-Version: 1.0
-Date: Fri, 8 Mar 2024 05:35:03 -0800
-Message-ID: <CAJM55Z8EX5D0HZ1xKTkaQEL1RF46DrBynUoTSMP5q8kmDGY_=w@mail.gmail.com>
-Subject: Re: [PATCH v8 4/4] riscv: Set unaligned access speed at compile time
-To: Conor Dooley <conor.dooley@microchip.com>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@kernel.org>, 
-	Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	=?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
-	linux-riscv@lists.infradead.org, Charles Lohr <lohr85@gmail.com>
+        d=1e100.net; s=20230601; t=1709907194; x=1710511994;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TNAmhFzSeaD6wR6KJ/UAf/8iGn+xyB1175NpyMI2DQU=;
+        b=TJQm8X8g/LeTbnIswE6tS0TV1AXNDRfbcmCAObwrIkTS5MpFI0tOKmelPyaa+Fp/Xn
+         PXEBCkZS69dAKbC/hWRYtg3P+Bz7Dv21DBmoRu0+HhlSauEiudMUCt3UgQrFY9FLBsgK
+         IgbgOU6JpL8AVdC3tzTJzgRxSpY4cp7KRQWgWTGDmx0tFzyBwotok/NAX7PqOfwPto6K
+         MygODrvqb9tZG/nwVSYaMrdMM2knm36R2ex1GcLTZyjYWShVy8nw72al1c2kFMO+UJ5e
+         N6xby+km9mbQEpg0Nq04VQhJcnFHdPil8V1pqePSHY8y+tXd1+F1m00FGSNJ+dAiX+Pc
+         xgeA==
+X-Forwarded-Encrypted: i=1; AJvYcCWvceLoKHmYQ2E2bGOejpGvsEs/nXW6idsuSygz7o32R1FxHD5hGy8pxZrdjl8l5+uo4kfoRjb/foG0V1Iaq0T+Q+2UQulWuk7q746XUNP3
+X-Gm-Message-State: AOJu0YzN4WKQqLhJ+Zmzjle1vpeh6ILSOnO8t1M578qHlcLeF1o9glc5
+	lPkCdIv3v5pUXj7bJoBNoMOWzoQv5O86D8UMbQLs93/5KlG9s9ArRVLQAsj1nTwjWlzK5VtXL1v
+	kPRwCWIbXmTsaoVC1LhJBPwaz+usn7Ukxa1fhvq99IV0=
+X-Google-Smtp-Source: AGHT+IEnpibiq1oTffEeY4LuZ+IiCvylw5bnXg1+82BI68jyD2wQItjBXAeOd2L90D++pDldD8hIGtGaEgQPFmXHTDw=
+X-Received: by 2002:a05:6512:3584:b0:513:8102:1a1e with SMTP id
+ m4-20020a056512358400b0051381021a1emr2786397lfr.50.1709907193455; Fri, 08 Mar
+ 2024 06:13:13 -0800 (PST)
+MIME-Version: 1.0
+References: <20240306165904.108141-1-puranjay12@gmail.com> <87ttlhdeqb.fsf@all.your.base.are.belong.to.us>
+ <CANk7y0gbQdYw0V+CEv-z8wFGXnki8KSn4c8+i0iZ1UFNCg7wJQ@mail.gmail.com> <CABgGipUJU_joVOjPi4WZ4JJM72zaSrCA1QUAaP8hob3+LXkS0g@mail.gmail.com>
+In-Reply-To: <CABgGipUJU_joVOjPi4WZ4JJM72zaSrCA1QUAaP8hob3+LXkS0g@mail.gmail.com>
+From: Puranjay Mohan <puranjay12@gmail.com>
+Date: Fri, 8 Mar 2024 15:13:02 +0100
+Message-ID: <CANk7y0hdntnN8x8keDvbQPfr1LLJwRSH5BX0dyC1tvL94sqn7A@mail.gmail.com>
+Subject: Re: [RFC PATCH] riscv: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Steven Rostedt <rostedt@goodmis.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Sami Tolvanen <samitolvanen@google.com>, Guo Ren <guoren@kernel.org>, 
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>, Deepak Gupta <debug@rivosinc.com>, 
+	Sia Jee Heng <jeeheng.sia@starfivetech.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Song Shuai <suagrfillet@gmail.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
+	Al Viro <viro@zeniv.linux.org.uk>, Jisheng Zhang <jszhang@kernel.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240308_053510_291043_CC4B646B 
-X-CRM114-Status: GOOD (  38.92  )
+X-CRM114-CacheID: sfid-20240308_061316_206026_8DE0DB97 
+X-CRM114-Status: GOOD (  22.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,105 +99,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Conor Dooley wrote:
-> On Fri, Mar 08, 2024 at 01:52:24AM -0800, Emil Renner Berthing wrote:
-> > Charlie Jenkins wrote:
->
-> > >  config RISCV_MISALIGNED
-> > > -	bool "Support misaligned load/store traps for kernel and userspace"
-> > > +	bool
-> > >  	select SYSCTL_ARCH_UNALIGN_ALLOW
-> > > -	default y
-> > >  	help
-> > > -	  Say Y here if you want the kernel to embed support for misaligned
-> > > -	  load/store for both kernel and userspace. When disable, misaligned
-> > > -	  accesses will generate SIGBUS in userspace and panic in kernel.
-> > > +	  Embed support for misaligned load/store for both kernel and userspace.
-> > > +	  When disabled, misaligned accesses will generate SIGBUS in userspace
-> > > +	  and panic in the kernel.
-> >
-> > Hmm.. this is *may* generate SIGBUS in userspace and panic the kernel. The CPU
-> > could support unaligned access natively or there might be a handler in M-mode,
-> > right?
->
-> Correct. The last sentence could become "When disabled, and there is no
-> support in hardware or firmware, unsigned accesses will...". That said,
-> this option is no longer user visible, so we could really simplify the
-> hell out of this option to just mention that it controls building the
-> in-kernel emulator.
->
-> > > +choice
-> > > +	prompt "Unaligned Accesses Support"
-> > > +	default RISCV_PROBE_UNALIGNED_ACCESS
-> > > +	help
-> > > +	  This determines the level of support for unaligned accesses. This
-> > > +	  information is used by the kernel to perform optimizations. It is also
-> > > +	  exposed to user space via the hwprobe syscall. The hardware will be
-> > > +	  probed at boot by default.
-> > > +
-> > > +config RISCV_PROBE_UNALIGNED_ACCESS
-> > > +	bool "Probe for hardware unaligned access support"
-> > > +	select RISCV_MISALIGNED
-> > > +	help
-> > > +	  During boot, the kernel will run a series of tests to determine the
-> > > +	  speed of unaligned accesses. This probing will dynamically determine
-> > > +	  the speed of unaligned accesses on the underlying system. If unaligned
-> > > +	  memory accesses trap into the kernel as they are not supported by the
-> > > +	  system, the kernel will emulate the unaligned accesses to preserve the
-> > > +	  UABI.
-> > > +
-> > > +config RISCV_EMULATED_UNALIGNED_ACCESS
-> > > +	bool "Emulate unaligned access where system support is missing"
-> > > +	select RISCV_MISALIGNED
-> > > +	help
-> > > +	  If unaligned memory accesses trap into the kernel as they are not
-> > > +	  supported by the system, the kernel will emulate the unaligned
-> > > +	  accesses to preserve the UABI. When the underlying system does support
-> > > +	  unaligned accesses, the unaligned accesses are assumed to be slow.
-> >
-> > It's still not quite clear to me when you'd want to choose this over probing
-> > above. Assuming the probe measures correctly this can only result in a kernel
-> > that behaves the same or slower than with the option above, right?
->
-> Aye, mostly the same - some people don't want the boot-time overhead
-> of actually running the profiling code, so this option is for them.
-> Maybe that's not such a big deal anymore with the improvements to do it
-> in parallel, but given how bad performance on some of the systems is
-> when firmware does the emulation, it is definitely still noticeable.
-> I know we definitely have customers that care about their boot time very
-> strongly, so I can imagine they'd be turning this off.
+Hi Andy,
 
-Ah, that makes sense. So maybe a help text more along the lines of "Disable
-probing and optimizations for CPUs with fast unaligned memory access" would be
-a better description of this choice?
 
-> > > +
-> > > +config RISCV_SLOW_UNALIGNED_ACCESS
-> > > +	bool "Assume the system supports slow unaligned memory accesses"
-> > > +	depends on NONPORTABLE
-> > > +	help
-> > > +	  Assume that the system supports slow unaligned memory accesses. The
-> > > +	  kernel and userspace programs may not be able to run at all on systems
-> > > +	  that do not support unaligned memory accesses.
 > >
-> > Again you're just explicitly saying no to the optimizations the kernel might do
-> > if it detects fast unaligned access, only here you'll also crash if they're not
-> > handled by the CPU or M-mode. Why would you want that?
-> >
-> > I'm probably missing something, but the only reason I can think of is if you
-> > want build a really small kernel and save the few bytes for the handler and
-> > probing code.
+> > I don't think implementing direct calls over call ops is fruitful for
+> > RISC-V because once
+> > the auipc/jalr can be patched atomically, the direct call trampoline
+> > is always reachable.
 >
-> Aye, just to allow you to disable the in-kernel emulator. That's
-> currently a choice that is presented to people, so this option preserves
-> that. IMO this is by far the least useful option and is locked behind
-> NONPORTABLE anyway. Maybe we could delete it, and if someone really wants
-> it, it would not be all that much of a hassle to add back in the future?
+> Yes, the auipc/jalr instruction pair can be patched atomically just as
+> long as their size is naturally aligned on. However, we cannot prevent
+> 2 instructions from being fetched atomically :P
+>
+> > Solving the atomic text patching problem would be fun!! I am eager to
+> > see how it will be
+> > solved.
+>
+> I have a patch series to solve the atomic code patching issue, which I
+> am about to respin [1]. The idea is to solve it with yet another layer
+> of indirection. We add a 8-B aligned space at each function entry. The
+> space is a pointer to the ftrace entry. During boot, each function
+> entry code is updated to perform a load and then take the jump from
+> the 8-B space. When ftrace is disabled, we patch the first 4B-aligned
+> instruction to a jump so as to skip the ftrace entry.
+>
+> We are still discussing with Alex to see if we have a better way to do
+> it. If not then I'd update the patchset and re-send it. There's a
+> pending improvement in the series to reduce complexity. The 8-B
+> aligned space can be added before the function entry (just like your
+> patch).
 
-Yeah, if noone really needs this less config options is better, but I don't
-feel strongly about this option either way.
+I briefly looked at the series and it looks promising. It looks similar to
+how BPF programs jump to trampolines on ARM64. If the choice has to
+be made about keeping the 8-B aligned space below or above the
+function entry and both choices are viable then I would prefer keeping
+the 8-B space below the function entry.
 
-/Emil
+I am saying this because when nops are added above the function entry
+clang's kcfi[1] doesn't work properly.
+
+Thanks,
+Puranjay
+
+[1] https://clang.llvm.org/docs/ControlFlowIntegrity.html#fsanitize-kcfi
 
 _______________________________________________
 linux-riscv mailing list
