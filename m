@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB74C54798
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Mar 2024 09:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE3EC54798
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Mar 2024 09:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mwo2PcrwlnxAoclWHNmuk/QZITfJ/St/PFp2iBju758=; b=yjVdcAPOPwQMlq
-	Pk7idNdp5Hevaob6DdrNGlnR/noIG3OPbt67igjYus9BnBSU7GJFcLTOcEB+tZbDaMIT2SknYI/Qx
-	YNjol5vxXTs1+MoQ/nVzKRoiziYw6AhVEfI+i8l2LyBASTL9WOJ+psEthGHFvmrXpvKT6j3tlm32H
-	cYD//PgDutnp8t1Ybxuzz0XHFdjTmKrlU+E+p2tRPPRNAH4/8XtfQGq/RtC7leCFrHEBIzLl08fRV
-	Vh12fvaRaRSllM2KDQ9MaXAzBsT8YnDIhcArNltfPNAf4Cc8fF3ib2A6x4aGsuFPM9BWUTcp+xvIO
-	cNdO9er9nEjALYtNY1ew==;
+	List-Owner; bh=B5PT5JQm058TT2TqDwJiEnDf1h8sTXwPBqC+5vJN8yo=; b=lqvA0Mgsg8GVLZ
+	Zm82NnmV8cU+RSvVtGtc26ZvwN1FFAcT9vvZGZxct1BoZLomH+AepuC8zbIREBV3VapiBAnvUWLOs
+	YOci25m63wTKVn0hW/bGs1KvCF7I1NwfCWDrPQN5cr5N56gM0PFJX7VHIgrs8T17/NcB9DGP+rMv3
+	wAZ2O7AjBipaRPHF6NobbdsdoaZF6wtSlfc/k45Z/LpZHvjQJVIED8DTnyzgYqjbURYBiju0JFWza
+	K1+TFkIe/reQ7JmVaNShOXjMPeFk8y5gBoADS6VpV+efAJSjQjA8o+cWDknbn4Hm/D0CSLhvq15Xx
+	JdT0bTZ9GTPqzUwcpw/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1riscC-0000000CwxU-105x;
-	Sat, 09 Mar 2024 09:03:36 +0000
-Received: from mail-dm6nam11olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2c15::800] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1riscZ-0000000Cx5L-1Jkg;
+	Sat, 09 Mar 2024 09:03:59 +0000
+Received: from mail-sn1nam02acsn20800.outbound.protection.outlook.com ([2a01:111:f400:7ea9::800] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1risc9-0000000Cwwd-0KHN
+	id 1riscU-0000000Cwzk-3i0I
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 Mar 2024 09:03:34 +0000
+	Sat, 09 Mar 2024 09:03:56 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=IbEnAVBu55gUQ6sNYjLyF1PuoZMkcRIUFmE/BfPNWPZ0XQBHW+lTolYworYq+pR9ckmYy+ZvmNGwznFvMOGOCxIGuWgw1c1Roy/H5M7GHGbqPZMcp9Zm6YW+IZ1A3vI3e1GrtI1PtWSTjUpQj/ukrVxMaSlQ6h7F7v7yFclr8zj44qI4zbhBRPyXUxUdmxLWYSiLNfUWiraks2Txe2Bk2iLU/7oH2wMbaYABmSuMsaI+9iauOhgvEX9gM/gonM9qgIWE/MQBnsGql5lf0UPbLaNAaFPKI+BdIyKOHaXoDGtPJFcWQX3T5/by1pgYRbZJFOJnHoNkTGtA1YVcnxfrCw==
+ b=RDCl5JNw6I5XKvXmgz4as7fI0q8QYpY8/1z54UDieam7R473cu86NhgN48YAztc7axDiHqcRkUgCz7F1FUk7d0QgjWlAwQzdUUfWinrESWqVEeJW5iPowRwzIaCV4PKjVFsJQ/McUecXgLotnByVPDorg/9v4tCtmu3gkdS0E94pAPM+WOFSQnZ1RkZOx1JX4Mgv/d3RztQ0btMY5/6wFMBGa9giv972zKksB+AJ3nHDCneld5iXBxHRq5F+LCZaWrfKxL00YC3P3jbaIWT8s/McRgK6yOYs6ojsDvg027/YDKYgwClZNUxtwhX1pKnlFARiHPgRl5Ezkxs2oHtCtg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1iMujijFR/4pzHanJd/2Pi0CZb/HTc2Y5v7YJZ/TPLk=;
- b=P2T/M07pcFSgzd6i1hNn/cg1HRbVNSaSXN+SMED/umuzKLo2PwWEyZTpLu/dwkKhGVjgQ07TWrX5IGIVv9dl68jqiscQS5gM2YuUHyUx//0m5nvlo6vK5vemLhY9DqbIJ2X2JIAYYZQcKBnKzJSyk/aeeLL34lCceUf64vg5O1VKxGv/FOMhLc1U658I0WgjHWVvcy9lxk00AqlX2Y/YV4DeIyLpPUIxkA+j8UYrHPlmoZ2rZcTJ12WsfmoaXqhwIoqO7VrEVFhVSijX2SJM8jqkzDKEaMrNO+p+0NgXMT0HJuT3IQfAaBauM1iVk3+OJLkblPXi40W9NBBLg4viSQ==
+ bh=WxW+d+dh0NRewqaT51NCzjfGqqxbEehSVMBfbwWCPXc=;
+ b=jiN8/0a2Ygc88HJt19ikmy3zxemMn9m8N3olalzKRO8anZVAjcAh47B9SpR8la/qL9CkJ8VYui4X+XOVuXFqksjf50KfRW00GDPZhIx5+90yrCu3RpPYRfUueKmedT3YMxp1P2m+CzDcqcmrDEdaBG3RCWXOOZCM4ATRIZCOUXUizr9hAzZ1BTSfs/FpVoQXeUKkdWRSn7wkyvGHJSaOubx8eVkO3BKW0OmHwf5hTqknT0XFzUzZiCNLf5PGB3BaorMMG2STeaoIUqQbyhjPhC2vGVmtfgioRvD6Xeomm7wzH+9F0kd151isp888vndBMVZRUTC0aou84VZz2pczYA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1iMujijFR/4pzHanJd/2Pi0CZb/HTc2Y5v7YJZ/TPLk=;
- b=oEPVsSuYpsQIXfZOU09CI3os6d2x3adTqOFMFQr1SpgudKuWpcxvK3wM4boD5pk/zTR+57aV3jW7IHdiW6DaC+7SaLxK+w08Go/QOQNO1kNLQOOKbrvsYWn3lD55rtx23jI2cfHAkO9kUK58HHzZPVz96T0mVK2k8E2q0ORca6UixpxzzoRIatKi4eb/U0VaVNf2upFXmhM1knwj0knONW8rrrwgC9EFKZbMvUBF1SfYANzDvy9EADtUKxd2uhQn96N5tgunXaLHYA8s2N+6eh9RuQuNnYFcOq+BaSyqPYCfRddZqLTeKE9pIBZhvy5Pu0BmFa3pZIAXt45TTCucgw==
+ bh=WxW+d+dh0NRewqaT51NCzjfGqqxbEehSVMBfbwWCPXc=;
+ b=dFY4exOozh4QyctfBJtQdfNPBVFnV0cf/hZ/ZJUNhuYC7+5ve7+ifB4wahMikDcNg9TRieWiHQ1ja5d/ABiXbFG9CNLTTthtl48EI+S/yTtKCMTdcFqTAs9onjGsv+99Yh3SDihhf9vrpWbvha7vLNqZtqzKcMhlkeESxDFp7mtOH4hV+3Ffgfi+HyFFrnYmD0YW+36NH+/AOgfZw0qZ4TdoIzgvC4Y1JwLZM78/kruPxhcQMXaFn31hAVIQ+p9HtdMe2rGvlUWBxRnuQrqfV1TdT1mN1V9B9s0CN7txJ+6e1MV2lEcKQXrhUTO6Ft9YKNJc95zuJK4G96s/aZqFRQ==
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
  by MW5PR20MB4260.namprd20.prod.outlook.com (2603:10b6:303:191::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7362.33; Sat, 9 Mar
- 2024 09:03:23 +0000
+ 2024 09:03:37 +0000
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::8615:efe2:7c8e:2041]) by IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::8615:efe2:7c8e:2041%3]) with mapi id 15.20.7362.030; Sat, 9 Mar 2024
- 09:03:23 +0000
+ 09:03:37 +0000
 From: Inochi Amaoto <inochiama@outlook.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -69,62 +69,61 @@ Cc: Jisheng Zhang <jszhang@kernel.org>,
 	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v9 1/6] dt-bindings: clock: sophgo: Add clock controller of SG2000 series SoC
-Date: Sat,  9 Mar 2024 17:02:51 +0800
-Message-ID: <IA1PR20MB495368F185E018767CC6714ABB262@IA1PR20MB4953.namprd20.prod.outlook.com>
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v9 3/6] clk: sophgo: Add clock support for CV1810 SoC
+Date: Sat,  9 Mar 2024 17:02:53 +0800
+Message-ID: <IA1PR20MB495357FB5EEA1623DAB08C94BB262@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <IA1PR20MB4953512A4DCAF293D7B1CBC2BB262@IA1PR20MB4953.namprd20.prod.outlook.com>
 References: <IA1PR20MB4953512A4DCAF293D7B1CBC2BB262@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [oBEFszK5/VxeduZY3LUv8hpCAMAUMaNKrt2qp5sLeIg=]
-X-ClientProxiedBy: TY2PR06CA0013.apcprd06.prod.outlook.com
- (2603:1096:404:42::25) To IA1PR20MB4953.namprd20.prod.outlook.com
+X-TMN: [y8mFnvXXdQyu+m7A+59UgvR03Yahsh7eCzw3i3PZb2k=]
+X-ClientProxiedBy: TYCP301CA0013.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:400:386::16) To IA1PR20MB4953.namprd20.prod.outlook.com
  (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20240309090257.927623-1-inochiama@outlook.com>
+X-Microsoft-Original-Message-ID: <20240309090257.927623-3-inochiama@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|MW5PR20MB4260:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1c8c4ca7-5fe2-4732-d255-08dc4017c64a
+X-MS-Office365-Filtering-Correlation-Id: 92d08f8a-8e49-4ae2-9e44-08dc4017ce65
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: oW66+oZ2jpPV7IIF+oQKyLuIqirRW5fGgPUJuN7Zxdx3IPwV3htQf5eZRKYwkUabPUPUbnFVHlZLj/9WQCzMXkEAduDVVfy7BfXsf1fPI6q5k8rauMBQ9V93drwGzo1a5zMdlgJ3W2yK1OZodvvkv5KkMTrHr9GWSXul5qhK2QzVM7xAT8jgg/oeG0iTC9vVBLWXj7OFHYU+/AaRY3b5gwawQlYLocmOjRc+JTNZIGuqNCRWdKQfvbyx5c6W5cCBD0AsfhxyFKMTYxU78ctwBidDD3FzCOeCTAR/FbCfkSYz0FZUqxjau+ayVKWhSsKG1TdTz0XnR2RnJDfI9FbPLjT4Gnc8SjGdJ7gYptM5gWQKPwgLBKKJbhPQ2CiWTV48tb+G6Vcq3AvDYoSXVILZbxAWpDqG+cOycaogxrsy+6aBdkVX+2Fkhv6Rbn8v3NGntamzehKfUNxBsAVM+YSY8TcQUNA37bURkqZkXr8dW5KN8+/3OiTDnZmxBRSFL23HgHG4FdTOkWX0CrnDIuxFnRZzNA9pfuxxz3ek9wq+1dgF+oXClYk9v8Tp54bMszcqVQYycv6XojeFPt2kfwIxtY7A9oXB7vtyCPsv6cdIdcSa7ux1EnINtCEmxOlEYlHL/WkBQbNtvow3XtRpMulZWeIy7uslW/M/HrlkSbXhVfXiNOg5j8qCVXt7ajsSvXsXJCDZ0w3YE2HzS+U0iWXrwg==
+X-Microsoft-Antispam-Message-Info: jDmhGtQRiJEVNTPU9crwbZtrHrGFlRdB6w/QmsbvzIpFAt2eAxe6XbCO19+DoyITjc9SX0rlwa6Ji0vqci+ealsSjvWV5rV1cDM5Gcq0f6WedIYBQlMZrVv7DQzwHtdfSohEqgIcerLXF5EQYpHUvcRIA2KtDpEdwlws0+d9t2Gv1R0Gs8JWGjZxSBg4IwhYqd7bhNrLGhgPdXGBskoGcppoS/qV5XQ2O4Dp+deOEHBEk/lUMFr7tQ5cMM7H+q0evFPO8hz+qmD/6+R4By9Rg33+RoYtvvAKXsPP8V//X3uoalWRNSx6cyl5EeRiYwYijHLdrtHj+FublJs5+2Rt5y/R3CYtovu7uTjRAEuhMtoWVLJd2vFs5xHpp7ZGCFQjAQV6ZPovXsDbN2qHUcpzHIO+ym53SwKeX+S7Ghfl7ujopsuk6MngEvaKA37Oo7Hp8UvwhPFmbovpPKOwXwbJAVQ2rh1BsLmpqlSuyc2lsr+A0g9FXJttt5wwqvj4didUEKVuicRtBbITNDCkzpCNqebn/D4ZJVeX4itKHMUWcPFnaXwL0+DppAoBI6c+7AZl+wC1i3oQlyv8eUtmol2tglxxmY7e1Ngq7v62hRJLvT/sJgfdjdpjdsJXrguI2Eqv13v78gcvO38pmOQwh+PCgkV+JkEvLM82pzcp4TGgpFUQmfeSL3aYKHF35UOqzfOU
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wuit9otlLmWPaxvDmuwH5T2eLTVv5aHpfnX48ESqB/9bYRuo4neISvBJn2Qq?=
- =?us-ascii?Q?Iqp+sVDemvPUSQTeyOhY+CJHn69IoeLn4jMAcCN9gFl3kWhsfL8jP9YMrr5Z?=
- =?us-ascii?Q?HAFSmSvpeukLCpMao+cNlBuWQtFRMaW+BD5E3MCia7GdbyNsU5L6WwaxwCtj?=
- =?us-ascii?Q?7DuLLZIWMqaraoSLmMWOUGIslEK4+7mLZ9KlfL7JNAkcxR4GyqcCuHgw782W?=
- =?us-ascii?Q?wQWDx3GjRs3IlckJ6Lfdh6bAhXdoTHOFt4ge0ScolwJS62FzKoVW/7hT2gvH?=
- =?us-ascii?Q?4fCJ0sJwBiwmxk5TcufxKR2flCiNRHqzNMStTEjAcPFpJDroa64LqM0OOJKQ?=
- =?us-ascii?Q?AqKRTha6t24dROu4ZZK7Dg1gYRPhLMnUF2lzRGZJmDYaLAtUjOtQQcjgmMJh?=
- =?us-ascii?Q?EiarQDsrLOXolGXskTXrb6rTVzWjLALe9leYTF/rU0sd0CGhC1ZleoVPWPWJ?=
- =?us-ascii?Q?gIRfDjWnC7xchAmE79P+lnT+te41W8QgS8as9x6+4yjtawgES3keZ+Y3538Q?=
- =?us-ascii?Q?RPF8T8E+9iSTDnDI+L5SO9su2Yyk0N1pSNDGWAVDMT5iSH0hdh5/WzrdBf/7?=
- =?us-ascii?Q?a6rVcLZQnSlJ2Jor9x/Sv85B5Rmr2BV60v+mGC01oLYFgJEVP7I6tD7FSjDd?=
- =?us-ascii?Q?uZirjib5Udd6QtoLdmnDbE5GonlUR/yoonJTB7CLr3uzHWlIlK9FpMqrUQU5?=
- =?us-ascii?Q?zF4dy69KyKVlcV6gtOhckhkdsPJdv9WC3ptcHmlplIy8SHhcpuXBZ5mhWtrf?=
- =?us-ascii?Q?WVb0/Z8IKWcC7xw5N09BqUegPXY4/GPlFvPgLuKUSKItxpvqHs0SWx2ItUim?=
- =?us-ascii?Q?6ZSPp6TU/fkiH9rHiwMshgpW2j0oR6nEb8npH5i2YIPJcFAU0cddaEf2mf+j?=
- =?us-ascii?Q?h6bZQ0ahoce/K1d17HYomns10X68hPMaDTy6OIw/E35rVlzs64yhdxMXeyBm?=
- =?us-ascii?Q?jPLQm3jH+2AJmbHFgIsfOkMDtMkbn4Nxj+b94dsIDVfIVK+g5wSW1Ngp/KhE?=
- =?us-ascii?Q?5jygnqE6m+yjl+aEUj6BjWBB1MI2eFBUDZz5hXLt5RFx987FxprCjpsKhL+M?=
- =?us-ascii?Q?L0jLmVPnmbPRtiqwt+gbJYOoN18j8iHmHh0TheIUY5qrgKB8pqJPtA8hExrm?=
- =?us-ascii?Q?1K4YCr8rMshQWBEs5guR/WheaP0gqFiPep/Cn162nlZxuVdLO03G3UZOzzgr?=
- =?us-ascii?Q?qvKauFPP2csjZ+eCa0Y5ujcs9WlCD1o+LHz9m7RV7UiN5gNBwIBHFCFtZg01?=
- =?us-ascii?Q?LxDKjxw6chX/mm28nRQ1?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7220Qbx/0JXnb/7cr7H241TNW+WjC/5AQxEYNNXLUi/V6IxRCjQJi23jo8MK?=
+ =?us-ascii?Q?yGd+QSC8jWqDPHqBMLSJInznEHlx+3Ze7mwz0CM9yjNgZRzveC0MjQOgWXlM?=
+ =?us-ascii?Q?qzi4jub53P2hfsYuuSbNS9mLZurvwm1TbfPXP4et0JtSyatF8waUXbkxsX+Z?=
+ =?us-ascii?Q?UO56hXsGR11x1SBD2T/f++ci+H1FgN3lWMa7OUaAVuh6suGilLJvUFwkATeu?=
+ =?us-ascii?Q?p/JywdPLw0Rojl2teflTFK8n9kDwC/08KpcFgGc90pSUgyu5IQP59tNkOu2J?=
+ =?us-ascii?Q?KNl+MQlVK5cjrwZTKHxlcBS5mCjcqNefbE91Vhr5Q+eIgTBXYz3+K3d42GxX?=
+ =?us-ascii?Q?6IP8wR+l9ahSFbtQsVEvx+4UKMzg2W5KJuZVQwq7C+Ql9ZbtxGoN1BhB4SQB?=
+ =?us-ascii?Q?0wwnAJxhpFxdHSVmPwmrLJ8PqYL2Bo4D2R3I/Hf7xxw8KpaZpZbzApYFN2tP?=
+ =?us-ascii?Q?B6eaMvR+rQCW8V4MhbmO9ilJE5/9fCvVfRD7uINVIqWDf0jFpb8hZHmj0VU1?=
+ =?us-ascii?Q?nY6oD+XqQ6sx2CXG9XrncZ2CJzjYuqiiFaMJu8AkDf8bwDMXAAeEQqgpfSbn?=
+ =?us-ascii?Q?Hb90ZnUj0Wr0NGOOkyp3MoY9gpX+OWQjky8Z9Nk8KMfNBwBShw0HpsOgCE3x?=
+ =?us-ascii?Q?VvS1VST3dvIB8jwq74DfXzs7XmFiQVFe7mF9b+/nuAPENEFJKnNUPOBPViVx?=
+ =?us-ascii?Q?RBFBiGu9WDXwFM0UajkLhZ3r+aj+r3GFq/G0P1BeNsEJVa9MxWj1ntjzUnHx?=
+ =?us-ascii?Q?Oiu32JicTUlbiNchhzVoabit0DHl8sUDUphUShlZEQqXe7I4EMQWML1dfOGL?=
+ =?us-ascii?Q?qq032bMKvLRZYqOv0bqegL30v0VegaKmQE1bRQgbyDnQhaQ3qi2eKb/LTfgO?=
+ =?us-ascii?Q?7lBcez2Jt72Ac/bE0JJchEWC8CBoYeDw9+prydsu3fU4Wwi1goCurx6G+8WR?=
+ =?us-ascii?Q?KQjgpeUT3JgQIgZjUA9vVi/RD4uai5tcW0cQI8ZjlSBh+90sOkyo47ZkV/zz?=
+ =?us-ascii?Q?NtRD6Ck6wiw1p+X7py/ORix3qOlMS8MR7sImMXLhi0mv18S3tgjZfMu4UY15?=
+ =?us-ascii?Q?fy1RMLrlzGV84MY9WHjsu8TdQpmrPUD3mV74bZczfz84A3W41PtV1uKHcna0?=
+ =?us-ascii?Q?hWzxbiEMAMoahYLaKMUl9D7dh6MBPdwkLPOcA65VNn4sWKxHqzFo343oDrYt?=
+ =?us-ascii?Q?iVfgv37DSRRR+uXnPOxBfWwo4IxIHDeilHedlGXeXC/LTdeX5qRwN/fjDw+2?=
+ =?us-ascii?Q?mx9xEIkz5KrBK/5N9elt?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c8c4ca7-5fe2-4732-d255-08dc4017c64a
+X-MS-Exchange-CrossTenant-Network-Message-Id: 92d08f8a-8e49-4ae2-9e44-08dc4017ce65
 X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2024 09:03:23.6490
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2024 09:03:37.3263
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR20MB4260
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240309_010333_332822_7F60FBC9 
-X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-CacheID: sfid-20240309_010354_990986_11B1B716 
+X-CRM114-Status: UNSURE (   9.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -142,40 +141,254 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SG2000 series SoC has the same clock as CV1810 series, but the clock
-related to A53 is functional in SG2000 series. So a new compatible
-string is needed for the new SoC.
+Add clock definition and init code for CV1810 SoC.
 
-Add definition for the clock controller of the SG2000 series SoC.
-
-Link: https://github.com/sophgo/sophgo-doc/releases/tag/sg2000-datasheet-v1.0-alpha
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+Link: https://github.com/milkv-duo/duo-files/blob/6f4e9b8ecb459e017cca1a8df248a19ca70837a3/duo/datasheet/CV180X-Clock-v1.xlsx
 ---
- Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/clk/sophgo/clk-cv1800.c | 195 ++++++++++++++++++++++++++++++++
+ drivers/clk/sophgo/clk-cv1800.h |   1 +
+ 2 files changed, 196 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
-index c1dc24673c0d..59ef41adb539 100644
---- a/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
-+++ b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/clock/sophgo,cv1800-clk.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/clk/sophgo/clk-cv1800.c b/drivers/clk/sophgo/clk-cv1800.c
+index 6606a2701b12..c7d4aa6c8343 100644
+--- a/drivers/clk/sophgo/clk-cv1800.c
++++ b/drivers/clk/sophgo/clk-cv1800.c
+@@ -631,6 +631,10 @@ static const struct clk_parent_data clk_vip_sys_parents[] = {
+ 	{ .hw = &clk_disppll.common.hw },
+ 	{ .hw = &clk_fpll.common.hw },
+ };
++static const struct clk_parent_data clk_disp_vip_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_disppll.common.hw },
++};
 
--title: Sophgo CV1800 Series Clock Controller
-+title: Sophgo CV1800/SG2000 Series Clock Controller
+ static CV1800_BYPASS_DIV(clk_dsi_esc, clk_bypass_axi6_bus_parents,
+ 			 REG_CLK_EN_2, 3,
+@@ -660,6 +664,11 @@ static CV1800_BYPASS_MUX(clk_src_vip_sys_1, clk_vip_sys_parents,
+ 			 REG_DIV_CLK_SRC_VIP_SYS_1, 8, 2,
+ 			 REG_CLK_BYP_0, 24,
+ 			 0);
++static CV1800_BYPASS_DIV(clk_disp_src_vip, clk_disp_vip_parents,
++			 REG_CLK_EN_2, 7,
++			 REG_DIV_CLK_DISP_SRC_VIP, 16, 4, 8, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_0, 25,
++			 0);
+ static CV1800_BYPASS_MUX(clk_src_vip_sys_2, clk_vip_sys_parents,
+ 			 REG_CLK_EN_3, 29,
+ 			 REG_DIV_CLK_SRC_VIP_SYS_2, 16, 4, 2, CV1800_DIV_FLAG,
+@@ -1243,6 +1252,191 @@ static const struct cv1800_clk_desc cv1800_desc = {
+ 	.pre_init	= cv1800_pre_init,
+ };
 
- maintainers:
-   - Inochi Amaoto <inochiama@outlook.com>
-@@ -14,6 +14,7 @@ properties:
-     enum:
-       - sophgo,cv1800-clk
-       - sophgo,cv1810-clk
-+      - sophgo,sg2000-clk
++static struct clk_hw_onecell_data cv1810_hw_clks = {
++	.num	= CV1810_CLK_MAX,
++	.hws	= {
++		[CLK_MPLL]		= &clk_mpll.common.hw,
++		[CLK_TPLL]		= &clk_tpll.common.hw,
++		[CLK_FPLL]		= &clk_fpll.common.hw,
++		[CLK_MIPIMPLL]		= &clk_mipimpll.common.hw,
++		[CLK_A0PLL]		= &clk_a0pll.common.hw,
++		[CLK_DISPPLL]		= &clk_disppll.common.hw,
++		[CLK_CAM0PLL]		= &clk_cam0pll.common.hw,
++		[CLK_CAM1PLL]		= &clk_cam1pll.common.hw,
++
++		[CLK_MIPIMPLL_D3]	= &clk_mipimpll_d3.common.hw,
++		[CLK_CAM0PLL_D2]	= &clk_cam0pll_d2.common.hw,
++		[CLK_CAM0PLL_D3]	= &clk_cam0pll_d3.common.hw,
++
++		[CLK_TPU]		= &clk_tpu.mux.common.hw,
++		[CLK_TPU_FAB]		= &clk_tpu_fab.common.hw,
++		[CLK_AHB_ROM]		= &clk_ahb_rom.common.hw,
++		[CLK_DDR_AXI_REG]	= &clk_ddr_axi_reg.common.hw,
++		[CLK_RTC_25M]		= &clk_rtc_25m.common.hw,
++		[CLK_SRC_RTC_SYS_0]	= &clk_src_rtc_sys_0.div.common.hw,
++		[CLK_TEMPSEN]		= &clk_tempsen.common.hw,
++		[CLK_SARADC]		= &clk_saradc.common.hw,
++		[CLK_EFUSE]		= &clk_efuse.common.hw,
++		[CLK_APB_EFUSE]		= &clk_apb_efuse.common.hw,
++		[CLK_DEBUG]		= &clk_debug.common.hw,
++		[CLK_AP_DEBUG]		= &clk_ap_debug.div.common.hw,
++		[CLK_XTAL_MISC]		= &clk_xtal_misc.common.hw,
++		[CLK_AXI4_EMMC]		= &clk_axi4_emmc.common.hw,
++		[CLK_EMMC]		= &clk_emmc.mux.common.hw,
++		[CLK_EMMC_100K]		= &clk_emmc_100k.common.hw,
++		[CLK_AXI4_SD0]		= &clk_axi4_sd0.common.hw,
++		[CLK_SD0]		= &clk_sd0.mux.common.hw,
++		[CLK_SD0_100K]		= &clk_sd0_100k.common.hw,
++		[CLK_AXI4_SD1]		= &clk_axi4_sd1.common.hw,
++		[CLK_SD1]		= &clk_sd1.mux.common.hw,
++		[CLK_SD1_100K]		= &clk_sd1_100k.common.hw,
++		[CLK_SPI_NAND]		= &clk_spi_nand.mux.common.hw,
++		[CLK_ETH0_500M]		= &clk_eth0_500m.div.common.hw,
++		[CLK_AXI4_ETH0]		= &clk_axi4_eth0.common.hw,
++		[CLK_ETH1_500M]		= &clk_eth1_500m.div.common.hw,
++		[CLK_AXI4_ETH1]		= &clk_axi4_eth1.common.hw,
++		[CLK_APB_GPIO]		= &clk_apb_gpio.common.hw,
++		[CLK_APB_GPIO_INTR]	= &clk_apb_gpio_intr.common.hw,
++		[CLK_GPIO_DB]		= &clk_gpio_db.common.hw,
++		[CLK_AHB_SF]		= &clk_ahb_sf.common.hw,
++		[CLK_AHB_SF1]		= &clk_ahb_sf1.common.hw,
++		[CLK_A24M]		= &clk_a24m.common.hw,
++		[CLK_AUDSRC]		= &clk_audsrc.mux.common.hw,
++		[CLK_APB_AUDSRC]	= &clk_apb_audsrc.common.hw,
++		[CLK_SDMA_AXI]		= &clk_sdma_axi.common.hw,
++		[CLK_SDMA_AUD0]		= &clk_sdma_aud0.mux.common.hw,
++		[CLK_SDMA_AUD1]		= &clk_sdma_aud1.mux.common.hw,
++		[CLK_SDMA_AUD2]		= &clk_sdma_aud2.mux.common.hw,
++		[CLK_SDMA_AUD3]		= &clk_sdma_aud3.mux.common.hw,
++		[CLK_I2C]		= &clk_i2c.div.common.hw,
++		[CLK_APB_I2C]		= &clk_apb_i2c.common.hw,
++		[CLK_APB_I2C0]		= &clk_apb_i2c0.common.hw,
++		[CLK_APB_I2C1]		= &clk_apb_i2c1.common.hw,
++		[CLK_APB_I2C2]		= &clk_apb_i2c2.common.hw,
++		[CLK_APB_I2C3]		= &clk_apb_i2c3.common.hw,
++		[CLK_APB_I2C4]		= &clk_apb_i2c4.common.hw,
++		[CLK_APB_WDT]		= &clk_apb_wdt.common.hw,
++		[CLK_PWM_SRC]		= &clk_pwm_src.mux.common.hw,
++		[CLK_PWM]		= &clk_pwm.common.hw,
++		[CLK_SPI]		= &clk_spi.div.common.hw,
++		[CLK_APB_SPI0]		= &clk_apb_spi0.common.hw,
++		[CLK_APB_SPI1]		= &clk_apb_spi1.common.hw,
++		[CLK_APB_SPI2]		= &clk_apb_spi2.common.hw,
++		[CLK_APB_SPI3]		= &clk_apb_spi3.common.hw,
++		[CLK_1M]		= &clk_1m.common.hw,
++		[CLK_CAM0_200]		= &clk_cam0_200.mux.common.hw,
++		[CLK_PM]		= &clk_pm.common.hw,
++		[CLK_TIMER0]		= &clk_timer0.common.hw,
++		[CLK_TIMER1]		= &clk_timer1.common.hw,
++		[CLK_TIMER2]		= &clk_timer2.common.hw,
++		[CLK_TIMER3]		= &clk_timer3.common.hw,
++		[CLK_TIMER4]		= &clk_timer4.common.hw,
++		[CLK_TIMER5]		= &clk_timer5.common.hw,
++		[CLK_TIMER6]		= &clk_timer6.common.hw,
++		[CLK_TIMER7]		= &clk_timer7.common.hw,
++		[CLK_UART0]		= &clk_uart0.common.hw,
++		[CLK_APB_UART0]		= &clk_apb_uart0.common.hw,
++		[CLK_UART1]		= &clk_uart1.common.hw,
++		[CLK_APB_UART1]		= &clk_apb_uart1.common.hw,
++		[CLK_UART2]		= &clk_uart2.common.hw,
++		[CLK_APB_UART2]		= &clk_apb_uart2.common.hw,
++		[CLK_UART3]		= &clk_uart3.common.hw,
++		[CLK_APB_UART3]		= &clk_apb_uart3.common.hw,
++		[CLK_UART4]		= &clk_uart4.common.hw,
++		[CLK_APB_UART4]		= &clk_apb_uart4.common.hw,
++		[CLK_APB_I2S0]		= &clk_apb_i2s0.common.hw,
++		[CLK_APB_I2S1]		= &clk_apb_i2s1.common.hw,
++		[CLK_APB_I2S2]		= &clk_apb_i2s2.common.hw,
++		[CLK_APB_I2S3]		= &clk_apb_i2s3.common.hw,
++		[CLK_AXI4_USB]		= &clk_axi4_usb.common.hw,
++		[CLK_APB_USB]		= &clk_apb_usb.common.hw,
++		[CLK_USB_125M]		= &clk_usb_125m.div.common.hw,
++		[CLK_USB_33K]		= &clk_usb_33k.common.hw,
++		[CLK_USB_12M]		= &clk_usb_12m.div.common.hw,
++		[CLK_AXI4]		= &clk_axi4.mux.common.hw,
++		[CLK_AXI6]		= &clk_axi6.div.common.hw,
++		[CLK_DSI_ESC]		= &clk_dsi_esc.div.common.hw,
++		[CLK_AXI_VIP]		= &clk_axi_vip.mux.common.hw,
++		[CLK_SRC_VIP_SYS_0]	= &clk_src_vip_sys_0.mux.common.hw,
++		[CLK_SRC_VIP_SYS_1]	= &clk_src_vip_sys_1.mux.common.hw,
++		[CLK_SRC_VIP_SYS_2]	= &clk_src_vip_sys_2.mux.common.hw,
++		[CLK_SRC_VIP_SYS_3]	= &clk_src_vip_sys_3.mux.common.hw,
++		[CLK_SRC_VIP_SYS_4]	= &clk_src_vip_sys_4.mux.common.hw,
++		[CLK_CSI_BE_VIP]	= &clk_csi_be_vip.common.hw,
++		[CLK_CSI_MAC0_VIP]	= &clk_csi_mac0_vip.common.hw,
++		[CLK_CSI_MAC1_VIP]	= &clk_csi_mac1_vip.common.hw,
++		[CLK_CSI_MAC2_VIP]	= &clk_csi_mac2_vip.common.hw,
++		[CLK_CSI0_RX_VIP]	= &clk_csi0_rx_vip.common.hw,
++		[CLK_CSI1_RX_VIP]	= &clk_csi1_rx_vip.common.hw,
++		[CLK_ISP_TOP_VIP]	= &clk_isp_top_vip.common.hw,
++		[CLK_IMG_D_VIP]		= &clk_img_d_vip.common.hw,
++		[CLK_IMG_V_VIP]		= &clk_img_v_vip.common.hw,
++		[CLK_SC_TOP_VIP]	= &clk_sc_top_vip.common.hw,
++		[CLK_SC_D_VIP]		= &clk_sc_d_vip.common.hw,
++		[CLK_SC_V1_VIP]		= &clk_sc_v1_vip.common.hw,
++		[CLK_SC_V2_VIP]		= &clk_sc_v2_vip.common.hw,
++		[CLK_SC_V3_VIP]		= &clk_sc_v3_vip.common.hw,
++		[CLK_DWA_VIP]		= &clk_dwa_vip.common.hw,
++		[CLK_BT_VIP]		= &clk_bt_vip.common.hw,
++		[CLK_DISP_VIP]		= &clk_disp_vip.common.hw,
++		[CLK_DSI_MAC_VIP]	= &clk_dsi_mac_vip.common.hw,
++		[CLK_LVDS0_VIP]		= &clk_lvds0_vip.common.hw,
++		[CLK_LVDS1_VIP]		= &clk_lvds1_vip.common.hw,
++		[CLK_PAD_VI_VIP]	= &clk_pad_vi_vip.common.hw,
++		[CLK_PAD_VI1_VIP]	= &clk_pad_vi1_vip.common.hw,
++		[CLK_PAD_VI2_VIP]	= &clk_pad_vi2_vip.common.hw,
++		[CLK_CFG_REG_VIP]	= &clk_cfg_reg_vip.common.hw,
++		[CLK_VIP_IP0]		= &clk_vip_ip0.common.hw,
++		[CLK_VIP_IP1]		= &clk_vip_ip1.common.hw,
++		[CLK_VIP_IP2]		= &clk_vip_ip2.common.hw,
++		[CLK_VIP_IP3]		= &clk_vip_ip3.common.hw,
++		[CLK_IVE_VIP]		= &clk_ive_vip.common.hw,
++		[CLK_RAW_VIP]		= &clk_raw_vip.common.hw,
++		[CLK_OSDC_VIP]		= &clk_osdc_vip.common.hw,
++		[CLK_CAM0_VIP]		= &clk_cam0_vip.common.hw,
++		[CLK_AXI_VIDEO_CODEC]	= &clk_axi_video_codec.mux.common.hw,
++		[CLK_VC_SRC0]		= &clk_vc_src0.mux.common.hw,
++		[CLK_VC_SRC1]		= &clk_vc_src1.div.common.hw,
++		[CLK_VC_SRC2]		= &clk_vc_src2.div.common.hw,
++		[CLK_H264C]		= &clk_h264c.common.hw,
++		[CLK_APB_H264C]		= &clk_apb_h264c.common.hw,
++		[CLK_H265C]		= &clk_h265c.common.hw,
++		[CLK_APB_H265C]		= &clk_apb_h265c.common.hw,
++		[CLK_JPEG]		= &clk_jpeg.common.hw,
++		[CLK_APB_JPEG]		= &clk_apb_jpeg.common.hw,
++		[CLK_CAM0]		= &clk_cam0.common.hw,
++		[CLK_CAM1]		= &clk_cam1.common.hw,
++		[CLK_WGN]		= &clk_wgn.common.hw,
++		[CLK_WGN0]		= &clk_wgn0.common.hw,
++		[CLK_WGN1]		= &clk_wgn1.common.hw,
++		[CLK_WGN2]		= &clk_wgn2.common.hw,
++		[CLK_KEYSCAN]		= &clk_keyscan.common.hw,
++		[CLK_CFG_REG_VC]	= &clk_cfg_reg_vc.common.hw,
++		[CLK_C906_0]		= &clk_c906_0.common.hw,
++		[CLK_C906_1]		= &clk_c906_1.common.hw,
++		[CLK_A53]		= &clk_a53.common.hw,
++		[CLK_CPU_AXI0]		= &clk_cpu_axi0.div.common.hw,
++		[CLK_CPU_GIC]		= &clk_cpu_gic.div.common.hw,
++		[CLK_XTAL_AP]		= &clk_xtal_ap.common.hw,
++		[CLK_DISP_SRC_VIP]	= &clk_disp_src_vip.div.common.hw,
++	},
++};
++
++static int cv1810_pre_init(struct device *dev, void __iomem *base,
++			   struct cv1800_clk_ctrl *ctrl,
++			   const struct cv1800_clk_desc *desc)
++{
++	cv18xx_clk_disable_a53(base);
++	cv18xx_clk_disable_auto_pd(base);
++
++	return 0;
++}
++
++static const struct cv1800_clk_desc cv1810_desc = {
++	.clks_data	= &cv1810_hw_clks,
++	.pre_init	= cv1810_pre_init,
++};
++
+ static int cv1800_clk_init_ctrl(struct device *dev, void __iomem *reg,
+ 				struct cv1800_clk_ctrl *ctrl,
+ 				const struct cv1800_clk_desc *desc)
+@@ -1311,6 +1505,7 @@ static int cv1800_clk_probe(struct platform_device *pdev)
 
-   reg:
-     maxItems: 1
+ static const struct of_device_id cv1800_clk_ids[] = {
+ 	{ .compatible = "sophgo,cv1800-clk", .data = &cv1800_desc },
++	{ .compatible = "sophgo,cv1810-clk", .data = &cv1810_desc },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, cv1800_clk_ids);
+diff --git a/drivers/clk/sophgo/clk-cv1800.h b/drivers/clk/sophgo/clk-cv1800.h
+index 1b9c04b5ac3a..1e7107b5d05e 100644
+--- a/drivers/clk/sophgo/clk-cv1800.h
++++ b/drivers/clk/sophgo/clk-cv1800.h
+@@ -9,6 +9,7 @@
+ #include <dt-bindings/clock/sophgo,cv1800.h>
+
+ #define CV1800_CLK_MAX			(CLK_XTAL_AP + 1)
++#define CV1810_CLK_MAX			(CLK_DISP_SRC_VIP + 1)
+
+ #define REG_PLL_G2_CTRL			0x800
+ #define REG_PLL_G2_STATUS		0x804
 --
 2.44.0
 
