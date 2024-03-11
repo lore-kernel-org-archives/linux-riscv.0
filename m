@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC52C5475B
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2024 19:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98EDC54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2024 21:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=33FXZ6avULFwz6prB8kmftFSLlLJjB+c9RQiZrdYidQ=; b=aZ0
-	cEQyZwcT01m82iRfu/NrfOmZooX5tUwFlyoRabCAMXSYUZZSZ3uYncZ8SQj5JTq6gYBtiJtfAYP19
-	gB69+Mgqs0vGi3hnQ8GaZM/7a3F2hX80o/Z0KrzzbNDwMFB9q3EVaPHxZANQmrTVaok04k4+BwJh7
-	rYKudfoX9MsptaSRJs2nDaK949hP5/cqlFTpvmudm+QWRgBeR5+ddcsWjYdXNQCveTWAjxYhdiJ0P
-	Zs1BM+WlK+Q8/ipOB3XkWAUZx8WqDLlXCQlucISgw2YFLWFTnDF06upkBHUOdwhJ3RJYPR0C7Ho5V
-	Mdgp+fT1KT+xdHx64EInLRxxVPzAG9w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nfRaaAA2JGZxTyANO2iEtKeMoNHK9OUdlzLRuIPtV+M=; b=lGbu3EZ+HaWH9h
+	fQw6YWN5vKQDvMlk93XZo5SnOia0P7S+unoBUhAy/ApdmUOdzcRFryVVYqcsZLRZMamfbm1EpbL3t
+	FWV9nLUAc6dhhlL8jTCDIxZOviBuy2X5rTrWu069oZYp1qJphIvtmKo5xK0paDmrVRJAraQmDQMoh
+	kt+P83pD6KL8g3zPzUI+w3LSM4G2ZYVTRje3/vHHSL03u6umwiTmCbqSeyp1DtcNOLqrmDs8EyFN6
+	LMNgVS0NDp5848z5hwWMiVWBoUt7KdvIGIWz2BDrqFuO4mriPXWEWVLv/yEg7kVx0Z4xHwOSbj+K5
+	8VgpI6y2ajPNlerK0NEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rjlNO-00000002wkz-3U7X;
-	Mon, 11 Mar 2024 19:31:58 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1rjnKd-00000003HHS-2rkF;
+	Mon, 11 Mar 2024 21:37:15 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rjlNL-00000002wkT-0G5K
-	for linux-riscv@lists.infradead.org;
-	Mon, 11 Mar 2024 19:31:56 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-6e5ef8a99c3so3081039b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Mar 2024 12:31:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1710185510; x=1710790310; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Cy5o6m+sWD55XX6nTI+EYS+h0yuQMLX62AkaGtKJN/Q=;
-        b=ezpQG0mDmuuru7dWez4jRpT2MXvcV8j5HNIMybCZ9fRQpUqc+vstEVU6k89djI4o9Z
-         HmW51r1ndDUQm/vdxNHXO0dbNziWOpQhCFBWUexiQOGvulzzRIF++gOADXvPyx0wHgSu
-         H5ssqltUYEnmhdcnJ2G2dZdpz1p/iBd9ZUgOhYqY0ywM+U7yy8yVpqDKl/TFS6TQa8sZ
-         4GtPsOdDrB/S5xyTC/r9/k4cYCfC5Vn+xSmrMKTgSaHQihwMHGLqUmDeiuGod2uzgYtU
-         djeCpzKvBCC2SuOqdhHMpCLUN4Z98J8xAZsrcADpp+yTx1kdMOUWSykYoTZDJm4IP8NA
-         awdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710185510; x=1710790310;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Cy5o6m+sWD55XX6nTI+EYS+h0yuQMLX62AkaGtKJN/Q=;
-        b=R+ySkyYh2ggjYD8Gsff9P/rnYOoW2L0/OmWTo5c+GPq9iA053LJb7wLhzYFb6SnxV/
-         90CQMxVC6t66EMfkYC7/+e0pfUgXZjdvkLc/XL7bqGd9bigc7FHpb8kQzLvz7DqvL3pW
-         NMYIm6PvbCNYWjg8EWiub8n9T5+xYSH3CayVpmatXBsc04qc1SbEsjkOdq+HeIU/ng/2
-         xbdP5gIGxS7N+gV3xMNjmDQHvnphzDCGLTS4Wt24XYNGXrnvxdPa+3bueD+vWHht4VQX
-         pbeyZf6WaD2hxqbMYbIj+s1XDtC5c7PGnmL4B8ViNjll7nkNCJEWkR+OxW/RZwmBPYjN
-         wNyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW28B2HdvnIGYcZZhNJqkgpMG6txZGuc5zhHmKidkM1ZvP3HAeHt2I6j4r+pseXPAcV6BQYvYKhVKFcvazIeTuQ7Vhx7NjBFK4gsm+0MjvX
-X-Gm-Message-State: AOJu0YwoHdNRN+/QjaUqt1JvEqQVyLExlfe28F5FSkvVHvGRUCMK01x8
-	c7OIbbz3ZdRsJLOExyACeQGHXzvoIUUSBXKKdD1vSRf9F3hD53WX82gwQ9dmZPaS9b7BAxOJpz2
-	ItW4Ys5tTp0y0mxRhl73VkRGRnA==
-X-Google-Smtp-Source: AGHT+IFl5rL/5hZzllSQT4kNPhf7K+Mzylld0CDU7EGjFVl6h6YIMbKzhC0pm5GcEpFQvIHX+1rha7stYdM8mqFbCkQ=
-X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
- (user=samitolvanen job=sendgmr) by 2002:a05:6a00:2ea7:b0:6e6:4946:93e3 with
- SMTP id fd39-20020a056a002ea700b006e6494693e3mr151620pfb.3.1710185510021;
- Mon, 11 Mar 2024 12:31:50 -0700 (PDT)
-Date: Mon, 11 Mar 2024 19:31:44 +0000
-Mime-Version: 1.0
-X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5091; i=samitolvanen@google.com;
- h=from:subject; bh=P9wUwpcw3NHUEai0EY+p4WNxdtLcGXphsLbKEdtDEg4=;
- b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBl71wfJnj+5L8FG37zVyJNxfMfNJoY0VJs0yMLB
- xU3BtR6b7+JAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZe9cHwAKCRBMtfaEi7xW
- 7vAYC/9OQ9Z2KvfsxsRPYjStOgFF960iLZz4U2Yg1Pc04nqTJhJOjAA0LlXHVE6XdGCQ1MK2xTv
- OtI1cV6vtQnAMtpfTPLFdvIwuZ7Op/oYW6FpyU/OLXUZHYssSN6b7f06hUuWdsIDjznZtaHuKaY
- yFBq8JY8H/+aWai3ZaR8aAAUpZti8u3nbZiePGtPhrgQz/PyBjy4Qux9cHB7dCasmi01Km62Od3
- GmaGGdIVhg4OQ4LJag7l9WlxfAIqgCWAojhrslIMlDg24sTaGc6KTE7NRwOS8Jx5Op+MvJGVA9c
- C7Gmr975CCDLfX0MxbY1PmLctEXAJ77Ft9BsCg68UI1YUBgFJD8S/dBlrdbHpfFo/1UeYHIjFdz
- cs1NQ4lXP1lnxvRItHh5uODri1JStub2sD6YywSrGnF/3qkqpI0ey8ybdthU1mYp4WMWFPQwdAA d78nKkyQmeeQTFJU3AiRd6nZpO4pnRf1iCIAOPk55HAB1cx9UwVaE61BAY5z/eARLf3Oo=
-X-Mailer: git-send-email 2.44.0.278.ge034bb2e1d-goog
-Message-ID: <20240311193143.2981310-2-samitolvanen@google.com>
-Subject: [PATCH] riscv: Fix syscall wrapper for >word-size arguments
-From: Sami Tolvanen <samitolvanen@google.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Kees Cook <keescook@chromium.org>, linux-riscv@lists.infradead.org, 
-	llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Sami Tolvanen <samitolvanen@google.com>, Khem Raj <raj.khem@gmail.com>
+	id 1rjnKW-00000003HEP-0dRe;
+	Mon, 11 Mar 2024 21:37:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1710193028; x=1741729028;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=7/t73ebbv8sRVNFVm6dXGVP8Cy5gtlrNTZRWv0cey24=;
+  b=RZQ+07adTOQ/ErMs+wf882j5eW36hS/hrPXuldSfcMthmOPahDVjJ61Q
+   A7fcDotHLdC7pGAVOFXw4AdvQMg1QB6BdsRZLI2EU/2KUVIsMU1YCIT0T
+   pRY3z1r8J92zPxPqtWMBiUeC+n2t3pd5wWnOE/WEfE3i/1hVdNBiYR4Gf
+   PyOpJ2snrRYjMGJffMzI0PVnUpBYpbqkGPKuzCqGA0q8qfqvS8BGvpYOb
+   tvpf8fpZ44M+DQANbfmmy9L9PP8oFx06sw6vWjN72YgeqmiuxNZhSYvF8
+   Jd/89R65rmS4SMcvIboIwmW1gAkvoB7bsi4lkFskwlXxuHkGsnpij5mEK
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,11010"; a="8641372"
+X-IronPort-AV: E=Sophos;i="6.07,117,1708416000"; 
+   d="scan'208";a="8641372"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Mar 2024 14:37:08 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.07,117,1708416000"; 
+   d="scan'208";a="11375550"
+Received: from lkp-server01.sh.intel.com (HELO b21307750695) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 11 Mar 2024 14:37:01 -0700
+Received: from kbuild by b21307750695 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1rjnKM-0009Tt-0U;
+	Mon, 11 Mar 2024 21:36:58 +0000
+Date: Tue, 12 Mar 2024 05:36:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: Menglong Dong <dongmenglong.8@bytedance.com>, andrii@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, ast@kernel.org, daniel@iogearbox.net,
+	martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
+	yonghong.song@linux.dev, john.fastabend@gmail.com,
+	kpsingh@kernel.org, sdf@google.com, haoluo@google.com,
+	jolsa@kernel.org, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+	svens@linux.ibm.com, davem@davemloft.net, dsahern@kernel.org,
+	dave.hansen@linux.intel.com, x86@kernel.org, rostedt@goodmis.org,
+	mathieu.desnoyers@efficios.com, quentin@isovalent.com,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, netdev@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH bpf-next v2 6/9] bpf: tracing: add multi-link support
+Message-ID: <202403120515.LMAOyTdG-lkp@intel.com>
+References: <20240311093526.1010158-7-dongmenglong.8@bytedance.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240311093526.1010158-7-dongmenglong.8@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240311_123155_173564_B5E35B49 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20240311_143708_362092_10D8E8C2 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,120 +93,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The current syscall wrapper macros break 64-bit arguments on
-rv32 because they only guarantee the first N input registers are
-passed to syscalls that accept N arguments. According to the
-calling convention, values twice the word size reside in register
-pairs and as a result, syscall arguments don't always have a
-direct register mapping on rv32.
+Hi Menglong,
 
-Instead of using `__MAP(x,__SC_LONG,__VA_ARGS__)` to declare the
-type of the `__se(_compat)_sys_*` functions on rv32, change the
-function declarations to accept `ulong` arguments and alias them
-to the actual syscall implementations, similarly to the existing
-macros in include/linux/syscalls.h. This matches previous
-behavior and ensures registers are passed to syscalls as-is, no
-matter which argument types they expect.
+kernel test robot noticed the following build errors:
 
-Fixes: 08d0ce30e0e4 ("riscv: Implement syscall wrappers")
-Reported-by: Khem Raj <raj.khem@gmail.com>
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
----
- arch/riscv/include/asm/syscall_wrapper.h | 53 +++++++++++++++++-------
- 1 file changed, 39 insertions(+), 14 deletions(-)
+[auto build test ERROR on bpf-next/master]
 
-diff --git a/arch/riscv/include/asm/syscall_wrapper.h b/arch/riscv/include/asm/syscall_wrapper.h
-index eeec04b7dae6..980094c2e976 100644
---- a/arch/riscv/include/asm/syscall_wrapper.h
-+++ b/arch/riscv/include/asm/syscall_wrapper.h
-@@ -12,25 +12,51 @@
- 
- asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *);
- 
--#define SC_RISCV_REGS_TO_ARGS(x, ...)				\
--	__MAP(x,__SC_ARGS					\
--	      ,,regs->orig_a0,,regs->a1,,regs->a2		\
-+#ifdef CONFIG_64BIT
-+
-+#define __SYSCALL_SE_DEFINEx(x, prefix, name, ...)					\
-+	static long __se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__));		\
-+	static long __se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
-+
-+#define SC_RISCV_REGS_TO_ARGS(x, ...)							\
-+	__MAP(x,__SC_ARGS								\
-+	      ,,regs->orig_a0,,regs->a1,,regs->a2					\
- 	      ,,regs->a3,,regs->a4,,regs->a5,,regs->a6)
- 
-+#else
-+/*
-+ * Use type aliasing to ensure registers a0-a6 are correctly passed to the syscall
-+ * implementation when >word-size arguments are used.
-+ */
-+#define __SYSCALL_SE_DEFINEx(x, prefix, name, ...)					\
-+	__diag_push();									\
-+	__diag_ignore(GCC, 8, "-Wattribute-alias",					\
-+			"Type aliasing is used to sanitize syscall arguments");		\
-+	static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong, 	\
-+					ulong)						\
-+			__attribute__((alias(__stringify(___se_##prefix##name))));	\
-+	__diag_pop();									\
-+	static long noinline ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__));	\
-+	static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
-+
-+#define SC_RISCV_REGS_TO_ARGS(x, ...) \
-+	regs->orig_a0,regs->a1,regs->a2,regs->a3,regs->a4,regs->a5,regs->a6
-+
-+#endif /* CONFIG_64BIT */
-+
- #ifdef CONFIG_COMPAT
- 
- #define COMPAT_SYSCALL_DEFINEx(x, name, ...)						\
- 	asmlinkage long __riscv_compat_sys##name(const struct pt_regs *regs);		\
- 	ALLOW_ERROR_INJECTION(__riscv_compat_sys##name, ERRNO);				\
--	static long __se_compat_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__));		\
- 	static inline long __do_compat_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__));	\
--	asmlinkage long __riscv_compat_sys##name(const struct pt_regs *regs)		\
-+	__SYSCALL_SE_DEFINEx(x, compat_sys, name, __VA_ARGS__)				\
- 	{										\
--		return __se_compat_sys##name(SC_RISCV_REGS_TO_ARGS(x,__VA_ARGS__));	\
-+		return __do_compat_sys##name(__MAP(x,__SC_DELOUSE,__VA_ARGS__));	\
- 	}										\
--	static long __se_compat_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__))		\
-+	asmlinkage long __riscv_compat_sys##name(const struct pt_regs *regs)		\
- 	{										\
--		return __do_compat_sys##name(__MAP(x,__SC_DELOUSE,__VA_ARGS__));	\
-+		return __se_compat_sys##name(SC_RISCV_REGS_TO_ARGS(x,__VA_ARGS__));	\
- 	}										\
- 	static inline long __do_compat_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))
- 
-@@ -51,19 +77,18 @@ asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *);
- #define __SYSCALL_DEFINEx(x, name, ...)						\
- 	asmlinkage long __riscv_sys##name(const struct pt_regs *regs);		\
- 	ALLOW_ERROR_INJECTION(__riscv_sys##name, ERRNO);			\
--	static long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__));		\
- 	static inline long __do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__));	\
--	asmlinkage long __riscv_sys##name(const struct pt_regs *regs)		\
--	{									\
--		return __se_sys##name(SC_RISCV_REGS_TO_ARGS(x,__VA_ARGS__));	\
--	}									\
--	static long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__))		\
-+	__SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)				\
- 	{									\
- 		long ret = __do_sys##name(__MAP(x,__SC_CAST,__VA_ARGS__));	\
- 		__MAP(x,__SC_TEST,__VA_ARGS__);					\
- 		__PROTECT(x, ret,__MAP(x,__SC_ARGS,__VA_ARGS__));		\
- 		return ret;							\
- 	}									\
-+	asmlinkage long __riscv_sys##name(const struct pt_regs *regs)		\
-+	{									\
-+		return __se_sys##name(SC_RISCV_REGS_TO_ARGS(x,__VA_ARGS__));	\
-+	}									\
- 	static inline long __do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))
- 
- #define SYSCALL_DEFINE0(sname)							\
+url:    https://github.com/intel-lab-lkp/linux/commits/Menglong-Dong/bpf-tracing-add-support-to-record-and-check-the-accessed-args/20240311-173954
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+patch link:    https://lore.kernel.org/r/20240311093526.1010158-7-dongmenglong.8%40bytedance.com
+patch subject: [PATCH bpf-next v2 6/9] bpf: tracing: add multi-link support
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20240312/202403120515.LMAOyTdG-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240312/202403120515.LMAOyTdG-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202403120515.LMAOyTdG-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   kernel/bpf/syscall.c: In function 'bpf_tracing_multi_link_release':
+>> kernel/bpf/syscall.c:3538:9: error: implicit declaration of function 'bpf_trampoline_multi_unlink_prog'; did you mean 'bpf_trampoline_unlink_prog'? [-Werror=implicit-function-declaration]
+    3538 |         bpf_trampoline_multi_unlink_prog(&multi_link->link);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         |         bpf_trampoline_unlink_prog
+   kernel/bpf/syscall.c: In function 'bpf_tracing_prog_attach_multi':
+>> kernel/bpf/syscall.c:3815:15: error: implicit declaration of function 'bpf_trampoline_multi_link_prog'; did you mean 'bpf_trampoline_unlink_prog'? [-Werror=implicit-function-declaration]
+    3815 |         err = bpf_trampoline_multi_link_prog(&link->link);
+         |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         |               bpf_trampoline_unlink_prog
+   cc1: some warnings being treated as errors
+
+
+vim +3538 kernel/bpf/syscall.c
+
+  3532	
+  3533	static void bpf_tracing_multi_link_release(struct bpf_link *link)
+  3534	{
+  3535		struct bpf_tracing_multi_link *multi_link =
+  3536			container_of(link, struct bpf_tracing_multi_link, link.link);
+  3537	
+> 3538		bpf_trampoline_multi_unlink_prog(&multi_link->link);
+  3539		__bpf_tracing_multi_link_release(multi_link);
+  3540	}
+  3541	
+
 -- 
-2.44.0.278.ge034bb2e1d-goog
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
