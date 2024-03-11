@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83A1C54E58
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2024 15:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0604C54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2024 15:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FHo+71xk6kTBEHTtEW7UhqQaGpuWkbr0SQ5g8dzLEtA=; b=uD3umBf9b5mNrx
-	mX8nmNQ2wRqF4XPhYBFgiRUqI6+eT3NKxzdL/qiRE36L0OTOZC3RIoVvoQey2Drgij6DrOqD0estX
-	LW34jLYQfQgPFb+X+Ah6LWK3hDFqVsMTv9GBCbkyEAbemoeUiUypKTayioCKB0ZkCA6oNV11myUvx
-	L35DdUMuPtI0Qw0D7J+JtpF1rUd8B9YMLkTGz9KbTe3fIjUsKvkC5cKw+SQMeWW6hvgFVVGUaU+Xm
-	49I2fectvll1DX9TlYg9vDUN4s8+zjQOERxJDSxmgXji9AfcAXwBhGfuCqV6J2XmFvbG5cS83pNly
-	XTXat+BqV7vrpofz8R+Q==;
+	List-Owner; bh=ecsgUHFL983gyb2p53gu31GDyY9QxjMw6YCWd60vVCE=; b=VwpDEwYg0R+Nz4
+	ofJZ8cH+S09XxbP0b211xggjRJSFl5HU2l1g5/StDLl1M6jnEmy9r8FsgWLaPlkVhP75M/Jm4QIJj
+	IPVw0T4ATpCNb6pGfAYZbdQWk/XHcUMBFnPDC0hFy/FpzP5iE8gK06WjHwR1T/64sULVDFNc9oHcr
+	iwT6jHJ9ndoAuV5R5thy/vAuztycm4Qk/dOh9WKg8YByK/42HuIStRTzmdF5cv1/5xSStpPp9uFw5
+	votVj+k7G2MpMMRR8z5lu/EpeQRGxN/1X9clf/zdkBdsCI9vRHUGOlQXoY1ODcqR394WRdgvEUl8d
+	P21IKO5CxHRWMtn3nNMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rjhL2-00000002004-2jI5;
-	Mon, 11 Mar 2024 15:13:16 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rjhLg-000000020J7-2lkE;
+	Mon, 11 Mar 2024 15:13:56 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rjhKy-00000001zxe-1qFg;
-	Mon, 11 Mar 2024 15:13:14 +0000
+	id 1rjhLa-000000020Dk-2Xpw;
+	Mon, 11 Mar 2024 15:13:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id A255BCE112C;
-	Mon, 11 Mar 2024 15:13:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFC3CC43390;
-	Mon, 11 Mar 2024 15:13:05 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id DA64ACE0919;
+	Mon, 11 Mar 2024 15:13:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CC0DC433C7;
+	Mon, 11 Mar 2024 15:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1710169987;
-	bh=oMx6zHeOTkEXDKbjq76qlbY+QDGbPJEZZs3fhZ3D9bk=;
+	s=k20201202; t=1710170028;
+	bh=AsxC7B+GPHNTX2xciWRGMv74b90S2K8qA2lh8E+xwjI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FH7qCz5I9D+5TG6yKE2OxT0QvT8KWAlC4La6EWzYw4zl9NDjchwcvyfv9HT4wxcuD
-	 kaGdZxBKVjM9aTXyzjcYDYFwFgFsOyd1YoeeDJYzGlJLKL5G6FtKQMLcbzJnN9kmxZ
-	 TSBIxNSGEImNrGIbarnVqZJ3DPfRacOOc6pm21MR3V1M7Dm4TNsRF1Kic6K915h7JS
-	 t5tM7psXtBrRSu+nTbqMNV2R2NxLm0+MBqLknklW+A2K6Ev9AdWg1S4LS72tXLQzFZ
-	 I9VIClDo+ac4eYXdg5/G8bA9RetUKzx5S9LoPOc8VCyhlXP7yBcnK2lBSUKpIP0nsS
-	 cXhUrFRUj5laA==
+	b=TUxkiowI/aOXIBA311S5Tug9BvN7HsCxcpsa0O7MXX1T1XfnyZQJqLU8Ik/hHilVf
+	 Gb1cO8EMOFbh7PDqFNIWjP4E5ajcUbChbrOMnkoGZwCszPzRtlt7RRBDPMfPsinoS1
+	 aNkRx+pVsgfagwQ2KVmd7QEMeSKPxAmtT5bKiHY8qdnPO7dy4+T1XSlUVUm2YvERZn
+	 q2vYO3MtHvizGXdjDHH4MQxXCaVWfHqCr1FVwH7/JKtDmS/tp8ykAoM4UHuY8LkOFD
+	 RKNPLkkp4x/t6xrMcghbftnhbKy9eu1oE4uNijeX7l9mxi34ltSf6z9obWZuFTuIxy
+	 tGiK+FjLub5VQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -57,19 +57,19 @@ Cc: Fei Wu <fei2.wu@intel.com>,
 	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.7 23/23] perf: RISCV: Fix panic on pmu overflow handler
-Date: Mon, 11 Mar 2024 11:12:03 -0400
-Message-ID: <20240311151217.317068-23-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 17/17] perf: RISCV: Fix panic on pmu overflow handler
+Date: Mon, 11 Mar 2024 11:13:08 -0400
+Message-ID: <20240311151314.317776-17-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240311151217.317068-1-sashal@kernel.org>
-References: <20240311151217.317068-1-sashal@kernel.org>
+In-Reply-To: <20240311151314.317776-1-sashal@kernel.org>
+References: <20240311151314.317776-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.7.9
+X-stable-base: Linux 6.6.21
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240311_081312_856881_616DA080 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20240311_081351_057655_485E9C07 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,7 +134,7 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 16acd4dcdb96c..452aab49db1e8 100644
+index cd8a2b9efd787..d80b4b09152df 100644
 --- a/drivers/perf/riscv_pmu_sbi.c
 +++ b/drivers/perf/riscv_pmu_sbi.c
 @@ -512,7 +512,7 @@ static void pmu_sbi_set_scounteren(void *arg)
