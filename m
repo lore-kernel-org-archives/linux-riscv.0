@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ABD6C5475B
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2024 09:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC394C5475B
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2024 09:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aTXxtMTlwh0nS1ESEsI4WZGlPUQcvHC/HkYKphveMUc=; b=bvFGxlJZwd4uVa
-	JJ0DcNOUxNs6pQzO4nphJnvC8QoKIOyEVWfeIQQirz7q5LxXNFkLUvyfDyjiYq2iXpfWnwSRZzNrZ
-	6zejjBGykHgsgj7pHTr58dedHeHtgPHqqDNEHfVKjZ6VSYgyEIOwl5b3GVeOhhkR4PfJUBz8sUbCr
-	3iIRwZP2ka4yMm0akwoLQNA6Vkflahgx5DXMv2UUATfuDsZ0aEq8BoubL/O1cuOd9OMasGWgBPVLl
-	lAeaGASFQE4MeazWGPTxRQbrB+8gKzmIbE12kY7oHc06X4kTDxN8EsVusZJxlLe3YUyXnhWvlyNUv
-	V0ekTFPJfK0Ou55Agehw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EZoEY20ctcdeaJasvoQ+e9p2/9DSC6W7wByRZ9EU9so=; b=QnWs4GQHCnh61U
+	p8mfVTG5EVUhKEJiW4O5bnWg4WVdu1UcPcalIfkkGbYoGOe4Em577bN1lbxFCv99+S4j0XcpDtbld
+	bdviElJxWt3RRrj0xrnohtpbEwSwHW211zFETssnI/FOip0KNGvwXeCi6m8gexWtUG7X1qrNEfJ/r
+	D1jSzpEuErTqD1r/wpJvC6JFRKd3fE/AXrJ4s+nAJhVlebeNZCg4rZt+NalMH422GnxQ2NWzCtKWz
+	FyoXaIe8XuBUCyrlZmDSnRowSWEZuQjmo2H8ky5U1ydW5IKWts6Jw3az2P9koRxTYygPYeK2Y81QF
+	DsDdrC5Z8EBdndtzqC1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rjc3I-00000000rpd-37J3;
-	Mon, 11 Mar 2024 09:34:36 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1rjc3Q-00000000rua-0rvS;
+	Mon, 11 Mar 2024 09:34:44 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rjc3F-00000000rnE-483C
+	id 1rjc3J-00000000rpW-45IM
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Mar 2024 09:34:35 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-6e6381df003so3610355b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Mar 2024 02:34:29 -0700 (PDT)
+	Mon, 11 Mar 2024 09:34:40 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6e55731af5cso1863068b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Mar 2024 02:34:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1710149668; x=1710754468; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=q244jOj8DhushyleU2bCeCOJVSr6CNZEpUiu8vv3bQA=;
-        b=D7CnoXGLu/amEX8H96FAO62VC4FNmi68qNCg9f/SZveCnaGYzfY304g3XZ8VQM0z0x
-         gxug48rnGAAsYrY9Kogale8AZuLL68ikmzVDHcEGb+K+7nPwp/PVu+/XGNkDP+7NfdPk
-         RamWss8Eq9k2BOM4H2e7LppK/GtCU88kYqApNF1d7QrHlyHOjdfV/9RfpVRXEuCeEENn
-         +/i7pKlYocOJKAuKbeOjn7JL8GApnJTTLb3Mp5dCjYZrulqwf1Phfml5srd7AtpVGaB/
-         35EmyJ8wGMb4y1gSuiaDduJWQGLQ8tv14NgnohUsKfxXrrM5Kq7Fs++nsc8G7giCb0WA
-         geRg==
+        d=bytedance.com; s=google; t=1710149676; x=1710754476; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1DNwS3vzNHKnmJ9gtI+mTH5qdekBkGxgiUpqVAYV/P4=;
+        b=K/fRkXaVS102iVClmbFSeKtA59LPy0+tu9Tdv4OUSi+jj9iWdVmdt9wYhcfIYlK+3q
+         hlx6a7qqRPDKLmNRtW/SlVePJlcis8Aia0yf8yzY7DFfyD22zzktupL66YW+pfFjkhxP
+         vorz21fn4I+89brenHW3uEe98nIqAKHsjXYcf6pEAlqcuqIt4EaQLVRzRU++oJs5Pwl+
+         dH0O/wA8o1WzNaxNIjmNgoVMZAhdYkmMIFV++i/7DyvNVDXzxRVk8Pk8o7u6+IAMz4Ci
+         aw03CR/MVVAxYCyF9chtV43LW21MrOPcm9NJbYlBwMn+fThb0VuOdN9YkJA6STn3oNrp
+         pDYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710149668; x=1710754468;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=q244jOj8DhushyleU2bCeCOJVSr6CNZEpUiu8vv3bQA=;
-        b=H2NTu0dk7vjJGMpx0mjfYk0/Jou0AfH5cN9Enfa1lSCOYvBmC8rgZX/31OPmOVZsU2
-         WStetuVdhg2ey2EZ/G+V8jwJuMmd5guDmqT3WNfVctJAesZeOa+Mnhd41ObaOF9ZTTQD
-         8b3tcVtFKYp+t53vVTdtdDdAoClGRpebb+lR7krNgyM4sgTvXnWEi2XvAbv29O0xkBaP
-         SkIui1u9soN8e99u2+BlawHkvDS5caf6dPM74ZPj44v3xFfBIUgfs2s/0G9xCg8F1+qy
-         GPnfJJWq8nA0U9Pvivr5Oafj3LJPdRNCFAok6c6vGzV7mFulVIobut50eSbzbnKyDrDf
-         Pr8A==
-X-Forwarded-Encrypted: i=1; AJvYcCWYoTrh7S8W9aoLN7/FKCUI66ZO/0OzuFpxj8fpzLgiFsvV0Cyt7/XoKg6uesmLaYtT0s1D4ZTD5k/qODKCTLeL6dsbAxJTbzTcpHCkWTPG
-X-Gm-Message-State: AOJu0YxaXO5q01wHsNsf63zy4LL1S3fxIuxMRXJfC/i02MD/uH/l/a6a
-	v+CUhcB5XJZgULj0+NlBXwjw2Sfc3gpqWuOBn7iwu6uiqlmAU7MN+tKObxG9Tgc=
-X-Google-Smtp-Source: AGHT+IElS3MTAJT6oKHCK2ojNj/jD5/lk4XV4NzHmUyXpO9L/Z2ncrXc9UjeUvKY0ZMwD8Lzv32+BQ==
-X-Received: by 2002:a05:6a20:9f99:b0:1a1:7df5:ee5a with SMTP id mm25-20020a056a209f9900b001a17df5ee5amr9151303pzb.35.1710149668389;
-        Mon, 11 Mar 2024 02:34:28 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1710149676; x=1710754476;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1DNwS3vzNHKnmJ9gtI+mTH5qdekBkGxgiUpqVAYV/P4=;
+        b=iPcqpofEeRYhiwSZaIHgwRALoRD9KOGD5mjh9WDeTEy9amOUGxohMcO/6p3GYI9EvM
+         D2JOQrFALsCsRjqPwLIgIa8XhvZYVmonbgm6Gu04iizojcKUwsxba/1YohdaYrnqPO76
+         Ac8AlaKmiJdC0EcwZ1ef2DDY0XWe4kIeXBk3VAyuYJw9zEbLufwRuez4jTuZlm6BIXLI
+         gUTmrGQV4cbsUzuWKoi4phSYQf2HnvtsOTUghCUSrKJRRhWQI72vfKmyshwJuStIDKn2
+         /ACsOtD9qI9IS9P777mILs5f4ISkW1ahXmqYnXbAaLE527wZFX+Vh0A8faIPJGDBfNgm
+         dVlw==
+X-Forwarded-Encrypted: i=1; AJvYcCX+RVihW2So7zYMAECoPD/j7GqxlVYn6xvcZo0Q68dhTZFCwL/PmdCHgfjkTSkMf0ann5uzyiKrUqefpLD+NuQnHAkX++0pqqbnnT620w4M
+X-Gm-Message-State: AOJu0YzWzxzoPab6Nwb/etuIzSaXFWa1qhXj5jXgKVjAsFHK63TYeNYc
+	CnxMpMgbUXvRylomzcLpNs/Ln9XwFEjYyj0SYKFHZLYbwqr6ZTdIa9b5hGb5WIoIWDgUbMaPUYr
+	U
+X-Google-Smtp-Source: AGHT+IHp6WfuUeDSjQx2cauv1mQ/eMbX3s4chl5kJVOY3tZJvKu5JYf89lzfYO6yWTa1+IHjqNIpUg==
+X-Received: by 2002:a05:6a21:7890:b0:1a1:6cf5:5bf1 with SMTP id bf16-20020a056a21789000b001a16cf55bf1mr3944233pzc.12.1710149676017;
+        Mon, 11 Mar 2024 02:34:36 -0700 (PDT)
 Received: from localhost.localdomain ([43.129.25.208])
-        by smtp.gmail.com with ESMTPSA id h9-20020a170902f7c900b001dcad9cbf8bsm4253365plw.239.2024.03.11.02.34.20
+        by smtp.gmail.com with ESMTPSA id h9-20020a170902f7c900b001dcad9cbf8bsm4253365plw.239.2024.03.11.02.34.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Mar 2024 02:34:27 -0700 (PDT)
+        Mon, 11 Mar 2024 02:34:35 -0700 (PDT)
 From: Menglong Dong <dongmenglong.8@bytedance.com>
 To: andrii@kernel.org
 Cc: ast@kernel.org,
@@ -95,14 +97,16 @@ Cc: ast@kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	Menglong Dong <dongmenglong.8@bytedance.com>
-Subject: [PATCH bpf-next v2 0/9] bpf: make tracing program support multi-link
-Date: Mon, 11 Mar 2024 17:35:17 +0800
-Message-Id: <20240311093526.1010158-1-dongmenglong.8@bytedance.com>
+Subject: [PATCH bpf-next v2 1/9] bpf: tracing: add support to record and check the accessed args
+Date: Mon, 11 Mar 2024 17:35:18 +0800
+Message-Id: <20240311093526.1010158-2-dongmenglong.8@bytedance.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240311093526.1010158-1-dongmenglong.8@bytedance.com>
+References: <20240311093526.1010158-1-dongmenglong.8@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240311_023434_136185_8065528F 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20240311_023438_210412_7C417FE5 
+X-CRM114-Status: GOOD (  23.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,97 +123,194 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For now, the BPF program of type BPF_PROG_TYPE_TRACING is not allowed to
-be attached to multiple hooks, and we have to create a BPF program for
-each kernel function, for which we want to trace, even through all the
-program have the same (or similar) logic. This can consume extra memory,
-and make the program loading slow if we have plenty of kernel function to
-trace.
+In this commit, we add the 'accessed_args' field to struct bpf_prog_aux,
+which is used to record the accessed index of the function args in
+btf_ctx_access().
 
-In this series, we add the support to allow attaching a tracing BPF
-program to multi hooks, which is similar to BPF_TRACE_KPROBE_MULTI.
+Meanwhile, we add the function btf_check_func_part_match() to compare the
+accessed function args of two function prototype. This function will be
+used in the following commit.
 
-In the 1st patch, we add the support to record index of the accessed
-function args of the target for tracing program. Meanwhile, we add the
-function btf_check_func_part_match() to compare the accessed function args
-of two function prototype. This function will be used in the next commit.
+Signed-off-by: Menglong Dong <dongmenglong.8@bytedance.com>
+---
+ include/linux/bpf.h |   4 ++
+ kernel/bpf/btf.c    | 108 +++++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 110 insertions(+), 2 deletions(-)
 
-In the 2nd patch, we refactor the struct modules_array to ptr_array, as
-we need similar function to hold the target btf, target program and kernel
-modules that we reference to in the following commit.
-
-In the 3rd patch, we introduce the struct bpf_tramp_link_conn to be the
-bridge between bpf_link and trampoline, as the releation between bpf_link
-and trampoline is not one-to-one anymore.
-
-In the 4th patch, we add the struct bpf_tramp_multi_link and
-bpf_trampoline_multi_{link,unlink}_prog for multi-link of trampoline.
-
-In the 5th patch, we add target btf to the function args of
-bpf_check_attach_target(), then the caller can specify the btf to check.
-
-The 6th patch is the main part to add multi-link supporting for tracing.
-For now, only the following attach type is supported:
-
-  BPF_TRACE_FENTRY_MULTI
-  BPF_TRACE_FEXIT_MULTI
-  BPF_MODIFY_RETURN_MULTI
-
-The attach type of BPF_TRACE_RAW_TP has different link type, so we skip
-this part in this series for now.
-
-In the 7th and 8th patches, we add multi-link supporting of tracing to
-libbpf. Note that we don't free btfs that we load after the bpf programs
-are loaded into the kernel now if any programs of type tracing multi-link
-existing, as we need to lookup the btf types during attaching.
-
-In the 9th patch, we add the testcases for this series.
-
-Changes since v1:
-- According to the advice of Alexei, introduce multi-link for tracing
-  instead of attaching a tracing program to multiple trampolines with
-  creating multi instance of bpf_link.
-
-Menglong Dong (9):
-  bpf: tracing: add support to record and check the accessed args
-  bpf: refactor the modules_array to ptr_array
-  bpf: trampoline: introduce struct bpf_tramp_link_conn
-  bpf: trampoline: introduce bpf_tramp_multi_link
-  bpf: verifier: add btf to the function args of bpf_check_attach_target
-  bpf: tracing: add multi-link support
-  libbpf: don't free btf if program of multi-link tracing existing
-  libbpf: add support for the multi-link of tracing
-  selftests/bpf: add testcases for multi-link of tracing
-
- arch/arm64/net/bpf_jit_comp.c                 |   4 +-
- arch/riscv/net/bpf_jit_comp64.c               |   4 +-
- arch/s390/net/bpf_jit_comp.c                  |   4 +-
- arch/x86/net/bpf_jit_comp.c                   |   4 +-
- include/linux/bpf.h                           |  51 ++-
- include/linux/bpf_verifier.h                  |   1 +
- include/uapi/linux/bpf.h                      |  10 +
- kernel/bpf/bpf_struct_ops.c                   |   2 +-
- kernel/bpf/btf.c                              | 113 ++++-
- kernel/bpf/syscall.c                          | 425 +++++++++++++++++-
- kernel/bpf/trampoline.c                       |  97 +++-
- kernel/bpf/verifier.c                         |  24 +-
- kernel/trace/bpf_trace.c                      |  48 +-
- net/bpf/test_run.c                            |   3 +
- net/core/bpf_sk_storage.c                     |   2 +
- tools/bpf/bpftool/common.c                    |   3 +
- tools/include/uapi/linux/bpf.h                |  10 +
- tools/lib/bpf/bpf.c                           |  10 +
- tools/lib/bpf/bpf.h                           |   6 +
- tools/lib/bpf/libbpf.c                        | 215 ++++++++-
- tools/lib/bpf/libbpf.h                        |  16 +
- tools/lib/bpf/libbpf.map                      |   2 +
- .../selftests/bpf/bpf_testmod/bpf_testmod.c   |  49 ++
- .../bpf/prog_tests/tracing_multi_link.c       | 153 +++++++
- .../selftests/bpf/progs/tracing_multi_test.c  | 209 +++++++++
- 25 files changed, 1366 insertions(+), 99 deletions(-)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/tracing_multi_link.c
- create mode 100644 tools/testing/selftests/bpf/progs/tracing_multi_test.c
-
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index 95e07673cdc1..0f677fdcfcc7 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -1461,6 +1461,7 @@ struct bpf_prog_aux {
+ 	const struct btf_type *attach_func_proto;
+ 	/* function name for valid attach_btf_id */
+ 	const char *attach_func_name;
++	u64 accessed_args;
+ 	struct bpf_prog **func;
+ 	void *jit_data; /* JIT specific data. arch dependent */
+ 	struct bpf_jit_poke_descriptor *poke_tab;
+@@ -2565,6 +2566,9 @@ struct bpf_reg_state;
+ int btf_prepare_func_args(struct bpf_verifier_env *env, int subprog);
+ int btf_check_type_match(struct bpf_verifier_log *log, const struct bpf_prog *prog,
+ 			 struct btf *btf, const struct btf_type *t);
++int btf_check_func_part_match(struct btf *btf1, const struct btf_type *t1,
++			      struct btf *btf2, const struct btf_type *t2,
++			      u64 func_args);
+ const char *btf_find_decl_tag_value(const struct btf *btf, const struct btf_type *pt,
+ 				    int comp_idx, const char *tag_key);
+ int btf_find_next_decl_tag(const struct btf *btf, const struct btf_type *pt,
+diff --git a/kernel/bpf/btf.c b/kernel/bpf/btf.c
+index 170d017e8e4a..c2a0299d4358 100644
+--- a/kernel/bpf/btf.c
++++ b/kernel/bpf/btf.c
+@@ -6125,19 +6125,24 @@ static bool is_int_ptr(struct btf *btf, const struct btf_type *t)
+ }
+ 
+ static u32 get_ctx_arg_idx(struct btf *btf, const struct btf_type *func_proto,
+-			   int off)
++			   int off, int *aligned_idx)
+ {
+ 	const struct btf_param *args;
+ 	const struct btf_type *t;
+ 	u32 offset = 0, nr_args;
+ 	int i;
+ 
++	if (aligned_idx)
++		*aligned_idx = -ENOENT;
++
+ 	if (!func_proto)
+ 		return off / 8;
+ 
+ 	nr_args = btf_type_vlen(func_proto);
+ 	args = (const struct btf_param *)(func_proto + 1);
+ 	for (i = 0; i < nr_args; i++) {
++		if (aligned_idx && offset == off)
++			*aligned_idx = i;
+ 		t = btf_type_skip_modifiers(btf, args[i].type, NULL);
+ 		offset += btf_type_is_ptr(t) ? 8 : roundup(t->size, 8);
+ 		if (off < offset)
+@@ -6207,7 +6212,7 @@ bool btf_ctx_access(int off, int size, enum bpf_access_type type,
+ 			tname, off);
+ 		return false;
+ 	}
+-	arg = get_ctx_arg_idx(btf, t, off);
++	arg = get_ctx_arg_idx(btf, t, off, NULL);
+ 	args = (const struct btf_param *)(t + 1);
+ 	/* if (t == NULL) Fall back to default BPF prog with
+ 	 * MAX_BPF_FUNC_REG_ARGS u64 arguments.
+@@ -6217,6 +6222,9 @@ bool btf_ctx_access(int off, int size, enum bpf_access_type type,
+ 		/* skip first 'void *__data' argument in btf_trace_##name typedef */
+ 		args++;
+ 		nr_args--;
++		prog->aux->accessed_args |= (1 << (arg + 1));
++	} else {
++		prog->aux->accessed_args |= (1 << arg);
+ 	}
+ 
+ 	if (arg > nr_args) {
+@@ -7024,6 +7032,102 @@ int btf_check_type_match(struct bpf_verifier_log *log, const struct bpf_prog *pr
+ 	return btf_check_func_type_match(log, btf1, t1, btf2, t2);
+ }
+ 
++static u32 get_ctx_arg_total_size(struct btf *btf, const struct btf_type *t)
++{
++	const struct btf_param *args;
++	u32 size = 0, nr_args;
++	int i;
++
++	nr_args = btf_type_vlen(t);
++	args = (const struct btf_param *)(t + 1);
++	for (i = 0; i < nr_args; i++) {
++		t = btf_type_skip_modifiers(btf, args[i].type, NULL);
++		size += btf_type_is_ptr(t) ? 8 : roundup(t->size, 8);
++	}
++
++	return size;
++}
++
++/* This function is similar to btf_check_func_type_match(), except that it
++ * only compare some function args of the function prototype t1 and t2.
++ */
++int btf_check_func_part_match(struct btf *btf1, const struct btf_type *func1,
++			      struct btf *btf2, const struct btf_type *func2,
++			      u64 func_args)
++{
++	const struct btf_param *args1, *args2;
++	u32 nargs1, i, offset = 0;
++	const char *s1, *s2;
++
++	if (!btf_type_is_func_proto(func1) || !btf_type_is_func_proto(func2))
++		return -EINVAL;
++
++	args1 = (const struct btf_param *)(func1 + 1);
++	args2 = (const struct btf_param *)(func2 + 1);
++	nargs1 = btf_type_vlen(func1);
++
++	for (i = 0; i <= nargs1; i++) {
++		const struct btf_type *t1, *t2;
++
++		if (!(func_args & (1 << i)))
++			goto next;
++
++		if (i < nargs1) {
++			int t2_index;
++
++			/* get the index of the arg corresponding to args1[i]
++			 * by the offset.
++			 */
++			get_ctx_arg_idx(btf2, func2, offset, &t2_index);
++			if (t2_index < 0)
++				return -EINVAL;
++
++			t1 = btf_type_skip_modifiers(btf1, args1[i].type, NULL);
++			t2 = btf_type_skip_modifiers(btf2, args2[t2_index].type,
++						     NULL);
++		} else {
++			/* i == nargs1, this is the index of return value of t1 */
++			if (get_ctx_arg_total_size(btf1, func1) !=
++			    get_ctx_arg_total_size(btf2, func2))
++				return -EINVAL;
++
++			/* check the return type of t1 and t2 */
++			t1 = btf_type_skip_modifiers(btf1, func1->type, NULL);
++			t2 = btf_type_skip_modifiers(btf2, func2->type, NULL);
++		}
++
++		if (t1->info != t2->info ||
++		    (btf_type_has_size(t1) && t1->size != t2->size))
++			return -EINVAL;
++		if (btf_type_is_int(t1) || btf_is_any_enum(t1))
++			goto next;
++
++		if (btf_type_is_struct(t1))
++			goto on_struct;
++
++		if (!btf_type_is_ptr(t1))
++			return -EINVAL;
++
++		t1 = btf_type_skip_modifiers(btf1, t1->type, NULL);
++		t2 = btf_type_skip_modifiers(btf2, t2->type, NULL);
++		if (!btf_type_is_struct(t1) || !btf_type_is_struct(t2))
++			return -EINVAL;
++
++on_struct:
++		s1 = btf_name_by_offset(btf1, t1->name_off);
++		s2 = btf_name_by_offset(btf2, t2->name_off);
++		if (strcmp(s1, s2))
++			return -EINVAL;
++next:
++		if (i < nargs1) {
++			t1 = btf_type_skip_modifiers(btf1, args1[i].type, NULL);
++			offset += btf_type_is_ptr(t1) ? 8 : roundup(t1->size, 8);
++		}
++	}
++
++	return 0;
++}
++
+ static bool btf_is_dynptr_ptr(const struct btf *btf, const struct btf_type *t)
+ {
+ 	const char *name;
 -- 
 2.39.2
 
