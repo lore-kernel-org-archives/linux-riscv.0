@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCD9C5475B
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2024 14:10:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD91C5475B
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2024 14:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iygUYjWpoca7JLwYfz6IWxof6i1ZbGc08N5B/zeupvA=; b=X3X+SQ3kUSpx2S
-	06GcdC50v2YzRfyy5pfhQ0w8RAIVfPhAfA7P27xh4QvAcgEvU+8vKF59qZxMysiYFEr1Zk7tfyJ/e
-	GdHIKQKsWHi/wn5vqkXLbQh5sMrZHfLMFr1LWfAVZ72u1psu3z+uLmk4zym1L7KGrea2XR3dFxFGN
-	5QEeZhTA/+89fhTaH33/dd4cLUhABTFjZjka1GdfpXENKYZ630XVDe4HWMc3g4xG3yCoo2dWMO5qi
-	9QdDD7aE7NqecxtmQ+v5nj3uPLjvb6UE/rIbZrPm89d9e45Xn5JmU+bmYac5G0Spc4AiDKGcWyyLG
-	+oqp06oScZNdLF/tospQ==;
+	List-Owner; bh=POPRY7vYB4U0EkUiXD5Movrw7issO0a05F9tlpV+L2U=; b=EaaSBiGquZ7rcm
+	pp3jrl+bK6+bd2J1WThpIzZAywSlkObkZ4eSoHbGuNjlPLwFqlnDmI8SxQplneWkpSJeBpdKhVpZy
+	JZxezTojkrq80PfKJ8XoCHf6Tl54wIbyinyROscK2ZByrwYObVdVqr+W0DcSvBTMn0O2004WsjUh2
+	imECMy8l+cI/w2TIQpFhD7ZMfcSb7Mn25Vwz3AJYk/C9YdAYbRtftOPhJbVy1MBvB43aOh5Pa8lDJ
+	CNQSKdf4inNL6YvqzTFQiRY7N/A4SjGDl2wDUsD+eOPZ9v228Pi82Pr7VOcdnlhYnSQlexcCtBIzs
+	7dZtZre9RHJFILBYQFzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rjgMU-00000001kTQ-3TTY;
-	Mon, 11 Mar 2024 14:10:42 +0000
+	id 1rjgVI-00000001mGz-1jWH;
+	Mon, 11 Mar 2024 14:19:48 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rjgMR-00000001kPz-2qBb
+	id 1rjgVF-00000001mFz-2iTl
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Mar 2024 14:10:41 +0000
+	Mon, 11 Mar 2024 14:19:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1710166224;
+	s=mimecast20190719; t=1710166784;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=hYh5tQchtq2eZoOZpBdnN7mPdgsWGKOiIWfUojl7Cjw=;
-	b=dOY0cWdxlNMbe06V6Q4ejckEZE5uPRn1lNxX/H597mIZzVv4k9NxMeZF/2TcHdy1F3Fvs+
-	2MNm6ht16igOmCJAEv2QyJbLulXJxDaZcBqc4Zs4il2sGfwHjXUqniBVMSaQjhd7UgXUQg
-	mMJHDi/9pG5uGN4QHiFfxsI+af5SciE=
-Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com
- [209.85.218.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=fjeIs11/GS4xnw7P/YbolbBH87bCSCu3+iV5r5aUsNM=;
+	b=CdFGj9wyPEVEh4ceWF1leZnWGNyRQaBUTBMuCeWnDyEwIqJkmrWVH9eSdQnMGU6Z3gNdiN
+	ZBtbdkHyiy1zOK6KxSCqJErrCTsiGw3xqunG7Jhw0KiwzG1VP3n8jgonbMDNCp41aa0kMr
+	9rQO0qZ20g7matuJtNljUEmKrSuRjPs=
+Received: from mail-lj1-f197.google.com (mail-lj1-f197.google.com
+ [209.85.208.197]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-472-1pQg8XFNNdu6g_1L6y-ASA-1; Mon, 11 Mar 2024 10:10:22 -0400
-X-MC-Unique: 1pQg8XFNNdu6g_1L6y-ASA-1
-Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-a448b3a36eeso163904866b.3
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Mar 2024 07:10:22 -0700 (PDT)
+ us-mta-410-69PS1IMaOTuCR6HxNGjYFQ-1; Mon, 11 Mar 2024 10:19:31 -0400
+X-MC-Unique: 69PS1IMaOTuCR6HxNGjYFQ-1
+Received: by mail-lj1-f197.google.com with SMTP id 38308e7fff4ca-2d41fdaeea6so19586071fa.0
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Mar 2024 07:19:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710166221; x=1710771021;
+        d=1e100.net; s=20230601; t=1710166770; x=1710771570;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hYh5tQchtq2eZoOZpBdnN7mPdgsWGKOiIWfUojl7Cjw=;
-        b=b9fkvjYqYE8494Swe4ZpbDuTi9XW4VEYux/VoCPU9++uNJN7bz55yJTK6LusWnknsi
-         k2AIxl70CqyD7vipHpTECqrF9L/Zrymnhlym5C+S9SPZ8WPCs6GEFA1d8oS/5hwx3e1G
-         ZXjVE5Jq/1phrNxzykqLnQI6ypysLQ1zpmSqHb8vdhaLnG2M9IIk5YPfrbdu6HwFPtHm
-         j1WFVsoHF/97RFn2yfA39JY7uNOOOrcNctdOS0ya5NQyGfuSa+t5sHrcqGuQotWR/Pxn
-         LwqIzYBDVcrpIyY2reN8Hq3pxGdm78qxRFPCT2/XDI6MT68tlejYSry0O5HLVzeOKRlC
-         fpdg==
-X-Forwarded-Encrypted: i=1; AJvYcCV+vjrl6ybOhKeSd4zcFHvnNPQvlkGodAWdb7J7mkB18sntCtMKjwJDL3qo3KwnmqjVGE8gaK2QCRfc5+ZjkkBqn3x/iwBkMBzIfmc2aTZO
-X-Gm-Message-State: AOJu0Ywh59zFn6x63WjGtjSIF0uXr5zI8av/p74jF+pResPiaZFH55HZ
-	UcwpHB9J8XMw/VXg7dQb+rIpDdjdlPSgWFfPp5HLQasK1SGpfENKrVdplkzfuZiQjQAjIRvoz1T
-	GsQcqgW2/goC6SBEOkQImpDyIb6XT7BPnp/rH2jtzT2O02HqDnKESI+Drx4G3wUklvA==
-X-Received: by 2002:a17:906:e2c5:b0:a45:f9da:b683 with SMTP id gr5-20020a170906e2c500b00a45f9dab683mr4046325ejb.66.1710166221176;
-        Mon, 11 Mar 2024 07:10:21 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEY7olz2nnq89L389z4fKjNkFp+/5FWfOwUlOJt4408T6wNJTGHcVc/O4EzaY14GwTb/wlJkg==
-X-Received: by 2002:a17:906:e2c5:b0:a45:f9da:b683 with SMTP id gr5-20020a170906e2c500b00a45f9dab683mr4046305ejb.66.1710166220755;
-        Mon, 11 Mar 2024 07:10:20 -0700 (PDT)
+        bh=fjeIs11/GS4xnw7P/YbolbBH87bCSCu3+iV5r5aUsNM=;
+        b=CH5Z7TXfs+6hVEm413S+Wxk5slb4KhrkXWjbTH3WWP9NfBypKtK1hrGGYzkcLgHNFv
+         I4m/YYOogewnANnoORQjYOiaq8FQdCl3eG2FbPmzIBxNqnnph9uni/G0DEOWMap+/5E+
+         uLBOU2jLt/rXKE/QcvVegB4/w2xeNZPG8hkZ1tO7pAdk1s3txvVAtcip90l57B6T6dHC
+         NqgPmJgvLXmG2axuAL9fTfd1PRnvh6zWl6CmZkoRwjGYFHf3JLM1cBBJB47sTj1MVQC3
+         qm9uSo/us/pPLRVTeVII4M15bL3AWuqIR5KCIsrkpVr8v0lDo70ZMlE7gtby/BJvV+7P
+         UafQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVMZ3BSvmXZWsZsUXmRaWN0nZA+4TfiyDqBNe5RBKz+ItKoJOMoDjIQ5ihfIEsR8uvHhZKkxAhPjggwRK+G9mobP61BJJAidNYyRbl1+zFu
+X-Gm-Message-State: AOJu0Yw0sn74S8bncqDeQAxJw45elF8ngARbAgKTYcKv7qsQ6fsjqbTM
+	qS3zPbiw3StkTwg/a2rmJ9iTyZROe8RaLc5Kocmu/gclrvqylYT9Jitn42zBE0s1v9Sy1Y6GLkP
+	Ktd2hvqp+xnKBLBFDL2YoVytFGEYHR+ht8qcv3U8DNxif3O47JpWEplBRNyuKWd29aA==
+X-Received: by 2002:a2e:869a:0:b0:2d2:c8c1:d844 with SMTP id l26-20020a2e869a000000b002d2c8c1d844mr4073987lji.13.1710166770297;
+        Mon, 11 Mar 2024 07:19:30 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHenKVxc5lk5fJfJlsecO5k6bHxo+uZ6RjbQWXqALB2AGcnuymWmVp/1W9o9nVZ3YZ3HK6MDA==
+X-Received: by 2002:a2e:869a:0:b0:2d2:c8c1:d844 with SMTP id l26-20020a2e869a000000b002d2c8c1d844mr4073977lji.13.1710166769909;
+        Mon, 11 Mar 2024 07:19:29 -0700 (PDT)
 Received: from [192.168.10.81] ([151.49.77.21])
-        by smtp.googlemail.com with ESMTPSA id c23-20020a1709060fd700b00a44180ab871sm2900654ejk.50.2024.03.11.07.10.19
+        by smtp.googlemail.com with ESMTPSA id x21-20020aa7d395000000b00567fa27e75fsm2940331edq.32.2024.03.11.07.19.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Mar 2024 07:10:19 -0700 (PDT)
-Message-ID: <6091398f-a2b3-4dc9-9f33-d7459a0a9594@redhat.com>
-Date: Mon, 11 Mar 2024 15:10:17 +0100
+        Mon, 11 Mar 2024 07:19:28 -0700 (PDT)
+Message-ID: <f58fd876-3aa7-4c0c-80ef-586862ee9363@redhat.com>
+Date: Mon, 11 Mar 2024 15:19:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [GIT PULL] KVM/riscv changes for 6.9
@@ -84,8 +84,6 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt
  linux-riscv <linux-riscv@lists.infradead.org>
 References: <CAAhSdy1rYFoYjCRWTPouiT=tiN26Z_v3Y36K2MyDrcCkRs1Luw@mail.gmail.com>
  <Zen8qGzVpaOB_vKa@google.com>
- <CAAhSdy2Mu08RsBM+7FMjkcV49p9gOj3UKEoZnPAVk92e_3q=sw@mail.gmail.com>
- <ZesxeoyFZUeo-Z9F@google.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
 Autocrypt: addr=pbonzini@redhat.com; keydata=
  xsEhBFRCcBIBDqDGsz4K0zZun3jh+U6Z9wNGLKQ0kSFyjN38gMqU1SfP+TUNQepFHb/Gc0E2
@@ -122,13 +120,13 @@ Autocrypt: addr=pbonzini@redhat.com; keydata=
  JBrdmNZSQDz0iKmSrx8xkoXYfA3bgtFN8WJH2xgFL28XnqY4M6dLhJwV3z08tPSRqYFm4NMP
  dRsn0/7oymhneL8RthIvjDDQ5ktUjMe8LtHr70OZE/TT88qvEdhiIVUogHdo4qBrk41+gGQh
  b906Dudw5YhTJFU3nC6bbF2nrLlB4C/XSiH76ZvqzV0Z/cAMBo5NF/w=
-In-Reply-To: <ZesxeoyFZUeo-Z9F@google.com>
+In-Reply-To: <Zen8qGzVpaOB_vKa@google.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240311_071039_801644_6607D2B5 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20240311_071945_768910_E8E930AF 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,31 +143,47 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/8/24 16:40, Sean Christopherson wrote:
-> You're missing the point.  I don't care when patches land in the RISC-V tree, nor
-> do I care that you made a last minute tweak to fix a bug.  I care when commits
-> show up in linux-next, and*none*  of these commits were in linux-next until
-> yesterday.
-> 
->    $ git tag -l --contains 2c5af1c8460376751d57c50af88a053a3b869926
->    next-20240307
->    next-20240308
-> 
-> The*entire*  purpose of linux-next is to integrate*all*  work destined for the
-> next kernel into a single tree, so that conflicts, bugs, etc. can be found and
-> fixed*before*  the next merge window.
+On 3/7/24 18:43, Sean Christopherson wrote:
+> E.g.
+> if this were to happen with a less trivial conflict, the other sub-maintainer would
+> be left doing a late scramble to figure things out just before sending their own
+> pull requests.
 
-Indeed, and this is more important as more work is routed towards 
-different trees.  At this point we have 5 more or less active 
-architectures, and especially in selftests land it's important to 
-coordinate with each other.
+Nah, either I would fix it, or I would look at an older tree from 
+linux-next and ask whether it's okay to use that one.
 
-Anup, ideally, when you say that a patch is "queued" it should only be a 
-short time before you're ready to send it to me - and that means putting 
-it in a place where linux-next picks it up.  For x86 I generally compile 
-test and run kvm-unit-tests on one of Intel or AMD, and leave the 
-remaining tests for later (because they take a day or two), but in 
-general it's a matter of days before linux-next get the patches.
+>    tag kvm-riscv-6.9-1
+>    Tagger:     Anup Patel<anup@brainfault.org>
+>    TaggerDate: Thu Mar 7 11:54:34 2024 +0530
+> 
+> ...
+> 
+>    commit d8c0831348e78fdaf67aa95070bae2ef8e819b05
+>    Author:     Anup Patel<apatel@ventanamicro.com>
+>    AuthorDate: Tue Feb 13 13:39:17 2024 +0530
+>    Commit:     Anup Patel<anup@brainfault.org>
+>    CommitDate: Wed Mar 6 20:53:44 2024 +0530
+> 
+> The other reason this caught my eye is that the conflict happened in common code,
+> but the added helper is RISC-V specific and used only from RISC-V code.  ARM does
+> have an identical helper, but AFAICT ARM's helper is only used from ARM code.
+> 
+> But the prototype of guest_get_vcpuid() is in common code.  Which isn't a huge
+> deal, but it's rather undesirable because there's no indication that its
+> implementation is arch-specific, and trying to use it in code built for s390 or
+> x86 (or MIPS or PPC, which are on the horizon), would fail.  I'm all for making
+> code common where possible, but going halfway and leaving a trap for other
+> architectures makes for a poor experience for developers.
+
+I think it's okay if the _concept_ is reasonably arch-independent.  In 
+that case, the first who uses it from arch-independent tests has to 
+implement it for s390 and x86, but having a function in common code 
+makes it possible to use it from the partly-arch-dependent tests such as 
+arch_timer.c or get-reg-list.c.
+
+(Now - that is _not_ the case here, because the function is only used in 
+the aarch64 and RISC-V specific parts of the tests, but still to me it 
+makes sense to have the prototype there).
 
 Paolo
 
