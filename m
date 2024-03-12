@@ -4,77 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBEB1C54E66
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 12:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A346C54E60
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 12:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=0VGAghvSOUYxZ9obZvDhTpUpU/srew6SVML6nypIqko=; b=uY25nLPz7Y2l2TUwEbh6QgaXp9
-	DgouYzkZZ42jWwnVR68sD8DlG6PonU18A1jN6fUPp8ORpbs61fac7AFsRioQqplofsJNdrjxMJxHG
-	4Rb7/N4kf7dW2SLY/Iys67Jfqc8ldhimQSoBWkEFO/9N3ytrJ4cxYtYkz0kKVJIFP4Kqz7B/duO+S
-	sR+jG065cpLiGWC0CJGoaGnGqVkOKv4uIKhLEVOXLkZSPGgViMTlO+ZSBzbByAwn+kFcb74qQxO7h
-	mPtG9JgdPSFdYaCR6Vs0MUIr5lf3AG4a/6R8UrKyLhm8qdPupXABqWnlSAiIpuBM2wvGrEZP7OqLZ
-	P3kryhbA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4SNqF2lpLiH8ZUfsaXdOpFi4sH8I3oOxt6herzx53cI=; b=QpPge08MxsEWF+
+	utyWu9C7HoQz8uRQmIVLqJ0Rk4ZQG5eyqE9YdRxMEEoXchrHLS29GshXggdowE4Dnf80MeI9GAe4K
+	6H5PQEkAbB/KNS7I3x6Eq1ZG0+7VrD9rb7P2VQy9k5KlXQoUNTfj4WuLC4Gqiez/rbalbzTWVp7YE
+	l2zXPqz/r/vwmg3h6MOct0KTw8Ni1vSJN++Lnz8134pAIf5tSGalMqN4gWWAwdnxmPPDkif8Hhgny
+	x7a9t00sQy17oTfSli4bs/UyoDH++/6vQ+Sgb1PE9eSA1oBzl8Nqd+8UoyeptLZ+VeLK8+VVrXWfH
+	zeeLMy2WvzGAqw8p/tAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk1NB-00000005lds-0OwA;
-	Tue, 12 Mar 2024 12:36:49 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1rk1NI-00000005lgV-0IJ5;
+	Tue, 12 Mar 2024 12:36:56 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk1N8-00000005lcp-3nMZ
+	id 1rk1NF-00000005leF-11KM
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Mar 2024 12:36:48 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-517ab9a4a13so4805558a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 05:36:46 -0700 (PDT)
+	Tue, 12 Mar 2024 12:36:54 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-29be9c136a2so1851734a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 05:36:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1710247005; x=1710851805; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1710247009; x=1710851809; darn=lists.infradead.org;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=xN7eHdW4LcYM7Mc/XXEbclq7SVzClHhpT4PqxrpnO2c=;
-        b=ax4Eox/4quWUCQ2y6Hi+Cu622NxAGQw+axHpERYeNUuVESYCFUGduUyJPW+7x3tRv2
-         L9RDWploe+bC67aBejeE9HwX/MNmkeSkW3N7LvKzEoa4a4Cx+P8e78SB82jvGRQFGltm
-         dJu4wgLyYu3fofPDEN/wU5aiboiyzyzwG1lfkwEksQub2Y5aa2/pUJ+6bpbXHCFgl21Y
-         F4+35X+TqA4g6DeDduOIeXZ5KfvCAKUDSlmUDtfSvO8M+P2i4a5ljQc+ZZQl6sj9YJuH
-         brxoPl4Tt/TgO8wWJ70hHnHuCoNbJSibe2gvGS/gEXC/3y0i6mo2FxOMgMgETT+zwza4
-         GkpA==
+        bh=MCJHlDLKNkptbzcqOFzybUvyb/uygvtDPI5/Ir2yQK4=;
+        b=jQCxl3pOzd7aStkeBx3p6rZ6i2IG02t/hOyvEWGl+3QcER5UiFqBU578IGesr6on9m
+         dlxV2e6Fs05yrAb/Q4dDkrk2BiPSgtxXk4vCVbn5fSgAACImSDBKZbs3woLY4VSBQgTR
+         ZxqolTxon7zI92CN/ejgfMX7SL5zss6Kb4HmMHaynl1Q1u4jI1g3r3HzTZbN00JQ8kwI
+         B+zE7nvcJNx2QOPV+w8GN6vCMiFteE5yVCHz387kVQXdHzi8VdmXMn+uqwzuz/3IzZof
+         oGT5YoGLeHbbrbUbU3VKLBrpg9VK4BuDlFF8/k4oXmCbK8FLPjPXpKmc9KRnT9kUwhK/
+         b75A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710247005; x=1710851805;
+        d=1e100.net; s=20230601; t=1710247009; x=1710851809;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xN7eHdW4LcYM7Mc/XXEbclq7SVzClHhpT4PqxrpnO2c=;
-        b=Dq9rJeR1JBptEWvuk8BLs8NtuVcArOTOm9zSd/1mBB6xixL0p7iBVSjtR79QgGvRtX
-         Gg9M2b3rsdOR8Pj4RTefSrKlQ7VTZc0snbaFRiwjNrffb6kq7kHZjiAoKupOehbM8Wzc
-         Ry4EuBUGs9/hVMQMEhzYQDcS1izcLs8J/efmqryXIa5+l3+jrpuZ2h9AmT/7Iwu9A3u8
-         JxZ6Uu75SpBS5QID+GXOU8zUBdW+kngLgnbKNXiglexFllPUeToHlqn1TdAPot5QpXic
-         WzeFg21xLYw9QeqX/rB1D/c0HStgLE+pxh6MULlZmz/jeiZy3ST6YOBOAQSpa4ABcZ2z
-         syug==
-X-Gm-Message-State: AOJu0YypTOIJXyHjEmVxO9qow7Nr6lR0ma+Bqr7rmLKHnGXNRbaEJB8V
-	xRlNtcKvLbb1XrR2bFa9jyTk5hUMvXLeTEvRbuaVIoO7naQpeqXK75WU3HwxXjJ+tmuMfYapQcV
-	lhibrGJo7v4TEhs3SWQ/y/MIcG6bAZScRk3ypRwR05XNBecMKO4Ql41caisIJ5Ph17NayH/3zue
-	uSY50jXKzeMHGamIGK1lAy25Q/9vgxwQEnT9G5lYCxnqlKzg8lPUOD
-X-Google-Smtp-Source: AGHT+IHiXB18mYqhKjdc4DlUYAeC2HpIKLvKbex0ECTZmBtUAIO5I+Jbf0bmLhP1fWPt3VuTIatymg==
-X-Received: by 2002:a17:90b:1e50:b0:29c:48c3:bb5a with SMTP id pi16-20020a17090b1e5000b0029c48c3bb5amr670626pjb.45.1710247005319;
-        Tue, 12 Mar 2024 05:36:45 -0700 (PDT)
+        bh=MCJHlDLKNkptbzcqOFzybUvyb/uygvtDPI5/Ir2yQK4=;
+        b=DYP025e+rC/B2s7P8rDp9ot8gyBpVo9obkUvcAUhIiVOPUZOOA5y3MJTGC4JVr09Fa
+         cQ5KGU39fqoUtoDr9MOPgtyr2yKSXR06ci6P9vJui8hxWCHuLmca/mOk95f8jquxKLkI
+         8o0DZuiMdpt8mC/9UTEOvr74YNq0lzeSux6D6GTIJlY5GSa/XCR/HtPmW9lJieIJdk/d
+         LIyqQJrMVdP2URic4FflcfFCQwIlVmLXeFT6bRrbB8LHB2iOYW69chbzjcWsLjlVJ+yF
+         VdbL+wjW+1EBd1rKAKvhO98i6mbHb/yqQgsRi9ODUBA+Irnzyrien7KNVXyoxOY1H3+e
+         8neg==
+X-Gm-Message-State: AOJu0YxzXwQ+U06uU7hbNQNEKThO6Zdo/uGI7L6nZCn8h0Xizle2PmXr
+	rVR5Niz5QEXNaM2YbxPoV9jzbmqE+0u+p8teMBugCKVxndq4oGP56JFMvmLsR9Y7o2rafIwTEBK
+	BHqjzzRsnw5uIkBytnmO9BOK0+zeYYKGZhKpnmWp6l8sX17dr12D9Lo8jTdkuxvi2+K3AAqi6Yi
+	/smbaBw2wGRuxAGFbJJmHWucMWpbwNILw0kMbpNECGqaIOi2vB2gzR
+X-Google-Smtp-Source: AGHT+IEGbbQnsLf1uJIzhNAv4yrVpUwznkn2I1fNvkVP19aQi82rv3ij8Q4YQEMg2YYlnLG4au/d2g==
+X-Received: by 2002:a17:90a:bd17:b0:29b:ecf0:c788 with SMTP id y23-20020a17090abd1700b0029becf0c788mr5286611pjr.4.1710247008995;
+        Tue, 12 Mar 2024 05:36:48 -0700 (PDT)
 Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id hk13-20020a17090b224d00b0029c2794d3f7sm1804233pjb.7.2024.03.12.05.36.41
+        by smtp.gmail.com with ESMTPSA id hk13-20020a17090b224d00b0029c2794d3f7sm1804233pjb.7.2024.03.12.05.36.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Mar 2024 05:36:44 -0700 (PDT)
+        Tue, 12 Mar 2024 05:36:48 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
-Subject: [v1, 2/6] riscv: smp: fail booting up smp if inconsistent vlen is detected
-Date: Tue, 12 Mar 2024 20:36:23 +0800
-Message-Id: <20240312123627.9285-3-andy.chiu@sifive.com>
+Cc: greentime.hu@sifive.com,
+	guoren@linux.alibaba.com,
+	bjorn@kernel.org,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Evan Green <evan@rivosinc.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [v1, 3/6] riscv: cpufeature: call match_isa_ext() for single-letter extensions
+Date: Tue, 12 Mar 2024 20:36:24 +0800
+Message-Id: <20240312123627.9285-4-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20240312123627.9285-1-andy.chiu@sifive.com>
 References: <20240312123627.9285-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240312_053646_968579_7F361753 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20240312_053653_310096_B900DBF3 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,91 +97,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>, guoren@linux.alibaba.com, Heiko Stuebner <heiko@sntech.de>, Yang Li <yang.lee@linux.alibaba.com>, Conor Dooley <conor.dooley@microchip.com>, Nam Cao <namcaov@gmail.com>, Samuel Holland <samuel.holland@sifive.com>, Vincent Chen <vincent.chen@sifive.com>, bjorn@kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>, Andy Chiu <andy.chiu@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>, Frederik Haxel <haxel@fzi.de>, greentime.hu@sifive.com, Sami Tolvanen <samitolvanen@google.com>, Andrew Jones <ajones@ventanamicro.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently we only support Vector for SMP platforms, that is, all SMP
-cores have the same vlenb. If we happen to detect a mismatching vlen, it
-is better to just fail bootting it up to prevent further race/scheduling
-issues.
+Single-letter extensions may also imply multiple subextensions. For
+example, Vector extension implies zve64d, and zve64d implies zve64f.
 
-Fixes: 7017858eb2d7 ("riscv: Introduce riscv_v_vsize to record size of Vector context")
+Extension parsing for "riscv,isa-extensions" has the ability to resolve
+the dependency by calling match_isa_ext(). This patch makes deprecated
+parser call the same function for single letter extensions.
+
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 ---
- arch/riscv/kernel/head.S    | 14 +++++++-------
- arch/riscv/kernel/smpboot.c | 14 +++++++++-----
- 2 files changed, 16 insertions(+), 12 deletions(-)
+ arch/riscv/kernel/cpufeature.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 4236a69c35cb..a158fa9f2656 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -165,9 +165,15 @@ secondary_start_sbi:
- #endif
- 	call .Lsetup_trap_vector
- 	scs_load_current
--	tail smp_callin
-+	call smp_callin
- #endif /* CONFIG_SMP */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 1b21f1e568e1..8986ceb58188 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -470,6 +470,10 @@ static void __init riscv_parse_isa_string(unsigned long *this_hwcap, struct risc
  
-+.align 2
-+.Lsecondary_park:
-+	/* We lack SMP support or have too many harts, so park this hart */
-+	wfi
-+	j .Lsecondary_park
+ 		if (unlikely(ext_err))
+ 			continue;
 +
- .align 2
- .Lsetup_trap_vector:
- 	/* Set trap vector to exception handler */
-@@ -181,12 +187,6 @@ secondary_start_sbi:
- 	csrw CSR_SCRATCH, zero
- 	ret
- 
--.align 2
--.Lsecondary_park:
--	/* We lack SMP support or have too many harts, so park this hart */
--	wfi
--	j .Lsecondary_park
--
- SYM_CODE_END(_start)
- 
- SYM_CODE_START(_start_kernel)
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index cfbe4b840d42..1f86ee10192f 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -218,6 +218,15 @@ asmlinkage __visible void smp_callin(void)
- 	struct mm_struct *mm = &init_mm;
- 	unsigned int curr_cpuid = smp_processor_id();
- 
-+	if (has_vector()) {
-+		/*
-+		 * Return as early as possible so the hart with a mismatching
-+		 * vlen won't boot.
-+		 */
-+		if (riscv_v_setup_vsize())
-+			return;
-+	}
++		for (int i = 0; i < riscv_isa_ext_count; i++)
++			match_isa_ext(&riscv_isa_ext[i], ext, ext_end, isainfo);
 +
- 	/* All kernel threads share the same mm context.  */
- 	mmgrab(mm);
- 	current->active_mm = mm;
-@@ -230,11 +239,6 @@ asmlinkage __visible void smp_callin(void)
- 	numa_add_cpu(curr_cpuid);
- 	set_cpu_online(curr_cpuid, 1);
+ 		if (!ext_long) {
+ 			int nr = tolower(*ext) - 'a';
  
--	if (has_vector()) {
--		if (riscv_v_setup_vsize())
--			elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
--	}
--
- 	riscv_user_isa_enable();
- 
- 	/*
+@@ -477,9 +481,6 @@ static void __init riscv_parse_isa_string(unsigned long *this_hwcap, struct risc
+ 				*this_hwcap |= isa2hwcap[nr];
+ 				set_bit(nr, isainfo->isa);
+ 			}
+-		} else {
+-			for (int i = 0; i < riscv_isa_ext_count; i++)
+-				match_isa_ext(&riscv_isa_ext[i], ext, ext_end, isainfo);
+ 		}
+ 	}
+ }
 -- 
 2.17.1
 
