@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F6DAC54E5D
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 14:07:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53694C54E58
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 14:23:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OtzgJzyVKCmGzz26G3SXBtIZyMu4MCmV92RNDjnZ1Pw=; b=Lj8d/tFE8CuIqMXWH4M/MsvVwB
-	OUVDk6IWNBKSUJ55v97sWXgWR4EZCDGxJW0ixj+MYAeWYLiMr9eH45H/2JB58dZ8V2/ufEM+2JGYy
-	UQUJLsxJFhnlKTfXM8y+kEwIHYq+CN56Tn1u36WxIrKUUB0rdJFN4eDXoajJFOvzOxZ8ypLfyKPkw
-	yBDs+H1lSPs8jedjxSDgkkohOH8ILkqIuLxoFvcZzLhk+14i8Jwh2Eiuz1qKuebiIQJ8iZUGYcRXk
-	5xfMGqGjRFzZxlU3GB3cXMz46PfcfT4OLQTFT1VU2CyPAO57Bpzv9y5LLBWeizbGlFP81ZXgdu9ip
-	ERy+IEuA==;
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=l8gPQGJxTQ7DP5XytNMIMvHQgn+We309qzI4fUXnY/Y=; b=QlNT2b4UCOGBQ3aFz73XiNAUax
+	RcUYu+Q3/Y339PXolFGTgTWJjnT5XmCEF+3VGARtZHSclNw+lJCOatx10oESu92SMTE0pFbku06/y
+	QhxQdoZR9R0DR6yu7FgOvruyrD9PPWkCNNFqGqmrcyxbx13X+MgSULGJVByhcqd8S1rG77o7KHxyt
+	Z9ssgAdkX43FgMMW2ILJFKOWRZWq5rspjtQzeZpW2IBQMcNGu8uMdXcNMMsygMjpwLTISZXCYTZlF
+	VJ9Fmdoo54lBs31e3P7p/EXWWxzB3DyfSRNiA9tENYbDkyUQUuFjtiRUvc/0/M1ZJlU9+BkdsdPG3
+	mHHijDDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk2n8-000000062ND-3xp5;
-	Tue, 12 Mar 2024 14:07:42 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rk32V-000000066Jc-0KB3;
+	Tue, 12 Mar 2024 14:23:35 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk2n4-000000062Lh-2B4A;
-	Tue, 12 Mar 2024 14:07:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 99B3360E83;
-	Tue, 12 Mar 2024 14:07:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EAEEC433C7;
-	Tue, 12 Mar 2024 14:07:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1710252457;
-	bh=VxlpGxDihZXj7jY5GEg/ShwUNDeC49+jqJqaSIfPhsY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i5Rje2GOhhmmf2q6wh8tnNGuD3tTEdAt2GDgKJqBRsX83vpcz+vGfagvrnOnCBkML
-	 jSth+OmJ0TmjvkKv/FHbMjGA9SKfvslDXJiOSsUgD/Qzf+nHqxX5fOv24mr0lK42ed
-	 MVPfgfPkavIORcva44kvaPz20jSzsV6BY3BETPNO2nkia7j0w9Qth401Nx1dWJOpDj
-	 0sHQKRzLSyrUiHHiGbnhg45kuRXaRhBokjUDzKs7sXjTrWg6f4oDGiOIH7oUY9w0Z+
-	 6pzkeManYXfsh0kdOBXcQOWR6G0ULbZVy5Bh9UH5NVPMLppD3yUZZfadwNclBfbHhl
-	 r3oA8T0eYwlwg==
-Date: Tue, 12 Mar 2024 14:07:31 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Qingfang Deng <dqfext@gmail.com>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] perf: RISC-V: fix IRQ detection on T-Head C908
-Message-ID: <20240312-evil-resource-66370b68b9b4@spud>
-References: <20240311063018.1886757-1-dqfext@gmail.com>
- <IA1PR20MB4953ECC3E32E95303872CD14BB242@IA1PR20MB4953.namprd20.prod.outlook.com>
- <CALW65jZ+q8sDiRKgsRL9n+939HNUCnkKuO=YJjHB5Js=WYQeOg@mail.gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <CALW65jZ+q8sDiRKgsRL9n+939HNUCnkKuO=YJjHB5Js=WYQeOg@mail.gmail.com>
+	id 1rk32R-000000066Hx-0Y0d
+	for linux-riscv@lists.infradead.org;
+	Tue, 12 Mar 2024 14:23:33 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1dd97fd66cdso18192185ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 07:23:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1710253409; x=1710858209; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3ixjDXdUDhwXI0JLFZkupTe/KFpB3Bws3seOjqAl5dc=;
+        b=Nplh8swK6lxKJw1ev3UpQg0vIAg+i75kJ2CvnyzUXLMwUQdQGCPOdHxj9W6HRLOU7x
+         soZZHNDINiYutdMiNrHHCRP688wpwsezqnJDDPeigfEW/NySJjNK5MFwyLZiU+QQWGNw
+         ed+iHs1sC9bg42CkP/HWuWbI+twAPdNdzcdjNWZSGVtPo21wdC37xWvDfyL6rFlOGdKE
+         KJoIF7fQS35e8FBU2ordduCjGcPfzimT5zgIu5Qa3/dsGVvBfM4RNOWpJF+6CSazlOsE
+         lUBAxwzcWjeVtB37GA6Fv+cr35DegFs4vH5w4INTSHFexxcEQZ5YcVWApgoGQlvJkBGJ
+         2Rbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1710253409; x=1710858209;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3ixjDXdUDhwXI0JLFZkupTe/KFpB3Bws3seOjqAl5dc=;
+        b=OgjYuy/z4po4MvOcRd+Q+XT7JJenUcZfT+o05skeFhGa7Y3Ic5AjHnpG5fBXwnEGLZ
+         vTbToCdpgFcfvuz3SUK1OH1/oM1p7A6wH4+Hr8h4ymKjaPm5etyB/Tvzb9vvCBJoU32n
+         Sr9Vqfvrf9PoljKobVN26pktsr3O8uy190WtUOKC759VXveXhOp7aUBznDL+hvrzYFxq
+         2lMeo+S6DLmsJ2JofDGC2lMl8XKKxHX/+GhFdn8uip4A6N/4QU3ySEgfrjjGnbY9CJHK
+         um/aGm0R/eRXfzt9Lsku9TDmswdMwQaHeXTnrcXDHP6zzBQuWc+AVF3Fk3tQ0j8lmhzA
+         klqg==
+X-Forwarded-Encrypted: i=1; AJvYcCUsrVTUROFKai9iOpz0XVp05hH7z0Bl+gkPfFojtEH6HGRp4OpibtNzx0UzDK/WgtOjAgFjj1nG8zPVvXUvDoXUTS5hyQSyoCYoI11sX6ts
+X-Gm-Message-State: AOJu0YytsOAa8XYe9cbbDGRSW6g40ofkIzI5HVTvjdcG/7hwout/EA2D
+	eTmnI6uEejxyzc8YeMbFGOa64sEk8uulKZvyW+CRk/LUICtadur9QNcyI2zyR4M=
+X-Google-Smtp-Source: AGHT+IF5Tdh4z8JQsHyW1PPsqQuYiflOdAu+RNp46pn6g+B0xVaFC5Y6Ggu7odCPQpbbShIDcpWR1Q==
+X-Received: by 2002:a17:902:e74a:b0:1dd:a134:5680 with SMTP id p10-20020a170902e74a00b001dda1345680mr6869873plf.69.1710253408730;
+        Tue, 12 Mar 2024 07:23:28 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id jy8-20020a17090342c800b001dd5806eff3sm6836433plb.306.2024.03.12.07.23.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Mar 2024 07:23:28 -0700 (PDT)
+Date: Tue, 12 Mar 2024 07:23:28 -0700 (PDT)
+X-Google-Original-Date: Tue, 12 Mar 2024 07:23:26 PDT (-0700)
+Subject: Re: [PATCH v9 03/10] irqchip/riscv-intc: Introduce Andes hart-level interrupt controller
+In-Reply-To: <871q93eehn.ffs@tglx>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: tglx@linutronix.de
+Message-ID: <mhng-d47edbdb-0a36-4adb-9575-8af094d80e5e@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240312_070738_770905_9CC64C7A 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20240312_072331_397325_040F621F 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,96 +85,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5452528973663773032=="
+Cc: Mark Rutland <mark.rutland@arm.com>, irogers@google.com, Heiko Stuebner <heiko@sntech.de>, geert+renesas@glider.be, alexander.shishkin@linux.intel.com, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, guoren@kernel.org, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, linux-renesas-soc@vger.kernel.org, tim609@andestech.com, peterlin@andestech.com, samuel@sholland.org, anup@brainfault.org, unicorn_wang@outlook.com, magnus.damm@gmail.com, jernej.skrabec@gmail.com, randolph@andestech.com, peterz@infradead.org, wens@csie.org, mingo@redhat.com, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, andre.przywara@arm.com, locus84@andestech.com, acme@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, atishp@atishpatra.org, namhyung@kernel.org, jszhang@kernel.org, n.shubin@yadro.com, rdunlap@infradead.org, adrian.hunter@intel.com, Conor Dooley <conor@kernel.org>, linux-perf-users@vger.kernel.org, Evan Green <evan@rivosinc.com>, inochiama@outlook.com, jolsa@kernel.org, wefu@redhat.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 23 Feb 2024 01:06:44 PST (-0800), tglx@linutronix.de wrote:
+> On Fri, Feb 23 2024 at 09:54, Thomas Gleixner wrote:
+>> On Fri, Feb 23 2024 at 09:49, Thomas Gleixner wrote:
+>>> On Thu, Feb 22 2024 at 22:36, Thomas Gleixner wrote:
+>>>> Palmer, feel free to take this through the riscv tree. I have no other
+>>>> changes pending against that driver.
+>>>
+>>> Aargh. Spoken too early. This conflicts with Anups AIA series.
+>>>
+>>>   https://lore.kernel.org/all/20240222094006.1030709-1-apatel@ventanamicro.com
+>>>
+>>> So I rather take the pile through my tree and deal with the conflicts
+>>> localy than inflicting it on next.
+>>
+>>> Palmer?
+>>
+>> Nah. I just apply the two intc patches localy and give you a tag to pull
+>> from so we carry both the same commits. Then I can deal with the
+>> conflicts on my side trivially.
+>
+> Here you go:
+>
+>   git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git irq-for-riscv-02-23-24
+>
+> Contains:
+>
+>   f4cc33e78ba8 ("irqchip/riscv-intc: Introduce Andes hart-level interrupt controller")
+>   96303bcb401c ("irqchip/riscv-intc: Allow large non-standard interrupt number")
+>
+> on top of v6.8-rc1
 
---===============5452528973663773032==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Pq4l/U+EGNQPJ6t+"
-Content-Disposition: inline
+Sorry I missed this.  I just merged this into my testing tree, it might 
+take a bit to show up because I've managed to break my VPN so I can't 
+poke the tester box right now...
 
-
---Pq4l/U+EGNQPJ6t+
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Mar 11, 2024 at 03:56:29PM +0800, Qingfang Deng wrote:
-> Hi Inochi,
->=20
-> On Mon, Mar 11, 2024 at 3:13=E2=80=AFPM Inochi Amaoto <inochiama@outlook.=
-com> wrote:
-> >
-> > On Mon, Mar 11, 2024 at 02:30:18PM +0800, Qingfang Deng wrote:
-> > > T-Head C908 has the same IRQ num and CSR as previous C9xx cores, but
-> > > reports non-zero marchid and mimpid. Remove the ID checks.
-> > >
-> >
-> > Hi, Qingfang,
-> >
-> > IIRC, the existed C908 SoC (such as K230) have an early version
-> > of C908 core. But C908 core itself may support Sscofpmf.
-> > So I do not think removing the ID checks is a good idea. Instead,
-> > I suggest adding CPUID of your SoC to this check.
->=20
-> As of Feb 2024, the latest C908 revision does not support Sscofpmf.
-> You may Google "C908R1S0" to see its user manual.
-> But I think you're right. Even though C908 does not have Sscofpmf,
-> T-Head may release new SoCs which do have Sscofpmf, and the check will
-> break. I will submit a new patch with your suggested changes.
-
-If on an SoC where they have updated vector to 1.0 and implemented both
-Zicbom and Svpbmt instead of their custom stuff they did not implement
-Sscofpmf I think we can expect they won't move away from their custom
-implementation soon.
-I do agree that we should not remove the ID checks entirely, but I also
-do not want to be adding an ID for every SoC that needs this. I think we
-should be getting this information from DT going forward.
-The DT parsing is done prior to the application of boot time
-alternatives, so I think we could apply the "erratum" based on the DT.
-
-I'm also pretty sure that we can also modify the existing code for the
-archid =3D=3D impid =3D=3D 0x0 case to set a pseudo isa extension so that t=
-he
-perf driver could do call riscv_isa_eextension_available() and not worry
-about the specfic conditions in which that is true. It'd be something
-like this patch:
-https://lore.kernel.org/linux-riscv/20240110073917.2398826-8-peterlin@andes=
-tech.com/
-Just without removing the archid =3D=3D impid =3D=3D 0x0 case from the erra=
-ta
-code. If you're lost after reading that, I can probably throw together
-some untested code for it.
-
-Thanks,
-Conor.
-
---Pq4l/U+EGNQPJ6t+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZfBhowAKCRB4tDGHoIJi
-0qpNAQDkCoYYNr9WEQUhd2aEI/zbE3vwTfDh+2GK9L7+lQaBUAD/Ub+ksm3LncKt
-mAWaii+Of3v6TKIm+8K1yjxEtDdKlQE=
-=5JMP
------END PGP SIGNATURE-----
-
---Pq4l/U+EGNQPJ6t+--
-
-
---===============5452528973663773032==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>
+> Thanks,
+>
+>         tglx
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5452528973663773032==--
-
