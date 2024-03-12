@@ -4,95 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6218CC54E5D
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 13:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87185C54E5D
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 13:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nxwP3/P0a68n3pLWRR49EPZPAUWtmv8PwDyXJv4VIbk=; b=Fh9gvuItxXn6GI
-	ZyFLuU8kGX1TBiym8fEoJC6viCiyxWuM/42+A1xbMyZoEeeh/phwjyhEPTSXQpoQAPCpwGxDJKFjX
-	/JJggACZ962yEm+aajlEuM0xcUHZVt2xiwmbICLnGOJXKWWdcVhUnPjj0Xq7SxWK/Eebn5kxI3+/R
-	ER0YBRCJUJMdLdEss3/H0dRLYOEJcuDch58eqeM5J+AFZHxrIq7uCixdZprgqZ2spGNY9aoL3m626
-	ESj420/3iZKJGHCNDB61gfG/Uq+NjtWnEd2+qTb9I4xfZGJ5C4r0mX/xV1onmv9O6IE2/qeF6GeKj
-	OWtp0yyfvlHt8JFmzx1Q==;
+	List-Owner; bh=U3QAkgX1A19te2bVITTmNuWxCdf/t+212aJAfPRHwNw=; b=laXL1DQLSsQ2a8
+	eXejtfErtyRilZk+cB4c9dZxdD1UhL0ssPDpeW8OGDdTdi3Hp6Q8D37ChU5Km8yE1AB2npuEA8UY6
+	ETpVSA40y8DRedt2LNCnV73a4C4dzd9TcluiHsnywuQpCyt98zBiKU9w2732kqEfyBeen/bb12Ulb
+	CxVy/R0GbUufsfzywpm+tcAjBqtTnyjfPJKoH2tSjr1U1cDNtLEw7dhKpwikTwjE7lQ1kANofBSfc
+	9yoXrek9EhV0VLOs0mfccNc1OU0QXbbkQ0ixuqXYGpVEeL5kViV8LFQ8pmttlluq1HoHuRZu5MyD9
+	Tsed31W0CZJmrcuV6AqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk20N-00000005tpq-2b5A;
-	Tue, 12 Mar 2024 13:17:19 +0000
-Received: from wfhigh2-smtp.messagingengine.com ([64.147.123.153])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk20K-00000005tnS-1AK2
+	id 1rk2Ox-00000005xVq-0qQw;
+	Tue, 12 Mar 2024 13:42:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rk2Ou-00000005xTp-49oN
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Mar 2024 13:17:18 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailfhigh.west.internal (Postfix) with ESMTP id 0B7741800092;
-	Tue, 12 Mar 2024 09:17:08 -0400 (EDT)
-Received: from imap50 ([10.202.2.100])
-  by compute3.internal (MEProxy); Tue, 12 Mar 2024 09:17:10 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
-	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1710249428; x=1710335828; bh=asf+1Teary
-	B0Mt2U5DDKAfe5BW6dSv7E0Ip+c/SYQT0=; b=TRm5QlEIkPvJBdikZMX3pANOzv
-	I51RwVOMKP8Ipj/xGs/FIwxrKU73K7Ahdn5vb279m3hQZ9HoLQ/m/N6nSzRpBa4p
-	hcBmedvL6/1QvNNAIobCUfgynkFHRSUgSC2MCsOZkjC/Crhe8TKXOPh8IwY2ZT3U
-	kQSwAud8afaZr5VziqHiVpRMhDg6+umHaXSszDTCyDy+CcJ+56VOVOjS3qdQHKTi
-	M59B/PFPk13NVP5mzX0HbxspgZR+cLPfvM9SXWzLuugQ6hXxdxFQFysw+7Ta8F2h
-	jk41bFA/HCE9K14JBgltMYbpKvOBGHIn5lv2CVqFxs9ZQu6/q4OUAVEB5Q+A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1710249428; x=1710335828; bh=asf+1TearyB0Mt2U5DDKAfe5BW6d
-	Sv7E0Ip+c/SYQT0=; b=nylNbGUbtDEZP/ilcV9PUdbzHik1fG9noc68TmcgO576
-	+G+t5jHxGeJqmOuZyK+RgwwY8Ddvwby4ihBhStbB48wN6RgkOQdK1LZy8ShVnR4v
-	iO8emjVPDM/2IeBGh6bJJuDnu+DimZ5pwM6mBRYAIL1gdCPAMVu3hinwgl/tC2zV
-	Ma7B6t1R89aAF9vvV40Io4psC7xtOwe0oWOa0/jghTpvZzCSBg631QMzvsE9wJzg
-	E8+J8T7lLyRbBL+ZMFEpOflNqNeKJsMqotRNO5wbUaLAWLCOpC/RrLFf4kg/7uD7
-	98eDarEHrHnIiEfco0O8byMS/WR8Prt5RdWlPFsOkA==
-X-ME-Sender: <xms:01XwZcQA9Rmx8KonHNX3ptDk7yfv0Z-KX7OJuoK-eWOii1vq2aU0iw>
-    <xme:01XwZZyHpyD5759uaPk2I9ROr_bIJsHcayRQHHqMfFMRdlfzyxdFdB1mh_pF34ovz
-    SRyiyc0fF74y2fOuw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvledrjeefgdehtdcutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdfuthgv
-    fhgrnhcuqfdktfgvrghrfdcuoehsohhrvggrrhesfhgrshhtmhgrihhlrdgtohhmqeenuc
-    ggtffrrghtthgvrhhnpefhveettefhteejgeejheejheeijedutdefveettddvtdduteff
-    uddvgfegfeegueenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhinhhfrhgruggvrg
-    gurdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhho
-    mhepshhorhgvrghrsehfrghsthhmrghilhdrtghomh
-X-ME-Proxy: <xmx:01XwZZ09W65RPz9E1x_s4IYGI6YOeGbEK1hmRQtyKoSVTJ-0Ic-bMw>
-    <xmx:01XwZQC2021zp3AO2bzhBRKmQDfV8feXzoP4drpXyKB-dqBtsgxTqQ>
-    <xmx:01XwZVhC7PyNe8t7eBxRQt5NoZ5LyWiS4BUcqK1kc40Ba6dtBFMsVw>
-    <xmx:01XwZcrrOe6gq9lF6jYSAXLVxJrKV6xCWaatwNWjXQWMICg-mbS0nA>
-    <xmx:1FXwZeYkJARjDWPegGDZlREPWBbxaTk9Wl3osb0pkHIUrIGgA9RXyLa4OmI>
-Feedback-ID: i84414492:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 8DBFA1700093; Tue, 12 Mar 2024 09:17:07 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.11.0-alpha0-251-g8332da0bf6-fm-20240305.001-g8332da0b
+	Tue, 12 Mar 2024 13:42:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31EAE1007;
+	Tue, 12 Mar 2024 06:43:15 -0700 (PDT)
+Received: from FVFF77S0Q05N (unknown [10.57.69.97])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E9313F762;
+	Tue, 12 Mar 2024 06:42:34 -0700 (PDT)
+Date: Tue, 12 Mar 2024 13:42:28 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: "Bj\"orn T\"opel" <bjorn@kernel.org>
+Cc: Puranjay Mohan <puranjay12@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Guo Ren <guoren@kernel.org>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
+	"Bj\"orn T\"opel" <bjorn@rivosinc.com>,
+	Song Shuai <suagrfillet@gmail.com>,
+	Cl'ement L'eger <cleger@rivosinc.com>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH] riscv: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
+Message-ID: <ZfBbxPDd0rz6FN2T@FVFF77S0Q05N>
+References: <20240306165904.108141-1-puranjay12@gmail.com>
+ <87ttlhdeqb.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Message-Id: <7f968290-2ca3-49c9-b76a-04849abb637e@app.fastmail.com>
-In-Reply-To: <20240312123627.9285-1-andy.chiu@sifive.com>
-References: <20240312123627.9285-1-andy.chiu@sifive.com>
-Date: Tue, 12 Mar 2024 09:16:47 -0400
-From: "Stefan O'Rear" <sorear@fastmail.com>
-To: "Andy Chiu" <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
- "Palmer Dabbelt" <palmer@dabbelt.com>
-Cc: greentime.hu@sifive.com, guoren@linux.alibaba.com, bjorn@kernel.org,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Nathan Chancellor" <nathan@kernel.org>,
- "Nick Desaulniers" <ndesaulniers@google.com>,
- "Bill Wendling" <morbo@google.com>, "Justin Stitt" <justinstitt@google.com>
-Subject: Re: [v1, 0/6] Support Zve32[xf] and Zve64[xfd] Vector subextensions
+Content-Disposition: inline
+In-Reply-To: <87ttlhdeqb.fsf@all.your.base.are.belong.to.us>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240312_061716_488278_52BFAC8B 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20240312_064241_168605_7ECD4278 
+X-CRM114-Status: GOOD (  49.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,74 +79,210 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 12, 2024, at 8:36 AM, Andy Chiu wrote:
-> The series composes of two parts. The first part provides a quick fix for
-> the issue on a recent thread[1]. The issue happens when a platform has
-> ununified vector register length across multiple cores. Specifically,
-> patch 1 adds a comment at a callsite of riscv_setup_vsize to clarify how
-> vlenb is observed by the system. Patch 2 fixes the issue by failing the
-> boot process of a secondary core if vlenb mismatches.
->
-> The second part of the series provide a finer grain view of the Vector
-> extension. Patch 3 give the obsolete ISA parser the ability to expand
-> ISA extensions for sigle letter extensions. Patch 3, 4 introduces Zve32x,
-> Zve32f, Zve64x, Zve64f, Zve64d for isa parsing and hwprobe. Patch 5
-> updates all callsites such that Vector subextensions are maximumly
-> supported by the kernel.
+Hi Bjorn
 
-What is the end user programming interface for this intended to be? prctl
-call using inline asm ecall in the ifunc resolver, possibly automated using
-function multi-versioning? Can we do better with a different interface?
+(apologies, my corporate mail server has butchered your name here).
 
--s
+There's a big info dump below; I realise this sounds like a sales pitch for
+CALL_OPS, but my intent is more to say "here are some dragons you may not have
+spotted".
 
-> Two parts of the series are sent together to ease the effort of picking
-> dependency patches. The first part can be merged independent of the
-> second one if necessary.
+On Thu, Mar 07, 2024 at 08:27:40PM +0100, Bj"orn T"opel wrote:
+> Puranjay!
+> 
+> Puranjay Mohan <puranjay12@gmail.com> writes:
+> 
+> > This patch enables support for DYNAMIC_FTRACE_WITH_CALL_OPS on RISC-V.
+> > This allows each ftrace callsite to provide an ftrace_ops to the common
+> > ftrace trampoline, allowing each callsite to invoke distinct tracer
+> > functions without the need to fall back to list processing or to
+> > allocate custom trampolines for each callsite. This significantly speeds
+> > up cases where multiple distinct trace functions are used and callsites
+> > are mostly traced by a single tracer.
+> >
+> > The idea and most of the implementation is taken from the ARM64's
+> > implementation of the same feature. The idea is to place a pointer to
+> > the ftrace_ops as a literal at a fixed offset from the function entry
+> > point, which can be recovered by the common ftrace trampoline.
+> 
+> Not really a review, but some more background; Another rationale (on-top
+> of the improved per-call performance!) for CALL_OPS was to use it to
+> build ftrace direct call support (which BPF uses a lot!). Mark, please
+> correct me if I'm lying here!
+
+Yep; it gives us the ability to do a number of per-callsite things, including
+direct calls.
+
+> On Arm64, CALL_OPS makes it possible to implement direct calls, while
+> only patching one BL instruction -- nice!
+
+The key thing here isn't that we patch a single instruction (since we have ot
+patch the ops pointer too!); it's that we can safely patch either of the ops
+pointer or BL/NOP at any time while threads are concurrently executing.
+
+If you have a multi-instruction sequence, then threads can be preempted
+mid-sequence, and it's very painful/complex to handle all of the races that
+entails.
+
+For example, if your callsites use a sequence:
+
+	AUIPC <tmp>, <funcptr>
+	JALR <tmp2>, <funcptr>(<tmp>)
+
+Using stop_machine() won't allow you to patch that safely as some threads
+could be stuck mid-sequence, e.g.
+
+	AUIPC <tmp>, <funcptr>
+	[ preempted here ]
+	JALR <tmp2>, <funcptr>(<tmp>)
+
+... and you can't update the JALR to use a new funcptr immediate until those
+have completed the sequence.
+
+There are ways around that, but they're complicated and/or expensive, e.g.
+
+* Use a sequence of multiple patches, starting with replacing the JALR with an
+  exception-generating instruction with a fixup handler, which is sort-of what
+  x86 does with UD2. This may require multiple passes with
+  synchronize_rcu_tasks() to make sure all threads have seen the latest
+  instructions, and that cannot be done under stop_machine(), so if you need
+  stop_machine() for CMODx reasons, you may need to use that several times with
+  intervening calls to synchronize_rcu_tasks().
+
+* Have the patching logic manually go over each thread and fix up the pt_regs
+  for the interrupted thread. This is pretty horrid since you could have nested
+  exceptions and a task could have several pt_regs which might require
+  updating.
+
+The CALL_OPS approach is a bit easier to deal with as we can patch the
+per-callsite pointer atomically, then we can (possibly) enable/disable the
+callsite's branch, then wait for threads to drain once. 
+
+As a heads-up, there are some latent/generic issues with DYNAMIC_FTRACE
+generally in this area (CALL_OPs happens to side-step those, but trampoline
+usage is currently affected):
+
+  https://lore.kernel.org/lkml/Zenx_Q0UiwMbSAdP@FVFF77S0Q05N/
+
+... I'm looking into fixing that at the moment, and it looks like that's likely
+to require some per-architecture changes.
+
+> On RISC-V we cannot use use the same ideas as Arm64 straight off,
+> because the range of jal (compare to BL) is simply too short (+/-1M).
+> So, on RISC-V we need to use a full auipc/jal pair (the text patching
+> story is another chapter, but let's leave that aside for now). Since we
+> have to patch multiple instructions, the cmodx situation doesn't really
+> improve with CALL_OPS.
+
+The branch range thing is annoying, but I think this boils down to the same
+problem as arm64 has with needing a "MOV <tmp>, LR" instruction that we have to
+patch in once at boot time. You could do the same and patch in the AUIPC once,
+e.g. have
+
+| 	NOP
+| 	NOP 
+| func:
+| 	AUIPC <tmp>, <common_ftrace_caller>
+| 	JALR <tmp2>, <common_ftrace_caller>(<tmp>) // patched with NOP
+
+... which'd look very similar to arm64's sequence:
+
+| 	NOP
+| 	NOP
+| func:
+| 	MOV X9, LR
+| 	BL ftrace_caller // patched with NOP
+
+... which I think means it *might* be better from a cmodx perspective?
+
+> Let's say that we continue building on your patch and implement direct
+> calls on CALL_OPS for RISC-V as well.
+> 
+> From Florent's commit message for direct calls:
+> 
+>   |    There are a few cases to distinguish:
+>   |    - If a direct call ops is the only one tracing a function:
+>   |      - If the direct called trampoline is within the reach of a BL
+>   |        instruction
+>   |         -> the ftrace patchsite jumps to the trampoline
+>   |      - Else
+>   |         -> the ftrace patchsite jumps to the ftrace_caller trampoline which
+>   |            reads the ops pointer in the patchsite and jumps to the direct
+>   |            call address stored in the ops
+>   |    - Else
+>   |      -> the ftrace patchsite jumps to the ftrace_caller trampoline and its
+>   |         ops literal points to ftrace_list_ops so it iterates over all
+>   |         registered ftrace ops, including the direct call ops and calls its
+>   |         call_direct_funcs handler which stores the direct called
+>   |         trampoline's address in the ftrace_regs and the ftrace_caller
+>   |         trampoline will return to that address instead of returning to the
+>   |         traced function
+> 
+> On RISC-V, where auipc/jalr is used, the direct called trampoline would
+> always be reachable, and then first Else-clause would never be entered.
+> This means the the performance for direct calls would be the same as the
+> one we have today (i.e. no regression!).
+> 
+> RISC-V does like x86 does (-ish) -- patch multiple instructions, long
+> reach.
+> 
+> Arm64 uses CALL_OPS and patch one instruction BL.
+> 
+> Now, with this background in mind, compared to what we have today,
+> CALL_OPS would give us (again assuming we're using it for direct calls):
+> 
+> * Better performance for tracer per-call (faster ops lookup) GOOD
+> * Larger text size (function alignment + extra nops) BAD
+> * Same direct call performance NEUTRAL
+> * Same complicated text patching required NEUTRAL
+
+Is your current sequence safe for preemptible kernels (i.e. with PREEMPT_FULL=y
+or PREEMPT_DYNAMIC=y + "preempt=full" on the kernel cmdline) ?
+
+Looking at v6.8, IIUC you have:
+
+	// unpatched		//patched
+	NOP			AUIPC
+	NOP			JALR
+
+What prevents a thread being preempted mid-sequence such that it executes:
+
+	NOP
+	[ preempted ]
+	[ stop_machine() used to patch text ]
+	[ restored ]
+	JALR
+
+... ?
+
+... or when changing the call:
+
+	AUIPC		// old funcptr
+	[ preempted ]
+	[ stop_machine() used to patch text ]
+	[ restored ]
+	JALR		// new funcptr
+... ?
+
+I suspect those might both be broken, but it's difficult to hit the race and so
+testing hasn't revealed that so far.
+
+> It would be interesting to see how the per-call performance would
+> improve on x86 with CALL_OPS! ;-)
+
+Heh. ;)
+
+> I'm trying to wrap my head if it makes sense to have it on RISC-V, given
+> that we're a bit different from Arm64. Does the scale tip to the GOOD
+> side?
 >
-> The series is tested on a QEMU and verified that booting, Vector
-> programs context-switch, signal, ptrace, prctl(sysctl knob) interfaces
-> works when we only report partial V from the ISA.
->
-> This patch should be able to apply on risc-v for-next branch on top of
-> the commit 886516fae2b7 ("RISC-V: fix check for zvkb with tip-of-tree clang")
->
-> [1]: 
-> https://lore.kernel.org/all/20240228-vicinity-cornstalk-4b8eb5fe5730@spud/T/#u
->
-> Andy Chiu (6):
->   riscv: vector: add a comment when calling riscv_setup_vsize()
->   riscv: smp: fail booting up smp if inconsistent vlen is detected
->   riscv: cpufeature: call match_isa_ext() for single-letter extensions
->   riscv: cpufeature: add zve32[xf] and zve64[xfd] isa detection
->   riscv: hwprobe: add zve Vector subextesnions into hwprobe interface
->   riscv: vector: adjust minimum Vector requirement to ZVE32X
->
->  Documentation/arch/riscv/hwprobe.rst   | 15 +++++++
->  arch/riscv/include/asm/hwcap.h         |  5 +++
->  arch/riscv/include/asm/switch_to.h     |  2 +-
->  arch/riscv/include/asm/vector.h        | 21 ++++++----
->  arch/riscv/include/asm/xor.h           |  2 +-
->  arch/riscv/include/uapi/asm/hwprobe.h  |  5 +++
->  arch/riscv/kernel/cpufeature.c         | 57 +++++++++++++++++++++++---
->  arch/riscv/kernel/head.S               | 14 +++----
->  arch/riscv/kernel/kernel_mode_vector.c |  4 +-
->  arch/riscv/kernel/process.c            |  4 +-
->  arch/riscv/kernel/signal.c             |  6 +--
->  arch/riscv/kernel/smpboot.c            | 14 ++++---
->  arch/riscv/kernel/sys_hwprobe.c        | 12 ++++--
->  arch/riscv/kernel/vector.c             | 15 ++++---
->  arch/riscv/lib/uaccess.S               |  2 +-
->  15 files changed, 135 insertions(+), 43 deletions(-)
->
-> -- 
-> 2.17.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Oh, and we really need to see performance numbers on real HW! I have a
+> VF2 that I could try this series on.
+
+I'll have to leave those two to you. I suspect the preempt/stop_machine()
+might just tip that from NEUTRAL to GOOD.
+
+Mark.
 
 _______________________________________________
 linux-riscv mailing list
