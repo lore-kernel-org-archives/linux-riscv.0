@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF84C54E58
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 22:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 170E3C54E58
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 22:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/vhnV9Q1SyqXALKK/7Tg9akqv0+jWs8H3B2hNEyn5rc=; b=FFonTBvkgapEz6
-	57sBCCwhz8uHzsSsSdqvdKKoFu8iku2cTDUoGiWOmizxloDrVqIQkN0K35vk+UF/2qV+tsc+riyd5
-	48iQ43BaMYnnURZ2FhuMM/9amfKM8IUuyjPpTdB/J4tl2u89CMtksNgq1Apq44RpFrZpkT9zV0cdP
-	N3/Ljo6Qn4V4ktcdzSJe/XfM9Vx78lULnqx9399gTypRQ+4UDQCLhNq6+GLLtkAoXjAjtAVeITfPM
-	Mhx4GB/yI1e4qD303FTZi49u9OYWRwgAaTIRXQ5v97n+VjF3njAWqjQp4TBe9Ju58E3aXQ9HAB4JV
-	gX9ruKyorSqOnfyW9j+A==;
+	List-Owner; bh=9NR5STgxkHkSTMPtgUgtiodOMsu/LifpfyC1Y1/A3c0=; b=d8muo6vtliyb4i
+	30G+ITc2b740gnIzLq5BFpBKfTj4NE1mw+pNy1/A25R4mJwD5n/YuUd8eKLy0O7GjNF5WW+POj3uU
+	iHO1kU/ZUSzwxoprfoJyP97RshJerXp/rSmJZSkb7fnnutU44M9RscCRhakjmsFzdqhlpr5DudymI
+	64Rh3/uKW1t3RIcaqf+XEoewVh+i0l3Ddf5WoGozu5vdHzs/091kluxzM+O8woE+dmGPUpn6UGL8c
+	QM/M6Nmst60088Y6GJqIlsucdlKrIpVuLL1ITYT2GMQQ1QG/viMVSuAqZXEsNPCYqq08M8GkhTMjk
+	FOJNZ9FCQYSryyISXTwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkACx-00000007iLz-3IK3;
-	Tue, 12 Mar 2024 22:02:51 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1rkADJ-00000007iag-1xO2;
+	Tue, 12 Mar 2024 22:03:13 +0000
+Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkACt-00000007iJt-31Qv
+	id 1rkADE-00000007iWM-2Ldn
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Mar 2024 22:02:49 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-6e6b75211ceso62107b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 15:02:47 -0700 (PDT)
+	Tue, 12 Mar 2024 22:03:10 +0000
+Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-7c8ccffacbcso11444939f.2
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 15:03:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1710280967; x=1710885767; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1710280986; x=1710885786; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1akdFCp/NrQTZkdZoE61av7sk42pTtpjjQoFP3uV05s=;
-        b=C9CZWjzEZEIqvBb+80dm3i845LO7a3SzwLv6CD1lUsmtoQKJH043Ci3cBI3TRNmx81
-         y0NvwWxYehxV9fudcv2YggKs2kPuPFw506FjSJE7Wd8MoRE710ulKQU0M0ghjlbRV5Hr
-         jlreMDVoDJejR2SlhQW8GI0xS18k/5Otn9AqQ=
+        bh=bFZkOPzjUiG9hBeGxmULl/XMqNk9IbEaqEvdeXcgD8s=;
+        b=WVaZNxzLXwXHdhSqfnZ5hxZCv+1xu97EvcnlFNgdIaqXXwJd/mYCdNtiY5TveA1IHS
+         O7KVck6H53Jw1HGGiDj5DKBs8tN5c8gD163YfYCVjPxWRlBBqVf+CJNjGqAPxH9kApkJ
+         5m00N+T9Ly0t8NySHKGbqUFjTE++akpjkMyuA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710280967; x=1710885767;
+        d=1e100.net; s=20230601; t=1710280986; x=1710885786;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1akdFCp/NrQTZkdZoE61av7sk42pTtpjjQoFP3uV05s=;
-        b=gLd8x41Gm73/CkudMIgw7Llj2kFJlHaZxYvNYIFJ0LuxmsLOSlWEgyPLMbbP7ZqGAe
-         d7T2eUepH7rNq4WQjDjEvDM70Kye1sO2ZitgMFuMfiGsoIx8PAsZJGlXbAC1FeYosyXo
-         trZwm2gW3Mu5CQ41X26nuE/k6YDUGQDOub8KgnlHBcR96y1K3iWGciELLULcEARvZ9Q7
-         6QkvHAfgmlNZ8BN5jb3UE4vX95r2kc1tZvPzG/RY/t8M7VJcfmz6C02UIRknXBTON2is
-         oldu5MFqcJdGwSvCnh4atLv52thuqcgmS6Ym0nifndjpBY0Mx9UzVY+pkKs7C93odD+4
-         O5fg==
-X-Forwarded-Encrypted: i=1; AJvYcCWwAPMRevjj+j6JWeFs2xfXriO837izAZsrqHR8I0AANYlxCNFbH0DHMsle3vtyoAte/GZOahCQZKkcACtgKmE5t77f4TdX/kjJ344Khp17
-X-Gm-Message-State: AOJu0YzjELVA7nftc3vi6DJBBi+421NKBbavuIqTtQHW7hQ7hiVuVXBS
-	VX5nS03d/R5PjsIobfa7qZnCvdnO/Ld3J1Vm7km2YoOL+hSqizBBlzE7WQiiEQ==
-X-Google-Smtp-Source: AGHT+IFKZ+X2o3xvUM/DPjpn5dJMdSK/7jBm9riFOy6GxFDG2jNN2P7xmSx2+ecCvjPJ+atiR43WGA==
-X-Received: by 2002:a05:6a20:9382:b0:1a0:efd0:b183 with SMTP id x2-20020a056a20938200b001a0efd0b183mr14145890pzh.44.1710280967019;
-        Tue, 12 Mar 2024 15:02:47 -0700 (PDT)
+        bh=bFZkOPzjUiG9hBeGxmULl/XMqNk9IbEaqEvdeXcgD8s=;
+        b=IiMVGnoBD+4uzy5Z3JQTCwZu1gUMQ51izhMby42HOXZUn6kPaAAzrAI1EuYmbUhzYF
+         nRqh2reECHb2UeF+f1Yee0PmfUxmWXH0L3PxCj+53Qnfz+Sna7nwNwk5oYap5T4EBo9W
+         xusLjOW3S89DkWw5YgZvKDjFbeicFVrfWI5rj87u9INJOwilM1qUf6CVP/5RluUcU6QP
+         HSUa4qcVXJEA4SttG3WKTDM+6O/jMidZL/dKAj5bfAZDjS+dtEzf8Zi73MqVgD1Cqawi
+         7l2zYy4m2J5j5YxaIFrvT4gUzlOpkLgBDrkESHFdKHB8aqqQI21oNHsSqAm915vRmmFr
+         4SZg==
+X-Forwarded-Encrypted: i=1; AJvYcCVwhr7ZptuhUDe/PgtIx4Q77/Xqe1NNC/lYelYtgDc/onp9KSoN4u/aP8UPE90QScFUDAfu7nr8N4MgXUzlO6hJ+emC6ETzEGQWGIWs3xyS
+X-Gm-Message-State: AOJu0Yx0e0bl9r+P5a3TH5mmDkodpa3OpJ1wpdvxUbBmVNC1fPD3jYKT
+	xWOY44CuO5jKmbiwgXi5dSxg5wYXaOWOkRhHjoNmATZf2ceYVTeKHMjy+mgaUw==
+X-Google-Smtp-Source: AGHT+IEdwN1SY2GeciEHPDmRWgTgdPa04evl6KEFQYoPJeYQSV2BmWI4216WoCmzy6l7zJDsrZVhNw==
+X-Received: by 2002:a6b:e719:0:b0:7c8:bf15:5653 with SMTP id b25-20020a6be719000000b007c8bf155653mr4918871ioh.20.1710280986087;
+        Tue, 12 Mar 2024 15:03:06 -0700 (PDT)
 Received: from www.outflux.net ([198.0.35.241])
-        by smtp.gmail.com with ESMTPSA id e11-20020a17090301cb00b001dd6c0800b4sm7193896plh.188.2024.03.12.15.02.46
+        by smtp.gmail.com with ESMTPSA id m14-20020a63ed4e000000b005dc816b2369sm6650251pgk.28.2024.03.12.15.03.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Mar 2024 15:02:46 -0700 (PDT)
-Date: Tue, 12 Mar 2024 15:02:46 -0700
+        Tue, 12 Mar 2024 15:03:05 -0700 (PDT)
+Date: Tue, 12 Mar 2024 15:03:05 -0700
 From: Kees Cook <keescook@chromium.org>
 To: Guenter Roeck <linux@roeck-us.net>
 Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
@@ -84,17 +84,17 @@ Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	linux-sh@vger.kernel.org, loongarch@lists.linux.dev,
 	netdev@lists.linux.dev
-Subject: Re: [PATCH 03/14] kunit: Add test cases for backtrace warning
- suppression
-Message-ID: <202403121502.95F27A01@keescook>
+Subject: Re: [PATCH 04/14] kunit: Add documentation for warning backtrace
+ suppression API
+Message-ID: <202403121503.B97DE8A60E@keescook>
 References: <20240312170309.2546362-1-linux@roeck-us.net>
- <20240312170309.2546362-4-linux@roeck-us.net>
+ <20240312170309.2546362-5-linux@roeck-us.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240312170309.2546362-4-linux@roeck-us.net>
+In-Reply-To: <20240312170309.2546362-5-linux@roeck-us.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240312_150247_971178_42955D26 
-X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-CacheID: sfid-20240312_150308_628954_B6B1113D 
+X-CRM114-Status: UNSURE (   7.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,12 +112,8 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 12, 2024 at 10:02:58AM -0700, Guenter Roeck wrote:
-> Add unit tests to verify that warning backtrace suppression works.
-> 
-> If backtrace suppression does _not_ work, the unit tests will likely
-> trigger unsuppressed backtraces, which should actually help to get
-> the affected architectures / platforms fixed.
+On Tue, Mar 12, 2024 at 10:02:59AM -0700, Guenter Roeck wrote:
+> Document API functions for suppressing warning backtraces.
 > 
 > Signed-off-by: Guenter Roeck <linux@roeck-us.net>
 
