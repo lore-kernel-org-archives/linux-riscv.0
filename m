@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8F3C54E5D
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 19:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B81CC54E58
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 19:25:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ukGI+FtjQDnuvOqi0pyYGFBB+EFB2qTntIjfCYPCDpI=; b=W3SDRivOODlf2k
-	tNVic7wCKIIen8lJmwHNeCb+4+T5iADe71FHOu4DqPY6HOJJTFRGoU0IA3mthE6VPkG0WhUWZ8rGn
-	J8c1dLl664VUW+ABL1GgWLaJ4isZByHiDRsHf4kyu3JP1bh89Ftd+EhvMwk6VxHDQlamFjPuu0e2j
-	Z2OwcMuDFkmYhcBi1YSz6i4CjyqCN4WQV8zJYKTV0Kx5CBV+0KoLO/BcI7wiq6Ks+UXMymlucbyP0
-	SmzSrmZvww+0uwrupvaw1Z9e6AY4LKy6XueggRvcX77XmPoRU5P/+IPsDZnEV5pzHdZ0W9Ko3xtLC
-	r8K+vkU7WL++881eR1Yg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Mz86w6qHZcS66eMo6MfPxqQlOHtrNvUlgJ0lkqqdirw=; b=ZU8kUeAq4lez1x
+	PF37SmOSkSspN3xr3n88Ekv9lW6coJV300Wbgw++Axig3tiz2xNzCdr1OEENAxMbL5cBqMjXmwd5m
+	RggSgw6byAwLWWKYd6BFKMcngikWsdbbJ+/3dqnKrf+kVnllCGVVJkc6eoEFqVXub7urQN8eoGHAX
+	ZUJPUC2h8alK3VodtckrOcIJrA5c0KGF/5LT3wTjggsjD+kjyBjz+kzcaC2ZyhIhiz4UPAK+OcwnA
+	L5gjRv29uCUv6Ez52NHt4voFg8LumMZUQZ945E7HRwWimuqhJ9zcALRsiTgCSB6fqpF300MYkYOks
+	9GUWMm25+J8d3hizXqyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk7Yk-00000007Fff-1U79;
-	Tue, 12 Mar 2024 19:13:10 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1rk7kb-00000007HQM-1ydE;
+	Tue, 12 Mar 2024 19:25:25 +0000
+Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk7Yg-00000007FeU-49Qv
+	id 1rk7kY-00000007HPX-45zu
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Mar 2024 19:13:08 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-513b39eea3dso240334e87.2
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 12:13:04 -0700 (PDT)
+	Tue, 12 Mar 2024 19:25:24 +0000
+Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-5a1aa46c975so129234eaf.3
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 12:25:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google; t=1710270782; x=1710875582; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6jG8wbZD5AfK31iZyN31p0fO15RUS8zjleaircOhECw=;
-        b=g2ipN9mnCQDrO/hr2YHWS8j3svwpq243dbpnTfEQYNys9wPssVjlheqIt8WlIFQzSm
-         aTwzzfDBfhMVkeNqHjurNxrry89hSpsEMVGH2PMxqSB7mQAfg3pEc8McCYE5fivEY49t
-         ah44+coE/G1GaxPc9ng8JO/lfBp3m5P2llHuY=
+        d=sifive.com; s=google; t=1710271521; x=1710876321; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XTNA6eQOgVZeDaw5GSB+YIN/6xC4LtEXiiAUCgqLZn8=;
+        b=fhDwdI6oQ0OVq5ddepIzllN9UhdVhvtegdusmVP+nSTrkQh8tAwXIc/uOcMLv8pdk6
+         /4YVOj97MS38avh863X4swJZEMGeGaE011jQ+4WLH/KmJWkak2mRa2//S2ZBvUA2k4p+
+         a2G1UEl3BJkTKPRAH5kgF4ifX2k6BoC/6fT9+fLYn7DTHZ2FVfiltXb0DJ63OwrdOqbN
+         UybxuyS2jIV9C8chJU5QUzCtqYPAyomnvoGnb1y4xeOt5GyF7t4n/gb+ZjWMfCvDrXIO
+         GmqyIgonBQyFfQ8oom4ppU+wGwawuu04Z6NM3tCs8ho3ydEKK3gSZTXoP9jjF9Ojd3qf
+         /ZPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710270782; x=1710875582;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6jG8wbZD5AfK31iZyN31p0fO15RUS8zjleaircOhECw=;
-        b=A7UEwcnulXu/8bviHqMLkeoLmQ/+icBVrAvOimqaExErMD/EDkmCnc0WN9pLJ2pwnY
-         MWu5I1XAoLrm2CLMSnPsMXMcUYBks8e+2YnbCga8VaqRw5W04jdPQeldB04qXFWRrUo9
-         gt2iomRBynlvxTJJ334sBYkY8nmQEOV0eIa+nusPnmVxIqdi8boToArrWv//goa5zwG4
-         kRwbOr/6DpL4VV/zHYg7muErDxzm+kcJKXtOCpbSQycDLhJD098nYhOn4DppVF1qOfE4
-         HO1Odx8HJw2bdRgr6q22hYuNg37ge4uUvK9n0gf1D/rp3/iesHGOrPag5Xrhexn3m/76
-         Zk6g==
-X-Gm-Message-State: AOJu0YznQuu0iQGnM5QwDpL5Ippu2/UwYnZ1HgQQQEvDnwtiyw/MEN1q
-	N7Q+JNF66hhTmnP1vEOo78MOM0OhDXUDR/xojy6rDd6beNoc63IxynBbIbYXop+USoBNdfY3zJE
-	x7YDFatbr93sESSN8PQT2e4rXo9Ny/jBGSak/
-X-Google-Smtp-Source: AGHT+IGPN7MP8pGrBw+bqrQS1y4hzsPicRpPqb0kh9lC4781+mVZ8XqAvBGV25wdDyJyi7TeYTLFfsuHZmR1lT5iWJ8=
-X-Received: by 2002:a05:6512:5c8:b0:513:c7eb:edf1 with SMTP id
- o8-20020a05651205c800b00513c7ebedf1mr32508lfo.59.1710270782277; Tue, 12 Mar
- 2024 12:13:02 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1710271521; x=1710876321;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XTNA6eQOgVZeDaw5GSB+YIN/6xC4LtEXiiAUCgqLZn8=;
+        b=pjm/p0m4E6JjNUwazP7ZtNMRK5/G0jnlPZXWWnZf1r4RcF9pqp2rIoUl9jVER4Bzri
+         Zmq1EpWOJ/X4lrnv4IRRF5KCH0NNwdtiQOmUpCw6eNOEfAt1N3q+HdMjf1J++VpNA8fB
+         KOErT2DHMGMNox+QUe/fFwBqQikx5FPFJ+H2XBH31bFWfqQNIMdgSjTUKGMAuLaj4Y3P
+         kGG6uzMfRMnd+65+ozb4iJw4zQ8GfDchReB7Gi2CxdROeufG/RZI0lSroxxqe/xD/taY
+         GJ+TUf2A6bhglqRTMsVAv8UO4tqhqS/JR+epRMQTnYouA7H5w1/Qsc4dg7G+5h2VzaFH
+         EUiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWgpw8cHZBNXlOvNLIyaPgmZ3uiyS/0qobPFKhsqiI+zWOGD3dJIXntddhpT0SYMxlQf3LkSizfAErwJEEjimhLY5cDxt/B7QJCT9omt+1V
+X-Gm-Message-State: AOJu0YxqIxvH0y5QG+LqLIC6TyJh7kjLtj42LFmp9lYBXSkq2FrVUrXf
+	TiZgFUfS30PmMsdcvL3Z2NH/oxHtx6qlZjO+4JNaHqHtIicXFWgRrZ4j/XYvefQ=
+X-Google-Smtp-Source: AGHT+IFiOD7raCGAFJ0jxa2JFYqQhVuwra5l6CJlnVTYYffky42xgWMsOYtz4U8W+MEtKqq5d39gvw==
+X-Received: by 2002:a05:6358:720e:b0:17e:4fc7:d95 with SMTP id h14-20020a056358720e00b0017e4fc70d95mr1605796rwa.17.1710271521355;
+        Tue, 12 Mar 2024 12:25:21 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id p1-20020a63c141000000b005dc389409c1sm6331177pgi.93.2024.03.12.12.25.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Mar 2024 12:25:20 -0700 (PDT)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH] clocksource/drivers/timer-sun4i: Partially convert to a platform driver
+Date: Tue, 12 Mar 2024 12:25:06 -0700
+Message-ID: <20240312192519.1602493-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.43.1
 MIME-Version: 1.0
-References: <20240312012053.1178140-1-pulehui@huaweicloud.com>
-In-Reply-To: <20240312012053.1178140-1-pulehui@huaweicloud.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 12 Mar 2024 12:12:50 -0700
-Message-ID: <CAOnJCUKF4BWfX+Z6cQLjfFKc5+REsSXWiVvcHadrs-=z1b6+5g@mail.gmail.com>
-Subject: Re: [PATCH v2] drivers/perf: riscv: Disable PERF_SAMPLE_BRANCH_*
- while not supported
-To: Pu Lehui <pulehui@huaweicloud.com>
-Cc: linux-riscv@lists.infradead.org, bpf@vger.kernel.org, 
-	Conor Dooley <conor@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Pu Lehui <pulehui@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240312_121307_177879_A8193C34 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20240312_122523_095620_5B5A39F5 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +94,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXIgMTEsIDIwMjQgYXQgNjoxOeKAr1BNIFB1IExlaHVpIDxwdWxlaHVpQGh1YXdl
-aWNsb3VkLmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWkuY29t
-Pgo+Cj4gUklTQy1WIHBlcmYgZHJpdmVyIGRvZXMgbm90IHlldCBzdXBwb3J0IGJyYW5jaCBzYW1w
-bGluZy4gQWx0aG91Z2ggdGhlCj4gc3BlY2lmaWNhdGlvbiBpcyBpbiB0aGUgd29ya3MgWzBdLCBp
-dCBpcyBiZXN0IHRvIGRpc2FibGUgc3VjaCBldmVudHMKPiB1bnRpbCBzdXBwb3J0IGlzIGF2YWls
-YWJsZSwgb3RoZXJ3aXNlIHdlIHdpbGwgZ2V0IHVuZXhwZWN0ZWQgcmVzdWx0cy4KPiBEdWUgdG8g
-dGhpcyByZWFzb24sIHR3byByaXNjdiBicGYgdGVzdGNhc2VzIGdldF9icmFuY2hfc25hcHNob3Qg
-YW5kCj4gcGVyZl9icmFuY2hlcy9wZXJmX2JyYW5jaGVzX2h3IGZhaWwuCj4KPiBMaW5rOiBodHRw
-czovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3YtY29udHJvbC10cmFuc2Zlci1yZWNvcmRzIFswXQo+
-IEZpeGVzOiBmNWJmYTIzZjU3NmYgKCJSSVNDLVY6IEFkZCBhIHBlcmYgY29yZSBsaWJyYXJ5IGZv
-ciBwbXUgZHJpdmVycyIpCj4gU2lnbmVkLW9mZi1ieTogUHUgTGVodWkgPHB1bGVodWlAaHVhd2Vp
-LmNvbT4KPiAtLS0KPiAgZHJpdmVycy9wZXJmL3Jpc2N2X3BtdS5jIHwgNCArKysrCj4gIDEgZmls
-ZSBjaGFuZ2VkLCA0IGluc2VydGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BlcmYv
-cmlzY3ZfcG11LmMgYi9kcml2ZXJzL3BlcmYvcmlzY3ZfcG11LmMKPiBpbmRleCBjNzhhNmZkNmM1
-N2YuLmI0ZWZkZGRiMmFkOSAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL3BlcmYvcmlzY3ZfcG11LmMK
-PiArKysgYi9kcml2ZXJzL3BlcmYvcmlzY3ZfcG11LmMKPiBAQCAtMzEzLDYgKzMxMywxMCBAQCBz
-dGF0aWMgaW50IHJpc2N2X3BtdV9ldmVudF9pbml0KHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCkK
-PiAgICAgICAgIHU2NCBldmVudF9jb25maWcgPSAwOwo+ICAgICAgICAgdWludDY0X3QgY21hc2s7
-Cj4KPiArICAgICAgIC8qIGRyaXZlciBkb2VzIG5vdCBzdXBwb3J0IGJyYW5jaCBzdGFjayBzYW1w
-bGluZyAqLwo+ICsgICAgICAgaWYgKGhhc19icmFuY2hfc3RhY2soZXZlbnQpKQo+ICsgICAgICAg
-ICAgICAgICByZXR1cm4gLUVPUE5PVFNVUFA7Cj4gKwo+ICAgICAgICAgaHdjLT5mbGFncyA9IDA7
-Cj4gICAgICAgICBtYXBwZWRfZXZlbnQgPSBydnBtdS0+ZXZlbnRfbWFwKGV2ZW50LCAmZXZlbnRf
-Y29uZmlnKTsKPiAgICAgICAgIGlmIChtYXBwZWRfZXZlbnQgPCAwKSB7Cj4gLS0KPiAyLjM0LjEK
-PgoKClJldmlld2VkLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNvbT4KLS0gClJl
-Z2FyZHMsCkF0aXNoCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+Commit 8ec99b033147 ("irqchip/sifive-plic: Convert PLIC driver into a
+platform driver") broke the MMIO timer on the Allwinner D1 SoC because
+the IRQ domain is no longer available when timer_probe() is called:
+
+  [    0.000000] irq: no irq domain found for interrupt-controller@10000000 !
+  [    0.000000] Failed to map interrupt for /soc/timer@2050000
+  [    0.000000] Failed to initialize '/soc/timer@2050000': -22
+
+Fix this by wrapping the timer initialization in a platform driver.
+builtin_platform_driver_probe() must be used because the driver uses
+timer_of_init(), which is marked as __init. Only convert the sun8i
+variants of the hardware, because some older SoCs still need the timer
+probed early for sched_clock().
+
+Fixes: 8ec99b033147 ("irqchip/sifive-plic: Convert PLIC driver into a platform driver")
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
+
+ drivers/clocksource/timer-sun4i.c | 24 ++++++++++++++++++++----
+ 1 file changed, 20 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/clocksource/timer-sun4i.c b/drivers/clocksource/timer-sun4i.c
+index 7bdcc60ad43c..728dac2baa84 100644
+--- a/drivers/clocksource/timer-sun4i.c
++++ b/drivers/clocksource/timer-sun4i.c
+@@ -20,6 +20,7 @@
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+ #include <linux/of_irq.h>
++#include <linux/platform_device.h>
+ 
+ #include "timer-of.h"
+ 
+@@ -218,9 +219,24 @@ static int __init sun4i_timer_init(struct device_node *node)
+ }
+ TIMER_OF_DECLARE(sun4i, "allwinner,sun4i-a10-timer",
+ 		       sun4i_timer_init);
+-TIMER_OF_DECLARE(sun8i_a23, "allwinner,sun8i-a23-timer",
+-		 sun4i_timer_init);
+-TIMER_OF_DECLARE(sun8i_v3s, "allwinner,sun8i-v3s-timer",
+-		 sun4i_timer_init);
+ TIMER_OF_DECLARE(suniv, "allwinner,suniv-f1c100s-timer",
+ 		       sun4i_timer_init);
++
++static int __init sun4i_timer_probe(struct platform_device *pdev)
++{
++	return sun4i_timer_init(dev_of_node(&pdev->dev));
++}
++
++static const struct of_device_id sun4i_timer_of_match[] = {
++	{ .compatible = "allwinner,sun8i-a23-timer" },
++	{ .compatible = "allwinner,sun8i-v3s-timer" },
++	{ /* sentinel */ }
++};
++
++static struct platform_driver sun4i_timer_driver = {
++	.driver	= {
++		.name		= "sun4i-timer",
++		.of_match_table	= sun4i_timer_of_match,
++	},
++};
++builtin_platform_driver_probe(sun4i_timer_driver, sun4i_timer_probe);
+-- 
+2.43.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
