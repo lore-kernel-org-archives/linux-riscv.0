@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64ABAC54E58
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 01:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F58C54E58
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 01:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ql15hvZdNLKq17NjEOlm6XwLXm/161GHSXMQf8ugtH4=; b=dptyaGLmXDA193
-	P0IB/DlrmRUsKhh/ho/r3ETfoWf23EY1D2ZAEB/RJb9a5QJ6RPpMvoRgRo1Yg8pR9zwrNv0hjsouz
-	akVEVbu332tE+OHJxTo6TknnAqLrtVfXnvSVYu06gSD99DLOREiblph77XYzEc8aXCMxy34Lp7HmC
-	P2Y2LpVIeRlzhtmL3vUVc/HRDOr2+4shI0CWB3y43+7uUrd++s5pItOGlDrtGdkRsIQDCCN36XhKy
-	Nx1phu9xg6FcKDAzv3+UAOpNRJvnNamOgiR+OBvVnSTGlaIHCPaw9CPOWbSJkRP1IUI/AFmCTt2KN
-	mO+axsD+0C+/4xOyrUWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fSA6V0xWWTw0AYrRXQwfrqsuA4Jo9eJbxnXm4UtF86A=; b=laPUT5sHQ7GjML
+	cvjkWJum3wQOmVzPn+reBaOZufDvp3f5kPGu72L3FJHUFumc0xN+BRKtKa40QWGM2TpywRLRgZE0V
+	QTEikLkbYe6vjQ9JW6sY0l6LHDC4jCcZFrvvD0D5/r35a18j2hpzT2k1o/ISN/Ov5pOiaSE3vs0+r
+	qq1AWcrjyfERM61HtRBqQnLsqr693ELTDbNNOEwVEyNW6f42vy3LRBLYh8505TIq4FoxhuzBF0DDJ
+	UCKL5+7jyMaH4qQzKaYzT6iyHWW8izvjjFjGG820mNvbAtO5iYR+RIdv2gUiW2aHUtW3Iri1OOaU1
+	2w8KrvVGMSVQzBwOnvMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rjqms-00000003mwV-2Wkp;
-	Tue, 12 Mar 2024 01:18:38 +0000
+	id 1rjqoA-00000003nDv-0mwN;
+	Tue, 12 Mar 2024 01:19:58 +0000
 Received: from [45.249.212.56] (helo=dggsgout12.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rjqmn-00000003mu0-3qCm
+	id 1rjqo7-00000003nD2-3gni
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Mar 2024 01:18:36 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4Ttwkb6XP4z4f3jsb
-	for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 09:18:15 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id 8FE141A0199
-	for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 09:18:21 +0800 (CST)
-Received: from [10.67.109.184] (unknown [10.67.109.184])
-	by APP3 (Coremail) with SMTP id _Ch0CgA3955cre9laYFJGg--.31220S2;
-	Tue, 12 Mar 2024 09:18:21 +0800 (CST)
-Message-ID: <1133a3d8-a7a5-47f1-8768-682c3e502d7e@huaweicloud.com>
-Date: Tue, 12 Mar 2024 09:18:20 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drivers/perf: riscv: Disable PERF_SAMPLE_BRANCH_* while
- not supported
-Content-Language: en-US
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
- bpf@vger.kernel.org, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>, Pu Lehui <pulehui@huawei.com>
-References: <20240305155223.1823287-1-pulehui@huaweicloud.com>
- <20240307-oat-mule-10441ef7e94a@spud>
- <f399749b-85bf-4aaf-8af6-ea735c5ab517@huaweicloud.com>
- <CAOnJCULGctBu6viW7PwpT30o2fZ=aApi6UaJKsB4qjMEaEQ2cg@mail.gmail.com>
+	Tue, 12 Mar 2024 01:19:57 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4TtwmM3F5Jz4f3jJ0
+	for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 09:19:47 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 1E78A1A0232
+	for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 09:19:53 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP1 (Coremail) with SMTP id cCh0CgB3kgu3re9lU5K1Gg--.27799S2;
+	Tue, 12 Mar 2024 09:19:52 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
-In-Reply-To: <CAOnJCULGctBu6viW7PwpT30o2fZ=aApi6UaJKsB4qjMEaEQ2cg@mail.gmail.com>
-X-CM-TRANSID: _Ch0CgA3955cre9laYFJGg--.31220S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCw4kWw1fXryUGFW7AF1DZFb_yoW5Ww13pF
-	48CFyFka15Jr1ayw1aqF1ktF1rt3s5K3s8XryDt34Uurs09F9rKFWkKayrC3W8Xr1xCry2
-	vr1UKrW3Ca45AaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUgvb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxV
-	AFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2
-	j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7x
-	kEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
-	6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6rW3Jr0E3s1lIx
-	AIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIev
-	Ja73UjIFyTuYvjxUrR6zUUUUU
+To: linux-riscv@lists.infradead.org,
+	bpf@vger.kernel.org
+Cc: Atish Patra <atishp@atishpatra.org>,
+	Conor Dooley <conor@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>,
+	Pu Lehui <pulehui@huaweicloud.com>
+Subject: [PATCH v2] drivers/perf: riscv: Disable PERF_SAMPLE_BRANCH_* while not supported
+Date: Tue, 12 Mar 2024 01:20:53 +0000
+Message-Id: <20240312012053.1178140-1-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+X-CM-TRANSID: cCh0CgB3kgu3re9lU5K1Gg--.27799S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtF1fCFWDJFy3Gr1rXFyftFb_yoWkZFg_Ca
+	y7WrZ7KrWDJasIq3WUAw1DurW5t3y8Za4kXFn2g34fAF97Xw1Duw42vrW7t34UAr47ZF97
+	Jr1DWryxXrW2gjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbwkFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_GcCE
+	3s1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
+	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
+	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
+	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1l42xK82IYc2Ij64vIr41l
+	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
+	AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
+	cVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI
+	8IcIk0rVW3JVWrJr1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AK
+	xVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbXdbUUUUUU==
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240311_181834_395048_D906C1C5 
-X-CRM114-Status: GOOD (  24.95  )
+X-CRM114-CacheID: sfid-20240311_181956_138132_CD1D89BC 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,63 +83,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDI0LzMvOSAxNzowNiwgQXRpc2ggUGF0cmEgd3JvdGU6Cj4gT24gRnJpLCBNYXIgOCwg
-MjAyNCBhdCAxMDo0OOKAr1BNIFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4gd3Jv
-dGU6Cj4+Cj4+Cj4+Cj4+IE9uIDIwMjQvMy84IDE6NTIsIENvbm9yIERvb2xleSB3cm90ZToKPj4+
-IE9uIFR1ZSwgTWFyIDA1LCAyMDI0IGF0IDAzOjUyOjIzUE0gKzAwMDAsIFB1IExlaHVpIHdyb3Rl
-Ogo+Pj4+IEZyb206IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4+Pj4KPj4+PiBSSVND
-LVYgcGVyZiBkb2VzIG5vdCB5ZXQgc3VwcG9ydCBicmFuY2ggc2FtcGxpbmcuIFR3byByaXNjdiBi
-cGYKPj4+PiB0ZXN0Y2FzZXMgZ2V0X2JyYW5jaF9zbmFwc2hvdCBhbmQgcGVyZl9icmFuY2hlcy9w
-ZXJmX2JyYW5jaGVzX2h3IGZhaWxlZAo+Pj4+IGR1ZSB0byBub3QgZGlzYWJsaW5nIHN1Y2ggc2Ft
-cGxpbmcuCj4+Pj4KPj4+PiBTaWduZWQtb2ZmLWJ5OiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWku
-Y29tPgo+Pj4KPj4+IFRoaXMgc2VlbXMgd29ydGh5IG9mIGEgZml4ZXMgdGFnLiBGb3Igd2hhdCBj
-b21taXQgSSBkbyBub3Qga25vdywgYnV0IEkKPj4+IGZpZ3VyZSBpdCBpcyBhIHByb2JsZW0gY3Vy
-cmVudGx5IGluIG1haW5saW5lIGFuZCBhIGZpeCBzaG91bGQgYmUKPj4+IGJhY2twb3J0ZWQ/Cj4+
-Cj4+IFRoYW5rcyBmb3IgcmV2aWV3LiBXZSBuZWVkIHRvIGJhbiB0aGlzIHR5cGUgb2YgZXZlbnQs
-IG90aGVyd2lzZSB3ZSB3aWxsCj4+IGdldCB1bnByZWRpY3RhYmxlIHJlc3VsdHMuIEl0IHNob3Vs
-ZCBiZSB3aXRoIGEgZml4ZXMgdGFnLgo+Pgo+Pj4KPj4+PiAtLS0KPj4+PiAgICBkcml2ZXJzL3Bl
-cmYvcmlzY3ZfcG11LmMgfCA0ICsrKysKPj4+PiAgICAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRp
-b25zKCspCj4+Pj4KPj4+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdS5jIGIv
-ZHJpdmVycy9wZXJmL3Jpc2N2X3BtdS5jCj4+Pj4gaW5kZXggYzc4YTZmZDZjNTdmLi5iYzQyY2I5
-NWE5N2MgMTAwNjQ0Cj4+Pj4gLS0tIGEvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdS5jCj4+Pj4gKysr
-IGIvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdS5jCj4+Pj4gQEAgLTMxMyw2ICszMTMsMTAgQEAgc3Rh
-dGljIGludCByaXNjdl9wbXVfZXZlbnRfaW5pdChzdHJ1Y3QgcGVyZl9ldmVudCAqZXZlbnQpCj4+
-Pj4gICAgICAgdTY0IGV2ZW50X2NvbmZpZyA9IDA7Cj4+Pj4gICAgICAgdWludDY0X3QgY21hc2s7
-Cj4+Pj4KPj4+PiArICAgIC8qIGRvZXMgbm90IHN1cHBvcnQgdGFrZW4gYnJhbmNoIHNhbXBsaW5n
-ICovCj4+Pgo+Pj4gU2tpbW1pbmcgcGF0Y2h3b3JrLCBJIGZvdW5kIHRoaXMgY29tbWVudCBjb25m
-dXNpbmcuCj4+PiBJc29sYXRlZCBmcm9tIHRoZSBjb21taXQgbWVzc2FnZSwgd2hpY2ggaXQgd2ls
-bCBiZSBvbmNlIGNvbW1pdHRlZCwgaXQKPj4+IHdhcyBub3QgaW1tZWRpYXRlbHkgY2xlYXIgdGhh
-dCB5b3Ugd2VyZSByZWZlcnJpbmcgdG8gdGhlIGRyaXZlci4gSSB0aGluawo+Pj4gaXQgaXMganVz
-dCBtYXR0ZXIgb2YgbWFraW5nIHRoaXMgYSBjb21wbGV0ZSBzZW50ZW5jZSB0aGF0IHN0YXJ0cyBi
-eQo+Pj4gbWVudGlvbmluZyAvd2hhdC8gZG9lcyBub3Qgc3VwcG9ydCB0aGlzIGZlYXR1cmUuIElz
-IGl0IHRoZSBkcml2ZXI/IERvZXMKPj4+IHRoZSBzcGVjIG5vdCBhbGxvdyBpdD8gZXRjCj4+Cj4+
-IEkgYWN0dWFsbHkganVzdCBmb3VuZCBvdXQgdGhhdCB0aGUgY3VycmVudCBpbXBsZW1lbnRhdGlv
-biBvZiByaXNjdiBwZXJmCj4+IGRyaXZlciBkb2Vzbid0IHN1cHBvcnQgaXQuIEFmdGVyIHJlYWRp
-bmcgdGhlIHJlbGV2YW50IHNwZWMsIEkgZGlkIG5vdAo+PiBmaW5kIGFueSBkZXNjcmlwdGlvbiBy
-ZWxhdGVkIHRvIGJyYW5jaCByZWNvcmQuIE1heWJlIEkgbWF5IGhhdmUgbWlzc2VkCj4+IHNvbWV0
-aGluZyBvciBpdCBtYXkgYmUgc3VwcG9ydGVkIGluIHRoZSBmdXR1cmUsIGJ1dCB0aGUgY3VycmVu
-dCBkcml2ZXIKPj4gZG9lcyBub3Qgc3VwcG9ydCBpdCwgc28gSSB0aGluayBpdCBpcyBtb3JlIGFw
-cHJvcHJpYXRlIHRvIGxpbWl0IHRoaXMKPiAKPiBZZXMuIFRoZXJlIHdhcyBubyBzcGVjaWZpY2F0
-aW9uIGF0IHRoZSB0aW1lIHRoaXMgZHJpdmVyIHdhcyB1cHN0cmVhbWVkLgo+IFRoZSBzcGVjIGZv
-ciBicmFuY2ggcmVjb3JkIGJlaW5nIGlzIG9uIGl0cyB3YXkgZm9yIHJhdGlmaWNhdGlvbiBhbmQg
-cGF0Y2hlcwo+IHdpbGwgYmUgYXZhaWxhYmxlIHNvb24uCj4gaHR0cHM6Ly9naXRodWIuY29tL3Jp
-c2N2L3Jpc2N2LWNvbnRyb2wtdHJhbnNmZXItcmVjb3Jkcwo+IAo+IFRoZSBjaGFuZ2VzIGxvb2sg
-Z29vZCB0byBtZSBmb3Igbm93LiBJIHdpbGwgYmUgaGFwcHkgdG8gc2VuZCBhIFJCIHRhZyBvbmNl
-IHlvdQo+IGFkZCB0aGUgRml4ZXMgdGFnLgo+IAoKVGhhbmtzIGZvciB5b3VyIGFkZGl0aW9uLCBs
-b29raW5nIGZvcndhcmQgdG8gdGhlIHVwY29taW5nIAppbXBsZW1lbnRhdGlvbi4gV2lsbCBzZW5k
-IG5ldyB2ZXJzaW9uIHNvb24uCgo+PiBjb21tZW50IHRvIHRoZSBkcml2ZXIgaW1wbGVtZW50YXRp
-b24uIEhvdyBhYm91dCAicmlzY3YgcGVyZiBkcml2ZXIgZG9lcwo+PiBub3Qgc3VwcG9ydCBicmFu
-Y2ggc3RhY2sgc2FtcGxpbmciPwo+Pgo+Pj4KPj4+IENoZWVycywKPj4+IENvbm9yLgo+Pj4KPj4+
-PiArICAgIGlmIChoYXNfYnJhbmNoX3N0YWNrKGV2ZW50KSkKPj4+PiArICAgICAgICAgICAgcmV0
-dXJuIC1FT1BOT1RTVVBQOwo+Pj4+ICsKPj4+PiAgICAgICBod2MtPmZsYWdzID0gMDsKPj4+PiAg
-ICAgICBtYXBwZWRfZXZlbnQgPSBydnBtdS0+ZXZlbnRfbWFwKGV2ZW50LCAmZXZlbnRfY29uZmln
-KTsKPj4+PiAgICAgICBpZiAobWFwcGVkX2V2ZW50IDwgMCkgewo+Pj4+IC0tCj4+Pj4gMi4zNC4x
-Cj4+Pj4KPj4KPiAKPiAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+From: Pu Lehui <pulehui@huawei.com>
+
+RISC-V perf driver does not yet support branch sampling. Although the
+specification is in the works [0], it is best to disable such events
+until support is available, otherwise we will get unexpected results.
+Due to this reason, two riscv bpf testcases get_branch_snapshot and
+perf_branches/perf_branches_hw fail.
+
+Link: https://github.com/riscv/riscv-control-transfer-records [0]
+Fixes: f5bfa23f576f ("RISC-V: Add a perf core library for pmu drivers")
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ drivers/perf/riscv_pmu.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+index c78a6fd6c57f..b4efdddb2ad9 100644
+--- a/drivers/perf/riscv_pmu.c
++++ b/drivers/perf/riscv_pmu.c
+@@ -313,6 +313,10 @@ static int riscv_pmu_event_init(struct perf_event *event)
+ 	u64 event_config = 0;
+ 	uint64_t cmask;
+ 
++	/* driver does not support branch stack sampling */
++	if (has_branch_stack(event))
++		return -EOPNOTSUPP;
++
+ 	hwc->flags = 0;
+ 	mapped_event = rvpmu->event_map(event, &event_config);
+ 	if (mapped_event < 0) {
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
