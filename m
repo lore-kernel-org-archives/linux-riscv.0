@@ -4,82 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA398C54E5D
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 21:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31287C54E5D
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 22:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=L6rzV4VBIAl40L/IKLgV/8ShWxD+1+kingTURpWr0f4=; b=noF0NhFX2LRVY5
-	k49j1y/h9BsFN+O1sMrXfRwaHIZoHbCy95tzVL1Pr++nX9Nr/blDjpl4WHr+NaLGMxmIw+jNydzxc
-	M4SAK7DARwpAFoL2c9sdw3Lkq31KzNKQhvV1NbN/XE7l0Jq9jAEQDZLYO1zRoWRq4YLvxfBs7RadQ
-	RIz6XG5a8NouVnhFi/+rHCE2L3YQB590pAtggBiIUekrUEqjCtomHUI9j88OMa2jGdr8BeQnYGSlc
-	JJpMDm0MzPGfND3DhwuqLU0uD0ZfHNo/itp++E3PKiprd0AY+TMfEmjzXvRV/b6Kr1RG8oPZVpeja
-	aQH7hVGO5eE9OodcHGYg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uWMluBg25Anh/+tf9ykyOgPCjYEmnNiyVnBj7GXnYeY=; b=e6N9SA5FOZEPdY
+	KdDWozrZEwSYICEZZ0QpCeRkru3lC5K6OswHTSShX6+tCzy2yOmjyeVsFIzSXJ5DhZjVcFXeikbsV
+	+KJc6tAA0VYj1Nccxl1moEdmt9iw3z5oDVtQStDBLQoGIExDiwRV/WdL57SUkTsuJaXEqNtPdWSOl
+	hkys6yeEDKZzLLSi/mW6iuchVPARVP41pXy6b2VJnsAWMCvidZg3T0BWW0EB5mFpd6do1wp+XcGGE
+	khNxe7PukLGSh15Yj2rAhmvmkeUHnU9Adn2r23r0ZpQFTD1HNzLen1nrafp6ImW8N/pHDMn5ZkVK4
+	JfRGhb5lIgjqiZlPqXRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk9fY-00000007bMM-1CJJ;
-	Tue, 12 Mar 2024 21:28:20 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1rkABG-00000007hhR-40au;
+	Tue, 12 Mar 2024 22:01:06 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk9fV-00000007bKH-1iEe
+	id 1rkABA-00000007heR-3Qss
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Mar 2024 21:28:18 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1dd97fd66cdso22108045ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 14:28:14 -0700 (PDT)
+	Tue, 12 Mar 2024 22:01:05 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-5dc949f998fso5533287a12.3
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 15:01:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1710278894; x=1710883694; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=J07qi3Pm6IWKJCmXkuIy6slfTmc3cDOIJrvkEFADZ84=;
-        b=QXG0nvIF29wJQMXuO9xXin/bJb7ABzcnp1fk/vDmQ8USPcsFWJhpxunC6wnJZDui66
-         ZIlxxb3tOKM3yUAdpq04JEJPuwK34gGnSKjCreT2/f9StDXIXIEErZddnLZf3PhOg2Qr
-         6JJc+rSrvgwOG8pnl6klvTwc9ySKSZSwefSLF+6TIQi/zPntQ8/E3feYxfEB7PJI93bh
-         DxN1b9rNlFON1lw5s4AW1vk0vm8VyiUHNenkqILT6CVQWmkR0PhYHKo+4tVlvCJ2takC
-         MVs5rdWsHFWxkLDjf83uHvJV1H2DFXG81VXrEoVbU9ZF0sYKd0L+sAC4ApleZ/vSLh4h
-         bBzg==
+        d=chromium.org; s=google; t=1710280859; x=1710885659; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=lLq08iYnVcnWuDzFJHO0LDnyeIZ1/WCj/v6YSvUnsiY=;
+        b=J2lBx3Pd99laX0OjaFZn28MUHyhQMP0dMqXRG1TkUb9Lwgs92LCayn1+SJg9NHI8/6
+         NaY/3AMeb7WlfvPnUZNgW9J+MOOBPtxELVVUdJm0Bb0XeTmuaHdecFr3v0vZUH2PmG6n
+         l4CFK5kg7g1sJg0IPgIFNlXxwlO1H+Tbltmnk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710278894; x=1710883694;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=J07qi3Pm6IWKJCmXkuIy6slfTmc3cDOIJrvkEFADZ84=;
-        b=Rila6kNc5DWcVftIGzN3ydKdeMxmVlxC4Rx+PTl+d8IyG/UmtjsYdxGCcUip97wjYJ
-         FlrPBV+gzDO0xRQgDtYuAugVOomj3kixpQD/2Jn1cndYyBqRf4iA5vyDfqJbkrejzg03
-         fHZI2pEi7qQN7PsYY2yxy4sCA5BvLpBja2zHWMqacmBjr1/WxjjO8tyLIGwCBBuJBDlI
-         SjYXU7+NW7u6kvg6MMj3fHRwRuPoFkpznewjey7WQvGRCWWSfywGsrdbHfOcn7ZVQQMb
-         4qwT8ybr/Wfsj11jWlcqB+De2mrF6ZL90Ghw3irR1a3AdobjosFKUjbJJWelxaAjGBJm
-         qnFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWeG1mYpXYi+HCzar6L9MziEldObMlHPzwxqCbJ679NZBedtEC2zSUAPzKlWZKvi5u9wP3dlyyk0OLdQDbdn3SZ0FlgPLigti3cLUwKFca1
-X-Gm-Message-State: AOJu0YwF/+MQTy0AttbMAoLFlmvvDO7xMms4eal/yV+9ImEH9WPbSLn9
-	eE35l11/bwN96Z2ISr52uryL3w/6tukAs1jN3dnVxvur2s25L9L11Ly4g+oSs2n0aH6FTQ5EqfY
-	+
-X-Google-Smtp-Source: AGHT+IHUbA2fkuidigz0aEHwAs7BBlFBOtglNgjvKDQ2scnMN4VpbFIoE44l+8Y0xPIP9t2+5WWAFA==
-X-Received: by 2002:a17:902:b58b:b0:1db:edfa:7713 with SMTP id a11-20020a170902b58b00b001dbedfa7713mr11533807pls.18.1710278894337;
-        Tue, 12 Mar 2024 14:28:14 -0700 (PDT)
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id u17-20020a170903125100b001db5fc51d71sm7222248plh.160.2024.03.12.14.28.13
+        d=1e100.net; s=20230601; t=1710280859; x=1710885659;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lLq08iYnVcnWuDzFJHO0LDnyeIZ1/WCj/v6YSvUnsiY=;
+        b=cOK5ybKa9XVAn+L+arD0s5Pb0EPzwCC3qIj/7BE+obHhjhlKxdlbJlZBApm+EmpJYh
+         CK7dGDYFcv/H9Syp+aKufjlnj366upnfpvmw3dcitXTon7vo6Fil9dw0u+FxsSvryEej
+         5EHlzmypK32FX9T+akWE/tAx53tHW2myN1FlAO/V9ggzxIuzef2wIlxvdcenMyMnICxW
+         X4xQsjGfCriEERUrSKiK0nkdvAlUyeuQ2VWJ1yAcF0rwK3spxgbrPyNx6EPEpPRVUDWq
+         9OyQbRHM8E/qE0g++nhqZV8j4/zMPCWjbvoZa0WduGU3sIH1W2hPBnQdLPgR5LQp4Lqd
+         /diQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVapcFkre+RbnrDBk9xsefAtQ5pQnjhUYa3aDIhFVJACpZ0yC1Fh15IHs/uJMROVJ1Uh0+88EPCfiHZpXE9NU1lm1NtyiKNt8NGDXdxZFgi
+X-Gm-Message-State: AOJu0Yz2ohjdIh2GbKTpuPypjdNTusm0vkJ9oxNhan5xreqVV+t6+Nod
+	7CRzj+SCRv/ES0y6mTqWj+wIt8QGm88QtE6QT4E01Clx6SuSACEGhypvYfbR1A==
+X-Google-Smtp-Source: AGHT+IHdha0C7GHgTOtn+h7GC1nV2SuVFIKnwQ0XR5LyRaxyHLt5ciUVNw2VJKedo24c6BQYxDb+PA==
+X-Received: by 2002:a17:90a:8b02:b0:299:4cc5:aa25 with SMTP id y2-20020a17090a8b0200b002994cc5aa25mr2853635pjn.25.1710280859551;
+        Tue, 12 Mar 2024 15:00:59 -0700 (PDT)
+Received: from www.outflux.net ([198.0.35.241])
+        by smtp.gmail.com with ESMTPSA id u8-20020a170902e5c800b001ddb57a4dffsm2232631plf.132.2024.03.12.15.00.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Mar 2024 14:28:13 -0700 (PDT)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: Anup Patel <anup@brainfault.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] irqchip/riscv-intc: Fix use of AIA IRQs 32-63 on riscv32
-Date: Tue, 12 Mar 2024 14:28:08 -0700
-Message-ID: <20240312212813.2323841-1-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.43.1
+        Tue, 12 Mar 2024 15:00:59 -0700 (PDT)
+Date: Tue, 12 Mar 2024 15:00:58 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Daniel Diaz <daniel.diaz@linaro.org>,
+	David Gow <davidgow@google.com>,
+	Arthur Grillo <arthurgrillo@riseup.net>,
+	Brendan Higgins <brendan.higgins@linux.dev>,
+	Naresh Kamboju <naresh.kamboju@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, loongarch@lists.linux.dev,
+	netdev@lists.linux.dev
+Subject: Re: [PATCH 01/14] bug/kunit: Core support for suppressing warning
+ backtraces
+Message-ID: <202403121500.64A2C02@keescook>
+References: <20240312170309.2546362-1-linux@roeck-us.net>
+ <20240312170309.2546362-2-linux@roeck-us.net>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240312170309.2546362-2-linux@roeck-us.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240312_142817_472751_3D7098F7 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20240312_150100_911881_4C91C81A 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,62 +111,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv_intc_custom_base is initialized to BITS_PER_LONG, so the second
-check passes even though AIA provides 64 IRQs. Adjust the condition to
-only check the custom IRQ range for IRQs outside the standard range, and
-adjust the standard range when AIA is available.
+On Tue, Mar 12, 2024 at 10:02:56AM -0700, Guenter Roeck wrote:
+> Some unit tests intentionally trigger warning backtraces by passing
+> bad parameters to API functions. Such unit tests typically check the
+> return value from those calls, not the existence of the warning backtrace.
+> 
+> Such intentionally generated warning backtraces are neither desirable
+> nor useful for a number of reasons.
+> - They can result in overlooked real problems.
+> - A warning that suddenly starts to show up in unit tests needs to be
+>   investigated and has to be marked to be ignored, for example by
+>   adjusting filter scripts. Such filters are ad-hoc because there is
+>   no real standard format for warnings. On top of that, such filter
+>   scripts would require constant maintenance.
+> 
+> One option to address problem would be to add messages such as "expected
+> warning backtraces start / end here" to the kernel log.  However, that
+> would again require filter scripts, it might result in missing real
+> problematic warning backtraces triggered while the test is running, and
+> the irrelevant backtrace(s) would still clog the kernel log.
+> 
+> Solve the problem by providing a means to identify and suppress specific
+> warning backtraces while executing test code.
+> 
+> Cc: Dan Carpenter <dan.carpenter@linaro.org>
+> Cc: Daniel Diaz <daniel.diaz@linaro.org>
+> Cc: Naresh Kamboju <naresh.kamboju@linaro.org>
+> Cc: Kees Cook <keescook@chromium.org>
+> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
 
-Fixes: bb7921cdea12 ("irqchip/riscv-intc: Add support for RISC-V AIA")
-Fixes: e6bd9b966dc8 ("irqchip/riscv-intc: Fix low-level interrupt handler setup for AIA")
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
----
+Yup, this looks fine to me.
 
- drivers/irqchip/irq-riscv-intc.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+Reviewed-by: Kees Cook <keescook@chromium.org>
 
-diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
-index f87aeab460eb..9e71c4428814 100644
---- a/drivers/irqchip/irq-riscv-intc.c
-+++ b/drivers/irqchip/irq-riscv-intc.c
-@@ -149,8 +149,9 @@ static int riscv_intc_domain_alloc(struct irq_domain *domain,
- 	 * Only allow hwirq for which we have corresponding standard or
- 	 * custom interrupt enable register.
- 	 */
--	if ((hwirq >= riscv_intc_nr_irqs && hwirq < riscv_intc_custom_base) ||
--	    (hwirq >= riscv_intc_custom_base + riscv_intc_custom_nr_irqs))
-+	if (hwirq >= riscv_intc_nr_irqs &&
-+	    (hwirq < riscv_intc_custom_base ||
-+	     hwirq >= riscv_intc_custom_base + riscv_intc_custom_nr_irqs))
- 		return -EINVAL;
- 
- 	for (i = 0; i < nr_irqs; i++) {
-@@ -183,10 +184,12 @@ static int __init riscv_intc_init_common(struct fwnode_handle *fn, struct irq_ch
- 		return -ENXIO;
- 	}
- 
--	if (riscv_isa_extension_available(NULL, SxAIA))
-+	if (riscv_isa_extension_available(NULL, SxAIA)) {
-+		riscv_intc_nr_irqs = 64;
- 		rc = set_handle_irq(&riscv_intc_aia_irq);
--	else
-+	} else {
- 		rc = set_handle_irq(&riscv_intc_irq);
-+	}
- 	if (rc) {
- 		pr_err("failed to set irq handler\n");
- 		return rc;
-@@ -195,7 +198,7 @@ static int __init riscv_intc_init_common(struct fwnode_handle *fn, struct irq_ch
- 	riscv_set_intc_hwnode_fn(riscv_intc_hwnode);
- 
- 	pr_info("%d local interrupts mapped%s\n",
--		riscv_isa_extension_available(NULL, SxAIA) ? 64 : riscv_intc_nr_irqs,
-+		riscv_intc_nr_irqs,
- 		riscv_isa_extension_available(NULL, SxAIA) ? " using AIA" : "");
- 	if (riscv_intc_custom_nr_irqs)
- 		pr_info("%d custom local interrupts mapped\n", riscv_intc_custom_nr_irqs);
 -- 
-2.43.1
-
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
