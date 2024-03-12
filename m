@@ -4,91 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B505C54E66
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 19:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85972C54E58
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2024 19:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I79uVYunL3PVESLwVFjsA7DIoU9U/GZrSpLaT5y4nMc=; b=ajGauPNn5VQ22V
-	nU0y3eIdfdtXW/MYxvRZ9OLCtGFiJee01oQC4NsYxF5DC6Nhnp57+aT0L8u3thSg27nhFUIbpN3TU
-	+o6Ut5+YGuEuA5UtwaP6kkSWFyEyFPpCtCG+Mmxck6nC9foRdl6b7TV3cD+Mwsp8dZxGSDBxM4k2w
-	p2nRThq5KePJkKD6vggLOsKbRf/cWcnuZJ6DDZxxlDw2k2EaUUfLTQk2makxzZpDhBtNYYD1Ff8DG
-	uxt3JTwCjc81qNyqVgESaBqP8sesjzyuGE5oDpm2KCK8IB4TLPWCGa7w38mggmmV2vh/LApJZ2FdA
-	Xe0b4LXSCFHVlUyQe6/g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ddkX8DDDzXx7bB32BhWJFlPEXhgD6IsAJohvr0l22Yg=; b=xPt3jtMJsMPfTw
+	TiVZpP3GBxlaUG1+HbKX1eJdpEeKWfrKL5TCqibGSapPhHtf+36yV0JBnRGkPfLYOmykF3HnB1ViA
+	rccvTkWy/O04XXVMUVpCGDgoqiJu45ewUZbNUxUE39GWRBEA2SkF/QbBPyHQd/kTVfTwLj4SyZC28
+	WH1zBHsl5h4zHObo9zCOjNpfNffyxuFnMn0WOPe7HQfQoxblMxRLtl5nsMyXw/A4mGXJO0S882kNp
+	fVcVhIYQUkn2PK8+QDB8Y6SDVVRDRZwIFeAW4TjVD3b9tIsFB1B863cNpNdt4CBhA1aPZ5uDzu+6Y
+	uVOUK9WMWtbQWMJ5bw8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk86m-00000007Lg7-1S6O;
-	Tue, 12 Mar 2024 19:48:20 +0000
-Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
+	id 1rk8Ex-00000007N3p-309t;
+	Tue, 12 Mar 2024 19:56:47 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rk86R-00000007LVy-3VO1
+	id 1rk8Eu-00000007N23-3WVc
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Mar 2024 19:48:16 +0000
-Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-5a1ca29db62so2795226eaf.0
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 12:47:59 -0700 (PDT)
+	Tue, 12 Mar 2024 19:56:46 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6e6b22af648so175411b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 12:56:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1710272879; x=1710877679; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k4XSa/PSXORT4uTdUR+bw2OZtjIlaWQWlwg5OyZv4ig=;
-        b=0dNRFKiC2zpCsK4Sc8XxcOOs5twUhglSj87QE8fpQjLZpIBWJ8VCZ1b8t5wK4TwYUf
-         VM8M86b0q395xHtgx1n9iGBVLbjdhFqK6bwy0C1LxgZaorxGRloqpAGQcBuWd1pmqHGd
-         zqGPmQhQs/aG1t2UsxDiaA1mq212xVvpTQVZ9XIa93bNrDHx6EBmmDOlKr4MU+bdHjcc
-         xC0EHbRTvkorEZ4tk4DHx4EtriLBV626fOTIQZ28ORt8CE8UGeqeDHGCCQsiEofr59ea
-         +knaf2sfqlHGLhxuv/LiI+VBfpps76AwzbkFvDwd7ISYEGbrrVIsMgixzW2xfrm9UYx3
-         KGEw==
+        d=sifive.com; s=google; t=1710273403; x=1710878203; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vxEx3iDsM3WrZG2Ndd+J9E+wXDu/hB2Os8/24Q1t3OY=;
+        b=miLYY8kewlIwXeuGbTM5Ky0gW0GmKqGzIk39TkAIUSjpH/JKcpec/JVJ0nXMwmc4p2
+         Sbyfm/FPjkl1tztNUU3zlwmy+7eDe6Nj6AWDilg3r93ACfF9OL4jHps8APAV+SsyJNqA
+         9f6UlN06RIitmxvEiDbQm7ntZEugqg8t+2z6fkomNYg4INAEzfc+FK41I0ePFstCLMCr
+         rpyHztK5C5jnL4IniIDX3p9EaRvf/QEiu061XdvLB0HMx7oq1+OVBy2sx/AJfn8aZQPk
+         5zWsUbTT61hG9HiH3JO+8BQ5S+E6lUa30+wJHKhFv82OSoqOQ2Y1DKrKXsYPdfcuyDEc
+         scDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710272879; x=1710877679;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=k4XSa/PSXORT4uTdUR+bw2OZtjIlaWQWlwg5OyZv4ig=;
-        b=b7wJIgiT4MaDVWLYp+nttqeoAHFadj0YuHMoGwSrFEMH89abHrJ/XAvLs80A1A0qkJ
-         2TupiHOET8FBcqztWAR+80gbajkNkqK8RcM56MzevmD+D0sJDnmgA5XS4yO68N7SwB0H
-         7JkNut5OychzAWgAgZgbZmHS4CQdJe2WK6IQIjUwBG3l4dwnHg4D1XB1gMpYp+RJfTbS
-         9mUnt9Uzc63hQdlChhpPzP6DtgbhOcUqhHY6Wmf90nFWJiqzz1BBmCAisBn7606kvBIG
-         YEOk7y+g8V/nX/20+3LmzNhe/MOYwUSBolWz0a99CDA6P4W8ZIXLzHG9IaBxUkBso2hm
-         lZeQ==
-X-Gm-Message-State: AOJu0YzIJ40w/0nb15SO2ii1+uiDIxVg+mnXd6+x3qwlqcayw7Byqnsg
-	+q5Z157nZGM3PyhCARmZ0jJvskwxFyhhMFy2dOAJ6Oydnd1TeGHH/SzPplwOuDI=
-X-Google-Smtp-Source: AGHT+IE+Yl3rd4VRKQ0Xgn0vLA0/IXGphbXEbzUjbknciDm6FUQ1nMtO8B6Nv0KNcv+QR9Td6lCSWw==
-X-Received: by 2002:a05:6359:5f9f:b0:17b:88c2:5c13 with SMTP id lh31-20020a0563595f9f00b0017b88c25c13mr12958442rwc.7.1710272878964;
-        Tue, 12 Mar 2024 12:47:58 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id z69-20020a633348000000b005dc884e9f5bsm6433495pgz.38.2024.03.12.12.47.57
+        d=1e100.net; s=20230601; t=1710273403; x=1710878203;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vxEx3iDsM3WrZG2Ndd+J9E+wXDu/hB2Os8/24Q1t3OY=;
+        b=XJxXROwaoe4Eyme6l4812Zp8nuQMxJ+QCdJJA1mdmvRK+QJrDs4klUcYxVKMORaSLq
+         lBC51MOzmg038iCe5bEs1YHdjD4ouBGY+nh0EJxY/aeiycL66n/sMX1TA/KB+aE9pjTM
+         GetbtQ3nAzQIIJSnwRHxJrN1+vbZo9rMzTenDBaVRBmbDCuGKJEdpc8XmnuNdMiajVjX
+         eIZkEJpiILdLkDnGyIC9QMfftKfKaKWo2/+rj/iyKML4vYBqM3PDatjTQDMiLQ3A4DzR
+         UAahhUeVJN6980Z9iKj24m3wqFEuP3f+UDDFWIpu/iOLsx25SHetRUxK77kCvE9y3Awk
+         DeVg==
+X-Forwarded-Encrypted: i=1; AJvYcCVsmADryABwYl/TNMC/11rEmFP59X2g8dYwSz3HFqJ8C5y/NHQOTmsdr26/HfOj8+QD3QDOa8EMSh6e9mVZ33hsac4s5qqqa55vrHAZnoPQ
+X-Gm-Message-State: AOJu0YwpFnZfiKwzPp3BMw9baiBx5dsf6oima6oECZ7m13svbmvbBo9h
+	rGs9+icDqjNqKcGzos0UZUcBDl4IGvHj1dfQxkmWDrNI3kuoSEi/yKVXGDBD8HU=
+X-Google-Smtp-Source: AGHT+IFpt7ff6HNFHc9Yq78Z63OwKzFZJ801dFotJRAscTaClrr1h/Au36ogZQmQ69SY/YT0n6oNpQ==
+X-Received: by 2002:a17:90a:e54f:b0:29b:c49b:eb13 with SMTP id ei15-20020a17090ae54f00b0029bc49beb13mr628731pjb.24.1710273403142;
+        Tue, 12 Mar 2024 12:56:43 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id hi23-20020a17090b30d700b0029bed0e75dbsm4708774pjb.17.2024.03.12.12.56.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Mar 2024 12:47:58 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Tue, 12 Mar 2024 12:47:54 -0700
-Subject: [PATCH v12 4/4] cpumask: Add assign cpu
+        Tue, 12 Mar 2024 12:56:42 -0700 (PDT)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Pavel Machek <pavel@ucw.cz>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Subject: [PATCH] riscv: Do not save the scratch CSR during suspend
+Date: Tue, 12 Mar 2024 12:56:38 -0700
+Message-ID: <20240312195641.1830521-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.43.1
 MIME-Version: 1.0
-Message-Id: <20240312-fencei-v12-4-0f340f004ce7@rivosinc.com>
-References: <20240312-fencei-v12-0-0f340f004ce7@rivosinc.com>
-In-Reply-To: <20240312-fencei-v12-0-0f340f004ce7@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Jonathan Corbet <corbet@lwn.net>, Conor Dooley <conor.dooley@microchip.com>, 
- =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
- Atish Patra <atishp@atishpatra.org>, Randy Dunlap <rdunlap@infradead.org>, 
- Alexandre Ghiti <alex@ghiti.fr>, Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1710272871; l=1746;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=BFOeXqJe9VyECGMuWiCNLoTZwBpuu0T2u1Mq+P/cqDo=;
- b=dUaXZnD9VQ8vsLYsKXOkCevPuNYqjQqs4wBvroTCyGKXR0MwtTqi+kVmNS6cpmRfvj+9eBpTV
- UJ9TU9gIUSeDYCpY+ggkBt8sv4yB1OqY2YjqtfD0d/3rv858ooSwNYg
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240312_124812_658078_EEDDB967 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240312_125644_962921_080C816B 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,57 +100,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Standardize an assign_cpu function for cpumasks.
+While the processor is executing kernel code, the value of the scratch
+CSR is always zero, so there is no need to save the value. Continue to
+write the CSR during the resume flow, so we do not rely on firmware to
+initialize it.
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
- arch/riscv/mm/cacheflush.c |  2 +-
- include/linux/cpumask.h    | 16 ++++++++++++++++
- 2 files changed, 17 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index 329b95529580..2e16ed19e957 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -234,7 +234,7 @@ int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long scope)
- 			stale_cpu = cpumask_test_cpu(smp_processor_id(), mask);
- 
- 			cpumask_setall(mask);
--			assign_bit(cpumask_check(smp_processor_id()), cpumask_bits(mask), stale_cpu);
-+			cpumask_assign_cpu(smp_processor_id(), mask, stale_cpu);
- 			break;
- 		default:
- 			return -EINVAL;
-diff --git a/include/linux/cpumask.h b/include/linux/cpumask.h
-index cfb545841a2c..1b85e09c4ba5 100644
---- a/include/linux/cpumask.h
-+++ b/include/linux/cpumask.h
-@@ -492,6 +492,22 @@ static __always_inline void __cpumask_clear_cpu(int cpu, struct cpumask *dstp)
- 	__clear_bit(cpumask_check(cpu), cpumask_bits(dstp));
- }
- 
-+/**
-+ * cpumask_assign_cpu - assign a cpu in a cpumask
-+ * @cpu: cpu number (< nr_cpu_ids)
-+ * @dstp: the cpumask pointer
-+ * @bool: the value to assign
-+ */
-+static __always_inline void cpumask_assign_cpu(int cpu, struct cpumask *dstp, bool value)
-+{
-+	assign_bit(cpumask_check(cpu), cpumask_bits(dstp), value);
-+}
-+
-+static __always_inline void __cpumask_assign_cpu(int cpu, struct cpumask *dstp, bool value)
-+{
-+	__assign_bit(cpumask_check(cpu), cpumask_bits(dstp), value);
-+}
-+
- /**
-  * cpumask_test_cpu - test for a cpu in a cpumask
-  * @cpu: cpu number (< nr_cpu_ids)
+ arch/riscv/include/asm/suspend.h | 1 -
+ arch/riscv/kernel/suspend.c      | 3 +--
+ 2 files changed, 1 insertion(+), 3 deletions(-)
 
+diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
+index 491296a335d0..6569eefacf38 100644
+--- a/arch/riscv/include/asm/suspend.h
++++ b/arch/riscv/include/asm/suspend.h
+@@ -13,7 +13,6 @@ struct suspend_context {
+ 	/* Saved and restored by low-level functions */
+ 	struct pt_regs regs;
+ 	/* Saved and restored by high-level functions */
+-	unsigned long scratch;
+ 	unsigned long envcfg;
+ 	unsigned long tvec;
+ 	unsigned long ie;
+diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
+index 299795341e8a..3d306d8a253d 100644
+--- a/arch/riscv/kernel/suspend.c
++++ b/arch/riscv/kernel/suspend.c
+@@ -14,7 +14,6 @@
+ 
+ void suspend_save_csrs(struct suspend_context *context)
+ {
+-	context->scratch = csr_read(CSR_SCRATCH);
+ 	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_XLINUXENVCFG))
+ 		context->envcfg = csr_read(CSR_ENVCFG);
+ 	context->tvec = csr_read(CSR_TVEC);
+@@ -37,7 +36,7 @@ void suspend_save_csrs(struct suspend_context *context)
+ 
+ void suspend_restore_csrs(struct suspend_context *context)
+ {
+-	csr_write(CSR_SCRATCH, context->scratch);
++	csr_write(CSR_SCRATCH, 0);
+ 	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_XLINUXENVCFG))
+ 		csr_write(CSR_ENVCFG, context->envcfg);
+ 	csr_write(CSR_TVEC, context->tvec);
 -- 
-2.43.2
+2.43.1
 
 
 _______________________________________________
