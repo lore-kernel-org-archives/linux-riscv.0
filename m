@@ -4,78 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD0EFC54791
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 16:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6998CC54E66
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 18:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TTmJNevATF+VUQVew7ijEDn9FO8+Q1DiZHeKbthg0B8=; b=Uq1Oobfxr0sc4f
-	/m86w9AVOtUuh+CTVGfD2e7Hz7s++C7NoK7fUHalXA9JayC3GfS/ijOAoOlNNH3DLz/icVJbBlF3l
-	Y8hgzh9sejNkV9awMM1zQSnyO0AUZVpAV5j++rnPQFNYscgN4DLEWxIgKMjrgNzQhGMnAudCscpdy
-	qT7+YXnoR8nNi9YepFJ6HoDqOdZUhE0SGVedpgXZlRpW1/bGXaHanw29ZIHjSXSfE0VTEw39IVcWI
-	uKYspRQNP7DXN50afrBZKubx+mw8ue38yjWBFB3p5XFSWRl7+avcMmAAUcCDcCobYamg2Ns4DaX7S
-	OJakadsHmYyPRBl3SaOg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OgteEdcum2owMgeTZ2ChFCcc0lXZ4KbOL78lGvVZ+Ag=; b=O2EdkRuKqa3Fim
+	dKO1Ss/7teOivfdy2GrY+50LjTswZeMQUQSRSOaKGpq08RIplOlgq8+arIYBC91eB5kSlhFwqtfzA
+	zNa1855T7iGRHWTJT2W8m/fMaD3n61okszCXrdJeUzyaU+dDrU4olBrlpJ5KRJMGYd2GZzV63dJ/3
+	FXjtCm9ihJtmhghZltXgCnv/PaMUOE4BEvyeu+lqlHj5zWWdjqvMnC0dNXWRyY+mET/a/bj+OjDEz
+	24xNoNcob2xhsYwBS90xwFBU2r5+pZ8yNLHhNyskN5mSLKj8bDOZHxH8MRiHbeSodTGJulSXWJN48
+	eNYYvhoUnja3LH5q46Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkRuQ-0000000At9l-3Ep6;
-	Wed, 13 Mar 2024 16:56:54 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1rkStl-0000000BBPt-15qg;
+	Wed, 13 Mar 2024 18:00:17 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkRuN-0000000At7s-2c8h
+	id 1rkSth-0000000BBNI-2wuQ
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Mar 2024 16:56:53 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-565c6cf4819so1943468a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Mar 2024 09:56:48 -0700 (PDT)
+	Wed, 13 Mar 2024 18:00:15 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1dd97fd66cdso812885ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Mar 2024 11:00:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1710349007; x=1710953807; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TnASLn79U4WGz9JzJ9spFueWfH+H8v408Rks+XnoEx0=;
-        b=ifPIjvFe5WYQ7rTZ9cuez9Sd+p4zLY9fSUlq4csCl+9hHtBQEUUp5ES5L2Y67sp0v8
-         cKDfprv/NXKDJs0diiCh+h2otvQS7duhZeyc/aS+mCeqiUiimmsT46euIHxGZJLt5yTQ
-         uFdeD6dsKotpMlAEK0jHYV3wmwEsR3ajg9jstFaCEP/LsP9lW6hDm9t+5wFKZ2gZK/AJ
-         J19VxYRl+n/IS3Ax2nGhQTWJg9ibgydSWeqPVfzLtys+dL4pVYrJ3rmYshVvhxXzTH8R
-         li/1Ch3TpefwIitJQvSIcdfli9XsIW+mBTDzDWtJN53edDiccpdoui7T3Jz6m56qI9cQ
-         t7xw==
+        d=sifive.com; s=google; t=1710352812; x=1710957612; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dZTXOjAeT6pfaV7onHDV2gE4nP+owJ8waS/mbAbqu5c=;
+        b=FKU0pBuYWQ7EUK8/sqCuutHJXtFM01j+DsEyZHwj035gYb9USdG1DDWXr2g814b86E
+         UNW+V4hrRJYIguIwuC57pE5ry2s3q/XmsOjIwZ4Wjlhf45xb9py7ofeQMzI216Ni384z
+         PgF12L3EFvwOi+m9vDSjqEELAVzJWMPWyzU8Ia6T8PddJh6AVFicWnqc19kozVVof6s3
+         sioLV+2zyBQcfD337AwPalbNsKPllPHmtW5Kbzj2811YMEqvWnNUOIurQH9Ayqiw6v7r
+         pJ2SqPz4pqYvK9HmnWVFtmO6swScnZqysyY0BdiszR494mO4lhQFzZ+L7lq2dFttIBlr
+         8J2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710349007; x=1710953807;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TnASLn79U4WGz9JzJ9spFueWfH+H8v408Rks+XnoEx0=;
-        b=BnhgbeTHwUUg3k1/cZRkneCiutT6+fJ8ZqUvxGc3pvKWMEw8DrbwkFDsCvJOlU6QfT
-         bHJMbvp5xBqYZNC9/lsBirVzDaTBFknqx2eE192NjGCcQN9NrJrkK4w8saCd0rltf2mf
-         RXJyiTZHT3fMIGYQSEbNjFtoKh3b8yr/6R8mufhub+7gJNoYw9AiC8iPYVpTzljU56IL
-         i3sRrNVCU3/HcVYwwRF+QKn7c3NOCtrDE3GwOFLOdYeDHfGhPbBjjoVuaugyF0pijEUb
-         l+noliPe5Ogd1+iCG+fDk0Ke+2h+Es3ACxWCmxlhxqO+kf1h55Um0uwrqgjBCJdmyNXo
-         fOKg==
-X-Forwarded-Encrypted: i=1; AJvYcCVqey4Ov1QTPiww/bGF/zlF42xNo9eynlfo/N/PtAssCcyUmt97O7PLPWHP93boPV8bW2luDyfTjprGf48ugTZemG3DyT/ZIJN7JpiAR4v7
-X-Gm-Message-State: AOJu0YxH+09Z8lJ0roKhAcFIi/gXHSq5NlUZEBjeCP7kEYdmXzl/3wnf
-	DjYzmFJFwAcjFqRPMrIgCypLYuRTOU+lmkUIPtqdBDOw0J27UP59wIvbz4CK7rGkTUUIo4rL/N9
-	nSvKg5m+StaJQULsmqS7z6wJ/hqfxtegYZ7qwZA==
-X-Google-Smtp-Source: AGHT+IGAWCdriqwQt4fquJ5lVPudGaCw84ttjE5f4cmiXdhI+Vq9G5yeSx/uppOW3n2GUCQumVwuspfbuTrqt1TjipA=
-X-Received: by 2002:a17:906:5945:b0:a45:7936:d09e with SMTP id
- g5-20020a170906594500b00a457936d09emr2761316ejr.19.1710349007188; Wed, 13 Mar
- 2024 09:56:47 -0700 (PDT)
-MIME-Version: 1.0
-References: <20240312193306.1814593-1-samuel.holland@sifive.com>
-In-Reply-To: <20240312193306.1814593-1-samuel.holland@sifive.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Wed, 13 Mar 2024 22:26:34 +0530
-Message-ID: <CAK9=C2Vsq0iN5FW=zC7+2GHe115TPJOEEPcDCLs_40yBGpbVdw@mail.gmail.com>
-Subject: Re: [PATCH] clocksource/drivers/timer-riscv: Drop extra CSR write
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, 
+        d=1e100.net; s=20230601; t=1710352812; x=1710957612;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dZTXOjAeT6pfaV7onHDV2gE4nP+owJ8waS/mbAbqu5c=;
+        b=aYPu0z6k7ro/z5lxUiX23wk6sN6yI1t4JL4yuuM+OR3784ikl3pnJKS/KK7YV6CEGl
+         dz1WozlW2DgztrM9h86xZLrCbrPX065fN838EIP7P9A9ZOE2PRYNdsmbmah7R8L9qG+u
+         /robf4bV+1uvYPsqnOdJbnWayuo4sD2An3kdGlz47JbAQD+q3vM70TkO3MP58kI1h3Ci
+         SnsH/8Jw7nWu/fAK7scbNIlORTnBj2YR+D84LENvykk1S/mDsrM4fuz7r9IvwdmbObk1
+         KsJHQfC5FD9ggw75F8Qe1YwU4ZxK4Y+BN/KJh80pe6PaIXbIKNfu6J9A7XUAegaZRaPO
+         lYQw==
+X-Forwarded-Encrypted: i=1; AJvYcCVRy0F8HvlgPKa5ioMWY4nbuJmUVNct4PtZh8J5MOZcXY61F5wB5gQ0ewxSLei4eo2ZF8TfW4rvC2KcljIbKD6ffQV+xNyq5U/RLnH4v3ZW
+X-Gm-Message-State: AOJu0Yzu3AkaA9uO4150XQdLJboIOnpGd7Gpu4g/ftVW1EvfowoQyNAL
+	bmm8ZXYH55j5YWp8OPqJLwKCEN9DgShHXBKJkiOwBA+2pKnLckB4NuTiSMNPoNQ=
+X-Google-Smtp-Source: AGHT+IEprNdyiuonWqVfClrX/ImBIkqo5fEQz/6Uu30hIGFkzozJm4o58O8tbMTGqua91ovBM0emxA==
+X-Received: by 2002:a17:902:ac86:b0:1dc:4bf6:7eb4 with SMTP id h6-20020a170902ac8600b001dc4bf67eb4mr13452784plr.31.1710352812163;
+        Wed, 13 Mar 2024 11:00:12 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id jj14-20020a170903048e00b001dc30f13e6asm8912264plb.137.2024.03.13.11.00.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Mar 2024 11:00:11 -0700 (PDT)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Guo Ren <guoren@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Xiao Wang <xiao.w.wang@intel.com>,
+	Yangyu Chen <cyy@cyyself.name>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
+Date: Wed, 13 Mar 2024 10:59:43 -0700
+Message-ID: <20240313180010.295747-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.43.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240313_095651_682900_1CC0F753 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20240313_110013_872781_7CB38F0E 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,37 +99,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXIgMTMsIDIwMjQgYXQgMTowM+KAr0FNIFNhbXVlbCBIb2xsYW5kCjxzYW11ZWwu
-aG9sbGFuZEBzaWZpdmUuY29tPiB3cm90ZToKPgo+IE9uIHJpc2N2MzIsIHRoZSB0aW1lIGNvbXBh
-cmF0b3IgdmFsdWUgaXMgc3BsaXQgYWNyb3NzIHR3byBDU1JzLiBXZSB3cml0ZQo+IGJvdGggd2hl
-biBzdG9wcGluZyB0aGUgdGltZXIsIGJ1dCByZWFsaXN0aWNhbGx5IHRoZSB0aW1lIGlzIGp1c3Qg
-YXMKPiB1bmxpa2VseSB0byByZWFjaCAweGZmZmZmZmZmMDAwMDAwMDAgYXMgMHhmZmZmZmZmZmZm
-ZmZmZmZmLCBzbyB0aGVyZSBpcwo+IG5vIG5lZWQgdG8gd3JpdGUgdGhlIGxvdyBDU1IuCgpFdmVu
-IHRob3VnaCB1bmxpa2VseSwgdGhlcmUgaXMgc3RpbGwgYSB0aGVvcmV0aWNhbCBwb3NzaWJpbGl0
-eSBvZgpjb3VudGVyIHJlYWNoaW5nIHZhbHVlIDB4ZmZmZmZmZmYwMDAwMDAwMC4KClRoZSBnb29k
-IHRoaW5nIGFib3V0IHZhbHVlIDB4ZmZmZmZmZmZmZmZmZmZmZiBpcyB0aGF0IHRoZSBjb3VudGVy
-IHdpbGwKaW1tZWRpYXRlbHkgd3JhcCBhcm91bmQgYWZ0ZXIgcmVhY2hpbmcgaXQuCgpSZWdhcmRz
-LApBbnVwCgoKPgo+IFNpZ25lZC1vZmYtYnk6IFNhbXVlbCBIb2xsYW5kIDxzYW11ZWwuaG9sbGFu
-ZEBzaWZpdmUuY29tPgo+IC0tLQo+Cj4gIGRyaXZlcnMvY2xvY2tzb3VyY2UvdGltZXItcmlzY3Yu
-YyB8IDMgKystCj4gIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24o
-LSkKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2LmMgYi9k
-cml2ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2LmMKPiBpbmRleCBlNjZkY2JkNjY1NjYuLmVh
-YWYwMWYzYzM0YiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2
-LmMKPiArKysgYi9kcml2ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2LmMKPiBAQCAtMzUsOSAr
-MzUsMTAgQEAgc3RhdGljIGJvb2wgcmlzY3ZfdGltZXJfY2Fubm90X3dha2VfY3B1Owo+ICBzdGF0
-aWMgdm9pZCByaXNjdl9jbG9ja19ldmVudF9zdG9wKHZvaWQpCj4gIHsKPiAgICAgICAgIGlmIChz
-dGF0aWNfYnJhbmNoX2xpa2VseSgmcmlzY3Zfc3N0Y19hdmFpbGFibGUpKSB7Cj4gLSAgICAgICAg
-ICAgICAgIGNzcl93cml0ZShDU1JfU1RJTUVDTVAsIFVMT05HX01BWCk7Cj4gICAgICAgICAgICAg
-ICAgIGlmIChJU19FTkFCTEVEKENPTkZJR18zMkJJVCkpCj4gICAgICAgICAgICAgICAgICAgICAg
-ICAgY3NyX3dyaXRlKENTUl9TVElNRUNNUEgsIFVMT05HX01BWCk7Cj4gKyAgICAgICAgICAgICAg
-IGVsc2UKPiArICAgICAgICAgICAgICAgICAgICAgICBjc3Jfd3JpdGUoQ1NSX1NUSU1FQ01QLCBV
-TE9OR19NQVgpOwo+ICAgICAgICAgfSBlbHNlIHsKPiAgICAgICAgICAgICAgICAgc2JpX3NldF90
-aW1lcihVNjRfTUFYKTsKPiAgICAgICAgIH0KPiAtLQo+IDIuNDMuMQo+Cj4KCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+TASK_SIZE_MAX should be set to the largest userspace address under any
+runtime configuration. This optimizes the check in __access_ok(), which
+no longer needs to compute the current value of TASK_SIZE. It is still
+safe because addresses between TASK_SIZE and TASK_SIZE_MAX are invalid
+at the hardware level.
+
+This removes about half of the references to pgtable_l[45]_enabled.
+
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
+
+ arch/riscv/include/asm/pgtable-64.h | 1 +
+ arch/riscv/include/asm/pgtable.h    | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+index b99bd66107a6..a677ef3c0fe2 100644
+--- a/arch/riscv/include/asm/pgtable-64.h
++++ b/arch/riscv/include/asm/pgtable-64.h
+@@ -17,6 +17,7 @@ extern bool pgtable_l5_enabled;
+ #define PGDIR_SHIFT_L4  39
+ #define PGDIR_SHIFT_L5  48
+ #define PGDIR_SIZE_L3   (_AC(1, UL) << PGDIR_SHIFT_L3)
++#define PGDIR_SIZE_L5   (_AC(1, UL) << PGDIR_SHIFT_L5)
+ 
+ #define PGDIR_SHIFT     (pgtable_l5_enabled ? PGDIR_SHIFT_L5 : \
+ 		(pgtable_l4_enabled ? PGDIR_SHIFT_L4 : PGDIR_SHIFT_L3))
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 6066822e7396..2032f8ac5fc5 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -867,6 +867,7 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+ #ifdef CONFIG_64BIT
+ #define TASK_SIZE_64	(PGDIR_SIZE * PTRS_PER_PGD / 2)
+ #define TASK_SIZE_MIN	(PGDIR_SIZE_L3 * PTRS_PER_PGD / 2)
++#define TASK_SIZE_MAX	(PGDIR_SIZE_L5 * PTRS_PER_PGD / 2)
+ 
+ #ifdef CONFIG_COMPAT
+ #define TASK_SIZE_32	(_AC(0x80000000, UL))
+-- 
+2.43.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
