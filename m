@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3882C54E5D
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 01:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 595BDC54E5D
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 01:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yNGGQtYbVhUYoAGxa057xk7fSEALuRuxRGz4tV3JdHY=; b=OAufs73/WvaScJ
-	EMMl32BjqiFZ0yZDAg60CnzZ4b18Z9xNaUDG2JAcoMqk8yzrMz11q9cesg4tTGZ2ub5suU/Koy+E3
-	+FYck+w7A0T/BchJMVkm6AK6BPP/4fqjz/L5SZjeEldZ9cyBRsgjmaOlU6MUcXl7TT8igKsIoaexA
-	sWe26Ho5Ru2zpN+s8DBVW6ua8ZTQPWkC1OvUsIDEQNkEP6fL1+G6EGwkwf49/g9gz/7F42i11qYE9
-	3bLRuqDOhB46UtRsjJBFf+Z3QaD+foSEbfcJpQjS6CKsXgzajoBfUYlrLwpdZTHLhYqHMBnRo6Ir/
-	AK6jyKacQqxCDHKdUlgw==;
+	List-Owner; bh=57aIX4Vjg3ULPk00bb6hgx75CVoDFlosvZjvWDqVM94=; b=Rw+DrDFXQsYdhP
+	Y5gw9/NWa1NrKzdCOXDO0jIuN1RXeUSMS5FNTZKZ/XBlfvy4uV+n4gshjmznz0oCswkrqEfDGPFfg
+	Z2FWWtJpPnZTVemlUAy5YCnKZE911+x7IsDMgJO3VFThdnJyL5x8ny7A+ubAHHXWHAlHPVri9pksC
+	o9XEGPzyQc7N/ZBONUfABu+x7MiuTfq7/bVOnlysxR7R1rVQ4qv24vmyr7ArDmQIgWwN1Teo6Sq11
+	n/vcFakbDbbkp0ocl96Hp1omq5yyJMw9mnqnoaItHzGN5NfqDWB8Y3l/NYTwmrwjY/XxyPpdROJA8
+	K27FXIz1r5WR/JL/8LVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkD9C-00000008IlN-3wKj;
-	Wed, 13 Mar 2024 01:11:10 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1rkDCL-00000008LTj-3nub;
+	Wed, 13 Mar 2024 01:14:25 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkD97-00000008IhS-21XV
+	id 1rkDCF-00000008LMh-3hfv
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Mar 2024 01:11:08 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6e5eaf5bb3eso4895364b3a.3
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 18:11:04 -0700 (PDT)
+	Wed, 13 Mar 2024 01:14:23 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-29aa91e173dso4361893a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 18:14:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1710292264; x=1710897064; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=iZVTEdL4tspWGYZt6WUdOVkVxO9G+Bnl9WSMo6I37UI=;
-        b=ScUeVd0olJzg/NjUMu6UtaHIDOKT1mMYQ1ZUaQzpbyFhu8T1cjwQF8B+vY87Z4O1Dh
-         DLnf8bsEiDLaEa+jlQMa5LSzw3ar4tvkgAWXfDonjB5WFFlw/M8UT6xmtfGrEu5lM4VV
-         MX5xc2A6vkviKHYxTVAwUQ9XbTUHPa2/43v6/ZNx+yKD5UJf2lrWIwK26d6hU0gThJWP
-         TGJcAghKsDbshl+Q7Jbgzf5vjpPRyZL/Sns/9OlOrwhhcT2sAccM5Pso02w/7Vk4DnQw
-         WFBuw5tXUAzizaAFRB62+bonu/DYcy6XoeCB2ZgCTKI8dvtf7BYrJeYqVCXzQnPrnECe
-         l1Jw==
+        d=bytedance.com; s=google; t=1710292454; x=1710897254; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=twMccmPlR7/SShgFg0AONE56vJVPPL3EBuKYw8SPbFI=;
+        b=JHHIyWLIgVTveO2+q1JRNkFonfp61+w0oSlZma4W9Uh9OMxIU7F4zgCSUA82L2uJog
+         rRWI85kVFIFUcvljwe3QoyljI2jvz9x9lQq5QIWRJ2ss6TtP/pEQ3ELMUDHKRjxf5wLP
+         pIxkbbM3fpO6xKFdRhF21zm/nKXjQZfNvunx3EVmtuointsqUp2Sa84xo+y2wWete8dA
+         3feCukgIJ9DCzqYbbx9fIA20C2Slc8k5Lzg6ceCfQjRlgdtP2RK5EWrL6vUUVmFN+QwW
+         PRlv1v9Pu61Lq5fpk7gwZkxi8ZJL8XTcrUpJXqKHAqD6dnPfbhmAeOt1X+VKFiGg0nfN
+         5PkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710292264; x=1710897064;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iZVTEdL4tspWGYZt6WUdOVkVxO9G+Bnl9WSMo6I37UI=;
-        b=eje9KNN1qdi9ej1ZqBbW1Nyg4xl063ygSgGTJa4UUTRPhTe4fMQEtUL+3HPZi8Gn36
-         T77FSS72PwoLJpH3rHA90hQvPDGR9kUWAewQfkk9/dG3pyc6Z1F6/b6xiGix7tpoicxK
-         UulWSNCHYQzwx327JAFQYLWQyMNcZHESjV1AybHmPOZWCSbl/Yp/kz87OEn5X61OiZBU
-         HuLa03CgoiFfjnDuDv8yRPnNEJ3VwBhotj5YOAfttNCx5GsHhA0j3eo1bn9ixK1Tsa+Z
-         pykG+BYlghNBVgQN63s+wzxlxI/c0I2xwEJOpqS8IMRflySsGTN/Po3dqJXs8JiGAD8R
-         SPWg==
-X-Forwarded-Encrypted: i=1; AJvYcCXCmX8iFyDypPAZa4GMi1ApHf/NA+RpNtdluwfi7Fkjw8KQxj9ZvYNhaC3z7ewCA3Lv7Dz7sk0l2HbGQL5rf9XGaOJgmC2oAZ8khvTwDwlZ
-X-Gm-Message-State: AOJu0YwPAJ+5YRPoBuEjbLfg0jPtHEjH+n0NkeJZWscl6Z8aIzGh/ka0
-	CpV8Pu+BWy0mNTuB3brZAcQKLc+NueFHQXmhkIxRejBKs75a7N4plE1qZ/+28rw=
-X-Google-Smtp-Source: AGHT+IF3xwXoWk7UDjbgIIi2TOB7cq2R7KvxH9ZhaPo/B3eQFdlHc8H6tyaNvFMqdYNDUub+oREQiA==
-X-Received: by 2002:a05:6a00:198c:b0:6e6:673e:3447 with SMTP id d12-20020a056a00198c00b006e6673e3447mr1126901pfl.14.1710292263967;
-        Tue, 12 Mar 2024 18:11:03 -0700 (PDT)
-Received: from ghost ([2601:647:5700:6860:733c:479a:4b7b:f77b])
-        by smtp.gmail.com with ESMTPSA id hq22-20020a056a00681600b006e635740126sm6747332pfb.112.2024.03.12.18.11.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Mar 2024 18:11:03 -0700 (PDT)
-Date: Tue, 12 Mar 2024 18:11:01 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Robin Ehn <rehn@rivosinc.com>, Stefan O'Rear <sorear@fastmail.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>
-Subject: Re: [PATCH] riscv: hwprobe: export highest virtual userspace address
-Message-ID: <ZfD9JV51GER/8OOX@ghost>
-References: <20240301164407.475957-1-cleger@rivosinc.com>
+        d=1e100.net; s=20230601; t=1710292454; x=1710897254;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=twMccmPlR7/SShgFg0AONE56vJVPPL3EBuKYw8SPbFI=;
+        b=mTME0g85VC0Ztq+qztnKnKxVGlE9cKbOtOP7yRa0iIDBimX+S/HUM8p6tAYd7tTNcT
+         66cR5qx/POYA85jJuwhB5X1Bf6zBHINNG9wJg1EF6l0V+YTuVQFIWoHDiMlWxngJFFC3
+         /vRrev7L6gGhvQyYYO7VK7mo22JUVnFPPt2FQfMjB39xqjMaQUTD2pNL2ZIdaG7tDOxl
+         nJc8/u1gk+YgtaL4V73RUArsTKdClNC2G1Rts5ETv5/cJGfpVuU9Od2ZAk1+bjjbComD
+         cFktEla2idq7v33ZYYAYN5a/CJoenUh6Kvmofkiupzl80Sl29ijfC3MdBeFdS6XiY0lD
+         aSZA==
+X-Forwarded-Encrypted: i=1; AJvYcCW48npGT7lF3kYZnKr0FelV0WeQFwKpXjQZRLamO8EsBOa1hPH77nq0HczrVa8UNkqhd3Ok/gM+WzVdXTW8wXxMjP9+yfd1D/5XRe2EILdx
+X-Gm-Message-State: AOJu0YxCZ/eodxjeyafQ8GAxR3abQMp8fYoxvOklaUE384Q/xtyWnLzG
+	p2qdj+2dCIQV6NE4oj3cjuvtGjE4vIO0vxEr9bmwKP8KOb6mnhM+38ffemb/l/ktZdw0uI8ZgJ1
+	jMZa7tqZkEv0rH/lR07vROfAqau3EGRL4iOohPQ==
+X-Google-Smtp-Source: AGHT+IFJ2nJztVxlcv7iF1fLo4e+81DiH9lck4a4XLEq2MMi6yrbHR+XGNXNfeaQ8LZdIPeyXdsLEIp10M0upU5dDak=
+X-Received: by 2002:a17:90a:bb0d:b0:29c:5ba3:890e with SMTP id
+ u13-20020a17090abb0d00b0029c5ba3890emr829001pjr.4.1710292454186; Tue, 12 Mar
+ 2024 18:14:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240301164407.475957-1-cleger@rivosinc.com>
+References: <20240311093526.1010158-1-dongmenglong.8@bytedance.com>
+ <20240311093526.1010158-9-dongmenglong.8@bytedance.com> <CAADnVQK+s3XgSYhpSdh7_9Qhq4DimmSO-D9d5+EsSZQMX4TxxA@mail.gmail.com>
+ <CALz3k9hZxsbUGoe5JoWpMEV0URykRwiKWLKZNj4nhvnXg3V=Zg@mail.gmail.com> <CAADnVQJ87Ov6ny2hj-0_WymGB3TeuEZu373EmqmRJqZv-8Ze_Q@mail.gmail.com>
+In-Reply-To: <CAADnVQJ87Ov6ny2hj-0_WymGB3TeuEZu373EmqmRJqZv-8Ze_Q@mail.gmail.com>
+From: =?UTF-8?B?5qKm6b6Z6JGj?= <dongmenglong.8@bytedance.com>
+Date: Wed, 13 Mar 2024 09:14:03 +0800
+Message-ID: <CALz3k9jf4Q7KJPes=omx5oBpEmoFNSvc=vp=D0hEa-51i7tc_A@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH bpf-next v2 8/9] libbpf: add support for
+ the multi-link of tracing
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Andrii Nakryiko <andrii@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@linux.dev>, Eddy Z <eddyz87@gmail.com>, 
+	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, 
+	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
+	Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, 
+	David Ahern <dsahern@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	X86 ML <x86@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Quentin Monnet <quentin@isovalent.com>, 
+	bpf <bpf@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>, 
+	Network Development <netdev@vger.kernel.org>, linux-trace-kernel@vger.kernel.org, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240312_181105_695492_732B005F 
-X-CRM114-Status: GOOD (  30.40  )
+X-CRM114-CacheID: sfid-20240312_181420_179954_DA95D7BD 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,175 +101,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 01, 2024 at 05:44:06PM +0100, Cl=E9ment L=E9ger wrote:
-> Some userspace applications (OpenJDK for instance) uses the free MSBs
-> in pointers to insert additional information for their own logic and
-> need to get this information from somewhere. Currently they rely on
-> parsing /proc/cpuinfo "mmu=3Dsvxx" string to obtain the current value of
-> virtual address usable bits [1]. Since this reflect the raw supported
-> MMU mode, it might differ from the logical one used internally which is
-> why arch_get_mmap_end() is used. Exporting the highest mmapable address
-> through hwprobe will allow a more stable interface to be used. For that
-> purpose, add a new hwprobe key named
-> RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS which will export the highest
-> userspace virtual address.
-> =
-
-> Link: https://github.com/openjdk/jdk/blob/master/src/hotspot/os_cpu/linux=
-_riscv/vm_version_linux_riscv.cpp#L171 [1]
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> =
-
-> ---
-> =
-
-> v3:
->  - Note: I did not added Stefan Reviewed-by since I did more
->    modifications than just a simple respin.
->  - Handle CONFIG_MMU=3Dn as well and rename the key to
->    RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS
->  - Add a user_max_virt_addr() macro to handle !MMU config
->  - Link to v2: https://lore.kernel.org/lkml/20240220110950.871307-1-clege=
-r@rivosinc.com/
-> =
-
-> v2:
->  - Note: tried sysconf to export it but this is not backed by syscall
->    and thus does not allow exporting such information easily.
->  - Use arch_get_mmap_end() instead of VA_BITS since it reflects the
->    maximum logical address used by the riscv port
->  - Change hwprobe key name from RISCV_HWPROBE_KEY_VA_BITS to
->    RISCV_HWPROBE_KEY_MAX_ADDRESS
->  - Link to v1: https://lore.kernel.org/lkml/20240201140319.360088-1-clege=
-r@rivosinc.com/
-> ---
->  Documentation/arch/riscv/hwprobe.rst  | 3 +++
->  arch/riscv/include/asm/hwprobe.h      | 2 +-
->  arch/riscv/include/asm/processor.h    | 8 +++++++-
->  arch/riscv/include/uapi/asm/hwprobe.h | 1 +
->  arch/riscv/kernel/sys_hwprobe.c       | 4 ++++
->  5 files changed, 16 insertions(+), 2 deletions(-)
-> =
-
-> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/ri=
-scv/hwprobe.rst
-> index b2bcc9eed9aa..875d3122bd66 100644
-> --- a/Documentation/arch/riscv/hwprobe.rst
-> +++ b/Documentation/arch/riscv/hwprobe.rst
-> @@ -210,3 +210,6 @@ The following keys are defined:
->  =
-
->  * :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
->    represents the size of the Zicboz block in bytes.
-> +
-> +* :c:macro:`RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS`: An unsigned long wh=
-ich
-> +  represent the highest userspace virtual address usable.
-> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hw=
-probe.h
-> index 630507dff5ea..150a9877b0af 100644
-> --- a/arch/riscv/include/asm/hwprobe.h
-> +++ b/arch/riscv/include/asm/hwprobe.h
-> @@ -8,7 +8,7 @@
->  =
-
->  #include <uapi/asm/hwprobe.h>
->  =
-
-> -#define RISCV_HWPROBE_MAX_KEY 6
-> +#define RISCV_HWPROBE_MAX_KEY 7
->  =
-
->  static inline bool riscv_hwprobe_key_is_valid(__s64 key)
->  {
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/=
-processor.h
-> index a8509cc31ab2..341863d4d989 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -14,7 +14,7 @@
->  =
-
->  #include <asm/ptrace.h>
->  =
-
-> -#ifdef CONFIG_64BIT
-> +#if defined(CONFIG_64BIT) && defined(CONFIG_MMU)
->  #define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
->  #define STACK_TOP_MAX		TASK_SIZE
->  =
-
-> @@ -58,6 +58,12 @@
->  =
-
->  #define STACK_TOP		DEFAULT_MAP_WINDOW
->  =
-
-> +#ifdef CONFIG_MMU
-> +#define user_max_virt_addr() arch_get_mmap_end(ULONG_MAX, 0, 0)
-> +#else
-> +#define	user_max_virt_addr() 0
-> +#endif /* CONFIG_MMU */
-> +
->  /*
->   * This decides where the kernel will search for a free chunk of vm
->   * space during mmap's.
-> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/u=
-api/asm/hwprobe.h
-> index 9f2a8e3ff204..3630e3f30354 100644
-> --- a/arch/riscv/include/uapi/asm/hwprobe.h
-> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> @@ -67,6 +67,7 @@ struct riscv_hwprobe {
->  #define		RISCV_HWPROBE_MISALIGNED_UNSUPPORTED	(4 << 0)
->  #define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
->  #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
-> +#define RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS	7
->  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
->  =
-
->  /* Flags */
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwpr=
-obe.c
-> index a7c56b41efd2..560ea41a716d 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -8,6 +8,7 @@
->  #include <asm/cacheflush.h>
->  #include <asm/cpufeature.h>
->  #include <asm/hwprobe.h>
-> +#include <asm/processor.h>
->  #include <asm/sbi.h>
->  #include <asm/switch_to.h>
->  #include <asm/uaccess.h>
-> @@ -202,6 +203,9 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pa=
-ir,
->  		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOZ))
->  			pair->value =3D riscv_cboz_block_size;
->  		break;
-> +	case RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS:
-> +		pair->value =3D user_max_virt_addr();
-> +		break;
->  =
-
->  	/*
->  	 * For forward compatibility, unknown keys don't fail the whole
-> -- =
-
-> 2.43.0
-> =
-
-
-Looks like a great solution.
-
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBNYXIgMTMsIDIwMjQgYXQgMTI6MTLigK9BTSBBbGV4ZWkgU3Rhcm92b2l0b3YKPGFs
+ZXhlaS5zdGFyb3ZvaXRvdkBnbWFpbC5jb20+IHdyb3RlOgo+Cj4gT24gTW9uLCBNYXIgMTEsIDIw
+MjQgYXQgNzo0NOKAr1BNIOaipum+meiRoyA8ZG9uZ21lbmdsb25nLjhAYnl0ZWRhbmNlLmNvbT4g
+d3JvdGU6Cj4gPgo+ID4gT24gVHVlLCBNYXIgMTIsIDIwMjQgYXQgOTo1NuKAr0FNIEFsZXhlaSBT
+dGFyb3ZvaXRvdgo+ID4gPGFsZXhlaS5zdGFyb3ZvaXRvdkBnbWFpbC5jb20+IHdyb3RlOgo+ID4g
+Pgo+ID4gPiBPbiBNb24sIE1hciAxMSwgMjAyNCBhdCAyOjM14oCvQU0gTWVuZ2xvbmcgRG9uZwo+
+ID4gPiA8ZG9uZ21lbmdsb25nLjhAYnl0ZWRhbmNlLmNvbT4gd3JvdGU6ClsuLi5dCj4gPiA+IFBs
+cyB1c2UgZ2xvYl9tYXRjaCB0aGUgd2F5IFtrdV1wcm9iZSBtdWx0aSBhcmUgZG9pbmcKPiA+ID4g
+aW5zdGVhZCBvZiBleGFjdCBtYXRjaC4KPiA+Cj4gPiBIZWxsbywKPiA+Cj4gPiBJJ20gYSBsaXR0
+bGUgc3VzcGVjdGluZyB0aGUgZWZmZWN0IG9mIGdsb2JfbWF0Y2guIEkgc2VsZG9tIGZvdW5kCj4g
+PiB0aGUgdXNlIGNhc2UgdGhhdCB0aGUga2VybmVsIGZ1bmN0aW9ucyB3aGljaCB3ZSB3YW50IHRv
+IHRyYWNlCj4gPiBoYXZlIHRoZSBzYW1lIG5hbWluZyBwYXR0ZXJuLiBBbmQgdGhlIGV4YWN0IG1h
+dGNoIHNlZW1zIG1vcmUKPiA+IHVzZWZ1bC4KPiA+Cj4gPiBDYW4gd2UgdXNlIGJvdGggZXhhY3Qg
+YW5kIGdsb2IgbWF0Y2ggaGVyZT8KPgo+IGV4YWN0IGlzIGEgc3Vic2V0IG9mIGdsb2JfbWF0Y2gu
+Cj4gUGxzIGZvbGxvdyB0aGUgcGF0dGVybiB0aGF0W2t1XXByb2JlIG11bHRpIGVzdGFibGlzaGVk
+Cj4gaW4gdGVybXMgb2YgdXNlciBpbnRlcmZhY2UgZXhwZWN0YXRpb25zLgoKT2theSEKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
