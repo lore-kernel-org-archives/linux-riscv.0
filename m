@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D09C54E58
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 04:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A19D0C54791
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 04:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IpfGJXUB2oaTEIyHjtc+CJke1PV0RyMtOCSAxvcLlww=; b=aoVBp13b0JZsfi
-	vxx8G/RMbC6BF56GbHdRM/lXLeRIGMIK2wE4Dg1Jce1QO2AsTNEiCD43Bq2i/fAKMjZHXY2DKTkXl
-	Un5zJk26wiSyLVzbMV+w4oPgdkBB8dllM/1NkNLah2VL/H6daEY0LcgcYk9sZNQzMG9l4WjoNMXy/
-	lFTA/d6fZ6RM0T8ir/FyQDmt+eBF1uL65C6Iv4uL++O11kR4ejmgfr8QcqadHhV9GcUuD/SUymuhx
-	2dU5CTKF1Jr8I+A8np+2qtMIMSaveAvCin5DBrE4TG8xxlTYs5hmod45jzTnqKRBNn9NdN8UQGE21
-	ZFZM/snFI4O57nYqikKw==;
+	List-Owner; bh=xGYSii/Nymk6PQM0NYdfj7XwU/vZQF/iS2lXxue/oRY=; b=XEATAJ2M4V6NKP
+	HaITknVB0nZVpTEgUpDyzxrqX4JeknYeNootVIzWlw0nfy/TdwuVjxGTC6D5k845FlZlt5OlbOBvu
+	v+Fr46Roq6ltpE5QSKhpf6jJVj3Rb6fuFr/W0fUnfhuPoGFAbNe1Ws3U4Rj9xg4goJXlDHcKIxm/h
+	1LQRTsKfxIWlrg9pHL0TjFtlaIp8Yay57iDdAIvpFe/PfilY7jQfl1DZyTw02li6v7vYYe3qmSKCj
+	6+sj1r7j7Igac8sHFodNCE2qOaVssHGdaIUVbMV0mVdZDEUcX4VuPUsjxW81bOEzIK5y8N0m31NvY
+	V4m+YBByOmXo1nH2FphA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkGAY-00000008nh3-2OyL;
-	Wed, 13 Mar 2024 04:24:46 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1rkGBU-00000008nyD-3eBk;
+	Wed, 13 Mar 2024 04:25:44 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkGAT-00000008ndL-11VP;
-	Wed, 13 Mar 2024 04:24:42 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 42D3pkJU027005;
-	Wed, 13 Mar 2024 04:24:25 GMT
+	id 1rkGBF-00000008nuw-0Z2G;
+	Wed, 13 Mar 2024 04:25:31 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 42D42VcY022906;
+	Wed, 13 Mar 2024 04:25:17 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=from : to : cc : subject
  : date : message-id : in-reply-to : references : mime-version :
  content-transfer-encoding; s=pp1;
- bh=wzfQXmZK/Yx+XTRJXjO3lFFH1eshrECDsT44XQkS1gA=;
- b=ssvTnW5HFnaa+A5mnbR/y0b/rd/rq6asOr/rff4TVd1wZhsi3ftzmj+fV7TTrQt00zj5
- WAChr8R0BLhLZkpOPzZ+poB1//dWrXQYy3aeTNsdSaUfwB1VnOhNbsVOw05q4aLyTHs9
- oetCO4ZA0YvSUBEj0PQiiXjt+Fm2cDQAq0QTnRC8xmRFlw40YjYTxk1FhXw4v8aDKZN0
- z3txlPm/m5q8tGNvt+CwmGQ7uqvVq2+09G/ICPtCwSldwvVBKFiaC+YdZfunqEE7PRE5
- +4MTQ3wbU9uwn0okA6tD3gF7PgYsphPjH90mVkorvKMvUg6QbV9je/Rlq0EogfjeHRyX 1A== 
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3wu43ughqw-1
+ bh=faJ9Na2rELe3yQw5VfnlOUZaxNwiRLDUVcAXSM3/t18=;
+ b=teb0IdUYwcNn4dIT65q7Y0D4AedIS1SDPga40OfbK7iyf1zypRQgb8P7rvqKL9bitRmb
+ Mw6Y6ULE5nGsJp4pIkKID5MNC+ES2xGp/NVW1x2wVP96704Iqc3Nhu+1Lm00i5YCNgwr
+ qJC+HO2xrAtV+w+7MuisNZ3nGgRZmdwBeRC0DJspHmakG4XSj2vn5wMT//XHo4O/ZRkH
+ 5XbiaTNgzP+33HgdD8j3W4vfppP2/L36TceDL3B6TCXvBy85zG9GR9B4qdWVlscvzfe0
+ gMXSp5S3I4ZQ4S9eK4CF3C21RAu9Ww5OJgJy0Fdf1FBJ75160rvqNWdl2UhZQUkqxGGH yw== 
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3wu4rx86r5-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 13 Mar 2024 04:24:25 +0000
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 42D3MvwT015492;
-	Wed, 13 Mar 2024 04:21:33 GMT
+	Wed, 13 Mar 2024 04:25:17 +0000
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 42D2SftQ018133;
+	Wed, 13 Mar 2024 04:21:35 GMT
 Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 3ws2fyupbw-1
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 3ws23tbrfc-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 13 Mar 2024 04:21:33 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 42D4LTkR37749220
+	Wed, 13 Mar 2024 04:21:35 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 42D4LWSm31261040
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 13 Mar 2024 04:21:31 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A07862004D;
-	Wed, 13 Mar 2024 04:21:29 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AD70720043;
-	Wed, 13 Mar 2024 04:21:28 +0000 (GMT)
+	Wed, 13 Mar 2024 04:21:34 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0D1A720040;
+	Wed, 13 Mar 2024 04:21:32 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 290C820043;
+	Wed, 13 Mar 2024 04:21:31 +0000 (GMT)
 Received: from ozlabs.au.ibm.com (unknown [9.192.253.14])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 13 Mar 2024 04:21:28 +0000 (GMT)
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 13 Mar 2024 04:21:31 +0000 (GMT)
 Received: from socotra.ozlabs.ibm.com (haven.au.ibm.com [9.192.254.114])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 025A66038D;
+	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 1C19560427;
 	Wed, 13 Mar 2024 15:21:26 +1100 (AEDT)
 From: Rohan McLure <rmclure@linux.ibm.com>
 To: linuxppc-dev@lists.ozlabs.org
@@ -73,27 +73,27 @@ Cc: Rohan McLure <rmclure@linux.ibm.com>, mpe@ellerman.id.au,
         christophe.leroy@csgroup.eu, linux-mm@kvack.org,
         linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
         x86@kernel.org
-Subject: [PATCH v10 02/12] Revert "mm/page_table_check: remove unused parameter in [__]page_table_check_pmd_set"
-Date: Wed, 13 Mar 2024 15:21:07 +1100
-Message-ID: <20240313042118.230397-3-rmclure@linux.ibm.com>
+Subject: [PATCH v10 08/12] powerpc: mm: Replace p{u,m,4}d_is_leaf with p{u,m,4}_leaf
+Date: Wed, 13 Mar 2024 15:21:13 +1100
+Message-ID: <20240313042118.230397-9-rmclure@linux.ibm.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240313042118.230397-1-rmclure@linux.ibm.com>
 References: <20240313042118.230397-1-rmclure@linux.ibm.com>
 MIME-Version: 1.0
 X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: fGFXdAYICbgnk4t_ijPBmOou-fXSyGhG
-X-Proofpoint-ORIG-GUID: fGFXdAYICbgnk4t_ijPBmOou-fXSyGhG
+X-Proofpoint-ORIG-GUID: WDqEWekmpGsdS6yNgJ3q9jVvlmfDl6j0
+X-Proofpoint-GUID: WDqEWekmpGsdS6yNgJ3q9jVvlmfDl6j0
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
  definitions=2024-03-13_04,2024-03-12_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- mlxlogscore=999 spamscore=0 impostorscore=0 bulkscore=0 phishscore=0
- clxscore=1015 lowpriorityscore=0 adultscore=0 malwarescore=0 mlxscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2311290000 definitions=main-2403130030
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 bulkscore=0
+ lowpriorityscore=0 suspectscore=0 mlxscore=0 clxscore=1015 adultscore=0
+ priorityscore=1501 spamscore=0 phishscore=0 malwarescore=0 mlxlogscore=960
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2311290000
+ definitions=main-2403130030
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240312_212441_470448_F351A830 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20240312_212529_595949_79B964C3 
+X-CRM114-Status: GOOD (  23.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,148 +110,302 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This reverts commit a3b837130b5865521fa8662aceaa6ebc8d29389a.
+Replace occurrences of p{u,m,4}d_is_leaf with p{u,m,4}_leaf, as the
+latter is the name given to checking that a higher-level entry in
+multi-level paging contains a page translation entry (pte) throughout
+all other archs.
 
-Reinstate previously unused parameters for the purpose of supporting
-powerpc platforms, as many do not encode user/kernel ownership of the
-page in the pte, but instead in the address of the access.
-
-riscv: Respect change to delete mm, addr parameters from __set_pte_at()
-
-This commit also changed calls to __set_pte_at() to use fewer parameters
-on riscv. Keep that change rather than reverting it, as the signature of
-__set_pte_at() is changed in a different commit.
-
+Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
 ---
- arch/arm64/include/asm/pgtable.h |  4 ++--
- arch/riscv/include/asm/pgtable.h |  4 ++--
- arch/x86/include/asm/pgtable.h   |  4 ++--
- include/linux/page_table_check.h | 11 +++++++----
- mm/page_table_check.c            |  3 ++-
- 5 files changed, 15 insertions(+), 11 deletions(-)
+v9: No longer required in order to implement page table check, just a
+refactor.
+v10: Fix more occurances, and just delete p{u,m,4}_is_leaf() stubs as
+equivalent p{u,m,4}_leaf() stubs already exist.
+---
+ arch/powerpc/include/asm/book3s/64/pgtable.h | 10 ++++----
+ arch/powerpc/include/asm/pgtable.h           | 24 --------------------
+ arch/powerpc/kvm/book3s_64_mmu_radix.c       | 12 +++++-----
+ arch/powerpc/mm/book3s64/radix_pgtable.c     | 14 ++++++------
+ arch/powerpc/mm/pgtable.c                    |  6 ++---
+ arch/powerpc/mm/pgtable_64.c                 |  6 ++---
+ arch/powerpc/xmon/xmon.c                     |  6 ++---
+ 7 files changed, 26 insertions(+), 52 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index a965b59401b3..e97c1b7e3ee1 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -540,7 +540,7 @@ static inline void __set_pte_at(struct mm_struct *mm,
- static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 			      pmd_t *pmdp, pmd_t pmd)
+diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
+index 62c43d3d80ec..382724c5e872 100644
+--- a/arch/powerpc/include/asm/book3s/64/pgtable.h
++++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
+@@ -1443,16 +1443,14 @@ static inline bool is_pte_rw_upgrade(unsigned long old_val, unsigned long new_va
+ /*
+  * Like pmd_huge() and pmd_large(), but works regardless of config options
+  */
+-#define pmd_is_leaf pmd_is_leaf
+-#define pmd_leaf pmd_is_leaf
+-static inline bool pmd_is_leaf(pmd_t pmd)
++#define pmd_leaf pmd_leaf
++static inline bool pmd_leaf(pmd_t pmd)
  {
--	page_table_check_pmd_set(mm, pmdp, pmd);
-+	page_table_check_pmd_set(mm, addr, pmdp, pmd);
- 	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd),
- 						PMD_SIZE >> PAGE_SHIFT);
+ 	return !!(pmd_raw(pmd) & cpu_to_be64(_PAGE_PTE));
  }
-@@ -1001,7 +1001,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
- static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
- 		unsigned long address, pmd_t *pmdp, pmd_t pmd)
+ 
+-#define pud_is_leaf pud_is_leaf
+-#define pud_leaf pud_is_leaf
+-static inline bool pud_is_leaf(pud_t pud)
++#define pud_leaf pud_leaf
++static inline bool pud_leaf(pud_t pud)
  {
--	page_table_check_pmd_set(vma->vm_mm, pmdp, pmd);
-+	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
- 	return __pmd(xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
+ 	return !!(pud_raw(pud) & cpu_to_be64(_PAGE_PTE));
+ }
+diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
+index 9224f23065ff..0c0ffbe7a3b5 100644
+--- a/arch/powerpc/include/asm/pgtable.h
++++ b/arch/powerpc/include/asm/pgtable.h
+@@ -180,30 +180,6 @@ static inline void pte_frag_set(mm_context_t *ctx, void *p)
  }
  #endif
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 4fc99dd3bb42..4e1ef3a77879 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -710,7 +710,7 @@ static inline pmd_t pmd_mkdirty(pmd_t pmd)
- static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 				pmd_t *pmdp, pmd_t pmd)
- {
--	page_table_check_pmd_set(mm, pmdp, pmd);
-+	page_table_check_pmd_set(mm, addr, pmdp, pmd);
- 	return __set_pte_at((pte_t *)pmdp, pmd_pte(pmd));
- }
  
-@@ -781,7 +781,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
- static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
- 				unsigned long address, pmd_t *pmdp, pmd_t pmd)
+-#ifndef pmd_is_leaf
+-#define pmd_is_leaf pmd_is_leaf
+-static inline bool pmd_is_leaf(pmd_t pmd)
+-{
+-	return false;
+-}
+-#endif
+-
+-#ifndef pud_is_leaf
+-#define pud_is_leaf pud_is_leaf
+-static inline bool pud_is_leaf(pud_t pud)
+-{
+-	return false;
+-}
+-#endif
+-
+-#ifndef p4d_is_leaf
+-#define p4d_is_leaf p4d_is_leaf
+-static inline bool p4d_is_leaf(p4d_t p4d)
+-{
+-	return false;
+-}
+-#endif
+-
+ #define pmd_pgtable pmd_pgtable
+ static inline pgtable_t pmd_pgtable(pmd_t pmd)
  {
--	page_table_check_pmd_set(vma->vm_mm, pmdp, pmd);
-+	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
- 	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
- }
+diff --git a/arch/powerpc/kvm/book3s_64_mmu_radix.c b/arch/powerpc/kvm/book3s_64_mmu_radix.c
+index 4a1abb9f7c05..408d98f8a514 100644
+--- a/arch/powerpc/kvm/book3s_64_mmu_radix.c
++++ b/arch/powerpc/kvm/book3s_64_mmu_radix.c
+@@ -503,7 +503,7 @@ static void kvmppc_unmap_free_pmd(struct kvm *kvm, pmd_t *pmd, bool full,
+ 	for (im = 0; im < PTRS_PER_PMD; ++im, ++p) {
+ 		if (!pmd_present(*p))
+ 			continue;
+-		if (pmd_is_leaf(*p)) {
++		if (pmd_leaf(*p)) {
+ 			if (full) {
+ 				pmd_clear(p);
+ 			} else {
+@@ -532,7 +532,7 @@ static void kvmppc_unmap_free_pud(struct kvm *kvm, pud_t *pud,
+ 	for (iu = 0; iu < PTRS_PER_PUD; ++iu, ++p) {
+ 		if (!pud_present(*p))
+ 			continue;
+-		if (pud_is_leaf(*p)) {
++		if (pud_leaf(*p)) {
+ 			pud_clear(p);
+ 		} else {
+ 			pmd_t *pmd;
+@@ -635,12 +635,12 @@ int kvmppc_create_pte(struct kvm *kvm, pgd_t *pgtable, pte_t pte,
+ 		new_pud = pud_alloc_one(kvm->mm, gpa);
  
-diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-index a9b1e8e6d4b9..6a7dc2524344 100644
---- a/arch/x86/include/asm/pgtable.h
-+++ b/arch/x86/include/asm/pgtable.h
-@@ -1245,7 +1245,7 @@ static inline pud_t native_local_pudp_get_and_clear(pud_t *pudp)
- static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 			      pmd_t *pmdp, pmd_t pmd)
- {
--	page_table_check_pmd_set(mm, pmdp, pmd);
-+	page_table_check_pmd_set(mm, addr, pmdp, pmd);
- 	set_pmd(pmdp, pmd);
- }
+ 	pmd = NULL;
+-	if (pud && pud_present(*pud) && !pud_is_leaf(*pud))
++	if (pud && pud_present(*pud) && !pud_leaf(*pud))
+ 		pmd = pmd_offset(pud, gpa);
+ 	else if (level <= 1)
+ 		new_pmd = kvmppc_pmd_alloc();
  
-@@ -1390,7 +1390,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
- static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
- 		unsigned long address, pmd_t *pmdp, pmd_t pmd)
- {
--	page_table_check_pmd_set(vma->vm_mm, pmdp, pmd);
-+	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
- 	if (IS_ENABLED(CONFIG_SMP)) {
- 		return xchg(pmdp, pmd);
- 	} else {
-diff --git a/include/linux/page_table_check.h b/include/linux/page_table_check.h
-index d188428512f5..5855d690c48a 100644
---- a/include/linux/page_table_check.h
-+++ b/include/linux/page_table_check.h
-@@ -19,7 +19,8 @@ void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd);
- void __page_table_check_pud_clear(struct mm_struct *mm, pud_t pud);
- void __page_table_check_ptes_set(struct mm_struct *mm, pte_t *ptep, pte_t pte,
- 		unsigned int nr);
--void __page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd);
-+void __page_table_check_pmd_set(struct mm_struct *mm, unsigned long addr,
-+				pmd_t *pmdp, pmd_t pmd);
- void __page_table_check_pud_set(struct mm_struct *mm, unsigned long addr,
- 				pud_t *pudp, pud_t pud);
- void __page_table_check_pte_clear_range(struct mm_struct *mm,
-@@ -75,13 +76,14 @@ static inline void page_table_check_ptes_set(struct mm_struct *mm,
- 	__page_table_check_ptes_set(mm, ptep, pte, nr);
- }
+-	if (level == 0 && !(pmd && pmd_present(*pmd) && !pmd_is_leaf(*pmd)))
++	if (level == 0 && !(pmd && pmd_present(*pmd) && !pmd_leaf(*pmd)))
+ 		new_ptep = kvmppc_pte_alloc();
  
--static inline void page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp,
-+static inline void page_table_check_pmd_set(struct mm_struct *mm,
-+					    unsigned long addr, pmd_t *pmdp,
- 					    pmd_t pmd)
+ 	/* Check if we might have been invalidated; let the guest retry if so */
+@@ -658,7 +658,7 @@ int kvmppc_create_pte(struct kvm *kvm, pgd_t *pgtable, pte_t pte,
+ 		new_pud = NULL;
+ 	}
+ 	pud = pud_offset(p4d, gpa);
+-	if (pud_is_leaf(*pud)) {
++	if (pud_leaf(*pud)) {
+ 		unsigned long hgpa = gpa & PUD_MASK;
+ 
+ 		/* Check if we raced and someone else has set the same thing */
+@@ -709,7 +709,7 @@ int kvmppc_create_pte(struct kvm *kvm, pgd_t *pgtable, pte_t pte,
+ 		new_pmd = NULL;
+ 	}
+ 	pmd = pmd_offset(pud, gpa);
+-	if (pmd_is_leaf(*pmd)) {
++	if (pmd_leaf(*pmd)) {
+ 		unsigned long lgpa = gpa & PMD_MASK;
+ 
+ 		/* Check if we raced and someone else has set the same thing */
+diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
+index e16e2fd104c5..46fa46ce6526 100644
+--- a/arch/powerpc/mm/book3s64/radix_pgtable.c
++++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
+@@ -204,14 +204,14 @@ static void radix__change_memory_range(unsigned long start, unsigned long end,
+ 		pudp = pud_alloc(&init_mm, p4dp, idx);
+ 		if (!pudp)
+ 			continue;
+-		if (pud_is_leaf(*pudp)) {
++		if (pud_leaf(*pudp)) {
+ 			ptep = (pte_t *)pudp;
+ 			goto update_the_pte;
+ 		}
+ 		pmdp = pmd_alloc(&init_mm, pudp, idx);
+ 		if (!pmdp)
+ 			continue;
+-		if (pmd_is_leaf(*pmdp)) {
++		if (pmd_leaf(*pmdp)) {
+ 			ptep = pmdp_ptep(pmdp);
+ 			goto update_the_pte;
+ 		}
+@@ -767,7 +767,7 @@ static void __meminit remove_pmd_table(pmd_t *pmd_start, unsigned long addr,
+ 		if (!pmd_present(*pmd))
+ 			continue;
+ 
+-		if (pmd_is_leaf(*pmd)) {
++		if (pmd_leaf(*pmd)) {
+ 			if (IS_ALIGNED(addr, PMD_SIZE) &&
+ 			    IS_ALIGNED(next, PMD_SIZE)) {
+ 				if (!direct)
+@@ -807,7 +807,7 @@ static void __meminit remove_pud_table(pud_t *pud_start, unsigned long addr,
+ 		if (!pud_present(*pud))
+ 			continue;
+ 
+-		if (pud_is_leaf(*pud)) {
++		if (pud_leaf(*pud)) {
+ 			if (!IS_ALIGNED(addr, PUD_SIZE) ||
+ 			    !IS_ALIGNED(next, PUD_SIZE)) {
+ 				WARN_ONCE(1, "%s: unaligned range\n", __func__);
+@@ -845,7 +845,7 @@ remove_pagetable(unsigned long start, unsigned long end, bool direct,
+ 		if (!p4d_present(*p4d))
+ 			continue;
+ 
+-		if (p4d_is_leaf(*p4d)) {
++		if (p4d_leaf(*p4d)) {
+ 			if (!IS_ALIGNED(addr, P4D_SIZE) ||
+ 			    !IS_ALIGNED(next, P4D_SIZE)) {
+ 				WARN_ONCE(1, "%s: unaligned range\n", __func__);
+@@ -1540,7 +1540,7 @@ int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
+ 
+ int pud_clear_huge(pud_t *pud)
  {
- 	if (static_branch_likely(&page_table_check_disabled))
+-	if (pud_is_leaf(*pud)) {
++	if (pud_leaf(*pud)) {
+ 		pud_clear(pud);
+ 		return 1;
+ 	}
+@@ -1587,7 +1587,7 @@ int pmd_set_huge(pmd_t *pmd, phys_addr_t addr, pgprot_t prot)
+ 
+ int pmd_clear_huge(pmd_t *pmd)
+ {
+-	if (pmd_is_leaf(*pmd)) {
++	if (pmd_leaf(*pmd)) {
+ 		pmd_clear(pmd);
+ 		return 1;
+ 	}
+diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
+index a04ae4449a02..e8e0289d7ab0 100644
+--- a/arch/powerpc/mm/pgtable.c
++++ b/arch/powerpc/mm/pgtable.c
+@@ -413,7 +413,7 @@ pte_t *__find_linux_pte(pgd_t *pgdir, unsigned long ea,
+ 	if (p4d_none(p4d))
+ 		return NULL;
+ 
+-	if (p4d_is_leaf(p4d)) {
++	if (p4d_leaf(p4d)) {
+ 		ret_pte = (pte_t *)p4dp;
+ 		goto out;
+ 	}
+@@ -435,7 +435,7 @@ pte_t *__find_linux_pte(pgd_t *pgdir, unsigned long ea,
+ 	if (pud_none(pud))
+ 		return NULL;
+ 
+-	if (pud_is_leaf(pud)) {
++	if (pud_leaf(pud)) {
+ 		ret_pte = (pte_t *)pudp;
+ 		goto out;
+ 	}
+@@ -474,7 +474,7 @@ pte_t *__find_linux_pte(pgd_t *pgdir, unsigned long ea,
+ 		goto out;
+ 	}
+ 
+-	if (pmd_is_leaf(pmd)) {
++	if (pmd_leaf(pmd)) {
+ 		ret_pte = (pte_t *)pmdp;
+ 		goto out;
+ 	}
+diff --git a/arch/powerpc/mm/pgtable_64.c b/arch/powerpc/mm/pgtable_64.c
+index 5ac1fd30341b..0604c80dae66 100644
+--- a/arch/powerpc/mm/pgtable_64.c
++++ b/arch/powerpc/mm/pgtable_64.c
+@@ -100,7 +100,7 @@ EXPORT_SYMBOL(__pte_frag_size_shift);
+ /* 4 level page table */
+ struct page *p4d_page(p4d_t p4d)
+ {
+-	if (p4d_is_leaf(p4d)) {
++	if (p4d_leaf(p4d)) {
+ 		if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMAP))
+ 			VM_WARN_ON(!p4d_huge(p4d));
+ 		return pte_page(p4d_pte(p4d));
+@@ -111,7 +111,7 @@ struct page *p4d_page(p4d_t p4d)
+ 
+ struct page *pud_page(pud_t pud)
+ {
+-	if (pud_is_leaf(pud)) {
++	if (pud_leaf(pud)) {
+ 		if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMAP))
+ 			VM_WARN_ON(!pud_huge(pud));
+ 		return pte_page(pud_pte(pud));
+@@ -125,7 +125,7 @@ struct page *pud_page(pud_t pud)
+  */
+ struct page *pmd_page(pmd_t pmd)
+ {
+-	if (pmd_is_leaf(pmd)) {
++	if (pmd_leaf(pmd)) {
+ 		/*
+ 		 * vmalloc_to_page may be called on any vmap address (not only
+ 		 * vmalloc), and it uses pmd_page() etc., when huge vmap is
+diff --git a/arch/powerpc/xmon/xmon.c b/arch/powerpc/xmon/xmon.c
+index c85fa3f0dd3b..d79d6633f333 100644
+--- a/arch/powerpc/xmon/xmon.c
++++ b/arch/powerpc/xmon/xmon.c
+@@ -3340,7 +3340,7 @@ static void show_pte(unsigned long addr)
  		return;
+ 	}
  
--	__page_table_check_pmd_set(mm, pmdp, pmd);
-+	__page_table_check_pmd_set(mm, addr, pmdp, pmd);
- }
- 
- static inline void page_table_check_pud_set(struct mm_struct *mm,
-@@ -131,7 +133,8 @@ static inline void page_table_check_ptes_set(struct mm_struct *mm,
- {
- }
- 
--static inline void page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp,
-+static inline void page_table_check_pmd_set(struct mm_struct *mm,
-+					    unsigned long addr, pmd_t *pmdp,
- 					    pmd_t pmd)
- {
- }
-diff --git a/mm/page_table_check.c b/mm/page_table_check.c
-index 75167537ebd7..7b9d7b45505d 100644
---- a/mm/page_table_check.c
-+++ b/mm/page_table_check.c
-@@ -197,7 +197,8 @@ void __page_table_check_ptes_set(struct mm_struct *mm, pte_t *ptep, pte_t pte,
- }
- EXPORT_SYMBOL(__page_table_check_ptes_set);
- 
--void __page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd)
-+void __page_table_check_pmd_set(struct mm_struct *mm, unsigned long addr,
-+				pmd_t *pmdp, pmd_t pmd)
- {
- 	if (&init_mm == mm)
+-	if (p4d_is_leaf(*p4dp)) {
++	if (p4d_leaf(*p4dp)) {
+ 		format_pte(p4dp, p4d_val(*p4dp));
  		return;
+ 	}
+@@ -3354,7 +3354,7 @@ static void show_pte(unsigned long addr)
+ 		return;
+ 	}
+ 
+-	if (pud_is_leaf(*pudp)) {
++	if (pud_leaf(*pudp)) {
+ 		format_pte(pudp, pud_val(*pudp));
+ 		return;
+ 	}
+@@ -3368,7 +3368,7 @@ static void show_pte(unsigned long addr)
+ 		return;
+ 	}
+ 
+-	if (pmd_is_leaf(*pmdp)) {
++	if (pmd_leaf(*pmdp)) {
+ 		format_pte(pmdp, pmd_val(*pmdp));
+ 		return;
+ 	}
 -- 
 2.44.0
 
