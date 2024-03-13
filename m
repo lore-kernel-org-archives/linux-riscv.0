@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E7AC54E58
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 00:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E064AC54E58
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 00:49:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kE/j53hzV2Ir+5VfIy9eugoJGiRNUoTRkQo9i9DtvB0=; b=ELQMj7wz590ykt
-	XOrYf1PTrTRhBIkNDtJt3pov8wdM9cGqkbrYzWXdyePmhIQQN0kicQYKf17C9ToDp0g/EO2P3dDxt
-	tTc2nRAn2qlOjiz0rCh64FwZrEDgu5l52E1QBTUIcmSyaEadbPAqgi5R7rM1XRhhIuJ+FJ+aDniXD
-	Y55VJBw/J6w514woRtgUuRyo6dsVB5K4O8k7r2PNIzSIIr78XFsz8xHuV94YrMaBOj9LrwOAhRII5
-	AoVJavNzxW3DG5C30zz9/S5s+VR5G4mh/mFmRk3YiaSGDu9I7Plr/ySngfOK+ayl4MOU58DLEVrbi
-	GrrHBufvqmaRpdE+oVLQ==;
+	List-Owner; bh=JW8GICYe9STxbXQP1KleTI7SM/xceK1CdfAPL7adc1w=; b=yHvL/HQw7VhJ6I
+	aFpmEP7QG1FPWGS6h94lLMl9K6YdIGuU6HPf8N2CenFqDbhVBTQOlhRik/NbOv10tRH0adNrgJblp
+	ECVCqlV0Xj/6Q1lB2TXdxCAQyHmgyZ/hda1UCX9yF3CZVLFfKJrVqryvdPRTZXO5CAH08Qet9g2s+
+	EPGuaNL4yj+9zdoeiKGMM1LjSU9PoBK6MlgLF0ESQIJqJBfrTkm6k0vjR1tzX8SkH6E7JxnIijxbj
+	xECcEulL9FpfKXEnxLENvbyfJ2/h1exW5w8H/6oK2ExwSIuyLAXDBDjk8wFdGqD3yAhnD5qCdpdvB
+	txwHO9WLk2kcCe6fx7RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkC5F-000000083hs-376T;
-	Wed, 13 Mar 2024 00:03:01 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1rkCng-00000008B0w-42dl;
+	Wed, 13 Mar 2024 00:48:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkC5C-000000083hC-1sgc
+	id 1rkCnd-00000008Az8-10kp
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Mar 2024 00:03:00 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2d459a0462fso18307691fa.2
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2024 17:02:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google; t=1710288176; x=1710892976; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6LXIQ2t9B9tlKxIFmVpIbsuvM0fdiRMQcnpUCijHCX0=;
-        b=QSLbEYMklFcfuOa6NOUVK7vhaGy+h1AK8qgVQcKmXI5JCcd79KQfXieSklf77lOYy3
-         9Arve3i7LUWKJsTmihBCuVPTCkQkITN62wx0SwjRbH4ufoyB7JKW7P1siYvIkVsHz87N
-         7eyelIW3uVt4K9ytY4paM3U6S7S/+mONtvD2I=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710288176; x=1710892976;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6LXIQ2t9B9tlKxIFmVpIbsuvM0fdiRMQcnpUCijHCX0=;
-        b=VNwDBdErZj10moLKeZ/nfn/3prb3oAFrG36ZW+w/UCIoZ7E587roZxJUaiY1twK7/u
-         8hf0+jjhIYiVqT/2RaU3Mi+PhfKLG7uDmPNGN5rHJYk8vuGvVlxZ+rWQH8ZwAK+86tx8
-         DLSevtiJL+mdeZbILE2aPsXOB7w+fr7hqZtGJ0qoutvom5q0M8Iv0LmyFdZFoYS9rvFU
-         ruTaA+KC/JDNqmXzcuSqw0RUuO2WuQ3alb4hGnz4NSmoSNIsCL0OxMedp9CXaIqzBR1T
-         y3AhAgp3R7nRpvorRH+pC5OP6gH11e6Y1Hu4cL5TSLQb0w+HinCgZJJsCpYYc6VH8lx4
-         U1VQ==
-X-Gm-Message-State: AOJu0YxkNIBQKWezBfcTonIRv2DTmuDv7AMf5ePtcUeetPY+Bozmg6fT
-	uT6N0fG5eSELyxyfgIMWBBfUambq74Nh5vgHPlpobo143GeuAmuUYQn5outXxfUlTi3LRmlJDJA
-	6UFDgSN3WWlKyvumWsD+C0v0yvwgc+DUzq6ct
-X-Google-Smtp-Source: AGHT+IGZsATRpTX776OjpN4lHr4il4qWuaFbIiIYmDKSYv0NfG7GzWk0CuC1f/PjbueJu2m8uzSbrVyk/ai5dTwfQoY=
-X-Received: by 2002:a2e:9bd4:0:b0:2d2:50ba:e5b6 with SMTP id
- w20-20020a2e9bd4000000b002d250bae5b6mr7186845ljj.10.1710288175940; Tue, 12
- Mar 2024 17:02:55 -0700 (PDT)
+	Wed, 13 Mar 2024 00:48:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1710290930;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V/I7rfb7fSwv9EVlLwLZyE6cq/I2crR3JWNIky7ODFU=;
+	b=A/4xmStZDqHtzWbIiQ4lIWJR9pBtrViK44eZgxOFPpnpbcYvkay9azLFuLl131q0KUmeVn
+	kUlrkDD0kK+JG6LI7v76epAzAGY2tHJAzFrG3ZQcj54TOhy0FeyJKxSI/FVc+jMmnATDVt
+	YtxDgB2DqEQvDNIvQy4ZsNoTpE7y/5s=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-182-Tx39TiVcPDK1NGuCqWNU_g-1; Tue, 12 Mar 2024 20:48:48 -0400
+X-MC-Unique: Tx39TiVcPDK1NGuCqWNU_g-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CAF58800262;
+	Wed, 13 Mar 2024 00:48:47 +0000 (UTC)
+Received: from localhost (unknown [10.72.116.13])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 24F7510E47;
+	Wed, 13 Mar 2024 00:48:46 +0000 (UTC)
+Date: Wed, 13 Mar 2024 08:48:44 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Jiri Slaby <jirislaby@kernel.org>
+Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org, akpm@linux-foundation.org,
+	joe@perches.com, nathan@kernel.org, conor@kernel.org
+Subject: Re: kexec verbose dumps with 6.8 [was: [PATCH v4 1/7] kexec_file:
+ add kexec_file flag to control debug printing]
+Message-ID: <ZfD37AlznCXJ6P54@MiWiFi-R3L-srv>
+References: <20231213055747.61826-1-bhe@redhat.com>
+ <20231213055747.61826-2-bhe@redhat.com>
+ <4c775fca-5def-4a2d-8437-7130b02722a2@kernel.org>
 MIME-Version: 1.0
-References: <CC51D53B-846C-4D81-86FC-FBF969D0A0D6@pku.edu.cn>
-In-Reply-To: <CC51D53B-846C-4D81-86FC-FBF969D0A0D6@pku.edu.cn>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 12 Mar 2024 17:02:44 -0700
-Message-ID: <CAOnJCUK7OMq97y__M98G1r24zQFQbkyNgxrVdj5tVFJF6znXrA@mail.gmail.com>
-Subject: Re: RISC-V PMU driver issue
-To: =?UTF-8?B?6Zu35Y2a5ra1?= <garthlei@pku.edu.cn>
-Cc: linux-riscv@lists.infradead.org, Atish Patra <atishp@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <4c775fca-5def-4a2d-8437-7130b02722a2@kernel.org>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240312_170259_077488_A51283EC 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20240312_174853_382131_CDAB8595 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +82,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBGZWIgMjcsIDIwMjQgYXQgNzo0OeKAr1BNIOmbt+WNmua2tSA8Z2FydGhsZWlAcGt1
-LmVkdS5jbj4gd3JvdGU6Cj4KPiBIaSBhbGwsCj4KPiBJIGFtIGhhdmluZyBwcm9ibGVtcyB3aXRo
-IHRoZSBSSVNDLVYgUE1VIGRyaXZlci4gVGhlIG92ZXJmbG93IGhhbmRsZXIgb2YgbXkgY3VzdG9t
-IHBlcmYgZXZlbnQga2VybmVsIGNvdW50ZXIgc2VlbXMgdG8gcmVhZCBhbiBpbmNvcnJlY3QgdmFs
-dWUgZnJvbSB0aGUgZXZlbnQuCgpJZiBJIHVuZGVyc3RhbmQgeW91IGNvcnJlY3RseSwgeW91IGhh
-dmUgYSBjdXN0b20ga2VybmVsIGNvdW50ZXIgZm9yCnRoZSBwZXJmIGV2ZW50ID8gQ2FuIHlvdSBl
-eHBsYWluIHRoZSB1c2UgY2FzZSBmb3IgdGhhdCA/Cgo+IEl0IHNlZW1zIHRoYXQgdGhlIGlzc3Vl
-IGxpZXMgaW4gdGhlIGZ1bmN0aW9uIGByaXNjdl9wbXVfZXZlbnRfc2V0X3BlcmlvZGAsIHdoaWNo
-IHNldHMgYHByZXZfY291bnRgIHRvIGEgbmV3IHZhbHVlIGJ1dCBkb2VzIG5vdCBtb2RpZnkgdGhl
-IHVuZGVybHlpbmcgaGFyZHdhcmUgY291bnRlci4gV2hlbiBgcGVyZl9ldmVudF9yZWFkX3ZhbHVl
-YCBnZXRzIGNhbGxlZCBsYXRlciBpbiB0aGUgdXNlci1kZWZpbmVkIG92ZXJmbG93IGhhbmRsZXIs
-IGByaXNjdl9wbXVfZXZlbnRfdXBkYXRlYCB3aWxsIHVwZGF0ZSB0aGUgYGNvdW50YCBmaWVsZCBh
-Z2FpbiBiYXNlZCBvbiB0aGUgdW5tb2RpZmllZCBoYXJkd2FyZSBjb3VudGVyIHZhbHVlIGFuZCB0
-aGUgbW9kaWZpZWQgYHByZXZfY291bnRgIGZpZWxkLCB3aGljaCBjYXVzZXMgYW4gaW5jb3JyZWN0
-IHJlYWRpbmcuCgpXaGF0IGRvIHlvdSBtZWFuIGJ5IHVzZXIgZGVmaW5lZCBvdmVyZmxvdyBoYW5k
-bGVyID8gVGhlIG92ZXJmbG93CmhhbmRsZXIgcmVnaXN0ZXJlZCB2aWEgdGhlIGN1c3RvbSBwZXJm
-IGV2ZW50IGtlcm5lbCBjb3VudGVyIHdoaWNoIGdldHMKaW52b2tlZCBmcm9tIHBlcmZfZXZlbnRf
-b3ZlcmZsb3cgPwoKPiBJIG5vdGljZWQgdGhhdCBvdGhlciBQTVUgZHJpdmVycywgc3VjaCBhcyB0
-aGUgQVJNIG9uZSwgd3JpdGUgdG8gdGhlIHVuZGVybHlpbmcgY291bnRlciBpbiB0aGVpciBzZXRf
-cGVyaW9kIGZ1bmN0aW9ucywgd2hpY2ggcHJldmVudHMgdGhlIHByb2JsZW0uIEhvd2V2ZXIsIHRo
-ZSBSSVNDLVYgU0JJIHNwZWNpZmljYXRpb24gZG9lcyBub3QgaGF2ZSBzdWNoIGFuIEFQSSB0byB3
-cml0ZSB0byBhIGNvdW50ZXIgd2l0aG91dCBzdGFydGluZyBpdC4gVXNpbmcgYGxvY2FsNjRfcmVh
-ZCgmaHdfZXZ0LT5wZXJpb2RfbGVmdCkgPD0gMGAgZGlyZWN0bHkgYXMgdGhlIGd1YXJkIGNvbmRp
-dGlvbiB0byBwbGFjZSBgcmlzY3ZfcG11X2V2ZW50X3NldF9wZXJpb2QoZXZlbnQpYCBhZnRlciBp
-dCBzZWVtcyB0byB3b3JrLCBidXQgSSBhbSBub3Qgc3VyZSB3aGV0aGVyIGl0IGNhbiBjYXVzZSBv
-dGhlciBpc3N1ZXMuCgpOb3Qgc3VyZSB0aGUgZXhhY3QgY29kZSBwYXRoIHlvdSBhcmUgcmVmZXJy
-aW5nIHRvLiBZb3UgZG9uJ3Qgd2FudCB0bwppbnZva2UgIHJpc2N2X3BtdV9ldmVudF9zZXRfcGVy
-aW9kIGlmIHBlcmlvZF9sZWZ0IDw9IDAgPwoKPgo+IFRoYW5rIHlvdSwKPiBCb2hhbiBMZWkKCgot
-LSAKUmVnYXJkcywKQXRpc2gKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+Hi Jiri,
+
+On 03/12/24 at 10:58am, Jiri Slaby wrote:
+> On 13. 12. 23, 6:57, Baoquan He wrote:
+ ... snip...
+> > --- a/include/linux/kexec.h
+> > +++ b/include/linux/kexec.h
+> ...
+> > @@ -500,6 +500,13 @@ static inline int crash_hotplug_memory_support(void) { return 0; }
+> >   static inline unsigned int crash_get_elfcorehdr_size(void) { return 0; }
+> >   #endif
+> > +extern bool kexec_file_dbg_print;
+> > +
+> > +#define kexec_dprintk(fmt, ...)					\
+> > +	printk("%s" fmt,					\
+> > +	       kexec_file_dbg_print ? KERN_INFO : KERN_DEBUG,	\
+> > +	       ##__VA_ARGS__)
+> 
+> This means you dump it _always_. Only with different levels.
+
+It dumped always too with pr_debug() before, I just add a switch to
+control it's pr_info() or pr_debug().
+
+> 
+> And without any prefix whatsoever, so people see bloat like this in their
+> log now:
+> [  +0.000001] 0000000000001000-000000000009ffff (1)
+> [  +0.000002] 000000007f96d000-000000007f97efff (3)
+> [  +0.000002] 0000000000800000-0000000000807fff (4)
+> [  +0.000001] 000000000080b000-000000000080bfff (4)
+> [  +0.000002] 0000000000810000-00000000008fffff (4)
+> [  +0.000001] 000000007f97f000-000000007f9fefff (4)
+> [  +0.000001] 000000007ff00000-000000007fffffff (4)
+> [  +0.000002] 0000000000000000-0000000000000fff (2)
+
+On which arch are you seeing this? There should be one line above these
+range printing to tell what they are, like:
+
+E820 memmap:
+0000000000000000-000000000009a3ff (1)
+000000000009a400-000000000009ffff (2)
+00000000000e0000-00000000000fffff (2)
+0000000000100000-000000006ff83fff (1)
+000000006ff84000-000000007ac50fff (2)
+
+> 
+> without actually knowing what that is.
+> 
+> There should be nothing logged if that is not asked for and especially if
+> kexec load went fine, right?
+
+Right. Before this patch, those pr_debug() were already there. You need
+enable them to print out like add '#define DEBUG' in *.c file, or enable
+the dynamic debugging of the file or function. With this patch applied,
+you only need specify '-d' when you execute kexec command with
+kexec_file load interface, like:
+
+kexec -s -l -d /boot/vmlinuz-xxxx.img --initrd xxx.img --reuse-cmdline
+
+For kexec_file load, it is not logging if not specifying '-d', unless
+you take way to make pr_debug() work in that file.
+
+> 
+> Can this be redesigned, please?
+
+Sure, after making clear what's going on with this, I will try.
+
+> 
+> Actually what was wrong on the pr_debug()s? Can you simply turn them on from
+> the kernel when -d is passed to kexec instead of all this?
+
+Joe suggested this during v1 reviewing:
+https://lore.kernel.org/all/1e7863ec4e4ab10b84fd0e64f30f8464d2e484a3.camel@perches.com/T/#u
+
+> 
+> ...
+> > --- a/kernel/kexec_core.c
+> > +++ b/kernel/kexec_core.c
+> > @@ -52,6 +52,8 @@ atomic_t __kexec_lock = ATOMIC_INIT(0);
+> >   /* Flag to indicate we are going to kexec a new kernel */
+> >   bool kexec_in_progress = false;
+> > +bool kexec_file_dbg_print;
+> 
+> Ugh, and a global flag for this?
+
+Yeah, kexec_file_dbg_print records if '-d' is specified when 'kexec'
+command executed. Anything wrong with the global flag?
+
+Thanks
+Baoquan
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
