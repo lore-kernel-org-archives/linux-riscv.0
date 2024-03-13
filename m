@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DF0C54791
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 04:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA43C54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 04:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mG9C8RthxERyGdwEGEIjmgBg9bHzIVICRp6reF70uxk=; b=vRb3SbKfK4X6gK
-	Sps+inz17s228K0hl0goWD7JMwROm3CfxxjEI/p/+W3m1S0SD2xRu2R0ICrRUk64IuJHlvQYD9Zn4
-	dj9ZDuhKhhtGuIEUD3NrBlH4TdMlSBKeREkXIZwB1XpzpIl5iSK0nxTAiQ7mssNwcuVByIfAGcTGT
-	OQ2chfB5q7ZmMZc6cLauM38CfECJxZ3GJ8wIjaXRAWw9027ZbJVOGq0zRfxqAdWz/1SspkManXz0k
-	a/YC6DYhek2S+Y2/BjZAieCWHyEdICsdiiC7Bo6YbhyE9GcY9DfrHC1ghuBgSzmkZLs1Mro7KEaYx
-	9r3q0Ru6HDLqdgsuhASQ==;
+	List-Owner; bh=frEcJY2AR6ay3hhIbZP5/haBZxHPeGB+SNDhjYLuB+g=; b=KsByhq3vbyaWJV
+	cQjkZ2ihAY5nz8HEcQcEb9nHqUEUITTvT62RhTUnyZYuuSJkN0YhuYndO4GFh04HQwoupjnpamiTl
+	H5p6lXYTteZBPGVgu8efixjqDcjsVunNOxuX39j+lvdsk/E7E4wLjY7xuzyroUzihjQBv0l5vQ2ST
+	0m2NwdI3hLUXVc3IrA7klxaS3/6LqhiIJcAg06Aicu+LDxdS/ZRugwLOIJ159JTiowKR3WF+JFFED
+	v32Ek75o3gMgdP4VYTh5yZ3FmGK/8eeUcgor4om0e9iwsqEI4BW5Iv6wxaaj7AdpJmLI62OAq9rTk
+	Tu8M6EF7A/YMBpg2gYzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkG7q-00000008mW2-3GIX;
-	Wed, 13 Mar 2024 04:21:58 +0000
+	id 1rkG80-00000008maY-3h3G;
+	Wed, 13 Mar 2024 04:22:08 +0000
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkG7j-00000008mQ5-027n;
-	Wed, 13 Mar 2024 04:21:53 +0000
-Received: from pps.filterd (m0353726.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 42D459cR023072;
+	id 1rkG7j-00000008mPu-2UGa;
+	Wed, 13 Mar 2024 04:21:55 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 42D3lRJ0020596;
 	Wed, 13 Mar 2024 04:21:37 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=from : to : cc : subject
  : date : message-id : in-reply-to : references : mime-version :
  content-transfer-encoding; s=pp1;
- bh=9XXDP54rR4EAdpOPs5Th/H7WVfSwAhcEpWLZpZxAUGM=;
- b=L7gUm0dtjONy2LjMaEsIVVyD2hXX79aYZW19hsKJ0Xpj8M35iKJhBW8jt5y0HqJbv/I/
- 0rz5tHVDF9D+Gq1WYm6yaC8qGItN9DXh8xlm4v76NsYwkYTQ2wmp/Lm0+kjZN6SvvUw/
- V9RIeFnhHR5f+FWZYXfLr2wf68c6n2sEZ/p/WuJsns5lwEGf3d9WV/bgmhrGj6X4kx7h
- EuRg2EK2czzgVjwIeuZYVpBAcYITy3J0/IJjDgFeJ74sqOBtK8Op0DBlMB4MhtrvupGk
- GbUrFz5ltq0S67o5T9S4YQE2IhNLjdaXRWO+SwNpydRNVFh6tp2csaY/KIkgCotAwLaY ng== 
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3wu4t2r5s0-1
+ bh=4UjzonXsSmmesgyBp8E7cgSsOHmJTJs0Zg4v3oCtrS4=;
+ b=UThzVTnELXiDcp+X/9ekmzH3azYBAMT25b8n8ICaO6qMSAetZPT7nzQY6hxKvid018s7
+ 5OzUlwimzS+mpIfXMtDaaiuuVfFMbA9K9ynziBeP9dPQx998+gsO7qY23N3UIOj4oIZs
+ xopEFn3jbx5PPK97TzO+wq62p74de4kqxgD3/WGYYSW4Jigw2L4+QF1hGVhevA57YsEQ
+ B0C5s5FZUWmjEG1WMv+/e6d7pN4OFFbvoG0JGqib0lZxznP1iW9Rp7ZLB1+jDD9TavY1
+ jlKqv1OijPk3OXy3LU4LioCTDWZRD0wt0W0AvNPGbZgbcKPx3CyN1gOljHWpz+ufiqnb jg== 
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3wu4hs8as5-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 13 Mar 2024 04:21:37 +0000
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 42D3jD7R015028;
-	Wed, 13 Mar 2024 04:21:36 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 3ws33nuhcm-1
+	Wed, 13 Mar 2024 04:21:36 +0000
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 42D1OJUH013484;
+	Wed, 13 Mar 2024 04:21:35 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 3ws4akb5ab-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Wed, 13 Mar 2024 04:21:35 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 42D4LVah23266046
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 42D4LWav37421416
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 13 Mar 2024 04:21:33 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C7DF620043;
+	Wed, 13 Mar 2024 04:21:34 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 239EE20040;
+	Wed, 13 Mar 2024 04:21:32 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3CD362004B;
 	Wed, 13 Mar 2024 04:21:31 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F3E032004D;
-	Wed, 13 Mar 2024 04:21:30 +0000 (GMT)
 Received: from ozlabs.au.ibm.com (unknown [9.192.253.14])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 13 Mar 2024 04:21:30 +0000 (GMT)
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 13 Mar 2024 04:21:31 +0000 (GMT)
 Received: from socotra.ozlabs.ibm.com (haven.au.ibm.com [9.192.254.114])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 0D4E060412;
+	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 2B2ED6041A;
 	Wed, 13 Mar 2024 15:21:26 +1100 (AEDT)
 From: Rohan McLure <rmclure@linux.ibm.com>
 To: linuxppc-dev@lists.ozlabs.org
@@ -73,27 +73,27 @@ Cc: Rohan McLure <rmclure@linux.ibm.com>, mpe@ellerman.id.au,
         christophe.leroy@csgroup.eu, linux-mm@kvack.org,
         linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
         x86@kernel.org
-Subject: [PATCH v10 06/12] Revert "mm/page_table_check: remove unused parameter in [__]page_table_check_pte_clear"
-Date: Wed, 13 Mar 2024 15:21:11 +1100
-Message-ID: <20240313042118.230397-7-rmclure@linux.ibm.com>
+Subject: [PATCH v10 10/12] poweprc: mm: Implement *_user_accessible_page() for ptes
+Date: Wed, 13 Mar 2024 15:21:15 +1100
+Message-ID: <20240313042118.230397-11-rmclure@linux.ibm.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240313042118.230397-1-rmclure@linux.ibm.com>
 References: <20240313042118.230397-1-rmclure@linux.ibm.com>
 MIME-Version: 1.0
 X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: CjsZWOq4r3lXXzXUQZdBfLwhcoc8o2WM
-X-Proofpoint-ORIG-GUID: CjsZWOq4r3lXXzXUQZdBfLwhcoc8o2WM
+X-Proofpoint-ORIG-GUID: e-PwVIBJGOySS6AlIQfovUenCn6uD9mJ
+X-Proofpoint-GUID: e-PwVIBJGOySS6AlIQfovUenCn6uD9mJ
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
  definitions=2024-03-13_04,2024-03-12_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 phishscore=0
- clxscore=1015 suspectscore=0 spamscore=0 priorityscore=1501 malwarescore=0
- bulkscore=0 lowpriorityscore=0 adultscore=0 mlxlogscore=805
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015
+ lowpriorityscore=0 bulkscore=0 mlxlogscore=946 mlxscore=0 adultscore=0
+ priorityscore=1501 suspectscore=0 spamscore=0 impostorscore=0 phishscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.12.0-2311290000 definitions=main-2403130030
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240312_212151_154436_9EC7E46F 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20240312_212151_672855_16FDA995 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,155 +110,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This reverts commit aa232204c4689427cefa55fe975692b57291523a.
+Page table checking depends on architectures providing an
+implementation of p{te,md,ud}_user_accessible_page. With
+refactorisations made on powerpc/mm, the pte_access_permitted() and
+similar methods verify whether a userland page is accessible with the
+required permissions.
 
-Reinstate previously unused parameters for the purpose of supporting
-powerpc platforms, as many do not encode user/kernel ownership of the
-page in the pte, but instead in the address of the access.
+Since page table checking is the only user of
+p{te,md,ud}_user_accessible_page(), implement these for all platforms,
+using some of the same preliminay checks taken by pte_access_permitted()
+on that platform.
+
+Since Commit 8e9bd41e4ce1 ("powerpc/nohash: Replace pte_user() by pte_read()")
+pte_user() is no longer required to be present on all platforms as it
+may be equivalent to or implied by pte_read(). Hence implementations are
+specialised.
 
 Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
 ---
- arch/arm64/include/asm/pgtable.h |  2 +-
- arch/riscv/include/asm/pgtable.h |  2 +-
- arch/x86/include/asm/pgtable.h   |  4 ++--
- include/linux/page_table_check.h | 11 +++++++----
- include/linux/pgtable.h          |  2 +-
- mm/page_table_check.c            |  7 ++++---
- 6 files changed, 16 insertions(+), 12 deletions(-)
+v9: New implementation
+v10: Let book3s/64 use pte_user(), but otherwise default other platforms
+to using the address provided with the call to infer whether it is a
+user page or not. pmd/pud variants will warn on all other platforms, as
+they should not be used for user page mappings
+---
+ arch/powerpc/include/asm/book3s/64/pgtable.h | 19 ++++++++++++++
+ arch/powerpc/include/asm/pgtable.h           | 26 ++++++++++++++++++++
+ 2 files changed, 45 insertions(+)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 4210d3b071ec..74bb81744df2 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -953,7 +953,7 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- {
- 	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
- 
--	page_table_check_pte_clear(mm, pte);
-+	page_table_check_pte_clear(mm, address, pte);
- 
- 	return pte;
- }
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index cf8e18f27649..2fa6625f591a 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -561,7 +561,7 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- {
- 	pte_t pte = __pte(atomic_long_xchg((atomic_long_t *)ptep, 0));
- 
--	page_table_check_pte_clear(mm, pte);
-+	page_table_check_pte_clear(mm, address, pte);
- 
- 	return pte;
- }
-diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-index 26722f553c43..e8fd625de280 100644
---- a/arch/x86/include/asm/pgtable.h
-+++ b/arch/x86/include/asm/pgtable.h
-@@ -1283,7 +1283,7 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
- 				       pte_t *ptep)
- {
- 	pte_t pte = native_ptep_get_and_clear(ptep);
--	page_table_check_pte_clear(mm, pte);
-+	page_table_check_pte_clear(mm, addr, pte);
- 	return pte;
+diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
+index 382724c5e872..ca765331e21d 100644
+--- a/arch/powerpc/include/asm/book3s/64/pgtable.h
++++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
+@@ -538,6 +538,12 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
+ 	return arch_pte_access_permitted(pte_val(pte), write, 0);
  }
  
-@@ -1299,7 +1299,7 @@ static inline pte_t ptep_get_and_clear_full(struct mm_struct *mm,
- 		 * care about updates and native needs no locking
- 		 */
- 		pte = native_local_ptep_get_and_clear(ptep);
--		page_table_check_pte_clear(mm, pte);
-+		page_table_check_pte_clear(mm, addr, pte);
- 	} else {
- 		pte = ptep_get_and_clear(mm, addr, ptep);
- 	}
-diff --git a/include/linux/page_table_check.h b/include/linux/page_table_check.h
-index 0a6ebfa46a31..48721a4a2b84 100644
---- a/include/linux/page_table_check.h
-+++ b/include/linux/page_table_check.h
-@@ -14,7 +14,8 @@ extern struct static_key_true page_table_check_disabled;
- extern struct page_ext_operations page_table_check_ops;
++#define pte_user_accessible_page pte_user_accessible_page
++static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
++{
++	return pte_present(pte) && pte_user(pte);
++}
++
+ /*
+  * Conversion functions: convert a page and protection to a page entry,
+  * and a page entry and page directory to the page they refer to.
+@@ -881,6 +887,7 @@ static inline int pud_present(pud_t pud)
  
- void __page_table_check_zero(struct page *page, unsigned int order);
--void __page_table_check_pte_clear(struct mm_struct *mm, pte_t pte);
-+void __page_table_check_pte_clear(struct mm_struct *mm, unsigned long addr,
-+				  pte_t pte);
- void __page_table_check_pmd_clear(struct mm_struct *mm, unsigned long addr,
- 				  pmd_t pmd);
- void __page_table_check_pud_clear(struct mm_struct *mm, unsigned long addr,
-@@ -45,12 +46,13 @@ static inline void page_table_check_free(struct page *page, unsigned int order)
- 	__page_table_check_zero(page, order);
+ extern struct page *pud_page(pud_t pud);
+ extern struct page *pmd_page(pmd_t pmd);
++
+ static inline pte_t pud_pte(pud_t pud)
+ {
+ 	return __pte_raw(pud_raw(pud));
+@@ -926,6 +933,12 @@ static inline bool pud_access_permitted(pud_t pud, bool write)
+ 	return pte_access_permitted(pud_pte(pud), write);
  }
  
--static inline void page_table_check_pte_clear(struct mm_struct *mm, pte_t pte)
-+static inline void page_table_check_pte_clear(struct mm_struct *mm,
-+					      unsigned long addr, pte_t pte)
++#define pud_user_accessible_page pud_user_accessible_page
++static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
++{
++	return pte_user_accessible_page(pud_pte(pud), addr);
++}
++
+ #define __p4d_raw(x)	((p4d_t) { __pgd_raw(x) })
+ static inline __be64 p4d_raw(p4d_t x)
  {
- 	if (static_branch_likely(&page_table_check_disabled))
- 		return;
- 
--	__page_table_check_pte_clear(mm, pte);
-+	__page_table_check_pte_clear(mm, addr, pte);
+@@ -1091,6 +1104,12 @@ static inline bool pmd_access_permitted(pmd_t pmd, bool write)
+ 	return pte_access_permitted(pmd_pte(pmd), write);
  }
  
- static inline void page_table_check_pmd_clear(struct mm_struct *mm,
-@@ -121,7 +123,8 @@ static inline void page_table_check_free(struct page *page, unsigned int order)
- {
- }
- 
--static inline void page_table_check_pte_clear(struct mm_struct *mm, pte_t pte)
-+static inline void page_table_check_pte_clear(struct mm_struct *mm,
-+					      unsigned long addr, pte_t pte)
- {
- }
- 
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index d0d1a0bbf905..89af325129f2 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -428,7 +428,7 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- {
- 	pte_t pte = ptep_get(ptep);
- 	pte_clear(mm, address, ptep);
--	page_table_check_pte_clear(mm, pte);
-+	page_table_check_pte_clear(mm, address, pte);
- 	return pte;
++#define pmd_user_accessible_page pmd_user_accessible_page
++static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
++{
++	return pte_user_accessible_page(pmd_pte(pmd), addr);
++}
++
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ extern pmd_t pfn_pmd(unsigned long pfn, pgprot_t pgprot);
+ extern pud_t pfn_pud(unsigned long pfn, pgprot_t pgprot);
+diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
+index 13f661831333..3741a63fb82e 100644
+--- a/arch/powerpc/include/asm/pgtable.h
++++ b/arch/powerpc/include/asm/pgtable.h
+@@ -227,6 +227,32 @@ static inline int pud_pfn(pud_t pud)
  }
  #endif
-diff --git a/mm/page_table_check.c b/mm/page_table_check.c
-index 7afaad9c6e6f..98cccee74b02 100644
---- a/mm/page_table_check.c
-+++ b/mm/page_table_check.c
-@@ -149,7 +149,8 @@ void __page_table_check_zero(struct page *page, unsigned int order)
- 	page_ext_put(page_ext);
- }
  
--void __page_table_check_pte_clear(struct mm_struct *mm, pte_t pte)
-+void __page_table_check_pte_clear(struct mm_struct *mm, unsigned long addr,
-+				  pte_t pte)
- {
- 	if (&init_mm == mm)
- 		return;
-@@ -193,7 +194,7 @@ void __page_table_check_ptes_set(struct mm_struct *mm, unsigned long addr,
- 		return;
++#ifndef pte_user_accessible_page
++#define pte_user_accessible_page pte_user_accessible_page
++static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
++{
++	return pte_present(pte) && !is_kernel_addr(addr);
++}
++#endif
++
++#ifndef pmd_user_accessible_page
++#define pmd_user_accessible_page pmd_user_accessible_page
++static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
++{
++	WARN_ONCE(1, "pmd: platform does not use pmd entries directly");
++	return false;
++}
++#endif
++
++#ifndef pud_user_accessible_page
++#define pud_user_accessible_page pud_user_accessible_page
++static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
++{
++	WARN_ONCE(1, "pud: platform does not use pud entries directly");
++	return false;
++}
++#endif
++
+ #endif /* __ASSEMBLY__ */
  
- 	for (i = 0; i < nr; i++)
--		__page_table_check_pte_clear(mm, ptep_get(ptep + i));
-+		__page_table_check_pte_clear(mm, addr, ptep_get(ptep + i));
- 	if (pte_user_accessible_page(pte))
- 		page_table_check_set(pte_pfn(pte), nr, pte_write(pte));
- }
-@@ -241,7 +242,7 @@ void __page_table_check_pte_clear_range(struct mm_struct *mm,
- 		if (WARN_ON(!ptep))
- 			return;
- 		for (i = 0; i < PTRS_PER_PTE; i++) {
--			__page_table_check_pte_clear(mm, ptep_get(ptep));
-+			__page_table_check_pte_clear(mm, addr, ptep_get(ptep));
- 			addr += PAGE_SIZE;
- 			ptep++;
- 		}
+ #endif /* _ASM_POWERPC_PGTABLE_H */
 -- 
 2.44.0
 
