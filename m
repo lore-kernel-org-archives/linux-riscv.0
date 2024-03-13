@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CFD9C54791
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 07:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B1CC54E58
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 07:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TP+5rOoaeDwjyagKirScbwLqftGClfNQhBzay9m+vcA=; b=SZ6PXkzp/ToQFu
-	9JTbkZfeF3O6gTcGAQjae5IbMwJh5bOlvnFLFzdyq7f07woeOiWHAnz2nYcVhJ5/svUgbsvupFSgH
-	bagXUdHeZ8juav1AKmGHtxn7rNICwopb0nF83K5Dqirm60Zo2xS109pWqB1Pjhk8ne5DR7fCk1FTj
-	vk/XyB0+eimd76I19xuQEyWVXWJdC39te6EpczprIFJCtukSGITYssiDpjymu5MSv5chR1IVq3HK/
-	7QwacBbRRMMzveAl5B3Ku8Ryo98r+jl1Qzvzd7uqPZ8PNuOMtxjRgPxTnPJH92UBOXBzpHCXdbHa/
-	cAWnV8PTKxIuRs6IWEmg==;
+	List-Owner; bh=1UPOKWbMR2at5JU+ymzj9qkgtgJkcEM+0RVgOCxF2iE=; b=iqAHvSPBPdcSAo
+	n5aGaouwrQ5cTNEc4GCktZYLAneJXjrF4HFQVZeW7TqAVBBtwvSDtnNLawP37xbazGCObxHmhjmc4
+	JTO/PgdV+oCUKdcN6yICgCnY793u0AH3+N5kZ2UHGsnmzL6U8ZmXrloOF0PjZut2XNqdOiUckzXG6
+	diYU2zmfbGII/iyQ2xNjhXzOpKFFMU3fz3F7Q8q8PaTSTBpV/0z7eg4PJXqWi3LafB6i+IiwRTUVB
+	Y/Hh7+Oy8Ndm9iP5VGt5i8zoSC4PiL2TaOiFOJCSdMiydbCPwRqyC12K1LQg9/iINywh1Zpo6owbO
+	BNUinTJxC2mrcGtCwnhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkIfb-000000097r4-3ZsZ;
-	Wed, 13 Mar 2024 07:04:59 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1rkIlG-000000099Ph-0fTi;
+	Wed, 13 Mar 2024 07:10:51 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkIfZ-000000097qQ-0sRy
+	id 1rkIlC-000000099NW-0TVP
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Mar 2024 07:04:58 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-db3a09e96daso5424410276.3
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Mar 2024 00:04:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1710313495; x=1710918295; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=23iwWUZrjK0uVCzWGrozLYPj1RLPGp+w74J65VD/jJw=;
-        b=W4xx0xLQTH++u5ORBDjVt4eGCD+bhaP/kUb14f2aycB+b7XFBkuhFU0ggna/mcHB1d
-         EQARQMnZ0B/aR6+eDZ7oRrQCOcmqk6gt9JzD1Bo4VarHvQI98EbAV6H9wt5wuw9HKRt7
-         MeG8tLEvU7Eet8YN21gO52/OWqfzOpaEB6QKwzfPZuNU/kbXZKoMKlET5clnUP7Q3s5w
-         ZRgrjhcXpKfDdF17fshKah1sTHJRk8XYiiU6vhGTUe5wrD05Muy121vIP17hcuLiz+c3
-         BlFJukP+7Y2k7aBSpUSQRy2SGniIdwWuKBWkO4y3IjgfFUWhNYlbcbDeqKwC4dmpWSZC
-         eCxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710313495; x=1710918295;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=23iwWUZrjK0uVCzWGrozLYPj1RLPGp+w74J65VD/jJw=;
-        b=LkfFrDRU0TOWPbel+OelniEsu0btphEeEiuoRjfNmFkDKceNUFzIU4QY5R84e92g6e
-         sDrJRhgvxN5G8S8rnoDnVUI50OzDaZcUZP3C07a9KqDOnTPkHzi/20r9Z3jUV8aKfAZ+
-         ycD3VlPMI+9vixErUylTsSrGuP3LC7j29tF2K85SHNs75z+ASS/RRRHBRq1V6hopqiws
-         tQ875HY3ScJDqXZNUv5T1bydIYfVGmTzFkh1PVD1PUGVpCAbtSIha/LxBwFwbYY3qnZd
-         +GcmR5+ZxGAiIH41A6Bx7R+9NyR9jzftI5i0UjkFzux8baDqDfHVNhgYyGQqI5gkAjVd
-         J3eA==
-X-Gm-Message-State: AOJu0YwJnwt7rp++VS5WffX42AQHODoO8ibA23uwZrDps4Zi2J/aTKsJ
-	Z512E8ltCDbQr/f0W6RPQsknnTkFtMgqJihXswFUwgpsQJ/RUel1XYgM4Xb57QRFVyXIF4BMQU3
-	OfQeddsOhj+Z3jFchDcVnZ20cXvvizljUxIY2xg==
-X-Google-Smtp-Source: AGHT+IENRH7CxODCmI4xmFH3RzGGjRXZk3DtZOylOwajqdNTbtP599gJ7j2O9tA6gHHIXD8vrl3AZ/1ugtvHc9NEMu8=
-X-Received: by 2002:a25:d349:0:b0:dcd:38f9:f78 with SMTP id
- e70-20020a25d349000000b00dcd38f90f78mr1640902ybf.29.1710313494755; Wed, 13
- Mar 2024 00:04:54 -0700 (PDT)
+	Wed, 13 Mar 2024 07:10:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1710313844;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z9m0flQIeLqxyKbiwOgkeWggQ2qsLzO5+Pi+cvXBRIU=;
+	b=YYxCpeNC+et3QqkJeLYd/BeQfUomEpZl87+/3DurX/xonXezoTwSvPNhZgwmvJ4YMhh79P
+	7YY4aLQaeN79ub3AqO36p/BSrSQRZC/6OeBfiEl07OJLY6eJFiWghL0sPBaEzTnWKApfkY
+	+dQ/eYdP3fEp+9ubwFEZWlOnOnpTKiE=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-695-A_LvjSnQPMGNLRwzgYbMmA-1; Wed, 13 Mar 2024 03:10:38 -0400
+X-MC-Unique: A_LvjSnQPMGNLRwzgYbMmA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BAF9585A58C;
+	Wed, 13 Mar 2024 07:10:37 +0000 (UTC)
+Received: from localhost (unknown [10.72.116.13])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0B65A2022C1E;
+	Wed, 13 Mar 2024 07:10:36 +0000 (UTC)
+Date: Wed, 13 Mar 2024 15:10:34 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Jiri Slaby <jirislaby@kernel.org>
+Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org, akpm@linux-foundation.org,
+	joe@perches.com, nathan@kernel.org, conor@kernel.org
+Subject: Re: kexec verbose dumps with 6.8 [was: [PATCH v4 1/7] kexec_file:
+ add kexec_file flag to control debug printing]
+Message-ID: <ZfFRaoOIgQQY46zD@MiWiFi-R3L-srv>
+References: <20231213055747.61826-1-bhe@redhat.com>
+ <20231213055747.61826-2-bhe@redhat.com>
+ <4c775fca-5def-4a2d-8437-7130b02722a2@kernel.org>
+ <ZfD37AlznCXJ6P54@MiWiFi-R3L-srv>
+ <2f8b1b2d-0abb-43f0-8665-0855928f017c@kernel.org>
 MIME-Version: 1.0
-References: <20240312123627.9285-1-andy.chiu@sifive.com> <20240312123627.9285-5-andy.chiu@sifive.com>
- <20240312-follow-catnap-7fdfa9cb9531@spud>
-In-Reply-To: <20240312-follow-catnap-7fdfa9cb9531@spud>
-From: Andy Chiu <andy.chiu@sifive.com>
-Date: Wed, 13 Mar 2024 15:04:44 +0800
-Message-ID: <CABgGipW-Tk1LU=zu7N6Xnrr2UUaLwGA1cW1+Qh4WWWqshGFH6A@mail.gmail.com>
-Subject: Re: [v1, 4/6] riscv: cpufeature: add zve32[xf] and zve64[xfd] isa detection
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	greentime.hu@sifive.com, guoren@linux.alibaba.com, bjorn@kernel.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor.dooley@microchip.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	=?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
-	Evan Green <evan@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Xiao Wang <xiao.w.wang@intel.com>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Yangyu Chen <cyy@cyyself.name>
+Content-Disposition: inline
+In-Reply-To: <2f8b1b2d-0abb-43f0-8665-0855928f017c@kernel.org>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240313_000457_278055_496BE85D 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20240313_001046_281866_BD2D1D68 
+X-CRM114-Status: GOOD (  35.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,92 +84,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXIgMTIsIDIwMjQgYXQgOTowNeKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBUdWUsIE1hciAxMiwgMjAyNCBhdCAwODozNjoyNVBNICsw
-ODAwLCBBbmR5IENoaXUgd3JvdGU6Cj4gPiBNdWx0aXBsZSBWZWN0b3Igc3ViZXh0ZW5zaW9ucyBh
-cmUgYWRkZWQuIEFsc28sIHRoZSBwYXRjaCB0YWtlcyBjYXJlIG9mCj4gPiB0aGUgZGVwZW5kZW5j
-aWVzIG9mIFZlY3RvciBzdWJleHRlbnNpb25zIGJ5IG1hY3JvIGV4cGFuc2lvbnMuIFNvLCBpZgo+
-ID4gc29tZSAiZW1iZWRkZWQiIHBsYXRmb3JtIG9ubHkgcmVwb3J0cyAienZlNjRmIiBvbiB0aGUg
-SVNBIHN0cmluZywgdGhlCj4gPiBwYXJzZXIgaXMgYWJsZSB0byBleHBhbmQgaXQgdG8genZlMzJ4
-IHp2ZTMyZiB6dmU2NHggYW5kIHp2ZTY0Zi4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBBbmR5IENo
-aXUgPGFuZHkuY2hpdUBzaWZpdmUuY29tPgo+Cj4gVGhlc2UgbmV3IGV4dGVuc2lvbnMgbmVlZCB0
-byBiZSBhZGRlZCB0byB0aGUgZHQtYmluZGluZ3MuCgpJIGFtIGFkZGluZyBhIHBhdGNoIGZvciBk
-dC1iaW5kaW5nIGFmdGVyIHRoaXMgaW4gdjIuCgo+Cj4gPiAtLS0KPiA+ICBhcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL2h3Y2FwLmggfCAgNSArKysrKwo+ID4gIGFyY2gvcmlzY3Yva2VybmVsL2NwdWZl
-YXR1cmUuYyB8IDQxICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKy0KPiA+ICAyIGZp
-bGVzIGNoYW5nZWQsIDQ1IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiA+Cj4gPiBkaWZm
-IC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oIGIvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9od2NhcC5oCj4gPiBpbmRleCA1MzQwZjgxODc0NmIuLjI0ZWZlYTQ0ZjFhYiAxMDA2
-NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+ID4gKysrIGIvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4gPiBAQCAtODAsNiArODAsMTEgQEAKPiA+ICAj
-ZGVmaW5lIFJJU0NWX0lTQV9FWFRfWkZBICAgICAgICAgICAgNzEKPiA+ICAjZGVmaW5lIFJJU0NW
-X0lTQV9FWFRfWlRTTyAgICAgICAgICAgNzIKPiA+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWkFD
-QVMgICAgICAgICAgNzMKPiA+ICsjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWlZFMzJYICAgICAgICAg
-NzQKPiA+ICsjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWlZFMzJGICAgICAgICAgNzUKPiA+ICsjZGVm
-aW5lIFJJU0NWX0lTQV9FWFRfWlZFNjRYICAgICAgICAgNzYKPiA+ICsjZGVmaW5lIFJJU0NWX0lT
-QV9FWFRfWlZFNjRGICAgICAgICAgNzcKPiA+ICsjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWlZFNjRE
-ICAgICAgICAgNzgKPiA+Cj4gPiAgI2RlZmluZSBSSVNDVl9JU0FfRVhUX01BWCAgICAgICAgICAg
-IDEyOAo+ID4gICNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9JTlZBTElEICAgICAgICAgICAgICAgIFUz
-Ml9NQVgKPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiA+IGluZGV4IDg5ODZjZWI1ODE4OC4uM2Fh
-MGRmM2YzYjQxIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5j
-Cj4gPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiA+IEBAIC0yMDEsNiAr
-MjAxLDQwIEBAIHN0YXRpYyBjb25zdCB1bnNpZ25lZCBpbnQgcmlzY3ZfenZiYl9leHRzW10gPSB7
-Cj4gPiAgICAgICBSSVNDVl9JU0FfRVhUX1pWS0IKPiA+ICB9Owo+ID4KPiA+ICsjZGVmaW5lIFJJ
-U0NWX0lTQV9FWFRfWlZFMzJGX0lNUExZX0xJU1QgICAgICBcCj4gPiArICAgICBSSVNDVl9JU0Ff
-RVhUX1pWRTMyRiwgICAgICAgICAgIFwKPiA+ICsgICAgIFJJU0NWX0lTQV9FWFRfWlZFMzJYLAo+
-ID4gKwo+ID4gKyNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aVkU2NEZfSU1QTFlfTElTVCAgICAgIFwK
-PiA+ICsgICAgIFJJU0NWX0lTQV9FWFRfWlZFNjRGLCAgICAgICAgICAgXAo+ID4gKyAgICAgUklT
-Q1ZfSVNBX0VYVF9aVkU2NFgsICAgICAgICAgICBcCj4gPiArICAgICBSSVNDVl9JU0FfRVhUX1pW
-RTMyRl9JTVBMWV9MSVNUCj4gPiArCj4gPiArI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pWRTY0RF9J
-TVBMWV9MSVNUICAgICAgXAo+ID4gKyAgICAgUklTQ1ZfSVNBX0VYVF9aVkU2NEQsICAgICAgICAg
-ICBcCj4gPiArICAgICBSSVNDVl9JU0FfRVhUX1pWRTY0Rl9JTVBMWV9MSVNUCj4gPiArCj4gPiAr
-c3RhdGljIGNvbnN0IHVuc2lnbmVkIGludCByaXNjdl96dmUzMmZfZXh0c1tdID0gewo+ID4gKyAg
-ICAgUklTQ1ZfSVNBX0VYVF9aVkUzMkZfSU1QTFlfTElTVAo+ID4gK307Cj4gPiArCj4gPiArc3Rh
-dGljIGNvbnN0IHVuc2lnbmVkIGludCByaXNjdl96dmU2NGZfZXh0c1tdID0gewo+ID4gKyAgICAg
-UklTQ1ZfSVNBX0VYVF9aVkU2NEZfSU1QTFlfTElTVAo+ID4gK307Cj4gPiArCj4gPiArc3RhdGlj
-IGNvbnN0IHVuc2lnbmVkIGludCByaXNjdl96dmU2NGRfZXh0c1tdID0gewo+ID4gKyAgICAgUklT
-Q1ZfSVNBX0VYVF9aVkU2NERfSU1QTFlfTElTVAo+ID4gK307Cj4gPiArCj4gPiArc3RhdGljIGNv
-bnN0IHVuc2lnbmVkIGludCByaXNjdl96dmU2NHhfZXh0c1tdID0gewo+ID4gKyAgICAgUklTQ1Zf
-SVNBX0VYVF9aVkUzMlgsCj4gPiArICAgICBSSVNDVl9JU0FfRVhUX1pWRTY0WAo+ID4gK307Cj4g
-PiArCj4gPiArc3RhdGljIGNvbnN0IHVuc2lnbmVkIGludCByaXNjdl92X2V4dHNbXSA9IHsKPiA+
-ICsgICAgIFJJU0NWX0lTQV9FWFRfWlZFNjREX0lNUExZX0xJU1QKPiA+ICt9Owo+ID4gKwo+ID4g
-IC8qCj4gPiAgICogVGhlIGNhbm9uaWNhbCBvcmRlciBvZiBJU0EgZXh0ZW5zaW9uIG5hbWVzIGlu
-IHRoZSBJU0Egc3RyaW5nIGlzIGRlZmluZWQgaW4KPiA+ICAgKiBjaGFwdGVyIDI3IG9mIHRoZSB1
-bnByaXZpbGVnZWQgc3BlY2lmaWNhdGlvbi4KPiA+IEBAIC0yNDgsNyArMjgyLDcgQEAgY29uc3Qg
-c3RydWN0IHJpc2N2X2lzYV9leHRfZGF0YSByaXNjdl9pc2FfZXh0W10gPSB7Cj4gPiAgICAgICBf
-X1JJU0NWX0lTQV9FWFRfREFUQShkLCBSSVNDVl9JU0FfRVhUX2QpLAo+ID4gICAgICAgX19SSVND
-Vl9JU0FfRVhUX0RBVEEocSwgUklTQ1ZfSVNBX0VYVF9xKSwKPiA+ICAgICAgIF9fUklTQ1ZfSVNB
-X0VYVF9EQVRBKGMsIFJJU0NWX0lTQV9FWFRfYyksCj4gPiAtICAgICBfX1JJU0NWX0lTQV9FWFRf
-REFUQSh2LCBSSVNDVl9JU0FfRVhUX3YpLAo+ID4gKyAgICAgX19SSVNDVl9JU0FfRVhUX1NVUEVS
-U0VUKHYsIFJJU0NWX0lTQV9FWFRfdiwgcmlzY3Zfdl9leHRzKSwKPiA+ICAgICAgIF9fUklTQ1Zf
-SVNBX0VYVF9EQVRBKGgsIFJJU0NWX0lTQV9FWFRfaCksCj4gPiAgICAgICBfX1JJU0NWX0lTQV9F
-WFRfREFUQSh6aWNib20sIFJJU0NWX0lTQV9FWFRfWklDQk9NKSwKPiA+ICAgICAgIF9fUklTQ1Zf
-SVNBX0VYVF9EQVRBKHppY2JveiwgUklTQ1ZfSVNBX0VYVF9aSUNCT1opLAo+ID4gQEAgLTI4Myw2
-ICszMTcsMTEgQEAgY29uc3Qgc3RydWN0IHJpc2N2X2lzYV9leHRfZGF0YSByaXNjdl9pc2FfZXh0
-W10gPSB7Cj4gPiAgICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQSh6dHNvLCBSSVNDVl9JU0FfRVhU
-X1pUU08pLAo+ID4gICAgICAgX19SSVNDVl9JU0FfRVhUX1NVUEVSU0VUKHp2YmIsIFJJU0NWX0lT
-QV9FWFRfWlZCQiwgcmlzY3ZfenZiYl9leHRzKSwKPiA+ICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9E
-QVRBKHp2YmMsIFJJU0NWX0lTQV9FWFRfWlZCQyksCj4gPiArICAgICBfX1JJU0NWX0lTQV9FWFRf
-U1VQRVJTRVQoenZlMzJmLCBSSVNDVl9JU0FfRVhUX1pWRTMyRiwgcmlzY3ZfenZlMzJmX2V4dHMp
-LAo+ID4gKyAgICAgX19SSVNDVl9JU0FfRVhUX0RBVEEoenZlMzJ4LCBSSVNDVl9JU0FfRVhUX1pW
-RTMyWCksCj4gPiArICAgICBfX1JJU0NWX0lTQV9FWFRfU1VQRVJTRVQoenZlNjRmLCBSSVNDVl9J
-U0FfRVhUX1pWRTY0RiwgcmlzY3ZfenZlNjRmX2V4dHMpLAo+ID4gKyAgICAgX19SSVNDVl9JU0Ff
-RVhUX1NVUEVSU0VUKHp2ZTY0ZCwgUklTQ1ZfSVNBX0VYVF9aVkU2NEQsIHJpc2N2X3p2ZTY0ZF9l
-eHRzKSwKPiA+ICsgICAgIF9fUklTQ1ZfSVNBX0VYVF9TVVBFUlNFVCh6dmU2NHgsIFJJU0NWX0lT
-QV9FWFRfWlZFNjRYLCByaXNjdl96dmU2NHhfZXh0cyksCj4gPiAgICAgICBfX1JJU0NWX0lTQV9F
-WFRfREFUQSh6dmZoLCBSSVNDVl9JU0FfRVhUX1pWRkgpLAo+ID4gICAgICAgX19SSVNDVl9JU0Ff
-RVhUX0RBVEEoenZmaG1pbiwgUklTQ1ZfSVNBX0VYVF9aVkZITUlOKSwKPiA+ICAgICAgIF9fUklT
-Q1ZfSVNBX0VYVF9EQVRBKHp2a2IsIFJJU0NWX0lTQV9FWFRfWlZLQiksCj4gPiAtLQo+ID4gMi4x
-Ny4xCj4gPgo+ID4KPiA+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCj4gPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiA+IGxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKPiA+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YKClRoYW5rcyEKQW5keQoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 03/13/24 at 06:58am, Jiri Slaby wrote:
+> Hi,
+> 
+> 
+> On 13. 03. 24, 1:48, Baoquan He wrote:
+> > Hi Jiri,
+> > 
+> > On 03/12/24 at 10:58am, Jiri Slaby wrote:
+> > > On 13. 12. 23, 6:57, Baoquan He wrote:
+> >   ... snip...
+> > > > --- a/include/linux/kexec.h
+> > > > +++ b/include/linux/kexec.h
+> > > ...
+> > > > @@ -500,6 +500,13 @@ static inline int crash_hotplug_memory_support(void) { return 0; }
+> > > >    static inline unsigned int crash_get_elfcorehdr_size(void) { return 0; }
+> > > >    #endif
+> > > > +extern bool kexec_file_dbg_print;
+> > > > +
+> > > > +#define kexec_dprintk(fmt, ...)					\
+> > > > +	printk("%s" fmt,					\
+> > > > +	       kexec_file_dbg_print ? KERN_INFO : KERN_DEBUG,	\
+> > > > +	       ##__VA_ARGS__)
+> > > 
+> > > This means you dump it _always_. Only with different levels.
+> > 
+> > It dumped always too with pr_debug() before, I just add a switch to
+> > control it's pr_info() or pr_debug().
+> 
+> Not really, see below.
+> 
+> > > 
+> > > And without any prefix whatsoever, so people see bloat like this in their
+> > > log now:
+> > > [  +0.000001] 0000000000001000-000000000009ffff (1)
+> > > [  +0.000002] 000000007f96d000-000000007f97efff (3)
+> > > [  +0.000002] 0000000000800000-0000000000807fff (4)
+> > > [  +0.000001] 000000000080b000-000000000080bfff (4)
+> > > [  +0.000002] 0000000000810000-00000000008fffff (4)
+> > > [  +0.000001] 000000007f97f000-000000007f9fefff (4)
+> > > [  +0.000001] 000000007ff00000-000000007fffffff (4)
+> > > [  +0.000002] 0000000000000000-0000000000000fff (2)
+> > 
+> > On which arch are you seeing this? There should be one line above these
+> > range printing to tell what they are, like:
+> > 
+> > E820 memmap:
+> 
+> Ah this is there too. It's a lot of output, so I took it out of context,
+> apparently.
+> 
+> > 0000000000000000-000000000009a3ff (1)
+> > 000000000009a400-000000000009ffff (2)
+> > 00000000000e0000-00000000000fffff (2)
+> > 0000000000100000-000000006ff83fff (1)
+> > 000000006ff84000-000000007ac50fff (2)
+> 
+> It should all be prefixed like kdump: or kexec: in any way.
+
+I can reproduce it now on fedora. OK, I will add kexec or something
+similar to prefix. Thanks.
+
+> 
+> > > without actually knowing what that is.
+> > > 
+> > > There should be nothing logged if that is not asked for and especially if
+> > > kexec load went fine, right?
+> > 
+> > Right. Before this patch, those pr_debug() were already there. You need
+> > enable them to print out like add '#define DEBUG' in *.c file, or enable
+> > the dynamic debugging of the file or function.
+> 
+> I think it's perfectly fine for DEBUG builds to print this out. And many
+> (all major?) distros use dyndbg, so it used to print nothing by default.
+> 
+> > With this patch applied,
+> > you only need specify '-d' when you execute kexec command with
+> > kexec_file load interface, like:
+> > 
+> > kexec -s -l -d /boot/vmlinuz-xxxx.img --initrd xxx.img --reuse-cmdline
+> 
+> Perhaps our (SUSE) tooling passes -d? But I am seeing this every time I
+> boot.
+> 
+> No, it does not seem so:
+> load.sh[915]: Starting kdump kernel load; kexec cmdline: /sbin/kexec -p
+> /var/lib/kdump/kernel --append=" loglevel=7 console=tty0 console=ttyS0
+> video=1920x1080,1024x768,800x600 oops=panic
+> lsm=lockdown,capability,integrity,selinux sysrq=yes reset_devices
+> acpi_no_memhotplug cgroup_disable=memory nokaslr numa=off irqpoll nr_cpus=1
+> root=kdump rootflags=bind rd.udev.children-max=8 disable_cpu_apicid=0
+> panic=1" --initrd=/var/lib/kdump/initrd  -a
+> 
+> > For kexec_file load, it is not logging if not specifying '-d', unless
+> > you take way to make pr_debug() work in that file.
+> 
+> So is -d detection malfunctioning under some circumstances?
+> 
+> > > Can this be redesigned, please?
+> > 
+> > Sure, after making clear what's going on with this, I will try.
+> > 
+> > > 
+> > > Actually what was wrong on the pr_debug()s? Can you simply turn them on from
+> > > the kernel when -d is passed to kexec instead of all this?
+> > 
+> > Joe suggested this during v1 reviewing:
+> > https://lore.kernel.org/all/1e7863ec4e4ab10b84fd0e64f30f8464d2e484a3.camel@perches.com/T/#u
+> > 
+> > > 
+> > > ...
+> > > > --- a/kernel/kexec_core.c
+> > > > +++ b/kernel/kexec_core.c
+> > > > @@ -52,6 +52,8 @@ atomic_t __kexec_lock = ATOMIC_INIT(0);
+> > > >    /* Flag to indicate we are going to kexec a new kernel */
+> > > >    bool kexec_in_progress = false;
+> > > > +bool kexec_file_dbg_print;
+> > > 
+> > > Ugh, and a global flag for this?
+> > 
+> > Yeah, kexec_file_dbg_print records if '-d' is specified when 'kexec'
+> > command executed. Anything wrong with the global flag?
+> 
+> Global variables are frowned upon. To cite coding style: unless you
+> **really** need them. Here, it looks like you do not.
+
+I see your point, will consider and change. Thanks again.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
