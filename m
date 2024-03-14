@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8110CC5475B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2E7C54E6A
 	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 06:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W3fufKZnFb6UaDVl5JR+vCQ3GyFE9rwlz4a/fQl+8kY=; b=StEJ8ijfTZMOik
-	aA0yOQXp1gbspJi+8W4mVKzzBhNShH6c/VCKvrBb/wVC+rsQ1m0lvfAWx1j/QN+ScqanDcYXXDkcs
-	iuHp6Tyg8W6js+kk24px6ILhOs6lsUwUmpv0dusJ9UVILDk33AGofUCQbf+3zEjEr4CA9Ot9iHl7o
-	uVTJF3tGFgkWBvr01ji+XL1lHAvbJldUAw3iM5qPDT7yqurt85LNVtlykr1U7srbpiiaRBjQc8e1d
-	HG3McD46bbzmZp0ObqVjJ0xJRKadlnxrsHthNbK3gHwJB6qbqoaj18lFzbP1Yxk/9GnLLNp++4d4y
-	AzkfLNccWvmJDlCgeZAA==;
+	List-Owner; bh=1huGF42X7ZmAt8PpVdg618fFBuwqk9VCdrDCjhQF274=; b=sxXap5cqUOH+A3
+	kNDy671Bs/xJ6HxGb7UckFJH1NfelMOhwXvCpYH4CUalvaef5bNaEDWVGy+79ya1rfDOse7ia397X
+	ETcx47F7ECSgeIm5z/A+K7DAtDWvMRZPzr3hqGuiKhNxfbc0QiWRRAOsIhXETKAcLczt8Xza1UJS4
+	sJ0ZpUZ8pw6Kl+yIyx9H0Mui1yZNnkvoH8uEJnKHrPBNVcGs+blwsvpKUulDTkulqcL84RoyHVYlo
+	M5C93IwI1W8qIBw+ONKItZkL9arpHRyVlKuz/dcpqvw9+/8ar8bok6UcfcjSA5/+zyEhOeWa/5zbV
+	PlxiIIaTVuTYUt7wVuUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkeKb-0000000DBej-1b88;
-	Thu, 14 Mar 2024 06:12:45 +0000
+	id 1rkeKh-0000000DBgG-2UfW;
+	Thu, 14 Mar 2024 06:12:51 +0000
 Received: from mail-bjschn02on2071a.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::71a] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkeKY-0000000DBct-3kRP
+	id 1rkeKe-0000000DBct-1ndG
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Mar 2024 06:12:44 +0000
+	Thu, 14 Mar 2024 06:12:49 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=XUb0T2S7Z2lhqEI/HiWVx67UQOoqIKGwQKn+jNdCM7FZQRpWBE0Jp82xdsxa0BQGPFWtzZJC4cJ5saiahDgW7LyvH/goq8/DGCks3pSqklVqEI/sYdv7Zhu6oE4AFmdssw8PzIW9JbLvh9AUatlEX3FccYO6vAOIU18F6tqE/PVkb99dxWkC3F29Lef+HgK15bkT+gzmgSV3cvRhCenomt1+RzmrjjBKdnxFs5xX9d3JpXGi6hw9TlZVqqtflZxftJL71TUl7NIu3YQYrNaUf7qqMuxmIB0egtQB0JWiKgkrq334IMSvHW//3K4v+3xRQPDBUOCnk2VFkWeoYrNerQ==
+ b=EKEgXBP5U44G1klIsXyjdwOztF6KhUWyMtf+H7tiessRUYVXFR7ZeRrk6VtV6uzx9Sqh9vKN3U+bjiysJcx4H2Ekp1uvr3CtbMsAbdQ5KTN45R3OduFtfH7j1poW/jm2THrWZX8Pj63tQlOg6fEyKGxzR6b19VFHXH84CED+p48uqry/httILezl7aWf7/97ar+AiDJ7r/NUZIMTMBfhv/7ZbgtJN+T5a9mo0SaGzmAQU4DxQolt1ii6MkyACp12Klf1vU8XK26Bdl8ziu+eHRPe3YXiM7tuvwEDy0ItXE0zrbjIwMPW5MysBW9PWDX3EuTOxSh1/O+7jw9NHDrQkw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pQEM8FOLWcxfYvVmh/eQrm0TxFeLdfJgmFUVG6eh+20=;
- b=kfEwGQsHYFE/xMNPhquq42QIVgW6/iXbcvh6UqHsDX2ArHvR3963ILpfN8QdiPHHwIjDxvEPZL/MtoQhMSDlA30v0vaOZ8yhcKxd9BAKRGc3//yq9IgCO1ulwJVX/TatQaguJahYkTibUwRf2DIO79WxtI+JGRzRQpb7niXuh0npjXRKtFwiXngj0cHa0FNDRuG2TUxLmHxcgRijEKfbfyRi6zcwbPzsyYIz0+txuI8bieu7DPzxqmb8YC3nc/y9m8IUuHnxfiOPQpBY+kiWs4POJ60u6hZDghHjwO9gjDgt4+HlrP7+m2yqbItjs8x/E/cA0CKqdPUW2qDzaqOEug==
+ bh=3Up0MHIoIRu+8GF/6KPeb8yOAl80wqLgHl0l3i4nGxQ=;
+ b=YFf3G8PwSLyEdXobOE3GpP8odhTUJOR1YpnnRsvun/UWUXOJGvKrUuSgRuVrqSMtw0M13Ztcz2p6Ac8iqGDsx+3hcgTKUErVzgxgzBcyzEDNwLM8WUrtMjDILM5YM9MX9JSEIvT0X31Ksz+I5FobK1KdzlEY/i52yOS4H0BQTMHhugKX0mhlLvTnXZlewpGETZtSpH1s+I5UkGHoECgXZYn9/YvEPYps97BmX0nUTRHc53zHwK7HCtDFordHkD/JoJWK4jroR0vME7u3aLBLQbgKj7niWqcSPk9O/zrx46Tw5SX6X3xUPneMvU1r2EIEh4xeAwz/hnlKr+aAsvhiMg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:1b::23) by BJXPR01MB0711.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:18::17) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.34; Thu, 14 Mar
- 2024 06:12:26 +0000
+ 2024 06:12:40 +0000
 Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
  ([fe80::a038:3f49:b470:9207]) by
  BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn ([fe80::a038:3f49:b470:9207%4])
- with mapi id 15.20.7386.017; Thu, 14 Mar 2024 06:12:26 +0000
+ with mapi id 15.20.7386.017; Thu, 14 Mar 2024 06:12:40 +0000
 From: Joshua Yeong <joshua.yeong@starfivetech.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -72,9 +72,9 @@ To: paul.walmsley@sifive.com,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: [PATCH 1/4] riscv: asm: vendorid_list: Add StarFive Technology to vendors list
-Date: Thu, 14 Mar 2024 14:12:02 +0800
-Message-Id: <20240314061205.26143-2-joshua.yeong@starfivetech.com>
+Subject: [PATCH 4/4] dt-bindings: cache: Add docs for StarFive StarLink-500 cache controller
+Date: Thu, 14 Mar 2024 14:12:05 +0800
+Message-Id: <20240314061205.26143-5-joshua.yeong@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20240314061205.26143-1-joshua.yeong@starfivetech.com>
 References: <20240314061205.26143-1-joshua.yeong@starfivetech.com>
@@ -84,55 +84,54 @@ X-ClientProxiedBy: NT0PR01CA0015.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: BJXPR01MB0838:EE_|BJXPR01MB0711:EE_
-X-MS-Office365-Filtering-Correlation-Id: 86e21904-5731-4c34-d9fd-08dc43edb85b
+X-MS-Office365-Filtering-Correlation-Id: 9fab0cb1-e899-42b8-9c16-08dc43edc0bf
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: Uba59SvBHfYFhK0kZLdA2hJTtYNNpvMVKaRI2YwT2jQsV9liaMrbhliEUqKIAXzmyLvrd2FEaI3YYqR5KXINyDevVDUW3JT+0t5s4CNwK9oLAZvdumXjxub32Mg96LbVuNMWsLDVyzqPZw/RTDCqnuvA033SP97WXrSMXD6TarzNMfrkkynl6PhXWcb8F/Q2uZzkpalDygC9BgSEqcYDHfUD99Fy98Z3jR5b7FYgK7LAVSqA+pgbmrQ4Mx8g2T7LIurmbKFBlvxszjRrBFG+LrmTJdNqRpFH8BCTlaGaaY7Go2hfG55zasxuV+j6kdAGLodPAjGpAzXW6QmgteDM6/9khLQgZqQCIxaCG4O2gL0vUtxL0AtMCZOuOPkMEMsNGupJwBTEs4UlhCbEr7YvOONUqu3SGvO/fY+EEPd2cVTY7LJbywkbsfCVQe9eD2lfZGg8vrUMYupe8foL97fpYS1FTtZgCkrJpp1rRXi8NA/xJO7AlBATXT9m86OVZ9qqw4LErZY9yUnPbhU/WDTMmlTW2PSm2TZfbzzRDcW+Dd2mc9DIVVKauGgE7m/A9kJjB3czwZ+qnyYKjY8LVe/WMRLRF59jlSDguPb9WRyyZPPNR3RqfJm5nBRjJyKpoPqw5eFqiDgDcQ/vcYPEK2nC3Q==
+X-Microsoft-Antispam-Message-Info: A5p72sJLznyvOW6snsHQh0uS2Qai/xWwik8ScFehXVeOmeaFLdSqP0Kn9aFj+4Ihqur+4tSIJbicZAsewWanE5rVa2rD1ut4t7RY53BT43tr06BdhzgYTV9cikmn5qrVmRLNzYPqnDraC6s+bVf+PmwxBlHq8oKMdVztYlEFGWJ/JLKL/GLhy2UekIPDJwP4RiK39StwbrqBxnTTjGbN7iqPCqulhH2so8LIV4EL3pDUsF6Hul8PDRere9J5vsbqiVxE2icGo2sgMWjj9c07aEcKnvPDEWaYHjweOEAnqZHZZncor+Ei/mrjqYe+ju/KoOwwkUxld9hTLRq0t/6pseSDzEEmK56Pv/iYe6+EP68VRwd4eOPQJD4BRphKqjBBVBZU6k2B0R05zL4TX8ShDqE27toiqwrM3+DJRIaEswygGPdCZCoc73q9pmy7/YeYsH1+5ck/Te0WAZbE67zKj9p5OcgpCSrVpZIjeOcwdH+ZFzpqlFGI7gTgBSMRNmikUkYlN+1FAUWGG6gbkG5SPosgOc7dJIT9zOAPPEl3TxTYHFCqsHq6ZJNY+YLkuZZuAC4IkUSFYJekuXDNOFNbAwUvbsN09i9ibh3LytFcZ4Mm9cdEIz9eLk0zxg20ZSxHZcsLe8qy6TJRRS2Yx930bg==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(7416005)(41320700004)(1800799015)(52116005)(921011)(38350700005);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PoW/LxYq1q0Bp/JHxht4S3R4Uqyd3mxVdxLbxwCwYihkoeR4jIoJuJk+6RDS?=
- =?us-ascii?Q?8WmZ9Zy2DgaIBaY12BiKNYoL8I4+V6Tq3uW2r6AmOhHKtLZJC9ZfwCUnxgev?=
- =?us-ascii?Q?47Uv1h9u/PKmLMMRt4xrS0/gDlnYI4+OE07ttAVxdXvWuJ5jaqIP3M+SZvcz?=
- =?us-ascii?Q?CbLW5C/DRoUSD2XeXaQKCmRU4X7ABUBv7Jfn0l0+eti9NMoHV+AnpO+jAogC?=
- =?us-ascii?Q?z74h9AlJ1BSRFX8TWbTOqie9TRzxDDhPcU0PFMohnh/zZAHbTxH5Z4TclUJR?=
- =?us-ascii?Q?Kcleol2O+eVtfAivtcrqEZ+ImTohYoUo4hQDO7sBAQ4ZPV9RxHt1p1yJzQFK?=
- =?us-ascii?Q?mQ101CZZuu3nZwUPbfN6COpUIIWPXPJd+wnHyhdR3DLmHCVDWJr8vBhRG2Uh?=
- =?us-ascii?Q?35dMC2OqYh+tp2YLilUXmtn4uNSl5hG5zaniON+LPd4RRLkkOziaCzZtPtze?=
- =?us-ascii?Q?mMGlRcbirI2IbVfUvyoGm5zlvEOPJ6czv9Sm1cxSp2brpRG417tyQUg3rGlq?=
- =?us-ascii?Q?7CoWdmohOcTEFfVbhsz0RCk0K0E1zvgGkFzrlOpjo5elp2ymoPHH66UJQ4dR?=
- =?us-ascii?Q?ZtLAOXEEJOChm+S7Bj38vDsRYM8p8bVhqziujVa26kWqMU3enOTC5rlTUi0q?=
- =?us-ascii?Q?ZpqEEmaqq5FlJ13M6sIeeSCBmDa13e/JneNTANO+63UQZhAnmjfR9SD1Wj1F?=
- =?us-ascii?Q?Gv+jHKmrtllqZizXFih/dhUU3GdD+lIPCdYPWeEXFOUAfvD5s4QOV7cLeV9B?=
- =?us-ascii?Q?oa1h6sZhThIiN4fwJ8QDdF846RTgZX6bplUcVybx1YAJxUw2thSdwXRL7++W?=
- =?us-ascii?Q?ZSkPtJdM9dSz+ZhoXy+1UE/1P0A2reAK5LrFvbiSOu6mq3UEbtCGrSjg7Fhk?=
- =?us-ascii?Q?7rHZJbkVPq/tkj0f1MFsUcdYGZPov3Mgdyl3VB4fS5OVdL1r/L6MtXg64XLU?=
- =?us-ascii?Q?3ehC8w+v/ge50l+vAJEEMJSL/DKlXB8UmHbPzkfmUd/Dyej/jN5wxKaNHrhT?=
- =?us-ascii?Q?CEkVJrHFiG5tJHoY8cXK8TZdr5S0JELjAdXZvGw+Xkxw/MsDmQ34CyCrTu/f?=
- =?us-ascii?Q?ofnpX10XudIcjRgYVJdH+0/LgCSSph4AaxSNgm2WGbtsNB4Pjb8aV8lSW5t8?=
- =?us-ascii?Q?hxnh8dv6Ud9PJXB9ltK9DPqIZp7c5NqZB/gjkP6BLXMpICStwrHL4wk3rnWn?=
- =?us-ascii?Q?QbrOO4Ng/N08NGv1eMIOupyovzCH0HSLDGOybbKWJncTPO/zmR4EQV8v0m/c?=
- =?us-ascii?Q?uDFtuY3vTL5qP6o3szJMgR4k7YNTX6j0BBoFNcr+JFPDBdlCp6dKrV938HAW?=
- =?us-ascii?Q?fbqlUk3z6BPpKzJ2zOk9hHsWvucWMafGXDAB3dlZ6kV4ai4xioxAbdImts0+?=
- =?us-ascii?Q?M5L7M8wNG6d7TyjNYhoDiuOEvDDLlJOKne+bmjgRWfc/PeeG9nAyEjmSFBXs?=
- =?us-ascii?Q?OtUAn58EpF1dp2SgVr3zFBFOXU8rsRMrrkQomrWzJyNeqMGf9Ynij8iavB7A?=
- =?us-ascii?Q?ik0twDWnkooUdRFxcg6iwS8ppJeBgx44ZiCR/+HRgR34brF+84HrHp7gvsac?=
- =?us-ascii?Q?ww7GtpPb7IQNVtIEL4AwHYajNBnRmDHZ7s/iNBhXqFxvglfPjuBZvWwH/Dwj?=
- =?us-ascii?Q?JOJzYHD0BWtS23gXEqpQDUA=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?34hi1Cgbk+6sYQRCMq+88NitFUNkqH/fLyzIlh5aizAYcoqcLe0W6Chs8zPD?=
+ =?us-ascii?Q?6FCUQ7qsNjbg5o2FT28aOGPxZUW8Sf3RHJbYVZRSkSXCucFl7L2ekN+pzj5T?=
+ =?us-ascii?Q?AwTjnTb1Qyyc6WdrSdHR6KKfHxsJZfhHC+4TLUqjZODPXbNbnn0TPxdaYfGF?=
+ =?us-ascii?Q?XoQkkOgEC7N1fsumU9idA6Kc/Qtky2jFNOb2Vc6XCiwiiN2/5J/BNiWtGb3f?=
+ =?us-ascii?Q?d5hBb/D7Xim8w+qsW+7fdZZ4xQuvM2JNOlGKnLvMfUusAfnwn5WfzvyYn7Yv?=
+ =?us-ascii?Q?deYNuZSg+YB2EFO7mTnizwjX90gjBQMx0O9I/GR2sp9KJfjqev6qHq07Ol1s?=
+ =?us-ascii?Q?mDxcAcbfJ2/cIHcrB/y0Sj9bykJZoDtCcTAt+5RJfTCaYYGCKjTN1ABqu55t?=
+ =?us-ascii?Q?hO7hVMgFC2E1GFdp2AIXqIylVLlYPNvSertukSBwT9FpsrkSc93a0DyFgHwV?=
+ =?us-ascii?Q?mzP2VU+1XukpAwJlsIbdVT+z0eqXHILaUsWVKhhFJdw8cWh407WImJwdTxzy?=
+ =?us-ascii?Q?sejDny6CT/7VhfYrdOhRi8n4ElS6bvE0fvNQtZFZpOjRcsBvSL4qbvbMA/H0?=
+ =?us-ascii?Q?0gjLMXA/tIwR79R0l1e8rtBAmTVXTQRdzEUHaHvd9uI7pbwG1p2Tc1R8rxoU?=
+ =?us-ascii?Q?rn50qSYNW8HbF1ujW8iXDOLt2BWKUm381dJUlA0+n6RiNTm4G/zba5YvJ/4u?=
+ =?us-ascii?Q?sAmPM+/ExQdkKSltf04jQn0TQPS13JBupe7CUmfiaAar5LsohT5dAXiSHwXn?=
+ =?us-ascii?Q?tmyWvw7FPx8noURlv+sWrcHgi0joz8TsRf/i0EAqKN2z0BSNLiHo9ELvRhRh?=
+ =?us-ascii?Q?3jpXyYISD9By9w9AcWapSzssF0/zfn4AuQYSNJPtqm41eUFY11QHLsLZMuGP?=
+ =?us-ascii?Q?zEABA98xE3iplrGrQPh0n9d3i4jN0c6mV4H8vKtjsNdY2k5fCI3+X8iuPJgO?=
+ =?us-ascii?Q?GAuJQ69WM1GxnKSmdA0aL1pTD2iR3SMFLsnjwX5fJApNyLqB6FFl81cOtWob?=
+ =?us-ascii?Q?47ipKuNI9BP8bUTfZXAMBB5W9uZpTj0rIDjYqohsgp5/azykuCNP1YA1ub+P?=
+ =?us-ascii?Q?ROJ/Pa/62TVkaxtEP7a0kneZQpkxWFek4zL6ZyI1dxf6oCC6qQC9kqvi5SVH?=
+ =?us-ascii?Q?AxU2lA/G/nzxnWEo38lcAiSU1fZ4C6xmdyM+IMGMvBexJwZ9zAsfGUffsI6g?=
+ =?us-ascii?Q?87eh+Lmel1AW8Dz2frY48D7kHcJsLZgXQjwPUDM+O0inL08YDSD5iLzRYOe6?=
+ =?us-ascii?Q?2oYkVmgKMQsvQ0nw9KaOiUaL05vGtQaUagNc/H0eMY5o1Cjlgq8gSUw/RLmQ?=
+ =?us-ascii?Q?b491oHAyUjBSot/9o3SZAceo/UUE++6FTG28+ZjKbUIegVGz/LYmhHGfuLd9?=
+ =?us-ascii?Q?dLIa/mCcouVxQWDeCVmQ4gMek3J47pc5PNuni/OZ1Q6NBruhg3HLHw1DFVGG?=
+ =?us-ascii?Q?BRGkZN7sy1oMmHmI7+3LYfZRR41sjkb1QOsJNxUE2SCirteG3rfW91YB0HDe?=
+ =?us-ascii?Q?Y6l5sNCmrBVz03vBxujbT0UEWYafPBhDSOniEY1PdmSlXb6G378YzxduH/7m?=
+ =?us-ascii?Q?rM2WGwVaaEVFMtXMa2AOs42Bv5/x5d+87bqoFOFBqOixg6WBtYjpKHJ6RxuG?=
+ =?us-ascii?Q?l6bxLlSTdY0YbhItVz1576Q=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 86e21904-5731-4c34-d9fd-08dc43edb85b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fab0cb1-e899-42b8-9c16-08dc43edc0bf
 X-MS-Exchange-CrossTenant-AuthSource: BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2024 06:12:26.0604
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2024 06:12:40.1001
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dpevjTdkAACe8PMOUmLV5zWUQ5CauAY6xkxs5vdX4N75LUIxcrIvjWUqjJCjrjJqg4r0kGjXo3//M4U9iANFWH8NhyZvIp28wbzXTg7BkBg=
+X-MS-Exchange-CrossTenant-UserPrincipalName: HIOSGwWNTfBIgfRGjPU18uo2XvJ0O/tiNAXOa/XkVsoV75woDK3C5ZEb2S+Azjj/X41VWWuasbUEJTDg5iR0bFGU3c4Zu8Y1iF+3gJ07SzI=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0711
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240313_231243_014418_C45FA312 
-X-CRM114-Status: UNSURE (   6.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240313_231248_498043_6114149D 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,25 +148,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add StarFive Technology to the vendors list.
+Add DT binding documentation used by StarFive's
+Starlink-500 cache controller.
 
 Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
 ---
- arch/riscv/include/asm/vendorid_list.h | 1 +
- 1 file changed, 1 insertion(+)
+ .../cache/starfive,starlink-500-cache.yaml    | 62 +++++++++++++++++++
+ 1 file changed, 62 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/cache/starfive,starlink-500-cache.yaml
 
-diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
-index e55407ace0c3..8c8f19ea505f 100644
---- a/arch/riscv/include/asm/vendorid_list.h
-+++ b/arch/riscv/include/asm/vendorid_list.h
-@@ -7,6 +7,7 @@
- 
- #define ANDESTECH_VENDOR_ID	0x31e
- #define SIFIVE_VENDOR_ID	0x489
-+#define STARFIVE_VENDOR_ID	0x67e
- #define THEAD_VENDOR_ID		0x5b7
- 
- #endif
+diff --git a/Documentation/devicetree/bindings/cache/starfive,starlink-500-cache.yaml b/Documentation/devicetree/bindings/cache/starfive,starlink-500-cache.yaml
+new file mode 100644
+index 000000000000..97ddf7db39e9
+--- /dev/null
++++ b/Documentation/devicetree/bindings/cache/starfive,starlink-500-cache.yaml
+@@ -0,0 +1,62 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/cache/starfive,starlink-500-cache.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive StarLink-500 Cache Controller
++
++maintainers:
++  - Joshua Yeong <joshua.yeong@starfivetech.com>
++
++description:
++  StarFive's StarLink-500 controller manages cache shared between clusters of
++  CPU cores. The cache driver provides mechanism to perform invalidate and write
++  back functionality to the shared memory.
++
++allOf:
++  - $ref: /schemas/cache-controller.yaml#
++
++# We need a select here so we don't match all nodes with 'cache'
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - starfive,starlink-500-cache
++
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: starfive,starlink-500-cache
++      - const: cache
++
++  reg:
++    maxItems: 1
++
++  cache-size: true
++  cache-sets: true
++  cache-block-size: true
++  cache-level: true
++  cache-unified: true
++
++additionalProperties: false
++
++required:
++  - compatible
++  - reg
++
++examples:
++  - |
++      cache-controller@15000000 {
++        compatible = "starfive,starlink-500-cache", "cache";
++        reg = <0x15000000 0x278>;
++        cache-block-size = <64>;
++        cache-level = <3>;
++        cache-sets = <8192>;
++        cache-size = <0x400000>;
++        cache-unified;
++      };
 -- 
 2.25.1
 
