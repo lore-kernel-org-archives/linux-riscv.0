@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C498C54E69
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 23:28:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DCB4C54E5D
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 23:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qV0lk86uTIhxUDbN12HUR1H1WtbNIFvMAf5Ms+8h/Hw=; b=YmmHwVkAdFyMjV
-	F5TKJswmLHYbIVNMfbGgacLrgxozGlG4aNjP9HTwCDIiU0/+c1E3Bs0xbMbII8ite4ZRCCCeKho1B
-	aRbvHAwZKqTqQAuq9/jL4faIWE0AfwlM02vsLPfPnB1N3ld6XmKJuMRmvT4naNwzx7wfsybtl3kgG
-	LeLMBYECANFWwxdwnFaNul0wpHDmdukzzxNTCcSU/LFUKKe3Z+RHKyUMVtGDMGlq2n2m0cjOaC2Ez
-	O0DwKukISrcfKWOpYq6awyC4G4/smrTaelcEUjYc4tH3QJzHo0guLvoIpWdEvcgSTtZ6xdCr8xFUC
-	Dsfsq95XfAqvcMxflrog==;
+	List-Owner; bh=tTO5+qwElBpLw37dVEPC53ufk54ixlv2S39EsZiGzS8=; b=qsRoWb1A+OfcCb
+	qJFenPoSaAaf3brRHaZiIgnFzVMkaMzVuqA3UZkQ4I7ZeIOIsOWa7UlS7Asq0TT8mzJr77BVZRkUj
+	qTR5OEFqlO99TqPc8CNyBJmKkzBSe2d+5AfAjRGn4r1ZQGSA1EMiru6AQc54uICrL9zshHANBeq8K
+	9FBrXS2bK9zrm5QcsOBZjXFyIL/zerjRza19T044mViFwokad5xQ4Y9h6QwABm49NcpOkqGW2HSv4
+	CRhzt/q6eJhfCuZ2ipaybtnc6aawOh9o6Dt7C8teIp0xXfa0C/xEuG8hvQ8m8vS3zwBmsFDMo7MO8
+	qY1P9yDLHKvyZOd7+v3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkuUd-0000000G0qF-3MLN;
-	Thu, 14 Mar 2024 23:28:11 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1rkuVC-0000000G1Ig-3NCn;
+	Thu, 14 Mar 2024 23:28:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkuTJ-0000000FzvC-2Ttg
-	for linux-riscv@lists.infradead.org;
+	id 1rkuTP-0000000G02c-3oJ9
+	for linux-riscv@bombadil.infradead.org;
 	Thu, 14 Mar 2024 23:26:57 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-dd8e82dd47eso188637276.2
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Mar 2024 16:26:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=k1ceQ+0+7x0dggVxu3pfjgACx/CpWN/VJ25BN1jj24Q=; b=fMbvKtvXHQa25gx5SCMT09szHP
+	TMvmOO7UvKOqik8uxhBQsCSjm/z3TpENigfhvqFCh5wy2GaBj531ar8hLg2cZB6vDydhk/peCxAJF
+	TDhsfYfdttqi4X1E7HsgcvIlquvtt6XqsUBoF1mjRHBwuSxbtkVDOhYrNjj9bP5Jit7DTfGkr2Pmt
+	lhcP0jEq/Ycz3SxWE+dVnfRlkftSN2XEr8byWvogBEp8UJwVn96CdcvrIGe6bWqO0kPjwNIQ+ToVC
+	oBe8dUSMH3GyEOuiwPhxMOd/YI9JRJXr7iDe0KCB8Irbcm6pR7fqdx8LggQULc1mLDU1gsUhd6XRS
+	dqjivUbg==;
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rkuTL-0000000Aiqo-0U79
+	for linux-riscv@lists.infradead.org;
+	Thu, 14 Mar 2024 23:26:54 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-6e6b63a34baso1501263b3a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Mar 2024 16:26:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1710458805; x=1711063605; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1710458809; x=1711063609; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=RlUxziw8BSQloGiMQruhCdJKG6uB341JDYak+7wFF+E=;
-        b=eLgC7FhFkAoa8lEawh65DkV4VKTvmBu2T7ObLQKyOPlkGBJh14RUCA6sgLYWvQ2smD
-         YKgxlgQ4rzQiTolE/1kngRa6El4DbSXJYRohzrpHOJvGkEV1FcFln8JyyAj6CojF1UQY
-         VnL8nKtalvmGMpc0h8sllRNx9CVtIE21XxVwu5Sk+/b8MNPjUWu5dtdBVCX/V6TwjjtV
-         Vp3Cz/4FPn/BK41l1v7jsRocd2udEdNqziVxxz4RY8b54A+UqL9aqCCuzI4Q3Cs6owPc
-         f7Tlt4xd/BWKrj2fLblejzS67nWACq85KBXYW0WcB/e0CWOMMluWs3iMqTd2ve1rTWQl
-         AzjQ==
+        bh=k1ceQ+0+7x0dggVxu3pfjgACx/CpWN/VJ25BN1jj24Q=;
+        b=IpSUgOvzJWye6SQ9pFtYNjOkuiejuc7kprSGnpJAp/6o7RP45KXQJlLhQanLnVktlf
+         oX8gIGzccHodZ6Q7SiJbXv4i44/izEZ17MLPt4xglZgNZMXEY5YKKMZzGoSYdHTMfW45
+         Qui686llwee8xnhNshkvT2jGGMhjxU/ERDai02eCpsskC+k6aSvlXXrIyJrGLnHuEnmp
+         GAWaWmloOEVl+wrzwZYIk21hAZIqHzhtJueRq//uNpwr47kqzKQ10NRYG7kxiuYSB1qh
+         344JUjQmAyvsiFShQJo04Nt4Iz1Ik9B9FAiCrB+RMBeEI11uy5xIShdocKvy/MEbRU8A
+         Tiiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710458805; x=1711063605;
+        d=1e100.net; s=20230601; t=1710458809; x=1711063609;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=RlUxziw8BSQloGiMQruhCdJKG6uB341JDYak+7wFF+E=;
-        b=N/KVOQJ68ZmdpfiGFym9w2Qb2pg34GEOkcp3o+6qLyP/yiHS9BarTyXRrgHl6oLa5p
-         McQdwGR/23DHl83DzrH+RmFEBToqajIoIKiGz20qnHTuhFa7gp3fSy6rzRuPFN44xBRN
-         ZssPfzKoPHw9Bo0tkQLWV34znCgrNlY3n2wbE/sR+KmbCYMlIjvLEJV5ZT/+Csevp5x4
-         6ZMWSqBKiq1DxAfWKmn7meVbRSxOfTal1OCWwUhLh+EIHz2+genYb8qQPH9OpKsjWDCg
-         MsshOVHotQXjmXNYUOrc0pnT/BWQquWZrRn9wQOSvM5Hnwcrpt6+fAHX96JmVr7yBcd5
-         Np+w==
-X-Forwarded-Encrypted: i=1; AJvYcCXolEEd2DVMiP4BrBOryTx+PZs+2T4SUUDYVwmyLoWPqKZnBA7jvBiwAGo72M8XYUYhIupOnLzLDkWBG4P44//xWgSbgZWu+aYhw2KzHAwR
-X-Gm-Message-State: AOJu0YxbJPZ8RyZnwjlWInjHbrCHedTCyBHsMBnDnGy2bfsIJ5abjL8q
-	X0/UDbjBppMm8aWgf36weBRQ6XC6SY8hT0TDvULq6H+kkF5OBQ2F+jbaLv3uOgLK8zbxyYo+r3j
-	fuQ==
-X-Google-Smtp-Source: AGHT+IH4/ZMXFC2bouhklnoQYb0n6FnYJheuUMSCo2hpU0HMSJmGgKAAvzyEpu0qKMWThNjUG8Cmprp+aaY=
+        bh=k1ceQ+0+7x0dggVxu3pfjgACx/CpWN/VJ25BN1jj24Q=;
+        b=T5v3DTVIF5xlmr0mlg0qzs46JefW7zlXKCchXc85MR+o5G5aeUbh4PnIAyZRn6pTaj
+         iuTjZ99aGjLYZpWuxfAa3Ylch0bfNUntiLILIuKwAN/UfTjRJJsels/rAnqufTIehfnH
+         TmiYyMdPovMa8RJM/xQK+lF4cNmgiNDEc7u1mE8eoDgp3JgqkBxKjdkz42ttSC+x9jxI
+         CqL7SATthrpGC34PgneqL/ETa6RvLbCytdoWSfaPqsn+URvLvRAAmEP35j4OzdEmgs4w
+         HhBmDXaCYL/qRHo3NZ47aHB4gDjshPvIHSBi9cxBXXxhlUveyGW7QPw26jXtbNJJ1/uS
+         Feug==
+X-Forwarded-Encrypted: i=1; AJvYcCVPD0Qm1rBHntVBXU2EZj1A0P92mX7clPSx8Q9GBxSZ1zmFB/2wABI//p+McGP+Mhy4sztEJe1B6q9tSsv2QZB8ZTlIbq0k0ZCkszBNOECW
+X-Gm-Message-State: AOJu0YxLY7mKKHg+LQRI54XMyNsf9rBeeAxdttihTukW3Zo+IK5925oE
+	H0bk9nysPF3D9ykvpHpv10V8XUSIcDDqzbhdpdrm+YrdaFUKt4YDtbxXq6SV7Qo9EgwXiUtcVAg
+	7sw==
+X-Google-Smtp-Source: AGHT+IFa6Xo5alB77JWBKkmfaT2866W5+uuYd+R94MhsO58PTc0FssqvQ3Br5ekzS9Hb9uDd/sllma8cTz8=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6902:1b08:b0:dc6:c94e:fb85 with SMTP id
- eh8-20020a0569021b0800b00dc6c94efb85mr188198ybb.2.1710458805679; Thu, 14 Mar
- 2024 16:26:45 -0700 (PDT)
-Date: Thu, 14 Mar 2024 16:26:22 -0700
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:23c6:b0:6e6:c374:f104 with SMTP id
+ g6-20020a056a0023c600b006e6c374f104mr152102pfc.0.1710458808854; Thu, 14 Mar
+ 2024 16:26:48 -0700 (PDT)
+Date: Thu, 14 Mar 2024 16:26:24 -0700
 In-Reply-To: <20240314232637.2538648-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240314232637.2538648-1-seanjc@google.com>
 X-Mailer: git-send-email 2.44.0.291.gc1ea87d7ee-goog
-Message-ID: <20240314232637.2538648-4-seanjc@google.com>
-Subject: [PATCH 03/18] KVM: selftests: Move GDT, IDT, and TSS fields to x86's kvm_vm_arch
+Message-ID: <20240314232637.2538648-6-seanjc@google.com>
+Subject: [PATCH 05/18] KVM: selftests: Move platform_info_test's main assert
+ into guest code
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
@@ -80,8 +96,9 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	Ackerley Tng <ackerleytng@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240314_162649_993819_69124192 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20240314_232651_752272_A82C8248 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,147 +116,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that kvm_vm_arch exists, move the GDT, IDT, and TSS fields to x86's
-implementation, as the structures are firmly x86-only.
+As a first step toward gracefully handling the expected #GP on RDMSR in
+platform_info_test, move the test's assert on the non-faulting RDMSR
+result into the guest itself.  This will allow using a unified flow for
+the host userspace side of things.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../testing/selftests/kvm/include/kvm_util.h  |  3 ---
- .../kvm/include/x86_64/kvm_util_arch.h        |  6 +++++
- .../selftests/kvm/lib/x86_64/processor.c      | 22 +++++++++----------
- .../kvm/x86_64/svm_nested_shutdown_test.c     |  2 +-
- .../kvm/x86_64/svm_nested_soft_inject_test.c  |  2 +-
- 5 files changed, 19 insertions(+), 16 deletions(-)
+ .../selftests/kvm/x86_64/platform_info_test.c | 20 +++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index acdcddf78e3f..58d6a4d6ce4f 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -94,9 +94,6 @@ struct kvm_vm {
- 	bool pgd_created;
- 	vm_paddr_t ucall_mmio_addr;
- 	vm_paddr_t pgd;
--	vm_vaddr_t gdt;
--	vm_vaddr_t tss;
--	vm_vaddr_t idt;
- 	vm_vaddr_t handlers;
- 	uint32_t dirty_ring_size;
- 	uint64_t gpa_tag_mask;
-diff --git a/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h b/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
-index 9f1725192aa2..b14ff3a88b4a 100644
---- a/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
-+++ b/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
-@@ -5,7 +5,13 @@
- #include <stdbool.h>
- #include <stdint.h>
+diff --git a/tools/testing/selftests/kvm/x86_64/platform_info_test.c b/tools/testing/selftests/kvm/x86_64/platform_info_test.c
+index 87011965dc41..cdad7e2124c8 100644
+--- a/tools/testing/selftests/kvm/x86_64/platform_info_test.c
++++ b/tools/testing/selftests/kvm/x86_64/platform_info_test.c
+@@ -29,7 +29,9 @@ static void guest_code(void)
  
-+#include "kvm_util_types.h"
-+
- struct kvm_vm_arch {
-+	vm_vaddr_t gdt;
-+	vm_vaddr_t tss;
-+	vm_vaddr_t idt;
-+
- 	uint64_t c_bit;
- 	uint64_t s_bit;
- 	int sev_fd;
-diff --git a/tools/testing/selftests/kvm/lib/x86_64/processor.c b/tools/testing/selftests/kvm/lib/x86_64/processor.c
-index 74a4c736c9ae..45f965c052a1 100644
---- a/tools/testing/selftests/kvm/lib/x86_64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/x86_64/processor.c
-@@ -417,7 +417,7 @@ static void kvm_seg_set_unusable(struct kvm_segment *segp)
+ 	for (;;) {
+ 		msr_platform_info = rdmsr(MSR_PLATFORM_INFO);
+-		GUEST_SYNC(msr_platform_info);
++		GUEST_ASSERT_EQ(msr_platform_info & MSR_PLATFORM_INFO_MAX_TURBO_RATIO,
++				MSR_PLATFORM_INFO_MAX_TURBO_RATIO);
++		GUEST_SYNC(0);
+ 		asm volatile ("inc %r11");
+ 	}
+ }
+@@ -42,13 +44,15 @@ static void test_msr_platform_info_enabled(struct kvm_vcpu *vcpu)
+ 	vcpu_run(vcpu);
+ 	TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_IO);
  
- static void kvm_seg_fill_gdt_64bit(struct kvm_vm *vm, struct kvm_segment *segp)
- {
--	void *gdt = addr_gva2hva(vm, vm->gdt);
-+	void *gdt = addr_gva2hva(vm, vm->arch.gdt);
- 	struct desc64 *desc = gdt + (segp->selector >> 3) * 8;
- 
- 	desc->limit0 = segp->limit & 0xFFFF;
-@@ -518,21 +518,21 @@ vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
- 
- static void kvm_setup_gdt(struct kvm_vm *vm, struct kvm_dtable *dt)
- {
--	if (!vm->gdt)
--		vm->gdt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
-+	if (!vm->arch.gdt)
-+		vm->arch.gdt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
- 
--	dt->base = vm->gdt;
-+	dt->base = vm->arch.gdt;
- 	dt->limit = getpagesize();
+-	get_ucall(vcpu, &uc);
+-	TEST_ASSERT(uc.cmd == UCALL_SYNC,
+-			"Received ucall other than UCALL_SYNC: %lu", uc.cmd);
+-	TEST_ASSERT((uc.args[1] & MSR_PLATFORM_INFO_MAX_TURBO_RATIO) ==
+-		MSR_PLATFORM_INFO_MAX_TURBO_RATIO,
+-		"Expected MSR_PLATFORM_INFO to have max turbo ratio mask: %i.",
+-		MSR_PLATFORM_INFO_MAX_TURBO_RATIO);
++	switch (get_ucall(vcpu, &uc)) {
++	case UCALL_SYNC:
++		break;
++	case UCALL_ABORT:
++		REPORT_GUEST_ASSERT(uc);
++	default:
++		TEST_FAIL("Unexpected ucall %lu", uc.cmd);
++		break;
++	}
  }
  
- static void kvm_setup_tss_64bit(struct kvm_vm *vm, struct kvm_segment *segp,
- 				int selector)
- {
--	if (!vm->tss)
--		vm->tss = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
-+	if (!vm->arch.tss)
-+		vm->arch.tss = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
- 
- 	memset(segp, 0, sizeof(*segp));
--	segp->base = vm->tss;
-+	segp->base = vm->arch.tss;
- 	segp->limit = 0x67;
- 	segp->selector = selector;
- 	segp->type = 0xb;
-@@ -1091,7 +1091,7 @@ static void set_idt_entry(struct kvm_vm *vm, int vector, unsigned long addr,
- 			  int dpl, unsigned short selector)
- {
- 	struct idt_entry *base =
--		(struct idt_entry *)addr_gva2hva(vm, vm->idt);
-+		(struct idt_entry *)addr_gva2hva(vm, vm->arch.idt);
- 	struct idt_entry *e = &base[vector];
- 
- 	memset(e, 0, sizeof(*e));
-@@ -1144,7 +1144,7 @@ void vm_init_descriptor_tables(struct kvm_vm *vm)
- 	extern void *idt_handlers;
- 	int i;
- 
--	vm->idt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
-+	vm->arch.idt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
- 	vm->handlers = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
- 	/* Handlers have the same address in both address spaces.*/
- 	for (i = 0; i < NUM_INTERRUPTS; i++)
-@@ -1158,9 +1158,9 @@ void vcpu_init_descriptor_tables(struct kvm_vcpu *vcpu)
- 	struct kvm_sregs sregs;
- 
- 	vcpu_sregs_get(vcpu, &sregs);
--	sregs.idt.base = vm->idt;
-+	sregs.idt.base = vm->arch.idt;
- 	sregs.idt.limit = NUM_INTERRUPTS * sizeof(struct idt_entry) - 1;
--	sregs.gdt.base = vm->gdt;
-+	sregs.gdt.base = vm->arch.gdt;
- 	sregs.gdt.limit = getpagesize() - 1;
- 	kvm_seg_set_kernel_data_64bit(NULL, DEFAULT_DATA_SELECTOR, &sregs.gs);
- 	vcpu_sregs_set(vcpu, &sregs);
-diff --git a/tools/testing/selftests/kvm/x86_64/svm_nested_shutdown_test.c b/tools/testing/selftests/kvm/x86_64/svm_nested_shutdown_test.c
-index d6fcdcc3af31..f4a1137e04ab 100644
---- a/tools/testing/selftests/kvm/x86_64/svm_nested_shutdown_test.c
-+++ b/tools/testing/selftests/kvm/x86_64/svm_nested_shutdown_test.c
-@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
- 
- 	vcpu_alloc_svm(vm, &svm_gva);
- 
--	vcpu_args_set(vcpu, 2, svm_gva, vm->idt);
-+	vcpu_args_set(vcpu, 2, svm_gva, vm->arch.idt);
- 
- 	vcpu_run(vcpu);
- 	TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_SHUTDOWN);
-diff --git a/tools/testing/selftests/kvm/x86_64/svm_nested_soft_inject_test.c b/tools/testing/selftests/kvm/x86_64/svm_nested_soft_inject_test.c
-index 0c7ce3d4e83a..2478a9e50743 100644
---- a/tools/testing/selftests/kvm/x86_64/svm_nested_soft_inject_test.c
-+++ b/tools/testing/selftests/kvm/x86_64/svm_nested_soft_inject_test.c
-@@ -166,7 +166,7 @@ static void run_test(bool is_nmi)
- 
- 		idt_alt_vm = vm_vaddr_alloc_page(vm);
- 		idt_alt = addr_gva2hva(vm, idt_alt_vm);
--		idt = addr_gva2hva(vm, vm->idt);
-+		idt = addr_gva2hva(vm, vm->arch.idt);
- 		memcpy(idt_alt, idt, getpagesize());
- 	} else {
- 		idt_alt_vm = 0;
+ static void test_msr_platform_info_disabled(struct kvm_vcpu *vcpu)
 -- 
 2.44.0.291.gc1ea87d7ee-goog
 
