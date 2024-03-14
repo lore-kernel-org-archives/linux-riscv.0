@@ -4,85 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFEDC54E60
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 23:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EFC9C54E5D
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 23:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LZoN5pQnffheeKPPHJoP6sKHLdPOvLeEFhRHIReni8o=; b=MF5DFlVCe00Xx+
-	nl48Y7FT3Y5/DBvinWNeBP9W5ooF9dNEFNQ4qML4F5a1DB3iEuO+23TLh4+pgwRfwX6RAMWBH5qkn
-	9AbsFpBx/hrObMrDAL2wVtRVz8eRiqeJL4VhRJgEFSKotq4Ux/EdbL9pXTGh10pnR1wTeDl1PyDsC
-	SFfY5/nbaaEkxciloB8hUL11M5BcwF2VUQ20JiqmVvFuGKlAukEaeNuaTKjgYPriUYHz1UWA9RmpI
-	RHGNOutFSvg9BsTTudLTlns5CaGRRRMsOl0jOlsX3glWbOhIl6kq2/BufEFS/ZsGYBCZDRe/PIb0C
-	P5hpHge5Zz9zLTbcbx7A==;
+	List-Owner; bh=8aF1sYo+04dg9+W1hD0TdoAIcfRbhZt4pPIw4A1b08Q=; b=Yih3YzkZB7jCoZ
+	/Go10cn5qGbeCBDHnmp1fQ1Ri7NWS7BHf58EeZzVgHJWcy5chr+2PSGtM96skn4fDZSGuKLzj7U5F
+	VDahLiCdF7Txq7RGjaLPKeCJJhd4p43ktUccCeNJMCdf+1q81rx3/M43qAk2RCRC9EoQ4CCcVU0jo
+	IjDE1phQRvCnqva2lmzAraCpc9k7HiizvYLZCntk6EtGabtz2hPoXgyy0ZYpX3SLxILvemrsaG19h
+	lA2gqMco1XfWYymb1Y97IIvjoHOOe97n7eRViQLFI6FdSXFvYQSPkQldnv/If4eNsNgbCzH2SYNZP
+	kBGK/ubTkl38XMhaBn9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkuWf-0000000G2Je-2wA7;
-	Thu, 14 Mar 2024 23:30:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rkuWz-0000000G2YJ-1ar0;
+	Thu, 14 Mar 2024 23:30:37 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkuTj-0000000G0Ia-33tg
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 14 Mar 2024 23:27:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=uvANWFYN1jpIYLHOo6AYUHWQUhBZT4UdCnC51A9DHBc=; b=KFyoh/YuOOnEF4KDoTCh+Xrch0
-	hTwn6QT6Jm0tAvMUCYiFeLiV3XcUC9p83QbTkoRRpIlBLLw8xHlN2+dr1NDDpgZTaDPYl1Ow6b8pX
-	TMv7jhz0YSWS8gS/MP0xFM9DGm2F2x4a4wYjJvLYqWAb8RpeyijN/q5RUCrQy0bvB6QQCAMoit02z
-	Is/Tt89D2ZLCgO1NRTGOfooZl6zRaHbPCtmqzph5RlZ7Q2YoiBrdrg2GaVWXKwNPqUZXQdJ9AhP8+
-	2g2hClnDj9cgbK6TSPqSkrnwiv43C582j9eB2tVcRqj7Ucm9plgJR1GwTiX3VBCG7iwxV9ISlcIhq
-	U/avGNIA==;
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkuTa-0000000Aiul-404j
+	id 1rkuTo-0000000G0JQ-015L
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Mar 2024 23:27:13 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-29c751d57ddso1227425a91.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Mar 2024 16:27:03 -0700 (PDT)
+	Thu, 14 Mar 2024 23:27:26 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-5e4df21f22dso1147169a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Mar 2024 16:27:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1710458822; x=1711063622; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1710458835; x=1711063635; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=uvANWFYN1jpIYLHOo6AYUHWQUhBZT4UdCnC51A9DHBc=;
-        b=HbDbMEtd4JjkIfVz8GzTm+SJJ2wVvRtJZE2H3eh4lWO641P0jzCSPVMkndDKksT6Tj
-         9NbNIEXKLHwlqYy6MRdUtTX/4JecBPTdD8qqHudE7j49q2G7aNhU+uhiaov7ybiD5WFu
-         HnufadObWWKlyTvrxXoj6ocLwQYPKoVt1VtxHjrrOS3LnBUf/Ff6+GFbExEkLyzHaiZ4
-         W9nqHDn5ALn91xEiZPoEv4E5Iak6dxoz8wM8p7+St+/Jit73/tm2WPFoEyPiOy8qPifs
-         w2UUU19i3OdeU+QFv22kZnbI/dHUXRTej5zgrsXmRGKuEdB7SdQ7I9iR/aqSooEcYAnR
-         h1Lg==
+        bh=fVWd/4nHkGU+RZSRNxZTIKvgC6ZcIUosAi3U9bNiK5o=;
+        b=QwEJn3MA9pM5ifUwHbk28G4Ef+y07rwNcSdxnjXQKVIz/GaXb2eq+bE3Y8YVw822OK
+         8bCz2GVfLsb8rYBHlEN74ZJs3SD6vBZoXUv8ZPkIGjzW3HHjgUY7xqBRO9Y/JrQtnmN4
+         f2e4g+5giGcGBmbGQ+bk1saTCPHWPS7Ni/644hgOVz029n2RZ2Us06CEPKyvi0ihVhTo
+         a43tP/X/cd12XOQtHYNC7f5CF4khZHo2KG3AdWDV4BnOng7sTnVpFYpOlmZh5V1gTuT9
+         tjsZSXgXvtR8NXGWy3VzERTPATa9NvH+QYCuwSKOA/fy8fbncEiZyRpNGbM5cQtFMMjm
+         nItQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710458822; x=1711063622;
+        d=1e100.net; s=20230601; t=1710458835; x=1711063635;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=uvANWFYN1jpIYLHOo6AYUHWQUhBZT4UdCnC51A9DHBc=;
-        b=f/JooVMI/J361XdB+nGjClsqU+bshWd+mvx4HVAkY8/8gEtANXgXjzEyQrYw/FSP30
-         aC574TCAwSBBFOVI5LoWE9iIBCTU2XkzQrrxAZ/GzlU0CR+cdfb/yc6gb2DMA67SLiYm
-         X9FKf5lV1iFzLSc+upo4XRffogCy0ts1yjqqAXYUwNGurTYUbVI72kMFdBgLIjr1vqxS
-         KVwVZ+dTJZwmqxyTAweva8zMtR6fzarufTt1EeXG9VhpKee0JqM7r6ujLR2eD1NHYrQ8
-         mgIwbAMsnBMQO98oKUedAwOfPr82XGg/VTQy4Zgff770RsHleJ3KdCB9r8lgvRDVQB5z
-         rkrw==
-X-Forwarded-Encrypted: i=1; AJvYcCWia+aBUAA4/1yklcZ3solzXcGQ2i9KKGhy4WT2QoyQdi4Ac1xVccrsicPEyd1tq+il10YzdK/O+Gsi87gBMWfC0YKYQo0jbx+rKw9v1aGz
-X-Gm-Message-State: AOJu0YztNa4mkaDe35hbp+mcXMbczCpqi8W4cao3pL8E9B5ZT6gjKJLi
-	njNdkXyKeCu9tx1p09o/haLrrrgw5tS2vLAg9UYS4TRoOkEPJRDuwwRCxTMgMKgWOeBGpAWEx7U
-	lPw==
-X-Google-Smtp-Source: AGHT+IEmqFL1IXL1pIFLbyp7eKBr0s6FFOiXRR1g8DgzlSysrKWmAergLMAyluCim6XJlXtnyauxch/eeT4=
+        bh=fVWd/4nHkGU+RZSRNxZTIKvgC6ZcIUosAi3U9bNiK5o=;
+        b=i+ZIFm04YdkKWjJhJ71Biu+51alKpeqDoxRCK5fsXR4qeZ13ynvfZIvB9Z81Qs7DPE
+         Ze+6VHHz8wkB/s7cMHsRSdJBBmmtwYopG2/AHZg6gOrhYz1n8tG8yDRP2KoV09etTTxn
+         RPZVqSqwDFQ083gtaZqZhM9dlgUKxrYp15bOfq7lCJqLQE8W+ks9lYUSKxKrSd1UKYIz
+         lYuUUfB+QJiSwLz72s1APfguvTpwQjUB/Z7A92Bj8aAbaymB+wQHPYGZonwFqTB810l3
+         NGUjvRHNsoQ8mBT1bv/CYuX6/74rvXzBuio+E8vQNxmi0b6bPhBHGbI7CexXYGUg8h9E
+         CLgA==
+X-Forwarded-Encrypted: i=1; AJvYcCV5QDaVXy/fhg4du4j4kMebm/IldFztlYb3605Zn+OsYmUE3tBdSQPHUj8smOyohnq2M4EJ//W3Tx9JSqHPnw5jTcf7X9PRoINGjoClCBok
+X-Gm-Message-State: AOJu0YxZprRYutf8UKtNczNozKgBNoe50VwTAgpDD3Qfh6laLYxO+7Dn
+	fHyrhwgQ7SudHMzrHsGsfy4Zcwyww8yEbX/BZ6SAYbWz+CIucpEvpLpprOXHSWzHxG/Zp9HphNR
+	NZA==
+X-Google-Smtp-Source: AGHT+IGRI5hc5CP3CR9IYz2Kmbchzln3C1e7PEoGzqGhInO36w6Nc4buOmgVEVYtprnFqx8Z8ErRa1R6iOg=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:90b:b07:b0:29c:6d5f:a6a8 with SMTP id
- bf7-20020a17090b0b0700b0029c6d5fa6a8mr8117pjb.0.1710458822156; Thu, 14 Mar
- 2024 16:27:02 -0700 (PDT)
-Date: Thu, 14 Mar 2024 16:26:31 -0700
+ (user=seanjc job=sendgmr) by 2002:a63:6483:0:b0:5dc:2a75:9a19 with SMTP id
+ y125-20020a636483000000b005dc2a759a19mr12387pgb.2.1710458834658; Thu, 14 Mar
+ 2024 16:27:14 -0700 (PDT)
+Date: Thu, 14 Mar 2024 16:26:37 -0700
 In-Reply-To: <20240314232637.2538648-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20240314232637.2538648-1-seanjc@google.com>
 X-Mailer: git-send-email 2.44.0.291.gc1ea87d7ee-goog
-Message-ID: <20240314232637.2538648-13-seanjc@google.com>
-Subject: [PATCH 12/18] KVM: selftests: Allocate x86's GDT during VM creation
+Message-ID: <20240314232637.2538648-19-seanjc@google.com>
+Subject: [PATCH 18/18] KVM: selftests: Drop @selector from segment helpers
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
@@ -95,8 +80,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	Ackerley Tng <ackerleytng@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240314_232709_050120_1D9474DA 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20240314_162720_550542_06CCAF5D 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,38 +99,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allocate the GDT during creation of non-barebones VMs instead of waiting
-until the first vCPU is created, as the whole point of non-barebones VMs
-is to be able to run vCPUs, i.e. the GDT is going to get allocated no
-matter what.
+Drop the @selector from the kernel code, data, and TSS builders and
+instead hardcode the respective selector in the helper.  Accepting a
+selector but not a base makes the selector useless, e.g. the data helper
+can't create per-vCPU for FS or GS, and so loading GS with KERNEL_DS is
+the only logical choice.
+
+And for code and TSS, there is no known reason to ever want multiple
+segments, e.g. there are zero plans to support 32-bit kernel code (and
+again, that would require more than just the selector).
+
+If KVM selftests ever do add support for per-vCPU segments, it'd arguably
+be more readable to add a dedicated helper for building/setting the
+per-vCPU segment, and move the common data segment code to an inner
+helper.
+
+Lastly, hardcoding the selector reduces the probability of setting the
+wrong selector in the vCPU versus what was created by the VM in the GDT.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/lib/x86_64/processor.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ .../selftests/kvm/lib/x86_64/processor.c      | 29 +++++++++----------
+ 1 file changed, 14 insertions(+), 15 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/lib/x86_64/processor.c b/tools/testing/selftests/kvm/lib/x86_64/processor.c
-index f4046029f168..8547833ffa26 100644
+index dab719ee7734..6abd50d6e59d 100644
 --- a/tools/testing/selftests/kvm/lib/x86_64/processor.c
 +++ b/tools/testing/selftests/kvm/lib/x86_64/processor.c
-@@ -518,9 +518,6 @@ vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
- 
- static void kvm_setup_gdt(struct kvm_vm *vm, struct kvm_dtable *dt)
- {
--	if (!vm->arch.gdt)
--		vm->arch.gdt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
--
- 	dt->base = vm->arch.gdt;
- 	dt->limit = getpagesize() - 1;
+@@ -438,10 +438,10 @@ static void kvm_seg_fill_gdt_64bit(struct kvm_vm *vm, struct kvm_segment *segp)
+ 		desc->base3 = segp->base >> 32;
  }
-@@ -644,6 +641,7 @@ static void vm_init_descriptor_tables(struct kvm_vm *vm)
- 	extern void *idt_handlers;
- 	int i;
  
-+	vm->arch.gdt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
- 	vm->arch.idt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
- 	vm->handlers = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
- 	/* Handlers have the same address in both address spaces.*/
+-static void kvm_seg_set_kernel_code_64bit(uint16_t selector, struct kvm_segment *segp)
++static void kvm_seg_set_kernel_code_64bit(struct kvm_segment *segp)
+ {
+ 	memset(segp, 0, sizeof(*segp));
+-	segp->selector = selector;
++	segp->selector = KERNEL_CS;
+ 	segp->limit = 0xFFFFFFFFu;
+ 	segp->s = 0x1; /* kTypeCodeData */
+ 	segp->type = 0x08 | 0x01 | 0x02; /* kFlagCode | kFlagCodeAccessed
+@@ -452,10 +452,10 @@ static void kvm_seg_set_kernel_code_64bit(uint16_t selector, struct kvm_segment
+ 	segp->present = 1;
+ }
+ 
+-static void kvm_seg_set_kernel_data_64bit(uint16_t selector, struct kvm_segment *segp)
++static void kvm_seg_set_kernel_data_64bit(struct kvm_segment *segp)
+ {
+ 	memset(segp, 0, sizeof(*segp));
+-	segp->selector = selector;
++	segp->selector = KERNEL_DS;
+ 	segp->limit = 0xFFFFFFFFu;
+ 	segp->s = 0x1; /* kTypeCodeData */
+ 	segp->type = 0x00 | 0x01 | 0x02; /* kFlagData | kFlagDataAccessed
+@@ -480,13 +480,12 @@ vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
+ 	return vm_untag_gpa(vm, PTE_GET_PA(*pte)) | (gva & ~HUGEPAGE_MASK(level));
+ }
+ 
+-static void kvm_seg_set_tss_64bit(vm_vaddr_t base, struct kvm_segment *segp,
+-				  int selector)
++static void kvm_seg_set_tss_64bit(vm_vaddr_t base, struct kvm_segment *segp)
+ {
+ 	memset(segp, 0, sizeof(*segp));
+ 	segp->base = base;
+ 	segp->limit = 0x67;
+-	segp->selector = selector;
++	segp->selector = KERNEL_TSS;
+ 	segp->type = 0xb;
+ 	segp->present = 1;
+ }
+@@ -510,11 +509,11 @@ static void vcpu_init_sregs(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+ 	sregs.efer |= (EFER_LME | EFER_LMA | EFER_NX);
+ 
+ 	kvm_seg_set_unusable(&sregs.ldt);
+-	kvm_seg_set_kernel_code_64bit(KERNEL_CS, &sregs.cs);
+-	kvm_seg_set_kernel_data_64bit(KERNEL_DS, &sregs.ds);
+-	kvm_seg_set_kernel_data_64bit(KERNEL_DS, &sregs.es);
+-	kvm_seg_set_kernel_data_64bit(KERNEL_DS, &sregs.gs);
+-	kvm_seg_set_tss_64bit(vm->arch.tss, &sregs.tr, KERNEL_TSS);
++	kvm_seg_set_kernel_code_64bit(&sregs.cs);
++	kvm_seg_set_kernel_data_64bit(&sregs.ds);
++	kvm_seg_set_kernel_data_64bit(&sregs.es);
++	kvm_seg_set_kernel_data_64bit(&sregs.gs);
++	kvm_seg_set_tss_64bit(vm->arch.tss, &sregs.tr);
+ 
+ 	sregs.cr3 = vm->pgd;
+ 	vcpu_sregs_set(vcpu, &sregs);
+@@ -588,13 +587,13 @@ static void vm_init_descriptor_tables(struct kvm_vm *vm)
+ 
+ 	*(vm_vaddr_t *)addr_gva2hva(vm, (vm_vaddr_t)(&exception_handlers)) = vm->handlers;
+ 
+-	kvm_seg_set_kernel_code_64bit(KERNEL_CS, &seg);
++	kvm_seg_set_kernel_code_64bit(&seg);
+ 	kvm_seg_fill_gdt_64bit(vm, &seg);
+ 
+-	kvm_seg_set_kernel_data_64bit(KERNEL_DS, &seg);
++	kvm_seg_set_kernel_data_64bit(&seg);
+ 	kvm_seg_fill_gdt_64bit(vm, &seg);
+ 
+-	kvm_seg_set_tss_64bit(vm->arch.tss, &seg, KERNEL_TSS);
++	kvm_seg_set_tss_64bit(vm->arch.tss, &seg);
+ 	kvm_seg_fill_gdt_64bit(vm, &seg);
+ }
+ 
 -- 
 2.44.0.291.gc1ea87d7ee-goog
 
