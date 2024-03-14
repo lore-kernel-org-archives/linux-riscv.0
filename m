@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4102FC54E67
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 10:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47638C54E68
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 10:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=eaPglba0e2RT1vNCl2GQqFS+cXvNBwBz9vtN80D+iT0=; b=TsAqYqGJwt5RNj
-	G2oBj+VevV9sVbUMluRlH6AxTqAVeDRS70fUnWXK2QSM/uux5HWyxg1T0q80jka0WOHr/AfaCCcnq
-	vpX2mbVC5aWMbB24WVpqwvH9p032ZlsVhdWXxJPNw7VxmnkxrRTqqmwEu945B9j/1i/QvY1cczOXN
-	2uSNMu8L27hErBD98+HAHiVoojtIVOcDUmND2L0ud+l3W5LNI52ph5dWXp5gjNH7NH41814itgyI2
-	MRoeJFj0gtLdO28vMFf/m1eOMQAp0BKYUGCUhHbBji048MH1OHedKubdjhDhzKqNrWdJ8W+W21NYn
-	Ft/Y/85QAaPyKXbrtuLA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iqvMoMQwSF09Iu2Koe2W59S9boyMf7VQnSKV4bZYqvI=; b=azvtnF/c5ehunr
+	UhGZHm7x0D4pdZe4PNq3/E50A4SO+mjtcMTKSpV4iNknOf2beXOYkpQRrJ0u6WYc1MldTuO1HSVa3
+	gf3hGpk+XumPJg3FZsXvi6gOXG+RaCeoz9TkO1dPREEA/Kxr0Op+qLlU1opVhUKeZw0TFq+/vQ+qp
+	Y/QTX08MPT+ce0qdg5rHJB7DqckgPPvmkoDeIwVFw1xGagXposQnACwmomo1e1zfgBYbEcuvU7wfi
+	B2159FimDkodanAPwOp5y6J3sU5eo2/WCF2ynNXkDp//4gebNnUJII/YLxy9bqT2ju3beEvTD+74O
+	oA1utWxEg7o98AWou1UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkhuG-0000000Doml-027z;
-	Thu, 14 Mar 2024 10:01:48 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1rkhuM-0000000Dopv-40c4;
+	Thu, 14 Mar 2024 10:01:54 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkhuC-0000000Doli-0sNV
+	id 1rkhuJ-0000000Don7-0zz9
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Mar 2024 10:01:45 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-6e46dcd8feaso565708b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Mar 2024 03:01:41 -0700 (PDT)
+	Thu, 14 Mar 2024 10:01:53 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-29bbff1505dso696633a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Mar 2024 03:01:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1710410501; x=1711015301; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bADiP2JMoy9tupS84LlT0K2ooRmfm9NBpaoBAI0A3AU=;
-        b=dEAiAme/nouBoYcglHwrf0qeACCOWu9t9JwTf8j7VaCgtPrV0TyyiiIFrohvlsQxAs
-         SO2osiBKTPDZDGb9r0sKDXPUZpzOho0+VVsAMYbpVvm57wXq5Dqt/2ki5cvVdVTsziLu
-         yLO8IzmHql+Ua+5V09Aqe+7uBJIPq6tC1tBlZ+jLXBBGrwGya0GCL2JlwCZeHefOiVke
-         6ePbmDZrs8qnEMPI3lYq9IaATnH8lTEGlGun4DaI3Sq4PPlWkgD4ucMFyS6NlElSAZua
-         AwVaVKneqTpDnzsUSQ2sYAsChx+dYSfJ+Rvoh2KPzjN/AngsHB192S9VphGCBep4LhH8
-         eQig==
+        d=gmail.com; s=20230601; t=1710410510; x=1711015310; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8RfbJF1AHvLx68TbsWfPK5aQiL25UBSnWB8Job9Vv4g=;
+        b=T5trga4qdI2tTdXY7Tk2BTNyLshiWdxDWTrVMD4ZmVsuV2X7iUeGg6ZdGgydfFHZGz
+         YY7nANdiIk5408U9AMviuBsVll3wmddajdUZ+uzySrCR9/6QPTsoYDTpQty5nPs2FG5y
+         hb1zk2GPQAZwN1T1Ya1Fi1OqsuFnoAhfzO8C3s67YJVHDH/LbNzlOWsYJuHe2V3dbFPC
+         mFMuFJO7P049rehHE5nwQs1a4Ogfy1F241uzZiENX8s8g4mSdwKN2mauyJYqf55a0KXm
+         csMHgqm1IPTDROXP5GC+k26lgEJeT4N+GVsOlIxyhKOdZU8Qg7Bn9rdRTuBuOfClNYpa
+         Nqag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710410501; x=1711015301;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bADiP2JMoy9tupS84LlT0K2ooRmfm9NBpaoBAI0A3AU=;
-        b=dZZ1sQD8UuKWe/J1olFc0ABhZjgBqgxsDXSbzej3UVAs2Q2422ZUtXeoq5wSyPsaA4
-         0cbIAdVtS2hr8goYKs+3LMojct2OXC771v+mW6VtSreXBs66NWpoGNNKOGKHRfsqe9h7
-         BIbqANnHynPidRSJohxpofpJzcf1G7HMdAD9XV3z2prTMdt18LviEdOqOJv8Ym0HfHAo
-         Kw2EwNaRUwyNerUrRBpefGY3ETgY6R7RebCSbxLx4zz6J6dz/cggib50c7Syst9x5g9R
-         yE4aBo0n0Pa39NQKClpD+1zZhhVG/+8yDYVSBmI2E4A9GNfT2xLt/alojUiwZRZLZ8i/
-         n3kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU2EcYb+4xa0etJPWJO/IzeBtNaUWeafOwsowDufX6jQg1DLoo8/CCSF7osx7Y+Bhxr/3Sktz8WaSAhyZ3B9FpqbE8H9J7NgfHzzjEDEiO1
-X-Gm-Message-State: AOJu0YwlEE3gZ5y5zXDUUcPAxhcLUTOBSfBAyHwbAEsVdhUAR33xgJRi
-	k/CmsHaDzXGWsNb/Su5XmSgHqPsQrnO6gNzWZJ8wro5pKJv2pwW0
-X-Google-Smtp-Source: AGHT+IFFzJM+HQEOJ7Cz4atZvEGs+rBe4yQQcu9ZWDjJnEVxLYoMA196zIfehODsDYXjZPNscvpwDA==
-X-Received: by 2002:a05:6a00:23c3:b0:6e6:b129:1842 with SMTP id g3-20020a056a0023c300b006e6b1291842mr1281104pfc.28.1710410500940;
-        Thu, 14 Mar 2024 03:01:40 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1710410510; x=1711015310;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8RfbJF1AHvLx68TbsWfPK5aQiL25UBSnWB8Job9Vv4g=;
+        b=Ocse7QAfrJLiHBf7ijALK0HBrXgHHTKmA3CxDFZqbQWRdpHMYTueC8UEwBa+Nm6/mn
+         4uLnpFxyt2WsDKjcKz8n57SBGAnpWM/vnF1ZNI64Kv+fUsob4nv63jITdvChuqCQeC9k
+         4XzBhTREc3QCL4uWtKyHxT+roAn4F6Q3sk7w69iUkJLKLOQw689pnRuRXAKq0s+Cur+9
+         ohFKetvUmtpCGceEHpRqq3ln1UrXK3Z9xSoyQG5oM+cD9VRia1fOL80DwB0ebUeFXAC3
+         Ee0KiZPBTJX9P07XJ3KmtE6NKD1lR05s/BwixfsGmhGwxPXBIZq75tPkZL5CYVXBAEG8
+         YM+w==
+X-Forwarded-Encrypted: i=1; AJvYcCXrV2+esElG70m/ztfgjzKEZmkQKk4zSNNq+Dxxu8nqdRX8idCOHrJ7yhJDlcYOT8cHrHnkzYMcLEScGFGfHlV3Yt0LYLXw+peEGzbQNPVq
+X-Gm-Message-State: AOJu0YxReKQuAXwsAymhB0vLJ5m2wphIrvom5UQKzfeI8qJ33GNkzjH5
+	TdeOjQzqDJ8YlM4ETasOqs2oPFqq+ZDQwL9KiuFibKD/nMO+aMaH
+X-Google-Smtp-Source: AGHT+IFOug+prJyXuRGFeVODmozS4fHIyHcN5UlA0KXkTsIv7Ms3lGTNvz7tnZ/bHi5vnYPctGNhqw==
+X-Received: by 2002:a17:90b:c12:b0:29b:b736:71b8 with SMTP id bp18-20020a17090b0c1200b0029bb73671b8mr1166414pjb.28.1710410509361;
+        Thu, 14 Mar 2024 03:01:49 -0700 (PDT)
 Received: from localhost ([2001:da8:a801:69b2:6cee:23f3:5da6:de15])
-        by smtp.gmail.com with ESMTPSA id lc24-20020a056a004f5800b006e6bda407b6sm1073123pfb.202.2024.03.14.03.01.40
+        by smtp.gmail.com with ESMTPSA id bo9-20020a17090b090900b0029bfac322aasm483186pjb.30.2024.03.14.03.01.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Mar 2024 03:01:40 -0700 (PDT)
+        Thu, 14 Mar 2024 03:01:49 -0700 (PDT)
 From: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
 To: u.kleine-koenig@pengutronix.de,
 	robh+dt@kernel.org,
@@ -76,15 +77,18 @@ Cc: linux-pwm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	dlan@gentoo.org,
 	inochiama@outlook.com,
-	Jingbao Qiu <qiujingbao.dlmu@gmail.com>
-Subject: [PATCH v5 0/2] riscv: pwm: sophgo: add pwm support for CV1800
-Date: Thu, 14 Mar 2024 18:01:29 +0800
-Message-Id: <20240314100131.323540-1-qiujingbao.dlmu@gmail.com>
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v5 1/2] dt-bindings: pwm: sophgo: add pwm for Sophgo CV1800 series SoC
+Date: Thu, 14 Mar 2024 18:01:30 +0800
+Message-Id: <20240314100131.323540-2-qiujingbao.dlmu@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20240314100131.323540-1-qiujingbao.dlmu@gmail.com>
+References: <20240314100131.323540-1-qiujingbao.dlmu@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240314_030144_275790_C5234F39 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20240314_030151_457705_A961ED79 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,78 +105,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Sophgo CV1800 chip provides a set of four independent
-PWM channel outputs.
-This series adds PWM controller support for Sophgo cv1800.
+Add devicetree binding to describe the PWM for Sophgo CV1800 SoC.
 
-Changes since v4:
-- drop filename
-- fix macro
-- optimize cv1800_pwm_set_polarity()
-- optimize cv1800_pwm_set_oe()
-- add comment for cv1800_pwm_set_oe()
-- use ticks replace tem
-- fix duty_cycle larger than period_val
-- use devm_clk_rate_exclusive_get() replace
-  clk_rate_exclusive_get()
-- map linux polarity to register polarity 
-
-v4: https://lore.kernel.org/all/20240304085933.1246964-1-qiujingbao.dlmu@gmail.com/
-
-datasheet Link: https://github.com/milkv-duo/duo-files/blob/main/duo/datasheet/CV1800B-CV1801B-Preliminary-Datasheet-full-en.pdf
-page 614
-
-Changes since v3:
-- use macro instead of npwm number
-- add support for polarity feature
-- add support for Output-Enable/OE feature
-
-v3: https://lore.kernel.org/all/20240223082014.109385-1-qiujingbao.dlmu@gmail.com/
-
-Changes since v2:
-- use 0x08 instead of macro
-- split if statements based on conditions
-- in order to round up, first calculate the
-  number of high-level cycles, then subtract
-  it from the PERIOD to obtain the number of HLPERIOD
-- use new pwmchip_alloc() API instead of old style
-
-v2: https://lore.kernel.org/all/20240212121729.1086718-1-qiujingbao.dlmu@gmail.com/
-
-Changes since v1:
-- drop full stop from subject
-- re-order maintainers and description
-- pass checkpatch.pl --strict
-- fix naming errors
-- add "Limitations" section
-- use a driver specific prefix for all defines
-- using bool instead u32 in cv1800_pwm_enable
-- check and set state->polarity
-- use mul_u64_u64_div_u64
-- use clk_rate_exclusive_get(), balance with clk_rate_exclusive_put()
-- using macro definitions instead of shift operations
-- remove shift operation on 0
-- use priv replace cv_pwm
-- hardcode npwm
-- set atomic to true
-- remove MODULE_ALIAS
-
-v1: https://lore.kernel.org/all/20240207055856.672184-1-qiujingbao.dlmu@gmail.com/
-
-Jingbao Qiu (2):
-  dt-bindings: pwm: sophgo: add pwm for Sophgo CV1800 series SoC
-  pwm: sophgo: add pwm support for Sophgo CV1800 SoC
-
- .../bindings/pwm/sophgo,cv1800-pwm.yaml       |  45 +++
- drivers/pwm/Kconfig                           |  10 +
- drivers/pwm/Makefile                          |   1 +
- drivers/pwm/pwm-cv1800.c                      | 315 ++++++++++++++++++
- 4 files changed, 371 insertions(+)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
+---
+ .../bindings/pwm/sophgo,cv1800-pwm.yaml       | 45 +++++++++++++++++++
+ 1 file changed, 45 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/pwm/sophgo,cv1800-pwm.yaml
- create mode 100644 drivers/pwm/pwm-cv1800.c
 
-
-base-commit: 8ffc8b1bbd505e27e2c8439d326b6059c906c9dd
+diff --git a/Documentation/devicetree/bindings/pwm/sophgo,cv1800-pwm.yaml b/Documentation/devicetree/bindings/pwm/sophgo,cv1800-pwm.yaml
+new file mode 100644
+index 000000000000..b5b819d780f1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/sophgo,cv1800-pwm.yaml
+@@ -0,0 +1,45 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pwm/sophgo,cv1800-pwm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Sophgo CV1800 PWM controller
++
++maintainers:
++  - Jingbao Qiu <qiujingbao.dlmu@gmail.com>
++
++description:
++  The chip provides a set of four independent PWM channel outputs.
++
++allOf:
++  - $ref: pwm.yaml#
++
++properties:
++  compatible:
++    const: sophgo,cv1800-pwm
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  "#pwm-cells":
++    const: 3
++
++required:
++  - compatible
++  - reg
++  - clocks
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    pwm0: pwm@3060000 {
++        compatible = "sophgo,cv1800-pwm";
++        reg = <0x3060000 0x1000>;
++        clocks = <&clk 60>;
++        #pwm-cells = <3>;
++    };
 -- 
 2.25.1
 
