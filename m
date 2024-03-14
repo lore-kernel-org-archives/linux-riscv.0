@@ -4,80 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC4FBC54E66
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2024 22:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE14BC54E66
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 00:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CUtZMtk5xIleT+DVNgmUn/bGrbt74Q0LZPPvSlkkuEE=; b=eoJZQvwGeKtqqF
-	mwgzZ7roJhLwPejF8rhjxi+MW8HN8W3RDnV9N3QtPAZQ6CaKiSQ6JCFlDguUYtNJySkdXfUPUhcvG
-	DYaGHOpkzmMW3zLX6OgJwzJHDs+x5hIXvCWdFZTyYHIp7AtxdYxZmSunmT917cHMqljtPeoEN/QVF
-	Zd28LY/RIlCJ85TqpuJA9nz7VzQ4Qc7386h/1Y/6QDia1kZ1qyKL1lKfkQDbMXL7CyRa87B6ZaVll
-	6AzYfLRgzVdhj8R77wqfl0S03v6Sd16qSWgwL/mcW+QWAFoXze+6L2MC7NOCt4kplZT8EAquPRY+d
-	top6FuMV9u2jkMGTuT/g==;
+	List-Owner; bh=lxqdqGQIGthmEUq7BUtyRzompz8Bd7dArtzBZATF9+w=; b=VknuznTygPwdWw
+	y5UoKdah8mVBQsOOxRn2bdJtZdAMGH3O5CmufG/Ln/beYHHQQ2En//OoPRW1joDT98fpK6I9/vuIm
+	MuoF08wwQs6KxlSIQPAZmuWvwmzTXpm4pDQB8GfrNP84+nJ29gRZH2fJd6KSGL34TCEiA0hcIIAje
+	CRNm6h/KKWQ71WR0ahTdlFf4TxI5KMExPA+J0qriaRIzHGGB77LsAI+uBlRiTva9oprtFcPtcUyix
+	H6uxcuhpr7Wk2/wg3rDt/HwQkM+fiLz9IoOusOcIXhisy6zGzCUj1nlIVfqomOXNBkfInBwgjy0+s
+	ClTr57DhadaGgInryt+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkXNP-0000000CACg-3gqJ;
-	Wed, 13 Mar 2024 22:47:11 +0000
-Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
+	id 1rkYoH-0000000CN15-24Ug;
+	Thu, 14 Mar 2024 00:19:01 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkXNM-0000000CABN-0iIm
-	for linux-riscv@lists.infradead.org;
-	Wed, 13 Mar 2024 22:47:10 +0000
-Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-5a1b6800ba8so164718eaf.0
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Mar 2024 15:47:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1710370024; x=1710974824; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gBuPQdMcUilIYWe3D1Oed5mjHWDS9ocASBUxxLJFVm8=;
-        b=bidMR4khD8eo2GJgu24+PUmHU8tMbFh5IHO7KEhqoRUdaM5J0P71SArNMbiGYOdQVP
-         gKNO+LUojp1WSypCQrAcTaU3VAU3gR3qKL6Sx71ClKzi0SK+h++4oO5lsZNzM9aFo3cW
-         XrfbPLGY8vFA1gJ9jtkwtMQG/H2y25ZMDdL2xEQt4CcWoY7KF9PfrxZFjD9hq0Y0AeZL
-         VM/rCyT9zGd2KrAvQNJ2tF0b5UCSWc8rdQyL0XTY4lZdaVxwAFB/7d4lhuTPB/3JRQW6
-         8EuCvHIzm/5SzXjUNSu1g2mpPVIkIFBXUZIapoGqrh+gR5skWtZT0BuLGrC+OrCv2+81
-         M0Bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710370024; x=1710974824;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gBuPQdMcUilIYWe3D1Oed5mjHWDS9ocASBUxxLJFVm8=;
-        b=AhyfIPqb8Nyi+dhCrTaKPATKG7gN+NpXUq2NFuZUEInTlBjb4w5KRUSCyir1t3YbWL
-         cN/Uf8BMStra0rv4TI3TTicjPvGY16FCamMvObNGgBzRogeNjU96d1tqpvh1lV68x17j
-         Y9xoBldW7ithzTT69hRtutPRMOI5g193W+vRsFjL0WaS4SsK/sbVMWzu16Ajv/d4g9bS
-         NKXmghQAKjHkHzCcapLlTzyh4HeYhqiIwE0bugTow1mZax6Ij7hWf/1ox8XxlZxdlXST
-         udnqOxZgb6k9l3baLvVROovjuZjU/IMqEUtpl1e/13QR9/0lk9E4O+CXLi3oWmb0QZfo
-         hu4g==
-X-Forwarded-Encrypted: i=1; AJvYcCXaSNM5HI+1tbb1vbnWfMnxjnOTquWq5Rn6PcftRxzBOVsAziFN8XJl2j7NJGDl5OzXcKJRIuAAgJlsl/7e329CMn+8mqCqxYS00PL7Vjkd
-X-Gm-Message-State: AOJu0Yxn1Quz5ufaKcH68/fKS70fwY891Idkq4LYwQsZt9kDx1D1WCC7
-	wiAtgPCR+XWjwz7x2HTNrQ1HiyNiMLO6PfUKwDmMBCzOguDO/B++4RGfVFRJoOQ=
-X-Google-Smtp-Source: AGHT+IEOaaTBUBd1p64Jrq94oLJa/ChBe55PfXcKKAPOo80eHydbeatqeCSG9lpiK9lIk5pVSvvavg==
-X-Received: by 2002:a05:6359:4117:b0:17b:ee29:40c with SMTP id kh23-20020a056359411700b0017bee29040cmr364149rwc.19.1710370023641;
-        Wed, 13 Mar 2024 15:47:03 -0700 (PDT)
-Received: from ghost ([2601:647:5700:6860:c3a2:fcab:1ebb:b50c])
-        by smtp.gmail.com with ESMTPSA id f4-20020a635104000000b005dc507e8d13sm144949pgb.91.2024.03.13.15.47.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Mar 2024 15:47:02 -0700 (PDT)
-Date: Wed, 13 Mar 2024 15:47:00 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Xiao Wang <xiao.w.wang@intel.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	ajones@ventanamicro.com, conor.dooley@microchip.com,
-	heiko@sntech.de, david.laight@aculab.com, haicheng.li@intel.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: Optimize crc32 with Zbc extension
-Message-ID: <ZfIs5ND0S08N2zLd@ghost>
-References: <20240313032139.3763427-1-xiao.w.wang@intel.com>
+	id 1rkYoD-0000000CMzo-2WuN;
+	Thu, 14 Mar 2024 00:18:59 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 42DLxSXT009282;
+	Thu, 14 Mar 2024 00:18:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : subject :
+ from : to : cc : date : in-reply-to : references : content-type :
+ content-transfer-encoding : mime-version; s=pp1;
+ bh=Ij+R7IVB0uc61rJEHd4GlyzueViUctFffkK8nmeFG34=;
+ b=rUTKPPO1lfCxhKHPBIanjC6M42k4sQ5Yi3bnJgBbwINXeM+qPTw4EwvDnNDy+OJ9JFc1
+ 2OWTiGSDRqkMdQ9DyFXT4f6t8KONsPLtSlNXk3nHN7Mbr+8enTin4VoZrlupV3kBl53K
+ BBe+BZEWS05O7YA5bVEmdaZV9PE8LUY22Zo71ZR361EpSmbnLHQsAS7muswFuPkPkgqh
+ oNc/3NC0Tt4Znygp+sw+bbrJLfpv1WW0G2BpJnnrirpoYRqPO1hlXh5dfA9fh9/31dsi
+ Sm2QGWZrTRjN+iQj01r6Na2un84sPKjzLnN89sayoeLHoWmmrg5ORmoh0WbfCfTb0KlI 8Q== 
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3wue9txvb7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 14 Mar 2024 00:18:42 +0000
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 42DLRej0014855;
+	Thu, 14 Mar 2024 00:18:41 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 3ws33p1e7g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 14 Mar 2024 00:18:41 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 42E0Ibj733817030
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 14 Mar 2024 00:18:39 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8B2402004F;
+	Thu, 14 Mar 2024 00:18:37 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A5BFA2004E;
+	Thu, 14 Mar 2024 00:18:36 +0000 (GMT)
+Received: from ozlabs.au.ibm.com (unknown [9.192.253.14])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 14 Mar 2024 00:18:36 +0000 (GMT)
+Received: from [9.69.66.164] (unknown [9.69.66.164])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 8AC3A600F0;
+	Thu, 14 Mar 2024 11:18:32 +1100 (AEDT)
+Message-ID: <5876331b7a1bcff949ae158b404e98435948bd89.camel@linux.ibm.com>
+Subject: Re: [PATCH v10 09/12] powerpc: mm: Add common pud_pfn stub for all
+ platforms
+From: LTC IMAP <rmclure@linux.ibm.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+        "linuxppc-dev@lists.ozlabs.org"
+	 <linuxppc-dev@lists.ozlabs.org>
+Cc: "mpe@ellerman.id.au" <mpe@ellerman.id.au>,
+        "linux-mm@kvack.org"
+	 <linux-mm@kvack.org>,
+        "linux-riscv@lists.infradead.org"
+	 <linux-riscv@lists.infradead.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	 <linux-arm-kernel@lists.infradead.org>,
+        "x86@kernel.org" <x86@kernel.org>
+Date: Thu, 14 Mar 2024 11:18:00 +1100
+In-Reply-To: <339a9b64-cba4-42df-82c5-9f0b1113312c@csgroup.eu>
+References: <20240313042118.230397-1-rmclure@linux.ibm.com>
+	 <20240313042118.230397-10-rmclure@linux.ibm.com>
+	 <339a9b64-cba4-42df-82c5-9f0b1113312c@csgroup.eu>
+User-Agent: Evolution 3.50.4 (3.50.4-1.fc39) 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240313032139.3763427-1-xiao.w.wang@intel.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: 2ZVABDO7QBjAP0t_L2EYR-WdFAMTx6GX
+X-Proofpoint-GUID: 2ZVABDO7QBjAP0t_L2EYR-WdFAMTx6GX
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-03-13_11,2024-03-13_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ spamscore=0 phishscore=0 suspectscore=0 priorityscore=1501 impostorscore=0
+ mlxlogscore=999 clxscore=1015 adultscore=0 bulkscore=0 mlxscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2311290000 definitions=main-2403140000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240313_154708_485945_D210586B 
-X-CRM114-Status: GOOD (  45.22  )
+X-CRM114-CacheID: sfid-20240313_171857_770102_EE277396 
+X-CRM114-Status: GOOD (  36.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,475 +114,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 13, 2024 at 11:21:39AM +0800, Xiao Wang wrote:
-> As suggested by the B-ext spec, the Zbc (carry-less multiplication)
-> instructions can be used to accelerate CRC calculations. Currently, the
-> crc32 is the most widely used crc function inside kernel, so this patch
-> focuses on the optimization of just the crc32 APIs.
-> 
-> Compared with the current table-lookup based optimization, Zbc based
-> optimization can also achieve large stride during CRC calculation loop,
-> meantime, it avoids the memory access latency of the table-lookup based
-> implementation and it reduces memory footprint.
-> 
-> If Zbc feature is not supported in a runtime environment, then the
-> table-lookup based implementation would serve as fallback via alternative
-> mechanism.
-> 
-> By inspecting the vmlinux built by gcc v12.2.0 with default optimization
-> level (-O2), we can see below instruction count change for each 8-byte
-> stride in the CRC32 loop:
-> 
-> rv64: crc32_be (54->31), crc32_le (54->13), __crc32c_le (54->13)
-> rv32: crc32_be (50->32), crc32_le (50->16), __crc32c_le (50->16)
-
-Even though this loop is optimized, there are a lot of other
-instructions being executed else where for these tests. When running the
-test-case in QEMU with ZBC enabled, I get these results:
-
-[    0.353444] crc32: CRC_LE_BITS = 64, CRC_BE BITS = 64
-[    0.353470] crc32: self tests passed, processed 225944 bytes in 2044700 nsec
-[    0.354098] crc32c: CRC_LE_BITS = 64
-[    0.354114] crc32c: self tests passed, processed 112972 bytes in 289000 nsec
-[    0.387204] crc32_combine: 8373 self tests passed
-[    0.419881] crc32c_combine: 8373 self tests passed
-
-Then when running with ZBC disabled I get:
-
-[    0.351331] crc32: CRC_LE_BITS = 64, CRC_BE BITS = 64
-[    0.351359] crc32: self tests passed, processed 225944 bytes in 567500 nsec
-[    0.352071] crc32c: CRC_LE_BITS = 64
-[    0.352090] crc32c: self tests passed, processed 112972 bytes in 289900 nsec
-[    0.385395] crc32_combine: 8373 self tests passed
-[    0.418180] crc32c_combine: 8373 self tests passed
-
-This is QEMU so it's not a perfect representation of hardware, but being
-4 times slower with ZBC seems suspicious. I ran these tests numerous
-times and got similar results. Do you know why these tests would perform
-4 times better without ZBC?
-
-> 
-> The compile target CPU is little endian, extra effort is needed for byte
-> swapping for the crc32_be API, thus, the instruction count change is not
-> as significant as that in the *_le cases.
-> 
-> This patch is tested on QEMU VM with the kernel CRC32 selftest for both
-> rv64 and rv32.
-> 
-> Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
-> ---
-> v3:
-> - Use Zbc to handle also the data head and tail bytes, instead of calling
->   fallback function.
-> - Misc changes due to the new design.
-> 
-> v2:
-> - Fix sparse warnings about type casting. (lkp)
-> - Add info about instruction count change in commit log. (Andrew)
-> - Use the min() helper from linux/minmax.h. (Andrew)
-> - Use "#if __riscv_xlen == 64" macro check to differentiate rv64 and rv32. (Andrew)
-> - Line up several macro values by tab. (Andrew)
-> - Make poly_qt as "unsigned long" to unify the code for rv64 and rv32. (David)
-> - Fix the style of comment wing. (Andrew)
-> - Add function wrappers for the asm code for the *_le cases. (Andrew)
-> ---
->  arch/riscv/Kconfig      |  23 ++++
->  arch/riscv/lib/Makefile |   1 +
->  arch/riscv/lib/crc32.c  | 294 ++++++++++++++++++++++++++++++++++++++++
->  include/linux/crc32.h   |   3 +
->  4 files changed, 321 insertions(+)
->  create mode 100644 arch/riscv/lib/crc32.c
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 0bfcfec67ed5..68e1248bbee4 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -610,6 +610,29 @@ config RISCV_ISA_ZBB
->  
->  	   If you don't know what to do here, say Y.
->  
-> +config TOOLCHAIN_HAS_ZBC
-> +	bool
-> +	default y
-> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbc)
-> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbc)
-> +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
-> +	depends on AS_HAS_OPTION_ARCH
-> +
-> +config RISCV_ISA_ZBC
-> +	bool "Zbc extension support for carry-less multiplication instructions"
-> +	depends on TOOLCHAIN_HAS_ZBC
-> +	depends on MMU
-> +	depends on RISCV_ALTERNATIVE
-> +	default y
-> +	help
-> +	   Adds support to dynamically detect the presence of the Zbc
-> +	   extension (carry-less multiplication) and enable its usage.
-> +
-> +	   The Zbc extension could accelerate CRC (cyclic redundancy check)
-> +	   calculations.
-> +
-> +	   If you don't know what to do here, say Y.
-> +
->  config RISCV_ISA_ZICBOM
->  	bool "Zicbom extension support for non-coherent DMA operation"
->  	depends on MMU
-> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> index bd6e6c1b0497..2b369f51b0a5 100644
-> --- a/arch/riscv/lib/Makefile
-> +++ b/arch/riscv/lib/Makefile
-> @@ -13,6 +13,7 @@ endif
->  lib-$(CONFIG_MMU)	+= uaccess.o
->  lib-$(CONFIG_64BIT)	+= tishift.o
->  lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
-> +lib-$(CONFIG_RISCV_ISA_ZBC)	+= crc32.o
->  
->  obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
->  lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
-> diff --git a/arch/riscv/lib/crc32.c b/arch/riscv/lib/crc32.c
-> new file mode 100644
-> index 000000000000..7f28c4a85a45
-> --- /dev/null
-> +++ b/arch/riscv/lib/crc32.c
-> @@ -0,0 +1,294 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Accelerated CRC32 implementation with Zbc extension.
-> + *
-> + * Copyright (C) 2024 Intel Corporation
-> + */
-> +
-> +#include <asm/hwcap.h>
-> +#include <asm/alternative-macros.h>
-> +#include <asm/byteorder.h>
-> +
-> +#include <linux/types.h>
-> +#include <linux/minmax.h>
-> +#include <linux/crc32poly.h>
-> +#include <linux/crc32.h>
-> +#include <linux/byteorder/generic.h>
-> +
-> +/*
-> + * Refer to https://www.corsix.org/content/barrett-reduction-polynomials for
-> + * better understanding of how this math works.
-> + *
-> + * let "+" denotes polynomial add (XOR)
-> + * let "-" denotes polynomial sub (XOR)
-> + * let "*" denotes polynomial multiplication
-> + * let "/" denotes polynomial floor division
-> + * let "S" denotes source data, XLEN bit wide
-> + * let "P" denotes CRC32 polynomial
-> + * let "T" denotes 2^(XLEN+32)
-> + * let "QT" denotes quotient of T/P, with the bit for 2^XLEN being implicit
-> + *
-> + * crc32(S, P)
-> + * => S * (2^32) - S * (2^32) / P * P
-> + * => lowest 32 bits of: S * (2^32) / P * P
-> + * => lowest 32 bits of: S * (2^32) * (T / P) / T * P
-> + * => lowest 32 bits of: S * (2^32) * quotient / T * P
-> + * => lowest 32 bits of: S * quotient / 2^XLEN * P
-> + * => lowest 32 bits of: (clmul_high_part(S, QT) + S) * P
-> + * => clmul_low_part(clmul_high_part(S, QT) + S, P)
-> + *
-> + * In terms of below implementations, the BE case is more intuitive, since the
-> + * higher order bit sits at more significant position.
-> + */
-> +
-> +#if __riscv_xlen == 64
-> +/* Slide by XLEN bits per iteration */
-> +# define STEP_ORDER 3
-> +
-> +/* Each below polynomial quotient has an implicit bit for 2^XLEN */
-> +
-> +/* Polynomial quotient of (2^(XLEN+32))/CRC32_POLY, in LE format */
-> +# define CRC32_POLY_QT_LE	0x5a72d812fb808b20
-> +
-> +/* Polynomial quotient of (2^(XLEN+32))/CRC32C_POLY, in LE format */
-> +# define CRC32C_POLY_QT_LE	0xa434f61c6f5389f8
-> +
-> +/* Polynomial quotient of (2^(XLEN+32))/CRC32_POLY, in BE format, it should be
-> + * the same as the bit-reversed version of CRC32_POLY_QT_LE
-> + */
-> +# define CRC32_POLY_QT_BE	0x04d101df481b4e5a
-> +
-> +static inline u64 crc32_le_prep(u32 crc, unsigned long const *ptr)
-> +{
-> +	return (u64)crc ^ (__force u64)__cpu_to_le64(*ptr);
-> +}
-> +
-> +static inline u32 crc32_le_zbc(unsigned long s, u32 poly, unsigned long poly_qt)
-> +{
-> +	u32 crc;
-> +
-> +	/* We don't have a "clmulrh" insn, so use clmul + slli instead. */
-> +	asm volatile (".option push\n"
-> +		      ".option arch,+zbc\n"
-> +		      "clmul	%0, %1, %2\n"
-> +		      "slli	%0, %0, 1\n"
-> +		      "xor	%0, %0, %1\n"
-> +		      "clmulr	%0, %0, %3\n"
-> +		      "srli	%0, %0, 32\n"
-> +		      ".option pop\n"
-> +		      : "=&r" (crc)
-> +		      : "r" (s),
-> +			"r" (poly_qt),
-> +			"r" ((u64)poly << 32)
-> +		      :);
-> +	return crc;
-> +}
-> +
-> +static inline u64 crc32_be_prep(u32 crc, unsigned long const *ptr)
-> +{
-> +	return ((u64)crc << 32) ^ (__force u64)__cpu_to_be64(*ptr);
-> +}
-> +
-> +#elif __riscv_xlen == 32
-> +# define STEP_ORDER 2
-> +/* Each quotient should match the upper half of its analog in RV64 */
-> +# define CRC32_POLY_QT_LE	0xfb808b20
-> +# define CRC32C_POLY_QT_LE	0x6f5389f8
-> +# define CRC32_POLY_QT_BE	0x04d101df
-> +
-> +static inline u32 crc32_le_prep(u32 crc, unsigned long const *ptr)
-> +{
-> +	return crc ^ (__force u32)__cpu_to_le32(*ptr);
-> +}
-> +
-> +static inline u32 crc32_le_zbc(unsigned long s, u32 poly, unsigned long poly_qt)
-> +{
-> +	u32 crc;
-> +
-> +	/* We don't have a "clmulrh" insn, so use clmul + slli instead. */
-> +	asm volatile (".option push\n"
-> +		      ".option arch,+zbc\n"
-> +		      "clmul	%0, %1, %2\n"
-> +		      "slli	%0, %0, 1\n"
-> +		      "xor	%0, %0, %1\n"
-> +		      "clmulr	%0, %0, %3\n"
-> +		      ".option pop\n"
-> +		      : "=&r" (crc)
-> +		      : "r" (s),
-> +			"r" (poly_qt),
-> +			"r" (poly)
-> +		      :);
-> +	return crc;
-> +}
-> +
-> +static inline u32 crc32_be_prep(u32 crc, unsigned long const *ptr)
-> +{
-> +	return crc ^ (__force u32)__cpu_to_be32(*ptr);
-> +}
-> +
-> +#else
-> +# error "Unexpected __riscv_xlen"
-> +#endif
-> +
-> +static inline u32 crc32_be_zbc(unsigned long s)
-> +{
-> +	u32 crc;
-> +
-> +	asm volatile (".option push\n"
-> +		      ".option arch,+zbc\n"
-> +		      "clmulh	%0, %1, %2\n"
-> +		      "xor	%0, %0, %1\n"
-> +		      "clmul	%0, %0, %3\n"
-> +		      ".option pop\n"
-> +		      : "=&r" (crc)
-> +		      : "r" (s),
-> +			"r" (CRC32_POLY_QT_BE),
-> +			"r" (CRC32_POLY_BE)
-> +		      :);
-> +	return crc;
-> +}
-> +
-> +#define STEP		(1 << STEP_ORDER)
-> +#define OFFSET_MASK	(STEP - 1)
-> +
-> +typedef u32 (*fallback)(u32 crc, unsigned char const *p, size_t len);
-> +
-> +static inline u32 crc32_le_unaligned(u32 crc, unsigned char const *p,
-> +				     size_t len, u32 poly,
-> +				     unsigned long poly_qt)
-> +{
-> +	size_t bits = len * 8;
-> +	unsigned long s = 0;
-> +	u32 crc_low = 0;
-> +
-> +	for (int i = 0; i < len; i++)
-> +		s = ((unsigned long)*p++ << (__riscv_xlen - 8)) | (s >> 8);
-> +
-> +	s ^= (unsigned long)crc << (__riscv_xlen - bits);
-> +	if (__riscv_xlen == 32 || len < sizeof(u32))
-> +		crc_low = crc >> bits;
-> +
-> +	crc = crc32_le_zbc(s, poly, poly_qt);
-> +	crc ^= crc_low;
-> +
-> +	return crc;
-> +}
-> +
-> +static inline u32 __pure crc32_le_generic(u32 crc, unsigned char const *p,
-> +					  size_t len, u32 poly,
-> +					  unsigned long poly_qt,
-> +					  fallback crc_fb)
-> +{
-> +	size_t offset, head_len, tail_len;
-> +	unsigned long const *p_ul;
-> +	unsigned long s;
-> +
-> +	asm_volatile_goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
-
-This needs to be changed to be asm goto:
-
-4356e9f841f7f ("work around gcc bugs with 'asm goto' with outputs")
-
-> +				      RISCV_ISA_EXT_ZBC, 1)
-> +			  : : : : legacy);
-> +
-> +	/* Handle the unaligned head. */
-> +	offset = (unsigned long)p & OFFSET_MASK;
-> +	if (offset && len) {
-
-If len is 0 nothing in the function seems like it will modify crc. Is there
-a reason to not break out immediately if len is 0?
-
-> +		head_len = min(STEP - offset, len);
-> +		crc = crc32_le_unaligned(crc, p, head_len, poly, poly_qt);
-> +		p += head_len;
-> +		len -= head_len;
-> +	}
-> +
-> +	tail_len = len & OFFSET_MASK;
-> +	len = len >> STEP_ORDER;
-> +	p_ul = (unsigned long const *)p;
-> +
-> +	for (int i = 0; i < len; i++) {
-> +		s = crc32_le_prep(crc, p_ul);
-> +		crc = crc32_le_zbc(s, poly, poly_qt);
-> +		p_ul++;
-> +	}
-> +
-> +	/* Handle the tail bytes. */
-> +	p = (unsigned char const *)p_ul;
-> +	if (tail_len)
-> +		crc = crc32_le_unaligned(crc, p, tail_len, poly, poly_qt);
-> +
-> +	return crc;
-> +
-> +legacy:
-> +	return crc_fb(crc, p, len);
-> +}
-> +
-> +u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len)
-> +{
-> +	return crc32_le_generic(crc, p, len, CRC32_POLY_LE, CRC32_POLY_QT_LE,
-> +				crc32_le_base);
-> +}
-> +
-> +u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
-> +{
-> +	return crc32_le_generic(crc, p, len, CRC32C_POLY_LE,
-> +				CRC32C_POLY_QT_LE, __crc32c_le_base);
-> +}
-> +
-> +static inline u32 crc32_be_unaligned(u32 crc, unsigned char const *p,
-> +				     size_t len)
-> +{
-> +	size_t bits = len * 8;
-> +	unsigned long s = 0;
-> +	u32 crc_low = 0;
-> +
-> +	s = 0;
-> +	for (int i = 0; i < len; i++)
-> +		s = *p++ | (s << 8);
-> +
-> +	if (__riscv_xlen == 32 || len < sizeof(u32)) {
-> +		s ^= crc >> (32 - bits);
-> +		crc_low = crc << bits;
-> +	} else {
-> +		s ^= (unsigned long)crc << (bits - 32);
-> +	}
-> +
-> +	crc = crc32_be_zbc(s);
-> +	crc ^= crc_low;
-> +
-> +	return crc;
-> +}
-> +
-> +u32 __pure crc32_be(u32 crc, unsigned char const *p, size_t len)
-> +{
-> +	size_t offset, head_len, tail_len;
-> +	unsigned long const *p_ul;
-> +	unsigned long s;
-> +
-> +	asm_volatile_goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
-
-Same here
-
-> +				      RISCV_ISA_EXT_ZBC, 1)
-> +			  : : : : legacy);
-> +
-> +	/* Handle the unaligned head. */
-> +	offset = (unsigned long)p & OFFSET_MASK;
-> +	if (offset && len) {
-> +		head_len = min(STEP - offset, len);
-> +		crc = crc32_be_unaligned(crc, p, head_len);
-> +		p += head_len;
-> +		len -= head_len;
-> +	}
-> +
-> +	tail_len = len & OFFSET_MASK;
-> +	len = len >> STEP_ORDER;
-> +	p_ul = (unsigned long const *)p;
-> +
-> +	for (int i = 0; i < len; i++) {
-> +		s = crc32_be_prep(crc, p_ul);
-> +		crc = crc32_be_zbc(s);
-> +		p_ul++;
-> +	}
-> +
-> +	/* Handle the tail bytes. */
-> +	p = (unsigned char const *)p_ul;
-> +	if (tail_len)
-> +		crc = crc32_be_unaligned(crc, p, tail_len);
-> +
-> +	return crc;
-> +
-> +legacy:
-> +	return crc32_be_base(crc, p, len);
-> +}
-> diff --git a/include/linux/crc32.h b/include/linux/crc32.h
-> index 9e8a032c1788..87f788c0d607 100644
-> --- a/include/linux/crc32.h
-> +++ b/include/linux/crc32.h
-> @@ -9,7 +9,9 @@
->  #include <linux/bitrev.h>
->  
->  u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len);
-> +u32 __pure crc32_le_base(u32 crc, unsigned char const *p, size_t len);
->  u32 __pure crc32_be(u32 crc, unsigned char const *p, size_t len);
-> +u32 __pure crc32_be_base(u32 crc, unsigned char const *p, size_t len);
->  
->  /**
->   * crc32_le_combine - Combine two crc32 check values into one. For two
-> @@ -37,6 +39,7 @@ static inline u32 crc32_le_combine(u32 crc1, u32 crc2, size_t len2)
->  }
->  
->  u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len);
-> +u32 __pure __crc32c_le_base(u32 crc, unsigned char const *p, size_t len);
->  
->  /**
->   * __crc32c_le_combine - Combine two crc32c check values into one. For two
-> -- 
-> 2.25.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCAyMDI0LTAzLTEzIGF0IDExOjA4ICswMDAwLCBDaHJpc3RvcGhlIExlcm95IHdyb3Rl
+Ogo+IAo+IAo+IExlIDEzLzAzLzIwMjQgw6AgMDU6MjEsIFJvaGFuIE1jTHVyZSBhIMOpY3JpdMKg
+Ogo+ID4gUHJpb3IgdG8gdGhpcyBjb21taXQsIHB1ZF9wZm4gd2FzIGltcGxlbWVudGVkIHdpdGgg
+QlVJTERfQlVHIGFzIHRoZQo+ID4gaW5saW5lCj4gPiBmdW5jdGlvbiBmb3IgNjQtYml0IEJvb2sz
+UyBzeXN0ZW1zIGJ1dCBpcyBuZXZlciBpbmNsdWRlZCwgYXMgaXRzCj4gPiBpbnZvY2F0aW9ucyBp
+biBnZW5lcmljIGNvZGUgYXJlIGd1YXJkZWQgYnkgY2FsbHMgdG8gcHVkX2Rldm1hcAo+ID4gd2hp
+Y2ggcmV0dXJuCj4gPiB6ZXJvIG9uIHN1Y2ggc3lzdGVtcy4gQSBmdXR1cmUgcGF0Y2ggd2lsbCBw
+cm92aWRlIHN1cHBvcnQgZm9yIHBhZ2UKPiA+IHRhYmxlCj4gPiBjaGVja3MsIHRoZSBnZW5lcmlj
+IGNvZGUgZm9yIHdoaWNoIGRlcGVuZHMgb24gYSBwdWRfcGZuIHN0dWIgYmVpbmcKPiA+IGltcGxl
+bWVudGVkLCBldmVuIHdoaWxlIHRoZSBwYXRjaCB3aWxsIG5vdCBpbnRlcmFjdCB3aXRoIHB1ZHMK
+PiA+IGRpcmVjdGx5Lgo+ID4gCj4gPiBSZW1vdmUgdGhlIDY0LWJpdCBCb29rM1Mgc3R1YiBhbmQg
+ZGVmaW5lIHB1ZF9wZm4gdG8gd2FybiBvbiBhbGwKPiA+IHBsYXRmb3Jtcy4gcHVkX3BmbiBtYXkg
+YmUgZGVmaW5lZCBwcm9wZXJseSBvbiBhIHBlci1wbGF0Zm9ybSBiYXNpcwo+ID4gc2hvdWxkIGl0
+IGdyb3cgcmVhbCB1c2FnZXMgaW4gZnV0dXJlLgoKQXBvbG9naWVzLCBJIGRvbid0IGFjdHVhbGx5
+IHJlbW92ZSB0aGUgNjQtYml0LCBCb29rM1Mgc3R1YiwgYXMgaXQKY3VycmVudGx5IGNvcnJlY3Rs
+eSByZWZsZWN0cyBob3cgdHJhbnNwYXJlbnQgaHVnZXBhZ2VzIHNob3VsZCB3b3JrLgoKQWxzbyB0
+aGUgc3R1YiB0aGF0IHdhcyBwcmV2aW91c2x5IGltcGxlbWVudGVkIGZvciBhbGwgcGxhdGZvcm1z
+IGhhcwpiZWVuIHJlbW92ZWQgaW4gY29tbWl0IDI3YWY2N2YzNTYzMSAoInBvd2VycGMvYm9vazNz
+NjQvbW06IGVuYWJsZQp0cmFuc3BhcmVudCBwdWQgaHVnZXBhZ2UiKS4KCj4gCj4gQ2FuIHlvdSBw
+bGVhc2UgcmUtZXhwbGFpbiB3aHkgdGhhdCdzIG5lZWRlZCA/IEkgcmVtZW1iZXIgd2UgZGlzY3Vz
+c2VkCj4gaXQgCj4gYWxyZWFkeSBpbiB0aGUgcGFzdCwgYnV0IEkgY2hlY2tlZCBhZ2FpbiB0b2Rh
+eSBhbmQgY2FuJ3Qgc2VlIHRoZQo+IG5lZWQ6Cj4gCj4gSW4gbW0vcGFnZV90YWJsZV9jaGVjay5j
+LCB0aGUgY2FsbCB0byBwdWRfcGZuKCkgaXMgZ2F0ZWQgYnkgYSBjYWxsIHRvCj4gcHVkX3VzZXJf
+YWNjZXNzaWJsZV9wYWdlKHB1ZCkuIElmIEkgbG9vayBpbnRvIGFybTY0IHZlcnNpb24gb2YgCj4g
+cHVkX3VzZXJfYWNjZXNzaWJsZV9wYWdlKCksIGl0IGRlcGVuZHMgb24gcHVkX2xlYWYoKS4gV2hl
+biBwdWRfbGVhZigpCj4gaXMgCj4gY29uc3RhbnQgMCwgcHVkX3VzZXJfYWNjZXNzaWJsZV9wYWdl
+KCkgaXMgYWx3YXlzIGZhbHNlIGFuZCB0aGUgY2FsbAo+IHRvIAo+IHB1ZF9wZm4oKSBzaG91bGQg
+YmUgZm9sZGVkIGF3YXkuCgpBcyBpdCB3aWxsIGJlIGZvbGRlZCBhd2F5IG9uIG5vbiA2NC1iaXQg
+Qm9vazNTIHBsYXRmb3JtcywgSSBjb3VsZApldmVuIHJlcGxhY2UgdGhlIFdBUk5fT05DRSB3aXRo
+IGEgQlVJTERfQlVHIGZvciB5b3VyIHN0YXRlZCByZWFzb24uClRoZSBfX3BhZ2VfdGFibGVfY2hl
+Y2tfcHVkX3NldCgpIGZ1bmN0aW9uIHdpbGwgc3RpbGwgYmUgaW5jbHVkZWQgaW4gdGhlCmJ1aWxk
+IGFuZCByZWZlcmVuY2VzIHRoaXMgcm91dGluZSBzbyBhIGZhbGxiYWNrIHN0dWIgaXMgc3RpbGwK
+bmVjZXNzYXJ5LgoKPiAKPiA+IAo+ID4gU2lnbmVkLW9mZi1ieTogUm9oYW4gTWNMdXJlIDxybWNs
+dXJlQGxpbnV4LmlibS5jb20+Cj4gPiAtLS0KPiA+IMKgIGFyY2gvcG93ZXJwYy9pbmNsdWRlL2Fz
+bS9wZ3RhYmxlLmggfCAxNCArKysrKysrKysrKysrKwo+ID4gwqAgMSBmaWxlIGNoYW5nZWQsIDE0
+IGluc2VydGlvbnMoKykKPiA+IAo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcG93ZXJwYy9pbmNsdWRl
+L2FzbS9wZ3RhYmxlLmgKPiA+IGIvYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL3BndGFibGUuaAo+
+ID4gaW5kZXggMGMwZmZiZTdhM2I1Li4xM2Y2NjE4MzEzMzMgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNo
+L3Bvd2VycGMvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4gPiArKysgYi9hcmNoL3Bvd2VycGMvaW5j
+bHVkZS9hc20vcGd0YWJsZS5oCj4gPiBAQCAtMjEzLDYgKzIxMywyMCBAQCBzdGF0aWMgaW5saW5l
+IGJvb2wKPiA+IGFyY2hfc3VwcG9ydHNfbWVtbWFwX29uX21lbW9yeSh1bnNpZ25lZCBsb25nIHZt
+ZW1tYXBfc2l6ZSkKPiA+IMKgIAo+ID4gwqAgI2VuZGlmIC8qIENPTkZJR19QUEM2NCAqLwo+ID4g
+wqAgCj4gPiArLyoKPiA+ICsgKiBDdXJyZW50bHkgb25seSBjb25zdW1lZCBieSBwYWdlX3RhYmxl
+X2NoZWNrX3B1ZF97c2V0LGNsZWFyfS4KPiA+IFNpbmNlIGNsZWFycwo+ID4gKyAqIGFuZCBzZXRz
+IHRvIHBhZ2UgdGFibGUgZW50cmllcyBhdCBhbnkgbGV2ZWwgYXJlIGRvbmUgdGhyb3VnaAo+ID4g
+KyAqIHBhZ2VfdGFibGVfY2hlY2tfcHRlX3tzZXQsY2xlYXJ9LCBwcm92aWRlIHN0dWIgaW1wbGVt
+ZW50YXRpb24uCj4gPiArICovCj4gPiArI2lmbmRlZiBwdWRfcGZuCj4gPiArI2RlZmluZSBwdWRf
+cGZuIHB1ZF9wZm4KPiA+ICtzdGF0aWMgaW5saW5lIGludCBwdWRfcGZuKHB1ZF90IHB1ZCkKPiA+
+ICt7Cj4gPiArCVdBUk5fT05DRSgxLCAicHVkOiBwbGF0Zm9ybSBkb2VzIG5vdCB1c2UgcHVkIGVu
+dHJpZXMKPiA+IGRpcmVjdGx5Iik7Cj4gPiArCXJldHVybiAwOwo+ID4gK30KPiA+ICsjZW5kaWYK
+PiA+ICsKPiA+IMKgICNlbmRpZiAvKiBfX0FTU0VNQkxZX18gKi8KPiA+IMKgIAo+ID4gwqAgI2Vu
+ZGlmIC8qIF9BU01fUE9XRVJQQ19QR1RBQkxFX0ggKi8KCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
