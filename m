@@ -4,97 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B7F5C54E5D
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 20:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A0C7C54E60
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 20:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NXI2NrVYuyWG+8cg0jDSx3aEtaWxoH4DZoElO++NwB4=; b=MatbxIYqRvPMTM
-	2zIgM/oBvMbDnxQn/D4i61KAhIhbdRCiFU0920As6n8/NzJ6Q+qhq0qOwcJuj5svdrhrsOSGdcjLA
-	VfoJWbSjJb8qdEWGv0HFyzDiSW+Q9hYHNLo+FEWP4c+J/BojrrjJVoXtF/bwxU3h4IjHwlZKx3Vvo
-	T6jQTu+ajCKXOjTBCVvvoMoqLmoei8kdvVcgT7Trz6FIjnDU8zinZHgB49VR8NTYTl1ZZsZQ+fMJD
-	Z5LIlfWzlq6GV6SOSv/Cr53JkYSRBlBcOR9OGF0v6XWRerJYNzNSYji5sE+zi0XOlHHBrM5T0M50a
-	sBE0rxEhQalRaDuzOMUA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zytf94fsnoCxyTS9KgbXC+Tn896ov6YQjZVgX80fJ44=; b=2Z+5lbL/mpA7+QoI0H5FZcGLip
+	Y3hbf5TXJ/nSD/vp5YaqCyNNEfSTxiAQ2zm9cRChFkTqp732Q799AzBEFHCNRmK7j+2Y9fZaRW8pw
+	tCxfU68FmUsotLZaOJ32BChGfAZ6kbRJGax+WQN0spEt3HEOCiv3HWTTxAqCnOOow4h7Y5136Ikai
+	CmlX6rba0vypwhKw+dZ3qLMBL2eNwmJRxGSXPKd3lhxTXksaDVYr8+9xISwiYfjPAQuxglq4eVy80
+	EUzkGdO42qDhx4bG5xjEpwN7be+b/KzqxA3xFgd0tD74Cw9aeOo0j9+ah0bqRHOtVwsMhaHPQ7MjH
+	xlPZV5qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkrMn-0000000FZ8A-2EFn;
-	Thu, 14 Mar 2024 20:07:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1rkrtH-0000000Fdy1-0Bbd;
+	Thu, 14 Mar 2024 20:41:27 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkrMk-0000000FZ7P-0KJ8;
-	Thu, 14 Mar 2024 20:07:51 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 42E5xD6c024159;
-	Thu, 14 Mar 2024 20:07:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	date:from:to:cc:subject:message-id:references:mime-version
-	:content-type:in-reply-to; s=qcppdkim1; bh=3xlRjrOG++m/gTd4bJdiZ
-	w0cFNOuDJJrYtP9qeXcXVA=; b=pD9zK5/tAYzW+EnwG6WHwGKjPc6FPCpWQk//a
-	DaGqTOiXFZWZX/lipNXxm8IXqHzsBKaEHJtQswImHiCBLGmRiouns/FE8iEi0cPX
-	M7yqFADDdzgaVJYHVtCefMBFDT5nsh/LnAYxmUGB3e4ZGzpb0ZYjibDIqLp1WIUk
-	d9JljTfz3LzqF/NfKSTdDN4G1ZTOfuV1gZ/EaKVgw9BEGPnrGDfS60rR6ezPQ8RS
-	bSfrIz83Vg9+Isfh1RjTCGlF+xOJXAceSK+7gxilWQ8uGxIPQ/7+C+8RKhWjUmCR
-	n/1+yUbXbC5PcwdgL06svlPMLE1BzsOp63x2EfnowIN/YrZNA==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 3wuujssuyq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Mar 2024 20:07:45 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.17.1.5/8.17.1.5) with ESMTPS id 42EK7imb028294
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Mar 2024 20:07:44 GMT
-Received: from hu-eberman-lv.qualcomm.com (10.49.16.6) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.40; Thu, 14 Mar 2024 13:07:41 -0700
-Date: Thu, 14 Mar 2024 13:07:40 -0700
-From: Elliot Berman <quic_eberman@quicinc.com>
-To: Caleb Connolly <caleb.connolly@linaro.org>
-CC: Amrit Anand <quic_amrianan@quicinc.com>, <robh@kernel.org>,
-        <krzysztof.kozlowski+dt@linaro.org>, <conor+dt@kernel.org>,
-        <agross@kernel.org>, <andersson@kernel.org>,
-        <konrad.dybcio@linaro.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <kernel@quicinc.com>, <peter.griffin@linaro.org>,
-        <linux-riscv@lists.infradead.org>, <chrome-platform@lists.linux.dev>,
-        <linux-mediatek@lists.infradead.org>, Simon Glass <sjg@chromium.org>
-Subject: Re: Re: [PATCH v2 2/2] dt-bindings: qcom: Update DT bindings for
- multiple DT
-Message-ID: <20240314113908471-0700.eberman@hu-eberman-lv.qualcomm.com>
-Mail-Followup-To: Caleb Connolly <caleb.connolly@linaro.org>, 
-	Amrit Anand <quic_amrianan@quicinc.com>, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	conor+dt@kernel.org, agross@kernel.org, andersson@kernel.org, 
-	konrad.dybcio@linaro.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, kernel@quicinc.com, peter.griffin@linaro.org, 
-	linux-riscv@lists.infradead.org, chrome-platform@lists.linux.dev, 
-	linux-mediatek@lists.infradead.org, Simon Glass <sjg@chromium.org>
-References: <1710418312-6559-1-git-send-email-quic_amrianan@quicinc.com>
- <1710418312-6559-3-git-send-email-quic_amrianan@quicinc.com>
- <f6f317d9-830d-4c38-998f-b229b3d9f95a@linaro.org>
+	id 1rkrtD-0000000FdxS-0KhQ;
+	Thu, 14 Mar 2024 20:41:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 3FF0BCE1E3F;
+	Thu, 14 Mar 2024 20:41:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 652ACC433F1;
+	Thu, 14 Mar 2024 20:41:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1710448880;
+	bh=D8dmCbnX6rijB2nPz1wQDTif25zMAHPrUq0OSfJuNeI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r5j0NKIgtC9wYzEQDR7OqXRqnqwvYIK6xaMMZELt10g+TDIYs2sG/ZzPOC0RfzHLr
+	 3d6iDw4Vn4IP8s8zK97INEis4zXyGyisQKNUnbfFoQh/eNtf9IkXAQCdn859mbKGNY
+	 m2tHSJI4S/X1A/bxniT3FSCKD5w6I/0z6Yh0StWCLl8D/+4ojCS3V2fOEAAw4ICCim
+	 LzOplpM0A0NYvBM+dbgg0f+rOd0AE8Bo2vZdBB90d5o0trWYOj5i+VgoE/uBiCbfup
+	 SDpJkdBDWtb1TyvT08xT+mOwXXLKda6UdycdcRGdiFYXWrR9jRuxjg5iLObCjSZ48b
+	 NSq7SnRX42hug==
+Date: Thu, 14 Mar 2024 20:41:15 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Qingfang Deng <dqfext@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] perf: RISC-V: fix IRQ detection on T-Head C908
+Message-ID: <20240314-pep-announcer-2d7f10ff8b65@spud>
+References: <20240311063018.1886757-1-dqfext@gmail.com>
+ <IA1PR20MB4953ECC3E32E95303872CD14BB242@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <CALW65jZ+q8sDiRKgsRL9n+939HNUCnkKuO=YJjHB5Js=WYQeOg@mail.gmail.com>
+ <20240312-evil-resource-66370b68b9b4@spud>
+ <IA1PR20MB4953CE8999960BA71B46DE6CBB2A2@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f6f317d9-830d-4c38-998f-b229b3d9f95a@linaro.org>
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01a.na.qualcomm.com (10.47.209.196) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 6lGfARaeuwH6HOGWh8oo9c6RWsGScCpQ
-X-Proofpoint-GUID: 6lGfARaeuwH6HOGWh8oo9c6RWsGScCpQ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
- definitions=2024-03-14_13,2024-03-13_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 bulkscore=0
- suspectscore=0 malwarescore=0 phishscore=0 adultscore=0 clxscore=1011
- impostorscore=0 lowpriorityscore=0 mlxlogscore=635 spamscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2402120000 definitions=main-2403140155
+In-Reply-To: <IA1PR20MB4953CE8999960BA71B46DE6CBB2A2@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240314_130750_251981_43F960BC 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20240314_134123_509863_72B4FBDD 
+X-CRM114-Status: GOOD (  47.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,72 +79,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7391554459685852469=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 14, 2024 at 02:20:38PM +0000, Caleb Connolly wrote:
-> Hi Amrit,
-> 
-> On 14/03/2024 12:11, Amrit Anand wrote:
-...
-> >  
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/arm/qcom,ids.h>
-> > +    / {
-> > +         model = "Qualcomm Technologies, Inc. sc7280 IDP SKU1 platform";
-> > +         compatible = "qcom,sc7280-idp", "google,senor", "qcom,sc7280";
-> > +
-> > +         #board-id-cells = <2>;
-> > +         board-id = <QCOM_SOC_ID(SC7280) QCOM_SOC_REVISION(1)>,
-> > +                    <QCOM_SOC_ID(SC7280) QCOM_SOC_REVISION(2)>,
-> > +                    <QCOM_BOARD_ID(IDP, 1, 0) QCOM_BOARD_SUBTYPE(UFS, ANY, 1)>;
-> > +         board-id-types = "qcom,soc-id",
-> > +                          "qcom,soc-id",
-> > +                          "qcom,board-id";
-> Forgive me if this is a particularly cynical view, but this seems
-> incredibly blatant, the "qcom,board-id" property is deprecated for
-> various good reasons, just using a key/value map where "qcom,board-id"
-> is a key doesn't change that. There are two main issues I have with the
-> proposal here:
-> 
-> 1. This breaks backwards compatibility, millions of production devices
-> with bootloaders that will never receive another update might be
-> compatible with the downstream "qcom,board-id" property, but they won't
-> work with this.
-> 2. A top level board-id property that isn't namespaced implies that it
-> isn't vendor specific, but the proposed implementation doesn't even
-> pretend to be vendor agnostic.
-> 
 
-I agree with the concerns you listed.
+--===============7391554459685852469==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="7VnajYQ5dXc+P0Cg"
+Content-Disposition: inline
 
-One point I wanted to bring is that if you provide a boot image that has
-only one DTB, all production Qualcomm bootloaders I'm aware of will use
-that DTB so long as "qcom,board-id" isn't a mismatch. I believe this is
-what most everyone is doing if using the DTBs from kernel.org. We'd like
-to use an open standard for DTB selection and that would very likely be
-incompatible with existing bootloaders that don't have whatever that
-standard is.
 
-> U-Boot also has some ideas around this issue, there you can pass in
-> multiple DTBs and provide some board specific "best match" function.
-> I think there's definitely some value in exposing this information, but
-> there's no good reason to define the same data as `qcom,board-id` while
-> breaking production bootloaders.
+--7VnajYQ5dXc+P0Cg
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-One concern we have with U-Boot's approach is that it's based on
-metadata external to the DTB and, in our experience, makes it hard to
-track which board goes to which DTB. This approach also isn't
-necessarily portable to other image types/boot flows.
+On Wed, Mar 13, 2024 at 09:31:26AM +0800, Inochi Amaoto wrote:
+> On Tue, Mar 12, 2024 at 02:07:31PM +0000, Conor Dooley wrote:
+> > On Mon, Mar 11, 2024 at 03:56:29PM +0800, Qingfang Deng wrote:
+> > > Hi Inochi,
+> > >=20
+> > > On Mon, Mar 11, 2024 at 3:13=E2=80=AFPM Inochi Amaoto <inochiama@outl=
+ook.com> wrote:
+> > > >
+> > > > On Mon, Mar 11, 2024 at 02:30:18PM +0800, Qingfang Deng wrote:
+> > > > > T-Head C908 has the same IRQ num and CSR as previous C9xx cores, =
+but
+> > > > > reports non-zero marchid and mimpid. Remove the ID checks.
+> > > > >
+> > > >
+> > > > Hi, Qingfang,
+> > > >
+> > > > IIRC, the existed C908 SoC (such as K230) have an early version
+> > > > of C908 core. But C908 core itself may support Sscofpmf.
+> > > > So I do not think removing the ID checks is a good idea. Instead,
+> > > > I suggest adding CPUID of your SoC to this check.
+> > >=20
+> > > As of Feb 2024, the latest C908 revision does not support Sscofpmf.
+> > > You may Google "C908R1S0" to see its user manual.
+> > > But I think you're right. Even though C908 does not have Sscofpmf,
+> > > T-Head may release new SoCs which do have Sscofpmf, and the check will
+> > > break. I will submit a new patch with your suggested changes.
+> >=20
+> > If on an SoC where they have updated vector to 1.0 and implemented both
+> > Zicbom and Svpbmt instead of their custom stuff they did not implement
+> > Sscofpmf I think we can expect they won't move away from their custom
+> > implementation soon.
+> > I do agree that we should not remove the ID checks entirely, but I also
+> > do not want to be adding an ID for every SoC that needs this. I think we
+> > should be getting this information from DT going forward.
+> > The DT parsing is done prior to the application of boot time
+> > alternatives, so I think we could apply the "erratum" based on the DT.
+> >=20
+> > I'm also pretty sure that we can also modify the existing code for the
+> > archid =3D=3D impid =3D=3D 0x0 case to set a pseudo isa extension so th=
+at the
+> > perf driver could do call riscv_isa_eextension_available() and not worry
+> > about the specfic conditions in which that is true. It'd be something
+> > like this patch:
+> > https://lore.kernel.org/linux-riscv/20240110073917.2398826-8-peterlin@a=
+ndestech.com/
+> > Just without removing the archid =3D=3D impid =3D=3D 0x0 case from the =
+errata
+> > code. If you're lost after reading that, I can probably throw together
+> > some untested code for it.
+>=20
+> I agree to use something to replace the existing check, but using a pseudo
+> isa extension is not a good idea. There are two reasons:=20
+>=20
+> 1. Pseudo isa is misleading. As it is not the real isa, setting this in i=
+sa
+> list may make userspace think errata a feather.
 
-Thanks,
-Elliot
+If we wanted to suppress sharing this information to userspace we could,
+but I don't even see what the harm is in userspace knowing.
+I also disagree with this even really being an erratum in the first place
+as they implemented something before a spec was created. It's not an
+implementation of Sscofpmf with a bug. I don't think that calling it a
+"real" vendor extension is problematic either, just I am the one calling
+it that, not T-Head themselves.
 
+> 2. Using pseudo isa is more like an abuse of reserved isa bits, which mea=
+ns
+> kernel may need infinite bits to handle the errata.
+
+What makes it an abuse of a "reserved" bit? There's no rule on
+disallowing something vendor-specific there. Given the amount of standard
+ISA extensions that are being created compared to CPU errata, I don't
+think that I'm particularly worried about vendor specific stuff being
+the reason for infinite bits being needed either.
+
+If there do come to be issues with the number of extensions we care
+about, we could split things per vendor I suppose.
+
+> IMHO, it may be better to use a new DT property like "riscv,cpu-errata" or
+> "<vendor>,cpu-errata". It can achieve almost everything like using pseudo
+> isa. And the only cost I think is a small amount code to parse this.
+
+I suppose we could do that, but accounting for vendor specifics was one
+of the goals for the property I only just added and that I am suggesting
+to use here.
+
+--7VnajYQ5dXc+P0Cg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZfNg6wAKCRB4tDGHoIJi
+0pvxAP9f5n67FdcXaDeJLe8wvqIkMnLvLHJt1Uimlhexcor/lgEAkHeDx1gCVOz4
+gSFJsa/+ha0YnGA/h8Ili4wHIx6rhA0=
+=9+If
+-----END PGP SIGNATURE-----
+
+--7VnajYQ5dXc+P0Cg--
+
+
+--===============7391554459685852469==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7391554459685852469==--
+
