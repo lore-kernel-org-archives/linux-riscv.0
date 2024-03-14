@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C6AC54E60
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 23:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF34C54E6A
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Mar 2024 23:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=60ffIktbazfChQPot1WaI3LVdV6rLQPG/Y+DOLUDHFU=; b=TeJDildNIE5uW5
-	8oYJJIENL3iDsIgexe+JaH6XuPQFJRMbtOGVzCAFMVIpIJeRPFr3r4iotp1Hy4t79L8LgvnkACGRd
-	bRUV1UY3FSK5UDGHKvma6hNaY7h99A1KijUkUEkTnNqU2rOEjzuzotPf4SXYiZ+tsrU3+sSpSXLtk
-	cXEiq7R6C+Es5TV73LSQru6M8B/h9F9nP77Teqrl0VJjPWki1K5XNwxFXdObfnblh3/dYRB45uG+g
-	8TywjKAhmjEem7WYodmP+loX6gpF3D4tkl2/+4E+MsU5jjD3hZbUurq5UNB/klK1KtRCeF88t6vhI
-	fO0M+v2FK6wBgb1K6wcw==;
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/PIaTcOkJmWkt2RV4RM2QOj/Hg8lx7i8dN3loQmrSg0=; b=mKh3UGeme/kpEs
+	BsEsBN/cBEdnn+1Sxpcz7m14eFrWByPDJFC/zDBl3XOh8Akwy/4nkRiDHiRA0NhM5R/JBQY1BSISe
+	kb9J23BTuYai5cLeRBl9os+QN19oi0MtUAzQhrSHNjHypHIFKnLu2gZoq15VyE6/cIQkQxc89z3OW
+	pOXon7+5eAHBrJBmizsIOcgOpOfhhKVU1tLRFDCK7lUrsjFvC9RWS8SaoBPPXB6LOZiegh1nAZfAM
+	3xkVXWRAO1BAJN66U4phRXL+UHrBcas70W0+rka7CaF05XbmchzHLhKLTW0+6GU1ZNeT56sSBLq4I
+	2xBH5yaZ5ZIE85LoVfNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkuUV-0000000G0jr-06ac;
-	Thu, 14 Mar 2024 23:28:03 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1rkuUY-0000000G0ls-0lX7;
+	Thu, 14 Mar 2024 23:28:06 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkuTF-0000000Fzpq-31hS
+	id 1rkuTI-0000000Fzsw-0mQR
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Mar 2024 23:26:52 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-60cc00203faso32677137b3.2
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Mar 2024 16:26:40 -0700 (PDT)
+	Thu, 14 Mar 2024 23:26:54 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1ddc9430263so16859455ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Mar 2024 16:26:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1710458800; x=1711063600; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=h7s5Hb/mvTE7PCNAe2dunBDM+z2TyWomMuHISUh3bYw=;
-        b=pQ8a+0EEgNhAQjdzU4mwGEaCIJq7urhPHMcTDgnPA3C+C/SCtplSSwujhBveLldC5C
-         u5D6vXdsRz4ZEQCQVYClcPAB0emKUJ1BItFBSF8qjNO/37slGl00oVVuvcGj5FMws/Rw
-         Y+0lYgu/k+QvRCBA/Xu6LKq11zuZ4mvPnzwjQfbpMoxhuMjiD4FBIiNWjYqoenCQbbYL
-         iYbfN9PDMd7M6NRWM0BXyBoeWzYNuMmX3OYYbwjkLN3B6oZ0sVPJFgLtnyCg9OV4Dcqz
-         Bm2EMGo8w5+3Fwfj0R6Zyv5xRkuPazeA6LDkfWexCLlFCYly2xW0R0/PUzZC7g9zZgkV
-         vIfg==
+        d=google.com; s=20230601; t=1710458804; x=1711063604; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=xxEEnp8KYxWW22Dja8/hqreyUmSSC0e9nt+hWHrby04=;
+        b=JKW+Q0ubYJDRql1fynfXhZQTZClAOy4INC8uTrPpIp+z9qkkd2IHQfZ9kZwChWNNZv
+         WnzGJkPMyqqctuTDwqg1iseYqb4o3gYjg0AVMPYJIM4ObWdU5t/uGSsF8XE+vrSkS9Dw
+         1XRNMr+Isvze+WEtY5p9COTXzCdGX91AaMtmoOD5TAFftIBiqEl5+1aa77Gbex6Xvo8i
+         2RPRpbkZHJuMAsUR2HE0zcfLyg0ADItubr4t5DLtCRUTjZLcOEKJWtQWgtm9nCOKx6AV
+         PCCIewMpPhz3+ocz1qrDI/aNWhv1kHogLie6adH35aYssp8Sjn+EXsY21eYkBlya/O43
+         H0MA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710458800; x=1711063600;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=h7s5Hb/mvTE7PCNAe2dunBDM+z2TyWomMuHISUh3bYw=;
-        b=fFEza2aQ6nrUJ9CXy+o5E5/L1kTQIvse2ckaQ3jqCW/a1cnjQa4ADdFmyuLhh8M82Z
-         5k0dzEVOw6qIlFeTc+59dq8pBO175aOs0nIhbs82h1bhkglegfYffEqqdW6fWRoiZykQ
-         v2ZiTnoqAqtkGVoFFcsS8MA/60auATCbXWLfZrGIhzBQlPsU30twKC/K/r4La/97Ye49
-         40uUZ4ydAcKLrpsLGlZxVfW8saRPqc8eQ1+kH18J6Vollv6JR2Y1xPezpZMjYjB6LDaL
-         kv6cg5nakNEqHIoCG2LuVQetUqNaSTS23kNUyCIrhORS6nStaMSdSyn7h4Bkiv/Fk18t
-         X8yw==
-X-Forwarded-Encrypted: i=1; AJvYcCXHaDaiZyeBAEAKG3oTBWpU7fWqOr2PVY3Qy6ZyJa1l9U6UojzwKdvROh/fGQrODWBqi6loAi2V5ic4ldp4bb27fwKwlNEqVisqH6FOsJCJ
-X-Gm-Message-State: AOJu0YyJtOdL7CXEYMJ28tjygbMKLqbh+PucJtLcCtugORF/AfKhP4W9
-	/IlRj0Vm94GfWcDW0rqofasKuLFzH9Md2eHoDJT5N5h/0fyY5Ny33P8FU2o2Y6NGHN4MqtMeGoU
-	Zng==
-X-Google-Smtp-Source: AGHT+IHgAdumMdpyEXTw01m4vqKLDoztLrdIMo9Notb2dmLotdpfdICdJ17nIIZegdAzzB6H1KgUKYmEItw=
+        d=1e100.net; s=20230601; t=1710458804; x=1711063604;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xxEEnp8KYxWW22Dja8/hqreyUmSSC0e9nt+hWHrby04=;
+        b=sZtnrM+knssaojF01HLIIeEboqJNtoZJtulwyRIKzOq5ol2SVGEbBn8B7jllEmNw+x
+         tkS673jllKtoNKLsVc3xjQZ8gO+eZRbhONR2OGDGFR3aOgZUEtRlyhpuXOWZwxX8kRxM
+         V5hC6WfZlT9rx8LN/haIgFfBr1WiX26cW1ctvaxFRtQq/77KMdLw/8AAnQBPO1UFssBJ
+         ZgArywCoUXWoha0NNm0Z6bGpEEGyzo0pkpVRc1RshVyfjfWavpRvFyoXTZA6kCss0Bpz
+         6c5lDI6cjeWSWfV8K9CCkitE9ckH2QwSxZ+Tr3EbT6dgKYby7L9x/RZFSzWsMlBvpzYM
+         POnA==
+X-Forwarded-Encrypted: i=1; AJvYcCVlY/zxRiNr30v6m6b/+H/3b2Jqm0qHETBhQkZHtdm6DG2uprHRzu4Ef+M9TqMmeWv2bLkptkxPJrqrTC2n9TfiZIOY1sMZR2ViAXtIsIwc
+X-Gm-Message-State: AOJu0YwYkeUwKbROXxFAeJlf5gsHuOpwN5I+GeluC7ndXBdhzUucS26T
+	rcg0ZPzoBEyzzj/MHwSA1bgDAEWzBZw5aK6mNbGxPhR/1XXC/kJiaoERTUhLHmeITp3ROuTJA1V
+	cug==
+X-Google-Smtp-Source: AGHT+IH3tWVDzScYAxWAoO+AJJrzIFuBnfUykicaYWmU+HGG/cysXNug5oRiY871AjgR+7oBptYedZH/VEU=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a81:f10f:0:b0:60d:47bf:235a with SMTP id
- h15-20020a81f10f000000b0060d47bf235amr173723ywm.5.1710458799770; Thu, 14 Mar
- 2024 16:26:39 -0700 (PDT)
-Date: Thu, 14 Mar 2024 16:26:19 -0700
+ (user=seanjc job=sendgmr) by 2002:a17:903:41c2:b0:1dd:7d71:5900 with SMTP id
+ u2-20020a17090341c200b001dd7d715900mr9743ple.1.1710458803732; Thu, 14 Mar
+ 2024 16:26:43 -0700 (PDT)
+Date: Thu, 14 Mar 2024 16:26:21 -0700
+In-Reply-To: <20240314232637.2538648-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20240314232637.2538648-1-seanjc@google.com>
 X-Mailer: git-send-email 2.44.0.291.gc1ea87d7ee-goog
-Message-ID: <20240314232637.2538648-1-seanjc@google.com>
-Subject: [PATCH 00/18] KVM: selftests: Clean up x86's DT initialization
+Message-ID: <20240314232637.2538648-3-seanjc@google.com>
+Subject: [PATCH 02/18] KVM: sefltests: Add kvm_util_types.h to hold common
+ types, e.g. vm_vaddr_t
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
@@ -77,8 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	Ackerley Tng <ackerleytng@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240314_162645_919277_E0A222AB 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20240314_162648_383218_BD5BC177 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,117 +100,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The vast majority of this series is x86 specific, and aims to clean up the
-core library's handling of descriptor tables and segments.  Currently, the
-library (a) waits until vCPUs are created to allocate per-VM assets, and
-(b) forces tests to opt-in to allocate the structures needed to handler
-exceptions, which has result in some rather odd tests, and makes it
-unnecessarily difficult to debug unexpected exceptions.
+Move the base types unique to KVM selftests out of kvm_util.h and into a
+new header, kvm_util_types.h.  This will allow kvm_util_arch.h, i.e. core
+arch headers, to reference common types, e.g. vm_vaddr_t and vm_paddr_t.
 
-By the end of this series, the descriptor tables, segments, and exception
-handlers are allocated and installed when non-barebones VMs are created.
+No functional change intended.
 
-Patch 1 is a selftests-tree-wide change to drop kvm_util_base.h.  The
-existence of that file has baffled (and annoyed) me for quite a long time.
-After rereading its initial changelog multiple times, I realized that the
-_only_ reason it exists is so that files don't need to manually #include
-ucall_common.h.
-
-Patch 1 will obviously create conflicts all over the place, though with
-the help of meld, I've found them all trivially easy to resolve.  If no
-objects to the removal of kvm_util_base.h, I will try to bribe Paolo into
-grabbing it early in the 6.10 cycle so that everyone can bring it into
-the arch trees.
-
-Ackerley Tng (1):
-  KVM: selftests: Fix off-by-one initialization of GDT limit
-
-Sean Christopherson (17):
-  Revert "kvm: selftests: move base kvm_util.h declarations to
-    kvm_util_base.h"
-  KVM: sefltests: Add kvm_util_types.h to hold common types, e.g.
-    vm_vaddr_t
-  KVM: selftests: Move GDT, IDT, and TSS fields to x86's kvm_vm_arch
-  KVM: selftests: Move platform_info_test's main assert into guest code
-  KVM: selftests: Rework platform_info_test to actually verify #GP
-  KVM: selftests: Explicitly clobber the IDT in the "delete memslot"
-    testcase
-  KVM: selftests: Move x86's descriptor table helpers "up" in
-    processor.c
-  KVM: selftests: Rename x86's vcpu_setup() to vcpu_init_sregs()
-  KVM: selftests: Init IDT and exception handlers for all VMs/vCPUs on
-    x86
-  KVM: selftests: Map x86's exception_handlers at VM creation, not vCPU
-    setup
-  KVM: selftests: Allocate x86's GDT during VM creation
-  KVM: selftests: Drop superfluous switch() on vm->mode in
-    vcpu_init_sregs()
-  KVM: selftests: Fold x86's descriptor tables helpers into
-    vcpu_init_sregs()
-  KVM: selftests: Allocate x86's TSS at VM creation
-  KVM: selftests: Add macro for TSS selector, rename up code/data macros
-  KVM: selftests: Init x86's segments during VM creation
-  KVM: selftests: Drop @selector from segment helpers
-
- .../selftests/kvm/aarch64/arch_timer.c        |    1 +
- tools/testing/selftests/kvm/arch_timer.c      |    1 +
- .../selftests/kvm/demand_paging_test.c        |    1 +
- .../selftests/kvm/dirty_log_perf_test.c       |    1 +
- tools/testing/selftests/kvm/dirty_log_test.c  |    1 +
- .../testing/selftests/kvm/guest_memfd_test.c  |    2 +-
- .../testing/selftests/kvm/guest_print_test.c  |    1 +
- .../selftests/kvm/include/aarch64/processor.h |    2 +
- .../selftests/kvm/include/aarch64/ucall.h     |    2 +-
- .../testing/selftests/kvm/include/kvm_util.h  | 1111 +++++++++++++++-
- .../selftests/kvm/include/kvm_util_base.h     | 1135 -----------------
- .../selftests/kvm/include/kvm_util_types.h    |   20 +
- .../selftests/kvm/include/s390x/ucall.h       |    2 +-
- .../kvm/include/x86_64/kvm_util_arch.h        |    6 +
- .../selftests/kvm/include/x86_64/processor.h  |    5 +-
- .../selftests/kvm/include/x86_64/ucall.h      |    2 +-
- .../selftests/kvm/kvm_page_table_test.c       |    1 +
- .../selftests/kvm/lib/aarch64/processor.c     |    2 +
- tools/testing/selftests/kvm/lib/kvm_util.c    |    1 +
- tools/testing/selftests/kvm/lib/memstress.c   |    1 +
- .../selftests/kvm/lib/riscv/processor.c       |    1 +
- .../testing/selftests/kvm/lib/ucall_common.c  |    5 +-
- .../selftests/kvm/lib/x86_64/processor.c      |  305 ++---
- .../testing/selftests/kvm/riscv/arch_timer.c  |    1 +
- tools/testing/selftests/kvm/rseq_test.c       |    1 +
- tools/testing/selftests/kvm/s390x/cmma_test.c |    1 +
- tools/testing/selftests/kvm/s390x/memop.c     |    1 +
- tools/testing/selftests/kvm/s390x/tprot.c     |    1 +
- .../selftests/kvm/set_memory_region_test.c    |   12 +
- tools/testing/selftests/kvm/steal_time.c      |    1 +
- tools/testing/selftests/kvm/x86_64/amx_test.c |    2 -
- .../x86_64/dirty_log_page_splitting_test.c    |    1 +
- .../x86_64/exit_on_emulation_failure_test.c   |    2 +-
- .../selftests/kvm/x86_64/fix_hypercall_test.c |    2 -
- .../selftests/kvm/x86_64/hyperv_evmcs.c       |    2 -
- .../selftests/kvm/x86_64/hyperv_features.c    |    6 -
- .../testing/selftests/kvm/x86_64/hyperv_ipi.c |    3 -
- .../selftests/kvm/x86_64/kvm_pv_test.c        |    3 -
- .../selftests/kvm/x86_64/monitor_mwait_test.c |    3 -
- .../selftests/kvm/x86_64/platform_info_test.c |   59 +-
- .../selftests/kvm/x86_64/pmu_counters_test.c  |    3 -
- .../kvm/x86_64/pmu_event_filter_test.c        |    6 -
- .../smaller_maxphyaddr_emulation_test.c       |    3 -
- .../selftests/kvm/x86_64/svm_int_ctl_test.c   |    3 -
- .../kvm/x86_64/svm_nested_shutdown_test.c     |    5 +-
- .../kvm/x86_64/svm_nested_soft_inject_test.c  |    5 +-
- .../kvm/x86_64/ucna_injection_test.c          |    5 -
- .../kvm/x86_64/userspace_msr_exit_test.c      |    3 -
- .../vmx_exception_with_invalid_guest_state.c  |    3 -
- .../selftests/kvm/x86_64/vmx_pmu_caps_test.c  |    3 -
- .../selftests/kvm/x86_64/xapic_ipi_test.c     |    2 -
- .../selftests/kvm/x86_64/xcr0_cpuid_test.c    |    3 -
- .../selftests/kvm/x86_64/xen_shinfo_test.c    |    2 -
- 53 files changed, 1335 insertions(+), 1421 deletions(-)
- delete mode 100644 tools/testing/selftests/kvm/include/kvm_util_base.h
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ .../testing/selftests/kvm/include/kvm_util.h  | 16 +--------------
+ .../selftests/kvm/include/kvm_util_types.h    | 20 +++++++++++++++++++
+ 2 files changed, 21 insertions(+), 15 deletions(-)
  create mode 100644 tools/testing/selftests/kvm/include/kvm_util_types.h
 
-
-base-commit: e9a2bba476c8332ed547fce485c158d03b0b9659
+diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+index 95baee5142a7..acdcddf78e3f 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util.h
++++ b/tools/testing/selftests/kvm/include/kvm_util.h
+@@ -21,28 +21,14 @@
+ #include <sys/ioctl.h>
+ 
+ #include "kvm_util_arch.h"
++#include "kvm_util_types.h"
+ #include "sparsebit.h"
+ 
+-/*
+- * Provide a version of static_assert() that is guaranteed to have an optional
+- * message param.  If _ISOC11_SOURCE is defined, glibc (/usr/include/assert.h)
+- * #undefs and #defines static_assert() as a direct alias to _Static_assert(),
+- * i.e. effectively makes the message mandatory.  Many KVM selftests #define
+- * _GNU_SOURCE for various reasons, and _GNU_SOURCE implies _ISOC11_SOURCE.  As
+- * a result, static_assert() behavior is non-deterministic and may or may not
+- * require a message depending on #include order.
+- */
+-#define __kvm_static_assert(expr, msg, ...) _Static_assert(expr, msg)
+-#define kvm_static_assert(expr, ...) __kvm_static_assert(expr, ##__VA_ARGS__, #expr)
+-
+ #define KVM_DEV_PATH "/dev/kvm"
+ #define KVM_MAX_VCPUS 512
+ 
+ #define NSEC_PER_SEC 1000000000L
+ 
+-typedef uint64_t vm_paddr_t; /* Virtual Machine (Guest) physical address */
+-typedef uint64_t vm_vaddr_t; /* Virtual Machine (Guest) virtual address */
+-
+ struct userspace_mem_region {
+ 	struct kvm_userspace_memory_region2 region;
+ 	struct sparsebit *unused_phy_pages;
+diff --git a/tools/testing/selftests/kvm/include/kvm_util_types.h b/tools/testing/selftests/kvm/include/kvm_util_types.h
+new file mode 100644
+index 000000000000..764491366eb9
+--- /dev/null
++++ b/tools/testing/selftests/kvm/include/kvm_util_types.h
+@@ -0,0 +1,20 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef SELFTEST_KVM_UTIL_TYPES_H
++#define SELFTEST_KVM_UTIL_TYPES_H
++
++/*
++ * Provide a version of static_assert() that is guaranteed to have an optional
++ * message param.  If _ISOC11_SOURCE is defined, glibc (/usr/include/assert.h)
++ * #undefs and #defines static_assert() as a direct alias to _Static_assert(),
++ * i.e. effectively makes the message mandatory.  Many KVM selftests #define
++ * _GNU_SOURCE for various reasons, and _GNU_SOURCE implies _ISOC11_SOURCE.  As
++ * a result, static_assert() behavior is non-deterministic and may or may not
++ * require a message depending on #include order.
++ */
++#define __kvm_static_assert(expr, msg, ...) _Static_assert(expr, msg)
++#define kvm_static_assert(expr, ...) __kvm_static_assert(expr, ##__VA_ARGS__, #expr)
++
++typedef uint64_t vm_paddr_t; /* Virtual Machine (Guest) physical address */
++typedef uint64_t vm_vaddr_t; /* Virtual Machine (Guest) virtual address */
++
++#endif /* SELFTEST_KVM_UTIL_TYPES_H */
 -- 
 2.44.0.291.gc1ea87d7ee-goog
 
