@@ -4,81 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C8BC54E58
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 21:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091ABC54E58
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 23:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:From:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8FwqlDLONQQQchXa08ugeItNXymQJT7364K+uu6XTeM=; b=SzjHLW4XQD8ocF
-	VoiO6w0noInVAPSC2Eu4ecAHaXcJomTOI0dAbSr/UYySIp4ZJ7iTojfD2pc2zU0pZk7//SQfkjJA8
-	xLJ+ecwA8LVt/4SBIgEtJGwM4u74u1OH5DFvZngeKhK+BMu4h5nUW+C07HuEhui/DDYZj+aBfjKiW
-	su2xlw1Nstj9eQVrbgicDAmWsLvEwX+6P/iKgJnvbxf5pN+mqvjbxNRqeBT4o1fjRpz8Nqrw+LE83
-	h7TUA+RfcTmWM5JU+CT2PSlHqbpFMC+mtCQEdNtjaGAv+3vvI9QEATlZ1KPJ3Kr7TqpTvVgKPK1tB
-	4hqEkjYGNDLW2N99+vhQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7xl+I6pkruu2l/OAl+nOIUVwK0nBjD+bLL0UZfzPQQQ=; b=PCb7Zz/OVJkFul
+	aksPU+NhGCy8vWy1Fw7myI8R9n/BoYzxRGBDYq4CX+R8H+GU+pFXBquNrK7zPIITxzOlAUcotPnZQ
+	Fxzc319yUp4Zwi8I4Kb+m7VYS2MshpUpZc/MOtpTqlZjkQnDxiaicKjRkQvTDbk0t+sthP5k+S89o
+	uGUa8boubh0ta1DBaOYCkzPW/7GLP4U2Gg6uOnoJcdQui2nXDLOouQaMnaYIvGoR0f7c+IvmNLH+h
+	tHCDFofj8G/T/JNrq7aW75Jlljo02Sz1wMVGc9nCvJsN0AMrE3+GBjQ9pNPqgsWBXdAWmToXRLQ3v
+	F2nFjvzFsa9mW8g8jSpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rlEsf-00000001bow-3sGE;
-	Fri, 15 Mar 2024 21:14:21 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1rlGkC-00000001qHp-1lPR;
+	Fri, 15 Mar 2024 23:13:44 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rlEsa-00000001bob-3lpS
+	id 1rlGk7-00000001qGd-1qol
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Mar 2024 21:14:20 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-5cdbc4334edso1553357a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Mar 2024 14:14:15 -0700 (PDT)
+	Fri, 15 Mar 2024 23:13:43 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-36678885723so16037955ab.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Mar 2024 16:13:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1710537255; x=1711142055; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=li8FQZuAORjepNxPzIU1BizKX/F5AKPGAg36p1UGgCM=;
-        b=aqBzJOSx6Z6G+6+AKUJ5IkDC2boOiWCTL6ihYMvsxGIUBSZHqutyZuj8tKGAg3fPrC
-         TpoLAVNBAy6gteTt4mYSruxoKkaSnwnW+5PjnM2H3nq5P4IE3y0oprVLltaVDx+7t5XJ
-         I64G5axNOoUItUDym7xRKO9PNuQgamb01IqQTYOAlrjTKqnAVrScsrMrWmMYvKjb/owh
-         TggKaZOyHVKRFwoP9be6INnBJVXOlEzvCJgzSw8nWTUCR59SSRH7CV5zZMD+IiaRbB+J
-         67y8nRSKoyo+rLr5SlkiWtf5CzZ0sS2S8ifjB6hUzoor1XUM4xse9aWEY5AVoBKvrmLu
-         Tj/Q==
+        d=sifive.com; s=google; t=1710544416; x=1711149216; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ik0WgA0NYbsNgyUpEeTOF/vMyU1VZieyn2u6T3u4Jh4=;
+        b=PE3YZYG7J7KTm+CVRdOKwclONVTb+quCCQNPaSepi6CoeREyXyuVqPd9eiSyiKKoYX
+         BWwyzrzlDcukWuzTdqF6/aAsYITLHyZhL/7K/90bTkgomFQpx2GVpW2qBHNZ195VUBdM
+         MAH9i2XBcX3Lm3MxmOGzHjUDC71hjXD+khr2iMy77wjiaZOcjIHzDUMb0KR1ZKpQcdyB
+         q7ZAvHRJthXIRuHLjl+91kX7IWbPtD5IrObJc+2iWRtsL+60MVaeGe/J0TcEzLsvJdp1
+         uER9rOX9qojfJNl/qQwIWqosUDy/ZA7Gh70WuzKO8yCzUSnflT7yXYM87Zk/mi9WWh3x
+         VsqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710537255; x=1711142055;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=li8FQZuAORjepNxPzIU1BizKX/F5AKPGAg36p1UGgCM=;
-        b=faM62Q46bRJ2jDtOLsTUz+JagIm7EWThHn6vonnRkhgugfF+u310dP6AHjq/ClZDRv
-         fr/cYHPnvQbQIzasL+cPvVcKArcyiorjy3MJUzavL7htXnwdxVAdJfNgmt4Jt16hcSzd
-         tWQBp3HFl+iLgAVn5rsCiK0VkXhnXbPMNA3s2KTXgSVW1L0L3GqHa7i6lwAizYGxYMZr
-         ANpbuOaNBpZ87uhqyVl2CWBjCpPnRfFika5zSLuHydmxqEa67FJ0kfFzc02ZZ4ggfb3y
-         a4v2M8lc0r2GPHhfER0QjHGK5JOuGaH/cOLdG3oPOZjjAG9BvcC8Wuba9iWIeD6qlDc6
-         ezhw==
-X-Forwarded-Encrypted: i=1; AJvYcCUfaVSXZOIaWHOpqAnOT966sutdUbbKKip070TG+XsArBPgzrPIYhf2+dC2WLzhktnmOic6wFI7ANKjYLDgqwIfPaJZWPS6H/8K06tI8DYV
-X-Gm-Message-State: AOJu0Yw7F8vo5xWyB2qBStYQHvl4lL15FP0Vrf0kSYzxdD3dNubb8mMu
-	NyCjOV2L3fPDqfjw6zUewMQKI+HCNKfPAo5eN7yip2SOVtjbCCDOhUot9KIKLc9w0cGDj0GOZ24
-	1
-X-Google-Smtp-Source: AGHT+IGhL4qoSYYN2vo4rHa2yEPyLL49RSVgVviNAIZ4xP4ABXwJ1zCbt3Ou3SkYADLOtNYkVfqPBA==
-X-Received: by 2002:a17:90b:305:b0:29b:a35e:6663 with SMTP id ay5-20020a17090b030500b0029ba35e6663mr3846121pjb.3.1710537255273;
-        Fri, 15 Mar 2024 14:14:15 -0700 (PDT)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id sh1-20020a17090b524100b0029951d04dc4sm3387111pjb.54.2024.03.15.14.14.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Mar 2024 14:14:14 -0700 (PDT)
-Message-ID: <65f4ba26.170a0220.17201.b760@mx.google.com>
-Date: Fri, 15 Mar 2024 14:14:14 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1710544416; x=1711149216;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ik0WgA0NYbsNgyUpEeTOF/vMyU1VZieyn2u6T3u4Jh4=;
+        b=UMYvDmwSXaW41aSwHYPXrUkaH8RGk95odyMtDVtbPoZEVCItQhdFIgQdt6zzr7a8TV
+         B1cz/25rIAsKBEMk4sv0CxzNa/LWu5Udkliex1dgficfcZfdc52NUP1AqPll4SkzZ3NN
+         3BLjF9/m6xHTHUOfFlBcbN2+HSq3TZVX/p4dvo2SCtfF2ueJYs8WsgxGo5/9DaNf1d9L
+         kku5NrD+8pN68OkZ4WPSZg3OmmK/6pzLgAX0h5vllIyxvohDLObhUiqtCYdQEcoDj2v/
+         CPHzr5iBx4n1PY3fzrSpKABDU3mnHT32P+E5tK49Js0K4yVqDAbcBpK1X5bCWnG50xOq
+         AnZQ==
+X-Gm-Message-State: AOJu0Yz0RipHYhDjlJYDhaGUo12QjmbjwVWT8qx2Nsc83VhkNIVQbfnP
+	K2CzumFRhuFrppGIQOv+KQ6/fxHNFACtDLEnrrMSn80MWbksV4Ot5EMgT8gPawM=
+X-Google-Smtp-Source: AGHT+IGmWV+7gORxW1R384X6QiwEgLn1AxgnTY/2dOT9BBzXCSKh7z21EEUx/s44+ntxvgCJXtMhfQ==
+X-Received: by 2002:a92:d952:0:b0:366:1f42:dc53 with SMTP id l18-20020a92d952000000b003661f42dc53mr6424138ilq.18.1710544416406;
+        Fri, 15 Mar 2024 16:13:36 -0700 (PDT)
+Received: from [100.64.0.1] ([136.226.86.189])
+        by smtp.gmail.com with ESMTPSA id r5-20020a056638044500b004773027eee2sm964542jap.12.2024.03.15.16.13.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 Mar 2024 16:13:36 -0700 (PDT)
+Message-ID: <b662bb30-d5e2-4bf0-a156-ac38461fcea2@sifive.com>
+Date: Fri, 15 Mar 2024 18:13:34 -0500
 MIME-Version: 1.0
-X-Kernelci-Branch: for-next
-X-Kernelci-Tree: riscv
-X-Kernelci-Kernel: riscv-for-linus-6.9-mw1-18-g099dbac6e90c
-X-Kernelci-Report-Type: build
-Subject: riscv/for-next build: 7 builds: 0 failed, 7 passed,
- 2 warnings (riscv-for-linus-6.9-mw1-18-g099dbac6e90c)
-To: kernelci-results@groups.io, kernel-ci-triage@rivosinc.com,
- linux-riscv@lists.infradead.org
-From: "kernelci.org bot" <bot@kernelci.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] riscv: errata: Add StarFive alternative ports
+Content-Language: en-US
+To: Joshua Yeong <joshua.yeong@starfivetech.com>
+References: <20240314061205.26143-1-joshua.yeong@starfivetech.com>
+ <20240314061205.26143-3-joshua.yeong@starfivetech.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <20240314061205.26143-3-joshua.yeong@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240315_141417_079406_E66AF035 
-X-CRM114-Status: UNSURE (   3.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240315_161339_568594_3F20CA95 
+X-CRM114-Status: GOOD (  28.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,52 +87,243 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: heiko@sntech.de, geert+renesas@glider.be, conor.dooley@microchip.com, guoren@kernel.org, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, jeeheng.sia@starfivetech.com, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, alexghiti@rivosinc.com, leyfoon.tan@starfivetech.com, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, paul.walmsley@sifive.com, jszhang@kernel.org, linux-kernel@vger.kernel.org, conor@kernel.org, evan@rivosinc.com, palmer@dabbelt.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cmlzY3YvZm9yLW5leHQgYnVpbGQ6IDcgYnVpbGRzOiAwIGZhaWxlZCwgNyBwYXNzZWQsIDIgd2Fy
-bmluZ3MgKHJpc2N2LWZvci1saW51cy02LjktbXcxLTE4LWcwOTlkYmFjNmU5MGMpCgpGdWxsIEJ1
-aWxkIFN1bW1hcnk6IGh0dHBzOi8va2VybmVsY2kub3JnL2J1aWxkL3Jpc2N2L2JyYW5jaC9mb3It
-bmV4dC9rZXJuZWwvcmlzY3YtZm9yLWxpbnVzLTYuOS1tdzEtMTgtZzA5OWRiYWM2ZTkwYy8KClRy
-ZWU6IHJpc2N2CkJyYW5jaDogZm9yLW5leHQKR2l0IERlc2NyaWJlOiByaXNjdi1mb3ItbGludXMt
-Ni45LW13MS0xOC1nMDk5ZGJhYzZlOTBjCkdpdCBDb21taXQ6IDA5OWRiYWM2ZTkwYzYyMGQ4Y2Uw
-YmJmNzViYmRjOTRkYTFmZWI0ZmIKR2l0IFVSTDogaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIv
-c2NtL2xpbnV4L2tlcm5lbC9naXQvcmlzY3YvbGludXguZ2l0CkJ1aWx0OiAxIHVuaXF1ZSBhcmNo
-aXRlY3R1cmUKCldhcm5pbmdzIERldGVjdGVkOgoKcmlzY3Y6CiAgICBkZWZjb25maWcgKGdjYy0x
-MCk6IDEgd2FybmluZwogICAgZGVmY29uZmlnK0NPTkZJR19TTVA9biAoZ2NjLTEwKTogMSB3YXJu
-aW5nCgoKV2FybmluZ3Mgc3VtbWFyeToKCiAgICAyICAgIHNlY3VyaXR5L3NlY3VyaXR5LmM6ODEw
-OjI6IHdhcm5pbmc6IOKAmG1lbWNweeKAmSBvZmZzZXQgMzIgaXMgb3V0IG9mIHRoZSBib3VuZHMg
-WzAsIDBdIFstV2FycmF5LWJvdW5kc10KCj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CgpEZXRhaWxl
-ZCBwZXItZGVmY29uZmlnIGJ1aWxkIHJlcG9ydHM6CgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpk
-ZWZjb25maWcgKHJpc2N2LCBjbGFuZy0xNikg4oCUIFBBU1MsIDAgZXJyb3JzLCAwIHdhcm5pbmdz
-LCAwIHNlY3Rpb24gbWlzbWF0Y2hlcwoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KZGVmY29uZmln
-IChyaXNjdiwgZ2NjLTEwKSDigJQgUEFTUywgMCBlcnJvcnMsIDEgd2FybmluZywgMCBzZWN0aW9u
-IG1pc21hdGNoZXMKCldhcm5pbmdzOgogICAgc2VjdXJpdHkvc2VjdXJpdHkuYzo4MTA6Mjogd2Fy
-bmluZzog4oCYbWVtY3B54oCZIG9mZnNldCAzMiBpcyBvdXQgb2YgdGhlIGJvdW5kcyBbMCwgMF0g
-Wy1XYXJyYXktYm91bmRzXQoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KZGVmY29uZmlnK0NPTkZJ
-R19TTVA9biAocmlzY3YsIGdjYy0xMCkg4oCUIFBBU1MsIDAgZXJyb3JzLCAxIHdhcm5pbmcsIDAg
-c2VjdGlvbiBtaXNtYXRjaGVzCgpXYXJuaW5nczoKICAgIHNlY3VyaXR5L3NlY3VyaXR5LmM6ODEw
-OjI6IHdhcm5pbmc6IOKAmG1lbWNweeKAmSBvZmZzZXQgMzIgaXMgb3V0IG9mIHRoZSBib3VuZHMg
-WzAsIDBdIFstV2FycmF5LWJvdW5kc10KCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCm5vbW11X2sy
-MTBfZGVmY29uZmlnIChyaXNjdiwgZ2NjLTEwKSDigJQgUEFTUywgMCBlcnJvcnMsIDAgd2Fybmlu
-Z3MsIDAgc2VjdGlvbiBtaXNtYXRjaGVzCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpub21tdV9r
-MjEwX2RlZmNvbmZpZyAocmlzY3YsIGNsYW5nLTE2KSDigJQgUEFTUywgMCBlcnJvcnMsIDAgd2Fy
-bmluZ3MsIDAgc2VjdGlvbiBtaXNtYXRjaGVzCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpub21t
-dV9rMjEwX3NkY2FyZF9kZWZjb25maWcgKHJpc2N2LCBnY2MtMTApIOKAlCBQQVNTLCAwIGVycm9y
-cywgMCB3YXJuaW5ncywgMCBzZWN0aW9uIG1pc21hdGNoZXMKCi0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tCm5vbW11X2syMTBfc2RjYXJkX2RlZmNvbmZpZyAocmlzY3YsIGNsYW5nLTE2KSDigJQgUEFT
-UywgMCBlcnJvcnMsIDAgd2FybmluZ3MsIDAgc2VjdGlvbiBtaXNtYXRjaGVzCgotLS0KRm9yIG1v
-cmUgaW5mbyB3cml0ZSB0byA8aW5mb0BrZXJuZWxjaS5vcmc+CgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 2024-03-14 1:12 AM, Joshua Yeong wrote:
+> Add required ports of the Alternative scheme for
+> StarFive CPU cores.
+> 
+> Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
+> ---
+>  arch/riscv/Kconfig.errata            | 21 ++++++
+>  arch/riscv/errata/Makefile           |  1 +
+>  arch/riscv/errata/starfive/Makefile  |  1 +
+>  arch/riscv/errata/starfive/errata.c  | 95 ++++++++++++++++++++++++++++
+>  arch/riscv/include/asm/alternative.h |  3 +
+>  arch/riscv/include/asm/errata_list.h |  5 ++
+>  arch/riscv/kernel/alternative.c      |  5 ++
+>  7 files changed, 131 insertions(+)
+>  create mode 100644 arch/riscv/errata/starfive/Makefile
+>  create mode 100644 arch/riscv/errata/starfive/errata.c
+> 
+> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+> index 910ba8837add..1438dd09533b 100644
+> --- a/arch/riscv/Kconfig.errata
+> +++ b/arch/riscv/Kconfig.errata
+> @@ -53,6 +53,16 @@ config ERRATA_SIFIVE_CIP_1200
+>  
+>  	  If you don't know what to do here, say "Y".
+>  
+> +config ERRATA_STARFIVE
+> +	bool "StarFive errata"
+> +	depends on RISCV_ALTERNATIVE
+> +	help
+> +	  All StarFive errata Kconfig depend on this Kconfig. Disabling
+> +	  this Kconfig will disable all StarFive errata. Please say "Y"
+> +	  here if your platform uses StarFive CPU cores.
+> +
+> +	  Otherwise, please say "N" here to avoid unnecessary overhead.
+> +
+>  config ERRATA_STARFIVE_JH7100
+>  	bool "StarFive JH7100 support"
+>  	depends on ARCH_STARFIVE
+> @@ -72,6 +82,17 @@ config ERRATA_STARFIVE_JH7100
+>  	  Say "Y" if you want to support the BeagleV Starlight and/or
+>  	  StarFive VisionFive V1 boards.
+>  
+> +config ERRATA_STARFIVE_CMO
+> +	bool "Apply StarFive cache management errata"
+> +	depends on ERRATA_STARFIVE && MMU
+> +	select RISCV_DMA_NONCOHERENT
+> +	default y
+> +	help
+> +	  This will apply the cache management errata to handle the
+> +	  non-standard handling on non-coherent operations on StarFive cores.
+> +
+> +	  If you don't know what to do here, say "Y".
+> +
+>  config ERRATA_THEAD
+>  	bool "T-HEAD errata"
+>  	depends on RISCV_ALTERNATIVE
+> diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
+> index 8a2739485123..4713a686b9f7 100644
+> --- a/arch/riscv/errata/Makefile
+> +++ b/arch/riscv/errata/Makefile
+> @@ -4,4 +4,5 @@ endif
+>  
+>  obj-$(CONFIG_ERRATA_ANDES) += andes/
+>  obj-$(CONFIG_ERRATA_SIFIVE) += sifive/
+> +obj-$(CONFIG_ERRATA_STARFIVE) += starfive/
+>  obj-$(CONFIG_ERRATA_THEAD) += thead/
+> diff --git a/arch/riscv/errata/starfive/Makefile b/arch/riscv/errata/starfive/Makefile
+> new file mode 100644
+> index 000000000000..2d644e19caef
+> --- /dev/null
+> +++ b/arch/riscv/errata/starfive/Makefile
+> @@ -0,0 +1 @@
+> +obj-y += errata.o
+> diff --git a/arch/riscv/errata/starfive/errata.c b/arch/riscv/errata/starfive/errata.c
+> new file mode 100644
+> index 000000000000..3ee360cd5e81
+> --- /dev/null
+> +++ b/arch/riscv/errata/starfive/errata.c
+> @@ -0,0 +1,95 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Erratas to be applied for StarFive CPU cores
+> + *
+> + * Copyright (C) 2024 Shanghai StarFive Technology Co., Ltd.
+> + *
+> + * Author: Joshua Yeong <joshua.yeong@starfivetech.com>
+> + */
+> +
+> +#include <linux/memory.h>
+> +#include <linux/module.h>
+> +
+> +#include <asm/alternative.h>
+> +#include <asm/cacheflush.h>
+> +#include <asm/errata_list.h>
+> +#include <asm/patch.h>
+> +#include <asm/processor.h>
+> +#include <asm/sbi.h>
+> +#include <asm/vendorid_list.h>
+> +
+> +#define STARFIVE_JH8100_DUBHE90_MARCHID	0x80000000DB000090UL
+> +#define STARFIVE_JH8100_DUBHE90_MIMPID	0x0000000020230930UL
+> +#define STARFIVE_JH8100_DUBHE80_MARCHID	0x80000000DB000080UL
+> +#define STARFIVE_JH8100_DUBHE80_MIMPID	0x0000000020230831UL
+> +#define STARFIVE_JH8100_L3		0x40
+> +
+> +static bool errata_probe_cmo(unsigned int stage, unsigned long arch_id,
+> +			      unsigned long impid)
+> +{
+> +	if (!IS_ENABLED(CONFIG_ERRATA_STARFIVE_CMO))
+> +		return false;
+> +
+> +	if ((arch_id != STARFIVE_JH8100_DUBHE90_MARCHID ||
+> +	    impid != STARFIVE_JH8100_DUBHE90_MIMPID) &&
+> +	    (arch_id != STARFIVE_JH8100_DUBHE80_MARCHID ||
+> +	    impid != STARFIVE_JH8100_DUBHE80_MIMPID))
+> +		return false;
+> +
+> +	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> +		return false;
+> +
+> +	riscv_cbom_block_size = STARFIVE_JH8100_L3;
+> +	riscv_noncoherent_supported();
+
+This patch doesn't add any alternatives, so you don't need to use the errata
+framework. Please move these two lines to the cache driver -- see
+drivers/cache/sifive_ccache.c -- and then you can drop this patch.
+
+Regards,
+Samuel
+
+> +
+> +	return true;
+> +}
+> +
+> +static u32 starfive_errata_probe(unsigned int stage,
+> +			      unsigned long archid, unsigned long impid)
+> +{
+> +	u32 cpu_req_errata = 0;
+> +
+> +	if (errata_probe_cmo(stage, archid, impid))
+> +		cpu_req_errata |= BIT(ERRATA_STARFIVE_CMO);
+> +
+> +	return cpu_req_errata;
+> +}
+> +
+> +void __init_or_module starfive_errata_patch_func(struct alt_entry *begin,
+> +					         struct alt_entry *end,
+> +					         unsigned long archid,
+> +						 unsigned long impid,
+> +						 unsigned int stage)
+> +{
+> +	struct alt_entry *alt;
+> +	u32 cpu_apply_errata = 0;
+> +	u32 tmp;
+> +	u32 cpu_req_errata;
+> +
+> +	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> +		return;
+> +
+> +	cpu_req_errata = starfive_errata_probe(stage, archid, impid);
+> +
+> +	for (alt = begin; alt < end; alt++) {
+> +		if (alt->vendor_id != STARFIVE_VENDOR_ID)
+> +			continue;
+> +		if (alt->patch_id >= ERRATA_STARFIVE_NUMBER)
+> +			continue;
+> +
+> +		tmp = (1U << alt->patch_id);
+> +		if (cpu_req_errata & tmp) {
+> +			mutex_lock(&text_mutex);
+> +			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
+> +					  alt->alt_len);
+> +			mutex_unlock(&text_mutex);
+> +			cpu_apply_errata |= tmp;
+> +		}
+> +	}
+> +
+> +	if (stage != RISCV_ALTERNATIVES_MODULE &&
+> +	    cpu_apply_errata != cpu_req_errata) {
+> +		pr_warn("WARNING: Missing StarFive errata patches! \n");
+> +	    }
+> +}
+> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+> index 3c2b59b25017..8f5e6883db97 100644
+> --- a/arch/riscv/include/asm/alternative.h
+> +++ b/arch/riscv/include/asm/alternative.h
+> @@ -51,6 +51,9 @@ void andes_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+>  void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+>  			      unsigned long archid, unsigned long impid,
+>  			      unsigned int stage);
+> +void starfive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+> +			     unsigned long archid, unsigned long impid,
+> +			     unsigned int stage);
+>  void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+>  			     unsigned long archid, unsigned long impid,
+>  			     unsigned int stage);
+> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> index ea33288f8a25..1cd5ba3a1466 100644
+> --- a/arch/riscv/include/asm/errata_list.h
+> +++ b/arch/riscv/include/asm/errata_list.h
+> @@ -22,6 +22,11 @@
+>  #define	ERRATA_SIFIVE_NUMBER 2
+>  #endif
+>  
+> +#ifdef CONFIG_ERRATA_STARFIVE
+> +#define	ERRATA_STARFIVE_CMO 0
+> +#define	ERRATA_STARFIVE_NUMBER 1
+> +#endif
+> +
+>  #ifdef CONFIG_ERRATA_THEAD
+>  #define	ERRATA_THEAD_PBMT 0
+>  #define	ERRATA_THEAD_PMU 1
+> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+> index 319a1da0358b..deedd4b76472 100644
+> --- a/arch/riscv/kernel/alternative.c
+> +++ b/arch/riscv/kernel/alternative.c
+> @@ -52,6 +52,11 @@ static void riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info
+>  		cpu_mfr_info->patch_func = sifive_errata_patch_func;
+>  		break;
+>  #endif
+> +#ifdef CONFIG_ERRATA_STARFIVE
+> +	case STARFIVE_VENDOR_ID:
+> +		cpu_mfr_info->patch_func = starfive_errata_patch_func;
+> +		break;
+> +#endif
+>  #ifdef CONFIG_ERRATA_THEAD
+>  	case THEAD_VENDOR_ID:
+>  		cpu_mfr_info->patch_func = thead_errata_patch_func;
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
