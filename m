@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10844C54E58
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 04:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E255BC54E66
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 04:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kZUvDTAJwS+f3T4b2gWqAHJAlvGX+TGqHPQvPxf1xfc=; b=2vCfrmGG29tAYF
-	B0UOfxg9xd441rz1/I5oH20miiNpBeMEJWXO7XYgCVFtCGdg9guDYpCpxUI08CJhWVjS5QRZAt8ed
-	OoUprv2bIPwKA3P9CiINo/7cI394luKYkpiI3ZE5N+9jv+rxY4HXN+XB3/+PSQWrPAqbhwQ0lcUHa
-	Tj2up1iY7rl+xjf5MuXlT/Q5s853AZlP2BzwbG70I4dVv4ldgjqwV5SrMRso8wAyxspmp/dVPiIx5
-	oHr8A1TFX84075qA4LqP2uaHt4HrRBHwIqA2lUvIXgTd3CWhB5w1UvJbVAHP2838qAhlr9i12+FrK
-	Y/7nROoPCxRMF3+IM6Yg==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=eb7F86jGUnYCE561IcWMypJAkTObRQR25xiN+D+OQNo=; b=g19VoPZigSxYhOQ8KLUw2Mskpr
+	GGQmvMp9F0DlaCCHcEF+nwSb87UpoT7HklRzPrTg+XlvD4Tc3rFjeHFPEELQELn8Mn+DPEKEOltF7
+	nh4/iSFpzvc29bKyOIgi/FddLetCUZXNPMTJqvJ64OJlQ6//COIpE2a/ct7ieqAFrbvKZdiZ3TW9B
+	+6pi+fZmH/hVkrJfFcdbjz4JvFNI4Tp2+G6/vjhPQlDakK4Msm6cjsIAhSmPajFNamIKLvQQTn+4c
+	j+6jVQG6TTrzIqae/94KYfrpMsquD3DXH/80z0W7zLsDaIsnn3TNd29LQ+clVowfaxtpOznpsy3DX
+	0tRVFWWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkyqN-0000000GapD-3Pmw;
-	Fri, 15 Mar 2024 04:06:55 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rkzJk-0000000GdlQ-0x9f;
+	Fri, 15 Mar 2024 04:37:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkyqK-0000000Game-1rL5
+	id 1rkzJg-0000000Gdl2-3HGB
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Mar 2024 04:06:54 +0000
+	Fri, 15 Mar 2024 04:37:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5D033CE1F14
-	for <linux-riscv@lists.infradead.org>; Fri, 15 Mar 2024 04:06:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97903C433F1
-	for <linux-riscv@lists.infradead.org>; Fri, 15 Mar 2024 04:06:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 65EA4616A8;
+	Fri, 15 Mar 2024 04:37:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DA0CC43390;
+	Fri, 15 Mar 2024 04:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1710475607;
-	bh=aEszL1eYHuUQrRaWbEMqIqLr91Z5i2VPp0C2t0X6KIY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=FdZuayU5mkzcBq/o+O+0IZyudM7OKwyweH0it1sejpPBugKMVqqri4q9bwe0MmHK0
-	 XPpuDD35pQUqHdlIyT1iUm/b6FMWBtkh6MxbEZmbGqwidjLzrB6hihLLUZv0HR0FuO
-	 /TZktOdUbUxm2AeJhrtEzjwPxIqAQsncwJcNN6ZX1PMNnj4fP1sDwYV56kUVn9h9Os
-	 kC+v1AmuxkXnep0siUaQP9PkR4xD0Pc4j2RunHMJcyjBnf5svyeJAHqUVN+Oipiqfe
-	 MiUzDbz/tFcDeO23546JZBIvJF7gtU+fYK4pojYtKiKNn4pGW/Z3ws0Bw5nJDdtZVU
-	 ywXwN1vvsCCAA==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-2d46dd8b0b8so19650521fa.2
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Mar 2024 21:06:47 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV3uolwkd64mUv+BWtxAmQ7STVNGL4/pMuqSl4jClKoKCOeixNKEyTU/3y0P3t0CUchKUk+ReXm2bnzvgn4YIr0gE4d6TQpqEnddk3OfVaz
-X-Gm-Message-State: AOJu0Yw6a6YNWz87zQj5IJ94O3PJtAtFPMjcedG3nQ4ZhoLtcZ/zD4tB
-	bUfzYgMhG8E+pNJrIBh9OZ6GYYkvOO4KAw44ge9nRRazL2/nCak9G2a5RljUNENUH1MbrHX+iVz
-	Z/ELnVB3SsvyGEvcfG2bngDCJvCA=
-X-Google-Smtp-Source: AGHT+IHvMoXiS87S0gUMxFt23So/Yzo5cCR8QxVV+JTA0NOy2me1SReKl03MODdud8gY1g5pnw9EN7ncy20C6SJJUEI=
-X-Received: by 2002:a05:651c:615:b0:2d4:992:3cb0 with SMTP id
- k21-20020a05651c061500b002d409923cb0mr2093037lje.6.1710475606307; Thu, 14 Mar
- 2024 21:06:46 -0700 (PDT)
+	s=k20201202; t=1710477430;
+	bh=PUemYcFBAHOYhcdhTqcE5Userz2v4Fkqh5RMcCkrqVo=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=qx8emhmYpsXEI4WbCttop0+dqnAdklqAL0xSfWVGuLwPdLcIx+ZbIfV3QRPWl8CwD
+	 eXoc4lvrLvY9uYFHvcYMIxoSNScxCtUxU6MP9hWzoEfJam6oOl/0Ek+hcy1z7Uvbjd
+	 /CAfosxaXYlckrqBX1ARfopMr+MAWTOB7kHFwgl6PvZEQ4/qXI+HtBjygRJPftDaWC
+	 5/DQftw1S2C5Dp2u6O2lFWHX9Mrw18iZOTRAbziHpjv1QQ8lhkrIcdwD4NXMw5HZHs
+	 Y0cNBKjDEaz2ermjUPv0UIqXbtQIsyl9pipSSWgPD2w3dHlcCq9QJYAziyCG3K+rh5
+	 GxVmnMqGTiYSw==
+Date: Thu, 14 Mar 2024 22:37:07 -0600
 MIME-Version: 1.0
-References: <20231117125807.1058477-1-masahiroy@kernel.org>
- <CAK7LNAStoCja1gnoFmsKikbzGZmKTcTu+Vc7v9zg8B9hwsH+iQ@mail.gmail.com>
- <CAK7LNATVAcj-pa_G-NGBTr9doCACGk1nKCNbxM50-M0mi9q=7w@mail.gmail.com> <ca097f2a-59ec-4945-9860-5e380e1665e4@ghiti.fr>
-In-Reply-To: <ca097f2a-59ec-4945-9860-5e380e1665e4@ghiti.fr>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Fri, 15 Mar 2024 13:06:09 +0900
-X-Gmail-Original-Message-ID: <CAK7LNARShVA953-U+p6=wzq3GFsKx4GwpRiqmqftjQz3VkE2VA@mail.gmail.com>
-Message-ID: <CAK7LNARShVA953-U+p6=wzq3GFsKx4GwpRiqmqftjQz3VkE2VA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: compat_vdso: install compat_vdso.so.dbg to /lib/modules/*/vdso/
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+From: Rob Herring <robh@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, dmaengine@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ dlan@gentoo.org, linux-riscv@lists.infradead.org, 
+ Chen Wang <unicorn_wang@outlook.com>, Vinod Koul <vkoul@kernel.org>, 
+ Jingbao Qiu <qiujingbao.dlmu@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
+ devicetree@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ Liu Gui <kenneth.liu@sophgo.com>
+In-Reply-To: <IA1PR20MB4953D930316266781A229E97BB282@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB4953E7BB0B270157C8D1DDACBB282@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953D930316266781A229E97BB282@IA1PR20MB4953.namprd20.prod.outlook.com>
+Message-Id: <171047742671.4112904.2484238766002561256.robh@kernel.org>
+Subject: Re: [PATCH v3 2/4] dt-bindings: soc: sophgo: Add top misc
+ controller of CV18XX/SG200X series SoC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240314_210652_863343_B6FC6F4E 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20240314_213713_009641_FA00CAE9 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,52 +75,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBNYXIgNywgMjAyNCBhdCA1OjEy4oCvQU0gQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdo
-aXRpLmZyPiB3cm90ZToKPgo+IEhpIE1hc2FoaXJvLAo+Cj4gT24gMjQvMDIvMjAyNCAwNDozNywg
-TWFzYWhpcm8gWWFtYWRhIHdyb3RlOgo+ID4gUGluZyB4IDIgPwo+ID4KPiA+Cj4gPgo+ID4KPiA+
-Cj4gPiBPbiBTdW4sIEphbiAyMSwgMjAyNCBhdCA2OjQ44oCvQU0gTWFzYWhpcm8gWWFtYWRhIDxt
-YXNhaGlyb3lAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPj4gT24gRnJpLCBOb3YgMTcsIDIwMjMgYXQg
-OTo1OOKAr1BNIE1hc2FoaXJvIFlhbWFkYSA8bWFzYWhpcm95QGtlcm5lbC5vcmc+IHdyb3RlOgo+
-ID4+PiAnbWFrZSB2ZHNvX2luc3RhbGwnIGluc3RhbGxzIGRlYnVnIHZkc28gZmlsZXMgdG8gL2xp
-Yi9tb2R1bGVzLyovdmRzby8uCj4gPj4+Cj4gPj4+IE9ubHkgZm9yIHRoZSBjb21wYXQgdmRzbyBv
-biByaXNjdiwgdGhlIGluc3RhbGxhdGlvbiBkZXN0aW5hdGlvbiBkaWZmZXJzOwo+ID4+PiBjb21w
-YXRfdmRzby5zby5kYmcgaXMgaW5zdGFsbGVkIHRvIC9saWIvbW9kdWxlLyovY29tcGF0X3Zkc28v
-Lgo+ID4+Pgo+ID4+PiBUbyBmb2xsb3cgdGhlIHN0YW5kYXJkIGluc3RhbGwgZGVzdGluYXRpb24g
-YW5kIHNpbXBsaWZ5IHRoZSB2ZHNvX2luc3RhbGwKPiA+Pj4gbG9naWMsIGNoYW5nZSB0aGUgaW5z
-dGFsbCBkZXN0aW5hdGlvbiB0byBzdGFuZGFyZCAvbGliL21vZHVsZXMvKi92ZHNvLy4KPiA+Pj4K
-PiA+Pj4gU2lnbmVkLW9mZi1ieTogTWFzYWhpcm8gWWFtYWRhIDxtYXNhaGlyb3lAa2VybmVsLm9y
-Zz4KPiA+Pj4gLS0tCj4gPj4KPiA+PiBQaW5nPwo+ID4+IChpbiBjYXNlICJ5ZXQgbW9yZSBSSVND
-LVYgdXBkYXRlcyIgaGFwcGVucykKPiA+Pgo+ID4+Cj4gPj4KPiA+Pgo+ID4+PiAgIGFyY2gvcmlz
-Y3YvTWFrZWZpbGUgfCAyICstCj4gPj4+ICAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCsp
-LCAxIGRlbGV0aW9uKC0pCj4gPj4+Cj4gPj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L01ha2Vm
-aWxlIGIvYXJjaC9yaXNjdi9NYWtlZmlsZQo+ID4+PiBpbmRleCBhNzRiZTc4Njc4ZWIuLjVjYmU1
-OTYzNDVjMSAxMDA2NDQKPiA+Pj4gLS0tIGEvYXJjaC9yaXNjdi9NYWtlZmlsZQo+ID4+PiArKysg
-Yi9hcmNoL3Jpc2N2L01ha2VmaWxlCj4gPj4+IEBAIC0xNDYsNyArMTQ2LDcgQEAgZW5kaWYKPiA+
-Pj4gICBlbmRpZgo+ID4+Pgo+ID4+PiAgIHZkc28taW5zdGFsbC15ICAgICAgICAgICAgICAgICAr
-PSBhcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL3Zkc28uc28uZGJnCj4gPj4+IC12ZHNvLWluc3RhbGwt
-JChDT05GSUdfQ09NUEFUKSAgKz0gYXJjaC9yaXNjdi9rZXJuZWwvY29tcGF0X3Zkc28vY29tcGF0
-X3Zkc28uc28uZGJnOi4uL2NvbXBhdF92ZHNvL2NvbXBhdF92ZHNvLnNvCj4gPj4+ICt2ZHNvLWlu
-c3RhbGwtJChDT05GSUdfQ09NUEFUKSAgKz0gYXJjaC9yaXNjdi9rZXJuZWwvY29tcGF0X3Zkc28v
-Y29tcGF0X3Zkc28uc28uZGJnCj4gPj4+Cj4gPj4+ICAgaWZuZXEgKCQoQ09ORklHX1hJUF9LRVJO
-RUwpLHkpCj4gPj4+ICAgaWZlcSAoJChDT05GSUdfUklTQ1ZfTV9NT0RFKSQoQ09ORklHX0FSQ0hf
-Q0FOQUFOKSx5eSkKPiA+Pj4gLS0KPiA+Pj4gMi40MC4xCj4gPj4+Cj4gPj4KPiA+PiAtLQo+ID4+
-IEJlc3QgUmVnYXJkcwo+ID4+IE1hc2FoaXJvIFlhbWFkYQo+ID4KPiA+Cj4gPiAtLQo+ID4gQmVz
-dCBSZWdhcmRzCj4gPiBNYXNhaGlybyBZYW1hZGEKPiA+Cj4gPiBfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+ID4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-Cj4gPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gPiBodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cj4KPgo+IENvdWxkbid0IGNo
-YW5naW5nIHRoaXMgbGlicmFyeSBpbnN0YWxsIHBhdGggYnJlYWsgc29tZSBleGlzdGluZwo+IGFw
-cGxpY2F0aW9uPyBJIG1lYW4gaXQga2luZCBvZiBicmVha3Mgd2hlcmUgdGhlIGxpYnJhcnkgaXMg
-ZXhwZWN0ZWQgdG8KPiBiZSByaWdodD8KCgpEbyB5b3UgaGF2ZSBhIHBhcnRpY3VsYXIgbGlicmFy
-eSBpbiBtaW5kPwoKClJJU1YtViBpcyB0aGUgb25seSBhcmNoaXRlY3R1cmUgdGhhdCBpbnN0YWxs
-cyBhIGRlYnVnIHZkc28KdG8gYSBkaWZmZXJlbnQgbG9jYXRpb24gdGhhbiB0aGUKc3RhbmRhcmQg
-bGliL21vZHVsZXMvKi92ZHNvLy4KCgpJIHJlZ2FyZCB0aGlzIGFzIGEgZml4LgoKCgoKCi0tIApC
-ZXN0IFJlZ2FyZHMKTWFzYWhpcm8gWWFtYWRhCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+On Fri, 15 Mar 2024 10:50:33 +0800, Inochi Amaoto wrote:
+> CV18XX/SG200X series SoCs have a special top misc system controller,
+> which provides register access for several devices. In addition to
+> register access, this system controller also contains some subdevices
+> (such as dmamux).
+> 
+> Add bindings for top misc controller of CV18XX/SG200X series SoC.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> ---
+>  .../soc/sophgo/sophgo,cv1800-top-syscon.yaml  | 49 +++++++++++++++++++
+>  1 file changed, 49 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml
+> 
+
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dts:25.13-44: Warning (reg_format): /example-0/syscon@3000000/dma-router@154:reg: property has invalid length (16 bytes) (#address-cells == 2, #size-cells == 1)
+Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (pci_device_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (pci_device_bus_num): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (simple_bus_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (i2c_bus_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (spi_bus_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dts:23.26-29.13: Warning (avoid_default_addr_size): /example-0/syscon@3000000/dma-router@154: Relying on default #address-cells value
+Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dts:23.26-29.13: Warning (avoid_default_addr_size): /example-0/syscon@3000000/dma-router@154: Relying on default #size-cells value
+Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (unique_unit_address_if_enabled): Failed prerequisite 'avoid_default_addr_size'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: dma-router@154: 'reg' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/IA1PR20MB4953D930316266781A229E97BB282@IA1PR20MB4953.namprd20.prod.outlook.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
