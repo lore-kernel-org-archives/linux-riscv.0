@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C241C54E58
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 12:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7530C54E67
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 13:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OOzwlWYI9dihwTgiQBEKbqgC3F46EQr8a9Mcm7zNkQY=; b=MxrBdSiL2E4Z3eWi8tg19jh2Cu
-	h0c7xw2kyspiaF4FSrtIUzIYHkE20OsvyaL6N+Iqp51Be1u6gzUd8wEbduWtuj7xDxgLTMH/sP7NY
-	U6Nyo7PS1P+C9T380rLWzMdDGpN7MFRzuJNircFqM9Qczmr0RCvW+6F6awFG10L7h500fm/FD7MiL
-	e3hfSkTMHYLSTJm+XIZwtoBa9yAVXRasUZWhJ863TbkwNgUWJQl4dV1njl1ghBHLHy/YDkpnHs08i
-	ucesCpOQWdbscJiV/hW9MFwKjxTTX0h9y/ZQ4Srwqgn2MVhlkNEu4piJgzrH+jrmEHzKs7VPIWiG6
-	iuyCTbhg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XhTyE+OkjqbC8YPkcuI9cdaLCBO9nzFQR718HDulCEk=; b=DdkRKg3SSO2Szx
+	k/+tJr4g73UxYiXYtJqvdIQw1KBLTakw5EPHIVVsEKtQKPYtxhQmRzhWHZkwUf8yRFfK8es0UrIRM
+	fJUW+fancw+SQ+myLf/kCWd49x2cfnI2kbUS0FJ6cUZXdkEvzRrHWfxXfX+imrf4/836vyqpeMju9
+	6Zx8K/g5iVX5ZFolPJgWXlEvlQD9IwopGdfvWnrTL+XesUW+bp1iIME9wV5BqGyRNdRPXl86GwvO9
+	jBQNgkrJcjCJXsADsLpXxlmW41tGisfPcXS/uekA6iRxh/yED3CU0pk8nAJKCxRixnT7oArYvN9t8
+	t4Wn1ccTjS3C+cLQSFWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rl6wb-00000000Dup-3Xss;
-	Fri, 15 Mar 2024 12:45:53 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rl7nD-00000000M2B-2b06;
+	Fri, 15 Mar 2024 13:40:15 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rl6wZ-00000000Du3-1GqH
+	id 1rl7nA-00000000M0u-3vmp
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Mar 2024 12:45:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id BA1E7CE1FE8;
-	Fri, 15 Mar 2024 12:45:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D2E7C433F1;
-	Fri, 15 Mar 2024 12:45:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1710506747;
-	bh=3ebn+xDEz/kApOIo2PqJQ1LGPDZrqrbinFBG2nhEO4k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dUam8kjtL+Vr1KbYvq8Lhu9Omo2sl/D3fUYP9PcLJcP7eq1UGIDOxr6MAtYi+PwOz
-	 IGv5c2PoMrcfFgoRMgR1xYzRjMNpJBJvvYQ55j8XmGZmt+48aE1gdysQI3IoEtLEp3
-	 Z8XXqS+YBNjysOPyK7DC2wl79JKXhZONFe6A2WvpYz2etlJcuvyhBu0jAPJEDHNVlh
-	 T0O3XrSPnRoFBdddKHTdpy+UOzNVQO/xGHQcDry/wax2NQJqEo5SiMBg/93/aVitJO
-	 roUHUNv6vFStMyLt+lMao+fUAk0RVs7J8ID287nnibrhBOz22Dk6Ub9ziu4atKGugF
-	 46uOjQ3nS01Fg==
-Date: Fri, 15 Mar 2024 12:45:44 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Eva Kurchatova <nyandarknessgirl@gmail.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, bugs@lists.linux.dev,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: Boot hang with SiFive PLIC when routing I2C-HID level-triggered
- interrupts
-Message-ID: <20240315-iguana-glacier-6dc38774fb65@spud>
-References: <CA+eeCSPUDpUg76ZO8dszSbAGn+UHjcyv8F1J-CUPVARAzEtW9w@mail.gmail.com>
- <20240314-sublevel-jargon-4234df3fa614@spud>
- <CA+eeCSPgxB9VCyB9fmEy4A1rEynNFv34LYA1UDBNT8Po=ag28w@mail.gmail.com>
+	Fri, 15 Mar 2024 13:40:14 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-568b7350397so417963a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Mar 2024 06:40:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1710510011; x=1711114811; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8GpF70CfX6/ZYz42S7wUpo7NgF/Xw34C1Kcm5Nkkfys=;
+        b=Yx1kfUNXvlHOSfMMvM2rX11iYu1ljiEFqdjySRU8wA2JGvWpbqK3SajLBIl9vYkmMA
+         I4p2+Yt2oY9WXI2z/MSjsImX+TkvXfzFUGR12JWEkGXKt/0YKQLjJdKZj32/NuizDC79
+         Wih/tSIy8NzeZl2ogRhO/EjACZDCjCVXqwUJk6lFc0RR3aIOfdVUArlBvsJEbL8IoaGo
+         4qCPuROdeJQddllaFmYmBJqYb2zzWVkixTwG3hBNZGC7X1diQgOKh++c0M2eqStEtOOR
+         DPW+DfWht7VMxJnpVvQiYZyf8eZs6efJwE1d6rn3shSX/tW7vX0+RnClerIrB9zwYX/Z
+         dTuQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1710510011; x=1711114811;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8GpF70CfX6/ZYz42S7wUpo7NgF/Xw34C1Kcm5Nkkfys=;
+        b=dTsxW170QqVEbhmF57HM7G2b/5ETfzolpIlGw8MV9oWyHYnndCYIgxxw8BFPt5/pBY
+         lqKk7c0Skak2g84NLMR+2IunGV7lABxW3JDQMyYxSj6n8MdEVPTSsgwT6Qp4s+POM1WF
+         pvXz1DsV0ngf6r9HYN8DVqG8vKq0zNQ0ZWRcwEuJ2UA5t1Ixkd+dYBUPX0qrUPiOB8tS
+         yz4dj2tpSJdWKShnK4wWzM8ve5m1DnIyFH0xtQGq1fh7+kjSO0AWz19gN/qaiomHc7X6
+         UpOKNbnjJhpE+3naDpu4Y2G5GDfCYRjpovwMrKBDy+NCBH4BqzgtlXAiAfKIZglDzELF
+         VUvA==
+X-Gm-Message-State: AOJu0Yz5Yty+77Qa2IWM8yO8QRwNcj1zarHmXsVoQLusJX8YxroCxEeG
+	0i8cPIG2PVuvQXJpTt36LYjQeaDIPP4TCGCVi5MtjxpD92LgVdUH1v/jLMVuHfOu+teokp7ozTk
+	w
+X-Google-Smtp-Source: AGHT+IEJ+GZq0aCYW5AFPWYR3CFedcyBB47DOlC8RkupvQ/yhTekijeSH8H6wrfvFKiGlJBuhDSdUw==
+X-Received: by 2002:a17:906:7c88:b0:a46:6d16:14e with SMTP id w8-20020a1709067c8800b00a466d16014emr1970461ejo.50.1710510011274;
+        Fri, 15 Mar 2024 06:40:11 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id hg25-20020a1709072cd900b00a469be48551sm40805ejc.45.2024.03.15.06.40.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Mar 2024 06:40:10 -0700 (PDT)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org
+Cc: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	christoph.muellner@vrull.eu,
+	heiko@sntech.de,
+	charlie@rivosinc.com,
+	David.Laight@ACULAB.COM
+Subject: [PATCH 0/5] riscv: Apply Zawrs when available
+Date: Fri, 15 Mar 2024 14:40:10 +0100
+Message-ID: <20240315134009.580167-7-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.44.0
 MIME-Version: 1.0
-In-Reply-To: <CA+eeCSPgxB9VCyB9fmEy4A1rEynNFv34LYA1UDBNT8Po=ag28w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240315_054551_810556_2538648F 
-X-CRM114-Status: GOOD (  46.30  )
+X-CRM114-CacheID: sfid-20240315_064013_006276_9BAF7635 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,138 +94,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1113769063703671666=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============1113769063703671666==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="cE8m9TG3tVI3eCoQ"
-Content-Disposition: inline
-
-
---cE8m9TG3tVI3eCoQ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Mar 15, 2024 at 05:33:06AM +0200, Eva Kurchatova wrote:
-> On Thu, Mar 14, 2024 at 11:46=E2=80=AFPM Conor Dooley <conor@kernel.org> =
-wrote:
-> > This immediately seemed odd to me, but I have no reason to disbelieve
-> > you, given you say this was discovered in RVVM which is an emulator and
-> > you should know whether or not registers are accessed.
-> > The very first action taken by the ocores i2c controller driver when it
-> > gets an interrupt though is to read a register:
-> >
-> >         u8 stat =3D oc_getreg(i2c, OCI2C_STATUS);
-> >
-> > I would expect that this handler would be called, and therefore you'd
-> > see the register read, had the probe function of that driver run to
-> > completion. I'd also expect that the interrupt would not even be
-> > unmasked if that probe function had failed.
-> > In your case though, you can see that the interrupt is not masked,
-> > since it is being raised and handled repeatedly by the PLIC driver.
-> > Has the i2c controller driver probed in the period of boot that you say
-> > this problem manifests?
->=20
-> There is not a single problem with the ocores I2C driver. I2C-HID device
-> itself has a separate IRQ line which is level-triggered.
-
-Ah, I see. I am still unsure as to how that interrupt is handled by the
-PLIC driver before the user for it (i2c-hid) requests it.
-
-
-> This is to signal the host that there is input available without polling,
-> since I2C is a master-driven bus with no "data available" notifications.
-> So in reality the I2C-HID driver should handle the interrupt; Then it
-> uses the I2C controller to access I2C-HID slave registers (via I2C) to
-> read the incoming HID input report. I2C controller interrupts are unrelat=
-ed;
-> it's the link between the HID device and the host and it doesn't seem
-> to be touched at all inside the I2C-HID IRQ handler (So it's just a pair
-> of Claim/Complete actions). I2C ocores interrupts are not generated
-> (and shouldn't) at that point, because no I2C transfer was initiated at a=
-ll.
->=20
-> There is a way to make I2C-HID device edge-triggered, in RVVM
-> emulation code, but it's not actually spec compliant. It gets rid of the
-> hang too; However the same Claim/Complete actions without any
-> handling inside the IRQ handler are observed at least once, which
-> technically means a lost interrupt (Pressing a key somewhere early in
-> boot thus doesn't propagate the keypress to the guest until you press
-> another key later, after which both HID reports are read), so it's not
-> a way how I'd like to mitigate this in the emulator code.
-> I, and another developer from Haiku OS team (X512), are almost sure
-> this is a kernel bug related to level triggered IRQs with PLIC or a
-> specific incompatibility of PLIC/I2C-HID (Not the ocores I2C controller).
->=20
-> This hang is not reproducible with a Haiku OS guest in any way and
-> most of the drivers involved seem to be FreeBSD based or written by
-> X512 (Specifically the PLIC and I2C-HID drivers are). This person also
-> believes that this Claim/Complete behavior on PLIC side without any
-> other actions made in between is erroneous kernel behavior too.
-
-Maybe it is, I've re-added Thomas and Samuel to CC as I said before that
-they know much more than I about the code in question. I was just
-pointing out that the behaviour you were seeing is inconsistent with
-what I have come across myself for interrupts that have not had a user
-request them.
-
-> I am open to discussions what specifically could be wrong with the VM
-> since one of my end goals is to just make HID devices work without
-> issues there; However if a simple 2-line patch (which I'm not entirely
-> sure of it's implications) that removes return path at line 223 in PLIC
-> driver resolves the issue (I kept a guest in a 24 hr reboot loop whilst
-> spamming fake I2C-HID input and no hang was observed), then it does
-> lead me to belief that it's at least not some blatant emulation issue.
->=20
-> I came here to collect some kernel devs opinions since we are
-> debugging this for some 2 weeks already. Your initial understanding
-> that something is wrong with ocores I2C controller is not what I meant,
-> sorry for lacking in my explanation.
->=20
-> >Are interrupts unmasked by default on RVVM?
->=20
-> By default all PLIC ENABLE registers are set to zero. All PRIO,
-> THRESHOLD registers are zero on reset. So all PLIC state is
-> simply zeroed on reset, as can be seen here:
-> https://github.com/LekKit/RVVM/blob/f81df57a2af77cbae25fd3cc65d07106d9505=
-e23/src/devices/plic.c#L265
->=20
-> > Have you checked that this actually affects any actual hardware?
->=20
-> I might very soon if no one has immediate ideas what is wrong;
-> Problem is that I don't have hardware that exposes PLIC IRQ lines to
-> the user. It might be possible to use some FPGA or at least reproduce
-> in other simulators.
->=20
-
---cE8m9TG3tVI3eCoQ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHQEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZfRC+AAKCRB4tDGHoIJi
-0sZQAQCs8x+fdD7uyy/sSkILvwAQeA/OzbkXq4IeDm/4oaopLQD4p7m8YJuT6z7U
-4VGyV9mSNWX9O/PzZB7e5M5+Zqy1Bw==
-=1BNN
------END PGP SIGNATURE-----
-
---cE8m9TG3tVI3eCoQ--
-
-
---===============1113769063703671666==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1113769063703671666==--
-
+WmF3cnMgcHJvdmlkZXMgdHdvIGluc3RydWN0aW9ucyAod3JzLm50byBhbmQgd3JzLnN0byksIHdo
+ZXJlIGJvdGggYXJlCm1lYW50IHRvIGFsbG93IHRoZSBoYXJ0IHRvIGVudGVyIGEgbG93LXBvd2Vy
+IHN0YXRlIHdoaWxlIHdhaXRpbmcgb24gYQpzdG9yZSB0byBhIG1lbW9yeSBsb2NhdGlvbi4gVGhl
+IGluc3RydWN0aW9ucyBhbHNvIGJvdGggd2FpdCBhbgppbXBsZW1lbnRhdGlvbi1kZWZpbmVkICJz
+aG9ydCIgZHVyYXRpb24gKHVubGVzcyB0aGUgaW1wbGVtZW50YXRpb24KdGVybWluYXRlcyB0aGUg
+c3RhbGwgZm9yIGFub3RoZXIgcmVhc29uKS4gVGhlIGRpZmZlcmVuY2UgaXMgdGhhdCB3aGlsZQp3
+cnMuc3RvIHdpbGwgdGVybWluYXRlIHdoZW4gdGhlIGR1cmF0aW9uIGVsYXBzZXMsIHdycy5udG8s
+IGRlcGVuZGluZyBvbgpjb25maWd1cmF0aW9uLCB3aWxsIGVpdGhlciBqdXN0IGtlZXAgd2FpdGlu
+ZyBvciBhbiBJTEwgZXhjZXB0aW9uIHdpbGwgYmUKcmFpc2VkLgoKTGlrZSB3ZmkgKGFuZCB3aXRo
+IHRoZSBzYW1lIHttLGh9c3RhdHVzIGJpdHMgdG8gY29uZmlndXJlIGl0KSwgd2hlbgp3cnMubnRv
+IGlzIGNvbmZpZ3VyZWQgdG8gcmFpc2UgZXhjZXB0aW9ucyBpdCdzIGV4cGVjdGVkIHRoYXQgdGhl
+IGhpZ2hlcgpwcml2aWxlZ2UgbGV2ZWwgd2lsbCBzZWUgdGhlIGluc3RydWN0aW9uIHdhcyBhIHdh
+aXQgaW5zdHJ1Y3Rpb24sIGRvCnNvbWV0aGluZywgYW5kIHRoZW4gcmVzdW1lIGV4ZWN1dGlvbiBm
+b2xsb3dpbmcgdGhlIGluc3RydWN0aW9uLgpDdXJyZW50bHksIGl0J3Mgbm90IGV4cGVjdGVkIHRo
+YXQgTS1tb2RlIHdpbGwgY29uZmlndXJlIGFuZCBoYW5kbGUKZXhjZXB0aW9ucyBmb3IgdGltZW91
+dHMgKHNvIGl0J3MgZXhwZWN0ZWQgdGhhdCBtc3RhdHVzLlRXPTApLCBidXQgS1ZNIGRvZXMKY29u
+ZmlndXJlIGV4Y2VwdGlvbnMgZm9yIHdmaSAoaHN0YXR1cy5WVFc9MSkgYW5kIHRoZXJlZm9yZSBh
+bHNvIGZvcgp3cnMubnRvLiBLVk0gZG9lcyB0aGlzIGZvciB3Zmkgc2luY2UgaXQncyBiZXR0ZXIg
+dG8gYWxsb3cgb3RoZXIgdGFza3MgdG8KYmUgc2NoZWR1bGVkIHdoaWxlIGEgVkNQVSB3YWl0cyBm
+b3IgYW4gaW50ZXJydXB0LiBGb3Igd2FpdHMgc3VjaCBhcyB0aG9zZQp3aGVyZSB3cnMubnRvL3N0
+byB3b3VsZCBiZSB1c2VkLCB3aGljaCBhcmUgdHlwaWNhbGx5IGxvY2tzLCBpdCBpcyBhbHNvIGEK
+Z29vZCBpZGVhIGZvciBLVk0gdG8gYmUgaW52b2x2ZWQsIGFzIGl0IGNhbiBhdHRlbXB0IHRvIHNj
+aGVkdWxlIHRoZSBsb2NrCmhvbGRpbmcgVkNQVS4KClRoaXMgc2VyaWVzIHN0YXJ0cyB3aXRoIENo
+cmlzdG9waCdzIGFkZGl0aW9uIG9mIHJpc2N2IHNtcF9jb25kX2xvYWQqCmZ1bmN0aW9ucyB3aGlj
+aCBhcHBseSB3cnMuc3RvIHdoZW4gYXZhaWxhYmxlLiBXZSB0aGVuIHN3aXRjaCBmcm9tCndycy5z
+dG8gdG8gd3JzLm50bywgYWRkIGh3cHJvYmUgc3VwcG9ydCAoc2luY2UgdGhlIGluc3RydWN0aW9u
+cyBhcmUgYWxzbwp1c2FibGUgZnJvbSB1c2VybW9kZSksIGFuZCBmaW5hbGx5IHRlYWNoIEtWTSBh
+Ym91dCB3cnMubnRvLCBhbGxvd2luZwpndWVzdHMgdG8gc2VlIGFuZCB1c2UgdGhlIFphd3JzIGV4
+dGVuc2lvbi4KCldlIHN0aWxsIGRvbid0IGhhdmUgdGVzdCByZXN1bHRzIGZyb20gaGFyZHdhcmUs
+IGFuZCBpdCdzIG5vdCBwb3NzaWJsZSB0bwpwcm92ZSB0aGF0IHVzaW5nIFphd3JzIGlzIGEgd2lu
+IHdoZW4gdGVzdGluZyBvbiBRRU1VLCBub3QgZXZlbiB3aGVuCm92ZXJzdWJzY3JpYmluZyBWQ1BV
+cyB0byBndWVzdHMuIEhvd2V2ZXIsIGl0IGlzIHBvc3NpYmxlIHRvIHVzZSBLVk0Kc2VsZnRlc3Rz
+IHRvIGZvcmNlIGEgc2NlbmFyaW8gd2hlcmUgd2UgY2FuIHByb3ZlIFphd3JzIGRvZXMgaXRzIGpv
+YiBhbmQKZG9lcyBpdCB3ZWxsLiBbNF0gaXMgYSB0ZXN0IHdoaWNoIGRvZXMgdGhpcyBhbmQsIG9u
+IG15IG1hY2hpbmUsIHdpdGhvdXQKWmF3cnMgaXQgdGFrZXMgMTYgc2Vjb25kcyB0byBjb21wbGV0
+ZSBhbmQgd2l0aCBaYXdycyBpdCB0YWtlcyAwLjI1CnNlY29uZHMuCgpUaGlzIHNlcmllcyBpcyBi
+YXNlZCBvbiBrdm0vcXVldWUgYW5kIGFsc28gYXZhaWxhYmxlIGhlcmUgWzFdLiBJbiBvcmRlcgp0
+byB1c2UgUUVNVSBmb3IgdGVzdGluZyBhIGJ1aWxkIHdpdGggWzJdIGlzIG5lZWRlZC4gSW4gb3Jk
+ZXIgdG8gZW5hYmxlCmd1ZXN0cyB0byB1c2UgWmF3cnMgd2l0aCBLVk0gdXNpbmcga3ZtdG9vbCwg
+dGhlIGJyYW5jaCBhdCBbM10gbWF5IGJlIHVzZWQuCgpbMV0gaHR0cHM6Ly9naXRodWIuY29tL2pv
+bmVzLWRyZXcvbGludXgvY29tbWl0cy9yaXNjdi96YXdycy12MS8KWzJdIGh0dHBzOi8vbG9yZS5r
+ZXJuZWwub3JnL2FsbC8yMDI0MDMxMjE1MjkwMS41MTIwMDEtMi1ham9uZXNAdmVudGFuYW1pY3Jv
+LmNvbS8KWzNdIGh0dHBzOi8vZ2l0aHViLmNvbS9qb25lcy1kcmV3L2t2bXRvb2wvY29tbWl0cy9y
+aXNjdi96YXdycy8KWzRdIGh0dHBzOi8vZ2l0aHViLmNvbS9qb25lcy1kcmV3L2xpbnV4L2NvbW1p
+dC8yZTcxMmIxOWI3YmI3ODYzNDE5OWJmMjYyZTZhNzVlMDllMWM4N2QyCgpUaGFua3MsCmRyZXcK
+CgpBbmRyZXcgSm9uZXMgKDQpOgogIHJpc2N2OiBQcmVmZXIgd3JzLm50byBvdmVyIHdycy5zdG8K
+ICByaXNjdjogaHdwcm9iZTogZXhwb3J0IFphd3JzIElTQSBleHRlbnNpb24KICBLVk06IHJpc2N2
+OiBTdXBwb3J0IGd1ZXN0IHdycy5udG8KICBLVk06IHJpc2N2OiBzZWxmdGVzdHM6IEFkZCBaYXdy
+cyBleHRlbnNpb24gdG8gZ2V0LXJlZy1saXN0IHRlc3QKCkNocmlzdG9waCBNw7xsbG5lciAoMSk6
+CiAgcmlzY3Y6IEFkZCBaYXdycyBzdXBwb3J0IGZvciBzcGlubG9ja3MKCiBEb2N1bWVudGF0aW9u
+L2FyY2gvcmlzY3YvaHdwcm9iZS5yc3QgICAgICAgICAgfCAgNCArCiBhcmNoL3Jpc2N2L0tjb25m
+aWcgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAxMyArKysKIGFyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vYmFycmllci5oICAgICAgICAgICAgICB8IDg3ICsrKysrKysrKysrKysrKysrKysKIGFy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCAgICAgICAgICAgICAgICB8ICAxICsKIGFyY2gv
+cmlzY3YvaW5jbHVkZS9hc20va3ZtX2hvc3QuaCAgICAgICAgICAgICB8ICAxICsKIGFyY2gvcmlz
+Y3YvaW5jbHVkZS91YXBpL2FzbS9od3Byb2JlLmggICAgICAgICB8ICAxICsKIGFyY2gvcmlzY3Yv
+aW5jbHVkZS91YXBpL2FzbS9rdm0uaCAgICAgICAgICAgICB8ICAxICsKIGFyY2gvcmlzY3Yva2Vy
+bmVsL2NwdWZlYXR1cmUuYyAgICAgICAgICAgICAgICB8ICAxICsKIGFyY2gvcmlzY3Yva2VybmVs
+L3N5c19od3Byb2JlLmMgICAgICAgICAgICAgICB8ICAxICsKIGFyY2gvcmlzY3Yva3ZtL3ZjcHUu
+YyAgICAgICAgICAgICAgICAgICAgICAgICB8ICAxICsKIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfaW5z
+bi5jICAgICAgICAgICAgICAgICAgICB8IDE1ICsrKysKIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfb25l
+cmVnLmMgICAgICAgICAgICAgICAgICB8ICAyICsKIC4uLi9zZWxmdGVzdHMva3ZtL3Jpc2N2L2dl
+dC1yZWctbGlzdC5jICAgICAgICB8ICA0ICsKIDEzIGZpbGVzIGNoYW5nZWQsIDEzMiBpbnNlcnRp
+b25zKCspCgotLSAKMi40NC4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
