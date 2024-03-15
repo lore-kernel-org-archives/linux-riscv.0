@@ -4,99 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C38C54E60
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 01:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64064C54E5D
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 02:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FROdDrQvMruGRVnZ5Nf3nzximRTnE8cDNbOPFPqc+0g=; b=KtpqC/b2+4FM85
-	U0N1LvrngCTRvljXVZ7Z7hsrfuaE7L1k5Xo++qZY1vZrnWAcSNeOUyOR8vuCBGCnxs8c3OZ7FT48y
-	P87XVWUdNiaUB7uOMLHTd86sociRI+GxRsNcT/H7EX6FhTrZ0ouDsu6RcvN6gUYpsPYzYCIvUGzAu
-	VrNBkeYkya1dT5jHSSo01L5x4sjpv0O9H80D+7Escac4wIACKnd7VZ4T21ZjngAQuMfpSFAjvWSPU
-	gg6zgraSs6eC8EXUZxXOZcBs2eV3wQurcu2WT+Wrq1LgY4tK6d6w1lU12tnNnwtDwZYULmrWd8tx5
-	LhCVhEnAsuKV5gbQbd9w==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1gdNt+GyvHjZB0uqzy58UmviTN/xr7QpCjZSR4HSm50=; b=aySy6mOj2A/OMo
+	wOdhvp/G4GzUUT79FTef7YhVm02EYtcLamW86XREjMEEPb+yb2ptMZkQQiLUI4/1T1HHneTh3nDbO
+	71A8kWE8O8lP8t3lSkDt17ZkHMv7ZlF9KkCY9+cimwMzHCb6+Q5Kkbyqmwz7JZJ3OlfSrd6eWGKJc
+	a2s8PGYxP3wz3xJO8ka7berdTj2lkXUcETyG3OogyU9wnaRIsKM3AN8lf8f72fKOs2d3PEBrYTgKI
+	uZ56eIb1rxbFVBt7jr84t12dkgXxol/8jheYhw+9XJrIBcNGPYeJyPQ5IOd4quOrZuQ+DAAk/5X81
+	Oh0gmuw9xYiJvSaW/a3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkwex-0000000GLc5-06Nh;
-	Fri, 15 Mar 2024 01:46:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rkxe4-0000000GScX-2LpN;
+	Fri, 15 Mar 2024 02:50:08 +0000
+Received: from mail-mw2nam12olkn20800.outbound.protection.outlook.com ([2a01:111:f403:2805::800] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkuTn-0000000G0KY-2HoM
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 14 Mar 2024 23:27:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=IJnvo3GlUCWm+9Z87DTK6fPvvH2dyec9Q+4IWGvi0gE=; b=i+OOCEwZENChDejEFwGAYdrnRx
-	ygT8kHNCxZqrWUQP2u2cn/hBXm/0mOm1OLPskGVc1UQZtzVIeHawrDa0/rMhNOYMM1vRi2p2mRTmu
-	mg9nK78b38PVr2htj4IkWGniOSq2NL/t9NEK0ETKN5wTtC2R5NGb4FHl2saNgmzObktCJI564py9p
-	Xx/gqzcg7Q5B3AHIAoQlDv28myRT8QFKK1WzAjc9FJ9DxKzWzviB7MP9pJKU1gaw+29+XNxcKsDdv
-	ZhYw4RETcnin+jpA0328GaDJIGcGaVdzplag7EbwJ72vJz9FgTrEof5w8dKxWHo589GtDI8y9iMIh
-	eRCAgFVw==;
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkuTi-0000000Aivj-0uMM
+	id 1rkxe1-0000000GSae-14SN
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Mar 2024 23:27:16 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-6e6b3bff094so1779374b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Mar 2024 16:27:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1710458831; x=1711063631; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=IJnvo3GlUCWm+9Z87DTK6fPvvH2dyec9Q+4IWGvi0gE=;
-        b=WecS4PMu5kVGHPztti6TMUbYXo8KDCxND2rnCiM1Kq9LDhs8kbI0r8FopO1rtdcSX3
-         7YagoKFS4VMQlDcxCt0lZgJ0GkWQ167Q/H7zt88ICOF7Liofxs0w+Feg64dPB7cjDOS8
-         iBQBfgtUpngHeWEEbqlnofBqRCb2WwAlu8gUknB+2LyWKvZoXavvWWMIJ6vuBOHZTq3w
-         wSH5NMeL5ircE92QRhwHEteANllQnw3wsuLFeGpFKe5PA8SS89rPZdOR/YQ/Zjh4TvG+
-         XmsL+RTWbGYxDKT7wHSmWYqM+B6V4WThdxEWgO1vpHhy4XpMD+ttHlLShW9YdPgkU/3N
-         Ngeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710458831; x=1711063631;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IJnvo3GlUCWm+9Z87DTK6fPvvH2dyec9Q+4IWGvi0gE=;
-        b=n6p9stWfieSl5IKsHW8qc8WFK3vzZvDWaICX07XceX0k2FHNBVorDR3gxrgZX/J2Pj
-         H/xqZ5fdL5CGqoOrolyHTw2z+WVx1SV2vJ+HADDyN8R2WwX3hrBksI7WM+amulh8Qycx
-         9ZPDxUErGWFsK8jmlwZ/bCiUIBrYzTpXPH2lS2PRtW48SLPDsRxWJYPnGHmEb4ctT8FD
-         JsB2DeyAH4BHlwGQYWAReDO02puN5Ed87atF59UyIW7QnZ2iQsaj2lFdaCg8FqGk3LcT
-         zKwyKkW2qoxKhMHLrYSqlYdf0uNkSrjzbkxxlm02x4kh+fGlHQeejlmInxdPLaVpMiwT
-         KmPw==
-X-Forwarded-Encrypted: i=1; AJvYcCXAy3hgUn3v0jsFI98uPGpV1hclPlwNmg0E+DzZMJRaL087C3D6iyBYkBY9ThINnwRukoOG+VTYRLMgkXQgQgmjcmBGPCjny1QNbov4STEg
-X-Gm-Message-State: AOJu0Yxr3jncnxWDaIPnhmHe5vohtBPp5B3QCoES32zqGZV53E1Wt4nL
-	cUecUfr3yFISyOk2sHSkJSdRzfDiHfu0G9jF0jvMUva9m3MyvK1pt5RyOBWU3dAXZDMqbvlHwFQ
-	UMw==
-X-Google-Smtp-Source: AGHT+IFXKsJZcktPEDJdv6TjhHXL21Zrt9AN04hKeTmJyyHIm5kk/8ldZSE0dO0H/MtumtcqHIdX1BiKE5Q=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:234c:b0:6e6:c38e:e9e3 with SMTP id
- j12-20020a056a00234c00b006e6c38ee9e3mr134457pfj.4.1710458831465; Thu, 14 Mar
- 2024 16:27:11 -0700 (PDT)
-Date: Thu, 14 Mar 2024 16:26:36 -0700
-In-Reply-To: <20240314232637.2538648-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20240314232637.2538648-1-seanjc@google.com>
-X-Mailer: git-send-email 2.44.0.291.gc1ea87d7ee-goog
-Message-ID: <20240314232637.2538648-18-seanjc@google.com>
-Subject: [PATCH 17/18] KVM: selftests: Init x86's segments during VM creation
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Sean Christopherson <seanjc@google.com>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Ackerley Tng <ackerleytng@google.com>
+	Fri, 15 Mar 2024 02:50:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=aRU+2tIuSaLzg0BTyYHIzDiTSELPBMsbS3uJQSGHl9ejlR6W5XDzPTNv3vY8vR6srX6covw+EpIQdUe+4ILt0cCQgh+Z5DAlZ8839E82FvERevlzw+zP1/teoUG7BTHv/2dPxAO0mPC1xuJDbuIScK2pPITGyPNklhwKNWDZcV3kOiR7s3qQBnBXUscblyIMoMpUqDH0dbiXRI125MYQKi3VFopFF7ctB5xenS1ng7ls1r4KgDFM6t44faOxIRwgpkNwn+HVq32HqTTtBKcxiKEBTFHIyjpJv4+WBlEGSW9QhrCdfOW/vloG9OlAfI0bZYjegQiKGGPkf8e52aXIZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=++HTRglb8IQZ4xqZes0LCL+1/McAGNYpNXaCnt7+Z1A=;
+ b=ZU7El86EPAoB0Ntn+jzoUcxTQjJvi4HXsdkyx8ea1z/dFIwqsB1pBABM1mNovfuYdWRslVnZyBduV0KckWPtUlv42UMcRcCwb5/Sc9w23pueKz5WGqGhQPskHKEVA3CP7UF3PaXYYmOZZWGjiYRYw5Z2C17gm52xooM1fAsWUfUi8W0nj3BOYf11Vu/78f0EnX0WWXtTtS6OkLVlVid07MF7Z3+iMvyXhNnvAH5C7B8Cn1nETPKhuxw5wo8cqGpQjuiKpPmBzPIX9E/4N/3M79dXfZ67W1yKhsgyjqLV0UeWibFOqehgCY6Asdgi/gS4HeOAk9LdcxUC/rJTI9ceSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=++HTRglb8IQZ4xqZes0LCL+1/McAGNYpNXaCnt7+Z1A=;
+ b=RsOq1h3A7Aq4IvPi0Kh0Mtiw4U/v9leMcgRJcVa2gS7sboiwN976BvQzI3B69ni8NUE3gUEuxjnTZHrFj0XwnOH7h9ejo3KUXdiM0mq2KelGI2WxfKxKf9btU6sJXn3gl6R+tLxEH/8CuigC8LqYDG7i0ec3geBP2Rhq+hvmCJ3ENhuvMFpwfxX87uzZPsNLPRrjic4ETfPt1K+wLstoqsYv0ANdE+CRbTlkGnVtm4DQji8uzkwAfTqOr29IIMVbxS+o954sr0sq4CreFvb/fVgsR5N19yXHhCW02oEAAKVHW5ix6555a+xME64Pkf70YZNhZN2oJZ8PUPapp/+PYg==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by DS7PR20MB6264.namprd20.prod.outlook.com (2603:10b6:8:ee::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.20; Fri, 15 Mar
+ 2024 02:49:52 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::8615:efe2:7c8e:2041]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::8615:efe2:7c8e:2041%3]) with mapi id 15.20.7386.021; Fri, 15 Mar 2024
+ 02:49:52 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Vinod Koul <vkoul@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	dlan@gentoo.org,
+	dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v3 0/4]  riscv: sophgo: add dmamux support for Sophgo CV1800/SG2000 SoCs
+Date: Fri, 15 Mar 2024 10:49:18 +0800
+Message-ID: <IA1PR20MB4953E7BB0B270157C8D1DDACBB282@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.44.0
+X-TMN: [RMTaEUju1Hd/8fZly8umHH9+L0ArM0byaDcpbBNYi4c=]
+X-ClientProxiedBy: TYCP286CA0186.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:382::14) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240315024919.515354-1-inochiama@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|DS7PR20MB6264:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6009b91b-2f06-4f6e-763a-08dc449a96b1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 1p3BB7+yLoIzjclHsEdezOXCQAnm5EO+v8V4kWR7ojj5Op8bhxeV/kjbFrTJDsx7oBkYQtS1/7BdBlYq0F6dOQo0zvOu5ypBuSSOYjcY/PrFI0UCTcnIl7CO8pA4850q32rQzW6SxH7pQaKz/w9thzhSjm0R42N/lsrZE/GJnVrT4xjY2jSYGgCDhDk9lwKyhRrw680Yp5ontKP+i6xTPPcOVC9u/oIzxrbsWgdNfNLGRuYcpXoElF1etXc5AFCKgD30OS1tmGsE5utK9G9KK/6Jbn9cXEwz1W5zkeDzbbzmZJGS1gPnNaBtx6B5VB1TnhNe/aMts2ykXmszyLbyoJNaoU1/byQtcqnDq3oWVlQsZGWAw0QJ9sZXKccvYl3Gpy5jsq2RVVW11mlxHZDp25UMU3gLVN/hKoAgFXbRwQRLy0aTeEFrWAeF9rNRVHvwhQRz05ePPzFIlDNwDd4jdR1KJ1ZWTH2LYuLdYCOoQjsBZAL/JZfApwp4ZmQwEb3507QqPbIdyY+cvxmeoKhN6nwGyhigQFZ1801njhc+4f2kFkljbsHs8jOHl65tPR7lgRQVEwCDlCkEUAW6XB0HWxgXriPpEdFYq3/gN2qqcPCkspS/88WK0UAroAhu9T0oqS9/hB7i8cA3+jJMjXOdofVK9BHasYXm2Rwy6qfDzoEDZH6n8M+1junn6VeXbfFH
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GXAYvrNrAQMZVa2YMcBzeEVKmqTlE5L1LJ6g9UMbsfpErUE27re9TsgEax7N?=
+ =?us-ascii?Q?KNT5vK0RFAMAL05N/M9U6wuXoq2NDGUcxaSUiy0hVAXynORbYhtCs0V/9B1W?=
+ =?us-ascii?Q?mn6EPAq9OLBqUlXeTWXacMIvCyOVOUdp2PVst6Q4qNNH25MBcaAruPbWFf3c?=
+ =?us-ascii?Q?0UrlZE+mq9mSahcJQvfQIP5ZhIq2rRgUds1EnaVGW1KOcJ3V1OmzYw4v1gRd?=
+ =?us-ascii?Q?lKydGf6XHU4PriFBNd2VTPBsPWeP9p+LkG5N0c+/tgyF0V3gt8F+o6x1XJy2?=
+ =?us-ascii?Q?OdMwj8KvaWgZkrsruEFctjzSv3SEX1yPecK6xj96e3992nMYMs0Xwu7UaMgz?=
+ =?us-ascii?Q?bULIEAu2QxC5zYK5Ir+gDpuWUEq5nINC1rU4DwyB+vmCn2WBvuKltgQ+84aJ?=
+ =?us-ascii?Q?cj/h2NloQSj6fLmbbUQqNXI2mxdGyLOBkVB4A/8WhaUB5RGhXSrTRWf158Il?=
+ =?us-ascii?Q?r/uNVjxqTLYrxaP78A4msCnaKhKQZufM6xKZD82+VvTRIvbqqIL8ZbsZxUBV?=
+ =?us-ascii?Q?uoY+k3SHJv/B0dxgEootTCAFIcXHUy83IWQWLbgrtUjcIfq4NU2J774gkg86?=
+ =?us-ascii?Q?EPe1ZjDvqB5ZyKTzK2UkwVhDXSaR52qkTvsvYcrovnKU5AKVSPuqQpdiCX6W?=
+ =?us-ascii?Q?woC9XKDl0kC3gaCAw8Ti9Fn+MK5mFSC9p/61Mfd5YmBac35pY8x0gHS8uDGw?=
+ =?us-ascii?Q?ik0DPFMsuxfvr+gKicHMBFkesM76DEMLCPgSHtdWciNOtKyUdjBUuhhfxUiE?=
+ =?us-ascii?Q?Cgg+DV8CTpxhD25x+9dRm9VB6/y8y/ivna5OX6iHEa1aBq43jKVCLzm53DyN?=
+ =?us-ascii?Q?AYayPpIPZu04MfKMrQZIMXdxXvXJikZLaZFN0NMaRAcfTrzeU1eOZzlFVWQ+?=
+ =?us-ascii?Q?nHYoxA+HSdZsVQygoncJjqhHtKyS8J8X1LqE698L8L/boDt1KK1vtfp6qaAM?=
+ =?us-ascii?Q?XAzxYncKLcCFsMFPaNeDZMYiAHowRh19XqNPD1uHEbK815GqfpU7284D+y/G?=
+ =?us-ascii?Q?w6ZXEyCiHMVcoDDUJuAWb58Sa0IBTEzHj4L70kLPDi4tbKXvE5QIbaSWx5c7?=
+ =?us-ascii?Q?43ur4Bof8gNMwWYXJycMKOv9vHxMKwtS3gXLVuF1nxHCOIIQDQ87z05SWhtJ?=
+ =?us-ascii?Q?KSa5GMKNNCZcwGrXFNRVuxcU+Ka6Si5id2BVXlSa5k/Z3pU5Rz6csi5ZvR9k?=
+ =?us-ascii?Q?wyU5y3x5+cYqm8zw7oESD4P8XMTaayy1Ry13lDY23LYdCH590wNVr+7ZtGdv?=
+ =?us-ascii?Q?FV+DLOYYC/V6P/lAVVEQ?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6009b91b-2f06-4f6e-763a-08dc449a96b1
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Mar 2024 02:49:52.5657
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR20MB6264
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240314_232714_610963_94227508 
-X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-CacheID: sfid-20240314_195005_335483_B8255924 
+X-CRM114-Status: UNSURE (   8.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,153 +129,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Initialize x86's various segments in the GDT during creation of relevant
-VMs instead of waiting until vCPUs come along.  Re-installing the segments
-for every vCPU is both wasteful and confusing, as is installing KERNEL_DS
-multiple times; NOT installing KERNEL_DS for GS is icing on the cake.
+Add dma multiplexer support for the Sophgo CV1800/SG2000 SoCs.
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- .../selftests/kvm/lib/x86_64/processor.c      | 68 ++++++-------------
- 1 file changed, 20 insertions(+), 48 deletions(-)
+The patch include the following patch:
+http://lore.kernel.org/linux-riscv/PH7PR20MB4962F822A64CB127911978AABB4E2@PH7PR20MB4962.namprd20.prod.outlook.com/
 
-diff --git a/tools/testing/selftests/kvm/lib/x86_64/processor.c b/tools/testing/selftests/kvm/lib/x86_64/processor.c
-index 67235013f6f9..dab719ee7734 100644
---- a/tools/testing/selftests/kvm/lib/x86_64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/x86_64/processor.c
-@@ -438,24 +438,7 @@ static void kvm_seg_fill_gdt_64bit(struct kvm_vm *vm, struct kvm_segment *segp)
- 		desc->base3 = segp->base >> 32;
- }
- 
--
--/*
-- * Set Long Mode Flat Kernel Code Segment
-- *
-- * Input Args:
-- *   vm - VM whose GDT is being filled, or NULL to only write segp
-- *   selector - selector value
-- *
-- * Output Args:
-- *   segp - Pointer to KVM segment
-- *
-- * Return: None
-- *
-- * Sets up the KVM segment pointed to by @segp, to be a code segment
-- * with the selector value given by @selector.
-- */
--static void kvm_seg_set_kernel_code_64bit(struct kvm_vm *vm, uint16_t selector,
--	struct kvm_segment *segp)
-+static void kvm_seg_set_kernel_code_64bit(uint16_t selector, struct kvm_segment *segp)
- {
- 	memset(segp, 0, sizeof(*segp));
- 	segp->selector = selector;
-@@ -467,27 +450,9 @@ static void kvm_seg_set_kernel_code_64bit(struct kvm_vm *vm, uint16_t selector,
- 	segp->g = true;
- 	segp->l = true;
- 	segp->present = 1;
--	if (vm)
--		kvm_seg_fill_gdt_64bit(vm, segp);
- }
- 
--/*
-- * Set Long Mode Flat Kernel Data Segment
-- *
-- * Input Args:
-- *   vm - VM whose GDT is being filled, or NULL to only write segp
-- *   selector - selector value
-- *
-- * Output Args:
-- *   segp - Pointer to KVM segment
-- *
-- * Return: None
-- *
-- * Sets up the KVM segment pointed to by @segp, to be a data segment
-- * with the selector value given by @selector.
-- */
--static void kvm_seg_set_kernel_data_64bit(struct kvm_vm *vm, uint16_t selector,
--	struct kvm_segment *segp)
-+static void kvm_seg_set_kernel_data_64bit(uint16_t selector, struct kvm_segment *segp)
- {
- 	memset(segp, 0, sizeof(*segp));
- 	segp->selector = selector;
-@@ -498,8 +463,6 @@ static void kvm_seg_set_kernel_data_64bit(struct kvm_vm *vm, uint16_t selector,
- 					  */
- 	segp->g = true;
- 	segp->present = true;
--	if (vm)
--		kvm_seg_fill_gdt_64bit(vm, segp);
- }
- 
- vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
-@@ -517,16 +480,15 @@ vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
- 	return vm_untag_gpa(vm, PTE_GET_PA(*pte)) | (gva & ~HUGEPAGE_MASK(level));
- }
- 
--static void kvm_setup_tss_64bit(struct kvm_vm *vm, struct kvm_segment *segp,
--				int selector)
-+static void kvm_seg_set_tss_64bit(vm_vaddr_t base, struct kvm_segment *segp,
-+				  int selector)
- {
- 	memset(segp, 0, sizeof(*segp));
--	segp->base = vm->arch.tss;
-+	segp->base = base;
- 	segp->limit = 0x67;
- 	segp->selector = selector;
- 	segp->type = 0xb;
- 	segp->present = 1;
--	kvm_seg_fill_gdt_64bit(vm, segp);
- }
- 
- static void vcpu_init_sregs(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
-@@ -548,11 +510,11 @@ static void vcpu_init_sregs(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
- 	sregs.efer |= (EFER_LME | EFER_LMA | EFER_NX);
- 
- 	kvm_seg_set_unusable(&sregs.ldt);
--	kvm_seg_set_kernel_code_64bit(vm, KERNEL_CS, &sregs.cs);
--	kvm_seg_set_kernel_data_64bit(vm, KERNEL_DS, &sregs.ds);
--	kvm_seg_set_kernel_data_64bit(vm, KERNEL_DS, &sregs.es);
--	kvm_seg_set_kernel_data_64bit(NULL, KERNEL_DS, &sregs.gs);
--	kvm_setup_tss_64bit(vm, &sregs.tr, KERNEL_TSS);
-+	kvm_seg_set_kernel_code_64bit(KERNEL_CS, &sregs.cs);
-+	kvm_seg_set_kernel_data_64bit(KERNEL_DS, &sregs.ds);
-+	kvm_seg_set_kernel_data_64bit(KERNEL_DS, &sregs.es);
-+	kvm_seg_set_kernel_data_64bit(KERNEL_DS, &sregs.gs);
-+	kvm_seg_set_tss_64bit(vm->arch.tss, &sregs.tr, KERNEL_TSS);
- 
- 	sregs.cr3 = vm->pgd;
- 	vcpu_sregs_set(vcpu, &sregs);
-@@ -612,6 +574,7 @@ void route_exception(struct ex_regs *regs)
- static void vm_init_descriptor_tables(struct kvm_vm *vm)
- {
- 	extern void *idt_handlers;
-+	struct kvm_segment seg;
- 	int i;
- 
- 	vm->arch.gdt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
-@@ -624,6 +587,15 @@ static void vm_init_descriptor_tables(struct kvm_vm *vm)
- 		set_idt_entry(vm, i, (unsigned long)(&idt_handlers)[i], 0, KERNEL_CS);
- 
- 	*(vm_vaddr_t *)addr_gva2hva(vm, (vm_vaddr_t)(&exception_handlers)) = vm->handlers;
-+
-+	kvm_seg_set_kernel_code_64bit(KERNEL_CS, &seg);
-+	kvm_seg_fill_gdt_64bit(vm, &seg);
-+
-+	kvm_seg_set_kernel_data_64bit(KERNEL_DS, &seg);
-+	kvm_seg_fill_gdt_64bit(vm, &seg);
-+
-+	kvm_seg_set_tss_64bit(vm->arch.tss, &seg, KERNEL_TSS);
-+	kvm_seg_fill_gdt_64bit(vm, &seg);
- }
- 
- void vm_install_exception_handler(struct kvm_vm *vm, int vector,
--- 
-2.44.0.291.gc1ea87d7ee-goog
+Changed from v2:
+1. add reg property of dmamux node in the binding of patch 2
+
+Changed from v1:
+1. fix wrong title of patch 2.
+
+Inochi Amaoto (4):
+  dt-bindings: dmaengine: Add dmamux for CV18XX/SG200X series SoC
+  dt-bindings: soc: sophgo: Add top misc controller of CV18XX/SG200X
+    series SoC
+  soc/sophgo: add top sysctrl layout file for CV18XX/SG200X
+  dmaengine: add driver for Sophgo CV18XX/SG200X dmamux
+
+ .../bindings/dma/sophgo,cv1800-dmamux.yaml    |  44 ++++
+ .../soc/sophgo/sophgo,cv1800-top-syscon.yaml  |  49 ++++
+ drivers/dma/Kconfig                           |   9 +
+ drivers/dma/Makefile                          |   1 +
+ drivers/dma/cv1800-dmamux.c                   | 232 ++++++++++++++++++
+ include/dt-bindings/dma/cv1800-dma.h          |  55 +++++
+ include/soc/sophgo/cv1800-sysctl.h            |  30 +++
+ 7 files changed, 420 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml
+ create mode 100644 drivers/dma/cv1800-dmamux.c
+ create mode 100644 include/dt-bindings/dma/cv1800-dma.h
+ create mode 100644 include/soc/sophgo/cv1800-sysctl.h
+
+--
+2.44.0
 
 
 _______________________________________________
