@@ -4,66 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E255BC54E66
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 04:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB078C54E58
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 04:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=eb7F86jGUnYCE561IcWMypJAkTObRQR25xiN+D+OQNo=; b=g19VoPZigSxYhOQ8KLUw2Mskpr
-	GGQmvMp9F0DlaCCHcEF+nwSb87UpoT7HklRzPrTg+XlvD4Tc3rFjeHFPEELQELn8Mn+DPEKEOltF7
-	nh4/iSFpzvc29bKyOIgi/FddLetCUZXNPMTJqvJ64OJlQ6//COIpE2a/ct7ieqAFrbvKZdiZ3TW9B
-	+6pi+fZmH/hVkrJfFcdbjz4JvFNI4Tp2+G6/vjhPQlDakK4Msm6cjsIAhSmPajFNamIKLvQQTn+4c
-	j+6jVQG6TTrzIqae/94KYfrpMsquD3DXH/80z0W7zLsDaIsnn3TNd29LQ+clVowfaxtpOznpsy3DX
-	0tRVFWWA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=O8RiS8eVaLZsMRt+Y1jkDxu5xJ/iCNtKOONB6G8opqI=; b=CpmSXieedOlHDk
+	PhioqeiefQHi2hPTPZ0YOX9ZXdsHQ5sv2BjOk2XAf+kn+q4g+pdFIpv4B9ouudhJy/9TWAw7MbrOj
+	dzpUW4m/IYaItIthll/D0tBJUUxInwHtTeHXQfwdKUPD7Q+ff/QsfyKJNjTV+82ixyj1ktZZy6tL8
+	6lv6QIYTS54fouCfkTULmosOzG5g2yAhZNWeJf5Q50fQTXxbeGi+SxJD8FhE2wljw9MH3o3Vb8vKI
+	wjva6rYyW93DEBIXavNEGTRP+5X1E1S4nnBVVqP0nvIeQSCg5uAbDf2LwmOrT3Xn+hAtjWI1Dg24E
+	tvVpiTSbCnxNXptYNmjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkzJk-0000000GdlQ-0x9f;
-	Fri, 15 Mar 2024 04:37:16 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rkzc9-0000000Gg4f-3rtt;
+	Fri, 15 Mar 2024 04:56:17 +0000
+Received: from mail-sh0chn02on20720.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::720] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rkzJg-0000000Gdl2-3HGB
+	id 1rkzc6-0000000Gg2S-1Vlx
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Mar 2024 04:37:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 65EA4616A8;
-	Fri, 15 Mar 2024 04:37:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DA0CC43390;
-	Fri, 15 Mar 2024 04:37:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1710477430;
-	bh=PUemYcFBAHOYhcdhTqcE5Userz2v4Fkqh5RMcCkrqVo=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=qx8emhmYpsXEI4WbCttop0+dqnAdklqAL0xSfWVGuLwPdLcIx+ZbIfV3QRPWl8CwD
-	 eXoc4lvrLvY9uYFHvcYMIxoSNScxCtUxU6MP9hWzoEfJam6oOl/0Ek+hcy1z7Uvbjd
-	 /CAfosxaXYlckrqBX1ARfopMr+MAWTOB7kHFwgl6PvZEQ4/qXI+HtBjygRJPftDaWC
-	 5/DQftw1S2C5Dp2u6O2lFWHX9Mrw18iZOTRAbziHpjv1QQ8lhkrIcdwD4NXMw5HZHs
-	 Y0cNBKjDEaz2ermjUPv0UIqXbtQIsyl9pipSSWgPD2w3dHlcCq9QJYAziyCG3K+rh5
-	 GxVmnMqGTiYSw==
-Date: Thu, 14 Mar 2024 22:37:07 -0600
+	Fri, 15 Mar 2024 04:56:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Zk092j5g7AAEoCqsOlcHUSxbILE5adIhGs5pmx7/fm4LfuQxox/aEFaJA2Za2zTnsyxbowgHBmmjepxMmdB1JXPOSQeTHw2pSUMgqRpyRUOOqRtO0rccDV0GX0B6KEkzbZEvPSbCW4JxEatyAGjzi1yhFBcOExLZNpK04T0Mh3cXn5s+0nfo5r/623eQv07OafXm/KaexTgR9J79+RW0bqLTBmNpfgQ/CH2bUDDLXdxrX8JQjg+KJYB2ClKd2NB5mbBi0k7sk6zciGxAF9A+EkqomnsELicvYk7+ncBSMK9AvTf017ReyOO4CPT1tHGbTJ+rTTigVcsnvMwi8dCLLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bU/PzgpUP4raVzJcbD3oFqIhGDWiwMkh6SAJnqbJaZU=;
+ b=K19TkpYligKxZmaGadzIs0DmRzc5uw9at9KKlYQBd4c6jU8WEjrR616TIDjNtWMtNZ3OPSMHUFNi56jLS50acfMirzSiTBsOUSJ0vnnRZq1+t+yJkB+5uePmjyVw+6I/OqEgjlK6kUupy9XPIPfLoRL9br/PRLSVcj+YuHSpnIJu28DpJqdIm35EQpEuPjS7kG127Eh1cZ1fsJdpV9zdVThR90QHT6+hqrxSt6tsrE3bpy/UqMMgi3n3Gf2LuPTWmZpbNc1q3V/H8AsLyIr4dcyl/MCyIhJRyDD//4ZyLa9jQoOtKbCL9yx44jkSCgZMF4X4RIIBpDUaFF8ypr6KDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:f::16) by BJSPR01MB0756.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:1f::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.22; Fri, 15 Mar
+ 2024 04:55:57 +0000
+Received: from BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn
+ ([fe80::fcfa:931b:8b1d:6af5]) by
+ BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn ([fe80::fcfa:931b:8b1d:6af5%5])
+ with mapi id 15.20.7386.021; Fri, 15 Mar 2024 04:55:57 +0000
+From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+To: Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+CC: Albert Ou <aou@eecs.berkeley.edu>, Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>, Leyfoon Tan
+	<leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Pavel Machek <pavel@ucw.cz>, "Rafael J. Wysocki" <rafael@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>
+Subject: RE: [PATCH] riscv: Do not save the scratch CSR during suspend
+Thread-Topic: [PATCH] riscv: Do not save the scratch CSR during suspend
+Thread-Index: AQHadLdqgBiYlFfag0upukB5n1Ud1rE4QBkA
+Date: Fri, 15 Mar 2024 04:55:57 +0000
+Message-ID: <BJSPR01MB0561EC63D6654543D1266AD79C28A@BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn>
+References: <20240312195641.1830521-1-samuel.holland@sifive.com>
+In-Reply-To: <20240312195641.1830521-1-samuel.holland@sifive.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BJSPR01MB0561:EE_|BJSPR01MB0756:EE_
+x-ms-office365-filtering-correlation-id: 86bf6fad-949b-4c6a-c04e-08dc44ac33f9
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: jpWZZDsmpBhUEosZD0GC56PcVTGGdE+nemu5xv1OmvfoXab45xARhIMiBVBlCl8xX6LIJZAavYUWpiU9TDrdnGddbMpK/D8md1aSRa0GuzffAGn5sfsUYW5qBMRE1xQFywCMB7Jsp8VFjnbrbvg91ZL6f3Hr/E6NsE62EHOlP4X5rQyXvwIeSrz0r6ba5Kcb66oA661jrPmoqga3D15phLUMWJ8NpViKxqlCx46A/krJy8SAMOBKxHRWGxFEnkRG2pDw3PMciTxHqUGAflAA5h6UY3r7QLwbIAuhtExLIcBgZJdAER1gLFkI1p1X+Ws+3gd9xbPD3zHRlHcWfIeE4W+be/4rP8B4ARDeEwaNo/NcHuuWIn4WGxEe71fjxJFWYSalbn9TZv4HEu5MFExNqsBtGJt7fWA654pnmp/P0GA/ZWLkV0uadvtXhz5dJrp4a/pmgc0iChZq0QEnmwnqcym4GezqtA0ABbipmNQc6PAfhMR2C3i35UYP3G1FUESxdNVwmdkBHaHC8+gM22XFhftuIc4dJaq9KBRSHca0oJfwk64z1AF33aaw0IZTavc1sAa+D3128uEuTgHST1SN7m6clVK/bxz+urKhpUntBpo6N6Dh5bwqoLVSjgkoiDY7
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(366007)(41320700004)(1800799015)(7416005)(38070700009);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?y3YB8GMdX0G1bqJ1BHrwUtaBPOzSDfaCCIc4ALMoFvvvly6GL2tBqzL3Wxnn?=
+ =?us-ascii?Q?JjBQjr1PIqdCF3RXm3H6mc4TsT2A7wwFiF5S3H5zwM61jj0a1ngTU4Dz/8A/?=
+ =?us-ascii?Q?Y8apQS1IhEDWUrwx2CiM/6iBk6qfnM6m3LoNE/vNexTQxAEaU7xiFJn/gEAt?=
+ =?us-ascii?Q?em3g+Ell3e3fVWnJiq6aPG0GZ3Z6Cph3sjk0Rf34fDnUOHp8DXOgmPopcPhF?=
+ =?us-ascii?Q?5jRzqandh8f9a3ygEXgKHdidkGucLVVQRjRffktaOyllN82VmkRSozPoLhqj?=
+ =?us-ascii?Q?91xzjOIvGHx7YgcTM1SYOt90upmOHq8cPSxaZxPRFFgObn1QqZJguIx9v5vE?=
+ =?us-ascii?Q?mnIeIVH1bLAXtMHYvdouzV6q3GeRbpz9Eq1lhLZAm9eSkMmS8MQLpgJIX/ND?=
+ =?us-ascii?Q?3bloDEb/IfJfNsk+0P3dMt2EvSR/4rhbOWLM/H3THPVMX0O+Ti5Ff0SUBbb2?=
+ =?us-ascii?Q?gSSKJ/JJ8ctPxEysCR9W6gpOzuigID34GPUhLuVO7i+urwz2bwWbWkwkcIUO?=
+ =?us-ascii?Q?fMA5F8mQ3a5QaZfeRMjQG6dMbOEeqFyBgXJlLsrCgni6GC7NUBdsHLKUz970?=
+ =?us-ascii?Q?S06Oq8o1inPdWR8LbgaH78NkpeLbanC7LeoTsSymc6qnzPfCt//wEsYYWFC7?=
+ =?us-ascii?Q?k88sLF6vSu+2u35S7Cax2jnIq1R5+PY030YsQmppqyjgvy7H6QXXtTxCg5fM?=
+ =?us-ascii?Q?fivUm10xIfCFNjvoWpRdWNjfYK3R4fjqWNTWTJql/SJeshMZu3xlKszweb1o?=
+ =?us-ascii?Q?bYsS9XqU86VvXWCvGSdLvZAJ1iFXuT987l28GYpAtnrPESxAG55kuFkmIpIX?=
+ =?us-ascii?Q?wmyl3Kw3vWpZ8yl9XgQc+jnVAB+pcPEiGEFhmQuEco+8lBWr9O5CawopAmkT?=
+ =?us-ascii?Q?gytHtS9vsKNgmv2ncd9dLyJGe/tH/CFUTem2V+lN/qESWeDFvMai6p/4eQJz?=
+ =?us-ascii?Q?7KtdSq9aIGUvTTtqJeTeuq0zearkBBY+8FGww0A0MuwGWCo0h14FniZKQRag?=
+ =?us-ascii?Q?HTVQiUyfVJJ68sGoBU/XIFRsjTcwNQZpViiFcmM/XyMWFOfAHB/h4eSXbWXk?=
+ =?us-ascii?Q?sZVGb3+gR118qGinPxjtfuwqQjnH3w/7RAfx/AyBKc5NUAkx3vWu/C72O4CI?=
+ =?us-ascii?Q?uGaCHDvSi1jabGezXWQ/Uhi/rgVKZp0A9xynq40F/wATN16E4ZvmLXr/Qxxn?=
+ =?us-ascii?Q?H+ik5dPDwWK8Ustx6neu0mqtjc6aPhLeQ/red14NqsMRfHe8KO3skXMS+RRg?=
+ =?us-ascii?Q?Y4YbUvGvLqnlcbJmDSVvVaPgsTt23yjGDFNFGWfulVb6t2LKznSj9OVtOtfI?=
+ =?us-ascii?Q?427UbWhr1BORIXGlLSYRo7fDhh3RImHJ6lcPFxMhNRyPsztYQdSlNOKHBu+2?=
+ =?us-ascii?Q?wgqPY6NKV2Drf61/JOyyVsNgrwc5NH/OEvUEciy9sjpAK12CCwMEJ5cNdWGY?=
+ =?us-ascii?Q?hS4fXkDlv9ExeQQ5bhegsDQ+2sdkjWqwxmrOJ7owzuO9xEvjORkeNwGJUXoG?=
+ =?us-ascii?Q?QHiUNO7iqkVBawvAEOhGhM5O8tTDBduO+79b0402hxuNcF5QqXE5jUOnCbCB?=
+ =?us-ascii?Q?EoqR5cVet5ABfH5S1k5750qNoWzP9mpXMiyZ3ZGlgLlK9FVP7+IGJS7Zo+2C?=
+ =?us-ascii?Q?VsMQvQOlww4YykD8OeWgeqFl/XWHHtc7fPuXxmheRfQhEYad6ynA72qpGBYN?=
+ =?us-ascii?Q?QPU0jw=3D=3D?=
 MIME-Version: 1.0
-From: Rob Herring <robh@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Jisheng Zhang <jszhang@kernel.org>, dmaengine@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- dlan@gentoo.org, linux-riscv@lists.infradead.org, 
- Chen Wang <unicorn_wang@outlook.com>, Vinod Koul <vkoul@kernel.org>, 
- Jingbao Qiu <qiujingbao.dlmu@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
- devicetree@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Liu Gui <kenneth.liu@sophgo.com>
-In-Reply-To: <IA1PR20MB4953D930316266781A229E97BB282@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB4953E7BB0B270157C8D1DDACBB282@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953D930316266781A229E97BB282@IA1PR20MB4953.namprd20.prod.outlook.com>
-Message-Id: <171047742671.4112904.2484238766002561256.robh@kernel.org>
-Subject: Re: [PATCH v3 2/4] dt-bindings: soc: sophgo: Add top misc
- controller of CV18XX/SG200X series SoC
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 86bf6fad-949b-4c6a-c04e-08dc44ac33f9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Mar 2024 04:55:57.6738
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: JnEvZnaUIbWLuD0kbmNcOVbqwQplsE05FZh6i2qfxJdm7t14jgXZ6ZaTEnn0fg+VnnKIkYN2Q33B8WmmEC1uXU5Kh9MDdqQdbQnWLDtCWno=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJSPR01MB0756
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240314_213713_009641_FA00CAE9 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20240314_215614_428799_692EF7DA 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,55 +138,65 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 15 Mar 2024 10:50:33 +0800, Inochi Amaoto wrote:
-> CV18XX/SG200X series SoCs have a special top misc system controller,
-> which provides register access for several devices. In addition to
-> register access, this system controller also contains some subdevices
-> (such as dmamux).
+
+> -----Original Message-----
+> From: Samuel Holland <samuel.holland@sifive.com>
+> Sent: Wednesday, March 13, 2024 3:57 AM
+> To: Palmer Dabbelt <palmer@dabbelt.com>; linux-riscv@lists.infradead.org
+> Cc: Samuel Holland <samuel.holland@sifive.com>; Albert Ou <aou@eecs.berkeley.edu>; Andrew Jones <ajones@ventanamicro.com>;
+> Conor Dooley <conor.dooley@microchip.com>; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Paul Walmsley
+> <paul.walmsley@sifive.com>; Pavel Machek <pavel@ucw.cz>; Rafael J. Wysocki <rafael@kernel.org>; JeeHeng Sia
+> <jeeheng.sia@starfivetech.com>; linux-kernel@vger.kernel.org; linux-pm@vger.kernel.org
+> Subject: [PATCH] riscv: Do not save the scratch CSR during suspend
 > 
-> Add bindings for top misc controller of CV18XX/SG200X series SoC.
+> While the processor is executing kernel code, the value of the scratch
+> CSR is always zero, so there is no need to save the value. Continue to
+> write the CSR during the resume flow, so we do not rely on firmware to
+> initialize it.
 > 
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 > ---
->  .../soc/sophgo/sophgo,cv1800-top-syscon.yaml  | 49 +++++++++++++++++++
->  1 file changed, 49 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml
 > 
-
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dts:25.13-44: Warning (reg_format): /example-0/syscon@3000000/dma-router@154:reg: property has invalid length (16 bytes) (#address-cells == 2, #size-cells == 1)
-Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (pci_device_reg): Failed prerequisite 'reg_format'
-Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (pci_device_bus_num): Failed prerequisite 'reg_format'
-Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (simple_bus_reg): Failed prerequisite 'reg_format'
-Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (i2c_bus_reg): Failed prerequisite 'reg_format'
-Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (spi_bus_reg): Failed prerequisite 'reg_format'
-Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dts:23.26-29.13: Warning (avoid_default_addr_size): /example-0/syscon@3000000/dma-router@154: Relying on default #address-cells value
-Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dts:23.26-29.13: Warning (avoid_default_addr_size): /example-0/syscon@3000000/dma-router@154: Relying on default #size-cells value
-Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: Warning (unique_unit_address_if_enabled): Failed prerequisite 'avoid_default_addr_size'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.example.dtb: dma-router@154: 'reg' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/IA1PR20MB4953D930316266781A229E97BB282@IA1PR20MB4953.namprd20.prod.outlook.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+>  arch/riscv/include/asm/suspend.h | 1 -
+>  arch/riscv/kernel/suspend.c      | 3 +--
+>  2 files changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
+> index 491296a335d0..6569eefacf38 100644
+> --- a/arch/riscv/include/asm/suspend.h
+> +++ b/arch/riscv/include/asm/suspend.h
+> @@ -13,7 +13,6 @@ struct suspend_context {
+>  	/* Saved and restored by low-level functions */
+>  	struct pt_regs regs;
+>  	/* Saved and restored by high-level functions */
+> -	unsigned long scratch;
+>  	unsigned long envcfg;
+>  	unsigned long tvec;
+>  	unsigned long ie;
+> diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
+> index 299795341e8a..3d306d8a253d 100644
+> --- a/arch/riscv/kernel/suspend.c
+> +++ b/arch/riscv/kernel/suspend.c
+> @@ -14,7 +14,6 @@
+> 
+>  void suspend_save_csrs(struct suspend_context *context)
+>  {
+> -	context->scratch = csr_read(CSR_SCRATCH);
+>  	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_XLINUXENVCFG))
+>  		context->envcfg = csr_read(CSR_ENVCFG);
+>  	context->tvec = csr_read(CSR_TVEC);
+> @@ -37,7 +36,7 @@ void suspend_save_csrs(struct suspend_context *context)
+> 
+>  void suspend_restore_csrs(struct suspend_context *context)
+>  {
+> -	csr_write(CSR_SCRATCH, context->scratch);
+> +	csr_write(CSR_SCRATCH, 0);
+If the register is always zero, do we need to explicitly write zero to the register during resume?
+>  	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_XLINUXENVCFG))
+>  		csr_write(CSR_ENVCFG, context->envcfg);
+>  	csr_write(CSR_TVEC, context->tvec);
+> --
+> 2.43.1
 
 
 _______________________________________________
