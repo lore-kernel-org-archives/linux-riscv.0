@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D5CC54E69
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 21:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDCAC54E71
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 21:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XwH+Jqqf9bd7yZH70AtvQzdh2FoTut5EjZMxQkcOOCY=; b=bKJrX2isxTduMt
-	YoV+mNpX70pVwfjSvWRVBTmuFb0XRJ1f8Q1lP6Uo66YYDQ1Y/vL7HLIQRP+ey7yf6/Xh70WvZu5pj
-	l5lesicPVQG4xqpV5ysfvqM5yt2dyzBnRRvrqFBFGatMaoJq6VQ0pa6XD6MrSFRy5nulfOydevdSx
-	DBuDYtqrrtkkJGznpvU8oVQwmTzuKrZigjCu+c95RhVsNsbhwT2n/rxZZe1eQ8d5KqUoOt+jDIIJS
-	9OjbJzheP3whskOYPuxw5Tm6LUr3Oi44a4L+QLOvoNGdGOfTedAmC+mkV8mDyzRwd7VL/Hw5sRqVE
-	Y3kYspGOPgsCUfvYVkQg==;
+	List-Owner; bh=xnZrlTC/rJZCTNCQbtv7BRRMiSxjEBUkOdZgp0HPeU8=; b=kj4CIcQ1e1FFyW
+	InDo53GA7a7pBzjJNpB8VMRccM8ChyEikprrL1/sIKSRf5vp9cD3QsNEoILvEo6XooVTbeLFDkKoU
+	J085MISuUYtmKv72uvXCi1w8PRvznrglDw/LwpeXzQVtK2px7lRUJD6NMiWaGn/1nRejyvUJruuZY
+	SU1H4zH3sz9we6rPQH55yNwJGa4EIyyDFhQ85/dD3gZlv5zz+KwfAGS3oGVU7dj5rXCstht53I2Ag
+	zHKZ2jMKHKsNBmXgukleBNSB+a0utIenfVpsOjiwrJJUO5PMToL4+JJOwKT1t3EfqM0fbaoHhQQxU
+	Bd6T0b4YKDgMXy/SiIgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmK86-0000000A7u3-3d2o;
-	Mon, 18 Mar 2024 21:02:46 +0000
+	id 1rmK87-0000000A7uW-3HWO;
+	Mon, 18 Mar 2024 21:02:47 +0000
 Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rlETf-00000001X9o-1OUi;
-	Fri, 15 Mar 2024 20:48:41 +0000
+	id 1rlETg-00000001XAT-1yIY;
+	Fri, 15 Mar 2024 20:48:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
 	s=mail; t=1710535698;
-	bh=oevlPOUTno1lzAS8VyWx7MVuhqnxcH7itmP3/5hwz20=;
+	bh=m+K+pCOcUIKDJXVlXdIjxkNCOOD+02kNnAffkd4pv3g=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OzlCngVZzs14BEfB2dc5J4o4ZKkSQQkWcdhqOSjhZhgkw/Ll2JQ6iAP5cU1U+kVsa
-	 SrPCNtTtm8SHoDqPXiHa4YsznSa7vqTifHCUJbDAIQNi550jyZtghvHYAeHSFkf+H5
-	 CmLMXq4gfmBvTUDddBCzzP8cINqR1mq64EVXhq9A=
+	b=jqxDO3Tw8x00e3dS7v4MMKOqIyXMSrjFO93KkLMrxEo1nDRFf5YphcW2HehQhDnFU
+	 PmlE72GP1SDCPoeSx/FKopC5InS9/uOUubALDtzDcA/2V1nHVuziA1mIR5zLXmk6E1
+	 eB3NdTCQ/ci/brS7mGewz0aIM76V0ywhclUqxjJY=
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Date: Fri, 15 Mar 2024 21:48:03 +0100
-Subject: [PATCH 05/11] neighbour: constify ctl_table arguments of utility
+Date: Fri, 15 Mar 2024 21:48:06 +0100
+Subject: [PATCH 08/11] ipv6/ndisc: constify ctl_table arguments of utility
  function
 MIME-Version: 1.0
-Message-Id: <20240315-sysctl-const-handler-v1-5-1322ac7cb03d@weissschuh.net>
+Message-Id: <20240315-sysctl-const-handler-v1-8-1322ac7cb03d@weissschuh.net>
 References: <20240315-sysctl-const-handler-v1-0-1322ac7cb03d@weissschuh.net>
 In-Reply-To: <20240315-sysctl-const-handler-v1-0-1322ac7cb03d@weissschuh.net>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Kees Cook <keescook@chromium.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Muchun Song <muchun.song@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, David Ahern <dsahern@kernel.org>, Simon Horman <horms@verge.net.au>, Julian Anastasov <ja@ssi.bg>, Pablo Neira Ayuso <pablo@netfilter.org>, Jozsef Kadlecsik <kadlec@netfilter.org>, Florian Westphal <fw@strlen.de>, Luis Chamberlain <mcgrof@kernel.org>, Joel Granados <j.granados@samsung.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Phillip Potter <phil@philpotter.co.uk>, Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, Sudip Mukherjee <sudipm.mukherjee@gmail.com>, Mark Rutland <mark.rutland@arm.com>, Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Eric Biederman <ebiederm@xmission.com>, Chandan Babu R <chandan.babu@oracle.com>, "Darrick J. Wong" <djwong@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, Balbir Singh <bsingharora@gmail.com>, "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>, Petr Mladek <pmladek@suse.com>, John Ogness <john.ogness@linutronix.de>, Sergey Senozhatsky <senozhatsky@chromium.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Daniel Bristot de Oliveira <bristot@redhat.com>, Valentin Schneider <vschneid@redhat.com>, Andy Lutomirski <luto@amacapital.net>, Will Drewry <wad@chromium.org>, John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Roopa Prabhu <roopa@nvidia.com>, Nikolay Aleksandrov <razor@blackwall.org>, Remi Denis-Courmont <courmisch@gmail.com>, Allison Henderson <allison.henderson@oracle.com>, Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, Xin Long <lucien.xin@gmail.com>, Chuck Lever <chuck.lever@oracle.com>, Jeff Layton <jlayton@kernel.org>, Neil Brown <neilb@suse.de>, Olga Kornievskaia <kolga@netapp.com>, Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, Trond Myklebust <trond.myklebust@hammerspace.com>, Anna Schumaker <anna@kernel.org>, John Johansen <john.johansen@canonical.com>, Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, Alexander Popov <alex.popov@linux.com>
@@ -56,16 +56,16 @@ Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-security-module@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1710535695; l=808;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1710535695; l=778;
  i=linux@weissschuh.net; s=20221212; h=from:subject:message-id;
- bh=oevlPOUTno1lzAS8VyWx7MVuhqnxcH7itmP3/5hwz20=;
- b=nal6nqzlOqju6KoSlkSXv2irkXSIQB1hPxMMvRw5/3x5Pl0PJC8iZv6mLbrbrwrTwJiwMMOTx
- vrmE29LSkJlAudC9x/ESIVrRSshIpjIXJbLqbScnLDsQB6DzgzZYtRY
+ bh=m+K+pCOcUIKDJXVlXdIjxkNCOOD+02kNnAffkd4pv3g=;
+ b=d4zm13k2OQna/NlK3uekXkMo7hwOBupIjvbXHKdSXoSk2DsIK+yuhbmEQr0VAeaARyLv14HqX
+ 0Z4woBXtUp1D7/pq8L0Ybaa/TZAKfXvfcMgjftD2Zr5aqWsk6Mdkffo
 X-Developer-Key: i=linux@weissschuh.net; a=ed25519;
  pk=KcycQgFPX2wGR5azS7RhpBqedglOZVgRPfdFSPB1LNw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240315_134831_779407_A2966E00 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20240315_134832_768399_09F0F8CC 
+X-CRM114-Status: GOOD (  13.76  )
 X-Mailman-Approved-At: Mon, 18 Mar 2024 14:02:37 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,17 +86,17 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 SW4gYSBmdXR1cmUgY29tbWl0IHRoZSBwcm9jX2hhbmRsZXJzIHRoZW1zZWx2ZXMgd2lsbCBjaGFu
 Z2UgdG8KImNvbnN0IHN0cnVjdCBjdGxfdGFibGUiLiBBcyBhIHByZXBhcmF0aW9uIGZvciB0aGF0
 IGFkYXB0IHRoZSBpbnRlcm5hbApoZWxwZXIuCgpTaWduZWQtb2ZmLWJ5OiBUaG9tYXMgV2Vpw59z
-Y2h1aCA8bGludXhAd2Vpc3NzY2h1aC5uZXQ+Ci0tLQogbmV0L2NvcmUvbmVpZ2hib3VyLmMgfCAy
-ICstCiAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKCmRpZmYg
-LS1naXQgYS9uZXQvY29yZS9uZWlnaGJvdXIuYyBiL25ldC9jb3JlL25laWdoYm91ci5jCmluZGV4
-IDU1MjcxOWMzYmJjMy4uMWZiNzExMDdhY2NmIDEwMDY0NAotLS0gYS9uZXQvY29yZS9uZWlnaGJv
-dXIuYworKysgYi9uZXQvY29yZS9uZWlnaGJvdXIuYwpAQCAtMzU3Myw3ICszNTczLDcgQEAgc3Rh
-dGljIHZvaWQgbmVpZ2hfY29weV9kZmx0X3Bhcm1zKHN0cnVjdCBuZXQgKm5ldCwgc3RydWN0IG5l
-aWdoX3Bhcm1zICpwLAogCXJjdV9yZWFkX3VubG9jaygpOwogfQogCi1zdGF0aWMgdm9pZCBuZWln
-aF9wcm9jX3VwZGF0ZShzdHJ1Y3QgY3RsX3RhYmxlICpjdGwsIGludCB3cml0ZSkKK3N0YXRpYyB2
-b2lkIG5laWdoX3Byb2NfdXBkYXRlKGNvbnN0IHN0cnVjdCBjdGxfdGFibGUgKmN0bCwgaW50IHdy
-aXRlKQogewogCXN0cnVjdCBuZXRfZGV2aWNlICpkZXYgPSBjdGwtPmV4dHJhMTsKIAlzdHJ1Y3Qg
-bmVpZ2hfcGFybXMgKnAgPSBjdGwtPmV4dHJhMjsKCi0tIAoyLjQ0LjAKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Y2h1aCA8bGludXhAd2Vpc3NzY2h1aC5uZXQ+Ci0tLQogbmV0L2lwdjYvbmRpc2MuYyB8IDIgKy0K
+IDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdp
+dCBhL25ldC9pcHY2L25kaXNjLmMgYi9uZXQvaXB2Ni9uZGlzYy5jCmluZGV4IGFlMTM0NjM0YzMy
+My4uOTQ1ZDVmNWNhMDM5IDEwMDY0NAotLS0gYS9uZXQvaXB2Ni9uZGlzYy5jCisrKyBiL25ldC9p
+cHY2L25kaXNjLmMKQEAgLTE5MzYsNyArMTkzNiw3IEBAIHN0YXRpYyBzdHJ1Y3Qgbm90aWZpZXJf
+YmxvY2sgbmRpc2NfbmV0ZGV2X25vdGlmaWVyID0gewogfTsKIAogI2lmZGVmIENPTkZJR19TWVND
+VEwKLXN0YXRpYyB2b2lkIG5kaXNjX3dhcm5fZGVwcmVjYXRlZF9zeXNjdGwoc3RydWN0IGN0bF90
+YWJsZSAqY3RsLAorc3RhdGljIHZvaWQgbmRpc2Nfd2Fybl9kZXByZWNhdGVkX3N5c2N0bChjb25z
+dCBzdHJ1Y3QgY3RsX3RhYmxlICpjdGwsCiAJCQkJCSBjb25zdCBjaGFyICpmdW5jLCBjb25zdCBj
+aGFyICpkZXZfbmFtZSkKIHsKIAlzdGF0aWMgY2hhciB3YXJuY29tbVtUQVNLX0NPTU1fTEVOXTsK
+Ci0tIAoyLjQ0LjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
