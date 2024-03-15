@@ -4,96 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49F3C54E58
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 08:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51979C54E58
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2024 08:11:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ba2P1sKw8+R1zxcK11Ab5fTFAOzjS8rgCjuskzZnyqQ=; b=TR1n0s/93ZAw+n
-	rIcCYb4MPfvrgXGRrM0HPANNCC0URunU1aEaIKFRB+o4D7ABges1vNBGyrgh03puoxDJBfkQpL9t4
-	N5hATyH1vtNcuhslyCQC/zg+fCo8r1g/ofN4VWLKfvV6od3bw3OkJSOQmHLYmWjsBpc1eIuE0L92+
-	JWkdN3V9+VFqlCyunMdqXlJ/7X3YHpbr5d8Xntt05GAILJiFWNJFy0ov8lpzjckGq0AG7GFyyUXsh
-	7PeFWT6pr+q3FAGoZAKkeWOKRRbnndJHbOR52qI07H1SDNm4erw1FEwZjrrMcgqnxRVaohT651fvB
-	ROVrYlK+hxnvIAhNB/Hw==;
+	List-Owner; bh=OF1hwtxWy5bDVQfix9jknh3k9e9zB9u1O9y7GI1oKuE=; b=I4N7sB8wOXm61L
+	DhcTtTMBSCgSylHV/N3AD/Ey7ZJgRnXvMaqrJ8Zm7i42FyzZU3DYc3Nrlq24/68JoPab9opaNr/E/
+	zz74lWIrrUCQ6dT0it8bwcJNLsNkbpKahEFSb55GDauUIfoLnnBc+fohtINoupZu21BrP4uwvnRGz
+	ZZYXfJKLiZUAtOf7ssNsOUJnPaqlRIfYI8TtF1imX4NHU5E+3uZGNBmSvm3Dh9kLmxr+GeUoa8jwM
+	/v6DMb0dHSvZq8wS3PHIH5i1EGhIaKGrO8mSjhAASQK75jX4E39t9HQOrh765SXbUZrFzU+BF9J++
+	7KxMO9iT7KI+EVtrM0Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rl2VA-0000000H3Z2-06mg;
-	Fri, 15 Mar 2024 08:01:16 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1rl2fE-0000000H66F-32on;
+	Fri, 15 Mar 2024 08:11:40 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rl2V5-0000000H3WP-3s44
+	id 1rl2fC-0000000H64V-3Bby
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Mar 2024 08:01:14 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-29c7512e3b8so1426067a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Mar 2024 01:01:07 -0700 (PDT)
+	Fri, 15 Mar 2024 08:11:40 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a461c50deccso213149966b.0
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Mar 2024 01:11:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1710489667; x=1711094467; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p0en/GCOfhc21UxAgSvgpjSxEaCkV+SmFKeaU1UDvXQ=;
-        b=eo7QY8FTiFc5tomBYqwwYIDSD8CrO1Uhm8zP9JTdbAzm38XnublkSE2U1V9levAN3F
-         5C8pdAvVslaNhrQo2wFGQ4ugYgzU9VAJ2BCmy296HfSV03nUSoVfchb+vJsCUDh+IwC7
-         mPwmnbfLmzgmZ8pvm49VB1rUQYlZtnETqCxqnp5NmZjRiOl6nf0v7lPjLXzutPCUYHA4
-         XxYIn+BERJNoBayGiLbkbqakO27LDgZlxRDgGry7pVUm2Hnm7C7NAPYUBxxwaS/stSaD
-         4FFilCdIUsC35/XK6Yh306RJzH8kkCo0se+e8b7sSzZweHizE02VqF14q+ir7YR+6jT/
-         coSw==
+        d=ventanamicro.com; s=google; t=1710490296; x=1711095096; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=s/GjHxvspqde5PDmyzE58y/UK2LQWPcFmtqDdmYzTvY=;
+        b=ZVEZZQYn8RQysOVnnHwpcWI6Xlh+iGKkGf1r+6x1YAvneydNXlG62qKxdt2O0AKIBz
+         kdvNjgrJx23qAAewYZ9/jTzhwt8nIspejYTbZ7VcY6slsL3XVIfn4rKKFOC4xsplnxaI
+         qjx7Yzwhv+cm342trG6j6z3raNZzh3P/J31yDUYZHdP0vV/K5R3KnvPuhpcGpKL6jlRf
+         Q7cBtDHAqwFi7zlq45haTB2WaR/PNosVunHFxObtO+F85iukr5zhN0h9OmLomSsu3oWg
+         XZp4pCAOvH+EYzpkcBjD6kokgkd1KSkxfOSjEHyJGskFKv0/7rJmDB4l/2RRDZZPKfgS
+         bAIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710489667; x=1711094467;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p0en/GCOfhc21UxAgSvgpjSxEaCkV+SmFKeaU1UDvXQ=;
-        b=YUAUnH2gPBXqOh98qAR+igW7xv7DvtqGXAx6NHmdYS9ZnZ2r9KGdn1nh1ry1pSDp0o
-         ho+H2v7wZJddgc5ggAmT50nIsi5bixfsgnCYFfvWa0fwlhVqNasQsEXoraFe+gav8i+W
-         IQiBpKe0FALDl4U++6AsM+uiazK66pXWT10YkC2ISAoTVjIJETS+u8cGxXg+QB4/Jkxt
-         7lKMifY1LhKD3Pv1/ZHI6MiFGNc+ylnb4TY5dr3vhoz/Wdd99aHoTIIkaZe8+Pw/xODb
-         feNznJPHXFuOpWPdA/sZcDGlWZ/8ktcNukaFAAls24deV/zv60gCRN+EoU10AzpwXada
-         5miA==
-X-Forwarded-Encrypted: i=1; AJvYcCV0MEqeRNdg//ECVVix+A9Q4eQO5RHMHBQZR/W1NtI+17Cz8Rt0GPAF86EPlZ0Jj6z1/mTAvjwNL/Wh8DQLtnebc1Aj/AqIHR0lQBvpe9vM
-X-Gm-Message-State: AOJu0Yy5Key583qMfBQH2thKrKFZs5yyHIKp90nRaCDJYYnWqFLrwUuW
-	yZzKxh9R5QxkxOhapwk4dX7lnCo/ljxeB4iBLJUOvbvmViVnYh5D3TyoFQMLMwmoNOxH1IA6GyB
-	62etg6eKofVsoyjLWv6ocghkSK8TqVp/aXm7sbA==
-X-Google-Smtp-Source: AGHT+IEpM9Mqa5iEhQbTXQByuieojUsSQiVC/HtuI16NWpRWnCf8v9wukRY0tmuiax6xN5WzRfxP5Mr9rKAT0G28iSY=
-X-Received: by 2002:a17:90a:dc0b:b0:29d:fe1c:79e7 with SMTP id
- i11-20020a17090adc0b00b0029dfe1c79e7mr271232pjv.45.1710489666842; Fri, 15 Mar
- 2024 01:01:06 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1710490296; x=1711095096;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=s/GjHxvspqde5PDmyzE58y/UK2LQWPcFmtqDdmYzTvY=;
+        b=n+6b5AhXOgvDl2ossmZNoCZIT3QK+Poj1/uf461l7xGfe191lN/LTKg52wglY+CjUO
+         cC8bqa+GhEy5z6oLg2qCG18GhNrpLCS3VOkRT2MXCqcHFW2+NDqAbr2W0EgcapLrma8l
+         C52I9iWgF3MywswGA/AOJFBejn7co4Q/Hi6pl4sdzNsBgXa53v8YqV71i1kIh7qsjrao
+         wgQ8aVqT1RCmwGC8Q48ku/QrnNqhNpp4i9+tZDfjgqe7JWvKRnoea+FsTYHfy2Z1n1l/
+         fH57mUMeCk9sAfj7rJ/kr4dVqgm5dDN5vKjEA4y8oC39SoWERBM/9wa9Qm7uKIEEe0AB
+         ldEA==
+X-Forwarded-Encrypted: i=1; AJvYcCWI0Kv+NHZmBSAstcpRdRytQgPLE6Ead4IYfo06Aj7mBh6fNXR2GEROcd3ekF2kuPbGrK3h9imA8pfW7AdheX4EtNGEtSMAdxz68TSPVKG4
+X-Gm-Message-State: AOJu0Yy34NZk6cX2U6FQjQJSPbalYSzqitHndeObA3B+d18UIni0DAEh
+	534qiazP1lNcOXjUSyT28QalgygWIq0e0hDMBhzVeVRU3EyA00mGVy7kacls1/s=
+X-Google-Smtp-Source: AGHT+IHkkLwS46uOPoHgx+M42KZhCd2StM3WX/KkNEtooUlZc+lcqKpZL+XZ9e/wUMtsDkqtuWHieg==
+X-Received: by 2002:a17:906:c144:b0:a46:9395:818e with SMTP id dp4-20020a170906c14400b00a469395818emr156069ejc.68.1710490296654;
+        Fri, 15 Mar 2024 01:11:36 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id h11-20020a1709062dcb00b00a433f470cf1sm1467996eji.138.2024.03.15.01.11.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Mar 2024 01:11:36 -0700 (PDT)
+Date: Fri, 15 Mar 2024 09:11:35 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Conor Dooley <conor@kernel.org>, Qingfang Deng <dqfext@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>, 
+	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] perf: RISC-V: fix IRQ detection on T-Head C908
+Message-ID: <20240315-73aa13079ef83a4559869084@orel>
+References: <20240311063018.1886757-1-dqfext@gmail.com>
+ <IA1PR20MB4953ECC3E32E95303872CD14BB242@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <CALW65jZ+q8sDiRKgsRL9n+939HNUCnkKuO=YJjHB5Js=WYQeOg@mail.gmail.com>
+ <20240312-evil-resource-66370b68b9b4@spud>
+ <IA1PR20MB4953CE8999960BA71B46DE6CBB2A2@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-References: <20240311093526.1010158-1-dongmenglong.8@bytedance.com>
- <20240311093526.1010158-2-dongmenglong.8@bytedance.com> <CAADnVQKQPS5NcvEouH4JqZ2fKgQAC+LtcwhX9iXYoiEkF_M94Q@mail.gmail.com>
- <CALz3k9i5G5wWi+rtvHPwVLOUAXVMCiU_8QUZs87TEYgR_0wpPA@mail.gmail.com>
- <CAADnVQJ_ZCzMmT1aBsNXEBFfYNSVBdBXmLocjR0PPEWtYQrQFw@mail.gmail.com>
- <CALz3k9icPePb0c4FE67q=u1U0hrePorN9gDpQrKTR_sXbLMfDA@mail.gmail.com>
- <CAADnVQLwgw8bQ7OHBbqLhcPJ2QpxiGw3fkMFur+2cjZpM_78oA@mail.gmail.com>
- <CALz3k9g9k7fEwdTZVLhrmGoXp8CE47Q+83r-AZDXrzzuR+CjVA@mail.gmail.com> <CAADnVQLHpi3J6cBJ0QBgCQ2aY6fWGnVvNGdfi3W-jmoa9d1eVQ@mail.gmail.com>
-In-Reply-To: <CAADnVQLHpi3J6cBJ0QBgCQ2aY6fWGnVvNGdfi3W-jmoa9d1eVQ@mail.gmail.com>
-From: =?UTF-8?B?5qKm6b6Z6JGj?= <dongmenglong.8@bytedance.com>
-Date: Fri, 15 Mar 2024 16:00:55 +0800
-Message-ID: <CALz3k9g-U8ih=ycJPRbyU9x_9cp00fNkU3PGQ6jP0WJ+=uKmqQ@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH bpf-next v2 1/9] bpf: tracing: add support
- to record and check the accessed args
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Andrii Nakryiko <andrii@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@linux.dev>, Eddy Z <eddyz87@gmail.com>, 
-	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, 
-	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
-	Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, 
-	David Ahern <dsahern@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	X86 ML <x86@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Quentin Monnet <quentin@isovalent.com>, 
-	bpf <bpf@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>, 
-	Network Development <netdev@vger.kernel.org>, linux-trace-kernel@vger.kernel.org, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com
+Content-Disposition: inline
+In-Reply-To: <IA1PR20MB4953CE8999960BA71B46DE6CBB2A2@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240315_010112_359795_5899D2EA 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20240315_011138_891726_515CDAC3 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,44 +96,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBNYXIgMTQsIDIwMjQgYXQgODoyN+KAr0FNIEFsZXhlaSBTdGFyb3ZvaXRvdgo8YWxl
-eGVpLnN0YXJvdm9pdG92QGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBPbiBUdWUsIE1hciAxMiwgMjAy
-NCBhdCA2OjUz4oCvUE0g5qKm6b6Z6JGjIDxkb25nbWVuZ2xvbmcuOEBieXRlZGFuY2UuY29tPiB3
-cm90ZToKWy4uLi4uLl0KPiA+IFdoYXQgZG9lcyAiYSBodW5kcmVkIGF0dGFjaG1lbnRzIG1heCIg
-bWVhbnM/IENhbid0IEkKPiA+IHRyYWNlIHRob3VzYW5kcyBvZiBrZXJuZWwgZnVuY3Rpb25zIHdp
-dGggYSBicGYgcHJvZ3JhbSBvZgo+ID4gdHJhY2luZyBtdWx0aS1saW5rPwo+Cj4gSSBtZWFuIHdo
-YXQgdGltZSBkb2VzIGl0IHRha2UgdG8gYXR0YWNoIG9uZSBwcm9ncmFtCj4gdG8gMTAwIGZlbnRy
-eS1zID8KPiBXaGF0IGlzIHRoZSB0aW1lIGZvciAxayBhbmQgZm9yIDEwayA/Cj4KPiBUaGUga3By
-b2JlIG11bHRpIHRlc3QgYXR0YWNoZXMgdG8gcHJldHR5IG11Y2ggYWxsIGZ1bmNzIGluCj4gL3N5
-cy9rZXJuZWwvdHJhY2luZy9hdmFpbGFibGVfZmlsdGVyX2Z1bmN0aW9ucwo+IGFuZCBpdCdzIGZh
-c3QgZW5vdWdoIHRvIHJ1biBpbiB0ZXN0X3Byb2dzIG9uIGV2ZXJ5IGNvbW1pdCBpbiBicGYgQ0ku
-Cj4gU2VlIGdldF9zeW1zKCkgaW4gcHJvZ190ZXN0cy9rcHJvYmVfbXVsdGlfdGVzdC5jCj4KPiBD
-YW4gdGhpcyBuZXcgbXVsdGkgZmVudHJ5IGRvIHRoYXQ/Cj4gYW5kIGF0IHdoYXQgc3BlZWQ/Cj4g
-VGhlIGFuc3dlciB3aWxsIGRlY2lkZSBob3cgYXBwbGljYWJsZSB0aGlzIGFwaSBpcyBnb2luZyB0
-byBiZS4KPiBHZW5lcmF0aW5nIGRpZmZlcmVudCB0cmFtcG9saW5lcyBmb3IgZXZlcnkgYXR0YWNo
-IHBvaW50Cj4gaXMgYW4gYXBwcm9hY2ggYXMgd2VsbC4gUGxzIGJlbmNobWFyayBpdCB0b28uCgpJ
-IHNlZS4gQ3JlYXRpbmcgcGxlbnR5IG9mIHRyYW1wb2xpbmVzIGRvZXMgdGFrZSBhIGxvdCBvZiB0
-aW1lLAphbmQgSSdsbCBkbyB0ZXN0aW5nIG9uIGl0LgoKPgo+ID4gPgo+ID4gPiBMZXQncyBzdGVw
-IGJhY2suClsuLi4uLi5dCj4KPiBGb3Igb25lIHRyYW1wb2xpbmUgdG8gaGFuZGxlIGFsbCBhdHRh
-Y2ggcG9pbnRzIHdlIG1pZ2h0Cj4gbmVlZCBzb21lIGFyY2ggc3VwcG9ydCwgYnV0IHdlIGNhbiBz
-dGFydCBzaW1wbGUuCj4gTWFrZSBidGZfZnVuY19tb2RlbCB3aXRoIE1BWF9CUEZfRlVOQ19SRUdf
-QVJHUwo+IGJ5IGNhbGxpbmcgYnRmX2Rpc3RpbGxfZnVuY19wcm90bygpIHdpdGggZnVuYz09TlVM
-TC4KPiBBbmQgdXNlIHRoYXQgdG8gYnVpbGQgYSB0cmFtcG9saW5lLgo+Cj4gVGhlIGNoYWxsZW5n
-ZSBpcyBob3cgdG8gdXNlIG1pbmltYWwgbnVtYmVyIG9mIHRyYW1wb2xpbmVzCj4gd2hlbiBicGZf
-cHJvZ0EgaXMgYXR0YWNoZWQgZm9yIGZ1bmMxLCBmdW5jMiwgZnVuYzMKPiBhbmQgYnBmX3Byb2dC
-IGlzIGF0dGFjaGVkIHRvIGZ1bmMzLCBmdW5jNCwgZnVuYzUuCj4gV2UnZCBzdGlsbCBuZWVkIDMg
-dHJhbXBvbGluZXM6Cj4gZm9yIGZ1bmNbMTJdIHRvIGNhbGwgYnBmX3Byb2dBLAo+IGZvciBmdW5j
-MyB0byBjYWxsIGJwZl9wcm9nQSBhbmQgYnBmX3Byb2dCLAo+IGZvciBmdW5jWzQ1XSB0byBjYWxs
-IGJwZl9wcm9nQi4KPgo+IEppcmkgd2FzIHRyeWluZyB0byBzb2x2ZSBpdCBpbiB0aGUgcGFzdC4g
-SGlzIHNsaWRlcyBmcm9tIExQQzoKPiBodHRwczovL2xwYy5ldmVudHMvZXZlbnQvMTYvY29udHJp
-YnV0aW9ucy8xMzUwL2F0dGFjaG1lbnRzLzEwMzMvMTk4My9wbHVtYmVycy5wZGYKPgo+IFBscyBz
-dHVkeSB0aGVtIGFuZCBoaXMgcHJpb3IgcGF0Y2hzZXRzIHRvIGF2b2lkIHN0ZXBwaW5nIG9uIHRo
-ZSBzYW1lIHJha2VzLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Wed, Mar 13, 2024 at 09:31:26AM +0800, Inochi Amaoto wrote:
+...
+> IMHO, it may be better to use a new DT property like "riscv,cpu-errata" or
+> "<vendor>,cpu-errata". It can achieve almost everything like using pseudo
+> isa. And the only cost I think is a small amount code to parse this.
+>
+
+What's the ACPI equivalent for this new DT property? If there isn't one,
+then the cost is also to introduce something to the ACPI spec and add the
+ACPI parsing code.
+
+I'd much rather we call specified behaviors "extensions", whether they
+are vendor-specific or RVI standard, and then treat all extensions the
+same way in hardware descriptions and Linux. It'd also be best if errata
+in extension implementations were handled by replacing the extension in
+the hardware description with a new name which is specifically for the
+behavior Linux should expect. (Just because two extensions are almost the
+same doesn't mean we should say we have one and then have some second
+mechanism to say, "well, not really, instead of that, it's this". It's
+cleaner to just remove the extension it doesn't properly implement from
+its hardware description and create a name for the behavior it does have.)
+
+Errata in behaviors which don't have extension names (are hopefully few)
+and are where mvendorid and friends would need to be checked, but then why
+not create a pseudo extension name, as Conor suggests, so the rest of
+Linux code can manage errata the same way it manages every other behavior?
+
+The growth rate of the ISA bitmap is worth thinking about, though, since
+we have several copies of it (at least one "all harts" bitmap, one bitmap
+for each hart, another one for each vcpu, and then there's nested virt...)
+We don't have enough extensions to worry about it now, but we can
+eventually try partitioning, using common maps for common bits, not
+storing bits which can be inferred from other bits, etc.
+
+Thanks,
+drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
