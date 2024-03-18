@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 318E0C54E58
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 08:08:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784EBC54E5D
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 08:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w2lU3aPCz4DUbO+rR7ftrKoCnfIkJYNUkepF9t+iKUM=; b=1uEjUpQDs1o361
-	hdNT43TPNKtr/9Rrgt9sWMox//cFWpWhjGVnjCf2CO5ewFYxssM0ZbNQ/+gCuVfTkPoL0Co5D0ME5
-	YZJbUchqJcG3tn7mRq+ULkHi3bliHMQ23jTfj40wgdYbcql8/2UiYDsEAJq8pxpngvOktlhMqOs21
-	Lck3EIuG5ZCv8yyjXFZUKMCMO8NrYYn7PaJ1rMeMgO98+s1GHXnCO9xU9ZXzPKzEDp6MkRBCgH9eR
-	w/q868uHpH0miP4fIVS4dhZ3Ne9GR+YG7zei+CTWR4KeVG6FK50J3QPHIWJsbEhE4nHVygOXPVJxE
-	8A8gH/YRI8DPw86aUeRA==;
+	List-Owner; bh=tJToE/kJcZcGB34HVMlKryNzbm56E9OELG6t9r4wSEQ=; b=UR1LUmpy3aOW9I
+	wMdP1I/XVNn4+c6WPhZ67nd/mRlihtxrs4hfF8MnOTv+SWB2qBTzDO2Wp2wEt3QM8v4xWZWtwHs9g
+	LJ4Jsun8HcL+3CWbWg7t6g8PcOaQ0QOBO7NXU+Vm0KMAFVW8gUmrMT02dDxop6iK+BRAKZ+BkgLyP
+	kTo7bjjszh2lBVpusomvISydA+deb0j+8RCxOU+Q5G4ylnajfddsay+r0bU9w/67iFwWIQWMdvmiP
+	7Q4zK3JewCpFkbHcptAi2XNCszEzI0xLti6Iu1AXYWr7EJsjLtI8ytz8r4aVaUjoSTskhmzqAFkeS
+	2SNoltRO/18f6Jh9Q0kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rm83C-00000007i8N-2w6B;
-	Mon, 18 Mar 2024 08:08:54 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1rm849-00000007iOG-2rpi;
+	Mon, 18 Mar 2024 08:09:53 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rm839-00000007i7d-0h8R
+	id 1rm846-00000007iN8-3NuC
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Mar 2024 08:08:52 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a450bedffdfso479308066b.3
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2024 01:08:45 -0700 (PDT)
+	Mon, 18 Mar 2024 08:09:52 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-a46805cd977so381619666b.0
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2024 01:09:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1710749325; x=1711354125; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1710749388; x=1711354188; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=lYJF2z287hgfrhqFzR4ibETaT04n+VxXUuuvxIg3WUw=;
-        b=cAnkGoBn22+ZbmhT68NQwuBtYSGvXuR9OunJOLTqUsdmVK2BPzH4K2b4tNarYqn6Bc
-         WIcQbcr+cbHx2sJQPxcqfx55Zarq9uze4kshq+aXkDZE6ETbpuE//Ec82zOdRdZ65fWv
-         z+jbbyEJboRD+rw3Ls3ZaHNdCaDDu6AYDE1Ry4bnrsZG24p3spt6pvHGB2uSok7qCGyp
-         +iCEj7I4VwDT3cv1ARt7ZsUK+QdPTfamAsAL1+DGjH88UxvdBh3vctSOwvAq8lyKNZ1M
-         mFqf33NBwx8lmk3iTbLGEjnTvreeY9MUFfu7sg8rocpYFesrN9E4XOKg3hdrwedneW3F
-         plZA==
+        bh=hHSYsVZF4kW8SItG5dq6Sjt3aPdsT9QPlNKx20xQC0Q=;
+        b=vR+TLYC6bkGSSk+QKo5kS2n/b/KbJt4rxXep3YxC+MPcFYwqfRsip+YcvYjzmLP3WN
+         5Nn3J9ak8L9uTouwSXFD8vuZDquREiK5yPLncLJdeFWGnO1W/GRhSzCv9KvLUqpM3GP8
+         tMZV2iWwExLMq1J6J1RSuMYUiAITdjrn69NH19mTviNHQnzOEv1/yzxASdY5IEiRbTkn
+         FlZ3mFR4UATTtZmmhEFdbUuqUpO7syWRk/+Ajf3R7adHRfbdIaaI5XmdR0L5+52hAnwI
+         r+8h4TmqeuVC5b93Yd5UJKenocIlFppBnejHBI0Qh1mHZ496pWZLpz+jweePirIPTLQA
+         dLCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710749325; x=1711354125;
+        d=1e100.net; s=20230601; t=1710749388; x=1711354188;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lYJF2z287hgfrhqFzR4ibETaT04n+VxXUuuvxIg3WUw=;
-        b=VihO/D81xq/68fvqhGKcdnfRFWLo2PFQJno32JkWnPcMVBJADzJeDTc3Vs659W9kNi
-         RrUsz+yHJc7E6dkyvg08r2JZyKwWLsQbsfQ4YjT+iofL+YbZzRPKjgcGc3z9Jo/WLg15
-         /S2cEw30h/XCcY92a/eBE6lUqBwXuQrzQGlGP5u4b0b9bRISV4p7chexHgHp8ewOD5wH
-         og+EKZGB2iM44onMCu6mofVufRdULeVdvzKD0oxE2vBkfK1uIy3RCWrPhbuvDoT8y/jm
-         a5ExZjspnHaWxbxXiK54RBio4VuBAsQV2Q3P2dYLGX0GRbiIsAKXo8fZwz015VzzUE0f
-         Jgwg==
-X-Forwarded-Encrypted: i=1; AJvYcCXzcNmAVmQlCUdRGg3EyxQ8EBP8JUrpCyI/++3hHOnV3sfRVvQJcC3BcLQSXohcr6vbrIjm0AIfODD0dadWkzfU/CXdvn89W+giQuI2bnu8
-X-Gm-Message-State: AOJu0YwyFhddrSauLxykqaiqyO6mOWnxvRV44YXTHhBmGzCzwAqEAibu
-	qw/LDM4qVh7ma6zWkECZAl3ygUNSqfsf2bdZVpucbjQOj27kSy0PZQSzWR76akM=
-X-Google-Smtp-Source: AGHT+IH18ORGxk8NThJKpX8dgr+Gt0XY7TkSLC9ROD2PdmNScYzokaR/bVTObOOdQXg8PL7cL3KGNA==
-X-Received: by 2002:a17:907:7284:b0:a46:9e7d:a3e4 with SMTP id dt4-20020a170907728400b00a469e7da3e4mr4648021ejc.46.1710749324708;
-        Mon, 18 Mar 2024 01:08:44 -0700 (PDT)
+        bh=hHSYsVZF4kW8SItG5dq6Sjt3aPdsT9QPlNKx20xQC0Q=;
+        b=f8o+Lhj2lWnS//bPP+CVjHEyaTD6iJc2uHoVP/XvbT44tBKjmvI7aMFsq6SktooP1O
+         HsfWbkj92jRxc7iVqH0nkiGkGkq7mLJDs14VZ3kookeyFZhsc482I1iUQezXgo+DpLWf
+         IvWg+yorjqSyy3WvI/0BXCbH1lNhjXSj/Sg8HpL1ruomtfW6C84JM+23eKuu79eP7v+G
+         iZzRXTk7j/z5jIRpSTatj3l757bM82U699m00Wau6EmH8K+bOxe43n26BCwVIfvYzDL2
+         zrAlCc+f8iHWKpGQxIpWecSK1NfKCfupGdQOt2jlrZyVjoIOW+PUJ3DMx+1QUKnl8u2d
+         MtzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUoqkaj62EAkO11rBKqA+uGj+16RcgwsPd7Px0JrRLb/e2AGmsNxVEpNXQ3Wn0W8mBOcvuwoa2jXkqWdiAocsOw3AR4Dgw32qiIYDS6pFxU
+X-Gm-Message-State: AOJu0YwEzuyFbIC1TknejtRdOPvH/dwu5CVWlYxYEKWEoeHhjOluT191
+	CaD1jNukXLPxW/fozw+PpftZP6flnZL5AxJ/2ChLgfpez41E56H8KkR+RM3v5KM=
+X-Google-Smtp-Source: AGHT+IFLU3aEL/N+tVFSMvGztRZeNpAij3GLG/wtcv0pqgZyUhsncEP4neTJo56UZFqeCDlEsDrzfA==
+X-Received: by 2002:a17:907:9487:b0:a46:aa0d:a2e0 with SMTP id dm7-20020a170907948700b00a46aa0da2e0mr3913797ejc.3.1710749387746;
+        Mon, 18 Mar 2024 01:09:47 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.222.97])
-        by smtp.gmail.com with ESMTPSA id s11-20020a170906bc4b00b00a4671d37717sm4459674ejv.52.2024.03.18.01.08.42
+        by smtp.gmail.com with ESMTPSA id s11-20020a170906bc4b00b00a4671d37717sm4459674ejv.52.2024.03.18.01.09.45
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Mar 2024 01:08:44 -0700 (PDT)
-Message-ID: <7f240493-dc81-4ae3-87df-34010c24cd72@linaro.org>
-Date: Mon, 18 Mar 2024 09:08:41 +0100
+        Mon, 18 Mar 2024 01:09:47 -0700 (PDT)
+Message-ID: <6da5b070-e61a-4526-833f-1af1bde988e1@linaro.org>
+Date: Mon, 18 Mar 2024 09:09:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 1/4] dt-bindings: dmaengine: Add dmamux for
@@ -129,9 +129,8 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  D2GYIS41Kv4Isx2dEFh+/Q==
 In-Reply-To: <IA1PR20MB49532DE75E794419E58F9268BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240318_010851_493125_9D221525 
-X-CRM114-Status: UNSURE (   6.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240318_010950_949708_C60B5046 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,9 +156,63 @@ On 18/03/2024 07:38, Inochi Amaoto wrote:
 > 
 > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
 > Reviewed-by: Rob Herring <robh@kernel.org>
+> ---
+>  .../bindings/dma/sophgo,cv1800-dmamux.yaml    | 47 ++++++++++++++++
+>  include/dt-bindings/dma/cv1800-dma.h          | 55 +++++++++++++++++++
+>  2 files changed, 102 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+>  create mode 100644 include/dt-bindings/dma/cv1800-dma.h
+> 
+> diff --git a/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml b/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+> new file mode 100644
+> index 000000000000..c813c66737ba
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+> @@ -0,0 +1,47 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo CV1800/SG200 Series DMA mux
+> +
+> +maintainers:
+> +  - Inochi Amaoto <inochiama@outlook.com>
+> +
+> +allOf:
+> +  - $ref: dma-router.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: sophgo,cv1800-dmamux
+> +
+> +  reg:
+> +    maxItems: 2
 
-Drop the tag. You introduced here significant changes which were not
-even tested last time.
+You need to describe the items.
+
+> +
+> +  '#dma-cells':
+> +    const: 3
+> +    description:
+> +      The first cells is DMA channel. The second one is device id.
+> +      The third one is the cpu id.
+> +
+> +  dma-masters:
+> +    maxItems: 1
+> +
+> +  dma-requests:
+> +    const: 8
+> +
+> +required:
+> +  - '#dma-cells'
+
+reg is not required? How do you perform any IO?
+
+> +  - dma-masters
+> +
+
 
 Best regards,
 Krzysztof
