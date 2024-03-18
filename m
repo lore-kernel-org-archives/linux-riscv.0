@@ -4,89 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43939C54E5D
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 05:33:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D76F2C54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 06:38:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Emb8JWztdvcOi3a3IgfndFX8qUly+2Bm1nVxz7AJjNM=; b=cxkiTqWcg5skL/
-	/tyOoG1VOgf+PQCfJ2WVLfNmco2JVFLttZ2YIruxIy70JU+qGuzo2MHBArI8Hdkq7+Bnk3aYauLLw
-	R5T3xEwdZxyx6TzTXoHXB/G4/i2dGTV9qLu/ioK1VymJqgi7hBRI16xIJTwwoqpQbmTc4AL9vaB3d
-	/l4bGHlzoCiPB8eA869In+O9y9abjK+46AcyKhxr9aQahKA9wEdWgCSYHqc17DE2cegmFmkTaBZ47
-	xwKFBETbeHAGj8yKpr/UGTn+UoKt/XmEVRyKUxcuwb5A7dmnCGjwzHduTPN8ZZsMRhErT5x+t/GiI
-	N2s62N348170sYdfNkQA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=D81KC+NIzBvEQARNvpn7/YPmeNqLD632uJIYXfIuxV0=; b=l4WTs8C1XNsk4N
+	NoJCxJ1Ou/ZMo+B5sm5hy3JcG2xo9afM80+KZCey1i8FOi8CrX/nmxD+zXUh0Qz/fEf0xuxlphJpY
+	Fmm7C76UdQAd9TLwn+6ItrR/NRQskqBgjQpy0AzSKSEX5boQ8iCPpSPkB69ibk3MDnXGcpWZ6a9qx
+	uOFxY8dPJ93rPwyZwLCuN8toqrViko781N4XtJwOcC0xmU3FaBee5xzaqyUWpPGG+igAYa5EIUxVY
+	1daKnyPGRo50Ozot219pRQsTDRfvgc0Q6s428py4lLrgfXfT4a1nA00bWSp94Yehnaamn16uUmk3g
+	AYH9QTPHdHe2HGBNS7xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rm5cu-00000007Lqw-11sF;
-	Mon, 18 Mar 2024 05:33:36 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1rm6dg-00000007UMi-1RDh;
+	Mon, 18 Mar 2024 06:38:28 +0000
+Received: from mail-bn8nam12olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c18::801] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rm5cq-00000007LnO-2Zbo
+	id 1rm6dc-00000007ULD-2FhQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Mar 2024 05:33:34 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-6e6969855c8so196996a34.0
-        for <linux-riscv@lists.infradead.org>; Sun, 17 Mar 2024 22:33:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1710739999; x=1711344799; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RWRZ40BNt+9+ua5/5bnw5+zj2uIfGjzQzzruwRXNga4=;
-        b=QNeGbP1IQQiiPGlVcZib9sHs0EWAJ8nonn4YykK5h0qhDTofh2L2tf5VAOSC8tjjPQ
-         5Q9fSxV7QqHgz4cviKbISSj6NnsSC1FCjhE5UAubnQd7BB7Wh6k/+F6dKQ0I4JNKLr0m
-         I6bcn/nnRIxfIfZw/bhh0Kll3kU72sNC2hPY7MexF/BuRrWL1uJrQjmVBQtGxaDecgD+
-         ZTW83vV3qp7QlmcEPWi5dagZeKreEYn2SBQnDv93fIIFk1N7OCNmh8BAWkzAxPpDHJHa
-         fkDC5wSQ55p/+JPmLsrrd8tskAOnBJMmdO7GkuBU2N3CoCUr9I2He5Ar8WiR6D19QcrK
-         tTrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710739999; x=1711344799;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RWRZ40BNt+9+ua5/5bnw5+zj2uIfGjzQzzruwRXNga4=;
-        b=mHZt882t/EeBA3dN3fbgnAwCNb+ZPoqHz47fI1w2y4p1+syFKPLakNYQgeAFxLr4Th
-         dtSwXxpOEIqplU2dnMakOPQUYKE3Bg8Z5HIEk4A0gPECSxlfBEKr3JeF4vG+oPag9WUq
-         xznevjMIjpA0d9LY+UkBcXtpCUCd1Z7RxTfmqs04TW6Q+AbTDmJ7pJhdE1mVMS4tY0ie
-         jxQHqqaXQFrINy3U5OSgRE/zdiLw+IR39pZCogIu7lylICg2Iwyw3Z8dBBuElKHnzcfx
-         vJlJcQpuSWEIqut69u65DTGxFqWb3dU+LqXn1P8LIOiFWEAF4uCCRFirRQcuKPzs5eK4
-         jdkA==
-X-Forwarded-Encrypted: i=1; AJvYcCX4vsp/mVGAjYHeuDCTmksgaOrvbiRJCcud0wlcFQtSj7elLTFPqgATImyrajPRywjABkuyzUiUCerQHV07GPE+6VPjIuXPIg13DW66rTmB
-X-Gm-Message-State: AOJu0YwecNfITQprL8vqpoAWat1kpQCTKbKb3F1Rg9UBBDOivogLcYse
-	uJw/52+9gBQq+8jASkog2uMymZn5C1unkk9z1d7aJaOJbSMtEfOa2T0SosAig6g=
-X-Google-Smtp-Source: AGHT+IHW74pCefBxgXC9bUaOUNulduaCuiC/cQ7K1s9b2+CZQGbJO8gEmKtgPX/AZbXdvuVHFdeWYw==
-X-Received: by 2002:a05:6870:c1d0:b0:21f:dfb9:c150 with SMTP id i16-20020a056870c1d000b0021fdfb9c150mr12627865oad.54.1710739998924;
-        Sun, 17 Mar 2024 22:33:18 -0700 (PDT)
-Received: from x1 ([2601:1c2:1800:a790:6fd1:40df:32a3:69cf])
-        by smtp.gmail.com with ESMTPSA id a26-20020a62e21a000000b006e6ae26625asm6967593pfi.68.2024.03.17.22.33.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 Mar 2024 22:33:18 -0700 (PDT)
-Date: Sun, 17 Mar 2024 22:33:15 -0700
-From: Drew Fustini <drew@pdp7.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Pavel Machek <pavel@ucw.cz>,
+	Mon, 18 Mar 2024 06:38:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=HI9zSjnveVQmwxhiTjMkqlJ9m4eqBRbB1cHjyYdduWGbw2Y5p21sOe/z0AEUdX0D24bY3hRci1siO/HsB9ghQ/94MqH8sbyJnbgn+QHMq2BUH1yNphahv5oodzpk0/Tm2PeKA4spigkwnR65/G0kHVOf2NosFr92JCa1+8aQPXrxsJKiF7bbmdQEYqylN0/Jv9v6NszPe5QZV8+jDmp4ITx15F9yhpUFVs5mhcaWf9d4YKBm9wnK8l8cp2kIwAHCEIjLXy89utjo+pM2kWNkTKqEIqC/CHAF5ioZBij0ayzsrZomr8eGQv5ZOModfUQsSqukRai+OklFCjjYgA1sCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DnVzhk6/LaZGh+iJk+r7Fdhd3fVFc497Q4Ki7jEgHn0=;
+ b=n4U5A4rrGdjy7tv883h3lCH2Ldl80NkHytVie0SbvOcXjUMLazkOMRChWRxfTnlhcTbjA0XQ/50FNoVrpGHa94Yi24tcWEOgvdxbC+BDsKh77iGJbftbykoAflnHJe9z7ALK74z7ksyMplw1ovkB2ahqV/p3ScKx4Nk3XEVNITNMOeiUZywQ0F64eXXraNroGFgOYr81D+Mm3I/BbCPItlzuoRcVRNK9g+967sqiceDBBOcD4HjJ3NF0dCLD5TWk3DMfuKXwIsSZBxLXwIshWZSkQSDtEelchRUnAH35FMi89lUd33kWrV+KCoRk1Z/tnY52lbCnenOHzOwpIhWUpA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DnVzhk6/LaZGh+iJk+r7Fdhd3fVFc497Q4Ki7jEgHn0=;
+ b=V1ZUM5URWFkqVwaPlQMihh4cW+zVDK+/3/hi8HqEKEtzQPDSt/ni8i9gSgSbVsp8i98xf9MUtkjT8GEp47l5tzINng+XZ9b16KlKfXFNqaJvBerscA91Jwe3BppPt8gvRGgeN5Sio4BZ39ZX/zZZk7TfyEYzoLyWYTqZN5gMDcqm5ZO/bBMoum7opKlzGXKASjyXScL48PYEsemKqaIRkcGggdYKgxw3W5GBMJ6xKkgc5qV5NHxNxQ8w8rcVNKxwCSmyEQ6TBKdi/qjoxuv7akgirJCR2ZpFSrMvQSubqe/fwVZrJqc/e6FeoR2dnUmEmsX4QkOKcpdunFisGB3ELw==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SN7PR20MB5460.namprd20.prod.outlook.com (2603:10b6:806:2ab::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.25; Mon, 18 Mar
+ 2024 06:38:13 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::8615:efe2:7c8e:2041]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::8615:efe2:7c8e:2041%3]) with mapi id 15.20.7386.025; Mon, 18 Mar 2024
+ 06:38:13 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Vinod Koul <vkoul@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Len Brown <lenb@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v3 -next 2/3] ACPI: RISC-V: Add LPI driver
-Message-ID: <ZffSG6LKCjkX+/vO@x1>
-References: <20240118062930.245937-1-sunilvl@ventanamicro.com>
- <20240118062930.245937-3-sunilvl@ventanamicro.com>
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	dlan@gentoo.org,
+	dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4 0/4] riscv: sophgo: add dmamux support for Sophgo CV1800/SG2000 SoCs
+Date: Mon, 18 Mar 2024 14:38:06 +0800
+Message-ID: <IA1PR20MB49536DED242092A49A69CEB6BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.44.0
+X-TMN: [9yvW7r96wnYazEM1f5QhtVaeZ89k1evkOjfMfiZ1BTU=]
+X-ClientProxiedBy: TYWP286CA0018.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:178::8) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20240318063807.1552359-1-inochiama@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240118062930.245937-3-sunilvl@ventanamicro.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SN7PR20MB5460:EE_
+X-MS-Office365-Filtering-Correlation-Id: e1e124c8-b631-4914-55c0-08dc4715fbf3
+X-MS-Exchange-SLBlob-MailProps: RlF2DIMZ1qUQWS8lN22nULkf5597sA7Xg1ZGQ3m3O9mAyB3A2QLSFDAa/NRJHw8e4nND4HFa/pS+DBUwPnmkU+TNFJsNxAJINpRKOMrBAJhZJt1mTHkdvWVt7whrZFdZPnBJKb3HjJgdEAwqqs2JObCbYA7n/s7eWGaXlheUpVP8wQS73Zij99I1H9kGjefnTzt52ZIY8c0RYSp0Z8tBRa4VgDC8eBqTT2slcmV/Wab4/9xIY6dTynT96vn5XUOkWNfU696ng0VGJokZI4OcNPcsMya5EZ8jVddB4Ni4vuai20MC5wXCghJrOUNkwSbKdhvgg+bR7Cy9+/nQtA0qPjz9U/mkrGOTconFWFQHXRzioplsiu74tuU1e/yLLiKejjmKj64R8xT1tSa8NNBMWjjfIFS/SrYWKSBWKOH7WmGyMP3taHFDf/P25mhHS4Uru+Yhud2ylYNBWB4Gaph9mZoxGXCEa1IL5Jg2KLyDtkpMrssPWBPPvtcuryD4I08J3E50xLfhvg/Bz1wzXAtZfrTYP3kKy72Of9EXszhhoZjz0tcxAp5FMdEKtOrS3r/G2RI47GXMgy4gGGHidudPf1CcmUY1+VSKi19WZtgGBaiVk4aNhkU8/LmIRPLK69+6bWll+4Fa9d4taCPgFB9WHz7kEMbzZDfAvnbDsk5GtrSSJOz+kv7DmI7KaLyRrSjspvqhsnwlix+DsG4s4FGjzLAnI4ZBVEJ5+TdcGv+7ms1Bu9bZnqsagBczmhkBGQ/goNF010DZcz8GfHxSr53WmT3zCiJuz6a3E5bJWzcjdmTF6NZvDvyDxqoLChbAJnXxENhn9DOq6vUyZheSKwqx/cZO53Qj++qQ
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: nhuYjZOckOpO8UAHvDjIsEWIZZ/oLLnMlghRtpLdbF22IWZEH2dBZsMC85Q1ErCeVlhv358nscSOs69zS2lQLUa2JBOEdcU0amkOpPJTys4CD2P0K/yHO+dUj9agFAKV6pJwdogJfNFmrTXyv9zDH9quZ77qVfiyg0H5nt6ZIHujxxDekCDGqDlgvrNO1VhGftbdRFBwUbUSpHOcZnJ23UpQZ20WRp0ezeKPaVY3N824rWfGCSaHCuIhySY0IfFekf68TzltBPclimRvyKdrgZ5+lLTobjohHLAVBjoLsPjD+N424ezc6zLjN3gXfhDOzSVE0RQFEuZeYLplFe+Cek0otlvVfjcp5NYqzCmt0eH2SlA17v9fCZEvEOIw1SmSn7K1NgE8C+w0NkmAOfyT1zNqLi1NA5DrLflhXgry0ZMuvJANi43Pgw2nl+84EkUOxb6VfNM93/JzXRt6MKi9gAWKdixPspUqL1kfzwxmwOAPr92VpwiHRH9Gn8WPJOcmQ/wxVUxwpH+kGzNt6sgBOAQSqOl14Fjvi9N2Nnj8b/7E61kcyL+G5exLbZ6DjOdi7B9qcKrkR+5jVxiHSG2zrYMh9/ErK5dBGnAuCXHGvYaJV5UqdtN8ujkfbLs5NQ21jP9HJeRICZvDlgaVEg4GCmriYN67hhpzRs27kWYVqnbdRAO7iQBlzdBOkGclLyrq
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KrIvyqJ/bK6+NFzfeRiXoyI0J5dbl2Aw6fCHXZzCaoYhB/fM/VutptxJTeGf?=
+ =?us-ascii?Q?piVLmp9h9cNwXNcAKP1fGaKAtUiczVo0Wkhm1sFXO1WLEpFDQc+6PI5D7YQy?=
+ =?us-ascii?Q?si/KTUMdnYnXcN3QT5vddpbQuflIYHQQb4zMg/rfvjZc/emlj0Z7k8V5ZAvn?=
+ =?us-ascii?Q?BKcmfHO927i1xZOCQp7MFIRbePr/IHWAmp+onPA/eLnoJgDFXM2JMKkcAevR?=
+ =?us-ascii?Q?DQhS5e9VN4Jzo70PH0eRJGLO6qVBxqCeoqEBJ1tAewFhFpQrv7ncx2gh9968?=
+ =?us-ascii?Q?ebA5oITBOHG9/i2yzCfb/Iiwl82lRJqKrJtVBKVrmnutue6IEgKw5YwGBQFT?=
+ =?us-ascii?Q?Chy553pVYJj86D6EgFFls7FhrZOFaCHDTd0BZN77UEAknBputXXRTo6C+Qc0?=
+ =?us-ascii?Q?XJMeyAJTmOsAPJ3z5wzVmvHHTn/T7KNSfqao7oHtT+82/p8OqOP41rgA6ixC?=
+ =?us-ascii?Q?W5f0S587FCzZ52crEXT0oDIG/ONVe26bqE/jHQtX88K1r0MeRyFbr1tU2+bB?=
+ =?us-ascii?Q?l4dztLCguy4/Gmm3PYz8s08aDl6S3v0VleEUcqUWiqy1VDQLt1bPOeJxMjng?=
+ =?us-ascii?Q?hNDm9zAn5GiN2Lycw1wFcRvzFwC+w6/a3MZWYIBPmJWxhvxDKpsIsVDGlYG7?=
+ =?us-ascii?Q?QJyVJC6spnrCBal53sMvv1bEGZl5z3csnBAxW+1ChWjuvqRM+KPZHnQyHsdw?=
+ =?us-ascii?Q?9/AidGfI+P+AhLyNqK3zcg2iczrgnFIIjX6xwA8P7i4d/tzbkLAkitirAa4J?=
+ =?us-ascii?Q?Eo4X1euvSF2TLyNTI9wvsee/nlvcDLEznLNaqSsei/42M4YPyIolZoOn4/Ea?=
+ =?us-ascii?Q?2vVsYSgoIlnvcx8QotJTzgZcGuh47UE4p21L19pSG83Sy86WiF4KK7KEm34x?=
+ =?us-ascii?Q?47OypEPe6WAjAEsS/tDkYgBiBBqlTTLeqMaprq3/5Dp/5bwOjs/8r7/A0JYk?=
+ =?us-ascii?Q?P01gUbs079Q9UpAPK6wyShXdrGdOFLtGCE33t53/jJVM9EYfC5lIfZi+IBYr?=
+ =?us-ascii?Q?MF8wledzPukCe8ycPKJke/9liJFD7Pvv3nnzj//DNiZR1yOICXBHG0i12Djv?=
+ =?us-ascii?Q?9zwVyYDasNv04fQAyvc39l0+mLTb3BCJXyyfLz2/bXQZXDMyhnL+1FGch5bC?=
+ =?us-ascii?Q?WJbFzCg6S/eHy9FnkModTn1wA1p5nThVzvXoXHUI39tYQ+Fy15bWVaWjPI4F?=
+ =?us-ascii?Q?atlXDITj4uogrh2xaFkqVJUuIRqd7d9JKXuEzPUSoEjo0qi/1h7cghxBMWHp?=
+ =?us-ascii?Q?LFJy0pFCfECfdYs40nJb?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e1e124c8-b631-4914-55c0-08dc4715fbf3
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2024 06:38:12.9894
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR20MB5460
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240317_223332_761860_87459EC8 
-X-CRM114-Status: GOOD (  20.86  )
+X-CRM114-CacheID: sfid-20240317_233824_588980_B180F754 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,93 +138,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 18, 2024 at 11:59:29AM +0530, Sunil V L wrote:
-> Enable Low Power Idle (LPI) based cpuidle driver for RISC-V platforms.
-> It depends on SBI HSM calls for idle state transitions.
-> 
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->  drivers/acpi/riscv/Makefile  |  3 +-
->  drivers/acpi/riscv/cpuidle.c | 81 ++++++++++++++++++++++++++++++++++++
->  2 files changed, 83 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/acpi/riscv/cpuidle.c
-> 
-> diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
-> index 8b3b126e0b94..7309d92dd477 100644
-> --- a/drivers/acpi/riscv/Makefile
-> +++ b/drivers/acpi/riscv/Makefile
-> @@ -1,2 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0-only
-> -obj-y 	+= rhct.o
-> +obj-y					+= rhct.o
-> +obj-$(CONFIG_ACPI_PROCESSOR_IDLE)	+= cpuidle.o
-> diff --git a/drivers/acpi/riscv/cpuidle.c b/drivers/acpi/riscv/cpuidle.c
-> new file mode 100644
-> index 000000000000..624f9bbdb58c
-> --- /dev/null
-> +++ b/drivers/acpi/riscv/cpuidle.c
-> @@ -0,0 +1,81 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2024, Ventana Micro Systems Inc
-> + *	Author: Sunil V L <sunilvl@ventanamicro.com>
-> + *
-> + */
-> +
-> +#include <linux/acpi.h>
-> +#include <acpi/processor.h>
-> +#include <linux/cpu_pm.h>
-> +#include <linux/cpuidle.h>
-> +#include <linux/suspend.h>
-> +#include <asm/cpuidle.h>
-> +#include <asm/sbi.h>
-> +#include <asm/suspend.h>
-> +
-> +#define RISCV_FFH_LPI_TYPE_MASK	GENMASK_ULL(63, 60)
-> +#define RISCV_FFH_LPI_RSVD_MASK	GENMASK_ULL(59, 32)
-> +
-> +#define RISCV_FFH_LPI_TYPE_SBI	BIT_ULL(60)
-> +
-> +static int acpi_cpu_init_idle(unsigned int cpu)
-> +{
-> +	int i;
-> +	struct acpi_lpi_state *lpi;
-> +	struct acpi_processor *pr = per_cpu(processors, cpu);
-> +
-> +	if (unlikely(!pr || !pr->flags.has_lpi))
-> +		return -EINVAL;
-> +
-> +	if (!riscv_sbi_hsm_is_supported())
-> +		return -ENODEV;
-> +
-> +	if (pr->power.count <= 1)
-> +		return -ENODEV;
-> +
-> +	for (i = 1; i < pr->power.count; i++) {
-> +		u32 state;
-> +
-> +		lpi = &pr->power.lpi_states[i];
-> +
-> +		/*
-> +		 * Validate Entry Method as per FFH spec.
-> +		 * bits[63:60] should be 0x1
-> +		 * bits[59:32] should be 0x0
-> +		 * bits[31:0] represent a SBI power_state
-> +		 */
-> +		if (((lpi->address & RISCV_FFH_LPI_TYPE_MASK) != RISCV_FFH_LPI_TYPE_SBI) ||
-> +		    (lpi->address & RISCV_FFH_LPI_RSVD_MASK)) {
-> +			pr_warn("Invalid LPI entry method %#llx\n", lpi->address);
-> +			return -EINVAL;
-> +		}
-> +
-> +		state = lpi->address;
+Add dma multiplexer support for the Sophgo CV1800/SG2000 SoCs.
 
-It seems that acpi_lpi_state.address is u64, so shouldn't state be u64
-instead of u32?
+The patch include the following patch:
+http://lore.kernel.org/linux-riscv/PH7PR20MB4962F822A64CB127911978AABB4E2@PH7PR20MB4962.namprd20.prod.outlook.com/
 
-thanks,
-drew
+Changed from v3:
+1. fix dt-binding address issue.
+
+Changed from v2:
+1. add reg property of dmamux node in the binding of patch 2
+
+Changed from v1:
+1. fix wrong title of patch 2.
+
+Inochi Amaoto (4):
+  dt-bindings: dmaengine: Add dmamux for CV18XX/SG200X series SoC
+  dt-bindings: soc: sophgo: Add top misc controller of CV18XX/SG200X
+    series SoC
+  soc/sophgo: add top sysctrl layout file for CV18XX/SG200X
+  dmaengine: add driver for Sophgo CV18XX/SG200X dmamux
+
+ .../bindings/dma/sophgo,cv1800-dmamux.yaml    |  47 ++++
+ .../soc/sophgo/sophgo,cv1800-top-syscon.yaml  |  57 +++++
+ drivers/dma/Kconfig                           |   9 +
+ drivers/dma/Makefile                          |   1 +
+ drivers/dma/cv1800-dmamux.c                   | 232 ++++++++++++++++++
+ include/dt-bindings/dma/cv1800-dma.h          |  55 +++++
+ include/soc/sophgo/cv1800-sysctl.h            |  30 +++
+ 7 files changed, 431 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,cv1800-top-syscon.yaml
+ create mode 100644 drivers/dma/cv1800-dmamux.c
+ create mode 100644 include/dt-bindings/dma/cv1800-dma.h
+ create mode 100644 include/soc/sophgo/cv1800-sysctl.h
+
+--
+2.44.0
+
 
 _______________________________________________
 linux-riscv mailing list
