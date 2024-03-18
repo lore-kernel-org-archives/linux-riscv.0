@@ -4,133 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784EBC54E5D
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 08:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2197EC54E5D
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 08:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tJToE/kJcZcGB34HVMlKryNzbm56E9OELG6t9r4wSEQ=; b=UR1LUmpy3aOW9I
-	wMdP1I/XVNn4+c6WPhZ67nd/mRlihtxrs4hfF8MnOTv+SWB2qBTzDO2Wp2wEt3QM8v4xWZWtwHs9g
-	LJ4Jsun8HcL+3CWbWg7t6g8PcOaQ0QOBO7NXU+Vm0KMAFVW8gUmrMT02dDxop6iK+BRAKZ+BkgLyP
-	kTo7bjjszh2lBVpusomvISydA+deb0j+8RCxOU+Q5G4ylnajfddsay+r0bU9w/67iFwWIQWMdvmiP
-	7Q4zK3JewCpFkbHcptAi2XNCszEzI0xLti6Iu1AXYWr7EJsjLtI8ytz8r4aVaUjoSTskhmzqAFkeS
-	2SNoltRO/18f6Jh9Q0kg==;
+	List-Owner; bh=2FCGgcwt64UMSzvts67i/O6/bHxo82xNnxJuobrOFaQ=; b=uPq7hW+gyJ+vx3
+	KwOonZBzpQY+gBp3vgfGawXo2QwmMG2jUkqVHPSfa7Kx2gcIYuW4Be6ak+UJ9r1tgtGOWkldjmDm9
+	pGlxinkZwFu/nn2YN0WpKIwRearEsphSFY/DJy7y96+Ut9Wb70Yf6b541Jcm/vCXdtD4aUj4oLTSQ
+	I/MXZFJp26HKZrcCxUB3EUSdTXYQiuM5+07hY4KgZBfh+xTN2ltD1f2t2gbBdl23SGkPgOXVtbnC8
+	xK9dhRbHzt8IKF1WnbKVEw82EsYBwI4z5NiRw5lGd9BdascLvas/yz7i5RMPsEKhgdV/3SHsVf3/u
+	egIqg/jx13pC2bZDY0kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rm849-00000007iOG-2rpi;
-	Mon, 18 Mar 2024 08:09:53 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1rm8O2-00000007kna-37IR;
+	Mon, 18 Mar 2024 08:30:26 +0000
+Received: from mail-dm6nam11olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c15::801] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rm846-00000007iN8-3NuC
+	id 1rm8Nz-00000007kmV-20kA
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Mar 2024 08:09:52 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-a46805cd977so381619666b.0
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2024 01:09:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1710749388; x=1711354188; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=hHSYsVZF4kW8SItG5dq6Sjt3aPdsT9QPlNKx20xQC0Q=;
-        b=vR+TLYC6bkGSSk+QKo5kS2n/b/KbJt4rxXep3YxC+MPcFYwqfRsip+YcvYjzmLP3WN
-         5Nn3J9ak8L9uTouwSXFD8vuZDquREiK5yPLncLJdeFWGnO1W/GRhSzCv9KvLUqpM3GP8
-         tMZV2iWwExLMq1J6J1RSuMYUiAITdjrn69NH19mTviNHQnzOEv1/yzxASdY5IEiRbTkn
-         FlZ3mFR4UATTtZmmhEFdbUuqUpO7syWRk/+Ajf3R7adHRfbdIaaI5XmdR0L5+52hAnwI
-         r+8h4TmqeuVC5b93Yd5UJKenocIlFppBnejHBI0Qh1mHZ496pWZLpz+jweePirIPTLQA
-         dLCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710749388; x=1711354188;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hHSYsVZF4kW8SItG5dq6Sjt3aPdsT9QPlNKx20xQC0Q=;
-        b=f8o+Lhj2lWnS//bPP+CVjHEyaTD6iJc2uHoVP/XvbT44tBKjmvI7aMFsq6SktooP1O
-         HsfWbkj92jRxc7iVqH0nkiGkGkq7mLJDs14VZ3kookeyFZhsc482I1iUQezXgo+DpLWf
-         IvWg+yorjqSyy3WvI/0BXCbH1lNhjXSj/Sg8HpL1ruomtfW6C84JM+23eKuu79eP7v+G
-         iZzRXTk7j/z5jIRpSTatj3l757bM82U699m00Wau6EmH8K+bOxe43n26BCwVIfvYzDL2
-         zrAlCc+f8iHWKpGQxIpWecSK1NfKCfupGdQOt2jlrZyVjoIOW+PUJ3DMx+1QUKnl8u2d
-         MtzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUoqkaj62EAkO11rBKqA+uGj+16RcgwsPd7Px0JrRLb/e2AGmsNxVEpNXQ3Wn0W8mBOcvuwoa2jXkqWdiAocsOw3AR4Dgw32qiIYDS6pFxU
-X-Gm-Message-State: AOJu0YwEzuyFbIC1TknejtRdOPvH/dwu5CVWlYxYEKWEoeHhjOluT191
-	CaD1jNukXLPxW/fozw+PpftZP6flnZL5AxJ/2ChLgfpez41E56H8KkR+RM3v5KM=
-X-Google-Smtp-Source: AGHT+IFLU3aEL/N+tVFSMvGztRZeNpAij3GLG/wtcv0pqgZyUhsncEP4neTJo56UZFqeCDlEsDrzfA==
-X-Received: by 2002:a17:907:9487:b0:a46:aa0d:a2e0 with SMTP id dm7-20020a170907948700b00a46aa0da2e0mr3913797ejc.3.1710749387746;
-        Mon, 18 Mar 2024 01:09:47 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.222.97])
-        by smtp.gmail.com with ESMTPSA id s11-20020a170906bc4b00b00a4671d37717sm4459674ejv.52.2024.03.18.01.09.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Mar 2024 01:09:47 -0700 (PDT)
-Message-ID: <6da5b070-e61a-4526-833f-1af1bde988e1@linaro.org>
-Date: Mon, 18 Mar 2024 09:09:45 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	Mon, 18 Mar 2024 08:30:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=JXMld717AfOdv1RD6H8hQGMqCDOgp22y4NF8w/oMZwJkTEbov4UGwZQUtThMrnXGIzaZElN4W74+XJjek3+O8sdJvvIvUUmNBoAr+PPcoUv1lLJw4WSbrk8x4uS7ZEA4liO7kedNKAS0jnKzbTunfVPyVQnMorBQ92Bb2ffX5EqGbaPF/fkj6X/JocRumNNH0roXp5p8S4MQoFKDSlTTWbgx3jT2TXqXV3vy8f+CRfZNxdjU7zcNHXVNDmlwP2iJw1ZuOAhEfxV0GGHkUaO/EX5D9NQEW08ERCP0yVlpEnEwi+rZdWNdNuM2PiL0PTudVgrxXwgdag143S5KjKf1PA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wSuQbLzG9bDftGjx39pS6oDQgXJE9kXmlegv4Jg+rC8=;
+ b=djKfmvpqo7PunnCoUhnHp9jJOAhqXw71Z4NuewfK2TY3AURdNJQjXrze2Y+xTjyeWm4ptG9CQCv93dEMxPcP0evpqcSE3nFmxk3H/uClj/xDMS9cVqBeFJjrAriu4jZAAoF0pETVQv3B/z1T55FjGcbWPw8UrypxI28zxF90A2gXbZ0dtIArqq2VhQ+yS8OoVEP5TqGVXGHDwEIfA2NrW+2D0t4Us2ZU7WvRWg4D7Q49pKTkw5fTdjOS4ckkvlNCpGnmnYb20KFhfeHrsM+eoizucvW0aNxGbG+LeK4EW9Q8joxTFDS19OA4xMpqcLvBG+UxmHq9mJFpUKrKnr+jZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wSuQbLzG9bDftGjx39pS6oDQgXJE9kXmlegv4Jg+rC8=;
+ b=AQ+gSPyI6yKyuw0obPKyrXtNLHWgXchRbTb6GX72ungEX3/G7CWRXDxFTzQsB8cOf2FEjIR91aePxYjTBmvxzNF3a1TF1JawWjHbzksnPQA7CfRhgshSNS94MTY1O5x9S3rJFePU55w2YXITNlnpqCBRtL1waZGIrrSZOxyCI9l6TldyEJ81RlFGcUP2ldhOCrDxDtRg7a209vu0RrgA+wxKjXd80Wcky7XLIFg3lzw4kT2BbAExn9TCdf4dIpXY+9eF2hgZl26OyBoSm7tAJ4PO6ixXFOe+YAA1eOydTYHH118Fs//U87I3M7OEdSNO9IIWSd5khU1cjryOQkDbgg==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by PH7PR20MB4414.namprd20.prod.outlook.com (2603:10b6:510:13e::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.26; Mon, 18 Mar
+ 2024 08:30:11 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::8615:efe2:7c8e:2041]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::8615:efe2:7c8e:2041%3]) with mapi id 15.20.7386.025; Mon, 18 Mar 2024
+ 08:30:11 +0000
+Date: Mon, 18 Mar 2024 16:30:08 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>, 
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org, dmaengine@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v4 1/4] dt-bindings: dmaengine: Add dmamux for
  CV18XX/SG200X series SoC
-Content-Language: en-US
-To: Inochi Amaoto <inochiama@outlook.com>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>,
- Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org,
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Message-ID: <IA1PR20MB49537B387D0BC4052AE90812BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
 References: <IA1PR20MB49536DED242092A49A69CEB6BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
  <IA1PR20MB49532DE75E794419E58F9268BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <IA1PR20MB49532DE75E794419E58F9268BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <6da5b070-e61a-4526-833f-1af1bde988e1@linaro.org>
+Content-Disposition: inline
+In-Reply-To: <6da5b070-e61a-4526-833f-1af1bde988e1@linaro.org>
+X-TMN: [gKgNG1xWPl6k7tXVpsh6Ffu+39GkPX/qUKVVlYXwWIk=]
+X-ClientProxiedBy: SI2PR01CA0024.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::20) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <ywjjghvaf4aneseugcexuxa4jgk6tzxusu6xxqzzvdlw3mhxsh@y3wn66g4plne>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH7PR20MB4414:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7a244c67-0d8e-4f4d-b80c-08dc4725a048
+X-MS-Exchange-SLBlob-MailProps: 98ioH9+sI7/gmAhNpKNDewo8ixzCPKFKzAcTTNcY3NEai2pI/9F/0ZsiafqN8hxuwU2pKZa2/mroRgWg56zoRrVzcs3vGxp1IFp3Op1SrNzk/Nr+Zvr/29vO3aLJin1X3Kixg4if1Z1yY4oEtIm2HRLhUW3HbiErebT5o8muWaFfDYRO0sZnYyWoxnKqk1J6R2EcLjg7JumZuQNZiNHmis1ZWmYuDD7rvDZ6HygBMTs1SaFoXUtQ3k5xiXFOhKngLxKz/v0xHi3zFr6dwOjLtxeL6JAo43esSEuHVYqwNuC4+DTJnPhM4ge9nyd3XwzcUZkh7ucZlaeE09P4brApScki6/x1QgD3j19QL5XG+s3/Xgrp3VHl4PWAiTWf7SXU5QVZwmImcdbEI2TePos18a5YTHva8r1QqpNRLsCWT2XTHs9pOkVgYaZLLFfrpI3SLFpr208lLdm4gM70NbifuOsNijVJb6WHxpKb7y0GKYGaHus2nMgZ7Y9OMp3++9O83CbEUDPTQ2/5YZmuUOPG7Z42nZksp7cKvD6rBHUkQuY6PdFZIa9B9uY2b9s+7UwNu28COU1JPsOHN95JxyW6fGdB6Jpm4puDBmRSIl+RUypMcaCDfFzAyW8PZefoUPFMOeAfXuKhNCGRdgDmfXeRFlNybXZb0LWKyIxZbzZdOHNBwWUD2QJPyMqFaFpQ0CSY1EZvQ6tzxczgu2qbb+DDIS9gUxAmfMlOlLRQs5kBKIDDVmQ8h2cmVqzlwlG1jE/TJd6NbkR0RqhfevKu+uAegY/iGFmQQu6CW5cMzVzR3J6B8yUgCPTFsmVcfmglNe2HQrShWR9nxFccqd1xE32eoho5helQ3+74vMtUjgJVKjLpvsCGNVCkoQ==
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: XiiWzd1UBsklzW9MsaadkaRUaj1vpO+NhRgCdkFI25j+YAjW9Odascnpii9OH7PpVNeyYv9bYzRbLbzvRKxtH3Lp8yQrpkCzHG8XpFB97Qnm+YVwM+mcKKesp2MTkv2gIFqi18B/l5MA6y7ruzotz/LBvFhMkKtz4Qkx0NyTvOmkZcSpE2qJPhm4xKfZNOonaxsZHG7XlquZK32X1yGfQRKpOGQ3eaEKn907PHY69+6pk4BXCm2OUgLu4pTGCpATU4TES/TmX13KTFZOAGBKRfLXEqgOjC7NMYRkZfLAcDwiEmSg4J2oYU7Q117u5FmZgb6omM3zm9bOTDYeiSXtjhTQonb3pzTPHtTCiC1NJ1+mRAoqq33OGjGcPe2pRxYSRgngGGCFH0EmwqUchqdYwsufLfS13OFA5+f6BeqJvKVop6BxKXetsa/iPvDOdzXoqzIKw1Z1dREvy6PG2+5mDloAjXAhMmpcJ8ZvRkoLcf+D3/qQgowMYUvIEmBiGEMNCsPITYpEM+x/uPk0mf743PiECmNc5rErTovv+9hBc+G5si3VWJTvO1UuaWNvbV/y62eXkc0V9lfrsyisLvQJicx0InpElghwKSLbMukyvuK8DTwvFwecnywlK+DTNBlN0rBzTe9aYgWC0ACcMLs/mhL+SKwfzZATh8u+wh401SV6IIhmgoCAxasn0n8CVfwMXhOOj6LGjis+t9kYkNrtZQ==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wu5o0JZrTZmcbDSpwx5Ba17aql3dHXOj/KSi3WHCynqxa5IWSnuJKleiq7nI?=
+ =?us-ascii?Q?brLJhANqEOd+PKbYRl7nxwaW62vVZPo/fTEQXmJw08jjdi+Z4V1SaU/uVeCt?=
+ =?us-ascii?Q?WIeqILjyO3baac7cP9wbwSe35uKJoDEHokmY3WuTl36LTE9xmFQDZdUXiIlq?=
+ =?us-ascii?Q?OQkLHAuQ+SH64G/ug0U4i0ZXfbFpAQIGdF3V06t1AvZvz5WlvxG0+JmFE6fj?=
+ =?us-ascii?Q?hcSvuA2zpfTsIUqzizbxpqrfODA/NIsLNis2phdb9DDNNF2OcUtN5F3vvTQo?=
+ =?us-ascii?Q?GmGXf26E8IfwP3QRYEijmuclxvsGgTyG8Abw5g4auIpkufhuPATo3GZRmHTP?=
+ =?us-ascii?Q?cobFd+0umZ0LtV25CSvamQM3tKCTmqfLLhWQs0w40i/VhGBYeJKnWiInt03Z?=
+ =?us-ascii?Q?a0OjSWJY8Zrk1wpX1gTqkzEueR9Cwwa+FgDx+A3ZxCIffdNlTolqWhtV8KQO?=
+ =?us-ascii?Q?Wav4Ln/B4aO8suMc6VNt0ohacIVcZdikR/6gBGRFsD5FpevC/W3PH+pcmtRC?=
+ =?us-ascii?Q?vbLh2FLQFaRoMFfZw/a04UQ7srLElXNcWEhAL31Az+Q+BLPNBjqUN2tM3Z17?=
+ =?us-ascii?Q?XZI1khc+0XFQSAYeBXMFUyaxUsEM+9W5Fl0dZb1wXlsAceRtt7+fgvqC4xqj?=
+ =?us-ascii?Q?xEnKLMjEELK+ni+AJueb66rd74LIu/z5VPw5ditj9+Oo8iaSx6HRSxX5lmgX?=
+ =?us-ascii?Q?YPzi0UlepclzswahleHMrYxEMJ+gpV6N2+oCjAbTY+7O7XDoFHUmQPYTldML?=
+ =?us-ascii?Q?uk//U3ZY18BFQbtxNDtiq5PO7JmSOub94HfwVpSPMUyRuiun//gDv50KkgPM?=
+ =?us-ascii?Q?IOqq+ZfYdQqQyG+GuvcaQQw8BwwSc4RrWlMCGOjLZhUU2pVc725KB+K4P3hV?=
+ =?us-ascii?Q?hMz3mXaDAHDtd9Egvi9qxeVCcu6kgIyTIE7nSzSWPVdVS/VYVmcLMf5BVsku?=
+ =?us-ascii?Q?oPqM1UDFF0tktv6/6G+Sl1HgEQ9M61tVtMuZyLlD+L8aO5+ogqnYrJAfnQQP?=
+ =?us-ascii?Q?2O3YcvRkMJkYRXLxf6Xy9RI7sz54qt3b+kgoq2FeFJJHoSFVWKTflOtZZI6l?=
+ =?us-ascii?Q?n5EowHOQSu09YV/Grko0xnWKm3ByDu1N7nJ9hKcuFKwQW0yNTNPiBiaqtn3M?=
+ =?us-ascii?Q?lL5TIUnliZDtD/5vbgBfOG2v3o1AqdoPFJCEXUGW4LfmpYqaKzNl/fPkMqUe?=
+ =?us-ascii?Q?bpRG55NIs0Fr03bUAhKaZIPTeSBcHvtaQZD0nuXuSCkmiGs4MmDtVI8wkG6U?=
+ =?us-ascii?Q?KNGrFpEgBe+FkxuN7c9y?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7a244c67-0d8e-4f4d-b80c-08dc4725a048
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2024 08:30:10.9745
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR20MB4414
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240318_010950_949708_C60B5046 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20240318_013023_669662_67ED405F 
+X-CRM114-Status: GOOD (  22.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,76 +133,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2024 07:38, Inochi Amaoto wrote:
-> The DMA IP of Sophgo CV18XX/SG200X is based on a DW AXI CORE, with
-> an additional channel remap register located in the top system control
-> area. The DMA channel is exclusive to each core.
+On Mon, Mar 18, 2024 at 09:09:45AM +0100, Krzysztof Kozlowski wrote:
+> On 18/03/2024 07:38, Inochi Amaoto wrote:
+> > The DMA IP of Sophgo CV18XX/SG200X is based on a DW AXI CORE, with
+> > an additional channel remap register located in the top system control
+> > area. The DMA channel is exclusive to each core.
+> > 
+> > Add the dmamux binding for CV18XX/SG200X series SoC
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> > Reviewed-by: Rob Herring <robh@kernel.org>
+> > ---
+> >  .../bindings/dma/sophgo,cv1800-dmamux.yaml    | 47 ++++++++++++++++
+> >  include/dt-bindings/dma/cv1800-dma.h          | 55 +++++++++++++++++++
+> >  2 files changed, 102 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+> >  create mode 100644 include/dt-bindings/dma/cv1800-dma.h
+> > 
+> > diff --git a/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml b/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+> > new file mode 100644
+> > index 000000000000..c813c66737ba
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+> > @@ -0,0 +1,47 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Sophgo CV1800/SG200 Series DMA mux
+> > +
+> > +maintainers:
+> > +  - Inochi Amaoto <inochiama@outlook.com>
+> > +
+> > +allOf:
+> > +  - $ref: dma-router.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: sophgo,cv1800-dmamux
+> > +
+> > +  reg:
+> > +    maxItems: 2
 > 
-> Add the dmamux binding for CV18XX/SG200X series SoC
+> You need to describe the items.
 > 
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> Reviewed-by: Rob Herring <robh@kernel.org>
-> ---
->  .../bindings/dma/sophgo,cv1800-dmamux.yaml    | 47 ++++++++++++++++
->  include/dt-bindings/dma/cv1800-dma.h          | 55 +++++++++++++++++++
->  2 files changed, 102 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
->  create mode 100644 include/dt-bindings/dma/cv1800-dma.h
+
+I wonder whether reg-name should be introduced, or item description is
+just enough?
+
+> > +
+> > +  '#dma-cells':
+> > +    const: 3
+> > +    description:
+> > +      The first cells is DMA channel. The second one is device id.
+> > +      The third one is the cpu id.
+> > +
+> > +  dma-masters:
+> > +    maxItems: 1
+> > +
+> > +  dma-requests:
+> > +    const: 8
+> > +
+> > +required:
+> > +  - '#dma-cells'
 > 
-> diff --git a/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml b/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
-> new file mode 100644
-> index 000000000000..c813c66737ba
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
-> @@ -0,0 +1,47 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo CV1800/SG200 Series DMA mux
-> +
-> +maintainers:
-> +  - Inochi Amaoto <inochiama@outlook.com>
-> +
-> +allOf:
-> +  - $ref: dma-router.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: sophgo,cv1800-dmamux
-> +
-> +  reg:
-> +    maxItems: 2
+> reg is not required? How do you perform any IO?
 
-You need to describe the items.
+This device is part of the syscon. The IO is performed by the offset.
+In the v2, Rob suggest me add the "reg" property to describe registers.
+He also mentioned that driver may not use this info, so I do not make
+this a must.
 
-> +
-> +  '#dma-cells':
-> +    const: 3
-> +    description:
-> +      The first cells is DMA channel. The second one is device id.
-> +      The third one is the cpu id.
-> +
-> +  dma-masters:
-> +    maxItems: 1
-> +
-> +  dma-requests:
-> +    const: 8
-> +
-> +required:
-> +  - '#dma-cells'
-
-reg is not required? How do you perform any IO?
-
-> +  - dma-masters
-> +
-
-
-Best regards,
-Krzysztof
-
+> 
+> > +  - dma-masters
+> > +
+> 
+> 
+> Best regards,
+> Krzysztof
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
