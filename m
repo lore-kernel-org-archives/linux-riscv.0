@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E61C54E58
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 17:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF45C54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 18:16:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/OouTsOvjTSFlyFL5f0cywEr83brG9gvXTdC+zzVVTQ=; b=NiFGhRDWeb0x5/
-	qN3GNFeAEujZw2/Fd77dftIMWBaWnTfhSwjGHMTMeL2ziDEdzY+WjacB5Ajd4xW6gNS9g+JcJiOJp
-	8uS/Ss9Vhne91WH2hyCwCTtvoKk2Qk+pZ2eaLE591cN37sXG56PNPPQXQdlhFGrqWn8ZRynrSLNee
-	M7LtXznO+ocEtu5JGTKt284jDGIvrrxbjySpp9SHJce2r0UrOlN9urHnSskc55Mr+ktkZUGj1jsy7
-	lOS8TufjJTI+3M3dSZcNHGKh/LzTLItLtxhmbUv2NyyprVBZh+7RZcMsCWjhzwJu3pWIGncvqCHtV
-	d5iYgEb9kDWvYde+KRDQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FJ1MWbhkmuJvmNMyl0kU9Kx5vPkb70BHaXNWZtqLhHI=; b=SmBFDxJKzvYg0H3G0WHGEfeprp
+	6L/Wyq76dLFYlLk66WIe3/4iB1IPewoqLIZB0LSQWbyuBlVO+DKnMBu7H9/9p41TmrFsaSyaHRaRT
+	j4XKaqnlOB4xKacXVC/MbDqcLHDfqD6gNArx8kmf/zUwLLWSBa4SCu/648wpM9wl/KKStcgYy1Diz
+	WHpfgzNmqqDGmIyygRsV04QW3UUcLK0SieAXNNFp/SkTRkMP5DMR0jgvWYynue5aWJJIcbJNI3FGy
+	NgtPFYvDXuuKdYDG+abPJawK5owIr1wpBsrNBxO1B+c9wSAO+GvVOLXVFashhNMOjP2dQP0tiePdi
+	kmmonudg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmGrO-00000009SpQ-0GaC;
-	Mon, 18 Mar 2024 17:33:18 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1rmHX3-00000009cyN-2m8c;
+	Mon, 18 Mar 2024 18:16:21 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmGrK-00000009SnJ-1bfW
+	id 1rmHX0-00000009cx2-0v2d
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Mar 2024 17:33:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1710783195; x=1742319195;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1hmrVQaRTbW0zKlfKJKDoA4Vhe70kFEXF9wECjSBBb8=;
-  b=mMCDWT5hOKq3/Tw0wWv73tr6pIkdS/9zJA72KDxDhndYf7NR/babKPcT
-   Fdcxpi/XitFE46/vSpq2Yf9bNFccbiveds2HpFarzo14vzorSV/wH50/a
-   Yxqo5Afa87i90h+UEpJzMLUc7n8gNwt2PHnJbTWSR1B4r4nX5rf8VxhXc
-   nO0Yc1E/ToskMtP/cxhU/4BD2YI4cor1BVKm1GMDt+KKC9VLrXs+eMeLi
-   GjgbCOYUtww2NqhLuz7ndtNehGUtMYRRGgVDUuwbkAeDUl/4kVxZUcvRe
-   vwwmDOWgMHeRVJArndexvj6mk3TpNuUnZSTKiMFR90mylNUDyfkRX1usw
-   w==;
-X-IronPort-AV: E=McAfee;i="6600,9927,11017"; a="5741747"
-X-IronPort-AV: E=Sophos;i="6.07,134,1708416000"; 
-   d="scan'208";a="5741747"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Mar 2024 10:33:13 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.07,134,1708416000"; 
-   d="scan'208";a="13501548"
-Received: from lkp-server01.sh.intel.com (HELO b21307750695) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 18 Mar 2024 10:33:09 -0700
-Received: from kbuild by b21307750695 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1rmGrC-000H8N-1L;
-	Mon, 18 Mar 2024 17:33:06 +0000
-Date: Tue, 19 Mar 2024 01:32:34 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andy Chiu <andy.chiu@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>
-Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Greentime Hu <greentime.hu@sifive.com>, Guo Ren <guoren@kernel.org>,
-	devicetree@vger.kernel.org, linux-doc@vger.kernel.org,
-	Joel Granados <j.granados@samsung.com>
-Subject: Re: [PATCH v3 7/7] riscv: vector: adjust minimum Vector requirement
- to ZVE32X
-Message-ID: <202403190142.8MfCnioh-lkp@intel.com>
-References: <20240318-zve-detection-v3-7-e12d42107fa8@sifive.com>
+	Mon, 18 Mar 2024 18:16:20 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rmHWy-0007zD-DD; Mon, 18 Mar 2024 19:16:16 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rmHWw-0077xD-MN; Mon, 18 Mar 2024 19:16:14 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rmHWw-00872I-1u;
+	Mon, 18 Mar 2024 19:16:14 +0100
+Date: Mon, 18 Mar 2024 19:16:14 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Nylon Chen <nylon.chen@sifive.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, conor@kernel.org, robh+dt@kernel.org, 
+	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	aou@eecs.berkeley.edu, thierry.reding@gmail.com, vincent.chen@sifive.com, 
+	zong.li@sifive.com, nylon7717@gmail.com
+Subject: Re: [PATCH v9 2/3] pwm: sifive: change the PWM algorithm
+Message-ID: <f5ukvah2ujko2iht3pd5jxq5kaukbs5z3pn5s7qwcnx4aqr3yv@mwtbwkcfa44a>
+References: <20240222081231.213406-1-nylon.chen@sifive.com>
+ <20240222081231.213406-3-nylon.chen@sifive.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240318-zve-detection-v3-7-e12d42107fa8@sifive.com>
+In-Reply-To: <20240222081231.213406-3-nylon.chen@sifive.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240318_103315_346357_933F44C5 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20240318_111618_391677_4AC94B33 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,97 +73,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2969009941224660355=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on 099dbac6e90c620d8ce0bbf75bbdc94da1feb4fb]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Andy-Chiu/riscv-vector-add-a-comment-when-calling-riscv_setup_vsize/20240318-184348
-base:   099dbac6e90c620d8ce0bbf75bbdc94da1feb4fb
-patch link:    https://lore.kernel.org/r/20240318-zve-detection-v3-7-e12d42107fa8%40sifive.com
-patch subject: [PATCH v3 7/7] riscv: vector: adjust minimum Vector requirement to ZVE32X
-config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20240319/202403190142.8MfCnioh-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 13.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240319/202403190142.8MfCnioh-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202403190142.8MfCnioh-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   arch/riscv/kernel/process.c: In function 'arch_release_task_struct':
->> arch/riscv/kernel/process.c:181:24: error: 'ZVE32X' undeclared (first use in this function)
-     181 |         if (has_vector(ZVE32X))
-         |                        ^~~~~~
-   arch/riscv/kernel/process.c:181:24: note: each undeclared identifier is reported only once for each function it appears in
-   arch/riscv/kernel/process.c: In function 'copy_thread':
-   arch/riscv/kernel/process.c:228:24: error: 'ZVE32X' undeclared (first use in this function)
-     228 |         if (has_vector(ZVE32X))
-         |                        ^~~~~~
---
-   arch/riscv/kernel/signal.c: In function 'restore_sigcontext':
->> arch/riscv/kernel/signal.c:191:41: error: 'ZVE32X' undeclared (first use in this function)
-     191 |                         if (!has_vector(ZVE32X) || !riscv_v_vstate_query(regs) ||
-         |                                         ^~~~~~
-   arch/riscv/kernel/signal.c:191:41: note: each undeclared identifier is reported only once for each function it appears in
-   arch/riscv/kernel/signal.c: In function 'get_rt_frame_size':
-   arch/riscv/kernel/signal.c:213:24: error: 'ZVE32X' undeclared (first use in this function)
-     213 |         if (has_vector(ZVE32X)) {
-         |                        ^~~~~~
-   arch/riscv/kernel/signal.c: In function 'setup_sigcontext':
-   arch/riscv/kernel/signal.c:286:24: error: 'ZVE32X' undeclared (first use in this function)
-     286 |         if (has_vector(ZVE32X) && riscv_v_vstate_query(regs))
-         |                        ^~~~~~
---
-   arch/riscv/kernel/sys_hwprobe.c: In function 'hwprobe_isa_ext0':
->> arch/riscv/kernel/sys_hwprobe.c:72:24: error: 'v' undeclared (first use in this function)
-      72 |         if (has_vector(v))
-         |                        ^
-   arch/riscv/kernel/sys_hwprobe.c:72:24: note: each undeclared identifier is reported only once for each function it appears in
->> arch/riscv/kernel/sys_hwprobe.c:119:32: error: 'ZVE32X' undeclared (first use in this function)
-     119 |                 if (has_vector(ZVE32X)) {
-         |                                ^~~~~~
---
-   In file included from kernel/sched/core.c:78:
-   kernel/sched/core.c: In function 'context_switch':
->> arch/riscv/include/asm/switch_to.h:81:24: error: 'ZVE32X' undeclared (first use in this function)
-      81 |         if (has_vector(ZVE32X))                 \
-         |                        ^~~~~~
-   kernel/sched/core.c:5400:9: note: in expansion of macro 'switch_to'
-    5400 |         switch_to(prev, next, prev);
-         |         ^~~~~~~~~
-   arch/riscv/include/asm/switch_to.h:81:24: note: each undeclared identifier is reported only once for each function it appears in
-      81 |         if (has_vector(ZVE32X))                 \
-         |                        ^~~~~~
-   kernel/sched/core.c:5400:9: note: in expansion of macro 'switch_to'
-    5400 |         switch_to(prev, next, prev);
-         |         ^~~~~~~~~
+--===============2969009941224660355==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sht7baa5xh6fhhdu"
+Content-Disposition: inline
 
 
-vim +/ZVE32X +181 arch/riscv/kernel/process.c
+--sht7baa5xh6fhhdu
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-   177	
-   178	void arch_release_task_struct(struct task_struct *tsk)
-   179	{
-   180		/* Free the vector context of datap. */
- > 181		if (has_vector(ZVE32X))
-   182			riscv_v_thread_free(tsk);
-   183	}
-   184	
+On Thu, Feb 22, 2024 at 04:12:30PM +0800, Nylon Chen wrote:
+> The `frac` variable represents the pulse inactive time, and the result
+> of this algorithm is the pulse active time.
+> Therefore, we must reverse the result.
+>=20
+> The reference is SiFive FU740-C000 Manual[0]
+>=20
+> Link: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b=
+16acba_fu740-c000-manual-v1p6.pdf [0]
+>=20
+> Co-developed-by: Zong Li <zong.li@sifive.com>
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
+> ---
+>  drivers/pwm/pwm-sifive.c | 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
+> index eabddb7c7820..a586cfe4191b 100644
+> --- a/drivers/pwm/pwm-sifive.c
+> +++ b/drivers/pwm/pwm-sifive.c
+> @@ -110,9 +110,10 @@ static int pwm_sifive_get_state(struct pwm_chip *chi=
+p, struct pwm_device *pwm,
+>  				struct pwm_state *state)
+>  {
+>  	struct pwm_sifive_ddata *ddata =3D pwm_sifive_chip_to_ddata(chip);
+> -	u32 duty, val;
+> +	u32 duty, val, inactive;
+> =20
+> -	duty =3D readl(ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
+> +	inactive =3D readl(ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
+> +	duty =3D (1U << PWM_SIFIVE_CMPWIDTH) - 1 - inactive;
+> =20
+>  	state->enabled =3D duty > 0;
+> =20
+> @@ -123,7 +124,7 @@ static int pwm_sifive_get_state(struct pwm_chip *chip=
+, struct pwm_device *pwm,
+>  	state->period =3D ddata->real_period;
+>  	state->duty_cycle =3D
+>  		(u64)duty * ddata->real_period >> PWM_SIFIVE_CMPWIDTH;
+> -	state->polarity =3D PWM_POLARITY_INVERSED;
+> +	state->polarity =3D PWM_POLARITY_NORMAL;
+> =20
+>  	return 0;
+>  }
+> @@ -139,7 +140,7 @@ static int pwm_sifive_apply(struct pwm_chip *chip, st=
+ruct pwm_device *pwm,
+>  	int ret =3D 0;
+>  	u32 frac;
+> =20
+> -	if (state->polarity !=3D PWM_POLARITY_INVERSED)
+> +	if (state->polarity !=3D PWM_POLARITY_NORMAL)
+>  		return -EINVAL;
+> =20
+>  	cur_state =3D pwm->state;
+> @@ -159,6 +160,7 @@ static int pwm_sifive_apply(struct pwm_chip *chip, st=
+ruct pwm_device *pwm,
+>  	frac =3D DIV64_U64_ROUND_CLOSEST(num, state->period);
+>  	/* The hardware cannot generate a 100% duty cycle */
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Is this still true now that we know that PWM_SIFIVE_PWMCMP is the
+inactive time in a period? If you fix that, the same claim in the header
+of the driver needs adaption, too.
+
+>  	frac =3D min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
+> +	frac =3D (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
+
+I like the additional variable in pwm_sifive_get_state(). Can you please
+add one here, too?
+
+>  	mutex_lock(&ddata->lock);
+>  	if (state->period !=3D ddata->approx_period) {
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--sht7baa5xh6fhhdu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmX4hO0ACgkQj4D7WH0S
+/k5I7Af/anilkuBk6OcjkFY2IstjOdldOJ1UOGE/SIMZvUFUkjlFsQ1Lx9KpG5dY
+kIGEQ6h7q9iYUnvK5QwPHm1lj7KReDWg//hJZw0KkbrO7v22cGdcHmA/RS4wGs9u
+o0nbvSLnJszi/akI8CbQqiuebkMRzcIaSP3+3mjnxMWeT+74L9jMs17quPen1Jo7
+36aLy03/Gd5p+NkUlC9r+6z6s5qWdTzC2c2RpwtRdsujiUJ35TJ70gS/+nCH+dyd
+//eyVjdPJRDVx0EYF+mcBjWyGe+Q+3+oh1Mj+LvYtyJY8PFieAceNA8E8hU39pAC
+dWsfG3vp+3zxsicL0snmhFPcMqw3+Q==
+=LMZN
+-----END PGP SIGNATURE-----
+
+--sht7baa5xh6fhhdu--
+
+
+--===============2969009941224660355==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2969009941224660355==--
+
