@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF96C54E58
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 17:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E61C54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 17:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=wPoLXvtAO8GqtYogZdFtZy2PAWQ3XRryi4SHb/GEWsI=; b=0f3iQTFXiaW+y5FwFAHXRmoJl2
-	mh6clHAZxcGsekUgaICcmBBcSduesuzowLgiCB3tBxgpAbhAGYCtgbPhwTpUM4tXgxqS/VqMS2zqG
-	jsvLtKYvGjiZdlB2Uv9c4CALr7wqBJhY/oYrBjKYYfStWiJ6lOMdOB/UypkJfnEFTf5vPFhCeW1Bb
-	NmppSA/fuu1DdjXw3bR4Od1KY5gPEYfINjJYctOc8amcs11Gq3L5gaOjNu6NwtkFmMf4g3lp4KzSz
-	bo4EWnLbj8pW9TZL8JJdMo39C9qcK5HZ5XLtrnW0vJR68RVw3mDiqShVkXiCMWk0Fbxfu0acQdRYL
-	CcLjUBEA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/OouTsOvjTSFlyFL5f0cywEr83brG9gvXTdC+zzVVTQ=; b=NiFGhRDWeb0x5/
+	qN3GNFeAEujZw2/Fd77dftIMWBaWnTfhSwjGHMTMeL2ziDEdzY+WjacB5Ajd4xW6gNS9g+JcJiOJp
+	8uS/Ss9Vhne91WH2hyCwCTtvoKk2Qk+pZ2eaLE591cN37sXG56PNPPQXQdlhFGrqWn8ZRynrSLNee
+	M7LtXznO+ocEtu5JGTKt284jDGIvrrxbjySpp9SHJce2r0UrOlN9urHnSskc55Mr+ktkZUGj1jsy7
+	lOS8TufjJTI+3M3dSZcNHGKh/LzTLItLtxhmbUv2NyyprVBZh+7RZcMsCWjhzwJu3pWIGncvqCHtV
+	d5iYgEb9kDWvYde+KRDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmGXH-00000009Oax-42RR;
-	Mon, 18 Mar 2024 17:12:31 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1rmGrO-00000009SpQ-0GaC;
+	Mon, 18 Mar 2024 17:33:18 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmGXE-00000009OZ3-0tPe
+	id 1rmGrK-00000009SnJ-1bfW
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Mar 2024 17:12:30 +0000
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 9B91B3F68A
-	for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2024 17:12:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1710781939;
-	bh=RHlFPdlhlD864SJZUhjfxgbABspep+IYfDLVWgg2pJg=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=AaUbH/lUr5TuNuXGV8Kboiq3jnqe7sSPayG42+aXWW7fmgiRRqGlc9RfCNTcqEjXQ
-	 oZylYg9uU2YVPFUxpVnFXEUUFbzZk6xKQuy1KX0hJ+ozmmXawvLhKmfnXeS4ZI8mgp
-	 vhULNGuhz9+NJ1AuzvwjnGkMj5qYGQy5mhWYmD/vlCfxkQF+bqNdcP8X354uENoQWL
-	 cA7Q3qSILZh0qvIQs+49XAZuZR2239kXwh7AZSUfSrUFDAA3nM8c0dgTrPKJwGNKGe
-	 PDRfGwIoGtb7MyxW4MgoK6DsYBAr8h07Otgkrv/EekBUaNDp76VnZPIHDl4hN/Q9Q2
-	 kYNqa8XSGGzbg==
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-430d0943db4so15353381cf.2
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2024 10:12:19 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710781938; x=1711386738;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RHlFPdlhlD864SJZUhjfxgbABspep+IYfDLVWgg2pJg=;
-        b=xHvcbdL1w57W6QPM1nZwZaLuU8Dj8DMCR6js72JnG2LTWKZEdh5+t0fjnckt1/DT5X
-         B3y6F0CGtsIrM7MyucimwHUXTD86KvG4tTBasGkPIgnsS+Rh0U+YudRzG3fpIkvNZ3YE
-         xnChGOD47yD4zom85GgbEsyjNUSS6UeM3A6LFMwAAUVV9+lurhRoVVbAj4PSty4KX0UI
-         yd8Cxy4ewNYEzdgM+w7c++ShCmlj+OStBLzlESIEIQpncN8WBaCD2VQECvlF22s09Ken
-         KgcghHZvu1MBCjhlHw9wj34c33DbGK4gxIafoyMVOCZOmddgwp4WthOKdMouWFMMPJpn
-         1tIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUVPAGuhySLghuB2RxNtgQOtu/hI9XHb0TEgNdTvVKl9Nd0yMKpQ6GOjXpYHPadpxFo0mNoT9SIaSkG1qp1cdj8Cefbx5bqCuLG7BLRpKUf
-X-Gm-Message-State: AOJu0YwjpUtUpRQ/kVZMEYoR5Echp8PRnvfEayo9iSkcPbj4PWwg+huF
-	RNbwcf2n1NfTXvmqO4K8iHqS3xgUIbhRIXtlPm9tdnjXM5MiIdueSNHVMCDICP5tb5gG0/40fH3
-	2ZPWTvcwAsbEjklyQZeIu3S5iqwFgy0Ymro6D7/7RefQ3v8u6zWTxay+s0oKlg/LWkf3xDIsIpy
-	qfwnXuWq6AfhloKTQYr5bDGspSCAWiVK/RQNFFPh4/tXI6NqiUrwpQv2Gd
-X-Received: by 2002:a05:622a:49:b0:42e:f7cf:ff98 with SMTP id y9-20020a05622a004900b0042ef7cfff98mr13273224qtw.16.1710781938487;
-        Mon, 18 Mar 2024 10:12:18 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEIdRe+ShfPpkWIqNza89+B1bp5+Xj+Ait5mURceCooCGFBZ2x0UImLi2Iek0huAH9NY6RsAslH53iOtRgxPsw=
-X-Received: by 2002:a05:622a:49:b0:42e:f7cf:ff98 with SMTP id
- y9-20020a05622a004900b0042ef7cfff98mr13273206qtw.16.1710781938216; Mon, 18
- Mar 2024 10:12:18 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 18 Mar 2024 10:12:17 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20240318-emphatic-rally-f177a4fe1bdc@spud>
-References: <20240318-emphatic-rally-f177a4fe1bdc@spud>
-Mime-Version: 1.0
-Date: Mon, 18 Mar 2024 10:12:17 -0700
-Message-ID: <CAJM55Z9vR0+KwQX6BQZak4NeAfLdiJuZJuZJMj8kfF9EHBCF5A@mail.gmail.com>
-Subject: Re: [PATCH v1] perf: starfive: fix 64-bit only COMPILE_TEST condition
-To: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org
-Cc: Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Ji Sheng Teoh <jisheng.teoh@starfivetech.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+	Mon, 18 Mar 2024 17:33:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1710783195; x=1742319195;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1hmrVQaRTbW0zKlfKJKDoA4Vhe70kFEXF9wECjSBBb8=;
+  b=mMCDWT5hOKq3/Tw0wWv73tr6pIkdS/9zJA72KDxDhndYf7NR/babKPcT
+   Fdcxpi/XitFE46/vSpq2Yf9bNFccbiveds2HpFarzo14vzorSV/wH50/a
+   Yxqo5Afa87i90h+UEpJzMLUc7n8gNwt2PHnJbTWSR1B4r4nX5rf8VxhXc
+   nO0Yc1E/ToskMtP/cxhU/4BD2YI4cor1BVKm1GMDt+KKC9VLrXs+eMeLi
+   GjgbCOYUtww2NqhLuz7ndtNehGUtMYRRGgVDUuwbkAeDUl/4kVxZUcvRe
+   vwwmDOWgMHeRVJArndexvj6mk3TpNuUnZSTKiMFR90mylNUDyfkRX1usw
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,11017"; a="5741747"
+X-IronPort-AV: E=Sophos;i="6.07,134,1708416000"; 
+   d="scan'208";a="5741747"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Mar 2024 10:33:13 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.07,134,1708416000"; 
+   d="scan'208";a="13501548"
+Received: from lkp-server01.sh.intel.com (HELO b21307750695) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 18 Mar 2024 10:33:09 -0700
+Received: from kbuild by b21307750695 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1rmGrC-000H8N-1L;
+	Mon, 18 Mar 2024 17:33:06 +0000
+Date: Tue, 19 Mar 2024 01:32:34 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andy Chiu <andy.chiu@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>
+Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Greentime Hu <greentime.hu@sifive.com>, Guo Ren <guoren@kernel.org>,
+	devicetree@vger.kernel.org, linux-doc@vger.kernel.org,
+	Joel Granados <j.granados@samsung.com>
+Subject: Re: [PATCH v3 7/7] riscv: vector: adjust minimum Vector requirement
+ to ZVE32X
+Message-ID: <202403190142.8MfCnioh-lkp@intel.com>
+References: <20240318-zve-detection-v3-7-e12d42107fa8@sifive.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240318-zve-detection-v3-7-e12d42107fa8@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240318_101228_659798_2A5353BF 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20240318_103315_346357_933F44C5 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,56 +97,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->
-> ARCH_STARFIVE is not restricted to 64-bit platforms, so while Will's
-> addition of a 64-bit only condition satisfied the build robots doing
-> COMPILE_TEST builds, Palmer ran into the same problems with writeq()
-> being undefined during regular rv32 builds.
->
-> Promote the dependency on 64-bit to its own `depends on` so that the
-> driver can never be included in 32-bit builds.
->
-> Reported-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Fixes: c2b24812f7bc ("perf: starfive: Add StarLink PMU support")
-> Fixes: f0dbc6d0de38 ("perf: starfive: Only allow COMPILE_TEST for 64-bit architectures")
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Hi Andy,
 
-Acked-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+kernel test robot noticed the following build errors:
 
-> ---
-> CC: Will Deacon <will@kernel.org>
-> CC: Mark Rutland <mark.rutland@arm.com>
-> CC: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
-> CC: linux-arm-kernel@lists.infradead.org
-> CC: linux-kernel@vger.kernel.org
-> ---
->  drivers/perf/Kconfig | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-> index 5060e1f1ea10..7526a9e714fa 100644
-> --- a/drivers/perf/Kconfig
-> +++ b/drivers/perf/Kconfig
-> @@ -87,7 +87,8 @@ config RISCV_PMU_SBI
->  	  filtering, counter configuration.
->
->  config STARFIVE_STARLINK_PMU
-> -	depends on ARCH_STARFIVE || (COMPILE_TEST && 64BIT)
-> +	depends on ARCH_STARFIVE || COMPILE_TEST
-> +	depends on 64BIT
->  	bool "StarFive StarLink PMU"
->  	help
->  	   Provide support for StarLink Performance Monitor Unit.
-> --
-> 2.43.0
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+[auto build test ERROR on 099dbac6e90c620d8ce0bbf75bbdc94da1feb4fb]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Andy-Chiu/riscv-vector-add-a-comment-when-calling-riscv_setup_vsize/20240318-184348
+base:   099dbac6e90c620d8ce0bbf75bbdc94da1feb4fb
+patch link:    https://lore.kernel.org/r/20240318-zve-detection-v3-7-e12d42107fa8%40sifive.com
+patch subject: [PATCH v3 7/7] riscv: vector: adjust minimum Vector requirement to ZVE32X
+config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20240319/202403190142.8MfCnioh-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240319/202403190142.8MfCnioh-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202403190142.8MfCnioh-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   arch/riscv/kernel/process.c: In function 'arch_release_task_struct':
+>> arch/riscv/kernel/process.c:181:24: error: 'ZVE32X' undeclared (first use in this function)
+     181 |         if (has_vector(ZVE32X))
+         |                        ^~~~~~
+   arch/riscv/kernel/process.c:181:24: note: each undeclared identifier is reported only once for each function it appears in
+   arch/riscv/kernel/process.c: In function 'copy_thread':
+   arch/riscv/kernel/process.c:228:24: error: 'ZVE32X' undeclared (first use in this function)
+     228 |         if (has_vector(ZVE32X))
+         |                        ^~~~~~
+--
+   arch/riscv/kernel/signal.c: In function 'restore_sigcontext':
+>> arch/riscv/kernel/signal.c:191:41: error: 'ZVE32X' undeclared (first use in this function)
+     191 |                         if (!has_vector(ZVE32X) || !riscv_v_vstate_query(regs) ||
+         |                                         ^~~~~~
+   arch/riscv/kernel/signal.c:191:41: note: each undeclared identifier is reported only once for each function it appears in
+   arch/riscv/kernel/signal.c: In function 'get_rt_frame_size':
+   arch/riscv/kernel/signal.c:213:24: error: 'ZVE32X' undeclared (first use in this function)
+     213 |         if (has_vector(ZVE32X)) {
+         |                        ^~~~~~
+   arch/riscv/kernel/signal.c: In function 'setup_sigcontext':
+   arch/riscv/kernel/signal.c:286:24: error: 'ZVE32X' undeclared (first use in this function)
+     286 |         if (has_vector(ZVE32X) && riscv_v_vstate_query(regs))
+         |                        ^~~~~~
+--
+   arch/riscv/kernel/sys_hwprobe.c: In function 'hwprobe_isa_ext0':
+>> arch/riscv/kernel/sys_hwprobe.c:72:24: error: 'v' undeclared (first use in this function)
+      72 |         if (has_vector(v))
+         |                        ^
+   arch/riscv/kernel/sys_hwprobe.c:72:24: note: each undeclared identifier is reported only once for each function it appears in
+>> arch/riscv/kernel/sys_hwprobe.c:119:32: error: 'ZVE32X' undeclared (first use in this function)
+     119 |                 if (has_vector(ZVE32X)) {
+         |                                ^~~~~~
+--
+   In file included from kernel/sched/core.c:78:
+   kernel/sched/core.c: In function 'context_switch':
+>> arch/riscv/include/asm/switch_to.h:81:24: error: 'ZVE32X' undeclared (first use in this function)
+      81 |         if (has_vector(ZVE32X))                 \
+         |                        ^~~~~~
+   kernel/sched/core.c:5400:9: note: in expansion of macro 'switch_to'
+    5400 |         switch_to(prev, next, prev);
+         |         ^~~~~~~~~
+   arch/riscv/include/asm/switch_to.h:81:24: note: each undeclared identifier is reported only once for each function it appears in
+      81 |         if (has_vector(ZVE32X))                 \
+         |                        ^~~~~~
+   kernel/sched/core.c:5400:9: note: in expansion of macro 'switch_to'
+    5400 |         switch_to(prev, next, prev);
+         |         ^~~~~~~~~
+
+
+vim +/ZVE32X +181 arch/riscv/kernel/process.c
+
+   177	
+   178	void arch_release_task_struct(struct task_struct *tsk)
+   179	{
+   180		/* Free the vector context of datap. */
+ > 181		if (has_vector(ZVE32X))
+   182			riscv_v_thread_free(tsk);
+   183	}
+   184	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
