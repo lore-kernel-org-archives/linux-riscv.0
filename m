@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A859C54E5D
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 08:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 318E0C54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2024 08:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZaSvigYRopa3XU93n6vLFhZD6KRi5iNPpp7/lIqiiXg=; b=hf82VHr3V58HfM
-	CtxhcMcdgyGJRaYmBgiOPy4HAafpKcU+kOIo5RWUr8NPX5MhEPKs/Xl3NTmnM8r+NvJyiC0F3hlYD
-	a3PNY7cakw1td3Jii8grtXJxhzzBLAUTIvvUewacNrhogd7ilp3gqGkqAW/VcJhAWvI5I23UvQLr6
-	lpnfBo1Pj27bf1HvsWiAf4f8GoFgBAAInrEU2jpI1WrvsKGmabbWR8r9hyLWxSaFkeJkOJViZJkTT
-	5KxlYLnWWkR3giLst80QJgCxPg97tvgmIEitD2rugOg3m3V9UDfzoW8J5KaCn9h6YiNwHpzeeHY7p
-	8MIytfWi8eTN+sgwdyAw==;
+	List-Owner; bh=w2lU3aPCz4DUbO+rR7ftrKoCnfIkJYNUkepF9t+iKUM=; b=1uEjUpQDs1o361
+	hdNT43TPNKtr/9Rrgt9sWMox//cFWpWhjGVnjCf2CO5ewFYxssM0ZbNQ/+gCuVfTkPoL0Co5D0ME5
+	YZJbUchqJcG3tn7mRq+ULkHi3bliHMQ23jTfj40wgdYbcql8/2UiYDsEAJq8pxpngvOktlhMqOs21
+	Lck3EIuG5ZCv8yyjXFZUKMCMO8NrYYn7PaJ1rMeMgO98+s1GHXnCO9xU9ZXzPKzEDp6MkRBCgH9eR
+	w/q868uHpH0miP4fIVS4dhZ3Ne9GR+YG7zei+CTWR4KeVG6FK50J3QPHIWJsbEhE4nHVygOXPVJxE
+	8A8gH/YRI8DPw86aUeRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rm80p-00000007hoe-2bJh;
-	Mon, 18 Mar 2024 08:06:27 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1rm83C-00000007i8N-2w6B;
+	Mon, 18 Mar 2024 08:08:54 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rm80l-00000007hnw-38PX
+	id 1rm839-00000007i7d-0h8R
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Mar 2024 08:06:25 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-56899d9bf52so5194732a12.2
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2024 01:06:22 -0700 (PDT)
+	Mon, 18 Mar 2024 08:08:52 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a450bedffdfso479308066b.3
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2024 01:08:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1710749182; x=1711353982; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1710749325; x=1711354125; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=wNdPcqkJUqR4MseEglXxoGHIFdUJsQixnM5V4B0XMM8=;
-        b=t7a9UlHoJF35B80l18gBE8xmqTQYdrSRLVWd2cvGmG4MIOBnj7B5LPMJfmi8mHd6Y3
-         uC/iJyGkp+59FanONvoFmTf5yU+c7yLXcNmm8B7oH9D63kStmsmy35huhtKCdTarJzZe
-         GzTdIJyORbIsNpkp54hPSDSRswN3HZtj9+hf4KTWmDJP48pR33Ypt0HyxxeM0Dp4QJVv
-         ekmprotRm48ry1Hl5fL3DY6vEgw9lUvFDGxxxiBfCD+B7xgBNYyPkEYLTktLWMDBZBFe
-         La/NXMg2B9VdFqyUrB/sWB3wYMGZNAkma2lqaB8XjsFuNQWAhG3ikwArUpd2F+Eqf/oy
-         2X4A==
+        bh=lYJF2z287hgfrhqFzR4ibETaT04n+VxXUuuvxIg3WUw=;
+        b=cAnkGoBn22+ZbmhT68NQwuBtYSGvXuR9OunJOLTqUsdmVK2BPzH4K2b4tNarYqn6Bc
+         WIcQbcr+cbHx2sJQPxcqfx55Zarq9uze4kshq+aXkDZE6ETbpuE//Ec82zOdRdZ65fWv
+         z+jbbyEJboRD+rw3Ls3ZaHNdCaDDu6AYDE1Ry4bnrsZG24p3spt6pvHGB2uSok7qCGyp
+         +iCEj7I4VwDT3cv1ARt7ZsUK+QdPTfamAsAL1+DGjH88UxvdBh3vctSOwvAq8lyKNZ1M
+         mFqf33NBwx8lmk3iTbLGEjnTvreeY9MUFfu7sg8rocpYFesrN9E4XOKg3hdrwedneW3F
+         plZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710749182; x=1711353982;
+        d=1e100.net; s=20230601; t=1710749325; x=1711354125;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wNdPcqkJUqR4MseEglXxoGHIFdUJsQixnM5V4B0XMM8=;
-        b=viHKAMElDAKAtb2481gDrGEw/PcF82K1EzILcdeaFbBFa/Wegl7XfzWl4joCdvtckz
-         8qBkytAdhxYiQkUcsp1aK3ms1GBckHwF0YijYq21Aq19uS+GA2ET6KGpx/iFS7Houmvq
-         8zgM3LSTqLVU+yP6bfdJGn75E/JWrC4j8Kd1sH2f6YITtzfRRT+F2etY6WHHatIAJZTw
-         gM/f4CovjhXPmVwp2hwYayojx1OoF775asi0EcefTS+KaNo/3we2Qss3odSBzZLtKeLM
-         ogRV4fiaVkQDvlVxfmiG4ngFgtHnFYQTTFxutfnlFGMunrc9+wTx+nzQ6P2d1ojxivu0
-         JpMw==
-X-Forwarded-Encrypted: i=1; AJvYcCUV3HXbeKY3TdsSrAFV9Lgzadvs5CPdwrCxsGMbt/ljNzFZ74k1bbuNt+pbrt9o1APl+/HFNiuyJxCPTEzBCQGzm3oxyc9jI2M3Uw2ECDzf
-X-Gm-Message-State: AOJu0YwZOI9KP64Qj/ItWZTiZy4c4m1mxSpF0TU6zAIumrGHVttBoA9E
-	2h4JqY+CCgAUSrdPa1FsDZHPnrLfIiFTV8ihzoDRTqldE6R5TPDPjC+anh3KgDc=
-X-Google-Smtp-Source: AGHT+IGY/sQ+SJ1RU22mVDSbz8U8LRPZ1mGNMak0XM3W8vCfrL8OdCqPbJgNwMCUk6LbBa/CzDWbcA==
-X-Received: by 2002:a17:906:d0cc:b0:a46:c8d5:6ab6 with SMTP id bq12-20020a170906d0cc00b00a46c8d56ab6mr596927ejb.2.1710749181736;
-        Mon, 18 Mar 2024 01:06:21 -0700 (PDT)
+        bh=lYJF2z287hgfrhqFzR4ibETaT04n+VxXUuuvxIg3WUw=;
+        b=VihO/D81xq/68fvqhGKcdnfRFWLo2PFQJno32JkWnPcMVBJADzJeDTc3Vs659W9kNi
+         RrUsz+yHJc7E6dkyvg08r2JZyKwWLsQbsfQ4YjT+iofL+YbZzRPKjgcGc3z9Jo/WLg15
+         /S2cEw30h/XCcY92a/eBE6lUqBwXuQrzQGlGP5u4b0b9bRISV4p7chexHgHp8ewOD5wH
+         og+EKZGB2iM44onMCu6mofVufRdULeVdvzKD0oxE2vBkfK1uIy3RCWrPhbuvDoT8y/jm
+         a5ExZjspnHaWxbxXiK54RBio4VuBAsQV2Q3P2dYLGX0GRbiIsAKXo8fZwz015VzzUE0f
+         Jgwg==
+X-Forwarded-Encrypted: i=1; AJvYcCXzcNmAVmQlCUdRGg3EyxQ8EBP8JUrpCyI/++3hHOnV3sfRVvQJcC3BcLQSXohcr6vbrIjm0AIfODD0dadWkzfU/CXdvn89W+giQuI2bnu8
+X-Gm-Message-State: AOJu0YwyFhddrSauLxykqaiqyO6mOWnxvRV44YXTHhBmGzCzwAqEAibu
+	qw/LDM4qVh7ma6zWkECZAl3ygUNSqfsf2bdZVpucbjQOj27kSy0PZQSzWR76akM=
+X-Google-Smtp-Source: AGHT+IH18ORGxk8NThJKpX8dgr+Gt0XY7TkSLC9ROD2PdmNScYzokaR/bVTObOOdQXg8PL7cL3KGNA==
+X-Received: by 2002:a17:907:7284:b0:a46:9e7d:a3e4 with SMTP id dt4-20020a170907728400b00a469e7da3e4mr4648021ejc.46.1710749324708;
+        Mon, 18 Mar 2024 01:08:44 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.222.97])
-        by smtp.gmail.com with ESMTPSA id i26-20020a1709061cda00b00a46baa4723asm1133801ejh.119.2024.03.18.01.06.19
+        by smtp.gmail.com with ESMTPSA id s11-20020a170906bc4b00b00a4671d37717sm4459674ejv.52.2024.03.18.01.08.42
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Mar 2024 01:06:21 -0700 (PDT)
-Message-ID: <c312d643-cf77-4a6c-8368-bc30d1e54b4c@linaro.org>
-Date: Mon, 18 Mar 2024 09:06:19 +0100
+        Mon, 18 Mar 2024 01:08:44 -0700 (PDT)
+Message-ID: <7f240493-dc81-4ae3-87df-34010c24cd72@linaro.org>
+Date: Mon, 18 Mar 2024 09:08:41 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/4] riscv: sophgo: add dmamux support for Sophgo
- CV1800/SG2000 SoCs
+Subject: Re: [PATCH v4 1/4] dt-bindings: dmaengine: Add dmamux for
+ CV18XX/SG200X series SoC
 Content-Language: en-US
 To: Inochi Amaoto <inochiama@outlook.com>, Vinod Koul <vkoul@kernel.org>,
  Rob Herring <robh@kernel.org>,
@@ -81,6 +81,7 @@ Cc: Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>,
  dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <IA1PR20MB49536DED242092A49A69CEB6BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB49532DE75E794419E58F9268BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -126,10 +127,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <IA1PR20MB49536DED242092A49A69CEB6BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+In-Reply-To: <IA1PR20MB49532DE75E794419E58F9268BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240318_010623_821050_D8A5155A 
-X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-CacheID: sfid-20240318_010851_493125_9D221525 
+X-CRM114-Status: UNSURE (   6.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -148,14 +149,17 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 18/03/2024 07:38, Inochi Amaoto wrote:
-> Add dma multiplexer support for the Sophgo CV1800/SG2000 SoCs.
+> The DMA IP of Sophgo CV18XX/SG200X is based on a DW AXI CORE, with
+> an additional channel remap register located in the top system control
+> area. The DMA channel is exclusive to each core.
 > 
-> The patch include the following patch:
-> http://lore.kernel.org/linux-riscv/PH7PR20MB4962F822A64CB127911978AABB4E2@PH7PR20MB4962.namprd20.prod.outlook.com/
+> Add the dmamux binding for CV18XX/SG200X series SoC
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> Reviewed-by: Rob Herring <robh@kernel.org>
 
-What does it mean? Did you include here some other commit, so when it
-get applied we end up with two same commits? No, that's not how to
-handle dependencies. Explain instead the dependency or combine patchsets.
+Drop the tag. You introduced here significant changes which were not
+even tested last time.
 
 Best regards,
 Krzysztof
