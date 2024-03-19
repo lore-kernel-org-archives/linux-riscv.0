@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B67E6C54E68
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0433C6FD1F
 	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 21:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1u7p3hvknd7vu0mye4XdTWOSTQoC+dXEGS4jlXMhC7A=; b=JWEPaXfiJyhEE2
-	K8Z2g/UGgdDmAjylXVUqwgxEwtVuW2iaewOH7EFbSjizWDMVYQa9opjtVqIjnjIb81WZOM8r/dW9K
-	oYfi0tGOnOSZm1KI4an6zcH8SGJvNQUhPM0q578tU512qfsX1HMykyb85Tf2bbhywjz5S2S99bmUD
-	xI4lhb5hsdXEy6vFxmqW6MC9zD1iPV1Em4X2yFknuyQLkYWklt1/XTgDbqBCZ54GPnYmN7vaxUxJq
-	VqjqXvNhUvcx58C2/FbioSnVxugdNligtEa7KdFoDZIYigTFRKNkqyXslP/PpCnYOLzOGWbWzC5F8
-	fp/OEL8djVrKWQ/8Mf5g==;
+	List-Owner; bh=v3WUl/9g5EVKvbDO5h0No6YzSZ82CtZzUaKItGHytiE=; b=sl79CZifN3UgQZ
+	aStO6oKnJ20X0njogipeVK5dl7nvrhZRf4WYM1U6QvxQHEotrrGo9EWK2ePb3tzUaynXBGfdFf7dd
+	C1rLx3jUKPpgqwxnoeNqTRfQ+v7++8ktyL2lV3JW68yCvOmqfYE4e5HCWGh7wJLFHkiv5F77FmyU+
+	BjlusoZQaX64MJjY0qRHUSK5j5zULfHAqMViszjCYWYqZnTJWlomjX9hz9ysZJekj/5ItRVsBxqff
+	VRfQICj6Z9pz+fiSSzSZxMOt+3HGt0Un893sLtCfoeFzA1pb5aRrN5u93snNmYqHvoPXYrKkM/DHl
+	cq3IL7gJ8ZMz54pRZMtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmhUZ-0000000EMju-475y;
-	Tue, 19 Mar 2024 21:59:31 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1rmhUj-0000000EMqg-0eVj;
+	Tue, 19 Mar 2024 21:59:41 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmhUT-0000000EMeZ-2ZRe
+	id 1rmhUY-0000000EMi6-0hm2
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Mar 2024 21:59:27 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-6e73e8bdea2so1554163b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 14:59:18 -0700 (PDT)
+	Tue, 19 Mar 2024 21:59:32 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-5dbf7b74402so4293664a12.0
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 14:59:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1710885558; x=1711490358; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1710885568; x=1711490368; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mf8TbChjgkUHpdp7I/ykwc/bJc9eIQRGH4wGpVTxw4U=;
-        b=KlpdTY9nSZaLnIRq/hmVdiDKj2HcCj9bZ6NQKbH1xhyRjOil6ivLSbMuI2jgg/2tzP
-         aHCLKY+QGhN606Iflcb0q1FvkCzQkqFnhvDFKc81Qe4pBqANa+Emu7yIh8XEv8KlUKdG
-         uVAyzScgz7CM3nbiv7Ch+5hnqg9Yl+Oj2g0suAJY/5HfuWm8fi8b6Vg6zRaaQXuZfcax
-         6/U+A38+pNlV6i9RevEHwCgcsbexOd3s40VBKB4iXfunaEGfGEWmftgZ5kPltiw3E6R1
-         fNrLYS7Z30KdiTublkQpSzB/oKgGYpUAAEDQavGw1iMUUTgcswjk9hKMqdmuasEphK5M
-         5w+A==
+        bh=Pby1JczWDGJraZTWE5gkOPCKAXwxysMeCn/eal1+wiY=;
+        b=hvkNNudOKwUf2kJziRwOl7Hp8QUlVj1Iv7IVIS0UU1/OTEWhifxYHosyY95032UoCc
+         HUszsOBhYbKDrQW8bPGVDHg/efEDbz2tLsciiEMc2sVk9p1yLhe6IjxrFW77gndpb58c
+         WBbRyLu29AT9UwKbTeiMgSCoklifOszqAELU7Dzn/C8tywT5CcxOAKjUjboQB9XkcvZf
+         y7nySR3x9Fj9gnsyC23VzcKeU++VX8rbNY5cvn5U7a5efDa5XcWgj9YsY+vsYttst0M+
+         zwYNA7Ty4b8Sh/fRzilM+6IpWN4BWdMCy4NNOAu8BpW2l7bBZUGDGI7TjLUc2HV66iHu
+         gZmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710885558; x=1711490358;
+        d=1e100.net; s=20230601; t=1710885568; x=1711490368;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=mf8TbChjgkUHpdp7I/ykwc/bJc9eIQRGH4wGpVTxw4U=;
-        b=RuY35+D1knvbF1UjbLI4AFo+6mitL3XjDoxXrppWrn3M8CneJ0e7FWGByQ0o9w30ml
-         tkhgxjT/ngxp2vk0guiWOzs0/AwOEuh4tCSXOLodFbsgtIbGPeKGGu6jYcMujFUgSOoI
-         t33wcIWMLadoAXMJckRGgnNqNv7Y923ZuX91t95CKS0ay1bv+xKJTu4b/fSMVJSQ+4WQ
-         npiSSQwna1WK4StokDUEGY2nBDVb7zOJAUunS34GfQUC4F1d8b63uHx0Cqykr8NsvJdX
-         26FZYaPjLPXLpnyr1pip4OS73Yq4qOOSultZcWPoBNweZzGfFdsrvaBf9Cd0/WJ4VeUb
-         5dAA==
-X-Forwarded-Encrypted: i=1; AJvYcCV9/LM2g2xIEAWCd1tyt5Pb58GdtX47dPxP9o8DRR8MoGUBEtcfbJNHqluavieYwHbzXMgmIMVGaFh7lNs9jEdwPjt/8LLGzyqL8c5Y+meW
-X-Gm-Message-State: AOJu0YzTVe5E0Gvw7itlwx9cUu3SFOpmah0Gc9OHOvzfAP/yQH5/+e/c
-	KW15vAavuQwv6h6vp9xxtqQQoGQG3ycZM3xS2ztd7OHmM4h1Rw3Q+dNXJ+n38n8=
-X-Google-Smtp-Source: AGHT+IHxqp3vSJIj8u1FQnLhGGhgkkZd9sPyRN/6PCbIT9hhDxZABaPjD8SNbLUKLifMerMmPS4+xQ==
-X-Received: by 2002:a05:6a00:cd5:b0:6e6:9ac4:d501 with SMTP id b21-20020a056a000cd500b006e69ac4d501mr443835pfv.25.1710885558184;
-        Tue, 19 Mar 2024 14:59:18 -0700 (PDT)
+        bh=Pby1JczWDGJraZTWE5gkOPCKAXwxysMeCn/eal1+wiY=;
+        b=jbiJiDetJeBtKqzn/aJRnSoY8MM+KrzrbacGSukW7PeZCDbjIZtpKBIAa0Oe2cOPNe
+         vNcFJeq0eTpqYHH1DQtaPv02++T+u2HcTeVPKDO03g6alQq/ORcmBMFQC012k94148Dj
+         ZdUsLHK1kzylgssZH/HOtV1ex9sHvxOq3jXInCK5qyJQ9M8qmxbB0Gckst8eKnUZ4jEJ
+         ne2X48Wn/Ox8zTsvfUn1zMh4PDj7+k8l0TG24YjamGiEYmpsvrMH4zBInbmn6w9cbVy3
+         ujq8dMqNZoILOKx+UAxLhuPBOKksBIG0Atv53AlgrrJpAfUloHULnAuyMtR2sHWo2xdc
+         fhgA==
+X-Forwarded-Encrypted: i=1; AJvYcCXwcpz9fToLdpzJPhQxEY4ZfzVkBXwLusxD/qivP0o6Tep7ohh7QcIxRYe429kKcOyCavApVclNz39eUvzBhW6rwOf2I8ExC8J2GjOIatgr
+X-Gm-Message-State: AOJu0Yw8xb3Rb1MyrULS2Wmr43bsaJ1FKsWhoeaVMiMiuvBs2LAnGt63
+	ICq+7Th2C45vK8t5uc/XxpexR3IRzWwe3cJgHujdq9CxMSAN5QkIVtgpV8XT9Js=
+X-Google-Smtp-Source: AGHT+IEA586m37jAo+36FgUE63sLe4XTBKY0jo4h+XaiaT2qw9bA66mDdOVeEhZbRIOGXg5o3vgG/Q==
+X-Received: by 2002:a05:6a20:c91b:b0:1a1:15ff:43b with SMTP id gx27-20020a056a20c91b00b001a115ff043bmr15335731pzb.23.1710885568321;
+        Tue, 19 Mar 2024 14:59:28 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id z25-20020aa785d9000000b006e6c61b264bsm10273892pfn.32.2024.03.19.14.59.17
+        by smtp.gmail.com with ESMTPSA id z25-20020aa785d9000000b006e6c61b264bsm10273892pfn.32.2024.03.19.14.59.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Mar 2024 14:59:17 -0700 (PDT)
+        Tue, 19 Mar 2024 14:59:28 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
@@ -77,18 +77,17 @@ Cc: devicetree@vger.kernel.org,
 	Rob Herring <robh+dt@kernel.org>,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [RFC PATCH 1/9] dt-bindings: riscv: Add pointer masking ISA extensions
-Date: Tue, 19 Mar 2024 14:58:27 -0700
-Message-ID: <20240319215915.832127-2-samuel.holland@sifive.com>
+	Shuah Khan <shuah@kernel.org>
+Subject: [RFC PATCH 9/9] selftests: riscv: Add a pointer masking test
+Date: Tue, 19 Mar 2024 14:58:35 -0700
+Message-ID: <20240319215915.832127-10-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.43.1
 In-Reply-To: <20240319215915.832127-1-samuel.holland@sifive.com>
 References: <20240319215915.832127-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240319_145925_714889_B4D21173 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240319_145930_355016_82956818 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,52 +104,362 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V Pointer Masking specification defines three extensions:
-Smmpm, Smnpm, and Ssnpm. Document the behavior as of the current draft
-of the specification, which is version 0.8.4.
+This test covers the behavior of the PR_SET_TAGGED_ADDR_CTRL and
+PR_GET_TAGGED_ADDR_CTRL prctl() operations, their effects on the
+userspace ABI, and their effects on the system call ABI.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
- .../devicetree/bindings/riscv/extensions.yaml  | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ tools/testing/selftests/riscv/Makefile        |   2 +-
+ tools/testing/selftests/riscv/tags/Makefile   |  10 +
+ .../selftests/riscv/tags/pointer_masking.c    | 307 ++++++++++++++++++
+ 3 files changed, 318 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/riscv/tags/Makefile
+ create mode 100644 tools/testing/selftests/riscv/tags/pointer_masking.c
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 63d81dc895e5..bb7d5d84f31f 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -128,6 +128,18 @@ properties:
-             changes to interrupts as frozen at commit ccbddab ("Merge pull
-             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
+diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
+index 4a9ff515a3a0..6e7e6621a71a 100644
+--- a/tools/testing/selftests/riscv/Makefile
++++ b/tools/testing/selftests/riscv/Makefile
+@@ -5,7 +5,7 @@
+ ARCH ?= $(shell uname -m 2>/dev/null || echo not)
  
-+        - const: smmpm
-+          description: |
-+            The standard Smmpm extension for M-mode pointer masking as defined
-+            at commit a1e68469c60 ("Minor correction to pointer masking spec.")
-+            of riscv-j-extension.
+ ifneq (,$(filter $(ARCH),riscv))
+-RISCV_SUBTARGETS ?= hwprobe vector mm
++RISCV_SUBTARGETS ?= hwprobe mm tags vector
+ else
+ RISCV_SUBTARGETS :=
+ endif
+diff --git a/tools/testing/selftests/riscv/tags/Makefile b/tools/testing/selftests/riscv/tags/Makefile
+new file mode 100644
+index 000000000000..ed82ff9c664e
+--- /dev/null
++++ b/tools/testing/selftests/riscv/tags/Makefile
+@@ -0,0 +1,10 @@
++# SPDX-License-Identifier: GPL-2.0
 +
-+        - const: smnpm
-+          description: |
-+            The standard Smnpm extension for next-mode pointer masking as defined
-+            at commit a1e68469c60 ("Minor correction to pointer masking spec.")
-+            of riscv-j-extension.
++CFLAGS += -I$(top_srcdir)/tools/include
 +
-         - const: smstateen
-           description: |
-             The standard Smstateen extension for controlling access to CSRs
-@@ -147,6 +159,12 @@ properties:
-             and mode-based filtering as ratified at commit 01d1df0 ("Add ability
-             to manually trigger workflow. (#2)") of riscv-count-overflow.
- 
-+        - const: ssnpm
-+          description: |
-+            The standard Ssnpm extension for next-mode pointer masking as defined
-+            at commit a1e68469c60 ("Minor correction to pointer masking spec.")
-+            of riscv-j-extension.
++TEST_GEN_PROGS := pointer_masking
 +
-         - const: sstc
-           description: |
-             The standard Sstc supervisor-level extension for time compare as
++include ../../lib.mk
++
++$(OUTPUT)/pointer_masking: pointer_masking.c
++	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+diff --git a/tools/testing/selftests/riscv/tags/pointer_masking.c b/tools/testing/selftests/riscv/tags/pointer_masking.c
+new file mode 100644
+index 000000000000..c9f66e8436ab
+--- /dev/null
++++ b/tools/testing/selftests/riscv/tags/pointer_masking.c
+@@ -0,0 +1,307 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <errno.h>
++#include <fcntl.h>
++#include <setjmp.h>
++#include <signal.h>
++#include <stdbool.h>
++#include <sys/prctl.h>
++#include <sys/wait.h>
++#include <unistd.h>
++
++#include "../../kselftest.h"
++
++#ifndef PR_PMLEN_SHIFT
++#define PR_PMLEN_SHIFT			24
++#endif
++#ifndef PR_PMLEN_MASK
++#define PR_PMLEN_MASK			(0x7fUL << PR_PMLEN_SHIFT)
++#endif
++
++static int dev_zero;
++
++static sigjmp_buf jmpbuf;
++
++static void sigsegv_handler(int sig)
++{
++	siglongjmp(jmpbuf, 1);
++}
++
++static int min_pmlen;
++static int max_pmlen;
++
++static inline bool valid_pmlen(int pmlen)
++{
++	return pmlen == 0 || pmlen == 7 || pmlen == 16;
++}
++
++static void test_pmlen(void)
++{
++	ksft_print_msg("Testing available PMLEN values\n");
++
++	for (int request = 0; request <= 16; request++) {
++		int pmlen, ret;
++
++		ret = prctl(PR_SET_TAGGED_ADDR_CTRL, request << PR_PMLEN_SHIFT, 0, 0, 0);
++		if (ret) {
++			ksft_test_result_skip("PMLEN=%d PR_GET_TAGGED_ADDR_CTRL\n", request);
++			ksft_test_result_skip("PMLEN=%d constraint\n", request);
++			ksft_test_result_skip("PMLEN=%d validity\n", request);
++			continue;
++		}
++
++		ret = prctl(PR_GET_TAGGED_ADDR_CTRL, 0, 0, 0, 0);
++		ksft_test_result(ret >= 0, "PMLEN=%d PR_GET_TAGGED_ADDR_CTRL\n", request);
++		if (ret < 0) {
++			ksft_test_result_skip("PMLEN=%d constraint\n", request);
++			ksft_test_result_skip("PMLEN=%d validity\n", request);
++			continue;
++		}
++
++		pmlen = (ret & PR_PMLEN_MASK) >> PR_PMLEN_SHIFT;
++		ksft_test_result(pmlen >= request, "PMLEN=%d constraint\n", request);
++		ksft_test_result(valid_pmlen(pmlen), "PMLEN=%d validity\n", request);
++
++		if (min_pmlen == 0)
++			min_pmlen = pmlen;
++		if (max_pmlen < pmlen)
++			max_pmlen = pmlen;
++	}
++
++	if (max_pmlen == 0)
++		ksft_exit_fail_msg("Failed to enable pointer masking\n");
++}
++
++static int set_tagged_addr_ctrl(int pmlen, bool tagged_addr_abi)
++{
++	int arg, ret;
++
++	arg = pmlen << PR_PMLEN_SHIFT | tagged_addr_abi;
++	ret = prctl(PR_SET_TAGGED_ADDR_CTRL, arg, 0, 0, 0);
++	if (!ret) {
++		ret = prctl(PR_GET_TAGGED_ADDR_CTRL, 0, 0, 0, 0);
++		if (ret == arg)
++			return 0;
++	}
++
++	return ret < 0 ? -errno : -ENODATA;
++}
++
++static void test_dereference_pmlen(int pmlen)
++{
++	static volatile int i;
++	volatile int *p;
++	int ret;
++
++	ret = set_tagged_addr_ctrl(pmlen, false);
++	if (ret)
++		return ksft_test_result_error("PMLEN=%d setup (%d)\n", pmlen, ret);
++
++	i = pmlen;
++
++	if (pmlen) {
++		p = (volatile int *)((uintptr_t)&i | 1UL << __riscv_xlen - pmlen);
++
++		/* These dereferences should succeed. */
++		if (sigsetjmp(jmpbuf, 1))
++			return ksft_test_result_fail("PMLEN=%d valid tag\n", pmlen);
++		if (*p != pmlen)
++			return ksft_test_result_fail("PMLEN=%d bad value\n", pmlen);
++		*p++;
++	}
++
++	p = (volatile int *)((uintptr_t)&i | 1UL << __riscv_xlen - pmlen - 1);
++
++	/* These dereferences should raise SIGSEGV. */
++	if (sigsetjmp(jmpbuf, 1))
++		return ksft_test_result_pass("PMLEN=%d dereference\n", pmlen);
++	*p++;
++	ksft_test_result_fail("PMLEN=%d invalid tag\n", pmlen);
++}
++
++static void test_dereference(void)
++{
++	ksft_print_msg("Testing userspace pointer dereference\n");
++
++	signal(SIGSEGV, sigsegv_handler);
++
++	test_dereference_pmlen(0);
++	test_dereference_pmlen(min_pmlen);
++	test_dereference_pmlen(max_pmlen);
++
++	signal(SIGSEGV, SIG_DFL);
++}
++
++static void test_fork_exec(void)
++{
++	int ret, status;
++
++	ksft_print_msg("Testing fork/exec behavior\n");
++
++	ret = set_tagged_addr_ctrl(min_pmlen, false);
++	if (ret)
++		return ksft_test_result_error("setup (%d)\n", ret);
++
++	if (fork()) {
++		wait(&status);
++		ksft_test_result(WIFEXITED(status) && WEXITSTATUS(status) == 0,
++				 "dereference after fork\n");
++	} else {
++		static volatile int i;
++		volatile int *p = (volatile int *)((uintptr_t)&i | 1UL << __riscv_xlen - min_pmlen);
++
++		exit(*p);
++	}
++
++	if (fork()) {
++		wait(&status);
++		ksft_test_result(WIFSIGNALED(status) && WTERMSIG(status) == SIGSEGV,
++				 "dereference after fork+exec\n");
++	} else {
++		execl("/proc/self/exe", "", NULL);
++	}
++}
++
++static void test_tagged_addr_abi_sysctl(void)
++{
++	char value;
++	int fd;
++
++	ksft_print_msg("Testing tagged address ABI sysctl\n");
++
++	fd = open("/proc/sys/abi/tagged_addr_disabled", O_WRONLY);
++	if (fd < 0) {
++		ksft_test_result_skip("failed to open sysctl file\n");
++		ksft_test_result_skip("failed to open sysctl file\n");
++		return;
++	}
++
++	value = '1';
++	pwrite(fd, &value, 1, 0);
++	ksft_test_result(set_tagged_addr_ctrl(min_pmlen, true) == -EINVAL,
++			 "sysctl disabled\n");
++
++	value = '0';
++	pwrite(fd, &value, 1, 0);
++	ksft_test_result(set_tagged_addr_ctrl(min_pmlen, true) == 0,
++			 "sysctl enabled\n");
++
++	set_tagged_addr_ctrl(0, false);
++
++	close(fd);
++}
++
++static void test_tagged_addr_abi_pmlen(int pmlen)
++{
++	int i, *p, ret;
++
++	i = ~pmlen;
++
++	if (pmlen) {
++		p = (int *)((uintptr_t)&i | 1UL << __riscv_xlen - pmlen);
++
++		ret = set_tagged_addr_ctrl(pmlen, false);
++		if (ret)
++			return ksft_test_result_error("PMLEN=%d ABI disabled setup (%d)\n",
++						      pmlen, ret);
++
++		ret = write(dev_zero, p, sizeof(*p));
++		if (ret >= 0 || errno != EFAULT)
++			return ksft_test_result_fail("PMLEN=%d ABI disabled write\n", pmlen);
++
++		ret = read(dev_zero, p, sizeof(*p));
++		if (ret >= 0 || errno != EFAULT)
++			return ksft_test_result_fail("PMLEN=%d ABI disabled read\n", pmlen);
++
++		if (i != ~pmlen)
++			return ksft_test_result_fail("PMLEN=%d ABI disabled value\n", pmlen);
++
++		ret = set_tagged_addr_ctrl(pmlen, true);
++		if (ret)
++			return ksft_test_result_error("PMLEN=%d ABI enabled setup (%d)\n",
++						      pmlen, ret);
++
++		ret = write(dev_zero, p, sizeof(*p));
++		if (ret != sizeof(*p))
++			return ksft_test_result_fail("PMLEN=%d ABI enabled write\n", pmlen);
++
++		ret = read(dev_zero, p, sizeof(*p));
++		if (ret != sizeof(*p))
++			return ksft_test_result_fail("PMLEN=%d ABI enabled read\n", pmlen);
++
++		if (i)
++			return ksft_test_result_fail("PMLEN=%d ABI enabled value\n", pmlen);
++
++		i = ~pmlen;
++	} else {
++		/* The tagged address ABI cannot be enabled when PMLEN == 0. */
++		ret = set_tagged_addr_ctrl(pmlen, true);
++		if (ret != -EINVAL)
++			return ksft_test_result_error("PMLEN=%d ABI setup (%d)\n",
++						      pmlen, ret);
++	}
++
++	p = (int *)((uintptr_t)&i | 1UL << __riscv_xlen - pmlen - 1);
++
++	ret = write(dev_zero, p, sizeof(*p));
++	if (ret >= 0 || errno != EFAULT)
++		return ksft_test_result_fail("PMLEN=%d invalid tag write (%d)\n", pmlen, errno);
++
++	ret = read(dev_zero, p, sizeof(*p));
++	if (ret >= 0 || errno != EFAULT)
++		return ksft_test_result_fail("PMLEN=%d invalid tag read\n", pmlen);
++
++	if (i != ~pmlen)
++		return ksft_test_result_fail("PMLEN=%d invalid tag value\n", pmlen);
++
++	ksft_test_result_pass("PMLEN=%d tagged address ABI\n", pmlen);
++}
++
++static void test_tagged_addr_abi(void)
++{
++	ksft_print_msg("Testing tagged address ABI\n");
++
++	test_tagged_addr_abi_pmlen(0);
++	test_tagged_addr_abi_pmlen(min_pmlen);
++	test_tagged_addr_abi_pmlen(max_pmlen);
++}
++
++static struct test_info {
++	unsigned int nr_tests;
++	void (*test_fn)(void);
++} tests[] = {
++	{ .nr_tests = 17 * 3, test_pmlen },
++	{ .nr_tests = 3, test_dereference },
++	{ .nr_tests = 2, test_fork_exec },
++	{ .nr_tests = 2, test_tagged_addr_abi_sysctl },
++	{ .nr_tests = 3, test_tagged_addr_abi },
++};
++
++int main(int argc, char **argv)
++{
++	unsigned int plan = 0;
++
++	/* Check if this is the child process after execl(). */
++	if (!argv[0][0]) {
++		static volatile int i;
++		volatile int *p = (volatile int *)((uintptr_t)&i | 1UL << __riscv_xlen - 7);
++
++		return *p;
++	}
++
++	dev_zero = open("/dev/zero", O_RDWR);
++	if (dev_zero < 0)
++		return 1;
++
++	ksft_print_header();
++
++	for (int i = 0; i < ARRAY_SIZE(tests); ++i)
++		plan += tests[i].nr_tests;
++
++	ksft_set_plan(plan);
++
++	for (int i = 0; i < ARRAY_SIZE(tests); ++i)
++		tests[i].test_fn();
++
++	ksft_finished();
++}
 -- 
 2.43.1
 
