@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84401CD11BF
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 16:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D4FC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 17:14:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R2cBNq9V0OFqCvk0Y2Oo62pzH/DmJNwUhoT539NNvD8=; b=xjPAhPfXrPpavn
-	ig+hAX3WeLme83rbZxNvGxMV7/8zDwpYB1YyTqng93W5KtXbnfDr1dRGE1yIDAD20RhyS2ZPhstv/
-	72f5ij4hGhrxMzVKFUZUIH/sW6YWMOPi08d5Jy7bVAms/OE4SicSYj/BwBAe+6A6qPgI7OOF2WCt9
-	GisvDgJ5N14fFxo/GJpegIf02NRDs2RgRmypNHBwQK1GP2sSxTzBk1k1t5yqabWVCk/yxzYlEDgKp
-	aerYDqKrmiovbFNwHmuQRiBykhxScjy5AUF6NfOKNo+BVo/U/Y/04Kzz37/8C36evbf8RQLJ9pEC8
-	23vACFW/Ma64S7ebCKBg==;
+	List-Owner; bh=R2/IWop6WHHSQ1RNx5Ig3NME4/HV1n7Umw0uXdgJQE0=; b=XTFF8zxoX7e+7Q
+	+iEmLWVUgybTLaRotlveITcUb4PucNkF0IHwCiuxBllbQsaiWtpCWaKUCNYVo1SAqnzas63FNrtpX
+	/25aA3PCKFQK1VOT4ud5rwwAU4nzIOnZo4/l92HxeDlYNrY8ugLQ6gDdfFET+b0cYAbmPjeF8/jEB
+	LPT1EKeBqLzL6bp2Cy0GbdWG148eRByDXdSMz5vBfA1jwqAcm5al7fv9zybJ8fZA/1y1yg+NRIAJZ
+	0iYPNYPBeuyYKGmwH5QSpfjkJ1eoyB1T4cGj6LyJ4jeTjrt0TsP1U4WayjyEkzX1nQ7uHaEywTzDK
+	gJGgHdikRwxnAim06J+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmch4-0000000DULZ-1zZF;
-	Tue, 19 Mar 2024 16:52:06 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1rmd2u-0000000DYnm-2U8B;
+	Tue, 19 Mar 2024 17:14:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmch0-0000000DUKR-49Lb
+	id 1rmd2r-0000000DYmv-3L8W
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Mar 2024 16:52:04 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E4B1FE0004;
-	Tue, 19 Mar 2024 16:51:54 +0000 (UTC)
-Message-ID: <b5624bba-9917-421b-8ef0-4515d442f80b@ghiti.fr>
-Date: Tue, 19 Mar 2024 17:51:54 +0100
+	Tue, 19 Mar 2024 17:14:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7D41260F2A
+	for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 17:14:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A3A3C433A6
+	for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 17:14:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1710868476;
+	bh=k/GfgwRI/ijf/uVg7xWos3W1r9MkqyAZbqmhnCW/Ze0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=H8uGJ0HiJrClx6+giK7xETCTfdfIs1lhiGAu8IYK6EkWDgJkDJT/ydBAhl5L9u/Kq
+	 uaN94tScqQYSegWgwm8XKrg8TTqyYkg+jfp2utHf/rPAIKMd78TQbCOQADWMYnxcut
+	 +KPMXKbQCFpY5jpcvW05SKB1KpmBmrlJoFB5y6UlmC3wl7Vi4av5KPt1WlF7WX+rWI
+	 5k7u7aJXyyiiHYn9iCcO86maZUxarp0xHp0ACD4G8+NPbFrTSrASjPCkGthpPzO/Le
+	 yjq46To9zprEnNJXVOSCWIMz7byabwmYQcvJ4fUnCA635ZzwxlB4s98BFizdnchpSE
+	 eBuVbjmIk7+Sg==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-2d27184197cso76945031fa.1
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 10:14:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX3eMO6vAsJNdh3WtAG6LxX3y20PtL+oGDKsBxVjiQZS0BoL/CAOmOQ7RsDvOKH+JxxB4uk2Nn0sPzs6k/vTRxFDnoHUvqODKJzskuUFVXQ
+X-Gm-Message-State: AOJu0YyYPv1WHeW8jjMGqv5hgGs6WFv/8wVK8cjP6mFKwZ+2Pw49osWV
+	XHkMceLR1ITzbHtwKJ3QCzV/QYlm3GQkIVrD1NDmYOs47UqzlVor7X6NNv9ku+A8OzH9AVYN2tq
+	3PEj0ITZKsvUl0Sty0fMBgbHkEU8=
+X-Google-Smtp-Source: AGHT+IE2/6PMvryTfamN52aeDVNlffaly/Fn9IiQOIf0JucEaMGEOMlPO5PEM+e3k5q/g7FBsZx272U/H8lbFbyol/Q=
+X-Received: by 2002:a05:651c:387:b0:2d4:22a6:cb15 with SMTP id
+ e7-20020a05651c038700b002d422a6cb15mr1982908ljp.25.1710868474544; Tue, 19 Mar
+ 2024 10:14:34 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
-Content-Language: en-US
-To: Samuel Holland <samuel.holland@sifive.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton
- <akpm@linux-foundation.org>, Charlie Jenkins <charlie@rivosinc.com>,
- Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
- Kemeng Shi <shikemeng@huaweicloud.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Xiao Wang <xiao.w.wang@intel.com>,
- Yangyu Chen <cyy@cyyself.name>, linux-kernel@vger.kernel.org
-References: <20240313180010.295747-1-samuel.holland@sifive.com>
- <CAHVXubjLWZkjSapnsWJzimWg_2swEy7tQ-DQ6ri8yMk8-Qsc-A@mail.gmail.com>
- <88de4a1a-047e-4be9-b5b0-3e53434dc022@sifive.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <88de4a1a-047e-4be9-b5b0-3e53434dc022@sifive.com>
-X-GND-Sasl: alex@ghiti.fr
+References: <20240318020916.1299190-1-haibo1.xu@intel.com>
+In-Reply-To: <20240318020916.1299190-1-haibo1.xu@intel.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 19 Mar 2024 18:14:23 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFgohP_dOCxbmem_5ZWiFs5KmYFOPkj3uAZWhumBfOWFQ@mail.gmail.com>
+Message-ID: <CAMj1kXFgohP_dOCxbmem_5ZWiFs5KmYFOPkj3uAZWhumBfOWFQ@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv: dmi: Add SMBIOS/DMI support
+To: Haibo Xu <haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240319_095203_330113_4923FD58 
-X-CRM114-Status: GOOD (  28.95  )
+X-CRM114-CacheID: sfid-20240319_101438_041251_6D705F1D 
+X-CRM114-Status: GOOD (  29.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,84 +75,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, xiaobo55x@gmail.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGnCoCBTYW11ZWwsCgpPbiAxOC8wMy8yMDI0IDIyOjI5LCBTYW11ZWwgSG9sbGFuZCB3cm90ZToK
-PiBIaSBBbGV4LAo+Cj4gT24gMjAyNC0wMy0xOCAzOjUwIFBNLCBBbGV4YW5kcmUgR2hpdGkgd3Jv
-dGU6Cj4+IE9uIFdlZCwgTWFyIDEzLCAyMDI0IGF0IDc6MDDigK9QTSBTYW11ZWwgSG9sbGFuZAo+
-PiA8c2FtdWVsLmhvbGxhbmRAc2lmaXZlLmNvbT4gd3JvdGU6Cj4+PiBUQVNLX1NJWkVfTUFYIHNo
-b3VsZCBiZSBzZXQgdG8gdGhlIGxhcmdlc3QgdXNlcnNwYWNlIGFkZHJlc3MgdW5kZXIgYW55Cj4+
-PiBydW50aW1lIGNvbmZpZ3VyYXRpb24uIFRoaXMgb3B0aW1pemVzIHRoZSBjaGVjayBpbiBfX2Fj
-Y2Vzc19vaygpLCB3aGljaAo+Pj4gbm8gbG9uZ2VyIG5lZWRzIHRvIGNvbXB1dGUgdGhlIGN1cnJl
-bnQgdmFsdWUgb2YgVEFTS19TSVpFLiBJdCBpcyBzdGlsbAo+Pj4gc2FmZSBiZWNhdXNlIGFkZHJl
-c3NlcyBiZXR3ZWVuIFRBU0tfU0laRSBhbmQgVEFTS19TSVpFX01BWCBhcmUgaW52YWxpZAo+Pj4g
-YXQgdGhlIGhhcmR3YXJlIGxldmVsLgo+Pj4KPj4+IFRoaXMgcmVtb3ZlcyBhYm91dCBoYWxmIG9m
-IHRoZSByZWZlcmVuY2VzIHRvIHBndGFibGVfbFs0NV1fZW5hYmxlZC4KPj4+Cj4+PiBTaWduZWQt
-b2ZmLWJ5OiBTYW11ZWwgSG9sbGFuZCA8c2FtdWVsLmhvbGxhbmRAc2lmaXZlLmNvbT4KPj4+IC0t
-LQo+Pj4KPj4+ICAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLTY0LmggfCAxICsKPj4+
-ICAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmggICAgfCAxICsKPj4+ICAgMiBmaWxl
-cyBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKykKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9wZ3RhYmxlLTY0LmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFi
-bGUtNjQuaAo+Pj4gaW5kZXggYjk5YmQ2NjEwN2E2Li5hNjc3ZWYzYzBmZTIgMTAwNjQ0Cj4+PiAt
-LS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUtNjQuaAo+Pj4gKysrIGIvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLTY0LmgKPj4+IEBAIC0xNyw2ICsxNyw3IEBAIGV4dGVy
-biBib29sIHBndGFibGVfbDVfZW5hYmxlZDsKPj4+ICAgI2RlZmluZSBQR0RJUl9TSElGVF9MNCAg
-MzkKPj4+ICAgI2RlZmluZSBQR0RJUl9TSElGVF9MNSAgNDgKPj4+ICAgI2RlZmluZSBQR0RJUl9T
-SVpFX0wzICAgKF9BQygxLCBVTCkgPDwgUEdESVJfU0hJRlRfTDMpCj4+PiArI2RlZmluZSBQR0RJ
-Ul9TSVpFX0w1ICAgKF9BQygxLCBVTCkgPDwgUEdESVJfU0hJRlRfTDUpCj4+Pgo+Pj4gICAjZGVm
-aW5lIFBHRElSX1NISUZUICAgICAocGd0YWJsZV9sNV9lbmFibGVkID8gUEdESVJfU0hJRlRfTDUg
-OiBcCj4+PiAgICAgICAgICAgICAgICAgIChwZ3RhYmxlX2w0X2VuYWJsZWQgPyBQR0RJUl9TSElG
-VF9MNCA6IFBHRElSX1NISUZUX0wzKSkKPj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL3BndGFibGUuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4+PiBp
-bmRleCA2MDY2ODIyZTczOTYuLjIwMzJmOGFjNWZjNSAxMDA2NDQKPj4+IC0tLSBhL2FyY2gvcmlz
-Y3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L3BndGFibGUuaAo+Pj4gQEAgLTg2Nyw2ICs4NjcsNyBAQCBzdGF0aWMgaW5saW5lIHB0ZV90IHB0
-ZV9zd3BfY2xlYXJfZXhjbHVzaXZlKHB0ZV90IHB0ZSkKPj4+ICAgI2lmZGVmIENPTkZJR182NEJJ
-VAo+Pj4gICAjZGVmaW5lIFRBU0tfU0laRV82NCAgIChQR0RJUl9TSVpFICogUFRSU19QRVJfUEdE
-IC8gMikKPj4+ICAgI2RlZmluZSBUQVNLX1NJWkVfTUlOICAoUEdESVJfU0laRV9MMyAqIFBUUlNf
-UEVSX1BHRCAvIDIpCj4+PiArI2RlZmluZSBUQVNLX1NJWkVfTUFYICAoUEdESVJfU0laRV9MNSAq
-IFBUUlNfUEVSX1BHRCAvIDIpCj4+Pgo+Pj4gICAjaWZkZWYgQ09ORklHX0NPTVBBVAo+Pj4gICAj
-ZGVmaW5lIFRBU0tfU0laRV8zMiAgIChfQUMoMHg4MDAwMDAwMCwgVUwpKQo+Pj4gLS0KPj4+IDIu
-NDMuMQo+Pj4KPj4gSSB0aGluayB5b3UgYWxzbyBuZWVkIHRvIGNoYW5nZSB0aGUgY2hlY2sgaW4g
-aGFuZGxlX3BhZ2VfZmF1bHQoKSBieQo+PiB1c2luZyBUQVNLX1NJWkVfTUFYIGluc3RlYWQgb2Yg
-VEFTS19TSVpFLCBvdGhlcndpc2UgdGhlIGZpeHVwIGNhbid0Cj4+IGhhcHBlbiAoaHR0cHM6Ly9l
-bGl4aXIuYm9vdGxpbi5jb20vbGludXgvbGF0ZXN0L3NvdXJjZS9hcmNoL3Jpc2N2L21tL2ZhdWx0
-LmMjTDI3MykuCj4gSXQgaXMgbm90IG5lY2Vzc2FyeSB0byBjaGFuZ2UgdGhhdCBjaGVjayBpbiBm
-YXVsdC5jIHVubGVzcyB3ZSBleHBlY3QgdG8gaGFuZGxlCj4gZXhjZXB0aW9ucyAob3V0c2lkZSBv
-ZiB1c2Vyc3BhY2UgYWNjZXNzIHJvdXRpbmVzKSBmb3IgYWRkcmVzc2VzIGJldHdlZW4KPiBUQVNL
-X1NJWkUgYW5kIFRBU0tfU0laRV9NQVguCgoKV2hpY2ggSSB0aGluayBjb3VsZCBiZSB0aGUgY2Fz
-ZSBpZiBzb21lIGNvZGUgaXMgb25seSB1c2luZyB0aGUgIm5ldyIgCmFjY2Vzc19vaygpIHdpdGhv
-dXQgdGhlIHVhY2Nlc3Mgcm91dGluZXMgKHdoaWNoIGlzIHdyb25nIHllcywgYnV0IHN1Y2ggCmNv
-ZGUgaXMgYXQgdGhlIG9yaWdpbiBvZiB0aGlzIGNoZWNrKS4KCgo+IEl0IGxvb2tzIGxpa2UgdGhl
-IGNhbGwgdG8gZml4dXBfZXhjZXB0aW9uKCkgW2FkZGVkCj4gaW4gNDE2NzIxZmYwNWZkICgicmlz
-Y3YsIG1tOiBQZXJmb3JtIEJQRiBleGhhbmRsZXIgZml4dXAgb24gcGFnZSBmYXVsdCIpXSBpcwo+
-IG9ubHkgaW50ZW5kZWQgdG8gY2F0Y2ggbnVsbCBwb2ludGVyIGRlcmVmZXJlbmNlcy4gU28gbWFr
-aW5nIHRoZSBjaGFuZ2Ugd291bGRuJ3QKPiBoYXZlIGFueSBmdW5jdGlvbmFsIGltcGFjdCwgYnV0
-IGl0IHdvdWxkIHN0aWxsIGJlIGEgdmFsaWQgb3B0aW1pemF0aW9uLgo+Cj4+IE9yIEkgd2FzIHdv
-bmRlcmluZyBpZiBpdCB3b3VsZCBub3QgYmUgYmV0dGVyIHRvIGRvIGxpa2UgeDg2IGFuZCB1c2Ug
-YW4KPj4gYWx0ZXJuYXRpdmUsIGl0IHdvdWxkIGJlIG1vcmUgY29ycmVjdCAoZXZlbiB0aG91Z2gg
-SSBiZWxpZXZlIHlvdXIKPj4gc29sdXRpb24gd29ya3MpCj4+IGh0dHBzOi8vZWxpeGlyLmJvb3Rs
-aW4uY29tL2xpbnV4L2xhdGVzdC9zb3VyY2UvYXJjaC94ODYvaW5jbHVkZS9hc20vcGFnZV82NC5o
-I0w4Mi4KPiBXaGF0IHdvdWxkIGJlIHRoZSBiZW5lZml0IG9mIHVzaW5nIGFuIGFsdGVybmF0aXZl
-PyBBbnkgYWNjZXNzIHRvIGFuIGFkZHJlc3MKPiBiZXR3ZWVuIFRBU0tfU0laRSBhbmQgVEFTS19T
-SVpFX01BWCBpcyBndWFyYW50ZWVkIHRvIGdlbmVyYXRlIGEgcGFnZSBmYXVsdCwgc28KPiB0aGUg
-b25seSBiZW5lZml0IEkgc2VlIGlzIHJldHVybmluZyAtRUZBVUxUIHNsaWdodGx5IGZhc3RlciBh
-dCB0aGUgY29zdCBvZgo+IGFwcGx5aW5nIGEgZmV3IGh1bmRyZWQgYWx0ZXJuYXRpdmVzIGF0IGJv
-b3QuIEJ1dCBpdCdzIHBvc3NpYmxlIEknbSBtaXNzaW5nCj4gc29tZXRoaW5nLgoKClRoZSB1c2Ug
-b2YgYWx0ZXJuYXRpdmVzIGFsbG93cyB0byByZXR1cm4gcmlnaHQgYXdheSBpZiB0aGUgYnVmZmVy
-IGlzIApiZXlvbmQgdGhlIHVzYWJsZSB1c2VyIGFkZHJlc3Mgc3BhY2UsIGFuZCBpdCdzIG5vdCBq
-dXN0ICJzbGlnaHRseSAKZmFzdGVyIiBmb3Igc29tZSBjYXNlcyAoYSB2ZXJ5IGxhcmdlIGJ1ZmZl
-ciB3aXRoIG9ubHkgYSBmZXcgYnl0ZXMgYmVpbmcgCmJleW9uZCB0aGUgbGltaXQgb3Igc29tZW9u
-ZSBjb3VsZCBmYXVsdC1pbiBhbGwgdGhlIHVzZXIgcGFnZXMgYW5kIGZhaWwgCnZlcnkgbGF0ZS4u
-LmV0YykuIGFjY2Vzc19vaygpIGlzIGhlcmUgdG8gZ3VhcmFudGVlIHRoYXQgc3VjaCBzaXR1YXRp
-b25zIApkb24ndCBoYXBwZW4sIHNvIGFjdHVhbGx5IGl0IG1ha2VzIG1vcmUgc2Vuc2UgdG8gdXNl
-IGFuIGFsdGVybmF0aXZlIHRvIAphdm9pZCB0aGF0LgoKCkFsZXgKCgo+IFJlZ2FyZHMsCj4gU2Ft
-dWVsCj4KPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-Cj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, 18 Mar 2024 at 02:55, Haibo Xu <haibo1.xu@intel.com> wrote:
+>
+> Enable the dmi driver for riscv which would allow access the
+> SMBIOS info through some userspace file(/sys/firmware/dmi/*).
+>
+> The change was based on that of arm64 and has been verified
+> by dmidecode tool.
+>
+> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+
+
+> ---
+> Changes since v1
+>   - Change to use memremap/memunmap for dmi_(early)_remap/unmap
+>     definition(suggested by Ard)
+>   - Minor clean up for comments (Ard)
+> ---
+>  arch/riscv/Kconfig                   | 11 +++++++++++
+>  arch/riscv/include/asm/dmi.h         | 24 ++++++++++++++++++++++++
+>  drivers/firmware/efi/riscv-runtime.c | 13 +++++++++++++
+>  3 files changed, 48 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/dmi.h
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 8ebafe337eac..3639151cb4ef 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -952,6 +952,17 @@ config EFI
+>           allow the kernel to be booted as an EFI application. This
+>           is only useful on systems that have UEFI firmware.
+>
+> +config DMI
+> +       bool "Enable support for SMBIOS (DMI) tables"
+> +       depends on EFI
+> +       default y
+> +       help
+> +         This enables SMBIOS/DMI feature for systems.
+> +
+> +         This option is only useful on systems that have UEFI firmware.
+> +         However, even with this option, the resultant kernel should
+> +         continue to boot on existing non-UEFI platforms.
+> +
+>  config CC_HAVE_STACKPROTECTOR_TLS
+>         def_bool $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=tp -mstack-protector-guard-offset=0)
+>
+> diff --git a/arch/riscv/include/asm/dmi.h b/arch/riscv/include/asm/dmi.h
+> new file mode 100644
+> index 000000000000..ca7cce557ef7
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/dmi.h
+> @@ -0,0 +1,24 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2024 Intel Corporation
+> + *
+> + * based on arch/arm64/include/asm/dmi.h
+> + *
+> + * This file is subject to the terms and conditions of the GNU General Public
+> + * License.  See the file "COPYING" in the main directory of this archive
+> + * for more details.
+> + */
+> +
+> +#ifndef __ASM_DMI_H
+> +#define __ASM_DMI_H
+> +
+> +#include <linux/io.h>
+> +#include <linux/slab.h>
+> +
+> +#define dmi_early_remap(x, l)          memremap(x, l, MEMREMAP_WB)
+> +#define dmi_early_unmap(x, l)          memunmap(x)
+> +#define dmi_remap(x, l)                        memremap(x, l, MEMREMAP_WB)
+> +#define dmi_unmap(x)                   memunmap(x)
+> +#define dmi_alloc(l)                   kzalloc(l, GFP_KERNEL)
+> +
+> +#endif
+> diff --git a/drivers/firmware/efi/riscv-runtime.c b/drivers/firmware/efi/riscv-runtime.c
+> index 09525fb5c240..c3bfb9e77e02 100644
+> --- a/drivers/firmware/efi/riscv-runtime.c
+> +++ b/drivers/firmware/efi/riscv-runtime.c
+> @@ -152,3 +152,16 @@ void arch_efi_call_virt_teardown(void)
+>  {
+>         efi_virtmap_unload();
+>  }
+> +
+> +static int __init riscv_dmi_init(void)
+> +{
+> +       /*
+> +        * On riscv, DMI depends on UEFI, and dmi_setup() needs to
+> +        * be called early because dmi_id_init(), which is an arch_initcall
+> +        * itself, depends on dmi_scan_machine() having been called already.
+> +        */
+> +       dmi_setup();
+> +
+> +       return 0;
+> +}
+> +core_initcall(riscv_dmi_init);
+> --
+> 2.34.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
