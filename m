@@ -4,75 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD08AC54E60
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 09:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01BA2C54E5D
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 10:20:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ey11kobY5heBRfH0zJhQ1Ef440oA7cxMEwK6J0fy1h8=; b=26OUeNKqxVAbxylvTdbYq2bEAt
-	nVfzfmdEbEgdZWlgmp6p/kWfjZrVqLJmFTmftRqXi9cuQL08ae24iuF4j3smbLyBUn8LLvwyYL3Mb
-	Y5EakoLEI93Iq8Po5KdQNHdNG4y7GbgQyEXZIzWR9uzI5AoviEb1js/h0QeWTdmz1se8tVtpISybB
-	iy042yu6LO4RuyjmPcvA3kp48QvKhXgdtAWXnewsdQ8mOsYKUFWw07VYJt3FxMjsBvudYtTGK2F4W
-	RrOlmkByWqqO2lKtkttpr3GYOifO1NT9fpRhKqEOdBJSgsI0o37r/jLK2sop5PIwJPwXkLHhvtOFa
-	iBeKI5wg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=G3bppJ+S4mLJWNjklx3uRYjUN0+omBLUTTpSbHQzDw0=; b=Vv1rO8KJuht1yo
+	lWYpRFoZKqBradQGIPbG+5K1mbw7fqkg8Z4CQ2lz1UYhKaXx/XtHKdc7+MyBaRp+n03UJPR40q3nn
+	qBeWrwx8itJ13LcD4Dl9gXopy+3x71K6P4glW59X5uEMYIqKhwCfBE0l2SuY11ftWvhNWSx3w1yLv
+	q/TGu3YidVS4P25uNsEBrDujDp/BF/2z43chog2P2DUVZ0242+3QxS9ECH1HHNhqj+6FdwYXh+i8D
+	MwRUeOFBiwDTcpZMNerseeFrI9AN78Cd2YAXbM84rPS/03FXUFDtkCm05Q7X26Bx3+YRpP9e1j1Q/
+	DxRzZ1FE0e4vYfgKq4kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmVQj-0000000C1sg-1otC;
-	Tue, 19 Mar 2024 09:06:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rmWaG-0000000CH2Z-32tI;
+	Tue, 19 Mar 2024 10:20:40 +0000
+Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmVQf-0000000C1r8-3Kuo;
-	Tue, 19 Mar 2024 09:06:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9BE86603F7;
-	Tue, 19 Mar 2024 09:06:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1106BC433F1;
-	Tue, 19 Mar 2024 09:06:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1710839200;
-	bh=Besk0i9lF9pASA+SWwpUURawOL5FpQ1zrAOiGhmEKXw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XMQ+YVGvD4hcB+2Y4+3f0qdkBJoIg5HTTaVr/30L/4GgMd0+lxZkGvZdTuteIoelT
-	 ihx9YeykEO8pW9VyaXA4JjmMm+iARhl3+xD769AnMG306O1sZeBtngTGf2MKRdWFCj
-	 6RYKqNllHa20nry/sVmekFz5ySVSZ5G4FY0QheDwQBGEz76stIXrKGYSzQxNCH5Hjo
-	 eOn3o5XULzT5H0xSdM+ai4skwHpr373CZdzvBt7WF6ZQs/1BbgUrHk19Rg13flOZFA
-	 69i/MaVYx5vWLIpInSuTZj1EoI83Ube2loi326EnAa9+DcWgX7kaU+xMfDNkphQnNk
-	 t1BDNWM9sMzgw==
-Date: Tue, 19 Mar 2024 09:06:34 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: Andrew Jones <ajones@ventanamicro.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Qingfang Deng <dqfext@gmail.com>,
+	id 1rmWaC-0000000CH1A-16yj
+	for linux-riscv@lists.infradead.org;
+	Tue, 19 Mar 2024 10:20:37 +0000
+Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-5a4817189c8so2150545eaf.1
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 03:20:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1710843632; x=1711448432; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QL3EGbNhVw3JtUTld34AtoZby/9DY4UaNMDtaugQZHE=;
+        b=EpnyoFTMbCQGL2DF+r+j8Ibr1T+MVpgclKOppFeCXe403H1sCPjegOYUF28QdDvvSz
+         gsqeq/xTfkL+dloKTfC00aPrDsIEi1ZkBCYcw6lKF2CrcT6g1CTU5w0Ld+GfBIfZ8a5H
+         Q9m11G8UYIpfk2Slb9IqS+bLbt48QLIJ/KB5ZmeIoy6TQH/8xYdEguA5LO1GpnsNELXw
+         yyyl52c+Xq8eeC3rXjfzMoOFQGW+ocgZDInbv/PRmkyul1pDPz4spLve5GYehn+WR+VI
+         +ityVHknYyH9Jca/viNKIWIigQdZ7T528wlagX2wzcQVckXrgkRrbPuRoOiYRxrInVdU
+         UW4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1710843632; x=1711448432;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QL3EGbNhVw3JtUTld34AtoZby/9DY4UaNMDtaugQZHE=;
+        b=XOrDPG/7DKAAfgLRlk9agXON7p1+p2Ozh3EuFb8oTgfGNT5MrkW52d/rsylzwNnNDl
+         m8bJ4bsVg1qF2BybTe1dakatdF8wDqYp257GYJ/U/Vt0OOMlS7nzAFDAAaMJ1Wh91StL
+         o5Z5+/95pPu4J1p3S/sufYrMlDNZhpEEvHqFbWdj0koazuSrvz3O4AQsvIxAoZ3KAgYL
+         vsLgeVn5SmVJ38p4hXmV6YPOdwn3W+Vbx+3gffAkqauFBVMaI5fUpj5Utk6oPmzuGMH9
+         CdEbIH1V5a4gzdupA43FiZjys+V6KGprNm9tNcMkWX41uJP3De71HfoCJHwoIGMjpQWt
+         tx/g==
+X-Gm-Message-State: AOJu0YyBvDrGjv9HkIkRclhBFXKyX2zQ+NGSw/wL+INVqMct+UVvnlPB
+	4vWjfQUOIB2NCea2ceivKjbMH0Jyri/8QFAe1LIvka2sPH4nwMoWxDnywiLCX0E=
+X-Google-Smtp-Source: AGHT+IGVGk/H1aT7F0MOr8+0o1ytVFNZ5mK4pp0hbrmu8U5f3VIEAqB/PjrEuaGzbfdxTTLcPEkOJw==
+X-Received: by 2002:a4a:6f0b:0:b0:5a2:37c9:d91f with SMTP id h11-20020a4a6f0b000000b005a237c9d91fmr12704898ooc.5.1710843632056;
+        Tue, 19 Mar 2024 03:20:32 -0700 (PDT)
+Received: from sunil-laptop ([106.51.187.230])
+        by smtp.gmail.com with ESMTPSA id dc4-20020a056820278400b005a4a656860bsm1040842oob.2.2024.03.19.03.20.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Mar 2024 03:20:31 -0700 (PDT)
+Date: Tue, 19 Mar 2024 15:50:21 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Drew Fustini <drew@pdp7.com>
+Cc: linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] perf: RISC-V: fix IRQ detection on T-Head C908
-Message-ID: <20240319-worry-video-66589b3ed8ae@spud>
-References: <20240311063018.1886757-1-dqfext@gmail.com>
- <IA1PR20MB4953ECC3E32E95303872CD14BB242@IA1PR20MB4953.namprd20.prod.outlook.com>
- <CALW65jZ+q8sDiRKgsRL9n+939HNUCnkKuO=YJjHB5Js=WYQeOg@mail.gmail.com>
- <20240312-evil-resource-66370b68b9b4@spud>
- <IA1PR20MB4953CE8999960BA71B46DE6CBB2A2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20240315-73aa13079ef83a4559869084@orel>
- <2de56d8b-bc78-428b-9c09-4729b269fa41@rivosinc.com>
- <20240318-such-animal-bf33de12dc3a@spud>
- <4bdaaff1-13ec-48c2-b165-6a8255784aef@rivosinc.com>
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH v1 -next 0/3] RISC-V: ACPI: Enable CPPC based cpufreq
+ support
+Message-ID: <Zflm5cje/+rnZ7HH@sunil-laptop>
+References: <20240208034414.22579-1-sunilvl@ventanamicro.com>
+ <ZfiKooxO88h1nj35@x1>
+ <Zfj4FnG5vAPP55ri@x1>
 MIME-Version: 1.0
-In-Reply-To: <4bdaaff1-13ec-48c2-b165-6a8255784aef@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <Zfj4FnG5vAPP55ri@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240319_020641_983004_1DD7C4D5 
-X-CRM114-Status: GOOD (  55.74  )
+X-CRM114-CacheID: sfid-20240319_032036_335878_610A43D8 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,186 +99,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5281846120780614945=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Mar 18, 2024 at 07:27:34PM -0700, Drew Fustini wrote:
+> On Mon, Mar 18, 2024 at 11:40:34AM -0700, Drew Fustini wrote:
+> > On Thu, Feb 08, 2024 at 09:14:11AM +0530, Sunil V L wrote:
+> > > This series enables the support for "Collaborative Processor Performance
+> > > Control (CPPC) on ACPI based RISC-V platforms. It depends on the
+> > > encoding of CPPC registers as defined in RISC-V FFH spec [2].
+> > > 
+> > > CPPC is described in the ACPI spec [1]. RISC-V FFH spec required to
+> > > enable this, is available at [2].
+> > > 
+> > > [1] - https://uefi.org/specs/ACPI/6.5/08_Processor_Configuration_and_Control.html#collaborative-processor-performance-control
+> > > [2] - https://github.com/riscv-non-isa/riscv-acpi-ffh/releases/download/v1.0.0/riscv-ffh.pdf
+> > > 
+> > > The series is based on the LPI support series.
+> > > Based-on: 20240118062930.245937-1-sunilvl@ventanamicro.com
+> > > (https://lore.kernel.org/lkml/20240118062930.245937-1-sunilvl@ventanamicro.com/)
+> > 
+> > Should the https://github.com/vlsunil/qemu/tree/lpi_exp branch also be
+> > used for this CPPC series too?
+> 
+> I noticed the ventanamicro qemu repo has a dev-upstream branch [1] which
+> contains 4bb6ba4d0fb9 ("riscv/virt: acpi: Enable CPPC - _CPC and _PSD").
+> I've built that but I still see 'SBI CPPC extension NOT detected!!' in
+> the Linux boot log.
+> 
+> I'm using upstream opensbi. It seems that sbi_cppc_probe() fails because
+> cppc_dev is not set. Nothing in the upstream opensbi repo seems to call
+> sbi_cppc_set_device(), so I am uncertain how it is possible for it to
+> work. Is there an opensbi branch I should be using?
+> 
+> Thanks,
+> Drew
+> 
+> [1] https://github.com/ventanamicro/qemu/tree/dev-upstream
 
---===============5281846120780614945==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="jDYWah4eJAonImXm"
-Content-Disposition: inline
+Please use below branches for qemu and opensbi. These are just dummy
+objects/interfaces added to test the kernel change which are otherwise
+platform specific features.
 
+https://github.com/vlsunil/qemu/tree/lpi_cppc_exp
+https://github.com/vlsunil/opensbi/tree/cppc_exp
 
---jDYWah4eJAonImXm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Mar 18, 2024 at 05:48:13PM -0700, Atish Patra wrote:
-> On 3/18/24 16:48, Conor Dooley wrote:
-> > On Mon, Mar 18, 2024 at 03:46:54PM -0700, Atish Patra wrote:
-
-> > > For 2.b, either we can start defining pseudo extensions or adding
-> > > vendor/arch/impid checks.
-> > >=20
-> > > @Conor: You seems to prefer the earlier approach instead of adding the
-> > > checks. Care to elaborate why do you think that's a better method com=
-pared
-> > > to a simple check ?
-> >=20
-> > Because I don't think that describing these as "errata" in the first
-> > place is even accurate. This is not a case of a vendor claiming they
-> > have Sscofpmf support but the implementation is flawed. As far as I
-> > understand, this is a vendor creating a useful feature prior to the
-> > creation of a standard extension.
-> > A bit of a test for this could be "If the standard extension never
-> > existed, would this be considered a new feature or an implementation
-> > issue". I think this is pretty clearly in the former camp.
-> >=20
->=20
-> So we have 3 cases.
->=20
-> 1. Pseudo extension: An vendor extension designed and/or implemented befo=
-re
-> the standard RVI extension was ratified but do not violate any standard
-> encoding space.
->=20
-> 2. Erratas: An genuine bug/design issue in the expected behavior from a
-> standard RVI extension (including violating standard encoding space)
->=20
-> 3. Vendor extension: A new or a variant of standard RVI extension which is
-> different enough from standard extension.
->=20
-> IMO, the line between #2 and #1 may get blurry as we going forward because
-> of the sheer number of small extensions RVI is comping up with (which is a
-> problem as well).
-
-Aye, I think some of that is verging on ridiculous.
-
-> Just to clarify: I am not too worried about this particular case as we kn=
-ow
-> that T-head's implementation predates the Sscofpmf extension.
-> But once we define a standard mechanism for this kind of situation, vendor
-> may start to abuse it.
-
-How do you envisage it being abused by a vendor?
-Pre-dating the standard extension does make this one fairly clear-cut,
-but are you worried about people coming along and claiming to implement
-XConorSscofpmf instead of Sscofpmf rather than suffer the "shame" of a
-broken implementation?
-All this stuff is going to be pretty case-by-case (to begin with at
-least) so I'm not too worried about that sort of abuse.
-
-> > I do not think we should be using m*id detection implementations of a
-> > feature prior to creation of a standard extension for the same purpose.
-> > To me the main difference between a case like this and VentanaCondOps/Z=
-icond
-> > is that we are the ones calling this an extension (hence my use of pseu=
-do)
-> > and not the vendor of the IP. If T-Head were to publish a document tomo=
-rrow
-> > on the T-Head github repo for official vendor extensions, that differen=
-ce
-> > would not even exist any longer.
-> >=20
->=20
-> Exactly! If vendor publishes these as an extension or an errata, that's a
-> binding agreement to call it in a specific way.
-
-I don't agree that we are bound to call it the way that the vendor does.
-We should just review these sorts of things on a case-by-case basis,
-committing to doing what the vendor says is abusable.
-
-> > I also do not believe that it is a "simple" check. The number of
-> > implementations that could end up using this PMU could just balloon
-> > if T-Head has no intention of switching to Sscofpmf. If they don't
-> > balloon in this case, there's nothing stopping them ballooning in a
->=20
-> Ideally, they shouldn't as it a simple case of CSR number & IRQ number.
-> If they care to implement AIA, then they must change it to standard sscof=
-pmf
-> as the current IRQ violates the AIA spec. But who knows if they care to
-> implement AIA or not.
-
-What kinda "worried" me here is that the c908 implements /both/ Zicbom
-and the T-Head CMO instructions and /both/ Svpbmt and their original
-misuse of the reserved bits but they do not support Sscofpmf. Maybe it
-just was not feasible to migrate entirely (but they did for vector) or
-to support both interrupt numbers and to alias the CSR, but it seemed
-like the opportunity to standardise a bunch of other stuff was taken,
-but this particular extension was not. That's why I was worried that
-we'd see some ballooning in these specific checks.
-
-> > similar case in the future. We should let the platform firmware tell=20
-> > explicitly, be that via DT or ACPI, what features are supported rather
-> > than try to reverse engineer it ourselves via m*id.
-> >=20
-> Fair enough.
->=20
->=20
-> > That leads into another general issue I have with using m*id detection,
-> > which I think I have mentioned several times on the list - it prevents =
-the
-> > platform (hypervisor, emulator or firmware) from disabling that feature.
-> >=20
->=20
-> If that is the only concern, platform can just disable the actual
-> extension(i.e. sscofpmf in this case) to disable that feature for that
-> particular vendor.
-
-Right. Maybe I wasn't clear that this is a problem with using m*id for
-/detection/ of extensions and not with using m*id to work around
-implementation issues with the extension. In the latter case, you're
-applying a fixup only when the actual extension is communicated to be
-present, which leaves that control in the hands of the platform.
-
-> > If I had a time machine back to when the T-Head perf or cmo stuff was
-> > submitted, I was try to avoid any of it being merged with the m*id
-> > detection method.
-> >=20
-> > > I agree that don't have the crystal ball and may be proven wrong in t=
-he
-> > > future (I will be definitely happy about that!). But given the divers=
-ity of
-> > > RISC-V ecosystem, I feel that may be our sad reality.
-> >=20
-> > I don't understand what this comment is referring to, it lacks context
-> > as to what the sad reality actually is.
-> >=20
-> > I hope that all made sense and explained why I am against this method
-> > for detecting what I believe to be features rather than errata,
-> > Conor.
-> >=20
->=20
-> Yes.Thanks again for the clarification. Again, I am not opposed to the id=
-ea.
-> I just wanted to understand if this is the best option we have right now.
-
---jDYWah4eJAonImXm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZflVmgAKCRB4tDGHoIJi
-0uTJAP4tm/qyPBI8P5hE3evFbYiu1vAiujb+43plrJuxa47r3wEAlCRQB/ZNIQsx
-+sADJZ94egfK/DR3Hm3z77uDJVFY/Qk=
-=qQhH
------END PGP SIGNATURE-----
-
---jDYWah4eJAonImXm--
-
-
---===============5281846120780614945==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Regards
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5281846120780614945==--
-
