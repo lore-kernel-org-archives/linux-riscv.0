@@ -4,125 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 689C5C54E5D
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 07:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A3BC54E5D
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 08:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JDGBj7lC+liEkiEfeBRcZyvp/paCVTrMQ7RZ7RVHgNk=; b=WABAbHWWPSeqyCDTuvXquO6rPo
-	/SwHNHDl/fqdVlhDnqCjajZAKABftcZRywwSAg9NpG0KZx7JT7OXkUe5iwUWLHDj6jbIU1JBZDdak
-	/g28kaZVXeqoRAz7bjxl1y24eAyB51H+T2gogiEQlUBpk128fbHKhU9d4P1D/8D07/qYPhTlY97mZ
-	C+2pp23RKAdS0MVeQESasC8aGjI9rkc9al/e5cyRf/CKhaPKpqhl8PEaSb+12MqK+Z00V8o6tIg5/
-	MRnvxJIMvdN4jv9AnWgNtgI0WB9o0aUPK8uKKa8viIe1vglrcBEK4nogmAZfwHw6Bvd9I7Kz1DlfR
-	1DYbFGXw==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MHpuWKtOSkx2WutpXlJ0PLwnmvJNpGwhAEuye9O6BNs=; b=4TFuU7o8mo2NQo+I9aqnC0CkrB
+	664xhg4lapOe2Pub/Mo/W45TR9b2oq3k2DfMQoERUJjwenQJwJWO4Eb9u5gM4AIlvFBVy/f4Q39fA
+	Roub5BDjfKrN7muccQKNsvWd214J/Kr+Ct2g8ydlexMAi+THb1f2LR7gI0nTGUAFieIKkqhQYcOzk
+	SadMJzcEuHBzrSFySEmRgnOl904eswn20Zf0TPa99vuKNzZTtD5PNAmFH4ASnGV1oEhMgKitpR36x
+	DWUeX1aJO39wjaTf/Bp3zy+jOtqayLECgsPCofrNo2svyqVzInYGOsnidbeySpYdKG97U4Y5KwrVl
+	D5Xk26rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmU63-0000000BjuJ-1HRO;
-	Tue, 19 Mar 2024 07:41:19 +0000
-Received: from mail-bmxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281c::800] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1rmUgm-0000000BrK9-2gOu;
+	Tue, 19 Mar 2024 08:19:16 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmU60-0000000Bjsa-0wuw
+	id 1rmUgi-0000000BrIT-25MK
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Mar 2024 07:41:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=KKIrV+94bQOX5HMuKYXkTWS9EkWYaN9Q9hF0NV9StgAxWAb6qJZFWz22WqU2cRATB58Dnmz72+ps6h3zxmxZl0Yk9UhDd7ixOMRZz/uAG5BizIymOqX0qzJwRrnadatRTyLZA8ddkUOG+Sdp69OI1nMqoOIWio8V/PfDWUX9NY3A7lrUW/+8qVUxQHa9D2FAKU9y9zxCZ0urSsjEtKoLYOj4Aexek7riclAyRhz6LOKK8ZlxwaTO8UQaS8xXiEbZZ0kmfWoBfeypZtjXJNG5TEHzoo1sMikIo4Twe3KbH/oi8IYxQocKU8p+wtqkDrbhpDh/HJtx19tQzhmGVF/UQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gONtz0GRW7/gri2iNvD60/GuVLuc01EbZ7qvr5+H8ZA=;
- b=bnoNsst9RGZmF3i/NUt4lTjSHGPQ9TySRz+mT7XrEjPIKMO4mZGxEk0lBoHUu5RSe1+iLUbkVIhFeSvNahzYhF1hxQGHHwIu7h5wiquq9OrjF219VQyW4czMxQcN0UW2oBAVjNdR0QenUct/ZPNt53B5o1Ax96j5GLcmjChWcT2E+V57Q3UCJTtMHLokqxVQExt4dMlR7OU5o/i20vNcuSFHfjGxZtnTGt9i3ft+QE47LVpqPNIV+ou7nEcFLW+p+2EhTZClf68VAvtHmEbwBiQnYHRLxcoIlv0WVQbOCw52irNCrUkh7hmc7KwMG8h0x46f9As5rRUL7jnYfxawvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gONtz0GRW7/gri2iNvD60/GuVLuc01EbZ7qvr5+H8ZA=;
- b=XYmddN3vMPeoPkMSIgvV6JGtkwd6RZHm2GSB6TMIuFocNDDe+LILt03mys9NO/VeDmUyAhjH7RFH2x5iUqBsDghzt43p0fQixX6CBbLy8Tc9Tm3e1RSo8hFlyG4htYaNnBsso+bFtSpxEC8azWRvCfd8cdpVNkYFFocek2MgfHHLO3TF7gBirXvHze5mqo7bf4N2dVws0vy2VlIHVT+yvNSgRat007Y7P0NrzQYVs4y45CjhTy7Pl1imt1irPwCLbe4G8epRzDFiTkQ91Aw7P0+dNe+DRDHxvw/55CCEOhaNugOKlpCYX0Y2e6jp3WtCd+9p/P9l/HPq0cEPqvSPEA==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by PNXP287MB0031.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:c0::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.29; Tue, 19 Mar
- 2024 07:40:51 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::1bd4:64d4:daf5:ae42]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::1bd4:64d4:daf5:ae42%3]) with mapi id 15.20.7386.023; Tue, 19 Mar 2024
- 07:40:51 +0000
-Message-ID: <MA0P287MB28227C169B0DFB16B1AC762DFE2C2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Tue, 19 Mar 2024 15:40:46 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 4/5] clk: sophgo: Add SG2042 clock driver
-To: Stephen Boyd <sboyd@kernel.org>, Chen Wang <unicornxw@gmail.com>,
- aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org,
- devicetree@vger.kernel.org, guoren@kernel.org, haijiao.liu@sophgo.com,
- inochiama@outlook.com, jszhang@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
- richardcochran@gmail.com, robh+dt@kernel.org, samuel.holland@sifive.com,
- xiaoguang.xing@sophgo.com
-References: <cover.1708397315.git.unicorn_wang@outlook.com>
- <d7c74c2cfa410850c044ff2879720db06c2f8272.1708397315.git.unicorn_wang@outlook.com>
- <47a83f766c85481b73c6e6dd3759d4d9.sboyd@kernel.org>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <47a83f766c85481b73c6e6dd3759d4d9.sboyd@kernel.org>
-X-TMN: [A3Cr4AZvhbYTRJRmg1jpqPysGDLJNTXQ]
-X-ClientProxiedBy: SI2PR02CA0038.apcprd02.prod.outlook.com
- (2603:1096:4:196::22) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <d00faf47-80b2-4e2c-ad65-00654a95d5ef@outlook.com>
+	Tue, 19 Mar 2024 08:19:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id C656CCE0C6A;
+	Tue, 19 Mar 2024 08:19:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C54FEC433F1;
+	Tue, 19 Mar 2024 08:19:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1710836350;
+	bh=3SfmKfgUNOAfWCL6jKlcEf4C3YVN39oYJGMEMbuonRo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Vwp5CQdn0MIt9yrPHEn/qNqGQhxuevwB8kuKHo0hf5vB9zBbeR1dBbvQFfba3D5ms
+	 qldO+kjEhp2TzRHDvFXQxfDUVX3+2MfeNT9p12orWYvhYGqXGvxZgac4oTTlaos32r
+	 Y2lt0/aPq4w0UKk0cdENv5BA6aZ9TZ8CxBTQ7QVBYhj8rZ+nEnqRMr3WY9xT1vwkBD
+	 8Bml0CbA/0KVQw7dlNSF0IjGdYFiEqP0yk8ddXTy0OgmBuCxqXrBYPnXwQEhCIRRDU
+	 DCO4pwCfa8Wq5NILweaQshURhPwib4yxlUOaU/+kGrMm20KDt7ZfNc9wSsvZNdt7UK
+	 ixNOpk2nFNMhg==
+Date: Tue, 19 Mar 2024 08:19:04 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Ziv Xu <ziv.xu@starfivetech.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Walker Chen <walker.chen@starfivetech.com>,
+	Xingyu Wu <xingyu.wu@starfivetech.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 2/3] clocksource: Add JH7110 timer driver
+Message-ID: <20240319-vivacious-anointer-cf790d8852c1@spud>
+References: <20240318030649.10413-1-ziv.xu@starfivetech.com>
+ <20240318030649.10413-3-ziv.xu@starfivetech.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PNXP287MB0031:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5c0f22a8-1f3e-4c6a-cddc-08dc47e7e4f8
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: s1PYnEZFe7P1mfvb1a12viYf1xdlNFl/dqoBt4VNO9IQ+QdXgSVvqSiIaSdbM7moeRZlS4RPOPjm1WHLiZ6aIaZIjH0rMIuX0YHM7Bca8ADB824Tvbt9CZfSMny1uQ1G4iU4FWZZ763HDMUjpaDTjOJr9t8Z6w518ziZjAh/00hRU76x4IqWG0RmtJjOfr9zohMZz3teD1mplVIqKu4Jb81oCN6BFqJQB6xy4iZEUKG8axVsdjvI5GgOr73+cpBd6oGmwxxajoLgvlTPwI8x8WpCOwjb6H0wQqX6HEp28BThfAdw+TnJJ1+s08Ueta+5ps9yb7AAroXyM/LrAWPXoY/jzNRM9qHgQYdlWScXD+dGWX6vBXgMBumN2j2pY/XGNrkgEY1RR3tk1ATtVrGiusr7ZZeEUvuzqfD9y0XZ+nnAcLbiT/zRAY6Iiz4qMJA0avSFPZt05qlalhO7wDXRQQArC2juHnkYt1BDIROy+k3zerYv8XRSyYnW7mWQTrpNBuhaA/Bh46xNHFDo7JhW9I/2FKmgIQVqKAi5CFaq5Nmv4g7wax+F+j97bOXueCr2
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Mk1VTW9JOVd3ZUJiMFBobWNvOHZ6T3BaK1BFb1Q1bS9lYUh5WW9iMmc4eXhC?=
- =?utf-8?B?dE1jZUtuTUFCdm9oSStlUzFHbjhZR3c5SWM5dEdUeUMvb0tmdHMxSnNpK1pi?=
- =?utf-8?B?bDJlUmVicGpvQnQwMnQ5VWN4Q1NPU1NZak5zUnBlZGVuZ0hMVDJtcEp3OGYx?=
- =?utf-8?B?YTRaUmpueXZZZFBpSXI1TmJPV2t0dEtLaWY5QmtqNlY3UlJvbWp1NTB3eEJI?=
- =?utf-8?B?TTVSUEY4dWwrdFlicDBvTEhrLzlMKzNZMWNDTHNNY1lVZDQrZ2hQSTUxTi8r?=
- =?utf-8?B?R1JRQUN5S2luT3NoMy9vQ1RzbTl4NGE2SmtHelVQbyt4TDk1bHVEWnNvWmJO?=
- =?utf-8?B?cU1LcG0wTWlwRnNiOS9EMDZhWHJVNnZnNU5IMzAxZjlobnlvN2hHdlVJUzla?=
- =?utf-8?B?OG9yK0RwbEVaRzd4NkdIT1J5UTJCVFZvNnBRYlJzU1h0WFVwQlpHdFRraERo?=
- =?utf-8?B?eHltNzJweFN4dDQyMlVMdnhSd1dBMUJyNEpTNlpTTVVVekJ3WmEzVHV1Qk5E?=
- =?utf-8?B?N3ZpV244UzV5Wm50UytDc2lPajZ1SEQ3Uis2d2hoSGtQYUpBd3FzckNOcDZP?=
- =?utf-8?B?MTJrME5oTjdIODlrMHpCdU1peWx3ejJEL0dSak82K0hvRWg1VFgyZ1BXd1JX?=
- =?utf-8?B?VUo5c2phRnYwbTZubG10Mm9FMi9sbnp3aWhoRXRUQks2Zi9oeHVqUjFFeVRH?=
- =?utf-8?B?UTdoTFVaWHhpc2E2cWRUb2c4UVZjbjBEcGQyc0JqUnNXWnNuL2l5WWxlZ09F?=
- =?utf-8?B?OG5NZGY0dnNJMTNZSUlpUDROVkwzWlpnSkZhTWxod2V4cXhGSDJReVhFSUF6?=
- =?utf-8?B?QXJnT3VDbS9MdEtKaEgxYnNVM1M1Z0JuUnVvbVY2TXMra3g5VW0yYnR0UVVa?=
- =?utf-8?B?S1lJU2wvUTN1dHZHbmpHV05ScmVjRjYxTW5vUThDdTlObGQrNVlxSHAwa0hZ?=
- =?utf-8?B?UndyNFZ1T3VpYXVhakdaY2M1dU5tVXRIMGI4dnZKTFkxdFVYbWllSk9TcVdw?=
- =?utf-8?B?MUQreURLYnB1b0VuR0xtam16RmJiYUU1UlVSOGtMTUdFeFNTNk9pTnQ1cTda?=
- =?utf-8?B?bUxxUThKNGZNNzRHdlgwRkJ6K2k2cmloWWlOLy95ZVdVVTdFMFN5cVNacVNJ?=
- =?utf-8?B?dTRUZld5QnVFNDdPZG5HT2tYdjNQd3JNN3FIaWxTbkhTeWZTQXBuUzYxdW4y?=
- =?utf-8?B?cHk2dUczOEJTYStMVWJSNHY3NWNxOFR1bXdJVTlGRUxERWlSZmlQUndDb2sv?=
- =?utf-8?B?QzdqMnN2VS9DLy9RcjhSSmFIMmdhL2dFYzhSR3lmNmRsbmxsdjZ2UTBaWHFq?=
- =?utf-8?B?Qk5JL1FPQWtOOUoyZHdqVDB6V1IrNW81SmN3cUxPNUlQZnZMVFV6cWs5YnZI?=
- =?utf-8?B?VW04dUVsOHRaZTFEc1V2WVhLZlIzaXZOOWh5RHNKTk03Q2h0MzljQUJ6RmlJ?=
- =?utf-8?B?eERNS0NaajM3UzBwdmNIckhDZTBpZnBocVlYOU5LaWJMTGFmdmdKNU9UdS9G?=
- =?utf-8?B?ZjhvVkVaUE43bnpIbCtod3RFdU9lUzN5bnNPZXVtU3IvbUQyQUtuVm1QRFgx?=
- =?utf-8?B?UmZ0ODZIRGc0L1UxZ2Y5WmFPbDJOTERiZm1JUm5JTUxxRVM2WVNjc3AvNjBC?=
- =?utf-8?B?VEd0NHdLSlZZWWlRZVIwVDRHck0xQkk1N0tncThFUWNDKzJDWk5HVjVmQmtU?=
- =?utf-8?Q?q2MVy0Z3ThqSM7DwgwXO?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c0f22a8-1f3e-4c6a-cddc-08dc47e7e4f8
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2024 07:40:50.0948
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PNXP287MB0031
+In-Reply-To: <20240318030649.10413-3-ziv.xu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240319_004116_275336_DEF959ED 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20240319_011912_733986_917CB8FA 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,65 +79,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============8977864677511153060=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thank you Stephen for your carefully check and comments, I will improve 
-the code according to your inputs.
 
-I have some additional explanations for two of these points.
+--===============8977864677511153060==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="YezK/PMoxPe85t3w"
+Content-Disposition: inline
 
-On 2024/3/9 10:11, Stephen Boyd wrote:
 
-[......]
+--YezK/PMoxPe85t3w
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
->> +
->> +/*
->> + * Below array is the total combination lists of POSTDIV1 and POSTDIV2
->> + * for example:
->> + * postdiv1_2[0] = {2, 4, 8}
->> + *           ==> div1 = 2, div2 = 4 , div1 * div2 = 8
->> + * And POSTDIV_RESULT_INDEX point to 3rd element in the array
->> + */
->> +#define        POSTDIV_RESULT_INDEX    2
->> +static int postdiv1_2[][3] = {
-> const? And move it to the function scope.
->
->> +       {2, 4,  8}, {3, 3,  9}, {2, 5, 10}, {2, 6, 12},
->> +       {2, 7, 14}, {3, 5, 15}, {4, 4, 16}, {3, 6, 18},
->> +       {4, 5, 20}, {3, 7, 21}, {4, 6, 24}, {5, 5, 25},
->> +       {4, 7, 28}, {5, 6, 30}, {5, 7, 35}, {6, 6, 36},
->> +       {6, 7, 42}, {7, 7, 49}
-> It may be better to make it a struct with named members because I have
-> no idea what each element means.
-I plan to add some comments to explain the meaning of this array member. 
-This array is only used in this function, and I think it is somewhat 
-unnecessary to define a structure specifically for it. Adding some 
-comments will help everyone understand better.
+On Mon, Mar 18, 2024 at 11:06:48AM +0800, Ziv Xu wrote:
 
-[......]
+> +static int jh7110_timer_start(struct jh7110_clkevt *clkevt)
+> +{
+> +	int ret;
+> +
+> +	/* Disable and clear interrupt first */
+> +	writel(JH7110_TIMER_INT_DIS, clkevt->base + JH7110_TIMER_INT_MASK);
+> +	ret = jh7110_timer_int_clear(clkevt);
 
->> +
->> +/*
->> + * Common data of clock-controller
->> + * Note: this structure will be used both by clkgen & sysclk.
->> + * @iobase: base address of clock-controller
->> + * @regmap: base address of clock-controller for pll, just due to PLL uses
->> + *  regmap while others use iomem.
->> + * @lock: clock register access lock
->> + * @onecell_data: used for adding providers.
->> + */
->> +struct sg2042_clk_data {
->> +       void __iomem *iobase;
-> Why not use a regmap for the iobase as well?
-I plan to unify it as iomem. Anyway, just use one method should be fine.
+The return value here is not checked/used.
 
-[......]
+> +	writel(JH7110_TIMER_INT_ENA, clkevt->base + JH7110_TIMER_INT_MASK);
+> +	writel(JH7110_TIMER_ENA, clkevt->base + JH7110_TIMER_ENABLE);
+> +
+> +	return 0;
+> +}
 
+--YezK/PMoxPe85t3w
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZflKeAAKCRB4tDGHoIJi
+0iiAAP9eFKT0Wvg9p6zbDBpV0eN1dqOCx6nUB2Ukf5DY1ap3LQEA5MjriVvzPk0/
+gnnyHqu05K8r0itRDk0eHc7kHO+3mws=
+=dyH+
+-----END PGP SIGNATURE-----
+
+--YezK/PMoxPe85t3w--
+
+
+--===============8977864677511153060==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8977864677511153060==--
+
