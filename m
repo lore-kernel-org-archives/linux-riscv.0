@@ -4,120 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5350FC54E60
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 05:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 689C5C54E5D
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 07:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x66TS1C5Wb4YBjcdPranmrac9SFEphqluefQf69bgPk=; b=hJS8squ+3rw4Fz
-	ZTSB+tS2VI7yxdAZ4pF6/lKM6LqdZoEPPVbzRWWSdbsmPHN5DN+jadkq5bSPtE4U+hVaoj/YyCzuE
-	jVeBhz/McujQwrJf6y4Baw7ICt0zBax90Q2f2lBmw5j6jFQh184xOrXzUEAwIjc+l0KG+eMrnb082
-	elo2zQNFVI/2qjDhg5TZ4mLMcO1H4/BkQoZkCx/8XncANIpWFSCkPFjc9mN+tySbMa8ABNT+aOqOG
-	f1PDA6WrMYjigvt01Mh7Otuzul2js+RbSDeQ/jLIM0nPgGeUFbokb0x6xK22dtf+KSm8ex5SGyF1z
-	XktTqSruEx245PjHLvRg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JDGBj7lC+liEkiEfeBRcZyvp/paCVTrMQ7RZ7RVHgNk=; b=WABAbHWWPSeqyCDTuvXquO6rPo
+	/SwHNHDl/fqdVlhDnqCjajZAKABftcZRywwSAg9NpG0KZx7JT7OXkUe5iwUWLHDj6jbIU1JBZDdak
+	/g28kaZVXeqoRAz7bjxl1y24eAyB51H+T2gogiEQlUBpk128fbHKhU9d4P1D/8D07/qYPhTlY97mZ
+	C+2pp23RKAdS0MVeQESasC8aGjI9rkc9al/e5cyRf/CKhaPKpqhl8PEaSb+12MqK+Z00V8o6tIg5/
+	MRnvxJIMvdN4jv9AnWgNtgI0WB9o0aUPK8uKKa8viIe1vglrcBEK4nogmAZfwHw6Bvd9I7Kz1DlfR
+	1DYbFGXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmS6A-0000000BLsD-2WCS;
-	Tue, 19 Mar 2024 05:33:18 +0000
-Received: from mail-dm6nam10olkn2080d.outbound.protection.outlook.com ([2a01:111:f400:7e88::80d] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1rmU63-0000000BjuJ-1HRO;
+	Tue, 19 Mar 2024 07:41:19 +0000
+Received: from mail-bmxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281c::800] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmS67-0000000BLqi-2dwA
+	id 1rmU60-0000000Bjsa-0wuw
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Mar 2024 05:33:17 +0000
+	Tue, 19 Mar 2024 07:41:17 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=EzaFh13L0B7dLrqv8n5qf25qTOSDju4LTCagaT8IRpgU3gzO24bEKY7YegMkOHyt5+dNOYLWArkgvYZTH+3ezLV3HUp7Bp3R65Yo+nRV9YKNN+G7csnMyURagmnNyp5N/sCzXjwJTYSuq4kqaRmJOnNFv+18KzD0zJV9bDLPhv4UJcbNNhvRTnzDRfvbqrCrB4IdH+UrswDCHLrLBgvbNlsvf1Vwsq2yEy4T9R9KYuJSpPYMCQDecq0X8Lv6k9e0/Gcqm64AkEvHq7ktw7AlHpiJVUVpQKr9GWW7pPMUFC7N5bg4M0zMPFBIzQQlqs+SEwpYMQ5Lvejcnj0xOqxm0w==
+ b=KKIrV+94bQOX5HMuKYXkTWS9EkWYaN9Q9hF0NV9StgAxWAb6qJZFWz22WqU2cRATB58Dnmz72+ps6h3zxmxZl0Yk9UhDd7ixOMRZz/uAG5BizIymOqX0qzJwRrnadatRTyLZA8ddkUOG+Sdp69OI1nMqoOIWio8V/PfDWUX9NY3A7lrUW/+8qVUxQHa9D2FAKU9y9zxCZ0urSsjEtKoLYOj4Aexek7riclAyRhz6LOKK8ZlxwaTO8UQaS8xXiEbZZ0kmfWoBfeypZtjXJNG5TEHzoo1sMikIo4Twe3KbH/oi8IYxQocKU8p+wtqkDrbhpDh/HJtx19tQzhmGVF/UQQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2pzSXMvMxmDREZqw9DAgybS1ThNkia+PvrD/hiD34xE=;
- b=mje42qsRBRNtnavC1Hn8xPVUiTSHU2WkeoQmyBMxWE3fGr+hC6IINDZRW60N2YQYBnjVGtBxN+Qtj4zg6E58hsSXZjyAk13CeyiQuk1Yn3RTq6BLy9s0ATssWedqIWL/YJ9nyuzbtTUKvL2X1yE/kujSSAWld8TPITkobTwOhqjK6EAluxjxG/pjr8N8SSmUGPbW82IEtm4REnCXTyLO8HPDkvmU3wj6EmeKyI9VpYPYo0BhgP06U3o5rN+ga7sGfd1d6HEOmakadOC7b/9wn3YxQ3AqanbAuYdxBdWVBYF6QF6SMcAf7LwJuhD7vlU2SUvSmyAwjHWn8vgeEQdiFA==
+ bh=gONtz0GRW7/gri2iNvD60/GuVLuc01EbZ7qvr5+H8ZA=;
+ b=bnoNsst9RGZmF3i/NUt4lTjSHGPQ9TySRz+mT7XrEjPIKMO4mZGxEk0lBoHUu5RSe1+iLUbkVIhFeSvNahzYhF1hxQGHHwIu7h5wiquq9OrjF219VQyW4czMxQcN0UW2oBAVjNdR0QenUct/ZPNt53B5o1Ax96j5GLcmjChWcT2E+V57Q3UCJTtMHLokqxVQExt4dMlR7OU5o/i20vNcuSFHfjGxZtnTGt9i3ft+QE47LVpqPNIV+ou7nEcFLW+p+2EhTZClf68VAvtHmEbwBiQnYHRLxcoIlv0WVQbOCw52irNCrUkh7hmc7KwMG8h0x46f9As5rRUL7jnYfxawvQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2pzSXMvMxmDREZqw9DAgybS1ThNkia+PvrD/hiD34xE=;
- b=bsLd++f1P572R1ww3aDlTxfxEgZYearFwB5IJ7pIi9cT7+vHe3ta6irpzdKe2NdtNgc+L2p2zFDNZyQL8ws/qgAt1L/p74uNv/bkyuBBV+APCGhm5Uyd9oSdaAWb2U7E5907wXWLTieEF3F2wtroy9SWgRiijY6npPeTXanHV3u4Y/CZel3d0QEbKPoE0yxej3bc3z/6yWSQ3G607L7QwfuPZKcxoCxnxyw0lvvzwkxI2vCy4bJhZiHIsGlkawuuC+wedjirqZYYjMxHMjuG8o6AkO5WNgN4JLEJUi+1lDflGkYbCAg2Ve3GdkTIZ+ggqjTGSsP8dMqxY2ISZ6aThA==
-Received: from PH7PR20MB4962.namprd20.prod.outlook.com (2603:10b6:510:1fa::6)
- by SJ2PR20MB6973.namprd20.prod.outlook.com (2603:10b6:a03:569::9) with
+ bh=gONtz0GRW7/gri2iNvD60/GuVLuc01EbZ7qvr5+H8ZA=;
+ b=XYmddN3vMPeoPkMSIgvV6JGtkwd6RZHm2GSB6TMIuFocNDDe+LILt03mys9NO/VeDmUyAhjH7RFH2x5iUqBsDghzt43p0fQixX6CBbLy8Tc9Tm3e1RSo8hFlyG4htYaNnBsso+bFtSpxEC8azWRvCfd8cdpVNkYFFocek2MgfHHLO3TF7gBirXvHze5mqo7bf4N2dVws0vy2VlIHVT+yvNSgRat007Y7P0NrzQYVs4y45CjhTy7Pl1imt1irPwCLbe4G8epRzDFiTkQ91Aw7P0+dNe+DRDHxvw/55CCEOhaNugOKlpCYX0Y2e6jp3WtCd+9p/P9l/HPq0cEPqvSPEA==
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
+ by PNXP287MB0031.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:c0::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.28; Tue, 19 Mar
- 2024 05:33:07 +0000
-Received: from PH7PR20MB4962.namprd20.prod.outlook.com
- ([fe80::4719:8c68:6f:34ff]) by PH7PR20MB4962.namprd20.prod.outlook.com
- ([fe80::4719:8c68:6f:34ff%6]) with mapi id 15.20.7386.025; Tue, 19 Mar 2024
- 05:33:07 +0000
-Date: Tue, 19 Mar 2024 13:32:49 +0800
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Samuel Holland <samuel.holland@sifive.com>, 
-	Inochi Amaoto <inochiama@outlook.com>, Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>, 
-	Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org, dmaengine@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v4 1/4] dt-bindings: dmaengine: Add dmamux for
- CV18XX/SG200X series SoC
-Message-ID: <IA1PR20MB49539643F7428873280318D4BB2C2@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB49536DED242092A49A69CEB6BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB49532DE75E794419E58F9268BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <29f468c5-1aaa-4326-8088-e03a1d6b7174@sifive.com>
- <IA1PR20MB495363835DD4C6B0EA2DA224BB2C2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <b4863d37-2182-479d-8ca2-79951badfb8d@sifive.com>
-Content-Disposition: inline
-In-Reply-To: <b4863d37-2182-479d-8ca2-79951badfb8d@sifive.com>
-X-TMN: [jg+8a4V8CIGjyuLtW3x61MhHPxw9qfxvsa5QdxXrYDw=]
-X-ClientProxiedBy: TYCP301CA0002.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:400:386::20) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <oe72iikfepnp7y3r2soomwchreoh2xp6z7l5m2bskrka4zso37@rcb4xv2hgygo>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.29; Tue, 19 Mar
+ 2024 07:40:51 +0000
+Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::1bd4:64d4:daf5:ae42]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ ([fe80::1bd4:64d4:daf5:ae42%3]) with mapi id 15.20.7386.023; Tue, 19 Mar 2024
+ 07:40:51 +0000
+Message-ID: <MA0P287MB28227C169B0DFB16B1AC762DFE2C2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
+Date: Tue, 19 Mar 2024 15:40:46 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 4/5] clk: sophgo: Add SG2042 clock driver
+To: Stephen Boyd <sboyd@kernel.org>, Chen Wang <unicornxw@gmail.com>,
+ aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org,
+ devicetree@vger.kernel.org, guoren@kernel.org, haijiao.liu@sophgo.com,
+ inochiama@outlook.com, jszhang@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ richardcochran@gmail.com, robh+dt@kernel.org, samuel.holland@sifive.com,
+ xiaoguang.xing@sophgo.com
+References: <cover.1708397315.git.unicorn_wang@outlook.com>
+ <d7c74c2cfa410850c044ff2879720db06c2f8272.1708397315.git.unicorn_wang@outlook.com>
+ <47a83f766c85481b73c6e6dd3759d4d9.sboyd@kernel.org>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <47a83f766c85481b73c6e6dd3759d4d9.sboyd@kernel.org>
+X-TMN: [A3Cr4AZvhbYTRJRmg1jpqPysGDLJNTXQ]
+X-ClientProxiedBy: SI2PR02CA0038.apcprd02.prod.outlook.com
+ (2603:1096:4:196::22) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:138::5)
+X-Microsoft-Original-Message-ID: <d00faf47-80b2-4e2c-ad65-00654a95d5ef@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR20MB4962:EE_|SJ2PR20MB6973:EE_
-X-MS-Office365-Filtering-Correlation-Id: 88a38285-efda-4b53-ac0e-08dc47d604ba
+X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PNXP287MB0031:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5c0f22a8-1f3e-4c6a-cddc-08dc47e7e4f8
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 8vqeE2HVIIDOgxEGy+II/NUuDJo6i4oA++1S+iUFdedv58XDd+h4hxhMUmJ+UOgg0VghE0ds5QnVr4ficdaJLMWHfYhH9viqq8JL0gbFBMKlcxJClkhoB9fl9KnSBCzgJjpYp6MSn1BkQHJpYO5MeASlmgsOtjKYXP2zk27JyfxPyjXkxViF+E+gmHLVd5wiLud3FzB2qyGffDLr326uT94zCYLJjBE6XrLuZTVDcW3rbuuGu4AmNmokNgJUECerPuAcix/l5OWkqavfDvXlKeO/SXLCsRelsirC4efKJnTBZZWTzg8ruvJac/wk+GYxqyiW03qSoqCZTUgjN0lH/Dh886ZwnIHxaIJc8A2IFFwhSXhazTHTRZ+bSVkhomfpsB4mTzM7auBied+yls+TYpkBg9CJHRQfA7kbjPSRJsiQegaZdSFHxPGhfGiaYChG3xTQYBCaaSigIrQ9zPhpyeid5DYwaHKZ2zWFF25blkIqOCBE6O9i9s4jmK/MXT8NN6BpDIv5kQmtHamw7UCHgXyzu+8+gWXGL5MbLd4gyGoqvcwccMIbcB0vXMjNNAKf1vgAevo3OEwOD8JfHsoiS7SVYWv2BsF+zazxNoY5je1z7Rtcz3P7xkbXy93Abqyq+M0vVK1+EY1pEPxNhdNY4l04Is+n0EZ0mMsdnvYepuAPFbZfwT0f22NJ33H3x3S9Nbb/+oSNNM4h5i5F4Zrlrw==
+X-Microsoft-Antispam-Message-Info: s1PYnEZFe7P1mfvb1a12viYf1xdlNFl/dqoBt4VNO9IQ+QdXgSVvqSiIaSdbM7moeRZlS4RPOPjm1WHLiZ6aIaZIjH0rMIuX0YHM7Bca8ADB824Tvbt9CZfSMny1uQ1G4iU4FWZZ763HDMUjpaDTjOJr9t8Z6w518ziZjAh/00hRU76x4IqWG0RmtJjOfr9zohMZz3teD1mplVIqKu4Jb81oCN6BFqJQB6xy4iZEUKG8axVsdjvI5GgOr73+cpBd6oGmwxxajoLgvlTPwI8x8WpCOwjb6H0wQqX6HEp28BThfAdw+TnJJ1+s08Ueta+5ps9yb7AAroXyM/LrAWPXoY/jzNRM9qHgQYdlWScXD+dGWX6vBXgMBumN2j2pY/XGNrkgEY1RR3tk1ATtVrGiusr7ZZeEUvuzqfD9y0XZ+nnAcLbiT/zRAY6Iiz4qMJA0avSFPZt05qlalhO7wDXRQQArC2juHnkYt1BDIROy+k3zerYv8XRSyYnW7mWQTrpNBuhaA/Bh46xNHFDo7JhW9I/2FKmgIQVqKAi5CFaq5Nmv4g7wax+F+j97bOXueCr2
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bOlyurMDFNXHnUGFrC70wo3DFPzoDfDP1+qZ2W73YFymSkLYQ6MiADjy+NFT?=
- =?us-ascii?Q?j4i4rfX4u86S9T3zSvQWtWzKN2HujvzuznO900ZY3m2MtvR5z1+39Zd5tMVe?=
- =?us-ascii?Q?qMjxfaDD2R7eyht6CSemDdPukHijBDY8EXEDTqrNqCXsvcDFlOOVdGsRKpoe?=
- =?us-ascii?Q?zt6vHtJZ0WwgfIXpKfxfeMQR2v8TRpPUDN1waywxFVszpQyf265FXi1sQUOM?=
- =?us-ascii?Q?ZJKSV8pP4tHb2l1GWg9oyTqI8PNwOgBhWt9yKaWNeqdrPXx789EI1gPg9ZmM?=
- =?us-ascii?Q?Wl3BdBkIeslDqwlnpYQCWw8nKy+a15e6+wXHHTxZRyFWNSTVd/9ufK1LDgJy?=
- =?us-ascii?Q?HaaVyq6dxIqi9/gCNMt7IjQuZeT7Zl/A11iSgXF+A0U4tox3+gI4MqSGa8YX?=
- =?us-ascii?Q?nIcEdUSDjU6Canvq8hiv1SAod9SyTbkUq4prBioAv14/YrqTbTItN8FrNR52?=
- =?us-ascii?Q?NGEfNESxtBkcVlzD4AX1KN+RGPCuHKFMPYQz6M9q8ucSA2QyNyu9HjMPIGJb?=
- =?us-ascii?Q?R+hKmfAgAC9l9GAtsRYFjJ8og2f63i6H89YjaQQ+ppokZLidPZtNqDUlAZaF?=
- =?us-ascii?Q?IftZMil2frqZbGankyPPpQMbCoPoxt4mO9l03q8jxarSk/1clqQHzubVUieS?=
- =?us-ascii?Q?ST5zjD1OHH0zb73rLr/MtUkXIgxyIMOMWQOHyIpOoaotjDqkOmYYOn5r2weP?=
- =?us-ascii?Q?aYEqzMrxaP5Hatg5Cpw19gON8+bJlAgl63H5K0c2aaChb/f/ZL4G7Y7oXwCV?=
- =?us-ascii?Q?o0HGqRNK8T4oYlgN8EuGdIhEqCrPFlyXyYIMSvSJmDdFavNFOteeX9R2sxLG?=
- =?us-ascii?Q?tVSHecbp0q86kMWPRcGfI3UYyesbsubYPzSQ9OpWTNT2anTJ5SRViz50DWMF?=
- =?us-ascii?Q?+b6tbPtoXxHewMXgSOMTLAh4yrCddcmmmau9Z9mtuXtM0ZohTU9+PYkV9zEg?=
- =?us-ascii?Q?95tg3jWBPRXUJMrRqGk5wosKrdgEHIU/SwQ5yseM7NcDOIWOhDpkNONh0JSF?=
- =?us-ascii?Q?g15J9zf4DfkGIpKg3sCRC9YnUuhlRAk+0azGT9X/zedCHl0+oxgfjk/yuB6P?=
- =?us-ascii?Q?RDUJLyZyyet7yBrF4JyLEThaORYes+HJ+EPTGt2ElUV97b23J5Xx57Ze0Czn?=
- =?us-ascii?Q?i8m/q3JfW6aILv8Sl8bFJsSB6rUtMm6norvzzmWnTr0Iw79RDMUgjo6eFVQj?=
- =?us-ascii?Q?4SELfvj2Q/A4gc+kTKvqwILWHMIBsxlhPiQzFrMZzWAyVGDF9PqsMnW9VfNt?=
- =?us-ascii?Q?igtkfQNGnrYb09D7K42l?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Mk1VTW9JOVd3ZUJiMFBobWNvOHZ6T3BaK1BFb1Q1bS9lYUh5WW9iMmc4eXhC?=
+ =?utf-8?B?dE1jZUtuTUFCdm9oSStlUzFHbjhZR3c5SWM5dEdUeUMvb0tmdHMxSnNpK1pi?=
+ =?utf-8?B?bDJlUmVicGpvQnQwMnQ5VWN4Q1NPU1NZak5zUnBlZGVuZ0hMVDJtcEp3OGYx?=
+ =?utf-8?B?YTRaUmpueXZZZFBpSXI1TmJPV2t0dEtLaWY5QmtqNlY3UlJvbWp1NTB3eEJI?=
+ =?utf-8?B?TTVSUEY4dWwrdFlicDBvTEhrLzlMKzNZMWNDTHNNY1lVZDQrZ2hQSTUxTi8r?=
+ =?utf-8?B?R1JRQUN5S2luT3NoMy9vQ1RzbTl4NGE2SmtHelVQbyt4TDk1bHVEWnNvWmJO?=
+ =?utf-8?B?cU1LcG0wTWlwRnNiOS9EMDZhWHJVNnZnNU5IMzAxZjlobnlvN2hHdlVJUzla?=
+ =?utf-8?B?OG9yK0RwbEVaRzd4NkdIT1J5UTJCVFZvNnBRYlJzU1h0WFVwQlpHdFRraERo?=
+ =?utf-8?B?eHltNzJweFN4dDQyMlVMdnhSd1dBMUJyNEpTNlpTTVVVekJ3WmEzVHV1Qk5E?=
+ =?utf-8?B?N3ZpV244UzV5Wm50UytDc2lPajZ1SEQ3Uis2d2hoSGtQYUpBd3FzckNOcDZP?=
+ =?utf-8?B?MTJrME5oTjdIODlrMHpCdU1peWx3ejJEL0dSak82K0hvRWg1VFgyZ1BXd1JX?=
+ =?utf-8?B?VUo5c2phRnYwbTZubG10Mm9FMi9sbnp3aWhoRXRUQks2Zi9oeHVqUjFFeVRH?=
+ =?utf-8?B?UTdoTFVaWHhpc2E2cWRUb2c4UVZjbjBEcGQyc0JqUnNXWnNuL2l5WWxlZ09F?=
+ =?utf-8?B?OG5NZGY0dnNJMTNZSUlpUDROVkwzWlpnSkZhTWxod2V4cXhGSDJReVhFSUF6?=
+ =?utf-8?B?QXJnT3VDbS9MdEtKaEgxYnNVM1M1Z0JuUnVvbVY2TXMra3g5VW0yYnR0UVVa?=
+ =?utf-8?B?S1lJU2wvUTN1dHZHbmpHV05ScmVjRjYxTW5vUThDdTlObGQrNVlxSHAwa0hZ?=
+ =?utf-8?B?UndyNFZ1T3VpYXVhakdaY2M1dU5tVXRIMGI4dnZKTFkxdFVYbWllSk9TcVdw?=
+ =?utf-8?B?MUQreURLYnB1b0VuR0xtam16RmJiYUU1UlVSOGtMTUdFeFNTNk9pTnQ1cTda?=
+ =?utf-8?B?bUxxUThKNGZNNzRHdlgwRkJ6K2k2cmloWWlOLy95ZVdVVTdFMFN5cVNacVNJ?=
+ =?utf-8?B?dTRUZld5QnVFNDdPZG5HT2tYdjNQd3JNN3FIaWxTbkhTeWZTQXBuUzYxdW4y?=
+ =?utf-8?B?cHk2dUczOEJTYStMVWJSNHY3NWNxOFR1bXdJVTlGRUxERWlSZmlQUndDb2sv?=
+ =?utf-8?B?QzdqMnN2VS9DLy9RcjhSSmFIMmdhL2dFYzhSR3lmNmRsbmxsdjZ2UTBaWHFq?=
+ =?utf-8?B?Qk5JL1FPQWtOOUoyZHdqVDB6V1IrNW81SmN3cUxPNUlQZnZMVFV6cWs5YnZI?=
+ =?utf-8?B?VW04dUVsOHRaZTFEc1V2WVhLZlIzaXZOOWh5RHNKTk03Q2h0MzljQUJ6RmlJ?=
+ =?utf-8?B?eERNS0NaajM3UzBwdmNIckhDZTBpZnBocVlYOU5LaWJMTGFmdmdKNU9UdS9G?=
+ =?utf-8?B?ZjhvVkVaUE43bnpIbCtod3RFdU9lUzN5bnNPZXVtU3IvbUQyQUtuVm1QRFgx?=
+ =?utf-8?B?UmZ0ODZIRGc0L1UxZ2Y5WmFPbDJOTERiZm1JUm5JTUxxRVM2WVNjc3AvNjBC?=
+ =?utf-8?B?VEd0NHdLSlZZWWlRZVIwVDRHck0xQkk1N0tncThFUWNDKzJDWk5HVjVmQmtU?=
+ =?utf-8?Q?q2MVy0Z3ThqSM7DwgwXO?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 88a38285-efda-4b53-ac0e-08dc47d604ba
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5c0f22a8-1f3e-4c6a-cddc-08dc47e7e4f8
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2024 05:33:07.3703
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2024 07:40:50.0948
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR20MB6973
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PNXP287MB0031
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240318_223315_766855_B4622272 
-X-CRM114-Status: GOOD (  44.12  )
+X-CRM114-CacheID: sfid-20240319_004116_275336_DEF959ED 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,217 +134,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 18, 2024 at 11:27:37PM -0500, Samuel Holland wrote:
-> Hi Inochi,
-> 
-> On 2024-03-18 11:03 PM, Inochi Amaoto wrote:
-> > On Mon, Mar 18, 2024 at 10:22:47PM -0500, Samuel Holland wrote:
-> >> On 2024-03-18 1:38 AM, Inochi Amaoto wrote:
-> >>> The DMA IP of Sophgo CV18XX/SG200X is based on a DW AXI CORE, with
-> >>> an additional channel remap register located in the top system control
-> >>> area. The DMA channel is exclusive to each core.
-> >>>
-> >>> Add the dmamux binding for CV18XX/SG200X series SoC
-> >>>
-> >>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> >>> Reviewed-by: Rob Herring <robh@kernel.org>
-> >>> ---
-> >>>  .../bindings/dma/sophgo,cv1800-dmamux.yaml    | 47 ++++++++++++++++
-> >>>  include/dt-bindings/dma/cv1800-dma.h          | 55 +++++++++++++++++++
-> >>>  2 files changed, 102 insertions(+)
-> >>>  create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
-> >>>  create mode 100644 include/dt-bindings/dma/cv1800-dma.h
-> >>>
-> >>> diff --git a/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml b/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
-> >>> new file mode 100644
-> >>> index 000000000000..c813c66737ba
-> >>> --- /dev/null
-> >>> +++ b/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
-> >>> @@ -0,0 +1,47 @@
-> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >>> +%YAML 1.2
-> >>> +---
-> >>> +$id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
-> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >>> +
-> >>> +title: Sophgo CV1800/SG200 Series DMA mux
-> >>> +
-> >>> +maintainers:
-> >>> +  - Inochi Amaoto <inochiama@outlook.com>
-> >>> +
-> >>> +allOf:
-> >>> +  - $ref: dma-router.yaml#
-> >>> +
-> >>> +properties:
-> >>> +  compatible:
-> >>> +    const: sophgo,cv1800-dmamux
-> >>> +
-> >>> +  reg:
-> >>> +    maxItems: 2
-> >>> +
-> >>> +  '#dma-cells':
-> >>> +    const: 3
-> >>> +    description:
-> >>> +      The first cells is DMA channel. The second one is device id.
-> >>> +      The third one is the cpu id.
-> >>
-> >> There are 43 devices, but only 8 channels. Since the channel is statically
-> >> specified in the devicetree as the first cell here, that means the SoC DT author
-> >> must pre-select which 8 of the 43 devices are usable, right? 
-> > 
-> > Yes, you are right.
-> > 
-> >> And then the rest
-> >> would have to omit their dma properties. Wouldn't it be better to leave out the
-> >> channel number here and dynamically allocate channels at runtime?
-> >>
-> > 
-> > You mean defining all the dma channel in the device and allocation channel
-> > selectively? This is workable, but it still needs a hint to allocate channel.
-> 
-> I mean allocating hardware channels only when a channel is requested by a client
-> driver. The dmamux driver could maintain a counter and allocate the channels
-> sequentially -- then the first 8 calls to cv1800_dmamux_route_allocate() would
-> succeed and later calls from other devices would fail.
-> 
-> > Also, according to the information from sophgo, it does not support dynamic 
-> > channel allocation, so all channel can only be initialize once.
-> 
-> That's important to know. In that case, the driver should probably leave the
-> registers alone in cv1800_dmamux_free(), and then scan to see if a device is
-> already mapped to a channel before allocating a new one. (Or it should have some
-> other way of remembering the mapping.) That way a single client can repeatedly
-> allocate/free its DMA channel without consuming all of the hardware channels.
-> 
+Thank you Stephen for your carefully check and comments, I will improve 
+the code according to your inputs.
 
-Yes, this is needed.
+I have some additional explanations for two of these points.
 
-> > There is another problem, since we defined all the dmas property in the device,
-> > How to mask the devices if we do not want to use dma on them? I have see SPI
-> > device will disable DMA when allocation failed, I guess this is this mechanism
-> > is the same for all devices?
-> 
-> I2C/SPI/UART controller drivers generally still work after failing to acquire a
-> DMA channel. For audio-related drivers, DMA is generally a hard dependency.
-> 
-> If each board has 8 or fewer DMA-capable devices enabled in its DT, there is no
-> problem. If some board enables more than 8 DMA-capable devices, then it should
-> use "/delete-property/ dmas;" on the devices that would be least impacted by
-> missing DMA. Otherwise, which devices get functional DMA depends on driver probe
-> order.
-> 
-> Normally you wouldn't need to do "/delete-property/ dmas;", because many drivers
-> only request the DMA channel when actively being used (e.g. userspace has the
-> TTY/spidev/ALSA device file open), but this doesn't help if you can only assign
-> each channel once.
-> 
+On 2024/3/9 10:11, Stephen Boyd wrote:
 
-That is the problem. It is hard when the register can be only write once.
-It may be better to let the end user to determine which device wants dma. 
-I will do some more reverse engineering to check whether it is possible
-to do a remap, And at least for now, I will implement the basic mechanisms.
-Thanks for your explanation.
+[......]
 
-> Regards,
-> Samuel
-> 
-> >>> +
-> >>> +  dma-masters:
-> >>> +    maxItems: 1
-> >>> +
-> >>> +  dma-requests:
-> >>> +    const: 8
-> >>> +
-> >>> +required:
-> >>> +  - '#dma-cells'
-> >>> +  - dma-masters
-> >>> +
-> >>> +additionalProperties: false
-> >>> +
-> >>> +examples:
-> >>> +  - |
-> >>> +    dma-router {
-> >>> +      compatible = "sophgo,cv1800-dmamux";
-> >>> +      #dma-cells = <3>;
-> >>> +      dma-masters = <&dmac>;
-> >>> +      dma-requests = <8>;
-> >>> +    };
-> >>> diff --git a/include/dt-bindings/dma/cv1800-dma.h b/include/dt-bindings/dma/cv1800-dma.h
-> >>> new file mode 100644
-> >>> index 000000000000..3ce9dac25259
-> >>> --- /dev/null
-> >>> +++ b/include/dt-bindings/dma/cv1800-dma.h
-> >>> @@ -0,0 +1,55 @@
-> >>> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> >>> +
-> >>> +#ifndef __DT_BINDINGS_DMA_CV1800_H__
-> >>> +#define __DT_BINDINGS_DMA_CV1800_H__
-> >>> +
-> >>> +#define DMA_I2S0_RX		0
-> >>> +#define DMA_I2S0_TX		1
-> >>> +#define DMA_I2S1_RX		2
-> >>> +#define DMA_I2S1_TX		3
-> >>> +#define DMA_I2S2_RX		4
-> >>> +#define DMA_I2S2_TX		5
-> >>> +#define DMA_I2S3_RX		6
-> >>> +#define DMA_I2S3_TX		7
-> >>> +#define DMA_UART0_RX		8
-> >>> +#define DMA_UART0_TX		9
-> >>> +#define DMA_UART1_RX		10
-> >>> +#define DMA_UART1_TX		11
-> >>> +#define DMA_UART2_RX		12
-> >>> +#define DMA_UART2_TX		13
-> >>> +#define DMA_UART3_RX		14
-> >>> +#define DMA_UART3_TX		15
-> >>> +#define DMA_SPI0_RX		16
-> >>> +#define DMA_SPI0_TX		17
-> >>> +#define DMA_SPI1_RX		18
-> >>> +#define DMA_SPI1_TX		19
-> >>> +#define DMA_SPI2_RX		20
-> >>> +#define DMA_SPI2_TX		21
-> >>> +#define DMA_SPI3_RX		22
-> >>> +#define DMA_SPI3_TX		23
-> >>> +#define DMA_I2C0_RX		24
-> >>> +#define DMA_I2C0_TX		25
-> >>> +#define DMA_I2C1_RX		26
-> >>> +#define DMA_I2C1_TX		27
-> >>> +#define DMA_I2C2_RX		28
-> >>> +#define DMA_I2C2_TX		29
-> >>> +#define DMA_I2C3_RX		30
-> >>> +#define DMA_I2C3_TX		31
-> >>> +#define DMA_I2C4_RX		32
-> >>> +#define DMA_I2C4_TX		33
-> >>> +#define DMA_TDM0_RX		34
-> >>> +#define DMA_TDM0_TX		35
-> >>> +#define DMA_TDM1_RX		36
-> >>> +#define DMA_AUDSRC		37
-> >>> +#define DMA_SPI_NAND		38
-> >>> +#define DMA_SPI_NOR		39
-> >>> +#define DMA_UART4_RX		40
-> >>> +#define DMA_UART4_TX		41
-> >>> +#define DMA_SPI_NOR1		42
-> >>> +
-> >>> +#define DMA_CPU_A53		0
-> >>> +#define DMA_CPU_C906_0		1
-> >>> +#define DMA_CPU_C906_1		2
-> >>> +
-> >>> +
-> >>> +#endif // __DT_BINDINGS_DMA_CV1800_H__
-> >>> --
-> >>> 2.44.0
-> >>>
-> >>>
-> >>> _______________________________________________
-> >>> linux-riscv mailing list
-> >>> linux-riscv@lists.infradead.org
-> >>> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> >>
-> 
+>> +
+>> +/*
+>> + * Below array is the total combination lists of POSTDIV1 and POSTDIV2
+>> + * for example:
+>> + * postdiv1_2[0] = {2, 4, 8}
+>> + *           ==> div1 = 2, div2 = 4 , div1 * div2 = 8
+>> + * And POSTDIV_RESULT_INDEX point to 3rd element in the array
+>> + */
+>> +#define        POSTDIV_RESULT_INDEX    2
+>> +static int postdiv1_2[][3] = {
+> const? And move it to the function scope.
+>
+>> +       {2, 4,  8}, {3, 3,  9}, {2, 5, 10}, {2, 6, 12},
+>> +       {2, 7, 14}, {3, 5, 15}, {4, 4, 16}, {3, 6, 18},
+>> +       {4, 5, 20}, {3, 7, 21}, {4, 6, 24}, {5, 5, 25},
+>> +       {4, 7, 28}, {5, 6, 30}, {5, 7, 35}, {6, 6, 36},
+>> +       {6, 7, 42}, {7, 7, 49}
+> It may be better to make it a struct with named members because I have
+> no idea what each element means.
+I plan to add some comments to explain the meaning of this array member. 
+This array is only used in this function, and I think it is somewhat 
+unnecessary to define a structure specifically for it. Adding some 
+comments will help everyone understand better.
+
+[......]
+
+>> +
+>> +/*
+>> + * Common data of clock-controller
+>> + * Note: this structure will be used both by clkgen & sysclk.
+>> + * @iobase: base address of clock-controller
+>> + * @regmap: base address of clock-controller for pll, just due to PLL uses
+>> + *  regmap while others use iomem.
+>> + * @lock: clock register access lock
+>> + * @onecell_data: used for adding providers.
+>> + */
+>> +struct sg2042_clk_data {
+>> +       void __iomem *iobase;
+> Why not use a regmap for the iobase as well?
+I plan to unify it as iomem. Anyway, just use one method should be fine.
+
+[......]
+
 
 _______________________________________________
 linux-riscv mailing list
