@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA27CCD11DD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA240C6FD1F
 	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 21:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ilMoEC+uRHnhokm+vGp4faT+VMpuS66v+tw/+y045Ys=; b=NqCjY+LQ+cB7zX
-	/tmPz+gjRrcKOeYDnxbrjPYkm2WMaKg3qjUPNIL5QPQG67/8Jg5z4bmPVAReUlG5pSKSGj9U4C0rm
-	iB+JZFUh5kl8Q4v4cqupTkVKFmkqr1sFnErM3uMPsyjT+huSBsPyU2736hfPi/hiBeEiSX/InHFMU
-	cOTgUX3OSHYW79fCL7EdoBMcV5roYOOoF2cx2z2kUd1ljjEmcvCD+nIkewJTZsElP6ykk8CnaT4qW
-	//WDrp8mOwIAaWwzmlRiW2/ZokbeWB/cL6lK+4VQv1QSqzPWdEMIuuVU5Zvr1a/r8j1sATZHXSCf7
-	4OZkAyZW1cWX6K/cO3uQ==;
+	List-Owner; bh=CoX5bqjstk0sdAD5+6gSm+uGVxJS5mGu5tjYL5LyQEY=; b=iJ7stJfP16hLzc
+	ruNmt6LJ7Y85qbCjF6uPVbXErgFDwENxvyDm53wMFINCbeEje2D2nfa6vBb6VFNvJ7axL5b7SJTjO
+	hLlVnL+hUMDlb2qc5q82pa0+R/RfJ/OYmak4fDO0JEATz/gOeIAbySjG+POZ4bgdpN0rp6Qn6TGPD
+	I2Z5EpuDmdz5/8CmrxtJXkcyyycWeUT3t4hgFQOyoOdnjf6O+gqSsklKWpwxv1gOLNXLsFRAM4vmV
+	EjrjscF9PkdWYNCPzJceh3o73+SjRuAEHJ3V7W86Y5UNIBVXkY7J3C90gTInvH5sUAzgzd7Y8qjzq
+	hhki/q23vI/hxGzFAYgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmhUc-0000000EMlP-37PS;
-	Tue, 19 Mar 2024 21:59:34 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1rmhUa-0000000EMkE-3Hxy;
+	Tue, 19 Mar 2024 21:59:32 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmhUV-0000000EMh0-2LNY
+	id 1rmhUT-0000000EMew-2Zyq
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Mar 2024 21:59:28 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-6e6f6d782e4so4001062b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 14:59:27 -0700 (PDT)
+	Tue, 19 Mar 2024 21:59:27 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-6e6f6d782e4so4000995b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 14:59:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1710885567; x=1711490367; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1710885562; x=1711490362; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5y8ITBc9KMnXCgtx77FHcE1LkP6cPCkee9IZD/0lAIU=;
-        b=lHAyxCKEMomcOIHhpEQ5jzppiCLOx3dPcKOIYH3Is90u3z3TxTYlf3zNCuZqUmCOgu
-         6Zplox9h6+eZW51+PsD5U1Hb2tFbi6tEb3UUKz2J15G2xlReOHXSBbJePQ4UeQsN/NWU
-         xRoc70ic2ioYG7oNe0JfmrpyB9hx8esqYe23fTUZ/gv1SLIbTct570GRp1aRWvxv9ohE
-         MbyaZYrDgUZBMBcgDtSZ5biD2M/8o0XR/uwEmkPbtTsMQ/B4jWTSll51d5XESUFz4cjZ
-         GsBJsQ+Uctgp79cKSKVODm7t3LrKg6ROvOHkV90o1rKkvWcQaJwIhTgzO/OWHmzrlKgV
-         lbyw==
+        bh=ciVO7+10eZV72+E/ORaPRZFjospVEi/8CuyB7rGS1wk=;
+        b=HFcEpbhTDIzPhffKUK2gFsLkt//X+eo5dTnQ1bDy7WkFpKXT4f6wLVbp1NTUcr+xd7
+         kW3Le5ViqEq0pMguzDqmm8plzHLxMZ4FLxeld85/ig8W2MznT/nJlDpKoOnr8mCuSVaB
+         LU1//TGFLFIc0tYyRn9XATwS7oNlipH3APtLaRDSZF/5Mk5kZ7WsriX2g82m++sOvpXX
+         Jk4902vHJI6Fu1eElUvGJp1Pl0L0n78LGCfZRT8moBXbcf8cKLyosgp0A413TSf/NMgz
+         pr4c7f1B7UPb5RVUxRNinpbz0MkilZntqtveukzveOxM/T5ZrJNmE20Y5WyXwxSENjlX
+         h+5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710885567; x=1711490367;
+        d=1e100.net; s=20230601; t=1710885562; x=1711490362;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5y8ITBc9KMnXCgtx77FHcE1LkP6cPCkee9IZD/0lAIU=;
-        b=N0JMf436pCObpc7IV9VRaFcOJZXglnvK+vwROf1z4ULO1idU1A8fFtj6HYdTwgnZZ/
-         a9YeEVeePm74XZI9fK3SZTfQPCGndXLMlnuc+CFGUpg+f35oXSDIxg1XrcMKv3rujA9J
-         84/I2USgj/oygO5tNGctSLycf4/3P/nCH8n29HuHfe0DfOAxCgLaTVYrXe44DSCPvLDA
-         8kuIlzbE4iKLHBSz8iTq0Wu3SLO7cUGnnOULc1OOEko3QdD8tEcMoDeR1YipW0hswAmj
-         0nT9+DQHTCn/rph+c6mIIyZgn3WMmsHEJn9GtVOIR2I5PwYk0WXPqvQTSJauSRXdlTMK
-         uaiw==
-X-Forwarded-Encrypted: i=1; AJvYcCV7w7BLb+JgNpMLzKoGcUM9d3deQMzlxoTpJ25TYEdf1mCCjCUePjETTT7fUuVp3wAQPYVH0aYlZhkd3ToqzxcOWkK2Tw69ehKTbdrNjIhB
-X-Gm-Message-State: AOJu0YycQDVF3mPU8QKTy9i1lHIBh+uhEVW86/OGCsAXlFI3jYpuvAkm
-	2Xu7bEHDeRHOI8FHmteVzuJTL8jBdsYNCPa/haFAD2GavKOyyWz7LcPcQAdsNtI=
-X-Google-Smtp-Source: AGHT+IHUdXawCkbimlLWn+n2NYwUpCHwdCxYmf1G6S225P30rVgH1guDbncjMramMLIp2vM31iLyBg==
-X-Received: by 2002:a05:6a20:3942:b0:1a3:2f9e:b0da with SMTP id r2-20020a056a20394200b001a32f9eb0damr14091704pzg.23.1710885567124;
-        Tue, 19 Mar 2024 14:59:27 -0700 (PDT)
+        bh=ciVO7+10eZV72+E/ORaPRZFjospVEi/8CuyB7rGS1wk=;
+        b=NnHBy2q8rDXAM/7MZZIfrL067bPDdoNoNAySINMfbiaP2JCwh7g7YCW9U+DWRBIJxt
+         qsB/uNzanzyTtDsSDg/PLUFjShz8SWr2PuJNK8+L6fGk5ToWvRB22PTfVsaHDJx0Vp/K
+         44+4t4BLjhf0gI4VL8u6jx/ZXvoCkdgA9STEVqrIUYRvVdkMaZBvvbAKGf+XSOdcQGt+
+         Fuh2V6/gYLyl+MEYphElDPghY88MaUy6rr9PM9YDL4xVJVCkgVIDKjUJtvg8LEaAca5j
+         GiSFIfCC0GS9akU5mqPD2A5N5DYRSFAsZgy4KXODiUX1jvAh/nXjo3zZGXOdDSaWxBTT
+         khzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUODhjsXOsyYufibSW/ciZy06n5+G9as5/WBIbiAAbOj3pAJXoc5SfBldIf2FK6v1CHWnOb7o3yuB0b7/DuWyq9YjkcGsPxtPqLOGe6bTuk
+X-Gm-Message-State: AOJu0YxKDnhfEBTM0djDFOZ5m//2x2c+Gt6Ek46TjhPVvU7TEN07nOzS
+	1QJ5ybhG45nYxezKVfUnexMz7U4GkL6lsWoS90rPhPUiD5/cu/L4Q5lTRYE2zm8=
+X-Google-Smtp-Source: AGHT+IFywIvk95HmWYC1ps8ZiAyORSpJBD5fZsHjoqcZoqHYlw5bVo0KamFA/Wgvuncr3jxrfpyfUQ==
+X-Received: by 2002:a05:6a00:721c:b0:6e6:fcd4:4f44 with SMTP id lk28-20020a056a00721c00b006e6fcd44f44mr11479878pfb.16.1710885561953;
+        Tue, 19 Mar 2024 14:59:21 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id z25-20020aa785d9000000b006e6c61b264bsm10273892pfn.32.2024.03.19.14.59.26
+        by smtp.gmail.com with ESMTPSA id z25-20020aa785d9000000b006e6c61b264bsm10273892pfn.32.2024.03.19.14.59.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Mar 2024 14:59:26 -0700 (PDT)
+        Tue, 19 Mar 2024 14:59:21 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
@@ -76,19 +76,19 @@ Cc: devicetree@vger.kernel.org,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Rob Herring <robh+dt@kernel.org>,
 	Samuel Holland <samuel.holland@sifive.com>,
-	Alejandro Colomar <alx@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [RFC PATCH 8/9] riscv: Allow ptrace control of the tagged address ABI
-Date: Tue, 19 Mar 2024 14:58:34 -0700
-Message-ID: <20240319215915.832127-9-samuel.holland@sifive.com>
+Subject: [RFC PATCH 4/9] riscv: Define is_compat_thread()
+Date: Tue, 19 Mar 2024 14:58:30 -0700
+Message-ID: <20240319215915.832127-5-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.43.1
 In-Reply-To: <20240319215915.832127-1-samuel.holland@sifive.com>
 References: <20240319215915.832127-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240319_145927_633247_349470A3 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20240319_145925_726838_88965E7D 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,94 +105,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This allows a tracer to control the ABI of the tracee, as on arm64.
+This allows checking if some thread other than current is 32-bit.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
- arch/riscv/kernel/ptrace.c | 42 ++++++++++++++++++++++++++++++++++++++
- include/uapi/linux/elf.h   |  1 +
- 2 files changed, 43 insertions(+)
+ arch/riscv/include/asm/compat.h | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index e8515aa9d80b..3d414db2118b 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -28,6 +28,9 @@ enum riscv_regset {
- #ifdef CONFIG_RISCV_ISA_V
- 	REGSET_V,
- #endif
-+#ifdef CONFIG_RISCV_ISA_POINTER_MASKING
-+	REGSET_TAGGED_ADDR_CTRL,
-+#endif
- };
+diff --git a/arch/riscv/include/asm/compat.h b/arch/riscv/include/asm/compat.h
+index 2ac955b51148..233c439c12d7 100644
+--- a/arch/riscv/include/asm/compat.h
++++ b/arch/riscv/include/asm/compat.h
+@@ -12,11 +12,18 @@
+ #include <linux/sched/task_stack.h>
+ #include <asm-generic/compat.h>
  
- static int riscv_gpr_get(struct task_struct *target,
-@@ -152,6 +155,35 @@ static int riscv_vr_set(struct task_struct *target,
++#ifdef CONFIG_COMPAT
++
+ static inline int is_compat_task(void)
+ {
+ 	return test_thread_flag(TIF_32BIT);
  }
- #endif
  
-+#ifdef CONFIG_RISCV_ISA_POINTER_MASKING
-+static int tagged_addr_ctrl_get(struct task_struct *target,
-+				const struct user_regset *regset,
-+				struct membuf to)
++static inline int is_compat_thread(struct thread_info *thread)
 +{
-+	long ctrl = get_tagged_addr_ctrl(target);
-+
-+	if (IS_ERR_VALUE(ctrl))
-+		return ctrl;
-+
-+	return membuf_write(&to, &ctrl, sizeof(ctrl));
++	return test_ti_thread_flag(thread, TIF_32BIT);
 +}
 +
-+static int tagged_addr_ctrl_set(struct task_struct *target,
-+				const struct user_regset *regset,
-+				unsigned int pos, unsigned int count,
-+				const void *kbuf, const void __user *ubuf)
-+{
-+	int ret;
-+	long ctrl;
-+
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &ctrl, 0, -1);
-+	if (ret)
-+		return ret;
-+
-+	return set_tagged_addr_ctrl(target, ctrl);
-+}
-+#endif
-+
- static const struct user_regset riscv_user_regset[] = {
- 	[REGSET_X] = {
- 		.core_note_type = NT_PRSTATUS,
-@@ -182,6 +214,16 @@ static const struct user_regset riscv_user_regset[] = {
- 		.set = riscv_vr_set,
- 	},
- #endif
-+#ifdef CONFIG_RISCV_ISA_POINTER_MASKING
-+	[REGSET_TAGGED_ADDR_CTRL] = {
-+		.core_note_type = NT_RISCV_TAGGED_ADDR_CTRL,
-+		.n = 1,
-+		.size = sizeof(long),
-+		.align = sizeof(long),
-+		.regset_get = tagged_addr_ctrl_get,
-+		.set = tagged_addr_ctrl_set,
-+	},
-+#endif
+ struct compat_user_regs_struct {
+ 	compat_ulong_t pc;
+ 	compat_ulong_t ra;
+@@ -126,4 +133,13 @@ static inline void cregs_to_regs(struct compat_user_regs_struct *cregs,
+ 	regs->t6	= (unsigned long) cregs->t6;
  };
  
- static const struct user_regset_view riscv_user_native_view = {
-diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-index 9417309b7230..90806024fed6 100644
---- a/include/uapi/linux/elf.h
-+++ b/include/uapi/linux/elf.h
-@@ -447,6 +447,7 @@ typedef struct elf64_shdr {
- #define NT_MIPS_MSA	0x802		/* MIPS SIMD registers */
- #define NT_RISCV_CSR	0x900		/* RISC-V Control and Status Registers */
- #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
-+#define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control (prctl()) */
- #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
- #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
- #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
++#else
++
++static inline int is_compat_thread(struct thread_info *thread)
++{
++	return 0;
++}
++
++#endif
++
+ #endif /* __ASM_COMPAT_H */
 -- 
 2.43.1
 
