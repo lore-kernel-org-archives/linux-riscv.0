@@ -4,76 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC23FCD11C2
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 15:36:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D8E6CD11C2
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 15:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=COCGuJaN++rlxQddTnOQSODxYF73gM4fnySbaKZhFic=; b=xRHUE2N8lPhkMKnWhQbYH3da9R
-	7sfxcyKO6AcWO3mx/sBeo8aXidXpggsTK1jME5pWoBtxHmPP2bdW81IkCPJqg+k6P5anFVloqyYPG
-	u+fLC6UjVQm6jDPl2dIMSSbiOqbQGTrLnU1Al9Yih+UUEGYRgypYAvmJZi0pptY/k6I2VcdSQUWjb
-	6t3YQenHHiDqqiQ6XGcaJPY/xtBwcbcSvl7G5N1zIma9UETUFeWu0BjNmei3UuoZiZth3hNSuIA+Y
-	Ip9T3hqnTsL44Dt0JMsYznpmftI0ZvLTLpx7yArS1UARwksxhznbMoXnm357vS8xAj5w1aPq4Z/Wo
-	MN2Lrd0g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nwmsF/1cGvfqBT2er+Ph3UPn9Bq9p0E7QrKneMmQkXI=; b=LBzQIO1Evq458x
+	i6iIwsH7pkEl1zuaHjgA7GOUsk5GFgWIkkvPf+5txJ8wNLhRS6ZqRKvFpTmk1jGqtZeeq/4a1gE7i
+	V49VBvOJC0iS92zByMjPc0S/QkkSZMvLo7AgumpAtRRVE1VtZ/1ITk3nnHhX6fBPp2Q3xNjX673uE
+	19nooxhRYZyLJgfkLMiUVCuBgjF//C1eIVHiQhzyX6MkL9JeHrsJchFa34VrRd/tlDnsXJBLYki82
+	FWAtmNQni9UeGVmhpPbAQ30xYgfKf1TOk75WimKRsamUqm1IrAud4bBbyso3E7HlhL5e/M+a32n4l
+	OQ5qYEFc/6OLTomH75oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmbVi-0000000DAxM-49EO;
-	Tue, 19 Mar 2024 15:36:19 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rmbZb-0000000DBlA-0ORZ;
+	Tue, 19 Mar 2024 15:40:19 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmbVe-0000000DAvP-1DIJ;
-	Tue, 19 Mar 2024 15:36:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 2C2B3CE0B2A;
-	Tue, 19 Mar 2024 15:36:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 166CCC433C7;
-	Tue, 19 Mar 2024 15:36:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1710862571;
-	bh=iJAPd0ipgicMGkX908976IS76z5XVjMBR9B+vqhfqwM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aZWtxxc0N8p6XpThgis/oJTvcVjOgG3ysNYcC7PRucqRbFVV7uGpuvqto9Tok6sOx
-	 4Xdu4LWMHD1GMf5DlMjvIlJWSASbeXwNMcZkGIPQOXVn8PFWMv8Tg2/qmatpJpOKQO
-	 pMyefMot3kDOunfPYkxRdZbhYW8XwvSq7XwlEDf5+4TxXfhZ46RTfkw3+IMJKksVRt
-	 r+nDh/imSASMmvhLIHu3pDzpw2Y14UMlQQTzQSWLyCihbpBS5Ob0P5CDIHEUTnDaCU
-	 6cCOtZUq0ENGfQ1tzlPYk/XV7+cTHO6rkaODFtgooBzxq969dLMUnFqi8XfLx0VXVg
-	 CVMN5SUfYeznA==
-Date: Tue, 19 Mar 2024 15:36:05 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Atish Patra <atishp@rivosinc.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Qingfang Deng <dqfext@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] perf: RISC-V: fix IRQ detection on T-Head C908
-Message-ID: <20240319-underfoot-dispense-dc30ea860e7c@spud>
-References: <IA1PR20MB4953ECC3E32E95303872CD14BB242@IA1PR20MB4953.namprd20.prod.outlook.com>
- <CALW65jZ+q8sDiRKgsRL9n+939HNUCnkKuO=YJjHB5Js=WYQeOg@mail.gmail.com>
- <20240312-evil-resource-66370b68b9b4@spud>
- <IA1PR20MB4953CE8999960BA71B46DE6CBB2A2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20240315-73aa13079ef83a4559869084@orel>
- <2de56d8b-bc78-428b-9c09-4729b269fa41@rivosinc.com>
- <20240318-such-animal-bf33de12dc3a@spud>
- <4bdaaff1-13ec-48c2-b165-6a8255784aef@rivosinc.com>
- <20240319-worry-video-66589b3ed8ae@spud>
- <20240319-3e72d732cbf2fcf1cb81f968@orel>
+	id 1rmbZV-0000000DBir-1RNZ
+	for linux-riscv@lists.infradead.org;
+	Tue, 19 Mar 2024 15:40:16 +0000
+Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
+	by smtp-out1.suse.de (Postfix) with ESMTP id 69C7137A2C;
+	Tue, 19 Mar 2024 15:40:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1710862805; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=TZWTavSqBaUZhtUPGIn6VRcLs9MngZ5lHHdh7u0xSfg=;
+	b=arHKAD1FkoFGB6DuKK/caMfG/tbgO7uis+wBO1AHhMEaAbAwMnCpJYVOzzUlQuYQnw+UXv
+	fd40OS3Al0K6+OMdWIHNIoY78nFTaTzGWDiv33nsPP/8i0xROZrUA2l74HPpoXcvwQGKf9
+	v3Bfos+N1AFuSLKsgplKn1wrw5xjIr4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1710862805;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=TZWTavSqBaUZhtUPGIn6VRcLs9MngZ5lHHdh7u0xSfg=;
+	b=8GBMOv7AI2fiiopC4Bpxd2hpDZONoE47VCPtAqpU8eOsUan3108BL72gjTDkSYOddADQ6c
+	h+hYJVqHaYR5RPDw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1710862805; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=TZWTavSqBaUZhtUPGIn6VRcLs9MngZ5lHHdh7u0xSfg=;
+	b=arHKAD1FkoFGB6DuKK/caMfG/tbgO7uis+wBO1AHhMEaAbAwMnCpJYVOzzUlQuYQnw+UXv
+	fd40OS3Al0K6+OMdWIHNIoY78nFTaTzGWDiv33nsPP/8i0xROZrUA2l74HPpoXcvwQGKf9
+	v3Bfos+N1AFuSLKsgplKn1wrw5xjIr4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1710862805;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=TZWTavSqBaUZhtUPGIn6VRcLs9MngZ5lHHdh7u0xSfg=;
+	b=8GBMOv7AI2fiiopC4Bpxd2hpDZONoE47VCPtAqpU8eOsUan3108BL72gjTDkSYOddADQ6c
+	h+hYJVqHaYR5RPDw==
+Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
+	id 59FBA4AA2BF; Tue, 19 Mar 2024 16:40:05 +0100 (CET)
+From: Andreas Schwab <schwab@suse.de>
+To: linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Yunhui Cui <cuiyunhui@bytedance.com>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v2] riscv: use KERN_INFO in do_trap
+X-Yow: Dehydrated EGGS are STREWN across ROULETTE TABLES..
+Date: Tue, 19 Mar 2024 16:40:05 +0100
+Message-ID: <mvmy1aegrhm.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-In-Reply-To: <20240319-3e72d732cbf2fcf1cb81f968@orel>
+X-Spamd-Result: default: False [-1.19 / 50.00];
+	 ARC_NA(0.00)[];
+	 FROM_HAS_DN(0.00)[];
+	 TO_DN_SOME(0.00)[];
+	 TO_MATCH_ENVRCPT_ALL(0.00)[];
+	 NEURAL_HAM_LONG(-1.00)[-0.995];
+	 MIME_GOOD(-0.10)[text/plain];
+	 RCPT_COUNT_FIVE(0.00)[6];
+	 DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	 NEURAL_HAM_SHORT(-0.06)[-0.291];
+	 DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email];
+	 FUZZY_BLOCKED(0.00)[rspamd.com];
+	 RCVD_COUNT_ZERO(0.00)[0];
+	 FROM_EQ_ENVFROM(0.00)[];
+	 MIME_TRACE(0.00)[0:+];
+	 MID_RHS_MATCH_FROM(0.00)[];
+	 BAYES_HAM(-0.03)[56.71%]
+Authentication-Results: smtp-out1.suse.de;
+	none
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240319_083614_715697_D9931714 
-X-CRM114-Status: GOOD (  55.83  )
+X-CRM114-CacheID: sfid-20240319_084013_566046_011A1765 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,185 +106,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6583806811621876294=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Print the instruction dump with info instead of emergency level.  The
+unhandled signal message is only for informational purpose.
 
---===============6583806811621876294==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0VH/cmxy7ZfdZ7Pd"
-Content-Disposition: inline
+Fixes: b8a03a634129 ("riscv: add userland instruction dump to RISC-V splats")
+Signed-off-by: Andreas Schwab <schwab@suse.de>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+v2: clarify commit message
+---
+ arch/riscv/kernel/traps.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-
---0VH/cmxy7ZfdZ7Pd
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Mar 19, 2024 at 02:39:21PM +0100, Andrew Jones wrote:
-> On Tue, Mar 19, 2024 at 09:06:34AM +0000, Conor Dooley wrote:
-> > On Mon, Mar 18, 2024 at 05:48:13PM -0700, Atish Patra wrote:
-> > > On 3/18/24 16:48, Conor Dooley wrote:
-> > > > On Mon, Mar 18, 2024 at 03:46:54PM -0700, Atish Patra wrote:
-> >=20
-> > > > > For 2.b, either we can start defining pseudo extensions or adding
-> > > > > vendor/arch/impid checks.
-> > > > >=20
-> > > > > @Conor: You seems to prefer the earlier approach instead of addin=
-g the
-> > > > > checks. Care to elaborate why do you think that's a better method=
- compared
-> > > > > to a simple check ?
-> > > >=20
-> > > > Because I don't think that describing these as "errata" in the first
-> > > > place is even accurate. This is not a case of a vendor claiming they
-> > > > have Sscofpmf support but the implementation is flawed. As far as I
-> > > > understand, this is a vendor creating a useful feature prior to the
-> > > > creation of a standard extension.
-> > > > A bit of a test for this could be "If the standard extension never
-> > > > existed, would this be considered a new feature or an implementation
-> > > > issue". I think this is pretty clearly in the former camp.
-> > > >=20
-> > >=20
-> > > So we have 3 cases.
-> > >=20
-> > > 1. Pseudo extension: An vendor extension designed and/or implemented =
-before
-> > > the standard RVI extension was ratified but do not violate any standa=
-rd
-> > > encoding space.
->=20
-> The vendor should name these extensions themselves.
->=20
-> > >=20
-> > > 2. Erratas: An genuine bug/design issue in the expected behavior from=
- a
-> > > standard RVI extension (including violating standard encoding space)
->=20
-> More on this below, but I think vendors should name these too.
-
-Yah, both of these the vendor /should/ name it themselves but I don't
-want some set in stone /must/ that locks someone who is not the vendor
-=66rom upstreaming.
-
-> > > 3. Vendor extension: A new or a variant of standard RVI extension whi=
-ch is
-> > > different enough from standard extension.
-> > >=20
-> > > IMO, the line between #2 and #1 may get blurry as we going forward be=
-cause
-> > > of the sheer number of small extensions RVI is comping up with (which=
- is a
-> > > problem as well).
->=20
-> The line between #1 and #2 is blurry because the only difference is the
-> original intentions. The end result is that a vendor has implemented
-> something that resembles a standard extension, but is not the same as the
-> standard extension.
-
-Aye, a large part of this is definitely based on intent. Or maybe
-marketing rather than intent, but the two aren't all that different
-as the public may not be privy to which it actually is.
-
-I think you're missing a factor though - when the difference is
-discovered. Equating #1 and #2 is fine when that difference is known
-when the platform is originally supported, but if the divergence between
-what's implemented and the spec is only discovered down the line...
-
-> > All this stuff is going to be pretty case-by-case (to begin with at
-> > least) so I'm not too worried about that sort of abuse.
->=20
-> Case-by-case is reasonable, since it's probably too strict to always
-> require new names. We can consider each proposed workaround as they
-> come, but it's a slippery slope once workarounds are accepted.
-
-=2E.. I think that means that having some workarounds are inescapable
-really. Some sort of workaround could then be only way fix the problem
-without a firmware update. That workaround might be triggered by the
-m*id CSRs or it could be based on the firmware's SBI implemenation
-or version IDs.
-When it's something that never worked at all or was discovered early,
-then ye equate the two.
-
-> > > Just to clarify: I am not too worried about this particular case as w=
-e know
-> > > that T-head's implementation predates the Sscofpmf extension.
-> > > But once we define a standard mechanism for this kind of situation, v=
-endor
-> > > may start to abuse it.
-> >=20
-> > How do you envisage it being abused by a vendor?
-> > Pre-dating the standard extension does make this one fairly clear-cut,
-> > but are you worried about people coming along and claiming to implement
-> > XConorSscofpmf instead of Sscofpmf rather than suffer the "shame" of a
-> > broken implementation?
->=20
-> Other than the concern of the ballooning bitmap, I'd prefer this approach.
-> If a vendor has implemented some extension which happens to be "almost
-> Sscofpmf", then whether it was implemented before the Sscofpmf spec
-> existed, or after, isn't really important. What's important is that it's
-> only "almost Sscofpmf" and not _exactly_ Sscofpmf, which means it should
-> not use the Sscofpmf extension name.
-
-One of the reasons I keep bringing up when things were created prior to
-the creation of Sscofpmf (and I guess the fact that the vendor never
-claims to support Sscofpmf) is to highlight that we are not looking at
-at one of these edge cases where we're only discovering that there's an
-implementation issue on these CPUs that we need to work around silently.
-
-> Since vendors are allowed to create
-> their own XVendor names, then that shouldn't be a problem. Indeed, the
-> abuse concern seems to be in the opposite direction, that vendors will
-> try to pass off almost-standard extensions as standard extensions by
-> trying to get workarounds into Linux. Maybe Linux policy should be to
-> simply reject workarounds to extensions, requiring vendors to create new
-> names instead.
-
-I'd be inclined to agree (although there's gonna be some exceptions as I
-mention above) - but it's easy for me to say that given I want people to
-use riscv,isa-extensions on the DT side which cites specific versions of
-extensions that a device is compliant with.
-If people have issues with riscv,isa in DT, I'm can take a bit of a "oh
-it doesn't work with riscv,isa? Tough shit, that's why we made the new
-properties." approach and push people into new names.
-
-With ACPI, I have absolutely no idea how you police any of that. The way
-the code works rn is that both DT properties and ACPI share the exact
-same extension "names". Obviously it doesn't need to be that way, but it
-is handy. I'm kinda derailing here, but how would we map names to exact
-features in ACPI land? When I last read the ACPI stuff it was very
-non-specific and the kernel documentation
-(Documentation/riscv/acpi.rst) cites a specific version of the ISA
-manual that provides no information (and I guess never will?) about
-vendor extensions.
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index a1b9be3c4332..142f5f5168fb 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -121,7 +121,7 @@ void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
+ 		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
+ 		pr_cont("\n");
+ 		__show_regs(regs);
+-		dump_instr(KERN_EMERG, regs);
++		dump_instr(KERN_INFO, regs);
+ 	}
+ 
+ 	force_sig_fault(signo, code, (void __user *)addr);
+-- 
+2.44.0
 
 
-
---0VH/cmxy7ZfdZ7Pd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZfmw5QAKCRB4tDGHoIJi
-0hIFAQCLs0NzjXYCJ/7zHMUgLco1spswubzbUNYZ2TShM6HgeAEA8boGBFDNeYr/
-8ekwlpES68ZwZP3Ja9cCRqx+LolSPgw=
-=CklJ
------END PGP SIGNATURE-----
-
---0VH/cmxy7ZfdZ7Pd--
-
-
---===============6583806811621876294==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6583806811621876294==--
-
