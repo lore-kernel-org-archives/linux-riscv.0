@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86625C54E60
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 03:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EE5C54E60
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 03:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hptriBBpBoa6Ilx/yF66m2iPMSHMgdjt/qbkUnsgBHQ=; b=Pi+zq0ML45zyO2
-	Is1VYh9Kh27KQhbgOQ7ZH3azEn7IGLApURfeNMGkGxVSsomiQqPlmOM4xMzpH5ioO5Rqf56kdY6vF
-	JjBKr17G9I2ABir5tnluMubTWFvzaJ/4pFe6Y9bIw0LdY40VPjMgJ0hD0LDE50j3dDnLMO7xGmrUh
-	qMXtxN/4Y9o/QfwwvVHeukTlIyPHM6HPe5CyruJBmlksUdvtKm7C4SNB4zjDEEp+wiSUEtroGO9Ua
-	DGn8rxRJbOQx+obQilxs1jL10X7Q2JsyQSI7J/gaWH+4wAQl69oAw2A9xf4sqCoVzyRVC4LUDZeim
-	EQjD54GKlXeFhmf8jiZQ==;
+	List-Owner; bh=4gXAQ3iBLQlIju2VPRdY6qaJqWwNHSgHy1yJwYDbKC8=; b=fsteT7JD0HTem1
+	RpfcOdxlyV2jb+g5cDsF1IpAiy6UALBuutuz17+XFikXHSpq6oOmyz4rN8Z6wzdt9IGVkf4nR1ju8
+	IH3gWqutL1/B2gKIlNtweLltjoGzBEYtQjJAQII/Q00lPUEf7QUYPGdFBn7MBKE3Bx0jmnM9YYk8g
+	jvdLncYAYkoJA4MgRsve431p8z34beJ5Fag6QEEbjMQ2njtYypMj/3iMqP718yHU/At09Ntxlk46+
+	xm17O3PGacUnmC3+AhM82+3tULFOPePAotOrG9EepVnZNIidhfRe3d+ltywharcNdTBUGLk7mrZEH
+	kxlXM5/5gL8rtaviAyCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmQGn-0000000B69z-2hOV;
-	Tue, 19 Mar 2024 03:36:09 +0000
-Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
+	id 1rmQYh-0000000B8YB-2Kfo;
+	Tue, 19 Mar 2024 03:54:39 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmQGj-0000000B68v-1w5F
+	id 1rmQYd-0000000B8XF-3d4V
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Mar 2024 03:36:07 +0000
-Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-366e0d79cf3so6842505ab.0
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2024 20:36:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1710819364; x=1711424164; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PoILBoe//KVPW1Y8tmEvAG+XkFT1iDwcYoIgG3ixCPU=;
-        b=kB1tWOTEjFdiKf14SoXOfXhccl4v4voGquOQx98JCRmt6cxFbh6B7Qe59Ng9bE3Zhi
-         Wl1LibY8q4u5Shew/gygre6VtRBkrRbKs8xM2uQrLptaL950pytuDFFIj4F0jEYN/aBx
-         yo0LdvB8/J9A33wzgXzhkfZWzutkbLe/00maIwaG9jqLMgpN6NadmzKsap9Uqu7KBvXn
-         oxepXZY1lZHXeCWL0PkHADCuTqSoikJ849xsNT0X9340aDG0jq8VZb5+GvVCO2QWQx74
-         mpDu64IrMyU12BJEfgp0T5c4DAyo9gLO6EF/SpIu+9RZaCDkswQr5AZFwX4w5v0FxQT4
-         7Fig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710819364; x=1711424164;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PoILBoe//KVPW1Y8tmEvAG+XkFT1iDwcYoIgG3ixCPU=;
-        b=XfbKG+uUziifhyGn87TnSmnT4ThPgQ8t1fdzC7lBFhEvuPcKk62KGTmLgg38lPkJmZ
-         +3CiBcaOECyK+6e71wUWthYYb76XU9fojroIQTCktOk9VjhI1ga0o1IpkWs8S/h4pPzB
-         eHmT55S2/yu8pVCcZMyrGbnVpsJ8i1i3WAV7s93EPM/0cfBIHYiiC36xktHWtvdNGCt3
-         4C8Eu/I0vdNjligZfgsEokuIslbaitLpC+h52sqkwzJo/M8woYjZ4nDzVJCHAE1+Jbid
-         FPhghbG7c75VECnac50oPkz6gw0mcvDPQLQkPsUixbH4Fy22gH3aH5sfwp+RwysW4rJD
-         eA6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX9rD5LR61nFa7djsXOQtJXaj5VKvMKzcZYY1mI0plp9FS17pOg07yG/CaaU47dMi3kvW3VQXoMG2Jjwwdef19kI46HIpVZix3mkZO1Bt9k
-X-Gm-Message-State: AOJu0YxKHSAAQBD1Cm0efMYAQJOVKjeNC6QhojIqvAKOpkUp8I0SVR97
-	MWXW9tltkRG6GMksIl8JO4dtS0gMAG4/8C/TE9rmQ3G5Gaa7klnHXYfpVKihaPo=
-X-Google-Smtp-Source: AGHT+IGUnS9HGEO7xlGdfqCPY6g7i3+V8E6dv/rN+WqWNaVT/dUYtdS3/p5LTDvg5Jpl5hA4qWwf1g==
-X-Received: by 2002:a6b:d917:0:b0:7ce:f8fc:e096 with SMTP id r23-20020a6bd917000000b007cef8fce096mr545938ioc.9.1710819363721;
-        Mon, 18 Mar 2024 20:36:03 -0700 (PDT)
-Received: from [100.64.0.1] ([136.226.86.189])
-        by smtp.gmail.com with ESMTPSA id t27-20020a6b5f1b000000b007cbf94d8698sm2336618iob.4.2024.03.18.20.36.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Mar 2024 20:36:03 -0700 (PDT)
-Message-ID: <6d901851-ad57-4ba0-8503-076a0d3e430c@sifive.com>
-Date: Mon, 18 Mar 2024 22:36:01 -0500
+	Tue, 19 Mar 2024 03:54:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 9DDB4CE0A36
+	for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 03:54:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCF8BC433C7
+	for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 03:54:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1710820470;
+	bh=/XkrawLqG2i47PS72vOgp+3FbB6mD7ygQqFf/7AMfjw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=jcyxTowYYzfrv4rpE0FqqexZohD/qnSrpgxqXaF/gpAt/03gHwAvDD90PTE8yWe3R
+	 0kEPFDGtKioXB/mM4BsAgcTxonG2ZDAAT7rtKxD5haafvtL2eaMPC1c0k6vSuvk1jB
+	 CrRZekiBRqi6HkRED/x66q2+Ju/GS24+VGW/NHvBkI3vXyEqeXD6ZQEyVi0jOQ/NNC
+	 D77pDqnuzrzYfVN7vkifhvRS68XiTjUqdxT0Y6HriXR05AgRRizNuuWLN8xMTpfJCh
+	 /DnYX8kj6wa2yb5SjRoKB6o3FO7aFN+IAyhXIkuMxIXpVeO54vKnTuxSWpG+SkxXnt
+	 suLNbuPVBJoKw==
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-563cb3ba9daso5707551a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2024 20:54:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW5Aq374gMiqsN3kwZ23yEq6BKLBF+fs6KJ1byfG+EJv+X9yeETl+lzQwPuUZe/aeCjkvMLSSkxtmdKRNEYvnrVkwnF15SuVxclXG20vKli
+X-Gm-Message-State: AOJu0YxaHbfbmiPdzXsU/7DHcU0qT7KUCeKRlq/fE7/0vDz1C32VJbV8
+	ste8qWfqlx+OWUx4aN/Au1X+TYyZQWkXgu4Z45ozmx2ZCVC85xpoDcaWBOdpThuoVzYuRnqrGXl
+	zu5b3Qn0WIqd0/h359OP++uCnlNU=
+X-Google-Smtp-Source: AGHT+IHULGVOK33jSlydOXp0yUv+oahLhhqOCvIpeWsTZCuGDW/Vx3lvBuGyR+N7M9F6DxqmjpoRLna7CCEpQnR47D8=
+X-Received: by 2002:a05:6402:1cc4:b0:567:f643:fc5c with SMTP id
+ ds4-20020a0564021cc400b00567f643fc5cmr1180305edb.20.1710820469374; Mon, 18
+ Mar 2024 20:54:29 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] dmaengine: add driver for Sophgo CV18XX/SG200X
- dmamux
-Content-Language: en-US
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>,
- Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org,
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-References: <IA1PR20MB49536DED242092A49A69CEB6BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB49533E6C8C18337E5F6519D0BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <IA1PR20MB49533E6C8C18337E5F6519D0BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <20240313085843.17661-1-vladimir.isaev@syntacore.com>
+In-Reply-To: <20240313085843.17661-1-vladimir.isaev@syntacore.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 19 Mar 2024 11:54:17 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSjVKhX4RZKYHo392g56yczg2j6rLUqTqR9GM3i2zOBOw@mail.gmail.com>
+Message-ID: <CAJF2gTSjVKhX4RZKYHo392g56yczg2j6rLUqTqR9GM3i2zOBOw@mail.gmail.com>
+Subject: Re: [PATCH] riscv: hwprobe: do not produce frtace relocation
+To: Vladimir Isaev <vladimir.isaev@syntacore.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	catalin.marinas@arm.com, evan@rivosinc.com, nicolas@fjasle.eu, 
+	tglx@linutronix.de, samitolvanen@google.com, masahiroy@kernel.org, 
+	maskray@google.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Roman Artemev <roman.artemev@syntacore.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240318_203605_563584_2A75EA20 
-X-CRM114-Status: GOOD (  29.95  )
+X-CRM114-CacheID: sfid-20240318_205436_359913_AF63C1EC 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,322 +80,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-03-18 1:38 AM, Inochi Amaoto wrote:
-> Sophgo CV18XX/SG200X use DW AXI CORE with a multiplexer for remapping
-> its request lines. The multiplexer supports at most 8 request lines.
-> 
-> Add driver for Sophgo CV18XX/SG200X DMA multiplexer.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> ---
->  drivers/dma/Kconfig         |   9 ++
->  drivers/dma/Makefile        |   1 +
->  drivers/dma/cv1800-dmamux.c | 232 ++++++++++++++++++++++++++++++++++++
->  3 files changed, 242 insertions(+)
->  create mode 100644 drivers/dma/cv1800-dmamux.c
-> 
-> diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
-> index 002a5ec80620..cb31520b9f86 100644
-> --- a/drivers/dma/Kconfig
-> +++ b/drivers/dma/Kconfig
-> @@ -546,6 +546,15 @@ config PLX_DMA
->  	  These are exposed via extra functions on the switch's
->  	  upstream port. Each function exposes one DMA channel.
-> 
-> +config SOPHGO_CV1800_DMAMUX
-> +	tristate "Sophgo CV1800/SG2000 series SoC DMA multiplexer support"
-> +	depends on MFD_SYSCON
-> +	depends on ARCH_SOPHGO
-> +	help
-> +	  Support for the DMA multiplexer on Sophgo CV1800/SG2000
-> +	  series SoCs.
-> +	  Say Y here if your board have this soc.
-> +
->  config STE_DMA40
->  	bool "ST-Ericsson DMA40 support"
->  	depends on ARCH_U8500
-> diff --git a/drivers/dma/Makefile b/drivers/dma/Makefile
-> index dfd40d14e408..7465f249ee47 100644
-> --- a/drivers/dma/Makefile
-> +++ b/drivers/dma/Makefile
-> @@ -67,6 +67,7 @@ obj-$(CONFIG_PPC_BESTCOMM) += bestcomm/
->  obj-$(CONFIG_PXA_DMA) += pxa_dma.o
->  obj-$(CONFIG_RENESAS_DMA) += sh/
->  obj-$(CONFIG_SF_PDMA) += sf-pdma/
-> +obj-$(CONFIG_SOPHGO_CV1800_DMAMUX) += cv1800-dmamux.o
->  obj-$(CONFIG_STE_DMA40) += ste_dma40.o ste_dma40_ll.o
->  obj-$(CONFIG_STM32_DMA) += stm32-dma.o
->  obj-$(CONFIG_STM32_DMAMUX) += stm32-dmamux.o
-> diff --git a/drivers/dma/cv1800-dmamux.c b/drivers/dma/cv1800-dmamux.c
-> new file mode 100644
-> index 000000000000..b41c39f2e338
-> --- /dev/null
-> +++ b/drivers/dma/cv1800-dmamux.c
-> @@ -0,0 +1,232 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-> + */
-> +
-> +#include <linux/bitops.h>
-> +#include <linux/module.h>
-> +#include <linux/of_dma.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/mfd/syscon.h>
-> +
-> +#include <soc/sophgo/cv1800-sysctl.h>
-> +#include <dt-bindings/dma/cv1800-dma.h>
-> +
-> +#define DMAMUX_NCELLS			3
-> +#define MAX_DMA_MAPPING_ID		DMA_SPI_NOR1
-> +#define MAX_DMA_CPU_ID			DMA_CPU_C906_1
-> +#define MAX_DMA_CH_ID			7
-> +
-> +#define DMAMUX_INTMUX_REGISTER_LEN	4
-> +#define DMAMUX_NR_CH_PER_REGISTER	4
-> +#define DMAMUX_BIT_PER_CH		8
-> +#define DMAMUX_CH_MASk			GENMASK(5, 0)
-> +#define DMAMUX_INT_BIT_PER_CPU		10
-> +#define DMAMUX_CH_UPDATE_BIT		BIT(31)
-> +
-> +#define DMAMUX_CH_SET(chid, val) \
-> +	(((val) << ((chid) * DMAMUX_BIT_PER_CH)) | DMAMUX_CH_UPDATE_BIT)
-> +#define DMAMUX_CH_MASK(chid) \
-> +	DMAMUX_CH_SET(chid, DMAMUX_CH_MASk)
-> +
-> +#define DMAMUX_INT_BIT(chid, cpuid) \
-> +	BIT((cpuid) * DMAMUX_INT_BIT_PER_CPU + (chid))
-> +#define DMAMUX_INTEN_BIT(cpuid) \
-> +	DMAMUX_INT_BIT(8, cpuid)
-> +#define DMAMUX_INT_CH_BIT(chid, cpuid) \
-> +	(DMAMUX_INT_BIT(chid, cpuid) | DMAMUX_INTEN_BIT(cpuid))
-> +#define DMAMUX_INT_MASK(chid) \
-> +	(DMAMUX_INT_BIT(chid, DMA_CPU_A53) | \
-> +	 DMAMUX_INT_BIT(chid, DMA_CPU_C906_0) | \
-> +	 DMAMUX_INT_BIT(chid, DMA_CPU_C906_1))
-> +#define DMAMUX_INT_CH_MASK(chid, cpuid) \
-> +	(DMAMUX_INT_MASK(chid) | DMAMUX_INTEN_BIT(cpuid))
-> +
-> +struct cv1800_dmamux_data {
-> +	struct dma_router	dmarouter;
-> +	struct regmap		*regmap;
-> +	spinlock_t		lock;
-> +	DECLARE_BITMAP(used_chans, MAX_DMA_CH_ID);
-> +	DECLARE_BITMAP(mapped_peripherals, MAX_DMA_MAPPING_ID);
-> +};
-> +
-> +struct cv1800_dmamux_map {
-> +	unsigned int channel;
-> +	unsigned int peripheral;
-> +	unsigned int cpu;
-> +};
-> +
-> +static void cv1800_dmamux_free(struct device *dev, void *route_data)
-> +{
-> +	struct cv1800_dmamux_data *dmamux = dev_get_drvdata(dev);
-> +	struct cv1800_dmamux_map *map = route_data;
-> +	u32 regoff = map->channel % DMAMUX_NR_CH_PER_REGISTER;
-> +	u32 regpos = map->channel / DMAMUX_NR_CH_PER_REGISTER;
-> +	unsigned long flags;
-> +
-> +	spin_lock_irqsave(&dmamux->lock, flags);
-> +
-> +	regmap_update_bits(dmamux->regmap,
-> +			   regpos + CV1800_SDMA_DMA_CHANNEL_REMAP0,
-> +			   DMAMUX_CH_MASK(regoff),
-> +			   DMAMUX_CH_UPDATE_BIT);
-> +
-> +	regmap_update_bits(dmamux->regmap, CV1800_SDMA_DMA_INT_MUX,
-> +			   DMAMUX_INT_CH_MASK(map->channel, map->cpu),
-> +			   DMAMUX_INTEN_BIT(map->cpu));
-> +
-> +	clear_bit(map->channel, dmamux->used_chans);
-> +	clear_bit(map->peripheral, dmamux->mapped_peripherals);
-> +
-> +	spin_unlock_irqrestore(&dmamux->lock, flags);
-> +
-> +	kfree(map);
-> +}
-> +
-> +static void *cv1800_dmamux_route_allocate(struct of_phandle_args *dma_spec,
-> +					  struct of_dma *ofdma)
-> +{
-> +	struct platform_device *pdev = of_find_device_by_node(ofdma->of_node);
-> +	struct cv1800_dmamux_data *dmamux = platform_get_drvdata(pdev);
-> +	struct cv1800_dmamux_map *map;
-> +	unsigned long flags;
-> +	unsigned int chid, devid, cpuid;
-> +	u32 regoff, regpos;
-> +
-> +	if (dma_spec->args_count != DMAMUX_NCELLS) {
-> +		dev_err(&pdev->dev, "invalid number of dma mux args\n");
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	chid = dma_spec->args[0];
-> +	devid = dma_spec->args[1];
-> +	cpuid = dma_spec->args[2];
-> +	dma_spec->args_count -= 2;
-> +
-> +	if (chid > MAX_DMA_CH_ID) {
-> +		dev_err(&pdev->dev, "invalid channel id: %u\n", chid);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	if (devid > MAX_DMA_MAPPING_ID) {
-> +		dev_err(&pdev->dev, "invalid device id: %u\n", devid);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	if (cpuid > MAX_DMA_CPU_ID) {
-> +		dev_err(&pdev->dev, "invalid cpu id: %u\n", cpuid);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	dma_spec->np = of_parse_phandle(ofdma->of_node, "dma-masters", 0);
-> +	if (!dma_spec->np) {
-> +		dev_err(&pdev->dev, "can't get dma master\n");
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	map = kzalloc(sizeof(*map), GFP_KERNEL);
-> +	if (!map)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	map->channel = chid;
-> +	map->peripheral = devid;
-> +	map->cpu = cpuid;
-> +
-> +	regoff = chid % DMAMUX_NR_CH_PER_REGISTER;
-> +	regpos = chid / DMAMUX_NR_CH_PER_REGISTER;
-> +
-> +	spin_lock_irqsave(&dmamux->lock, flags);
-> +
-> +	if (test_and_set_bit(devid, dmamux->mapped_peripherals)) {
-> +		dev_err(&pdev->dev, "already used device mapping: %u\n", devid);
-> +		goto failed;
-> +	}
-> +
-> +	if (test_and_set_bit(chid, dmamux->used_chans)) {
-> +		clear_bit(devid, dmamux->mapped_peripherals);
-> +		dev_err(&pdev->dev, "already used channel id: %u\n", chid);
-> +		goto failed;
-> +	}
-> +
-> +	regmap_set_bits(dmamux->regmap,
-> +			regpos + CV1800_SDMA_DMA_CHANNEL_REMAP0,
-> +			DMAMUX_CH_SET(regoff, devid));
-> +
-> +	regmap_update_bits(dmamux->regmap, CV1800_SDMA_DMA_INT_MUX,
-> +			   DMAMUX_INT_CH_MASK(chid, cpuid),
-> +			   DMAMUX_INT_CH_BIT(chid, cpuid));
-> +
-> +	spin_unlock_irqrestore(&dmamux->lock, flags);
-> +
-> +	dev_info(&pdev->dev, "register channel %u for req %u (cpu %u)\n",
-> +		 chid, devid, cpuid);
-> +
-> +	return map;
-> +
-> +failed:
-> +	spin_unlock_irqrestore(&dmamux->lock, flags);
-> +	dev_err(&pdev->dev, "already used channel id: %u\n", chid);
-
-This error is already logged above.
-
-> +	return ERR_PTR(-EBUSY);
-> +}
-> +
-> +static int cv1800_dmamux_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *mux_node = dev->of_node;
-> +	struct cv1800_dmamux_data *data;
-> +	struct device *parent = dev->parent;
-> +	struct device_node *dma_master;
-> +	struct regmap *map = NULL;
-> +
-> +	if (!parent)
-> +		return -ENODEV;
-> +
-> +	map = device_node_to_regmap(parent->of_node);
-> +	if (IS_ERR(map))
-> +		return PTR_ERR(map);
-> +
-> +	dma_master = of_parse_phandle(mux_node, "dma-masters", 0);
-> +	if (!dma_master) {
-> +		dev_err(dev, "invalid dma-requests property\n");
-
-This error message doesn't match the property the code looks at.
-
-> +		return -ENODEV;
-> +	}
-> +	of_node_put(dma_master);
-> +
-> +	data = devm_kmalloc(dev, sizeof(*data), GFP_KERNEL);
-> +	if (!data)
-> +		return -ENOMEM;
-> +
-> +	spin_lock_init(&data->lock);
-> +	data->regmap = map;
-> +	data->dmarouter.dev = dev;
-> +	data->dmarouter.route_free = cv1800_dmamux_free;
-> +
-> +	platform_set_drvdata(pdev, data);
-> +
-> +	return of_dma_router_register(mux_node,
-> +				      cv1800_dmamux_route_allocate,
-> +				      &data->dmarouter);
-> +}
-> +
-> +static const struct of_device_id cv1800_dmamux_ids[] = {
-> +	{ .compatible = "sophgo,cv1800-dmamux", },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, cv1800_dmamux_ids);
-> +
-> +static struct platform_driver cv1800_dmamux_driver = {
-> +	.driver = {
-> +		.name = "fsl-raideng",
-
-copy-paste error?
-
-> +		.of_match_table = cv1800_dmamux_ids,
-> +	},
-> +	.probe = cv1800_dmamux_probe,
-> +};
-> +module_platform_driver(cv1800_dmamux_driver);
-
-This driver can be built as an unloadable module, so it needs a .remove_new
-function calling at least of_dma_controller_free().
-
-Regards,
-Samuel
-
-> +
-> +MODULE_AUTHOR("Inochi Amaoto <inochiama@outlook.com>");
-> +MODULE_DESCRIPTION("Sophgo CV1800/SG2000 Series Soc DMAMUX driver");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.44.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBNYXIgMTMsIDIwMjQgYXQgNTowNeKAr1BNIFZsYWRpbWlyIElzYWV2Cjx2bGFkaW1p
+ci5pc2FldkBzeW50YWNvcmUuY29tPiB3cm90ZToKPgo+IFN1Y2ggcmVsb2NhdGlvbiBjYXVzZXMg
+Y3Jhc2ggb2YgYW5kcm9pZCBsaW5rZXIgc2ltaWxhciB0byBvbmUKPiBkZXNjcmliZWQgaW4gY29t
+bWl0IGUwNWQ1N2RjYjhjNwo+ICgicmlzY3Y6IEZpeHVwIF9fdmRzb19nZXR0aW1lb2ZkYXkgYnJv
+a2UgZHluYW1pYyBmdHJhY2UiKS4KPgo+IExvb2tzIGxpa2UgdGhpcyByZWxvY2F0aW9uIGlzIGFk
+ZGVkIGJ5IENPTkZJR19EWU5BTUlDX0ZUUkFDRSB3aGljaCBpcwo+IGRpc2FibGVkIGluIHRoZSBk
+ZWZhdWx0IGFuZHJvaWQga2VybmVsLgo+Cj4gQmVmb3JlOgo+Cj4gcmVhZGVsZiAtclcgYXJjaC9y
+aXNjdi9rZXJuZWwvdmRzby92ZHNvLnNvOgo+Cj4gUmVsb2NhdGlvbiBzZWN0aW9uICcucmVsYS5k
+eW4nIGF0IG9mZnNldCAweGQwMCBjb250YWlucyAxIGVudHJ5Ogo+ICAgICBPZmZzZXQgICAgICAg
+ICAgICAgSW5mbyAgICAgICAgICAgICBUeXBlCj4gMDAwMDAwMDAwMDAwMGQyMCAgMDAwMDAwMDAw
+MDAwMDAwMyBSX1JJU0NWX1JFTEFUSVZFCj4KPiBvYmpkdW1wOgo+IDAwMDAwMDAwMDAwMDBjODYg
+PF9fdmRzb19yaXNjdl9od3Byb2JlQEBMSU5VWF80LjE1PjoKPiAgYzg2OiAgIDAwMDEgICAgICAg
+ICAgICAgICAgICAgIG5vcAo+ICBjODg6ICAgMDAwMSAgICAgICAgICAgICAgICAgICAgbm9wCj4g
+IGM4YTogICAwMDAxICAgICAgICAgICAgICAgICAgICBub3AKPiAgYzhjOiAgIDAwMDEgICAgICAg
+ICAgICAgICAgICAgIG5vcAo+ICBjOGU6ICAgZTIxMSAgICAgICAgICAgICAgICAgICAgYm5leiAg
+ICBhMixjOTIgPF9fdmRzb19yaXNjdl9od3Byb2JlLi4uCj4KPiBBZnRlcjoKPiByZWFkZWxmIC1y
+VyBhcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL3Zkc28uc286Cj4KPiBUaGVyZSBhcmUgbm8gcmVsb2Nh
+dGlvbnMgaW4gdGhpcyBmaWxlLgo+Cj4gb2JqZHVtcDoKPiAwMDAwMDAwMDAwMDAwYzg2IDxfX3Zk
+c29fcmlzY3ZfaHdwcm9iZUBATElOVVhfNC4xNT46Cj4gIGM4NjogICBlMjExICAgICAgICAgICAg
+ICAgICAgICBibmV6ICAgIGEyLGM4YSA8X192ZHNvX3Jpc2N2X2h3cHJvYmUuLi4KPiAgYzg4OiAg
+IGM2YjkgICAgICAgICAgICAgICAgICAgIGJlcXogICAgYTMsY2Q2IDxfX3Zkc29fcmlzY3ZfaHdw
+cm9iZS4uLgo+ICBjOGE6ICAgZTczOSAgICAgICAgICAgICAgICAgICAgYm5leiAgICBhNCxjZDgg
+PF9fdmRzb19yaXNjdl9od3Byb2JlLi4uCj4gIGM4YzogICBmZmZmZDc5NyAgICAgICAgICAgICAg
+ICBhdWlwYyAgIGE1LDB4ZmZmZmQKPgo+IEFsc28gZGlzYWJsZSBTQ1Mgc2luY2UgaXQgYWxzbyBz
+aG91bGQgbm90IGJlIGF2YWlsYWJsZSBpbiB2ZHNvLgo+Cj4gRml4ZXM6IGFhNWFmMGFhOTBiYSAo
+IlJJU0MtVjogQWRkIGh3cHJvYmUgdkRTTyBmdW5jdGlvbiBhbmQgZGF0YSIpCj4gU2lnbmVkLW9m
+Zi1ieTogUm9tYW4gQXJ0ZW1ldiA8cm9tYW4uYXJ0ZW1ldkBzeW50YWNvcmUuY29tPgo+IFNpZ25l
+ZC1vZmYtYnk6IFZsYWRpbWlyIElzYWV2IDx2bGFkaW1pci5pc2FldkBzeW50YWNvcmUuY29tPgo+
+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlIHwgMSArCj4gIDEgZmlsZSBj
+aGFuZ2VkLCAxIGluc2VydGlvbigrKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVs
+L3Zkc28vTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlCj4gaW5kZXgg
+OWI1MTdmZTFiOGE4Li4yNzJjNDMxYWM1YjkgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJu
+ZWwvdmRzby9NYWtlZmlsZQo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUK
+PiBAQCAtMzcsNiArMzcsNyBAQCBlbmRpZgo+Cj4gICMgRGlzYWJsZSAtcGcgdG8gcHJldmVudCBp
+bnNlcnQgY2FsbCBzaXRlCj4gIENGTEFHU19SRU1PVkVfdmdldHRpbWVvZmRheS5vID0gJChDQ19G
+TEFHU19GVFJBQ0UpICQoQ0NfRkxBR1NfU0NTKQo+ICtDRkxBR1NfUkVNT1ZFX2h3cHJvYmUubyA9
+ICQoQ0NfRkxBR1NfRlRSQUNFKSAkKENDX0ZMQUdTX1NDUykKTEdUTSwgZ29vZCBjYXRjaCwgdGhh
+bmtzIDopCgpSZXZpZXdlZC1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cgo+Cj4gICMg
+RGlzYWJsZSBwcm9maWxpbmcgYW5kIGluc3RydW1lbnRhdGlvbiBmb3IgVkRTTyBjb2RlCj4gIEdD
+T1ZfUFJPRklMRSA6PSBuCj4gLS0KPiAyLjQzLjAKPgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBS
+ZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
