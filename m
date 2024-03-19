@@ -4,71 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EE5C54E60
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 03:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67C88C54E60
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 04:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4gXAQ3iBLQlIju2VPRdY6qaJqWwNHSgHy1yJwYDbKC8=; b=fsteT7JD0HTem1
-	RpfcOdxlyV2jb+g5cDsF1IpAiy6UALBuutuz17+XFikXHSpq6oOmyz4rN8Z6wzdt9IGVkf4nR1ju8
-	IH3gWqutL1/B2gKIlNtweLltjoGzBEYtQjJAQII/Q00lPUEf7QUYPGdFBn7MBKE3Bx0jmnM9YYk8g
-	jvdLncYAYkoJA4MgRsve431p8z34beJ5Fag6QEEbjMQ2njtYypMj/3iMqP718yHU/At09Ntxlk46+
-	xm17O3PGacUnmC3+AhM82+3tULFOPePAotOrG9EepVnZNIidhfRe3d+ltywharcNdTBUGLk7mrZEH
-	kxlXM5/5gL8rtaviAyCg==;
+	List-Owner; bh=nmfkkJMqyq1fa4KOWd4F4uHA2OyHuqU6nIwxCkCvDg0=; b=lwMzSSrp5r0Uzy
+	9ZOjT/h2aaHItTIf68SsaAoKYpguE8LqtioJEdLgZ4gDsxYlLyTSO9HD9/GXHt60p54GSVkZc6tmF
+	t+ms2zLaUPa/obktic1JD4Awa7d7qKrRO3zAeX7dkmHl5D6rL0Y+uknYCOwM63IyiHhPcw10/twI/
+	aOLmgLbhMjneanrVWux2Pj38K2IIn+6vZW2mSKAyQ6C8Zghxu8ll92KL0bK/vo0tCqWQ8/6OsadgX
+	aw201SQYcNvt1+h1KTKipdcsZeVtCUb4kXL1npc+eYOq9z95ECGIxnGBUK7rzjZpm+iAaMjdQMYU3
+	GDOBHJ8GazhleHQlBRrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmQYh-0000000B8YB-2Kfo;
-	Tue, 19 Mar 2024 03:54:39 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rmQhs-0000000B9cn-0flQ;
+	Tue, 19 Mar 2024 04:04:08 +0000
+Received: from mail-bn8nam11olkn20801.outbound.protection.outlook.com ([2a01:111:f403:2c14::801] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmQYd-0000000B8XF-3d4V
+	id 1rmQho-0000000B9ag-0SDZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Mar 2024 03:54:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 9DDB4CE0A36
-	for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 03:54:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCF8BC433C7
-	for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 03:54:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1710820470;
-	bh=/XkrawLqG2i47PS72vOgp+3FbB6mD7ygQqFf/7AMfjw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=jcyxTowYYzfrv4rpE0FqqexZohD/qnSrpgxqXaF/gpAt/03gHwAvDD90PTE8yWe3R
-	 0kEPFDGtKioXB/mM4BsAgcTxonG2ZDAAT7rtKxD5haafvtL2eaMPC1c0k6vSuvk1jB
-	 CrRZekiBRqi6HkRED/x66q2+Ju/GS24+VGW/NHvBkI3vXyEqeXD6ZQEyVi0jOQ/NNC
-	 D77pDqnuzrzYfVN7vkifhvRS68XiTjUqdxT0Y6HriXR05AgRRizNuuWLN8xMTpfJCh
-	 /DnYX8kj6wa2yb5SjRoKB6o3FO7aFN+IAyhXIkuMxIXpVeO54vKnTuxSWpG+SkxXnt
-	 suLNbuPVBJoKw==
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-563cb3ba9daso5707551a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2024 20:54:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW5Aq374gMiqsN3kwZ23yEq6BKLBF+fs6KJ1byfG+EJv+X9yeETl+lzQwPuUZe/aeCjkvMLSSkxtmdKRNEYvnrVkwnF15SuVxclXG20vKli
-X-Gm-Message-State: AOJu0YxaHbfbmiPdzXsU/7DHcU0qT7KUCeKRlq/fE7/0vDz1C32VJbV8
-	ste8qWfqlx+OWUx4aN/Au1X+TYyZQWkXgu4Z45ozmx2ZCVC85xpoDcaWBOdpThuoVzYuRnqrGXl
-	zu5b3Qn0WIqd0/h359OP++uCnlNU=
-X-Google-Smtp-Source: AGHT+IHULGVOK33jSlydOXp0yUv+oahLhhqOCvIpeWsTZCuGDW/Vx3lvBuGyR+N7M9F6DxqmjpoRLna7CCEpQnR47D8=
-X-Received: by 2002:a05:6402:1cc4:b0:567:f643:fc5c with SMTP id
- ds4-20020a0564021cc400b00567f643fc5cmr1180305edb.20.1710820469374; Mon, 18
- Mar 2024 20:54:29 -0700 (PDT)
+	Tue, 19 Mar 2024 04:04:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=XgOUDKi54+IOC3WeOISk/KMCfUC42sFZdfiGjOvjv+FwzBKcFxn6jWBJYvQpZUx9zM4MmZcD5C3W6t2KP2b7NIyMeU3j9kFAFQyajKXsM+nXM7+QBOY7Yjhjwr7fTNihLoGO79QhOBYQae8EMv68Dw2lVC5LQkON7ikIlUKesEtIOzVQ00WA52/ZUEh/HJqtRUr5miPK3Tr8VHPYOI+xUBtnNBsyg+ECfKzRMPD3BA8DTl3E+wAJv9tekfShIrY4QzUmD+/t0xwyq1t1QqFfEVoIYUax+7gwdRqru71A4gJqFk1empurxdpBwxYY7W8UqZKttmuJ4A3libxU363A+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l/EfHzbGKgsvLE4233fAV91Gst5pXuKcs6hXY7YkTOI=;
+ b=DpNTQi3jMGRRHotRFkX+Pv47Wq5kFoUi/SnONFITnsmRtmT0w1HeFG+o72U35JXIuTlyvbsoCP3Ls/l9OpmWwCvLeh9aaldTykUccQljjmWzBfjKJTo98gzzCx5mEvkDMn9dZmuSZI5du2ODf6PZonBuYg5VACALanZN/8WqsrmFegC9SI8iao4ZfEtNRMJmZFxUM1crykKlXrhVD8vD4JjYBcop15F7P7+3EohlWGpeFqdgLImucctErJFFLHqhxp5W8FTODLTYfD105SB06KxEhLgB7RVRXAgnrARdncvGtfe64BelbeLdjKvRV1+TxQssfPJVRS4DzUVIAnNjQQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l/EfHzbGKgsvLE4233fAV91Gst5pXuKcs6hXY7YkTOI=;
+ b=Ig8t/zc5tOzhrpx0VPhhFDz30fRt69KYvlS40YrsECSkm+3E1CIkdqGZ5XqBJOTjZv5YX9uQsB77f4fv5lKUvg5luaQpJJ4CWaqbxwXRjzNTgvWfkcvWQKNga0ZajpASgOrL/pXth2eEY9uALTwMiSV+A3Tlu/8UqaAbsaz06z3sEIHLE+SoL+e3IYpk2I44qG5BbpePg6Ft/bzu8S4PFTee7x4Qd31MNhLgmyniRP970feXdc6Fteah2QWV3lBbF6QUjmkphCv0ZTWH69jxuQUMgG5wEWNdtjEFOn9tdeyB/MZblAOcYc04E8QKGC/aEwZQpgNtYlGjIQeAz/G0EA==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SA3PR20MB5888.namprd20.prod.outlook.com (2603:10b6:806:318::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.26; Tue, 19 Mar
+ 2024 04:03:53 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::8615:efe2:7c8e:2041]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::8615:efe2:7c8e:2041%3]) with mapi id 15.20.7386.025; Tue, 19 Mar 2024
+ 04:03:53 +0000
+Date: Tue, 19 Mar 2024 12:03:54 +0800
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Samuel Holland <samuel.holland@sifive.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>, 
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org, dmaengine@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v4 1/4] dt-bindings: dmaengine: Add dmamux for
+ CV18XX/SG200X series SoC
+Message-ID: <IA1PR20MB495363835DD4C6B0EA2DA224BB2C2@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB49536DED242092A49A69CEB6BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB49532DE75E794419E58F9268BB2D2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <29f468c5-1aaa-4326-8088-e03a1d6b7174@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <29f468c5-1aaa-4326-8088-e03a1d6b7174@sifive.com>
+X-TMN: [d1m1NKlTz46g39Fv0MnA7JRExOJtqI0KbMPdKy/ItAE=]
+X-ClientProxiedBy: TYAPR01CA0024.jpnprd01.prod.outlook.com (2603:1096:404::36)
+ To IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <vo3hmz4xazbwp7oqxg7ehy3a7vmn2aru777zz47am5p7vxbcgt@uvifvririfal>
 MIME-Version: 1.0
-References: <20240313085843.17661-1-vladimir.isaev@syntacore.com>
-In-Reply-To: <20240313085843.17661-1-vladimir.isaev@syntacore.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 19 Mar 2024 11:54:17 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSjVKhX4RZKYHo392g56yczg2j6rLUqTqR9GM3i2zOBOw@mail.gmail.com>
-Message-ID: <CAJF2gTSjVKhX4RZKYHo392g56yczg2j6rLUqTqR9GM3i2zOBOw@mail.gmail.com>
-Subject: Re: [PATCH] riscv: hwprobe: do not produce frtace relocation
-To: Vladimir Isaev <vladimir.isaev@syntacore.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	catalin.marinas@arm.com, evan@rivosinc.com, nicolas@fjasle.eu, 
-	tglx@linutronix.de, samitolvanen@google.com, masahiroy@kernel.org, 
-	maskray@google.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Roman Artemev <roman.artemev@syntacore.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA3PR20MB5888:EE_
+X-MS-Office365-Filtering-Correlation-Id: f00fc7a3-14b7-4554-5b5a-08dc47c99750
+X-MS-Exchange-SLBlob-MailProps: 98ioH9+sI7/gmAhNpKNDe9mf06H9eeFe1adcnj3WughFRFBtuV/cwE3ShP434/GnzitabmV2Vo8/H9We2MlGQs6M+OiS9sjOpsyQGFXdiIPVsMErMhF9WcQKOQeOXBcyuOpsqQfaClWqGQMQImdOuKrleyREQtx8DnSWRgzdEZUYVb1+aJYRzbC/dx7OSrOsY6HCW0MpvbUjyD8WWi9QsEb3sy4LSM5g1hMynFSd6XRT5yFA0HIqXP1XLZkU8rqKRTMYhUtVCO7aXkRKWLkGQQgxGJjmnfVapyQTRWwttFnSQF+2Fj2LAQ3iX59ZLbwWI2eAZ6ACbJ2AZ6cW5vrHTW0Ava+X28fplup+j8zrTwLYZkKhyyY7WoNbWB/Oz8OH1wcAyEOj8ajZ1QuUpL8GIHalZTRLCIUfv/kFks38GcZHKlMK3PXamdOI90DVZhtZJIGsGBG7VPMGNYkrHo/2iw6Ebd14Uh7SkBPLgo+ALtB+qPfWZT3qBJn9VmS046IiCCdRgqcOVJCIVdYXsoNpEq9tEeNGI98eb/oHDSIvs6i7ZfQsmIhKk3yYF2Y9fgBpWDq8okQiQwHTO8P5WTeoki13OpvjR/DRbqzxyInauTsmIYAs9nYjtaeXSZxaWSrAz6DV7b+9G1Q7LakvlHv0CeRF999ansG4cki/3bYXdd5TiwsHyieJlbNcMWjLubEJBrEKo93czMTB8WmLbNj2Pp7pTAUxehHtV6nkG42mAUlizS10VS7Errixfj/PJoBgMuDxSReZfLYNG77Rd7GsJEkg8PVOS0zPEbL6yinotRW+EwaWHQgBwKcFb61uZHZFYeGLBuLTTxr6lw3uLAHKxOIpghhprrrF22rDOSOYgFCWj7QmQtj7lQ==
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: Avh6wlDqJ/YWpCiIq76VLHs+YKFB84RubwfN0T9d7hLgh8XxXbUCv7Lkb/tjDm87ZcmsTNl0nW/7aax9KlqIFtMitLCGZxTjGZJxNmwtHh4zRwgtJHLLQtl65iHEoWDTBdP0p6XdEnyeQriMvliudvgN+25/gCedju/s4Cz7FPGXA/h4qAyf9IVhqgLSdAhSPWgsomYAdLZSS8dHAokGXlYAAp9KmHgNtPZ+yhjjJLj0L6BpHwb/RiBa/1fKin5zV+8f8wwFxujzoNmy0JVGAn2FlXbZb8cwNB5xmXzr3+9isBrDzUGwFYIquwt1fs3168Ykto8FR2wlMy6cCBuNatCPqOAZGm3jOR5krJrHiI035GMYA4Ko0bpLW9hQBQ8UnLeAzrzrp8/a5zOGCL0tlFcmVwCfpxARJyspCZMk3Xqi5rR2Mc78uAbvtj+XbhcyOLtrgDU8tLuCjzlWdve/MZoV2co35/vc7I/grg/pFQATtDwfAQc+c86URRNYRhsg7Ymg3DAMKGYNF0JTq+2/AlFFLWPk8hzho1d0Wlh9t1wAgYJ4iA/4hFPM43wFj7/yVpqRkJXbCo1ANWduumwIOUs6EzYeLp+0b6u1HceyDZ0jTCztr+VkCuWhIzyJdhHefjujJi5N659VnH1bBymSWEdAfwtm+XKtadw2mLfwLfCYyYnfKirBD1RZ/bo3dR3AdaUY6mxqe/6zCg27Kp22Vg==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3Knzgs1S02Fla9oKgcOMX7NgdafjusIRve3Nfs4fCoeOBDsX0VnQYB6HojOM?=
+ =?us-ascii?Q?ylHjFPPZscjmE9J2ORkYjq43lAhgZucQ1WPqn3vPEBOikBdVVOQerVRWze/A?=
+ =?us-ascii?Q?/lriRWTPYwHN/Ss+MoQDRDFrxIPEBmFm3i12vqEGHgSNfHOhwq89Ps7XIgfV?=
+ =?us-ascii?Q?foCzkNA+X7NKvOjRimihK4CqrcOtiVKIF16gOoJ6veLhcUn0Zo82SeG1iECH?=
+ =?us-ascii?Q?pH7P5AWNNaY5+MSQj35SLe+U3/wkWBJx68ePkGNNAYu8OcR8Gzm9BoVCgGEa?=
+ =?us-ascii?Q?wEzDLrLi549Flsvc2HPUDHdDnkqIOIUIiI17ngbElbt+hADac4nCaLBW7432?=
+ =?us-ascii?Q?TUx4Ay4sMu3KYgFOHuEPMvje+nuJNAcI3ubRQJqvt5euymcP3tTevK56Q9s4?=
+ =?us-ascii?Q?X7GGxVYP++ihAd1p63LfO2N/DHDi7i6A0SCLhD0xeVft0e6j/MnBAvkxiFvH?=
+ =?us-ascii?Q?YYvOtRYB6hoHXUZd7zMoDf14N+UFMYJ5XMihmUHRNBskWDenGvF/1jG7f1gq?=
+ =?us-ascii?Q?7WOlzpajR3dgRqPp7FWuSRzyP4AkcJUNMy7uxWhO9P+DZntF/grQzy+owODb?=
+ =?us-ascii?Q?EvNwHogpRTZLDjtocPaDC+6j4UWkcuNTgZAnYE+XPc1XRHa06ryLLEt7D2ag?=
+ =?us-ascii?Q?Szatog6jhx1zRJE0xaNR0CMr7MNzSrkNBOKCrK7bKEO/USpdbmca5KglEkYM?=
+ =?us-ascii?Q?l0loxdM+v1x5KW9fPDF0AATdJkolwC163/j3gbU5as0Fq3xMxH8SpBEDBAqF?=
+ =?us-ascii?Q?Hhw2ZfKuf7yl3MGqnUDQTzAXdpQ16gJIWiI4C5chT0EOyjBzWps+uhGKdZUM?=
+ =?us-ascii?Q?zyFrcZXbt3POkOzwoRvr/Nd/eZhJqU7lwnIschvQFVfYXPRsPofxx5t3VDF1?=
+ =?us-ascii?Q?1yTBCgFquanwrSe8tm6T4NxGfymZtLIgbEJtTHXp6Nocl1JwkA0I92zqDeHj?=
+ =?us-ascii?Q?hcThJ7mamVsKKquc4qKIxHJVCdL53eVlMlq48s0dbWp2mcT+7ekL0qNvaJGn?=
+ =?us-ascii?Q?sTcRWCX3yyXaHN62KESnhw/Jnlzi4NTudiYTA3eU9iPPG1b7UYKU60UCs617?=
+ =?us-ascii?Q?QR5kZ7jskOV+e2qNATb5fUlhE63ymARIMBoxvh4Waa1ITINyxw7hsF8rScv0?=
+ =?us-ascii?Q?XjuQHtDzQgfOU84y7/Y8NAjIlZa5oqobj37CVKcjx81qWnflLc7J7z65uEGB?=
+ =?us-ascii?Q?ufVsgWcClt/yAowAsxKYM3wBAIOFwITSynSEc8GzMfUlGtuQD/ppyhNh+vDY?=
+ =?us-ascii?Q?e1rKocEiGwpSkTQ6pNAX?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f00fc7a3-14b7-4554-5b5a-08dc47c99750
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2024 04:03:53.4220
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR20MB5888
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240318_205436_359913_AF63C1EC 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20240318_210404_181574_D06BEFE4 
+X-CRM114-Status: GOOD (  28.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,51 +127,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXIgMTMsIDIwMjQgYXQgNTowNeKAr1BNIFZsYWRpbWlyIElzYWV2Cjx2bGFkaW1p
-ci5pc2FldkBzeW50YWNvcmUuY29tPiB3cm90ZToKPgo+IFN1Y2ggcmVsb2NhdGlvbiBjYXVzZXMg
-Y3Jhc2ggb2YgYW5kcm9pZCBsaW5rZXIgc2ltaWxhciB0byBvbmUKPiBkZXNjcmliZWQgaW4gY29t
-bWl0IGUwNWQ1N2RjYjhjNwo+ICgicmlzY3Y6IEZpeHVwIF9fdmRzb19nZXR0aW1lb2ZkYXkgYnJv
-a2UgZHluYW1pYyBmdHJhY2UiKS4KPgo+IExvb2tzIGxpa2UgdGhpcyByZWxvY2F0aW9uIGlzIGFk
-ZGVkIGJ5IENPTkZJR19EWU5BTUlDX0ZUUkFDRSB3aGljaCBpcwo+IGRpc2FibGVkIGluIHRoZSBk
-ZWZhdWx0IGFuZHJvaWQga2VybmVsLgo+Cj4gQmVmb3JlOgo+Cj4gcmVhZGVsZiAtclcgYXJjaC9y
-aXNjdi9rZXJuZWwvdmRzby92ZHNvLnNvOgo+Cj4gUmVsb2NhdGlvbiBzZWN0aW9uICcucmVsYS5k
-eW4nIGF0IG9mZnNldCAweGQwMCBjb250YWlucyAxIGVudHJ5Ogo+ICAgICBPZmZzZXQgICAgICAg
-ICAgICAgSW5mbyAgICAgICAgICAgICBUeXBlCj4gMDAwMDAwMDAwMDAwMGQyMCAgMDAwMDAwMDAw
-MDAwMDAwMyBSX1JJU0NWX1JFTEFUSVZFCj4KPiBvYmpkdW1wOgo+IDAwMDAwMDAwMDAwMDBjODYg
-PF9fdmRzb19yaXNjdl9od3Byb2JlQEBMSU5VWF80LjE1PjoKPiAgYzg2OiAgIDAwMDEgICAgICAg
-ICAgICAgICAgICAgIG5vcAo+ICBjODg6ICAgMDAwMSAgICAgICAgICAgICAgICAgICAgbm9wCj4g
-IGM4YTogICAwMDAxICAgICAgICAgICAgICAgICAgICBub3AKPiAgYzhjOiAgIDAwMDEgICAgICAg
-ICAgICAgICAgICAgIG5vcAo+ICBjOGU6ICAgZTIxMSAgICAgICAgICAgICAgICAgICAgYm5leiAg
-ICBhMixjOTIgPF9fdmRzb19yaXNjdl9od3Byb2JlLi4uCj4KPiBBZnRlcjoKPiByZWFkZWxmIC1y
-VyBhcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL3Zkc28uc286Cj4KPiBUaGVyZSBhcmUgbm8gcmVsb2Nh
-dGlvbnMgaW4gdGhpcyBmaWxlLgo+Cj4gb2JqZHVtcDoKPiAwMDAwMDAwMDAwMDAwYzg2IDxfX3Zk
-c29fcmlzY3ZfaHdwcm9iZUBATElOVVhfNC4xNT46Cj4gIGM4NjogICBlMjExICAgICAgICAgICAg
-ICAgICAgICBibmV6ICAgIGEyLGM4YSA8X192ZHNvX3Jpc2N2X2h3cHJvYmUuLi4KPiAgYzg4OiAg
-IGM2YjkgICAgICAgICAgICAgICAgICAgIGJlcXogICAgYTMsY2Q2IDxfX3Zkc29fcmlzY3ZfaHdw
-cm9iZS4uLgo+ICBjOGE6ICAgZTczOSAgICAgICAgICAgICAgICAgICAgYm5leiAgICBhNCxjZDgg
-PF9fdmRzb19yaXNjdl9od3Byb2JlLi4uCj4gIGM4YzogICBmZmZmZDc5NyAgICAgICAgICAgICAg
-ICBhdWlwYyAgIGE1LDB4ZmZmZmQKPgo+IEFsc28gZGlzYWJsZSBTQ1Mgc2luY2UgaXQgYWxzbyBz
-aG91bGQgbm90IGJlIGF2YWlsYWJsZSBpbiB2ZHNvLgo+Cj4gRml4ZXM6IGFhNWFmMGFhOTBiYSAo
-IlJJU0MtVjogQWRkIGh3cHJvYmUgdkRTTyBmdW5jdGlvbiBhbmQgZGF0YSIpCj4gU2lnbmVkLW9m
-Zi1ieTogUm9tYW4gQXJ0ZW1ldiA8cm9tYW4uYXJ0ZW1ldkBzeW50YWNvcmUuY29tPgo+IFNpZ25l
-ZC1vZmYtYnk6IFZsYWRpbWlyIElzYWV2IDx2bGFkaW1pci5pc2FldkBzeW50YWNvcmUuY29tPgo+
-IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlIHwgMSArCj4gIDEgZmlsZSBj
-aGFuZ2VkLCAxIGluc2VydGlvbigrKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVs
-L3Zkc28vTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlCj4gaW5kZXgg
-OWI1MTdmZTFiOGE4Li4yNzJjNDMxYWM1YjkgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJu
-ZWwvdmRzby9NYWtlZmlsZQo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUK
-PiBAQCAtMzcsNiArMzcsNyBAQCBlbmRpZgo+Cj4gICMgRGlzYWJsZSAtcGcgdG8gcHJldmVudCBp
-bnNlcnQgY2FsbCBzaXRlCj4gIENGTEFHU19SRU1PVkVfdmdldHRpbWVvZmRheS5vID0gJChDQ19G
-TEFHU19GVFJBQ0UpICQoQ0NfRkxBR1NfU0NTKQo+ICtDRkxBR1NfUkVNT1ZFX2h3cHJvYmUubyA9
-ICQoQ0NfRkxBR1NfRlRSQUNFKSAkKENDX0ZMQUdTX1NDUykKTEdUTSwgZ29vZCBjYXRjaCwgdGhh
-bmtzIDopCgpSZXZpZXdlZC1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cgo+Cj4gICMg
-RGlzYWJsZSBwcm9maWxpbmcgYW5kIGluc3RydW1lbnRhdGlvbiBmb3IgVkRTTyBjb2RlCj4gIEdD
-T1ZfUFJPRklMRSA6PSBuCj4gLS0KPiAyLjQzLjAKPgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBS
-ZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Mar 18, 2024 at 10:22:47PM -0500, Samuel Holland wrote:
+> On 2024-03-18 1:38 AM, Inochi Amaoto wrote:
+> > The DMA IP of Sophgo CV18XX/SG200X is based on a DW AXI CORE, with
+> > an additional channel remap register located in the top system control
+> > area. The DMA channel is exclusive to each core.
+> > 
+> > Add the dmamux binding for CV18XX/SG200X series SoC
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> > Reviewed-by: Rob Herring <robh@kernel.org>
+> > ---
+> >  .../bindings/dma/sophgo,cv1800-dmamux.yaml    | 47 ++++++++++++++++
+> >  include/dt-bindings/dma/cv1800-dma.h          | 55 +++++++++++++++++++
+> >  2 files changed, 102 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+> >  create mode 100644 include/dt-bindings/dma/cv1800-dma.h
+> > 
+> > diff --git a/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml b/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+> > new file mode 100644
+> > index 000000000000..c813c66737ba
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/dma/sophgo,cv1800-dmamux.yaml
+> > @@ -0,0 +1,47 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/dma/sophgo,cv1800-dmamux.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Sophgo CV1800/SG200 Series DMA mux
+> > +
+> > +maintainers:
+> > +  - Inochi Amaoto <inochiama@outlook.com>
+> > +
+> > +allOf:
+> > +  - $ref: dma-router.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: sophgo,cv1800-dmamux
+> > +
+> > +  reg:
+> > +    maxItems: 2
+> > +
+> > +  '#dma-cells':
+> > +    const: 3
+> > +    description:
+> > +      The first cells is DMA channel. The second one is device id.
+> > +      The third one is the cpu id.
+> 
+> There are 43 devices, but only 8 channels. Since the channel is statically
+> specified in the devicetree as the first cell here, that means the SoC DT author
+> must pre-select which 8 of the 43 devices are usable, right? 
+
+Yes, you are right.
+
+> And then the rest
+> would have to omit their dma properties. Wouldn't it be better to leave out the
+> channel number here and dynamically allocate channels at runtime?
+> 
+
+You mean defining all the dma channel in the device and allocation channel
+selectively? This is workable, but it still needs a hint to allocate channel.
+Also, according to the information from sophgo, it does not support dynamic 
+channel allocation, so all channel can only be initialize once.
+
+There is another problem, since we defined all the dmas property in the device,
+How to mask the devices if we do not want to use dma on them? I have see SPI
+device will disable DMA when allocation failed, I guess this is this mechanism
+is the same for all devices?
+
+Regards,
+Inochi
+
+> Regards,
+> Samuel
+> 
+> > +
+> > +  dma-masters:
+> > +    maxItems: 1
+> > +
+> > +  dma-requests:
+> > +    const: 8
+> > +
+> > +required:
+> > +  - '#dma-cells'
+> > +  - dma-masters
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    dma-router {
+> > +      compatible = "sophgo,cv1800-dmamux";
+> > +      #dma-cells = <3>;
+> > +      dma-masters = <&dmac>;
+> > +      dma-requests = <8>;
+> > +    };
+> > diff --git a/include/dt-bindings/dma/cv1800-dma.h b/include/dt-bindings/dma/cv1800-dma.h
+> > new file mode 100644
+> > index 000000000000..3ce9dac25259
+> > --- /dev/null
+> > +++ b/include/dt-bindings/dma/cv1800-dma.h
+> > @@ -0,0 +1,55 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> > +
+> > +#ifndef __DT_BINDINGS_DMA_CV1800_H__
+> > +#define __DT_BINDINGS_DMA_CV1800_H__
+> > +
+> > +#define DMA_I2S0_RX		0
+> > +#define DMA_I2S0_TX		1
+> > +#define DMA_I2S1_RX		2
+> > +#define DMA_I2S1_TX		3
+> > +#define DMA_I2S2_RX		4
+> > +#define DMA_I2S2_TX		5
+> > +#define DMA_I2S3_RX		6
+> > +#define DMA_I2S3_TX		7
+> > +#define DMA_UART0_RX		8
+> > +#define DMA_UART0_TX		9
+> > +#define DMA_UART1_RX		10
+> > +#define DMA_UART1_TX		11
+> > +#define DMA_UART2_RX		12
+> > +#define DMA_UART2_TX		13
+> > +#define DMA_UART3_RX		14
+> > +#define DMA_UART3_TX		15
+> > +#define DMA_SPI0_RX		16
+> > +#define DMA_SPI0_TX		17
+> > +#define DMA_SPI1_RX		18
+> > +#define DMA_SPI1_TX		19
+> > +#define DMA_SPI2_RX		20
+> > +#define DMA_SPI2_TX		21
+> > +#define DMA_SPI3_RX		22
+> > +#define DMA_SPI3_TX		23
+> > +#define DMA_I2C0_RX		24
+> > +#define DMA_I2C0_TX		25
+> > +#define DMA_I2C1_RX		26
+> > +#define DMA_I2C1_TX		27
+> > +#define DMA_I2C2_RX		28
+> > +#define DMA_I2C2_TX		29
+> > +#define DMA_I2C3_RX		30
+> > +#define DMA_I2C3_TX		31
+> > +#define DMA_I2C4_RX		32
+> > +#define DMA_I2C4_TX		33
+> > +#define DMA_TDM0_RX		34
+> > +#define DMA_TDM0_TX		35
+> > +#define DMA_TDM1_RX		36
+> > +#define DMA_AUDSRC		37
+> > +#define DMA_SPI_NAND		38
+> > +#define DMA_SPI_NOR		39
+> > +#define DMA_UART4_RX		40
+> > +#define DMA_UART4_TX		41
+> > +#define DMA_SPI_NOR1		42
+> > +
+> > +#define DMA_CPU_A53		0
+> > +#define DMA_CPU_C906_0		1
+> > +#define DMA_CPU_C906_1		2
+> > +
+> > +
+> > +#endif // __DT_BINDINGS_DMA_CV1800_H__
+> > --
+> > 2.44.0
+> > 
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
