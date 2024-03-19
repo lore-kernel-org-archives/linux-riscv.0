@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C77D8C54E71
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 20:08:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F10FC54E68
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2024 20:11:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oN5pOUKRThplRZv1I5slRWLx0Q5il6HJyfjhMU0hshQ=; b=eoB6inLtPlhoTB
-	BatWkGiRaVg1rCixoUEozSkIwjyRx2AfCzIRwJ2oK5L+PUm02M3BQPuwIc6YB0Qto7ofcSdA9T506
-	Y+CE7m1U3IGVI+oxrt404h6t17FC0pQxRP2tOYdvLlab5noyBLmx2KsLAH6EoBQ/yUuNZUe1dAcrZ
-	MHXAIJNlhj5q1FvrJOA1qXPEPb4wg0TppvxX9IlQpkP0Bt3I+otnKGC8ERiHjkWlMbIeZ08O/U3D9
-	e3tmOzkZySiAq59Yy6xIs6Qf8W0PiWPN2GCpU6Wn89x1tGYanSS6x0LE5cpFtI+2fPeFOG4N7qyLY
-	uGmVFWuDpR5B472+AYyQ==;
+	List-Owner; bh=JtZY32d0o7jTjNf4QeNe1xgfywkFyID4ujyEeCaIeso=; b=tgXsoZdsKhj8a9
+	GfzUTu/K1+CC4gNfzb3Lf575P+DI3ntLzo88qYhjAg0iwLmJz0uX528FzzqqCqRZOazCEbUcmW+SN
+	wUd3YUfAuJvWnORcN3FVsf9hmrfGlgTwYe1d1EpuYBrNjoRznxMlDFvmYxcsLDnO/dY7zoED1w5kB
+	FGFLgOjtC6E8u5wxpwkztuKqhqfiN6AENFJs1WG/YiH81jEgTOy3esdWXLRrGNOPSTeIVjh7Klii1
+	9EYpo2dJ3VZ7t7Ugtc2+luYPsQKeN8sg/QHMCTmO4Om4RNMAqnpcWjSWQOfo/ykRb6o4W2tnCCm9g
+	yIT50NYwu6F3bpGiqbnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmfks-0000000E4wm-06Ni;
-	Tue, 19 Mar 2024 20:08:14 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1rmfoB-0000000E5Uq-1STr;
+	Tue, 19 Mar 2024 20:11:39 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmfkp-0000000E4vy-1BHp
+	id 1rmfo6-0000000E5Tk-3WpV
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Mar 2024 20:08:12 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6e73e8bdea2so1478466b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 13:08:10 -0700 (PDT)
+	Tue, 19 Mar 2024 20:11:36 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-29de4c33441so3903434a91.1
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 13:11:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1710878889; x=1711483689; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1710879093; x=1711483893; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=rkJNwgrN4VGR1zn3PD/9c77pYyUa8kTmpK0GxF8tfOI=;
-        b=VRFbUAlQYEAidlkLGRaympHoR/adJNvi8uWv+dh9IQQ1tBhwQ9EhN5v5UzV9AUE1P1
-         4oJE7ZnzxEoR+PoATRXoKcyEvfssTBPNOulT7wkYrIgRHHXwcIBkSNN+xHpZ3DLkYn+U
-         Pn4Eq82LFYJwMeCRKq3B5/coK+wJj1k/k2t8+cguvcSogdN1Ai12xadAn9TTEmB+E7vN
-         k5KE8IN26NAnRPvupiRig15LNYuyBexM9toa3w8IqVGov1/Ve5v5qbWaXHfPvOXjBVvl
-         M39CFHVJD7GNZ5LobqfxiKQvssgC9CiMZQ+5gkRbJQrGHpv/bMCcIhFxNBn/DFjJ9FFm
-         9gAw==
+        bh=qxciHIs/9sZQePYO7DWCP1aPLuU+bU/1C9S6KStzprA=;
+        b=wfvCClt+GVhcomZ2VpRmKnJi3M+5PyiCMzN8Ffj9RdjZoYV1amgegx/lXY+vcDwn+i
+         FxADOZD4PYVhs6tPIMnqiYSKzgOwt1kKJlSrOfq+m4CiX8KN4zB2PfF9TqT5mXgdOcID
+         9CQ+QB2iYIEm8PdeafGKerJ/hyFvawlbgYAtP9TFTD9JEhxXkpKyeXFiXJaO1jXWnx4h
+         zxK4trp7y4Yl57sUW64pf9EsTRE8ZKqOoD6tZeZ/R/8kQbjpKPGyy/Qq7nYKj8XIq2ys
+         iILA1KffFASwrB7kQ300jn2FIkhRvHygBEIoDMSGHwYAXKqOEXvuC5aWXlnewz0L7yKa
+         nogg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710878889; x=1711483689;
+        d=1e100.net; s=20230601; t=1710879093; x=1711483893;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rkJNwgrN4VGR1zn3PD/9c77pYyUa8kTmpK0GxF8tfOI=;
-        b=DgDN/NSeK4KCdWBDFSdVqlgzRpkam6tsk/9vcspa+8+4SnYI6/4l0ugMCsM8yIqazK
-         XYh4zAy4QGG1DlhHD2znC94JJEu3CVNwe15Nm9uu8Zej5UKeHFZPQaXgPqbQAbHY8B9A
-         XXx0ZsytCVHwYv6ydY5iYnTZJrPVnH3waH12wQl4GQ/yB+BTSiltpcC38Ag545AGwVOj
-         R2/05tCuYn5u1F7m5PSw6qUiITRsoVvnRHuy5lj3h4xLVD6jaBf1ZaEekyr1PO6iJW3y
-         3bc644q7it9wUVdDESzQdjxk9hG81VwGiwp6z2KvnUZdfBkYasoxZN3LmwxZ9XcaS0r2
-         Hrow==
-X-Forwarded-Encrypted: i=1; AJvYcCU5Qm0PxDySv8KPfLoq2669cQPFd1UVUlYYzpN9OY1Bfssk9Tn0tYkB8s6ZHyew5GHw0mcbeuFxdzB7j9ElZIjGctLFboiNhmu247NFVMpV
-X-Gm-Message-State: AOJu0YzqZjexSS5OIOH8BCdDos+8QDnn8r1NoMBItoUHP1qWT4bMhHSr
-	AW+oFTgMR3ECI4MXVKF3sT/F5cyrnhP8cGQsHIl0iXVDZfpKSIoMHKylKwnATKE=
-X-Google-Smtp-Source: AGHT+IFLDgkgB2Z+3MM5ozahctRfYEQK4iTv6Z1gFhsYoXzCN7xONabavfEBjWDcNHY5t6EsiIzgfw==
-X-Received: by 2002:a05:6a20:179e:b0:1a1:8c80:4336 with SMTP id bl30-20020a056a20179e00b001a18c804336mr108506pzb.21.1710878889358;
-        Tue, 19 Mar 2024 13:08:09 -0700 (PDT)
+        bh=qxciHIs/9sZQePYO7DWCP1aPLuU+bU/1C9S6KStzprA=;
+        b=LWDZqIFCiBgdUdbYFs5uFKrhA6ZI//2a1ecpkBrFhcJIaVRLdfAiYiBgBI1e6qqQur
+         20qLPpqGeWvUhsXCMZHS3RCJOvWKZQGi9wI1GDF14CzUoU+LLv1XcP8bZFAneo02Jsy5
+         nCuFVUvobK4y4blN8QRjbDpQimbXMZyVVFt6N9jWHR8mLOefsEi4eowsrdmXs2A3946A
+         rl1UiOdD7p81LJu2P9XUXLCqdOVQjKDOLhB9rvsqYNICGA+ugHda9JNMeyAwur+a9pTr
+         Qb7kVmg91fpGNaUoYame1GK3txjJZ16BZLy3peQiE3BN9epxAVRE2ehk+dJCeXWtm7oU
+         myvA==
+X-Forwarded-Encrypted: i=1; AJvYcCUuHDQ7BI8zVXWM8saNvC0hehucvFuYV892p8iPN4SVC9IqSRqdblK1j4ZTLv4Xq/ecOrucQI2WziP+xfsrHJEaVXVpNXA6xj68PAQH6KKv
+X-Gm-Message-State: AOJu0Ywep9q0Hh1Sy2RPr8Gzr29tO8vnglKbe4xybTF2tHyErtsPFxOf
+	IHSiMqwDiapfFK89kDjCjXjHWdM2EDepcyiddlZVokiQem8/HNGxFP/KOtossO4=
+X-Google-Smtp-Source: AGHT+IG/SwXVCYVcyNCBXJ6NdanaXkVJumohnM+SJRldB3twx1Oobl3tnNyfK0D+fbGqcBUy6fb/3w==
+X-Received: by 2002:a17:90a:bd91:b0:29f:ef34:3004 with SMTP id z17-20020a17090abd9100b0029fef343004mr215196pjr.43.1710879092982;
+        Tue, 19 Mar 2024 13:11:32 -0700 (PDT)
 Received: from ?IPV6:2601:647:4180:9630::546? ([2601:647:4180:9630::546])
-        by smtp.gmail.com with ESMTPSA id y1-20020aa793c1000000b006e6795932a4sm10276999pff.80.2024.03.19.13.08.07
+        by smtp.gmail.com with ESMTPSA id u5-20020a17090ac88500b0029df554300csm8554426pjt.24.2024.03.19.13.11.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Mar 2024 13:08:08 -0700 (PDT)
-Message-ID: <f7a44b1a-a53e-4a43-aa94-d6fddbed4b81@rivosinc.com>
-Date: Tue, 19 Mar 2024 13:08:07 -0700
+        Tue, 19 Mar 2024 13:11:32 -0700 (PDT)
+Message-ID: <2b002585-eec9-40d3-95bc-e010b7def7a9@rivosinc.com>
+Date: Tue, 19 Mar 2024 13:11:30 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] perf: RISC-V: fix IRQ detection on T-Head C908
 Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Guo Ren <guoren@kernel.org>
-Cc: Andrew Jones <ajones@ventanamicro.com>,
- Inochi Amaoto <inochiama@outlook.com>, Qingfang Deng <dqfext@gmail.com>,
+To: Conor Dooley <conor@kernel.org>, Andrew Jones <ajones@ventanamicro.com>
+Cc: Inochi Amaoto <inochiama@outlook.com>, Qingfang Deng <dqfext@gmail.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
@@ -79,8 +78,7 @@ Cc: Andrew Jones <ajones@ventanamicro.com>,
  Conor Dooley <conor.dooley@microchip.com>, Heiko Stuebner <heiko@sntech.de>,
  Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20240311063018.1886757-1-dqfext@gmail.com>
- <IA1PR20MB4953ECC3E32E95303872CD14BB242@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB4953ECC3E32E95303872CD14BB242@IA1PR20MB4953.namprd20.prod.outlook.com>
  <CALW65jZ+q8sDiRKgsRL9n+939HNUCnkKuO=YJjHB5Js=WYQeOg@mail.gmail.com>
  <20240312-evil-resource-66370b68b9b4@spud>
  <IA1PR20MB4953CE8999960BA71B46DE6CBB2A2@IA1PR20MB4953.namprd20.prod.outlook.com>
@@ -89,11 +87,13 @@ References: <20240311063018.1886757-1-dqfext@gmail.com>
  <20240318-such-animal-bf33de12dc3a@spud>
  <4bdaaff1-13ec-48c2-b165-6a8255784aef@rivosinc.com>
  <20240319-worry-video-66589b3ed8ae@spud>
+ <20240319-3e72d732cbf2fcf1cb81f968@orel>
+ <20240319-underfoot-dispense-dc30ea860e7c@spud>
 From: Atish Patra <atishp@rivosinc.com>
-In-Reply-To: <20240319-worry-video-66589b3ed8ae@spud>
+In-Reply-To: <20240319-underfoot-dispense-dc30ea860e7c@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240319_130811_460708_7F364649 
-X-CRM114-Status: GOOD (  49.49  )
+X-CRM114-CacheID: sfid-20240319_131135_015146_CF011A50 
+X-CRM114-Status: GOOD (  52.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,159 +110,145 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/19/24 02:06, Conor Dooley wrote:
-> On Mon, Mar 18, 2024 at 05:48:13PM -0700, Atish Patra wrote:
->> On 3/18/24 16:48, Conor Dooley wrote:
->>> On Mon, Mar 18, 2024 at 03:46:54PM -0700, Atish Patra wrote:
-> 
->>>> For 2.b, either we can start defining pseudo extensions or adding
->>>> vendor/arch/impid checks.
+On 3/19/24 08:36, Conor Dooley wrote:
+> On Tue, Mar 19, 2024 at 02:39:21PM +0100, Andrew Jones wrote:
+>> On Tue, Mar 19, 2024 at 09:06:34AM +0000, Conor Dooley wrote:
+>>> On Mon, Mar 18, 2024 at 05:48:13PM -0700, Atish Patra wrote:
+>>>> On 3/18/24 16:48, Conor Dooley wrote:
+>>>>> On Mon, Mar 18, 2024 at 03:46:54PM -0700, Atish Patra wrote:
+>>>
+>>>>>> For 2.b, either we can start defining pseudo extensions or adding
+>>>>>> vendor/arch/impid checks.
+>>>>>>
+>>>>>> @Conor: You seems to prefer the earlier approach instead of adding the
+>>>>>> checks. Care to elaborate why do you think that's a better method compared
+>>>>>> to a simple check ?
+>>>>>
+>>>>> Because I don't think that describing these as "errata" in the first
+>>>>> place is even accurate. This is not a case of a vendor claiming they
+>>>>> have Sscofpmf support but the implementation is flawed. As far as I
+>>>>> understand, this is a vendor creating a useful feature prior to the
+>>>>> creation of a standard extension.
+>>>>> A bit of a test for this could be "If the standard extension never
+>>>>> existed, would this be considered a new feature or an implementation
+>>>>> issue". I think this is pretty clearly in the former camp.
+>>>>>
 >>>>
->>>> @Conor: You seems to prefer the earlier approach instead of adding the
->>>> checks. Care to elaborate why do you think that's a better method compared
->>>> to a simple check ?
->>>
->>> Because I don't think that describing these as "errata" in the first
->>> place is even accurate. This is not a case of a vendor claiming they
->>> have Sscofpmf support but the implementation is flawed. As far as I
->>> understand, this is a vendor creating a useful feature prior to the
->>> creation of a standard extension.
->>> A bit of a test for this could be "If the standard extension never
->>> existed, would this be considered a new feature or an implementation
->>> issue". I think this is pretty clearly in the former camp.
->>>
+>>>> So we have 3 cases.
+>>>>
+>>>> 1. Pseudo extension: An vendor extension designed and/or implemented before
+>>>> the standard RVI extension was ratified but do not violate any standard
+>>>> encoding space.
 >>
->> So we have 3 cases.
+>> The vendor should name these extensions themselves.
 >>
->> 1. Pseudo extension: An vendor extension designed and/or implemented before
->> the standard RVI extension was ratified but do not violate any standard
->> encoding space.
+>>>>
+>>>> 2. Erratas: An genuine bug/design issue in the expected behavior from a
+>>>> standard RVI extension (including violating standard encoding space)
 >>
->> 2. Erratas: An genuine bug/design issue in the expected behavior from a
->> standard RVI extension (including violating standard encoding space)
+>> More on this below, but I think vendors should name these too.
+> 
+> Yah, both of these the vendor /should/ name it themselves but I don't
+> want some set in stone /must/ that locks someone who is not the vendor
+> from upstreaming.
+> 
+>>>> 3. Vendor extension: A new or a variant of standard RVI extension which is
+>>>> different enough from standard extension.
+>>>>
+>>>> IMO, the line between #2 and #1 may get blurry as we going forward because
+>>>> of the sheer number of small extensions RVI is comping up with (which is a
+>>>> problem as well).
 >>
->> 3. Vendor extension: A new or a variant of standard RVI extension which is
->> different enough from standard extension.
+>> The line between #1 and #2 is blurry because the only difference is the
+>> original intentions. The end result is that a vendor has implemented
+>> something that resembles a standard extension, but is not the same as the
+>> standard extension.
+> 
+> Aye, a large part of this is definitely based on intent. Or maybe
+> marketing rather than intent, but the two aren't all that different
+> as the public may not be privy to which it actually is.
+> 
+> I think you're missing a factor though - when the difference is
+> discovered. Equating #1 and #2 is fine when that difference is known
+> when the platform is originally supported, but if the divergence between
+> what's implemented and the spec is only discovered down the line...
+> 
+>>> All this stuff is going to be pretty case-by-case (to begin with at
+>>> least) so I'm not too worried about that sort of abuse.
 >>
->> IMO, the line between #2 and #1 may get blurry as we going forward because
->> of the sheer number of small extensions RVI is comping up with (which is a
->> problem as well).
-> 
-> Aye, I think some of that is verging on ridiculous.
-> 
->> Just to clarify: I am not too worried about this particular case as we know
->> that T-head's implementation predates the Sscofpmf extension.
->> But once we define a standard mechanism for this kind of situation, vendor
->> may start to abuse it.
-> 
-> How do you envisage it being abused by a vendor?
-> Pre-dating the standard extension does make this one fairly clear-cut,
-> but are you worried about people coming along and claiming to implement
-> XConorSscofpmf instead of Sscofpmf rather than suffer the "shame" of a
-> broken implementation?
-
-Yes or just use this excuse continue their old implementation in a newer 
-chip which was designed after the standard extension is ratified.
-
-
-> All this stuff is going to be pretty case-by-case (to begin with at
-> least) so I'm not too worried about that sort of abuse.
-> 
->>> I do not think we should be using m*id detection implementations of a
->>> feature prior to creation of a standard extension for the same purpose.
->>> To me the main difference between a case like this and VentanaCondOps/Zicond
->>> is that we are the ones calling this an extension (hence my use of pseudo)
->>> and not the vendor of the IP. If T-Head were to publish a document tomorrow
->>> on the T-Head github repo for official vendor extensions, that difference
->>> would not even exist any longer.
->>>
->>
->> Exactly! If vendor publishes these as an extension or an errata, that's a
->> binding agreement to call it in a specific way.
-> 
-> I don't agree that we are bound to call it the way that the vendor does.
-> We should just review these sorts of things on a case-by-case basis,
-> committing to doing what the vendor says is abusable.
-> 
->>> I also do not believe that it is a "simple" check. The number of
->>> implementations that could end up using this PMU could just balloon
->>> if T-Head has no intention of switching to Sscofpmf. If they don't
->>> balloon in this case, there's nothing stopping them ballooning in a
->>
->> Ideally, they shouldn't as it a simple case of CSR number & IRQ number.
->> If they care to implement AIA, then they must change it to standard sscofpmf
->> as the current IRQ violates the AIA spec. But who knows if they care to
->> implement AIA or not.
-> 
-> What kinda "worried" me here is that the c908 implements /both/ Zicbom
-> and the T-Head CMO instructions and /both/ Svpbmt and their original
-> misuse of the reserved bits but they do not support Sscofpmf. Maybe it
-> just was not feasible to migrate entirely (but they did for vector) or
-> to support both interrupt numbers and to alias the CSR, but it seemed
-> like the opportunity to standardise a bunch of other stuff was taken,
-> but this particular extension was not. That's why I was worried that
-> we'd see some ballooning in these specific checks.
+>> Case-by-case is reasonable, since it's probably too strict to always
+>> require new names. We can consider each proposed workaround as they
+>> come, but it's a slippery slope once workarounds are accepted.
 > 
 
+May be we treat #1 and #3 are same. In this case, we just call it 
+XTheadSscofpmf or something similar. The patches would look similar to 
+what was proposed in Andes PMU v7 series in that case.
 
-This is the exact abuse I was talking about. A vendor can keep churning 
-new chips with incompatible extensions because Linux just allowed them 
-get away with it by calling it a Vendor Extension.
-
-+Guo: In case he has any insight behind this decision from Thead.
-
->>> similar case in the future. We should let the platform firmware tell
->>> explicitly, be that via DT or ACPI, what features are supported rather
->>> than try to reverse engineer it ourselves via m*id.
->>>
->> Fair enough.
->>
->>
->>> That leads into another general issue I have with using m*id detection,
->>> which I think I have mentioned several times on the list - it prevents the
->>> platform (hypervisor, emulator or firmware) from disabling that feature.
->>>
->>
->> If that is the only concern, platform can just disable the actual
->> extension(i.e. sscofpmf in this case) to disable that feature for that
->> particular vendor.
+> ... I think that means that having some workarounds are inescapable
+> really. Some sort of workaround could then be only way fix the problem
+> without a firmware update. That workaround might be triggered by the
+> m*id CSRs or it could be based on the firmware's SBI implemenation
+> or version IDs.
+> When it's something that never worked at all or was discovered early,
+> then ye equate the two.
 > 
-> Right. Maybe I wasn't clear that this is a problem with using m*id for
-> /detection/ of extensions and not with using m*id to work around
-> implementation issues with the extension. In the latter case, you're
-> applying a fixup only when the actual extension is communicated to be
-> present, which leaves that control in the hands of the platform.
+>>>> Just to clarify: I am not too worried about this particular case as we know
+>>>> that T-head's implementation predates the Sscofpmf extension.
+>>>> But once we define a standard mechanism for this kind of situation, vendor
+>>>> may start to abuse it.
+>>>
+>>> How do you envisage it being abused by a vendor?
+>>> Pre-dating the standard extension does make this one fairly clear-cut,
+>>> but are you worried about people coming along and claiming to implement
+>>> XConorSscofpmf instead of Sscofpmf rather than suffer the "shame" of a
+>>> broken implementation?
+>>
+>> Other than the concern of the ballooning bitmap, I'd prefer this approach.
+>> If a vendor has implemented some extension which happens to be "almost
+>> Sscofpmf", then whether it was implemented before the Sscofpmf spec
+>> existed, or after, isn't really important. What's important is that it's
+>> only "almost Sscofpmf" and not _exactly_ Sscofpmf, which means it should
+>> not use the Sscofpmf extension name.
 > 
-
-Hmm. I guess there is no way predict how vendors will include standard 
-extensions. Let's give them a benefit of doubt hoping they realize 
-abusing the system won't help anybody. They will try to adopt the 
-standard extensions if it is possible and creates erratas for genuine 
-problems.
-
->>> If I had a time machine back to when the T-Head perf or cmo stuff was
->>> submitted, I was try to avoid any of it being merged with the m*id
->>> detection method.
->>>
->>>> I agree that don't have the crystal ball and may be proven wrong in the
->>>> future (I will be definitely happy about that!). But given the diversity of
->>>> RISC-V ecosystem, I feel that may be our sad reality.
->>>
->>> I don't understand what this comment is referring to, it lacks context
->>> as to what the sad reality actually is.
->>>
->>> I hope that all made sense and explained why I am against this method
->>> for detecting what I believe to be features rather than errata,
->>> Conor.
->>>
->>
->> Yes.Thanks again for the clarification. Again, I am not opposed to the idea.
->> I just wanted to understand if this is the best option we have right now.
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> One of the reasons I keep bringing up when things were created prior to
+> the creation of Sscofpmf (and I guess the fact that the vendor never
+> claims to support Sscofpmf) is to highlight that we are not looking at
+> at one of these edge cases where we're only discovering that there's an
+> implementation issue on these CPUs that we need to work around silently.
+> 
+>> Since vendors are allowed to create
+>> their own XVendor names, then that shouldn't be a problem. Indeed, the
+>> abuse concern seems to be in the opposite direction, that vendors will
+>> try to pass off almost-standard extensions as standard extensions by
+>> trying to get workarounds into Linux. Maybe Linux policy should be to
+>> simply reject workarounds to extensions, requiring vendors to create new
+>> names instead.
+> 
+> I'd be inclined to agree (although there's gonna be some exceptions as I
+> mention above) - but it's easy for me to say that given I want people to
+> use riscv,isa-extensions on the DT side which cites specific versions of
+> extensions that a device is compliant with.
+> If people have issues with riscv,isa in DT, I'm can take a bit of a "oh
+> it doesn't work with riscv,isa? Tough shit, that's why we made the new
+> properties." approach and push people into new names.
+> 
+> With ACPI, I have absolutely no idea how you police any of that. The way
+> the code works rn is that both DT properties and ACPI share the exact
+> same extension "names". Obviously it doesn't need to be that way, but it
+> is handy. I'm kinda derailing here, but how would we map names to exact
+> features in ACPI land? When I last read the ACPI stuff it was very
+> non-specific and the kernel documentation
+> (Documentation/riscv/acpi.rst) cites a specific version of the ISA
+> manual that provides no information (and I guess never will?) about
+> vendor extensions.
+> 
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
 _______________________________________________
