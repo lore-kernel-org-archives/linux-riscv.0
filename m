@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B7C2C54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 08:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E66C54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 08:10:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qmq6JmQGpUlLjvsKSfbMTti4NrIUSz2NxZ2SmD4ImBI=; b=4f57NlKKOKDvM7mqT9uOwzamgc
-	YWwZk7+KeRjMBbKUlqgOjKAg/E0fC6P7w9flZ8iv79vzJ0oxTzs0bYUned5+Qk7Hop85MRfXSpX/+
-	fdd/NoT+3iTI89/iXEA22XXd/Qfw5IjrXwKsFQxuO8DsGDXPf5gc8+ypiXrNcumWGRnTht8fO+lIt
-	lukOdBsGhsGEDKpfvGrEDocb0HQhEImEp60QeBL4ctsZQaiv8UKKaW6NvkzJcfMJLwPpuxHK/lWDS
-	xwzweCEXnsXEkVxI4gm5+sm7f4xRryb4mMiVGbnBE0ADbXryLhdleklZr3NzSDJGr6ayT8uiKVlV1
-	c6t3BLHg==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gaQja4o+Hbo8tuz9wqvTyi1zwuqKpdiBUjiTUHKjgG0=; b=kt0+r7a5Vo9SafNMsh4shuQgY7
+	ixMl6vav4YjKioXOngMAlHfJ/XPWy5mFiOXHIhH+MIc9VlkFtj1OEHyKxmfe1fhLry9490rnQgsAu
+	XwfXTwslLc7o1V+oKIKECQxDK8K30xIZYFg27hUGXsiHvfpKBuH/U4TyNUY5EBp5zD0bu/VFb3BDE
+	MYmdt44D/IgwrcAQiuuS9/1Z2/A8NPA4DTvQbpFaLUQVPoDLZcs8uiuSWqAi3BuYFNOcFlfPY9/R9
+	9Cl63zTHBfeEj/gVVsRRVV4/YpCMYnwjctEnRyYcjRL7AiHjsOoqwAsl2GGGSPwulxsxxfxgzUJYO
+	Fl4Lh2pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmqz0-0000000G660-3yvR;
-	Wed, 20 Mar 2024 08:07:34 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1rmr1g-0000000G6gf-0DU0;
+	Wed, 20 Mar 2024 08:10:20 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmqyy-0000000G654-0eDZ
+	id 1rmr1d-0000000G6ac-0Um8
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Mar 2024 08:07:33 +0000
+	Wed, 20 Mar 2024 08:10:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1710922052; x=1742458052;
+  t=1710922217; x=1742458217;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=8s8XKGkGT4rwQeAawGzZEkGeS8AnzqsL4K//1R+zt5Q=;
-  b=YvJ4fXBO5EVC0VfpbllRqfCVu93McmRloN3I6DaQws9cnyF0sEVYYXdB
-   3rIrUwi6gKQFFgVe1eCzuA/+Ru7XF/qTodYdFU0a0R2JQClXC4VrFc0C1
-   /pcLveS8JR26tfJYamQozVOq1A9F3qEIW5qkV6U+Pxd2mqDQN/OJbAw3C
-   dWBnhr7942wr40zSMQiQwAi0pAtuGZz7vIT8i3tz3sYjcgCKgxSSoUbvl
-   oZR8RmdJd4RsGF/Lyl0RVYmteTO4xR89GdsI0Jji3JAERmnum9zjrCTJi
-   hftHdnPxuoG2RVYuE4M0bG4n9VyrXbyuNjxAQHH1EqAvdWeGb4snagf28
+  bh=AfCnug0umUcdT2gosXp103HrYU4EPJM44slnpZb1jv0=;
+  b=E+9iLyM1PPp4EOJOz/pRyrfEudlxSwbdLHxdH8iWyLXLJAvCeY5lEITb
+   T+gYWzEMoPuh/DMAxDpXN5HUe5WKsSgxJovjS1lb5zcufCThkPc3bghHu
+   +wETeuDRKT34SZxJ9TtrysjPmjOEcUhbexgF50FYNGxSX5TsCK34TgWvp
+   Ln2Yl/LvUqTxhBmBeCp5w6yKIkaYR3rKCnbplVO+0JbSg6viLIgSyGWp7
+   LTmHTqzYivAbPG3nDjR3Mws/rxizl3nSWfNdqXAc7j8hGeKieoFVs61pF
+   dbvJWHuMNAWacyPLAuYk6W9SKvAo10eoCBxq11QEOejWxVR5jhf9Gn6lK
    A==;
-X-CSE-ConnectionGUID: +2PKfpLTQGq2m0SEBNMVqQ==
-X-CSE-MsgGUID: eSxs2JbuTmyaJCQMbacMkA==
+X-CSE-ConnectionGUID: eZhPXw6WRumqhkMBxQG74g==
+X-CSE-MsgGUID: a6qsqpTMSjOeZ0F7tAolvA==
 X-IronPort-AV: E=Sophos;i="6.07,139,1708412400"; 
-   d="asc'?scan'208";a="248659095"
+   d="asc'?scan'208";a="18421063"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Mar 2024 01:07:30 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Mar 2024 01:10:01 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 20 Mar 2024 01:07:10 -0700
+ 15.1.2507.35; Wed, 20 Mar 2024 01:09:31 -0700
 Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Wed, 20 Mar 2024 01:07:07 -0700
-Date: Wed, 20 Mar 2024 08:06:20 +0000
+ Transport; Wed, 20 Mar 2024 01:09:27 -0700
+Date: Wed, 20 Mar 2024 08:08:41 +0000
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-CC: Deepak Gupta <debug@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, <linux-kernel@vger.kernel.org>, Conor
- Dooley <conor@kernel.org>, <kasan-dev@googlegroups.com>, Evgenii Stepanov
-	<eugenis@google.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>, Andrew
- Jones <ajones@ventanamicro.com>, Guo Ren <guoren@kernel.org>, Heiko Stuebner
-	<heiko@sntech.de>, Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [RISC-V] [tech-j-ext] [RFC PATCH 5/9] riscv: Split per-CPU and
- per-thread envcfg bits
-Message-ID: <20240320-fanfare-flick-3b38dde081d8@wendy>
-References: <20240319215915.832127-1-samuel.holland@sifive.com>
- <20240319215915.832127-6-samuel.holland@sifive.com>
- <CAKC1njSg9-hJo6hibcM9a-=FUmMWyR39QUYqQ1uwiWhpBZQb9A@mail.gmail.com>
- <40ab1ce5-8700-4a63-b182-1e864f6c9225@sifive.com>
+To: Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH 0/4] Add StarFive's StarLink-500 Cache Controller
+Message-ID: <20240320-implement-finishing-136eae51d659@wendy>
+References: <20240314061205.26143-1-joshua.yeong@starfivetech.com>
+ <20240317-viral-handcraft-12b2519ff1be@spud>
 MIME-Version: 1.0
-In-Reply-To: <40ab1ce5-8700-4a63-b182-1e864f6c9225@sifive.com>
+In-Reply-To: <20240317-viral-handcraft-12b2519ff1be@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240320_010732_341347_355A627F 
-X-CRM114-Status: GOOD (  25.14  )
+X-CRM114-CacheID: sfid-20240320_011017_229276_8160E6A1 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,88 +79,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3528805898480410741=="
+Cc: devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, alexghiti@rivosinc.com, geert+renesas@glider.be, jeeheng.sia@starfivetech.com, leyfoon.tan@starfivetech.com, heiko@sntech.de, prabhakar.mahadev-lad.rj@bp.renesas.com, guoren@kernel.org, linux-kernel@vger.kernel.org, krzysztof.kozlowski+dt@linaro.org, robh+dt@kernel.org, evan@rivosinc.com, palmer@dabbelt.com, jszhang@kernel.org, paul.walmsley@sifive.com, Joshua Yeong <joshua.yeong@starfivetech.com>, linux-riscv@lists.infradead.org, ajones@ventanamicro.com
+Content-Type: multipart/mixed; boundary="===============5884481056712695419=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3528805898480410741==
+--===============5884481056712695419==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ZQuW/bL/DNtzlQCx"
+	protocol="application/pgp-signature"; boundary="iOmun+xjPn985xOw"
 Content-Disposition: inline
 
---ZQuW/bL/DNtzlQCx
-Content-Type: text/plain; charset=utf-8
+--iOmun+xjPn985xOw
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Mar 19, 2024 at 09:20:59PM -0500, Samuel Holland wrote:
-> On 2024-03-19 6:55 PM, Deepak Gupta wrote:
-> > On Tue, Mar 19, 2024 at 2:59=E2=80=AFPM Samuel Holland via lists.riscv.=
-org
-> > <samuel.holland=3Dsifive.com@lists.riscv.org> wrote:
-> >>
-> >> Some envcfg bits need to be controlled on a per-thread basis, such as
-> >> the pointer masking mode. However, the envcfg CSR value cannot simply =
-be
-> >> stored in struct thread_struct, because some hardware may implement a
-> >> different subset of envcfg CSR bits is across CPUs. As a result, we ne=
-ed
-> >> to combine the per-CPU and per-thread bits whenever we switch threads.
-> >>
-> >=20
-> > Why not do something like this
-> >=20
-> > diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> > index b3400517b0a9..01ba87954da2 100644
-> > --- a/arch/riscv/include/asm/csr.h
-> > +++ b/arch/riscv/include/asm/csr.h
-> > @@ -202,6 +202,8 @@
-> >  #define ENVCFG_CBIE_FLUSH              _AC(0x1, UL)
-> >  #define ENVCFG_CBIE_INV                        _AC(0x3, UL)
-> >  #define ENVCFG_FIOM                    _AC(0x1, UL)
-> > +/* by default all threads should be able to zero cache */
-> > +#define ENVCFG_BASE                    ENVCFG_CBZE
+On Sun, Mar 17, 2024 at 03:01:05PM +0000, Conor Dooley wrote:
+> On Thu, Mar 14, 2024 at 02:12:01PM +0800, Joshua Yeong wrote:
+> > StarFive's StarLink-500 Cache Controller flush/invalidates cache using =
+non-
+> > conventional CMO method. This driver provides the cache handling on Sta=
+rFive
+> > RISC-V SoC.
 >=20
-> Linux does not assume Sstrict, so without Zicboz being present in DT/ACPI=
-, we
-> have no idea what the CBZE bit does--there's no guarantee it has the stan=
-dard
-> meaning--so it's not safe to set the bit unconditionally. If that policy
-> changes, we could definitely simplify the code.
+> Unlike the other "non-conventional" CMO methods, the jh8100 does not
+> pre-date the Zicbom extension. Why has that not been implemented?
 
-The wording for that "extension", if two lines in the profiles doc makes
-something an extension is:
-"No non-conforming extensions are present. Attempts to execute unimplemented
-opcodes or access unimplemented CSRs in the standard or reserved encoding
-spaces raises an illegal instruction exception that results in a contained
-trap to the supervisor-mode trap handler."
+Stefan pointed out on IRC yesterday that one of the main selling points
+is the ease of operating on large ranges.
 
-I know we have had new extensions come along and mark previously fair
-game interrupts for vendors as out of bounds. I wonder if there's a risk
-of that happening with CSRs or opcodes too (or maybe it has happened and
-I cannot recall).
+> How many peripherals on the jh8100 rely on non-coherent DMA?
+>=20
+> Cheers,
+> Conor.
 
-Going back to the interrupts - is the Andes PMU non-conforming because
-it uses an interrupt that was declared as vendor usable but is now part
-of the standard space because of AIA? If it is, then the meaning of
-Sstrict could vary wildly based on the set of extensions (and their
-versions for specs). That sounds like a lot of fun.
 
---ZQuW/bL/DNtzlQCx
+
+--iOmun+xjPn985xOw
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZfqY/AAKCRB4tDGHoIJi
-0m4/AP0UYPz9RdNLmW6g7L1tf8w83wsWZfBkuwZqh3A3w0Jq9wEA7t8mWVQ1YVm2
-D9FdG5Y2+4p6MzgZJDv6xF67VncJZAU=
-=unOr
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZfqZiQAKCRB4tDGHoIJi
+0qMDAP9sOBXZWhcjt6+UQcqMAdgYDyQ/d+HtGVH8VPq7D6wuPwEAuJxliBsHfezS
+RtGYM/iDUAlOd2eP7RPVi3PWvojxogk=
+=Su/2
 -----END PGP SIGNATURE-----
 
---ZQuW/bL/DNtzlQCx--
+--iOmun+xjPn985xOw--
 
 
---===============3528805898480410741==
+--===============5884481056712695419==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -182,5 +140,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3528805898480410741==--
+--===============5884481056712695419==--
 
