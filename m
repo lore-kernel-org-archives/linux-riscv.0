@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51146CD11DD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2063C54E58
 	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 20:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ibjz/EZ361wA1eLdniAJNEtFUkmO469QMzBzMsVhKTQ=; b=H2URdEEDGpTcdv
-	uPcu0JVQ9bn3Uu2gmVcMIPMmMtVUN4xRhEnv/s1aJ4EGtUbdwvvtSj93AiirzaOYBVZoFIEIkJjr1
-	TvwlRtCy9YBaw1zyMhkvJZbW1vANij4Lsk0jcbqe8vUVuBo7VsErA2jiAXOVDl3NWpHIAzXkpomVH
-	cVH0gc5marf1MV7YQfBj+5xwYGQIMO19/0G2uQ9uE/a1wSAOMWT9ejinslAZBqnumm4t2U9+0GDJI
-	ULmoL+OKhUlZT5vLWWe19YLjPEQvMXL5QMvjh7dlqGIGjDMzpve3vLQWV+SnI8w+9bKx4U3DU1Bfn
-	VPMHZyEuVqCfYpo0/60Q==;
+	List-Owner; bh=nRsbizmLc/Q2XvD+ATPybH65W1d9Inh8h+KEcJMFkPM=; b=FojAX557rMxNXo
+	TtL8L/BcKc8N48SvOE3P5o8/5iDgrfeMFMgLAcNiWJ0wBxIYVRvZ8LVFt4jAIdDOUx2eujS/pNSlM
+	Ud/z7/q7EG2N0TAAW49NEgu1y1Sd8yDYU39UTBYpzeWlkPy5sGumZaRDTseEExN3NfUuENkglQlZq
+	pSedXKjlx13XVqrJtD4UsUwDUNo0cldIQeLv9lj4fkzBYv3YM6Po7+ruTnLp0FRAGkmUe5h6k0ElO
+	LpbFfhmO8UJWZvJcoXIfscoyMJ0OZZfWO39JyAA7hRIadMuLi+ADonEqqf1EOzD4B1OpOsfAe9I0d
+	l+8on8cP6shfYOFIH4ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rn2th-00000000vyR-0scL;
-	Wed, 20 Mar 2024 20:50:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rn2tj-00000000vzl-1CIM;
+	Wed, 20 Mar 2024 20:50:55 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rn2tV-00000000vpg-1Kxp
+	id 1rn2tW-00000000vpn-1ukA
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Mar 2024 20:50:44 +0000
+	Wed, 20 Mar 2024 20:50:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F03E96111F;
-	Wed, 20 Mar 2024 20:50:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 43F56C433A6;
+	by sin.source.kernel.org (Postfix) with ESMTP id 8DCD8CE1257;
+	Wed, 20 Mar 2024 20:50:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 363CBC43399;
 	Wed, 20 Mar 2024 20:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1710967839;
-	bh=+PifagGk+gURTA9vY7TNHlo06xkwkczqhge93C7brus=;
+	bh=EzEXn434C3owX412vSu+v4rWnWZ62rkj4t68PC+Dsko=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=RaUNpUnFQt9VpK/coGA3iciZ+/yHKVYvwi2+1siV7cdtSYp7NIa0QzYszfRlMGj85
-	 ylwm/+3+VQcacNO3DQ9ST89McinYvkSYW5L+QFzbaJRO/exncukegYe89JYmnWi8Gx
-	 v6xnM4ebhoB+F6UzxWBTmbQ+k5bMNzl6LtAkWJuFt0h2PGFtuhy0IvRrE7O1ElL1dj
-	 mGvxj3njoHwuTqX9ChaFupTJMGZQrmoiEvIRDHpuc4Llk21rKw0iKjxVqSS/6hqnTO
-	 1MrvVE81ve9GAA4c1zyrATV3LE9FNoCUkcS41kCesYeUcJnguivuaxPjyubCihLRkF
-	 65HAx8WEs9E6w==
+	b=p2SZ4abIHqa0sX56hiq9Oa4dlfTRGDjvfk8Y8fyToXrUFH6p70eIBYMXbv6BXfzJD
+	 ma2JVua77H0tlR3uDlAg34AZYLeRJn1+Cw8WdB6LA0JpQW7evERiJwnV2rtpc/6rjx
+	 uxbI6cJGRHKkHun9R3uzF/c3gbVDfOz6JFFu3S5AHHDjj7ZfAV7N49SBnurBkfxOVX
+	 lvO2zh6x5QIcjYfxjBY98dWjAht4n6ACGf3efE6DYsH5rGKPn4eFvJx8Q9HmYrSFe7
+	 ffLL983k/ZXiKYX41v8dhlDJyiB9/GamYg9e8kxBRGCg2MhFiaLKLyZMpBjrcz6TQ0
+	 LeH0kSGFIls3A==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 366D6D98302;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2569DD95060;
 	Wed, 20 Mar 2024 20:50:39 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 -next 0/3] RISC-V: ACPI: Add LPI support
+Subject: Re: [PATCH v6 0/4] riscv/barrier: tidying up barrier-related macro
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171096783922.6804.3192320298991985852.git-patchwork-notify@kernel.org>
+Message-Id: <171096783915.6804.16329473999832420687.git-patchwork-notify@kernel.org>
 Date: Wed, 20 Mar 2024 20:50:39 +0000
-References: <20240118062930.245937-1-sunilvl@ventanamicro.com>
-In-Reply-To: <20240118062930.245937-1-sunilvl@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- aou@eecs.berkeley.edu, rafael@kernel.org, anup@brainfault.org,
- daniel.lezcano@linaro.org, atishp@rivosinc.com, conor.dooley@microchip.com,
- palmer@dabbelt.com, pavel@ucw.cz, paul.walmsley@sifive.com,
- ajones@ventanamicro.com, lenb@kernel.org
+References: <20240217131206.3667544-1-ericchancf@google.com>
+In-Reply-To: <20240217131206.3667544-1-ericchancf@google.com>
+To: Eric Chan <ericchancf@google.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ conor.dooley@microchip.com, parri.andrea@gmail.com,
+ emil.renner.berthing@canonical.com, samuel.holland@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240320_135041_610981_E6EC0D8A 
-X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-CacheID: sfid-20240320_135042_708865_7D082B31 
+X-CRM114-Status: UNSURE (   8.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,25 +82,26 @@ Hello:
 This series was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu, 18 Jan 2024 11:59:27 +0530 you wrote:
-> This series adds support for Low Power Idle (LPI) on ACPI based
-> platforms.
+On Sat, 17 Feb 2024 13:12:06 +0000 you wrote:
+> This series makes barrier-related macro more neat and clear.
+> This is a follow-up to [0-3], change to multiple patches,
+> for readability, create new message thread.
 > 
-> LPI is described in the ACPI spec [1]. RISC-V FFH spec required to
-> enable this is available at [2].
-> 
-> [1] - https://uefi.org/specs/ACPI/6.5/08_Processor_Configuration_and_Control.html#lpi-low-power-idle-states
-> [2] - https://github.com/riscv-non-isa/riscv-acpi-ffh/releases/download/v/riscv-ffh.pdf
+> v5 -> v6: [PATCH 1/4] let this change to pass review by checkpatch.pl
+> instead of overwriting again in [PATCH 4/4]. for [PATCH 4/4] change
+> the error message example in commit message to make it more relevant
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3,-next,1/3] cpuidle: RISC-V: Move few functions to arch/riscv
-    https://git.kernel.org/riscv/c/6649182a383c
-  - [v3,-next,2/3] ACPI: RISC-V: Add LPI driver
-    https://git.kernel.org/riscv/c/4877fc92142f
-  - [v3,-next,3/3] ACPI: Enable ACPI_PROCESSOR for RISC-V
-    https://git.kernel.org/riscv/c/359df7c5be4b
+  - [v6,1/4] riscv/barrier: Define __{mb,rmb,wmb}
+    https://git.kernel.org/riscv/c/89f4fd7b1ab7
+  - [v6,2/4] riscv/barrier: Define RISCV_FULL_BARRIER
+    https://git.kernel.org/riscv/c/b3c8064ccc44
+  - [v6,3/4] riscv/barrier: Consolidate fence definitions
+    https://git.kernel.org/riscv/c/c85688e2b0f0
+  - [v6,4/4] riscv/barrier: Add missing space after ','
+    https://git.kernel.org/riscv/c/9133e6e6908d
 
 You are awesome, thank you!
 -- 
