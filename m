@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2063C54E58
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 20:50:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0DEC54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 20:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nRsbizmLc/Q2XvD+ATPybH65W1d9Inh8h+KEcJMFkPM=; b=FojAX557rMxNXo
-	TtL8L/BcKc8N48SvOE3P5o8/5iDgrfeMFMgLAcNiWJ0wBxIYVRvZ8LVFt4jAIdDOUx2eujS/pNSlM
-	Ud/z7/q7EG2N0TAAW49NEgu1y1Sd8yDYU39UTBYpzeWlkPy5sGumZaRDTseEExN3NfUuENkglQlZq
-	pSedXKjlx13XVqrJtD4UsUwDUNo0cldIQeLv9lj4fkzBYv3YM6Po7+ruTnLp0FRAGkmUe5h6k0ElO
-	LpbFfhmO8UJWZvJcoXIfscoyMJ0OZZfWO39JyAA7hRIadMuLi+ADonEqqf1EOzD4B1OpOsfAe9I0d
-	l+8on8cP6shfYOFIH4ZA==;
+	List-Owner; bh=eByH5KXTLhYmRDUOsn/aBMuA8Ig0YQOxtnV32tc8H9Q=; b=LBrVQdDrUWUW2W
+	XY1UMS9QLSfyP3eowdunGrVldmgSJuOGuT+24jNeGVsmP0G5Bu5gEQG5dNi4sccX5RiOdSugWfLFQ
+	nspLKt1ZP0AglmyUFkGqjGwdCfW0BqC/l+6j3reYDu6YV8Gz5zbTDLT6gNvFj44mJQ0IUye9CnrhC
+	NXlXggFwJ4sKtwqBJJWLIU4UJ0b4nHT0/6gbf0ESoe38/knr2KjDpNV/dy3IwxXk07mZqqSWClb2C
+	16YfyxnzIqpv5tJOt7IRkawaeGxScLRKO9Q3MXZlXGdshzhxlzdh8u2qUmh5bP6BxHjKg7Z8dyIV1
+	ES7F78/57PyVFeRySrdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rn2tj-00000000vzl-1CIM;
-	Wed, 20 Mar 2024 20:50:55 +0000
+	id 1rn2tl-00000000w0q-2ULn;
+	Wed, 20 Mar 2024 20:50:57 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rn2tW-00000000vpn-1ukA
+	id 1rn2tW-00000000vpo-1uXO
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Mar 2024 20:50:45 +0000
+	Wed, 20 Mar 2024 20:50:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 8DCD8CE1257;
+	by sin.source.kernel.org (Postfix) with ESMTP id 8ECA2CE1259;
 	Wed, 20 Mar 2024 20:50:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 363CBC43399;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4D6D2C43330;
 	Wed, 20 Mar 2024 20:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1710967839;
-	bh=EzEXn434C3owX412vSu+v4rWnWZ62rkj4t68PC+Dsko=;
+	bh=afP5A0NF+uMzPWLZu45rPVAkiCKsGunwRFG9Ivhk/Ns=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=p2SZ4abIHqa0sX56hiq9Oa4dlfTRGDjvfk8Y8fyToXrUFH6p70eIBYMXbv6BXfzJD
-	 ma2JVua77H0tlR3uDlAg34AZYLeRJn1+Cw8WdB6LA0JpQW7evERiJwnV2rtpc/6rjx
-	 uxbI6cJGRHKkHun9R3uzF/c3gbVDfOz6JFFu3S5AHHDjj7ZfAV7N49SBnurBkfxOVX
-	 lvO2zh6x5QIcjYfxjBY98dWjAht4n6ACGf3efE6DYsH5rGKPn4eFvJx8Q9HmYrSFe7
-	 ffLL983k/ZXiKYX41v8dhlDJyiB9/GamYg9e8kxBRGCg2MhFiaLKLyZMpBjrcz6TQ0
-	 LeH0kSGFIls3A==
+	b=jtvSscKh9OFUqlssM6reOh4z6/tswKTw8PFxCLOFU7zM51ahkQ8u8ByNBsDrIQ7ap
+	 oesavW1gUfGtQE2s1xQCajLB6EhPBIEYNQHE7JnHnSahhJ6m4HIxkBf00SwKm39x7i
+	 TdOr8qbtePyOEFtc7LDGnAN4Di/ZonialVlbNmSHMsbXqzf1xWMkMSnmS5Pp0Yii6i
+	 EdVzdp0fr5ApB6dfYpg6zp9wfvXvRpLkeLtyGTWm1Zr3DmAUa9ITOVTKM5ENiOndfW
+	 a4RDn/k9goaaf6FV5eWDn2rmjCEa5ETDPHBHsi7FFlTFlAbsdt7il9l5AuY4mLJGmp
+	 L6zr6fw/2tM2g==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2569DD95060;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 41253D98303;
 	Wed, 20 Mar 2024 20:50:39 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 0/4] riscv/barrier: tidying up barrier-related macro
+Subject: Re: [PATCH riscv/for-next] crypto: riscv - add vector crypto accelerated
+ AES-CBC-CTS
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171096783915.6804.16329473999832420687.git-patchwork-notify@kernel.org>
+Message-Id: <171096783926.6804.7089388626356276369.git-patchwork-notify@kernel.org>
 Date: Wed, 20 Mar 2024 20:50:39 +0000
-References: <20240217131206.3667544-1-ericchancf@google.com>
-In-Reply-To: <20240217131206.3667544-1-ericchancf@google.com>
-To: Eric Chan <ericchancf@google.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
- conor.dooley@microchip.com, parri.andrea@gmail.com,
- emil.renner.berthing@canonical.com, samuel.holland@sifive.com
+References: <20240213055442.35954-1-ebiggers@kernel.org>
+In-Reply-To: <20240213055442.35954-1-ebiggers@kernel.org>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ linux-crypto@vger.kernel.org, jerry.shih@sifive.com,
+ christoph.muellner@vrull.eu, heiko@sntech.de, phoebe.chen@sifive.com,
+ andy.chiu@sifive.com, ardb@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240320_135042_708865_7D082B31 
-X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-CacheID: sfid-20240320_135042_717374_4E1FCC17 
+X-CRM114-Status: UNSURE (   8.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,29 +80,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
+This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Sat, 17 Feb 2024 13:12:06 +0000 you wrote:
-> This series makes barrier-related macro more neat and clear.
-> This is a follow-up to [0-3], change to multiple patches,
-> for readability, create new message thread.
+On Mon, 12 Feb 2024 21:54:42 -0800 you wrote:
+> From: Eric Biggers <ebiggers@google.com>
 > 
-> v5 -> v6: [PATCH 1/4] let this change to pass review by checkpatch.pl
-> instead of overwriting again in [PATCH 4/4]. for [PATCH 4/4] change
-> the error message example in commit message to make it more relevant
+> Add an implementation of cts(cbc(aes)) accelerated using the Zvkned
+> RISC-V vector crypto extension.  This is mainly useful for fscrypt,
+> where cts(cbc(aes)) is the "default" filenames encryption algorithm.  In
+> that use case, typically most messages are short and are block-aligned.
+> The CBC-CTS variant implemented is CS3; this is the variant Linux uses.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v6,1/4] riscv/barrier: Define __{mb,rmb,wmb}
-    https://git.kernel.org/riscv/c/89f4fd7b1ab7
-  - [v6,2/4] riscv/barrier: Define RISCV_FULL_BARRIER
-    https://git.kernel.org/riscv/c/b3c8064ccc44
-  - [v6,3/4] riscv/barrier: Consolidate fence definitions
-    https://git.kernel.org/riscv/c/c85688e2b0f0
-  - [v6,4/4] riscv/barrier: Add missing space after ','
-    https://git.kernel.org/riscv/c/9133e6e6908d
+  - [riscv/for-next] crypto: riscv - add vector crypto accelerated AES-CBC-CTS
+    https://git.kernel.org/riscv/c/c70dfa4a2723
 
 You are awesome, thank you!
 -- 
