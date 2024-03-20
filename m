@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379F0C54E58
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 17:21:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2EBDC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 17:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j2oAmT3PKMtHmOq3UV6EeWWX1cYCSlqt0Vtlut2zXC4=; b=gQAF6+3iLG32r1VbGW0QiafnCE
-	kikVbA/gmcQdXlLUW0P8CAhRxoGgCDFWm11a4KAnX/hTr1i/1VduGjxKk8kag+XLGXNmjvqy3K7HQ
-	FbSittwzTbC3n+UAPpBzqoHx6N9Jr5Z1k90DvY1bFPLBgruF4WVC/3+ovhT+W+rKjZRR8nrvHLJrV
-	kHqu48Y82ldV+uJTX7uSIjPpN6RXxfTcIjrB0T8xBL/+xvORwJWl0ybCZ6s4LbHgec/XMBNsOcUdy
-	0AJ+ELiSls43J+mj4s22qU9PStGb71nc6twUfoExH5xZCXay06n7VjQt0NqTbBYYnDtnzI525Oq0L
-	0zB+8LMQ==;
+	bh=i8VLtuXXtRi/maAIk7kznTkq5Zgf5/fkJ7D8wQI/rRY=; b=1IRZ551rfli1DEib9QkM3OTJKc
+	u8oLLjEH6xgG/jQdAn3MwS11D0byJwoaePAOnzCwMo3TELZrZAt0udQB60e+CGsC/rV9YmvnNffQM
+	EfWe6s4xRDk0T9x7T2AgDvYhKd4hc2KTtTsoXF8ECVs5quol8dWr1L8t7Fru5xlsn/OQJNPgjqtyD
+	a21qJqAlO5ILPIKLByDBPh4UKFDlnwMW22hFBXuHtsUTvd0YRwBWWBa5/yszI9Co99rVwUE9d/Kiy
+	lmBWYEvjwGAGwnxatt/84E4vyVs4cE2nWAGqkpsGnEFuuGf+AVmM/78JLuAgSLDAbY772jvkEZ7J3
+	2BYbI4TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmzco-00000000T7K-452I;
-	Wed, 20 Mar 2024 17:21:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rmzuO-00000000WIK-3VS3;
+	Wed, 20 Mar 2024 17:39:24 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmzcl-00000000T5J-3hHs
+	id 1rmzuL-00000000WGH-3RUo
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Mar 2024 17:21:13 +0000
+	Wed, 20 Mar 2024 17:39:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D110C61041;
-	Wed, 20 Mar 2024 17:21:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDF59C433F1;
-	Wed, 20 Mar 2024 17:21:07 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id C0A3CCE10E7;
+	Wed, 20 Mar 2024 17:39:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C0D2C43390;
+	Wed, 20 Mar 2024 17:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1710955270;
-	bh=vMt26N+gZlbDIjpZ5zan3Cn3V7tOpJjhfbvtLaaSEq0=;
+	s=k20201202; t=1710956359;
+	bh=+I4HwwOXGb4OTVbce2LLwgvNTP55VKW3XPSef7uX2qU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sSGqzDQR5pMJHQpJD2A5Tsa85TNyzs/VaHkeFqTGVRii2quMlXc1YRh9shPu6T7Cp
-	 peubW3wxB92VVgh+sNL0e3aZv71RPHtLcLq5pJBIt0TmCezQAlgxtBEXwE4/NNB8yr
-	 Fb8Tgm95F+9adlFvSGejqQxARy+vm1InxtlCBbQv7TQBL4Hm+8PizwvLlES2nrAk7z
-	 8+ImGXduaZYQ1LpSDmNr4BOT/K6bbIGCnPA4f2V4FOhSoklogSnX0F+uOhHM2Ngv0c
-	 Fpy5Mx3zpOBr8J0cY/Vpq84jbQ9q1vAIRlZDvAKXNqS0hnGmq7D6rAahuvHOBXinx6
-	 uBeEoHiGZdmUA==
-Date: Wed, 20 Mar 2024 17:21:05 +0000
+	b=GC+QjOLgCWd2xCHOfgGMVLPcEchWO055AePCNCuub4yNELWCDEJ2LXQ3wPuRdpWbW
+	 6zS68GkufurAmzHXJlPukCgGffKZAKhn+BvCVZPh1uGOc1x/3fGAaUBVf43pX1j12a
+	 6PPBA0loQz+7M3ep5XFYftdWyRq5doQVVKGb7R71FC339a0qTOT9MOPScoxWDvAfk2
+	 mILf4BeGvDnmqNZXxVxGIiGFRJgVPwP6t2c+jtrls1bi9cFsjEw4+GmojQkAcACnx9
+	 fBXDs4BFv+7RtocNzFtYxn/akzVicQYhk6V0cEuODsLqzVhR+WkurDG9G1dCMjxzED
+	 FOi9lFYlChCtA==
+Date: Wed, 20 Mar 2024 17:39:14 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-kernel@vger.kernel.org, tech-j-ext@lists.risc-v.org,
-	kasan-dev@googlegroups.com, Evgenii Stepanov <eugenis@google.com>,
+To: Yangyu Chen <cyy@cyyself.name>
+Cc: Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
-	Shuah Khan <shuah@kernel.org>
-Subject: Re: [RFC PATCH 9/9] selftests: riscv: Add a pointer masking test
-Message-ID: <20240320-handpick-freight-ec8027baa4d1@spud>
-References: <20240319215915.832127-1-samuel.holland@sifive.com>
- <20240319215915.832127-10-samuel.holland@sifive.com>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 5/7] riscv: Kconfig.socs: Split ARCH_CANAAN and
+ SOC_CANAAN_K210
+Message-ID: <20240320-ideology-pasty-d3aea07cc519@spud>
+References: <tencent_FC10B3C630BE27412FED2547245CBE18D807@qq.com>
+ <tencent_6F35FEF31908DE6AEB385AE30AC658863C0A@qq.com>
+ <CAJF2gTS1-VQP=gQBx=SoUWsdap153EGOObKVn+2L7=kbP2CqFg@mail.gmail.com>
+ <20240306-scowling-mortify-9b427c80e8ab@wendy>
+ <tencent_91E604E3B4D51DA37045625242A81B07F909@qq.com>
 MIME-Version: 1.0
-In-Reply-To: <20240319215915.832127-10-samuel.holland@sifive.com>
+In-Reply-To: <tencent_91E604E3B4D51DA37045625242A81B07F909@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240320_102111_982724_F05067CD 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20240320_103922_784955_82D70FBD 
+X-CRM114-Status: GOOD (  24.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,56 +78,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2263519249398130838=="
+Content-Type: multipart/mixed; boundary="===============2169496156289627275=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2263519249398130838==
+--===============2169496156289627275==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="2lLUjXGQgSitrjkh"
+	protocol="application/pgp-signature"; boundary="7hxDktwiGEbdrYmU"
 Content-Disposition: inline
 
 
---2lLUjXGQgSitrjkh
-Content-Type: text/plain; charset=us-ascii
+--7hxDktwiGEbdrYmU
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Mar 19, 2024 at 02:58:35PM -0700, Samuel Holland wrote:
-> This test covers the behavior of the PR_SET_TAGGED_ADDR_CTRL and
-> PR_GET_TAGGED_ADDR_CTRL prctl() operations, their effects on the
-> userspace ABI, and their effects on the system call ABI.
+On Wed, Mar 06, 2024 at 04:14:33PM +0800, Yangyu Chen wrote:
 >=20
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
 >=20
->  tools/testing/selftests/riscv/Makefile        |   2 +-
->  tools/testing/selftests/riscv/tags/Makefile   |  10 +
->  .../selftests/riscv/tags/pointer_masking.c    | 307 ++++++++++++++++++
+> > On Mar 6, 2024, at 16:01, Conor Dooley <conor.dooley@microchip.com> wro=
+te:
+> >=20
+> > On Wed, Mar 06, 2024 at 07:38:52AM +0800, Guo Ren wrote:
+> >=20
+> >> On Wed, Mar 6, 2024 at 7:04=E2=80=AFAM Yangyu Chen <cyy@cyyself.name> =
+wrote:
+> >>>=20
+> >>> Since we have Canaan Kendryte K230 with MMU now. The use of SOC_CANAAN
+> >>> is no longer only referred to K210. Split them and add _K210 suffix
+> >>> to the name for old SOC_CANAAN. And allows ARCH_CANAAN to be selected
+> >>> for other Canaan SoCs.
+> >>>=20
+> >>> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> >>> ---
+> >>> arch/riscv/Kconfig.socs                        | 8 +++++---
+> >>> arch/riscv/Makefile                            | 2 +-
+> >>> arch/riscv/configs/nommu_k210_defconfig        | 3 ++-
+> >>> arch/riscv/configs/nommu_k210_sdcard_defconfig | 3 ++-
+> >>> drivers/clk/Kconfig                            | 4 ++--
+> >>> drivers/pinctrl/Kconfig                        | 4 ++--
+> >>> drivers/reset/Kconfig                          | 4 ++--
+> >>> drivers/soc/Makefile                           | 2 +-
+> >>> drivers/soc/canaan/Kconfig                     | 4 ++--
+> >>> 9 files changed, 19 insertions(+), 15 deletions(-)
+> >=20
+> >> This patch cross so many subsystems, I am not sure about it. If I were
+> >> you, I would keep SOC_CANAAN and just add SOC_CANAAN_K230.
+> >=20
+> > Right. That is why I didn't try to rename the symbol, and just left it
+> > as SOC_CANAAN, but if the relevant people ack it, the chances of a
+> > significant conflict are low.
+> >=20
+>=20
+> Maybe I should split this patch into different subsystems for better
+> review. I think at least drivers/soc/Makefile should changed to use
+> ARCH_CANAAN. Because we need some SoC drivers for K230 in the future.
+> And arch/riscv/Makefile should use SOC_CANAAN_K210 instead of
+> ARCH_CANAAN.  Because we should avoid the M-Mode loader build for
+> other Canaan SoCs except for K210.
 
-I dunno much about selftests, but this patch seems to produce some
-warnings about gitignores with allmodconfig:
-tools/testing/selftests/riscv/tags/Makefile: warning: ignored by one of the=
- .gitignore files
-tools/testing/selftests/riscv/tags/pointer_masking.c: warning: ignored by o=
-ne of the .gitignore files
+It seems like what Damien requested is pretty much what's done here.
+Can you resend this CCing the maintainers for clk pinctrl and reset?
+If you leave a note under the --- line in this patch about wanting acks
+to take this via riscv, I don't mind picking up this treewide patch if
+the individual maintainers ack it. I don't think there's likely to be a
+significant conflict caused by it going through one tree.
 
---2lLUjXGQgSitrjkh
+I got a k230 board (the canmv one) so I should be able to test this
+myself before picking stuff up.
+
+Cheers,
+Conor.
+
+--7hxDktwiGEbdrYmU
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZfsbAQAKCRB4tDGHoIJi
-0pbyAP4rgHPD5OEauv47v5LeZ6gpBL/+0Gj9XCgAwfpJ1XiI/AEA6/mJhAh0XHlI
-JCwPgAQGsM0OU/X+IRCzl56WkN8M1QA=
-=mhnd
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZfsfQgAKCRB4tDGHoIJi
+0qhpAP0bH5dwSrdhtgZy8odymGeXP5Eu/mXODpURg5Zun0lG/AD9Fuz5Yc320STN
+idBImdOU5uB7YmUXP6mjgPn82j0uvwY=
+=j7D0
 -----END PGP SIGNATURE-----
 
---2lLUjXGQgSitrjkh--
+--7hxDktwiGEbdrYmU--
 
 
---===============2263519249398130838==
+--===============2169496156289627275==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -133,5 +176,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2263519249398130838==--
+--===============2169496156289627275==--
 
