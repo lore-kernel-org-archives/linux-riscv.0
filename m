@@ -4,102 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A9D5C54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 07:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B7C2C54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 08:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XzESmevDWssnsr8zPFItCHJyKHrtPPr3V4AdtIhieoc=; b=zMYs0QtGkcKI7upDlYuXap8Jot
-	HcTUv3cAkCaQWZOnyF/r0STxxTH4UJKFam75aOtJrNc63qUR6ifCZSWt7gEthMctdatsESEg31iZC
-	8kPohmEWEz9eYZJMc4zigTeo/Igcf7n5cf1L+Y2F/qsn+QgDCyp60fxRfiHUK27qI1PwSemLH8Bc8
-	ItlYF8dv36Bhr4Q2CCiblA1jLdvIbEA6Jmu/KvSQBWG3h+QSO0FuLaE0NqEdKOd3UL8apDJ77MlT6
-	75j62V0A6OUWf9KHjJf5aa2QWgxyftgBpZImUeyh2WivFdpyFHJ3/G1hnAq6W1uwWdugGCOUgNLGf
-	r4txcQZg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qmq6JmQGpUlLjvsKSfbMTti4NrIUSz2NxZ2SmD4ImBI=; b=4f57NlKKOKDvM7mqT9uOwzamgc
+	YWwZk7+KeRjMBbKUlqgOjKAg/E0fC6P7w9flZ8iv79vzJ0oxTzs0bYUned5+Qk7Hop85MRfXSpX/+
+	fdd/NoT+3iTI89/iXEA22XXd/Qfw5IjrXwKsFQxuO8DsGDXPf5gc8+ypiXrNcumWGRnTht8fO+lIt
+	lukOdBsGhsGEDKpfvGrEDocb0HQhEImEp60QeBL4ctsZQaiv8UKKaW6NvkzJcfMJLwPpuxHK/lWDS
+	xwzweCEXnsXEkVxI4gm5+sm7f4xRryb4mMiVGbnBE0ADbXryLhdleklZr3NzSDJGr6ayT8uiKVlV1
+	c6t3BLHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmq7j-0000000FrYF-3RVy;
-	Wed, 20 Mar 2024 07:12:31 +0000
-Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
+	id 1rmqz0-0000000G660-3yvR;
+	Wed, 20 Mar 2024 08:07:34 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmq7f-0000000FrXW-3f9w
+	id 1rmqyy-0000000G654-0eDZ
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Mar 2024 07:12:30 +0000
-Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-3c38f4e18eeso1455596b6e.1
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Mar 2024 00:12:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1710918746; x=1711523546; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bhuMvCo3TgtaW8PwFw7FBLn/PThKgsQ0zRt/0tBJ7iM=;
-        b=kHkDo5bxDKyI3Z3aU/+kyky05yyuG2kYrB25UwB9cKCHSuKlX9KQ30Dj0eqrP6jiP7
-         ZCQi26t92SZerLUqvlDX04lq7rMGreSrX4DUbJPGifvS/os4t4Bp66bB9gUxDAr+sjSY
-         AX0xoAmgslg9SlG8QxBuaMf/8lGi68IdNd7WHH8JMVmTGRnuLHt/icatcssU3MBYNf+m
-         fa447jaPieaLiK4+svbSaE6mhBDJzKQFwBLIEG6ft4kUyl5ofp/DVWzI1MWQs7RyNZK9
-         MgJ8xHNPLWqbRHJa+crdyh7runxHdWOgY6tMKrg3FTDfPcd39/inNi0JQwWrOkgQWJsi
-         sLNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710918746; x=1711523546;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bhuMvCo3TgtaW8PwFw7FBLn/PThKgsQ0zRt/0tBJ7iM=;
-        b=bW3ve0O5BMq6wkMKQ5hQR3q0EK1MqhuntZk64SU4YrQ/hBzFXB/6zjbaO/a1gCGqy+
-         OK/RVin+KNvpX50KqxAwzws+1eHzxGFz7pa9DBtEjkmGIxPeHYgljZcKHvWtN4tBWH1W
-         twqyjy4Aoo4jaHX7dcP8kv0xEH4ef+QebUvJ6qWLIo1M0wITUjJuNyrh7ixCypvrgbLX
-         ogeczbv/D2FejhEoewoRpy5PYtJKdyWcg7PPKAr5bJ7m7U8SVfm4+XB/N2sVris8VoPA
-         dUPZwp1Y9fRvyMhTiwrvqpE0/Fi8qnFPgRki3gaWhPbZImGj9GJkQBzPyWwXG+SsnemB
-         hWqA==
-X-Forwarded-Encrypted: i=1; AJvYcCVagzR1/o+L9rGx8gJjTXHSs987EoSv45wHBsr1ImbCYcsFvtOccaQlb3EZn+bqnmJbUD77dizBVJeBagGmGr67tdDeKEs68HkMTlbQEvCB
-X-Gm-Message-State: AOJu0YxAMSXjM7qAvmvEEJK4wArBV1adHd7U5X5JfWIwrCGwWZi+TuAB
-	ToI/PrC/f90FqV0BBHlf1FhfySM5xVQ5qWjxSxXFK7g/WidV3vDV
-X-Google-Smtp-Source: AGHT+IFYjkAhJU6qgZKZ1Sxu70SlW955OlQtKscMfS6t4l/5ITm8Mj2uH+x1X+AJ/XOFEtz5dOqgiA==
-X-Received: by 2002:a05:6808:b04:b0:3c3:59ef:821e with SMTP id s4-20020a0568080b0400b003c359ef821emr4183108oij.48.1710918746273;
-        Wed, 20 Mar 2024 00:12:26 -0700 (PDT)
-Received: from [192.168.0.13] ([172.92.174.232])
-        by smtp.gmail.com with ESMTPSA id ks11-20020a056a004b8b00b006e647059cccsm10918577pfb.33.2024.03.20.00.12.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 Mar 2024 00:12:25 -0700 (PDT)
-Subject: Re: [PATCH v15,RESEND 22/23] PCI: starfive: Offload the NVMe timeout
- workaround to host drivers.
-To: Keith Busch <kbusch@kernel.org>, Kevin Xie <kevin.xie@starfivetech.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Minda Chen
- <minda.chen@starfivetech.com>, Conor Dooley <conor@kernel.org>,
- "kw@linux.com" <kw@linux.com>, "robh+dt@kernel.org" <robh+dt@kernel.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "daire.mcnamara@microchip.com" <daire.mcnamara@microchip.com>,
- "emil.renner.berthing@canonical.com" <emil.renner.berthing@canonical.com>,
- "krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- Mason Huo <mason.huo@starfivetech.com>,
- Leyfoon Tan <leyfoon.tan@starfivetech.com>
-References: <ZeCd+xqE6x2ZFtJN@lpieralisi>
- <mhng-87e7ef5a-d60b-4057-960d-41bc901b6c7f@palmer-ri-x1c9>
- <ZedAn8IC+Mpm4Sqz@lpieralisi>
- <ZQ0PR01MB0981BC562E837B232B419AC28229A@ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn>
- <ZfJmMcs2UThVSC4v@kbusch-mbp>
-From: Bo Gan <ganboing@gmail.com>
-Message-ID: <16a1e6c6-2e2f-08e5-8da0-1462cec57e1f@gmail.com>
-Date: Wed, 20 Mar 2024 00:12:22 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
+	Wed, 20 Mar 2024 08:07:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1710922052; x=1742458052;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=8s8XKGkGT4rwQeAawGzZEkGeS8AnzqsL4K//1R+zt5Q=;
+  b=YvJ4fXBO5EVC0VfpbllRqfCVu93McmRloN3I6DaQws9cnyF0sEVYYXdB
+   3rIrUwi6gKQFFgVe1eCzuA/+Ru7XF/qTodYdFU0a0R2JQClXC4VrFc0C1
+   /pcLveS8JR26tfJYamQozVOq1A9F3qEIW5qkV6U+Pxd2mqDQN/OJbAw3C
+   dWBnhr7942wr40zSMQiQwAi0pAtuGZz7vIT8i3tz3sYjcgCKgxSSoUbvl
+   oZR8RmdJd4RsGF/Lyl0RVYmteTO4xR89GdsI0Jji3JAERmnum9zjrCTJi
+   hftHdnPxuoG2RVYuE4M0bG4n9VyrXbyuNjxAQHH1EqAvdWeGb4snagf28
+   A==;
+X-CSE-ConnectionGUID: +2PKfpLTQGq2m0SEBNMVqQ==
+X-CSE-MsgGUID: eSxs2JbuTmyaJCQMbacMkA==
+X-IronPort-AV: E=Sophos;i="6.07,139,1708412400"; 
+   d="asc'?scan'208";a="248659095"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Mar 2024 01:07:30 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 20 Mar 2024 01:07:10 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Wed, 20 Mar 2024 01:07:07 -0700
+Date: Wed, 20 Mar 2024 08:06:20 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Samuel Holland <samuel.holland@sifive.com>
+CC: Deepak Gupta <debug@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, <linux-kernel@vger.kernel.org>, Conor
+ Dooley <conor@kernel.org>, <kasan-dev@googlegroups.com>, Evgenii Stepanov
+	<eugenis@google.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>, Andrew
+ Jones <ajones@ventanamicro.com>, Guo Ren <guoren@kernel.org>, Heiko Stuebner
+	<heiko@sntech.de>, Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [RISC-V] [tech-j-ext] [RFC PATCH 5/9] riscv: Split per-CPU and
+ per-thread envcfg bits
+Message-ID: <20240320-fanfare-flick-3b38dde081d8@wendy>
+References: <20240319215915.832127-1-samuel.holland@sifive.com>
+ <20240319215915.832127-6-samuel.holland@sifive.com>
+ <CAKC1njSg9-hJo6hibcM9a-=FUmMWyR39QUYqQ1uwiWhpBZQb9A@mail.gmail.com>
+ <40ab1ce5-8700-4a63-b182-1e864f6c9225@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <ZfJmMcs2UThVSC4v@kbusch-mbp>
-Content-Language: en-US
+In-Reply-To: <40ab1ce5-8700-4a63-b182-1e864f6c9225@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240320_001227_955291_C3077E45 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20240320_010732_341347_355A627F 
+X-CRM114-Status: GOOD (  25.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,70 +90,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============3528805898480410741=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/13/24 7:51 PM, Keith Busch wrote:
-> On Thu, Mar 14, 2024 at 02:18:38AM +0000, Kevin Xie wrote:
->>> Re: [PATCH v15,RESEND 22/23] PCI: starfive: Offload the NVMe timeout
->>> workaround to host drivers.
->>>
->>> On Mon, Mar 04, 2024 at 10:08:06AM -0800, Palmer Dabbelt wrote:
->>>> On Thu, 29 Feb 2024 07:08:43 PST (-0800), lpieralisi@kernel.org wrote:
->>>>> On Tue, Feb 27, 2024 at 06:35:21PM +0800, Minda Chen wrote:
->>>>>> From: Kevin Xie <kevin.xie@starfivetech.com>
->>>>>>
->>>>>> As the Starfive JH7110 hardware can't keep two inbound post write
->>>>>> in order all the time, such as MSI messages and NVMe completions.
->>>>>> If the NVMe completion update later than the MSI, an NVMe IRQ handle
->>> will miss.
->>>>>
->>>>> Please explain what the problem is and what "NVMe completions" means
->>>>> given that you are talking about posted writes.
+--===============3528805898480410741==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ZQuW/bL/DNtzlQCx"
+Content-Disposition: inline
 
-Echoing Keith here. Why are you treating NVMe completions + MSI as a special case?
-What's special about this combination other than two posted writes? I own JH7110
-visionfive 2 boards myself, and if I'm not mistaken, there are two identical PCIe
-controllers in JH7110. The first one connects the onboard USB controller of vf2,
-which also enables MSI interrupts. How come this exact problem not affecting the
-USB controller? The commit message from Minda strongly suggests it does, and also
-for R8169 NIC. Thus, why would you suggest the problem is confined to NVMe?
+--ZQuW/bL/DNtzlQCx
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Bo
+On Tue, Mar 19, 2024 at 09:20:59PM -0500, Samuel Holland wrote:
+> On 2024-03-19 6:55 PM, Deepak Gupta wrote:
+> > On Tue, Mar 19, 2024 at 2:59=E2=80=AFPM Samuel Holland via lists.riscv.=
+org
+> > <samuel.holland=3Dsifive.com@lists.riscv.org> wrote:
+> >>
+> >> Some envcfg bits need to be controlled on a per-thread basis, such as
+> >> the pointer masking mode. However, the envcfg CSR value cannot simply =
+be
+> >> stored in struct thread_struct, because some hardware may implement a
+> >> different subset of envcfg CSR bits is across CPUs. As a result, we ne=
+ed
+> >> to combine the per-CPU and per-thread bits whenever we switch threads.
+> >>
+> >=20
+> > Why not do something like this
+> >=20
+> > diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> > index b3400517b0a9..01ba87954da2 100644
+> > --- a/arch/riscv/include/asm/csr.h
+> > +++ b/arch/riscv/include/asm/csr.h
+> > @@ -202,6 +202,8 @@
+> >  #define ENVCFG_CBIE_FLUSH              _AC(0x1, UL)
+> >  #define ENVCFG_CBIE_INV                        _AC(0x3, UL)
+> >  #define ENVCFG_FIOM                    _AC(0x1, UL)
+> > +/* by default all threads should be able to zero cache */
+> > +#define ENVCFG_BASE                    ENVCFG_CBZE
+>=20
+> Linux does not assume Sstrict, so without Zicboz being present in DT/ACPI=
+, we
+> have no idea what the CBZE bit does--there's no guarantee it has the stan=
+dard
+> meaning--so it's not safe to set the bit unconditionally. If that policy
+> changes, we could definitely simplify the code.
 
->>
->> Sorry, we made a casual conclusion here.
->> Not any two of inbound post requests can`t be kept in order in JH7110 SoC,
->> the only one case we found is NVMe completions with MSI interrupts.
->> To be more precise, they are the pending status in nvme_completion struct and
->> nvme_irq handler in nvme/host/pci.c.
->>
->> We have shown the original workaround patch before:
->> https://lore.kernel.org/lkml/CAJM55Z9HtBSyCq7rDEDFdw644pOWCKJfPqhmi3SD1x6p3g2SLQ@mail.gmail.com/
->> We put it in our github branch and works fine for a long time.
->> Looking forward to better advices from someone familiar with NVMe drivers.
-> 
-> So this platform treats strictly ordered writes the same as if relaxed
-> ordering was enabled? I am not sure if we could reasonably work around
-> such behavior. An arbitrary delay is likely too long for most cases, and
-> too short for the worst case.
-> 
-> I suppose we could quirk a non-posted transaction in the interrupt
-> handler to force flush pending memory updates, but that will noticeably
-> harm your nvme performance. Maybe if you constrain such behavior to the
-> spurious IRQ_NONE condition, then it might be okay? I don't know.
-> 
+The wording for that "extension", if two lines in the profiles doc makes
+something an extension is:
+"No non-conforming extensions are present. Attempts to execute unimplemented
+opcodes or access unimplemented CSRs in the standard or reserved encoding
+spaces raises an illegal instruction exception that results in a contained
+trap to the supervisor-mode trap handler."
 
-Also copied Keith's latest reply below, and I also have the same doubt.
+I know we have had new extensions come along and mark previously fair
+game interrupts for vendors as out of bounds. I wonder if there's a risk
+of that happening with CSRs or opcodes too (or maybe it has happened and
+I cannot recall).
 
-> Hm, that may not be good enough: if nvme completions can be reordered
-> with their msi's, then I assume data may reorder with their completion.
-> Your application will inevitably see stale and corrupted data, so it
-> sounds like you need some kind of barrier per completion. Ouch!
+Going back to the interrupts - is the Andes PMU non-conforming because
+it uses an interrupt that was declared as vendor usable but is now part
+of the standard space because of AIA? If it is, then the meaning of
+Sstrict could vary wildly based on the set of extensions (and their
+versions for specs). That sounds like a lot of fun.
+
+--ZQuW/bL/DNtzlQCx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZfqY/AAKCRB4tDGHoIJi
+0m4/AP0UYPz9RdNLmW6g7L1tf8w83wsWZfBkuwZqh3A3w0Jq9wEA7t8mWVQ1YVm2
+D9FdG5Y2+4p6MzgZJDv6xF67VncJZAU=
+=unOr
+-----END PGP SIGNATURE-----
+
+--ZQuW/bL/DNtzlQCx--
+
+
+--===============3528805898480410741==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3528805898480410741==--
+
