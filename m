@@ -4,79 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CF1C54E68
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 00:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0062DC54E68
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 01:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=P+pc6pkoajstmqlE9yw5bNrt+W7DlYM+Q3LKH0bb+0s=; b=K/Mcnrvs33bYxZaobUjTiXI7rT
-	ypdbC16hU5Hk6Nt/o3qoRVhhTt+MABO0OstefVoT4ySFk3hlnp8Hico5yhEiFoTlkx2bQeVGM1A2z
-	gQ15IDi1toCQ1wStVAPnLZoZbolB+7UQQfjhVWZ4CCX6lsq+ysje1h3PuPtUOX6TnPxFeoq6v39+w
-	4MgXOdJ/6BC0kdIjg9MxoYi9NST105w+yliPoH7hbpydvRI+riaJEV69LlnlJcek3MtcyJMi16s+r
-	cTgvslv+m3Q7AhJfIWL2+VpvZLC8RRn7BKBf1R8OjMLZg4K7Ts3s6U8nTMEIf8+6B/X+NPMmWmvDP
-	uDuJhp3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yjy5xvWGjbqOb3HkRuYFs/FevzmwaTsKR5vGjG6wX1g=; b=UOi7Tc2cOfoFH4
+	t9SZOCv2Yv2AQr2R+mSFUlgGbjxcfOapXybjQomz3MkAB9GarNhVFOJkTfNicQDJ264TUmiFOxqPJ
+	jbnGaj312j5EmCUVbGJMyOd+8mPRzh3GUXA+mw0REWtPwk893spuovShhESrypUugtAxuEvg1+mab
+	1OY4qHpvOmzKBvgH9lz1JDRnQ9BoO45UGlA+0AZUx8rOnfN8xg/cxYpTSQ0a/N/8jcFpF7+5uNTEe
+	X7BOKNWTclVn7OU6MZzZPV9PfJB6nndO/dzO8MdDX6IrZ+PzT0B2PDsoXOWgGEmgfUMWamQ6UqUh4
+	W5GnqHv0Q1Y2iZvxSnfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmk7r-0000000Ensn-2g49;
-	Wed, 20 Mar 2024 00:48:15 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1rmkwn-0000000EwIl-0Vcu;
+	Wed, 20 Mar 2024 01:40:53 +0000
+Received: from mail-sh0chn02on2070f.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::70f] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmk7o-0000000EnrM-0H0a
+	id 1rmkwj-0000000EwHA-0E79
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Mar 2024 00:48:13 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1dde26f7e1dso45136065ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Mar 2024 17:48:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1710895689; x=1711500489; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=A1BsYh4Oeo/EXB+SJKi8cVJUla+OGiDIMCVUpv9M9MY=;
-        b=HZbkBLMuqwweQYj/wSe8kkaOe0pH+NBi8RwqZYf8EPOsuRils2+10L5GkIiEdnJKVa
-         dUSjuSOPJNtfcLrmoRTuLqhaYFKAvA4SPDNyv2C7P6C9vNAVRc8XpjQhU2p0aHFty26G
-         Xs0vz5I65++7lWWlIC+zdcqzh148qjudOMdivbsUf8MWDANRQsck+P3Xg1aaBvjHMsfF
-         O8d57RmvS4zfJ0IrO2kaWERCC3PPaXZJV7+YOonCbSExT3MEMVlxrswbQU8+65PD8W/O
-         GP3WWHVk4q1ERHm+GhZyXCEMVEOJcaMpMweOP56vvpyF7bsL1RuiWlupOa9zGGgFsZYn
-         mDpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1710895689; x=1711500489;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A1BsYh4Oeo/EXB+SJKi8cVJUla+OGiDIMCVUpv9M9MY=;
-        b=v99BigcBmPZMH9SWGVy1/iUR8CpWG1Pl/4ldoXYEqmCjCaP9maf/Et7KN78fM0D2VS
-         mhqxPEq3S7oGbW97khckE0y+iNpixUscqT3yPhY92dpTvybIxiotQ2YJ8If+CdElBMir
-         yZ2PBVrijD5FY5KzeyPOxV+pFESItVV34Pn3AHi39y19S7cRzxinmFNrzxBUenM0FWHc
-         sOexf1iSFakrZQLX+H+xn3IBD8KJyuXNqM6YTNqYybV9PI9HbnAYuByLLjf77hPYE9zv
-         LdP7uNeOYFctcd4IKF4xx99FoJN7lk123akiGBfQwbZEkcCM42W4MT8xbvx8AyqTFPO5
-         Kiug==
-X-Gm-Message-State: AOJu0YxVofpAH5sFEp++2HzLmI48slWRd2kN8AWHAL+kx+1TYMOux6Bu
-	IP8jeMa3NEn6h4+lYlxGpplMaGhCcWZbKCBE6r2Raieh6mlimiX1JBa79fD2ukBXbBYPqzU0dn2
-	o
-X-Google-Smtp-Source: AGHT+IH7vs7fj6C8C1fDW6ALbMxHKGDjjyKi+kbxP1SdfGtU9JwsqQfjYZ6lM1/3DMCXj7XvwbTB8A==
-X-Received: by 2002:a17:903:41ca:b0:1e0:6a:1c01 with SMTP id u10-20020a17090341ca00b001e0006a1c01mr10511673ple.52.1710895688740;
-        Tue, 19 Mar 2024 17:48:08 -0700 (PDT)
-Received: from localhost ([50.213.54.97])
-        by smtp.gmail.com with ESMTPSA id q12-20020a170902a3cc00b001dd6290283fsm12354071plb.248.2024.03.19.17.48.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Mar 2024 17:48:08 -0700 (PDT)
-Date: Tue, 19 Mar 2024 17:48:08 -0700 (PDT)
-X-Google-Original-Date: Tue, 19 Mar 2024 17:48:06 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: only flush icache when it has VM_EXEC set
-In-Reply-To: <tencent_6D851035F6F2FD0B5A69FB391AE39AC6300A@qq.com>
-CC: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, alexghiti@rivosinc.com,
-  Conor Dooley <conor.dooley@microchip.com>, jszhang@kernel.org, Andrew Waterman <andrew@sifive.com>, cyy@cyyself.name
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: cyy@cyyself.name
-Message-ID: <mhng-3e79924e-d965-4156-836d-19cc8fb8cafe@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	Wed, 20 Mar 2024 01:40:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=eNF8GoqFIX15ZSexKH6fkTMoET9oIx2WoJ0tOH4OM7aSYyJQ+zVvcON7AcJmvIp24NdpNnA+GOl0OwSIaSVQ5JCfPKialqdEFj+Zkk9ZOdNXV0bE4w9InB7ILUlxOzxfqQDnuDwwXPa+NHCPvhhuAxaDLB2Nf6f7j5Tu26cyaNxG7PPqt1/roradQCUWThByFc7F2CZJ5hxM4SeOZanfzAsCsXseUtgPrGEnahlQ9wm/agGgHewM1wKIiOCAE9CGvuiErFvPbFEXLlI1xSOc30mHkk+rkqG+//VnwCodUh0fMeBCDDuSD5JCQggHTtn0R415tW3Qzm3/rvcIPSvaYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ji4G6WJiRciEtTcEumluS0p+oMwy+SSd75AaFCh3prk=;
+ b=W6I/YNv3ljnzu3ejaQvFJ2RM17CyDdIJMBVjgwr/ngrCPFuAzz7XiZerFyMPN/zu/jXf8aVLzC610Ntqd4HZ/4daIOZhNfqnuEoQfcQRTx+29biCCoCYUjSykLkfEK3sjaBFhS/W4ccJcBsTkC559wa3f/n7EB40VZw2belmckSTFsaS+XwyYbejhv/2zdf4HGu8LKpSw1IAKCKGGNJYGc9NChiDo9PQSi6WV1Ec4B3NLz63UykvmMOt0WDs5oRoBBh/SEFWrU5uZeDpnLHYTHnBl9Uqgp19DInyzigYFFwidjN8baCUfz9hjCaEe7Z4o2p5zDiHcU78401USw2x0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:b::14) by NTZPR01MB0970.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:b::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.21; Wed, 20 Mar
+ 2024 01:40:32 +0000
+Received: from NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn
+ ([fe80::199a:2ff6:e892:d78b]) by
+ NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn ([fe80::199a:2ff6:e892:d78b%5])
+ with mapi id 15.20.7409.010; Wed, 20 Mar 2024 01:40:31 +0000
+From: Ziv Xu <ziv.xu@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner
+	<tglx@linutronix.de>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Christophe JAILLET
+	<christophe.jaillet@wanadoo.fr>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Walker Chen
+	<walker.chen@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: =?gb2312?B?u9i4tDogW1BBVENIIHY5IDIvM10gY2xvY2tzb3VyY2U6IEFkZCBKSDcxMTAg?=
+ =?gb2312?Q?timer_driver?=
+Thread-Topic: [PATCH v9 2/3] clocksource: Add JH7110 timer driver
+Thread-Index: AQHaeOFWmdS9e7PKwUSp9ygLXWFgIrE+unIAgAEiXwA=
+Date: Wed, 20 Mar 2024 01:40:31 +0000
+Message-ID: <NTZPR01MB098638E8E9C1199AF8E5FAE2E133A@NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn>
+References: <20240318030649.10413-1-ziv.xu@starfivetech.com>
+ <20240318030649.10413-3-ziv.xu@starfivetech.com>
+ <20240319-vivacious-anointer-cf790d8852c1@spud>
+In-Reply-To: <20240319-vivacious-anointer-cf790d8852c1@spud>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: NTZPR01MB0986:EE_|NTZPR01MB0970:EE_
+x-ms-office365-filtering-correlation-id: 33ecc868-642d-41ab-820a-08dc487ebae0
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: TKKi2nfgO/GNTWzgIkVnXgE7BufNH7KbdeFxZd97gzbu65wJsGFfs95POS+dY1TFTNx9NOk4FBkAGAY6VWtfi+binyMX0/CQ3s9dZAsm18qYGesqpg5v2znEHqyQmUpfbevlKQlLIU9+syqktkqnIIhoU5CbPoELABlJdVZcsfuZjPna4C7qp/s358nTvXBnSXQW9VUn2KNt7203da5408Xm4JXry+fXBo49yQIXbzaijsczdgm3Kwu4Ur8k55XikUDh3qQj7EZaWBUrpjVujiU4vBXla2CLcda3WUG1H3P3CJ+c3VRBXAIxWsNMCCF/N4EtzgvUpZXWXXMTMGNNoE4ZDDqr3OfF9X6Oj3/C+eFmbHU1pwn7zhfInVwSPRhosgjTVPvIMz3LuN4dOnRoP7JPTzHwfGfgC6GT0oM4YzEyOlp5fIRSDa3SqGjbO2OCqPX7IW7UJ0m5m44MPj2Hz68PK93pOUaNsBRP8h+L0MbhOXaHpL1Iivh+U0te5szx/yemwiCzLtfgMV42NDQoTXNG9hSq95e842n1QxTc+j7ZjEreUK8th1GrCCmmyrftLEjRmNlJ8p1ns5sxtFPpgbAAnG+MEIQ0b7t50pNF6OYy26M0/08xcbJ622EcUent
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(7416005)(366007)(41320700004)(1800799015)(38070700009);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?bFJEWWh4a3JNTG1TdXExUFRqUG9uZ1VxR244RXYxWUluOTQ1b1Iwd0NnTXda?=
+ =?gb2312?B?VEZSZGpFcXYxakQ0dk16SkszZjB2K2QyeGNTQ2JEK0kvVDV3R1NlbG9LQjF4?=
+ =?gb2312?B?YjZJRG9ubC9lUjM3d0hYbEtmREdWdnpVTXd1MktoSWF0NmZJbUk3MjB4QUdQ?=
+ =?gb2312?B?c0cyKzUyNm1RQ3QrVkswbzZBNzIvcjIxNGx0QmdsWVdoRHRFZ1JUMnVRTWhx?=
+ =?gb2312?B?VTFKQ2FYajVmQXhlMER5U05pZ1p0WlZLUFYzTnpSSHczcWlKWSs4TXczZHNU?=
+ =?gb2312?B?alRqeXovdWMyQkNHUmhPSXkzY2E2eUFDUk14aStVVjR1QTVnYkdiL0lqVDB0?=
+ =?gb2312?B?ZTR1a3I5cUJuZHZrZ3N1YUJRSHFzdkRvbTEvdGR5ZzJwaFZid0R4cDV4eVVl?=
+ =?gb2312?B?NHFSN3hPbUFCQ0l5aFR4TmowZWcvYktiWEdiWXQyRE5Lb2E3MmdRcGcvQis4?=
+ =?gb2312?B?bkZ0aXVvYnp3QXdIQkk0dXhHWjBqbWZwRXNpR2VsSnF1ZzNONDhVblhnSVg3?=
+ =?gb2312?B?VHl3aWljTEN3OTZvVkxCKzhFYldxa2NqUmdDcjBRNDVVaDJlYStSY3cxR0NF?=
+ =?gb2312?B?MlZGYnFNUGpFS3MvVzFyN09IWEVuSzFpRmdGOStaQTFuZmNsOEFDeENGU1hM?=
+ =?gb2312?B?ZFd5d015MFZBVDA4UENhZVdVZ29JRUdVZ0pwTU9nRU8xWlY5cXluT2RYN1pZ?=
+ =?gb2312?B?cURwZkt3MWkvSERYZUFwWVpHUCtGWjJaRzZveGJWTitQVUZRcHp5Nm9VZ29x?=
+ =?gb2312?B?OEorOFVnb1VPVFIyb0ZZem1OQ2VVSTRoVXpmRWNuYWtyU3VNQm1wTlNwYS8y?=
+ =?gb2312?B?dGphemxrMkp3ZStOeGNIRm53VkNzZU4xV2ZpUnN0YnBlTTlUbnZXLzlERGpP?=
+ =?gb2312?B?aFFkczYxS3JIQXRMdCtrWGpYQU5aczNIZkRRMUE5K3RWUVg1aGpscDBDREtB?=
+ =?gb2312?B?WEtxbWlZOHozYktsSzRkbGJBT3d6M0dvdlAwNW5XbnlVRlFuMlI1UWQ2Tzlm?=
+ =?gb2312?B?RW9zaHd4NnJxeXo4V2EzUzBTczF1Z3NQWGc4cVlqL1JvMURBNjJTeGxMS3JP?=
+ =?gb2312?B?NUZLN2xEMFFuSEFJR1VNa3hMZ042Q0cxRXlwcUZhbGpLelNmMnc4TTdWTFZC?=
+ =?gb2312?B?d2UzbkdnTVhJTmRWQ2Fpc3dIWlQwYVc4NERoNFpNenM5YXlRK01kcVl6ekNY?=
+ =?gb2312?B?eTJWQjkrR0cwWmRoUlZOSERJQUlWdXZpbXJzMzBvanh0ODR1TkxDZDZJZzFp?=
+ =?gb2312?B?VzRNTHZ5Y2VyZWE5OHNHcityeVF4MDVrM1dDOUFaWEF4eG9zYzgvZGN0SXRF?=
+ =?gb2312?B?WHdhY2g1azhzV1VDYmlHYXIwclA5aWhpYjhvN3JMV3A0Vk9rZ01MMVI0WCtX?=
+ =?gb2312?B?Nm9IUitzZWdONjNHUzhrT2MrUUN6ZkRyNjFUNUZVVmVBQ0QzMHBkOUlzbDR5?=
+ =?gb2312?B?STZTQkxISlgyVTZETVliekRnOGxBR1laTjJuQmRiU2FqdzRkWitrdlVJMEhQ?=
+ =?gb2312?B?L2VaZkt0MmpTcFRSOHVWVG0zSCtIOERGVG5VMTdrcUxVQ2hkMGptUlJORWtB?=
+ =?gb2312?B?RE9QZ0hzUEZ6VURNQXBTalNFVUg1dDczdTRkYWUrRGFaN0E0NXVaODVZN1RZ?=
+ =?gb2312?B?TXZkR2lCb250blRpQzd6Njlac3lzRTFmN2dZTFpwZHFOOFNhSzRiU0tMVXBN?=
+ =?gb2312?B?cXFUTkFPaE9tNHFBeUFSZkdlYnhBakltZENHTjJ2NHRwM2d2L2RoclVZZUI2?=
+ =?gb2312?B?a0ZSbEdSOVNmcTVnbStydXFZdnlxSnpDOW1tSldhZUtJbzlzWGRna2ZuUUR2?=
+ =?gb2312?B?dkxlR3FxczE0N3lFYVNxRjBDaUVjb3docGYybzlrNzdvek5iNXIwR1VMUUdC?=
+ =?gb2312?B?VTR6cHhIZzVzRnU1ZHNLWnZXVTNZdkFvZnk5MnBUTWNhK1NZQWoyanREenVu?=
+ =?gb2312?B?dXlHUFZhbFExd1Bzb3plalpzcmtaelpVU2NCWllrVzRRMFpKdUpaWGZpa3By?=
+ =?gb2312?B?amdWZ3g4TVBKTWdnZGVhT1huMFdTcEhtZzQ2dFNKaDNyUm5yK2FpUzRFOXdy?=
+ =?gb2312?B?WmUxaDI4VUw3bGxEa0ZZeUZpb21tSFhHRmZmQ0tTK3NYMnlZUVQ0UHNtK1Ar?=
+ =?gb2312?Q?7qP1ApZelkC0k/aI2JV/vrd54?=
+MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: NTZPR01MB0986.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 33ecc868-642d-41ab-820a-08dc487ebae0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Mar 2024 01:40:31.8075
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: fKLoi+p63hes18a5ouCinqxy5fpwsLgjqg1kVTW1uoaeHSEPOSxVb3c+5pn5MTwwNGcGp1mglniemQVwdLKreg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NTZPR01MB0970
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240319_174812_211801_E5C2A3A7 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20240319_184049_193567_6E20B6F2 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +145,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Jan 2024 10:48:59 PST (-0800), cyy@cyyself.name wrote:
-> As I-Cache flush on current RISC-V needs to send IPIs to every CPU cores
-> in the system is very costly, limiting flush_icache_mm to be called only
-> when vma->vm_flags has VM_EXEC can help minimize the frequency of these
-> operations. It improves performance and reduces disturbances when
-> copy_from_user_page is needed such as profiling with perf.
->
-> For I-D coherence concerns, it will not fail if such a page adds VM_EXEC
-> flags in the future since we have checked it in the __set_pte_at function.
->
-> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-> ---
->  arch/riscv/include/asm/cacheflush.h | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-> index 3cb53c4df27c..915f532dc336 100644
-> --- a/arch/riscv/include/asm/cacheflush.h
-> +++ b/arch/riscv/include/asm/cacheflush.h
-> @@ -33,8 +33,11 @@ static inline void flush_dcache_page(struct page *page)
->   * so instead we just flush the whole thing.
->   */
->  #define flush_icache_range(start, end) flush_icache_all()
-> -#define flush_icache_user_page(vma, pg, addr, len) \
-> -	flush_icache_mm(vma->vm_mm, 0)
-> +#define flush_icache_user_page(vma, pg, addr, len)	\
-> +do {							\
-> +	if (vma->vm_flags & VM_EXEC)			\
-> +		flush_icache_mm(vma->vm_mm, 0);		\
-> +} while (0)
->
->  #ifdef CONFIG_64BIT
->  #define flush_cache_vmap(start, end)	flush_tlb_kernel_range(start, end)
-
-I'm not super worried about the benchmarks, I think we can just 
-open-loop assume this is faster by avoiding the flushes.  I do think we 
-need a hook into at least tlb_update_vma_flags(), though, to insert the 
-fence.i when upgrading a mapping to include VM_EXEC.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+DQoNCj4gT24gTW9uLCBNYXIgMTgsIDIwMjQgYXQgMTE6MDY6NDhBTSArMDgwMCwgWml2IFh1IHdy
+b3RlOg0KPiANCj4gPiArc3RhdGljIGludCBqaDcxMTBfdGltZXJfc3RhcnQoc3RydWN0IGpoNzEx
+MF9jbGtldnQgKmNsa2V2dCkgew0KPiA+ICsJaW50IHJldDsNCj4gPiArDQo+ID4gKwkvKiBEaXNh
+YmxlIGFuZCBjbGVhciBpbnRlcnJ1cHQgZmlyc3QgKi8NCj4gPiArCXdyaXRlbChKSDcxMTBfVElN
+RVJfSU5UX0RJUywgY2xrZXZ0LT5iYXNlICsNCj4gSkg3MTEwX1RJTUVSX0lOVF9NQVNLKTsNCj4g
+PiArCXJldCA9IGpoNzExMF90aW1lcl9pbnRfY2xlYXIoY2xrZXZ0KTsNCj4gDQo+IFRoZSByZXR1
+cm4gdmFsdWUgaGVyZSBpcyBub3QgY2hlY2tlZC91c2VkLg0KPiANCkkgd2lsbCBjaGFuZ2UgaXQg
+aW4gdGhlIG5leHQgdmVyc2lvbqOsdGhhbmtzLg0KDQpCZXN0IHJlZ2FyZHMNClppdi54dQ0KDQo+
+ID4gKwl3cml0ZWwoSkg3MTEwX1RJTUVSX0lOVF9FTkEsIGNsa2V2dC0+YmFzZSArDQo+IEpINzEx
+MF9USU1FUl9JTlRfTUFTSyk7DQo+ID4gKwl3cml0ZWwoSkg3MTEwX1RJTUVSX0VOQSwgY2xrZXZ0
+LT5iYXNlICsgSkg3MTEwX1RJTUVSX0VOQUJMRSk7DQo+ID4gKw0KPiA+ICsJcmV0dXJuIDA7DQo+
+ID4gK30NCg0KDQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
