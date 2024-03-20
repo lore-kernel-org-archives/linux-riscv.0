@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C937C54E58
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 11:24:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 666C6C54E58
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Mar 2024 12:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6aPp9d/+5hBrrAPkVd+mKoVZHqvFpVXosdzEzhVRQ3A=; b=hnPrnVZyzvG/DQ
-	r8lzXBTSd9YP/lhJAqGE448wxeV48n6bMa3IBFIPIBhWyjFWUcy85yRAnOteF0cVCcN67ukgDbpGZ
-	WUKf7/Rn3tA7tbBtMlrc026wfx4VkBKknailBs4sp9+cqaCtKixTUkdpnQ2v71i3kwVAJpzDJ00Mx
-	ub5539oo1BxiJdGPsYjKK1+V2ppNthkxvE2HA0iXjWnDyJW+S+Fn9Nl65gG7OKylnYJl7dlAFm8VF
-	Q15tbbnD2L6EHQuidKqJzTLv8NVX2rRWe5+dDzjQgNx9dWIiWmidwF7x6bw2Xo7pvYKVdM3hEa6pv
-	yWLckzYlPQ3jxPX98Nlw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aTMt0+rl0ypXtOGdt04ugAHLtGkIu9P208ldietjARc=; b=sjZRzxulFIVJ0I
+	CnHU9Th/M3hG1hhfl/emD0ytKyqlBPI33hoMRxxCNkqT/CMKV7IyDa6MBpkQTqGdyOUeZ636Ufz4v
+	dPjaMYC+gtkgOWzRCJhcr8vUzHbY/SuAbLNoRkTBcteSt3SUL/ZOED4oONYWnMu9y54Do8m7So9FS
+	ltGjlL/NNvtqly3HzP75PftBVIG0+MxvTmHBPRVieK3W/AQxvakaKQYUo2tTH8ic6sz4olWYdAlCS
+	gAvHTVwpJXr2+lcY5aFRmn1TuSSd59VKiIkF4oNMveAmxm9dYpd3oG511a4L1HgAYK4gFAd/mGdxl
+	I+SLnV2nLb5gfgEC4tYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmu3i-0000000Gx37-2rbm;
-	Wed, 20 Mar 2024 11:24:38 +0000
-Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
+	id 1rmvQh-0000000HAi9-2U8W;
+	Wed, 20 Mar 2024 12:52:27 +0000
+Received: from xry111.site ([89.208.246.23])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rmu3f-0000000Gx1q-0myl
+	id 1rmvQf-0000000HAgv-2Eiy
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Mar 2024 11:24:37 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:76d0:2bff:fec8:549])
-	by xavier.telenet-ops.be with bizsmtp
-	id 0zQL2C00F0SSLxL01zQLkm; Wed, 20 Mar 2024 12:24:30 +0100
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1rmu36-004BPL-BP;
-	Wed, 20 Mar 2024 12:24:20 +0100
-Received: from geert by rox.of.borg with local (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1rmu3Q-000xvc-4T;
-	Wed, 20 Mar 2024 12:24:20 +0100
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-To: Emil Renner Berthing <kernel@esmil.dk>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: [PATCH v2] clk: starfive: jh7100: Use clk_hw for external input clocks
-Date: Wed, 20 Mar 2024 12:24:15 +0100
-Message-Id: <beb746c7538a4ff720a25fd8f309da20d8d854ef.1710933713.git.geert@linux-m68k.org>
-X-Mailer: git-send-email 2.34.1
+	Wed, 20 Mar 2024 12:52:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xry111.site;
+	s=default; t=1710939138;
+	bh=nQsfUBwMPXVe4K5gt0eAIEFG0mAVL84r5St9i8+wxIk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=SW6BUJlsDX/vH6gjWlpT+cbGApubryaDyEF8qDyDRffiR8F8JyIwyHOJ+GRsIFzBo
+	 uDfOMHVc+690RVFFaVnT6KvRq57AOMDFG8hGl66yVb4i18Af+br29PzGSi8oUQXTc8
+	 sLEEsQ/2rahhL4NQYDVDANRz/3xsfoNC8uxbwzWc=
+Received: from [127.0.0.1] (unknown [IPv6:2001:470:683e::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-384) server-digest SHA384)
+	(Client did not present a certificate)
+	(Authenticated sender: xry111@xry111.site)
+	by xry111.site (Postfix) with ESMTPSA id 1B11B6776E;
+	Wed, 20 Mar 2024 08:52:14 -0400 (EDT)
+Message-ID: <2d3d529e006a6fbef6fe4a8a20b3eb23fa476ff7.camel@xry111.site>
+Subject: Re: [PATCH v8 4/4] riscv: dts: thead: Enable LicheePi 4A eMMC and
+ microSD
+From: Xi Ruoyao <xry111@xry111.site>
+To: Maxim Kiselev <bigunclemax@gmail.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>, 
+ devicetree@vger.kernel.org, dfustini@baylibre.com, guoren@kernel.org, 
+ jkridner@beagleboard.org, jszhang@kernel.org, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, open list
+ <linux-kernel@vger.kernel.org>,  linux-riscv@lists.infradead.org, Palmer
+ Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ robertcnelson@beagleboard.org, Rob Herring <robh+dt@kernel.org>, 
+ wefu@redhat.com
+Date: Wed, 20 Mar 2024 20:52:13 +0800
+In-Reply-To: <CALHCpMhc1F5Ue7U_gsDXREHUZRVQJNYRCJxYxoNqbN=-39jf7A@mail.gmail.com>
+References: <CALHCpMhc1F5Ue7U_gsDXREHUZRVQJNYRCJxYxoNqbN=-39jf7A@mail.gmail.com>
+User-Agent: Evolution 3.52.0 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240320_042435_396736_5C2A7917 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20240320_055225_608231_AC4498A9 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,153 +73,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Starfive JH7100 clock driver does not use the DT "clocks" property
-to find the external main input clock, but instead relies on the name of
-the actual clock provider ("osc_sys").  This is fragile, and caused
-breakage when sanitizing clock node names in DTS.
-
-Fix this by obtaining the external main input clock using
-devm_clk_get(), and passing the returned clk_hw object to
-devm_clk_hw_register_fixed_factor_parent_hw().
-
-While name-based look-up of the other external input clocks works as-is,
-convert them to a similar clk_hw-based scheme to increase uniformity,
-and to decrease the number of name-based look-ups.
-
-Fixes: f03606470886 ("riscv: dts: starfive: replace underscores in node names")
-Fixes: 4210be668a09ee20 ("clk: starfive: Add JH7100 clock generator driver")
-Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
----
-After this is applied, the workaround in commit 7921e231f85a349d
-("riscv: dts: starfive: jh7100: fix root clock names") can be reverted.
-
-This is v2 of "[PATCH] clk: starfive: jh7100: Use provided clocks
-instead of hardcoded names"
-https://lore.kernel.org/r/898aa0925a9598d44721d00145015b215434cb3b.1710414195.git.geert@linux-m68k.org/
-
-v2:
-  - Use devm_clk_hw_register_fixed_factor_parent_hw(),
-  - Drop no longer needed local osc_sys name.
----
- drivers/clk/starfive/clk-starfive-jh7100.c | 48 ++++++++++++++--------
- drivers/clk/starfive/clk-starfive-jh71x0.h |  1 +
- 2 files changed, 32 insertions(+), 17 deletions(-)
-
-diff --git a/drivers/clk/starfive/clk-starfive-jh7100.c b/drivers/clk/starfive/clk-starfive-jh7100.c
-index 0342db24c27e10df..ead5a7b14bab9045 100644
---- a/drivers/clk/starfive/clk-starfive-jh7100.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7100.c
-@@ -7,6 +7,7 @@
-  * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
-  */
- 
-+#include <linux/clk.h>
- #include <linux/clk-provider.h>
- #include <linux/device.h>
- #include <linux/init.h>
-@@ -18,10 +19,18 @@
- #include "clk-starfive-jh71x0.h"
- 
- /* external clocks */
--#define JH7100_CLK_OSC_SYS		(JH7100_CLK_END + 0)
--#define JH7100_CLK_OSC_AUD		(JH7100_CLK_END + 1)
--#define JH7100_CLK_GMAC_RMII_REF	(JH7100_CLK_END + 2)
--#define JH7100_CLK_GMAC_GR_MII_RX	(JH7100_CLK_END + 3)
-+enum {
-+	EXT_CLK_OSC_SYS,
-+	EXT_CLK_OSC_AUD,
-+	EXT_CLK_GMAC_RMII_REF,
-+	EXT_CLK_GMAC_GR_MII_RX,
-+	EXT_NUM_CLKS
-+};
-+
-+#define JH7100_CLK_OSC_SYS		(JH7100_CLK_END + EXT_CLK_OSC_SYS)
-+#define JH7100_CLK_OSC_AUD		(JH7100_CLK_END + EXT_CLK_OSC_AUD)
-+#define JH7100_CLK_GMAC_RMII_REF	(JH7100_CLK_END + EXT_CLK_GMAC_RMII_REF)
-+#define JH7100_CLK_GMAC_GR_MII_RX	(JH7100_CLK_END + EXT_CLK_GMAC_GR_MII_RX)
- 
- static const struct jh71x0_clk_data jh7100_clk_data[] __initconst = {
- 	JH71X0__MUX(JH7100_CLK_CPUNDBUS_ROOT, "cpundbus_root", 0, 4,
-@@ -284,8 +293,11 @@ static struct clk_hw *jh7100_clk_get(struct of_phandle_args *clkspec, void *data
- 
- static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
- {
-+	static const char *jh7100_ext_clk[EXT_NUM_CLKS] =
-+		{ "osc_sys", "osc_aud", "gmac_rmii_ref", "gmac_gr_mii_rxclk" };
- 	struct jh71x0_clk_priv *priv;
- 	unsigned int idx;
-+	struct clk *clk;
- 	int ret;
- 
- 	priv = devm_kzalloc(&pdev->dev, struct_size(priv, reg, JH7100_CLK_PLL0_OUT), GFP_KERNEL);
-@@ -298,13 +310,21 @@ static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
- 	if (IS_ERR(priv->base))
- 		return PTR_ERR(priv->base);
- 
--	priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
--							 "osc_sys", 0, 40, 1);
-+	for (idx = 0; idx < EXT_NUM_CLKS; idx++) {
-+		clk = devm_clk_get(&pdev->dev, jh7100_ext_clk[idx]);
-+		if (IS_ERR(clk))
-+			return PTR_ERR(clk);
-+
-+		priv->ext[idx] = __clk_get_hw(clk);
-+	}
-+
-+	priv->pll[0] = devm_clk_hw_register_fixed_factor_parent_hw(priv->dev,
-+			"pll0_out", priv->ext[EXT_CLK_OSC_SYS], 0, 40, 1);
- 	if (IS_ERR(priv->pll[0]))
- 		return PTR_ERR(priv->pll[0]);
- 
--	priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
--							 "osc_sys", 0, 64, 1);
-+	priv->pll[1] = devm_clk_hw_register_fixed_factor_parent_hw(priv->dev,
-+			"pll1_out", priv->ext[EXT_CLK_OSC_SYS], 0, 64, 1);
- 	if (IS_ERR(priv->pll[1]))
- 		return PTR_ERR(priv->pll[1]);
- 
-@@ -331,16 +351,10 @@ static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
- 
- 			if (pidx < JH7100_CLK_PLL0_OUT)
- 				parents[i].hw = &priv->reg[pidx].hw;
--			else if (pidx < JH7100_CLK_END)
-+			else if (pidx < JH7100_CLK_OSC_SYS)
- 				parents[i].hw = priv->pll[pidx - JH7100_CLK_PLL0_OUT];
--			else if (pidx == JH7100_CLK_OSC_SYS)
--				parents[i].fw_name = "osc_sys";
--			else if (pidx == JH7100_CLK_OSC_AUD)
--				parents[i].fw_name = "osc_aud";
--			else if (pidx == JH7100_CLK_GMAC_RMII_REF)
--				parents[i].fw_name = "gmac_rmii_ref";
--			else if (pidx == JH7100_CLK_GMAC_GR_MII_RX)
--				parents[i].fw_name = "gmac_gr_mii_rxclk";
-+			else if (pidx <= JH7100_CLK_GMAC_GR_MII_RX)
-+				parents[i].hw = priv->ext[pidx - JH7100_CLK_OSC_SYS];
- 		}
- 
- 		clk->hw.init = &init;
-diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.h b/drivers/clk/starfive/clk-starfive-jh71x0.h
-index 23e052fc15495c41..4f46939179cd7418 100644
---- a/drivers/clk/starfive/clk-starfive-jh71x0.h
-+++ b/drivers/clk/starfive/clk-starfive-jh71x0.h
-@@ -115,6 +115,7 @@ struct jh71x0_clk_priv {
- 	struct device *dev;
- 	void __iomem *base;
- 	struct clk_hw *pll[3];
-+	struct clk_hw *ext[4];
- 	struct jh71x0_clk reg[];
- };
- 
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCAyMDI0LTAzLTIwIGF0IDE1OjI4ICswMzAwLCBNYXhpbSBLaXNlbGV2IHdyb3RlOgo+
+IEhpIFhpLCBEcmV3Cj4gCj4gSSBoYXZlIHRoZSBzYW1lIHByb2JsZW0gd2l0aCBTRCBvbiBteSBM
+aWNoZWVQaSA0QS4KPiAKPiBBZnRlciBzb21lIGludmVzdGlnYXRpb25zIEkgZm91bmQgaG93IHRv
+IGZpeCB0aGlzIHR1bmluZyBlcnJvci4KPiBIZXJlIGlzIHRoZSBwYXRjaCB0aGF0IGluY3JlYXNl
+cyB0dW5pbmcgbG9vcCBjb3VudCBmcm9tCj4gNDAoTUFYX1RVTklOR19MT09QIGF0IHNkaGNpLmMp
+IHRvIDEyOC4KPiAKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tbWMvaG9zdC9zZGhjaS1vZi1kd2Nt
+c2hjLmMKPiBiL2RyaXZlcnMvbW1jL2hvc3Qvc2RoY2ktb2YtZHdjbXNoYy5jCj4gaW5kZXggOGQ2
+Y2ZiNjQ4MDk2Li5kYThmNTgyMGZiNjkgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9tbWMvaG9zdC9z
+ZGhjaS1vZi1kd2Ntc2hjLmMKPiArKysgYi9kcml2ZXJzL21tYy9ob3N0L3NkaGNpLW9mLWR3Y21z
+aGMuYwo+IEBAIC03MDYsNiArNzA2LDcgQEAgc3RhdGljIGludCB0aDE1MjBfZXhlY3V0ZV90dW5p
+bmcoc3RydWN0IHNkaGNpX2hvc3QKPiAqaG9zdCwgdTMyIG9wY29kZSkKPiAKPiDCoMKgwqDCoMKg
+wqDCoCAvKiBwZXJmb3JtIHR1bmluZyAqLwo+IMKgwqDCoMKgwqDCoMKgIHNkaGNpX3N0YXJ0X3R1
+bmluZyhob3N0KTsKPiArwqDCoMKgwqDCoMKgIGhvc3QtPnR1bmluZ19sb29wX2NvdW50ID0gMTI4
+Ogo+IMKgwqDCoMKgwqDCoMKgIGhvc3QtPnR1bmluZ19lcnIgPSBfX3NkaGNpX2V4ZWN1dGVfdHVu
+aW5nKGhvc3QsIG9wY29kZSk7Cj4gwqDCoMKgwqDCoMKgwqAgaWYgKGhvc3QtPnR1bmluZ19lcnIp
+IHsKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLyogZGlzYWJsZSBhdXRvLXR1bmlu
+ZyB1cG9uIHR1bmluZyBlcnJvciAqLwo+IAo+IEFmdGVyIHRoYXQgY2hhbmdlIHR1bmluZyB3b3Jr
+cyBmaW5lLiBUaGUgc2FtZSB2YWx1ZSBvZiBsb29wIGNvdW50IGlzCj4gdXNlZCBpbiBSZXZ5T1Mg
+QlNQCj4gaHR0cHM6Ly9naXRodWIuY29tL3Jldnlvcy90aGVhZC1rZXJuZWwvYmxvYi9jNmQ0ZTVk
+ZjE4YTE3OTAzZDAxMmZmZDg5ZTY3ZDBlZTVjZTZjZjJkL2RyaXZlcnMvbW1jL2hvc3Qvc2RoY2kt
+b2YtZHdjbXNoYy5jI0wxODUKPiAKPiBIb25lc3RseSwgaXQgbG9va3MgYSBsaXR0bGUgYml0IHN0
+cmFuZ2UgZm9yIG1lLgo+IAo+IEl0IHNlZW1zIHRoYXQgdGhlIHR1bmluZyBhbGdvcml0aG0gcmVx
+dWlyZXMgdG8gbW92ZSB0aHJvdWdoCj4gYWxsIHRoZSB0YXBzIG9mIGRlbGF5IGxpbmUoMTI4IHRh
+cHM/KSBldmVuIGlmIHdlIHVzZSBUSFJFU0hPTERfTU9ERQo+IGluc3RlbmQgTEFSR0VTVF9XSU5f
+TU9ERSAoSSBtZWFuIGJpdCAyIGluIEFUX0NUUkxfUigweDU0MCkgcmVnaXN0ZXIpLgo+IAo+IFhp
+LCBjb3VsZCB5b3UgYWxzbyB0ZXN0IG15IGZpeCBvbiB5b3VyIGJvYXJkPwoKSSdsbCB0cnkgaXQg
+dGhpcyB3ZWVrZW5kLiAgTm93IGhhdmluZyBzb21lIHdvcmsgd2l0aCAicmVhbCB0aW1lCnByaW9y
+aXR5IiB0byBkbyA6KC4KCi0tIApYaSBSdW95YW8gPHhyeTExMUB4cnkxMTEuc2l0ZT4KU2Nob29s
+IG9mIEFlcm9zcGFjZSBTY2llbmNlIGFuZCBUZWNobm9sb2d5LCBYaWRpYW4gVW5pdmVyc2l0eQoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
