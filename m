@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FBFFC54E58
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Mar 2024 22:09:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A2EC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Mar 2024 22:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JcOJXOXaFIEC/46sHgfdOCL+K4dYCLDuGWEpwyKp/kg=; b=c4/MO+LLWHIvWx
-	1vTiq1e5zzHiwFD1hztQgTNjfEx3gof34R9TN17nXoF3IaS1LNgZK/qH3RZlrqSEDNOZsj9xQQhVs
-	JcaYF7VtqmOSrVg4xY8hXASIq7GmEo3DQfUXm+wk0s0yk0YbVhJ9X7Z/vuEJ6QGozgOPYvyNtch0K
-	z4QggmBD62uLKSMyXg6DeqK2kUe+Cyw7npVS38oPzJrOHpxv2B/0fVcjoaSmMGya9TqghowiVwiyQ
-	AAezk0yoZQPYm8lS9Qhe6uaRElzNHOVg9if6dN9nfWw702nUe+5A76m9cuc9oBfeT2NL/h9ogrCPx
-	hzCe7o9828eqSX5a1shQ==;
+	List-Owner; bh=yfZnqd4TffXVg89S++E+3o/cWViSYQW9xFcT938oyXA=; b=YjW2f00Qhpfv5Y
+	WFpdX8pRVnTkYOEmrmNfKsezdGo0R+x65tXFY+XNF4Ka9dd1N4WqYpgf1d36QYz8UbKYgp+3N+bEB
+	o7KVTTHpmUt9njGj47iZAilofcnHjb0lpLDgagt7p5s5gy1dl7SoF5uZOhLarMBwn26X3wcdqhHeD
+	J9HRR8t8HaTWvbrWqh4W6pYkGcKJdBLG8h25zNqwCQY2zF5a3fIjK1VK98TWvIiWl6GznM8p3gU0x
+	EQ1rVMtCMk0N+gyWOf09krQJIV82/Osxxq+pFevb/mW2Gp9SaiERq3J2Kw7pQGgH5DZFFiK5VAiYl
+	h2VqycbrP+CUlLpZ3rWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnQaj-00000004qqZ-46WN;
-	Thu, 21 Mar 2024 22:08:53 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rnQav-00000004qxo-1ghu;
+	Thu, 21 Mar 2024 22:09:09 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnQa6-00000004qHd-1m6b
+	id 1rnQaA-00000004qM1-0o5k
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Mar 2024 22:08:16 +0000
+	Thu, 21 Mar 2024 22:08:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1711058893;
+	s=mimecast20190719; t=1711058897;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wdRUTOTGji9K1EOtUzCYNHXUg1STGKkafiwUdqA6oYA=;
-	b=ddEbQRS7uISRVpiE543XZzi76iOwqW75Ahq9OpyxnA4p7RAtKWfYimvu9giRHxIXv1lSeG
-	FwmMHbjjH/SueJq9l4PB75WWNQNbpI3vOjhMoH1iiFewI0pLk6+AwYIhrJLf3T7ysiC/8l
-	MO5Ao+4uqii5sZIjbsGBImV1lzH6cOo=
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
- [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=SUPAT0rXQJh3Nc2mzYzsdwstyixoWF7iCZ8XsZkm6u0=;
+	b=M1RrXhhRspIvZd+9r5uYKzQTvq6cv6BXIuBBSvlblcR2Wju6znfH3x1j97oO3y9Cp2snab
+	gSA8mzWZ74gbVx4BfU3AIhB6G0RBrgp1OcP3Og1uvCqcVf+eV+/i6ZP4TKg7e4EBUetifi
+	jOSQ3PpRQ4xYQ5guZZgeypFcZjPdguk=
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
+ [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-114-N_zkJ6hOM5qRPd-AIqUwDg-1; Thu, 21 Mar 2024 18:08:12 -0400
-X-MC-Unique: N_zkJ6hOM5qRPd-AIqUwDg-1
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-430c76df729so4253841cf.0
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Mar 2024 15:08:11 -0700 (PDT)
+ us-mta-281-9R6p4aOdPZm8GOsuQWZ2Aw-1; Thu, 21 Mar 2024 18:08:15 -0400
+X-MC-Unique: 9R6p4aOdPZm8GOsuQWZ2Aw-1
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-78a3986e95bso1842385a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Mar 2024 15:08:15 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711058891; x=1711663691;
+        d=1e100.net; s=20230601; t=1711058895; x=1711663695;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wdRUTOTGji9K1EOtUzCYNHXUg1STGKkafiwUdqA6oYA=;
-        b=kBlOjodsvJxLNhK8+rFBRDg0y1b0qpGRN000fCpNuYcuoxfzuK51hYEOMZXj84AVc1
-         +CacFcEZTZlHCNoW/Z11+CCl9GgKEwqiKYUEJrY2lbmIPvszNDLB9IbMTcC1kqKXJPwg
-         GcShy18Vc+NQ6yS9XNgSNvBegnINyGY4LJ8XPntzPMDP46WLkwfM1XdG7B5uhes9K+o2
-         lNVvVJwULcv5urjK1UgRslHv4HI0ge82//6VXWTiwSCdw2c6kHvZc+3TRtTWJ+I2SODr
-         duGbg8ZqtZ7H+h/yfCJLiqmu7izcuuCLvVF0tsXSLlAetdYIhjmWk1txHv8Gjf/Dfr8G
-         75Aw==
-X-Forwarded-Encrypted: i=1; AJvYcCUGixmQdqFgzcsXdWm6LEfDoemHSioYyBt/maYLTaGnAWzaN+vygsYEWOeMfqLrHuFRWcxh+6CcAnkVrLEFPAmi7t1o4yDQv+JiMGH7OEdt
-X-Gm-Message-State: AOJu0Yxhz7yVdRHYeMCMLHTLnfFp19vCk2Zv/XYNyLjVupU/tkcHGqna
-	LOhfpCVMDfsnQ05/htG//bwFr/MHuS6tXrOpN1h5d/awxsAoGY/K5OHeRauB84xvKDsCf4vVJdH
-	iMfVQX41tEBryb0woU8q4l4DTPQe0YJdWmpmAbwXAYpvDQO7Xf8AGAWEdyHkk01P8Xg==
-X-Received: by 2002:a05:6214:3a8a:b0:690:3c85:c5b with SMTP id nz10-20020a0562143a8a00b006903c850c5bmr195553qvb.3.1711058891331;
-        Thu, 21 Mar 2024 15:08:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG16ns9jJ9MJ80ThL7hh1B1qvLdYLgSNyXX5iyvBQC6076/qVHetDei+F5v2+719IrZ5asQ9g==
-X-Received: by 2002:a05:6214:3a8a:b0:690:3c85:c5b with SMTP id nz10-20020a0562143a8a00b006903c850c5bmr195527qvb.3.1711058890838;
-        Thu, 21 Mar 2024 15:08:10 -0700 (PDT)
+        bh=SUPAT0rXQJh3Nc2mzYzsdwstyixoWF7iCZ8XsZkm6u0=;
+        b=GslnUZtuuhMVOij8SBlDlTeiJzZvTOIceN/yCpblCc90qMI8oVQeQn0a8yr+t/aOhv
+         VELBk72PkRiaqWPq76aHUqBEWp6N+QLpl87nRym7KS4eM75+GgDAJaTI/A1UjQddOtUH
+         y7Ythm8zmiTNTaOreH6G+WIOSNj1FCojeozW0BDodgu8OSvZ576XJ1V9MArOkvHUQXX4
+         N+3fVbWUjLxsbCvLpkbzkT5zIs/fhUSGqdJK2WF+ZuyLWwTMwlSx0QnOnRVGzYeevuhP
+         aTkQ9gjshhn6BaCyfWMr9KcRi/nDqbgkjVJz11RDO4uIZw4ydGL+npM01A++b1qZ4IUL
+         ynYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWZmCZDU/LwUQmqq/2KadqU+woCKci7rlggVAONPixKFyndzc3Pugp/WRUgTrx+ZdQcvVNvz2JpY/7PkCYyNF7dyQ5CRIHLNXfsO7WN0E8p
+X-Gm-Message-State: AOJu0Yy9sqA8AjlnQLMKJnakdP8jul6b2UU2TuLzhBR7ehdIhOQUPFww
+	eeZs7B5IqHHIglpXEo53122QDJwF+cx0SOBgNiUBsHJJhMNetSu4UfNymwIDp1grYpfLn0MoyAt
+	uyuvkPqxIhGpMAtx/DqqnzEs0Eqz4BMFnazdeVV2vzfxr6eE8bfdEpdStwBlTvm6EjQ==
+X-Received: by 2002:a05:6214:3f89:b0:691:2524:2d87 with SMTP id ow9-20020a0562143f8900b0069125242d87mr214727qvb.2.1711058895193;
+        Thu, 21 Mar 2024 15:08:15 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHuIdayMB3K1ezoBSvCD0gJVl53LosR8J8AUw6cJS5L0fxLggs0ufmC9b8hoGFmk2jAJqKnIA==
+X-Received: by 2002:a05:6214:3f89:b0:691:2524:2d87 with SMTP id ow9-20020a0562143f8900b0069125242d87mr214690qvb.2.1711058894780;
+        Thu, 21 Mar 2024 15:08:14 -0700 (PDT)
 Received: from x1n.redhat.com ([99.254.121.117])
-        by smtp.gmail.com with ESMTPSA id o6-20020a0562140e4600b00690baf5cde9sm351663qvc.118.2024.03.21.15.08.09
+        by smtp.gmail.com with ESMTPSA id o6-20020a0562140e4600b00690baf5cde9sm351663qvc.118.2024.03.21.15.08.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Mar 2024 15:08:10 -0700 (PDT)
+        Thu, 21 Mar 2024 15:08:14 -0700 (PDT)
 From: peterx@redhat.com
 To: linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
@@ -97,9 +97,9 @@ Cc: linuxppc-dev@lists.ozlabs.org,
 	Andrea Arcangeli <aarcange@redhat.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
 	Mike Kravetz <mike.kravetz@oracle.com>
-Subject: [PATCH v3 03/12] mm: Make HPAGE_PXD_* macros even if !THP
-Date: Thu, 21 Mar 2024 18:07:53 -0400
-Message-ID: <20240321220802.679544-4-peterx@redhat.com>
+Subject: [PATCH v3 05/12] mm/gup: Drop folio_fast_pin_allowed() in hugepd processing
+Date: Thu, 21 Mar 2024 18:07:55 -0400
+Message-ID: <20240321220802.679544-6-peterx@redhat.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240321220802.679544-1-peterx@redhat.com>
 References: <20240321220802.679544-1-peterx@redhat.com>
@@ -107,8 +107,8 @@ MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240321_150814_687070_51B15BD5 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20240321_150818_522894_70130E88 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,68 +127,65 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Peter Xu <peterx@redhat.com>
 
-These macros can be helpful when we plan to merge hugetlb code into generic
-code.  Move them out and define them even if !THP.
+Hugepd format for GUP is only used in PowerPC with hugetlbfs.  There are
+some kernel usage of hugepd (can refer to hugepd_populate_kernel() for
+PPC_8XX), however those pages are not candidates for GUP.
 
-We actually already defined HPAGE_PMD_NR for other reasons even if !THP.
-Reorganize these macros.
+Commit a6e79df92e4a ("mm/gup: disallow FOLL_LONGTERM GUP-fast writing to
+file-backed mappings") added a check to fail gup-fast if there's potential
+risk of violating GUP over writeback file systems.  That should never apply
+to hugepd.  Considering that hugepd is an old format (and even
+software-only), there's no plan to extend hugepd into other file typed
+memories that is prone to the same issue.
 
-Reviewed-by: Christoph Hellwig <hch@infradead.org>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Drop that check, not only because it'll never be true for hugepd per any
+known plan, but also it paves way for reusing the function outside
+fast-gup.
+
+To make sure we'll still remember this issue just in case hugepd will be
+extended to support non-hugetlbfs memories, add a rich comment above
+gup_huge_pd(), explaining the issue with proper references.
+
+Cc: Christoph Hellwig <hch@infradead.org>
+Cc: Lorenzo Stoakes <lstoakes@gmail.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: linuxppc-dev@lists.ozlabs.org
 Signed-off-by: Peter Xu <peterx@redhat.com>
 ---
- include/linux/huge_mm.h | 17 ++++++-----------
- 1 file changed, 6 insertions(+), 11 deletions(-)
+ mm/gup.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
-diff --git a/include/linux/huge_mm.h b/include/linux/huge_mm.h
-index de0c89105076..3bcdfc7e5d57 100644
---- a/include/linux/huge_mm.h
-+++ b/include/linux/huge_mm.h
-@@ -64,9 +64,6 @@ ssize_t single_hugepage_flag_show(struct kobject *kobj,
- 				  enum transparent_hugepage_flag flag);
- extern struct kobj_attribute shmem_enabled_attr;
+diff --git a/mm/gup.c b/mm/gup.c
+index 484a7c70d121..9127ec5515ac 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -2831,11 +2831,6 @@ static int gup_hugepte(pte_t *ptep, unsigned long sz, unsigned long addr,
+ 		return 0;
+ 	}
  
--#define HPAGE_PMD_ORDER (HPAGE_PMD_SHIFT-PAGE_SHIFT)
--#define HPAGE_PMD_NR (1<<HPAGE_PMD_ORDER)
+-	if (!folio_fast_pin_allowed(folio, flags)) {
+-		gup_put_folio(folio, refs, flags);
+-		return 0;
+-	}
 -
- /*
-  * Mask of all large folio orders supported for anonymous THP; all orders up to
-  * and including PMD_ORDER, except order-0 (which is not "huge") and order-1
-@@ -87,14 +84,19 @@ extern struct kobj_attribute shmem_enabled_attr;
- #define thp_vma_allowable_order(vma, vm_flags, smaps, in_pf, enforce_sysfs, order) \
- 	(!!thp_vma_allowable_orders(vma, vm_flags, smaps, in_pf, enforce_sysfs, BIT(order)))
- 
--#ifdef CONFIG_TRANSPARENT_HUGEPAGE
- #define HPAGE_PMD_SHIFT PMD_SHIFT
- #define HPAGE_PMD_SIZE	((1UL) << HPAGE_PMD_SHIFT)
- #define HPAGE_PMD_MASK	(~(HPAGE_PMD_SIZE - 1))
-+#define HPAGE_PMD_ORDER (HPAGE_PMD_SHIFT-PAGE_SHIFT)
-+#define HPAGE_PMD_NR (1<<HPAGE_PMD_ORDER)
- 
- #define HPAGE_PUD_SHIFT PUD_SHIFT
- #define HPAGE_PUD_SIZE	((1UL) << HPAGE_PUD_SHIFT)
- #define HPAGE_PUD_MASK	(~(HPAGE_PUD_SIZE - 1))
-+#define HPAGE_PUD_ORDER (HPAGE_PUD_SHIFT-PAGE_SHIFT)
-+#define HPAGE_PUD_NR (1<<HPAGE_PUD_ORDER)
-+
-+#ifdef CONFIG_TRANSPARENT_HUGEPAGE
- 
- extern unsigned long transparent_hugepage_flags;
- extern unsigned long huge_anon_orders_always;
-@@ -378,13 +380,6 @@ static inline bool thp_migration_supported(void)
+ 	if (!pte_write(pte) && gup_must_unshare(NULL, flags, &folio->page)) {
+ 		gup_put_folio(folio, refs, flags);
+ 		return 0;
+@@ -2846,6 +2841,14 @@ static int gup_hugepte(pte_t *ptep, unsigned long sz, unsigned long addr,
+ 	return 1;
  }
  
- #else /* CONFIG_TRANSPARENT_HUGEPAGE */
--#define HPAGE_PMD_SHIFT ({ BUILD_BUG(); 0; })
--#define HPAGE_PMD_MASK ({ BUILD_BUG(); 0; })
--#define HPAGE_PMD_SIZE ({ BUILD_BUG(); 0; })
--
--#define HPAGE_PUD_SHIFT ({ BUILD_BUG(); 0; })
--#define HPAGE_PUD_MASK ({ BUILD_BUG(); 0; })
--#define HPAGE_PUD_SIZE ({ BUILD_BUG(); 0; })
- 
- static inline bool folio_test_pmd_mappable(struct folio *folio)
- {
++/*
++ * NOTE: currently GUP for a hugepd is only possible on hugetlbfs file
++ * systems on Power, which does not have issue with folio writeback against
++ * GUP updates.  When hugepd will be extended to support non-hugetlbfs or
++ * even anonymous memory, we need to do extra check as what we do with most
++ * of the other folios. See writable_file_mapping_allowed() and
++ * folio_fast_pin_allowed() for more information.
++ */
+ static int gup_huge_pd(hugepd_t hugepd, unsigned long addr,
+ 		unsigned int pdshift, unsigned long end, unsigned int flags,
+ 		struct page **pages, int *nr)
 -- 
 2.44.0
 
