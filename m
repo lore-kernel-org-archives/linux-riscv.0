@@ -4,59 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD2BC54E58
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Mar 2024 20:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 848EDC54E58
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Mar 2024 22:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OJxoEt2jt5Tld5kBUKexe3WpY+CxNm736ctKRfS6Ze8=; b=UUxNLumhPT7h0O
-	cE5rtNgGIseujHU9pjxuPtxXmySfKB4r+WwPADiXreTJW0UAfV+fv4eEs2VQ0VEbsx+80K+oAitLE
-	F+yCgLj5hcsp2CUNlJrSFOmq/4hvkhaKNQAaW6Uf/IzJ4fCeB2prkjWOTaFFZykThUoyV5FVLhgg3
-	cEVLHTw+uaTubktbbdXfm9OkPnxxMReNNEVchFPp9ZYDYAgRqtPEI/6BRqATYvQVp6H2jrGYEdpKY
-	ZmLmlCXjYUUgUg942zOGoj21mFs9UyisEr83K8t6DKao4G+blrkthnIB6iJkhVTIMCT5kZi4FOSvH
-	eDhpI0eRcTU7AA48rwQw==;
+	List-Owner; bh=2pXNUEigY5EVQ0GMfUUCeStwsXw//3pd6DKGjVzSM1Y=; b=OvmL5CJvD58Ggd
+	TIejLctipRY1wp5sWgEIJ9KSzuUnHnqxdp797X5OXVlgyzCLd5wUpu/8YOPsYSALTTkRon2kxKHfV
+	V+CN/2jSYrJ7xFIkJpGN6eJkgOhF0W8EmtR6uqQ+1x+liiu6O1LhfhkQA/Qs+LKnfnibCU4YX91T8
+	lcwDhDlet1ocywucS8oN6i2g5mvLCwxZXJt28ApDHi6mHQ/KcBQ9h0pLAkPvUUx8xviZrP3cMb6g5
+	Q0zdBXHypDpmM9AFFl2rfINgsyv9yTa4lgvF7f9jtn4ds0X667tUe7MlPzFIIF4kL33UWwXS/qhiI
+	VAcbVwGGxydKN9VBkcTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnOaR-00000004SvX-0ncX;
-	Thu, 21 Mar 2024 20:00:27 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rnQa7-00000004qJa-3nzR;
+	Thu, 21 Mar 2024 22:08:15 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnOaN-00000004Sv2-3pOc
+	id 1rnQa2-00000004qEO-46EE
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Mar 2024 20:00:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id E3EB6CE140E;
-	Thu, 21 Mar 2024 20:00:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1219CC433C7;
-	Thu, 21 Mar 2024 20:00:18 +0000 (UTC)
-Date: Thu, 21 Mar 2024 16:02:46 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: "Bj\"orn T\"opel" <bjorn@kernel.org>, Puranjay Mohan
- <puranjay12@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Masami
- Hiramatsu <mhiramat@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
- Guo Ren <guoren@kernel.org>, Ley Foon Tan <leyfoon.tan@starfivetech.com>,
- Deepak Gupta <debug@rivosinc.com>, Sia Jee Heng
- <jeeheng.sia@starfivetech.com>, "Bj\"orn T\"opel" <bjorn@rivosinc.com>,
- Song Shuai <suagrfillet@gmail.com>, Cl'ement L'eger <cleger@rivosinc.com>,
- Al Viro <viro@zeniv.linux.org.uk>, Jisheng Zhang <jszhang@kernel.org>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] riscv: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
-Message-ID: <20240321160246.2e28cf9d@gandalf.local.home>
-In-Reply-To: <ZfBbxPDd0rz6FN2T@FVFF77S0Q05N>
-References: <20240306165904.108141-1-puranjay12@gmail.com>
-	<87ttlhdeqb.fsf@all.your.base.are.belong.to.us>
-	<ZfBbxPDd0rz6FN2T@FVFF77S0Q05N>
-X-Mailer: Claws Mail 3.19.1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Thu, 21 Mar 2024 22:08:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1711058889;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bzTkuuEUZ2f7C9YouF2ORWZwnTLSeJ8Y5AJhy7kkISQ=;
+	b=Z1QOr5VHwlnXVmwfQMhze8UZ86wYuDJEJRmDmm7Gd/MNIoSjQjosnXLK1+/tX4cfMTLOkW
+	/grErCiT6duLwQtG6YQabPQH0HPqGZbdIpPnBmmZOlDv3FbocaTE0IBk1AYiZw6fGACvtE
+	V0tbvz6WS6cNd0AC3nUqdbM63IySHWk=
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
+ [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-488-JR-UATuJN1aJwyGbCJFGcg-1; Thu, 21 Mar 2024 18:08:08 -0400
+X-MC-Unique: JR-UATuJN1aJwyGbCJFGcg-1
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-78a0e8a60f8so22222985a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Mar 2024 15:08:08 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711058887; x=1711663687;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bzTkuuEUZ2f7C9YouF2ORWZwnTLSeJ8Y5AJhy7kkISQ=;
+        b=bXbgmonzUXAVnhdvGG7/xixOPXpRP9qRuzkcHV7VYmdUgVw4Go4nXV1wrwGPmy4tqx
+         sdH/5CJh4D3QWZ2wnjhAUMT3XnPA6QuD4uM4C+0AGLZ/0fcWxAfI3WlXza2EltwDUyGv
+         yTAD61BOaLpKNREiIPnliIawhINpJ/ikDiKKEf1TI9lbNkE7YbAMAE0eijUQ0Jdg/tQX
+         YCft73m16lcijiCqjDr/ewaW/ozsITcF0DT8f6qsJoESO9QR/TkT6FmTXgO5DDG2o+rV
+         nfEt1nWX5qk/M3YXVIXDW4M4PxTZbPuDkwuziZbO6VVH1hgdn3HadSjx5azP8kmGwr4B
+         Qb6g==
+X-Forwarded-Encrypted: i=1; AJvYcCWJ8jIRhyHBLm7tDUyMqB2NRPDMLKEoSP/vjQo9dnpBwjiffZbb2g2bFHTG1XEvr2qCgjLWzhgoNelYjcO+cfSEMUEGZ46Qj4ttAHJFykK4
+X-Gm-Message-State: AOJu0YxYanb9xVLkAi4nSI3IeDhsM3+gl/YpZB3x0IO0e0akBg6T053W
+	RJs29cmEXbKWAA9fR/Xz0pbJgKnwgcn4qz42wm9Z08HpEtHxasOrajkOvO4M5a+PBmCqXgYNKND
+	jTHq57osMzlzS+cgjO4izILKwQdjKtDTPIT6XwA6eWL039gbGwc6leqX8YYkjKQ+ptQ==
+X-Received: by 2002:a0c:e58b:0:b0:691:87dd:f836 with SMTP id t11-20020a0ce58b000000b0069187ddf836mr428470qvm.5.1711058887525;
+        Thu, 21 Mar 2024 15:08:07 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGbvsPPVNStAWHyU+pKNLEFDZ4j8yXA8+9tn+eCe8z7LjIA9ieYt5evzB7ZRQzGTHD3gHSYEw==
+X-Received: by 2002:a0c:e58b:0:b0:691:87dd:f836 with SMTP id t11-20020a0ce58b000000b0069187ddf836mr428451qvm.5.1711058887085;
+        Thu, 21 Mar 2024 15:08:07 -0700 (PDT)
+Received: from x1n.redhat.com ([99.254.121.117])
+        by smtp.gmail.com with ESMTPSA id o6-20020a0562140e4600b00690baf5cde9sm351663qvc.118.2024.03.21.15.08.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Mar 2024 15:08:06 -0700 (PDT)
+From: peterx@redhat.com
+To: linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Matthew Wilcox <willy@infradead.org>,
+	Rik van Riel <riel@surriel.com>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	peterx@redhat.com,
+	Yang Shi <shy828301@gmail.com>,
+	John Hubbard <jhubbard@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Mike Rapoport <rppt@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Christoph Hellwig <hch@infradead.org>,
+	linux-riscv@lists.infradead.org,
+	James Houghton <jthoughton@google.com>,
+	David Hildenbrand <david@redhat.com>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Mike Kravetz <mike.kravetz@oracle.com>
+Subject: [PATCH v3 01/12] mm/Kconfig: CONFIG_PGTABLE_HAS_HUGE_LEAVES
+Date: Thu, 21 Mar 2024 18:07:51 -0400
+Message-ID: <20240321220802.679544-2-peterx@redhat.com>
+X-Mailer: git-send-email 2.44.0
+In-Reply-To: <20240321220802.679544-1-peterx@redhat.com>
+References: <20240321220802.679544-1-peterx@redhat.com>
 MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240321_130024_586813_35A4A790 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20240321_150811_100677_012718D6 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,60 +126,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Mar 2024 13:42:28 +0000
-Mark Rutland <mark.rutland@arm.com> wrote:
+From: Peter Xu <peterx@redhat.com>
 
-> There are ways around that, but they're complicated and/or expensive, e.g.
-> 
-> * Use a sequence of multiple patches, starting with replacing the JALR with an
->   exception-generating instruction with a fixup handler, which is sort-of what
->   x86 does with UD2. This may require multiple passes with
->   synchronize_rcu_tasks() to make sure all threads have seen the latest
->   instructions, and that cannot be done under stop_machine(), so if you need
->   stop_machine() for CMODx reasons, you may need to use that several times with
->   intervening calls to synchronize_rcu_tasks().
+Introduce a config option that will be selected as long as huge leaves are
+involved in pgtable (thp or hugetlbfs).  It would be useful to mark any
+code with this new config that can process either hugetlb or thp pages in
+any level that is higher than pte level.
 
-Just for clarification. x86 doesn't use UD2 for updating the call sites. It
-uses the breakpoint (0xcc) operation. This is because x86 instructions are
-not a fixed size and can cross cache boundaries, making updates to text
-sections dangerous as another CPU may get half the old instruction and half
-the new one!
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Peter Xu <peterx@redhat.com>
+---
+ mm/Kconfig | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Thus, when we have:
+diff --git a/mm/Kconfig b/mm/Kconfig
+index b924f4a5a3ef..497cdf4d8ebf 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -850,6 +850,12 @@ config READ_ONLY_THP_FOR_FS
+ 
+ endif # TRANSPARENT_HUGEPAGE
+ 
++#
++# The architecture supports pgtable leaves that is larger than PAGE_SIZE
++#
++config PGTABLE_HAS_HUGE_LEAVES
++	def_bool TRANSPARENT_HUGEPAGE || HUGETLB_PAGE
++
+ #
+ # UP and nommu archs use km based percpu allocator
+ #
+-- 
+2.44.0
 
-	0f 1f 44 00 00		nop
-
-and want to convert it to:
-
-	e8 e7 57 07 00		call ftrace_caller
-
-We have to first add a breakpoint:
-
-	cc 17 44 00 00
-
-Send an IPI to all CPUs so that they see the breakpoint (IPI is equivalent
-to a memory barrier).
-
-We have a ftrace breakpoint handler that will look at the function that the
-breakpoint happened on. If it was a nop, it will just skip over the rest of
-the instruction, and return from the break point handler just after the
-"cc 17 44 00 00". If it's supposed to be a function, it will push the
-return to after the instruction onto the stack, and return from the break
-point handler to ftrace_caller. (Although things changed a little since
-this update is now handled by text_poke_bp_batch()).
-
-Then it changes the rest of the instruction:
-
-	cc e7 57 07 00
-
-Sends out another IPI to all CPUs and removes the break point with the new
-instruction op.
-
-	e8 e7 57 07 00
-
-and now all the callers of this function will call the ftrace_caller.
-
--- Steve
 
 _______________________________________________
 linux-riscv mailing list
