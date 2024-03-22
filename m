@@ -4,82 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7694C54E71
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2024 09:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378EDC47DD9
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2024 09:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8+2DwqHEUD0nqjtSUDIyBkaH4fpEjvWfX/Q/MHUzNrA=; b=qhn17mxR8Hcx2p
-	Tpsi4kT4+Ka8g3HvmGZ5XtJ5ZfVRVR2ghyKpd0rv/O9d7Tbwkz6sQey6klQnRyEvqeJxGHl0waNjs
-	TSZ2Cns52QG6ADVJaaO8tcSiBO1zltPZ0UpbDtUnE7NJxrGxKfF6ChWDakMMyG/9HC6vNPBGyFTX9
-	PJtKqkrZzh1nWdNamYA323NZQjiCRHQ4nnC7beMES+4qtUxs9iZ6b2joyrc4YgwNgHX9DYEsDhvZv
-	KdgjABE691nUfJJv/g5vPWYvknXMmyHbZT3Y5vnpsQCJK6w31TOqVODsDvIB0iWXwYGfm5Ggz73Hv
-	hEPfFAv75zz/c02Y3UyQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=M3wpCeXLqikQ7Z0DsL0REO0RCcSzB8wPcb8E/zk9cC8=; b=oZqdc3fKSqBV1y
+	X79Va6p1jTfsq482MjFmUsBr5kuNH1FXD7bClXzmJZtUjIBiteA5SpX9MXTkB/TO1MBwMYTSLO67p
+	GYTUXyvdKTZwzSHVXg9Kq2V+Jlgscy7rt4QsLV64BfYrhgIpjMLTQ8aUVGl+wgN9i66xUPbq32ce+
+	8VkX2++IB0NFXJk+MMbj6Ay7B590J0dLlvXVwjKxn6DeWHoiRHirkCT5g6uLBEtdm+7uRptnPvsoh
+	mAAh8jj6yMQGdTb7zCpdE/q9fJtdlETwT9k6vwvtVwfxDeDM+0AgholjlMh6iJSlUZtVjTAjyZ3pO
+	2rFKJYPn5F0QyhQv831A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnalD-00000006Shv-2sei;
-	Fri, 22 Mar 2024 09:00:23 +0000
-Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
+	id 1rnb3q-00000006Xa8-2fso;
+	Fri, 22 Mar 2024 09:19:38 +0000
+Received: from mail-sh0chn02on2072c.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::72c] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnalB-00000006ShC-10dA
+	id 1rnb3l-00000006XXM-3K5W
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Mar 2024 09:00:22 +0000
-Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-3bd4e6a7cb0so957728b6e.3
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2024 02:00:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1711098018; x=1711702818; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qLBtKAVMx8UeOXZQaAlRR5fkQJeKEswMH4lt55EITFU=;
-        b=Ogt79b+k4dDgYTUiKacxoD/RjWrNiLO0HizJMy0PVuF7Aykew0BGIoz5Ht+FncPM29
-         yVIcjPiGweU2Wzm2gPD83jLWwT/moWcLqOE4FJo/smwkcytRuONbyh1v8yLpxeaSyB9O
-         2+4hKowc/Tm7CEvbZQ/Pc2vaGg+hsZbdnyaWzOJYzq5bCmEJ0Os4R9Txl9zFKkuj3Az6
-         ut6LNg2Dg4tzYbApQz8ksGxMXwHj6l/qoevrGzMnOmW9xtmADmlHewxqZYagfqCpCeiV
-         q+jQhEl4pBq8+7mzkifHNI/i71F+ZPyNP07Mg3RMpZ1mWIotkXSjUnbGDc4M2QE6Ihw5
-         BGuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711098018; x=1711702818;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qLBtKAVMx8UeOXZQaAlRR5fkQJeKEswMH4lt55EITFU=;
-        b=lr3m3xDxU1VCYJ3J4p85GjmVMkz1BySJP1NjQvlbSgr4ssWBDrFC4QfrEp/Ma+E8Q5
-         EjKUxguqhn9vG4YfhbAlM/oed8inUnhUEuqivvKgcrPB4ppw18IhZ4NNfhDP9myJ7fZB
-         YtKKCHbyqxo9LWkAUGSDC1MCZXChTzmjjr96K+KXIf4WCAsiJKeHBEgck5YQ5dePEY7U
-         uRxp4snWquLwtsapVqrGtDPBLGtyXubW8F8rFc44jY6GYTE3Pr3IrBHmYHS7g/qTX501
-         LxxLxhteDz4KFsw1ERjDIwQuNdKuMzXidLtTaM5iViaMeoVwrzZr/f8SK6+jevb3iIZh
-         ws9A==
-X-Forwarded-Encrypted: i=1; AJvYcCWkWOLmses2/TQBRRBu4Uc/s+sF7kYF14UWkEmupXjfDonGFpJrcUMYAsx4HWreue+Bf1wCLiWSNsNv0ue6hc6UGYBqTlDHmQ/XfrieCJ0r
-X-Gm-Message-State: AOJu0YwATVHEPvkNEPQI5Yin3oQ3Pw29cUtdLqVO/FU8mO53kzysO/K/
-	gd9nYLPcstzekq7cpz0wkIlVX4ka1u4lmZCXqKsR9U+3KtApHqUix/Xd9aTIcLioqA==
-X-Google-Smtp-Source: AGHT+IHMirPgQkP3KLpcCux/Dh+nitiliB4mwcW6qcn7NeTd3JjSGKRsUEbm+KaUNCin7isX7P46cA==
-X-Received: by 2002:a05:6808:2017:b0:3c3:a000:50e3 with SMTP id q23-20020a056808201700b003c3a00050e3mr1844795oiw.37.1711098018531;
-        Fri, 22 Mar 2024 02:00:18 -0700 (PDT)
-Received: from DESKTOP-4R0U3NR.siflower.com ([2a09:bac5:6249:183c::26a:10])
-        by smtp.gmail.com with ESMTPSA id y9-20020a655289000000b005dc4806ad7dsm1001373pgp.40.2024.03.22.02.00.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Mar 2024 02:00:18 -0700 (PDT)
-From: Qingfang Deng <dqfext@gmail.com>
-To: Thomas Gleixner <tglx@linutronix.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Christoph Hellwig <hch@lst.de>,
-	Qingfang Deng <qingfang.deng@siflower.com.cn>
-Subject: [PATCH] irqchip/sifive-plic: Fix error handling of of_property_read_u32
-Date: Fri, 22 Mar 2024 17:00:02 +0800
-Message-Id: <20240322090002.311645-1-dqfext@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 22 Mar 2024 09:19:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=FySlpK37XNPcYoqJwQ/py1W3S71LPHlsXDK0S16yF68uEdWgpSdBmMqidr+J+RwmvogkMch/+3Zq6lWmXdy+zBQ3gyZdxWXbpuGtuKGvDhwlZyO/IKSl91L4+j5AdIPeRYnZ+h10+MNVLhYR8GqGqQWqffvk02Okn6o36M/ZsDVxNK5S++srpBzmp324OIFCCTu1eexXbgBbnZjOpam/WQiOb8OiE4e7QjWmbHzfKBscdVYy5UaYCYHUt7zO7cMpcshLwusJC7HVbBS9p0TcaNBvaXHq1vyieTZM8mlTYdfDuU5ZIhl2Ew69xfRuhawQ7e3JsIyvqpkqlggi1rOOgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j93IPEKqGhjc6EFWEH3oXRRq1HQzmGMpwQOIkUekOks=;
+ b=UMs0hZd3v9XqrRus78f9ccG78mDTXZXTYVIrdoRbWvmMMMPrTMmwDLiDIMD5oqBXoYbLnmhXUxBsDoNyK9EY7bNMOwxzES+2+4DufgsCpQ/Rx53x6HK2sQWOKQEinlT33m8b4Up7r8BkkehDyRsub40Y3rjqnntzUwiFD2DEnibdA40Bo7kPza9CS6AXqQCSMtxmI5LOpWx57yTYhzVMJt3CUSKPf9j70jG1VIv6rPqkuw1prb3nfOXh24wC/EHQolU0l2Qh3j2GnxRFcsYxywY9jPmn0DZED0tAt29z6AttJ0ch8B9iTycP/wu7pr5GEs1LgfUNkhJqubO9nFYIxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:7::14) by ZQ2PR01MB1180.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:12::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.24; Fri, 22 Mar
+ 2024 09:19:26 +0000
+Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ ([fe80::5de:15b9:3114:4f45]) by ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+ ([fe80::5de:15b9:3114:4f45%5]) with mapi id 15.20.7386.025; Fri, 22 Mar 2024
+ 09:19:26 +0000
+From: Hal Feng <hal.feng@starfivetech.com>
+To: JeeHeng Sia <jeeheng.sia@starfivetech.com>, "kernel@esmil.dk"
+	<kernel@esmil.dk>, "conor@kernel.org" <conor@kernel.org>,
+	"robh+dt@kernel.org" <robh+dt@kernel.org>,
+	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com"
+	<palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"
+	<sboyd@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"emil.renner.berthing@canonical.com" <emil.renner.berthing@canonical.com>,
+	Xingyu Wu <xingyu.wu@starfivetech.com>
+CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, Leyfoon Tan
+	<leyfoon.tan@starfivetech.com>
+Subject: RE: [RFC v3 01/16] reset: starfive: Rename file name "jh71x0" to
+ "common"
+Thread-Topic: [RFC v3 01/16] reset: starfive: Rename file name "jh71x0" to
+ "common"
+Thread-Index: AQHaQ8lbJe/Wz9EBr0GrwvbdHBoGmbFD6vfQ
+Date: Fri, 22 Mar 2024 09:19:26 +0000
+Message-ID: <ZQ2PR01MB13077FDD80B6FF4F2D2CBBC1E631A@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
+References: <20240110133128.286657-1-jeeheng.sia@starfivetech.com>
+ <20240110133128.286657-2-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20240110133128.286657-2-jeeheng.sia@starfivetech.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ2PR01MB1307:EE_|ZQ2PR01MB1180:EE_
+x-ms-office365-filtering-correlation-id: 230de0a6-8f71-40f2-5902-08dc4a512bba
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: raH8rqejo8sUwqluhxC/bUIuTXZ3DVxHc4PkL+j1vb+3qYFLLVcEVrpcXNGKIX+oo2ZnU/GChXara2AwM3VY3GM/iHiX9NmI/gjn4EmUes6KKDhndH/IitH5EkTUQFLqOVWVqPxT4ZEmdlJYgLV1C65oJqDO18E56p1C074RLlBf7/A5cinx3/4LaOs+9kEn2aWs/J5S70R3l8XcAjwVycOIyDRK5VfqWFGLK8wEgP8a6zs5x78QCB0aeNYquRweip+jo7eTzeNSkvxekPV2JlQKZxjMb3n3gBg99XD5ptc9A1yXlMu9J5Fm3F8Jfx3T40JjtsBL7yeYfmzGManPUDlxvE0ERPbKzsxY3HfpH02RYL+JLknAs8Ed+W+1RvecjvEaQ/eJmsRZYUJCJ5FdiWL+yzPQdIag9U44Speam6CtLfcmJQMI78Sy/JW4f513xJJ7hg5Hy/dw4jl45YZPUVSEqfUEc9VWc3bDSRK2NGy1cBwFBv5nFQVeudLDxtRnPfCpROVazmLL1FRJcxJQqotvzqJYr+jaDX4T4UWqmEUGT1XNZM5U3kufwXPN6LuJHeVazJFenZoFOnaeahcJuM820MGK4RomqMAAKDFoKSHDR27ASgGIlf7J1UcJjC1vkcR6nRCCam+viFCF24D7pQ==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(7416005)(366007)(38070700009)(921011);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?nJAvvvbDsx0SPaeCksF2/FXWM1IFQMe4+oZ4nJTCrdapdU2IxxsBmbAGFScM?=
+ =?us-ascii?Q?iV4uIDYVNUjhkY93//ticF/zhHjPgpQu4ax6MX4UISiozQVhRqYFW2N5CYqq?=
+ =?us-ascii?Q?NVlvNdIhp9y1ueLiwWVByV7gvXuQPHUm1sCL2nlq4hEX3sANAQjXdBSOAr33?=
+ =?us-ascii?Q?BuQmQlOcpARLtmZZMOxiZQW8d17QZ2O7P4pIm5EZtwSjibM9KiVd27cmlXcz?=
+ =?us-ascii?Q?Uw2MxhNcw266OS86ezRwdOijqxrukSwuldZYUU8+XS5WwtWESiFhmHMXfhnn?=
+ =?us-ascii?Q?+WDRuNWWVgqWAujCPhS9JEfaXLUmF3r3tkp2hnsTDI6swS6zKHaeGbrA/8hB?=
+ =?us-ascii?Q?M7+Q4uRZ/dwl6QMeF8nXujBn3EEoeB2wxD696xkLJ6SN+TVnqpDiiEgVGYYO?=
+ =?us-ascii?Q?s1oZdV6En0zuXW8rH2hMMVs8wzmcD9nLyqcvuusU7yh816TLWEXU2DtgPo+I?=
+ =?us-ascii?Q?SHEqbQy7jnTz7RBOMBNV4eAQGGikO03eUpMihAxNgg/hmV87uPcuyV2jk0ku?=
+ =?us-ascii?Q?U7vDNcwFqMISuU4rx29Vdm2r2CIGRa/hPqfBsyd3JeEqYE9Sis/7XGU5jqas?=
+ =?us-ascii?Q?ja0oF4l0QGKhcJDmqUs5UCB7eO61PdGBATFrH7rLqj1wSQHdhGhkYeQffzGK?=
+ =?us-ascii?Q?L1BcCtRLAatk9P/xfxZ/by1WV8alwwRVNgY/AuzB+KIKTEvESKCsdT/nABY0?=
+ =?us-ascii?Q?FHFeMdBTzYSc+f24T6jooPLpwSD//giySexnN4evP+B8qxNzCBZ8V4R/7a74?=
+ =?us-ascii?Q?oSWkXMQ4i6Fy4yGx/30zJoXgaAORHAH316C3gbJ6vQepWuFasmq/KDyyzmF2?=
+ =?us-ascii?Q?+SmYLaPNfR9wBx4uDWQG2sI8saAt0Lxbz2+rRS/ZZSG4OJmVriZQd+Ze0tw6?=
+ =?us-ascii?Q?/7ACipkd26EMxb/Nf04fxrarXmDZhkH58nI24DD6kbV7sdKsu8DJsMDwRPuJ?=
+ =?us-ascii?Q?yD++cJze7mY5Obp4R/q/f2qYEo46TC2BMtednZx8LuVavyIJ1cilXQ3wwWwO?=
+ =?us-ascii?Q?QRl9v7+uS/Q4H54v4unOzTNsmkdqghYuiUl8W+h4RyPmqFve8RnCkzWL9Wn3?=
+ =?us-ascii?Q?EKNtjCwyNP92c/VEET/LVO0KXPp8p3+Wn9+WXyrlo0i//9fsQB+OPMwrik7X?=
+ =?us-ascii?Q?EnDoQzR/iaFZqKx5EAFDhyT2U2UqsRO4wST61geQ80bv022ArgMjFTvbd2me?=
+ =?us-ascii?Q?Vepq1u24aJlAz9pQBNEJq+q+Ucal8DvPT3KNolomC4VHdSUyHGg+dyow+brU?=
+ =?us-ascii?Q?IyXn9MdexyW8UMD5E+JonY3iTHyGB46eiOaHjVTPBUcLp8mr+QqA+6RjvW7B?=
+ =?us-ascii?Q?iGI+vZkEu+KJxDZK24vnd6vSL9psFHukBbiwxiaJIN0naaMp2xI5iVBf3NP7?=
+ =?us-ascii?Q?N/dgYrGuqPhoHej5/uPOOOrAM+X5+oPRl9hzBp45YaVayDcfX8JggHgAcc8X?=
+ =?us-ascii?Q?mS0vCSxRT4ufz2JYx1r4r0s8BwL1YjWxMW6Wqx39vC/aYJQMbTUxhR6/Axso?=
+ =?us-ascii?Q?KjVpRU5OLzNHNHjVU+2l/8Zo+tOHSo8zgUOLnXakjYmMEh7RzFnuw8puBVnD?=
+ =?us-ascii?Q?W2GWFHG+0SvsZnSg2cb8X7KrXDCFllLIz0I2s7Fh?=
 MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 230de0a6-8f71-40f2-5902-08dc4a512bba
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Mar 2024 09:19:26.5911
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 5fYNj8XL1FF9g5yofkrx12y+vNTCPqR82fqJ9VAumBOEcVbeRL+y46vEuwB+SPkXL5tLZ+Jqv+PHA6iu+zZRicqDliE5uW1NVSNSEZNdYvk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ2PR01MB1180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240322_020021_321322_CF0A8EF8 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20240322_021933_883595_9920C9D0 
+X-CRM114-Status: UNSURE (   5.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,36 +145,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Qingfang Deng <qingfang.deng@siflower.com.cn>
+> On 10.01.24 21:31, JeeHeng Sia wrote:
+> 
+> StarFive JH8100 shares a similar clock and reset design with JH7110.
+> To facilitate the reuse of the file and its functionalities, files containing the
+> "jh71x0" naming convention are renamed to use the "common" wording.
+> 
+> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-nr_irqs will not be initialized if of_property_read_u32 returns an
-error. Check the error first.
-
-Fixes: 8237f8bc4f6e ("irqchip: add a SiFive PLIC driver")
-Signed-off-by: Qingfang Deng <qingfang.deng@siflower.com.cn>
----
- drivers/irqchip/irq-sifive-plic.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 5b7bc4fd9517..f436b61d74b0 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -428,8 +428,11 @@ static int __init __plic_init(struct device_node *node,
- 		goto out_free_priv;
- 	}
- 
-+	error = of_property_read_u32(node, "riscv,ndev", &nr_irqs);
-+	if (error)
-+		goto out_iounmap;
-+
- 	error = -EINVAL;
--	of_property_read_u32(node, "riscv,ndev", &nr_irqs);
- 	if (WARN_ON(!nr_irqs))
- 		goto out_iounmap;
- 
--- 
-2.34.1
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
 
 
 _______________________________________________
