@@ -4,88 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D36C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Mar 2024 23:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801DEC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2024 00:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BdjqUf9R/6dfHTDzvhPwuA7rvtGWQwTEEA1WgWFoc6c=; b=nMT3xGqfGsHwCv
-	kILG1OTqXfczwLRWZgtiNR8fnWUGGkQQXYZHkeLjPsFAH8JresApY644LmkKYmtKUQvAUGg+/VnZ5
-	dW3mJp47N/g8sE7ixbANBsyrg8RcnogJhYCFnZFAysGuvRLINlyETuJC60gjqdCjt+e8KaisKuQ0f
-	bB4yFK3yuBv8G5qCUCuFjSLmT/IN5cADjedPzl57rjqBUq8Att7AmXaKxpXPGKrhFtAWWQ8yEr5Dr
-	92cxYhtZZ3aLE9CYTwrmAPjE2GrbV7gqSIkqr16XY2JkoSx48MeKYfzDys4uqH6wJi5bt//OaEYbu
-	ko47ULprszYiFtHINZwg==;
+	List-Owner; bh=D+TKAkAHhf9EIX6dlmMlcVw8MiYm4mKluojTEUMQ6y0=; b=GFaNWsnRaS6CAI
+	115TLpyOkW6hLVi+JojLXoQGEqaqWZIe0qLe3duRA/dGHmWjHJwysVjTE5qo6NUjYQDJ3UdVlAYzT
+	ag0rUXsfCxrQeKCR/CwjXq/UFZA6FfL30a4rMOi1Q/DAggg5273I5W2Zqvo3wDXf7r44mPrQlXdRA
+	m0zd8IC0LqJa+DxhHxhv2E+2BU0/YYlT4Bs4nztiKtlWWOmwSA833ipXjyL8aoXPhuvNMMjxRU8MK
+	QXCPLT50MR9mBeGvi/Am95h+uuevs2iCvgvFK1BOplDaRmQxeTuwBIQR76wKGK0s29l6b99+6OSo9
+	WuS3TEM6JtnT8QQLPmUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnSCF-00000005A3y-0jg1;
-	Thu, 21 Mar 2024 23:51:43 +0000
-Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
+	id 1rnSXm-00000005DuU-44Wg;
+	Fri, 22 Mar 2024 00:13:58 +0000
+Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnSC7-00000005A2M-3cdT
+	id 1rnSXj-00000005Dtr-3qAH
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Mar 2024 23:51:41 +0000
-Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-368506aa460so6284265ab.0
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Mar 2024 16:51:33 -0700 (PDT)
+	Fri, 22 Mar 2024 00:13:57 +0000
+Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-3686abc0dc2so3246215ab.2
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Mar 2024 17:13:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711065093; x=1711669893; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1711066434; x=1711671234; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZNqlzzs3C3okF1Ihs4S4kvN5WrFgjE+GlyvdPE0dOGo=;
-        b=EUKCBBNsBjm0GdLCsSYqAQ9qa6jWwXZv9nAePKUtQ3JQbWYFc7APptDVeqsCB4GtWp
-         3dYUFiu4GMMHEhgPnYS6C/p8gyy4fjKJ3j+1zPRlxMTBkCDgYGzDwLK5VeTOSIC6Woiv
-         vmKBuYT8yopapfyukKmtwEUP5rQmsxP7DyB+9W8LCQDkn37kg6ogAT98rxOvNuX+6r+A
-         OLS4vh5jZNORLXmAKguRiT7VqMNnr3dEbzfcKamuOSLIOFVth2dIVe0LDY6jHOsK2TPP
-         HvOCoy1XcvcpySDvLExlz7opvRLYXf8EAkUid32iyiMnauDxpu7Eqqacn5CHJ6slwRBI
-         BLTw==
+        bh=oVj0RTqijXF6fGHo7lvyifktNSlsSBmRQcPYhg8uW8Y=;
+        b=P5rDP97Fjx9FJD2J4BB+JtKSq09HQ09jAHVJssU8UU7wiumZ2Ygoh3Wk1LYdSMyiZO
+         2rPDX4PjMkMtmPySqCh02LpB1qK3oy363+XFs6/nZYeIYqRg3Gq2HTvJT+xpnr8lCehl
+         89MsjtMIelr/jZ5aXkzgnPSWa8+tKc04Dsp/yfNUVxDGEURsZbTQCwn3n5Rdeh0kZbo0
+         W5vvpJyLgH/5OhVztXrMF1UvYSruU4t5zp/J4aa1WKJWMS/2wHrYB5KYhdRgkeVzmfrL
+         w1IZf/0sijPmvi2Kpzo1kl+C7lE0SjrTWW0IkGUybCR88J+v/WanrHKzmqMK+uMobrM3
+         Y7eA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711065093; x=1711669893;
+        d=1e100.net; s=20230601; t=1711066434; x=1711671234;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZNqlzzs3C3okF1Ihs4S4kvN5WrFgjE+GlyvdPE0dOGo=;
-        b=Fwl1y7ii0vnlBi+7cRFIWXeadTNYqOf2owC+DSiCvuTBv3/K0o/OXwU1gK3aONFx0E
-         ckJYhmegU+oSbmg5kY9dcfOG0YULcG8AjtRXceiWzzSFnaD9yqJJw37P1fsLSjIEETaQ
-         mHtrLTYxvNQj4sBjD52l7D1hqSgTOnUXS/30iy14ZS1GPrDcU950etaeP5hDXIEbfwmQ
-         hajBtz0XqrneHVeUAEIGoQH91h0y1tfhCl0FE4iDfLrOP730BJ8oT+lKMp+Y3WXp67/t
-         kVgV080c8RpDGIjQWGhiTizyqlqAj49wf0nVvAd0n6VWQXYiUhURatBfF3mdUEiBlqtB
-         +UBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVCqp3a3DCg2oqjuhyT29tKpTUszGLBkYJHCa0iVggNJC4PijDtzNo8y42rnVvVMLIDnxOFQlRI4YYFb0mjDZJBZdo3GgHTTrTLBgnSSbUs
-X-Gm-Message-State: AOJu0YyJW/yPhpsGIOZdb2pa2C1nuEsJb5fEJSN2eQOA+YYuIO7J7gep
-	1NHJWH+EspOI2U5UwUGb+2Z1LD9OzB+5AF8ODPfBInFq3bwwhyEg0RdLv0BXydk=
-X-Google-Smtp-Source: AGHT+IG8c+yACk8/X3Es/Xp0PMdBsSuZwh0qwYwidFyL/zRGltJfSOCF3y2cOWM1wkvDI9gGTrG31A==
-X-Received: by 2002:a92:dcce:0:b0:366:40dc:4d99 with SMTP id b14-20020a92dcce000000b0036640dc4d99mr986208ilr.30.1711065092945;
-        Thu, 21 Mar 2024 16:51:32 -0700 (PDT)
+        bh=oVj0RTqijXF6fGHo7lvyifktNSlsSBmRQcPYhg8uW8Y=;
+        b=oNhZYS1pZYOz1ha67z2m7ZIMnqCkuuUSwvFm2ABrt6vSCTBmDYhGpW8mGuEAfUuwch
+         PBW2mYRGpgRf7XMKnkllMVfhAzG9VooORFtjm0dFdTvMexev0ExUAdtCKLYkaxMUbFrJ
+         wW++ubyc4h1VbjTwyLjakvCZAF3xejLW2omC6oKpZXPuOMlw5jTV/sXpO/UMEGlWXEDB
+         8c4t32XqFCxvpdwW/99/NIhOoarXu8gxGS4li8f09ZlU1H2oDYCHIpj0nvgSBryjtq+3
+         /yY/EvMz83oOmvI6cMP05/dWhFdgya/Bqc7VDLh9CISWi7/eeE6EPsnze4UlROWfXCkI
+         hx/g==
+X-Gm-Message-State: AOJu0YwQBq+dHFoJOdkkAjc5dO5+ShsJzY4fxAWJHCtJONSJG0hHzCBT
+	OVSqSk2hrdx+3ha4s08l+ZIdldrOLmODGjupRso5EPpslbsj21nL9cF6Fw12vq/0wPQMwrTwcy9
+	1
+X-Google-Smtp-Source: AGHT+IFKwWGMcmPYu0Ub5wCx2QiMD01tH+85fFGHMfPp5sK/V1U4H3V0F6RY+8M0VE4TG4elEaDvoQ==
+X-Received: by 2002:a92:dc83:0:b0:365:29e4:d95d with SMTP id c3-20020a92dc83000000b0036529e4d95dmr966458iln.30.1711066434179;
+        Thu, 21 Mar 2024 17:13:54 -0700 (PDT)
 Received: from [100.64.0.1] ([136.226.86.189])
-        by smtp.gmail.com with ESMTPSA id t5-20020a92cc45000000b00366b66af14asm237709ilq.17.2024.03.21.16.51.31
+        by smtp.gmail.com with ESMTPSA id y18-20020a056638015200b00476f1daad44sm206727jao.54.2024.03.21.17.13.52
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Mar 2024 16:51:32 -0700 (PDT)
-Message-ID: <3010bb57-c13f-494a-9e8c-0ae6393b1eee@sifive.com>
-Date: Thu, 21 Mar 2024 18:51:31 -0500
+        Thu, 21 Mar 2024 17:13:53 -0700 (PDT)
+Message-ID: <d9452ab4-a783-4bcf-ac25-40baa4f31fac@sifive.com>
+Date: Thu, 21 Mar 2024 19:13:52 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Do not save the scratch CSR during suspend
+Subject: Re: [RISC-V] [tech-j-ext] [RFC PATCH 5/9] riscv: Split per-CPU and
+ per-thread envcfg bits
 Content-Language: en-US
-To: JeeHeng Sia <jeeheng.sia@starfivetech.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Andrew Jones
- <ajones@ventanamicro.com>, Conor Dooley <conor.dooley@microchip.com>,
- Leyfoon Tan <leyfoon.tan@starfivetech.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Pavel Machek <pavel@ucw.cz>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>
-References: <20240312195641.1830521-1-samuel.holland@sifive.com>
- <BJSPR01MB0561EC63D6654543D1266AD79C28A@BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn>
+To: Deepak Gupta <debug@rivosinc.com>, Conor Dooley <conor@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
+ tech-j-ext@lists.risc-v.org, kasan-dev@googlegroups.com,
+ Evgenii Stepanov <eugenis@google.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Rob Herring <robh+dt@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
+ Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>
+References: <20240319215915.832127-1-samuel.holland@sifive.com>
+ <20240319215915.832127-6-samuel.holland@sifive.com>
+ <CAKC1njSg9-hJo6hibcM9a-=FUmMWyR39QUYqQ1uwiWhpBZQb9A@mail.gmail.com>
+ <40ab1ce5-8700-4a63-b182-1e864f6c9225@sifive.com>
+ <CAKC1njQYZHbQJ71mapeG1DEw=A+aGx77xsuQGecsNFpoJ=tzGQ@mail.gmail.com>
 From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <BJSPR01MB0561EC63D6654543D1266AD79C28A@BJSPR01MB0561.CHNPR01.prod.partner.outlook.cn>
+In-Reply-To: <CAKC1njQYZHbQJ71mapeG1DEw=A+aGx77xsuQGecsNFpoJ=tzGQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240321_165136_133357_553E1C77 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20240321_171356_013853_914009B9 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,71 +106,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-03-14 11:55 PM, JeeHeng Sia wrote:
+On 2024-03-19 11:39 PM, Deepak Gupta wrote:
+>>>> --- a/arch/riscv/include/asm/switch_to.h
+>>>> +++ b/arch/riscv/include/asm/switch_to.h
+>>>> @@ -69,6 +69,17 @@ static __always_inline bool has_fpu(void) { return false; }
+>>>>  #define __switch_to_fpu(__prev, __next) do { } while (0)
+>>>>  #endif
+>>>>
+>>>> +static inline void sync_envcfg(struct task_struct *task)
+>>>> +{
+>>>> +       csr_write(CSR_ENVCFG, this_cpu_read(riscv_cpu_envcfg) | task->thread.envcfg);
+>>>> +}
+>>>> +
+>>>> +static inline void __switch_to_envcfg(struct task_struct *next)
+>>>> +{
+>>>> +       if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_XLINUXENVCFG))
+>>>
+>>> I've seen `riscv_cpu_has_extension_unlikely` generating branchy code
+>>> even if ALTERNATIVES was turned on.
+>>> Can you check disasm on your end as well.  IMHO, `entry.S` is a better
+>>> place to pick up *envcfg.
+>>
+>> The branchiness is sort of expected, since that function is implemented by
+>> switching on/off a branch instruction, so the alternate code is necessarily a
+>> separate basic block. It's a tradeoff so we don't have to write assembly code
+>> for every bit of code that depends on an extension. However, the cost should be
+>> somewhat lowered since the branch is unconditional and so entirely predictable.
+>>
+>> If the branch turns out to be problematic for performance, then we could use
+>> ALTERNATIVE directly in sync_envcfg() to NOP out the CSR write.
 > 
-> 
->> -----Original Message-----
->> From: Samuel Holland <samuel.holland@sifive.com>
->> Sent: Wednesday, March 13, 2024 3:57 AM
->> To: Palmer Dabbelt <palmer@dabbelt.com>; linux-riscv@lists.infradead.org
->> Cc: Samuel Holland <samuel.holland@sifive.com>; Albert Ou <aou@eecs.berkeley.edu>; Andrew Jones <ajones@ventanamicro.com>;
->> Conor Dooley <conor.dooley@microchip.com>; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Paul Walmsley
->> <paul.walmsley@sifive.com>; Pavel Machek <pavel@ucw.cz>; Rafael J. Wysocki <rafael@kernel.org>; JeeHeng Sia
->> <jeeheng.sia@starfivetech.com>; linux-kernel@vger.kernel.org; linux-pm@vger.kernel.org
->> Subject: [PATCH] riscv: Do not save the scratch CSR during suspend
->>
->> While the processor is executing kernel code, the value of the scratch
->> CSR is always zero, so there is no need to save the value. Continue to
->> write the CSR during the resume flow, so we do not rely on firmware to
->> initialize it.
->>
->> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
->> ---
->>
->>  arch/riscv/include/asm/suspend.h | 1 -
->>  arch/riscv/kernel/suspend.c      | 3 +--
->>  2 files changed, 1 insertion(+), 3 deletions(-)
->>
->> diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
->> index 491296a335d0..6569eefacf38 100644
->> --- a/arch/riscv/include/asm/suspend.h
->> +++ b/arch/riscv/include/asm/suspend.h
->> @@ -13,7 +13,6 @@ struct suspend_context {
->>  	/* Saved and restored by low-level functions */
->>  	struct pt_regs regs;
->>  	/* Saved and restored by high-level functions */
->> -	unsigned long scratch;
->>  	unsigned long envcfg;
->>  	unsigned long tvec;
->>  	unsigned long ie;
->> diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
->> index 299795341e8a..3d306d8a253d 100644
->> --- a/arch/riscv/kernel/suspend.c
->> +++ b/arch/riscv/kernel/suspend.c
->> @@ -14,7 +14,6 @@
->>
->>  void suspend_save_csrs(struct suspend_context *context)
->>  {
->> -	context->scratch = csr_read(CSR_SCRATCH);
->>  	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_XLINUXENVCFG))
->>  		context->envcfg = csr_read(CSR_ENVCFG);
->>  	context->tvec = csr_read(CSR_TVEC);
->> @@ -37,7 +36,7 @@ void suspend_save_csrs(struct suspend_context *context)
->>
->>  void suspend_restore_csrs(struct suspend_context *context)
->>  {
->> -	csr_write(CSR_SCRATCH, context->scratch);
->> +	csr_write(CSR_SCRATCH, 0);
-> If the register is always zero, do we need to explicitly write zero to the register during resume?
+> Yeah I lean towards using alternatives directly.
 
-The register contains zero while executing in the kernel. While executing in
-userspace, the value is nonzero. The value is checked at the beginning of
-handle_exception(). We must ensure the value is zero before enabling interrupts,
-or we might incorrectly think the interrupt was entered from userspace.
-
-We don't know what the value will be when the hart comes out of non-retentive
-suspend. Per the SBI HSM specification, Table 6: "All other registers remain in
-an undefined state."
+One thing to note here: we can't use alternatives directly if the behavior needs
+to be different on different harts (i.e. a subset of harts implement the envcfg
+CSR). I think we need some policy about which ISA extensions are allowed to be
+asymmetric across harts, or else we add too much complexity.
 
 Regards,
 Samuel
