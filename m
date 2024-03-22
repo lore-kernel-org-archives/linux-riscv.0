@@ -4,60 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 743D3C54E71
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2024 13:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D25BC54E71
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2024 13:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XQBRHD+kBrH32TLjE/pyzYytKnbi5/H+e5KYJ14fWGw=; b=Zf3QXtMTXBx+/r
-	iDcE4aGdo3oIJ4Qf7Nsux0qjHKyxi3cQX0pH5WUoZpxciOq8AshcH7FwnrZbaoJJydeEhhQpYuXWo
-	d6b0mv6X2SSBpNLFUxGti2X/IxnzwoxVw08ENXXWQodfHnjTQSg5drFFZxCokZlMrBX94TLTwKxcg
-	aER+vz2k3FxAIJcUvjarRuggKVwV7twZwdgnbRkvb18rapZY+IXEJVcmTeV6swUT4xMAddexCzTxC
-	OXb2MnzNiaLWXAXrqsO1oKiZ3VJcvfhSVsLtoN8SgHV+BefTcduQQRJAeJJk73pW1tu8dmWCSm4++
-	pNpsjeep9SAmb1vjy5Qg==;
+	List-Owner; bh=UZ/Esy1cyvHvZocTfxLAkEGckstO+FhgopKJwKLhRnk=; b=R7Olka4TEVRoYv
+	XurFr9Ms8s8idkQnvV1aO1CHziuQ+Q2sXW1OfKt9X/fpH755VlCqrEzkLqH+Ud7IFah/NtfjUb0cQ
+	LSlMXtNnBJv9xVW2zVAdjgNTP2qjQI2r5okpb2w4qCS6t8FV0pzfD6Lzdq/rkn8Dp5fw5JhdRcA7s
+	siADeWTIbce9rzDEw2Mn1/hWB42nBj32mnJ4+nkHod61ztHxgAilC9HzmyHWF0JXa0hX2VU1MwI/1
+	wG0JYZn42jTU9+r56FwXDFm3tqsJq6/BnhA+3uNRzN/EWKeobwKVHoiRgOrtiwI58vSXB3yckU6nT
+	D9KgUcTj8BsrKv7+w1vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnew4-00000007Im0-02Se;
-	Fri, 22 Mar 2024 13:27:52 +0000
-Received: from www.zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1rneyl-00000007KUb-05kk;
+	Fri, 22 Mar 2024 13:30:39 +0000
+Received: from mail-bn1nam02on20600.outbound.protection.outlook.com ([2a01:111:f403:2407::600] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnevK-00000007IIm-11Sl
-	for linux-riscv@lists.infradead.org;
-	Fri, 22 Mar 2024 13:27:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:in-reply-to:references:mime-version:content-transfer-encoding;
-	 s=k1; bh=pVA6WDf6g9/z8AGBcr1q1z0H9ceUAD/J3z3hoNEhDL4=; b=mcEMV1
-	/QvfbwmXZCuOmcBG+YtKHi2v2j8xLgFoFDWW4naekAG8tUAkxvHcrotg5HgWkBcY
-	4uTnmOnfpIh+MKA+o7PntGhAAgbmbDm2dRb/xfMR+1uRuxLuIxnITDIzTg+cGnc8
-	zUyVxoW+hdIvP9rvwOI367bbUJBVF1DtOsHD7Y5muQwP1UjkEMaEfrJ6i0Rj5RE7
-	xIHk8/vg6+opmBWlEYwh1E4l7G4emXOkF+LyERCXOS2Gz4J1VSpuQeunbAZl8sHv
-	s45c0A/pvpebeF8Wojg/454bxYah/qOVKzYn05E4nsUGGVLS8ANDSBpnyeh3OXzU
-	xJ20u+1VaH0w4ykA==
-Received: (qmail 3871141 invoked from network); 22 Mar 2024 14:26:49 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 22 Mar 2024 14:26:49 +0100
-X-UD-Smtp-Session: l3s3148p1@CDeuxj8UBpVehhtF
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-i2c@vger.kernel.org
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
+	id 1rneyg-00000007KOg-2G3b;
+	Fri, 22 Mar 2024 13:30:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Tv1cL1mEVdR1wBllehEFSVxCkFuxyOcjn5cPtK6oFvW41n5MN4egFd3DgyzVycMCRhigbXbCZQ6qOe3omJTFrK/Jy4URp0osrhZB2t26TzZy5KfPWJ56BYYMk+5RFVdUlyVzsuSBwOmt3oEJAgbQGsK1dEQrIAGU6/jWeqWZM1GW1ck1ZQrQLiJPPkT3Rmq1kZbH+7DplXbUmteDKenXXOeYrAgfG2YT8A0FY1TkXuScy7Z71uhoZoaMvlhdZcsQAtvKEqL5Pg+TOfgQF3uFXYaw7jLx6cfgSKl60WPrWWQixvdB/zPAGr9k3gNwh0eIkYJBBLUMBMIctQyXXuG+fA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6VF4t36T/NJjlyDvaq1pUodkN7r3pfczzOTKwZNhKxc=;
+ b=TJyo93QmWiT/9Kn1dekL6Da6HNYzrJSGD80h0xf5+p6kU5w1DxiuixEyFdIIRQD8v+FL+xXvI2n08plBxvjP3XSTWbJ5RTJnrJrNlLMKzwNSNgBRs03a53mevij1zA0LsYIMXeAU8VOJFo7IqjYSA1Nzl/H2hVyTtgY3CLgVQQfRvvaUk+sLYTqzsCN+FqPAStWgdVD4TNhiHGkiwI+fI/2stBJpj3eN8Gi4P16huaLcCQ72muwfIDj9i9Hlq49jSlgGSmTNLEjFYq0y21MbKS5jp2jWA16bwHm3j0sS8Xtya9sSF8s4J0pPp8q+nGvZH4jVkLvIYDCm1cC6KBFtMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6VF4t36T/NJjlyDvaq1pUodkN7r3pfczzOTKwZNhKxc=;
+ b=keSUss2HYlfI2d2zBu3X7lxTGVnzbfffPpE+FbSWnR7SxKEisNE/OOLmtKhD01klB+VIaMQPCKUGgenJfUKtx5knul6Ng63iSLH2K6KykLMMz/BzO19zndBf8Z3gaZceDtxXAKCyb5hBJxAHmiG6HomsUCX7/KmeRx9H0Gm+3jkzoCbGjhE69d4H4ZMGsP/Pe9OOwphl/bXtWE3IQNQtJOCUbUso29uZInd9D9MBqsEr4VYnUwmBUAPBLMVH1njmP3+H6SKBoz9PKfPsb81p4w4BlTncOOSdVSo2BshtDZxtE3F1X3LbbvE0XghoI2Ns3uBrAofSSI6B1o6BVD8GNg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB3849.namprd12.prod.outlook.com (2603:10b6:5:1c7::26)
+ by DM4PR12MB7743.namprd12.prod.outlook.com (2603:10b6:8:101::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.24; Fri, 22 Mar
+ 2024 13:30:13 +0000
+Received: from DM6PR12MB3849.namprd12.prod.outlook.com
+ ([fe80::6aec:dbca:a593:a222]) by DM6PR12MB3849.namprd12.prod.outlook.com
+ ([fe80::6aec:dbca:a593:a222%5]) with mapi id 15.20.7386.030; Fri, 22 Mar 2024
+ 13:30:13 +0000
+Date: Fri, 22 Mar 2024 10:30:12 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: peterx@redhat.com
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Matthew Wilcox <willy@infradead.org>,
+	Rik van Riel <riel@surriel.com>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yang Shi <shy828301@gmail.com>, John Hubbard <jhubbard@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Christoph Hellwig <hch@infradead.org>,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 34/64] i2c: microchip-corei2c: reword according to newest specification
-Date: Fri, 22 Mar 2024 14:25:27 +0100
-Message-ID: <20240322132619.6389-35-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240322132619.6389-1-wsa+renesas@sang-engineering.com>
-References: <20240322132619.6389-1-wsa+renesas@sang-engineering.com>
+	James Houghton <jthoughton@google.com>,
+	David Hildenbrand <david@redhat.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Mike Kravetz <mike.kravetz@oracle.com>
+Subject: Re: [PATCH v3 12/12] mm/gup: Handle hugetlb in the generic
+ follow_page_mask code
+Message-ID: <20240322133012.GI159172@nvidia.com>
+References: <20240321220802.679544-1-peterx@redhat.com>
+ <20240321220802.679544-13-peterx@redhat.com>
+Content-Disposition: inline
+In-Reply-To: <20240321220802.679544-13-peterx@redhat.com>
+X-ClientProxiedBy: BL1PR13CA0434.namprd13.prod.outlook.com
+ (2603:10b6:208:2c3::19) To DM6PR12MB3849.namprd12.prod.outlook.com
+ (2603:10b6:5:1c7::26)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB3849:EE_|DM4PR12MB7743:EE_
+X-MS-Office365-Filtering-Correlation-Id: 89c5d53c-ea49-447e-97fe-08dc4a74342c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: vBP8luzKzXTkiT5eg0Y6H3fTTn42qi1ORBemdbr+pREGByLPWV7Der/iTx+DWjYR9bFHGS6dCAUGQYxIE/PvIm64IZOsksrRN8lYIMyiCGJfGQk1zM2Yygw+JWjeA1p2TlAYrc67qFgHN1+0qSgbUjvpqIYoXroWpw3zyv33GqKXYHvDaQ7bSeYfHW0uUDX7pa3i0BQ3U4RCcaAh6QhVSUuo0ZpI5FFBt2uygwCnXFF6v0O+sNureFdBxzjDmXGAtymR4WcQiIqVCvJkuLP3AzK5kCtTmNhLvqDoNJFithbQu1thidn2MTrTmjvVxzwC+qtsdalA0GdM5e4bK1P1nOh92+o+vq3C9Ja+uvSySP5228Y43eIhi6T4aT3QsSSJYeKR3fAGSOdNMQAX7g8a0vcq98cqKXhdCXrxBJwutNYNXl9Ip9gZ5gW/SCtiyuX4WhRzxxXEqVSZCIspcHksUY6LkdGzGhzROsson35ic/AVg8Y7n/61KB8bYzybEOv+UBWV9RRI/YwZxNkqkEm3LeBghGRVxwTPqVI/p1I4649QKXHIneF9E06fpB5q85gNpcM6xwqBBkBmCofa8Cp+nwZPdo9VE2Eqx1okGUJpovc9aB57jpmQpgNmbQVJHJi9hAlpwzd6P9gab3CxjZK0hEljuXwSVTHjb4dfd9kxWlY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3849.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(376005)(7416005)(366007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?l4ieSFyzZ2rGUDelhAOyqvVH+ny0RWLUn7y10EKMNkQEysKT5AtiwJZfRl1z?=
+ =?us-ascii?Q?hgHxnTvT3YAQit1IRmxhwgoVzSiO9vHfgrZRFh5ZjshWgoVGEd9m27jJTUWA?=
+ =?us-ascii?Q?Nh8/o3oBtWr9rVeqEkoNgHd/Ing2Goz6HqoqGJeqmCaVTXnYIFX/mH0AVHPe?=
+ =?us-ascii?Q?71YXRup1HIK9Jp+i8U+iUfPZvW2xLu7gUj0N/tUqOIAWNyymcRI89sjw+zEH?=
+ =?us-ascii?Q?DSULdgqq4SlN7Oe/Mj1bpbrGMKf5cp5SwUwm8mgauDGfjB9ydVTiPUKwtTBu?=
+ =?us-ascii?Q?8pO3YCOJxOCTCDw3loBN1Pa56TSHIYodXZAvQ8TpHnlC3aXMjmeishC1lIXB?=
+ =?us-ascii?Q?IGz/o+Q02DA2wtxVeoRcz3Pbf6Gk571m13Q/e15USJ9t8MIv+z5h6xJEVUis?=
+ =?us-ascii?Q?RW9j9N3SS1odMOrFGX769isMr847HxvGWIKBDP5zW1IVkc8BScUYsbgam/BM?=
+ =?us-ascii?Q?7JDqcGHAkSjuQ2TjPdW6dhpH2oA04Sb7srTtOb2eLmkyCHyBdfoWl/iNhftQ?=
+ =?us-ascii?Q?lAL1BHT8Ew/IAydXE8TkWSQBTEU4Kjez1xcyK104hnbGZse6yxf5o7KTqsPS?=
+ =?us-ascii?Q?8CfvqnKlY1By+swi1iM8su5xivzYxWS8Wj8WqPqIT4vfkh5RjakVdFM3cNM6?=
+ =?us-ascii?Q?JzooYIYRPvE33sCBUppNnGMOaTtTKCPlSZ4ReBdHmmCIsPUGSJn3hUuq7kBO?=
+ =?us-ascii?Q?Ba2Bs4tmeaBJ6CFNWBqQGulovnc2NlI2U91QjHp2gmBB7TyqolvUSufOWzaU?=
+ =?us-ascii?Q?viQUBzdaHZXrS0CUSNIDrgMsYNzKj2pZ3XyTt6Bt6ndJp0BtKCWjPYksDJTa?=
+ =?us-ascii?Q?3+wOK+I7n6YDI6nOTQ32Wh9TgE8/e09BMiVsxiWXgucewtkJUqM7PnQo14rC?=
+ =?us-ascii?Q?8nyL5i34CQEP7TIpAfC7/OhdC+BotAjzr8SEarYSFI07svWGKCSlu11D5oui?=
+ =?us-ascii?Q?wmweQo4Wu9WrVjEybmikRJRkvlviMzQq81FzxaoXSosOPG8lWKHxrZ+LK244?=
+ =?us-ascii?Q?h03GH/Miay0SZWOK91hPWNw5AdGgIQ1TEEKiKJqkGYP+kjFwSHNhSXM9cjlY?=
+ =?us-ascii?Q?l4nx93EeyOHeDSzF3Yn5EjJeXa7FwkRIoykk81oddf82pvQ+HOkom9/xL1+f?=
+ =?us-ascii?Q?q5bdhfqvD5juhxNX4C/eHgkHVgEAQp9tUvvfnzaINMZhVA9sgg5++66qF/J+?=
+ =?us-ascii?Q?7gbtjo+3klzty/8Qh7m6W+FsDLUxQJAmZpdCEbhP5zOdsS6trkxefHJHICFV?=
+ =?us-ascii?Q?mhM6i9/ddzHrBSyyMESR3fJdPp0fWUt6MdYzDKmq6U+eAOd/mEk2RmuFqWR8?=
+ =?us-ascii?Q?1706ZWlRxv83I6Sr31IRoxoma+YcWPrNgf7IdPx1Z2y635Gv8ykPBR+MlU64?=
+ =?us-ascii?Q?Cykg0JkpTROE+IyE0yBy1RdGIaLDJvMeAFKsKqjr8CMuuWF4DBwz8PMVjsw+?=
+ =?us-ascii?Q?xdQ8jg0ivJ2OWLrri3rclpVUDY4aYPnbbviiGv4opEy8xSelvXAjQWajdi7u?=
+ =?us-ascii?Q?5/nNLwybu/Thfrx7/OCLPW+P1F2CrCPoyswZiy0rh1zFOTfX9vmyvrafUw7/?=
+ =?us-ascii?Q?gtnj534LPK3rYMKbwC3JmUshVs6WZzkoxcOtjU5Z?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 89c5d53c-ea49-447e-97fe-08dc4a74342c
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB3849.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Mar 2024 13:30:13.3152
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8pA1y3yaQX6Ktul/c55GGtQOFjgVFsKw9HAGxXYXKfQdSPAzxIC87/F0X5O5zHhU
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7743
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240322_062707_006129_F7725191 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20240322_063034_618569_BCBE3518 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +154,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Match the wording of this driver wrt. the newest I2C v7, SMBus 3.2, I3C
-specifications and replace "master/slave" with more appropriate terms.
-They are also more specific because we distinguish now between a remote
-entity ("client") and a local one ("target").
+On Thu, Mar 21, 2024 at 06:08:02PM -0400, peterx@redhat.com wrote:
 
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
----
- drivers/i2c/busses/i2c-microchip-corei2c.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+> A quick performance test on an aarch64 VM on M1 chip shows 15% degrade over
+> a tight loop of slow gup after the path switched.  That shouldn't be a
+> problem because slow-gup should not be a hot path for GUP in general: when
+> page is commonly present, fast-gup will already succeed, while when the
+> page is indeed missing and require a follow up page fault, the slow gup
+> degrade will probably buried in the fault paths anyway.  It also explains
+> why slow gup for THP used to be very slow before 57edfcfd3419 ("mm/gup:
+> accelerate thp gup even for "pages != NULL"") lands, the latter not part of
+> a performance analysis but a side benefit.  If the performance will be a
+> concern, we can consider handle CONT_PTE in follow_page().
 
-diff --git a/drivers/i2c/busses/i2c-microchip-corei2c.c b/drivers/i2c/busses/i2c-microchip-corei2c.c
-index 0b0a1c4d17ca..53a7a1bd535c 100644
---- a/drivers/i2c/busses/i2c-microchip-corei2c.c
-+++ b/drivers/i2c/busses/i2c-microchip-corei2c.c
-@@ -100,7 +100,7 @@
-  * @bus_clk_rate:	current i2c bus clock rate
-  * @isr_status:		cached copy of local ISR status
-  * @msg_len:		number of bytes transferred in msg
-- * @addr:		address of the current slave
-+ * @addr:		address of the current client
-  */
- struct mchp_corei2c_dev {
- 	void __iomem *base;
-@@ -359,7 +359,7 @@ static u32 mchp_corei2c_func(struct i2c_adapter *adap)
- }
- 
- static const struct i2c_algorithm mchp_corei2c_algo = {
--	.master_xfer = mchp_corei2c_xfer,
-+	.xfer = mchp_corei2c_xfer,
- 	.functionality = mchp_corei2c_func,
- };
- 
--- 
-2.43.0
+I think this is probably fine for the moment, at least for this
+series, as CONT_PTE is still very new.
 
+But it will need to be optimized. "slow" GUP is the only GUP that is
+used by FOLL_LONGTERM and it still needs to be optimized because you
+can't assume a FOLL_LONGTERM user will be hitting the really slow
+fault path. There are enough important cases where it is just reading
+already populted page tables, and these days, often with large folios.
+
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+
+Jason
 
 _______________________________________________
 linux-riscv mailing list
