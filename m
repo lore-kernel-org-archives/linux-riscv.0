@@ -4,140 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD92C47DD9
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2024 12:29:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D486C54E71
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2024 13:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7/gjYoHIqTDzMuzuZWtNtDyplEx3dFriE7vzuseiKsE=; b=BB8vWow1JKy5/b
-	BGKmmkTMzOaQDJNz6wrRb1G3AkxT7nCEBicB1JbL3defU1iglxFMiYM68CnWqu9c9nZKSiuITx2j3
-	B2fRARDF/QXwsSQ0PpK/lJ6UcNg6YAu+5w96RFdbIr4+MltaN4Tbry/FWD5mCCI4j+HZi7mTjpreG
-	3Qy/L+vsW34J56v9FF8Mhy/+Gl9nJ1OPpjOMjou/uT3eNZOQORJ+gF3HUZCNDtcIoxziGY2m3npEF
-	/IG6J7cizHaYnMD84BGBwwn4iTVzm8eOaI+lBpbxv4UyOzm6oTLxJGTeP01t8vYK7IhN2e3XvvsdQ
-	JsbjPIi0PXsl9XeuQRsA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rdgC9WLtZJOSX/qe/PeQHpGZ42ga8cyfHPm6i0X5K9s=; b=CHhcEKkrWc+oOa
+	mOs3haef42FQ5mpGWrOKRLWmI+GNTWf4sIgOHpHMqxQ7QiS/WxW3CpJKjkj26ogDs77ell3GBf6G5
+	CulhF+ytaDhel2+aiTEodD4k8jTzB4DHK0iEaEGJemRMd3h94qigsXGw2FtoBjcz0dFoBXv1YhP30
+	OpYeY44Qo1mtAr8U1IAu6KmJkNrrdDjaYzBktwi516Pk9Qsq/sVtYmfWKwQsoGypigB5nr5ptYsMB
+	uInV+NqSKsdB10e1bLryyj2UKJYP0OgEH5yjWG17xMoQSDDYGRQH94WHz+rsoLQIr0KLsFTeV0oee
+	KF0zOCMYu9m6K/SA+Zbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rne10-000000077Zm-2uYk;
-	Fri, 22 Mar 2024 12:28:54 +0000
-Received: from mail-bn7nam10on20600.outbound.protection.outlook.com ([2a01:111:f403:2009::600] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1rneur-00000007HzO-2MQ2;
+	Fri, 22 Mar 2024 13:26:37 +0000
+Received: from www.zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rne0u-000000077XP-30CR;
-	Fri, 22 Mar 2024 12:28:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=M/L5rXMlH8oiI2J6oqzgrh72r27VDeYnWVJ/EY1/V9YcdN9SpmMz450ZPeyrEAb0ut9f/VXiemYwMVj0SN2a8hFTEMYanSjLMoEP3Z3PQAD0VNLr0VZU1V+dxmGBNrkYAVecGro23nQauH7UpkTPylJ68D4A/Za8/3v3l3FTCnahyQJa20XYw7AlphylyTTUMJNdD+gp3oANDYd53X34SjB7WEWG7yvqixoa7Pb4bpplHro8lMNNYbRfIwgDVpqL5PBIvnVLB6r3wEl6OXmF/a628zUVHB/oQ+JcWXwGeHu/KA5IlY8Yu5DcsRZQNTNM9cNPhJ8EeP+wkvMSGSjrlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dDkdacFtxB4qpcWdtAhoFkR9iyBLJ80XO7PfYd0ZaZo=;
- b=OiafJN0oRHFiQp6rBeCaXROCqnmJoqkNuW5dnP1P/1x/2DDC0Yybg3W/vWdW5/MZ0hj0q/cKWwbVEcZyb/g8PIXelLA/fcpg24LX/4tccbea7UnUwECUmwPU0KL1zOUPNCNe3CZabJNy8YTLzdqVdJfO2e4KsVOlPsBaRIKhQYV3E5dhzORMHxeFYXAoMpRMUguysdjmNrHpAGr9ZXC5hMhc5hCWWJxLkUmrZC07qLT/B/pTmcVV7eKDc4DnPVSbwhhO8O07YCYOVGNYgjaHxtjCI5p4TOnDcoPCRU9L/n6U22tTON1MykY+sSdOLSDsqi30RGSZgv4Pk2CHxQV0cA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dDkdacFtxB4qpcWdtAhoFkR9iyBLJ80XO7PfYd0ZaZo=;
- b=MyQ4R56ZGrKp8VXSxsI9oyoz1f1pahvPhfNqJfFu6wV3wf5nbgynWTw58ce1ZMhv4Fjhtzfz4d5/9ijxUJ9+EyQgm+zFcnITBRoYsb+jWezbCE7IK6DCAzQ7s+lc5ennNdJPuc+LxQxeLB25seoSwoOdx/1tnatvTRHky+NMHvQ7WxfRGFEvDgMQ+KBzbdBONVhb008ghv8efwrTrqiHHEIy1RxnOWsx3KXraL1uVjDu26uofeLpIdcsztQIdGf8kxTuk/EY3SWxQ8Q3W61ij/8w41uQAaTvmGG575LBv4CBiphHS36mJ8O1kqf7U6lLlPUm8rDYOY+HA7MK6L6Tlg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB3849.namprd12.prod.outlook.com (2603:10b6:5:1c7::26)
- by SA0PR12MB4400.namprd12.prod.outlook.com (2603:10b6:806:95::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.24; Fri, 22 Mar
- 2024 12:28:43 +0000
-Received: from DM6PR12MB3849.namprd12.prod.outlook.com
- ([fe80::6aec:dbca:a593:a222]) by DM6PR12MB3849.namprd12.prod.outlook.com
- ([fe80::6aec:dbca:a593:a222%5]) with mapi id 15.20.7386.030; Fri, 22 Mar 2024
- 12:28:43 +0000
-Date: Fri, 22 Mar 2024 09:28:42 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: peterx@redhat.com
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Matthew Wilcox <willy@infradead.org>,
-	Rik van Riel <riel@surriel.com>,
-	Lorenzo Stoakes <lstoakes@gmail.com>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yang Shi <shy828301@gmail.com>, John Hubbard <jhubbard@nvidia.com>,
+	id 1rneul-00000007HtC-1ceI
+	for linux-riscv@lists.infradead.org;
+	Fri, 22 Mar 2024 13:26:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:mime-version:content-transfer-encoding; s=k1; bh=bOf4HkOrzle/Fy
+	JG8mZHPOABnHhQv51u3vi0fpeyQ5Q=; b=a6wbfcte3+iXXCHibc+JrZzTin6dRv
+	R/KSB8hp01+LD2eYy9sHlg2rk631UWOsn12Y+n+kLseFY+llqMyTkAsXsa6SiRwh
+	MWm4LoN2zRJucl7AcBuXiztmbKc/EIBM7mZDtMCuyBPr9HgJZmeZ/QrbcrtglWHS
+	XN+P7gn2zQD/Lze6LmCDGEGHL9G2ujuVTWCU21W3oIUiV/btIhr/tqNO2UzK6c7u
+	GiqtIoKlD88U2nMoYFxi6SLiCaIBiXxhRRTMJxL3pZ9O0lWnbgR868o+Ty13YBXb
+	C70pYVUa6DcFGd/ysTyvqG2U7fdTnfOcmCXLvQLbrSiCtbkj8qjVIAVA==
+Received: (qmail 3869988 invoked from network); 22 Mar 2024 14:26:20 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 22 Mar 2024 14:26:20 +0100
+X-UD-Smtp-Session: l3s3148p1@LoLvxD8UMpNehhtF
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-i2c@vger.kernel.org
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	asahi@lists.linux.dev,
+	chrome-platform@lists.linux.dev,
+	imx@lists.linux.dev,
+	linux-actions@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	"Kirill A . Shutemov" <kirill@shutemov.name>,
-	Andrew Jones <andrew.jones@linux.dev>,
-	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Christoph Hellwig <hch@infradead.org>,
+	linux-arm-msm@vger.kernel.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-renesas-soc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	James Houghton <jthoughton@google.com>,
-	David Hildenbrand <david@redhat.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Mike Kravetz <mike.kravetz@oracle.com>
-Subject: Re: [PATCH v3 05/12] mm/gup: Drop folio_fast_pin_allowed() in hugepd
- processing
-Message-ID: <20240322122842.GH159172@nvidia.com>
-References: <20240321220802.679544-1-peterx@redhat.com>
- <20240321220802.679544-6-peterx@redhat.com>
-Content-Disposition: inline
-In-Reply-To: <20240321220802.679544-6-peterx@redhat.com>
-X-ClientProxiedBy: MN2PR08CA0022.namprd08.prod.outlook.com
- (2603:10b6:208:239::27) To DM6PR12MB3849.namprd12.prod.outlook.com
- (2603:10b6:5:1c7::26)
+	linux-rockchip@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	openbmc@lists.ozlabs.org,
+	virtualization@lists.linux.dev
+Subject: [PATCH 00/64] i2c: reword i2c_algorithm according to newest specification
+Date: Fri, 22 Mar 2024 14:24:53 +0100
+Message-ID: <20240322132619.6389-1-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB3849:EE_|SA0PR12MB4400:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab966d8d-c364-4bf1-e90a-08dc4a6b9d10
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: CPnMZoVExzZHDb9OcxiBgGLYitj5FIIiqx32x4mh44DbnWWdt/methTG85EHxb44fo5BD0JaKFBeNACN1qaSgAIXeNNkTyfKlYyzLvf2JB/WSSWZkMdHUHGy1WbANI+tlgt+r1PLPVALYEKGkAD2TdhJ4Bc+lFw75s0GO/+NbAzbI3fDUbpKksfDCaiwdJzL2jA8H/tC1HT+56NMMLb7PjaqbETQsh8yv1XZqvkWw/F/xRe2YWh6W9dZBi8MLfzCGDOEnwfQZN627bveMQflRna9LXuHBZrr9UM8HPFzMbm2ZUrl25AvHSTFWFubzFrLlon1MeRm7gGmRXvMT8CWVfz6ejwtuCuVdxnc/6iitjnXuiaZi5T18J8XfcbkAeytJRnXoyPsaenBtFFspVvhKxAW+Rc5tThWe8z63TAFkRTeXTg1uO68Zxh3ejXMvFEtT5mySiC1NR1sq3sjhMjr1g4qeMRQuu+hY7Dim8DH3r7x1kmkRTQnN1xpbNyPoPmxTxfL7HP0xQEdpsfrIW+dx8BjH6edJOEPCVEO6pWOQUU4gvydVz6FxwrG9iqloL8xq5Q8xXOtGZDDvTYJvPKL+zLTPx1rUoXLpVPsdCPfOI6DJRp8QBuItK5eCZgChc4CglHOdqd7IzhI0s63EmKFTGTgishF9KZWjk3mU/fO+AA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3849.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(376005)(1800799015)(7416005)(366007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?m26tBCNfyVStOXLVwAyNQSMBiqtU+WhZ98GDmtc0BbHhxLJbzdvQmQCpyOTd?=
- =?us-ascii?Q?JNe6WLDRpc1pL/Pwkh5R0KysulfEhdisK0BVtmm7d6hcN60HE+Q4wVLlQXec?=
- =?us-ascii?Q?R8ihPky77zKrrrCKBDxV6AjeyVvNOYW8i0rpG+95L69ius4oHf7pu3JbM8Lk?=
- =?us-ascii?Q?x9v9YWGwicJmWtPJvVBzz+PLM2oYdjyanl2A5wlyJXwy6KSxzGKUhSS3Dkp+?=
- =?us-ascii?Q?LxvuQdF0ER6RO2PB/BZEm5c74fmB52kHPHo/AYZTytD5vAJS5+wk2jBq6UK6?=
- =?us-ascii?Q?Qzwpb3w8Erclnc9o9oY+X50y6IUrUmfqc5ZLyAboC6G9I5xglLsKu+XnVSVz?=
- =?us-ascii?Q?6KCnGQ1KNrvfoKseLdYuKvVuUiDPDmLOQU6xtik+GE7G0owTNGa0a/wKI6Hx?=
- =?us-ascii?Q?xS0jaAyYNcKVVuN14zL4XZG7V88e75VrMRDa1mrLfNT6wsKyGg1aIf4jym6E?=
- =?us-ascii?Q?17/u5+ZbhyzQ4md2vxenI46oT9YOSuPU8NpHXoBOztmKSxBUitnIKj9PGijg?=
- =?us-ascii?Q?zPW/dTpnOE3PuAGRlqfW41i9uatPt/1dUzqd9fEZPzSwQBbFuDzIFul6T3aY?=
- =?us-ascii?Q?5umGtQxAKGaprc3coxcmGAhtlW3j2euaOeoweEMuD7F5nxdnidaPjTV95DF9?=
- =?us-ascii?Q?lIdAislSFbNuDTkDaxdRzmIlufXqbVKYc9N6At5hWRGr1xgNAb7uHlZpX3g/?=
- =?us-ascii?Q?nEZ3CuM6V5qCYULpAKEtwma+mjls70pCyupe6ZjtNimVmom0RqYoL1MgnLOJ?=
- =?us-ascii?Q?AN1gX1roHrV3iURNx2/aATLwDVeDr2RjdqX0J0Aoo9ESpLA2AwlchyvOLx44?=
- =?us-ascii?Q?QbzEEC25zNpg0eQhJaJR7yhXMExDte38tutRljeW/wl6xcEXodMugndSTVxr?=
- =?us-ascii?Q?KhWQW4RXFtsWzGYm48T6D56s09qQOpmpR51b5QTUhpjtKzqq636M7wLg5Wcj?=
- =?us-ascii?Q?d37VFtfF4bS+wT8CctezJeHTjiTwY5ZVTfv7k+d7wBNsFVF212UBlcFp3eFF?=
- =?us-ascii?Q?2e3YigLD+ulmr5VDkuP7qKZm4oRWxvkpoNTLe/PirWM6uAkwJAoV+sTsTSqH?=
- =?us-ascii?Q?d1gIbNp6yvy7HN8+7Jp4WkprLDd7/8HcoOvzhc+Ngs1hiGfvR0gk7YZDEwYY?=
- =?us-ascii?Q?qcKpebaJ8PhvpzQSHRvAxZ6Ns92N5RsxoW9khetiIsbJIHHQQNZ/DQmbvsLQ?=
- =?us-ascii?Q?YP2xaeT921/n38Ry9aSYPj/S8wg4XKhH0hQAOkKg3BlYhTSBB03VDjf2miCt?=
- =?us-ascii?Q?hkRAG6yPTLfWbuwdBo3TjxOiBsucpXmGBT4GSd1nbpAbPnB020Kk1iloEKSf?=
- =?us-ascii?Q?8jGguAY6sd3h6ITwd8zUcg4PLvbEr8J/wCkzluOzAcuLLE6LI0vhtKsSHCU9?=
- =?us-ascii?Q?uImdGfYLftkbRThrLjaPh9D7KtApMsABlihQshBPDuO86hafW04qNVgD67q7?=
- =?us-ascii?Q?KrwxJn0thmP58jdxA7ovZBP4BdImNVc/oUOW1MiWuJZnK2N0xBUYVeEMZ+Bg?=
- =?us-ascii?Q?uD8DbY6PdZGf254mSknNBlqfc6LrYZNOGGUmRx7omZ1XswCVmvwqXMrPlZ1M?=
- =?us-ascii?Q?PzxOTasoBORY14Ze5xuAw8+RA43k6s1teabQ47EJ?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab966d8d-c364-4bf1-e90a-08dc4a6b9d10
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB3849.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Mar 2024 12:28:43.8149
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kKi1xHvflu29M8CoyCbXQXk/zZYiQ+Ipa+Ydojw+kkLvhrMansU7jp1FjmJ8K8Kj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4400
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240322_052851_357158_BA200F7F 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20240322_062632_445234_8067A7BF 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,40 +89,227 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 21, 2024 at 06:07:55PM -0400, peterx@redhat.com wrote:
-> From: Peter Xu <peterx@redhat.com>
-> 
-> Hugepd format for GUP is only used in PowerPC with hugetlbfs.  There are
-> some kernel usage of hugepd (can refer to hugepd_populate_kernel() for
-> PPC_8XX), however those pages are not candidates for GUP.
-> 
-> Commit a6e79df92e4a ("mm/gup: disallow FOLL_LONGTERM GUP-fast writing to
-> file-backed mappings") added a check to fail gup-fast if there's potential
-> risk of violating GUP over writeback file systems.  That should never apply
-> to hugepd.  Considering that hugepd is an old format (and even
-> software-only), there's no plan to extend hugepd into other file typed
-> memories that is prone to the same issue.
-> 
-> Drop that check, not only because it'll never be true for hugepd per any
-> known plan, but also it paves way for reusing the function outside
-> fast-gup.
-> 
-> To make sure we'll still remember this issue just in case hugepd will be
-> extended to support non-hugetlbfs memories, add a rich comment above
-> gup_huge_pd(), explaining the issue with proper references.
-> 
-> Cc: Christoph Hellwig <hch@infradead.org>
-> Cc: Lorenzo Stoakes <lstoakes@gmail.com>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Signed-off-by: Peter Xu <peterx@redhat.com>
-> ---
->  mm/gup.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
+Okay, we need to begin somewhere...
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Start changing the wording of the I2C main header wrt. the newest I2C
+v7, SMBus 3.2, I3C specifications and replace "master/slave" with more
+appropriate terms. This first step renames the members of struct
+i2c_algorithm. Once all in-tree users are converted, the anonymous union
+will go away again. All this work will also pave the way for finally
+seperating the monolithic header into more fine-grained headers like
+"i2c/clients.h" etc. So, this is not a simple renaming-excercise but
+also a chance to update the I2C core to recent Linux standards.
 
-Jason
+My motivation is to improve the I2C core API, in general. My motivation
+is not to clean each and every driver. I think this is impossible
+because register names based on official documentation will need to stay
+as they are. But the Linux-internal names should be updated IMO.
+
+That being said, I worked on 62 drivers in this series beyond plain
+renames inside 'struct i2c_algorithm' because the fruits were so
+low-hanging. Before this series, 112 files in the 'busses/' directory
+contained 'master' and/or 'slave'. After the series, only 57. Why not?
+
+Next step is updating the drivers outside the 'i2c'-folder regarding
+'struct i2c_algorithm' so we can remove the anonymous union ASAP. To be
+able to work on this with minimal dependencies, I'd like to apply this
+series between -rc1 and -rc2.
+
+I hope this will work for you guys. The changes are really minimal. If
+you are not comfortable with changes to your driver or need more time to
+review, please NACK the patch and I will drop the patch and/or address
+the issues separeately.
+
+@Andi: are you okay with this approach? It means you'd need to merge
+-rc2 into your for-next branch. Or rebase if all fails.
+
+Speaking of Andi, thanks a lot to him taking care of the controller
+drivers these days. His work really gives me the freedom to work on I2C
+core issues again. Also, Renesas deserves a honorable mention here for
+increased support of my I2C activities. Thank you!
+
+If you have comments, hints, etc, please let me know.
+
+Happy hacking,
+
+   Wolfram
+
+
+Wolfram Sang (64):
+  i2c: reword i2c_algorithm according to newest specification
+  i2c: ali15x3: reword according to newest specification
+  i2c: altera: reword according to newest specification
+  i2c: amd-mp2-pci: reword according to newest specification
+  i2c: aspeed: reword according to newest specification
+  i2c: au1550: reword according to newest specification
+  i2c: bcm-iproc: reword according to newest specification
+  i2c: bcm-kona: reword according to newest specification
+  i2c: bcm2835: reword according to newest specification
+  i2c: brcmstb: reword according to newest specification
+  i2c: cadence: reword according to newest specification
+  i2c: cht-wc: reword according to newest specification
+  i2c: cp2615: reword according to newest specification
+  i2c: cpm: reword according to newest specification
+  i2c: davinci: reword according to newest specification
+  i2c: digicolor: reword according to newest specification
+  i2c: dln2: reword according to newest specification
+  i2c: eg20t: reword according to newest specification
+  i2c: emev2: reword according to newest specification
+  i2c: fsi: reword according to newest specification
+  i2c: gpio: reword according to newest specification
+  i2c: highlander: reword according to newest specification
+  i2c: hix5hd2: reword according to newest specification
+  i2c: i801: reword according to newest specification
+  i2c: ibm_iic: reword according to newest specification
+  i2c: imx-lpi2c: reword according to newest specification
+  i2c: iop3xx: reword according to newest specification
+  i2c: isch: reword according to newest specification
+  i2c: ismt: reword according to newest specification
+  i2c: ljca: reword according to newest specification
+  i2c: lpc2k: reword according to newest specification
+  i2c: ls2x: reword according to newest specification
+  i2c: mchp-pci1xxxx: reword according to newest specification
+  i2c: microchip-corei2c: reword according to newest specification
+  i2c: mlxcpld: reword according to newest specification
+  i2c: mpc: reword according to newest specification
+  i2c: mt7621: reword according to newest specification
+  i2c: mv64xxx: reword according to newest specification
+  i2c: octeon-core: reword according to newest specification
+  i2c: owl: reword according to newest specification
+  i2c: piix4: reword according to newest specification
+  i2c: powermac: reword according to newest specification
+  i2c: pxa-pci: reword according to newest specification
+  i2c: qup: reword according to newest specification
+  i2c: rcar: reword according to newest specification
+  i2c: riic: reword according to newest specification
+  i2c: rk3x: reword according to newest specification
+  i2c: sh7760: reword according to newest specification
+  i2c: sh_mobile: reword according to newest specification
+  i2c: sis5595: reword according to newest specification
+  i2c: sis630: reword according to newest specification
+  i2c: sprd: reword according to newest specification
+  i2c: st: reword according to newest specification
+  i2c: stm32f4: reword according to newest specification
+  i2c: sun6i-p2wi: reword according to newest specification
+  i2c: synquacer: reword according to newest specification
+  i2c: taos-evm: reword according to newest specification
+  i2c: tiny-usb: reword according to newest specification
+  i2c: uniphier-f: reword according to newest specification
+  i2c: uniphier: reword according to newest specification
+  i2c: viperboard: reword according to newest specification
+  i2c: xlp9xx: reword according to newest specification
+  i2c: scx200_acb: reword according to newest specification
+  i2c: reword i2c_algorithm in drivers according to newest specification
+
+ drivers/i2c/busses/i2c-ali15x3.c           |  2 +-
+ drivers/i2c/busses/i2c-altera.c            |  4 +-
+ drivers/i2c/busses/i2c-amd-mp2-pci.c       |  8 ++--
+ drivers/i2c/busses/i2c-amd-mp2-plat.c      |  2 +-
+ drivers/i2c/busses/i2c-aspeed.c            | 26 +++++-----
+ drivers/i2c/busses/i2c-at91-master.c       |  2 +-
+ drivers/i2c/busses/i2c-at91-slave.c        |  8 ++--
+ drivers/i2c/busses/i2c-au1550.c            | 14 +++---
+ drivers/i2c/busses/i2c-axxia.c             | 10 ++--
+ drivers/i2c/busses/i2c-bcm-iproc.c         | 20 ++++----
+ drivers/i2c/busses/i2c-bcm-kona.c          | 14 +++---
+ drivers/i2c/busses/i2c-bcm2835.c           |  8 ++--
+ drivers/i2c/busses/i2c-brcmstb.c           | 12 ++---
+ drivers/i2c/busses/i2c-cadence.c           | 14 +++---
+ drivers/i2c/busses/i2c-cht-wc.c            |  8 ++--
+ drivers/i2c/busses/i2c-cp2615.c            |  6 +--
+ drivers/i2c/busses/i2c-cpm.c               |  4 +-
+ drivers/i2c/busses/i2c-cros-ec-tunnel.c    |  2 +-
+ drivers/i2c/busses/i2c-davinci.c           | 13 +++--
+ drivers/i2c/busses/i2c-designware-master.c |  2 +-
+ drivers/i2c/busses/i2c-designware-slave.c  |  8 ++--
+ drivers/i2c/busses/i2c-digicolor.c         |  4 +-
+ drivers/i2c/busses/i2c-diolan-u2c.c        |  2 +-
+ drivers/i2c/busses/i2c-dln2.c              |  4 +-
+ drivers/i2c/busses/i2c-eg20t.c             | 10 ++--
+ drivers/i2c/busses/i2c-emev2.c             | 10 ++--
+ drivers/i2c/busses/i2c-exynos5.c           |  4 +-
+ drivers/i2c/busses/i2c-fsi.c               | 56 +++++++++++-----------
+ drivers/i2c/busses/i2c-gpio.c              |  8 ++--
+ drivers/i2c/busses/i2c-gxp.c               | 12 ++---
+ drivers/i2c/busses/i2c-highlander.c        |  2 +-
+ drivers/i2c/busses/i2c-hisi.c              |  4 +-
+ drivers/i2c/busses/i2c-hix5hd2.c           |  4 +-
+ drivers/i2c/busses/i2c-i801.c              | 12 ++---
+ drivers/i2c/busses/i2c-ibm_iic.c           | 26 +++++-----
+ drivers/i2c/busses/i2c-img-scb.c           |  2 +-
+ drivers/i2c/busses/i2c-imx-lpi2c.c         | 10 ++--
+ drivers/i2c/busses/i2c-imx.c               | 12 ++---
+ drivers/i2c/busses/i2c-iop3xx.c            | 10 ++--
+ drivers/i2c/busses/i2c-isch.c              |  2 +-
+ drivers/i2c/busses/i2c-ismt.c              |  2 +-
+ drivers/i2c/busses/i2c-jz4780.c            |  2 +-
+ drivers/i2c/busses/i2c-kempld.c            |  2 +-
+ drivers/i2c/busses/i2c-ljca.c              | 20 ++++----
+ drivers/i2c/busses/i2c-lpc2k.c             |  8 ++--
+ drivers/i2c/busses/i2c-ls2x.c              |  8 ++--
+ drivers/i2c/busses/i2c-mchp-pci1xxxx.c     | 40 ++++++++--------
+ drivers/i2c/busses/i2c-meson.c             |  4 +-
+ drivers/i2c/busses/i2c-microchip-corei2c.c |  4 +-
+ drivers/i2c/busses/i2c-mlxbf.c             |  8 ++--
+ drivers/i2c/busses/i2c-mlxcpld.c           | 12 ++---
+ drivers/i2c/busses/i2c-mpc.c               |  4 +-
+ drivers/i2c/busses/i2c-mt65xx.c            |  2 +-
+ drivers/i2c/busses/i2c-mt7621.c            | 22 ++++-----
+ drivers/i2c/busses/i2c-mv64xxx.c           | 12 ++---
+ drivers/i2c/busses/i2c-mxs.c               |  2 +-
+ drivers/i2c/busses/i2c-nomadik.c           |  2 +-
+ drivers/i2c/busses/i2c-npcm7xx.c           | 12 ++---
+ drivers/i2c/busses/i2c-nvidia-gpu.c        |  4 +-
+ drivers/i2c/busses/i2c-ocores.c            |  8 ++--
+ drivers/i2c/busses/i2c-octeon-core.c       |  6 +--
+ drivers/i2c/busses/i2c-octeon-platdrv.c    |  2 +-
+ drivers/i2c/busses/i2c-omap.c              |  4 +-
+ drivers/i2c/busses/i2c-opal.c              |  4 +-
+ drivers/i2c/busses/i2c-owl.c               | 10 ++--
+ drivers/i2c/busses/i2c-pasemi-core.c       |  2 +-
+ drivers/i2c/busses/i2c-piix4.c             |  2 +-
+ drivers/i2c/busses/i2c-pnx.c               |  2 +-
+ drivers/i2c/busses/i2c-powermac.c          |  8 ++--
+ drivers/i2c/busses/i2c-pxa-pci.c           |  2 +-
+ drivers/i2c/busses/i2c-pxa.c               | 12 ++---
+ drivers/i2c/busses/i2c-qcom-cci.c          |  2 +-
+ drivers/i2c/busses/i2c-qcom-geni.c         |  2 +-
+ drivers/i2c/busses/i2c-qup.c               |  6 +--
+ drivers/i2c/busses/i2c-rcar.c              | 16 +++----
+ drivers/i2c/busses/i2c-riic.c              |  6 +--
+ drivers/i2c/busses/i2c-rk3x.c              | 18 +++----
+ drivers/i2c/busses/i2c-robotfuzz-osif.c    |  2 +-
+ drivers/i2c/busses/i2c-rzv2m.c             |  8 ++--
+ drivers/i2c/busses/i2c-s3c2410.c           |  4 +-
+ drivers/i2c/busses/i2c-sh7760.c            | 18 +++----
+ drivers/i2c/busses/i2c-sh_mobile.c         | 12 ++---
+ drivers/i2c/busses/i2c-sis5595.c           |  2 +-
+ drivers/i2c/busses/i2c-sis630.c            | 16 +++----
+ drivers/i2c/busses/i2c-sprd.c              | 14 +++---
+ drivers/i2c/busses/i2c-st.c                | 17 +++----
+ drivers/i2c/busses/i2c-stm32f4.c           |  8 ++--
+ drivers/i2c/busses/i2c-stm32f7.c           | 14 +++---
+ drivers/i2c/busses/i2c-sun6i-p2wi.c        | 20 ++++----
+ drivers/i2c/busses/i2c-synquacer.c         | 30 ++++++------
+ drivers/i2c/busses/i2c-taos-evm.c          |  2 +-
+ drivers/i2c/busses/i2c-tegra-bpmp.c        |  4 +-
+ drivers/i2c/busses/i2c-tegra.c             |  4 +-
+ drivers/i2c/busses/i2c-thunderx-pcidrv.c   |  2 +-
+ drivers/i2c/busses/i2c-tiny-usb.c          |  4 +-
+ drivers/i2c/busses/i2c-uniphier-f.c        | 22 ++++-----
+ drivers/i2c/busses/i2c-uniphier.c          | 12 ++---
+ drivers/i2c/busses/i2c-viperboard.c        |  8 ++--
+ drivers/i2c/busses/i2c-virtio.c            |  2 +-
+ drivers/i2c/busses/i2c-wmt.c               |  2 +-
+ drivers/i2c/busses/i2c-xiic.c              |  2 +-
+ drivers/i2c/busses/i2c-xlp9xx.c            |  4 +-
+ drivers/i2c/busses/scx200_acb.c            |  4 +-
+ include/linux/i2c.h                        | 24 ++++++++--
+ 104 files changed, 460 insertions(+), 464 deletions(-)
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
