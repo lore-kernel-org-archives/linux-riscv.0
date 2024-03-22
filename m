@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2664DC54E71
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2024 16:09:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 131BDC47DD9
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2024 16:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RzyUcdwcG5QSAlKEkH/S34YxLVqfbaLbNevGsDUykY0=; b=O6d93eJgQzIGJx
-	bwQmim0JvAI8AkSE7EfNijqhEmeOn9TUSu6tx4wrt02Kj//5xCjAuNTKxv5x7/fZf8yP3Jyz9uJYX
-	CeRg3+URbglM7mSwJkdkpqnFPdNTrburybIvTldZSQ8ixvrnRUtRVVbamE/LEISEqXPnZZesV67e5
-	G1SYAbbIPc6AuB7FiZ4FjYP3V13h2OyRwQdRJwRnt6ZKAIkEhSml7MSKN11OQnCsorGNnPtn/oMal
-	QEwrOVeSrqNbgkDrFa8TV29CtyL9yXjIE3GJh6tF4fu4xmc29j5wuY2PNQIPEwyf/bELXTD2aU6W2
-	KpgcHmZrHzveqEHpvacg==;
+	List-Owner; bh=JvokIe2+SHrf87iVjQfHciE3oN8mH1aFzkclXLeQUac=; b=lkRgPT2ZRE8jr5
+	S6ji1ZckR9ofHwBXGQNp6us9j+4/1t+2L1XPiTHp/6YtIow4Sa0ypmYgCpQLVmwkk7GAQCjWANavD
+	Oe8PArs/aGrZsKnqqQWMAnqxeU4UOZKYt5fR2zkVWN55/yF0xFKjK1MfmvF6LAsNxHFCsp2/g9cEw
+	K7SFjcW+YikndBE+jGJ21glj9pc1+v9g+3IOBpvI4ng4GQKX8TD6qebGMwRzo6YuXbCeI1cB3OG7D
+	ElPaeKKzT1eQlbQyH2YnR8MTtoegM9JPGvHJpukYC++WAIqt58M5ta36m5CdZ/dvApWdGt3RizpGT
+	CQj7HpDyFpuycdi0T3UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnhS3-00000007tCW-0iGj;
-	Fri, 22 Mar 2024 16:09:03 +0000
-Received: from mail-mw2nam10on20600.outbound.protection.outlook.com ([2a01:111:f403:2412::600] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1rnhTL-00000007tqQ-3Kb3;
+	Fri, 22 Mar 2024 16:10:24 +0000
+Received: from mail-co1nam11on20600.outbound.protection.outlook.com ([2a01:111:f403:2416::600] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnhRz-00000007tA2-2Hxu;
-	Fri, 22 Mar 2024 16:09:01 +0000
+	id 1rnhT8-00000007thd-31cO;
+	Fri, 22 Mar 2024 16:10:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=fKuJ0drbZ5V98OAmHlF2UdZg7AK7KAZW7U/s00ueUqs+j5oe4O0vF9gPx0EGn+DgJLHPLceQdPGPRs0zUyexSynDT4X+r1/aikZ+pnpx1lZ7Wfpjl61bpAR41MnVWNqC3z7qbkMdRnC/2T1vs+6eqo4r0aV2iGrSnwifezamA2EcFRp5xmCObJpKBe4oBF7/C9ofMYPKJZ7n+fDIrMte56+fhXpsknAUqDwtku0VGIjio6F2BKkhk+C1oCxq8yeSZYsyIkKb59axloFBiMdI/AmnwVKak7iqTTm0pC64rV1+zWPSOg5BctDPmOgl/UkLEc/lcthgDQ2KG2CXDC8QIg==
+ b=NVVc/7HWh66V5kI205dK4LbK4bF/z2aKyfWjsPHQaYWQVILSOJ/qOTp48v/suqNUt0RR5QJcLcy31tqeNFkNoUWTe6ri5b9hyOF+S8ZBwWdoqvM6UxOhHN5JqNS0QzQV7ANNaSfbFaUffY1qfbh2TwvWYyXcjNO2njyCpa4vMycolXV9VDK/jfyqnaX7/lzp49H6htGawKAzk3HyZUbf8wfrtXreKHkp0R1dYR2pnIj8O+CJV+G089Pu6SWaaeLSfodAzOcOvnQ+XKLpJkSep7UAzWuY7qBRyvwxIQK8btvAnzMI6Qyq/ydc1hgr69LdHw3IL0Czmx2LAQEYLSUxLQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=to4vDh8hHG4F0VwwxIF5cVd2i4GgYypb3KW+ICTklEk=;
- b=TbnYzIBfhoSVsR3ed/1xolquC42Z73VoGyrQpZ6Rd+UkSKgJHx/CXRFr4ltZYpySngvU8pk17Z1+ScJDK/a8psmDwEoGzP4q+eGr9e+OBOn9KrpLu0XqYeR10C81y/s8hlGqdNTy+NlDPMViLBnyF7VVc8h3aed9jtXb0S2K1kcj6QFZbS5boOQILihLnIgJfpeqTCZoO8Sny6FsakZYesCD734l1xABKT6VccthziOfeew3pX3KD/XoLFk1jg5BViNep3jbWjWQq//J4y/0GF2nWIcPbNf9Q7eQmJxyZ+RhxDhWRNQI/NKvf6gjd19bEA30uEB3+NdDrwzLVwUFrA==
+ bh=mKDYemAW4YphdTf3sxRnwhzr4SK9oCb785qNvR8771k=;
+ b=RQSiN0T/IojTgHXZLoU3YAQAYE05IG+VyEBrypOXoqagJbjF3aiLUupJdMvTVEdzytPbhWSNdYDDMn0VvOrAAjDhPZ8T7uXcO6TzaY0d01yzKM2mbmWrhJYY/ATA21KBxq7JtqzFJVmOia3n0f4WLP+T5SwcZSW2szRsiWN7euvSzq1kBhJelVtcWq0dJ3/WwTpwLR1Y/g57Q3ugWP84+cRRiuu7oGrYaA3MfGYYBtSxyT6fR6kWupVmw/26CPg3OSwqJ9pWS3mskTxt8SuiVGkevoIDzzKN/PBeejDwdj4IP/WZXh3qcKs9uQxorpENEev3Gw7vObKSTqhZnIGEuA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=to4vDh8hHG4F0VwwxIF5cVd2i4GgYypb3KW+ICTklEk=;
- b=LNloP9nKOyT2udTa3boprHWeJMHNLEt4qDHMGsMVB6rq5OSwjRrQweomfl4ZvpKvFsfHXKBm7+3Cn9qE9W41hlN8pQe0ax6UcOZvURmfy2/XVaaqLcZ3ZBdxMaSpigGQ0jYEVcSHcnyCicHUyZsa63iCLrUmpg2PHJyWQiG9hPaGmHK75AOUZpxuSmsIbDzDP3TYqYjY8o/RdKX/4QdoXwn9x5gTVbD4oE2ywBrwigPeSYcoQILoF6BtF34s7H+l1WNXeLhjwS3JP/QzBUWzAnsAyLKC7HGQzbq8CUVgnCn20ECGfGLkIu3ePY8CtaVw04IUPhURTVD19CZdhgCd7g==
+ bh=mKDYemAW4YphdTf3sxRnwhzr4SK9oCb785qNvR8771k=;
+ b=A9IPQhNHBzEczAf8r8sfrztRcBYKvmFByHHey/cVtpmRLVgltvLRjX7LNq/DazQx+sYEfTYtz2WaCUPrtJpOQ37MDCeTvqhYEXaiM2X1LKNes9Y3ejsvcoBD3QTy+MuzByge3OmcVOIYJ/KXXmNwQgjql3+uqso5c2igdvUJTv+qRkkgUk1TJNEHtBdkmF7oc8AShldw4tUesaFncRlX5YdKWasqvT5E7jKIiPRedpnKsyH8ZSaBGew9lbxJ9KNWJrRled9XdTYW5aLWXzApfAOPf3DcOxMXuULiBpV+qiWyORGR3nJyafNROyTEB59GgPSSkN9lWAzbkn/F4UbN2A==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DM6PR12MB3849.namprd12.prod.outlook.com (2603:10b6:5:1c7::26)
- by SA3PR12MB9227.namprd12.prod.outlook.com (2603:10b6:806:398::22) with
+ by CH3PR12MB9282.namprd12.prod.outlook.com (2603:10b6:610:1cb::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.24; Fri, 22 Mar
- 2024 16:08:49 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.30; Fri, 22 Mar
+ 2024 16:10:02 +0000
 Received: from DM6PR12MB3849.namprd12.prod.outlook.com
  ([fe80::6aec:dbca:a593:a222]) by DM6PR12MB3849.namprd12.prod.outlook.com
  ([fe80::6aec:dbca:a593:a222%5]) with mapi id 15.20.7386.030; Fri, 22 Mar 2024
- 16:08:48 +0000
-Date: Fri, 22 Mar 2024 13:08:47 -0300
+ 16:10:02 +0000
+Date: Fri, 22 Mar 2024 13:10:00 -0300
 From: Jason Gunthorpe <jgg@nvidia.com>
-To: Peter Xu <peterx@redhat.com>
+To: peterx@redhat.com
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	Michael Ellerman <mpe@ellerman.id.au>,
@@ -77,69 +77,65 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
 	Andrea Arcangeli <aarcange@redhat.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
 	Mike Kravetz <mike.kravetz@oracle.com>
-Subject: Re: [PATCH v3 12/12] mm/gup: Handle hugetlb in the generic
- follow_page_mask code
-Message-ID: <20240322160847.GA2924038@nvidia.com>
+Subject: Re: [PATCH v3 00/12] mm/gup: Unify hugetlb, part 2
+Message-ID: <20240322161000.GJ159172@nvidia.com>
 References: <20240321220802.679544-1-peterx@redhat.com>
- <20240321220802.679544-13-peterx@redhat.com>
- <20240322133012.GI159172@nvidia.com>
- <Zf2p38Pb51T3e9uB@x1n>
 Content-Disposition: inline
-In-Reply-To: <Zf2p38Pb51T3e9uB@x1n>
-X-ClientProxiedBy: BLAPR03CA0134.namprd03.prod.outlook.com
- (2603:10b6:208:32e::19) To DM6PR12MB3849.namprd12.prod.outlook.com
+In-Reply-To: <20240321220802.679544-1-peterx@redhat.com>
+X-ClientProxiedBy: BLAPR03CA0086.namprd03.prod.outlook.com
+ (2603:10b6:208:329::31) To DM6PR12MB3849.namprd12.prod.outlook.com
  (2603:10b6:5:1c7::26)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB3849:EE_|SA3PR12MB9227:EE_
-X-MS-Office365-Filtering-Correlation-Id: b05142a0-7586-45b3-fd44-08dc4a8a5ba9
+X-MS-TrafficTypeDiagnostic: DM6PR12MB3849:EE_|CH3PR12MB9282:EE_
+X-MS-Office365-Filtering-Correlation-Id: e5901b46-1654-49c1-3e18-08dc4a8a8784
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 4bJqTf9l4w3olSzf9klt/B+H+Xfg82jIQ8w/61krpSMitw4yO79IeUAglya9523kyJt25la6PXVTADXxL4oOjecRS6uzJ7P6XcwWZ4mi4Eo32BdP5HP30rIOE2n6sEeATppBQUGnzOOZhHdNJNRyz0kTgD7IABo6aHqNkKpm515HITFhPgEqc8YFhnu82mOd2In1CaYBN+kiGlabpEaRaf23QSFbIy0A/dS1mOL27e2i1c8S00somKG60yb2x3Axm9h4u637oWkDcngOdHR9bU3l6VKZMTKn5Fk5WkXr9sS7ZlP8Ico866wrvcxwtW19HgG0XTWSz+BgDM1gqQSz0iZoufMm9i05m28rq8xHg/+IAkMt7fyk1955x4MOdhDrOXOP+gBODTVHBrpsEf6ITSm1Dq4OMYmD1gORHrf2ibzazV8AwcuGd+UsL9PC6Z/tr7AGje99T4ntq90/ygTZ049ES4pmS8bjPishmy8DPgGrIl24youpA0NXPZxjNpQgoQRMnrFYV5lrZmhQlkMnJPOhlxs7nhCVlXGBH94P4XoRHcYwq4d63JgfkqOK764dpb3oH9WSPG/rL7zuJnlYxlaUPb3Xc0Qll1yG6xjLljDpVP/hWy4g6ltP6jF5l2aEMdM/yucn2W/V2kPrK/WRIYi5QWCNa4XjTP7p62EV2D8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3849.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(366007)(376005)(7416005);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Message-Info: ylls6to/f0JRWJDA5WYmvJ9ziJ4Wx1qQe+VV86wCjbxj/2AMNE2bUAB2vGU1blpCkXCnDGUnH57NdqCg4gvTRmNMVph8+ehdDbYb/SvNbf9OB26yGZpgTN8spskVxBk3slcCHAbK/YU2BVZK+95BrwS+0qpSZsGDHq9Mnw2nLoQQx93BGm15dXusx0p78LkGlt4HKu+PCoyCwDEyX9Z1aSTo9UE9F2HWZ8X3DX3RaC7jQBiMI/X5cm4ijxguORtVs+1OzsYxZzhUYM0pnRoUs3NL+W87ICe+xcTyJUCAWNqrklzWzLWUzWlEvJzihtBZ7n9204ITBMnH0UTcQyjblr2S2UhT8MRzqE+3o8vD1lhLPt9FK35or3zI8Rf9eb62T8FK4T9Ikfp0XO87gEaC/tra8moTXWyGqZ6GV+hAokWIGi1B8l1EzIS3SxiafiisyIqKjAn8eM9/yDbKlJcK4EzQBIE8fC34Fp5EydvLcg7/Z5TIsSbY2zc0DRk+vfMmoyNGYpS8VPKt1LjApxxw+xSipEROzoUUlWHa8H/sADIFRDByNQTcn+E+p6Ty6h/To6gJWw/rjLek+00SKPdJ+XCRVvYDleilQCHNbUUaQl2u+ZlMze6aMcFlt8TcBI0dr/KKb0wk6UHjTrVGY11yB7KuSmUBAQRRf8acd8ein5U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3849.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(376005)(7416005)(366007)(1800799015);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lDB+CmGubtSge/esh8S0fKtCmtmw3VR5RC35UGipC2foWHUx67PpofwtAuOC?=
- =?us-ascii?Q?fu2ef856v/0O/qTIHvZWsVm5jXrTqJq44SC/YosnJomnq4UtvCIwSs4/8ToH?=
- =?us-ascii?Q?QH6qe0uVJircXdcR0EJ6i2+6tuK8PLyP+ZeSH1iJqvQvTFqjLDGCc/pEhSvr?=
- =?us-ascii?Q?EU36HGooh9KPBRDfHGhs08X8x7lzAzQ5TmbDOtIr4ymfTh397oA65nmPdOsl?=
- =?us-ascii?Q?BxEqLQ3U6IafDYxMyHNbtEHxR9P2oqa2YbaLymp6NAKXh1j+LPqGO2y0D4ix?=
- =?us-ascii?Q?6mRlerky9szFOf5bQHgacsVyOAe9LDvsnbrs2X34pCovc/3nDijlPj+aB0oC?=
- =?us-ascii?Q?TylvZjF4MzNDY21j+5YPtpmass8D0OiPUvTAHAqHFzjF9S07PWxZ2Ha7C4zQ?=
- =?us-ascii?Q?Xp7CKuzfaoAfSTlOEn2AyLffOUTJylZvimjzxK+AOxaECPkDOsOMgJ2/lPy5?=
- =?us-ascii?Q?HqSfbaxc6P5REGaGG7a0LhnUZ6n6PxRyv9EuD0NdSQyinBGVksZ5aLrJ+hvb?=
- =?us-ascii?Q?3De2RLk3od4NIOvAhQgGQ8Gmdg2i1EBs68NGDepsglgMSmlfFi8Ukr22qMI/?=
- =?us-ascii?Q?gAlkW0ekbxFiThSjeXlPaoUbn0fFHtj2CTuUH7xFGd0oVX2gj2lR6dThY+9H?=
- =?us-ascii?Q?OuxOtC5qY5vuIF4Av6egJnYihkos4vOUCoegDxNTs/M4/mhvjCf2jN10htxd?=
- =?us-ascii?Q?18LauCnS/p8IE8przQcnM9Il5lN+eohXiod0YoFztG+szdW2Q3blO4V86/Ok?=
- =?us-ascii?Q?0KlkFxwW33HgHuGLJ17CI9lNdrRFRbi/E8o0zHYUpJ2KH5trKz+1NiZQUR+7?=
- =?us-ascii?Q?ylQUY50lPCSjKC8/A55XlmBMr6jo6BQghoKl9L9+rJrIoEjuERuWmKbDkuiY?=
- =?us-ascii?Q?TA0btI13wgcinMNSuSbGEL8Yv/MYKIr4sEtargovZDTQcFJg5IyBIyUfTXTB?=
- =?us-ascii?Q?m6QDkJRGO96JwfjuNQDkPbv7HxKC28JaR2AL33N2Fo1a7CszdpR3LcFKw1VB?=
- =?us-ascii?Q?9hSZPiL5F+QRazwFqBeERm+aU+/q2pfPVmIw5UzvyVm+ql/5/yFfxS0PxPH/?=
- =?us-ascii?Q?bykrJRdRr5oUJs6kDSr7xJQYjmqt5GVzU5gx9DgZ1/lRplW7hmuq78KSk4pa?=
- =?us-ascii?Q?zJhV68KYnO31+mwaZGthNwsWSjEo048kJXLZmxLb5i7bcWdqBMK6Ef91vZvJ?=
- =?us-ascii?Q?+tYgrlv8aBaD09l74S2QiYr86KX47/7GmP4I+3X0VEdR75LLCcUnGMfU4pSE?=
- =?us-ascii?Q?a82I73E91p1IRkrapmV3BfddOLNuKm3chmT480LMrvz9+/TIYk0aKkxbACnK?=
- =?us-ascii?Q?oOCyLl6MJWYYWIlAIew19IHYQgxwxw7/vaGi9D6A+ztcJ19eaJr1wP7AgMr3?=
- =?us-ascii?Q?bN9E4NdV21w5QfOpx40NZeMEZ4xdu/iuucDeNuPSLfWGcjtGTEmHSu8biPHF?=
- =?us-ascii?Q?lYaPm2EQZBOERavzTVvJCJTfWu5M/tC8rHMUc56cLWrqF0IngMr7yraHsv9E?=
- =?us-ascii?Q?TGDqzULLoj3WGO8heA+X/nw4u2xx2Yqlh2fAaX1YoIyWPyjQuvMhfCtceLlL?=
- =?us-ascii?Q?FUqIws04rLfjPKj2yEJ3QWNCM2eytNmltKL0f+nI?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kIdLvTDd1Y026cu2ZkT9h9jx+5xIba7uOYhC5hbOPYA8bmdG+AjKrYi30/wa?=
+ =?us-ascii?Q?RqLGwpFb52DFuheY7lnatJR9aAC6Ff2rBTh1DSR1YAa4d58occXRgwa6gXfR?=
+ =?us-ascii?Q?uWbEQYh8zoMAVxE5PxEL7hvGxbFVtYn5tKYIdX3hO7Rvzpz/O7GSyytH3zLJ?=
+ =?us-ascii?Q?F4Wn+eNBMQaNTHRRAXmbvLtPQSugPlIK3H8qI7auaCjmDpqIDzIJX5myxIqG?=
+ =?us-ascii?Q?LoCYQSNA4uNDk305diBQYTI/LFiMLHPp6F46c/oA807ODl+eifeeG/Hx7YHd?=
+ =?us-ascii?Q?8uYss44auJqWZAeyCYRkA/Qqu3AhpdsGPtMJjoZWKqbt7P39lH+MVdKgB1cN?=
+ =?us-ascii?Q?PQlNzWQcnTToD1ShNL05eaY0DuXiF9VxT+0xMMeJJr9VKbE+qYwHcJyaQ7Ks?=
+ =?us-ascii?Q?WU6IsyO8RDVbj0v6JOeSfegHVWZk+hwaX5ArzKh9pZY+rZZdJyL/FQ5FIzS3?=
+ =?us-ascii?Q?MKvWGBwq1NJ+dXUaw2KuaCIP7teovbRO2ZtAfyW+6vhT4PWMT336csAFKRpg?=
+ =?us-ascii?Q?JsSFSnLJTi+wMrgLPV8a+8FyiLeCvP8nJoVANJVZ2+uJBQ8wkWDC1vMTKeNI?=
+ =?us-ascii?Q?gL5yAQrd+kBDqFzPd8PC+gTewJYWpFb1WqE8xkXAtva5i82lpn8H8Qmp586V?=
+ =?us-ascii?Q?DEo5T96ZFCxvG6LxR86D/ulJixMrq6A1JtlpEbrxWgUgVAObJTGAWzwrlilb?=
+ =?us-ascii?Q?04qJ/HCvSObQ/VXA5SzKF5QgPqT2IjRw6RkxERSqQOXzFIMOBhhs0fCLKJT8?=
+ =?us-ascii?Q?2lMVQ6AbNb4DaXdw+MXYTwcvPmC+Gd9q+sw2n76m8kfwTx3ut9pnKnQl3eQg?=
+ =?us-ascii?Q?o28ECyPcL+dZfxmrkfnUZ1KbCBqyCaoGqTSMseRfA6wXUp1P6nQ7HSCFLDEf?=
+ =?us-ascii?Q?FJ2769JfrqouWU6/rYw7cJufS0Vr9Rn9mj4x8v9tMKXADIVuzCgoKX1yxbra?=
+ =?us-ascii?Q?rJ1zvlXwQf18PnQXqTOu1NqL4HWghbOt44GVOdH3+c8NjknX/Tf+dXaydIhO?=
+ =?us-ascii?Q?T8nJX5Hy4OdrhLAutKIV9fpj/b8mY3CqRamMpvDmenjxGZirf61v63bW6DVu?=
+ =?us-ascii?Q?MW27+8EPOqNBJ63TCtqa0eRhmIM6g7hk3tAX6qTqXFTs3T9IkgPq0H1pf1Lt?=
+ =?us-ascii?Q?D4AN/WjMarCVip0/WdWQH1Kug7UXZCxc+Rg93rSNLstj+gad9jyOCGym2ZAQ?=
+ =?us-ascii?Q?0KR1oYrgesn9jCzMCW/RMk4VqfVPYCqr6VM+njByL5wJ3XzgJikHmf737qXV?=
+ =?us-ascii?Q?YVS5Q7Kzr4REI7jBQY44hY8zVRiLRJHMXbitVoRaHLXRza/5NpvB7NoyfwE9?=
+ =?us-ascii?Q?JZmmudUYvYVkoviMitlERujyk/K8N4WyW01/boDzC2clgjyKsIoSTmxS50vS?=
+ =?us-ascii?Q?qm3f8TLbTTtxFV6cAwZvtxytGeBlagtvfch8fs29lOuyhymyWhlrUeQiWutP?=
+ =?us-ascii?Q?gEaUQF1w2E77ryrujffMxiC/EH1DvPtZbkzTYPNcsyrOncAIWxwci1NBIILa?=
+ =?us-ascii?Q?mshMJ+vOnE0WuXFie0LUnWPcq/uUkL1C9DEUnTe/qizx6wN5aWSia6xo+uPa?=
+ =?us-ascii?Q?tgRdT1QomJvgAE39bto3TqRjVqiy6LZ43N97NAY0?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b05142a0-7586-45b3-fd44-08dc4a8a5ba9
+X-MS-Exchange-CrossTenant-Network-Message-Id: e5901b46-1654-49c1-3e18-08dc4a8a8784
 X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB3849.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Mar 2024 16:08:48.4980
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Mar 2024 16:10:02.0583
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: duTUVj9cQmqFePdlBnw3+QZgP0dbqux/FBaU1J8Xnpw14pKpFQMMlDaox40QKUTu
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB9227
+X-MS-Exchange-CrossTenant-UserPrincipalName: RLMKQ6y6VxwfEqDCwno+9I0w0W8DcVH9z8Tk5+KAeHsJSB1Cgrduf2FcUw5vX1PN
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9282
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240322_090859_647051_A39CCEC2 
-X-CRM114-Status: GOOD (  31.98  )
+X-CRM114-CacheID: sfid-20240322_091011_050694_EF8153E6 
+X-CRM114-Status: GOOD (  29.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,56 +152,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 22, 2024 at 11:55:11AM -0400, Peter Xu wrote:
-> Jason,
+On Thu, Mar 21, 2024 at 06:07:50PM -0400, peterx@redhat.com wrote:
+> From: Peter Xu <peterx@redhat.com>
 > 
-> On Fri, Mar 22, 2024 at 10:30:12AM -0300, Jason Gunthorpe wrote:
-> > On Thu, Mar 21, 2024 at 06:08:02PM -0400, peterx@redhat.com wrote:
-> > 
-> > > A quick performance test on an aarch64 VM on M1 chip shows 15% degrade over
-> > > a tight loop of slow gup after the path switched.  That shouldn't be a
-> > > problem because slow-gup should not be a hot path for GUP in general: when
-> > > page is commonly present, fast-gup will already succeed, while when the
-> > > page is indeed missing and require a follow up page fault, the slow gup
-> > > degrade will probably buried in the fault paths anyway.  It also explains
-> > > why slow gup for THP used to be very slow before 57edfcfd3419 ("mm/gup:
-> > > accelerate thp gup even for "pages != NULL"") lands, the latter not part of
-> > > a performance analysis but a side benefit.  If the performance will be a
-> > > concern, we can consider handle CONT_PTE in follow_page().
-> > 
-> > I think this is probably fine for the moment, at least for this
-> > series, as CONT_PTE is still very new.
-> > 
-> > But it will need to be optimized. "slow" GUP is the only GUP that is
-> > used by FOLL_LONGTERM and it still needs to be optimized because you
-> > can't assume a FOLL_LONGTERM user will be hitting the really slow
-> > fault path. There are enough important cases where it is just reading
-> > already populted page tables, and these days, often with large folios.
+> v3:
+> - Rebased to latest mm-unstalbe (a824831a082f, of March 21th)
+> - Dropped patch to introduce pmd_thp_or_huge(), replace such uses (and also
+>   pXd_huge() users) with pXd_leaf() [Jason]
+> - Add a comment for CONFIG_PGTABLE_HAS_HUGE_LEAVES [Jason]
+> - Use IS_ENABLED() in follow_huge_pud() [Jason]
+> - Remove redundant none pud check in follow_pud_mask() [Jason]
 > 
-> Ah, I thought FOLL_LONGTERM should work in most cases for fast-gup,
-> especially for hugetlb, but maybe I missed something?  
+> rfc: https://lore.kernel.org/r/20231116012908.392077-1-peterx@redhat.com
+> v1:  https://lore.kernel.org/r/20231219075538.414708-1-peterx@redhat.com
+> v2:  https://lore.kernel.org/r/20240103091423.400294-1-peterx@redhat.com
+> 
+> The series removes the hugetlb slow gup path after a previous refactor work
+> [1], so that slow gup now uses the exact same path to process all kinds of
+> memory including hugetlb.
+> 
+> For the long term, we may want to remove most, if not all, call sites of
+> huge_pte_offset().  It'll be ideal if that API can be completely dropped
+> from arch hugetlb API.  This series is one small step towards merging
+> hugetlb specific codes into generic mm paths.  From that POV, this series
+> removes one reference to huge_pte_offset() out of many others.
 
-Ah, no this is my bad memory, there was a time where that was true,
-but it is not the case now. Oh, it is a really bad memory because it
-seems I removed parts of it :)
+This remark would be a little easier to understand if you refer to
+hugetlb_walk() not huge_pte_offset() - the latter is only used to
+implement hugetlb_walk() and isn't removed by this series, while a
+single hugetlb_walk() was removed.
 
-> I do see that devmap skips fast-gup for LONGTERM, we also have that
-> writeback issue but none of those that I can find applies to
-> hugetlb.  This might be a problem indeed if we have hugetlb cont_pte
-> pages that will constantly fallback to slow gup.
+Regardless, I think the point is spot on, the direction should be to
+make the page table reading generic with minimal/no interaction with
+hugetlbfs in the generic code.
 
-Right, DAX would be the main use case I can think of. Today the
-intersection of DAX and contig PTE is non-existant so lets not worry.
+After this series I would suggest doing the pagewalk.c stuff as it is
+very parallel to GUP slow (indeed it would be amazing to figure out a
+way to make GUP slow and pagewalk.c use the same code without a
+performance cost)
 
-> OTOH, I also agree with you that such batching would be nice to have for
-> slow-gup, likely devmap or many fs (exclude shmem/hugetlb) file mappings
-> can at least benefit from it due to above.  But then that'll be a more
-> generic issue to solve, IOW, we still don't do that for !hugetlb cont_pte
-> large folios, before or after this series.
+Some of the other core mm callers don't look too bad either, getting
+to the point where hugetlb_walk() is internal to hugetlb.c would be a
+nice step that looks reasonable size.
 
-Right, improving contig pte is going to be a process and eventually it
-will make sense to optimize this regardless of hugetlbfs
+> One goal of such a route is that we can reconsider merging hugetlb features
+> like High Granularity Mapping (HGM).  It was not accepted in the past
+> because it may add lots of hugetlb specific codes and make the mm code even
+> harder to maintain.  With a merged codeset, features like HGM can hopefully
+> share some code with THP, legacy (PMD+) or modern (continuous PTEs).
 
+Yeah, if all the special hugetlb stuff is using generic arch code and
+generic page walkers (maybe with that special vma locking hook) it is
+much easier to swallow than adding yet another special class of code
+to all the page walkers.
+
+> To make it work, the generic slow gup code will need to at least understand
+> hugepd, which is already done like so in fast-gup.  Due to the specialty of
+> hugepd to be software-only solution (no hardware recognizes the hugepd
+> format, so it's purely artificial structures), there's chance we can merge
+> some or all hugepd formats with cont_pte in the future.  That question is
+> yet unsettled from Power side to have an acknowledgement.  
+
+At a minimum, I think we have a concurrence that the reading of the
+hugepd entries should be fine through the standard contig pte APIs and
+so all the page walkers doing read side operations could stop having
+special hugepd code. It is just an implementation of contig pte with
+the new property that the size of a PTE can be larger than a PMD
+entry.
+
+If, or how much, the hugepd write side remains special is the open
+question, I think.
+
+> this series, I kept the hugepd handling because we may still need to do so
+> before getting a clearer picture of the future of hugepd.  The other reason
+> is simply that we did it already for fast-gup and most codes are still
+> around to be reused.  It'll make more sense to keep slow/fast gup behave
+> the same before a decision is made to remove hugepd.
+
+Yeah, I think that is right for this series. Lets get this done and
+then try to remove hugepd read side.
+
+Thanks,
 Jason
 
 _______________________________________________
