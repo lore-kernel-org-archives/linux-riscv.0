@@ -4,78 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01676C54E71
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2024 15:51:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF20C47DD9
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2024 15:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UZhY8LwPmCIu9hS/ul+9rG6FzJz8N3k3NwbKdPJCxhY=; b=iBLN8FWLWh/8pE
-	S5vSW2aFmoldW47XJRSmf7iqtEORyZbPCGMpl7relGg+uRbByi+Z0Mt7EyYYwhZexXuxTRp4/0n9v
-	LJSDLkI3i6x3c7A9KiZ5RtHbzOvRkFrq06SgH0zG+0PX2tCkpchiuhzcSS1qTO6i3eAU7iqxra8fN
-	cZUNaCizOgH05FYHdTcKZO3pJq2KUSL+9TWmkhUMZxYH3gyldAYyAEPqlhZelkpGD3zUzvZ8sBZNM
-	Yeu9SReyUkuQrygW5inkfnn8xcc5o8N5EsCMjAgTd1601FCmEcO246dBsWsp5OohE4cE8F5GDJ+TN
-	HTapEABp2bXksqVCKT+Q==;
+	List-Owner; bh=Pb9PHh6puTH0IRK2HNQ+nOi31vKD03BWv1Yrv4dPq14=; b=loZUk866lgtGlt
+	nBsauQ0vVN93+0JY+/7h0wkhsBshhYWyySV7eQNwq4n2qshLfpY2Yk+z7mVeQA2vkPw9me/+Cux9N
+	i+1Z43IulF6e13DHOXqgoyOX8cbEWNXXExjjQEDXAvubBNc0B7LC6yAYDH/9Whr1r/7HAYYL05nPe
+	J1L6yr8y4+xgA0iwKNolAm0GRuQ2sWJTd4+Bn4mU1Hw6mgHVvK+uY5CcnlVcVMvwUq+xX7q9TP8nq
+	861ZaSR1RDRk43i+KE+ofbjCytO0OWeEg4gWA+7nYu7p8qOu83ly63q4z1Hp+ZlbVQWY7UwY9uDAM
+	TByTl0WiiBtMUQeNuRKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnhAb-00000007pDg-1t4e;
-	Fri, 22 Mar 2024 15:51:01 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1rnhEp-00000007ptE-3K5p;
+	Fri, 22 Mar 2024 15:55:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnhAY-00000007pCl-2cx0
+	id 1rnhEn-00000007ps2-0Bta
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Mar 2024 15:51:00 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-56be159c0b3so1064837a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2024 08:50:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1711122656; x=1711727456; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ymH0isND2p2l6PY2xAiE9bsR6I1sbj8UtQEUd2/RRag=;
-        b=Y+h2qKQFH15PUgC8Kp6DEe7aYlzTsgDtBm1vC+tm/BxzL+eIcoV+i9xUe24kXeGzoY
-         wyOCrjesGKx9Skj+Vku17PNdDQP4JSCzFP9htpar8YOt37cdKXDbNwdTqZ4f1/Pd/spS
-         BgSVzId3GaagBwjfjoB4iDZ4LcLQXgK7qqcdekD2XCtGMl13r3oTqW1svZiMyu8kUXKu
-         9fZdBaNVlzchUsyaM/B34oKmqLvIPBoAyadiTKT9IRDAJooHnsrsp/LQb4jcBrxjkOrX
-         f5EfgsSF/3dPNkWjFe3dQ4q9vymj/ZLjKfFpBCKaHFeGPMyilqZjBPzDk4xbkl9zdZ3c
-         iHgg==
+	Fri, 22 Mar 2024 15:55:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1711122920;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QJLFb75dlh9Ilo5izUjxoeGL/8+am1RJvB8MBnP+8/Q=;
+	b=fWVURMiQ5dd5Ao5d0q5LExeFJMB0B0t6ZIcm6V4PNGgLub9IQ5KCfo1oqiniA9YePKSTrj
+	hWCS7CFqi4hDuMOfnKlsEx/9zRFaotgq70f5jvPN72QhOrvGWYMoQ9tYTtJfIVBGQjctgo
+	wwdLR4zAh51n45sR6lbKHPc8UwI88Pk=
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
+ [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-464-dPbukjC5Ple6j5fitMMYuw-1; Fri, 22 Mar 2024 11:55:16 -0400
+X-MC-Unique: dPbukjC5Ple6j5fitMMYuw-1
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-69672754479so912106d6.1
+        for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2024 08:55:16 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711122656; x=1711727456;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ymH0isND2p2l6PY2xAiE9bsR6I1sbj8UtQEUd2/RRag=;
-        b=U9auqYEtClh4QMPU+UPzOKcmXReHzBFFDh8Cbb25cOo6TMzDLfUQzfTXvjqaS419BY
-         bBq/iklnJaNzYFP9zkKPZavx5P19n+I3O/Lkf12SQdA1lny7so2C0VzKgbhYosF0bnfd
-         WpZgMVEUhy7x5RkrLplyf89tmoyyKhloAy7gqteebQMpmg8I6Q0hcZ9vVf8kmuJR5QD9
-         nmin9vJxXGzoObnEvkyZVGc+/cvSuIbEtE1StD8ViTblqPeVvfbvo/1B4zAExZFbv/0O
-         GwbNzqXGE5SSb5Ey0UCGCikLQh7pamUoJ6NMcJHlX/7cVL7tOYL/TmoAhUwEVhin/PSv
-         JwvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVa1Cr0l8af5jh8SHD6zaecafXihMyUY0l1gFsH5PQ2eD4bD66vv4TR1XGVsF37NPU9d0K+n56/ElUNeNFdVI1PE3/QctqUPe8HcyNMbEWx
-X-Gm-Message-State: AOJu0YzZE365MtsWaA6WZBBk+QxRnku7UBBWCbyK7muHk7loyAKpwAPM
-	2umJnzVfa4KrLx//A9RLMerLl/NkQPAefrebjrEELjvybcucNtZQxWF9dJvNdxR2awqp+T/5RUy
-	Uaz56xuFYKrFR69rE90CbbVvJTtdMVJ3+MsH4Gw==
-X-Google-Smtp-Source: AGHT+IGoGdY72aObM/cAbKff/8OaaVeRHOEWoCy27OSLuSued6Nc21UBKLW6w2cjyaK3f6fVjFszEGmEJ44oYiAqXj8=
-X-Received: by 2002:a17:906:817:b0:a47:2ec5:57dd with SMTP id
- e23-20020a170906081700b00a472ec557ddmr101474ejd.72.1711122655848; Fri, 22 Mar
- 2024 08:50:55 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1711122916; x=1711727716;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QJLFb75dlh9Ilo5izUjxoeGL/8+am1RJvB8MBnP+8/Q=;
+        b=dnPYjJOTo/blTM8rD65XgXLnKcgXqVVg5CQEFgzWnbBIfNRQXgIgg2D+etyq6ZFqht
+         p5KA+m0EjGKQStugyJvZ3rqw3YZDdgWGId1hIzh0CeAY6HMesfKSytbnZ9Y0kYltlOZN
+         0GnFlCi5AdN/ku4smtR3eQs9aWlWoWR7F6e9rqN0/a6ddpBNtHL0PRcfVDsfwxtYy5Cl
+         Njf4IoD6+yDM6Cl3qnK69oronNblaQ3v20NCoRMKah2qduJ9baB1iNMr+xZ9ZA6xz/xX
+         s0ZuMOpC1FL9UIwQZj3KLJMmBYBBkVVhFnmdjbyvzg6Ubl6A825NQcA+g8RNLYszGhtS
+         l9xw==
+X-Forwarded-Encrypted: i=1; AJvYcCVxwODihPPKeuvIAiRO+StoShy5uCNCCnZPXWZQxjA3t70DcN7rOGz4PLi/mVi5lusrITM74wfbyMnUyHBTfDk4zgTMCvB0B9jrWwupcVXU
+X-Gm-Message-State: AOJu0YwCEocsnb9UFllTC8elE+DTEQd2wFB8A0hvKsedWHYdvgYtMeVQ
+	40HsQb7kHdlXd3qMDkjSIt+gwUmGtZTdMzVejB6OnKN8mFvxEN01xxprVIX+e3Bau0QnrXyzB0c
+	Q5QNAvqOT5dutWd7zItGI9pTxeOTOg3k2crq9WWVxFLk6+VUtZwXbRwn/kZvKoVdMIg==
+X-Received: by 2002:a05:6214:2b86:b0:696:732f:41ce with SMTP id kr6-20020a0562142b8600b00696732f41cemr1030618qvb.0.1711122916052;
+        Fri, 22 Mar 2024 08:55:16 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGcGgYl+6vk8GOgJHrnHh9Bk553GXwTOWFwJfwdxmayaEVIZH35b8wrrTSaV+/rgNR3L0gYLQ==
+X-Received: by 2002:a05:6214:2b86:b0:696:732f:41ce with SMTP id kr6-20020a0562142b8600b00696732f41cemr1030577qvb.0.1711122915578;
+        Fri, 22 Mar 2024 08:55:15 -0700 (PDT)
+Received: from x1n ([99.254.121.117])
+        by smtp.gmail.com with ESMTPSA id jx12-20020a0562142b0c00b0068ff8bda6c7sm1185452qvb.92.2024.03.22.08.55.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 Mar 2024 08:55:14 -0700 (PDT)
+Date: Fri, 22 Mar 2024 11:55:11 -0400
+From: Peter Xu <peterx@redhat.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Matthew Wilcox <willy@infradead.org>,
+	Rik van Riel <riel@surriel.com>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yang Shi <shy828301@gmail.com>, John Hubbard <jhubbard@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Christoph Hellwig <hch@infradead.org>,
+	linux-riscv@lists.infradead.org,
+	James Houghton <jthoughton@google.com>,
+	David Hildenbrand <david@redhat.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Mike Kravetz <mike.kravetz@oracle.com>
+Subject: Re: [PATCH v3 12/12] mm/gup: Handle hugetlb in the generic
+ follow_page_mask code
+Message-ID: <Zf2p38Pb51T3e9uB@x1n>
+References: <20240321220802.679544-1-peterx@redhat.com>
+ <20240321220802.679544-13-peterx@redhat.com>
+ <20240322133012.GI159172@nvidia.com>
 MIME-Version: 1.0
-References: <tencent_6D851035F6F2FD0B5A69FB391AE39AC6300A@qq.com> <mhng-3e79924e-d965-4156-836d-19cc8fb8cafe@palmer-ri-x1c9a>
-In-Reply-To: <mhng-3e79924e-d965-4156-836d-19cc8fb8cafe@palmer-ri-x1c9a>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Fri, 22 Mar 2024 16:50:44 +0100
-Message-ID: <CAHVXubiosOMnUghsaG_zDyX4wPQ3QGY_UhsUO+PGWQ8v2tDbFw@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: only flush icache when it has VM_EXEC set
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: cyy@cyyself.name, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	aou@eecs.berkeley.edu, Conor Dooley <conor.dooley@microchip.com>, jszhang@kernel.org, 
-	Andrew Waterman <andrew@sifive.com>
+In-Reply-To: <20240322133012.GI159172@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240322_085058_931306_5327DF02 
-X-CRM114-Status: GOOD (  23.99  )
+X-CRM114-CacheID: sfid-20240322_085521_163796_8C18A76F 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,54 +118,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXIgMjAsIDIwMjQgYXQgMTo0OOKAr0FNIFBhbG1lciBEYWJiZWx0IDxwYWxtZXJA
-ZGFiYmVsdC5jb20+IHdyb3RlOgo+Cj4gT24gVHVlLCAwOSBKYW4gMjAyNCAxMDo0ODo1OSBQU1Qg
-KC0wODAwKSwgY3l5QGN5eXNlbGYubmFtZSB3cm90ZToKPiA+IEFzIEktQ2FjaGUgZmx1c2ggb24g
-Y3VycmVudCBSSVNDLVYgbmVlZHMgdG8gc2VuZCBJUElzIHRvIGV2ZXJ5IENQVSBjb3Jlcwo+ID4g
-aW4gdGhlIHN5c3RlbSBpcyB2ZXJ5IGNvc3RseSwgbGltaXRpbmcgZmx1c2hfaWNhY2hlX21tIHRv
-IGJlIGNhbGxlZCBvbmx5Cj4gPiB3aGVuIHZtYS0+dm1fZmxhZ3MgaGFzIFZNX0VYRUMgY2FuIGhl
-bHAgbWluaW1pemUgdGhlIGZyZXF1ZW5jeSBvZiB0aGVzZQo+ID4gb3BlcmF0aW9ucy4gSXQgaW1w
-cm92ZXMgcGVyZm9ybWFuY2UgYW5kIHJlZHVjZXMgZGlzdHVyYmFuY2VzIHdoZW4KPiA+IGNvcHlf
-ZnJvbV91c2VyX3BhZ2UgaXMgbmVlZGVkIHN1Y2ggYXMgcHJvZmlsaW5nIHdpdGggcGVyZi4KPiA+
-Cj4gPiBGb3IgSS1EIGNvaGVyZW5jZSBjb25jZXJucywgaXQgd2lsbCBub3QgZmFpbCBpZiBzdWNo
-IGEgcGFnZSBhZGRzIFZNX0VYRUMKPiA+IGZsYWdzIGluIHRoZSBmdXR1cmUgc2luY2Ugd2UgaGF2
-ZSBjaGVja2VkIGl0IGluIHRoZSBfX3NldF9wdGVfYXQgZnVuY3Rpb24uCj4gPgo+ID4gU2lnbmVk
-LW9mZi1ieTogWWFuZ3l1IENoZW4gPGN5eUBjeXlzZWxmLm5hbWU+Cj4gPiAtLS0KPiA+ICBhcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaCB8IDcgKysrKystLQo+ID4gIDEgZmlsZSBj
-aGFuZ2VkLCA1IGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCj4gPgo+ID4gZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY2FjaGVmbHVzaC5oIGIvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9jYWNoZWZsdXNoLmgKPiA+IGluZGV4IDNjYjUzYzRkZjI3Yy4uOTE1ZjUzMmRjMzM2
-IDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jYWNoZWZsdXNoLmgKPiA+
-ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY2FjaGVmbHVzaC5oCj4gPiBAQCAtMzMsOCAr
-MzMsMTEgQEAgc3RhdGljIGlubGluZSB2b2lkIGZsdXNoX2RjYWNoZV9wYWdlKHN0cnVjdCBwYWdl
-ICpwYWdlKQo+ID4gICAqIHNvIGluc3RlYWQgd2UganVzdCBmbHVzaCB0aGUgd2hvbGUgdGhpbmcu
-Cj4gPiAgICovCj4gPiAgI2RlZmluZSBmbHVzaF9pY2FjaGVfcmFuZ2Uoc3RhcnQsIGVuZCkgZmx1
-c2hfaWNhY2hlX2FsbCgpCj4gPiAtI2RlZmluZSBmbHVzaF9pY2FjaGVfdXNlcl9wYWdlKHZtYSwg
-cGcsIGFkZHIsIGxlbikgXAo+ID4gLSAgICAgZmx1c2hfaWNhY2hlX21tKHZtYS0+dm1fbW0sIDAp
-Cj4gPiArI2RlZmluZSBmbHVzaF9pY2FjaGVfdXNlcl9wYWdlKHZtYSwgcGcsIGFkZHIsIGxlbikg
-ICBcCj4gPiArZG8geyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBcCj4gPiArICAgICBpZiAodm1hLT52bV9mbGFncyAmIFZNX0VYRUMpICAgICAgICAgICAg
-ICAgICAgICBcCj4gPiArICAgICAgICAgICAgIGZsdXNoX2ljYWNoZV9tbSh2bWEtPnZtX21tLCAw
-KTsgICAgICAgICBcCj4gPiArfSB3aGlsZSAoMCkKPiA+Cj4gPiAgI2lmZGVmIENPTkZJR182NEJJ
-VAo+ID4gICNkZWZpbmUgZmx1c2hfY2FjaGVfdm1hcChzdGFydCwgZW5kKSBmbHVzaF90bGJfa2Vy
-bmVsX3JhbmdlKHN0YXJ0LCBlbmQpCj4KPiBJJ20gbm90IHN1cGVyIHdvcnJpZWQgYWJvdXQgdGhl
-IGJlbmNobWFya3MsIEkgdGhpbmsgd2UgY2FuIGp1c3QKPiBvcGVuLWxvb3AgYXNzdW1lIHRoaXMg
-aXMgZmFzdGVyIGJ5IGF2b2lkaW5nIHRoZSBmbHVzaGVzLiAgSSBkbyB0aGluayB3ZQo+IG5lZWQg
-YSBob29rIGludG8gYXQgbGVhc3QgdGxiX3VwZGF0ZV92bWFfZmxhZ3MoKSwgdGhvdWdoLCB0byBp
-bnNlcnQgdGhlCj4gZmVuY2UuaSB3aGVuIHVwZ3JhZGluZyBhIG1hcHBpbmcgdG8gaW5jbHVkZSBW
-TV9FWEVDLgoKSSdkIHNheSBZYW5neXUgaXMgcmlnaHQgd2hlbiBoZSBtZW50aW9ucyBpbiB0aGUg
-Y29tbWl0IGxvZzogIkZvciBJLUQKY29oZXJlbmNlIGNvbmNlcm5zLCBpdCB3aWxsIG5vdCBmYWls
-IGlmIHN1Y2ggYSBwYWdlIGFkZHMgVk1fRVhFQyBmbGFncwppbiB0aGUgZnV0dXJlIHNpbmNlIHdl
-IGhhdmUgY2hlY2tlZCBpdCBpbiB0aGUgX19zZXRfcHRlX2F0IGZ1bmN0aW9uLiIuCklmIGEgcmVn
-aW9uIGluZGVlZCBiZWNvbWVzIGV4ZWN1dGFibGUsIHRoZSBwYWdlIHRhYmxlIHdpbGwgYmUgbW9k
-aWZpZWQKdG8gcmVmbGVjdCB0aGF0IGFuZCB0aGVuIHdpbGwgcGFzcyBpbiBfX3NldF9wdGVfYXQo
-KSB3aGljaCwgYXMgWWFuZ3l1Cm1lbnRpb25zLCBkb2VzIHRoZSByaWdodCB0aGluZy4gT3IgYW0g
-SSBtaXNzaW5nIHNvbWV0aGluZz8KClRoYW5rcywKCkFsZXgKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Jason,
+
+On Fri, Mar 22, 2024 at 10:30:12AM -0300, Jason Gunthorpe wrote:
+> On Thu, Mar 21, 2024 at 06:08:02PM -0400, peterx@redhat.com wrote:
+> 
+> > A quick performance test on an aarch64 VM on M1 chip shows 15% degrade over
+> > a tight loop of slow gup after the path switched.  That shouldn't be a
+> > problem because slow-gup should not be a hot path for GUP in general: when
+> > page is commonly present, fast-gup will already succeed, while when the
+> > page is indeed missing and require a follow up page fault, the slow gup
+> > degrade will probably buried in the fault paths anyway.  It also explains
+> > why slow gup for THP used to be very slow before 57edfcfd3419 ("mm/gup:
+> > accelerate thp gup even for "pages != NULL"") lands, the latter not part of
+> > a performance analysis but a side benefit.  If the performance will be a
+> > concern, we can consider handle CONT_PTE in follow_page().
+> 
+> I think this is probably fine for the moment, at least for this
+> series, as CONT_PTE is still very new.
+> 
+> But it will need to be optimized. "slow" GUP is the only GUP that is
+> used by FOLL_LONGTERM and it still needs to be optimized because you
+> can't assume a FOLL_LONGTERM user will be hitting the really slow
+> fault path. There are enough important cases where it is just reading
+> already populted page tables, and these days, often with large folios.
+
+Ah, I thought FOLL_LONGTERM should work in most cases for fast-gup,
+especially for hugetlb, but maybe I missed something?  I do see that devmap
+skips fast-gup for LONGTERM, we also have that writeback issue but none of
+those that I can find applies to hugetlb.  This might be a problem indeed
+if we have hugetlb cont_pte pages that will constantly fallback to slow
+gup.
+
+OTOH, I also agree with you that such batching would be nice to have for
+slow-gup, likely devmap or many fs (exclude shmem/hugetlb) file mappings
+can at least benefit from it due to above.  But then that'll be a more
+generic issue to solve, IOW, we still don't do that for !hugetlb cont_pte
+large folios, before or after this series.
+
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+
+Thanks!
+
+-- 
+Peter Xu
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
