@@ -4,48 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB5A4C54E64
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Mar 2024 01:06:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006AEC47DD9
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Mar 2024 02:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Message-Id:Date:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=9HNhGmaUqAEZYIyP9/ckdUbOtJbNLvqV2tu1jvLv2wI=; b=Shct0l8kpVGux7
-	f/GCrVSo9aP97nch40YvOUo1M2UIHlyduhj5QVzcz/0sNRvzsIcbV9otBkMnSQkBtwin0uSYyaK67
-	p5ta7BDl6zgnMQkRclDoOL+sEGVHJe4GETMAijG0OdiSzHKBuAH1AFBRdvqd79nyQ1HBZ5Hmi2cdk
-	ySxjAJYLl2b77HGZ7I7mgjbhCqBVyD83+b8oDdIfJNEqWGqBPXAYmPe5QL69FF3Tuxz+r+XzzCU4Z
-	ZgCN/Pgrc4mKfQ0+IVAyuUlu9v852ZBdt7/sEdckYa+0HMc84gn+eyenW+huzXjmOQ4zdK7ru4USo
-	ghOtcFOik9e+nmwRlOiw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2dEQLg+MORr8ylIdCF4ge125aDswIbnvt8m7VTCL+rg=; b=ZjKxNXMZ5Tw5MI
+	rvOvymf2e9tDTP/9EFncB/NzTSrlTET2OlVQ65lzAdvDh/VG3oxlZoXhfS9C/rF5rsVXzOe1J0bLV
+	C16fW704l+IC91ilkrns4Ni79zsWbgoHuxUqUN8Wqo1U4Dq2O9tYDXYDuO9WhbCn1sBkJsP7AY8pE
+	d/6aItJOwy5D0sgr5c1tgWdw9VFvr1rJ9QJ/bt54nQ92e4NasR28gTjc+mx0pi7Q6+nVpIgeyxI0f
+	BhMtrYxUax/Q+ty930kqbx8c2jiFvub6FaLG/fLfD9QdvRv4KFpTp8OXeDqCESEIOfgioe/Ph2COy
+	tfPdyF7vCEtS9Z9/1RqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnppc-0000000965O-0GEw;
-	Sat, 23 Mar 2024 01:05:56 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rnqv5-00000009Db1-1aVL;
+	Sat, 23 Mar 2024 02:15:39 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnppX-0000000963s-40vh;
-	Sat, 23 Mar 2024 01:05:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7A37ECE18C7;
-	Sat, 23 Mar 2024 01:05:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04826C433F1;
-	Sat, 23 Mar 2024 01:05:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711155945;
-	bh=3+zZh3XFJnxQpCAGDeyGmKq33BNtz2+66eAEGL4876Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:From;
-	b=EcMiWiUkiXF0pmTkhVhDvP+BA3m6SBMpMePHLS3lgvhzbCdo9T5o6x2xTa8QoCvtQ
-	 ZiIr3laXn2TxW1OUddMIfS1+bJqiPdQdS/W9Rj6yvZxknL1k5q/DKyC9sWIyvTCsmL
-	 qjz9g+3k55UpMTkbn5Fmp2EPQC/vmOSHUkLHq5nPc1YFOdstql4q7f52P4kaf6kZOe
-	 OK6Xw3iZcQy36q6zjiD/Nq4FMHprCktSrO9wXGQN1nYHgDgHW9odHpf0M4qlTAphIv
-	 Qt9VjffONOVJFRHRVRK9EkkPxU/upViU53CWHBYVwXM057H2FC5cyRrlr1LY92qHmO
-	 G5ofpS5wd8PeQ==
-From: SeongJae Park <sj@kernel.org>
-To: Peter Xu <peterx@redhat.com>
-Cc: SeongJae Park <sj@kernel.org>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
+	id 1rnqv2-00000009DYO-0nUw
+	for linux-riscv@lists.infradead.org;
+	Sat, 23 Mar 2024 02:15:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1711160128;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pAkp5p3e769nx5gm8jMLR0gRsGSeiOkGgQjUssudat0=;
+	b=jD9FrBoOpF1ijMzmHMb4WTjaTY7ga8/Oh5XO9n3zvRSYSzKBGUZgWwSp5TGyGR3pA/gYPM
+	e6Jtw2eCxql5/3Fz9AB07i57HMBr4ELth4Nk7oqn02bAubVjWAn89cTvkL/VAXZGizvtvU
+	lz1XGTeNZdP0zAqguCMwY0YdF2U4HG0=
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
+ [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-271-sj_844cgMEqM1NPUhyQOCw-1; Fri, 22 Mar 2024 22:15:27 -0400
+X-MC-Unique: sj_844cgMEqM1NPUhyQOCw-1
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-430c9bbe925so5082281cf.0
+        for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2024 19:15:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711160124; x=1711764924;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pAkp5p3e769nx5gm8jMLR0gRsGSeiOkGgQjUssudat0=;
+        b=LIVpXZGerUoUm3IhpRL156a0hz1SW/81LEv6ZPcUzyjvKgWW9hY1pg39rT0GoF74Gs
+         G7trkWJyAgMIMTCWH1+g0lctKMzt7VHWq0a7eioieKw7ATKCisa2rNihhC4OnMLfBdof
+         uT2OlJGGBNt75RcnG1P7ogzopUOfCJcEHoOzXRvhnzwbW1yQPw0gcachMA4RxLRxzilD
+         +WT9ZiBuclDAn55pVrdanP1+kcHLto3+0l5lHWlDyxV1ELZmLx4fQmZmNYp1+tf/pLIv
+         Rb6Fto4VSzCwSUfs1AoTL/sl82B9bAxhPuPaX8v5fukrMzU6D68qQSfdqLup0x6A0hAJ
+         b+Yg==
+X-Forwarded-Encrypted: i=1; AJvYcCV23e+TM2oIkPz5FMSOo7k/XWypZXJ5e4/+dvHoWLPJh4T4z96ixpnwIXdWrOgzIYUFNAZ5lI2yMGsjJAIHR4qhBVmnwMNPtcKYNXM7HOhp
+X-Gm-Message-State: AOJu0Yy1hBIq9sbVxyqKD1nxabsPIIowqz/cWYLwhLS/mh2QXbo23tVe
+	+APzecXZ0lENYVRmRzhSofi4116OiKaIxwaOnV1OKhUl0z8pu2VtSQ0y9I3hvAaBhlVUlmIdMiD
+	oUA4i9R1hlfl6fiY8gV4bl1WjfnpJ6f6ma8D43JSygaacjkuRia0UC+8TlYfzYvxecg==
+X-Received: by 2002:a05:622a:528b:b0:431:3e97:fb0b with SMTP id dr11-20020a05622a528b00b004313e97fb0bmr799008qtb.3.1711160124070;
+        Fri, 22 Mar 2024 19:15:24 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGSSiaxwf9qVJ61bWD658BkK6bIoISbqMAPHSz2R/uod8u0yF1+dnf1k4ZlNnixmtjYf7I/qg==
+X-Received: by 2002:a05:622a:528b:b0:431:3e97:fb0b with SMTP id dr11-20020a05622a528b00b004313e97fb0bmr798965qtb.3.1711160123562;
+        Fri, 22 Mar 2024 19:15:23 -0700 (PDT)
+Received: from x1n ([99.254.121.117])
+        by smtp.gmail.com with ESMTPSA id f9-20020a05622a114900b0043140cd9996sm152221qty.38.2024.03.22.19.15.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 Mar 2024 19:15:23 -0700 (PDT)
+Date: Fri, 22 Mar 2024 22:15:20 -0400
+From: Peter Xu <peterx@redhat.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	Michael Ellerman <mpe@ellerman.id.au>,
 	Christophe Leroy <christophe.leroy@csgroup.eu>,
@@ -53,14 +79,11 @@ Cc: SeongJae Park <sj@kernel.org>,
 	Rik van Riel <riel@surriel.com>,
 	Lorenzo Stoakes <lstoakes@gmail.com>,
 	Axel Rasmussen <axelrasmussen@google.com>,
-	Yang Shi <shy828301@gmail.com>,
-	John Hubbard <jhubbard@nvidia.com>,
+	Yang Shi <shy828301@gmail.com>, John Hubbard <jhubbard@nvidia.com>,
 	linux-arm-kernel@lists.infradead.org,
 	"Kirill A . Shutemov" <kirill@shutemov.name>,
 	Andrew Jones <andrew.jones@linux.dev>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
 	Muchun Song <muchun.song@linux.dev>,
 	Christoph Hellwig <hch@infradead.org>,
 	linux-riscv@lists.infradead.org,
@@ -70,14 +93,21 @@ Cc: SeongJae Park <sj@kernel.org>,
 	Andrea Arcangeli <aarcange@redhat.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
 	Mike Kravetz <mike.kravetz@oracle.com>
-Subject: Re: [PATCH v3 03/12] mm: Make HPAGE_PXD_* macros even if !THP
-Date: Fri, 22 Mar 2024 18:05:28 -0700
-Message-Id: <20240323010528.10959-1-sj@kernel.org>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <Zf4ioDkuSNJ0f1vR@x1n>
+Subject: Re: [PATCH v3 12/12] mm/gup: Handle hugetlb in the generic
+ follow_page_mask code
+Message-ID: <Zf47OKjYjkUhs6AT@x1n>
+References: <20240321220802.679544-1-peterx@redhat.com>
+ <20240321220802.679544-13-peterx@redhat.com>
+ <20240322134818.9b312f77629f79fcf1564b6f@linux-foundation.org>
+ <Zf4mR_OxE5Ft4VJg@x1n>
+MIME-Version: 1.0
+In-Reply-To: <Zf4mR_OxE5Ft4VJg@x1n>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240322_180552_366268_E1622D04 
-X-CRM114-Status: GOOD (  42.20  )
+X-CRM114-CacheID: sfid-20240322_191536_334362_12A9B91F 
+X-CRM114-Status: GOOD (  47.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,147 +119,149 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
-
-On Fri, 22 Mar 2024 20:30:24 -0400 Peter Xu <peterx@redhat.com> wrote:
-
-> On Fri, Mar 22, 2024 at 10:14:56AM -0700, SeongJae Park wrote:
-> > Hi Peter,
-> 
-> Hi, SeongJae,
-> 
-> > 
-> > On Thu, 21 Mar 2024 18:07:53 -0400 peterx@redhat.com wrote:
+On Fri, Mar 22, 2024 at 08:45:59PM -0400, Peter Xu wrote:
+> On Fri, Mar 22, 2024 at 01:48:18PM -0700, Andrew Morton wrote:
+> > On Thu, 21 Mar 2024 18:08:02 -0400 peterx@redhat.com wrote:
 > > 
 > > > From: Peter Xu <peterx@redhat.com>
 > > > 
-> > > These macros can be helpful when we plan to merge hugetlb code into generic
-> > > code.  Move them out and define them even if !THP.
+> > > Now follow_page() is ready to handle hugetlb pages in whatever form, and
+> > > over all architectures.  Switch to the generic code path.
 > > > 
-> > > We actually already defined HPAGE_PMD_NR for other reasons even if !THP.
-> > > Reorganize these macros.
+> > > Time to retire hugetlb_follow_page_mask(), following the previous
+> > > retirement of follow_hugetlb_page() in 4849807114b8.
 > > > 
-> > > Reviewed-by: Christoph Hellwig <hch@infradead.org>
-> > > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> > > Signed-off-by: Peter Xu <peterx@redhat.com>
-> > > ---
-> > >  include/linux/huge_mm.h | 17 ++++++-----------
-> > >  1 file changed, 6 insertions(+), 11 deletions(-)
+> > > There may be a slight difference of how the loops run when processing slow
+> > > GUP over a large hugetlb range on cont_pte/cont_pmd supported archs: each
+> > > loop of __get_user_pages() will resolve one pgtable entry with the patch
+> > > applied, rather than relying on the size of hugetlb hstate, the latter may
+> > > cover multiple entries in one loop.
 > > > 
-> > > diff --git a/include/linux/huge_mm.h b/include/linux/huge_mm.h
-> > > index de0c89105076..3bcdfc7e5d57 100644
-> > > --- a/include/linux/huge_mm.h
-> > > +++ b/include/linux/huge_mm.h
-> > > @@ -64,9 +64,6 @@ ssize_t single_hugepage_flag_show(struct kobject *kobj,
-> > >  				  enum transparent_hugepage_flag flag);
-> > >  extern struct kobj_attribute shmem_enabled_attr;
-> > >  
-> > > -#define HPAGE_PMD_ORDER (HPAGE_PMD_SHIFT-PAGE_SHIFT)
-> > > -#define HPAGE_PMD_NR (1<<HPAGE_PMD_ORDER)
-> > > -
-> > >  /*
-> > >   * Mask of all large folio orders supported for anonymous THP; all orders up to
-> > >   * and including PMD_ORDER, except order-0 (which is not "huge") and order-1
-> > > @@ -87,14 +84,19 @@ extern struct kobj_attribute shmem_enabled_attr;
-> > >  #define thp_vma_allowable_order(vma, vm_flags, smaps, in_pf, enforce_sysfs, order) \
-> > >  	(!!thp_vma_allowable_orders(vma, vm_flags, smaps, in_pf, enforce_sysfs, BIT(order)))
-> > >  
-> > > -#ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> > >  #define HPAGE_PMD_SHIFT PMD_SHIFT
-> > >  #define HPAGE_PMD_SIZE	((1UL) << HPAGE_PMD_SHIFT)
-> > >  #define HPAGE_PMD_MASK	(~(HPAGE_PMD_SIZE - 1))
-> > > +#define HPAGE_PMD_ORDER (HPAGE_PMD_SHIFT-PAGE_SHIFT)
-> > > +#define HPAGE_PMD_NR (1<<HPAGE_PMD_ORDER)
-> > >  
-> > >  #define HPAGE_PUD_SHIFT PUD_SHIFT
-> > >  #define HPAGE_PUD_SIZE	((1UL) << HPAGE_PUD_SHIFT)
-> > >  #define HPAGE_PUD_MASK	(~(HPAGE_PUD_SIZE - 1))
-> > > +#define HPAGE_PUD_ORDER (HPAGE_PUD_SHIFT-PAGE_SHIFT)
-> > > +#define HPAGE_PUD_NR (1<<HPAGE_PUD_ORDER)
+> > > A quick performance test on an aarch64 VM on M1 chip shows 15% degrade over
+> > > a tight loop of slow gup after the path switched.  That shouldn't be a
+> > > problem because slow-gup should not be a hot path for GUP in general: when
+> > > page is commonly present, fast-gup will already succeed, while when the
+> > > page is indeed missing and require a follow up page fault, the slow gup
+> > > degrade will probably buried in the fault paths anyway.  It also explains
+> > > why slow gup for THP used to be very slow before 57edfcfd3419 ("mm/gup:
+> > > accelerate thp gup even for "pages != NULL"") lands, the latter not part of
+> > > a performance analysis but a side benefit.  If the performance will be a
+> > > concern, we can consider handle CONT_PTE in follow_page().
+> > > 
+> > > Before that is justified to be necessary, keep everything clean and simple.
+> > > 
 > > 
-> > I just found latest mm-unstable fails one of my build configurations[1] with
-> > below error.  'git bisect' says this is the first patch set started the
-> > failure.  I haven't looked in deep, but just reporting first.
+> > mm/gup.c:33:21: warning: 'follow_hugepd' declared 'static' but never defined [-Wunused-function]
+> >    33 | static struct page *follow_hugepd(struct vm_area_struct *vma, hugepd_t hugepd,
+> >       |                     ^~~~~~~~~~~~~
 > > 
-> >     In file included from .../include/linux/mm.h:1115,
-> >                      from .../mm/vmstat.c:14:
-> >     .../mm/vmstat.c: In function 'zoneinfo_show_print':
-> >     .../include/linux/huge_mm.h:87:25: error: 'PMD_SHIFT' undeclared (first use in this function); did you mean 'PUD_SHIFT'?
-> >        87 | #define HPAGE_PMD_SHIFT PMD_SHIFT
-> >           |                         ^~~~~~~~~
+> > --- a/mm/gup.c~mm-gup-handle-hugepd-for-follow_page-fix
+> > +++ a/mm/gup.c
+> > @@ -30,10 +30,12 @@ struct follow_page_context {
+> >  	unsigned int page_mask;
+> >  };
+> >  
+> > +#ifdef CONFIG_HAVE_FAST_GUP
+> >  static struct page *follow_hugepd(struct vm_area_struct *vma, hugepd_t hugepd,
+> >  				  unsigned long addr, unsigned int pdshift,
+> >  				  unsigned int flags,
+> >  				  struct follow_page_context *ctx);
+> > +#endif
+> >  
+> >  static inline void sanity_check_pinned_pages(struct page **pages,
+> >  					     unsigned long npages)
+> > _
 > > 
-> > [1] https://github.com/awslabs/damon-tests/blob/next/corr/tests/build_m68k.sh
+> > 
+> > This looks inelegant.
+> > 
+> > That's two build issues so far.  Please be more expansive in the
+> > Kconfig variations when testing.  Especially when mucking with pgtable
+> > macros.
 > 
-> Apologies for the issue.
+> Andrew,
+> 
+> Apologies for that, and also for a slightly late response.  Yeah it's time
+> I'll need my set of things to do serious build tests, and I'll at least
+> start to cover a few error prone configs/archs in with that.
+> 
+> I was trying to rely on the build bot in many of previous such cases, as
+> that was quite useful to me to cover many build issues without investing my
+> own test setups, but I think for some reason it retired and stopped working
+> for a while.  Maybe I shouldn't have relied on it at all.
+> 
+> For this specific issue, I'm not sure if CONFIG_HAVE_FAST_GUP is proper?
+> As follow_hugepd() is used in slow gup not fast.  So maybe we can put that
+> under CONFIG_MMU below that code (and I think we can drop "static" too as I
+> don't think it's anything useful).  My version of fixup attached at the end
 
-No problem at all, this blocks nothing in real :)
+the static is useful; below patch did pass on m68k but won't on
+x86.. ignore that please.
 
-> This is caused by !CONFIG_MMU, I think.
+> of email, and I verified it on m68k build.
 > 
-> I thought this would be fairly easy to fix by putting these macros under
-> CONFIG_PGTABLE_HAS_HUGE_LEAVES, however when doing this I could have found
-> some other issue that violates this rule.. mm/vmstat.c has referenced
-> HPAGE_PMD_NR even if vmstat_item_print_in_thp() wanted to guard it only
-> with CONFIG_THP.
-> 
-> /home/peterx/git/linux/mm/vmstat.c: In function 'zoneinfo_show_print':
-> /home/peterx/git/linux/mm/vmstat.c:1689:42: error: 'HPAGE_PMD_NR' undeclared (first use in this function)
->  1689 |                                 pages /= HPAGE_PMD_NR;
->       |                                          ^~~~~~~~~~~~
-> /home/peterx/git/linux/mm/vmstat.c:1689:42: note: each undeclared identifier is reported only once for each function it appears in
->   CC      drivers/tty/tty_port.o
-> /home/peterx/git/linux/mm/vmstat.c: In function 'vmstat_start':
-> /home/peterx/git/linux/mm/vmstat.c:1822:33: error: 'HPAGE_PMD_NR' undeclared (first use in this function)
->  1822 |                         v[i] /= HPAGE_PMD_NR;
->       |                                 ^~~~~~~~~~~~
-> make[4]: *** [/home/peterx/git/linux/scripts/Makefile.build:243: mm/vmstat.o] Error 1
-> 
-> static __always_inline bool vmstat_item_print_in_thp(enum node_stat_item item)
-> {
->         if (!IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE))
->                 return false;
->         ...
-> }
-> 
-> I think the problem is vmstat_item_print_in_thp() uses IS_ENABLED() however
-> that won't stop compiler from looking into the "if".. so it'll still try to
-> find the HPAGE_PMD_NR macro.
-> 
-> It means, I may need to further change vmstat_item_print_in_thp() to make
-> this work in the clean way.. by properly switching to a #ifdef.
-> 
-> For that I'll need to post a formal patch and add people to review.  I'll
-> keep you posted.
+> I do plan to post a small fixup series to fix these issues (so far it may
+> contain 1 formal patch to touch up vmstat_item_print_in_thp, and 2 fixups
+> where I'll mark the subject with "fixup!" properly).  Either you can pick
+> up below or you can wait for my small patchset, should be there either
+> today or tomorrow.
 
-Thank you for this kind explanation, all makes sense to me.  Looking forward to
-the patch.
+I changed plan here too; I found more users of HPAGE_PMD_NR assuming it's
+defined even if !CONFIG_MMU.  That's weird, as CONFIG_MMU doesn't even
+define PMD_SHIFT...  To fix this I decided to use the old trick on using
+BUILD_BUG() like it used to work before; frankly I don't know how that
+didn't throw warnings, but i'll make sure it passes all known builds (ps: I
+still haven't got my build harness ready, so that will still be limited but
+should solve known issues).
 
-> 
-> Side note: thank you for your script, just to mention make.cross has been
-> moved to kbuild/, and it'll also need kbuild.sh now to work.  So you may
-> want to fix your test script (and it worked for you because you kept the
-> old make.cross around), like:
-> 
->   wget https://raw.githubusercontent.com/intel/lkp-tests/master/kbuild/make.cross -O ./bin/make.cross
->   wget https://raw.githubusercontent.com/intel/lkp-tests/master/kbuild/kbuild.sh -O ./bin/kbuild.sh
-
-And thank you so much for this nice suggestion.  I'll revisit the script soon.
-
-
-Thanks,
-SJ
+In short: please wait for my fixup series.  Thanks.
 
 > 
 > Thanks,
 > 
+> ===8<===
+> diff --git a/mm/gup.c b/mm/gup.c
+> index 4cd349390477..a2ed8203495a 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -30,11 +30,6 @@ struct follow_page_context {
+>         unsigned int page_mask;
+>  };
+>  
+> -static struct page *follow_hugepd(struct vm_area_struct *vma, hugepd_t hugepd,
+> -                                 unsigned long addr, unsigned int pdshift,
+> -                                 unsigned int flags,
+> -                                 struct follow_page_context *ctx);
+> -
+>  static inline void sanity_check_pinned_pages(struct page **pages,
+>                                              unsigned long npages)
+>  {
+> @@ -505,6 +500,12 @@ static inline void mm_set_has_pinned_flag(unsigned long *mm_flags)
+>  }
+>  
+>  #ifdef CONFIG_MMU
+> +
+> +struct page *follow_hugepd(struct vm_area_struct *vma, hugepd_t hugepd,
+> +                          unsigned long addr, unsigned int pdshift,
+> +                          unsigned int flags,
+> +                          struct follow_page_context *ctx);
+> +
+>  static struct page *no_page_table(struct vm_area_struct *vma,
+>                                   unsigned int flags, unsigned long address)
+>  {
+> ===8<===
+> 
 > -- 
 > Peter Xu
+
+-- 
+Peter Xu
+
 
 _______________________________________________
 linux-riscv mailing list
