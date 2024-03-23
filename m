@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74989C54E67
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Mar 2024 20:38:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1447BC54E67
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Mar 2024 23:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wb/SXKF3Mm070cKMtRL06qFho/tmypyVZHRdxDDv2hE=; b=V3x92txJABvQEx
-	nqjP4zxLX/dTVykNibcxu92skMSOcbDkYlnkEDkok78ljkDR+/BaVfQ+pWBofANmvcgkZW9WNwlHS
-	ubaH4rsFkk7yhlh99k1JeEquwDL31PVJP9Flm01m8/JEqX74eGpermmqp+aGdrZKXwV1b1hJILqQ2
-	SwQqcxGnusyjtAHefYDTZJoRN+aLTVvGEIGOLmnXKFl7RbuN5Q8OAOnhAl4n/YO4VOL4L/6SEkexc
-	l3J+jDV6B+9+Lvw55h9HWgjxbrhd4I5yG/v8R1gbgH1cIbbzmLiHPPTgGroP9cx6IKolxAjhAtRyu
-	5oCjBT4SoQ7ejjrplOKA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+7dJWolWdXwnpbMb9kq1lFV7G5zXFjHhPK5akTYmDnE=; b=A9GKtsh21l/11A
+	1PYoltcP4nWVlaLbBXmR+7Jks7rlSYp1HJidrtzttznI4Ij1F8WhwXvtBkpdmrQ2On0x16TzMA529
+	r+eJ3FDdkhA8HASAjqQoUsID4po4c4PhWNJrIFFwePWglpmWA88c8UUAmvlNp2+wvDj37W1HqqIC4
+	TIwxIa8zytxAMTd1w6GS9tbzxN30vtzYpYxkuAzMoq63HuTSlxnOYG+nQQ8be7H5uWbOLwFVP4Gsw
+	YPWdTRZW6Hef7NzEFWusNMYVy7vTcmOBPIbfzvexirgbnrEFHA0FSl44X3uzBs60adZyMJ2F99tT/
+	tKTbjNRd7TATclW5KnpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ro87g-0000000B8OT-0SnS;
-	Sat, 23 Mar 2024 20:37:48 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1roAni-0000000BOVT-0doQ;
+	Sat, 23 Mar 2024 23:29:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ro87c-0000000B8Nq-3ZVr
+	id 1roAnd-0000000BOUm-4B1v
 	for linux-riscv@lists.infradead.org;
-	Sat, 23 Mar 2024 20:37:46 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-611450d7f95so3210467b3.2
-        for <linux-riscv@lists.infradead.org>; Sat, 23 Mar 2024 13:37:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1711226260; x=1711831060; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=24wJWvfMNNR4rY9ZJ72kq+zMk5fkM7haArePsqOnmfc=;
-        b=xYLhwnoe2Iz1W2GLP4ZbxTosDpmbdgSy64dvqSsCmO0+MCYVnoQvoi4HaegZxiwOwV
-         j2Ca1HPTSfsGxDf0yvJpi0HZep7wfyQkRZQ6L0R2OxItcBFV8Fu6kPSLd5WSpi0XSMnT
-         veqjBQNDj/qSN94TcJtJoMdB9hQaPsOIMpx04A3NNfUkRC9xcjvsXdX/ZHI8L2SH+uKe
-         hh68pO//JncRmmIoUzrKehxSaxB5L7Y0TGI83opNso6oZlhZheRbozi01Y0FtWTQDagi
-         JE+ltxd+9dquDeR9oJTrsMr/90/ZhZfoj0UH4GWZnWLT+bg8DvI5ZnJHlnGgrj3mxg0L
-         UutQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711226260; x=1711831060;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=24wJWvfMNNR4rY9ZJ72kq+zMk5fkM7haArePsqOnmfc=;
-        b=eR55+dP/f95XJn0waGhSZMVdX3+2yIosnlN8MpLV5z+XlOarypvqZOp86b2QvsaMrs
-         45UbX11Y8fB9kHiWxPGBfbqOF9gQYyw5lcg7/G3ab4w1nYRfmr1LRVzle3j/Xj3SlYKB
-         MBDH7p1N8c4yz8OK+JbtBXu0mFwfFyFYZyYW28Z/7JbGTysFoOqSCm3TtYCwbi5sfmzr
-         oSrE+/hprXI85F6uElXco+FMpMQvRpM2LhsdwkEU153696JH+PXZUx+Q81YV5PLZKb4l
-         vyV7hhlDq0G0lAqFlMQT4hYAHjt66St82HVizpSAYIIk4gOp2w0Xs0WcvualUy3CA3YO
-         8TEA==
-X-Forwarded-Encrypted: i=1; AJvYcCVxGB43Y2obFpVJkpno5WDqzaz5YDKBi07UoMASnuoqV9lyb8j0eZBxeEZqyQ7vI1WRWq+atxT2hcvdElpfNBHs3A5QWpBLEx9r9urRKWVb
-X-Gm-Message-State: AOJu0Yy7uRohWPvKSnlKrajqXZax6DRwNFWZI5nJrh0HxVdu+fbirbBt
-	TGXfMsFcgWAxPjeWW7g0TfZO4Ckfmk+12TxEWWDL5drl4imDrcawVe3ohdbNbVrZxB0FuBiUvP3
-	lky2wwNHDe5eTUokq11ISX9EUnxITa60Spb1oyQ==
-X-Google-Smtp-Source: AGHT+IGKymQ6ArV3LTX39wPDQmJ+EcNQqIyE71qeKh8yulGXmkXtiwJzoMcBHLUtnhwBvRoabFlDgM5kHlMz+0M6rCw=
-X-Received: by 2002:a0d:d981:0:b0:609:6eb0:4714 with SMTP id
- b123-20020a0dd981000000b006096eb04714mr2781546ywe.34.1711226259384; Sat, 23
- Mar 2024 13:37:39 -0700 (PDT)
+	Sat, 23 Mar 2024 23:29:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 804E960A6A;
+	Sat, 23 Mar 2024 23:29:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 193E6C433F1;
+	Sat, 23 Mar 2024 23:29:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1711236554;
+	bh=DFLXMyPmscxf4I9XqjyiNOCfh0JkCttt9htibcd+9QE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=COx2Wd78hfLWC/f2kzH5GeOVaqNKH8iDK8CG/FVir5jZRjxgGoXAdtV4gN39ymnLZ
+	 qx/h0CdhVrkaqYeat1Adec4vD/76z0EQxbehcxUo8LkkSZHmDE3qDX6h/INWf0br/Y
+	 +sETpy5BMkEEAF2o4gn3PBLU8oSN38OuA2IW3NZPWiMXqScn7VeX1ptUZbOl9t137A
+	 rGaaStGYPqGb1tgle2OiRdNdyVIAQjKa9nxWSo/jcz/QAI4DQqBrpCDfe7HZRLHji6
+	 FDgk/7E7ewAnbKPlK879m8kP+PF0K4d/P2Xyjc6VMn0rlWKLad5nCWt9ajrkECwkg1
+	 wnFmKdxWryYpA==
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-kernel@vger.kernel.org,
+	"Naveen N . Rao" <naveen.n.rao@linux.ibm.com>,
+	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	linux-trace-kernel@vger.kernel.org,
+	Jarkko Sakkinen <jarkko@kernel.org>
+Subject: [PATCH v2] arch/riscv: Enable kprobes when CONFIG_MODULES=n
+Date: Sun, 24 Mar 2024 01:29:08 +0200
+Message-ID: <20240323232908.13261-1-jarkko@kernel.org>
+X-Mailer: git-send-email 2.44.0
 MIME-Version: 1.0
-References: <20240319215915.832127-1-samuel.holland@sifive.com>
- <20240319215915.832127-6-samuel.holland@sifive.com> <CAKC1njSg9-hJo6hibcM9a-=FUmMWyR39QUYqQ1uwiWhpBZQb9A@mail.gmail.com>
- <40ab1ce5-8700-4a63-b182-1e864f6c9225@sifive.com> <CAKC1njQYZHbQJ71mapeG1DEw=A+aGx77xsuQGecsNFpoJ=tzGQ@mail.gmail.com>
- <d9452ab4-a783-4bcf-ac25-40baa4f31fac@sifive.com> <CAKC1njRBbzM+gWowg1LOjq5GzVn4q+vJP9JUswVYfWmEw+yHSg@mail.gmail.com>
- <20240323-28943722feb57a41fb0ff488@orel>
-In-Reply-To: <20240323-28943722feb57a41fb0ff488@orel>
-From: Deepak Gupta <debug@rivosinc.com>
-Date: Sat, 23 Mar 2024 13:37:28 -0700
-Message-ID: <CAKC1njRqWYOsF9bQvWX99DhP8Ji_wDUc8J8N41=N6J_tncM3=A@mail.gmail.com>
-Subject: Re: [RISC-V] [tech-j-ext] [RFC PATCH 5/9] riscv: Split per-CPU and
- per-thread envcfg bits
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>, Conor Dooley <conor@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
-	linux-kernel@vger.kernel.org, tech-j-ext@lists.risc-v.org, 
-	kasan-dev@googlegroups.com, Evgenii Stepanov <eugenis@google.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
-	Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240323_133745_047825_B5E109FC 
-X-CRM114-Status: GOOD (  41.10  )
+X-CRM114-CacheID: sfid-20240323_162918_155591_25193819 
+X-CRM114-Status: GOOD (  23.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,86 +73,294 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBNYXIgMjMsIDIwMjQgYXQgMjozNeKAr0FNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
-bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBNYXIgMjIsIDIwMjQgYXQgMTA6MTM6
-NDhBTSAtMDcwMCwgRGVlcGFrIEd1cHRhIHdyb3RlOgoKPiA+ID4gPiBZZWFoIEkgbGVhbiB0b3dh
-cmRzIHVzaW5nIGFsdGVybmF0aXZlcyBkaXJlY3RseS4KPiA+ID4KPiA+ID4gT25lIHRoaW5nIHRv
-IG5vdGUgaGVyZTogd2UgY2FuJ3QgdXNlIGFsdGVybmF0aXZlcyBkaXJlY3RseSBpZiB0aGUgYmVo
-YXZpb3IgbmVlZHMKPiA+ID4gdG8gYmUgZGlmZmVyZW50IG9uIGRpZmZlcmVudCBoYXJ0cyAoaS5l
-LiBhIHN1YnNldCBvZiBoYXJ0cyBpbXBsZW1lbnQgdGhlIGVudmNmZwo+ID4gPiBDU1IpLiBJIHRo
-aW5rIHdlIG5lZWQgc29tZSBwb2xpY3kgYWJvdXQgd2hpY2ggSVNBIGV4dGVuc2lvbnMgYXJlIGFs
-bG93ZWQgdG8gYmUKPiA+ID4gYXN5bW1ldHJpYyBhY3Jvc3MgaGFydHMsIG9yIGVsc2Ugd2UgYWRk
-IHRvbyBtdWNoIGNvbXBsZXhpdHkuCj4gPgo+ID4gQXMgSSd2ZSByZXNwb25kZWQgb24gdGhlIHNh
-bWUgdGhyZWFkIC4gV2UgYXJlIGFkZGluZyB0b28gbXVjaAo+ID4gY29tcGxleGl0eSBieSBhc3N1
-bWluZwo+ID4gdGhhdCBoZXRlcm9nZW5lb3VzIElTQSBleGlzdHMgKHdoaWNoIGl0IGRvZXNuJ3Qg
-dG9kYXkpLiBBbmQgZXZlbiBpZiBpdAo+ID4gZXhpc3RzLCBpdCB3b3VsZG4ndCB3b3JrLgo+ID4g
-Tm9ib2R5IHdhbnRzIHRvIHNwZW5kIGEgbG90IG9mIHRpbWUgZmlndXJpbmcgb3V0IHdoaWNoIGhh
-cnRzIGhhdmUKPiA+IHdoaWNoIElTQSBhbmQgd2hpY2gKPiA+IHBhY2thZ2VzIGFyZSBjb21waWxl
-ZCB3aXRoIHdoaWNoIElTQS4gTW9zdCBvZiB0aGUgZW5kIHVzZXJzIGRvIGBzdWRvCj4gPiBhcHQg
-Z2V0IGluc3RhbGwgYmxhaCBibGFoYAo+ID4gQW5kIHRoZW4gZXhwZWN0IGl0IHRvIGp1c3Qgd29y
-ay4KPgo+IFRoYXQgd2lsbCBzdGlsbCB3b3JrIGlmIHRoZSBhcHBsaWNhdGlvbnMgYW5kIGxpYnJh
-cmllcyBpbnN0YWxsZWQgYXJlCj4gaGV0ZXJvZ2VuZW91cy1wbGF0Zm9ybSBhd2FyZSwgaS5lLiB0
-aGV5IGRvIHRoZSBmaWd1cmluZyBvdXQgd2hpY2ggaGFydHMKPiBoYXZlIHdoaWNoIGV4dGVuc2lv
-bnMgdGhlbXNlbHZlcy4gQXBwbGljYXRpb25zL2xpYnJhcmllcyBzaG91bGQgYWxyZWFkeQo+IGJl
-IHByb2JpbmcgZm9yIElTQSBleHRlbnNpb25zIGJlZm9yZSB1c2luZyB0aGVtLiBJdCdzIG5vdCBh
-IGh1Z2UgbGVhcCB0bwo+IGFsc28gY2hlY2sgd2hpY2ggaGFydHMgc3VwcG9ydCB0aG9zZSBleHRl
-bnNpb25zIGFuZCB0aGVuIGVuc3VyZSBhZmZpbml0eQo+IGlzIHNldCBhcHByb3ByaWF0ZWx5LgoK
-SG93ID8KSXQncyBhIHNpbmdsZSBpbWFnZSBvZiBhIGxpYnJhcnkgdGhhdCB3aWxsIGJlIGxvYWRl
-ZCBpbiBtdWx0aXBsZSBhZGRyZXNzIHNwYWNlcy4KWW91IGV4cGVjdCBhbGwgY29kZSBwYWdlcyB0
-byBkbyBDT1cgZm9yIG11bHRpcGxlIGFkZHJlc3Mgc3BhY2VzIG9yCmV4cGVjdCB0byBoYXZlCnBl
-ciB0YXNrIHZhcmlhYmxlcyB0byBjaG9vc2UgZGlmZmVyZW50IGNvZGUgcGF0aHMgaW4gdGhlIGxp
-YnJhcnkgYmFzZWQKb24gYWRkcmVzcyBzcGFjZSBpdHMKcnVubmluZyBpbiA/Ck9uIHRvcCBvZiB0
-aGF0LCB0aGUgbGlicmFyeS9hcHBsaWNhdGlvbiBkZXZlbG9wZXIgZG9lc24ndCBrbm93IGhvdyB0
-aGUKZW5kIHVzZXIgaXMgZ29pbmcgdG8gdXNlIHRoZW0uCkVuZCB1c2VycyAoc3lzYWRtaW4sIGV0
-YykgIGp1c3QgbWlnaHQgdXNlIHRhc2tzZXQgdG8gcHV0IGFmZmluaXR5IG9uCnRhc2tzIHdpdGhv
-dXQgYmVpbmcgYXdhcmUuCkkganVzdCBkb24ndCBzZWUgdGhlIG1vdGl2YXRpb24gaW4gYW4gYXBw
-bGljYXRpb24gZGV2ZWxvcGVyL2xpYnJhcnkKZGV2ZWxvcGVyIHRvIGRvIHNvbWV0aGluZwpsaWtl
-IHRoaXMuIE5vIGFwcGxpY2F0aW9uL2xpYnJhcnkgZGV2ZWxvcGVyIGhhcyB0aW1lIGZvciB0aGlz
-LiBQdXR0aW5nCmEgbG90IG9mIGJ1cmRlbiBvbiBhcHBsaWNhdGlvbgpkZXZlbG9wZXJzIGlzIG1v
-c3RseSBhIG51aXNhbmNlIGNvbnNpZGVyaW5nIHRoZXkgZG9uJ3QgaGF2ZSB0byB0aGluawphYm91
-dCB0aGVzZSBudWlzYW5jZQp3aGVuIHRoZXkgZXhwZWN0IHRoZSBzYW1lIGNvZGUgdG8gYmUgZGVw
-bG95ZWQgb24gbm9uLXJpc2N2IGFyY2hpdGVjdHVyZXMuCgpPbmUgZ29vZCBleGFtcGxlIG9mIHB1
-dHRpbmcgdW5uZWNlc3NhcnkgYnVyZGVuIG9uIGFwcC9saWJyYXJ5CmRldmVsb3BlciBpcyBJbnRl
-bCBTR1gKVGhpcyBpcyBleGFjdGx5IHRoZSByZWFzb24gSW50ZWwgU0dYIGZhaWxlZC4gQXBwbGlj
-YXRpb24gZGV2ZWxvcGVycwpkb24ndCBoYXZlIHRpbWUgdG8gZGV2ZWxvcApjb25maWRlbnRpYWwg
-Y29tcHV0ZSB2ZXJzaW9uIG9mIHRoZSBhcHBsaWNhdGlvbiBmb3IgYSBzcGVjaWZpYyBDUFUKd2hp
-bGUgb24gb3RoZXIgQ1BVcyBjYXJyeQphIGRpZmZlcmVudCB2ZXJzaW9uIG9mIGFwcGxpY2F0aW9u
-LiBCdXQgYXQgdGhlIHNhbWUgdGltZSB2aXJ0dWFsCm1hY2hpbmUgY29uZmlkZW50aWFsIGNvbXB1
-dGUgaXMKYmV0dGVyIGFwcHJvYWNoIHdoZXJlIGFsbCBjb21wbGljYXRlZCBkZWNpc2lvbiBtYWtp
-bmcgaXMgZGVsZWdhdGVkIHRvCm9wZXJhdGluZyBzeXN0ZW0KZGV2ZWxvcGVyIGFuZCBhcHBsaWNh
-dGlvbi9saWJyYXJ5IGRldmVsb3BlcnMgYXJlIGVtcG93ZXJlZCB0byBvbmx5CnRoaW5rIGFib3V0
-IHRoZWlyIHN0dWZmLgoKPgo+ID4gSXQgZG9lc24ndCB3b3JrIGZvciBvdGhlcgo+ID4gYXJjaGl0
-ZWN0dXJlcyBhbmQgZXZlbiB3aGVuIHNvbWVvbmUKPiA+IHRyaWVkLCB0aGV5IGhhZCB0byBkaXNh
-YmxlIGNlcnRhaW4gSVNBIGZlYXR1cmVzIHRvIG1ha2Ugc3VyZSB0aGF0IGFsbAo+ID4gY29yZXMg
-aGF2ZSB0aGUgc2FtZSBJU0EgZmVhdHVyZQo+ID4gKHNlYXJjaCBBVlgxMiBJbnRlbCBBbGRlciBM
-YWtlIERpc2FibGUpLgo+Cj4gVGhlIFJJU0MtViBzb2Z0d2FyZSBlY29zeXN0ZW0gaXMgc3RpbGwg
-YmVpbmcgZGV2ZWxvcGVkLiBXZSBoYXZlIGFuCj4gb3Bwb3J0dW5pdHkgdG8gZHJvcCBhc3N1bXB0
-aW9ucyBtYWRlIGJ5IG90aGVyIGFyY2hpdGVjdHVyZXMuCgpJdCBkb2Vzbid0IG1lYW4gdGhhdCBp
-dCBzaG91bGQgdHJ5IHRvIG1ha2UgdGhlIHNhbWUgbWlzdGFrZXMgd2hpY2gKb3RoZXJzIGhhdmUg
-ZG9uZS4KCklmIHRoZXJlIGlzIGEgbW90aXZhdGlvbiBhbmQgdXNlIGNhc2UgZnJvbSBlbmQgdXNl
-ciBwZXJzcGVjdGl2ZSwgcGxlYXNlIHByb3ZpZGUuCk90aGVyd2lzZSBubyBwb2ludCBkb2luZyBz
-b21ldGhpbmcgd2hpY2ggaXMganVzdCBhIHNjaWVuY2UgdGhvdWdodApleGVyY2lzZSBhbmQgbm8g
-Y29uY3JldGUgdXNlIGNhc2UuCgpQbGVhc2Ugbm90ZSB0aGF0IHRoZXNlIGFyZ3VtZW50cyBhcmUg
-YWdhaW5zdCBIZXRlcm9nZW5lb3VzIElTQSBvbiBjb3Jlcy4KRnJvbSBwb3dlciBhbmQgZWZmaWNp
-ZW5jeSBwZXJzcGVjdGl2ZSBjb3JlcyBjYW4gc3RpbGwgYmUgaGV0ZXJvZ2VuZW91cy4KCj4KPgo+
-IEFzIEkgc2FpZCBpbiBhIGRpZmZlcmVudCByZXBseSwgaXQncyByZWFzb25hYmxlIGZvciBMaW51
-eCB0byBub3QgYWRkIHRoZQo+IGNvbXBsZXhpdHkgdW50aWwgYSB1c2UgY2FzZSBjb21lcyBhbG9u
-ZyB0aGF0IExpbnV4IHdvdWxkIGxpa2UgdG8gc3VwcG9ydCwKPiBidXQgSSB0aGluayBpdCB3b3Vs
-ZCBiZSBwcmVtYXR1cmUgZm9yIExpbnV4IHRvIHB1dCBhIHN0YWtlIGluIHRoZSBzYW5kLgo+Cj4g
-U28sIGhvdyBhYm91dCB3ZSBhZGQgY29kZSB0aGF0IGNvbmZpcm1zIFppY2JveiBpcyBvbiBhbGwg
-aGFydHMuIElmIGFueQo+IGhhcnQgZG9lcyBub3QgaGF2ZSBpdCwgdGhlbiB3ZSBjb21wbGFpbiBs
-b3VkbHkgYW5kIGRpc2FibGUgaXQgb24gYWxsCj4gdGhlIG90aGVyIGhhcnRzLiBJZiBpdCB3YXMg
-anVzdCBhIGhhcmR3YXJlIGRlc2NyaXB0aW9uIGJ1ZywgdGhlbiBpdCdsbAo+IGdldCBmaXhlZC4g
-SWYgdGhlcmUncyBhY3R1YWxseSBhIHBsYXRmb3JtIHdoaWNoIGRvZXNuJ3QgaGF2ZSBaaWNib3oK
-PiBvbiBhbGwgaGFydHMsIHRoZW4sIHdoZW4gdGhlIGlzc3VlIGlzIHJlcG9ydGVkLCB3ZSBjYW4g
-ZGVjaWRlIHRvIG5vdAo+IHN1cHBvcnQgaXQsIHN1cHBvcnQgaXQgd2l0aCBkZWZjb25maWcsIG9y
-IHN1cHBvcnQgaXQgdW5kZXIgYSBLY29uZmlnCj4gZ3VhcmQgd2hpY2ggbXVzdCBiZSBlbmFibGVk
-IGJ5IHRoZSB1c2VyLgo+Cj4gVGhhbmtzLAo+IGRyZXcKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Tracing with kprobes while running a monolithic kernel is currently
+impossible due the kernel module allocator dependency.
+
+Address the issue by allowing architectures to implement module_alloc()
+and module_memfree() independent of the module subsystem. An arch tree
+can signal this by setting HAVE_KPROBES_ALLOC in its Kconfig file.
+
+Realize the feature on RISC-V by separating allocator to module_alloc.c
+and implementing module_memfree().
+
+Link: https://www.sochub.fi # for power on testing new SoC's with a minimal stack
+Link: https://lore.kernel.org/all/20220608000014.3054333-1-jarkko@profian.com/ # continuation
+Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+---
+v2:
+- Better late than never right? :-)
+- Focus only to RISC-V for now to make the patch more digestable. This
+  is the arch where I use the patch on a daily basis to help with QA.
+- Introduce HAVE_KPROBES_ALLOC flag to help with more gradual migration.
+---
+ arch/Kconfig                     |  8 +++++++-
+ arch/riscv/Kconfig               |  1 +
+ arch/riscv/kernel/Makefile       |  5 +++++
+ arch/riscv/kernel/module.c       | 11 -----------
+ arch/riscv/kernel/module_alloc.c | 28 ++++++++++++++++++++++++++++
+ kernel/kprobes.c                 | 10 ++++++++++
+ kernel/trace/trace_kprobe.c      | 18 ++++++++++++++++--
+ 7 files changed, 67 insertions(+), 14 deletions(-)
+ create mode 100644 arch/riscv/kernel/module_alloc.c
+
+diff --git a/arch/Kconfig b/arch/Kconfig
+index a5af0edd3eb8..c931f1de98a7 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -52,7 +52,7 @@ config GENERIC_ENTRY
+ 
+ config KPROBES
+ 	bool "Kprobes"
+-	depends on MODULES
++	depends on MODULES || HAVE_KPROBES_ALLOC
+ 	depends on HAVE_KPROBES
+ 	select KALLSYMS
+ 	select TASKS_RCU if PREEMPTION
+@@ -215,6 +215,12 @@ config HAVE_OPTPROBES
+ config HAVE_KPROBES_ON_FTRACE
+ 	bool
+ 
++config HAVE_KPROBES_ALLOC
++	bool
++	help
++	  Architectures that select this option are capable of allocating memory
++	  for kprobes withou the kernel module allocator.
++
+ config ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
+ 	bool
+ 	help
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e3142ce531a0..4f1b925e83d8 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -132,6 +132,7 @@ config RISCV
+ 	select HAVE_KPROBES if !XIP_KERNEL
+ 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
+ 	select HAVE_KRETPROBES if !XIP_KERNEL
++	select HAVE_KPROBES_ALLOC if !XIP_KERNEL
+ 	# https://github.com/ClangBuiltLinux/linux/issues/1881
+ 	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
+ 	select HAVE_MOVE_PMD
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 604d6bf7e476..46318194bce1 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -73,6 +73,11 @@ obj-$(CONFIG_SMP)		+= cpu_ops.o
+ 
+ obj-$(CONFIG_RISCV_BOOT_SPINWAIT) += cpu_ops_spinwait.o
+ obj-$(CONFIG_MODULES)		+= module.o
++ifeq ($(CONFIG_MODULES),y)
++obj-y				+= module_alloc.o
++else
++obj-$(CONFIG_KPROBES)		+= module_alloc.o
++endif
+ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
+ 
+ obj-$(CONFIG_CPU_PM)		+= suspend_entry.o suspend.o
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 5e5a82644451..cc324b450f2e 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -905,17 +905,6 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+ 	return 0;
+ }
+ 
+-#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
+-void *module_alloc(unsigned long size)
+-{
+-	return __vmalloc_node_range(size, 1, MODULES_VADDR,
+-				    MODULES_END, GFP_KERNEL,
+-				    PAGE_KERNEL, VM_FLUSH_RESET_PERMS,
+-				    NUMA_NO_NODE,
+-				    __builtin_return_address(0));
+-}
+-#endif
+-
+ int module_finalize(const Elf_Ehdr *hdr,
+ 		    const Elf_Shdr *sechdrs,
+ 		    struct module *me)
+diff --git a/arch/riscv/kernel/module_alloc.c b/arch/riscv/kernel/module_alloc.c
+new file mode 100644
+index 000000000000..3d9aa8dbca8a
+--- /dev/null
++++ b/arch/riscv/kernel/module_alloc.c
+@@ -0,0 +1,28 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ *  Copyright (c) 2017 Zihao Yu
++ *  Copyright (c) 2024 Jarkko Sakkinen
++ */
++
++#include <linux/mm.h>
++#include <linux/moduleloader.h>
++#include <linux/vmalloc.h>
++#include <asm/sections.h>
++
++#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
++void *module_alloc(unsigned long size)
++{
++	return __vmalloc_node_range(size, 1, MODULES_VADDR,
++				    MODULES_END, GFP_KERNEL,
++				    PAGE_KERNEL, 0, NUMA_NO_NODE,
++				    __builtin_return_address(0));
++}
++
++void module_memfree(void *module_region)
++{
++	if (in_interrupt())
++		pr_warn("In interrupt context: vmalloc may not work.\n");
++
++	vfree(module_region);
++}
++#endif
+diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+index 9d9095e81792..2c583ab6efc4 100644
+--- a/kernel/kprobes.c
++++ b/kernel/kprobes.c
+@@ -1580,6 +1580,7 @@ static int check_kprobe_address_safe(struct kprobe *p,
+ 		goto out;
+ 	}
+ 
++#ifdef CONFIG_MODULES
+ 	/* Check if 'p' is probing a module. */
+ 	*probed_mod = __module_text_address((unsigned long) p->addr);
+ 	if (*probed_mod) {
+@@ -1603,6 +1604,8 @@ static int check_kprobe_address_safe(struct kprobe *p,
+ 			ret = -ENOENT;
+ 		}
+ 	}
++#endif
++
+ out:
+ 	preempt_enable();
+ 	jump_label_unlock();
+@@ -2482,6 +2485,7 @@ int kprobe_add_area_blacklist(unsigned long start, unsigned long end)
+ 	return 0;
+ }
+ 
++#ifdef CONFIG_MODULES
+ /* Remove all symbols in given area from kprobe blacklist */
+ static void kprobe_remove_area_blacklist(unsigned long start, unsigned long end)
+ {
+@@ -2499,6 +2503,7 @@ static void kprobe_remove_ksym_blacklist(unsigned long entry)
+ {
+ 	kprobe_remove_area_blacklist(entry, entry + 1);
+ }
++#endif /* CONFIG_MODULES */
+ 
+ int __weak arch_kprobe_get_kallsym(unsigned int *symnum, unsigned long *value,
+ 				   char *type, char *sym)
+@@ -2564,6 +2569,7 @@ static int __init populate_kprobe_blacklist(unsigned long *start,
+ 	return ret ? : arch_populate_kprobe_blacklist();
+ }
+ 
++#ifdef CONFIG_MODULES
+ static void add_module_kprobe_blacklist(struct module *mod)
+ {
+ 	unsigned long start, end;
+@@ -2665,6 +2671,7 @@ static struct notifier_block kprobe_module_nb = {
+ 	.notifier_call = kprobes_module_callback,
+ 	.priority = 0
+ };
++#endif /* CONFIG_MODULES */
+ 
+ void kprobe_free_init_mem(void)
+ {
+@@ -2724,8 +2731,11 @@ static int __init init_kprobes(void)
+ 	err = arch_init_kprobes();
+ 	if (!err)
+ 		err = register_die_notifier(&kprobe_exceptions_nb);
++
++#ifdef CONFIG_MODULES
+ 	if (!err)
+ 		err = register_module_notifier(&kprobe_module_nb);
++#endif
+ 
+ 	kprobes_initialized = (err == 0);
+ 	kprobe_sysctls_init();
+diff --git a/kernel/trace/trace_kprobe.c b/kernel/trace/trace_kprobe.c
+index c4c6e0e0068b..f8fbd5e76dda 100644
+--- a/kernel/trace/trace_kprobe.c
++++ b/kernel/trace/trace_kprobe.c
+@@ -111,6 +111,7 @@ static nokprobe_inline bool trace_kprobe_within_module(struct trace_kprobe *tk,
+ 	return strncmp(module_name(mod), name, len) == 0 && name[len] == ':';
+ }
+ 
++#ifdef CONFIG_MODULES
+ static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
+ {
+ 	char *p;
+@@ -129,6 +130,7 @@ static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
+ 
+ 	return ret;
+ }
++#endif /* CONFIG_MODULES */
+ 
+ static bool trace_kprobe_is_busy(struct dyn_event *ev)
+ {
+@@ -608,7 +610,11 @@ static int append_trace_kprobe(struct trace_kprobe *tk, struct trace_kprobe *to)
+ 
+ 	/* Register k*probe */
+ 	ret = __register_trace_kprobe(tk);
+-	if (ret == -ENOENT && !trace_kprobe_module_exist(tk)) {
++#ifdef CONFIG_MODULES
++	if (ret == -ENOENT && trace_kprobe_module_exist(tk))
++		ret = 0;
++#endif /* CONFIG_MODULES */
++	if (ret == -ENOENT) {
+ 		pr_warn("This probe might be able to register after target module is loaded. Continue.\n");
+ 		ret = 0;
+ 	}
+@@ -655,7 +661,11 @@ static int register_trace_kprobe(struct trace_kprobe *tk)
+ 
+ 	/* Register k*probe */
+ 	ret = __register_trace_kprobe(tk);
+-	if (ret == -ENOENT && !trace_kprobe_module_exist(tk)) {
++#ifdef CONFIG_MODULES
++	if (ret == -ENOENT && trace_kprobe_module_exist(tk))
++		ret = 0;
++#endif /* CONFIG_MODULES */
++	if (ret == -ENOENT) {
+ 		pr_warn("This probe might be able to register after target module is loaded. Continue.\n");
+ 		ret = 0;
+ 	}
+@@ -670,6 +680,7 @@ static int register_trace_kprobe(struct trace_kprobe *tk)
+ 	return ret;
+ }
+ 
++#ifdef CONFIG_MODULES
+ /* Module notifier call back, checking event on the module */
+ static int trace_kprobe_module_callback(struct notifier_block *nb,
+ 				       unsigned long val, void *data)
+@@ -704,6 +715,7 @@ static struct notifier_block trace_kprobe_module_nb = {
+ 	.notifier_call = trace_kprobe_module_callback,
+ 	.priority = 1	/* Invoked after kprobe module callback */
+ };
++#endif /* CONFIG_MODULES */
+ 
+ static int count_symbols(void *data, unsigned long unused)
+ {
+@@ -1897,8 +1909,10 @@ static __init int init_kprobe_trace_early(void)
+ 	if (ret)
+ 		return ret;
+ 
++#ifdef CONFIG_MODULES
+ 	if (register_module_notifier(&trace_kprobe_module_nb))
+ 		return -EINVAL;
++#endif /* CONFIG_MODULES */
+ 
+ 	return 0;
+ }
+-- 
+2.44.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
