@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2139C54E58
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Mar 2024 09:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69E3CC54E67
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Mar 2024 09:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=chH+E8mIrGorSDQpOkkNpknSxE4V01sMCWw7Kc5zElY=; b=lgYz2Bb/UUoiN/
-	SEilvY5TQkRS7r1/3NFXRDJxR9hLQpvtfFDtwl05pUaIRH53lo06oCRn6qRUPoAjDmt7ruaNPmPrr
-	zximm7jH/yFzvr8KgE3WVLWc5aiGWS9Bb/WHcU55jFFw5nDruCaAnU93P9HVtv8UNDLDbjirGOQiz
-	VveQTdV4eGaVDhuAzXFupUBC/LjpXnxAF/qBnyZ2Vvu+f9JW99n7xPvpS+yKQsKeVDkWKdf+/Q77g
-	P8jx7a8dnW/zA8MpEhG/bB7mwKvSd6y77uzCfNiC2/c6mS7D4508HLkIG0iV9G/XYeLOYQg74GtDC
-	8mKNTT2vWODzDsfoa3wQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WtjvyIuy6Dk4LL0MzBSDe62YZSuIws9/mMSDCvlDUPQ=; b=pEF1PeJwyAvkq4
+	1iWQpzNGRAahfb6ZKSmzXFs4Edi+0xPcrnSRmqZfuyWWqMtJPzeYVkKtpcmM0KiRDJIwg6o0ZGIx6
+	rVWvjPWtjrvT4oeSn5Jv/BrBeqUg01ExIdsQ3ti76s6OAS/FOz7wSI1lf1yzkYX+ultKK3zcCcvj0
+	B1XdHFuHRwLdwgWdPM6IrEYOkwuB6aVpblcZJzgZm67mbyBtZircAuC5Gv1IUY8nHJlVanJ2xZ4dk
+	CS7N0VH7n4ZFmEEb08DRHhRfmG0RuiL9LxPCTgaIX2CYIW7QG6z7znAvj/c/4dTv1i0oIgKgtuj5I
+	FxRGwD8V3O9KDTkYUQwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnxKu-0000000A2Ia-2zZT;
-	Sat, 23 Mar 2024 09:06:44 +0000
+	id 1rnxYU-0000000A3fk-0JZk;
+	Sat, 23 Mar 2024 09:20:46 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rnxKs-0000000A2Hc-0xVk
-	for linux-riscv@lists.infradead.org;
-	Sat, 23 Mar 2024 09:06:43 +0000
+	id 1rnxYO-0000000A3e6-2AEG;
+	Sat, 23 Mar 2024 09:20:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 79C79CE182D;
-	Sat, 23 Mar 2024 09:06:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 738D9C433F1;
-	Sat, 23 Mar 2024 09:06:28 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 352B7CE0959;
+	Sat, 23 Mar 2024 09:20:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D51C0C433F1;
+	Sat, 23 Mar 2024 09:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711184794;
-	bh=ZOv3sSaesxblVEAdTM44UPJ7JatqCSeSPmXcVNQm2nw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=k9n2IhuTRpWMUr22Rqdcy09O2XfV33rrrY9XT7OPmgJ0laQCujJxF7Xt1mhHlmSYG
-	 v8HI4rH3Y3w2mC/psMahQK9PkPw4atJRajpRe2kaLrI+1rkqq9enn7Jrl77O+ja1pp
-	 HSxA/r7b0E9jERyxy1NhCYPLgD6CF3Z4S4yyHYPcVDWe0iACbegoR3P5CQb9rmQfaA
-	 4i84kcbPNdpigQ9bpkWe+Zq0uXIlh+6otMFtSHZKd1tvMZ8abnBvJCkvUpTfvrKS9R
-	 1egt38OH1p0o/dBRm2WdDk9S6Cdn6bZXKBVEdfL7a4VKqlwmIs5nOQz+tV2Lv5P/1M
-	 HZlO2YOvXWM3Q==
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] export.h: remove include/asm-generic/export.h
-Date: Sat, 23 Mar 2024 18:06:15 +0900
-Message-Id: <20240323090615.1244904-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.40.1
+	s=k20201202; t=1711185636;
+	bh=aGTQuZy7vZpxuhlc2uWM1FWO2cNVLUpXYHPr+30NYM4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AmGkF125xegySFWAiHvPntmZ+07s8hZQPC/0IVIftdkxYeMJTqDHDoBaq087Sl4Ry
+	 qKx2QcAVw6S410SG7j4biAqt4/h5dTjc1vKUs5R8LJBjxtJSQyMNE1PxZTAhzLwpa+
+	 ZvDOHlqhfPGo+3K1JP9tq5K11rxRL31gNRIYe4fcfJjyAcpNQmozM0AzDwGqt7aAAm
+	 vL1bo7yWAyyXHWJXICav98Il7syCI5t9aEO0HLvfyTQ7cJVQX5WfpHiaD8JmvRG1Zm
+	 VmI4taBLphr2uo/nVmCk1uj3x3TE6/IYqaCXMkAcTk/3yvQe9KoaZIneVeSaGY4Thk
+	 hCCXd6I1k2Bcg==
+Date: Sat, 23 Mar 2024 10:20:32 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-i2c@vger.kernel.org, asahi@lists.linux.dev, 
+	chrome-platform@lists.linux.dev, imx@lists.linux.dev, linux-actions@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org, linux-omap@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
+	openbmc@lists.ozlabs.org, virtualization@lists.linux.dev
+Subject: Re: [PATCH 00/64] i2c: reword i2c_algorithm according to newest
+ specification
+Message-ID: <ug266trshvhhbsln3eoh53fmsuj3l63ziz6gavcl7rv2jhjr5t@3av5givh5n7m>
+References: <20240322132619.6389-1-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240322132619.6389-1-wsa+renesas@sang-engineering.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240323_020642_451125_CFCC68B3 
-X-CRM114-Status: UNSURE (   6.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240323_022041_074435_A061D9D8 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,39 +80,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 3a6dd5f614a1 ("riscv: remove unneeded #include
-<asm-generic/export.h>") removed the last use of
-include/asm-generic/export.h.
+Hi Wolfram,
 
-This deprecated header can go away.
+On Fri, Mar 22, 2024 at 02:24:53PM +0100, Wolfram Sang wrote:
+> Okay, we need to begin somewhere...
+> 
+> Start changing the wording of the I2C main header wrt. the newest I2C
+> v7, SMBus 3.2, I3C specifications and replace "master/slave" with more
+> appropriate terms. This first step renames the members of struct
+> i2c_algorithm. Once all in-tree users are converted, the anonymous union
+> will go away again. All this work will also pave the way for finally
+> seperating the monolithic header into more fine-grained headers like
+> "i2c/clients.h" etc. So, this is not a simple renaming-excercise but
+> also a chance to update the I2C core to recent Linux standards.
 
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
+yes, very good! It's clearly stated in all three documentations
+that Target replaces Slave and Controller replaces Master (i3c is
+at the 1.1.1 version).
 
- include/asm-generic/export.h | 11 -----------
- 1 file changed, 11 deletions(-)
- delete mode 100644 include/asm-generic/export.h
+> My motivation is to improve the I2C core API, in general. My motivation
+> is not to clean each and every driver. I think this is impossible
+> because register names based on official documentation will need to stay
+> as they are. But the Linux-internal names should be updated IMO.
 
-diff --git a/include/asm-generic/export.h b/include/asm-generic/export.h
-deleted file mode 100644
-index 570cd4da7210..000000000000
---- a/include/asm-generic/export.h
-+++ /dev/null
-@@ -1,11 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--#ifndef __ASM_GENERIC_EXPORT_H
--#define __ASM_GENERIC_EXPORT_H
--
--/*
-- * <asm/export.h> and <asm-generic/export.h> are deprecated.
-- * Please include <linux/export.h> directly.
-- */
--#include <linux/export.h>
--
--#endif
--- 
-2.40.1
+Also because some drivers have been written based on previous
+specifications where master/slave was used.
 
+> That being said, I worked on 62 drivers in this series beyond plain
+> renames inside 'struct i2c_algorithm' because the fruits were so
+> low-hanging. Before this series, 112 files in the 'busses/' directory
+> contained 'master' and/or 'slave'. After the series, only 57. Why not?
+> 
+> Next step is updating the drivers outside the 'i2c'-folder regarding
+> 'struct i2c_algorithm' so we can remove the anonymous union ASAP. To be
+> able to work on this with minimal dependencies, I'd like to apply this
+> series between -rc1 and -rc2.
+> 
+> I hope this will work for you guys. The changes are really minimal. If
+> you are not comfortable with changes to your driver or need more time to
+> review, please NACK the patch and I will drop the patch and/or address
+> the issues separeately.
+> 
+> @Andi: are you okay with this approach? It means you'd need to merge
+> -rc2 into your for-next branch. Or rebase if all fails.
+
+I think it's a good plan, I'll try to support you with it.
+
+> Speaking of Andi, thanks a lot to him taking care of the controller
+> drivers these days. His work really gives me the freedom to work on I2C
+> core issues again.
+
+Thank you, Wolfram!
+
+Andi
 
 _______________________________________________
 linux-riscv mailing list
