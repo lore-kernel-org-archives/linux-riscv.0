@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF65FC47DD9
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 02:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D11BC54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 03:11:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Cc:Date:In-Reply-To:From:
+	Subject:Mime-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4kOS0fSNE2Ma+beIps2ZkX8dSn68KhTL+BtJCFMcyE4=; b=F4kHaS7g2p38w3
-	G/bgjvHPs63/2ow6ff48xA2XRSwP2oOyOWkY8poADZaAYvM0rq5QPWL1WHAj3IAJCNGHPO9XCKFVK
-	BKFi/gpFRWNX5Q3iT7RXmy/dGI9KaqzbuPHwVZJnhglA1ayzi4UY4Xr4pSCrndvsC+h9mpZJX9DuT
-	s4gTQjeqbF8qX+OLBAoRzK8y3EjLdWdiZNE4An+FPHCr4mgVriS+wFXT3OF6hriAfOVAngpHa76Tb
-	hO1BEHdY90/YhX2MDmGj5AQWj7MrvR8HauxfePU4QRnV0tiBnv2Yj0oQN9L0xgpUMukGWQ2zZ6Rwg
-	yiGznmspjb4LWSNzGHFA==;
+	List-Owner; bh=CemIUZuTahLcq0uAe5FXFty+H+xfiWbpm9nhcNXRlTo=; b=gllqweplOY7lIs
+	W1ufj5QCj2a19VYuXwfVaRvCfTe2SnycVRhNW+HitTVsbPgUTYH9nq+x7q26W4G5zt+BAusSmBQ/z
+	B7WTN0E2u0RSYfcfUHWcLmSL73HrDQGpc/jqVtwu9Pg5fLZcRDYQpx9CT4zc2QhvatgLszFtD1d8S
+	5efMLYV9td4LV/sncYt4jbM/5YR4AULdUISkLZDqVWJEvZweIoacDskV7LrgM/+phz4YWMzDr8l+k
+	3W6rG8dt1g7l6sl7kcSOiG2ft7GZEQJHKhv/O4SpifiHbSYStPr/yKMaLu5R/iP4hJTY3Z36syqpy
+	knJC0z5kWa/l9MWFKZ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roaW3-0000000EmUt-3h66;
-	Mon, 25 Mar 2024 02:56:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1roak8-0000000EqpP-1yJE;
+	Mon, 25 Mar 2024 03:11:24 +0000
+Received: from out203-205-221-210.mail.qq.com ([203.205.221.210])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roaVz-0000000EmSg-48S0
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 25 Mar 2024 02:56:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=MRpfwkLw8yh3XtTCVeBjtycVOkp+KWDfcVWDc2KERbU=; b=n2H/Wjgu01Lkgcc0vBGhXjR5jw
-	L/sLVcsDeCfZtv9grfXHPd69oJ+xpMkZrmUNyUvw3bft9oWtX46Ku1+m0WDTctufTE4NIqdB+IkY7
-	j7epd7A3KNSHUANa4cUVAk5pG9FcnCxNY7S9l8ksSavGcnxfR7qx+vVVlFZc1J+bxzEx5y7ElUef6
-	dsKUJBWwitq3pf1WJa9DUf2xMgVGESL5KIMTvZpFA/Qjaa6h55xC4JU0KGPZwCRw1ywFrzX6UMkhI
-	epCJHO2Cwt/xPXxpybras0/3LdUNr/Zj/eJUfjkVffxxgJviyxpcfKaneLA0Tq0aHWmG6yg+5GF6N
-	ZNzKC3Eg==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roaVv-0000000GMZ1-1H3e
+	id 1roak2-0000000Eqiv-1isD
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 02:56:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9024160AFF;
-	Mon, 25 Mar 2024 02:56:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF26BC4166A;
-	Mon, 25 Mar 2024 02:56:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711335397;
-	bh=E4Gupy+0VVe9CrPx+0mwhOlgYTkTvmZYdnz0CfC1Lok=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=X1Dfb70qVYA9ARqb5qkFx37laM/St6cBAG6a4Ox29cQd3RGkzd3tQOKQOh0tNFMGF
-	 4dhfKcXP7UITVsHE5K7Zw3GfxMs90OGzI5WsfiRLWr9wA6zYaEhF+CR2k6QcIOTHe1
-	 /RahuwCvoQw7OgeEdPN4DQIvvBj01QYpaRYlnt7DB6MEXlEXStqETYZ8bHI71+GBGF
-	 SSQPWVQUASiXzO6S3Iptc+UEcQcfS+Dvh05jUDMi6Fi0bDi6Mtigwyk6MMDQlMTHhE
-	 sE+To8AMMxv3xh3p9sDpe36Vj6n5C5A2N35zKs4fGg2WZPZbSJxef0WgfWGXQLQxH8
-	 5t7hTfFB2AFcw==
-Date: Mon, 25 Mar 2024 11:56:32 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: linux-riscv@lists.infradead.org, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, "Naveen N . Rao"
- <naveen.n.rao@linux.ibm.com>, Anil S Keshavamurthy
- <anil.s.keshavamurthy@intel.com>, "David S . Miller" <davem@davemloft.net>,
- Masami Hiramatsu <mhiramat@kernel.org>, linux-trace-kernel@vger.kernel.org,
- Calvin Owens <jcalvinowens@gmail.com>
-Subject: Re: [PATCH v2] arch/riscv: Enable kprobes when CONFIG_MODULES=n
-Message-Id: <20240325115632.04e37297491cadfbbf382767@kernel.org>
-In-Reply-To: <20240323232908.13261-1-jarkko@kernel.org>
-References: <20240323232908.13261-1-jarkko@kernel.org>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	Mon, 25 Mar 2024 03:11:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1711336265; bh=APC1Tm2pZqHjaNLBkpAYawbKau/26igAPeHOWvQ6K9k=;
+	h=Subject:From:In-Reply-To:Date:Cc:References:To;
+	b=aGhicSBEbbRvdWpAmdE69COK4YDZCcy32qE4YNLSDl0iapF2ton3exmlyIG7T+/YX
+	 HCIfugpnZxW80LFYRUY+0bZN5fzi/qi/JjGVWuef6nY5uVoBKqOB5SwHYDUf9Nd/+T
+	 nuie4gPT9QzeVsIui3o7UmWSOUFYUXrZtEFIjY+w=
+Received: from smtpclient.apple ([2409:8934:1ed6:2f4f:d8d3:a43a:ef25:fb4f])
+	by newxmesmtplogicsvrszb9-1.qq.com (NewEsmtp) with SMTP
+	id 2BB9002C; Mon, 25 Mar 2024 11:10:59 +0800
+X-QQ-mid: xmsmtpt1711336259t2zniab2n
+Message-ID: <tencent_1C21558D2A7C7B8251DA4E8E08B82E313C08@qq.com>
+X-QQ-XMAILINFO: OK7NBzdNss/RBTqjwMX7XKHxirLNSsvTfV07l/ehhcetDtvXxGNF12+pcL7cd8
+	 1TGlxtdRXYjZrxfxYPLbLdEVf54pFsf/NN+VpeuWoWXBGnhq/Biho/ER3KiAOa3k7vKTmFc26pxX
+	 Z01l+s2Vx6aX0XoLgVllVyifzJbI+hN2zGagES1HiC6AcFqthSvcroC2ACg8t9JgvGhgyjTzOBAy
+	 c3MWgLu6L8YAT1MLFuJ4kI0znKfwNJ0xGJ3oTwIW7wlxE8u9eE2l+E+dzjkzJ7wnIHjPJrd7ZXxO
+	 8xtRBJFd200WK+w92lE0ZHOVYGQJ2IjjKcaOk0X/jncjtnDht9KOd8UYtJM+2CwA6AnRrsP1Vfds
+	 3i/OkrOzzF4l5Eu8vi0lliQNaVQtPwY/d3AErlugPyL5W/Bqm03PdXhIsIKrbV/nwtHeL2+GKoNI
+	 LTh53U7TB2ATwGa5RkutiUsp/C2ID7EwXghUuaAVVtgCUsl7E3luqC9xGSooJMYexhkjksvYOpsA
+	 isNGCi0Yj4NFnV0bTKV/vH1NigS0RC+7ATeem0uhOvgls8AeDymOnlnbsWDsrIJib7FsKlBXe+Hf
+	 Z6egGeNw2CBAbNLZDCqx+gczKB++bQJAwGdKtzVFUMRox0Y9MPRtyWUxFCafmyKYgh6XKJ3zFT8U
+	 aCNdLw7/VIMcMZ8yMU0Y0+H6Rb2SKLZaVudi5z0FyCqhWaJ04H3bw1VtWuvpPtwpfALl+ybsDfXA
+	 OKc5x1FT+2eQ/TNZwyEcm3wWj68etTP3AjaeuZ5s4ZEUcY0/iaZXGfkQIC9QdCPSkOm26KiielTj
+	 elmHSUZBw7Vo60VYCRNDuD+V6rQxDwcxZKPvUrygl+JmyZFxmAFnEeqAkcg4nUWkOGXTqwhqpQjx
+	 S7MbXeukQHF6+LWCrAAr+z5zhJdqjmpPuxxhVn/Lxqz9sbLjHG8D+OyDF/mW2I8Zmgz1NeJOX6ru
+	 1Y2X9LOqQqyhJctY1pid/JtkNmBUBc4WXyV7LGRBe5rVEry3IX9vkTVjTgse+p1KA6lYJ/3ITbpt
+	 UaeXdJ1CR/LcTHnf94r6rZl4xcNXbqT5D+SSparg==
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.500.171.1.1\))
+Subject: Re: [PATCH v6 10/11] riscv: dts: add initial canmv-k230 and k230-evb
+ dts
+From: Yangyu Chen <cyy@cyyself.name>
+In-Reply-To: <c052918c13069cfcf768d03518560c65c990b220.camel@icenowy.me>
+Date: Mon, 25 Mar 2024 11:10:49 +0800
+Cc: linux-riscv@lists.infradead.org,
+ Conor Dooley <conor@kernel.org>,
+ Damien Le Moal <dlemoal@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Guo Ren <guoren@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-gpio@vger.kernel.org,
+ linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+X-OQ-MSGID: <BDA8DE0E-D525-4EEE-A644-54E33B2C703E@cyyself.name>
+References: <tencent_F76EB8D731C521C18D5D7C4F8229DAA58E08@qq.com>
+ <tencent_DF5D7CD182AFDA188E0FB80E314A21038D08@qq.com>
+ <c052918c13069cfcf768d03518560c65c990b220.camel@icenowy.me>
+To: Icenowy Zheng <uwu@icenowy.me>
+X-Mailer: Apple Mail (2.3774.500.171.1.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_025644_190776_AA90B56F 
-X-CRM114-Status: GOOD (  35.42  )
+X-CRM114-CacheID: sfid-20240324_201119_045720_768DFDF8 
+X-CRM114-Status: GOOD (  32.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,343 +97,238 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jarkko,
-
-On Sun, 24 Mar 2024 01:29:08 +0200
-Jarkko Sakkinen <jarkko@kernel.org> wrote:
-
-> Tracing with kprobes while running a monolithic kernel is currently
-> impossible due the kernel module allocator dependency.
-> 
-> Address the issue by allowing architectures to implement module_alloc()
-> and module_memfree() independent of the module subsystem. An arch tree
-> can signal this by setting HAVE_KPROBES_ALLOC in its Kconfig file.
-> 
-> Realize the feature on RISC-V by separating allocator to module_alloc.c
-> and implementing module_memfree().
-
-Even though, this involves changes in arch-independent part. So it should
-be solved by generic way. Did you checked Calvin's thread?
-
-https://lore.kernel.org/all/cover.1709676663.git.jcalvinowens@gmail.com/
-
-I think, we'd better to introduce `alloc_execmem()`,
-CONFIG_HAVE_ALLOC_EXECMEM and CONFIG_ALLOC_EXECMEM at first
-
-  config HAVE_ALLOC_EXECMEM
-	bool
-
-  config ALLOC_EXECMEM
-	bool "Executable trampline memory allocation"
-	depends on MODULES || HAVE_ALLOC_EXECMEM
-
-And define fallback macro to module_alloc() like this.
-
-#ifndef CONFIG_HAVE_ALLOC_EXECMEM
-#define alloc_execmem(size, gfp)	module_alloc(size)
-#endif
-
-Then, introduce a new dependency to kprobes
-
-  config KPROBES
-  	bool "Kprobes"
-	select ALLOC_EXECMEM
-
-and update kprobes to use alloc_execmem and remove module related
-code from it.
-
-You also should consider using IS_ENABLED(CONFIG_MODULE) in the code to
-avoid using #ifdefs.
-
-Finally, you can add RISCV implementation patch of HAVE_ALLOC_EXECMEM in the
-next patch.
-
-Thank you,
-
-
-> 
-> Link: https://www.sochub.fi # for power on testing new SoC's with a minimal stack
-> Link: https://lore.kernel.org/all/20220608000014.3054333-1-jarkko@profian.com/ # continuation
-> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
-> ---
-> v2:
-> - Better late than never right? :-)
-> - Focus only to RISC-V for now to make the patch more digestable. This
->   is the arch where I use the patch on a daily basis to help with QA.
-> - Introduce HAVE_KPROBES_ALLOC flag to help with more gradual migration.
-> ---
->  arch/Kconfig                     |  8 +++++++-
->  arch/riscv/Kconfig               |  1 +
->  arch/riscv/kernel/Makefile       |  5 +++++
->  arch/riscv/kernel/module.c       | 11 -----------
->  arch/riscv/kernel/module_alloc.c | 28 ++++++++++++++++++++++++++++
->  kernel/kprobes.c                 | 10 ++++++++++
->  kernel/trace/trace_kprobe.c      | 18 ++++++++++++++++--
->  7 files changed, 67 insertions(+), 14 deletions(-)
->  create mode 100644 arch/riscv/kernel/module_alloc.c
-> 
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index a5af0edd3eb8..c931f1de98a7 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -52,7 +52,7 @@ config GENERIC_ENTRY
->  
->  config KPROBES
->  	bool "Kprobes"
-> -	depends on MODULES
-> +	depends on MODULES || HAVE_KPROBES_ALLOC
->  	depends on HAVE_KPROBES
->  	select KALLSYMS
->  	select TASKS_RCU if PREEMPTION
-> @@ -215,6 +215,12 @@ config HAVE_OPTPROBES
->  config HAVE_KPROBES_ON_FTRACE
->  	bool
->  
-> +config HAVE_KPROBES_ALLOC
-> +	bool
-> +	help
-> +	  Architectures that select this option are capable of allocating memory
-> +	  for kprobes withou the kernel module allocator.
-> +
->  config ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
->  	bool
->  	help
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index e3142ce531a0..4f1b925e83d8 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -132,6 +132,7 @@ config RISCV
->  	select HAVE_KPROBES if !XIP_KERNEL
->  	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
->  	select HAVE_KRETPROBES if !XIP_KERNEL
-> +	select HAVE_KPROBES_ALLOC if !XIP_KERNEL
->  	# https://github.com/ClangBuiltLinux/linux/issues/1881
->  	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
->  	select HAVE_MOVE_PMD
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index 604d6bf7e476..46318194bce1 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -73,6 +73,11 @@ obj-$(CONFIG_SMP)		+= cpu_ops.o
->  
->  obj-$(CONFIG_RISCV_BOOT_SPINWAIT) += cpu_ops_spinwait.o
->  obj-$(CONFIG_MODULES)		+= module.o
-> +ifeq ($(CONFIG_MODULES),y)
-> +obj-y				+= module_alloc.o
-> +else
-> +obj-$(CONFIG_KPROBES)		+= module_alloc.o
-> +endif
->  obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
->  
->  obj-$(CONFIG_CPU_PM)		+= suspend_entry.o suspend.o
-> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-> index 5e5a82644451..cc324b450f2e 100644
-> --- a/arch/riscv/kernel/module.c
-> +++ b/arch/riscv/kernel/module.c
-> @@ -905,17 +905,6 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
->  	return 0;
->  }
->  
-> -#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
-> -void *module_alloc(unsigned long size)
-> -{
-> -	return __vmalloc_node_range(size, 1, MODULES_VADDR,
-> -				    MODULES_END, GFP_KERNEL,
-> -				    PAGE_KERNEL, VM_FLUSH_RESET_PERMS,
-> -				    NUMA_NO_NODE,
-> -				    __builtin_return_address(0));
-> -}
-> -#endif
-> -
->  int module_finalize(const Elf_Ehdr *hdr,
->  		    const Elf_Shdr *sechdrs,
->  		    struct module *me)
-> diff --git a/arch/riscv/kernel/module_alloc.c b/arch/riscv/kernel/module_alloc.c
-> new file mode 100644
-> index 000000000000..3d9aa8dbca8a
-> --- /dev/null
-> +++ b/arch/riscv/kernel/module_alloc.c
-> @@ -0,0 +1,28 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + *  Copyright (c) 2017 Zihao Yu
-> + *  Copyright (c) 2024 Jarkko Sakkinen
-> + */
-> +
-> +#include <linux/mm.h>
-> +#include <linux/moduleloader.h>
-> +#include <linux/vmalloc.h>
-> +#include <asm/sections.h>
-> +
-> +#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
-> +void *module_alloc(unsigned long size)
-> +{
-> +	return __vmalloc_node_range(size, 1, MODULES_VADDR,
-> +				    MODULES_END, GFP_KERNEL,
-> +				    PAGE_KERNEL, 0, NUMA_NO_NODE,
-> +				    __builtin_return_address(0));
-> +}
-> +
-> +void module_memfree(void *module_region)
-> +{
-> +	if (in_interrupt())
-> +		pr_warn("In interrupt context: vmalloc may not work.\n");
-> +
-> +	vfree(module_region);
-> +}
-> +#endif
-> diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-> index 9d9095e81792..2c583ab6efc4 100644
-> --- a/kernel/kprobes.c
-> +++ b/kernel/kprobes.c
-> @@ -1580,6 +1580,7 @@ static int check_kprobe_address_safe(struct kprobe *p,
->  		goto out;
->  	}
->  
-> +#ifdef CONFIG_MODULES
->  	/* Check if 'p' is probing a module. */
->  	*probed_mod = __module_text_address((unsigned long) p->addr);
->  	if (*probed_mod) {
-> @@ -1603,6 +1604,8 @@ static int check_kprobe_address_safe(struct kprobe *p,
->  			ret = -ENOENT;
->  		}
->  	}
-> +#endif
-> +
->  out:
->  	preempt_enable();
->  	jump_label_unlock();
-> @@ -2482,6 +2485,7 @@ int kprobe_add_area_blacklist(unsigned long start, unsigned long end)
->  	return 0;
->  }
->  
-> +#ifdef CONFIG_MODULES
->  /* Remove all symbols in given area from kprobe blacklist */
->  static void kprobe_remove_area_blacklist(unsigned long start, unsigned long end)
->  {
-> @@ -2499,6 +2503,7 @@ static void kprobe_remove_ksym_blacklist(unsigned long entry)
->  {
->  	kprobe_remove_area_blacklist(entry, entry + 1);
->  }
-> +#endif /* CONFIG_MODULES */
->  
->  int __weak arch_kprobe_get_kallsym(unsigned int *symnum, unsigned long *value,
->  				   char *type, char *sym)
-> @@ -2564,6 +2569,7 @@ static int __init populate_kprobe_blacklist(unsigned long *start,
->  	return ret ? : arch_populate_kprobe_blacklist();
->  }
->  
-> +#ifdef CONFIG_MODULES
->  static void add_module_kprobe_blacklist(struct module *mod)
->  {
->  	unsigned long start, end;
-> @@ -2665,6 +2671,7 @@ static struct notifier_block kprobe_module_nb = {
->  	.notifier_call = kprobes_module_callback,
->  	.priority = 0
->  };
-> +#endif /* CONFIG_MODULES */
->  
->  void kprobe_free_init_mem(void)
->  {
-> @@ -2724,8 +2731,11 @@ static int __init init_kprobes(void)
->  	err = arch_init_kprobes();
->  	if (!err)
->  		err = register_die_notifier(&kprobe_exceptions_nb);
-> +
-> +#ifdef CONFIG_MODULES
->  	if (!err)
->  		err = register_module_notifier(&kprobe_module_nb);
-> +#endif
->  
->  	kprobes_initialized = (err == 0);
->  	kprobe_sysctls_init();
-> diff --git a/kernel/trace/trace_kprobe.c b/kernel/trace/trace_kprobe.c
-> index c4c6e0e0068b..f8fbd5e76dda 100644
-> --- a/kernel/trace/trace_kprobe.c
-> +++ b/kernel/trace/trace_kprobe.c
-> @@ -111,6 +111,7 @@ static nokprobe_inline bool trace_kprobe_within_module(struct trace_kprobe *tk,
->  	return strncmp(module_name(mod), name, len) == 0 && name[len] == ':';
->  }
->  
-> +#ifdef CONFIG_MODULES
->  static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
->  {
->  	char *p;
-> @@ -129,6 +130,7 @@ static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
->  
->  	return ret;
->  }
-> +#endif /* CONFIG_MODULES */
->  
->  static bool trace_kprobe_is_busy(struct dyn_event *ev)
->  {
-> @@ -608,7 +610,11 @@ static int append_trace_kprobe(struct trace_kprobe *tk, struct trace_kprobe *to)
->  
->  	/* Register k*probe */
->  	ret = __register_trace_kprobe(tk);
-> -	if (ret == -ENOENT && !trace_kprobe_module_exist(tk)) {
-> +#ifdef CONFIG_MODULES
-> +	if (ret == -ENOENT && trace_kprobe_module_exist(tk))
-> +		ret = 0;
-> +#endif /* CONFIG_MODULES */
-> +	if (ret == -ENOENT) {
->  		pr_warn("This probe might be able to register after target module is loaded. Continue.\n");
->  		ret = 0;
->  	}
-> @@ -655,7 +661,11 @@ static int register_trace_kprobe(struct trace_kprobe *tk)
->  
->  	/* Register k*probe */
->  	ret = __register_trace_kprobe(tk);
-> -	if (ret == -ENOENT && !trace_kprobe_module_exist(tk)) {
-> +#ifdef CONFIG_MODULES
-> +	if (ret == -ENOENT && trace_kprobe_module_exist(tk))
-> +		ret = 0;
-> +#endif /* CONFIG_MODULES */
-> +	if (ret == -ENOENT) {
->  		pr_warn("This probe might be able to register after target module is loaded. Continue.\n");
->  		ret = 0;
->  	}
-> @@ -670,6 +680,7 @@ static int register_trace_kprobe(struct trace_kprobe *tk)
->  	return ret;
->  }
->  
-> +#ifdef CONFIG_MODULES
->  /* Module notifier call back, checking event on the module */
->  static int trace_kprobe_module_callback(struct notifier_block *nb,
->  				       unsigned long val, void *data)
-> @@ -704,6 +715,7 @@ static struct notifier_block trace_kprobe_module_nb = {
->  	.notifier_call = trace_kprobe_module_callback,
->  	.priority = 1	/* Invoked after kprobe module callback */
->  };
-> +#endif /* CONFIG_MODULES */
->  
->  static int count_symbols(void *data, unsigned long unused)
->  {
-> @@ -1897,8 +1909,10 @@ static __init int init_kprobe_trace_early(void)
->  	if (ret)
->  		return ret;
->  
-> +#ifdef CONFIG_MODULES
->  	if (register_module_notifier(&trace_kprobe_module_nb))
->  		return -EINVAL;
-> +#endif /* CONFIG_MODULES */
->  
->  	return 0;
->  }
-> -- 
-> 2.44.0
-> 
-
-
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Cgo+IE9uIE1hciAyNSwgMjAyNCwgYXQgMDA6MjMsIEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vub3d5
+Lm1lPiB3cm90ZToKPiAKPiDlnKggMjAyNC0wMy0yM+aYn+acn+WFreeahCAyMDoxMiArMDgwMO+8
+jFlhbmd5dSBDaGVu5YaZ6YGT77yaCj4+IEFkZCBpbml0aWFsIGR0cyBmb3IgQ2FuTVYtSzIzMCBh
+bmQgSzIzMC1FVkIgcG93ZXJlZCBieSBDYW5hYW4KPj4gS2VuZHJ5dGUKPj4gSzIzMCBTb0MgWzFd
+Lgo+PiAKPj4gU29tZSBrZXkgY29uc2lkZXJhdGlvbjoKPj4gCj4+IC0gT25seSBwbGFjZSBCaWdD
+b3JlIHdoaWNoIGlzIDEuNkdIeiBSVjY0R0NCVgo+PiAKPj4gVGhlIGV4aXN0ZW5jZSBvZiBjYWNo
+ZSBjb2hlcmVuY2UgYmV0d2VlbiB0aGUgdHdvIGNvcmVzIHJlbWFpbnMKPj4gdW5rbm93bgo+PiBz
+aW5jZSB0aGV5IGhhdmUgZGVkaWNhdGVkIEwyIGNhY2hlcy4gQW5kIHRoZSBmYWN0b3J5IFNESyB1
+c2VzIGl0IGZvcgo+PiBvdGhlciBPUyBieSBkZWZhdWx0LiBJIGRvbid0IGtub3cgd2hldGhlciB0
+aGUgdHdvIENQVXMgb24gSzIzMCBTb0MKPj4gY2FuIGJlIHVzZWQgaW4gb25lIHN5c3RlbS4gU28g
+b25seSBwbGFjZSBCaWdDb3JlIGhlcmUuCj4+IAo+PiBNZWFud2hpbGUsIGFsdGhvdWdoIGRvY3Mg
+ZnJvbSBDYW5hYW4gc2FpZCAxLjZHSHogQ29yZSB3aXRoIFZlY3RvciBpcwo+PiBDUFUxLCB0aGUg
+Q1NSLk1IQVJUSUQgb2YgdGhpcyBjb3JlIGlzIDAuCj4gCj4gSSBhc3N1bWUgYXMgdGhlc2UgdHdv
+IGNvcmVzIGRvIG5vdCBoYXZlIGFueSBjb2hlcmVuY3ksIHRoZXkgYXJlIGp1c3QgaW4KPiBkaWZm
+ZXJlbnQgaGFydGlkIG5hbWVzcGFjZS4KPiAKClRoYW5rcyBmb3IgdGhpcyBoaW50LgoKPj4gCj4+
+IC0gU3VwcG9ydCBmb3IgInpiYSIgInpiYiIgInpiYyIgInpicyIgYXJlIHRlc3RlZCBieSBoYW5k
+Cj4+IAo+PiBUaGUgdXNlciBtYW51YWwgb2YgQzkwOCBmcm9tIFQtSGVhZCBkb2VzIG5vdCBkb2N1
+bWVudCBpdAo+PiBzcGVjaWZpY2FsbHkuCj4+IEl0IGp1c3Qgc2FpZCBpdCBzdXBwb3J0cyBCIGV4
+dGVuc2lvbiBWMS4wLiBbMl0KPj4gCj4+IEkgaGF2ZSB0ZXN0ZWQgaXQgYnkgdXNpbmcgdGhpcyBb
+M10gd2hpY2ggYXR0ZW1wdHMgdG8gZXhlY3V0ZQo+PiAiYWRkLnV3IiwKPj4gImFuZG4iLCAiY2xt
+dWxyIiwgImJjbHIiIGFuZCB0aGV5IGRvZXNuJ3QgdHJhcHMgb24gSzIzMC4gQnV0IG9uCj4+IEpI
+NzExMCwKPj4gImNsbXVsciIgYW5kICJiY2xyIiB3aWxsIHRyYXAuCj4+IAo+PiAtIFN1cHBvcnQg
+Zm9yICJ6aWNib20iIGlzIHRlc3RlZCBieSBoYW5kCj4+IAo+PiBIYXZlIHRlc3RlZCB3aXRoIHNv
+bWUgb3V0LW9mLXRyZWUgZHJpdmVycyBmcm9tIFs0XSB0aGF0IG5lZWQgRE1BIGFuZAo+PiB0aGV5
+Cj4+IGRvIG5vdCBjb21lIHRvIHRoZSBkdHMgY3VycmVudGx5Lgo+PiAKPj4gLSBDYWNoZSBwYXJh
+bWV0ZXJzIGFyZSBpbmZlcnJlZCBmcm9tIFQtSGVhZCBkb2NzIFsyXSBhbmQgQ2FuYWFuIGRvY3MK
+Pj4gWzFdCj4+IAo+PiBMMWk6IDMyS0IsIFZJUFQgNC1XYXkgc2V0LWFzc29jaWF0aXZlLCA2NEIg
+Q2FjaGVsaW5lCj4+IEwxZDogMzJLQiwgVklQVCA0LVdheSBzZXQtYXNzb2NpYXRpdmUsIDY0QiBD
+YWNoZWxpbmUKPj4gTDI6IDI1NktCLCBQSVBUIDE2LXdheSBzZXQtYXNzb2NpYXRpdmUsIDY0QiBD
+YWNoZWxpbmUKPj4gCj4+IFRoZSBudW1iZXJzIG9mIGNhY2hlIHNldHMgYXJlIGNhbGN1bGF0ZWQg
+ZnJvbSB0aGVzZSBwYXJhbWV0ZXJzLgo+PiAKPj4gLSBNTVUgb25seSBzdXBwb3J0cyBTdjM5Cj4+
+IAo+PiBUaGUgVC1IZWFkIGRvY3MgWzJdIHNheSB0aGUgQzkwOCBjb3JlIGNhbiBiZSBjb25maWd1
+cmVkIHRvIHN1cHBvcnQKPj4gU3Y0OCBhbmQKPj4gU3YzOSBvciBvbmx5IFN2MzkuIE9uIEsyMzAs
+IEkgdHJpZWQgdG8gd3JpdGUgInJpc2N2LHN2NDgiIG9uIG1tdS10eXBlCj4+IGluCj4+IGR0cyBh
+bmQgYm9vdCB0aGUgbWFpbmxpbmUga2VybmVsLiBIb3dldmVyLCBpdCBmYWlsZWQgZHVyaW5nIHRo
+ZQo+PiBrZXJuZWwKPj4gcHJvYmUgYW5kIGZlbGwgYmFjayB0byBTdjM5LiBJIGFsc28gdGVzdGVk
+IGl0IG9uIE0tTW9kZSBzb2Z0d2FyZSwKPj4gd3JpdGluZwo+PiBTdjQ4IHRvIHNhdHAubW9kZSB3
+aWxsIG5vdCB0cmFwIGJ1dCB3aWxsIGxlYXZlIHRoZSBDU1IgdW5jaGFuZ2VkLgo+IAo+IEl0J3Mg
+c3BlY2lmaWVkIGJ5IHRoZSBzcGVjIHRoYXQgd3JpdGluZyBhIHVuc3VwcG9ydGVkIG1vZGUgdG8g
+U0FUUCB3aWxsCj4gbGVhdmUgU0FUUCB1bmNoYW5nZWQsIGFuZCBpdCdzIGFsc28gaG93IHRoZSBr
+ZXJuZWwgZGV0ZWN0cyBmb3IgU3Y0OC81Ny4KPiAKPiBJZiBhIGhhcmR3YXJlIGZhaWwgdG8gaW1w
+bGVtZW50IHRoaXMgYmVoYXZpb3IgKG1ha2UgU0FUUCBjaGFuZ2VzIHdoZW4KPiB3cml0aW5nIGFu
+IHVuc3VwcG9ydGVkIG1vZGUpLCB0aGUga2VybmVsIHdpbGwgZmFpbCB0byBib290IGFuZCBtYW51
+YWxseQo+IHNwZWNpZnkgTU1VIG1vZGUgYnkgcHV0dGluZyBub1hsdmwgdG8gY29tbWFuZCBsaW5l
+IGlzIHJlcXVpcmVkLiBUaGlzCj4gYmVoYXZpb3IgbWF5IGJlIG9ic2VydmVkIG9uIEZTTDEwMzBN
+IFNvQyBvZiBNaWxrLVYgVmVnYSAoaWYgaXQgZXZlcgo+IHJ1bnMgbWFpbmxpbmUga2VybmVsKS4K
+PiAKCk9LLgoKPj4gV2hpbGUKPj4gd3JpdGluZyBTdjM5LCBpdCB3aWxsIHRha2UgZWZmZWN0LiBJ
+dCBzaG93cyB0aGF0IHRoaXMgQ1BVIGRvZXMgbm90Cj4+IHN1cHBvcnQKPj4gU3Y0OC4KPj4gCj4+
+IC0gU3ZwYm10IGFuZCBULUhlYWQgTUFFRSBib3RoIHN1cHBvcnRlZAo+PiAKPj4gVC1IZWFkIEM5
+MDggZG9lcyBzdXBwb3J0IGJvdGggU3ZwYm10IGFuZCBULUhlYWQgTUFFRSBmb3IgcGFnZS1iYXNl
+ZAo+PiBtZW1vcnkKPj4gYXR0cmlidXRlcyBhbmQgaXMgY29udHJvbGxlZCBieSBCSVQoMjEpIG9u
+IENTUi5NWFNUQVRVUy4gVGhlIFN2cGJtdAo+PiBpcyB1c2VkCj4+IGhlcmUgZm9yIG1haW5saW5l
+IGtlcm5lbCBzdXBwb3J0IGZvciBLMjMwLiBJZiB0aGUga2VybmVsIHdhbnRzIHRvIHVzZQo+PiBT
+dnBibXQsIHRoZSBNLU1vZGUgc29mdHdhcmUgc2hvdWxkIHVuc2V0IEJJVCgyMSkgb2YgQ1NSLk1Y
+U1RBVFVTCj4+IGJlZm9yZQo+PiBlbnRlcmluZyB0aGUgUy1Nb2RlIGtlcm5lbC4gT3RoZXJ3aXNl
+LCB0aGUga2VybmVsIHdpbGwgbm90IGJvb3QsIGFzIDAKPj4gb24KPj4gVC1IZWFkIE1BRUUgaXMg
+Tm9uQ2FjaGFibGUgTWVtb3J5LiBPbmNlIHRoZSBrZXJuZWwgc3dpdGNoZXMgZnJvbSBiYXJlCj4+
+IG1ldGFsCj4+IHRvIFN2MzksIEl0IHdpbGwgbG9zZSBkaXJ0eSBjYWNoZSBsaW5lIG1vZGlmaWNh
+dGlvbnMgdGhhdCBoYXZlbid0Cj4+IGJlZW4KPj4gd3JpdHRlbiBiYWNrIHRvIHRoZSBtZW1vcnku
+Cj4gCj4gQXMgTVhTVEFUVVMgaGFzIGEgUy1tb2RlIHJlYWQtb25seSBtaXJyb3Iga25vd24gYXMg
+U1hTVEFUVVMsIG1heWJlIHRoZQo+IGtlcm5lbCBzaG91bGQgZGV0ZWN0IFNYU1RBVFVTIHRvIGRl
+Y2lkZSB3aGV0aGVyIHRvIHVzZSBTdnBibXQgb3IKPiBYdGhlYWRwYm10IChCVFcgU3ZuYXBvdCBj
+b25mbGljdHMgd2l0aCBYdGhlYWRwYm10IHRvbykuCj4gCgpUaGFua3MgZm9yIHRoaXMgaGludC4g
+SSBtYXkgbmVlZCB0byBjaGFuZ2Ugc29tZSBjb2RlIGluIHRoZSBULUhlYWQgUEJNVCBwcm9iZS4K
+Cj4+IAo+PiBbMV0KPj4gaHR0cHM6Ly9kZXZlbG9wZXIuY2FuYWFuLWNyZWF0aXZlLmNvbS9rMjMw
+L2Rldi96aC8wMF9oYXJkd2FyZS9LMjMwX2RhdGFzaGVldC5odG1sI2NoYXB0ZXItMS1pbnRyb2R1
+Y3Rpb24KPj4gWzJdCj4+IGh0dHBzOi8vb2NjLWludGwtcHJvZC5vc3MtYXAtc291dGhlYXN0LTEu
+YWxpeXVuY3MuY29tL3Jlc291cmNlLy8xNjk5MjY4MzY5MzQ3L1h1YW5UaWUtQzkwOC1Vc2VyTWFu
+dWFsLnBkZgo+PiBbM10gaHR0cHM6Ly9naXRodWIuY29tL2N5eXNlbGYvcnZiX3Rlc3QKPj4gWzRd
+IGh0dHBzOi8vZ2l0aHViLmNvbS9jeXlzZWxmL2xpbnV4L3RyZWUvazIzMC1tYWlubGluZQo+PiAK
+Pj4gU2lnbmVkLW9mZi1ieTogWWFuZ3l1IENoZW4gPGN5eUBjeXlzZWxmLm5hbWU+Cj4+IC0tLQo+
+PiAgYXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4vTWFrZWZpbGUgICAgICAgfCAgIDIgKwo+PiAg
+YXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4vazIzMC1jYW5tdi5kdHMgfCAgMjQgKysrKwo+PiAg
+YXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4vazIzMC1ldmIuZHRzICAgfCAgMjQgKysrKwo+PiAg
+YXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4vazIzMC5kdHNpICAgICAgfCAxNDAKPj4gKysrKysr
+KysrKysrKysrKysrKysrKwo+PiAgNCBmaWxlcyBjaGFuZ2VkLCAxOTAgaW5zZXJ0aW9ucygrKQo+
+PiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMvY2FuYWFuL2syMzAtY2Fu
+bXYuZHRzCj4+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4v
+azIzMC1ldmIuZHRzCj4+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9j
+YW5hYW4vazIzMC5kdHNpCj4+IAo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy9j
+YW5hYW4vTWFrZWZpbGUKPj4gYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2NhbmFhbi9NYWtlZmlsZQo+
+PiBpbmRleCA5ODdkMWYwYzQxZjAuLjdkNTRlYTVjNmYzZCAxMDA2NDQKPj4gLS0tIGEvYXJjaC9y
+aXNjdi9ib290L2R0cy9jYW5hYW4vTWFrZWZpbGUKPj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0
+cy9jYW5hYW4vTWFrZWZpbGUKPj4gQEAgLTEsNiArMSw4IEBACj4+ICAjIFNQRFgtTGljZW5zZS1J
+ZGVudGlmaWVyOiBHUEwtMi4wCj4+ICBkdGItJChDT05GSUdfQVJDSF9DQU5BQU4pICs9IGNhbmFh
+bl9rZDIzMy5kdGIKPj4gIGR0Yi0kKENPTkZJR19BUkNIX0NBTkFBTikgKz0gazIxMF9nZW5lcmlj
+LmR0Ygo+PiArZHRiLSQoQ09ORklHX0FSQ0hfQ0FOQUFOKSArPSBrMjMwLWNhbm12LmR0Ygo+PiAr
+ZHRiLSQoQ09ORklHX0FSQ0hfQ0FOQUFOKSArPSBrMjMwLWV2Yi5kdGIKPj4gIGR0Yi0kKENPTkZJ
+R19BUkNIX0NBTkFBTikgKz0gc2lwZWVkX21haXhfYml0LmR0Ygo+PiAgZHRiLSQoQ09ORklHX0FS
+Q0hfQ0FOQUFOKSArPSBzaXBlZWRfbWFpeF9kb2NrLmR0Ygo+PiAgZHRiLSQoQ09ORklHX0FSQ0hf
+Q0FOQUFOKSArPSBzaXBlZWRfbWFpeF9nby5kdGIKPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+Ym9vdC9kdHMvY2FuYWFuL2syMzAtY2FubXYuZHRzCj4+IGIvYXJjaC9yaXNjdi9ib290L2R0cy9j
+YW5hYW4vazIzMC1jYW5tdi5kdHMKPj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPj4gaW5kZXggMDAw
+MDAwMDAwMDAwLi45NTY1OTE1Y2VhZDYKPj4gLS0tIC9kZXYvbnVsbAo+PiArKysgYi9hcmNoL3Jp
+c2N2L2Jvb3QvZHRzL2NhbmFhbi9rMjMwLWNhbm12LmR0cwo+PiBAQCAtMCwwICsxLDI0IEBACj4+
+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCBPUiBNSVQKPj4gKy8qCj4+ICsg
+KiBDb3B5cmlnaHQgKEMpIDIwMjQgWWFuZ3l1IENoZW4gPGN5eUBjeXlzZWxmLm5hbWU+Cj4+ICsg
+Ki8KPj4gKwo+PiArI2luY2x1ZGUgImsyMzAuZHRzaSIKPj4gKwo+PiArLyB7Cj4+ICsgICAgICAg
+bW9kZWwgPSAiQ2FuYWFuIENhbk1WLUsyMzAiOwo+PiArICAgICAgIGNvbXBhdGlibGUgPSAiY2Fu
+YWFuLGNhbm12LWsyMzAiLCAiY2FuYWFuLGtlbmRyeXRlLWsyMzAiOwo+PiArCj4+ICsgICAgICAg
+Y2hvc2VuIHsKPj4gKyAgICAgICAgICAgICAgIHN0ZG91dC1wYXRoID0gInNlcmlhbDA6MTE1MjAw
+bjgiOwo+PiArICAgICAgIH07Cj4+ICsKPj4gKyAgICAgICBkZHI6IG1lbW9yeUAwIHsKPj4gKyAg
+ICAgICAgICAgICAgIGRldmljZV90eXBlID0gIm1lbW9yeSI7Cj4+ICsgICAgICAgICAgICAgICBy
+ZWcgPSA8MHgwIDB4MCAweDAgMHgyMDAwMDAwMD47Cj4+ICsgICAgICAgfTsKPj4gK307Cj4+ICsK
+Pj4gKyZ1YXJ0MCB7Cj4+ICsgICAgICAgc3RhdHVzID0gIm9rYXkiOwo+PiArfTsKPj4gZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvY2FuYWFuL2syMzAtZXZiLmR0cwo+PiBiL2FyY2gv
+cmlzY3YvYm9vdC9kdHMvY2FuYWFuL2syMzAtZXZiLmR0cwo+PiBuZXcgZmlsZSBtb2RlIDEwMDY0
+NAo+PiBpbmRleCAwMDAwMDAwMDAwMDAuLmY4OThiOGU2MjM2OAo+PiAtLS0gL2Rldi9udWxsCj4+
+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvY2FuYWFuL2syMzAtZXZiLmR0cwo+PiBAQCAtMCww
+ICsxLDI0IEBACj4+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCBPUiBNSVQK
+Pj4gKy8qCj4+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMjQgWWFuZ3l1IENoZW4gPGN5eUBjeXlzZWxm
+Lm5hbWU+Cj4+ICsgKi8KPj4gKwo+PiArI2luY2x1ZGUgImsyMzAuZHRzaSIKPj4gKwo+PiArLyB7
+Cj4+ICsgICAgICAgbW9kZWwgPSAiS2VuZHJ5dGUgSzIzMCBFVkIiOwo+PiArICAgICAgIGNvbXBh
+dGlibGUgPSAiY2FuYWFuLGsyMzAtdXNpcC1scDMtZXZiIiwgImNhbmFhbixrZW5kcnl0ZS0KPj4g
+azIzMCI7Cj4+ICsKPj4gKyAgICAgICBjaG9zZW4gewo+PiArICAgICAgICAgICAgICAgc3Rkb3V0
+LXBhdGggPSAic2VyaWFsMDoxMTUyMDBuOCI7Cj4+ICsgICAgICAgfTsKPj4gKwo+PiArICAgICAg
+IGRkcjogbWVtb3J5QDAgewo+PiArICAgICAgICAgICAgICAgZGV2aWNlX3R5cGUgPSAibWVtb3J5
+IjsKPj4gKyAgICAgICAgICAgICAgIHJlZyA9IDwweDAgMHgwIDB4MCAweDIwMDAwMDAwPjsKPj4g
+KyAgICAgICB9Owo+PiArfTsKPj4gKwo+PiArJnVhcnQwIHsKPj4gKyAgICAgICBzdGF0dXMgPSAi
+b2theSI7Cj4+ICt9Owo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4v
+azIzMC5kdHNpCj4+IGIvYXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4vazIzMC5kdHNpCj4+IG5l
+dyBmaWxlIG1vZGUgMTAwNjQ0Cj4+IGluZGV4IDAwMDAwMDAwMDAwMC4uN2RhNDk0OTg5NDVlCj4+
+IC0tLSAvZGV2L251bGwKPj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4vazIzMC5k
+dHNpCj4+IEBAIC0wLDAgKzEsMTQwIEBACj4+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjog
+R1BMLTIuMCBPUiBNSVQKPj4gKy8qCj4+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMjQgWWFuZ3l1IENo
+ZW4gPGN5eUBjeXlzZWxmLm5hbWU+Cj4+ICsgKi8KPj4gKwo+PiArI2luY2x1ZGUgPGR0LWJpbmRp
+bmdzL2ludGVycnVwdC1jb250cm9sbGVyL2lycS5oPgo+PiArCj4+ICsvZHRzLXYxLzsKPj4gKy8g
+ewo+PiArICAgICAgICNhZGRyZXNzLWNlbGxzID0gPDI+Owo+PiArICAgICAgICNzaXplLWNlbGxz
+ID0gPDI+Owo+PiArICAgICAgIGNvbXBhdGlibGUgPSAiY2FuYWFuLGtlbmRyeXRlLWsyMzAiOwo+
+PiArCj4+ICsgICAgICAgYWxpYXNlcyB7Cj4+ICsgICAgICAgICAgICAgICBzZXJpYWwwID0gJnVh
+cnQwOwo+PiArICAgICAgIH07Cj4+ICsKPj4gKyAgICAgICBjcHVzIHsKPj4gKyAgICAgICAgICAg
+ICAgICNhZGRyZXNzLWNlbGxzID0gPDE+Owo+PiArICAgICAgICAgICAgICAgI3NpemUtY2VsbHMg
+PSA8MD47Cj4+ICsgICAgICAgICAgICAgICB0aW1lYmFzZS1mcmVxdWVuY3kgPSA8MjcwMDAwMDA+
+Owo+PiArCj4+ICsgICAgICAgICAgICAgICBjcHVAMCB7Cj4+ICsgICAgICAgICAgICAgICAgICAg
+ICAgIGNvbXBhdGlibGUgPSAidGhlYWQsYzkwOCIsICJyaXNjdiI7Cj4+ICsgICAgICAgICAgICAg
+ICAgICAgICAgIGRldmljZV90eXBlID0gImNwdSI7Cj4+ICsgICAgICAgICAgICAgICAgICAgICAg
+IHJlZyA9IDwwPjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgcmlzY3YsaXNhID0KPj4gInJ2
+NjRpbWFmZGN2X3piYV96YmJfemJjX3pic196aWNib21fc3ZwYm10IjsKPj4gKyAgICAgICAgICAg
+ICAgICAgICAgICAgcmlzY3YsaXNhLWJhc2UgPSAicnY2NGkiOwo+PiArICAgICAgICAgICAgICAg
+ICAgICAgICByaXNjdixpc2EtZXh0ZW5zaW9ucyA9ICJpIiwgIm0iLCAiYSIsICJmIiwKPj4gImQi
+LCAiYyIsICJ2IiwgInpiYSIsICJ6YmIiLAo+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICJ6YmMiLCAiemJzIiwKPj4gInppY2JvbSIsICJ6aWNudHIiLCAi
+emljc3IiLAo+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICJ6aWZlbmNlaSIsICJ6aWhwbSIsCj4+ICJzdnBibXQiOwo+PiArICAgICAgICAgICAgICAgICAg
+ICAgICByaXNjdixjYm9tLWJsb2NrLXNpemUgPSA8NjQ+Owo+PiArICAgICAgICAgICAgICAgICAg
+ICAgICBkLWNhY2hlLWJsb2NrLXNpemUgPSA8NjQ+Owo+PiArICAgICAgICAgICAgICAgICAgICAg
+ICBkLWNhY2hlLXNldHMgPSA8MTI4PjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgZC1jYWNo
+ZS1zaXplID0gPDMyNzY4PjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgaS1jYWNoZS1ibG9j
+ay1zaXplID0gPDY0PjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgaS1jYWNoZS1zZXRzID0g
+PDEyOD47Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIGktY2FjaGUtc2l6ZSA9IDwzMjc2OD47
+Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIG5leHQtbGV2ZWwtY2FjaGUgPSA8JmwyX2NhY2hl
+PjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgbW11LXR5cGUgPSAicmlzY3Ysc3YzOSI7Cj4+
+ICsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgY3B1MF9pbnRjOiBpbnRlcnJ1cHQtY29udHJv
+bGxlciB7Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29tcGF0aWJsZSA9ICJy
+aXNjdixjcHUtaW50YyI7Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50ZXJy
+dXB0LWNvbnRyb2xsZXI7Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI2ludGVy
+cnVwdC1jZWxscyA9IDwxPjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgfTsKPj4gKyAgICAg
+ICAgICAgICAgIH07Cj4+ICsKPj4gKyAgICAgICAgICAgICAgIGwyX2NhY2hlOiBsMi1jYWNoZSB7
+Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAiY2FjaGUiOwo+PiArICAg
+ICAgICAgICAgICAgICAgICAgICBjYWNoZS1ibG9jay1zaXplID0gPDY0PjsKPj4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgY2FjaGUtbGV2ZWwgPSA8Mj47Cj4+ICsgICAgICAgICAgICAgICAgICAg
+ICAgIGNhY2hlLXNpemUgPSA8MjYyMTQ0PjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgY2Fj
+aGUtc2V0cyA9IDwyNTY+Owo+PiArICAgICAgICAgICAgICAgICAgICAgICBjYWNoZS11bmlmaWVk
+Owo+PiArICAgICAgICAgICAgICAgfTsKPj4gKyAgICAgICB9Owo+PiArCj4+ICsgICAgICAgYXBi
+X2NsazogYXBiLWNsay1jbG9jayB7Cj4+ICsgICAgICAgICAgICAgICBjb21wYXRpYmxlID0gImZp
+eGVkLWNsb2NrIjsKPj4gKyAgICAgICAgICAgICAgIGNsb2NrLWZyZXF1ZW5jeSA9IDw1MDAwMDAw
+MD47Cj4+ICsgICAgICAgICAgICAgICBjbG9jay1vdXRwdXQtbmFtZXMgPSAiYXBiX2NsayI7Cj4+
+ICsgICAgICAgICAgICAgICAjY2xvY2stY2VsbHMgPSA8MD47Cj4+ICsgICAgICAgfTsKPj4gKwo+
+PiArICAgICAgIHNvYyB7Cj4+ICsgICAgICAgICAgICAgICBjb21wYXRpYmxlID0gInNpbXBsZS1i
+dXMiOwo+PiArICAgICAgICAgICAgICAgaW50ZXJydXB0LXBhcmVudCA9IDwmcGxpYz47Cj4+ICsg
+ICAgICAgICAgICAgICAjYWRkcmVzcy1jZWxscyA9IDwyPjsKPj4gKyAgICAgICAgICAgICAgICNz
+aXplLWNlbGxzID0gPDI+Owo+PiArICAgICAgICAgICAgICAgZG1hLW5vbmNvaGVyZW50Owo+PiAr
+ICAgICAgICAgICAgICAgcmFuZ2VzOwo+PiArCj4+ICsgICAgICAgICAgICAgICBwbGljOiBpbnRl
+cnJ1cHQtY29udHJvbGxlckBmMDAwMDAwMDAgewo+PiArICAgICAgICAgICAgICAgICAgICAgICBj
+b21wYXRpYmxlID0gImNhbmFhbixrMjMwLXBsaWMiICwidGhlYWQsYzkwMC0KPj4gcGxpYyI7Cj4+
+ICsgICAgICAgICAgICAgICAgICAgICAgIHJlZyA9IDwweGYgMHgwMDAwMDAwMCAweDAgMHgwNDAw
+MDAwMD47Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIGludGVycnVwdHMtZXh0ZW5kZWQgPSA8
+JmNwdTBfaW50YyAxMT4sCj4+IDwmY3B1MF9pbnRjIDk+Owo+PiArICAgICAgICAgICAgICAgICAg
+ICAgICBpbnRlcnJ1cHQtY29udHJvbGxlcjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgI2Fk
+ZHJlc3MtY2VsbHMgPSA8MD47Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgICNpbnRlcnJ1cHQt
+Y2VsbHMgPSA8Mj47Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIHJpc2N2LG5kZXYgPSA8MjA4
+PjsKPj4gKyAgICAgICAgICAgICAgIH07Cj4+ICsKPj4gKyAgICAgICAgICAgICAgIGNsaW50OiB0
+aW1lckBmMDQwMDAwMDAgewo+PiArICAgICAgICAgICAgICAgICAgICAgICBjb21wYXRpYmxlID0g
+ImNhbmFhbixrMjMwLWNsaW50IiwKPj4gInRoZWFkLGM5MDAtY2xpbnQiOwo+PiArICAgICAgICAg
+ICAgICAgICAgICAgICByZWcgPSA8MHhmIDB4MDQwMDAwMDAgMHgwIDB4MDAwMTAwMDA+Owo+PiAr
+ICAgICAgICAgICAgICAgICAgICAgICBpbnRlcnJ1cHRzLWV4dGVuZGVkID0gPCZjcHUwX2ludGMg
+Mz4sCj4+IDwmY3B1MF9pbnRjIDc+Owo+PiArICAgICAgICAgICAgICAgfTsKPj4gKwo+PiArICAg
+ICAgICAgICAgICAgdWFydDA6IHNlcmlhbEA5MTQwMDAwMCB7Cj4+ICsgICAgICAgICAgICAgICAg
+ICAgICAgIGNvbXBhdGlibGUgPSAic25wcyxkdy1hcGItdWFydCI7Cj4+ICsgICAgICAgICAgICAg
+ICAgICAgICAgIHJlZyA9IDwweDAgMHg5MTQwMDAwMCAweDAgMHgxMDAwPjsKPj4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgY2xvY2tzID0gPCZhcGJfY2xrPjsKPj4gKyAgICAgICAgICAgICAgICAg
+ICAgICAgaW50ZXJydXB0cyA9IDwxNiBJUlFfVFlQRV9MRVZFTF9ISUdIPjsKPj4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgcmVnLWlvLXdpZHRoID0gPDQ+Owo+PiArICAgICAgICAgICAgICAgICAg
+ICAgICByZWctc2hpZnQgPSA8Mj47Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIHN0YXR1cyA9
+ICJkaXNhYmxlZCI7Cj4+ICsgICAgICAgICAgICAgICB9Owo+PiArCj4+ICsgICAgICAgICAgICAg
+ICB1YXJ0MTogc2VyaWFsQDkxNDAxMDAwIHsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgY29t
+cGF0aWJsZSA9ICJzbnBzLGR3LWFwYi11YXJ0IjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAg
+cmVnID0gPDB4MCAweDkxNDAxMDAwIDB4MCAweDEwMDA+Owo+PiArICAgICAgICAgICAgICAgICAg
+ICAgICBjbG9ja3MgPSA8JmFwYl9jbGs+Owo+PiArICAgICAgICAgICAgICAgICAgICAgICBpbnRl
+cnJ1cHRzID0gPDE3IElSUV9UWVBFX0xFVkVMX0hJR0g+Owo+PiArICAgICAgICAgICAgICAgICAg
+ICAgICByZWctaW8td2lkdGggPSA8ND47Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIHJlZy1z
+aGlmdCA9IDwyPjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgc3RhdHVzID0gImRpc2FibGVk
+IjsKPj4gKyAgICAgICAgICAgICAgIH07Cj4+ICsKPj4gKyAgICAgICAgICAgICAgIHVhcnQyOiBz
+ZXJpYWxAOTE0MDIwMDAgewo+PiArICAgICAgICAgICAgICAgICAgICAgICBjb21wYXRpYmxlID0g
+InNucHMsZHctYXBiLXVhcnQiOwo+PiArICAgICAgICAgICAgICAgICAgICAgICByZWcgPSA8MHgw
+IDB4OTE0MDIwMDAgMHgwIDB4MTAwMD47Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIGNsb2Nr
+cyA9IDwmYXBiX2Nsaz47Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIGludGVycnVwdHMgPSA8
+MTggSVJRX1RZUEVfTEVWRUxfSElHSD47Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIHJlZy1p
+by13aWR0aCA9IDw0PjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgcmVnLXNoaWZ0ID0gPDI+
+Owo+PiArICAgICAgICAgICAgICAgICAgICAgICBzdGF0dXMgPSAiZGlzYWJsZWQiOwo+PiArICAg
+ICAgICAgICAgICAgfTsKPj4gKwo+PiArICAgICAgICAgICAgICAgdWFydDM6IHNlcmlhbEA5MTQw
+MzAwMCB7Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAic25wcyxkdy1h
+cGItdWFydCI7Cj4+ICsgICAgICAgICAgICAgICAgICAgICAgIHJlZyA9IDwweDAgMHg5MTQwMzAw
+MCAweDAgMHgxMDAwPjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgY2xvY2tzID0gPCZhcGJf
+Y2xrPjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgaW50ZXJydXB0cyA9IDwxOSBJUlFfVFlQ
+RV9MRVZFTF9ISUdIPjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgcmVnLWlvLXdpZHRoID0g
+PDQ+Owo+PiArICAgICAgICAgICAgICAgICAgICAgICByZWctc2hpZnQgPSA8Mj47Cj4+ICsgICAg
+ICAgICAgICAgICAgICAgICAgIHN0YXR1cyA9ICJkaXNhYmxlZCI7Cj4+ICsgICAgICAgICAgICAg
+ICB9Owo+PiArCj4+ICsgICAgICAgICAgICAgICB1YXJ0NDogc2VyaWFsQDkxNDA0MDAwIHsKPj4g
+KyAgICAgICAgICAgICAgICAgICAgICAgY29tcGF0aWJsZSA9ICJzbnBzLGR3LWFwYi11YXJ0IjsK
+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgcmVnID0gPDB4MCAweDkxNDA0MDAwIDB4MCAweDEw
+MDA+Owo+PiArICAgICAgICAgICAgICAgICAgICAgICBjbG9ja3MgPSA8JmFwYl9jbGs+Owo+PiAr
+ICAgICAgICAgICAgICAgICAgICAgICBpbnRlcnJ1cHRzID0gPDIwIElSUV9UWVBFX0xFVkVMX0hJ
+R0g+Owo+PiArICAgICAgICAgICAgICAgICAgICAgICByZWctaW8td2lkdGggPSA8ND47Cj4+ICsg
+ICAgICAgICAgICAgICAgICAgICAgIHJlZy1zaGlmdCA9IDwyPjsKPj4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgc3RhdHVzID0gImRpc2FibGVkIjsKPj4gKyAgICAgICAgICAgICAgIH07Cj4+ICsg
+ICAgICAgfTsKPj4gK307Cj4gCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
