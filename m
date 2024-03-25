@@ -4,67 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B3CC54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 20:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3105AC54E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 20:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vJFjRNarKPyaASygsWhgdYc6Bvggb37P/GhwUG5rzoY=; b=M+MrqniGQBspEW
-	wwtsq1x4zHJp4J91GivCOl9h/cjsLm99FpHDmDZIVOxVtJwNtynn4RfdRKvKarKyajT9My+rlcZ8y
-	qstfj1CAC6LByfZEAktl5aZStJDv8HAqq2jnuzuzPWbe52u4uNCld+JKCpOEdv7FHYDN+BCvZArsH
-	z3tq48HNkp3hlPh4epaoBRrXnHXmao810s9hcjNqmeR0ZfRAIDJ+5S94tIPcEFa44URGTQLcLzi9X
-	ku6dRO+rUxGA51R4YBwQCXpJTWZYwdPTWz3ML39c2aD3KO7r9XAxboC2OdFiPh4M0EArDGm6gSaOT
-	jfYgFl7fKm0mnVf/DB1w==;
+	List-Owner; bh=pGSmBEekWfTEDDPUIXtXGXCEYEOCJOCvhPP/tc3LyiU=; b=nH3dcDd0kx0Vhm
+	Lo4iI2B18ZclRk/s/gzlGT1aSARdhsmbdGejJ2WRYG2aijzJ5GY8Hho8uGHvVdYM6jh069V9A2uTE
+	feJJjoGiMNzp4/wsqIPQfJ8/Kus2Tt8FVNSJKtRE0m7Q/B4MtL1gFZ2JS78p/ujdZ8MNd/8FckkfW
+	ikQjlxwmCphKgrJ2S59TVHi6GIL/l8f21XxAVzxSxvBzAlCfh4VpOT6vEI7DKmNUnNl2qEhKw0h2t
+	mFFtMbFJBa1gL2xtP6N9DTJ1NHRqsfpR0P1fhI06ghbbKvIC2AuETJiJ3puuJ4htVCRrJonwb3Jnw
+	jbDq/HaERaWpoYgtyV0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ror5F-00000001qQX-2Fja;
-	Mon, 25 Mar 2024 20:38:17 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1ror5n-00000001qes-1pe7;
+	Mon, 25 Mar 2024 20:38:51 +0000
+Received: from wfhigh7-smtp.messagingengine.com ([64.147.123.158])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ror5A-00000001qNI-2kMa
+	id 1ror5k-00000001qbB-0YdQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 20:38:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 112E4CE1D14;
-	Mon, 25 Mar 2024 20:38:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E671EC433F1;
-	Mon, 25 Mar 2024 20:38:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711399090;
-	bh=OYwQ9gETcvblZ+DTG3uN4WV/pZ83UVeGW84DiHYtnZk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nUItxauAtJq0ZcfLGNMccuANqR4HkC+djaA8wo+23ZY8mskjs62f0e3HviOcf2jVr
-	 htVdxyNZGLeM7cEUt+nUA1pxpQzwEP1CP7aaWUFDcfIpQPjuIjgkAW08XX0JAGV16t
-	 dAcJdsqdmxT62LLTvkAJg/P14gZaeGWU1eKJhe2LOVz5T71hjJ4uP0DQkA4EeTUXHh
-	 OvwdFrDMSm4uiGgXbRzY5KdSaOvgcTLsas6hvwW6KwzzZcU2Nn5xJgDjU8PyGcdjzZ
-	 A2NcPBEACQY427Y0sCI7P2JjbDKxOVWmW2hOr8lZJpSO9WJ67Ga/eSKXSX5+zcjkA/
-	 6xuK/6NFMNRWw==
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: Jarkko Sakkinen <jarkko@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-kernel@vger.kernel.org,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	linux-modules@vger.kernel.org,
-	"Naveen N . Rao" <naveen.n.rao@linux.ibm.com>,
-	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Subject: [PATCH v3 2/2] arch/riscv: Enable kprobes when CONFIG_MODULES=n
-Date: Mon, 25 Mar 2024 22:37:55 +0200
-Message-ID: <20240325203755.1811-2-jarkko@kernel.org>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <20240325203755.1811-1-jarkko@kernel.org>
-References: <20240325203755.1811-1-jarkko@kernel.org>
+	Mon, 25 Mar 2024 20:38:50 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailfhigh.west.internal (Postfix) with ESMTP id A423818000EC;
+	Mon, 25 Mar 2024 16:38:42 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute5.internal (MEProxy); Mon, 25 Mar 2024 16:38:44 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1711399122; x=1711485522; bh=mhY6UWFYLp
+	GLu9vdotPDgrt7ybIuTPjbMRoJG2CzZUQ=; b=S4+3f3pI+YNgZTkRsaTjGJfLRs
+	Xweu5smHhWwlqgrDI5QfCAjfgKFimPLMcOtAiJFv9/+2Ra9A/7aH1LkVcqmybvFh
+	a62M9OJKTCjVXetf4lH2HozBSdq2g99we27It3uiAagqrnSbyyPNCXKPlXsGHA01
+	dWj9L/w1en8+0bV3DC03xKTtylfxZkqSzuIMVIdMp+ZuToAhsV1HFhgs5AR7g4z3
+	+ILghfHMnso8IbL5sCA9knFCp8TTNknARg0qrSGU8ZGb3G2vXpnQeZDL58lJ05E5
+	HWT7F2C3rD3t9OCUpExjwaogVlQlQ5p6pnVciE8fRZJXpxqO7LOco2rywpkg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1711399122; x=1711485522; bh=mhY6UWFYLpGLu9vdotPDgrt7ybIu
+	TPjbMRoJG2CzZUQ=; b=u32nqvW/CcrUFWOplIZK0gE8RfI4wQqWSTaOJbichPqW
+	F8wAjfnUQjVn6L1ZoVu8P/ujI6RfbOfxe1DOGbHvnfKaY255IPvHJdSF0SUgSDPg
+	z5C6fLvVhJ8v4quxdLI+ifwlTBrEjbS2I7omtvfmSPMTqrVPLu7ZzVUa0aDuziXJ
+	/JjEORS7k19yFUnGMEI8iN2Bch5bpCr8lykf2U5hKsVn8YoVB0A2Jnh9v36AxQTb
+	1oXCVPR94ANzzSZDHaERbmizhb6r8RQX4Y5gFT3g1Uxkoc08yfETn4fv1ntVXIzU
+	DlORhxg/MTZyG+LlHQMP7/vBiOVxsF2fY0yIa+2+6Q==
+X-ME-Sender: <xms:0eABZnQaHnU1AP3GZttcz8PEo95D_DgHn0RIM3Zr6orqkpg1Y-gQ_Q>
+    <xme:0eABZoyXeyz9W9kOmyBgWJIAMyK8wq5OREbZdCbMhwa4tscrpyB6CIN8LcJ2cRlc4
+    uu2X9lubeS5q1kW3Vk>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvledrudduuddgjeelucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepvefhffeltdegheeffffhtdegvdehjedtgfekueevgfduffettedtkeekueef
+    hedunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpe
+    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:0eABZs2mNw-athT52_5o41vbqDqoBn0iAFxef5VZEH_N7_OYPpERYw>
+    <xmx:0eABZnCfbUpFEOj2UQFGkuCq4Uy7hCFqMumAnGFrZehsDYSs6n0cuA>
+    <xmx:0eABZghHb4UsX07Ini3aMVOIYhg1UsE-GrxEaEFWITzKlh574HCvKQ>
+    <xmx:0eABZroKebaSLlxRwaGH7GZsFY6lgt6VAo6ldGtt6_06VptPo_MSJw>
+    <xmx:0uABZp1WzsT0Qb9npqR74HyOmserEQy6QdZ1NthLJsBZvTXjVDoDfFU9nFU>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 484A7B6008D; Mon, 25 Mar 2024 16:38:41 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.11.0-alpha0-332-gdeb4194079-fm-20240319.002-gdeb41940
 MIME-Version: 1.0
+Message-Id: <95eb125d-dd54-42f1-b080-938faca6a8a1@app.fastmail.com>
+In-Reply-To: <ZgHCpgHh1ypSyrtv@FVFF77S0Q05N>
+References: <20240313180010.295747-1-samuel.holland@sifive.com>
+ <CAHVXubjLWZkjSapnsWJzimWg_2swEy7tQ-DQ6ri8yMk8-Qsc-A@mail.gmail.com>
+ <88de4a1a-047e-4be9-b5b0-3e53434dc022@sifive.com>
+ <b5624bba-9917-421b-8ef0-4515d442f80b@ghiti.fr>
+ <f786e02245424e02b38f55ae6b29d14a@AcuMS.aculab.com>
+ <d323eb10-c79b-49cb-94db-9b135e6fd280@ghiti.fr>
+ <ZgGosOiW6mTeSnTL@FVFF77S0Q05N>
+ <eeccbc9f-7544-42c9-964f-2b4c924c2b2f@app.fastmail.com>
+ <ZgHCpgHh1ypSyrtv@FVFF77S0Q05N>
+Date: Mon, 25 Mar 2024 21:38:20 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Mark Rutland" <mark.rutland@arm.com>
+Cc: "Alexandre Ghiti" <alex@ghiti.fr>,
+ "David Laight" <David.Laight@aculab.com>,
+ "Samuel Holland" <samuel.holland@sifive.com>,
+ "Alexandre Ghiti" <alexghiti@rivosinc.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Charlie Jenkins" <charlie@rivosinc.com>, guoren <guoren@kernel.org>,
+ "Jisheng Zhang" <jszhang@kernel.org>,
+ "Kemeng Shi" <shikemeng@huaweicloud.com>,
+ "Matthew Wilcox" <willy@infradead.org>, "Mike Rapoport" <rppt@kernel.org>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Xiao W Wang" <xiao.w.wang@intel.com>, "Yangyu Chen" <cyy@cyyself.name>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_133813_088254_EBCAF637 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20240325_133848_288865_4E727044 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,102 +125,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Tacing with kprobes while running a monolithic kernel is currently
-impossible due the kernel module allocator dependency.
+On Mon, Mar 25, 2024, at 19:30, Mark Rutland wrote:
+> On Mon, Mar 25, 2024 at 07:02:13PM +0100, Arnd Bergmann wrote:
+>> On Mon, Mar 25, 2024, at 17:39, Mark Rutland wrote:
+>
+>> If an architecture ignores all the top bits of a virtual address,
+>> the largest TASK_SIZE would be higher than the smallest (positive,
+>> unsigned) PAGE_OFFSET, so you need TASK_SIZE_MAX to be dynamic.
+>
+> Agreed, but do we even support such architectures within Linux?
 
-Address the issue by implementing textmem API for RISC-V.
+Apparently not.
 
-Link: https://www.sochub.fi # for power on testing new SoC's with a minimal stack
-Link: https://lore.kernel.org/all/20220608000014.3054333-1-jarkko@profian.com/ # continuation
-Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
----
-v3:
-- Architecture independent parts have been split to separate patches.
-- Do not change arch/riscv/kernel/module.c as it is out of scope for
-  this patch set now.
-v2:
-- Better late than never right? :-)
-- Focus only to RISC-V for now to make the patch more digestable. This
-  is the arch where I use the patch on a daily basis to help with QA.
-- Introduce HAVE_KPROBES_ALLOC flag to help with more gradual migration.
----
- arch/riscv/Kconfig          |  1 +
- arch/riscv/kernel/Makefile  |  3 +++
- arch/riscv/kernel/execmem.c | 22 ++++++++++++++++++++++
- kernel/kprobes.c            |  2 +-
- 4 files changed, 27 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/kernel/execmem.c
+On 32-bit architectures, you often have TASK_SIZE==PAGE_OFFSET,
+but not on 64-bit -- either the top few bits in PAGE_OFFSET are
+always ones, or the user and kernel page tables are completely
+separate.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e3142ce531a0..499512fb17ff 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -132,6 +132,7 @@ config RISCV
- 	select HAVE_KPROBES if !XIP_KERNEL
- 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
- 	select HAVE_KRETPROBES if !XIP_KERNEL
-+	select HAVE_ALLOC_EXECMEM if !XIP_KERNEL
- 	# https://github.com/ClangBuiltLinux/linux/issues/1881
- 	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
- 	select HAVE_MOVE_PMD
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 604d6bf7e476..337797f10d3e 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -73,6 +73,9 @@ obj-$(CONFIG_SMP)		+= cpu_ops.o
- 
- obj-$(CONFIG_RISCV_BOOT_SPINWAIT) += cpu_ops_spinwait.o
- obj-$(CONFIG_MODULES)		+= module.o
-+ifeq ($(CONFIG_ALLOC_EXECMEM),y)
-+obj-y				+= execmem.o
-+endif
- obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
- 
- obj-$(CONFIG_CPU_PM)		+= suspend_entry.o suspend.o
-diff --git a/arch/riscv/kernel/execmem.c b/arch/riscv/kernel/execmem.c
-new file mode 100644
-index 000000000000..4191251476d0
---- /dev/null
-+++ b/arch/riscv/kernel/execmem.c
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+
-+#include <linux/mm.h>
-+#include <linux/moduleloader.h>
-+#include <linux/vmalloc.h>
-+#include <asm/sections.h>
-+
-+void *alloc_execmem(unsigned long size, gfp_t /* gfp */)
-+{
-+	return __vmalloc_node_range(size, 1, MODULES_VADDR,
-+				    MODULES_END, GFP_KERNEL,
-+				    PAGE_KERNEL, 0, NUMA_NO_NODE,
-+				    __builtin_return_address(0));
-+}
-+
-+void free_execmem(void *region)
-+{
-+	if (in_interrupt())
-+		pr_warn("In interrupt context: vmalloc may not work.\n");
-+
-+	vfree(region);
-+}
-diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-index a1a547723c3c..87fd8c14a938 100644
---- a/kernel/kprobes.c
-+++ b/kernel/kprobes.c
-@@ -119,7 +119,7 @@ void __weak *alloc_insn_page(void)
- 	 * for most of the architectures.
- 	 * (e.g. x86-64 needs this to handle the %rip-relative fixups.)
- 	 */
--	return alloc_execmem(PAGE_SIZE);
-+	return alloc_execmem(PAGE_SIZE, GFP_KERNEL);
- }
- 
- static void free_insn_page(void *page)
--- 
-2.44.0
+>> It doesn't look like this is the case on riscv, but I'm not sure
+>> about this part.
+>
+> It looks like riscv is in the same bucket as arm64 and x86 per:
+>
+>   https://www.kernel.org/doc/html/next/riscv/vm-layout.html
+>
+> ... which says:
+>
+> | The RISC-V privileged architecture document states that the 64bit addresses
+> | "must have bits 63-48 all equal to bit 47, or else a page-fault exception
+> | will occur.": that splits the virtual address space into 2 halves separated
+> | by a very big hole, the lower half is where the userspace resides, the upper
+> | half is where the RISC-V Linux Kernel resides.
 
+Rihgt. I had even looked in that directory but somehow missed
+the vm-layout.rst file.
+
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
