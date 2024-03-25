@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E11C54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 21:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 666B5C54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 22:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jkdKNVrNjipOtAWqS9x2tDQetwZYMWAnLCa3u9Qgt9k=; b=ZmYQ/Zz8wGUs6d
-	JDH7gxKCh77/O/bLgBci2O+AEcOOYNkpmF/+rpUTy9hQUhHqBrbQQ/rENoADJWDzZ7ixU3D22r9Oj
-	SW41ZVc8yMe7aeTpnOfyWFh65AgGzUqtoaUGLAJCDrX4JVwjpCR2Z95Y6udJR4gbBa3RGUxef2iv1
-	wYfHOljIgWjaRfFmc1NOVBbAXlI4Zmpx3/V1rKbalBTGvUyogK2zmEN6D+S18XbCLVBO8bytNP4BQ
-	ZFFjhGiuaP1PW8z9Y75brDVwwdUgJSIUZg1ZFGE6JFDRlgpdmmf8kj1aGXOsrrQqGU14+hE6pCg2T
-	deWEARYz02q73I+mQUZw==;
+	List-Owner; bh=hoDNwB+Uy+hhW9UKtNm55myPSSgvdO51zso2UQfpR/Q=; b=ekyt9eIlY0N//l
+	ZMY7ak8Ig7RSNGdDNzIZMucuSkHg8frmTv2XHeKQbQzOyhNcxFVVCMsukgp5oKuvwNQt39KdmnEJd
+	GlvCqY+DKHUNxNHV499EvsCH4fWCTqWugWPFNf3pwR4xjrpQgPGQ7zzWIO8Jcqk1Fp5cqLC5jfFn6
+	BxxsCXrReKlf0PL54qz2rtmXrZLehMH0WqmP4Sn/2b0bV24KO5OBqSQOTltDc4x32poGE7hLXliyj
+	99QZvxwpU94U6lnHkWgce4791Ffqu+CXYsKTo2tkp/+ie/08jarMPInUYzfBsHZg0EVSZ1fCcYRzW
+	CimBAxjXPMciSluTz7SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rosI6-000000026Qp-2S2E;
-	Mon, 25 Mar 2024 21:55:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rosSp-000000028P1-1nHc;
+	Mon, 25 Mar 2024 22:06:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rosHk-000000026M0-1Q1r
+	id 1rosSn-000000028N5-11Tr
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 21:55:17 +0000
+	Mon, 25 Mar 2024 22:06:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0B29061212;
-	Mon, 25 Mar 2024 21:55:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 493FBC433F1;
-	Mon, 25 Mar 2024 21:55:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 366876118D;
+	Mon, 25 Mar 2024 22:06:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EF2EC433C7;
+	Mon, 25 Mar 2024 22:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711403712;
-	bh=bwhKzO7Db7ftntYaf5MwOOW5CKKybR0mc5KmEmU3sgA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pldJko+7M1thiYUGHzuWMw9E9STkvm/rTGVgrZt2fOPkOIm3iovANvvPlTaflJFRj
-	 V/0mbHf+ZmzI2Lq28bwBS/dk+v0dsWmrTUb45+UnW6gFimQlJdBb5qJTpv1He2w9mP
-	 73tf3ed4oT8qMi4eHMZFIdpB2PnuH50HtgEqBNR24aUlkHSfRTqZcAdEzOyu3DFnWg
-	 3R3wlcNUPztV7k2aPhik8u1IWkbjXkvsp2lknEiVPg0SwZUUtGhPq9sn9u4UlrFWfM
-	 qv+leIOKzLnovqJ9GbKR8cF7Ivty3ySnxOtnCiqmyXkl2qQUgnYuiK56pd+XjBYYTo
-	 tGhlmAkb0YD/A==
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: Jarkko Sakkinen <jarkko@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-kernel@vger.kernel.org,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	linux-modules@vger.kernel.org,
-	"Naveen N . Rao" <naveen.n.rao@linux.ibm.com>,
-	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Subject: [PATCH v5 2/2] arch/riscv: Enable kprobes when CONFIG_MODULES=n
-Date: Mon, 25 Mar 2024 23:55:02 +0200
-Message-ID: <20240325215502.660-2-jarkko@kernel.org>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <20240325215502.660-1-jarkko@kernel.org>
+	s=k20201202; t=1711404395;
+	bh=z/mz7FVFwe1LcDtvbacDByrhd+3w8HygIiOVlwJYbDU=;
+	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
+	b=nUHFUZpJoimXH48MX0QAGf9i1kd81LXa6MCNkuKKiuL/HL0G/isOw3uNIJbFJgy/I
+	 tM8XtTD2n9TxwpwqVDRMOR9seeFdqslt/L4RG3SXOQnPYC7wtLQw7adq46ggnSNyK4
+	 NyhL1L1edHltaLQYS4ugCN+2ctlA1u0Xwmec4RSALlTYiDoqlTzcUQ0/xsZUS7ZeVP
+	 es0UF2PqFCLKqS9CKiJ1N6KGd2aDr+eoChBqx0Fd1lQjnYPGmUKx+htikR0i6RlzOR
+	 YpsngEmzjg/or+4fWjSJ3Km/MUCyQ3Un9N49l47F7/ovgKZ2wMWhGqlfEy54rtAblq
+	 G2ze3GUVApWug==
+Mime-Version: 1.0
+Date: Tue, 26 Mar 2024 00:06:31 +0200
+Message-Id: <D03683T2J8T8.18AMQ9ABQAQT5@kernel.org>
+Cc: "Masami Hiramatsu" <mhiramat@kernel.org>, "Paul Walmsley"
+ <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>, "Luis
+ Chamberlain" <mcgrof@kernel.org>, <linux-modules@vger.kernel.org>, "Naveen
+ N . Rao" <naveen.n.rao@linux.ibm.com>, "Anil S Keshavamurthy"
+ <anil.s.keshavamurthy@intel.com>, "David S . Miller" <davem@davemloft.net>
+Subject: Re: [PATCH v5 1/2] kprobes: textmem API
+From: "Jarkko Sakkinen" <jarkko@kernel.org>
+To: "Jarkko Sakkinen" <jarkko@kernel.org>, <linux-riscv@lists.infradead.org>
+X-Mailer: aerc 0.17.0
 References: <20240325215502.660-1-jarkko@kernel.org>
-MIME-Version: 1.0
+In-Reply-To: <20240325215502.660-1-jarkko@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_145516_503797_E0661F09 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20240325_150641_335468_767968D2 
+X-CRM114-Status: UNSURE (   3.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,93 +77,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Tacing with kprobes while running a monolithic kernel is currently
-impossible due the kernel module allocator dependency.
+s/textmem/execmem/ (also in long description)
 
-Address the issue by implementing textmem API for RISC-V.
+will hold sending a new version as not a functional issue, will fix
+after review.
 
-Link: https://www.sochub.fi # for power on testing new SoC's with a minimal stack
-Link: https://lore.kernel.org/all/20220608000014.3054333-1-jarkko@profian.com/ # continuation
-Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
----
-v5:
-- No changes, expect removing alloc_execmem() call which should have
-  been part of the previous patch.
-v4:
-- Include linux/execmem.h.
-v3:
-- Architecture independent parts have been split to separate patches.
-- Do not change arch/riscv/kernel/module.c as it is out of scope for
-  this patch set now.
-v2:
-- Better late than never right? :-)
-- Focus only to RISC-V for now to make the patch more digestable. This
-  is the arch where I use the patch on a daily basis to help with QA.
-- Introduce HAVE_KPROBES_ALLOC flag to help with more gradual migration.
----
- arch/riscv/Kconfig          |  1 +
- arch/riscv/kernel/Makefile  |  3 +++
- arch/riscv/kernel/execmem.c | 22 ++++++++++++++++++++++
- 3 files changed, 26 insertions(+)
- create mode 100644 arch/riscv/kernel/execmem.c
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e3142ce531a0..499512fb17ff 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -132,6 +132,7 @@ config RISCV
- 	select HAVE_KPROBES if !XIP_KERNEL
- 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
- 	select HAVE_KRETPROBES if !XIP_KERNEL
-+	select HAVE_ALLOC_EXECMEM if !XIP_KERNEL
- 	# https://github.com/ClangBuiltLinux/linux/issues/1881
- 	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
- 	select HAVE_MOVE_PMD
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 604d6bf7e476..337797f10d3e 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -73,6 +73,9 @@ obj-$(CONFIG_SMP)		+= cpu_ops.o
- 
- obj-$(CONFIG_RISCV_BOOT_SPINWAIT) += cpu_ops_spinwait.o
- obj-$(CONFIG_MODULES)		+= module.o
-+ifeq ($(CONFIG_ALLOC_EXECMEM),y)
-+obj-y				+= execmem.o
-+endif
- obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
- 
- obj-$(CONFIG_CPU_PM)		+= suspend_entry.o suspend.o
-diff --git a/arch/riscv/kernel/execmem.c b/arch/riscv/kernel/execmem.c
-new file mode 100644
-index 000000000000..3e52522ead32
---- /dev/null
-+++ b/arch/riscv/kernel/execmem.c
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+
-+#include <linux/mm.h>
-+#include <linux/execmem.h>
-+#include <linux/vmalloc.h>
-+#include <asm/sections.h>
-+
-+void *alloc_execmem(unsigned long size, gfp_t /* gfp */)
-+{
-+	return __vmalloc_node_range(size, 1, MODULES_VADDR,
-+				    MODULES_END, GFP_KERNEL,
-+				    PAGE_KERNEL, 0, NUMA_NO_NODE,
-+				    __builtin_return_address(0));
-+}
-+
-+void free_execmem(void *region)
-+{
-+	if (in_interrupt())
-+		pr_warn("In interrupt context: vmalloc may not work.\n");
-+
-+	vfree(region);
-+}
--- 
-2.44.0
-
+BR, Jarkko
 
 _______________________________________________
 linux-riscv mailing list
