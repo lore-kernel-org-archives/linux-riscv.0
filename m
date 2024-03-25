@@ -4,135 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4507AC54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 08:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B6CC54E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 09:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+FBTrNq3x+UKBiw5u378O2aYLy8+vAFthX/iNxHon8Q=; b=UZ/FYEJUeKufWt
-	9mhY1ZH7Eu/o6/M3v+RLPI/vE5cXqnNKECn6HfFL1ow8AU+tTeykJtuIlk3r3G3+LTVyGk/GeopAW
-	2E0q5BTaL5+cmQkrfxiiLNuCI+56LMNboJD1CEhWH0nco65BjInxtsPUbITJcqWMLm37e/ypvHavy
-	1LYMTjDhHX0Ef1BLzarOVvrSLVRlxnlnEjGHMree1KOYv+V7A91nN4huViZ/dawv2XD+HirwHH1ZH
-	lIzh96/h9TQl7S2/LtYoNE3veSG0OYsZpte4iD4NJ+DrRibq2YO68Z2ZZXdUd2hxBRa2kDWnGWtP9
-	VmT0051ao6piPazZPEHg==;
+	List-Owner; bh=/tdsFG2/b6vCGjzsfoZhneeVdjkIU//g9CWd5VIdgdw=; b=CkU1N7Yd3FSbJ8
+	imEh0ZjFsQTMA9ylKt59nCPmNsrbPwZPh3WH1TVIjJamPHULBP91oR4QfEhm5IqnupHVxs8EjJorK
+	eqevi0tsk6sZQdDN9ZfTMr6AGxNDjH4l8aBT/NjEY5aRlZRAkLMNOUSOWu7q5IdBT/3+d6ICKobm2
+	tiv63GlxZgWaviPotWk3IRO4q/08Q6B8jUOGa3v3laMMqj+UHM/bpwJ6oPjUEwlMrriIm+bk9YL+f
+	YRN6yfEdqGMbkgMUS9aBkA/aVeB5/NqDynEeVlCTMzy0ne7L5sI3f/a7PAu3zirj0wykmY6kMBl0V
+	7zz51kduja07Fx9SjqlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rog4B-0000000GHCl-0TQf;
-	Mon, 25 Mar 2024 08:52:27 +0000
-Received: from mail-sh0chn02on2071e.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::71e] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1rogfb-0000000GSwu-3m7K;
+	Mon, 25 Mar 2024 09:31:07 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rog41-0000000GH4Y-1ANV;
-	Mon, 25 Mar 2024 08:52:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Gv7V+0siv9MmLD8qd4e3ToRkX4s/CgUoPyTR8FN9xbLTpGrj3MmS7m49A3Dda8/gAwJedw2PY6N+IBNIUX3X62SQRwrZbXqE7vjS1CDIhCL9R1J2iH1RfdOIPXW8wpTfABa53JT1y3mMJQ4uj0FxQ6XGaINe9amkWIZ3XfcqhXnQUgNzrhMBiHoYcPve6NeXjk699yQuEqOrZCwUQLxp/Ir7EAxqaCjqeKoAfE0rsbhD624sL2XIpJ3GdjPDHbyQKNPLzrRVJdS4XeRDIcRtT4q/ELuH07x91sV+qTpwYShQPzv6eKAWBk2trSEyBv1TIkwmXlJFakn5+LI/La3VdQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PRJ7ol/QflDOrJxK3kbJ/VLH32Zx9yhLkXArOZkVLyI=;
- b=YXlvr7yw3n0G/uetPybW0YOC77ozzB09rR3lYYJAOtgikTb1M0zlE9LmK705T86xfhuKkR9ZdAhtdDirpD5GwsoDwTlSbZfHNXVFu6GpuOue47nQjLe+6pnJJC8jpADx8UI8pd7YeRdfOHrZjLrfg/GHPbscxUg82T8OrCxQHn1hVZvI/LWVUyG319ntybkMLubAl25rHNmJja7aubfZBNxFrfo5G2TNd7VHm/0RGVCPxPsG1ticJt0Ja3Ikde9U2et7loBJLR9uC5ZqIJMlG+R26C29miPmEOwbjkwfejyiYY+l+UwBOpbW0L3dTQR+mggBvxoyL1QAvdD0uxVq1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:e::20) by BJSPR01MB0451.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:d::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.31; Mon, 25 Mar
- 2024 08:51:50 +0000
-Received: from BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
- ([fe80::d0cf:5e2e:fd40:4aef]) by
- BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn ([fe80::d0cf:5e2e:fd40:4aef%4])
- with mapi id 15.20.7409.028; Mon, 25 Mar 2024 08:51:49 +0000
-From: Tan Chun Hau <chunhau.tan@starfivetech.com>
-To: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Russell King <rmk+kernel@armlinux.org.uk>
-Cc: Ley Foon Tan <leyfoon.tan@starfivetech.com>,
-	Jee Heng Sia <jeeheng.sia@starfivetech.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 1/1] dt-bindings: net: starfive,jh7110-dwmac: Add StarFive JH8100 support
-Date: Mon, 25 Mar 2024 01:51:31 -0700
-Message-Id: <20240325085131.182657-2-chunhau.tan@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20240325085131.182657-1-chunhau.tan@starfivetech.com>
-References: <20240325085131.182657-1-chunhau.tan@starfivetech.com>
-X-ClientProxiedBy: SHXPR01CA0005.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:1b::14) To BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:e::20)
+	id 1rogfV-0000000GSrt-0RVX
+	for linux-riscv@lists.infradead.org;
+	Mon, 25 Mar 2024 09:31:05 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-198-vdeQgxrwP92fV7WlkXqR2A-1; Mon, 25 Mar 2024 09:30:56 +0000
+X-MC-Unique: vdeQgxrwP92fV7WlkXqR2A-1
+Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
+ (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Mon, 25 Mar
+ 2024 09:30:23 +0000
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Mon, 25 Mar 2024 09:30:23 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Alexandre Ghiti' <alex@ghiti.fr>, Samuel Holland
+	<samuel.holland@sifive.com>, Alexandre Ghiti <alexghiti@rivosinc.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Albert Ou <aou@eecs.berkeley.edu>, "Andrew
+ Morton" <akpm@linux-foundation.org>, Charlie Jenkins <charlie@rivosinc.com>,
+	Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Kemeng Shi
+	<shikemeng@huaweicloud.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Xiao Wang <xiao.w.wang@intel.com>, Yangyu Chen
+	<cyy@cyyself.name>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
+Thread-Topic: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
+Thread-Index: AQHaeh3F9DUQSIkEB0u5Xt52XMTyX7FHT0cAgADJJoCAAB400A==
+Date: Mon, 25 Mar 2024 09:30:23 +0000
+Message-ID: <5c027cbf6b8741e4a8147963b07a8ac4@AcuMS.aculab.com>
+References: <20240313180010.295747-1-samuel.holland@sifive.com>
+ <CAHVXubjLWZkjSapnsWJzimWg_2swEy7tQ-DQ6ri8yMk8-Qsc-A@mail.gmail.com>
+ <88de4a1a-047e-4be9-b5b0-3e53434dc022@sifive.com>
+ <b5624bba-9917-421b-8ef0-4515d442f80b@ghiti.fr>
+ <f786e02245424e02b38f55ae6b29d14a@AcuMS.aculab.com>
+ <d323eb10-c79b-49cb-94db-9b135e6fd280@ghiti.fr>
+In-Reply-To: <d323eb10-c79b-49cb-94db-9b135e6fd280@ghiti.fr>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BJSPR01MB0595:EE_|BJSPR01MB0451:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb3a83e1-dc35-41f5-b2af-08dc4ca8cf53
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: uSFSbun4ILwVoOTkpjxVATph4sVvZ20YlShmk+tcpgx7+FklMuXH17M63Kx/hdEAm7lXvaRwmugugAh4PhbQufyYRtT6BOLZ8ObCkiQMbiSOuca2SABi0Ij2T8rv2ItdE8oTOYynZoNB8HQfUaWOwQsiugTyFaQG3Y2gPQFrbeXYD2esHdBqQxqQ1tubDMuNY2KB+vIImXVmbtuREEIdoSJs+jWA0GVN20IOZcLZRYUT0VQt1j9LrAssmV83wuT7d3S1HNKTHoLF8E4N0UqdIQfaVDYqaBuskIRoojm6uC9RX0gwMmaYiAhPLYfk5tSm6FPGK5N2h2jsGDauUTtG1GYA5KQ7kOV/2m/PdhkakI9lODijhWiafAlUNufLwNy0B/y6EiR8T/vcV8/3Yh+IR6vmxAivy5ynu1BDEWvvyEnJS0Mp097fhoC7rJXh172TDbQH5XEHTQwL6MNuyN3StATeVsnW4mtWglfZJu4NDpDAIi77Cn2nKVnoPxAbGZvbVrgIPVrBk5EuXEMTzd3/131Wcpz2dDyI8/ISCUaKnU3/8nRd7JtSaFRR9PJJDc63zjulDmCfGlH1uK2y7BlyBVgf3D0Ame7TJ3xgBWjAUH7CngDf9s7G7lLPdU8DwV9zlcJoHOMFVVEFa4D9+lchzw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(41320700004)(7416005)(52116005)(1800799015)(366007)(38350700005)(921011);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?x4WxwfWhu9u+FRb4kWgBfbFhYBt1Za5h5oiAu/oSmiaIn/wNE5do0WqU2A//?=
- =?us-ascii?Q?9TODh5ItY4HSk1DTUenJnmiN7UOPWaEKc8YZANksBXf0G9KJq/tgYO3hj/yJ?=
- =?us-ascii?Q?gtrPfLCkXzRJlJ5ZdPKG2IWlm+/xowAHorf0/PwF3VPRBVnLCUo3UrmJRuoB?=
- =?us-ascii?Q?Z2H+kIz3kLQVH0hKaKmPN5LBiC11CWcU0uiRrcE9pAaRPdsVE5prBsdOkG5G?=
- =?us-ascii?Q?CGkBTO+3hDAvvjIUU2ZeF7/WHxr9yi8D0X1SamDfObOmf6lGJxyBzQDUoavu?=
- =?us-ascii?Q?EJxr9jNpXnYIRPaIQnx2L21bSyXwfiQ3vbAwX+YBuJ8EV3y1BdRndVn6f/pj?=
- =?us-ascii?Q?azaPtSxWMD5JbMWtl6OIuCxnyIrWe5G30WYG6UQlkt5Tc+43L3cnlEI9pY9Q?=
- =?us-ascii?Q?7cbtH5AEwKz3jV1hyC+0vxh41gfTxs554Ok8mq8WQuCwdd5HbAAaW3gaDENa?=
- =?us-ascii?Q?0Hh8QKpnFeFKq3p/PX2LEDgmDdV8Jd0TC7ULu1FcTGFZl3oeDZrXjG3vHjfw?=
- =?us-ascii?Q?bcvwwhrA6Z6YoCVjJ5L3CRLXj4IpV2E1VrjVdKv79LyJ1qfnUgCpQFAKZmFh?=
- =?us-ascii?Q?KnMK+dGWVSecD9D8k3FrGGDu1Sv3jkZhNtAJMyMIWxn59VY3VNTQ4K9MH++u?=
- =?us-ascii?Q?MvT6CJdpWY+YWb7mKL1jhUhNiw58bEDaE60Sp4cVeAfN2YZCWeSTgOYVZTxV?=
- =?us-ascii?Q?0TvZikSjiuQdG2QgrKg/9sx9VwYkP43Stb749zSsR50SsFWxDV/2pkiciq8q?=
- =?us-ascii?Q?NHCmjpnSb6BvCbkFApznZ7m1eNBHwFL/JBXMSGOJGA6wSRqxNdgS0NJWEuOD?=
- =?us-ascii?Q?pIa/D1GkmS34bTPk+4L3X1a+IWvQVRq8QtY0M5UzZRGTuFrpHpi+eicubFN8?=
- =?us-ascii?Q?VtMCY69Pd/lnVYcPJ29umQaZ9fGsntzFcmp5nuRG2zIr27CrdA3zJPbsR19U?=
- =?us-ascii?Q?9uXD8Zv3eWhJnpwOPGZfxMpiqdAAHDBC7P6sdexIt1TiT9y9K5CKqBGNtENY?=
- =?us-ascii?Q?eczIUUMnH3Krt/PG6XUL0apmh3nWxH6NrAKwAz0aiyR1BGKcH2/wvgNHAmJN?=
- =?us-ascii?Q?W1AxMSjizwXwXm9qUmfdCkgVFR04k1J+lJxJQtabGjUplIux/PXK+QsJZuGF?=
- =?us-ascii?Q?sazR9SEbahZwxCRG9jKS5dpYh/ErXfLWwSdDbqk7822aKm4xmAoGpInLU4ww?=
- =?us-ascii?Q?yzYuZBSS0ifCzleib4uqPjAkgFXr2e6hk1lJHyxdZNqaEOvR2PgYRgMA1eZq?=
- =?us-ascii?Q?dcXezn4mfVn7jA+o9h9FShtAOO4FWBCmRQTd7tzAZcbQGGooveqCqRcS69dW?=
- =?us-ascii?Q?SScp8qcEj8wkaHdpK39/8aAU5cp36wCBU+mWST7Ky+Tr2UErpZB0wVrzZhGJ?=
- =?us-ascii?Q?bx094lFQb//ClCc3WnJQEk0xQtF8OhKfkKIuo/3gRjesZ2E0HZ+ymY5UYolt?=
- =?us-ascii?Q?rVctxiJtQRXy4jaKab7rUl/lLfHUe9jdJU6UUh2fhe94D2RvWLrRxjkNj3dB?=
- =?us-ascii?Q?x4c9YeCgp5V/KQS1f7GzXsTUTVnhacFNTVk99KpKlmiYUYlGDY8Ow+ffnI2Y?=
- =?us-ascii?Q?PB8PQ48RiirUWNfU9bvIp+R59JOTFv0nZnUWiG9eDYYUim30g5Oqp4Ot7H1q?=
- =?us-ascii?Q?7w=3D=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb3a83e1-dc35-41f5-b2af-08dc4ca8cf53
-X-MS-Exchange-CrossTenant-AuthSource: BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2024 08:51:49.8581
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HkUOMn3qh/n7guxPgMCX2REGoeolOo3dUZwlZbRO6FQya8jKQibHKCfbqvAOoXUofx26mfBsY1IvJ2jy9jSXx1e0WBWU1BmJK+WNm+ynXh4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJSPR01MB0451
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_015217_564405_D757AAB2 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20240325_023101_608493_B667423D 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,163 +89,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add StarFive JH8100 dwmac support.
-The JH8100 dwmac shares the same driver code as the JH7110 dwmac
-and has only one reset signal.
+From: Alexandre Ghiti
+> Sent: 25 March 2024 07:31
+> 
+> Hi David,
+> 
+> On 24/03/2024 20:42, David Laight wrote:
+> > ...
+> >> The use of alternatives allows to return right away if the buffer is
+> >> beyond the usable user address space, and it's not just "slightly
+> >> faster" for some cases (a very large buffer with only a few bytes being
+> >> beyond the limit or someone could fault-in all the user pages and fail
+> >> very late...etc). access_ok() is here to guarantee that such situations
+> >> don't happen, so actually it makes more sense to use an alternative to
+> >> avoid that.
+> >
+> > Is it really worth doing ANY optimisations for the -EFAULT path?
+> > They really don't happen.
+> >
+> > The only fault path that matters is the one that has to page in
+> > data from somewhere.
+> 
+> 
+> Which is completely avoided with a strict definition of access_ok(). I
+> see access_ok() as an already existing optimization of fault paths by
+> avoiding them entirely when they are bound to happen.
 
-Please refer to below:
+No, access_ok() exists because accesses to kernel addresses don't fault.
+Possibly in linux 0.01 it tried to ensure that the access was valid
+(by checking the process's page tables (etc) but that that hasn't been
+true for a long time.
 
-  JH8100: reset-names = "stmmaceth";
-  JH7110: reset-names = "stmmaceth", "ahb";
-  JH7100: reset-names = "ahb";
+You don't want to add a single instruction (never mind a conditional)
+to access_ok() to avoid a page fault on an address that will fault.
 
-Example usage of JH8100 in the device tree:
+Basically real programs don't pass bad addresses into the kernel
+or access them in userspace. EFAULT and SIGSEGV are pretty fatal.
+(Nothing call sbrk() from its SIGSEGV handler any more!)
 
-gmac0: ethernet@16030000 {
-        compatible = "starfive,jh8100-dwmac",
-                     "starfive,jh7110-dwmac",
-                     "snps,dwmac-5.20";
-        ...
-};
+	David
 
-Signed-off-by: Tan Chun Hau <chunhau.tan@starfivetech.com>
----
- .../devicetree/bindings/net/snps,dwmac.yaml   |  1 +
- .../bindings/net/starfive,jh7110-dwmac.yaml   | 82 +++++++++++++------
- 2 files changed, 58 insertions(+), 25 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 6b0341a8e0ea..a6d596b7dcf4 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -97,6 +97,7 @@ properties:
-         - snps,dwxgmac-2.10
-         - starfive,jh7100-dwmac
-         - starfive,jh7110-dwmac
-+        - starfive,jh8100-dwmac
- 
-   reg:
-     minItems: 1
-diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-index 0d1962980f57..da3cc984fec9 100644
---- a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-@@ -18,6 +18,7 @@ select:
-         enum:
-           - starfive,jh7100-dwmac
-           - starfive,jh7110-dwmac
-+          - starfive,jh8100-dwmac
-   required:
-     - compatible
- 
-@@ -30,6 +31,10 @@ properties:
-       - items:
-           - const: starfive,jh7110-dwmac
-           - const: snps,dwmac-5.20
-+      - items:
-+          - const: starfive,jh8100-dwmac
-+          - const: starfive,jh7110-dwmac
-+          - const: snps,dwmac-5.20
- 
-   reg:
-     maxItems: 1
-@@ -83,29 +88,13 @@ allOf:
-   - if:
-       properties:
-         compatible:
--          contains:
--            const: starfive,jh7100-dwmac
--    then:
--      properties:
--        interrupts:
--          minItems: 2
--          maxItems: 2
 -
--        interrupt-names:
--          minItems: 2
--          maxItems: 2
--
--        resets:
--          maxItems: 1
--
--        reset-names:
--          const: ahb
--
--  - if:
--      properties:
--        compatible:
--          contains:
--            const: starfive,jh7110-dwmac
-+          allOf:
-+            - contains:
-+                enum:
-+                  - starfive,jh8100-dwmac
-+            - contains:
-+                enum:
-+                  - starfive,jh7110-dwmac
-     then:
-       properties:
-         interrupts:
-@@ -117,10 +106,53 @@ allOf:
-           maxItems: 3
- 
-         resets:
--          minItems: 2
-+          maxItems: 1
- 
-         reset-names:
--          minItems: 2
-+          const: stmmaceth
-+
-+    else:
-+      if:
-+        properties:
-+          compatible:
-+            contains:
-+              const: starfive,jh7100-dwmac
-+      then:
-+        properties:
-+          interrupts:
-+            minItems: 2
-+            maxItems: 2
-+
-+          interrupt-names:
-+            minItems: 2
-+            maxItems: 2
-+
-+          resets:
-+            maxItems: 1
-+
-+          reset-names:
-+            const: ahb
-+
-+        if:
-+          properties:
-+            compatible:
-+              contains:
-+                const: starfive,jh7110-dwmac
-+        then:
-+          properties:
-+            interrupts:
-+              minItems: 3
-+              maxItems: 3
-+
-+            interrupt-names:
-+              minItems: 3
-+              maxItems: 3
-+
-+            resets:
-+              minItems: 2
-+
-+            reset-names:
-+              minItems: 2
- 
- unevaluatedProperties: false
- 
--- 
-2.25.1
-
-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
