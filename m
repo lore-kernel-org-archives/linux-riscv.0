@@ -4,102 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A598BC54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 19:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F98BC54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 19:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9ZvLTD4pgyEzDul9lNyl8cZQUQNUT816nO/+QAYZVes=; b=wDaJlEB6N9hd0F
-	wFNNYOR0Du1OdlnBCUWgw7g6aLaJ62KHTc6EMgZB4wg6LELI2GHHRAbhmV2YpzDX291BZw4MND4zi
-	p0Js3lN5D0fTrnsTkfyzgaQ7N0E61HbYrwaQ5LGi+qMu+/XtYS3v2+IVwEv3tD61sDyJyxAuxEw2r
-	5YZwcKrwtRta9GYM31mckuMEUsxaSt0qcH7JXYyAyP0h3EZkKrXZ+ZfQS+4Od1uIuugejIPRkzmmV
-	9ZDomzJhOeiGKlGCf8OSrb0R2kkK8jM2O2oyHjGRY9EUe5//Pl3R5ZQrPfgX5zmKadKLqoKVT2+6Z
-	6POMCICBEt0KMHN+kCyQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PJqfoid9RB/UmrpO7f/RvK9B4+3841oF3+5vKWr3h7I=; b=gDSpNM3qmRiZtp+/JoX0Se+WNh
+	vrQeaCu3w7FKIJtSZFtKbQqa9pTU8nRaizsHRwcqx1swX/bZd2N1kMK20lRbiwGH/1dXY6goQc+gd
+	rSObbqdAos2fofX7k8pzyCLDhDUy8Y/JiR9+90yZEHPQsrmhs1mB9FfzqC4LXhlf68J4lF8cY9bI9
+	F2okppv8wrcQdj/Aip34FBgSGjmrBI/1xC3/A+mZx2nKS0QKhqMKCvc5fuW8d71RFCy0DvYd0ljGx
+	jocK2Q6x9ZVoHGiX54F2BOe72PKH53DCDAUQxO4kiqK9nV09J0+HqmnmpGI2nV2Q2w7hA79HHJ5kC
+	a7CxbKpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ropwA-00000001aQk-3hd2;
-	Mon, 25 Mar 2024 19:24:50 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1roqB7-00000001dkK-3yCN;
+	Mon, 25 Mar 2024 19:40:17 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ropw4-00000001aMq-2LR3;
-	Mon, 25 Mar 2024 19:24:46 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-5cf2d73a183so3616109a12.1;
-        Mon, 25 Mar 2024 12:24:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1711394683; x=1711999483; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=P8SlcQVDmaEWiOte6mDmefSXrzEKVOFtuPmb7V2Kzic=;
-        b=L21HxG/A+5rrVWDt6wYWXZS9uGSbRaqVX2nkPTmJaZog6ouRpNR8+bzeGN4/wtik7b
-         RB7FPio91pAeQl198YFy5pz7I1+xcmzAwUkX0Pp3r3mgqf8xV3jdK/ZA+HQWwnzz6e84
-         nMJg3LFnN36X6aN2hDLZPptkbd34TJt6eWZZcNFWP4GVw8kC2Qnj3g6rx/x4bgg7tTNc
-         rJmRndpE0hf+Y4IwBUG4Bkt/pIX0vF05JdXxhXG05nryNEWS4NtE1JZSFHAZiQ2V7C4n
-         MFZFBYMb2lJRNTag64Y4gEwsJj0EPmrY279VYHa2WHba/FSRsr6zU31dvYY3iHVyDcz/
-         gleg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711394683; x=1711999483;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=P8SlcQVDmaEWiOte6mDmefSXrzEKVOFtuPmb7V2Kzic=;
-        b=sQLB+z7Kfg4TtlF4Lw8TBWOicSCJpFgKrlhCFkR+zJS8bTCyUf6JcI3+ax3ckufL9t
-         HeVFRQFANF4ySJd154NO3GHCWckkftpyYBddIqkLMgw/0VI7eKirSiYFzZdVli5YJsLj
-         6HhYAsURsnmsQNXWXxHztQ6zj8ndJr5Bk+1xFG1PjrCLjzYTDDChPUbTaMCCibRBGFNr
-         85Yj5Tg3CabmeVE2p+fk1eGpAVm0uSsydjqxdaB+Y2lGtYN3JOLKqlcOoZNUBUrHSJ7o
-         rZ0YXrMt/tg0kONC0PsGR6eym9fjAFiQXoFI2WJLr8WKqP9Z139rTjpKwmB1AfF2LZSj
-         GM3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXXp3wihykk2L1Eh30s+slB/A4onpKcmbqbYpZhXUOT+Uc2nmCe2h/ZymO8yHabLz0OxV6ZQ3RziEwWzroJCXwJYzcS6OeabsUFOAFlGKSllPCgV3fZqeE2g5ifSaZAkp5vWDJWf5YTjSXcYlD2LI3ZwS/nEA0=
-X-Gm-Message-State: AOJu0YyTdyUSI4Z9p/Tq4oJstVFo93h4H4PjRcD036rIjDFBlAG9h6W8
-	hNZzzi75unwS7I/rOe39l7pedsl6JfLM4Bg1o1DS4vpLb8BACse7
-X-Google-Smtp-Source: AGHT+IFwrImv53xAJXZaDSLJtn5nAAXYRWdj5wAShxC6nIYkDeejlGCGK79rEKa0DnGROBP9wWQclw==
-X-Received: by 2002:a17:90b:3d8:b0:29b:a345:620a with SMTP id go24-20020a17090b03d800b0029ba345620amr10896738pjb.20.1711394683229;
-        Mon, 25 Mar 2024 12:24:43 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id q7-20020a17090a304700b0029bf9969afbsm10113710pjl.53.2024.03.25.12.24.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Mar 2024 12:24:42 -0700 (PDT)
-Date: Mon, 25 Mar 2024 12:24:40 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: =?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>
-Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Kees Cook <keescook@chromium.org>,
-	Daniel Diaz <daniel.diaz@linaro.org>,
-	David Gow <davidgow@google.com>,
-	Arthur Grillo <arthurgrillo@riseup.net>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, loongarch@lists.linux.dev,
-	netdev@vger.kernel.org,
-	Linux Kernel Functional Testing <lkft@linaro.org>
-Subject: Re: [PATCH v2 05/14] drm: Suppress intentional warning backtraces in
- scaling unit tests
-Message-ID: <e880828b-552e-488e-9f31-3989bec276ae@roeck-us.net>
-References: <20240325175248.1499046-1-linux@roeck-us.net>
- <20240325175248.1499046-6-linux@roeck-us.net>
- <0729b218-53f1-4139-b165-a324794a9abd@igalia.com>
+	id 1roqB4-00000001diJ-3QsD
+	for linux-riscv@lists.infradead.org;
+	Mon, 25 Mar 2024 19:40:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 145BDCE1C9A;
+	Mon, 25 Mar 2024 19:40:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F24BBC433C7;
+	Mon, 25 Mar 2024 19:40:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1711395612;
+	bh=g659JFfs5AjSVYM1zIakNFUS3zlJBueU+/TZUE+qaBs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gaOY5sQX73xGJ1WwJdYEk9DzGrGd4x/nYC1/t4EYJ/STpKzpCksYM/pu8XPqFaHMG
+	 X9luV4z5WbBHm0t9j/jSRQlGL0oxs7b0+v0pm5pDTNdHg9AzTsco1Tc5/dKP+LoiUk
+	 nBjKbARri3NJm/sqdxCZwILmkeGpo+GKpSBmHX0LuWiF8QqnCL2rhEUenl6pdcjPt+
+	 cFbkekoZ4bwMugXMO+Ou4F/r7WEefbp5iM6+tNxGWV1DbOAtkQxJ60rbLu22Fxs7WR
+	 r69Gx4tdOEMFLGSaL6UApteTt2w0irHgqXZhX167LzUgYhysZoHonbKJkWAGRQQ/bn
+	 4DZdBXR+atfBw==
+Date: Mon, 25 Mar 2024 19:40:05 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Puranjay Mohan <puranjay12@gmail.com>
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Pu Lehui <pulehui@huaweicloud.com>
+Subject: Re: [PATCH bpf-next v2 2/2] bpf,riscv: Implement bpf_addr_space_cast
+ instruction
+Message-ID: <20240325-creamed-unlovely-4c80082e9b8c@spud>
+References: <20240325155434.65589-1-puranjay12@gmail.com>
+ <20240325155434.65589-3-puranjay12@gmail.com>
+ <20240325-nineteen-unvaried-cb5cb5fd3a73@spud>
+ <CANk7y0gWtwN7EJ24aoY9-RB9629d5Ks-9fMc3wnAAjjERcZhFw@mail.gmail.com>
+ <20240325-perpetual-liking-25f26e485b65@spud>
+ <CANk7y0jtURUC6PWx5nSDigMpScUT+p3qd=hTtqJkCqAN+Nq32A@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0729b218-53f1-4139-b165-a324794a9abd@igalia.com>
+In-Reply-To: <CANk7y0jtURUC6PWx5nSDigMpScUT+p3qd=hTtqJkCqAN+Nq32A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_122444_658814_C75469EB 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20240325_124015_257518_480E4F04 
+X-CRM114-Status: GOOD (  25.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,69 +86,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============5646787909324707990=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Mon, Mar 25, 2024 at 04:05:06PM -0300, Ma=EDra Canal wrote:
-> Hi Guenter,
-> =
+--===============5646787909324707990==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="f9ssCXyqoxZRmlTY"
+Content-Disposition: inline
 
-> On 3/25/24 14:52, Guenter Roeck wrote:
-> > The drm_test_rect_calc_hscale and drm_test_rect_calc_vscale unit tests
-> > intentionally trigger warning backtraces by providing bad parameters to
-> > the tested functions. What is tested is the return value, not the exist=
-ence
-> > of a warning backtrace. Suppress the backtraces to avoid clogging the
-> > kernel log.
-> > =
 
-> > Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> > Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
-> > Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-> > ---
-> > - Rebased to v6.9-rc1
-> > - Added Tested-by:, Acked-by:, and Reviewed-by: tags
-> > =
+--f9ssCXyqoxZRmlTY
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> >   drivers/gpu/drm/tests/drm_rect_test.c | 6 ++++++
-> >   1 file changed, 6 insertions(+)
-> > =
+On Mon, Mar 25, 2024 at 08:23:18PM +0100, Puranjay Mohan wrote:
+> On Mon, Mar 25, 2024 at 8:19=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
+rote:
+> >
+> > On Mon, Mar 25, 2024 at 08:13:10PM +0100, Puranjay Mohan wrote:
+> > > On Mon, Mar 25, 2024 at 8:10=E2=80=AFPM Conor Dooley <conor@kernel.or=
+g> wrote:
+> > > >
+> > > > On Mon, Mar 25, 2024 at 03:54:34PM +0000, Puranjay Mohan wrote:
+> > > > > LLVM generates bpf_addr_space_cast instruction while translating
+> > > > > pointers between native (zero) address space and
+> > > > > __attribute__((address_space(N))). The addr_space=3D0 is reserved=
+ as
+> > > > > bpf_arena address space.
+> > > > >
+> > > > > rY =3D addr_space_cast(rX, 0, 1) is processed by the verifier and
+> > > > > converted to normal 32-bit move: wX =3D wY
+> > > > >
+> > > > > rY =3D addr_space_cast(rX, 1, 0) has to be converted by JIT.
+> > > > >
+> > > > > Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
+> > > >
+> > > > Doesn't compile for allmodconfig:
+> > > >   ../arch/riscv/net/bpf_jit_comp64.c:1086:7: error: call to undecla=
+red function 'insn_is_cast_user'; ISO C99 and later do not support implicit=
+ function declarations [-Wimplicit-function-declaration]
+> > > >
+> > > > Cheers,
+> > > > Conor.
+> > >
+> > > Yes,
+> > > I mentioned in the cover letter that a patch is required.
+> > > It just got merged in bpf-next/master:
+> > > https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/comm=
+it/?id=3D770546ae9f4c1ae1ebcaf0874f0dd9631d77ec97
+> > >
+> > > So, rebasing on the latest bpf-next/master should fix the issue.
+> >
+> > Ah, I see now that there was a mention in the cover letter that I did
+> > not see first time around.
+> >
+> > Bjorn, do you think there's anything we can do about these kinda
+> > misleading CI failures for bpf stuff? Some stuff that touches bpf
+> > definitely is worth us building, but should we try and build it on top
+> > of the bpf tree instead?
+>=20
+> Is there a separate CI for RISCV related stuff? is it public?
 
-> > diff --git a/drivers/gpu/drm/tests/drm_rect_test.c b/drivers/gpu/drm/te=
-sts/drm_rect_test.c
-> > index 76332cd2ead8..75614cb4deb5 100644
-> > --- a/drivers/gpu/drm/tests/drm_rect_test.c
-> > +++ b/drivers/gpu/drm/tests/drm_rect_test.c
-> > @@ -406,22 +406,28 @@ KUNIT_ARRAY_PARAM(drm_rect_scale, drm_rect_scale_=
-cases, drm_rect_scale_case_desc
-> >   static void drm_test_rect_calc_hscale(struct kunit *test)
-> >   {
-> > +	DEFINE_SUPPRESSED_WARNING(drm_calc_scale);
-> >   	const struct drm_rect_scale_case *params =3D test->param_value;
-> >   	int scaling_factor;
-> > +	START_SUPPRESSED_WARNING(drm_calc_scale);
-> =
+It's based outta patchwork, just like the netdev/bpf stuff:
+https://patchwork.kernel.org/project/linux-riscv/list/
 
-> I'm not sure if it is not that obvious only to me, but it would be nice
-> to have a comment here, remembering that we provide bad parameters in
-> some test cases.
+> I would be interested in adding RISC-V support in
+> https://github.com/kernel-patches/bpf
+> Is someone already working on this?
 
-Sure. Something like this ?
+If anyone is, it is probably something Bjorn knows about!
 
-        /*
-         * drm_rect_calc_hscale() generates a warning backtrace whenever bad
-         * parameters are passed to it. This affects all unit tests with an
-         * error code in expected_scaling_factor.
-         */
+--f9ssCXyqoxZRmlTY
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks,
-Guenter
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgHTFQAKCRB4tDGHoIJi
+0kRtAP9o7BqT/u++er+Bnqqvg6xK9tBATuUjDpdT+rOwJ1PesgEAh1ycTqG5uqxR
+xFOf+YAsdnGI0ZmRxmxH+/5isoHdjwg=
+=shXF
+-----END PGP SIGNATURE-----
+
+--f9ssCXyqoxZRmlTY--
+
+
+--===============5646787909324707990==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5646787909324707990==--
+
