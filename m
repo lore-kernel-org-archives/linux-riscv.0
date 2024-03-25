@@ -4,62 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F235C54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 07:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AAFAC54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 07:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g1iVNgVnqK6snQYQ+sB6b2TlyoDe0J4o4FErDGKWQsA=; b=XMPkww/6+VTeMN
-	ly6qUqbheqt6aV8VCjv3nDEuTJwoAObsYEQdswKAIc+hZ3XpwlWfKikkBFX6WU8+woM20Ndjp+VTx
-	/GITval2tPHtkD8VfgW3/szP9mbxF18+0MbidtOai+u4VJOklqKMSIrhAHvVqKLKDZE2TuheP3fUf
-	zzZLevwDTozDoGA7tKSdUuBl1oM9QFRGJ1/NZcUo5HyCL+zVS6Z2/lur/G+Vwc64sGtE+Gbt7KIx9
-	5MyaAf8icFiVWgOj5VKucqJyawBCsv+dGsAE+z7KwFP9EPzd9oylIpJXKnJPDdw8Y04nT1Pte6UDR
-	9dwXBvH3cfg2z/vOYOTw==;
+	List-Owner; bh=swTg1i+MkHJeX+MriZuLnyPb8cLwn+GEfCOKxvs/Pc8=; b=t0WQfP/Pbz3b2C
+	l5H3SHpKthtxneJfCvLHKwg/gzDJweNTrvYLBOxoXe66wKWrw+hkLuhuVBr6Jwaylh1NHfN+b5k8m
+	43GIdRM6hoQJUq0n4oZwfSn8wXdhTO4xISNBPSa7yxXbRqNyzQh8ciReZpg9f2I4bXWKwiCFsejgN
+	jXfPdwSyAAPDE17thRX9C1K86BEj3mmXNu8EsV/2A9s9blbSf0KAhwB/V84317qvGAq/olE/pg16K
+	PAJugH3bkTFXt2HCIfEmqrzPdn5u2R4S9vLIeJ7UCMjrv+ezhMX63rv1ofQwBH556YygfBFETYJVd
+	BvA4gIBLpJUu/ioJ+wSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roenA-0000000FvTr-2XFb;
-	Mon, 25 Mar 2024 07:30:48 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1roeyQ-0000000FyG2-2Lv3;
+	Mon, 25 Mar 2024 07:42:26 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roen6-0000000FvR7-26f8
+	id 1roeyL-0000000FyDC-126a
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 07:30:46 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6555D20002;
-	Mon, 25 Mar 2024 07:30:37 +0000 (UTC)
-Message-ID: <d323eb10-c79b-49cb-94db-9b135e6fd280@ghiti.fr>
-Date: Mon, 25 Mar 2024 08:30:37 +0100
+	Mon, 25 Mar 2024 07:42:23 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5E80040002;
+	Mon, 25 Mar 2024 07:42:17 +0000 (UTC)
+Message-ID: <dc1e2be5-73e1-409b-85bd-6c216a8b76bd@ghiti.fr>
+Date: Mon, 25 Mar 2024 08:42:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
+Subject: Re: [PATCH] riscv: Fix spurious errors from __get/put_kernel_nofault
 Content-Language: en-US
-To: David Laight <David.Laight@ACULAB.COM>,
- Samuel Holland <samuel.holland@sifive.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton
- <akpm@linux-foundation.org>, Charlie Jenkins <charlie@rivosinc.com>,
- Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
- Kemeng Shi <shikemeng@huaweicloud.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Xiao Wang <xiao.w.wang@intel.com>,
- Yangyu Chen <cyy@cyyself.name>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20240313180010.295747-1-samuel.holland@sifive.com>
- <CAHVXubjLWZkjSapnsWJzimWg_2swEy7tQ-DQ6ri8yMk8-Qsc-A@mail.gmail.com>
- <88de4a1a-047e-4be9-b5b0-3e53434dc022@sifive.com>
- <b5624bba-9917-421b-8ef0-4515d442f80b@ghiti.fr>
- <f786e02245424e02b38f55ae6b29d14a@AcuMS.aculab.com>
+To: Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20240312022030.320789-1-samuel.holland@sifive.com>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <f786e02245424e02b38f55ae6b29d14a@AcuMS.aculab.com>
+In-Reply-To: <20240312022030.320789-1-samuel.holland@sifive.com>
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_003044_719547_20A53B0B 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20240325_004221_690735_A554B45C 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +61,66 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+Hi Samuel,
 
-On 24/03/2024 20:42, David Laight wrote:
-> ...
->> The use of alternatives allows to return right away if the buffer is
->> beyond the usable user address space, and it's not just "slightly
->> faster" for some cases (a very large buffer with only a few bytes being
->> beyond the limit or someone could fault-in all the user pages and fail
->> very late...etc). access_ok() is here to guarantee that such situations
->> don't happen, so actually it makes more sense to use an alternative to
->> avoid that.
-> Is it really worth doing ANY optimisations for the -EFAULT path?
-> They really don't happen.
+On 12/03/2024 03:19, Samuel Holland wrote:
+> These macros did not initialize __kr_err, so they could fail even if
+> the access did not fault.
 >
-> The only fault path that matters is the one that has to page in
-> data from somewhere.
+> Cc: stable@vger.kernel.org
+> Fixes: d464118cdc41 ("riscv: implement __get_kernel_nofault and __put_user_nofault")
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
+> Found while testing the unaligned access speed series[1]. The observed
+> behavior was that with RISCV_EFFICIENT_UNALIGNED_ACCESS=y, the
+> copy_from_kernel_nofault() in prepend_copy() failed every time when
+> filling out /proc/self/mounts, so all of the mount points were "xxx".
+>
+> I'm surprised this hasn't been seen before. For reference, I'm compiling
+> with clang 18.
+>
+> [1]: https://lore.kernel.org/linux-riscv/20240308-disable_misaligned_probe_config-v9-0-a388770ba0ce@rivosinc.com/
+>
+>   arch/riscv/include/asm/uaccess.h | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+> index ec0cab9fbddd..72ec1d9bd3f3 100644
+> --- a/arch/riscv/include/asm/uaccess.h
+> +++ b/arch/riscv/include/asm/uaccess.h
+> @@ -319,7 +319,7 @@ unsigned long __must_check clear_user(void __user *to, unsigned long n)
+>   
+>   #define __get_kernel_nofault(dst, src, type, err_label)			\
+>   do {									\
+> -	long __kr_err;							\
+> +	long __kr_err = 0;						\
+>   									\
+>   	__get_user_nocheck(*((type *)(dst)), (type *)(src), __kr_err);	\
+>   	if (unlikely(__kr_err))						\
+> @@ -328,7 +328,7 @@ do {									\
+>   
+>   #define __put_kernel_nofault(dst, src, type, err_label)			\
+>   do {									\
+> -	long __kr_err;							\
+> +	long __kr_err = 0;						\
+>   									\
+>   	__put_user_nocheck(*((type *)(src)), (type *)(dst), __kr_err);	\
+>   	if (unlikely(__kr_err))						\
 
 
-Which is completely avoided with a strict definition of access_ok(). I 
-see access_ok() as an already existing optimization of fault paths by 
-avoiding them entirely when they are bound to happen.
+That's a good a catch! Surprising indeed that we did not find this 
+before, that's the second bug in the uaccess routines in the last 3 (or 
+4) releases, maybe we should improve our coverage here, I'll see what we 
+can do.
+
+You can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
 Thanks,
 
 Alex
 
-
->
-> Provided there is a gap between the highest valid user address and the
-> lowest valid kernel address (may not be true on some 32bit systems)
-> and copy_to/from_user() do 'increasing address' copies then the
-> access_ok() check they do can almost certainly ignore the length.
->
-> This may be true for pretty much all access_ok() tests?
-> It would certainly simplify the test.
->
-> 	David
->
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> Registration No: 1397386 (Wales)
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
