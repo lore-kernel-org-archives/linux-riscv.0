@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4023C54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 11:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CA9C54E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 11:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i5lP00pNBfygz5rJhzYCR+3369ZozxqJJLhYWCRsJMs=; b=dj3DCSWffeA7qPMoJk/bDt2zmq
-	WO5nI+HFINQL0KeqjJcQZDT5LNK+hfxKRijb/rj56qJcyJ7EYksooZfUS37j6uNQCl3seY6bl5dij
-	91MSvCdthRJcxciDk/4UKchHFakwJzpnD90W3HbwI/Lf7T49k7Qjyc8FKjy7s3aNL3Cs7t1DFRC2b
-	7VYcyegd+J3Uek3b3+1RQMgn4Zqgnn/6BuvcRXx1KWObyqg9/VZXh5ZZyzNHduVQDAkKfgiUPTWYM
-	/0cqJmAm6IjPTyUFIL7caC1rX21LvmYsbgp8S534rbA6F+2vJ8qipgbxwa6IrvZVspDU+nvG/RaOM
-	hwFyPWbg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Z9asRomc6M+XKi4belOPryoAaeQtIjJ0gunNOMx+8gI=; b=T7ta8wsju5c8Xc
+	EZkhBi4vKZFx8Xm9TyRdfX4ssdsISQb+VzcZD3/ITfc+rogFXXYemEDIcR5zJ+4LbQMNLeHoTuXaO
+	Q7FING9u54q+e84rCj4Gsycn/OJNJ8b5P9M1BJ191H2mreoQvb8whlXZXINNZLVgEjhd76uRQL0Qo
+	eibgcRNzFFMqruiYfT3GW/RXd2BWMaewDHBybIICNuJbtyt76IpDs1lfV/j8ddtD5jfsdtFdGduxS
+	/JTGZWresUb4RRbHbQ8siexoUQsaJVj1YhWYAEnPlfaCMy184I3xNUX+1sGQ9W06ajW9DulZM7EeQ
+	zxxQCh0VNmrutogCxWtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roiEi-0000000Gy0N-21in;
-	Mon, 25 Mar 2024 11:11:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1roiF1-0000000GyCF-0KnX;
+	Mon, 25 Mar 2024 11:11:47 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roiEI-0000000GxnM-1pmv
+	id 1roiEv-0000000Gy73-2t07
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 11:11:13 +0000
+	Mon, 25 Mar 2024 11:11:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 18EBD60F18;
-	Mon, 25 Mar 2024 11:11:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3897CC433F1;
-	Mon, 25 Mar 2024 11:10:57 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 86C16CE13AF;
+	Mon, 25 Mar 2024 11:11:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2FD3C433C7;
+	Mon, 25 Mar 2024 11:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711365060;
-	bh=nM8sx42xDx95HRJ1wPccausmC0pYy6OVh8wnJGrVyxw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UXek09c6cW+G+x6iB1Jv6w5GUQmW9OLkvmUdoL+mdCU1yXcp6oJfVVuTBUC3Q/Cyk
-	 NX3khylkoegm4UxLO1a0/ubyu6hdMd3PDa2CfU6mEA6W8YvYR2h2XJjTTef1YDIHYc
-	 mj7rziUUjF9kvF6abIm7GB1Lkb2WOZcIWmrns4EPMTsA3YoWh8H3yKDJzFLRQ+F2fJ
-	 O4/4Vo2/eaChhs1clAYhDWr1XbaTG0p6zqKNeO9LefMbklD84RICylMiSLMkmnU+CI
-	 C9l6dyDXhurJtzLvruf9J7nlugslgxzuiSkKw2UtQdbuwZ6hPXXVhDMvw0RAyfJQ5A
-	 8tKoT0ncUKN/g==
-Date: Mon, 25 Mar 2024 11:10:55 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Yangyu Chen <cyy@cyyself.name>, linux-riscv@lists.infradead.org,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	s=k20201202; t=1711365098;
+	bh=akb0Xkda4VBBWXx+01f2VRfBJMybL/xPYRcZVbT0RVE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=O/stS8ao4dr5RdcoD4k0KOBnLcHUDvYt9Cuu2EZpewlYVEZxvx9z4k8CvwcBT2TFV
+	 wQ7s73BYayarwRGmiEEV0Q7zmZEF2mz7SsMZ56BJ4U+rj6vn6Zrb/p0xk2a4kK1l6d
+	 uILbXVAsRM3oiigJ7PbdxTyCz6OhpUS82NkAYnI6zbEJcnirMHz4D6v5XsdP6I45qn
+	 MMbcvz8ZmhSFY3jITAaxki2mLXOPk9ZksLkX+shs97VsKcn/jOWmji9arhuUMOTKTd
+	 nKJNf6sIB0WC/GwHFLm53hBvkXQww/NCiKiM8I8B68GZllVWRXZ3nJM4GplivGrgVH
+	 5XoDP6nHfcSEQ==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-gpio@vger.kernel.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 05/11] riscv: Kconfig.socs: Split ARCH_CANAAN and
- SOC_CANAAN_K210
-Message-ID: <20240325-slept-collie-9cdb65f2a94c@spud>
-References: <tencent_F76EB8D731C521C18D5D7C4F8229DAA58E08@qq.com>
- <tencent_F208A26B5338C6E14AC6648730368AF0FD0A@qq.com>
- <e255a964-27bf-4eb9-8e9a-4f60d1ccd12b@moroto.mountain>
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v3 RESEND] riscv: select ARCH_HAS_FAST_MULTIPLIER
+Date: Mon, 25 Mar 2024 18:58:23 +0800
+Message-ID: <20240325105823.1483-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <e255a964-27bf-4eb9-8e9a-4f60d1ccd12b@moroto.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_041103_273447_4016DC08 
-X-CRM114-Status: GOOD (  29.93  )
+X-CRM114-CacheID: sfid-20240325_041142_132777_11D9247A 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,107 +69,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5392369837294894601=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Currently, riscv linux requires at least IMA, so all platforms have a
+multiplier. And I assume the 'mul' efficiency is comparable or better
+than a sequence of five or so register-dependent arithmetic
+instructions. Select ARCH_HAS_FAST_MULTIPLIER to get slightly nicer
+codegen. Refer to commit f9b4192923fa ("[PATCH] bitops: hweight()
+speedup") for more details.
 
---===============5392369837294894601==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="wGBS4mUdIPIRsN3V"
-Content-Disposition: inline
+In a simple benchmark test calling hweight64() in a loop, it got:
+about 14% performance improvement on JH7110, tested on Milkv Mars.
 
+about 23% performance improvement on TH1520 and SG2042, tested on
+Sipeed LPI4A and SG2042 platform.
 
---wGBS4mUdIPIRsN3V
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+a slight performance drop on CV1800B, tested on milkv duo. Among all
+riscv platforms in my hands, this is the only one which sees a slight
+performance drop. It means the 'mul' isn't quick enough. However, the
+situation exists on x86 too, for example, P4 doesn't have fast
+integer multiplies as said in the above commit, x86 also selects
+ARCH_HAS_FAST_MULTIPLIER. So let's select ARCH_HAS_FAST_MULTIPLIER
+which can benefit almost riscv platforms.
 
-On Mon, Mar 25, 2024 at 01:52:42PM +0300, Dan Carpenter wrote:
-> On Sat, Mar 23, 2024 at 08:12:17PM +0800, Yangyu Chen wrote:
-> > Since SOC_FOO should be deprecated from patch [1], and cleanup for other
-> > SoCs is already on the mailing list [2,3,4], we remove the use of
-> > SOC_CANAAN and use ARCH_CANAAN for SoCs vendored by Canaan instead from
-> > now on. And allows ARCH_CANAAN to be selected for other Canaan SoCs.
-> >=20
-> > Then, since we have Canaan Kendryte K230 with MMU now, the use of
-> > SOC_CANAAN is no longer only referred to K210. Thus, we introduce a new
-> > symbol SOC_CANAAN_K210 for any conditional code or driver selection
-> > specific to the K210, so users will not try to build some K210-specific
-> > things when MMU is enabled and see it fails to boot on K210.
-> >=20
-> > [1] https://lore.kernel.org/linux-riscv/20221121221414.109965-1-conor@k=
-ernel.org/
-> > [2] https://lore.kernel.org/linux-riscv/20240305-praying-clad-c4fbcaa7e=
-d0a@spud/
-> > [3] https://lore.kernel.org/linux-riscv/20240305-fled-undrilled-41dc0c4=
-6bb29@spud/
-> > [4] https://lore.kernel.org/linux-riscv/20240305-stress-earflap-d7ddb86=
-55a4d@spud/
-> >=20
-> > Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-> > ---
-> >  arch/riscv/Kconfig.socs                        | 8 +++++---
-> >  arch/riscv/Makefile                            | 2 +-
-> >  arch/riscv/configs/nommu_k210_defconfig        | 3 ++-
-> >  arch/riscv/configs/nommu_k210_sdcard_defconfig | 3 ++-
-> >  4 files changed, 10 insertions(+), 6 deletions(-)
-> >=20
-> > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> > index 623de5f8a208..5710aee456ac 100644
-> > --- a/arch/riscv/Kconfig.socs
-> > +++ b/arch/riscv/Kconfig.socs
-> > @@ -72,11 +72,13 @@ config SOC_VIRT
-> >  	  This enables support for QEMU Virt Machine.
-> > =20
-> >  config ARCH_CANAAN
-> > -	def_bool SOC_CANAAN
-> > +	bool "Canaan Kendryte SoC"
-> > +	help
-> > +	  This enables support for Canaan Kendryte SoC platform hardware.
-> > =20
-> > -config SOC_CANAAN
-> > +config SOC_CANAAN_K210
->=20
-> This breaks git bisect, right?  There are references to SOC_CANAAN that
-> are get updated later in the patch series.  You can't delete SOC_CANAAN
-> and leave the other references dangling.
+Samuel also provided some performance numbers:
+On Unmatched: 20% speedup for __sw_hweight32 and 30% speedup for
+__sw_hweight64.
+On D1: 8% speedup for __sw_hweight32 and 8% slowdown for
+__sw_hweight64.
 
-Right. I thought that I had said to resend the patch from v5 and solicit
-acks to take it via the soc tree [1]. Splitting it out like this means you
-have to introduce a symbol that shadows the original one and then switch
-only once all references have been removed. If this series went into 6.10,
-which it should, the switch would be in 6.11. I think the chances of a
-meaningful conflict are low with the treewide swap so it should be safe
-to do.
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Tested-by: Samuel Holland <samuel.holland@sifive.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
+Hi Palmer,
 
-1 - https://lore.kernel.org/all/20240320-ideology-pasty-d3aea07cc519@spud/
+Similar as the pgprot_nx patch, this patch missed two merge window too.
+Feel free to ask me questions if there's something need to be done from
+my side.
 
---wGBS4mUdIPIRsN3V
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks
 
------BEGIN PGP SIGNATURE-----
+since v2:
+ - rebase on v6.8-rc1
+ - collect Reviewed-by and Tested-by tag
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgFbvwAKCRB4tDGHoIJi
-0uSwAP95G4FiQlISuzAR9Fwa0rZx0NdUZQm9zCWUnZVjAvWBpwD/TRvaSY/ZlNhe
-Uuf98Lvqw1twNosFPzpGll8glXobsQ4=
-=Ztlu
------END PGP SIGNATURE-----
+since v1:
+ - fix typo in commit msg
+ - add some performance numbers provided by Samuel
+ - collect Reviewed-by and Tested-by tag
 
---wGBS4mUdIPIRsN3V--
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index be09c8836d56..aba42b2bf660 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -23,6 +23,7 @@ config RISCV
+ 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE
+ 	select ARCH_HAS_DEBUG_WX
++	select ARCH_HAS_FAST_MULTIPLIER
+ 	select ARCH_HAS_FORTIFY_SOURCE
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select ARCH_HAS_GIGANTIC_PAGE
+-- 
+2.43.0
 
-
---===============5392369837294894601==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5392369837294894601==--
-
