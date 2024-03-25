@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B877C54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 19:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDDE1C54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 19:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vvin0KyibO47i8aYNMcvyQXu/z+p8yCln3El6slUpnA=; b=IYI1L1nfE2GAnbZwRUJEXx1ycU
-	B0zaAQ4sDeZxzGibuDSKqshrjjYdwbn86sD0Qi37tMk74mOHnXuYCFKc+zfjfYgncGelnisKoSdJ4
-	k8DvHPuzu1d8vv5zYpIfejtOCB57P2AEWFosJwBbmNomtQSSxW9JDRyksGnJpzTNHUR2HzzhhwXfE
-	hrdR1aOS/3dAzg/MXGJE3UONHrTLPUhovB/nqzSrsSORKEuJ12MUJdk8O9gnv28JQNBz0mbT1MMzq
-	vBoLAoVUsO/gcxYcCtft2SnYdUCzSRRAfjiJO6SejX8S2GVT43sqZ51I7lviRGy8Wry6cZPB7wzi7
-	99fof0rQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:Cc:To:
+	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N1nZWYsNnit2lW01Q9w6cn4lJsaVKSEH2TwP1HQsjFc=; b=CeFCgbCef6XDs/
+	o4+9rChc9/73RrtxtwVFAnuAMBk6e59scMTFvTMjd8hj6kM3vR2JfKawZpx9TfKyS05H/z4slUKXV
+	Rs/v99GUDuUc5biIWnQbwy6P7BSa0RisUAKFLFXN/aA/a9ImBS9Xl8mNrkWz7ETNc7IN8hq0rpaz5
+	xpguB+VA2f2QSVCHvHzxTFzatZxlUHeLjooVtMp9Ws+tjBq4aaZQXALxIhSyLg9xahT549o0Noofx
+	V7ifglT3v1NkbqOhQCE8R0b3Scnx4Mil2ZMLcJdODyOiTTyMP+kFd8iWHMQQtOrKSwjVcib8LGdtS
+	rMB0FD3AmOYo6qlSWpAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roplo-00000001XQx-19zT;
-	Mon, 25 Mar 2024 19:14:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ropoh-00000001YIb-3u4m;
+	Mon, 25 Mar 2024 19:17:08 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ropll-00000001XPy-1bCS
+	id 1ropoc-00000001YFg-0Zj2
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 19:14:06 +0000
+	Mon, 25 Mar 2024 19:17:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B655E61155;
-	Mon, 25 Mar 2024 19:14:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1480C433C7;
-	Mon, 25 Mar 2024 19:14:02 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id D784CCE0E56;
+	Mon, 25 Mar 2024 19:16:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25FEDC433C7;
+	Mon, 25 Mar 2024 19:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711394044;
-	bh=KaelNukxvsrPYK1N9laMx7thR69JrP770I56DlMagPI=;
+	s=k20201202; t=1711394219;
+	bh=hii92yni5m4VfZz2P67wncTjXZJRmTHvfpwyMPi4358=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KVYNrg3WKdCpPNBxw3NW7oSfmLHnG2J867bDPvbVmaHTVBEG3natH3tRmPBqfk+/R
-	 rpqe3W1RL7gIGz/pHRwPAmSqh4JLbeEtHbqRd7+A6G1JM/sEuYsvBEEqLGDb20EAJi
-	 xaeLhSXkXwZHFa+4YeoVETqpgToYV7OftQwF7LQuVuPvOBEOHNODiiLk+yhwaoczVA
-	 p1NDiSwMwOq6Jud0GyFTSSRXpXRBaEbj7qlDYG6vjlfnCG9oSzKvV4d62adr2vJjDu
-	 YCOxPmDSg7l1IDAn7xdfKRtrpZiJV8TWYBKKQm9AAPRJklKa45yb9h9xDlQMp7tDFQ
-	 qHYOnDRG9yxCg==
-Date: Mon, 25 Mar 2024 19:14:00 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-i2c@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Andi Shyti <andi.shyti@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 34/64] i2c: microchip-corei2c: reword according to newest
- specification
-Message-ID: <20240325-casually-hamster-cbf0f2430e07@spud>
-References: <20240322132619.6389-1-wsa+renesas@sang-engineering.com>
- <20240322132619.6389-35-wsa+renesas@sang-engineering.com>
-MIME-Version: 1.0
-In-Reply-To: <20240322132619.6389-35-wsa+renesas@sang-engineering.com>
+	b=gvHK54vCdibf8Bx3wsJsAhxLlpKrBU2MsRU/IPvCTu6oTcuXEieM7ySmo+I/P16YC
+	 /DdrWdwGtdEN5Q5T12edc/DsKmVXyuiWybT/F9vnLo9t+zrDP9e4E1BK6qw0K4j+aZ
+	 OmDi+tUZ7HmB9qQPQ8i7epvDcgkX/G4cC0jPiy1nsWBNAGndu+kQdJlHsKOLZ9vJUK
+	 3F2xfv/uj+L8hL++3pnZtwWAVmYQjKG2iI5g8uu4CmtfeVBtGAbS/XWo92bbRT4aSG
+	 PLdDhVg5aIR938fsKUCBoiodr3ZQ3xPoFvE42SkRe/nQW4ppf6bleuUOBQaLXPoeUs
+	 Snh0j5cU67dMQ==
+Mime-Version: 1.0
+Date: Mon, 25 Mar 2024 21:16:55 +0200
+Message-Id: <D032M8W5K5M5.1ZBHEIJFFNTCI@kernel.org>
+From: "Jarkko Sakkinen" <jarkko@kernel.org>
+To: "Jarkko Sakkinen" <jarkko@kernel.org>, "Masami Hiramatsu"
+ <mhiramat@kernel.org>
+Cc: <linux-riscv@lists.infradead.org>, "Paul Walmsley"
+ <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>, "Naveen N .
+ Rao" <naveen.n.rao@linux.ibm.com>, "Anil S Keshavamurthy"
+ <anil.s.keshavamurthy@intel.com>, "David S . Miller" <davem@davemloft.net>,
+ <linux-trace-kernel@vger.kernel.org>, "Calvin Owens"
+ <jcalvinowens@gmail.com>
+Subject: Re: [PATCH v2] arch/riscv: Enable kprobes when CONFIG_MODULES=n
+X-Mailer: aerc 0.17.0
+References: <20240323232908.13261-1-jarkko@kernel.org>
+ <20240325115632.04e37297491cadfbbf382767@kernel.org>
+ <D031SE4QN1CG.18GY6AS20QF1J@kernel.org>
+ <D032IFOPKJI8.3TKDPQQI9I6LG@kernel.org>
+In-Reply-To: <D032IFOPKJI8.3TKDPQQI9I6LG@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_121405_489132_425FDA42 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240325_121702_414881_ED0EE9B3 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,59 +76,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0911611653995137733=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon Mar 25, 2024 at 9:11 PM EET, Jarkko Sakkinen wrote:
+> On Mon Mar 25, 2024 at 8:37 PM EET, Jarkko Sakkinen wrote:
+> > > You also should consider using IS_ENABLED(CONFIG_MODULE) in the code to
+> > > avoid using #ifdefs.
+>
+> Hmm... I need make a couple of remarks but open for feedback ofc.
+>
+> First, trace_kprobe_module_exist depends on find_module()
+>
+> Second, there is a notifier callback that heavily binds to the module
+> subsystem.
+>
+> In both cases using IS_ENABLED would emit a lot of compilation errors.
 
---===============0911611653995137733==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TAGf2dJhgOpKDYF6"
-Content-Disposition: inline
+Also I think adding 'gfp' makes sense exactly at the point as it has
+a use case, i.e. two call sites with differing flags. It makes sense
+but should be IMHO added exactly at that time.
 
+Leaving it from my patch set does not do any measurable harm but please
+correct if I'm missing something.
 
---TAGf2dJhgOpKDYF6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Mar 22, 2024 at 02:25:27PM +0100, Wolfram Sang wrote:
-> Match the wording of this driver wrt. the newest I2C v7, SMBus 3.2, I3C
-> specifications and replace "master/slave" with more appropriate terms.
-> They are also more specific because we distinguish now between a remote
-> entity ("client") and a local one ("target").
->=20
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
---TAGf2dJhgOpKDYF6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgHM+AAKCRB4tDGHoIJi
-0uLgAQCteeRRnZgvo9uGusSLdJIVBw7pXxV2EGKWnke4r22nDgD/TTDLIuSbaKfA
-cOO7slZ3qZsgTl/Z/p+wwJ2HUIVrrQ4=
-=jJNU
------END PGP SIGNATURE-----
-
---TAGf2dJhgOpKDYF6--
-
-
---===============0911611653995137733==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+BR, Jarkko
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0911611653995137733==--
-
