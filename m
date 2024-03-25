@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EAECC54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 07:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F235C54E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 07:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VC205jFUdP5Fn/2GYCAYnB/7rvaHyXz6NzgKlZC5Zgo=; b=MmEkxpPAd8dm3R
-	st7sfr3whmv4vvWjSwbb+2OBSNqNdisV4EpV48CFJDlVLcTQus4bOJVZzFerr2jiXuGk/eisujYdJ
-	h1y8mBPRaMQXDFWMpo7IKFQCXlbSayWyWnLupOLX7ULSnjfsm979B3SrhuDqFU1OWAwGnMb0tIKuF
-	j2HevYyNx6QO89b8E8aWDwJYIKjDtn5V/KIureSV/L0QJp/Hv7ow5g57hxmqKT4UNa4vyaUlpdaFE
-	WAuKXRrSWcP2hc5L0XlE2WiamitX2LNp6kCqSaZCMR6XrTp0EBbioYMWljY5NRte8tAJiVNCIhI76
-	18qW9YjKw/e13BJagQ2g==;
+	List-Owner; bh=g1iVNgVnqK6snQYQ+sB6b2TlyoDe0J4o4FErDGKWQsA=; b=XMPkww/6+VTeMN
+	ly6qUqbheqt6aV8VCjv3nDEuTJwoAObsYEQdswKAIc+hZ3XpwlWfKikkBFX6WU8+woM20Ndjp+VTx
+	/GITval2tPHtkD8VfgW3/szP9mbxF18+0MbidtOai+u4VJOklqKMSIrhAHvVqKLKDZE2TuheP3fUf
+	zzZLevwDTozDoGA7tKSdUuBl1oM9QFRGJ1/NZcUo5HyCL+zVS6Z2/lur/G+Vwc64sGtE+Gbt7KIx9
+	5MyaAf8icFiVWgOj5VKucqJyawBCsv+dGsAE+z7KwFP9EPzd9oylIpJXKnJPDdw8Y04nT1Pte6UDR
+	9dwXBvH3cfg2z/vOYOTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roeiK-0000000FttV-28K8;
-	Mon, 25 Mar 2024 07:25:48 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1roenA-0000000FvTr-2XFb;
+	Mon, 25 Mar 2024 07:30:48 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roeiF-0000000FtoN-0dxi
+	id 1roen6-0000000FvR7-26f8
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 07:25:45 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 56277240002;
-	Mon, 25 Mar 2024 07:25:29 +0000 (UTC)
-Message-ID: <1883cf6b-7756-405b-a843-d8ae31e01d61@ghiti.fr>
-Date: Mon, 25 Mar 2024 08:25:28 +0100
+	Mon, 25 Mar 2024 07:30:46 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 6555D20002;
+	Mon, 25 Mar 2024 07:30:37 +0000 (UTC)
+Message-ID: <d323eb10-c79b-49cb-94db-9b135e6fd280@ghiti.fr>
+Date: Mon, 25 Mar 2024 08:30:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
 Content-Language: en-US
-To: Arnd Bergmann <arnd@arndb.de>, Samuel Holland
- <samuel.holland@sifive.com>, Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+To: David Laight <David.Laight@ACULAB.COM>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
  Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton
  <akpm@linux-foundation.org>, Charlie Jenkins <charlie@rivosinc.com>,
- guoren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
- Kemeng Shi <shikemeng@huaweicloud.com>, Matthew Wilcox
- <willy@infradead.org>, Mike Rapoport <rppt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Xiao W Wang
- <xiao.w.wang@intel.com>, Yangyu Chen <cyy@cyyself.name>,
- linux-kernel@vger.kernel.org
+ Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+ Kemeng Shi <shikemeng@huaweicloud.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ "Mike Rapoport (IBM)" <rppt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Xiao Wang <xiao.w.wang@intel.com>,
+ Yangyu Chen <cyy@cyyself.name>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 References: <20240313180010.295747-1-samuel.holland@sifive.com>
  <CAHVXubjLWZkjSapnsWJzimWg_2swEy7tQ-DQ6ri8yMk8-Qsc-A@mail.gmail.com>
  <88de4a1a-047e-4be9-b5b0-3e53434dc022@sifive.com>
  <b5624bba-9917-421b-8ef0-4515d442f80b@ghiti.fr>
- <b0a07878-a9f1-40aa-b177-423b05137d2e@app.fastmail.com>
+ <f786e02245424e02b38f55ae6b29d14a@AcuMS.aculab.com>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <b0a07878-a9f1-40aa-b177-423b05137d2e@app.fastmail.com>
+In-Reply-To: <f786e02245424e02b38f55ae6b29d14a@AcuMS.aculab.com>
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_002543_476079_3D5370BD 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20240325_003044_719547_20A53B0B 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,57 +71,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQXJuZCwKCk9uIDI0LzAzLzIwMjQgMjM6MDUsIEFybmQgQmVyZ21hbm4gd3JvdGU6Cj4gT24g
-VHVlLCBNYXIgMTksIDIwMjQsIGF0IDE3OjUxLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4+IE9u
-IDE4LzAzLzIwMjQgMjI6MjksIFNhbXVlbCBIb2xsYW5kIHdyb3RlOgo+Pj4gT24gMjAyNC0wMy0x
-OCAzOjUwIFBNLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4+Pj4gT24gV2VkLCBNYXIgMTMsIDIw
-MjQgYXQgNzowMOKAr1BNIFNhbXVlbCBIb2xsYW5kCj4+PiBJdCBsb29rcyBsaWtlIHRoZSBjYWxs
-IHRvIGZpeHVwX2V4Y2VwdGlvbigpIFthZGRlZAo+Pj4gaW4gNDE2NzIxZmYwNWZkICgicmlzY3Ys
-IG1tOiBQZXJmb3JtIEJQRiBleGhhbmRsZXIgZml4dXAgb24gcGFnZSBmYXVsdCIpXSBpcwo+Pj4g
-b25seSBpbnRlbmRlZCB0byBjYXRjaCBudWxsIHBvaW50ZXIgZGVyZWZlcmVuY2VzLiBTbyBtYWtp
-bmcgdGhlIGNoYW5nZSB3b3VsZG4ndAo+Pj4gaGF2ZSBhbnkgZnVuY3Rpb25hbCBpbXBhY3QsIGJ1
-dCBpdCB3b3VsZCBzdGlsbCBiZSBhIHZhbGlkIG9wdGltaXphdGlvbi4KPj4+Cj4+Pj4gT3IgSSB3
-YXMgd29uZGVyaW5nIGlmIGl0IHdvdWxkIG5vdCBiZSBiZXR0ZXIgdG8gZG8gbGlrZSB4ODYgYW5k
-IHVzZSBhbgo+Pj4+IGFsdGVybmF0aXZlLCBpdCB3b3VsZCBiZSBtb3JlIGNvcnJlY3QgKGV2ZW4g
-dGhvdWdoIEkgYmVsaWV2ZSB5b3VyCj4+Pj4gc29sdXRpb24gd29ya3MpCj4+Pj4gaHR0cHM6Ly9l
-bGl4aXIuYm9vdGxpbi5jb20vbGludXgvbGF0ZXN0L3NvdXJjZS9hcmNoL3g4Ni9pbmNsdWRlL2Fz
-bS9wYWdlXzY0LmgjTDgyLgo+Pj4gV2hhdCB3b3VsZCBiZSB0aGUgYmVuZWZpdCBvZiB1c2luZyBh
-biBhbHRlcm5hdGl2ZT8gQW55IGFjY2VzcyB0byBhbiBhZGRyZXNzCj4+PiBiZXR3ZWVuIFRBU0tf
-U0laRSBhbmQgVEFTS19TSVpFX01BWCBpcyBndWFyYW50ZWVkIHRvIGdlbmVyYXRlIGEgcGFnZSBm
-YXVsdCwgc28KPj4+IHRoZSBvbmx5IGJlbmVmaXQgSSBzZWUgaXMgcmV0dXJuaW5nIC1FRkFVTFQg
-c2xpZ2h0bHkgZmFzdGVyIGF0IHRoZSBjb3N0IG9mCj4+PiBhcHBseWluZyBhIGZldyBodW5kcmVk
-IGFsdGVybmF0aXZlcyBhdCBib290LiBCdXQgaXQncyBwb3NzaWJsZSBJJ20gbWlzc2luZwo+Pj4g
-c29tZXRoaW5nLgo+Pgo+PiBUaGUgdXNlIG9mIGFsdGVybmF0aXZlcyBhbGxvd3MgdG8gcmV0dXJu
-IHJpZ2h0IGF3YXkgaWYgdGhlIGJ1ZmZlciBpcwo+PiBiZXlvbmQgdGhlIHVzYWJsZSB1c2VyIGFk
-ZHJlc3Mgc3BhY2UsIGFuZCBpdCdzIG5vdCBqdXN0ICJzbGlnaHRseQo+PiBmYXN0ZXIiIGZvciBz
-b21lIGNhc2VzIChhIHZlcnkgbGFyZ2UgYnVmZmVyIHdpdGggb25seSBhIGZldyBieXRlcyBiZWlu
-Zwo+PiBiZXlvbmQgdGhlIGxpbWl0IG9yIHNvbWVvbmUgY291bGQgZmF1bHQtaW4gYWxsIHRoZSB1
-c2VyIHBhZ2VzIGFuZCBmYWlsCj4+IHZlcnkgbGF0ZS4uLmV0YykuIGFjY2Vzc19vaygpIGlzIGhl
-cmUgdG8gZ3VhcmFudGVlIHRoYXQgc3VjaCBzaXR1YXRpb25zCj4+IGRvbid0IGhhcHBlbiwgc28g
-YWN0dWFsbHkgaXQgbWFrZXMgbW9yZSBzZW5zZSB0byB1c2UgYW4gYWx0ZXJuYXRpdmUgdG8KPj4g
-YXZvaWQgdGhhdC4KPiBUaGUgYWNjZXNzX29rKCkgZnVuY3Rpb24gcmVhbGx5IHdhbnRzIGEgY29t
-cGlsZS10aW1lIGNvbnN0YW50Cj4gdmFsdWUgZm9yIFRBU0tfU0laRV9NQVggc28gaXQgY2FuIGRv
-IGNvbnN0YW50IGZvbGRpbmcgZm9yCj4gcmVwZWF0ZWQgY2FsbHMgaW5zaWRlIG9mIG9uZSBmdW5j
-dGlvbiwgc28gZm9yIGNvbmZpZ3VyYXRpb25zCj4gd2l0aCBhIGJvb3QtdGltZSBzZWxlY3RlZCBU
-QVNLX1NJWkVfNjQgaXQncyBhbHJlYWR5IG5vdCBpZGVhbCwKPiB3aXRoIG9yIHdpdGhvdXQgYWx0
-ZXJuYXRpdmVzLgo+Cj4gSWYgSSByZWFkIHRoZSBjdXJyZW50IGNvZGUgY29ycmVjdGx5LCByaXNj
-diBkb2Vzbid0IGV2ZW4KPiBoYXZlIGEgd2F5IHRvIGJ1aWxkIHdpdGggYSBjb21waWxlLXRpbWUg
-c2VsZWN0ZWQKPiBWQV9CSVRTL1BHRElSX1NJWkUsIHdoaWNoIGlzIHByb2JhYmx5IGEgYmV0dGVy
-IHBsYWNlIHRvCj4gc3RhcnQgb3B0aW1pemluZywgc2luY2UgdGhpcyByYXJlbHkgbmVlZHMgdG8g
-YmUgc2VsZWN0ZWQKPiBkeW5hbWljYWxseS4KCgpJbmRlZWQsIHdlIGRvIG5vdCBzdXBwb3J0IGNv
-bXBpbGUtdGltZSBmaXhlZCBWQV9CSVRTISBXZSBjb3VsZCwgYnV0IHRoYXQgCndvdWxkIG9ubHkg
-YmUgdXNlZCBmb3IgY3VzdG9tIGtlcm5lbHMuIEkgZG9uJ3QgdGhpbmsgZGlzdHJvIGtlcm5lbHMg
-d2lsbCAKZXZlciAoPykgcHJvcG9zZSAzIGRpZmZlcmVudCBrZXJuZWxzIGZvciBzdjM5LCBzdjQ4
-IGFuZCBzdjU3IGJlY2F1c2UgdGhlIApjb3N0IG9mIGR5bmFtaWNhbGx5IGNob29zaW5nIHRoZSBh
-ZGRyZXNzIHNwYWNlIHdpZHRoIGlzIG5vdCBiaWcgZW5vdWdoIAp0byBtZSAoYW5kIHRoZSBidXJk
-ZW4gb2YgbWFpbnRhaW5pbmcgMyBkaWZmZXJlbnQga2VybmVscyBpcykuCgpMZXQgbWUga25vdyBp
-ZiBJJ20gd3JvbmcsIEknZCBiZSBoYXBweSB0byB3b3JrIG9uIHRoYXQuCgpUaGFua3MsCgpBbGV4
-CgoKPgo+ICAgICAgICBBcm5kCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+Hi David,
+
+On 24/03/2024 20:42, David Laight wrote:
+> ...
+>> The use of alternatives allows to return right away if the buffer is
+>> beyond the usable user address space, and it's not just "slightly
+>> faster" for some cases (a very large buffer with only a few bytes being
+>> beyond the limit or someone could fault-in all the user pages and fail
+>> very late...etc). access_ok() is here to guarantee that such situations
+>> don't happen, so actually it makes more sense to use an alternative to
+>> avoid that.
+> Is it really worth doing ANY optimisations for the -EFAULT path?
+> They really don't happen.
+>
+> The only fault path that matters is the one that has to page in
+> data from somewhere.
+
+
+Which is completely avoided with a strict definition of access_ok(). I 
+see access_ok() as an already existing optimization of fault paths by 
+avoiding them entirely when they are bound to happen.
+
+Thanks,
+
+Alex
+
+
+>
+> Provided there is a gap between the highest valid user address and the
+> lowest valid kernel address (may not be true on some 32bit systems)
+> and copy_to/from_user() do 'increasing address' copies then the
+> access_ok() check they do can almost certainly ignore the length.
+>
+> This may be true for pretty much all access_ok() tests?
+> It would certainly simplify the test.
+>
+> 	David
+>
+> -
+> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+> Registration No: 1397386 (Wales)
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
