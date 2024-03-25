@@ -4,76 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE1CC54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 09:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29358C54E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 10:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3VbF7S/DVc9Q14+RKTxKArwhtVo0o1AqxnJtp+jtQZg=; b=Btrf/2R9roL+T3
-	O4raIV36i2LMpk0M6x/UuSb9cgGPQ3t+UCWj/LE4TWb1kh+wVaVHPujOTY4K+Iug6KCffhO7Fs82g
-	SNsATUAxQCLMDMYFOLLz3f6Jxpm3cbq6aQVttKTxEcko2c0UN3mmTUzVT5gXJ1AsWx5y0iW9yBP/Y
-	vLCizMMXSf+lgS91lE+pAVGde0ID44XMBdl9nlY5D3foX391cSUW5+w3UuJDETy9FhGHrii6LlFPl
-	Uzw12JfrZ5Q5EUecC78Etp85D00NeHK0+JSgEwTz1De09VTwNtBIwZZloPvKQsdU5elNlGUfRvJFt
-	+k6pV5OVHLH5zZaruvKg==;
+	List-Owner; bh=U9lz7M8AcXEblZvoTHVPfxGwurrTKkN1aIQ7C8U0Esg=; b=I0A0lRlDglUHTt
+	vcPeg10uSp6wetWUiX4bbMDTgTeXwTVqbk9kFXVrKEN9I69oisVSeeJ2xw5ojFbHiprzcqAiB4Hjx
+	+jRzwfB38uUrJry5ZlinPec73GtqOY3zEMT4gkqAEr8Y6rTLb5bJcKWRDGFONhrDtMMXSxmmtrj8e
+	JooLWmAvBGx8d+GFVkHnY2BNiqJxnVN+2tefW1Cyr0wr7ht+dcMmr+3eboNKcHlSiTvicnZ9O3vGJ
+	HG0s1pW6Y7rVw2GkscKLgJ+LKWOgBQ2+entpTuaQ2bX/NwrEfme3x2Sl9id6+nZjpzm4mVsoWDQxu
+	M4TQ37rcfmgha2cGqBKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rogwi-0000000GXqJ-0EpB;
-	Mon, 25 Mar 2024 09:48:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rohwi-0000000GsC0-35r5;
+	Mon, 25 Mar 2024 10:52:52 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rogwd-0000000GXnj-0DGY
+	id 1rohwf-0000000GsAv-0YJg
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 09:48:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1711360121;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BzvHsR0swPhNezye8rUpRIe+AmkradciiszFVdBH2qI=;
-	b=d5QAGzkcFVgfNPW1CO0oLPlhmxGApS7hScJ1cLqq6shPh9CB1aGymZAPlr5DzlZwPD5+xp
-	Gq5w9Iph9qjmesRKdP5Xe57/g8T80D7rcjalpl3kRP7o2ljlY/77P9AcXHokfr03tzhcfG
-	PdcgfvMh0EcJg3d8jU5382ubAFA9ES8=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-81-sGBrjBOZPjWGzkRUL_JyGQ-1; Mon,
- 25 Mar 2024 05:48:36 -0400
-X-MC-Unique: sGBrjBOZPjWGzkRUL_JyGQ-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9B0273C0BE29;
-	Mon, 25 Mar 2024 09:48:35 +0000 (UTC)
-Received: from localhost (unknown [10.72.116.12])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4782E112131D;
-	Mon, 25 Mar 2024 09:48:25 +0000 (UTC)
-Date: Mon, 25 Mar 2024 17:48:18 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	loongarch@lists.linux.dev, akpm@linux-foundation.org,
-	ebiederm@xmission.com, hbathini@linux.ibm.com, piliu@redhat.com,
-	viro@zeniv.linux.org.uk
-Subject: Re: [PATCH linux-next v3 02/14] crash: split vmcoreinfo exporting
- code out from crash_core.c
-Message-ID: <ZgFIYuYULrgF1tFG@MiWiFi-R3L-srv>
-References: <20240124051254.67105-1-bhe@redhat.com>
- <20240124051254.67105-3-bhe@redhat.com>
- <CAMuHMdVxKEGYj9C1=P-493vcrN_HmLNx8gS6i1nheXO9gH46oA@mail.gmail.com>
+	Mon, 25 Mar 2024 10:52:51 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-515a81928a1so1744250e87.3
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2024 03:52:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1711363967; x=1711968767; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=B/45gkU1OW/Fa6jqiOKHWiKJTgLo8h9uP7u3dIPIa2Y=;
+        b=cHe0ujGSGEDPrjGczTBAgNk1zIdzCWuLLNTcdbxfcj3KXrLHHtXbesufUZ+fszIgIK
+         i+AQk2r70v/2cE2Mu9fYSAn1Ptz1k04/QtawAKa+QcbMwTRc6YV41zBkFIfyRrsY6HA6
+         nvntLgmFrjIt2UgQISnbGpNdSNEeiM5SVDJjHWPkaiz5mztV5IoGLkVuzOngIlwWLD6E
+         Pz0CmqmeiUtJ1B8Hl1WLGYKqrjbbQrCyhsapwXHHZrG5YF3n6YCJ311EF52+iXwSWe+D
+         u/uwxD9uzQ+vodXJbh3r5DhLDZN18hZUQRCYov5WgtIw0IENo1V5EfnCljcglg6Itdcn
+         AzUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711363967; x=1711968767;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B/45gkU1OW/Fa6jqiOKHWiKJTgLo8h9uP7u3dIPIa2Y=;
+        b=u6bI9TMs6xZ8ykWURJAbW43VCqszKuN6owOR1VCoyJs74dF/p228Fyr7LwWF8UydfQ
+         P1IqP4SjGw3hBEKwzDiv2Dw2YHw/9qo9seaB4edMJlyBwnKVwQ9gKeZW2p+hOa3az7RT
+         oJpIrcPFUtHZ3xPberIT42UJhBnXeKKPq2fc5llUja7EKSfAJwOSob0grBMdfXu3n5wC
+         CDQIDKiW+MQVI4wDv7u7iUiKvWN79Zplx/WUF/D1LdLceNi0EAkN0qh9yDct7zBlhe6e
+         AyTp7/mJPqe+9DIAt7ymaXvx5JT9Dcsw6AEN2d+nDs6DMU6WBWaCQEIClMguF/2P9BVD
+         Chxw==
+X-Gm-Message-State: AOJu0Yz89ptFcMKWGcuPHsTWXXXHxmGMnfhgTudGeFxRTTywwUKMuXV2
+	+jM/A81MU9SRXpXj49v2Xj+ukxn3Tgk886WmIH/3Chl0ZwIYoEOFMQAzgJkguvQ=
+X-Google-Smtp-Source: AGHT+IEclAfbiEIquW9pL3ASZRMHbyWd/lIOzT5bu64XepiQ3fVd79XZUHfg0x/tT73njuoHcmQwYA==
+X-Received: by 2002:a05:6512:1590:b0:515:a9d5:aab6 with SMTP id bp16-20020a056512159000b00515a9d5aab6mr3848775lfb.18.1711363966528;
+        Mon, 25 Mar 2024 03:52:46 -0700 (PDT)
+Received: from localhost ([102.222.70.76])
+        by smtp.gmail.com with ESMTPSA id kj9-20020a170907764900b00a4636d9d28dsm2903246ejc.69.2024.03.25.03.52.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 25 Mar 2024 03:52:45 -0700 (PDT)
+Date: Mon, 25 Mar 2024 13:52:42 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Yangyu Chen <cyy@cyyself.name>
+Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-gpio@vger.kernel.org,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 05/11] riscv: Kconfig.socs: Split ARCH_CANAAN and
+ SOC_CANAAN_K210
+Message-ID: <e255a964-27bf-4eb9-8e9a-4f60d1ccd12b@moroto.mountain>
+References: <tencent_F76EB8D731C521C18D5D7C4F8229DAA58E08@qq.com>
+ <tencent_F208A26B5338C6E14AC6648730368AF0FD0A@qq.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMuHMdVxKEGYj9C1=P-493vcrN_HmLNx8gS6i1nheXO9gH46oA@mail.gmail.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
+In-Reply-To: <tencent_F208A26B5338C6E14AC6648730368AF0FD0A@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_024843_232322_963D2F8B 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20240325_035249_202822_5CDC3E68 
+X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,40 +99,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMDMvMjUvMjQgYXQgMDk6MjRhbSwgR2VlcnQgVXl0dGVyaG9ldmVuIHdyb3RlOgo+IEhpIEJh
-b3F1YW4sCj4gCj4gT24gV2VkLCBKYW4gMjQsIDIwMjQgYXQgNjoxM+KAr0FNIEJhb3F1YW4gSGUg
-PGJoZUByZWRoYXQuY29tPiB3cm90ZToKPiA+IE5vdyBtb3ZlIHRoZSByZWxldmFudCBjb2RlcyBp
-bnRvIHNlcGFyYXRlIGZpbGVzOgo+ID4ga2VybmVsL2NyYXNoX3Jlc2VydmUuYywgaW5jbHVkZS9s
-aW51eC9jcmFzaF9yZXNlcnZlLmguCj4gPgo+ID4gQW5kIGFkZCBjb25maWcgaXRlbSBDUkFTSF9S
-RVNFUlZFIHRvIGNvbnRyb2wgaXRzIGVuYWJsaW5nLgo+ID4KPiA+IEFuZCBhbHNvIHVwZGF0ZSB0
-aGUgb2xkIGlmZGVmZmVyeSBvZiBDT05GSUdfQ1JBU0hfQ09SRSwgaW5jbHVkaW5nIG9mCj4gPiA8
-bGludXgvY3Jhc2hfY29yZS5oPiBhbmQgY29uZmlnIGl0ZW0gZGVwZW5kZW5jeSBvbiBDUkFTSF9D
-T1JFCj4gPiBhY2NvcmRpbmdseS4KPiA+Cj4gPiBBbmQgYWxzbyBkbyByZW5hbWluZyBhcyBmb2xs
-b3dzOgo+ID4gIC0gYXJjaC94eHgva2VybmVsL3tjcmFzaF9jb3JlLmMgPT4gdm1jb3JlX2luZm8u
-Y30KPiA+IGJlY2F1c2UgdGhleSBhcmUgb25seSByZWxhdGVkIHRvIHZtY29yZWluZm8gZXhwb3J0
-aW5nIG9uIHg4NiwgYXJtNjQsCj4gPiByaXNjdi4KPiA+Cj4gPiBBbmQgYWxzbyBSZW1vdmUgY29u
-ZmlnIGl0ZW0gQ1JBU0hfQ09SRSwgYW5kIHJlbHkgb24gQ09ORklHX0tFWEVDX0NPUkUgdG8KPiA+
-IGRlY2lkZSBpZiBidWlsZCBpbiBjcmFzaF9jb3JlLmMuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTog
-QmFvcXVhbiBIZSA8YmhlQHJlZGhhdC5jb20+Cj4gPiAtLS0KPiA+IHYyLT52MzoKPiA+IC0gVGhl
-cmUncyBjb25mbGljdCB3aGVuIHJlYmFzaW5nIHRvIGxpbnV4LW5leHQgaW4ga2VybmVsL2NyYXNo
-X2NvcmUuYwo+ID4gICBiZWNhdXNlIG9mIGJlbG93IGNvbW1pdHMgZnJvbSBVbGFkemlzbGF1Ogo+
-ID4gICBjb21taXQgNjk5ZDkzNTE4MjJlICgibW06IHZtYWxsb2M6IEZpeCBhIHdhcm5pbmcgaW4g
-dGhlIGNyYXNoX3NhdmVfdm1jb3JlaW5mb19pbml0KCkiKQo+ID4gICBjb21taXQgNWY0YzBjMWUy
-YTUxICg6bW0vdm1hbGxvYzogcmVtb3ZlIHZtYXBfYXJlYV9saXN0IikKPiAKPiBUaGFua3MgZm9y
-IHlvdXIgcGF0Y2gsIHdoaWNoIGlzIG5vdyBjb21taXQgNDQzY2JhZjllMmZkYmVmNwo+ICgiY3Jh
-c2g6IHNwbGl0IHZtY29yZWluZm8gZXhwb3J0aW5nIGNvZGUgb3V0IGZyb20KPiBjcmFzaF9jb3Jl
-LmMiKSBpbiB2Ni45LXJjMS4KPiAKPiBBZnRlciB0aGlzLCB0aGVyZSBhcmUgc3RpbGwgdHdvIHJl
-ZmVyZW5jZXMgbGVmdCB0byBDUkFTSF9DT1JFOgo+IAo+ICAgMS4gRG9jdW1lbnRhdGlvbi9hZG1p
-bi1ndWlkZS9rZHVtcC9rZHVtcC5yc3Q6Cj4gCj4gICAgICAgICAgU3Vic2VxdWVudGx5LCBDUkFT
-SF9DT1JFIGlzIHNlbGVjdGVkIGJ5IEtFWEVDX0NPUkU6Ogo+IAo+ICAgMi4gYXJjaC9sb29uZ2Fy
-Y2gvS2NvbmZpZwo+IAo+ICAgICAgICAgIGNvbmZpZyBBUkNIX0hBU19HRU5FUklDX0NSQVNIS0VS
-TkVMX1JFU0VSVkFUSU9OCj4gICAgICAgICAgICAgIGRlZl9ib29sIENSQVNIX0NPUkUKClN1cmUs
-IHdpbGwgcG9zdCBwYXRjaCB0byBjbGVhbiB0aGVtIHVwLiBUaGFua3MgYSBsb3QuCgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Sat, Mar 23, 2024 at 08:12:17PM +0800, Yangyu Chen wrote:
+> Since SOC_FOO should be deprecated from patch [1], and cleanup for other
+> SoCs is already on the mailing list [2,3,4], we remove the use of
+> SOC_CANAAN and use ARCH_CANAAN for SoCs vendored by Canaan instead from
+> now on. And allows ARCH_CANAAN to be selected for other Canaan SoCs.
+> 
+> Then, since we have Canaan Kendryte K230 with MMU now, the use of
+> SOC_CANAAN is no longer only referred to K210. Thus, we introduce a new
+> symbol SOC_CANAAN_K210 for any conditional code or driver selection
+> specific to the K210, so users will not try to build some K210-specific
+> things when MMU is enabled and see it fails to boot on K210.
+> 
+> [1] https://lore.kernel.org/linux-riscv/20221121221414.109965-1-conor@kernel.org/
+> [2] https://lore.kernel.org/linux-riscv/20240305-praying-clad-c4fbcaa7ed0a@spud/
+> [3] https://lore.kernel.org/linux-riscv/20240305-fled-undrilled-41dc0c46bb29@spud/
+> [4] https://lore.kernel.org/linux-riscv/20240305-stress-earflap-d7ddb8655a4d@spud/
+> 
+> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+> ---
+>  arch/riscv/Kconfig.socs                        | 8 +++++---
+>  arch/riscv/Makefile                            | 2 +-
+>  arch/riscv/configs/nommu_k210_defconfig        | 3 ++-
+>  arch/riscv/configs/nommu_k210_sdcard_defconfig | 3 ++-
+>  4 files changed, 10 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 623de5f8a208..5710aee456ac 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -72,11 +72,13 @@ config SOC_VIRT
+>  	  This enables support for QEMU Virt Machine.
+>  
+>  config ARCH_CANAAN
+> -	def_bool SOC_CANAAN
+> +	bool "Canaan Kendryte SoC"
+> +	help
+> +	  This enables support for Canaan Kendryte SoC platform hardware.
+>  
+> -config SOC_CANAAN
+> +config SOC_CANAAN_K210
+
+This breaks git bisect, right?  There are references to SOC_CANAAN that
+are get updated later in the patch series.  You can't delete SOC_CANAAN
+and leave the other references dangling.
+
+regards,
+dan carpenter
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
