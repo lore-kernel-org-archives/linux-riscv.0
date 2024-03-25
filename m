@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EEBC54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 04:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA11BC54E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 04:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wx+cseNWkSEtmK15Co/bgXZDr5754vAJKuT1+GLykBw=; b=X0+1QTIe7m0huF
-	spa6xnQx3s4qkkfsoR1hfLwTU0DDL0CSDgNZdqVkn4CjNg/MKWpYlft8bCGjahFRlQhDUymixloUW
-	gn1+xutupNJ0dmSpiSaqcSaHQgENHMtZUpDiy507/QyY0kM+LPqWhF6RZGztGINOLM0Wrv3HSUj6+
-	um3wxpFVrPo6yHS5oLT2NLLqNDIwfSn32RVB2uPzhiALNGS7TIRyBxstSXAPcmxhtda9aS8I6ITNN
-	iR3x6I3dlqUiFLF4ZO/mjDXB1bOwAQRNnRVPLTSUVkRz7t0EKafL0FWZAjocbigwBVnyeGQ0OVsK7
-	CrCFwuI+duRhpbHRnGQw==;
+	List-Owner; bh=4WVIWg6ywy1CqFmZNZut6QGN8HfVSIWGmdMtqpaA0ao=; b=CEzTc0KKnjZ+m4
+	0+EVoef1ZAD1b5m9n39LjTsCcpBq0PMEogTOOhWyzxIRReBiROVIGxfB7v8WklfIHStdAvYZglq2H
+	d1ugQajBqZJRtXzBrwgKOlEaPu0vWxJESYELllaVZ+lW7tmYOqsCGJhJGMqPs97y27/wxHOoH9chv
+	JY7e6br5L4lvA9b6JxwGjzem/6I2acEgTlfFZNbp2RQwwIyN4eFBbm7Zh5K+3xiyUnxSmtfM55X1M
+	wx/2N75CV3dnL79S9ZT8gB1RoNVTvrKMuMONTw3+Xv54X8L4Y+yvyjWiFkyDleuhRwe57TcspJqjq
+	4cn++nufiTa1ahLLntnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rocAR-0000000FE7q-0XWc;
-	Mon, 25 Mar 2024 04:42:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rocAU-0000000FE9P-1YI1;
+	Mon, 25 Mar 2024 04:42:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rocAO-0000000FE4J-0dP7
-	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 04:42:37 +0000
+	id 1rocAO-0000000FE4e-1Uye;
+	Mon, 25 Mar 2024 04:42:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EE84960C67;
-	Mon, 25 Mar 2024 04:42:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 92948C43394;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6128B60DE9;
+	Mon, 25 Mar 2024 04:42:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B5273C43399;
 	Mon, 25 Mar 2024 04:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1711341754;
-	bh=983c2mSpRtzHZd3RX0FbvmlLGvQpO2bWYGuEJVdPXiM=;
+	bh=duVRPOkUwtqb9I+6o5VQiYAgtSlpWGf+X+0yQv8TjAs=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=DhmNMN2tF/acZiHHFVovBVnZwiaO1oB814vBKArondxj3E1Byyz1qqTWxsohjhYg6
-	 +gI7iq0jLQCxC9L57FIwH5krZFrHzIQMVBnYaoXC4vKu59wvi0mNYTQJvad+gSMoAp
-	 5aO1xde4w9zblgHpuzrJ7ndoEMK/drH1yiaqc5EZnMC0J0Zxf3FrYFIGQQ/KYzW8sM
-	 y7ugrQNZYbu3t0noHgiLkMX8Ie1VIkarzj05tC/ONvktMIOf9+Ru2uSf9InpLcX7IS
-	 0qts8mBqdqFKCakLJw0lmbLK39TOQHEOzIalOU4A/6VUzfyJEreK9Ue9aPfxudRl5h
-	 M4d8b/4W3VvWg==
+	b=iZ/b0NE+i7+do8pgZkg46x1uBB/MQJfp/c/XhpH71z/wGKatNJQnfFVi4TsSrJUcx
+	 p9B9v3m0m2h+2n352ZneEdcJs25ZuYmCkptcEJJi14CEjUg6fZRWGQjsnzSbTTqpuQ
+	 jBLNyyJKgrClKH6Ar2Sk8/u0rVBaZT96gqSwdlSHBYKiJ8LneSrMklScm8Ww85dTEe
+	 eja5sWn2jN4CV4FDoeaf5TOJPL86Efy9rTKDI0W7hc3GLlwluHdA9GYm7yTBbMYg6F
+	 MrrxjzojsaA/BYbk4OYMb2sE8+b4REldcJ8JhTboSwFB0wiYQTm1AKpQdnuWO2wot9
+	 CNckLCoG3Oykg==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 857A0D2D0E0;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 9F5E8D95071;
 	Mon, 25 Mar 2024 04:42:34 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 0/4] riscv: sophgo: add reset support for SG2042
+Subject: Re: [PATCH 00/11] Bump the minimum supported version of LLVM to 13.0.1
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171134175454.18749.13038964057011467100.git-patchwork-notify@kernel.org>
+Message-Id: <171134175464.18749.18342004135343709281.git-patchwork-notify@kernel.org>
 Date: Mon, 25 Mar 2024 04:42:34 +0000
-References: <cover.1706577450.git.unicorn_wang@outlook.com>
-In-Reply-To: <cover.1706577450.git.unicorn_wang@outlook.com>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
- chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, p.zabel@pengutronix.de,
- robh+dt@kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, guoren@kernel.org,
- jszhang@kernel.org, inochiama@outlook.com, unicorn_wang@outlook.com
+References: <20240125-bump-min-llvm-ver-to-13-0-1-v1-0-f5ff9bda41c5@kernel.org>
+In-Reply-To: <20240125-bump-min-llvm-ver-to-13-0-1-v1-0-f5ff9bda41c5@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
+ masahiroy@kernel.org, nicolas@fjasle.eu, linux-kbuild@vger.kernel.org,
+ llvm@lists.linux.dev, patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, linux@armlinux.org.uk,
+ ardb@kernel.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ mpe@ellerman.id.au, npiggin@gmail.com, aneesh.kumar@kernel.org,
+ naveen.n.rao@linux.ibm.com, linuxppc-dev@lists.ozlabs.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ conor@kernel.org, keescook@chromium.org, linux-hardening@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240324_214236_260257_235ADF6A 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240324_214236_483461_7AC54AF6 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,28 +85,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Inochi Amaoto <inochiama@outlook.com>:
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Tue, 30 Jan 2024 09:49:08 +0800 you wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
+On Thu, 25 Jan 2024 15:55:06 -0700 you wrote:
+> Hi all,
 > 
-> This series adds reset controller support for Sophgo SG2042 using
-> reset-simple driver.
-> 
-> Thanks,
-> Chen
+> This series bumps the minimum supported version of LLVM for building the
+> kernel to 13.0.1. The first patch does the bump and all subsequent
+> patches clean up all the various workarounds and checks for earlier
+> versions.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3,1/4] dt-bindings: reset: sophgo: support SG2042
-    (no matching commit)
-  - [v3,2/4] reset: simple: add support for Sophgo SG2042
-    (no matching commit)
-  - [v3,3/4] riscv: dts: add reset generator for Sophgo SG2042 SoC
-    https://git.kernel.org/riscv/c/1ce7587e507e
-  - [v3,4/4] riscv: dts: add resets property for uart node
-    https://git.kernel.org/riscv/c/08573ba006ab
+  - [07/11] riscv: Remove MCOUNT_NAME workaround
+    https://git.kernel.org/riscv/c/de5f3984664e
+  - [08/11] riscv: Kconfig: Remove version dependency from CONFIG_CLANG_SUPPORTS_DYNAMIC_FTRACE
+    https://git.kernel.org/riscv/c/a38d97181271
 
 You are awesome, thank you!
 -- 
