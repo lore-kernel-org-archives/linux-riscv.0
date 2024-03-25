@@ -4,47 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AAFAC54E58
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 07:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1772C54E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 08:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=swTg1i+MkHJeX+MriZuLnyPb8cLwn+GEfCOKxvs/Pc8=; b=t0WQfP/Pbz3b2C
-	l5H3SHpKthtxneJfCvLHKwg/gzDJweNTrvYLBOxoXe66wKWrw+hkLuhuVBr6Jwaylh1NHfN+b5k8m
-	43GIdRM6hoQJUq0n4oZwfSn8wXdhTO4xISNBPSa7yxXbRqNyzQh8ciReZpg9f2I4bXWKwiCFsejgN
-	jXfPdwSyAAPDE17thRX9C1K86BEj3mmXNu8EsV/2A9s9blbSf0KAhwB/V84317qvGAq/olE/pg16K
-	PAJugH3bkTFXt2HCIfEmqrzPdn5u2R4S9vLIeJ7UCMjrv+ezhMX63rv1ofQwBH556YygfBFETYJVd
-	BvA4gIBLpJUu/ioJ+wSA==;
+	List-Owner; bh=kGNwmsvxXd3l9dunpGCvFKor1acoEX1AZVyHeVGT6ro=; b=lKTzsTk5boFpAj
+	c3/x7RjKgBdDUN6xQ2JG4+pkVR+dRHkyDFyI1+5NIb0NmjcQhlIYbjRy0AYfJKRpMUIyoCv8sSdZQ
+	GJDVCYRRqMpcNWeR7gHLI0rKHK2topn23iXksUzqgUESDdks+aw7Qys6296cw5YEdbMPVVCE2+dv7
+	XQuXVTGztZ2rLCbAkQnkAvJ3ckbHmKBSf2klqfUturJWwiJbHyLMAxdUzTgHfJpvqd9edcLIvWVvg
+	GYxHvrfS5gjPQqdEIHV02FZ2J2MiOvmSf9UK634PFSW9oPKRw5d6G6bkjkdEDiIcH83D2IYMZoljF
+	nGpuWUGIO8ZmMCa4+Slw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roeyQ-0000000FyG2-2Lv3;
-	Mon, 25 Mar 2024 07:42:26 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1rofdi-0000000G8q1-2Xzp;
+	Mon, 25 Mar 2024 08:25:06 +0000
+Received: from mail-yw1-f177.google.com ([209.85.128.177])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1roeyL-0000000FyDC-126a
-	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 07:42:23 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 5E80040002;
-	Mon, 25 Mar 2024 07:42:17 +0000 (UTC)
-Message-ID: <dc1e2be5-73e1-409b-85bd-6c216a8b76bd@ghiti.fr>
-Date: Mon, 25 Mar 2024 08:42:16 +0100
+	id 1rofdX-0000000G8lA-0V9X;
+	Mon, 25 Mar 2024 08:24:57 +0000
+Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-60a0579a931so43543127b3.0;
+        Mon, 25 Mar 2024 01:24:53 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711355091; x=1711959891;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZEfLIiCMu33AlwMloMoi4ICYWpFuuaEkY/DY4cDIgmE=;
+        b=MuDAoncGAdicIWX3P2UeOxSoRJOo0DZq/LlZe1FY4rB0XLdaM5IyprmxcBgP9CDsWS
+         5f4dAsZjcu7e1fjIGbH3c9lzBo4AilIyfhkNkL3NI2XeJwsrPoPYs4crtQ2ZewDQKgWv
+         Hm3cEEKQ7s1Mk8wXRl8JFyRTeAlUCO2UjIpXlVthDx3xRdAeh1nhOO29+pqZgXF6Ts24
+         7IzB0iHvN18A0o1d0h+zxNXORjIzAI/aPTXT95AGztvPknlsAQH6pP1aXV+LPROAOF9R
+         iGG9jS1eQgte1wC90KNyahXgvB/IVi6Bctem0mElLQ9Cc7tB5lXwHW+maAaN3uWUhhuX
+         9YBg==
+X-Forwarded-Encrypted: i=1; AJvYcCUXXtJyYJTXMJhUZlw7SM+3JuatjTYgR8uSWbeSRdlHge4XsQ9WdIJmMJpoq7OeYYhw7r5IVjDk7eMrr0du6j2bysW/rArK4nWwn+i56KDLSFtBXd8s+WEMCHhygT3+yGcuGE08EYl/6ck+fuzdc2evdPzReoEp0AWX/MxKQdTqaCB+yt5aqi9QdU9f/lGYFHM=
+X-Gm-Message-State: AOJu0YwrUJovnjqmyjM3D7n1Z7nf5SO/s44LWqqjQ70LsGFtqpxD/kya
+	K7sBZD2JtKBz/m652VfjiItkU8yiJ9SEJSgS1TrPD6SFz/td40vwXH0nlFBDGr8=
+X-Google-Smtp-Source: AGHT+IGPwF8W5gAud6P8cQb5dunS2q+i+0igxBIjR/aGpQ0AQQkM6ywDytrcNbaYT5AIdTqIv9cHww==
+X-Received: by 2002:a0d:e703:0:b0:611:1456:c817 with SMTP id q3-20020a0de703000000b006111456c817mr4744649ywe.51.1711355091043;
+        Mon, 25 Mar 2024 01:24:51 -0700 (PDT)
+Received: from mail-yw1-f177.google.com (mail-yw1-f177.google.com. [209.85.128.177])
+        by smtp.gmail.com with ESMTPSA id g6-20020a0dc406000000b0060cb9691f78sm959666ywd.52.2024.03.25.01.24.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 Mar 2024 01:24:50 -0700 (PDT)
+Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-60a068e26d8so46133667b3.3;
+        Mon, 25 Mar 2024 01:24:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVjtFPXE9w6qtE/UvaZvwPIm6z6vp9IaPHB1/7ns9blI4fKCFS/i2EutIbGqTFS886qJuulFeCxEN+QEmFI5C/12gXtdjg9GPgUrXxKrmtDElCHRF7tX2IxDJsMaqj3d+c73Yt8tJD3/LoOgEyC9b7wAQbjaLX2PUxqHWs94nhcrKrq2jGTqP3ztow9CxoGqj8=
+X-Received: by 2002:a25:a2cf:0:b0:dcc:f0a:e495 with SMTP id
+ c15-20020a25a2cf000000b00dcc0f0ae495mr4291545ybn.3.1711355089475; Mon, 25 Mar
+ 2024 01:24:49 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Fix spurious errors from __get/put_kernel_nofault
-Content-Language: en-US
-To: Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20240312022030.320789-1-samuel.holland@sifive.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20240312022030.320789-1-samuel.holland@sifive.com>
-X-GND-Sasl: alex@ghiti.fr
+References: <20240124051254.67105-1-bhe@redhat.com> <20240124051254.67105-3-bhe@redhat.com>
+In-Reply-To: <20240124051254.67105-3-bhe@redhat.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 25 Mar 2024 09:24:37 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVxKEGYj9C1=P-493vcrN_HmLNx8gS6i1nheXO9gH46oA@mail.gmail.com>
+Message-ID: <CAMuHMdVxKEGYj9C1=P-493vcrN_HmLNx8gS6i1nheXO9gH46oA@mail.gmail.com>
+Subject: Re: [PATCH linux-next v3 02/14] crash: split vmcoreinfo exporting
+ code out from crash_core.c
+To: Baoquan He <bhe@redhat.com>
+Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	loongarch@lists.linux.dev, akpm@linux-foundation.org, ebiederm@xmission.com, 
+	hbathini@linux.ibm.com, piliu@redhat.com, viro@zeniv.linux.org.uk
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_004221_690735_A554B45C 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20240325_012455_506106_B0631673 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,73 +86,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
-
-On 12/03/2024 03:19, Samuel Holland wrote:
-> These macros did not initialize __kr_err, so they could fail even if
-> the access did not fault.
->
-> Cc: stable@vger.kernel.org
-> Fixes: d464118cdc41 ("riscv: implement __get_kernel_nofault and __put_user_nofault")
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
-> Found while testing the unaligned access speed series[1]. The observed
-> behavior was that with RISCV_EFFICIENT_UNALIGNED_ACCESS=y, the
-> copy_from_kernel_nofault() in prepend_copy() failed every time when
-> filling out /proc/self/mounts, so all of the mount points were "xxx".
->
-> I'm surprised this hasn't been seen before. For reference, I'm compiling
-> with clang 18.
->
-> [1]: https://lore.kernel.org/linux-riscv/20240308-disable_misaligned_probe_config-v9-0-a388770ba0ce@rivosinc.com/
->
->   arch/riscv/include/asm/uaccess.h | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-> index ec0cab9fbddd..72ec1d9bd3f3 100644
-> --- a/arch/riscv/include/asm/uaccess.h
-> +++ b/arch/riscv/include/asm/uaccess.h
-> @@ -319,7 +319,7 @@ unsigned long __must_check clear_user(void __user *to, unsigned long n)
->   
->   #define __get_kernel_nofault(dst, src, type, err_label)			\
->   do {									\
-> -	long __kr_err;							\
-> +	long __kr_err = 0;						\
->   									\
->   	__get_user_nocheck(*((type *)(dst)), (type *)(src), __kr_err);	\
->   	if (unlikely(__kr_err))						\
-> @@ -328,7 +328,7 @@ do {									\
->   
->   #define __put_kernel_nofault(dst, src, type, err_label)			\
->   do {									\
-> -	long __kr_err;							\
-> +	long __kr_err = 0;						\
->   									\
->   	__put_user_nocheck(*((type *)(src)), (type *)(dst), __kr_err);	\
->   	if (unlikely(__kr_err))						\
-
-
-That's a good a catch! Surprising indeed that we did not find this 
-before, that's the second bug in the uaccess routines in the last 3 (or 
-4) releases, maybe we should improve our coverage here, I'll see what we 
-can do.
-
-You can add:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQmFvcXVhbiwKCk9uIFdlZCwgSmFuIDI0LCAyMDI0IGF0IDY6MTPigK9BTSBCYW9xdWFuIEhl
+IDxiaGVAcmVkaGF0LmNvbT4gd3JvdGU6Cj4gTm93IG1vdmUgdGhlIHJlbGV2YW50IGNvZGVzIGlu
+dG8gc2VwYXJhdGUgZmlsZXM6Cj4ga2VybmVsL2NyYXNoX3Jlc2VydmUuYywgaW5jbHVkZS9saW51
+eC9jcmFzaF9yZXNlcnZlLmguCj4KPiBBbmQgYWRkIGNvbmZpZyBpdGVtIENSQVNIX1JFU0VSVkUg
+dG8gY29udHJvbCBpdHMgZW5hYmxpbmcuCj4KPiBBbmQgYWxzbyB1cGRhdGUgdGhlIG9sZCBpZmRl
+ZmZlcnkgb2YgQ09ORklHX0NSQVNIX0NPUkUsIGluY2x1ZGluZyBvZgo+IDxsaW51eC9jcmFzaF9j
+b3JlLmg+IGFuZCBjb25maWcgaXRlbSBkZXBlbmRlbmN5IG9uIENSQVNIX0NPUkUKPiBhY2NvcmRp
+bmdseS4KPgo+IEFuZCBhbHNvIGRvIHJlbmFtaW5nIGFzIGZvbGxvd3M6Cj4gIC0gYXJjaC94eHgv
+a2VybmVsL3tjcmFzaF9jb3JlLmMgPT4gdm1jb3JlX2luZm8uY30KPiBiZWNhdXNlIHRoZXkgYXJl
+IG9ubHkgcmVsYXRlZCB0byB2bWNvcmVpbmZvIGV4cG9ydGluZyBvbiB4ODYsIGFybTY0LAo+IHJp
+c2N2Lgo+Cj4gQW5kIGFsc28gUmVtb3ZlIGNvbmZpZyBpdGVtIENSQVNIX0NPUkUsIGFuZCByZWx5
+IG9uIENPTkZJR19LRVhFQ19DT1JFIHRvCj4gZGVjaWRlIGlmIGJ1aWxkIGluIGNyYXNoX2NvcmUu
+Yy4KPgo+IFNpZ25lZC1vZmYtYnk6IEJhb3F1YW4gSGUgPGJoZUByZWRoYXQuY29tPgo+IC0tLQo+
+IHYyLT52MzoKPiAtIFRoZXJlJ3MgY29uZmxpY3Qgd2hlbiByZWJhc2luZyB0byBsaW51eC1uZXh0
+IGluIGtlcm5lbC9jcmFzaF9jb3JlLmMKPiAgIGJlY2F1c2Ugb2YgYmVsb3cgY29tbWl0cyBmcm9t
+IFVsYWR6aXNsYXU6Cj4gICBjb21taXQgNjk5ZDkzNTE4MjJlICgibW06IHZtYWxsb2M6IEZpeCBh
+IHdhcm5pbmcgaW4gdGhlIGNyYXNoX3NhdmVfdm1jb3JlaW5mb19pbml0KCkiKQo+ICAgY29tbWl0
+IDVmNGMwYzFlMmE1MSAoOm1tL3ZtYWxsb2M6IHJlbW92ZSB2bWFwX2FyZWFfbGlzdCIpCgpUaGFu
+a3MgZm9yIHlvdXIgcGF0Y2gsIHdoaWNoIGlzIG5vdyBjb21taXQgNDQzY2JhZjllMmZkYmVmNwoo
+ImNyYXNoOiBzcGxpdCB2bWNvcmVpbmZvIGV4cG9ydGluZyBjb2RlIG91dCBmcm9tCmNyYXNoX2Nv
+cmUuYyIpIGluIHY2LjktcmMxLgoKQWZ0ZXIgdGhpcywgdGhlcmUgYXJlIHN0aWxsIHR3byByZWZl
+cmVuY2VzIGxlZnQgdG8gQ1JBU0hfQ09SRToKCiAgMS4gRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlk
+ZS9rZHVtcC9rZHVtcC5yc3Q6CgogICAgICAgICBTdWJzZXF1ZW50bHksIENSQVNIX0NPUkUgaXMg
+c2VsZWN0ZWQgYnkgS0VYRUNfQ09SRTo6CgogIDIuIGFyY2gvbG9vbmdhcmNoL0tjb25maWcKCiAg
+ICAgICAgIGNvbmZpZyBBUkNIX0hBU19HRU5FUklDX0NSQVNIS0VSTkVMX1JFU0VSVkFUSU9OCiAg
+ICAgICAgICAgICBkZWZfYm9vbCBDUkFTSF9DT1JFCgpHcntvZXRqZSxlZXRpbmd9cywKCiAgICAg
+ICAgICAgICAgICAgICAgICAgIEdlZXJ0CgotLSAKR2VlcnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJl
+J3MgbG90cyBvZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1tNjhrLm9yZwoKSW4g
+cGVyc29uYWwgY29udmVyc2F0aW9ucyB3aXRoIHRlY2huaWNhbCBwZW9wbGUsIEkgY2FsbCBteXNl
+bGYgYSBoYWNrZXIuIEJ1dAp3aGVuIEknbSB0YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBz
+YXkgInByb2dyYW1tZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRoYXQuCiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgLS0gTGludXMgVG9ydmFsZHMKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
