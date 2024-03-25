@@ -4,64 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E91C54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 18:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22633C54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 18:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:Subject:Cc:
-	To:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/Y9RtjLeDU1lYDe+Ye58mjd4146QSzqYrQoN+4YPXlQ=; b=FIqAK2eMfEIh3V
-	sjw1tjk9/qogJ/RV+p3G8TboIMfSyl55xNt7sB6Ics8RoVJt0G7YnmPKLbufRlqJbWgNZypuZNsZ6
-	14uyLnFhGq708aVIlpNcZPLc8IgSH000hesI43RZqx3xJJ70HcE4zTwGrdcrtZtrQRztfYyzfM7FT
-	i/aKTUR+lcHuaci/zkscmWYkJ0RjnTOYtaeuu6LrE11a1eNxEztB9gEj2VkWGBx27GQtH9YERnT0e
-	SUSwWfA7an1/V3TxJ90IIKa3mJ7VuR/xLkPZQXXrUgq9PyO4IrEv56q0/fPegRkZkZtG2dtpsciYA
-	CIKZ8hFUvrnFxiPsf5hg==;
+	List-Owner; bh=kzQ8Er4YQT/vh1UFHQ4AzKl8ETTd2g58iDMJ5+n0v8o=; b=BWzhBuKTB3lDq8
+	XpgciUay/k3a0EgFAs++6e0uTboul7Cx41Xs/9sTdAKqkLwCrmAspVSK7ACaPwN5FuI2v7VzfnfY8
+	dApLOE4EU9vSDedKmnLDyh2ISgeBJS4JTrk/1re6FCFilB/Yw5U57X+LJgp1KwQpu0l7S0RtGhV+K
+	7p6EV9kB1IZAmsQx7FF2ALszQdtlsRkfK7R0pFD01zlwsHV1j8MYGCLmof+Anp3rJIzoiMwhgHGZu
+	kSVt5EqUm6/YFNsiOlYKZYdulk7buKqRks9w+21qHtTphmZJpitP1KRf3rgzS8nYgrhkSSTI19itS
+	rfTo4qVal60KTKAVjgjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ropCv-00000001OUG-2TaW;
-	Mon, 25 Mar 2024 18:38:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ropXA-00000001TMV-3UW6;
+	Mon, 25 Mar 2024 18:59:01 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ropCr-00000001OSq-3iZ0
+	id 1ropX7-00000001TK9-12b2
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 18:38:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6E29A6113A;
-	Mon, 25 Mar 2024 18:38:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0425C433F1;
-	Mon, 25 Mar 2024 18:37:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711391880;
-	bh=NZ8ILajyJZp/6r5YApASYz0CQF3HAtXJb6AdZAZRbOo=;
-	h=Date:To:Cc:Subject:From:References:In-Reply-To:From;
-	b=UGOCOCHpMLkpa5Zvpv7VOcuZ7OqMfLSKGY85IkyeCkgXdaBN3pemZspl5hbiqRYa2
-	 OEFMiZh8+aPVRnzje21rJKhYJMuQY/z8vSI7LaqDQUbcaOgh+eH5JHGnJ0reer69nn
-	 y58IyiOAX423nM+ROQA2AN4TBX0pokhb/Q3dtsiHXpb5NfMfqrvX1wakxqwkOCfHdU
-	 hE3a+bXeXfcEvGI8z/luv61oCEO/e2U9/A8i0zTz/QAAAxnaq0e/iKEynVu+AAdG1E
-	 mu416QkmS6HZ2+VYNv5kWqg5RXCmfxR375M2l3DPWLjoL8U/t7H8XpTqynCN7iVeAu
-	 oKX2/6VvQK8Xw==
-Mime-Version: 1.0
-Date: Mon, 25 Mar 2024 20:37:55 +0200
-Message-Id: <D031SE4QN1CG.18GY6AS20QF1J@kernel.org>
-To: "Masami Hiramatsu" <mhiramat@kernel.org>
-Cc: <linux-riscv@lists.infradead.org>, "Paul Walmsley"
- <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>, "Naveen N .
- Rao" <naveen.n.rao@linux.ibm.com>, "Anil S Keshavamurthy"
- <anil.s.keshavamurthy@intel.com>, "David S . Miller" <davem@davemloft.net>,
- <linux-trace-kernel@vger.kernel.org>, "Calvin Owens"
- <jcalvinowens@gmail.com>
-Subject: Re: [PATCH v2] arch/riscv: Enable kprobes when CONFIG_MODULES=n
-From: "Jarkko Sakkinen" <jarkko@kernel.org>
-X-Mailer: aerc 0.17.0
-References: <20240323232908.13261-1-jarkko@kernel.org>
- <20240325115632.04e37297491cadfbbf382767@kernel.org>
-In-Reply-To: <20240325115632.04e37297491cadfbbf382767@kernel.org>
+	Mon, 25 Mar 2024 18:58:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1711393134;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lGdQaCGcBkbZ2z9bjtfUzgfe0ZmyyKivIRm0X4ayYz0=;
+	b=aH1+Mc9CpYASsGoFVsnVCbCCgja9EgMjBlIKVAPyL9lf1nueTR2orBSGnKS67D39S/Om1v
+	2pZpVmHkWUPgnK5z781yAsTWTsWfa9NZyXIIJSSk7cusvsJwc5QM09geTqEywAhjfupoq3
+	2BCpIvlkmNiMOcuLkjfM5gjSg6Bhx7g=
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
+ [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-27-qRNDnc8ONja9dgaehOuTJg-1; Mon, 25 Mar 2024 14:58:53 -0400
+X-MC-Unique: qRNDnc8ONja9dgaehOuTJg-1
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-69152af7760so17265586d6.1
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2024 11:58:53 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711393133; x=1711997933;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lGdQaCGcBkbZ2z9bjtfUzgfe0ZmyyKivIRm0X4ayYz0=;
+        b=BD04MciToNRVvHxLNVma4JXSApdzM2KDJVBKSnPZoaXb513KheaPUe7emgBuKx3zqA
+         txDFtdWy+6zKcst39FrEJbj05ruZms+yBbH1/ZOCGCpGp2AxZMIM0B95g/+eKyQY59NN
+         C4I+jcHuZ2mr9/CIQrFPAnWTGyoCn3FF6JUzGKpPtUXgcaKeQ21iF2zYAktUGeYJlpO7
+         Hbjjt59HA5TH7npbWEiQHJHVv/Oj6wkZYoFNzSucBRuu4wCyHQGp552mzeWcAI7R8zYR
+         k4adAD3y6NudzNlBgcqN6e9fyr4QXUdfvcN8wzxVbsgtKoqwHZSoiTcv6fSknYlxhKb1
+         UWAg==
+X-Forwarded-Encrypted: i=1; AJvYcCWIbLR2wich5RWPJ0CQOhoSIhISD6ccKqlzibk2et0BikcFkWnBqoHnbB+dl84PrX7Z1svupjrKmCiUNgIltvfi9ZFy5+04A5AV1zJW02Y2
+X-Gm-Message-State: AOJu0YwjVwKEDuiC30XujBHNzBzl9S66lDhCrhWzKgPyoGaPTzBWABN5
+	DWNhwUzOUaa7+cIC4FX7WYe1L/zJqBPz9CE6qK7MyO5K6JyzxILTyZLdUygM3ESZifaP9Ib0lKY
+	DgVppthj3iHwR/0Agy/zZdRU6rKvxWizF2vL7Za/+S2o/uv4vGnu39UWqeiItpk/Unw==
+X-Received: by 2002:a05:6214:3d13:b0:696:7b12:3744 with SMTP id ol19-20020a0562143d1300b006967b123744mr8189341qvb.0.1711393132764;
+        Mon, 25 Mar 2024 11:58:52 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGE4pfdS6Owjbbcw6cCZoeZVpTG6xXlLRqHsMW/sJVGfLOPBLf6CMPjo5ntIkMeQpg5wPfu7g==
+X-Received: by 2002:a05:6214:3d13:b0:696:7b12:3744 with SMTP id ol19-20020a0562143d1300b006967b123744mr8189311qvb.0.1711393132312;
+        Mon, 25 Mar 2024 11:58:52 -0700 (PDT)
+Received: from x1n ([99.254.121.117])
+        by smtp.gmail.com with ESMTPSA id kd26-20020a056214401a00b006968e1bed43sm1380686qvb.79.2024.03.25.11.58.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 25 Mar 2024 11:58:51 -0700 (PDT)
+Date: Mon, 25 Mar 2024 14:58:48 -0400
+From: Peter Xu <peterx@redhat.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Matthew Wilcox <willy@infradead.org>,
+	Rik van Riel <riel@surriel.com>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yang Shi <shy828301@gmail.com>, John Hubbard <jhubbard@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Christoph Hellwig <hch@infradead.org>,
+	linux-riscv@lists.infradead.org,
+	James Houghton <jthoughton@google.com>,
+	David Hildenbrand <david@redhat.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Mike Kravetz <mike.kravetz@oracle.com>
+Subject: Re: [PATCH v3 00/12] mm/gup: Unify hugetlb, part 2
+Message-ID: <ZgHJaJSpoeJVEccN@x1n>
+References: <20240321220802.679544-1-peterx@redhat.com>
+ <20240322161000.GJ159172@nvidia.com>
+MIME-Version: 1.0
+In-Reply-To: <20240322161000.GJ159172@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_113802_090303_DD423B19 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20240325_115857_415958_418D501C 
+X-CRM114-Status: GOOD (  47.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,86 +121,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon Mar 25, 2024 at 4:56 AM EET, Masami Hiramatsu (Google) wrote:
-> Hi Jarkko,
->
-> On Sun, 24 Mar 2024 01:29:08 +0200
-> Jarkko Sakkinen <jarkko@kernel.org> wrote:
->
-> > Tracing with kprobes while running a monolithic kernel is currently
-> > impossible due the kernel module allocator dependency.
+On Fri, Mar 22, 2024 at 01:10:00PM -0300, Jason Gunthorpe wrote:
+> On Thu, Mar 21, 2024 at 06:07:50PM -0400, peterx@redhat.com wrote:
+> > From: Peter Xu <peterx@redhat.com>
 > > 
-> > Address the issue by allowing architectures to implement module_alloc()
-> > and module_memfree() independent of the module subsystem. An arch tree
-> > can signal this by setting HAVE_KPROBES_ALLOC in its Kconfig file.
+> > v3:
+> > - Rebased to latest mm-unstalbe (a824831a082f, of March 21th)
+> > - Dropped patch to introduce pmd_thp_or_huge(), replace such uses (and also
+> >   pXd_huge() users) with pXd_leaf() [Jason]
+> > - Add a comment for CONFIG_PGTABLE_HAS_HUGE_LEAVES [Jason]
+> > - Use IS_ENABLED() in follow_huge_pud() [Jason]
+> > - Remove redundant none pud check in follow_pud_mask() [Jason]
 > > 
-> > Realize the feature on RISC-V by separating allocator to module_alloc.c
-> > and implementing module_memfree().
->
-> Even though, this involves changes in arch-independent part. So it should
-> be solved by generic way. Did you checked Calvin's thread?
->
-> https://lore.kernel.org/all/cover.1709676663.git.jcalvinowens@gmail.com/
+> > rfc: https://lore.kernel.org/r/20231116012908.392077-1-peterx@redhat.com
+> > v1:  https://lore.kernel.org/r/20231219075538.414708-1-peterx@redhat.com
+> > v2:  https://lore.kernel.org/r/20240103091423.400294-1-peterx@redhat.com
+> > 
+> > The series removes the hugetlb slow gup path after a previous refactor work
+> > [1], so that slow gup now uses the exact same path to process all kinds of
+> > memory including hugetlb.
+> > 
+> > For the long term, we may want to remove most, if not all, call sites of
+> > huge_pte_offset().  It'll be ideal if that API can be completely dropped
+> > from arch hugetlb API.  This series is one small step towards merging
+> > hugetlb specific codes into generic mm paths.  From that POV, this series
+> > removes one reference to huge_pte_offset() out of many others.
+> 
+> This remark would be a little easier to understand if you refer to
+> hugetlb_walk() not huge_pte_offset() - the latter is only used to
+> implement hugetlb_walk() and isn't removed by this series, while a
+> single hugetlb_walk() was removed.
 
-Nope, has not been in my radar but for sure will check it.
+Right.  Here huge_pte_offset() is the arch API that I hope we can remove,
+the hugetlb_walk() is simply the wrapper.
 
-I don't mind making this more generic. The  point of this version was to
-put focus on single architecture and do as little as possible how the
-code works right now so that it is easier to give feedback on direction.
+> 
+> Regardless, I think the point is spot on, the direction should be to
+> make the page table reading generic with minimal/no interaction with
+> hugetlbfs in the generic code.
 
-> I think, we'd better to introduce `alloc_execmem()`,
-> CONFIG_HAVE_ALLOC_EXECMEM and CONFIG_ALLOC_EXECMEM at first
->
->   config HAVE_ALLOC_EXECMEM
-> 	bool
->
->   config ALLOC_EXECMEM
-> 	bool "Executable trampline memory allocation"
-> 	depends on MODULES || HAVE_ALLOC_EXECMEM
+Yes, and I also like your terms on calling them "pgtable readers".  It's a
+better way to describe the difference in that regard between
+huge_pte_offset() v.s. huge_pte_alloc().  Exactly that's my goal, that we
+should start with the "readers".
 
-Right so this is logically the same as I have just with ALLOC_EXECMEM
-added to cover both MODULES and HAVE_ALLOC_EXECMEM (which is essentially
-the same as HAVE_ALLOC_KPROBES just with a different name).
+The writters might change semantics when merge, and can be more
+challenging, I'll need to look into details of each one, like page fault
+handlers.  Such work may need to be analyzed case by case, and this GUP
+part is definitely the low hanging fruit comparing to the rest.
 
-Not at all against this. I think this factor more understandable
-structuring, just "peer checking" that I understand what I'm reading :-)
+> 
+> After this series I would suggest doing the pagewalk.c stuff as it is
+> very parallel to GUP slow (indeed it would be amazing to figure out a
+> way to make GUP slow and pagewalk.c use the same code without a
+> performance cost)
 
-> And define fallback macro to module_alloc() like this.
->
-> #ifndef CONFIG_HAVE_ALLOC_EXECMEM
-> #define alloc_execmem(size, gfp)	module_alloc(size)
-> #endif
->
-> Then, introduce a new dependency to kprobes
->
->   config KPROBES
->   	bool "Kprobes"
-> 	select ALLOC_EXECMEM
+Yes.  I hope there shouldn't be much perf degrade, I can do some more
+measurements too when getting there.  And btw, IIUC the major challenge of
+pagewalk.c is not the removal of walk_hugetlb_range() alone - that may not
+be that hard if that's the solo purpose.  The better way to go is to remove
+mm_walk_ops.hugetlb_entry() altogether, which will cause a change in all
+callers; that's "the challenge".. pretty much labor works, not a major
+technical challenge it seems.  Not sure if it's a good news or bad..
 
+One thing I'll soon look into is to allow huge mappings for PFNMAP; there's
+one request from VFIO side for MMIO. Dropping mm_walk_ops.hugetlb_entry()
+seems to be good for all such purposes; well, I may need to bite the bullet
+here.. for either of the purposes to move on.
 
-OK I think this is good but now I see actually two logical chunks of
-work becuse this select changes how KPROBES kconfig option works. It
-has previously required to manually select MODULES first.
+> 
+> Some of the other core mm callers don't look too bad either, getting
+> to the point where hugetlb_walk() is internal to hugetlb.c would be a
+> nice step that looks reasonable size.
 
-So I'll "select MODULES" as separate patch to keep all logical changes
-transparent...
+Agree.
 
->
-> and update kprobes to use alloc_execmem and remove module related
-> code from it.
->
-> You also should consider using IS_ENABLED(CONFIG_MODULE) in the code to
-> avoid using #ifdefs.
->
-> Finally, you can add RISCV implementation patch of HAVE_ALLOC_EXECMEM in the
-> next patch.
+> 
+> > One goal of such a route is that we can reconsider merging hugetlb features
+> > like High Granularity Mapping (HGM).  It was not accepted in the past
+> > because it may add lots of hugetlb specific codes and make the mm code even
+> > harder to maintain.  With a merged codeset, features like HGM can hopefully
+> > share some code with THP, legacy (PMD+) or modern (continuous PTEs).
+> 
+> Yeah, if all the special hugetlb stuff is using generic arch code and
+> generic page walkers (maybe with that special vma locking hook) it is
+> much easier to swallow than adding yet another special class of code
+> to all the page walkers.
+> 
+> > To make it work, the generic slow gup code will need to at least understand
+> > hugepd, which is already done like so in fast-gup.  Due to the specialty of
+> > hugepd to be software-only solution (no hardware recognizes the hugepd
+> > format, so it's purely artificial structures), there's chance we can merge
+> > some or all hugepd formats with cont_pte in the future.  That question is
+> > yet unsettled from Power side to have an acknowledgement.  
+> 
+> At a minimum, I think we have a concurrence that the reading of the
+> hugepd entries should be fine through the standard contig pte APIs and
+> so all the page walkers doing read side operations could stop having
+> special hugepd code. It is just an implementation of contig pte with
+> the new property that the size of a PTE can be larger than a PMD
+> entry.
+> 
+> If, or how much, the hugepd write side remains special is the open
+> question, I think.
 
-OK, I think the suggestions are sane and not that much drift what I have
-now so works for me.
+It seems balls are rolling in that aspect, I haven't looked in depth there
+in Christophe's series but it's great to have started!
 
-> Thank you,
+> 
+> > this series, I kept the hugepd handling because we may still need to do so
+> > before getting a clearer picture of the future of hugepd.  The other reason
+> > is simply that we did it already for fast-gup and most codes are still
+> > around to be reused.  It'll make more sense to keep slow/fast gup behave
+> > the same before a decision is made to remove hugepd.
+> 
+> Yeah, I think that is right for this series. Lets get this done and
+> then try to remove hugepd read side.
 
-BR, Jarkko
+Thanks a bunch for the reviews.
+
+-- 
+Peter Xu
+
 
 _______________________________________________
 linux-riscv mailing list
