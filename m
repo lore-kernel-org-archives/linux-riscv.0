@@ -4,99 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3105AC54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 20:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A23C54E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 20:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
 	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pGSmBEekWfTEDDPUIXtXGXCEYEOCJOCvhPP/tc3LyiU=; b=nH3dcDd0kx0Vhm
-	Lo4iI2B18ZclRk/s/gzlGT1aSARdhsmbdGejJ2WRYG2aijzJ5GY8Hho8uGHvVdYM6jh069V9A2uTE
-	feJJjoGiMNzp4/wsqIPQfJ8/Kus2Tt8FVNSJKtRE0m7Q/B4MtL1gFZ2JS78p/ujdZ8MNd/8FckkfW
-	ikQjlxwmCphKgrJ2S59TVHi6GIL/l8f21XxAVzxSxvBzAlCfh4VpOT6vEI7DKmNUnNl2qEhKw0h2t
-	mFFtMbFJBa1gL2xtP6N9DTJ1NHRqsfpR0P1fhI06ghbbKvIC2AuETJiJ3puuJ4htVCRrJonwb3Jnw
-	jbDq/HaERaWpoYgtyV0A==;
+	List-Owner; bh=33E3IEdybFUCKCpdS+4SV9hlCy4NlEQR6suKybHy6y0=; b=uqyRy1yPDolg7Z
+	Mq82EKdXq7/H1XQKGnNO+kizjPuSGxo1AzBBdFX1/1l/WeagJAFlqMLQGhId9ilzC5pQgrIGZvFlR
+	rY5JEGBMm4PY3YBqWbO3fN/YofVSys8UmSVg7E5SWCq7fSwWJLdMM7sN4+oKzyApg5bY1YASpyZ7V
+	xtqG18MDuxadGF+9b9xzdgGMzAwCoPP5Fjfr4R3DeAaNBHDOxmx+huacYYpikDLMqxmHED8TatIL8
+	P8n6h4bwCTkUORVCKJtEseJ5pb0+DYGWoQTzl2CndItN4I9sWyQk/M23g0x9YFyTuykzoC+IwLrj7
+	1/0OwwSsc8vqKRUkP7wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ror5n-00000001qes-1pe7;
-	Mon, 25 Mar 2024 20:38:51 +0000
-Received: from wfhigh7-smtp.messagingengine.com ([64.147.123.158])
+	id 1ror80-00000001r70-3EiE;
+	Mon, 25 Mar 2024 20:41:08 +0000
+Received: from wfout8-smtp.messagingengine.com ([64.147.123.151])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ror5k-00000001qbB-0YdQ
+	id 1ror7x-00000001r61-3Qka
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 20:38:50 +0000
+	Mon, 25 Mar 2024 20:41:07 +0000
 Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailfhigh.west.internal (Postfix) with ESMTP id A423818000EC;
-	Mon, 25 Mar 2024 16:38:42 -0400 (EDT)
+	by mailfout.west.internal (Postfix) with ESMTP id 97DA51C000D0;
+	Mon, 25 Mar 2024 16:41:02 -0400 (EDT)
 Received: from imap51 ([10.202.2.101])
-  by compute5.internal (MEProxy); Mon, 25 Mar 2024 16:38:44 -0400
+  by compute5.internal (MEProxy); Mon, 25 Mar 2024 16:41:04 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
 	:cc:content-type:content-type:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1711399122; x=1711485522; bh=mhY6UWFYLp
-	GLu9vdotPDgrt7ybIuTPjbMRoJG2CzZUQ=; b=S4+3f3pI+YNgZTkRsaTjGJfLRs
-	Xweu5smHhWwlqgrDI5QfCAjfgKFimPLMcOtAiJFv9/+2Ra9A/7aH1LkVcqmybvFh
-	a62M9OJKTCjVXetf4lH2HozBSdq2g99we27It3uiAagqrnSbyyPNCXKPlXsGHA01
-	dWj9L/w1en8+0bV3DC03xKTtylfxZkqSzuIMVIdMp+ZuToAhsV1HFhgs5AR7g4z3
-	+ILghfHMnso8IbL5sCA9knFCp8TTNknARg0qrSGU8ZGb3G2vXpnQeZDL58lJ05E5
-	HWT7F2C3rD3t9OCUpExjwaogVlQlQ5p6pnVciE8fRZJXpxqO7LOco2rywpkg==
+	:subject:to:to; s=fm1; t=1711399262; x=1711485662; bh=lC0QogFDJs
+	dPPHPVxEtk7oE0Tzlwl0ZdsUXHw0ePYwM=; b=bvwN+wT98TadP1KmewjIVddLCI
+	iUNQb5KjKmtYbcUmymAdSGVXcrq0cnuImEWElkUv8aQiFjIaqbruybE15UCMyyug
+	9GwAxVztn5vvIWoFl4hcyJ72HxzwEfJif16dMv+UdUpcAHn2Sl823mcNzFnPLCqb
+	W6pBXwWCwmhBnhdtvou8R8IkHvT7aLLuCOXYMJKpMfe0T7hPQrzYK2TaKsFk/OVm
+	IPkwrdhgrMBn+urySP2jZ694YjgOMBqcC8zf2zU46M2eLTnYnsPuL+3dLepsBNwR
+	7p0ecAvjpu8l+3nD4bMcMJ9CAlHAj638U2nyx249rWSFiyfG+xCKtj/e5pfg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-type:content-type:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:subject:subject:to
 	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1711399122; x=1711485522; bh=mhY6UWFYLpGLu9vdotPDgrt7ybIu
-	TPjbMRoJG2CzZUQ=; b=u32nqvW/CcrUFWOplIZK0gE8RfI4wQqWSTaOJbichPqW
-	F8wAjfnUQjVn6L1ZoVu8P/ujI6RfbOfxe1DOGbHvnfKaY255IPvHJdSF0SUgSDPg
-	z5C6fLvVhJ8v4quxdLI+ifwlTBrEjbS2I7omtvfmSPMTqrVPLu7ZzVUa0aDuziXJ
-	/JjEORS7k19yFUnGMEI8iN2Bch5bpCr8lykf2U5hKsVn8YoVB0A2Jnh9v36AxQTb
-	1oXCVPR94ANzzSZDHaERbmizhb6r8RQX4Y5gFT3g1Uxkoc08yfETn4fv1ntVXIzU
-	DlORhxg/MTZyG+LlHQMP7/vBiOVxsF2fY0yIa+2+6Q==
-X-ME-Sender: <xms:0eABZnQaHnU1AP3GZttcz8PEo95D_DgHn0RIM3Zr6orqkpg1Y-gQ_Q>
-    <xme:0eABZoyXeyz9W9kOmyBgWJIAMyK8wq5OREbZdCbMhwa4tscrpyB6CIN8LcJ2cRlc4
-    uu2X9lubeS5q1kW3Vk>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvledrudduuddgjeelucetufdoteggodetrfdotf
+	fm2; t=1711399262; x=1711485662; bh=lC0QogFDJsdPPHPVxEtk7oE0Tzlw
+	l0ZdsUXHw0ePYwM=; b=wqgZ83aWPxyDI+wzSX9U0KrHrNq97/i29O1o9sx1Jful
+	1WwnQDRqrmejTxMpPI/nBoKTimsqS0+Ylkzr0OWPOmM+kr4XSFmZzsBYYzB0wlYP
+	gjyRYxnNTSwE5rmegRcU2ECy0PE7fSDdX4HIFckt1HtNR+EiH6B9AfBnkxb+NOGX
+	8bPfYyBKC4ZcfzpuGBx2QWNzEo+THzMlGdiIGKztniiPqf1SzJkU63+6lLtMjPSd
+	P0ed2ok+4DLA34Dl9jhf5MDPd+MIIGxih8KNmkyaUaxFrlPORy6FyaPyXTOAZe6q
+	8fV9ewX2gIfPQ8Hy2kNKNj1kfVaiewsio75arZVSEg==
+X-ME-Sender: <xms:XeEBZuk0FbuOuEgUxW_YjyrU17uFvKErVp89hBe9sRc8mRHIftPqZg>
+    <xme:XeEBZl35UtIqfkL5SAKWoIBR11qY1LWkz9aU8UAQJo6bS33vbpmr-occllOXI9mLF
+    PSfgcEDOd-Q2Mvf7u8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvledrudduuddgkedtucetufdoteggodetrfdotf
     fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
     uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
     cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
     nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepvefhffeltdegheeffffhtdegvdehjedtgfekueevgfduffettedtkeekueef
-    hedunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpe
-    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:0eABZs2mNw-athT52_5o41vbqDqoBn0iAFxef5VZEH_N7_OYPpERYw>
-    <xmx:0eABZnCfbUpFEOj2UQFGkuCq4Uy7hCFqMumAnGFrZehsDYSs6n0cuA>
-    <xmx:0eABZghHb4UsX07Ini3aMVOIYhg1UsE-GrxEaEFWITzKlh574HCvKQ>
-    <xmx:0eABZroKebaSLlxRwaGH7GZsFY6lgt6VAo6ldGtt6_06VptPo_MSJw>
-    <xmx:0uABZp1WzsT0Qb9npqR74HyOmserEQy6QdZ1NthLJsBZvTXjVDoDfFU9nFU>
+    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
+    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:XeEBZsoSepjqWDjtz1VlgKWds71Vt3tlS0onZRRpXpPZBFIhF19-GA>
+    <xmx:XeEBZino9lvW5VrJOZzEQyZEfd8iDoLaNvzUTctG34SQnUHyQX0a7A>
+    <xmx:XeEBZs1zxcx6zOlPx0-u3KV5mix1Ez459hBbfTik2wGebf1NYFzmcw>
+    <xmx:XeEBZpsY_52Jij5-YJBOXi3MLHhw-hwI9xdVFdyWi930Koi2Fisrtw>
+    <xmx:XuEBZlFUpfLIDx9JBCRRg_11ANdKVJO8vHi9OXf1t_wwjjV4Tl9aGTtsH9A>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 484A7B6008D; Mon, 25 Mar 2024 16:38:41 -0400 (EDT)
+	id 8D90DB6008D; Mon, 25 Mar 2024 16:41:01 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 User-Agent: Cyrus-JMAP/3.11.0-alpha0-332-gdeb4194079-fm-20240319.002-gdeb41940
 MIME-Version: 1.0
-Message-Id: <95eb125d-dd54-42f1-b080-938faca6a8a1@app.fastmail.com>
-In-Reply-To: <ZgHCpgHh1ypSyrtv@FVFF77S0Q05N>
+Message-Id: <3ac65601-7102-4ad1-ad89-157f7d9cef87@app.fastmail.com>
+In-Reply-To: <20240313180010.295747-1-samuel.holland@sifive.com>
 References: <20240313180010.295747-1-samuel.holland@sifive.com>
- <CAHVXubjLWZkjSapnsWJzimWg_2swEy7tQ-DQ6ri8yMk8-Qsc-A@mail.gmail.com>
- <88de4a1a-047e-4be9-b5b0-3e53434dc022@sifive.com>
- <b5624bba-9917-421b-8ef0-4515d442f80b@ghiti.fr>
- <f786e02245424e02b38f55ae6b29d14a@AcuMS.aculab.com>
- <d323eb10-c79b-49cb-94db-9b135e6fd280@ghiti.fr>
- <ZgGosOiW6mTeSnTL@FVFF77S0Q05N>
- <eeccbc9f-7544-42c9-964f-2b4c924c2b2f@app.fastmail.com>
- <ZgHCpgHh1ypSyrtv@FVFF77S0Q05N>
-Date: Mon, 25 Mar 2024 21:38:20 +0100
+Date: Mon, 25 Mar 2024 21:40:41 +0100
 From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Mark Rutland" <mark.rutland@arm.com>
-Cc: "Alexandre Ghiti" <alex@ghiti.fr>,
- "David Laight" <David.Laight@aculab.com>,
- "Samuel Holland" <samuel.holland@sifive.com>,
+To: "Samuel Holland" <samuel.holland@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+Cc: "Albert Ou" <aou@eecs.berkeley.edu>,
  "Alexandre Ghiti" <alexghiti@rivosinc.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "Albert Ou" <aou@eecs.berkeley.edu>,
  "Andrew Morton" <akpm@linux-foundation.org>,
  "Charlie Jenkins" <charlie@rivosinc.com>, guoren <guoren@kernel.org>,
  "Jisheng Zhang" <jszhang@kernel.org>,
@@ -104,11 +92,11 @@ Cc: "Alexandre Ghiti" <alex@ghiti.fr>,
  "Matthew Wilcox" <willy@infradead.org>, "Mike Rapoport" <rppt@kernel.org>,
  "Paul Walmsley" <paul.walmsley@sifive.com>,
  "Xiao W Wang" <xiao.w.wang@intel.com>, "Yangyu Chen" <cyy@cyyself.name>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+ linux-kernel@vger.kernel.org
 Subject: Re: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_133848_288865_4E727044 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20240325_134105_912783_EEEE171C 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,40 +113,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 25, 2024, at 19:30, Mark Rutland wrote:
-> On Mon, Mar 25, 2024 at 07:02:13PM +0100, Arnd Bergmann wrote:
->> On Mon, Mar 25, 2024, at 17:39, Mark Rutland wrote:
+On Wed, Mar 13, 2024, at 18:59, Samuel Holland wrote:
+> TASK_SIZE_MAX should be set to the largest userspace address under any
+> runtime configuration. This optimizes the check in __access_ok(), which
+> no longer needs to compute the current value of TASK_SIZE. It is still
+> safe because addresses between TASK_SIZE and TASK_SIZE_MAX are invalid
+> at the hardware level.
 >
->> If an architecture ignores all the top bits of a virtual address,
->> the largest TASK_SIZE would be higher than the smallest (positive,
->> unsigned) PAGE_OFFSET, so you need TASK_SIZE_MAX to be dynamic.
+> This removes about half of the references to pgtable_l[45]_enabled.
 >
-> Agreed, but do we even support such architectures within Linux?
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 
-Apparently not.
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 
-On 32-bit architectures, you often have TASK_SIZE==PAGE_OFFSET,
-but not on 64-bit -- either the top few bits in PAGE_OFFSET are
-always ones, or the user and kernel page tables are completely
-separate.
+>  #ifdef CONFIG_64BIT
+>  #define TASK_SIZE_64	(PGDIR_SIZE * PTRS_PER_PGD / 2)
+>  #define TASK_SIZE_MIN	(PGDIR_SIZE_L3 * PTRS_PER_PGD / 2)
+> +#define TASK_SIZE_MAX	(PGDIR_SIZE_L5 * PTRS_PER_PGD / 2)
 
->> It doesn't look like this is the case on riscv, but I'm not sure
->> about this part.
->
-> It looks like riscv is in the same bucket as arm64 and x86 per:
->
->   https://www.kernel.org/doc/html/next/riscv/vm-layout.html
->
-> ... which says:
->
-> | The RISC-V privileged architecture document states that the 64bit addresses
-> | "must have bits 63-48 all equal to bit 47, or else a page-fault exception
-> | will occur.": that splits the virtual address space into 2 halves separated
-> | by a very big hole, the lower half is where the userspace resides, the upper
-> | half is where the RISC-V Linux Kernel resides.
-
-Rihgt. I had even looked in that directory but somehow missed
-the vm-layout.rst file.
+I see that TASK_SIZE_MIN is unused since 085e2ff9aeb0 ("efi:
+libstub: Drop randomization of runtime memory map") and could
+be dropped now, but it doesn't really hurt either.
 
      Arnd
 
