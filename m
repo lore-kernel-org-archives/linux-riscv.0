@@ -4,75 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A8EC54E58
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 19:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE697C54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 19:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GLZcCi8gXXFnUW3PbMnN4s874uMprJtUZO1I3c+FZKc=; b=g2SdIpA9r8S1SlQPPyH4YB/SF1
-	y8EgOjLFlai8VcAOOM4rkUP5kJ2/yOa0wp1gZPYdA36B0CvR1rmcsexAt0MkVG/nnAf79ijcpksqd
-	D5rgRkoUVzGEf5ObV+sgR6nasWBPzNpIRFLxa/CyNgBYHSC0rsR2UBVXeeinUdsLy8nRHnvuz/4u1
-	qxNgTxLBvxbqlEtfsMODIUgc1AlsOaVefEx0cXoGwO9EH+cB/rnyqAu4MmBmaunHdbrzuVWiPSHNL
-	y6KwxleA9xgTDb7DvvBwM7PEKVUqrqoPx1XQYg4sURwbINlstkUU3qGVOgTXEF0Rgkvd6zcX43+qg
-	ATgkUVeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=l4D/GCb9w9Va9/6qshWbsFnSt4Yu9+tMbkxvrMFUAac=; b=kM7dz5fcbIZ6nx
+	Imus6gNV0JODEa75T6Ik/ppOilWjh221waETDRPl3f1yaZZ2QXSVIHYvxv8B7QLRcrRoFEEqLYoTo
+	jVa5uHdLfOVhPdcU6u3eMON9Ky5+BHjqxHzwWqkvJHtJREqILwFdyZOE4J8cpM6cSWi7PyMZ/cuwI
+	MeefIWYGO3kCVYBEmmR0M4j1BPtBNyvV892WuTTfUv3CFrTqez0a8KabjLoTlXpAy/7S804P40NBA
+	nCjidPtJhrMTJajoa8SzGChz1pJ/AKz4lWlFgkqX8p6MPM3vMBTMD8zKDxgFviKtF+JzB6B+2bWBS
+	25+7FPi8GNcumO24dNhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ropr2-00000001YuA-3KFQ;
-	Mon, 25 Mar 2024 19:19:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ropsL-00000001ZCv-48fq;
+	Mon, 25 Mar 2024 19:20:53 +0000
+Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1ropqz-00000001Yth-3esR
+	id 1ropsI-00000001ZBU-3y0n
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Mar 2024 19:19:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1138861161;
-	Mon, 25 Mar 2024 19:19:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F160C433C7;
-	Mon, 25 Mar 2024 19:19:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711394368;
-	bh=6ur4nAJ4fwkwsjzeh2IAAOBPeg2ISaHYc8y9oEzYf0s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sXCND9aJ3vGdPTUZkzw3cMJ5Z+8+y+sA3Uk5ODhmOoTed+Me48SbXmwHMI4vFE8q9
-	 OiCwNyFZiIwGt211YsUirguF2WYHc0n7qVLfydSRisg1vsIENQmRU5sNeHlBkWg2X6
-	 boT5bf8k5CSTQIQqX99uqvexvMmap6nQVi8qdsloo9afoa2C99WSfzQFRA7e7VON03
-	 A5Jl1y6Q0BqnWGkJMbmGcJ99RzcFbojNzykJ6tf2KBnlQ2eWBcAGNe79laPQ7mdX3S
-	 nr1V/mKPBZXumk7K4SPNyLpXm33p3Fbe6QtngW7xfbEy8vLqzRtzUMY+9rPVX24GD0
-	 u6MCVVp5Qqfag==
-Date: Mon, 25 Mar 2024 19:19:22 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Puranjay Mohan <puranjay12@gmail.com>
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Pu Lehui <pulehui@huaweicloud.com>
-Subject: Re: [PATCH bpf-next v2 2/2] bpf,riscv: Implement bpf_addr_space_cast
- instruction
-Message-ID: <20240325-perpetual-liking-25f26e485b65@spud>
-References: <20240325155434.65589-1-puranjay12@gmail.com>
- <20240325155434.65589-3-puranjay12@gmail.com>
- <20240325-nineteen-unvaried-cb5cb5fd3a73@spud>
- <CANk7y0gWtwN7EJ24aoY9-RB9629d5Ks-9fMc3wnAAjjERcZhFw@mail.gmail.com>
+	Mon, 25 Mar 2024 19:20:52 +0000
+Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-7cc01644f51so203602639f.2
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2024 12:20:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1711394448; x=1711999248; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Sv+dTeEhRx84ZTiMETbHHNzVA6gJg2UXSOcI57+q+UU=;
+        b=MpcKEFO7VZl/rNGijARMg6qmxv4Pb2RmFdQptpQRkReoK4F0/7YHj0NSbEmaETUaWE
+         e1dRkb7Gn4J6sLJOOWYtMzOlXkOOJcGlg7Lldw6OeUJ35bZQh7D3n3TrLZ9UDg28JZZB
+         qMnfRVOseDLZPHPp1mtOqzD8EYfiaoLFzR5zRwuRkc3/wrwM5WKpglsSKogLjNNiXIIh
+         60YY4UAdFXalYxwqW7oJW6qIdfxhGPQHMGWLcPlbgUnpmq2ym3EZPFDE0KEONKkY51Cf
+         aY+MU9Qc+Ge1xaKH3d35CbMDELwgo97HqN2t33hTo69DU1rs5U7JRj5j6+nZmzxa+c4K
+         XskQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711394448; x=1711999248;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Sv+dTeEhRx84ZTiMETbHHNzVA6gJg2UXSOcI57+q+UU=;
+        b=iKlLRvsgP3mTfsvW+LkwjRyBfIU+E1YS9pgEzYHTq4GSA56BwhKB2QxNqWIh9uZ+0/
+         8U1oiaFt2VtEseZ46+blKHLQOZ6hoN5UxGxaEzYB1pNymPgmwT8DklLm8nGvN7uwY1NY
+         HGqa6AjIImzEdcFsVvXtdHGEzVNthaOkfgrrUETbSRY6AGysG5ldCEHKn0ClyVkd5gK9
+         jrR1jk7cXMMFJ6g7ijr0ye2CwBjNGzo8Thbpu4itumv3Gkw2PO1lp4yraI9t0gleqbeq
+         zcYjTnoODNy7EYqJb1znRAo2AlqzQ18mtOXRHl23UykVflziBhgQ+l4F823u4LBiwr2h
+         g6Ng==
+X-Forwarded-Encrypted: i=1; AJvYcCVqv2uR++Ys2K3eIZY6jmweIX6FP522n3ny2cKjC0gWAeU33SjdxDRmbIa620+E22TJPNjPSrDBxjlEO9sqGW8oTT8X7Au1NMrsTD5hiign
+X-Gm-Message-State: AOJu0YyA6xNwUWM4nwgU4+sdrS935tSzXJA+PgwYI6fYLSQi9prBX2Xc
+	NNp6clBrYnWsC+XP33g0mFKr4govhQe9eBCzz3MP+7f/KjHS5chyC+4wyYlsPY8=
+X-Google-Smtp-Source: AGHT+IGgMqUl4sRDrJG66cYxeIJMFjP1ZhvADblr9V63c5aanNrfT587vEs2VxCiJVrrEMzfdd4+Lg==
+X-Received: by 2002:a05:6602:4f11:b0:7c8:bbdc:ebed with SMTP id gl17-20020a0566024f1100b007c8bbdcebedmr8382717iob.6.1711394448046;
+        Mon, 25 Mar 2024 12:20:48 -0700 (PDT)
+Received: from [100.64.0.1] ([136.226.86.189])
+        by smtp.gmail.com with ESMTPSA id j11-20020a02a68b000000b0047c1f2e4960sm749632jam.56.2024.03.25.12.20.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 Mar 2024 12:20:47 -0700 (PDT)
+Message-ID: <757b0f1c-b8ff-4a1a-8edc-8dc651a348fb@sifive.com>
+Date: Mon, 25 Mar 2024 14:20:46 -0500
 MIME-Version: 1.0
-In-Reply-To: <CANk7y0gWtwN7EJ24aoY9-RB9629d5Ks-9fMc3wnAAjjERcZhFw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
+To: Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, David Laight <David.Laight@aculab.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton
+ <akpm@linux-foundation.org>, Charlie Jenkins <charlie@rivosinc.com>,
+ guoren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+ Kemeng Shi <shikemeng@huaweicloud.com>, Matthew Wilcox
+ <willy@infradead.org>, Mike Rapoport <rppt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Xiao W Wang
+ <xiao.w.wang@intel.com>, Yangyu Chen <cyy@cyyself.name>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20240313180010.295747-1-samuel.holland@sifive.com>
+ <CAHVXubjLWZkjSapnsWJzimWg_2swEy7tQ-DQ6ri8yMk8-Qsc-A@mail.gmail.com>
+ <88de4a1a-047e-4be9-b5b0-3e53434dc022@sifive.com>
+ <b5624bba-9917-421b-8ef0-4515d442f80b@ghiti.fr>
+ <f786e02245424e02b38f55ae6b29d14a@AcuMS.aculab.com>
+ <d323eb10-c79b-49cb-94db-9b135e6fd280@ghiti.fr>
+ <ZgGosOiW6mTeSnTL@FVFF77S0Q05N>
+ <eeccbc9f-7544-42c9-964f-2b4c924c2b2f@app.fastmail.com>
+ <ZgHCpgHh1ypSyrtv@FVFF77S0Q05N>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <ZgHCpgHh1ypSyrtv@FVFF77S0Q05N>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_121930_033037_DCAEF364 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20240325_122051_084608_9CED74DB 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,87 +107,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4175931927003035464=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 2024-03-25 1:30 PM, Mark Rutland wrote:
+> On Mon, Mar 25, 2024 at 07:02:13PM +0100, Arnd Bergmann wrote:
+>> On Mon, Mar 25, 2024, at 17:39, Mark Rutland wrote:
+>>
+>>> Using a compile-time constant TASK_SIZE_MAX allows the compiler to generate
+>>> much better code for access_ok(), and on arm64 we use a compile-time constant
+>>> even when our page table depth can change at runtime (and when native/compat
+>>> task sizes differ). The only abosolute boundary that needs to be maintained is
+>>> that access_ok() fails for kernel addresses.
+>>
+>> As I understand, this works on arm64 and x86 because the kernel
+>> mapping starts on negative 64-bit addresses, so the highest user
+>> address (TASK_SIZE = 0x000fffffffffffff) is still smaller than the
+>> lowest kernel address (PAGE_OFFSET = 0xfff0000000000000).
+> 
+> Yep; the highest posible user address is always below the lowest possible
+> kernel address, and any "non-canonical" address between the two ranges faults.
+> There's some fun with TBI (Top Byte Ignore) and MTE, but that only affects how
+> to mangle the pointer before the check, and doesn't affect the definition of
+> the VA boundary.
+> 
+> In general, so long as TASK_SIZE_MAX is <= the lowest possible kernel address
+> and TASK_SIZE_MAX > the highest possible user address, it all works out.
+> 
+>> If an architecture ignores all the top bits of a virtual address,
+>> the largest TASK_SIZE would be higher than the smallest (positive,
+>> unsigned) PAGE_OFFSET, so you need TASK_SIZE_MAX to be dynamic.
+> 
+> Agreed, but do we even support such architectures within Linux?
+> 
+>> It doesn't look like this is the case on riscv, but I'm not sure
+>> about this part.
+> 
+> It looks like riscv is in the same bucket as arm64 and x86 per:
+> 
+>   https://www.kernel.org/doc/html/next/riscv/vm-layout.html
+> 
+> ... which says:
+> 
+> | The RISC-V privileged architecture document states that the 64bit addresses
+> | "must have bits 63-48 all equal to bit 47, or else a page-fault exception
+> | will occur.": that splits the virtual address space into 2 halves separated
+> | by a very big hole, the lower half is where the userspace resides, the upper
+> | half is where the RISC-V Linux Kernel resides.
 
---===============4175931927003035464==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="PLxoKXZPHO6ffd6M"
-Content-Disposition: inline
+Right, and while RISC-V has a pointer masking extension[1] similar to arm64's
+TBI, it will be handled[2] the same way: by sign extending the address prior to
+checking against TASK_SIZE_MAX. So we maintain the property that userspace
+addresses are always "positive" and kernel addresses are always "negative".
 
+Regards,
+Samuel
 
---PLxoKXZPHO6ffd6M
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Mar 25, 2024 at 08:13:10PM +0100, Puranjay Mohan wrote:
-> On Mon, Mar 25, 2024 at 8:10=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Mon, Mar 25, 2024 at 03:54:34PM +0000, Puranjay Mohan wrote:
-> > > LLVM generates bpf_addr_space_cast instruction while translating
-> > > pointers between native (zero) address space and
-> > > __attribute__((address_space(N))). The addr_space=3D0 is reserved as
-> > > bpf_arena address space.
-> > >
-> > > rY =3D addr_space_cast(rX, 0, 1) is processed by the verifier and
-> > > converted to normal 32-bit move: wX =3D wY
-> > >
-> > > rY =3D addr_space_cast(rX, 1, 0) has to be converted by JIT.
-> > >
-> > > Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
-> >
-> > Doesn't compile for allmodconfig:
-> >   ../arch/riscv/net/bpf_jit_comp64.c:1086:7: error: call to undeclared =
-function 'insn_is_cast_user'; ISO C99 and later do not support implicit fun=
-ction declarations [-Wimplicit-function-declaration]
-> >
-> > Cheers,
-> > Conor.
->=20
-> Yes,
-> I mentioned in the cover letter that a patch is required.
-> It just got merged in bpf-next/master:
-> https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/commit/?=
-id=3D770546ae9f4c1ae1ebcaf0874f0dd9631d77ec97
->=20
-> So, rebasing on the latest bpf-next/master should fix the issue.
-
-Ah, I see now that there was a mention in the cover letter that I did
-not see first time around.
-
-Bjorn, do you think there's anything we can do about these kinda
-misleading CI failures for bpf stuff? Some stuff that touches bpf
-definitely is worth us building, but should we try and build it on top
-of the bpf tree instead?
-
---PLxoKXZPHO6ffd6M
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgHOOgAKCRB4tDGHoIJi
-0t9oAQClrCCsg/y60Dzf2CGlzqqLxZlv5uLEMxOHA+AgGxIQiAD/bo+9Ay8m4QJy
-igs4VljEQzP535ZsiOlBcFy7XOh6nAc=
-=InP6
------END PGP SIGNATURE-----
-
---PLxoKXZPHO6ffd6M--
-
-
---===============4175931927003035464==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+[1]: https://github.com/riscv/riscv-j-extension/raw/a1e68469c60/zjpm-spec.pdf
+[2]:
+https://lore.kernel.org/linux-riscv/20240319215915.832127-1-samuel.holland@sifive.com/
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4175931927003035464==--
-
