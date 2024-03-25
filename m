@@ -4,107 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F09DC54E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 17:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8088DC54E58
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2024 18:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2aeWets0olSEwoZI2lx5WdA5nzUQWxjr9a9yc0NmUkM=; b=wiAnEVinXvzV3T
-	1Wjpnl8Iz+9u9hNGhDHRNA72Fu2hfJw+LSHKhFlk/khWRcb18+ZkO12NKqsFjK9b5Rdzl9TGZILfd
-	yKMSvedHxx1njgJ/fw76/GowgjIcDP7A9AjTlH0cmwfljon/q1jdwvvtPOq8pNJqD25jxSCF6vsXp
-	ZhXkKObiW/b1KUWIRcfkmCFzXMfnic/p+D7S2qZqe4JVxi5dcvafWWreX+2mBtvH83glhh+IfcdS/
-	msICrJxw789S8DTLcUeADdgBkANBVVTK2SH6JBi7MJz6dNfgxY1F3pAZVA69bZ+ejIsAvESuoe3g7
-	KkClTlmn8wDaCqikKW5g==;
+	List-Owner; bh=RssXfCMlARIzHLlCJUB9nJjJ10D0Pk1z0Qwk7CDPMDY=; b=IRazAkueSe5j8g
+	WgLzcQ8vL4u+v0q4U3eIhtvXHnjj5S8jBeM+h5Cj+fOdzjm/cBfdYvmDAH+FP24Vz6MIEhCdHn4Gg
+	QV1HgPGQazHRDk1RYNjTSJs5D7BSlIrkIo4uU4bdMvRJz5bWpSP7JgkfENOtRgSvfhENOvmuSEsGH
+	4RLLq9J5VNOlss+1GrD9dZsPMaq1Wa98vPmwi1o1iUs7QMUf7GqCusnD3zcuF0gjJZK6oIvfhwg6i
+	/8pEXqkfqdwdMvDTmL0G3r0p2gsjm6wkLq9Oi6lIQclHryWdB0IsFivWYGY2FvCJ7u2QlnusDIi8q
+	pvBsNjkpAZLMqDMsUZyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rooZB-00000001CTd-0L0i;
-	Mon, 25 Mar 2024 17:57:01 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1rooem-00000001ENW-0SiF;
+	Mon, 25 Mar 2024 18:02:48 +0000
+Received: from wfhigh6-smtp.messagingengine.com ([64.147.123.157])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rooVZ-000000019vN-2lpk;
-	Mon, 25 Mar 2024 17:53:20 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1e0189323b4so34638475ad.1;
-        Mon, 25 Mar 2024 10:53:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1711389194; x=1711993994; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/YzJYq0fkceHof/EPazly4M40tZRXgMzxd6Hp1cFk9M=;
-        b=Fui7CREX92ZzkyHYLW3MAeUkTBqyQBpKQPBfS6WFyqrphx0rnxM+thoQPPzaS9/YHi
-         sWQtgIZ1/o7YmrjAs0pe88ZAYete2HGVm5oOWJmfV5gpraxUtMdi+RWezEejtaQa3u7W
-         6KRwu5LExtqIIB2THwxCq/j5uYD5RpgvA9N/AW+GxdOu7JhilixX6+QuduxoJMMn8RSg
-         fvuW7D9RrVPtQSX7Spqk6Dia1bHI0h/5kxgQYQBDhGMH/jQ5K0zMsJ+ZHK9v21Qk4isS
-         7lfOywRfSdgQ3DfVmXtVdg7FnRnDKaBxgcg8vHIiaPbSdHtEjYZslOQ+DjiniTqe8SrE
-         W7hg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711389194; x=1711993994;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/YzJYq0fkceHof/EPazly4M40tZRXgMzxd6Hp1cFk9M=;
-        b=WwlHY9xxhJedWRMPfrgb1B1afT6i/pYfjKBBtHgwKssbfMjfM5cI5EBOoOKTZPVQGP
-         vETwGOcaeBOxB3BX0vHN2Jzy6slbdsqh4Zgkm18mcrHyBM65tYiY6XH3LlqVylPOkRc7
-         IUDkLOmL1nhr2KW8v7lH+206hJEFcVvIkBR+ca5lcZwdzPvzn60hGTZLrsk3I969eOSE
-         7c936Ppff2lOEjWHujKSaPu735+zMzTmPnXuLgntS2TTkpEMSwjZSF9KnlgYPqu1mMFS
-         hpvQIDJHPOijoH0TZVvtQORy5c4uqmYNyCBi5HkHy014cM6kNGI3LspdN2AStmRGa/iZ
-         E12A==
-X-Forwarded-Encrypted: i=1; AJvYcCV6TzGa7kP8AkwDxS/gfmwlBdxMk98C3PPSOBKnKEl/yjNJeaZao7SbIFW4aBlBqsZULxQNXI/YITXaa0MF2d0OCx1+CYA4cEewcL1W3aHT7XzTGYf48IBXBrWvOiDpDNEy/PZwiTHwBCaer90TxmySNKKVseg=
-X-Gm-Message-State: AOJu0Yz3TMPFao5YePWQ6RSGotCy32YnxEsbItxfd0pXSomdZMQeIUlg
-	/yrU++l3JUlXa5GBRjzDuS7gF2P1GWP0Ggvio3n0jdI7hjJUFmyD
-X-Google-Smtp-Source: AGHT+IH4L5pCyOM7/NriCMnotw9B9wTRd/QlGQsY00iVlUfB3rIc/3hcXxQD6OWxPS5Q16CPFVorBg==
-X-Received: by 2002:a17:902:b495:b0:1de:faa5:552 with SMTP id y21-20020a170902b49500b001defaa50552mr8062370plr.56.1711389194428;
-        Mon, 25 Mar 2024 10:53:14 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id 1-20020a170902c10100b001db8a5ea0a3sm4986539pli.94.2024.03.25.10.53.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Mar 2024 10:53:14 -0700 (PDT)
-From: Guenter Roeck <linux@roeck-us.net>
-To: linux-kselftest@vger.kernel.org
-Cc: David Airlie <airlied@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Kees Cook <keescook@chromium.org>,
-	Daniel Diaz <daniel.diaz@linaro.org>,
-	David Gow <davidgow@google.com>,
-	Arthur Grillo <arthurgrillo@riseup.net>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	=?UTF-8?q?Ville=20Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	dri-devel@lists.freedesktop.org,
-	kunit-dev@googlegroups.com,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	netdev@vger.kernel.org,
-	Guenter Roeck <linux@roeck-us.net>,
-	Linux Kernel Functional Testing <lkft@linaro.org>
-Subject: [PATCH v2 12/14] sh: Add support for suppressing warning backtraces
-Date: Mon, 25 Mar 2024 10:52:46 -0700
-Message-Id: <20240325175248.1499046-13-linux@roeck-us.net>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20240325175248.1499046-1-linux@roeck-us.net>
-References: <20240325175248.1499046-1-linux@roeck-us.net>
+	id 1rooeh-00000001EKr-381w
+	for linux-riscv@lists.infradead.org;
+	Mon, 25 Mar 2024 18:02:45 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailfhigh.west.internal (Postfix) with ESMTP id 67A5D18000B3;
+	Mon, 25 Mar 2024 14:02:36 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute5.internal (MEProxy); Mon, 25 Mar 2024 14:02:38 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1711389755; x=1711476155; bh=MZ8i+Gw+8U
+	GRptvTYhnegZ3s5XeZTdAEd0vXFYyBJzU=; b=VEbwH/ZOjXX+6S7+y28Yyc+vWh
+	Ca3MEk4YxNwb4JxA0pyWCeXBL3vAle5gi06OoeGki82Ie7LQdXk9n5GK2GW55mql
+	nLmqXwC4hshhdsEGA/K1nk+h6K4AODag0IvFFzhl4aQ9BJOME6U/e1fZj1tp4EBG
+	sD00QoVswMY6HvkZjafP+T8piL2yAFjVEoQBudVHuoWEMb+Lmbp0wyrN8SzDjh+P
+	BE7Bk0sAbbqrQcm8RSeVzxFzabGwYZhWMHazr3NyMddCg67R04fJNfFrnShZaI6F
+	WNoPquXpDSHD8xSYetuhQ/rc9A7Jf3nkfy9eEqnp6ZP0Cja2z9qsQxaK2VtQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1711389755; x=1711476155; bh=MZ8i+Gw+8UGRptvTYhnegZ3s5XeZ
+	TdAEd0vXFYyBJzU=; b=DuwM5x/Rn+rxyTOAQOoNhmPfZJ4KGAm63mFOUDozt+Ob
+	g9Ro3gpszcmkCZ+ZW7UQtWxZLo9gxE8dL3WyM7zDNFynjxGeURELyiI3V7oocqJ0
+	BEG59jkhks0VzPAbX2Ca9Ygb1rUsX2GGI46jVOeSV94gMw2gSyUsZA98P/NmQSvj
+	p7aWN7aO4IzJG0Lx9b35xnOL+WFgPj10LtBAmgOG6/VDxe4qZHB7mHNFpLLBFM8+
+	TWWd+Bp/V3VtiOF/6JcAtlFXboYIrhP4xGpD7Tnr4pFwWiRQVFc4xzxmrOr9PDcw
+	F7In0ielSZEvfnoysg5q9vZRv+StTODJVsCRepSAlg==
+X-ME-Sender: <xms:O7wBZmZS2Yc5u3MAUARmODwOLObuSmzHtufAokbGzOz97nuNV5Iqow>
+    <xme:O7wBZpbVjcn29EifG7tL_9vS4qWCzuKBu_aHcIt3IM9V4OhyL7MQb3gjDKg5uxVkY
+    TT1C1f67qsLXAICkZA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvledrudduuddggeejucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
+    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:O7wBZg8N8TBButbyzPSQbH_wtxgHkTx9XSA03qUtwlPI5rqhag8SGw>
+    <xmx:O7wBZop1FbmeL24HRxYUCdkvt6OxCVDhJ_8oTbvazQzLsIzXOZkwig>
+    <xmx:O7wBZhrMOFnF_PIpTrY9AO29f-0VAVk5ohB7n79_EVvs2ku8DKyowg>
+    <xmx:O7wBZmTfbDmy6niO6Rb-rrD3nXnSECylwgOd3MqtOFG46ZLgyycPfQ>
+    <xmx:O7wBZgclbJGPimIKrGmA7WJgBmutgU6M8zfAG5sj4OYzmbNn_ZPqMd9Xshw>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 03979B6008D; Mon, 25 Mar 2024 14:02:34 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.11.0-alpha0-332-gdeb4194079-fm-20240319.002-gdeb41940
 MIME-Version: 1.0
+Message-Id: <eeccbc9f-7544-42c9-964f-2b4c924c2b2f@app.fastmail.com>
+In-Reply-To: <ZgGosOiW6mTeSnTL@FVFF77S0Q05N>
+References: <20240313180010.295747-1-samuel.holland@sifive.com>
+ <CAHVXubjLWZkjSapnsWJzimWg_2swEy7tQ-DQ6ri8yMk8-Qsc-A@mail.gmail.com>
+ <88de4a1a-047e-4be9-b5b0-3e53434dc022@sifive.com>
+ <b5624bba-9917-421b-8ef0-4515d442f80b@ghiti.fr>
+ <f786e02245424e02b38f55ae6b29d14a@AcuMS.aculab.com>
+ <d323eb10-c79b-49cb-94db-9b135e6fd280@ghiti.fr>
+ <ZgGosOiW6mTeSnTL@FVFF77S0Q05N>
+Date: Mon, 25 Mar 2024 19:02:13 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Mark Rutland" <mark.rutland@arm.com>, "Alexandre Ghiti" <alex@ghiti.fr>
+Cc: "David Laight" <David.Laight@aculab.com>,
+ "Samuel Holland" <samuel.holland@sifive.com>,
+ "Alexandre Ghiti" <alexghiti@rivosinc.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Charlie Jenkins" <charlie@rivosinc.com>, guoren <guoren@kernel.org>,
+ "Jisheng Zhang" <jszhang@kernel.org>,
+ "Kemeng Shi" <shikemeng@huaweicloud.com>,
+ "Matthew Wilcox" <willy@infradead.org>, "Mike Rapoport" <rppt@kernel.org>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Xiao W Wang" <xiao.w.wang@intel.com>, "Yangyu Chen" <cyy@cyyself.name>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_105318_022007_477B04E3 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20240325_110243_958858_F601B21F 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,99 +122,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add name of functions triggering warning backtraces to the __bug_table
-object section to enable support for suppressing WARNING backtraces.
+On Mon, Mar 25, 2024, at 17:39, Mark Rutland wrote:
 
-To limit image size impact, the pointer to the function name is only added
-to the __bug_table section if both CONFIG_KUNIT_SUPPRESS_BACKTRACE and
-CONFIG_DEBUG_BUGVERBOSE are enabled. Otherwise, the __func__ assembly
-parameter is replaced with a (dummy) NULL parameter to avoid an image size
-increase due to unused __func__ entries (this is necessary because __func__
-is not a define but a virtual variable).
+> Using a compile-time constant TASK_SIZE_MAX allows the compiler to generate
+> much better code for access_ok(), and on arm64 we use a compile-time constant
+> even when our page table depth can change at runtime (and when native/compat
+> task sizes differ). The only abosolute boundary that needs to be maintained is
+> that access_ok() fails for kernel addresses.
 
-Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
-Signed-off-by: Guenter Roeck <linux@roeck-us.net>
----
-- Rebased to v6.9-rc1
-- Added Tested-by:, Acked-by:, and Reviewed-by: tags
-- Introduced KUNIT_SUPPRESS_BACKTRACE configuration option
+As I understand, this works on arm64 and x86 because the kernel
+mapping starts on negative 64-bit addresses, so the highest user
+address (TASK_SIZE = 0x000fffffffffffff) is still smaller than the
+lowest kernel address (PAGE_OFFSET = 0xfff0000000000000).
 
- arch/sh/include/asm/bug.h | 26 ++++++++++++++++++++++----
- 1 file changed, 22 insertions(+), 4 deletions(-)
+If an architecture ignores all the top bits of a virtual address,
+the largest TASK_SIZE would be higher than the smallest (positive,
+unsigned) PAGE_OFFSET, so you need TASK_SIZE_MAX to be dynamic.
+It doesn't look like this is the case on riscv, but I'm not sure
+about this part.
 
-diff --git a/arch/sh/include/asm/bug.h b/arch/sh/include/asm/bug.h
-index 05a485c4fabc..470ce6567d20 100644
---- a/arch/sh/include/asm/bug.h
-+++ b/arch/sh/include/asm/bug.h
-@@ -24,21 +24,36 @@
-  * The offending file and line are encoded in the __bug_table section.
-  */
- #ifdef CONFIG_DEBUG_BUGVERBOSE
-+
-+#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
-+# define HAVE_BUG_FUNCTION
-+# define __BUG_FUNC_PTR	"\t.long %O2\n"
-+#else
-+# define __BUG_FUNC_PTR
-+#endif /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
-+
- #define _EMIT_BUG_ENTRY				\
- 	"\t.pushsection __bug_table,\"aw\"\n"	\
- 	"2:\t.long 1b, %O1\n"			\
--	"\t.short %O2, %O3\n"			\
--	"\t.org 2b+%O4\n"			\
-+	__BUG_FUNC_PTR				\
-+	"\t.short %O3, %O4\n"			\
-+	"\t.org 2b+%O5\n"			\
- 	"\t.popsection\n"
- #else
- #define _EMIT_BUG_ENTRY				\
- 	"\t.pushsection __bug_table,\"aw\"\n"	\
- 	"2:\t.long 1b\n"			\
--	"\t.short %O3\n"			\
--	"\t.org 2b+%O4\n"			\
-+	"\t.short %O4\n"			\
-+	"\t.org 2b+%O5\n"			\
- 	"\t.popsection\n"
- #endif
- 
-+#ifdef HAVE_BUG_FUNCTION
-+# define __BUG_FUNC	__func__
-+#else
-+# define __BUG_FUNC	NULL
-+#endif
-+
- #define BUG()						\
- do {							\
- 	__asm__ __volatile__ (				\
-@@ -47,6 +62,7 @@ do {							\
- 		 :					\
- 		 : "n" (TRAPA_BUG_OPCODE),		\
- 		   "i" (__FILE__),			\
-+		   "i" (__BUG_FUNC),			\
- 		   "i" (__LINE__), "i" (0),		\
- 		   "i" (sizeof(struct bug_entry)));	\
- 	unreachable();					\
-@@ -60,6 +76,7 @@ do {							\
- 		 :					\
- 		 : "n" (TRAPA_BUG_OPCODE),		\
- 		   "i" (__FILE__),			\
-+		   "i" (__BUG_FUNC),			\
- 		   "i" (__LINE__),			\
- 		   "i" (BUGFLAG_WARNING|(flags)),	\
- 		   "i" (sizeof(struct bug_entry)));	\
-@@ -85,6 +102,7 @@ do {							\
- 		 :					\
- 		 : "n" (TRAPA_BUG_OPCODE),		\
- 		   "i" (__FILE__),			\
-+		   "i" (__BUG_FUNC),			\
- 		   "i" (__LINE__),			\
- 		   "i" (BUGFLAG_UNWINDER),		\
- 		   "i" (sizeof(struct bug_entry)));	\
--- 
-2.39.2
-
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
