@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D73AC54E64
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 02:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CD0CD11DD
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 02:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PKwbtbAbsyX68gPCbpvjQr1tKA7zYP8r6HooOI2KuzQ=; b=V1w839aI+wV7FO
-	GAnYCaSX2z0LDn3uEqxcVnNOMszBduGsAr6XspYCsyu+nKKuGC3AY7Mqwd6PFgI6qJALN2+8mAYEL
-	+OsF+NYFfmjyTa57Uu03NPOQbRzDyMqAyHmnOzjxtLqzchT/0VRxpP6V5kBtL0IkuweWldizjQmkP
-	Si6TB8VitZuoFtPiWF2PqqKcm+CXnlDjJV9VeUNmBePiLoSgwBf1RgzH8Ympzc5og2GO1FVy5a0/8
-	D90bGdSTigvf6jV7IcbVX8kuJFYHfe7RM2KTz0X83uVU5LLff+y79Rp9rYny2FgSQH8PSN27a7B0Z
-	2YEru7J+ltYSDA8Rj9bQ==;
+	List-Owner; bh=WCwJOuSC6JOLrJFnhpSq1jYFvvp5ktgBbOLJ9Gtd/1Y=; b=XeC2m6GL5Fe3tU
+	KzIconKnEd2lCjDixhlLV5N2ivxUYx3vAShfwwUaUyolU82ZblN5XehenPHiTCfI8UfkuHWbrxrqp
+	7ZNbNls3gsogP0Svs/DgiYPzYpbyBHcw+JyrSu/doH/SbunUzOKHWXysoknqcALQCce/tDQGUVRbW
+	wwhwCIX6ukqYw/VaxhFnNv/YD4yIndFntmXgf0zWvmRxbDYctzuOLTh1MUB4qP5CSCHEwWcZj1I8N
+	ZT+kzb5UnD0kaKggSVwSqFPcXTrm0KUsWQ0tUTEHF9gcCejUyJ2OuJeodeD2iIC7CsLraClfR5JhF
+	2x0FxuL5P+JvSv1y8geA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1row84-00000002if3-2PDS;
-	Tue, 26 Mar 2024 02:01:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rowcP-00000002md1-1klk;
+	Tue, 26 Mar 2024 02:32:53 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1row81-00000002icq-1TIu
+	id 1rowcL-00000002mbx-1HpV
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 02:01:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2DC326115B;
-	Tue, 26 Mar 2024 02:01:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78E47C433C7;
-	Tue, 26 Mar 2024 02:01:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711418487;
-	bh=MF9ovmrIg6e8IQIMkwaYLFqAcxexDC3fSt0fm0vWIc4=;
-	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
-	b=Lhw57AEBPxbjD9GL0sYfWTtjr9JPLANVwg5Yz1VhBT/S50e2etFPWxhogAEkIOW7w
-	 c4trvVg5EzC3Xng1V19j2Dm9Yvs33knBUrCaRLqlKh5lpCKfiSULRnnfK970su7Qqa
-	 W/VlNom4Hf+B+NR3A8gZ5pDfJuvrir5CEOuQVEhvMxh/DHply97ElQUI2qaCFvjXxH
-	 v69BQSz8BF6/g/XGpOUqx7Wlwxz2dSU8gNRRBmcYWDH0/acsGQLVPhwpDs0EIXacI+
-	 n1PHMW9iMhAtQfL24uHs7U5cspXL0IC8tZrffj/YxQzXR8I/J0VlMxyYuEnr5XaqI4
-	 tqMgvIYyYUWiQ==
-Mime-Version: 1.0
-Date: Tue, 26 Mar 2024 04:01:23 +0200
-Message-Id: <D03B7XJYRFC1.2L3I2TO5HNQD3@kernel.org>
-Cc: <linux-riscv@lists.infradead.org>, "Paul Walmsley"
- <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>, "Luis
- Chamberlain" <mcgrof@kernel.org>, <linux-modules@vger.kernel.org>, "Naveen
- N . Rao" <naveen.n.rao@linux.ibm.com>, "Anil S Keshavamurthy"
- <anil.s.keshavamurthy@intel.com>, "David S . Miller" <davem@davemloft.net>
-Subject: Re: [PATCH v5 1/2] kprobes: textmem API
-From: "Jarkko Sakkinen" <jarkko@kernel.org>
-To: "Jarkko Sakkinen" <jarkko@kernel.org>, "Masami Hiramatsu"
- <mhiramat@kernel.org>
-X-Mailer: aerc 0.17.0
-References: <20240325215502.660-1-jarkko@kernel.org>
- <20240326095836.f43d259b7747269a7c0b9d23@kernel.org>
- <D03AL7A5G3M2.3UK4ASWILGBJS@kernel.org>
-In-Reply-To: <D03AL7A5G3M2.3UK4ASWILGBJS@kernel.org>
+	Tue, 26 Mar 2024 02:32:51 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-609ff069a40so56525017b3.1
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2024 19:32:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1711420365; x=1712025165; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=D3TJqEDfvZDpiO+inDD3t7IOFIESs7RQEPRehNhXH0Y=;
+        b=YCw9pVzQuriryVgb/me/df9HPG8Y6wBb2rtZD2KGwI2qKSyJfSFssjyI/0doyePQy7
+         EGwhJNo0a4Te0jPZRjXwIY8HfrauBQltZCadZry+FRu4OGwYiQI79Dd2+AP4KxssyPNu
+         GdTuz3ff/dJwVKaH6NW1Y5IUKiQcFCxD5yg3FFxr/OjerRU/NCXbMi0HbqRb7oroUay5
+         OthJfm8Uhc6HoYYpbGfZg3nVEvk95Z2kXBXW1uIGtRjv/btkblXD3e7c2Dd8OjlsC6Gu
+         6gG+CFOe1thz4/pCeYJtIZm057GNcysCfkLAsAoXnztWsWNSGBysvtn/7FRsTfLcEZLN
+         mjzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711420365; x=1712025165;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=D3TJqEDfvZDpiO+inDD3t7IOFIESs7RQEPRehNhXH0Y=;
+        b=Rd/tKhNya8ErQNJGSFQorVJ9OgG6HXpy2J89PIlEbqYlzDpEb80xiKx5t49S2IJ+u6
+         sx3AkmnfN1cSKYc26lA4BAbdnN6thHKW25HtS0eKKPs3KXu3m+KdSVKe07aUXIqa8DTN
+         M4v7ZW8J+d4wvibOV4ogGvuCuobJdYXEGjjy9TF8gFMXfjuI3CzoXgb/PXyJYuIu0KGU
+         uIHEVvEf+hlMYJ3VjGWFF9WKEovxnvW7z2xr7j7K448WC6dTn+N6fDId1bUdmGnpylZI
+         zIeJuE/RUb1EmW8Oz6IYFYzEtNQDDPIYTFkrbvirzGZz7bWvaHpeZ+ib7D/yXq9YKKAi
+         A39w==
+X-Forwarded-Encrypted: i=1; AJvYcCWnJMMda+xWa16xLyrFiZ1TC1o1ZGwiQhkWtGK+OXZBN52bWy/TcuED3lEEhq/RGEJlkHJYVqm4DqCZvlWGw/ibwOJyLvbXDJyKLSQ06o50
+X-Gm-Message-State: AOJu0YyNkrqWq74smSzoZGBdJC4xr9j5qICtOavT5tV3LJkDMS2baKW8
+	hnWCSsCd0v6xrPy5z1m3SU3N/QgAFRE6J+Q/5fVgYsygFkNBT2jltoMUsR3B8ro=
+X-Google-Smtp-Source: AGHT+IFpMRArRaXwHydUZLSvKndg2HWnCWbXGNLRVPG13dZ5KSxLwFXxZjOAnDNM2h6lSP0p5FmQNA==
+X-Received: by 2002:a81:7704:0:b0:609:f87b:aad3 with SMTP id s4-20020a817704000000b00609f87baad3mr7200636ywc.31.1711420362724;
+        Mon, 25 Mar 2024 19:32:42 -0700 (PDT)
+Received: from [100.64.0.1] ([136.226.86.189])
+        by smtp.gmail.com with ESMTPSA id x8-20020a026f08000000b0047921fd1201sm2540917jab.150.2024.03.25.19.32.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 Mar 2024 19:32:42 -0700 (PDT)
+Message-ID: <ea79a27b-43b6-4b6e-9ec5-621e96b97f87@sifive.com>
+Date: Mon, 25 Mar 2024 21:32:41 -0500
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] riscv: nommu: remove PAGE_OFFSET hardcoding
+To: Jisheng Zhang <jszhang@kernel.org>, Bo Gan <ganboing@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20240325164021.3229-1-jszhang@kernel.org>
+ <20240325164021.3229-2-jszhang@kernel.org>
+ <37d456c1-f0bd-1a78-2d0c-350ca25c6b8d@gmail.com> <ZgIk2hmprnyGr_ce@xhacker>
+Content-Language: en-US
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <ZgIk2hmprnyGr_ce@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_190129_476375_533AB9B5 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20240325_193249_413595_B86F6A32 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,57 +99,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue Mar 26, 2024 at 3:31 AM EET, Jarkko Sakkinen wrote:
-> > > +#endif /* _LINUX_EXECMEM_H */
-> > > diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-> > > index 9d9095e81792..87fd8c14a938 100644
-> > > --- a/kernel/kprobes.c
-> > > +++ b/kernel/kprobes.c
-> > > @@ -44,6 +44,7 @@
-> > >  #include <asm/cacheflush.h>
-> > >  #include <asm/errno.h>
-> > >  #include <linux/uaccess.h>
-> > > +#include <linux/execmem.h>
-> > >  
-> > >  #define KPROBE_HASH_BITS 6
-> > >  #define KPROBE_TABLE_SIZE (1 << KPROBE_HASH_BITS)
-> > > @@ -113,17 +114,17 @@ enum kprobe_slot_state {
-> > >  void __weak *alloc_insn_page(void)
-> > >  {
-> > >  	/*
-> > > -	 * Use module_alloc() so this page is within +/- 2GB of where the
-> > > +	 * Use alloc_execmem() so this page is within +/- 2GB of where the
-> > >  	 * kernel image and loaded module images reside. This is required
-> > >  	 * for most of the architectures.
-> > >  	 * (e.g. x86-64 needs this to handle the %rip-relative fixups.)
-> > >  	 */
-> > > -	return module_alloc(PAGE_SIZE);
-> > > +	return alloc_execmem(PAGE_SIZE, GFP_KERNEL);
-> > >  }
-> > >  
-> > >  static void free_insn_page(void *page)
-> > >  {
-> > > -	module_memfree(page);
-> > > +	free_execmem(page);
-> > >  }
-> > >  
-> > >  struct kprobe_insn_cache kprobe_insn_slots = {
-> > > @@ -1580,6 +1581,7 @@ static int check_kprobe_address_safe(struct kprobe *p,
-> > >  		goto out;
-> > >  	}
-> > >  
-> > > +#ifdef CONFIG_MODULES
-> >
-> > You don't need this block, because these APIs have dummy functions.
->
-> Hmm... I'll verify this tomorrow.
+On 2024-03-25 8:28 PM, Jisheng Zhang wrote:
+> On Mon, Mar 25, 2024 at 03:46:01PM -0700, Bo Gan wrote:
+>> On 3/25/24 9:40 AM, Jisheng Zhang wrote:
+>>> Currently, PAGE_OFFSET is hardcoded as 0x8000_0000, it works fine since
+>>> there's only one nommu platform in the mainline. However, there are
+>>> many cases where the (S)DRAM base address isn't 0x8000_0000, so remove
+>>> the hardcoding value, and introduce DRAM_BASE which will be set by
+>>> users during configuring. DRAM_BASE is 0x8000_0000 by default.
+>>>
+>>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+>>> ---
+>>>   arch/riscv/Kconfig | 8 +++++++-
+>>>   1 file changed, 7 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>>> index 7895c77545f1..afd51dbdc253 100644
+>>> --- a/arch/riscv/Kconfig
+>>> +++ b/arch/riscv/Kconfig
+>>> @@ -247,10 +247,16 @@ config MMU
+>>>   	  Select if you want MMU-based virtualised addressing space
+>>>   	  support by paged memory management. If unsure, say 'Y'.
+>>> +if !MMU
+>>> +config DRAM_BASE
+>>> +	hex '(S)DRAM Base Address'
+>>> +	default 0x80000000
+>>> +endif
+>>> +
+>>>   config PAGE_OFFSET
+>>>   	hex
 
-It depends on having struct module available given "(*probed_mod)->state".
+Another option would be to change this to:
 
-It is non-existent unless CONFIG_MODULES is set given how things are
-flagged in include/linux/module.h.
+  hex "DRAM Base Address" if !MMU
 
-BR, Jarkko
+so the prompt is only visible for NOMMU, but we don't need a new symbol.
+
+>>>   	default 0xC0000000 if 32BIT && MMU
+>>> -	default 0x80000000 if !MMU
+>>> +	default DRAM_BASE if !MMU
+>>>   	default 0xff60000000000000 if 64BIT
+>>>   config KASAN_SHADOW_OFFSET
+>>>
+>>
+>> Thanks for this patch. I did something similar in my local nommu
+>> linux-6.8 tree in order to run it on the S7 hart of JH7110. I have
+>> another suggestion for you. Perhaps we should also make TASK_SIZE
+>> configurable, and let it default to `0xffffffff if 32BIT && !MMU`
+>> and `DRAM_BASE + DRAM_SIZE if 64BIT && !MMU`. Currently TASK_SIZE
+>> is effectively `0xffffffff if !MMU`, which doesn't work if I run
+>> rv64 linux-nommu with DDR that spans across 4G boundary.
+> 
+> I must admit that there's such nommu linux with 4GB DDR case in
+> theory, but it doesn't exist in real world: who will make such
+> strange platform ;) But anyway this improvement can be made when
+> the patchset talking about TASK_SIZE_MAX is settled down.
+
+This case is quite easy to hit with QEMU :) In fact I sent a patch making this
+exact change:
+
+https://lore.kernel.org/linux-riscv/20240227003630.3634533-2-samuel.holland@sifive.com/
+
+It's not really related to TASK_SIZE_MAX. access_ok() is a no-op on NOMMU,
+because you can't prevent userspace from poking the kernel anyway.
+
+Regards,
+Samuel
+
 
 _______________________________________________
 linux-riscv mailing list
