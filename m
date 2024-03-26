@@ -4,82 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C4FC54E64
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 01:32:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23EB1C54E64
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 01:38:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MhgVK6V+6lo5cH0PB2GbQVajXQ6F/mUZAjKb3Kt/K38=; b=O+M/DdA06+pAe1
-	qnfMihWJvARbuH9C/x5Io0mzWEjswYPGCSDjDIB2DYL+RQmDebBRhdfbES57e2ULtCx+x9X5xIsQf
-	rpM9FHFJpVlrGgHPZpFBNHtyGKjkW4aPjv+I5Mb5ZskkDwO0E8I9GVBjdLdzGX3eWJyYnkOS8FVaz
-	gcnERejsIipaKH5B9wQhtZvtNqBNIZRvalKU+0gY+SQXxRAiFV+s7ogUkU/5QMH9+oih8sBeMMxvq
-	BfOLpSk8pGEyV01oSSWm9dNQ+1EaXZIyIkk+Aa7JYASEiknPOey8bJXbZsBlUMuS2E9iQhwN1VNoN
-	ee8s0oQ0Zz++OvdFDCnw==;
+	List-Owner; bh=pnXiCuzSLGWaCz1gbcRtn3+p3kuhwFDVKs30DHGQVIk=; b=akRcA1gK0rj4qW
+	zhnfQKkXW84GshxErU7uAqKlRJLM/NbX0OFy16QL9teV8gqqA6N4cWC4GdPYAuIl0edKqF/5n/Zg8
+	b4ne0sJhNVe4AfwSw7Yk7+m1ptHh0A/yEESK6ng7ojzOzj4v6jZv0kttpbXN/VZVXuiuHbFDDq+l6
+	Iy/CAX/4pChV/19vAYVIGk2guGYrojsy4Xv/RGpl4iJbwpcMp3NVOfKn4UVpRx+jJ7/YzWjEvQ+xD
+	iEgj5C1AikC9+RrSB0BAcn1jA+Cel9KOSmhCdwgw3NTWVq7xOy7Bk+k2nyERMW6L/F8DKgpCBBrL3
+	wv0bzUbR238h11wHzkmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rovgJ-00000002eTL-2z1O;
-	Tue, 26 Mar 2024 01:32:51 +0000
-Received: from [45.249.212.56] (helo=dggsgout12.his.huawei.com)
+	id 1rovlz-00000002fPe-0TN9;
+	Tue, 26 Mar 2024 01:38:43 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rovgF-00000002eRx-2Hcf
+	id 1rovlf-00000002fN0-299T
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 01:32:50 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4V3XNc1Z7rz4f3jdP
-	for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 09:32:32 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id 63D711A0199
-	for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 09:32:38 +0800 (CST)
-Received: from [10.67.109.184] (unknown [10.67.109.184])
-	by APP2 (Coremail) with SMTP id Syh0CgDHNQm1JQJmiy8KIQ--.2494S2;
-	Tue, 26 Mar 2024 09:32:38 +0800 (CST)
-Message-ID: <0e84058c-a097-4a30-a95b-7b9080e26fae@huaweicloud.com>
-Date: Tue, 26 Mar 2024 09:32:37 +0800
+	Tue, 26 Mar 2024 01:38:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 0939ACE1850;
+	Tue, 26 Mar 2024 01:38:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C26BC433C7;
+	Tue, 26 Mar 2024 01:38:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1711417100;
+	bh=2QmSDgizxHwgM0JsXY7MomEdeWiJFYIJPQyEwfyZHMg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OnFneb4zrbWGl6dWZjfuzujftcLqyYgdagHWflTF9W5RnERRc9X27JwdIMjGurzfR
+	 sB2MEeNGztEwXwlTJlkTF+GsUz2SuOhBJly06KrcghliwNstJoNGJ2lB6DWpwCyrFs
+	 q4goIGmiuYW62nunftRrNlRNHmo21Ib7q4Swl/3qoa5D2ZTc95r63VL0ALGkeBqrhB
+	 Dp/3E6aL+PkW3dB1AddGbEW/Xye5txlSiXtT/6q7TTqB1hVEDYiDMapV4rUAAOWWnX
+	 B3EppRNoleZS92qgSz7oEN/KLKsGWb6AaghgOwoTv/yF/ilBT71pgLsJeSnWEohQ+m
+	 P6lBGF26u0xmA==
+Date: Tue, 26 Mar 2024 09:25:05 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Bo Gan <ganboing@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/5] clocksource/drivers/timer-clint: Add T-Head C9xx
+ clint support
+Message-ID: <ZgIj8QQ7zO_eSZcA@xhacker>
+References: <20240325164021.3229-1-jszhang@kernel.org>
+ <20240325164021.3229-6-jszhang@kernel.org>
+ <72eac56e-61d4-e42f-cfbd-8bcc35ed7bb6@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf] riscv, bpf: Fix kfunc parameters incompatibility
- between bpf and riscv abi
-Content-Language: en-US
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: bpf <bpf@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
- Network Development <netdev@vger.kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBl?=
- =?UTF-8?Q?l?= <bjorn@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Song Liu <song@kernel.org>, Yonghong Song <yhs@fb.com>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>,
- Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Luke Nelson <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>
-References: <20240324103306.2202954-1-pulehui@huaweicloud.com>
- <CAADnVQLhfN7f6AFxa_19E0g2_YADEkrfPPffi43HeH9VCi8MqQ@mail.gmail.com>
- <c0890fc2-53ea-401a-a3b4-a9bf6181a867@huaweicloud.com>
- <CAADnVQKnTe-7KhziOnGSesbz1WDkNp4nyCN3qp-y=ab0jMxr3Q@mail.gmail.com>
-From: Pu Lehui <pulehui@huaweicloud.com>
-In-Reply-To: <CAADnVQKnTe-7KhziOnGSesbz1WDkNp4nyCN3qp-y=ab0jMxr3Q@mail.gmail.com>
-X-CM-TRANSID: Syh0CgDHNQm1JQJmiy8KIQ--.2494S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXFWxZF4DtF1xWFWxuFW7urg_yoWrtw4kpF
-	1UJF4rCr4kXw1UZr12qw15Jr1akw1jy3W7ZFy8tF9rCrWqgr93Gr4UKrWY93Z5Cr1rCF17
-	X3yqvF4akw18J3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkjb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI
-	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
-	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY
-	6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6x
-	AIw20EY4v20xvaj40_Zr0_Wr1UMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIE
-	c7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07UdxhLUUUUU=
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+Content-Disposition: inline
+In-Reply-To: <72eac56e-61d4-e42f-cfbd-8bcc35ed7bb6@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_183248_035830_18FA6B9B 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20240325_183825_211804_CEF56615 
+X-CRM114-Status: GOOD (  24.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,108 +74,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDI0LzMvMjYgMjozNCwgQWxleGVpIFN0YXJvdm9pdG92IHdyb3RlOgo+IE9uIE1vbiwg
-TWFyIDI1LCAyMDI0IGF0IDg6MjjigK9BTSBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWljbG91ZC5j
-b20+IHdyb3RlOgo+Pgo+Pgo+Pgo+PiBPbiAyMDI0LzMvMjUgMjo0MCwgQWxleGVpIFN0YXJvdm9p
-dG92IHdyb3RlOgo+Pj4gT24gU3VuLCBNYXIgMjQsIDIwMjQgYXQgMzozMuKAr0FNIFB1IExlaHVp
-IDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4gd3JvdGU6Cj4+IFtTTklQXQo+Pj4+Cj4+Pj4gZGlm
-ZiAtLWdpdCBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMgYi9hcmNoL3Jpc2N2L25l
-dC9icGZfaml0X2NvbXA2NC5jCj4+Pj4gaW5kZXggODY5ZTQyODJhMmM0Li5lM2ZjMzkzNzBmN2Qg
-MTAwNjQ0Cj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+Pj4+ICsr
-KyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKPj4+PiBAQCAtMTQ1NCw2ICsxNDU0
-LDIyIEBAIGludCBicGZfaml0X2VtaXRfaW5zbihjb25zdCBzdHJ1Y3QgYnBmX2luc24gKmluc24s
-IHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4LAo+Pj4+ICAgICAgICAgICAgICAgICAgIGlmIChy
-ZXQgPCAwKQo+Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHJldDsKPj4+Pgo+
-Pj4+ICsgICAgICAgICAgICAgICBpZiAoaW5zbi0+c3JjX3JlZyA9PSBCUEZfUFNFVURPX0tGVU5D
-X0NBTEwpIHsKPj4+PiArICAgICAgICAgICAgICAgICAgICAgICBjb25zdCBzdHJ1Y3QgYnRmX2Z1
-bmNfbW9kZWwgKmZtOwo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICAgIGludCBpZHg7Cj4+Pj4g
-Kwo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICAgIGZtID0gYnBmX2ppdF9maW5kX2tmdW5jX21v
-ZGVsKGN0eC0+cHJvZywgaW5zbik7Cj4+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgaWYgKCFm
-bSkKPj4+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAtRUlOVkFMOwo+
-Pj4+ICsKPj4+PiArICAgICAgICAgICAgICAgICAgICAgICBmb3IgKGlkeCA9IDA7IGlkeCA8IGZt
-LT5ucl9hcmdzOyBpZHgrKykgewo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-dTggcmVnID0gYnBmX3RvX3J2X3JlZyhCUEZfUkVHXzEgKyBpZHgsIGN0eCk7Cj4+Pj4gKwo+Pj4+
-ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGZtLT5hcmdfc2l6ZVtpZHhdID09
-IHNpemVvZihpbnQpKQo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBlbWl0X3NleHR3KHJlZywgcmVnLCBjdHgpOwo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICAg
-IH0KPj4+PiArICAgICAgICAgICAgICAgfQo+Pj4+ICsKPj4+Cj4+PiBUaGUgYnRmX2Z1bmNfbW9k
-ZWwgdXNhZ2UgbG9va3MgZ29vZC4KPj4+IEdsYWQgdGhhdCBubyBuZXcgZmxhZ3Mgd2VyZSBuZWNl
-c3NhcnksIHNpbmNlIGJvdGggaW50IGFuZCB1aW50Cj4+PiBuZWVkIHRvIGJlIHNpZ24gZXh0ZW5k
-IHRoZSBleGlzdGluZyBhcmdfc2l6ZSB3YXMgZW5vdWdoLgo+Pj4KPj4+IFNpbmNlIHdlJ3JlIGF0
-IGl0LiBEbyB3ZSBuZWVkIHRvIGRvIHplcm8gZXh0ZW5zaW9uIG9mIHJldHVybiB2YWx1ZSA/Cj4+
-PiBUaGVyZSBpcwo+Pj4gX19icGZfa2Z1bmMgaW50IGJwZl9rZnVuY19jYWxsX3Rlc3QyKHN0cnVj
-dCBzb2NrICpzaywgdTMyIGEsIHUzMiBiKQo+Pj4gYnV0IHRoZSBzZWxmdGVzdCB3aXRoIGl0IGlz
-IHRvbyBzaW1wbGU6Cj4+PiAgICAgICAgICAgcmV0dXJuIGJwZl9rZnVuY19jYWxsX3Rlc3QyKChz
-dHJ1Y3Qgc29jayAqKXNrLCAxLCAyKTsgPgo+Pj4gQ291bGQgeW91IGV4dGVuZCB0aGlzIHNlbGZ0
-ZXN0IHdpdGggYSByZXR1cm4gb2YgbGFyZ2UgaW50L3VpbnQKPj4+IHdpdGggMzF0aCBiaXQgc2V0
-IHRvIGZvcmNlIHNpZ24gZXh0ZW5zaW9uIGluIG5hdGl2ZQo+Pgo+PiBTb3JyeSBmb3IgbGF0ZS4g
-cmlzY3Y2NCB3aWxsIHNpZ24tZXh0ZW5kIGludC91aW50IHJldHVybiB2YWx1ZXMuIEkKPj4gdGhv
-dWdodCB0aGlzIHdvdWxkIGJlIGEgZ29vZCB0ZXN0LCBzbyBJIHRyaWVkIHRoZSBmb2xsb3dpbmc6
-Cj4+IGBgYAo+PiB1MzIgYnBmX2tmdW5jX2NhbGxfdGVzdDIodTMyIGEsIHUzMiBiKSBfX2tzeW07
-IDwtLSBoZXJlIGNoYW5nZSBpbnQgdG8gdTMyCj4+IGludCBrZnVuY19jYWxsX3Rlc3QyKHN0cnVj
-dCBfX3NrX2J1ZmYgKnNrYikKPj4gewo+PiAgICAgICAgICBsb25nIHRtcDsKPj4KPj4gICAgICAg
-ICAgdG1wID0gYnBmX2tmdW5jX2NhbGxfdGVzdDIoMHhmZmZmZmZmMCwgMik7Cj4+ICAgICAgICAg
-IHJldHVybiAodG1wID4+IDMyKSArIHRtcDsKPj4gfQo+PiBgYGAKPj4gQXMgZXhwZWN0ZWQsIGlm
-IHRoZSByZXR1cm4gdmFsdWUgaXMgc2lnbi1leHRlbmRlZCwgdGhlIGJwZiBwcm9ncmFtIHdpbGwK
-Pj4gcmV0dXJuIDB4ZmZmZmZmZjEuIElmIHRoZSByZXR1cm4gdmFsdWUgaXMgemVyby1leHRlbmRl
-ZCwgdGhlIGJwZiBwcm9ncmFtCj4+IHdpbGwgcmV0dXJuIDB4ZmZmZmZmZjIuIEJ1dCBpbiBmYWN0
-LCByaXNjdiByZXR1cm5zIDB4ZmZmZmZmZjIuIFVwb24KPj4gZnVydGhlciBkaXNjb3ZlcnksIGl0
-IHNlZW1zIGNsYW5nIHdpbGwgY29tcGVuc2F0ZSBmb3IgdW5zaWduZWQgcmV0dXJuCj4+IHZhbHVl
-cy4gQ3VyaW91cyEKPj4gZm9yIGV4YW1wbGU6Cj4+IGBgYAo+PiB1MzIgYnBmX2tmdW5jX2NhbGxf
-dGVzdDIodTMyIGEsIHUzMiBiKSBfX2tzeW07Cj4+IGludCBrZnVuY19jYWxsX3Rlc3QyKHN0cnVj
-dCBfX3NrX2J1ZmYgKnNrYikKPj4gewo+PiAgICAgICAgICBsb25nIHRtcDsKPj4KPj4gICAgICAg
-ICAgdG1wID0gYnBmX2tmdW5jX2NhbGxfdGVzdDIoMHhmZmZmZmZmMCwgMik7Cj4+ICAgICAgICAg
-IGJwZl9wcmludGsoInRtcDogMHglbHgiLCB0bXApOwo+PiAgICAgICAgICByZXR1cm4gKHRtcCA+
-PiAzMikgKyB0bXA7Cj4+IH0KPj4gYGBgCj4+IGFuZCB0aGUgYnl0ZWNvZGUgd2lsbCBiZToKPj4g
-YGBgCj4+ICAgIDA6ICAgICAgIDE4IDAxIDAwIDAwIDAwIDAwIDAwIGYwIDAwIDAwIDAwIDAwIDAw
-IDAwIDAwIDAwIHIxID0KPj4gMHhmMDAwMDAwMCBsbAo+PiAgICAyOiAgICAgICBiNyAwMiAwMCAw
-MCAwMiAwMCAwMCAwMCByMiA9IDB4Mgo+PiAgICAzOiAgICAgICA4NSAxMCAwMCAwMCBmZiBmZiBm
-ZiBmZiBjYWxsIC0weDEKPj4gICAgNDogICAgICAgYmYgMDYgMDAgMDAgMDAgMDAgMDAgMDAgcjYg
-PSByMAo+PiAgICA1OiAgICAgICBiZiA2MyAwMCAwMCAwMCAwMCAwMCAwMCByMyA9IHI2Cj4+ICAg
-IDY6ICAgICAgIDY3IDAzIDAwIDAwIDIwIDAwIDAwIDAwIHIzIDw8PSAweDIwIDwtLSB6ZXJvIGV4
-dGVuc2lvbgo+PiAgICA3OiAgICAgICA3NyAwMyAwMCAwMCAyMCAwMCAwMCAwMCByMyA+Pj0gMHgy
-MAo+PiAgICA4OiAgICAgICAxOCAwMSAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAw
-MCAwMCAwMCByMSA9IDB4MCBsbAo+PiAxMDogICAgICAgYjcgMDIgMDAgMDAgMGIgMDAgMDAgMDAg
-cjIgPSAweGIKPj4gMTE6ICAgICAgIDg1IDAwIDAwIDAwIDA2IDAwIDAwIDAwIGNhbGwgMHg2Cj4+
-IDEyOiAgICAgICBiZiA2MCAwMCAwMCAwMCAwMCAwMCAwMCByMCA9IHI2Cj4+IDEzOiAgICAgICA5
-NSAwMCAwMCAwMCAwMCAwMCAwMCAwMCBleGl0Cj4+IGBgYAo+Pgo+PiBhbm90aGVyIGV4YW1wbGU6
-Cj4+IGBgYAo+PiB1MzIgYnBmX2tmdW5jX2NhbGxfdGVzdDIodTMyIGEsIHUzMiBiKSBfX2tzeW07
-Cj4+IGludCBrZnVuY19jYWxsX3Rlc3QyKHN0cnVjdCBfX3NrX2J1ZmYgKnNrYikKPj4gewo+PiAg
-ICAgICAgICBsb25nIHRtcDsKPj4KPj4gICAgICAgICAgdG1wID0gYnBmX2tmdW5jX2NhbGxfdGVz
-dDIoMHhmZmZmZmZmMCwgMik7Cj4+ICAgICAgICAgIHJldHVybiAodG1wID4+IDIwKSArIHRtcDsg
-PC0tIGNoYW5nZSBmcm9tIDMyIHRvIDIwCj4+IH0KPj4gYGBgCj4+IGFuZCB0aGUgYnl0ZWNvZGUg
-d2lsbCBiZToKPj4gYGBgCj4+ICAgIDA6ICAgICAgIDE4IDAxIDAwIDAwIDAwIDAwIDAwIGYwIDAw
-IDAwIDAwIDAwIDAwIDAwIDAwIDAwIHIxID0KPj4gMHhmMDAwMDAwMCBsbAo+PiAgICAyOiAgICAg
-ICBiNyAwMiAwMCAwMCAwMiAwMCAwMCAwMCByMiA9IDB4Mgo+PiAgICAzOiAgICAgICA4NSAxMCAw
-MCAwMCBmZiBmZiBmZiBmZiBjYWxsIC0weDEKPj4gICAgNDogICAgICAgMTggMDIgMDAgMDAgMDAg
-MDAgZjAgZmYgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgcjIgPQo+PiAweGZmZjAwMDAwIGxsIDwt
-LSAzMi1iaXQgdHJ1bmNhdGlvbgo+PiAgICA2OiAgICAgICBiZiAwMSAwMCAwMCAwMCAwMCAwMCAw
-MCByMSA9IHIwCj4+ICAgIDc6ICAgICAgIDVmIDIxIDAwIDAwIDAwIDAwIDAwIDAwIHIxICY9IHIy
-Cj4+ICAgIDg6ICAgICAgIDc3IDAxIDAwIDAwIDE0IDAwIDAwIDAwIHIxID4+PSAweDE0Cj4+ICAg
-IDk6ICAgICAgIDBmIDAxIDAwIDAwIDAwIDAwIDAwIDAwIHIxICs9IHIwCj4+IDEwOiAgICAgICBi
-ZiAxMCAwMCAwMCAwMCAwMCAwMCAwMCByMCA9IHIxCj4+IDExOiAgICAgICA5NSAwMCAwMCAwMCAw
-MCAwMCAwMCAwMCBleGl0Cj4+IGBgYAo+Pgo+PiBJdCBpcyBkaWZmaWN1bHQgdG8gY29uc3RydWN0
-IHRoaXMgdGVzdCBjYXNlLgo+IAo+IFllYWguCj4gSSBhbHNvIHRyaWVkIGEgYnVuY2ggb2YgZXhw
-ZXJpbWVudHMgd2l0aCBsbHZtIGFuZCBnY2MtYnBmLgo+IEJvdGggY29tcGlsZXJzIGVtaXQgemVy
-byBleHRlbnNpb24gd2hlbiB1MzIgaXMgYmVpbmcgdXNlZCBhcyB1NjQuCj4gCj4+PiBrZXJuZWwg
-cmlzYy12IGNvZGUgPwo+Pj4gSSBzdXNwZWN0IHRoZSBicGYgc2lkZSB3aWxsIGJlIGNvbmZ1c2Vk
-Lgo+Pj4gV2hpY2ggd291bGQgbWVhbiB0aGF0IHJpc2MtdiBKSVQgaW4gYWRkaXRpb24gdG86Cj4+
-PiAgICAgICAgICAgaWYgKGluc24tPnNyY19yZWcgIT0gQlBGX1BTRVVET19DQUxMKQo+Pj4gICAg
-ICAgICAgICAgICBlbWl0X212KGJwZl90b19ydl9yZWcoQlBGX1JFR18wLCBjdHgpLCBSVl9SRUdf
-QTAsIGN0eCk7Cj4+Pgo+Pj4gbmVlZCB0byBjb25kaXRpb25hbGx5IGRvOgo+Pj4gICAgaWYgKGZt
-LT5yZXRfc2l6ZSA9PSBzaXplb2YoaW50KSkKPj4+ICAgICAgZW1pdF96ZXh0dyhicGZfdG9fcnZf
-cmVnKEJQRl9SRUdfMCwgY3R4KSwKPj4+ICAgICAgICAgICAgICAgICBicGZfdG9fcnZfcmVnKEJQ
-Rl9SRUdfMCwgY3R4KSwgY3R4KTsKPj4+ID8KPj4KPj4gQWdyZWUgb24gemVyby1leHRlbmRpbmcg
-aW50L3VpbnQgcmV0dXJuIHZhbHVlcyB3aGVuIHJldHVybmluZyBmcm9tCj4+IGtmdW5jIHRvIGJw
-ZiBjdHguIEkgd2lsbCBhZGQgaXQgaW4gbmV4dCB2ZXJzaW9uLiBUaGFua3MuCj4gCj4gTG9va2lu
-ZyBhdCBleGlzdGluZyBjb21waWxlcnMgYmVoYXZpb3IgaXQncyBwcm9iYWJseSB1bm5lY2Vzc2Fy
-eS4KPiBJIHRoaW5rIHRoaXMgcGF0Y2ggaXMgZmluZSBhcy1pcy4KPiBJJ2xsIGFwcGx5IGl0IHNo
-b3J0bHkuCgpBbHJpZ2h0LCBmZWVsIGZyZWUgdG8gYXBwbHkgaXQuIFRoYW5rcwoKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Mar 25, 2024 at 03:22:11PM -0700, Bo Gan wrote:
+> On 3/25/24 9:40 AM, Jisheng Zhang wrote:
+> > The mtimecmp in T-Head C9xx clint only supports 32bit read/write,
+> > implement such support.
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >   drivers/clocksource/timer-clint.c | 24 ++++++++++++++++++++++++
+> >   1 file changed, 24 insertions(+)
+> > 
+> > diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
+> > index 4537c77e623c..71188732e8a3 100644
+> > --- a/drivers/clocksource/timer-clint.c
+> > +++ b/drivers/clocksource/timer-clint.c
+> > @@ -34,6 +34,7 @@ static unsigned int clint_ipi_irq;
+> >   static u64 __iomem *clint_timer_cmp;
+> >   static unsigned long clint_timer_freq;
+> >   static unsigned int clint_timer_irq;
+> > +static bool is_c900_clint;
+> >   #ifdef CONFIG_SMP
+> >   static void clint_send_ipi(unsigned int cpu)
+> > @@ -88,6 +89,19 @@ static int clint_clock_next_event(unsigned long delta,
+> >   	return 0;
+> >   }
+> > +static int c900_clint_clock_next_event(unsigned long delta,
+> > +				       struct clock_event_device *ce)
+> > +{
+> > +	void __iomem *r = clint_timer_cmp +
+> > +			  cpuid_to_hartid_map(smp_processor_id());
+> > +	u64 val = clint_get_cycles64() + delta;
+> > +
+> > +	csr_set(CSR_IE, IE_TIE);
+> Perhaps you should do a writel_relaxed(-1, r) here. just like openSBI, because the update
+> to mtimecmp is now split into 2 parts.
+> https://github.com/riscv-software-src/opensbi/blob/v1.4/lib/utils/timer/aclint_mtimer.c#L54
+
+Thanks, I also noticed the mtimecmp update on 32bit platforms doesn't
+strictly follow the riscv spec:
+
+# New comparand is in a1:a0.
+li t0, -1
+la t1, mtimecmp
+sw t0, 0(t1) # No smaller than old value.
+sw a1, 4(t1) # No smaller than new value.
+sw a0, 0(t1) # New value.
+
+So A new bug fix patch will be added in v2.
+
+
+> 
+> > +	writel_relaxed(val, r);
+> > +	writel_relaxed(val >> 32, r + 4);
+> > +	return 0;
+> > +}
+> > +>   static DEFINE_PER_CPU(struct clock_event_device, clint_clock_event) = {
+> >   	.name		= "clint_clockevent",
+> >   	.features	= CLOCK_EVT_FEAT_ONESHOT,
+> > @@ -99,6 +113,9 @@ static int clint_timer_starting_cpu(unsigned int cpu)
+> >   {
+> >   	struct clock_event_device *ce = per_cpu_ptr(&clint_clock_event, cpu);
+> > +	if (is_c900_clint)
+> > +		ce->set_next_event = c900_clint_clock_next_event;
+> > +
+> >   	ce->cpumask = cpumask_of(cpu);
+> >   	clockevents_config_and_register(ce, clint_timer_freq, 100, ULONG_MAX);
+> > @@ -233,5 +250,12 @@ static int __init clint_timer_init_dt(struct device_node *np)
+> >   	return rc;
+> >   }
+> > +static int __init c900_clint_timer_init_dt(struct device_node *np)
+> > +{
+> > +	is_c900_clint = true;
+> > +	return clint_timer_init_dt(np);
+> > +}
+> > +
+> >   TIMER_OF_DECLARE(clint_timer, "riscv,clint0", clint_timer_init_dt);
+> >   TIMER_OF_DECLARE(clint_timer1, "sifive,clint0", clint_timer_init_dt);
+> > +TIMER_OF_DECLARE(clint_timer2, "thead,c900-clint", clint_timer_init_dt);
+> > 
+> Better use a more generic term to describe the fact that mtimecmp doesn't support
+> 64-bit mmio, just like what openSBI is currently doing, instead of making it c900 specific:
+
+This has been mentioned in commit msg, but adding a code comment seems fine.
+> 
+> https://github.com/riscv-software-src/opensbi/blob/v1.4/lib/utils/timer/fdt_timer_mtimer.c#L152
+> 
+> Then your `is_c900_clint` becomes something like `timecmp_64bit_mmio`.
+> 
+> Bo
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
