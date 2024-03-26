@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5497DC54E64
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 01:31:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C4FC54E64
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 01:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OnXcfD/SNUQyjweWPJTVcPCKkZzGADzON6GILFsqDV8=; b=USlNC2uBWLHFYE
-	sOeJ0P3pab87ZN1kzVj34+5GkhFIOrrPQcRsoaMN1t4mYepAvJo75vvTpSh3ZV2/7cfC+J3WPmE9j
-	i1GcaSAergYsKaN4dXOlu9VFHsxIJQTm2C1WcX6+rFba1y5a5k0dShFobcA4IQIgRiXVgn5bc78r+
-	hde68OA6/5fcj0oMJBEW0lWK7oURVZgOzRyfpCpLC5w5hECc/KMk5Tq79ZZJ9PT8nmqQOgS91LF3A
-	4kiaHxQudFiNSLZS32t8Se9nTMz9wHLROfeqnOkiCtNHuliLJAK9UZHW+xvB7zVGtwTk4rQwGdjCa
-	0coJHYf44XjakMV0dk6g==;
+	List-Owner; bh=MhgVK6V+6lo5cH0PB2GbQVajXQ6F/mUZAjKb3Kt/K38=; b=O+M/DdA06+pAe1
+	qnfMihWJvARbuH9C/x5Io0mzWEjswYPGCSDjDIB2DYL+RQmDebBRhdfbES57e2ULtCx+x9X5xIsQf
+	rpM9FHFJpVlrGgHPZpFBNHtyGKjkW4aPjv+I5Mb5ZskkDwO0E8I9GVBjdLdzGX3eWJyYnkOS8FVaz
+	gcnERejsIipaKH5B9wQhtZvtNqBNIZRvalKU+0gY+SQXxRAiFV+s7ogUkU/5QMH9+oih8sBeMMxvq
+	BfOLpSk8pGEyV01oSSWm9dNQ+1EaXZIyIkk+Aa7JYASEiknPOey8bJXbZsBlUMuS2E9iQhwN1VNoN
+	ee8s0oQ0Zz++OvdFDCnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rovfM-00000002eGn-0RGG;
-	Tue, 26 Mar 2024 01:31:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rovgJ-00000002eTL-2z1O;
+	Tue, 26 Mar 2024 01:32:51 +0000
+Received: from [45.249.212.56] (helo=dggsgout12.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rovfH-00000002eDc-1fpx
+	id 1rovgF-00000002eRx-2Hcf
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 01:31:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9E23E61233;
-	Tue, 26 Mar 2024 01:31:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BEE4C433F1;
-	Tue, 26 Mar 2024 01:31:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711416706;
-	bh=fyMVCArFo+f8p4yZJMhm4nPq0mpcMqn01kbP8JFPM+w=;
-	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
-	b=IzslBCk1C74hsa8EtTUZRErzCYazb1ez8+TFdOfWsvRuudRGkP8Usg+3yZnVnKSAf
-	 QK6TPzCjn8coUnMfy0q6bNYpZzDYzGFPrVPHJYGLeyLafGa57Q5ehgmYimzYNSDsPH
-	 DPINiDT8By+kfJz7cyFzNpWaD+Dn1M/JY4oup9RdIonlGSaDANAo9le0aL55QSB5as
-	 5+C5Gmdq+VVnwXHsFvbsYZBPTFNhgc6xrla1LyEVPqk68rNJa/MXhjkrekYuFlFJaG
-	 lVgXeka5EdnyDrCK9hCfrePFc57JSmUq1U9YcX5SMPOA+W1UJ1TcS4IPsuHnpclUNZ
-	 dcjQyzXEEFSMA==
-Mime-Version: 1.0
-Date: Tue, 26 Mar 2024 03:31:42 +0200
-Message-Id: <D03AL7A5G3M2.3UK4ASWILGBJS@kernel.org>
-Cc: <linux-riscv@lists.infradead.org>, "Paul Walmsley"
- <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>, "Luis
- Chamberlain" <mcgrof@kernel.org>, <linux-modules@vger.kernel.org>, "Naveen
- N . Rao" <naveen.n.rao@linux.ibm.com>, "Anil S Keshavamurthy"
- <anil.s.keshavamurthy@intel.com>, "David S . Miller" <davem@davemloft.net>
-Subject: Re: [PATCH v5 1/2] kprobes: textmem API
-From: "Jarkko Sakkinen" <jarkko@kernel.org>
-To: "Masami Hiramatsu" <mhiramat@kernel.org>
-X-Mailer: aerc 0.17.0
-References: <20240325215502.660-1-jarkko@kernel.org>
- <20240326095836.f43d259b7747269a7c0b9d23@kernel.org>
-In-Reply-To: <20240326095836.f43d259b7747269a7c0b9d23@kernel.org>
+	Tue, 26 Mar 2024 01:32:50 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.216])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4V3XNc1Z7rz4f3jdP
+	for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 09:32:32 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id 63D711A0199
+	for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 09:32:38 +0800 (CST)
+Received: from [10.67.109.184] (unknown [10.67.109.184])
+	by APP2 (Coremail) with SMTP id Syh0CgDHNQm1JQJmiy8KIQ--.2494S2;
+	Tue, 26 Mar 2024 09:32:38 +0800 (CST)
+Message-ID: <0e84058c-a097-4a30-a95b-7b9080e26fae@huaweicloud.com>
+Date: Tue, 26 Mar 2024 09:32:37 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf] riscv, bpf: Fix kfunc parameters incompatibility
+ between bpf and riscv abi
+Content-Language: en-US
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: bpf <bpf@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
+ Network Development <netdev@vger.kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBl?=
+ =?UTF-8?Q?l?= <bjorn@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Song Liu <song@kernel.org>, Yonghong Song <yhs@fb.com>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Luke Nelson <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>
+References: <20240324103306.2202954-1-pulehui@huaweicloud.com>
+ <CAADnVQLhfN7f6AFxa_19E0g2_YADEkrfPPffi43HeH9VCi8MqQ@mail.gmail.com>
+ <c0890fc2-53ea-401a-a3b4-a9bf6181a867@huaweicloud.com>
+ <CAADnVQKnTe-7KhziOnGSesbz1WDkNp4nyCN3qp-y=ab0jMxr3Q@mail.gmail.com>
+From: Pu Lehui <pulehui@huaweicloud.com>
+In-Reply-To: <CAADnVQKnTe-7KhziOnGSesbz1WDkNp4nyCN3qp-y=ab0jMxr3Q@mail.gmail.com>
+X-CM-TRANSID: Syh0CgDHNQm1JQJmiy8KIQ--.2494S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXFWxZF4DtF1xWFWxuFW7urg_yoWrtw4kpF
+	1UJF4rCr4kXw1UZr12qw15Jr1akw1jy3W7ZFy8tF9rCrWqgr93Gr4UKrWY93Z5Cr1rCF17
+	X3yqvF4akw18J3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkjb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI
+	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
+	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY
+	6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6x
+	AIw20EY4v20xvaj40_Zr0_Wr1UMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIE
+	c7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07UdxhLUUUUU=
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_183147_633194_C8AFB19E 
-X-CRM114-Status: GOOD (  45.01  )
+X-CRM114-CacheID: sfid-20240325_183248_035830_18FA6B9B 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,309 +91,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue Mar 26, 2024 at 2:58 AM EET, Masami Hiramatsu (Google) wrote:
-> On Mon, 25 Mar 2024 23:55:01 +0200
-> Jarkko Sakkinen <jarkko@kernel.org> wrote:
->
-> > Tracing with kprobes while running a monolithic kernel is currently
-> > impossible because CONFIG_KPROBES depends on CONFIG_MODULES because it uses
-> > the kernel module allocator.
-> > 
-> > Introduce alloc_textmem() and free_textmem() for allocating executable
-> > memory. If an arch implements these functions, it can mark this up with
-> > the HAVE_ALLOC_EXECMEM kconfig flag.
-> > 
-> > At first this feature will be used for enabling kprobes without
-> > modules support for arch/riscv.
-> > 
-> > Link: https://lore.kernel.org/all/20240325115632.04e37297491cadfbbf382767@kernel.org/
-> > Suggested-by: Masami Hiramatsu <mhiramat@kernel.org>
-> > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
-> > ---
-> > v5:
-> > - alloc_execmem() was missing GFP_KERNEL parameter. The patch set did
-> >   compile because 2/2 had the fixup (leaked there when rebasing the
-> >   patch set).
-> > v4:
-> > - Squashed a couple of unrequired CONFIG_MODULES checks.
-> > - See https://lore.kernel.org/all/D034M18D63EC.2Y11D954YSZYK@kernel.org/
-> > v3:
-> > - A new patch added.
-> > - For IS_DEFINED() I need advice as I could not really find that many
-> >   locations where it would be applicable.
-> > ---
-> >  arch/Kconfig                | 16 +++++++++++++++-
-> >  include/linux/execmem.h     | 13 +++++++++++++
-> >  kernel/kprobes.c            | 17 ++++++++++++++---
-> >  kernel/trace/trace_kprobe.c |  8 ++++++++
-> >  4 files changed, 50 insertions(+), 4 deletions(-)
-> >  create mode 100644 include/linux/execmem.h
-> > 
-> > diff --git a/arch/Kconfig b/arch/Kconfig
-> > index a5af0edd3eb8..33ba68b7168f 100644
-> > --- a/arch/Kconfig
-> > +++ b/arch/Kconfig
-> > @@ -52,8 +52,8 @@ config GENERIC_ENTRY
-> >  
-> >  config KPROBES
-> >  	bool "Kprobes"
-> > -	depends on MODULES
-> >  	depends on HAVE_KPROBES
-> > +	select ALLOC_EXECMEM
-> >  	select KALLSYMS
-> >  	select TASKS_RCU if PREEMPTION
-> >  	help
-> > @@ -215,6 +215,20 @@ config HAVE_OPTPROBES
-> >  config HAVE_KPROBES_ON_FTRACE
-> >  	bool
-> >  
-> > +config HAVE_ALLOC_EXECMEM
-> > +	bool
-> > +	help
-> > +	  Architectures that select this option are capable of allocating executable
-> > +	  memory, which can be used by subsystems but is not dependent of any of its
-> > +	  clients.
-> > +
-> > +config ALLOC_EXECMEM
-> > +	bool "Executable (trampoline) memory allocation"
-> > +	depends on MODULES || HAVE_ALLOC_EXECMEM
-> > +	help
-> > +	  Select this for executable (trampoline) memory. Can be enabled when either
-> > +	  module allocator or arch-specific allocator is available.
-> > +
-> >  config ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
-> >  	bool
-> >  	help
-> > diff --git a/include/linux/execmem.h b/include/linux/execmem.h
-> > new file mode 100644
-> > index 000000000000..ae2ff151523a
-> > --- /dev/null
-> > +++ b/include/linux/execmem.h
-> > @@ -0,0 +1,13 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +#ifndef _LINUX_EXECMEM_H
-> > +#define _LINUX_EXECMEM_H
-> > +
-> > +#ifdef CONFIG_HAVE_ALLOC_EXECMEM
-> > +void *alloc_execmem(unsigned long size, gfp_t gfp);
-> > +void free_execmem(void *region);
-> > +#else
-> > +#define alloc_execmem(size, gfp)	module_alloc(size)
-> > +#define free_execmem(region)		module_memfree(region)
-> > +#endif
-> > +
-> > +#endif /* _LINUX_EXECMEM_H */
-> > diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-> > index 9d9095e81792..87fd8c14a938 100644
-> > --- a/kernel/kprobes.c
-> > +++ b/kernel/kprobes.c
-> > @@ -44,6 +44,7 @@
-> >  #include <asm/cacheflush.h>
-> >  #include <asm/errno.h>
-> >  #include <linux/uaccess.h>
-> > +#include <linux/execmem.h>
-> >  
-> >  #define KPROBE_HASH_BITS 6
-> >  #define KPROBE_TABLE_SIZE (1 << KPROBE_HASH_BITS)
-> > @@ -113,17 +114,17 @@ enum kprobe_slot_state {
-> >  void __weak *alloc_insn_page(void)
-> >  {
-> >  	/*
-> > -	 * Use module_alloc() so this page is within +/- 2GB of where the
-> > +	 * Use alloc_execmem() so this page is within +/- 2GB of where the
-> >  	 * kernel image and loaded module images reside. This is required
-> >  	 * for most of the architectures.
-> >  	 * (e.g. x86-64 needs this to handle the %rip-relative fixups.)
-> >  	 */
-> > -	return module_alloc(PAGE_SIZE);
-> > +	return alloc_execmem(PAGE_SIZE, GFP_KERNEL);
-> >  }
-> >  
-> >  static void free_insn_page(void *page)
-> >  {
-> > -	module_memfree(page);
-> > +	free_execmem(page);
-> >  }
-> >  
-> >  struct kprobe_insn_cache kprobe_insn_slots = {
-> > @@ -1580,6 +1581,7 @@ static int check_kprobe_address_safe(struct kprobe *p,
-> >  		goto out;
-> >  	}
-> >  
-> > +#ifdef CONFIG_MODULES
->
-> You don't need this block, because these APIs have dummy functions.
-
-Hmm... I'll verify this tomorrow.
-
->
-> >  	/* Check if 'p' is probing a module. */
-> >  	*probed_mod = __module_text_address((unsigned long) p->addr);
-> >  	if (*probed_mod) {
->
-> So this block never be true if !CONFIG_MODULES automatically, and it should be
-> optimized out by compiler.
-
-Yeah sure, was not done for saving cycles. Just wanted to make sure that
-my stuff compiles with different config flag combinations related but
-I'll check tomorrow morning if I can relax this further.
-
->
-> > @@ -1603,6 +1605,8 @@ static int check_kprobe_address_safe(struct kprobe *p,
-> >  			ret = -ENOENT;
-> >  		}
-> >  	}
-> > +#endif
-> > +
-> >  out:
-> >  	preempt_enable();
-> >  	jump_label_unlock();
-> > @@ -2482,6 +2486,7 @@ int kprobe_add_area_blacklist(unsigned long start, unsigned long end)
-> >  	return 0;
-> >  }
-> >  
-> > +#ifdef CONFIG_MODULES
-> >  /* Remove all symbols in given area from kprobe blacklist */
-> >  static void kprobe_remove_area_blacklist(unsigned long start, unsigned long end)
-> >  {
-> > @@ -2499,6 +2504,7 @@ static void kprobe_remove_ksym_blacklist(unsigned long entry)
-> >  {
-> >  	kprobe_remove_area_blacklist(entry, entry + 1);
-> >  }
-> > +#endif /* CONFIG_MODULES */
->
-> I think this block should be moved right before remove_module_kprobe_blacklist().
-> Then we can gather the code depending on modules in one place.
-
-Agree with this without verification :-)
-
-
->
-> >  
-> >  int __weak arch_kprobe_get_kallsym(unsigned int *symnum, unsigned long *value,
-> >  				   char *type, char *sym)
-> > @@ -2564,6 +2570,7 @@ static int __init populate_kprobe_blacklist(unsigned long *start,
-> >  	return ret ? : arch_populate_kprobe_blacklist();
-> >  }
-> >  
-> > +#ifdef CONFIG_MODULES
-> >  static void add_module_kprobe_blacklist(struct module *mod)
-> >  {
-> >  	unsigned long start, end;
-> > @@ -2665,6 +2672,7 @@ static struct notifier_block kprobe_module_nb = {
-> >  	.notifier_call = kprobes_module_callback,
-> >  	.priority = 0
-> >  };
-> > +#endif /* CONFIG_MODULES */
->
-> So, keep the kprobe_module_nb outside of this #ifdef as I sed.
-
-Yup, already done in v6.
-
->
->
-> >  
-> >  void kprobe_free_init_mem(void)
-> >  {
-> > @@ -2724,8 +2732,11 @@ static int __init init_kprobes(void)
-> >  	err = arch_init_kprobes();
-> >  	if (!err)
-> >  		err = register_die_notifier(&kprobe_exceptions_nb);
-> > +
-> > +#ifdef CONFIG_MODULES
-> >  	if (!err)
-> >  		err = register_module_notifier(&kprobe_module_nb);
-> > +#endif
->
-> Then we don't need this #ifdef.
-
-Addressed in v6.
-
->
-> >  
-> >  	kprobes_initialized = (err == 0);
-> >  	kprobe_sysctls_init();
-> > diff --git a/kernel/trace/trace_kprobe.c b/kernel/trace/trace_kprobe.c
-> > index c4c6e0e0068b..af70bb1e9c3a 100644
-> > --- a/kernel/trace/trace_kprobe.c
-> > +++ b/kernel/trace/trace_kprobe.c
-> > @@ -111,6 +111,7 @@ static nokprobe_inline bool trace_kprobe_within_module(struct trace_kprobe *tk,
-> >  	return strncmp(module_name(mod), name, len) == 0 && name[len] == ':';
-> >  }
-> >  
-> > +#ifdef CONFIG_MODULES
-> >  static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
-> >  {
-> >  	char *p;
-> > @@ -129,6 +130,9 @@ static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
-> >  
-> >  	return ret;
-> >  }
-> > +#else
-> > +#define trace_kprobe_module_exist(tk) false /* aka a module never exists */
-> > +#endif /* CONFIG_MODULES */
-> >  
-> >  static bool trace_kprobe_is_busy(struct dyn_event *ev)
-> >  {
-> > @@ -670,6 +674,7 @@ static int register_trace_kprobe(struct trace_kprobe *tk)
-> >  	return ret;
-> >  }
-> >  
-> > +#ifdef CONFIG_MODULES
-> >  /* Module notifier call back, checking event on the module */
-> >  static int trace_kprobe_module_callback(struct notifier_block *nb,
-> >  				       unsigned long val, void *data)
-> > @@ -704,6 +709,7 @@ static struct notifier_block trace_kprobe_module_nb = {
-> >  	.notifier_call = trace_kprobe_module_callback,
-> >  	.priority = 1	/* Invoked after kprobe module callback */
-> >  };
-> > +#endif /* CONFIG_MODULES */
->
-> As I similar to the above, let's move trace_kprobe_module_nb outside
-> of #ifdef.
-
-Ditto (also in v6).
-
->
-> >  
-> >  static int count_symbols(void *data, unsigned long unused)
-> >  {
-> > @@ -1897,8 +1903,10 @@ static __init int init_kprobe_trace_early(void)
-> >  	if (ret)
-> >  		return ret;
-> >  
-> > +#ifdef CONFIG_MODULES
-> >  	if (register_module_notifier(&trace_kprobe_module_nb))
-> >  		return -EINVAL;
-> > +#endif /* CONFIG_MODULES */
->
-> And remove this #ifdef.
->
-> Thank you!
-
-Thanks for quick reviews and sorry for the spam. I just try to move this
-forward with small pushes because with compilation flags it is easy to
-blow up compilation.
-
-I'll do the aforementioned suggestions that were missing from v6 to v7.
-
->
-> >  
-> >  	return 0;
-> >  }
-> > -- 
-> > 2.44.0
-> > 
-
-
-BR, Jarkko
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDI0LzMvMjYgMjozNCwgQWxleGVpIFN0YXJvdm9pdG92IHdyb3RlOgo+IE9uIE1vbiwg
+TWFyIDI1LCAyMDI0IGF0IDg6MjjigK9BTSBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWljbG91ZC5j
+b20+IHdyb3RlOgo+Pgo+Pgo+Pgo+PiBPbiAyMDI0LzMvMjUgMjo0MCwgQWxleGVpIFN0YXJvdm9p
+dG92IHdyb3RlOgo+Pj4gT24gU3VuLCBNYXIgMjQsIDIwMjQgYXQgMzozMuKAr0FNIFB1IExlaHVp
+IDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4gd3JvdGU6Cj4+IFtTTklQXQo+Pj4+Cj4+Pj4gZGlm
+ZiAtLWdpdCBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMgYi9hcmNoL3Jpc2N2L25l
+dC9icGZfaml0X2NvbXA2NC5jCj4+Pj4gaW5kZXggODY5ZTQyODJhMmM0Li5lM2ZjMzkzNzBmN2Qg
+MTAwNjQ0Cj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+Pj4+ICsr
+KyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKPj4+PiBAQCAtMTQ1NCw2ICsxNDU0
+LDIyIEBAIGludCBicGZfaml0X2VtaXRfaW5zbihjb25zdCBzdHJ1Y3QgYnBmX2luc24gKmluc24s
+IHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4LAo+Pj4+ICAgICAgICAgICAgICAgICAgIGlmIChy
+ZXQgPCAwKQo+Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHJldDsKPj4+Pgo+
+Pj4+ICsgICAgICAgICAgICAgICBpZiAoaW5zbi0+c3JjX3JlZyA9PSBCUEZfUFNFVURPX0tGVU5D
+X0NBTEwpIHsKPj4+PiArICAgICAgICAgICAgICAgICAgICAgICBjb25zdCBzdHJ1Y3QgYnRmX2Z1
+bmNfbW9kZWwgKmZtOwo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICAgIGludCBpZHg7Cj4+Pj4g
+Kwo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICAgIGZtID0gYnBmX2ppdF9maW5kX2tmdW5jX21v
+ZGVsKGN0eC0+cHJvZywgaW5zbik7Cj4+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgaWYgKCFm
+bSkKPj4+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAtRUlOVkFMOwo+
+Pj4+ICsKPj4+PiArICAgICAgICAgICAgICAgICAgICAgICBmb3IgKGlkeCA9IDA7IGlkeCA8IGZt
+LT5ucl9hcmdzOyBpZHgrKykgewo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+dTggcmVnID0gYnBmX3RvX3J2X3JlZyhCUEZfUkVHXzEgKyBpZHgsIGN0eCk7Cj4+Pj4gKwo+Pj4+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGZtLT5hcmdfc2l6ZVtpZHhdID09
+IHNpemVvZihpbnQpKQo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBlbWl0X3NleHR3KHJlZywgcmVnLCBjdHgpOwo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICAg
+IH0KPj4+PiArICAgICAgICAgICAgICAgfQo+Pj4+ICsKPj4+Cj4+PiBUaGUgYnRmX2Z1bmNfbW9k
+ZWwgdXNhZ2UgbG9va3MgZ29vZC4KPj4+IEdsYWQgdGhhdCBubyBuZXcgZmxhZ3Mgd2VyZSBuZWNl
+c3NhcnksIHNpbmNlIGJvdGggaW50IGFuZCB1aW50Cj4+PiBuZWVkIHRvIGJlIHNpZ24gZXh0ZW5k
+IHRoZSBleGlzdGluZyBhcmdfc2l6ZSB3YXMgZW5vdWdoLgo+Pj4KPj4+IFNpbmNlIHdlJ3JlIGF0
+IGl0LiBEbyB3ZSBuZWVkIHRvIGRvIHplcm8gZXh0ZW5zaW9uIG9mIHJldHVybiB2YWx1ZSA/Cj4+
+PiBUaGVyZSBpcwo+Pj4gX19icGZfa2Z1bmMgaW50IGJwZl9rZnVuY19jYWxsX3Rlc3QyKHN0cnVj
+dCBzb2NrICpzaywgdTMyIGEsIHUzMiBiKQo+Pj4gYnV0IHRoZSBzZWxmdGVzdCB3aXRoIGl0IGlz
+IHRvbyBzaW1wbGU6Cj4+PiAgICAgICAgICAgcmV0dXJuIGJwZl9rZnVuY19jYWxsX3Rlc3QyKChz
+dHJ1Y3Qgc29jayAqKXNrLCAxLCAyKTsgPgo+Pj4gQ291bGQgeW91IGV4dGVuZCB0aGlzIHNlbGZ0
+ZXN0IHdpdGggYSByZXR1cm4gb2YgbGFyZ2UgaW50L3VpbnQKPj4+IHdpdGggMzF0aCBiaXQgc2V0
+IHRvIGZvcmNlIHNpZ24gZXh0ZW5zaW9uIGluIG5hdGl2ZQo+Pgo+PiBTb3JyeSBmb3IgbGF0ZS4g
+cmlzY3Y2NCB3aWxsIHNpZ24tZXh0ZW5kIGludC91aW50IHJldHVybiB2YWx1ZXMuIEkKPj4gdGhv
+dWdodCB0aGlzIHdvdWxkIGJlIGEgZ29vZCB0ZXN0LCBzbyBJIHRyaWVkIHRoZSBmb2xsb3dpbmc6
+Cj4+IGBgYAo+PiB1MzIgYnBmX2tmdW5jX2NhbGxfdGVzdDIodTMyIGEsIHUzMiBiKSBfX2tzeW07
+IDwtLSBoZXJlIGNoYW5nZSBpbnQgdG8gdTMyCj4+IGludCBrZnVuY19jYWxsX3Rlc3QyKHN0cnVj
+dCBfX3NrX2J1ZmYgKnNrYikKPj4gewo+PiAgICAgICAgICBsb25nIHRtcDsKPj4KPj4gICAgICAg
+ICAgdG1wID0gYnBmX2tmdW5jX2NhbGxfdGVzdDIoMHhmZmZmZmZmMCwgMik7Cj4+ICAgICAgICAg
+IHJldHVybiAodG1wID4+IDMyKSArIHRtcDsKPj4gfQo+PiBgYGAKPj4gQXMgZXhwZWN0ZWQsIGlm
+IHRoZSByZXR1cm4gdmFsdWUgaXMgc2lnbi1leHRlbmRlZCwgdGhlIGJwZiBwcm9ncmFtIHdpbGwK
+Pj4gcmV0dXJuIDB4ZmZmZmZmZjEuIElmIHRoZSByZXR1cm4gdmFsdWUgaXMgemVyby1leHRlbmRl
+ZCwgdGhlIGJwZiBwcm9ncmFtCj4+IHdpbGwgcmV0dXJuIDB4ZmZmZmZmZjIuIEJ1dCBpbiBmYWN0
+LCByaXNjdiByZXR1cm5zIDB4ZmZmZmZmZjIuIFVwb24KPj4gZnVydGhlciBkaXNjb3ZlcnksIGl0
+IHNlZW1zIGNsYW5nIHdpbGwgY29tcGVuc2F0ZSBmb3IgdW5zaWduZWQgcmV0dXJuCj4+IHZhbHVl
+cy4gQ3VyaW91cyEKPj4gZm9yIGV4YW1wbGU6Cj4+IGBgYAo+PiB1MzIgYnBmX2tmdW5jX2NhbGxf
+dGVzdDIodTMyIGEsIHUzMiBiKSBfX2tzeW07Cj4+IGludCBrZnVuY19jYWxsX3Rlc3QyKHN0cnVj
+dCBfX3NrX2J1ZmYgKnNrYikKPj4gewo+PiAgICAgICAgICBsb25nIHRtcDsKPj4KPj4gICAgICAg
+ICAgdG1wID0gYnBmX2tmdW5jX2NhbGxfdGVzdDIoMHhmZmZmZmZmMCwgMik7Cj4+ICAgICAgICAg
+IGJwZl9wcmludGsoInRtcDogMHglbHgiLCB0bXApOwo+PiAgICAgICAgICByZXR1cm4gKHRtcCA+
+PiAzMikgKyB0bXA7Cj4+IH0KPj4gYGBgCj4+IGFuZCB0aGUgYnl0ZWNvZGUgd2lsbCBiZToKPj4g
+YGBgCj4+ICAgIDA6ICAgICAgIDE4IDAxIDAwIDAwIDAwIDAwIDAwIGYwIDAwIDAwIDAwIDAwIDAw
+IDAwIDAwIDAwIHIxID0KPj4gMHhmMDAwMDAwMCBsbAo+PiAgICAyOiAgICAgICBiNyAwMiAwMCAw
+MCAwMiAwMCAwMCAwMCByMiA9IDB4Mgo+PiAgICAzOiAgICAgICA4NSAxMCAwMCAwMCBmZiBmZiBm
+ZiBmZiBjYWxsIC0weDEKPj4gICAgNDogICAgICAgYmYgMDYgMDAgMDAgMDAgMDAgMDAgMDAgcjYg
+PSByMAo+PiAgICA1OiAgICAgICBiZiA2MyAwMCAwMCAwMCAwMCAwMCAwMCByMyA9IHI2Cj4+ICAg
+IDY6ICAgICAgIDY3IDAzIDAwIDAwIDIwIDAwIDAwIDAwIHIzIDw8PSAweDIwIDwtLSB6ZXJvIGV4
+dGVuc2lvbgo+PiAgICA3OiAgICAgICA3NyAwMyAwMCAwMCAyMCAwMCAwMCAwMCByMyA+Pj0gMHgy
+MAo+PiAgICA4OiAgICAgICAxOCAwMSAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAw
+MCAwMCAwMCByMSA9IDB4MCBsbAo+PiAxMDogICAgICAgYjcgMDIgMDAgMDAgMGIgMDAgMDAgMDAg
+cjIgPSAweGIKPj4gMTE6ICAgICAgIDg1IDAwIDAwIDAwIDA2IDAwIDAwIDAwIGNhbGwgMHg2Cj4+
+IDEyOiAgICAgICBiZiA2MCAwMCAwMCAwMCAwMCAwMCAwMCByMCA9IHI2Cj4+IDEzOiAgICAgICA5
+NSAwMCAwMCAwMCAwMCAwMCAwMCAwMCBleGl0Cj4+IGBgYAo+Pgo+PiBhbm90aGVyIGV4YW1wbGU6
+Cj4+IGBgYAo+PiB1MzIgYnBmX2tmdW5jX2NhbGxfdGVzdDIodTMyIGEsIHUzMiBiKSBfX2tzeW07
+Cj4+IGludCBrZnVuY19jYWxsX3Rlc3QyKHN0cnVjdCBfX3NrX2J1ZmYgKnNrYikKPj4gewo+PiAg
+ICAgICAgICBsb25nIHRtcDsKPj4KPj4gICAgICAgICAgdG1wID0gYnBmX2tmdW5jX2NhbGxfdGVz
+dDIoMHhmZmZmZmZmMCwgMik7Cj4+ICAgICAgICAgIHJldHVybiAodG1wID4+IDIwKSArIHRtcDsg
+PC0tIGNoYW5nZSBmcm9tIDMyIHRvIDIwCj4+IH0KPj4gYGBgCj4+IGFuZCB0aGUgYnl0ZWNvZGUg
+d2lsbCBiZToKPj4gYGBgCj4+ICAgIDA6ICAgICAgIDE4IDAxIDAwIDAwIDAwIDAwIDAwIGYwIDAw
+IDAwIDAwIDAwIDAwIDAwIDAwIDAwIHIxID0KPj4gMHhmMDAwMDAwMCBsbAo+PiAgICAyOiAgICAg
+ICBiNyAwMiAwMCAwMCAwMiAwMCAwMCAwMCByMiA9IDB4Mgo+PiAgICAzOiAgICAgICA4NSAxMCAw
+MCAwMCBmZiBmZiBmZiBmZiBjYWxsIC0weDEKPj4gICAgNDogICAgICAgMTggMDIgMDAgMDAgMDAg
+MDAgZjAgZmYgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgcjIgPQo+PiAweGZmZjAwMDAwIGxsIDwt
+LSAzMi1iaXQgdHJ1bmNhdGlvbgo+PiAgICA2OiAgICAgICBiZiAwMSAwMCAwMCAwMCAwMCAwMCAw
+MCByMSA9IHIwCj4+ICAgIDc6ICAgICAgIDVmIDIxIDAwIDAwIDAwIDAwIDAwIDAwIHIxICY9IHIy
+Cj4+ICAgIDg6ICAgICAgIDc3IDAxIDAwIDAwIDE0IDAwIDAwIDAwIHIxID4+PSAweDE0Cj4+ICAg
+IDk6ICAgICAgIDBmIDAxIDAwIDAwIDAwIDAwIDAwIDAwIHIxICs9IHIwCj4+IDEwOiAgICAgICBi
+ZiAxMCAwMCAwMCAwMCAwMCAwMCAwMCByMCA9IHIxCj4+IDExOiAgICAgICA5NSAwMCAwMCAwMCAw
+MCAwMCAwMCAwMCBleGl0Cj4+IGBgYAo+Pgo+PiBJdCBpcyBkaWZmaWN1bHQgdG8gY29uc3RydWN0
+IHRoaXMgdGVzdCBjYXNlLgo+IAo+IFllYWguCj4gSSBhbHNvIHRyaWVkIGEgYnVuY2ggb2YgZXhw
+ZXJpbWVudHMgd2l0aCBsbHZtIGFuZCBnY2MtYnBmLgo+IEJvdGggY29tcGlsZXJzIGVtaXQgemVy
+byBleHRlbnNpb24gd2hlbiB1MzIgaXMgYmVpbmcgdXNlZCBhcyB1NjQuCj4gCj4+PiBrZXJuZWwg
+cmlzYy12IGNvZGUgPwo+Pj4gSSBzdXNwZWN0IHRoZSBicGYgc2lkZSB3aWxsIGJlIGNvbmZ1c2Vk
+Lgo+Pj4gV2hpY2ggd291bGQgbWVhbiB0aGF0IHJpc2MtdiBKSVQgaW4gYWRkaXRpb24gdG86Cj4+
+PiAgICAgICAgICAgaWYgKGluc24tPnNyY19yZWcgIT0gQlBGX1BTRVVET19DQUxMKQo+Pj4gICAg
+ICAgICAgICAgICBlbWl0X212KGJwZl90b19ydl9yZWcoQlBGX1JFR18wLCBjdHgpLCBSVl9SRUdf
+QTAsIGN0eCk7Cj4+Pgo+Pj4gbmVlZCB0byBjb25kaXRpb25hbGx5IGRvOgo+Pj4gICAgaWYgKGZt
+LT5yZXRfc2l6ZSA9PSBzaXplb2YoaW50KSkKPj4+ICAgICAgZW1pdF96ZXh0dyhicGZfdG9fcnZf
+cmVnKEJQRl9SRUdfMCwgY3R4KSwKPj4+ICAgICAgICAgICAgICAgICBicGZfdG9fcnZfcmVnKEJQ
+Rl9SRUdfMCwgY3R4KSwgY3R4KTsKPj4+ID8KPj4KPj4gQWdyZWUgb24gemVyby1leHRlbmRpbmcg
+aW50L3VpbnQgcmV0dXJuIHZhbHVlcyB3aGVuIHJldHVybmluZyBmcm9tCj4+IGtmdW5jIHRvIGJw
+ZiBjdHguIEkgd2lsbCBhZGQgaXQgaW4gbmV4dCB2ZXJzaW9uLiBUaGFua3MuCj4gCj4gTG9va2lu
+ZyBhdCBleGlzdGluZyBjb21waWxlcnMgYmVoYXZpb3IgaXQncyBwcm9iYWJseSB1bm5lY2Vzc2Fy
+eS4KPiBJIHRoaW5rIHRoaXMgcGF0Y2ggaXMgZmluZSBhcy1pcy4KPiBJJ2xsIGFwcGx5IGl0IHNo
+b3J0bHkuCgpBbHJpZ2h0LCBmZWVsIGZyZWUgdG8gYXBwbHkgaXQuIFRoYW5rcwoKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
