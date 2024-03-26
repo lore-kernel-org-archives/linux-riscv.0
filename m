@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9E6C54E67
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 06:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45A99C54E67
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 06:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kYKDqpjt66ncllpBvvnyzmssjkoQqppolz9VqYSp7IQ=; b=HdVjJpyU7GlpPN
-	9M++VrjwtRGX3itqpejGWOGLDxiBu0ImSlDRThV/w7c+bvW1DkFoivLDfLycME3DrfceFEjEj6Ht4
-	IsdyM9ygEhcZeciQwx5yDEJ973R2JH4zXdJxB1KuCEfwYsixpa3pdxOJDlSai0C+uTgYQPGkoL12K
-	bt91OG6ID/NiRXS7vfWuW20oRm+E4GaDqQhIcxtmgFKkFavR5z8XoJjrLjoouOYvsJaVJsbEJ/J08
-	6EwY567bRBl38WuT5vfmyQxRFFxLt39Sy9ShlwptymCHseq3R9GxuI62tDOk0to/WTMTQWwhXPPRc
-	MoHLMA421p9nMjzytBHw==;
+	List-Owner; bh=QQwPTsDhsFqykwvWDFrsbyyGEH1UI8fLdPM/BlecUvY=; b=kqERilf21qDcMe
+	BelK2ou6TEaot7xvVazZvIzctYvwhwcUpXq1pN+nEjVNEq7mALRyLIhj0pnqmhRQdDUSq0U1qA/Rz
+	uw4kuzj1NClaQKhXKQDAmUguyvwaoTX1UNB0qD2ta2SMswMzU3y8VrNqd0/naMRtNZjFNTIkzapuJ
+	3VA2sk7ShhPVW0YkSev/g8yRfrhdUPhoLlKd0L8oKrzXevgwpX5Rxw0zamlwLvkV7XD0S6hSwzi9Q
+	UcmYPfnuicAJnDAINNOT5H3/hL/LsPzjDQwwiwX4ACSI8kAEUxwRXs5/dfw5nl4m0Vc/+1yyfiOti
+	mz5+7YwzU8qhRq/JR9aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp0e5-00000003Kwc-3zGF;
-	Tue, 26 Mar 2024 06:50:53 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1rp0em-00000003LCN-3Sk5;
+	Tue, 26 Mar 2024 06:51:36 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp0e3-00000003Kw5-0orp
+	id 1rp0ek-00000003LAA-1RVF
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 06:50:52 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a46dd7b4bcbso624535266b.3
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2024 23:50:49 -0700 (PDT)
+	Tue, 26 Mar 2024 06:51:35 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-512e4f4e463so5605141e87.1
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2024 23:51:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1711435848; x=1712040648; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1711435890; x=1712040690; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=CcYszJVzk4g1YlTjCZo19PYSJoJO6aoTmeXZSldpIoM=;
-        b=Uc9iDSRvXukdPeEbkO4vWuKheRoqZFk24PWHeborUF+Ny/H20ovB7umXO8Z+r9mDMU
-         bGxAvz90IcBjT1JxXCeKamHm1NMfC7Xs91wpf27v0PstfzGr6Qy5K6t9cmt4tYA+2zOM
-         0bflTQqmHbbY9g1T2WRmXTlvgDn4o+oyHSSKOlSyK8yL06dsZK2RZZODwaifRA++V8sD
-         hp8oBErYKZ3WrdGm/OwIFa+8jqROx0ScajJRsglBNPjjfSb9H32O6C6Zoaj1V2hSZz17
-         wvCQT2+aXkX1MoWo++1Qfc0/yrHCPoAakDNf+imC/RwjuJn5t7fOaKXaVRmHYO6pGzL8
-         rlOA==
+        bh=ZQQUbFAlR5W/6GE/lvdJOw1ZfdoypRl3WnR9N4vE3Do=;
+        b=AJHKRNI/MsdbBc2vk55j5EBd6j7pUE4VGQMCH35AlyzChJL9UP7GNZ3EC4vaUhhsMe
+         AyjIp7mCjFAGnb329o23o0a1dKqu97djfUL9JLBGtTSg1U0JkmeNu6BMO+L7WxrFJQwY
+         pzt9/YHvEhpG/btg5+57osOupaS6wP53u9NjtzZqRODJid8RnNYy5iiWXFPHYmKnUZRR
+         2D6oNZypCa2CgWFxdE+2tqfdQXy/j4ZPejN1ThD/C0in+M39sZcwJgV7bCr4njTlTCjg
+         7nRXiGuO79tEG81Am9IzCyOoLT9nx1M0iDm3GJMPtCMervWsoVTwGI/18WfgX/D482/4
+         Z2Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711435848; x=1712040648;
+        d=1e100.net; s=20230601; t=1711435890; x=1712040690;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CcYszJVzk4g1YlTjCZo19PYSJoJO6aoTmeXZSldpIoM=;
-        b=Fv+XOIKZXPAMifjozO4wrhTfphQIeds7cujxA2PAy6dDMJyXPof1Js/won21P8fiQy
-         5HRedGyOdpmGq3TBsKs4caueoqR6dtHokod+ydz22W6tpWHhvMMukPzk0KsLNRDKzIxz
-         o4ZyTj/Lpf6Zp9NmC0Bp/KwMV/zP9aFPltLOhwDoS619l2NicK2ACPxJ+btFds9eUs6w
-         VUuKcVracmUS5Mm7DNEBX4lQSW2FpogMkNMMgRpgK6wbphcdugH46KY7cMMJVd7/C6j9
-         WtWLNHd4yqmxOfs01rqBdFvTegieul9WJzPH1HHx28ybxSWxpOdAscu1Y5ytD5IO21ti
-         Z2BA==
-X-Forwarded-Encrypted: i=1; AJvYcCUUY+MR/bltnuGViyF+bNvelxtqqOL1YjQREamKmQubbbKDpjMpHknZuIh8ecqqu7V06gBQmAkuh8L8w7JpcCP8aa4ClmcJ9hY7+/et79OZ
-X-Gm-Message-State: AOJu0YxRS8n17PkPO9Gewu+KhJT5gqZgAqo+HTkwMtzTutn7QWFua8K7
-	L/1F9MrY58bla1QY6YRWAtPQs6kVsg+v74ULNh+H3FnPfzw3dtSPLoC9r/JpNdA=
-X-Google-Smtp-Source: AGHT+IE4HfWUGwxqmUfayIT22jk+nqjwUsI8ApUyR9/HchWuudDay05zuCJfHGFE1BreKgJVEwWcTg==
-X-Received: by 2002:a17:906:b257:b0:a47:39c6:8970 with SMTP id ce23-20020a170906b25700b00a4739c68970mr205641ejb.39.1711435847894;
-        Mon, 25 Mar 2024 23:50:47 -0700 (PDT)
+        bh=ZQQUbFAlR5W/6GE/lvdJOw1ZfdoypRl3WnR9N4vE3Do=;
+        b=CxsnGizhojaztF+P94tVHjAI142UseUdHfOoGyj8PdjN/k9fbunmOBWG3tGsRwfR/S
+         R3HnYk8osNnMTkRqpoYLYDOTGrtMdP/eMjKqjO5QXG5bEahWMk/LDqpGT/xxI9L8GP0j
+         41jL3FJIXVLiXJtgINxUGgHRJ/VHPYTLvJyUkKRQGw0RYWCT4bjUracZTF3ojdXEbmbL
+         7vEj1RuGjt/uPO97BiQZ9fLjqEwPQRPz2D1ld/kT0XsJWqAFWFC/+6Ant1eNTXA0OD7t
+         XqqWib1KRxuFfkRe/BkE24vK1w9HYzjA+7NYo+XBMZ/374U5y3crZysTLaBAHGqwl9X9
+         3XCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWD/8iTGEGNC4+gQv8ZNF+56ON2Aeauu29jvfeZuuldjT5rAOxBHGGa/mSG+QFnVxt222h6WxI33Iu14oKd10yXaqgy4zkygaSVS2CU1vMA
+X-Gm-Message-State: AOJu0YwqHjOnjXZhL5fEfcLnsk+/MXsawYtm/tlnMlXmQYMDmjrTnDiv
+	8qQWgbWOZHXDv44qws4FAYBk6jI+bZ80t0mfbVWO6K0U7ECQRDOkE0XKElImdMQ=
+X-Google-Smtp-Source: AGHT+IFaUb++Oio47WMhGl4Izq878yZKJXYnIiH4zNqnBwAnklh75GT9lgEaRz9sdP0bQgc3aapeuA==
+X-Received: by 2002:ac2:4dba:0:b0:515:9e22:698a with SMTP id h26-20020ac24dba000000b005159e22698amr1295548lfe.2.1711435890540;
+        Mon, 25 Mar 2024 23:51:30 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.222.44])
-        by smtp.gmail.com with ESMTPSA id h22-20020a1709060f5600b00a473a1fe089sm3867467ejj.1.2024.03.25.23.50.46
+        by smtp.gmail.com with ESMTPSA id bn10-20020a170907268a00b00a475301cd82sm2504353ejc.170.2024.03.25.23.51.29
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 25 Mar 2024 23:50:47 -0700 (PDT)
-Message-ID: <4a30ce5d-c308-4983-8c7b-d83ced6a9ef1@linaro.org>
-Date: Tue, 26 Mar 2024 07:50:45 +0100
+        Mon, 25 Mar 2024 23:51:30 -0700 (PDT)
+Message-ID: <e32e05c8-805b-42ce-9b03-87d1bf3feb56@linaro.org>
+Date: Tue, 26 Mar 2024 07:51:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5 1/3] dt-bindings: dmaengine: Add dmamux for
@@ -131,8 +131,8 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  D2GYIS41Kv4Isx2dEFh+/Q==
 In-Reply-To: <ZgJDCL+aq3ZTE6/1@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_235051_379825_192D4A9A 
-X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-CacheID: sfid-20240325_235134_506586_89220BC1 
+X-CRM114-Status: UNSURE (   7.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -151,22 +151,19 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 26/03/2024 04:37, Frank Li wrote:
-> On Tue, Mar 26, 2024 at 09:47:03AM +0800, Inochi Amaoto wrote:
->> The DMA IP of Sophgo CV18XX/SG200X is based on a DW AXI CORE, with
->> an additional channel remap register located in the top system control
->> area. The DMA channel is exclusive to each core.
->>
->> Add the dmamux binding for CV18XX/SG200X series SoC
->>
->> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
->> ---
->>  .../bindings/dma/sophgo,cv1800-dmamux.yaml    | 48 ++++++++++++++++
->>  include/dt-bindings/dma/cv1800-dma.h          | 55 +++++++++++++++++++
+>> +properties:
+>> +  compatible:
+>> +    const: sophgo,cv1800-dmamux
+>> +
+>> +  reg:
+>> +    items:
+>> +      - description: DMA channal remapping register
+>> +      - description: DMA channel interrupt mapping register
+>> +
 > 
-> I remember checkpatch.pl require .h have seperate patch.
+> Look like driver have not use it.
 
-Why do you insist on that? Bindings header should be with binding.
-That's incorrect advice.
+And what does it mean for the bindings?
 
 Best regards,
 Krzysztof
