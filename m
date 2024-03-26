@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8350C54E67
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 17:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516EAC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 17:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
 	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n84WMZvqy5UQFPcnR6jLp06t13LP1nQwje2mF6KVkD8=; b=UCB6MPqP8yiC2Q
-	6TlXA2SpJb4vnA+Lx5BioxbWr5nHedbZyb8GpN4MCvkFNQYAaps6RA0+Ez7qtdze2zc6OwZW8iKdW
-	ESVVYSebClPfQZ+fZdUhYX/gFCEB51mqcr5YF73iS83oIv4HbOYiP4RwVYlBBdHaMZJdgYE0EEWGu
-	2nnQ53pmfQ316faZjT5bGeG3ZlcVkoY/3hvPekgW64J5PXjsFM3mzWLvBocHjcVvuNKXxc4KSCQof
-	USM+vEEYP/rEMH+jmuaLi0KRGLGV6wZ1B0B2Du39PhvY0e9hSFtnmHDkfiWTJhFeVbdBVBCccmwSU
-	ONIQjk3UZ2AZQg9mSuXw==;
+	List-Owner; bh=rDTkOm6ruH4s74/468I4sH1iKQOuT169TvhsSzbxAWo=; b=ZjLxTetosEERKN
+	v3i7+6vK6TQExzD9T6DN8DRbl4JKMFqtBqxe0A9/vh46bwLUX+Yx+fGpWMi7Pife1LUQ0Arn5T0YR
+	WqM5YdvpsHiAIxvKZrHamgI6Ahuq2rjKiWdl+Z5rvtKMb1Ef0ddKKFnCvkWnm7ESt/G8dCQAGn9hQ
+	1ILotPH0iN8iDwUEdEneZlesovH3rxLA2lqRGI7VegDYarJba/SixDsChB+y7Od5A6UVWtaGmbcYm
+	2W0YltCBDTZqND60a71nyIBMmtG61QEJpDS5Rg7EGDcFO2Noln6X43qslIKLo/CBAQQLHHsrmm1z9
+	7/5dGqAVpAFtafzMbigQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpAAg-00000005bgp-1824;
-	Tue, 26 Mar 2024 17:01:10 +0000
+	id 1rpACD-00000005cGf-3UIF;
+	Tue, 26 Mar 2024 17:02:45 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpAAX-00000005bcx-0DTX
+	id 1rpACA-00000005cEF-1NLg
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 17:01:07 +0000
+	Tue, 26 Mar 2024 17:02:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 59000CE231D;
-	Tue, 26 Mar 2024 17:00:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 287ACC433A6;
-	Tue, 26 Mar 2024 17:00:54 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 9C1C3CE0AC3;
+	Tue, 26 Mar 2024 17:02:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8936DC433F1;
+	Tue, 26 Mar 2024 17:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711472457;
-	bh=AFcWHQ4HktAL4RBbzmRQAOlWsOrVDpkRrN1OI6wGpMY=;
+	s=k20201202; t=1711472559;
+	bh=roKL18Iq6vEkeHwH/EmIDwPxZ0jMl/Uc5dYGgsfMSO4=;
 	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
-	b=SXVvxtgcGny55EK6PwY+sTqI4mMVPakmbrnjmbnfC8DSpUewAWuQGnrUmYa0/N3QC
-	 cVeZ6QnHl0CQNeGXT6XP1c9qvvK2CviXQVg69KpPhYwqve3U+xAYMoFOAiOGO2k8F/
-	 2esMcfHk+ZWFPY4/hck+suYFzT7sGxxrUnoUWo2VmB4lTrTLXAPaLPGiijoopfNx70
-	 Y7aXKZesmhZaOf9tRrtlNBliUUtICUT7oDZ9cT4VPcWi76luukotK+Y3b+YHtlrvkQ
-	 2wRzMaNd0fJNjMUmZwTvTkWoSS9xLXa/ueuZg/0W0AhnGejPk8lz1zbGfVR3v6QzUP
-	 4+NObRzlLzC4w==
+	b=PUc5lWG6y39nmrM45vLSsOBbCL4CcdaA+LLN2nagKsdktRigY3tIilFdMWrdn9zXV
+	 TvJ9HQEgMnZS/vvz6R/NKKoog/u/LDZ2FpoyzvuJ0qVLk7LQbKVcutHzM0EeyjTNYv
+	 jCgdCnkLv5DxUqY1d31ztmUZDB/jPuLlED0ADog9NSzHg25zYzCirF/cDZCNI668vk
+	 g3kD+QVXmilX0K610SW1kxN1kV7GViAQ/uaMXHyoWRftQKD443K96LqGf3RFs9kHMq
+	 BuT9lK7yHN4Z8vrA4rNjwx+ghcXLh9SO/gT+PUFImATK/osoVVOfJWsW87JMY79qdq
+	 66RCM0Vsebosw==
 Mime-Version: 1.0
-Date: Tue, 26 Mar 2024 19:00:53 +0200
-Message-Id: <D03UCMS8261H.3AFBTINZ4ZN4Y@kernel.org>
+Date: Tue, 26 Mar 2024 19:02:35 +0200
+Message-Id: <D03UDXV4OKIK.5HOOVU4LDW5D@kernel.org>
 Cc: <linux-riscv@lists.infradead.org>, "Paul Walmsley"
  <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>, "Naveen N .
- Rao" <naveen.n.rao@linux.ibm.com>, "Anil S Keshavamurthy"
- <anil.s.keshavamurthy@intel.com>, "David S . Miller" <davem@davemloft.net>,
- <linux-trace-kernel@vger.kernel.org>, "Calvin Owens"
- <jcalvinowens@gmail.com>
-Subject: Re: [PATCH v2] arch/riscv: Enable kprobes when CONFIG_MODULES=n
+ Ou" <aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>, "Luis
+ Chamberlain" <mcgrof@kernel.org>, <linux-modules@vger.kernel.org>, "Naveen
+ N . Rao" <naveen.n.rao@linux.ibm.com>, "Anil S Keshavamurthy"
+ <anil.s.keshavamurthy@intel.com>, "David S . Miller" <davem@davemloft.net>
+Subject: Re: [PATCH v5 1/2] kprobes: textmem API
 From: "Jarkko Sakkinen" <jarkko@kernel.org>
-To: "Mark Rutland" <mark.rutland@arm.com>, "Masami Hiramatsu"
- <mhiramat@kernel.org>
+To: "Masami Hiramatsu" <mhiramat@kernel.org>
 X-Mailer: aerc 0.17.0
-References: <20240323232908.13261-1-jarkko@kernel.org>
- <20240325115632.04e37297491cadfbbf382767@kernel.org>
- <ZgLfsvbCZj2S6fRE@FVFF77S0Q05N.cambridge.arm.com>
-In-Reply-To: <ZgLfsvbCZj2S6fRE@FVFF77S0Q05N.cambridge.arm.com>
+References: <20240325215502.660-1-jarkko@kernel.org>
+ <20240326095836.f43d259b7747269a7c0b9d23@kernel.org>
+ <D03AL7A5G3M2.3UK4ASWILGBJS@kernel.org>
+ <D03B7XJYRFC1.2L3I2TO5HNQD3@kernel.org>
+ <D03PM9A6IS79.3D6BW7KBLH9C3@kernel.org>
+ <20240327000520.ec13b2646ed1cd621e5b1d9d@kernel.org>
+In-Reply-To: <20240327000520.ec13b2646ed1cd621e5b1d9d@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240326_100101_553581_28E6201C 
-X-CRM114-Status: GOOD (  23.72  )
+X-CRM114-CacheID: sfid-20240326_100242_569233_13025A61 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +81,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue Mar 26, 2024 at 4:46 PM EET, Mark Rutland wrote:
-> Hi Masami,
+On Tue Mar 26, 2024 at 5:05 PM EET, Masami Hiramatsu (Google) wrote:
+> > According to kconfig-language.txt:
+> > 
+> > "select should be used with care. select will force a symbol to a value
+> > without visiting the dependencies."
+> > 
+> > So the problem here lies in KPROBES config entry using select statement
+> > to pick ALLOC_EXECMEM. It will not take the depends on statement into
+> > account and thus will allow to select kprobes without any allocator in
+> > place.
 >
-> On Mon, Mar 25, 2024 at 11:56:32AM +0900, Masami Hiramatsu wrote:
-> > Hi Jarkko,
-> > 
-> > On Sun, 24 Mar 2024 01:29:08 +0200
-> > Jarkko Sakkinen <jarkko@kernel.org> wrote:
-> > 
-> > > Tracing with kprobes while running a monolithic kernel is currently
-> > > impossible due the kernel module allocator dependency.
-> > > 
-> > > Address the issue by allowing architectures to implement module_alloc()
-> > > and module_memfree() independent of the module subsystem. An arch tree
-> > > can signal this by setting HAVE_KPROBES_ALLOC in its Kconfig file.
-> > > 
-> > > Realize the feature on RISC-V by separating allocator to module_alloc.c
-> > > and implementing module_memfree().
-> > 
-> > Even though, this involves changes in arch-independent part. So it should
-> > be solved by generic way. Did you checked Calvin's thread?
-> > 
-> > https://lore.kernel.org/all/cover.1709676663.git.jcalvinowens@gmail.com/
-> > 
-> > I think, we'd better to introduce `alloc_execmem()`,
-> > CONFIG_HAVE_ALLOC_EXECMEM and CONFIG_ALLOC_EXECMEM at first
-> > 
-> >   config HAVE_ALLOC_EXECMEM
-> > 	bool
-> > 
-> >   config ALLOC_EXECMEM
-> > 	bool "Executable trampline memory allocation"
-> > 	depends on MODULES || HAVE_ALLOC_EXECMEM
-> > 
-> > And define fallback macro to module_alloc() like this.
-> > 
-> > #ifndef CONFIG_HAVE_ALLOC_EXECMEM
-> > #define alloc_execmem(size, gfp)	module_alloc(size)
-> > #endif
->
-> Please can we *not* do this? I think this is abstracting at the wrong level (as
-> I mentioned on the prior execmem proposals).
->
-> Different exectuable allocations can have different requirements. For example,
-> on arm64 modules need to be within 2G of the kernel image, but the kprobes XOL
-> areas can be anywhere in the kernel VA space.
->
-> Forcing those behind the same interface makes things *harder* for architectures
-> and/or makes the common code more complicated (if that ends up having to track
-> all those different requirements). From my PoV it'd be much better to have
-> separate kprobes_alloc_*() functions for kprobes which an architecture can then
-> choose to implement using a common library if it wants to.
->
-> I took a look at doing that using the core ifdeffery fixups from Jarkko's v6,
-> and it looks pretty clean to me (and works in testing on arm64):
->
->   https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=kprobes/without-modules
->
-> Could we please start with that approach, with kprobe-specific alloc/free code
-> provided by the architecture?
+> OK, in that case "depend on" is good.
 
-How should we move forward?
-
-I'm fine with someone picking the pieces of my work as long as also the
-riscv side is included. Can also continue rotating this, whatever works.
-
->
-> Thanks,
-> Mark.
+Yeah, did not remember this at all. Only recalled when I started to
+get linking errors when compiling just the first patch... It's a bit
+uninituitive twist in kconfig :-)
 
 BR, Jarkko
 
