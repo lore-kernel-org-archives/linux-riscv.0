@@ -4,61 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3833C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 18:49:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB89C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 18:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5RT6saNXB5idMf++ULQAM/SuUomKuAUL1tHKO3p0Vh0=; b=J35jtxkai60p0+AHudFzOXc7rE
-	B1ZbYdNqA6rXTKH378KgBofcY5RPuMg366lHIuneVRsN74M3cS0s1mD8+nNLEsYyAmoEENXOMsP0j
-	dri0Puk+gTQswTHZmU0YcHWYQkplwRbLPBhb0DFvF0PdL+EK0GtgVOByN3DoUhgNY6cTuBIi/eopy
-	XksLdLRsXepeaaFi821KCzF0OGpkm+QMb3QN2ccwDwH8bD3XqGF0M4jygFwD69h0r8k+xdKWWcucV
-	4pizvZ9w/arg1iS34mt0tndZ/X0pC7OtI48oMzixWMGJCpN3zPY4/aAA4CvFTDfeRCXJKdSbk7pCT
-	qeepe+zA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LZKjUIunU5xZTyfFQVUW0/0fKckazvaqy63xVzlwXvg=; b=aYeFBvKl82h54H
+	CX+dxU2g/dCgAJ1+x0QQ0i/vXmgTyBUaXrgLavv8BRTLIvLmc5x3NbBD1naItoo9b4A+o4HMmGQcB
+	6JvGrZmRQh33vBmJQzGnIEpZNM9sz2QSd2wmuHDU4olTLFH645MyQ95OkI4F8yJeemxe+0S+qHcut
+	NcvDqgCFBRkq2nCiKBW0dM2pKo7T6oU45CKNoV7lIxOE7cNf3XZUuHX9F1YJNRqL45F3L7SFRu6MF
+	u6IB9k+xgZcWGuwqt1xIyq0ISq6RG4sG0wfyNwDfCULTerwgbdyfq9uUGxplCZ3lscPm1csHhohGb
+	snDWaWyffp/ecvrWrdqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpBrf-00000005zvF-24Ow;
-	Tue, 26 Mar 2024 18:49:39 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rpBxi-000000061Gj-0H3r;
+	Tue, 26 Mar 2024 18:55:54 +0000
+Received: from mail-vs1-xe29.google.com ([2607:f8b0:4864:20::e29])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpBrY-00000005ztk-1B59
+	id 1rpBxe-0000000619H-1MIV
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 18:49:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 947C8CE1C89;
-	Tue, 26 Mar 2024 18:49:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB2DBC433F1;
-	Tue, 26 Mar 2024 18:49:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711478969;
-	bh=UU2VDr3u/3TXCOqy+TTP1ocWAPAmrxpuuTkUu5erUDk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PBwJPZa5DPG76Ku/rLXmTHS2TSZtuV1OhnF2IcXykh8DO9dhbAx6Rj+MiH36XNYm0
-	 z/CCvjUf/DfFy+oYzImWu29MntAO08O+h+gjiVqCXht566Q2IJeQc51ukzqV8Afn7W
-	 iSzzlxZqv0ul84yT6zg3aLv8A/EvTXVbuHUvqxDE8qSzLjDN8/eLrAr70f5rDCS77Z
-	 an332I9toO+IxNlKk9tevAEZKF40UGoJz4JAGRgr0r+tQjSYYFXk6+rxZliOdd28Jo
-	 79OqNa0pZC85cYV/WVkq8Mt/UkAYC9EXpv2WFwfgarN4bcizLd3LUZC951mYtBwhDv
-	 RMiijqOlPD0Zw==
-Date: Tue, 26 Mar 2024 18:49:25 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Kees Cook <keescook@chromium.org>, linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Linux Kernel Functional Testing <lkft@linaro.org>
-Subject: Re: [PATCH] riscv: Mark __se_sys_* functions __used
-Message-ID: <20240326-proofing-projector-0b8eef253667@spud>
-References: <20240326153712.1839482-2-samitolvanen@google.com>
+	Tue, 26 Mar 2024 18:55:52 +0000
+Received: by mail-vs1-xe29.google.com with SMTP id ada2fe7eead31-476bb6b964bso2175702137.1
+        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 11:55:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1711479339; x=1712084139; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OXTwQCFaZAj0sjd3yq+jvLdZ002w8j6x4hmq5jp5QuU=;
+        b=VzfSUXvA4E4TP+/ludRwfDzHCzpc5DAsA6fNby90LoapZyhQqXAOEeaG1eI4pPbmfu
+         X3YhqA/CpuTFQ7LIa4abgrs1uacRynF9B7ws7jJmlVm3+pAc9WKW9zAH5GucZg/C9IRg
+         ePZg5R+WPl/64XKPgSJD6AxZw9d/XqLSg3gKMOPftOh5ShW8+tmTIFyVvxYuo2Ihpwxx
+         SBzXmJ1YOx7lbMqi3O+br4ui8HcwUDDQzH9AVpgdg5/r3hB4VQ93Ym8OoPSATYKi9TiB
+         UsrTw1TJ0DULJEgHtpbrDFgD2usE6rDbbOjpAncIw8Nj/2B2Rbd/h/AD5pQ0/+ASo+Tw
+         fc4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711479339; x=1712084139;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OXTwQCFaZAj0sjd3yq+jvLdZ002w8j6x4hmq5jp5QuU=;
+        b=BF3THeqJbbf/9WbNDDzTjow7ImHp6dOsusXzwO0jPI2htvMTrkFelGATI/JbLfcHJg
+         qqRvLgrkEvIPCJJi5sKEoEJYsx7RI7qdK8eVtCILK3Wi9RnsnwGjh7iC27vkMb1wniP4
+         z9tTlosAQ11LeFK8POjF+MIjYi2QOcMDxCwf76rP3iSEePfLQyPz4Lihkt4ROL1ErQvl
+         FS+dCazRKtZGprzaPoipI/vJ5ioJmn4Boo6yS2TP0bdsjLX1Njp/zMbfjL2ht49cXI7s
+         CHrGjxjqnoLvHubHS2BMdkwK69Y+2PFUnCOgu1Ho9gRgoSLlPOdacuooQnA1vGsUus/c
+         trFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXnEPqhcit43E2/j+xMJnX/KiP7SZAkiPIA/orY6J4SeLcNN7tRjnrgQoBIHfk4geImTuT4o0D7yRmUqpNg+rxnOM4t9D2/5dJWuBTahday
+X-Gm-Message-State: AOJu0YxwKpnfvkMzb7qY5dRy0cPTF/CNZPd+hy2XQUThE6VmadNUXnGy
+	DzcPpnQ7Z58sVUi2K4qGXpvQplBNAppdHvg6Nk1mA6zOQFWnLKJUhKMrgNT4DVuAz2TUOIXv7+W
+	MO4sHjOZS9ugWzsXhx5Hg8b49//QPjTztRi0U
+X-Google-Smtp-Source: AGHT+IE8JrH0I8/953zvrzCMR+hs4V4VMkFMJbs6d/MRRtDQ+IzoyJJNkxrTzBfqLyeMkE0r30YIW3GMqVQZIGPYLOM=
+X-Received: by 2002:a05:6102:3969:b0:474:50f5:723f with SMTP id
+ ho9-20020a056102396900b0047450f5723fmr680505vsb.18.1711479338882; Tue, 26 Mar
+ 2024 11:55:38 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20240326153712.1839482-2-samitolvanen@google.com>
+References: <20240326153712.1839482-2-samitolvanen@google.com> <a083fe56-19ba-4c12-8364-944d8bbcc043@ghiti.fr>
+In-Reply-To: <a083fe56-19ba-4c12-8364-944d8bbcc043@ghiti.fr>
+From: Sami Tolvanen <samitolvanen@google.com>
+Date: Tue, 26 Mar 2024 18:55:01 +0000
+Message-ID: <CABCJKudxjhbLo_2zHBcsPh42vuLUGFj9wUxk+jf5USf2mvUZGg@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Mark __se_sys_* functions __used
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>, 
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, 
+	Linux Kernel Functional Testing <lkft@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240326_114936_646404_1D580DAD 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20240326_115550_498518_78227F70 
+X-CRM114-Status: UNSURE (   5.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,129 +89,16 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7905312425649394131=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7905312425649394131==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="UzV3RQm1Ipc55SDT"
-Content-Disposition: inline
-
-
---UzV3RQm1Ipc55SDT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Mar 26, 2024 at 03:37:13PM +0000, Sami Tolvanen wrote:
-> Clang doesn't think ___se_sys_* functions used even though they are
-> aliased to __se_sys_*, resulting in -Wunused-function warnings when
-> building rv32. For example:
->=20
->    mm/oom_kill.c:1195:1: warning: unused function '___se_sys_process_mrel=
-ease' [-Wunused-function]
->     1195 | SYSCALL_DEFINE2(process_mrelease, int, pidfd, unsigned int, fl=
-ags)
->          | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~~~
->    include/linux/syscalls.h:221:36: note: expanded from macro 'SYSCALL_DE=
-FINE2'
->      221 | #define SYSCALL_DEFINE2(name, ...) SYSCALL_DEFINEx(2, _##name,=
- __VA_ARGS__)
->          |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~~~~~~~~~~~~
->    include/linux/syscalls.h:231:2: note: expanded from macro 'SYSCALL_DEF=
-INEx'
->      231 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
->          |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    arch/riscv/include/asm/syscall_wrapper.h:81:2: note: expanded from mac=
-ro '__SYSCALL_DEFINEx'
->       81 |         __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)       =
-                  \
->          |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    arch/riscv/include/asm/syscall_wrapper.h:40:14: note: expanded from ma=
-cro '__SYSCALL_SE_DEFINEx'
->       40 |         static long ___se_##prefix##name(__MAP(x,__SC_LONG,__V=
-A_ARGS__))
->          |                     ^~~~~~~~~~~~~~~~~~~~
->    <scratch space>:30:1: note: expanded from here
->       30 | ___se_sys_process_mrelease
->          | ^~~~~~~~~~~~~~~~~~~~~~~~~~
->    1 warning generated.
->=20
-> Mark the functions __used explicitly to fix the Clang warnings.
->=20
-> Fixes: a9ad73295cc1 ("riscv: Fix syscall wrapper for >word-size arguments=
-")
-> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-
-Oh neat, thanks. This was generating a shed load of noise in CI :)
-Tested-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
-> ---
->  arch/riscv/include/asm/syscall_wrapper.h | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/include/asm/syscall_wrapper.h b/arch/riscv/includ=
-e/asm/syscall_wrapper.h
-> index 980094c2e976..ac80216549ff 100644
-> --- a/arch/riscv/include/asm/syscall_wrapper.h
-> +++ b/arch/riscv/include/asm/syscall_wrapper.h
-> @@ -36,7 +36,8 @@ asmlinkage long __riscv_sys_ni_syscall(const struct pt_=
-regs *);
->  					ulong)						\
->  			__attribute__((alias(__stringify(___se_##prefix##name))));	\
->  	__diag_pop();									\
-> -	static long noinline ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__=
-));	\
-> +	static long noinline ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__=
-))	\
-> +			__used;								\
->  	static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
-> =20
->  #define SC_RISCV_REGS_TO_ARGS(x, ...) \
->=20
-> base-commit: 4cece764965020c22cff7665b18a012006359095
-> --=20
-> 2.44.0.396.g6e790dbe36-goog
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---UzV3RQm1Ipc55SDT
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgMYtQAKCRB4tDGHoIJi
-0lpHAP9MHNkX3etDTKmHZ6qt1m7X45+uBOZZWopKhVa5d8UFvAD/YTeTIdZXASl8
-l+cYdYHZwoR710Xt9ZyEhVuNCGR0Igs=
-=jNoi
------END PGP SIGNATURE-----
-
---UzV3RQm1Ipc55SDT--
-
-
---===============7905312425649394131==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7905312425649394131==--
-
+T24gVHVlLCBNYXIgMjYsIDIwMjQgYXQgNjo0M+KAr1BNIEFsZXhhbmRyZSBHaGl0aSA8YWxleEBn
+aGl0aS5mcj4gd3JvdGU6Cj4KPiBEbyB5b3UgaGF2ZSB0aGUgbGluayBvZiB0aGUgcmVwb3J0PyBT
+byB3ZSBjYW4gYWRkIGEgQ2xvc2VzIHRhZy4KClN1cmUsIHRoaXMgd2FzIHJlcG9ydGVkIGhlcmU6
+CgpodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzU2ZDMyODVhLWVkMjItNDRiZC04YzIyLWNl
+NTFhZDE1OWE4MUBsaW5hcm8ub3JnLwoKU2FtaQoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
