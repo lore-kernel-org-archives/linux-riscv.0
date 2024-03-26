@@ -4,135 +4,205 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D49C54E58
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 07:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C5DC54E67
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 07:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uodpCd+m/t8toK2/oCAlurvcSGQ0RxJv+D1/GiunQBA=; b=UbhyeCVP7EccIP
-	Zgfjr7vUPdw5dOr+1fKidA590M0l87yXToERmPfXupTi05UmwFBvNHlc+k5hmYKwBTQW8okoD/a6T
-	ucy07rQP0Ht5HqBISu0oyb1vuPPS9cMDncshZibT3sOcwkbKWaua6yjlcdBtwJt9yw6YIZHRaH34u
-	Q/i5y/ZvUPgvQbPm7OZPRVm2aoWl/i6cRxrbIAlBKLTXxddK0ZTLs2Nl4tn8WuRa/RUvbxn3LclIG
-	3aXhjUZnq5Wdh6L1jS75gnhJKbY2ts1RgxNxADAHrTh2HPp1S7gKEQM3GIXcjRcD/Qdgb2dknDNBt
-	/RLoX3aJmRWNsknvXM3A==;
+	List-Owner; bh=NroVyyxJGO4xqlgFR/9iInoSCjFz3vRt098ucF+MwkM=; b=1inXMeeyawRB5F
+	vDDUaPYI+fbEYUdKD4q+0EeUDgHTk3nV53DqYQD8bUDMSHitqI6SM4cvv90jZEP/zASQEKvHwhDOh
+	p2NkPP4LL/+lWYHIWKT/gYWs2kxuPyZdMZr1/rP7Yo8fs7vdN13Tx39+bBFU6vr7TeFSMLEW8Dx1C
+	2rqXiiqDkSAooIlvW+ieZSR7GfWacaGon3P0/0NwAO92on00xkAMqPoucFkYdyWUx1/a94IU3u4iE
+	WFWgDS45OX/ZdqTTLnOg6TL9Y0TVzN8NO3an5b5vqYZ+LLsXvOEmybT+OR8/rCB6ot1VQmelWMrgD
+	IMPmVL/R5gRTPy8PR4kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp0oI-00000003Mis-0d5g;
-	Tue, 26 Mar 2024 07:01:26 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1rp1ID-00000003RlP-2ijl;
+	Tue, 26 Mar 2024 07:32:21 +0000
+Received: from mx0a-00230701.pphosted.com ([148.163.156.19])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp0oF-00000003Mh9-2XS9
+	id 1rp1IA-00000003RjL-2Zpo
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 07:01:24 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a46cd9e7fcaso609565966b.1
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 00:01:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1711436481; x=1712041281; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=nG4I7sL9td2jNIUZM1b4vCjHaKrhTkrvxk5qoWU/Idg=;
-        b=meBv8ZarBW1S2Chb4/9avqYi9svaaRHWl2Czbo+9InMidU3nOZYwvc5qP/PAz+iE74
-         S7bTIsiWTY1nYR4Nzeo2JvIeSS1iHd4lqcQEKRJI673A9d3ar02HD23K1AwVH5ofA5uv
-         q1uNsWCN4FvFzz3WA3HIMbveNI/ijj7fihwIrWgRYnLA73JsSMPY7rgnU8tw8paOVDHq
-         FvEJfVdLXPwrQxPVs3Rp5626AW5VkzIvqARnSoW8E2dGHoWfWCZoHdRL3mQiuoC7cIqz
-         SA3as2GJJQrmNp8uJ2/AVHLr5NpbnHQgRnjfIbTVk+WK2n7wstschl94IJNvojSkMUsP
-         mIdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711436481; x=1712041281;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nG4I7sL9td2jNIUZM1b4vCjHaKrhTkrvxk5qoWU/Idg=;
-        b=Wn09k4heYnk4PBstZSvO60Rg94g2Wm7YXoJBNhlmt4bM/b9zhMTM6m+y7lLSSAtlyO
-         t86v+S6uLHQGwCSiTNCXnb4wH6czlIJtQCNaytlLLYATvPMHV2I+Ra6YFE2R3n6SR/l4
-         UsEIl3RXJsElZ4qm4/8xl5+QoY0ldOteHSgg9j5QneyUHsCgo/2pXr2N9ubT/avqcXqC
-         KMr08t0O8aqjMd3aak1LO1TtmLWBiPm8GWHpJ7Mxw0BZGxZtZtbFcOLmJGxQ403pFWM/
-         fl61LWkp2ee+PYEt2+fUlxjvYXLkm/F9L3bn9w0CIvCoatgEuMsERvDv4mKhkeKnD5ug
-         Ny8A==
-X-Forwarded-Encrypted: i=1; AJvYcCV//T3ssIssrRewQluAQx10L++/MSuhVPHRsiVjAQDLHmpxBIeHu9YOkha5DG9OpnbMOo3BZnBLHoX1muYPBSOrq3E+xRMuMDsilHcJlSvR
-X-Gm-Message-State: AOJu0YzddGGQaTIgD2VCp2oB4i391JPPS87e3nix68a0EGM/IS2NE0Mj
-	sVDQtGE8Yi25iuxdJxi67O1s/x8yu00812wb943y0dMqC5MSIN7/t4EEdVUOG6o=
-X-Google-Smtp-Source: AGHT+IE8RknrDfvhgcqWWt7MA90Qn+duT7+xgjDCbqjb+VLfqRE9jLgDi5k239bfumDcSYXqrK0QhQ==
-X-Received: by 2002:a17:906:af06:b0:a44:b9e0:8592 with SMTP id lx6-20020a170906af0600b00a44b9e08592mr6922236ejb.8.1711436480613;
-        Tue, 26 Mar 2024 00:01:20 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.222.44])
-        by smtp.gmail.com with ESMTPSA id q8-20020a170906388800b00a4729f093ecsm3860919ejd.53.2024.03.26.00.01.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Mar 2024 00:01:20 -0700 (PDT)
-Message-ID: <ec122998-8dfb-4790-8b12-a80b8e7a639c@linaro.org>
-Date: Tue, 26 Mar 2024 08:01:18 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: usb: dwc2: Add support for Sophgo
- CV18XX/SG200X series SoC
+	Tue, 26 Mar 2024 07:32:19 +0000
+Received: from pps.filterd (m0297266.ppops.net [127.0.0.1])
+	by mx0a-00230701.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 42Q7L3KN013841;
+	Tue, 26 Mar 2024 00:31:55 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
+	from:to:cc:subject:date:message-id:references:in-reply-to
+	:content-type:content-id:content-transfer-encoding:mime-version;
+	 s=pfptdkimsnps; bh=2V5QJPxZyZeCPYTwPsHmnV2OrY+5edDwuhyRa51bNFM=; b=
+	L+dQx1urnE5qy2x5g2pb5+EPP3/b3udsJwZw63iHlHqsOJYsWD2QYfU7zZ3FyiLw
+	EOy5mRjj8K9c9NsFP4COaTVTIUQXiXHnJMdZnIZ3m4elsoEuJxR1VQuTDLOXeSly
+	LRr36/BF2CkEMN2NpOkz4+9AlA2bhgOXHXsn9/624FGaT/oxoXcC+KAWSefxNwRJ
+	rXz+x4xbaEMa+LQIWbThYAbO829CO86B5GmJMi+vDYuPq5rxKjTOqV920hjOaMWT
+	lP+ETDIDeqUmRWHaK6ud51+zjpvK/HQEIu8RcleXBFBXkl4kSx9gAudu4aId9JIi
+	KKJ465GtMwLV2fWKRzVMBg==
+Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.87.133])
+	by mx0a-00230701.pphosted.com (PPS) with ESMTPS id 3x3b6fv9b5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 26 Mar 2024 00:31:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
+	t=1711438314; bh=2V5QJPxZyZeCPYTwPsHmnV2OrY+5edDwuhyRa51bNFM=;
+	h=From:To:CC:Subject:Date:References:In-Reply-To:From;
+	b=jtpi3bgwrV9Z7ZC24wVI7/Lp82W2PIKOLnhIL6gxZt1H7scrtJBB4htSBIbnpo0zK
+	 OJlW6o8UTMk5QEVB6v8icMms4wSc1qISVd55SS/x8frWpLHLaMu9tLGXqV17QIDUFd
+	 90CP30ry1BUTewzeg7umwWyyxS5Pxk+RnjTwkSAd9kdy4QR48z4yO30F1DEmHIvUHU
+	 g0KGzCBuSjqi5nJLNFZKNwiLrPn/WxnPNd8mtFV401QRcYmRvd97zxaMXdDEg1P4Ia
+	 ncx81O9mMp8KLkJwqe9AcabIBJhmvCDOzXhH9F4whJJJCSeutbWplOHpfKvV/MlgZ0
+	 f2VC5MOQQJMCA==
+Received: from mailhost.synopsys.com (badc-mailhost4.synopsys.com [10.192.0.82])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits))
+	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
+	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 294E34035A;
+	Tue, 26 Mar 2024 07:31:52 +0000 (UTC)
+Received: from o365relay-in.synopsys.com (sv2-o365relay3.synopsys.com [10.202.1.139])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(Client CN "o365relay-in.synopsys.com", Issuer "Entrust Certification Authority - L1K" (verified OK))
+	by mailhost.synopsys.com (Postfix) with ESMTPS id 56584A005E;
+	Tue, 26 Mar 2024 07:31:50 +0000 (UTC)
+Authentication-Results: o365relay-in.synopsys.com; dmarc=pass (p=reject dis=none) header.from=synopsys.com
+Authentication-Results: o365relay-in.synopsys.com; spf=pass smtp.mailfrom=synopsys.com
+Authentication-Results: o365relay-in.synopsys.com;
+	dkim=pass (1024-bit key; unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=REdjois9;
+	dkim-atps=neutral
+Received: from NAM12-DM6-obe.outbound.protection.outlook.com (mail-dm6nam12lp2168.outbound.protection.outlook.com [104.47.59.168])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client CN "mail.protection.outlook.com", Issuer "DigiCert Cloud Services CA-1" (verified OK))
+	by o365relay-in.synopsys.com (Postfix) with ESMTPS id 9CD8F40347;
+	Tue, 26 Mar 2024 07:31:48 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=jo9tL2duy73UKt6dYL1DjrDrGnEiL1hdkUPeIXRHTDs2B1e3YokcvERPnGGmQ7OMMrI+XAfJUeX7d/dqmyRiFBuIoDFobnR+6/IXVS+ROMP7NqzkOxAA0x8+aJpog6xRCEy7+HRqDsvjEQEYYgOEDe2G0Tj8OkMrO406g7N6jp8PRlxEQCmBT4b52BwIL1vQhrIRHxt2Sy1cmgPjWRD0WHb9bY4QBGAarqgHYMed8AI0aBtWJc7TewK5UIEzhpUbHDDtoHIDLUyswTKCvKIEHivzsyyV4kgdo7g6N/+zVYZTn6GcgAg0CEj8zzqfZhRotaQBO2nZa/7zGPBmAC5amQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2V5QJPxZyZeCPYTwPsHmnV2OrY+5edDwuhyRa51bNFM=;
+ b=iOMAM/0YwBaikVZMlHIsEwjCwARMDrPAeqazFiwZkNXkGhZeHDN5yjn0APnpu5YjtdAvQvRwMi9USNfXzDcsL5G4X7jXe9Z2+I9b8oSAl+ZqtfhlFTaaqMnVsZrmA5RUFdpE6tBsobQorVEsFolyKDTx8KcQrVOKH/d7zUQT7wL/5CD8GcT0pFst/q4d3aMCd+ZDHkSMKHqe4WOfRAKMttlCIF3qGTwvkAwB0d4PkqSOG/PLOHT6QyLv1K2Qdt0FqSXH4dhkXt3x28YGIB9L1r7LZAzEk/C1/T5VOaXQx2Oxob74Vk6uOEYwQEnyjBI1COZUXLKGOc3KHWnGIOnlWQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=synopsys.com; dmarc=pass action=none header.from=synopsys.com;
+ dkim=pass header.d=synopsys.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2V5QJPxZyZeCPYTwPsHmnV2OrY+5edDwuhyRa51bNFM=;
+ b=REdjois9+eJ3piCHlZ2dZnmLyaEYqUiVU0h7YoE/3d7SY4w7OCof21QVolr1DPjUlEYtSOxxuTDw1Fxyl2G1tW4Sn1qh4uDix2W8RFPEXOkZIxmcbxrgY/hdSG4PwoEaDxtfU1rkwholGNTlXRGN49VNY8rNqKJh+BC9wg57Vzo=
+Received: from PH7PR12MB8796.namprd12.prod.outlook.com (2603:10b6:510:272::22)
+ by PH0PR12MB8007.namprd12.prod.outlook.com (2603:10b6:510:28e::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.26; Tue, 26 Mar
+ 2024 07:31:45 +0000
+Received: from PH7PR12MB8796.namprd12.prod.outlook.com
+ ([fe80::2c3d:b3d4:f995:915b]) by PH7PR12MB8796.namprd12.prod.outlook.com
+ ([fe80::2c3d:b3d4:f995:915b%6]) with mapi id 15.20.7409.031; Tue, 26 Mar 2024
+ 07:31:45 +0000
+X-SNPS-Relay: synopsys.com
+From: Minas Harutyunyan <Minas.Harutyunyan@synopsys.com>
 To: Inochi Amaoto <inochiama@outlook.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Minas Harutyunyan <hminas@synopsys.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Chen Wang <unicorn_wang@outlook.com>, Liu Gui <kenneth.liu@sophgo.com>,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Rob Herring <robh+dt@kernel.org>,
+        Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Minas Harutyunyan <Minas.Harutyunyan@synopsys.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+CC: Chen Wang <unicorn_wang@outlook.com>, Liu Gui <kenneth.liu@sophgo.com>,
+        "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 2/2] usb: dwc2: add support for Sophgo CV18XX/SG200X
+ series SoC
+Thread-Topic: [PATCH 2/2] usb: dwc2: add support for Sophgo CV18XX/SG200X
+ series SoC
+Thread-Index: AQHafyaT4XOMslNBHE2JhrZVkFDqvrFJoQAA
+Date: Tue, 26 Mar 2024 07:31:45 +0000
+Message-ID: <676b59ee-cf7f-03a6-78a1-197cf5a66ec6@synopsys.com>
 References: <IA1PR20MB49537ED844CEBF19880326CEBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB49530A43A81CF4B809DBC2F8BB352@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953EE73DD36D5FFC81D90EDBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
+In-Reply-To: <IA1PR20MB4953EE73DD36D5FFC81D90EDBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <IA1PR20MB49530A43A81CF4B809DBC2F8BB352@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PH7PR12MB8796:EE_|PH0PR12MB8007:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 9jv478c7X0o6s49I/cmiaPo4mIMBC0rol8BapcNPP5st07ducLFA0VCjf2Vx+yKNd1xYHM7wgouaDEXHV87xU/QSl6wTzleMeGsWl/je3Bl20dUisP0YaLIWhsSer1cj1WPtyrxl3yT1r58+LWMytr4gjXZLwvlmFEHkcZ7xzuG58oU6zYuiJTevX1v+1aSeXSbH1bhK2h9RPKuKEzr9ctaeB8/MaStJfdhStjsij8BfxTG4Cm7FNzMYb6BJ0+Bp7FZPBceEk8N/y5JFoc8V2Ej0Or+KW2BLn/VsXjR8CulYGwAe35WhzbEkeLZQcyBnlE7W3mxrPhS7EG1VBjDlwX5f407c+6kPxfq/anwaEsKyRT5+Y9gxTwfDdq6CJVtE+8RjKDgPrCNDokvk8STua7ZNo9wBm1kfVjACeKeJKcYN5LK4hSEOUHK5U930JhbiQ+ZTaJJu+deDDCoM2adZg83FB2CeeKe4YtBjrv7cTpYsIUOptZB3XeIwz772a714MGQifH88LwSlEZ9Gnw6m3yyeFs8V9TV7gcDD8ocRE9o9lvND0uKtziRjOP5Sm/bD9F0EQU/GpczuhvaNdwyzMHkETJR4nvtSdhw/a6X77ByvoOtsl4HQjo2QNeBUjtS7wbxLyCNtvdxVlzEWfymvjAcR7g+fsarVznOIf9qPAQs=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB8796.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(376005)(7416005)(1800799015)(366007);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?U0pzMEdyNk15UHpJVFNSeWFrWHk5ZHNFcWlKK2ZVb0llWlgveFlBVjIxQmM3?=
+ =?utf-8?B?ZHA3ZzYrSGdqZDc2TWFHeWtWZndsTWlPcytZTWh4SjBLK0VRY0hCc0gxTHhw?=
+ =?utf-8?B?S0JiNDB0dlNoWllWMUVRZ01FTTc1VjBNd0lPUXZVYndQV1luVVpQRDdaM2ZN?=
+ =?utf-8?B?UjZYelZvQnhKM1pHQTdwakloTCtjS1BRLzgyNThqa2c2M2VQZjFyWEVMczNG?=
+ =?utf-8?B?TGNaaEo0KzF3MDAybDZNUUsweXVVbjF5bzZxV2t1MDF2Y3NTazZ0ZXhaSHpK?=
+ =?utf-8?B?N0M2NHB4cWVhZGlIYTdXY3ppZStqdHRvMGdvaXBmN1JDNG8xVzY4QUtvY01a?=
+ =?utf-8?B?TGx0UFlrWlN3d0xEMVY3emdiWGVJL0NrWk9yekgybVMwVVY3UGwyRDBla0pp?=
+ =?utf-8?B?S2M1Njdkck1nLzQzVFJWRXdyemhMVVMvMzg4aVRPTWpjZlIwalJiUlRzak5P?=
+ =?utf-8?B?V2IyTTdaejlHc1l0VVZIcXZ4Rk1kRnRROU5BRzZUV3gzZlBGZWRpcFBRVmRO?=
+ =?utf-8?B?YmpHRG5jU1dmd3dBSUxSeGlOSFZaM0loSTFKbGYreDYzOVJoOTdMeDMxbEla?=
+ =?utf-8?B?N1ZqekJuRUdRTE9VcUhaN01jZFYzUTM1STFSaDA5WHQ2VlpPMjc4Y1Zlb2ZD?=
+ =?utf-8?B?K3Byd2s1eGdnSlR6V3V3eHpzR3RnVDJIOHZma09zM1JTWHM3OWxXZlcybGxR?=
+ =?utf-8?B?YWJpdERNNEVuamJocXhPNTQ3Y0Z4ekJSemc2NUFPbHFuOVlhQzdnTWFzcmMw?=
+ =?utf-8?B?NDE5QzlOejJOck1rcWkvczJiVHF2eFRjL3BjdzQyUTdhOVVXbTNzTnZmVzFR?=
+ =?utf-8?B?bWV4TFUwYnVQMGxZN3JQZXRHTjZXWUhIaWxvcmhReG8reHRpL2VnbHpPYUkz?=
+ =?utf-8?B?K0lxdDQ3ZCszVzdYSVJkUnhnMi9VMUUwRzRSZmNDdGczTmIxcEs4ZHdPYjlr?=
+ =?utf-8?B?eUR1WVlpcFJGQkptVFIybHVPaWdSemtMdlZvRnNvdmxMRXI4WjJiYjIrNTkx?=
+ =?utf-8?B?TStoeG9rc3U0U1EyVVY2dHgySlM4VERtbnZkMG5uVUtPeFlTSzBkdkFzMUFS?=
+ =?utf-8?B?MWV6NEdXTkNwNWpIMzNiNnQvM2lpaFpLbThFdy95OVFsdHlKSW1IdzhkTkxU?=
+ =?utf-8?B?dFVBWEF6QUR5SDBpaENkdnNZc1pqUitkeXVBNmt3YWs3Q0FOZFlZdmZReUZ3?=
+ =?utf-8?B?c2g5amoxYkpKd3Y0a3pTTHN1V21HVGI1UXFJWWhDSUh5bkIwVlZNMWozdGNs?=
+ =?utf-8?B?Qk90ZmtBdHd0U29tSmRvY0dkMUNtNmNhRW1kc1VWejhJSS9uSTROWVRmcjFL?=
+ =?utf-8?B?NWJQRVdLc2tPa1dJaEtOSEMwWjlEd25xbW5OL0JZRWJ4V2UwWHJSdUl4TG0r?=
+ =?utf-8?B?c2IrUWdzbE1VWXhWdDBOT1JnVGVKVHp5Ry92aE03b1dqamZkTTJBRFc3emE3?=
+ =?utf-8?B?Q2FQOW1rLzc1cTZReDg1cUk5RW45bVlJL3piMVpjNE9iaXBOQzNORmY3NDYw?=
+ =?utf-8?B?UGhZRnU4OGxBWGtDcmtqM0NmQm5zNC90ZzZQeFEzWlZSWnFnaUQ0U0JxbHpz?=
+ =?utf-8?B?RUl5RmpYbHhCVTVBMDRzYkk2ajk0TWZzS0piN2tBanJ1cE13SHJwdTNoanlp?=
+ =?utf-8?B?cnVVV2VmVzluMk5ySlZJcTYrVkhZVG5jajJTc0N0KysrZTFYVEtFR0lrYTkr?=
+ =?utf-8?B?OG9USTUwOG55V05nSnplNk1CSllST3ROaXRLTWxJN2hjbW8wSUtzUHVsWGxE?=
+ =?utf-8?B?c29lMGVZeHhBUTRlR2wyMmhQUzFycmM5eUxQSXVTY0VQWHZWeXgvaElVb1Nr?=
+ =?utf-8?B?WERhQXg5WWtpK04zK2crRUJxOUNZT29tWWR6bEJzYnRSRmF4YU10Yk85WWQ4?=
+ =?utf-8?B?NXBhenVSejV4U09NY28vaG4wNG14dFMxN1lmV2xaVXYrUDJ0NGpsYVpya3lx?=
+ =?utf-8?B?NEEzSStxWjBYYmZDd3F3QjIwemtGRUZlYkxrZnhYYllEOXRJcURpVFVwWG5y?=
+ =?utf-8?B?UDJKQ0NlVlRsNEhuT3JNVzhnZk80OUNuNE40elhSWE13Z0hxWFAyV3JlbzNw?=
+ =?utf-8?B?WStTVmttMG8vUmdERCswWXJ0bURGM3laU2ZZdldOYi9rTGR4WnBsWjlhTnRw?=
+ =?utf-8?Q?vGBE9lwvCy1oy3HIdS7G8zmKj?=
+Content-ID: <C9F2545051AD494A9FC09ADEE57C1E0C@namprd12.prod.outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: E5ffJE6AV1p63gyd19Sz0LZnx3SEad5Qncp8YnJEfXEIqU4Q93H5xzWnhsy4yy1v7uXFpOEdsuNv74bvH8Zwm4GLEwDQ3A0T0L19XQoi+XTXnLPePeS1FLKsE6vz8AymZXTAjN4gfllEyBMucAZx11c+YyesUoTCEZdCl0Fb0rahFdIr4RywCdRxuhLl6ygw+cV+vfDFlperq+dGSVyXTK16XtePyhSYbMCVAOM3Ji5OBNZ0GRdR9D8He7aEyjnP0/gweO+HqKhx04IhsVV4y7AY0QtBvxBQMjnbVDuxGQfWEySGcJ9Ap8ErL448iDAxi3ObDp9eF1TCQhWpejT0/3doK0sLJ7oTwq7rJd6Zty11eUnGIS81x13+w8ZtQaOCtH4prGCW8kgzKW17Cu+1oRYo5po1frepn1uNeglxcEk+su4Rh6RObk980Il6PpXa0O4RQc8E3FVFa8twpr8r5y2fr6L5KNQC5uL/PO+8kHlCzdPeTyfwTbea6SQoaHA5QR1TrzCMvKXXrIw4rezzBIdhkS3hYbWWggoyDh9tGjEfH35qvdNbvi+SbpGbmC26KT+E8bLBeQzDWq4X9rBpl6/Gxd3BuB60AZtVhNeLtFuecmJuXyQDAZnU1JEfCx/f5UdL4pw5aaaLUnz5ioTkMg==
+X-OriginatorOrg: synopsys.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB8796.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: be2ddb9f-c3ea-44c8-93a7-08dc4d66ca5b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Mar 2024 07:31:45.6693
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: c33c9f88-1eb7-4099-9700-16013fd9e8aa
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: AQXd+sRqF3jcxZmx6mEp/P4QDM4ijf7y0M+02+fuTKpp2CaUpMdHdXacY1rPDitZTRFukqAoz1K1Fk/SxCwylQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8007
+X-Proofpoint-GUID: dwTKQYwTGnoQpvwtWVn_LojJ5I0GZiJT
+X-Proofpoint-ORIG-GUID: dwTKQYwTGnoQpvwtWVn_LojJ5I0GZiJT
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-03-26_04,2024-03-21_02,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam policy=outbound_active_cloned score=0
+ mlxscore=0 impostorscore=0 suspectscore=0 priorityscore=1501 spamscore=0
+ malwarescore=0 mlxlogscore=999 adultscore=0 phishscore=0
+ lowpriorityscore=0 clxscore=1011 bulkscore=0 classifier=spam adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2403210001
+ definitions=main-2403260050
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240326_000123_731737_14EC5E97 
-X-CRM114-Status: UNSURE (   6.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240326_003218_713358_ABB579C9 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,18 +219,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26/03/2024 03:37, Inochi Amaoto wrote:
-> Add compatible string for the DWC2 IP which is used by
-> Sophgo CV18XX/SG2000 series SoC.
+
+
+On 3/26/24 06:37, Inochi Amaoto wrote:
+> Add params for DWC2 IP in Sophgo CV18XX/SG200X series SoC.
 > 
 > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Minas Harutyunyan <hminas@synopsys.com>
 
-Best regards,
-Krzysztof
-
-
+> ---
+>   drivers/usb/dwc2/params.c | 21 +++++++++++++++++++++
+>   1 file changed, 21 insertions(+)
+> 
+> diff --git a/drivers/usb/dwc2/params.c b/drivers/usb/dwc2/params.c
+> index eb677c3cfd0b..171fcb34eb75 100644
+> --- a/drivers/usb/dwc2/params.c
+> +++ b/drivers/usb/dwc2/params.c
+> @@ -201,6 +201,25 @@ static void dwc2_set_amcc_params(struct dwc2_hsotg *hsotg)
+>   	p->ahbcfg = GAHBCFG_HBSTLEN_INCR16 << GAHBCFG_HBSTLEN_SHIFT;
+>   }
+> 
+> +static void dwc2_set_cv1800_params(struct dwc2_hsotg *hsotg)
+> +{
+> +	struct dwc2_core_params *p = &hsotg->params;
+> +
+> +	p->otg_caps.hnp_support = false;
+> +	p->otg_caps.srp_support = false;
+> +	p->host_dma = false;
+> +	p->g_dma = false;
+> +	p->speed = DWC2_SPEED_PARAM_HIGH;
+> +	p->phy_type = DWC2_PHY_TYPE_PARAM_UTMI;
+> +	p->phy_utmi_width = 16;
+> +	p->ahbcfg = GAHBCFG_HBSTLEN_INCR16 << GAHBCFG_HBSTLEN_SHIFT;
+> +	p->lpm = false;
+> +	p->lpm_clock_gating = false;
+> +	p->besl = false;
+> +	p->hird_threshold_en = false;
+> +	p->power_down = DWC2_POWER_DOWN_PARAM_NONE;
+> +}
+> +
+>   static void dwc2_set_stm32f4x9_fsotg_params(struct dwc2_hsotg *hsotg)
+>   {
+>   	struct dwc2_core_params *p = &hsotg->params;
+> @@ -295,6 +314,8 @@ const struct of_device_id dwc2_of_match_table[] = {
+>   	  .data = dwc2_set_amlogic_a1_params },
+>   	{ .compatible = "amcc,dwc-otg", .data = dwc2_set_amcc_params },
+>   	{ .compatible = "apm,apm82181-dwc-otg", .data = dwc2_set_amcc_params },
+> +	{ .compatible = "sophgo,cv1800-usb",
+> +	  .data = dwc2_set_cv1800_params },
+>   	{ .compatible = "st,stm32f4x9-fsotg",
+>   	  .data = dwc2_set_stm32f4x9_fsotg_params },
+>   	{ .compatible = "st,stm32f4x9-hsotg" },
+> --
+> 2.44.0
+> 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
