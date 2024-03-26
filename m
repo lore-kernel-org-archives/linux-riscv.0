@@ -4,88 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C82C54E67
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 15:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CCD4C54E67
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 16:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=3w4vmKA0jxIm5uZRfrdip2/083Q2Rc9Th5YN+Pc3XXM=; b=fk2
-	NmHQZO2C7Gvga2S8Djk60yaLHQ9uLbPA/tEFcFPYf5eo/gBn5GLTmT3lwCDCXsyvN3yk/cLLo/AYK
-	BUD+KgP1q783z+DXvBruCdN5BnVz8jveTEDsX5gMRpWIRB3yEbRLaWfPWJscNU3wLaF5tg0PS8pI5
-	mQHQreDrPfpE9qjXBTYDkt+jCE+2yyAvKtsNFBWoU2Lq2nGiie/83tAiFrZVqFmsgrAB/xW5IRD5l
-	sVcR6cMT+N06NtpoZiy1t9t5nkSp6s28+Hb3kMjvdO8PxENb9sV9EN9wyQf8jckFLiaU+lR+Q6W5p
-	JHLdndP3o0stxxb2P97u7ap/oUoIOnw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hWdoRPVFhXziAjO8P6n933MxBqJaq57kPBH57q9gQSc=; b=xBgmxJ50fuGhtb
+	Zy00T7L7zqH0oY+ve1k17sBOYPlv1Alhp62rAo6myMNxogq/LFLAkmZDnQY9IA0fJaxeyDZ7K2srD
+	0QIKa27GUoafWFxmeJqUcmB0Ni07UB/jPw4lMvK1tRzjI7n7RgUvdGSgtPtjBqfyiMbstCuQ4sBHK
+	EpldvPMUowD0fQMDmb4KdZlr5tBzPMDpEIWye87po6yF+83m8WCZqLX70M2PJ/nE5gNfBy6xwy8GB
+	7Rx/VM92fn7HiQY6AHKVoXC23iNKOGw9ucwA055RqOj4sbWnaDTgcdGycUsAXkYqploukOM/Ee/rU
+	+oE1aGVuS9tOGcGQ0PXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp8sC-00000005EHd-1hg5;
-	Tue, 26 Mar 2024 15:38:00 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1rp9Ff-00000005MoX-0H4o;
+	Tue, 26 Mar 2024 16:02:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp8rZ-00000005Dfd-2yrp
+	id 1rp87w-00000004zjt-0oJm
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 26 Mar 2024 14:50:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=DAJ/JhQqyI3HCNKdlfe0abeACZojSWtUG0yZq7UPSYc=; b=QX1XAm+leeEO0mo5VajHLOlwow
+	PXxtxwFo2bqpNWyhMre+XWCf2xPp7CpJDzhGZ0Tbf/4T6bVNt992BD2UxBZbZKzoujHpm7q0zWRD6
+	GbgzPgjDau00jywr01s+mBx0C7JKLVFzUBpc1ySbkBrDi36qxu8dOnKd4n+5P54wrKxNkr9ojEozH
+	NqnLzCJw0tVnZlhTkbxAWlH1Cj9Gtz+MmUoBcoh/j4ZdUABpB/793BV+UMQH9L8ljI/VkF2MGkqMc
+	f3NJHs5LqrFlCWmi7WchDrNEWlVVbo66UTT1liw3SXECfEKlrHYYJ6Dk6lNudpvF8iW1YkW+K7b6R
+	ooxUyxIQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rp87s-0000000HFBN-3E24
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 15:37:24 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-607838c0800so69276437b3.1
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 08:37:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1711467436; x=1712072236; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=BMvO/gDA6wsc5/QrzpIMGz8r1v8np9pO9kTN8mjpmmc=;
-        b=eJnMsT/lTy1tmojNiaNsgIHqp3jGVCzQ/GxoszHrcvRFr73h8asWVin0troDHXDgrM
-         XsJCfa2MYgTfEgJTzNSAzGE2UXm3dfZEE2Soe0WUDUnv7pEGbifAd6Wz5uAbSRlDoIi+
-         rb0MYVzGEDWNgxzLoS8zYa5QN/7LCbS1oMk1xcQ4QBC0evW+9O9HExu0MboW5M/EweZG
-         N7hxkRs+h/rCMHV3v9F7lzF66bIlHafj3RHeDJD4WucMsHv2zHhqFLZJ1on1iKt6AtEw
-         AuAJl23I+ALw2OgUQUT4QQ9vTIKrqajB/5pnyMpwaN/zeijxqQNSj4D12LrR8wmQmOMF
-         629A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711467436; x=1712072236;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BMvO/gDA6wsc5/QrzpIMGz8r1v8np9pO9kTN8mjpmmc=;
-        b=GP4A/4IMhY5nvEhHMdxpybBzNveX58tzyIOkFfnNdk1IhiXsHflq91sXHC9q+A1AE5
-         eBB9Bav/cEL1J6Q2WqH1W3aVieNL7AVby/uDPtZiY0HnXzUPjoLwHW5903uwOi0OBKAS
-         nno534thBVY3fI162h9hPKp/ODJynH5lIByC5iw9KxFOZD6pLk6V7899tDtGO7cyesx8
-         tJl4UQW5Bb/WjbvgfcS7wb0pTB1wjbXhiVJfW1lmWgTseCOM/k3UGUvwId2Xw4HAWUn8
-         P+/cDHYHGfvyNVmmQHE5qoUCrIxQtn8L9bGW7E1ufJF0A9vdUfcLorwrQp+BlzXrNs8H
-         3I/g==
-X-Forwarded-Encrypted: i=1; AJvYcCXT7sVUTnsNc4MpY8Er8/eO6o9foaAQLaiYnRMbinarXdTNOM6t+i8bq8Dp5H3Z1Ie1HBJsB38qSr2wDzIoWckQyBblJr5/AeA46epdzDUo
-X-Gm-Message-State: AOJu0YwA4aJYrcIaQ5OTSxHv3ppTUMHnlG3ZQjQdK6ArK8qjXOKp8u/X
-	rLGewO5iDivu+2ab1YRwSpOwtefLoW0kp85JRefS6jemzF9gSUhy7pCRIGQM5XTp9oANgnOE7pB
-	RXm8V11294bdgy7oNusEpikVyzw==
-X-Google-Smtp-Source: AGHT+IEtAbrfT0KePjTSZM1C/n453rH7UBsGCdgk9CYCpbgWc5d2/+acGD9f2ceoAz0WcEi0b/jf/PyVJ9b+Z7F1JRs=
-X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
- (user=samitolvanen job=sendgmr) by 2002:a81:f10c:0:b0:60a:1844:74ef with SMTP
- id h12-20020a81f10c000000b0060a184474efmr351393ywm.1.1711467435797; Tue, 26
- Mar 2024 08:37:15 -0700 (PDT)
-Date: Tue, 26 Mar 2024 15:37:13 +0000
-Mime-Version: 1.0
-X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2790; i=samitolvanen@google.com;
- h=from:subject; bh=lP5dS6Tq+FiqxKpTrDMAZkxw9jBHYyu9IhEQCNtnP0M=;
- b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBmAuuoWZIuWrE47I8B1b5TKFB+Qw8KjT+kih/KH
- WHMg9Yk0QmJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZgLrqAAKCRBMtfaEi7xW
- 7ufGC/9qxcoSs09RThvb6flQlJcD7unRQHlOjzVZnI0+k7IpZsx+Qp+lQQ7b9jXAKWtV0jW2CAU
- 9qJ9Vcp7kM/YgrwWARkIImRpSz0oVBGPHwBPGlNv+gOHsGJiIEzT5PfwOBOQZ6+iFkIVrmcU+qV
- pzbIsGIH5AljMJExPewedP4DT8Q7MY2rGE4ty+mwF2fztac+Ir7zOF2zM5HoPlN2RW+zG0FGjl+
- bhi6cJQWnZ7b2zna7Ya8yAEnhqYIxby/AuhuCZYMcrajA/GrpHR4AYMYjoNiW6T8hG2oBSg1DMK
- mCIz2odn4rCrRrwGMaSOOGSDHufTvQDJiCwrynP1aBU+rtWYdimt/+rEiKSEEaaL1RPSTFOPXG3
- EAjsgQls7qrb6Shyu7ZX2zoxeGTFkRcQdFe0aNBWMeUOPw74ZJxGLnMps3YWo1DLQMes6eW39fh oxbbqx/2PvPAFL6HaHT87bJDNA0sS88ZWTCEFibxu5bZhNsG5fdqEv1kEkOKLAWPHOyTM=
-X-Mailer: git-send-email 2.44.0.396.g6e790dbe36-goog
-Message-ID: <20240326153712.1839482-2-samitolvanen@google.com>
-Subject: [PATCH] riscv: Mark __se_sys_* functions __used
-From: Sami Tolvanen <samitolvanen@google.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Kees Cook <keescook@chromium.org>, linux-riscv@lists.infradead.org, 
-	llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Sami Tolvanen <samitolvanen@google.com>, Linux Kernel Functional Testing <lkft@linaro.org>
+	Tue, 26 Mar 2024 14:50:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8BBA1339;
+	Tue, 26 Mar 2024 07:50:36 -0700 (PDT)
+Received: from FVFF77S0Q05N.cambridge.arm.com (FVFF77S0Q05N.cambridge.arm.com [10.1.35.184])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C25E3F694;
+	Tue, 26 Mar 2024 07:50:00 -0700 (PDT)
+Date: Tue, 26 Mar 2024 14:49:57 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: David Laight <David.Laight@aculab.com>
+Cc: 'Arnd Bergmann' <arnd@arndb.de>, Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Charlie Jenkins <charlie@rivosinc.com>, guoren <guoren@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Xiao W Wang <xiao.w.wang@intel.com>, Yangyu Chen <cyy@cyyself.name>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
+Message-ID: <ZgLglSl94dnWIoqX@FVFF77S0Q05N.cambridge.arm.com>
+References: <CAHVXubjLWZkjSapnsWJzimWg_2swEy7tQ-DQ6ri8yMk8-Qsc-A@mail.gmail.com>
+ <88de4a1a-047e-4be9-b5b0-3e53434dc022@sifive.com>
+ <b5624bba-9917-421b-8ef0-4515d442f80b@ghiti.fr>
+ <f786e02245424e02b38f55ae6b29d14a@AcuMS.aculab.com>
+ <d323eb10-c79b-49cb-94db-9b135e6fd280@ghiti.fr>
+ <ZgGosOiW6mTeSnTL@FVFF77S0Q05N>
+ <eeccbc9f-7544-42c9-964f-2b4c924c2b2f@app.fastmail.com>
+ <ZgHCpgHh1ypSyrtv@FVFF77S0Q05N>
+ <95eb125d-dd54-42f1-b080-938faca6a8a1@app.fastmail.com>
+ <882fc86da89f4adb81570cde3a653e6f@AcuMS.aculab.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <882fc86da89f4adb81570cde3a653e6f@AcuMS.aculab.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240326_083722_520203_0889613C 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240326_145009_059768_F29CFAB8 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,59 +100,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Clang doesn't think ___se_sys_* functions used even though they are
-aliased to __se_sys_*, resulting in -Wunused-function warnings when
-building rv32. For example:
+On Tue, Mar 26, 2024 at 10:19:28AM +0000, David Laight wrote:
+> From: Arnd Bergmann
+> > Sent: 25 March 2024 20:38
+> > 
+> > On Mon, Mar 25, 2024, at 19:30, Mark Rutland wrote:
+> > > On Mon, Mar 25, 2024 at 07:02:13PM +0100, Arnd Bergmann wrote:
+> > >> On Mon, Mar 25, 2024, at 17:39, Mark Rutland wrote:
+> > >
+> > >> If an architecture ignores all the top bits of a virtual address,
+> > >> the largest TASK_SIZE would be higher than the smallest (positive,
+> > >> unsigned) PAGE_OFFSET, so you need TASK_SIZE_MAX to be dynamic.
+> > >
+> > > Agreed, but do we even support such architectures within Linux?
+> > 
+> > Apparently not.
+> > 
+> > On 32-bit architectures, you often have TASK_SIZE==PAGE_OFFSET,
+> > but not on 64-bit -- either the top few bits in PAGE_OFFSET are
+> > always ones, or the user and kernel page tables are completely
+> > separate.
+> 
+> ISTR that arm64 uses (something like) bit 56 to select kernel
+> with the annoying 'feature' that the high bits can be ignored
+> just to complicate things.
 
-   mm/oom_kill.c:1195:1: warning: unused function '___se_sys_process_mrelease' [-Wunused-function]
-    1195 | SYSCALL_DEFINE2(process_mrelease, int, pidfd, unsigned int, flags)
-         | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/syscalls.h:221:36: note: expanded from macro 'SYSCALL_DEFINE2'
-     221 | #define SYSCALL_DEFINE2(name, ...) SYSCALL_DEFINEx(2, _##name, __VA_ARGS__)
-         |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/syscalls.h:231:2: note: expanded from macro 'SYSCALL_DEFINEx'
-     231 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/syscall_wrapper.h:81:2: note: expanded from macro '__SYSCALL_DEFINEx'
-      81 |         __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)                         \
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/syscall_wrapper.h:40:14: note: expanded from macro '__SYSCALL_SE_DEFINEx'
-      40 |         static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
-         |                     ^~~~~~~~~~~~~~~~~~~~
-   <scratch space>:30:1: note: expanded from here
-      30 | ___se_sys_process_mrelease
-         | ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 warning generated.
+Yes, bit 55.
 
-Mark the functions __used explicitly to fix the Clang warnings.
+We choose our TASK_SIZE_MAX to be below 2^55, so no kernel address will pass
+access_ok(), and we pre-mangle the TBI bits for userspace so they can't affect
+the check and fail unexpectedly.
 
-Fixes: a9ad73295cc1 ("riscv: Fix syscall wrapper for >word-size arguments")
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
----
- arch/riscv/include/asm/syscall_wrapper.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+So it doesn't actually matter -- leave that aspect to arch code.
 
-diff --git a/arch/riscv/include/asm/syscall_wrapper.h b/arch/riscv/include/asm/syscall_wrapper.h
-index 980094c2e976..ac80216549ff 100644
---- a/arch/riscv/include/asm/syscall_wrapper.h
-+++ b/arch/riscv/include/asm/syscall_wrapper.h
-@@ -36,7 +36,8 @@ asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *);
- 					ulong)						\
- 			__attribute__((alias(__stringify(___se_##prefix##name))));	\
- 	__diag_pop();									\
--	static long noinline ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__));	\
-+	static long noinline ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))	\
-+			__used;								\
- 	static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
- 
- #define SC_RISCV_REGS_TO_ARGS(x, ...) \
-
-base-commit: 4cece764965020c22cff7665b18a012006359095
--- 
-2.44.0.396.g6e790dbe36-goog
-
+Mark.
 
 _______________________________________________
 linux-riscv mailing list
