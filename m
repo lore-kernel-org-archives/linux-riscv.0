@@ -4,136 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56981C54E67
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 05:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6597C54E58
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 05:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6ER73Z7GOX5ZrvMedxwu1+Xex4ZSsSnYuc4TKjrX42k=; b=wVC5/sD/f1kZuj
-	/QjqPhSynEDcv56qakzMp3B4GlJZ3OqHl2fLmaGBbSuij0/vyDzsALmE0STzge+zSdWNwFmIcKH8b
-	P4vYYGUf1YcKnWIYPXMDJiDyws1aYKrJZirXR0FJWa5TTd/rgOga9jhzZtxWeVUJI2Rh3fl5gNvKT
-	wDIygQUPQ+DKxKQ/r9uGjnEiT0yfv0/DAU945euSXS+Yn+68HuWpOoSEWnCgJUCNQ3o9mN986toXy
-	yuKy5UjXpXX9t006RSAHm39LuxqZYRRygsN23+JtAM5zeYKFdvAvlpYhuKzlPJRrgi/m/JscHdPqd
-	tQAnXCpUic6TbFB1USfg==;
+	List-Owner; bh=tsJ13nVv1qlfZL78OR18BWPi9ZVteTAZmiqsf+fFuHU=; b=W7eXyz94pg9HfR
+	m/L83nfacu/JpRFD7Pnbr4dE/xs/fHabraMtfvo1E5SJ7Rp8kUqTvvUXnSbtYh4AOrdftCw9vjPfs
+	SHkuxlu/fSB7AN03eEs9Yf0ytpgQBUMtg2p/mvGgS3fojACkh0qlQlQ6oXSuUhwlqgIG/K/dIQoHp
+	vnOuPqeD+OuawSQ+ha0dFkk4BsWqswblryjRGyxiTXaNldZqSU7eym8DkTXwgHQsy98jNNTJu5ebJ
+	k0jYbkoVAs8IbU1UkbTYrwMxi2HrMod6ps15zE6RmGpsIxV6gnRFMTz0gvuGMQbo8I04jCdY4/G5G
+	cQOQmYIxlC//qvcOBfYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rozJh-000000038I2-3Bcm;
-	Tue, 26 Mar 2024 05:25:45 +0000
-Received: from mail-bjschn02on2071f.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::71f] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1rozl1-00000003BVK-3oOH;
+	Tue, 26 Mar 2024 05:53:59 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rozJS-000000038BJ-3dMc;
-	Tue, 26 Mar 2024 05:25:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=jwRzjKSYOaALOS3IkNMyNHK7HA/Bhho2C4Dkyqz3YPu8vm8Yxuu1KUXycEbBLHLMUUwmNNAqbNgfjYh4j8qeKsPZVnaCr3A3QCCHLDRE5E6DMyU/QIh+lqBF/TAU7NMbZ3++4vrEQQgVoOMusATqJEZaROSjQXp2zcplDrSXVZV5b0cgO9EZ2pjw/JcfTiOeOcd7+wPqTLM3s630uWK2yoFNf4yUL9wFHYVvvwEURsEQ2cx2i+zu4/3Q1Za6NL1/zUQnkQLbHq0UZkJXwCuvR1uNnm0clY39ymPGvxY+lvNBSzCcZJTtAsXnHmYSKTtkrnCUkvYN50pYF8s9fOOiFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P6mZgOjnFzZVrdG0UtJT/K3Amj51WZRg/lhQXzjrVI8=;
- b=FQfosByYNeXkeFekeK6z4XGN2gj/gFc2Bz+HObVoKHKl8zr0SPg7DB/9kfNKrVLEkZk6soff9SuC/nv3lX4mRpyVFgl4JRWJzxx1oOxkl3ByA6SV4Qb5xDW5RNwAbo8ytOHWoAa4RV5TrOJQiRR7VbaTTlBjaWvQI18i+KCsAWSG1TmQWpVoVBSZ1UvMJlUBuYuu/zuYc1sDcfU+6WX4LQQCT4QqmougAivGkg9ORTAOA35BH0dq1aqF18tLmvyr97xkxK+jtZPU1BKI14XYzrsOuMCG1i/4mWBp8kQmhfYKCPRnvdj+zqz4Zwe5z+mPbcOQYssG7KLaFyHPq7sWhQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:e::20) by BJSPR01MB0883.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:e::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.32; Tue, 26 Mar
- 2024 05:25:24 +0000
-Received: from BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
- ([fe80::d0cf:5e2e:fd40:4aef]) by
- BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn ([fe80::d0cf:5e2e:fd40:4aef%4])
- with mapi id 15.20.7409.031; Tue, 26 Mar 2024 05:25:24 +0000
-From: Tan Chun Hau <chunhau.tan@starfivetech.com>
-To: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Russell King <rmk+kernel@armlinux.org.uk>
-Cc: Ley Foon Tan <leyfoon.tan@starfivetech.com>,
-	Jee Heng Sia <jeeheng.sia@starfivetech.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 1/1] dt-bindings: net: starfive,jh7110-dwmac: Add StarFive JH8100 support
-Date: Mon, 25 Mar 2024 22:25:05 -0700
-Message-Id: <20240326052505.197408-2-chunhau.tan@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20240326052505.197408-1-chunhau.tan@starfivetech.com>
-References: <20240326052505.197408-1-chunhau.tan@starfivetech.com>
-X-ClientProxiedBy: ZQ0PR01CA0019.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:2::7) To BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:e::20)
+	id 1rozky-00000003BUp-3YLH
+	for linux-riscv@lists.infradead.org;
+	Tue, 26 Mar 2024 05:53:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 2307ACE1C97;
+	Tue, 26 Mar 2024 05:53:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C428C433C7;
+	Tue, 26 Mar 2024 05:53:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1711432432;
+	bh=p1h/3bDBMeEKRt9AkpnulPRNIkXpjpAoN4qqivDNeo4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ELTGzE3PynLd7uPVfz8E5W0K3gyQzaLC48bKjSGt4LH6a1TaQ32gglVChyRIr9cZV
+	 MGIBs/QmaL/2l6RWW6Ma+QaRex3qjpZfWpmOKLgQnUFod30tlNQizPVB563XxzArDd
+	 iSMuny8WI2Kp6ajUZl56OnraUYxIfPJ3DvEpUw0pYXx/KNh4p+G0ZlSxd9qCYVTiEN
+	 O34oOfWdPvqyGxOCw5j0tBBFFN7kJn5eU48vzRFIFVd+g3PTph5a676jx9dIFMWJRY
+	 jMnv/Wmk8ZWQvQflZ301Na7ELVcQXXvqTw5S9LtdUhF5tBJ8kG+wxQ8kYx+rBK1Afh
+	 yef08gMFu2/yQ==
+Message-ID: <4acb96b2-949d-4f08-99c6-08bb30ead928@kernel.org>
+Date: Tue, 26 Mar 2024 14:53:49 +0900
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BJSPR01MB0595:EE_|BJSPR01MB0883:EE_
-X-MS-Office365-Filtering-Correlation-Id: c6dacbda-229e-4087-830d-08dc4d552391
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: /BlYOt+2GCyEB8SU3pG0ZtSOFOuhCajAoa+ij2qqpU9IQqm0V9FK3BsVvlIae2D57JxqsnE5bORKM49joI0psvE7xDxjgE6kSyTwK0CcAqnMu/8U44e58AIDdCn4Ph83a0znre6jGB3VWFMq2KAHLsTG9zRuU2evpW4r7yTUCJ9Lmp9XSJWDiZKfjwoK+WWf7diGujTmBXblHHbExrlRBxbDW4k8VN1+9UdQayJzq1IqfQtRJZVxJFY927dTTJzuSGI+6UEZ7f5cbVU2M5uJiaDgxQl35XVRUZe1TOtZWJQwPxFj2OCS6dHiFs2V8N6BT6BY6F+uVZOvXSyM7AP+FBqdAareFEcYkv8jYhMX+ioTrVIkAyHS3eTVDyzUInt+QTV9YyIH0TvCDdrJvR+AwybzCrY0QI5k4M/fsQN85ew4ZFVlu3SsS/hoS804DnVyUXlOc61sZZVkFlXE9/m8hJGvTbMIekjhYKoO/9dczsJiZ22izrL8ej2EU1g+OfiZv/Kn9ufeCHGTbqKVvlMH/DGE0MNozTnBEmPJqQMQANPpikJ7MgehiVG6gIQk23rBqPw32Ijn50e3PDAxdYH/7iTnVtVFQzJZrxH6zQ62fW6A0S8VOjPjlGl4adUWAc46PwI5efBuDq1sbIHt5/2Now==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(41320700004)(7416005)(1800799015)(52116005)(366007)(38350700005)(921011);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?f+iR05w0GIludgpUEz1GsH1+/HncBFXNpLGyJm8t0fWS1UwjNb19K7KyuDRa?=
- =?us-ascii?Q?uIMTp1CMl4onzkN1yu7faDzSseAqbfInaBKYiL8nZ0wMEgfz01347AAizRi6?=
- =?us-ascii?Q?qZdlsMISbOcrDGjq/W221MBWTRAormuUNs3D5efXqijcqIWNkVZ702glruS4?=
- =?us-ascii?Q?CiRbYrIaVs1f2361x7XnNOHkwHbHrp3XnAXDP5/F2faY9eHkvpzeFwZAgCYc?=
- =?us-ascii?Q?B49fPZlYNWbKfgToiTcCOan1XqIqKE15rmvQUZhCziXBUxBc8SyZq/cxlobp?=
- =?us-ascii?Q?hHA+5PJ4Gmwpszi+nLBM3LjHcXgikrHlr826CE6w99dz8EGGdgk11ho7bqS9?=
- =?us-ascii?Q?oFw9q8A1GffNS0jEDHeIv/mMDULCcsFC/NtPkEWKuAdf9b2fAfK+vd3D+dGD?=
- =?us-ascii?Q?8NlzQvdleHS7WXNyh9nVmoLaLwjSvytXOWHnl5ICc6xD66edsZA/0ClLbL+1?=
- =?us-ascii?Q?YxNlIIkaxvmpb03Pj/uB68s3P/W0yDBZrHmuqqewzLrkUt7dzLmfkjqExTgY?=
- =?us-ascii?Q?7P5iU2tqJUNSM3/ArqfazIv0gtM2veCFchs0hixUA5sr56pTmOYK9/gQ+VMp?=
- =?us-ascii?Q?py+//bRQQPB1H//OiUzU8WygMFwdgPfW2GeI4gxegJ+8fV6L7jFXE/k/f3wq?=
- =?us-ascii?Q?PC7kxRcx+puS8XTbgqLKiDPEAMN/6sCY1xBM+yRR0nwxkmPW1FkA5r8f8HG9?=
- =?us-ascii?Q?GBEeVa1mv3uVodABplnLjFVvbOZpWTz3oDas1ZgnCFeHHVrQx4U6tVeakGyi?=
- =?us-ascii?Q?IpI+U09jojaj260szqACjRbc+4FwGJCN+0BMHRn+242fQeIl6CtJaSwqMucU?=
- =?us-ascii?Q?Y0iVArcaVdODWZ82X6J7aXeiNdhlJmAiTL7mfz45XKtJ7XnFB7AWWMrv3BwY?=
- =?us-ascii?Q?nCCuLjg6mGURab52rTbB2/I0SvV2Dh0yWH5Jmg6ia8bVYdEa1mRXgLe+LTDj?=
- =?us-ascii?Q?t8zATxZzadRHWi3Nlho5AJqKoG30EtvsN7MpHKMtad8ejtuu5N593y/oK8uF?=
- =?us-ascii?Q?a3K32kB5votMdp7nC7dBQxnrkefDDKk3KnA2erj/jLNn0KhSVGR3h4nghGi9?=
- =?us-ascii?Q?4c1qWL7/KQEJGkMczhpRf8bx+qbgKW5wZzA7KF+cmClsSD0r1oOmsM0CPHtM?=
- =?us-ascii?Q?FgjoMoB5+7InOyP5AbdJ4Ptr/56tp8C4DIlnIK+kqUD0UIfLOv3+cOF98PPS?=
- =?us-ascii?Q?zPHKZICVMlRajgfssM+OgdAz1/DtsCYDkkqufH8C2DdpoUjONoqGuj6xIapG?=
- =?us-ascii?Q?b088LrMTkRaLSogtTrQQfhSCrKxSzL869oB1wRZX5WrOdbIKSf/sD7oS+zk3?=
- =?us-ascii?Q?tIzdzI4bA4CyOwbZxghOU5uhrminsOHjbJ3EcIrhRBTvJUi1owFZEOKEv6KC?=
- =?us-ascii?Q?HlYrOHX+vjA2hTb1uEClEuNkdYDgtO/BypNi1a9qHeJgD3wLdem4j0S8liPx?=
- =?us-ascii?Q?4YNz2Ql27WNkFmsJeMfoEDyoWT11xyCK+Cn6vZ6Fkh7uHT3g7yBzRP9ynAJ5?=
- =?us-ascii?Q?0b88XTQCHtlGOtgAOIeWz0txeG5w69ZRLWPNmOkNCmgQi0wzTIEMmWEbrxaK?=
- =?us-ascii?Q?2oibgZbN7p4ZFiNT9ibcxT+jyO+JmPcT1GJmpFP0xGTrgAVj/2RL6kmS8cFJ?=
- =?us-ascii?Q?4g=3D=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c6dacbda-229e-4087-830d-08dc4d552391
-X-MS-Exchange-CrossTenant-AuthSource: BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2024 05:25:24.6275
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e1iUsN5DgbggrYtBqbZ3nj7wgalL8FXKkQ/+Jo/kMGdQyGjXWrmmD7M+7ZLjZ0OQ4luBDsQNIgGyB5y2DTE8OA+bxztpbfad3kc8Gf4B0F4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJSPR01MB0883
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] binfmt_flat: Fix corruption when not offsetting data
+ start
+Content-Language: en-US
+To: Stefan O'Rear <sorear@fastmail.com>, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org
+Cc: Eric Biederman <ebiederm@xmission.com>, Kees Cook
+ <keescook@chromium.org>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Greg Ungerer <gerg@linux-m68k.org>, Waldemar Brodkorb <wbx@openadk.org>
+References: <20240326032037.2478816-1-sorear@fastmail.com>
+From: Damien Le Moal <dlemoal@kernel.org>
+Organization: Western Digital Research
+In-Reply-To: <20240326032037.2478816-1-sorear@fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_222530_936386_8F99BAD9 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240325_225357_133694_F68D3C25 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,124 +77,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add StarFive JH8100 dwmac support.
-The JH8100 dwmac shares the same driver code as the JH7110 dwmac
-and has only one reset signal.
+On 3/26/24 12:20, Stefan O'Rear wrote:
+> Commit 04d82a6d0881 ("binfmt_flat: allow not offsetting data start")
+> introduced a RISC-V specific variant of the FLAT format which does not
+> allocate any space for the (obsolescent) array of shared library
+> pointers. However, it did not disable the code which initializes the
+> array, resulting in the corruption of sizeof(long) bytes before the DATA
+> segment, generally the end of the TEXT segment.
+> 
+> Use CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET to guard initialization the
 
-Please refer to below:
+s/initialization the/the initialization of the
 
-  JH8100: reset-names = "stmmaceth";
-  JH7110: reset-names = "stmmaceth", "ahb";
-  JH7100: reset-names = "ahb";
+> shared library pointer region so that it will only be initialized if
+> space is reserved for it.
+> 
+> Fixes: 04d82a6d0881 ("binfmt_flat: allow not offsetting data start")
+> Signed-off-by: Stefan O'Rear <sorear@fastmail.com>
+> Tested-by: Waldemar Brodkorb <wbx@openadk.org>
 
-Example usage of JH8100 in the device tree:
+It feels like CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET is not a very good name...
+Maybe something like CONFIG_BINFMT_FLAT_NO_SHARED_LIBRARY would be better. But
+renaming can be done in a followup patch.
 
-gmac0: ethernet@16030000 {
-        compatible = "starfive,jh8100-dwmac",
-                     "starfive,jh7110-dwmac",
-                     "snps,dwmac-5.20";
-        ...
-};
+Reviewed-by: Damien Le Moal <dlemoal
 
-Signed-off-by: Tan Chun Hau <chunhau.tan@starfivetech.com>
----
- .../devicetree/bindings/net/snps,dwmac.yaml   |  1 +
- .../bindings/net/starfive,jh7110-dwmac.yaml   | 54 ++++++++++++++-----
- 2 files changed, 41 insertions(+), 14 deletions(-)
+> ---
+>  fs/binfmt_flat.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/fs/binfmt_flat.c b/fs/binfmt_flat.c
+> index c26545d71d39..70c2b68988f4 100644
+> --- a/fs/binfmt_flat.c
+> +++ b/fs/binfmt_flat.c
+> @@ -879,6 +879,7 @@ static int load_flat_binary(struct linux_binprm *bprm)
+>  	if (res < 0)
+>  		return res;
+>  
+> +#ifndef CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET
+>  	/* Update data segment pointers for all libraries */
+>  	for (i = 0; i < MAX_SHARED_LIBS; i++) {
+>  		if (!libinfo.lib_list[i].loaded)
+> @@ -893,6 +894,7 @@ static int load_flat_binary(struct linux_binprm *bprm)
+>  				return -EFAULT;
+>  		}
+>  	}
+> +#endif
+>  
+>  	set_binfmt(&flat_format);
+>  
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 6b0341a8e0ea..a6d596b7dcf4 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -97,6 +97,7 @@ properties:
-         - snps,dwxgmac-2.10
-         - starfive,jh7100-dwmac
-         - starfive,jh7110-dwmac
-+        - starfive,jh8100-dwmac
- 
-   reg:
-     minItems: 1
-diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-index 0d1962980f57..ce018e9768d2 100644
---- a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-@@ -18,6 +18,7 @@ select:
-         enum:
-           - starfive,jh7100-dwmac
-           - starfive,jh7110-dwmac
-+          - starfive,jh8100-dwmac
-   required:
-     - compatible
- 
-@@ -30,6 +31,10 @@ properties:
-       - items:
-           - const: starfive,jh7110-dwmac
-           - const: snps,dwmac-5.20
-+      - items:
-+          - const: starfive,jh8100-dwmac
-+          - const: starfive,jh7110-dwmac
-+          - const: snps,dwmac-5.20
- 
-   reg:
-     maxItems: 1
-@@ -107,20 +112,41 @@ allOf:
-           contains:
-             const: starfive,jh7110-dwmac
-     then:
--      properties:
--        interrupts:
--          minItems: 3
--          maxItems: 3
--
--        interrupt-names:
--          minItems: 3
--          maxItems: 3
--
--        resets:
--          minItems: 2
--
--        reset-names:
--          minItems: 2
-+      if:
-+        properties:
-+          compatible:
-+            contains:
-+              const: starfive,jh8100-dwmac
-+      then:
-+        properties:
-+          interrupts:
-+            minItems: 3
-+            maxItems: 3
-+
-+          interrupt-names:
-+            minItems: 3
-+            maxItems: 3
-+
-+          resets:
-+            maxItems: 1
-+
-+          reset-names:
-+            const: stmmaceth
-+      else:
-+        properties:
-+          interrupts:
-+            minItems: 3
-+            maxItems: 3
-+
-+          interrupt-names:
-+            minItems: 3
-+            maxItems: 3
-+
-+          resets:
-+            minItems: 2
-+
-+          reset-names:
-+            minItems: 2
- 
- unevaluatedProperties: false
- 
 -- 
-2.25.1
+Damien Le Moal
+Western Digital Research
 
 
 _______________________________________________
