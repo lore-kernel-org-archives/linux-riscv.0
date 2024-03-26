@@ -4,99 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 844C8CD11DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 10:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EE58C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 10:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HRAosq6fyh+ms0Ic5mZ9bLZbPhjFoIN7HVyck7gHn0s=; b=wRlV+5jJ8W6ZjD
-	Drio3XkWvY0/mHSX3k2KjLSTGTwOZdfoHy7CrkCwJSexPyBzLJn6dZWIcgMJWCriByXHy444+kOTB
-	VqLx60YJdtUEnp58vTDwgAPtgf39ONEWQfsrnXeBVWi35O8tw6i/JQupRo1mvwzidH0PhnUpZxBTj
-	OBNEo6EHy5eBiCy8WeXxpmGzmUfT95NsFOz7t2CNA12vexPFYWKCR07whpKJ3y4LCQ9t/tJeys/8n
-	jblsSf7Jder6Crc90KbxynzMmL5jKgHChzHrJhntT1KieM9bN1IWo9VM/mQtqYqBr2HEtanJso1n5
-	NOET6nQJlx7SZ1HduSyQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nAZeGUe7jVhGaWWDldlNTECEBaNNSU16iXcropKZruU=; b=IWnIowUgfLKLeg
+	MIN/JRSEzG3kujnLfD8gQCxCc2G96XUR1pT0Jt2SdyCdeO3Eb3wNWMsSeyoyC5hzsE193Gb41+4Wp
+	HhyTR8mh+1DyOjae8GPyTnphmhXTIuMFAUjQNiO0EOYHk7uPbtLqa427hWpQ9eyj01kWK67ij4Gdv
+	hN2tUASu/g5T+zZQ91dVdmWS4hQxRbwfOIL/NZQL34G7qhumiXskaGKzvEnwjInInXlEHp4KGGCx7
+	sKq1WhBWAMyzIMsI/+fcXLRmkQtrOFLv5xj1DQQQGDHbNBCrSIhy9fNvNRjSzses4E84Wn/RrDVuC
+	qeU7t45lzl+QjrdV7V9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp3lz-00000003z8m-3cn7;
-	Tue, 26 Mar 2024 10:11:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rp3uW-000000041G0-1PBX;
+	Tue, 26 Mar 2024 10:20:04 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp3lq-00000003z3e-1BDx
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 26 Mar 2024 10:11:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=IiNYGBSxUvNgdPnHEJE/xU3metbwCHzJuKT0A3W7MYI=; b=TFbJtK2IHmXnPwRsPQD3iF7JDF
-	99WKWSQJJb+5/i/EgBukogynMsecDeXyjybRVPMBl7vPJZzqcg7FPvOF8aXrbmOPre3/KQeZ8XAH5
-	1hWEyPfWiRtXHvHgdIVgz4ZLl8GBe+Nc87hmXY1z2juHJgCXfoe50KP+Vd7+Sew2gsqYr67vCOd9W
-	M6+6JXEXSw98OUEXoctdwwGyNmV4KAvCwHB5yXXImjNgxeKXLfWIV6S7h0IX9Kh2RgE0l/qXtb9m8
-	IsAZ/18kpkWCAOeTgWKlxtpuos2MKa7qkM77EWMxK8LCw0c0v8DGjbhwNeDkKGaWAZuP4qRwoS1Pe
-	znImh1hw==;
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp3lm-0000000H6JQ-32EJ
+	id 1rp3uS-000000041Cp-2Wax
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 10:11:05 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1e0878b76f3so27408435ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 03:11:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711447860; x=1712052660; darn=lists.infradead.org;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IiNYGBSxUvNgdPnHEJE/xU3metbwCHzJuKT0A3W7MYI=;
-        b=d3Pol8KTB3CAowhtJInRB3Xf3ZgACBK5fEX1AglDRGjas9FC8FQzowBaFcURbOyD3v
-         avo4T5wCISxsqftNiOm9Z4bUSCRFytFlOAgcS0dVZtyXjWIw2EFMxgFAM0XYkai4Z0v4
-         yf7ZU2xcLqiVwkMjwt/zP5YRSGFKKJNu68Z6crSciBresWbJwBBN6GJniqNXJZmrg/1M
-         NRjbRedivLyP3xho/w4uzi6I/jBGolKcRjGseIZ/4ZESMlh+biPxdmk/gJRFM8EW09rU
-         v6X5mRutXpnUHYrwSxhXLAGVvzPxe9ljhf5ZtcM/OWZv400OLCXeDSGHfziPnxZEGyQ1
-         KD3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711447860; x=1712052660;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IiNYGBSxUvNgdPnHEJE/xU3metbwCHzJuKT0A3W7MYI=;
-        b=PCVS5RksbVA6Mw93PQJoS47PoGzg0ncN5u1T9C4JUUPX1sfK/YE5Cz8kWn5gwbkrJp
-         MtJrFiFa5QK38V/9E6C1pXqu2lIa+9Zx1uVVM+GT1ZWLbI5bxzqU+XYTNHEXUsupqsKs
-         DZDxCP2iHwp8ys0Cf6t9aOZU7b3WFDlh00AnONXZw95okuQtxml2gAI2qaazKjZGI5Gs
-         R3SV6cBJHkY55YDVlOB9tRIhC+vCg8XDNy5kAY28QAePxEgaCcz2bZWaFsX2SdK86uVG
-         6qNAQcueVCbRC7RmeZtf5usHskUJMMHRSR/Qwg6ONFtRlVlEhABobq6Js8kzxml+PbVp
-         GHyA==
-X-Gm-Message-State: AOJu0YzOG+Tc2CKtcW6gTAYam1WM19xWp5x+SJ0vgM/ag6TS0nGj/DFZ
-	qiFlnifSLjG9ok1nLhMxeSInI6M4331rJ27h0RV5o9KDoCAN4peZq4CGssTcSLJp7ZafR2TQI23
-	0Mdom56VIcexUxooylW0k91lp1lxbRh5Rv7ETZ1aFT7AWSMRxeDm8d8uU3zA4mW8LSO8FCjVx3A
-	mPxP//SKA3UTIhkKbMEcdvpQaJKvnrWETwgEhd0PWd8Vy0D1FNXsB8vQA=
-X-Google-Smtp-Source: AGHT+IEqMrxzRfAQyyX5BWY+o9kj4fYO6R0c9EdEEs+a7j40uL9Tbsf27ODXSAN5Mbodl3JqSYvUug==
-X-Received: by 2002:a17:902:e842:b0:1e0:188c:ad4f with SMTP id t2-20020a170902e84200b001e0188cad4fmr1519731plg.26.1711447859767;
-        Tue, 26 Mar 2024 03:10:59 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id c7-20020a170903234700b001e0e2b848dbsm1633240plh.83.2024.03.26.03.10.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Mar 2024 03:10:59 -0700 (PDT)
-From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org
-Cc: greentime.hu@sifive.com,
-	vincent.chen@sifive.com,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/1] RISC-V: KVM: Avoid lock inversion in SBI_EXT_HSM_HART_START
-Date: Tue, 26 Mar 2024 18:10:52 +0800
-Message-Id: <20240326101054.13088-1-yongxuan.wang@sifive.com>
-X-Mailer: git-send-email 2.17.1
+	Tue, 26 Mar 2024 10:20:02 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-88-FBtS3KNePk6yGweZO_w26Q-1; Tue, 26 Mar 2024 10:19:53 +0000
+X-MC-Unique: FBtS3KNePk6yGweZO_w26Q-1
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Tue, 26 Mar
+ 2024 10:19:28 +0000
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Tue, 26 Mar 2024 10:19:28 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Arnd Bergmann' <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>
+CC: Alexandre Ghiti <alex@ghiti.fr>, Samuel Holland
+	<samuel.holland@sifive.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Albert Ou <aou@eecs.berkeley.edu>, "Andrew
+ Morton" <akpm@linux-foundation.org>, Charlie Jenkins <charlie@rivosinc.com>,
+	guoren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Kemeng Shi
+	<shikemeng@huaweicloud.com>, Matthew Wilcox <willy@infradead.org>, "Mike
+ Rapoport" <rppt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Xiao
+ W Wang" <xiao.w.wang@intel.com>, Yangyu Chen <cyy@cyyself.name>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
+Thread-Topic: [PATCH] riscv: Define TASK_SIZE_MAX for __access_ok()
+Thread-Index: AQHaeh3F9DUQSIkEB0u5Xt52XMTyX7FHT0cAgAGlN9CAAN1lkA==
+Date: Tue, 26 Mar 2024 10:19:28 +0000
+Message-ID: <882fc86da89f4adb81570cde3a653e6f@AcuMS.aculab.com>
+References: <20240313180010.295747-1-samuel.holland@sifive.com>
+ <CAHVXubjLWZkjSapnsWJzimWg_2swEy7tQ-DQ6ri8yMk8-Qsc-A@mail.gmail.com>
+ <88de4a1a-047e-4be9-b5b0-3e53434dc022@sifive.com>
+ <b5624bba-9917-421b-8ef0-4515d442f80b@ghiti.fr>
+ <f786e02245424e02b38f55ae6b29d14a@AcuMS.aculab.com>
+ <d323eb10-c79b-49cb-94db-9b135e6fd280@ghiti.fr>
+ <ZgGosOiW6mTeSnTL@FVFF77S0Q05N>
+ <eeccbc9f-7544-42c9-964f-2b4c924c2b2f@app.fastmail.com>
+ <ZgHCpgHh1ypSyrtv@FVFF77S0Q05N>
+ <95eb125d-dd54-42f1-b080-938faca6a8a1@app.fastmail.com>
+In-Reply-To: <95eb125d-dd54-42f1-b080-938faca6a8a1@app.fastmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
+MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240326_101102_842294_42FC691C 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20240326_032000_938569_A2DCE906 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,77 +88,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Documentation/virt/kvm/locking.rst advises that kvm->lock should be
-acquired outside vcpu->mutex and kvm->srcu. However, when KVM/RISC-V
-handling SBI_EXT_HSM_HART_START, the lock ordering is vcpu->mutex,
-kvm->srcu then kvm->lock.
+From: Arnd Bergmann
+> Sent: 25 March 2024 20:38
+> 
+> On Mon, Mar 25, 2024, at 19:30, Mark Rutland wrote:
+> > On Mon, Mar 25, 2024 at 07:02:13PM +0100, Arnd Bergmann wrote:
+> >> On Mon, Mar 25, 2024, at 17:39, Mark Rutland wrote:
+> >
+> >> If an architecture ignores all the top bits of a virtual address,
+> >> the largest TASK_SIZE would be higher than the smallest (positive,
+> >> unsigned) PAGE_OFFSET, so you need TASK_SIZE_MAX to be dynamic.
+> >
+> > Agreed, but do we even support such architectures within Linux?
+> 
+> Apparently not.
+> 
+> On 32-bit architectures, you often have TASK_SIZE==PAGE_OFFSET,
+> but not on 64-bit -- either the top few bits in PAGE_OFFSET are
+> always ones, or the user and kernel page tables are completely
+> separate.
 
-Although the lockdep checking no longer complains about this after commit
-f0f44752f5f6 ("rcu: Annotate SRCU's update-side lockdep dependencies"),
-it's necessary to replace kvm->lock with a new dedicated lock to ensure
-only one hart can execute the SBI_EXT_HSM_HART_START call for the target
-hart simultaneously.
+ISTR that arm64 uses (something like) bit 56 to select kernel
+with the annoying 'feature' that the high bits can be ignored
+just to complicate things.
 
-Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
----
- arch/riscv/include/asm/kvm_host.h | 1 +
- arch/riscv/kvm/vcpu.c             | 1 +
- arch/riscv/kvm/vcpu_sbi_hsm.c     | 5 ++---
- 3 files changed, 4 insertions(+), 3 deletions(-)
+But I also recall the people that want 'address masking' for x86-64
+have been persuaded that addresses with the top bit set are invalid.
+I has to be said that I'm not sure that aliasing user addresses
+like that is a good idea.
+If the TLB/PTE verified the masked bits it might be more use.
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 484d04a92fa6..537099413344 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -254,6 +254,7 @@ struct kvm_vcpu_arch {
- 
- 	/* VCPU power-off state */
- 	bool power_off;
-+	struct mutex hsm_start_lock;
- 
- 	/* Don't run the VCPU (blocked) */
- 	bool pause;
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index b5ca9f2e98ac..4d89b5b5afbf 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -119,6 +119,7 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 	spin_lock_init(&vcpu->arch.hfence_lock);
- 
- 	/* Setup reset state of shadow SSTATUS and HSTATUS CSRs */
-+	mutex_init(&vcpu->arch.hsm_start_lock);
- 	cntx = &vcpu->arch.guest_reset_context;
- 	cntx->sstatus = SR_SPP | SR_SPIE;
- 	cntx->hstatus = 0;
-diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
-index 7dca0e9381d9..b528f6e880ae 100644
---- a/arch/riscv/kvm/vcpu_sbi_hsm.c
-+++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
-@@ -71,14 +71,13 @@ static int kvm_sbi_ext_hsm_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- {
- 	int ret = 0;
- 	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
--	struct kvm *kvm = vcpu->kvm;
- 	unsigned long funcid = cp->a6;
- 
- 	switch (funcid) {
- 	case SBI_EXT_HSM_HART_START:
--		mutex_lock(&kvm->lock);
-+		mutex_lock(&vcpu->arch.hsm_start_lock);
- 		ret = kvm_sbi_hsm_vcpu_start(vcpu);
--		mutex_unlock(&kvm->lock);
-+		mutex_unlock(&vcpu->arch.hsm_start_lock);
- 		break;
- 	case SBI_EXT_HSM_HART_STOP:
- 		ret = kvm_sbi_hsm_vcpu_stop(vcpu);
--- 
-2.17.1
+If bit63 selects kernel addresses (as in x86-64) there is a massive
+(non-canonical address) gap before the first valid kernel address
+that is larger than the user address space (and hence buffer size).
+I think that lets access_ok() check ((address | size) >> 60) != 0.
+Although it probably means that you don't need to test 'size' at all
+(unless some code probes the last byte of the buffer).
+
+For 32bit the user/kernel boundary is usually 0x80000000 or 0xc0000000
+and there may not even be an invalid page between the two.
+This does require access_ok() check the length (even for get_user()).
+
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 
 _______________________________________________
