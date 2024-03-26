@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40D42C54E67
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 20:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37147C54E67
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 20:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jOby5AKatMHXVEv5WhHPlHmxYjNldHn0umzV07W6lX4=; b=vssIECgxTPA/pd
-	7klDH/rkD7QhkN81vz8sCgp5ppDqzIHC26XhLlfnJje9abg+bkCL4cAJvB2Ir6CUYo7oI6H8HOacm
-	09ZR/K7V8h5YEp8pFm1RMmmx6Dxlvaw5trZdinlNyhJ0v2F7E2jRm9FEE5OiHiFHAIwNwt2oYMmgq
-	CchUsVagoewbvd7Adncg51kUpQ2XQkFFbEiitMQr0nUvq6YBaY1U6wSk8aqGw+ateMVYPB3RzYgrp
-	/Sq9JZjuTzqtttWEqwSTwUAx75EeEUjT9VTjdEHIccxAfEDBBS75F3b4ZzrAgyad8fYPbPo1kSGR0
-	iJBXT9oi2L7IxUDvFTuw==;
+	List-Owner; bh=UFFvoBvP1JvFFvitKz2bkGpnKL6aHRpt0qV5RoiaPLo=; b=jwZWwf1yasgnbS
+	ihBeu6Q+h0QPoAh42iC8YMiRN2szKftFtxzdvFMbMgGRMJIhUUchkTGyBHpq5+W0CfP/4IqSKVBSc
+	R9ubNr4bLzAGho3urnOBX2FRgue9GYTqSO+SocTTGyBzP4rUeZ7r2VE6f590AyfkGb5K5G+/T0K+h
+	O+90vwlWrVmZjSRPajzNJA7znyuKRHV2AWJGzI90+tyEgr5ElaKE9WA0fycwmcsx/FjkSNFZ5Vn6G
+	Xi31T0cMeEdg60dFY6u+NtC9v6UKIbCiVu/R/YaH0vQ/kPmOrvJbYzXEP6iApgd76zzD7OJJ9CBzt
+	tyGtJkdZXSA17zeRomBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpDTb-00000006NZS-2d2R;
-	Tue, 26 Mar 2024 20:32:55 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1rpDYM-00000006Osu-0FZJ;
+	Tue, 26 Mar 2024 20:37:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpDTO-00000006NU1-0HEa
+	id 1rpDYI-00000006Orm-4BBI
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 20:32:53 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-56c29599e0cso1545852a12.0
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 13:32:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1711485158; x=1712089958; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SwoTWlECTszcl/qxdYVc4t6fpZ8kE/2UkB07bRVsSm8=;
-        b=vHQPR0E5BqJK2/QxKOySsYLQBK9Fk1/ZE/HFT6Fw20Td4wepBGJ1eLwnx64DOoXp/u
-         6O8Ko2C4Nbelm1SuS20kqPix8mKezU7yyMKaf/RZ8LvOV9LxN9urWiRQUqEgsOYzuqWz
-         xmpSJUSMCBayr7Y3RI7Do0gSfM14poSqV0luqLFtj07GTRTzkxN6SksnO0CWMgyBxlTS
-         VGtmkpuAto89EeH9rAQL9Sl6fq6eTTPeWdyomxoAptsc5XwPUtJmBw86x1Ev5BDoaum3
-         7QJyvtsal1cQRDIGOq2PLBVpN2FmiG/q/WyVjUx4KFqZDz4oRSc3kEpOr9uotSS0ujhB
-         NW+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711485158; x=1712089958;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SwoTWlECTszcl/qxdYVc4t6fpZ8kE/2UkB07bRVsSm8=;
-        b=ODt4dEZ3qFgZALOWZE1/xLUr14c8E2qn46rfEBWqT27VbkaMvzIQxyoS1lZj921SGC
-         UrG0FzzOCYHlNkQ0h2YBf2bggMt1q689W+SC0nJAEkhokxzseqRNWyjnWD7uLvF7Dk9O
-         qpL73q++8THRadC5CStp6w5pD/bkaubSTbpZFi3fes0mbFhEExif8cCLsAHh8SNJ92qx
-         GhSRYb2ZofHcRAMXSyNMR+XYMvrRixvwr3+099CwlHQXZY8oQyQKkr6ft62AvehK1VoT
-         nEIVLw3SvDZ65dp6nfWRYrIVrI3z/mjdHC8zz/7Wi+O8bgwGi2BG+lC9XXRgmvla/ZVI
-         oJKA==
-X-Forwarded-Encrypted: i=1; AJvYcCV+GV6Km0RpIgHty/6at5RH1Bl2Ucxcz5RAFywYuUJWRBhBsXIcLnna5bm3zFXc5rnZJdH4ao9bCPg8+PYitEwUGDx7ZejUWT/KivsH7cER
-X-Gm-Message-State: AOJu0YwGp+Ku3USbjsY6aKZQCL79FssHPoS4X2B9tffcm153U3aNHwk+
-	rLXo7+JrH5qp8HEdfaqGZTuU2jY58r+hlBqfwrULRJgUapOERVJdOLLVsQkVjsQ=
-X-Google-Smtp-Source: AGHT+IENt7YBLnNtoUOQOQp272wkaUn+XI5a9KNpsaZCh2RNyyuvnhB+Bx/GceA3IeXjeVnoNmMyRA==
-X-Received: by 2002:a50:8e12:0:b0:565:bb25:bb7a with SMTP id 18-20020a508e12000000b00565bb25bb7amr3175538edw.24.1711485157973;
-        Tue, 26 Mar 2024 13:32:37 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com ([2a02:8440:5240:d2b3:9657:7432:d88d:84a9])
-        by smtp.gmail.com with ESMTPSA id da12-20020a056402176c00b0056b816e253esm4525782edb.13.2024.03.26.13.32.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Mar 2024 13:32:37 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Zong Li <zong.li@sifive.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
+	Tue, 26 Mar 2024 20:37:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5CFB1611FD;
+	Tue, 26 Mar 2024 20:37:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18FEEC433C7;
+	Tue, 26 Mar 2024 20:37:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1711485466;
+	bh=Q+0/ltytHVNVe17dw4a66rMcIkTyRhhWaQELFnVBTFI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RyE0IEcNh+PkrmksKPNXCL4zEUBaje+Mc9e8mt4+jSbTMuejZkiWj66j3zNt2kobC
+	 E3cCcMm/QNxYAiwJ96ylGhIbqIKiqOpyqe7+RjfRHHCdDI3Eersk/0GMMzBKA4a15N
+	 7b1+ZZ/xkGc0Ixof4ibRUzrDJxpPO9fKa6DsgQntRZzsWj/50BS+lrj6YVmTAcSDG3
+	 b3BeAQCQYeKPvr923WN0rYDoe+nCeYpwFYtE5h3zf0oTTHZYQr/zC7DnKgyP7d6K0B
+	 Ud3/ffrT9kkR8RS75EhgMz1HGzsMbgC8mdEGHf7s91wPH/X3z1bX9mcO/t6rqPjenf
+	 14Eco3vyLQVYQ==
+From: Conor Dooley <conor@kernel.org>
+To: ganboing@gmail.com,
+	kernel@esmil.dk,
+	robh@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	conor+dt@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andrea Parri <andrea@rivosinc.com>,
-	Andy Chiu <andy.chiu@sifive.com>
-Subject: [PATCH 2/2] riscv: Disable preemption when using patch_map()
-Date: Tue, 26 Mar 2024 21:30:17 +0100
-Message-Id: <20240326203017.310422-3-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20240326203017.310422-1-alexghiti@rivosinc.com>
-References: <20240326203017.310422-1-alexghiti@rivosinc.com>
+	linux-kernel@vger.kernel.org,
+	Shengyu Qu <wiagn233@outlook.com>
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: dts: starfive: Remove PMIC interrupt info for Visionfive 2 board
+Date: Tue, 26 Mar 2024 20:37:10 +0000
+Message-ID: <20240326-create-motivate-2792be1692c5@spud>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <TY3P286MB26116B828A34D614C09F4E8898202@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
+References: <TY3P286MB26116B828A34D614C09F4E8898202@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=472; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=flQK06d61XVdV/qN2kQBXCsv/i+05oATJwu6J3J8ZbQ=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGnMht8sb+xIW/FtLUdJRcUiFc0f05m+3Gx+w/aw7q7jx DgD16Y3HaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZjIggZGhlPNnIZTlUtfSGmv OneJ52C0zdprSuJrdGt7s1Mn5xwOdWT4yXg2e9+nlZ7VXpOFXZcts+D98fPRZXaOSXZHpnis5Tt kwgcA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240326_133249_254884_950189A1 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20240326_133747_100938_799CD35D 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,72 +87,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-patch_map() uses fixmap mappings to circumvent the non-writability of
-the kernel text mapping.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-The __set_fixmap() function only flushes the current cpu tlb, it does
-not emit an IPI so we must make sure that while we use a fixmap mapping,
-the current task is not migrated on another cpu which could miss the
-newly introduced fixmap mapping.
+On Thu, 07 Mar 2024 20:21:12 +0800, Shengyu Qu wrote:
+> Interrupt line number of the AXP15060 PMIC is not a necessary part of
+> its device tree. And this would cause kernel to try to enable interrupt
+> line 0, which is not expected. So delete this part from device tree.
+> 
+> 
 
-So in order to avoid any task migration, disable the preemption.
+Applied to riscv-dt-fixes, thanks! And I didn't forget, so I re-wrote
+the commit message to add some more information as promised.
 
-Reported-by: Andrea Parri <andrea@rivosinc.com>
-Closes: https://lore.kernel.org/all/ZcS+GAaM25LXsBOl@andrea/
-Reported-by: Andy Chiu <andy.chiu@sifive.com>
-Closes: https://lore.kernel.org/linux-riscv/CABgGipUMz3Sffu-CkmeUB1dKVwVQ73+7=sgC45-m0AE9RCjOZg@mail.gmail.com/
-Fixes: cad539baa48f ("riscv: implement a memset like function for text")
-Fixes: 0ff7c3b33127 ("riscv: Use text_mutex instead of patch_lock")
-Co-developed-by: Andy Chiu <andy.chiu@sifive.com>
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/kernel/patch.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+[1/1] riscv: dts: starfive: Remove PMIC interrupt info for Visionfive 2 board
+      https://git.kernel.org/conor/c/0b163f43920d
 
-diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-index 37e87fdcf6a0..30e12b310cab 100644
---- a/arch/riscv/kernel/patch.c
-+++ b/arch/riscv/kernel/patch.c
-@@ -80,6 +80,8 @@ static int __patch_insn_set(void *addr, u8 c, size_t len)
- 	 */
- 	lockdep_assert_held(&text_mutex);
- 
-+	preempt_disable();
-+
- 	if (across_pages)
- 		patch_map(addr + PAGE_SIZE, FIX_TEXT_POKE1);
- 
-@@ -92,6 +94,8 @@ static int __patch_insn_set(void *addr, u8 c, size_t len)
- 	if (across_pages)
- 		patch_unmap(FIX_TEXT_POKE1);
- 
-+	preempt_enable();
-+
- 	return 0;
- }
- NOKPROBE_SYMBOL(__patch_insn_set);
-@@ -122,6 +126,8 @@ static int __patch_insn_write(void *addr, const void *insn, size_t len)
- 	if (!riscv_patch_in_stop_machine)
- 		lockdep_assert_held(&text_mutex);
- 
-+	preempt_disable();
-+
- 	if (across_pages)
- 		patch_map(addr + PAGE_SIZE, FIX_TEXT_POKE1);
- 
-@@ -134,6 +140,8 @@ static int __patch_insn_write(void *addr, const void *insn, size_t len)
- 	if (across_pages)
- 		patch_unmap(FIX_TEXT_POKE1);
- 
-+	preempt_enable();
-+
- 	return ret;
- }
- NOKPROBE_SYMBOL(__patch_insn_write);
--- 
-2.39.2
-
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
