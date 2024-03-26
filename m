@@ -4,137 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5A3C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 15:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C82C54E67
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 15:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GKbgmIycpdlv+HWKXEWz34yrpSN7AxYeh8yOTjBNndU=; b=R5BfcoxoI7FHC+
-	5hc06QnvTykR1hJdV5S8ItMoIXnJQkbhCs8hAJVymvkXPSHCenjMqG4gnkVv4J/QemJPZXK/4W6Ff
-	+YtUNExAnB7QsJlobdp4S+ceOMQUHAPUbEaMowCwy2mwTBClhnoORvVweHU1rXkVxJiGjqiVZEL7g
-	sQ5UXXmzpsBQ2Bxn8f3KqiGgSLqPvIHfSQhk6H9GjRXFwxWmdJe74G8cbg2pnNGjSeM9WvijX7SQT
-	/p9l4snmDC3NvjCuFAGiT4QvLrwKSm3HzqqOWATmV4j/EpTwnnurcLZzmTAaalZHESiOso0E0ILGW
-	mfXIjQk8957s5N7SsLnQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=3w4vmKA0jxIm5uZRfrdip2/083Q2Rc9Th5YN+Pc3XXM=; b=fk2
+	NmHQZO2C7Gvga2S8Djk60yaLHQ9uLbPA/tEFcFPYf5eo/gBn5GLTmT3lwCDCXsyvN3yk/cLLo/AYK
+	BUD+KgP1q783z+DXvBruCdN5BnVz8jveTEDsX5gMRpWIRB3yEbRLaWfPWJscNU3wLaF5tg0PS8pI5
+	mQHQreDrPfpE9qjXBTYDkt+jCE+2yyAvKtsNFBWoU2Lq2nGiie/83tAiFrZVqFmsgrAB/xW5IRD5l
+	sVcR6cMT+N06NtpoZiy1t9t5nkSp6s28+Hb3kMjvdO8PxENb9sV9EN9wyQf8jckFLiaU+lR+Q6W5p
+	JHLdndP3o0stxxb2P97u7ap/oUoIOnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp8mc-00000005B4e-2pem;
-	Tue, 26 Mar 2024 15:32:14 +0000
-Received: from mail-mw2nam04on20701.outbound.protection.outlook.com ([2a01:111:f403:240a::701] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
+	id 1rp8sC-00000005EHd-1hg5;
+	Tue, 26 Mar 2024 15:38:00 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp7cC-00000004sIO-3Ehh;
-	Tue, 26 Mar 2024 14:17:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cixS7WWen8h09l24yjy75oUBX9FgBUyaukkXaSM68sEJToQBQSDlFjxcJdxpgcc6w5uj/fS+0YdFUI8ENjqX20sMPV40gEIx1IQG68i0QqMXwROiib6AreRzTa+I2Lr4rTeIe8mORa9abOIou+DJMQK/ue3CsADMcelzgdkWBfo3tUQQq7vwJweeqOICh0aBQYLDShs5W0J7HLL7GbTWQuw7e4LSK3PKUHxUwMlV7rHuO7cUQm711dXBeqOcbc0rVbmRVDmcq9mX+z9PCMZLTZJZfT8+zx4KAFbRcfEvxDubxeWqc6OakLgN83sIKbvl8iVMbCka934QadGp8fSlsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=h1TBTpNqsHYSkKcMoenf+IHxaqsv5TIjbk94zSjyQ/g=;
- b=n3duTWCyhJb3y4mji6o5N6je/o8JTnJfAyaWdO0vr8G1QHg2i2DtlIKulR0yJa8wpA6pVFov5O+PZY2qhBdFWAmFL/6FXuABRK+zRhAFauIddW9dQPknlHAgtgsoAW3+pBa71YKkstya+5IMRXu2R1KRPA/NSW0v7V1dHdoUXy0gmTu9TkadWDnsxmYecpThehk2gEoq+ZtyvqsdLtJLujgtNbPZjH6OLtOjGGfMEebitNbrjlADsz6UxzW8wccEurvZk5ONsRqAMwC3kZMHfzdYlxUICECUg2lHrEJlpRM47rkXQV2cQqOhfwL6Rh2QN8+0vgk/bAFrrHU5QSSudg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=h1TBTpNqsHYSkKcMoenf+IHxaqsv5TIjbk94zSjyQ/g=;
- b=gbiwtsnvbcS+4qxrpc5NgqY5QqDcpbob3eUKddUHqVN+QuGJsC2nSrj2GUqHomrxulN/X4DyhR57xcZmvXhm2+IwFFSsaWjRP1+up02saS+v9u5rzuDWRFuMtlmnTzdinoA7nFPtbqsHcsmifD0jIcFw+dmPNoHwnPPiyyBeCeON/A/EXrJXFAMtKwmJi3UbbzBJG7GzLoNDpXuwrgmh3QWJcjQzvj5STSDsFqR97aGaDF0mauYgOtG/EqXUeRyhZ89J/sBKfn+UitwGTUa4Lfcrw3F/uusQllDwrE9YhO68XrylrJYEZzh7ixUaMhVAcDl+ypEzsP4Hk2QGaiE1mA==
-Received: from DM6PR12MB3849.namprd12.prod.outlook.com (2603:10b6:5:1c7::26)
- by MN0PR12MB6200.namprd12.prod.outlook.com (2603:10b6:208:3c3::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.33; Tue, 26 Mar
- 2024 14:02:54 +0000
-Received: from DM6PR12MB3849.namprd12.prod.outlook.com
- ([fe80::6aec:dbca:a593:a222]) by DM6PR12MB3849.namprd12.prod.outlook.com
- ([fe80::6aec:dbca:a593:a222%5]) with mapi id 15.20.7409.031; Tue, 26 Mar 2024
- 14:02:53 +0000
-Date: Tue, 26 Mar 2024 11:02:52 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Peter Xu <peterx@redhat.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Matthew Wilcox <willy@infradead.org>,
-	Rik van Riel <riel@surriel.com>,
-	Lorenzo Stoakes <lstoakes@gmail.com>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yang Shi <shy828301@gmail.com>, John Hubbard <jhubbard@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	"Kirill A . Shutemov" <kirill@shutemov.name>,
-	Andrew Jones <andrew.jones@linux.dev>,
-	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Christoph Hellwig <hch@infradead.org>,
-	linux-riscv@lists.infradead.org,
-	James Houghton <jthoughton@google.com>,
-	David Hildenbrand <david@redhat.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Mike Kravetz <mike.kravetz@oracle.com>
-Subject: Re: [PATCH v3 00/12] mm/gup: Unify hugetlb, part 2
-Message-ID: <20240326140252.GH6245@nvidia.com>
-References: <20240321220802.679544-1-peterx@redhat.com>
- <20240322161000.GJ159172@nvidia.com>
- <ZgHJaJSpoeJVEccN@x1n>
-Content-Disposition: inline
-In-Reply-To: <ZgHJaJSpoeJVEccN@x1n>
-X-ClientProxiedBy: MN2PR20CA0010.namprd20.prod.outlook.com
- (2603:10b6:208:e8::23) To DM6PR12MB3849.namprd12.prod.outlook.com
- (2603:10b6:5:1c7::26)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB3849:EE_|MN0PR12MB6200:EE_
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 2z/++uZvbciIaPk87VCEhCaFvbfMQ0nExC/Cu93D80vOE5MNY4dH8p83KdJx89gH+OVqzT41HefGFasZbqbPg1nIe1pPl2NURzQIkqFA/ikBpkP30ZiHUOkG+DS4zfOE8pQluG6CFB44jc8NOvXN8A9wFHhPUoKF8D879R1VR/FN/Qkgpsmhk8L+aNJkh6R90sVYxjCZiqIdVX/UWvn2eJc2Uv1SKSDX8XkJ0eWYeUE/hG8tOZAwe5h5eCSR3++Vb6lKxEJfMPokFVXwzKWf8bRdUjaG+SEU/vcI0RXAkLX9PB+YHQCVwXuXyJQBR1hQWXxGKdYu4Dmy+BTzhsjB6P3cHT5ht+ZEmf+S5pAensjOk+XjLfKPP1NGj7FHzMMuA+ndiNyEzfdp+3qxdQImwPn/LzYFD6k5OwX07e054+ZM3+FMw7R4Fvg4k4Ncr1lc1P05p/vq/839BSlBOr4Nxb7Mqk7hl1U/tp9l8JIbvctbbE4XALs/R09fdds3gSLBGDr/Wfky7DX+xPmnqAKrW++uP3I16lgBudLFPgdls0frlUVOYx93uEAkxpSjxDywAc+H8+mvRpE5UPn9+FM48zgxN/xicrEJ/kVWA/+5Ok8dGFyTFJvxZbZckRnToBEiMKmsjsRCnpLz2OROLj4WZOw+0zLXxUgM7uuMJ4kmbNA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3849.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(7416005)(376005)(366007)(1800799015);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?R1RBZSzEcdFftCbqPsPSY1vSXWtsSh92/Squ5OOK309gpoA7yPXlh16rOS/U?=
- =?us-ascii?Q?AZI8bdaIlQ2iCVigk9UbfM6Gc1rtLZSGcS3WHlUtlJ7hQezAda+W4g1P8ZYW?=
- =?us-ascii?Q?iopkKcuvZpZ/IVHZvuDmyl0Sc8Vyz2sHNNZMqTfA2Wfjoq+4L8ZHO/e8ywe9?=
- =?us-ascii?Q?gzmWId1e3W4nTR5IF7y9oCs8BVOM7N901bw/4JryHiVPneElP+biCG9NAvCG?=
- =?us-ascii?Q?/SRii3ODvPpKUJQ6hQwqllBLPnPnKDR2ss6r0pErSs3WYPwwpe9YDb31xuaq?=
- =?us-ascii?Q?PM1m3Nf/JJMAQ5t8pBDIJJ/IYgKe4C2oH3Kurc09USgumivKxhj0W97Ioqi2?=
- =?us-ascii?Q?Kkh+QXHhouFDYrNij5Ao+BSlFM08cMggokiJfgj0hjBSD7NiNmRWP5nz5ft3?=
- =?us-ascii?Q?Zx0jJklYZ6p5bT/axlt2R4XGOUl5544I29HSpe2MUrQ9KjsJlLlG9tswJQJQ?=
- =?us-ascii?Q?Bmu02nufVeuRnucQqbM2LrnkdUZ4O0V7ZjgAQTDCiJP1Z4kBQqD3marM/5dn?=
- =?us-ascii?Q?J9SHQKlYkFfLnEi9Y+tN+dym4lQ5wWgrmMElh+4ekqvlRP5QCevpYGMO4shd?=
- =?us-ascii?Q?7U2V1KnV8R/RDG/PtSXuOS5v3NJQfxbha25jhao1qVB6ozKEE7X8j6xaWFsI?=
- =?us-ascii?Q?hJiChbV3KKmaBviI90K4R/B7LxlHFvxtVHSaGZyDUlWcY0tu4qzHswqs+M1Z?=
- =?us-ascii?Q?OtS0bk2fnRk1Lg6kfWY1g9N+4OEGeDn2s8i43XhBGLNmkEMY3LdaXDmYaLf1?=
- =?us-ascii?Q?47LqaZypV1BRpZCtwSLVEknlIttdHWQZ4W5jA8THlornu165XNKbUe/kCapq?=
- =?us-ascii?Q?JlN/4Y/oH3+hDO13ZvvaXds/v9dvMxfhuyQxJreETbGvvpjrzbU8y5e644f6?=
- =?us-ascii?Q?kcBM2CMbD63ym2+Uo+oZWJme7IT2dMc18Dt228LDG9By6W6CFt4h2yfsRJkP?=
- =?us-ascii?Q?bOHYm86BYgxDnuiyAGxN/TVpeK0mu6oNcOpsobZMKfKDFxoMb5ZrJQhQOMs+?=
- =?us-ascii?Q?rna/4DUx8ErgFaKhwWUibI1U9XEdeFmEB1AEdrJSzROWSnd0XALqPGOPSxrv?=
- =?us-ascii?Q?Q8hC8ccBL75lpIKFMXT9OyU2WybibYA7xD8C7e0dH4mKkAcUej7T6XlWMEWI?=
- =?us-ascii?Q?sr05paIqF9YbVk7E1A0aTo/nWvqXBTDYdOXsIEDXIYXh5jxPzhfwJxz1muop?=
- =?us-ascii?Q?Z3Uu33WJGTeCwR9OMFKEnsOOHFXxM4BfRzdlrB0Vsa8/omfj0PH5vY9tEuAs?=
- =?us-ascii?Q?eDT3slMUeBNc8iNJGnuAeGOhh7pEsJGQ4H76vXXgtx2NCUV5QmJdFh9HDecv?=
- =?us-ascii?Q?GJNSK8SYUl+cT949xv/fJSSER4LrHRknoSAnXzNDUsBPWrnz7W79/pCVPF4o?=
- =?us-ascii?Q?c9IFjM4Gv3Bl97ovSE0PdYAjZrwQXKGnBoZelyphABdb0zk7z+DfOUtZQWP1?=
- =?us-ascii?Q?1I1CfWnmMamsTjNopPEk9qeWLR3WvIsFj+aOScrGeegzmcNZyJ2UgqgUTEs8?=
- =?us-ascii?Q?jFZC7nI3ls1+0dkQDqcLbusHhgHRcN5fbVAivPymlX6iMoUG4W2eUB3RBD82?=
- =?us-ascii?Q?00g05e19AMG8l4nfzT0=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bbe89727-4cab-4195-7b4b-08dc4d9d6e2b
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB3849.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2024 14:02:53.4840
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OuHtmBfC/NXj/C4gQuBxrHxv+vV1eFnVpstoGdWgNx+6xQB2JqiKo+aFcp/0m64k
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6200
+	id 1rp8rZ-00000005Dfd-2yrp
+	for linux-riscv@lists.infradead.org;
+	Tue, 26 Mar 2024 15:37:24 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-607838c0800so69276437b3.1
+        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 08:37:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1711467436; x=1712072236; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=BMvO/gDA6wsc5/QrzpIMGz8r1v8np9pO9kTN8mjpmmc=;
+        b=eJnMsT/lTy1tmojNiaNsgIHqp3jGVCzQ/GxoszHrcvRFr73h8asWVin0troDHXDgrM
+         XsJCfa2MYgTfEgJTzNSAzGE2UXm3dfZEE2Soe0WUDUnv7pEGbifAd6Wz5uAbSRlDoIi+
+         rb0MYVzGEDWNgxzLoS8zYa5QN/7LCbS1oMk1xcQ4QBC0evW+9O9HExu0MboW5M/EweZG
+         N7hxkRs+h/rCMHV3v9F7lzF66bIlHafj3RHeDJD4WucMsHv2zHhqFLZJ1on1iKt6AtEw
+         AuAJl23I+ALw2OgUQUT4QQ9vTIKrqajB/5pnyMpwaN/zeijxqQNSj4D12LrR8wmQmOMF
+         629A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711467436; x=1712072236;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BMvO/gDA6wsc5/QrzpIMGz8r1v8np9pO9kTN8mjpmmc=;
+        b=GP4A/4IMhY5nvEhHMdxpybBzNveX58tzyIOkFfnNdk1IhiXsHflq91sXHC9q+A1AE5
+         eBB9Bav/cEL1J6Q2WqH1W3aVieNL7AVby/uDPtZiY0HnXzUPjoLwHW5903uwOi0OBKAS
+         nno534thBVY3fI162h9hPKp/ODJynH5lIByC5iw9KxFOZD6pLk6V7899tDtGO7cyesx8
+         tJl4UQW5Bb/WjbvgfcS7wb0pTB1wjbXhiVJfW1lmWgTseCOM/k3UGUvwId2Xw4HAWUn8
+         P+/cDHYHGfvyNVmmQHE5qoUCrIxQtn8L9bGW7E1ufJF0A9vdUfcLorwrQp+BlzXrNs8H
+         3I/g==
+X-Forwarded-Encrypted: i=1; AJvYcCXT7sVUTnsNc4MpY8Er8/eO6o9foaAQLaiYnRMbinarXdTNOM6t+i8bq8Dp5H3Z1Ie1HBJsB38qSr2wDzIoWckQyBblJr5/AeA46epdzDUo
+X-Gm-Message-State: AOJu0YwA4aJYrcIaQ5OTSxHv3ppTUMHnlG3ZQjQdK6ArK8qjXOKp8u/X
+	rLGewO5iDivu+2ab1YRwSpOwtefLoW0kp85JRefS6jemzF9gSUhy7pCRIGQM5XTp9oANgnOE7pB
+	RXm8V11294bdgy7oNusEpikVyzw==
+X-Google-Smtp-Source: AGHT+IEtAbrfT0KePjTSZM1C/n453rH7UBsGCdgk9CYCpbgWc5d2/+acGD9f2ceoAz0WcEi0b/jf/PyVJ9b+Z7F1JRs=
+X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
+ (user=samitolvanen job=sendgmr) by 2002:a81:f10c:0:b0:60a:1844:74ef with SMTP
+ id h12-20020a81f10c000000b0060a184474efmr351393ywm.1.1711467435797; Tue, 26
+ Mar 2024 08:37:15 -0700 (PDT)
+Date: Tue, 26 Mar 2024 15:37:13 +0000
+Mime-Version: 1.0
+X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2790; i=samitolvanen@google.com;
+ h=from:subject; bh=lP5dS6Tq+FiqxKpTrDMAZkxw9jBHYyu9IhEQCNtnP0M=;
+ b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBmAuuoWZIuWrE47I8B1b5TKFB+Qw8KjT+kih/KH
+ WHMg9Yk0QmJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZgLrqAAKCRBMtfaEi7xW
+ 7ufGC/9qxcoSs09RThvb6flQlJcD7unRQHlOjzVZnI0+k7IpZsx+Qp+lQQ7b9jXAKWtV0jW2CAU
+ 9qJ9Vcp7kM/YgrwWARkIImRpSz0oVBGPHwBPGlNv+gOHsGJiIEzT5PfwOBOQZ6+iFkIVrmcU+qV
+ pzbIsGIH5AljMJExPewedP4DT8Q7MY2rGE4ty+mwF2fztac+Ir7zOF2zM5HoPlN2RW+zG0FGjl+
+ bhi6cJQWnZ7b2zna7Ya8yAEnhqYIxby/AuhuCZYMcrajA/GrpHR4AYMYjoNiW6T8hG2oBSg1DMK
+ mCIz2odn4rCrRrwGMaSOOGSDHufTvQDJiCwrynP1aBU+rtWYdimt/+rEiKSEEaaL1RPSTFOPXG3
+ EAjsgQls7qrb6Shyu7ZX2zoxeGTFkRcQdFe0aNBWMeUOPw74ZJxGLnMps3YWo1DLQMes6eW39fh oxbbqx/2PvPAFL6HaHT87bJDNA0sS88ZWTCEFibxu5bZhNsG5fdqEv1kEkOKLAWPHOyTM=
+X-Mailer: git-send-email 2.44.0.396.g6e790dbe36-goog
+Message-ID: <20240326153712.1839482-2-samitolvanen@google.com>
+Subject: [PATCH] riscv: Mark __se_sys_* functions __used
+From: Sami Tolvanen <samitolvanen@google.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Kees Cook <keescook@chromium.org>, linux-riscv@lists.infradead.org, 
+	llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Sami Tolvanen <samitolvanen@google.com>, Linux Kernel Functional Testing <lkft@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240326_071725_112486_9A221815 
-X-CRM114-Status: GOOD (  36.92  )
+X-CRM114-CacheID: sfid-20240326_083722_520203_0889613C 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,112 +102,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 25, 2024 at 02:58:48PM -0400, Peter Xu wrote:
+Clang doesn't think ___se_sys_* functions used even though they are
+aliased to __se_sys_*, resulting in -Wunused-function warnings when
+building rv32. For example:
 
-> > This remark would be a little easier to understand if you refer to
-> > hugetlb_walk() not huge_pte_offset() - the latter is only used to
-> > implement hugetlb_walk() and isn't removed by this series, while a
-> > single hugetlb_walk() was removed.
-> 
-> Right.  Here huge_pte_offset() is the arch API that I hope we can remove,
-> the hugetlb_walk() is simply the wrapper.
+   mm/oom_kill.c:1195:1: warning: unused function '___se_sys_process_mrelease' [-Wunused-function]
+    1195 | SYSCALL_DEFINE2(process_mrelease, int, pidfd, unsigned int, flags)
+         | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:221:36: note: expanded from macro 'SYSCALL_DEFINE2'
+     221 | #define SYSCALL_DEFINE2(name, ...) SYSCALL_DEFINEx(2, _##name, __VA_ARGS__)
+         |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:231:2: note: expanded from macro 'SYSCALL_DEFINEx'
+     231 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:81:2: note: expanded from macro '__SYSCALL_DEFINEx'
+      81 |         __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)                         \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:40:14: note: expanded from macro '__SYSCALL_SE_DEFINEx'
+      40 |         static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
+         |                     ^~~~~~~~~~~~~~~~~~~~
+   <scratch space>:30:1: note: expanded from here
+      30 | ___se_sys_process_mrelease
+         | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 warning generated.
 
-But arguably hugetlb_walk is the thing that should go..
+Mark the functions __used explicitly to fix the Clang warnings.
 
-In the generic code we should really try to get away from the weird
-hugetlb abuse of treating every level as a pte_t. That is not how the
-generic page table API works and that weirdness is part of what
-motivates the arch API to supply special functions for reading. Not
-every arch can just cast every level to a pte_t and still work.
+Fixes: a9ad73295cc1 ("riscv: Fix syscall wrapper for >word-size arguments")
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
+Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+---
+ arch/riscv/include/asm/syscall_wrapper.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-But that weirdness is also saving alot of code so something else needs
-to be though up..
-
-> > Regardless, I think the point is spot on, the direction should be to
-> > make the page table reading generic with minimal/no interaction with
-> > hugetlbfs in the generic code.
-> 
-> Yes, and I also like your terms on calling them "pgtable readers".  It's a
-> better way to describe the difference in that regard between
-> huge_pte_offset() v.s. huge_pte_alloc().  Exactly that's my goal, that we
-> should start with the "readers".
-
-Yeah, it makes alot of sense to tackle the readers first - we are
-pretty close now to having enough done to have generic readers. I
-would imagine tackling everything outside mm/huge*.c to use the normal
-page table API for reading.
-
-Then consider what to do with the reading in mm/huge*.c
+diff --git a/arch/riscv/include/asm/syscall_wrapper.h b/arch/riscv/include/asm/syscall_wrapper.h
+index 980094c2e976..ac80216549ff 100644
+--- a/arch/riscv/include/asm/syscall_wrapper.h
++++ b/arch/riscv/include/asm/syscall_wrapper.h
+@@ -36,7 +36,8 @@ asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *);
+ 					ulong)						\
+ 			__attribute__((alias(__stringify(___se_##prefix##name))));	\
+ 	__diag_pop();									\
+-	static long noinline ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__));	\
++	static long noinline ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))	\
++			__used;								\
+ 	static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
  
-> The writters might change semantics when merge, and can be more
-> challenging, I'll need to look into details of each one, like page fault
-> handlers.  Such work may need to be analyzed case by case, and this GUP
-> part is definitely the low hanging fruit comparing to the rest.
+ #define SC_RISCV_REGS_TO_ARGS(x, ...) \
 
-The write side is tricky, I think if the read side is sorted out then
-it will be easer to reason about the write side. Today the write side
-is paired with the special read side and it is extra hard to
-understand if there is something weird hidden in the arch.
- 
-> measurements too when getting there.  And btw, IIUC the major challenge of
-> pagewalk.c is not the removal of walk_hugetlb_range() alone - that may not
-> be that hard if that's the solo purpose.  The better way to go is to remove
-> mm_walk_ops.hugetlb_entry() altogether, which will cause a change in all
-> callers; that's "the challenge".. pretty much labor works, not a major
-> technical challenge it seems.  Not sure if it's a good news or bad..
+base-commit: 4cece764965020c22cff7665b18a012006359095
+-- 
+2.44.0.396.g6e790dbe36-goog
 
-Ugh, that is a big pain. It is relying on that hugetlbfs trick of
-passing in a pte that is not a pte to make the API generic..
-
-The more I look at this the more I think we need to get to Matthew's
-idea of having some kind of generic page table API that is not tightly
-tied to level. Replacing the hugetlb trick of 'everything is a PTE'
-with 5 special cases in every place seems just horrible.
-
-   struct mm_walk_ops {
-       int (*leaf_entry)(struct mm_walk_state *state, struct mm_walk *walk);
-   }
-
-And many cases really want something like:
-   struct mm_walk_state state;
-
-   if (!mm_walk_seek_leaf(state, mm, address))
-          goto no_present
-   if (mm_walk_is_write(state)) ..
-
-And detailed walking:
-   for_each_pt_leaf(state, mm, address) {
-       if (mm_walk_is_write(state)) ..
-   }
-
-Replacing it with a mm_walk_state that retains the level or otherwise
-to allow decoding any entry composes a lot better. Forced Loop
-unrolling can get back to the current code gen in alot of places.
-
-It also makes the power stuff a bit nicer as the mm_walk_state could
-automatically retain back pointers to the higher levels in the state
-struct too...
-
-The puzzle is how to do it and still get reasonable efficient codegen,
-many operations are going to end up switching on some state->level to
-know how to decode the entry.
-
-> One thing I'll soon look into is to allow huge mappings for PFNMAP; there's
-> one request from VFIO side for MMIO. Dropping mm_walk_ops.hugetlb_entry()
-> seems to be good for all such purposes; well, I may need to bite the bullet
-> here.. for either of the purposes to move on.
-
-That would be a nice feature!
-
-> > If, or how much, the hugepd write side remains special is the open
-> > question, I think.
-> 
-> It seems balls are rolling in that aspect, I haven't looked in depth there
-> in Christophe's series but it's great to have started!
-
-Yes!
-
-Jason
 
 _______________________________________________
 linux-riscv mailing list
