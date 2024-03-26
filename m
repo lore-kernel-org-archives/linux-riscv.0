@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428F2C54E58
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 00:36:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E9BC54E64
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 00:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HC1A0fwxnEpK1Q7F3ErR5aSrU4xAt07vvSBPekXPimo=; b=UV78ssXjE27NCX
-	Yz3V5R0CL76ez8aSCcJP3oAwrgXVu7wmHaLcC2OSdqbvGRgtRnYpIl2jnguTXW9lYBq3zVqPAgoTG
-	NG9e7Z4oHETF2LlnxaIgJUGLp8ImbEEX3GzT5MHgDvLCL2WjPdUMgLZjuYdlndMUDSJRB69AWfKew
-	EpuefI9DpVmQ4hcxJ6AIjPu2SLzd193k58FOwkr0Sq+TiwMsYHCn3hPdWn6EIjf1ei9WFbOXuiBBd
-	Cx81S9KdHzKZuOO6QHrxlUDDVp8qvOAVAoOJyly9BBRufRpCxZJoHZRdr58TIyq34hynA+08sCVQy
-	o8z1KuoHWxNnfOa+UTQA==;
+	List-Owner; bh=2uAzWjrNwWOm3PL/XyqSUnX0nhZDFoQM1DrVYi9PvdU=; b=WwkFk52hyMBVVT
+	FLb9f7ljSkeZeVwJLQm4ZVZFKFspGUIQrWmKoAS88NZQSrIw6g3e3unaSJFwtDA38foIxHnIwAqXP
+	4bmSXYbiTrvkLzjuk16O0vb2G/6eBRZy+Mly74J7nSCPkqId+C6hj2Kkb9m3IT6W01X4xGX9RvSmf
+	0C+UxpHw8GAU39a+3rnKxoWmeZ6q7MCOhoUTD8NcJvvkS9WlrSoxrSs/1RqiuRb1o8Q94+quPQXSj
+	VN2LosK20dGUSueDAIzm+q00KBHDrZEe1NG1ySn7qQB+LtuzTbOkk+OrZeL2Mps/8pyS2sdxaT4fq
+	YdJU73Zu94re/tZ2GdYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1round-00000002VlE-1CMY;
-	Tue, 26 Mar 2024 00:36:21 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rouo8-00000002Vpk-2mpp;
+	Tue, 26 Mar 2024 00:36:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rounZ-00000002Vjr-2I54
-	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 00:36:19 +0000
+	id 1rouo2-00000002Vob-1J2w;
+	Tue, 26 Mar 2024 00:36:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 10B2BCE12CD;
-	Tue, 26 Mar 2024 00:36:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15B26C433C7;
-	Tue, 26 Mar 2024 00:36:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B7113611D1;
+	Tue, 26 Mar 2024 00:36:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84803C433C7;
+	Tue, 26 Mar 2024 00:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711413374;
-	bh=xE992nxnooOSMpHEL8KfQyXIz2aD8fuvJwriFo5N6/c=;
-	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
-	b=H1VRJNiNWYhI+4V6opqODUgwJ+FQYQs04FpCcw+FrvrHpJ05AeCr3C9moPTNC7M2M
-	 m1KITlz+y004QgwfaB4Tf5lbe9P+5n6ezFqDLiF1oH5XAVlR5AadOCOqYMyZ9htdDe
-	 qnBZk3yrBc4aLzBsODzKiQ+xzoWFTMUK1tlLQ9EuS4kZgqepcIOTs4jDMcd8zVhNk1
-	 ge7eWjVY6BzZo/JezXcB3/Qcr95DG9OQdU3clrvSKh/sJT80q9ZOZHx0nqLPDxVf5F
-	 EFyJwk+5J96QRWGkPnlA4Lcnv7U7EEwt6oMEHw2KFLwijoDe6E0+6nHWPsLh2f4CvW
-	 /2K4kfpHeS+gw==
-Mime-Version: 1.0
-Date: Tue, 26 Mar 2024 02:36:10 +0200
-Message-Id: <D039EOFEEV74.3U6K3816DEQ28@kernel.org>
-Cc: <linux-riscv@lists.infradead.org>, "Paul Walmsley"
- <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>, "Luis
- Chamberlain" <mcgrof@kernel.org>, <linux-modules@vger.kernel.org>, "Naveen
- N . Rao" <naveen.n.rao@linux.ibm.com>, "Anil S Keshavamurthy"
- <anil.s.keshavamurthy@intel.com>, "David S . Miller" <davem@davemloft.net>
-Subject: Re: [PATCH v5 1/2] kprobes: textmem API
-From: "Jarkko Sakkinen" <jarkko@kernel.org>
-To: "Masami Hiramatsu" <mhiramat@kernel.org>
-X-Mailer: aerc 0.17.0
-References: <20240325215502.660-1-jarkko@kernel.org>
- <D036AJAEAOUF.34494O217N0RI@kernel.org>
- <20240326085037.0142d7dadc702e3b49a3251e@kernel.org>
-In-Reply-To: <20240326085037.0142d7dadc702e3b49a3251e@kernel.org>
+	s=k20201202; t=1711413405;
+	bh=r6ja1S3WkmxWys+sE3KabUy5bKAQKHZGyKXel35g+zY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RFOy9SckrUmOjcVY80p+Bpxbe+5dpDJq+JeaQvIywXepTed1YRXnEepoqUkHhDLDv
+	 KZQ8orGHJmcfhxU4yqXzvKwkkh03GuDsm5VknrzWZxwAeC8moegodFxeAFmHcguP3V
+	 MvMXRlBgmBX55pjBPgOUTWQbK7zrjPHUR7Ivk7miBmPv+gpyP5Ja8S02vD6UZnj61n
+	 CqfQ4NXy/CKPT7KniveufUJdSfosIbl7mM5+gISfC65C9eTYs21OyRMfhMeYTy9MAj
+	 ov2d24lOwn4Oj/ZJVUPrXNuEHsLe2pES4uVY1T8XSrKZegQunB7Zn3qmkn816MOaQo
+	 yZPbuVAYSRHAg==
+Date: Tue, 26 Mar 2024 01:36:41 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-i2c@vger.kernel.org, asahi@lists.linux.dev, 
+	chrome-platform@lists.linux.dev, imx@lists.linux.dev, linux-actions@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org, linux-omap@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
+	openbmc@lists.ozlabs.org, virtualization@lists.linux.dev
+Subject: Re: [PATCH 00/64] i2c: reword i2c_algorithm according to newest
+ specification
+Message-ID: <j2l7tu24itjelylrgwe6gdsy3mfrw3dnve4rdofmri3z7xdroc@se56t5ylmdak>
+References: <20240322132619.6389-1-wsa+renesas@sang-engineering.com>
+ <ug266trshvhhbsln3eoh53fmsuj3l63ziz6gavcl7rv2jhjr5t@3av5givh5n7m>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ug266trshvhhbsln3eoh53fmsuj3l63ziz6gavcl7rv2jhjr5t@3av5givh5n7m>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_173617_774319_BD43DAE7 
-X-CRM114-Status: GOOD (  20.02  )
+X-CRM114-CacheID: sfid-20240325_173646_599075_32BD0A40 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,68 +82,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue Mar 26, 2024 at 1:50 AM EET, Masami Hiramatsu (Google) wrote:
-> On Tue, 26 Mar 2024 00:09:42 +0200
-> "Jarkko Sakkinen" <jarkko@kernel.org> wrote:
->
-> > On Mon Mar 25, 2024 at 11:55 PM EET, Jarkko Sakkinen wrote:
-> > > +#ifdef CONFIG_MODULES
-> > >  	if (register_module_notifier(&trace_kprobe_module_nb))
-> > >  		return -EINVAL;
-> > > +#endif /* CONFIG_MODULES */
-> > 
-> > register_module_notifier() does have "dummy" version but what
-> > would I pass to it. It makes more mess than it cleans to declare
-> > also a "dummy" version of trace_kprobe_module_nb.
->
-> That is better than having #ifdef in the function.
->
-> > 
-> > The callback itself has too tight module subsystem bindings so
-> > that they could be simply flagged with IS_DEFINED() (or correct
-> > if I'm mistaken, this the conclusion I've ended up with).
->
-> Please try this.
->
-> -----
-> diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-> index 70dc6179086e..bc98db14927f 100644
-> --- a/kernel/kprobes.c
-> +++ b/kernel/kprobes.c
-> @@ -2625,6 +2625,7 @@ static void remove_module_kprobe_blacklist(struct module *mod)
->  	}
->  }
->  
-> +#ifdef CONFIG_MODULES
->  /* Module notifier call back, checking kprobes on the module */
->  static int kprobes_module_callback(struct notifier_block *nb,
->  				   unsigned long val, void *data)
-> @@ -2675,6 +2676,9 @@ static int kprobes_module_callback(struct notifier_block *nb,
->  	mutex_unlock(&kprobe_mutex);
->  	return NOTIFY_DONE;
->  }
-> +#else
-> +#define kprobes_module_callback	(NULL)
-> +#endif
->  
->  static struct notifier_block kprobe_module_nb = {
->  	.notifier_call = kprobes_module_callback,
-> @@ -2739,7 +2743,7 @@ static int __init init_kprobes(void)
->  	err = arch_init_kprobes();
->  	if (!err)
->  		err = register_die_notifier(&kprobe_exceptions_nb);
-> -	if (!err)
-> +	if (!err && IS_ENABLED(CONFIG_MODULES))
->  		err = register_module_notifier(&kprobe_module_nb);
->  
->  	kprobes_initialized = (err == 0);
+Hi Wolfram,
 
-OK, thanks for the suggestion WFM.
+> > @Andi: are you okay with this approach? It means you'd need to merge
+> > -rc2 into your for-next branch. Or rebase if all fails.
+> 
+> I think it's a good plan, I'll try to support you with it.
 
-I'll give this also a spin with VisionFive2 RISC-V SBC before sending
-v6.
+Do you feel more comfortable if I take the patches as soon as
+they are reviewd?
 
-BR, Jarkko
+So far I have tagged patch 1-4 and I can already merge 2,3,4 as
+long as you merge patch 1.
+
+Andi
 
 _______________________________________________
 linux-riscv mailing list
