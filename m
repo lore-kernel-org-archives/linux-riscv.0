@@ -4,139 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB283CD11DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 11:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 022E1C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 11:38:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g3ChgF5DN3qEug9RmJL7O7R0YFsm7z768XxHNes2VnY=; b=zPBaqgIpsSXj1F
-	puHwnMmS15aY6Um8U6ajKVizjnb1tQkQgwhUr2PPlyMZTTeZWhfpxlDDpR1lb1gj/Zy39F+74BxJO
-	Kl0v0e+TBo7Pov5o9zSesutQ5+m/DpRTNkQwQxXRs/74OwmDldY8zwjlyyzbX4wZgsmIGxva3QZB0
-	xPmiF5ZpWNKuaRcqk8mfqL6le6+laBqro1mcHn0aUSVp5AlyhNVJR81nyyhqe783tkpjelcf6aEIE
-	ArUBVmCJxGbdc4erHf49PT6ty1gqro953IwTqAnugJVMQPGWy1U0ZPUItpRa/IHza0uo7bj6mDMz4
-	jinVKRM0zW3Vt9axTOFg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qYD+mZXrWTYI87ApPwntvSC/7TbaB6B61EEDoU25klM=; b=bF1G9NLMrVk8n8
+	T/itaBAt1l/mnAHexsCvLIE/rONWv4eMrrrCX9QdGqJa1o0w8FvtIVVNWBHQr5HxxFKEmCV6q/na0
+	Nfwm+wAzvt1HzDjisEm0HDDbhppdtJ8r1qWSuPGaL5zxxeByZ0+EfudRXTuZQm48jHL/xWZgVBmH+
+	5XbamlrO+oFXA7B+ezh1/px9AT9xBWK5PjSf1fCMaonHgpdDzLYJfhrU0PSHw3TQS4gkPJK3uj8wd
+	B/IXEBEGQnXYIjyEVWj/ZtNWPfhMPYDq/wh8n7PJbSF2u31L9oxZh/bwh72ksf1rwcc9Nu29nkKGS
+	Saz2sS8Q2vLsK9dHL2+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp51j-00000004GN0-3WVs;
-	Tue, 26 Mar 2024 11:31:35 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1rp58c-00000004I1a-1aPp;
+	Tue, 26 Mar 2024 11:38:42 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp51e-00000004GLL-0ZMm
+	id 1rp58Y-00000004I0H-3Ttk
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 11:31:33 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-a470d7f77eeso682795566b.3
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 04:31:23 -0700 (PDT)
+	Tue, 26 Mar 2024 11:38:41 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-41485fcb8ccso15409515e9.1
+        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 04:38:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1711452681; x=1712057481; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=6TiHBhLMtrxG4Kj/hIOTgJQ1RkjuHVilX+bsy0WXGMU=;
-        b=BzUw+mfFeoHl/k1VNhOvJ5vqq2k5uDxy+qK+NYuy36tn/1O1HBEap8fUfBTXJCxS6p
-         J2J3XdDc8Vsj+F2SpkcxCqdPwfz8Y6nQOUoW7lt0ZzcJdAqtm/LaWcGkkIJ7HuKa1YpW
-         3ZcfQUmlp7XmgDA02TVz9ZdAn1CnIXntzWHDU8EoWs8p4qrQwOM64cOb0meHKvk54AaI
-         PE30Yy9EbhN8ScgntyF3oFyxFwgRIt/n6hOA1ypsoVTjf/UWO6eVbtO5t0D5IyKJjUZX
-         wuVdEcbKEX3C+McOoPoMzieTA23eeRuLWmYiLazGaYKXhs/U0a3NVImcsMGjup5tei4Q
-         ALjg==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1711453113; x=1712057913; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=B4DQoBiWf/BkzkccPmSjgU6K6Hqbqo4RwUCXEAIRgf4=;
+        b=pOcZOcD7NZ+/mKh6xfpc+ppS814gU0IKHaG8V0GUQ3zjeGYBoembuzSvmkTamT2J/N
+         DX8r5HsgoeLnDklwpS6SAIElnNemUiqbsZYNfcGdkPczYMKd6yNJCYVBNA6M+7UZbS2/
+         FEw4QvxA2eFGFQyRavhXSYvGWQyp/sJ1XPQXQ/qLfZ9Y08uhKLu/QkRMU+gWK6B4UZW2
+         5CL2ujAXTa+uIQM6QVwHALjkxR/bAS9Dc3ppZ4E3n6wWDBlCbLQhSwhjZSnVelARftuK
+         j19i6RcfX6N9zfjcBiiNp3V4BBLm5TRqdbEzfiFRh5Nx5elwQaz/c7U1M+GSIow0N0XW
+         dk/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711452681; x=1712057481;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6TiHBhLMtrxG4Kj/hIOTgJQ1RkjuHVilX+bsy0WXGMU=;
-        b=YuUyKEziYQ7OxrjaY3U42fJwXvXEJrcwW3xhI2DSjfVnKUgaDsGdDIGgLgq/1ZPdap
-         DOGCfkyXHvBE2WN47uftLlo4LBVO4J94DwAdMut671WKL3GwKFln+q+CDzr6oHD0zaiU
-         jRP3J8prm0Jdec2Zzae7CmvTAzxySJ0nGg7WDVcR+dlPwZauxONEGC2zoPYs9dx/ojes
-         DCEtIc7n5W2c3gVbP4GaZTx5GSFAgjS1CsgQGQT1DmUzrBiYb+TW75XOfdYK/KlySOh1
-         X0eNro7Ubw9BUat2gIAjybGDlk/pk3kCDDAQvvAVUj3ZQM9WKkVALbBsUea/9Ww0r1qD
-         Ownw==
-X-Forwarded-Encrypted: i=1; AJvYcCWOkQwpopOzEBSv8TSUtGDIgHDtvuyVU05qantcyLTWo5iX4S39XC8FoQxg3Bgcy6UWE1Sk8WuuluQIRWewFqlvGFnGa38ZWnBND8shF0FA
-X-Gm-Message-State: AOJu0YxJu59iCKI1VKX3/8QAbOGBVUmOnHbJJ42ClHqV/RjVp5Nnr0Nw
-	FfzarjNCtVxlIcYVBOJ1eiwZD0nfRtCinuXm3hN562/vAzH+Ir+Xg8P74tVriRprGNXImUogtOu
-	6
-X-Google-Smtp-Source: AGHT+IFuPeRhJNmuBK0vDtgUjM9MnvsrbbO41q3BvDAYXHZuDMXzDqNTRU6iszlhwig3CMcQfVxteg==
-X-Received: by 2002:a17:906:5810:b0:a47:1b77:7c4 with SMTP id m16-20020a170906581000b00a471b7707c4mr7089215ejq.48.1711452680880;
-        Tue, 26 Mar 2024 04:31:20 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.222.44])
-        by smtp.gmail.com with ESMTPSA id e21-20020a170906081500b00a4df251a601sm725639ejd.77.2024.03.26.04.31.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Mar 2024 04:31:20 -0700 (PDT)
-Message-ID: <cf42e020-9a5b-48bb-bc14-c0cc9498627b@linaro.org>
-Date: Tue, 26 Mar 2024 12:31:18 +0100
+        d=1e100.net; s=20230601; t=1711453113; x=1712057913;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=B4DQoBiWf/BkzkccPmSjgU6K6Hqbqo4RwUCXEAIRgf4=;
+        b=OizXRxP3Qtwx2nHM+E5g05gC9LPTNj4YZ+QONwyd4DXYQ7HTmkYNgZOlgSkFWw8b5f
+         FdunyLmMXhpYkggs/2pi7Mrm2mAH0cdZj0dK7E7PWdp/rdDQhGRV934nKLEQo8zp8oHb
+         iaY3i5U+qBNOWp8pxm5mWCsh1N++/Rr0mpWRnKNG+UVAv3SdMzNB8tFecEPv4n8LXF4H
+         86Jn4fjMKcseLs12wu+EjQtYREosYmGKeE8MLMc3Ij3Ig4vlLkM1aDhtPXQBBHWP+dt5
+         1v+QVahfOqicmVHZWxeM15x96JIhScXV10VOjdAoESU4yeLVGvhLpELv7BiohQahkAk6
+         N8FQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVotRNsq50/DXJRbyzi2poqQwczo5tDO2jh9KEIp2kILp3+A32R1bl7tWOd66pLqk7nixIqUeuwLti7o9vd77hVP+VqwST9HPA8KdJypIcY
+X-Gm-Message-State: AOJu0YyasZ8RpeVxYAxio1SfJE2SfQrjc86bCmBb15dOZY26+OH6C1un
+	1zxKX2g1OrvWs/Aq4MIWhzmke14T91kDdaT0KSYRBxDRbj6eK5MQCf2MhU2NPdc=
+X-Google-Smtp-Source: AGHT+IHIA4FG4O7jwVP+ONy4VLO/b2zyf1K6Fncbj3wE/pKbtfVJFeYSYeSda8MGMT9Kbbyf0H9Y3Q==
+X-Received: by 2002:a05:600c:1987:b0:414:8675:513a with SMTP id t7-20020a05600c198700b004148675513amr4673999wmq.16.1711453113422;
+        Tue, 26 Mar 2024 04:38:33 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id je14-20020a05600c1f8e00b00414688af147sm11319966wmb.20.2024.03.26.04.38.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Mar 2024 04:38:33 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Vladimir Isaev <vladimir.isaev@syntacore.com>,
+	Roman Artemev <roman.artemev@syntacore.com>,
+	Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH] riscv: Check that vdso does not contain any dynamic relocations
+Date: Tue, 26 Mar 2024 12:38:31 +0100
+Message-Id: <20240326113831.283025-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] dt-bindings: dmaengine: Add dmamux for
- CV18XX/SG200X series SoC
-To: Inochi Amaoto <inochiama@outlook.com>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>,
- Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org,
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <IA1PR20MB4953B500D7451964EE37DA4CBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953E2937788D9D92C91ABBBBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
- <57398ee0-212c-4c82-bfed-bf38f4faa111@linaro.org>
- <IA1PR20MB4953EDEEFC3128741F8E152EBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
- <473528ac-dce2-41e3-a6d7-28f8c53a89ef@linaro.org>
- <IA1PR20MB4953517450F0E622A66E9A7DBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <IA1PR20MB4953517450F0E622A66E9A7DBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240326_043130_356230_6836F4C6 
-X-CRM114-Status: GOOD (  27.38  )
+X-CRM114-CacheID: sfid-20240326_043839_015183_A715A5E0 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,98 +97,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26/03/2024 12:15, Inochi Amaoto wrote:
-> On Tue, Mar 26, 2024 at 09:53:09AM +0100, Krzysztof Kozlowski wrote:
->> On 26/03/2024 08:35, Inochi Amaoto wrote:
->>>>> +
->>>>> +required:
->>>>> +  - '#dma-cells'
->>>>> +  - dma-masters
->>>>> +
->>>>
->>>>
->>>> I don't understand what happened here. Previously you had a child and I
->>>> proposed to properly describe it with $ref.
->>>>
->>>> Now, all children are gone. Binding is supposed to be complete. Based on
->>>> your cover letter, this is not complete, but why? What is missing and
->>>> why it cannot be added?
->>>>
->>>
->>> The binding of syscon is removed due to a usb phy subdevices, which needs 
->>> sometime to figure out the actual property. This is why the syscon binding 
->>> is removed.
->>>
->>> I think it is better to use the origianl syscon series to evolve after
->>> the usb phy binding is submitted. The subdevices of syscon may need
->>> much reverse engineering to know its parameters. So at least for now,
->>> the syscon binding is hard to be complete.
->>
->> Some explanation why dma-router is gone would be useful, but fine.
->>
-> 
-> OK, I will add some comments on the why it is gone.
-> 
->>>
->>>>
->>>>> +additionalProperties: false
->>>>> +
->>>>> +examples:
->>>>> +  - |
->>>>> +    dma-router {
->>>>> +      compatible = "sophgo,cv1800-dmamux";
->>>>> +      #dma-cells = <2>;
->>>>> +      dma-masters = <&dmac>;
->>>>> +      dma-requests = <8>;
->>>>> +    };
->>>>> diff --git a/include/dt-bindings/dma/cv1800-dma.h b/include/dt-bindings/dma/cv1800-dma.h
->>>>> new file mode 100644
->>>>> index 000000000000..3ce9dac25259
->>>>> --- /dev/null
->>>>> +++ b/include/dt-bindings/dma/cv1800-dma.h
->>>>
->>>> Filename should match bindings filename.
->>>>
->>>
->>> Thanks.
->>>
->>>>
->>>> Anyway, the problem is that it is a dead header. I don't see it being
->>>> used, so it is not a binding.
->>>>
->>>
->>> This header is not used because the dmamux node is not defined at now.
->>
->> In the driver? The binding header is supposed to be used in the driver,
->> otherwise it is not a binding.
->>
-> 
-> The driver does use this file.
+Like other architectures, use the common cmd_vdso_check to make sure of
+that.
 
-I checked and could not find. Please point me to specific parts of the code.
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/kernel/vdso/Makefile | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-> 
->>> And considering the limitation of this dmamux, maybe only devices that 
->>> require dma as a must can have the dma assigned. 
->>> Due to the fact, I think it may be a long time to wait for this header
->>> to be used as the binding header.
->>
->> I don't understand. You did not provide a single reason why this is a
->> binding. Reason is: mapping IDs between DTS and driver. Where is this
->> reason?
->>
-> 
-> It seems like that I misunderstood something. This file provides one-one
-> mapping between the dma device id and cpuid, which is both used in the
-> dts and driver. For dts, it provides device id and cpu id mapping. And
-> for driver, it is used as the directive to tell how to write the mapping
-> register.
-
-So where is it? I looked for DMA_TDM0_RX - nothing. Then DMA_I2C1_RX -
-nothing. Then any "DMA_" - also looks nothing.
-
-Best regards,
-Krzysztof
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 9b517fe1b8a8..dd4877f25928 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -49,7 +49,7 @@ $(obj)/vdso.o: $(obj)/vdso.so
+ 
+ # link rule for the .so file, .lds has to be first
+ $(obj)/vdso.so.dbg: $(obj)/vdso.lds $(obj-vdso) FORCE
+-	$(call if_changed,vdsold)
++	$(call if_changed,vdsold_and_check)
+ LDFLAGS_vdso.so.dbg = -shared -S -soname=linux-vdso.so.1 \
+ 	--build-id=sha1 --hash-style=both --eh-frame-hdr
+ 
+@@ -69,7 +69,8 @@ include/generated/vdso-offsets.h: $(obj)/vdso.so.dbg FORCE
+ # actual build commands
+ # The DSO images are built using a special linker script
+ # Make sure only to export the intended __vdso_xxx symbol offsets.
+-quiet_cmd_vdsold = VDSOLD  $@
+-      cmd_vdsold = $(LD) $(ld_flags) -T $(filter-out FORCE,$^) -o $@.tmp && \
++quiet_cmd_vdsold_and_check = VDSOLD  $@
++      cmd_vdsold_and_check = $(LD) $(ld_flags) -T $(filter-out FORCE,$^) -o $@.tmp && \
+                    $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
+-                   rm $@.tmp
++                   rm $@.tmp && \
++                   $(cmd_vdso_check)
+-- 
+2.39.2
 
 
 _______________________________________________
