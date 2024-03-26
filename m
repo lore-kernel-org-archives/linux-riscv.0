@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A754BC54E58
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 06:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D49C54E58
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 07:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MUq/sdFATphhodvxpRex/VGfH57rXFgzlxbcO1AAAQM=; b=fHJfbXEEFqzJrr
-	nk4EdWtKt1g/HKDAwR+d6UsVxv0AEW3oU3shgbJMJeCx2XONeqdFNin8AhBO2dIsZCDhMmgWr5Cpb
-	LhTuTzdg7chsMkkKb8fMM4LP1u+FM4Z7w3UMwmkWhseCAZ7MTlhRQ7eFBpTc20/hPqQVL5hYd/pw3
-	5CoXUx8urrOo2PMMbCfEoQX+Ah0TfKKrBRxWNMRT+enshTYNV0ruwGGEkAYW86G38smwnvftvaWaJ
-	nZVleA9G3qAMV7HGsX4dOH6ocMDycvN5EyJN3b2lPrMok8b4ZU3l4wHJDhws7g8bfA8fbQzK+A6QS
-	9Qx/9i6hyac5aspoxuyA==;
+	List-Owner; bh=uodpCd+m/t8toK2/oCAlurvcSGQ0RxJv+D1/GiunQBA=; b=UbhyeCVP7EccIP
+	Zgfjr7vUPdw5dOr+1fKidA590M0l87yXToERmPfXupTi05UmwFBvNHlc+k5hmYKwBTQW8okoD/a6T
+	ucy07rQP0Ht5HqBISu0oyb1vuPPS9cMDncshZibT3sOcwkbKWaua6yjlcdBtwJt9yw6YIZHRaH34u
+	Q/i5y/ZvUPgvQbPm7OZPRVm2aoWl/i6cRxrbIAlBKLTXxddK0ZTLs2Nl4tn8WuRa/RUvbxn3LclIG
+	3aXhjUZnq5Wdh6L1jS75gnhJKbY2ts1RgxNxADAHrTh2HPp1S7gKEQM3GIXcjRcD/Qdgb2dknDNBt
+	/RLoX3aJmRWNsknvXM3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp0ks-00000003LuO-0SiG;
-	Tue, 26 Mar 2024 06:57:54 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1rp0oI-00000003Mis-0d5g;
+	Tue, 26 Mar 2024 07:01:26 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp0ko-00000003Lso-330f
+	id 1rp0oF-00000003Mh9-2XS9
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 06:57:52 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-a46cca2a979so300391366b.3
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2024 23:57:48 -0700 (PDT)
+	Tue, 26 Mar 2024 07:01:24 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a46cd9e7fcaso609565966b.1
+        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 00:01:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1711436267; x=1712041067; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1711436481; x=1712041281; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=b92irMn46EzcW/AtEokxK5lcxIlhufDIe6kzdSmDcBA=;
-        b=cSqvW6XkQTJSFptpYoGqPJxjUuCPbijVoO1nKrGpB7XgyUo+/TSLhky6nYCdyIkAH2
-         RoYcS2J+0Y37YfWkFQiXsvi8gJZGzj6F92go+vKxb20R5yXdhEkOQk8q24e2zNc2/FjI
-         aQHeJ4Vnj/28d+sBW6kUFzI1NT7OHnGWduIL25M6XpZI+4uaAbquueM8+7Ld/2mV+yHg
-         PnrweDO3vXixYWt20qlDJXpAqQ4leypBU2PRDyvnGm2IrvDLO9+7DthscUOEZSf0YBa3
-         aE4tJRA3o8TA2ntqq24IdZEAbu2OSpId68MPLpYluxh20Ydr1eWS+Dr28I6c0WAtok1G
-         7QAA==
+        bh=nG4I7sL9td2jNIUZM1b4vCjHaKrhTkrvxk5qoWU/Idg=;
+        b=meBv8ZarBW1S2Chb4/9avqYi9svaaRHWl2Czbo+9InMidU3nOZYwvc5qP/PAz+iE74
+         S7bTIsiWTY1nYR4Nzeo2JvIeSS1iHd4lqcQEKRJI673A9d3ar02HD23K1AwVH5ofA5uv
+         q1uNsWCN4FvFzz3WA3HIMbveNI/ijj7fihwIrWgRYnLA73JsSMPY7rgnU8tw8paOVDHq
+         FvEJfVdLXPwrQxPVs3Rp5626AW5VkzIvqARnSoW8E2dGHoWfWCZoHdRL3mQiuoC7cIqz
+         SA3as2GJJQrmNp8uJ2/AVHLr5NpbnHQgRnjfIbTVk+WK2n7wstschl94IJNvojSkMUsP
+         mIdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711436267; x=1712041067;
+        d=1e100.net; s=20230601; t=1711436481; x=1712041281;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=b92irMn46EzcW/AtEokxK5lcxIlhufDIe6kzdSmDcBA=;
-        b=f+d9RiXIKxMeFUXMe3J18UnrsDxW4ETgAr6nla/NMJUtVK5QDk3DyD+2crxBqtCEbC
-         LGXzjqEiqgDWOfWEz0Q1x4TXJDDhTiVqn6lOgfWrhOrlysd4+wjYKNxkGZlbIwI/OcLA
-         7QwBGNNvSdTcDYqPW/g8sVROHs4R6ASYWvQCkE4qnnZHH6FwnTRlGuyZJyGAQu167oTi
-         repHnLXrFJrFS7RZO+/JPcReiloDpFtUhPxzNM/Kh8cEKOyCCXAKCWUggisE2ao3rQ7B
-         tJpmDz0OH76r7DCZgCB5dChnG6Zk1fG6Tsb41CtI3eo7nAHwLbaIVeJpu2xsWH4f+Hze
-         JULQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXd2uC4OBLGkOxZCTLIe/edeggpTpa+aEmVBW/RM55trsUYiC+LrWea4hSIlkMhPzKgO9z668QoKyqyDEh1BkrqlUAWK95F7mt37bKmS+he
-X-Gm-Message-State: AOJu0Ywy3C1eOiBzkGByOilhMr6ySmA5LFI6CuknCXFXH8D36I02Mvnb
-	YTnmlunzPJn/wjhbvkoSeWjfKqNonZ5eQzUCzJY6vZcMOg4vpQfQt492f638G+Y=
-X-Google-Smtp-Source: AGHT+IF4QhB5PfHfKYdbDK8FmMLQwH5Qj67bD++YkAq6ilfHmf4Dq0FShfdvxJP+bF5RZCDfdLglEA==
-X-Received: by 2002:a05:6402:34c6:b0:56b:f54a:8485 with SMTP id w6-20020a05640234c600b0056bf54a8485mr9051599edc.0.1711436267278;
-        Mon, 25 Mar 2024 23:57:47 -0700 (PDT)
+        bh=nG4I7sL9td2jNIUZM1b4vCjHaKrhTkrvxk5qoWU/Idg=;
+        b=Wn09k4heYnk4PBstZSvO60Rg94g2Wm7YXoJBNhlmt4bM/b9zhMTM6m+y7lLSSAtlyO
+         t86v+S6uLHQGwCSiTNCXnb4wH6czlIJtQCNaytlLLYATvPMHV2I+Ra6YFE2R3n6SR/l4
+         UsEIl3RXJsElZ4qm4/8xl5+QoY0ldOteHSgg9j5QneyUHsCgo/2pXr2N9ubT/avqcXqC
+         KMr08t0O8aqjMd3aak1LO1TtmLWBiPm8GWHpJ7Mxw0BZGxZtZtbFcOLmJGxQ403pFWM/
+         fl61LWkp2ee+PYEt2+fUlxjvYXLkm/F9L3bn9w0CIvCoatgEuMsERvDv4mKhkeKnD5ug
+         Ny8A==
+X-Forwarded-Encrypted: i=1; AJvYcCV//T3ssIssrRewQluAQx10L++/MSuhVPHRsiVjAQDLHmpxBIeHu9YOkha5DG9OpnbMOo3BZnBLHoX1muYPBSOrq3E+xRMuMDsilHcJlSvR
+X-Gm-Message-State: AOJu0YzddGGQaTIgD2VCp2oB4i391JPPS87e3nix68a0EGM/IS2NE0Mj
+	sVDQtGE8Yi25iuxdJxi67O1s/x8yu00812wb943y0dMqC5MSIN7/t4EEdVUOG6o=
+X-Google-Smtp-Source: AGHT+IE8RknrDfvhgcqWWt7MA90Qn+duT7+xgjDCbqjb+VLfqRE9jLgDi5k239bfumDcSYXqrK0QhQ==
+X-Received: by 2002:a17:906:af06:b0:a44:b9e0:8592 with SMTP id lx6-20020a170906af0600b00a44b9e08592mr6922236ejb.8.1711436480613;
+        Tue, 26 Mar 2024 00:01:20 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.222.44])
-        by smtp.gmail.com with ESMTPSA id r1-20020aa7cb81000000b0056c052f9fafsm2939234edt.53.2024.03.25.23.57.45
+        by smtp.gmail.com with ESMTPSA id q8-20020a170906388800b00a4729f093ecsm3860919ejd.53.2024.03.26.00.01.18
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 25 Mar 2024 23:57:46 -0700 (PDT)
-Message-ID: <57398ee0-212c-4c82-bfed-bf38f4faa111@linaro.org>
-Date: Tue, 26 Mar 2024 07:57:44 +0100
+        Tue, 26 Mar 2024 00:01:20 -0700 (PDT)
+Message-ID: <ec122998-8dfb-4790-8b12-a80b8e7a639c@linaro.org>
+Date: Tue, 26 Mar 2024 08:01:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] dt-bindings: dmaengine: Add dmamux for
+Subject: Re: [PATCH 1/2] dt-bindings: usb: dwc2: Add support for Sophgo
  CV18XX/SG200X series SoC
-To: Inochi Amaoto <inochiama@outlook.com>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>,
+To: Inochi Amaoto <inochiama@outlook.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Conor Dooley <conor+dt@kernel.org>, Minas Harutyunyan <hminas@synopsys.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>,
- Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org,
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+Cc: Chen Wang <unicorn_wang@outlook.com>, Liu Gui <kenneth.liu@sophgo.com>,
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <IA1PR20MB4953B500D7451964EE37DA4CBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953E2937788D9D92C91ABBBBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB49537ED844CEBF19880326CEBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB49530A43A81CF4B809DBC2F8BB352@IA1PR20MB4953.namprd20.prod.outlook.com>
 Content-Language: en-US
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -128,10 +128,11 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <IA1PR20MB4953E2937788D9D92C91ABBBBB352@IA1PR20MB4953.namprd20.prod.outlook.com>
+In-Reply-To: <IA1PR20MB49530A43A81CF4B809DBC2F8BB352@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240325_235750_818759_C0FFE2AF 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20240326_000123_731737_14EC5E97 
+X-CRM114-Status: UNSURE (   6.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,80 +149,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26/03/2024 02:47, Inochi Amaoto wrote:
-> The DMA IP of Sophgo CV18XX/SG200X is based on a DW AXI CORE, with
-> an additional channel remap register located in the top system control
-> area. The DMA channel is exclusive to each core.
+On 26/03/2024 03:37, Inochi Amaoto wrote:
+> Add compatible string for the DWC2 IP which is used by
+> Sophgo CV18XX/SG2000 series SoC.
 > 
-> Add the dmamux binding for CV18XX/SG200X series SoC
-> 
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
 
-
-> +
-> +allOf:
-> +  - $ref: dma-router.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: sophgo,cv1800-dmamux
-> +
-> +  reg:
-> +    items:
-> +      - description: DMA channal remapping register
-> +      - description: DMA channel interrupt mapping register
-> +
-> +  '#dma-cells':
-> +    const: 2
-> +    description:
-> +      The first cells is device id. The second one is the cpu id.
-> +
-> +  dma-masters:
-> +    maxItems: 1
-> +
-> +  dma-requests:
-> +    const: 8
-
-If this is const, why do you need it in the DTS in the first place?
-compatible defines it.
-
-> +
-> +required:
-> +  - '#dma-cells'
-> +  - dma-masters
-> +
-
-
-I don't understand what happened here. Previously you had a child and I
-proposed to properly describe it with $ref.
-
-Now, all children are gone. Binding is supposed to be complete. Based on
-your cover letter, this is not complete, but why? What is missing and
-why it cannot be added?
-
-
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    dma-router {
-> +      compatible = "sophgo,cv1800-dmamux";
-> +      #dma-cells = <2>;
-> +      dma-masters = <&dmac>;
-> +      dma-requests = <8>;
-> +    };
-> diff --git a/include/dt-bindings/dma/cv1800-dma.h b/include/dt-bindings/dma/cv1800-dma.h
-> new file mode 100644
-> index 000000000000..3ce9dac25259
-> --- /dev/null
-> +++ b/include/dt-bindings/dma/cv1800-dma.h
-
-Filename should match bindings filename.
-
-
-Anyway, the problem is that it is a dead header. I don't see it being
-used, so it is not a binding.
-
-
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
