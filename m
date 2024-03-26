@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A5ADC54E67
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 16:47:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C5DC54E67
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2024 16:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AwSv7wmBSh+RCAJbTHkpKphdLzx9tdiJ4ZV4ZHo2iNo=; b=UdsqoJXrxVjme5
-	H3KrmxwCp6Mhe3eY7puBv+SBqXrD04klauLEsi4o2oLhT/qT/9AY9Si2a7k0Pp1wXVAl29s3wFT03
-	6x7LD2RO7hY4OEFE3N/czRKfJEdcY2rn5pgGDjBR5LfMGb0M2pp+/kTyYJrMP8b9tjGl19AMNvvwq
-	99TgEj5zAd+bVAYrabh017SFCUyofBDQBKwpY71equiqNJvaJSb0Qtf6yzAoInHk+tVNuPdVEpQjQ
-	23/gMnM4P4VYixRq9EL2z1WpW2vAoL5hHtTXl0KeSDxAJnMltjWzhUB/mrAoxd0SvLmgBJnbp/UJO
-	04gSOC/ZS3WO2h6kxMBA==;
+	List-Owner; bh=0B/xV7ISTXqk75qRIpEyk8mW4xB5CaFqcTzV+sS8eho=; b=l37JqfWKASZ7lg
+	3w35ks+OhLtPz0XYAuG+6JyL2YKCSr3f9AsBxCwsSyW8I94IO+sCQfkkk2qX11kOI/M11/ZcUMdiW
+	POFD28tyReL1p4Zjp4Qg40fpvMv7Y2vnavHdor07pZhH+eT7yeXhVx0L4Mh0skWow81ixvBKc3oQi
+	9aF/WOJ0ZNuWzAcAZTCV0qsx+meQiPr8Ns93ZayABGW1TF/yghVlIDlh0Z14iAHrwOIo3avqZA6bl
+	wmMS7LEeXbh8Ufi1DiqJtWHkRqN3OU7TyOEGr39f7AxuELLtnt5igv128j2+jGDNVFPvGHVw0cclq
+	gzoQ04cRs/WOpeao58SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp9wt-00000005XWv-3W8P;
-	Tue, 26 Mar 2024 16:46:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rp9zS-00000005Z4P-2BqW;
+	Tue, 26 Mar 2024 16:49:34 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rp9wr-00000005XW4-1651
+	id 1rp8wC-00000005GOW-3d5Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Mar 2024 16:46:54 +0000
+	Tue, 26 Mar 2024 15:42:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A6AF060C24;
-	Tue, 26 Mar 2024 16:46:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7475FC433F1;
-	Tue, 26 Mar 2024 16:46:49 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 03CADCE2272
+	for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 15:42:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECABDC43601
+	for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 15:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711471611;
-	bh=TjizBl5fTdirAVYLMBFY14ay2KbScOAk50MLwJ9ycJ4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C0L+gOjexMKnKGWpTZ9nDGrG2131IeHyn1P8YvU1Qv24kATa0FT2OhDfOQSy4FDMW
-	 AnDWr/eqJtkK9dQPb04Ip69yQk3XQSKjr+/3hlf4Pu9k9+VNUINTPkDa1IBqK1UI+/
-	 P65trwCu1qY33WpWchVMNRDQxj2PzlYLcXUkyDLX2bEgmd2rDpMMdqEPXa/qXsGp9M
-	 tXwOAKpxqLdGaOlhOefEaNoI4SaDu9xZ+vHQI3nfWyplcP1uQgO8poHS+CDfTX2+HZ
-	 bPIAj/N2hFo6FQ1NVcJjurI0BIP70yUo9nOPXBLIJjJNNIW0HXy61c2d8mrIDXklp6
-	 30fihUl/no1AQ==
-Date: Wed, 27 Mar 2024 00:33:35 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Bo Gan <ganboing@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/5] clocksource/drivers/timer-clint: Add T-Head C9xx
- clint support
-Message-ID: <ZgL434xHzYqpcdwD@xhacker>
-References: <20240325164021.3229-1-jszhang@kernel.org>
- <20240325164021.3229-6-jszhang@kernel.org>
- <72eac56e-61d4-e42f-cfbd-8bcc35ed7bb6@gmail.com>
- <ZgIj8QQ7zO_eSZcA@xhacker>
- <ZgIlXWLymVd8XwFc@xhacker>
+	s=k20201202; t=1711467726;
+	bh=WjxorTNm16pmawi2QrpcbXtzMMk9UnMvAB/SISpbzEs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ao2XtACaF0FfHcF0Bbp0uK4XSd/WW7XJxlflVaBBitQFHAYUXbSDfVfUOuTsKgYgr
+	 c9WC2gOGxSnJQNVNu3Guov8XU3k8dQhmKV9UklIz/xG8ZiMf2GdfI97Ac7XUzdQ89N
+	 jPKwHwZk9n9o1qXB2oc93Fam7JUqwBcQRooyeQdGVBl+PSebxSp4CVYhD+WAOTCw1s
+	 oAOBcmg8d4uMpBKwlq2GVqoi/mDhF9uTlkEgNxLINIR963aH9AwpPvATKvSCgwxqHw
+	 rJ+skEC3hymTttNXUG/+feEOw42QxP1FVV0YalNbh25q0mcNEjvLYvSNu/P+iR509W
+	 CC/KfPWZSAgmg==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-2d228a132acso77147391fa.0
+        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 08:42:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVKEpcwvzwhtKI7/+onEKcsCKWcnnrXp9Y0beJ/UeFt68Qk0w8byjmO7Gn2TtBzsfB1Io5vc2A1CMJldT3PuAnJ2SLhgF4kuqUdnZylYlRg
+X-Gm-Message-State: AOJu0YzPKxI6P+RtW3VndaCuU5VbwAAvOgRR3oktDViCKY2WStV0EquD
+	XMUNt+N53eX6JIhzHQSBHdKgIxrYyqHZ96XOrjDZFvM+3AJ7alJEtvbty0LVkkMFFe5lozFPJbs
+	orkpnEo8baJHj7MH8TUPnDg8+lTQ=
+X-Google-Smtp-Source: AGHT+IGBjbfnutWizOG4D+Y2Ce7JcBLvcXREvmL/5vUZ5omtP/DI9YkkoY1H5oFNMwi+Mh0v0WtWKqlJd4crDHOnXGo=
+X-Received: by 2002:a2e:3613:0:b0:2d4:6bc3:192b with SMTP id
+ d19-20020a2e3613000000b002d46bc3192bmr6902404lja.31.1711467724641; Tue, 26
+ Mar 2024 08:42:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZgIlXWLymVd8XwFc@xhacker>
+References: <4edd1c5e-aacb-4513-97ae-e6b2130476fc@imgtec.com>
+In-Reply-To: <4edd1c5e-aacb-4513-97ae-e6b2130476fc@imgtec.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Wed, 27 Mar 2024 00:41:28 +0900
+X-Gmail-Original-Message-ID: <CAK7LNASeOf2ythmXoFS7-fdE40R1BX=JT=v4SmHxq61Hww1Vqw@mail.gmail.com>
+Message-ID: <CAK7LNASeOf2ythmXoFS7-fdE40R1BX=JT=v4SmHxq61Hww1Vqw@mail.gmail.com>
+Subject: Re: [PATCH] scripts/package: buildtar: Output as vmlinuz for riscv
+To: Matt Coster <Matt.Coster@imgtec.com>
+Cc: "linux-kbuild@vger.kernel.org" <linux-kbuild@vger.kernel.org>, 
+	Karolis Mituzas <Karolis.Mituzas@imgtec.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nicolas Schier <nicolas@fjasle.eu>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Carlos de Paula <me@carlosedp.com>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240326_094653_434996_36847977 
-X-CRM114-Status: GOOD (  32.58  )
+X-CRM114-CacheID: sfid-20240326_084209_376441_2998BB8D 
+X-CRM114-Status: UNSURE (   6.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,117 +82,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 26, 2024 at 09:31:14AM +0800, Jisheng Zhang wrote:
-> On Tue, Mar 26, 2024 at 09:25:09AM +0800, Jisheng Zhang wrote:
-> > On Mon, Mar 25, 2024 at 03:22:11PM -0700, Bo Gan wrote:
-> > > On 3/25/24 9:40 AM, Jisheng Zhang wrote:
-> > > > The mtimecmp in T-Head C9xx clint only supports 32bit read/write,
-> > > > implement such support.
-> > > > 
-> > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > > ---
-> > > >   drivers/clocksource/timer-clint.c | 24 ++++++++++++++++++++++++
-> > > >   1 file changed, 24 insertions(+)
-> > > > 
-> > > > diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
-> > > > index 4537c77e623c..71188732e8a3 100644
-> > > > --- a/drivers/clocksource/timer-clint.c
-> > > > +++ b/drivers/clocksource/timer-clint.c
-> > > > @@ -34,6 +34,7 @@ static unsigned int clint_ipi_irq;
-> > > >   static u64 __iomem *clint_timer_cmp;
-> > > >   static unsigned long clint_timer_freq;
-> > > >   static unsigned int clint_timer_irq;
-> > > > +static bool is_c900_clint;
-> > > >   #ifdef CONFIG_SMP
-> > > >   static void clint_send_ipi(unsigned int cpu)
-> > > > @@ -88,6 +89,19 @@ static int clint_clock_next_event(unsigned long delta,
-> > > >   	return 0;
-> > > >   }
-> > > > +static int c900_clint_clock_next_event(unsigned long delta,
-> > > > +				       struct clock_event_device *ce)
-> > > > +{
-> > > > +	void __iomem *r = clint_timer_cmp +
-> > > > +			  cpuid_to_hartid_map(smp_processor_id());
-> > > > +	u64 val = clint_get_cycles64() + delta;
-> > > > +
-> > > > +	csr_set(CSR_IE, IE_TIE);
-> > > Perhaps you should do a writel_relaxed(-1, r) here. just like openSBI, because the update
-> > > to mtimecmp is now split into 2 parts.
-> > > https://github.com/riscv-software-src/opensbi/blob/v1.4/lib/utils/timer/aclint_mtimer.c#L54
-
-Hi,
-
-The reason of "writel_relaxed(-1, r)" is to avoid spurious irq, this is
-well explained by riscv spec. 
-After more thoughts, this is not needed here in linux kernel because
-set_next_event() is only called in ISR, so the irq has been disabled,
-we don't suffer from spurious irq problem.
-
-Thanks
-> > 
-> > Thanks, I also noticed the mtimecmp update on 32bit platforms doesn't
-> > strictly follow the riscv spec:
-> > 
-> > # New comparand is in a1:a0.
-> > li t0, -1
-> > la t1, mtimecmp
-> > sw t0, 0(t1) # No smaller than old value.
-> > sw a1, 4(t1) # No smaller than new value.
-> > sw a0, 0(t1) # New value.
-> > 
-> > So A new bug fix patch will be added in v2.
-> > 
-> 
-> wait, I found a similar bug in timer-riscv.c, and since these are fixes,
-> I'd like to send fixes as a seperate series. I'm cooking the patches
-> 
-> > 
-> > > 
-> > > > +	writel_relaxed(val, r);
-> > > > +	writel_relaxed(val >> 32, r + 4);
-> > > > +	return 0;
-> > > > +}
-> > > > +>   static DEFINE_PER_CPU(struct clock_event_device, clint_clock_event) = {
-> > > >   	.name		= "clint_clockevent",
-> > > >   	.features	= CLOCK_EVT_FEAT_ONESHOT,
-> > > > @@ -99,6 +113,9 @@ static int clint_timer_starting_cpu(unsigned int cpu)
-> > > >   {
-> > > >   	struct clock_event_device *ce = per_cpu_ptr(&clint_clock_event, cpu);
-> > > > +	if (is_c900_clint)
-> > > > +		ce->set_next_event = c900_clint_clock_next_event;
-> > > > +
-> > > >   	ce->cpumask = cpumask_of(cpu);
-> > > >   	clockevents_config_and_register(ce, clint_timer_freq, 100, ULONG_MAX);
-> > > > @@ -233,5 +250,12 @@ static int __init clint_timer_init_dt(struct device_node *np)
-> > > >   	return rc;
-> > > >   }
-> > > > +static int __init c900_clint_timer_init_dt(struct device_node *np)
-> > > > +{
-> > > > +	is_c900_clint = true;
-> > > > +	return clint_timer_init_dt(np);
-> > > > +}
-> > > > +
-> > > >   TIMER_OF_DECLARE(clint_timer, "riscv,clint0", clint_timer_init_dt);
-> > > >   TIMER_OF_DECLARE(clint_timer1, "sifive,clint0", clint_timer_init_dt);
-> > > > +TIMER_OF_DECLARE(clint_timer2, "thead,c900-clint", clint_timer_init_dt);
-> > > > 
-> > > Better use a more generic term to describe the fact that mtimecmp doesn't support
-> > > 64-bit mmio, just like what openSBI is currently doing, instead of making it c900 specific:
-> > 
-> > This has been mentioned in commit msg, but adding a code comment seems fine.
-> > > 
-> > > https://github.com/riscv-software-src/opensbi/blob/v1.4/lib/utils/timer/fdt_timer_mtimer.c#L152
-> > > 
-> > > Then your `is_c900_clint` becomes something like `timecmp_64bit_mmio`.
-> > > 
-> > > Bo
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXIgMjEsIDIwMjQgYXQgODo1OeKAr1BNIE1hdHQgQ29zdGVyIDxNYXR0LkNvc3Rl
+ckBpbWd0ZWMuY29tPiB3cm90ZToKPgo+IEZyb206IEthcm9saXMgTWl0dXphcyA8a2Fyb2xpcy5t
+aXR1emFzQGltZ3RlYy5jb20+Cj4KPiBUaGlzIG1hdGNoZXMgdGhlIGJlaGF2aW9yIGZvciBhcm02
+NCBbMV0gYW5kIHByZXZlbnRzIGNsb2JiZXJpbmcgb2YKPiB2bWxpbnV4LSR7S0VSTkVMUkVMRUFT
+RX0uCgoKCgpXaGF0IHByb2JsZW0gYXJlIHlvdSB0cnlpbmcgdG8gc29sdmU/CgoKV2h5IGlzIGNs
+b2JiZXJpbmcgdm1saW51eC0ke0tFUk5FTFJFTEVBU0V9IGEgcHJvYmxlbT8KCgoKCgoKCi0tIApC
+ZXN0IFJlZ2FyZHMKTWFzYWhpcm8gWWFtYWRhCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cg==
