@@ -4,125 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECBC9C47DD9
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 11:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB318C54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 12:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aVZnj3BgXQRUfSlH9iuh7niBi4z3GLJm7Gch815xuX0=; b=RxNgLJiRO/lj4Iv5jIrYsMCdZQ
-	b22xOJ7uhMsnm6LKy8jhNbJOhV49e+R/SFVDy8PR7z5t3gmucw5vxmILUv5x3nmxvWEiXuxeBMbK+
-	jO4b8jhu9BwLRVHL0le0j3L9Q2M+CCxEChvXMKKsuIwG2yr6/umq3DPEO17Oaxp05xZUZPCsU89ea
-	7nTEgr7Z8EVUdGtOZeDHaerqdTDbt5kfYQYyoemwYtW9XCC66SB1+woY6XgzdcYn9bN/A8dysZ7mi
-	bqk0Hm39adH2+vqeIdg29MWHYi7TB97W0zXdmkx1s1W12iQgmZKLt4tBShIUgwY9aw52gbcbyaV7+
-	1wrdgISg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5rRM1iIDM/frj/6FjJslN2niPDWNr52b2LwnHgjgjP0=; b=VX/XyaDJ2HEPeb
+	0Jph7nu5xL/KmNRwU+ucZu/UQWzCiqkJ9bUsxeasoJ4Onn6k24l8NwVdVcgZ4g+It5DzSYUpyLm3H
+	ufom0mDbp9AxemXG0XMEDaEBYhYMjw4/+gKVy7JqQWTGm2RbO5AugC6q1ac1hGAbvrnyz3nlBkzh2
+	PqlG2OmXZ8hkgr155zR87t/ID/5Ug5l56F/OMBOvQEAJHLp/RDV76tT7DVsMGO0ckdYOyiyHtR1L1
+	tsgY9CxZPGngPDDdg1mDoXLmodmnodv6evFllD4iw8qlsG4hrqL2dC+bUcwSWVUdcsaekPywcLnCL
+	CxHXkki/tZ65QPbNVaAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpRWs-00000008d0R-3jo5;
-	Wed, 27 Mar 2024 11:33:14 +0000
-Received: from mail-maxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281b::801] helo=IND01-MAX-obe.outbound.protection.outlook.com)
+	id 1rpS6h-00000008k67-1Cse;
+	Wed, 27 Mar 2024 12:10:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpRWo-00000008czM-49A2
+	id 1rpS6d-00000008k39-3O8R
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 11:33:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HEkW3y1Zt8MsF58mhIwYZKPsiDAtU7GSSwouZ9NVp/30D8rWhGS6wQX2w3tuF1dqIxPng7Sy1sReAk/dko115eLjRhQUkm3xffk6/zJX3JlU6SQPqSxzQSps+6dU4y25mviHoz7KCXx23ReHmx7dbzC6htPBAYtEuFQ5eN+11qbIWZFaigsehL41qFPHOPvKRdmrDDrHWPBBGY3SieHG/XPATcmLcAhVkwGSWWuCwEbGuJb1Ynfqbt7W+WHUtIOx0Fuuuno9ICWj7wthC8l3KjW3j2QB+QeYcSr8jSg+rnohqWH2RoMVW6nl1nE6icq1WTpnLp20aZymjcDuQJJ6NA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=omxSSt4fxGAvg/U+3um2sR/fqDpN2Ds0zBtASi5h8e4=;
- b=GlvZZrlk51DYaelyGJY7aaJgLcr9OSGQYe6Q7TwLPfZw35kGIdJkvnpNUAjPQSlill1ETM0Tu4NEJrt8b+lnqQRAJnAqum073iz1iqBoOZ4sDQm4pUr5Cfc7Mt3MxKgWVpCUPLO1AW8vOQRkuJ26jyAmdvsWDpzp6Mrl9OH8bkWEKMStr+l96phVC5A8G+lK5Lr9L4FrJAE0916oJyOqmGmVCjFvNqRrAeJ+4w9Zn+UQlKqPSW48sMkjq7X0FkkUKol9QT9Hb5p7PL6qZaXXvNkXz+2fNzVENDvpVCdIC+kdSvNPOGlMmKSmNRcGd+VYxD+dbVU6gzWgKhMOKhv2MQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=omxSSt4fxGAvg/U+3um2sR/fqDpN2Ds0zBtASi5h8e4=;
- b=G4mqGh37UttyclQpF2At4cB9JuuXyohM79aYXs3ytwQfY9N+5C6b0Xcz53h48htxYPrJk5tbf7MeNi17OxNeEJRIodCheUiEqT6oIjkLuxswCFYQt6hCqPIG1rLxtBITuBpdf0C9eQklgmAvybV4WxTm1OGsolqc7bOjZHCNY1Aq16feoP3jdTFG4QA2l6ozSLzMSllw2MtuwLSmAKglXLgFCBV+lOoA2h+EWh6okRGeqd4R6uCkeXSWoMABENWBGT6W11bRnwEnSATv4M5zuMF71Bw2SkVj7TLEtjOPDFSp0UF9ra0LNNfFa1BRh9qbNwIy5lUbA9g/uQCGylX7/g==
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:138::5)
- by PN2P287MB0537.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:114::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.32; Wed, 27 Mar
- 2024 11:32:56 +0000
-Received: from MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::664:2ecc:c36:1f2c]) by MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- ([fe80::664:2ecc:c36:1f2c%4]) with mapi id 15.20.7409.028; Wed, 27 Mar 2024
- 11:32:55 +0000
-Message-ID: <MA0P287MB2822B846CE45D0A97D120725FE342@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-Date: Wed, 27 Mar 2024 19:32:50 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 2/5] dt-bindings: clock: sophgo: add RP gate clocks
- for SG2042
-To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
- chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
- richardcochran@gmail.com, robh+dt@kernel.org, sboyd@kernel.org,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, guoren@kernel.org,
- jszhang@kernel.org, inochiama@outlook.com, samuel.holland@sifive.com
-Cc: Rob Herring <robh@kernel.org>
-References: <cover.1711527932.git.unicorn_wang@outlook.com>
- <78ddd5b127860e110f4c782de90025153cdba083.1711527932.git.unicorn_wang@outlook.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <78ddd5b127860e110f4c782de90025153cdba083.1711527932.git.unicorn_wang@outlook.com>
-X-TMN: [gTcJ01a75L3cEXj3+8z1EK6911RMuA1T]
-X-ClientProxiedBy: SI2PR06CA0002.apcprd06.prod.outlook.com
- (2603:1096:4:186::10) To MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:138::5)
-X-Microsoft-Original-Message-ID: <179fdd3c-a14e-41af-b9af-05bb7b42232e@outlook.com>
+	Wed, 27 Mar 2024 12:10:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4FC7261507;
+	Wed, 27 Mar 2024 12:10:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B159FC43390;
+	Wed, 27 Mar 2024 12:10:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1711541410;
+	bh=CT9lboX6DGNHp4gMzO6XDm6vSdLnNJfbC/23vBoP+d8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qrDH+U6NpFvPXBwfEy0lyJQZJMlZCVEThnAP2wz1kh/nsprLQ7CLCOOUqVYmI3rMj
+	 RT4aMts5H1t+cmZUfqQE2lPvcMHwYewderAA5LLcuXkUHqJifMterLaFQWJfe4jPFl
+	 cPSyWjucgtAZoe60A3wEXBx9IzGjJYo1HniBESawCOA5Y/wgcZWomUJPaIWXgAIN7m
+	 v9nxoVXMret1FhlOhqtYUnHdCsB8bWQZmgfoGyzh57xABh5QzZm18cApr4fA7o+8sf
+	 Oa7ejQrPa4qb2XWdhJGDbnnqQSdWPEU95YvEIaoldjJk6cdjcUcZD/FGTTgaBjJLfh
+	 Zp2g5zogepU1Q==
+From: Sasha Levin <sashal@kernel.org>
+To: stable@vger.kernel.org,
+	leyfoon.tan@starfivetech.com
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: FAILED: Patch "clocksource/drivers/timer-riscv: Clear timer interrupt on timer initialization" failed to apply to 6.6-stable tree
+Date: Wed, 27 Mar 2024 08:10:08 -0400
+Message-ID: <20240327121008.2827616-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2822:EE_|PN2P287MB0537:EE_
-X-MS-Office365-Filtering-Correlation-Id: 652a7bfe-7cf7-48d3-b279-08dc4e51a576
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 5xoukYaQ+76rmitZx5xRZEtyvZxlRXRRndxjmvmsupIPva9Jenz223Yo8fLQLUmerl2TboUI8U+azR4MEr7SeJwPmmyHNcKAiIZjZP9mxOZ2RsG+OnVuw2AqyPU1EZRuxGWYo53CUjDYB9JIGxTw02eOf08Ad+UaAkcDvDmCg2bezeBsoDEX2l+QMTkPOnTyDci5NcsVpwMB0pvc9OhIOIyN0DYz0mo7+LNwwWyC3GHHzUHIHdqBpTe9b1PPiLJaRJtwfddlIStyz1ARb4zr3A9SVx7NPS6G29e6hmwO5QnnNcX1CpdwmPzJmAOf5bAssY/JJIw0hNgJmA9B4YA1d+j1B7RKkMA8opCWsPfxQRtS98mrkaqRSRS1f+ftTXRnycWBSbF+5QvAlfxKyai3er79S1owaWV+aBXEyWfvUEBgqP79ByDAo4xbLELa65nze1A0kutCxgQy1OPjqtwgqUyzmnG+slPC8xW10kkNEOxvcq5kMRrC2iRD2XyjF1ERkTRLtcv6zppHb37chTybxEVWvlMeBX7jAzwi7YZb9GD2bNREffP1U3ZzglWbmBYOAtBC+6GWgiKQ3xiC6CIMwPTrTfRsia3g3dw9MKxQ/zZTLVgcbg1CDgcykRqwY8Pn58np1x3My5ioBQj/6YLeobyIlbrQxcGb76uJIe4EVDM=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dnl2dElSTzl6dCtrOWh4YkZoSVFJUFRSOU9XQ3AvdjNZM0xxZHdLeGJaOVlt?=
- =?utf-8?B?TUtmamhPRENmTndjTjZpS05PV3hTQUJuTUpHVUVYeVpyMXphRUtkMHBNUGxD?=
- =?utf-8?B?dDM1Z1l0d1l5VXBqWThwRmtTN3BRSjlvd28rUVhWd0hxL0Y2MzRMWElmN0Vv?=
- =?utf-8?B?MldRM0tBK1BlaWNCUWpxY2NBamZnT3hMZUhXcjVTdVRTblV1ZFJTSy95SWVn?=
- =?utf-8?B?MU16UDNPS0RWcHVqNm1RVUJHd0k2S1FNVytySGIxU0Vad0ZadzN6Nkp0d1dV?=
- =?utf-8?B?M3hDbDZEWkg5TVd0c0VHV082Z3RVQ05wa3lnZFlIQU5rV3hyYU41RExDZ0l5?=
- =?utf-8?B?b0Zvd3p6RlBNMHoySXVFbFJJSFVjRmhGbkJKbEVCam8zWGZ1UnlZSmRnaC9k?=
- =?utf-8?B?K2xTSnJnc3ZCQ08xaEtYY2EvcTM4bGVFb3ZqOEdPNVpWVFRocW5pUkdnamFa?=
- =?utf-8?B?OXBYeWtnU3I3MGtsUHl5UUZnckpGcmZyZHRZbmk3RTU5eDR5MDVWMW1lNVRU?=
- =?utf-8?B?NFlEVS9FWFVSR1FudnROVlFZMUNzYlZ2NzdkMVk3TGRQbnM1cFgxOUdIUnYr?=
- =?utf-8?B?S3BRdkR3Y0g1UDVCd1lYWlN1Zi9jc0dJRjBqcWsxcStna2I5TnY5bE5pL1FG?=
- =?utf-8?B?RERTckRUL0hPUWdkcEpIckRibW50bCtrcHVIeGlMcFBCSUQzSVVwd21ZSE9G?=
- =?utf-8?B?eVpuVTI2ZHF3dzRJc3U0cVU3Uy8rNWZ0SktGYWtWaHBKSTY0SHgrakFjWWVp?=
- =?utf-8?B?Q3psMnBHTkxVcTNTelhBSnB0ME53cEV1ZmZhYmdiOTV6WnhjdDduc3laZEZG?=
- =?utf-8?B?WEJXNzk2Z1VOSVdtUkxpTitjNnYrZ2J2NktpYUxFTWVyMHR0Y3JkdjQrT0Mv?=
- =?utf-8?B?T3FxNjZNTkhMeTF0eE93dEttVmhKZTFmR3NiYTZRSjVxelhzQW1MbkpIQXdn?=
- =?utf-8?B?RjdMZ05mY0QvQzQ4ME01dTlDdStvVVBOTmh6YlJGUVNsa2REbGJiVFdJWDJz?=
- =?utf-8?B?N1MraUJvTzhGdVFPU0RlMjFtYU1NME8vWDdkSkw3cXBzNzZFYmQzUXA2S08v?=
- =?utf-8?B?eUZ3aEZLTW5FalVRTVFTaFYyNTF3dlNaLzRWbmhUNEFiTzRuTmg1RCtDUTND?=
- =?utf-8?B?TUF3a3lMbWw0ZVRqaDVBTldzdnUxU2tINkVLT1B2VVNLL3RNSE0zZnpvd2VM?=
- =?utf-8?B?RGNiNE0rakJmS0QvWitxT2RrQUR1WGViS0dwcXZQbzZseE5FOGttWVRQUDMz?=
- =?utf-8?B?Z2NGUXNnVm9TZ0xManltYWJCV2hPTG5NenNMUWpzclNOK01yQ0tuMEZneFJq?=
- =?utf-8?B?U2pTcTBXb1lGVFlkOFhaMlkwUDRrSHFuNnU4U29BTUJGRHBxS1NvV0tlQWsr?=
- =?utf-8?B?aUowV2lSZVNsSmxSczNydTRCam5sbXR3WVlIKzA1a0phRTQrVW54d2hSM1k1?=
- =?utf-8?B?dnp3KzBtd1dUQ2IyeGdMd3I0TGU4YWE1emhESnZaWkszRmZWRjc5WXRPc2Ft?=
- =?utf-8?B?L0xNa2FoL1RzVVh1ZGRDaThpSklBd045bXZja1FYaXVsWnVLNVkxbEUxSUhj?=
- =?utf-8?B?NGN3Rk5sWUtDeGVVOWc0Ty9OWW9hQmZWR2FmbUJwSU5mUGdRZ2VEWktLZmNv?=
- =?utf-8?B?TUZGS2p0KzNoRzlUM2dkN1BPZ3hYQnd3dzR5VXZXUmx6MDdwK0NiZTZJOUNu?=
- =?utf-8?Q?CRxxTw5wI8om4VtCvROt?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 652a7bfe-7cf7-48d3-b279-08dc4e51a576
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2822.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2024 11:32:55.8092
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB0537
+X-Patchwork-Hint: ignore
+X-stable: review
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_043311_096931_315FD400 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20240327_051011_911394_A65E9874 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,151 +71,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-hi, Stephen,
+The patch below does not apply to the 6.6-stable tree.
+If someone wants it applied there, or to any other stable or longterm
+tree, then please email the backport, including the original git commit
+id to <stable@vger.kernel.org>.
 
-I updated the address in the example of this bindings as per your input 
-from 
-https://lore.kernel.org/linux-riscv/066c6fa4b537561ae6b20388a5497d9e.sboyd@kernel.org/.
+Thanks,
+Sasha
 
-I checked the 
-https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git/log/?h=clk-next 
-and seems you have not picked the 3 bindings patches, so please use v12 
-when you pick them.
+------------------ original commit in Linus's tree ------------------
 
-Thanks, Chen
+From 8248ca30ef89f9cc74ace62ae1b9a22b5f16736c Mon Sep 17 00:00:00 2001
+From: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Date: Thu, 7 Mar 2024 01:23:30 +0800
+Subject: [PATCH] clocksource/drivers/timer-riscv: Clear timer interrupt on
+ timer initialization
 
-On 2024/3/27 16:30, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
->
-> Add bindings for the gate clocks of RP subsystem for Sophgo SG2042.
->
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> Reviewed-by: Rob Herring <robh@kernel.org>
-> ---
->   .../bindings/clock/sophgo,sg2042-rpgate.yaml  | 43 ++++++++++++++
->   .../dt-bindings/clock/sophgo,sg2042-rpgate.h  | 58 +++++++++++++++++++
->   2 files changed, 101 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/clock/sophgo,sg2042-rpgate.yaml
->   create mode 100644 include/dt-bindings/clock/sophgo,sg2042-rpgate.h
->
-> diff --git a/Documentation/devicetree/bindings/clock/sophgo,sg2042-rpgate.yaml b/Documentation/devicetree/bindings/clock/sophgo,sg2042-rpgate.yaml
-> new file mode 100644
-> index 000000000000..9a58038b3182
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/sophgo,sg2042-rpgate.yaml
-> @@ -0,0 +1,43 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/sophgo,sg2042-rpgate.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo SG2042 Gate Clock Generator for RP(riscv processors) subsystem
-> +
-> +maintainers:
-> +  - Chen Wang <unicorn_wang@outlook.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: sophgo,sg2042-rpgate
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: Gate clock for RP subsystem
-> +
-> +  '#clock-cells':
-> +    const: 1
-> +    description:
-> +      See <dt-bindings/clock/sophgo,sg2042-rpgate.h> for valid indices.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - '#clock-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    clock-controller@20000000 {
-> +      compatible = "sophgo,sg2042-rpgate";
-> +      reg = <0x20000000 0x10000>;
-> +      clocks = <&clkgen 85>;
-> +      #clock-cells = <1>;
-> +    };
-> diff --git a/include/dt-bindings/clock/sophgo,sg2042-rpgate.h b/include/dt-bindings/clock/sophgo,sg2042-rpgate.h
-> new file mode 100644
-> index 000000000000..8b4522d5f559
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/sophgo,sg2042-rpgate.h
-> @@ -0,0 +1,58 @@
-> +/* SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause */
-> +/*
-> + * Copyright (C) 2023 Sophgo Technology Inc. All rights reserved.
-> + */
-> +
-> +#ifndef __DT_BINDINGS_SOPHGO_SG2042_RPGATE_H__
-> +#define __DT_BINDINGS_SOPHGO_SG2042_RPGATE_H__
-> +
-> +#define GATE_CLK_RXU0			0
-> +#define GATE_CLK_RXU1			1
-> +#define GATE_CLK_RXU2			2
-> +#define GATE_CLK_RXU3			3
-> +#define GATE_CLK_RXU4			4
-> +#define GATE_CLK_RXU5			5
-> +#define GATE_CLK_RXU6			6
-> +#define GATE_CLK_RXU7			7
-> +#define GATE_CLK_RXU8			8
-> +#define GATE_CLK_RXU9			9
-> +#define GATE_CLK_RXU10			10
-> +#define GATE_CLK_RXU11			11
-> +#define GATE_CLK_RXU12			12
-> +#define GATE_CLK_RXU13			13
-> +#define GATE_CLK_RXU14			14
-> +#define GATE_CLK_RXU15			15
-> +#define GATE_CLK_RXU16			16
-> +#define GATE_CLK_RXU17			17
-> +#define GATE_CLK_RXU18			18
-> +#define GATE_CLK_RXU19			19
-> +#define GATE_CLK_RXU20			20
-> +#define GATE_CLK_RXU21			21
-> +#define GATE_CLK_RXU22			22
-> +#define GATE_CLK_RXU23			23
-> +#define GATE_CLK_RXU24			24
-> +#define GATE_CLK_RXU25			25
-> +#define GATE_CLK_RXU26			26
-> +#define GATE_CLK_RXU27			27
-> +#define GATE_CLK_RXU28			28
-> +#define GATE_CLK_RXU29			29
-> +#define GATE_CLK_RXU30			30
-> +#define GATE_CLK_RXU31			31
-> +#define GATE_CLK_MP0			32
-> +#define GATE_CLK_MP1			33
-> +#define GATE_CLK_MP2			34
-> +#define GATE_CLK_MP3			35
-> +#define GATE_CLK_MP4			36
-> +#define GATE_CLK_MP5			37
-> +#define GATE_CLK_MP6			38
-> +#define GATE_CLK_MP7			39
-> +#define GATE_CLK_MP8			40
-> +#define GATE_CLK_MP9			41
-> +#define GATE_CLK_MP10			42
-> +#define GATE_CLK_MP11			43
-> +#define GATE_CLK_MP12			44
-> +#define GATE_CLK_MP13			45
-> +#define GATE_CLK_MP14			46
-> +#define GATE_CLK_MP15			47
-> +
-> +#endif /* __DT_BINDINGS_SOPHGO_SG2042_RPGATE_H__ */
+In the RISC-V specification, the stimecmp register doesn't have a default
+value. To prevent the timer interrupt from being triggered during timer
+initialization, clear the timer interrupt by writing stimecmp with a
+maximum value.
+
+Fixes: 9f7a8ff6391f ("RISC-V: Prefer sstc extension if available")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Tested-by: Samuel Holland <samuel.holland@sifive.com>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+Link: https://lore.kernel.org/r/20240306172330.255844-1-leyfoon.tan@starfivetech.com
+---
+ drivers/clocksource/timer-riscv.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index e66dcbd665665..79bb9a98baa7b 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -108,6 +108,9 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
+ {
+ 	struct clock_event_device *ce = per_cpu_ptr(&riscv_clock_event, cpu);
+ 
++	/* Clear timer interrupt */
++	riscv_clock_event_stop();
++
+ 	ce->cpumask = cpumask_of(cpu);
+ 	ce->irq = riscv_clock_event_irq;
+ 	if (riscv_timer_cannot_wake_cpu)
+-- 
+2.43.0
+
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
