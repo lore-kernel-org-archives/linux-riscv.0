@@ -4,65 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D284C54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 18:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C186C54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 19:36:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U1clmue3OyW9oAgdSczapCToITuhR82iwXxOj7Y9SlQ=; b=b5pw/No/ajaCUc
-	evOTlo8eShkqe+0wZyGF+uboKcoBL95UVzmIGRNBqSkC05W9TXzjSnnyz0GCHUmXUTyoYs9vhHOt2
-	Zq0/Mkd5wzkBjR3HRXNK/UqSukw+3GDTtRfmUDBsAb54hfCq4zQ8yRD3HA9EB1uE/cEzInbMoV5w1
-	OKgusMnFKezCPBUb+b4xv0Rkjpnu7/2NipUlVcvnIYKiKuVDGU6CH7owkyZY9/OyKYMBI2vOBjPId
-	DwNWytMUW6ZXc0jq5H4nQ5BRX+ynbchNDshp2mHgI8A7lBrkrElqOdL4Y/FM/xlhnsy8ve2etgwPp
-	H3qi62lpmGuYDMPr/4jA==;
+	List-Owner; bh=yXkBlPw0KktmJ8d4eI9yuEuXiL9rk/fYAaSmIcNixCE=; b=EQ5GRA9LzkbBxF
+	VaK5DIFQXcdG4Ut2pCr9AHogFG2Xc9Exj4F4aeXdD6eSPBpQ3/Gwwz2NvQZhYRXdE9rgI8t3f6+4x
+	aSzgEu4LhxMSY/qRtGVPl/mpoYsYn2sktDa22qYqG+eZiubeMZu40yyWdPgijlQDhWs5obfYIUCzi
+	W5XsnkL/6AqEUOLREntw/l/CFzXGQnDg8hpFKuQ4PuJTowe0Y458M9z3kvjqhFfrXXeILjEhZq1vx
+	qCgcVxPQNKAveJTbhJoAyuX7cyaBibtBJOvxpa8/1wITf0cip+02vaAiuQsb40x3jiqJCc2ATpV0p
+	SAl61+k1EprUZTu+fzGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpXqO-0000000AXqd-3G2e;
-	Wed, 27 Mar 2024 18:17:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rpZ4D-0000000ApCu-1uJe;
+	Wed, 27 Mar 2024 19:36:09 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpXqJ-0000000AXoF-2bvl;
-	Wed, 27 Mar 2024 18:17:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C461D61446;
-	Wed, 27 Mar 2024 18:17:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 680A4C43390;
-	Wed, 27 Mar 2024 18:17:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1711563462;
-	bh=cuOPfgYarGsg6xpTgF2yo+uJ/Cd9/PbvYrZtfzWIAWA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RkxWd7fxszjbkBAhnxMMmGIe1h9FKHAVl8O+/y4E+OyVKiv7IRTOoVWnBexJe9Qi9
-	 +TAsEnYgru/VQSeepmbuUfEprBv2RQg5xWifJm48Tf7YU36SeMA36iZubYcx/pS1In
-	 9D8kpe1b6ypL+O0tgl7HcF34HzDsZeDajYeDtxlE=
-Date: Wed, 27 Mar 2024 11:17:40 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Huang Shijie <shijie@os.amperecomputing.com>
-Cc: gregkh@linuxfoundation.org, patches@amperecomputing.com,
- rafael@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, yury.norov@gmail.com, kuba@kernel.org,
- vschneid@redhat.com, mingo@kernel.org, vbabka@suse.cz, rppt@kernel.org,
- tglx@linutronix.de, jpoimboe@kernel.org, ndesaulniers@google.com,
- mikelley@microsoft.com, mhiramat@kernel.org, arnd@arndb.de,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- will@kernel.org, mark.rutland@arm.com, mpe@ellerman.id.au,
- linuxppc-dev@lists.ozlabs.org, chenhuacai@kernel.org,
- jiaxun.yang@flygoat.com, linux-mips@vger.kernel.org,
- cl@os.amperecomputing.com
-Subject: Re: [PATCH v3] NUMA: Early use of cpu_to_node() returns 0 instead
- of the correct node id
-Message-Id: <20240327111740.f8d3802b0eae15bcb8727e04@linux-foundation.org>
-In-Reply-To: <20240126064451.5465-1-shijie@os.amperecomputing.com>
-References: <20240126064451.5465-1-shijie@os.amperecomputing.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	id 1rpZ46-0000000ApAP-2NYP;
+	Wed, 27 Mar 2024 19:36:04 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-565c6cf4819so2131091a12.1;
+        Wed, 27 Mar 2024 12:36:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1711568159; x=1712172959; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aojaArSnA0JfedDto4elyer8YODIKcUTNNFpLzMMgW8=;
+        b=gj7h8bxL5pkkDrDyiAZ/ODjEyfj9Hf6/cJiRpSgRPSVZ77mbwyFlkihVzpUBT/vS3w
+         LucfohibIZAWHcQkUYEJ6gvGSPisbjLlQ06/wl3UK6cgS5u7FEncR8hzPSnLOKK9hqvs
+         dSQyD88jPNYjncpxq8zqFW2ouO/NR/DDrpzxqYTJLw9qMH3ygSSsGKbcgotSsepeig8F
+         jSb0c0c9eHcSotlbb17yvMQqex6BlGajZC257JPStgy29beMYt3ZUmupi0BNyQ1rUXuY
+         bvheiuy/hIjV5Cw11KRiSQNX0QmYzg8kBdBlVNSe+K9XITrDP46nQtcEfpECPmieGsUk
+         h2Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711568159; x=1712172959;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aojaArSnA0JfedDto4elyer8YODIKcUTNNFpLzMMgW8=;
+        b=HpUtPDuY/Pya4FxCP5yApw1ov7ToS9B2c5AqYOKYzK5FZRGeUIOuiY2mu5zARy/Tm6
+         Sc+0GBU9OAyTtqQtzncfcOEScDQ/QjjbnGWIPkELVmSEajUlIVew2Gt13rWdIIRlRYWd
+         GFZRja9xD6GcNHLytobuJ4VGHWuyP2y3/rpVWgW6DHbod+nJFlxxQQ0Bmt3h2gUybPm4
+         5jq/YQ3ysnhHyqf+PQCZuHner1bIKs7qLocyg3ii/gMF1DAw6f9QwEcuzO56su2lHDJg
+         WWlJc4iA580ltKDto36Erq3qctJQVJWT+XHHVIRG6qvgKYALIhu7b+b0cXsZSnGzkrML
+         sp8A==
+X-Forwarded-Encrypted: i=1; AJvYcCWTPWhFuoMCnil+1VcktKwaLeQ9pvHp9cw8M4gtb9MfhnyFsNzrErakueGMS28Em+alQ9dAa0NZMqQI6fQdzDOsvBec92x7utIYaKPmErxbyI9GMupQ02WdNgw+wpJGmGEzrT27xtJknppTSB3J7TDXh7/mPuslpdnaT0S3vwUovyjm8BHYbb3ALBVl52tJFwHgmYjGUZ7Xuf6w28TEgX/by6/fwx3DoQRZDGMsB2BYPtUzi8iQbjRjjWXiQhLSkFStsxEpY8CjLe+5Li01w24/IhDT6zq14BvUMPGPJpqOI63M
+X-Gm-Message-State: AOJu0YzhVber550BWlH+OMLHOp18Kqt9cPzFd0CBq2tpPHkQRSsncwyf
+	sr9zgS/le4q37oZ1+HHZsWyP1UDisctoAa2h03ZgeOGto7WSRFSm
+X-Google-Smtp-Source: AGHT+IHWYCsKCZfCKe9WJ0A8h2jBWKCzprPvh9Stt4hH84aJN1DmeskwZihR1IueuTRTWs9wYxpP6Q==
+X-Received: by 2002:a17:906:119a:b0:a47:3766:cfec with SMTP id n26-20020a170906119a00b00a473766cfecmr235001eja.9.1711568159337;
+        Wed, 27 Mar 2024 12:35:59 -0700 (PDT)
+Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
+        by smtp.gmail.com with ESMTPSA id j24-20020a17090643d800b00a4672fb2a03sm5858783ejn.10.2024.03.27.12.35.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Mar 2024 12:35:58 -0700 (PDT)
+From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: linux-kernel@vger.kernel.org, Allen Pais <apais@linux.microsoft.com>
+Cc: tj@kernel.org, keescook@chromium.org, vkoul@kernel.org, marcan@marcan.st,
+ sven@svenpeter.dev, florian.fainelli@broadcom.com, rjui@broadcom.com,
+ sbranden@broadcom.com, paul@crapouillou.net, Eugeniy.Paltsev@synopsys.com,
+ manivannan.sadhasivam@linaro.org, vireshk@kernel.org, Frank.Li@nxp.com,
+ leoyang.li@nxp.com, zw@zh-kernel.org, wangzhou1@hisilicon.com,
+ haijie1@huawei.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ sean.wang@mediatek.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, afaerber@suse.de,
+ logang@deltatee.com, daniel@zonque.org, haojian.zhuang@gmail.com,
+ robert.jarzmik@free.fr, andersson@kernel.org, konrad.dybcio@linaro.org,
+ orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com,
+ patrice.chotard@foss.st.com, linus.walleij@linaro.org, wens@csie.org,
+ peter.ujfalusi@gmail.com, kys@microsoft.com, haiyangz@microsoft.com,
+ wei.liu@kernel.org, decui@microsoft.com, jassisinghbrar@gmail.com,
+ mchehab@kernel.org, maintainers@bluecherrydvr.com,
+ aubin.constans@microchip.com, ulf.hansson@linaro.org, manuel.lauss@gmail.com,
+ mirq-linux@rere.qmqm.pl, jh80.chung@samsung.com, oakad@yahoo.com,
+ hayashi.kunihiko@socionext.com, mhiramat@kernel.org, brucechang@via.com.tw,
+ HaraldWelte@viatech.com, pierre@ossman.eu, duncan.sands@free.fr,
+ stern@rowland.harvard.edu, oneukum@suse.com,
+ openipmi-developer@lists.sourceforge.net, dmaengine@vger.kernel.org,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-mediatek@lists.infradead.org, linux-actions@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-mmc@vger.kernel.org,
+ linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-s390@vger.kernel.org, netdev@vger.kernel.org, linux-usb@vger.kernel.org
+Subject: Re: [PATCH 9/9] mmc: Convert from tasklet to BH workqueue
+Date: Wed, 27 Mar 2024 20:35:54 +0100
+Message-ID: <9252961.CDJkKcVGEf@jernej-laptop>
+In-Reply-To: <20240327160314.9982-10-apais@linux.microsoft.com>
+References: <20240327160314.9982-1-apais@linux.microsoft.com>
+ <20240327160314.9982-10-apais@linux.microsoft.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_111743_814328_5E647FA4 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20240327_123602_709758_D19B05C8 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +122,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 26 Jan 2024 14:44:51 +0800 Huang Shijie <shijie@os.amperecomputing.com> wrote:
-
-> During the kernel booting, the generic cpu_to_node() is called too early in
-> arm64, powerpc and riscv when CONFIG_NUMA is enabled.
+Dne sreda, 27. marec 2024 ob 17:03:14 CET je Allen Pais napisal(a):
+> The only generic interface to execute asynchronously in the BH context is
+> tasklet; however, it's marked deprecated and has some design flaws. To
+> replace tasklets, BH workqueue support was recently added. A BH workqueue
+> behaves similarly to regular workqueues except that the queued work items
+> are executed in the BH context.
 > 
-> There are at least four places in the common code where
-> the generic cpu_to_node() is called before it is initialized:
-> 	   1.) early_trace_init()         in kernel/trace/trace.c
-> 	   2.) sched_init()               in kernel/sched/core.c
-> 	   3.) init_sched_fair_class()    in kernel/sched/fair.c
-> 	   4.) workqueue_init_early()     in kernel/workqueue.c
-> 
-> In order to fix the bug, the patch introduces early_numa_node_init()
-> which is called after smp_prepare_boot_cpu() in start_kernel.
-> early_numa_node_init will initialize the "numa_node" as soon as
-> the early_cpu_to_node() is ready, before the cpu_to_node() is called
-> at the first time.
+> This patch converts drivers/infiniband/* from tasklet to BH workqueue.
 
-What are the userspace-visible runtime effects of this bug?
+infiniband -> mmc
+
+Best regards,
+Jernej
+
+> 
+> Based on the work done by Tejun Heo <tj@kernel.org>
+> Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git for-6.10
+> 
+> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
+
 
 
 
