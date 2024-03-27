@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D70FC54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 12:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 864F6C54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 12:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:CC:Subject
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XdHYbJc5W9WaZUrHvIP15NbG0kZq46mliaiS8SDqq/A=; b=jEXdSHSS6m6wmz
-	8ucLCdmOFhXlmuxzY8s8mPdkSEtObsluc/8zPU+fhDrZEQV0Uqpdr03PmLhFJoZzTyF/3FAMCJqJc
-	Tr/c6k/o9uePLTGjRHVxG8qqZj/GBUbDM1R0X/SJnmC0YlBB17fT6OAAwBM6S01VtwUEK+hEx6/ML
-	ajPDItO5Xa6vBnIYi+ccKFLAPAQ7AS5Uf72NyZ54QUBHzjA9wFqD7Sc0mZi0L0ZByFnFCC1+HQ6Xn
-	Bcy8ZT/5vg4y+UWvee9OiA8r9d+/tqWAf+ozkvnA7NYywYslZ4XDp6tbBjc9PBPdseAtV7LlOn2Dr
-	E7tnEgB0eEi7tPZz+aLw==;
+	List-Owner; bh=Rys4Uj+rinE3POmQ2sWgtzDrgxdOEKWZlrSl3SBHwWg=; b=AMUzXKZfZLoZ/2
+	FwqJ8eaqbSxNM1hIAZ7fCCCxhlee6LPtNIjTT2wQkM6bqX53xmw7TXmsbgjKBxA1qwcOmmiqlJvOY
+	9vmKanSUpD2rtHhkVE17oDGsHNLC4MIA+6+fti5P+J1QC+uYFhGZWQFP7waJ4EEYBrgcWGPk8vOKW
+	qZ5JsXuip6aPTRnLc0+gUc9XV1thQORElqAGk8gRICIRojBJd9kbEP/CfSUwr1d8lqM4bs/2JP8cg
+	552hU2XcVQQqt7RybosvdydvIYVq6hNQbI/oYpegeHKqxakFJN3kMIUvPpPs+HIoXLirFV2DpK4HN
+	IP63Z5DW4+xwe5eLxRVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpS9I-00000008lFm-0S73;
-	Wed, 27 Mar 2024 12:12:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rpSIM-00000008p6p-3ME3;
+	Wed, 27 Mar 2024 12:22:18 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpS9E-00000008lDM-047X
+	id 1rpSIG-00000008p0X-3Qsx
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 12:12:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7DDA761511;
-	Wed, 27 Mar 2024 12:12:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AF53C433C7;
-	Wed, 27 Mar 2024 12:12:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711541571;
-	bh=ZEFqX0rr/4NcbZWJElKR8QdLOMJVEZGDtxdEioXmuoc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=fMVxno96urFy74N6zvKlmIXHr9BiXx6Hrle2R/FtsaQgMpujdDj1itJhtvjQZv2dh
-	 voKJdJXPGQvtbmmJ7/SP3OWCkWONmbQtBPv6XN+z4usm/Q+JEFGgMpCLGpHsmY4LIM
-	 G+IggYGZI6eUfNfj4OzGeBA5clcN85fKy0lnUPPEmvKadn3uxQmjoq2TvoTmV1W8I8
-	 Szd5aQQRkE1tXv+AIAx2hhFgK2f9SmdGcpqOaSTIb5b7Lqhhek4rx4rd3GZRxYschh
-	 QLD5QJL2F2QbKqxCqmCbnHPdUBGK2wdy0pREOKDJuR1QjOCn08MVZT4/4LN2pjENB3
-	 7sKZFxkASNatw==
-From: Sasha Levin <sashal@kernel.org>
-To: stable@vger.kernel.org,
-	leyfoon.tan@starfivetech.com
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: FAILED: Patch "clocksource/drivers/timer-riscv: Clear timer interrupt on timer initialization" failed to apply to 6.1-stable tree
-Date: Wed, 27 Mar 2024 08:12:49 -0400
-Message-ID: <20240327121249.2829814-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	Wed, 27 Mar 2024 12:22:18 +0000
+Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
+	by smtp-out2.suse.de (Postfix) with ESMTP id 8DE77604F3;
+	Wed, 27 Mar 2024 12:22:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1711542126; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=gM8O9BMvpmcweC/49S6T4WsOquW93fnYjM6IK+bwXKE=;
+	b=Ssdt28OT7qmUKLV8uScEd66ypiVH1N+F5aNhuNO1pdtTDLKthe/NdnKwwUIRBrNYWbuhSK
+	62GDE5ReODFKOz0CcWBy5WCMSIEjpu+AMO23TwXBW2eoZlZLQgHJz9g778LTBcAFizzeio
+	RUioF3j4Tv/bvID9gjEXuAunOCS6eYI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1711542126;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=gM8O9BMvpmcweC/49S6T4WsOquW93fnYjM6IK+bwXKE=;
+	b=T238+SQLURftQENgTnWvF65vJFoVbQlKraD9/dCFYuO1oaynJhrNiWDu98IQwa0xCCpc+s
+	je9TJAvTDe1u7LDA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1711542126; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=gM8O9BMvpmcweC/49S6T4WsOquW93fnYjM6IK+bwXKE=;
+	b=Ssdt28OT7qmUKLV8uScEd66ypiVH1N+F5aNhuNO1pdtTDLKthe/NdnKwwUIRBrNYWbuhSK
+	62GDE5ReODFKOz0CcWBy5WCMSIEjpu+AMO23TwXBW2eoZlZLQgHJz9g778LTBcAFizzeio
+	RUioF3j4Tv/bvID9gjEXuAunOCS6eYI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1711542126;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=gM8O9BMvpmcweC/49S6T4WsOquW93fnYjM6IK+bwXKE=;
+	b=T238+SQLURftQENgTnWvF65vJFoVbQlKraD9/dCFYuO1oaynJhrNiWDu98IQwa0xCCpc+s
+	je9TJAvTDe1u7LDA==
+Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
+	id 53E954AACE2; Wed, 27 Mar 2024 13:21:36 +0100 (CET)
+From: Andreas Schwab <schwab@suse.de>
+To: linux-riscv@lists.infradead.org
+Subject: 6.9-rc1 regression: irq: no irq domain found for
+ interrupt-controller@c000000
+CC: linux-kernel@vger.kernel.org
+X-Yow: Eisenhower!!  Your mimeograph machine upsets my stomach!!
+Date: Wed, 27 Mar 2024 13:21:36 +0100
+Message-ID: <mvmplvfg90v.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-X-Patchwork-Hint: ignore
-X-stable: review
+Authentication-Results: smtp-out2.suse.de;
+	none
+X-Spamd-Result: default: False [-1.29 / 50.00];
+	 ARC_NA(0.00)[];
+	 BAYES_SPAM(0.01)[46.21%];
+	 FROM_HAS_DN(0.00)[];
+	 TO_MATCH_ENVRCPT_ALL(0.00)[];
+	 NEURAL_HAM_LONG(-1.00)[-1.000];
+	 MIME_GOOD(-0.10)[text/plain];
+	 TO_DN_NONE(0.00)[];
+	 DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	 NEURAL_HAM_SHORT(-0.20)[-1.000];
+	 RCPT_COUNT_TWO(0.00)[2];
+	 FUZZY_BLOCKED(0.00)[rspamd.com];
+	 RCVD_COUNT_ZERO(0.00)[0];
+	 FROM_EQ_ENVFROM(0.00)[];
+	 MIME_TRACE(0.00)[0:+];
+	 MID_RHS_MATCH_FROM(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_051252_130178_E41227F8 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20240327_052213_100701_167AA21B 
+X-CRM114-Status: UNSURE (   3.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,59 +108,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The patch below does not apply to the 6.1-stable tree.
-If someone wants it applied there, or to any other stable or longterm
-tree, then please email the backport, including the original git commit
-id to <stable@vger.kernel.org>.
+The SiFive ccache driver fails to look up its irqs:
 
-Thanks,
-Sasha
+[    0.762329] irq: no irq domain found for interrupt-controller@c000000 !
+[    0.769358] CCACHE: Could not request IRQ 0
 
------------------- original commit in Linus's tree ------------------
+This is fatal for the JH7100 based boards, since they depend on it for
+their DMA noncoherence.
 
-From 8248ca30ef89f9cc74ace62ae1b9a22b5f16736c Mon Sep 17 00:00:00 2001
-From: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Date: Thu, 7 Mar 2024 01:23:30 +0800
-Subject: [PATCH] clocksource/drivers/timer-riscv: Clear timer interrupt on
- timer initialization
-
-In the RISC-V specification, the stimecmp register doesn't have a default
-value. To prevent the timer interrupt from being triggered during timer
-initialization, clear the timer interrupt by writing stimecmp with a
-maximum value.
-
-Fixes: 9f7a8ff6391f ("RISC-V: Prefer sstc extension if available")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-Tested-by: Samuel Holland <samuel.holland@sifive.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
-Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
-Link: https://lore.kernel.org/r/20240306172330.255844-1-leyfoon.tan@starfivetech.com
----
- drivers/clocksource/timer-riscv.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index e66dcbd665665..79bb9a98baa7b 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -108,6 +108,9 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
- {
- 	struct clock_event_device *ce = per_cpu_ptr(&riscv_clock_event, cpu);
- 
-+	/* Clear timer interrupt */
-+	riscv_clock_event_stop();
-+
- 	ce->cpumask = cpumask_of(cpu);
- 	ce->irq = riscv_clock_event_irq;
- 	if (riscv_timer_cannot_wake_cpu)
 -- 
-2.43.0
-
-
-
-
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
