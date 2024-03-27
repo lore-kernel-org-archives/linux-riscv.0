@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB318C54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 12:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D70FC54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 12:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5rRM1iIDM/frj/6FjJslN2niPDWNr52b2LwnHgjgjP0=; b=VX/XyaDJ2HEPeb
-	0Jph7nu5xL/KmNRwU+ucZu/UQWzCiqkJ9bUsxeasoJ4Onn6k24l8NwVdVcgZ4g+It5DzSYUpyLm3H
-	ufom0mDbp9AxemXG0XMEDaEBYhYMjw4/+gKVy7JqQWTGm2RbO5AugC6q1ac1hGAbvrnyz3nlBkzh2
-	PqlG2OmXZ8hkgr155zR87t/ID/5Ug5l56F/OMBOvQEAJHLp/RDV76tT7DVsMGO0ckdYOyiyHtR1L1
-	tsgY9CxZPGngPDDdg1mDoXLmodmnodv6evFllD4iw8qlsG4hrqL2dC+bUcwSWVUdcsaekPywcLnCL
-	CxHXkki/tZ65QPbNVaAQ==;
+	List-Owner; bh=XdHYbJc5W9WaZUrHvIP15NbG0kZq46mliaiS8SDqq/A=; b=jEXdSHSS6m6wmz
+	8ucLCdmOFhXlmuxzY8s8mPdkSEtObsluc/8zPU+fhDrZEQV0Uqpdr03PmLhFJoZzTyF/3FAMCJqJc
+	Tr/c6k/o9uePLTGjRHVxG8qqZj/GBUbDM1R0X/SJnmC0YlBB17fT6OAAwBM6S01VtwUEK+hEx6/ML
+	ajPDItO5Xa6vBnIYi+ccKFLAPAQ7AS5Uf72NyZ54QUBHzjA9wFqD7Sc0mZi0L0ZByFnFCC1+HQ6Xn
+	Bcy8ZT/5vg4y+UWvee9OiA8r9d+/tqWAf+ozkvnA7NYywYslZ4XDp6tbBjc9PBPdseAtV7LlOn2Dr
+	E7tnEgB0eEi7tPZz+aLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpS6h-00000008k67-1Cse;
-	Wed, 27 Mar 2024 12:10:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rpS9I-00000008lFm-0S73;
+	Wed, 27 Mar 2024 12:12:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpS6d-00000008k39-3O8R
+	id 1rpS9E-00000008lDM-047X
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 12:10:13 +0000
+	Wed, 27 Mar 2024 12:12:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4FC7261507;
-	Wed, 27 Mar 2024 12:10:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B159FC43390;
-	Wed, 27 Mar 2024 12:10:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7DDA761511;
+	Wed, 27 Mar 2024 12:12:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AF53C433C7;
+	Wed, 27 Mar 2024 12:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711541410;
-	bh=CT9lboX6DGNHp4gMzO6XDm6vSdLnNJfbC/23vBoP+d8=;
+	s=k20201202; t=1711541571;
+	bh=ZEFqX0rr/4NcbZWJElKR8QdLOMJVEZGDtxdEioXmuoc=;
 	h=From:To:Cc:Subject:Date:From;
-	b=qrDH+U6NpFvPXBwfEy0lyJQZJMlZCVEThnAP2wz1kh/nsprLQ7CLCOOUqVYmI3rMj
-	 RT4aMts5H1t+cmZUfqQE2lPvcMHwYewderAA5LLcuXkUHqJifMterLaFQWJfe4jPFl
-	 cPSyWjucgtAZoe60A3wEXBx9IzGjJYo1HniBESawCOA5Y/wgcZWomUJPaIWXgAIN7m
-	 v9nxoVXMret1FhlOhqtYUnHdCsB8bWQZmgfoGyzh57xABh5QzZm18cApr4fA7o+8sf
-	 Oa7ejQrPa4qb2XWdhJGDbnnqQSdWPEU95YvEIaoldjJk6cdjcUcZD/FGTTgaBjJLfh
-	 Zp2g5zogepU1Q==
+	b=fMVxno96urFy74N6zvKlmIXHr9BiXx6Hrle2R/FtsaQgMpujdDj1itJhtvjQZv2dh
+	 voKJdJXPGQvtbmmJ7/SP3OWCkWONmbQtBPv6XN+z4usm/Q+JEFGgMpCLGpHsmY4LIM
+	 G+IggYGZI6eUfNfj4OzGeBA5clcN85fKy0lnUPPEmvKadn3uxQmjoq2TvoTmV1W8I8
+	 Szd5aQQRkE1tXv+AIAx2hhFgK2f9SmdGcpqOaSTIb5b7Lqhhek4rx4rd3GZRxYschh
+	 QLD5QJL2F2QbKqxCqmCbnHPdUBGK2wdy0pREOKDJuR1QjOCn08MVZT4/4LN2pjENB3
+	 7sKZFxkASNatw==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
 	leyfoon.tan@starfivetech.com
@@ -50,15 +50,15 @@ Cc: Samuel Holland <samuel.holland@sifive.com>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: FAILED: Patch "clocksource/drivers/timer-riscv: Clear timer interrupt on timer initialization" failed to apply to 6.6-stable tree
-Date: Wed, 27 Mar 2024 08:10:08 -0400
-Message-ID: <20240327121008.2827616-1-sashal@kernel.org>
+Subject: FAILED: Patch "clocksource/drivers/timer-riscv: Clear timer interrupt on timer initialization" failed to apply to 6.1-stable tree
+Date: Wed, 27 Mar 2024 08:12:49 -0400
+Message-ID: <20240327121249.2829814-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_051011_911394_A65E9874 
+X-CRM114-CacheID: sfid-20240327_051252_130178_E41227F8 
 X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,7 +76,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The patch below does not apply to the 6.6-stable tree.
+The patch below does not apply to the 6.1-stable tree.
 If someone wants it applied there, or to any other stable or longterm
 tree, then please email the backport, including the original git commit
 id to <stable@vger.kernel.org>.
