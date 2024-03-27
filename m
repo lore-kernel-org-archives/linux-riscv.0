@@ -4,80 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB563C54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 07:58:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E24B3C54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 08:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cEBIzeNBjyB6w6Mwmdjm0Ga/0Fip/TS4SAJwiSAyAPs=; b=lP96yMxwilBAVR
-	DNIn/siETJ0uPLyxIzw1TDUJtWYMi02yzY8pPmGI7nzkm1pn6Dd6aTmpgjdtujrkI0VSWCKYtY0E3
-	mLoCCZ70jZQmn0sLJjOyYYl04ypmsqhPqjKS7wK1xSoZ8dDmv64o8mh+LGpc7j9AN18akTax1Wp6P
-	sMqPwa6nZhybqLe+1gnBxHa1fZV530YsdH5/JZEeUXfkpwidE5sEPQuEGdvN1CodxQmcr3ptwRkL0
-	SKTD4nWyJc208PBzOLxQaGxYMHM6nAoVUjISAfBPohxJm5CoWIOeAwE7FD7mxGXPW/M9MDrR7z3Cd
-	fKoGm3GRBlihZsT38+5g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CCmYskviTUVzSyS4Px9eVUVleW4Nc+GPiAc06JA6poo=; b=ft4VxWX13CBPnL
+	AL1IDPhmreROFghakoM0KkRpv05FjLeL7DYy/Acyni7WejBrypIEZNiKbHqL0E/ygsFeideK2eK1l
+	bAhJtuTKoYJZ5UlhPb1AUGUkOhxHM2PV9YuHn5r9ZNrrIKD7ghIV+0MnXVf9p12txxkqJwP+P/OvF
+	mQKrWat+1Rek2Yd6UlChyDMP+Y4tTRR8ZlPVKkmZHYO0cPS+Mc4s34L2so4C0q9QmiklnWEUfKwX/
+	rzTc8WY2adngxnq3hrf0EISRp34bcAdMaIwCTYaRYaDwsuvo2Q+MEt488DprzrwR3upQRVfo22Twl
+	opj3rLtMMXW6idnBrSbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpOAt-00000007vd0-1ZoQ;
-	Wed, 27 Mar 2024 07:58:19 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1rpOf6-00000008318-0Xs6;
+	Wed, 27 Mar 2024 08:29:32 +0000
+Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpOAq-00000007vbV-27HR
+	id 1rpOf2-000000082yV-0o4U
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 07:58:17 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-6e6d089f603so2109049a34.1
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 00:58:14 -0700 (PDT)
+	Wed, 27 Mar 2024 08:29:30 +0000
+Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-22a8df1df8fso54636fac.2
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 01:29:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1711526293; x=1712131093; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=buArJPLlnPB5EIrSoptLXad98trwHBEhYaxknXdrCRM=;
-        b=M+mTaJSGyss8QyfrXR3lj5WTLh2nkc37q/kt/6CjA62nDBgpVeji/lVBN/UmXWJspH
-         fKFBDwGhhiXPPtXB3rfzVP5RCYg7eIVDEplKv2J2LlfzrDaYjDrEQTIz4tSycFBHSRof
-         CzHYfXPOme4eoPjLms0JGu8kAKPE34sGZi9va7+OujPbm0JJuMx/FK7yRckq66GqcdF0
-         Kla3O44nRh7gZGZJ98rxrbVefprYC7dWog/RihAE47p4SMOfuTOjjVtodfx8kc8oVPa6
-         SgvmSO0TcaEJYA2MHIQBxHouweYLK44dPH9F6zo/D+ew86OiBShuSaG+a7LSc+LDNvjg
-         NOMA==
+        d=gmail.com; s=20230601; t=1711528165; x=1712132965; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PAXAH2qRhIhfWrlA5WaHLlBI5PoGBOuwHef9OW8zzoE=;
+        b=DCzVAcL/Fd8rA3AVDc11vkqaAr+bvmuZ99Y3zso9IZxr6MGe3BlbmKjsSThBim8ckD
+         iSnWBI6Rs2ZATugK6+6YwGYfJ7Mo4VP7UmUaOlqs9j90Ml9koxx1ooIpENhaDaAZaraR
+         TNOzWjdxug0dTW6OIg1uC2BYziwDup8PfZC9+Nqe0cW0MlUsYTeXCoX8EozIJ/skCS1g
+         cDwk7oiBCXpCsBe8HnJ2quYY9WsusOLuFTLdW5RxidBWKhw9fiPVdiqOS4dlzmW7QT+w
+         ZOSp/SMDHyyvP1BCyolbag1g0M2Odzmtva5VSbs0ZpccrjHV9sCcUG9jf6RKwRq2ODUO
+         knYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711526293; x=1712131093;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=buArJPLlnPB5EIrSoptLXad98trwHBEhYaxknXdrCRM=;
-        b=nYhbj2Ns7fnAzOaEu0iJnmGBzfcCZLO38fqOgKOiD5NP05YfC1wxy7l5CMMa8TvCDS
-         26j1xERuK/TNtZnb0Q1Nj60wD/CJzis9O0hiczmXXjhMDv2LvGqm7d9xJrVsg9tBSzU6
-         4wRpkUwI3i9fZaoatRnYn2o9kg7BC2lojttkB0hlxLDgaxoZn/Pm7KcLmM6ydTn7IIvV
-         fblks+jUJJ8WqwKu6mYQaGQoMjhQETceyCKLrS9lPyt+in6rg/sCYBdDwoZcXR+iZC0k
-         00/Wnl3z6Wlx0Z6lcS5BgKr1HGDw39BGL4MK329oS8QiaDyn32RvcLf6EpFFbVCG70Ng
-         4V6A==
-X-Forwarded-Encrypted: i=1; AJvYcCWsQTrIKXtyoasApl3uisbWKy/asgmb19AgZxad17QAkN4xXQAAT8oFyZ8Vf15zB50Ko/9HY/qowdbUusVK8C0J1C/att+rcgYFJ+32wyxV
-X-Gm-Message-State: AOJu0YyAcZ8tjsuNCzuWbevfZpAWpd5z8DKFa8IKh1VOBJN7iIV56frO
-	/LuTmZJ1QlizaZ4NbpAndyJPfjr+H6Fkkg+ELEf1K7G4wlil6A8uLUxMc1e55xjZMmpW9s37f//
-	K//An4F9EiKZXBwe3M8CebKe8OMvPF9FBtDUvcA==
-X-Google-Smtp-Source: AGHT+IFvJOK0KuWjR42wxMSa9dp2bPq3Ot/Nwj6HB+3ZV4WEBddR87Irr/dviDFOz0/CEBtTnttdt9WCRLoGI9IEIvc=
-X-Received: by 2002:a05:6870:2194:b0:229:ef48:8c67 with SMTP id
- l20-20020a056870219400b00229ef488c67mr5276811oae.41.1711526292858; Wed, 27
- Mar 2024 00:58:12 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1711528165; x=1712132965;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PAXAH2qRhIhfWrlA5WaHLlBI5PoGBOuwHef9OW8zzoE=;
+        b=rO2tCH8ZEOs+ftt1i8vbB8BfOOhsgo9u9hMMmNY6EcxG8dzfuoFfWPSajX/I9va6t1
+         lEOPD+as5ErtNyaxooLjmRaTuNTZ4AIogXH0n5T2QEriCE6RqvGiJJ2uxBup/siaMLAQ
+         8POUOr//ncpBFOt/0zV7oFZW6BCPLyG574VA7zcvNKkHHTRTK8T31+P319+DWyuLG+4k
+         xW7DA5EjEIqcOaj6AhOSzo/KBny5KVzeY5ZlovTltSxDpuzgZpoWno+nsM+mh/xyE1ra
+         I3k7lB3tdK3D1K2Vtr5VgL/sWdu0rbFHYauuB4Wb4l+AEHJuw04ojopjoRNXi9EF1G/m
+         SDew==
+X-Forwarded-Encrypted: i=1; AJvYcCUNFnREk1mB571YKMX2PVN7vaZchEUoGpv5RQc/rkLYuhIs8N+YeEWsypsMFyeEb4q99FEPpvJ4PQUUBf/6r6FWR/t7Hrqi2QUgp5DtAuRZ
+X-Gm-Message-State: AOJu0Yw3Cag+rMDZosVT/cBvgUA5W5/CRlLeIX1/gYoWZWBNyLPniosE
+	3DG2SPxTcCsmB5n3BD+pAwWIGVrdYKGyPS+HpeEiduUuKYmPOt0G
+X-Google-Smtp-Source: AGHT+IFoC1EULrWR/V/QqvTeZVHAwn0c01BhVYziroG3wXZ35D6ZFLVu7nprhv+BxCreSDmea6XdMA==
+X-Received: by 2002:a05:6871:70b:b0:21e:b695:dff5 with SMTP id f11-20020a056871070b00b0021eb695dff5mr5733289oap.20.1711528165514;
+        Wed, 27 Mar 2024 01:29:25 -0700 (PDT)
+Received: from localhost.localdomain ([122.8.183.87])
+        by smtp.gmail.com with ESMTPSA id mm9-20020a0568700e8900b0022a185fa4fesm2370464oab.21.2024.03.27.01.29.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Mar 2024 01:29:24 -0700 (PDT)
+From: Chen Wang <unicornxw@gmail.com>
+To: aou@eecs.berkeley.edu,
+	chao.wei@sophgo.com,
+	conor@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	mturquette@baylibre.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	richardcochran@gmail.com,
+	robh+dt@kernel.org,
+	sboyd@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	haijiao.liu@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	guoren@kernel.org,
+	jszhang@kernel.org,
+	inochiama@outlook.com,
+	samuel.holland@sifive.com
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Subject: [PATCH v12 0/5] riscv: sophgo: add clock support for sg2042
+Date: Wed, 27 Mar 2024 16:29:16 +0800
+Message-Id: <cover.1711527932.git.unicorn_wang@outlook.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20240325164021.3229-1-jszhang@kernel.org> <20240325164021.3229-3-jszhang@kernel.org>
- <b063df9b-90b6-4f06-8be5-5a8c267e6c8d@sifive.com> <ZgL31BFWvaLwYQrN@xhacker>
-In-Reply-To: <ZgL31BFWvaLwYQrN@xhacker>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Wed, 27 Mar 2024 15:58:01 +0800
-Message-ID: <CAEEQ3w=NZ5YR8bsOKdhLfeGk7u-7rUHGYA2mvcoO1o-ZaZT-jQ@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH 2/5] riscv: nommu: use CSR_TIME* for
- get_cycles* implementation
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Samuel Holland <samuel.holland@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_005816_569469_A65E2CBD 
-X-CRM114-Status: GOOD (  32.07  )
+X-CRM114-CacheID: sfid-20240327_012928_331578_55481263 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,78 +103,187 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSmlzaGVuZywKCk9uIFdlZCwgTWFyIDI3LCAyMDI0IGF0IDEyOjQz4oCvQU0gSmlzaGVuZyBa
-aGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIE1vbiwgTWFyIDI1LCAyMDI0
-IGF0IDA5OjM5OjI2UE0gLTA1MDAsIFNhbXVlbCBIb2xsYW5kIHdyb3RlOgo+ID4gSGkgSmlzaGVu
-ZywKPiA+Cj4gPiBPbiAyMDI0LTAzLTI1IDExOjQwIEFNLCBKaXNoZW5nIFpoYW5nIHdyb3RlOgo+
-ID4gPiBQZXIgcmlzY3YgcHJpdmlsZWdlZCBzcGVjLCAiVGhlIHRpbWUgQ1NSIGlzIGEgcmVhZC1v
-bmx5IHNoYWRvdyBvZiB0aGUKPiA+ID4gbWVtb3J5LW1hcHBlZCBtdGltZSByZWdpc3RlciIsICJP
-biBSVjMySSB0aGUgdGltZWggQ1NSIGlzIGEgcmVhZC1vbmx5Cj4gPiA+IHNoYWRvdyBvZiB0aGUg
-dXBwZXIgMzIgYml0cyBvZiB0aGUgbWVtb3J5LW1hcHBlZCBtdGltZSByZWdpc3Rlciwgd2hpbGUK
-PiA+ID4gdGltZSBzaGFkb3dzIG9ubHkgdGhlIGxvd2VyIDMyIGJpdHMgb2YgbXRpbWUuIiBTaW5j
-ZSBnZXRfY3ljbGVzKCkgb25seQo+ID4gPiByZWFkcyB0aGUgdGltZXIsIGl0J3MgZmluZSB0byB1
-c2UgQ1NSX1RJTUUgdG8gaW1wbGVtZW50IGdldF9jeWNsZXMoKS4KPiA+Cj4gPiBVbmZvcnR1bmF0
-ZWx5IHRoZXJlIGFyZSB2YXJpb3VzIGltcGxlbWVudGF0aW9ucyAoZS5nLiBGVTc0MC9Vbm1hdGNo
-ZWQsIHByb2JhYmx5Cj4gPiBLMjEwIHdoaWNoIHRoaXMgY29kZSB3YXMgb3JpZ2luYWxseSB1c2Vk
-IGZvcikgd2hpY2ggZG8gbm90IGltcGxlbWVudCB0aGUgdGltZQo+ID4gQ1NSLCByZWx5aW5nIG9u
-IE0tbW9kZSBzb2Z0d2FyZSB0byBlbXVsYXRlIHRoZSBDU1Igc28gUy1tb2RlIHNvZnR3YXJlIGRv
-ZXNuJ3QKPiA+IG5vdGljZS4gU28gdGhpcyBjb2RlIGlzIG5lZWRlZCB0byBzdXBwb3J0IHRob3Nl
-IHBsYXRmb3JtcyB3aGVuIHJ1bm5pbmcgTGludXggaW4KPiA+IE0tbW9kZS4KPgo+IE9PUFMsIEkg
-a25ldyB0aGlzIGZvciB0aGUgZmlyc3QgdGltZSB0aGVyZSBhcmUgc3VjaCBpbXBsZW1lbnRhdGlv
-bnMKPiB3aGljaCBkb2Vzbid0IGltcGxlbWVudCB0aGUgVElNRSBDU1IgOigKPgo+ID4KPiA+IE1h
-eWJlIHRoZXJlIHNob3VsZCBiZSBhbiBvcHRpb24gdG8gYXNzdW1lIHRoZSB0aW1lIENTUiBpcy9p
-cyBub3QgaW1wbGVtZW50ZWQsCj4gPiBsaWtlIHRoZXJlIGlzIGZvciBtaXNhbGlnbmVkIGFjY2Vz
-cz8KPgo+IFllcCwgdGhpcyBzZWVtcyB0aGUgb25seSBzb2x1dGlvbi4gVGhlbiB3aGljaCBzaG91
-bGQgYmUgdGhlIGRlZmF1bHQKPiBjaG9pY2U/IEkuRQo+Cj4gQXNzdW1lIGFsbCBOT01NVSBnb2Vz
-IHRocm91Z2ggVElNRSBDU1IsIGFuZCBwcm92aWRlIGFuIG9wdGlvbiBmb3IKPiBwbGF0Zm9ybSBs
-YWNraW5nIG9mIFRJTUUgQ1NSLiBUaGlzIHByZWZlcnMgVElNRSBDU1IuCj4KPiBWUy4KPgo+IEJ5
-IGRlZmF1bHQsIE1USU1FIGlzIHVzZWQsIGFuZCBwcm92aWRlIG9uZSBLY29uZmlnIG9wdGlvbiBm
-b3IgVElNRSBDU1IKPiB1c2FnZS4gVGhpcyBwcmVmZXJzIE1USU1FCj4KPiB3aGljaCBjaG9pY2Ug
-aXMgYmV0dGVyPyBBbnkgc3VnZ2VzdGlvbj8KPgo+IFRoYW5rcyBpbiBhZHZhbmNlCj4KPiA+Cj4g
-PiBSZWdhcmRzLAo+ID4gU2FtdWVsCj4gPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBKaXNoZW5nIFpo
-YW5nIDxqc3poYW5nQGtlcm5lbC5vcmc+Cj4gPiA+IC0tLQo+ID4gPiAgYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS90aW1leC5oIHwgNDAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+
-ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDQwIGRlbGV0aW9ucygtKQo+ID4gPgo+ID4gPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90aW1leC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS90aW1leC5oCj4gPiA+IGluZGV4IGEwNjY5Nzg0NmU2OS4uYTNmYjg1ZDUwNWQ0IDEwMDY0
-NAo+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3RpbWV4LmgKPiA+ID4gKysrIGIv
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90aW1leC5oCj4gPiA+IEBAIC0xMCw0NCArMTAsNiBAQAo+
-ID4gPgo+ID4gPiAgdHlwZWRlZiB1bnNpZ25lZCBsb25nIGN5Y2xlc190Owo+ID4gPgo+ID4gPiAt
-I2lmZGVmIENPTkZJR19SSVNDVl9NX01PREUKPiA+ID4gLQo+ID4gPiAtI2luY2x1ZGUgPGFzbS9j
-bGludC5oPgo+ID4gPiAtCj4gPiA+IC0jaWZkZWYgQ09ORklHXzY0QklUCj4gPiA+IC1zdGF0aWMg
-aW5saW5lIGN5Y2xlc190IGdldF9jeWNsZXModm9pZCkKPiA+ID4gLXsKPiA+ID4gLSAgIHJldHVy
-biByZWFkcV9yZWxheGVkKGNsaW50X3RpbWVfdmFsKTsKPiA+ID4gLX0KPiA+ID4gLSNlbHNlIC8q
-ICFDT05GSUdfNjRCSVQgKi8KPiA+ID4gLXN0YXRpYyBpbmxpbmUgdTMyIGdldF9jeWNsZXModm9p
-ZCkKPiA+ID4gLXsKPiA+ID4gLSAgIHJldHVybiByZWFkbF9yZWxheGVkKCgodTMyICopY2xpbnRf
-dGltZV92YWwpKTsKPiA+ID4gLX0KPiA+ID4gLSNkZWZpbmUgZ2V0X2N5Y2xlcyBnZXRfY3ljbGVz
-Cj4gPiA+IC0KPiA+ID4gLXN0YXRpYyBpbmxpbmUgdTMyIGdldF9jeWNsZXNfaGkodm9pZCkKPiA+
-ID4gLXsKPiA+ID4gLSAgIHJldHVybiByZWFkbF9yZWxheGVkKCgodTMyICopY2xpbnRfdGltZV92
-YWwpICsgMSk7Cj4gPiA+IC19Cj4gPiA+IC0jZGVmaW5lIGdldF9jeWNsZXNfaGkgZ2V0X2N5Y2xl
-c19oaQo+ID4gPiAtI2VuZGlmIC8qIENPTkZJR182NEJJVCAqLwo+ID4gPiAtCj4gPiA+IC0vKgo+
-ID4gPiAtICogTXVjaCBsaWtlIE1JUFMsIHdlIG1heSBub3QgaGF2ZSBhIHZpYWJsZSBjb3VudGVy
-IHRvIHVzZSBhdCBhbiBlYXJseSBwb2ludAo+ID4gPiAtICogaW4gdGhlIGJvb3QgcHJvY2Vzcy4g
-VW5mb3J0dW5hdGVseSB3ZSBkb24ndCBoYXZlIGEgZmFsbGJhY2ssIHNvIGluc3RlYWQKPiA+ID4g
-LSAqIHdlIGp1c3QgcmV0dXJuIDAuCj4gPiA+IC0gKi8KPiA+ID4gLXN0YXRpYyBpbmxpbmUgdW5z
-aWduZWQgbG9uZyByYW5kb21fZ2V0X2VudHJvcHkodm9pZCkKPiA+ID4gLXsKPiA+ID4gLSAgIGlm
-ICh1bmxpa2VseShjbGludF90aW1lX3ZhbCA9PSBOVUxMKSkKPiA+ID4gLSAgICAgICAgICAgcmV0
-dXJuIHJhbmRvbV9nZXRfZW50cm9weV9mYWxsYmFjaygpOwo+ID4gPiAtICAgcmV0dXJuIGdldF9j
-eWNsZXMoKTsKPiA+ID4gLX0KPiA+ID4gLSNkZWZpbmUgcmFuZG9tX2dldF9lbnRyb3B5KCkgICAg
-ICAgcmFuZG9tX2dldF9lbnRyb3B5KCkKPiA+ID4gLQo+ID4gPiAtI2Vsc2UgLyogQ09ORklHX1JJ
-U0NWX01fTU9ERSAqLwo+ID4gPiAtCj4gPiA+ICBzdGF0aWMgaW5saW5lIGN5Y2xlc190IGdldF9j
-eWNsZXModm9pZCkKPiA+ID4gIHsKPiA+ID4gICAgIHJldHVybiBjc3JfcmVhZChDU1JfVElNRSk7
-Cj4gPiA+IEBAIC02MCw4ICsyMiw2IEBAIHN0YXRpYyBpbmxpbmUgdTMyIGdldF9jeWNsZXNfaGko
-dm9pZCkKPiA+ID4gIH0KPiA+ID4gICNkZWZpbmUgZ2V0X2N5Y2xlc19oaSBnZXRfY3ljbGVzX2hp
-Cj4gPiA+Cj4gPiA+IC0jZW5kaWYgLyogIUNPTkZJR19SSVNDVl9NX01PREUgKi8KPiA+ID4gLQo+
-ID4gPiAgI2lmZGVmIENPTkZJR182NEJJVAo+ID4gPiAgc3RhdGljIGlubGluZSB1NjQgZ2V0X2N5
-Y2xlczY0KHZvaWQpCj4gPiA+ICB7Cj4gPgo+CgpJJ2QgbGlrZSB0byB0YWtlIHRoaXMgdGhyZWFk
-IHRvIGFzazoKY3NyX3JlYWQoQ1NSX1RJTUUpIHJldHVybnMgYSB0aW1lc3RhbXAsIHJpZ2h0PyBT
-byB3aHkgaXMgdGhlIGZ1bmN0aW9uCm5hbWUgZ2V0X2N5Y2xlcygpPyBJbnN0ZWFkIG9mIGdldF90
-aW1lc3RhbXAoKT8KClRoYW5rcywKWXVuaHVpCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Chen Wang <unicorn_wang@outlook.com>
+
+This series adds clock controller support for sophgo sg2042.
+
+Thanks,
+Chen
+
+---
+
+Changes in v12:
+
+  The patch series is based on v6.9-rc1. 
+
+  Improved the dirvier code as per review comments from Stephen Boyd.
+  - Remove default y for CLK_SOPHGO_SG2042.
+  - Optimize sg2042_pll_get_postdiv_1_2, move postdiv1_2 to the function.
+    scope and add more explaniation.
+  - Optimize sg2042_get_pll_ctl_setting.
+  - Switch to platform driver.
+  - Use clk_hw for initialization of struct clks.
+  - Don't use ignore_unused when using critical.
+  - Other code cleanup as per input form the reviewers.
+
+Changes in v11:
+
+  The patch series is based on v6.8-rc5. You can simply review or test the
+  patches at the link [12].
+
+  Quick fixed some dt_binding_check errors reported by Rob.
+
+Changes in v10:
+
+  The patch series is based on v6.8-rc4. You can simply review or test the
+  patches at the link [11].
+
+  Add input clocks for rpgate & clkgen.
+
+Changes in v9:
+  The patch series is based on v6.8-rc2. You can simply review or test the
+  patches at the link [10].
+
+  From this version, drop the system-controller node due to there is no actual
+  device corresponding to it in IC design. SYS_CTRL is just a registers segment
+  defined on TRM for misc functions. Now three clock-controllers are defined for
+  SG2042, the control registers of the three clock-controllers are scattered in
+  different memory address spaces:
+  - the first one is for pll clocks;
+  - the second one is for gate clocks for RP subsystem;
+  - the third one is for div/mux, and gate clocks working for other subsystem
+    than RP subsystem.
+
+Changes in v8:
+  The patch series is based on v6.7. You can simply review or test the
+  patches at the link [9].
+  
+  In this version, the main change is to split one clock provider into two.
+  Strictly follow the hardware instructions, in the memoymap, the control
+  registers of some clocks are defined in the SYS_CTRL segment, and the
+  control registers of other clocks are defined in the CLOCK segment.
+  Therefore, the new design defines two clock controllers, one as a child
+  node of the system control and the other as an independent clock controller
+  node.
+
+  This modification involves a major modification to the binding files, so
+  the reviewed-by tags has been deleted.
+
+Changes in v7:
+  The patch series is based on v6.7. You can simply review or test the
+  patches at the link [8].
+  - fixed initval issue.
+  - fixed pll clk crash issue.
+  - fixed warning reported by <lkp@intel.com>
+  - code optimization as per review comments.
+  - code cleanup and style improvements as per review comments and checkpatch
+    with "--strict"
+
+Changes in v6:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [7].
+  - fixed some warnings/errors reported by kernel test robot <lkp@intel.com>.
+
+Changes in v5:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [6].
+  - dt-bindings: improved yaml, such as:
+    - add vendor prefix for system-ctrl property for clock generator.
+    - Add explanation for system-ctrl property.
+  - move sophgo,sg2042-clkgen.yaml to directly under clock folder.
+  - fixed bugs for driver Makefile/Kconfig
+  - continue cleaning-up debug print for driver code.
+
+Changes in v4:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [5].
+  - dt-bindings: fixed a dt_binding_check error.
+
+Changes in v3:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [3].
+  - DTS: don't use syscon but define sg2042 specific system control node. More
+    background info can read [4].
+  - Updating minor issues in dt-bindings as per input from reviews.
+
+Changes in v2:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [2].
+  - Squashed the patch adding clock definitions with the patch adding the
+    binding for the clock controller.
+  - Updating dt-binding for syscon, remove oneOf for property compatible;
+    define clock controller as child of syscon.
+  - DTS changes: merge sg2042-clock.dtsi into sg2042.dtsi; move clock-frequency
+    property of osc to board devicethree due to the oscillator is outside the
+    SoC.
+  - Fixed some bugs in driver code during testing, including removing warnings
+    for rv32_defconfig.
+  - Updated MAINTAINERS info.
+
+Changes in v1:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [1].
+
+Link: https://lore.kernel.org/linux-riscv/cover.1699879741.git.unicorn_wang@outlook.com/ [1]
+Link: https://lore.kernel.org/linux-riscv/cover.1701044106.git.unicorn_wang@outlook.com/ [2]
+Link: https://lore.kernel.org/linux-riscv/cover.1701691923.git.unicorn_wang@outlook.com/ [3]
+Link: https://lore.kernel.org/linux-riscv/MA0P287MB03329AE180378E1A2E034374FE82A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM/ [4]
+Link: https://lore.kernel.org/linux-riscv/cover.1701734442.git.unicorn_wang@outlook.com/ [5]
+Link: https://lore.kernel.org/linux-riscv/cover.1701938395.git.unicorn_wang@outlook.com/ [6]
+Link: https://lore.kernel.org/linux-riscv/cover.1701997033.git.unicorn_wang@outlook.com/ [7]
+Link: https://lore.kernel.org/linux-riscv/cover.1704694903.git.unicorn_wang@outlook.com/ [8]
+Link: https://lore.kernel.org/linux-riscv/cover.1705388518.git.unicorn_wang@outlook.com/ [9]
+Link: https://lore.kernel.org/linux-riscv/cover.1706854074.git.unicorn_wang@outlook.com/ [10]
+Link: https://lore.kernel.org/linux-riscv/cover.1708223519.git.unicorn_wang@outlook.com/ [11]
+Link: https://lore.kernel.org/linux-riscv/cover.1708397315.git.unicorn_wang@outlook.com/ [12]
+
+---
+
+Chen Wang (5):
+  dt-bindings: clock: sophgo: add pll clocks for SG2042
+  dt-bindings: clock: sophgo: add RP gate clocks for SG2042
+  dt-bindings: clock: sophgo: add clkgen for SG2042
+  clk: sophgo: Add SG2042 clock driver
+  riscv: dts: add clock generator for Sophgo SG2042 SoC
+
+ .../bindings/clock/sophgo,sg2042-clkgen.yaml  |   49 +
+ .../bindings/clock/sophgo,sg2042-pll.yaml     |   45 +
+ .../bindings/clock/sophgo,sg2042-rpgate.yaml  |   43 +
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |   12 +
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        |   49 +-
+ drivers/clk/Kconfig                           |    1 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/sophgo/Kconfig                    |    7 +
+ drivers/clk/sophgo/Makefile                   |    2 +
+ drivers/clk/sophgo/clk-sophgo-sg2042.c        | 1410 +++++++++++++++++
+ drivers/clk/sophgo/clk-sophgo-sg2042.h        |  216 +++
+ .../dt-bindings/clock/sophgo,sg2042-clkgen.h  |  111 ++
+ include/dt-bindings/clock/sophgo,sg2042-pll.h |   14 +
+ .../dt-bindings/clock/sophgo,sg2042-rpgate.h  |   58 +
+ 14 files changed, 2017 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/sophgo,sg2042-clkgen.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/sophgo,sg2042-pll.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/sophgo,sg2042-rpgate.yaml
+ create mode 100644 drivers/clk/sophgo/Kconfig
+ create mode 100644 drivers/clk/sophgo/Makefile
+ create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.c
+ create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.h
+ create mode 100644 include/dt-bindings/clock/sophgo,sg2042-clkgen.h
+ create mode 100644 include/dt-bindings/clock/sophgo,sg2042-pll.h
+ create mode 100644 include/dt-bindings/clock/sophgo,sg2042-rpgate.h
+
+
+base-commit: 4cece764965020c22cff7665b18a012006359095
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
