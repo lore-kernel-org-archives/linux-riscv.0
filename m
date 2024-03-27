@@ -4,87 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D79C54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 15:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AADE9CD1280
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 15:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rflnwXtJZ/VSuqMTaRyNeoygkso3RJrL/xgE/axrwgo=; b=X8JUcS/tGrro9H
-	LSqiftmT64N0hg9FZRSZ4s+IplIxjFTtRdtmlhHWeb/H8oIb5Zl+h7Q7L9Jm2JU7EbS6Ry3T1Z7G5
-	IBmkvbijzQcKIU4nQTzOgatA08cIj+vHb0GWvKk3YDtEHh744NMyFIp3b4fNI52ai00DvvHCfdCyp
-	dfU5Y2qNox63eHdX45eBgGiPUvubv7BDoRQasqoszK6vhDFp/9U9FEZ7ehxV3dTmPjFg+Bwwjm2CT
-	guPHnof7pR9Ewa/zmlc0dKl5Mp4gpAOInefHrcYcSfEpobAZVzTu7yMcpdVGuTRUQ6NbeONnWJhvI
-	6IifeAtraf54iNUVWwrQ==;
+	List-Owner; bh=Q30epaVw63ETitJ8gVP7p+huaxV7XiKtrP45smsoFg0=; b=dPNSIj9hLb1RK5
+	/2lJg9A/upgRgmRpYbl2nklBPykMx1zZpsSDj3LWQ76HUzCdHQTRB3yUyzhrsCnspcGvtOZSSRGUw
+	ZFdpU/XqM6R1IW7GINy3wkdyrPTa8D1KUrx90Xd1VtxNZx4/8l3CRb8Vlo1ZQxL0T/RRWFuN87tQR
+	azttJUtpUq9EeuCVpXi992Qf9xSIsrPztLvQtXNvWAZQTs+yJ43svNuzO59WkRcOnOpMN3a5WRMnc
+	mYmPH8u8EFsj136RLpyVLROx2fsTfIc/gf+lUZqEWDO3yoVIYXJ+LzlLEpSTFU0X1jh61FOelnRmD
+	r7+EMOu/OshEAVoZLWYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpVGy-00000009ppW-26sa;
-	Wed, 27 Mar 2024 15:33:04 +0000
-Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
+	id 1rpVVp-00000009uCy-2O9x;
+	Wed, 27 Mar 2024 15:48:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpVGt-00000009plm-3bYA
+	id 1rpVVm-00000009uAu-0VCV
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 15:33:02 +0000
-Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-3684faf6286so28802145ab.1
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 08:32:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711553577; x=1712158377; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PF7BpT7xgpetmn2SxPDafvgaaG8xfRfOiIeigueJv44=;
-        b=VQslloQ159lMHv3Ux5VNEcCEk6rt5xQ4bTrGX9jmJcChNa5Ay0huxTFKvb9mPElUVd
-         YqqxrrOFtIbV4ValE+9dVd4kzn4OIF2RLmF6ZaQ2WIHD4xjj6LDlg2AghlA/MHspXITz
-         HZd7f+2rA3anmqv4KgF8Z2MNUnk9RYvZ0le7sb1VEciYU9/jaK+MGHgxgoA168xHe49M
-         TLwk1lE2x97n6nY7+xxujEkkgaxprcW2tGGmD3/Yk5LPlINnjpDZ9HkDfk9kGkmoDskH
-         gq9NoafClT5TjxuzHuVh202oz5jbTGNHrW0OkMbDe3jpokzsudPZG1UjNnrtWnxJkuos
-         E/sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711553577; x=1712158377;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PF7BpT7xgpetmn2SxPDafvgaaG8xfRfOiIeigueJv44=;
-        b=mGcEN10kdDSN3s7YGpO/AIySWikxictfJ9f8fMYalDXLXu0umDe4eDZTfR7mayvlqf
-         bJgT3GmqPE3riRGIQjeENf++3gJw4c4MhsoCpg5KqF9y7mKZUm4lzT4VUPaTgUJR4Kws
-         mPGU1Uh3aoQ1+ABM+AhYfTuyWA4dlzxLlTnTaAuM7FBBX1Wf26Ob1p3lg9989bKD2p9t
-         6btcfbJaXlrRIh/97iTuekwjioam8I+GonJjw/51cf/+Vw1I6IHAVfyY9cv2sumLBfJ4
-         VutMXz1ETOJHwl5Lun8MT2eRhRtKwbTvkm7NXPZKxOCTxrwLhAx1Vc/IMWaAiJl7/Dns
-         M/3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWOiuNX0BpEDd+Gg/0cyl1aP7CGBK77r84i0LOFQ/8xgqT7/jmlfA2FiVfnwaTh8QyfII534g6SbWxK0DnSvsPRrZFVHNoEbxx0lwwqV857
-X-Gm-Message-State: AOJu0Yx2A7ld8XZoEte46qpfUzElqzCE+fBQbqNOFa8i2o8aKlH51CBu
-	MAsBCUoDBlml3hdKQiYklo+E4ZrgF+tUEMF2MOlFRzpz3HvATTvQIwBfc000dRYHfiJla3yHGZJ
-	E
-X-Google-Smtp-Source: AGHT+IGdMChH50XwuKfroi9Ldx4vewY2tL5TXEOV1NEDYN3TGmpIkbk/uE2En+YsZ29z9C1dTS/OdQ==
-X-Received: by 2002:a92:c68e:0:b0:368:980a:d879 with SMTP id o14-20020a92c68e000000b00368980ad879mr354346ilg.17.1711553577622;
-        Wed, 27 Mar 2024 08:32:57 -0700 (PDT)
-Received: from [100.64.0.1] ([170.85.6.190])
-        by smtp.gmail.com with ESMTPSA id r10-20020a922a0a000000b003687950b384sm3021534ile.18.2024.03.27.08.32.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Mar 2024 08:32:57 -0700 (PDT)
-Message-ID: <c63150d8-a479-4d75-a826-3f87b1a792b9@sifive.com>
-Date: Wed, 27 Mar 2024 10:32:54 -0500
+	Wed, 27 Mar 2024 15:48:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 81377615F6;
+	Wed, 27 Mar 2024 15:48:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A95BC433C7;
+	Wed, 27 Mar 2024 15:48:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1711554501;
+	bh=kxw8lEOeXnx/duF9z7ST9TT/zC6EoGrvtJe8oJFI1B0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Sr1y1Cuu9f/Se064mDUn1HaCUkTnbO9IBcwOnhO4s3a/Mlvj19hhrxttE8kNOJA1i
+	 zW0nSCuYqRkkblNx79/0IToZ+uYKPrVtK/RsRTGET65JvBUlbnBr+xnURpFy6E9uEO
+	 Jsc+HyY1Qqo4OpmJ5FHxS0LBgybRWxjAhhIC2DbLn+PzW/Mry+jN1z3i0/FuRNrs0A
+	 T0BNpgtrWjidXAsNZVrDC5m0wr0xCw1IWoUuwrYkFCsnQe19gwecezPAQgkZcYdkCK
+	 Jl7Orhrx+qfMJ4Tv93a6bLdHSbX/8kFx+KwKZCKZ40GSm5YwG8T0gWZ6tGf2kVX46Y
+	 V+Yf/i5ucujfA==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/3] clocksource/drivers/timer-riscv: Add set_state_oneshot_stopped
+Date: Wed, 27 Mar 2024 23:35:00 +0800
+Message-ID: <20240327153502.2133-2-jszhang@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240327153502.2133-1-jszhang@kernel.org>
+References: <20240327153502.2133-1-jszhang@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/7] riscv: Various text patching improvements
-To: Andrea Parri <parri.andrea@gmail.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Jason Baron <jbaron@akamai.com>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Steven Rostedt <rostedt@goodmis.org>, bpf@vger.kernel.org,
- Alexandre Ghiti <alexghiti@rivosinc.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>
-References: <20240212025529.1971876-1-samuel.holland@sifive.com>
- <ZctnfZWWO3HCiXe5@andrea>
-Content-Language: en-US
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <ZctnfZWWO3HCiXe5@andrea>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_083300_521332_2F60B54D 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20240327_084822_235787_85BD20FA 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,47 +76,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
+To avoid spurious timer interrupts when KTIME_MAX is used, we need to
+configure set_state_oneshot_stopped(). Although implementing this is
+optional, it still affects things like power management for the extra
+timer interrupt.
 
-On 2024-02-13 6:58 AM, Andrea Parri wrote:
-> On Sun, Feb 11, 2024 at 06:55:11PM -0800, Samuel Holland wrote:
->> Here are a few changes to minimize calls to stop_machine() and
->> flush_icache_*() in the various text patching functions, as well as
->> to simplify the code.
->>
->>
->> Samuel Holland (7):
->>   riscv: jump_label: Batch icache maintenance
->>   riscv: jump_label: Simplify assembly syntax
->>   riscv: kprobes: Use patch_text_nosync() for insn slots
->>   riscv: Simplify text patching loops
->>   riscv: Pass patch_text() the length in bytes
->>   riscv: Use offset_in_page() in text patching functions
->>   riscv: Remove extra variable in patch_text_nosync()
-> 
-> This does look like a nice clean-up.  Just curious (a "teach me"-like question),
-> how did you test these changes? kselftests, micro-benchmarks, other?
+Check commit 8fff52fd5093 ("clockevents: Introduce
+CLOCK_EVT_STATE_ONESHOT_STOPPED state") for more information.
 
-For all my patches, I do boot testing on various physical boards (Unmatched, D1,
-some internal hardware), plus some standard internal workloads. For
-performance-related patches, I run microbenchmarks or whole-system benchmarks
-(e.g. UnixBench). For this series specifically, I didn't do any extra
-benchmarking, as all of the functional changes should be as fast or faster by
-virtue of simply doing less work.
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ drivers/clocksource/timer-riscv.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-> BTW, I recall a parallel work from Alex and Bjorn [1] that might have some minor
-> conflict with these changes; + both of them to Cc: for further sync.
-
-As suggested by Alex, v2 of this series will be based on the latest version of
-that patch.
-
-Regards,
-Samuel
-
-> 
->   Andrea
-> 
-> [1] https://lore.kernel.org/lkml/20240206204607.527195-1-alexghiti@rivosinc.com/
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index 48ce50c5f5e6..e661fc037337 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -69,11 +69,12 @@ static int riscv_clock_shutdown(struct clock_event_device *evt)
+ 
+ static unsigned int riscv_clock_event_irq;
+ static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
+-	.name			= "riscv_timer_clockevent",
+-	.features		= CLOCK_EVT_FEAT_ONESHOT,
+-	.rating			= 100,
+-	.set_next_event		= riscv_clock_next_event,
+-	.set_state_shutdown	= riscv_clock_shutdown,
++	.name				= "riscv_timer_clockevent",
++	.features			= CLOCK_EVT_FEAT_ONESHOT,
++	.rating				= 100,
++	.set_next_event			= riscv_clock_next_event,
++	.set_state_shutdown		= riscv_clock_shutdown,
++	.set_state_oneshot_stopped	= riscv_clock_shutdown,
+ };
+ 
+ /*
+-- 
+2.43.0
 
 
 _______________________________________________
