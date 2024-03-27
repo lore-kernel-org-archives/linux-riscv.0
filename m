@@ -4,126 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6284AC47DD9
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 07:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E74D4C54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 07:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5sYJAK4MiyBe5utOoSjA5/iJAn7rEXXtwZnFtJjx2Fk=; b=ZzwNKolwqZCkOy
-	Ra676/kZ9zhIqQVyPtGLDi//pNyIHhJ8A1MAbXrZ7usC1JlVK4dRd6NIaJ54mmKfOIqHu/U0+eOGw
-	8mav2hk4H1exPGr1ZecW97fp0N1kiaQ8Kf75k6LkyrcmxfjP9C4ar+6HJOCKiOvOofgH+4+Hu/ti3
-	LBoSiCch3ehkUQHLYilrKNp+j/aOngwStXcIv1sdq7sG6H6dWxZZ+mGukIHH3dXfpjndZgXHrtk20
-	5Ll5jrZnVQ4w328Y949jnyvr0IVcdRJmlTmSoet60+ggRfAsBKGiM7QlLKgxYKGuAs6GDtIRElu0B
-	nvTGlHCmLjnjUMqVcA9A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZolRj/UqCF46uVrUSAwbeTRjMYkevIW/GvcHVG2FOds=; b=Gjqw9LcAJP23OXbUMdIcIgZKdQ
+	jiAmtA/gHZrdnMzBcjhXVG5Qv3C9/HFRZJ4eBNRKghnGpgfEQ1tx2b6r2lrgl7aQwjwQLj6SD+n8z
+	mF2vLNBRy0V4H9rOzW0h0VyLOJpLQuppewMx5SriAGJtWqrEi+o5W3mBUw+5PBii51En1nmNZwjey
+	VyNYLBoA+s278iEYJW8peVshwyM8WobDkzvc/amT2WTeoWNldv3GN/bYqdSE7Vk6nq6WSrUXdbUiO
+	X0Z4tt/0ojcwkqxH3GePVnZlg78Yg9kprwkhrrd/7M5JcQTROeYhc6Y/WPF3bYc0SdZf+uaYTb/kp
+	1pwYU18w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpNy1-00000007ry0-2AF3;
-	Wed, 27 Mar 2024 07:45:01 +0000
-Received: from mail-dm6nam10acsn20801.outbound.protection.outlook.com ([2a01:111:f400:7e88::801] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1rpO6u-00000007uQt-12gF;
+	Wed, 27 Mar 2024 07:54:12 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpNxy-00000007rwb-1aXF
+	id 1rpO6p-00000007uOw-4C6a
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 07:45:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=f1IfJvglFeTdBYaQQFgTO5X4lAdBFueLEljDKLJyFQdZoEVpwxLJhSApsdesLQm35CVeCJXPu/Xo1G0AtcdPjuArLxN/15TIRkTwcQpTYnkWOp+wDTBtMh+3kxvRSG+CIyhE1OcslSFw0PxrSjQCO7eOaj+duTOrwtOITZN0UobDLEdZ9qJGS8T8aPc6LlotFnUe2hg3amTl4ucGTtCHAAbxAYBZGW+jSfSpCnEt8RGbFHi5X7o1kRpGp5eI/IRUpt64VVLJHps3Rw2WDshepb8vlpPyiT/xxL4LUDYjjVDKi+unfw8EOtAKAYXxSNjWXDnPUXoFd+UdHKn1E/8HOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WUCn0x4ILGUNIkbBmqKlextH6ZrTLFd+PaEcZ+WLomE=;
- b=SM/Q56go08skQ3KvZ3S1cmXweBaonRsN4yn7AIYuE8vlFwmOUT//sTvf7GhkJmNpShHdjHG67n/io7Ev8JSTRbCOzcsJnf2kUuTmXUME5Mw2Icw8Oa8u63De63PPsKeyE/5742HUA20LtIpZmN/crOUsmG5utylwtkUG+4v5Ex3YJWRj+wwcaXRw1gQZzhbB3muYdfms+h6yEM9pq6rCyjGzO67VmoIVw/ZKa9MXOH/N0JqW5amJkxAdCACRLS0sinCrNvXbytsESQmLXYqzJKjzTLzKpTSnpFQUgqaIOTsF+SHT4VBdBy9CPMGock7ehU22hFdNpjAgUlI8ujNuTA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WUCn0x4ILGUNIkbBmqKlextH6ZrTLFd+PaEcZ+WLomE=;
- b=hQKIS1qehzEDf/q6G6owtFaDYuJib9eoWwAp7BhxKD1iFzyjXPRD+DqFre4ifVaP3iwE6Fe7BpBI9GWiDBdaUGY3thZdXLm++rMi6XXFQnjymXJc7dbtOGjUJCy2AZSQ0kMpqXXvxHRFX9qPaRd7zHa2j6oSnt4H6ELQhkXUYPsIpF5giBp0/Tla66v8SBmDWcGHtl4a7VhAl6Qcw2YjPL8YvUyhFMZC6XA53zyHdHBcdAlMmK4K9RrHA7s41m3klMfAwsYKyuDPQCkDLCjMyGaVYYF9OSNmcuzs0oMttjnWCad5LCo5MUsyylxtVTb3HetA/3A0CprwQ8rS9Uvb4A==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by IA1PR20MB4875.namprd20.prod.outlook.com (2603:10b6:208:3e5::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.26; Wed, 27 Mar
- 2024 07:44:48 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::182f:841b:6e76:b819%2]) with mapi id 15.20.7409.026; Wed, 27 Mar 2024
- 07:44:48 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Jisheng Zhang <jszhang@kernel.org>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH RFC] riscv: dts: sophgo: add sdcard support for milkv duo
-Date: Wed, 27 Mar 2024 15:44:29 +0800
-Message-ID: <IA1PR20MB4953436EB1E28CB565BD3F36BB342@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <20240217144826.3944-1-jszhang@kernel.org>
-References: <20240217144826.3944-1-jszhang@kernel.org>
-X-TMN: [h47+O4QdPLnBmwit97l1meqlj3SspzrH7IPqtSEKeps=]
-X-ClientProxiedBy: SI2PR06CA0010.apcprd06.prod.outlook.com
- (2603:1096:4:186::6) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <171152545132.1459004.12521619420853775227.b4-ty@outlook.com>
+	Wed, 27 Mar 2024 07:54:09 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-29de4c33441so4690060a91.1
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 00:54:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1711526046; x=1712130846; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5e8VEDc6X3vdP7dz2M9r9pk6H8tvft/oIARZVKpUkPM=;
+        b=iU818a3HxXmqZ38yBRgzSyEbE5q0UmHOrw6i0OAlcRMbwW0M68xg/nd3QUrXossDoh
+         VAv9AmajcGIE0MwJ6BIk6TUOyVl/AehMvfMtD3s1O27MGXxBdxvrWqQS3md5JEaa3Aqm
+         yOmYtNjMWQiUHLrowyvWJVN/5v7sd7KK8OdopirIIqcFIulnIFqctjc3mIZ5d1r4K5nY
+         8gz5b0r/b6KE5aLcIUEYAl6QPIe7C5d8+mxKJE/5M+GBLilPiti0Zoh+uBYcaOxcgygt
+         U4B9pBflc6EKN/lXKq75HDhrKOHTiVcAvgapEvobuSYZP3CHU1ZK1rOdY7KM9eU4Wmvt
+         BoYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711526046; x=1712130846;
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=5e8VEDc6X3vdP7dz2M9r9pk6H8tvft/oIARZVKpUkPM=;
+        b=k9qmwhrInvC6gZ7S8ElqTO8AqhTc5c1trW1OWSLc0oF0xTgY58yEI6bBztRv6wZPBm
+         4LU/DVnOPoRL2FgAR2qbiicEPDfFXJrgxJDSDYvLFgOvrTel+xGoMUuoDgQUOIxFHslu
+         gpOYWcmo/DuUAGTrJBDL1DAWtuuDTHH2aa9K8tPh90Nbt807Ea69svW+yIrWdnBhQUD8
+         7qv5j0x3NsVV4XXZibREB8yB1acmMkTC8XN9yeZ3tqqGTjp8qEuuVNG1N00lljiMX2Dz
+         AT8A66eyatbUWND97ZgqE7aMkSl2dYibAipKkMtUw6AxOv61ObJfpIimbGQ5jZ/SGWT/
+         7Bpg==
+X-Forwarded-Encrypted: i=1; AJvYcCXVCsroM5SS/P2ZqBnLwj3Sa9KvEJumZiaSKn/ccxp+Nz1jIwgEeYpTx+Di0teqK+jFLSDjbZCLr3HGVLGL4WSBjkwSHt2AsRDU593xx8Sx
+X-Gm-Message-State: AOJu0Yx8XwucBMtoVRfBlHFoASK7PrHqVcA3TnWiwWLXaYTW8eEF13tu
+	DTPNJ3Hvuvf97ryzkKFB4ped+8UHewRHk1DMnSqkmdfXisATt2BE
+X-Google-Smtp-Source: AGHT+IEnNz21hCUFzcc3BDrCXEP56Iio2L0jyNpy2CcYiYy/MtCouQUyfmpbI/NAqQ1TI46wKu7kCw==
+X-Received: by 2002:a17:90a:f697:b0:2a0:4835:972 with SMTP id cl23-20020a17090af69700b002a048350972mr400982pjb.4.1711526045593;
+        Wed, 27 Mar 2024 00:54:05 -0700 (PDT)
+Received: from [192.168.0.13] ([172.92.174.232])
+        by smtp.gmail.com with ESMTPSA id si13-20020a17090b528d00b0029fe0b8859fsm2531873pjb.1.2024.03.27.00.54.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 Mar 2024 00:54:05 -0700 (PDT)
+Subject: Re: [PATCH 1/4] riscv: Fix TASK_SIZE on 64-bit NOMMU
+To: Jisheng Zhang <jszhang@kernel.org>,
+ Samuel Holland <samuel.holland@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20240227003630.3634533-1-samuel.holland@sifive.com>
+ <20240227003630.3634533-2-samuel.holland@sifive.com>
+ <ZgPE5e7FzB5H4MnK@xhacker>
+From: Bo Gan <ganboing@gmail.com>
+Message-ID: <668ad9cf-08bf-92de-b70a-af36defda6e0@gmail.com>
+Date: Wed, 27 Mar 2024 00:54:03 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|IA1PR20MB4875:EE_
-X-MS-Office365-Filtering-Correlation-Id: 65a28d98-bb20-4eac-14fd-08dc4e31c740
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: XLbpndB91SV6jhdom/SPB1VT+3tbp/oQ61sLHcLuR8+TsXsbPlnF3xvANQloCPLA/fYK3BYf++yxjWCLSsjl7MK4xZyKMBthO+kgCE4AjnlkAoYK6YLislEK9YSSqvtEraLFjYua+vAl5xnfivq+YiijC+eNO9GgXoGqU1VymN/MpxVnMZLSJpwlxnpcUBICViOvjpjNx8YdMvuzmLhX3ECSI8RnNwN5+Rma2/idqE8zBU7kB0hONr4sf3jd64w5JOSVbvCieOQfiFDt67PEWbpDUwlCsBSiPEnRHznrF5sXBtPfbotNOR6ttOtDFX3tH7lWfZRfKBWXTuLZ9FsEHWmyqSqX51LrwtovlAYh2Zb6p1/7nKf4NDK7Ni51n0BvCTwcFbN+urnKGV/L0oHORM7x2uYLUapCtrjIKO2tNCkFfZ/AwTgKfvWoUc+Zp5XzH7khgwBa06YqZ+YjwFN0loPgqpCFDfwaLOwaD7gJGk5o0nGRv9JetCSmMcfK1JUDxKQby7aNwqgIpFxrM5BBTggPuTlPBd2bzDHssgSShTjW3C5Xq/mRxEWMubbytTZ5vL1lWP7o/ycJqwVRRdE+fiAqingtmuMkfRg36JEMdYo3AD7E+FroqJ2jlzOueYAuc6rH+oNrE/FNtn10n13Tjdgs2H962OlVEpNHwtacqS+PO3jwNsH9sRhHSFESDz52
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MVVOYyt0OVYxcms5ZEtXOXV5N3QrRTF2dmx2QjBkdUgrczhlUHNVdGV4NDIr?=
- =?utf-8?B?cU4wUXZwQWF5RnordXdYZEJrOTJmVmVvL0YvSi9PZWZHSmpDT3BUZWFEdVV0?=
- =?utf-8?B?SVRBWEtiSHQ5aDZ1RFhoT1oyNm1UNm9VM0thNHlnTWtXOGpjYzJUd0EwWDUv?=
- =?utf-8?B?Q2F4bGpNNWI5OVU3OWhpQkxaVnMrRnNzTlpRMDlWYTF1aVRpZk9nenpXSHRq?=
- =?utf-8?B?ZDNiYnJlblZReHlUSUovRGtUZXJvZ3hZRnNxWGFZRGVNYTRmL25vN1d3d2c1?=
- =?utf-8?B?ZFdyTGdaUDU2QldpL0xsTmV5d3QxMXVQSVRiWXVHcURCY0dZdHJLR0kxQ1ZF?=
- =?utf-8?B?QmU5MjlFeEhkV0QrTEplVGk4bDNkZ0Q5bFdtQ1Q2M3VZZ3NrdXdnOTV3dm1N?=
- =?utf-8?B?K2Y0NjFpVmtWVjE4RmRaWmhKU1VDeCtCM0R4cHJXb1ovVzFXdU0yUVZGSjIy?=
- =?utf-8?B?NEwzWm1pYkZiNnZxUndyTGFoSU5QNG9hWkZmaiswNURqMTQ5VDFqdG41RnFs?=
- =?utf-8?B?S2g4ZXNFcnFJTlF6cjltNWZwZ3R2SjlOSnZTNmFwTFJVUXFYbldKVnIxQm5O?=
- =?utf-8?B?cjlKTmxLU1hhVm5HMmpZOHFrNStBSnlUVnhCZVd4M0hORHVkZzVCdllWSFls?=
- =?utf-8?B?Qnk1MWkzaEhuRVltczVKbXhobmZtL0NGbWl6dGphcCsvenpLK3J4U0pydk5Y?=
- =?utf-8?B?V0ZWZ0wxdzR0d0pybUxFdTBVb1poN0F5T0I3cmhRMlFLMi83TmZwcjJMSERj?=
- =?utf-8?B?TlRQNmtqMFlRcWlGT0Z5ZzZDdGgrYU13c3BvTUZJNEFqK3lnTW9jMHZISWhL?=
- =?utf-8?B?RkNWOU9aM2hsYWVYYncyd1RETmE5dGRtRWJkL1duMHYzak9Ya0d5eWpJdmVk?=
- =?utf-8?B?MVZLeTUzVDhkdXhRYmVwTGNiSWtBR3pYamlVWDFnaUJjOTBKSGtUbCtIak1z?=
- =?utf-8?B?NXRRam9PcmZYNFZPU0xNWk5uS1FYZXJZNXg0WCtUWDNLZEo3WGFQb0pJRkVH?=
- =?utf-8?B?YW1ZR25EaHNURlhTcnBVMEN2WFIzYXpYdFpwRUhzT2szY2ZkeHBOamNteGVT?=
- =?utf-8?B?TGNBMHg1WkQ3U0p5T2xsNHQ4VXRhdHpDQmc0SkQ3RVpkYzF6OHRNZ0M0cGpY?=
- =?utf-8?B?YTJ4YzFsbm5UMGx0d3paeUVaOFoxRzN0U3Vlc3lWZmxUbmNIZnRGSHdud1Qx?=
- =?utf-8?B?b2xyQXRjVlZsUVB1K05Ga2xxRDNXN1FrbkFFTUZSdG4vc3A5TnFTWjMyT3k0?=
- =?utf-8?B?VFNpYngyeGFpZEZtUG41ZVJrbW5FS2pxc05SaHlZZmlqSDZsYkJCTmxBNUtQ?=
- =?utf-8?B?RlhveThXeU5xcXQ2bGZIdFJRTXhqV0tCRU9NZGRGUXlqQVVtNWx0Qm1YdHE1?=
- =?utf-8?B?V0w2Y0N1Ynhqa3RrN2ZtdXRCdGpZUkZBcmxFVVB1YjBNdlJTZnRKV3JBT1Jv?=
- =?utf-8?B?ZFZjNG9NOGlHRmF0d0xBRzJDMjBqRUY1bUtYYVpLL1NpdFRSRjZ3TXNZbGcw?=
- =?utf-8?B?QXZWWEpqd1ZDUzBlSU1sbldrVnZkMDBaNUJVTnNsNGJLdS9IRWtaZzB0c21C?=
- =?utf-8?B?cTNBVVZSUTZTczRhZ0VNNGtWVWZLc0RpdXdNQXh1cDFoVHdFaC9mczRDOC9S?=
- =?utf-8?B?QmdmeEpMNlRtVmdrdzNzcy9uUFh1ODRVUGhWcHpJVm5KRk1rVjQzYkZzbWVl?=
- =?utf-8?Q?gxb7uYzH/4GepsFwq8HH?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 65a28d98-bb20-4eac-14fd-08dc4e31c740
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2024 07:44:48.4918
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR20MB4875
+In-Reply-To: <ZgPE5e7FzB5H4MnK@xhacker>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_004458_447469_035209FC 
-X-CRM114-Status: UNSURE (   5.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240327_005408_106265_9F6B79C9 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,23 +93,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 17 Feb 2024 22:48:26 +0800, Jisheng Zhang wrote:
-> Add sdhci dt node in SoC dtsi and enable it in milkv duo dts.
+On 3/27/24 12:04 AM, Jisheng Zhang wrote:
+> On Mon, Feb 26, 2024 at 04:34:46PM -0800, Samuel Holland wrote:
+>> On NOMMU, userspace memory can come from anywhere in physical RAM. The
+>> current definition of TASK_SIZE is wrong if any RAM exists above 4G,
+>> causing spurious failures in the userspace access routines.
+>>
+>> Fixes: 6bd33e1ece52 ("riscv: add nommu support")
+>> Fixes: c3f896dcf1e4 ("mm: switch the test_vmalloc module to use __vmalloc_node")
+>> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 > 
+> Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
 > 
 
-Applied to sophgo/for-next, thanks!
+Reviewed-by: Bo Gan <ganboing@gmail.com>
 
-[1/1] riscv: dts: sophgo: add sdcard support for milkv duo
-      https://github.com/sophgo/linux/commit/89a7056ed4f771e689729f7992ef5351e64e26c6
+Thanks for this patch! I'm doing something similar locally and it fixes the
+linux nommu + musl libc build on my JH7110 S7 core.
 
-Thanks,
-Inochi
+Bo
+
+>> ---
+>>
+>>   arch/riscv/include/asm/pgtable.h | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+>> index 0c94260b5d0c..a564a39e5676 100644
+>> --- a/arch/riscv/include/asm/pgtable.h
+>> +++ b/arch/riscv/include/asm/pgtable.h
+>> @@ -882,7 +882,7 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+>>   #define PAGE_SHARED		__pgprot(0)
+>>   #define PAGE_KERNEL		__pgprot(0)
+>>   #define swapper_pg_dir		NULL
+>> -#define TASK_SIZE		0xffffffffUL
+>> +#define TASK_SIZE		_AC(-1, UL)
+>>   #define VMALLOC_START		_AC(0, UL)
+>>   #define VMALLOC_END		TASK_SIZE
+>>   
+>> -- 
+>> 2.43.0
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
 
 _______________________________________________
