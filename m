@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD12C54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 05:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8457DC47DD9
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 06:03:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9KNATpPd5ZegXWwbo8ru8RqOW+TABkCxP4EYC2fSXn4=; b=lQEpmROqRV2ucW
-	CtwfW50v6+sE9bUE7E1yGs9sNfsudYGJrmf12E0en/d7jFBTfOeIs3Dr1DE+rM7py14gU+JTjcZSP
-	DokCAY1HirxG/BMH8YmOG6kiL4SJmLFdTx/3MnHThiWGkvyZSCISojjjq9zfUGTj07zGmFrDLTtMK
-	Qe5T4c5lGBYsZ7oZkL/cnIje1XrqKFy4K2/QvfXMCzxGeJrBYhunuJ+LArEaiuTbUkVa/ep+SBSz7
-	Sv6697kVa+wkRmP5tQcxvCitHVH2BU/MvXIbhR8M9j+acpbU+4ar5yD/itf5w5iJG4wD2C2Ch0frH
-	r34LEFCOcfWHMcMBWH0w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=r/0aBd0jCMuqrVKN3Fmy1lljujzzw/vR+Mmo9prsuqQ=; b=Rhh7QVU5O0bBXk
+	gPtq/QmF8V7Mfe3TgiPOAgGrRVcvyv/mzHHRsK1IIfkxt56iNO5zX+9RzyQ7FNZLxXOyiMT00os4X
+	uiVNm3L0x+mWL/ZIbu6Y6mkfgCM7x6Xduwc1bY6GFbgqJTtqW5+AwujiwRHfhmJrUagphxJYIBwrL
+	7dLAiz8Wm7X7Ju1d5Yvzyskna9ggbT2J6SXIgG6cYAwCs5SEBx7oD/FS6FLvHl07n6Y3D4WFlmlJh
+	1MoEyBFLzuQtSxVW07T965lRBor4LSJyOVa1+MY1c8/4MgZWaTLq1ecPNIZ1Tpz66QBrQvWhjvSC9
+	N0sJeNeb/ZtrYDfiG1gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpM6a-00000007ZGp-0TJ2;
-	Wed, 27 Mar 2024 05:45:44 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1rpMNR-00000007bkk-0F0E;
+	Wed, 27 Mar 2024 06:03:09 +0000
+Received: from mail-oo1-xc32.google.com ([2607:f8b0:4864:20::c32])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpM6W-00000007ZGG-3S0K
+	id 1rpLFm-00000007SHO-099h
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 05:45:42 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-5a56a22004cso1078572eaf.3
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 22:45:40 -0700 (PDT)
+	Wed, 27 Mar 2024 04:51:12 +0000
+Received: by mail-oo1-xc32.google.com with SMTP id 006d021491bc7-5a58009fe88so512009eaf.0
+        for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2024 21:51:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711518339; x=1712123139; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=B1O4HrXUCV4MTrLSUHq40tp2u1LonHFNpKtBMnLkU4Q=;
-        b=YcMirBVQrGEVc6sZCJB8HT0Jwrzq0p4uxL6ow/p6sKjtv9Rjrmw0fv3lRs7JuEcEfY
-         Y9wE1yIHifoE8wIx4tFe+B5jfFBmB/FUnW8Vc2fjsvpFBQp0OxkYHtrAtfts4s+wvt1U
-         BBri8cdkNw9VqTKqadaBYn2SqU6GQZ/XwkUX/FkCdRMtS7z3RIGYnNf9CO3aC904P8KF
-         7oJhxjyaOWCQQtprjQtO4XuPhLftz5FabO13cDOE9/BoX/WWTksmI4ErTMG7tsbOzOM1
-         Br4OiWYIh4fyReGIrMCVMaYktVzDtYznLOKi26WPHUOUX3tx8Y+Xw0A7PvEQ/QirTE/D
-         yxCQ==
+        d=sifive.com; s=google; t=1711515063; x=1712119863; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DStjBcAn1SHrL/HpDMugRz0dC8r4hdt1hrlyujsEs2s=;
+        b=Mjv7BPCmksj3UCvBBEhJNei7Kpbmx+VJbhCb6ot4XO13Awm23VHkEXQ3kA6CnL5jNW
+         zM8rXs6jUCNxR8ulwPfFxzvtC5zBzXLdE1/FODhmoaOCObHPTVRUPQ+j9ybghzEeruqb
+         LSRbuyTyA8nHe6/h+7WZpEFkAtpBF3yyjUHxDbkI5f0n0Wt7dD+1iQqf+zDORkfgMKEN
+         GGinxgXAeSUYBwmw2R9CAKIpvGNtIsolv22wZLVgPnRBb4dFEfARhhnNXbJbMcRXa9xx
+         HNujjExkDlWH8OJBJsTBtu8KeickdgTjp0csLM+SF48MehInz+SC2k1MMqk+HrQkiYce
+         0SWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711518339; x=1712123139;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=B1O4HrXUCV4MTrLSUHq40tp2u1LonHFNpKtBMnLkU4Q=;
-        b=M+Vfj50VKHdqefd1VsJRpt/PQBVTW5KBEXVi+o7eXc0maeAcm4Vdiq1IKvW9UweJuI
-         Ch3NmGYg+LMqoNXgPyIYGM/qQwmjEh1nLGe7iV6CTV3pZ5zKiGIaFZXPh9GJyUEZHBHC
-         /cPwhwpLCnp7HK3f97Wa01DPgt1kDI3MIkY1UzNMr9TkjpqalKoPOGiGcQjRRHHh34pg
-         CKv15T/f8S/GAX0Kwvixyqw98Ye/T+VQ8P304MLfoKsHLMK/ox5ZxCFPsgvbhCiiYlCH
-         zYdRSWlrzA+9XyIqLYeFeNLPXIxZHaXLz+gI0sz7u2Bl5FPd3x1hgOotx3RF5mjFo9XZ
-         Q5Cg==
-X-Forwarded-Encrypted: i=1; AJvYcCV1hOGJ3lNRD0wFGkt3PHFoIDkwNq0TC3sP7/uA0GEjGeHTlV94WObI0/5CcdoU7VkpO33R6Vk9ZJ7dvasNWoi24XmdT2ilw6IxHx7LhMRg
-X-Gm-Message-State: AOJu0YzrfV/Sr9/tqKzZKTuqGRAezlDOuracp8LyASIDqNndqqfUqkcN
-	s1wTDSyR/yJiHItR+cB3MnMrKvqds5JFtpWZzXeISKDxogUaq359gktUiIzHW8o=
-X-Google-Smtp-Source: AGHT+IH6LKE2qtw8a/Zvce9y/zXj8SNbfYrNTQipSKpUP4GisfAUe9jdUYEsOKlSbpnzK8+jvoSQ1g==
-X-Received: by 2002:a05:6358:2d8d:b0:17f:8831:2b7c with SMTP id m13-20020a0563582d8d00b0017f88312b7cmr3720954rwn.25.1711518339245;
-        Tue, 26 Mar 2024 22:45:39 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1711515063; x=1712119863;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DStjBcAn1SHrL/HpDMugRz0dC8r4hdt1hrlyujsEs2s=;
+        b=JVcf8WVS8iEysPvBB5WtDGQlg7DCVdUAHUZulF3dZ4FMR97w/bNVtmjoFhbqo5bKeK
+         vxK3xFykg+YRUsiS5rOuZzX6KEHVLOg7fvMMQMbLP/bFEmp4thMqsSRRYTGHFy6RblWF
+         85bJEB0uXFTv+jFQY28pSYVonFdVGGn6WSB+73DED7B3yhs+3umyGq7LBpZR/rnVzTq2
+         /drfDGBUU6y+a6XPBhruIAhclUTo328TPHeleqEg4lqw9bCZSRTzDtvymqqiw1FXLVtX
+         +Gni2gMl2He2LCFY04R1ExUZcMcHr3OPJ4v1ufVJwq3vW/Kx9uZWFyxqRh5mQ4pMqDzQ
+         0dkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXXejvL5DbfO8WsXlWWsxRrby7fIZ5UmfnrGAGukYrE78icYbH0uCXw1XINZ7ojbcKvIFnZPep9OqhQAQaU6jCWN8Z3ZjzghlsXLsGw98/U
+X-Gm-Message-State: AOJu0Yycclp8Uf9qEKQmxz2cAbD4iBLMqe6MjwhU0p6vm1Nj0MO2Hl9p
+	pFPA35Kzg8aMZjFHOXwT5WkWfGEqjIIrSTEIeo+zg7B9JQeU+kfpbm1sfSxUfVQ=
+X-Google-Smtp-Source: AGHT+IElUFan01DMTcKq7mpLuQEXv/M6ZjDhhp1pW7v7cPBwp502ELftTLKlJV+xiDuinHxlNWw0zA==
+X-Received: by 2002:a05:6358:520d:b0:17f:1d34:6253 with SMTP id b13-20020a056358520d00b0017f1d346253mr268628rwa.15.1711515063614;
+        Tue, 26 Mar 2024 21:51:03 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id v62-20020a632f41000000b005cf450e91d2sm7405772pgv.52.2024.03.26.22.45.38
+        by smtp.gmail.com with ESMTPSA id e31-20020a63501f000000b005e4666261besm8351500pgb.50.2024.03.26.21.51.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Mar 2024 22:45:38 -0700 (PDT)
+        Tue, 26 Mar 2024 21:51:02 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	linux-kernel@vger.kernel.org,
+To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH] cache: sifive_ccache: Partially convert to a platform driver
-Date: Tue, 26 Mar 2024 22:45:24 -0700
-Message-ID: <20240327054537.424980-1-samuel.holland@sifive.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH v6 13/13] riscv: mm: Always use an ASID to flush mm contexts
+Date: Tue, 26 Mar 2024 21:49:54 -0700
+Message-ID: <20240327045035.368512-14-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.43.1
+In-Reply-To: <20240327045035.368512-1-samuel.holland@sifive.com>
+References: <20240327045035.368512-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240326_224540_918628_20383D4C 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20240326_215110_672752_218BC99B 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,134 +98,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 8ec99b033147 ("irqchip/sifive-plic: Convert PLIC driver into a
-platform driver") broke ccache initialization because the PLIC IRQ
-domain is no longer available during an arch_initcall:
+Even if multiple ASIDs are not supported, using the single-ASID variant
+of the sfence.vma instruction preserves TLB entries for global (kernel)
+pages. So it is always more efficient to use the single-ASID code path.
 
-  [    0.087229] irq: no irq domain found for interrupt-controller@c000000 !
-  [    0.087255] CCACHE: Could not request IRQ 0
-
-Fix this by moving the IRQ handling code to a platform driver.
-
-Fixes: 8ec99b033147 ("irqchip/sifive-plic: Convert PLIC driver into a platform driver")
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
- drivers/cache/sifive_ccache.c | 72 ++++++++++++++++++++++-------------
- 1 file changed, 46 insertions(+), 26 deletions(-)
+(no changes since v5)
 
-diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
-index 89ed6cd6b059..e9cc8b4786fb 100644
---- a/drivers/cache/sifive_ccache.c
-+++ b/drivers/cache/sifive_ccache.c
-@@ -15,6 +15,8 @@
- #include <linux/of_address.h>
- #include <linux/device.h>
- #include <linux/bitfield.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
- #include <asm/cacheflush.h>
- #include <asm/cacheinfo.h>
- #include <asm/dma-noncoherent.h>
-@@ -247,13 +249,49 @@ static irqreturn_t ccache_int_handler(int irq, void *device)
- 	return IRQ_HANDLED;
+Changes in v5:
+ - Leave use_asid_allocator declared in asm/mmu_context.h
+
+Changes in v4:
+ - There is now only one copy of __flush_tlb_range()
+
+Changes in v2:
+ - Update both copies of __flush_tlb_range()
+
+ arch/riscv/mm/tlbflush.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index 35266dd9a9a2..44e7ed4e194f 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -109,8 +109,7 @@ static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
+ 
+ static inline unsigned long get_mm_asid(struct mm_struct *mm)
+ {
+-	return static_branch_unlikely(&use_asid_allocator) ?
+-			cntx2asid(atomic_long_read(&mm->context.id)) : FLUSH_TLB_NO_ASID;
++	return cntx2asid(atomic_long_read(&mm->context.id));
  }
  
-+static int sifive_ccache_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	unsigned long quirks;
-+	int intr_num, rc;
-+
-+	quirks = (unsigned long)device_get_match_data(dev);
-+
-+	intr_num = platform_irq_count(pdev);
-+	if (!intr_num)
-+		return dev_err_probe(dev, -ENODEV, "No interrupts property\n");
-+
-+	for (int i = 0; i < intr_num; i++) {
-+		if (i == DATA_UNCORR && (quirks & QUIRK_BROKEN_DATA_UNCORR))
-+			continue;
-+
-+		g_irq[i] = platform_get_irq(pdev, i);
-+		if (g_irq[i] < 0)
-+			return g_irq[i];
-+
-+		rc = devm_request_irq(dev, g_irq[i], ccache_int_handler, 0, "ccache_ecc", NULL);
-+		if (rc)
-+			return dev_err_probe(dev, rc, "Could not request IRQ %d\n", g_irq[i]);
-+	}
-+
-+	return 0;
-+}
-+
-+static struct platform_driver sifive_ccache_driver = {
-+	.probe	= sifive_ccache_probe,
-+	.driver	= {
-+		.name		= "sifive_ccache",
-+		.of_match_table	= sifive_ccache_ids,
-+	},
-+};
-+
- static int __init sifive_ccache_init(void)
- {
- 	struct device_node *np;
- 	struct resource res;
--	int i, rc, intr_num;
- 	const struct of_device_id *match;
- 	unsigned long quirks;
-+	int rc;
- 
- 	np = of_find_matching_node_and_match(NULL, sifive_ccache_ids, &match);
- 	if (!np)
-@@ -277,28 +315,6 @@ static int __init sifive_ccache_init(void)
- 		goto err_unmap;
- 	}
- 
--	intr_num = of_property_count_u32_elems(np, "interrupts");
--	if (!intr_num) {
--		pr_err("No interrupts property\n");
--		rc = -ENODEV;
--		goto err_unmap;
--	}
--
--	for (i = 0; i < intr_num; i++) {
--		g_irq[i] = irq_of_parse_and_map(np, i);
--
--		if (i == DATA_UNCORR && (quirks & QUIRK_BROKEN_DATA_UNCORR))
--			continue;
--
--		rc = request_irq(g_irq[i], ccache_int_handler, 0, "ccache_ecc",
--				 NULL);
--		if (rc) {
--			pr_err("Could not request IRQ %d\n", g_irq[i]);
--			goto err_free_irq;
--		}
--	}
--	of_node_put(np);
--
- #ifdef CONFIG_RISCV_NONSTANDARD_CACHE_OPS
- 	if (quirks & QUIRK_NONSTANDARD_CACHE_OPS) {
- 		riscv_cbom_block_size = SIFIVE_CCACHE_LINE_SIZE;
-@@ -315,11 +331,15 @@ static int __init sifive_ccache_init(void)
- #ifdef CONFIG_DEBUG_FS
- 	setup_sifive_debug();
- #endif
-+
-+	rc = platform_driver_register(&sifive_ccache_driver);
-+	if (rc)
-+		goto err_unmap;
-+
-+	of_node_put(np);
-+
- 	return 0;
- 
--err_free_irq:
--	while (--i >= 0)
--		free_irq(g_irq[i], NULL);
- err_unmap:
- 	iounmap(ccache_base);
- err_node_put:
+ void flush_tlb_mm(struct mm_struct *mm)
 -- 
 2.43.1
 
