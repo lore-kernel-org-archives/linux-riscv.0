@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CD2C54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 16:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68EE9C47DD9
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 16:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SB9GyfrajjkWaS3zHuCe+0EQ80lYwsYYn1BFshZ9O5Q=; b=qM0dWdQhupwg7y
-	A01O3Oq6fYw2tfc7tq5yzHMpzj+zI5qORKmS0KDFh6P00NmkX8g0/O1KT6rEXpVrxP+QzHBwRrE0K
-	Tv+L+nfeux/Dd0S+nttfllWJmkK4Tm4HGJEPBxIRSfZy44F9fDSsCmrwE4w1MMAvQ/la/OeOthwDA
-	r1A5nibhxLZwW94jJnyftqft+NMYyxPqsPqwejnjf9k2YI0jxQNnYO6gYnleA10oMv5vtOA2Rfwux
-	ME+Qdfv1tC+6PSrcJyF25oioGIk0GDNOZEwEJ9OMNHZKX0hMUALHHfk7Sm+AoUoPrr0ff5cPkOlND
-	LKDKlFohVVbF1TB4Oq1g==;
+	List-Owner; bh=hFkK7KVB2tYnNuOdgfjf0ClzD6FOHJIay5fQpXh42Ps=; b=cfzn8nsNpnWeaY
+	IkY1/ozPmhcAnFq2Egwwa3Tw+0NWSFI7i5lsl6GV88Bo2atgdrO+Uoxa8Itsex8vEtAgEHwyXqbDZ
+	z2P+v/QVzJ9WPH5BFg5lk6TcovSZPOPsng2Wj/yX02ldDGLaZkpDPk29jsk0Du9tBMVWXPCKWdaDe
+	n+fMg6yLLnwtGsatJ6HhLRh+7W5RtpftyBVjLvth5/X873oRY0FLX63bRHK2ORI44Zpw6Qe+apDy3
+	PDrM6CLGptpWnkgHsm10aJA+YbkTN15EPKvu7YFPGFmFJX9my9vayKqRn9zTt7/0Ek3o21gl+GBm/
+	2DgoIadKGUN+S4G6ccRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpVkZ-00000009y2D-1ybY;
-	Wed, 27 Mar 2024 16:03:39 +0000
+	id 1rpVkw-00000009yEc-3Yna;
+	Wed, 27 Mar 2024 16:04:02 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpVkK-00000009xsJ-2iP5;
-	Wed, 27 Mar 2024 16:03:27 +0000
+	id 1rpVkK-00000009xtO-4B1b;
+	Wed, 27 Mar 2024 16:03:33 +0000
 Received: from apais-vm1.0synte4vioeebbvidf5q0vz2ua.xx.internal.cloudapp.net (unknown [52.183.86.224])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 1998C2085CFD;
+	by linux.microsoft.com (Postfix) with ESMTPSA id B67C22085D1E;
 	Wed, 27 Mar 2024 09:03:21 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1998C2085CFD
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B67C22085D1E
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
 	s=default; t=1711555401;
-	bh=wCLpjQkL/ru41Ip2DKr6ngKIXssxI+yPvh/4tHpaDQQ=;
+	bh=L+EaQYE6bmC0NmpKbej3vSebLXDc+7QE0yduDZxBc6Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nxmkJqSXmGl7g68HXDx/9x2GA+7p2WKJQiiVe8QorJ/57CF9t5z1JvzkAHjTTRn5e
-	 Fm7Ss7Gx/+oc1I6X+C4UOU9dGhWfADCrdxQin+eotT6IIUf3OV8L3zN0V33d4sRdjA
-	 xwDGCsWcNNYAi7U4jn/Elfwlge9z4T9e0VLYOiyQ=
+	b=i4/Kpt1ytuQ6twRTLZVIQaRVaylPWpPRuZ/NEIZhO9GR3p4i9dCOg2rRWFziifVBd
+	 44/8wdUf040mbtr1lR1T8QuVT2Y9J40Gp4vU/0G2vEzJHItl+AyUjVmrLFqfhd/x/Y
+	 592HY7hG50dsYQj8koAdQJbxgQxXsP6fUJYBiSDI=
 From: Allen Pais <apais@linux.microsoft.com>
 To: linux-kernel@vger.kernel.org
 Cc: tj@kernel.org,
@@ -120,15 +120,15 @@ Cc: tj@kernel.org,
 	linux-s390@vger.kernel.org,
 	netdev@vger.kernel.org,
 	linux-usb@vger.kernel.org
-Subject: [PATCH 1/9] hyperv: Convert from tasklet to BH workqueue
-Date: Wed, 27 Mar 2024 16:03:06 +0000
-Message-Id: <20240327160314.9982-2-apais@linux.microsoft.com>
+Subject: [PATCH 4/9] USB: Convert from tasklet to BH workqueue
+Date: Wed, 27 Mar 2024 16:03:09 +0000
+Message-Id: <20240327160314.9982-5-apais@linux.microsoft.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20240327160314.9982-1-apais@linux.microsoft.com>
 References: <20240327160314.9982-1-apais@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_090324_899099_82E112E8 
-X-CRM114-Status: GOOD (  24.00  )
+X-CRM114-CacheID: sfid-20240327_090325_681480_D3CC023C 
+X-CRM114-Status: GOOD (  25.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,384 +152,656 @@ replace tasklets, BH workqueue support was recently added. A BH workqueue
 behaves similarly to regular workqueues except that the queued work items
 are executed in the BH context.
 
-This patch converts drivers/hv/* from tasklet to BH workqueue.
+This patch converts drivers/infiniband/* from tasklet to BH workqueue.
 
 Based on the work done by Tejun Heo <tj@kernel.org>
 Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git for-6.10
 
 Signed-off-by: Allen Pais <allen.lkml@gmail.com>
 ---
- drivers/hv/channel.c      |  8 ++++----
- drivers/hv/channel_mgmt.c |  5 ++---
- drivers/hv/connection.c   |  9 +++++----
- drivers/hv/hv.c           |  3 +--
- drivers/hv/hv_balloon.c   |  4 ++--
- drivers/hv/hv_fcopy.c     |  8 ++++----
- drivers/hv/hv_kvp.c       |  8 ++++----
- drivers/hv/hv_snapshot.c  |  8 ++++----
- drivers/hv/hyperv_vmbus.h |  9 +++++----
- drivers/hv/vmbus_drv.c    | 19 ++++++++++---------
- include/linux/hyperv.h    |  2 +-
- 11 files changed, 42 insertions(+), 41 deletions(-)
+ drivers/usb/atm/usbatm.c            | 55 +++++++++++++++--------------
+ drivers/usb/atm/usbatm.h            |  3 +-
+ drivers/usb/core/hcd.c              | 22 ++++++------
+ drivers/usb/gadget/udc/fsl_qe_udc.c | 21 +++++------
+ drivers/usb/gadget/udc/fsl_qe_udc.h |  4 +--
+ drivers/usb/host/ehci-sched.c       |  2 +-
+ drivers/usb/host/fhci-hcd.c         |  3 +-
+ drivers/usb/host/fhci-sched.c       | 10 +++---
+ drivers/usb/host/fhci.h             |  5 +--
+ drivers/usb/host/xhci-dbgcap.h      |  3 +-
+ drivers/usb/host/xhci-dbgtty.c      | 15 ++++----
+ include/linux/usb/cdc_ncm.h         |  2 +-
+ include/linux/usb/usbnet.h          |  2 +-
+ 13 files changed, 76 insertions(+), 71 deletions(-)
 
-diff --git a/drivers/hv/channel.c b/drivers/hv/channel.c
-index adbf674355b2..876d78eb4dce 100644
---- a/drivers/hv/channel.c
-+++ b/drivers/hv/channel.c
-@@ -859,7 +859,7 @@ void vmbus_reset_channel_cb(struct vmbus_channel *channel)
- 	unsigned long flags;
- 
- 	/*
--	 * vmbus_on_event(), running in the per-channel tasklet, can race
-+	 * vmbus_on_event(), running in the per-channel work, can race
- 	 * with vmbus_close_internal() in the case of SMP guest, e.g., when
- 	 * the former is accessing channel->inbound.ring_buffer, the latter
- 	 * could be freeing the ring_buffer pages, so here we must stop it
-@@ -871,7 +871,7 @@ void vmbus_reset_channel_cb(struct vmbus_channel *channel)
- 	 * and that the channel ring buffer is no longer being accessed, cf.
- 	 * the calls to napi_disable() in netvsc_device_remove().
- 	 */
--	tasklet_disable(&channel->callback_event);
-+	disable_work_sync(&channel->callback_event);
- 
- 	/* See the inline comments in vmbus_chan_sched(). */
- 	spin_lock_irqsave(&channel->sched_lock, flags);
-@@ -880,8 +880,8 @@ void vmbus_reset_channel_cb(struct vmbus_channel *channel)
- 
- 	channel->sc_creation_callback = NULL;
- 
--	/* Re-enable tasklet for use on re-open */
--	tasklet_enable(&channel->callback_event);
-+	/* Re-enable work for use on re-open */
-+	enable_and_queue_work(system_bh_wq, &channel->callback_event);
- }
- 
- static int vmbus_close_internal(struct vmbus_channel *channel)
-diff --git a/drivers/hv/channel_mgmt.c b/drivers/hv/channel_mgmt.c
-index 2f4d09ce027a..58397071a0de 100644
---- a/drivers/hv/channel_mgmt.c
-+++ b/drivers/hv/channel_mgmt.c
-@@ -353,8 +353,7 @@ static struct vmbus_channel *alloc_channel(void)
- 
- 	INIT_LIST_HEAD(&channel->sc_list);
- 
--	tasklet_init(&channel->callback_event,
--		     vmbus_on_event, (unsigned long)channel);
-+	INIT_WORK(&channel->callback_event, vmbus_on_event);
- 
- 	hv_ringbuffer_pre_init(channel);
- 
-@@ -366,7 +365,7 @@ static struct vmbus_channel *alloc_channel(void)
-  */
- static void free_channel(struct vmbus_channel *channel)
- {
--	tasklet_kill(&channel->callback_event);
-+	cancel_work_sync(&channel->callback_event);
- 	vmbus_remove_channel_attr_group(channel);
- 
- 	kobject_put(&channel->kobj);
-diff --git a/drivers/hv/connection.c b/drivers/hv/connection.c
-index 3cabeeabb1ca..f2a3394a8303 100644
---- a/drivers/hv/connection.c
-+++ b/drivers/hv/connection.c
-@@ -372,12 +372,13 @@ struct vmbus_channel *relid2channel(u32 relid)
-  * 3. Once we return, enable signaling from the host. Once this
-  *    state is set we check to see if additional packets are
-  *    available to read. In this case we repeat the process.
-- *    If this tasklet has been running for a long time
-+ *    If this work has been running for a long time
-  *    then reschedule ourselves.
-  */
--void vmbus_on_event(unsigned long data)
-+void vmbus_on_event(struct work_struct *t)
- {
--	struct vmbus_channel *channel = (void *) data;
-+	struct vmbus_channel *channel = from_work(channel, t,
-+						callback_event);
- 	void (*callback_fn)(void *context);
- 
- 	trace_vmbus_on_event(channel);
-@@ -401,7 +402,7 @@ void vmbus_on_event(unsigned long data)
- 		return;
- 
- 	hv_begin_read(&channel->inbound);
--	tasklet_schedule(&channel->callback_event);
-+	queue_work(system_bh_wq, &channel->callback_event);
- }
- 
- /*
-diff --git a/drivers/hv/hv.c b/drivers/hv/hv.c
-index a8ad728354cb..2af92f08f9ce 100644
---- a/drivers/hv/hv.c
-+++ b/drivers/hv/hv.c
-@@ -119,8 +119,7 @@ int hv_synic_alloc(void)
- 	for_each_present_cpu(cpu) {
- 		hv_cpu = per_cpu_ptr(hv_context.cpu_context, cpu);
- 
--		tasklet_init(&hv_cpu->msg_dpc,
--			     vmbus_on_msg_dpc, (unsigned long) hv_cpu);
-+		INIT_WORK(&hv_cpu->msg_dpc, vmbus_on_msg_dpc);
- 
- 		if (ms_hyperv.paravisor_present && hv_isolation_type_tdx()) {
- 			hv_cpu->post_msg_page = (void *)get_zeroed_page(GFP_ATOMIC);
-diff --git a/drivers/hv/hv_balloon.c b/drivers/hv/hv_balloon.c
-index e000fa3b9f97..c7efa2ff4cdf 100644
---- a/drivers/hv/hv_balloon.c
-+++ b/drivers/hv/hv_balloon.c
-@@ -2083,7 +2083,7 @@ static int balloon_suspend(struct hv_device *hv_dev)
- {
- 	struct hv_dynmem_device *dm = hv_get_drvdata(hv_dev);
- 
--	tasklet_disable(&hv_dev->channel->callback_event);
-+	disable_work_sync(&hv_dev->channel->callback_event);
- 
- 	cancel_work_sync(&dm->balloon_wrk.wrk);
- 	cancel_work_sync(&dm->ha_wrk.wrk);
-@@ -2094,7 +2094,7 @@ static int balloon_suspend(struct hv_device *hv_dev)
- 		vmbus_close(hv_dev->channel);
- 	}
- 
--	tasklet_enable(&hv_dev->channel->callback_event);
-+	enable_and_queue_work(system_bh_wq, &hv_dev->channel->callback_event);
- 
- 	return 0;
- 
-diff --git a/drivers/hv/hv_fcopy.c b/drivers/hv/hv_fcopy.c
-index 922d83eb7ddf..fd6799293c17 100644
---- a/drivers/hv/hv_fcopy.c
-+++ b/drivers/hv/hv_fcopy.c
-@@ -71,7 +71,7 @@ static void fcopy_poll_wrapper(void *channel)
- {
- 	/* Transaction is finished, reset the state here to avoid races. */
- 	fcopy_transaction.state = HVUTIL_READY;
--	tasklet_schedule(&((struct vmbus_channel *)channel)->callback_event);
-+	queue_work(system_bh_wq, &((struct vmbus_channel *)channel)->callback_event);
- }
- 
- static void fcopy_timeout_func(struct work_struct *dummy)
-@@ -391,7 +391,7 @@ int hv_fcopy_pre_suspend(void)
- 	if (!fcopy_msg)
- 		return -ENOMEM;
- 
--	tasklet_disable(&channel->callback_event);
-+	disable_work_sync(&channel->callback_event);
- 
- 	fcopy_msg->operation = CANCEL_FCOPY;
- 
-@@ -404,7 +404,7 @@ int hv_fcopy_pre_suspend(void)
- 
- 	fcopy_transaction.state = HVUTIL_READY;
- 
--	/* tasklet_enable() will be called in hv_fcopy_pre_resume(). */
-+	/* enable_and_queue_work(system_bh_wq, ) will be called in hv_fcopy_pre_resume(). */
- 	return 0;
- }
- 
-@@ -412,7 +412,7 @@ int hv_fcopy_pre_resume(void)
- {
- 	struct vmbus_channel *channel = fcopy_transaction.recv_channel;
- 
--	tasklet_enable(&channel->callback_event);
-+	enable_and_queue_work(system_bh_wq, &channel->callback_event);
- 
- 	return 0;
- }
-diff --git a/drivers/hv/hv_kvp.c b/drivers/hv/hv_kvp.c
-index d35b60c06114..85b8fb4a3d2e 100644
---- a/drivers/hv/hv_kvp.c
-+++ b/drivers/hv/hv_kvp.c
-@@ -113,7 +113,7 @@ static void kvp_poll_wrapper(void *channel)
- {
- 	/* Transaction is finished, reset the state here to avoid races. */
- 	kvp_transaction.state = HVUTIL_READY;
--	tasklet_schedule(&((struct vmbus_channel *)channel)->callback_event);
-+	queue_work(system_bh_wq, &((struct vmbus_channel *)channel)->callback_event);
- }
- 
- static void kvp_register_done(void)
-@@ -160,7 +160,7 @@ static void kvp_timeout_func(struct work_struct *dummy)
- 
- static void kvp_host_handshake_func(struct work_struct *dummy)
- {
--	tasklet_schedule(&kvp_transaction.recv_channel->callback_event);
-+	queue_work(system_bh_wq, &kvp_transaction.recv_channel->callback_event);
- }
- 
- static int kvp_handle_handshake(struct hv_kvp_msg *msg)
-@@ -786,7 +786,7 @@ int hv_kvp_pre_suspend(void)
- {
- 	struct vmbus_channel *channel = kvp_transaction.recv_channel;
- 
--	tasklet_disable(&channel->callback_event);
-+	disable_work_sync(&channel->callback_event);
- 
- 	/*
- 	 * If there is a pending transtion, it's unnecessary to tell the host
-@@ -809,7 +809,7 @@ int hv_kvp_pre_resume(void)
- {
- 	struct vmbus_channel *channel = kvp_transaction.recv_channel;
- 
--	tasklet_enable(&channel->callback_event);
-+	enable_and_queue_work(system_bh_wq, &channel->callback_event);
- 
- 	return 0;
- }
-diff --git a/drivers/hv/hv_snapshot.c b/drivers/hv/hv_snapshot.c
-index 0d2184be1691..46c2263d2591 100644
---- a/drivers/hv/hv_snapshot.c
-+++ b/drivers/hv/hv_snapshot.c
-@@ -83,7 +83,7 @@ static void vss_poll_wrapper(void *channel)
- {
- 	/* Transaction is finished, reset the state here to avoid races. */
- 	vss_transaction.state = HVUTIL_READY;
--	tasklet_schedule(&((struct vmbus_channel *)channel)->callback_event);
-+	queue_work(system_bh_wq, &((struct vmbus_channel *)channel)->callback_event);
- }
- 
- /*
-@@ -421,7 +421,7 @@ int hv_vss_pre_suspend(void)
- 	if (!vss_msg)
- 		return -ENOMEM;
- 
--	tasklet_disable(&channel->callback_event);
-+	disable_work_sync(&channel->callback_event);
- 
- 	vss_msg->vss_hdr.operation = VSS_OP_THAW;
- 
-@@ -435,7 +435,7 @@ int hv_vss_pre_suspend(void)
- 
- 	vss_transaction.state = HVUTIL_READY;
- 
--	/* tasklet_enable() will be called in hv_vss_pre_resume(). */
-+	/* enable_and_queue_work() will be called in hv_vss_pre_resume(). */
- 	return 0;
- }
- 
-@@ -443,7 +443,7 @@ int hv_vss_pre_resume(void)
- {
- 	struct vmbus_channel *channel = vss_transaction.recv_channel;
- 
--	tasklet_enable(&channel->callback_event);
-+	enable_and_queue_work(system_bh_wq, &channel->callback_event);
- 
- 	return 0;
- }
-diff --git a/drivers/hv/hyperv_vmbus.h b/drivers/hv/hyperv_vmbus.h
-index f6b1e710f805..95ca570ac7af 100644
---- a/drivers/hv/hyperv_vmbus.h
-+++ b/drivers/hv/hyperv_vmbus.h
-@@ -19,6 +19,7 @@
- #include <linux/atomic.h>
- #include <linux/hyperv.h>
- #include <linux/interrupt.h>
+diff --git a/drivers/usb/atm/usbatm.c b/drivers/usb/atm/usbatm.c
+index 2da6615fbb6f..74849f24e52e 100644
+--- a/drivers/usb/atm/usbatm.c
++++ b/drivers/usb/atm/usbatm.c
+@@ -17,7 +17,7 @@
+  *  		- Removed the limit on the number of devices
+  *  		- Module now autoloads on device plugin
+  *  		- Merged relevant parts of sarlib
+- *  		- Replaced the kernel thread with a tasklet
++ *  		- Replaced the kernel thread with a work
+  *  		- New packet transmission code
+  *  		- Changed proc file contents
+  *  		- Fixed all known SMP races
+@@ -68,6 +68,7 @@
+ #include <linux/wait.h>
+ #include <linux/kthread.h>
+ #include <linux/ratelimit.h>
 +#include <linux/workqueue.h>
  
- #include "hv_trace.h"
+ #ifdef VERBOSE_DEBUG
+ static int usbatm_print_packet(struct usbatm_data *instance, const unsigned char *data, int len);
+@@ -249,7 +250,7 @@ static void usbatm_complete(struct urb *urb)
+ 	/* vdbg("%s: urb 0x%p, status %d, actual_length %d",
+ 	     __func__, urb, status, urb->actual_length); */
  
-@@ -136,10 +137,10 @@ struct hv_per_cpu_context {
+-	/* Can be invoked from task context, protect against interrupts */
++	/* Can be invoked from work context, protect against interrupts */
+ 	spin_lock_irqsave(&channel->lock, flags);
  
- 	/*
- 	 * Starting with win8, we can take channel interrupts on any CPU;
--	 * we will manage the tasklet that handles events messages on a per CPU
-+	 * we will manage the work that handles events messages on a per CPU
- 	 * basis.
- 	 */
--	struct tasklet_struct msg_dpc;
-+	struct work_struct msg_dpc;
- };
- 
- struct hv_context {
-@@ -366,8 +367,8 @@ void vmbus_disconnect(void);
- 
- int vmbus_post_msg(void *buffer, size_t buflen, bool can_sleep);
- 
--void vmbus_on_event(unsigned long data);
--void vmbus_on_msg_dpc(unsigned long data);
-+void vmbus_on_event(struct work_struct *t);
-+void vmbus_on_msg_dpc(struct work_struct *t);
- 
- int hv_kvp_init(struct hv_util_service *srv);
- void hv_kvp_deinit(void);
-diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-index 4cb17603a828..d9755054a881 100644
---- a/drivers/hv/vmbus_drv.c
-+++ b/drivers/hv/vmbus_drv.c
-@@ -1025,9 +1025,9 @@ static void vmbus_onmessage_work(struct work_struct *work)
- 	kfree(ctx);
+ 	/* must add to the back when receiving; doesn't matter when sending */
+@@ -269,7 +270,7 @@ static void usbatm_complete(struct urb *urb)
+ 		/* throttle processing in case of an error */
+ 		mod_timer(&channel->delay, jiffies + msecs_to_jiffies(THROTTLE_MSECS));
+ 	} else
+-		tasklet_schedule(&channel->tasklet);
++		queue_work(system_bh_wq, &channel->work);
  }
  
--void vmbus_on_msg_dpc(unsigned long data)
-+void vmbus_on_msg_dpc(struct work_struct *t)
+ 
+@@ -511,10 +512,10 @@ static unsigned int usbatm_write_cells(struct usbatm_data *instance,
+ **  receive  **
+ **************/
+ 
+-static void usbatm_rx_process(struct tasklet_struct *t)
++static void usbatm_rx_process(struct work_struct *t)
  {
--	struct hv_per_cpu_context *hv_cpu = (void *)data;
-+	struct hv_per_cpu_context *hv_cpu = from_work(hv_cpu, t, msg_dpc);
- 	void *page_addr = hv_cpu->synic_message_page;
- 	struct hv_message msg_copy, *msg = (struct hv_message *)page_addr +
- 				  VMBUS_MESSAGE_SINT;
-@@ -1131,7 +1131,7 @@ void vmbus_on_msg_dpc(unsigned long data)
- 			 * before sending the rescind message of the same
- 			 * channel.  These messages are sent to the guest's
- 			 * connect CPU; the guest then starts processing them
--			 * in the tasklet handler on this CPU:
-+			 * in the work handler on this CPU:
- 			 *
- 			 * VMBUS_CONNECT_CPU
- 			 *
-@@ -1276,7 +1276,7 @@ static void vmbus_chan_sched(struct hv_per_cpu_context *hv_cpu)
- 			hv_begin_read(&channel->inbound);
- 			fallthrough;
- 		case HV_CALL_DIRECT:
--			tasklet_schedule(&channel->callback_event);
-+			queue_work(system_bh_wq, &channel->callback_event);
+-	struct usbatm_data *instance = from_tasklet(instance, t,
+-						    rx_channel.tasklet);
++	struct usbatm_data *instance = from_work(instance, t,
++						    rx_channel.work);
+ 	struct urb *urb;
+ 
+ 	while ((urb = usbatm_pop_urb(&instance->rx_channel))) {
+@@ -565,10 +566,10 @@ static void usbatm_rx_process(struct tasklet_struct *t)
+ **  send  **
+ ***********/
+ 
+-static void usbatm_tx_process(struct tasklet_struct *t)
++static void usbatm_tx_process(struct work_struct *t)
+ {
+-	struct usbatm_data *instance = from_tasklet(instance, t,
+-						    tx_channel.tasklet);
++	struct usbatm_data *instance = from_work(instance, t,
++						    tx_channel.work);
+ 	struct sk_buff *skb = instance->current_skb;
+ 	struct urb *urb = NULL;
+ 	const unsigned int buf_size = instance->tx_channel.buf_size;
+@@ -632,13 +633,13 @@ static void usbatm_cancel_send(struct usbatm_data *instance,
+ 	}
+ 	spin_unlock_irq(&instance->sndqueue.lock);
+ 
+-	tasklet_disable(&instance->tx_channel.tasklet);
++	disable_work_sync(&instance->tx_channel.work);
+ 	if ((skb = instance->current_skb) && (UDSL_SKB(skb)->atm.vcc == vcc)) {
+ 		atm_dbg(instance, "%s: popping current skb (0x%p)\n", __func__, skb);
+ 		instance->current_skb = NULL;
+ 		usbatm_pop(vcc, skb);
+ 	}
+-	tasklet_enable(&instance->tx_channel.tasklet);
++	enable_and_queue_work(system_bh_wq, &instance->tx_channel.work);
+ }
+ 
+ static int usbatm_atm_send(struct atm_vcc *vcc, struct sk_buff *skb)
+@@ -677,7 +678,7 @@ static int usbatm_atm_send(struct atm_vcc *vcc, struct sk_buff *skb)
+ 	ctrl->crc = crc32_be(~0, skb->data, skb->len);
+ 
+ 	skb_queue_tail(&instance->sndqueue, skb);
+-	tasklet_schedule(&instance->tx_channel.tasklet);
++	queue_work(system_bh_wq, &instance->tx_channel.work);
+ 
+ 	return 0;
+ 
+@@ -695,8 +696,8 @@ static void usbatm_destroy_instance(struct kref *kref)
+ {
+ 	struct usbatm_data *instance = container_of(kref, struct usbatm_data, refcount);
+ 
+-	tasklet_kill(&instance->rx_channel.tasklet);
+-	tasklet_kill(&instance->tx_channel.tasklet);
++	cancel_work_sync(&instance->rx_channel.work);
++	cancel_work_sync(&instance->tx_channel.work);
+ 	usb_put_dev(instance->usb_dev);
+ 	kfree(instance);
+ }
+@@ -823,12 +824,12 @@ static int usbatm_atm_open(struct atm_vcc *vcc)
+ 
+ 	vcc->dev_data = new;
+ 
+-	tasklet_disable(&instance->rx_channel.tasklet);
++	disable_work_sync(&instance->rx_channel.work);
+ 	instance->cached_vcc = new;
+ 	instance->cached_vpi = vpi;
+ 	instance->cached_vci = vci;
+ 	list_add(&new->list, &instance->vcc_list);
+-	tasklet_enable(&instance->rx_channel.tasklet);
++	enable_and_queue_work(system_bh_wq, &instance->rx_channel.work);
+ 
+ 	set_bit(ATM_VF_ADDR, &vcc->flags);
+ 	set_bit(ATM_VF_PARTIAL, &vcc->flags);
+@@ -858,14 +859,14 @@ static void usbatm_atm_close(struct atm_vcc *vcc)
+ 
+ 	mutex_lock(&instance->serialize);	/* vs self, usbatm_atm_open, usbatm_usb_disconnect */
+ 
+-	tasklet_disable(&instance->rx_channel.tasklet);
++	disable_work_sync(&instance->rx_channel.work);
+ 	if (instance->cached_vcc == vcc_data) {
+ 		instance->cached_vcc = NULL;
+ 		instance->cached_vpi = ATM_VPI_UNSPEC;
+ 		instance->cached_vci = ATM_VCI_UNSPEC;
+ 	}
+ 	list_del(&vcc_data->list);
+-	tasklet_enable(&instance->rx_channel.tasklet);
++	enable_and_queue_work(system_bh_wq, &instance->rx_channel.work);
+ 
+ 	kfree_skb(vcc_data->sarb);
+ 	vcc_data->sarb = NULL;
+@@ -991,18 +992,18 @@ static int usbatm_heavy_init(struct usbatm_data *instance)
+ 	return 0;
+ }
+ 
+-static void usbatm_tasklet_schedule(struct timer_list *t)
++static void usbatm_queue_work(system_bh_wq, struct timer_list *t)
+ {
+ 	struct usbatm_channel *channel = from_timer(channel, t, delay);
+ 
+-	tasklet_schedule(&channel->tasklet);
++	queue_work(system_bh_wq, &channel->work);
+ }
+ 
+ static void usbatm_init_channel(struct usbatm_channel *channel)
+ {
+ 	spin_lock_init(&channel->lock);
+ 	INIT_LIST_HEAD(&channel->list);
+-	timer_setup(&channel->delay, usbatm_tasklet_schedule, 0);
++	timer_setup(&channel->delay, usbatm_queue_work, 0);
+ }
+ 
+ int usbatm_usb_probe(struct usb_interface *intf, const struct usb_device_id *id,
+@@ -1074,8 +1075,8 @@ int usbatm_usb_probe(struct usb_interface *intf, const struct usb_device_id *id,
+ 
+ 	usbatm_init_channel(&instance->rx_channel);
+ 	usbatm_init_channel(&instance->tx_channel);
+-	tasklet_setup(&instance->rx_channel.tasklet, usbatm_rx_process);
+-	tasklet_setup(&instance->tx_channel.tasklet, usbatm_tx_process);
++	INIT_WORK(&instance->rx_channel.work, usbatm_rx_process);
++	INIT_WORK(&instance->tx_channel.work, usbatm_tx_process);
+ 	instance->rx_channel.stride = ATM_CELL_SIZE + driver->rx_padding;
+ 	instance->tx_channel.stride = ATM_CELL_SIZE + driver->tx_padding;
+ 	instance->rx_channel.usbatm = instance->tx_channel.usbatm = instance;
+@@ -1231,8 +1232,8 @@ void usbatm_usb_disconnect(struct usb_interface *intf)
+ 		vcc_release_async(vcc_data->vcc, -EPIPE);
+ 	mutex_unlock(&instance->serialize);
+ 
+-	tasklet_disable(&instance->rx_channel.tasklet);
+-	tasklet_disable(&instance->tx_channel.tasklet);
++	disable_work_sync(&instance->rx_channel.work);
++	disable_work_sync(&instance->tx_channel.work);
+ 
+ 	for (i = 0; i < num_rcv_urbs + num_snd_urbs; i++)
+ 		usb_kill_urb(instance->urbs[i]);
+@@ -1245,8 +1246,8 @@ void usbatm_usb_disconnect(struct usb_interface *intf)
+ 	INIT_LIST_HEAD(&instance->rx_channel.list);
+ 	INIT_LIST_HEAD(&instance->tx_channel.list);
+ 
+-	tasklet_enable(&instance->rx_channel.tasklet);
+-	tasklet_enable(&instance->tx_channel.tasklet);
++	enable_and_queue_work(system_bh_wq, &instance->rx_channel.work);
++	enable_and_queue_work(system_bh_wq, &instance->tx_channel.work);
+ 
+ 	if (instance->atm_dev && instance->driver->atm_stop)
+ 		instance->driver->atm_stop(instance, instance->atm_dev);
+diff --git a/drivers/usb/atm/usbatm.h b/drivers/usb/atm/usbatm.h
+index d96658e2e209..3452f8c2e1e5 100644
+--- a/drivers/usb/atm/usbatm.h
++++ b/drivers/usb/atm/usbatm.h
+@@ -21,6 +21,7 @@
+ #include <linux/usb.h>
+ #include <linux/mutex.h>
+ #include <linux/ratelimit.h>
++#include <linux/workqueue.h>
+ 
+ /*
+ #define VERBOSE_DEBUG
+@@ -109,7 +110,7 @@ struct usbatm_channel {
+ 	unsigned int packet_size;	/* endpoint maxpacket */
+ 	spinlock_t lock;
+ 	struct list_head list;
+-	struct tasklet_struct tasklet;
++	struct work_struct work;
+ 	struct timer_list delay;
+ 	struct usbatm_data *usbatm;
+ };
+diff --git a/drivers/usb/core/hcd.c b/drivers/usb/core/hcd.c
+index c0e005670d67..88d8e1c366cd 100644
+--- a/drivers/usb/core/hcd.c
++++ b/drivers/usb/core/hcd.c
+@@ -37,6 +37,7 @@
+ #include <linux/usb.h>
+ #include <linux/usb/hcd.h>
+ #include <linux/usb/otg.h>
++#include <linux/workqueue.h>
+ 
+ #include "usb.h"
+ #include "phy.h"
+@@ -884,7 +885,7 @@ static void usb_bus_init (struct usb_bus *bus)
+  * usb_register_bus - registers the USB host controller with the usb core
+  * @bus: pointer to the bus to register
+  *
+- * Context: task context, might sleep.
++ * Context: work context, might sleep.
+  *
+  * Assigns a bus number, and links the controller into usbcore data
+  * structures so that it can be seen by scanning the bus list.
+@@ -920,7 +921,7 @@ static int usb_register_bus(struct usb_bus *bus)
+  * usb_deregister_bus - deregisters the USB host controller
+  * @bus: pointer to the bus to deregister
+  *
+- * Context: task context, might sleep.
++ * Context: work context, might sleep.
+  *
+  * Recycles the bus number, and unlinks the controller from usbcore data
+  * structures so that it won't be seen by scanning the bus list.
+@@ -1640,7 +1641,7 @@ static void __usb_hcd_giveback_urb(struct urb *urb)
+ 	/* pass ownership to the completion handler */
+ 	urb->status = status;
+ 	/*
+-	 * This function can be called in task context inside another remote
++	 * This function can be called in work context inside another remote
+ 	 * coverage collection section, but kcov doesn't support that kind of
+ 	 * recursion yet. Only collect coverage in softirq context for now.
+ 	 */
+@@ -1662,10 +1663,9 @@ static void __usb_hcd_giveback_urb(struct urb *urb)
+ 	usb_put_urb(urb);
+ }
+ 
+-static void usb_giveback_urb_bh(struct work_struct *work)
++static void usb_giveback_urb_bh(struct work_struct *t)
+ {
+-	struct giveback_urb_bh *bh =
+-		container_of(work, struct giveback_urb_bh, bh);
++	struct giveback_urb_bh *bh = from_work(bh, t, bh);
+ 	struct list_head local_list;
+ 
+ 	spin_lock_irq(&bh->lock);
+@@ -1705,7 +1705,7 @@ static void usb_giveback_urb_bh(struct work_struct *work)
+  * @status: completion status code for the URB.
+  *
+  * Context: atomic. The completion callback is invoked in caller's context.
+- * For HCDs with HCD_BH flag set, the completion callback is invoked in BH
++ * For HCDs with HCD_BH flag set, the completion callback is invoked in work
+  * context (except for URBs submitted to the root hub which always complete in
+  * caller's context).
+  *
+@@ -1724,7 +1724,7 @@ void usb_hcd_giveback_urb(struct usb_hcd *hcd, struct urb *urb, int status)
+ 	struct giveback_urb_bh *bh;
+ 	bool running;
+ 
+-	/* pass status to BH via unlinked */
++	/* pass status to work via unlinked */
+ 	if (likely(!urb->unlinked))
+ 		urb->unlinked = status;
+ 
+@@ -2611,7 +2611,7 @@ EXPORT_SYMBOL_GPL(__usb_create_hcd);
+  * @primary_hcd: a pointer to the usb_hcd structure that is sharing the
+  *              PCI device.  Only allocate certain resources for the primary HCD
+  *
+- * Context: task context, might sleep.
++ * Context: work context, might sleep.
+  *
+  * Allocate a struct usb_hcd, with extra space at the end for the
+  * HC driver's private data.  Initialize the generic members of the
+@@ -2634,7 +2634,7 @@ EXPORT_SYMBOL_GPL(usb_create_shared_hcd);
+  * @dev: device for this HC, stored in hcd->self.controller
+  * @bus_name: value to store in hcd->self.bus_name
+  *
+- * Context: task context, might sleep.
++ * Context: work context, might sleep.
+  *
+  * Allocate a struct usb_hcd, with extra space at the end for the
+  * HC driver's private data.  Initialize the generic members of the
+@@ -3001,7 +3001,7 @@ EXPORT_SYMBOL_GPL(usb_add_hcd);
+  * usb_remove_hcd - shutdown processing for generic HCDs
+  * @hcd: the usb_hcd structure to remove
+  *
+- * Context: task context, might sleep.
++ * Context: work context, might sleep.
+  *
+  * Disconnects the root hub, then reverses the effects of usb_add_hcd(),
+  * invoking the HCD's stop() method.
+diff --git a/drivers/usb/gadget/udc/fsl_qe_udc.c b/drivers/usb/gadget/udc/fsl_qe_udc.c
+index 4e88681a79b6..ae29d946a972 100644
+--- a/drivers/usb/gadget/udc/fsl_qe_udc.c
++++ b/drivers/usb/gadget/udc/fsl_qe_udc.c
+@@ -35,6 +35,7 @@
+ #include <linux/usb/ch9.h>
+ #include <linux/usb/gadget.h>
+ #include <linux/usb/otg.h>
++#include <linux/workqueue.h>
+ #include <soc/fsl/qe/qe.h>
+ #include <asm/cpm.h>
+ #include <asm/dma.h>
+@@ -930,9 +931,9 @@ static int qe_ep_rxframe_handle(struct qe_ep *ep)
+ 	return 0;
+ }
+ 
+-static void ep_rx_tasklet(struct tasklet_struct *t)
++static void ep_rx_work(struct work_struct *t)
+ {
+-	struct qe_udc *udc = from_tasklet(udc, t, rx_tasklet);
++	struct qe_udc *udc = from_work(udc, t, rx_work);
+ 	struct qe_ep *ep;
+ 	struct qe_frame *pframe;
+ 	struct qe_bd __iomem *bd;
+@@ -945,9 +946,9 @@ static void ep_rx_tasklet(struct tasklet_struct *t)
+ 	for (i = 1; i < USB_MAX_ENDPOINTS; i++) {
+ 		ep = &udc->eps[i];
+ 
+-		if (ep->dir == USB_DIR_IN || ep->enable_tasklet == 0) {
++		if (ep->dir == USB_DIR_IN || ep->enable_work == 0) {
+ 			dev_dbg(udc->dev,
+-				"This is a transmit ep or disable tasklet!\n");
++				"This is a transmit ep or disable work!\n");
+ 			continue;
  		}
  
- sched_unlock:
-@@ -1304,7 +1304,7 @@ static void vmbus_isr(void)
- 			hv_stimer0_isr();
- 			vmbus_signal_eom(msg, HVMSG_TIMER_EXPIRED);
- 		} else
--			tasklet_schedule(&hv_cpu->msg_dpc);
-+			queue_work(system_bh_wq, &hv_cpu->msg_dpc);
+@@ -1012,7 +1013,7 @@ static void ep_rx_tasklet(struct tasklet_struct *t)
+ 		if (ep->localnack)
+ 			ep_recycle_rxbds(ep);
+ 
+-		ep->enable_tasklet = 0;
++		ep->enable_work = 0;
+ 	} /* for i=1 */
+ 
+ 	spin_unlock_irqrestore(&udc->lock, flags);
+@@ -1057,8 +1058,8 @@ static int qe_ep_rx(struct qe_ep *ep)
+ 		return 0;
  	}
  
- 	add_interrupt_randomness(vmbus_interrupt);
-@@ -2371,10 +2371,11 @@ static int vmbus_bus_suspend(struct device *dev)
- 			hv_context.cpu_context, VMBUS_CONNECT_CPU);
- 	struct vmbus_channel *channel, *sc;
+-	tasklet_schedule(&udc->rx_tasklet);
+-	ep->enable_tasklet = 1;
++	queue_work(system_bh_wq, &udc->rx_work);
++	ep->enable_work = 1;
  
--	tasklet_disable(&hv_cpu->msg_dpc);
-+	disable_work_sync(&hv_cpu->msg_dpc);
- 	vmbus_connection.ignore_any_offer_msg = true;
--	/* The tasklet_enable() takes care of providing a memory barrier */
--	tasklet_enable(&hv_cpu->msg_dpc);
-+	/* The enable_and_queue_work() takes care of
-+	 * providing a memory barrier */
-+	enable_and_queue_work(system_bh_wq, &hv_cpu->msg_dpc);
- 
- 	/* Drain all the workqueues as we are in suspend */
- 	drain_workqueue(vmbus_connection.rescind_work_queue);
-@@ -2692,7 +2693,7 @@ static void __exit vmbus_exit(void)
- 		struct hv_per_cpu_context *hv_cpu
- 			= per_cpu_ptr(hv_context.cpu_context, cpu);
- 
--		tasklet_kill(&hv_cpu->msg_dpc);
-+		cancel_work_sync(&hv_cpu->msg_dpc);
+ 	return 0;
+ }
+@@ -2559,7 +2560,7 @@ static int qe_udc_probe(struct platform_device *ofdev)
+ 					DMA_TO_DEVICE);
  	}
- 	hv_debug_rm_all_dir();
  
-diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
-index 6ef0557b4bff..db3d85ea5ce6 100644
---- a/include/linux/hyperv.h
-+++ b/include/linux/hyperv.h
-@@ -882,7 +882,7 @@ struct vmbus_channel {
- 	bool out_full_flag;
+-	tasklet_setup(&udc->rx_tasklet, ep_rx_tasklet);
++	INIT_WORK(&udc->rx_work, ep_rx_work);
+ 	/* request irq and disable DR  */
+ 	udc->usb_irq = irq_of_parse_and_map(np, 0);
+ 	if (!udc->usb_irq) {
+@@ -2636,7 +2637,7 @@ static void qe_udc_remove(struct platform_device *ofdev)
+ 	usb_del_gadget_udc(&udc->gadget);
  
- 	/* Channel callback's invoked in softirq context */
--	struct tasklet_struct callback_event;
-+	struct work_struct callback_event;
- 	void (*onchannel_callback)(void *context);
- 	void *channel_callback_context;
+ 	udc->done = &done;
+-	tasklet_disable(&udc->rx_tasklet);
++	disable_work_sync(&udc->rx_work);
  
+ 	if (udc->nullmap) {
+ 		dma_unmap_single(udc->gadget.dev.parent,
+@@ -2671,7 +2672,7 @@ static void qe_udc_remove(struct platform_device *ofdev)
+ 	free_irq(udc->usb_irq, udc);
+ 	irq_dispose_mapping(udc->usb_irq);
+ 
+-	tasklet_kill(&udc->rx_tasklet);
++	cancel_work_sync(&udc->rx_work);
+ 
+ 	iounmap(udc->usb_regs);
+ 
+diff --git a/drivers/usb/gadget/udc/fsl_qe_udc.h b/drivers/usb/gadget/udc/fsl_qe_udc.h
+index 53ca0ff7c2cb..1de87c318460 100644
+--- a/drivers/usb/gadget/udc/fsl_qe_udc.h
++++ b/drivers/usb/gadget/udc/fsl_qe_udc.h
+@@ -293,7 +293,7 @@ struct qe_ep {
+ 	u8 init;
+ 
+ 	u8 already_seen;
+-	u8 enable_tasklet;
++	u8 enable_work;
+ 	u8 setup_stage;
+ 	u32 last_io;            /* timestamp */
+ 
+@@ -353,7 +353,7 @@ struct qe_udc {
+ 	unsigned int usb_irq;
+ 	struct usb_ctlr __iomem *usb_regs;
+ 
+-	struct tasklet_struct rx_tasklet;
++	struct work_struct rx_work;
+ 
+ 	struct completion *done;	/* to make sure release() is done */
+ };
+diff --git a/drivers/usb/host/ehci-sched.c b/drivers/usb/host/ehci-sched.c
+index 7e834587e7de..98823cf9dd0a 100644
+--- a/drivers/usb/host/ehci-sched.c
++++ b/drivers/usb/host/ehci-sched.c
+@@ -682,7 +682,7 @@ static void start_unlink_intr(struct ehci_hcd *ehci, struct ehci_qh *qh)
+ 
+ /*
+  * It is common only one intr URB is scheduled on one qh, and
+- * given complete() is run in tasklet context, introduce a bit
++ * given complete() is run in work context, introduce a bit
+  * delay to avoid unlink qh too early.
+  */
+ static void start_unlink_intr_wait(struct ehci_hcd *ehci,
+diff --git a/drivers/usb/host/fhci-hcd.c b/drivers/usb/host/fhci-hcd.c
+index 9a1b5224f239..5358bb688acb 100644
+--- a/drivers/usb/host/fhci-hcd.c
++++ b/drivers/usb/host/fhci-hcd.c
+@@ -211,8 +211,7 @@ static int fhci_mem_init(struct fhci_hcd *fhci)
+ 	INIT_LIST_HEAD(&fhci->empty_tds);
+ 
+ 	/* initialize work queue to handle done list */
+-	fhci_tasklet.data = (unsigned long)fhci;
+-	fhci->process_done_task = &fhci_tasklet;
++	INIT_WORK(&fhci->process_done_task, process_done_list);
+ 
+ 	for (i = 0; i < MAX_TDS; i++) {
+ 		struct td *td;
+diff --git a/drivers/usb/host/fhci-sched.c b/drivers/usb/host/fhci-sched.c
+index a45ede80edfc..9033cce28014 100644
+--- a/drivers/usb/host/fhci-sched.c
++++ b/drivers/usb/host/fhci-sched.c
+@@ -628,13 +628,13 @@ irqreturn_t fhci_irq(struct usb_hcd *hcd)
+  * is process_del_list(),which unlinks URBs by scanning EDs,instead of scanning
+  * the (re-reversed) done list as this does.
+  */
+-static void process_done_list(unsigned long data)
++static void process_done_list(struct work_struct *t)
+ {
+ 	struct urb *urb;
+ 	struct ed *ed;
+ 	struct td *td;
+ 	struct urb_priv *urb_priv;
+-	struct fhci_hcd *fhci = (struct fhci_hcd *)data;
++	struct fhci_hcd *fhci = from_work(fhci, t, process_done_task);
+ 
+ 	disable_irq(fhci->timer->irq);
+ 	disable_irq(fhci_to_hcd(fhci)->irq);
+@@ -677,13 +677,13 @@ static void process_done_list(unsigned long data)
+ 	enable_irq(fhci_to_hcd(fhci)->irq);
+ }
+ 
+-DECLARE_TASKLET_OLD(fhci_tasklet, process_done_list);
++DECLARE_WORK(fhci_work, process_done_list);
+ 
+ /* transfer complted callback */
+ u32 fhci_transfer_confirm_callback(struct fhci_hcd *fhci)
+ {
+-	if (!fhci->process_done_task->state)
+-		tasklet_schedule(fhci->process_done_task);
++	if (!fhci->process_done_task)
++		queue_work(system_bh_wq, fhci->process_done_task);
+ 	return 0;
+ }
+ 
+diff --git a/drivers/usb/host/fhci.h b/drivers/usb/host/fhci.h
+index 1f57b0989485..7cd613762249 100644
+--- a/drivers/usb/host/fhci.h
++++ b/drivers/usb/host/fhci.h
+@@ -24,6 +24,7 @@
+ #include <linux/usb.h>
+ #include <linux/usb/hcd.h>
+ #include <linux/gpio/consumer.h>
++#include <linux/workqueue.h>
+ #include <soc/fsl/qe/qe.h>
+ #include <soc/fsl/qe/immap_qe.h>
+ 
+@@ -254,7 +255,7 @@ struct fhci_hcd {
+ 	struct virtual_root_hub *vroot_hub; /* the virtual root hub */
+ 	int active_urbs;
+ 	struct fhci_controller_list *hc_list;
+-	struct tasklet_struct *process_done_task; /* tasklet for done list */
++	struct work_struct *process_done_task; /* work for done list */
+ 
+ 	struct list_head empty_eds;
+ 	struct list_head empty_tds;
+@@ -549,7 +550,7 @@ void fhci_init_ep_registers(struct fhci_usb *usb,
+ void fhci_ep0_free(struct fhci_usb *usb);
+ 
+ /* fhci-sched.c */
+-extern struct tasklet_struct fhci_tasklet;
++extern struct work_struct fhci_work;
+ void fhci_transaction_confirm(struct fhci_usb *usb, struct packet *pkt);
+ void fhci_flush_all_transmissions(struct fhci_usb *usb);
+ void fhci_schedule_transactions(struct fhci_usb *usb);
+diff --git a/drivers/usb/host/xhci-dbgcap.h b/drivers/usb/host/xhci-dbgcap.h
+index 92661b555c2a..5660f0cd6d73 100644
+--- a/drivers/usb/host/xhci-dbgcap.h
++++ b/drivers/usb/host/xhci-dbgcap.h
+@@ -11,6 +11,7 @@
+ 
+ #include <linux/tty.h>
+ #include <linux/kfifo.h>
++#include <linux/workqueue.h>
+ 
+ struct dbc_regs {
+ 	__le32	capability;
+@@ -107,7 +108,7 @@ struct dbc_port {
+ 	struct list_head		read_pool;
+ 	struct list_head		read_queue;
+ 	unsigned int			n_read;
+-	struct tasklet_struct		push;
++	struct work_struct 		push;
+ 
+ 	struct list_head		write_pool;
+ 	struct kfifo			write_fifo;
+diff --git a/drivers/usb/host/xhci-dbgtty.c b/drivers/usb/host/xhci-dbgtty.c
+index b74e98e94393..dec2280b4ae9 100644
+--- a/drivers/usb/host/xhci-dbgtty.c
++++ b/drivers/usb/host/xhci-dbgtty.c
+@@ -11,6 +11,7 @@
+ #include <linux/tty.h>
+ #include <linux/tty_flip.h>
+ #include <linux/idr.h>
++#include <linux/workqueue.h>
+ 
+ #include "xhci.h"
+ #include "xhci-dbgcap.h"
+@@ -108,7 +109,7 @@ dbc_read_complete(struct xhci_dbc *dbc, struct dbc_request *req)
+ 
+ 	spin_lock_irqsave(&port->port_lock, flags);
+ 	list_add_tail(&req->list_pool, &port->read_queue);
+-	tasklet_schedule(&port->push);
++	queue_work(system_bh_wq, &port->push);
+ 	spin_unlock_irqrestore(&port->port_lock, flags);
+ }
+ 
+@@ -278,7 +279,7 @@ static void dbc_tty_unthrottle(struct tty_struct *tty)
+ 	unsigned long		flags;
+ 
+ 	spin_lock_irqsave(&port->port_lock, flags);
+-	tasklet_schedule(&port->push);
++	queue_work(system_bh_wq, &port->push);
+ 	spin_unlock_irqrestore(&port->port_lock, flags);
+ }
+ 
+@@ -294,14 +295,14 @@ static const struct tty_operations dbc_tty_ops = {
+ 	.unthrottle		= dbc_tty_unthrottle,
+ };
+ 
+-static void dbc_rx_push(struct tasklet_struct *t)
++static void dbc_rx_push(struct work_struct *t)
+ {
+ 	struct dbc_request	*req;
+ 	struct tty_struct	*tty;
+ 	unsigned long		flags;
+ 	bool			do_push = false;
+ 	bool			disconnect = false;
+-	struct dbc_port		*port = from_tasklet(port, t, push);
++	struct dbc_port		*port = from_work(port, t, push);
+ 	struct list_head	*queue = &port->read_queue;
+ 
+ 	spin_lock_irqsave(&port->port_lock, flags);
+@@ -355,7 +356,7 @@ static void dbc_rx_push(struct tasklet_struct *t)
+ 	if (!list_empty(queue) && tty) {
+ 		if (!tty_throttled(tty)) {
+ 			if (do_push)
+-				tasklet_schedule(&port->push);
++				queue_work(system_bh_wq, &port->push);
+ 			else
+ 				pr_warn("ttyDBC0: RX not scheduled?\n");
+ 		}
+@@ -388,7 +389,7 @@ xhci_dbc_tty_init_port(struct xhci_dbc *dbc, struct dbc_port *port)
+ {
+ 	tty_port_init(&port->port);
+ 	spin_lock_init(&port->port_lock);
+-	tasklet_setup(&port->push, dbc_rx_push);
++	INIT_WORK(&port->push, dbc_rx_push);
+ 	INIT_LIST_HEAD(&port->read_pool);
+ 	INIT_LIST_HEAD(&port->read_queue);
+ 	INIT_LIST_HEAD(&port->write_pool);
+@@ -400,7 +401,7 @@ xhci_dbc_tty_init_port(struct xhci_dbc *dbc, struct dbc_port *port)
+ static void
+ xhci_dbc_tty_exit_port(struct dbc_port *port)
+ {
+-	tasklet_kill(&port->push);
++	cancel_work_sync(&port->push);
+ 	tty_port_destroy(&port->port);
+ }
+ 
+diff --git a/include/linux/usb/cdc_ncm.h b/include/linux/usb/cdc_ncm.h
+index 2d207cb4837d..8775580852f9 100644
+--- a/include/linux/usb/cdc_ncm.h
++++ b/include/linux/usb/cdc_ncm.h
+@@ -96,7 +96,7 @@
+ struct cdc_ncm_ctx {
+ 	struct usb_cdc_ncm_ntb_parameters ncm_parm;
+ 	struct hrtimer tx_timer;
+-	struct tasklet_struct bh;
++	struct work_struct bh;
+ 
+ 	struct usbnet *dev;
+ 
+diff --git a/include/linux/usb/usbnet.h b/include/linux/usb/usbnet.h
+index 9f08a584d707..522c533a966b 100644
+--- a/include/linux/usb/usbnet.h
++++ b/include/linux/usb/usbnet.h
+@@ -58,7 +58,7 @@ struct usbnet {
+ 	unsigned		interrupt_count;
+ 	struct mutex		interrupt_mutex;
+ 	struct usb_anchor	deferred;
+-	struct tasklet_struct	bh;
++	struct work_struct	bh;
+ 
+ 	struct work_struct	kevent;
+ 	unsigned long		flags;
 -- 
 2.17.1
 
