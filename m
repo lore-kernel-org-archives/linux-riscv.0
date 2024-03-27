@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4712C54E67
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5EEBC47DD9
 	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 21:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,57 +12,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NAkfNB7JjOaSidRi/sFs2ISSoJot6FUBcJYMnvDiWu8=; b=Yg01U77BFJOcK+
-	O7cSuOYZ5CcRMhtjk6xppGyZJE8XrX4H4onxuEhzx2ByFN/FG1DyppD0LtOYTMYZbfymw000tcdxZ
-	1R8KRd2fXCJ9kqzdZRd1bgTB92lpCsmGZT9XrTtcPB4RSDQDFbJ2FIDl8mDXmR2g1tAQQiE7jxrsL
-	EIw59li6c+7dO24AMkdxZ+jpZd2RpKfBsb6yajFa6Ky/w44aC5i/MCz0PWsRip6zUVaiYLL6ZWerR
-	ryULN6Jm2j6pUB76lPNN2sOGmrQPUqqGgRpAj2yVOlaDQHQ8micWSNKqjbuoLkH69qJ7TKAg18VsV
-	V+PMHY8mssS1SH/MFBzg==;
+	List-Owner; bh=fkZ78+dHvI4yJkgcTgOul0SSRMJF+xAcnFDxpP9AJ0o=; b=07t3Yd9G93Rq32
+	zzanIcErB55Fb2vxskqVgLOopoCX4Jw+znUC1mxBmyOlJwZ7Y0VIQ25zCDTMihLmfBeQF6zIA0KrT
+	4YmP/d6UQR9LOdQLmGEUgLtDO5qYp2w3dU2DduBj0/PBfGHOjqmCg5lVQrfoOiRKGTlIc9pq+rlnl
+	QVlR5N5buNDVtMuZcpw3g2E7grWpReK7UxQzk6ZYJjU/m70W2iyzmLKiaFdXaQAgUM/oKplOIIZRE
+	5Ey0iQnnMeSzRZZpgzKqaIpPxISL0dED9eFLNHycfwV1Ry5wQwYDFIHv36pm7ji9ZtogNxwsgS+Im
+	BqTT+zMSlbUWTaDVKUIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpaQl-0000000B8Ln-3rwe;
-	Wed, 27 Mar 2024 21:03:31 +0000
+	id 1rpaQo-0000000B8Mx-03jX;
+	Wed, 27 Mar 2024 21:03:34 +0000
 Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpZTG-0000000Atxv-38GC
+	id 1rpZTR-0000000Au4v-3gld
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 20:02:04 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1dee5ef2a7bso1953905ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 13:02:02 -0700 (PDT)
+	Wed, 27 Mar 2024 20:02:16 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1e0d8403257so2162425ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 13:02:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711569721; x=1712174521; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1711569732; x=1712174532; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=im7zmQeDt7pZodE0p+VySjAa7DBv0KaW+gKoLu+LS/g=;
-        b=TRSVMQ36uWjZzRmAW0UAIect3xkTU1TU3MYTPXKyc0tfmv9HjmubR7jAKNxsde6hsv
-         Gagf4cMKfDlryewUvk0g3044pXzbZevZqDbZztx1jDWmyPS80hL6ZoyiLjMobDB1bZDQ
-         uJq4kQzC1Pvoo8IXwTGDe+S8klOKws7oTEZFcle+9gVtPEDW7SJ+DA5lc3YGuq88hRbJ
-         vo6VBCEwdiYNU0EH731QyVDJf10UZRBsddzJyPysnFfEwef+hOmudL/cEJSHkbvqMUUI
-         9cHWQ3g9qnqx/KNZF3Sbb03GOu6aqUqTUsIBILBM/iq4P7kmupghU0CmhdKrpo+U9mRT
-         pftA==
+        bh=tGWc9ebaY2QC87evSRTtIDPTTKODWYBNdAFlf6sP+x8=;
+        b=m3X9YGsaUuj9tc4w8GJ4t07x29cO5RHX+NlvG7j1Zs9uXrI/soO69XCK7pyUNOv2lJ
+         YkJk8HE5qW21x4Sr0sF4cU9HklZXmEnF8IxejWlezma1aZ24dLl8D9PrJlIe9OdICr68
+         Dm5HA3/h7TcJ38EocSE1LuXn8y0FQBm58NOUTpdP/0/spnH4W72KewSc0H1Xk7T9HMEg
+         joU98o5olUHKgvbk2xyBvNOH0+IowzNDwDWqRLa2hO6W7tz9yBqQh69U9UD1ypdgz7UI
+         e0RMrTSUZPnJu9rlHJbDRIZJ9nvU/nhtjvSBQIf0lQOJRJdyLBk4OqncktSjesmJM2Ed
+         7QWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711569721; x=1712174521;
+        d=1e100.net; s=20230601; t=1711569732; x=1712174532;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=im7zmQeDt7pZodE0p+VySjAa7DBv0KaW+gKoLu+LS/g=;
-        b=eoo6a/schabhb9vnWpZpU4+Hf4KD2fGXqRP7s3YFFPlsRe27E5c0vKz4xZj5P5gmO9
-         F/vRvLWkH17wuZenvl+8CCM9/KLBErOEalnG/2uN3BuWOhIQWyMBgrDRGiHwlWT4UKhB
-         L4hW9Fc64uagElGmCLRgS7T2Q5QZ//sE/ZmWdCooEvytld97vp/FXjT0EQf12+BgJlsc
-         rOf4x9wzt/K7FucK+ir8+vZBsA6N6XvhPJGHs/tYxXDT1Dc3SNwN2xS57ZhEysMvbg7T
-         iFDPnc0t+nKizInxfQhF/VejXg6BOW4Z9uhME2yFLf66UIcAKTC8SI0dBv/S67Ko/RzA
-         VuFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU8XY/Cr5RgzLE3gdT67XEfxFh38/O3j9Lir5JZnp34L0K3VCv1+cvhMPVGaJAYjQmV7w9MDvXLkd8xi2Rm4E6cpg5v0k+NlB9TxJsGDPPR
-X-Gm-Message-State: AOJu0YynxJSlLoQqjs+CuxRmumjWhc4pn7vfzUzpr6nMvhysIU5scx3i
-	coT1b8UzsIKG8mp1FDtYKAB36ffbYCu+Bg6NKqnGP2O7e2uqTP8egHPL6Pk1mkQ=
-X-Google-Smtp-Source: AGHT+IF+ykWlXq/2p9fLdxe5qiT+fQJVLXU8yD1cTqgZWIiJ9yzpflW/8jhLl1LVX7Yz7XdGYJsgng==
-X-Received: by 2002:a17:903:28e:b0:1e0:d6ce:7e16 with SMTP id j14-20020a170903028e00b001e0d6ce7e16mr805365plr.15.1711569721663;
-        Wed, 27 Mar 2024 13:02:01 -0700 (PDT)
+        bh=tGWc9ebaY2QC87evSRTtIDPTTKODWYBNdAFlf6sP+x8=;
+        b=ltXnclKHFIGpf/zbaGE28GmDdS8MVG1ykDjT0mJ7LC93jsdMGH6Uu8227bORF+Hz83
+         ZS+KOtH/D8O/odfQi0w+vLsbW65g0ZUKb6LbXN8+Z4xjGpxBLWyDF8y19cTk8kf/n8AY
+         4MY791iluMOpxLb30PjRDyeKh+KLqdINUP9TREBWZbWUQ5hPf7k8gfbSlqtf4G/6ReYY
+         2kwwG0BDiTruLg02mqoLN0Qu3Og1XGBpO3IVPJIjnFngMDTJPCrm1zz06R2tWz3x6s94
+         m9rOzoLCCpX6bUWmULL3WtCVumAkZS8VvLFBMBHjwAtnd6T2Mi7DXOAWpRpmHSQOs3NH
+         sg6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW2ufRi3IHLnUPJE5v90Zelv579CzgSXSsOTdtSRUgtVp8CKLZmg+CsjUpdXjB8izA/z+zqbmPDVInsN89As8j8t2DXImCm77cjkKHmTSPp
+X-Gm-Message-State: AOJu0YxRrTjypCf/UEwRmiqLExCnnaLm3/xfvfuPuPs0NcGD6CDvKPMU
+	YA1+UEsFUwJsGrQ9W1Fzcjz7mdBPVZ941pNNmKnigPyR0/qvoARHHNO+UD2iCgz/O+/dM4zPmIt
+	9
+X-Google-Smtp-Source: AGHT+IF/XXLIIHj+pdeHOeaQpfwKr83x+9g91i//d+1nB1dHcUYu9bI9urgKfRLt2peRxnrkYrSQjA==
+X-Received: by 2002:a17:902:ec92:b0:1e0:73d:9175 with SMTP id x18-20020a170902ec9200b001e0073d9175mr916865plg.45.1711569732549;
+        Wed, 27 Mar 2024 13:02:12 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id u4-20020a170902e5c400b001dd0d0d26a4sm9446459plf.147.2024.03.27.13.02.00
+        by smtp.gmail.com with ESMTPSA id u4-20020a170902e5c400b001dd0d0d26a4sm9446459plf.147.2024.03.27.13.02.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Mar 2024 13:02:01 -0700 (PDT)
+        Wed, 27 Mar 2024 13:02:12 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
@@ -75,17 +76,17 @@ Cc: linux-kernel@vger.kernel.org,
 	loongarch@lists.linux.dev,
 	amd-gfx@lists.freedesktop.org,
 	Samuel Holland <samuel.holland@sifive.com>,
-	Russell King <linux@armlinux.org.uk>
-Subject: [PATCH v3 02/14] ARM: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
-Date: Wed, 27 Mar 2024 13:00:33 -0700
-Message-ID: <20240327200157.1097089-3-samuel.holland@sifive.com>
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v3 10/14] riscv: Add support for kernel-mode FPU
+Date: Wed, 27 Mar 2024 13:00:41 -0700
+Message-ID: <20240327200157.1097089-11-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.43.1
 In-Reply-To: <20240327200157.1097089-1-samuel.holland@sifive.com>
 References: <20240327200157.1097089-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_130202_930496_7811206F 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20240327_130214_200370_2B6F1B0C 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,76 +103,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ARM provides an equivalent to the common kernel-mode FPU API, but in a
-different header and using different function names. Add a wrapper
-header, and export CFLAGS adjustments as found in lib/raid6/Makefile.
+This is motivated by the amdgpu DRM driver, which needs floating-point
+code to support recent hardware. That code is not performance-critical,
+so only provide a minimal non-preemptible implementation for now.
 
+Support is limited to riscv64 because riscv32 requires runtime (libgcc)
+assistance to convert between doubles and 64-bit integers.
+
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-(no changes since v2)
+Changes in v3:
+ - Rebase on v6.9-rc1
+ - Limit ARCH_HAS_KERNEL_FPU_SUPPORT to 64BIT
 
 Changes in v2:
- - Remove file name from header comment
+ - Remove RISC-V architecture-specific preprocessor check
 
- arch/arm/Kconfig           |  1 +
- arch/arm/Makefile          |  7 +++++++
- arch/arm/include/asm/fpu.h | 15 +++++++++++++++
- 3 files changed, 23 insertions(+)
- create mode 100644 arch/arm/include/asm/fpu.h
+ arch/riscv/Kconfig                  |  1 +
+ arch/riscv/Makefile                 |  3 +++
+ arch/riscv/include/asm/fpu.h        | 16 ++++++++++++++++
+ arch/riscv/kernel/Makefile          |  1 +
+ arch/riscv/kernel/kernel_mode_fpu.c | 28 ++++++++++++++++++++++++++++
+ 5 files changed, 49 insertions(+)
+ create mode 100644 arch/riscv/include/asm/fpu.h
+ create mode 100644 arch/riscv/kernel/kernel_mode_fpu.c
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index b14aed3a17ab..b1751c2cab87 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -15,6 +15,7 @@ config ARM
- 	select ARCH_HAS_FORTIFY_SOURCE
- 	select ARCH_HAS_KEEPINITRD
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index be09c8836d56..3bcd0d250810 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -27,6 +27,7 @@ config RISCV
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select ARCH_HAS_GIGANTIC_PAGE
  	select ARCH_HAS_KCOV
-+	select ARCH_HAS_KERNEL_FPU_SUPPORT if KERNEL_MODE_NEON
++	select ARCH_HAS_KERNEL_FPU_SUPPORT if 64BIT && FPU
+ 	select ARCH_HAS_MEMBARRIER_CALLBACKS
  	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PTE_SPECIAL if ARM_LPAE
-diff --git a/arch/arm/Makefile b/arch/arm/Makefile
-index d82908b1b1bb..71afdd98ddf2 100644
---- a/arch/arm/Makefile
-+++ b/arch/arm/Makefile
-@@ -130,6 +130,13 @@ endif
- # Accept old syntax despite ".syntax unified"
- AFLAGS_NOWARN	:=$(call as-option,-Wa$(comma)-mno-warn-deprecated,-Wa$(comma)-W)
+ 	select ARCH_HAS_MMIOWB
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 252d63942f34..76ff4033c854 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -84,6 +84,9 @@ KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64i
  
-+# The GCC option -ffreestanding is required in order to compile code containing
-+# ARM/NEON intrinsics in a non C99-compliant environment (such as the kernel)
-+CC_FLAGS_FPU	:= -ffreestanding
-+# Enable <arm_neon.h>
-+CC_FLAGS_FPU	+= -isystem $(shell $(CC) -print-file-name=include)
-+CC_FLAGS_FPU	+= -march=armv7-a -mfloat-abi=softfp -mfpu=neon
+ KBUILD_AFLAGS += -march=$(riscv-march-y)
+ 
++# For C code built with floating-point support, exclude V but keep F and D.
++CC_FLAGS_FPU  := -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)([^v_]*)v?/\1\2/')
 +
- ifeq ($(CONFIG_THUMB2_KERNEL),y)
- CFLAGS_ISA	:=-Wa,-mimplicit-it=always $(AFLAGS_NOWARN)
- AFLAGS_ISA	:=$(CFLAGS_ISA) -Wa$(comma)-mthumb
-diff --git a/arch/arm/include/asm/fpu.h b/arch/arm/include/asm/fpu.h
+ KBUILD_CFLAGS += -mno-save-restore
+ KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
+ 
+diff --git a/arch/riscv/include/asm/fpu.h b/arch/riscv/include/asm/fpu.h
 new file mode 100644
-index 000000000000..2ae50bdce59b
+index 000000000000..91c04c244e12
 --- /dev/null
-+++ b/arch/arm/include/asm/fpu.h
-@@ -0,0 +1,15 @@
++++ b/arch/riscv/include/asm/fpu.h
+@@ -0,0 +1,16 @@
 +/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
 + * Copyright (C) 2023 SiFive
 + */
 +
-+#ifndef __ASM_FPU_H
-+#define __ASM_FPU_H
++#ifndef _ASM_RISCV_FPU_H
++#define _ASM_RISCV_FPU_H
 +
-+#include <asm/neon.h>
++#include <asm/switch_to.h>
 +
-+#define kernel_fpu_available()	cpu_has_neon()
-+#define kernel_fpu_begin()	kernel_neon_begin()
-+#define kernel_fpu_end()	kernel_neon_end()
++#define kernel_fpu_available()	has_fpu()
 +
-+#endif /* ! __ASM_FPU_H */
++void kernel_fpu_begin(void);
++void kernel_fpu_end(void);
++
++#endif /* ! _ASM_RISCV_FPU_H */
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 81d94a8ee10f..5b243d46f4b1 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -67,6 +67,7 @@ obj-$(CONFIG_RISCV_MISALIGNED)	+= unaligned_access_speed.o
+ obj-$(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)	+= copy-unaligned.o
+ 
+ obj-$(CONFIG_FPU)		+= fpu.o
++obj-$(CONFIG_FPU)		+= kernel_mode_fpu.o
+ obj-$(CONFIG_RISCV_ISA_V)	+= vector.o
+ obj-$(CONFIG_RISCV_ISA_V)	+= kernel_mode_vector.o
+ obj-$(CONFIG_SMP)		+= smpboot.o
+diff --git a/arch/riscv/kernel/kernel_mode_fpu.c b/arch/riscv/kernel/kernel_mode_fpu.c
+new file mode 100644
+index 000000000000..0ac8348876c4
+--- /dev/null
++++ b/arch/riscv/kernel/kernel_mode_fpu.c
+@@ -0,0 +1,28 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2023 SiFive
++ */
++
++#include <linux/export.h>
++#include <linux/preempt.h>
++
++#include <asm/csr.h>
++#include <asm/fpu.h>
++#include <asm/processor.h>
++#include <asm/switch_to.h>
++
++void kernel_fpu_begin(void)
++{
++	preempt_disable();
++	fstate_save(current, task_pt_regs(current));
++	csr_set(CSR_SSTATUS, SR_FS);
++}
++EXPORT_SYMBOL_GPL(kernel_fpu_begin);
++
++void kernel_fpu_end(void)
++{
++	csr_clear(CSR_SSTATUS, SR_FS);
++	fstate_restore(current, task_pt_regs(current));
++	preempt_enable();
++}
++EXPORT_SYMBOL_GPL(kernel_fpu_end);
 -- 
 2.43.1
 
