@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB2E1C47DD9
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 17:00:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C19C47DD9
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 17:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UsgDRF7yxzR9unz76eWX44qGHLhjrgwOgt+ZdfgxCkw=; b=e+FMaA187QOjkr
-	BPVXDDQKqmPKq90gEZVhqDN4GMAMrDjmgtU/03Y2GKaTot2RDaFgDNzj2E8ryzKIjlmJvt71CN/nj
-	R6eqMGNXFWkHVWP1cf1ZF3A+S++f8mZYsUyxGqb8+SbJlzHkMsN0Vymw8IlBSZJoZBUtxUum+oH31
-	REoBh2BBhKvDIxMImjjBp2uMjzXpCS6Yto+2AL5ZcLgt2BDQbgYpKECShvojUKj5WfvTs2AH+WHSP
-	WwGzfJmtWmsAHARMTNFdf6V/EQn2R2COvwu+PDa+hmGghlWt8/cCY4B3wHcKXzmud+y6UbX6M8ACd
-	WjHc2sCcIfInxGlDD6vw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BVvI+O+G36o0b8S+B7hygqdvy4k+TrlqNaBXChefKS8=; b=lCTbrmlxkzwOzK
+	u65kACHZDk6T6bgze+uSThvCqEFuECOM/aEoFzQlTpmFeK8QhHqXMT36K79as7p/scIA91mDb2j/C
+	jVRwZ2PccL47DWte1BRWzAu2nRbStJW+kSpA7L5eko3s9Gai4PgLHAiYKnXsPlJtuctkZ/BpJXYC3
+	zClsbUIGmRauAh0o17NWrqZOXCKlLmJbBqXSj/iShmZluXQuqZZBoTONEN5ldSIfmejTkMgqyN4F8
+	dP9o4rPEzytre185nYY5xPpIgsQnfesDNM6d0HymIEcsnTb8xnUvGL2/pDMyojbedhGKellRggBsS
+	F20mxEsMUnANVNEqPPBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpWdF-0000000ABUw-3OWO;
-	Wed, 27 Mar 2024 17:00:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rpWur-0000000AFir-0dRX;
+	Wed, 27 Mar 2024 17:18:21 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpWdB-0000000ABTR-3wYT
+	id 1rpVmF-00000009z5N-3xB5
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 17:00:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 567626162F;
-	Wed, 27 Mar 2024 17:00:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F492C433F1;
-	Wed, 27 Mar 2024 17:00:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711558805;
-	bh=kFJK27eqsn3b94GlLP703fwEajJD+XlRkEDUgGuh2cI=;
-	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
-	b=LMXB4AEil8mhpE14pDOZqk5V1G188v/TX9AtT86gdloR9J8ZE6YYFIuKlQ6Z5UZai
-	 ksIWU4umsus3CI4jcIqamwIW1/1BUK51hMF6nWTO/ybRk6h24jLLwM5k9LsVDzmjen
-	 KSlyP8rn5Cl3MBWOuEJuMsCHv3G+qvASXSOYok+8tEK4bRu4FYc4uHhXpqFNyzugKX
-	 W86SAEnJ+6FFFqq0dK7TLagxjyFHw/IXsCFF00jRzL4KQm0Ckp17ryUENvaKF3ioao
-	 rk7UvQWIGDvrFX2dp1rP4Ha5h/BhxE0MXQRiFlHeaoDv2p1LHr8qkdigCDJAVZXITN
-	 LHE94pHdXHP7A==
-Mime-Version: 1.0
-Date: Wed, 27 Mar 2024 19:00:00 +0200
-Message-Id: <D04OYICG7UM7.3SFZE1NKID389@kernel.org>
-Cc: <linux-riscv@lists.infradead.org>, "Paul Walmsley"
- <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>, "Luis
- Chamberlain" <mcgrof@kernel.org>, <linux-modules@vger.kernel.org>, "Naveen
- N . Rao" <naveen.n.rao@linux.ibm.com>, "Anil S Keshavamurthy"
- <anil.s.keshavamurthy@intel.com>, "David S . Miller" <davem@davemloft.net>,
- "Masami Hiramatsu" <mhiramat@kernel.org>
-Subject: Re: [PATCH v7 2/2] arch/riscv: Enable kprobes when CONFIG_MODULES=n
-From: "Jarkko Sakkinen" <jarkko@kernel.org>
-To: "Conor Dooley" <conor@kernel.org>
-X-Mailer: aerc 0.17.0
-References: <20240326134616.7691-1-jarkko@kernel.org>
- <20240326134616.7691-2-jarkko@kernel.org>
- <20240326-cape-compacted-e76df066752f@spud>
-In-Reply-To: <20240326-cape-compacted-e76df066752f@spud>
+	Wed, 27 Mar 2024 16:05:29 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1e0f2798cd8so19135915ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 09:05:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1711555522; x=1712160322; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Kwbw8Bfq5TVdPAVwgD2UahVCoOXtlyfhsdDWXgrrMaI=;
+        b=FEZ+Pa2mbpPe15F0hkbwoupAO8oMwJ3O3ErtI624zYNamQGgvdZRmnIl736jcqgl4O
+         H38HP9faAk07Thdz3q4eLafY+frTGkSBEk/eF3agNlflKzeqtQBNyv56MHRxf6+wsFmT
+         JASMQYyiUla9WuoyVaeNZXAf1TnYrJ7naD0pGYeVWyyN/I5Rh9DZZGpgvn1Gr1xJcoLo
+         i2ZXW/tWI08+2EkuKHVpza/IL0dhVDnNd74eXfYukxGBJeTG+jRBcQUqtLNB3tPp/RmS
+         cuuLpe7bg4i4523oy+6oktcD6UwQ9pg9OPMCdVvrN1C/XZBjRZP0k+9sBDVuPxezklHf
+         mhqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711555522; x=1712160322;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Kwbw8Bfq5TVdPAVwgD2UahVCoOXtlyfhsdDWXgrrMaI=;
+        b=FOZmtt/DM4VZP3Lx9ws+PC1EFmvC5i6JDAzwRilTK1VBD+can6emWa+FLN0uF7GIon
+         V9zPjTDLmdBvcQtqwomwdbvNPig9m/37DYTO36WWpdCwBZgjTvowH3MjUe6AfLmLwP/+
+         Fo8YtDrmgpB9rSDg/1TN6Les1FjAggf2L5p91v4NSAvpicRh1m3dah0QhubD+AR394FQ
+         cPj6gUDGEE3NT/3kW7VqQTiYfIxqa8tfZB6Jqttpi3I54XxscnoRSo/pdPtKq/ZiFSse
+         K0E2xSuGmDzsYxudpbN6KuaDA83FtVEHTBsN1oIxEz5hV15pJfb79CB9DZqMy5s1cdUO
+         42SA==
+X-Forwarded-Encrypted: i=1; AJvYcCVbhpS5LYP51NcOOJ2xD9gKNQBASGRtfl/FhXzgcUNqXeOkVLFipRHZ/ur705NYvxBb0LqFK9+hGGYFzXFMoAvTs01NkfRMLNGHh4taB9VT
+X-Gm-Message-State: AOJu0YyIG7dansUozpuDHJnOAhpCP6S6DPcwAqwZTfuq89UFfjcIHVhQ
+	abFyox+WDapBwETleIs3/jdo6QS3pcOfCcplogzAYzmblkP8t9IJpByZDFVP+t6bBP9m0uOeNN8
+	2
+X-Google-Smtp-Source: AGHT+IHrHUQx8CTOsGUx7d9I0wuSaSBLdTL7D/z7DZEE6/9Njp7t/Ngzy8GHegWFTHCH7uUVnbidfQ==
+X-Received: by 2002:a17:903:11c4:b0:1de:ff9f:aee9 with SMTP id q4-20020a17090311c400b001deff9faee9mr138103plh.11.1711555521786;
+        Wed, 27 Mar 2024 09:05:21 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id bf4-20020a170902b90400b001e14807f9cesm1718226plb.125.2024.03.27.09.05.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Mar 2024 09:05:21 -0700 (PDT)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jason Baron <jbaron@akamai.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	bpf@vger.kernel.org
+Subject: [PATCH v2 0/7] riscv: Various text patching improvements
+Date: Wed, 27 Mar 2024 09:04:39 -0700
+Message-ID: <20240327160520.791322-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.43.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_100006_093934_4DAC3E7B 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20240327_090524_376834_2D420095 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,52 +101,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue Mar 26, 2024 at 8:42 PM EET, Conor Dooley wrote:
-> On Tue, Mar 26, 2024 at 03:46:16PM +0200, Jarkko Sakkinen wrote:
-> > Tacing with kprobes while running a monolithic kernel is currently
-> > impossible due the kernel module allocator dependency.
-> > 
-> > Address the issue by implementing textmem API for RISC-V.
->
-> This doesn't compile for nommu:
->   /build/tmp.3xucsBhqDV/arch/riscv/kernel/execmem.c:10:46: error: 'MODULES_VADDR' undeclared (first use in this function)
->   /build/tmp.3xucsBhqDV/arch/riscv/kernel/execmem.c:11:37: error: 'MODULES_END' undeclared (first use in this function)
->   /build/tmp.3xucsBhqDV/arch/riscv/kernel/execmem.c:14:1: error: control reaches end of non-void function [-Werror=return-type]
-> Clang builds also report:
-> ../arch/riscv/kernel/execmem.c:8:56: warning: omitting the parameter name in a function definition is a C2x extension [-Wc2x-extensions]
->
-> > 
-> > Link: https://www.sochub.fi # for power on testing new SoC's with a minimal stack
-> > Link: https://lore.kernel.org/all/20220608000014.3054333-1-jarkko@profian.com/ # continuation
-> > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
-> > ---
-> > v5-v7:
-> > - No changes.
-> > v4:
-> > - Include linux/execmem.h.
-> > v3:
-> > - Architecture independent parts have been split to separate patches.
-> > - Do not change arch/riscv/kernel/module.c as it is out of scope for
-> >   this patch set now.
->
-> Meta comment. I dunno when v1 was sent, but versions can you please
-> relax with submitting new versions of your patches? There's conversations
-> ongoing on v5 at the moment, while this is a more recent version. v2
-> seems to have been sent on the 23rd and there's been 5 versions in the
-> last day:
-> https://patchwork.kernel.org/project/linux-riscv/list/?submitter=195059&state=*
->
-> Could you please also try and use a cover letter for patchsets, ideally
-> with a consistent subject? Otherwise I have to manually mark stuff as
-> superseded.
+Here are a few changes to minimize calls to stop_machine() and
+flush_icache_*() in the various text patching functions, as well as
+to simplify the code.
 
-Point taken but the work has been taken over by Mark and relevant
-changes are now sucked into that patch set.
+This series is based on "[PATCH v3 0/2] riscv: fix patching with IPI"[1].
 
-> Thanks,
-> Conor.
+[1]: https://lore.kernel.org/linux-riscv/20240229121056.203419-1-alexghiti@rivosinc.com/
 
-BR, Jarkko
+Changes in v2:
+ - Remove unnecessary line wrapping
+ - Further simplify patch_insn_set()/patch_insn_write() loop conditions
+ - Use min() instead of min_t() since both sides are unsigned long
+
+Samuel Holland (7):
+  riscv: jump_label: Batch icache maintenance
+  riscv: jump_label: Simplify assembly syntax
+  riscv: kprobes: Use patch_text_nosync() for insn slots
+  riscv: Simplify text patching loops
+  riscv: Pass patch_text() the length in bytes
+  riscv: Use offset_in_page() in text patching functions
+  riscv: Remove extra variable in patch_text_nosync()
+
+ arch/riscv/include/asm/jump_label.h |  4 +-
+ arch/riscv/include/asm/patch.h      |  2 +-
+ arch/riscv/kernel/jump_label.c      | 16 +++++--
+ arch/riscv/kernel/patch.c           | 69 ++++++++++++++---------------
+ arch/riscv/kernel/probes/kprobes.c  | 19 ++++----
+ arch/riscv/net/bpf_jit_comp64.c     |  7 +--
+ 6 files changed, 63 insertions(+), 54 deletions(-)
+
+-- 
+2.43.1
+
 
 _______________________________________________
 linux-riscv mailing list
