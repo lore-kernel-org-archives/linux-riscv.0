@@ -4,129 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A7A6C54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 17:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A58C54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 17:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=13F8R+FmwyscoKjX9syd/jsDhFd3937UbZKbPIVO9C4=; b=YI2w37yNQRuaVQ
-	HqCJi8THVSN1TRr43vOvUH1yCvxaih3X0Nte56p2qUrgs2091WzmQUQe6h8zINjF3O5C2wRKyfTSi
-	dhFdIrI0OkCfkldAKQbPTr6L8dx62xxGHAho9WKKsmjq4U/IBqWG7ifalt2d8PhfZZp5/WtLlf80W
-	M6NxR4wfP9Sygry6r4D6mJbs1apSY293PZcQe99jSDeW6I7m7aRrev9cRQ77mDXx2cKA45c93HFZm
-	NwjPJCpAWM1MQbi/CgKrTACxOhPwKfpsJFXe1eL9APBa6NTJ530fod92LCj9cxwZA9flYPZtAitDY
-	ZQKacpLfMuzKJLj50SfA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GqFnI3bJ+w9ThIO9V3FPgc6tXexuH0EDfO5yVm5lofU=; b=SaX7na7VBqdBb+
+	IdM4V55YhhmdvNp+itreODeO0mi+S/1WH5s/8THsXfthNkBxAJHrP3Rk8jKGSpgh7RPseJ2yXhbY2
+	l16Rs+HavNvygxKSuJ/2in1fCfHxsyOvrEmTWhn8obOZ7b2VnDIx1LGbIwhzO2985PV7r1QUuCxJN
+	uDaZSAjWv4sAISuwsV+6pIKTgNEY/mctYG2V1YnMgMaF3hsoMSjIfuBTjW05spwq8YKzEa4HgsWk5
+	W3QvLMT5jSp9lbeI5jKsGuBOtc1Sge0zyl43GvGSweh/GEKlmOr5BX6T8MDyvFUwhzPsTm+lenNdF
+	WCauLdvmyCup5VCUh5Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpWup-0000000AFiD-3deb;
-	Wed, 27 Mar 2024 17:18:19 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpVkK-00000009xsN-2d2w;
-	Wed, 27 Mar 2024 16:03:27 +0000
-Received: from apais-vm1.0synte4vioeebbvidf5q0vz2ua.xx.internal.cloudapp.net (unknown [52.183.86.224])
-	by linux.microsoft.com (Postfix) with ESMTPSA id DA2672085CE4;
-	Wed, 27 Mar 2024 09:03:20 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DA2672085CE4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1711555401;
-	bh=3hcnlvv5JwxGRimv8puox0FI6yYT22rRQLYPals06nM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=j1MFXh/gQg1tzy1NiZhDwekxwc8dvAzI+onvdyQYuwuUQW8n92YESaET4UqKK3s+1
-	 GkKlfkFJN7woCpfY/15BUPreZuaOKAoShX2RDT1e+7ZGcLy3rLDfkRWzSogXlEFbF5
-	 xONzEb2r0qc0V0QS8P8cWQIe/e+DcLcRmQWlSfJA=
-From: Allen Pais <apais@linux.microsoft.com>
-To: linux-kernel@vger.kernel.org
-Cc: tj@kernel.org,
-	keescook@chromium.org,
-	vkoul@kernel.org,
-	marcan@marcan.st,
-	sven@svenpeter.dev,
-	florian.fainelli@broadcom.com,
-	rjui@broadcom.com,
-	sbranden@broadcom.com,
-	paul@crapouillou.net,
-	Eugeniy.Paltsev@synopsys.com,
-	manivannan.sadhasivam@linaro.org,
-	vireshk@kernel.org,
-	Frank.Li@nxp.com,
-	leoyang.li@nxp.com,
-	zw@zh-kernel.org,
-	wangzhou1@hisilicon.com,
-	haijie1@huawei.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	afaerber@suse.de,
-	logang@deltatee.com,
-	daniel@zonque.org,
-	haojian.zhuang@gmail.com,
-	robert.jarzmik@free.fr,
-	andersson@kernel.org,
-	konrad.dybcio@linaro.org,
-	orsonzhai@gmail.com,
-	baolin.wang@linux.alibaba.com,
-	zhang.lyra@gmail.com,
-	patrice.chotard@foss.st.com,
-	linus.walleij@linaro.org,
-	wens@csie.org,
-	jernej.skrabec@gmail.com,
-	peter.ujfalusi@gmail.com,
-	kys@microsoft.com,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	jassisinghbrar@gmail.com,
-	mchehab@kernel.org,
-	maintainers@bluecherrydvr.com,
-	aubin.constans@microchip.com,
-	ulf.hansson@linaro.org,
-	manuel.lauss@gmail.com,
-	mirq-linux@rere.qmqm.pl,
-	jh80.chung@samsung.com,
-	oakad@yahoo.com,
-	hayashi.kunihiko@socionext.com,
-	mhiramat@kernel.org,
-	brucechang@via.com.tw,
-	HaraldWelte@viatech.com,
-	pierre@ossman.eu,
-	duncan.sands@free.fr,
-	stern@rowland.harvard.edu,
-	oneukum@suse.com,
-	openipmi-developer@lists.sourceforge.net,
-	dmaengine@vger.kernel.org,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-mediatek@lists.infradead.org,
-	linux-actions@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-usb@vger.kernel.org
-Subject: [PATCH 0/9] Convert Tasklets to BH Workqueues
-Date: Wed, 27 Mar 2024 16:03:05 +0000
-Message-Id: <20240327160314.9982-1-apais@linux.microsoft.com>
-X-Mailer: git-send-email 2.17.1
+	id 1rpXUc-0000000APBu-2BF3;
+	Wed, 27 Mar 2024 17:55:18 +0000
+Received: from netrider.rowland.org ([192.131.102.5])
+	by bombadil.infradead.org with smtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rpXUY-0000000AP8H-26el
+	for linux-riscv@lists.infradead.org;
+	Wed, 27 Mar 2024 17:55:16 +0000
+Received: (qmail 935614 invoked by uid 1000); 27 Mar 2024 13:55:00 -0400
+Date: Wed, 27 Mar 2024 13:55:00 -0400
+From: Alan Stern <stern@rowland.harvard.edu>
+To: Allen Pais <apais@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, tj@kernel.org, keescook@chromium.org,
+  vkoul@kernel.org, marcan@marcan.st, sven@svenpeter.dev,
+  florian.fainelli@broadcom.com, rjui@broadcom.com, sbranden@broadcom.com,
+  paul@crapouillou.net, Eugeniy.Paltsev@synopsys.com,
+  manivannan.sadhasivam@linaro.org, vireshk@kernel.org, Frank.Li@nxp.com,
+  leoyang.li@nxp.com, zw@zh-kernel.org, wangzhou1@hisilicon.com,
+  haijie1@huawei.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+  sean.wang@mediatek.com, matthias.bgg@gmail.com,
+  angelogioacchino.delregno@collabora.com, afaerber@suse.de,
+  logang@deltatee.com, daniel@zonque.org, haojian.zhuang@gmail.com,
+  robert.jarzmik@free.fr, andersson@kernel.org, konrad.dybcio@linaro.org,
+  orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com,
+  patrice.chotard@foss.st.com, linus.walleij@linaro.org, wens@csie.org,
+  jernej.skrabec@gmail.com, peter.ujfalusi@gmail.com, kys@microsoft.com,
+  haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+  jassisinghbrar@gmail.com, mchehab@kernel.org, maintainers@bluecherrydvr.com,
+  aubin.constans@microchip.com, ulf.hansson@linaro.org,
+  manuel.lauss@gmail.com, mirq-linux@rere.qmqm.pl, jh80.chung@samsung.com,
+  oakad@yahoo.com, hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
+  brucechang@via.com.tw, HaraldWelte@viatech.com, pierre@ossman.eu,
+  duncan.sands@free.fr, oneukum@suse.com,
+  openipmi-developer@lists.sourceforge.net, dmaengine@vger.kernel.org,
+  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+  linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+  imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+  linux-mediatek@lists.infradead.org, linux-actions@lists.infradead.org,
+  linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org,
+  linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
+  linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org,
+  linux-media@vger.kernel.org, linux-mmc@vger.kernel.org,
+  linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+  linux-s390@vger.kernel.org, netdev@vger.kernel.org,
+  linux-usb@vger.kernel.org
+Subject: Re: [PATCH 4/9] USB: Convert from tasklet to BH workqueue
+Message-ID: <42c445b4-a156-4c43-bf98-bd2a9ac7a4fa@rowland.harvard.edu>
+References: <20240327160314.9982-1-apais@linux.microsoft.com>
+ <20240327160314.9982-5-apais@linux.microsoft.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240327160314.9982-5-apais@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_090324_877708_932433B4 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20240327_105514_880322_9565F1A7 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,256 +85,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series represents a significant shift in how asynchronous
-execution in the bottom half (BH) context is handled within the kernel.
-Traditionally, tasklets have been the go-to mechanism for such operations.
-This series introduces the conversion of existing tasklet implementations
-to the newly supported BH workqueues, marking a pivotal enhancement
-in how asynchronous tasks are managed and executed.
+On Wed, Mar 27, 2024 at 04:03:09PM +0000, Allen Pais wrote:
+> The only generic interface to execute asynchronously in the BH context is
+> tasklet; however, it's marked deprecated and has some design flaws. To
+> replace tasklets, BH workqueue support was recently added. A BH workqueue
+> behaves similarly to regular workqueues except that the queued work items
+> are executed in the BH context.
+> 
+> This patch converts drivers/infiniband/* from tasklet to BH workqueue.
+> 
+> Based on the work done by Tejun Heo <tj@kernel.org>
+> Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git for-6.10
+> 
+> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
+> ---
 
-Background and Motivation:
-Tasklets have served as the kernel's lightweight mechanism for
-scheduling bottom-half processing, providing a simple interface
-for deferring work from interrupt context. There have been increasing
-requests and motivations to deprecate and eventually remove tasklets
-in favor of more modern and flexible mechanisms.
+> diff --git a/drivers/usb/core/hcd.c b/drivers/usb/core/hcd.c
+> index c0e005670d67..88d8e1c366cd 100644
+> --- a/drivers/usb/core/hcd.c
+> +++ b/drivers/usb/core/hcd.c
 
-Introduction of BH Workqueues:
-BH workqueues are designed to behave similarly to regular workqueues
-with the added benefit of execution in the BH context.
+> @@ -1662,10 +1663,9 @@ static void __usb_hcd_giveback_urb(struct urb *urb)
+>  	usb_put_urb(urb);
+>  }
+>  
+> -static void usb_giveback_urb_bh(struct work_struct *work)
+> +static void usb_giveback_urb_bh(struct work_struct *t)
+>  {
+> -	struct giveback_urb_bh *bh =
+> -		container_of(work, struct giveback_urb_bh, bh);
+> +	struct giveback_urb_bh *bh = from_work(bh, t, bh);
+>  	struct list_head local_list;
+>  
+>  	spin_lock_irq(&bh->lock);
 
-Conversion Details:
-The conversion process involved identifying all instances where
-tasklets were used within the kernel and replacing them with BH workqueue
-implementations.
+Is there any reason for this apparently pointless change of a local
+variable's name?
 
-This patch series is a first step toward broader adoption of BH workqueues
-across the kernel, and soon other subsystems using tasklets will undergo
-a similar transition. The groundwork laid here could serve as a
-blueprint for such future conversions.
-
-Testing Request:
-In addition to a thorough review of these changes,
-I kindly request that the reviwers engage in both functional and
-performance testing of this patch series. Specifically, benchmarks
-that measure interrupt handling efficiency, latency, and throughput.
-
-I welcome your feedback, suggestions, and any further discussion on this
-patch series.
-
-
-Additional Info:
-    Based on the work done by Tejun Heo <tj@kernel.org>
-    Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git for-6.10
-
-Allen Pais (9):
-  hyperv: Convert from tasklet to BH workqueue
-  dma: Convert from tasklet to BH workqueue
-  IB: Convert from tasklet to BH workqueue
-  USB: Convert from tasklet to BH workqueue
-  mailbox: Convert from tasklet to BH workqueue
-  ipmi: Convert from tasklet to BH workqueue
-  s390: Convert from tasklet to BH workqueue
-  drivers/media/*: Convert from tasklet to BH workqueue
-  mmc: Convert from tasklet to BH workqueue
-
- drivers/char/ipmi/ipmi_msghandler.c           | 30 ++++----
- drivers/dma/altera-msgdma.c                   | 15 ++--
- drivers/dma/apple-admac.c                     | 15 ++--
- drivers/dma/at_hdmac.c                        |  2 +-
- drivers/dma/at_xdmac.c                        | 15 ++--
- drivers/dma/bcm2835-dma.c                     |  2 +-
- drivers/dma/dma-axi-dmac.c                    |  2 +-
- drivers/dma/dma-jz4780.c                      |  2 +-
- .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    |  2 +-
- drivers/dma/dw-edma/dw-edma-core.c            |  2 +-
- drivers/dma/dw/core.c                         | 13 ++--
- drivers/dma/dw/regs.h                         |  3 +-
- drivers/dma/ep93xx_dma.c                      | 15 ++--
- drivers/dma/fsl-edma-common.c                 |  2 +-
- drivers/dma/fsl-qdma.c                        |  2 +-
- drivers/dma/fsl_raid.c                        | 11 +--
- drivers/dma/fsl_raid.h                        |  2 +-
- drivers/dma/fsldma.c                          | 15 ++--
- drivers/dma/fsldma.h                          |  3 +-
- drivers/dma/hisi_dma.c                        |  2 +-
- drivers/dma/hsu/hsu.c                         |  2 +-
- drivers/dma/idma64.c                          |  4 +-
- drivers/dma/img-mdc-dma.c                     |  2 +-
- drivers/dma/imx-dma.c                         | 27 +++----
- drivers/dma/imx-sdma.c                        |  6 +-
- drivers/dma/ioat/dma.c                        | 17 +++--
- drivers/dma/ioat/dma.h                        |  5 +-
- drivers/dma/ioat/init.c                       |  2 +-
- drivers/dma/k3dma.c                           | 19 ++---
- drivers/dma/mediatek/mtk-cqdma.c              | 35 ++++-----
- drivers/dma/mediatek/mtk-hsdma.c              |  2 +-
- drivers/dma/mediatek/mtk-uart-apdma.c         |  4 +-
- drivers/dma/mmp_pdma.c                        | 13 ++--
- drivers/dma/mmp_tdma.c                        | 11 +--
- drivers/dma/mpc512x_dma.c                     | 17 +++--
- drivers/dma/mv_xor.c                          | 13 ++--
- drivers/dma/mv_xor.h                          |  5 +-
- drivers/dma/mv_xor_v2.c                       | 23 +++---
- drivers/dma/mxs-dma.c                         | 13 ++--
- drivers/dma/nbpfaxi.c                         | 15 ++--
- drivers/dma/owl-dma.c                         |  2 +-
- drivers/dma/pch_dma.c                         | 17 +++--
- drivers/dma/pl330.c                           | 31 ++++----
- drivers/dma/plx_dma.c                         | 13 ++--
- drivers/dma/ppc4xx/adma.c                     | 17 +++--
- drivers/dma/ppc4xx/adma.h                     |  5 +-
- drivers/dma/pxa_dma.c                         |  2 +-
- drivers/dma/qcom/bam_dma.c                    | 35 ++++-----
- drivers/dma/qcom/gpi.c                        | 18 ++---
- drivers/dma/qcom/hidma.c                      | 11 +--
- drivers/dma/qcom/hidma.h                      |  5 +-
- drivers/dma/qcom/hidma_ll.c                   | 11 +--
- drivers/dma/qcom/qcom_adm.c                   |  2 +-
- drivers/dma/sa11x0-dma.c                      | 27 +++----
- drivers/dma/sf-pdma/sf-pdma.c                 | 23 +++---
- drivers/dma/sf-pdma/sf-pdma.h                 |  5 +-
- drivers/dma/sprd-dma.c                        |  2 +-
- drivers/dma/st_fdma.c                         |  2 +-
- drivers/dma/ste_dma40.c                       | 17 +++--
- drivers/dma/sun6i-dma.c                       | 33 ++++----
- drivers/dma/tegra186-gpc-dma.c                |  2 +-
- drivers/dma/tegra20-apb-dma.c                 | 19 ++---
- drivers/dma/tegra210-adma.c                   |  2 +-
- drivers/dma/ti/edma.c                         |  2 +-
- drivers/dma/ti/k3-udma.c                      | 11 +--
- drivers/dma/ti/omap-dma.c                     |  2 +-
- drivers/dma/timb_dma.c                        | 23 +++---
- drivers/dma/txx9dmac.c                        | 29 +++----
- drivers/dma/txx9dmac.h                        |  5 +-
- drivers/dma/virt-dma.c                        |  9 ++-
- drivers/dma/virt-dma.h                        |  9 ++-
- drivers/dma/xgene-dma.c                       | 21 +++---
- drivers/dma/xilinx/xilinx_dma.c               | 23 +++---
- drivers/dma/xilinx/xilinx_dpdma.c             | 21 +++---
- drivers/dma/xilinx/zynqmp_dma.c               | 21 +++---
- drivers/hv/channel.c                          |  8 +-
- drivers/hv/channel_mgmt.c                     |  5 +-
- drivers/hv/connection.c                       |  9 ++-
- drivers/hv/hv.c                               |  3 +-
- drivers/hv/hv_balloon.c                       |  4 +-
- drivers/hv/hv_fcopy.c                         |  8 +-
- drivers/hv/hv_kvp.c                           |  8 +-
- drivers/hv/hv_snapshot.c                      |  8 +-
- drivers/hv/hyperv_vmbus.h                     |  9 ++-
- drivers/hv/vmbus_drv.c                        | 19 ++---
- drivers/infiniband/hw/bnxt_re/bnxt_re.h       |  3 +-
- drivers/infiniband/hw/bnxt_re/qplib_fp.c      | 21 +++---
- drivers/infiniband/hw/bnxt_re/qplib_fp.h      |  2 +-
- drivers/infiniband/hw/bnxt_re/qplib_rcfw.c    | 25 ++++---
- drivers/infiniband/hw/bnxt_re/qplib_rcfw.h    |  2 +-
- drivers/infiniband/hw/erdma/erdma.h           |  3 +-
- drivers/infiniband/hw/erdma/erdma_eq.c        | 11 +--
- drivers/infiniband/hw/hfi1/rc.c               |  2 +-
- drivers/infiniband/hw/hfi1/sdma.c             | 37 ++++-----
- drivers/infiniband/hw/hfi1/sdma.h             |  9 ++-
- drivers/infiniband/hw/hfi1/tid_rdma.c         |  6 +-
- drivers/infiniband/hw/irdma/ctrl.c            |  2 +-
- drivers/infiniband/hw/irdma/hw.c              | 24 +++---
- drivers/infiniband/hw/irdma/main.h            |  5 +-
- drivers/infiniband/hw/qib/qib.h               |  7 +-
- drivers/infiniband/hw/qib/qib_iba7322.c       |  9 ++-
- drivers/infiniband/hw/qib/qib_rc.c            | 16 ++--
- drivers/infiniband/hw/qib/qib_ruc.c           |  4 +-
- drivers/infiniband/hw/qib/qib_sdma.c          | 11 +--
- drivers/infiniband/sw/rdmavt/qp.c             |  2 +-
- drivers/mailbox/bcm-pdc-mailbox.c             | 21 +++---
- drivers/mailbox/imx-mailbox.c                 | 16 ++--
- drivers/media/pci/bt8xx/bt878.c               |  8 +-
- drivers/media/pci/bt8xx/bt878.h               |  3 +-
- drivers/media/pci/bt8xx/dvb-bt8xx.c           |  9 ++-
- drivers/media/pci/ddbridge/ddbridge.h         |  3 +-
- drivers/media/pci/mantis/hopper_cards.c       |  2 +-
- drivers/media/pci/mantis/mantis_cards.c       |  2 +-
- drivers/media/pci/mantis/mantis_common.h      |  3 +-
- drivers/media/pci/mantis/mantis_dma.c         |  5 +-
- drivers/media/pci/mantis/mantis_dma.h         |  2 +-
- drivers/media/pci/mantis/mantis_dvb.c         | 12 +--
- drivers/media/pci/ngene/ngene-core.c          | 23 +++---
- drivers/media/pci/ngene/ngene.h               |  5 +-
- drivers/media/pci/smipcie/smipcie-main.c      | 18 ++---
- drivers/media/pci/smipcie/smipcie.h           |  3 +-
- drivers/media/pci/ttpci/budget-av.c           |  3 +-
- drivers/media/pci/ttpci/budget-ci.c           | 27 +++----
- drivers/media/pci/ttpci/budget-core.c         | 10 +--
- drivers/media/pci/ttpci/budget.h              |  5 +-
- drivers/media/pci/tw5864/tw5864-core.c        |  2 +-
- drivers/media/pci/tw5864/tw5864-video.c       | 13 ++--
- drivers/media/pci/tw5864/tw5864.h             |  7 +-
- drivers/media/platform/intel/pxa_camera.c     | 15 ++--
- drivers/media/platform/marvell/mcam-core.c    | 11 +--
- drivers/media/platform/marvell/mcam-core.h    |  3 +-
- .../st/sti/c8sectpfe/c8sectpfe-core.c         | 15 ++--
- .../st/sti/c8sectpfe/c8sectpfe-core.h         |  2 +-
- drivers/media/radio/wl128x/fmdrv.h            |  7 +-
- drivers/media/radio/wl128x/fmdrv_common.c     | 41 +++++-----
- drivers/media/rc/mceusb.c                     |  2 +-
- drivers/media/usb/ttusb-dec/ttusb_dec.c       | 21 +++---
- drivers/mmc/host/atmel-mci.c                  | 35 ++++-----
- drivers/mmc/host/au1xmmc.c                    | 37 ++++-----
- drivers/mmc/host/cb710-mmc.c                  | 15 ++--
- drivers/mmc/host/cb710-mmc.h                  |  3 +-
- drivers/mmc/host/dw_mmc.c                     | 25 ++++---
- drivers/mmc/host/dw_mmc.h                     |  9 ++-
- drivers/mmc/host/omap.c                       | 17 +++--
- drivers/mmc/host/renesas_sdhi.h               |  3 +-
- drivers/mmc/host/renesas_sdhi_internal_dmac.c | 24 +++---
- drivers/mmc/host/renesas_sdhi_sys_dmac.c      |  9 +--
- drivers/mmc/host/sdhci-bcm-kona.c             |  2 +-
- drivers/mmc/host/tifm_sd.c                    | 15 ++--
- drivers/mmc/host/tmio_mmc.h                   |  3 +-
- drivers/mmc/host/tmio_mmc_core.c              |  4 +-
- drivers/mmc/host/uniphier-sd.c                | 13 ++--
- drivers/mmc/host/via-sdmmc.c                  | 25 ++++---
- drivers/mmc/host/wbsd.c                       | 75 ++++++++++---------
- drivers/mmc/host/wbsd.h                       | 10 +--
- drivers/s390/block/dasd.c                     | 42 +++++------
- drivers/s390/block/dasd_int.h                 | 10 +--
- drivers/s390/char/con3270.c                   | 27 ++++---
- drivers/s390/crypto/ap_bus.c                  | 24 +++---
- drivers/s390/crypto/ap_bus.h                  |  2 +-
- drivers/s390/crypto/zcrypt_msgtype50.c        |  2 +-
- drivers/s390/crypto/zcrypt_msgtype6.c         |  4 +-
- drivers/s390/net/ctcm_fsms.c                  |  4 +-
- drivers/s390/net/ctcm_main.c                  | 15 ++--
- drivers/s390/net/ctcm_main.h                  |  5 +-
- drivers/s390/net/ctcm_mpc.c                   | 12 +--
- drivers/s390/net/ctcm_mpc.h                   |  7 +-
- drivers/s390/net/lcs.c                        | 26 +++----
- drivers/s390/net/lcs.h                        |  2 +-
- drivers/s390/net/qeth_core_main.c             |  2 +-
- drivers/s390/scsi/zfcp_qdio.c                 | 45 +++++------
- drivers/s390/scsi/zfcp_qdio.h                 |  9 ++-
- drivers/usb/atm/usbatm.c                      | 55 +++++++-------
- drivers/usb/atm/usbatm.h                      |  3 +-
- drivers/usb/core/hcd.c                        | 22 +++---
- drivers/usb/gadget/udc/fsl_qe_udc.c           | 21 +++---
- drivers/usb/gadget/udc/fsl_qe_udc.h           |  4 +-
- drivers/usb/host/ehci-sched.c                 |  2 +-
- drivers/usb/host/fhci-hcd.c                   |  3 +-
- drivers/usb/host/fhci-sched.c                 | 10 +--
- drivers/usb/host/fhci.h                       |  5 +-
- drivers/usb/host/xhci-dbgcap.h                |  3 +-
- drivers/usb/host/xhci-dbgtty.c                | 15 ++--
- include/linux/hyperv.h                        |  2 +-
- include/linux/usb/cdc_ncm.h                   |  2 +-
- include/linux/usb/usbnet.h                    |  2 +-
- 186 files changed, 1135 insertions(+), 1044 deletions(-)
-
--- 
-2.17.1
-
+Alan Stern
 
 _______________________________________________
 linux-riscv mailing list
