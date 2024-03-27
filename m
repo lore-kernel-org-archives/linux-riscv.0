@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B79C47DD9
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 12:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C478CD11DD
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 12:25:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+IPb6NrHQi+kYy1ddHqElUuUbb07wiYSQmYpTQYbX1Q=; b=kK/lg8poQkUVk/
-	jw/LVDrh+6ueygKkkPI6zEpD+J+XnyV4vKbjPO0VHvh9EShhFGr7yaRQC2Vkv8sAr5t2z5QTrBHqL
-	ptL7chALbztbNExqPLKj1XhXROu/WrOtZMfEu0g4/ofliZ+q0MzQ52xGRhAAnTtQ1L/3jn5GM0v2G
-	/0ZuWmexraqMrmjmR9uc0ieJ9APwhBIVxDJZLfcoe/T3DZFw1IBUgtp8Yn+snhiNT/Xm33JbfK7OX
-	cyjuX7H0ap2AxK2vnRdEEVBFHo1wnEPdqmhPFUDRvpwywYaLU8KcuJToWXZoxh/1R0voe8DEMw1rL
-	TFodRRvqGXeEAkgOhong==;
+	List-Owner; bh=SHV7vpFiFtSWKwde1yXA+DyvqXhT6JpM798LuEHs1i8=; b=pKTJPtbnXRZRSh
+	fDym7mUBICM1PhXbDBhU6FchKiT8rgEk0bCsc0iXH73PPPVkghzWXIvS6KTUpzfcIbtfsA97MLO42
+	f1Uqhhli7hC0z551rnSovzUe71MKiXR2Ljc3BuLIMxjDHJnf4cFN7Efh7FW2KIC3VvpcGeHqeMdd9
+	R08Yej9XvTx4J9DSDMjoFSZyiyXWpWk8bsAcIHNfT0DiDRpMSJ+0SDsQlBeBrpEbCvrm6YDkQpCVe
+	HzkzhzozN9Yl02KFmLa2kZFh9zocBPwMBXsfENJOnMueC5VjsEJFKOVos2yRXZo/Hja6umhzoKwGb
+	OPfExbOVFQOSEAq5OkHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpSLC-00000008qV2-1Hto;
-	Wed, 27 Mar 2024 12:25:14 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rpSLL-00000008qZZ-3EwG;
+	Wed, 27 Mar 2024 12:25:24 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpSL6-00000008qRN-2Taj
+	id 1rpSLA-00000008qTl-0p9n
 	for linux-riscv@lists.infradead.org;
 	Wed, 27 Mar 2024 12:25:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5E2C8CE2637;
+	by sin.source.kernel.org (Postfix) with ESMTP id 713C4CE178E;
+	Wed, 27 Mar 2024 12:25:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C66DC43394;
 	Wed, 27 Mar 2024 12:25:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3AE4C433F1;
-	Wed, 27 Mar 2024 12:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711542306;
-	bh=X6Q17iok1lsELRt2E1A4QpgQ+0x+/0qVC3vmN5bsp/U=;
+	s=k20201202; t=1711542309;
+	bh=gPsBJl3+lGsrZ281LklEHOtcSRqfcnJMec/DLgQQb8o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qHLddTCldCQc+zy2KauTb0OEL19C/ZeAtYJN6nFb+A8mdqD6YkBN+M8Bxh/AdNikO
-	 buRI0qewxr/ZaIWGFYdzCTl6Gv+RsoBnAlcfBmr9KGMxBuXI3pJYbMh+P8L1zLyhx2
-	 iLtM94jJ11V1gz7lLelQfy94vpn6TRB1kTWBvyVzm0aNi5tVHT8vPmz8oEGt3l6fvE
-	 QdGQtL8OjrgA1mCZf6OFDsqL3HwWRyd4+/E8wGZNsqkG7tjxf05SR/bswKgUpn9tFQ
-	 cxX8P48S5ffTReyax34KkflEXjTW48yOhRDn4aAzKNgI7xxcpWj0iR93pGTAkac01F
-	 GSF764hUTtFPg==
+	b=ZW0wI5TcjqElnMJHmeOioieZAl/zxdpw5U71hNTwAiAOmdOqr5q57K4xXpMTNQlBJ
+	 6e+ut/LCN1zr7rhWDODQTIhyaGsz/yh0n0UwnqPd2EMLtSGSTH2JBnm0p8kF8FTUWF
+	 F/3Gvz8GPQ+FkMlTLULmuhkOMb4LUvPzx++1I+ojrCBvOAX1do3NRcymbivSJA7D2H
+	 OX+QqBB06vYQxtVrF3KHwgrhGaxnrPU3HS6SK11uiB0QF3caMzPMbuu+pVKBYNfTzz
+	 pvSOT4kzC3+TfCifJDNMaRLnoaXfWC2tpSig0c7hZlBJfYf3zUa7w20oWjayF8El8t
+	 MOnvJgJ3IHZ8g==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
@@ -60,18 +60,18 @@ Cc: conor@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-pci@vger.kernel.org
-Subject: [PATCH v1 1/5] dt-bindings: riscv: microchip: document beaglev-fire
-Date: Wed, 27 Mar 2024 12:24:36 +0000
-Message-ID: <20240327-camper-brownnose-6392076d8699@spud>
+Subject: [PATCH v1 2/5] dt-bindings: gpio: mpfs: add coreGPIO support
+Date: Wed, 27 Mar 2024 12:24:37 +0000
+Message-ID: <20240327-procurer-rascal-33bca7d5d14b@spud>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240327-parkway-dodgy-f0fe1fa20892@spud>
 References: <20240327-parkway-dodgy-f0fe1fa20892@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=888; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=IXE+G6TXDdUlSmW7mF73cGLzEXQoXwEvNEi4hyJZUcA=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGksAqyWxyxDf27KOX45Wc6gK/FjWPo5fVG+mL6XUyzOG oavaJ3XUcrCIMbBICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgInUljAytJzJPjW94muSCof5 xEw/ruBlqzbOO3DwwKtM0Svf5VZUHmBkOHtBweWu0Nv2tfc3HlrA9/9UdZEFM8duP4nZh9WX7jv Zxg0A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1550; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=IMTT4E9wFHswzy76N6YWQpUY7X5/7P9UPRxEwIXGGcY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGksAqwlMoeOTjkgsrLk+pXsCh2fyQc/lKY92M0gOH2W/ 432/QYKHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhI/XdGhuN8d3y0a4TunTev fNci3W7XI797eZTd4m2zI8QWsjrJPWdkmBsmwLN97pkHCSZ/pzQrpjxmr73q8vSSXd9OEc71i/1 k2AA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_052509_164815_4071AD5C 
-X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-CacheID: sfid-20240327_052512_446092_056E03D9 
+X-CRM114-Status: UNSURE (   9.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,29 +89,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+From: Jamie Gibbons <jamie.gibbons@microchip.com>
 
-The BeagleV Fire is a BeagleBone Black form-factor board with a
-PolarFire SoC.
+The GPIO controllers on PolarFire SoC were based on the "soft" IP
+CoreGPIO, but the inp/outp registers are at different offsets. Add
+compatible to allow for support of both sets of offsets. The soft
+core will not always have interrupts wired up, so only enforce them for
+the "hard" core on PolarFire SoC.
 
-Link: https://www.beagleboard.org/boards/beaglev-fire
+Signed-off-by: Jamie Gibbons <jamie.gibbons@microchip.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/riscv/microchip.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ .../bindings/gpio/microchip,mpfs-gpio.yaml       | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
-index 4a29c890619a..78ce76ae1b6d 100644
---- a/Documentation/devicetree/bindings/riscv/microchip.yaml
-+++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
-@@ -29,6 +29,7 @@ properties:
-           - enum:
-               - aldec,tysom-m-mpfs250t-rev2
-               - aries,m100pfsevp
-+              - beagle,beaglev-fire
-               - microchip,mpfs-sev-kit
-               - sundance,polarberry
-           - const: microchip,mpfs
+diff --git a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+index d481e78958a7..6884dacb2865 100644
+--- a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
++++ b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+@@ -14,6 +14,7 @@ properties:
+     items:
+       - enum:
+           - microchip,mpfs-gpio
++          - microchip,coregpio-rtl-v3
+ 
+   reg:
+     maxItems: 1
+@@ -62,12 +63,21 @@ patternProperties:
+       - gpio-hog
+       - gpios
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: microchip,mpfs-gpio
++    then:
++      required:
++        - interrupts
++        - "#interrupt-cells"
++        - interrupt-controller
++
+ required:
+   - compatible
+   - reg
+-  - interrupts
+-  - "#interrupt-cells"
+-  - interrupt-controller
+   - "#gpio-cells"
+   - gpio-controller
+   - clocks
 -- 
 2.43.0
 
