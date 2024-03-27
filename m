@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B737C47DD9
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 12:25:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C133AC54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 12:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2gR82silBQEXDtFOkr6B5ECxo57sj6/J+EuQZvEvV1s=; b=RqRLPplxGxb6dn
-	mM+Rj7CmJDkv+hYOw+3zjT2+ndTD3Se+EQUDRd2TZc8nXPj6HLx8tyE3jwCTXWSftSv/4rVekuwYz
-	+NDKoTUTE6ST1rBxvS65F05kbhY1i6bh9EUc5kwjab0iC1QHGXG8gCdABxYUr0L6RsipqI3IdV1TT
-	QZLFXgXUOTT3LMKDY/HObBHcT6Qfv/uIYeQdNvQPHChok3zTXhYc6SjZtoq4tTcOxkNtvyDS5tcRU
-	UycWp1ETIIR2RnnvuHhnDZ2ZfC/nNSVr8p/WgDBpTITMJzlqf2+nORysLMGZrBTGCxtMwnCFssrGD
-	0+rjTWO5iAoL7Sd3TZTw==;
+	List-Owner; bh=jMX1rozEZh0x5KKyEH1dGmWg5zFoGFCA5Kviq40Xh3Y=; b=VLgxccWCWXU6Eu
+	edAy/x8RqF6XHcNZc5XzEvJhOcyy8VFYOnM/OILcWziKVrOmzIbVdzEuVhoddSGo+tO/cJSiIjMZh
+	ZPI719/pUCNBq+Vpna5vIksRqCbaw8j1QdSuaSuOwaRlgcfYzv3Crbx5AdPe0eTQAVbqZ46oCxrHA
+	2YaB9/Cgf0sxfWDA2kB/92mD4QjhWEfvoOJ7Gg1374Nu2CEbgGcRhLyJn4JOuGjhzaofpQZx6K+ou
+	K8pVQN78zAyPETOGTSPoXhsyFYpdUFZX47PRRsqomoPdupTaf/Ved4OifmgKyL8kkCqhlrVB15QAA
+	NQdVHobc8YVWTaOXqU8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpSLT-00000008qf4-0c93;
-	Wed, 27 Mar 2024 12:25:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rpSLY-00000008qjG-1k1K;
+	Wed, 27 Mar 2024 12:25:36 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpSLH-00000008qVv-17P0
+	id 1rpSLD-00000008qV3-1VIG
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 12:25:22 +0000
+	Wed, 27 Mar 2024 12:25:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6FB2961503;
-	Wed, 27 Mar 2024 12:25:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEB2CC433A6;
+	by sin.source.kernel.org (Postfix) with ESMTP id BF825CE16C2;
 	Wed, 27 Mar 2024 12:25:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23145C43399;
+	Wed, 27 Mar 2024 12:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711542317;
-	bh=Lbr7IoAyrDhiLzvuJzo9IGXeuw1UGQU0B8IX5xK2H+U=;
+	s=k20201202; t=1711542313;
+	bh=038VBIDo7wOXasBPUdMTZ8PLRSWfD0Ugbh34YKcaqAw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IKG0/+KxX65U8B6XpOGDDqAnJTt+kb8aYVgZVTGIIpD0/6rdJUY93+ccYMTxo7IFf
-	 LxuZ3RXakM8fegH9uin6VNqDqC6iqCpicoHl1u0Mgi7spfRpjl9uPpFtDKdqmp4RLm
-	 QfDGm/DmxnEoUsPk15G/Z29HFv2bws5U7xOtI004KDQd/i+VD5JBOc1sSlWqEThj5A
-	 x294jM3hfwg8lL4SkUw7/S7jPbQ4nTp+3lqWRFPO1e43J1L8cMG+/8AO9xhf6tx3YO
-	 YzakB6MjgI2zzH1QsxN2LECunJvf1q9iMk6HaJiFSnHNxxvVAC6oHU4GvECZfehSSa
-	 DyY8OGa8cEwNg==
+	b=Kwr1lYv2X1QC6vcz5l+zu2KW28jKDMcUCckfHzTia2WHhQHNUkkqzcxlIhuH8bH0V
+	 oHRouwHNl91AZtFpfS8uSq4B8BjUJgT486AJqQp4NaDGbAoH+TEFEEZWT4AZusOaye
+	 ZNM0LetAPWIAXXHZHwqm7me/VV/2c/Mrj3fM3pvBRJkG7thwftZ8ovy/oN874gGMNa
+	 Ya4K0P3ZAtuGs68/oELfhLaGSxxvqRF3HHkpASq14EzDDMcOoNNu2QpGaPK3yNH8+q
+	 gZl+bRFZmz7AaPGs47pDBXEfvJz7WJebsBOGGgbXxhsynKneIAdK3NkdTNVFQ4ijgr
+	 at8b6J9qN8j7w==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
@@ -60,18 +60,18 @@ Cc: conor@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-pci@vger.kernel.org
-Subject: [PATCH v1 4/5] dt-bindings: PCI: microchip: increase number of items in ranges property
-Date: Wed, 27 Mar 2024 12:24:39 +0000
-Message-ID: <20240327-debunk-perky-f5514ca332be@spud>
+Subject: [PATCH v1 3/5] dt-bindings: gpio: mpfs: allow gpio-line-names
+Date: Wed, 27 Mar 2024 12:24:38 +0000
+Message-ID: <20240327-overrate-overuse-1e32abccd001@spud>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240327-parkway-dodgy-f0fe1fa20892@spud>
 References: <20240327-parkway-dodgy-f0fe1fa20892@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=945; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=buQq0yDz7uxZQBF0BhuHfxwtzcUDoTRsuZxOB+uRXCE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGksAmxvph4tLRbY8dV+n4ex5fzX1dfyc423lMvFPOeWm sV8+UZsRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACay7BfDP7UKSWH7FpHjCadu feA3O8MZbdTkc5atf4PHCgsfw0v5exgZFh1rWJJvfVfzX/L1688fGPueFpf4EHqXuWSm3bu3h9s ncwMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=815; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=DQ/xOk1TKoK84RFxAr9nUQRMqrU2scD4cxuVi4j2DRs=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGksAqyTq1tfxFl23mh4eOftRUHLExaKZ7ubjEPOpDEK3 2X0bLvVUcrCIMbBICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgIk08TEyXHq56IBz2p6VonO0 3HTV9HW9zr01q1DPEmzO9hK6UpOUxcjwbcfUFsHNTqqXMqcvmMXHE3Zk3bklDh+7eJ8t2SI0c4Y FPwA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_052519_725856_39BE0E85 
-X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-CacheID: sfid-20240327_052519_437818_53FEA147 
+X-CRM114-Status: UNSURE (   7.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,32 +89,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+From: Jamie Gibbons <jamie.gibbons@microchip.com>
 
-Increase the number of items in the ranges property to allow up to 3
-ranges. For example a prefetchable range, a non-prefetchable range
-and an IO range, depending on configuration.
+The BeagleV Fire devicetree will make use of gpio-line-names, allow it
+in the binding.
 
-Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+Signed-off-by: Jamie Gibbons <jamie.gibbons@microchip.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-index f7a3c2636355..e8212a05b7b1 100644
---- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-+++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-@@ -65,7 +65,8 @@ properties:
-       - const: msi
+diff --git a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+index 6884dacb2865..d61569b3f15b 100644
+--- a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
++++ b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+@@ -44,6 +44,7 @@ properties:
+     default: 32
  
-   ranges:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 3
+   gpio-controller: true
++  gpio-line-names: true
  
-   dma-ranges:
-     minItems: 1
+ patternProperties:
+   "^.+-hog(-[0-9]+)?$":
 -- 
 2.43.0
 
