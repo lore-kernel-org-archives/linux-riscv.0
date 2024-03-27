@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E195C47DD9
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 20:03:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFA4C54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 20:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6jveSZWwD7rC4F+k53uJ0JpqGn/f2gTXmeaEJLfC6sA=; b=zJBplogQMt6UOS
-	PoEE4LB5bFEKB2qGJcNTwF5ad26xCckGqrApO0BO94yGEwL58d2cXYPP06fyQj7go3HSPYuF0KUJq
-	29CkIBpfI0FcL/ZW1Aao6CAw79VMhXd+CaHUVgP6wsFjUz4w2kSUWRDkIY6v5WVUUSbci92fKz78z
-	GAYAZzc/XGX6CtP+ADABMyeFwW9tkK6JG9Dc3+DnyaLARCljQL4I8MP8CaOdU8T2ksyESfl90i1kh
-	LCCheMv+XozibCHrCrDLqb5lRkaiFPu3/hTTYKFX0KQJ8ucpe7XQVUv6bqIDQfSpqp03VV142RNnM
-	IM/OWprUz73fMXX7pbig==;
+	List-Owner; bh=L3u62KmDQMeTBR29q5kMpkBufFZ1Y3+LZh71bOQYCuU=; b=NGXFphlWnxGUnQ
+	fhXGB1D+cipYlsNGFdyPgUmDCrNS4dZQVsssqmaYQ78HE5G8fvwoMNIVksf5gc4QFth7qkxUcP1PX
+	ZUvng+Vh8qDSbSH4xV36ZPWqkb4hdLoFsNK/pQUkteNS0HEQuX7BnloNlbhymjzne5iFLlxRd+KgJ
+	cnwNrmNbBTZq2GPRawMijjasADMXFL90aEpjlsyyTF/XzaZtsKiMkZ/Q8Nj+BOp/d4xSpvCXGdHtZ
+	WK8ab5QcajbgMkmKAs2z7FOaV0pXgDFlPNO3dYpVx422jpxypJuUkb7L5PaylyDnUIrUn36H2DZ7P
+	w9AoOvNnib+4/cRymjLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpZUp-0000000Av07-0Aby;
-	Wed, 27 Mar 2024 20:03:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rpZVB-0000000AvEK-3OUS;
+	Wed, 27 Mar 2024 20:04:01 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpZTV-0000000Au8A-3KhL
+	id 1rpZTV-0000000Au88-3DCL
 	for linux-riscv@bombadil.infradead.org;
 	Wed, 27 Mar 2024 20:02:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=s9egB7QSoDAHRW6tgRYqVd+NUTiSQfL/JcKX7OjtD5w=; b=KnCIwVmJNh4MzLjXUKDjLgp/FV
-	ixJQkTbUH386bYXx2n8j4UUkIA9krt3mpEo4/9iAJWtw250nlTco8DQBJ/RkG4vstknP4PlnYMEHO
-	kRzFVsKBxL1BFLKypmrd0wT77K8oNfVwnvqAdBUXuoOe+/umL7i2/JhQGbJQ9jB+xIdhcd8mio88p
-	CykhWwgaZr8F0FOhIfTQQ2SFzayJEYWKjGfbUkbSbtclaSERBrLk24eEOasPbuJJOBbCQ0MytxWxw
-	sEuPxTzPGtl+O/V4yPErKAVrlW1h/1ujXG4Or6t8/2ZcBsZzpwJrjVSlfwn0auPBK4I6SNzLbJx2B
-	dAIEGXhQ==;
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpZTL-00000000WpP-2wwi
+	bh=nnfcb5HAvzgd9XZtKey8r+Hj1U7B+/pwxPGR+srUxos=; b=ozrgTldVFuLV6I1oAzGCa2Rn/9
+	dG6w5TYFh7QejPaJDwpL2iwkffWS6q0aSQnVKARhLOBtyCLVN1MBKGEwdcqep7ado6DWWVfU8F2Sc
+	Kch8rdClckEzxf5RVAQjAoZDl068I8ae2ubUTI5zi4G2Ewa9U6ZrTxm+alXC6HgpDtjQgOMWrRWeg
+	ZqP773BULHKiiQfkYjkXyHB0AeE/iliv7JQyJeHVv5hy8GE8+vh7vXd2UMvkJFpAE2CywbuJ/9cIU
+	Ml0camCGUZevkyXbXSDQ7+xM3+CDwPUovMvmlw2D+NswjdhwwUS8hsCX4T4Xkkhxbo7LPyerIl3l1
+	+CrkQSRw==;
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	by casper.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rpZTS-00000004dpJ-2XDa
 	for linux-riscv@lists.infradead.org;
 	Wed, 27 Mar 2024 20:02:16 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1e0bec01232so2083145ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 13:02:07 -0700 (PDT)
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1e0ae065d24so2142855ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 13:02:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711569726; x=1712174526; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1711569731; x=1712174531; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=s9egB7QSoDAHRW6tgRYqVd+NUTiSQfL/JcKX7OjtD5w=;
-        b=LfzU3ozRbFRP4ITlpFuPz2PDvUynGm+eXPd+Ue7DJiQGrLnyyR7i7Gyv1wrO37+/hI
-         3xyxbD88NNz+IJFeyrTtwyGXew+R9em3rvVM4TP7s+4c4yitns1P5VjPd1QmTNrPAC40
-         HjkYarEOnxh95qyjBQig7FdpIIgNKBg9C4q5xZ7pJ5inGNM+mUsu4Jx9EwttkEc+ekca
-         VVySnIGYrKnyX969p3OfsKUE+hWo1CzMbaUElOMDKLyHEa1HVx+fXvVJSmygS7ErrfQS
-         OaQKpsZH3GLzjz99HdQswXMTx2Pb0mEJ8+qFg0+0usebcF7B4uU/rzbA59mJzn16cyHX
-         sk8Q==
+        bh=nnfcb5HAvzgd9XZtKey8r+Hj1U7B+/pwxPGR+srUxos=;
+        b=RBw/1oeiAlSavLClFtdRhFh664hsj9wpy1zB9FxJchnrtdi5RLDB7lfvMKub4ru2+e
+         krt8E3f0/Ny92SrQIhjMg+q1cpIvzcqLQH7TZEfaJvH99Xy5ZtTBZJGV1eQ4BXNW7b56
+         O4JJK2iwODnxQSbOSbdY3TtJfV93r+f8dfxEoCoCL6aq/Ut4WrxiavxfoiqpwGbh1IL0
+         G4SYWa8o/zIsgr/+P8xP0sbfE0nHctO+ndESXG41n13ZpH4EexxXe9XHeEjP0fx+Afn6
+         +LhxXF4a7PWSeO6TEF2e6jAmGnIF7VmujVi2QvoA8oqP3TgJ1ozeCSYjJlNc4NOlc9GL
+         VX4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711569726; x=1712174526;
+        d=1e100.net; s=20230601; t=1711569731; x=1712174531;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=s9egB7QSoDAHRW6tgRYqVd+NUTiSQfL/JcKX7OjtD5w=;
-        b=vh9S0fnZP35k2vig4rjGjpyxVI4qnAhEtYx6gcALlUU4ROTk63zWfTuAsd9ez5vwDl
-         n4sHaVgr2MwFZNwCxfA1db1XcH9sprpzAQh472SyBp1QJlIyFpaO+dp+2gXKr6A2Bmhy
-         BC7KIrwX7xyKKVBcb6+ng/l+nTtL6h1SlNzJ8wJCVXCqGpPyT5JJY5+c5ajBG2iwRRz2
-         qKrJP4oz9LR2HbOJOPyQ5l81W62PhTWkAVe2h3JmrYj7qfu4QbZp0cUsHJzfDN7ZDDOd
-         KExaYKUG4wIr+A9W9gXHafgZQvqkNF02X9nC9BSyMsiKR7AQExf9BXjw4A6zTQVcWtao
-         WndA==
-X-Forwarded-Encrypted: i=1; AJvYcCUXSF2es27Gx6hn3NwpL99bemQYZ8fmky8+Hv+rMSSiaXLhLE2v3TWa4am9tifA3Ay1ENI4LUzDYg5gC2gXViR5Ha3hUGV6FbzUVACSfpg3
-X-Gm-Message-State: AOJu0YxcmfJgstROlkmyJY12/D+9G+2aVZ6AEkdppmIjrkE2QID6DPq9
-	KsxwmVufx7bfsQoAZ90/gTVkrJdeYj2jcH3k8+nZusRCkdPUaoIVPoL7L9vBFzI=
-X-Google-Smtp-Source: AGHT+IFGHdi74bAZSMUCS5nBpcP7LI5Cfqz6VZFaIDx36rlYRojmLVaB4TIyZga5IdN5tuwaxR1nKA==
-X-Received: by 2002:a17:903:2b05:b0:1dc:a605:5435 with SMTP id mc5-20020a1709032b0500b001dca6055435mr854470plb.31.1711569725718;
-        Wed, 27 Mar 2024 13:02:05 -0700 (PDT)
+        bh=nnfcb5HAvzgd9XZtKey8r+Hj1U7B+/pwxPGR+srUxos=;
+        b=WIGwW/kRBGq/myZlZLOgYuRjtQgisT9LAdJnKEHfrV7XQEzjt3goIstOq89AY2oPq5
+         Abi/0n2qtIqXh/p/qFXkzVGcno1RsTuXI6n459HN94msAQ89wMZ9+0a46cG40lcb07g6
+         93d4Y1hDmagLCmHwZzzq50eD8d7XZL1pPnmuwjAiPd1UAIOdeIFNVE+1NpnZpoAF/tiE
+         8eYyrYELn9C4Pel7hYfrHKfgZOx5eSzD7ccLDt3/oI0zhVNPwk5jicDoBUz4zGHXaRVG
+         c2ShmEVVsJTC8sh2JknFMFD2XeQDAMkVdVc3BXBSIPcRUmYdu5rAVu8QqWkKvmMKoAW/
+         Ym9w==
+X-Forwarded-Encrypted: i=1; AJvYcCWRgqiuu5GexCvQo9NK9lAgB9ZF82pWN+C2svJH/v0z8zo16n1iE8LNi3naWZKjI9dTEyoQKo6H0Lsv6mTwtbmbJ/ydqDFAhJ1PnnUPaI8l
+X-Gm-Message-State: AOJu0Yy0b1PskcptS0ymlpoHsLeLvcBHH/Zkb4XlLQGMsp7/ib6yWTk5
+	OfNoSQh0X8/9Y6CI0LLmUDmypwWEPiFIAu6LJtX37yCcb8SrRP6S6PJwALgZtPk=
+X-Google-Smtp-Source: AGHT+IGwHWClv4VHwAUMeRko9/IrGC0nK3n3EBnq+VQl6LUZXOQ24ITW9JUdRJyNTiGgpBBFPtyemA==
+X-Received: by 2002:a17:902:f545:b0:1dd:73ba:cd7f with SMTP id h5-20020a170902f54500b001dd73bacd7fmr731731plf.47.1711569731200;
+        Wed, 27 Mar 2024 13:02:11 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id u4-20020a170902e5c400b001dd0d0d26a4sm9446459plf.147.2024.03.27.13.02.04
+        by smtp.gmail.com with ESMTPSA id u4-20020a170902e5c400b001dd0d0d26a4sm9446459plf.147.2024.03.27.13.02.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Mar 2024 13:02:05 -0700 (PDT)
+        Wed, 27 Mar 2024 13:02:10 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
@@ -90,18 +90,20 @@ Cc: linux-kernel@vger.kernel.org,
 	loongarch@lists.linux.dev,
 	amd-gfx@lists.freedesktop.org,
 	Samuel Holland <samuel.holland@sifive.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH v3 05/14] arm64: crypto: Use CC_FLAGS_FPU for NEON CFLAGS
-Date: Wed, 27 Mar 2024 13:00:36 -0700
-Message-ID: <20240327200157.1097089-6-samuel.holland@sifive.com>
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH v3 09/14] x86: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
+Date: Wed, 27 Mar 2024 13:00:40 -0700
+Message-ID: <20240327200157.1097089-10-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.43.1
 In-Reply-To: <20240327200157.1097089-1-samuel.holland@sifive.com>
 References: <20240327200157.1097089-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_200207_931039_C7F9A9E0 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20240327_200214_660060_D06BF21D 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,38 +120,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that CC_FLAGS_FPU is exported and can be used anywhere in the source
-tree, use it instead of duplicating the flags here.
+x86 already provides kernel_fpu_begin() and kernel_fpu_end(), but in a
+different header. Add a wrapper header, and export the CFLAGS
+adjustments as found in lib/Makefile.
 
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-(no changes since v2)
+(no changes since v1)
 
-Changes in v2:
- - New patch for v2
+ arch/x86/Kconfig           |  1 +
+ arch/x86/Makefile          | 20 ++++++++++++++++++++
+ arch/x86/include/asm/fpu.h | 13 +++++++++++++
+ 3 files changed, 34 insertions(+)
+ create mode 100644 arch/x86/include/asm/fpu.h
 
- arch/arm64/lib/Makefile | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
-index 29490be2546b..13e6a2829116 100644
---- a/arch/arm64/lib/Makefile
-+++ b/arch/arm64/lib/Makefile
-@@ -7,10 +7,8 @@ lib-y		:= clear_user.o delay.o copy_from_user.o		\
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 39886bab943a..7c9d032ee675 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -83,6 +83,7 @@ config X86
+ 	select ARCH_HAS_FORTIFY_SOURCE
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select ARCH_HAS_KCOV			if X86_64
++	select ARCH_HAS_KERNEL_FPU_SUPPORT
+ 	select ARCH_HAS_MEM_ENCRYPT
+ 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+ 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
+diff --git a/arch/x86/Makefile b/arch/x86/Makefile
+index 662d9d4033e6..5a5f5999c505 100644
+--- a/arch/x86/Makefile
++++ b/arch/x86/Makefile
+@@ -74,6 +74,26 @@ KBUILD_CFLAGS += -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx
+ KBUILD_RUSTFLAGS += --target=$(objtree)/scripts/target.json
+ KBUILD_RUSTFLAGS += -Ctarget-feature=-sse,-sse2,-sse3,-ssse3,-sse4.1,-sse4.2,-avx,-avx2
  
- ifeq ($(CONFIG_KERNEL_MODE_NEON), y)
- obj-$(CONFIG_XOR_BLOCKS)	+= xor-neon.o
--CFLAGS_REMOVE_xor-neon.o	+= -mgeneral-regs-only
--CFLAGS_xor-neon.o		+= -ffreestanding
--# Enable <arm_neon.h>
--CFLAGS_xor-neon.o		+= -isystem $(shell $(CC) -print-file-name=include)
-+CFLAGS_xor-neon.o		+= $(CC_FLAGS_FPU)
-+CFLAGS_REMOVE_xor-neon.o	+= $(CC_FLAGS_NO_FPU)
- endif
- 
- lib-$(CONFIG_ARCH_HAS_UACCESS_FLUSHCACHE) += uaccess_flushcache.o
++#
++# CFLAGS for compiling floating point code inside the kernel.
++#
++CC_FLAGS_FPU := -msse -msse2
++ifdef CONFIG_CC_IS_GCC
++# Stack alignment mismatch, proceed with caution.
++# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
++# (8B stack alignment).
++# See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53383
++#
++# The "-msse" in the first argument is there so that the
++# -mpreferred-stack-boundary=3 build error:
++#
++#  -mpreferred-stack-boundary=3 is not between 4 and 12
++#
++# can be triggered. Otherwise gcc doesn't complain.
++CC_FLAGS_FPU += -mhard-float
++CC_FLAGS_FPU += $(call cc-option,-msse -mpreferred-stack-boundary=3,-mpreferred-stack-boundary=4)
++endif
++
+ ifeq ($(CONFIG_X86_KERNEL_IBT),y)
+ #
+ # Kernel IBT has S_CET.NOTRACK_EN=0, as such the compilers must not generate
+diff --git a/arch/x86/include/asm/fpu.h b/arch/x86/include/asm/fpu.h
+new file mode 100644
+index 000000000000..b2743fe19339
+--- /dev/null
++++ b/arch/x86/include/asm/fpu.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2023 SiFive
++ */
++
++#ifndef _ASM_X86_FPU_H
++#define _ASM_X86_FPU_H
++
++#include <asm/fpu/api.h>
++
++#define kernel_fpu_available()	true
++
++#endif /* ! _ASM_X86_FPU_H */
 -- 
 2.43.1
 
