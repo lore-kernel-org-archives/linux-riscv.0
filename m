@@ -4,96 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B2ECD1280
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 15:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E79CEC47DD9
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 15:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ROzow6XucFkLMSr0dX/P9txY60787ucuVBPup2hF7uw=; b=sFvyigR2X7WWTN
-	EUmcU5zQgt5XR17fDnbc+FA3ETc4x2AVsQMXR7Ul2icHOwLyy76+WkoRkZlo+ZDezvYxjOXc/Vwhq
-	QK/K4lLcgGAoAGdRL1IbmERfNGWToMFsuJeKyicpkY9gmdBMQBPc4Ybs8K579ZE46Kkx5AGCFlnFg
-	6IMdyqypN9c/0tnXTtcs8Ds8kEc+9lvYkHbCvIv1JS3nQT6AD5AE6tnHQtzKVla0B7GXATHQY1B9Y
-	/NviABt1w9GKjoiDnnFiG0gzGniutBtFnluiGadUTGrfSYWarBuGn1uuqkiN8ItSKmO8bZH6iE/rJ
-	eSaoQKXBuAt9qpspuPRQ==;
+	List-Owner; bh=XLh8A+xDcp+CSOEy45Lw5OWa17fp9NedIygzPyqhlSA=; b=hqKq8C/TMdOdLi
+	vZ9UoL37sWBhXYsPnklic8ymC+q5LS6f3J3qnNS1Jf9Lxfqp9z0JUd8UXGhAg0Poz2K1C4xBM/65w
+	1UZLcz3xUlWUupiWCVlFyzT/pxMcKpC5Q5Iq1a1Zmlu0w5016lVZRgeMPfFtftlwdhIwG9dse7MRt
+	L+SuOG0SLXy8B8/JxIlwLRVQ6Mm2f/QajRMavWxvIPK2vi6dF/e4BY6hRKk94jgxfqNhFRycQGpY3
+	gUA03aKhQmIwtmt7P0qgtSaj+n2OGHD0lfGcvik1uS/GSuGfQFcZnkzyMg9fnNdoDRddnp0qe6Fbl
+	YDX7M/OdiNjKBtvWG6gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpV8S-00000009lhR-2iMl;
-	Wed, 27 Mar 2024 15:24:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpV84-00000009lMa-1ram
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 27 Mar 2024 15:23:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=iN7hVKxpU9yGNoa0FvV6QQfaV15Sbc5QZKf/pqr08oc=; b=rDQo7ngeFL6dXnYlJ/hTQ6s7Sw
-	Pjcy8ufQkpzoKe53+t6qqhmL2GmR+NebLU4bq/AIcq/lMmrIvgRusEFyg+JZtStCb1m9pbIzkbHra
-	BQfywIhxnFLn+Cue9Iud19DwtFkq2esNmcOfAk5APzQ4NaFjt2xEC5Wj3oQGLCA/PRREyWPu41IpH
-	gAYtnzBuuMDF1BuWzWMfEFuzyk5EArBh/My2OqlSDcclpBvtgEhBXll9RWKFpI/LrQG4MC+jIVoOY
-	wiW+8cuKuahhUyKHDMCXYEIVVHE3HjWu2avXR3ZeOxLLH/mGfi4sw9gEKrvwM64qd4EkZ0asfJH4V
-	gfIsPr6A==;
+	id 1rpV8c-00000009lo6-2zlG;
+	Wed, 27 Mar 2024 15:24:26 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpV80-00000000KzI-0X7U
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rpV82-00000009lKK-0kxE
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 15:23:51 +0000
+	Wed, 27 Mar 2024 15:23:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1711553026;
+	s=mimecast20190719; t=1711553029;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=iN7hVKxpU9yGNoa0FvV6QQfaV15Sbc5QZKf/pqr08oc=;
-	b=E0m8c0g4mMcVpRGlZq3lof8PUsb6a7CeiZTHQhuS5Deitn7B3/6mUZJkHOYFCUK5u+VK8+
-	gNN6+/+fKJNfKjNqYJK5MxZmuIg9GV3UiDZOtn60DpbXqKNYof4bF4TwhtAtI1wpHO5vdF
-	hbduVgMnvApSArxYYTzzbQDAGnIHV8k=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1711553027;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iN7hVKxpU9yGNoa0FvV6QQfaV15Sbc5QZKf/pqr08oc=;
-	b=YoUFMiqFRQwhob84m5cE7rl4ymoqHhlX4EDmjLX6XYrePEOIIbfmCh/MAOwdaYeQHBYR+R
-	zahoAgoWPVh3bqDzBgpodsIDqI1r7v4l2TP9JFH8fqbyuDel/wgMjx+Yz4rmFKVIbWqbHw
-	hXtPSMsy4uouiL7XlpLU7jvFHIs5uZE=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=VkfUQlJiw2YmDi669w4oXgCkjfbnGDZMVpc2LJneNK4=;
+	b=AVsJQ3oxZori/0jbiU/hEUHGTPyOIfF2KtXrxRs+X9qPY6bpKKg3pU3mS80iG+/rUMPxLq
+	aQKTRNxV677HRcYDhyG05TlV3K7yqcgzl97J0robQAfWSrJEq7Qlz53NpFNy5DqVt8zadu
+	G+7oNcVo6BMi+6axzYrp57Fo5oxz+yY=
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-507-uFmadyJ3Ne2S53oZu8wyjQ-1; Wed, 27 Mar 2024 11:23:45 -0400
-X-MC-Unique: uFmadyJ3Ne2S53oZu8wyjQ-1
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-69152af7760so25772506d6.1
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 08:23:45 -0700 (PDT)
+ us-mta-633-JGIiTBSDOVCpjxwsl8XamA-1; Wed, 27 Mar 2024 11:23:47 -0400
+X-MC-Unique: JGIiTBSDOVCpjxwsl8XamA-1
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-690c19ee50bso2421816d6.0
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 08:23:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711553025; x=1712157825;
+        d=1e100.net; s=20230601; t=1711553027; x=1712157827;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iN7hVKxpU9yGNoa0FvV6QQfaV15Sbc5QZKf/pqr08oc=;
-        b=tavU+Z/waR9t7o/ZO8sBKGFbzJGNTI1lJoKee/qYX16WpZU7lMNegW7tGbUu01FQMP
-         Mhb3flCXYj09YO+19m0hlPuFdKdvK1kaZbAmeLrZBcNgOul0m6k3jMEQ3AG53EqlctPI
-         faJBjXki8JUYemifCvJbs0patXUfOc9JPc8otxo/bZWpPHG47hCAGBG+e5Orliyo/r+V
-         eZhxBbqCvEg115qUb5c+hWVLls5hkYsgGuorvAuQDZuaKMahM/21DEDwbcx7sivCCaBf
-         VHdezmXmRU4RvrTonBen1t8DTqfjtVXo8+EfgIHWXimDj30N+3j5UT9S7LDoqZR/GyfI
-         MCwA==
-X-Forwarded-Encrypted: i=1; AJvYcCUGMzlGQj/mS0UWmJv9/HLxG7wuVi/QPrymZjNF1tX3dLsPXKyz12XWzMSBImIaJxUSew/B22NiHtap6PNb5WUhKLU60tm9wxiUdyvs25Vk
-X-Gm-Message-State: AOJu0YxMa2vnnsAQrJOlbPtdsC1FWSNjmotyhWBRuDf8PzJY1IZcdI5J
-	hFs2xE1MYb1UpNclyWP6XOeiYH4ws3slDSBsxtDm3VeT9B+BqccRI9bKvmaaZnx60uIRDPFvZnh
-	nfkjtKafQ0Xs6QDc9p9nj4UBfAhmSTMa9PheirGKBcHEhr1xOBbiA74Zbs+upoFXZtw==
-X-Received: by 2002:a05:6214:4598:b0:696:7b32:cceb with SMTP id op24-20020a056214459800b006967b32ccebmr13869561qvb.6.1711553024696;
-        Wed, 27 Mar 2024 08:23:44 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFS0Dr3UNRPnI4el/D5x8gcrtCXLMsQwIvd4dOzHJoXuoNg03xhCSCfsu9VpmJMAiYn3G+95A==
-X-Received: by 2002:a05:6214:4598:b0:696:7b32:cceb with SMTP id op24-20020a056214459800b006967b32ccebmr13869513qvb.6.1711553024070;
-        Wed, 27 Mar 2024 08:23:44 -0700 (PDT)
+        bh=VkfUQlJiw2YmDi669w4oXgCkjfbnGDZMVpc2LJneNK4=;
+        b=MvwvRG/0h1JQdD3rMBnBRO4QLNe8ibPMpSBMkoWPFkDJ5daRKtudL8qyp7F/QYsQu7
+         wPUZCfotSwYQ8aN4BX/UtY7rgyIUUYU47+ZWzatfTHFp5+XtQQj6g945ujMVm0lp85iw
+         QW8f35hzMFfrfNtMZgMxizxnJ0HmnLO9ZSSWCnYsd00f+NV5s14aeqCOTW4qrIbxi2up
+         b63plXAiw7AMaAMBloIdZHbIXw+PK8L0/LqpDYF+M7QqW9wBg5ALPHjRCL3F5O0EGqbQ
+         Peh8uiXmZdceoI0ZGcroKJSsT4Cb5Qa9TDmfNPCynbbkv/+uJjAsmPZU8MNNBHXqLk/u
+         vblw==
+X-Forwarded-Encrypted: i=1; AJvYcCX77QGN711OUJjXtMiuuJDLo5/ju3WLxapSjEyqi3ncpXeptUAx2ZzZf7vpJ+ATmhb1cmrE6iVE9PiXpdQA02vk0LgCszfS/RZcUw/f+1bA
+X-Gm-Message-State: AOJu0YwXhNJa1Ln7dBYPld/JRVKl800jT+Vucf+3pLQgY6GWiIsm7jHs
+	zaJoovJvfB0HesTBnzg6WqCW1RlTNViHqUyi+Pm8UBkXmY1/syU0aPHaM5fVdIWUIeD+KaZczwv
+	eTaxPiNNwobROKBAa78I3ZMYa8vMHMJKfVYZxH39IOxygeeFbOwpxkkXy+aAj38O6vA==
+X-Received: by 2002:a05:6214:3105:b0:696:6f59:4d19 with SMTP id ks5-20020a056214310500b006966f594d19mr14917309qvb.1.1711553026951;
+        Wed, 27 Mar 2024 08:23:46 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG/cvaZbNzejgmgOgxRck5pBSr/g3hsLSZETHWpBhBPVR+VZkVf7lYhXdSr9+e3t1xSA2Wfog==
+X-Received: by 2002:a05:6214:3105:b0:696:6f59:4d19 with SMTP id ks5-20020a056214310500b006966f594d19mr14917279qvb.1.1711553026413;
+        Wed, 27 Mar 2024 08:23:46 -0700 (PDT)
 Received: from x1n.redhat.com ([99.254.121.117])
-        by smtp.gmail.com with ESMTPSA id hu4-20020a056214234400b00690dd47a41csm6412639qvb.86.2024.03.27.08.23.41
+        by smtp.gmail.com with ESMTPSA id hu4-20020a056214234400b00690dd47a41csm6412639qvb.86.2024.03.27.08.23.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Mar 2024 08:23:43 -0700 (PDT)
+        Wed, 27 Mar 2024 08:23:45 -0700 (PDT)
 From: peterx@redhat.com
 To: linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
@@ -122,9 +97,9 @@ Cc: Yang Shi <shy828301@gmail.com>,
 	Jason Gunthorpe <jgg@nvidia.com>,
 	Mike Rapoport <rppt@kernel.org>,
 	Axel Rasmussen <axelrasmussen@google.com>
-Subject: [PATCH v4 04/13] mm: Introduce vma_pgtable_walk_{begin|end}()
-Date: Wed, 27 Mar 2024 11:23:23 -0400
-Message-ID: <20240327152332.950956-5-peterx@redhat.com>
+Subject: [PATCH v4 05/13] mm/arch: Provide pud_pfn() fallback
+Date: Wed, 27 Mar 2024 11:23:24 -0400
+Message-ID: <20240327152332.950956-6-peterx@redhat.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240327152332.950956-1-peterx@redhat.com>
 References: <20240327152332.950956-1-peterx@redhat.com>
@@ -132,8 +107,8 @@ MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_152348_383958_295A1C45 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20240327_082350_445291_D05517D5 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,55 +127,94 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Peter Xu <peterx@redhat.com>
 
-Introduce per-vma begin()/end() helpers for pgtable walks.  This is a
-preparation work to merge hugetlb pgtable walkers with generic mm.
+The comment in the code explains the reasons.  We took a different approach
+comparing to pmd_pfn() by providing a fallback function.
 
-The helpers need to be called before and after a pgtable walk, will start
-to be needed if the pgtable walker code supports hugetlb pages.  It's a
-hook point for any type of VMA, but for now only hugetlb uses it to
-stablize the pgtable pages from getting away (due to possible pmd
-unsharing).
+Another option is to provide some lower level config options (compare to
+HUGETLB_PAGE or THP) to identify which layer an arch can support for such
+huge mappings.  However that can be an overkill.
 
-Reviewed-by: Christoph Hellwig <hch@infradead.org>
-Reviewed-by: Muchun Song <muchun.song@linux.dev>
+Cc: Mike Rapoport (IBM) <rppt@kernel.org>
+Cc: Matthew Wilcox <willy@infradead.org>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Peter Xu <peterx@redhat.com>
 ---
- include/linux/mm.h |  3 +++
- mm/memory.c        | 12 ++++++++++++
- 2 files changed, 15 insertions(+)
+ arch/riscv/include/asm/pgtable.h    |  1 +
+ arch/s390/include/asm/pgtable.h     |  1 +
+ arch/sparc/include/asm/pgtable_64.h |  1 +
+ arch/x86/include/asm/pgtable.h      |  1 +
+ include/linux/pgtable.h             | 10 ++++++++++
+ 5 files changed, 14 insertions(+)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index afe27ff3fa94..d8f78017d271 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -4233,4 +4233,7 @@ static inline bool pfn_is_unaccepted_memory(unsigned long pfn)
- 	return range_contains_unaccepted_memory(paddr, paddr + PAGE_SIZE);
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 20242402fc11..0ca28cc8e3fa 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -646,6 +646,7 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
+ 
+ #define __pud_to_phys(pud)  (__page_val_to_pfn(pud_val(pud)) << PAGE_SHIFT)
+ 
++#define pud_pfn pud_pfn
+ static inline unsigned long pud_pfn(pud_t pud)
+ {
+ 	return ((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT);
+diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
+index 1a71cb19c089..6cbbe473f680 100644
+--- a/arch/s390/include/asm/pgtable.h
++++ b/arch/s390/include/asm/pgtable.h
+@@ -1414,6 +1414,7 @@ static inline unsigned long pud_deref(pud_t pud)
+ 	return (unsigned long)__va(pud_val(pud) & origin_mask);
  }
  
-+void vma_pgtable_walk_begin(struct vm_area_struct *vma);
-+void vma_pgtable_walk_end(struct vm_area_struct *vma);
-+
- #endif /* _LINUX_MM_H */
-diff --git a/mm/memory.c b/mm/memory.c
-index 3d0c0cc33c57..27d173f9a521 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -6438,3 +6438,15 @@ void ptlock_free(struct ptdesc *ptdesc)
- 	kmem_cache_free(page_ptl_cachep, ptdesc->ptl);
++#define pud_pfn pud_pfn
+ static inline unsigned long pud_pfn(pud_t pud)
+ {
+ 	return __pa(pud_deref(pud)) >> PAGE_SHIFT;
+diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
+index 4d1bafaba942..26efc9bb644a 100644
+--- a/arch/sparc/include/asm/pgtable_64.h
++++ b/arch/sparc/include/asm/pgtable_64.h
+@@ -875,6 +875,7 @@ static inline bool pud_leaf(pud_t pud)
+ 	return pte_val(pte) & _PAGE_PMD_HUGE;
  }
+ 
++#define pud_pfn pud_pfn
+ static inline unsigned long pud_pfn(pud_t pud)
+ {
+ 	pte_t pte = __pte(pud_val(pud));
+diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+index cefc7a84f7a4..273f7557218c 100644
+--- a/arch/x86/include/asm/pgtable.h
++++ b/arch/x86/include/asm/pgtable.h
+@@ -234,6 +234,7 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
+ 	return (pfn & pmd_pfn_mask(pmd)) >> PAGE_SHIFT;
+ }
+ 
++#define pud_pfn pud_pfn
+ static inline unsigned long pud_pfn(pud_t pud)
+ {
+ 	phys_addr_t pfn = pud_val(pud);
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index 600e17d03659..75fe309a4e10 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -1817,6 +1817,16 @@ typedef unsigned int pgtbl_mod_mask;
+ #define pte_leaf_size(x) PAGE_SIZE
  #endif
+ 
++/*
++ * We always define pmd_pfn for all archs as it's used in lots of generic
++ * code.  Now it happens too for pud_pfn (and can happen for larger
++ * mappings too in the future; we're not there yet).  Instead of defining
++ * it for all archs (like pmd_pfn), provide a fallback.
++ */
++#ifndef pud_pfn
++#define pud_pfn(x) ({ BUILD_BUG(); 0; })
++#endif
 +
-+void vma_pgtable_walk_begin(struct vm_area_struct *vma)
-+{
-+	if (is_vm_hugetlb_page(vma))
-+		hugetlb_vma_lock_read(vma);
-+}
-+
-+void vma_pgtable_walk_end(struct vm_area_struct *vma)
-+{
-+	if (is_vm_hugetlb_page(vma))
-+		hugetlb_vma_unlock_read(vma);
-+}
+ /*
+  * Some architectures have MMUs that are configurable or selectable at boot
+  * time. These lead to variable PTRS_PER_x. For statically allocated arrays it
 -- 
 2.44.0
 
