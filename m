@@ -4,107 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C186C54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 19:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C46C47DD9
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 19:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yXkBlPw0KktmJ8d4eI9yuEuXiL9rk/fYAaSmIcNixCE=; b=EQ5GRA9LzkbBxF
-	VaK5DIFQXcdG4Ut2pCr9AHogFG2Xc9Exj4F4aeXdD6eSPBpQ3/Gwwz2NvQZhYRXdE9rgI8t3f6+4x
-	aSzgEu4LhxMSY/qRtGVPl/mpoYsYn2sktDa22qYqG+eZiubeMZu40yyWdPgijlQDhWs5obfYIUCzi
-	W5XsnkL/6AqEUOLREntw/l/CFzXGQnDg8hpFKuQ4PuJTowe0Y458M9z3kvjqhFfrXXeILjEhZq1vx
-	qCgcVxPQNKAveJTbhJoAyuX7cyaBibtBJOvxpa8/1wITf0cip+02vaAiuQsb40x3jiqJCc2ATpV0p
-	SAl61+k1EprUZTu+fzGQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WiRRrmaPlb4UCRJIQ5krd4JJyHoAO9yZuuvjapZW3Qo=; b=nhryJaO0QhrBAc
+	BR13AASBAWU97yg0IEQmRunifbRWCN3bUZ2QBCCKSGPQTOdCCfvVtYCDqe5NuoNp1Sn1Pcu4WMEPz
+	jkc1I1IZ5dvIVandUD2S0sDOD9g4uFy+hbTfOLPszVixhzEU1oo+C1MphYTpItRFiKwxAPT8qP6GL
+	NTn6XHM8Nn3Mqe0sH0NnINNhN26Mz7KCVATOoYuOwQ4iR1HJT1ACd0m5CZusSF7eJHSS6nN50FNfz
+	S5LMK5OiAtHRGvr+fyKRmaul+OB+8z+lisLWpKCxj5idpEcWAcOHrsSEDGy82+QdQeO9al9ZJY9lE
+	RQr+toOTWCxhxUP2zkVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpZ4D-0000000ApCu-1uJe;
-	Wed, 27 Mar 2024 19:36:09 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1rpZPK-0000000AtIn-0uWx;
+	Wed, 27 Mar 2024 19:57:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpZ46-0000000ApAP-2NYP;
-	Wed, 27 Mar 2024 19:36:04 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-565c6cf4819so2131091a12.1;
-        Wed, 27 Mar 2024 12:36:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1711568159; x=1712172959; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aojaArSnA0JfedDto4elyer8YODIKcUTNNFpLzMMgW8=;
-        b=gj7h8bxL5pkkDrDyiAZ/ODjEyfj9Hf6/cJiRpSgRPSVZ77mbwyFlkihVzpUBT/vS3w
-         LucfohibIZAWHcQkUYEJ6gvGSPisbjLlQ06/wl3UK6cgS5u7FEncR8hzPSnLOKK9hqvs
-         dSQyD88jPNYjncpxq8zqFW2ouO/NR/DDrpzxqYTJLw9qMH3ygSSsGKbcgotSsepeig8F
-         jSb0c0c9eHcSotlbb17yvMQqex6BlGajZC257JPStgy29beMYt3ZUmupi0BNyQ1rUXuY
-         bvheiuy/hIjV5Cw11KRiSQNX0QmYzg8kBdBlVNSe+K9XITrDP46nQtcEfpECPmieGsUk
-         h2Ew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711568159; x=1712172959;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aojaArSnA0JfedDto4elyer8YODIKcUTNNFpLzMMgW8=;
-        b=HpUtPDuY/Pya4FxCP5yApw1ov7ToS9B2c5AqYOKYzK5FZRGeUIOuiY2mu5zARy/Tm6
-         Sc+0GBU9OAyTtqQtzncfcOEScDQ/QjjbnGWIPkELVmSEajUlIVew2Gt13rWdIIRlRYWd
-         GFZRja9xD6GcNHLytobuJ4VGHWuyP2y3/rpVWgW6DHbod+nJFlxxQQ0Bmt3h2gUybPm4
-         5jq/YQ3ysnhHyqf+PQCZuHner1bIKs7qLocyg3ii/gMF1DAw6f9QwEcuzO56su2lHDJg
-         WWlJc4iA580ltKDto36Erq3qctJQVJWT+XHHVIRG6qvgKYALIhu7b+b0cXsZSnGzkrML
-         sp8A==
-X-Forwarded-Encrypted: i=1; AJvYcCWTPWhFuoMCnil+1VcktKwaLeQ9pvHp9cw8M4gtb9MfhnyFsNzrErakueGMS28Em+alQ9dAa0NZMqQI6fQdzDOsvBec92x7utIYaKPmErxbyI9GMupQ02WdNgw+wpJGmGEzrT27xtJknppTSB3J7TDXh7/mPuslpdnaT0S3vwUovyjm8BHYbb3ALBVl52tJFwHgmYjGUZ7Xuf6w28TEgX/by6/fwx3DoQRZDGMsB2BYPtUzi8iQbjRjjWXiQhLSkFStsxEpY8CjLe+5Li01w24/IhDT6zq14BvUMPGPJpqOI63M
-X-Gm-Message-State: AOJu0YzhVber550BWlH+OMLHOp18Kqt9cPzFd0CBq2tpPHkQRSsncwyf
-	sr9zgS/le4q37oZ1+HHZsWyP1UDisctoAa2h03ZgeOGto7WSRFSm
-X-Google-Smtp-Source: AGHT+IHWYCsKCZfCKe9WJ0A8h2jBWKCzprPvh9Stt4hH84aJN1DmeskwZihR1IueuTRTWs9wYxpP6Q==
-X-Received: by 2002:a17:906:119a:b0:a47:3766:cfec with SMTP id n26-20020a170906119a00b00a473766cfecmr235001eja.9.1711568159337;
-        Wed, 27 Mar 2024 12:35:59 -0700 (PDT)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id j24-20020a17090643d800b00a4672fb2a03sm5858783ejn.10.2024.03.27.12.35.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Mar 2024 12:35:58 -0700 (PDT)
-From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: linux-kernel@vger.kernel.org, Allen Pais <apais@linux.microsoft.com>
-Cc: tj@kernel.org, keescook@chromium.org, vkoul@kernel.org, marcan@marcan.st,
- sven@svenpeter.dev, florian.fainelli@broadcom.com, rjui@broadcom.com,
- sbranden@broadcom.com, paul@crapouillou.net, Eugeniy.Paltsev@synopsys.com,
- manivannan.sadhasivam@linaro.org, vireshk@kernel.org, Frank.Li@nxp.com,
- leoyang.li@nxp.com, zw@zh-kernel.org, wangzhou1@hisilicon.com,
- haijie1@huawei.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
- sean.wang@mediatek.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, afaerber@suse.de,
- logang@deltatee.com, daniel@zonque.org, haojian.zhuang@gmail.com,
- robert.jarzmik@free.fr, andersson@kernel.org, konrad.dybcio@linaro.org,
- orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com,
- patrice.chotard@foss.st.com, linus.walleij@linaro.org, wens@csie.org,
- peter.ujfalusi@gmail.com, kys@microsoft.com, haiyangz@microsoft.com,
- wei.liu@kernel.org, decui@microsoft.com, jassisinghbrar@gmail.com,
- mchehab@kernel.org, maintainers@bluecherrydvr.com,
- aubin.constans@microchip.com, ulf.hansson@linaro.org, manuel.lauss@gmail.com,
- mirq-linux@rere.qmqm.pl, jh80.chung@samsung.com, oakad@yahoo.com,
- hayashi.kunihiko@socionext.com, mhiramat@kernel.org, brucechang@via.com.tw,
- HaraldWelte@viatech.com, pierre@ossman.eu, duncan.sands@free.fr,
- stern@rowland.harvard.edu, oneukum@suse.com,
- openipmi-developer@lists.sourceforge.net, dmaengine@vger.kernel.org,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
- imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-mediatek@lists.infradead.org, linux-actions@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
- linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-media@vger.kernel.org, linux-mmc@vger.kernel.org,
- linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-s390@vger.kernel.org, netdev@vger.kernel.org, linux-usb@vger.kernel.org
-Subject: Re: [PATCH 9/9] mmc: Convert from tasklet to BH workqueue
-Date: Wed, 27 Mar 2024 20:35:54 +0100
-Message-ID: <9252961.CDJkKcVGEf@jernej-laptop>
-In-Reply-To: <20240327160314.9982-10-apais@linux.microsoft.com>
-References: <20240327160314.9982-1-apais@linux.microsoft.com>
- <20240327160314.9982-10-apais@linux.microsoft.com>
+	id 1rpZPH-0000000AtIC-0W4K
+	for linux-riscv@lists.infradead.org;
+	Wed, 27 Mar 2024 19:57:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EE14D616C0;
+	Wed, 27 Mar 2024 19:57:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C010C433C7;
+	Wed, 27 Mar 2024 19:57:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1711569473;
+	bh=kQaIyV/SITVWU7gU2k5KiKhY1/EpXbcic9lKJWklJ3s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=BjKgV/Y1KnzwEAn8i26H6x6YSgwOFvGI8U6rr91seII3072iYT1rtIQTp9P+JyAad
+	 jM4okUlABJx5T6sdaHk/WKEvnrIoHfh1zPEUrWnKyL5tQbrvpHTZGGrIjc2rCPwBJT
+	 f4BBdikWYHkBOGoFJHktXri46LZoFpCpubQqeOzt7HL15wzHFStVzMRpa2YXguEZ2S
+	 bo7pXuX73R3D4tr5LlLrNu1SetCfpn9KJNK2/8QWvXTzwMQ8l9tYWZ9M2aHHK/KhzT
+	 sDxHkbt+dd0fgXVOKCQDFUkfgXo51SiMMWUGuND3RcqvmXrHTl8biGAFMI6E839O6V
+	 zL3JZlpOAF6mg==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Conor Dooley <conor@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Emil Renner Berthing <kernel@esmil.dk>, Samuel
+ Holland <samuel.holland@sifive.com>, Alexandre Ghiti
+ <alexghiti@rivosinc.com>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>,
+ linux-riscv@lists.infradead.org, Andy Chiu <andy.chiu@sifive.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org
+Subject: RISC-V for-next/fixes (cont'd from PW sync)
+Date: Wed, 27 Mar 2024 20:57:50 +0100
+Message-ID: <87ttkro3b5.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_123602_709758_D19B05C8 
-X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-CacheID: sfid-20240327_125755_234446_C82A120A 
+X-CRM114-Status: UNSURE (   9.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,35 +71,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dne sreda, 27. marec 2024 ob 17:03:14 CET je Allen Pais napisal(a):
-> The only generic interface to execute asynchronously in the BH context is
-> tasklet; however, it's marked deprecated and has some design flaws. To
-> replace tasklets, BH workqueue support was recently added. A BH workqueue
-> behaves similarly to regular workqueues except that the queued work items
-> are executed in the BH context.
-> 
-> This patch converts drivers/infiniband/* from tasklet to BH workqueue.
-
-infiniband -> mmc
-
-Best regards,
-Jernej
-
-> 
-> Based on the work done by Tejun Heo <tj@kernel.org>
-> Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git for-6.10
-> 
-> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
-
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpJIGZpZ3VyZWQgSSdkIHB1dCBzb21lIHdvcmRzIG9uIHRoZSAiaG93IHRvIHVwZGF0ZSB0
+aGUgUklTQy1WCmZvci1uZXh0L2ZpeGVzIGJyYW5jaGVzIFsxXSIgdGhhdCBjYW1lIHVwIG9uIHRo
+ZSBwYXRjaHdvcmsgY2FsbCB0b2RheS4KCkluIFJJU0MtViBsYW5kLCB0aGUgZm9yLW5leHQgYnJh
+bmNoIGlzIHVzZWQgZm9yIGZlYXR1cmVzLCBhbmQgdHlwaWNhbGx5CnNlbnQgYXMgYSBjb3VwbGUg
+b2YgUFJzIHRvIExpbnVzIHdoZW4gdGhlIG1lcmdlIHdpbmRvdyBpcyBvcGVuLiBUaGUKZml4ZXMg
+YnJhbmNoIGlzIHNlbnQgYXMgUFIocykgYmV0d2VlbiB0aGUgUkNzIG9mIGEgcmVsZWFzZS4KClRv
+ZGF5LCB0aGUgYmFzZWxpbmUgZm9yIGZvci1uZXh0L2ZpeGVzIGlzIHRoZSBDVVJSRU5UX1JFTEVB
+U0UtcmMxLCBhbmQKZmVhdHVyZXMvZml4ZXMgYXJlIGJhc2VkIG9uIHRoYXQuCgpUaGlzIGhhcyBJ
+TU8gYSBjb3VwbGUgb2YgaXNzdWVzOgoKMS4gZml4ZXMgaXMgbWlzc2luZyB0aGUgbm9uLVJJU0Mt
+ViBmaXhlcyBmcm9tIHJlbGVhc2VzIGxhdGVyIHRoYW4KICAgLXJjMSwgd2hpY2ggbWFrZXMgaXQg
+aGFyZGVyIGZvciBjb250cmlidXRvcnMuCjIuIGZvci1uZXh0IGRvZXMgbm90IGhhdmUgdGhlIGZp
+eGVzIGZyb20gUklTQy1WL3Jlc3Qgb2YgdGhlIGtlcm5lbCwKICAgYW5kIGl0J3MgaGFyZCBmb3Ig
+Y29udHJpYnV0b3JzIHRvIHRlc3QgdGhlIHdvcmsgb24gZm9yLW5leHQgKGJ1Z2d5LAogICBubyBm
+aXhlcywgYW5kIHNvbWV0aW1lIG1pc3NpbmcgZGVwcykuCgpJIHVzZWQgdG8gc3BlbmQgYSB3aG9s
+ZSBsb3Qgb2YgbWluZSB0aW1lIGluIHRoZSBuZXRkZXYgdHJlZSBvZiB0aGUKa2VybmVsLCBhbmQg
+dGhpcyBpcyBob3cgdGhleSBtYW5hZ2UgaXQgKFRoYW5rcyBLdWJhISk6CgpOZXRkZXYgKGhlcmUg
+ZXhjaGFuZ2VkIHRvIFJJU0MtViB0cmVlcyksIGZhc3QtZm9yd2FyZCBmaXhlcywgYW5kIHRoZW4K
+Y3Jvc3MtbWVyZ2UgZml4ZXMgaW50byBmb3ItbmV4dCAtLSBmb3IgZXZlcnkgLXJjLgoKRS5nLiwg
+c2F5IGZpeGVzIGlzIHN1Ym1pdHRlZCBmb3IgLXJjMiB0byBMaW51cywgb25jZSBoZSBwdWxscywg
+ZG86CgogIGdpdCBwdXNoIC0tZGVsZXRlIG9yaWdpbiAkU09NRVRBRwogIGdpdCB0YWcgLWQgJFNP
+TUVUQUcKICBnaXQgcHVsbCAtLWZmLW9ubHkgLS10YWdzIGdpdDovL2dpdC5rZXJuZWwub3JnL3B1
+Yi9zY20vbGludXgva2VybmVsL2dpdC90b3J2YWxkcy9saW51eC5naXQKICBidWlsZCAvIHRlc3Qg
+LyBwdXNoIG91dC4KClRoZW4gcHVsbCBmaXhlcyBpbnRvIGZvci1uZXh0OgoKICBnaXQgcHVsbCAt
+LXRhZ3MgZ2l0Oi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3Jpc2N2
+L2xpbnV4LmdpdCBmaXhlcwoKClBlcnNvbmFsbHkgKG9idmlvdXNseSBiaWFzZWQpLCBJIHRoaW5r
+IHRoaXMgd291bGQgYmUgZWFzaWVyIGZvcgpjb250cmlidXRvcnMuIEFueSBkb3duc2lkZXMgZnJv
+bSBhIFJJU0MtViBwZXJzcGVjdGl2ZT8KCgpCasO2cm4KCgpbMV0gZ2l0Oi8vZ2l0Lmtlcm5lbC5v
+cmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3Jpc2N2L2xpbnV4LmdpdAoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
