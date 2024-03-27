@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 767C5C47DD9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006CECD1283
 	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 21:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,72 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fFWb9t1sbr25t3tpRDaSXGYnc66GSNcqDZVCIlwiQSA=; b=Qhc+i9cOZmajjy
-	jXJBCGCNlO9itF9EC+VEZvEKjWByfPKh9Dmzk0/ElSz/I2MixNJjHOMVdd7SgtiqFw4Vlvw6nVKOs
-	vlh9/bZCOCAQcHvi6qV21Mh0rSnT/vR7I+ugTgNU1Ae/6PAF8az0sWBgIUt93skgbdSzHSHVGWBIW
-	+1jvfJHQzCD2pAG6Is0kncwFbHHu5yzr8NSGdD4NUm0lqxTt7r696QT3s6ehD237I3kaK0HNF+su6
-	0l5ebBrMTsDfofUSCCM/ZQzVYMBuWm/9kSCfWl8BNNr3L1d2Bf5NmVC2M/IX+D6XxMbe6BT8StE/A
-	OSXlSQGzyXF2pgeXSSmA==;
+	List-Owner; bh=7N0uAWP6S1hZXt5KmcennQk/CpaGR5JE83XnxVSJvkY=; b=2UsVRmLN7UIkpq
+	wR1AewLYr/8N2J6G5+haCwEg38wxSfcr0HASnr4gJbD6FBw9N0cRpElZXRXvH+gBaVaGEI3fWfSjd
+	Vzy68GJnLzfYsFXUyrxwwU9uRs329Ll+7FhrZsN90680MEqh+80vZt1qDVoGLinzq9Wa9vi89Mz/A
+	5ZsqnCayJCCaDQhzUI1n2f+qS4YMAejA0GaLIFzzbRl7nbP9IfrolwdLPp6NCQG1uHohglo4+SfKt
+	1l6rLgs1AlN6SRHu6VQc3CLSvlHxI6AYzsGXiSf+YP3xsuBFuu/A0uwUyhtahMfPdSec3DTUOrfGA
+	RddPFG1FDT46Th7M7mzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpafK-0000000BBHU-2UlJ;
-	Wed, 27 Mar 2024 21:18:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rpafL-0000000BBIU-3oge;
+	Wed, 27 Mar 2024 21:18:35 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpZTc-0000000AuDK-2ZMD
+	id 1rpZTc-0000000AuDP-3XWK
 	for linux-riscv@bombadil.infradead.org;
 	Wed, 27 Mar 2024 20:02:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=1KPYCb9S3Soscoa7gVsLkBiv/vc0d18dY2Lykf0pkTk=; b=Bn6ZTRfdseQ7Td/6DtgL8Pe7JO
-	89jH5YC/RJe7mtijzXubAE82Z3e4gGuOKC/TRKEmo3uLp0JgurmFaG5HJPN4kPKGa7LcVth0MSt2P
-	XjqPImZSOykVus/1qwoSKd6PPpRjV6Uw1vvU3O6cZYSoGe4a7TzSgGy8gcISUTt8Pmte9bsu430Np
-	lKQ54YOyC3sb5u08tuXT+TavibJXWg5oFaFM4deVZouZrllTLbHO6mvwrxmoBdzXT6jtBLLc8JTHB
-	OviCdDeVIV0Cx5ToaUtkMh0heoGBo4MxbEhBP+35Vj0aVbLJxwUWQdIvscgk8JzzigBntsNnFQ98I
-	9AFo1t8A==;
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpZTY-00000000WuO-0hyL
+	bh=bM3Hi+5Alr7tzqsz3KXbQamZzAJvK/Ux1AY7aws8WNM=; b=LLAGcoIs4FdL57UaK0OvBj5v6H
+	dzJrvMnY2W2xMBOorGLertr4o9LSoIbPH1Qrtag8i2yho+P+r2RzYU7LRtai1L9FZkJHuPX0K59Kd
+	WyDPYF9ealodYaK8aY5x7FcInCE+MMCt2aVwhd/YMpB9QAwWf78yK9TBFqEYHmDDAmNLkQZgKAyHt
+	lmZ/aKr4CjpX1qDO9Vi9Sg1eG4P1wbKMMAGb+t+GaBZYUhRMMn34UyelILteiVWZXZk/+RQwutNI6
+	RxpLzUIO7c1CiraSJY3ZPmyQnuO83mhetEmt9u/Xw+M1I8w6tnmkZ4X8Tqe1Zf25g4RsP32zWcNu5
+	3YNm9+tw==;
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	by casper.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rpZTV-00000004drY-3cqK
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 20:02:22 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1e0b889901bso2372345ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 13:02:19 -0700 (PDT)
+	Wed, 27 Mar 2024 20:02:23 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1e0f0398553so2230365ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 13:02:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711569738; x=1712174538; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1711569735; x=1712174535; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1KPYCb9S3Soscoa7gVsLkBiv/vc0d18dY2Lykf0pkTk=;
-        b=Wend+BTNhAl3h/Y0T94rZgzWTH0wMSQCtZ2HraTwh7VSARwbCS8n58t+wfn2VXqZBB
-         lJfvxLCmDME3VcUIzGOcGDjCVaEOcYOQe82uOKbwXFylxDgG8xZ1/k1fV/DdUaVsGsou
-         +LwoCHWopObqD/vaiRjSrMDIPDKl0b9OHJgnxEBuSir5GFWDQ4ZRkNDvKW8tqK9LSdHK
-         M/7Gn9jpbN54cgqC5cMPCCy4zD/BJfvrD7n1cByIE2JLqVIHQFlGPWa/Ty5zxIMNlp2E
-         BNNE1hyvr660V0JQYnPLN60q+m8SzISrBfvWZFgr78+MkSFx+6Sy7G5+cFHEe0X5b6Tv
-         fbwA==
+        bh=bM3Hi+5Alr7tzqsz3KXbQamZzAJvK/Ux1AY7aws8WNM=;
+        b=c0Tr1jz6pD+05G33eYCqoDyEeFR5V6ijP8roRvF3jZRZKm9Ere1OYjdJVjzFP2UEkT
+         ZZVdY43ys172TqCktKquCZrRnD0/xvyGIVmwYaQsFVDgAvFCWOZ40ETL7uI8UqJHiQZc
+         2BuwXsnaVy9VGc1mYRBxo36u/ljpdYKhJDL0FfTd1DOQPRXyQuhSt7J/WTsGI0wC148i
+         9UJe7OpqCyFB6MSwDt+7llJUAT41+7C9ILt16IODWtHYpqKGnjRPVAonpNI8AJwiBdvk
+         IYonwECkIpl9ZRHv+IFBmrPEg8D5owGwnZywL3lxDp0JbVmA216Vok0NjpXhD1z39c24
+         LKHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711569738; x=1712174538;
+        d=1e100.net; s=20230601; t=1711569735; x=1712174535;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1KPYCb9S3Soscoa7gVsLkBiv/vc0d18dY2Lykf0pkTk=;
-        b=iJUWtJFK/2VFUUm9ikWLFw9OXTg9Yc2WXRnr3+whqhZkoSAfTLFdVP0TGsrbPdSFxN
-         mLP5fKHGOBRgNUdzm9o9qR4vSa0fzivPQ8tfxvTZxZ+teahavRTKZcyaw1wkQE6iDZnF
-         Odz84pKyi2fhGNGNJMPjrn7f+zKjRXETwwDOkJbkcfRD0JrRzfEjYrPNaJ8GGRx+KJss
-         gOtHi88DmWSsBLDAoVMrhItee4xwCgW8yaMnnkJCe0kz1Q9qiXwgetXaZWlUKq8r1vNO
-         2qonXD5DhY4U6w4V2Heb3S6dyCIYE6b/xwlENaQ8qKNgQzX19XAOsuziH+v+yXV2EsSa
-         WG+g==
-X-Forwarded-Encrypted: i=1; AJvYcCVksk/b0divdKEqYQZjM+OKj3453UEtDdUHz6RwwwsN1L9MNRdwD4KhLBs6ofAQ2qhiLGQ9xa3wG9dYixYITtE/2SIOJ3VERjLX0JbAFPY0
-X-Gm-Message-State: AOJu0YxzJDHxJZ79oCOGHFuV0tIlNSzzPoS8/XYGh+BMlQQab5ZbEe7U
-	T3YU44KTVGxwAjhTsYNL9tWH0uV1AylIecN0QVp1bqgHuR8CI36Dy/4MQCg80Zc=
-X-Google-Smtp-Source: AGHT+IHiVrJt14UyveizhwLAq9XPpEU6ZyZvDdQzDZe0rjNysh7dZh6CYDZhY9eiiH2RA2j+uTxBcQ==
-X-Received: by 2002:a17:902:ec8b:b0:1e0:1f1d:bd38 with SMTP id x11-20020a170902ec8b00b001e01f1dbd38mr622795plg.7.1711569737898;
-        Wed, 27 Mar 2024 13:02:17 -0700 (PDT)
+        bh=bM3Hi+5Alr7tzqsz3KXbQamZzAJvK/Ux1AY7aws8WNM=;
+        b=nOKfIDuNicNPOgh4QXtbZqc++F/YJh7orsmVYY/ltI5O82p4l5OlT2Wl2BSq319KPV
+         Y6v5TkfhhSbaYEAtISKi5/k6ikjc/1GenZODm74YXk238wfEJCDa2atQL+ltROvw7pfx
+         82vUVTRRbWztvKbhsrv1c9FPMCm9sapgY3p59bWRRVYWh8vZVEkd9DWtr60S1mL0zA9b
+         hsZAIfpG1UsZUERH+w+d0yzeAN/DUqHH+j13YwBNSkFv0TLbKjkxuNgr9rZk8Drhu4lF
+         /2FmwGzgI8sFnJlBWx0vWMKQaZzQRHaqhZWMVjSva8J3yEYgG6zJLHRWilgLzzau4cDo
+         5LUw==
+X-Forwarded-Encrypted: i=1; AJvYcCUFmgsNmV2r3hoQRHbN8DKgVX5WCygtClwan9RFYJk/pTsKxh+KtOv4G3AVHHTQsUwkJUYCZk5QEdz7FetsCBLeSGFpk2IFuL1vQmulzuG7
+X-Gm-Message-State: AOJu0Yy0JLmF5vPZNSwzQpqkynIpXW/t+50VhXYjEupNHzAlODCaq+sD
+	JQ2Qksx2o501BddMBQtacw7/KZJXDoeg0ZPHGWNS8DlzUih6T2aVEGmj7u1Tf64=
+X-Google-Smtp-Source: AGHT+IFj0bwxlMv24MtX2R4pKVUBPTEZabeDrpj2jWHiUrD8cnm8OWyltVVZB2eEjF0aA2RcWrF1Pw==
+X-Received: by 2002:a17:902:e5c1:b0:1e0:c91d:4487 with SMTP id u1-20020a170902e5c100b001e0c91d4487mr958029plf.43.1711569735358;
+        Wed, 27 Mar 2024 13:02:15 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id u4-20020a170902e5c400b001dd0d0d26a4sm9446459plf.147.2024.03.27.13.02.16
+        by smtp.gmail.com with ESMTPSA id u4-20020a170902e5c400b001dd0d0d26a4sm9446459plf.147.2024.03.27.13.02.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Mar 2024 13:02:17 -0700 (PDT)
+        Wed, 27 Mar 2024 13:02:14 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
@@ -89,17 +89,18 @@ Cc: linux-kernel@vger.kernel.org,
 	Christoph Hellwig <hch@lst.de>,
 	loongarch@lists.linux.dev,
 	amd-gfx@lists.freedesktop.org,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v3 14/14] selftests/fpu: Allow building on other architectures
-Date: Wed, 27 Mar 2024 13:00:45 -0700
-Message-ID: <20240327200157.1097089-15-samuel.holland@sifive.com>
+	Samuel Holland <samuel.holland@sifive.com>,
+	Alex Deucher <alexander.deucher@amd.com>
+Subject: [PATCH v3 12/14] drm/amd/display: Use ARCH_HAS_KERNEL_FPU_SUPPORT
+Date: Wed, 27 Mar 2024 13:00:43 -0700
+Message-ID: <20240327200157.1097089-13-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.43.1
 In-Reply-To: <20240327200157.1097089-1-samuel.holland@sifive.com>
 References: <20240327200157.1097089-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_200220_650046_0BFA513D 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20240327_200217_970668_3869F30A 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,94 +117,190 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that ARCH_HAS_KERNEL_FPU_SUPPORT provides a common way to compile
-and run floating-point code, this test is no longer x86-specific.
+Now that all previously-supported architectures select
+ARCH_HAS_KERNEL_FPU_SUPPORT, this code can depend on that symbol instead
+of the existing list of architectures. It can also take advantage of the
+common kernel-mode FPU API and method of adjusting CFLAGS.
 
+Acked-by: Alex Deucher <alexander.deucher@amd.com>
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-(no changes since v1)
+(no changes since v2)
 
- lib/Kconfig.debug   |  2 +-
- lib/Makefile        | 25 ++-----------------------
- lib/test_fpu_glue.c |  5 ++++-
- 3 files changed, 7 insertions(+), 25 deletions(-)
+Changes in v2:
+ - Split altivec removal to a separate patch
+ - Use linux/fpu.h instead of asm/fpu.h in consumers
 
-diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index c63a5fbf1f1c..f93e778e0405 100644
---- a/lib/Kconfig.debug
-+++ b/lib/Kconfig.debug
-@@ -2890,7 +2890,7 @@ config TEST_FREE_PAGES
- 
- config TEST_FPU
- 	tristate "Test floating point operations in kernel space"
--	depends on X86 && !KCOV_INSTRUMENT_ALL
-+	depends on ARCH_HAS_KERNEL_FPU_SUPPORT && !KCOV_INSTRUMENT_ALL
+ drivers/gpu/drm/amd/display/Kconfig           |  2 +-
+ .../gpu/drm/amd/display/amdgpu_dm/dc_fpu.c    | 27 ++------------
+ drivers/gpu/drm/amd/display/dc/dml/Makefile   | 36 ++-----------------
+ drivers/gpu/drm/amd/display/dc/dml2/Makefile  | 36 ++-----------------
+ 4 files changed, 7 insertions(+), 94 deletions(-)
+
+diff --git a/drivers/gpu/drm/amd/display/Kconfig b/drivers/gpu/drm/amd/display/Kconfig
+index 901d1961b739..5fcd4f778dc3 100644
+--- a/drivers/gpu/drm/amd/display/Kconfig
++++ b/drivers/gpu/drm/amd/display/Kconfig
+@@ -8,7 +8,7 @@ config DRM_AMD_DC
+ 	depends on BROKEN || !CC_IS_CLANG || ARM64 || RISCV || SPARC64 || X86_64
+ 	select SND_HDA_COMPONENT if SND_HDA_CORE
+ 	# !CC_IS_CLANG: https://github.com/ClangBuiltLinux/linux/issues/1752
+-	select DRM_AMD_DC_FP if (X86 || LOONGARCH || (PPC64 && ALTIVEC) || (ARM64 && KERNEL_MODE_NEON && !CC_IS_CLANG))
++	select DRM_AMD_DC_FP if ARCH_HAS_KERNEL_FPU_SUPPORT && (!ARM64 || !CC_IS_CLANG)
  	help
- 	  Enable this option to add /sys/kernel/debug/selftest_helpers/test_fpu
- 	  which will trigger a sequence of floating point operations. This is used
-diff --git a/lib/Makefile b/lib/Makefile
-index fcb35bf50979..e44ad11f77b5 100644
---- a/lib/Makefile
-+++ b/lib/Makefile
-@@ -110,31 +110,10 @@ CFLAGS_test_fprobe.o += $(CC_FLAGS_FTRACE)
- obj-$(CONFIG_FPROBE_SANITY_TEST) += test_fprobe.o
- obj-$(CONFIG_TEST_OBJPOOL) += test_objpool.o
+ 	  Choose this option if you want to use the new display engine
+ 	  support for AMDGPU. This adds required support for Vega and
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
+index 0de16796466b..e46f8ce41d87 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
+@@ -26,16 +26,7 @@
  
--#
--# CFLAGS for compiling floating point code inside the kernel. x86/Makefile turns
--# off the generation of FPU/SSE* instructions for kernel proper but FPU_FLAGS
--# get appended last to CFLAGS and thus override those previous compiler options.
--#
--FPU_CFLAGS := -msse -msse2
+ #include "dc_trace.h"
+ 
+-#if defined(CONFIG_X86)
+-#include <asm/fpu/api.h>
+-#elif defined(CONFIG_PPC64)
+-#include <asm/switch_to.h>
+-#include <asm/cputable.h>
+-#elif defined(CONFIG_ARM64)
+-#include <asm/neon.h>
+-#elif defined(CONFIG_LOONGARCH)
+-#include <asm/fpu.h>
+-#endif
++#include <linux/fpu.h>
+ 
+ /**
+  * DOC: DC FPU manipulation overview
+@@ -87,16 +78,9 @@ void dc_fpu_begin(const char *function_name, const int line)
+ 	WARN_ON_ONCE(!in_task());
+ 	preempt_disable();
+ 	depth = __this_cpu_inc_return(fpu_recursion_depth);
+-
+ 	if (depth == 1) {
+-#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
++		BUG_ON(!kernel_fpu_available());
+ 		kernel_fpu_begin();
+-#elif defined(CONFIG_PPC64)
+-		if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
+-			enable_kernel_fp();
+-#elif defined(CONFIG_ARM64)
+-		kernel_neon_begin();
+-#endif
+ 	}
+ 
+ 	TRACE_DCN_FPU(true, function_name, line, depth);
+@@ -118,14 +102,7 @@ void dc_fpu_end(const char *function_name, const int line)
+ 
+ 	depth = __this_cpu_dec_return(fpu_recursion_depth);
+ 	if (depth == 0) {
+-#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
+ 		kernel_fpu_end();
+-#elif defined(CONFIG_PPC64)
+-		if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
+-			disable_kernel_fp();
+-#elif defined(CONFIG_ARM64)
+-		kernel_neon_end();
+-#endif
+ 	} else {
+ 		WARN_ON_ONCE(depth < 0);
+ 	}
+diff --git a/drivers/gpu/drm/amd/display/dc/dml/Makefile b/drivers/gpu/drm/amd/display/dc/dml/Makefile
+index 59d3972341d2..a94b6d546cd1 100644
+--- a/drivers/gpu/drm/amd/display/dc/dml/Makefile
++++ b/drivers/gpu/drm/amd/display/dc/dml/Makefile
+@@ -25,40 +25,8 @@
+ # It provides the general basic services required by other DAL
+ # subcomponents.
+ 
+-ifdef CONFIG_X86
+-dml_ccflags-$(CONFIG_CC_IS_GCC) := -mhard-float
+-dml_ccflags := $(dml_ccflags-y) -msse
+-endif
+-
+-ifdef CONFIG_PPC64
+-dml_ccflags := -mhard-float
+-endif
+-
+-ifdef CONFIG_ARM64
+-dml_rcflags := -mgeneral-regs-only
+-endif
+-
+-ifdef CONFIG_LOONGARCH
+-dml_ccflags := -mfpu=64
+-dml_rcflags := -msoft-float
+-endif
+-
 -ifdef CONFIG_CC_IS_GCC
+-ifneq ($(call gcc-min-version, 70100),y)
+-IS_OLD_GCC = 1
+-endif
+-endif
+-
+-ifdef CONFIG_X86
+-ifdef IS_OLD_GCC
 -# Stack alignment mismatch, proceed with caution.
 -# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
 -# (8B stack alignment).
--# See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53383
--#
--# The "-msse" in the first argument is there so that the
--# -mpreferred-stack-boundary=3 build error:
--#
--#  -mpreferred-stack-boundary=3 is not between 4 and 12
--#
--# can be triggered. Otherwise gcc doesn't complain.
--FPU_CFLAGS += -mhard-float
--FPU_CFLAGS += $(call cc-option,-msse -mpreferred-stack-boundary=3,-mpreferred-stack-boundary=4)
+-dml_ccflags += -mpreferred-stack-boundary=4
+-else
+-dml_ccflags += -msse2
+-endif
+-endif
++dml_ccflags := $(CC_FLAGS_FPU)
++dml_rcflags := $(CC_FLAGS_NO_FPU)
+ 
+ ifneq ($(CONFIG_FRAME_WARN),0)
+ ifeq ($(filter y,$(CONFIG_KASAN)$(CONFIG_KCSAN)),y)
+diff --git a/drivers/gpu/drm/amd/display/dc/dml2/Makefile b/drivers/gpu/drm/amd/display/dc/dml2/Makefile
+index 7b51364084b5..4f6c804a26ad 100644
+--- a/drivers/gpu/drm/amd/display/dc/dml2/Makefile
++++ b/drivers/gpu/drm/amd/display/dc/dml2/Makefile
+@@ -24,40 +24,8 @@
+ #
+ # Makefile for dml2.
+ 
+-ifdef CONFIG_X86
+-dml2_ccflags-$(CONFIG_CC_IS_GCC) := -mhard-float
+-dml2_ccflags := $(dml2_ccflags-y) -msse
 -endif
 -
- obj-$(CONFIG_TEST_FPU) += test_fpu.o
- test_fpu-y := test_fpu_glue.o test_fpu_impl.o
--CFLAGS_test_fpu_impl.o += $(FPU_CFLAGS)
-+CFLAGS_test_fpu_impl.o += $(CC_FLAGS_FPU)
-+CFLAGS_REMOVE_test_fpu_impl.o += $(CC_FLAGS_NO_FPU)
+-ifdef CONFIG_PPC64
+-dml2_ccflags := -mhard-float
+-endif
+-
+-ifdef CONFIG_ARM64
+-dml2_rcflags := -mgeneral-regs-only
+-endif
+-
+-ifdef CONFIG_LOONGARCH
+-dml2_ccflags := -mfpu=64
+-dml2_rcflags := -msoft-float
+-endif
+-
+-ifdef CONFIG_CC_IS_GCC
+-ifeq ($(call cc-ifversion, -lt, 0701, y), y)
+-IS_OLD_GCC = 1
+-endif
+-endif
+-
+-ifdef CONFIG_X86
+-ifdef IS_OLD_GCC
+-# Stack alignment mismatch, proceed with caution.
+-# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
+-# (8B stack alignment).
+-dml2_ccflags += -mpreferred-stack-boundary=4
+-else
+-dml2_ccflags += -msse2
+-endif
+-endif
++dml2_ccflags := $(CC_FLAGS_FPU)
++dml2_rcflags := $(CC_FLAGS_NO_FPU)
  
- # Some KUnit files (hooks.o) need to be built-in even when KUnit is a module,
- # so we can't just use obj-$(CONFIG_KUNIT).
-diff --git a/lib/test_fpu_glue.c b/lib/test_fpu_glue.c
-index 85963d7be826..eef282a2715f 100644
---- a/lib/test_fpu_glue.c
-+++ b/lib/test_fpu_glue.c
-@@ -17,7 +17,7 @@
- #include <linux/module.h>
- #include <linux/kernel.h>
- #include <linux/debugfs.h>
--#include <asm/fpu/api.h>
-+#include <linux/fpu.h>
- 
- #include "test_fpu.h"
- 
-@@ -38,6 +38,9 @@ static struct dentry *selftest_dir;
- 
- static int __init test_fpu_init(void)
- {
-+	if (!kernel_fpu_available())
-+		return -EINVAL;
-+
- 	selftest_dir = debugfs_create_dir("selftest_helpers", NULL);
- 	if (!selftest_dir)
- 		return -ENOMEM;
+ ifneq ($(CONFIG_FRAME_WARN),0)
+ ifeq ($(filter y,$(CONFIG_KASAN)$(CONFIG_KCSAN)),y)
 -- 
 2.43.1
 
