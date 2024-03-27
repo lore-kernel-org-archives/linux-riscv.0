@@ -4,71 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E79CEC47DD9
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 15:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B24C8CD1287
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 15:24:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XLh8A+xDcp+CSOEy45Lw5OWa17fp9NedIygzPyqhlSA=; b=hqKq8C/TMdOdLi
-	vZ9UoL37sWBhXYsPnklic8ymC+q5LS6f3J3qnNS1Jf9Lxfqp9z0JUd8UXGhAg0Poz2K1C4xBM/65w
-	1UZLcz3xUlWUupiWCVlFyzT/pxMcKpC5Q5Iq1a1Zmlu0w5016lVZRgeMPfFtftlwdhIwG9dse7MRt
-	L+SuOG0SLXy8B8/JxIlwLRVQ6Mm2f/QajRMavWxvIPK2vi6dF/e4BY6hRKk94jgxfqNhFRycQGpY3
-	gUA03aKhQmIwtmt7P0qgtSaj+n2OGHD0lfGcvik1uS/GSuGfQFcZnkzyMg9fnNdoDRddnp0qe6Fbl
-	YDX7M/OdiNjKBtvWG6gg==;
+	List-Owner; bh=AwFfK9DMqWpoyG/dQIXxgb6YPdUH39N3L60xhb6UPCQ=; b=gKR29UZEAuxkzS
+	hUeLkC/oJZsMZYD2LESnGcPFqfyyXFilveqz44735rR4w+f5CgqEmp6zrdIm0RHXd9ngPOlJcmgM4
+	uHmtyaCcCFVpjZwh7YuqeUWbiICWvrazy9ME7A73iKIK9vjFg2mhIgZ4PTQbMPmAIxwVO+wWXD2cw
+	4ypVaww9x02wil2wIf7FeX/KEL7pSC3li0mu/WhEFAM3FUMAxju5xbtKAFEbmz5/cfA/+J92URTOs
+	Cbs60tZ3hHkNLR/qXow50GEFjrMoIuLeGlb8O1W28zfY1i2PMk3h6jMTZgoLoyS83Ki/Iz71ntE8N
+	woUqFVRim3AANs0gyBUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpV8c-00000009lo6-2zlG;
-	Wed, 27 Mar 2024 15:24:26 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rpV91-00000009m55-1k0k;
+	Wed, 27 Mar 2024 15:24:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpV82-00000009lKK-0kxE
+	id 1rpV8B-00000009lU8-1rwy
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 27 Mar 2024 15:23:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=QDTtuz/iBLnx3uLIw0aNQbjjBf12gK6PRqFn//yUSp8=; b=j7xhIlOY5EqvL7StU48eD4sq5C
+	1Dd4XPcLoGjwQD/qyVgVP+38t0YmDXOlBVhHqhg3g7qiIzPj21nnHNEvH/xDveO1viuqnaTc26Zo9
+	gI6Whcfz0WbANgXuyd4FfIK4kyNT/hAqrk1IFV9e4q7QOy7HIiq2uxuf3AgxBQ17wQm6wKjbTqjA5
+	tI8USd7L9k3uG2B18hg17QdYHgw0/mDbMs1Qfy7kaLfsv4iIkT5+GJZOiYEdjf3UAg989xEdhW7rU
+	bOanZFWJEkMksfmodAFk4AX8oEzmZ3hwKIMradlxbQw4baKk32oF3mBCHqogFFqGg+EMrOldkuTMY
+	/ynoJtWA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rpV86-00000000L21-38bC
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 15:23:54 +0000
+	Wed, 27 Mar 2024 15:23:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1711553029;
+	s=mimecast20190719; t=1711553033;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VkfUQlJiw2YmDi669w4oXgCkjfbnGDZMVpc2LJneNK4=;
-	b=AVsJQ3oxZori/0jbiU/hEUHGTPyOIfF2KtXrxRs+X9qPY6bpKKg3pU3mS80iG+/rUMPxLq
-	aQKTRNxV677HRcYDhyG05TlV3K7yqcgzl97J0robQAfWSrJEq7Qlz53NpFNy5DqVt8zadu
-	G+7oNcVo6BMi+6axzYrp57Fo5oxz+yY=
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
- [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=QDTtuz/iBLnx3uLIw0aNQbjjBf12gK6PRqFn//yUSp8=;
+	b=NB2Jw+1/zvAUDFua4KIxw3i7AD/PZA6GWDGWzJ0BOo8NhKNLhoVNZ4t5ZOYTqMM4jwjott
+	akyruVwwIJz9HdM2lfZuNGu9BD+q/8XAPf8tG0uVT5Lz2v4TIIbBqJ0lsIq6yzdmNVIk/C
+	k2fko7R2N/jgiNf81F2rjkwGTTTbOWo=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1711553033;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QDTtuz/iBLnx3uLIw0aNQbjjBf12gK6PRqFn//yUSp8=;
+	b=NB2Jw+1/zvAUDFua4KIxw3i7AD/PZA6GWDGWzJ0BOo8NhKNLhoVNZ4t5ZOYTqMM4jwjott
+	akyruVwwIJz9HdM2lfZuNGu9BD+q/8XAPf8tG0uVT5Lz2v4TIIbBqJ0lsIq6yzdmNVIk/C
+	k2fko7R2N/jgiNf81F2rjkwGTTTbOWo=
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
+ [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-633-JGIiTBSDOVCpjxwsl8XamA-1; Wed, 27 Mar 2024 11:23:47 -0400
-X-MC-Unique: JGIiTBSDOVCpjxwsl8XamA-1
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-690c19ee50bso2421816d6.0
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 08:23:47 -0700 (PDT)
+ us-mta-491-TGXJ9nKbNOGvS-3udUDLhQ-1; Wed, 27 Mar 2024 11:23:51 -0400
+X-MC-Unique: TGXJ9nKbNOGvS-3udUDLhQ-1
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-696a5972507so4146156d6.0
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 08:23:51 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711553027; x=1712157827;
+        d=1e100.net; s=20230601; t=1711553031; x=1712157831;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VkfUQlJiw2YmDi669w4oXgCkjfbnGDZMVpc2LJneNK4=;
-        b=MvwvRG/0h1JQdD3rMBnBRO4QLNe8ibPMpSBMkoWPFkDJ5daRKtudL8qyp7F/QYsQu7
-         wPUZCfotSwYQ8aN4BX/UtY7rgyIUUYU47+ZWzatfTHFp5+XtQQj6g945ujMVm0lp85iw
-         QW8f35hzMFfrfNtMZgMxizxnJ0HmnLO9ZSSWCnYsd00f+NV5s14aeqCOTW4qrIbxi2up
-         b63plXAiw7AMaAMBloIdZHbIXw+PK8L0/LqpDYF+M7QqW9wBg5ALPHjRCL3F5O0EGqbQ
-         Peh8uiXmZdceoI0ZGcroKJSsT4Cb5Qa9TDmfNPCynbbkv/+uJjAsmPZU8MNNBHXqLk/u
-         vblw==
-X-Forwarded-Encrypted: i=1; AJvYcCX77QGN711OUJjXtMiuuJDLo5/ju3WLxapSjEyqi3ncpXeptUAx2ZzZf7vpJ+ATmhb1cmrE6iVE9PiXpdQA02vk0LgCszfS/RZcUw/f+1bA
-X-Gm-Message-State: AOJu0YwXhNJa1Ln7dBYPld/JRVKl800jT+Vucf+3pLQgY6GWiIsm7jHs
-	zaJoovJvfB0HesTBnzg6WqCW1RlTNViHqUyi+Pm8UBkXmY1/syU0aPHaM5fVdIWUIeD+KaZczwv
-	eTaxPiNNwobROKBAa78I3ZMYa8vMHMJKfVYZxH39IOxygeeFbOwpxkkXy+aAj38O6vA==
-X-Received: by 2002:a05:6214:3105:b0:696:6f59:4d19 with SMTP id ks5-20020a056214310500b006966f594d19mr14917309qvb.1.1711553026951;
-        Wed, 27 Mar 2024 08:23:46 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG/cvaZbNzejgmgOgxRck5pBSr/g3hsLSZETHWpBhBPVR+VZkVf7lYhXdSr9+e3t1xSA2Wfog==
-X-Received: by 2002:a05:6214:3105:b0:696:6f59:4d19 with SMTP id ks5-20020a056214310500b006966f594d19mr14917279qvb.1.1711553026413;
-        Wed, 27 Mar 2024 08:23:46 -0700 (PDT)
+        bh=QDTtuz/iBLnx3uLIw0aNQbjjBf12gK6PRqFn//yUSp8=;
+        b=V7n3iRl/8xr/Q0Kd8u5xSazmjsYTGEBC+4P/2qtKk/Zv2HdK9xUHFawgDxLmTXLUoa
+         KHzqe9x0pf5fKcX3jhbfFtUqCJb6phJekxw9fuNOBSCyayJZVulF15zNLya695Enkkz1
+         1m241qjr4bCw04fQQrL/nA525Z2uLpvhfY9ZShnv9vGY23KMng+AN167ZeN8C6Z+2qT6
+         85EPePUnUoYj7JJ6b26rZ7OoMwdKgmQAHbhEWADSBxZPQ5RBL/4WdVcfN8HF/kERvdm/
+         pGC+31g8xdHU/8ocov3W/svz99LRnvhYFvsZVO1Xc4pz60QfhBhXIOaMYtmFX6cgzn2x
+         zsYg==
+X-Forwarded-Encrypted: i=1; AJvYcCWgHmR6QreMorQs60alZQWDa0CsfEA1qPr8ACZTH/2tbclfTYUZLUU/zpRta/tp7mgcHGd0ZYS14+dDn2zsOvg3skD5hTPvnjfVFlVhnRK8
+X-Gm-Message-State: AOJu0Yxb2ZbBweVFuvzDDZxIL7ugE1Ev/vK8/3by5qA514khvoGX8AtQ
+	foJQIijNKi2sj+sBL0Qvt4JaLLLHCSS73PLqAJ62+HMLbnagTujnaTCOhmbAoynMNiZE4hPMI+s
+	fayFOgAH/TY2aweESOkg/a6h468Rwhqmj1mD+G6NaWC2MxfvLMjnB1pJPgyj2RKW/xw==
+X-Received: by 2002:a05:6214:2b86:b0:690:de72:316f with SMTP id kr6-20020a0562142b8600b00690de72316fmr14582149qvb.1.1711553030740;
+        Wed, 27 Mar 2024 08:23:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEWXp2F9loH7HSDfuOw6HflxlC5J0wiBYnMNwM1iqpFTIhT0c0cqQhWkIb89hM3i5euenCqpA==
+X-Received: by 2002:a05:6214:2b86:b0:690:de72:316f with SMTP id kr6-20020a0562142b8600b00690de72316fmr14582105qvb.1.1711553030174;
+        Wed, 27 Mar 2024 08:23:50 -0700 (PDT)
 Received: from x1n.redhat.com ([99.254.121.117])
-        by smtp.gmail.com with ESMTPSA id hu4-20020a056214234400b00690dd47a41csm6412639qvb.86.2024.03.27.08.23.44
+        by smtp.gmail.com with ESMTPSA id hu4-20020a056214234400b00690dd47a41csm6412639qvb.86.2024.03.27.08.23.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Mar 2024 08:23:45 -0700 (PDT)
+        Wed, 27 Mar 2024 08:23:49 -0700 (PDT)
 From: peterx@redhat.com
 To: linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
@@ -97,9 +122,9 @@ Cc: Yang Shi <shy828301@gmail.com>,
 	Jason Gunthorpe <jgg@nvidia.com>,
 	Mike Rapoport <rppt@kernel.org>,
 	Axel Rasmussen <axelrasmussen@google.com>
-Subject: [PATCH v4 05/13] mm/arch: Provide pud_pfn() fallback
-Date: Wed, 27 Mar 2024 11:23:24 -0400
-Message-ID: <20240327152332.950956-6-peterx@redhat.com>
+Subject: [PATCH v4 07/13] mm/gup: Refactor record_subpages() to find 1st small page
+Date: Wed, 27 Mar 2024 11:23:26 -0400
+Message-ID: <20240327152332.950956-8-peterx@redhat.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240327152332.950956-1-peterx@redhat.com>
 References: <20240327152332.950956-1-peterx@redhat.com>
@@ -107,8 +132,8 @@ MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_082350_445291_D05517D5 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20240327_152355_161781_EB13244E 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,94 +152,86 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Peter Xu <peterx@redhat.com>
 
-The comment in the code explains the reasons.  We took a different approach
-comparing to pmd_pfn() by providing a fallback function.
+All the fast-gup functions take a tail page to operate, always need to do
+page mask calculations before feeding that into record_subpages().
 
-Another option is to provide some lower level config options (compare to
-HUGETLB_PAGE or THP) to identify which layer an arch can support for such
-huge mappings.  However that can be an overkill.
+Merge that logic into record_subpages(), so that it will do the nth_page()
+calculation.
 
-Cc: Mike Rapoport (IBM) <rppt@kernel.org>
-Cc: Matthew Wilcox <willy@infradead.org>
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Peter Xu <peterx@redhat.com>
 ---
- arch/riscv/include/asm/pgtable.h    |  1 +
- arch/s390/include/asm/pgtable.h     |  1 +
- arch/sparc/include/asm/pgtable_64.h |  1 +
- arch/x86/include/asm/pgtable.h      |  1 +
- include/linux/pgtable.h             | 10 ++++++++++
- 5 files changed, 14 insertions(+)
+ mm/gup.c | 25 ++++++++++++++-----------
+ 1 file changed, 14 insertions(+), 11 deletions(-)
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 20242402fc11..0ca28cc8e3fa 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -646,6 +646,7 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
- 
- #define __pud_to_phys(pud)  (__page_val_to_pfn(pud_val(pud)) << PAGE_SHIFT)
- 
-+#define pud_pfn pud_pfn
- static inline unsigned long pud_pfn(pud_t pud)
- {
- 	return ((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT);
-diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
-index 1a71cb19c089..6cbbe473f680 100644
---- a/arch/s390/include/asm/pgtable.h
-+++ b/arch/s390/include/asm/pgtable.h
-@@ -1414,6 +1414,7 @@ static inline unsigned long pud_deref(pud_t pud)
- 	return (unsigned long)__va(pud_val(pud) & origin_mask);
+diff --git a/mm/gup.c b/mm/gup.c
+index db35b056fc9a..c2881772216b 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -2779,13 +2779,16 @@ static int __gup_device_huge_pud(pud_t pud, pud_t *pudp, unsigned long addr,
  }
- 
-+#define pud_pfn pud_pfn
- static inline unsigned long pud_pfn(pud_t pud)
- {
- 	return __pa(pud_deref(pud)) >> PAGE_SHIFT;
-diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
-index 4d1bafaba942..26efc9bb644a 100644
---- a/arch/sparc/include/asm/pgtable_64.h
-+++ b/arch/sparc/include/asm/pgtable_64.h
-@@ -875,6 +875,7 @@ static inline bool pud_leaf(pud_t pud)
- 	return pte_val(pte) & _PAGE_PMD_HUGE;
- }
- 
-+#define pud_pfn pud_pfn
- static inline unsigned long pud_pfn(pud_t pud)
- {
- 	pte_t pte = __pte(pud_val(pud));
-diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-index cefc7a84f7a4..273f7557218c 100644
---- a/arch/x86/include/asm/pgtable.h
-+++ b/arch/x86/include/asm/pgtable.h
-@@ -234,6 +234,7 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
- 	return (pfn & pmd_pfn_mask(pmd)) >> PAGE_SHIFT;
- }
- 
-+#define pud_pfn pud_pfn
- static inline unsigned long pud_pfn(pud_t pud)
- {
- 	phys_addr_t pfn = pud_val(pud);
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 600e17d03659..75fe309a4e10 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1817,6 +1817,16 @@ typedef unsigned int pgtbl_mod_mask;
- #define pte_leaf_size(x) PAGE_SIZE
  #endif
  
-+/*
-+ * We always define pmd_pfn for all archs as it's used in lots of generic
-+ * code.  Now it happens too for pud_pfn (and can happen for larger
-+ * mappings too in the future; we're not there yet).  Instead of defining
-+ * it for all archs (like pmd_pfn), provide a fallback.
-+ */
-+#ifndef pud_pfn
-+#define pud_pfn(x) ({ BUILD_BUG(); 0; })
-+#endif
-+
- /*
-  * Some architectures have MMUs that are configurable or selectable at boot
-  * time. These lead to variable PTRS_PER_x. For statically allocated arrays it
+-static int record_subpages(struct page *page, unsigned long addr,
+-			   unsigned long end, struct page **pages)
++static int record_subpages(struct page *page, unsigned long sz,
++			   unsigned long addr, unsigned long end,
++			   struct page **pages)
+ {
++	struct page *start_page;
+ 	int nr;
+ 
++	start_page = nth_page(page, (addr & (sz - 1)) >> PAGE_SHIFT);
+ 	for (nr = 0; addr != end; nr++, addr += PAGE_SIZE)
+-		pages[nr] = nth_page(page, nr);
++		pages[nr] = nth_page(start_page, nr);
+ 
+ 	return nr;
+ }
+@@ -2820,8 +2823,8 @@ static int gup_hugepte(pte_t *ptep, unsigned long sz, unsigned long addr,
+ 	/* hugepages are never "special" */
+ 	VM_BUG_ON(!pfn_valid(pte_pfn(pte)));
+ 
+-	page = nth_page(pte_page(pte), (addr & (sz - 1)) >> PAGE_SHIFT);
+-	refs = record_subpages(page, addr, end, pages + *nr);
++	page = pte_page(pte);
++	refs = record_subpages(page, sz, addr, end, pages + *nr);
+ 
+ 	folio = try_grab_folio(page, refs, flags);
+ 	if (!folio)
+@@ -2894,8 +2897,8 @@ static int gup_huge_pmd(pmd_t orig, pmd_t *pmdp, unsigned long addr,
+ 					     pages, nr);
+ 	}
+ 
+-	page = nth_page(pmd_page(orig), (addr & ~PMD_MASK) >> PAGE_SHIFT);
+-	refs = record_subpages(page, addr, end, pages + *nr);
++	page = pmd_page(orig);
++	refs = record_subpages(page, PMD_SIZE, addr, end, pages + *nr);
+ 
+ 	folio = try_grab_folio(page, refs, flags);
+ 	if (!folio)
+@@ -2938,8 +2941,8 @@ static int gup_huge_pud(pud_t orig, pud_t *pudp, unsigned long addr,
+ 					     pages, nr);
+ 	}
+ 
+-	page = nth_page(pud_page(orig), (addr & ~PUD_MASK) >> PAGE_SHIFT);
+-	refs = record_subpages(page, addr, end, pages + *nr);
++	page = pud_page(orig);
++	refs = record_subpages(page, PUD_SIZE, addr, end, pages + *nr);
+ 
+ 	folio = try_grab_folio(page, refs, flags);
+ 	if (!folio)
+@@ -2978,8 +2981,8 @@ static int gup_huge_pgd(pgd_t orig, pgd_t *pgdp, unsigned long addr,
+ 
+ 	BUILD_BUG_ON(pgd_devmap(orig));
+ 
+-	page = nth_page(pgd_page(orig), (addr & ~PGDIR_MASK) >> PAGE_SHIFT);
+-	refs = record_subpages(page, addr, end, pages + *nr);
++	page = pgd_page(orig);
++	refs = record_subpages(page, PGDIR_SIZE, addr, end, pages + *nr);
+ 
+ 	folio = try_grab_folio(page, refs, flags);
+ 	if (!folio)
 -- 
 2.44.0
 
