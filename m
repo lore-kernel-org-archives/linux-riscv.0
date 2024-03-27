@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C5ECD11DD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68085C47DD9
 	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 14:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,53 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XObv6AHdBWEZp3P7OTybeA505AsMtmPQvplcCpiFtYg=; b=2RtLbPh8Gs6Uv0
-	8tuE5TgX58hVx7WNiiIK+0vw1HwGIXmLmreu4DTOXgRhcX/U64O2ELDBUicC7BYj6Yi6MowJgIZ8v
-	gi0Vm/9WUwgpogPtd2rXJYWTRNvdGjN0gpOl+XGSSdIr+Ote8grLbPe5csV8V1Izi6cj2H+JRVIUG
-	Uqk+y2HupvF/vukdwL1sdC9P5DcnljoSbTrKbWW0XNa9WNei3EEWTQgELY/Wpjg4/IJbXTcb9yIcs
-	6kl0WP+1O+IAkmgXu3k69byN0cRoDtssC5PIStGI2aOmMa6lwlJsdwmWC0Y1t9GYGaZxYy1ftgj0b
-	2ahnmbAlHEgi8aYlopbQ==;
+	List-Owner; bh=q5LZDZd3/dtZ9QCMELzvIjALPaRK5tiEHgaEzX+QgEs=; b=jCqA8iS8Q1uWLS
+	HWJjV1DvnP3akgkoaEW2kiOUlsn6GCXZK7A1Zu6dcPie4T48ORkNot4fluTzruJTvcMAkECk5I9fn
+	PW3C/jPbzJW4LJckWJLS26tgH5PLls6Djm/EZs7XeN3YtEIA2dAWT/xoO2+VQfBcUnHVGa2+8e5ix
+	rMVu1PLV9XEcHrJ7dhG7fpgIb0JQLuwPtfcwi+ll36d5ZQgjvE1NwF6f5H4BSGWNbCY6hufzSM9WY
+	Z32PxHuvr0Ljng91RXnmUAf7CkC1bpO7Z+s2UogiI/poz0UU5piwRHdoxDYwJ8QLfl4i5Xe9GT9k4
+	GyAeMslE0U6yyFj1oRtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpTpa-00000009LJx-3klH;
-	Wed, 27 Mar 2024 14:00:42 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rpTpZ-00000009LJb-0k7d;
+	Wed, 27 Mar 2024 14:00:41 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpTpQ-00000009LEe-2vop
+	id 1rpTpQ-00000009LEb-2Prk
 	for linux-riscv@lists.infradead.org;
 	Wed, 27 Mar 2024 14:00:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id A366FCE2271;
+	by sin.source.kernel.org (Postfix) with ESMTP id 6767BCE2643;
 	Wed, 27 Mar 2024 14:00:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9B1F7C43390;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A32DEC43399;
 	Wed, 27 Mar 2024 14:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1711548029;
-	bh=BA+TuURoQlOCduEndpylZLvO0UX6c1g+Nv7/szZ91Qk=;
+	bh=Tll+aW5UzZK8YuZZkR7WzGfMayybv0KNwJ35XBtg264=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=KC5WpOj4Ln1dTIld9MMKLLVD3fI+1ThHwdLlTTLxXJ4Ri1kQYJypOuvSpD52bO2XB
-	 t3sxXsZTmh3vxAdJ5FJDV2K1LxEAxQHHCbc22KLFAtX/G1MZ4wjilN+AsxF/315OPe
-	 +rWVRaFSMqD5ztKUxu3LyTDkcI+0YV0SXiGOGpLpmAJ5BV/oVqO3sZH6b51fH3+oEf
-	 i+WdPFB7VR/ABSMgGvZBzNIY9M0mKBVjr7Wn5l9BO7JtmgyZoG3Y5JiXym6SZkvi4k
-	 /8dI2vpTg+YPy5DdZdsZ1OEShEhH9HQkgQZZzq3kL7NZPJaWyhGuQd2Cwunix27AZE
-	 v1Nk4JsFfUdog==
+	b=iZydgAPJiAxrATGtcqgLHPbZOX6sT0pFQmn0g7mCn4hqM10pueEU7b2S2taaIm3CH
+	 YSFJkpMB34qGgjVQ7l5nFqE0YAThCVWE0upVMd4HJhX2jXLYIH90qe+jigXCRAcPQt
+	 VeL8cqclWL2glzQJSY0wNf2kIAuRKpAJc+xIRsdoxhX/g0fmWrY6nmcsFwiMDolP9s
+	 rEPiUPY71B+P6kfDrSDO3R+ghvaMeN8sP3HMWCAI+yx5amyEMqrbX3XhjVsBjEpZH8
+	 +XDzjj2zP6iRwhsuu6zZbY+YWNoU//UOEhcIyrcjY1NV3PbsVy1eMbrm+lmhTOn22+
+	 t3Y1RPIZsIBvw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 8B13DD2D0EC;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 944D3D95070;
 	Wed, 27 Mar 2024 14:00:29 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: compat_vdso: install compat_vdso.so.dbg to
- /lib/modules/*/vdso/
+Subject: Re: [PATCH] riscv: Mark __se_sys_* functions __used
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171154802956.9827.4136336790290384825.git-patchwork-notify@kernel.org>
+Message-Id: <171154802960.9827.16527899722264043993.git-patchwork-notify@kernel.org>
 Date: Wed, 27 Mar 2024 14:00:29 +0000
-References: <20231117125807.1058477-1-masahiroy@kernel.org>
-In-Reply-To: <20231117125807.1058477-1-masahiroy@kernel.org>
-To: Masahiro Yamada <masahiroy@kernel.org>
+References: <20240326153712.1839482-2-samitolvanen@google.com>
+In-Reply-To: <20240326153712.1839482-2-samitolvanen@google.com>
+To: Sami Tolvanen <samitolvanen@google.com>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, keescook@chromium.org,
+ llvm@lists.linux.dev, linux-kernel@vger.kernel.org, lkft@linaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_070033_078793_97E00D00 
-X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-CacheID: sfid-20240327_070032_897123_AD530789 
+X-CRM114-Status: UNSURE (   6.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,20 +81,36 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Fri, 17 Nov 2023 21:58:07 +0900 you wrote:
-> 'make vdso_install' installs debug vdso files to /lib/modules/*/vdso/.
+On Tue, 26 Mar 2024 15:37:13 +0000 you wrote:
+> Clang doesn't think ___se_sys_* functions used even though they are
+> aliased to __se_sys_*, resulting in -Wunused-function warnings when
+> building rv32. For example:
 > 
-> Only for the compat vdso on riscv, the installation destination differs;
-> compat_vdso.so.dbg is installed to /lib/module/*/compat_vdso/.
-> 
-> To follow the standard install destination and simplify the vdso_install
-> logic, change the install destination to standard /lib/modules/*/vdso/.
+>    mm/oom_kill.c:1195:1: warning: unused function '___se_sys_process_mrelease' [-Wunused-function]
+>     1195 | SYSCALL_DEFINE2(process_mrelease, int, pidfd, unsigned int, flags)
+>          | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    include/linux/syscalls.h:221:36: note: expanded from macro 'SYSCALL_DEFINE2'
+>      221 | #define SYSCALL_DEFINE2(name, ...) SYSCALL_DEFINEx(2, _##name, __VA_ARGS__)
+>          |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    include/linux/syscalls.h:231:2: note: expanded from macro 'SYSCALL_DEFINEx'
+>      231 |         __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+>          |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    arch/riscv/include/asm/syscall_wrapper.h:81:2: note: expanded from macro '__SYSCALL_DEFINEx'
+>       81 |         __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)                         \
+>          |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    arch/riscv/include/asm/syscall_wrapper.h:40:14: note: expanded from macro '__SYSCALL_SE_DEFINEx'
+>       40 |         static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
+>          |                     ^~~~~~~~~~~~~~~~~~~~
+>    <scratch space>:30:1: note: expanded from here
+>       30 | ___se_sys_process_mrelease
+>          | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+>    1 warning generated.
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: compat_vdso: install compat_vdso.so.dbg to /lib/modules/*/vdso/
-    https://git.kernel.org/riscv/c/4b0bf9a01270
+  - riscv: Mark __se_sys_* functions __used
+    https://git.kernel.org/riscv/c/653650c468be
 
 You are awesome, thank you!
 -- 
