@@ -4,71 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0F1C47DD9
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 15:25:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A570AC47DD9
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 15:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OLHRjXB+5qk+bG2Q3Do4C1vPT9ZwQ6HWYmlBCp3LybI=; b=pYNlrRHR/1I5II
-	PDx1ipTo1ckFfDRaMWNH98fjwrS/WS+87E+9jLmCANvx8AHlaAJUxf6yZgctJFousdtcTluRE5R1h
-	IcCtgb3VJWoO5yb7inf0Is/ej8C5jlPkhuO/u3FGIfcYtmAzij5qptlFqUaq+2HLeo0HQXAYKvqga
-	xoFPceczn8ih4onywvkrmR8c5M75Sbkr/YqWuqpt836nSF0Sj4LVRCiiQRhDh4rL0F8o3SRMUm5rw
-	3sMv5Vj4wUHkCw5CD+NP6u+g19LOgdY5PSWdktN93wVlMO7y/yBj8KWZCPhp7KKqFIomU45l5BWMO
-	VSH2YBHHbLpPOJBo6kSA==;
+	List-Owner; bh=Hlrr/7y2E3KGFjcbWPmbTV8Oh9owiG7M9Ku707am7Vs=; b=VXCkiGM+oAQNnc
+	lc24wBrjoOIDeW0/MU5+fZXGj1I3oDl7lGpn3QxX1xjuP5lhYf2j+Se90iA2WNehNsmbmHUOrzZUh
+	RYR3Xqy/E2tzWUewrjaC5FqWKYSURGdqCzIXgd24YkNJbLHBT+J/Iedg3a4zm/NYoTKCbADU2puDL
+	Ad8uhNVPfevbPT1pOUY6UQtH9vfqgwdvKsIHqZRxF6vIOLfKxotGrrU3qH012jh7MsGzbhH6vHd7m
+	LHcZ/JSZCmrRNadh7Dp7T8JlGQFFQmiFr3FLdFgFEdNgAa4cOZ4a9yJls71Ka0WnYjXXgMaxl35am
+	TQ79A3Vmp4TMovVo3sXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpV9A-00000009mAB-2dja;
-	Wed, 27 Mar 2024 15:25:00 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rpVAm-00000009myo-3jjn;
+	Wed, 27 Mar 2024 15:26:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpV88-00000009lQw-2B4c
+	id 1rpV8O-00000009leB-2BbW
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 27 Mar 2024 15:24:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=h7p860Pwfa5oWvGOHiVson4UsvvLX6Zsz0nCOpl6KoI=; b=lHL1GMvPieU/8rlkR5tPg8XH86
+	533dwmjIaFUEHk+vrLYL64GdIiLkcQaNXqeX6CyE+mdUcMAJsNbLvJNm3ntiyYPH4csr28xZeBlaw
+	WL34vkNMwDZuOOjUxJxFT+sZ4+NJYT2k5u4X0qzdrfuIcvWOlYhxa7ss/+BrkCs+cOAI/lmUDwW05
+	ffxbFLRpWo1La9RyWZl+1Z3OLtVeOoTdS/UTxUv8QEmZiVaP3z3BSjULeg2XAHI7lbqICoUYUs7sM
+	Cg/Z072L6CrUgkdrOZW3YYd7xsgEZAKpnoxYID020+soROmVsRZQZpKNvL5nb+xPeE1fefM30VCGE
+	gyda7kVg==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rpV8L-00000000L8E-0Jn1
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 15:24:02 +0000
+	Wed, 27 Mar 2024 15:24:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1711553035;
+	s=mimecast20190719; t=1711553047;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=2/UoYTg8lz4bAl/L4a1cbQCJuXO8WYRlAVPmeKHJK2E=;
-	b=De2WPSLDQBlryuPjCl/FjvTSJQdZboyR9+Z0CJEllaeg7GCX/IxfdKPDsm1xQ6TWFSwe4A
-	q577qKZm5SRfqW1bp4tJ0pDkwCWRoVE3teBMkenAQVJtVWUKCTUeL1nWFGmTBVFMP273dx
-	5/P8nZNjJV8wHbM/Xw7leV7MJJGuCII=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=h7p860Pwfa5oWvGOHiVson4UsvvLX6Zsz0nCOpl6KoI=;
+	b=AwRHYzXAFVVhJIyKx7e1rpYhJcQzLtUdWi0cBtR67eZytAPijgJ43/vC8wWrZpiDC2MOaP
+	nEz1C0rafEr6EvmFtM0URLvhy30kOzZbn8kXfNpHd0eqhMaHyTgjjhjfOc54pMC6a/SSMK
+	Uq/ZX4GbQ0hSEIRduXcklE2MiOFbRzw=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1711553048;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=h7p860Pwfa5oWvGOHiVson4UsvvLX6Zsz0nCOpl6KoI=;
+	b=iwx+waqASA32X6VaplNr7ygjNu99VannKpjCCOO5ryoR1RoRbGtFu6kPLGA5xZj6r8Dj8g
+	S5mZvFHXrJ70p4QowEhkZ8m4iK3H3tr788ynXyhOUU1dZmd2R1/ZVSM9Ok7eZc1DBEDgKN
+	05d7wllwEJ0Pa9g9Yh7XnrxbFrJJsmI=
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
+ [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-416-r4chMAFtNpazx0-6XlQnKA-1; Wed, 27 Mar 2024 11:23:53 -0400
-X-MC-Unique: r4chMAFtNpazx0-6XlQnKA-1
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-78a5e62931cso61836485a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 08:23:53 -0700 (PDT)
+ us-mta-452-iMjVoq_eMI-DZ3JRCbL-PQ-1; Wed, 27 Mar 2024 11:24:01 -0400
+X-MC-Unique: iMjVoq_eMI-DZ3JRCbL-PQ-1
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-696a9c482a4so3596536d6.0
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 08:24:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711553033; x=1712157833;
+        d=1e100.net; s=20230601; t=1711553040; x=1712157840;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2/UoYTg8lz4bAl/L4a1cbQCJuXO8WYRlAVPmeKHJK2E=;
-        b=AT401XH8VnQVkllTZXRqdfhUaD7wHhZDr4BtcvDV2XMcEbiNpSAniSqA0pglvYJLi7
-         H+vCJlAXFXNbVjIqW3x74txDZLjbxmxNPgmZSZAkHS8To1s45wXDDFrE/MblvjJYe4I5
-         YXlHpgpyWwzSjdkJtHCPnFxxMv4Kt+vlLsorlyxznslsq5HXcYVefAPEklaEguJbBbcp
-         fauwz7onPIvXfuKnvf+J861jAhz/QMp4oXuLUU+d4yUkJDcZI0LRZfCsB0VnlYj5wNIH
-         jNlxOqcj22fH+3TC/MeoZAofi02sC+noIC3rVKaGA1RkQeO2KKiw53d5g1CnurKWaJnf
-         a28Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWyyzrxUAqUGdb/+qyfSLiZbhbZS4Ecyy4cUhZbcHssytRTcFLJC7OTfRMKdHgnwI3tpWlpG/qxX9lumF1fEnyMikb0RH563uawQBn9oOwy
-X-Gm-Message-State: AOJu0YyxUSMUrPTtV/r4hGBdVl9MnDmiJdRO31c6ALiMbnkNIlLYr/Ho
-	3sTH7QyJKO5x2byqM2961hrIPK4wZvTfCXLywIPOUD4W9i74lnfOSyQqcGxGX0kNGtEGA4Ngbkw
-	peCmlpWJ6lf0bC5L7AYaFJfJhLDMD8F+ojvLXgq7Wp3YanXxu8eM0rhMdl7xujePf4w==
-X-Received: by 2002:a05:6214:4a8a:b0:696:ad00:7deb with SMTP id pi10-20020a0562144a8a00b00696ad007debmr2078347qvb.2.1711553033234;
-        Wed, 27 Mar 2024 08:23:53 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH8Fh1FPXUmWlSE4Ssu3coIMvek7Et1xEVKx+8QTY39hYxqq3mRFRgZ7bz+i1V9Jmd/zYMv6Q==
-X-Received: by 2002:a05:6214:4a8a:b0:696:ad00:7deb with SMTP id pi10-20020a0562144a8a00b00696ad007debmr2078325qvb.2.1711553032687;
-        Wed, 27 Mar 2024 08:23:52 -0700 (PDT)
+        bh=h7p860Pwfa5oWvGOHiVson4UsvvLX6Zsz0nCOpl6KoI=;
+        b=X+4WcIWV4nvykOORReih3d7jB6/GdCBxphlQZ1Yycz3bq84S4EOGP57rLkWayCnr1Q
+         klbg/paeks16zMRA7WepYUChH49AWWlQZS97PLP6Jw/4XARYNXR40z9cgs9T4nezEksW
+         +Otshtl+gTWxJSRnJOFBpUzG7Txep+f6lKfvvO73UnnLVBGTqwC+l0Q+dgb9gC647Ogr
+         izBc9fkRXPxL32SafFR0CVKFw1eg79dK2eJZo77qnexkqvNLpDGUMlC05Ry1B4sFDTZP
+         HU4hwV9LK23bQVFreJ85S9fTogLXtthNBYJsSVN2V3jZBHC4WlgEWSSD4B41hWCvARP0
+         fK0g==
+X-Forwarded-Encrypted: i=1; AJvYcCXfXOIaVNyhWRHxn58+f87wDTQgzm/27X2iXynawR+KOC/XahUOf3SWOoLdyG+NLf1C90kRLDLuDiHy4qJXPXLPmSYBNmgl+XPNOUmcvVCU
+X-Gm-Message-State: AOJu0YwMBbvhq4MH0AmIWYy+yOgVjSkhMbHlRKGjQ9vdMbJjN4qx+84I
+	14p8VRRr5oTvlvF+zvESyWCJffjNAeO+KpUZ3F8Cf2Do12010xOWhDDni9+6Saj6tq8rPfbaZ+v
+	Rbk/EXmbJqqfVLqe8p2JCeOOS5AEEnVeGfKCFBDpTBu7CCqLiBr+ZgAQZcnnkAa/SYQ==
+X-Received: by 2002:a05:6214:3d13:b0:696:7b12:3744 with SMTP id ol19-20020a0562143d1300b006967b123744mr13941588qvb.0.1711553040352;
+        Wed, 27 Mar 2024 08:24:00 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGf1gHn7pWGOliI2n3iseJ1Y4KDSmrGTREwaUpEtNei2O8hiTLwONxqZARC/3SfeDcLLHxfTA==
+X-Received: by 2002:a05:6214:3d13:b0:696:7b12:3744 with SMTP id ol19-20020a0562143d1300b006967b123744mr13941496qvb.0.1711553038757;
+        Wed, 27 Mar 2024 08:23:58 -0700 (PDT)
 Received: from x1n.redhat.com ([99.254.121.117])
-        by smtp.gmail.com with ESMTPSA id hu4-20020a056214234400b00690dd47a41csm6412639qvb.86.2024.03.27.08.23.50
+        by smtp.gmail.com with ESMTPSA id hu4-20020a056214234400b00690dd47a41csm6412639qvb.86.2024.03.27.08.23.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Mar 2024 08:23:52 -0700 (PDT)
+        Wed, 27 Mar 2024 08:23:58 -0700 (PDT)
 From: peterx@redhat.com
 To: linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
@@ -97,9 +122,9 @@ Cc: Yang Shi <shy828301@gmail.com>,
 	Jason Gunthorpe <jgg@nvidia.com>,
 	Mike Rapoport <rppt@kernel.org>,
 	Axel Rasmussen <axelrasmussen@google.com>
-Subject: [PATCH v4 08/13] mm/gup: Handle hugetlb for no_page_table()
-Date: Wed, 27 Mar 2024 11:23:27 -0400
-Message-ID: <20240327152332.950956-9-peterx@redhat.com>
+Subject: [PATCH v4 11/13] mm/gup: Handle huge pmd for follow_pmd_mask()
+Date: Wed, 27 Mar 2024 11:23:30 -0400
+Message-ID: <20240327152332.950956-12-peterx@redhat.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240327152332.950956-1-peterx@redhat.com>
 References: <20240327152332.950956-1-peterx@redhat.com>
@@ -107,8 +132,8 @@ MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_082357_082365_B1AE8EA7 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20240327_152409_415412_0CF6355A 
+X-CRM114-Status: GOOD (  23.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,151 +152,299 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Peter Xu <peterx@redhat.com>
 
-no_page_table() is not yet used for hugetlb code paths. Make it prepared.
+Replace pmd_trans_huge() with pmd_leaf() to also cover pmd_huge() as long
+as enabled.
 
-The major difference here is hugetlb will return -EFAULT as long as page
-cache does not exist, even if VM_SHARED.  See hugetlb_follow_page_mask().
+FOLL_TOUCH and FOLL_SPLIT_PMD only apply to THP, not yet huge.
 
-Pass "address" into no_page_table() too, as hugetlb will need it.
+Since now follow_trans_huge_pmd() can process hugetlb pages, renaming it
+into follow_huge_pmd() to match what it does.  Move it into gup.c so not
+depend on CONFIG_THP.
 
-Reviewed-by: Christoph Hellwig <hch@infradead.org>
+When at it, move the ctx->page_mask setup into follow_huge_pmd(), only set
+it when the page is valid.  It was not a bug to set it before even if GUP
+failed (page==NULL), because follow_page_mask() callers always ignores
+page_mask if so.  But doing so makes the code cleaner.
+
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Peter Xu <peterx@redhat.com>
 ---
- mm/gup.c | 44 ++++++++++++++++++++++++++------------------
- 1 file changed, 26 insertions(+), 18 deletions(-)
+ mm/gup.c         | 107 ++++++++++++++++++++++++++++++++++++++++++++---
+ mm/huge_memory.c |  86 +------------------------------------
+ mm/internal.h    |   5 +--
+ 3 files changed, 105 insertions(+), 93 deletions(-)
 
 diff --git a/mm/gup.c b/mm/gup.c
-index c2881772216b..ef46a7053e16 100644
+index 1e5d42211bb4..a81184b01276 100644
 --- a/mm/gup.c
 +++ b/mm/gup.c
-@@ -501,19 +501,27 @@ static inline void mm_set_has_pinned_flag(unsigned long *mm_flags)
+@@ -580,6 +580,93 @@ static struct page *follow_huge_pud(struct vm_area_struct *vma,
  
- #ifdef CONFIG_MMU
- static struct page *no_page_table(struct vm_area_struct *vma,
--		unsigned int flags)
-+				  unsigned int flags, unsigned long address)
- {
-+	if (!(flags & FOLL_DUMP))
+ 	return page;
+ }
++
++/* FOLL_FORCE can write to even unwritable PMDs in COW mappings. */
++static inline bool can_follow_write_pmd(pmd_t pmd, struct page *page,
++					struct vm_area_struct *vma,
++					unsigned int flags)
++{
++	/* If the pmd is writable, we can write to the page. */
++	if (pmd_write(pmd))
++		return true;
++
++	/* Maybe FOLL_FORCE is set to override it? */
++	if (!(flags & FOLL_FORCE))
++		return false;
++
++	/* But FOLL_FORCE has no effect on shared mappings */
++	if (vma->vm_flags & (VM_MAYSHARE | VM_SHARED))
++		return false;
++
++	/* ... or read-only private ones */
++	if (!(vma->vm_flags & VM_MAYWRITE))
++		return false;
++
++	/* ... or already writable ones that just need to take a write fault */
++	if (vma->vm_flags & VM_WRITE)
++		return false;
++
++	/*
++	 * See can_change_pte_writable(): we broke COW and could map the page
++	 * writable if we have an exclusive anonymous page ...
++	 */
++	if (!page || !PageAnon(page) || !PageAnonExclusive(page))
++		return false;
++
++	/* ... and a write-fault isn't required for other reasons. */
++	if (vma_soft_dirty_enabled(vma) && !pmd_soft_dirty(pmd))
++		return false;
++	return !userfaultfd_huge_pmd_wp(vma, pmd);
++}
++
++static struct page *follow_huge_pmd(struct vm_area_struct *vma,
++				    unsigned long addr, pmd_t *pmd,
++				    unsigned int flags,
++				    struct follow_page_context *ctx)
++{
++	struct mm_struct *mm = vma->vm_mm;
++	pmd_t pmdval = *pmd;
++	struct page *page;
++	int ret;
++
++	assert_spin_locked(pmd_lockptr(mm, pmd));
++
++	page = pmd_page(pmdval);
++	VM_BUG_ON_PAGE(!PageHead(page) && !is_zone_device_page(page), page);
++
++	if ((flags & FOLL_WRITE) &&
++	    !can_follow_write_pmd(pmdval, page, vma, flags))
 +		return NULL;
 +
- 	/*
--	 * When core dumping an enormous anonymous area that nobody
--	 * has touched so far, we don't want to allocate unnecessary pages or
-+	 * When core dumping, we don't want to allocate unnecessary pages or
- 	 * page tables.  Return error instead of NULL to skip handle_mm_fault,
- 	 * then get_dump_page() will return NULL to leave a hole in the dump.
- 	 * But we can only make this optimization where a hole would surely
- 	 * be zero-filled if handle_mm_fault() actually did handle it.
- 	 */
--	if ((flags & FOLL_DUMP) &&
--			(vma_is_anonymous(vma) || !vma->vm_ops->fault))
-+	if (is_vm_hugetlb_page(vma)) {
-+		struct hstate *h = hstate_vma(vma);
++	/* Avoid dumping huge zero page */
++	if ((flags & FOLL_DUMP) && is_huge_zero_pmd(pmdval))
++		return ERR_PTR(-EFAULT);
 +
-+		if (!hugetlbfs_pagecache_present(h, vma, address))
-+			return ERR_PTR(-EFAULT);
-+	} else if ((vma_is_anonymous(vma) || !vma->vm_ops->fault)) {
- 		return ERR_PTR(-EFAULT);
-+	}
++	if (pmd_protnone(*pmd) && !gup_can_follow_protnone(vma, flags))
++		return NULL;
 +
++	if (!pmd_write(pmdval) && gup_must_unshare(vma, flags, page))
++		return ERR_PTR(-EMLINK);
++
++	VM_BUG_ON_PAGE((flags & FOLL_PIN) && PageAnon(page) &&
++			!PageAnonExclusive(page), page);
++
++	ret = try_grab_page(page, flags);
++	if (ret)
++		return ERR_PTR(ret);
++
++#ifdef CONFIG_TRANSPARENT_HUGEPAGE
++	if (pmd_trans_huge(pmdval) && (flags & FOLL_TOUCH))
++		touch_pmd(vma, addr, pmd, flags & FOLL_WRITE);
++#endif	/* CONFIG_TRANSPARENT_HUGEPAGE */
++
++	page += (addr & ~HPAGE_PMD_MASK) >> PAGE_SHIFT;
++	ctx->page_mask = HPAGE_PMD_NR - 1;
++	VM_BUG_ON_PAGE(!PageCompound(page) && !is_zone_device_page(page), page);
++
++	return page;
++}
++
+ #else  /* CONFIG_PGTABLE_HAS_HUGE_LEAVES */
+ static struct page *follow_huge_pud(struct vm_area_struct *vma,
+ 				    unsigned long addr, pud_t *pudp,
+@@ -587,6 +674,14 @@ static struct page *follow_huge_pud(struct vm_area_struct *vma,
+ {
  	return NULL;
  }
++
++static struct page *follow_huge_pmd(struct vm_area_struct *vma,
++				    unsigned long addr, pmd_t *pmd,
++				    unsigned int flags,
++				    struct follow_page_context *ctx)
++{
++	return NULL;
++}
+ #endif	/* CONFIG_PGTABLE_HAS_HUGE_LEAVES */
  
-@@ -593,7 +601,7 @@ static struct page *follow_page_pte(struct vm_area_struct *vma,
- 
- 	ptep = pte_offset_map_lock(mm, pmd, address, &ptl);
- 	if (!ptep)
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
- 	pte = ptep_get(ptep);
- 	if (!pte_present(pte))
- 		goto no_page;
-@@ -685,7 +693,7 @@ static struct page *follow_page_pte(struct vm_area_struct *vma,
- 	pte_unmap_unlock(ptep, ptl);
- 	if (!pte_none(pte))
- 		return NULL;
--	return no_page_table(vma, flags);
-+	return no_page_table(vma, flags, address);
- }
- 
- static struct page *follow_pmd_mask(struct vm_area_struct *vma,
-@@ -701,27 +709,27 @@ static struct page *follow_pmd_mask(struct vm_area_struct *vma,
- 	pmd = pmd_offset(pudp, address);
- 	pmdval = pmdp_get_lockless(pmd);
- 	if (pmd_none(pmdval))
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
- 	if (!pmd_present(pmdval))
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
- 	if (pmd_devmap(pmdval)) {
- 		ptl = pmd_lock(mm, pmd);
- 		page = follow_devmap_pmd(vma, address, pmd, flags, &ctx->pgmap);
- 		spin_unlock(ptl);
- 		if (page)
+ static int follow_pfn_pte(struct vm_area_struct *vma, unsigned long address,
+@@ -784,31 +879,31 @@ static struct page *follow_pmd_mask(struct vm_area_struct *vma,
  			return page;
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
+ 		return no_page_table(vma, flags, address);
  	}
- 	if (likely(!pmd_trans_huge(pmdval)))
+-	if (likely(!pmd_trans_huge(pmdval)))
++	if (likely(!pmd_leaf(pmdval)))
  		return follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
  
  	if (pmd_protnone(pmdval) && !gup_can_follow_protnone(vma, flags))
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
+ 		return no_page_table(vma, flags, address);
  
  	ptl = pmd_lock(mm, pmd);
- 	if (unlikely(!pmd_present(*pmd))) {
+-	if (unlikely(!pmd_present(*pmd))) {
++	pmdval = *pmd;
++	if (unlikely(!pmd_present(pmdval))) {
  		spin_unlock(ptl);
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
+ 		return no_page_table(vma, flags, address);
  	}
- 	if (unlikely(!pmd_trans_huge(*pmd))) {
+-	if (unlikely(!pmd_trans_huge(*pmd))) {
++	if (unlikely(!pmd_leaf(pmdval))) {
  		spin_unlock(ptl);
-@@ -752,17 +760,17 @@ static struct page *follow_pud_mask(struct vm_area_struct *vma,
- 
- 	pud = pud_offset(p4dp, address);
- 	if (pud_none(*pud))
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
- 	if (pud_devmap(*pud)) {
- 		ptl = pud_lock(mm, pud);
- 		page = follow_devmap_pud(vma, address, pud, flags, &ctx->pgmap);
- 		spin_unlock(ptl);
- 		if (page)
- 			return page;
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
+ 		return follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
  	}
- 	if (unlikely(pud_bad(*pud)))
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
- 
- 	return follow_pmd_mask(vma, address, pud, flags, ctx);
+-	if (flags & FOLL_SPLIT_PMD) {
++	if (pmd_trans_huge(pmdval) && (flags & FOLL_SPLIT_PMD)) {
+ 		spin_unlock(ptl);
+ 		split_huge_pmd(vma, pmd, address);
+ 		/* If pmd was left empty, stuff a page table in there quickly */
+ 		return pte_alloc(mm, pmd) ? ERR_PTR(-ENOMEM) :
+ 			follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
+ 	}
+-	page = follow_trans_huge_pmd(vma, address, pmd, flags);
++	page = follow_huge_pmd(vma, address, pmd, flags, ctx);
+ 	spin_unlock(ptl);
+-	ctx->page_mask = HPAGE_PMD_NR - 1;
+ 	return page;
  }
-@@ -777,10 +785,10 @@ static struct page *follow_p4d_mask(struct vm_area_struct *vma,
- 	p4dp = p4d_offset(pgdp, address);
- 	p4d = READ_ONCE(*p4dp);
- 	if (!p4d_present(p4d))
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
- 	BUILD_BUG_ON(p4d_leaf(p4d));
- 	if (unlikely(p4d_bad(p4d)))
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
  
- 	return follow_pud_mask(vma, address, p4dp, flags, ctx);
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 2979198d7b71..ed0d82c4b829 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -1220,8 +1220,8 @@ vm_fault_t vmf_insert_pfn_pud(struct vm_fault *vmf, pfn_t pfn, bool write)
+ EXPORT_SYMBOL_GPL(vmf_insert_pfn_pud);
+ #endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
+ 
+-static void touch_pmd(struct vm_area_struct *vma, unsigned long addr,
+-		      pmd_t *pmd, bool write)
++void touch_pmd(struct vm_area_struct *vma, unsigned long addr,
++	       pmd_t *pmd, bool write)
+ {
+ 	pmd_t _pmd;
+ 
+@@ -1576,88 +1576,6 @@ static inline bool can_change_pmd_writable(struct vm_area_struct *vma,
+ 	return pmd_dirty(pmd);
  }
-@@ -830,7 +838,7 @@ static struct page *follow_page_mask(struct vm_area_struct *vma,
- 	pgd = pgd_offset(mm, address);
  
- 	if (pgd_none(*pgd) || unlikely(pgd_bad(*pgd)))
--		return no_page_table(vma, flags);
-+		return no_page_table(vma, flags, address);
+-/* FOLL_FORCE can write to even unwritable PMDs in COW mappings. */
+-static inline bool can_follow_write_pmd(pmd_t pmd, struct page *page,
+-					struct vm_area_struct *vma,
+-					unsigned int flags)
+-{
+-	/* If the pmd is writable, we can write to the page. */
+-	if (pmd_write(pmd))
+-		return true;
+-
+-	/* Maybe FOLL_FORCE is set to override it? */
+-	if (!(flags & FOLL_FORCE))
+-		return false;
+-
+-	/* But FOLL_FORCE has no effect on shared mappings */
+-	if (vma->vm_flags & (VM_MAYSHARE | VM_SHARED))
+-		return false;
+-
+-	/* ... or read-only private ones */
+-	if (!(vma->vm_flags & VM_MAYWRITE))
+-		return false;
+-
+-	/* ... or already writable ones that just need to take a write fault */
+-	if (vma->vm_flags & VM_WRITE)
+-		return false;
+-
+-	/*
+-	 * See can_change_pte_writable(): we broke COW and could map the page
+-	 * writable if we have an exclusive anonymous page ...
+-	 */
+-	if (!page || !PageAnon(page) || !PageAnonExclusive(page))
+-		return false;
+-
+-	/* ... and a write-fault isn't required for other reasons. */
+-	if (vma_soft_dirty_enabled(vma) && !pmd_soft_dirty(pmd))
+-		return false;
+-	return !userfaultfd_huge_pmd_wp(vma, pmd);
+-}
+-
+-struct page *follow_trans_huge_pmd(struct vm_area_struct *vma,
+-				   unsigned long addr,
+-				   pmd_t *pmd,
+-				   unsigned int flags)
+-{
+-	struct mm_struct *mm = vma->vm_mm;
+-	struct page *page;
+-	int ret;
+-
+-	assert_spin_locked(pmd_lockptr(mm, pmd));
+-
+-	page = pmd_page(*pmd);
+-	VM_BUG_ON_PAGE(!PageHead(page) && !is_zone_device_page(page), page);
+-
+-	if ((flags & FOLL_WRITE) &&
+-	    !can_follow_write_pmd(*pmd, page, vma, flags))
+-		return NULL;
+-
+-	/* Avoid dumping huge zero page */
+-	if ((flags & FOLL_DUMP) && is_huge_zero_pmd(*pmd))
+-		return ERR_PTR(-EFAULT);
+-
+-	if (pmd_protnone(*pmd) && !gup_can_follow_protnone(vma, flags))
+-		return NULL;
+-
+-	if (!pmd_write(*pmd) && gup_must_unshare(vma, flags, page))
+-		return ERR_PTR(-EMLINK);
+-
+-	VM_BUG_ON_PAGE((flags & FOLL_PIN) && PageAnon(page) &&
+-			!PageAnonExclusive(page), page);
+-
+-	ret = try_grab_page(page, flags);
+-	if (ret)
+-		return ERR_PTR(ret);
+-
+-	if (flags & FOLL_TOUCH)
+-		touch_pmd(vma, addr, pmd, flags & FOLL_WRITE);
+-
+-	page += (addr & ~HPAGE_PMD_MASK) >> PAGE_SHIFT;
+-	VM_BUG_ON_PAGE(!PageCompound(page) && !is_zone_device_page(page), page);
+-
+-	return page;
+-}
+-
+ /* NUMA hinting page fault entry point for trans huge pmds */
+ vm_fault_t do_huge_pmd_numa_page(struct vm_fault *vmf)
+ {
+diff --git a/mm/internal.h b/mm/internal.h
+index eee8c82740b5..e10ecc6594f1 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -1113,9 +1113,8 @@ int __must_check try_grab_page(struct page *page, unsigned int flags);
+  */
+ void touch_pud(struct vm_area_struct *vma, unsigned long addr,
+ 	       pud_t *pud, bool write);
+-struct page *follow_trans_huge_pmd(struct vm_area_struct *vma,
+-				   unsigned long addr, pmd_t *pmd,
+-				   unsigned int flags);
++void touch_pmd(struct vm_area_struct *vma, unsigned long addr,
++	       pmd_t *pmd, bool write);
  
- 	return follow_p4d_mask(vma, address, pgd, flags, ctx);
- }
+ /*
+  * mm/mmap.c
 -- 
 2.44.0
 
