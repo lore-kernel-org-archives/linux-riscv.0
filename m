@@ -4,70 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5148EC54E67
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 11:03:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20385C54E67
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2024 11:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UJdshDLOfHe6zJFVICt90KxETUBtZIj7UrxVmDwipe4=; b=V0FuSH4qAJLvDIn3TATXP0H0yY
-	aeNQJGAQCjO6A3sQjkrVjfkZ98txVvipytz+h0hxMRnu3JjGTkpmniyq72ZUtTU7Izqfsnr5dXhTz
-	+WUteeCISaQGk51aQpLTp9RoAq3C3ivozuqqYjbA62a1fk2RrHURsU1gSeYn7UvhKIy5ObiVRvfcw
-	Vt3nFaAxI5qmRa2Cq/yGTcd3jcfGE64vuyYCUPKA7OADlqSat3lCVIrQAmm1SjYVcE4VPruKUo4FK
-	6lrYme6vhvkk3V7FLpyQi97OYJqimDtRrku5ZBClpwOseGgfSBRRJT8xHo7agVQoIa4O4gg0tQs6H
-	pnYR9Bmg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=v2YfYx1soxtjqVdrc/y+w/MEfcuBWAE3aWO+LuRIlhg=; b=pLeLc0has9BLrK
+	0+A62gbGfilqqE0W+dSAMC+XowDLD7lVADn0GpzJCf6pi9tHKkOMJ4IWLqOoDVxvZiqioDep6ppHl
+	OlDGbaZqb0Qlzm57q2/7Or2/fFwuGNiTacbhAo0dqDQZh7N+yTasdNVQ0BBUXVbcy+aHBqfF8HMLv
+	bjlYphOQNik8NYhE4fEVaOh62blSQBEojapAnJ8W5fHNnFnMjpnyNxJyFGxnXBvHAL2TmbYO/K9Ie
+	//QB2Yva0qwgxX/LYkExDsRmpgEd6PECK2EbsHdarmz97WhAzOL76TZGifiXrkqHUCnzE/8b6BopJ
+	65ahWt3kxwp2msSEJhrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpR3t-00000008WRz-22YT;
-	Wed, 27 Mar 2024 11:03:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rpR6H-00000008XOb-0KQT;
+	Wed, 27 Mar 2024 11:05:45 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpR3o-00000008WOr-28yr
+	id 1rpR5s-00000008XIS-3b9L
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Mar 2024 11:03:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 99319614B9;
-	Wed, 27 Mar 2024 11:03:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DEB7C433F1;
-	Wed, 27 Mar 2024 11:03:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711537391;
-	bh=83yN7WR9Xwjvb0jOzuP+sGmgmZGqwFwG4WGgb1Zeu3o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C/ZSqiSxwGB98SmvStchGG0Fo9/Pc2Sf0N7T8VYGNuwtwIO3dTsJZLCyRAH1adOdc
-	 R7r9AdpMT5fWuo2qZ5aHU7tDZt3yCH+ZBXpzlcSgjAazNhRZnCRgLdzRdFfn/EgVRb
-	 d7pK0UvdXYvheoKKmkn0OiKgd3OnFyOKeJYDqqR30F757CAIQEC/Rhs6kqWPUMn0vl
-	 1uurGhjuSNYQFulfQ2zfxQ7bVxEdZbKqgQxIF0pCd5faKWiCRgbHa09qu3tKdPRqBX
-	 YSO5vIndQLR7N7zmvPStdJKrJkgK4tBJEvouVr5R/vjcdWhMzFRVPP+g1hkVcm/JdT
-	 hJ292oKkSOKAQ==
-Date: Wed, 27 Mar 2024 11:03:06 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Christoph =?iso-8859-1?Q?M=FCllner?= <christoph.muellner@vrull.eu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	Wed, 27 Mar 2024 11:05:34 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-41493e0fbf2so3561365e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 04:05:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1711537518; x=1712142318; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=014p56NXkTx8ykc7/eVqJqevMHd3n2lLs/kLUplg5o0=;
+        b=GOimYOfwoSeharxFN8KI4s+SzYUxlTfNY5FnFtQfCijpNQECSpcdLDowV6mvE/L9VT
+         WhsbVXXus8djKy0/kdzQal7jz+AWimDNxxnsbeYv9Ioc5vMaJ/VQVt+6LAP2Cc+DVPQt
+         F5i4VUQToCBbHAFsUf1SENYi5LUasJbMQWASRey/EIa3rv5UL1j3p82i+I5nNvDhA50Y
+         LCmTJXo3apGhfKQ45/C71abgF2zUP5coxXg5Mh51AlQ/KAkFTBCf2KWJV/zycw0DyLqG
+         PzbodNZxzaWw3Dt+XIc47Km2tG/jHFPna2tuV6tFx8uRAHd8vSnpB3OKiVDNxTK3ECwh
+         QaDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711537518; x=1712142318;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=014p56NXkTx8ykc7/eVqJqevMHd3n2lLs/kLUplg5o0=;
+        b=QZ9FNMQf1ArAnmDthi6CZF03tAMshK2QdOoFLz4JYq7ZelQy5QYSBsrFxOHSEtlzAY
+         Mi9JxGMajo9/oBTFtTML48VqdzxhfMqKXL9kZBZocFQGzEfI1D9XuARFktKCz4i+kV1c
+         HZG6FGwYUtio10H2lTfSwZ2O9PLGBL0R6scc3g7yqyAoC5gri4zwlD6tNHNyZeFvVjxO
+         jv+VoFc1AAdeQi/gJUgij2qrcm2iG1r20OrIYhZGM6uGG19/bqU19K69ohumXGipIxWj
+         j2uiYNfW1HzlLgpekD4tYoa4YU7BzSR03Ylpa4YmKFkxZErigMsjGMMuQJppZM+Mc4+G
+         FW4w==
+X-Forwarded-Encrypted: i=1; AJvYcCXN3wmzKsXvt3V7yci+kHpHsLdV4okD4WB8SLERu6TT1ce+Ku4y4EP0vQH/2hsx8TtNBLXMjH+GFdfP5/CG83eiz17dFDyIHJCwjivUEWJ8
+X-Gm-Message-State: AOJu0Yylo979L1221qeD3mhzEQLtRGgDg8YenSAyMo/B09Oz1Mc/mTRa
+	Q4gd/nKSkgf4sJP7QvR7XwrR1DsgXbN8/qNAuSRz/oSv7DLxAdf0
+X-Google-Smtp-Source: AGHT+IELU/7JO+2Zja+aj+L6RZpytn4mXOMjoQiGw3A+Qqveb4jzvTJ5TixVDe6G93XhZRpnua7/gw==
+X-Received: by 2002:a05:600c:358a:b0:413:f290:c747 with SMTP id p10-20020a05600c358a00b00413f290c747mr1671154wmq.33.1711537517652;
+        Wed, 27 Mar 2024 04:05:17 -0700 (PDT)
+Received: from localhost (cpc154979-craw9-2-0-cust193.16-3.cable.virginm.net. [80.193.200.194])
+        by smtp.gmail.com with ESMTPSA id dx23-20020a05600c63d700b00414887d9329sm1775106wmb.46.2024.03.27.04.05.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Mar 2024 04:05:17 -0700 (PDT)
+From: Colin Ian King <colin.i.king@gmail.com>
+To: Anup Patel <anup@brainfault.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Daniel Henrique Barboza <dbarboza@ventanamicro.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Cooper Qu <cooper.qu@linux.alibaba.com>,
-	Zhiwei Liu <zhiwei_liu@linux.alibaba.com>,
-	Huang Tao <eric.huang@linux.alibaba.com>,
-	Alistair Francis <alistair.francis@wdc.com>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: [PATCH 2/2] riscv: T-Head: Test availability bit before enabling
- MAEE errata
-Message-ID: <20240327-imperfect-washbowl-d95e57cef0ef@spud>
-References: <20240327103130.3651950-1-christoph.muellner@vrull.eu>
- <20240327103130.3651950-3-christoph.muellner@vrull.eu>
+	linux-riscv@lists.infradead.org
+Cc: kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH][next] irqchip/riscv-aplic: Fix spelling mistake "forwared" -> "forwarded"
+Date: Wed, 27 Mar 2024 11:05:16 +0000
+Message-Id: <20240327110516.283738-1-colin.i.king@gmail.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-In-Reply-To: <20240327103130.3651950-3-christoph.muellner@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_040312_855302_BC4717D3 
-X-CRM114-Status: GOOD (  28.82  )
+X-CRM114-CacheID: sfid-20240327_040520_917074_70BAEFC0 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,131 +90,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6065875217051931514=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+There is a spelling mistake in a dev_info message. Fix it.
 
---===============6065875217051931514==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ztnT3OuJ/y9UCOEL"
-Content-Disposition: inline
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+---
+ drivers/irqchip/irq-riscv-aplic-msi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/drivers/irqchip/irq-riscv-aplic-msi.c b/drivers/irqchip/irq-riscv-aplic-msi.c
+index 36cd04a5057b..028444af48bd 100644
+--- a/drivers/irqchip/irq-riscv-aplic-msi.c
++++ b/drivers/irqchip/irq-riscv-aplic-msi.c
+@@ -251,7 +251,7 @@ int aplic_msi_setup(struct device *dev, void __iomem *regs)
+ 
+ 	/* Advertise the interrupt controller */
+ 	pa = priv->msicfg.base_ppn << APLIC_xMSICFGADDR_PPN_SHIFT;
+-	dev_info(dev, "%d interrupts forwared to MSI base %pa\n", priv->nr_irqs, &pa);
++	dev_info(dev, "%d interrupts forwarded to MSI base %pa\n", priv->nr_irqs, &pa);
+ 
+ 	return 0;
+ }
+-- 
+2.39.2
 
---ztnT3OuJ/y9UCOEL
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Mar 27, 2024 at 11:31:30AM +0100, Christoph M=FCllner wrote:
-> T-Head's MAEE mechanism (non-compatible equivalent of RVI's Svpbmt)
-> is currently assumed for all T-Head harts. However, QEMU recently
-> decided to drop acceptance of guests that write reserved bits in PTEs.
-> As MAEE uses reserved bits in PTEs and Linux applies the MAEE errata
-> for all T-Head harts, this broke the Linux startup on QEMU emulations
-> of the C906 emulation.
->=20
-> This patch attempts to address this issue by testing the MAEE bit
-> in TH_MXSTATUS CSR. As the TH_MXSTATUS CSR is only accessible in M-mode
-> this patch depends on M-mode firmware that handles this for us
-> transparently.
->=20
-
-> As this patch breaks Linux bootup on all C9xx machines with MAEE,
-> which don't have M-mode firmware that handles the access to the
-> TH_MXSTATUS CSR, this patch is marked as RFC.
-
-I think this is gonna be unacceptable in its current state given that it
-causes problems for every other version of the firmware. Breaking real
-systems for the sake of emulation isn't something we can reasonably do.
-
-To make this sort of change acceptable, you're gonna have to add some way
-to differentiate between systems that do and do not support reading this
-CSR. I think we either a) need to check the version of the SBI
-implementation to see if it hits the threshold for supporting this
-feature, or b) add a specific SBI call for this so that we can
-differentiate between firmware not supporting the function and the
-quote-unquote "hardware" not supporting it. I don't really like option a)
-as it could grow to several different options (each for a different SBI
-implementation) and support for reading the CSR would need to be
-unconditional. I have a feeling that I am missing something though,
-that'd make it doable without introducing a new call.
-
-Thanks,
-Conor.
-
-If only we'd made enabling this be controlled by a specific DT property,
-then disabling it in QEMU would be as simple as not setting that
-property :(
-
->=20
-> Signed-off-by: Christoph M=FCllner <christoph.muellner@vrull.eu>
-> ---
->  arch/riscv/errata/thead/errata.c | 14 ++++++++++----
->  1 file changed, 10 insertions(+), 4 deletions(-)
->=20
-> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/e=
-rrata.c
-> index 8c8a8a4b0421..dd7bf6c62a35 100644
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -19,6 +19,9 @@
->  #include <asm/patch.h>
->  #include <asm/vendorid_list.h>
-> =20
-> +#define CSR_TH_MXSTATUS		0x7c0
-> +#define MXSTATUS_MAEE		_AC(0x200000, UL)
-> +
->  static bool errata_probe_maee(unsigned int stage,
->  			      unsigned long arch_id, unsigned long impid)
->  {
-> @@ -28,11 +31,14 @@ static bool errata_probe_maee(unsigned int stage,
->  	if (arch_id !=3D 0 || impid !=3D 0)
->  		return false;
-> =20
-> -	if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT ||
-> -	    stage =3D=3D RISCV_ALTERNATIVES_MODULE)
-> -		return true;
-> +	if (stage !=3D RISCV_ALTERNATIVES_EARLY_BOOT &&
-> +	    stage !=3D RISCV_ALTERNATIVES_MODULE)
-> +		return false;
-> =20
-> -	return false;
-> +	if (!(csr_read(CSR_TH_MXSTATUS) & MXSTATUS_MAEE))
-> +		return false;
-> +
-> +	return true;
->  }
-> =20
->  /*
-> --=20
-> 2.44.0
->=20
-
---ztnT3OuJ/y9UCOEL
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgP86gAKCRB4tDGHoIJi
-0syxAP98Co7XAfFsYfnMnzOgsIfjb+XPHSPmuZTmIeOhn+xvZQEAjP7y2N7JwGPC
-u0oOkLDxmwBaDDFykp5t1LWG64W/lQ0=
-=e/Gp
------END PGP SIGNATURE-----
-
---ztnT3OuJ/y9UCOEL--
-
-
---===============6065875217051931514==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6065875217051931514==--
-
