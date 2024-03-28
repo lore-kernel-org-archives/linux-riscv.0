@@ -4,115 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 176C1CD128D
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 18:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1603ACD1283
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 18:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/2R5B24S7nAqUuGLRW0+KtMqMolYcsfJfUsu0udykUw=; b=nc34rjbYapdWX1
-	WUK7DVvQdDZxZzDF1hko8+Of40rhwqUDefhJJFPxakuWZ9SbhGniYkbtFFjUZFSYHnYqql/q25ciB
-	n4XAqPczvRYAHizDFgba+GMjlAdGbSlapYD4D54gd+Wdgc/Zg7k81IXwTpvWyTUeNNqaQu4HYat5E
-	VPbWWgtR/3pLAbScaKea1tquMDSDlefrRoabL+kh4p26qQXe10HXvfS0QSEqep1CwxrXCKFBJXoqh
-	gD4tGOOet/v0ofhGMoqEKvUEhRpSVNWUEl7n/6OkvbPL1W9tafjwgTbJCD4zj18qfl2cPg7cOIXnE
-	UlXWjMnHf9HiSrM9wW0w==;
+	List-Owner; bh=ie39sYk9x2dCu04k04x0WWHXvG6OZatqFTqRN8Jui1Y=; b=a2lW9aq1hXuX+3
+	5RUSJkCt9O7gYZXz9tWiRPEJueO0Kg4dF/dz4aTkDXWdVZTNB5aBV7RHSBp3E6vH/QblGjj1Ys+io
+	yLQ64J/cmIdeSU0NBFJ6SJKUivQ397LGzRmMpw9SWSNH2yI84+nUE/GCXvzjifh3QvRLGDyXCiPnN
+	Uojn2nH/09ygGQMWn23GiZ4yavPxQvSlyXArshGwmIe8qEvHOtv5PEaQYXdNRDPmEvrByZ6NMmGby
+	cOm/ER9ibSPkhShX+egGJEVS7aftIdFxQN0VlvXQShkdD+KyerEAXVUnY7PRCmbc8N6DmH2xtOK8i
+	tSM51Wqnhxz9kPTIgxJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpuXb-0000000FC4Y-3PoP;
-	Thu, 28 Mar 2024 18:31:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rpufy-0000000FDVH-0bTJ;
+	Thu, 28 Mar 2024 18:40:34 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpuXX-0000000FC2p-0Wm6;
-	Thu, 28 Mar 2024 18:31:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7250A61783;
-	Thu, 28 Mar 2024 18:31:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9561C433C7;
-	Thu, 28 Mar 2024 18:31:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711650709;
-	bh=09Kq07Ctu1YK6YAopY47/y5AlbJwjHjNBMXfeYxKY3s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QQ+Ol01eGrtbmmXmm5UOF8z3YVrAFzrLyUinoyXQOw2oD/3BtgXxtRpcyL6qEGHMi
-	 Fuf1dGmu1+mXVCx0A2v+QG1OZmZa5GwKeTprSp0vXiGl5WvN4w7glf0wb/Ho4jGsI6
-	 A7WhuNfxRZ+SYEDd2EHDavctgY396ec7mZY6h+UmOVbwQhncgmm56Grgtq512eTU0I
-	 juRVEJtAyO8mA2/2SAJmqgsMiWvU8lqDqaMAEVDmDUSGgn+tYLJ7mum23hafaIgM0S
-	 0/cB+mlWradcKD4+nkGPqD1rFiy3Q7s73Qm1b4qRq5IHy2lK358t2WVn9s4EqNJkuF
-	 qXaWYWlrz6OoQ==
-Date: Fri, 29 Mar 2024 00:01:43 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Allen Pais <apais@linux.microsoft.com>, linux-kernel@vger.kernel.org,
-	Tejun Heo <tj@kernel.org>, Kees Cook <keescook@chromium.org>,
-	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Paul Cercueil <paul@crapouillou.net>, Eugeniy.Paltsev@synopsys.com,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Viresh Kumar <vireshk@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Leo Li <leoyang.li@nxp.com>, zw@zh-kernel.org,
-	Zhou Wang <wangzhou1@hisilicon.com>, haijie1@huawei.com,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	logang@deltatee.com, Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>, peter.ujfalusi@gmail.com,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	maintainers@bluecherrydvr.com, aubin.constans@microchip.com,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Manuel Lauss <manuel.lauss@gmail.com>,
-	=?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
-	"jh80.chung" <jh80.chung@samsung.com>, oakad@yahoo.com,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>, brucechang@via.com.tw,
-	HaraldWelte@viatech.com, pierre@ossman.eu, duncan.sands@free.fr,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Oliver Neukum <oneukum@suse.com>,
-	openipmi-developer@lists.sourceforge.net, dmaengine@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-mediatek@lists.infradead.org,
-	linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org, linux-hyperv@vger.kernel.org,
-	linux-rdma@vger.kernel.org, linux-media@vger.kernel.org,
-	"linux-mmc @ vger . kernel . org" <linux-mmc@vger.kernel.org>,
-	Linux-OMAP <linux-omap@vger.kernel.org>,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
-	linux-s390@vger.kernel.org, Netdev <netdev@vger.kernel.org>,
-	linux-usb@vger.kernel.org
-Subject: Re: [PATCH 2/9] dma: Convert from tasklet to BH workqueue
-Message-ID: <ZgW3j1qkLA-QU4iM@matsya>
-References: <20240327160314.9982-1-apais@linux.microsoft.com>
- <20240327160314.9982-3-apais@linux.microsoft.com>
- <ZgUGXTKPVhrA1tam@matsya>
- <2e9257af-c123-406b-a189-eaebeecc1d71@app.fastmail.com>
+	id 1rpufv-0000000FDUB-4AHb
+	for linux-riscv@lists.infradead.org;
+	Thu, 28 Mar 2024 18:40:33 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-41494c0405eso7866755e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 11:40:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1711651229; x=1712256029; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=X5HiuWpEGn7cY1cM9xGgQQ/PHhgGCf83PSLXysQQN/k=;
+        b=EhFhueN76ojg07qWFZsn3ZZznPhDsj2TsCzEbe5FVfjKYrsVTEESNV55zMD3e+G30W
+         UxQBpZGAdU7/GkHDyMkyxePhsAkHZx2KWGPbbWzbmzJ4n0ClXTmkEjnP3Q/18CNkjnjn
+         UckdkjdzJ+zUra7GILV2dYi9+MwM71vvwGQPtwjr/c6ERfU6vPH+ULDmq32Q35sbVlZ4
+         /pfBj6DdLQdnzB9/qgKHd+/YLzRZ1/IWa/CYY5RvvP1qZrsM+imqfqhgoT3pKfm7ohqw
+         j2H3abFWNWfscc5wCsoU2caxG5ufUDfV5WqVCA3aQOqMgipYIBH530wznYlHxL9Jo8io
+         ZqtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711651229; x=1712256029;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=X5HiuWpEGn7cY1cM9xGgQQ/PHhgGCf83PSLXysQQN/k=;
+        b=jlqp32JOlIk89PG6lKVGhSGnss9EQjM45fs1M0R99A6rpBSjp1s+DgqEZRySrF6Ovr
+         T+AUwpczB3KAXyFKLmtoCaTNuVPrX5AMsUvBaO+WF6V5lM0YVUpag3KYo86yDiWsohXt
+         b4yEIqwAkPkPbUqVUwcVI4USIdbX9gORi4Q0LM+yiSTglvDTcSJuRel/PyF0keEk3zRb
+         W/fdXjUxOAxCiWXROBlFAOSlOgwbcy/7dHwa4gv2v4qCCZJNFoJ4HHtCm1R+zUjwCT7B
+         1jrwgzMruCKn5yQs1uQFaEebE7I2TfvcrYTz3XZkgcG6QWfKCxxMuq63lv4dARVLPflP
+         MJ/w==
+X-Forwarded-Encrypted: i=1; AJvYcCXlDt6Z5geInCt70fWt98XUqB+7Ct1I5VfLHvr0AxWl7tcSsNbbPejHLZZeZqDrDul6zWEMoZBfPRd1bpbyCCiVXOCcg8Ppi4Ym2OnQsJiz
+X-Gm-Message-State: AOJu0Yy0z3Z0XGCRlkJLTaJCWuwcuZ+rrYwZS/TtgLtVzQr+P2HAEkp+
+	+LgAc4uSsJqDk/idItblXeKiYrZQ7mjC7KC+KDXza4unAlz4XBRf
+X-Google-Smtp-Source: AGHT+IEhP9iRRtULEumOWwr08ZL9lifFDb1imTRVTFD6498BJOclfcgjhfx8rAmWuu2GenkUlyrkTQ==
+X-Received: by 2002:a05:600c:3b17:b0:414:1325:e8a8 with SMTP id m23-20020a05600c3b1700b004141325e8a8mr124213wms.39.1711651229193;
+        Thu, 28 Mar 2024 11:40:29 -0700 (PDT)
+Received: from localhost (54-240-197-231.amazon.com. [54.240.197.231])
+        by smtp.gmail.com with ESMTPSA id bh8-20020a05600c3d0800b004132ae838absm3045508wmb.43.2024.03.28.11.40.28
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 28 Mar 2024 11:40:29 -0700 (PDT)
+From: Puranjay Mohan <puranjay12@gmail.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>
+Cc: puranjay12@gmail.com
+Subject: [PATCH 1/2] riscv: stacktrace: use arch_stack_walk() in place of walk_stackframe
+Date: Thu, 28 Mar 2024 18:40:19 +0000
+Message-Id: <20240328184020.34278-2-puranjay12@gmail.com>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20240328184020.34278-1-puranjay12@gmail.com>
+References: <20240328184020.34278-1-puranjay12@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <2e9257af-c123-406b-a189-eaebeecc1d71@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_113151_248265_6F9A9644 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20240328_114032_055051_5314DE6D 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,44 +97,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28-03-24, 11:08, Arnd Bergmann wrote:
-> On Thu, Mar 28, 2024, at 06:55, Vinod Koul wrote:
-> > On 27-03-24, 16:03, Allen Pais wrote:
-> >> The only generic interface to execute asynchronously in the BH context is
-> >> tasklet; however, it's marked deprecated and has some design flaws. To
-> >> replace tasklets, BH workqueue support was recently added. A BH workqueue
-> >> behaves similarly to regular workqueues except that the queued work items
-> >> are executed in the BH context.
-> >
-> > Thanks for conversion, am happy with BH alternative as it helps in
-> > dmaengine where we need shortest possible time between tasklet and
-> > interrupt handling to maximize dma performance
-> 
-> I still feel that we want something different for dmaengine,
-> at least in the long run. As we have discussed in the past,
-> the tasklet context in these drivers is what the callbacks
-> from the dma client device is run in, and a lot of these probably
-> want something other than tasklet context, e.g. just call
-> complete() on a client-provided completion structure.
-> 
-> Instead of open-coding the use of the system_bh_wq in each
-> dmaengine, how about we start with a custom WQ_BH
-> specifically for the dmaengine subsystem and wrap them
-> inside of another interface.
-> 
-> Since almost every driver associates the tasklet with the
-> dma_chan, we could go one step further and add the
-> work_queue structure directly into struct dma_chan,
-> with the wrapper operating on the dma_chan rather than
-> the work_queue.
+Currently, dump_backtrace(), __get_wchan(), and perf_callchain_kernel()
+directly call walk_stackframe(). Make then call arch_stack_walk() which
+is a wrapper around walk_stackframe() and make walk_stackframe() static.
 
-I think that is very great idea. having this wrapped in dma_chan would
-be very good way as well
+This allows making changes to walk_stackframe() without disturbing the
+users of arch_stack_walk() which is the exposed function.
 
-Am not sure if Allen is up for it :-)
+Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
+---
+ arch/riscv/include/asm/stacktrace.h |  2 --
+ arch/riscv/kernel/perf_callchain.c  |  2 +-
+ arch/riscv/kernel/stacktrace.c      | 26 ++++++++++++++------------
+ 3 files changed, 15 insertions(+), 15 deletions(-)
 
+diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+index b1495a7e06ce6..32213e37c379f 100644
+--- a/arch/riscv/include/asm/stacktrace.h
++++ b/arch/riscv/include/asm/stacktrace.h
+@@ -11,8 +11,6 @@ struct stackframe {
+ 	unsigned long ra;
+ };
+ 
+-extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+-				    bool (*fn)(void *, unsigned long), void *arg);
+ extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+ 			   const char *loglvl);
+ 
+diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
+index 3348a61de7d99..c023e0b1eb814 100644
+--- a/arch/riscv/kernel/perf_callchain.c
++++ b/arch/riscv/kernel/perf_callchain.c
+@@ -74,5 +74,5 @@ static bool fill_callchain(void *entry, unsigned long pc)
+ void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
+ 			   struct pt_regs *regs)
+ {
+-	walk_stackframe(NULL, regs, fill_callchain, entry);
++	arch_stack_walk(fill_callchain, entry, NULL, regs);
+ }
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index 64a9c093aef93..e28f7b2e4b6a6 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -18,8 +18,9 @@
+ 
+ extern asmlinkage void ret_from_exception(void);
+ 
+-void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+-			     bool (*fn)(void *, unsigned long), void *arg)
++static __always_inline void
++walk_stackframe(struct task_struct *task, struct pt_regs *regs,
++		bool (*fn)(void *, unsigned long), void *arg)
+ {
+ 	unsigned long fp, sp, pc;
+ 	int level = 0;
+@@ -76,8 +77,9 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 
+ #else /* !CONFIG_FRAME_POINTER */
+ 
+-void notrace walk_stackframe(struct task_struct *task,
+-	struct pt_regs *regs, bool (*fn)(void *, unsigned long), void *arg)
++static __always_inline void
++walk_stackframe(struct task_struct *task, struct pt_regs *regs,
++		bool (*fn)(void *, unsigned long), void *arg)
+ {
+ 	unsigned long sp, pc;
+ 	unsigned long *ksp;
+@@ -107,6 +109,12 @@ void notrace walk_stackframe(struct task_struct *task,
+ 
+ #endif /* CONFIG_FRAME_POINTER */
+ 
++noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry, void *cookie,
++				      struct task_struct *task, struct pt_regs *regs)
++{
++	walk_stackframe(task, regs, consume_entry, cookie);
++}
++
+ static bool print_trace_address(void *arg, unsigned long pc)
+ {
+ 	const char *loglvl = arg;
+@@ -118,7 +126,7 @@ static bool print_trace_address(void *arg, unsigned long pc)
+ noinline void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+ 		    const char *loglvl)
+ {
+-	walk_stackframe(task, regs, print_trace_address, (void *)loglvl);
++	arch_stack_walk(print_trace_address, (void *)loglvl, task, regs);
+ }
+ 
+ void show_stack(struct task_struct *task, unsigned long *sp, const char *loglvl)
+@@ -143,13 +151,7 @@ unsigned long __get_wchan(struct task_struct *task)
+ 
+ 	if (!try_get_task_stack(task))
+ 		return 0;
+-	walk_stackframe(task, NULL, save_wchan, &pc);
++	arch_stack_walk(save_wchan, &pc, task, NULL);
+ 	put_task_stack(task);
+ 	return pc;
+ }
+-
+-noinline void arch_stack_walk(stack_trace_consume_fn consume_entry, void *cookie,
+-		     struct task_struct *task, struct pt_regs *regs)
+-{
+-	walk_stackframe(task, regs, consume_entry, cookie);
+-}
 -- 
-~Vinod
+2.40.1
+
 
 _______________________________________________
 linux-riscv mailing list
