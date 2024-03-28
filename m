@@ -4,140 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B868EC54E67
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 02:25:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A73C47DD9
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 02:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YxLa9cO09ytf8PyBJxrFdnyAQAXOVne93xSxe8EV1T4=; b=FIjGfg2k0RXkux+5hN7hqzPLPU
-	8oMx1l1YK6sSRgTb7dUnUJAX0ooTYXtJePLME0fg1duyK6Lb7PwX80TMY0L5AindAOYqX482XlSur
-	FqCtWmBpYV2uknk9eSRNwGrAdXcWHmlB9NCzOenDg/88IEDe45KI3siwgnv8it7idYp4FBa9MwFuE
-	WN8+57kI5UTPCTbScIbat9WGIeuz4B4wktJU37SyblzYvqB3fd4lOKgB6feCyb7KE9v7pZdtL1Kcp
-	WesEEy9EW+ayzwNZuucK7RY+PoFYnQIjLx4tuEJ/qxRnWwVaBtVyjFzu44LY+tQouAZ2uE6nUAhcA
-	t8bm/Mfw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=rHT+oWD9xSXln8KPImHkDY0fPiN54dY8hdE0wKN1M6w=; b=lzl9jDJvg7CLKjGv2kO+CnstRm
+	sVn097XeL3ro64urSwZ13zcYtUDqRt9uped351aG8vDN04fWhM1YPKv6PoAuo6wcCNVBtWisW6O7O
+	pCyKRpD2BRtIMoMdObNNl6tszFKJf5C7qgvkepPyMZsTXj9PCTDC4mbo3SsH1sxPv6y3xuBGPK1G4
+	nlB7h1hBo/I4irzbONaDKCBnYVkxeU77m4bsPuMOgRdf6int6AXpNj4lnEp53H7y2igFPL4yBL+83
+	3HzazNdUqsufvuwuyWUtnOTB9Y9gpxNxl2ajPEJyDA2EZmPkYwjnbcUiJh7UUT8WmDBJspaNiDpIc
+	KykRXXug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpfSE-0000000C5sg-0T7v;
-	Thu, 28 Mar 2024 02:25:22 +0000
-Received: from mail-eastusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c101::5] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1rpfVp-0000000C6PP-0HtX;
+	Thu, 28 Mar 2024 02:29:05 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpfSB-0000000C5rr-1NJY;
-	Thu, 28 Mar 2024 02:25:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Pz6k5wXCWBTka0aInD/jTs4WuBJT8qTTWXHu9HImY0Q9w+IHAUnzuPlSgW7bzdhuhUa+Q2N0UOaijxL9DawdbBftlgztZGSRMz5MalTIQ8yObTeNLTW1YkYlvTTeY9BJbq6KY4cTfeIFZrlXQ7V3aXfYEq/OUjajpWwTBSRQAWxM18NNltu3rQ8SJ0suaPY1EQ5ONhg5BdY1q4jw0LAk5Rvb/PWVnUW8lWetepYG4nfTikAF8Q16znSYTBIuGyxSX7O8t2v0OFX6WgyMyi0sYRto+ThEjDUNSPDAaaWMPQ06iwJ4IQbQRFmWiUqWqeZinp72ieuHNPt57DKu731Ovw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IIdUauLTFeCwbakpr4Q2dCGAc61J1SA9QaxWp88h4JQ=;
- b=UT3EakVWFU+jHYB5rzab+/VI+oA+cw0tPiIyAL+sgZxKo/bO97WOdRU8ilrBtceAAaUwyclcfPHDgICCZePMZnxLQbVDywU4q9P01qwZTwdsF+OlgCzZ+tS1jlYVXJDHQKG5+/Oj+X/UscMXhgjMla767Ag3f8tN8CWo3gj3ocnNjlAQ3loB6O4HqtZ00H/kvftKYBw6iQZ+NUCqwzRhrzHTLJzYqnB7qVvDHSnQQBto9I+sbglkGguhr1mk/N6Rcf55fdbXryzaBIVd0QrD3eEXPT/7faSk+EzAdaW+GHIQ6gn/g1GI6/Jd8fEbCJA26mMzeW77Pfr5phDXlDCTfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=amperemail.onmicrosoft.com; dkim=pass
- header.d=amperemail.onmicrosoft.com; arc=none
+	id 1rpfVl-0000000C6Ne-2GuT
+	for linux-riscv@lists.infradead.org;
+	Thu, 28 Mar 2024 02:29:02 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-dcd94cc48a1so748920276.3
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 19:28:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IIdUauLTFeCwbakpr4Q2dCGAc61J1SA9QaxWp88h4JQ=;
- b=Srt+N8d5vmweyREnoJzhieMiTsfHIMcLTCJbEQyXdVX4oH+/YFC7B48tqMOlSVIFguZgIRZnXuXhmot8U1+04qa4GqS/P8H+54VqFJ/Gfm4fyALO1055xwwB4LL1jf0mrrT/DfbghelqSlXYEahu74RC6ieNto3HYQ8CVrkYQZ8=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
-Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
- DS0PR01MB7914.prod.exchangelabs.com (2603:10b6:8:14a::9) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.7409.33; Thu, 28 Mar 2024 02:09:17 +0000
-Received: from PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::c97e:78ae:2565:dae7]) by PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::c97e:78ae:2565:dae7%7]) with mapi id 15.20.7409.026; Thu, 28 Mar 2024
- 02:09:17 +0000
-Message-ID: <c3817e18-e2ae-4ac2-b2b1-f68cf10ff418@amperemail.onmicrosoft.com>
-Date: Thu, 28 Mar 2024 10:09:02 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] NUMA: Early use of cpu_to_node() returns 0 instead of
- the correct node id
-To: Andrew Morton <akpm@linux-foundation.org>,
- Huang Shijie <shijie@os.amperecomputing.com>
-Cc: gregkh@linuxfoundation.org, patches@amperecomputing.com,
- rafael@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, yury.norov@gmail.com, kuba@kernel.org,
- vschneid@redhat.com, mingo@kernel.org, vbabka@suse.cz, rppt@kernel.org,
- tglx@linutronix.de, jpoimboe@kernel.org, ndesaulniers@google.com,
- mikelley@microsoft.com, mhiramat@kernel.org, arnd@arndb.de,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- will@kernel.org, mark.rutland@arm.com, mpe@ellerman.id.au,
- linuxppc-dev@lists.ozlabs.org, chenhuacai@kernel.org,
- jiaxun.yang@flygoat.com, linux-mips@vger.kernel.org,
- cl@os.amperecomputing.com
-References: <20240126064451.5465-1-shijie@os.amperecomputing.com>
- <20240327111740.f8d3802b0eae15bcb8727e04@linux-foundation.org>
-From: Shijie Huang <shijie@amperemail.onmicrosoft.com>
-In-Reply-To: <20240327111740.f8d3802b0eae15bcb8727e04@linux-foundation.org>
-X-ClientProxiedBy: CH2PR05CA0020.namprd05.prod.outlook.com (2603:10b6:610::33)
- To PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|DS0PR01MB7914:EE_
-X-MS-Office365-Filtering-Correlation-Id: b70c428a-7252-48bc-825f-08dc4ecc1281
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: YXiZmPWUjh4e5YXohQeJqLa6+/2pZpB9hFS2n2A+P7swCjV/GFb98xpFg4VAqD+pYTbi1zV05DqCzzTos8hPCerzbx0FYgm530hwQZLqzvRMtRXncU/nE/LxCJqPFUXQFuExhqNlmFdm+AGrc55cQb3ipZZY5UM8OYDMWZLTowQ3d9dLiXxFsZKnS0srOm8bDZ+i1FRd8QcsIgRNpSzwemOTwJTlh6vryBusOOm2Qgjt840XzLSPn3Kd6IIMykxtDFhqTUVCzeS56ozkT6FgdrcvJbv4aMHFwL4D4on8moUy46v+wmHqM33Fip1gS3hhJzHrXEDfkidkR3Xg2e36oktM3eo7N6gX3di/pvTftHbkjnWm+qisdtwyJaWj6q4/Uvwo14L/RKcxd7hhHkYOecOvhbZxSuA/5EjJ6UUhPKX92DKlISrFSi/9niMJehlJPlnZRd0NqGAGWtV4OWk0cCAko+kN1o+ZS0JVetFC5KamA4Xsw4QMZscRa+hfEXC4w07aYX+2oQm41UhLVLXqkhVz9lI+5jv+vZX+m7eAcbnd6mb/xFg/UKIROve+2sWI68eQBeCNENWYwK+WMKYYpd/1MOzaR8MLCOuifOdfPOPQ0I4QDYDjdSTmiZ4KU4aef5WTanbKdfxdX/WiiX/PqoBJVbLtwTSEyNjVEjszGTo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230031)(376005)(366007)(7416005)(1800799015);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bmxMU1pwS1BzRHNvc1JMT2x6ZlUxaVVnUGsyeFZ3Yzl4Z0VuVkJ2WGxiWXZo?=
- =?utf-8?B?KzVWRHIzZmxTZ1VXN0orbVZtWHFtZGpmNy90cGRJSzN2a0ZweFJvSjYrTFhT?=
- =?utf-8?B?V0xDbHZkZWF1MEhOa3ZKTDNScnJPOHFuU0EzYmxXeHQ3SmpDeTJycG5Gc0R3?=
- =?utf-8?B?TlY3cFVkK3JVME45bUd2VkJXRVB2MWJZaWdTKytIdXFMS1Y0T0lUbzFBYnZ5?=
- =?utf-8?B?eitmNmQrL2RrL01UM2k4U0xESjhHNVVadkZVYTNPQkM1RHFqOGVQNVJjT2N4?=
- =?utf-8?B?NFM0NU1janI5ZEx2L3E5UDJOYUo2dVlkeEZGVUNCeGRXQUx6T0ZTM3M1eEVM?=
- =?utf-8?B?MGkzd0dXUW9od0ZIMTZzNWNUcEpYcm5WR2pRR1lkWjBPQ0J5VFdyaWhnS0sx?=
- =?utf-8?B?R3hORUhYQ2prZFlhY3k0UXdPSWpNdmtTM1JSQ3Mvb01NTlpFdWgxSDR2TEI2?=
- =?utf-8?B?N3lxdlU2cVFPUUdMS2JIMlcwdHZFQ0dsdWRkTWIxNlNoQWNHZGNoY3c1VlRW?=
- =?utf-8?B?UU9KeGxPR0h1dndpMjAzdFJOM3Q2dmEzTG1GY0dJeGFvSGFvbWNLV2NpUGZ6?=
- =?utf-8?B?dyswRGM1V1orQ2g2WUJKYmhRRmVGZDFGUWdCL2ZXN2xZK2tMR0RZUHQ4NHhK?=
- =?utf-8?B?aEJtUVVWL1ZBdEV5ZkYzS3lxMnVyMkRxdUxDSFRYR1A2OE1jWHR5Qzlpbjl2?=
- =?utf-8?B?bU1PUEpuVWlEWm93U25iWFg5ZXFYRnU5K3hxeldOWkhtOW04aUk5dWxNRHor?=
- =?utf-8?B?UFlyYlhISm5xVVM0SFlaY1lNQXpUQytsUkxIUzA3MGU2NlhZTVM5eW1DdG5B?=
- =?utf-8?B?cWQwUzhlWU9YL2I5bm9lR05hUlBUbU5XWW13ZHlieWt5R3hadnFPdTlLWFNH?=
- =?utf-8?B?M0RucHhrWUVidFNVTDE2U09DdVFGalR5alBXTGJ4SG0rK09LZXRNYUg1UWtl?=
- =?utf-8?B?UlU3VkxsQi9VY1pVRTJyUzZlSkJESmtFWHFPRm0zRUROT3grU2F0NEx6VU5v?=
- =?utf-8?B?VFQxS3ljeHB3YzBnTTZHQlI1NGxxbGRNMk13aFI5NkV4STNwWHNLUFNpbFBm?=
- =?utf-8?B?UWl4cXhiaThOVis5RCtPcXJYZU5uR0xYa1JMemI1ak9NS0VBZktjSjFPMW9q?=
- =?utf-8?B?dHplRVJQb3hzZkRocXJaT0IvczdFcFNJclRiSnNXblB5VWNwRmc1UUhVQUN3?=
- =?utf-8?B?Ris2UytFZFBDRlJFUjdxb0pNbzdEbXdwUFNNeS9Vbjc2UmEvak1ySXRGSWN0?=
- =?utf-8?B?MFh3TytvSG5ZRlBPTFRyZlpPLzBLT1U4MXE2eU15UkU1NEpZTmxGTC9iT0Q2?=
- =?utf-8?B?K0FTQk8yT1JCVUozWnBLOEVjbjdJODQ5ejRjcWt2b2NocXdXeEgwMEMxME95?=
- =?utf-8?B?QU94ejE2MW9jTWF4L3VKOEhGa25BSC81bVdzVThvN3VsMHBZN3NrUGhOYmtG?=
- =?utf-8?B?cmRPRmtFYUtMckZSZkxxcElOcGxCeTZOT1BFZ1BXZmhnL0hGYzRuY01QSURu?=
- =?utf-8?B?eDExNnFDSHByM292OFFJOHdzbldXV0VQWmZSQ1p3amo3OEkxQ1RSLzA2OWhy?=
- =?utf-8?B?Y1BXUzM1SGQ5ckl3OHFJcTNUNXdJNGdIWDZmZTNCUzJ4WEE2WG1Vb2FpZ1dl?=
- =?utf-8?B?b1FWWVdBeTd4TzRzRm84OENGVG9YcDZWY2k0UGJNUGt2SEJXWE5zdXlVREp3?=
- =?utf-8?B?R0pTTlV4ZGkwZFYwWmE2WE4vYXFra1lUc0d5eWdBZzJ6aFUvNStLVm9qbDh0?=
- =?utf-8?B?c2RUVEFXY2dxWTRpTUcvWmdiczQrd0JkcGlsSkRHZmx1M1VDNFk3OWM4cFh5?=
- =?utf-8?B?Q21rMzdSWHBUUmwwdWY2aEhETmVjQjFYK2h3UmRCWHo0NkxqREtxS00wd1A1?=
- =?utf-8?B?TkZsTWx4RFpYRy9LV1N4bXpuTzErbitoSXFwNFBUWTcxblRHMkI5Tm4xZXdv?=
- =?utf-8?B?cDM2WG1GMFlLUUpYT1ZFcXY1RmovcS80REVqNC83ZjBuUUNJeFh3Z1czbEhh?=
- =?utf-8?B?aFppVlV4QmZ4cHNUZW9IZi9HNjI3UzY0b1NZcVNDYW5vM3dxZlJKemlrRmFN?=
- =?utf-8?B?c2pZaWJEMXJqSStrMWVVZE9nR2J5ZlFQOTJKU1lSMUlsTzJmK0ttSUZUejBY?=
- =?utf-8?B?dW0ydWV2d3JPbHdyVXhrSGI4T0RSLzdSSExzU3VWbDJhZVBHRUkxcTNOd09m?=
- =?utf-8?B?SHc9PQ==?=
-X-OriginatorOrg: amperemail.onmicrosoft.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b70c428a-7252-48bc-825f-08dc4ecc1281
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Mar 2024 02:09:17.5278
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0lxQFw0xdXFPsMazXDgRh+EiCrqzbtlniEo9q2/Wy9gp7bXwQrzl3SKRruekWydArkLAC+qliQj1CwcSU6NNaCdRQmdiCKzzaSdOGfNKZoHtWTVnUnPMT+8NsjhXmNJn
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR01MB7914
+        d=google.com; s=20230601; t=1711592938; x=1712197738; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/QmOyqM5X2MNASCMJ2dyKBKMwyn+XBPI/URXs6ak0lY=;
+        b=t5vZWdajOKePbji6QLpf0E4dqhmVRWa27APwLouPILVhFaXqRbRCWwLYkSfVjP/pGL
+         rLlxfB1fap98NkdkD+8jOLh72NBln0vYRrPIxiSuGoTZzVcdHERdOzMS/tCt7PRRLHce
+         yF6TSocPqCKTf92vyBJBpeopG/ou8Iak/twXS6TYpakE4kBb677DAVEaBVaLRq2oCXEE
+         bThSUBzwjKTRIoTA25oFqhVzgKIA2hlg+aNrUMR+U0IfCmFrjpojUMh4BjnPDb11tMUd
+         WBNZEB1gCZzF1PKg0D1gebskgj6Wl8XVdg68wcpJGS8K/x0cOuNfJ5YgtmNnBBKvRfht
+         v5ig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711592938; x=1712197738;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/QmOyqM5X2MNASCMJ2dyKBKMwyn+XBPI/URXs6ak0lY=;
+        b=jW+yPBpJOYGhflPPMUNXjeQnas5B8z35iKHSJ55wATi5MOaTr56W0yZaPh/ajTuZFQ
+         zxzTr4i13UJAYVtyBZyrVcB0DPK9TSfdb+5Eun2lTKKCk9M9EbPdBexFBg8acH96VjoY
+         1KecAimxnbsysN+EjvBDl4LP1i1b0O0wulpGT0HW7XevEREWNohfYbWExci4KkCnhmgv
+         2ULHPbqVaMdkogW8ZIgVuHVs9lPk0D7ROnv44Fvs5Bq14yNkDR92lYS40v/EyzqLhL5u
+         PvVdiVUn0fg5g4/LnElrGsnfPjVTY0XXsoiDpyQmM76L1WumrcqqaiBjDxaR+M0G/8V9
+         NkcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUh1chzjt2i6Ls37B6WFev2GDDF1vq/9oiApaQ5GLnSlj3BUUxBqioIUiXTrP7VSFw/ER3f0l9qV3CFlNP1zzkKgSnF90zBCQ9/ITE2OMyb
+X-Gm-Message-State: AOJu0Yw2E7th/jcdM/OZQOOsb7gRlEtbqQU9QtuqDhiw8dtzslM//Phk
+	/PdKOcecokiC/WpIDvGLab7h4592pvtpcQQDHJlj+wGjuzDNJUIfve5I2Ssw6edFozWHQeCjBw+
+	l6y6+Qugh5kEYhI7WHKAcHw==
+X-Google-Smtp-Source: AGHT+IG3h7UFptSbhQThXKYXVUxHjXW9GcRNRwfD8DnNx4fzNFxp960mZTVoDNqHvfoMy5v3WIivsTHuarJXGtUe7A==
+X-Received: from ctop-sg.c.googlers.com ([fda3:e722:ac3:cc00:4f:4b78:c0a8:1223])
+ (user=ackerleytng job=sendgmr) by 2002:a05:6902:2290:b0:dc7:48ce:d17f with
+ SMTP id dn16-20020a056902229000b00dc748ced17fmr489931ybb.10.1711592938320;
+ Wed, 27 Mar 2024 19:28:58 -0700 (PDT)
+Date: Thu, 28 Mar 2024 02:28:51 +0000
+In-Reply-To: <20240314232637.2538648-14-seanjc@google.com>
+Mime-Version: 1.0
+References: <20240314232637.2538648-1-seanjc@google.com> <20240314232637.2538648-14-seanjc@google.com>
+Message-ID: <diqz7chnm6n0.fsf@ctop-sg.c.googlers.com>
+Subject: Re: [PATCH 13/18] KVM: selftests: Drop superfluous switch() on
+ vm->mode in vcpu_init_sregs()
+From: Ackerley Tng <ackerleytng@google.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_192519_390008_3175BFED 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20240327_192901_663557_4F10F55B 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,32 +92,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CuWcqCAyMDI0LzMvMjggMjoxNywgQW5kcmV3IE1vcnRvbiDlhpnpgZM6Cj4gT24gRnJpLCAyNiBK
-YW4gMjAyNCAxNDo0NDo1MSArMDgwMCBIdWFuZyBTaGlqaWUgPHNoaWppZUBvcy5hbXBlcmVjb21w
-dXRpbmcuY29tPiB3cm90ZToKPgo+PiBEdXJpbmcgdGhlIGtlcm5lbCBib290aW5nLCB0aGUgZ2Vu
-ZXJpYyBjcHVfdG9fbm9kZSgpIGlzIGNhbGxlZCB0b28gZWFybHkgaW4KPj4gYXJtNjQsIHBvd2Vy
-cGMgYW5kIHJpc2N2IHdoZW4gQ09ORklHX05VTUEgaXMgZW5hYmxlZC4KPj4KPj4gVGhlcmUgYXJl
-IGF0IGxlYXN0IGZvdXIgcGxhY2VzIGluIHRoZSBjb21tb24gY29kZSB3aGVyZQo+PiB0aGUgZ2Vu
-ZXJpYyBjcHVfdG9fbm9kZSgpIGlzIGNhbGxlZCBiZWZvcmUgaXQgaXMgaW5pdGlhbGl6ZWQ6Cj4+
-IAkgICAxLikgZWFybHlfdHJhY2VfaW5pdCgpICAgICAgICAgaW4ga2VybmVsL3RyYWNlL3RyYWNl
-LmMKPj4gCSAgIDIuKSBzY2hlZF9pbml0KCkgICAgICAgICAgICAgICBpbiBrZXJuZWwvc2NoZWQv
-Y29yZS5jCj4+IAkgICAzLikgaW5pdF9zY2hlZF9mYWlyX2NsYXNzKCkgICAgaW4ga2VybmVsL3Nj
-aGVkL2ZhaXIuYwo+PiAJICAgNC4pIHdvcmtxdWV1ZV9pbml0X2Vhcmx5KCkgICAgIGluIGtlcm5l
-bC93b3JrcXVldWUuYwo+Pgo+PiBJbiBvcmRlciB0byBmaXggdGhlIGJ1ZywgdGhlIHBhdGNoIGlu
-dHJvZHVjZXMgZWFybHlfbnVtYV9ub2RlX2luaXQoKQo+PiB3aGljaCBpcyBjYWxsZWQgYWZ0ZXIg
-c21wX3ByZXBhcmVfYm9vdF9jcHUoKSBpbiBzdGFydF9rZXJuZWwuCj4+IGVhcmx5X251bWFfbm9k
-ZV9pbml0IHdpbGwgaW5pdGlhbGl6ZSB0aGUgIm51bWFfbm9kZSIgYXMgc29vbiBhcwo+PiB0aGUg
-ZWFybHlfY3B1X3RvX25vZGUoKSBpcyByZWFkeSwgYmVmb3JlIHRoZSBjcHVfdG9fbm9kZSgpIGlz
-IGNhbGxlZAo+PiBhdCB0aGUgZmlyc3QgdGltZS4KPiBXaGF0IGFyZSB0aGUgdXNlcnNwYWNlLXZp
-c2libGUgcnVudGltZSBlZmZlY3RzIG9mIHRoaXMgYnVnPwo+CkZvciB0aGlzIGJ1ZywgSSBkbyBu
-b3Qgc2VlIHRvbyBtdWNoIHBlcmZvcm1hbmNlIGltcGFjdCBpbiB0aGUgdXNlcnNwYWNlIAphcHBs
-aWNhdGlvbnMuCgpJdCBqdXN0IHBvbGx1dGVzIHRoZSBDUFUgY2FjaGVzIGluIE5VTUEuCgoKVGhh
-bmtzCgpIdWFuZyBTaGlqaWUKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+Sean Christopherson <seanjc@google.com> writes:
+
+> Replace the switch statement on vm->mode in x86's vcpu_init_sregs()'s with
+> a simple assert that the VM has a 48-bit virtual address space.  A switch
+> statement is both overkill and misleading, as the existing code incorrectly
+> implies that VMs with LA57 would need different to configuration for the
+> LDT, TSS, and flat segments.  In all likelihood, the only difference that
+> would be needed for selftests is CR4.LA57 itself.
+>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  .../selftests/kvm/lib/x86_64/processor.c      | 25 ++++++++-----------
+>  1 file changed, 10 insertions(+), 15 deletions(-)
+>
+> diff --git a/tools/testing/selftests/kvm/lib/x86_64/processor.c b/tools/testing/selftests/kvm/lib/x86_64/processor.c
+> index 8547833ffa26..561c0aa93608 100644
+> --- a/tools/testing/selftests/kvm/lib/x86_64/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/x86_64/processor.c
+> @@ -555,6 +555,8 @@ static void vcpu_init_sregs(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+>  {
+>  	struct kvm_sregs sregs;
+>  
+> +	TEST_ASSERT_EQ(vm->mode, VM_MODE_PXXV48_4K);
+> +
+>  	/* Set mode specific system register values. */
+>  	vcpu_sregs_get(vcpu, &sregs);
+>  
+> @@ -562,22 +564,15 @@ static void vcpu_init_sregs(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+>  
+>  	kvm_setup_gdt(vm, &sregs.gdt);
+>  
+> -	switch (vm->mode) {
+> -	case VM_MODE_PXXV48_4K:
+> -		sregs.cr0 = X86_CR0_PE | X86_CR0_NE | X86_CR0_PG;
+> -		sregs.cr4 |= X86_CR4_PAE | X86_CR4_OSFXSR;
+> -		sregs.efer |= (EFER_LME | EFER_LMA | EFER_NX);
+> +	sregs.cr0 = X86_CR0_PE | X86_CR0_NE | X86_CR0_PG;
+> +	sregs.cr4 |= X86_CR4_PAE | X86_CR4_OSFXSR;
+> +	sregs.efer |= (EFER_LME | EFER_LMA | EFER_NX);
+>  
+> -		kvm_seg_set_unusable(&sregs.ldt);
+> -		kvm_seg_set_kernel_code_64bit(vm, DEFAULT_CODE_SELECTOR, &sregs.cs);
+> -		kvm_seg_set_kernel_data_64bit(vm, DEFAULT_DATA_SELECTOR, &sregs.ds);
+> -		kvm_seg_set_kernel_data_64bit(vm, DEFAULT_DATA_SELECTOR, &sregs.es);
+> -		kvm_setup_tss_64bit(vm, &sregs.tr, 0x18);
+> -		break;
+> -
+> -	default:
+> -		TEST_FAIL("Unknown guest mode, mode: 0x%x", vm->mode);
+> -	}
+> +	kvm_seg_set_unusable(&sregs.ldt);
+> +	kvm_seg_set_kernel_code_64bit(vm, DEFAULT_CODE_SELECTOR, &sregs.cs);
+> +	kvm_seg_set_kernel_data_64bit(vm, DEFAULT_DATA_SELECTOR, &sregs.ds);
+> +	kvm_seg_set_kernel_data_64bit(vm, DEFAULT_DATA_SELECTOR, &sregs.es);
+> +	kvm_setup_tss_64bit(vm, &sregs.tr, 0x18);
+>  
+>  	sregs.cr3 = vm->pgd;
+>  	vcpu_sregs_set(vcpu, &sregs);
+> -- 
+> 2.44.0.291.gc1ea87d7ee-goog
+
+Reviewed-by: Ackerley Tng <ackerleytng@google.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
