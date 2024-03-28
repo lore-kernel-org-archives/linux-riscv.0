@@ -4,84 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240A0C54E64
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 14:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D36CCD1283
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 14:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M0MQxcbrXBYMYEMJ4HLPr/cJFD8RX+eWBygTFSe9mvg=; b=oy3vapaEw+X9uB
-	dULZC3NvIQLmP1B7rQssAakyMP8cRvGLDsE6jl1/tkvDtssb/IAqpvEl+lg7pS66vng26/Zv0AzRS
-	5mFVM6J3sjypLvzO4p843y5e1v9WtfECGchKVPeDvWLkDabvvG45jj9Sost7wul7gqu7YFlVyvWv3
-	sZLvG+AYHm1/clzyHGbYwNIMzwsMbi88tVkbHMq9b73sGwppy/5sT89jIS9LqovUfY8Tg9L2X4mAV
-	gS+99FR6MScl5qUbX3CQvwwhYztA3/mbxbEqoooMZSFJQJqwDl3yIivcFqkReOICQf5UP4U5CX0Ic
-	NOF+FMTNxxhBObXOacyw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JjdlYDkRr+v40NXNIHjPjukdMSiiSpzdWLXmGdkotqk=; b=B/Mbykq2rXZ2cO
+	ldiJ5IeXSVq7Ptf+L2QZwSLh5XpO9ViSfEQ37xMepVbGphQrqq6ZfW6jCGyz8ZQWnseLHNQ6pqz5K
+	x4s1rNyxDVlA0C/0HLc4qToM4VNW4KvrCYhbk3n5YvKP1wlpRdza+OXa/nuN4ZdgLc3iTaPrMrvbT
+	mxI4b/qRgIR70eVQqFm6dAokx+ZGMhPjt/3mBTa4k7yKjJw9OTweIr2SeM5f2UbR4W1E+C788IDEE
+	b2EUuSpEx2FlGHlkfGI2Gwu4znNy28Uk0dHJgamSqGFCgffWxMwcCQMhFBRbYjY/aacwuDgAYIjjV
+	1ycDYlLK4gTYSMQ0QN9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpqan-0000000EI15-2FHp;
-	Thu, 28 Mar 2024 14:18:57 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1rpqaw-0000000EI5u-3aKd;
+	Thu, 28 Mar 2024 14:19:06 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpqaS-0000000EHxU-2Sgr
+	id 1rpqat-0000000EI30-0KBO
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Mar 2024 14:18:43 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-6eac64f2205so902042b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 07:18:34 -0700 (PDT)
+	Thu, 28 Mar 2024 14:19:04 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-41544650225so5068645e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 07:19:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=vrull.eu; s=google; t=1711635514; x=1712240314; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zqbRQqW0auM8yPwFJcSxCTI/1OyWyhS5S2oHIbdG6Uc=;
-        b=P6gXjk6bsTQoQpyo4BOmVL42QAQiusR1xN6wO1tKrsobcSkk+4M0veIzUVdDQQtzEE
-         qxQsItIGHhQXOPscMNEEAO84fuSg0UCZ7owUzx+IoXV+VCVHozW+W7TZDhl5cPbtAOJg
-         5zIOLBZMM2oQyK4XtJuzJA1+wLUO7a0MDj8NiDhg4TPxp9nKjxZLuxHhQPWDQH5baTt/
-         G3Z6SvD3TEt67HV+tHw7Yys+c/oe0NwU7jQBywDqPu+qL6DoO1iPOdJAcOoePMEPrvyv
-         JKVyk3iIoOZuM+2kUOBQJo48EcMA7qPmRXlw92L/UlYnAcdxMMQnbSC53ZCBNVJoh7k/
-         lmYQ==
+        d=gmail.com; s=20230601; t=1711635540; x=1712240340; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IIVFwe4drmR7NpVMkZne2fOWlDQSED4Lnm/WcZI6CvA=;
+        b=DZLpTMKmHx5cCl41R9lfWPHE2pFVSaKjF0oqDD3lW4QBZ9rI+dm4z7i35AtpsQCFuv
+         BQ7PtWOSrvoxEeJV2fvQMCQxDD6vtrXjTdt2Hnx105mPYpxRdYc+WG8Zrgmz10qWqUWQ
+         ecye6b7XONhDWJSV2pYDkS2pG+fJhHoTvkDVQGxr49FuIiSbkdWVizrGDdU57K/2kD6I
+         5YzKSeWJQU/dkVEtKoPMIgAAAwjPDlP2/FkxUQNsCsu+88wgd7JWG00VJucOSsM6ruAb
+         VZAGt/0QNDyJKRiqKzC0DHFdvHYVJlHjml5NqUt0H1jqcVGN1dKTP+z/W3wD9bnCDTjH
+         xt7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711635514; x=1712240314;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zqbRQqW0auM8yPwFJcSxCTI/1OyWyhS5S2oHIbdG6Uc=;
-        b=YslRemSA9xSLfzcn1ERW7gF5ElAqzS0YPlppMH/JVu9BbEgCsW8XDfhwio8nJqwubF
-         Xryz4bxsZy9WM2hRZkYly1Tn5p4aAHCZKAmzro7VAg0oCKKjUcW2VFiKjKKCtIknPqel
-         pdcWh85uj4MrJRJOHZS7I6/z1aipB3vYJiu6EvzmHZAJMokmW+4sT21/EAzNeZVnxyym
-         53/qIvZyxWzp7E6mvFo8XRL3KxKIzFvrAw9ZXgYwPfZXrwPKQ3WwACRPFOemUbHhV3yh
-         YL8OYD+r/nVKo07bSuIOG+iwXpPDUfuCaEUUfCWa/cIxjc0D8cAZAIzpdfixioPEC+z8
-         g8VQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU7KjFeYU+AwcTkNKeHYCHinHWArbQbyvOXuueHLNtc/shaLUtPKa+cdidnqMiY7Ba6uL6hOYFEgOImSqW6A6ZL3BFeCz882mNGWFvA06/7
-X-Gm-Message-State: AOJu0Yz09nLOVmjQo0RFDP2XkVtUSFa+jp9WqOMOrG75ozgiYJMxqotF
-	YkdkJ6xxeRfbhTSIh9i0fIsEyUphuMSnN0NtMcp9JZhn3o74hp939RmnqnFNp1v0Xy4hj08++bZ
-	5dRGb5FIwICW4ayF+JpCJzzcfaffrnIe0dA2SRg==
-X-Google-Smtp-Source: AGHT+IECNRXB/xpyWGPViS4bOavtZoe3t64KsRpvmvbiSa3NftMcTTx/WyhY4Yiz0ZvGzMPEWuXdtCgC6OPQJUcVzRQ=
-X-Received: by 2002:a05:6a21:3409:b0:1a5:6b2f:7b91 with SMTP id
- yn9-20020a056a21340900b001a56b2f7b91mr2170822pzb.21.1711635514320; Thu, 28
- Mar 2024 07:18:34 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1711635540; x=1712240340;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IIVFwe4drmR7NpVMkZne2fOWlDQSED4Lnm/WcZI6CvA=;
+        b=B6PsCm7aZRXiFCDJq+U8Jev0I5pX4oUTpE7lAEi+dDkLJpu/pKrrkqkXaKH5o4aghH
+         YJtFKDwCHdL2n3hXYuS3CEJPhs8P2Pd67bUNmcXHDJr+R3wutkB5j6NzLZPtXYjT0uuZ
+         dMfZSRQQvq42GQIL9hMR/HLo7CJ371XkXXWWtwmSiv3VBgQcn0cB22ulXb/Zm97kSlEe
+         cahK2lSL702KzJHJpMonyj02UoPI1TVb6KilES6aZqZr6gbNhy/StZjZsKEHO8TIX/p0
+         LRM/GMNGV50ukMbU/u05bbc7hKq2uXrnVdT/LkZstf9DAdKIzcpZFY4vBLZ7IQ78CKLJ
+         yo0A==
+X-Forwarded-Encrypted: i=1; AJvYcCUFSdLWFO4n8s60SPS9t6YK11H0hLEnEOBkNuZrlILw7gO9h8cUqTUkTY9Gz0qFpBEXNoIZNnJcOSInvvlf67TdvCSvouooSR0iaw5NwPrK
+X-Gm-Message-State: AOJu0YxiOxr4E7Dbe0XcELfgQrXxty4eVwgeNV26pt4CTcFESXh96xTB
+	auVm3ZAbEX3FFCJ6SJ0IGe7oTxpE7kBFF2fsQDTCAi5mNyjiQpVM
+X-Google-Smtp-Source: AGHT+IGYZ4Qeg8sWs6IcbwollLNesIfKfarZj4RrcR1wKFN253KNF2e5EWMRlh/DTni728fzw+/JVQ==
+X-Received: by 2002:a05:600c:28c:b0:414:6c34:9ba0 with SMTP id 12-20020a05600c028c00b004146c349ba0mr1817517wmk.16.1711635539584;
+        Thu, 28 Mar 2024 07:18:59 -0700 (PDT)
+Received: from localhost (54-240-197-231.amazon.com. [54.240.197.231])
+        by smtp.gmail.com with ESMTPSA id je14-20020a05600c1f8e00b00414887d9329sm2424140wmb.46.2024.03.28.07.18.59
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 28 Mar 2024 07:18:59 -0700 (PDT)
+From: Puranjay Mohan <puranjay12@gmail.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Guo Ren <guoren@kernel.org>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
+	Song Shuai <suagrfillet@gmail.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Cc: puranjay12@gmail.com
+Subject: [RFC PATCH] ftrace: riscv: move from REGS to ARGS
+Date: Thu, 28 Mar 2024 14:18:45 +0000
+Message-Id: <20240328141845.128645-1-puranjay12@gmail.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-References: <20240327103130.3651950-1-christoph.muellner@vrull.eu>
- <20240327103130.3651950-3-christoph.muellner@vrull.eu> <20240327-imperfect-washbowl-d95e57cef0ef@spud>
- <20240327-77a6b64153a68452d0438999@orel>
-In-Reply-To: <20240327-77a6b64153a68452d0438999@orel>
-From: =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>
-Date: Thu, 28 Mar 2024 15:18:22 +0100
-Message-ID: <CAEg0e7jyGZV3+04HNYzgfHMGYT9wV_c0A=ekpCRi3L-5yjxK=w@mail.gmail.com>
-Subject: Re: [PATCH 2/2] riscv: T-Head: Test availability bit before enabling
- MAEE errata
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Daniel Henrique Barboza <dbarboza@ventanamicro.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Cooper Qu <cooper.qu@linux.alibaba.com>, Zhiwei Liu <zhiwei_liu@linux.alibaba.com>, 
-	Huang Tao <eric.huang@linux.alibaba.com>, Alistair Francis <alistair.francis@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_071842_084436_5AEE6324 
-X-CRM114-Status: GOOD (  45.57  )
+X-CRM114-CacheID: sfid-20240328_071903_218114_4487A5B1 
+X-CRM114-Status: GOOD (  25.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,101 +103,524 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXIgMjcsIDIwMjQgYXQgMTo0MeKAr1BNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
-bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gT24gV2VkLCBNYXIgMjcsIDIwMjQgYXQgMTE6MDM6
-MDZBTSArMDAwMCwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+ID4gT24gV2VkLCBNYXIgMjcsIDIwMjQg
-YXQgMTE6MzE6MzBBTSArMDEwMCwgQ2hyaXN0b3BoIE3DvGxsbmVyIHdyb3RlOgo+ID4gPiBULUhl
-YWQncyBNQUVFIG1lY2hhbmlzbSAobm9uLWNvbXBhdGlibGUgZXF1aXZhbGVudCBvZiBSVkkncyBT
-dnBibXQpCj4gPiA+IGlzIGN1cnJlbnRseSBhc3N1bWVkIGZvciBhbGwgVC1IZWFkIGhhcnRzLiBI
-b3dldmVyLCBRRU1VIHJlY2VudGx5Cj4gPiA+IGRlY2lkZWQgdG8gZHJvcCBhY2NlcHRhbmNlIG9m
-IGd1ZXN0cyB0aGF0IHdyaXRlIHJlc2VydmVkIGJpdHMgaW4gUFRFcy4KPiA+ID4gQXMgTUFFRSB1
-c2VzIHJlc2VydmVkIGJpdHMgaW4gUFRFcyBhbmQgTGludXggYXBwbGllcyB0aGUgTUFFRSBlcnJh
-dGEKPiA+ID4gZm9yIGFsbCBULUhlYWQgaGFydHMsIHRoaXMgYnJva2UgdGhlIExpbnV4IHN0YXJ0
-dXAgb24gUUVNVSBlbXVsYXRpb25zCj4gPiA+IG9mIHRoZSBDOTA2IGVtdWxhdGlvbi4KPiA+ID4K
-PiA+ID4gVGhpcyBwYXRjaCBhdHRlbXB0cyB0byBhZGRyZXNzIHRoaXMgaXNzdWUgYnkgdGVzdGlu
-ZyB0aGUgTUFFRSBiaXQKPiA+ID4gaW4gVEhfTVhTVEFUVVMgQ1NSLiBBcyB0aGUgVEhfTVhTVEFU
-VVMgQ1NSIGlzIG9ubHkgYWNjZXNzaWJsZSBpbiBNLW1vZGUKPiA+ID4gdGhpcyBwYXRjaCBkZXBl
-bmRzIG9uIE0tbW9kZSBmaXJtd2FyZSB0aGF0IGhhbmRsZXMgdGhpcyBmb3IgdXMKPiA+ID4gdHJh
-bnNwYXJlbnRseS4KPiA+ID4KPiA+Cj4gPiA+IEFzIHRoaXMgcGF0Y2ggYnJlYWtzIExpbnV4IGJv
-b3R1cCBvbiBhbGwgQzl4eCBtYWNoaW5lcyB3aXRoIE1BRUUsCj4gPiA+IHdoaWNoIGRvbid0IGhh
-dmUgTS1tb2RlIGZpcm13YXJlIHRoYXQgaGFuZGxlcyB0aGUgYWNjZXNzIHRvIHRoZQo+ID4gPiBU
-SF9NWFNUQVRVUyBDU1IsIHRoaXMgcGF0Y2ggaXMgbWFya2VkIGFzIFJGQy4KPgo+IENhbiB3ZSB3
-cmFwIHRoZSBjc3IgYWNjZXNzIGluIGEgX0FTTV9FWFRBQkxFKCk/IElmIGZpcm13YXJlIGhhbmRs
-ZXMgaXQsCj4gdGhlbiB3ZSByZXR1cm4gdHJ1ZS9mYWxzZSBiYXNlZCBvbiB0aGUgdmFsdWUuIElm
-IGZpcm13YXJlIGRvZXNuJ3QgaGFuZGxlCj4gaXQsIGFuZCB3ZSBnZXQgYW4gaWxsZWdhbCBpbnN0
-cnVjdGlvbiBleGNlcHRpb24sIHRoZW4gd2UgYXNzdW1lIHRoZSBiaXQKPiBpcyBzZXQsIHdoaWNo
-IGlzIHRoZSBjdXJyZW50IGJlaGF2aW9yLgo+Cj4gPgo+ID4gSSB0aGluayB0aGlzIGlzIGdvbm5h
-IGJlIHVuYWNjZXB0YWJsZSBpbiBpdHMgY3VycmVudCBzdGF0ZSBnaXZlbiB0aGF0IGl0Cj4gPiBj
-YXVzZXMgcHJvYmxlbXMgZm9yIGV2ZXJ5IG90aGVyIHZlcnNpb24gb2YgdGhlIGZpcm13YXJlLiBC
-cmVha2luZyByZWFsCj4gPiBzeXN0ZW1zIGZvciB0aGUgc2FrZSBvZiBlbXVsYXRpb24gaXNuJ3Qg
-c29tZXRoaW5nIHdlIGNhbiByZWFzb25hYmx5IGRvLgo+ID4KPiA+IFRvIG1ha2UgdGhpcyBzb3J0
-IG9mIGNoYW5nZSBhY2NlcHRhYmxlLCB5b3UncmUgZ29ubmEgaGF2ZSB0byBhZGQgc29tZSB3YXkK
-PiA+IHRvIGRpZmZlcmVudGlhdGUgYmV0d2VlbiBzeXN0ZW1zIHRoYXQgZG8gYW5kIGRvIG5vdCBz
-dXBwb3J0IHJlYWRpbmcgdGhpcwo+ID4gQ1NSLiBJIHRoaW5rIHdlIGVpdGhlciBhKSBuZWVkIHRv
-IGNoZWNrIHRoZSB2ZXJzaW9uIG9mIHRoZSBTQkkKPiA+IGltcGxlbWVudGF0aW9uIHRvIHNlZSBp
-ZiBpdCBoaXRzIHRoZSB0aHJlc2hvbGQgZm9yIHN1cHBvcnRpbmcgdGhpcwo+ID4gZmVhdHVyZSwg
-b3IgYikgYWRkIGEgc3BlY2lmaWMgU0JJIGNhbGwgZm9yIHRoaXMgc28gdGhhdCB3ZSBjYW4KPiA+
-IGRpZmZlcmVudGlhdGUgYmV0d2VlbiBmaXJtd2FyZSBub3Qgc3VwcG9ydGluZyB0aGUgZnVuY3Rp
-b24gYW5kIHRoZQo+Cj4gVGhlIEZXRlQgU0JJIGV4dGVuc2lvbiBpcyBiZWluZyBkZXZlbG9wZWQg
-YXMgYSBtZWNoYW5pc20gZm9yIFMtbW9kZSB0byBhc2sKPiBNLW1vZGUgdGhpbmdzIGxpa2UgdGhp
-cywgYnV0IEkgdGhpbmsgdGhhdCBleHRlbnNpb24gc2hvdWxkIGJlIHVzZWQgZm9yCj4gZmVhdHVy
-ZXMgdGhhdCBoYXZlIHBvdGVudGlhbCB0byBiZSBjaGFuZ2VkIGJ5IFMtbW9kZSAoZXZlbiBpZiBu
-b3QKPiBldmVyeXRoaW5nIHdpbGwgYmUgY2hhbmdlYWJsZSBvbiBhbGwgcGxhdGZvcm1zKSwgd2hl
-cmVhcyBhbnl0aGluZyB0aGF0J3MKPiByZWFkLW9ubHkgd291bGQgYmUgYmV0dGVyIHdpdGguLi4K
-Pgo+ID4gcXVvdGUtdW5xdW90ZSAiaGFyZHdhcmUiIG5vdCBzdXBwb3J0aW5nIGl0LiBJIGRvbid0
-IHJlYWxseSBsaWtlIG9wdGlvbiBhKQo+ID4gYXMgaXQgY291bGQgZ3JvdyB0byBzZXZlcmFsIGRp
-ZmZlcmVudCBvcHRpb25zIChlYWNoIGZvciBhIGRpZmZlcmVudCBTQkkKPiA+IGltcGxlbWVudGF0
-aW9uKSBhbmQgc3VwcG9ydCBmb3IgcmVhZGluZyB0aGUgQ1NSIHdvdWxkIG5lZWQgdG8gYmUKPiA+
-IHVuY29uZGl0aW9uYWwuIEkgaGF2ZSBhIGZlZWxpbmcgdGhhdCBJIGFtIG1pc3Npbmcgc29tZXRo
-aW5nIHRob3VnaCwKPiA+IHRoYXQnZCBtYWtlIGl0IGRvYWJsZSB3aXRob3V0IGludHJvZHVjaW5n
-IGEgbmV3IGNhbGwuCj4gPgo+ID4gVGhhbmtzLAo+ID4gQ29ub3IuCj4gPgo+ID4gSWYgb25seSB3
-ZSdkIG1hZGUgZW5hYmxpbmcgdGhpcyBiZSBjb250cm9sbGVkIGJ5IGEgc3BlY2lmaWMgRFQgcHJv
-cGVydHksCj4gPiB0aGVuIGRpc2FibGluZyBpdCBpbiBRRU1VIHdvdWxkIGJlIGFzIHNpbXBsZSBh
-cyBub3Qgc2V0dGluZyB0aGF0Cj4gPiBwcm9wZXJ0eSA6KAo+Cj4gLi4udGhpcywgd2hlcmUgIkRU
-IHByb3BlcnR5IiBpcyAiSVNBIGV4dGVuc2lvbiBuYW1lIi4gSSB3b25kZXIgaWYgd2UKPiBzaG91
-bGRuJ3Qgc3RhcnQgY29uc2lkZXJpbmcgdGhlIGludmVudGlvbiBvZiB4bGludXhfdmVuZG9yX3h5
-eiB0eXBlCj4gZXh0ZW5zaW9uIG5hbWVzIHdoaWNoIGZpcm13YXJlIGNvdWxkIGFkZCB0byB0aGUg
-SVNBIHN0cmluZyAvIGFycmF5LAo+IGluIG9yZGVyIHRvIGNvbW11bmljYXRlIHJlYWQtb25seSBp
-bmZvcm1hdGlvbiBsaWtlIHRoaXM/Cj4KPiBUaGFua3MsCj4gZHJldwoKSGkgQ29ub3IgYW5kIERy
-ZXcsCgpUaGFuayB5b3UgZm9yIHlvdXIgaGludHMuCkkgZnVsbHkgYWdyZWUgd2l0aCBhbGwgeW91
-ciBzdGF0ZW1lbnRzIGFuZCBjb25jZXJucy4KClN3aXRjaGluZyBmcm9tIHRoLm14c3RhdHVzIHRv
-IHRoLnN4c3RhdHVzIHNob3VsZCBhZGRyZXNzIGFsbCBtZW50aW9uZWQgY29uY2VybnM6Ciogbm8g
-ZGVwZW5kZW5jeSBvbiBPcGVuU0JJIGNoYW5nZXMKKiBubyBicmVhayBvZiBmdW5jdGlvbmFsaXR5
-Ciogbm8gbmVlZCBmb3IgZ3JhY2VmdWwgaGFuZGxpbmcgb2YgQ1NSIHJlYWQgZmFpbHVyZXMKKiBu
-byBuZWVkIHRvIGRpZmZlcmVudGlhdGUgYmV0d2VlbiBIVyBhbmQgZW11bGF0aW9uIChhc3N1bWlu
-ZyBRRU1VCmFjY2VwdHMgdGhlIGVtdWxhdGlvbiBvZiB0aC5zeHN0YXR1cykKCkFsc28gbm90ZSB0
-aGF0IERUIGhhbmRsaW5nIHdvdWxkIGJlIGRpZmZpY3VsdCwgYmVjYXVzZSB3ZSBuZWVkIHRvIHBy
-b2JlIGJlZm9yZQpzZXR0aW5nIHVwIHRoZSBwYWdlIHRhYmxlLgoKVGhhbmtzIQoKCj4KPiA+Cj4g
-PiA+Cj4gPiA+IFNpZ25lZC1vZmYtYnk6IENocmlzdG9waCBNw7xsbG5lciA8Y2hyaXN0b3BoLm11
-ZWxsbmVyQHZydWxsLmV1Pgo+ID4gPiAtLS0KPiA+ID4gIGFyY2gvcmlzY3YvZXJyYXRhL3RoZWFk
-L2VycmF0YS5jIHwgMTQgKysrKysrKysrKy0tLS0KPiA+ID4gIDEgZmlsZSBjaGFuZ2VkLCAxMCBp
-bnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQo+ID4gPgo+ID4gPiBkaWZmIC0tZ2l0IGEvYXJj
-aC9yaXNjdi9lcnJhdGEvdGhlYWQvZXJyYXRhLmMgYi9hcmNoL3Jpc2N2L2VycmF0YS90aGVhZC9l
-cnJhdGEuYwo+ID4gPiBpbmRleCA4YzhhOGE0YjA0MjEuLmRkN2JmNmM2MmEzNSAxMDA2NDQKPiA+
-ID4gLS0tIGEvYXJjaC9yaXNjdi9lcnJhdGEvdGhlYWQvZXJyYXRhLmMKPiA+ID4gKysrIGIvYXJj
-aC9yaXNjdi9lcnJhdGEvdGhlYWQvZXJyYXRhLmMKPiA+ID4gQEAgLTE5LDYgKzE5LDkgQEAKPiA+
-ID4gICNpbmNsdWRlIDxhc20vcGF0Y2guaD4KPiA+ID4gICNpbmNsdWRlIDxhc20vdmVuZG9yaWRf
-bGlzdC5oPgo+ID4gPgo+ID4gPiArI2RlZmluZSBDU1JfVEhfTVhTVEFUVVMgICAgICAgICAgICAw
-eDdjMAo+ID4gPiArI2RlZmluZSBNWFNUQVRVU19NQUVFICAgICAgICAgICAgICBfQUMoMHgyMDAw
-MDAsIFVMKQo+ID4gPiArCj4gPiA+ICBzdGF0aWMgYm9vbCBlcnJhdGFfcHJvYmVfbWFlZSh1bnNp
-Z25lZCBpbnQgc3RhZ2UsCj4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQg
-bG9uZyBhcmNoX2lkLCB1bnNpZ25lZCBsb25nIGltcGlkKQo+ID4gPiAgewo+ID4gPiBAQCAtMjgs
-MTEgKzMxLDE0IEBAIHN0YXRpYyBib29sIGVycmF0YV9wcm9iZV9tYWVlKHVuc2lnbmVkIGludCBz
-dGFnZSwKPiA+ID4gICAgIGlmIChhcmNoX2lkICE9IDAgfHwgaW1waWQgIT0gMCkKPiA+ID4gICAg
-ICAgICAgICAgcmV0dXJuIGZhbHNlOwo+ID4gPgo+ID4gPiAtICAgaWYgKHN0YWdlID09IFJJU0NW
-X0FMVEVSTkFUSVZFU19FQVJMWV9CT09UIHx8Cj4gPiA+IC0gICAgICAgc3RhZ2UgPT0gUklTQ1Zf
-QUxURVJOQVRJVkVTX01PRFVMRSkKPiA+ID4gLSAgICAgICAgICAgcmV0dXJuIHRydWU7Cj4gPiA+
-ICsgICBpZiAoc3RhZ2UgIT0gUklTQ1ZfQUxURVJOQVRJVkVTX0VBUkxZX0JPT1QgJiYKPiA+ID4g
-KyAgICAgICBzdGFnZSAhPSBSSVNDVl9BTFRFUk5BVElWRVNfTU9EVUxFKQo+ID4gPiArICAgICAg
-ICAgICByZXR1cm4gZmFsc2U7Cj4gPiA+Cj4gPiA+IC0gICByZXR1cm4gZmFsc2U7Cj4gPiA+ICsg
-ICBpZiAoIShjc3JfcmVhZChDU1JfVEhfTVhTVEFUVVMpICYgTVhTVEFUVVNfTUFFRSkpCj4gPiA+
-ICsgICAgICAgICAgIHJldHVybiBmYWxzZTsKPiA+ID4gKwo+ID4gPiArICAgcmV0dXJuIHRydWU7
-Cj4gPiA+ICB9Cj4gPiA+Cj4gPiA+ICAvKgo+ID4gPiAtLQo+ID4gPiAyLjQ0LjAKPiA+ID4KPgo+
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This commit replaces riscv's support for FTRACE_WITH_REGS with support
+for FTRACE_WITH_ARGS. This is required for the ongoing effort to stop
+relying on stop_machine() for RISCV's implementation of ftrace.
+
+The main relevant benefit that this change will bring for the above
+use-case is that now we don't have separate ftrace_caller and
+ftrace_regs_caller trampolines.  This will allow the callsite to call
+ftrace_caller by modifying a single instruction. Now the callsite can
+do something similar to:
+
+When not tracing:            |             When tracing:
+
+func:                                      func:
+  auipc t0, ftrace_caller_top                auipc t0, ftrace_caller_top
+  nop  <=========<Enable/Disable>=========>  jalr  t0, ftrace_caller_bottom
+  [...]                                      [...]
+
+The above assumes that we are dropping the support of calling a direct
+trampoline from the callsite. We need to drop this as the callsite can't
+change the target address to call, it can only enable/disable a call to
+a preset target (ftrace_caller in the above diagram).
+
+Currently, ftrace_regs_caller saves all CPU registers in the format of
+struct pt_regs and allows the tracer to modify them. We don't need to
+save all of the CPU registers because at function entry only a subset of
+pt_regs is live:
+
+|----------+----------+---------------------------------------------|
+| Register | ABI Name | Description                                 |
+|----------+----------+---------------------------------------------|
+| x1       | ra       | Return address for traced function          |
+| x2       | sp       | Stack pointer                               |
+| x5       | t0       | Return address for ftrace_caller trampoline |
+| x8       | s0/fp    | Frame pointer                               |
+| x10-11   | a0-1     | Function arguments/return values            |
+| x12-17   | a2-7     | Function arguments                          |
+|----------+----------+---------------------------------------------|
+
+See RISCV calling convention[1] for the above table.
+
+Saving just the live registers decreases the amount of stack space
+required from 288 Bytes to 112 Bytes.
+
+Basic testing was done with this on the VisionFive 2 development board.
+
+Note:
+  - Moving from REGS to ARGS will mean that RISCV will stop supporting
+    KPROBES_ON_FTRACE as it requires full pt_regs to be saved.
+
+[1] https://riscv.org/wp-content/uploads/2015/01/riscv-calling.pdf
+
+Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
+---
+ arch/riscv/Kconfig              |   2 +-
+ arch/riscv/include/asm/ftrace.h |  81 +++++++++++++--
+ arch/riscv/kernel/asm-offsets.c |  18 ++++
+ arch/riscv/kernel/ftrace.c      |  18 +---
+ arch/riscv/kernel/mcount-dyn.S  | 171 ++++++++++----------------------
+ include/linux/ftrace.h          |   3 +-
+ 6 files changed, 150 insertions(+), 143 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index be09c8836d56..da637fde2137 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -126,7 +126,7 @@ config RISCV
+ 	select HAVE_DMA_CONTIGUOUS if MMU
+ 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
+ 	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+-	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
++	select HAVE_DYNAMIC_FTRACE_WITH_ARGS if HAVE_DYNAMIC_FTRACE
+ 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+ 	select HAVE_FUNCTION_GRAPH_TRACER
+ 	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+index 1276d7d9ca8b..1e95bf4ded6c 100644
+--- a/arch/riscv/include/asm/ftrace.h
++++ b/arch/riscv/include/asm/ftrace.h
+@@ -124,20 +124,87 @@ struct dyn_ftrace;
+ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
+ #define ftrace_init_nop ftrace_init_nop
+ 
+-#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
++#ifdef CONFIG_DYNAMIC_FTRACE_WITH_ARGS
++#define arch_ftrace_get_regs(regs) NULL
+ struct ftrace_ops;
+-struct ftrace_regs;
++struct ftrace_regs {
++	unsigned long epc;
++	unsigned long ra;
++	unsigned long sp;
++	unsigned long s0;
++	unsigned long t1;
++	union {
++		unsigned long args[8];
++		struct {
++			unsigned long a0;
++			unsigned long a1;
++			unsigned long a2;
++			unsigned long a3;
++			unsigned long a4;
++			unsigned long a5;
++			unsigned long a6;
++			unsigned long a7;
++		};
++	};
++};
++
++static __always_inline unsigned long
++ftrace_regs_get_instruction_pointer(const struct ftrace_regs *fregs)
++{
++	return fregs->epc;
++}
++
++static __always_inline void
++ftrace_regs_set_instruction_pointer(struct ftrace_regs *fregs,
++				    unsigned long pc)
++{
++	fregs->epc = pc;
++}
++
++static __always_inline unsigned long
++ftrace_regs_get_stack_pointer(const struct ftrace_regs *fregs)
++{
++	return fregs->sp;
++}
++
++static __always_inline unsigned long
++ftrace_regs_get_argument(struct ftrace_regs *fregs, unsigned int n)
++{
++	if (n < 8)
++		return fregs->args[n];
++	return 0;
++}
++
++static __always_inline unsigned long
++ftrace_regs_get_return_value(const struct ftrace_regs *fregs)
++{
++	return fregs->a0;
++}
++
++static __always_inline void
++ftrace_regs_set_return_value(struct ftrace_regs *fregs,
++			     unsigned long ret)
++{
++	fregs->a0 = ret;
++}
++
++static __always_inline void
++ftrace_override_function_with_return(struct ftrace_regs *fregs)
++{
++	fregs->epc = fregs->ra;
++}
++
++int ftrace_regs_query_register_offset(const char *name);
++
+ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+ 		       struct ftrace_ops *op, struct ftrace_regs *fregs);
+ #define ftrace_graph_func ftrace_graph_func
+ 
+-static inline void __arch_ftrace_set_direct_caller(struct pt_regs *regs, unsigned long addr)
++static inline void arch_ftrace_set_direct_caller(struct ftrace_regs *fregs, unsigned long addr)
+ {
+-		regs->t1 = addr;
++	fregs->t1 = addr;
+ }
+-#define arch_ftrace_set_direct_caller(fregs, addr) \
+-	__arch_ftrace_set_direct_caller(&(fregs)->regs, addr)
+-#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
++#endif /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
+ 
+ #endif /* __ASSEMBLY__ */
+ 
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index a03129f40c46..b09ca5f944f7 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -9,6 +9,7 @@
+ #include <linux/kbuild.h>
+ #include <linux/mm.h>
+ #include <linux/sched.h>
++#include <linux/ftrace.h>
+ #include <linux/suspend.h>
+ #include <asm/kvm_host.h>
+ #include <asm/thread_info.h>
+@@ -488,4 +489,21 @@ void asm_offsets(void)
+ 	DEFINE(STACKFRAME_SIZE_ON_STACK, ALIGN(sizeof(struct stackframe), STACK_ALIGN));
+ 	OFFSET(STACKFRAME_FP, stackframe, fp);
+ 	OFFSET(STACKFRAME_RA, stackframe, ra);
++
++#ifdef CONFIG_DYNAMIC_FTRACE_WITH_ARGS
++	DEFINE(FREGS_SIZE_ON_STACK, ALIGN(sizeof(struct ftrace_regs), STACK_ALIGN));
++	DEFINE(FREGS_EPC,	    offsetof(struct ftrace_regs, epc));
++	DEFINE(FREGS_RA,	    offsetof(struct ftrace_regs, ra));
++	DEFINE(FREGS_SP,	    offsetof(struct ftrace_regs, sp));
++	DEFINE(FREGS_S0,	    offsetof(struct ftrace_regs, s0));
++	DEFINE(FREGS_T1,	    offsetof(struct ftrace_regs, t1));
++	DEFINE(FREGS_A0,	    offsetof(struct ftrace_regs, a0));
++	DEFINE(FREGS_A1,	    offsetof(struct ftrace_regs, a1));
++	DEFINE(FREGS_A2,	    offsetof(struct ftrace_regs, a2));
++	DEFINE(FREGS_A3,	    offsetof(struct ftrace_regs, a3));
++	DEFINE(FREGS_A4,	    offsetof(struct ftrace_regs, a4));
++	DEFINE(FREGS_A5,	    offsetof(struct ftrace_regs, a5));
++	DEFINE(FREGS_A6,	    offsetof(struct ftrace_regs, a6));
++	DEFINE(FREGS_A7,	    offsetof(struct ftrace_regs, a7));
++#endif
+ }
+diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+index f5aa24d9e1c1..cd144b0c3008 100644
+--- a/arch/riscv/kernel/ftrace.c
++++ b/arch/riscv/kernel/ftrace.c
+@@ -127,16 +127,11 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
+ {
+ 	int ret = __ftrace_modify_call((unsigned long)&ftrace_call,
+ 				       (unsigned long)func, true, true);
+-	if (!ret) {
+-		ret = __ftrace_modify_call((unsigned long)&ftrace_regs_call,
+-					   (unsigned long)func, true, true);
+-	}
+-
+ 	return ret;
+ }
+ #endif
+ 
+-#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
++#ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
+ 		       unsigned long addr)
+ {
+@@ -178,16 +173,13 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
+ }
+ 
+ #ifdef CONFIG_DYNAMIC_FTRACE
+-#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
++#ifdef CONFIG_DYNAMIC_FTRACE_WITH_ARGS
+ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+ 		       struct ftrace_ops *op, struct ftrace_regs *fregs)
+ {
+-	struct pt_regs *regs = arch_ftrace_get_regs(fregs);
+-	unsigned long *parent = (unsigned long *)&regs->ra;
+-
+-	prepare_ftrace_return(parent, ip, frame_pointer(regs));
++	prepare_ftrace_return(&fregs->ra, ip, fregs->s0);
+ }
+-#else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
++#else /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
+ extern void ftrace_graph_call(void);
+ int ftrace_enable_ftrace_graph_caller(void)
+ {
+@@ -200,6 +192,6 @@ int ftrace_disable_ftrace_graph_caller(void)
+ 	return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+ 				    (unsigned long)&prepare_ftrace_return, false, true);
+ }
+-#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
++#endif /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
+ #endif /* CONFIG_DYNAMIC_FTRACE */
+ #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
+diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
+index b7561288e8da..745dd4c4a69c 100644
+--- a/arch/riscv/kernel/mcount-dyn.S
++++ b/arch/riscv/kernel/mcount-dyn.S
+@@ -56,138 +56,77 @@
+ 	addi	sp, sp, ABI_SIZE_ON_STACK
+ 	.endm
+ 
+-#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
++#ifdef CONFIG_DYNAMIC_FTRACE_WITH_ARGS
+ 
+ /**
+-* SAVE_ABI_REGS - save regs against the pt_regs struct
+-*
+-* @all: tell if saving all the regs
+-*
+-* If all is set, all the regs will be saved, otherwise only ABI
+-* related regs (a0-a7,epc,ra and optional s0) will be saved.
++* SAVE_ABI_REGS - save regs against the ftrace_regs struct
+ *
+ * After the stack is established,
+ *
+ * 0(sp) stores the PC of the traced function which can be accessed
+-* by &(fregs)->regs->epc in tracing function. Note that the real
++* by &(fregs)->epc in tracing function. Note that the real
+ * function entry address should be computed with -FENTRY_RA_OFFSET.
+ *
+ * 8(sp) stores the function return address (i.e. parent IP) that
+-* can be accessed by &(fregs)->regs->ra in tracing function.
++* can be accessed by &(fregs)->ra in tracing function.
+ *
+ * The other regs are saved at the respective localtion and accessed
+-* by the respective pt_regs member.
++* by the respective ftrace_regs member.
+ *
+ * Here is the layout of stack for your reference.
+ *
+ * PT_SIZE_ON_STACK  ->  +++++++++
+ *                       + ..... +
+-*                       + t3-t6 +
+-*                       + s2-s11+
+ *                       + a0-a7 + --++++-> ftrace_caller saved
+-*                       + s1    +   +
+-*                       + s0    + --+
+-*                       + t0-t2 +   +
+-*                       + tp    +   +
+-*                       + gp    +   +
++*                       + t1    + --++++-> direct tramp address
++*                       + s0    + --+ // frame pointer
+ *                       + sp    +   +
+ *                       + ra    + --+ // parent IP
+ *               sp  ->  + epc   + --+ // PC
+ *                       +++++++++
+ **/
+-	.macro SAVE_ABI_REGS, all=0
+-	addi	sp, sp, -PT_SIZE_ON_STACK
+-
+-	REG_S	t0,  PT_EPC(sp)
+-	REG_S	x1,  PT_RA(sp)
+-
+-	// save the ABI regs
+-
+-	REG_S	x10, PT_A0(sp)
+-	REG_S	x11, PT_A1(sp)
+-	REG_S	x12, PT_A2(sp)
+-	REG_S	x13, PT_A3(sp)
+-	REG_S	x14, PT_A4(sp)
+-	REG_S	x15, PT_A5(sp)
+-	REG_S	x16, PT_A6(sp)
+-	REG_S	x17, PT_A7(sp)
+-
+-	// save the leftover regs
++	.macro SAVE_ABI_REGS
++	mv	t4, sp			// Save original SP in T4
++	addi	sp, sp, -FREGS_SIZE_ON_STACK
+ 
+-	.if \all == 1
+-	REG_S	x2, PT_SP(sp)
+-	REG_S	x3, PT_GP(sp)
+-	REG_S	x4, PT_TP(sp)
+-	REG_S	x5, PT_T0(sp)
+-	REG_S	x6, PT_T1(sp)
+-	REG_S	x7, PT_T2(sp)
+-	REG_S	x8, PT_S0(sp)
+-	REG_S	x9, PT_S1(sp)
+-	REG_S	x18, PT_S2(sp)
+-	REG_S	x19, PT_S3(sp)
+-	REG_S	x20, PT_S4(sp)
+-	REG_S	x21, PT_S5(sp)
+-	REG_S	x22, PT_S6(sp)
+-	REG_S	x23, PT_S7(sp)
+-	REG_S	x24, PT_S8(sp)
+-	REG_S	x25, PT_S9(sp)
+-	REG_S	x26, PT_S10(sp)
+-	REG_S	x27, PT_S11(sp)
+-	REG_S	x28, PT_T3(sp)
+-	REG_S	x29, PT_T4(sp)
+-	REG_S	x30, PT_T5(sp)
+-	REG_S	x31, PT_T6(sp)
+-
+-	// save s0 if FP_TEST defined
+-
+-	.else
++	REG_S	t0,  FREGS_EPC(sp)
++	REG_S	x1,  FREGS_RA(sp)
++	REG_S	t4,  FREGS_SP(sp)	// Put original SP on stack
+ #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
+-	REG_S	x8, PT_S0(sp)
++	REG_S	x8,  FREGS_S0(sp)
+ #endif
+-	.endif
++	REG_S	x6,  FREGS_T1(sp)
++
++	// save the arguments
++	REG_S	x10, FREGS_A0(sp)
++	REG_S	x11, FREGS_A1(sp)
++	REG_S	x12, FREGS_A2(sp)
++	REG_S	x13, FREGS_A3(sp)
++	REG_S	x14, FREGS_A4(sp)
++	REG_S	x15, FREGS_A5(sp)
++	REG_S	x16, FREGS_A6(sp)
++	REG_S	x17, FREGS_A7(sp)
+ 	.endm
+ 
+ 	.macro RESTORE_ABI_REGS, all=0
+-	REG_L	t0, PT_EPC(sp)
+-	REG_L	x1, PT_RA(sp)
+-	REG_L	x10, PT_A0(sp)
+-	REG_L	x11, PT_A1(sp)
+-	REG_L	x12, PT_A2(sp)
+-	REG_L	x13, PT_A3(sp)
+-	REG_L	x14, PT_A4(sp)
+-	REG_L	x15, PT_A5(sp)
+-	REG_L	x16, PT_A6(sp)
+-	REG_L	x17, PT_A7(sp)
+-
+-	.if \all == 1
+-	REG_L	x2, PT_SP(sp)
+-	REG_L	x3, PT_GP(sp)
+-	REG_L	x4, PT_TP(sp)
+-	REG_L	x6, PT_T1(sp)
+-	REG_L	x7, PT_T2(sp)
+-	REG_L	x8, PT_S0(sp)
+-	REG_L	x9, PT_S1(sp)
+-	REG_L	x18, PT_S2(sp)
+-	REG_L	x19, PT_S3(sp)
+-	REG_L	x20, PT_S4(sp)
+-	REG_L	x21, PT_S5(sp)
+-	REG_L	x22, PT_S6(sp)
+-	REG_L	x23, PT_S7(sp)
+-	REG_L	x24, PT_S8(sp)
+-	REG_L	x25, PT_S9(sp)
+-	REG_L	x26, PT_S10(sp)
+-	REG_L	x27, PT_S11(sp)
+-	REG_L	x28, PT_T3(sp)
+-	REG_L	x29, PT_T4(sp)
+-	REG_L	x30, PT_T5(sp)
+-	REG_L	x31, PT_T6(sp)
+-
+-	.else
++	REG_L	t0, FREGS_EPC(sp)
++	REG_L	x1, FREGS_RA(sp)
+ #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
+-	REG_L	x8, PT_S0(sp)
++	REG_L	x8, FREGS_S0(sp)
+ #endif
+-	.endif
+-	addi	sp, sp, PT_SIZE_ON_STACK
++	REG_L	x6,  FREGS_T1(sp)
++
++	// restore the arguments
++	REG_L	x10, FREGS_A0(sp)
++	REG_L	x11, FREGS_A1(sp)
++	REG_L	x12, FREGS_A2(sp)
++	REG_L	x13, FREGS_A3(sp)
++	REG_L	x14, FREGS_A4(sp)
++	REG_L	x15, FREGS_A5(sp)
++	REG_L	x16, FREGS_A6(sp)
++	REG_L	x17, FREGS_A7(sp)
++
++	addi	sp, sp, FREGS_SIZE_ON_STACK
+ 	.endm
+ 
+ 	.macro PREPARE_ARGS
+@@ -198,9 +137,9 @@
+ 	mv	a3, sp
+ 	.endm
+ 
+-#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
++#endif /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
+ 
+-#ifndef CONFIG_DYNAMIC_FTRACE_WITH_REGS
++#ifndef CONFIG_DYNAMIC_FTRACE_WITH_ARGS
+ SYM_FUNC_START(ftrace_caller)
+ 	SAVE_ABI
+ 
+@@ -227,33 +166,23 @@ SYM_INNER_LABEL(ftrace_graph_call, SYM_L_GLOBAL)
+ 	jr	t0
+ SYM_FUNC_END(ftrace_caller)
+ 
+-#else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+-SYM_FUNC_START(ftrace_regs_caller)
++#else /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
++SYM_FUNC_START(ftrace_caller)
+ 	mv	t1, zero
+-	SAVE_ABI_REGS 1
++	SAVE_ABI_REGS
+ 	PREPARE_ARGS
+ 
+-SYM_INNER_LABEL(ftrace_regs_call, SYM_L_GLOBAL)
++SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
+ 	call	ftrace_stub
+ 
+-	RESTORE_ABI_REGS 1
++	RESTORE_ABI_REGS
+ 	bnez	t1, .Ldirect
+ 	jr	t0
+ .Ldirect:
+ 	jr	t1
+-SYM_FUNC_END(ftrace_regs_caller)
+-
+-SYM_FUNC_START(ftrace_caller)
+-	SAVE_ABI_REGS 0
+-	PREPARE_ARGS
+-
+-SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
+-	call	ftrace_stub
+-
+-	RESTORE_ABI_REGS 0
+-	jr	t0
+ SYM_FUNC_END(ftrace_caller)
+-#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
++
++#endif /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
+ 
+ #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+ SYM_CODE_START(ftrace_stub_direct_tramp)
+diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
+index 54d53f345d14..1272264d2e9e 100644
+--- a/include/linux/ftrace.h
++++ b/include/linux/ftrace.h
+@@ -822,7 +822,8 @@ static inline int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
+ extern int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr);
+ 
+ #if defined(CONFIG_DYNAMIC_FTRACE_WITH_REGS) || \
+-	defined(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS)
++	defined(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS) || \
++	defined(CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS)
+ /**
+  * ftrace_modify_call - convert from one addr to another (no nop)
+  * @rec: the call site record (e.g. mcount/fentry)
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
