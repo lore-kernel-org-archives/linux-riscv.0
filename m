@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B1BC54E67
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 05:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61001C54E67
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 06:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cT/u4VoithckQNrOXPnfe2z0r6gXZ+eNuAO/ME6UaGQ=; b=ywP0xFZykq1eOe
-	95ZYf5w/mbVuB7fYo14a9om9Ze5kem2x48QD06Ir/UzEXccrGnxDNiX5U75dpR7mxlq9u5+sOXRpy
-	LV5QX07DdHzMiX8eZzm/fA1Wtfo4olaJmPoTQthIw2SkNk1wt/5vtHXhnSuC6QvQ/VQUcAcgE6yld
-	QLglNpI7YYQKfbeEfeXtsqZhpTSngcUuybIgzNT9fQYJNLiU4Eg+QnPhE9IGi5WDkXsMtzpgltisr
-	3extEPMdIY3r/jZnusNLWtaP7IU+8by/1ccYGh2JTydjJHGHtL7fa7CnvX4dfUZwRLAXA48YkV0Iy
-	jxm7HiLg48ydEKgTd0UQ==;
+	List-Owner; bh=boF4KNabWfsSqmPGSphXsW181j7D1ljgSj4EnDTq15I=; b=RzDHp4sjsU0ii/
+	nnWuHbozayU2j/W+bUBgqnWBtCIrKnTanoYANMoRXt7CH6a5Eea3SHvFuiQf+kjE7BBI/SO5h4m66
+	4mI8X8LVSzmyNl0L0AdRbQOF2PDO1m9EPF4gNVxMjOkO21ebZ9wY+4otl/9lOR71XpOQuWi4L6Z8s
+	s2TONsHkYvEXwIEJhndDIHs8PX69OtNAN+ubmtXdElKT/WczYcXdA625o78jBPaqFfidSEoQftwgM
+	OnsgFNlggrzte+kZRAAr8RCdjhikBUhVsxD9h7el/hr+2FyAMRpupBaoyRVW2WrGrh1TBfdyho6J4
+	lrowE9WmjhIrFhOlodVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpik2-0000000Cd1w-2HBs;
-	Thu, 28 Mar 2024 05:55:58 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rpjFh-0000000CiNz-0DSD;
+	Thu, 28 Mar 2024 06:28:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpijt-0000000CcyG-0oSk;
-	Thu, 28 Mar 2024 05:55:50 +0000
+	id 1rpjFd-0000000CiND-2hgX
+	for linux-riscv@lists.infradead.org;
+	Thu, 28 Mar 2024 06:28:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id DB667CE2942;
-	Thu, 28 Mar 2024 05:55:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55E6DC433F1;
-	Thu, 28 Mar 2024 05:55:45 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F136B60DCD;
+	Thu, 28 Mar 2024 06:28:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8414C433F1;
+	Thu, 28 Mar 2024 06:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711605346;
-	bh=C6skgkr2NMPDni3brGoFkl+5/I4LRqRBMa9zmdDL9uY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hysjLZhkEnvXnxd+HtHwjnxShxKJsdr7YRORWMMbG9CAv2Wo4v/3W17f+9SmlwjYP
-	 AyxLZuXRv9YJGW7TBEhuFvjqai5JqAqlAjT7kP1ISp5EH8RS9fJ2YPnuq82HTriscX
-	 k3oc9NY2bXpiP0jGnfR7dbOxiqpXyBbLE3Kr+zaoP4w8AQS+EkbA1t2gSCobYQ2KlV
-	 32f78em/AA4bHgFdo/ljQvmpapnRbgSvmNw6bLqNSxN3FzIz/Su4hMEut3jzJjbgI6
-	 ErlOb5+1jhqeBVqohmzPhEaaC6pQ2kHQXfpk3998EVOS2mUbOgGjtxbSO/uM8abY2C
-	 N/IIGvRGfpoEA==
-Date: Thu, 28 Mar 2024 11:25:41 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Allen Pais <apais@linux.microsoft.com>
-Cc: linux-kernel@vger.kernel.org, tj@kernel.org, keescook@chromium.org,
-	marcan@marcan.st, sven@svenpeter.dev, florian.fainelli@broadcom.com,
-	rjui@broadcom.com, sbranden@broadcom.com, paul@crapouillou.net,
-	Eugeniy.Paltsev@synopsys.com, manivannan.sadhasivam@linaro.org,
-	vireshk@kernel.org, Frank.Li@nxp.com, leoyang.li@nxp.com,
-	zw@zh-kernel.org, wangzhou1@hisilicon.com, haijie1@huawei.com,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, sean.wang@mediatek.com,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	afaerber@suse.de, logang@deltatee.com, daniel@zonque.org,
-	haojian.zhuang@gmail.com, robert.jarzmik@free.fr,
-	andersson@kernel.org, konrad.dybcio@linaro.org, orsonzhai@gmail.com,
-	baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com,
-	patrice.chotard@foss.st.com, linus.walleij@linaro.org,
-	wens@csie.org, jernej.skrabec@gmail.com, peter.ujfalusi@gmail.com,
-	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-	decui@microsoft.com, jassisinghbrar@gmail.com, mchehab@kernel.org,
-	maintainers@bluecherrydvr.com, aubin.constans@microchip.com,
-	ulf.hansson@linaro.org, manuel.lauss@gmail.com,
-	mirq-linux@rere.qmqm.pl, jh80.chung@samsung.com, oakad@yahoo.com,
-	hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
-	brucechang@via.com.tw, HaraldWelte@viatech.com, pierre@ossman.eu,
-	duncan.sands@free.fr, stern@rowland.harvard.edu, oneukum@suse.com,
-	openipmi-developer@lists.sourceforge.net, dmaengine@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-mediatek@lists.infradead.org,
-	linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org, linux-hyperv@vger.kernel.org,
-	linux-rdma@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-s390@vger.kernel.org,
-	netdev@vger.kernel.org, linux-usb@vger.kernel.org
-Subject: Re: [PATCH 2/9] dma: Convert from tasklet to BH workqueue
-Message-ID: <ZgUGXTKPVhrA1tam@matsya>
-References: <20240327160314.9982-1-apais@linux.microsoft.com>
- <20240327160314.9982-3-apais@linux.microsoft.com>
+	s=k20201202; t=1711607316;
+	bh=alkregifthNoKgf0knvmSztmwMl6qxa+qfrKKKmyuOY=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=pdYeJAAPvle33p3XncMyP/d/A165zS0CTX+VwrnSAVDMgWuHaJWudMfJHD6qKcbql
+	 AOd2aNGZstAVTuHPVChrrB90F3wcr7ruu3czVfVHXij/MJ6wgSoh3Ugz1cDDHGryCD
+	 59Y3hjOMK4BfQ6/qN946LnUfViCeYC1cwtnT9/0Y1tUBe1lYQa8o2i3CshS82BtfjI
+	 4R9xSLqXW/jX3JnUsTk2MIp3qR3Si1BD033rvl0Hhrq4bNZ2y5l6hSqSo/JWzZVg0N
+	 ECwMNdRcINOFXUKSbTNQL6YPTFwBwqeELBjSVGbyvSlPahXavufap/O+M8QAInwjJd
+	 E5e5ddZYZAKxA==
+Date: Thu, 28 Mar 2024 06:28:32 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+CC: Conor Dooley <conor.dooley@microchip.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jack Zhu <jack.zhu@starfivetech.com>,
+ "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Subject: =?UTF-8?Q?Re=3A_=E5=9B=9E=E5=A4=8D=3A_=E5=9B=9E=E5=A4=8D=3A_?=
+ =?UTF-8?Q?=E5=9B=9E=E5=A4=8D=3A_=5BPATCH_v?=
+ =?UTF-8?Q?1_1/2=5D_dt-bindings=3A_medi?=
+ =?UTF-8?Q?a=3A_starfive=3A_Match_driver_and_yaml_property_names?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <SHXPR01MB0671EA5AED87CE14113148E7F23BA@SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn>
+References: <20240119100639.84029-1-changhuang.liang@starfivetech.com> <20240119100639.84029-2-changhuang.liang@starfivetech.com> <20240119-despair-festival-59ab2d4d896b@wendy> <SHXPR01MB0671E2150D9A2707F12E0901F270A@SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn> <20240119-preamble-calm-7724e17fcebc@wendy> <BJXPR01MB0662E6EEEEF888BD90A1FCE5F275A@BJXPR01MB0662.CHNPR01.prod.partner.outlook.cn> <20240122-uncivil-almost-631137081fd9@spud> <20240327-unlucky-bulge-2bf99a8649be@spud> <SHXPR01MB0671EA5AED87CE14113148E7F23BA@SHXPR01MB0671.CHNPR01.prod.partner.outlook.cn>
+Message-ID: <C3D2F0B5-CB35-488E-842E-D049CA067475@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240327160314.9982-3-apais@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_225549_614190_0E09B239 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20240327_232837_799251_B48480D5 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,161 +84,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Allen,
-
-Subsytem is dmaengine, can you rename this to dmaengine: ...
-
-On 27-03-24, 16:03, Allen Pais wrote:
-> The only generic interface to execute asynchronously in the BH context is
-> tasklet; however, it's marked deprecated and has some design flaws. To
-> replace tasklets, BH workqueue support was recently added. A BH workqueue
-> behaves similarly to regular workqueues except that the queued work items
-> are executed in the BH context.
-
-Thanks for conversion, am happy with BH alternative as it helps in
-dmaengine where we need shortest possible time between tasklet and
-interrupt handling to maximize dma performance
-
-> 
-> This patch converts drivers/dma/* from tasklet to BH workqueue.
-
-> 
-> Based on the work done by Tejun Heo <tj@kernel.org>
-> Branch: git://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git for-6.10
-> 
-> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
-> ---
->  drivers/dma/altera-msgdma.c                   | 15 ++++----
->  drivers/dma/apple-admac.c                     | 15 ++++----
->  drivers/dma/at_hdmac.c                        |  2 +-
->  drivers/dma/at_xdmac.c                        | 15 ++++----
->  drivers/dma/bcm2835-dma.c                     |  2 +-
->  drivers/dma/dma-axi-dmac.c                    |  2 +-
->  drivers/dma/dma-jz4780.c                      |  2 +-
->  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    |  2 +-
->  drivers/dma/dw-edma/dw-edma-core.c            |  2 +-
->  drivers/dma/dw/core.c                         | 13 +++----
->  drivers/dma/dw/regs.h                         |  3 +-
->  drivers/dma/ep93xx_dma.c                      | 15 ++++----
->  drivers/dma/fsl-edma-common.c                 |  2 +-
->  drivers/dma/fsl-qdma.c                        |  2 +-
->  drivers/dma/fsl_raid.c                        | 11 +++---
->  drivers/dma/fsl_raid.h                        |  2 +-
->  drivers/dma/fsldma.c                          | 15 ++++----
->  drivers/dma/fsldma.h                          |  3 +-
->  drivers/dma/hisi_dma.c                        |  2 +-
->  drivers/dma/hsu/hsu.c                         |  2 +-
->  drivers/dma/idma64.c                          |  4 +--
->  drivers/dma/img-mdc-dma.c                     |  2 +-
->  drivers/dma/imx-dma.c                         | 27 +++++++-------
->  drivers/dma/imx-sdma.c                        |  6 ++--
->  drivers/dma/ioat/dma.c                        | 17 ++++-----
->  drivers/dma/ioat/dma.h                        |  5 +--
->  drivers/dma/ioat/init.c                       |  2 +-
->  drivers/dma/k3dma.c                           | 19 +++++-----
->  drivers/dma/mediatek/mtk-cqdma.c              | 35 ++++++++++---------
->  drivers/dma/mediatek/mtk-hsdma.c              |  2 +-
->  drivers/dma/mediatek/mtk-uart-apdma.c         |  4 +--
->  drivers/dma/mmp_pdma.c                        | 13 +++----
->  drivers/dma/mmp_tdma.c                        | 11 +++---
->  drivers/dma/mpc512x_dma.c                     | 17 ++++-----
->  drivers/dma/mv_xor.c                          | 13 +++----
->  drivers/dma/mv_xor.h                          |  5 +--
->  drivers/dma/mv_xor_v2.c                       | 23 ++++++------
->  drivers/dma/mxs-dma.c                         | 13 +++----
->  drivers/dma/nbpfaxi.c                         | 15 ++++----
->  drivers/dma/owl-dma.c                         |  2 +-
->  drivers/dma/pch_dma.c                         | 17 ++++-----
->  drivers/dma/pl330.c                           | 31 ++++++++--------
->  drivers/dma/plx_dma.c                         | 13 +++----
->  drivers/dma/ppc4xx/adma.c                     | 17 ++++-----
->  drivers/dma/ppc4xx/adma.h                     |  5 +--
->  drivers/dma/pxa_dma.c                         |  2 +-
->  drivers/dma/qcom/bam_dma.c                    | 35 ++++++++++---------
->  drivers/dma/qcom/gpi.c                        | 18 +++++-----
->  drivers/dma/qcom/hidma.c                      | 11 +++---
->  drivers/dma/qcom/hidma.h                      |  5 +--
->  drivers/dma/qcom/hidma_ll.c                   | 11 +++---
->  drivers/dma/qcom/qcom_adm.c                   |  2 +-
->  drivers/dma/sa11x0-dma.c                      | 27 +++++++-------
->  drivers/dma/sf-pdma/sf-pdma.c                 | 23 ++++++------
->  drivers/dma/sf-pdma/sf-pdma.h                 |  5 +--
->  drivers/dma/sprd-dma.c                        |  2 +-
->  drivers/dma/st_fdma.c                         |  2 +-
->  drivers/dma/ste_dma40.c                       | 17 ++++-----
->  drivers/dma/sun6i-dma.c                       | 33 ++++++++---------
->  drivers/dma/tegra186-gpc-dma.c                |  2 +-
->  drivers/dma/tegra20-apb-dma.c                 | 19 +++++-----
->  drivers/dma/tegra210-adma.c                   |  2 +-
->  drivers/dma/ti/edma.c                         |  2 +-
->  drivers/dma/ti/k3-udma.c                      | 11 +++---
->  drivers/dma/ti/omap-dma.c                     |  2 +-
->  drivers/dma/timb_dma.c                        | 23 ++++++------
->  drivers/dma/txx9dmac.c                        | 29 +++++++--------
->  drivers/dma/txx9dmac.h                        |  5 +--
->  drivers/dma/virt-dma.c                        |  9 ++---
->  drivers/dma/virt-dma.h                        |  9 ++---
->  drivers/dma/xgene-dma.c                       | 21 +++++------
->  drivers/dma/xilinx/xilinx_dma.c               | 23 ++++++------
->  drivers/dma/xilinx/xilinx_dpdma.c             | 21 +++++------
->  drivers/dma/xilinx/zynqmp_dma.c               | 21 +++++------
->  74 files changed, 442 insertions(+), 395 deletions(-)
-> 
-> diff --git a/drivers/dma/altera-msgdma.c b/drivers/dma/altera-msgdma.c
-> index a8e3615235b8..611b5290324b 100644
-> --- a/drivers/dma/altera-msgdma.c
-> +++ b/drivers/dma/altera-msgdma.c
-> @@ -20,6 +20,7 @@
->  #include <linux/platform_device.h>
->  #include <linux/slab.h>
->  #include <linux/of_dma.h>
-> +#include <linux/workqueue.h>
->  
->  #include "dmaengine.h"
->  
-> @@ -170,7 +171,7 @@ struct msgdma_sw_desc {
->  struct msgdma_device {
->  	spinlock_t lock;
->  	struct device *dev;
-> -	struct tasklet_struct irq_tasklet;
-> +	struct work_struct irq_work;
-
-Can we name these as bh_work to signify that we are always in bh
-context? here and everywhere please
 
 
->  	struct list_head pending_list;
->  	struct list_head free_list;
->  	struct list_head active_list;
-> @@ -676,12 +677,12 @@ static int msgdma_alloc_chan_resources(struct dma_chan *dchan)
->  }
->  
->  /**
-> - * msgdma_tasklet - Schedule completion tasklet
-> + * msgdma_work - Schedule completion work
+On 28 March 2024 01:06:42 GMT, Changhuang Liang <changhuang.liang@starfivetech.com> wrote:
+>Hi, Conor,
+>
+>> On Mon, Jan 22, 2024 at 08:24:51AM +0000, Conor Dooley wrote:
+>[...]
+>> > > > > > Do these clocks etc exist but are not used by the driver?
+>> > > > > >
+>> > > > > > Or do they not exist at all?
+>> > > > > >
+>> > > > > > The two are very different!
+>> > > >
+>> > > > > These clocks etc exist but are not used by the driver.
+>> > > >
+>> > > > That's not an acceptable reason for removing them from the
+>> > > > binding. If they exist, they should be documented, regardless of
+>> > > > whether the driver makes use of them. NAK.
+>> > >
+>> > > If so, how to avoid the warning of dtbs_check.
+>> >
+>> > By also adding the clocks, resets and interrupts to the dts.
+>> 
+>> Going through patchwork stuff now that the merge window is done. I'm gonna
+>> mark the dts patch as changes requeted. The binding (and dts) should
+>> describe all of the clocks the hardware has, whether or not you choose to use
+>> them all in software does not matter. Can you please resend the dts patch,
+>> with all of the clocks, resets and interrupts present?
+>> 
+>
+>You have applied the dts patch.
+>https://lore.kernel.org/all/20240219032741.18387-1-changhuang.liang@starfivetech.com/
 
-...
-
-> @@ -515,7 +516,7 @@ struct gpii {
->  	enum gpi_pm_state pm_state;
->  	rwlock_t pm_lock;
->  	struct gpi_ring ev_ring;
-> -	struct tasklet_struct ev_task; /* event processing tasklet */
-> +	struct work_struct ev_task; /* event processing work */
->  	struct completion cmd_completion;
->  	enum gpi_cmd gpi_cmd;
->  	u32 cntxt_type_irq_msk;
-> @@ -755,7 +756,7 @@ static void gpi_process_ieob(struct gpii *gpii)
->  	gpi_write_reg(gpii, gpii->ieob_clr_reg, BIT(0));
->  
->  	gpi_config_interrupts(gpii, MASK_IEOB_SETTINGS, 0);
-> -	tasklet_hi_schedule(&gpii->ev_task);
-> +	queue_work(system_bh_highpri_wq, &gpii->ev_task);
-
-This is good conversion, thanks for ensuring system_bh_highpri_wq is
-used here
--- 
-~Vinod
+Oh, sorry for the noise then. I guess I was
+mislead by patchwork marking this as new :)
 
 _______________________________________________
 linux-riscv mailing list
