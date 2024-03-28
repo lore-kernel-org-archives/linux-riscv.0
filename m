@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92993CD1283
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 12:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4477C54E64
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 12:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=S4+Y0/p4ys05DUsow6Igy7gfjIdc5rifI3ZzU6VLF6k=; b=aq0ZwbM54G5SRtypkXWveI4+ii
-	AarDtntIjBDRjEFr56jTqajzr61XhhCHHLg1TsHWO67L7D1LYrcj67qRkAoY8Gbpw22CFgEnpCLDi
-	fGIc5+TiZ1AnlIdSYimYAeLll3MKOAq3yXQaDKcNR0I9tF/emzYfm6cjxD+2AHfxc5ff1WHo//8vi
-	8tTgmNhUVrtAVXkR4FNT9gkmzTiapDnL+yxkUYsim1mMVRDFxAhruYOq5ZqCDI8v3M7t6806tuMpA
-	ZINuavAJ+VxlMa6U/cJ10P6yQkuoAdjeIX/S3eBI1nVeuOOKGbgWkU9di+58oLD6t7D0LvnCA7oTV
-	P4Ron4/g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nRYxWgb/A6lxNX4sn3m3s5yVR4P0koY+CfdUwrwvXQY=; b=jmFb1wgxZXvkNz
+	fdXS89+9ezA1nF0vqys9yjyGYD3/dveu0NR+sRADdpnpNMjRqMaR/X9VDIdWMlf4nUKQM36Y9F0/T
+	HAmTz2Pk3pJWgblalOqEld9Yadp5DvZjMawqw21nqIvVvFqA7Mieqq+MxzA+nsvxmbiRNUNgHR9YN
+	ALI/V2le1En2bcXgwe7Khe2C/AkMpfzIrIFskwXSh+v6q54iMPzmyG7QIliP9q1JWfll0iahrW3dj
+	RWRDkoF7LEKcUHPqLuHxdR80GZ5/hAfPXJvjiMfsf/uluwgnNKM9NJyHqwPAjkSsT7n5rjkCwv0xf
+	pTRo8aMUlVBu+zP7/LlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpp8V-0000000Dyts-3eXA;
-	Thu, 28 Mar 2024 12:45:40 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1rppB6-0000000DzOS-3oyz;
+	Thu, 28 Mar 2024 12:48:20 +0000
+Received: from [45.249.212.56] (helo=dggsgout12.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpp8N-0000000Dyqm-1bMT
+	id 1rppB4-0000000DzLZ-2Si6
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Mar 2024 12:45:36 +0000
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id A16DE3FB79
-	for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 12:45:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1711629923;
-	bh=mcy8xBzJhA5/GwagWLEOHwxzAhDGLHOwYxY0lrDfVFk=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=HFFTLrEiJOTPG1C3kw4CIjslQ/f0MthN5gb8SFu70vCYm0ZQ90GRQddrD2/qy5yDS
-	 EN289qhHPxysZ9yVSIbLfvOE2rGrtqPb/JV2NzlyZqNz2eLzZ0CGyFEHQguqHHbj1K
-	 B7b+LE/cSixFk78JlwjPK3uw+gwcFglLSK6/LclCmybpU2GbH1uwictQ3PxjQ/w40u
-	 s/9vdJG44fpEpYzbOBSodmCctU4mWLFBCNXvIplrUYy0vokHJ3Gb016RvxPMZesCW4
-	 RzhYtmZr94BFzsM77k6tySW0u+wUrpxYQf0C/AqOUn5iGKlNlta5mXHlXQmwwiMSGv
-	 pdDY9aqwlC6WA==
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-430b327e703so7474481cf.3
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 05:45:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711629922; x=1712234722;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mcy8xBzJhA5/GwagWLEOHwxzAhDGLHOwYxY0lrDfVFk=;
-        b=L1UlX7UFsBGodtrdIWddsdI3KZBxOfc5CcNLz4cOe9M4NCCJqpfvewxCVwrFXmVXjW
-         IsPWM0nTbNN1dP0Usv1oubrOFCWzikWSqOvxssnzCW8TcZs34+tX32/ap2WlOhfSZB+0
-         09OBUczgnF5/AqaLtkcovSnJIhlwA37fCXnmTk7+GnmiuV9bY66EfqB9+8dFmzhj46/4
-         0LmQ6UkjRs8ajz7BfD2QZF7Rfl7BxNYLocsfmJM9yUub0l/yXGNE3TC8I1TaL2hRD5jJ
-         wF9XUrjObvik9c870mrt4PHLv1CNYZVW7HCdZ/SCQ7eiHbjjJ/f4nhf7KSG3bk61jarI
-         NF0g==
-X-Forwarded-Encrypted: i=1; AJvYcCVCGZKc6nYCKo1chBr71fuGIvkEqJMhWegKcBndD859YbWFgkLjl5JYUORALGy5Xct/Su4SUZE5fA4Nx4rHotIlrF8vgqMIg7LT3re2MEpJ
-X-Gm-Message-State: AOJu0YyXORk+e289hMYpHgHsHOvNuGH1qcZhLhIW3V+ANG1JpAPSvioR
-	wgN100uKFXheet87vEHJMnbY6hriEp4ihR9nHuZ8g+uj6OKbRQIHjRiql/gYk1zdQz7JCRR8fyM
-	QIFqCNk/UTNPodHipQyCwj4EsPtWu0eE81Xu83Vp4RIXF3e89YUp/Mq870zVpw008DrgJ5Zc+lW
-	KQKNBpLXbxiRi2WEUDeDHkCAfcf7/i/lYzqOpjoqFMaJCzzn+Bx6l9AhAz
-X-Received: by 2002:ac8:5e13:0:b0:432:b582:1818 with SMTP id h19-20020ac85e13000000b00432b5821818mr1585120qtx.45.1711629922524;
-        Thu, 28 Mar 2024 05:45:22 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGUKlsOrsfvlyk23QZwEukdnQFti77COK+AMtjF8pDiCQ3BPtiLG/Cb9YHlaPR5B4U1pD56yQlPhI2rzGy27Xc=
-X-Received: by 2002:ac8:5e13:0:b0:432:b582:1818 with SMTP id
- h19-20020ac85e13000000b00432b5821818mr1585094qtx.45.1711629922222; Thu, 28
- Mar 2024 05:45:22 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 28 Mar 2024 05:45:21 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <ZgVBurohYRDzFjgb@xhacker>
-References: <20240131132600.4067-1-jszhang@kernel.org> <20240131132600.4067-7-jszhang@kernel.org>
- <20240206-magma-deem-2c88e45a545a@spud> <20240327-cotton-fang-37f6d8fde0e5@spud>
- <ZgVBurohYRDzFjgb@xhacker>
-Mime-Version: 1.0
-Date: Thu, 28 Mar 2024 05:45:21 -0700
-Message-ID: <CAJM55Z8O20qjYmbjwOOE2CDCrWhCDGJ-jXY9TsR2hMSn-gEFtQ@mail.gmail.com>
-Subject: Re: [PATCH v3 6/6] riscv: dts: starfive: add Milkv Mars board device tree
-To: Jisheng Zhang <jszhang@kernel.org>, Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Emil Renner Berthing <kernel@esmil.dk>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+	Thu, 28 Mar 2024 12:48:20 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4V53Gz31Kjz4f3kht
+	for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 20:47:55 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id AD8521A0232
+	for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 20:48:01 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP2 (Coremail) with SMTP id Syh0CgAnlQj+ZgVmTvYNIg--.31354S4;
+	Thu, 28 Mar 2024 20:48:01 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Mykola Lysenko <mykolal@fb.com>,
+	Manu Bretelle <chantr4@gmail.com>,
+	Pu Lehui <pulehui@huawei.com>,
+	Pu Lehui <pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 2/5] riscv, bpf: Relax restrictions on Zbb instructions
+Date: Thu, 28 Mar 2024 12:49:13 +0000
+Message-Id: <20240328124916.293173-3-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240328124916.293173-1-pulehui@huaweicloud.com>
+References: <20240328124916.293173-1-pulehui@huaweicloud.com>
+MIME-Version: 1.0
+X-CM-TRANSID: Syh0CgAnlQj+ZgVmTvYNIg--.31354S4
+X-Coremail-Antispam: 1UD129KBjvdXoW7GF4kuw4DAw4fJFW3Cw4UJwb_yoWfGrgEkr
+	yxtryI9w4Fy3Z7X3WDGr4rJr17C395tFy8GF1agr4jvFn8XrsxA3ykt34UA3y5ur4kJr93
+	WF1kJrZayw42qjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbD8FF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUXwA2048vs2IY02
+	0Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
+	wVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UM2
+	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
+	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
+	vE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
+	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04
+	v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_
+	Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x
+	0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWx
+	JVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMI
+	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUHbyAUUUUU
+	=
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_054533_015477_407800C8 
-X-CRM114-Status: GOOD (  20.32  )
+X-CRM114-CacheID: sfid-20240328_054818_843756_12C562A0 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,68 +103,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Jisheng Zhang wrote:
-> On Wed, Mar 27, 2024 at 06:06:58PM +0000, Conor Dooley wrote:
-> > Yo,
-> >
-> > On Tue, Feb 06, 2024 at 07:13:48PM +0000, Conor Dooley wrote:
-> > > On Wed, Jan 31, 2024 at 09:26:00PM +0800, Jisheng Zhang wrote:
-> > > > The Milkv Mars is a development board based on the Starfive JH7110 SoC.
-> > > > The board features:
-> > > >
-> > > > - JH7110 SoC
-> > > > - 1/2/4/8 GiB LPDDR4 DRAM
-> > > > - AXP15060 PMIC
-> > > > - 40 pin GPIO header
-> > > > - 3x USB 3.0 host port
-> > > > - 1x USB 2.0 host port
-> > > > - 1x M.2 E-Key
-> > > > - 1x eMMC slot
-> > > > - 1x MicroSD slot
-> > > > - 1x QSPI Flash
-> > > > - 1x 1Gbps Ethernet port
-> > > > - 1x HDMI port
-> > > > - 1x 2-lane DSI and 1x 4-lane DSI
-> > > > - 1x 2-lane CSI
-> > > >
-> > > > Add the devicetree file describing the currently supported features,
-> > > > namely PMIC, UART, I2C, GPIO, SD card, QSPI Flash, eMMC and Ethernet.
-> > > >
-> > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > >
-> > > Got a dtbs_check issue in the patchwork CI:
-> > >
-> > >   +arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dtb: gmac1-rgmii-rxin-clock: 'clock-frequency' is a required property
-> > >   +	from schema $id: http://devicetree.org/schemas/clock/fixed-clock.yaml#
-> > >   +arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dtb: gmac1-rmii-refin-clock: 'clock-frequency' is a required property
-> > >   +	from schema $id: http://devicetree.org/schemas/clock/fixed-clock.yaml#
-> > >
-> > > Can you fix that please? Also, I applied some patches the other day that
-> > > seem to conflict quite a bit with the common board dts patch. Would you
-> > > please do a rebase on top of that please?
-> >
-> > Been going through stuff on my todo list now that the merge window is
-> > closed. Could you please resend this with the rebase done?
->
-> Thanks for the reminding, I will rebase on 6.9-rc1 then send out the
-> patches.
+From: Pu Lehui <pulehui@huawei.com>
 
-Hi Jisheng,
+This patch relaxes the restrictions on the Zbb instructions. The hardware
+is capable of recognizing the Zbb instructions independently, eliminating
+the need for reliance on kernel compile configurations.
 
-A rebase would be great. It looks good to me, but could you maybe call the
-common .dtsi something more generic like jh7110-common.dtsi like the
-jh7100-common.dtsi. If we'll see other boards based on the jh7110 upstreamed
-(eg. Star64) I suspect they'll also be heavily based on^M^M^M similar to the
-VF2 schematics.
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ arch/riscv/net/bpf_jit.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-/Emil
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index 5fc374ed98ea..bcf109b88df5 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -20,7 +20,7 @@ static inline bool rvc_enabled(void)
+ 
+ static inline bool rvzbb_enabled(void)
+ {
+-	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
++	return riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
+ }
+ 
+ enum {
+-- 
+2.34.1
 
->
-> >
-> > Thanks,
-> > Conor.
->
->
 
 _______________________________________________
 linux-riscv mailing list
