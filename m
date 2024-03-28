@@ -4,113 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A37CD1283
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 17:33:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F42FCD1283
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 17:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0DPAfWLiRovC1fo+jSwRRY+Q2dvV+Im3esUEqJj0glM=; b=eP9XU2yA411NlS
-	flbLo/h4QfROsjPcyoizY4bsZ5taaDvVSCqvebUhe7DFqMfe/EgIYOQwQybO1MQRoOJpO/zTjGddJ
-	JN+l4EInJ5HwK8CE7GA+a/D2pL0AEJpTNThN1d3fHltzL7IcwBhiU+/fsrg98Ju0LMrEO22h39xBh
-	Xis4KHi94EGH8E26t9K3YHm7600sB2fIJFW7ckkS/LCFRM6iiVKTCwlLsYBTh60TfuOzFcEfGU0sq
-	J2LvkL7tjiV5/V0dfYEpQRfv/sR/CGG5Ly+4VwqFBPhDqF+4I1T553i31r0KRsGQ9riLZCprQaYWr
-	uvGgA2QZNcNbkjzapRnw==;
+	List-Owner; bh=/4HM0tUW7CtEQWX4DfHt8ANYgqEIc+xRgO6PYhhZF5E=; b=aHpcO04uzma/J9
+	JxuHw0/YLhTP9ZYx/5OzV2W9KEXb1THzHEm+vph+y4/is9ROgRVtuE3YQAAgdZgZEe4JAw5owztCf
+	wAJVQJHIw1gM+jfp0xG+OSw/6Uh3tyLaZQfHnA+NC4Rtgmq9uH2AXyu7cTnep2F8NuO2/TbKuko0o
+	yJaEo91wWwZ8XjFOUDAtCPNks2MvI/kA3cWHPbvKe8wdzUv/ODPAq4gkPxX8Js2ROTCoZEajE2spp
+	hDvJB7P78vrKJ+If91Qw/0cEaM2Uu2myHHVX3PPnYrzX2Ajx0xX1qsIeOhzrV/zH6HqRWUkQ1rVw9
+	KDE2NfRtNaPjMdSqqDIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rptdQ-0000000EzZz-1X8k;
-	Thu, 28 Mar 2024 17:33:52 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1rptqa-0000000F1Yx-3fRR;
+	Thu, 28 Mar 2024 17:47:28 +0000
+Received: from mail-vk1-xa33.google.com ([2607:f8b0:4864:20::a33])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpsVV-0000000EiEc-38dB;
-	Thu, 28 Mar 2024 16:21:39 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-6e6f69e850bso1345023b3a.0;
-        Thu, 28 Mar 2024 09:21:36 -0700 (PDT)
+	id 1rptqT-0000000F1U6-2Kl1;
+	Thu, 28 Mar 2024 17:47:23 +0000
+Received: by mail-vk1-xa33.google.com with SMTP id 71dfb90a1353d-4d870fb9f5cso429458e0c.3;
+        Thu, 28 Mar 2024 10:47:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1711642896; x=1712247696; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TpQlnbUKf5vfOk3TpOVHNGMqh00k5XUuxEvlHT+naYc=;
-        b=Ig3SMP60ASVOXkyNLoVUK6JkoHfOklt0Rvx49rNdr9d5Ekj69vKRSw12yZMvYaI4He
-         PFpt8Bw0g9IeNo9Tk36T6HyE77gshqmN1z2fQY4icdZEcKCXoLAAwHtBFtsQQWNqIoz6
-         IvllvcjdJ6w3n6j0tFfhDcL9KhRzY0HWmiqPqLERqR7VBcGTuIGWAEX5atNCoq1BIQuI
-         MUUctWvlMpXMiHBLHzzdIwiX4NovfN6QY9Oq2kXY35Ex94eQ2OOssaJCeTsgGT8tJzR5
-         wgdu9Y5PM4cZmbuIpxvfyM3HDkTmJVI9STp/0vuHKKYTlwtzkHO/gcTHHhXG4UMzMqfy
-         dJPA==
+        d=gmail.com; s=20230601; t=1711648038; x=1712252838; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WOul4usuPisehHXyQcZLwgce2H6JwRccYEaJQWtP1Jo=;
+        b=HZ5IVTmXHtivwO/6/aTl1s6o/ZOIlwBRg93/T2Y3uCW91gSPu9oqMaOxvXdcztliIO
+         Qq+NyrHsYiDd9ARyM7QHD/hqlM8DiDrVqzRIg+y0A/TncfcaFvd88XJqM78qu4VKESvD
+         h3mqaWTsVw4eB+E6mnPWOWusTvmzLFTORNr8yvHE1GfbiLNC7a0PXZYDD1YYUDVf0+Q+
+         E+MbqEeI0RMR+x1Yh6IJwa4CMmx31qPDnu50OMdGANPP2BOIzwqLKWMLFUjE/pvBPiWL
+         d1XXMflZUIGkYVd1AIqziujdynReOQioqt8Or53Wj20SdvGGCCmS1CX3c4RSgtYzPkCH
+         EDJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711642896; x=1712247696;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1711648038; x=1712252838;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=TpQlnbUKf5vfOk3TpOVHNGMqh00k5XUuxEvlHT+naYc=;
-        b=X30hsn9crZACZIOPfHpcLkZa/cTXyNqm428m8NVBfbk2ZRsUE2FQkGuLuqxyYzCOR6
-         LjEK+Eh3JZvvc/2f1Gkoa732n2gUNa5U4JyWZxTVHX1nJLFlVtXbrheSntitAZOOtY5t
-         3CL66qt+E+YntrPOxqkK9KJwlsiEUpdwEJChYmN6RU8mymxs0SX8amXMce2U+RwQJ7dm
-         9ii+wmLnHnC03pdnPsMwnUIVS+Qf7DRkohcIKFb/PTKT2kD5eX1nSdFCn5Ng4B1aREjp
-         BEV4YlelpQkzedxegJ1UVloFjDmzv1AQg0enKXrm2cEi1ktljVVAVwETybA/rBBGFIPN
-         oJzA==
-X-Forwarded-Encrypted: i=1; AJvYcCVKEJe2MiO/oW7R88gJhhEHBZlnUwa2rb9Fin6TDYkwvdsXtR67qeyxY0yGCh9OxdRq6SCvakTE2C9ee7moyLpJea+EHSyaK0u6+T86Zbmt9p5CPF9B4vB76AqLGjUb712FFC5YOMrPIPgz3GMlEx8+0uwqLFyg4+7ZLCh+f3VJZSomf5mHsZilYbHdWsWBhffUfbJ93aLHvsmrLmHJ4ELMdY5N71hmYvIYEKarT4b9Aqb46o9XO+x1WQ7xP+Ax2NHUqOWi+FnmUZ7D6EqUCPXVk+FuBhp8wMsCLgfYEQIsywvD
-X-Gm-Message-State: AOJu0Yx0H7H4WkQOsjAybJ1HF204iUZWuOSceAlLC77Z/nhdLRHGCVET
-	RPcUIdoPPWgnfw+ojrE6rGUlMkzddgSRIddmLh19/Zxx9huSp3gI
-X-Google-Smtp-Source: AGHT+IHNLtSIfLiMjPgdNbH73n29Rqo4mQsh/oBERN464FH6NwbPkAtXL24hv7Aec7RU+H+HqkGb1w==
-X-Received: by 2002:a05:6a20:7495:b0:1a5:7308:3297 with SMTP id p21-20020a056a20749500b001a573083297mr1591044pzd.0.1711642896210;
-        Thu, 28 Mar 2024 09:21:36 -0700 (PDT)
-Received: from localhost ([2620:10d:c090:400::5:4d4e])
-        by smtp.gmail.com with ESMTPSA id fd37-20020a056a002ea500b006eab6ac1f83sm1576815pfb.0.2024.03.28.09.21.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Mar 2024 09:21:35 -0700 (PDT)
-Date: Thu, 28 Mar 2024 06:21:34 -1000
-From: Tejun Heo <tj@kernel.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Allen Pais <apais@linux.microsoft.com>, linux-kernel@vger.kernel.org,
-	keescook@chromium.org, vkoul@kernel.org, marcan@marcan.st,
-	sven@svenpeter.dev, florian.fainelli@broadcom.com,
-	rjui@broadcom.com, sbranden@broadcom.com, paul@crapouillou.net,
-	Eugeniy.Paltsev@synopsys.com, manivannan.sadhasivam@linaro.org,
-	vireshk@kernel.org, Frank.Li@nxp.com, leoyang.li@nxp.com,
-	zw@zh-kernel.org, wangzhou1@hisilicon.com, haijie1@huawei.com,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, sean.wang@mediatek.com,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	afaerber@suse.de, logang@deltatee.com, daniel@zonque.org,
-	haojian.zhuang@gmail.com, robert.jarzmik@free.fr,
-	andersson@kernel.org, konrad.dybcio@linaro.org, orsonzhai@gmail.com,
-	baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com,
-	patrice.chotard@foss.st.com, linus.walleij@linaro.org,
-	wens@csie.org, jernej.skrabec@gmail.com, peter.ujfalusi@gmail.com,
-	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-	decui@microsoft.com, jassisinghbrar@gmail.com, mchehab@kernel.org,
-	maintainers@bluecherrydvr.com, aubin.constans@microchip.com,
-	manuel.lauss@gmail.com, mirq-linux@rere.qmqm.pl,
-	jh80.chung@samsung.com, oakad@yahoo.com,
-	hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
-	brucechang@via.com.tw, HaraldWelte@viatech.com, pierre@ossman.eu,
-	duncan.sands@free.fr, stern@rowland.harvard.edu, oneukum@suse.com,
-	openipmi-developer@lists.sourceforge.net, dmaengine@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-mediatek@lists.infradead.org,
-	linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org, linux-hyperv@vger.kernel.org,
-	linux-rdma@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-s390@vger.kernel.org,
-	netdev@vger.kernel.org, linux-usb@vger.kernel.org
-Subject: Re: [PATCH 9/9] mmc: Convert from tasklet to BH workqueue
-Message-ID: <ZgWZDtNU4tCwqyeu@slm.duckdns.org>
-References: <20240327160314.9982-1-apais@linux.microsoft.com>
- <20240327160314.9982-10-apais@linux.microsoft.com>
- <CAPDyKFpuKadPQv6+61C2pE4x4FE-DUC5W6WCCPu9Nb2DnDB56g@mail.gmail.com>
+        bh=WOul4usuPisehHXyQcZLwgce2H6JwRccYEaJQWtP1Jo=;
+        b=jfL8MisCqBtU/JxOra8hw9gxRCjHDIzePVWuvaXp1lnWEmjEEwvdV2Ji3rKFjDMvkj
+         ij3VyXQZ7FtfX/YpNzYflGJ2Xcs3lzvERiVCHOLq0WagX597ZbUZNG3+n3jX0zgxBs8C
+         dv3d6ITM3rrDP6W3/T9E6NZFs0FKYNUd+CiYU6aa5E6IpMnMBOGkGi8HmwLzRqG65Nhm
+         KLd8L7KlB6l9aMJs3HcI4FPYmGixSBziRy+MiyEwqo44ibAEM0mv35e7k1MNV03KmBr5
+         8Mcu2Z9XCP4aozd1GBkEvFNMNSfvQ4z/O1Hb3my/O387SZveTXf6hDGtiDTAevnepg+R
+         Ch7A==
+X-Forwarded-Encrypted: i=1; AJvYcCVUJKKprlYoadVZFeFFlquzQQhynmw5hlFELX/1684EQIxSoKQ/fSsE5EFv2TP9wO7aq3SkSaIeQD0+WZ9dc10bhNHiGWSB1sLpYfd0xTuRnVkfAyX2iTzBiqC7ZGSDpucHqUlrPwe2nBfbhEML/HQfyWBwO8jZUHG3eAd/EteKaLgM799aKMoADooUbZWbuAfQmJpVH6zThlH0UzuAqmOiM/7/2ZwRq29zPw2/KJ4Q5grolOONUEIKmJNQwvbQJiUj2kMTICnSIKfUS61mxuAV0QqiB/NoyiDyJZpVjzoiZWFy
+X-Gm-Message-State: AOJu0YwjQIQB4313jhwIElBKfsMgPzhKfJgiRv8SbKYnfJQWX0bwksCF
+	XDH2k7AonJUsPZXW49zNVVUQYWCm2bJ4YabSYoiKHtXnr1L9mO+qC9XVb1DL/H6yvYLUqN7lajK
+	KnJx/AWCeaZNAk97UYEzeyrzpMAQ=
+X-Google-Smtp-Source: AGHT+IHhsrATdsPlGDNfn/hR7BQXc3o4d86Rd7NcYHBOy9LUQjNRQoJ0rDqs8OMJuSA4Qyiba22Ugt9rz6m/+ouyIBc=
+X-Received: by 2002:a67:f7c6:0:b0:476:fbbb:14bc with SMTP id
+ a6-20020a67f7c6000000b00476fbbb14bcmr3836850vsp.30.1711648038557; Thu, 28 Mar
+ 2024 10:47:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAPDyKFpuKadPQv6+61C2pE4x4FE-DUC5W6WCCPu9Nb2DnDB56g@mail.gmail.com>
+References: <20240327160314.9982-1-apais@linux.microsoft.com>
+ <20240327160314.9982-10-apais@linux.microsoft.com> <9c31b697-3d80-407a-82b3-cfbb19fafb31@arm.com>
+In-Reply-To: <9c31b697-3d80-407a-82b3-cfbb19fafb31@arm.com>
+From: Allen <allen.lkml@gmail.com>
+Date: Thu, 28 Mar 2024 10:47:06 -0700
+Message-ID: <CAOMdWSL9GUkoOOX4LNwMOV24-8xnmFKep15xj8NnmnBss-RYAQ@mail.gmail.com>
+Subject: Re: [PATCH 9/9] mmc: Convert from tasklet to BH workqueue
+To: Christian Loehle <christian.loehle@arm.com>
+Cc: Allen Pais <apais@linux.microsoft.com>, linux-kernel@vger.kernel.org, tj@kernel.org, 
+	keescook@chromium.org, vkoul@kernel.org, marcan@marcan.st, sven@svenpeter.dev, 
+	florian.fainelli@broadcom.com, rjui@broadcom.com, sbranden@broadcom.com, 
+	paul@crapouillou.net, Eugeniy.Paltsev@synopsys.com, 
+	manivannan.sadhasivam@linaro.org, vireshk@kernel.org, Frank.Li@nxp.com, 
+	leoyang.li@nxp.com, zw@zh-kernel.org, wangzhou1@hisilicon.com, 
+	haijie1@huawei.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	sean.wang@mediatek.com, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, afaerber@suse.de, 
+	logang@deltatee.com, daniel@zonque.org, haojian.zhuang@gmail.com, 
+	robert.jarzmik@free.fr, andersson@kernel.org, konrad.dybcio@linaro.org, 
+	orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com, 
+	patrice.chotard@foss.st.com, linus.walleij@linaro.org, wens@csie.org, 
+	jernej.skrabec@gmail.com, peter.ujfalusi@gmail.com, kys@microsoft.com, 
+	haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com, 
+	jassisinghbrar@gmail.com, mchehab@kernel.org, maintainers@bluecherrydvr.com, 
+	aubin.constans@microchip.com, ulf.hansson@linaro.org, manuel.lauss@gmail.com, 
+	mirq-linux@rere.qmqm.pl, jh80.chung@samsung.com, oakad@yahoo.com, 
+	hayashi.kunihiko@socionext.com, mhiramat@kernel.org, brucechang@via.com.tw, 
+	HaraldWelte@viatech.com, pierre@ossman.eu, duncan.sands@free.fr, 
+	stern@rowland.harvard.edu, oneukum@suse.com, 
+	openipmi-developer@lists.sourceforge.net, dmaengine@vger.kernel.org, 
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-mediatek@lists.infradead.org, linux-actions@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
+	linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-mmc@vger.kernel.org, 
+	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-s390@vger.kernel.org, netdev@vger.kernel.org, linux-usb@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_092137_830801_AD3E69B7 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20240328_104721_702469_46500B7A 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,36 +115,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-On Thu, Mar 28, 2024 at 01:53:25PM +0100, Ulf Hansson wrote:
-> At this point we have suggested to drivers to switch to use threaded
-> irq handlers (and regular work queues if needed too). That said,
-> what's the benefit of using the BH work queue?
-
-BH workqueues should behave about the same as tasklets which have more
-limited interface and is subtly broken in an expensive-to-fix way (around
-freeing in-flight work item), so the plan is to replace tasklets with BH
-workqueues and remove tasklets from the kernel.
-
-The [dis]advantages of BH workqueues over threaded IRQs or regular threaded
-workqueues are the same as when you compare them to tasklets. No thread
-switching overhead, so latencies will be a bit tighter. Wheteher that
-actually matters really depends on the use case. Here, the biggest advantage
-is that it's mostly interchangeable with tasklets and can thus be swapped
-easily.
-
-Thanks.
-
--- 
-tejun
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXIgMjgsIDIwMjQgYXQgMzoxNuKAr0FNIENocmlzdGlhbiBMb2VobGUKPGNocmlz
+dGlhbi5sb2VobGVAYXJtLmNvbT4gd3JvdGU6Cj4KPiBPbiAyNy8wMy8yMDI0IDE2OjAzLCBBbGxl
+biBQYWlzIHdyb3RlOgo+ID4gVGhlIG9ubHkgZ2VuZXJpYyBpbnRlcmZhY2UgdG8gZXhlY3V0ZSBh
+c3luY2hyb25vdXNseSBpbiB0aGUgQkggY29udGV4dCBpcwo+ID4gdGFza2xldDsgaG93ZXZlciwg
+aXQncyBtYXJrZWQgZGVwcmVjYXRlZCBhbmQgaGFzIHNvbWUgZGVzaWduIGZsYXdzLiBUbwo+ID4g
+cmVwbGFjZSB0YXNrbGV0cywgQkggd29ya3F1ZXVlIHN1cHBvcnQgd2FzIHJlY2VudGx5IGFkZGVk
+LiBBIEJIIHdvcmtxdWV1ZQo+ID4gYmVoYXZlcyBzaW1pbGFybHkgdG8gcmVndWxhciB3b3JrcXVl
+dWVzIGV4Y2VwdCB0aGF0IHRoZSBxdWV1ZWQgd29yayBpdGVtcwo+ID4gYXJlIGV4ZWN1dGVkIGlu
+IHRoZSBCSCBjb250ZXh0Lgo+ID4KPiA+IFRoaXMgcGF0Y2ggY29udmVydHMgZHJpdmVycy9pbmZp
+bmliYW5kLyogZnJvbSB0YXNrbGV0IHRvIEJIIHdvcmtxdWV1ZS4KPiBzL2luZmluaWJhbmQvbW1j
+CgpXaWxsIGZpeCBpdCBpbiB2Mi4KPiA+Cj4gPiBCYXNlZCBvbiB0aGUgd29yayBkb25lIGJ5IFRl
+anVuIEhlbyA8dGpAa2VybmVsLm9yZz4KPiA+IEJyYW5jaDogaHR0cHM6Ly9naXQua2VybmVsLm9y
+Zy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvdGovd3EuZ2l0IGZvci02LjEwCj4gPgo+ID4gU2ln
+bmVkLW9mZi1ieTogQWxsZW4gUGFpcyA8YWxsZW4ubGttbEBnbWFpbC5jb20+Cj4gPiAtLS0KPiA+
+ICBkcml2ZXJzL21tYy9ob3N0L2F0bWVsLW1jaS5jICAgICAgICAgICAgICAgICAgfCAzNSArKysr
+LS0tLS0KPiA+ICBkcml2ZXJzL21tYy9ob3N0L2F1MXhtbWMuYyAgICAgICAgICAgICAgICAgICAg
+fCAzNyArKysrLS0tLS0KPiA+ICBkcml2ZXJzL21tYy9ob3N0L2NiNzEwLW1tYy5jICAgICAgICAg
+ICAgICAgICAgfCAxNSArKy0tCj4gPiAgZHJpdmVycy9tbWMvaG9zdC9jYjcxMC1tbWMuaCAgICAg
+ICAgICAgICAgICAgIHwgIDMgKy0KPiA+ICBkcml2ZXJzL21tYy9ob3N0L2R3X21tYy5jICAgICAg
+ICAgICAgICAgICAgICAgfCAyNSArKysrLS0tCj4gPiAgZHJpdmVycy9tbWMvaG9zdC9kd19tbWMu
+aCAgICAgICAgICAgICAgICAgICAgIHwgIDkgKystCj4gRm9yIGR3X21tYzoKPiBQZXJmb3JtYW5j
+ZSBudW1iZXJzIGxvb2sgZ29vZCBGV0lXLgo+IGZvciBpIGluICQoc2VxIDAgNSk7IGRvIGVjaG8g
+cGVyZm9ybWFuY2UgPiAvc3lzL2RldmljZXMvc3lzdGVtL2NwdS9jcHUkaS9jcHVmcmVxL3NjYWxp
+bmdfZ292ZXJub3I7IGRvbmUKPiBmb3IgaSBpbiAkKHNlcSAwIDQpOyBkbyBmaW8gLS1uYW1lPXRl
+c3QgLS1ydz1yYW5kcmVhZCAtLWJzPTRrIC0tcnVudGltZT0zMCAtLXRpbWVfYmFzZWQgLS1maWxl
+bmFtZT0vZGV2L21tY2JsazEgLS1taW5pbWFsIC0tbnVtam9icz02IC0taW9kZXB0aD0zMiAtLWdy
+b3VwX3JlcG9ydGluZyB8IGF3ayAtRiAiOyIgJ3twcmludCAkOH0nOyBzbGVlcCAzMDsgZG9uZQo+
+IEJhc2VsaW5lOgo+IDE3NTgKPiAxNzczCj4gMTYxOQo+IDE4MzUKPiAxNjM5Cj4gdG86Cj4gMTc0
+Mwo+IDE2NDMKPiAxODYwCj4gMTYzOAo+IDE4NzIKPiAoSSdkIGNhbGwgdGhhdCBlcXVpdmFsZW50
+KS4KPiBUaGlzIGlzIG9uIGEgUkszMzk5Lgo+IEkgd291bGQgcHJlZmVyIG1vc3Qgb2YgdGhlIG5h
+bWluZyB0byBjaGFuZ2UgZnJvbSAid29yayIgdG8gIndvcmtxdWV1ZSIgaW4gdGhlIGRyaXZlcgo+
+IGNvZGUuCj4gQXBhcnQgZnJvbSB0aGF0Ogo+IFJldmlld2VkLWJ5OiBDaHJpc3RpYW4gTG9laGxl
+IDxjaHJpc3RpYW4ubG9laGxlQGFybS5jb20+Cj4gVGVzdGVkLWJ5OiBDaHJpc3RpYW4gTG9laGxl
+IDxjaHJpc3RpYW4ubG9laGxlQGFybS5jb20+CgogVGhhbmsgeW91IHZlcnkgbXVjaCBmb3IgdGVz
+dGluZyBhbmQgdGhlIHJldmlldy4gV2lsbCBoYXZlIHlvdXIKY29uY2VybnMgYWRkcmVzc2VkIGlu
+IHYyLgoKLSBBbGxlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
