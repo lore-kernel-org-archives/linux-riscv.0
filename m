@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A3BCD1288
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 16:00:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04ABDCD128D
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 16:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cju4MDfwwXdTpSoB1iYcdevzoG9Fal7klksIYjHaEnk=; b=CdIQZm9rkl+skE
-	x2Nx/YG10y3HNAQu3uAuwNOmOrlMgKN6Fp9U3fLw+gbF9IWeLSZH3mrRyTq8T/n8g4xse20cTd59A
-	aoJcYLWIiroZ11brAkxK3F2MNJg+sjlQEG5fTv87+5LTOSvXd06OSakzFfAR4C5ETvVJbcN/i7UnX
-	NFGDJhr4+qu4jKXk5OlRZuDT169CSk2s1TsDkwQVXv1ay4sUR30qc5AFLUgjQPazuaPuiOwAdFoc2
-	Rm5aCrEQG3dZuW6EZL86TbMYki08jsnDiYoL7w5gy8xc4tR5IkxvEMDWBhR6JkW/Lm0C1iJ5nCLCD
-	dWR/kw9MKow3H4+6G9kw==;
+	List-Owner; bh=lyd7pG9DDHHmsOQFr0bY3hKbDNdQeYm0lPIpuB3yR4I=; b=Wi+9zfEONhuzEX
+	fSuizuwJ16yIGep21CETYyOhvyP286puMGZnYNcLYFBtJcBfLW1j0dAet3wvoj3C8i/1kUzFodPV/
+	USqKGSEZSdFfh4U+M/B4zhnNHtI93yoVfpbqwwrhxvEtpk/S0SOYlOO5Bgs/HAOMXcE9HRPUlvsYk
+	ETKPtnWiI2IbqlnfClUcdSHssm+2JHgSnvlYnV7wy1Amw53+lQXkQk0BjKgTOlpLfN795gEWzCHU9
+	emO+8x1iULd4byCdaAeiOxU+bzVH4FDbuDJTe+QBVY+L0RcteN5gcB4DA4L6FP+BqPzcZTxhv1ymS
+	NEMUEGVOIgKIrc++Hifg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpsAY-0000000EdE5-0o1w;
-	Thu, 28 Mar 2024 15:59:58 +0000
+	id 1rpsAZ-0000000EdFF-2T2J;
+	Thu, 28 Mar 2024 15:59:59 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rps9r-0000000EcnJ-2tfp;
+	id 1rps9r-0000000EcnK-31oM;
 	Thu, 28 Mar 2024 15:59:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Content-ID:Content-Description;
-	bh=p3AvYdKmdxxqju+5SPT80mvLNGtgKBQYlP0ueoSRpS4=; b=SNurta+k5vmyYB2klemvjz3NRb
-	V51dqluiUnAVQX3YM9zsAGjrLIrymmGzidXuu9SXViB5kYyasTX1cnIVOhGbJ06e+GOTh/CUsDIqi
-	lby0b+UIrhKO+nXfWgfl4w/enYysGB/EoEqsMLXfGz4qAMruF2FJm1JQuQX2oPRKzdWpDkst2kNs9
-	i9wITKmCJW8mNeB8N2cqu9VEhgoUN4ZcFIF0Pfw7RzODJxbZfBUWSKMpgfWL/cXt7vONX/6IO6qQF
-	Cd0IHIMf/TFWsyRGpp7Njj9rIcxV3354ZolwNKxizq7J2DgBLXufgaST4oV9iz0O+NmEX5JyKX4I6
-	4HH1mLaw==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	bh=6hGjIZWH3D0GQlvswERh+7cRPJG9WTb3O61j0QNYFaI=; b=b0MhLMc2RbYr0Afh4KU0rCjBYN
+	eGMKo3X4lZm1m8bR8JKBaz/Mr5mYCTTnxQdQvYltT1R1VijMSCCtVYSc6IrDvQ8wytKSOQQnCenic
+	k6tFflnm6aUG/ljuFHg9Y+lQOiqjmDmcE/mLDG1wGBvmu7TJOzULOP3kQmuapWKmfTrCcKwGo8d8p
+	+ZUi/S0IWzlUDiDwPoh8AgdUVf61z+MfJC3NRcCjrFxr1M/9JsR3s+QJygM3jyedswyYAkKFqF78G
+	OEesb//XR/kcHtqHvznWESd+f3r9K8aPJqY/Qq8HXkXPuSgRqIZ7/XpvoSmX+dpJGmacUeojoH76q
+	pSKNxEFA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rps9k-000000012YD-17L0;
-	Thu, 28 Mar 2024 15:59:11 +0000
+	id 1rps9l-000000012YG-13ln;
+	Thu, 28 Mar 2024 15:59:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4AD46617C3;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5B2FF617BE;
+	Thu, 28 Mar 2024 15:59:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1804BC433B1;
 	Thu, 28 Mar 2024 15:59:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id EFF01C433A6;
-	Thu, 28 Mar 2024 15:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1711641546;
-	bh=AfrCwZ80UJ3Lm4rQSxOz8hzzAx1c2/4P6ahzY46bag0=;
+	bh=HnkZYSjKPCIyg8WyvmAEoZfloM2q2PjF9q/5pIFpJNI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=QpwTzhmR7WGhuLwCx6UXbumllSSE9tYRsKkAr6OihSqnK/6Y+IWXbKQAHDInyuaWx
-	 rTDfBmUgfZ98fOScbKZBeaOSEdLQo2wuZrLXIG8wi5b2tQIbL7/LhsLU36tC9m8QLm
-	 SKFCwTJclUweEoeigZ8MYMjNltuD31nSRuDh9qMDHtnDayRxWSriEwama62/Ig779S
-	 MQkoDfrzF5+8mxp4hKMzkI4AObyj9cvED1J0AMGty75Nvmg2Ic82YbCEIOO6h4wY/+
-	 9M1eZBcXQCxM4vr8IdTZKoYYhGv3bb6tZISiHLdtG078zWhQIubeXRMxKYeoMix+OP
-	 3/ySCP8cmwVWw==
+	b=A973XSxYI/ju15z6W6S+Zrm/5kMUYhxyRNOSEa8BISg+xhHNJ21AhLrRci5V3ezt5
+	 G4PNLZaWFIxsggTvEAUzr7l8LgXJZrWARcEwxW+RWbPlxy6NPkYhtZn5WzSQdYEd32
+	 2k6vtXt0rxSgNCak/8O3BpjQjaz7zyokbzRdMdeby3m/iZtBDRnqpBVJAYnH0T2YEk
+	 S5drgQu716KnCTqX92wTBXKAmLVGguA1A3N3NDZVnH5MvpxA/aAyn9e/KWFEno6BbG
+	 0QiuiOTFxrdrskTyW4XxYOTzWCFNfZLvIT7jtscR+Uq232aXtXJlEDxAwXPiJjqEVP
+	 uR+bpimr8TZog==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DD355CD1288;
-	Thu, 28 Mar 2024 15:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 06266CD11DD;
+	Thu, 28 Mar 2024 15:59:06 +0000 (UTC)
 From: Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org>
-Date: Thu, 28 Mar 2024 16:57:51 +0100
-Subject: [PATCH 4/7] initrd: Remove the now superfluous sentinel element
- from ctl_table array
+Date: Thu, 28 Mar 2024 16:57:52 +0100
+Subject: [PATCH 5/7] ipc: Remove the now superfluous sentinel element from
+ ctl_table array
 MIME-Version: 1.0
-Message-Id: <20240328-jag-sysctl_remset_misc-v1-4-47c1463b3af2@samsung.com>
+Message-Id: <20240328-jag-sysctl_remset_misc-v1-5-47c1463b3af2@samsung.com>
 References: <20240328-jag-sysctl_remset_misc-v1-0-47c1463b3af2@samsung.com>
 In-Reply-To: <20240328-jag-sysctl_remset_misc-v1-0-47c1463b3af2@samsung.com>
 To: Andrew Morton <akpm@linux-foundation.org>, 
@@ -88,27 +88,27 @@ Cc: Luis Chamberlain <mcgrof@kernel.org>, linux-mm@kvack.org,
  linux-arm-kernel@lists.infradead.org, 
  Joel Granados <j.granados@samsung.com>
 X-Mailer: b4 0.13-dev-2d940
-X-Developer-Signature: v=1; a=openpgp-sha256; l=936;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1263;
  i=j.granados@samsung.com; h=from:subject:message-id;
- bh=dgUaKeQvY6Yod09xLYXFtRCigrPjq/BXAkqZRZrGl5Y=;
- b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGYFk8XUCfilPNsCftny+5XBz8vuxkpLL6JS7
- SCj0hqJr2zVAokBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJmBZPFAAoJELqXzVK3
- lkFPpf4L+wRgtVGVBHjTE3dn5OJC+qANHV6TvS+aBE93+XlWcxZos/8ML4JUmXrCqyDX+EjaEmt
- Bl1MIWQAVqLXLuV7NDHWaNzl/KaCn7lS4MToV9Ele72KR+KWBLrnjQ/I+5IQf/JDUlRkkrcBNbS
- 552foz839UfCmsc3qOa6OcB6/xYB/gBK5DxflSgUd+Ziu6Ae7iaojNn+RGbv1ZDklEFh/f8/jpD
- UqCAWxXD2JyYCZsEEpmsCmkOQB8efRr99QTCROusfn8mUMush1Bxod1cPFXq4Fekw4ycYERCYdk
- T7vpnaafd/mbKKROVnW0INiF64qLruVon1sVyPP7Jz/t2QGRfmb6SFLwTjQweUjiOxn0HPXQchy
- EIundt+krY0mkCcBVyKC6gb5Uo5ccOPPvzY1kjXyAJhmVlp7vjnoX3aUdTxwrpov1YY2pPjzf8J
- YpUSnaTsAtN6NIWpJsNhma0X8Fa3853Wn+ZChtFx+TOxMj9f6Srzl8C2TOGe/baq643G4sE5nC6
- EY=
+ bh=JOrcDebyPdeQyVF1o8hVyIGZcNOEUHOhqgwA2b/7KxA=;
+ b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGYFk8WY7+nF4T/aynBPi+a0SWAqJw+C58bGs
+ dIDFmbETTURK4kBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJmBZPFAAoJELqXzVK3
+ lkFPtKYMAIWyicivuHYgLcu7kcoKi4dh5VzhBVmU1d1+zzEnR2f4BqPMWMLwExZKwt0v0rPf/iU
+ VZqwFLCJUE4M6vX+VueRURT03H99gHyLgGMHwe5rlh/JUKiqlLQVzwaWCGrg4BG8jkIQgCXfv84
+ gAArkvSzOc8a35wOKAMKVRINK7w4fuDO5JFG7WGw90+v5WSY50dXGOmigPWIbA7P+EsriFvVDlf
+ N7UHpuSG0nytDxusQM71WHX2MxSQ+RTJgscogj75JzJehbmXTDZMtP/iGBTDfeaBRx0b7ETHJfh
+ 0a0bG+JnXuG4kxqxIV9k8fY5uQ94V09mvexhYMDSoOwKKWEHkwf7t26SYW4VgFtIFSEUyemvxmZ
+ tf3YlaL8wMsdBYj/4fwIlc1m9N3DOPv57ze5SEt8ileyVjKISuOlfRioVbFCF+fqVHKqi9zScRs
+ kqPhFL/gsIIeNp2Qv4tfJFyeHcFT20yhcmYz5E1RFipwOOD9XwQG8aCNvTZOZ00zy2zfSAJ8yU5
+ s0=
 X-Developer-Key: i=j.granados@samsung.com; a=openpgp;
  fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
 X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with
  auth_id=70
 X-Original-From: Joel Granados <j.granados@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_155908_754900_282D3B62 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20240328_155909_799308_87DBF40D 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,25 +134,38 @@ reduce the overall build time size of the kernel and run time memory
 bloat by ~64 bytes per sentinel (further information Link :
 https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
 
-Remove sentinel from kern_do_mounts_initrd_table.
+Remove the sentinels from ipc_sysctls and mq_sysctls
 
 Signed-off-by: Joel Granados <j.granados@samsung.com>
 ---
- init/do_mounts_initrd.c | 1 -
- 1 file changed, 1 deletion(-)
+ ipc/ipc_sysctl.c | 1 -
+ ipc/mq_sysctl.c  | 1 -
+ 2 files changed, 2 deletions(-)
 
-diff --git a/init/do_mounts_initrd.c b/init/do_mounts_initrd.c
-index 425f4bcf4b77..22c7f41ff642 100644
---- a/init/do_mounts_initrd.c
-+++ b/init/do_mounts_initrd.c
-@@ -29,7 +29,6 @@ static struct ctl_table kern_do_mounts_initrd_table[] = {
- 		.mode           = 0644,
- 		.proc_handler   = proc_dointvec,
+diff --git a/ipc/ipc_sysctl.c b/ipc/ipc_sysctl.c
+index 45cb1dabce29..0867535af96f 100644
+--- a/ipc/ipc_sysctl.c
++++ b/ipc/ipc_sysctl.c
+@@ -178,7 +178,6 @@ static struct ctl_table ipc_sysctls[] = {
+ 		.extra2		= SYSCTL_INT_MAX,
  	},
--	{ }
+ #endif
+-	{}
  };
  
- static __init int kernel_do_mounts_initrd_sysctls_init(void)
+ static struct ctl_table_set *set_lookup(struct ctl_table_root *root)
+diff --git a/ipc/mq_sysctl.c b/ipc/mq_sysctl.c
+index 21fba3a6edaf..22ec532c7fa1 100644
+--- a/ipc/mq_sysctl.c
++++ b/ipc/mq_sysctl.c
+@@ -64,7 +64,6 @@ static struct ctl_table mq_sysctls[] = {
+ 		.extra1		= &msg_maxsize_limit_min,
+ 		.extra2		= &msg_maxsize_limit_max,
+ 	},
+-	{}
+ };
+ 
+ static struct ctl_table_set *set_lookup(struct ctl_table_root *root)
 
 -- 
 2.43.0
