@@ -4,82 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0B88C54E67
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 04:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A25CC54E67
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 04:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=3Ybnpv46NzWit8Hfs8fqg3UQyHa92jNoVD/Uu7cNLbI=; b=aBoC1jXSlaBmvu7NHGDoJBrht9
-	lI8KBnEzaCY56BzIgsbrCbXSn74oEioPQZHFsWjrdb9L9TgH++yfkEzkH8npZid3GnbmJM1crNRkC
-	/3vYTlt8ApRcp6Sr+nNXXlzBwDX3q5mr4nRv7A5EsgIUb7dM0NTdkZqKilXdj4o14UYrAylLqCUqM
-	WO+NpIN356FjCG+AjZ8Z0/Rm4N3AcB29puem3Fir6WPPQI7m/Vwg1nBE9aBt7zCUQciosaAIH1sW1
-	pHUtfPkHkplewyUuY9G/YWS1PozscQci0lzy2cImiNUYrQexx6ddsKo4Rm90kv/fAzIxHL74aLvqT
-	buK4Mirg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=n1l2DpSOdug8nz+LU4KPzdGJclIJsp06uKt6qZlHQWU=; b=NkuI+zXHJyyRri
+	fqseS7AAeFkOG2eTXikvlIM1PgzoOBG17koPVtCXImAxl9+MzOJif44Tvh9IltaaZI2m0o0SZ+MNY
+	ltKyIOZqlzkh8m+9XeS73Ccz/dQaHJnUIIyuzbBf/N+JJn3lUjd+86Fl0UGq8XHVM2adI6KmPIfVS
+	F4WjwF3q1OPj+oMSWshJYo8lO8EMsyKEM9IR2f72yol22vBvA/80zlwICbIr9c7MlYKwV4+BVq5I8
+	64t9LdSiuJjUiLvu6vWJ7hY0mnM1/WUlRhvP18693LHjvNVO4g9DJG/+/OcUgqpu0pjsCr5P9HDGh
+	ke5jEOpX1SBe4rqlhkWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpgzG-0000000CKz8-1RdL;
-	Thu, 28 Mar 2024 04:03:34 +0000
-Received: from mail-yb1-f201.google.com ([209.85.219.201])
+	id 1rphp0-0000000CTNg-2z0e;
+	Thu, 28 Mar 2024 04:57:02 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpfr0-0000000CAQK-1UK1
-	for linux-riscv@lists.infradead.org;
-	Thu, 28 Mar 2024 02:51:00 +0000
-Received: by mail-yb1-f201.google.com with SMTP id 3f1490d57ef6-dd944567b6cso678752276.2
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 19:50:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1711594256; x=1712199056; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=seKwScTc9wqkrhGrgx5tr+y5GeB++CIZke1OsGxBUZc=;
-        b=4EsivyFGWSegbyqGWRHGbOc1hNFTdTvDgXM3t18Sxr/wZFJv4DzcFYCYkX6tljJTX1
-         YLQjr78BH/72UQA1oz5dgMnaKF228H/6naz2sNZSEQRxEK22fVUg1zmPNTktwQQOI+Tb
-         INhp30oxAw+DFLPwe4+7Rizy2I/aKFovFsiFpn5G/x4BQGfXjbu6C0OD8BKnXmrmP10V
-         yD+u8ZuAl3u8eq3ps0a9RdySrfY6FlB81wzeLZUij2YQ7vp8bp0NSFPnV54scg03OdUQ
-         k5BOkalj7sG2VWAj90qT/T1NUoLtWXTWuYWDg7qag7Rgva9r3Oai5f3X9iHlc6JK2fEh
-         TZdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711594256; x=1712199056;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=seKwScTc9wqkrhGrgx5tr+y5GeB++CIZke1OsGxBUZc=;
-        b=sJwrAZdd/g0p/eIWWhGYN8SdYNuEobM3zRkfNKukAxwekbsY1DdAOUiLeMom1rzMJ0
-         TjYnC7jvehotQ38PLPnQJU/F564q2xTqBa5JZXOb598Mo5IXnw3OTeXgjdz5A+cfZl/r
-         ewsR3BgfpGHErBXb6GO8JX2EknRr3Qv65gCrylWDDZ/RdPWndoVxb8wR+cmXORgRJJK/
-         GufvYxX13DPsYnd144/BQJCSZtjXs7qc9yUR7QKHVdvZPyj72C67fK9ZyKP7nNnvqnJE
-         V4h8eFm5aKqfVnrIy4IVHWgBW3eIAEjyrsbi17z57KpJLmJ2RCZdqpNEZLzie6rVeE/4
-         DpMw==
-X-Forwarded-Encrypted: i=1; AJvYcCWa7WbEIq7vbfQdXGThv9+KvG+AkqKpPkjcCVNnryQkAGGdzXkM9a/oLjFhoeVfOfL5E5yJW32Stq36214jABz55EVLNu1lX7HK02LalEGN
-X-Gm-Message-State: AOJu0Yxg+j5v9ps8M9qQEwxid1dEVp/2HJ3l4CFPE0haWd0H8By+FYM9
-	83aVG+XBJ6Vqk+Sx6BAIVxLlXfeA6yjYl7QitCGNvvTWCHjwITpYmH0uPXAedMHafwqS6rg7kaK
-	lsCsmq2iGgFmSkiksgniAow==
-X-Google-Smtp-Source: AGHT+IEO9/kWiBlfm+yWQ+WCwdKpSW8LEFVaawt8sTBofKxrZN8NZmXedY9jk9Xhy7bDK1Xf3oVmIhdKSvQRsIc+mA==
-X-Received: from ctop-sg.c.googlers.com ([fda3:e722:ac3:cc00:4f:4b78:c0a8:1223])
- (user=ackerleytng job=sendgmr) by 2002:a05:6902:160f:b0:dcc:79ab:e522 with
- SMTP id bw15-20020a056902160f00b00dcc79abe522mr160235ybb.11.1711594255835;
- Wed, 27 Mar 2024 19:50:55 -0700 (PDT)
-Date: Thu, 28 Mar 2024 02:50:52 +0000
-In-Reply-To: <20240314232637.2538648-16-seanjc@google.com>
-Mime-Version: 1.0
-References: <20240314232637.2538648-1-seanjc@google.com> <20240314232637.2538648-16-seanjc@google.com>
-Message-ID: <diqzcyrfkr1v.fsf@ctop-sg.c.googlers.com>
-Subject: Re: [PATCH 15/18] KVM: selftests: Allocate x86's TSS at VM creation
-From: Ackerley Tng <ackerleytng@google.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	id 1rphox-0000000CTL1-1r6D;
+	Thu, 28 Mar 2024 04:57:00 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 42S4OZe9008372;
+	Thu, 28 Mar 2024 04:56:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=from : to : cc : subject
+ : date : message-id : in-reply-to : references : mime-version :
+ content-transfer-encoding; s=pp1;
+ bh=c2Uy3YzkHEkdm5FrTXEJIDYr7sMUlYwD1FCPraQ9ds0=;
+ b=g3/vLH9W/fHcUOTVWss65Wjn6Txr1eGBfsZFF/L1I2wwdf1gpT4yqvRbumjOFiiHHRyN
+ 2rX9B2oSlcFQvOe4jHaT57CUJaCSFkTEB2K5wlju2yNW3BVLZTn+rWl9LKg/fHZMulCn
+ ASkqm+86CZoCKatA7y3X0TD+RU9R3EnIaOsWKVbEi+XjLLZiLDVIBN3QACjwjNoKCwzI
+ kHQSypumkv/jAN4oARaRB3+zOJPngJnPn/DzcfbEstOSWdk456jnQWjAFUkAhT+xCu3q
+ RhEVFVMgrqhL9Tlc9bgXiVkLZGDS/hLEGtGpR++WDGnl3ZoOciD6J11L4DJYh78wOILC nA== 
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3x509tg7eu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 28 Mar 2024 04:56:43 +0000
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 42S4HltX012975;
+	Thu, 28 Mar 2024 04:56:42 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 3x29t0uh7k-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 28 Mar 2024 04:56:41 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 42S4ubpT16712156
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 28 Mar 2024 04:56:40 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D36382004D;
+	Thu, 28 Mar 2024 04:56:37 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id F1CFC2005A;
+	Thu, 28 Mar 2024 04:56:36 +0000 (GMT)
+Received: from ozlabs.au.ibm.com (unknown [9.192.253.14])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 28 Mar 2024 04:56:36 +0000 (GMT)
+Received: from socotra.ibm.com (unknown [9.66.88.97])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 8739660112;
+	Thu, 28 Mar 2024 15:56:31 +1100 (AEDT)
+From: Rohan McLure <rmclure@linux.ibm.com>
+To: linuxppc-dev@lists.ozlabs.org
+Cc: Rohan McLure <rmclure@linux.ibm.com>, mpe@ellerman.id.au,
+        christophe.leroy@csgroup.eu, linux-mm@kvack.org,
+        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        x86@kernel.org
+Subject: [PATCH v11 01/11] Revert "mm/page_table_check: remove unused parameter in [__]page_table_check_pud_set"
+Date: Thu, 28 Mar 2024 15:55:21 +1100
+Message-ID: <20240328045535.194800-4-rmclure@linux.ibm.com>
+X-Mailer: git-send-email 2.44.0
+In-Reply-To: <20240328045535.194800-3-rmclure@linux.ibm.com>
+References: <20240328045535.194800-3-rmclure@linux.ibm.com>
+MIME-Version: 1.0
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: B6cD-WxQSYwj4zCRMDVW89aycbQqggi3
+X-Proofpoint-ORIG-GUID: B6cD-WxQSYwj4zCRMDVW89aycbQqggi3
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-03-28_04,2024-03-27_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 adultscore=0
+ impostorscore=0 mlxscore=0 lowpriorityscore=0 mlxlogscore=999
+ priorityscore=1501 suspectscore=0 bulkscore=0 clxscore=1015 spamscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2403210000 definitions=main-2403280028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_195058_633264_7EB025AC 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20240327_215659_495361_D46A6FAC 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,44 +110,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
+This reverts commit 6d144436d954311f2dbacb5bf7b084042448d83e.
 
-> Allocate x86's per-VM TSS at creation of a non-barebones VM.  Like the
-> GDT, the TSS is needed to actually run vCPUs, i.e. every non-barebones VM
-> is all but guaranteed to allocate the TSS sooner or later.
->
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  tools/testing/selftests/kvm/lib/x86_64/processor.c | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
->
-> diff --git a/tools/testing/selftests/kvm/lib/x86_64/processor.c b/tools/testing/selftests/kvm/lib/x86_64/processor.c
-> index 5cf845975f66..03b9387a1d2e 100644
-> --- a/tools/testing/selftests/kvm/lib/x86_64/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/x86_64/processor.c
-> @@ -519,9 +519,6 @@ vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
->  static void kvm_setup_tss_64bit(struct kvm_vm *vm, struct kvm_segment *segp,
->  				int selector)
->  {
-> -	if (!vm->arch.tss)
-> -		vm->arch.tss = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
-> -
->  	memset(segp, 0, sizeof(*segp));
->  	segp->base = vm->arch.tss;
->  	segp->limit = 0x67;
-> @@ -619,6 +616,8 @@ static void vm_init_descriptor_tables(struct kvm_vm *vm)
->  	vm->arch.gdt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
->  	vm->arch.idt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
->  	vm->handlers = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
-> +	vm->arch.tss = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
-> +
->  	/* Handlers have the same address in both address spaces.*/
->  	for (i = 0; i < NUM_INTERRUPTS; i++)
->  		set_idt_entry(vm, i, (unsigned long)(&idt_handlers)[i], 0,
-> -- 
-> 2.44.0.291.gc1ea87d7ee-goog
+Reinstate previously unused parameters for the purpose of supporting
+powerpc platforms, as many do not encode user/kernel ownership of the
+page in the pte, but instead in the address of the access.
 
-Reviewed-by: Ackerley Tng <ackerleytng@google.com>
+riscv: Respect change to delete mm, addr parameters from __set_pte_at()
+
+This commit also changed calls to __set_pte_at() to use fewer parameters
+on riscv. Keep that change rather than reverting it, as the signature of
+__set_pte_at() is changed in a different commit.
+
+Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
+---
+ arch/arm64/include/asm/pgtable.h |  2 +-
+ arch/riscv/include/asm/pgtable.h |  2 +-
+ arch/x86/include/asm/pgtable.h   |  2 +-
+ include/linux/page_table_check.h | 11 +++++++----
+ mm/page_table_check.c            |  3 ++-
+ 5 files changed, 12 insertions(+), 8 deletions(-)
+
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index afdd56d26ad7..7334e5526185 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -568,7 +568,7 @@ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+ 			      pud_t *pudp, pud_t pud)
+ {
+-	page_table_check_pud_set(mm, pudp, pud);
++	page_table_check_pud_set(mm, addr, pudp, pud);
+ 	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud),
+ 						PUD_SIZE >> PAGE_SHIFT);
+ }
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 20242402fc11..1e0c0717b3f9 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -719,7 +719,7 @@ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+ 				pud_t *pudp, pud_t pud)
+ {
+-	page_table_check_pud_set(mm, pudp, pud);
++	page_table_check_pud_set(mm, addr, pudp, pud);
+ 	return __set_pte_at((pte_t *)pudp, pud_pte(pud));
+ }
+ 
+diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+index 315535ffb258..09db55fa8856 100644
+--- a/arch/x86/include/asm/pgtable.h
++++ b/arch/x86/include/asm/pgtable.h
+@@ -1245,7 +1245,7 @@ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+ 			      pud_t *pudp, pud_t pud)
+ {
+-	page_table_check_pud_set(mm, pudp, pud);
++	page_table_check_pud_set(mm, addr, pudp, pud);
+ 	native_set_pud(pudp, pud);
+ }
+ 
+diff --git a/include/linux/page_table_check.h b/include/linux/page_table_check.h
+index 6722941c7cb8..d188428512f5 100644
+--- a/include/linux/page_table_check.h
++++ b/include/linux/page_table_check.h
+@@ -20,7 +20,8 @@ void __page_table_check_pud_clear(struct mm_struct *mm, pud_t pud);
+ void __page_table_check_ptes_set(struct mm_struct *mm, pte_t *ptep, pte_t pte,
+ 		unsigned int nr);
+ void __page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd);
+-void __page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp, pud_t pud);
++void __page_table_check_pud_set(struct mm_struct *mm, unsigned long addr,
++				pud_t *pudp, pud_t pud);
+ void __page_table_check_pte_clear_range(struct mm_struct *mm,
+ 					unsigned long addr,
+ 					pmd_t pmd);
+@@ -83,13 +84,14 @@ static inline void page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp,
+ 	__page_table_check_pmd_set(mm, pmdp, pmd);
+ }
+ 
+-static inline void page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp,
++static inline void page_table_check_pud_set(struct mm_struct *mm,
++					    unsigned long addr, pud_t *pudp,
+ 					    pud_t pud)
+ {
+ 	if (static_branch_likely(&page_table_check_disabled))
+ 		return;
+ 
+-	__page_table_check_pud_set(mm, pudp, pud);
++	__page_table_check_pud_set(mm, addr, pudp, pud);
+ }
+ 
+ static inline void page_table_check_pte_clear_range(struct mm_struct *mm,
+@@ -134,7 +136,8 @@ static inline void page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp,
+ {
+ }
+ 
+-static inline void page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp,
++static inline void page_table_check_pud_set(struct mm_struct *mm,
++					    unsigned long addr, pud_t *pudp,
+ 					    pud_t pud)
+ {
+ }
+diff --git a/mm/page_table_check.c b/mm/page_table_check.c
+index af69c3c8f7c2..75167537ebd7 100644
+--- a/mm/page_table_check.c
++++ b/mm/page_table_check.c
+@@ -210,7 +210,8 @@ void __page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd)
+ }
+ EXPORT_SYMBOL(__page_table_check_pmd_set);
+ 
+-void __page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp, pud_t pud)
++void __page_table_check_pud_set(struct mm_struct *mm, unsigned long addr,
++				pud_t *pudp, pud_t pud)
+ {
+ 	if (&init_mm == mm)
+ 		return;
+-- 
+2.44.0
+
 
 _______________________________________________
 linux-riscv mailing list
