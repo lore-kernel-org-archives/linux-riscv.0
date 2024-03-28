@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB777CD11DF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 22:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54739CD11DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 22:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+nlxkRWWVVXLU3o/HWRoE2sI1SJQGWWtvOmxDbnKC80=; b=QGTeCGPp6pbCF2G4Ek39i+z4QI
-	TTTJTbQF1+T3Pwc00nuenco03git5Pd9Df4Ov8JUcT2SkuGZ52Ac+EbS0AqtwRw5YlKpRep3INX0m
-	Z+OfhYPto6h6ryFzR3bCKaisyiBxZrPkURzPLE4rCCBhVcf5KOycSJy78IEieO0O2kpGvjc1OMwxZ
-	M9WC0NEbyAuXjE8/tunGGQO8RKG+HGP/p3pRfdo0reB7tJVZedmMR/NN6Gvq6gi+cu0a+YDsbqhgq
-	6LSxMN/4pKnz0aGuIcXa/5QHNRV1+Hwg+VNLVtAw0JIR1vG+McVkLAKnZvajiZtrnXt3ED+adt2o2
-	41jY5GUg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4urYoil0KSLExR7N2C8Fmur+JP9uaLDzJSuuN9YbtqE=; b=OHb3i2Dc4CwED4
+	cJXlxrXwn2QaGP/6muPopbsMe3mhkDWUzTw4nN5vbNErhjMrh9NVnlLeZRfhRXRDeFGNIEGRXu8TL
+	GNYobEdSovt8GzEge9j1noMAALX6pZtmxKYX7R/iJxaahnGWyvRuqRSqB8daoRqhxi3lX7v8aimAy
+	8U6So005CL3WRr7kWaGkzbubMACDYRpHAJfIdaX3ks0y5yiWa3T7JN/wcAanlxgC+fdswd/CQBXp3
+	Dch6aBrtyzvD+3lJboBoMWe2E/pdq0qJkaO2TThyivBVR+r3NU0fEIr0oQSUzTq1e6iONv+rD/dU5
+	+kR0uEX2rLb20qnsLa+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpxuL-0000000FrAW-0kpy;
-	Thu, 28 Mar 2024 22:07:37 +0000
+	id 1rpyVU-0000000FzET-0s8b;
+	Thu, 28 Mar 2024 22:46:00 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpxuI-0000000Fr8p-18UG
+	id 1rpyVQ-0000000FzE2-2V0a
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Mar 2024 22:07:35 +0000
+	Thu, 28 Mar 2024 22:45:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id A3688CE2D2A;
-	Thu, 28 Mar 2024 22:07:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDCAEC433C7;
-	Thu, 28 Mar 2024 22:07:25 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 3AB7CCE2B71;
+	Thu, 28 Mar 2024 22:45:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB078C433F1;
+	Thu, 28 Mar 2024 22:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711663649;
-	bh=qy7UxkfEbTXP0fG7wTtOhGPzbFidkRhVmLz4VIILo8w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PiY+MAvZ71RFRJLOV9wNKnH78WzuQ+yoDrFEDHLeDYUytCNt8LwKz0Sygxq8mN3zB
-	 zQ6z9aJ/UtcJQYb+0Ix1xOcUvBTzmGnVrlnLp0Gmy7zuin8SEKFIMvaRgai8sI5mNa
-	 rT0GGDmlNev4jmnp2j+eIlSQgjrssSa+StiYbos4MJYWh8B1/94h4hBeRi0O8f134x
-	 7uE7DuBDy9eZNkcQZ17ObD+cwHa1FuZ5aWLMcVBNPO0eRbV2uVEVu77DeIN5SRax/v
-	 JzK10wMVrXwQSwVmxMsxsApYaUSTFjSerYL/VPgvBRQMixcY7jSB7TVLmYTpiDnk/3
-	 kwyow4tk4wpsA==
-Date: Thu, 28 Mar 2024 22:07:23 +0000
+	s=k20201202; t=1711665953;
+	bh=W1e7ay70S0bGDbL9O//v9FziMstI7A/WkxYpH53hCK4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Ljof7OKCozUwgL++K/IYKfu+qE0IRqfUh60p53OfvZMETuD5zvkA5KIBxKHY8MOi3
+	 eon320X/S1ZUu7nDhy3D0wad9HaY9d5DCv9dHqoS6kDewihmbBGcVYlN4GzhWjWk+p
+	 vmMvLNxOavTDurLKXhOj5Ifb1f0L4qRpv/upQCW6NdK3fNX4XIV+jCeMnUFQmmOh8T
+	 rysuPq4wp61ppjHREvMvdVxv+5jjddIPd45F4HbmqtewhltVIzjBLP0+9fU1oqlNbf
+	 RAi6LjUzMPVG45wAMM0E2eu8ar3cMqC3LsbmCks1YxrkYEMBZG3DuvzpJUMABzqoRe
+	 7d4v6dBODq4jw==
 From: Conor Dooley <conor@kernel.org>
-To: Stefan O'Rear <sorear@fastmail.com>
-Cc: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Mykola Lysenko <mykolal@fb.com>, Manu Bretelle <chantr4@gmail.com>,
-	Pu Lehui <pulehui@huawei.com>
-Subject: Re: [PATCH bpf-next 2/5] riscv, bpf: Relax restrictions on Zbb
- instructions
-Message-ID: <20240328-ferocity-repose-c554f75a676c@spud>
-References: <20240328124916.293173-1-pulehui@huaweicloud.com>
- <20240328124916.293173-3-pulehui@huaweicloud.com>
- <3ed9fe94-2610-41eb-8a00-a9f37fcf2b1a@app.fastmail.com>
+To: Conor Dooley <conor@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] cache: sifive_ccache: Partially convert to a platform driver
+Date: Thu, 28 Mar 2024 22:44:10 +0000
+Message-ID: <20240328-humongous-amaretto-bc4564097bd2@spud>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240327054537.424980-1-samuel.holland@sifive.com>
+References: <20240327054537.424980-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <3ed9fe94-2610-41eb-8a00-a9f37fcf2b1a@app.fastmail.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=588; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=WCT5UiUI9Iq6C/Nwi2p53WJDPcmeVV5PAclYbFknN+I=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGmsn665TTotf227YtuJaWYr5zFwFkZ+NFKt9D+mmRd+8 fDFC4z3OkpZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCR4p8M/4zv2bucFTaUMGcT 224q/THpZeL1RYrv7ScG/pkyJbLk3xSGf0YBXxSUV+wJrCl2/bH/8dkzHgsOWyxbs47n3muus1d sO/kA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_150734_684051_984DB806 
-X-CRM114-Status: GOOD (  27.18  )
+X-CRM114-CacheID: sfid-20240328_154556_930438_E0B3F1D4 
+X-CRM114-Status: UNSURE (   6.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,124 +75,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1209316993361407574=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============1209316993361407574==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="AbnF/Y1LlP5Fvmu+"
-Content-Disposition: inline
+On Tue, 26 Mar 2024 22:45:24 -0700, Samuel Holland wrote:
+> Commit 8ec99b033147 ("irqchip/sifive-plic: Convert PLIC driver into a
+> platform driver") broke ccache initialization because the PLIC IRQ
+> domain is no longer available during an arch_initcall:
+> 
+>   [    0.087229] irq: no irq domain found for interrupt-controller@c000000 !
+>   [    0.087255] CCACHE: Could not request IRQ 0
+> 
+> [...]
 
+Applied to riscv-soc-fixes, thanks for doing this Samuel.
 
---AbnF/Y1LlP5Fvmu+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Mar 28, 2024 at 03:34:31PM -0400, Stefan O'Rear wrote:
-> On Thu, Mar 28, 2024, at 8:49 AM, Pu Lehui wrote:
-> > From: Pu Lehui <pulehui@huawei.com>
-> >
-> > This patch relaxes the restrictions on the Zbb instructions. The hardwa=
-re
-> > is capable of recognizing the Zbb instructions independently, eliminati=
-ng
-> > the need for reliance on kernel compile configurations.
->=20
-> This doesn't make sense to me.
-
-It doesn't make sense to me either. Of course the hardware's capability
-to understand an instruction is independent of whether or not a
-toolchain is capable of actually emitting the instruction.
-
-> RISCV_ISA_ZBB is defined as:
->=20
->            Adds support to dynamically detect the presence of the ZBB
->            extension (basic bit manipulation) and enable its usage.
->=20
-> In other words, RISCV_ISA_ZBB=3Dn should disable everything that attempts
-> to detect Zbb at runtime. It is mostly relevant for code size reduction,
-> which is relevant for BPF since if RISCV_ISA_ZBB=3Dn all rvzbb_enabled()
-> checks can be constant-folded.
->=20
-> If BPF needs to become an exception (why?), this should be mentioned in
-> Kconfig.
-
-And in the commit message. On one hand I think this could be a reasonable
-thing to do in bpf as it is acting as a jit here, and doesn't actually
-need the alternatives that we are using elsewhere to enable the
-optimisations nor the compiler support. On the other the intention of
-that kconfig option is to control optimisations like rvzbb_enabled()
-gates, so this is gonna need a proper justification as to
-
-As I said on IRC to you earlier, I think the Kconfig options here are in
-need of a bit of a spring cleaning - they should be modified to explain
-their individual purposes, be that enabling optimisations in the kernel
-or being required for userspace. I'll try to send a patch for that if
-I remember tomorrow.
+[1/1] cache: sifive_ccache: Partially convert to a platform driver
+      https://git.kernel.org/conor/c/c90847bcbfb6
 
 Thanks,
 Conor.
-
-> > Signed-off-by: Pu Lehui <pulehui@huawei.com>
-> > ---
-> >  arch/riscv/net/bpf_jit.h | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-> > index 5fc374ed98ea..bcf109b88df5 100644
-> > --- a/arch/riscv/net/bpf_jit.h
-> > +++ b/arch/riscv/net/bpf_jit.h
-> > @@ -20,7 +20,7 @@ static inline bool rvc_enabled(void)
-> >=20
-> >  static inline bool rvzbb_enabled(void)
-> >  {
-> > -	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&=20
-> > riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
-> > +	return riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
-> >  }
-> >=20
-> >  enum {
-> > --=20
-> > 2.34.1
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---AbnF/Y1LlP5Fvmu+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgXqGwAKCRB4tDGHoIJi
-0n9mAQCMUUZGliN/KpdYVcNTscPK+ff5W8UCov2gCxTu1Rgs/gD/aDZv9SYF6EQx
-SpQgWucp0nYikxazDlNmYYOtPAZn8QE=
-=TrHF
------END PGP SIGNATURE-----
-
---AbnF/Y1LlP5Fvmu+--
-
-
---===============1209316993361407574==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1209316993361407574==--
-
