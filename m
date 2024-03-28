@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2294BC54E64
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 07:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30069C54E64
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 07:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bOr95gCHwkIvwn3PZ2xIWLGDbRcpUr/YJ+MP3mxMg8I=; b=ybYFXhNm972/G7
-	x+Fnr8Zwb3Zft5gBWXL62q8D6LH5cI3hv0L7sAbsyaHJqkhv5PWKzmWbYp/HQeFoY8GP0qlpKcgQa
-	Neq4pzLFCpsLqq2eqbYJC9/1JE/wUzy0U3JnkAaOCfh0xF5eaoFvOjH9edS5ahIc0wSP3OW81S1K/
-	mV+a9erb8hAqFN7dH/oAkfxmtGD7MR7YAjhlPGWjAAB/ljM5H62ZkE36KRySgkpq+DwvOWR5IQh02
-	HNq7/ABajwFajSWLL+5H5wQQ38xjhIKb72V+guYCT0KvDzYZwOr2woBwttGLlNTGz+P4PSmaYW5zx
-	hdO9tzyuZ+iQ1IFe3qFw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NQ3fZNCKk6RZe9eDnYyBxzqUJMjJN2c7maGeyp7UFw8=; b=I+OfiynPUan8cK
+	47yK/G84VCRV3WMlkUf6XfQ9m253dPxZAc8NuzERrv8uIgK4Nd48STpp4w9moQ+ckNJl5KQo/oHu1
+	qK4JORzUT6gI4UQ5BbrKF3cw5ztCqOFbArlx5ba2hhqxx9CjIwubNWGbUDQaqaO/SranWyfsBdLbg
+	vlNMxDATF+ho8GoMRymTzLxy4CIsbD4xQ2Rmr3m+hdaWnlpFRJr3zxvbEv4yiYmaH8TZuuqLZ+vth
+	b3V5/pxBpfneSR+/lSVq1UzsCTuvL+y1wqFzgsgVTC9fHjLdPSEjSIffnOE3n7XtcQUVugmv6n1M7
+	9FTqIbBvo/qbQd9ZugQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpkFH-0000000CsxL-2nDu;
-	Thu, 28 Mar 2024 07:32:19 +0000
-Received: from mta-04.yadro.com ([89.207.88.248])
+	id 1rpkLe-0000000Cu25-0qDa;
+	Thu, 28 Mar 2024 07:38:54 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpkFD-0000000Csum-3K3R
+	id 1rpkLY-0000000Cu0E-1XWP
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Mar 2024 07:32:17 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 mta-04.yadro.com 6909EC0011
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=syntacore.com;
-	s=mta-04; t=1711611128;
-	bh=/Rj61iC0oZxd7dGL2v5n+B0zL+Y+qY+UXJbpEedJLvQ=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
-	b=hDEvtKWYhFo2AWZSmlNj5ja6wWfNlL51jNz7DCGFhB3Oiw/EurUXBEHYRWVN9+qHv
-	 bWJGsm83AaFCb3RfhTEWCnjmasm/ww1uzvBBdidW1Ydai2aFVn1R7kv+Pphu8eYhwi
-	 uf+5qKVpPfidLk066sQs0BZZzPdHiPNGEXO7OlF9KJLaUfEjmHiYc2UdKktwB3rA5N
-	 vDlXtUCmdkpLCe7tMC1RRP2hHFAEljeAnh+CUMG32smpNVev0KQDfsAYtjwOZjo3rE
-	 Spb4VpiFdesRzUBal8lDiTyVE2V/2epU4C53dvwcBL3t4unrAeFN4PAw/Ka0TQk5ls
-	 MSQiKqVpIL1sw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=syntacore.com;
-	s=mta-03; t=1711611128;
-	bh=/Rj61iC0oZxd7dGL2v5n+B0zL+Y+qY+UXJbpEedJLvQ=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
-	b=mmVn94K0zC4przTgvepIALBY9SaSP2N+597VCWMcZV3Hx4tATYRfgRuhQVIYF+rH0
-	 yr28VMLTqPDu+6XKr6RZMqdcDRIwTAnUFQl4kfGCP6dtgOTxN3K/A9E0/YzNItcNEK
-	 a8qx6P+qgRBHQbVGph/jnNCk4riPjmHv0CaWGHGGIdcyP4JUbd+IUwxb5ezqOycs0d
-	 Pr8DWmhVdYcsBlHtJDoFoYnIdXmLpeRjxljrAHgttR961f2GK7sC4LwrsJGqOB0iCo
-	 9PbENpAvKyS9AvKRg1VbsrFwRT892defzSJR+IqwwfQugf2GWU9FHXyXyXcSEl2nl6
-	 dTbXlez4LiGtw==
-Message-ID: <352f8101-01c3-45b9-9d53-ef0021cc6f46@syntacore.com>
-Date: Thu, 28 Mar 2024 10:32:06 +0300
+	Thu, 28 Mar 2024 07:38:52 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-515a86daf09so745691e87.3
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 00:38:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1711611521; x=1712216321; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fPLIncRw2+PuZW9Omz7FzGCNHvO8e2LeyJVag/haJag=;
+        b=HT+euaK7TTqs93E3s++wZLkEXNHbXnnQC0tNzMhRjRfqom0Z6JmQz+ewPJzjkSJmGP
+         G2/5EDqxOExiQBwve3Kt8RmrlvxttlTy0F+w1rEzIFb03N1D8eYVqYmra5woPnMyxgUH
+         iVMADF1IO6O2yP+KwgwqMifU/osjPGVd96ntelwoILy49dfoZGu5234a5nN3fsD0qbgZ
+         Ig3mjOzvMXC3V2TIWShOIb1Bz99FaX1ok5OtvxGRWngJ8mvC5qiC8gHfH1M6zld4xq5p
+         KAve+Mf/4ehyNQe/j5c+N763O9OiAQbahq8tQjvJLVTRRR6qK8mYVshVPtDFLCQ/UYxP
+         UDBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711611521; x=1712216321;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fPLIncRw2+PuZW9Omz7FzGCNHvO8e2LeyJVag/haJag=;
+        b=qmNt+dzm34SfxRBlgqtfCIocTwi1gaXtuINkIaKExeS8FY8H2PmX+WhcUww97ufyUb
+         WKoBaQPFGmBmstKmwrVgQXwYKLMbz9Kkk/EUn75iHqe+7/qZihiTH8R5ps1r+ejd0UXx
+         6AWPc3WgJd9OYmd+94mGlZb1nbHxQfQp1HnhysUJ4ZJsrMn10AM52gyu3BpulTNMy6sb
+         ovqCcdjfRq+aqcd1CxksUBppD5XA+tFVUFGpagTLevbqiQDM825oszEPViKHQfD2ZLha
+         Vqu5RZqueDwPBNTsFoazS3hEWcOzOcYVOcpee6Z+cZJvKvR9z574+pR6FkZ1keZc77tD
+         fakQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXeqjZXzRuVDGP+zasmPjFchSkoHi3OQd5tTO1B/5Nw7pC3SJE6K1N51MNOwEuRdkE5eq2wO9q0A63CqdcGgcCLO3WNB18ZzDGXQpK4J/AE
+X-Gm-Message-State: AOJu0Ywlr7dLUHTRXvHzi0OaZpx6HtaaEfnxkSLOuGZFQJj3YcPCpOnZ
+	RbzHCD09wRl1SBK3jPeeV3g3UgpldO5iiUaIz1pG1/5vsCI6+y4avUdPQCN2d60=
+X-Google-Smtp-Source: AGHT+IFd/4meCvAsnvSLu4U6ayqsOQ6K+Buq7tZPS/mDr1Y/tbxrxjDdT/lg+/xLeoD+YX8SRtIN5A==
+X-Received: by 2002:a2e:a0ca:0:b0:2d2:206a:2f2a with SMTP id f10-20020a2ea0ca000000b002d2206a2f2amr1651907ljm.17.1711611521459;
+        Thu, 28 Mar 2024 00:38:41 -0700 (PDT)
+Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id f10-20020a05600c154a00b004154596db0esm878248wmg.19.2024.03.28.00.38.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Mar 2024 00:38:41 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v2] riscv: Call secondary mmu notifier when flushing the tlb
+Date: Thu, 28 Mar 2024 08:38:38 +0100
+Message-Id: <20240328073838.8776-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Check that vdso does not contain any dynamic
- relocations
-To: Alexandre Ghiti <alexghiti@rivosinc.com>, Roman Artemev
-	<roman.artemev@syntacore.com>, Guo Ren <guoren@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20240326113831.283025-1-alexghiti@rivosinc.com>
-Content-Language: en-US, ru-RU
-From: Vladimir Isaev <vladimir.isaev@syntacore.com>
-In-Reply-To: <20240326113831.283025-1-alexghiti@rivosinc.com>
-X-ClientProxiedBy: T-EXCH-10.corp.yadro.com (172.17.11.60) To
- S-Exch-01.corp.yadro.com (10.78.5.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_003216_041979_2FC49A85 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20240328_003848_616310_7B016D33 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,54 +93,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre,
+This is required to allow the IOMMU driver to correctly flush its own
+TLB.
 
-26.03.2024 14:38, Alexandre Ghiti wrote:
-> 
-> Like other architectures, use the common cmd_vdso_check to make sure of
-> that.
-> 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  arch/riscv/kernel/vdso/Makefile | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> index 9b517fe1b8a8..dd4877f25928 100644
-> --- a/arch/riscv/kernel/vdso/Makefile
-> +++ b/arch/riscv/kernel/vdso/Makefile
-> @@ -49,7 +49,7 @@ $(obj)/vdso.o: $(obj)/vdso.so
-> 
->  # link rule for the .so file, .lds has to be first
->  $(obj)/vdso.so.dbg: $(obj)/vdso.lds $(obj-vdso) FORCE
-> -       $(call if_changed,vdsold)
-> +       $(call if_changed,vdsold_and_check)
->  LDFLAGS_vdso.so.dbg = -shared -S -soname=linux-vdso.so.1 \
->         --build-id=sha1 --hash-style=both --eh-frame-hdr
-> 
-> @@ -69,7 +69,8 @@ include/generated/vdso-offsets.h: $(obj)/vdso.so.dbg FORCE
->  # actual build commands
->  # The DSO images are built using a special linker script
->  # Make sure only to export the intended __vdso_xxx symbol offsets.
-> -quiet_cmd_vdsold = VDSOLD  $@
-> -      cmd_vdsold = $(LD) $(ld_flags) -T $(filter-out FORCE,$^) -o $@.tmp && \
-> +quiet_cmd_vdsold_and_check = VDSOLD  $@
-> +      cmd_vdsold_and_check = $(LD) $(ld_flags) -T $(filter-out FORCE,$^) -o $@.tmp && \
->                     $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
-> -                   rm $@.tmp
-> +                   rm $@.tmp && \
-> +                   $(cmd_vdso_check)
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
 
-For some reason I thought that this check is in the common vdso code and just missed hwprobe relocation...
+Changes in v2:
+- Rebase on top of 6.9-rc1
 
-Tested-by: Vladimir Isaev <vladimir.isaev@syntacore.com>
+ arch/riscv/mm/tlbflush.c | 39 +++++++++++++++++++++++----------------
+ 1 file changed, 23 insertions(+), 16 deletions(-)
 
-> --
-> 2.39.2
-> 
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index 893566e004b7..854d984deb07 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -4,6 +4,7 @@
+ #include <linux/smp.h>
+ #include <linux/sched.h>
+ #include <linux/hugetlb.h>
++#include <linux/mmu_notifier.h>
+ #include <asm/sbi.h>
+ #include <asm/mmu_context.h>
+ 
+@@ -99,11 +100,19 @@ static void __ipi_flush_tlb_range_asid(void *info)
+ 	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
+ }
+ 
+-static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
++static inline unsigned long get_mm_asid(struct mm_struct *mm)
++{
++	return (mm && static_branch_unlikely(&use_asid_allocator)) ?
++			atomic_long_read(&mm->context.id) & asid_mask : FLUSH_TLB_NO_ASID;
++}
++
++static void __flush_tlb_range(struct mm_struct *mm,
++			      struct cpumask *cmask,
+ 			      unsigned long start, unsigned long size,
+ 			      unsigned long stride)
+ {
+ 	struct flush_tlb_range_data ftd;
++	unsigned long asid = get_mm_asid(mm);
+ 	bool broadcast;
+ 
+ 	if (cpumask_empty(cmask))
+@@ -137,31 +146,26 @@ static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
+ 
+ 	if (cmask != cpu_online_mask)
+ 		put_cpu();
+-}
+ 
+-static inline unsigned long get_mm_asid(struct mm_struct *mm)
+-{
+-	return static_branch_unlikely(&use_asid_allocator) ?
+-			atomic_long_read(&mm->context.id) & asid_mask : FLUSH_TLB_NO_ASID;
++	if (mm)
++		mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, start + size);
+ }
+ 
+ void flush_tlb_mm(struct mm_struct *mm)
+ {
+-	__flush_tlb_range(mm_cpumask(mm), get_mm_asid(mm),
+-			  0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
++	__flush_tlb_range(mm, mm_cpumask(mm), 0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
+ }
+ 
+ void flush_tlb_mm_range(struct mm_struct *mm,
+ 			unsigned long start, unsigned long end,
+ 			unsigned int page_size)
+ {
+-	__flush_tlb_range(mm_cpumask(mm), get_mm_asid(mm),
+-			  start, end - start, page_size);
++	__flush_tlb_range(mm, mm_cpumask(mm), start, end - start, page_size);
+ }
+ 
+ void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
+ {
+-	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
++	__flush_tlb_range(vma->vm_mm, mm_cpumask(vma->vm_mm),
+ 			  addr, PAGE_SIZE, PAGE_SIZE);
+ }
+ 
+@@ -194,13 +198,13 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 		}
+ 	}
+ 
+-	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
++	__flush_tlb_range(vma->vm_mm, mm_cpumask(vma->vm_mm),
+ 			  start, end - start, stride_size);
+ }
+ 
+ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+ {
+-	__flush_tlb_range((struct cpumask *)cpu_online_mask, FLUSH_TLB_NO_ASID,
++	__flush_tlb_range(NULL, (struct cpumask *)cpu_online_mask,
+ 			  start, end - start, PAGE_SIZE);
+ }
+ 
+@@ -208,7 +212,7 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 			unsigned long end)
+ {
+-	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
++	__flush_tlb_range(vma->vm_mm, mm_cpumask(vma->vm_mm),
+ 			  start, end - start, PMD_SIZE);
+ }
+ #endif
+@@ -222,7 +226,10 @@ void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+ 			       struct mm_struct *mm,
+ 			       unsigned long uaddr)
+ {
++	unsigned long start = uaddr & PAGE_MASK;
++
+ 	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
++	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, start + PAGE_SIZE);
+ }
+ 
+ void arch_flush_tlb_batched_pending(struct mm_struct *mm)
+@@ -232,7 +239,7 @@ void arch_flush_tlb_batched_pending(struct mm_struct *mm)
+ 
+ void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+ {
+-	__flush_tlb_range(&batch->cpumask, FLUSH_TLB_NO_ASID, 0,
+-			  FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
++	__flush_tlb_range(NULL, &batch->cpumask,
++			  0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
+ 	cpumask_clear(&batch->cpumask);
+ }
+-- 
+2.39.2
 
-Thank you,
-Vladimir Isaev
 
 _______________________________________________
 linux-riscv mailing list
