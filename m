@@ -4,129 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E64FC54E67
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 08:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C18BC54E67
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 09:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KcZHWykGutE4X/wbKFoEfZ9dSZOoEuqXpUr6Nm74Vxc=; b=ssETDdeiBfynqu
-	cmhwjqyc0jLIYTYyRgXUju3UbSpwyTx9Y4E7J/VUaA6jq5c1lVmk56VaIeTMR5bgH/+zrK6plKg3D
-	qZR04mcpX5lRSml9LF9iY6CCsKqpg4Og9TnVrko7/5gqlrxezCsozs52ilSTV3iYmjzwfQ3vdzXsx
-	2R5Zyu+HssUmqP7yqXD54SGzLVn/kZpXK2VWDldiZER5KIY41csOQDUguv3UpsqiegG32b3P27xvm
-	VbDALO69ZRU821Q3zNlf+zKGpkFhNG7XTqHd805IUU8aTu7j6HhGz/qsrWVm5qgEL1ynXlqpwcBoi
-	XD4M2yAPfIGF3CaQ/lVg==;
+	List-Owner; bh=6m2Sct+cHSsRC46wWJQ0ZDZ2CEVOQ8h+oDI+pTrB6wU=; b=HqVcsojfqu4PmG
+	ZksgOqZUvWOgAH+Od8Yh5/8g3cKQxy3xYSp5nmIrJyJF/uZxlgm6ggJOvjXESlxyk1kgrSIa9fqsU
+	D4kTwOtcDfn/nQJvkFNTywSeTATXVg0JWrJHl0F8B6Rc5I1j9DnXf4FZ00LNTIIUvZiurRkFgfQvo
+	v0Gsw+WmwlfPiUO/HkNR+FYjxgQibW7CzlMNcgPQ3qb998tsIx/1hXwa6JoI3NxIqXKVmiUcYJBt1
+	U6/zeZT8Y93dXYqv9OGjayJN1otWGUZsUuewgwT6b5G+d0JuHi+8w82Hokx3SQYzH/3hryh9WR5Fb
+	GzwWcsm3gKd5Aqzr3s7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rplT8-0000000D9dl-0rcj;
-	Thu, 28 Mar 2024 08:50:42 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1rpluo-0000000DHSQ-3RXj;
+	Thu, 28 Mar 2024 09:19:18 +0000
+Received: from mail-sh0chn02on2070e.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::70e] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rplSr-0000000D9Yz-2dZ8
+	id 1rplua-0000000DHI8-1zmg
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Mar 2024 08:50:39 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-33ed4dd8659so1134219f8f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 01:50:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1711615819; x=1712220619; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=oZ+YBLkNV6VEF2rUgGOJxYuEYM/uMvvAYGZ9fwfCJXw=;
-        b=B0NUhjxgVybjdFbdxPKbOlamMN2BuZPQs2S5HNzqB5Cxn916M4mOyyFbuhwqucj0/X
-         v3eI0cFjfddnJ8CV6/GwnlUDaxtasOoYkbI/OSQ+OQ8mFpCpfXybyqAqpytMVqYE9+Sr
-         IHkj5SGDTHiAnha6fabQggqu4O+Dv3P3RIjMHIXwhMIlL7XdyhtKBBpmK9LdLJdPwsWx
-         eqcsXFowG/scBYt5tML0+KOUFiWDQMslislxyAaaMube3Hh08XAUQkDeGXYgvvROlwDS
-         SP5OVI1+gdtD1D8hEUojVqlXBbqi2ESVi4fupRbku/zCpq5XkmlsuenH0z/xQ+NtUNHy
-         YFBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711615819; x=1712220619;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oZ+YBLkNV6VEF2rUgGOJxYuEYM/uMvvAYGZ9fwfCJXw=;
-        b=CxsW1mypTg7WpfiK6d7J3Pq7txDQ7vMZRfD6erCwo3TNInfAGncL+Sty2wC8b3kZM4
-         ndunxDXUjbP4yFs98XgwOGesBgw2f2V9zuTmGK8N10ICT/AfewxKf7DjnBYyYPCZ5zOQ
-         IxAX3nhKLx8y1Dgapa0+8BcTyT2QiVWv/xBSde3T3Qa7+zJfjN2/ITT4n/hq58OF4afy
-         jL0AgwPjL4OJSM+kXYCDctrCQG0wWVxgq8F8THoBROsgeAsrRWjGHaalC/URpFclf1NL
-         6szkpkFk6sxymmvCjGysvPwcRHfq7LYr7pvddvOguOWfkvJkqMDR0Sxed++2ZfpgRjbt
-         0b+w==
-X-Forwarded-Encrypted: i=1; AJvYcCVXbA4wf/zcUJDfV/j7iDNS+J1pkwGEpn1SBV0+P16uKZtJx3qjadxck7Muaf2lTdQbSK3N1J8xwYj9NJWtAYosK1ImWbZcFr17DQY34FLQ
-X-Gm-Message-State: AOJu0YxtobGpOS4QAhmbJ6iimO+4g/SsIPm2h8eAH6eGkIuTAp+ILkE7
-	GkYxAabGZnR+dEMFIkVlEY+8qD22OK1scgdx5MtciOFoRqWKE/Fx48llGbmqlyk=
-X-Google-Smtp-Source: AGHT+IHtezabxk0LaPOL3zQ45H75rf+nCNsKrfQeSAmSXeRy5hUrXy9WJyMTcEop3ixcKCztrypIPg==
-X-Received: by 2002:a5d:540b:0:b0:341:a63c:58bc with SMTP id g11-20020a5d540b000000b00341a63c58bcmr1177900wrv.2.1711615818960;
-        Thu, 28 Mar 2024 01:50:18 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.219.148])
-        by smtp.gmail.com with ESMTPSA id dv10-20020a0560000d8a00b00341ce1b64f0sm1156645wrb.17.2024.03.28.01.50.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 28 Mar 2024 01:50:18 -0700 (PDT)
-Message-ID: <ace20109-fc4e-43f6-b82b-2ae7c2905b99@linaro.org>
-Date: Thu, 28 Mar 2024 09:50:16 +0100
+	Thu, 28 Mar 2024 09:19:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=AX2HxbF4wcxZAGRWQvRanOBFhaWLdOxn4JqvYbO+25pz5V4EESjO7QC+uJWf+rZs16g3/D+4OkC5uSvr5GXY4kiFaWdSpkjGVF2p+lv0+rNTD9KIwGsnbn4l7MvMuoisGo7GswVhET0mMX7Rf9d99bfA5cO3LOsroNwt3ZyvXBvrm0920m4Q8B1QkLOjTT+CKKBg78+Fs1dh4DEPaCNTAw6SM34qzNdOZ5drqcjOyQefLLmp0J7B4tomTd/yhGJPwvX3jrrYtapardNX3YKjpAcXO3uDAMP6wrj40reorFEwIENXZcHkJXIB2n+gHo9bTczJy1RIGA3XG5TPKw4kTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AzDoPxR3Yw9qsHSucTZgXrB+6r4PYRhPc+CkYV1T8oc=;
+ b=TtZcYkuEWBj1x2TvyGRqIXIbv9j05G8Ix0qnK6hgB2+K7wRAtVP+SBgws0i6qzBI3V9Iw/fu6tDUVC7no0EYBOoFs0e3eDCGHZDypdajEhp2QnE5PGYxamh7yyfLgBksLPR42V7ZBWAwt33H2FEoE1XIemz88sUo9ZGSWa6wwnsZqRYwfTbxGxxNjLwL3kftOuqBzwEB/uMQRgDgdIFiwQej6MKeSiscxTy52IkOMwYI8x+IXu0zqRqavUvu2LjzsR8t982ngX6nUQ3xuUwf6JlEBHApSxu0mshQH84xHCHrC0T+vbg2elEvtffg/kHQEgKecPWOx/2GFLZ5hGcOKg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15) by SHXPR01MB0496.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1f::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.32; Thu, 28 Mar
+ 2024 09:18:45 +0000
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ ([fe80::c738:9e6b:f92e:8bb9]) by
+ SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::c738:9e6b:f92e:8bb9%6])
+ with mapi id 15.20.7409.031; Thu, 28 Mar 2024 09:18:45 +0000
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>,
+	Minda Chen <minda.chen@starfivetech.com>
+Subject: [PATCH v16 01/22] dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
+Date: Thu, 28 Mar 2024 17:18:14 +0800
+Message-Id: <20240328091835.14797-2-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20240328091835.14797-1-minda.chen@starfivetech.com>
+References: <20240328091835.14797-1-minda.chen@starfivetech.com>
+X-ClientProxiedBy: NT0PR01CA0020.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:c::16) To SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] Add board-id support for multiple DT selection
-To: Amrit Anand <quic_amrianan@quicinc.com>, robh@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, agross@kernel.org,
- andersson@kernel.org, konrad.dybcio@linaro.org
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, kernel@quicinc.com, peter.griffin@linaro.org,
- caleb.connolly@linaro.org, linux-riscv@lists.infradead.org,
- chrome-platform@lists.linux.dev, linux-mediatek@lists.infradead.org
-References: <1710418312-6559-1-git-send-email-quic_amrianan@quicinc.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <1710418312-6559-1-git-send-email-quic_amrianan@quicinc.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0496:EE_
+X-MS-Office365-Filtering-Correlation-Id: bfc79af4-ca3e-4708-7233-08dc4f081152
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 04BPEbGE03+HvxLxpa6quZIoABmU2R4MIkSWUr/IE6hQOgTNVRPh+76BBGfD8ifLDMQ7yoIecSV3rY5mrXOjuQ+V6VBwix30zEWwwVi6ojsATn5IBFC909xPy0bbyAGSffc5jL2XkPHu11Dt2wkyGUmbNeUQGJa5Sc+Zlxkd/1XvbJ+PX+O9Gh7Ckmvg7jhkjC+ggIoJRCT701t11MiM4KE9+u6D/piGbJIhu33vEDc0g3Y+3KM1EIYAS1ZhkuQa7IUE7+oVIoQdhHI1OrPeJGpLs9UsFtMU5OVYf4Lj0VKCRS8+xzaWRkE5exr6EVtng0DTKW2XtMUuwWFj0b8FsXaBEG0+j6aJOnByQ3yTFL0jUMZW1nm3YdjVsEXrcG+Ye+CnZ52rpn1vtcnwqY+ZUsmH6nn58iiuiJXQ4QT2o2r9hCw+RpAZysXJMBFVnjgct19lCqt1RYuDBTmqg9TTNEi2K7dLz/a3wnBqr0jEmNdf3FZwX0keeJ5Os3ePLsbUmyi62828jxCpiALQotr8yk8Zo92Ukvd6wWG3KJQTUiST2E5nhQob+lx3Tqmljia8JoUQ/NSyRBnOxbHynlCEeb0wJ2W87eFv/9ovbISLqPOFiq9jMF46FFF9B99xYge7
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(52116005)(1800799015)(7416005)(41320700004)(366007)(38350700005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jC536hJMBur1kIOvj595WrMpNx+VYlS9KAsu4h9pInvr2vAKSoupyh/ndNTt?=
+ =?us-ascii?Q?y9Zn2hQoY8fG9XyomUxBSJRNh7Ern7Mqj4lXnxc9Z/nSj75AKOxcLIoZ9obm?=
+ =?us-ascii?Q?BCQP/ufeEnU2P0DU2oShAEHQNCwpkAy7C9dwxnHx9l2zEoflbBU54BKjbutE?=
+ =?us-ascii?Q?FhggicmCp2iz9TOsZohE7PuER8DDvRFT4C9FtmBLDy2q7+lgMNpXsEzVKTeQ?=
+ =?us-ascii?Q?rvIvG3E20tIdEdBzJwzJ0FUVp41GDhMmg1xgHZAwLXreLG/GxBBjxWryn9HN?=
+ =?us-ascii?Q?Ic10+v0QyhNNTurIYssyZ2ZLz4EynL68U21+JmbaedChdVGnDW2fsGRDr0aR?=
+ =?us-ascii?Q?37Ning8tjOn9Yd6rROuWxhR9DkWKKVkERQZe2h4e+caMbbyNiaJ0xd9YUViq?=
+ =?us-ascii?Q?Is08QLHaAgN+4c5M7WJlM5JiQVDXwXIJ6650EJqoAefhqwLBF83ZVhe4iTTt?=
+ =?us-ascii?Q?HXxovbCJ1FeNmTc/ENIHMgD84J0o4KdOOdG0LoipzByrADOQQ36oixs6D4q3?=
+ =?us-ascii?Q?Gv3KqXc6WAoF93iQ5t1xH6Q61YSZE7+BNZ3AA7MyyXnCySDGe4TF1NIYSCcm?=
+ =?us-ascii?Q?AXBcb2BNEYhSH6mZOirLvb2WASUQi23MNqrM9nVy7xnV0bneGQZk97M5BKxU?=
+ =?us-ascii?Q?2ButvR5IUX8sbuhR/bZ1I1RSWAkl1v8JhVmxNr9Cj5PSatvUDgWBu6U+Ukb6?=
+ =?us-ascii?Q?BJ9dIAnWp3FxN4KiObDXBvEMUf97g/Vjlg2P1ZgDlujzOHcGC7cbdRe5uyIT?=
+ =?us-ascii?Q?dECcDtMHIH9VuliPpvgPRzNhTExI4t3A1M1RAFGzK0C/TKqogNCtgYZ5wcsJ?=
+ =?us-ascii?Q?GpYUdtpYZpJHGbkmnK2jy+58mjg5kL761GFAankPPG/s3lTbGaT88kp3IoSq?=
+ =?us-ascii?Q?hU1jjup3Ikv7tQWxS0lQ5PX9QGxGbjVSg9DkTvX7wPO6UoKEutCZdxjFH2AV?=
+ =?us-ascii?Q?YubbeG3Rr2nOl0s3PQnDY+nA22+y7jfT3Rm7/7qxzrPul3g48KQUAXJVr3ip?=
+ =?us-ascii?Q?K6TXKGHtNfYoRcpEaSNBYlXNK0SgtWhYbPZ0Eh8VWFNNKzF7WH4IAuY7SpAJ?=
+ =?us-ascii?Q?UJU2FhLF7BXMTLmMPW3PTrq1Cr/1terEjshGoCC9TpsCJkn3/ELYpWOD+pVH?=
+ =?us-ascii?Q?ptFMwDvLFK9UnJoWIp9Os29d2aG2IlykrmdZlwegcJ5Ne4bVoQoRkgZ+FfOG?=
+ =?us-ascii?Q?orsHTi2ucen7yWuxjkEMRiETPhR3aWyxd2qSwQTQhwjI3/aNAwFLskMiDKSo?=
+ =?us-ascii?Q?yC/OtA3VOEykNfzrXdsOTWakeQwbjD7ggQFmE35ywQ46bT4bvu8ybUAkE/B2?=
+ =?us-ascii?Q?nBu4PY5GIbFM9z2N/FG2TvYBlzwgxS+mOB2oosT6HS8dfnwfT/rBy7hHEVWB?=
+ =?us-ascii?Q?yTwQFxkjf5z8JFm89FusofFp+UPox8HH0h0dBChRuIUuP8LQUJOk7IMpSzdT?=
+ =?us-ascii?Q?ONdkvD8YoYWUK0PIWlbjV3w7tlWfsj8u/lV5ootFvTOwaJS4oNhVUOSCxeY7?=
+ =?us-ascii?Q?Zo4rzhO7djvlb6ifRglK/DWECv5STnUTaOj6bOeQrEb6MG77MR8oUhakPwTn?=
+ =?us-ascii?Q?YygzUW1SX9I4/yLueNwGFCifv9lKnfPEKmCCaFT1JQMpqCzqDQ03V6DBK2Y0?=
+ =?us-ascii?Q?BA=3D=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bfc79af4-ca3e-4708-7233-08dc4f081152
+X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Mar 2024 09:18:44.9798
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MpVczu0QHOn5pV2f8B+naM/HZXehpWcgNJpmmGbFb7SzhldRoQGSdpAf1bFoHdA47TUslqXcps6Phmc+fZUOgiIWFX9OSnuG4cEN5dgqdCI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0496
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_015035_082524_35209574 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20240328_021904_551074_C5A5DC0D 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,35 +146,208 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14/03/2024 13:11, Amrit Anand wrote:
-> The software packages are shipped with multiple device tree blobs supporting
-> multiple boards. For instance, suppose we have 3 SoC, each with 4 boards supported,
-> along with 2 PMIC support for each case which would lead to total of 24 DTB files.
-> Along with these configurations, OEMs may also add certain additional board variants.
-> Hence, a mechanism is required to pick the correct DTB for the board on which the
-> software package is deployed. Introduce a unique property for adding board identifiers
-> to device trees. Here, board-id property provides a mechanism for Qualcomm based
-> bootloaders to select the appropriate DTB.
-> 
-> Isn't that what the compatible property is for?
-> -----------------------------------------------
-> The compatible property can be used for board matching, but requires
-> bootloaders and/or firmware to maintain a database of possible strings
-> to match against or have complex compatible string parsing and matching.
-> Compatible string matching becomes complicated when there are multiple
-> versions of the same board. It becomes difficult for the device tree
-> selection mechanism to recognize the right DTB to pick, with minor
-> differences in compatible strings.
-> 
-> The solution proposed here is simpler to implement and doesn't require the need
-> to update bootloader for every new board.
+Add PLDA XpressRICH PCIe host common properties dt-binding doc.
+PolarFire PCIe host using PLDA IP. Move common properties from Microchip
+PolarFire PCIe host to PLDA files.
 
-One of the concerns you got in v1 was: show us second user, so I believe
-in your interest is to Cc other platform maintainers which could support
-this idea.
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
+Tested-by: John Clark <inindev@gmail.com>
+---
+ .../bindings/pci/microchip,pcie-host.yaml     | 55 +-------------
+ .../pci/plda,xpressrich3-axi-common.yaml      | 75 +++++++++++++++++++
+ MAINTAINERS                                   |  6 ++
+ 3 files changed, 82 insertions(+), 54 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
 
-Best regards,
-Krzysztof
+diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
+index f7a3c2636355..7c2d51221f65 100644
+--- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
++++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
+@@ -10,21 +10,13 @@ maintainers:
+   - Daire McNamara <daire.mcnamara@microchip.com>
+ 
+ allOf:
+-  - $ref: /schemas/pci/pci-bus.yaml#
++  - $ref: plda,xpressrich3-axi-common.yaml#
+   - $ref: /schemas/interrupt-controller/msi-controller.yaml#
+ 
+ properties:
+   compatible:
+     const: microchip,pcie-host-1.0 # PolarFire
+ 
+-  reg:
+-    maxItems: 2
+-
+-  reg-names:
+-    items:
+-      - const: cfg
+-      - const: apb
+-
+   clocks:
+     description:
+       Fabric Interface Controllers, FICs, are the interface between the FPGA
+@@ -52,18 +44,6 @@ properties:
+     items:
+       pattern: '^fic[0-3]$'
+ 
+-  interrupts:
+-    minItems: 1
+-    items:
+-      - description: PCIe host controller
+-      - description: builtin MSI controller
+-
+-  interrupt-names:
+-    minItems: 1
+-    items:
+-      - const: pcie
+-      - const: msi
+-
+   ranges:
+     maxItems: 1
+ 
+@@ -71,39 +51,6 @@ properties:
+     minItems: 1
+     maxItems: 6
+ 
+-  msi-controller:
+-    description: Identifies the node as an MSI controller.
+-
+-  msi-parent:
+-    description: MSI controller the device is capable of using.
+-
+-  interrupt-controller:
+-    type: object
+-    properties:
+-      '#address-cells':
+-        const: 0
+-
+-      '#interrupt-cells':
+-        const: 1
+-
+-      interrupt-controller: true
+-
+-    required:
+-      - '#address-cells'
+-      - '#interrupt-cells'
+-      - interrupt-controller
+-
+-    additionalProperties: false
+-
+-required:
+-  - reg
+-  - reg-names
+-  - "#interrupt-cells"
+-  - interrupts
+-  - interrupt-map-mask
+-  - interrupt-map
+-  - msi-controller
+-
+ unevaluatedProperties: false
+ 
+ examples:
+diff --git a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+new file mode 100644
+index 000000000000..31bb17b11e58
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+@@ -0,0 +1,75 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/plda,xpressrich3-axi-common.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: PLDA XpressRICH PCIe host common properties
++
++maintainers:
++  - Daire McNamara <daire.mcnamara@microchip.com>
++  - Kevin Xie <kevin.xie@starfivetech.com>
++
++description:
++  Generic PLDA XpressRICH PCIe host common properties.
++
++allOf:
++  - $ref: /schemas/pci/pci-bus.yaml#
++
++properties:
++  reg:
++    maxItems: 2
++
++  reg-names:
++    items:
++      - const: cfg
++      - const: apb
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: PCIe host controller
++      - description: builtin MSI controller
++
++  interrupt-names:
++    minItems: 1
++    items:
++      - const: pcie
++      - const: msi
++
++  msi-controller:
++    description: Identifies the node as an MSI controller.
++
++  msi-parent:
++    description: MSI controller the device is capable of using.
++
++  interrupt-controller:
++    type: object
++    properties:
++      '#address-cells':
++        const: 0
++
++      '#interrupt-cells':
++        const: 1
++
++      interrupt-controller: true
++
++    required:
++      - '#address-cells'
++      - '#interrupt-cells'
++      - interrupt-controller
++
++    additionalProperties: false
++
++required:
++  - reg
++  - reg-names
++  - interrupts
++  - msi-controller
++  - "#interrupt-cells"
++  - interrupt-map-mask
++  - interrupt-map
++
++additionalProperties: true
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index aa3b947fb080..06278f1db13f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16946,6 +16946,12 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/pci/layerscape-pcie-gen4.txt
+ F:	drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
+ 
++PCI DRIVER FOR PLDA PCIE IP
++M:	Daire McNamara <daire.mcnamara@microchip.com>
++L:	linux-pci@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
++
+ PCI DRIVER FOR RENESAS R-CAR
+ M:	Marek Vasut <marek.vasut+renesas@gmail.com>
+ M:	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+-- 
+2.17.1
 
 
 _______________________________________________
