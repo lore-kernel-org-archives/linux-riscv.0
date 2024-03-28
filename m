@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC311C54E67
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 10:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383F5CD1284
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 10:33:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yNIB1ThaSInxtHDujaZ2F+moRlexDp9BAqMjKM3xqpI=; b=uN7mKkMY2iGO5g
-	xVCvlm9QzP6dRqiYbBnVpydafNjiJaTYxZQYLO/3A6fAAGb6mX6wG2J2TpDXdQTN/18FeM5o+xGap
-	Y7a0ozrHPBnBw5inVCdIQn/EVCyAooy1KWhn/2woxqRCsTZiiRtJcMnphi/DNGNbpmjGm1T3EkOPD
-	pmhqqYhYPvJYjlBH4zbjEyUtso0oUoAvAHpZbH9BFaAKXsNcowvnwMIsqLSBD/NbU7tyVYTQxgZlE
-	3DwiW4ZfO18DN48x8MmNH14doAhkYIdbkw46ekaCGLIyOOlUNgytaOl1eUxoXSy5G//rdrewNPkP2
-	f8a8Gayc7qnO8+zaJ96w==;
+	List-Owner; bh=cfxgWW9QofJ86zBWQQUAhud6kUPWyjO61c/vd3hxOgk=; b=HaspFShtaid3/C
+	6f3onDqXd1wdhB7hZoInPbastmJGujIt0sOE+kFlt0azdbz8Nj7btvKx9b1XxvKTVb0RH9HGZBTEZ
+	msi+aRuFlgeK6TMJXlbrMqpon05dP7ngwOfWCuKqVMOCyiVXV8eh5S+QNyTpS5wSAhlV4tg536F8O
+	qBR5PRAJjerUUJ5P3gWM7iurGYSq8rWU4Ql8oW8zDBu9pEHb1cc3cXXjHRiq6Thw3j4NqwEHLrUXM
+	4H78yT40+RQN3kYk5Ao7Mwv1rl66j3PZ80LPkJTTcq31+9qlLzRtpKfnN5QECqcS2D4RX9JANwpOT
+	R91dmQgLtmUbqQXdbCBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpn4j-0000000DaSh-2qRN;
-	Thu, 28 Mar 2024 10:33:37 +0000
-Received: from mail-sh0chn02on20725.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::725] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1rpn4n-0000000DaV7-1szF;
+	Thu, 28 Mar 2024 10:33:41 +0000
+Received: from mail-sh0chn02on2071c.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::71c] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rplua-0000000DHIB-0rxb
+	id 1rplur-0000000DHIh-3ZJT
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Mar 2024 09:19:06 +0000
+	Thu, 28 Mar 2024 09:19:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HydTu+bZdUz3Uu3F6OztMJ0h2TCNBYujhlJV/0YXKqrd1fG2ZzZ+gfnQA7XFcXTO6iBmhjLu7Mgbevv7Qoxk0iPRgNEaVmrDsiSty6l2lC29J3pW0WW4Ax6RdAl/eJN81SVsnaaBciPUQJfWpzhzFw0IAyeFiG9dQpFDdb3A/4EkqAlOKz/JZZsTAeQAcR6FsoV4iQ6C6hd2BR5xqrHwL59pTBatJJnWcpkmiPUhHybpbQm91Cjrz58xX66TQXY+5PML3XmDumSjPlxi2OJOvAZN+sRv444glywb40ifVqdgZip4p2NUtfKYKWcP1eO39SlwSfiABzNAAq34e04h7Q==
+ b=EoxRkjCvIu1n9KtB2/RqjhZECcEICUKX3eNjL2RY4yCJR+9+3xJe3A8OdogUFe2WYN4MkQ+rJaX/dWIgObCJuegXHxlrhZ7cAQO+5D3BCdqUAvh4QqKt9PYvAVv7WXF8BiZ93MeEPFud3Lqw/txPQDIp2P8Glhz66jl1FePJBj9OzgCBH/GWsKJPWJEWOt3mMZNjzoLNb8clLPFIWiy27V3tedLk+npzMGgJLT9fc+MQ8ul+xCwz8VTtiOa1VwCCzNQ5gynIRyGU+MhYZ2KvimTwc9Pob/z4WmL+vVoXp1Dk1q8070k+6RPhs6k2V8nrHpSt3GohmNYl6/DvfR4vLA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H1L2zCinMaKZ61leC9g0xpthGdFxAFSQ7l+a9Zn1/VQ=;
- b=CraZKrZ0Mk9gA4YzBLdL1FGRLxiUJxmf8qq/5X/3XO8l5K36/H19k2Mf6WLzig/WB3iMTTjgUR+hoNKzwQ2lZvQ/BPBwKQObLSKxyqL0pFI3rUSntSWELha4h1QrA1fD5tgjGmB97sRSmXDHEHAPjIAmIr431IuNSpo9zoy7HaOp9w3DqKK/9GcgwAK5WtYV917eZRCqngw67Wmau7MqvGKBYHCsgwsosZviMs5niTrOP7wshW7uLDmjYE4ODjReI3X+mqQ6SdVknnQOc1iMTsChFUv52UYGy+wmo5Rv9Vr+f52jlNHsF33pWpmnKoIhQfk4v6n/lT1cVJlMzKmtQA==
+ bh=mQuC3rsd+2sb++ex1jnAa+/IUKOgIbgvPVL0ck2ZXgc=;
+ b=cv1/Ecr4Sv2Xhm5qnc9f5RUPPKSwSM0qp1g3B2d25o3rXdCNgGjMIFO+ZM9zbnGXPgv3n9aj9QVlMSSt5rrbgUvIhKml6QIO7HJe+p7pbgysUnr+mufbr9mZKc4mg/h08MyiAKLfjOUxcYxnIW9cOKgbHt7LT8QTIvQ8xRG/AlpO3/TFevm80i3/QBQPa2nlaSAznrE83tVHYnpxK4u/o3KwGai9am+ImiCqGLUUoODJvl4QPUfJXpNHnn06lctLx/CZpnerNKSm8fguaYxAL5mVZ/Qz+Vsj80cgWi6n6LtoTmmFYqvoq++0X7ktWH8jAltMKkGItVAgBNYcJpWrBg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
 Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:25::15) by SHXPR01MB0526.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:1d::11) with Microsoft SMTP Server (version=TLS1_2,
+ (2406:e500:c311:25::15) by SHXPR01MB0559.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1d::22) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.32; Thu, 28 Mar
- 2024 09:18:52 +0000
+ 2024 09:19:04 +0000
 Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
  ([fe80::c738:9e6b:f92e:8bb9]) by
  SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::c738:9e6b:f92e:8bb9%6])
- with mapi id 15.20.7409.031; Thu, 28 Mar 2024 09:18:51 +0000
+ with mapi id 15.20.7409.031; Thu, 28 Mar 2024 09:19:04 +0000
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Conor Dooley <conor@kernel.org>,
@@ -70,9 +70,9 @@ Cc: devicetree@vger.kernel.org,
 	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>,
 	Minda Chen <minda.chen@starfivetech.com>
-Subject: [PATCH v16 08/22] PCI: microchip: Change the argument of plda_pcie_setup_iomems()
-Date: Thu, 28 Mar 2024 17:18:21 +0800
-Message-Id: <20240328091835.14797-9-minda.chen@starfivetech.com>
+Subject: [PATCH v16 20/22] PCI: Add PCIE_RESET_CONFIG_DEVICE_WAIT_MS waiting time value
+Date: Thu, 28 Mar 2024 17:18:33 +0800
+Message-Id: <20240328091835.14797-21-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20240328091835.14797-1-minda.chen@starfivetech.com>
 References: <20240328091835.14797-1-minda.chen@starfivetech.com>
@@ -81,55 +81,55 @@ X-ClientProxiedBy: NT0PR01CA0020.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:25::15)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0526:EE_
-X-MS-Office365-Filtering-Correlation-Id: a799fe66-961b-4faf-0bdc-08dc4f081574
+X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0559:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa28561d-cd0b-4b65-0e69-08dc4f081cae
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: bwPtdAsNgZ1sN9vUeHuO+tHvoenBQkLfKt3HlKaBVsfC9tuonXwvgvsWHePz+GVEPRAL/cDJZDrkxd4bcmpWOVaYyKxufl8iwJTBCVTWShzQMOe6dYqw79SNSwJEDvVTDWZEFBLnvFexXmuBXQrf5FK2esREKh+deaBRZl4jCER/CP3bX/DgEbdRsRulybD9V4VXJRsfBWWwHi4hR1jVbEPj7rwPsgwWcB+iRJY/31hBb4nJL5J/P3pqeCqeo6hRL5PziRqVs6ci2AkF/7AKuYlIWVxNfTjrr9hlWJ+5YZu329hlba0BbQNsDJtkdRZqIsQfl5BtgCEuClznnALDkI/WjTwtwpZ0qmaT6P/i2aO+8Vdxu5DYknVMwnLoM5gHWy6FWRsNEKpEhsGM8EXN9hu5WtNa6GGGe27DJYadfjKXa6nkyl8pipdF/IcFn8HnNQqnsIo10ILoJcWLnxM/HWc9QHz5YANrqgJG+gEMdAyVaPI6BzWx10xUGgNzGtNieA4n/slbYqBMUZsOj94fTV4UNq3q79diUbtgf/lj/CoE+cjdXuxx521uxaOsZsQx3F8b6diDdZpciyz3zMYXOZpc6YBMIoGe/olMbG0x7k4rKpLVE7eAr1iqdd8QQHqM
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(41320700004)(7416005)(366007)(52116005)(1800799015)(38350700005);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam-Message-Info: 2gUd2/SzxeuUgHbloQBpwODNL/SgQE+ChvkFZlQZxkW0+kzjb5w91Msx9Cs6Q23wManAfg2VdT7ysK5ojR4YdcB1fNFuvuDSPM+Tlt8fkfLjvrrWKCxaFRvpgvZxZeKjCBjaeXMuj0wpR4rYYnfECQwsvrM36ko9o0gxX9ip3J/7HBVDnCpX+azTzI2Clegd3AC+I76jCWqH/Zb+sO0DP5KefMWQEoL0UDqS/caWhkyynCSx1MoFSHDQ9vTe750TO+XJ953TvobBH3hJm1/Q5g526fXCxJqFRLqtbOPh/LT0wOTzCvLYDBM9eO6lsAW+oq7oUMnVZw53vqcMQrTT+IpdKHu1hOvaEk74Pb1gW44cpU0QG3DEM//Yr0vEqigM9KF/gND0y/icqfTjRCrUX7ndxhhV4/SLGUlQyOA3B9HVTFFwOp5fPvVZxLPSxbkEXW1csyTjyj0oFGVLX5ZkvYUE96hUsUO0vWhPcCItS7w9M2fvQ2PsS65YIN3LtwjvqEckF84rqYB1qJO19tPNNKE/6nEhT97TQMoZ0nTvZIcLX4TfcGkR6lmN5JQgmJE5biHuRl51K6SgzPoEhlHbG1mEauJLNKEF5K3mzA0djQPhMahz6U/ELBsoaquhnDE3
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(52116005)(7416005)(41320700004)(366007)(38350700005);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9NCVQsxXx2ZlvoXDBFI3IVJnJMSBGZAF3/Q28bghvk8UOM4i28WkU604Li8t?=
- =?us-ascii?Q?ZRwat5+kar/Z+dnnHaqunEI5fyo+YdNKdXAdFo7L6NGYfx9vm7kMnI0RUhtX?=
- =?us-ascii?Q?kiqT4Gp0Git2bOdXIIOqGX903Y98+lj0mFZ+nJ0XE3KuZUgtibM/8bwwHnen?=
- =?us-ascii?Q?ln/5yZdQhIZ/4B1ybPuuIFLQ/D7qWUupfqthObxx8ORrdpNpDHfbwvqDbXHo?=
- =?us-ascii?Q?lztx36G3M6m8iocWZCqJLIcSkgtDE0Ugsevs3SDLuil11+CJVUMNR7X6e1rR?=
- =?us-ascii?Q?5XxHRZRrXsmeQsGEV3O4DkDgkBPdpL/RPJCkrXv3aoU0mHiic0WmvaSFW64/?=
- =?us-ascii?Q?7motZ0D/OQz4VpZGBe0WjqQ0eW7mm/C8vX5gxcMhsXPJkZZoJzM7/Ncflr7A?=
- =?us-ascii?Q?4i8fvR/Gl6Pk+gZ48LXOgTMPGPD437L92j/ErErBtZsEthUUWEGhPVxrHVib?=
- =?us-ascii?Q?Mqj+nOXVxQCd0Sc4DYTo9v+rGOtQpvM6lPvKykzbSj09CH9tCXT2eEYvTTUx?=
- =?us-ascii?Q?K/CPzAgR/9Lx/wgz0qrWxSJzDX5tnMUkn9wfDbirP9o3FMVTBjVCW3I+7joA?=
- =?us-ascii?Q?3fGaIuYoEM3FVjS1gl0ORAakFUQO44lMp0Xs1IQiQro720DgaNKqLyYlCbBj?=
- =?us-ascii?Q?wLumI+GDbbKdlMqGisixktNiDFED/ac7GL5ukfVNpPF0K7/SU2qdvrW489W6?=
- =?us-ascii?Q?aATr52TAIj+N7Sjc0eYEnBmzRfSrXOp/RwRvgvM6M21Wm1AbR0H8HdMHXj6b?=
- =?us-ascii?Q?wLh3a8fzLmgwGJD6rfeGYVAU+IuAcQAVDVEyuQwG7DTNvxCE5i++RbGrR4FD?=
- =?us-ascii?Q?cpOfF6tUKxcEJJB57GYDpPU4DM2eQB/NA58oqH3PHTXiJttZ5LSmkQ53pwGL?=
- =?us-ascii?Q?/cczhoGOV1SX608I0NYnkWe90OMNh8ufRTC2IPtAfSIk3wqgQmE5PJug0pEy?=
- =?us-ascii?Q?jbo3WmeX4sOShijodHYCFFPLpq/6mkjG3OzKTxeAeKHBhn/3S1b/YBGid2s1?=
- =?us-ascii?Q?dYZ8cgotLHk3iVeNu0NnVn/AANXdK8XETMMgeqnBOT0klUVS2Nq85/IsNKyP?=
- =?us-ascii?Q?NVKtv9yCyKstIcCjaC5GWjnj381kuXOghQEEJlta092/pIGnDu+usP3fZtk+?=
- =?us-ascii?Q?xaaxzDvGRge92myZYfgUIGiC01qJXlqWzZZIgvfLM9lniHBOFx1C7CXiO6N4?=
- =?us-ascii?Q?MPLoJDKLRiZwv58yUGULdIE5DzJOQFmf6+dy75DdC8NTNyQhfLi9xde4aCa0?=
- =?us-ascii?Q?YACnysHgu2C2h/QnmT/VYAued9bz1SXu2DTq/iG8TvJiFAHDJiH3mVpaVRaf?=
- =?us-ascii?Q?8fEk8erlBpSacvT4GTx8+oPf5xGlyv/ZBk0UFxbTrXYRUa8u8WnM/fQ76U/B?=
- =?us-ascii?Q?axwHOqiPeC3zNnIU3TKEr1myHGru3XnVX2AjkECg+s6TtqW1Ly5s1UUA99tz?=
- =?us-ascii?Q?Hgi28RS6Pjw2Ic9On2qXIX0u0xXiOYdzqiwE4HbJ39V2dwL3PqkNUrpLl/4m?=
- =?us-ascii?Q?6zkvgO62mOLu8Unoo10pJ7WqcIYP4Io8I7eG0SzUBqEwZmFZGX5KEtpgDibN?=
- =?us-ascii?Q?f8D77rolYXi824OcOjVl3ov43Wv+QRFPdaIEsotf0OqYrwDoPkf2mKACbDro?=
- =?us-ascii?Q?Pg=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Xyt6Q+zsPBrJvS6qSArb1hSxxbfY5CUcgTIOir+yKzdatiBWr8r3k78iIg+c?=
+ =?us-ascii?Q?IF3NIKrocq7ApI98FsfJtG3rRhNXappq5alwkmLBnCLkQ5u2xfApezXxN45k?=
+ =?us-ascii?Q?1GV2RtA5v2bont0wbnu5TiRbwCBKg+wDygqKwoy1w3Ngr90IbuWlEOG/2ZaV?=
+ =?us-ascii?Q?+MPeUE/H9chB03llcxJFNJ+1z2unYOrq9/YllNZCUHIXz17uqcazB5mqh/0j?=
+ =?us-ascii?Q?/acCR9tZhq2OPniHK2wbIKQ7Gx4b8p96DZkISvfoI+woUIKbqWMdQKWi3YS8?=
+ =?us-ascii?Q?YI3we+POWkphN1EUuwf0j4OypkZia0vd7kdYNGZ18gYxtwkBHuS0CbmHuTE7?=
+ =?us-ascii?Q?/zEPGgmR+wV5bVzdhFSTTOPgCkzE4+kK6kDcg9NKFlg0dpConuyLOIPlMnQa?=
+ =?us-ascii?Q?E4BazEro7bJAoARShmxWQtfRPCFkATXI3Ff/9dmPLtNfKvLuh+xTONshgTvl?=
+ =?us-ascii?Q?4OqZzIw+qv/SMxmJyRiOg2iF5ks4KmP06whHq1W2ypLNYmYjFlfQnrB1m0M7?=
+ =?us-ascii?Q?wTagA4yVWvo8TDzCXQRcQx7OPaEfo30W83ha8mWXhJs5VrA9q0P3OKY/9C1d?=
+ =?us-ascii?Q?KllmqN9SvBUOi/woOg38wLjE+9OZEtk3N0Lm3Rqtu/PF0ulBkrWhgBnyHeMR?=
+ =?us-ascii?Q?FpIdW1GIxTjg7ZC3VLErSg/by7ei9NTj3KXV3GWmAQpTEZtdXJl9ovem70wp?=
+ =?us-ascii?Q?0klAoYOc6smBOzqdzAtQcTf9cTogwSNa0MueHURiVSzRp+z+FqStoqtWnF9b?=
+ =?us-ascii?Q?HV38oBZmXOQhcY2a4jbSkb5YS9go9ZUQgJuY0lwYe6O7UXqi8toH6e9zJ/hJ?=
+ =?us-ascii?Q?VvPiEMFQ3g177qPdRRhNcAkS3RdSeH5Gf26nx+6woHej8jRTJshQkRZSBafj?=
+ =?us-ascii?Q?X6C54irAa//CU0xMTasciSbk4sXx5KzMYo6tkOteHWC+zjO6z+2I2fTjy5HY?=
+ =?us-ascii?Q?Nb6Z7p8TSZUhtCHvJrB/SyrtU24YEVwUgvjTjOUL8r75wpA2sypb6s+cLBva?=
+ =?us-ascii?Q?n4RS+eT/mJwXrQRrzXTiie0ue2XkqKaNmc3E8qqlmU5G6RhVFkj0FnBbN1xP?=
+ =?us-ascii?Q?thNI5DeG5ko+6jNgORVfnZZ0CfRAXZAL9eeRyQpllVCN/TIuA8Kr/heecJ9u?=
+ =?us-ascii?Q?5nuCtTrl0ctfvKo0ZkXuL0WQ+m5I8+9P2YYNYFGKHab+4EKWyIkXMLrmbfY8?=
+ =?us-ascii?Q?E3QhZpKLLPFV4ODGxxOA+v85s8KwmdKF3Lz011Eeg1iNAIAwMIFu/RgSJoXO?=
+ =?us-ascii?Q?YmWvvxISXz0PlmlcH/hxXGiZ+VHBI4yyZQVzmISP6ZBbmE8wDG2UEz+K9kNs?=
+ =?us-ascii?Q?w+nce4m3M2KXuL29yabgRyVCaE5ab67rE8hHSEUB7jkpFhZ/GWSWLOuROUEI?=
+ =?us-ascii?Q?hC93xEsUDbl5RiIau3ML+VQFsP5wPes7rlP5ZOyYSEgKZyCQXl249BeCLTW6?=
+ =?us-ascii?Q?QgEKRG6jp3i9vZi/T9+kZUso9leke9I0XFCOLj5MRDsGwtcWGAuEC6cgsZ4W?=
+ =?us-ascii?Q?5mtHhMng9MPkKt73IOsPnmIR7sN4tdUaJQEIGfw/KNPcNB1TFDDh4UZKyd2/?=
+ =?us-ascii?Q?lKa1J7hha1rdXsVDvc/Ijynt0dQ6PQN6wWzQSxmlFwCw2sycTCYT45j977yh?=
+ =?us-ascii?Q?ug=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a799fe66-961b-4faf-0bdc-08dc4f081574
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa28561d-cd0b-4b65-0e69-08dc4f081cae
 X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Mar 2024 09:18:51.8929
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Mar 2024 09:19:04.0399
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KAE3gcVPpFEC36fq/pLvgu54l+aoAyq0rdJhOiW0MdAuvI5iNlrTURRgs76pg7Umu5Ixrh1PW5xOoyKFreUW9N1xd3gqWdtsaaaB8UHH+8U=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0526
+X-MS-Exchange-CrossTenant-UserPrincipalName: mT4IaNHihzqZr0YFm7I6Ika7qeEmUX436O01daXl8Gp2CfWjkcuftyDn4T131NAc2yCrrJGB9Pt0sFC1cV872YXiRJNroRpOJne4u0A2JC8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0559
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_021904_271893_32CD907B 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20240328_021922_079793_2A16C314 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,50 +146,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If other vendor do not select PCI_HOST_COMMON, the driver data is not
-struct pci_host_bridge.
+From: Kevin Xie <kevin.xie@starfivetech.com>
 
-Move calling platform_get_drvdata() to mc_platform_init().
+Add the PCIE_RESET_CONFIG_DEVICE_WAIT_MS macro to define the minimum
+waiting time between exit from a conventional reset and sending the
+first configuration request to the device.
 
-Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+As described in PCI base specification r6.0, section 6.6.1 <Conventional
+Reset>, there are two different use cases of the value:
+
+   - "With a Downstream Port that does not support Link speeds greater
+     than 5.0 GT/s, software must wait a minimum of 100 ms following exit
+     from a Conventional Reset before sending a Configuration Request to
+     the device immediately below that Port."
+
+   - "With a Downstream Port that supports Link speeds greater than
+     5.0 GT/s, software must wait a minimum of 100 ms after Link training
+     completes before sending a Configuration Request to the device
+     immediately below that Port."
+
+Signed-off-by: Kevin Xie <kevin.xie@starfivetech.com>
+Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 ---
- drivers/pci/controller/plda/pcie-microchip-host.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/pci/pci.h | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-index 9b367927cd32..805870aed61d 100644
---- a/drivers/pci/controller/plda/pcie-microchip-host.c
-+++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-@@ -876,11 +876,10 @@ static void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
- 	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
- }
+diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+index 17fed1846847..6fa59d6aa063 100644
+--- a/drivers/pci/pci.h
++++ b/drivers/pci/pci.h
+@@ -22,6 +22,22 @@
+  */
+ #define PCIE_PME_TO_L2_TIMEOUT_US	10000
  
--static int plda_pcie_setup_iomems(struct platform_device *pdev,
-+static int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
- 				  struct plda_pcie_rp *port)
- {
- 	void __iomem *bridge_base_addr = port->bridge_addr;
--	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
- 	struct resource_entry *entry;
- 	u64 pci_addr;
- 	u32 index = 1;
-@@ -1018,6 +1017,7 @@ static int mc_platform_init(struct pci_config_window *cfg)
- {
- 	struct device *dev = cfg->parent;
- 	struct platform_device *pdev = to_platform_device(dev);
-+	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
- 	void __iomem *bridge_base_addr =
- 		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
- 	int ret;
-@@ -1031,7 +1031,7 @@ static int mc_platform_init(struct pci_config_window *cfg)
- 	mc_pcie_enable_msi(port, cfg->win);
- 
- 	/* Configure non-config space outbound ranges */
--	ret = plda_pcie_setup_iomems(pdev, &port->plda);
-+	ret = plda_pcie_setup_iomems(bridge, &port->plda);
- 	if (ret)
- 		return ret;
++/*
++ * As described in PCI base specification r6.0, section 6.6.1 <Conventional
++ * Reset>, there are two different use cases of the value:
++ *
++ * - "With a Downstream Port that does not support Link speeds greater
++ *    than 5.0 GT/s, software must wait a minimum of 100 ms following exit
++ *    from a Conventional Reset before sending a Configuration Request to
++ *    the device immediately below that Port."
++ *
++ * - "With a Downstream Port that supports Link speeds greater than
++ *    5.0 GT/s, software must wait a minimum of 100 ms after Link training
++ *    completes before sending a Configuration Request to the device
++ *    immediately below that Port."
++ */
++#define PCIE_RESET_CONFIG_DEVICE_WAIT_MS	100
++
+ extern const unsigned char pcie_link_speed[];
+ extern bool pci_early_dump;
  
 -- 
 2.17.1
