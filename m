@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C18BC54E67
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 09:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F85C54E64
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 09:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6m2Sct+cHSsRC46wWJQ0ZDZ2CEVOQ8h+oDI+pTrB6wU=; b=HqVcsojfqu4PmG
-	ZksgOqZUvWOgAH+Od8Yh5/8g3cKQxy3xYSp5nmIrJyJF/uZxlgm6ggJOvjXESlxyk1kgrSIa9fqsU
-	D4kTwOtcDfn/nQJvkFNTywSeTATXVg0JWrJHl0F8B6Rc5I1j9DnXf4FZ00LNTIIUvZiurRkFgfQvo
-	v0Gsw+WmwlfPiUO/HkNR+FYjxgQibW7CzlMNcgPQ3qb998tsIx/1hXwa6JoI3NxIqXKVmiUcYJBt1
-	U6/zeZT8Y93dXYqv9OGjayJN1otWGUZsUuewgwT6b5G+d0JuHi+8w82Hokx3SQYzH/3hryh9WR5Fb
-	GzwWcsm3gKd5Aqzr3s7Q==;
+	List-Owner; bh=7rDl/ztXpjnNq/wSZyPSnOKuMUkgWTC+km9URSkei58=; b=QK5ioOTgX1LaU7
+	GE/QbCX78i1F00icT82PgF9Rbh30s9VzRIwh11dhPT030Q3gLa+4L52WyAjxXUPpd/NN8zJCESCHS
+	Oxxv3oHUUf25peD2zbyCDaT1Zf1lBDRaL9ay8ByoL5WCSVgROJ7oE/dAPuqe4t+lI4V2G8rqukJ74
+	i57mEOh0yCLUeT1SakVo3ezLYCUii/JiYpfIqxseHjvYesJJdzqcMMn94tmc73FVbuYcc5uPV1nub
+	HyBV6aCeXWr0311RJgg2OsXBx9/wU/7kmdGKJ2rOFzpszxI4JtQQ5Xc4FcxEXAzpPD0AnSrPsHGr7
+	KVuD0iiC9ngG8oYTgGYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpluo-0000000DHSQ-3RXj;
-	Thu, 28 Mar 2024 09:19:18 +0000
-Received: from mail-sh0chn02on2070e.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::70e] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1rplus-0000000DHTl-07p5;
+	Thu, 28 Mar 2024 09:19:22 +0000
+Received: from mail-sh0chn02on20713.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::713] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rplua-0000000DHI8-1zmg
+	id 1rplua-0000000DHII-1ICA
 	for linux-riscv@lists.infradead.org;
 	Thu, 28 Mar 2024 09:19:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=AX2HxbF4wcxZAGRWQvRanOBFhaWLdOxn4JqvYbO+25pz5V4EESjO7QC+uJWf+rZs16g3/D+4OkC5uSvr5GXY4kiFaWdSpkjGVF2p+lv0+rNTD9KIwGsnbn4l7MvMuoisGo7GswVhET0mMX7Rf9d99bfA5cO3LOsroNwt3ZyvXBvrm0920m4Q8B1QkLOjTT+CKKBg78+Fs1dh4DEPaCNTAw6SM34qzNdOZ5drqcjOyQefLLmp0J7B4tomTd/yhGJPwvX3jrrYtapardNX3YKjpAcXO3uDAMP6wrj40reorFEwIENXZcHkJXIB2n+gHo9bTczJy1RIGA3XG5TPKw4kTg==
+ b=GyjSKV1Hhs5ShSFiUNhYDb8Xq32M5pI8IBbEHDaQgMoVvNBoAMT/JvcNsPy27Zz7A8tuowsrx/NhsWgUrxm7+soNGfv8rrOIOOkXd5VNbeNs8aKmXvJCt8xmBXdLRuhZlNXHsaaGG1FZqQBDcCVi9aV9wUYOq3wUvieE8BU8/k+GcWJWNRYikHh3EvE7nuUuSDWWwa1Q4JXwrRZx//plzCOtS5XY8MHIhj5NvAWHCvDkIiA/X9M4gJZOGH+STTZ+rTf1ccTFWh9dGAEe7NAzNRNrWZfB766uF2ixea55Ti4M8huhf+3Tc/dvSf5KPY/ttcJiVmu/L/QScoqmGOK2KA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AzDoPxR3Yw9qsHSucTZgXrB+6r4PYRhPc+CkYV1T8oc=;
- b=TtZcYkuEWBj1x2TvyGRqIXIbv9j05G8Ix0qnK6hgB2+K7wRAtVP+SBgws0i6qzBI3V9Iw/fu6tDUVC7no0EYBOoFs0e3eDCGHZDypdajEhp2QnE5PGYxamh7yyfLgBksLPR42V7ZBWAwt33H2FEoE1XIemz88sUo9ZGSWa6wwnsZqRYwfTbxGxxNjLwL3kftOuqBzwEB/uMQRgDgdIFiwQej6MKeSiscxTy52IkOMwYI8x+IXu0zqRqavUvu2LjzsR8t982ngX6nUQ3xuUwf6JlEBHApSxu0mshQH84xHCHrC0T+vbg2elEvtffg/kHQEgKecPWOx/2GFLZ5hGcOKg==
+ bh=DArdH8siR3MLqlRp5UbWIINNuoWS11KuX63fEBpRg/E=;
+ b=grvUmEEYCE323Yz2BCG0X+Q6LPqWQ9GU/V89ZewLlJ+2wSQBPKc1qKQOuoWPDFG4rBJjv27cuWCsbiWX/3q7Kgd0AxPEwP/lVKtRoAwu1fj9CLPFgUuimmyNjGlaCoRyUzzZxo1hOCIzUcBZkqV24LwIp/T9kbxu3JW49R06MZUrNXjOC1mzV/Q1AR9I3GOxLnLCHRbgkz4H8f5pb3hf/LXeoEaiDUElJsm0R9rjrmiXKLc3a0Cy3VqJcpbKMKgqI6K+ZD4rSrJ5rMCo10L9SbPLJL/b1RPub0n8FHP1MUe7yjsBQmI1WZucyDyxxJUip93yc2u4DJdzoP7Fs+WAaw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
 Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:25::15) by SHXPR01MB0496.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:1f::21) with Microsoft SMTP Server (version=TLS1_2,
+ (2406:e500:c311:25::15) by SHXPR01MB0559.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1d::22) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.32; Thu, 28 Mar
- 2024 09:18:45 +0000
+ 2024 09:18:53 +0000
 Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
  ([fe80::c738:9e6b:f92e:8bb9]) by
  SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::c738:9e6b:f92e:8bb9%6])
- with mapi id 15.20.7409.031; Thu, 28 Mar 2024 09:18:45 +0000
+ with mapi id 15.20.7409.031; Thu, 28 Mar 2024 09:18:52 +0000
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Conor Dooley <conor@kernel.org>,
@@ -70,9 +70,9 @@ Cc: devicetree@vger.kernel.org,
 	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>,
 	Minda Chen <minda.chen@starfivetech.com>
-Subject: [PATCH v16 01/22] dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
-Date: Thu, 28 Mar 2024 17:18:14 +0800
-Message-Id: <20240328091835.14797-2-minda.chen@starfivetech.com>
+Subject: [PATCH v16 09/22] PCI: microchip: Move setup functions to pcie-plda-host.c
+Date: Thu, 28 Mar 2024 17:18:22 +0800
+Message-Id: <20240328091835.14797-10-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20240328091835.14797-1-minda.chen@starfivetech.com>
 References: <20240328091835.14797-1-minda.chen@starfivetech.com>
@@ -81,55 +81,55 @@ X-ClientProxiedBy: NT0PR01CA0020.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c311:25::15)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0496:EE_
-X-MS-Office365-Filtering-Correlation-Id: bfc79af4-ca3e-4708-7233-08dc4f081152
+X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0559:EE_
+X-MS-Office365-Filtering-Correlation-Id: 418e8d19-a7e9-4d7d-8693-08dc4f081607
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 04BPEbGE03+HvxLxpa6quZIoABmU2R4MIkSWUr/IE6hQOgTNVRPh+76BBGfD8ifLDMQ7yoIecSV3rY5mrXOjuQ+V6VBwix30zEWwwVi6ojsATn5IBFC909xPy0bbyAGSffc5jL2XkPHu11Dt2wkyGUmbNeUQGJa5Sc+Zlxkd/1XvbJ+PX+O9Gh7Ckmvg7jhkjC+ggIoJRCT701t11MiM4KE9+u6D/piGbJIhu33vEDc0g3Y+3KM1EIYAS1ZhkuQa7IUE7+oVIoQdhHI1OrPeJGpLs9UsFtMU5OVYf4Lj0VKCRS8+xzaWRkE5exr6EVtng0DTKW2XtMUuwWFj0b8FsXaBEG0+j6aJOnByQ3yTFL0jUMZW1nm3YdjVsEXrcG+Ye+CnZ52rpn1vtcnwqY+ZUsmH6nn58iiuiJXQ4QT2o2r9hCw+RpAZysXJMBFVnjgct19lCqt1RYuDBTmqg9TTNEi2K7dLz/a3wnBqr0jEmNdf3FZwX0keeJ5Os3ePLsbUmyi62828jxCpiALQotr8yk8Zo92Ukvd6wWG3KJQTUiST2E5nhQob+lx3Tqmljia8JoUQ/NSyRBnOxbHynlCEeb0wJ2W87eFv/9ovbISLqPOFiq9jMF46FFF9B99xYge7
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(52116005)(1800799015)(7416005)(41320700004)(366007)(38350700005);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam-Message-Info: q8RP3F9ksB5Wbmfa2gcUTXKfN4r0JsDNrSTVHcXiiZAzOloDRDdvnMG8HHEJ/rhPrA9CLACenagjHcTMu2UzmTLJvxINvDKPgnE2gyt9uxIajAsLNEjCQGvAdKskYGJsR1zRKNkQl3rGFL2byhEdqd9DIvDtHsG83+OzhQVsDqs9dxcMwmswPULSYZLGfFlokl8ikp+TRQhxZPdcQDyu3e1OhcvWwP7Z12PYmHNVGI2S8dN0khNCBA7lCxf/LEATOF/Gmj6h/SXYvG+wP5+kZHV5/BiMOBOkeW1pM7gcJj3zEvmAM83LwKD4h+Qm1jH0lFoObT47+dZ2zqET9VJ6kTECe6CuYSlGmZq0+/pYfKabMHza4cZUEcfNMTrlwzA6ALvRS8YpI+tV2t34/V/JYqIqf1fIRXCMQUSDVD1nltK/ojcVT+ZWW28BHahzZjLltXZDYnE4oeGJYWdfNx6k2FwDDXEMxFwCe8d0uEwlk79NC/HxJGR6CAiWUsC0A7QFfMqfPvhizo4jgO+eNeCYgXL3mbExulKWXZJZ2V0ZjzgD7FmMD87l/KK6DEqvCLUN2nFZlosXDTlnKcJZZGS1GZVdczandErN6DD0qGFMALwrlM/fodbzWZ7WUHYrFXCj
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(52116005)(7416005)(41320700004)(366007)(38350700005);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jC536hJMBur1kIOvj595WrMpNx+VYlS9KAsu4h9pInvr2vAKSoupyh/ndNTt?=
- =?us-ascii?Q?y9Zn2hQoY8fG9XyomUxBSJRNh7Ern7Mqj4lXnxc9Z/nSj75AKOxcLIoZ9obm?=
- =?us-ascii?Q?BCQP/ufeEnU2P0DU2oShAEHQNCwpkAy7C9dwxnHx9l2zEoflbBU54BKjbutE?=
- =?us-ascii?Q?FhggicmCp2iz9TOsZohE7PuER8DDvRFT4C9FtmBLDy2q7+lgMNpXsEzVKTeQ?=
- =?us-ascii?Q?rvIvG3E20tIdEdBzJwzJ0FUVp41GDhMmg1xgHZAwLXreLG/GxBBjxWryn9HN?=
- =?us-ascii?Q?Ic10+v0QyhNNTurIYssyZ2ZLz4EynL68U21+JmbaedChdVGnDW2fsGRDr0aR?=
- =?us-ascii?Q?37Ning8tjOn9Yd6rROuWxhR9DkWKKVkERQZe2h4e+caMbbyNiaJ0xd9YUViq?=
- =?us-ascii?Q?Is08QLHaAgN+4c5M7WJlM5JiQVDXwXIJ6650EJqoAefhqwLBF83ZVhe4iTTt?=
- =?us-ascii?Q?HXxovbCJ1FeNmTc/ENIHMgD84J0o4KdOOdG0LoipzByrADOQQ36oixs6D4q3?=
- =?us-ascii?Q?Gv3KqXc6WAoF93iQ5t1xH6Q61YSZE7+BNZ3AA7MyyXnCySDGe4TF1NIYSCcm?=
- =?us-ascii?Q?AXBcb2BNEYhSH6mZOirLvb2WASUQi23MNqrM9nVy7xnV0bneGQZk97M5BKxU?=
- =?us-ascii?Q?2ButvR5IUX8sbuhR/bZ1I1RSWAkl1v8JhVmxNr9Cj5PSatvUDgWBu6U+Ukb6?=
- =?us-ascii?Q?BJ9dIAnWp3FxN4KiObDXBvEMUf97g/Vjlg2P1ZgDlujzOHcGC7cbdRe5uyIT?=
- =?us-ascii?Q?dECcDtMHIH9VuliPpvgPRzNhTExI4t3A1M1RAFGzK0C/TKqogNCtgYZ5wcsJ?=
- =?us-ascii?Q?GpYUdtpYZpJHGbkmnK2jy+58mjg5kL761GFAankPPG/s3lTbGaT88kp3IoSq?=
- =?us-ascii?Q?hU1jjup3Ikv7tQWxS0lQ5PX9QGxGbjVSg9DkTvX7wPO6UoKEutCZdxjFH2AV?=
- =?us-ascii?Q?YubbeG3Rr2nOl0s3PQnDY+nA22+y7jfT3Rm7/7qxzrPul3g48KQUAXJVr3ip?=
- =?us-ascii?Q?K6TXKGHtNfYoRcpEaSNBYlXNK0SgtWhYbPZ0Eh8VWFNNKzF7WH4IAuY7SpAJ?=
- =?us-ascii?Q?UJU2FhLF7BXMTLmMPW3PTrq1Cr/1terEjshGoCC9TpsCJkn3/ELYpWOD+pVH?=
- =?us-ascii?Q?ptFMwDvLFK9UnJoWIp9Os29d2aG2IlykrmdZlwegcJ5Ne4bVoQoRkgZ+FfOG?=
- =?us-ascii?Q?orsHTi2ucen7yWuxjkEMRiETPhR3aWyxd2qSwQTQhwjI3/aNAwFLskMiDKSo?=
- =?us-ascii?Q?yC/OtA3VOEykNfzrXdsOTWakeQwbjD7ggQFmE35ywQ46bT4bvu8ybUAkE/B2?=
- =?us-ascii?Q?nBu4PY5GIbFM9z2N/FG2TvYBlzwgxS+mOB2oosT6HS8dfnwfT/rBy7hHEVWB?=
- =?us-ascii?Q?yTwQFxkjf5z8JFm89FusofFp+UPox8HH0h0dBChRuIUuP8LQUJOk7IMpSzdT?=
- =?us-ascii?Q?ONdkvD8YoYWUK0PIWlbjV3w7tlWfsj8u/lV5ootFvTOwaJS4oNhVUOSCxeY7?=
- =?us-ascii?Q?Zo4rzhO7djvlb6ifRglK/DWECv5STnUTaOj6bOeQrEb6MG77MR8oUhakPwTn?=
- =?us-ascii?Q?YygzUW1SX9I4/yLueNwGFCifv9lKnfPEKmCCaFT1JQMpqCzqDQ03V6DBK2Y0?=
- =?us-ascii?Q?BA=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?i5onzeOkAIegMHME5sISD3J0dtVwI3i/9yFpASC+bw5CuPnTqyBx8VY063kk?=
+ =?us-ascii?Q?H5lR1FOMZPs9BxsprjzXos99Ska8wyAx2E0cfHbR8t2zuhFVU3WbEuyrG55J?=
+ =?us-ascii?Q?bzXcgS1y/4Z0ZHGgTCiUwXa7m9sKCzgVFEhaJ8ceRLkvEfZUwKaPAA91oWbu?=
+ =?us-ascii?Q?QfknRDPns2loDeGuMB1f+LQYyX8+gUMlyxCDS9+WKjVzzqK0IjIuIHYIwdgX?=
+ =?us-ascii?Q?0wY1zFMXfTKfKRruI+9DBXCXPsbCgjouvD7ECiMuxyDJeu5X5G9AVZG+KnEf?=
+ =?us-ascii?Q?tjkVZns4x052GVWwRibE0KiQ6ybw8313DTT7H1xOWi+WJJ/+XER2uy3rMAO6?=
+ =?us-ascii?Q?COOA7W5q4OOrd4vn/cwOc2PcdiAWs8UNgd5yZYmyNBwD5yxVxSoZQQPItcK9?=
+ =?us-ascii?Q?0nVoIAcwxfYJUzdjiPZMlUKmgS4jy4WMiSm6I4V1O/rEfvtO7S85CwK+Q3hF?=
+ =?us-ascii?Q?l2b0tscDu0A1Bo2vYyCjPpEGi/9qeoC0+3xgDk5v/QQ8Mj4Tvyw+ljIyGmCj?=
+ =?us-ascii?Q?NhcIvL2ZCx0gezbC2qpaf3NSt0baRp95dBnVNSvNLe68+RAn9VTqvqdrwJBC?=
+ =?us-ascii?Q?g/7bdm8nEFBW9PXB2ll9pkSRZaBhxarVkeYkcoNJwyhgNRWohTFYKf5L+oJP?=
+ =?us-ascii?Q?NF31bOqyuRk2d3xbHdlid6fn7iuD4SQapEytPet5oMVv6x7lo7anQrGrVPcq?=
+ =?us-ascii?Q?n6FVU0ppgw8kRgPSydMQWyIv3d/fkfv0doKy6SnAiLHVHYJRVbIjfCc2hnge?=
+ =?us-ascii?Q?UsI2wGWD7MXOnzW0XW1GbzEyQfq1SdyCcOb8Jdx4sgnqFfKP7uJiGnQ8+QOn?=
+ =?us-ascii?Q?damaCWfIMaxGSwer/cJW+XuLUg2koU22dDM///RVXxWL1V6JesXlqUzTJOyc?=
+ =?us-ascii?Q?Lr1RKXnksTMb04x7gIR9AMECel0RHRqqm9vy0QeK63NCO8X/QU/L4Gtfck7O?=
+ =?us-ascii?Q?VIRldC8wpE1lp9rtDiMGnfYINyuNo9FS+gkd2mEhJrLi4/sQN9YOr5oIO+az?=
+ =?us-ascii?Q?q8FQQfk1ZsEmwU0/03WfW9U+128qQmAwWA56xaQSXuRVY1HaVfLQBUxk00+a?=
+ =?us-ascii?Q?TfcLcZhEunT7IGrqbcelhgAN3+efXSFNVUyXPUQBxmiASd+Zz6sj7nOaSjAN?=
+ =?us-ascii?Q?sFFj074b4mq2JPCtHyjYlxzudblPHPX1ZikMO0k65QtzZ6szz5PxLdYUGSXp?=
+ =?us-ascii?Q?dERUBRfrKMQ1Gz1XRkLYIK0P2z76ZM6fzw7pAopB8W+yh+ECABYONnD3vpof?=
+ =?us-ascii?Q?fS7wh1q0IFVHDjZutC4BJWju4mT1ZxQlobzoBcWtssrAFA9qQX6WOZx4Hisj?=
+ =?us-ascii?Q?2QG5jDn7gHuVw4q6NHFVpR4mwWTq9AqtqnB2n0USNMLYx9tSWssS/LriPR2G?=
+ =?us-ascii?Q?4BxdiB+/7lGDn/qdrEkInqcBiyp2QHq3FTj+DI3soxXodNHH1C518XxrbJZr?=
+ =?us-ascii?Q?4u1TFdEX0mbDwY2yql+R7QvLojecvpf0jIAztGGOQeNRD8Gk/HnXg5zu0v3V?=
+ =?us-ascii?Q?qHMk0Mk0V07FEOZsijjp2rjOFNHW8im6ZHW5qiqMNadLQlVwyyowdOvEuEBi?=
+ =?us-ascii?Q?fsCbUUtrlQA1k0QGFJypAhF4TlsZEIWWaPOdY8JkUowwOyKQdaBqCKkiuLit?=
+ =?us-ascii?Q?4Q=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bfc79af4-ca3e-4708-7233-08dc4f081152
+X-MS-Exchange-CrossTenant-Network-Message-Id: 418e8d19-a7e9-4d7d-8693-08dc4f081607
 X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Mar 2024 09:18:44.9798
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Mar 2024 09:18:52.8890
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MpVczu0QHOn5pV2f8B+naM/HZXehpWcgNJpmmGbFb7SzhldRoQGSdpAf1bFoHdA47TUslqXcps6Phmc+fZUOgiIWFX9OSnuG4cEN5dgqdCI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0496
+X-MS-Exchange-CrossTenant-UserPrincipalName: kBy4RtaThGybHv6cBvf5LkgTSK2KGfvd93slSOzZ4RB70nIiLUUm2y+8yiYw5S3C8VyRuFfIVCs1LLfE4grJKSW8EMjlVZwc6gi1ZWwWjPs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0559
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_021904_551074_C5A5DC0D 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20240328_021904_533606_AA41D0A1 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,206 +146,223 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add PLDA XpressRICH PCIe host common properties dt-binding doc.
-PolarFire PCIe host using PLDA IP. Move common properties from Microchip
-PolarFire PCIe host to PLDA files.
+Move setup functions to common pcie-plda-host.c. So these two functions
+can be re-used.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
-Tested-by: John Clark <inindev@gmail.com>
 ---
- .../bindings/pci/microchip,pcie-host.yaml     | 55 +-------------
- .../pci/plda,xpressrich3-axi-common.yaml      | 75 +++++++++++++++++++
- MAINTAINERS                                   |  6 ++
- 3 files changed, 82 insertions(+), 54 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+ MAINTAINERS                                   |  1 +
+ drivers/pci/controller/plda/Kconfig           |  4 +
+ drivers/pci/controller/plda/Makefile          |  1 +
+ .../pci/controller/plda/pcie-microchip-host.c | 59 ---------------
+ drivers/pci/controller/plda/pcie-plda-host.c  | 73 +++++++++++++++++++
+ drivers/pci/controller/plda/pcie-plda.h       |  5 ++
+ 6 files changed, 84 insertions(+), 59 deletions(-)
+ create mode 100644 drivers/pci/controller/plda/pcie-plda-host.c
 
-diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-index f7a3c2636355..7c2d51221f65 100644
---- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-+++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-@@ -10,21 +10,13 @@ maintainers:
-   - Daire McNamara <daire.mcnamara@microchip.com>
- 
- allOf:
--  - $ref: /schemas/pci/pci-bus.yaml#
-+  - $ref: plda,xpressrich3-axi-common.yaml#
-   - $ref: /schemas/interrupt-controller/msi-controller.yaml#
- 
- properties:
-   compatible:
-     const: microchip,pcie-host-1.0 # PolarFire
- 
--  reg:
--    maxItems: 2
--
--  reg-names:
--    items:
--      - const: cfg
--      - const: apb
--
-   clocks:
-     description:
-       Fabric Interface Controllers, FICs, are the interface between the FPGA
-@@ -52,18 +44,6 @@ properties:
-     items:
-       pattern: '^fic[0-3]$'
- 
--  interrupts:
--    minItems: 1
--    items:
--      - description: PCIe host controller
--      - description: builtin MSI controller
--
--  interrupt-names:
--    minItems: 1
--    items:
--      - const: pcie
--      - const: msi
--
-   ranges:
-     maxItems: 1
- 
-@@ -71,39 +51,6 @@ properties:
-     minItems: 1
-     maxItems: 6
- 
--  msi-controller:
--    description: Identifies the node as an MSI controller.
--
--  msi-parent:
--    description: MSI controller the device is capable of using.
--
--  interrupt-controller:
--    type: object
--    properties:
--      '#address-cells':
--        const: 0
--
--      '#interrupt-cells':
--        const: 1
--
--      interrupt-controller: true
--
--    required:
--      - '#address-cells'
--      - '#interrupt-cells'
--      - interrupt-controller
--
--    additionalProperties: false
--
--required:
--  - reg
--  - reg-names
--  - "#interrupt-cells"
--  - interrupts
--  - interrupt-map-mask
--  - interrupt-map
--  - msi-controller
--
- unevaluatedProperties: false
- 
- examples:
-diff --git a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
-new file mode 100644
-index 000000000000..31bb17b11e58
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
-@@ -0,0 +1,75 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/plda,xpressrich3-axi-common.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: PLDA XpressRICH PCIe host common properties
-+
-+maintainers:
-+  - Daire McNamara <daire.mcnamara@microchip.com>
-+  - Kevin Xie <kevin.xie@starfivetech.com>
-+
-+description:
-+  Generic PLDA XpressRICH PCIe host common properties.
-+
-+allOf:
-+  - $ref: /schemas/pci/pci-bus.yaml#
-+
-+properties:
-+  reg:
-+    maxItems: 2
-+
-+  reg-names:
-+    items:
-+      - const: cfg
-+      - const: apb
-+
-+  interrupts:
-+    minItems: 1
-+    items:
-+      - description: PCIe host controller
-+      - description: builtin MSI controller
-+
-+  interrupt-names:
-+    minItems: 1
-+    items:
-+      - const: pcie
-+      - const: msi
-+
-+  msi-controller:
-+    description: Identifies the node as an MSI controller.
-+
-+  msi-parent:
-+    description: MSI controller the device is capable of using.
-+
-+  interrupt-controller:
-+    type: object
-+    properties:
-+      '#address-cells':
-+        const: 0
-+
-+      '#interrupt-cells':
-+        const: 1
-+
-+      interrupt-controller: true
-+
-+    required:
-+      - '#address-cells'
-+      - '#interrupt-cells'
-+      - interrupt-controller
-+
-+    additionalProperties: false
-+
-+required:
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - msi-controller
-+  - "#interrupt-cells"
-+  - interrupt-map-mask
-+  - interrupt-map
-+
-+additionalProperties: true
-+
-+...
 diff --git a/MAINTAINERS b/MAINTAINERS
-index aa3b947fb080..06278f1db13f 100644
+index 1fa4d61291f9..d85d9db38efa 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -16946,6 +16946,12 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/pci/layerscape-pcie-gen4.txt
- F:	drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
+@@ -16951,6 +16951,7 @@ M:	Daire McNamara <daire.mcnamara@microchip.com>
+ L:	linux-pci@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
++F:	drivers/pci/controller/plda/pcie-plda-host.c
+ F:	drivers/pci/controller/plda/pcie-plda.h
  
-+PCI DRIVER FOR PLDA PCIE IP
-+M:	Daire McNamara <daire.mcnamara@microchip.com>
-+L:	linux-pci@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
-+
  PCI DRIVER FOR RENESAS R-CAR
- M:	Marek Vasut <marek.vasut+renesas@gmail.com>
- M:	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
+index 5cb3be4fc98c..e54a82ee94f5 100644
+--- a/drivers/pci/controller/plda/Kconfig
++++ b/drivers/pci/controller/plda/Kconfig
+@@ -3,10 +3,14 @@
+ menu "PLDA-based PCIe controllers"
+ 	depends on PCI
+ 
++config PCIE_PLDA_HOST
++	bool
++
+ config PCIE_MICROCHIP_HOST
+ 	tristate "Microchip AXI PCIe controller"
+ 	depends on PCI_MSI && OF
+ 	select PCI_HOST_COMMON
++	select PCIE_PLDA_HOST
+ 	help
+ 	  Say Y here if you want kernel to support the Microchip AXI PCIe
+ 	  Host Bridge driver.
+diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
+index e1a265cbf91c..4340ab007f44 100644
+--- a/drivers/pci/controller/plda/Makefile
++++ b/drivers/pci/controller/plda/Makefile
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_PCIE_PLDA_HOST) += pcie-plda-host.o
+ obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+index 805870aed61d..573ad31c578a 100644
+--- a/drivers/pci/controller/plda/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -838,65 +838,6 @@ static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
+ 	return mc_allocate_msi_domains(port);
+ }
+ 
+-static void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+-				   phys_addr_t axi_addr, phys_addr_t pci_addr,
+-				   size_t size)
+-{
+-	u32 atr_sz = ilog2(size) - 1;
+-	u32 val;
+-
+-	if (index == 0)
+-		val = PCIE_CONFIG_INTERFACE;
+-	else
+-		val = PCIE_TX_RX_INTERFACE;
+-
+-	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+-	       ATR0_AXI4_SLV0_TRSL_PARAM);
+-
+-	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
+-			    ATR_IMPL_ENABLE;
+-	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+-	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
+-
+-	val = upper_32_bits(axi_addr);
+-	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+-	       ATR0_AXI4_SLV0_SRC_ADDR);
+-
+-	val = lower_32_bits(pci_addr);
+-	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+-	       ATR0_AXI4_SLV0_TRSL_ADDR_LSB);
+-
+-	val = upper_32_bits(pci_addr);
+-	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+-	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
+-
+-	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+-	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
+-	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+-	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
+-}
+-
+-static int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+-				  struct plda_pcie_rp *port)
+-{
+-	void __iomem *bridge_base_addr = port->bridge_addr;
+-	struct resource_entry *entry;
+-	u64 pci_addr;
+-	u32 index = 1;
+-
+-	resource_list_for_each_entry(entry, &bridge->windows) {
+-		if (resource_type(entry->res) == IORESOURCE_MEM) {
+-			pci_addr = entry->res->start - entry->offset;
+-			plda_pcie_setup_window(bridge_base_addr, index,
+-					       entry->res->start, pci_addr,
+-					       resource_size(entry->res));
+-			index++;
+-		}
+-	}
+-
+-	return 0;
+-}
+-
+ static inline void mc_clear_secs(struct mc_pcie *port)
+ {
+ 	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
+diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
+new file mode 100644
+index 000000000000..05ea68baebfb
+--- /dev/null
++++ b/drivers/pci/controller/plda/pcie-plda-host.c
+@@ -0,0 +1,73 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * PLDA PCIe XpressRich host controller driver
++ *
++ * Copyright (C) 2023 Microchip Co. Ltd
++ *
++ * Author: Daire McNamara <daire.mcnamara@microchip.com>
++ */
++
++#include <linux/pci-ecam.h>
++
++#include "pcie-plda.h"
++
++void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
++			    phys_addr_t axi_addr, phys_addr_t pci_addr,
++			    size_t size)
++{
++	u32 atr_sz = ilog2(size) - 1;
++	u32 val;
++
++	if (index == 0)
++		val = PCIE_CONFIG_INTERFACE;
++	else
++		val = PCIE_TX_RX_INTERFACE;
++
++	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
++	       ATR0_AXI4_SLV0_TRSL_PARAM);
++
++	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
++			    ATR_IMPL_ENABLE;
++	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
++	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
++
++	val = upper_32_bits(axi_addr);
++	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
++	       ATR0_AXI4_SLV0_SRC_ADDR);
++
++	val = lower_32_bits(pci_addr);
++	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
++	       ATR0_AXI4_SLV0_TRSL_ADDR_LSB);
++
++	val = upper_32_bits(pci_addr);
++	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
++	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
++
++	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
++	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
++	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
++	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
++}
++EXPORT_SYMBOL_GPL(plda_pcie_setup_window);
++
++int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
++			   struct plda_pcie_rp *port)
++{
++	void __iomem *bridge_base_addr = port->bridge_addr;
++	struct resource_entry *entry;
++	u64 pci_addr;
++	u32 index = 1;
++
++	resource_list_for_each_entry(entry, &bridge->windows) {
++		if (resource_type(entry->res) == IORESOURCE_MEM) {
++			pci_addr = entry->res->start - entry->offset;
++			plda_pcie_setup_window(bridge_base_addr, index,
++					       entry->res->start, pci_addr,
++					       resource_size(entry->res));
++			index++;
++		}
++	}
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(plda_pcie_setup_iomems);
+diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+index 9ca66916c609..e277a5452b5d 100644
+--- a/drivers/pci/controller/plda/pcie-plda.h
++++ b/drivers/pci/controller/plda/pcie-plda.h
+@@ -126,4 +126,9 @@ struct plda_pcie_rp {
+ 	void __iomem *bridge_addr;
+ };
+ 
++void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
++			    phys_addr_t axi_addr, phys_addr_t pci_addr,
++			    size_t size);
++int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
++			   struct plda_pcie_rp *port);
+ #endif
 -- 
 2.17.1
 
