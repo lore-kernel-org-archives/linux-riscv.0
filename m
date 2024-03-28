@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D69C54E67
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 03:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE57C54E64
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 03:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jnOJKadQkgqsv8JQQE4Gis76V/8c3t3nk2bjK3k5XUs=; b=vDcAs68+w4Vpdn
-	/HqDIxK91SXP4XdoZ9SmJbf3Awkk901GbN1L4qVbsReKDABOjLjnHo58Ckh/rcRVf2ZtYoUCKm85+
-	o+AlFnwR0ZJ2TsvTCS/uwhFQ4EWTD2Y4HD92EiujPlTTk94Pf7KwrEhIUTO4WTEjib0NQdhNk/+st
-	A/5D5PcEko6jQJjABddIvKgpD6JHz9YGB/B2iaSuBbsmalGDa0P7S6DCR2oNlA13dsVqY9eew94R3
-	9EtOi7/3nmDbMVLleh2/Sz85rOEkpskjEhNfZL7Du8JjnzgUGMNnnwTPwht0AFJjqVCYdp/Aw1KwZ
-	eWTNF9vrWZ+mIVkRwfJA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=xcK7siWznO5RsO7hMyhCTtP2GbePws2mh2is7x0DrDg=; b=ruMMi2dbaQuslbRGZ6CvoUapkT
+	hUo3wL4JtUT0DWZSHBjOd7Pv2L7yomATX4tkyCaj/k1ePw/3znhUQpct0WuJ019L2Ms1flwDBHatd
+	brD2m6fJNG/ACiZyPj3YEYb7TPOqvAzNibYvntMxwx1sWIJZh1ABntvPbRiK5mmu2IxNn31ykoBof
+	lXmYS2/j4vRc2XNhT7MKGPXYQR+iqCGGZUbfijXvVK/MTx15UezZT5/4foHcsbCL7R4BSs3Gl5aQY
+	gXjY6feFLjFJByAadqS+5A/QPCVWgNig/20HmIAy2yy06b6G1TbEviifQe2pVs94712JVP0X57QEc
+	kvTFS+mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpgJb-0000000CFmF-0r44;
-	Thu, 28 Mar 2024 03:20:31 +0000
-Received: from zg8tmja2lje4os4yms4ymjma.icoremail.net ([206.189.21.223])
-	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpgJT-0000000CFhZ-2uop;
-	Thu, 28 Mar 2024 03:20:26 +0000
-Received: from localhost.localdomain (unknown [10.12.130.31])
-	by app1 (Coremail) with SMTP id TAJkCgDniOWq4QRmwD8DAA--.28501S5;
-	Thu, 28 Mar 2024 11:19:09 +0800 (CST)
-From: Shenlin Liang <liangshenlin@eswincomputing.com>
-To: anup@brainfault.org,
-	atishp@atishpatra.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	linux-perf-users@vger.kernel.org
-Cc: Shenlin Liang <liangshenlin@eswincomputing.com>
-Subject: [PATCH 1/2] RISCV: KVM: add tracepoints for entry and exit events
-Date: Thu, 28 Mar 2024 03:12:19 +0000
-Message-Id: <20240328031220.1287-2-liangshenlin@eswincomputing.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20240328031220.1287-1-liangshenlin@eswincomputing.com>
-References: <20240328031220.1287-1-liangshenlin@eswincomputing.com>
-X-CM-TRANSID: TAJkCgDniOWq4QRmwD8DAA--.28501S5
-X-Coremail-Antispam: 1UD129KBjvJXoWxXFWfJF15Cry5AFy7uw1xKrg_yoW5AFyrpF
-	1Dur98W3yrJrW7C34fZwnYgr45Zr9Y9r17try7WrW5Jr4vyF1kJrsagFWDtry5Ary09a4S
-	vF95WFyqk3W5XaUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUml14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxY
-	O2xFxVAFwI0_Jw0_GFylx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGV
-	WUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_
-	JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rV
-	WUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4U
-	JbIYCTnIWIevJa73UjIFyTuYvjfUbpnQUUUUU
-X-CM-SenderInfo: xold0whvkh0z1lq6v25zlqu0xpsx3x1qjou0bp/
+	id 1rpgki-0000000CJHn-2qsP;
+	Thu, 28 Mar 2024 03:48:32 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rpfoM-0000000C9Sm-00MX
+	for linux-riscv@lists.infradead.org;
+	Thu, 28 Mar 2024 02:48:16 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-dc693399655so858689276.1
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2024 19:48:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1711594092; x=1712198892; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=X53owM0AXy0w40k+CXCDsz/LIA36JplY64ayboW/axQ=;
+        b=pQgcV7xhu25OdSTDGJ/8QkR1j1aVVPMOtjc0OjvzmxfUOSOgWu0HvknQcHaaGXpz4x
+         OEJwnzSBQ+9upHfQsV5KyVswcAfNRTeZTBLeBQiJ4lWzTOPu4ia/MYlCzphFOKccpMWC
+         D6fSLlDvScJfhOgjgJunh4p2Jn/O+GwBQt+8qnKJQ/Ia5d4QWCkywEUq6srvzQeDYCA5
+         NjoGJcwdSU4KcsaI3/rZu85XkQS0Jlr5HIP/gpVRPYD3HKTyB37vu3ezTNXCuRg6JkeA
+         aO6diFPyNldmVInQg3UJw8OIPIfIjMXvHenDW1QQNhNK9xdIvaPsbhwK3A4980ZcvNVC
+         Ybkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711594092; x=1712198892;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=X53owM0AXy0w40k+CXCDsz/LIA36JplY64ayboW/axQ=;
+        b=fTP3dXrVhEqtyvBYfQM9QSwxpZups8v/h4q+bNnF1nI+iV3Zfaf6bSUrZAViU3naLV
+         Br9Wxgx1SLxw/L3YelATo4Jv5ACW+5xKmojElklZ/HHTDU4ZQmHz7mZ0F4tndiBhh9Dh
+         POix/TXyWjw2rTNRP8+GIMNWyG1BG0BuA281fhH0rU/kOKB6lS8YaixNLH5vLt1UVi1G
+         m0pbBCKJHIK8095FiU8LgARFIqBr6wbzfRrF1CbcZrTESBH9UuC9csKGXGHsAuE9QMnM
+         QnCBaduVl4BVuc5uJUHnmBeZ/2NgeLffuklLFO0bYgzxqXqLpMhrcriwtMQOY7qMmTH0
+         22jg==
+X-Forwarded-Encrypted: i=1; AJvYcCXV6FOq6qOvxSvEeTpxzlPHwDJ1LhFP0bo8pmMCfshqef07mazuCO2nhQhCN9OZDZrqdty7g9hCNHnSgcBCysSps3YFFfqFDyCyei4jwnoS
+X-Gm-Message-State: AOJu0Yzombc3GwmpxyIMEu85Rm2cQPd0aRFyLs/iXtuup1HgkI0vIOd6
+	GK2XW7QZ++BUMWvYiPjqx4gSLtgEsOTrXQsLnPScerHDZa1E+Cmc6xEhyRgFrgY8mFz9/XakjK6
+	dwDjw3GwtGQYWKILLIcafLQ==
+X-Google-Smtp-Source: AGHT+IHemBOmZzBj11UU0KC0nluKXTSfglIgOeQ+gPV+l80SSzWOVj5Tc0CUw88owyE2SFGESkvSyqXJHEPRm8GAYg==
+X-Received: from ctop-sg.c.googlers.com ([fda3:e722:ac3:cc00:4f:4b78:c0a8:1223])
+ (user=ackerleytng job=sendgmr) by 2002:a05:6902:2290:b0:dc7:48ce:d17f with
+ SMTP id dn16-20020a056902229000b00dc748ced17fmr499185ybb.10.1711594092566;
+ Wed, 27 Mar 2024 19:48:12 -0700 (PDT)
+Date: Thu, 28 Mar 2024 02:48:08 +0000
+In-Reply-To: <20240314232637.2538648-4-seanjc@google.com>
+Mime-Version: 1.0
+References: <20240314232637.2538648-1-seanjc@google.com> <20240314232637.2538648-4-seanjc@google.com>
+Message-ID: <diqzo7azkr6f.fsf@ctop-sg.c.googlers.com>
+Subject: Re: [PATCH 03/18] KVM: selftests: Move GDT, IDT, and TSS fields to
+ x86's kvm_vm_arch
+From: Ackerley Tng <ackerleytng@google.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240327_202024_041402_5EE41EBC 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20240327_194814_196811_5D0ED6CB 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,123 +92,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Like other architectures, RISCV KVM also needs to add these event
-tracepoints to count the number of times kvm guest entry/exit.
+Sean Christopherson <seanjc@google.com> writes:
 
-Signed-off-by: Shenlin Liang <liangshenlin@eswincomputing.com>
----
- arch/riscv/kvm/trace_riscv.h | 60 ++++++++++++++++++++++++++++++++++++
- arch/riscv/kvm/vcpu.c        |  7 +++++
- 2 files changed, 67 insertions(+)
- create mode 100644 arch/riscv/kvm/trace_riscv.h
+> Now that kvm_vm_arch exists, move the GDT, IDT, and TSS fields to x86's
+> implementation, as the structures are firmly x86-only.
+>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  .../testing/selftests/kvm/include/kvm_util.h  |  3 ---
+>  .../kvm/include/x86_64/kvm_util_arch.h        |  6 +++++
+>  .../selftests/kvm/lib/x86_64/processor.c      | 22 +++++++++----------
+>  .../kvm/x86_64/svm_nested_shutdown_test.c     |  2 +-
+>  .../kvm/x86_64/svm_nested_soft_inject_test.c  |  2 +-
+>  5 files changed, 19 insertions(+), 16 deletions(-)
+>
+> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+> index acdcddf78e3f..58d6a4d6ce4f 100644
+> --- a/tools/testing/selftests/kvm/include/kvm_util.h
+> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
+> @@ -94,9 +94,6 @@ struct kvm_vm {
+>  	bool pgd_created;
+>  	vm_paddr_t ucall_mmio_addr;
+>  	vm_paddr_t pgd;
+> -	vm_vaddr_t gdt;
+> -	vm_vaddr_t tss;
+> -	vm_vaddr_t idt;
+>  	vm_vaddr_t handlers;
+>  	uint32_t dirty_ring_size;
+>  	uint64_t gpa_tag_mask;
+> diff --git a/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h b/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
+> index 9f1725192aa2..b14ff3a88b4a 100644
+> --- a/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/x86_64/kvm_util_arch.h
+> @@ -5,7 +5,13 @@
+>  #include <stdbool.h>
+>  #include <stdint.h>
+>  
+> +#include "kvm_util_types.h"
+> +
+>  struct kvm_vm_arch {
+> +	vm_vaddr_t gdt;
+> +	vm_vaddr_t tss;
+> +	vm_vaddr_t idt;
+> +
+>  	uint64_t c_bit;
+>  	uint64_t s_bit;
+>  	int sev_fd;
+> diff --git a/tools/testing/selftests/kvm/lib/x86_64/processor.c b/tools/testing/selftests/kvm/lib/x86_64/processor.c
+> index 74a4c736c9ae..45f965c052a1 100644
+> --- a/tools/testing/selftests/kvm/lib/x86_64/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/x86_64/processor.c
+> @@ -417,7 +417,7 @@ static void kvm_seg_set_unusable(struct kvm_segment *segp)
+>  
+>  static void kvm_seg_fill_gdt_64bit(struct kvm_vm *vm, struct kvm_segment *segp)
+>  {
+> -	void *gdt = addr_gva2hva(vm, vm->gdt);
+> +	void *gdt = addr_gva2hva(vm, vm->arch.gdt);
+>  	struct desc64 *desc = gdt + (segp->selector >> 3) * 8;
+>  
+>  	desc->limit0 = segp->limit & 0xFFFF;
+> @@ -518,21 +518,21 @@ vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
+>  
+>  static void kvm_setup_gdt(struct kvm_vm *vm, struct kvm_dtable *dt)
+>  {
+> -	if (!vm->gdt)
+> -		vm->gdt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
+> +	if (!vm->arch.gdt)
+> +		vm->arch.gdt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
+>  
+> -	dt->base = vm->gdt;
+> +	dt->base = vm->arch.gdt;
+>  	dt->limit = getpagesize();
+>  }
+>  
+>  static void kvm_setup_tss_64bit(struct kvm_vm *vm, struct kvm_segment *segp,
+>  				int selector)
+>  {
+> -	if (!vm->tss)
+> -		vm->tss = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
+> +	if (!vm->arch.tss)
+> +		vm->arch.tss = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
+>  
+>  	memset(segp, 0, sizeof(*segp));
+> -	segp->base = vm->tss;
+> +	segp->base = vm->arch.tss;
+>  	segp->limit = 0x67;
+>  	segp->selector = selector;
+>  	segp->type = 0xb;
+> @@ -1091,7 +1091,7 @@ static void set_idt_entry(struct kvm_vm *vm, int vector, unsigned long addr,
+>  			  int dpl, unsigned short selector)
+>  {
+>  	struct idt_entry *base =
+> -		(struct idt_entry *)addr_gva2hva(vm, vm->idt);
+> +		(struct idt_entry *)addr_gva2hva(vm, vm->arch.idt);
+>  	struct idt_entry *e = &base[vector];
+>  
+>  	memset(e, 0, sizeof(*e));
+> @@ -1144,7 +1144,7 @@ void vm_init_descriptor_tables(struct kvm_vm *vm)
+>  	extern void *idt_handlers;
+>  	int i;
+>  
+> -	vm->idt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
+> +	vm->arch.idt = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
+>  	vm->handlers = __vm_vaddr_alloc_page(vm, MEM_REGION_DATA);
+>  	/* Handlers have the same address in both address spaces.*/
+>  	for (i = 0; i < NUM_INTERRUPTS; i++)
+> @@ -1158,9 +1158,9 @@ void vcpu_init_descriptor_tables(struct kvm_vcpu *vcpu)
+>  	struct kvm_sregs sregs;
+>  
+>  	vcpu_sregs_get(vcpu, &sregs);
+> -	sregs.idt.base = vm->idt;
+> +	sregs.idt.base = vm->arch.idt;
+>  	sregs.idt.limit = NUM_INTERRUPTS * sizeof(struct idt_entry) - 1;
+> -	sregs.gdt.base = vm->gdt;
+> +	sregs.gdt.base = vm->arch.gdt;
+>  	sregs.gdt.limit = getpagesize() - 1;
+>  	kvm_seg_set_kernel_data_64bit(NULL, DEFAULT_DATA_SELECTOR, &sregs.gs);
+>  	vcpu_sregs_set(vcpu, &sregs);
+> diff --git a/tools/testing/selftests/kvm/x86_64/svm_nested_shutdown_test.c b/tools/testing/selftests/kvm/x86_64/svm_nested_shutdown_test.c
+> index d6fcdcc3af31..f4a1137e04ab 100644
+> --- a/tools/testing/selftests/kvm/x86_64/svm_nested_shutdown_test.c
+> +++ b/tools/testing/selftests/kvm/x86_64/svm_nested_shutdown_test.c
+> @@ -53,7 +53,7 @@ int main(int argc, char *argv[])
+>  
+>  	vcpu_alloc_svm(vm, &svm_gva);
+>  
+> -	vcpu_args_set(vcpu, 2, svm_gva, vm->idt);
+> +	vcpu_args_set(vcpu, 2, svm_gva, vm->arch.idt);
+>  
+>  	vcpu_run(vcpu);
+>  	TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_SHUTDOWN);
+> diff --git a/tools/testing/selftests/kvm/x86_64/svm_nested_soft_inject_test.c b/tools/testing/selftests/kvm/x86_64/svm_nested_soft_inject_test.c
+> index 0c7ce3d4e83a..2478a9e50743 100644
+> --- a/tools/testing/selftests/kvm/x86_64/svm_nested_soft_inject_test.c
+> +++ b/tools/testing/selftests/kvm/x86_64/svm_nested_soft_inject_test.c
+> @@ -166,7 +166,7 @@ static void run_test(bool is_nmi)
+>  
+>  		idt_alt_vm = vm_vaddr_alloc_page(vm);
+>  		idt_alt = addr_gva2hva(vm, idt_alt_vm);
+> -		idt = addr_gva2hva(vm, vm->idt);
+> +		idt = addr_gva2hva(vm, vm->arch.idt);
+>  		memcpy(idt_alt, idt, getpagesize());
+>  	} else {
+>  		idt_alt_vm = 0;
+> -- 
+> 2.44.0.291.gc1ea87d7ee-goog
 
-diff --git a/arch/riscv/kvm/trace_riscv.h b/arch/riscv/kvm/trace_riscv.h
-new file mode 100644
-index 000000000000..5848083c7a5e
---- /dev/null
-+++ b/arch/riscv/kvm/trace_riscv.h
-@@ -0,0 +1,60 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Tracepoints for RISC-V KVM
-+ *
-+ * Copyright 2024 Beijing ESWIN Computing Technology Co., Ltd.
-+ *
-+ */
-+#if !defined(_TRACE_RSICV_KVM_H) || defined(TRACE_HEADER_MULTI_READ)
-+#define _TRACE_RSICV_KVM_H
-+
-+#include <linux/tracepoint.h>
-+
-+#undef TRACE_SYSTEM
-+#define TRACE_SYSTEM kvm
-+
-+TRACE_EVENT(kvm_entry,
-+	TP_PROTO(struct kvm_vcpu *vcpu),
-+	TP_ARGS(vcpu),
-+
-+	TP_STRUCT__entry(
-+		__field(unsigned long, pc)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->pc	= vcpu->arch.guest_context.sepc;
-+	),
-+
-+	TP_printk("PC: 0x%016lx", __entry->pc)
-+);
-+
-+TRACE_EVENT(kvm_exit,
-+	TP_PROTO(struct kvm_vcpu *vcpu, unsigned long exit_reason,
-+			unsigned long scause),
-+	TP_ARGS(vcpu, exit_reason, scause),
-+
-+	TP_STRUCT__entry(
-+		__field(unsigned long, pc)
-+		__field(unsigned long, exit_reason)
-+		__field(unsigned long, scause)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->pc		= vcpu->arch.guest_context.sepc;
-+		__entry->exit_reason	= exit_reason;
-+		__entry->scause		= scause;
-+	),
-+
-+	TP_printk("EXIT_REASON:0x%lx,PC: 0x%016lx,SCAUSE:0x%lx",
-+			__entry->exit_reason, __entry->pc, __entry->scause)
-+);
-+
-+#endif /* _TRACE_RSICV_KVM_H */
-+
-+#undef TRACE_INCLUDE_PATH
-+#define TRACE_INCLUDE_PATH .
-+#undef TRACE_INCLUDE_FILE
-+#define TRACE_INCLUDE_FILE trace_riscv
-+
-+/* This part must be outside protection */
-+#include <trace/define_trace.h>
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index b5ca9f2e98ac..ed0932f0d514 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -21,6 +21,9 @@
- #include <asm/cacheflush.h>
- #include <asm/kvm_vcpu_vector.h>
- 
-+#define CREATE_TRACE_POINTS
-+#include "trace_riscv.h"
-+
- const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
- 	KVM_GENERIC_VCPU_STATS(),
- 	STATS_DESC_COUNTER(VCPU, ecall_exit_stat),
-@@ -782,6 +785,8 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		 */
- 		kvm_riscv_local_tlb_sanitize(vcpu);
- 
-+		trace_kvm_entry(vcpu);
-+
- 		guest_timing_enter_irqoff();
- 
- 		kvm_riscv_vcpu_enter_exit(vcpu);
-@@ -820,6 +825,8 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 
- 		local_irq_enable();
- 
-+		trace_kvm_exit(vcpu, run->exit_reason, trap.scause);
-+
- 		preempt_enable();
- 
- 		kvm_vcpu_srcu_read_lock(vcpu);
--- 
-2.37.2
-
+Reviewed-by: Ackerley Tng <ackerleytng@google.com>
 
 _______________________________________________
 linux-riscv mailing list
