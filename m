@@ -4,67 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A41CD11DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 17:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A37CD1283
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 17:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sjnSY3JzLZDVDrP9DEspoZw4np0rks3jMOZjbIema2A=; b=itKYmF9prseaPv3H2dhiyzGns8
-	7dkcYb8j3IVAi6p4oqHy9sQO0ipvzCfJ30eO2YXo3xnw83t/qjB4BiALqFwNQPyaRneMTEweqDhPJ
-	Oq3rVkzdvXAwI0DWLHFbhVBKzU14tbwIZjdwJvdxASpCu69BkzxRlv9UjCEfvVmREfCjAFz3FvWn5
-	LL9Rt90f+yLDT5GZvi8fhyaTph32LxweylLBhx77HGKuc85+mQg/ETr6ghMKGaqZOmXboZUMOmRtP
-	osY2wizi/Pn6VigmEXpi12V+KvFkwBXLQHR/N5ZaJNBqnVW4V5l9WwEU46nXElclSUs8K1sX5nqDU
-	RDRUp6ug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0DPAfWLiRovC1fo+jSwRRY+Q2dvV+Im3esUEqJj0glM=; b=eP9XU2yA411NlS
+	flbLo/h4QfROsjPcyoizY4bsZ5taaDvVSCqvebUhe7DFqMfe/EgIYOQwQybO1MQRoOJpO/zTjGddJ
+	JN+l4EInJ5HwK8CE7GA+a/D2pL0AEJpTNThN1d3fHltzL7IcwBhiU+/fsrg98Ju0LMrEO22h39xBh
+	Xis4KHi94EGH8E26t9K3YHm7600sB2fIJFW7ckkS/LCFRM6iiVKTCwlLsYBTh60TfuOzFcEfGU0sq
+	J2LvkL7tjiV5/V0dfYEpQRfv/sR/CGG5Ly+4VwqFBPhDqF+4I1T553i31r0KRsGQ9riLZCprQaYWr
+	uvGgA2QZNcNbkjzapRnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rptbA-0000000EzEL-0QyI;
-	Thu, 28 Mar 2024 17:31:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rptdQ-0000000EzZz-1X8k;
+	Thu, 28 Mar 2024 17:33:52 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rptb7-0000000EzDg-0DRC
-	for linux-riscv@lists.infradead.org;
-	Thu, 28 Mar 2024 17:31:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8A1AD617D5;
-	Thu, 28 Mar 2024 17:31:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 427E3C433F1;
-	Thu, 28 Mar 2024 17:31:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711647088;
-	bh=CflzFWQh3G9/XCdPqBoPfmOZwAkygYyYMrqOyjig4YI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O7CKwW0igy/TGcZ71MLSuOwuJ3fS5eykSGJpBXKVXlSUtWOMtmLs+e0+wxtCp2imW
-	 1eR75PLHDUSZ0e/yoOoJnicoQ9SYbGPGEkoX1b3k0pyknZA/W+kFUFaBf9UVhYL7N/
-	 7lU91ZjkJe9EsNDguSswstsgC313gQMqBbvi/cCaV7eQGbIhQV0rsZKmfVRrK+Aufz
-	 ylQcXRHmxw8a/CH2CHUkDZ+YMZ8v71ITaABVZBPMjxe624wj2kg+TcRaDyDeblMxs6
-	 duCn3IVCK7YErOXT9y5XwRpbKG3uY1tdOAnKCFtqWYC52APUy5BF1+xsL3jbz+MYN3
-	 oazqvDpxaKZXA==
-Date: Thu, 28 Mar 2024 17:31:23 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: linux-riscv@lists.infradead.org, Damien Le Moal <dlemoal@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-gpio@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 0/5] riscv: Kconfig.socs: Deprecate SOC_CANAAN and use
- SOC_CANAAN_K210 for K210
-Message-ID: <20240328-persuaded-arbitrary-805f12ecfe18@spud>
-References: <tencent_2E60E33C1F88A090B6B3A332AE528C6B8806@qq.com>
- <20240328-daytime-hankie-41a57ad9fbce@spud>
+	id 1rpsVV-0000000EiEc-38dB;
+	Thu, 28 Mar 2024 16:21:39 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-6e6f69e850bso1345023b3a.0;
+        Thu, 28 Mar 2024 09:21:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1711642896; x=1712247696; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TpQlnbUKf5vfOk3TpOVHNGMqh00k5XUuxEvlHT+naYc=;
+        b=Ig3SMP60ASVOXkyNLoVUK6JkoHfOklt0Rvx49rNdr9d5Ekj69vKRSw12yZMvYaI4He
+         PFpt8Bw0g9IeNo9Tk36T6HyE77gshqmN1z2fQY4icdZEcKCXoLAAwHtBFtsQQWNqIoz6
+         IvllvcjdJ6w3n6j0tFfhDcL9KhRzY0HWmiqPqLERqR7VBcGTuIGWAEX5atNCoq1BIQuI
+         MUUctWvlMpXMiHBLHzzdIwiX4NovfN6QY9Oq2kXY35Ex94eQ2OOssaJCeTsgGT8tJzR5
+         wgdu9Y5PM4cZmbuIpxvfyM3HDkTmJVI9STp/0vuHKKYTlwtzkHO/gcTHHhXG4UMzMqfy
+         dJPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711642896; x=1712247696;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TpQlnbUKf5vfOk3TpOVHNGMqh00k5XUuxEvlHT+naYc=;
+        b=X30hsn9crZACZIOPfHpcLkZa/cTXyNqm428m8NVBfbk2ZRsUE2FQkGuLuqxyYzCOR6
+         LjEK+Eh3JZvvc/2f1Gkoa732n2gUNa5U4JyWZxTVHX1nJLFlVtXbrheSntitAZOOtY5t
+         3CL66qt+E+YntrPOxqkK9KJwlsiEUpdwEJChYmN6RU8mymxs0SX8amXMce2U+RwQJ7dm
+         9ii+wmLnHnC03pdnPsMwnUIVS+Qf7DRkohcIKFb/PTKT2kD5eX1nSdFCn5Ng4B1aREjp
+         BEV4YlelpQkzedxegJ1UVloFjDmzv1AQg0enKXrm2cEi1ktljVVAVwETybA/rBBGFIPN
+         oJzA==
+X-Forwarded-Encrypted: i=1; AJvYcCVKEJe2MiO/oW7R88gJhhEHBZlnUwa2rb9Fin6TDYkwvdsXtR67qeyxY0yGCh9OxdRq6SCvakTE2C9ee7moyLpJea+EHSyaK0u6+T86Zbmt9p5CPF9B4vB76AqLGjUb712FFC5YOMrPIPgz3GMlEx8+0uwqLFyg4+7ZLCh+f3VJZSomf5mHsZilYbHdWsWBhffUfbJ93aLHvsmrLmHJ4ELMdY5N71hmYvIYEKarT4b9Aqb46o9XO+x1WQ7xP+Ax2NHUqOWi+FnmUZ7D6EqUCPXVk+FuBhp8wMsCLgfYEQIsywvD
+X-Gm-Message-State: AOJu0Yx0H7H4WkQOsjAybJ1HF204iUZWuOSceAlLC77Z/nhdLRHGCVET
+	RPcUIdoPPWgnfw+ojrE6rGUlMkzddgSRIddmLh19/Zxx9huSp3gI
+X-Google-Smtp-Source: AGHT+IHNLtSIfLiMjPgdNbH73n29Rqo4mQsh/oBERN464FH6NwbPkAtXL24hv7Aec7RU+H+HqkGb1w==
+X-Received: by 2002:a05:6a20:7495:b0:1a5:7308:3297 with SMTP id p21-20020a056a20749500b001a573083297mr1591044pzd.0.1711642896210;
+        Thu, 28 Mar 2024 09:21:36 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:400::5:4d4e])
+        by smtp.gmail.com with ESMTPSA id fd37-20020a056a002ea500b006eab6ac1f83sm1576815pfb.0.2024.03.28.09.21.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Mar 2024 09:21:35 -0700 (PDT)
+Date: Thu, 28 Mar 2024 06:21:34 -1000
+From: Tejun Heo <tj@kernel.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Allen Pais <apais@linux.microsoft.com>, linux-kernel@vger.kernel.org,
+	keescook@chromium.org, vkoul@kernel.org, marcan@marcan.st,
+	sven@svenpeter.dev, florian.fainelli@broadcom.com,
+	rjui@broadcom.com, sbranden@broadcom.com, paul@crapouillou.net,
+	Eugeniy.Paltsev@synopsys.com, manivannan.sadhasivam@linaro.org,
+	vireshk@kernel.org, Frank.Li@nxp.com, leoyang.li@nxp.com,
+	zw@zh-kernel.org, wangzhou1@hisilicon.com, haijie1@huawei.com,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, sean.wang@mediatek.com,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	afaerber@suse.de, logang@deltatee.com, daniel@zonque.org,
+	haojian.zhuang@gmail.com, robert.jarzmik@free.fr,
+	andersson@kernel.org, konrad.dybcio@linaro.org, orsonzhai@gmail.com,
+	baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com,
+	patrice.chotard@foss.st.com, linus.walleij@linaro.org,
+	wens@csie.org, jernej.skrabec@gmail.com, peter.ujfalusi@gmail.com,
+	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+	decui@microsoft.com, jassisinghbrar@gmail.com, mchehab@kernel.org,
+	maintainers@bluecherrydvr.com, aubin.constans@microchip.com,
+	manuel.lauss@gmail.com, mirq-linux@rere.qmqm.pl,
+	jh80.chung@samsung.com, oakad@yahoo.com,
+	hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
+	brucechang@via.com.tw, HaraldWelte@viatech.com, pierre@ossman.eu,
+	duncan.sands@free.fr, stern@rowland.harvard.edu, oneukum@suse.com,
+	openipmi-developer@lists.sourceforge.net, dmaengine@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-mediatek@lists.infradead.org,
+	linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org, linux-hyperv@vger.kernel.org,
+	linux-rdma@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-omap@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-s390@vger.kernel.org,
+	netdev@vger.kernel.org, linux-usb@vger.kernel.org
+Subject: Re: [PATCH 9/9] mmc: Convert from tasklet to BH workqueue
+Message-ID: <ZgWZDtNU4tCwqyeu@slm.duckdns.org>
+References: <20240327160314.9982-1-apais@linux.microsoft.com>
+ <20240327160314.9982-10-apais@linux.microsoft.com>
+ <CAPDyKFpuKadPQv6+61C2pE4x4FE-DUC5W6WCCPu9Nb2DnDB56g@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20240328-daytime-hankie-41a57ad9fbce@spud>
+Content-Disposition: inline
+In-Reply-To: <CAPDyKFpuKadPQv6+61C2pE4x4FE-DUC5W6WCCPu9Nb2DnDB56g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_103129_319663_357A4980 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20240328_092137_830801_AD3E69B7 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,56 +122,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1040470603365371700=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
---===============1040470603365371700==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="UcrsAOfCVzAaCjLs"
-Content-Disposition: inline
+On Thu, Mar 28, 2024 at 01:53:25PM +0100, Ulf Hansson wrote:
+> At this point we have suggested to drivers to switch to use threaded
+> irq handlers (and regular work queues if needed too). That said,
+> what's the benefit of using the BH work queue?
 
+BH workqueues should behave about the same as tasklets which have more
+limited interface and is subtly broken in an expensive-to-fix way (around
+freeing in-flight work item), so the plan is to replace tasklets with BH
+workqueues and remove tasklets from the kernel.
 
---UcrsAOfCVzAaCjLs
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The [dis]advantages of BH workqueues over threaded IRQs or regular threaded
+workqueues are the same as when you compare them to tasklets. No thread
+switching overhead, so latencies will be a bit tighter. Wheteher that
+actually matters really depends on the use case. Here, the biggest advantage
+is that it's mostly interchangeable with tasklets and can thus be swapped
+easily.
 
-On Thu, Mar 28, 2024 at 05:29:47PM +0000, Conor Dooley wrote:
+Thanks.
 
-> Please, if you don't completely understand what I tell you to do, ask me
-> to clarify. Asking for more information on what to do is not a problem,
-> it saves effort for everyone if you ask rather than submit another
-> version.
-
-I'm always on IRC, so you can always ping me or DM me there, I don't
-mind. I'm conchuod in #riscv.
-
-
---UcrsAOfCVzAaCjLs
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgWpawAKCRB4tDGHoIJi
-0u+wAP98BVScCz300OtHsu6ac1F9Gb4jC1iDLDZ7+TYfuDcO8gD9HiyZqmhfGKd0
-jeCBdh9KSJWrMxr5ra61LsdIg7xSMgk=
-=3yJ9
------END PGP SIGNATURE-----
-
---UcrsAOfCVzAaCjLs--
-
-
---===============1040470603365371700==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+tejun
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1040470603365371700==--
-
