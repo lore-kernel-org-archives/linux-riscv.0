@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20CD0CD1283
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DD17CD1284
 	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 17:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,49 +12,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yc8iB6kdFTW5YFQ/wQPmRelUfU++96RHLbCw78ZKECU=; b=3P1g/L2RBTthua
-	ndznYxMWfz/K804MXc8twLnbiCf2y0HITD1mi9bJe5TIZGa1aT42kB5wLXfeuZU/FGI0/mpxYoOIb
-	tiq1VBJQYO45Om0KcXTl/wGh4JlxdUpt7fHxFlmZSkgGQKVrkGrWkiLa1AbA06Ph/U3cl13LA4sbp
-	ORK5O48SItmWXDBjIzClVazE5mCtSwNcKJEaetbDomyye6Y1sm6MYKWcHMNP8zSTzBMkSMfUt3H8m
-	enKJUfS0tOD651Iysfs1WEoBqDf31OEe4Nx/+0noVpR7hNjVkKe8Zn6WufBSUbaAAKrrusf4CEDGE
-	ej3iMqtWy02QPRwZTtyQ==;
+	List-Owner; bh=l0tk1rsxVyRibtHSj7lOKGfyFZ0bi10IIMCb5PXrJ/g=; b=KygMuS7cteerJV
+	R67zhhVU5TgAi+rfDSxUq0DIvTHaOROnhLw8t3cMoqp2Qh7YAMYkCYu+TJT1cAMyvTm+G4PkHDDXd
+	1E+XZ4N046pIO46SHhd+6pnKUyh2Sj4yS8bxghurbEjgeVvFYxnkWQXVy/bn9w6KJzzeTIy2qEwIr
+	T9Gdw+BW2gsvDnF6Hq75Qk6BEetAFG19URhuw8BN6GU1FIyBhwsY43w6+c/VbazTO++fKnNrMYmbt
+	n27dkJn897Navehb2FPgg2T0yB6QCQKlXjklHFHQjCvyRiK9+DO25QoYgLK4F9DkAF0Mcd3A/Sn3+
+	/9Wsu9EIR4DbpvkwV6rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rptDF-0000000EuOe-2FW1;
-	Thu, 28 Mar 2024 17:06:49 +0000
-Received: from out203-205-221-209.mail.qq.com ([203.205.221.209])
+	id 1rptDE-0000000EuOA-1ZVB;
+	Thu, 28 Mar 2024 17:06:48 +0000
+Received: from out203-205-221-149.mail.qq.com ([203.205.221.149])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rptDA-0000000EuKJ-3Y3C
+	id 1rptD8-0000000EuIU-1v1K
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Mar 2024 17:06:47 +0000
+	Thu, 28 Mar 2024 17:06:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1711645601; bh=ShRfnoFe4/QTY7IWset6XRPKvmziMcmsdCdl78vdWsA=;
+	t=1711645594; bh=RnwPI3xUzFH0YfHcr806XZGfdJDxCh40cBGvRvtlcpo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=N+VPNXMI7i5YVlfU8+bnr+QXIvudiBS04OVDybCbyK2suqGQ34GPMYVKJ+Q52Qz0r
-	 oaFtBSJU9oFdcswZniNoa/hGnXUdrVMCOU93C/ph4JLVYSSsD4H4DbwRnv0miqflNk
-	 eI0jkpt77pnN5KJVnjqmAuH6DySwG1OCSAAQmRcw=
+	b=z4LPhXyV6zXEPym+gj6mxKT1QL2cG0syvinZaEvp1/mOYWJ4A/pX+3cqoWfvnka0p
+	 Bbr7+FoWEYpRWrjOlZDh46s3G6Hxz8/AwOJjULFchn/5f/1PEkGFXIrQKNvf8JGkJa
+	 +UWbn7wB8TU6FVijnCEatUur5kKhEnIG8EhWlYF4=
 Received: from cyy-pc.lan ([240e:379:2277:8a00:7feb:196a:dd5b:c05f])
 	by newxmesmtplogicsvrsza10-0.qq.com (NewEsmtp) with SMTP
 	id 199B7A03; Fri, 29 Mar 2024 01:06:25 +0800
-X-QQ-mid: xmsmtpt1711645598tgdi2glgr
-Message-ID: <tencent_8A35663124AED1894F53905E1BC0F1091705@qq.com>
-X-QQ-XMAILINFO: Nfm/+M6ONQ57uqGksiE1sIyx981IWc6h3ZDq8dDiTnV4PmY1QRaC0DZckQyVix
-	 jnKTFyYAwhabDVHbsVwwpsAlIUrjx1YTYJCgc2U+Qxj0yzYT8EBk0tDy0Tdl6vxP5dyEaXXTIjzB
-	 oboFs30cYRKhFPhnwElS9zw41vSyXwE7J+tfkTxUdXE0jE1jNJT1Nt2VfNIc5qjP6KSSm8xeLAFg
-	 uRkDSzEyaXZEP5UMcJxj2CE08GYlHRkbl/w3GxAw4yBjdbqVK6uFCsv4797BNUpOKv1WbyoTddVV
-	 LEx1Mmr/8B4IdPWQDpB3dMjJk+/If1/n1XZYJaQCi9a8+J8hLT1WVRVDqlEDw6Ye2pSfIhhH+AZv
-	 f4K+HGC+O2HA0EWsZa5RqcmlAjpn2mcvboI6986EWL6d26B2NvYQ7UPy9c0C37FclxmUmSAOH2Wc
-	 WWfhdbd7kI6busyDg84DosRAXL85gzrgYHT1VGD5FOJNXeLci88xzsw/lfsQxngRK1SFtCgAKgva
-	 rx827kcfRT5aRgzmj/rxaS6rXP9BewMSe0tvGztMFfhWkBTyEgKXe5ch+fjy5N+3fp6ECaDwqw4K
-	 4GP0JqMLsP75xEBZAhW/+NojX6an4gLutGmhadcIZCAkIh9zykrcXAxGpiSKvAIcIqXMh6pFZm6H
-	 46MXMCkrmzaRS37nf1quZaQwSxW7P+En7uLsGEx5sMjLKGsbfqPn/yf1e3QJ7BLxMu20rWE9gkIR
-	 0p+HgWvrq3ITKGgIFMgCvZmoFAnYwV6mju3J3gmuto1q4USuRs7XSQMamZcDAeQMMiaZNCebMP58
-	 FqU29XWXQXTXh2a5PUBcI18NzuaEEW1gAumK1NAjuIsEukulpX2l1uQ/2AcNtUPVikt75dzgCmHS
-	 DSurfMRVEEpY+RTc25KFkbmJbJckdlenNYNSg7iI/GYMuep/Yx7L0xKUvNuiPNSBp1S1+br2WkKg
-	 nNdatZYR7v2Cbb2HqUx28HUr/Ah2B56gcGPHOE7NgYOsV8ZPOQU+j2bsli4WGWg8S1mEtQkEi9cS
-	 Ae8jx/d+H8OZVm/2QIOTqcr7C4Yke2e7rzDN/E8qjvEtAEYQf2gJYHlTytD1el3u9yMMSD4MpC3w
-	 LnD2Wd0gEC9cSDvcE=
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-mid: xmsmtpt1711645591tckem6orr
+Message-ID: <tencent_9B2484D4343EF1ED092E6A1F3A66E206C40A@qq.com>
+X-QQ-XMAILINFO: NQR8mRxMnur9xxghampKTcaF5ygM6Xb3xSu1tk3h3SU9QixsXNmc8ddLbj5+bM
+	 VVOLuu0xXtZ0DO9etmedCYZOVEFeWmtfQKaowR079nT94bzbxvjJr6m5Gykd2e/sEAYMkxERPtHb
+	 xtvwT2TPDvwDpg0siCck/O8aEb7NgNctEMkTdj6Px4aGCFerSGGUW7G+QAoMApznDrpnLwFd+/WH
+	 2v9UCo1KCwJSiQwdSCEAIfU5wxPc7rroWAC36CbIl+HzkP/nN27ZtdsH0KkJUKnrLe53gRp+F6ki
+	 I+CxTQs6erhGmNo0vg2M4E+eE4mJEyZqFKGMMB6XgKCzW3r04yTOAzWJ9EerY7KTArJitCzp4O7p
+	 2zfM7QTyvCe7CBOVIMuRhvfyOf1k/uPUK8nu0I1SmX3IjA48fBD/lHWAksTY3PiDuQ5fyPPQd9gJ
+	 +E/M0CAnu2f14ACDd54RFzb4rL+lGwRo4Dlp2g/nLrAUTb0Ks0GXT/wnliHwVDaBQKvEnGWWwdhJ
+	 sU8qp+1dVIfS+Z3Am/2JqYGF2PxJhbtHJk48TinV4lQK5sp4wuUuJ9qb1RaEB7GNSnsWIr/AyBXf
+	 coysIo15AnyIPfrFaid2LTZNLBSDx4x6Q3ZkKYPVKED0/Jm1bRHoILu9X352thpGKWzc41ewAJyb
+	 DoDaWcUM4mw3AtSBeVPJ4s3sx+wvRstvF/tz/Afx8l7MiFdumk7BV5NLmnPqaAAe6tBmcom/W9RM
+	 I3cvcG26hhKkC6VvIJfKRt1Ww6V/mlspajE0Ei6ecbIpZfWwsXYGHEp0mtmUSuwkh4Ii5Wl06gYw
+	 5UzhNv5O+3EpSOIAqiSdpg+29BjxxZF8fhr2iuHAUPW1n7fBYr44lOAtTXrT99DYE0VckGpAGbTQ
+	 FOwvNnuKFEDoMsaMX4E9TH7dL6nf1d+xLPegg92xl/ys1ClSfdo76G6+H6jdmKP/bwzF7dPI8YVi
+	 5bejQZHNUIKLJAdI0lnb4VNAafVvLD1kKdXW+KKBl4RFA1P5qj3+G3D02Uz9/DpTPQTTtxCJd+/Z
+	 SKkkl+kfkaVBR1mkEA6AgUTFRKqH1l+nd1pbz+/Q==
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
 From: Yangyu Chen <cyy@cyyself.name>
 To: linux-riscv@lists.infradead.org
 Cc: Conor Dooley <conor@kernel.org>,
@@ -72,16 +71,16 @@ Cc: Conor Dooley <conor@kernel.org>,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Yangyu Chen <cyy@cyyself.name>
-Subject: [PATCH v1 5/5] reset: k210: Deprecate SOC_CANAAN and use SOC_CANAAN_K210
-Date: Fri, 29 Mar 2024 01:06:13 +0800
-X-OQ-MSGID: <20240328170613.120131-5-cyy@cyyself.name>
+Subject: [PATCH v1 2/5] soc: canaan: Deprecate SOC_CANAAN and use SOC_CANAAN_K210 for K210
+Date: Fri, 29 Mar 2024 01:06:10 +0800
+X-OQ-MSGID: <20240328170613.120131-2-cyy@cyyself.name>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <tencent_2E60E33C1F88A090B6B3A332AE528C6B8806@qq.com>
 References: <tencent_2E60E33C1F88A090B6B3A332AE528C6B8806@qq.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_100645_608985_0BFD2DF1 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20240328_100642_933774_B1C08211 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,39 +98,54 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Since SOC_FOO should be deprecated from patch [1], and cleanup for other
-SoCs is already in the mailing list [2,3,4,5], we remove the use of
-SOC_CANAAN and introduced SOC_CANAAN_K210 for K210-specific drivers,
+SoCs is already in the mailing list [2,3,4], we remove the use of
+SOC_CANAAN and use ARCH_CANAAN for SoCs vendored by Canaan instead from now
+on. Thus, we should also change the Makefile here to use ARCH_CANAAN.
 
-Thus, we replace its drivers depends on SOC_CANAAN_K210 and default select
+Then, since we have introduced SOC_CANAAN_K210 for K210-specific drivers,
+we should replace its drivers depends on SOC_CANAAN_K210 and default select
 when it has the symbol SOC_CANAAN_K210.
 
 [1] https://lore.kernel.org/linux-riscv/20221121221414.109965-1-conor@kernel.org/
 [2] https://lore.kernel.org/linux-riscv/20240305-praying-clad-c4fbcaa7ed0a@spud/
 [3] https://lore.kernel.org/linux-riscv/20240305-fled-undrilled-41dc0c46bb29@spud/
 [4] https://lore.kernel.org/linux-riscv/20240305-stress-earflap-d7ddb8655a4d@spud/
-[5] https://lore.kernel.org/linux-riscv/20240305-praying-clad-c4fbcaa7ed0a@spud/
 
 Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 ---
- drivers/reset/Kconfig | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/soc/Makefile       | 2 +-
+ drivers/soc/canaan/Kconfig | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index 85b27c42cf65..7112f5932609 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -103,9 +103,9 @@ config RESET_INTEL_GW
+diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+index ba8f5b5460e1..fb2bd31387d0 100644
+--- a/drivers/soc/Makefile
++++ b/drivers/soc/Makefile
+@@ -7,7 +7,7 @@ obj-y				+= apple/
+ obj-y				+= aspeed/
+ obj-$(CONFIG_ARCH_AT91)		+= atmel/
+ obj-y				+= bcm/
+-obj-$(CONFIG_SOC_CANAAN)	+= canaan/
++obj-$(CONFIG_ARCH_CANAAN)	+= canaan/
+ obj-$(CONFIG_ARCH_DOVE)		+= dove/
+ obj-$(CONFIG_MACH_DOVE)		+= dove/
+ obj-y				+= fsl/
+diff --git a/drivers/soc/canaan/Kconfig b/drivers/soc/canaan/Kconfig
+index 43ced2bf8444..3121d351fea6 100644
+--- a/drivers/soc/canaan/Kconfig
++++ b/drivers/soc/canaan/Kconfig
+@@ -2,9 +2,9 @@
  
- config RESET_K210
- 	bool "Reset controller driver for Canaan Kendryte K210 SoC"
--	depends on (SOC_CANAAN || COMPILE_TEST) && OF
-+	depends on (SOC_CANAAN_K210 || COMPILE_TEST) && OF
- 	select MFD_SYSCON
+ config SOC_K210_SYSCTL
+ 	bool "Canaan Kendryte K210 SoC system controller"
+-	depends on RISCV && SOC_CANAAN && OF
++	depends on RISCV && SOC_CANAAN_K210 && OF
+ 	depends on COMMON_CLK_K210
 -	default SOC_CANAAN
 +	default SOC_CANAAN_K210
+ 	select PM
+ 	select MFD_SYSCON
  	help
- 	  Support for the Canaan Kendryte K210 RISC-V SoC reset controller.
- 	  Say Y if you want to control reset signals provided by this
 -- 
 2.43.0
 
