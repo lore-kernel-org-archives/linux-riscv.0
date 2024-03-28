@@ -4,66 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E97C54E67
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 10:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B977C54E64
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2024 10:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gzl7TKY089gusFtr3VQacrEBiFY8b9rGAsv/Fz1+s6M=; b=q2YCZVp15A/bfE
-	CJH1QH5ub/p3CxhYQfFNsO4ASc8/+Lo1pGOtelSP2QERCVYsjr/EzFJzeOWmkUtPGRFTtSLAwcSLN
-	y6BgqHJrcjvsorZndPnGhtbjHV1LueRAlpvHTO/5oxk4LG5d5E8Dm7eHIhYzbMjCmMEKa2FGbogl7
-	okhFk2rmteOJXT3Ri7koYUon4VZmOzvZOlL6zE7NRPHahUxEIFeh7emfbc54n7LBzLmqQNRvQLLOc
-	HCqSR8oTnWyygu6H11o5T0l4wcLbaQLH3CgrG+rl1mn30RRcSZ6JOBHLj0XGslRdaQuJ/gM/ES9Rq
-	Wocc0W6M8sgxwrhB/T3Q==;
+	List-Owner; bh=+kNvhw3knRSVj13QTk37elp/vGAY36Yby+j9D8VXJxo=; b=yUEKAA1nC2uSBH
+	fSc0nvWmsr0kVEhX34ydOPF4I7p3jpVLiCRNgBl2Ywju2IIDxh23GbM6S6UjKo9kHu0OexaJgPb+X
+	OPjs1GPk7Vl6Qc0MdCEFzrFqsz9m47h5juMd9ukNy0VurffWibfHuSgpfqLGfjEs/D4BnuQw47iM+
+	w5fBauQ8DGvSrB6BouXXqUnxOUiR9paudFAQO12bOIYcaIzNkSisXHCbnoaLR9JebXfYq6muRloe+
+	dhcXGkHuBdhrXrZLOG2xS3C5meMwgHNkP4jOOay1wryAJhrtmnUsEa00B+FtjLCXhyvuhAGqAKXTI
+	t0Ztx2wSMUUD7dC+vh6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpmwP-0000000DYO5-47HP;
-	Thu, 28 Mar 2024 10:25:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rpn4i-0000000DaSQ-3Tzi;
+	Thu, 28 Mar 2024 10:33:36 +0000
+Received: from mail-sh0chn02on2072b.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::72b] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rpmwM-0000000DYN8-0zA7
+	id 1rplua-0000000DHIC-0l3u
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Mar 2024 10:24:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 220AF610A4;
-	Thu, 28 Mar 2024 10:24:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09B64C433C7;
-	Thu, 28 Mar 2024 10:24:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1711621496;
-	bh=1cx1Xifn9yhAxfZ5u2l/0D09nOJTgLrcayVsJ8qGHPQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bQK7GBDe1wsZlOAAMHiYgXEi6nC6ZSDIE6GsMksCXpsOEpueKiDPu5ma+SruGSoG4
-	 KNMXCq9vhjZxFpBvLiUb5jo4C/VoUsNzUxxG/WyH2EueJBJCfhm4iStVss2jpxgxQm
-	 1JKVnc+QMLCG9HnxTccidaDLw6C8XpFTf9hx8aKXCMyAPbI2kmybqdd5xsbZnzKmHf
-	 Vs+nQrtEbfk4sUxsTJ8IfmF0AGLdmxDhUEgVhK2NQ2NL004wgjOAbyf61BHvtyfd2p
-	 OLHoBf5AvQ29YSeymdVlGwpxcJKBIS1xdg/kkGsmatLvyja00DlrNZnIV0PupaMFIl
-	 9PhTfVXgLKj7A==
-Date: Thu, 28 Mar 2024 18:11:32 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Thu, 28 Mar 2024 09:19:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Z8a2WrG62mfgKVBRiccgVw0WTfGX8/9tXWs91R2AJoQy4Er4rTsVrER5/h9DZ3Nal9xlkLvkyR8bSExrS8mTLbWffAK+yzTXQliAIbg/Px9/ShIznYgME7AobD9pf500jtGOLdNhOQPIE0BLRz4KdraWtcfT4fugi2Dh9ny3w39hKtyT7OpOIXAlac8UnBS6TWpjY+aIrRwsf35DitGmUctmzywhha1EMNKHOWJtYGobKvpaLu1Sln/p+2+OzgTnAc+2hMZIxF79nOgHsXq5aLegoJ4Zu4vL2XvKCF0TGLLlko+yy75tluPBvqGMpo3I7bwl+Ih0+OqJblEJB8uJJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y0xQ+n7Z9xr/tqKO1GG6+qOqHTvU7sd+8IFwaPvoiPU=;
+ b=ggxUDmg/vXjcQ5zJOE+vUbspfloQfwjQ7/zj/9vGAuNtUoipYx394NMXk79l2Tc845wEfRuKuCoAvzXs7pal2fPjHW7m9y2tZiaxu/hHKq3KWbPjnTeev6JLN5hEowwxdUR/8pF87Z8QCnR7xtH0jd3EBdOuE+vp6DiYVQh+AUabBbmdTR1ohFaIURIRjQl9hEw9OI1/e35ptL5TKcukbyDEJFTMVaTf8YEV1pB1tmS4tWv0aInfi3zqsKxI1gkWkW2HeKoS9RBHjHNqSCQk+JOoC2EfTjIUTntRihHQl/eoxqm0KiwiHM+s7vi4FFluBfbi91U6RZqle0G2aQO3VA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15) by SHXPR01MB0496.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1f::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.32; Thu, 28 Mar
+ 2024 09:18:46 +0000
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ ([fe80::c738:9e6b:f92e:8bb9]) by
+ SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::c738:9e6b:f92e:8bb9%6])
+ with mapi id 15.20.7409.031; Thu, 28 Mar 2024 09:18:46 +0000
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/5] riscv: nommu: use CSR_TIME* for get_cycles*
- implementation
-Message-ID: <ZgVCVKu5YaBDUULB@xhacker>
-References: <20240325164021.3229-1-jszhang@kernel.org>
- <20240325164021.3229-3-jszhang@kernel.org>
- <b063df9b-90b6-4f06-8be5-5a8c267e6c8d@sifive.com>
- <ZgL31BFWvaLwYQrN@xhacker>
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>,
+	Minda Chen <minda.chen@starfivetech.com>
+Subject: [PATCH v16 02/22] PCI: microchip: Move pcie-microchip-host.c to plda directory
+Date: Thu, 28 Mar 2024 17:18:15 +0800
+Message-Id: <20240328091835.14797-3-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20240328091835.14797-1-minda.chen@starfivetech.com>
+References: <20240328091835.14797-1-minda.chen@starfivetech.com>
+X-ClientProxiedBy: NT0PR01CA0020.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:c::16) To SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZgL31BFWvaLwYQrN@xhacker>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0496:EE_
+X-MS-Office365-Filtering-Correlation-Id: fd71faf1-982b-4b89-0c56-08dc4f0811e9
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 680hlDLRwuCT3fowQQIvfcaZ+WsFtzljXdlry5Q9gPRgR0zl+xUNq5/Ww1reV7ublXfrZFV7cSQmnDl+ppdjIsevZoBegVz9K25FbRZzFd0M+vCLBbpP8Yj9zHZ6LKbQhuaXAm3cfBUhDmD8tmEgP4sGsu1dR5RhUtFLAHsjieOstCW/V/qgtt1rYwe4hdAkLZ3qp+pgFO8vjs9KlHB5Nb3CoV8rrQU+h+7ZePxr2EayU+61gJl1GCcB+6eY3mXkBETBkQhHrdpemPyVkXgTX1xLI82IsSpmDuou8w96GsNIxUST8gEi/zuytp8uM9P3ZTTQhO2znPFzQF7B9Z6DbtjHX/XXH8W/13WvvRAcJX2MRBbGxh7xBEM8D5S3pWmJ4IAspVSO29sji372f2g0AjPaTDJ7BVDtkJZl95SnScRIeoR3JbZ6j5aF7zk8S3TOMAtsFYbkmNy2wtAUawKGmXLGtoCkGChwzwPhV1/xysQy1x02lcD/xGN6ZLE+S5tpgKyZIzHypQVdHgNAKVAf67BE5EA1exJhlT4GDLm3i8DxTmBXB2N4c8gx3qhP9xHeypJjY7LUoKTkOqR8UrfY7ehKGujecHLhwtT8N6AulFBDlKvtpQggdtweZiMCh0sM
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(52116005)(1800799015)(7416005)(41320700004)(366007)(38350700005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wrDTMtPcou/msgBhE3arEgQCYw5uq07V82MU0fVkThlSFwQz+Mo/RBnpg47v?=
+ =?us-ascii?Q?7AY3j5eF/aYgTCE4KpsX4Eki5SocxOIgKhc0Ed/b/bdoXguvxdjz8On97v5U?=
+ =?us-ascii?Q?fRiA28w+bdmPFRVAWsA1aDmALnzuuljafknvKMPbq4ywSvNvzseOsuEzxjt0?=
+ =?us-ascii?Q?yBK3WzA718ZtrMz1MGyrBsMXQxpBPApIeqSW8Rp76kLVNE1LjB/tFAn0O9Ix?=
+ =?us-ascii?Q?XibC/yx6HYQ5oxkZdkoUYbN/2q8yOEiiJJMA+08082h72yjUciOzy/qMEy0i?=
+ =?us-ascii?Q?MjGgn0Pdug0Kd0yuaJ7xJXApahm+DQmNjgdxr9Q18+fhIJ0SiHBMjh6lJj7e?=
+ =?us-ascii?Q?xXZJ7OfpCEukjjWWznSf2rjwdG+Wf7xqKOTExyuZKCIyZGGCkL8p/0cPCFmB?=
+ =?us-ascii?Q?s4gSawEktouK1gS+4ZqIL67I1EWHjtt0khqZBThdQ6EIauev2dEhd0yLUw7X?=
+ =?us-ascii?Q?F4jfdKCYQTPSzR6dMvKkWIO/16mIPTP700uPtj19AH5VscGc2s4KGY0FpbmE?=
+ =?us-ascii?Q?Gh2ynaGWk21NFQhe7c14sExcoWll3rfcuStFPAAtHUypTTz1DMvYys8/WJWw?=
+ =?us-ascii?Q?AQruIQkoyWzODrKQ24Y6yaOCQVCitB+1S2AzVgyZ3YpZFMPXur+5a5rkbzbv?=
+ =?us-ascii?Q?J54ptRECyt18F1eUv4ztUAsrFXKCBMoESU+wjc3YXuPpzrF3C2f7TTfTNFEE?=
+ =?us-ascii?Q?fLdluKlEExXB+MaFPsSb+g3VtQC/TkWv/hEydVFJIcFCxnmrTFIL5Ti4QaU0?=
+ =?us-ascii?Q?kJg/YKPSbK/r9er8dNDv9ubE9iymED9qeHJHLrM2FWbMS3IebqTmCd9Dz2XK?=
+ =?us-ascii?Q?W0xdeupLX85qxj3n2aj0k8hm0m85feblqJYbTA+bexS+h0BMasDz0HZVu4RI?=
+ =?us-ascii?Q?KfpI8p6UVuJNv9KJKrVLqqdSUbNmMRY5fsZQjDrZ7nQW9uyG/2kglb9VqVGh?=
+ =?us-ascii?Q?MQf0o45KFYrBwlHkRfeDtQWsGNhWeDTSuvR5ZB3FbLs9AO8NfsonS2zxX8iW?=
+ =?us-ascii?Q?i0aIwtUIFuMRH3paiqZm/zlEbOMHzZUMQUqIUeMHAPrFyhEwoRRwc8hYlul1?=
+ =?us-ascii?Q?S7z62/Kr67UotM6vqFVqXUxJ/JNxzC4Gefj9E/TnjIXdlnT3TyKBMjRnOl2s?=
+ =?us-ascii?Q?jOepPdd3bfWXeM2hDn1h4zuzh65KB+4Yzgz9paNTQVgJupmyU53PpRN7EH+5?=
+ =?us-ascii?Q?UVj90tSnre3AF+jb+5j5cS9SVBZmrcSrKXCJLdnkzaGx8UtXXhZkP5JAGYEi?=
+ =?us-ascii?Q?B4V2qJ4QbPFK5rzBfvjHoo7AK2wk+0Htl3QuClaoVZT+ToibPVSymQ00Ks21?=
+ =?us-ascii?Q?uyI9eUvA9on30SXiDG81nFl0h2V5GVBUXYEp3PaD8kihQtakEZzOS1Y4SYfh?=
+ =?us-ascii?Q?9zITbYpqEAbCYFrlKT/IS9ZvDR1uury0tLfqYGDrEaXcsyrj0MRXclCQrB4K?=
+ =?us-ascii?Q?ENdSudzhlMmef0Woh00NuLpjrWUqU2waWHUhgOTs0bVZ+SWa9W5Om1bV2+/A?=
+ =?us-ascii?Q?+hnn+88sJNp8FDg6F2WbKpdQjEsS/L0kSSmQfJxiRBl4bUmw/lM5UPTCEtRL?=
+ =?us-ascii?Q?0HjeChY0L77EAR5EgWZ2LO6pithBaDj4vjmioIlaPq1BAUXqsd5w9TDxWBZX?=
+ =?us-ascii?Q?oA=3D=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fd71faf1-982b-4b89-0c56-08dc4f0811e9
+X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Mar 2024 09:18:45.9663
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aTtpTG5maX9EC9DQy4sR7poYi1XZywHrDk2sUdnMMaN/sLSIeOTLb6KRRr605i8rthOsj6A3g7VtM+hUATWGoPi1nycxtesML/eYxWEleks=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0496
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_032458_505727_B50F5C84 
-X-CRM114-Status: GOOD (  31.19  )
+X-CRM114-CacheID: sfid-20240328_021904_252155_7A21E5E9 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,120 +146,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 27, 2024 at 12:29:13AM +0800, Jisheng Zhang wrote:
-> On Mon, Mar 25, 2024 at 09:39:26PM -0500, Samuel Holland wrote:
-> > Hi Jisheng,
-> > 
-> > On 2024-03-25 11:40 AM, Jisheng Zhang wrote:
-> > > Per riscv privileged spec, "The time CSR is a read-only shadow of the
-> > > memory-mapped mtime register", "On RV32I the timeh CSR is a read-only
-> > > shadow of the upper 32 bits of the memory-mapped mtime register, while
-> > > time shadows only the lower 32 bits of mtime." Since get_cycles() only
-> > > reads the timer, it's fine to use CSR_TIME to implement get_cycles().
-> > 
-> > Unfortunately there are various implementations (e.g. FU740/Unmatched, probably
-> > K210 which this code was originally used for) which do not implement the time
-> > CSR, relying on M-mode software to emulate the CSR so S-mode software doesn't
-> > notice. So this code is needed to support those platforms when running Linux in
-> > M-mode.
-> 
-> OOPS, I knew this for the first time there are such implementations
-> which doesn't implement the TIME CSR :(
-> 
-> > 
-> > Maybe there should be an option to assume the time CSR is/is not implemented,
-> > like there is for misaligned access?
-> 
-> Yep, this seems the only solution. Then which should be the default
-> choice? I.E
-> 
-> Assume all NOMMU goes through TIME CSR, and provide an option for
-> platform lacking of TIME CSR. This prefers TIME CSR.
+Since Microchip Polarfire PCIe host is PLDA XpressRich IP, move to
+PLDA directory. Prepare for refactoring the codes.
 
-Hi all,
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ MAINTAINERS                                        |  4 ++--
+ drivers/pci/controller/Kconfig                     |  9 +--------
+ drivers/pci/controller/Makefile                    |  2 +-
+ drivers/pci/controller/plda/Kconfig                | 14 ++++++++++++++
+ drivers/pci/controller/plda/Makefile               |  2 ++
+ .../controller/{ => plda}/pcie-microchip-host.c    |  2 +-
+ 6 files changed, 21 insertions(+), 12 deletions(-)
+ create mode 100644 drivers/pci/controller/plda/Kconfig
+ create mode 100644 drivers/pci/controller/plda/Makefile
+ rename drivers/pci/controller/{ => plda}/pcie-microchip-host.c (99%)
 
-v2 will prefer TIME CSR.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 06278f1db13f..dd158cc7b009 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -17183,7 +17183,7 @@ M:	Daire McNamara <daire.mcnamara@microchip.com>
+ L:	linux-pci@vger.kernel.org
+ S:	Supported
+ F:	Documentation/devicetree/bindings/pci/microchip*
+-F:	drivers/pci/controller/*microchip*
++F:	drivers/pci/controller/plda/*microchip*
+ 
+ PCIE DRIVER FOR QUALCOMM MSM
+ M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+@@ -18963,7 +18963,7 @@ F:	drivers/clk/microchip/clk-mpfs*.c
+ F:	drivers/firmware/microchip/mpfs-auto-update.c
+ F:	drivers/i2c/busses/i2c-microchip-corei2c.c
+ F:	drivers/mailbox/mailbox-mpfs.c
+-F:	drivers/pci/controller/pcie-microchip-host.c
++F:	drivers/pci/controller/plda/pcie-microchip-host.c
+ F:	drivers/pwm/pwm-microchip-core.c
+ F:	drivers/reset/reset-mpfs.c
+ F:	drivers/rtc/rtc-mpfs.c
+diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+index e534c02ee34f..4d2c188f5835 100644
+--- a/drivers/pci/controller/Kconfig
++++ b/drivers/pci/controller/Kconfig
+@@ -215,14 +215,6 @@ config PCIE_MT7621
+ 	help
+ 	  This selects a driver for the MediaTek MT7621 PCIe Controller.
+ 
+-config PCIE_MICROCHIP_HOST
+-	tristate "Microchip AXI PCIe controller"
+-	depends on PCI_MSI && OF
+-	select PCI_HOST_COMMON
+-	help
+-	  Say Y here if you want kernel to support the Microchip AXI PCIe
+-	  Host Bridge driver.
+-
+ config PCI_HYPERV_INTERFACE
+ 	tristate "Microsoft Hyper-V PCI Interface"
+ 	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI
+@@ -356,4 +348,5 @@ config PCIE_XILINX_CPM
+ source "drivers/pci/controller/cadence/Kconfig"
+ source "drivers/pci/controller/dwc/Kconfig"
+ source "drivers/pci/controller/mobiveil/Kconfig"
++source "drivers/pci/controller/plda/Kconfig"
+ endmenu
+diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
+index f2b19e6174af..038ccbd9e3ba 100644
+--- a/drivers/pci/controller/Makefile
++++ b/drivers/pci/controller/Makefile
+@@ -33,7 +33,6 @@ obj-$(CONFIG_PCIE_ROCKCHIP_EP) += pcie-rockchip-ep.o
+ obj-$(CONFIG_PCIE_ROCKCHIP_HOST) += pcie-rockchip-host.o
+ obj-$(CONFIG_PCIE_MEDIATEK) += pcie-mediatek.o
+ obj-$(CONFIG_PCIE_MEDIATEK_GEN3) += pcie-mediatek-gen3.o
+-obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+ obj-$(CONFIG_VMD) += vmd.o
+ obj-$(CONFIG_PCIE_BRCMSTB) += pcie-brcmstb.o
+ obj-$(CONFIG_PCI_LOONGSON) += pci-loongson.o
+@@ -44,6 +43,7 @@ obj-$(CONFIG_PCIE_MT7621) += pcie-mt7621.o
+ # pcie-hisi.o quirks are needed even without CONFIG_PCIE_DW
+ obj-y				+= dwc/
+ obj-y				+= mobiveil/
++obj-y				+= plda/
+ 
+ 
+ # The following drivers are for devices that use the generic ACPI
+diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
+new file mode 100644
+index 000000000000..5cb3be4fc98c
+--- /dev/null
++++ b/drivers/pci/controller/plda/Kconfig
+@@ -0,0 +1,14 @@
++# SPDX-License-Identifier: GPL-2.0
++
++menu "PLDA-based PCIe controllers"
++	depends on PCI
++
++config PCIE_MICROCHIP_HOST
++	tristate "Microchip AXI PCIe controller"
++	depends on PCI_MSI && OF
++	select PCI_HOST_COMMON
++	help
++	  Say Y here if you want kernel to support the Microchip AXI PCIe
++	  Host Bridge driver.
++
++endmenu
+diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
+new file mode 100644
+index 000000000000..e1a265cbf91c
+--- /dev/null
++++ b/drivers/pci/controller/plda/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+similarity index 99%
+rename from drivers/pci/controller/pcie-microchip-host.c
+rename to drivers/pci/controller/plda/pcie-microchip-host.c
+index 137fb8570ba2..cb09a8137e25 100644
+--- a/drivers/pci/controller/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -18,7 +18,7 @@
+ #include <linux/pci-ecam.h>
+ #include <linux/platform_device.h>
+ 
+-#include "../pci.h"
++#include "../../pci.h"
+ 
+ /* Number of MSI IRQs */
+ #define MC_MAX_NUM_MSI_IRQS			32
+-- 
+2.17.1
 
-Thanks
-
-> 
-> VS.
-> 
-> By default, MTIME is used, and provide one Kconfig option for TIME CSR
-> usage. This prefers MTIME
-> 
-> which choice is better? Any suggestion?
-> 
-> Thanks in advance
-> 
-> > 
-> > Regards,
-> > Samuel
-> > 
-> > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > ---
-> > >  arch/riscv/include/asm/timex.h | 40 ----------------------------------
-> > >  1 file changed, 40 deletions(-)
-> > > 
-> > > diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
-> > > index a06697846e69..a3fb85d505d4 100644
-> > > --- a/arch/riscv/include/asm/timex.h
-> > > +++ b/arch/riscv/include/asm/timex.h
-> > > @@ -10,44 +10,6 @@
-> > >  
-> > >  typedef unsigned long cycles_t;
-> > >  
-> > > -#ifdef CONFIG_RISCV_M_MODE
-> > > -
-> > > -#include <asm/clint.h>
-> > > -
-> > > -#ifdef CONFIG_64BIT
-> > > -static inline cycles_t get_cycles(void)
-> > > -{
-> > > -	return readq_relaxed(clint_time_val);
-> > > -}
-> > > -#else /* !CONFIG_64BIT */
-> > > -static inline u32 get_cycles(void)
-> > > -{
-> > > -	return readl_relaxed(((u32 *)clint_time_val));
-> > > -}
-> > > -#define get_cycles get_cycles
-> > > -
-> > > -static inline u32 get_cycles_hi(void)
-> > > -{
-> > > -	return readl_relaxed(((u32 *)clint_time_val) + 1);
-> > > -}
-> > > -#define get_cycles_hi get_cycles_hi
-> > > -#endif /* CONFIG_64BIT */
-> > > -
-> > > -/*
-> > > - * Much like MIPS, we may not have a viable counter to use at an early point
-> > > - * in the boot process. Unfortunately we don't have a fallback, so instead
-> > > - * we just return 0.
-> > > - */
-> > > -static inline unsigned long random_get_entropy(void)
-> > > -{
-> > > -	if (unlikely(clint_time_val == NULL))
-> > > -		return random_get_entropy_fallback();
-> > > -	return get_cycles();
-> > > -}
-> > > -#define random_get_entropy()	random_get_entropy()
-> > > -
-> > > -#else /* CONFIG_RISCV_M_MODE */
-> > > -
-> > >  static inline cycles_t get_cycles(void)
-> > >  {
-> > >  	return csr_read(CSR_TIME);
-> > > @@ -60,8 +22,6 @@ static inline u32 get_cycles_hi(void)
-> > >  }
-> > >  #define get_cycles_hi get_cycles_hi
-> > >  
-> > > -#endif /* !CONFIG_RISCV_M_MODE */
-> > > -
-> > >  #ifdef CONFIG_64BIT
-> > >  static inline u64 get_cycles64(void)
-> > >  {
-> > 
 
 _______________________________________________
 linux-riscv mailing list
