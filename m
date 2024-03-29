@@ -4,105 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 544C5C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 16:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C4FC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 17:28:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ufj5Wxo1srcxz8AtET+UmNBYV1p6tuoQRSr7EGujVps=; b=ZWVFPwfxjez3SG
-	GutcQSxScFPbloVT9R/ejyiwllxxucDIvLUqhEucJ59r7Ratyuir+dcYCsDElXDFBjqXyEQSOpbzH
-	wndQsTHGf1BzKX4uMaLRXP+gV8m9mMiajx/zPFt7pizj9xmZMcNAKLdb5MpslmuJkSRpSRa7GLOVl
-	b/KIhmfz8YuTvdGiOI2Fgc6bFIVvtuZaamqbol/bRtLboCMV7Rsbp8/BhlZTFubWa4sFK/h0QDQwi
-	x6XJHAQuXn6uX5P1m68jFnIQzlqepK6ZYfdsExPNX7U7M4N4lkG6sFWurJZ4JVUllAtvNHCDmLOaG
-	/YOfiFpJ9uyaBQQ9ga9w==;
+	List-Owner; bh=I1UHIsLr/AVJOXd2OIrWlS9slQ5Vcc+pYTUSWfoJEoQ=; b=jlzc++g7oCJniL
+	nRDCypBV5bbGo/SIKbDHzwJD8fA1D92mGB8WsN1EI9JXoBvFYwlkZRH06pRXBjGoIRqXlHdJm23y4
+	QdM3Ni3ItvJgIFN48DLmO0ZMZ8NQyQibD79vUwkjptfxGd9+1eKqzK9HAl5SRPPZLn0qnzh+UEnnq
+	Z+XKYcUWPw3ZERHfG6PRp+Fze2LG+8z+yqGgiQxRl6GmfvZa3A6OUmFl9HPgzSr6VaQzq/k2CcFr/
+	f1Vpc5PG80twwZ3v9pqG6CsHj/1AfUAARKv7yNkHl9bri35JMyb1G4nmp1QGJux0froW+J3exQHG6
+	hjy78XHRHKJVRzev41iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqFPy-00000001MfI-1yQq;
-	Fri, 29 Mar 2024 16:49:26 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1rqG28-00000001U8t-1ZOS;
+	Fri, 29 Mar 2024 17:28:52 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqEKx-00000001Bds-1m0C;
-	Fri, 29 Mar 2024 15:40:15 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6e709e0c123so1910534b3a.1;
-        Fri, 29 Mar 2024 08:40:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1711726808; x=1712331608; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iN31wd2vCkiTGMz1OBtEaB4JW8VyiA1XbISlyEebr3E=;
-        b=M2VV8TDTxMH1x5R6eohkb7Vm+YorT3DNwba+osiJRUx/l0Fd09wRLey/V3JMwIVCoN
-         wFAk6tHeCCW0wweR9G4Id5sd+MUD8nRpuqvsWYBKt1PpMRCc1ZObfb2BudK0Z62tR+1M
-         bY2x8dVXCNPev3Dok0CqwdNwBI1rc1Iyce4Ar4C+3ehmJ/gQVuXLoP58FUX4wA88hK5T
-         YyUdbZG0WOvDlHz86cXjVcxGCM+1MKzaQWM0POZxlu/vJWM8Jv9AAlQHnTuAeVFqkqg7
-         Dl76oE2TrHXq4I7bMMwDMH+y1kYh4fjqwP1x+y1Gn74THLpwswwh9JFwIF614CQnF+5a
-         ZdYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711726808; x=1712331608;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iN31wd2vCkiTGMz1OBtEaB4JW8VyiA1XbISlyEebr3E=;
-        b=N/28Y/NFjZzUq3ZttQlV1WyAP1Ch2ff3CYWgMoXIUkbqRb5XQswtAneZ67z5YRsedL
-         2Z/6WsQo/8cFfxbjaLsQOueBRZfbcqOSBIj6RwleXkJ1eetCELZEbKq265ToIBiWCnWo
-         dNCbCz5F8O2kSuaNH8IPzcEhUSJuPIfEvtppcN1K5eghetZ3mO8T9JzQN5eyg86UyYZZ
-         KVc/s1DUqKCpHOa3WycdyBM6eGaowzoY68F4/SjtTX735QUU+sU1L+oT/HfVLCEFIo1v
-         96D42keNR4tvoac9QTFel5NtuLj1nOJEz1JxJbhPW5LFqviF6q04ny3Nh4q0ua77v5SP
-         5Ang==
-X-Forwarded-Encrypted: i=1; AJvYcCVuuOgGfL5FpWIENNj4dyBGwwnhIDWDMDBI8kkwinnSOCexo52Ct3tpVuwinPlFUE4mGZ+WHT+cvuTHP4hWf6SgedwPyOqR/y8tNmc7EB6X14XGGt7znmLkT9AE5VRykKvgIkFH3c6Zmkmv6h39heL+fqZjjqw=
-X-Gm-Message-State: AOJu0YwTnCcsNAWpMstMBO1p/f3DcPspSHsSD+e52/iNX68qJu0Ra0o5
-	udnHB+leV1R6mwKFJLx16jaG7Q2PY+ovfwEFf24jNbev9b5yhxjJ
-X-Google-Smtp-Source: AGHT+IF0O7HII5MYlv2g0E+BHBSm5qRGKAR+0KxI+xwk6+g8c7fXn65jtKX0C7ci+tZdnr/ge20LGw==
-X-Received: by 2002:a05:6a20:3c90:b0:1a5:6bfb:76de with SMTP id b16-20020a056a203c9000b001a56bfb76demr2694088pzj.2.1711726808383;
-        Fri, 29 Mar 2024 08:40:08 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id m9-20020a170902db0900b001dd578121d4sm3581907plx.204.2024.03.29.08.40.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Mar 2024 08:40:07 -0700 (PDT)
-Date: Fri, 29 Mar 2024 08:40:05 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Simon Horman <horms@kernel.org>
-Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Kees Cook <keescook@chromium.org>,
-	Daniel Diaz <daniel.diaz@linaro.org>,
-	David Gow <davidgow@google.com>,
-	Arthur Grillo <arthurgrillo@riseup.net>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, loongarch@lists.linux.dev,
-	netdev@vger.kernel.org,
-	Linux Kernel Functional Testing <lkft@linaro.org>
-Subject: Re: [PATCH v2 12/14] sh: Add support for suppressing warning
- backtraces
-Message-ID: <d7663e19-74d5-478d-becc-0a080075e7d6@roeck-us.net>
-References: <20240325175248.1499046-1-linux@roeck-us.net>
- <20240325175248.1499046-13-linux@roeck-us.net>
- <20240327144431.GL403975@kernel.org>
- <320aacc6-b7e5-4c3d-948e-d0743ab26c5d@roeck-us.net>
- <20240327193920.GV403975@kernel.org>
+	id 1rqG24-00000001U7O-0d65;
+	Fri, 29 Mar 2024 17:28:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1711733328; x=1743269328;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=yFDVjGYfjWII0t1wE88WD1st8TP3w0lvfG9W2m2CZOE=;
+  b=lePlVCS0Saik02HYbkmIHqD3BeVUvOP9ouhUysNJq5SDp9K+TcmLp4wu
+   i2vXFNMJCpcYaz+z/lqpEDyY4h/XsWh+r2GX4oVQ0P20qQrnhFBl3PAt6
+   BVVQTfmHpKlFSbOB/RWaaiujujNTDIpmPZxck9cyw6LxiaIqdbiOkSkY7
+   vCMbfUdv4I+Re3GbDEXRRpPgRTq07sUZa3ZQJA4AEyxWPVtK4v5wRGY0u
+   jwZVd71M3/5p8bzpe8gA/wQF68jnmi1pq0x0DbEnIS1HleilxYkuMhi0m
+   isj1QoKyxYmT3761Pwbcy4TYxyH/Tx1Y4nobLNFdFAhiaJ9tZa1nhqEq9
+   g==;
+X-CSE-ConnectionGUID: zRrTH8pkQSWa+DdIPibEcg==
+X-CSE-MsgGUID: Nti19zmrSS+xaMVhOcx59A==
+X-IronPort-AV: E=McAfee;i="6600,9927,11028"; a="9882642"
+X-IronPort-AV: E=Sophos;i="6.07,165,1708416000"; 
+   d="scan'208";a="9882642"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Mar 2024 10:28:45 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.07,165,1708416000"; 
+   d="scan'208";a="40178285"
+Received: from sergeyko-mobl.amr.corp.intel.com (HELO [10.212.56.129]) ([10.212.56.129])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Mar 2024 10:28:45 -0700
+Message-ID: <d2c3cd78-cdc6-4a39-9804-4f30402751b1@intel.com>
+Date: Fri, 29 Mar 2024 10:28:44 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240327193920.GV403975@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 10/15] x86: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
+To: Samuel Holland <samuel.holland@sifive.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ Christoph Hellwig <hch@lst.de>, loongarch@lists.linux.dev,
+ amd-gfx@lists.freedesktop.org, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Ingo Molnar <mingo@redhat.com>,
+ Thomas Gleixner <tglx@linutronix.de>
+References: <20240329072441.591471-1-samuel.holland@sifive.com>
+ <20240329072441.591471-11-samuel.holland@sifive.com>
+Content-Language: en-US
+From: Dave Hansen <dave.hansen@intel.com>
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20240329072441.591471-11-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_084011_493964_C6B517BC 
-X-CRM114-Status: GOOD (  23.50  )
+X-CRM114-CacheID: sfid-20240329_102848_250337_346B4443 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,37 +133,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 27, 2024 at 07:39:20PM +0000, Simon Horman wrote:
-[ ... ]
-> > > 
-> > > Hi Guenter,
-> > > 
-> > > a minor nit from my side: this change results in a Kernel doc warning.
-> > > 
-> > >       .../bug.h:29: warning: expecting prototype for _EMIT_BUG_ENTRY(). Prototype was for HAVE_BUG_FUNCTION() instead
-> > > 
-> > > Perhaps either the new code should be placed above the Kernel doc,
-> > > or scripts/kernel-doc should be enhanced?
-> > > 
-> > 
-> > Thanks a lot for the feedback.
-> > 
-> > The definition block needs to be inside CONFIG_DEBUG_BUGVERBOSE,
-> > so it would be a bit odd to move it above the documentation
-> > just to make kerneldoc happy. I am not really sure that to do
-> > about it.
-> 
-> FWIIW, I agree that would be odd.
-> But perhaps the #ifdef could also move above the Kernel doc?
-> Maybe not a great idea, but the best one I've had so far.
-> 
+On 3/29/24 00:18, Samuel Holland wrote:
+> +#
+> +# CFLAGS for compiling floating point code inside the kernel.
+> +#
+> +CC_FLAGS_FPU := -msse -msse2
+> +ifdef CONFIG_CC_IS_GCC
+> +# Stack alignment mismatch, proceed with caution.
+> +# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
+> +# (8B stack alignment).
+> +# See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53383
+> +#
+> +# The "-msse" in the first argument is there so that the
+> +# -mpreferred-stack-boundary=3 build error:
+> +#
+> +#  -mpreferred-stack-boundary=3 is not between 4 and 12
+> +#
+> +# can be triggered. Otherwise gcc doesn't complain.
+> +CC_FLAGS_FPU += -mhard-float
+> +CC_FLAGS_FPU += $(call cc-option,-msse -mpreferred-stack-boundary=3,-mpreferred-stack-boundary=4)
+> +endif
 
-I did that for the next version of the patch series. It is a bit more
-clumsy, so I left it as separate patch on top of this patch. I'd
-still like to get input from others before making the change final.
+I was expecting to see this (now duplicate) hunk come _out_ of
+lib/Makefile somewhere in the series.
 
-Thanks,
-Guenter
+Did I miss that, or is there something keeping the duplicate there?
 
 _______________________________________________
 linux-riscv mailing list
