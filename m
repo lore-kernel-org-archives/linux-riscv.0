@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 636DCCD1283
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 18:03:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596CCC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 19:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5QmboRdvGgb6JELGDAPj+TgMYGfIflY9Plp3Wnv7TZQ=; b=H+nm+M13DOJzpd
-	sgWiuQmOeavFwfJKTqO29mcVzn9yyXP1roBIdi17lKU8XryW2vGlh4qARXanVkxe/hIhUhkQhZgwL
-	Ab78TTxqZm9oy3RdrHcY23qVs8fOrOKug9aSJ9V/Y5tgjkTNeSuZGWykxvaZbZSItL+ZyUbX+jueB
-	QewmtJvEqbGXdat/F0MKmSWoXXwkwUMM1/5pv9tpnsFBgcB6+FQIT5aRhdWAOZbzpWFfPOU4ChBNe
-	AllEH8FkbzzkAldrBtzBgZMw199yikwOzp2VODZLUCaiBKet9YIYj0OBKYZ4LwHcfSAvWR5Rojfg8
-	Q9BGY8Sh+cOy4t43G0mA==;
+	List-Owner; bh=i4O7JkuDCIUd0h9da0D5hIw9u5Y/EAOIs1TKSpBtIT0=; b=g90nT0/Iymmx0Z
+	JrlSc3wYLfUHK0al5Bh/BMQn8YDffOW0WyHl9Jj+keOEE5UXl4Di8++Yhu3QMFPv6LoCCCjmrVkCu
+	voGmRjOPb6rS68CMJ+ZpoUj0xkhr7l0g+8or0UXRsKNg+qeDiV2E6vl0ayg38/KLRlYbXMdxvKliY
+	ZmVQjQyLUQQZV6GKwCEsz5QDYuoyizbh2/IDy6pXwF8EvBad3yldLkAGTBDf8JYyXqoeZGXA9+2xM
+	B3xhV8jenfR06w0+QPy1iu6FvUBey5Bkspbgtfi6NzIAZTf9bKYNJp7ujRKxOcO79J27QYTNPRI5m
+	cOLoYKRK9Lz0/G84dWHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqGZG-00000001YWi-3pKA;
-	Fri, 29 Mar 2024 18:03:06 +0000
-Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	id 1rqIBR-00000001o8t-0jyQ;
+	Fri, 29 Mar 2024 19:46:37 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqGZD-00000001YVf-1NGy
+	id 1rqIBO-00000001o84-0UR9
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Mar 2024 18:03:04 +0000
-Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-36867dfe940so7463345ab.3
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 11:02:59 -0700 (PDT)
+	Fri, 29 Mar 2024 19:46:35 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-56c2c41cbdaso1291369a12.2
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 12:46:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711735379; x=1712340179; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=QdcMw9p8wYMiyXmXvRCHMMbWNQHaQ3aY6vG2uVIiJB8=;
-        b=lO2RcpYbiUUmJP8++XV/c4+r2rkGLedUW48LGVj9uCGQuZNMTYzR14ycuDZTpb82aK
-         +LKWg2Nc1CUgH66Y9A6yLShRhi8OsmtSml64jSq+EKIVhrsB6TmmWQfqSuqb0NCkNbZc
-         mk50XDvNqYEM++oURzXG+PT7RLliRpOXDxs1BeaYeVVpypKDUNwzhvIw5ij71KALt8bi
-         dBUto9T4+LikeKra00P2Wx1METDnLlwJJKFiPg3KZqZ7gtRrlkP6KiLsnsJzeyDgy+Jv
-         IoTAdwQJChQj6YCrlMm5fZirJKTmuqHrD7P5YJlG2qeHSN18ptKGaXV1yqFLxhqogY/K
-         ig0g==
+        d=gmail.com; s=20230601; t=1711741592; x=1712346392; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:autocrypt
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=iRbhTuKdGVdgcCtOxKjPCp9tzZ0RXndz1gW7/Urj2f8=;
+        b=Q6bBjBdUqR8h3k9SpmXRim0IuNyDVhmOcAzfa/5Ue5GuMg5YCEesvhGZz7mt9t8MCX
+         R5e1ka5EDJmKjOBXh7zWJ6xHdDc11M9gnpYouZciuG2uDZkOoHt0sYL1f3uPolClGDat
+         2DClW4WFNbM/ttsaSHGGNGQqhX3pE3dkeRCxcgPRFN/O4dUr4oEk5blxOdGDTf6CDGkL
+         etakVDKFEktNwCtXT2xUFGIFDYFOYmvu/mxYF/0LtAhXB5fdP8F4WYMdRoPYvOx10auQ
+         caHarIOCRP75aTs3mQlsEgt/y9/vqi1EqoTGguOZwhXW5xES9ABHM1Rk6aG0zeOYAFJo
+         fvwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711735379; x=1712340179;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1711741592; x=1712346392;
+        h=mime-version:user-agent:content-transfer-encoding:autocrypt
+         :references:in-reply-to:date:cc:to:from:subject:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QdcMw9p8wYMiyXmXvRCHMMbWNQHaQ3aY6vG2uVIiJB8=;
-        b=QOeNK5UYv2517iFbuboRBNxa0S6TtivOfh/UBQXg/BSGNyMpSQY7I/md2yJv6YKR8x
-         c7J339ezzAoNnLux6ydQN3DbO4Do7SkYn91VLkD+wasG6yydfmbiS8vfR3zDvI4knqXm
-         xGWNfroTM/emR1N0KWB6C5Snm8DBzY5SbyGNfGDZwhfVzn27kI0QeUkhicWtcTaPd1/M
-         0zrkYTRMxZwM9KzjyxZCIHQvaAi8eO8z9N8kzpOsLSO0TuBoOBdRjRydHO1f4klRktQt
-         22FkPlKM/Bujid6RU8LlMYaVYpEMW3JsvYMayVldsSOkDkOo939vNy2/KCUGyccLVqCp
-         2NKw==
-X-Forwarded-Encrypted: i=1; AJvYcCUCJ64sIovOXARKw9xGFYC3BYUXbV/JHo3R9JL1fzHnyHPbe/J0c9HxMry7OYJVF2Guvs3RMJQ0j35tkXJzyukLVe/sVz0HLBN0y+W0Q5Bu
-X-Gm-Message-State: AOJu0Yzcp5TGrpVCL6vWAafuD9jW+xzhivM8C29mZqCKERrKRChZg348
-	tXlJ447+sMUbg3y2/S5zOMkbOgaR+C82YR1+npQMw0nYFjUGjVfy0X60SptUnys=
-X-Google-Smtp-Source: AGHT+IFqMNmDL2GVO2cyYm+vIEEaj43NPiUKo2CRXyyGfQmLknY9TtLFDSxdZDVwWotlePg1wJz6nw==
-X-Received: by 2002:a92:ca4e:0:b0:366:ab6f:f6a with SMTP id q14-20020a92ca4e000000b00366ab6f0f6amr3003624ilo.24.1711735379197;
-        Fri, 29 Mar 2024 11:02:59 -0700 (PDT)
-Received: from [100.64.0.1] ([170.85.6.190])
-        by smtp.gmail.com with ESMTPSA id k4-20020a056e021a8400b003689a9e5017sm1217549ilv.47.2024.03.29.11.02.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 29 Mar 2024 11:02:58 -0700 (PDT)
-Message-ID: <0319d84e-ec4c-45a6-9edd-a606809371d8@sifive.com>
-Date: Fri, 29 Mar 2024 13:02:56 -0500
+        bh=iRbhTuKdGVdgcCtOxKjPCp9tzZ0RXndz1gW7/Urj2f8=;
+        b=Mlh1f1QD4u0WjlPLaCJ4EFFiTEmOl33ar9tAHGOyNWxbvOr9cxpp0Rj4qXLdYhnf5/
+         u9rSpOOnYe+CpcUwovLaX2UDfLlsqGWevNduXyVTCxokS6SBS71Up2cenqKMhQx0UZF3
+         5pg9C/irJjfEHHEwUjcKuqMWomDW7rUDd22XuZtjg3qq4acL1+IGMKCWVYO/r9twABQg
+         I1XgxDZIb2EE0DjsWHmvN/Ccp5XFZim6l6Zy10Q7VwTNTrpZXKerzWT5bWkDS8qPcFdO
+         dylaBDVL7OkHHCoYOQOOZ9UUxH+yonoEwyF5CfzLzXGG3JP79a813YfuaQNNT9kuSAgB
+         rU7A==
+X-Forwarded-Encrypted: i=1; AJvYcCXKk4TlQGYsZKIC4z1J9zH50S2SQL70FoEvg+oGyKhh6MdUUVXHeAf/cV6smmlyF75H4KQwkIV4B0u6evaik+LB7nVZr3Q54KnUpP24y/RR
+X-Gm-Message-State: AOJu0Yx5/3EjZ0IkMVz4HT73vmjbzZ6bLYnF7DHFsfee1S2g5IEo5WjD
+	XHKok9PkgIgZf5PQR0HNCiecQ3Y65iDZkS9TJyRFeQu1pKA+n1BB
+X-Google-Smtp-Source: AGHT+IFeoi9VX0eigQunOE3+7oIKVGDHZNovNgU3K34137TXC0OWeeil7vlqVFwtH1vghv5nVyPSMA==
+X-Received: by 2002:a05:6402:13d6:b0:56c:5a7b:5dbf with SMTP id a22-20020a05640213d600b0056c5a7b5dbfmr3477343edx.2.1711741591953;
+        Fri, 29 Mar 2024 12:46:31 -0700 (PDT)
+Received: from ?IPv6:2a00:1858:1027:8084:dcff:fef3:4040:e18d? ([2a00:1858:1027:8084:dcff:fef3:4040:e18d])
+        by smtp.gmail.com with ESMTPSA id l2-20020a056402124200b0056c4ca20d48sm2386458edw.49.2024.03.29.12.46.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 29 Mar 2024 12:46:31 -0700 (PDT)
+Message-ID: <f91237f311f183d57c4620bc2e6099df8aefccb0.camel@gmail.com>
+Subject: Re: [PATCH bpf-next 0/5] Support local vmtest for riscv64
+From: Eduard Zingerman <eddyz87@gmail.com>
+To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, netdev@vger.kernel.org
+Cc: =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
+ <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
+ <song@kernel.org>, Yonghong Song <yhs@fb.com>, John Fastabend
+ <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav
+ Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa
+ <jolsa@kernel.org>,  Mykola Lysenko <mykolal@fb.com>, Manu Bretelle
+ <chantr4@gmail.com>, Pu Lehui <pulehui@huawei.com>
+Date: Fri, 29 Mar 2024 21:46:14 +0200
+In-Reply-To: <e995a1f1-0b48-4ce3-a061-5cbe68beb6dd@huaweicloud.com>
+References: <20240328124916.293173-1-pulehui@huaweicloud.com>
+	 <32b3358903bf8ba408812a2636f39a275493eb91.camel@gmail.com>
+	 <e995a1f1-0b48-4ce3-a061-5cbe68beb6dd@huaweicloud.com>
+Autocrypt: addr=eddyz87@gmail.com; prefer-encrypt=mutual; keydata=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
+User-Agent: Evolution 3.50.3 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 10/15] x86: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
-To: Dave Hansen <dave.hansen@intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, x86@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- Christoph Hellwig <hch@lst.de>, loongarch@lists.linux.dev,
- amd-gfx@lists.freedesktop.org, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, Ingo Molnar <mingo@redhat.com>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org
-References: <20240329072441.591471-1-samuel.holland@sifive.com>
- <20240329072441.591471-11-samuel.holland@sifive.com>
- <d2c3cd78-cdc6-4a39-9804-4f30402751b1@intel.com>
-From: Samuel Holland <samuel.holland@sifive.com>
-Content-Language: en-US
-In-Reply-To: <d2c3cd78-cdc6-4a39-9804-4f30402751b1@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_110303_384151_D669CDAD 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20240329_124634_185472_6DC2A6DA 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,40 +105,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2024-03-29 12:28 PM, Dave Hansen wrote:
-> On 3/29/24 00:18, Samuel Holland wrote:
->> +#
->> +# CFLAGS for compiling floating point code inside the kernel.
->> +#
->> +CC_FLAGS_FPU := -msse -msse2
->> +ifdef CONFIG_CC_IS_GCC
->> +# Stack alignment mismatch, proceed with caution.
->> +# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
->> +# (8B stack alignment).
->> +# See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53383
->> +#
->> +# The "-msse" in the first argument is there so that the
->> +# -mpreferred-stack-boundary=3 build error:
->> +#
->> +#  -mpreferred-stack-boundary=3 is not between 4 and 12
->> +#
->> +# can be triggered. Otherwise gcc doesn't complain.
->> +CC_FLAGS_FPU += -mhard-float
->> +CC_FLAGS_FPU += $(call cc-option,-msse -mpreferred-stack-boundary=3,-mpreferred-stack-boundary=4)
->> +endif
+On Fri, 2024-03-29 at 18:10 +0800, Pu Lehui wrote:
+[...]
+
+> > Apparently jammy does not have binaries built for riscv64, or I'm failing to find correct mirror.
+> > Could you please provide some instructions on how to prepare rootfs?
 > 
-> I was expecting to see this (now duplicate) hunk come _out_ of
-> lib/Makefile somewhere in the series.
-> 
-> Did I miss that, or is there something keeping the duplicate there?
+> Hi Eduard, We need the mirror repository of ubuntu-ports, you could try 
+> http://de.ports.ubuntu.com/.
 
-This hunk is removed in patch 15/15, after the conversion of lib/test_fpu.c:
+Hi Pu, thank you this mirrorm it works.
 
-https://lore.kernel.org/linux-kernel/20240329072441.591471-16-samuel.holland@sifive.com/
+Unfortunately my local setup is still not good enough.
+I've installed cross-riscv64-gcc14 but it seems that a few more
+libraries are necessary, as I get the following compilation errors:
 
-Regards,
-Samuel
+  $ PLATFORM=riscv64 CROSS_COMPILE=riscv64-suse-linux- ./vmtest.sh -- ./test_verifier
+  ... kernel compiles ok ...
+  ../../../../scripts/sign-file.c:25:10: fatal error: openssl/opensslv.h: No such file or directory
+     25 | #include <openssl/opensslv.h>
+        |          ^~~~~~~~~~~~~~~~~~~~
+  compilation terminated.
+    CC      /home/eddy/work/bpf-next/tools/testing/selftests/bpf/tools/build/host/libbpf/sharedobjs/bpf.o
+  In file included from nlattr.c:14:
+  libbpf_internal.h:19:10: fatal error: libelf.h: No such file or directory
+     19 | #include <libelf.h>
+  ...
 
+Looks like I won't be able to test this patch-set, unless you have
+some writeup on how to create a riscv64 dev environment at hand.
+Sorry for the noise.
 
 _______________________________________________
 linux-riscv mailing list
