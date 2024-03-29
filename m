@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99875CD1283
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 04:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80015CD1283
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 04:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=THjR/LJjISutHhS4+DLfg22JfMLz88JAGz3sVNZHPk8=; b=E2bTkqtVxN13p4
-	nL8IOIjLbkpsdkNzFQoBVqbC6k5KHUDfr9PHasm5MTvaWSrbE89BTXji+XvYFnrOm1j4LPbkliO1C
-	DhcY7i+obvcByIr9Axr3giHmLj4QMGUFlpxXBg1/TV3Bjx7lAik/qGz3Lw9SE6OSE2LNTsw3qZGeF
-	d1l5aHFc98LsArwNPIvg9rRr/zpgMzfGOHs6W+cT9Ss106tnNZGys9zWixd8CovwHphZznKBbdfZb
-	vm/HJC2Rl4qOepLqMXh3RYUw7lDC2NqlTx/M2M9f2gZE3hhvlVa2NGX2NVRNcfmh2/NMusPv8rukF
-	CeA5I/tQupkFQIY7tA3w==;
+	List-Owner; bh=TETJKE1GZg6wZJoyAVj3bLAMY3SF3fHFqLu8Np2k4Ck=; b=3ET1CHXK7YhH8k
+	m0PnnPW0mKHeQpwMgo98jStzmPAn4RZaB5wTrjojw7nepUNpe5JGch3l3U6VetvpUiMWhv4pJu1Ca
+	g5jrJoV/Vhxz8xkkheuKIUI5ZqL4r9zE+7Uduyhxa+O9QRr6+XhNbXjQt3JSGDQi+vW/0iPoBa7Vt
+	jn5jCFXia+VJU21BJgj3K1p2fg9S1maxtYjZ0KhtSTxEgPiYWE4xPd+I+PZlc7CR54zfguRiJf13D
+	zJrltXM1082VeWGJXXHuRgeecYmvBWf6fEgTnqvaI92Uj5AioHPs+nFGygNqYr9MB00yRMTDSFSuZ
+	dkk0Glb/FMIiYYZzGreg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq49e-0000000GoV1-2Isf;
-	Fri, 29 Mar 2024 04:47:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rq49h-0000000GoXs-481v;
+	Fri, 29 Mar 2024 04:47:54 +0000
+Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq48y-0000000GnzZ-1uAO
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 29 Mar 2024 04:47:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=hGZuEOPDrPSpE9XmexYpP1TU1T3x9oK+sun0qc4e7DM=; b=QBcNI7LCPY9rgpP8GjhgSGL1Pq
-	jBPUYMpklT4Ak8593Sg+WwJMdqMvcWP1a11oE/sed+77sz++bv/w1guwiB27Pbq8gqt7gGviKqUIX
-	8dEGrUJgDQ8k2XdysmrlbhwGc0q05hQgB+/q6SQhND0GqOVPRX8dxHcjRVSMxsWK18UYTmjtqn66V
-	I+p37B7L/Zzfg4g/NO/L18BDrWS03v302BwvabqDO1jMOhH6CNoaeMRtyeNIQ4f6+LXgKHvnDFPE7
-	Eb+RwxoK5d965TPioy5Jc+dCSiZTVbe6tjvQ4kfABTZouhB7mvvrsKZ653Wc8FVtyXk2hw6mI9Yf+
-	/yGrPvUQ==;
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq48t-00000001MdW-3wlZ
+	id 1rq48y-0000000Gny8-0Lo9
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Mar 2024 04:47:05 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-6e6ca2ac094so1581618b3a.0
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 21:47:03 -0700 (PDT)
+	Fri, 29 Mar 2024 04:47:14 +0000
+Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-5a4817189c8so1069534eaf.1
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 21:47:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1711687622; x=1712292422; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1711687625; x=1712292425; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hGZuEOPDrPSpE9XmexYpP1TU1T3x9oK+sun0qc4e7DM=;
-        b=JJbAKG95rA836/qQ5yIzZnxQwaHhpbt3+WRu4SP7jJjeaJzVP5I0mIUgMfYOSIAIrL
-         HC/X95YTrM+zj0gkPyOFC2RYnaj1YUcvVArfDUnHn4UxlqJ0rB5JwQ0Ns2d3Jlc5ZGES
-         wUsKuBVNgW5iHmqpHX1YK+9fnFqKB+QmBWHS0qs5D79wpqNvUB78Xd0ywPtsG1vfuovp
-         FX0rrUr96jv7ooHTAnBJSCHNPKWxzEb61p+qVFB2iIN7VAplG1HKZPYM5p0Y92hdKE3M
-         9tLw4ihVwEa1EXW4VruPEcwjEsZ6rRIm7/3Gk73v5Jfz/21yns3+rKTxM7aP2coAim78
-         G+OA==
+        bh=f5ifazHbpOl/UA3v79b+PzDDuljcd/dBpmVrUfFdj7c=;
+        b=BiMgEqCFU8VNkIhuSa2QDRsFUYLiDAsYaEXc89rr1w4guLLqSmLpxeQBuSc49/txhy
+         LbMiKiyGnUVCrAqYKNOSl+yGp6ulrZzv6hUbaZsHL5g4azR+gXEvgm2rgGRQ2yA6bkBq
+         KTC2rU3vxSfwwiLBvLAjrUjZzbBzBr8iM07jxMdozjSQnGB79WUYZ7QI7/Q1Am2OoBfM
+         ++YoJM7gl57ObjBHgps709LaCT5YxibLerMrEgfLeLzoAjOlJACvwRCA/13MX4f4iljE
+         13Q0KRC8c+gDWwoa6cUB5Z7rS9Xk68xtRdQ3ZBE4zRA/JxkwXbD2bb01CCYkrs1en+Fe
+         Z/dA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711687622; x=1712292422;
+        d=1e100.net; s=20230601; t=1711687625; x=1712292425;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hGZuEOPDrPSpE9XmexYpP1TU1T3x9oK+sun0qc4e7DM=;
-        b=Q0EFy3DKLsxTv409gkwO8UdsMc5Tk3bOK+Of7f8+NRnMTm6wWOpCtnwZ34VrLth9oJ
-         vgfocAJI9qlTB2BlZ5T8k1RiZXt+moi89BFhLGb1lapz7a3CMGnwIuHmkKPnn+PJDosl
-         lIS/z5Kc6xS26rD5ydxeyaeCYRoc1uHwL7ZzAtnFY2f5zAHtyXp7TjVHYOVRBqVT4PWb
-         aMGK7nHJiPskwUJWRxI9u4B+tsCc97z/jUTmd8RrP0n09UGdnehc0S3V+DMAXefwOyqX
-         Wk+BX0LGgVppNOuHkWiK3LLfDdCgIIl91oT2oK/UW1oksHfghctoAhCE5EY184C9sGpR
-         jcXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW3Pnppn0lWCL5CjYTafG1XVuYzmD+3I31XzxGnk+LxLNKh1EfyAmOeOYTWX6UrsVFdq+pK2KIzjVWQtbTNWbVGqi0mJFacKm1E9XtPs0R7
-X-Gm-Message-State: AOJu0YydQpvOt8X/SxZ6ZNy6knZTMt8k4siaAHuYcRgDjakfhaxCxZiB
-	EdFnPpeYHlwa5sZIZpxyXsS1hsxV3IAgQBgtoMJlYoyHA+Q9zX8HqrUD3Wpt7ok=
-X-Google-Smtp-Source: AGHT+IGVNl5i8Vrjt70n++oCEY2675qx+nSiOe/0hD9dLIqDDPWOmm3HrHLeaGTRiVH879DeLLhxrQ==
-X-Received: by 2002:a05:6a00:a82:b0:6ea:d10d:c96d with SMTP id b2-20020a056a000a8200b006ead10dc96dmr1470360pfl.19.1711687622313;
-        Thu, 28 Mar 2024 21:47:02 -0700 (PDT)
+        bh=f5ifazHbpOl/UA3v79b+PzDDuljcd/dBpmVrUfFdj7c=;
+        b=ePdv7cyccdIld7ms1bSQa6gGobIpsClsetsiDrY40PWH188Q8CSXzttt6xW8NLvNdM
+         H03cAl2YFj4oZwzjko6WRJWHzyn6mp1uvO53NZfVgfP43ZU4MbEH8cRmCAnRZ2iAEGBY
+         N6Mook2lVlZrYsgzApAvkKs7AttfIKyOS2TeehHX6wJ1wHGNoh/EPyfxTrYGbAchtmqD
+         3eUz2h4d05TP8RYHHWE2RPmxkTQbMNyRrhkvpw4+gNIeapT80FMy5P2gtxOaYcHrnJQt
+         KenGGGPzYElTZ8ro5r3HhIUmLMc4mb7DoD0cMytGwQsDyuaRYZCbJmU9nxSPWR4ateHI
+         Z8Tw==
+X-Forwarded-Encrypted: i=1; AJvYcCXGEWNuTnaowNhulDbc5rncUKF8MYM29YdGr6mp+aIRsGGi7ZPTkFWrH/bKrMJIP8hfpHLumMx8NDVAe3ukkOA9VfZPknZoiLGvj7wgQmNb
+X-Gm-Message-State: AOJu0Yw1cpk/0U34M2nkEz1eacBZTeeTjOarZcOiWajm0+VGYFWz+Iwe
+	B1TIoi/OjhKxEglSEsCFvgXCz67rtnfjOAm46onTi959xN6QA7B1EDtCFgCPmoI=
+X-Google-Smtp-Source: AGHT+IErdAfZ2YKd7ZlzSeS592zYA4TFUt0LCB93K8r2LIl39Tat2IOKwkbBJaRLu5ZvxofXUIE51w==
+X-Received: by 2002:a05:6870:3912:b0:229:819a:d2e6 with SMTP id b18-20020a056870391200b00229819ad2e6mr1199667oap.15.1711687625326;
+        Thu, 28 Mar 2024 21:47:05 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id i18-20020aa78b52000000b006ea7e972947sm2217120pfd.130.2024.03.28.21.46.59
+        by smtp.gmail.com with ESMTPSA id i18-20020aa78b52000000b006ea7e972947sm2217120pfd.130.2024.03.28.21.47.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Mar 2024 21:47:02 -0700 (PDT)
+        Thu, 28 Mar 2024 21:47:04 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
 To: paul.walmsley@sifive.com,
 	rick.p.edgecombe@intel.com,
@@ -157,17 +142,16 @@ Cc: corbet@lwn.net,
 	omosnace@redhat.com,
 	ojeda@kernel.org,
 	jhubbard@nvidia.com
-Subject: [PATCH v2 24/27] riscv: create a config for shadow stack and landing pad instr support
-Date: Thu, 28 Mar 2024 21:44:56 -0700
-Message-Id: <20240329044459.3990638-25-debug@rivosinc.com>
+Subject: [PATCH v2 25/27] riscv: Documentation for landing pad / indirect branch tracking
+Date: Thu, 28 Mar 2024 21:44:57 -0700
+Message-Id: <20240329044459.3990638-26-debug@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240329044459.3990638-1-debug@rivosinc.com>
 References: <20240329044459.3990638-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_044704_128984_9F9C616C 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240328_214708_665277_85D59129 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,46 +168,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch creates a config for shadow stack support and landing pad instr
-support. Shadow stack support and landing instr support can be enabled by
-selecting `CONFIG_RISCV_USER_CFI`. Selecting `CONFIG_RISCV_USER_CFI` wires
-up path to enumerate CPU support and if cpu support exists, kernel will support
-cpu assisted user mode cfi.
+Adding documentation on landing pad aka indirect branch tracking on riscv
+and kernel interfaces exposed so that user tasks can enable it.
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/Kconfig | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ Documentation/arch/riscv/zicfilp.rst | 104 +++++++++++++++++++++++++++
+ 1 file changed, 104 insertions(+)
+ create mode 100644 Documentation/arch/riscv/zicfilp.rst
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 7e0b2bcc388f..d6f1303ef660 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -203,6 +203,24 @@ config ARCH_HAS_BROKEN_DWARF5
- 	# https://github.com/llvm/llvm-project/commit/7ffabb61a5569444b5ac9322e22e5471cc5e4a77
- 	depends on LD_IS_LLD && LLD_VERSION < 180000
- 
-+config RISCV_USER_CFI
-+	def_bool y
-+	bool "riscv userspace control flow integrity"
-+	depends on 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicfiss)
-+	depends on RISCV_ALTERNATIVE
-+	select ARCH_USES_HIGH_VMA_FLAGS
-+	help
-+	  Provides CPU assisted control flow integrity to userspace tasks.
-+	  Control flow integrity is provided by implementing shadow stack for
-+	  backward edge and indirect branch tracking for forward edge in program.
-+	  Shadow stack protection is a hardware feature that detects function
-+	  return address corruption. This helps mitigate ROP attacks.
-+	  Indirect branch tracking enforces that all indirect branches must land
-+	  on a landing pad instruction else CPU will fault. This mitigates against
-+	  JOP / COP attacks. Applications must be enabled to use it, and old user-
-+	  space does not get protection "for free".
-+	  default y
+diff --git a/Documentation/arch/riscv/zicfilp.rst b/Documentation/arch/riscv/zicfilp.rst
+new file mode 100644
+index 000000000000..3007c81f0465
+--- /dev/null
++++ b/Documentation/arch/riscv/zicfilp.rst
+@@ -0,0 +1,104 @@
++.. SPDX-License-Identifier: GPL-2.0
 +
- config ARCH_MMAP_RND_BITS_MIN
- 	default 18 if 64BIT
- 	default 8
++:Author: Deepak Gupta <debug@rivosinc.com>
++:Date:   12 January 2024
++
++====================================================
++Tracking indirect control transfers on RISC-V Linux
++====================================================
++
++This document briefly describes the interface provided to userspace by Linux
++to enable indirect branch tracking for user mode applications on RISV-V
++
++1. Feature Overview
++--------------------
++
++Memory corruption issues usually result in to crashes, however when in hands of
++an adversary and if used creatively can result into variety security issues.
++
++One of those security issues can be code re-use attacks on program where adversary
++can use corrupt function pointers and chain them together to perform jump oriented
++programming (JOP) or call oriented programming (COP) and thus compromising control
++flow integrity (CFI) of the program.
++
++Function pointers live in read-write memory and thus are susceptible to corruption
++and allows an adversary to reach any program counter (PC) in address space. On
++RISC-V zicfilp extension enforces a restriction on such indirect control transfers
++
++	- indirect control transfers must land on a landing pad instruction `lpad`.
++	  There are two exception to this rule
++		- rs1 = x1 or rs1 = x5, i.e. a return from a function and returns are
++		  protected using shadow stack (see zicfiss.rst)
++
++		- rs1 = x7. On RISC-V compiler usually does below to reach function
++		  which is beyond the offset possible J-type instruction.
++
++			"auipc x7, <imm>"
++			"jalr (x7)"
++
++		  Such form of indirect control transfer are still immutable and don't rely
++		  on memory and thus rs1=x7 is exempted from tracking and considered software
++		  guarded jumps.
++
++`lpad` instruction is pseudo of `auipc rd, <imm_20bit>` and is a HINT nop. `lpad`
++instruction must be aligned on 4 byte boundary and compares 20 bit immediate with x7.
++If `imm_20bit` == 0, CPU don't perform any comparision with x7. If `imm_20bit` != 0,
++then `imm_20bit` must match x7 else CPU will raise `software check exception`
++(cause=18)with `*tval = 2`.
++
++Compiler can generate a hash over function signatures and setup them (truncated
++to 20bit) in x7 at callsites and function proglogs can have `lpad` with same
++function hash. This further reduces number of program counters a call site can
++reach.
++
++2. ELF and psABI
++-----------------
++
++Toolchain sets up `GNU_PROPERTY_RISCV_FEATURE_1_FCFI` for property
++`GNU_PROPERTY_RISCV_FEATURE_1_AND` in notes section of the object file.
++
++3. Linux enabling
++------------------
++
++User space programs can have multiple shared objects loaded in its address space
++and it's a difficult task to make sure all the dependencies have been compiled
++with support of indirect branch. Thus it's left to dynamic loader to enable
++indirect branch tracking for the program.
++
++4. prctl() enabling
++--------------------
++
++`PR_SET_INDIR_BR_LP_STATUS` / `PR_GET_INDIR_BR_LP_STATUS` /
++`PR_LOCK_INDIR_BR_LP_STATUS` are three prctls added to manage indirect branch
++tracking. prctls are arch agnostic and returns -EINVAL on other arches.
++
++`PR_SET_INDIR_BR_LP_STATUS`: If arg1 `PR_INDIR_BR_LP_ENABLE` and if CPU supports
++`zicfilp` then kernel will enabled indirect branch tracking for the task.
++Dynamic loader can issue this `prctl` once it has determined that all the objects
++loaded in address space support indirect branch tracking. Additionally if there is
++a `dlopen` to an object which wasn't compiled with `zicfilp`, dynamic loader can
++issue this prctl with arg1 set to 0 (i.e. `PR_INDIR_BR_LP_ENABLE` being clear)
++
++`PR_GET_INDIR_BR_LP_STATUS`: Returns current status of indirect branch tracking.
++If enabled it'll return `PR_INDIR_BR_LP_ENABLE`
++
++`PR_LOCK_INDIR_BR_LP_STATUS`: Locks current status of indirect branch tracking on
++the task. User space may want to run with strict security posture and wouldn't want
++loading of objects without `zicfilp` support in it and thus would want to disallow
++disabling of indirect branch tracking. In that case user space can use this prctl
++to lock current settings.
++
++5. violations related to indirect branch tracking
++--------------------------------------------------
++
++Pertaining to indirect branch tracking, CPU raises software check exception in
++following conditions
++	- missing `lpad` after indirect call / jmp
++	- `lpad` not on 4 byte boundary
++	- `imm_20bit` embedded in `lpad` instruction doesn't match with `x7`
++
++In all 3 cases, `*tval = 2` is captured and software check exception is raised
++(cause=18)
++
++Linux kernel will treat this as `SIGSEV`` with code = `SEGV_CPERR` and follow
++normal course of signal delivery.
 -- 
 2.43.2
 
