@@ -4,106 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C17ECD11DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 09:28:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F5ECD11DD
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 10:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mYu7zSpfymq5JGsKQ0jRlcbp3VcLyfqPnYb/PV+HYUA=; b=t6zHYVyvsP1Jaq
-	W9ILnDVjhgd1dbH/p6zSBkKGs5rVsYLE8S7vVc04Wa9y7vFahfxoT6YXkMbvVfdvOafZsMC1gpxcR
-	j/artsMWLrc4OFJYXTwNMKYAw7OA0edLRgdpiJ+gCVFif2B/m/NdXnPzWgYVfy6zvWJCnSEDquqfS
-	lezNOdHNmOg1F6gpssIPnXRCae7JVt1ttlcZVXoATVMvw3y7jCfUU5rcCIXb7OGwJDdSvIL15On1o
-	UYl7ZWj0gY6NEdYOZiTxanfMtKOk+RqUYJeR0e2uLyABtGygf4Isk9l42AJ8SeFQZJHaqPMoWyFQt
-	wX2KT+HgEbXiiCm9QK2Q==;
+	List-Owner; bh=Y5f3QwVg1Td8a/Uf7zgDMAFKw5B3FLuLmcsgMOmZs6o=; b=CJZ8AJgApsdoLe
+	BNJW1W+5tV4QUtCzYJEQNA7zJAuING6boKDl1CIzu00aGYlhffyLc29WMWZz4IMXplQB1UhRYVTJ8
+	PRQknlyxa+7UgePXPj+zqw3PAzBsOFIXDKmv4twVx7GI8fZU0TlANzw/zl250gfwAIJC0hsrJ1Ndb
+	izqneQq2Xz5keOKiIP4zj2vf18lZcUnvdk0cqQzmkxti6C80fKgFltSGsKIbRs5tHKv4V45pld6kQ
+	kQiXm+fX4Gi9VuVW+DlBTS/YZp8FhWLNy2rjiG99xcKqCH4D9/MshLOaiTLxy2oB3bdcKD7IodN5Y
+	sEVYwdlTw2dhSieY1yuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq8XO-0000000HUvt-3eth;
-	Fri, 29 Mar 2024 09:28:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rq97b-0000000HaJg-03Z1;
+	Fri, 29 Mar 2024 10:06:03 +0000
+Received: from [45.249.212.56] (helo=dggsgout12.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq8X0-0000000HUfc-1Yjk
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 29 Mar 2024 09:28:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=kNl7zpQXvXrARiVNVkvkffUb5fHwj0L+2J3rA8qc0Og=; b=lDlAuEpywXXNpDnIjlw8CZNVkA
-	ahrBSCbiHHQ0XrkW3UrMrN+GXZRoh7xDK9vBTlBSIKSchyxCmfcLzD3c9ksIqy/7Ck6v6dIKy/lFM
-	oz2m9lBT63tyReQBiDiAgM1TS6eOMtxf/N1z6GIKBDkQDrGpJATGztAUxtDa1x1g20MU1jKrWMfU/
-	VQtM5uCI4SRmJN8U45Dpy8GvoU8zKuaqWKenvfBki7LvV2yxiHnqo/zL/LdGPVuj9oRiZH5b0g/wI
-	2gY7xUozlYfD+QMatEjizhmRgbB3IjoDW70jOzaA/L9wXV5S+iTrWBIy6t3HcB0bz+37HLyC3wJOF
-	XjPBvGEg==;
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq8Wx-00000001Twj-15hn
+	id 1rq97W-0000000HaIl-2UeJ
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Mar 2024 09:28:13 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-5dca1efad59so1281205a12.2
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 02:28:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711704489; x=1712309289; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kNl7zpQXvXrARiVNVkvkffUb5fHwj0L+2J3rA8qc0Og=;
-        b=m6DGXWyaPBcUAsWRfZrxg/3/ZivUKZ4NbeqrM8gZEkjJnfCSS0kAC221tJucf+FlD0
-         gxhUAqZYYp5e/02kfMrBL5NCZ9dCyA3QuNchLww5A0rqxUko6OYDZzrZu9/LZbAPUqml
-         tOeX5EjcKFdP/XgOqu5PKKgAp88dCRFvnm8WW7GvuYd6Le6Z1xkki5/VFYbFudDtmFwI
-         y87992vhOnvVo8VGB8nCjb8grG8IqAV0kGjoNKAcGVxKDMtzQUztmymqL//fQM223GB/
-         zmDAoL1dbRAJvjOjaHZMHo4oj+OKNRvx2NIfYUCNzo6r9GfdxYVrVGxp4Jxx8k9qmFGG
-         K3tA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711704489; x=1712309289;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kNl7zpQXvXrARiVNVkvkffUb5fHwj0L+2J3rA8qc0Og=;
-        b=Wr27/iuP5zM4cacxxJNAAE+sUZRtz0Om9tb2ejuyTs3Aylf2rxo4ThU8YyXwv7sXsj
-         vQwSv7xUHwF154osLoORf25v2wKS+xtz4iz8Csd8mOroUGlGaUQDeerN4mRINc2iYcPx
-         OvU/tnUohWcsCNy5lOrikIKrUDZtwOjQW8/MMKJahVq9wJE3F8NN+fZW2UiuFwsEACFD
-         dvrHtUzX7nJ7fbHXv/sEUXO24nfoAkavwUojso3QkYQPLLv4r0USAImCzZm2HqEe8Kxy
-         7wtbQkCmEOMkWXeAiis9G2Xpl+Vs6OVacaypwXa/yKjSEazOKwvr6R+K1B8RF1ML2Jl4
-         mO2A==
-X-Forwarded-Encrypted: i=1; AJvYcCUqexhlntqv/gUZ3GwceUGhfV1TFEX1TeSaOrrT6mIAp2G4hbq5/wAf+1nWojM+eDDutgEkJQqFFmqDQvoqT4/F0xygbXz3LbaQZR7Pue64
-X-Gm-Message-State: AOJu0YzeU5mUQ0ASp9AkWtUjrlFoloagdKwc7pIfpMnfXlu2Z/wcosRM
-	Yd0pYULHXR/feCtZb2HInJM/YFF+9pE6GvSUFn+2kmthMwYEcXVi8y0HbU203/WqujrU9eBxtOJ
-	JtEY2Eyv6E7AHolWZTpAwRDXUAmWo2N/3Oi0zFidWp570IsZg4K1/33UDAhxYV7fGOFZHA+v0nX
-	0F5aYwwmEuckr7gMA5TfmpT+RO039RwzHUQWZft1ZRGf7nn37GVw==
-X-Google-Smtp-Source: AGHT+IGke3TYJDotnJqdt1iP+scqdGmagpwPxA2ur5Kz3bFCD/ukFY00kNWufcTpRyFgA8aurgnlgg==
-X-Received: by 2002:a17:90a:3ea7:b0:29d:dbaf:bd77 with SMTP id k36-20020a17090a3ea700b0029ddbafbd77mr1594311pjc.43.1711704488865;
-        Fri, 29 Mar 2024 02:28:08 -0700 (PDT)
-Received: from [127.0.1.1] (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id cv17-20020a17090afd1100b002a02f8d350fsm2628830pjb.53.2024.03.29.02.28.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Mar 2024 02:28:08 -0700 (PDT)
-From: Max Hsu <max.hsu@sifive.com>
-Date: Fri, 29 Mar 2024 17:26:24 +0800
-Subject: [PATCH RFC 08/11] riscv: KVM: Add Sdtrig Extension Support for
- Guest/VM
+	Fri, 29 Mar 2024 10:06:01 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4V5bdJ4rKDz4f3knR
+	for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 18:05:40 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id F3B501A0232
+	for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 18:05:46 +0800 (CST)
+Received: from [10.67.109.184] (unknown [10.67.109.184])
+	by APP1 (Coremail) with SMTP id cCh0CgCXZg91kgZmxne1IQ--.1768S2;
+	Fri, 29 Mar 2024 18:05:43 +0800 (CST)
+Message-ID: <ed3debc9-f2a9-41fb-9cf9-dc6419de5c01@huaweicloud.com>
+Date: Fri, 29 Mar 2024 18:05:41 +0800
 MIME-Version: 1.0
-Message-Id: <20240329-dev-maxh-lin-452-6-9-v1-8-1534f93b94a7@sifive.com>
-References: <20240329-dev-maxh-lin-452-6-9-v1-0-1534f93b94a7@sifive.com>
-In-Reply-To: <20240329-dev-maxh-lin-452-6-9-v1-0-1534f93b94a7@sifive.com>
-To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek <pavel@ucw.cz>, 
- Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
- Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>
-Cc: Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-pm@vger.kernel.org, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
- Max Hsu <max.hsu@sifive.com>, Yong-Xuan Wang <yongxuan.wang@sifive.com>
-X-Mailer: b4 0.13.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next 2/5] riscv, bpf: Relax restrictions on Zbb
+ instructions
+Content-Language: en-US
+To: Stefan O'Rear <sorear@fastmail.com>, Conor Dooley <conor@kernel.org>
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+ netdev@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yhs@fb.com>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Mykola Lysenko <mykolal@fb.com>,
+ Manu Bretelle <chantr4@gmail.com>, Pu Lehui <pulehui@huawei.com>
+References: <20240328124916.293173-1-pulehui@huaweicloud.com>
+ <20240328124916.293173-3-pulehui@huaweicloud.com>
+ <3ed9fe94-2610-41eb-8a00-a9f37fcf2b1a@app.fastmail.com>
+ <20240328-ferocity-repose-c554f75a676c@spud>
+From: Pu Lehui <pulehui@huaweicloud.com>
+In-Reply-To: <20240328-ferocity-repose-c554f75a676c@spud>
+X-CM-TRANSID: cCh0CgCXZg91kgZmxne1IQ--.1768S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJF43GrWDCry7Wr1rZr1rXrb_yoW5tF47pa
+	10kF1qka1DJa4Ik392qF18Wr1YvF4rKr43Jrn8J348A34jqrW2qF1kKa15uF1DXryrGr1j
+	qr4UKF17u34DZFDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkYb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI
+	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
+	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY
+	6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6x
+	AIw20EY4v20xvaj40_Wr1j6rW3Jr1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280
+	aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU13rcDUUUUU==
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_092811_504483_7022AA51 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20240329_030559_108985_AB9A928B 
+X-CRM114-Status: GOOD (  26.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,212 +91,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
 
-We extend the KVM ISA extension ONE_REG interface to allow VMM
-tools to detect and enable Sdtrig extension for Guest/VM. We
-also save/restore the scontext CSR for guest VCPUs and set the
-HSCONTEXT bit in hstateen0 CSR if the scontext CSR is available
-for Guest/VM when the Smstateen extension is present.
 
-Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Co-developed-by: Max Hsu <max.hsu@sifive.com>
-Signed-off-by: Max Hsu <max.hsu@sifive.com>
----
- arch/riscv/include/asm/kvm_host.h       | 11 +++++++++++
- arch/riscv/include/asm/kvm_vcpu_debug.h | 17 +++++++++++++++++
- arch/riscv/include/uapi/asm/kvm.h       |  1 +
- arch/riscv/kvm/Makefile                 |  1 +
- arch/riscv/kvm/vcpu.c                   |  8 ++++++++
- arch/riscv/kvm/vcpu_debug.c             | 29 +++++++++++++++++++++++++++++
- arch/riscv/kvm/vcpu_onereg.c            |  1 +
- 7 files changed, 68 insertions(+)
+On 2024/3/29 6:07, Conor Dooley wrote:
+> On Thu, Mar 28, 2024 at 03:34:31PM -0400, Stefan O'Rear wrote:
+>> On Thu, Mar 28, 2024, at 8:49 AM, Pu Lehui wrote:
+>>> From: Pu Lehui <pulehui@huawei.com>
+>>>
+>>> This patch relaxes the restrictions on the Zbb instructions. The hardware
+>>> is capable of recognizing the Zbb instructions independently, eliminating
+>>> the need for reliance on kernel compile configurations.
+>>
+>> This doesn't make sense to me.
+> 
+> It doesn't make sense to me either. Of course the hardware's capability
+> to understand an instruction is independent of whether or not a
+> toolchain is capable of actually emitting the instruction.
+> 
+>> RISCV_ISA_ZBB is defined as:
+>>
+>>             Adds support to dynamically detect the presence of the ZBB
+>>             extension (basic bit manipulation) and enable its usage.
+>>
+>> In other words, RISCV_ISA_ZBB=n should disable everything that attempts
+>> to detect Zbb at runtime. It is mostly relevant for code size reduction,
+>> which is relevant for BPF since if RISCV_ISA_ZBB=n all rvzbb_enabled()
+>> checks can be constant-folded.
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 484d04a92fa6..d495279d99e1 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -21,6 +21,7 @@
- #include <asm/kvm_vcpu_sbi.h>
- #include <asm/kvm_vcpu_timer.h>
- #include <asm/kvm_vcpu_pmu.h>
-+#include <asm/kvm_vcpu_debug.h>
- 
- #define KVM_MAX_VCPUS			1024
- 
-@@ -175,6 +176,10 @@ struct kvm_vcpu_smstateen_csr {
- 	unsigned long sstateen0;
- };
- 
-+struct kvm_vcpu_sdtrig_csr {
-+	unsigned long scontext;
-+};
-+
- struct kvm_vcpu_arch {
- 	/* VCPU ran at least once */
- 	bool ran_atleast_once;
-@@ -197,6 +202,9 @@ struct kvm_vcpu_arch {
- 	unsigned long host_senvcfg;
- 	unsigned long host_sstateen0;
- 
-+	/* SCONTEXT of Host */
-+	unsigned long host_scontext;
-+
- 	/* CPU context of Host */
- 	struct kvm_cpu_context host_context;
- 
-@@ -209,6 +217,9 @@ struct kvm_vcpu_arch {
- 	/* CPU Smstateen CSR context of Guest VCPU */
- 	struct kvm_vcpu_smstateen_csr smstateen_csr;
- 
-+	/* CPU Sdtrig CSR context of Guest VCPU */
-+	struct kvm_vcpu_sdtrig_csr sdtrig_csr;
-+
- 	/* CPU context upon Guest VCPU reset */
- 	struct kvm_cpu_context guest_reset_context;
- 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_debug.h b/arch/riscv/include/asm/kvm_vcpu_debug.h
-new file mode 100644
-index 000000000000..6e7ce6b408a6
---- /dev/null
-+++ b/arch/riscv/include/asm/kvm_vcpu_debug.h
-@@ -0,0 +1,17 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2024 SiFive
-+ *
-+ * Authors:
-+ *	Yong-Xuan Wang <yongxuan.wang@sifive.com>
-+ */
-+
-+#ifndef __KVM_VCPU_RISCV_DEBUG_H
-+#define __KVM_VCPU_RISCV_DEBUG_H
-+
-+#include <linux/types.h>
-+
-+void kvm_riscv_debug_vcpu_swap_in_guest_context(struct kvm_vcpu *vcpu);
-+void kvm_riscv_debug_vcpu_swap_in_host_context(struct kvm_vcpu *vcpu);
-+
-+#endif
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index b1c503c2959c..9f70da85ed51 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -167,6 +167,7 @@ enum KVM_RISCV_ISA_EXT_ID {
- 	KVM_RISCV_ISA_EXT_ZFA,
- 	KVM_RISCV_ISA_EXT_ZTSO,
- 	KVM_RISCV_ISA_EXT_ZACAS,
-+	KVM_RISCV_ISA_EXT_SDTRIG,
- 	KVM_RISCV_ISA_EXT_MAX,
- };
- 
-diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
-index c9646521f113..387be968d9ea 100644
---- a/arch/riscv/kvm/Makefile
-+++ b/arch/riscv/kvm/Makefile
-@@ -15,6 +15,7 @@ kvm-y += vmid.o
- kvm-y += tlb.o
- kvm-y += mmu.o
- kvm-y += vcpu.o
-+kvm-y += vcpu_debug.o
- kvm-y += vcpu_exit.o
- kvm-y += vcpu_fp.o
- kvm-y += vcpu_vector.o
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index b5ca9f2e98ac..1d0e43ab0652 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -20,6 +20,7 @@
- #include <asm/csr.h>
- #include <asm/cacheflush.h>
- #include <asm/kvm_vcpu_vector.h>
-+#include <asm/switch_to.h>
- 
- const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
- 	KVM_GENERIC_VCPU_STATS(),
-@@ -504,6 +505,9 @@ static void kvm_riscv_vcpu_setup_config(struct kvm_vcpu *vcpu)
- 					  SMSTATEEN0_AIA_ISEL;
- 		if (riscv_isa_extension_available(isa, SMSTATEEN))
- 			cfg->hstateen0 |= SMSTATEEN0_SSTATEEN0;
-+
-+		if (has_scontext())
-+			cfg->hstateen0 |= SMSTATEEN0_HSCONTEXT;
- 	}
- }
- 
-@@ -643,6 +647,8 @@ static __always_inline void kvm_riscv_vcpu_swap_in_guest_state(struct kvm_vcpu *
- 	    (cfg->hstateen0 & SMSTATEEN0_SSTATEEN0))
- 		vcpu->arch.host_sstateen0 = csr_swap(CSR_SSTATEEN0,
- 						     smcsr->sstateen0);
-+
-+	kvm_riscv_debug_vcpu_swap_in_guest_context(vcpu);
- }
- 
- static __always_inline void kvm_riscv_vcpu_swap_in_host_state(struct kvm_vcpu *vcpu)
-@@ -656,6 +662,8 @@ static __always_inline void kvm_riscv_vcpu_swap_in_host_state(struct kvm_vcpu *v
- 	    (cfg->hstateen0 & SMSTATEEN0_SSTATEEN0))
- 		smcsr->sstateen0 = csr_swap(CSR_SSTATEEN0,
- 					    vcpu->arch.host_sstateen0);
-+
-+	kvm_riscv_debug_vcpu_swap_in_host_context(vcpu);
- }
- 
- /*
-diff --git a/arch/riscv/kvm/vcpu_debug.c b/arch/riscv/kvm/vcpu_debug.c
-new file mode 100644
-index 000000000000..e7e9263c2e30
---- /dev/null
-+++ b/arch/riscv/kvm/vcpu_debug.c
-@@ -0,0 +1,29 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2024 SiFive
-+ */
-+
-+#include <linux/kvm_host.h>
-+#include <asm/switch_to.h>
-+
-+void kvm_riscv_debug_vcpu_swap_in_guest_context(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_vcpu_sdtrig_csr *csr = &vcpu->arch.sdtrig_csr;
-+	unsigned long hcontext = vcpu->kvm->arch.hcontext;
-+
-+	if (has_hcontext())
-+		csr_write(CSR_HCONTEXT, hcontext);
-+	if (has_scontext())
-+		vcpu->arch.host_scontext = csr_swap(CSR_SCONTEXT, csr->scontext);
-+}
-+
-+void kvm_riscv_debug_vcpu_swap_in_host_context(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_vcpu_sdtrig_csr *csr = &vcpu->arch.sdtrig_csr;
-+
-+	/* Hypervisor uses the hcontext ID 0 */
-+	if (has_hcontext())
-+		csr_write(CSR_HCONTEXT, 0);
-+	if (has_scontext())
-+		csr->scontext = csr_swap(CSR_SCONTEXT, vcpu->arch.host_scontext);
-+}
-diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index f4a6124d25c9..10dda5ddc0a6 100644
---- a/arch/riscv/kvm/vcpu_onereg.c
-+++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -34,6 +34,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
- 	[KVM_RISCV_ISA_EXT_M] = RISCV_ISA_EXT_m,
- 	[KVM_RISCV_ISA_EXT_V] = RISCV_ISA_EXT_v,
- 	/* Multi letter extensions (alphabetically sorted) */
-+	KVM_ISA_EXT_ARR(SDTRIG),
- 	KVM_ISA_EXT_ARR(SMSTATEEN),
- 	KVM_ISA_EXT_ARR(SSAIA),
- 	KVM_ISA_EXT_ARR(SSTC),
+Thanks for review. My initial thought was the same as yours, but after 
+discussions [0] and test verifications, the hardware can indeed 
+recognize the zbb instruction even if the kernel has not enabled 
+CONFIG_RISCV_ISA_ZBB. As Conor mentioned, we are just acting as a JIT to 
+emit zbb instruction here. Maybe is_hw_zbb_capable() will be better?
 
--- 
-2.43.2
+Link: 
+https://lore.kernel.org/bpf/20240129-d06c79a17a5091b3403fc5b6@orel/ [0]
+
+>>
+>> If BPF needs to become an exception (why?), this should be mentioned in
+>> Kconfig.
+> 
+> And in the commit message. On one hand I think this could be a reasonable
+> thing to do in bpf as it is acting as a jit here, and doesn't actually
+> need the alternatives that we are using elsewhere to enable the
+> optimisations nor the compiler support. On the other the intention of
+> that kconfig option is to control optimisations like rvzbb_enabled()
+> gates, so this is gonna need a proper justification as to
+> 
+> As I said on IRC to you earlier, I think the Kconfig options here are in
+> need of a bit of a spring cleaning - they should be modified to explain
+> their individual purposes, be that enabling optimisations in the kernel
+> or being required for userspace. I'll try to send a patch for that if
+> I remember tomorrow.
+> 
+> Thanks,
+> Conor.
+> 
+>>> Signed-off-by: Pu Lehui <pulehui@huawei.com>
+>>> ---
+>>>   arch/riscv/net/bpf_jit.h | 2 +-
+>>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+>>> index 5fc374ed98ea..bcf109b88df5 100644
+>>> --- a/arch/riscv/net/bpf_jit.h
+>>> +++ b/arch/riscv/net/bpf_jit.h
+>>> @@ -20,7 +20,7 @@ static inline bool rvc_enabled(void)
+>>>
+>>>   static inline bool rvzbb_enabled(void)
+>>>   {
+>>> -	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+>>> riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
+>>> +	return riscv_has_extension_likely(RISCV_ISA_EXT_ZBB);
+>>>   }
+>>>
+>>>   enum {
+>>> -- 
+>>> 2.34.1
+>>>
+>>>
+>>> _______________________________________________
+>>> linux-riscv mailing list
+>>> linux-riscv@lists.infradead.org
+>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
 _______________________________________________
