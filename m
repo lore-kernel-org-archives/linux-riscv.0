@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2ADDCD11DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 10:29:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C316C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 10:32:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n7BVarddtofp3dHeqDp49OZkswrFCV8BUoeIuYfeYzc=; b=XNxPszDrVSBfko
-	2BABq9Zxno0AZOp+izx2hFlZV6sCfAYte0SWNvWv0i83a+rkgaRPzxrj6tuOoeYAmA6ddVmupJyEI
-	p6nF32cIJCayLiJEEY3vo2fdANedM0zOp2XCI/D4Vh+U6p74YcnL9zP+xpPq4nj2hL7diEE8FiPfG
-	yQxEPPRtXGbnZVjx+UUB6mhBy4LuaomJ4cz1+pTZAPa7dcSGNkhiP6YzBKBpbHAJ+TRcxHPJG2zlu
-	prcjsuCAwTupAcqgJQrKUwWbw64NWt1FdK7kHw1xfwtlLTLqrugj9tGQVtXfq5dwI5SlJ9zx9A6R+
-	D5+ry62eUgrpzER9qniA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4wzYCJ9j39kt9rQtWmHN3Wp7lOIfQtsRmZQAyo03rww=; b=Bbk1JJecNsasuRZyJ0TfP+2sCx
+	kMVVrXPxrZKjyZ6gHgkCOtMIV+Ts3VRmqm/Qsixt5j55WwvHe+L13qeFDrSQCCk01rLL8QcSUFLZ4
+	JOiYGYVfQJW/4H3dTQipVDBlstwAARND1gXM6EfTLNzgSKo1PxNdq8j6u1FMRsQMEYH2mektRts3o
+	SZ1SrPsrRsdwo4mI5uOqqtjkGdWT9FS3qiMXADVdL1mSpiXeOdTT0mI22iYitkYVnGXnYw3htPXQm
+	uWb4KXSq1aBXqWygztas8cdwDObgWtfr3JtnmJmGcbV5SUJZbPRIkwAWJ0QjJht657/QhwFOjHY9R
+	1tWb4Q7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq9UD-000000002p3-3Fj1;
-	Fri, 29 Mar 2024 10:29:25 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1rq9X4-000000003CQ-37UY;
+	Fri, 29 Mar 2024 10:32:22 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq9U8-000000002mJ-1fps
-	for linux-riscv@lists.infradead.org;
-	Fri, 29 Mar 2024 10:29:21 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-515a97846b5so1929486e87.2
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 03:29:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1711708159; x=1712312959; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K1xMjM+6aRGQ0ojnpGkzeXSIPQCNkcUYgWEAekM4AZs=;
-        b=FP3LKV+gWdwlS2riXxUSil9CXPQAjWbl500VFXSIijJD6etELhVUB5lcyQhYQW1Hhv
-         ViYhspAIr97A4Zm3Ov44fVWRkHwBBPqvKFiLtmDhBHTO0uF2hy55Zkb44MqF1jX9/Pxq
-         x1gTvYkMdXjLUT52pwQBR4/3bG+bzQKhgStI0Tz9WzEu9fiKXd1vPvQr737FQjsu0p7R
-         i1BZynkf5kMIwmvx5paHH8RLYtFLyKGASZom8vK/FbbcNZiW9LY+3VmQVn4JXJwVvlEU
-         41MGbSl5ZfJcw+hQpC+EP83M4J6Yo+9MaCVikJI3OoU/otYda7qfnwSEkqx+f8XSC5hn
-         U6yQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711708159; x=1712312959;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K1xMjM+6aRGQ0ojnpGkzeXSIPQCNkcUYgWEAekM4AZs=;
-        b=fzDZ6111PgfIzv84zQPgp3BUtUHNnaWxP1rHeIzq5NsjtrGU9uj5F8PPtYDbhEoCYm
-         a70DhHgxpoXMrKFoMhEkkK1I0Ja2QFsbfobqlWgPXWKNba9kqF201rFHMA1Dv4Uw67Qs
-         gb2qPutkAGrmAF3uCgXY8Ho168NyniiKGzAVV6Tz/U50Hj7CW3Oj/Q0YEoMrKHy53+QA
-         NCsXd+5PW0I0Q9SXDbfuBPEH8iad6qT9uYZwJlMaJHzRE0GU0HjwLnP1Uoj4VWdQxt6g
-         HFp3YcZDxJI2+aZnT5q0kwxdhaqDS0qXWFZMMNtRuiDJVCUu64M7A35+/2CYZjT+99Uu
-         RW8A==
-X-Gm-Message-State: AOJu0YxA5LXvzJgEEx2zMUsrflf+TBsEilsM6AenpgZBYix19CwSPuU8
-	SeB+rHenn38106ZnHVS9GabvuCmUyl0Hp2Ok/RRaU7R6oCVtny4eiNN5GTc9cgtCWbrF7jt+6aR
-	BR4p+VlMBXOXZxWRZNykGtVFiU3bgyqdJ1bgLoA==
-X-Google-Smtp-Source: AGHT+IFf1CNNBqLUzGwlQt3plBwsiRGnRlRofcvJpqCa5fkmx12mwCxpLy9gpfToW29g1IssLHz467H64sFTESJvcbo=
-X-Received: by 2002:a19:a408:0:b0:515:ad80:566e with SMTP id
- q8-20020a19a408000000b00515ad80566emr1308393lfc.27.1711708158926; Fri, 29 Mar
- 2024 03:29:18 -0700 (PDT)
+	id 1rq9X1-000000003Bj-2sVI;
+	Fri, 29 Mar 2024 10:32:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1711708339; x=1743244339;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=iJRVYl2TkqJgkeeArpXXpoPMdu4mwFR/AAzovQ2QJdk=;
+  b=JNdgM0t4DhfGDJF/S4hODV4utVfr2jQKYX4JhyW0d4VyZ5WgX3JJwxFy
+   G2EuPdg61wJV9buFyiXlZNK0YV20lbRCGimdwUNjqM93UjGml1f16gxC3
+   TfkU8v5317jUkrq/6NN3h3urx5uyMc6YB8UIKs2F84ahPr+Q3URK0a2Dk
+   xmzZPMJut+ENyrBjiOqvkaNSyofpQ+MNxq4g1hHaNHFm3TVP6jBuOC3WM
+   ZV4TMBV9kFOyvH6Z7G4qvM7E4vUzP9/XnS3lA6PgKRWLK3LNvZ17eM1uI
+   fKF8cLr0F+BuZeURQcr8YfAwMox9cNPiD67M45yCtNmFNktO7U79npaNB
+   A==;
+X-CSE-ConnectionGUID: GFew/kMnS6C07Mq7X0KFUQ==
+X-CSE-MsgGUID: tzrsQPFdTKSvpMZ+9j+6Lw==
+X-IronPort-AV: E=Sophos;i="6.07,164,1708412400"; 
+   d="asc'?scan'208";a="185901778"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 29 Mar 2024 03:32:17 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 29 Mar 2024 03:32:02 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Fri, 29 Mar 2024 03:31:58 -0700
+Date: Fri, 29 Mar 2024 10:31:10 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Max Hsu <max.hsu@sifive.com>
+CC: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, "Rafael J. Wysocki" <rafael@kernel.org>, Pavel
+ Machek <pavel@ucw.cz>, Anup Patel <anup@brainfault.org>, Atish Patra
+	<atishp@atishpatra.org>, Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan
+	<shuah@kernel.org>, Palmer Dabbelt <palmer@sifive.com>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+	<kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+	<linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH RFC 02/11] dt-bindings: riscv: Add Sdtrig optional CSRs
+ existence on DT
+Message-ID: <20240329-affidavit-anatomist-1118a12c3e60@wendy>
+References: <20240329-dev-maxh-lin-452-6-9-v1-0-1534f93b94a7@sifive.com>
+ <20240329-dev-maxh-lin-452-6-9-v1-2-1534f93b94a7@sifive.com>
 MIME-Version: 1.0
-References: <20240327-parkway-dodgy-f0fe1fa20892@spud> <20240327-overrate-overuse-1e32abccd001@spud>
-In-Reply-To: <20240327-overrate-overuse-1e32abccd001@spud>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Fri, 29 Mar 2024 11:29:08 +0100
-Message-ID: <CAMRc=Mdkxh_Soc6Uy5vYrh5Svdc=hBBRwdAoGbU04V=We=YWZQ@mail.gmail.com>
-Subject: Re: [PATCH v1 3/5] dt-bindings: gpio: mpfs: allow gpio-line-names
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, Jamie Gibbons <jamie.gibbons@microchip.com>, 
-	Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org
+In-Reply-To: <20240329-dev-maxh-lin-452-6-9-v1-2-1534f93b94a7@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_032920_461309_467AE3D5 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20240329_033219_807736_69FD6D31 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +90,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6857327340184013167=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXIgMjcsIDIwMjQgYXQgMToyNeKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBGcm9tOiBKYW1pZSBHaWJib25zIDxqYW1pZS5naWJib25zQG1p
-Y3JvY2hpcC5jb20+Cj4KPiBUaGUgQmVhZ2xlViBGaXJlIGRldmljZXRyZWUgd2lsbCBtYWtlIHVz
-ZSBvZiBncGlvLWxpbmUtbmFtZXMsIGFsbG93IGl0Cj4gaW4gdGhlIGJpbmRpbmcuCj4KPiBTaWdu
-ZWQtb2ZmLWJ5OiBKYW1pZSBHaWJib25zIDxqYW1pZS5naWJib25zQG1pY3JvY2hpcC5jb20+Cj4g
-U2lnbmVkLW9mZi1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4K
-PiAtLS0KPiAgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2dwaW8vbWljcm9jaGlw
-LG1wZnMtZ3Bpby55YW1sIHwgMSArCj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKQo+
-Cj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9ncGlvL21p
-Y3JvY2hpcCxtcGZzLWdwaW8ueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5n
-cy9ncGlvL21pY3JvY2hpcCxtcGZzLWdwaW8ueWFtbAo+IGluZGV4IDY4ODRkYWNiMjg2NS4uZDYx
-NTY5YjNmMTViIDEwMDY0NAo+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5n
-cy9ncGlvL21pY3JvY2hpcCxtcGZzLWdwaW8ueWFtbAo+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2
-aWNldHJlZS9iaW5kaW5ncy9ncGlvL21pY3JvY2hpcCxtcGZzLWdwaW8ueWFtbAo+IEBAIC00NCw2
-ICs0NCw3IEBAIHByb3BlcnRpZXM6Cj4gICAgICBkZWZhdWx0OiAzMgo+Cj4gICAgZ3Bpby1jb250
-cm9sbGVyOiB0cnVlCj4gKyAgZ3Bpby1saW5lLW5hbWVzOiB0cnVlCj4KPiAgcGF0dGVyblByb3Bl
-cnRpZXM6Cj4gICAgIl4uKy1ob2coLVswLTldKyk/JCI6Cj4gLS0KPiAyLjQzLjAKPgoKQXBwbGll
-ZCwgdGhhbmtzIQoKQmFydAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+--===============6857327340184013167==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="qvN9g2Kofm3vp+Ez"
+Content-Disposition: inline
+
+--qvN9g2Kofm3vp+Ez
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Mar 29, 2024 at 05:26:18PM +0800, Max Hsu wrote:
+> The mcontext/hcontext/scontext CSRs are optional in the Sdtrig extension,
+> to prevent RW operations to the missing CSRs, which will cause
+> illegal instructions.
+>=20
+> As a solution, we have proposed the dt format for these CSRs.
+
+As I mentioned in your other patch, I amn't sure what the actual value
+is in being told about "sdtrig" itself if so many of the CSRs are
+optional. I think we should define pseudo extensions that represent
+usable subsets that are allowed by riscv,isa-extensions, such as
+those you describe here: sdtrig + mcontext, sdtrig + scontext and
+sdtrig + hcontext. Probably also for strig + mscontext. What
+additional value does having a debug child node give us that makes
+it worth having over something like the above?
+
+Thanks,
+Conor.
+
+>=20
+> Signed-off-by: Max Hsu <max.hsu@sifive.com>
+> ---
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Document=
+ation/devicetree/bindings/riscv/cpus.yaml
+> index d87dd50f1a4b..c713a48c5025 100644
+> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> @@ -137,6 +137,24 @@ properties:
+>        DMIPS/MHz, relative to highest capacity-dmips-mhz
+>        in the system.
+> =20
+> +  debug:
+> +    type: object
+> +    properties:
+> +      compatible:
+> +        const: riscv,debug-v1.0.0
+> +      trigger-module:
+> +        type: object
+> +        description: |
+> +          An indication set of optional CSR existence from
+> +          riscv-debug-spec Sdtrig extension
+> +        properties:
+> +          mcontext-present:
+> +            type: boolean
+> +          hcontext-present:
+> +            type: boolean
+> +          scontext-present:
+> +            type: boolean
+> +
+>  anyOf:
+>    - required:
+>        - riscv,isa
+>=20
+> --=20
+> 2.43.2
+>=20
+
+--qvN9g2Kofm3vp+Ez
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgaYbgAKCRB4tDGHoIJi
+0lR6APsFCJD2xF6mivD5+737cpFwlpgCAnMllMxOmWsck2HUJgD9EN3UFh3/VEM/
+G9adYYLQT0pjKI5lJOtelWT/0qhIsg4=
+=evUa
+-----END PGP SIGNATURE-----
+
+--qvN9g2Kofm3vp+Ez--
+
+
+--===============6857327340184013167==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6857327340184013167==--
+
