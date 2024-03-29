@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DD3CD1288
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 04:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE506CD128E
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 04:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hzFousQXFHKJyCKZIV8zzptoWlCIDcrFMs0wxyA6w+s=; b=qeCC/84pgvxs/A
-	qztUUXqcB6oHVkT14Lbo/XsvKSXJaV99KTcMvGxApf6X0duhLjFdmIVwmsdwpV3iRkGHurThU3fPj
-	tEvEZutty+6VrGdspl71wGnkOgxp6No0VQ4VcVYX74wlc4tOB0kFL5HBsYt9pHjvpuE2NYf11oUIh
-	zVgPkbDZ/nrit4UPKTiItjfOQVvzYqRDryhYUxJavhMfrxI//LLg4aOFB40lj7i50x8hpieN4Wj8H
-	ZzpP73jKHE5Oj2a2FI6akTdE+Rth2ioRlOxVWLNFnKlzNMwzw5muAGyXHTSq3LsGjbQVT8nDMyorW
-	s+1RlX0CCwZTaRCM0xHA==;
+	List-Owner; bh=84gGR2ScgPXl734SULQu5lumUYCkBEpq5qpOUD9Hfjk=; b=CL08tHQLJQ1o8A
+	65pcr6kgEWMClzc1Dbm36jtxBlT19qpmp+Qpwgp/dMGc/KzF0Tq3uiHvgOOEGRXqPHqGmUQaeGL7I
+	LyeqgIFoMLo9jxx0T0nnpDUTuv00HR+O2frv3sd9yobFXa+PytrIVSpgKAUwgEx2W67VJxFUfnukH
+	C3oc+h0GFLph17uVOIPkEEISjep+gG4wTtQzjX0MQgZqsHncukMHOeZJjCn+BveDqO2HB6nj/ylRN
+	zqVqLvZ9Svx63ge4rkdol0ovhF6OcPUdAFMDC7nZrxqMoCSo+8Zff4vd5I0+GTV+xyAyFY0g8UTuV
+	r9gQQqR8hOHw0ONzhAag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq49S-0000000GoLF-0beQ;
-	Fri, 29 Mar 2024 04:47:38 +0000
-Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
+	id 1rq49U-0000000GoMl-2AZK;
+	Fri, 29 Mar 2024 04:47:40 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq48i-0000000Gnlr-0xJP
+	id 1rq48s-0000000GnuZ-2nmJ
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 29 Mar 2024 04:47:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Qc6tDQVZMFWZI8yrez6t0wejTQ8xJVxgJAnHf9JsPCA=; b=KpWHocaKs+yGHneaCsN1GKBxDK
+	E2WVIhAI9dxMvw6DZh2MVAnYh4DTe4OhVuEvf2fa8e2qrpiUf1/ChLsFN8ekANuGGNon9l125aqhD
+	8ahrl9aGj1dT7Jz+XiJmbnj8ZJr2IxUiY6vYh78XuLo/saboYaCx/AbLu+9DH85V9sFjNVwhD82fs
+	NhuEKFCOXvlpKOLor/4H45xilwZzxXHgq1xGMT4gcwIuEaxsuSlmAMFJTEVB6wOX0dEfBpN9WDWTI
+	kRH5H8BfcQaiW5ZZq9aDhMJQBjF2o8yf0NsQzazAAMuRlMJn21B/0pvcbiQVMx8nD6a+KUbZGn8sS
+	ZQox1T5A==;
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	by casper.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rq48o-000000080ru-2jiq
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Mar 2024 04:46:59 +0000
-Received: by mail-oi1-x233.google.com with SMTP id 5614622812f47-3c3f16f9c81so193205b6e.1
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 21:46:44 -0700 (PDT)
+	Fri, 29 Mar 2024 04:47:01 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-517ab9a4a13so1148280a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2024 21:46:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1711687603; x=1712292403; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1711687613; x=1712292413; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YmrHp67H+XCJtaWoTSn26HwuzF4qGVlhViFutzTbJ64=;
-        b=S/Z5H1q9D7lfhrhavw2oMfPFKYqjgAH6LKZyRaDgBbbXzA+jLFDo21aiyfebxHjI/1
-         u5obPwKX614Mu/HJUAn2cKwiehoWOe0HPuWcRHyJoffUxUKwuBpOo6PMyVFNSJnTrJeF
-         EyvyprB4hiNGgRWqjiX8pc3883kwzS/HefGyc+q83sBLR5N7DxHoDlsbaE1lwt4AfZWO
-         FJR5/cZ4fwJ7PujMbC0ODTkgvHOV8HRWIKzZB6XQPiPabILqbkqhB3eBs3zpoL1cfS4G
-         0A80vGmajCZ1u/e+KDIsuRqymosdJsHNFxDmer5QRaQn8+l7eJ40BgQNxRM+BuoPL/Ka
-         vCdQ==
+        bh=Qc6tDQVZMFWZI8yrez6t0wejTQ8xJVxgJAnHf9JsPCA=;
+        b=Fg+t5z9y3NJf8o8/vSI96YNzMaP2RYHuDVuqN7hiQ4T5inKm7TgV6thP8yE3ir4qoJ
+         r8wSeaGhXXoE1oqltUTfAjf445LAj8RwddB7uMftseXjmgwjfKva/mBN0gaFg/dFPApy
+         PIdrkYhdjctvgNLcEH/GO0pUFv2iGC49J0vpavoiv9qFoXG7GZfqdcfvAFhgS6mKc32L
+         jujpeVXjN0AnW2MaSatNHW/ZdIdLUK8f42OY7D9YSTF3EiDNK3npn40ubv4cPRvMPSEh
+         +sSk2pDcMZnaEM6kLrAN+Eu8M+Cx6PFgCvMSzNuKp6HXbC/iOj5BVAYS/K2KiaxI3lpV
+         esxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711687603; x=1712292403;
+        d=1e100.net; s=20230601; t=1711687613; x=1712292413;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YmrHp67H+XCJtaWoTSn26HwuzF4qGVlhViFutzTbJ64=;
-        b=XlyRDH744fSgLr6Oe2xPaFj8m9Aog0RhFC+KXRJ/OKV/JdHNlE9V7GiGG2xsRzAW6C
-         fhsoRW9+SqMnNGXa4+YN9uaLqR8Q6M+KAM+zNFNoM5v+Cd89A5h7WRrWvT5OXU6CyYiC
-         pVhhipGRMm2x7ki5ZhT3rk95kg8+MgTTkiOxbMWMUbiKDsWxLIpYE02Azw29GuXE2Ck4
-         Chu+hE4qhO8Q9QdSW+USAwXaNCEK2Fb/QiY4kdWTxDL33A/dX1nhuziqWFoIkiJ64c42
-         rCNAz46ezC9L15sdVmCwyHCZRZAIbiGGimkTMQ7MjqwPTvkwg9vg0PHJbCZE/vJ+O6Zu
-         2BHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU8iUGZyaUuFxRvGZEjaLJo1ieNmOb6/ChyWKmraIXfjHUP8Crh5UfXhHCXeu0zJ5zGU8JZ5Q7LS55FXEBoabTUlhLbNva7K8TR9rUwgCFa
-X-Gm-Message-State: AOJu0YxSnu0dleBz3FDboMsQ1HMfVplY8o/T6csWBmXcN5E8ykCMSoF+
-	yUmaNBJ04sOfwLFAT53RWpYU7thaLsG5ZX1XKZz9uNbpauBQnSlcsuq7XSMiuxg=
-X-Google-Smtp-Source: AGHT+IGNXVgsJhuruVdNoXrAX5QvhHzDZ/ypkAvKiPh6A+vsQQkyT8+weoD2+0apPvMAl8Da1TUaIg==
-X-Received: by 2002:a05:6808:648f:b0:3c3:d72b:3851 with SMTP id fh15-20020a056808648f00b003c3d72b3851mr1338208oib.7.1711687603411;
-        Thu, 28 Mar 2024 21:46:43 -0700 (PDT)
+        bh=Qc6tDQVZMFWZI8yrez6t0wejTQ8xJVxgJAnHf9JsPCA=;
+        b=QgjQ1dqae/MyP6rRcC9m2J28mXU4Q1O5DCBOELaFl4Ml3g/y9ZwRrhX4tLA5rauDwT
+         RfYBjB4GA8RLoEZ19fobpzCOylzDU94grqBqHoK22KF7PiV0KZ9rEtY2XKh/qnbp91p5
+         seEbb5qDBux+QyrRi5pzbjsUnbyHDxntyt27uRkm7nRrncOIaipPZwX3rDyo/kUggGi/
+         MMHhlo9APKyWXsaWXvVLa/lOLz9ZwkyA17e0+zyFDtQOkszhOhKOlNiS2ZuZENZSBNXU
+         ejP4NIhP8hU80Vm9FcUtTXG5DcNSHBaSx+bLSGN0RaiRJ8E/p9P4lFUvH9FltG1cxc6b
+         jZfg==
+X-Forwarded-Encrypted: i=1; AJvYcCWKfGT7+BM+oauvBX9Pl+QB3gjLbfzFE746LVP1vy1ORJ5NUwKLvwoKZ01ZWQKl+GvBgktoXZgCi443AdJmFzyzoBFfJrZcYSVAC+miVoIV
+X-Gm-Message-State: AOJu0Yy5SEAGpwQGXCnaT0jg/6WxWDFy6mmf5SYtmseON8IJdpe+v26c
+	NWrbCtG9ASzjQvA12w6MVXXqAtvWUSqUqfApeaERKe65Ju+eAeuhpCDF+CRnxTQ=
+X-Google-Smtp-Source: AGHT+IFBk57ft/Dc+APgv9AeEcPOk/3EIqo0N/RGN7QySteb+aQBmtUdNC7Hb3LMWHIl2juUfBH7Ig==
+X-Received: by 2002:a05:6a21:151b:b0:1a3:dc13:9146 with SMTP id nq27-20020a056a21151b00b001a3dc139146mr1392928pzb.8.1711687613465;
+        Thu, 28 Mar 2024 21:46:53 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id i18-20020aa78b52000000b006ea7e972947sm2217120pfd.130.2024.03.28.21.46.40
+        by smtp.gmail.com with ESMTPSA id i18-20020aa78b52000000b006ea7e972947sm2217120pfd.130.2024.03.28.21.46.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Mar 2024 21:46:43 -0700 (PDT)
+        Thu, 28 Mar 2024 21:46:53 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
 To: paul.walmsley@sifive.com,
 	rick.p.edgecombe@intel.com,
@@ -142,16 +157,17 @@ Cc: corbet@lwn.net,
 	omosnace@redhat.com,
 	ojeda@kernel.org,
 	jhubbard@nvidia.com
-Subject: [PATCH v2 18/27] riscv: Implements arch argnostic indirect branch tracking prctls
-Date: Thu, 28 Mar 2024 21:44:50 -0700
-Message-Id: <20240329044459.3990638-19-debug@rivosinc.com>
+Subject: [PATCH v2 21/27] riscv sigcontext: adding cfi state field in sigcontext
+Date: Thu, 28 Mar 2024 21:44:53 -0700
+Message-Id: <20240329044459.3990638-22-debug@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240329044459.3990638-1-debug@rivosinc.com>
 References: <20240329044459.3990638-1-debug@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240328_214655_888336_CC34B5BD 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20240329_044658_754116_57297E17 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,170 +184,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-prctls implemented are PR_SET_INDIR_BR_LP_STATUS / PR_GET_INDIR_BR_LP_STATUS
-and PR_LOCK_INDIR_BR_LP_STATUS.
+Shadow stack needs to be saved and restored on signal delivery and signal
+return.
+
+sigcontext embedded in ucontext is extendible. Adding cfi state in there
+which can be used to save cfi state before signal delivery and restore
+cfi state on sigreturn
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/usercfi.h | 22 ++++++++-
- arch/riscv/kernel/process.c      |  5 +++
- arch/riscv/kernel/usercfi.c      | 76 ++++++++++++++++++++++++++++++++
- 3 files changed, 102 insertions(+), 1 deletion(-)
+ arch/riscv/include/uapi/asm/sigcontext.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/riscv/include/asm/usercfi.h b/arch/riscv/include/asm/usercfi.h
-index a168ae0fa5d8..8accdc8ec164 100644
---- a/arch/riscv/include/asm/usercfi.h
-+++ b/arch/riscv/include/asm/usercfi.h
-@@ -16,7 +16,9 @@ struct kernel_clone_args;
- struct cfi_status {
- 	unsigned long ubcfi_en : 1; /* Enable for backward cfi. */
- 	unsigned long ubcfi_locked : 1;
--	unsigned long rsvd : ((sizeof(unsigned long)*8) - 2);
-+	unsigned long ufcfi_en : 1; /* Enable for forward cfi. Note that ELP goes in sstatus */
-+	unsigned long ufcfi_locked : 1;
-+	unsigned long rsvd : ((sizeof(unsigned long)*8) - 4);
- 	unsigned long user_shdw_stk; /* Current user shadow stack pointer */
- 	unsigned long shdw_stk_base; /* Base address of shadow stack */
- 	unsigned long shdw_stk_size; /* size of shadow stack */
-@@ -30,6 +32,9 @@ void set_active_shstk(struct task_struct *task, unsigned long shstk_addr);
- bool is_shstk_enabled(struct task_struct *task);
- bool is_shstk_locked(struct task_struct *task);
- void set_shstk_status(struct task_struct *task, bool enable);
-+bool is_indir_lp_enabled(struct task_struct *task);
-+bool is_indir_lp_locked(struct task_struct *task);
-+void set_indir_lp_status(struct task_struct *task, bool enable);
+diff --git a/arch/riscv/include/uapi/asm/sigcontext.h b/arch/riscv/include/uapi/asm/sigcontext.h
+index cd4f175dc837..5ccdd94a0855 100644
+--- a/arch/riscv/include/uapi/asm/sigcontext.h
++++ b/arch/riscv/include/uapi/asm/sigcontext.h
+@@ -21,6 +21,10 @@ struct __sc_riscv_v_state {
+ 	struct __riscv_v_ext_state v_state;
+ } __attribute__((aligned(16)));
  
- #define PR_SHADOW_STACK_SUPPORTED_STATUS_MASK (PR_SHADOW_STACK_ENABLE)
- 
-@@ -72,6 +77,21 @@ static inline void set_shstk_status(struct task_struct *task, bool enable)
- 
- }
- 
-+static inline bool is_indir_lp_enabled(struct task_struct *task)
-+{
-+	return false;
-+}
-+
-+static inline bool is_indir_lp_locked(struct task_struct *task)
-+{
-+	return false;
-+}
-+
-+static inline void set_indir_lp_status(struct task_struct *task, bool enable)
-+{
-+
-+}
-+
- #endif /* CONFIG_RISCV_USER_CFI */
- 
- #endif /* __ASSEMBLY__ */
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index d6dfef22c274..105ceb8880c1 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -152,6 +152,11 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
- 	set_shstk_status(current, false);
- 	set_shstk_base(current, 0, 0);
- 	set_active_shstk(current, 0);
-+	/*
-+	 * disable indirect branch tracking on exec.
-+	 * libc will enable it later via prctl.
-+	 */
-+	set_indir_lp_status(current, false);
- 
- #ifdef CONFIG_64BIT
- 	regs->status &= ~SR_UXL;
-diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-index cdedf1f78b3e..13920b9d86f3 100644
---- a/arch/riscv/kernel/usercfi.c
-+++ b/arch/riscv/kernel/usercfi.c
-@@ -69,6 +69,32 @@ void set_shstk_lock(struct task_struct *task)
- 	task->thread_info.user_cfi_state.ubcfi_locked = 1;
- }
- 
-+bool is_indir_lp_enabled(struct task_struct *task)
-+{
-+	return task->thread_info.user_cfi_state.ufcfi_en ? true : false;
-+}
-+
-+bool is_indir_lp_locked(struct task_struct *task)
-+{
-+	return task->thread_info.user_cfi_state.ufcfi_locked ? true : false;
-+}
-+
-+void set_indir_lp_status(struct task_struct *task, bool enable)
-+{
-+	task->thread_info.user_cfi_state.ufcfi_en = enable ? 1 : 0;
-+
-+	if (enable)
-+		task->thread_info.envcfg |= ENVCFG_LPE;
-+	else
-+		task->thread_info.envcfg &= ~ENVCFG_LPE;
-+
-+	csr_write(CSR_ENVCFG, task->thread_info.envcfg);
-+}
-+
-+void set_indir_lp_lock(struct task_struct *task)
-+{
-+	task->thread_info.user_cfi_state.ufcfi_locked = 1;
-+}
++struct __sc_riscv_cfi_state {
++	unsigned long ss_ptr;	/* shadow stack pointer */
++	unsigned long rsvd;		/* keeping another word reserved in case we need it */
++};
  /*
-  * If size is 0, then to be compatible with regular stack we want it to be as big as
-  * regular stack. Else PAGE_ALIGN it and return back
-@@ -375,3 +401,53 @@ int arch_lock_shadow_stack_status(struct task_struct *task,
- 
- 	return 0;
- }
-+
-+int arch_get_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
-+{
-+	unsigned long fcfi_status = 0;
-+
-+	if (!cpu_supports_indirect_br_lp_instr())
-+		return -EINVAL;
-+
-+	/* indirect branch tracking is enabled on the task or not */
-+	fcfi_status |= (is_indir_lp_enabled(t) ? PR_INDIR_BR_LP_ENABLE : 0);
-+
-+	return copy_to_user(status, &fcfi_status, sizeof(fcfi_status)) ? -EFAULT : 0;
-+}
-+
-+int arch_set_indir_br_lp_status(struct task_struct *t, unsigned long status)
-+{
-+	bool enable_indir_lp = false;
-+
-+	if (!cpu_supports_indirect_br_lp_instr())
-+		return -EINVAL;
-+
-+	/* indirect branch tracking is locked and further can't be modified by user */
-+	if (is_indir_lp_locked(t))
-+		return -EINVAL;
-+
-+	/* Reject unknown flags */
-+	if (status & ~PR_INDIR_BR_LP_ENABLE)
-+		return -EINVAL;
-+
-+	enable_indir_lp = (status & PR_INDIR_BR_LP_ENABLE) ? true : false;
-+	set_indir_lp_status(t, enable_indir_lp);
-+
-+	return 0;
-+}
-+
-+int arch_lock_indir_br_lp_status(struct task_struct *task,
-+				unsigned long arg)
-+{
-+	/*
-+	 * If indirect branch tracking is not supported or not enabled on task,
-+	 * nothing to lock here
-+	 */
-+	if (!cpu_supports_indirect_br_lp_instr() ||
-+		!is_indir_lp_enabled(task))
-+		return -EINVAL;
-+
-+	set_indir_lp_lock(task);
-+
-+	return 0;
-+}
+  * Signal context structure
+  *
+@@ -29,6 +33,7 @@ struct __sc_riscv_v_state {
+  */
+ struct sigcontext {
+ 	struct user_regs_struct sc_regs;
++	struct __sc_riscv_cfi_state sc_cfi_state;
+ 	union {
+ 		union __riscv_fp_state sc_fpregs;
+ 		struct __riscv_extra_ext_header sc_extdesc;
 -- 
 2.43.2
 
