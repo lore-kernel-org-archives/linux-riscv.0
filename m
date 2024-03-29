@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75898CD11DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 11:24:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1B2C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 11:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gpNioBfnXgbPnTMQgZulKIcl4eA6tVsHGVA/zoARd94=; b=v+603O6D9mo/f+3Ly7zVu7dcon
-	Sz71QbxKZBpmMMzAVcYDJ94XAI3KRtcTU8V7vXpiN5rCVHEy6QGj5qQurAhAmGXaHLeAUjgTAaPS6
-	y2tc6MLYVcOZzLDNmMfoslkfPpB3lnNA/nmToY2ksk7HPaTBCJMd8QY4ijiexwcdmR3Zj+K+tBBqA
-	6YVeKN2/BkADLaSt3vchjIdblGl41Gld7ilMw/1Ftue3vKEIN4xCWXYlKd+yNhvTR3rnWBUSx8x4y
-	apeWSXz7I4lLioKv2XwQA1BfTAglbIsCuPiTyw+wuiceGIkquu+rZy6suDTUz4kowX9JfTCeTpeSc
-	nbCzmYeg==;
+	bh=+JTLR/ins8TUgcCBEHdg+GuNiF7uT3/j/f/Lg5msurI=; b=b2skzKiqI3jYYyTW1E4yBBvjHB
+	cdmHijV3ZsvTFeSo8fBufhZpStsYuP+mC/HShgNUTTBfrkdpMA0oMHD9K/Kt/AuFHAidVvrnSDuW0
+	NGvzkboxEK5g4NfHraG3w9agnrZTynes8n8BnGmj6DlFXXYMREUvg7D2mQrDsZYeBTAQht5rrDvoO
+	Fj+ZksAJZ0642H+vNlHdU+PqHe5gu9DS2Mycxh5FaWJYZRkwdgDa4Us0mCo9CgkNee59JEP2t2Vim
+	b157dbee6i5IP7hsMQvf2wUA/HPsRiopU8DZIIifaRS0k0BQD1Ta4Gqt/9USm3TpWcL4nHUEbbm+k
+	6fu5/aNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqALB-00000000B5k-1TJx;
-	Fri, 29 Mar 2024 11:24:09 +0000
+	id 1rqARZ-00000000CEX-34qf;
+	Fri, 29 Mar 2024 11:30:45 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqAL6-00000000B2k-1WZy
+	id 1rqARW-00000000CDS-42od
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Mar 2024 11:24:07 +0000
+	Fri, 29 Mar 2024 11:30:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1711711445; x=1743247445;
+  t=1711711842; x=1743247842;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=Jrj6syQt8Qu+9vJQGs9hIoWtYWx8WSpMoq0M4O6W0DA=;
-  b=C7mDWxjFpY8mlhEo7ty20jTXapcTZwXRYw24KPU+OMJrkHJTohF3jKMd
-   hHWNP9cRXkILkLmCXVEDjyXWBe0y+cUm+GCfJj7MURCvCj5bIf/q9xujG
-   s4L3UGYhacC4z7MP0F1gZ9qMvN23GCE6BPpT1bmnJpAP+w2eupcRB0TTB
-   N5w7Q5aVwylxw1drHOuqL/fHBRD7HHUz5iGtoNl2WwzRzvP1UCavHFtyQ
-   n1z5iF0/9ia+jrb1O1y+0+DAdk9o0AbqsdDkBoLYE7IRTJZGy//m+qRKV
-   pe20mPWULhw9QiTFM2HalmJSWyBwY1HjsMECRyemXiNA936K4hRJgO9Ve
-   g==;
-X-CSE-ConnectionGUID: /1VBts7pSJCRmgq1ilCSXw==
-X-CSE-MsgGUID: AX2flsgOTj6YYO4PNZ7U1w==
+  bh=13krIrWdbST8v3yx5rl7fjDLRbAzYR65lIGFUqhG+oA=;
+  b=N1EYpg3koD7rHcQTq37PkpFqKIhHwsx/27nyO/c1H9nVeQMfl1BgTJOK
+   hG3Lq0MFDNFZ2WW+qGgkpcHCkKdaTXDwlztW3/hfDKK3QZigehMCOu91V
+   SquDnzFmfeW4zYt+UqpuiM7zg9FECrf07d+ddUdslXluj++J9YSX6nowe
+   WnNk2qk84rSA4+FLSDMNXX6ugwgbPz3coZA2V6KNECit/OrcE1R5G0i5M
+   sH5ESqwTN4bevNQvdpJKogTN1fltaFsIfrWs4IkaWsTU32kcfJQ+t+Uj/
+   b6vjn2x72XV9SYYhK+2oLN0HuQ5xip8Bh4ocNZxfXZXfxcbq0v7jHoDYw
+   w==;
+X-CSE-ConnectionGUID: VjcjNiXvSMOOtP+t5GkgKw==
+X-CSE-MsgGUID: ZjKAbW9+Tayr/orz1ajTQQ==
 X-IronPort-AV: E=Sophos;i="6.07,164,1708412400"; 
-   d="asc'?scan'208";a="249424125"
+   d="asc'?scan'208";a="18645508"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 29 Mar 2024 04:24:01 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 29 Mar 2024 04:30:40 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 29 Mar 2024 04:23:58 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ 15.1.2507.35; Fri, 29 Mar 2024 04:30:00 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Fri, 29 Mar 2024 04:23:54 -0700
-Date: Fri, 29 Mar 2024 11:23:06 +0000
+ Transport; Fri, 29 Mar 2024 04:29:57 -0700
+Date: Fri, 29 Mar 2024 11:29:08 +0000
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Stefan O'Rear <sorear@fastmail.com>, Pu Lehui <pulehui@huaweicloud.com>,
-	<bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<netdev@vger.kernel.org>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?=
-	<bjorn@kernel.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
-	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
-	<martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu
-	<song@kernel.org>, Yonghong Song <yhs@fb.com>, John Fastabend
-	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav Fomichev
-	<sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Mykola Lysenko <mykolal@fb.com>, Manu Bretelle <chantr4@gmail.com>, Pu Lehui
-	<pulehui@huawei.com>
-Subject: Re: [PATCH bpf-next 2/5] riscv, bpf: Relax restrictions on Zbb
- instructions
-Message-ID: <20240329-linguini-uncured-380cb4cff61c@wendy>
-References: <20240328124916.293173-1-pulehui@huaweicloud.com>
- <20240328124916.293173-3-pulehui@huaweicloud.com>
- <3ed9fe94-2610-41eb-8a00-a9f37fcf2b1a@app.fastmail.com>
- <20240328-ferocity-repose-c554f75a676c@spud>
+To: Christoph =?iso-8859-1?Q?M=FCllner?= <christoph.muellner@vrull.eu>
+CC: Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?=
+	<bjorn@kernel.org>, Daniel Henrique Barboza <dbarboza@ventanamicro.com>,
+	Heiko Stuebner <heiko@sntech.de>, Cooper Qu <cooper.qu@linux.alibaba.com>,
+	Zhiwei Liu <zhiwei_liu@linux.alibaba.com>, Huang Tao
+	<eric.huang@linux.alibaba.com>, Alistair Francis <alistair.francis@wdc.com>
+Subject: Re: [PATCH 2/2] riscv: T-Head: Test availability bit before enabling
+ MAEE errata
+Message-ID: <20240329-mongrel-empathy-7c9d12b6939c@wendy>
+References: <20240327103130.3651950-1-christoph.muellner@vrull.eu>
+ <20240327103130.3651950-3-christoph.muellner@vrull.eu>
+ <20240327-imperfect-washbowl-d95e57cef0ef@spud>
+ <20240327-77a6b64153a68452d0438999@orel>
+ <CAEg0e7jyGZV3+04HNYzgfHMGYT9wV_c0A=ekpCRi3L-5yjxK=w@mail.gmail.com>
+ <7354b054-9eda-45a6-9503-ff30a1c9c276@ghiti.fr>
+ <CAEg0e7iAUWgT9BfaBQiKg6RUCL7RvCq43+ShpbGU7bxWuTYtag@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20240328-ferocity-repose-c554f75a676c@spud>
+In-Reply-To: <CAEg0e7iAUWgT9BfaBQiKg6RUCL7RvCq43+ShpbGU7bxWuTYtag@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_042404_632810_5A1E0B6C 
-X-CRM114-Status: GOOD (  22.05  )
+X-CRM114-CacheID: sfid-20240329_043043_050186_4C5F8428 
+X-CRM114-Status: GOOD (  49.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,154 +94,173 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1008826998815652386=="
+Content-Type: multipart/mixed; boundary="===============0391512240990155174=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1008826998815652386==
+--===============0391512240990155174==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="3w5FiosotNHZDrPp"
+	protocol="application/pgp-signature"; boundary="T/FpnQkc8PLt05ni"
 Content-Disposition: inline
 
---3w5FiosotNHZDrPp
-Content-Type: text/plain; charset=us-ascii
+--T/FpnQkc8PLt05ni
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Mar 28, 2024 at 10:07:23PM +0000, Conor Dooley wrote:
+On Fri, Mar 29, 2024 at 12:22:51PM +0100, Christoph M=C3=BCllner wrote:
+> On Thu, Mar 28, 2024 at 4:43=E2=80=AFPM Alexandre Ghiti <alex@ghiti.fr> w=
+rote:
+> >
+> > Hi Christoph,
+> >
+> > On 28/03/2024 15:18, Christoph M=C3=BCllner wrote:
+> > > On Wed, Mar 27, 2024 at 1:41=E2=80=AFPM Andrew Jones <ajones@ventanam=
+icro.com> wrote:
+> > >> On Wed, Mar 27, 2024 at 11:03:06AM +0000, Conor Dooley wrote:
+> > >>> On Wed, Mar 27, 2024 at 11:31:30AM +0100, Christoph M=C3=BCllner wr=
+ote:
+> > >>>> T-Head's MAEE mechanism (non-compatible equivalent of RVI's Svpbmt)
+> > >>>> is currently assumed for all T-Head harts. However, QEMU recently
+> > >>>> decided to drop acceptance of guests that write reserved bits in P=
+TEs.
+> > >>>> As MAEE uses reserved bits in PTEs and Linux applies the MAEE erra=
+ta
+> > >>>> for all T-Head harts, this broke the Linux startup on QEMU emulati=
+ons
+> > >>>> of the C906 emulation.
+> > >>>>
+> > >>>> This patch attempts to address this issue by testing the MAEE bit
+> > >>>> in TH_MXSTATUS CSR. As the TH_MXSTATUS CSR is only accessible in M=
+-mode
+> > >>>> this patch depends on M-mode firmware that handles this for us
+> > >>>> transparently.
+> > >>>>
+> > >>>> As this patch breaks Linux bootup on all C9xx machines with MAEE,
+> > >>>> which don't have M-mode firmware that handles the access to the
+> > >>>> TH_MXSTATUS CSR, this patch is marked as RFC.
+> > >> Can we wrap the csr access in a _ASM_EXTABLE()? If firmware handles =
+it,
+> > >> then we return true/false based on the value. If firmware doesn't ha=
+ndle
+> > >> it, and we get an illegal instruction exception, then we assume the =
+bit
+> > >> is set, which is the current behavior.
+> > >>
+> > >>> I think this is gonna be unacceptable in its current state given th=
+at it
+> > >>> causes problems for every other version of the firmware. Breaking r=
+eal
+> > >>> systems for the sake of emulation isn't something we can reasonably=
+ do.
+> > >>>
+> > >>> To make this sort of change acceptable, you're gonna have to add so=
+me way
+> > >>> to differentiate between systems that do and do not support reading=
+ this
+> > >>> CSR. I think we either a) need to check the version of the SBI
+> > >>> implementation to see if it hits the threshold for supporting this
+> > >>> feature, or b) add a specific SBI call for this so that we can
+> > >>> differentiate between firmware not supporting the function and the
+> > >> The FWFT SBI extension is being developed as a mechanism for S-mode =
+to ask
+> > >> M-mode things like this, but I think that extension should be used f=
+or
+> > >> features that have potential to be changed by S-mode (even if not
+> > >> everything will be changeable on all platforms), whereas anything th=
+at's
+> > >> read-only would be better with...
+> > >>
+> > >>> quote-unquote "hardware" not supporting it. I don't really like opt=
+ion a)
+> > >>> as it could grow to several different options (each for a different=
+ SBI
+> > >>> implementation) and support for reading the CSR would need to be
+> > >>> unconditional. I have a feeling that I am missing something though,
+> > >>> that'd make it doable without introducing a new call.
+> > >>>
+> > >>> Thanks,
+> > >>> Conor.
+> > >>>
+> > >>> If only we'd made enabling this be controlled by a specific DT prop=
+erty,
+> > >>> then disabling it in QEMU would be as simple as not setting that
+> > >>> property :(
+> > >> ...this, where "DT property" is "ISA extension name". I wonder if we
+> > >> shouldn't start considering the invention of xlinux_vendor_xyz type
+> > >> extension names which firmware could add to the ISA string / array,
+> > >> in order to communicate read-only information like this?
+> > >>
+> > >> Thanks,
+> > >> drew
+> > > Hi Conor and Drew,
+> > >
+> > > Thank you for your hints.
+> > > I fully agree with all your statements and concerns.
+> > >
+> > > Switching from th.mxstatus to th.sxstatus should address all mentione=
+d concerns:
+> > > * no dependency on OpenSBI changes
+> > > * no break of functionality
+> > > * no need for graceful handling of CSR read failures
+> > > * no need to differentiate between HW and emulation (assuming QEMU
+> > > accepts the emulation of th.sxstatus)
+> > >
+> > > Also note that DT handling would be difficult, because we need to pro=
+be before
+> > > setting up the page table.
+> >
+> >
+> > We already parse the DT before setting the page table to disable KASLR
+> > and to parse "no4lvl" or "no5lvl" command line parameters. Take a look
+> > at the kernel/pi directory and setup_vm() in mm/init.c.
+>=20
+> Ah, I see. So, this can be done with a function similar to
+> get_kaslr_seed() in arch/riscv/kernel/pi/fdt_early.c.
+> And the Makefile will apply the necessary steps to get this working.
+> The downside is that depending on new information in the DT, it will not =
+be
+> backward compatible. So, I don't see a way around probing th.sxstatus.MAE=
+E.
 
-> As I said on IRC to you earlier, I think the Kconfig options here are in
-> need of a bit of a spring cleaning - they should be modified to explain
-> their individual purposes, be that enabling optimisations in the kernel
-> or being required for userspace. I'll try to send a patch for that if
-> I remember tomorrow.
+Aye, you're right here. My suggestion about using DT was only for if
+there were T-Head CPUs that turned up in the future with non-zero values
+for marchid or mimpid. Requiring it for the CPUs we're talking about at
+the moment (e.g. c906) would, as you pointed out yourself, cause the same
+sort of regression that relying on an updated firmware would.
+> Independent of that, there is work to be done for the T-Head extension
+> discovery in the Linux kernel:
+> * XThead* extensions are not in the DTS
+> * XThead* extensions are not parsed during bootup
+> * XThead* extensions don't trigger optimizations (string ops) or errata (=
+MAEE)
+> * XThead* extensions are not exported via hwprobe
 
-Something like this:
+> However, I think this is independent of addressing the MAEE issue.
+> So, I will send out a V2 with the th.sxstatus.MAEE probing only.
 
--- >8 --
-commit 5125504beaedd669b082bf74b02003a77360670f
-Author: Conor Dooley <conor.dooley@microchip.com>
-Date:   Fri Mar 29 11:13:22 2024 +0000
+th.sxstatus seems perfect here since it solves the problem you're
+looking to deal with in emulation while being not introducing
+regressions for real devices.
 
-    RISC-V: clarify what some RISCV_ISA* config options do
-   =20
-    During some discussion on IRC yesterday and on Pu's bpf patch [1]
-    I noticed that these RISCV_ISA* Kconfig options are not really clear
-    about their implications. Many of these options have no impact on what
-    userspace is allowed to do, for example an application can use Zbb
-    regardless of whether or not the kernel does. Change the help text to
-    try and clarify whether or not an option affects just the kernel, or
-    also userspace. None of these options actually control whether or not an
-    extension is detected dynamically as that's done regardless of Kconfig
-    options, so drop any text that implies the option is required for
-    dynamic detection, rewording them as "do x when y is detected".
-   =20
-    Link: https://lore.kernel.org/linux-riscv/20240328-ferocity-repose-c554=
-f75a676c@spud/ [1]
-    Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-    ---
-    I did this based on top of Samuel's changes dropping the MMU
-    requurements just in case, but I don't think there's a conflict:
-    https://lore.kernel.org/linux-riscv/20240227003630.3634533-4-samuel.hol=
-land@sifive.com/
+Thanks,
+Conor.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d8a777f59402..f327a8ac648f 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -501,8 +501,8 @@ config RISCV_ISA_SVNAPOT
- 	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
--	  Allow kernel to detect the Svnapot ISA-extension dynamically at boot
--	  time and enable its usage.
-+	  Add support for the Svnapot ISA-extension when it is detected by
-+	  the kernel at boot.
-=20
- 	  The Svnapot extension is used to mark contiguous PTEs as a range
- 	  of contiguous virtual-to-physical translations for a naturally
-@@ -520,9 +520,9 @@ config RISCV_ISA_SVPBMT
- 	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
--	   Adds support to dynamically detect the presence of the Svpbmt
--	   ISA-extension (Supervisor-mode: page-based memory types) and
--	   enable its usage.
-+	   Add support for the Svpbmt ISA-extension (Supervisor-mode:
-+	   page-based memory types) when it is detected by the kernel at
-+	   boot.
-=20
- 	   The memory type for a page contains a combination of attributes
- 	   that indicate the cacheability, idempotency, and ordering
-@@ -541,14 +541,15 @@ config TOOLCHAIN_HAS_V
- 	depends on AS_HAS_OPTION_ARCH
-=20
- config RISCV_ISA_V
--	bool "VECTOR extension support"
-+	bool "Vector extension support"
- 	depends on TOOLCHAIN_HAS_V
- 	depends on FPU
- 	select DYNAMIC_SIGFRAME
- 	default y
- 	help
- 	  Say N here if you want to disable all vector related procedure
--	  in the kernel.
-+	  in the kernel. Without this option enabled, neither the kernel nor
-+	  userspace may use vector.
-=20
- 	  If you don't know what to do here, say Y.
-=20
-@@ -606,8 +607,8 @@ config RISCV_ISA_ZBB
- 	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
--	   Adds support to dynamically detect the presence of the ZBB
--	   extension (basic bit manipulation) and enable its usage.
-+	   Add support for enabling optimisations in the kernel when the
-+	   Zbb extension is detected at boot.
-=20
- 	   The Zbb extension provides instructions to accelerate a number
- 	   of bit-specific operations (count bit population, sign extending,
-@@ -623,9 +624,9 @@ config RISCV_ISA_ZICBOM
- 	select RISCV_DMA_NONCOHERENT
- 	select DMA_DIRECT_REMAP
- 	help
--	   Adds support to dynamically detect the presence of the ZICBOM
--	   extension (Cache Block Management Operations) and enable its
--	   usage.
-+	   Add support for the Zicbom extension (Cache Block Management
-+	   Operations) and enable its use in the kernel when it is detected
-+	   at boot.
-=20
- 	   The Zicbom extension can be used to handle for example
- 	   non-coherent DMA support on devices that need it.
-@@ -684,7 +685,8 @@ config FPU
- 	default y
- 	help
- 	  Say N here if you want to disable all floating-point related procedure
--	  in the kernel.
-+	  in the kernel. Without this option enabled, neither the kernel nor
-+	  userspace may use vector.
-=20
- 	  If you don't know what to do here, say Y.
-=20
-
-
---3w5FiosotNHZDrPp
+--T/FpnQkc8PLt05ni
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgakmgAKCRB4tDGHoIJi
-0i5uAQDpfKrD3sCVEMzQmkCAyMoGFe2KN23qp4Qq8wsF4GUwWAEAolnPKacUQiAa
-bHyHhXo7v4OmhrqQ8dWqPmvM5Fqb4Q8=
-=a121
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgamBAAKCRB4tDGHoIJi
+0nOfAP4+Op/5F8BAG6p5nR4879yKIjDmQDhUfDUpJZjY6pjFGQEAuO0Hp59KwwuO
+AdFnNXyw/zldgXgM59ClmzjkWeggmAQ=
+=BTil
 -----END PGP SIGNATURE-----
 
---3w5FiosotNHZDrPp--
+--T/FpnQkc8PLt05ni--
 
 
---===============1008826998815652386==
+--===============0391512240990155174==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -251,5 +271,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1008826998815652386==--
+--===============0391512240990155174==--
 
