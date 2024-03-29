@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C71CD1288
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 07:27:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DFBC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 07:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lswGEibikxrNB3zxR4L//JxUhypvxzEUiyaF1doQjuA=; b=exHqf2jGQW0Awc
-	TB00KQ4yN/mF4cMofx8fovDHC8AfAtTcHIYqCI+D3DDPIltalJ4BIcXY+JEt15caTGQMlDM7a+ZPs
-	VV+eCjg0etoyB5/d1pcSnPJPrPZhyW61RWtg86j0WCOy1yDZvPr0WJ4LNTB+WEgDkH5r6vYJb2Esx
-	h1m+z9NHh9jiA4r++mz+dhG38QPbpzsfE+zE0WW20Ixl7JOHpMmjFHmCTq+HAYshqc09V7CU7Pmtn
-	YIkReVWkAgHEb6PduTRMxAdCqBvOSFGc+eV4dNlp7pfGx2+QW0D7hJCMj2TRD93+xC36AmbvfO8rs
-	vMXW4YevkJYrcKUhhMNw==;
+	List-Owner; bh=/CkELF7Q5aQN2Q2GCWNWw0vv/LbvTGNWVqrB0qnFdSU=; b=aEcYod0uBDgFO2
+	P1ggR5Mom6hw6GJpT5nuLNDMuE5A0j4cC5R2LVxvNzG5O+Ok5p2r+lzHYWEpRgVMIvp8kJcORSldD
+	yHvTJ9d4fm453Cf5bqWEDNLWbkpt8Y1BbIc05smSi8x81foMpdKwvM1I5HvvvqeD73eCotnUbq9HA
+	FuxbkB1AItwpA4gZ/T4Sqn9ArNg0FYgZoyXwVZthcNkWAbsaAsOjMWRAKTFo2zgzIQ96XzaxIDpwZ
+	uwXyqSc+El8iHivE2jR/whPpzPJICHMR9ZXAln2gEIbNhsPV8sIecsOg9sN8D92uUZUc0t6462NgA
+	luDE5SulG0CWr7Z8waPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq6di-0000000HA1b-1nTJ;
-	Fri, 29 Mar 2024 07:27:02 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1rq6dl-0000000HA3b-1mbH;
+	Fri, 29 Mar 2024 07:27:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq6bs-0000000H8kD-231g
-	for linux-riscv@lists.infradead.org;
+	id 1rq6bu-0000000H8mi-00kW
+	for linux-riscv@bombadil.infradead.org;
 	Fri, 29 Mar 2024 07:25:10 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-5d8b70b39efso1400274a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 00:25:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=1ZUya0v8Oh5iLzX7Kw5hO2ocqVWj9tNi/iu8yR8eYow=; b=FLdY2Ck/0DadFmItQP0yXtBbJd
+	LWwObX5ez9PBlY/odgrOKUwdenDksFdBDJ33GggOc16EvRFrIwBSppmSXZstTsVcoSbOqe7D+2xh4
+	x9AjU8ggYSzqnfWtH4Tvo+lKz+L5mlvd4ezp6gEpZPD732vzzE7dBKCatCNQFtHLOUIswB8suZjSk
+	SbQVahrmdhOFfd6+LNEgFUOlcMdOl00egHZAZ6KkerAHgCyrBwsObYpxSC7pwyP1nQVlGHN+IchiT
+	1FMT8w/or4ikyb2owpD8zuHW45PFS9xLWCbWR7Di7WSPq7mdwo3de0XR/lxiH0aNTAJo/s/uMKgSU
+	dZwLDA/Q==;
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rq6bn-00000001Qur-3j3K
+	for linux-riscv@lists.infradead.org;
+	Fri, 29 Mar 2024 07:25:06 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2a209b8af12so915240a91.3
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 00:25:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711697106; x=1712301906; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1711697101; x=1712301901; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IERaZRfF/9oogZdizMupzfKIm+UO6QVYkIeFwIsamZU=;
-        b=NVMQ6Sri7O55r+h4zmsIlvECjSh9BcLjrKKnd4MDecZZRZJ8i0Zl5SCVzQFlB61dld
-         OpZDFyQ1wCocePmiPaibwG7WmPn1tmrDzTtRP63eeqkF8A+fytPWHYXDv2qH6i8rWTn0
-         F87KB2aOIDU4jKitqrhYnzeks7i2pY4vX+ZbI6wfeG30v0TDvsivLA9AbQ5dH5iB6mgK
-         MgDI4N7gwWhZg1jvZ/t46PqPjijyEKTApe5PlFqJgsqh3GJ/J64k16sHdHE44eRtgqf4
-         K2ziwSCCOWx/E0b3FjgvBn7r/pu3RR87X2V+ijT7mZ6d8LGTQSVZQUpIm7VrXb9ksQm7
-         hmBw==
+        bh=1ZUya0v8Oh5iLzX7Kw5hO2ocqVWj9tNi/iu8yR8eYow=;
+        b=UdHh3OsTB8lgvqDTPwH1434wlD/BI9ambuJZoE8cuq7fb2/dLX1cBf1gsgx+Y7Qu6E
+         OnZKnlgCWJ9NhhQh4tEXKAWjEm+47pdRTzQzbKOtgzj2tCrrSHSpHUfEPe1vCtDkhcOR
+         cZe1CWgAeNDVH7I609v6XUfK0xYeB7ackZEemDQECPKnR/O9uQtAL2nvl/VAguzha3SD
+         BDatEosxnchtMvUHgS63s6bOEZUU2xNUb9JO+PCSjGUICV4KTl8fsOi+FwJAkINqvkiO
+         +dAEnCXfpMXh2GirV5bcQDHD+jbK5h6P4CH2oyIXpzvkoTYh0n6n9inBQq5fqKh8cCnu
+         mZgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711697106; x=1712301906;
+        d=1e100.net; s=20230601; t=1711697101; x=1712301901;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=IERaZRfF/9oogZdizMupzfKIm+UO6QVYkIeFwIsamZU=;
-        b=TkAvAC8A2UPSJASbRe+bimhXWc489GDqMMjwUBusCjHpbQH1LelqWviGdYVzakO9Wo
-         fdcNeORreiiA7zuI11ufa8fJ6W0K5ojxS4Y8vCZVmkqsXuD9U0ojGYTC8LjW0kbUBsoV
-         BYOPRaR+W9S/5WlpOl+c3UroUsW1LidDaBFBKE1OoJqa6aKBjTQLPZwrmn0ETFw/49qf
-         7kfbl2YX2vVVJiocycxyuRlMZIP/Y0kpRHg97nbR046WN+HppthuDmtKLBlxzMinnJeF
-         QLLBleFQiNFsrvieVwP00YENqjl0HQs1SdkBdQb5MMB1NZJ4vLtHxqgCxEgiYxD0vgei
-         yViA==
-X-Forwarded-Encrypted: i=1; AJvYcCVEQLEhDBjmVrKjSms/q16ln+o6SDM+9BL1RrKOdndpILAenRs5cebLSkTTJK2/TF8ypQG1k5CGpnzW2hEC62bEFnkHgvzKbLv9WrXKnVlO
-X-Gm-Message-State: AOJu0YzKuO5zthTSJQ/ojigOi4fFC2k918afAUt1wPzz62QQ1rkpH2/4
-	sqdIsm+rqXdGJkY9LHtMawOcWEyRXGGHe0Okt/C5BqCF8OpIWRAkb538R39o1Do=
-X-Google-Smtp-Source: AGHT+IEgFbP2oHNJWaGrzpoC9/WKXB2wk7z5kOFJSRoINaDHcY2EGHO1B7+JnkXlN7mfRYkSUpJEAg==
-X-Received: by 2002:a17:90a:3ee6:b0:2a0:3a16:7489 with SMTP id k93-20020a17090a3ee600b002a03a167489mr1460482pjc.44.1711697106489;
-        Fri, 29 Mar 2024 00:25:06 -0700 (PDT)
+        bh=1ZUya0v8Oh5iLzX7Kw5hO2ocqVWj9tNi/iu8yR8eYow=;
+        b=jhZw+cWPgNZ1L8Th7mjHO5hdy9AV3JdE6Fz2uCOnQI1eBAJj+PaNh2LQfmKwrb0xdP
+         Pw8cOWfIt9ytVyAbiNPuVcipijT4IO0W2vwSMoOfTdbvyoESkazZXEepBM11ra3LcCtx
+         aGU2oDo4GgaNzJUfIjVsDZHkCj0I/1M9//HA6MRVudZP5ZAFcmrqvfnU6rR7MsIbJUYP
+         Ihdg5Q+tdVUxw/k6MynGRbvxg8f/KYdzKtNPttXoCzKkvscuma0BpD9Ct5W09qtu0f7m
+         vP67/eFrNf1FKrme0u+GDoynZhQrSaXTMA0O3Xxk3258oGaQUzewAGuf0wqYEeaqk8V9
+         JjVw==
+X-Forwarded-Encrypted: i=1; AJvYcCUC+Vl6qm+g3XKbHWI13otFyIGRzMcREdV1bVG12DdJkIrVVUsMYR+QHbv9IZlsX1wfcIiU/w0uVEMvuzbE6oxzZnED3qxjMikGkPu1/k6c
+X-Gm-Message-State: AOJu0YyV+WnBFf4QZKbjpF1F2jM/fdIBp867znhmmJ6abpw4Ng2Y2+sX
+	uxQhwnSP+fa32huaJzwXE7UqaC9peAAmKkg3pR+/RVNPzDbTZv1qVPHBSJ0L+/+C3qpvODOB3NO
+	L
+X-Google-Smtp-Source: AGHT+IERKMtTUUrMNrNdpmOZyYX6MKtFB7fSH53v9LodH/8MB2comF4l1LxXs3fRZJNBleQgeI68Nw==
+X-Received: by 2002:a17:90a:b008:b0:2a0:5339:7751 with SMTP id x8-20020a17090ab00800b002a053397751mr1529473pjq.37.1711697101571;
+        Fri, 29 Mar 2024 00:25:01 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id b8-20020a17090a010800b0029ddac03effsm4971798pjb.11.2024.03.29.00.25.05
+        by smtp.gmail.com with ESMTPSA id b8-20020a17090a010800b0029ddac03effsm4971798pjb.11.2024.03.29.00.25.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Mar 2024 00:25:06 -0700 (PDT)
+        Fri, 29 Mar 2024 00:25:01 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
@@ -74,17 +90,21 @@ Cc: linux-kernel@vger.kernel.org,
 	Christoph Hellwig <hch@lst.de>,
 	loongarch@lists.linux.dev,
 	amd-gfx@lists.freedesktop.org,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v4 14/15] selftests/fpu: Move FP code to a separate translation unit
-Date: Fri, 29 Mar 2024 00:18:29 -0700
-Message-ID: <20240329072441.591471-15-samuel.holland@sifive.com>
+	Samuel Holland <samuel.holland@sifive.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH v4 10/15] x86: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
+Date: Fri, 29 Mar 2024 00:18:25 -0700
+Message-ID: <20240329072441.591471-11-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240329072441.591471-1-samuel.holland@sifive.com>
 References: <20240329072441.591471-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_002508_589725_27612BAF 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20240329_072504_137826_C9FEDE9F 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,145 +121,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This ensures no compiler-generated floating-point code can appear
-outside kernel_fpu_{begin,end}() sections, and some architectures
-enforce this separation.
+x86 already provides kernel_fpu_begin() and kernel_fpu_end(), but in a
+different header. Add a wrapper header, and export the CFLAGS
+adjustments as found in lib/Makefile.
 
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-(no changes since v2)
+(no changes since v1)
 
-Changes in v2:
- - Declare test_fpu() in a header
+ arch/x86/Kconfig           |  1 +
+ arch/x86/Makefile          | 20 ++++++++++++++++++++
+ arch/x86/include/asm/fpu.h | 13 +++++++++++++
+ 3 files changed, 34 insertions(+)
+ create mode 100644 arch/x86/include/asm/fpu.h
 
- lib/Makefile                        |  3 ++-
- lib/test_fpu.h                      |  8 +++++++
- lib/{test_fpu.c => test_fpu_glue.c} | 32 +------------------------
- lib/test_fpu_impl.c                 | 37 +++++++++++++++++++++++++++++
- 4 files changed, 48 insertions(+), 32 deletions(-)
- create mode 100644 lib/test_fpu.h
- rename lib/{test_fpu.c => test_fpu_glue.c} (71%)
- create mode 100644 lib/test_fpu_impl.c
-
-diff --git a/lib/Makefile b/lib/Makefile
-index ffc6b2341b45..fcb35bf50979 100644
---- a/lib/Makefile
-+++ b/lib/Makefile
-@@ -133,7 +133,8 @@ FPU_CFLAGS += $(call cc-option,-msse -mpreferred-stack-boundary=3,-mpreferred-st
- endif
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 39886bab943a..7c9d032ee675 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -83,6 +83,7 @@ config X86
+ 	select ARCH_HAS_FORTIFY_SOURCE
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select ARCH_HAS_KCOV			if X86_64
++	select ARCH_HAS_KERNEL_FPU_SUPPORT
+ 	select ARCH_HAS_MEM_ENCRYPT
+ 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+ 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
+diff --git a/arch/x86/Makefile b/arch/x86/Makefile
+index 662d9d4033e6..5a5f5999c505 100644
+--- a/arch/x86/Makefile
++++ b/arch/x86/Makefile
+@@ -74,6 +74,26 @@ KBUILD_CFLAGS += -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx
+ KBUILD_RUSTFLAGS += --target=$(objtree)/scripts/target.json
+ KBUILD_RUSTFLAGS += -Ctarget-feature=-sse,-sse2,-sse3,-ssse3,-sse4.1,-sse4.2,-avx,-avx2
  
- obj-$(CONFIG_TEST_FPU) += test_fpu.o
--CFLAGS_test_fpu.o += $(FPU_CFLAGS)
-+test_fpu-y := test_fpu_glue.o test_fpu_impl.o
-+CFLAGS_test_fpu_impl.o += $(FPU_CFLAGS)
- 
- # Some KUnit files (hooks.o) need to be built-in even when KUnit is a module,
- # so we can't just use obj-$(CONFIG_KUNIT).
-diff --git a/lib/test_fpu.h b/lib/test_fpu.h
++#
++# CFLAGS for compiling floating point code inside the kernel.
++#
++CC_FLAGS_FPU := -msse -msse2
++ifdef CONFIG_CC_IS_GCC
++# Stack alignment mismatch, proceed with caution.
++# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
++# (8B stack alignment).
++# See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53383
++#
++# The "-msse" in the first argument is there so that the
++# -mpreferred-stack-boundary=3 build error:
++#
++#  -mpreferred-stack-boundary=3 is not between 4 and 12
++#
++# can be triggered. Otherwise gcc doesn't complain.
++CC_FLAGS_FPU += -mhard-float
++CC_FLAGS_FPU += $(call cc-option,-msse -mpreferred-stack-boundary=3,-mpreferred-stack-boundary=4)
++endif
++
+ ifeq ($(CONFIG_X86_KERNEL_IBT),y)
+ #
+ # Kernel IBT has S_CET.NOTRACK_EN=0, as such the compilers must not generate
+diff --git a/arch/x86/include/asm/fpu.h b/arch/x86/include/asm/fpu.h
 new file mode 100644
-index 000000000000..4459807084bc
+index 000000000000..b2743fe19339
 --- /dev/null
-+++ b/lib/test_fpu.h
-@@ -0,0 +1,8 @@
-+/* SPDX-License-Identifier: GPL-2.0+ */
++++ b/arch/x86/include/asm/fpu.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2023 SiFive
++ */
 +
-+#ifndef _LIB_TEST_FPU_H
-+#define _LIB_TEST_FPU_H
++#ifndef _ASM_X86_FPU_H
++#define _ASM_X86_FPU_H
 +
-+int test_fpu(void);
++#include <asm/fpu/api.h>
 +
-+#endif
-diff --git a/lib/test_fpu.c b/lib/test_fpu_glue.c
-similarity index 71%
-rename from lib/test_fpu.c
-rename to lib/test_fpu_glue.c
-index e82db19fed84..85963d7be826 100644
---- a/lib/test_fpu.c
-+++ b/lib/test_fpu_glue.c
-@@ -19,37 +19,7 @@
- #include <linux/debugfs.h>
- #include <asm/fpu/api.h>
- 
--static int test_fpu(void)
--{
--	/*
--	 * This sequence of operations tests that rounding mode is
--	 * to nearest and that denormal numbers are supported.
--	 * Volatile variables are used to avoid compiler optimizing
--	 * the calculations away.
--	 */
--	volatile double a, b, c, d, e, f, g;
--
--	a = 4.0;
--	b = 1e-15;
--	c = 1e-310;
--
--	/* Sets precision flag */
--	d = a + b;
--
--	/* Result depends on rounding mode */
--	e = a + b / 2;
--
--	/* Denormal and very large values */
--	f = b / c;
--
--	/* Depends on denormal support */
--	g = a + c * f;
--
--	if (d > a && e > a && g > a)
--		return 0;
--	else
--		return -EINVAL;
--}
-+#include "test_fpu.h"
- 
- static int test_fpu_get(void *data, u64 *val)
- {
-diff --git a/lib/test_fpu_impl.c b/lib/test_fpu_impl.c
-new file mode 100644
-index 000000000000..777894dbbe86
---- /dev/null
-+++ b/lib/test_fpu_impl.c
-@@ -0,0 +1,37 @@
-+// SPDX-License-Identifier: GPL-2.0+
++#define kernel_fpu_available()	true
 +
-+#include <linux/errno.h>
-+
-+#include "test_fpu.h"
-+
-+int test_fpu(void)
-+{
-+	/*
-+	 * This sequence of operations tests that rounding mode is
-+	 * to nearest and that denormal numbers are supported.
-+	 * Volatile variables are used to avoid compiler optimizing
-+	 * the calculations away.
-+	 */
-+	volatile double a, b, c, d, e, f, g;
-+
-+	a = 4.0;
-+	b = 1e-15;
-+	c = 1e-310;
-+
-+	/* Sets precision flag */
-+	d = a + b;
-+
-+	/* Result depends on rounding mode */
-+	e = a + b / 2;
-+
-+	/* Denormal and very large values */
-+	f = b / c;
-+
-+	/* Depends on denormal support */
-+	g = a + c * f;
-+
-+	if (d > a && e > a && g > a)
-+		return 0;
-+	else
-+		return -EINVAL;
-+}
++#endif /* ! _ASM_X86_FPU_H */
 -- 
 2.44.0
 
