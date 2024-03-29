@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E60C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 20:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2388CD1283
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 20:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=i3Tk4dO4u+v4hbPS8z6iO+HxlAmhNVA1q7ird/Rg81Q=; b=NIAmHDUvJMX0aQ
-	f75+nbSuz6d5lD10nXps8sVSPTvFoSzvO4B7RHpUiJd3pxspUZqb9jJ996+9PfFtuLPsvkFTwHxmy
-	x9PXoaaqKnIsrW37EAHPGGU8npDZ4FcZ5gfmBM0QBibRBi7pxSw/oH/xRe8/KXq+oZ/4Y1uy/GCcn
-	L+sB3t3tNVyzhRcAZmPp1oUGFOl82ZnUD3WOVR0ZWF1p2ZKDdTso9ep14YmYxYcTyspxPZqSKvX+I
-	ICknQhS0vsoFiGNQNKLGxv89HRCyCF0kxQQe1xs/sF4MqL4XS4WX2o3Yv4mqVMkD6ZhN0XU4pncHv
-	jDmUlAMxqQ/hhbLTYVBw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VNw5PgWwOJNNtf/IAKLNbLOKidWx1OmuUPfSAyOInG8=; b=wv+FNiKgyssdJB
+	K9E8vzZ9XGrjGS8CHMQtU3Po9T1/mpoYFTpErEfhcvZGj95q6Z2+hWOn+kcTTbzhP8UZA1WNAbRoa
+	0WHJ1OpIV7qGlKxHJ30Z1vjqtI+dlm9w1vSWu7KXcym9LQqJH2jccpM+5tLDq6wZYLgRJmW92Y53a
+	2aT0MSmFR4/aFdHPYrI3g6mVBE4VPTHZvA0BGqkBADhG3ivQ/HH0Xswe359rXuYRsiCKkyuGvQ2Gy
+	dwSyPLmLorGgQUX6+y6u9j8Hmp/3pcanGyIaw0PlG9pPHGu119tGZb92VN8/kkNCR91jyDUdqkeco
+	WhfFNaUmquYk+SYefq8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqIVL-00000001rfD-3SEj;
-	Fri, 29 Mar 2024 20:07:11 +0000
+	id 1rqIVN-00000001rgE-3YV6;
+	Fri, 29 Mar 2024 20:07:13 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqIVD-00000001rZa-2F6A
+	id 1rqIVE-00000001rb4-2TYt
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Mar 2024 20:07:05 +0000
+	Fri, 29 Mar 2024 20:07:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1711742821;
+	s=mimecast20190719; t=1711742823;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=SnHjQH48YnJt749mCO2kgMTpPbKk2F0bzExQRDPnK30=;
-	b=eZB7PJr/afzmul2LLO43LzGv7A7+zmb6aYQ0Zxpuba3/5GGW6NcqwNpZ6cIfyuMpm5VTWP
-	vsydIQwPbvSD342NFjhTBZD/dixbpeDgJmjbTJHo1Quy2zWJtGSyLdIg0TswUwIiXrpB8Z
-	CCPtJD0YqQR4ah15E6ZO/chEWNpK7WI=
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com
- [209.85.215.198]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mW3VicmmCQlgVDIuthBaNsM8y8envErsUpMXQwPZu58=;
+	b=F0DEe7aAZ9g4pPKJIOVqCChw8HmhC+ub6GerSdGFbswtwMmBs1p2y3bve7qPwpRaTZjGWh
+	7KeGg6X/uNRez7741Dnii2x7rWrnGbs08hPStQkP+QcM9bMTQncNwSreA0HrjtI/Pf1JFF
+	zGHXUMskJ5hmsch68xIPRvZskKsHDts=
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
+ [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-61-VUPzFQ_AOryAarY1dmXlDQ-1; Fri, 29 Mar 2024 16:05:06 -0400
-X-MC-Unique: VUPzFQ_AOryAarY1dmXlDQ-1
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-5c5c8ef7d0dso1703296a12.2
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 13:05:06 -0700 (PDT)
+ us-mta-335-ZrP4uaeQNV2I4mZTg7cIMg-1; Fri, 29 Mar 2024 16:05:13 -0400
+X-MC-Unique: ZrP4uaeQNV2I4mZTg7cIMg-1
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-1e2058878b9so20728985ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 13:05:13 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711742705; x=1712347505;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SnHjQH48YnJt749mCO2kgMTpPbKk2F0bzExQRDPnK30=;
-        b=GHOMYUqtBKmJHWgG8xoo5T+qpA/IrukcApc+XeYo+pfdKRj57lqln8uQSs7dspskKJ
-         7mk1wWCFLxxQ6AHjy13DIpvuESVhXgtERj0JIpgp+MgpB1l5JNWWxDPIAEMnAztYkPyf
-         s7TAOOgHZbPHrKhzxU2h29AaIuZFiLpcz/nUXTG/VhsfrKRElF2zIE/SRo5F408YtbRP
-         X+Rav10A6CW4b1dqsaEHu0tpFn0BHzFr7IpmPKiz1iayrZWjjXqZUQO/i5Eok0HuxQ8x
-         x1wE31f1kiESEy92NSxQF2MN9HX8rP9EnGMHg1NeL0UuS42zfJ7+GfXAuhKfoRR7J4qT
-         zNIA==
-X-Gm-Message-State: AOJu0YyGFfIG5rnuGa++p9GIKWeLCRlfId7bYNmM4hvaW8K4l7HOEyPo
-	hJf5zOH9rbfMpZYSytR6hu4Q7PX5wop3dX9nBetqupO3dcfdGyn8bH3qwIs5i+7jkXL8tbQOnHB
-	1VtDhvwnezpMnYo2q5CT6py3Vc2UXfruCkUOIwZRYmtPunVLtF6h0ikSrjmAbddPd7l8J7Fv3mz
-	bNnD8=
-X-Received: by 2002:a05:6a21:193:b0:1a3:c8d5:707a with SMTP id le19-20020a056a21019300b001a3c8d5707amr3325566pzb.7.1711742704871;
-        Fri, 29 Mar 2024 13:05:04 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHzus5TYmyBQIJzw2X4oGKdRnzm+fHezhgpcMAHRkbhzjBiVvj5MPNNZHf4gEN4NnQQtcePCw==
-X-Received: by 2002:a05:6a21:193:b0:1a3:c8d5:707a with SMTP id le19-20020a056a21019300b001a3c8d5707amr3325536pzb.7.1711742704523;
-        Fri, 29 Mar 2024 13:05:04 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1711742712; x=1712347512;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mW3VicmmCQlgVDIuthBaNsM8y8envErsUpMXQwPZu58=;
+        b=IFD9Pm7IVk3DgO5yF6tCObLb/HDdFbuJoVqnUVrd0MJs/W5lMeMAQvgUjsViQCdBUX
+         0x4ry/Y47ZP7fvqf8QODOW9/d8nfTS/FLlAQNWe8GV1vRvpn8oiVHEMUFmweVzAot2oW
+         NHifJ2vtSdOs2ysRgm7J9OofUp7iJPa9BfUvXAwLKsUP79ZDf53yctWtHywGvIiGFJHA
+         7P4026w9PNj7lGOihI5/n0dm1Pq7LGDtt+D8MopqAtwWIl28xqsOhfHYgO/yJawRqIDu
+         DV0L1ANmWP8mokjLczHnRwBHUVvICETM+9zCWJN4EIlf75VKuZGqVHiSdFMvYCLs/lmq
+         QQ1w==
+X-Gm-Message-State: AOJu0YxZTRqW4LJDwHdjCx7ZcJ0BlbPPBx4a7bUqlf4hf9jnIJ3jz+7l
+	oKVHPKasO4EMj/KG/f6lmH4VcVwf6ZHGwImlC++7xv4TG5zbJlM8JFtinkRGLUQCXZ0lkTaWQ3J
+	bXw7/xFajlvfl1UymCJQxaTpYBPI98zlNWXBoxlDbkmchWpY36DRd99NBJAxd7ytwHQ==
+X-Received: by 2002:a17:903:543:b0:1dd:e114:121c with SMTP id jo3-20020a170903054300b001dde114121cmr2998090plb.56.1711742712210;
+        Fri, 29 Mar 2024 13:05:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGNymtYuM0xkGVcxr1Pl+WDa1ocpxUwuecSFjiqBHkYBwLjdIOjM2I6NsfRSwIixolaXXUyLQ==
+X-Received: by 2002:a17:903:543:b0:1dd:e114:121c with SMTP id jo3-20020a170903054300b001dde114121cmr2998069plb.56.1711742711804;
+        Fri, 29 Mar 2024 13:05:11 -0700 (PDT)
 Received: from localhost.localdomain ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id e4-20020a17090301c400b001dd6ebd88b0sm3830017plh.198.2024.03.29.13.04.57
+        by smtp.gmail.com with ESMTPSA id e4-20020a17090301c400b001dd6ebd88b0sm3830017plh.198.2024.03.29.13.05.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Mar 2024 13:05:04 -0700 (PDT)
+        Fri, 29 Mar 2024 13:05:11 -0700 (PDT)
 From: wefu@redhat.com
 To: jszhang@kernel.org,
 	guoren@kernel.org,
@@ -95,17 +95,18 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-iio@vger.kernel.org,
 	Wei Fu <wefu@redhat.com>
-Subject: [PATCH 0/3] iio: adc: add ADC driver for XuanTie TH1520 SoC
-Date: Sat, 30 Mar 2024 04:01:23 +0800
-Message-ID: <20240329200241.4122000-1-wefu@redhat.com>
+Subject: [PATCH 1/3] drivers/iio/adc: Add XuanTie TH1520 ADC driver
+Date: Sat, 30 Mar 2024 04:01:24 +0800
+Message-ID: <20240329200241.4122000-2-wefu@redhat.com>
 X-Mailer: git-send-email 2.44.0
+In-Reply-To: <20240329200241.4122000-1-wefu@redhat.com>
+References: <20240329200241.4122000-1-wefu@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_130703_771976_43ED6E2D 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240329_130704_825263_E668691E 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,26 +125,823 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Wei Fu <wefu@redhat.com>
 
-This patchset adds initial support for XuanTie TH1520 ADC driver.
-This is modified from XuanTie TH1520 Linux_SDK_V1.4.2(linux v5.10.113)
-The original author is Fugang Duan <duanfugang.dfg@linux.alibaba.com>
+Signed-off-by: Wei Fu <wefu@redhat.com>
+---
+ drivers/iio/adc/Kconfig              |  13 +
+ drivers/iio/adc/Makefile             |   1 +
+ drivers/iio/adc/xuantie-th1520-adc.c | 572 +++++++++++++++++++++++++++
+ drivers/iio/adc/xuantie-th1520-adc.h | 193 +++++++++
+ 4 files changed, 779 insertions(+)
 
-Wei Fu (3):
-  drivers/iio/adc: Add XuanTie TH1520 ADC driver
-  riscv: dts: thead: Add XuanTie TH1520 ADC device node
-  dt-bindings: adc: Document XuanTie TH1520 ADC
-
- .../bindings/iio/adc/thead,th1520.yaml        |  52 ++
- arch/riscv/boot/dts/thead/th1520.dtsi         |  10 +
- drivers/iio/adc/Kconfig                       |  13 +
- drivers/iio/adc/Makefile                      |   1 +
- drivers/iio/adc/xuantie-th1520-adc.c          | 572 ++++++++++++++++++
- drivers/iio/adc/xuantie-th1520-adc.h          | 193 ++++++
- 6 files changed, 841 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/iio/adc/thead,th1520.yaml
- create mode 100644 drivers/iio/adc/xuantie-th1520-adc.c
- create mode 100644 drivers/iio/adc/xuantie-th1520-adc.h
-
+diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
+index 0d9282fa67f5..9e37ba2a877a 100644
+--- a/drivers/iio/adc/Kconfig
++++ b/drivers/iio/adc/Kconfig
+@@ -1515,4 +1515,17 @@ config XILINX_AMS
+ 	  The driver can also be built as a module. If so, the module will be called
+ 	  xilinx-ams.
+ 
++config XUANTIE_TH1520_ADC
++	tristate "XuanTie TH1520 ADC driver"
++	depends on OF
++	depends on HAS_IOMEM
++	depends on ARCH_THEAD
++	default y
++	help
++	  Say yes here to support for XuanTie TH1520 MPW analog-to-digital
++	  converter.
++
++	  This driver can also be built as a module. If so, the module will be
++	  called xuantie-th1520-adc.
++
+ endmenu
+diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
+index b3c434722364..820e2a136b33 100644
+--- a/drivers/iio/adc/Makefile
++++ b/drivers/iio/adc/Makefile
+@@ -135,4 +135,5 @@ obj-$(CONFIG_VIPERBOARD_ADC) += viperboard_adc.o
+ xilinx-xadc-y := xilinx-xadc-core.o xilinx-xadc-events.o
+ obj-$(CONFIG_XILINX_XADC) += xilinx-xadc.o
+ obj-$(CONFIG_XILINX_AMS) += xilinx-ams.o
++obj-$(CONFIG_XUANTIE_TH1520_ADC) += xuantie-th1520-adc.o
+ obj-$(CONFIG_SD_ADC_MODULATOR) += sd_adc_modulator.o
+diff --git a/drivers/iio/adc/xuantie-th1520-adc.c b/drivers/iio/adc/xuantie-th1520-adc.c
+new file mode 100644
+index 000000000000..df0452c2abe7
+--- /dev/null
++++ b/drivers/iio/adc/xuantie-th1520-adc.c
+@@ -0,0 +1,572 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * XuanTie TH1520 ADC driver
++ *
++ * Copyright (C) 2021-2024 Alibaba Group Holding Limited.
++ * Fugang Duan <duanfugang.dfg@linux.alibaba.com>
++ *
++ */
++
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/interrupt.h>
++#include <linux/delay.h>
++#include <linux/kernel.h>
++#include <linux/slab.h>
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/clk.h>
++#include <linux/completion.h>
++#include <linux/of.h>
++#include <linux/of_irq.h>
++#include <linux/regulator/consumer.h>
++#include <linux/of_platform.h>
++#include <linux/err.h>
++
++#include <linux/iio/iio.h>
++#include <linux/iio/buffer.h>
++#include <linux/iio/sysfs.h>
++
++#include "xuantie-th1520-adc.h"
++
++static inline void th1520_adc_cfg_init(struct th1520_adc *info)
++{
++	struct th1520_adc_feature *adc_feature = &info->adc_feature;
++
++	/* set default Configuration for ADC controller */
++	adc_feature->selres_sel = TH1520_ADC_SELRES_12BIT;
++	adc_feature->input_mode = TH1520_ADC_SINGLE_ENDED_INPUTS;
++	adc_feature->vol_ref = TH1520_ADC_VOL_VREF;
++	adc_feature->offset_mode = TH1520_ADC_OFFSET_DIS;
++	adc_feature->conv_mode = TH1520_ADC_MODE_SINGLE;
++	adc_feature->clk_sel = TH1520_ADC_FCLK_TYP_1M;
++
++	adc_feature->int_actual = TH1520_ADC_ACTUAL_ALL;
++	adc_feature->int_detal = TH1520_ADC_DETAL_ALL;
++
++	info->ch0_offmeas = 0;
++	info->ch1_offmeas = 0;
++}
++
++static void th1520_adc_reg_set(struct th1520_adc *info)
++{
++	u32 phy_cfg = 0;
++	u32 op_ctrl = 0;
++	struct th1520_adc_feature *adc_feature = &info->adc_feature;
++
++	/* phy_cfg */
++	switch (adc_feature->selres_sel) {
++	case TH1520_ADC_SELRES_6BIT:
++		phy_cfg |= TH1520_ADC_PHY_CFG_SELRES_6BIT;
++		break;
++	case TH1520_ADC_SELRES_8BIT:
++		phy_cfg |= TH1520_ADC_PHY_CFG_SELRES_8BIT;
++		break;
++	case TH1520_ADC_SELRES_10BIT:
++		phy_cfg |= TH1520_ADC_PHY_CFG_SELRES_10BIT;
++		break;
++	case TH1520_ADC_SELRES_12BIT:
++		phy_cfg |= TH1520_ADC_PHY_CFG_SELRES_12BIT;
++		break;
++	default:
++		break;
++	}
++
++	switch (adc_feature->input_mode) {
++	case TH1520_ADC_SINGLE_ENDED_INPUTS:
++		phy_cfg |= TH1520_ADC_PHY_CFG_SELDIFF_SINGLE_ENDED_INPUTS;
++		break;
++	case TH1520_ADC_DIFFERENTIAL_INPUTS:
++		phy_cfg |= TH1520_ADC_PHY_CFG_SELDIFF_DIFFERENTIAL_INPUTS;
++		break;
++	default:
++		break;
++	}
++
++	switch (adc_feature->vol_ref) {
++	case TH1520_ADC_VOL_VREF:
++		phy_cfg |= TH1520_ADC_PHY_CFG_SELBG_EXTERNAL |
++			   TH1520_ADC_PHY_CFG_SELREF_EXT;
++		break;
++	case TH1520_ADC_VOL_INTE:
++		phy_cfg |= TH1520_ADC_PHY_CFG_SELBG_INTERNAL |
++			   TH1520_ADC_PHY_CFG_SELREF_INTERNAL;
++		break;
++	default:
++		break;
++	}
++
++	/* op_ctrl */
++	switch (adc_feature->conv_mode) {
++	case TH1520_ADC_MODE_SINGLE:
++		op_ctrl |= TH1520_ADC_OP_CTRL_MODE_SINGLE;
++		break;
++	case TH1520_ADC_MODE_CONTINOUS:
++		op_ctrl |= TH1520_ADC_OP_CTRL_MODE_CONTINOUS;
++		break;
++	default:
++		break;
++	}
++
++	writel(phy_cfg, info->regs + TH1520_ADC_PHY_CFG);
++	writel(op_ctrl, info->regs + TH1520_ADC_OP_CTRL);
++
++	writel(TH1520_ADC_PHY_ENCTR, info->regs + TH1520_ADC_PHY_TEST);
++
++	/* disable the irq */
++	writel(0xff, info->regs + TH1520_ADC_INT_CTRL1);
++	writel(0xff, info->regs + TH1520_ADC_INT_CTRL2);
++
++	if (adc_feature->conv_mode == TH1520_ADC_MODE_CONTINOUS)
++		writel(TH1520_ADC_PHY_CTRL_ENADC_EN,
++		       info->regs + TH1520_ADC_PHY_CTRL);
++}
++
++static void th1520_adc_fclk_set(struct th1520_adc *info)
++{
++	int fclk_ctrl = 0;
++	int start_time = 0;
++	int sample_time = 0;
++	struct th1520_adc_feature *adc_feature = &info->adc_feature;
++
++	switch (adc_feature->clk_sel) {
++	case TH1520_ADC_FCLK_TYP_1M:
++		fclk_ctrl = TH1520_ADC_FCLK_CTRL_TYP_1M;
++		start_time = TH1520_ADC_START_TIME_TYP_1M;
++		if (adc_feature->selres_sel == TH1520_ADC_SELRES_6BIT)
++			sample_time = TH1520_ADC_SAMPLE_TIME_TYP_6BIT;
++		else if (adc_feature->selres_sel == TH1520_ADC_SELRES_8BIT)
++			sample_time = TH1520_ADC_SAMPLE_TIME_TYP_8BIT;
++		else if (adc_feature->selres_sel == TH1520_ADC_SELRES_10BIT)
++			sample_time = TH1520_ADC_SAMPLE_TIME_TYP_10BIT;
++		else if (adc_feature->selres_sel == TH1520_ADC_SELRES_12BIT)
++			sample_time = TH1520_ADC_SAMPLE_TIME_TYP_12BIT;
++		else {
++			pr_err("[%s,%d]invalid selres select\n",
++			       __func__, __LINE__);
++			return;
++		}
++		break;
++	default:
++		break;
++	}
++	writel(fclk_ctrl, info->regs + TH1520_ADC_FCLK_CTRL);
++	writel(start_time, info->regs + TH1520_ADC_START_TIME);
++	writel(sample_time, info->regs + TH1520_ADC_SAMPLE_TIME);
++}
++
++static void th1520_adc_hw_init(struct th1520_adc *info)
++{
++	th1520_adc_reg_set(info);
++	th1520_adc_fclk_set(info);
++}
++
++static const struct iio_chan_spec th1520_adc_iio_channels[] = {
++	TH1520_ADC_CHAN(0, IIO_VOLTAGE),
++	TH1520_ADC_CHAN(1, IIO_VOLTAGE),
++	TH1520_ADC_CHAN(2, IIO_VOLTAGE),
++	TH1520_ADC_CHAN(3, IIO_VOLTAGE),
++	TH1520_ADC_CHAN(4, IIO_VOLTAGE),
++	TH1520_ADC_CHAN(5, IIO_VOLTAGE),
++	TH1520_ADC_CHAN(6, IIO_VOLTAGE),
++	TH1520_ADC_CHAN(7, IIO_VOLTAGE),
++	/* sentinel */
++};
++
++static irqreturn_t th1520_adc_isr(int irq, void *dev_id)
++{
++	struct iio_dev *indio_dev = dev_id;
++	struct th1520_adc *info = iio_priv(indio_dev);
++	/* TBD */
++	complete(&info->completion);
++	return IRQ_HANDLED;
++}
++
++static int th1520_read_raw(struct iio_dev *indio_dev,
++			   struct iio_chan_spec const *chan,
++			   int *val, int *val2, long mask)
++{
++	int tmp;
++	long ret;
++	struct th1520_adc *info = iio_priv(indio_dev);
++
++	switch (mask) {
++	case IIO_CHAN_INFO_RAW:
++		mutex_lock(&info->mlock);
++
++		if (info->adc_feature.conv_mode == TH1520_ADC_MODE_SINGLE) {
++			uint ievent;
++			uint vld_flag;
++			uint phy_ctrl;
++			uint real_chan;
++			uint op_ctrl = 0;
++			uint single_retry = TH1520_ADC_FIFO_DATA_SIZE;
++
++			op_ctrl = readl(info->regs + TH1520_ADC_OP_CTRL);
++			op_ctrl &= ~TH1520_ADC_OP_CTRL_CH_EN_ALL;
++			op_ctrl |= (BIT(chan->channel +	TH1520_ADC_OP_CTRL_CH_EN_0) &
++					TH1520_ADC_OP_CTRL_CH_EN_ALL);
++			writel(op_ctrl, info->regs + TH1520_ADC_OP_CTRL);
++
++			writel(TH1520_ADC_PHY_CTRL_ENADC_EN,
++			       info->regs + TH1520_ADC_PHY_CTRL);
++
++			vld_flag = TH1520_ADC_SAMPLE_DATA_CH0_VLD;
++
++			while (single_retry--) {
++				writel(TH1520_ADC_OP_SINGLE_START_EN,
++				       info->regs + TH1520_ADC_OP_SINGLE_START);
++				/* wait the sampling result */
++				ret = readl_poll_timeout(info->regs +
++							 TH1520_ADC_SAMPLE_DATA,
++							 ievent,
++							 ievent & vld_flag, 100,
++							 TH1520_ADC_TIMEOUT);
++				if (ret)
++					pr_err("wait the sampling timeout\n");
++
++				real_chan =
++				(ievent & TH1520_ADC_SAMPLE_DATA_CH0_NUMBER) >>
++				TH1520_ADC_SAMPLE_DATA_CH0_NUMBER_OFF;
++				if (real_chan == chan->channel)
++					break;
++			}
++
++			phy_ctrl = readl(info->regs + TH1520_ADC_PHY_CTRL);
++			phy_ctrl &= ~TH1520_ADC_PHY_CTRL_ENADC_EN;
++			writel(phy_ctrl, info->regs + TH1520_ADC_PHY_CTRL);
++
++			/* read the sampling data */
++			*val = (ievent & TH1520_ADC_SAMPLE_DATA_CH0) >>
++			       TH1520_ADC_SAMPLE_DATA_CH0_OFF;
++		} else {
++			uint ievent;
++			uint vld_flag;
++			uint op_single;
++			uint op_ctrl = 0;
++
++			op_ctrl = readl(info->regs + TH1520_ADC_OP_CTRL);
++			op_ctrl &= ~TH1520_ADC_OP_CTRL_CH_EN_ALL;
++			op_ctrl |= (BIT(chan->channel + TH1520_ADC_OP_CTRL_CH_EN_0) &
++				   TH1520_ADC_OP_CTRL_CH_EN_ALL);
++			writel(op_ctrl, info->regs + TH1520_ADC_OP_CTRL);
++
++			op_single = readl(info->regs +
++					  TH1520_ADC_OP_SINGLE_START);
++			op_single &= ~TH1520_ADC_OP_SINGLE_START_EN;
++			writel(op_single,
++			       info->regs + TH1520_ADC_OP_SINGLE_START);
++
++			vld_flag = TH1520_ADC_SAMPLE_DATA_CH0_VLD |
++				   TH1520_ADC_SAMPLE_DATA_CH1_VLD;
++
++			/* wait the sampling result */
++			ret  = readl_poll_timeout(info->regs +
++							TH1520_ADC_SAMPLE_DATA,
++						  ievent, ievent & vld_flag, 10,
++						  TH1520_ADC_TIMEOUT);
++			if (ret)
++				pr_err("wait the sampling timeout\n");
++
++			/* read the sampling data */
++			tmp = readl(info->regs + TH1520_ADC_SAMPLE_DATA);
++			if (tmp & TH1520_ADC_SAMPLE_DATA_CH0_VLD)
++				*val = (tmp & TH1520_ADC_SAMPLE_DATA_CH0) >>
++				       TH1520_ADC_SAMPLE_DATA_CH0_OFF;
++			else
++				*val = (tmp & TH1520_ADC_SAMPLE_DATA_CH1) >>
++				       TH1520_ADC_SAMPLE_DATA_CH1_OFF;
++		}
++
++		mutex_unlock(&info->mlock);
++		return IIO_VAL_INT;
++
++	case IIO_CHAN_INFO_SCALE:
++		*val = info->vref_uv / 1000;
++		*val2 = info->adc_feature.selres_sel;
++		return IIO_VAL_FRACTIONAL_LOG2;
++
++	case IIO_CHAN_INFO_SAMP_FREQ:
++		*val = info->current_clk;
++		*val2 = 0;
++		return IIO_VAL_INT;
++
++	default:
++		break;
++	}
++
++	return -EINVAL;
++}
++
++static void th1520_adc_reset(struct th1520_adc *info)
++{
++	u32 tmp = readl(info->regs + TH1520_ADC_PHY_CTRL);
++
++	tmp |= TH1520_ADC_PHY_CTRL_RST_EN;
++	writel(tmp, info->regs + TH1520_ADC_PHY_CTRL);
++
++	usleep_range(10, 15);
++
++	tmp &= ~TH1520_ADC_PHY_CTRL_RST_EN;
++	writel(tmp, info->regs + TH1520_ADC_PHY_CTRL);
++}
++
++static void th1520_adc_set_clk(struct th1520_adc *info, int val)
++{
++	u32 count;
++	u32 apb_clk;
++	int fclk_ctrl;
++
++	apb_clk = clk_get_rate(info->clk);
++	count = DIV_ROUND_UP(apb_clk, val);
++	info->current_clk = apb_clk / count;
++
++	fclk_ctrl = readl(info->regs + TH1520_ADC_FCLK_CTRL);
++	fclk_ctrl &= ~TH1520_ADC_FCLK_CTRL_FCLLK_DIV;
++	fclk_ctrl |= count;
++	writel(fclk_ctrl, info->regs + TH1520_ADC_FCLK_CTRL);
++}
++
++static int th1520_write_raw(struct iio_dev *indio_dev,
++			    struct iio_chan_spec const *chan,
++			    int val, int val2, long mask)
++{
++	struct th1520_adc *info = iio_priv(indio_dev);
++
++	if (mask != IIO_CHAN_INFO_SAMP_FREQ)
++		return -EINVAL;
++
++	mutex_lock(&info->mlock);
++	th1520_adc_set_clk(info, val);
++	mutex_unlock(&info->mlock);
++
++	return 0;
++}
++
++static const struct iio_info th1520_adc_iio_info = {
++	.read_raw = &th1520_read_raw,
++	.write_raw = &th1520_write_raw,
++};
++
++static const struct of_device_id th1520_adc_match[] = {
++	{ .compatible = "thead,th1520-adc", },
++	{ /* end */ }
++};
++MODULE_DEVICE_TABLE(of, th1520_adc_match);
++
++static ssize_t th1520_adc_res_show(struct device *dev,
++				   struct device_attribute *attr, char *buf)
++{
++	size_t bufpos = 0, count = 5;
++	struct platform_device *pdev = to_platform_device(dev);
++	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
++	struct th1520_adc *info = iio_priv(indio_dev);
++
++	snprintf(buf + bufpos, count - bufpos, "%.*x: ", 4,
++		 info->adc_feature.selres_sel);
++	bufpos += 4;
++	buf[bufpos++] = '\n';
++
++	return bufpos;
++}
++
++static ssize_t th1520_adc_res_store(struct device *dev,
++				    struct device_attribute *attr,
++				    const char *buf, size_t size)
++{
++	unsigned long res;
++	char *start = (char *)buf;
++	struct platform_device *pdev = to_platform_device(dev);
++	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
++	struct th1520_adc *info = iio_priv(indio_dev);
++
++	if (kstrtoul(start, 0, &res))
++		return -EINVAL;
++
++	switch (res) {
++	case TH1520_ADC_SELRES_6BIT:
++	case TH1520_ADC_SELRES_8BIT:
++	case TH1520_ADC_SELRES_10BIT:
++	case TH1520_ADC_SELRES_12BIT:
++		info->adc_feature.selres_sel = res;
++		th1520_adc_reset(info);
++		th1520_adc_hw_init(info);
++		break;
++	default:
++		dev_err(dev, "not support res\n");
++		return -EINVAL;
++	}
++
++	return size;
++}
++
++static DEVICE_ATTR_RW(th1520_adc_res);
++
++static int th1520_adc_probe(struct platform_device *pdev)
++{
++	int irq;
++	int ret;
++	struct resource *mem;
++	struct th1520_adc *info;
++	struct iio_dev *indio_dev;
++
++	indio_dev = devm_iio_device_alloc(&pdev->dev,
++					  sizeof(struct th1520_adc));
++	if (!indio_dev) {
++		dev_err(&pdev->dev, "Failed allocating iio device\n");
++		return -ENOMEM;
++	}
++
++	info = iio_priv(indio_dev);
++	info->dev = &pdev->dev;
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	ret = devm_request_irq(info->dev, irq, th1520_adc_isr, 0,
++			       dev_name(&pdev->dev), indio_dev);
++	if (ret < 0) {
++		dev_err(&pdev->dev, "failed requesting irq, irq = %d\n", irq);
++		return ret;
++	}
++
++	mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	info->regs = devm_ioremap_resource(&pdev->dev, mem);
++	if (IS_ERR(info->regs))
++		return PTR_ERR(info->regs);
++
++	info->clk = devm_clk_get(&pdev->dev, "adc");
++	if (IS_ERR(info->clk)) {
++		dev_err(&pdev->dev, "failed getting clock, err = %ld\n",
++			PTR_ERR(info->clk));
++		return PTR_ERR(info->clk);
++	}
++
++	info->vref = devm_regulator_get(&pdev->dev, "vref");
++	if (IS_ERR(info->vref))
++		return PTR_ERR(info->vref);
++
++	ret = regulator_enable(info->vref);
++	if (ret)
++		return ret;
++
++	info->vref_uv = regulator_get_voltage(info->vref);
++
++	platform_set_drvdata(pdev, indio_dev);
++
++	mutex_init(&info->mlock);
++	init_completion(&info->completion);
++
++	indio_dev->name = dev_name(&pdev->dev);
++	indio_dev->dev.parent = &pdev->dev;
++	indio_dev->dev.of_node = pdev->dev.of_node;
++	indio_dev->info = &th1520_adc_iio_info;
++	indio_dev->modes = INDIO_DIRECT_MODE;
++	indio_dev->channels = th1520_adc_iio_channels;
++	indio_dev->num_channels = ARRAY_SIZE(th1520_adc_iio_channels);
++
++	ret = clk_prepare_enable(info->clk);
++	if (ret) {
++		dev_err(&pdev->dev,
++			"Could not prepare or enable the clock.\n");
++		goto error_adc_clk_enable;
++	}
++
++	th1520_adc_cfg_init(info);
++	th1520_adc_reset(info);
++	th1520_adc_hw_init(info);
++
++	ret = iio_device_register(indio_dev);
++	if (ret) {
++		dev_err(&pdev->dev, "Couldn't register the device.\n");
++		goto error_iio_device_register;
++	}
++
++	ret = sysfs_create_file(&pdev->dev.kobj, &dev_attr_th1520_adc_res.attr);
++	if (ret) {
++		dev_err(&pdev->dev, "Failed to create adc debug sysfs.\n");
++		goto error_iio_device_register;
++	}
++
++	dev_info(&pdev->dev, "XuanTie TH1520 adc registered.\n");
++	return 0;
++
++error_iio_device_register:
++	clk_disable_unprepare(info->clk);
++error_adc_clk_enable:
++	regulator_disable(info->vref);
++
++	return ret;
++}
++
++static int th1520_adc_remove(struct platform_device *pdev)
++{
++	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
++	struct th1520_adc *info = iio_priv(indio_dev);
++
++	iio_device_unregister(indio_dev);
++	regulator_disable(info->vref);
++	clk_disable_unprepare(info->clk);
++
++	return 0;
++}
++
++static int __maybe_unused th1520_adc_suspend(struct device *dev)
++{
++	struct iio_dev *indio_dev = dev_get_drvdata(dev);
++	struct th1520_adc *info = iio_priv(indio_dev);
++	int phy_ctrl;
++
++	phy_ctrl = readl(info->regs + TH1520_ADC_PHY_CTRL);
++	phy_ctrl &= ~TH1520_ADC_PHY_CTRL_ENADC_EN;
++	writel(phy_ctrl, info->regs + TH1520_ADC_PHY_CTRL);
++
++	clk_disable_unprepare(info->clk);
++	regulator_disable(info->vref);
++
++	return 0;
++}
++
++static int __maybe_unused th1520_adc_resume(struct device *dev)
++{
++	struct iio_dev *indio_dev = dev_get_drvdata(dev);
++	struct th1520_adc *info = iio_priv(indio_dev);
++	int ret;
++
++	ret = regulator_enable(info->vref);
++	if (ret)
++		return ret;
++
++	ret = clk_prepare_enable(info->clk);
++	if (ret)
++		goto disable_reg;
++
++	th1520_adc_reset(info);
++	th1520_adc_set_clk(info, info->current_clk);
++	th1520_adc_hw_init(info);
++
++	return 0;
++
++disable_reg:
++	regulator_disable(info->vref);
++	return ret;
++}
++
++static SIMPLE_DEV_PM_OPS(th1520_adc_pm_ops,
++			 th1520_adc_suspend, th1520_adc_resume);
++
++static struct platform_driver th1520_adc_driver = {
++	.probe          = th1520_adc_probe,
++	.remove         = th1520_adc_remove,
++	.driver         = {
++		.name   = DRIVER_NAME,
++		.of_match_table = th1520_adc_match,
++		.pm     = &th1520_adc_pm_ops,
++	},
++};
++module_platform_driver(th1520_adc_driver);
++
++MODULE_AUTHOR("fugang.duan <duanfugang.dfg@linux.alibaba.com>");
++MODULE_DESCRIPTION("XuanTie TH1520 ADC driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/iio/adc/xuantie-th1520-adc.h b/drivers/iio/adc/xuantie-th1520-adc.h
+new file mode 100644
+index 000000000000..c38d17fc6bbe
+--- /dev/null
++++ b/drivers/iio/adc/xuantie-th1520-adc.h
+@@ -0,0 +1,193 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * XuanTie TH1520 ADC driver
++ *
++ * Copyright (C) 2021-2024 Alibaba Group Holding Limited.
++ * Fugang Duan <duanfugang.dfg@linux.alibaba.com>
++ *
++ */
++
++#include <linux/bitops.h>
++
++/* This will be the driver name the kernel reports */
++#define DRIVER_NAME "xuantie-th1520-adc"
++
++/* ADC registers */
++#define TH1520_ADC_PHY_CFG			0x00
++#define TH1520_ADC_PHY_CTRL			0x04
++#define TH1520_ADC_PHY_TEST			0x08
++#define TH1520_ADC_OP_CTRL			0x0C
++#define TH1520_ADC_OP_SINGLE_START		0x10
++#define TH1520_ADC_FCLK_CTRL			0x14
++#define TH1520_ADC_START_TIME			0x18
++#define TH1520_ADC_SAMPLE_TIME			0x1C
++#define TH1520_ADC_SAMPLE_DATA			0x20
++#define TH1520_ADC_INT_CTRL1			0x50
++#define TH1520_ADC_INT_CTRL2			0x54
++#define TH1520_ADC_INT_STATUS			0x58
++#define TH1520_ADC_INT_ACTUAL_VALUE_CH0		0x60
++#define TH1520_ADC_INT_ACTUAL_VALUE_CH1		0x64
++#define TH1520_ADC_INT_DELTA_VALUE_CH0		0x90
++#define TH1520_ADC_INT_DELTA_VALUE_CH1		0x94
++
++/* Configuration register field define */
++#define TH1520_ADC_PHY_CFG_SELRES_6BIT			(0x0)
++#define TH1520_ADC_PHY_CFG_SELRES_8BIT			(0x1)
++#define TH1520_ADC_PHY_CFG_SELRES_10BIT			(0x2)
++#define TH1520_ADC_PHY_CFG_SELRES_12BIT			(0x3)
++#define TH1520_ADC_PHY_CFG_SELDIFF_SINGLE_ENDED_INPUTS	(0x0 << 4)
++#define TH1520_ADC_PHY_CFG_SELDIFF_DIFFERENTIAL_INPUTS	(0x1 << 4)
++#define TH1520_ADC_PHY_CFG_SELBG_INTERNAL		(0x1 << 8)
++#define TH1520_ADC_PHY_CFG_SELBG_EXTERNAL		(0x0 << 8)
++#define TH1520_ADC_PHY_CFG_SELREF_INTERNAL		(0x1 << 12)
++#define TH1520_ADC_PHY_CFG_SELREF_EXT			(0x0 << 12)
++
++/* PHY CTRL register field define */
++#define TH1520_ADC_PHY_CTRL_ENOFFSET_EN			(0x1 << 12)
++#define TH1520_ADC_PHY_CTRL_ENOFFMEAS_EN		(0x1 << 8)
++#define TH1520_ADC_PHY_CTRL_RST_EN			(0x1 << 4)
++#define TH1520_ADC_PHY_CTRL_ENADC_EN			(0x1 << 0)
++
++/* ADC OP ctrl field define  */
++#define TH1520_ADC_OP_CTRL_CH_EN_ALL			GENMASK(19, 12)
++#define TH1520_ADC_OP_CTRL_CH_EN_0			(12)
++#define TH1520_ADC_OP_CTRL_MODE_SINGLE			(0x1 << 0)
++#define TH1520_ADC_OP_CTRL_MODE_CONTINOUS		(0x0 << 0)
++
++/* ADC OP single start */
++#define TH1520_ADC_OP_SINGLE_START_EN			BIT(0)
++
++/* ADC fclk ctrl */
++#define TH1520_ADC_FCLK_CTRL_FCLLK_DIV			GENMASK(6, 0)
++#define TH1520_ADC_FCLK_CTRL_TYP_1M			(0x10004)
++#define TH1520_ADC_START_TIME_TYP_1M			(0x160)
++#define TH1520_ADC_SAMPLE_TIME_TYP_1M			(0x10)
++#define TH1520_ADC_SAMPLE_TIME_TYP_6BIT			(8)
++#define TH1520_ADC_SAMPLE_TIME_TYP_8BIT			(10)
++#define TH1520_ADC_SAMPLE_TIME_TYP_10BIT		(12)
++#define TH1520_ADC_SAMPLE_TIME_TYP_12BIT		(14)
++
++/* ADC sample data */
++#define TH1520_ADC_SAMPLE_DATA_CH1			GENMASK(27, 16)
++#define TH1520_ADC_SAMPLE_DATA_CH1_OFF			(16)
++#define TH1520_ADC_SAMPLE_DATA_CH1_VLD			BIT(31)
++#define TH1520_ADC_SAMPLE_DATA_CH1_NUMBER		GENMASK(30, 28)
++#define TH1520_ADC_SAMPLE_DATA_CH1_NUMBER_OFF		(28)
++#define TH1520_ADC_SAMPLE_DATA_CH0			GENMASK(11, 0)
++#define TH1520_ADC_SAMPLE_DATA_CH0_VLD			BIT(15)
++#define TH1520_ADC_SAMPLE_DATA_CH0_OFF			(0)
++#define TH1520_ADC_SAMPLE_DATA_CH0_NUMBER		GENMASK(14, 12)
++#define TH1520_ADC_SAMPLE_DATA_CH0_NUMBER_OFF		(12)
++
++/* ADC INT Ctrl */
++#define TH1520_ADC_INT_CTRL1_CH1_INT_MODE		BIT(1)
++#define TH1520_ADC_INT_CTRL1_CH0_INT_MODE		BIT(0)
++#define TH1520_ADC_INT_CTRL2_CH1_INT_MASK		BIT(1)
++#define TH1520_ADC_INT_CTRL2_CH0_INT_MASK		BIT(0)
++#define TH1520_ADC_INT_STS_CH1_INT_STS			BIT(1)
++#define TH1520_ADC_INT_STS_CH0_INT_STS			BIT(0)
++
++#define TH1520_ADC_ACTUAL_VALUE_CH0_HVAL		GENMASK(27, 16)
++#define TH1520_ADC_ACTUAL_VALUE_CH0_HVAL_OFF		(16)
++#define TH1520_ADC_ACTUAL_VALUE_CH0_LVAL		GENMASK(11, 0)
++#define TH1520_ADC_ACTUAL_VALUE_CH0_LVAL_OFF		(0)
++#define TH1520_ADC_ACTUAL_VALUE_CH1_HVAL		GENMASK(27, 16)
++#define TH1520_ADC_ACTUAL_VALUE_CH1_HVAL_OFF		(16)
++#define TH1520_ADC_ACTUAL_VALUE_CH1_LVAL		GENMASK(11, 0)
++#define TH1520_ADC_ACTUAL_VALUE_CH1_LVAL_OFF		(0)
++
++#define TH1520_ADC_DLT_VALUE_CH0_HVAL			GENMASK(27, 16)
++#define TH1520_ADC_DLT_VALUE_CH0_HVAL_OFF		(16)
++#define TH1520_ADC_DLT_VALUE_CH0_LVAL			GENMASK(11, 0)
++#define TH1520_ADC_DLT_VALUE_CH0_LVAL_OFF		(0)
++#define TH1520_ADC_DLT_VALUE_CH1_HVAL			GENMASK(27, 16)
++#define TH1520_ADC_DLT_VALUE_CH1_HVAL_OFF		(16)
++#define TH1520_ADC_DLT_VALUE_CH1_LVAL			GENMASK(11, 0)
++#define TH1520_ADC_DLT_VALUE_CH1_LVAL_OFF		(0)
++
++#define TH1520_ADC_FIFO_DATA_SIZE			32
++#define TH1520_ADC_PHY_ENCTR				0x8e0
++#define TH1520_ADC_TIMEOUT				500000
++
++#define TH1520_ADC_CHAN(_idx, _chan_type) {			\
++	.type = (_chan_type),					\
++	.indexed = 1,						\
++	.channel = (_idx),					\
++	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
++	.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE) |	\
++				BIT(IIO_CHAN_INFO_SAMP_FREQ),	\
++}
++
++enum vol_ref {
++	TH1520_ADC_VOL_VREF,
++	TH1520_ADC_VOL_INTE,
++};
++
++enum input_mode_sel {
++	TH1520_ADC_SINGLE_ENDED_INPUTS,
++	TH1520_ADC_DIFFERENTIAL_INPUTS,
++};
++
++enum selres_sel {
++	TH1520_ADC_SELRES_6BIT = 6,
++	TH1520_ADC_SELRES_8BIT = 8,
++	TH1520_ADC_SELRES_10BIT = 10,
++	TH1520_ADC_SELRES_12BIT = 12,
++};
++
++enum offset_mode_sel {
++	TH1520_ADC_OFFSET_DIS = 0,
++	TH1520_ADC_OFFSET_EN,
++};
++
++enum conversion_mode_sel {
++	TH1520_ADC_MODE_SINGLE,
++	TH1520_ADC_MODE_CONTINOUS,
++};
++
++enum clk_sel {
++	TH1520_ADC_FCLK_TYP_1M,
++};
++
++enum int_actual_mask {
++	TH1520_ADC_ACTUAL_CH0,
++	TH1520_ADC_ACTUAL_CH1,
++	TH1520_ADC_ACTUAL_ALL,
++
++};
++
++enum int_delta_mask {
++	TH1520_ADC_DETAL_CH0,
++	TH1520_ADC_DETAL_CH1,
++	TH1520_ADC_DETAL_ALL,
++};
++
++struct th1520_adc_feature {
++	enum selres_sel			selres_sel;
++	enum input_mode_sel		input_mode;
++	enum vol_ref			vol_ref;
++	enum offset_mode_sel		offset_mode;
++	enum conversion_mode_sel	conv_mode;
++	enum clk_sel			clk_sel;
++	enum int_actual_mask		int_actual;
++	enum int_delta_mask		int_detal;
++};
++
++struct th1520_adc {
++	struct device			*dev;
++	void __iomem			*regs;
++	struct clk			*clk;
++
++	u32				vref_uv;
++	u32				value;
++	struct regulator		*vref;
++	struct th1520_adc_feature	adc_feature;
++	u32				current_clk;
++	u32				ch0_offmeas;
++	u32				ch1_offmeas;
++
++	struct completion		completion;
++	/* lock to protect against multiple access to the device */
++	struct mutex			mlock;
++};
++
 -- 
 2.44.0
 
