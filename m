@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30760CD11DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 10:10:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C3D1C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 10:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GOJ4hCD2POhBbXZkD1EK/yK6JGvo4j+zcl4luRybZm4=; b=Uhyb2y+06+nTjJ
-	5vLxjcZmQQBnhaLDYwWxeQ/yYu66OVeb5E4ekC/LEvtl3eYQKqrg2PVSR/ZgV9qWm7+Lbvbj/O09G
-	ERPo41IyIe/Z+YeTGaGQYRGipE1L7x2eaSbj7DNp323CKicAQEEWa7E8Vz71wQcBEtPYIe69TeLgw
-	ijzc2NqhXFQrQ5mbKCamekj6hDDsp5vzlX3YCfx/SyayGd9XBykXkfLqLt41+H6XBG3/AWFL4KEzx
-	MK4O7fgF4NOPP2JTRJxhC5fXDP1clIm2P4oWcckPdF+sKddQ4jcfomMcnTSskmdPdCKEVlICBvgHp
-	Fwv6LUaZesMoiW4/ZD1A==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CJ9FbVKHBrsT+xi6/5wQmBl+drGDsKpVM2iTCV/hntI=; b=dlzB1bBFj1c3/xpLYXeOon4lqc
+	n5TFAJXOguhz6/SHctxHCufXv0cKy6ihAy/qp2afV/migkryJz/m/R9u1rOQrkguimYn9HMsapVb+
+	IrYipky9T7gIS+f2LXxpDQkN2ql039PTO6+q9HffLuoD1VBPJUViyjUXmPWiHWfh6Zv0qdkjfbTYV
+	ryN63XiklF1Jn7gFmAIjUR2cFY3x9KJe21Q9emlIzZqNEcW7ZiDvDtUoxbs7yVpPqqKCSnMK5OCY+
+	lW6fx00fhl0sLMyqkCyhfVy9xGvcDaXqySrSQepqtbHONw4qiuEMp2ZtrMR7Cn5VK99IkilB+Yf5I
+	bvBNubIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq9C5-000000000B0-2SLb;
-	Fri, 29 Mar 2024 10:10:41 +0000
-Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
+	id 1rq9Ny-000000001Zk-0c1y;
+	Fri, 29 Mar 2024 10:22:58 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq9C2-000000000A6-01Lc
-	for linux-riscv@lists.infradead.org;
-	Fri, 29 Mar 2024 10:10:39 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4V5bkg3pfHz4f3mJH
-	for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 18:10:19 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id B5EC21A0568
-	for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 18:10:27 +0800 (CST)
-Received: from [10.67.109.184] (unknown [10.67.109.184])
-	by APP3 (Coremail) with SMTP id _Ch0CgCnaKCPkwZm3Js0IQ--.42308S2;
-	Fri, 29 Mar 2024 18:10:23 +0800 (CST)
-Message-ID: <e995a1f1-0b48-4ce3-a061-5cbe68beb6dd@huaweicloud.com>
-Date: Fri, 29 Mar 2024 18:10:23 +0800
+	id 1rq9Nu-000000001Yb-261I;
+	Fri, 29 Mar 2024 10:22:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1711707775; x=1743243775;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1r6x7Gswn3GUpeRZpRuR1fp00nqTBQ5kSjmps/2V46Q=;
+  b=EkJ3W+McPYVS5gdj/ZpxT2yTQS64CZNf/v2PVj1i1c6U75SEYio2laT3
+   rAmm4npXXq/BeozU3MsN6iVmDM6DjcdrOmLaD9+I7Vy/vsGndJv3tCerw
+   FULedgtN6DFR1+jf79kNP2pdTysqf8vt3AOpY9bpk9736aLOTmG+/HNQI
+   oG2qDK4MeCqtT89xIAiDrppRKpISeV78bE8Z9+hTsNuj7Yhb7AOH2ssKX
+   PL+UHrWgs+PXre4hAyfHJ/oTQJzOgj/P9F8SAajvr3zFHoJx3fzXwzfC1
+   NsCOl/Nijanwbc2HQ6VVMwDWhX7dgn8hpSprcX+B1V/ZXCMBIa/CcNkvA
+   A==;
+X-CSE-ConnectionGUID: QbvD0OvjTziR5bNjZW4tvQ==
+X-CSE-MsgGUID: rph7hLVDQvOEe5l5cj2xvA==
+X-IronPort-AV: E=Sophos;i="6.07,164,1708412400"; 
+   d="asc'?scan'208";a="18638556"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 29 Mar 2024 03:22:52 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 29 Mar 2024 03:22:31 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Fri, 29 Mar 2024 03:22:27 -0700
+Date: Fri, 29 Mar 2024 10:21:39 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Max Hsu <max.hsu@sifive.com>
+CC: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, "Rafael J. Wysocki" <rafael@kernel.org>, Pavel
+ Machek <pavel@ucw.cz>, Anup Patel <anup@brainfault.org>, Atish Patra
+	<atishp@atishpatra.org>, Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan
+	<shuah@kernel.org>, Palmer Dabbelt <palmer@sifive.com>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+	<kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+	<linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH RFC 05/11] riscv: cpufeature: Add Sdtrig optional CSRs
+ checks
+Message-ID: <20240329-avid-footgear-ed5e7f8788ba@wendy>
+References: <20240329-dev-maxh-lin-452-6-9-v1-0-1534f93b94a7@sifive.com>
+ <20240329-dev-maxh-lin-452-6-9-v1-5-1534f93b94a7@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next 0/5] Support local vmtest for riscv64
-Content-Language: en-US
-To: Eduard Zingerman <eddyz87@gmail.com>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org
-Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
- Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
- Mykola Lysenko <mykolal@fb.com>, Manu Bretelle <chantr4@gmail.com>,
- Pu Lehui <pulehui@huawei.com>
-References: <20240328124916.293173-1-pulehui@huaweicloud.com>
- <32b3358903bf8ba408812a2636f39a275493eb91.camel@gmail.com>
-From: Pu Lehui <pulehui@huaweicloud.com>
-In-Reply-To: <32b3358903bf8ba408812a2636f39a275493eb91.camel@gmail.com>
-X-CM-TRANSID: _Ch0CgCnaKCPkwZm3Js0IQ--.42308S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxur1Uur1rtFyxWFW3tF1fWFg_yoW5KrWfpr
-	WrA3ZakF1kXF17tF1xGa1DuF42qwn5ta17Ww18G34rua1qyFnYgFsYya10gay3Zw4UGw4Y
-	ya9IgFyYkFn5u3JanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkjb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI
-	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
-	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY
-	6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6x
-	AIw20EY4v20xvaj40_Zr0_Wr1UMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIE
-	c7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07UdxhLUUUUU=
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+In-Reply-To: <20240329-dev-maxh-lin-452-6-9-v1-5-1534f93b94a7@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_031038_428391_15894976 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20240329_032254_744611_49743F76 
+X-CRM114-Status: GOOD (  39.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,128 +90,311 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============8493352325097778698=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============8493352325097778698==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="8okYWFxSwcNviT76"
+Content-Disposition: inline
+
+--8okYWFxSwcNviT76
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Mar 29, 2024 at 05:26:21PM +0800, Max Hsu wrote:
+> Sdtrig extension introduce two optional CSRs [hcontext/scontext],
+> that will be storing PID/Guest OS ID for the debug feature.
+>=20
+> The availability of these two CSRs will be determined by
+> DTS and Smstateen extension [h/s]stateen0 CSR bit 57.
+>=20
+> If all CPUs hcontext/scontext checks are satisfied, it will enable the
+> use_hcontext/use_scontext static branch.
+>=20
+> Signed-off-by: Max Hsu <max.hsu@sifive.com>
+> ---
+>  arch/riscv/include/asm/switch_to.h |   6 ++
+>  arch/riscv/kernel/cpufeature.c     | 161 +++++++++++++++++++++++++++++++=
+++++++
+>  2 files changed, 167 insertions(+)
+>=20
+> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/=
+switch_to.h
+> index 7efdb0584d47..07432550ed54 100644
+> --- a/arch/riscv/include/asm/switch_to.h
+> +++ b/arch/riscv/include/asm/switch_to.h
+> @@ -69,6 +69,12 @@ static __always_inline bool has_fpu(void) { return fal=
+se; }
+>  #define __switch_to_fpu(__prev, __next) do { } while (0)
+>  #endif
+> =20
+> +DECLARE_STATIC_KEY_FALSE(use_scontext);
+> +static __always_inline bool has_scontext(void)
+> +{
+> +	return static_branch_likely(&use_scontext);
+> +}
+> +
+>  extern struct task_struct *__switch_to(struct task_struct *,
+>  				       struct task_struct *);
+> =20
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 080c06b76f53..44ff84b920af 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -35,6 +35,19 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __=
+read_mostly;
+>  /* Per-cpu ISA extensions. */
+>  struct riscv_isainfo hart_isa[NR_CPUS];
+> =20
+> +atomic_t hcontext_disable;
+> +atomic_t scontext_disable;
+> +
+> +DEFINE_STATIC_KEY_FALSE_RO(use_hcontext);
+> +EXPORT_SYMBOL(use_hcontext);
+> +
+> +DEFINE_STATIC_KEY_FALSE_RO(use_scontext);
+> +EXPORT_SYMBOL(use_scontext);
+> +
+> +/* Record the maximum number that the hcontext CSR allowed to hold */
+> +atomic_long_t hcontext_id_share;
+> +EXPORT_SYMBOL(hcontext_id_share);
+> +
+>  /**
+>   * riscv_isa_extension_base() - Get base extension word
+>   *
+> @@ -719,6 +732,154 @@ unsigned long riscv_get_elf_hwcap(void)
+>  	return hwcap;
+>  }
+> =20
+> +static void __init sdtrig_percpu_csrs_check(void *data)
+> +{
+> +	struct device_node *node;
+> +	struct device_node *debug_node;
+> +	struct device_node *trigger_module;
+> +
+> +	unsigned int cpu =3D smp_processor_id();
+> +
+> +	/*
+> +	 * Expect every cpu node has the [h/s]context-present property
+> +	 * otherwise, jump to sdtrig_csrs_disable_all to disable all access to
+> +	 * [h/s]context CSRs
+
+I think the wording of this comment is kinda strange. What you're trying
+to say is that homogeneous support for sdtrig (and the contexts) is
+required.
+
+> +	 */
+> +	node =3D of_cpu_device_node_get(cpu);
+
+If there's no ACPI support, shouldn't the first thing here by a fast
+path out before you start assuming DT?
+
+> +	if (!node)
+> +		goto sdtrig_csrs_disable_all;
+> +
+> +	debug_node =3D of_get_compatible_child(node, "riscv,debug-v1.0.0");
+> +	of_node_put(node);
+> +
+> +	if (!debug_node)
+> +		goto sdtrig_csrs_disable_all;
+> +
+> +	trigger_module =3D of_get_child_by_name(debug_node, "trigger-module");
+> +	of_node_put(debug_node);
+> +
+> +	if (!trigger_module)
+> +		goto sdtrig_csrs_disable_all;
+> +
+> +	if (!(IS_ENABLED(CONFIG_KVM) &&
+> +	      of_property_read_bool(trigger_module, "hcontext-present")))
+> +		atomic_inc(&hcontext_disable);
+> +
+> +	if (!of_property_read_bool(trigger_module, "scontext-present"))
+> +		atomic_inc(&scontext_disable);
+
+I think we should define pseudo extensions for {h,s}context-present and
+parse this out of riscv,isa-extensions. That'd also give you the per-cpu
+checks for homogeneous support for "free".
+My immediate thought is that sdtrig doesn't seem valuable in isolation,
+if you're gonna need additional properties that communicate support for
+additional modes.
+
+> +	of_node_put(trigger_module);
+> +
+> +	/*
+> +	 * Before access to hcontext/scontext CSRs, if the smstateen
+> +	 * extension is present, the accessibility will be controlled
+> +	 * by the hstateen0[H]/sstateen0 CSRs.
+> +	 */
+> +	if (__riscv_isa_extension_available(NULL, RISCV_ISA_EXT_SMSTATEEN)) {
+
+Why can't you use the non-underscore prefixed version of this function
+here?
+
+> +		u64 hstateen_bit, sstateen_bit;
+> +
+> +		if (__riscv_isa_extension_available(NULL, RISCV_ISA_EXT_h)) {
+> +#if __riscv_xlen > 32
+> +			csr_set(CSR_HSTATEEN0, SMSTATEEN0_HSCONTEXT);
+
+For zkr we require the CSR to be usable at the privilege level to which
+the DT is passed:
+        - const: zkr
+          description:
+            The standard Zkr entropy source extension as ratified in version
+            1.0 of RISC-V Cryptography Extensions Volume I specification.
+            This string being present means that the CSR associated to this
+            extension is accessible at the privilege level to which that
+            device-tree has been provided.
+
+I wonder if we should do something similar here and make this a
+requirement for anything with bits in stateen registers. I'd love to
+avoid having to read CSRs on all harts before being able to make
+judgements about whether or not an extension is enabled. I dunno if that
+is possible here though, given you want to also make some checks on the
+exact nature of the support below.
+
+Cheers,
+Conor.
+
+> +			hstateen_bit =3D csr_read(CSR_HSTATEEN0);
+> +#else
+> +			csr_set(CSR_HSTATEEN0H, SMSTATEEN0_HSCONTEXT >> 32);
+> +			hstateen_bit =3D csr_read(CSR_HSTATEEN0H) << 32;
+> +#endif
+> +			if (!(hstateen_bit & SMSTATEEN0_HSCONTEXT))
+> +				goto sdtrig_csrs_disable_all;
+> +
+> +		} else {
+> +			if (IS_ENABLED(CONFIG_KVM))
+> +				atomic_inc(&hcontext_disable);
+> +
+> +			/*
+> +			 * In RV32, the smstateen extension doesn't provide
+> +			 * high 32 bits of sstateen0 CSR which represent
+> +			 * accessibility for scontext CSR;
+> +			 * The decision is left on whether the dts has the
+> +			 * property to access the scontext CSR.
+> +			 */
+> +#if __riscv_xlen > 32
+> +			csr_set(CSR_SSTATEEN0, SMSTATEEN0_HSCONTEXT);
+> +			sstateen_bit =3D csr_read(CSR_SSTATEEN0);
+> +
+> +			if (!(sstateen_bit & SMSTATEEN0_HSCONTEXT))
+> +				atomic_inc(&scontext_disable);
+> +#endif
+> +		}
+> +	}
+> +
+> +	/*
+> +	 * The code can only access hcontext/scontext CSRs if:
+> +	 * The cpu dts node have [h/s]context-present;
+> +	 * If Smstateen extension is presented, then the accessibility bit
+> +	 * toward hcontext/scontext CSRs is enabled; Or the Smstateen extension
+> +	 * isn't available, thus the access won't be blocked by it.
+> +	 *
+> +	 * With writing 1 to the every bit of these CSRs, we retrieve the
+> +	 * maximum bits that is available on the CSRs. and decide
+> +	 * whether it's suit for its context recording operation.
+> +	 */
+> +	if (IS_ENABLED(CONFIG_KVM) &&
+> +	    !atomic_read(&hcontext_disable)) {
+> +		unsigned long hcontext_available_bits =3D 0;
+> +
+> +		csr_write(CSR_HCONTEXT, -1UL);
+> +		hcontext_available_bits =3D csr_swap(CSR_HCONTEXT, hcontext_available_=
+bits);
+> +
+> +		/* hcontext CSR is required by at least 1 bit */
+> +		if (hcontext_available_bits)
+> +			atomic_long_and(hcontext_available_bits, &hcontext_id_share);
+> +		else
+> +			atomic_inc(&hcontext_disable);
+> +	}
+> +
+> +	if (!atomic_read(&scontext_disable)) {
+> +		unsigned long scontext_available_bits =3D 0;
+> +
+> +		csr_write(CSR_SCONTEXT, -1UL);
+> +		scontext_available_bits =3D csr_swap(CSR_SCONTEXT, scontext_available_=
+bits);
+> +
+> +		/* scontext CSR is required by at least the sizeof pid_t */
+> +		if (scontext_available_bits < ((1UL << (sizeof(pid_t) << 3)) - 1))
+> +			atomic_inc(&scontext_disable);
+> +	}
+> +
+> +	return;
+> +
+> +sdtrig_csrs_disable_all:
+> +	if (IS_ENABLED(CONFIG_KVM))
+> +		atomic_inc(&hcontext_disable);
+> +
+> +	atomic_inc(&scontext_disable);
+> +}
+> +
+> +static int __init sdtrig_enable_csrs_fill(void)
+> +{
+> +	if (__riscv_isa_extension_available(NULL, RISCV_ISA_EXT_SDTRIG)) {
+> +		atomic_long_set(&hcontext_id_share, -1UL);
+> +
+> +		/* check every CPUs sdtrig extension optional CSRs */
+> +		sdtrig_percpu_csrs_check(NULL);
+> +		smp_call_function(sdtrig_percpu_csrs_check, NULL, 1);
+> +
+> +		if (IS_ENABLED(CONFIG_KVM) &&
+> +		    !atomic_read(&hcontext_disable)) {
+> +			pr_info("riscv-sdtrig: Writing 'GuestOS ID' to hcontext CSR is enable=
+d\n");
+> +			static_branch_enable(&use_hcontext);
+> +		}
+> +
+> +		if (!atomic_read(&scontext_disable)) {
+> +			pr_info("riscv-sdtrig: Writing 'PID' to scontext CSR is enabled\n");
+> +			static_branch_enable(&use_scontext);
+> +		}
+> +	}
+> +	return 0;
+> +}
+> +
+> +arch_initcall(sdtrig_enable_csrs_fill);
+> +
+>  void riscv_user_isa_enable(void)
+>  {
+>  	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_=
+ZICBOZ))
+>=20
+> --=20
+> 2.43.2
+>=20
+
+--8okYWFxSwcNviT76
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgaWMwAKCRB4tDGHoIJi
+0h1GAP4+5oXB5cobRxRtWLslJG09DwwJGYWbihRkLfHJDm/UFgD/S1TTku0iG2+W
+X79DFf9P7rs4DeI4yWy2X6xC2rQfGgY=
+=hWrB
+-----END PGP SIGNATURE-----
+
+--8okYWFxSwcNviT76--
 
 
-On 2024/3/29 17:08, Eduard Zingerman wrote:
-> On Thu, 2024-03-28 at 12:49 +0000, Pu Lehui wrote:
->> Patch 1 is to enable cross platform testing for local vmtest. The
->> remaining patch adds local vmtest support for riscv64. It relies on
->> commit [0] [1] for better regression.
->>
->> We can now perform cross platform testing for riscv64 bpf using the
->> following command:
->>
->> PLATFORM=riscv64 CROSS_COMPILE=riscv64-linux-gnu- \
->>      tools/testing/selftests/bpf/vmtest.sh -- \
->>          ./test_progs -d \
->>              \"$(cat tools/testing/selftests/bpf/DENYLIST.riscv64 \
->>                  | cut -d'#' -f1 \
->>                  | sed -e 's/^[[:space:]]*//' \
->>                        -e 's/[[:space:]]*$//' \
->>                  | tr -s '\n' ','\
->>              )\"
->>
->> The test platform is x86_64 architecture, and the versions of relevant
->> components are as follows:
->>      QEMU: 8.2.0
->>      CLANG: 17.0.6 (align to BPF CI)
->>      OpenSBI: 1.3.1 (default by QEMU)
->>      ROOTFS: ubuntu jammy (generated by [2])
->>
->> Link: https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git/commit/?id=ea6873118493 [0]
->> Link: https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git/commit/?id=443574b033876c85 [1]
->> Link: https://github.com/libbpf/ci/blob/main/rootfs/mkrootfs_debian.sh [2]
-> 
-> Hello,
-> 
-> I wanted to do a test run for this patch-set but did not figure out
-> how to build rootfs for riscv64 system.
-> 
-> I modified mkrootfs_debian.sh as below, but build command fails:
-> 
-> $ ./rootfs/mkrootfs_debian.sh -d jammy -a riscv64 -m http://de.archive.ubuntu.com/ubuntu
-> ...
-> E: Couldn't download http://de.archive.ubuntu.com/ubuntu/dists/jammy/main/binary-riscv64/Packages
-> 
-> Apparently jammy does not have binaries built for riscv64, or I'm failing to find correct mirror.
-> Could you please provide some instructions on how to prepare rootfs?
-
-Hi Eduard, We need the mirror repository of ubuntu-ports, you could try 
-http://de.ports.ubuntu.com/.
-
-> 
-> Thanks,
-> Eduard
-> 
-> --
-> 
-> diff --git a/rootfs/mkrootfs_debian.sh b/rootfs/mkrootfs_debian.sh
-> index dfe957e..1d5b769 100755
-> --- a/rootfs/mkrootfs_debian.sh
-> +++ b/rootfs/mkrootfs_debian.sh
-> @@ -16,6 +16,7 @@ CPUTABLE="${CPUTABLE:-/usr/share/dpkg/cputable}"
->   
->   deb_arch=$(dpkg --print-architecture)
->   distro="bullseye"
-> +mirror=""
->   
->   function usage() {
->       echo "Usage: $0 [-a | --arch architecture] [-h | --help]
-> @@ -25,6 +26,7 @@ By default build an image for the architecture of the host running the script.
->   
->       -a | --arch:    architecture to build the image for. Default (${deb_arch})
->       -d | --distro:  distribution to build. Default (${distro})
-> +    -m | --mirror:  mirror for distribution to build. Default (${mirror})
->   "
->   }
->   
-> @@ -44,7 +46,7 @@ function qemu_static() {
->       # Given a Debian architecture find the location of the matching
->       # qemu-${gnu_arch}-static binary.
->       gnu_arch=$(debian_to_gnu "${1}")
-> -    echo "qemu-${gnu_arch}-static"
-> +    echo "qemu-${gnu_arch}"
->   }
->   
->   function check_requirements() {
-> @@ -95,7 +97,7 @@ function check_requirements() {
->       fi
->   }
->   
-> -TEMP=$(getopt  -l "arch:,distro:,help" -o "a:d:h" -- "$@")
-> +TEMP=$(getopt  -l "arch:,distro:,mirror:,help" -o "a:d:m:h" -- "$@")
->   if [ $? -ne 0 ]; then
->       usage
->   fi
-> @@ -113,6 +115,10 @@ while true; do
->               distro="$2"
->               shift 2
->               ;;
-> +        --mirror | -m)
-> +            mirror="$2"
-> +            shift 2
-> +            ;;
->           --help | -h)
->               usage
->               exit
-> @@ -162,7 +168,8 @@ debootstrap --include="$packages" \
->       --arch="${deb_arch}" \
->       "$@" \
->       "${distro}" \
-> -    "$root"
-> +    "$root" \
-> +    "${mirror}"
->   
->   qemu=$(which $(qemu_static ${deb_arch}))
->   
-
+--===============8493352325097778698==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8493352325097778698==--
+
