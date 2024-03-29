@@ -4,65 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A782DCD11DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 12:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50001C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 12:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cVvRpxjq0tAgr+1MMr1QDpmhi5cctkxXj5LmMgaJcq4=; b=uC/5Zne8MjIbHN
-	CFwK+OEoK2DGISaN3H/Biu0w5WclfVTV18mDnGDR1RL8HTw4bg2l48ETzMVuMpQJG0T41qyTA3FQd
-	L90VhvFbYt6C0HVv4mlhOBfRU+2w4n+71cGdae7a8O+qgaiPoZRldHXouEMAexUB7iiz5+mPVozmV
-	0+uiQn/7uzVuTy3F+eRpWrUGM3m3p/zDSZNqKCnkUgk0qah66d2oJOcpLunfE3YhtqbpglV5udYxP
-	D5x4x5Isi7W8u9L8a9AsT/b2XUyhtspiIOsvDq7DkTrh7q0UdL3IkYJI6PfV2ijWA9coVuoza5r6w
-	0CulOQ00AEIAKqS/yRzg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9U4ZbAc3cR66hfzyRtKbydsiyAi1mdGxusF1J20lQK8=; b=vpx9WnNWIRzZ5E
+	dx4zzoOJiQaaIoccgXt2o1+8mZHAiSzbZayfqqzex9W83DLb1V+jsVfMsWRvRSH4VcDKGVQ0IJpN6
+	ObYYrZrAib1VA2nurFkdMB/BkDq07uBekQI5k38Rk7rDgGZAsO9WTfFCRGvOJsflHDUkNOOoXVHog
+	WQkWClsbjxestMeMx5pXec6/vX9k/Xoty/nAtQfF56gcOuarwi9deNnHRH/rrSU7Pv7+QbcUfwF8q
+	unPreVD8/1wUbHtx7QEwaGaSrPRzIDoNoJ4+QlqOhgBLpfJea/NfEpVsXmvfvAEhbQSIgESRefYd6
+	DWrID+2JOfd9CdKAtiSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqBAc-00000000Ik1-35IW;
-	Fri, 29 Mar 2024 12:17:18 +0000
-Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
+	id 1rqBJ0-00000000JzF-2CR1;
+	Fri, 29 Mar 2024 12:25:58 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqBAY-00000000IiF-2SVt
+	id 1rqBIw-00000000Jxb-3TB4
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Mar 2024 12:17:17 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:76d0:2bff:fec8:549])
-	by xavier.telenet-ops.be with bizsmtp
-	id 4cGz2C00D0SSLxL01cGzro; Fri, 29 Mar 2024 13:17:06 +0100
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1rqB9u-005D19-E1;
-	Fri, 29 Mar 2024 13:16:59 +0100
-Received: from geert by rox.of.borg with local (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1rqBAJ-00203s-EC;
-	Fri, 29 Mar 2024 13:16:59 +0100
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-To: Emil Renner Berthing <kernel@esmil.dk>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v3] clk: starfive: jh7100: Use clk_hw for external input clocks
-Date: Fri, 29 Mar 2024 13:16:58 +0100
-Message-Id: <2082b46ab08755b1b66e0630a61619acac9d883f.1711714613.git.geert@linux-m68k.org>
-X-Mailer: git-send-email 2.34.1
+	Fri, 29 Mar 2024 12:25:57 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 90D8B240005;
+	Fri, 29 Mar 2024 12:25:49 +0000 (UTC)
+Message-ID: <38be1ab1-a080-4d89-a9c6-9837f7fad4ec@ghiti.fr>
+Date: Fri, 29 Mar 2024 13:25:48 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] [PATCH] Update the size of auxv to respect the new
+ constant added in e92f469b0771e6db9688a58c0e34a8342da6a6bc
+Content-Language: en-US
+To: victor@torrio.net, linux-riscv@lists.infradead.org
+Cc: Victor Isaev <isv@google.com>, Ivan Komarov <ivan.komarov@dfyz.info>
+References: <20240102133617.3649-1-victor@torrio.net>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20240102133617.3649-1-victor@torrio.net>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_051714_791269_AB2DA72A 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20240329_052555_461259_2642853C 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,152 +56,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Starfive JH7100 clock driver does not use the DT "clocks" property
-to find the external main input clock, but instead relies on the name of
-the actual clock provider ("osc_sys").  This is fragile, and caused
-breakage when sanitizing clock node names in DTS.
+Hi Victor,
 
-Fix this by obtaining the external main input clock using
-devm_clk_get(), and passing the returned clk_hw object to
-devm_clk_hw_register_fixed_factor_parent_hw().
+On 02/01/2024 14:36, victor@torrio.net wrote:
+> From: Victor Isaev <isv@google.com>
+>
+> Commit e92f469b0771 ("riscv: signal: Report signal frame size to
+> userspace via auxv") has added a new constant AT_MINSIGSTKSZ but
+> failed to increment the size of auxv, keeping AT_VECTOR_SIZE_ARCH
+> at 9.
+> This fix correctly increments AT_VECTOR_SIZE_ARCH to 10, following
+> the approach in the commit 94b07c1f8c39 ("arm64: signal: Report
+> signal frame size to userspace via auxv")
+>
+> Reported-by: Ivan Komarov <ivan.komarov@dfyz.info>
+> Closes: https://lore.kernel.org/linux-riscv/CY3Z02NYV1C4.11BLB9PLVW9G1@fedora/
+> Fixes: e92f469b0771 ("riscv: signal: Report signal frame size to userspace via auxv")
+> Signed-off-by: Victor Isaev <isv@google.com>
+>
+> ---
+>   arch/riscv/include/uapi/asm/auxvec.h | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/include/uapi/asm/auxvec.h b/arch/riscv/include/uapi/asm/auxvec.h
+> index 10aaa83db89e..95050ebe9ad0 100644
+> --- a/arch/riscv/include/uapi/asm/auxvec.h
+> +++ b/arch/riscv/include/uapi/asm/auxvec.h
+> @@ -34,7 +34,7 @@
+>   #define AT_L3_CACHEGEOMETRY	47
+>   
+>   /* entries in ARCH_DLINFO */
+> -#define AT_VECTOR_SIZE_ARCH	9
+> +#define AT_VECTOR_SIZE_ARCH	10
+>   #define AT_MINSIGSTKSZ		51
+>   
+>   #endif /* _UAPI_ASM_RISCV_AUXVEC_H */
 
-While name-based look-up of the other external input clocks works as-is,
-convert them to a similar clk_hw-based scheme to increase uniformity,
-and to decrease the number of (multiple identical) name-based look-ups.
 
-Fixes: f03606470886 ("riscv: dts: starfive: replace underscores in node names")
-Fixes: 4210be668a09ee20 ("clk: starfive: Add JH7100 clock generator driver")
-Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
----
-After this is applied, the workaround in commit 7921e231f85a349d
-("riscv: dts: starfive: jh7100: fix root clock names") can be reverted.
+So we discussed this patch in the last Patchwork meeting, and it needs 
+to be merged as it is a valid fix. But, the subject is wrong and then 
+the patch can't be merged as-is, can you respin another version with the 
+following subject please:
 
-v3:
-  - Add Reviewed-by,
-  - Make jh7100_ext_clk[] const/__initconst,
-  - Add "(multiple identical)".
+riscv: Fix the number of arch-specific auxiliary vectors
 
-v2:
-  - Use devm_clk_hw_register_fixed_factor_parent_hw(),
-  - Drop no longer needed local osc_sys name.
----
- drivers/clk/starfive/clk-starfive-jh7100.c | 48 ++++++++++++++--------
- drivers/clk/starfive/clk-starfive-jh71x0.h |  1 +
- 2 files changed, 32 insertions(+), 17 deletions(-)
+Or something that best suits you. No pressure, but if you don't, I'll 
+respin myself a new version keeping your SoB of course.
 
-diff --git a/drivers/clk/starfive/clk-starfive-jh7100.c b/drivers/clk/starfive/clk-starfive-jh7100.c
-index 0342db24c27e10df..bdff207aa1f766e6 100644
---- a/drivers/clk/starfive/clk-starfive-jh7100.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7100.c
-@@ -7,6 +7,7 @@
-  * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
-  */
- 
-+#include <linux/clk.h>
- #include <linux/clk-provider.h>
- #include <linux/device.h>
- #include <linux/init.h>
-@@ -18,10 +19,18 @@
- #include "clk-starfive-jh71x0.h"
- 
- /* external clocks */
--#define JH7100_CLK_OSC_SYS		(JH7100_CLK_END + 0)
--#define JH7100_CLK_OSC_AUD		(JH7100_CLK_END + 1)
--#define JH7100_CLK_GMAC_RMII_REF	(JH7100_CLK_END + 2)
--#define JH7100_CLK_GMAC_GR_MII_RX	(JH7100_CLK_END + 3)
-+enum {
-+	EXT_CLK_OSC_SYS,
-+	EXT_CLK_OSC_AUD,
-+	EXT_CLK_GMAC_RMII_REF,
-+	EXT_CLK_GMAC_GR_MII_RX,
-+	EXT_NUM_CLKS
-+};
-+
-+#define JH7100_CLK_OSC_SYS		(JH7100_CLK_END + EXT_CLK_OSC_SYS)
-+#define JH7100_CLK_OSC_AUD		(JH7100_CLK_END + EXT_CLK_OSC_AUD)
-+#define JH7100_CLK_GMAC_RMII_REF	(JH7100_CLK_END + EXT_CLK_GMAC_RMII_REF)
-+#define JH7100_CLK_GMAC_GR_MII_RX	(JH7100_CLK_END + EXT_CLK_GMAC_GR_MII_RX)
- 
- static const struct jh71x0_clk_data jh7100_clk_data[] __initconst = {
- 	JH71X0__MUX(JH7100_CLK_CPUNDBUS_ROOT, "cpundbus_root", 0, 4,
-@@ -284,8 +293,11 @@ static struct clk_hw *jh7100_clk_get(struct of_phandle_args *clkspec, void *data
- 
- static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
- {
-+	static const char * const jh7100_ext_clk[EXT_NUM_CLKS] __initconst =
-+		{ "osc_sys", "osc_aud", "gmac_rmii_ref", "gmac_gr_mii_rxclk" };
- 	struct jh71x0_clk_priv *priv;
- 	unsigned int idx;
-+	struct clk *clk;
- 	int ret;
- 
- 	priv = devm_kzalloc(&pdev->dev, struct_size(priv, reg, JH7100_CLK_PLL0_OUT), GFP_KERNEL);
-@@ -298,13 +310,21 @@ static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
- 	if (IS_ERR(priv->base))
- 		return PTR_ERR(priv->base);
- 
--	priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
--							 "osc_sys", 0, 40, 1);
-+	for (idx = 0; idx < EXT_NUM_CLKS; idx++) {
-+		clk = devm_clk_get(&pdev->dev, jh7100_ext_clk[idx]);
-+		if (IS_ERR(clk))
-+			return PTR_ERR(clk);
-+
-+		priv->ext[idx] = __clk_get_hw(clk);
-+	}
-+
-+	priv->pll[0] = devm_clk_hw_register_fixed_factor_parent_hw(priv->dev,
-+			"pll0_out", priv->ext[EXT_CLK_OSC_SYS], 0, 40, 1);
- 	if (IS_ERR(priv->pll[0]))
- 		return PTR_ERR(priv->pll[0]);
- 
--	priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
--							 "osc_sys", 0, 64, 1);
-+	priv->pll[1] = devm_clk_hw_register_fixed_factor_parent_hw(priv->dev,
-+			"pll1_out", priv->ext[EXT_CLK_OSC_SYS], 0, 64, 1);
- 	if (IS_ERR(priv->pll[1]))
- 		return PTR_ERR(priv->pll[1]);
- 
-@@ -331,16 +351,10 @@ static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
- 
- 			if (pidx < JH7100_CLK_PLL0_OUT)
- 				parents[i].hw = &priv->reg[pidx].hw;
--			else if (pidx < JH7100_CLK_END)
-+			else if (pidx < JH7100_CLK_OSC_SYS)
- 				parents[i].hw = priv->pll[pidx - JH7100_CLK_PLL0_OUT];
--			else if (pidx == JH7100_CLK_OSC_SYS)
--				parents[i].fw_name = "osc_sys";
--			else if (pidx == JH7100_CLK_OSC_AUD)
--				parents[i].fw_name = "osc_aud";
--			else if (pidx == JH7100_CLK_GMAC_RMII_REF)
--				parents[i].fw_name = "gmac_rmii_ref";
--			else if (pidx == JH7100_CLK_GMAC_GR_MII_RX)
--				parents[i].fw_name = "gmac_gr_mii_rxclk";
-+			else if (pidx <= JH7100_CLK_GMAC_GR_MII_RX)
-+				parents[i].hw = priv->ext[pidx - JH7100_CLK_OSC_SYS];
- 		}
- 
- 		clk->hw.init = &init;
-diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.h b/drivers/clk/starfive/clk-starfive-jh71x0.h
-index 23e052fc15495c41..4f46939179cd7418 100644
---- a/drivers/clk/starfive/clk-starfive-jh71x0.h
-+++ b/drivers/clk/starfive/clk-starfive-jh71x0.h
-@@ -115,6 +115,7 @@ struct jh71x0_clk_priv {
- 	struct device *dev;
- 	void __iomem *base;
- 	struct clk_hw *pll[3];
-+	struct clk_hw *ext[4];
- 	struct jh71x0_clk reg[];
- };
- 
--- 
-2.34.1
+Last thing, you can add the following:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+
+Alex
+
 
 
 _______________________________________________
