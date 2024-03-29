@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6426CC6FD1F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E578BCD1290
 	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 08:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,72 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BINAtuknauSGav5dFR1jvUepxbfvD6CnNvfDYZTwDfk=; b=rV2eBGoGBjh2uB
-	KCISPwyFqc8eMUj4hxeqv2+yIvRQGjpfQhjXhkHYPUMaPYLYUrlvGcHEdwowYHf1iZgKoX27hJPzt
-	WtCtC0Bx+3t2roPHaexRdonEY6qVtnzS+HUs2BWYPojKIqrP7GQJBhmD/ELMfvIUAcyiqDO0mXROw
-	6fBhCZa6CimeO6uyvb0jWcIJ44QDjOrK7S2TkJpnEXklsIDg7WT94ez23ooIJ9blKoImB57qsmc2Z
-	2JN1vbTh5eh7dYM/h0rEls5f5zFejZlkb76+5ZRswDbIEzrDUT3Hh6IiI6mj7IPA+vOAs8xUQxUFH
-	xnrikRH9tRt6JIywO0Tg==;
+	List-Owner; bh=MGrLbYeyTsDVHUf6w9NV8qjnmiaATleIewSNQponOso=; b=1gDTMa89LlAhWc
+	IvDurQUTJlk6F9wuBLBjCjsD2Ey9oqR7j6wCiqunngH1T9/Bjml6VddLp566B3Fc1so2UCMnmF+sg
+	bPBbpojTmoyMOdncFxRzndz5srX8RCEJa+OFIpA/L5xoC04/2DycBu2kPe9TPBwKcn5a8nGMYmdoI
+	a3RazGyd9x0wIVjQQ6ytDiuT0v5Y89UoEhOzXsSRs+bOSq0A33/SOKjxgqnrtiGhI/BSMFICyhM8+
+	UvaUUYf8i7qHZ8DFmG4Er8hNTrqgVUX4K1GizU4LzoVgBMmop7h7yH9XwVROKjmI1f1HBc9JrIimS
+	EJsrygy1l4yJ6vshISoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq7gg-0000000HKdI-34Y2;
-	Fri, 29 Mar 2024 08:34:10 +0000
+	id 1rq7gh-0000000HKe7-3qK6;
+	Fri, 29 Mar 2024 08:34:11 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq6bo-0000000H8hp-3bAm
+	id 1rq6bq-0000000H8jX-3c1V
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 29 Mar 2024 07:25:05 +0000
+	Fri, 29 Mar 2024 07:25:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=miBOSRWGIbztCOf3acmBaICqQz/+WnlSIiHBb+4Rl8M=; b=JEm/7Ho5jwi1OcMMs+Wlg9jHaI
-	Fo1qUkC/RG3Hh303Ng0Q81qkOyG+HAOyRbjGsxdY68kMndm64R7sWgEs8NdSRGnFyvelAPXu9FsU0
-	s7I2i9GshRf86s/H+G0HBhXmVgh10241vLRMEvyaZyIYhhGzkvAlgJpa1zH96PNi8WB611J9+gWkH
-	4XZ7htv4yksiEn9dr2Ygsmv4lhPC1eLFxG11Ktjbi7rmnkXFHH7cDgBtWz0o8v1RD8mIZzwfcqUF/
-	q9sdhSdiKvyggg2+56bLhLJjGP3MeVIWNdY0Ait13TFL9x0IOB7ghetviOn1rFY3LkCSLTzKSW+J6
-	M7sPMX7Q==;
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	bh=dzRar7ztYXEnRyKAelp48saozJM51jVm9Dh1Zr4pH8s=; b=R/eR0jtQBoY3zYVgj5DGyHDaMX
+	ZxPV8m1ajar3nUN5/tDvw3/sOH0wwJEWCPvZ6pkSyLfVKXt2ga99Wp050UBhi44C+gRPcXoR5StaY
+	HWusR47UaLAYCcfK3d4iqTeXICO6vkLof6m3TaXcrqKR3E9EAB2UfsNCEdzpC0mU8HV7VTWDtOs6v
+	RVXG+BoNuzq/F4rfvhujPwIJtEvCW+3DVN13R0POAQYzC4KqQMexc3YSoKF2YH+EcQLfHOLgMijBt
+	vDKta9TV+UyLQfoapMQrzywHr5c2gqonE2FVuiBAeglaz1WCFv01n58I8m7vUh1Wb7sNbFvdhVIxW
+	QtIAIyoQ==;
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq6bl-00000001QtU-2GOO
+	id 1rq6bm-00000001Qtc-1ctN
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Mar 2024 07:25:03 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-6e7425a6714so1502237b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 00:25:00 -0700 (PDT)
+	Fri, 29 Mar 2024 07:25:05 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-5d8b70b39efso1400236a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 00:25:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711697099; x=1712301899; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1711697100; x=1712301900; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=miBOSRWGIbztCOf3acmBaICqQz/+WnlSIiHBb+4Rl8M=;
-        b=IrWdzBqppExxW0jsN5DO1Lye8ORzfalZpVvRu4CDwDwDhl951IAkiCgUWDQpgCTadx
-         Je1N1Jn24WMdxr4WOQOFWDvYKN8EWNK3Pj5DYG6ofJMuRWtsNcDrGhs+wUARMFLDtj5S
-         y+t6HidMaOK/WQmCk8FXCIArZzmlYIwmhpc0Pd6wnxRQm7H/BdzpUi9JavjubNK4ui2N
-         nLOIm4rUhL8/3Bbaq9bjNSc67izK1J19h+b48Tj8AY98/Mu4Csbcu6skK0oiz4jpQSh1
-         CjWUuIy3EXpOmqFkNSYjUop9tzjc9duw8Xu2AjhvUq2GG3kbNwMdDfAIycYxRnoycdkF
-         Jnmw==
+        bh=dzRar7ztYXEnRyKAelp48saozJM51jVm9Dh1Zr4pH8s=;
+        b=bFbCCw+WQAsOyWdheB8qUqnvmFLupY5g8i50F2cYMInmi0jHOx5mqLugbYPKBNWonV
+         tyolszfRGASjEsSHlXVRB96p+8T5CxsJ8G9N2XlT0LeUNWZLfjpYLT16oufxQ/vg/Xag
+         +lAv0MCW4CQnWuNo8CyjDKbbNZ/xxl1u/TqqqosSRGEtj2bEw9n5/vRaL21XWHxzi4ae
+         4NhrIM0/6j307QvY84/c4+VgVaRjGys/sfSj0Kzyn4LIPrJol/FxXP3xd89+g2pMQlik
+         6xNPS/SKSwE+iFKM5mHK1JvaOxkkp/AcQcXef9k5xBEGwsY26E+ceyHwOE8IvmcClLB6
+         kzfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711697099; x=1712301899;
+        d=1e100.net; s=20230601; t=1711697100; x=1712301900;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=miBOSRWGIbztCOf3acmBaICqQz/+WnlSIiHBb+4Rl8M=;
-        b=fCL1wk8gbNVLMds3vOSI9VuvVxJW8HhC58VdSzNak4N9vrnmC/9UzYCDIXQlZwSvVW
-         EjEBNF8M9n7sJFcLVIjwdbwWU/3eLrfCYxctDaTrmjNeoEC6M88BjaYzbNejJTjdaYW6
-         iucXyCnJ7vNFD24AeXaKE5qi9b9G3YA/XlCJKnhH3KGhbfXF9hrvPEIwzO4bmAhQvT1x
-         dUqZ06BoyQu+Yfka33MmmIui0PrwzWQLcx6U8Yd7+dwaX2ohL/RYdVrfEGcfFliL51E9
-         vcQw4exAhHMCSTg14wa5o9Qq3RG8gT7GD8eSyaN3H87u/Qvl44G5GxnhqeH1cQPEtQ/5
-         ho0A==
-X-Forwarded-Encrypted: i=1; AJvYcCXoLWs3ct9qLulG0vByUH0VU41Ko8ccHuPnU70MTstXW2UehDuqZRsl8F1Q4+ygkoqVEXC8h581cMWrzI2j1/6P3N2T9JWAIx1dbaAqiNI8
-X-Gm-Message-State: AOJu0YxC5qVYoQw9oCvLYuiIMokqNOxxz2Ddi/bySePCZmX1R41FwQkz
-	gmUDuIbqsdoUKKgjrXDLdjdZ6CT9beF88E55O5DXt5yAFPXqR+JfFhI+gZkBv8I=
-X-Google-Smtp-Source: AGHT+IHGvAdAnX/0WDZVeXS0a7ZQ/motGWeac64eqKBau0xYaG382zqiN+0tE34St5zugVtRmJL1tg==
-X-Received: by 2002:a05:6a20:549c:b0:1a3:baad:d566 with SMTP id i28-20020a056a20549c00b001a3baadd566mr1487303pzk.40.1711697098883;
-        Fri, 29 Mar 2024 00:24:58 -0700 (PDT)
+        bh=dzRar7ztYXEnRyKAelp48saozJM51jVm9Dh1Zr4pH8s=;
+        b=PEli7dIXMGWuTSn903Ol4CHJj5Tbre1xkavcmtVYjupbJNG3kSKW1KvGNRzG77BFxU
+         Pqb2FCHXqUqcNu8MlANCKeCBeLZ2B45pZqRFVQux2/GJ1AzHRu/oiVH3d+LiBZdT1ndP
+         A2WifZwDEgcF32nLI3Y1Otl4jeeSHb1Ge3JPNQP0aRvRx2iJ2vQg2R02Q5pwhH6x9Eqp
+         g6Ljt2WLHEf8EfbKGNDNHwPbAc25Ytx4x28nGWUJruEdTUMQ7fO8498Qu/+mxugaFH+r
+         8bkfEQLgOS2UzO5NKfqfmi0i9gQQZQHuIsDNBlcZwBlw3fyxJ9yHrxqfyynvWlPhy2zn
+         st/A==
+X-Forwarded-Encrypted: i=1; AJvYcCVTAOSW9c9GEqufSB3yiVQC9JgQFTFAb3/p41UJlC9fX0XhwH44NNLRfgKSB+zYpb7nGRmXJhPRJtjYpnjS8OVDV425Q/bqdprBrcuOsavP
+X-Gm-Message-State: AOJu0YwMVWuhvZmVOpsj+Ao2z+Hk5PG2bELOHPFOtkH58GmpqP2RSbsS
+	uWwKzDhns7EPEd4INaIpjmi0eV2EsUEO1vqEirFJqW/bN2tr3mkKTl4Mf/aUMqE=
+X-Google-Smtp-Source: AGHT+IEs8kBZu3dBChnRywCF22OnC9/Ej+znSx9gblpEFd+wsOZOeprciOlW3fwk28PpRrFgoWrM2Q==
+X-Received: by 2002:a17:90a:d3c3:b0:29e:975:3500 with SMTP id d3-20020a17090ad3c300b0029e09753500mr1446912pjw.28.1711697100232;
+        Fri, 29 Mar 2024 00:25:00 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id b8-20020a17090a010800b0029ddac03effsm4971798pjb.11.2024.03.29.00.24.52
+        by smtp.gmail.com with ESMTPSA id b8-20020a17090a010800b0029ddac03effsm4971798pjb.11.2024.03.29.00.24.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Mar 2024 00:24:53 -0700 (PDT)
+        Fri, 29 Mar 2024 00:24:59 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
@@ -90,17 +90,20 @@ Cc: linux-kernel@vger.kernel.org,
 	loongarch@lists.linux.dev,
 	amd-gfx@lists.freedesktop.org,
 	Samuel Holland <samuel.holland@sifive.com>,
-	Michael Ellerman <mpe@ellerman.id.au>
-Subject: [PATCH v4 08/15] powerpc: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
-Date: Fri, 29 Mar 2024 00:18:23 -0700
-Message-ID: <20240329072441.591471-9-samuel.holland@sifive.com>
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH v4 09/15] x86/fpu: Fix asm/fpu/types.h include guard
+Date: Fri, 29 Mar 2024 00:18:24 -0700
+Message-ID: <20240329072441.591471-10-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20240329072441.591471-1-samuel.holland@sifive.com>
 References: <20240329072441.591471-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_072501_731840_5DD39B26 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20240329_072502_556019_A6A74A35 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,93 +120,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PowerPC provides an equivalent to the common kernel-mode FPU API, but in
-a different header and using different function names. The PowerPC API
-also requires a non-preemptible context. Add a wrapper header, and
-export the CFLAGS adjustments.
+The include guard should match the filename, or it will conflict with
+the newly-added asm/fpu.h.
 
-Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
-Reviewed-by: Christoph Hellwig <hch@lst.de>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-(no changes since v1)
+Changes in v4:
+ - New patch for v4
 
- arch/powerpc/Kconfig           |  1 +
- arch/powerpc/Makefile          |  5 ++++-
- arch/powerpc/include/asm/fpu.h | 28 ++++++++++++++++++++++++++++
- 3 files changed, 33 insertions(+), 1 deletion(-)
- create mode 100644 arch/powerpc/include/asm/fpu.h
+ arch/x86/include/asm/fpu/types.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 1c4be3373686..c42a57b6839d 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -137,6 +137,7 @@ config PPC
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_HUGEPD			if HUGETLB_PAGE
- 	select ARCH_HAS_KCOV
-+	select ARCH_HAS_KERNEL_FPU_SUPPORT	if PPC_FPU
- 	select ARCH_HAS_MEMBARRIER_CALLBACKS
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_MEMREMAP_COMPAT_ALIGN	if PPC_64S_HASH_MMU
-diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
-index 65261cbe5bfd..93d89f055b70 100644
---- a/arch/powerpc/Makefile
-+++ b/arch/powerpc/Makefile
-@@ -153,6 +153,9 @@ CFLAGS-$(CONFIG_PPC32)	+= $(call cc-option, $(MULTIPLEWORD))
+diff --git a/arch/x86/include/asm/fpu/types.h b/arch/x86/include/asm/fpu/types.h
+index ace9aa3b78a3..eb17f31b06d2 100644
+--- a/arch/x86/include/asm/fpu/types.h
++++ b/arch/x86/include/asm/fpu/types.h
+@@ -2,8 +2,8 @@
+ /*
+  * FPU data structures:
+  */
+-#ifndef _ASM_X86_FPU_H
+-#define _ASM_X86_FPU_H
++#ifndef _ASM_X86_FPU_TYPES_H
++#define _ASM_X86_FPU_TYPES_H
  
- CFLAGS-$(CONFIG_PPC32)	+= $(call cc-option,-mno-readonly-in-sdata)
+ #include <asm/page_types.h>
  
-+CC_FLAGS_FPU		:= $(call cc-option,-mhard-float)
-+CC_FLAGS_NO_FPU		:= $(call cc-option,-msoft-float)
-+
- ifdef CONFIG_FUNCTION_TRACER
- ifdef CONFIG_ARCH_USING_PATCHABLE_FUNCTION_ENTRY
- KBUILD_CPPFLAGS	+= -DCC_USING_PATCHABLE_FUNCTION_ENTRY
-@@ -174,7 +177,7 @@ asinstr := $(call as-instr,lis 9$(comma)foo@high,-DHAVE_AS_ATHIGH=1)
+@@ -596,4 +596,4 @@ struct fpu_state_config {
+ /* FPU state configuration information */
+ extern struct fpu_state_config fpu_kernel_cfg, fpu_user_cfg;
  
- KBUILD_CPPFLAGS	+= -I $(srctree)/arch/powerpc $(asinstr)
- KBUILD_AFLAGS	+= $(AFLAGS-y)
--KBUILD_CFLAGS	+= $(call cc-option,-msoft-float)
-+KBUILD_CFLAGS	+= $(CC_FLAGS_NO_FPU)
- KBUILD_CFLAGS	+= $(CFLAGS-y)
- CPP		= $(CC) -E $(KBUILD_CFLAGS)
- 
-diff --git a/arch/powerpc/include/asm/fpu.h b/arch/powerpc/include/asm/fpu.h
-new file mode 100644
-index 000000000000..ca584e4bc40f
---- /dev/null
-+++ b/arch/powerpc/include/asm/fpu.h
-@@ -0,0 +1,28 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2023 SiFive
-+ */
-+
-+#ifndef _ASM_POWERPC_FPU_H
-+#define _ASM_POWERPC_FPU_H
-+
-+#include <linux/preempt.h>
-+
-+#include <asm/cpu_has_feature.h>
-+#include <asm/switch_to.h>
-+
-+#define kernel_fpu_available()	(!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
-+
-+static inline void kernel_fpu_begin(void)
-+{
-+	preempt_disable();
-+	enable_kernel_fp();
-+}
-+
-+static inline void kernel_fpu_end(void)
-+{
-+	disable_kernel_fp();
-+	preempt_enable();
-+}
-+
-+#endif /* ! _ASM_POWERPC_FPU_H */
+-#endif /* _ASM_X86_FPU_H */
++#endif /* _ASM_X86_FPU_TYPES_H */
 -- 
 2.44.0
 
