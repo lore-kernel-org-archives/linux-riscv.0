@@ -4,80 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BDE1CD1288
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 08:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531CFCD128D
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 08:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P5EXxQKH955yOAGl5ITHokCUpXVE1vhHbLYw04DL2X0=; b=O2PjRx7yQocwww
-	K3/t2ZXGBhKfl7QOrVAEuaxGZQ/tGq58B065GkeYYVvLEFbT7Dka51TTRrF7cedvH2Dkgky+MqwHU
-	QNosPH7ZXobPKydXuVFY2fC7tYICAc+14AhrVVtQ8bZ+n3bqE1p7TvN/eo73IbI+Zn7Yh9sQfLqRI
-	6eToI3LrAuX9ahpywUiEd+HC0SJNftAG4EU3++byy8SFx+8PBduL+HbVDB5nQQMTnCgF00yyh5waw
-	wIrOMhMgD9mx4wNg1u2QESlOx7FlYTVqxRqESUpicCtStJxrN7+Ksh3mTM3kw18hJ/L2CLU0xNMdq
-	E426wUwZnMGnPPcbw4SQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+S9sFBEjqc5sItJBpQgLkWO2Nbp2kTj2gAUqOBbXA4g=; b=dS/9cwChg+xUys
+	ALltANMv2OtY1/JFNfdsdz03dQZ0KriCkIRxZdWNuXzAwHq7NeGaq6tH3smrtRlzgASeO4HQahMYI
+	57m5rHXYwWOkVC77pDgBjKJB36a88U2oZbMgmbniFGs3k7BWMFT/mAq6TTGRvUNxOSztb3fHRIc89
+	JasHni003e/UDu2dmoEk2rtM0eud5Bo3nedJUpwoMSzkc2gzXM7wuHxb7iBN5vJgkCv5KN0x+zkRE
+	58ropGY5PtEfLt8w3NxrDPovEBwypjCyW6xUXYTp5RBELe7UoIV3qkvixWNX7XsCOnjxkgH8JtTUm
+	d+P7JSu3cqLXqovII09w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq7gf-0000000HKcf-2NjQ;
-	Fri, 29 Mar 2024 08:34:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rq7gb-0000000HKZf-2URg;
+	Fri, 29 Mar 2024 08:34:05 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq6bj-0000000H8e9-0oKY
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 29 Mar 2024 07:24:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=F18yE3QV4MW8RCzD1e25jw8k09/j20Bb+PnplrzhdA4=; b=WJe+UgjFUuiIToPVsZKBothm+7
-	MyqSy1d8Dcmsr4vA2fkZA4fNs/qKk6yyB+FsD9Cz+unZrmtKXwuMN0U/vsnADA7goAXVW5BHGzP0B
-	cE8E47zW6hlBmG3XTsjLwbmhE5ugg/O8QsIXxKT7dBbWPs+pY5k+CMCh5aUJJeE56vIABDp/JHtKv
-	SeI86YYJ6epX6bnrl/S4SSBnhqooNcL2WCZ8KcB85CpJOspIwIAzGT9o0ZJqjQ3AMwLJP2buFYZ4Z
-	X7E2/tW9b4R8WjKy+z3KgzdMxWLDA7snKHSY8fnaVIKJ8Thwf/rpmKBVgD030Um5zSyUyH7IkdQBU
-	Y4+19ZZQ==;
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
-	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rq6be-00000001QqN-19ms
+	id 1rq6bW-0000000H8WN-0LmU
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Mar 2024 07:24:57 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-5d3912c9a83so1029772a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 00:24:53 -0700 (PDT)
+	Fri, 29 Mar 2024 07:24:47 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-5d3912c9a83so1029748a12.3
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 00:24:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1711697092; x=1712301892; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F18yE3QV4MW8RCzD1e25jw8k09/j20Bb+PnplrzhdA4=;
-        b=Cj0KXSlw+sd4e2g0lmtQtL12wgmcoGQFIpUtognY/FeJDsuevRfGodaiqSo7H5n3VG
-         g9vh23pixD75i+mOybqGWu0TGAYxR81w5vHkb5ZE4rtu72Rf8zoXOKQmc1EMMfcpO7WJ
-         zu3ijwSA+gLmlvqmc/R3lbolrxm+HvDT8zdcLeAZjrxz+xFiBUA7DMdX+x50psrp+L00
-         mKbvns+SGQErZ4IJj/ixp3KC1w8z9VDok1PYvyKzPCEiUZlmqicMmCz8T06zTVARyPig
-         hPoItwLHivHFSFzqgX6CBFLILoWHVFg29NOmQDuHJKjlXRwdpP08J4BV/HzNICmDc7hM
-         LADg==
+        d=sifive.com; s=google; t=1711697083; x=1712301883; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+9VxbCTgzZ80UmziOWsKJFOvNNy0Qw1c5wWNUXcCD38=;
+        b=XYiCcuVIcLWUU5J5klJPsrE+J9dHPvzxpIKlk4zGflyLKllChYmIIBzKeezV7yibOi
+         TMj5Sxy1SoIwPAkgAaSMrnunt5n3kDmrelvDy9u08SV5mJpLPA6lZdMm9lEBZ/vOmb/3
+         7CKwAVjhy114naKJ6s9AjVROWl2Ov89NUqG1H7ruwnGIOpsa16iOb88eofYNPSLE21V+
+         tVU8s+FoDIIfXFvB69WSpwnHtZttbBU898ngwVsoF4MLn9Kgw8Tbsj9yOEsY0SwcNiVu
+         vckB9rHI2Ljol+TOJ7DUZP2pnVVSCjiq9YVP007LVwFyCQD3Z/wPXR9oJy8v6ObSB9wY
+         EmSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711697092; x=1712301892;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=F18yE3QV4MW8RCzD1e25jw8k09/j20Bb+PnplrzhdA4=;
-        b=V2vUoQtP3bAXrM4TxxM4pvHzAJEqUTk94SNtQUD/Yz97d4DnMkKXp/vA8SmPB6BMKs
-         6mQamtRSMYCoqIxRwn6/kSNOSgfneY8BhGLBOqC0wCOI54UUMoI+bS7Jh6YAkchra97l
-         DgEzZ2lSnILoGXMLiHKYAb/9pLE+vfplD8wdhbcCDhcpbkm8hPYomLFv6SP+XuY0Fuhb
-         0SuvfTZezlyRrvutyvek1RKLWmoYJOXQLKE6WXGfPmYSQaFdHNAMq7TaeylyyfeJZ8ut
-         2dpd1vYaHUMMq7BytL+xUSHSYke0PqVP8+cNm/cqvQ0EE4koc9x2zxWvh8bXhmnBDe3q
-         5SsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXmhiiWoN6PAruWHS/felHXPYcvF3HhycDmkszA7z2+8Y4CezVgskakwzsmE8pAMs2fdUBL505duJt8c9XWR4hYQfEK73QMwZtWWz0a5eig
-X-Gm-Message-State: AOJu0YwJxsylggNYpnD67e8Ap/Um/eoljmAAN4wEQMntVh1TWMsphYWy
-	Lh8KgJv3SfxmY6pCPtnz9LpJuvtwqw3aezDRJ2+m3mQRi80Tumnz16od7TnheEM=
-X-Google-Smtp-Source: AGHT+IFY/yzEzRZYFdEySbj/sKHZJd/DWAHR82okZCfCkYYQ9Rz+9YBmaRZXyDE1LpyvvN0Ey140hg==
-X-Received: by 2002:a17:90a:fe85:b0:29f:ea48:25dd with SMTP id co5-20020a17090afe8500b0029fea4825ddmr1492025pjb.33.1711697092415;
-        Fri, 29 Mar 2024 00:24:52 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1711697083; x=1712301883;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+9VxbCTgzZ80UmziOWsKJFOvNNy0Qw1c5wWNUXcCD38=;
+        b=O+Uypvz/JRJ3D1XTUr/Prp7WkZSAcavvFsvAFNjPET7erS0ZFC+DEQDlLY2P140ggU
+         u9Gs6jE1GH4hM8NbFpUkXiksnXe0y4thp8ZF7AsBqH2fKXzYrPxVNjCTfa3oGFxQcmg/
+         yLi5pqInivHWKl0PEvh25ed4pP2yGxPXEzBzV8wOdmP7lGcmL9HR5YFPurMa2tvEge8c
+         KTRSYrxa3IeDiEBQ1k26ZinrpbIHcDe9RC3NQK+6aOAQaSV3hE495nAO7ZKLTfDEjeXV
+         q0nVNjz0FceOZx9sw4fn8bsbJEnmrlzVQoZIBn03NRDSUP6TM3HY3XqO5ou7O4otnUPH
+         /nLA==
+X-Forwarded-Encrypted: i=1; AJvYcCUe6JDhppCalSPkQynoSw7MVo5dM/KcMYTB1KzgeZCQNyOmLtdY9+K6RMbCKWo1Le40viXr0qz5BJn4Y3DL2Tz4K8+Hwtw2Y/NBa1RO5qJQ
+X-Gm-Message-State: AOJu0Yyk4VSk9IS7uSexxqowvZg2XppUp9s/eVadSYUnV3dShSNV0QuJ
+	lnm+oVK/DFFUx0d0fZuFrjcce2GIpavN7mEgSMZqU3Nqeif38guViHJrJxOfYR8=
+X-Google-Smtp-Source: AGHT+IEb5QR4f0wxokXnCFueIg3e5DUC8zxXcfXICifgdBJpQrnHEBOFNWDHzDiuuKhBOVbgthprFw==
+X-Received: by 2002:a05:6a20:ce4d:b0:1a3:c460:1a4f with SMTP id id13-20020a056a20ce4d00b001a3c4601a4fmr1590367pzb.59.1711697083202;
+        Fri, 29 Mar 2024 00:24:43 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id b8-20020a17090a010800b0029ddac03effsm4971798pjb.11.2024.03.29.00.24.51
+        by smtp.gmail.com with ESMTPSA id b8-20020a17090a010800b0029ddac03effsm4971798pjb.11.2024.03.29.00.24.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Mar 2024 00:24:52 -0700 (PDT)
+        Fri, 29 Mar 2024 00:24:42 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
@@ -90,18 +74,28 @@ Cc: linux-kernel@vger.kernel.org,
 	loongarch@lists.linux.dev,
 	amd-gfx@lists.freedesktop.org,
 	Samuel Holland <samuel.holland@sifive.com>,
-	WANG Xuerui <git@xen0n.name>,
-	Huacai Chen <chenhuacai@kernel.org>
-Subject: [PATCH v4 07/15] LoongArch: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
-Date: Fri, 29 Mar 2024 00:18:22 -0700
-Message-ID: <20240329072441.591471-8-samuel.holland@sifive.com>
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Russell King <linux@armlinux.org.uk>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	linux-doc@vger.kernel.org,
+	linux-kbuild@vger.kernel.org
+Subject: [PATCH v4 00/15] Unified cross-architecture kernel-mode FPU API
+Date: Fri, 29 Mar 2024 00:18:15 -0700
+Message-ID: <20240329072441.591471-1-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.44.0
-In-Reply-To: <20240329072441.591471-1-samuel.holland@sifive.com>
-References: <20240329072441.591471-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_072454_502337_E9061357 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20240329_002446_192093_F0F0A3C2 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,72 +112,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-LoongArch already provides kernel_fpu_begin() and kernel_fpu_end() in
-asm/fpu.h, so it only needs to add kernel_fpu_available() and export
-the CFLAGS adjustments.
+This series unifies the kernel-mode FPU API across several architectures
+by wrapping the existing functions (where needed) in consistently-named
+functions placed in a consistent header location, with mostly the same
+semantics: they can be called from preemptible or non-preemptible task
+context, and are not assumed to be reentrant. Architectures are also
+expected to provide CFLAGS adjustments for compiling FPU-dependent code.
+For the moment, SIMD/vector units are out of scope for this common API.
 
-Acked-by: WANG Xuerui <git@xen0n.name>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
----
+This allows us to remove the ifdeffery and duplicated Makefile logic at
+each FPU user. It then implements the common API on RISC-V, and converts
+a couple of users to the new API: the AMDGPU DRM driver, and the FPU
+self test.
 
-(no changes since v3)
+The underlying goal of this series is to allow using newer AMD GPUs
+(e.g. Navi) on RISC-V boards such as SiFive's HiFive Unmatched. Those
+GPUs need CONFIG_DRM_AMD_DC_FP to initialize, which requires kernel-mode
+FPU support.
+
+Previous versions:
+v3: https://lore.kernel.org/linux-kernel/20240327200157.1097089-1-samuel.holland@sifive.com/
+v2: https://lore.kernel.org/linux-kernel/20231228014220.3562640-1-samuel.holland@sifive.com/
+v1: https://lore.kernel.org/linux-kernel/20231208055501.2916202-1-samuel.holland@sifive.com/
+v0: https://lore.kernel.org/linux-kernel/20231122030621.3759313-1-samuel.holland@sifive.com/
+
+Changes in v4:
+ - Add missed CFLAGS changes for recov_neon_inner.c
+   (fixes arm build failures)
+ - Fix x86 include guard issue (fixes x86 build failures)
 
 Changes in v3:
  - Rebase on v6.9-rc1
+ - Limit riscv ARCH_HAS_KERNEL_FPU_SUPPORT to 64BIT
 
- arch/loongarch/Kconfig           | 1 +
- arch/loongarch/Makefile          | 5 ++++-
- arch/loongarch/include/asm/fpu.h | 1 +
- 3 files changed, 6 insertions(+), 1 deletion(-)
+Changes in v2:
+ - Add documentation explaining the built-time and runtime APIs
+ - Add a linux/fpu.h header for generic isolation enforcement
+ - Remove file name from header comment
+ - Clean up arch/arm64/lib/Makefile, like for arch/arm
+ - Remove RISC-V architecture-specific preprocessor check
+ - Split altivec removal to a separate patch
+ - Use linux/fpu.h instead of asm/fpu.h in consumers
+ - Declare test_fpu() in a header
 
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index a5f300ec6f28..2266c6c41c38 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -18,6 +18,7 @@ config LOONGARCH
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_FORTIFY_SOURCE
- 	select ARCH_HAS_KCOV
-+	select ARCH_HAS_KERNEL_FPU_SUPPORT if CPU_HAS_FPU
- 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PTE_SPECIAL
-diff --git a/arch/loongarch/Makefile b/arch/loongarch/Makefile
-index df6caf79537a..efb5440a43ec 100644
---- a/arch/loongarch/Makefile
-+++ b/arch/loongarch/Makefile
-@@ -26,6 +26,9 @@ endif
- 32bit-emul		= elf32loongarch
- 64bit-emul		= elf64loongarch
- 
-+CC_FLAGS_FPU		:= -mfpu=64
-+CC_FLAGS_NO_FPU		:= -msoft-float
-+
- ifdef CONFIG_UNWINDER_ORC
- orc_hash_h := arch/$(SRCARCH)/include/generated/asm/orc_hash.h
- orc_hash_sh := $(srctree)/scripts/orc_hash.sh
-@@ -59,7 +62,7 @@ ld-emul			= $(64bit-emul)
- cflags-y		+= -mabi=lp64s
- endif
- 
--cflags-y			+= -pipe -msoft-float
-+cflags-y			+= -pipe $(CC_FLAGS_NO_FPU)
- LDFLAGS_vmlinux			+= -static -n -nostdlib
- 
- # When the assembler supports explicit relocation hint, we must use it.
-diff --git a/arch/loongarch/include/asm/fpu.h b/arch/loongarch/include/asm/fpu.h
-index c2d8962fda00..3177674228f8 100644
---- a/arch/loongarch/include/asm/fpu.h
-+++ b/arch/loongarch/include/asm/fpu.h
-@@ -21,6 +21,7 @@
- 
- struct sigcontext;
- 
-+#define kernel_fpu_available() cpu_has_fpu
- extern void kernel_fpu_begin(void);
- extern void kernel_fpu_end(void);
- 
+Michael Ellerman (1):
+  drm/amd/display: Only use hard-float, not altivec on powerpc
+
+Samuel Holland (14):
+  arch: Add ARCH_HAS_KERNEL_FPU_SUPPORT
+  ARM: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
+  ARM: crypto: Use CC_FLAGS_FPU for NEON CFLAGS
+  arm64: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
+  arm64: crypto: Use CC_FLAGS_FPU for NEON CFLAGS
+  lib/raid6: Use CC_FLAGS_FPU for NEON CFLAGS
+  LoongArch: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
+  powerpc: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
+  x86/fpu: Fix asm/fpu/types.h include guard
+  x86: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
+  riscv: Add support for kernel-mode FPU
+  drm/amd/display: Use ARCH_HAS_KERNEL_FPU_SUPPORT
+  selftests/fpu: Move FP code to a separate translation unit
+  selftests/fpu: Allow building on other architectures
+
+ Documentation/core-api/floating-point.rst     | 78 +++++++++++++++++++
+ Documentation/core-api/index.rst              |  1 +
+ Makefile                                      |  5 ++
+ arch/Kconfig                                  |  6 ++
+ arch/arm/Kconfig                              |  1 +
+ arch/arm/Makefile                             |  7 ++
+ arch/arm/include/asm/fpu.h                    | 15 ++++
+ arch/arm/lib/Makefile                         |  3 +-
+ arch/arm64/Kconfig                            |  1 +
+ arch/arm64/Makefile                           |  9 ++-
+ arch/arm64/include/asm/fpu.h                  | 15 ++++
+ arch/arm64/lib/Makefile                       |  6 +-
+ arch/loongarch/Kconfig                        |  1 +
+ arch/loongarch/Makefile                       |  5 +-
+ arch/loongarch/include/asm/fpu.h              |  1 +
+ arch/powerpc/Kconfig                          |  1 +
+ arch/powerpc/Makefile                         |  5 +-
+ arch/powerpc/include/asm/fpu.h                | 28 +++++++
+ arch/riscv/Kconfig                            |  1 +
+ arch/riscv/Makefile                           |  3 +
+ arch/riscv/include/asm/fpu.h                  | 16 ++++
+ arch/riscv/kernel/Makefile                    |  1 +
+ arch/riscv/kernel/kernel_mode_fpu.c           | 28 +++++++
+ arch/x86/Kconfig                              |  1 +
+ arch/x86/Makefile                             | 20 +++++
+ arch/x86/include/asm/fpu.h                    | 13 ++++
+ arch/x86/include/asm/fpu/types.h              |  6 +-
+ drivers/gpu/drm/amd/display/Kconfig           |  2 +-
+ .../gpu/drm/amd/display/amdgpu_dm/dc_fpu.c    | 35 +--------
+ drivers/gpu/drm/amd/display/dc/dml/Makefile   | 36 +--------
+ drivers/gpu/drm/amd/display/dc/dml2/Makefile  | 36 +--------
+ include/linux/fpu.h                           | 12 +++
+ lib/Kconfig.debug                             |  2 +-
+ lib/Makefile                                  | 26 +------
+ lib/raid6/Makefile                            | 33 +++-----
+ lib/test_fpu.h                                |  8 ++
+ lib/{test_fpu.c => test_fpu_glue.c}           | 37 ++-------
+ lib/test_fpu_impl.c                           | 37 +++++++++
+ 38 files changed, 348 insertions(+), 193 deletions(-)
+ create mode 100644 Documentation/core-api/floating-point.rst
+ create mode 100644 arch/arm/include/asm/fpu.h
+ create mode 100644 arch/arm64/include/asm/fpu.h
+ create mode 100644 arch/powerpc/include/asm/fpu.h
+ create mode 100644 arch/riscv/include/asm/fpu.h
+ create mode 100644 arch/riscv/kernel/kernel_mode_fpu.c
+ create mode 100644 arch/x86/include/asm/fpu.h
+ create mode 100644 include/linux/fpu.h
+ create mode 100644 lib/test_fpu.h
+ rename lib/{test_fpu.c => test_fpu_glue.c} (71%)
+ create mode 100644 lib/test_fpu_impl.c
+
 -- 
 2.44.0
 
