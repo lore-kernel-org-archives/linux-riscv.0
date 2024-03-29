@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C4FC6FD1F
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 17:28:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB332C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2024 17:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I1UHIsLr/AVJOXd2OIrWlS9slQ5Vcc+pYTUSWfoJEoQ=; b=jlzc++g7oCJniL
-	nRDCypBV5bbGo/SIKbDHzwJD8fA1D92mGB8WsN1EI9JXoBvFYwlkZRH06pRXBjGoIRqXlHdJm23y4
-	QdM3Ni3ItvJgIFN48DLmO0ZMZ8NQyQibD79vUwkjptfxGd9+1eKqzK9HAl5SRPPZLn0qnzh+UEnnq
-	Z+XKYcUWPw3ZERHfG6PRp+Fze2LG+8z+yqGgiQxRl6GmfvZa3A6OUmFl9HPgzSr6VaQzq/k2CcFr/
-	f1Vpc5PG80twwZ3v9pqG6CsHj/1AfUAARKv7yNkHl9bri35JMyb1G4nmp1QGJux0froW+J3exQHG6
-	hjy78XHRHKJVRzev41iA==;
+	List-Owner; bh=MM9Bwsc6X1T0KwkcMLDuVPwPaqU+JJGSZubb9uly7Tw=; b=nhw3FqYc2Db4N1
+	g8VIbfKNSWTNo2RUJ6FaPE27914hQ0srHBM5Ln3g7K1PLO+9ndsT/lKnq9yXDJSDcwj/WX8kQo1rr
+	D05IftpSXKnJZSIXIS5pvlynO3hopEXyblyFPDouUmB2+tPjKhbMC+4aCm8ujiBYtP2/vMAcG9FsP
+	NhIXbMUfZVswMLXYhT+BLC4x6JmMTff81zvyWgsX3tqfhB039EXDO6qZaFx9e7kSHyNmgKkokivyw
+	NRD+7E1Ph99lvvQwwPCayjEYZLOh91zg6skpJc1bYePkryFsQRBw0nqhpdRWX+2j4GpU6FbXO7mPa
+	B7I30aADgqBt4382G5Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqG28-00000001U8t-1ZOS;
-	Fri, 29 Mar 2024 17:28:52 +0000
+	id 1rqG3Y-00000001UVX-2XC8;
+	Fri, 29 Mar 2024 17:30:20 +0000
 Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqG24-00000001U7O-0d65;
-	Fri, 29 Mar 2024 17:28:50 +0000
+	id 1rqG3V-00000001UU1-0SUd;
+	Fri, 29 Mar 2024 17:30:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1711733328; x=1743269328;
+  t=1711733417; x=1743269417;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=yFDVjGYfjWII0t1wE88WD1st8TP3w0lvfG9W2m2CZOE=;
-  b=lePlVCS0Saik02HYbkmIHqD3BeVUvOP9ouhUysNJq5SDp9K+TcmLp4wu
-   i2vXFNMJCpcYaz+z/lqpEDyY4h/XsWh+r2GX4oVQ0P20qQrnhFBl3PAt6
-   BVVQTfmHpKlFSbOB/RWaaiujujNTDIpmPZxck9cyw6LxiaIqdbiOkSkY7
-   vCMbfUdv4I+Re3GbDEXRRpPgRTq07sUZa3ZQJA4AEyxWPVtK4v5wRGY0u
-   jwZVd71M3/5p8bzpe8gA/wQF68jnmi1pq0x0DbEnIS1HleilxYkuMhi0m
-   isj1QoKyxYmT3761Pwbcy4TYxyH/Tx1Y4nobLNFdFAhiaJ9tZa1nhqEq9
+  bh=skmiPVy+9TKQ2YOwN5z49H0coa6SVnQShC/bqYFiK/I=;
+  b=c48I5SJIPwR+axUrPh8WKPG9Xmp+U1nOkEWOPu29HeEK6Rav38F0O/z/
+   SdndiDYOLISAoljPgHfYFIn9/2JbzTyBSC9v+irUK6tsvTBYHKtP6otHT
+   q4VHRCVy2daRQuZQfxxwFe9lE7D9Kx/zITvJjUQ2cd210KwvvKr78aNCl
+   rbUDvVy3NHwKXBNFhtgbiBtFS5qCH58gbyDKaDhnRNMEj02wIj9mqYIWW
+   vze8bPv+vuG3rJnFcXluJ1HVWV+Wn1oVczpWx6cdAga5R5dvQI894aVOR
+   cMDH6fPwbI6LjE3wIYc5taFWR5ag82coGG4Y+2dxLCPU5VxFMKN/gPPvE
    g==;
-X-CSE-ConnectionGUID: zRrTH8pkQSWa+DdIPibEcg==
-X-CSE-MsgGUID: Nti19zmrSS+xaMVhOcx59A==
-X-IronPort-AV: E=McAfee;i="6600,9927,11028"; a="9882642"
+X-CSE-ConnectionGUID: +eWqit1vRQi2ymRO1T6ikg==
+X-CSE-MsgGUID: +FjKJHx8SSuibMu4RMQqXw==
+X-IronPort-AV: E=McAfee;i="6600,9927,11028"; a="9882792"
 X-IronPort-AV: E=Sophos;i="6.07,165,1708416000"; 
-   d="scan'208";a="9882642"
+   d="scan'208";a="9882792"
 Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Mar 2024 10:28:45 -0700
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Mar 2024 10:30:17 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.07,165,1708416000"; 
-   d="scan'208";a="40178285"
+   d="scan'208";a="40178522"
 Received: from sergeyko-mobl.amr.corp.intel.com (HELO [10.212.56.129]) ([10.212.56.129])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Mar 2024 10:28:45 -0700
-Message-ID: <d2c3cd78-cdc6-4a39-9804-4f30402751b1@intel.com>
-Date: Fri, 29 Mar 2024 10:28:44 -0700
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Mar 2024 10:30:16 -0700
+Message-ID: <d795b1ac-5e3d-4450-8ca7-3da7f53a5482@intel.com>
+Date: Fri, 29 Mar 2024 10:30:15 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 10/15] x86: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
+Subject: Re: [PATCH v4 09/15] x86/fpu: Fix asm/fpu/types.h include guard
 To: Samuel Holland <samuel.holland@sifive.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  linux-arm-kernel@lists.infradead.org, x86@kernel.org
@@ -66,7 +66,7 @@ Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
  Dave Hansen <dave.hansen@linux.intel.com>, Ingo Molnar <mingo@redhat.com>,
  Thomas Gleixner <tglx@linutronix.de>
 References: <20240329072441.591471-1-samuel.holland@sifive.com>
- <20240329072441.591471-11-samuel.holland@sifive.com>
+ <20240329072441.591471-10-samuel.holland@sifive.com>
 Content-Language: en-US
 From: Dave Hansen <dave.hansen@intel.com>
 Autocrypt: addr=dave.hansen@intel.com; keydata=
@@ -112,10 +112,10 @@ Autocrypt: addr=dave.hansen@intel.com; keydata=
  MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
  hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
  vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
-In-Reply-To: <20240329072441.591471-11-samuel.holland@sifive.com>
+In-Reply-To: <20240329072441.591471-10-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_102848_250337_346B4443 
-X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-CacheID: sfid-20240329_103017_260184_FB355CA6 
+X-CRM114-Status: UNSURE (   6.07  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,30 +134,10 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 3/29/24 00:18, Samuel Holland wrote:
-> +#
-> +# CFLAGS for compiling floating point code inside the kernel.
-> +#
-> +CC_FLAGS_FPU := -msse -msse2
-> +ifdef CONFIG_CC_IS_GCC
-> +# Stack alignment mismatch, proceed with caution.
-> +# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
-> +# (8B stack alignment).
-> +# See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53383
-> +#
-> +# The "-msse" in the first argument is there so that the
-> +# -mpreferred-stack-boundary=3 build error:
-> +#
-> +#  -mpreferred-stack-boundary=3 is not between 4 and 12
-> +#
-> +# can be triggered. Otherwise gcc doesn't complain.
-> +CC_FLAGS_FPU += -mhard-float
-> +CC_FLAGS_FPU += $(call cc-option,-msse -mpreferred-stack-boundary=3,-mpreferred-stack-boundary=4)
-> +endif
+> The include guard should match the filename, or it will conflict with
+> the newly-added asm/fpu.h.
 
-I was expecting to see this (now duplicate) hunk come _out_ of
-lib/Makefile somewhere in the series.
-
-Did I miss that, or is there something keeping the duplicate there?
+Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
 
 _______________________________________________
 linux-riscv mailing list
