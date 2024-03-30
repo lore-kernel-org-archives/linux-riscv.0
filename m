@@ -4,100 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6532AC47DD9
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Mar 2024 04:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F87CCD1288
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Mar 2024 10:13:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pboqnzlbxg6K5CrV6DA3AtFTVjmFqEh32PL7f0ynzlw=; b=K4bYi61E3RKiBA
-	UyTywRHHE0c1jAfbqBTMipxVUjJJcZVniUAMWt3+bQTgfmXpjDZMUlNb+hM5KPgYdOd/PcDmQWv/K
-	Ra3CbBy5QW0QGDmnKatF0uqBndtjVTkSoUrPXnrg0iwGgrnLJPEEuhXNh8gYCaU9OZC+jP5K6+1dU
-	/aHQFW1AAWmyL33NZZU8VJCDIsREwdOEeBLDISwXK22l62Oq5mdtjWVUC0zzV44l0IPa2A2ErP8UK
-	geOhwTzuKEibW6Ld8WAO6d3m1A89LeaGxuSQtNPNasVwzmZeq7X8onoMMw/mKfFNu7Q7rr8qB/mgY
-	0qckId/xrs7ZiELLK64Q==;
+	List-Owner; bh=1sHGV4cFFwWfxYsNzDm/yeI6fTl+3YGqnHGS0YDp9pw=; b=nPWrSJvbfeFdeQ
+	U/8gN/D5P9vX8kqiIQXVAsNoIGhfJ8vd7nsmquqFWVkADdrsd7K2/y6IzsQbz9A1ME8jZ+dTvZ7Hx
+	yGchwBCIuNZjk0H2RSXZQ+uU+7YAo7XTUJ57p+xXp1qRKDXrDZ6FUqrZoDrPfAYwSa/u9LuYhssfb
+	pxU9QrZhdo0RN/RfWIABm0FFR6seibQFBhVNOi7ZdJU/Z8oBsns8+TM/RWik+flyasT3IwCWcKAYZ
+	MkQBzDnB0GrvqRXI/f46v1OJpxdNrXwdy6Oq5YIqFwMxwzC4yU4gm95bYjEQUNqCfoShAPaOrleog
+	9WUxieZfsW95wP9uaOkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqQ82-00000002j7r-2vQj;
-	Sat, 30 Mar 2024 04:15:38 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1rqViB-00000003EnO-28Q8;
+	Sat, 30 Mar 2024 10:13:19 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqQ7y-00000002j6Q-3lww
+	id 1rqVi7-00000003EmK-3Zs3
 	for linux-riscv@lists.infradead.org;
-	Sat, 30 Mar 2024 04:15:37 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-5d4d15ec7c5so1851792a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2024 21:15:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1711772130; x=1712376930; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ofE4DiMnvHuiRZX1XlrIQJQuThx3U4684j2Vrwr4bOc=;
-        b=ED4+APoK8DNCvn/NuwHUvQu0QUmwMlNavXAqJ8brExKvUuFMnRYuLsQJLiRyHyUL+Y
-         CkRgf2ZTDdppdWewaBcj5qNbTyisUQujixrmDokBe+lTLoXlH2IJUxsQxrJemJYZW9kq
-         zj2ycrTOgnDsi6r2A2a0VAPgLO51XsHjYFBea/dyrfjX79TtJL2LsUs6L22AuNQZEy5T
-         laXrG+pInzjOUXfFrfMDmzagCxmqYaEvLkwQrPXNCBJD7DAZHxx9YCrrKxr7Yy8ffcJL
-         EwvFbFKAR3YJjYD+EgNpC6mf5qVcYXpLR1SXfH5x5TioB7vBH5VyO9JWH36NvKA64FQm
-         ORLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711772130; x=1712376930;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ofE4DiMnvHuiRZX1XlrIQJQuThx3U4684j2Vrwr4bOc=;
-        b=tl5N2zaJAnza+Lp4rasIlSUrgxxekI8aBFm+K5sAkMLLl8N1xhb/N6ZJPregojloeR
-         8F//lN4ngbiUiRsE9q2vSgpkCKqXEXDijsuj6wpMg1o8QRueaNlq5OPE7c8D/weZ4nK5
-         TpSsphsuDJkQSL8S0D9jVcJmnZcyfj78TrhE8VxohlfS5YxJHZkjV+x6Up6VmGsUjM1a
-         sHKMMC9u4ET3yVj6dk9EA2YSHfKctOUYzUF2wk4er8BiUVNqrPqL6wRcU1lo2nqCjm2w
-         NCoXIrMQjQeKgZBgKVuegjmmHbbIxbRE0oN8BEz+lqn4ibD5ch1R+Y1pn0kxbno8x3zC
-         c/hw==
-X-Forwarded-Encrypted: i=1; AJvYcCWr6Ua+6P50ucxpBpvSPZUq7VwzyHWeE8K1W1Eyk022Gd1gQOR5wFhBOKLymTJaElPZSTvBAATeQqt15KSJHYgIg7qdE8PQHqLlgW8ozYI8
-X-Gm-Message-State: AOJu0YyPbue21bmGmgf0ezXDiaVTBWl19CvIEuk5gL+NoaM87+/43FYO
-	maEto5PY0XZ6Jhgepyl6yQSYdWzB2fB4A+kuLimrFut9ODTKTda/IMX+uQ4oMgM10ODj7jy/JLz
-	6V9LaxUHyD6B96+sHiVjAn+1++nIGi36Kf0jWmw==
-X-Google-Smtp-Source: AGHT+IGgndwZ3xqfDhf4CyJqUlqHUpBRYWacoRvVkoWzKCTwU3GtudllRjOr+s4vd+S8mdhVeoofK0l9Hh+AwBW0mGw=
-X-Received: by 2002:a05:6a20:17a2:b0:1a3:67fd:46b1 with SMTP id
- bl34-20020a056a2017a200b001a367fd46b1mr3653617pzb.36.1711772130610; Fri, 29
- Mar 2024 21:15:30 -0700 (PDT)
+	Sat, 30 Mar 2024 10:13:18 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4V6ClD2QYQz4f3js8
+	for <linux-riscv@lists.infradead.org>; Sat, 30 Mar 2024 18:12:56 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id ABBD91A0589
+	for <linux-riscv@lists.infradead.org>; Sat, 30 Mar 2024 18:13:02 +0800 (CST)
+Received: from [10.67.109.184] (unknown [10.67.109.184])
+	by APP1 (Coremail) with SMTP id cCh0CgBnggup5QdmbcobIg--.18079S2;
+	Sat, 30 Mar 2024 18:12:59 +0800 (CST)
+Message-ID: <52117f9c-b691-409f-ad2a-a25f53a9433d@huaweicloud.com>
+Date: Sat, 30 Mar 2024 18:12:57 +0800
 MIME-Version: 1.0
-References: <20240311093526.1010158-1-dongmenglong.8@bytedance.com>
- <20240311093526.1010158-2-dongmenglong.8@bytedance.com> <CAADnVQKQPS5NcvEouH4JqZ2fKgQAC+LtcwhX9iXYoiEkF_M94Q@mail.gmail.com>
- <CALz3k9i5G5wWi+rtvHPwVLOUAXVMCiU_8QUZs87TEYgR_0wpPA@mail.gmail.com>
- <CAADnVQJ_ZCzMmT1aBsNXEBFfYNSVBdBXmLocjR0PPEWtYQrQFw@mail.gmail.com>
- <CALz3k9icPePb0c4FE67q=u1U0hrePorN9gDpQrKTR_sXbLMfDA@mail.gmail.com>
- <CAADnVQLwgw8bQ7OHBbqLhcPJ2QpxiGw3fkMFur+2cjZpM_78oA@mail.gmail.com>
- <CALz3k9g9k7fEwdTZVLhrmGoXp8CE47Q+83r-AZDXrzzuR+CjVA@mail.gmail.com>
- <CAADnVQLHpi3J6cBJ0QBgCQ2aY6fWGnVvNGdfi3W-jmoa9d1eVQ@mail.gmail.com>
- <CALz3k9g-U8ih=ycJPRbyU9x_9cp00fNkU3PGQ6jP0WJ+=uKmqQ@mail.gmail.com>
- <CALz3k9jG5Jrqw=BGjt05yMkEF-1u909GbBYrV-02W0dQtm6KQQ@mail.gmail.com>
- <20240328111330.194dcbe5@gandalf.local.home> <CAEf4BzYgzOti+Hfdn3SUCjuofGedXRSGApVDD+K2TdG6oNE-pw@mail.gmail.com>
-In-Reply-To: <CAEf4BzYgzOti+Hfdn3SUCjuofGedXRSGApVDD+K2TdG6oNE-pw@mail.gmail.com>
-From: =?UTF-8?B?5qKm6b6Z6JGj?= <dongmenglong.8@bytedance.com>
-Date: Sat, 30 Mar 2024 12:16:52 +0800
-Message-ID: <CALz3k9hm6U90K8+d7SprXiKvscRjFno83idqYneHEVwgs4pCiw@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH bpf-next v2 1/9] bpf: tracing: add support
- to record and check the accessed args
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>, Alexei Starovoitov <alexei.starovoitov@gmail.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eddy Z <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, 
-	David Ahern <dsahern@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	X86 ML <x86@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Quentin Monnet <quentin@isovalent.com>, bpf <bpf@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>, 
-	Network Development <netdev@vger.kernel.org>, linux-trace-kernel@vger.kernel.org, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next 0/5] Support local vmtest for riscv64
+To: Eduard Zingerman <eddyz87@gmail.com>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org
+Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
+ KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+ Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+ Mykola Lysenko <mykolal@fb.com>, Manu Bretelle <chantr4@gmail.com>,
+ Pu Lehui <pulehui@huawei.com>
+References: <20240328124916.293173-1-pulehui@huaweicloud.com>
+ <32b3358903bf8ba408812a2636f39a275493eb91.camel@gmail.com>
+ <e995a1f1-0b48-4ce3-a061-5cbe68beb6dd@huaweicloud.com>
+ <f91237f311f183d57c4620bc2e6099df8aefccb0.camel@gmail.com>
+Content-Language: en-US
+From: Pu Lehui <pulehui@huaweicloud.com>
+In-Reply-To: <f91237f311f183d57c4620bc2e6099df8aefccb0.camel@gmail.com>
+X-CM-TRANSID: cCh0CgBnggup5QdmbcobIg--.18079S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWryDWry5tFy7Gw4xAFy3XFb_yoWrXw4Dpw
+	4xGrnFyrW0qF1fKrn7CFyUuF42gr18G347AryrGrWakwn7JFWktFnaka4Yq39Fga90q39I
+	yaySv343C3WUCa7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUk0b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI
+	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
+	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY
+	6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6x
+	AIw20EY4v20xvaj40_WFyUJVCq3wCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv
+	6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUFDGOUUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240329_211535_195459_0783FDA7 
-X-CRM114-Status: GOOD (  36.55  )
+X-CRM114-CacheID: sfid-20240330_031316_256553_B7AF2A34 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,81 +90,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBNYXIgMzAsIDIwMjQgYXQgNzoyOOKAr0FNIEFuZHJpaSBOYWtyeWlrbwo8YW5kcmlp
-Lm5ha3J5aWtvQGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBPbiBUaHUsIE1hciAyOCwgMjAyNCBhdCA4
-OjEw4oCvQU0gU3RldmVuIFJvc3RlZHQgPHJvc3RlZHRAZ29vZG1pcy5vcmc+IHdyb3RlOgo+ID4K
-PiA+IE9uIFRodSwgMjggTWFyIDIwMjQgMjI6NDM6NDYgKzA4MDAKPiA+IOaipum+meiRoyA8ZG9u
-Z21lbmdsb25nLjhAYnl0ZWRhbmNlLmNvbT4gd3JvdGU6Cj4gPgo+ID4gPiBJIGhhdmUgZG9uZSBh
-IHNpbXBsZSBiZW5jaG1hcmsgb24gY3JlYXRpbmcgMTAwMAo+ID4gPiB0cmFtcG9saW5lcy4gSXQg
-aXMgc2xvdywgcXVpdGUgc2xvdywgd2hpY2ggY29uc3VtZSB1cCB0bwo+ID4gPiA2MHMuIFdlIGNh
-bid0IGRvIGl0IHRoaXMgd2F5Lgo+ID4gPgo+ID4gPiBOb3csIEkgaGF2ZSBhIGJhZCBpZGVhLiBI
-b3cgYWJvdXQgd2UgaW50cm9kdWNlCj4gPiA+IGEgImR5bmFtaWMgdHJhbXBvbGluZSI/IFRoZSBi
-YXNpYyBsb2dpYyBvZiBpdCBjYW4gYmU6Cj4gPiA+Cj4gPiA+ICIiIgo+ID4gPiBzYXZlIHJlZ3MK
-PiA+ID4gYnBmcyA9IHRyYW1wb2xpbmVfbG9va3VwX2lwKGlwKQo+ID4gPiBmZW50cnkgPSBicGZz
-LT5mZW50cmllcwo+ID4gPiB3aGlsZSBmZW50cnk6Cj4gPiA+ICAgZmVudHJ5KGN0eCkKPiA+ID4g
-ICBmZW50cnkgPSBmZW50cnktPm5leHQKPiA+ID4KPiA+ID4gY2FsbCBvcmlnaW4KPiA+ID4gc2F2
-ZSByZXR1cm4gdmFsdWUKPiA+ID4KPiA+ID4gZmV4aXQgPSBicGZzLT5mZXhpdHMKPiA+ID4gd2hp
-bGUgZmV4aXQ6Cj4gPiA+ICAgZmV4aXQoY3R4KQo+ID4gPiAgIGZleGl0ID0gZmV4aXQtPm5leHQK
-PiA+ID4KPiA+ID4geHh4eHh4Cj4gPiA+ICIiIgo+ID4gPgo+ID4gPiBBbmQgd2UgbG9va3VwIHRo
-ZSAiYnBmcyIgYnkgdGhlIGZ1bmN0aW9uIGlwIGluIGEgaGFzaCBtYXAKPiA+ID4gaW4gdHJhbXBv
-bGluZV9sb29rdXBfaXAuIFRoZSB0eXBlIG9mICJicGZzIiBpczoKPiA+ID4KPiA+ID4gc3RydWN0
-IGJwZl9hcnJheSB7Cj4gPiA+ICAgc3RydWN0IGJwZl9wcm9nICpmZW50cmllczsKPiA+ID4gIHN0
-cnVjdCBicGZfcHJvZyAqZmV4aXRzOwo+ID4gPiAgIHN0cnVjdCBicGZfcHJvZyAqbW9kaWZ5X3Jl
-dHVybnM7Cj4gPiA+IH0KPiA+ID4KPiA+ID4gV2hlbiB3ZSBuZWVkIHRvIGF0dGFjaCB0aGUgYnBm
-IHByb2dBIHRvIGZ1bmN0aW9uIEEvQi9DLAo+ID4gPiB3ZSBvbmx5IG5lZWQgdG8gY3JlYXRlIHRo
-ZSBicGZfYXJyYXlBLCBicGZfYXJyYXlCLCBicGZfYXJyYXlDCj4gPiA+IGFuZCBhZGQgdGhlIHBy
-b2dBIHRvIHRoZW0sIGFuZCBpbnNlcnQgdGhlbSB0byB0aGUgaGFzaCBtYXAKPiA+ID4gImRpcmVj
-dF9jYWxsX2JwZnMiLCBhbmQgYXR0YWNoIHRoZSAiZHluYW1pYyB0cmFtcG9saW5lIiB0bwo+ID4g
-PiBBL0IvQy4gSWYgYnBmX2FycmF5QSBleGlzdCwganVzdCBhZGQgcHJvZ0EgdG8gdGhlIHRhaWwg
-b2YKPiA+ID4gYnBmX2FycmF5QS0+ZmVudHJpZXMuIFdoZW4gd2UgbmVlZCB0byBhdHRhY2ggcHJv
-Z0IgdG8KPiA+ID4gQi9DLCBqdXN0IGFkZCBwcm9nQiB0byBicGZfYXJyYXlCLT5mZW50cmllcyBh
-bmQKPiA+ID4gYnBmX2FycmF5Qi0+ZmVudHJpZXMuCj4gPiA+Cj4gPiA+IENvbXBhcmVkIHRvIHRo
-ZSB0cmFtcG9saW5lLCBleHRyYSBvdmVyaGVhZCBpcyBpbnRyb2R1Y2VkCj4gPiA+IGJ5IHRoZSBo
-YXNoIGxvb2t1cGluZy4KPiA+ID4KPiA+ID4gSSBoYXZlIG5vdCBiZWd1biB0byBjb2RlIHlldCwg
-YW5kIEkgYW0gbm90IHN1cmUgdGhlIG92ZXJoZWFkIGlzCj4gPiA+IGFjY2VwdGFibGUuIENvbnNp
-ZGVyaW5nIHRoYXQgd2UgYWxzbyBuZWVkIHRvIGRvIGhhc2ggbG9va3VwCj4gPiA+IGJ5IHRoZSBm
-dW5jdGlvbiBpbiBrcHJvYmVfbXVsdGksIG1heWJlIHRoZSBvdmVyaGVhZCBpcwo+ID4gPiBhY2Nl
-cHRhYmxlPwo+ID4KPiA+IFNvdW5kcyBsaWtlIHlvdSBhcmUganVzdCByZWNyZWF0aW5nIHRoZSBm
-dW5jdGlvbiBtYW5hZ2VtZW50IHRoYXQgZnRyYWNlCj4gPiBoYXMuIEl0IGFsc28gY2FuIGFkZCB0
-aG91c2FuZHMgb2YgdHJhbXBvbGluZXMgdmVyeSBxdWlja2x5LCBiZWNhdXNlIGl0IGRvZXMKPiA+
-IGl0IGluIGJhdGNoZXMuIEl0IHRha2VzIHNwZWNpYWwgc3luY2hyb25pemF0aW9uIHN0ZXBzIHRv
-IGF0dGFjaCB0byBmZW50cnkuCj4gPiBmdHJhY2UgKGFuZCBJIGJlbGlldmUgbXVsdGkta3Byb2Jl
-cykgdXBkYXRlcyBhbGwgdGhlIGF0dGFjaG1lbnRzIGZvciBlYWNoCj4gPiBzdGVwLCBzbyB0aGUg
-c3luY2hyb25pemF0aW9uIG5lZWRlZCBpcyBvbmx5IGRvbmUgb25jZS4KPiA+Cj4gPiBJZiB5b3Ug
-cmVhbGx5IHdhbnQgdG8gaGF2ZSB0aG91c2FuZHMgb2YgZnVuY3Rpb25zLCB3aHkgbm90IGp1c3Qg
-cmVnaXN0ZXIgaXQKPiA+IHdpdGggZnRyYWNlIGl0c2VsZi4gSXQgd2lsbCBnaXZlIHlvdSB0aGUg
-YXJndW1lbnRzIHZpYSB0aGUgZnRyYWNlX3JlZ3MKPiA+IHN0cnVjdHVyZS4gQ2FuJ3QgeW91IGp1
-c3QgcmVnaXN0ZXIgYSBwcm9ncmFtIGFzIHRoZSBjYWxsYmFjaz8KPiA+Cj4gPiBJdCB3aWxsIHBy
-b2JhYmx5IG1ha2UgeW91ciBhY2NvdW50aW5nIG11Y2ggZWFzaWVyLCBhbmQganVzdCBsZXQgZnRy
-YWNlCj4gPiBoYW5kbGUgdGhlIGZlbnRyeSBsb2dpYy4gVGhhdCdzIHdoYXQgaXQgd2FzIG1hZGUg
-dG8gZG8uCj4gPgo+Cj4gSSB0aG91Z2h0IEknbGwganVzdCBhc2sgaW5zdGVhZCBvZiBkaWdnaW5n
-IHRocm91Z2ggY29kZSwgc29ycnkgZm9yCj4gYmVpbmcgbGF6eSA6KSBJcyB0aGVyZSBhbnkgd2F5
-IHRvIHBhc3MgcHRfcmVncy9mdHJhY2VfcmVncyBjYXB0dXJlZAo+IGJlZm9yZSBmdW5jdGlvbiBl
-eGVjdXRpb24gdG8gYSByZXR1cm4gcHJvYmUgKGZleGl0L2tyZXRwcm9iZSk/IEkuZS4sCj4gaG93
-IGhhcmQgaXMgaXQgdG8gcGFzcyBpbnB1dCBmdW5jdGlvbiBhcmd1bWVudHMgdG8gYSBrcmV0cHJv
-YmU/IFRoYXQncwo+IHRoZSBiaWdnZXN0IGFkdmFudGFnZSBvZiBmZXhpdCBvdmVyIGtyZXRwcm9i
-ZSwgYW5kIGlmIHdlIGNhbiBtYWtlCj4gdGhlc2Ugb3JpZ2luYWwgcHRfcmVncy9mdHJhY2VfcmVn
-cyBhdmFpbGFibGUgdG8ga3JldHByb2JlLCB0aGVuCj4gbXVsdGkta3JldHByb2JlIHdpbGwgZWZm
-ZWN0aXZlbHkgYmUgdGhpcyBtdWx0aS1mZXhpdC4KClllcywgd2UgY2FuIHVzZSBtdWx0aS1rcmV0
-cHJvYmUgaW5zdGVhZCBvZiBtdWx0aS1mZXhpdAppZiB3ZSBjYW4gb2J0YWluIHRoZSBmdW5jdGlv
-biBhcmdzIGluIGtyZXRwcm9iZS4KCkkgdGhpbmsgaXQncyBoYXJkLiBUaGUgcmVhc29uIHRoYXQg
-d2UgY2FuIG9idGFpbiB0aGUKZnVuY3Rpb24gYXJncyBpcyB0aGF0IHdlIGhhdmUgYSB0cmFtcG9s
-aW5lLCBhbmQgaXQKY2FsbCB0aGUgb3JpZ2luIGZ1bmN0aW9uIGZvciBGRVhJVC4gSWYgd2UgZG8g
-dGhlIHNhbWUKZm9yIG11bHRpLWtyZXRwcm9iZSwgd2UgbmVlZCB0byBtb2RpZnkgZnRyYWNlX3Jl
-Z3NfY2FsbGVyCnRvOgoKZnRyYWNlX3JlZ3NfY2FsbGVyCnwKX19mdHJhY2Vfb3BzX2xpc3RfZnVu
-Ywp8CmNhbGwgYWxsIG11bHRpLWtwcm9iZSBjYWxsYmFja3MKfApjYWxsIG9yZ2luCnwKY2FsbCBh
-bGwgbXVsdGkta3JldHByb2JlIGNhbGxiYWNrcwp8CmNhbGwgYnBmIHRyYW1wb2xpbmUoZm9yIFRS
-QUNJTkcpCgpIb3dldmVyLCB0aGlzIGxvZ2ljIGNvbmZsaWN0cyB3aXRoIGJwZiB0cmFtcG9saW5l
-LAphcyBpdCBjYW4gYWxzbyBjYWxsIHRoZSBvcmlnaW4gZnVuY3Rpb24uIFdoYXQncyBtb3JlLAp0
-aGUgRkVOVFJZIHNob3VsZCBiZSBjYWxsZWQgYmVmb3JlIHRoZSAiY2FsbCBvcmlnaW4iCmFib3Zl
-LgoKSSdtIHN1cmUgaWYgSSB1bmRlcnN0YW5kIGNvcnJlY3RseSwgYXMgSSBoYXZlIG5vdApmaWd1
-cmVkIG91dCBob3cgbXVsdGkta3JldHByb2JlIHdvcmtzIGluIGZwcm9iZS4KClRoYW5rcyEKTWVu
-Z2xvbmcgRG9uZwoKPgo+ID4gLS0gU3RldmUKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+
+On 2024/3/30 3:46, Eduard Zingerman wrote:
+> On Fri, 2024-03-29 at 18:10 +0800, Pu Lehui wrote:
+> [...]
+> 
+>>> Apparently jammy does not have binaries built for riscv64, or I'm failing to find correct mirror.
+>>> Could you please provide some instructions on how to prepare rootfs?
+>>
+>> Hi Eduard, We need the mirror repository of ubuntu-ports, you could try
+>> http://de.ports.ubuntu.com/.
+> 
+> Hi Pu, thank you this mirrorm it works.
+> 
+> Unfortunately my local setup is still not good enough.
+> I've installed cross-riscv64-gcc14 but it seems that a few more
+> libraries are necessary, as I get the following compilation errors: >
+>    $ PLATFORM=riscv64 CROSS_COMPILE=riscv64-suse-linux- ./vmtest.sh -- ./test_verifier
+>    ... kernel compiles ok ...
+>    ../../../../scripts/sign-file.c:25:10: fatal error: openssl/opensslv.h: No such file or directory
+>       25 | #include <openssl/opensslv.h>
+>          |          ^~~~~~~~~~~~~~~~~~~~
+>    compilation terminated.
+>      CC      /home/eddy/work/bpf-next/tools/testing/selftests/bpf/tools/build/host/libbpf/sharedobjs/bpf.o
+>    In file included from nlattr.c:14:
+>    libbpf_internal.h:19:10: fatal error: libelf.h: No such file or directory
+>       19 | #include <libelf.h>
+>    ...
+> 
+> Looks like I won't be able to test this patch-set, unless you have
+> some writeup on how to create a riscv64 dev environment at hand.
+> Sorry for the noise
+
+Yeah, environmental issues are indeed a developer's nightmare. I will 
+try to do something for the newcomers of riscv64 bpf. At present, I have 
+simply built a docker local vmtest environment [0] based on Bjorn's 
+riscv-cross-builder. We can directly run vmtest within this environment. 
+Hopefully it will help.
+
+Link: https://github.com/pulehui/riscv-cross-builder/tree/vmtest [0]
+
+PS: Since the current rootfs of riscv64 is not in the INDEX, I simply 
+modified vmtest.sh to support local rootfs. And we can use it by:
+```
+PLATFORM=riscv64 CROSS_COMPILE=riscv64-linux-gnu- \
+     tools/testing/selftests/bpf/vmtest.sh -l /rootfs -- \
+         ./test_progs -d \
+             \"$(cat tools/testing/selftests/bpf/DENYLIST.riscv64 \
+                 | cut -d'#' -f1 \
+                 | sed -e 's/^[[:space:]]*//' \
+                       -e 's/[[:space:]]*$//' \
+                 | tr -s '\n' ','\
+             )\"
+```
+
+diff --git a/tools/testing/selftests/bpf/vmtest.sh 
+b/tools/testing/selftests/bpf/vmtest.sh
+index f6889de9b498..17aff708c416 100755
+--- a/tools/testing/selftests/bpf/vmtest.sh
++++ b/tools/testing/selftests/bpf/vmtest.sh
+@@ -148,6 +148,21 @@ download_rootfs()
+  		zstd -d | sudo tar -C "$dir" -x
+  }
+
++load_rootfs()
++{
++	local image_dir="$1"
++	local rootfsversion="$2"
++	local dir="$3"
++
++	if ! which zstd &> /dev/null; then
++		echo 'Could not find "zstd" on the system, please install zstd'
++		exit 1
++	fi
++
++	cat "${image_dir}/libbpf-vmtest-rootfs-$rootfsversion.tar.zst" |
++		zstd -d | sudo tar -C "$dir" -x
++}
++
+  recompile_kernel()
+  {
+  	local kernel_checkout="$1"
+@@ -234,6 +249,7 @@ EOF
+
+  create_vm_image()
+  {
++	local local_image_dir="$1"
+  	local rootfs_img="${OUTPUT_DIR}/${ROOTFS_IMAGE}"
+  	local mount_dir="${OUTPUT_DIR}/${MOUNT_DIR}"
+
+@@ -245,7 +261,11 @@ create_vm_image()
+  	mkfs.ext4 -q "${rootfs_img}"
+
+  	mount_image
+-	download_rootfs "$(newest_rootfs_version)" "${mount_dir}"
++	if [[ "${local_image_dir}" == "" ]]; then
++		download_rootfs "$(newest_rootfs_version)" "${mount_dir}"
++	else
++		load_rootfs "${local_image_dir}" "$(newest_rootfs_version)" 
+"${mount_dir}"
++	fi
+  	unmount_image
+  }
+
+@@ -363,12 +383,16 @@ main()
+  	local update_image="no"
+  	local exit_command="poweroff -f"
+  	local debug_shell="no"
++	local local_image_dir=""
+
+-	while getopts ':hskid:j:' opt; do
++	while getopts ':hskil:d:j:' opt; do
+  		case ${opt} in
+  		i)
+  			update_image="yes"
+  			;;
++		l)
++			local_image_dir="$OPTARG"
++			;;
+  		d)
+  			OUTPUT_DIR="$OPTARG"
+  			;;
+@@ -445,7 +469,7 @@ main()
+  	fi
+
+  	if [[ "${update_image}" == "yes" ]]; then
+-		create_vm_image
++		create_vm_image "${local_image_dir}"
+  	fi
+
+  	update_selftests "${kernel_checkout}" "${make_command}"
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
