@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19EA6CD1288
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Mar 2024 12:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A9E7C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Mar 2024 13:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JDsnkv8Yi2PKLEz6kJKvdf1rM3u9Q6NPTzSFYZL841Q=; b=dJE2M5DMl2I/95
-	/H/zG3K+sxC17afObqvGJDKFOF6wbaiW4oX0hxt6lEUaydesH0oIyIpohZvv5B4PQi1u0GOeyZJYT
-	zOOjmpE7jgtHHo0sBpWKp7IPMK5qfCMAENzW9aaLKiZh14bkUTU/be+LAmldbG9ptz++FxbHf5YVq
-	V8QUs5UiPf3F/9IK+mg5U3uzaTFJKlu/y3LlrTzAL6dTq3lJvvre9f0+OV1o6OJ1c5ZCzs8ax0PJK
-	XPbndiydDD/Un5Q9GjXKCdL9a7J3xSbNRpq/FZ/Qn5HlD2ZRs4bBrwNLXe80UB7+Ssw4ap+uTMAmM
-	81C+DfzLa1teSSW+eGeA==;
+	List-Owner; bh=F8RaetW4KaAJXrmrioPVvLNeqM5EoMh03fnHcwY86rk=; b=IbEO6KT+9uK3fM
+	fraBk9sjL1EtSf3Pl+a3wDv5ZaUKTXkE9W6RZoTEI5fpDMZQ0WSY+ftPqwVb/HfCh6e/kKfy+wxOh
+	MVGTw9nPxEsD0+XASk6JZQZFPk/EoI9Gm/idYDk6OKTp4E/Nw+/P9nxPzfCvG7jijJORmMq7Z/aa/
+	+/PDVwhyrs+pwV8GgzWaRyd5cpjcgURKBhv3CuLmG5FfnXfS65BlTYVzPCgb88vsGnSY2XgNswa7i
+	fTYZ+1zNpff3g/e2OSTBs1lhDnJu6kp4N/QNEZfSUynTeH9ZzBOLR/Ha/xRmd0KQG1fqEn11+FkMp
+	Y2+8SPCS3ZRdsWmKUbng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqXog-00000003TFW-06Wu;
-	Sat, 30 Mar 2024 12:28:10 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rqYNw-00000003W3z-0aBX;
+	Sat, 30 Mar 2024 13:04:36 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqXob-00000003TDm-3QJe;
-	Sat, 30 Mar 2024 12:28:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 1642ECE0A2A;
-	Sat, 30 Mar 2024 12:28:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0898C433F1;
-	Sat, 30 Mar 2024 12:27:56 +0000 (UTC)
-Date: Sat, 30 Mar 2024 08:27:55 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: =?UTF-8?B?5qKm6b6Z6JGj?= <dongmenglong.8@bytedance.com>, Alexei
- Starovoitov <alexei.starovoitov@gmail.com>, Jiri Olsa <jolsa@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eddy Z <eddyz87@gmail.com>, Song Liu
- <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, John Fastabend
- <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav
- Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, "David S.
- Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, Dave
- Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, Mathieu
- Desnoyers <mathieu.desnoyers@efficios.com>, Quentin Monnet
- <quentin@isovalent.com>, bpf <bpf@vger.kernel.org>, linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>, LKML
- <linux-kernel@vger.kernel.org>, linux-riscv
- <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>,
- Network Development <netdev@vger.kernel.org>,
- linux-trace-kernel@vger.kernel.org, "open list:KERNEL SELFTEST FRAMEWORK"
- <linux-kselftest@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [External] Re: [PATCH bpf-next v2 1/9] bpf: tracing: add
- support to record and check the accessed args
-Message-ID: <20240330082755.1cbeb8c6@rorschach.local.home>
-In-Reply-To: <CAEf4BzYgzOti+Hfdn3SUCjuofGedXRSGApVDD+K2TdG6oNE-pw@mail.gmail.com>
-References: <20240311093526.1010158-1-dongmenglong.8@bytedance.com>
-	<20240311093526.1010158-2-dongmenglong.8@bytedance.com>
-	<CAADnVQKQPS5NcvEouH4JqZ2fKgQAC+LtcwhX9iXYoiEkF_M94Q@mail.gmail.com>
-	<CALz3k9i5G5wWi+rtvHPwVLOUAXVMCiU_8QUZs87TEYgR_0wpPA@mail.gmail.com>
-	<CAADnVQJ_ZCzMmT1aBsNXEBFfYNSVBdBXmLocjR0PPEWtYQrQFw@mail.gmail.com>
-	<CALz3k9icPePb0c4FE67q=u1U0hrePorN9gDpQrKTR_sXbLMfDA@mail.gmail.com>
-	<CAADnVQLwgw8bQ7OHBbqLhcPJ2QpxiGw3fkMFur+2cjZpM_78oA@mail.gmail.com>
-	<CALz3k9g9k7fEwdTZVLhrmGoXp8CE47Q+83r-AZDXrzzuR+CjVA@mail.gmail.com>
-	<CAADnVQLHpi3J6cBJ0QBgCQ2aY6fWGnVvNGdfi3W-jmoa9d1eVQ@mail.gmail.com>
-	<CALz3k9g-U8ih=ycJPRbyU9x_9cp00fNkU3PGQ6jP0WJ+=uKmqQ@mail.gmail.com>
-	<CALz3k9jG5Jrqw=BGjt05yMkEF-1u909GbBYrV-02W0dQtm6KQQ@mail.gmail.com>
-	<20240328111330.194dcbe5@gandalf.local.home>
-	<CAEf4BzYgzOti+Hfdn3SUCjuofGedXRSGApVDD+K2TdG6oNE-pw@mail.gmail.com>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1rqXM8-00000003Plj-02ap
+	for linux-riscv@lists.infradead.org;
+	Sat, 30 Mar 2024 11:58:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1711799920; x=1743335920;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ynfTQ/GVycFwNXOPFSe6F0brkpnNBWsKnsVlyJvCxJE=;
+  b=UKar91PZVZIq5k7D6ap157ddn5eJ/Iuv1CbS/B/9CB/PL36gQRhu/kmS
+   T2ChEDjK770xmyzgjnsSbhipKSdJtRuusqyfkk+EPIhpT696Q8NVJTE43
+   XU8po+OFqO/1VgY8k7+NKNcMMaVgFeuyOmiPEYCR5mh0K6pZc3HOmiyPa
+   JEXjZtNrz9F0y7Rb7L5LJtlJ9xInQsZK1PyNRBcOvZ025t6mwE3EgepCY
+   YIBNW57IEbYu5b9NAND7bKPgD3smEHQJyORwKH+MpSHmi8idaNw3+HvcV
+   xV4AbIDkDn3EcZ/m3XWAvjOQSiJCJJe/O23X2BcSkfxTag/gNzavoShF+
+   A==;
+X-CSE-ConnectionGUID: 9lftOUBERWmkaf+RcL4wlw==
+X-CSE-MsgGUID: TgDpUxH/Q5Gat1IcRaPQFw==
+X-IronPort-AV: E=McAfee;i="6600,9927,11028"; a="18120532"
+X-IronPort-AV: E=Sophos;i="6.07,166,1708416000"; 
+   d="scan'208";a="18120532"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Mar 2024 04:58:35 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.07,166,1708416000"; 
+   d="scan'208";a="17292158"
+Received: from lkp-server01.sh.intel.com (HELO be39aa325d23) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 30 Mar 2024 04:58:30 -0700
+Received: from kbuild by be39aa325d23 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1rqXLv-0004EM-2E;
+	Sat, 30 Mar 2024 11:58:27 +0000
+Date: Sat, 30 Mar 2024 19:58:21 +0800
+From: kernel test robot <lkp@intel.com>
+To: wefu@redhat.com, jszhang@kernel.org, guoren@kernel.org,
+	conor@kernel.org, robh@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, jic23@kernel.org,
+	lars@metafoo.de, andriy.shevchenko@linux.intel.com,
+	nuno.sa@analog.com, marcelo.schmitt@analog.com,
+	bigunclemax@gmail.com, marius.cristea@microchip.com,
+	fr0st61te@gmail.com, okan.sahin@analog.com,
+	marcus.folkesson@gmail.com, schnelle@linux.ibm.com, lee@kernel.org,
+	mike.looijmans@topic.nl
+Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-iio@vger.kernel.org, Wei Fu <wefu@redhat.com>
+Subject: Re: [PATCH 3/3] dt-bindings: adc: Document XuanTie TH1520 ADC
+Message-ID: <202403301900.9wSnTE6y-lkp@intel.com>
+References: <20240329200241.4122000-4-wefu@redhat.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240329200241.4122000-4-wefu@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240330_052806_041665_26EE04D6 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20240330_045840_153146_7A76D876 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,21 +96,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 Mar 2024 16:28:33 -0700
-Andrii Nakryiko <andrii.nakryiko@gmail.com> wrote:
+Hi,
 
-> I thought I'll just ask instead of digging through code, sorry for
-> being lazy :) Is there any way to pass pt_regs/ftrace_regs captured
-> before function execution to a return probe (fexit/kretprobe)? I.e.,
-> how hard is it to pass input function arguments to a kretprobe? That's
-> the biggest advantage of fexit over kretprobe, and if we can make
-> these original pt_regs/ftrace_regs available to kretprobe, then
-> multi-kretprobe will effectively be this multi-fexit.
+kernel test robot noticed the following build warnings:
 
-This should be possible with the updates that Masami is doing with the
-fgraph code.
+[auto build test WARNING on jic23-iio/togreg]
+[also build test WARNING on robh/for-next linus/master v6.9-rc1 next-20240328]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
--- Steve
+url:    https://github.com/intel-lab-lkp/linux/commits/wefu-redhat-com/drivers-iio-adc-Add-XuanTie-TH1520-ADC-driver/20240330-041029
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git togreg
+patch link:    https://lore.kernel.org/r/20240329200241.4122000-4-wefu%40redhat.com
+patch subject: [PATCH 3/3] dt-bindings: adc: Document XuanTie TH1520 ADC
+compiler: loongarch64-linux-gcc (GCC) 13.2.0
+reproduce: (https://download.01.org/0day-ci/archive/20240330/202403301900.9wSnTE6y-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202403301900.9wSnTE6y-lkp@intel.com/
+
+dtcheck warnings: (new ones prefixed by >>)
+>> Documentation/devicetree/bindings/iio/adc/thead,th1520.yaml:45:1: [error] syntax error: found character '\t' that cannot start any token (syntax)
+--
+>> Documentation/devicetree/bindings/iio/adc/thead,th1520.yaml:45:1: found a tab character where an indentation space is expected
+--
+>> Documentation/devicetree/bindings/iio/adc/thead,th1520.yaml: ignoring, error parsing file
+
+vim +45 Documentation/devicetree/bindings/iio/adc/thead,th1520.yaml
+
+    41	
+    42	examples:
+    43	  - |
+    44	    adc: adc@0xfffff51000 {
+  > 45		compatible = "thead,th1520-adc";
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
