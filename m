@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22FC5CD128E
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Mar 2024 11:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19EA6CD1288
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Mar 2024 12:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qaXoN9rhDHHzey/PsHz0Cp5bbz75s4s59RlfPnyqWG4=; b=pkUTEXw5CC6DGT
-	C/537bKIWAAnF8DVFOb940LOfPtt5CgFsMDtskitx5THxBKddHi5EoZXsajsHFFtyIoLXqDDM7fgR
-	O274DsTdgV1M1rGSh8tIDC4fccm/MfCCvBEcAcbXCtkdfQMaDD5MCqv7rLO1yjsjrHwBVWprYtXuq
-	G7B2A/MbNymbwHcA1y83LyY3JS40upGMo+5V5v2OlcQKdQDS6tBG6KU+Ml1nEQSVJuaZTUjSodfLW
-	ITkBAyiOBxxIdUIwtUToyWDVLrTTCXReba1oO49h7QCrdxSW9YHMXA+wDW+kttG/eq6+ajxnfAVoh
-	+CKdiWlWYkCRcuO+GL9Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JDsnkv8Yi2PKLEz6kJKvdf1rM3u9Q6NPTzSFYZL841Q=; b=dJE2M5DMl2I/95
+	/H/zG3K+sxC17afObqvGJDKFOF6wbaiW4oX0hxt6lEUaydesH0oIyIpohZvv5B4PQi1u0GOeyZJYT
+	zOOjmpE7jgtHHo0sBpWKp7IPMK5qfCMAENzW9aaLKiZh14bkUTU/be+LAmldbG9ptz++FxbHf5YVq
+	V8QUs5UiPf3F/9IK+mg5U3uzaTFJKlu/y3LlrTzAL6dTq3lJvvre9f0+OV1o6OJ1c5ZCzs8ax0PJK
+	XPbndiydDD/Un5Q9GjXKCdL9a7J3xSbNRpq/FZ/Qn5HlD2ZRs4bBrwNLXe80UB7+Ssw4ap+uTMAmM
+	81C+DfzLa1teSSW+eGeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqWeS-00000003KiY-0lkD;
-	Sat, 30 Mar 2024 11:13:32 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1rqXog-00000003TFW-06Wu;
+	Sat, 30 Mar 2024 12:28:10 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqWeO-00000003Khl-2BjR
-	for linux-riscv@lists.infradead.org;
-	Sat, 30 Mar 2024 11:13:29 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-41553b10600so5053645e9.0
-        for <linux-riscv@lists.infradead.org>; Sat, 30 Mar 2024 04:13:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1711797206; x=1712402006; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qGpbD78cy/B/Wyutkg4e7jIuut8zfsGFclJfJk2FLE0=;
-        b=kmMClykMfaYXJ74Hce7bsaVvDU6eH9C1gT/6LshmvZGqI0hKs9DqrhFJEx86HpcTjB
-         frsiQWupuQ7Kf2ZseJJXHQMO3BdnKfvW6JkY12FlatI7iJnEnsuFTkNcae3udECJEK69
-         A+aDg1haH93bjvETexHFsRiOLVXwoZBGthKF1YNai3L0uUh2oxvfNxxVh8G9S2zqvLMa
-         LK62kU+LxKtT4uI1oBORm3dXZeoCH6OIR1vjLTtyXgi71jBwqUM5OMWZTmPEoGzGmstG
-         9uC6xhWlvm0GDaSMVV4Wh782nfEmWK6ictjXlO48k2rOURN4FhW0Ulq9BKI7JicYIzZT
-         BlOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711797206; x=1712402006;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qGpbD78cy/B/Wyutkg4e7jIuut8zfsGFclJfJk2FLE0=;
-        b=eRoOKSlsXiKc2gUOxFo5fTvnta9qbYJa381iH+ZE2dHjNLVHtegI1QbcbdEOEFU9ls
-         khosrmvG/XMIZEiSeVzFLKzQ+vDx+SnZZKquI55gF635MXZREBVJu+2mjGMvkx/prBJG
-         QucDLW6oeY7JAwawxYILliDYC6FhswkR31qyb/6FIiQggY5+kyb/F9ra00Ys4ZREELL9
-         mC9THnRYDE1h9XJLIKblurh+PZAIxY5uV0GONA5mbEgU6U86QJj/xR6smQqRpiqivlat
-         v/EQqXh16N0CLcmQI6oVSdF3N6tsCLQ7IBOL8m+TciVdE6VG35oV6aR5FHSZWBqxhDvM
-         KsRw==
-X-Forwarded-Encrypted: i=1; AJvYcCXD0IWnCt7sQNbR3CKFfL3NBkKUSkARVLEoHnfgvMA1jjwjhGSBMYMU0kDA/YRCCsRYgDSXPczME223iqJSLcz1R2ROIqVhrgmEP+21q3KM
-X-Gm-Message-State: AOJu0Yzx9KTy3J2n3si1GqUnKO0un/snVe+eOP3R5N4Ft+86BsnX65am
-	xF9JyqYAldgwzwz51lJ+jsBOO78tKpdAY/1oqKiMzyAFYM19/bbZ
-X-Google-Smtp-Source: AGHT+IGmDWnORx0RBtHiMxbOf2bpkh7ue7o9cHmK67DxnOZd8Su14ZYemdeLPqvUgOXN0iVund05vg==
-X-Received: by 2002:a05:600c:b55:b0:414:73c7:a8d8 with SMTP id k21-20020a05600c0b5500b0041473c7a8d8mr3340049wmr.24.1711797205724;
-        Sat, 30 Mar 2024 04:13:25 -0700 (PDT)
-Received: from localhost (cpc1-brnt4-2-0-cust862.4-2.cable.virginm.net. [86.9.131.95])
-        by smtp.gmail.com with ESMTPSA id k33-20020a05600c1ca100b0041409cabb39sm11280288wms.18.2024.03.30.04.13.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 Mar 2024 04:13:24 -0700 (PDT)
-From: Stafford Horne <shorne@gmail.com>
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: Stafford Horne <shorne@gmail.com>,
-	Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2] riscv: Remove unused asm/signal.h file
-Date: Sat, 30 Mar 2024 11:13:05 +0000
-Message-ID: <20240330111308.2053965-1-shorne@gmail.com>
-X-Mailer: git-send-email 2.44.0
+	id 1rqXob-00000003TDm-3QJe;
+	Sat, 30 Mar 2024 12:28:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 1642ECE0A2A;
+	Sat, 30 Mar 2024 12:28:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0898C433F1;
+	Sat, 30 Mar 2024 12:27:56 +0000 (UTC)
+Date: Sat, 30 Mar 2024 08:27:55 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Cc: =?UTF-8?B?5qKm6b6Z6JGj?= <dongmenglong.8@bytedance.com>, Alexei
+ Starovoitov <alexei.starovoitov@gmail.com>, Jiri Olsa <jolsa@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eddy Z <eddyz87@gmail.com>, Song Liu
+ <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, John Fastabend
+ <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav
+ Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, "David S.
+ Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, Dave
+ Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, Mathieu
+ Desnoyers <mathieu.desnoyers@efficios.com>, Quentin Monnet
+ <quentin@isovalent.com>, bpf <bpf@vger.kernel.org>, linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>, LKML
+ <linux-kernel@vger.kernel.org>, linux-riscv
+ <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>,
+ Network Development <netdev@vger.kernel.org>,
+ linux-trace-kernel@vger.kernel.org, "open list:KERNEL SELFTEST FRAMEWORK"
+ <linux-kselftest@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [External] Re: [PATCH bpf-next v2 1/9] bpf: tracing: add
+ support to record and check the accessed args
+Message-ID: <20240330082755.1cbeb8c6@rorschach.local.home>
+In-Reply-To: <CAEf4BzYgzOti+Hfdn3SUCjuofGedXRSGApVDD+K2TdG6oNE-pw@mail.gmail.com>
+References: <20240311093526.1010158-1-dongmenglong.8@bytedance.com>
+	<20240311093526.1010158-2-dongmenglong.8@bytedance.com>
+	<CAADnVQKQPS5NcvEouH4JqZ2fKgQAC+LtcwhX9iXYoiEkF_M94Q@mail.gmail.com>
+	<CALz3k9i5G5wWi+rtvHPwVLOUAXVMCiU_8QUZs87TEYgR_0wpPA@mail.gmail.com>
+	<CAADnVQJ_ZCzMmT1aBsNXEBFfYNSVBdBXmLocjR0PPEWtYQrQFw@mail.gmail.com>
+	<CALz3k9icPePb0c4FE67q=u1U0hrePorN9gDpQrKTR_sXbLMfDA@mail.gmail.com>
+	<CAADnVQLwgw8bQ7OHBbqLhcPJ2QpxiGw3fkMFur+2cjZpM_78oA@mail.gmail.com>
+	<CALz3k9g9k7fEwdTZVLhrmGoXp8CE47Q+83r-AZDXrzzuR+CjVA@mail.gmail.com>
+	<CAADnVQLHpi3J6cBJ0QBgCQ2aY6fWGnVvNGdfi3W-jmoa9d1eVQ@mail.gmail.com>
+	<CALz3k9g-U8ih=ycJPRbyU9x_9cp00fNkU3PGQ6jP0WJ+=uKmqQ@mail.gmail.com>
+	<CALz3k9jG5Jrqw=BGjt05yMkEF-1u909GbBYrV-02W0dQtm6KQQ@mail.gmail.com>
+	<20240328111330.194dcbe5@gandalf.local.home>
+	<CAEf4BzYgzOti+Hfdn3SUCjuofGedXRSGApVDD+K2TdG6oNE-pw@mail.gmail.com>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240330_041328_586182_FDCA5499 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240330_052806_041665_26EE04D6 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,46 +92,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When riscv moved to common entry the definition and usage of
-do_work_pending was removed.  This unused header file remains.
+On Fri, 29 Mar 2024 16:28:33 -0700
+Andrii Nakryiko <andrii.nakryiko@gmail.com> wrote:
 
-Remove the header file as it is not used.
+> I thought I'll just ask instead of digging through code, sorry for
+> being lazy :) Is there any way to pass pt_regs/ftrace_regs captured
+> before function execution to a return probe (fexit/kretprobe)? I.e.,
+> how hard is it to pass input function arguments to a kretprobe? That's
+> the biggest advantage of fexit over kretprobe, and if we can make
+> these original pt_regs/ftrace_regs available to kretprobe, then
+> multi-kretprobe will effectively be this multi-fexit.
 
-I have tested compiling the kernel with this patch applied and saw no
-issues.  Noticed when auditing how different ports handle signals
-related to saving FPU state.
+This should be possible with the updates that Masami is doing with the
+fgraph code.
 
-Fixes: f0bddf50586d ("riscv: entry: Convert to generic entry")
-Signed-off-by: Stafford Horne <shorne@gmail.com>
-Reviewed-by: Guo Ren <guoren@kernel.org>
----
-Resending with reviewed-by.
-
- arch/riscv/include/asm/signal.h | 12 ------------
- 1 file changed, 12 deletions(-)
- delete mode 100644 arch/riscv/include/asm/signal.h
-
-diff --git a/arch/riscv/include/asm/signal.h b/arch/riscv/include/asm/signal.h
-deleted file mode 100644
-index 956ae0a01bad..000000000000
---- a/arch/riscv/include/asm/signal.h
-+++ /dev/null
-@@ -1,12 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--
--#ifndef __ASM_SIGNAL_H
--#define __ASM_SIGNAL_H
--
--#include <uapi/asm/signal.h>
--#include <uapi/asm/ptrace.h>
--
--asmlinkage __visible
--void do_work_pending(struct pt_regs *regs, unsigned long thread_info_flags);
--
--#endif
--- 
-2.44.0
-
+-- Steve
 
 _______________________________________________
 linux-riscv mailing list
