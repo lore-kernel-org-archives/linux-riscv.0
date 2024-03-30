@@ -4,113 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CACBAC6FD1F
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Mar 2024 17:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E5D0C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Mar 2024 18:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gLZ0JqMbJuZyOB6NJy+eOXtpec9Ta7q+V+f1JSFsqJ8=; b=l3Fiugm81FN0pq
-	jBoaUqKcePYDdhA8eeyz2ZuY1asKE5kfwyx99toB5SaA/24qPfjN5Odyre0rPj3n+0K4pY3t+T/nL
-	6/M+M61BehAkSSLM1IoFBDWNpDRt80W7oBgDYFUYGq7c0oYuxSFMYhQaXpowJX6ZdC2FL80GqYZd7
-	aMAV51tAKMkEuRK1PdGrg469jWBltrp8moqJ6Vtal02DdwV9fsaHGeDYnCvsZttRMkm4nYFmGq4ac
-	IQi7USok22RAV+E7pCJujkx21jugXagbNOmmoqHRW/V/vPH8lH5H5KK0Sl9tRqAYsgEVxpS1EPoc7
-	CEHQTFhONtV28DjqE9mg==;
+	List-Owner; bh=a8RdZYX7o4VtpBL1WPcVmYm3cM7jy37g514A09dYROQ=; b=Ie8wHj4pUnwuWw
+	q8n1dRJyN8ADshFM64AmW7wN9cBlW465j/lL7LF0a1UTgYGeuO+8Jur8ZBquc0PXvNsJOceJn+1hq
+	0vVYYkWphFLT1ujfpSpibCum1EeWfzf9VFo4+hflm3+ETSawlD0vzsz22/wRmjP+CNZRuPBFkE1QT
+	apeICV5Vh+2hOMrJ2sGppf5cGczpQlC7oi2xrZFvrA3F+Z4JQPVsgag7RNBu3fHjTAFfkdpdEcmEc
+	TKBchv1RTetZV30CZkkhh+ew2edyMQFA7BPuz4s7jTXpbsBw6hRDTuD7Y6PQt6cEZYoMe68rnFbi1
+	naiIkK2SeWt0rWEsb3Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqcsk-00000003tnL-1FPk;
-	Sat, 30 Mar 2024 17:52:42 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1rqdHR-00000003wHX-0Iue;
+	Sat, 30 Mar 2024 18:18:13 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqcsf-00000003tla-34fQ;
-	Sat, 30 Mar 2024 17:52:39 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-56bf63af770so1494225a12.3;
-        Sat, 30 Mar 2024 10:52:35 -0700 (PDT)
+	id 1rqdHO-00000003wGB-3Ppu
+	for linux-riscv@lists.infradead.org;
+	Sat, 30 Mar 2024 18:18:12 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4155b41b735so2756685e9.3
+        for <linux-riscv@lists.infradead.org>; Sat, 30 Mar 2024 11:18:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1711821154; x=1712425954; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Dd1Ju+LCh2MPv5vAR1VJsB6sgx1pw4Hx1J299NMUFnM=;
-        b=m3XPukv2g8ZHIiNHjbZuTGb5xkSDCzzZt2vyMBbNXiHjOy77CSSjq0g8Ii3YPD0MCB
-         SAvycctBDVelhej6gkTXYbHSe5LabyrtdQyPW4aP5IZ4dl721iV+048CZFYdYXeM75tp
-         rZHE8INnrDq/oCd08tZ0VTvhgzqfFMasztggEDIofga5tUsLSIYHy/L7laY1HzFz6SXq
-         NMJcIS4JT/ItnQg8j9Ynw1oWdM42mt3fQZzx5wnvEQ2pfI4MVjBiy2rEqwW0jVFyvEUA
-         A94l7Kh7AKjW0UNSROs5Q9srSou6Fu9x8bDxjesHaFfQE/b/z/1c2se2O1v7pd9LhAAv
-         vDwA==
+        d=linaro.org; s=google; t=1711822681; x=1712427481; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=9J+SmGm43SmAZ1IPKslxmdpdwaDd06Mo7C6gr6kK5kk=;
+        b=KWECI38tNlsgPQdTNes+NAQahg2B8E1pp3Cta05RIAqSEu+vO4C6xGxPAxE3FOCcLK
+         oUXEgx8QPAVCstKWVadhYtDXK9uHrU9M5M+TWMmg7zrcazUByDsIn5YckaRItb2bVux+
+         jTbboTizmKCdBOtFfYUUffcNCTmV1e6DbOYvSEhmMixHTJ6pwQfFdSiBOn9dGEYTxhjk
+         10jdyc8OJUZu9LDVC7Pqn1XrOSVKvypU1q+iYdD6H5emLQ2hUkCUNyGTLw07BR1+IIao
+         P9yJYiMyXcfRW8/ToVu4zE+Xf2l1gw0vno8V4G4IYzhDf1oqrYQj2cRizCjfzu++rvrt
+         7aIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711821154; x=1712425954;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1711822681; x=1712427481;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Dd1Ju+LCh2MPv5vAR1VJsB6sgx1pw4Hx1J299NMUFnM=;
-        b=j9iMUDUal2hGDBL0GSVuoIFSvPVkyrDCuBNPaAKN2vejbn5Sz39kc9VVIYWtOnKGqC
-         6qsw6tBytsZ4hCV8xVmUwGqeJw03dFU3r5JpUrnsBNMk6OT/lRAklwrgOC+8fwjQub7g
-         ROx6VyLHBr2WPXkBDMXzww7Bdzi/Y4SeoyXMsstmd+AoMHkFzTBEBwNFO1D4PLoeMrzQ
-         KbH1vnkZAmN4d6tpFFjRYuydYAz4sys886uqy7Df3BobJ0hGo/yGekLMAsph/jykeJz1
-         YezAbFUFhTk5FzwupyQrCCbe1m2mxmELkxOVGKJQ2cxLURbVwiA1VNPNtzOZ+Df3oERU
-         Q7YQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXZsjubRd+DAiX64irVcIO+vYPofjiNwk6sd6ajeJWprtf7e0o4iiN4WKEQPuiU2HNuLJgg+dFZ4WO82trcQjAn0ygPmijtQP/h45xi6fG/7eTW2r3SNZXpAKLFEj6PsGJZOdAy77VVNYN6ePHaB3vOUeV5deo=
-X-Gm-Message-State: AOJu0Yzy3gJUTSggCz90My5eP0Zwf5v9+WCSjYcD1QAlpVQNWkotsho0
-	+/KO7EO4n1xIhTfj/SM9EUCjzA8OHkPrpllF3BjtxQtVzsc0inmp
-X-Google-Smtp-Source: AGHT+IEGAmf0kvvH3dm+5STvdXDGmaMLsXGzvzIXptUqdCRcniCaiSzPtCwt9Qd53mlg93swhXFVXQ==
-X-Received: by 2002:a50:8ad9:0:b0:566:b09e:8d24 with SMTP id k25-20020a508ad9000000b00566b09e8d24mr4080922edk.12.1711821153955;
-        Sat, 30 Mar 2024 10:52:33 -0700 (PDT)
-Received: from krava (ip-94-113-247-30.net.vodafone.cz. [94.113.247.30])
-        by smtp.gmail.com with ESMTPSA id b20-20020aa7cd14000000b0056bf9b4ec32sm3516637edw.78.2024.03.30.10.52.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 Mar 2024 10:52:33 -0700 (PDT)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Sat, 30 Mar 2024 18:52:30 +0100
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Andrii Nakryiko <andrii.nakryiko@gmail.com>,
-	=?utf-8?B?5qKm6b6Z6JGj?= <dongmenglong.8@bytedance.com>,
-	Alexei Starovoitov <alexei.starovoitov@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Eddy Z <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Ahern <dsahern@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Quentin Monnet <quentin@isovalent.com>, bpf <bpf@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	linux-s390 <linux-s390@vger.kernel.org>,
-	Network Development <netdev@vger.kernel.org>,
-	linux-trace-kernel@vger.kernel.org,
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [External] Re: [PATCH bpf-next v2 1/9] bpf: tracing: add support
- to record and check the accessed args
-Message-ID: <ZghRXtc8ZiTOKMR3@krava>
-References: <CAADnVQJ_ZCzMmT1aBsNXEBFfYNSVBdBXmLocjR0PPEWtYQrQFw@mail.gmail.com>
- <CALz3k9icPePb0c4FE67q=u1U0hrePorN9gDpQrKTR_sXbLMfDA@mail.gmail.com>
- <CAADnVQLwgw8bQ7OHBbqLhcPJ2QpxiGw3fkMFur+2cjZpM_78oA@mail.gmail.com>
- <CALz3k9g9k7fEwdTZVLhrmGoXp8CE47Q+83r-AZDXrzzuR+CjVA@mail.gmail.com>
- <CAADnVQLHpi3J6cBJ0QBgCQ2aY6fWGnVvNGdfi3W-jmoa9d1eVQ@mail.gmail.com>
- <CALz3k9g-U8ih=ycJPRbyU9x_9cp00fNkU3PGQ6jP0WJ+=uKmqQ@mail.gmail.com>
- <CALz3k9jG5Jrqw=BGjt05yMkEF-1u909GbBYrV-02W0dQtm6KQQ@mail.gmail.com>
- <20240328111330.194dcbe5@gandalf.local.home>
- <CAEf4BzYgzOti+Hfdn3SUCjuofGedXRSGApVDD+K2TdG6oNE-pw@mail.gmail.com>
- <20240330082755.1cbeb8c6@rorschach.local.home>
+        bh=9J+SmGm43SmAZ1IPKslxmdpdwaDd06Mo7C6gr6kK5kk=;
+        b=moLTlcVd/ep1xIFhV4/zMjgCAKg0rFR63u9N5nHEe3Lfo/p2PJr5/qPx3eu5kkq0ma
+         NGHY2JajhV2qwSGLcSfXj3zTxst3JdQKLUdEEfJrnscT0SEPMysX9OEFrhsjVMuP0kp9
+         VrgW0I+vG1a8Fsw+u0gbqIzHznMwVhYPANoY73NteocvPRmgJ4O1qbGwcoiPx8LG852F
+         +kJkog6ibb+IQwJ/vFu9aahUQEvaDo93ekMUpb9wIPS6X9weX+IusRz+SNBdxiITqU+/
+         lNR2ij5pRKgEXo+B4R8gYnqVi/j4zNTWWN0kF8cAOjBJu12O3W0LTIyJbSo1vB9YJ0e3
+         /GFw==
+X-Forwarded-Encrypted: i=1; AJvYcCW+KOJvjQyPHP5ggn6vgz12qLWODl/eyTELjiDCFRU33/+TQWCPjiIEPibGQA8SFKzey+cej02GNeh4uU/Sk6a7yJ8VYl9med73bUdwXn2N
+X-Gm-Message-State: AOJu0Yy/RXoQuzh0o+0yfw7t/DyPi1BazXy8sosBnRMsjCztcWVdJ2MB
+	puTlfsS77WO/xWLJM+80mtbpXZytdxbjY0OlAP7HJEQvTkOoHERtpFrA+YVNuTQ=
+X-Google-Smtp-Source: AGHT+IGNmLzpEN9w8zDii8pb9jmCT+9tTum0cvh7rfEZIiEwNGrRzdfhYpAHimToutuliFwcV6H9AQ==
+X-Received: by 2002:a05:600c:6a87:b0:415:544b:3128 with SMTP id jl7-20020a05600c6a8700b00415544b3128mr3194236wmb.27.1711822681448;
+        Sat, 30 Mar 2024 11:18:01 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.223.16])
+        by smtp.gmail.com with ESMTPSA id bd18-20020a05600c1f1200b004155c2b8ce7sm1688414wmb.29.2024.03.30.11.17.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 30 Mar 2024 11:18:00 -0700 (PDT)
+Message-ID: <1534f781-f7dc-487f-a28a-cd635c58f9d5@linaro.org>
+Date: Sat, 30 Mar 2024 19:17:59 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240330082755.1cbeb8c6@rorschach.local.home>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/3] dt-bindings: dmaengine: Add dma multiplexer for
+ CV18XX/SG200X series SoC
+To: Inochi Amaoto <inochiama@outlook.com>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Liu Gui <kenneth.liu@sophgo.com>,
+ Jingbao Qiu <qiujingbao.dlmu@gmail.com>, dlan@gentoo.org,
+ dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <IA1PR20MB4953F0FAED4373660C7873A2BB3A2@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953DDD8E89675650E0E2529BB3A2@IA1PR20MB4953.namprd20.prod.outlook.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <IA1PR20MB4953DDD8E89675650E0E2529BB3A2@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240330_105237_803120_16F63AB9 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20240330_111810_870633_32A375C3 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,28 +149,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 30, 2024 at 08:27:55AM -0400, Steven Rostedt wrote:
-> On Fri, 29 Mar 2024 16:28:33 -0700
-> Andrii Nakryiko <andrii.nakryiko@gmail.com> wrote:
+On 29/03/2024 03:04, Inochi Amaoto wrote:
+> The DMA IP of Sophgo CV18XX/SG200X is based on a DW AXI CORE, with
+> an additional channel remap register located in the top system control
+> area. The DMA channel is exclusive to each core.
 > 
-> > I thought I'll just ask instead of digging through code, sorry for
-> > being lazy :) Is there any way to pass pt_regs/ftrace_regs captured
-> > before function execution to a return probe (fexit/kretprobe)? I.e.,
-> > how hard is it to pass input function arguments to a kretprobe? That's
-> > the biggest advantage of fexit over kretprobe, and if we can make
-> > these original pt_regs/ftrace_regs available to kretprobe, then
-> > multi-kretprobe will effectively be this multi-fexit.
+> In addition, the DMA multiplexer is a subdevice of system controller,
+> so this binding only contains necessary properties for the multiplexer
+> itself.
 > 
-> This should be possible with the updates that Masami is doing with the
-> fgraph code.
+> Add the dmamux binding for CV18XX/SG200X series SoC.
+> 
 
-yes, I have bpf kprobe-multi link support for that [0] (it's on top of
-Masami's fprobe-over-fgraph changes) we discussed that in [1]
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-jirka
+Best regards,
+Krzysztof
 
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/jolsa/perf.git/log/?h=bpf/session_data
-[1] https://lore.kernel.org/bpf/20240228090242.4040210-1-jolsa@kernel.org/
 
 _______________________________________________
 linux-riscv mailing list
