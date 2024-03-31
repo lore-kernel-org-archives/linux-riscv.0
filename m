@@ -4,151 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B2FCCD1284
-	for <linux-riscv@archiver.kernel.org>; Sun, 31 Mar 2024 16:29:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E27ACD128A
+	for <linux-riscv@archiver.kernel.org>; Sun, 31 Mar 2024 16:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:
-	To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WXv7GO8Eg8WDtOrxtIioCdZbKDiQzCiayrg502tH8Js=; b=kpp29lDQmGvmfe+NbJuB2sSpNl
-	mQi+itRGmZr9LXbgpZhWS9d+n6Jl3u++EQ0mkPDtVQ/gtcWuxFiaYjaqAPtv0wBLlnm2tT4oiZtX+
-	Px7/H58dNN8ec7578nidg20LV6ExH/Hp8XTzIDv1XcEnesAFYNMOA5f5rEh2bNvuTZ8oWwADp+nLN
-	MvVw6mqFaDeOOWUheFwAufCHIDKyYUfsRHrxuDZ+uDMpk4D6Pr3WYkRNveRSPXuIj2aPLmMyMEHIo
-	OrsoGDJmaHLqXoL1SNN8lX+r5B3jM0PLscDQwUHWpLm4Cj4zQhATzEs5cbTB/vJus2FaTMyDniQ16
-	6AWIpoOw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CaDmn1ItRWDBFX2PXoqnfUr0GdUzeI1Jy3uOYZ5H6iY=; b=x/gyh9LUwEs5bk
+	rOh5+Jjp8gYHnL3nu6XQkql78q8+CkHvN1YpJgUqOTRjdyORGMVUy6H9jHQsKfwOvSTawxmxl+oU+
+	pU0YeXnVS8Eg4glODR+A4afz/Gu/rr25U1duAkMHbm3p83mU+DEbsLleDEAyZUg1Gu8yf3PAzSlc7
+	Lfx1+L8eZU2i4T7ptoaDCXPhbKII4CWW2SuOK91wGYEGoqZDVgShEZFvTWoW/Ny0pwjP9lEC5a3eF
+	MahV8DSHJr/gkn2w9BifbpAon/kdkfG9UAupsOyr7O6p7WqDXeX0mb0Yts6TU+CgwpSPb9dI9TUeQ
+	P+NYaNdc/9u510bkbHMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqy3Q-00000005jXI-1l89;
-	Sun, 31 Mar 2024 16:29:08 +0000
-Received: from a.mx.secunet.com ([62.96.220.36])
+	id 1rqyFj-00000005nV6-1GqQ;
+	Sun, 31 Mar 2024 16:41:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rqy2w-00000005jIw-32Fl;
-	Sun, 31 Mar 2024 16:28:44 +0000
+	id 1rqyFd-00000005nRD-1VMF
+	for linux-riscv@bombadil.infradead.org;
+	Sun, 31 Mar 2024 16:41:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:List-Unsubscribe:List-Subscribe:List-Id:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description; bh=RBrRt1eqcCGVs6uKq05PUPY70RApDQHMTtMq35bnkyA=; b=GsE0C
+	+iifZ60G4067JNqoQ6/Pod3O6TPtl8mMfdiyvtHsuVPebkqVYfIWz8xgzoMksQvNLmaPMjlo/Myoj
+	puCGgLh8ICKv6L/rP97QBeHePTDClhqPWWEhQ43y+75Yv3Rz7diy1tioAubGjxZ2jRsqSy8baVnga
+	7rKrDyhVi7YNRe59MrmhDQrRIzeFrjYUwcSDE7SyPNbbHuFUBQeTuuFQPs6WClR23nwQ8xJHnXSM1
+	/0D5r1vVWUssFpiIqn65OxCEQu963PfzcOoPI6RGX20IV2Q0gUz00RSuY3EN1Aml1jw9JdxwZgMwi
+	Xg+V/gkFFJ/jScN//bJO3C4VbzmVQ==;
+Received: from a.mx.secunet.com ([62.96.220.36])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rqyFY-00000002dlR-1k4a
+	for linux-riscv@lists.infradead.org;
+	Sun, 31 Mar 2024 16:41:43 +0000
 Received: from localhost (localhost [127.0.0.1])
-	by a.mx.secunet.com (Postfix) with ESMTP id 80546208D1;
-	Sun, 31 Mar 2024 18:28:37 +0200 (CEST)
+	by a.mx.secunet.com (Postfix) with ESMTP id 810F7208C8;
+	Sun, 31 Mar 2024 18:41:30 +0200 (CEST)
 X-Virus-Scanned: by secunet
 Received: from a.mx.secunet.com ([127.0.0.1])
 	by localhost (a.mx.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id EUMHkouClTYE; Sun, 31 Mar 2024 18:28:35 +0200 (CEST)
+	with ESMTP id UhGMyAIsQ6TG; Sun, 31 Mar 2024 18:41:29 +0200 (CEST)
 Received: from mailout2.secunet.com (mailout2.secunet.com [62.96.220.49])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by a.mx.secunet.com (Postfix) with ESMTPS id 54C8D208DE;
-	Sun, 31 Mar 2024 18:28:31 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 a.mx.secunet.com 54C8D208DE
+	by a.mx.secunet.com (Postfix) with ESMTPS id AB63E208B2;
+	Sun, 31 Mar 2024 18:41:29 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 a.mx.secunet.com AB63E208B2
 Received: from cas-essen-01.secunet.de (unknown [10.53.40.201])
-	by mailout2.secunet.com (Postfix) with ESMTP id 47B04800058;
-	Sun, 31 Mar 2024 18:28:31 +0200 (CEST)
+	by mailout2.secunet.com (Postfix) with ESMTP id 9E1CE80005E;
+	Sun, 31 Mar 2024 18:41:29 +0200 (CEST)
 Received: from mbx-essen-01.secunet.de (10.53.40.197) by
  cas-essen-01.secunet.de (10.53.40.201) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Sun, 31 Mar 2024 18:28:31 +0200
+ 15.1.2507.35; Sun, 31 Mar 2024 18:41:29 +0200
 Received: from Pickup by mbx-essen-01.secunet.de with Microsoft SMTP Server id
- 15.1.2507.17; Sun, 31 Mar 2024 16:23:36 +0000
-X-sender: <netdev+bounces-83483-peter.schumann=secunet.com@vger.kernel.org>
-X-Receiver: <peter.schumann@secunet.com>
- ORCPT=rfc822;peter.schumann@secunet.com NOTIFY=NEVER;
- X-ExtendedProps=BQAVABYAAgAAAAUAFAARAJ05ab4WgQhHsqdZ7WUjHykPADUAAABNaWNyb3NvZnQuRXhjaGFuZ2UuVHJhbnNwb3J0LkRpcmVjdG9yeURhdGEuSXNSZXNvdXJjZQIAAAUAagAJAAEAAAAAAAAABQAWAAIAAAUAQwACAAAFAEYABwADAAAABQBHAAIAAAUAEgAPAGAAAAAvbz1zZWN1bmV0L291PUV4Y2hhbmdlIEFkbWluaXN0cmF0aXZlIEdyb3VwIChGWURJQk9IRjIzU1BETFQpL2NuPVJlY2lwaWVudHMvY249UGV0ZXIgU2NodW1hbm41ZTcFAAsAFwC+AAAAQ5IZ35DtBUiRVnd98bETxENOPURCNCxDTj1EYXRhYmFzZXMsQ049RXhjaGFuZ2UgQWRtaW5pc3RyYXRpdmUgR3JvdXAgKEZZRElCT0hGMjNTUERMVCksQ049QWRtaW5pc3RyYXRpdmUgR3JvdXBzLENOPXNlY3VuZXQsQ049TWljcm9zb2Z0IEV4Y2hhbmdlLENOPVNlcnZpY2VzLENOPUNvbmZpZ3VyYXRpb24sREM9c2VjdW5ldCxEQz1kZQUADgARAC7JU/le071Fhs0mWv1VtVsFAB0ADwAMAAAAbWJ4LWVzc2VuLTAxBQA8AAIAAA8ANgAAAE1pY3Jvc29mdC5FeGNoYW5nZS5UcmFuc3BvcnQuTWFpbFJlY2lwaWVudC5EaXNwbGF5TmFtZQ8ADwAAAFNjaHVtYW5uLCBQZXRlcgUADAACAAAFAGwAAgAABQBYABcASAAAAJ05ab4WgQhHsqdZ7WUjHylDTj1TY2h1bWFubiBQZXRlcixPVT1Vc2VycyxPVT1NaWdyYXRpb24sREM9c2VjdW5ldCxEQz1kZQUAJgACAAEFACIADwAxAAAAQXV0b1Jlc3BvbnNlU3VwcHJlc3M6IDANClRyYW5zbWl0SGlzdG9yeTogRmFsc
-	2UNCg8ALwAAAE1pY3Jvc29mdC5FeGNoYW5nZS5UcmFuc3BvcnQuRXhwYW5zaW9uR3JvdXBUeXBlDwAVAAAATWVtYmVyc0dyb3VwRXhwYW5zaW9uBQAjAAIAAQ==
+ 15.1.2507.17; Sun, 31 Mar 2024 16:37:13 +0000
+X-sender: <netdev+bounces-83573-steffen.klassert=secunet.com@vger.kernel.org>
+X-Receiver: <steffen.klassert@secunet.com> ORCPT=rfc822;steffen.klassert@secunet.com
 X-CreatedBy: MSExchange15
-X-HeloDomain: b.mx.secunet.com
-X-ExtendedProps: BQBjAAoAw5Tp8x1Q3AgFAGEACAABAAAABQA3AAIAAA8APAAAAE1pY3Jvc29mdC5FeGNoYW5nZS5UcmFuc3BvcnQuTWFpbFJlY2lwaWVudC5Pcmdhbml6YXRpb25TY29wZREAAAAAAAAAAAAAAAAAAAAAAAUASQACAAEFAGIACgBtAAAAjYoAAAUABAAUIAEAAAAaAAAAcGV0ZXIuc2NodW1hbm5Ac2VjdW5ldC5jb20FAAYAAgABBQApAAIAAQ8ACQAAAENJQXVkaXRlZAIAAQUAAgAHAAEAAAAFAAMABwAAAAAABQAFAAIAAQUAZAAPAAMAAABIdWI=
-X-Source: SMTP:Default MBX-DRESDEN-01
-X-SourceIPAddress: 62.96.220.37
-X-EndOfInjectedXHeaders: 19895
+X-HeloDomain: mbx-essen-01.secunet.de
+X-ExtendedProps: BQBjAAoA3nYFfe5Q3AgFADcAAgAADwA8AAAATWljcm9zb2Z0LkV4Y2hhbmdlLlRyYW5zcG9ydC5NYWlsUmVjaXBpZW50Lk9yZ2FuaXphdGlvblNjb3BlEQAAAAAAAAAAAAAAAAAAAAAADwA/AAAATWljcm9zb2Z0LkV4Y2hhbmdlLlRyYW5zcG9ydC5EaXJlY3RvcnlEYXRhLk1haWxEZWxpdmVyeVByaW9yaXR5DwADAAAATG93
+X-Source: SMTP:Default MBX-ESSEN-02
+X-SourceIPAddress: 10.53.40.197
+X-EndOfInjectedXHeaders: 13282
 X-Virus-Scanned: by secunet
-Received-SPF: Pass (sender SPF authorized) identity=mailfrom; client-ip=139.178.88.99; helo=sv.mirrors.kernel.org; envelope-from=netdev+bounces-83483-peter.schumann=secunet.com@vger.kernel.org; receiver=peter.schumann@secunet.com 
-DKIM-Filter: OpenDKIM Filter v2.11.0 b.mx.secunet.com E81A7200BB
-Authentication-Results: b.mx.secunet.com;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Fm8qb98v"
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Fm8qb98v"
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.client-ip=209.85.215.169
+Received-SPF: Pass (sender SPF authorized) identity=mailfrom; client-ip=147.75.80.249; helo=am.mirrors.kernel.org; envelope-from=netdev+bounces-83573-steffen.klassert=secunet.com@vger.kernel.org; receiver=steffen.klassert@secunet.com 
+DKIM-Filter: OpenDKIM Filter v2.11.0 b.mx.secunet.com 4F748202D2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.client-ip=45.249.212.51
 ARC-Seal: i=1; a=rsa-sha256; d=subspace.kernel.org; s=arc-20240116;
-	t=1711754928; cv=none; b=BiF0sOPYXhrbjY9cOS6Nmj4VXF++Yx8MtZjBDxanMefli+BulHO4QXKn7qwpW3i+7uN65u5cLGhThPJZ2akcLjIgY9UcOJfH9j6D484gs+N5O8HXdnQzg8eZ93GRBeBoDesuvP5WyVY1RlteRQZLbYRhS27z9mKgIzxIt2bJ+Zo=
+	t=1711876970; cv=none; b=pqv0fOh1BRUwnqb31m/vKdSpalyuojaeQUUQUdp6s1Dj4SzY+JgF53xpy0r1anznOxmJFxAbLeE0ew/dBkD+dB2zE+Mn0KakNY8wNsCWX24pUOJ+HsbEtqZyp46LaeFnLWIKkhDB0Ocv8sGaFvosjJ4zSImuCz3k0dwc9uRGP5o=
 ARC-Message-Signature: i=1; a=rsa-sha256; d=subspace.kernel.org;
-	s=arc-20240116; t=1711754928; c=relaxed/simple;
-	bh=M+CkTC/9QOPKjcAq26pJFK75aD0g4y2+LXJsB0P1JY0=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type; b=lu4xUrtWjk3J0kbVbPD5XAlV9JEyhRuyqvveB8mIxkffhtOM1Y7m4+o5XzftYMKn592GD5CBw41tS2CCKYzMtaJurKzqjxkWsFCCe3ELmR9AEyVvEBDa4PpVwvE2aS0et1z2P9rOIk0ldc7OMYPnDpWEu3jfzLxb8Y4CGi6sJbE=
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com; spf=pass smtp.mailfrom=gmail.com; dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b=Fm8qb98v; arc=none smtp.client-ip=209.85.215.169
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1711754926; x=1712359726; darn=vger.kernel.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rvV1tZGanDBSafK6edOdycvbQYDEdHbTCxngJvsvk3c=;
-        b=Fm8qb98vO+2rZQDr4ACVbzWOOBhMbNP973of56VDx+7dzKarS23b4VDs0QCZjE/zey
-         IJ/g2gwkTlDZp557gqFy6HVirUKvvI/RhzQOrPjsYmqnt0OS+LXZWxBGcD9ooJmS1u1N
-         Wdq60dFcb/ee3JYL5bUFYzr07cJmwvvmIZoI/b1KQpo+K6ftMzexzXAN8iXh1nJo1QdC
-         4CFMaxfeoUIzc6fyg2ScGW/5rPdZFOXPIXIjGrA7V7Ij1KqAkHvKfDNzy1QS7jMz6z0E
-         /W8l0QAzZuWpon/+MGFe6iPNG81xSsUfka4lIyvOK31ZY63E/sqixJRnh7RpDV18WsJY
-         CtMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711754926; x=1712359726;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rvV1tZGanDBSafK6edOdycvbQYDEdHbTCxngJvsvk3c=;
-        b=RU6CYGdij3I8SMDFuLcEkXFxxuMDLhpfo6RmyHf+rD3z+RBxrsmoJ1YligUcYT3VoL
-         YtUHguMvFF7xT9YjyGrK4ujkEA13NT+X1hwUNhKsWaXhpLBG2Wyh4eNaw4zkHN28eYkq
-         dj4reqkSxtXQvjpns3NtubA0ld6+woHqICxMQVR26maDt91aYEPooASIjOoCRnxMnIpI
-         KqBMby8F8aarmJfc6c16rp9hDJK1Cr34usuvnIOrnJ2bdp2qTCOMpl6ARzTAtPA9p7n7
-         9p9R345kssoRHOmDzo2WcF/0oG4wRjb+owNVpsCTExoqfee0d+FSjcyFxitgRQvMQzcC
-         9Pqw==
-X-Forwarded-Encrypted: i=1; AJvYcCVlnHyNUDZ0fbOQSV0NEVvOtJTaOmaxwPgZy047hqztaIz7SMsnLeomStI1EizImJzlky/xJNYIS4RJsXEX2rbQoVyo7MFG2+RfwxWnjGonfBHU0k5JSlRGPFtF8Te8neu3qxCi25AWVXDje1k1qkzJLjDnQ+s4R4WJmDmbw/KdNN4l/EBnMx0Wq+GOvmC+DkjFlyebAZoKGfgwdw8BgI1xISF1T+wxXijKToVLbwSSua486L4tXm8nE4lXExEMG+QxE02AxDYDKshvWmyLqPiNewg+cXpbihxLyg==
-X-Gm-Message-State: AOJu0YwCezoL4rml44Ulwt5kaSYk47W3cr0evd5PMAYC8La4m9gnILHN
-	FRelRR6zMz1Bz2qJo3eFKeNyq28N5Yo0kJIQ72rv0EkZFGKfSnjbac0fnT9zQAwbNl/tFnTmfuG
-	Y3REKAMgIbWmVvmHWWGOk0v3R69U=
-X-Google-Smtp-Source: AGHT+IFNbTnA2C1UowyvpIWfWMecar3RYOVPJRlOoVy5NMmPOOKB6ZhvqfzCxbpKkf/w3Z3THbX/GA+A1iwjf07EvPY=
-X-Received: by 2002:a17:90a:be04:b0:2a2:1415:723d with SMTP id
- a4-20020a17090abe0400b002a21415723dmr3177860pjs.42.1711754926271; Fri, 29 Mar
- 2024 16:28:46 -0700 (PDT)
+	s=arc-20240116; t=1711876970; c=relaxed/simple;
+	bh=PQc/GZlJdy2wQCpG3P25fWw8d/nM2cnDg0EbtlbI6dc=;
+	h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
+	 MIME-Version; b=RlDzTyVB0FWIJ758WIsM18DrQRZ56G3nWzbs6izsegxDnqtZnP3zpsO0YKz4jNPXYeu9Lf5FJxJqMUPQUi9FlVyBBuppgwqKcO1cRoXlYGLAFdIWE27d1meKBKM5qc6r66l9//qY3ZfQPpRb2GO4qC00qc+fIBedC4Xt1iRjI6o=
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com; spf=pass smtp.mailfrom=huaweicloud.com; arc=none smtp.client-ip=45.249.212.51
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: <bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<netdev@vger.kernel.org>
+CC: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>, Alexei Starovoitov
+	<ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
+	<andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, Song Liu <song@kernel.org>, Yonghong Song
+	<yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
+	<kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
+	<haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Pu Lehui <pulehui@huawei.com>, Pu Lehui
+	<pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 2/2] selftests/bpf: Add testcase where 7th argment is struct
+Date: Sun, 31 Mar 2024 09:24:05 +0000
+Message-ID: <20240331092405.822571-3-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240331092405.822571-1-pulehui@huaweicloud.com>
+References: <20240331092405.822571-1-pulehui@huaweicloud.com>
 Precedence: bulk
 X-Mailing-List: netdev@vger.kernel.org
 MIME-Version: 1.0
-References: <20240311093526.1010158-1-dongmenglong.8@bytedance.com>
- <20240311093526.1010158-2-dongmenglong.8@bytedance.com> <CAADnVQKQPS5NcvEouH4JqZ2fKgQAC+LtcwhX9iXYoiEkF_M94Q@mail.gmail.com>
- <CALz3k9i5G5wWi+rtvHPwVLOUAXVMCiU_8QUZs87TEYgR_0wpPA@mail.gmail.com>
- <CAADnVQJ_ZCzMmT1aBsNXEBFfYNSVBdBXmLocjR0PPEWtYQrQFw@mail.gmail.com>
- <CALz3k9icPePb0c4FE67q=u1U0hrePorN9gDpQrKTR_sXbLMfDA@mail.gmail.com>
- <CAADnVQLwgw8bQ7OHBbqLhcPJ2QpxiGw3fkMFur+2cjZpM_78oA@mail.gmail.com>
- <CALz3k9g9k7fEwdTZVLhrmGoXp8CE47Q+83r-AZDXrzzuR+CjVA@mail.gmail.com>
- <CAADnVQLHpi3J6cBJ0QBgCQ2aY6fWGnVvNGdfi3W-jmoa9d1eVQ@mail.gmail.com>
- <CALz3k9g-U8ih=ycJPRbyU9x_9cp00fNkU3PGQ6jP0WJ+=uKmqQ@mail.gmail.com>
- <CALz3k9jG5Jrqw=BGjt05yMkEF-1u909GbBYrV-02W0dQtm6KQQ@mail.gmail.com> <20240328111330.194dcbe5@gandalf.local.home>
-In-Reply-To: <20240328111330.194dcbe5@gandalf.local.home>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Fri, 29 Mar 2024 16:28:33 -0700
-Message-ID: <CAEf4BzYgzOti+Hfdn3SUCjuofGedXRSGApVDD+K2TdG6oNE-pw@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH bpf-next v2 1/9] bpf: tracing: add support
- to record and check the accessed args
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: =?UTF-8?B?5qKm6b6Z6JGj?= <dongmenglong.8@bytedance.com>, 
-	Alexei Starovoitov <alexei.starovoitov@gmail.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Andrii Nakryiko <andrii@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@linux.dev>, Eddy Z <eddyz87@gmail.com>, 
-	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, 
-	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
-	Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, 
-	David Ahern <dsahern@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	X86 ML <x86@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Quentin Monnet <quentin@isovalent.com>, bpf <bpf@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>, 
-	Network Development <netdev@vger.kernel.org>, linux-trace-kernel@vger.kernel.org, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com
+X-CM-TRANSID: gCh0CgCH2WtkKwlmesQWIw--.11467S4
+X-Coremail-Antispam: 1UD129KBjvJXoW3JrWDWr1UCF4rZFy7XF4DCFg_yoW7Wr4xpa
+	48Xw1jyFWrJr48Wry7GF4UZr4S9rZ3Xr1UJF47J3s0vry0q34DtF18KF1jy3Z5G3y5ur1a
+	ya98KrZxCa17JaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPj14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
+	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
+	xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
+	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2
+	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
+	Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8Jw
+	CI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUFrcTDUUU
+	U
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-EXCLAIMER-MD-CONFIG: 2c86f778-e09b-4440-8b15-867914633a10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240331_092839_327428_3B92F22C 
-X-CRM114-Status: GOOD (  33.23  )
+X-CRM114-CacheID: sfid-20240331_174140_803252_1255455B 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 List-Id: <linux-riscv.lists.infradead.org>
@@ -159,963 +140,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2485599216571279844=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20240329232833.6nj6RBIfGZ-gUcY5wCP4_13P3NrbTzo5D-GcHvXQkOc@z>
+Message-ID: <20240331092405.83WqjVm2FmNBKvW_aPQSGE5P6nxvt7AmIR-bWuShIvs@z>
 
---===============2485599216571279844==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+From: Pu Lehui <pulehui@huawei.com>
 
-On Thu, Mar 28, 2024 at 8:10=E2=80=AFAM Steven Rostedt <rostedt@goodmis.org=
-> wrote:
->
-> On Thu, 28 Mar 2024 22:43:46 +0800
-> =E6=A2=A6=E9=BE=99=E8=91=A3 <dongmenglong.8@bytedance.com> wrote:
->
-> > I have done a simple benchmark on creating 1000
-> > trampolines. It is slow, quite slow, which consume up to
-> > 60s. We can't do it this way.
-> >
-> > Now, I have a bad idea. How about we introduce
-> > a "dynamic trampoline"? The basic logic of it can be:
-> >
-> > """
-> > save regs
-> > bpfs =3D trampoline_lookup_ip(ip)
-> > fentry =3D bpfs->fentries
-> > while fentry:
-> >   fentry(ctx)
-> >   fentry =3D fentry->next
-> >
-> > call origin
-> > save return value
-> >
-> > fexit =3D bpfs->fexits
-> > while fexit:
-> >   fexit(ctx)
-> >   fexit =3D fexit->next
-> >
-> > xxxxxx
-> > """
-> >
-> > And we lookup the "bpfs" by the function ip in a hash map
-> > in trampoline_lookup_ip. The type of "bpfs" is:
-> >
-> > struct bpf_array {
-> >   struct bpf_prog *fentries;
-> >  struct bpf_prog *fexits;
-> >   struct bpf_prog *modify_returns;
-> > }
-> >
-> > When we need to attach the bpf progA to function A/B/C,
-> > we only need to create the bpf_arrayA, bpf_arrayB, bpf_arrayC
-> > and add the progA to them, and insert them to the hash map
-> > "direct_call_bpfs", and attach the "dynamic trampoline" to
-> > A/B/C. If bpf_arrayA exist, just add progA to the tail of
-> > bpf_arrayA->fentries. When we need to attach progB to
-> > B/C, just add progB to bpf_arrayB->fentries and
-> > bpf_arrayB->fentries.
-> >
-> > Compared to the trampoline, extra overhead is introduced
-> > by the hash lookuping.
-> >
-> > I have not begun to code yet, and I am not sure the overhead is
-> > acceptable. Considering that we also need to do hash lookup
-> > by the function in kprobe_multi, maybe the overhead is
-> > acceptable?
->
-> Sounds like you are just recreating the function management that ftrace
-> has. It also can add thousands of trampolines very quickly, because it do=
-es
-> it in batches. It takes special synchronization steps to attach to fentry=
-.
-> ftrace (and I believe multi-kprobes) updates all the attachments for each
-> step, so the synchronization needed is only done once.
->
-> If you really want to have thousands of functions, why not just register =
-it
-> with ftrace itself. It will give you the arguments via the ftrace_regs
-> structure. Can't you just register a program as the callback?
->
-> It will probably make your accounting much easier, and just let ftrace
-> handle the fentry logic. That's what it was made to do.
->
+Add testcase where 7th argument is struct for architectures with 8
+argument registers, and increase the complexity of the struct.
 
-I thought I'll just ask instead of digging through code, sorry for
-being lazy :) Is there any way to pass pt_regs/ftrace_regs captured
-before function execution to a return probe (fexit/kretprobe)? I.e.,
-how hard is it to pass input function arguments to a kretprobe? That's
-the biggest advantage of fexit over kretprobe, and if we can make
-these original pt_regs/ftrace_regs available to kretprobe, then
-multi-kretprobe will effectively be this multi-fexit.
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ .../selftests/bpf/bpf_testmod/bpf_testmod.c   | 19 ++++++++++
+ .../selftests/bpf/prog_tests/tracing_struct.c | 13 +++++++
+ .../selftests/bpf/progs/tracing_struct.c      | 35 +++++++++++++++++++
+ 3 files changed, 67 insertions(+)
 
-> -- Steve
-
-X-sender: <netdev+bounces-83483-steffen.klassert=3Dcunet.com@vger.kernel.or=
-g>
-X-Receiver: <steffen.klassert@secunet.com> ORCPT=3Dc822;steffen.klassert@se=
-cunet.com NOTIFY=3DVER; X-ExtendedProps=3DAVABYAAgAAAAUAFAARAPDFCS25BAlDktI=
-I2g02frgPADUAAABNaWNyb3NvZnQuRXhjaGFuZ2UuVHJhbnNwb3J0LkRpcmVjdG9yeURhdGEuSX=
-NSZXNvdXJjZQIAAAUAagAJAAEAAAAAAAAABQAWAAIAAAUAQwACAAAFAEYABwADAAAABQBHAAIAA=
-AUAEgAPAGIAAAAvbz1zZWN1bmV0L291PUV4Y2hhbmdlIEFkbWluaXN0cmF0aXZlIEdyb3VwIChG=
-WURJQk9IRjIzU1BETFQpL2NuPVJlY2lwaWVudHMvY249U3RlZmZlbiBLbGFzc2VydDY4YwUACwA=
-XAL4AAACheZxkHSGBRqAcAp3ukbifQ049REI2LENOPURhdGFiYXNlcyxDTj1FeGNoYW5nZSBBZG=
-1pbmlzdHJhdGl2ZSBHcm91cCAoRllESUJPSEYyM1NQRExUKSxDTj1BZG1pbmlzdHJhdGl2ZSBHc=
-m91cHMsQ049c2VjdW5ldCxDTj1NaWNyb3NvZnQgRXhjaGFuZ2UsQ049U2VydmljZXMsQ049Q29u=
-ZmlndXJhdGlvbixEQz1zZWN1bmV0LERDPWRlBQAOABEABiAS9uuMOkqzwmEZDvWNNQUAHQAPAAw=
-AAABtYngtZXNzZW4tMDIFADwAAgAADwA2AAAATWljcm9zb2Z0LkV4Y2hhbmdlLlRyYW5zcG9ydC=
-5NYWlsUmVjaXBpZW50LkRpc3BsYXlOYW1lDwARAAAAS2xhc3NlcnQsIFN0ZWZmZW4FAAwAAgAAB=
-QBsAAIAAAUAWAAXAEoAAADwxQktuQQJQ5LSCNoNNn64Q049S2xhc3NlcnQgU3RlZmZlbixPVT1V=
-c2VycyxPVT1NaWdyYXRpb24sREM9c2VjdW5ldCxEQz1kZQUAJgACAAEFACIADwAxAAAAQXV0b1J=
-lc3BvbnNlU3VwcHJlc3M6IDANClRyYW5zbWl0SGlzdG9yeTogRmFsc2UNCg8ALwAAAE1pY3Jvc2=
-9mdC5FeGNoYW5nZS5UcmFuc3BvcnQuRXhwYW5zaW9uR3JvdXBUeXBlDwAVAAAATWVtYmVyc0dyb=
-3VwRXhwYW5zaW9uBQAjAAIAAQ=3D=0A=
-X-CreatedBy: MSExchange15
-X-HeloDomain: a.mx.secunet.com
-X-ExtendedProps: BQBjAAoAo5Tp8x1Q3AgFAGEACAABAAAABQA3AAIAAA8APAAAAE1pY3Jvc2=
-9mdC5FeGNoYW5nZS5UcmFuc3BvcnQuTWFpbFJlY2lwaWVudC5Pcmdhbml6YXRpb25TY29wZREAA=
-AAAAAAAAAAAAAAAAAAAAAUASQACAAEFAGIACgBuAAAAjYoAAAUABAAUIAEAAAAcAAAAc3RlZmZl=
-bi5rbGFzc2VydEBzZWN1bmV0LmNvbQUABgACAAEFACkAAgABDwAJAAAAQ0lBdWRpdGVkAgABBQA=
-CAAcAAQAAAAUAAwAHAAAAAAAFAAUAAgABBQBkAA8AAwAAAEh1Yg=3D=0A=
-X-Source: SMTP:Default MBX-DRESDEN-01
-X-SourceIPAddress: 62.96.220.36
-X-EndOfInjectedXHeaders: 19722
-Received: from cas-essen-02.secunet.de (10.53.40.202) by
- mbx-dresden-01.secunet.de (10.53.40.199) with Microsoft SMTP Server
- (version=3DS1_2, cipher=3DS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.37; Sat, 30 Mar 2024 00:29:03 +0100
-Received: from a.mx.secunet.com (62.96.220.36) by cas-essen-02.secunet.de
- (10.53.40.202) with Microsoft SMTP Server (version=3DS1_2,
- cipher=3DS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Sat, 30 Mar 2024 00:29:03 +0100
-Received: from localhost (localhost [127.0.0.1])
-	by a.mx.secunet.com (Postfix) with ESMTP id D07E8208A6
-	for <steffen.klassert@secunet.com>; Sat, 30 Mar 2024 00:29:03 +0100 (CET)
-X-Virus-Scanned: by secunet
-X-Spam-Flag: NO
-X-Spam-Score: -5.049
-X-Spam-Level:
-X-Spam-Status: No, score=3D.049 tagged_above=3D99 required=3D1
-	tests=3DAYES_00=3D.9, DKIM_SIGNED=3D1, DKIM_VALID=3D.1,
-	DKIM_VALID_AU=3D.1, FREEMAIL_FORGED_FROMDOMAIN=3D001,
-	FREEMAIL_FROM=3D001, HEADER_FROM_DIFFERENT_DOMAINS=3D249,
-	MAILING_LIST_MULTI=3D, RCVD_IN_DNSWL_MED=3D.3, SPF_HELO_NONE=3D001,
-	SPF_PASS=3D.001] autolearn=3Dm autolearn_force=3D
-Authentication-Results: a.mx.secunet.com (amavisd-new);
-	dkim=3Dss (2048-bit key) header.d=3Dail.com
-Received: from a.mx.secunet.com ([127.0.0.1])
-	by localhost (a.mx.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id Ex4lJg4QxVwR for <steffen.klassert@secunet.com>;
-	Sat, 30 Mar 2024 00:29:02 +0100 (CET)
-Received-SPF: Pass (sender SPF authorized) identity=3Dilfrom; client-ip=139=
-.178.88.99; helo=3D.mirrors.kernel.org; envelope-from=3Dtdev+bounces-83483-=
-steffen.klassert=3Dcunet.com@vger.kernel.org; receiver=3Deffen.klassert@sec=
-unet.com=20
-DKIM-Filter: OpenDKIM Filter v2.11.0 a.mx.secunet.com 1CA0120870
-Received: from sv.mirrors.kernel.org (sv.mirrors.kernel.org [139.178.88.99]=
-)
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by a.mx.secunet.com (Postfix) with ESMTPS id 1CA0120870
-	for <steffen.klassert@secunet.com>; Sat, 30 Mar 2024 00:29:00 +0100 (CET)
-Received: from smtp.subspace.kernel.org (wormhole.subspace.kernel.org [52.2=
-5.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sv.mirrors.kernel.org (Postfix) with ESMTPS id E018C2831AB
-	for <steffen.klassert@secunet.com>; Fri, 29 Mar 2024 23:28:58 +0000 (UTC)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1120F13E40E;
-	Fri, 29 Mar 2024 23:28:49 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=3Dss (2048-bit key) header.d=3Dail.com header.i=3Dmail.com header.b=
-=3Dm8qb98v"
-X-Original-To: netdev@vger.kernel.org
-Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.2=
-15.169])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEAE5347B6;
-	Fri, 29 Mar 2024 23:28:46 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org; arc=3Dne smtp.client-ip 9=
-.85.215.169
-ARC-Seal: i=3D a=3Da-sha256; d=3Dbspace.kernel.org; s=3Dc-20240116;
-	t=1711754928; cv=3Dne; b=3DF0sOPYXhrbjY9cOS6Nmj4VXF++Yx8MtZjBDxanMefli+Bul=
-HO4QXKn7qwpW3i+7uN65u5cLGhThPJZ2akcLjIgY9UcOJfH9j6D484gs+N5O8HXdnQzg8eZ93GR=
-BeBoDesuvP5WyVY1RlteRQZLbYRhS27z9mKgIzxIt2bJ+ZoARC-Message-Signature: i=3D =
-a=3Da-sha256; d=3Dbspace.kernel.org;
-	s=3Dc-20240116; t=1711754928; c=3Dlaxed/simple;
-	bh=3DCkTC/9QOPKjcAq26pJFK75aD0g4y2+LXJsB0P1JY0=3D=0A=
-	h=3DME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type; b=3D4xUrtWjk3J0kbVbPD5XAlV9JEyhRuyqvveB8mIxkffhtOM1Y7=
-m4+o5XzftYMKn592GD5CBw41tS2CCKYzMtaJurKzqjxkWsFCCe3ELmR9AEyVvEBDa4PpVwvE2aS=
-0et1z2P9rOIk0ldc7OMYPnDpWEu3jfzLxb8Y4CGi6sJbEARC-Authentication-Results: i=
-=3D smtp.subspace.kernel.org; dmarc=3Dss (p=3Dne dis=3Dne) header.from=3Dai=
-l.com; spf=3Dss smtp.mailfrom=3Dail.com; dkim=3Dss (2048-bit key) header.d=
-=3Dail.com header.i=3Dmail.com header.b=3D8qb98v; arc=3Dne smtp.client-ip 9=
-.85.215.169
-Authentication-Results: smtp.subspace.kernel.org; dmarc=3Dss (p=3Dne dis=3D=
-ne) header.from=3Dail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=3Dss smtp.mailfrom=3D=
-ail.com
-Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-5d3907ff12=
-8so1860607a12.3;
-        Fri, 29 Mar 2024 16:28:46 -0700 (PDT)
-DKIM-Signature: v=3D a=3Da-sha256; c=3Dlaxed/relaxed;
-        d=3Dail.com; s 230601; t=1711754926; x=1712359726; darn=3Der.kernel=
-.org;
-        h=3Dntent-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3DV1tZGanDBSafK6edOdycvbQYDEdHbTCxngJvsvk3c=3D=0A=
-        b=3D8qb98vO+2rZQDr4ACVbzWOOBhMbNP973of56VDx+7dzKarS23b4VDs0QCZjE/ze=
-y
-         IJ/g2gwkTlDZp557gqFy6HVirUKvvI/RhzQOrPjsYmqnt0OS+LXZWxBGcD9ooJmS1u=
-1N
-         Wdq60dFcb/ee3JYL5bUFYzr07cJmwvvmIZoI/b1KQpo+K6ftMzexzXAN8iXh1nJo1Q=
-dC
-         4CFMaxfeoUIzc6fyg2ScGW/5rPdZFOXPIXIjGrA7V7Ij1KqAkHvKfDNzy1QS7jMz6z=
-0E
-         /W8l0QAzZuWpon/+MGFe6iPNG81xSsUfka4lIyvOK31ZY63E/sqixJRnh7RpDV18Ws=
-JY
-         CtMw=3D=0A=
-X-Google-DKIM-Signature: v=3D a=3Da-sha256; c=3Dlaxed/relaxed;
-        d=1E100.net; s 230601; t=1711754926; x=1712359726;
-        h=3Dntent-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3DV1tZGanDBSafK6edOdycvbQYDEdHbTCxngJvsvk3c=3D=0A=
-        b=3D6CYGdij3I8SMDFuLcEkXFxxuMDLhpfo6RmyHf+rD3z+RBxrsmoJ1YligUcYT3Vo=
-L
-         YtUHguMvFF7xT9YjyGrK4ujkEA13NT+X1hwUNhKsWaXhpLBG2Wyh4eNaw4zkHN28eY=
-kq
-         dj4reqkSxtXQvjpns3NtubA0ld6+woHqICxMQVR26maDt91aYEPooASIjOoCRnxMnI=
-pI
-         KqBMby8F8aarmJfc6c16rp9hDJK1Cr34usuvnIOrnJ2bdp2qTCOMpl6ARzTAtPA9p7=
-n7
-         9p9R345kssoRHOmDzo2WcF/0oG4wRjb+owNVpsCTExoqfee0d+FSjcyFxitgRQvMQz=
-cC
-         9Pqw=3D=0A=
-X-Forwarded-Encrypted: i=3D AJvYcCVlnHyNUDZ0fbOQSV0NEVvOtJTaOmaxwPgZy047hqz=
-taIz7SMsnLeomStI1EizImJzlky/xJNYIS4RJsXEX2rbQoVyo7MFG2+RfwxWnjGonfBHU0k5JSl=
-RGPFtF8Te8neu3qxCi25AWVXDje1k1qkzJLjDnQ+s4R4WJmDmbw/KdNN4l/EBnMx0Wq+GOvmC+D=
-kjFlyebAZoKGfgwdw8BgI1xISF1T+wxXijKToVLbwSSua486L4tXm8nE4lXExEMG+QxE02AxDYD=
-KshvWmyLqPiNewg+cXpbihxLyg=3D=0A=
-X-Gm-Message-State: AOJu0YwCezoL4rml44Ulwt5kaSYk47W3cr0evd5PMAYC8La4m9gnILH=
-N
-	FRelRR6zMz1Bz2qJo3eFKeNyq28N5Yo0kJIQ72rv0EkZFGKfSnjbac0fnT9zQAwbNl/tFnTmfu=
-G
-	Y3REKAMgIbWmVvmHWWGOk0v3R69UX-Google-Smtp-Source: AGHT+IFNbTnA2C1UowyvpIWf=
-WMecar3RYOVPJRlOoVy5NMmPOOKB6ZhvqfzCxbpKkf/w3Z3THbX/GA+A1iwjf07EvPYX-Receiv=
-ed: by 2002:a17:90a:be04:b0:2a2:1415:723d with SMTP id
- a4-20020a17090abe0400b002a21415723dmr3177860pjs.42.1711754926271; Fri, 29 =
-Mar
- 2024 16:28:46 -0700 (PDT)
-Precedence: bulk
-X-Mailing-List: netdev@vger.kernel.org
-List-Id: <netdev.vger.kernel.org>
-List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
-List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
-MIME-Version: 1.0
-References: <20240311093526.1010158-1-dongmenglong.8@bytedance.com>
- <20240311093526.1010158-2-dongmenglong.8@bytedance.com> <CAADnVQKQPS5NcvEo=
-uH4JqZ2fKgQAC+LtcwhX9iXYoiEkF_M94Q@mail.gmail.com>
- <CALz3k9i5G5wWi+rtvHPwVLOUAXVMCiU_8QUZs87TEYgR_0wpPA@mail.gmail.com>
- <CAADnVQJ_ZCzMmT1aBsNXEBFfYNSVBdBXmLocjR0PPEWtYQrQFw@mail.gmail.com>
- <CALz3k9icPePb0c4FE67q=3DU0hrePorN9gDpQrKTR_sXbLMfDA@mail.gmail.com>
- <CAADnVQLwgw8bQ7OHBbqLhcPJ2QpxiGw3fkMFur+2cjZpM_78oA@mail.gmail.com>
- <CALz3k9g9k7fEwdTZVLhrmGoXp8CE47Q+83r-AZDXrzzuR+CjVA@mail.gmail.com>
- <CAADnVQLHpi3J6cBJ0QBgCQ2aY6fWGnVvNGdfi3W-jmoa9d1eVQ@mail.gmail.com>
- <CALz3k9g-U8ih=3DJPRbyU9x_9cp00fNkU3PGQ6jP0WJ+=3DmqQ@mail.gmail.com>
- <CALz3k9jG5Jrqw=3Djt05yMkEF-1u909GbBYrV-02W0dQtm6KQQ@mail.gmail.com> <2024=
-0328111330.194dcbe5@gandalf.local.home>
-In-Reply-To: <20240328111330.194dcbe5@gandalf.local.home>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Fri, 29 Mar 2024 16:28:33 -0700
-Message-ID: <CAEf4BzYgzOti+Hfdn3SUCjuofGedXRSGApVDD+K2TdG6oNE-pw@mail.gmail=
-.com>
-Subject: Re: [External] Re: [PATCH bpf-next v2 1/9] bpf: tracing: add suppo=
-rt
- to record and check the accessed args
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: =3DTF-8?B?5qKm6b6Z6JGj?=3Dongmenglong.8@bytedance.com>,=20
-	Alexei Starovoitov <alexei.starovoitov@gmail.com>, Jiri Olsa <jolsa@kernel=
-.org>,=20
-	Andrii Nakryiko <andrii@kernel.org>, Alexei Starovoitov <ast@kernel.org>,=
-=20
-	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@linux=
-.dev>, Eddy Z <eddyz87@gmail.com>,=20
-	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,=20
-	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,=
-=20
-	Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>,=20
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntra=
-eger@linux.ibm.com>,=20
-	Sven Schnelle <svens@linux.ibm.com>, "David S. Miller" <davem@davemloft.ne=
-t>,=20
-	David Ahern <dsahern@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com=
->,=20
-	X86 ML <x86@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com=
->,=20
-	Quentin Monnet <quentin@isovalent.com>, bpf <bpf@vger.kernel.org>,=20
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kerne=
-l@vger.kernel.org>,=20
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger=
-.kernel.org>,=20
-	Network Development <netdev@vger.kernel.org>, linux-trace-kernel@vger.kern=
-el.org,=20
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, l=
-inux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset=3DTF-8"
-Content-Transfer-Encoding: quoted-printable
-Return-Path: netdev+bounces-83483-steffen.klassert=3Dcunet.com@vger.kernel.=
-org
-X-MS-Exchange-Organization-OriginalArrivalTime: 29 Mar 2024 23:29:03.8846
- (UTC)
-X-MS-Exchange-Organization-Network-Message-Id: d7c7485a-e2b7-4948-127e-08dc=
-50480570
-X-MS-Exchange-Organization-OriginalClientIPAddress: 62.96.220.36
-X-MS-Exchange-Organization-OriginalServerIPAddress: 10.53.40.202
-X-MS-Exchange-Organization-Cross-Premises-Headers-Processed: cas-essen-02.s=
-ecunet.de
-X-MS-Exchange-Organization-OrderedPrecisionLatencyInProgress: LSRV=3Dx-dres=
-den-01.secunet.de:TOTAL-HUB=3D432|SMR=3D337(SMRDE=3D034|SMRC=3D302(SMRCL=3D=
-102|X-SMRCR=3D303))|CAT=3D093(CATOS=3D011
- (CATSM=3D011(CATSM-Malware
- Agent=3D011))|CATRESL=3D039(CATRESLP2R=3D020)|CATORES=3D041
- (CATRS=3D041(CATRS-Index Routing Agent=3D040)));2024-03-29T23:29:04.328Z
-X-MS-Exchange-Forest-ArrivalHubServer: mbx-dresden-01.secunet.de
-X-MS-Exchange-Organization-AuthSource: cas-essen-02.secunet.de
-X-MS-Exchange-Organization-AuthAs: Anonymous
-X-MS-Exchange-Organization-FromEntityHeader: Internet
-X-MS-Exchange-Organization-OriginalSize: 13304
-X-MS-Exchange-Organization-HygienePolicy: Standard
-X-MS-Exchange-Organization-MessageLatency: SRV=CAs-essen-02.secunet.de:TOTA=
-L-FE=3D012|SMR=3D009(SMRPI=3D007(SMRPI-FrontendProxyAgent=3D007))|SMS=3D002
-X-MS-Exchange-Organization-AVStamp-Enterprise: 1.0
-X-MS-Exchange-Organization-Recipient-Limit-Verified: True
-X-MS-Exchange-Organization-TotalRecipientCount: 1
-X-MS-Exchange-Organization-Rules-Execution-History: 0b0cf904-14ac-4724-8bdf=
--482ee6223cf2%%%fd34672d-751c-45ae-a963-ed177fcabe23%%%d8080257-b0c3-47b4-b=
-0db-23bc0c8ddb3c%%%95e591a2-5d7d-4afa-b1d0-7573d6c0a5d9%%%f7d0f6bc-4dcc-487=
-6-8c5d-b3d6ddbb3d55%%%16355082-c50b-4214-9c7d-d39575f9f79b
-X-MS-Exchange-Forest-RulesExecuted: mbx-dresden-01
-X-MS-Exchange-Organization-RulesExecuted: mbx-dresden-01
-X-MS-Exchange-Forest-IndexAgent-0: AQ0CZW4AAfkHAAAPAAADH4sIAAAAAAAEAIVWzW7k=
-xhHu0cxw/qQdIb
- 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
- laGvWfeXXggjxWE3mLBYOMuzW4yEj7iFHq0CqD0i+o/JH0C86nVKie
- cMW/E0olB4K3aJ4jEhtxdxPyhPPb49oWz6dcaU1ovTqiJuPM2Jj7bt
- KEwKF50ixeq8Aa/2Xh0QwBzhC6wonoins1dceiPqT27As/jDxsEgGK
- vLrM+mRxrxqZlrFgNm4I/oAnmwwcnlRekz7xR7qYpyJGIue08hn+kF
- F4JeHLZJPkjojGQct6VQ9Sb438qE7HgBgYi1HmcyJ26xC8qlDf8aFh
- nmQ6akqmqUcmnCaySJJQn/Z/BIV/1au5EQAAAQLeAjw/eG1sIHZlcn
- Npb249IjEuMCIgZW5jb2Rpbmc9InV0Zi0xNiI/Pg0KPFRhc2tTZXQ+
- DQogIDxWZXJzaW9uPjE1LjAuMC4wPC9WZXJzaW9uPg0KICA8VGFza3
- M+DQogICAgPFRhc2sgU3RhcnRJbmRleD0iMTY2OSI+DQogICAgICA8
- VGFza1N0cmluZz5Db25zaWRlcmluZyB0aGF0IHdlIGFsc28gbmVlZC
- B0byBkbyBoYXNoIGxvb2t1cDwvVGFza1N0cmluZz4NCiAgICAgIDxB
- c3NpZ25lZXM+DQogICAgICAgIDxFbWFpbFVzZXIgSWQ9InJvc3RlZH
- RAZ29vZG1pcy5vcmciPlN0ZXZlbiBSb3N0ZWR0PC9FbWFpbFVzZXI+
- DQogICAgICA8L0Fzc2lnbmVlcz4NCiAgICA8L1Rhc2s+DQogIDwvVG
- Fza3M+DQo8L1Rhc2tTZXQ+AQrEAjw/eG1sIHZlcnNpb249IjEuMCIg
- ZW5jb2Rpbmc9InV0Zi0xNiI/Pg0KPEVtYWlsU2V0Pg0KICA8VmVyc2
- lvbj4xNS4wLjAuMDwvVmVyc2lvbj4NCiAgPEVtYWlscz4NCiAgICA8
- RW1haWwgU3RhcnRJbmRleD0iNDgiPg0KICAgICAgPEVtYWlsU3RyaW
- 5nPnJvc3RlZHRAZ29vZG1pcy5vcmc8L0VtYWlsU3RyaW5nPg0KICAg
- IDwvRW1haWw+DQogICAgPEVtYWlsIFN0YXJ0SW5kZXg9IjEyNSI+DQ
- ogICAgICA8RW1haWxTdHJpbmc+ZG9uZ21lbmdsb25nLjhAYnl0ZWRh
- bmNlLmNvbTwvRW1haWxTdHJpbmc+DQogICAgPC9FbWFpbD4NCiAgPC
- 9FbWFpbHM+DQo8L0VtYWlsU2V0PgEM8AM8P3htbCB2ZXJzaW9uPSIx
- LjAiIGVuY29kaW5nPSJ1dGYtMTYiPz4NCjxDb250YWN0U2V0Pg0KIC
- A8VmVyc2lvbj4xNS4wLjAuMDwvVmVyc2lvbj4NCiAgPENvbnRhY3Rz
- Pg0KICAgIDxDb250YWN0IFN0YXJ0SW5kZXg9IjMyIj4NCiAgICAgID
- xQZXJzb24gU3RhcnRJbmRleD0iMzIiPg0KICAgICAgICA8UGVyc29u
- U3RyaW5nPlN0ZXZlbiBSb3N0ZWR0PC9QZXJzb25TdHJpbmc+DQogIC
- AgICA8L1BlcnNvbj4NCiAgICAgIDxFbWFpbHM+DQogICAgICAgIDxF
- bWFpbCBTdGFydEluZGV4PSI0OCI+DQogICAgICAgICAgPEVtYWlsU3
- RyaW5nPnJvc3RlZHRAZ29vZG1pcy5vcmc8L0VtYWlsU3RyaW5nPg0K
- ICAgICAgICA8L0VtYWlsPg0KICAgICAgPC9FbWFpbHM+DQogICAgIC
- A8Q29udGFjdFN0cmluZz5TdGV2ZW4gUm9zdGVkdCAmbHQ7cm9zdGVk
- dEBnb29kbWlzLm9yZzwvQ29udGFjdFN0cmluZz4NCiAgICA8L0Nvbn
- RhY3Q+DQogIDwvQ29udGFjdHM+DQo8L0NvbnRhY3RTZXQ+AQ7PAVJl
- dHJpZXZlck9wZXJhdG9yLDEwLDE7UmV0cmlldmVyT3BlcmF0b3IsMT
- EsMTtQb3N0RG9jUGFyc2VyT3BlcmF0b3IsMTAsMDtQb3N0RG9jUGFy
- c2VyT3BlcmF0b3IsMTEsMDtQb3N0V29yZEJyZWFrZXJEaWFnbm9zdG
- ljT3BlcmF0b3IsMTAsMTtQb3N0V29yZEJyZWFrZXJEaWFnbm9zdGlj
- T3BlcmF0b3IsMTEsMDtUcmFuc3BvcnRXcml0ZXJQcm9kdWNlciwyMC wyOA=3D=0A=
-X-MS-Exchange-Forest-IndexAgent: 1 3445
-X-MS-Exchange-Forest-EmailMessageHash: 272706DD
-X-MS-Exchange-Forest-Language: en
-X-MS-Exchange-Organization-Processed-By-Journaling: Journal Agent
-
-On Thu, Mar 28, 2024 at 8:10=E2=80=AFAM Steven Rostedt <rostedt@goodmis.org=
-> wrote:
->
-> On Thu, 28 Mar 2024 22:43:46 +0800
-> =E6=A2=A6=E9=BE=99=E8=91=A3 <dongmenglong.8@bytedance.com> wrote:
->
-> > I have done a simple benchmark on creating 1000
-> > trampolines. It is slow, quite slow, which consume up to
-> > 60s. We can't do it this way.
-> >
-> > Now, I have a bad idea. How about we introduce
-> > a "dynamic trampoline"? The basic logic of it can be:
-> >
-> > """
-> > save regs
-> > bpfs =3D trampoline_lookup_ip(ip)
-> > fentry =3D bpfs->fentries
-> > while fentry:
-> >   fentry(ctx)
-> >   fentry =3D fentry->next
-> >
-> > call origin
-> > save return value
-> >
-> > fexit =3D bpfs->fexits
-> > while fexit:
-> >   fexit(ctx)
-> >   fexit =3D fexit->next
-> >
-> > xxxxxx
-> > """
-> >
-> > And we lookup the "bpfs" by the function ip in a hash map
-> > in trampoline_lookup_ip. The type of "bpfs" is:
-> >
-> > struct bpf_array {
-> >   struct bpf_prog *fentries;
-> >  struct bpf_prog *fexits;
-> >   struct bpf_prog *modify_returns;
-> > }
-> >
-> > When we need to attach the bpf progA to function A/B/C,
-> > we only need to create the bpf_arrayA, bpf_arrayB, bpf_arrayC
-> > and add the progA to them, and insert them to the hash map
-> > "direct_call_bpfs", and attach the "dynamic trampoline" to
-> > A/B/C. If bpf_arrayA exist, just add progA to the tail of
-> > bpf_arrayA->fentries. When we need to attach progB to
-> > B/C, just add progB to bpf_arrayB->fentries and
-> > bpf_arrayB->fentries.
-> >
-> > Compared to the trampoline, extra overhead is introduced
-> > by the hash lookuping.
-> >
-> > I have not begun to code yet, and I am not sure the overhead is
-> > acceptable. Considering that we also need to do hash lookup
-> > by the function in kprobe_multi, maybe the overhead is
-> > acceptable?
->
-> Sounds like you are just recreating the function management that ftrace
-> has. It also can add thousands of trampolines very quickly, because it do=
-es
-> it in batches. It takes special synchronization steps to attach to fentry=
-.
-> ftrace (and I believe multi-kprobes) updates all the attachments for each
-> step, so the synchronization needed is only done once.
->
-> If you really want to have thousands of functions, why not just register =
-it
-> with ftrace itself. It will give you the arguments via the ftrace_regs
-> structure. Can't you just register a program as the callback?
->
-> It will probably make your accounting much easier, and just let ftrace
-> handle the fentry logic. That's what it was made to do.
->
-
-I thought I'll just ask instead of digging through code, sorry for
-being lazy :) Is there any way to pass pt_regs/ftrace_regs captured
-before function execution to a return probe (fexit/kretprobe)? I.e.,
-how hard is it to pass input function arguments to a kretprobe? That's
-the biggest advantage of fexit over kretprobe, and if we can make
-these original pt_regs/ftrace_regs available to kretprobe, then
-multi-kretprobe will effectively be this multi-fexit.
-
-> -- Steve
-
-X-sender: <linux-kernel+bounces-125526-steffen.klassert=3Dcunet.com@vger.ke=
-rnel.org>
-X-Receiver: <steffen.klassert@secunet.com> ORCPT=3Dc822;steffen.klassert@se=
-cunet.com NOTIFY=3DVER; X-ExtendedProps=3DAVABYAAgAAAAUAFAARAPDFCS25BAlDktI=
-I2g02frgPADUAAABNaWNyb3NvZnQuRXhjaGFuZ2UuVHJhbnNwb3J0LkRpcmVjdG9yeURhdGEuSX=
-NSZXNvdXJjZQIAAAUAagAJAAEAAAAAAAAABQAWAAIAAAUAQwACAAAFAEYABwADAAAABQBHAAIAA=
-AUAEgAPAGIAAAAvbz1zZWN1bmV0L291PUV4Y2hhbmdlIEFkbWluaXN0cmF0aXZlIEdyb3VwIChG=
-WURJQk9IRjIzU1BETFQpL2NuPVJlY2lwaWVudHMvY249U3RlZmZlbiBLbGFzc2VydDY4YwUACwA=
-XAL4AAACheZxkHSGBRqAcAp3ukbifQ049REI2LENOPURhdGFiYXNlcyxDTj1FeGNoYW5nZSBBZG=
-1pbmlzdHJhdGl2ZSBHcm91cCAoRllESUJPSEYyM1NQRExUKSxDTj1BZG1pbmlzdHJhdGl2ZSBHc=
-m91cHMsQ049c2VjdW5ldCxDTj1NaWNyb3NvZnQgRXhjaGFuZ2UsQ049U2VydmljZXMsQ049Q29u=
-ZmlndXJhdGlvbixEQz1zZWN1bmV0LERDPWRlBQAOABEABiAS9uuMOkqzwmEZDvWNNQUAHQAPAAw=
-AAABtYngtZXNzZW4tMDIFADwAAgAADwA2AAAATWljcm9zb2Z0LkV4Y2hhbmdlLlRyYW5zcG9ydC=
-5NYWlsUmVjaXBpZW50LkRpc3BsYXlOYW1lDwARAAAAS2xhc3NlcnQsIFN0ZWZmZW4FAAwAAgAAB=
-QBsAAIAAAUAWAAXAEoAAADwxQktuQQJQ5LSCNoNNn64Q049S2xhc3NlcnQgU3RlZmZlbixPVT1V=
-c2VycyxPVT1NaWdyYXRpb24sREM9c2VjdW5ldCxEQz1kZQUAJgACAAEFACIADwAxAAAAQXV0b1J=
-lc3BvbnNlU3VwcHJlc3M6IDANClRyYW5zbWl0SGlzdG9yeTogRmFsc2UNCg8ALwAAAE1pY3Jvc2=
-9mdC5FeGNoYW5nZS5UcmFuc3BvcnQuRXhwYW5zaW9uR3JvdXBUeXBlDwAVAAAATWVtYmVyc0dyb=
-3VwRXhwYW5zaW9uBQAjAAIAAQ=3D=0A=
-X-CreatedBy: MSExchange15
-X-HeloDomain: a.mx.secunet.com
-X-ExtendedProps: BQBjAAoAw5Tp8x1Q3AgFAGEACAABAAAABQA3AAIAAA8APAAAAE1pY3Jvc2=
-9mdC5FeGNoYW5nZS5UcmFuc3BvcnQuTWFpbFJlY2lwaWVudC5Pcmdhbml6YXRpb25TY29wZREAA=
-AAAAAAAAAAAAAAAAAAAAAUASQACAAEFAGIACgBvAAAAjYoAAAUABAAUIAEAAAAcAAAAc3RlZmZl=
-bi5rbGFzc2VydEBzZWN1bmV0LmNvbQUABgACAAEFACkAAgABDwAJAAAAQ0lBdWRpdGVkAgABBQA=
-CAAcAAQAAAAUAAwAHAAAAAAAFAAUAAgABBQBkAA8AAwAAAEh1Yg=3D=0A=
-X-Source: SMTP:Default MBX-DRESDEN-01
-X-SourceIPAddress: 62.96.220.36
-X-EndOfInjectedXHeaders: 19736
-Received: from cas-essen-01.secunet.de (10.53.40.201) by
- mbx-dresden-01.secunet.de (10.53.40.199) with Microsoft SMTP Server
- (version=3DS1_2, cipher=3DS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.37; Sat, 30 Mar 2024 00:29:11 +0100
-Received: from a.mx.secunet.com (62.96.220.36) by cas-essen-01.secunet.de
- (10.53.40.201) with Microsoft SMTP Server (version=3DS1_2,
- cipher=3DS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Sat, 30 Mar 2024 00:29:11 +0100
-Received: from localhost (localhost [127.0.0.1])
-	by a.mx.secunet.com (Postfix) with ESMTP id 97DA5208A6
-	for <steffen.klassert@secunet.com>; Sat, 30 Mar 2024 00:29:11 +0100 (CET)
-X-Virus-Scanned: by secunet
-X-Spam-Flag: NO
-X-Spam-Score: -2.749
-X-Spam-Level:
-X-Spam-Status: No, score=3D.749 tagged_above=3D99 required=3D1
-	tests=3DAYES_00=3D.9, DKIM_SIGNED=3D1, DKIM_VALID=3D.1,
-	DKIM_VALID_AU=3D.1, FREEMAIL_FORGED_FROMDOMAIN=3D001,
-	FREEMAIL_FROM=3D001, HEADER_FROM_DIFFERENT_DOMAINS=3D249,
-	MAILING_LIST_MULTI=3D, RCVD_IN_DNSWL_NONE=3D.0001,
-	SPF_HELO_NONE=3D001, SPF_PASS=3D.001]
-	autolearn=3Davailable autolearn_force=3D
-Authentication-Results: a.mx.secunet.com (amavisd-new);
-	dkim=3Dss (2048-bit key) header.d=3Dail.com
-Received: from a.mx.secunet.com ([127.0.0.1])
-	by localhost (a.mx.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id auCb2c0hRYxs for <steffen.klassert@secunet.com>;
-	Sat, 30 Mar 2024 00:29:11 +0100 (CET)
-Received-SPF: Pass (sender SPF authorized) identity=3Dilfrom; client-ip=147=
-.75.80.249; helo=3D.mirrors.kernel.org; envelope-from=3Dnux-kernel+bounces-=
-125526-steffen.klassert=3Dcunet.com@vger.kernel.org; receiver=3Deffen.klass=
-ert@secunet.com=20
-DKIM-Filter: OpenDKIM Filter v2.11.0 a.mx.secunet.com F33F320870
-Received: from am.mirrors.kernel.org (am.mirrors.kernel.org [147.75.80.249]=
-)
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by a.mx.secunet.com (Postfix) with ESMTPS id F33F320870
-	for <steffen.klassert@secunet.com>; Sat, 30 Mar 2024 00:29:10 +0100 (CET)
-Received: from smtp.subspace.kernel.org (wormhole.subspace.kernel.org [52.2=
-5.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by am.mirrors.kernel.org (Postfix) with ESMTPS id 6AFD21F22615
-	for <steffen.klassert@secunet.com>; Fri, 29 Mar 2024 23:29:10 +0000 (UTC)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4738413E6BF;
-	Fri, 29 Mar 2024 23:28:51 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=3Dss (2048-bit key) header.d=3Dail.com header.i=3Dmail.com header.b=
-=3Dm8qb98v"
-Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.2=
-15.169])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEAE5347B6;
-	Fri, 29 Mar 2024 23:28:46 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org; arc=3Dne smtp.client-ip 9=
-.85.215.169
-ARC-Seal: i=3D a=3Da-sha256; d=3Dbspace.kernel.org; s=3Dc-20240116;
-	t=1711754928; cv=3Dne; b=3DF0sOPYXhrbjY9cOS6Nmj4VXF++Yx8MtZjBDxanMefli+Bul=
-HO4QXKn7qwpW3i+7uN65u5cLGhThPJZ2akcLjIgY9UcOJfH9j6D484gs+N5O8HXdnQzg8eZ93GR=
-BeBoDesuvP5WyVY1RlteRQZLbYRhS27z9mKgIzxIt2bJ+ZoARC-Message-Signature: i=3D =
-a=3Da-sha256; d=3Dbspace.kernel.org;
-	s=3Dc-20240116; t=1711754928; c=3Dlaxed/simple;
-	bh=3DCkTC/9QOPKjcAq26pJFK75aD0g4y2+LXJsB0P1JY0=3D=0A=
-	h=3DME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type; b=3D4xUrtWjk3J0kbVbPD5XAlV9JEyhRuyqvveB8mIxkffhtOM1Y7=
-m4+o5XzftYMKn592GD5CBw41tS2CCKYzMtaJurKzqjxkWsFCCe3ELmR9AEyVvEBDa4PpVwvE2aS=
-0et1z2P9rOIk0ldc7OMYPnDpWEu3jfzLxb8Y4CGi6sJbEARC-Authentication-Results: i=
-=3D smtp.subspace.kernel.org; dmarc=3Dss (p=3Dne dis=3Dne) header.from=3Dai=
-l.com; spf=3Dss smtp.mailfrom=3Dail.com; dkim=3Dss (2048-bit key) header.d=
-=3Dail.com header.i=3Dmail.com header.b=3D8qb98v; arc=3Dne smtp.client-ip 9=
-.85.215.169
-Authentication-Results: smtp.subspace.kernel.org; dmarc=3Dss (p=3Dne dis=3D=
-ne) header.from=3Dail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=3Dss smtp.mailfrom=3D=
-ail.com
-Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-5d3907ff12=
-8so1860607a12.3;
-        Fri, 29 Mar 2024 16:28:46 -0700 (PDT)
-DKIM-Signature: v=3D a=3Da-sha256; c=3Dlaxed/relaxed;
-        d=3Dail.com; s 230601; t=1711754926; x=1712359726; darn=3Der.kernel=
-.org;
-        h=3Dntent-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3DV1tZGanDBSafK6edOdycvbQYDEdHbTCxngJvsvk3c=3D=0A=
-        b=3D8qb98vO+2rZQDr4ACVbzWOOBhMbNP973of56VDx+7dzKarS23b4VDs0QCZjE/ze=
-y
-         IJ/g2gwkTlDZp557gqFy6HVirUKvvI/RhzQOrPjsYmqnt0OS+LXZWxBGcD9ooJmS1u=
-1N
-         Wdq60dFcb/ee3JYL5bUFYzr07cJmwvvmIZoI/b1KQpo+K6ftMzexzXAN8iXh1nJo1Q=
-dC
-         4CFMaxfeoUIzc6fyg2ScGW/5rPdZFOXPIXIjGrA7V7Ij1KqAkHvKfDNzy1QS7jMz6z=
-0E
-         /W8l0QAzZuWpon/+MGFe6iPNG81xSsUfka4lIyvOK31ZY63E/sqixJRnh7RpDV18Ws=
-JY
-         CtMw=3D=0A=
-X-Google-DKIM-Signature: v=3D a=3Da-sha256; c=3Dlaxed/relaxed;
-        d=1E100.net; s 230601; t=1711754926; x=1712359726;
-        h=3Dntent-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3DV1tZGanDBSafK6edOdycvbQYDEdHbTCxngJvsvk3c=3D=0A=
-        b=3D6CYGdij3I8SMDFuLcEkXFxxuMDLhpfo6RmyHf+rD3z+RBxrsmoJ1YligUcYT3Vo=
-L
-         YtUHguMvFF7xT9YjyGrK4ujkEA13NT+X1hwUNhKsWaXhpLBG2Wyh4eNaw4zkHN28eY=
-kq
-         dj4reqkSxtXQvjpns3NtubA0ld6+woHqICxMQVR26maDt91aYEPooASIjOoCRnxMnI=
-pI
-         KqBMby8F8aarmJfc6c16rp9hDJK1Cr34usuvnIOrnJ2bdp2qTCOMpl6ARzTAtPA9p7=
-n7
-         9p9R345kssoRHOmDzo2WcF/0oG4wRjb+owNVpsCTExoqfee0d+FSjcyFxitgRQvMQz=
-cC
-         9Pqw=3D=0A=
-X-Forwarded-Encrypted: i=3D AJvYcCVlnHyNUDZ0fbOQSV0NEVvOtJTaOmaxwPgZy047hqz=
-taIz7SMsnLeomStI1EizImJzlky/xJNYIS4RJsXEX2rbQoVyo7MFG2+RfwxWnjGonfBHU0k5JSl=
-RGPFtF8Te8neu3qxCi25AWVXDje1k1qkzJLjDnQ+s4R4WJmDmbw/KdNN4l/EBnMx0Wq+GOvmC+D=
-kjFlyebAZoKGfgwdw8BgI1xISF1T+wxXijKToVLbwSSua486L4tXm8nE4lXExEMG+QxE02AxDYD=
-KshvWmyLqPiNewg+cXpbihxLyg=3D=0A=
-X-Gm-Message-State: AOJu0YwCezoL4rml44Ulwt5kaSYk47W3cr0evd5PMAYC8La4m9gnILH=
-N
-	FRelRR6zMz1Bz2qJo3eFKeNyq28N5Yo0kJIQ72rv0EkZFGKfSnjbac0fnT9zQAwbNl/tFnTmfu=
-G
-	Y3REKAMgIbWmVvmHWWGOk0v3R69UX-Google-Smtp-Source: AGHT+IFNbTnA2C1UowyvpIWf=
-WMecar3RYOVPJRlOoVy5NMmPOOKB6ZhvqfzCxbpKkf/w3Z3THbX/GA+A1iwjf07EvPYX-Receiv=
-ed: by 2002:a17:90a:be04:b0:2a2:1415:723d with SMTP id
- a4-20020a17090abe0400b002a21415723dmr3177860pjs.42.1711754926271; Fri, 29 =
-Mar
- 2024 16:28:46 -0700 (PDT)
-Precedence: bulk
-X-Mailing-List: linux-kernel@vger.kernel.org
-List-Id: <linux-kernel.vger.kernel.org>
-List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
-List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
-MIME-Version: 1.0
-References: <20240311093526.1010158-1-dongmenglong.8@bytedance.com>
- <20240311093526.1010158-2-dongmenglong.8@bytedance.com> <CAADnVQKQPS5NcvEo=
-uH4JqZ2fKgQAC+LtcwhX9iXYoiEkF_M94Q@mail.gmail.com>
- <CALz3k9i5G5wWi+rtvHPwVLOUAXVMCiU_8QUZs87TEYgR_0wpPA@mail.gmail.com>
- <CAADnVQJ_ZCzMmT1aBsNXEBFfYNSVBdBXmLocjR0PPEWtYQrQFw@mail.gmail.com>
- <CALz3k9icPePb0c4FE67q=3DU0hrePorN9gDpQrKTR_sXbLMfDA@mail.gmail.com>
- <CAADnVQLwgw8bQ7OHBbqLhcPJ2QpxiGw3fkMFur+2cjZpM_78oA@mail.gmail.com>
- <CALz3k9g9k7fEwdTZVLhrmGoXp8CE47Q+83r-AZDXrzzuR+CjVA@mail.gmail.com>
- <CAADnVQLHpi3J6cBJ0QBgCQ2aY6fWGnVvNGdfi3W-jmoa9d1eVQ@mail.gmail.com>
- <CALz3k9g-U8ih=3DJPRbyU9x_9cp00fNkU3PGQ6jP0WJ+=3DmqQ@mail.gmail.com>
- <CALz3k9jG5Jrqw=3Djt05yMkEF-1u909GbBYrV-02W0dQtm6KQQ@mail.gmail.com> <2024=
-0328111330.194dcbe5@gandalf.local.home>
-In-Reply-To: <20240328111330.194dcbe5@gandalf.local.home>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Fri, 29 Mar 2024 16:28:33 -0700
-Message-ID: <CAEf4BzYgzOti+Hfdn3SUCjuofGedXRSGApVDD+K2TdG6oNE-pw@mail.gmail=
-.com>
-Subject: Re: [External] Re: [PATCH bpf-next v2 1/9] bpf: tracing: add suppo=
-rt
- to record and check the accessed args
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: =3DTF-8?B?5qKm6b6Z6JGj?=3Dongmenglong.8@bytedance.com>,=20
-	Alexei Starovoitov <alexei.starovoitov@gmail.com>, Jiri Olsa <jolsa@kernel=
-.org>,=20
-	Andrii Nakryiko <andrii@kernel.org>, Alexei Starovoitov <ast@kernel.org>,=
-=20
-	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@linux=
-.dev>, Eddy Z <eddyz87@gmail.com>,=20
-	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,=20
-	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,=
-=20
-	Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>,=20
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntra=
-eger@linux.ibm.com>,=20
-	Sven Schnelle <svens@linux.ibm.com>, "David S. Miller" <davem@davemloft.ne=
-t>,=20
-	David Ahern <dsahern@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com=
->,=20
-	X86 ML <x86@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com=
->,=20
-	Quentin Monnet <quentin@isovalent.com>, bpf <bpf@vger.kernel.org>,=20
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kerne=
-l@vger.kernel.org>,=20
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger=
-.kernel.org>,=20
-	Network Development <netdev@vger.kernel.org>, linux-trace-kernel@vger.kern=
-el.org,=20
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, l=
-inux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset=3DTF-8"
-Content-Transfer-Encoding: quoted-printable
-Return-Path: linux-kernel+bounces-125526-steffen.klassert=3Dcunet.com@vger.=
-kernel.org
-X-MS-Exchange-Organization-OriginalArrivalTime: 29 Mar 2024 23:29:11.6433
- (UTC)
-X-MS-Exchange-Organization-Network-Message-Id: 735e0fdb-3f55-4a65-f575-08dc=
-50480a0f
-X-MS-Exchange-Organization-OriginalClientIPAddress: 62.96.220.36
-X-MS-Exchange-Organization-OriginalServerIPAddress: 10.53.40.201
-X-MS-Exchange-Organization-Cross-Premises-Headers-Processed: cas-essen-01.s=
-ecunet.de
-X-MS-Exchange-Organization-OrderedPrecisionLatencyInProgress: LSRV=3Dx-dres=
-den-01.secunet.de:TOTAL-HUB=3D422|SMR=3D341(SMRDE=3D034|SMRC=3D306(SMRCL=3D=
-102|X-SMRCR=3D306))|CAT=3D080(CATOS=3D013
- (CATSM=3D012(CATSM-Malware
- Agent=3D012))|CATRESL=3D039(CATRESLP2R=3D019)|CATORES=3D027
- (CATRS=3D027(CATRS-Index Routing Agent=3D026)));2024-03-29T23:29:12.076Z
-X-MS-Exchange-Forest-ArrivalHubServer: mbx-dresden-01.secunet.de
-X-MS-Exchange-Organization-AuthSource: cas-essen-01.secunet.de
-X-MS-Exchange-Organization-AuthAs: Anonymous
-X-MS-Exchange-Organization-FromEntityHeader: Internet
-X-MS-Exchange-Organization-OriginalSize: 13320
-X-MS-Exchange-Organization-HygienePolicy: Standard
-X-MS-Exchange-Organization-MessageLatency: SRV=CAs-essen-01.secunet.de:TOTA=
-L-FE=3D011|SMR=3D008(SMRPI=3D005(SMRPI-FrontendProxyAgent=3D005))|SMS=3D003
-X-MS-Exchange-Organization-AVStamp-Enterprise: 1.0
-X-MS-Exchange-Organization-Recipient-Limit-Verified: True
-X-MS-Exchange-Organization-TotalRecipientCount: 1
-X-MS-Exchange-Organization-Rules-Execution-History: 0b0cf904-14ac-4724-8bdf=
--482ee6223cf2%%%fd34672d-751c-45ae-a963-ed177fcabe23%%%d8080257-b0c3-47b4-b=
-0db-23bc0c8ddb3c%%%95e591a2-5d7d-4afa-b1d0-7573d6c0a5d9%%%f7d0f6bc-4dcc-487=
-6-8c5d-b3d6ddbb3d55%%%16355082-c50b-4214-9c7d-d39575f9f79b
-X-MS-Exchange-Forest-RulesExecuted: mbx-dresden-01
-X-MS-Exchange-Organization-RulesExecuted: mbx-dresden-01
-X-MS-Exchange-Forest-IndexAgent-0: AQ0CZW4AAfkHAAAPAAADH4sIAAAAAAAEAIVWzW7k=
-xhHu0cxw/qQdIb
- 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
- laGvWfeXXggjxWE3mLBYOMuzW4yEj7iFHq0CqD0i+o/JH0C86nVKie
- cMW/E0olB4K3aJ4jEhtxdxPyhPPb49oWz6dcaU1ovTqiJuPM2Jj7bt
- KEwKF50ixeq8Aa/2Xh0QwBzhC6wonoins1dceiPqT27As/jDxsEgGK
- vLrM+mRxrxqZlrFgNm4I/oAnmwwcnlRekz7xR7qYpyJGIue08hn+kF
- F4JeHLZJPkjojGQct6VQ9Sb438qE7HgBgYi1HmcyJ26xC8qlDf8aFh
- nmQ6akqmqUcmnCaySJJQn/Z/BIV/1au5EQAAAQLeAjw/eG1sIHZlcn
- Npb249IjEuMCIgZW5jb2Rpbmc9InV0Zi0xNiI/Pg0KPFRhc2tTZXQ+
- DQogIDxWZXJzaW9uPjE1LjAuMC4wPC9WZXJzaW9uPg0KICA8VGFza3
- M+DQogICAgPFRhc2sgU3RhcnRJbmRleD0iMTY2OSI+DQogICAgICA8
- VGFza1N0cmluZz5Db25zaWRlcmluZyB0aGF0IHdlIGFsc28gbmVlZC
- B0byBkbyBoYXNoIGxvb2t1cDwvVGFza1N0cmluZz4NCiAgICAgIDxB
- c3NpZ25lZXM+DQogICAgICAgIDxFbWFpbFVzZXIgSWQ9InJvc3RlZH
- RAZ29vZG1pcy5vcmciPlN0ZXZlbiBSb3N0ZWR0PC9FbWFpbFVzZXI+
- DQogICAgICA8L0Fzc2lnbmVlcz4NCiAgICA8L1Rhc2s+DQogIDwvVG
- Fza3M+DQo8L1Rhc2tTZXQ+AQrEAjw/eG1sIHZlcnNpb249IjEuMCIg
- ZW5jb2Rpbmc9InV0Zi0xNiI/Pg0KPEVtYWlsU2V0Pg0KICA8VmVyc2
- lvbj4xNS4wLjAuMDwvVmVyc2lvbj4NCiAgPEVtYWlscz4NCiAgICA8
- RW1haWwgU3RhcnRJbmRleD0iNDgiPg0KICAgICAgPEVtYWlsU3RyaW
- 5nPnJvc3RlZHRAZ29vZG1pcy5vcmc8L0VtYWlsU3RyaW5nPg0KICAg
- IDwvRW1haWw+DQogICAgPEVtYWlsIFN0YXJ0SW5kZXg9IjEyNSI+DQ
- ogICAgICA8RW1haWxTdHJpbmc+ZG9uZ21lbmdsb25nLjhAYnl0ZWRh
- bmNlLmNvbTwvRW1haWxTdHJpbmc+DQogICAgPC9FbWFpbD4NCiAgPC
- 9FbWFpbHM+DQo8L0VtYWlsU2V0PgEM8AM8P3htbCB2ZXJzaW9uPSIx
- LjAiIGVuY29kaW5nPSJ1dGYtMTYiPz4NCjxDb250YWN0U2V0Pg0KIC
- A8VmVyc2lvbj4xNS4wLjAuMDwvVmVyc2lvbj4NCiAgPENvbnRhY3Rz
- Pg0KICAgIDxDb250YWN0IFN0YXJ0SW5kZXg9IjMyIj4NCiAgICAgID
- xQZXJzb24gU3RhcnRJbmRleD0iMzIiPg0KICAgICAgICA8UGVyc29u
- U3RyaW5nPlN0ZXZlbiBSb3N0ZWR0PC9QZXJzb25TdHJpbmc+DQogIC
- AgICA8L1BlcnNvbj4NCiAgICAgIDxFbWFpbHM+DQogICAgICAgIDxF
- bWFpbCBTdGFydEluZGV4PSI0OCI+DQogICAgICAgICAgPEVtYWlsU3
- RyaW5nPnJvc3RlZHRAZ29vZG1pcy5vcmc8L0VtYWlsU3RyaW5nPg0K
- ICAgICAgICA8L0VtYWlsPg0KICAgICAgPC9FbWFpbHM+DQogICAgIC
- A8Q29udGFjdFN0cmluZz5TdGV2ZW4gUm9zdGVkdCAmbHQ7cm9zdGVk
- dEBnb29kbWlzLm9yZzwvQ29udGFjdFN0cmluZz4NCiAgICA8L0Nvbn
- RhY3Q+DQogIDwvQ29udGFjdHM+DQo8L0NvbnRhY3RTZXQ+AQ7PAVJl
- dHJpZXZlck9wZXJhdG9yLDEwLDA7UmV0cmlldmVyT3BlcmF0b3IsMT
- EsMTtQb3N0RG9jUGFyc2VyT3BlcmF0b3IsMTAsMDtQb3N0RG9jUGFy
- c2VyT3BlcmF0b3IsMTEsMDtQb3N0V29yZEJyZWFrZXJEaWFnbm9zdG
- ljT3BlcmF0b3IsMTAsMTtQb3N0V29yZEJyZWFrZXJEaWFnbm9zdGlj
- T3BlcmF0b3IsMTEsMDtUcmFuc3BvcnRXcml0ZXJQcm9kdWNlciwyMC wxNg=3D=0A=
-X-MS-Exchange-Forest-IndexAgent: 1 3445
-X-MS-Exchange-Forest-EmailMessageHash: 272706DD
-X-MS-Exchange-Forest-Language: en
-X-MS-Exchange-Organization-Processed-By-Journaling: Journal Agent
-
-On Thu, Mar 28, 2024 at 8:10=E2=80=AFAM Steven Rostedt <rostedt@goodmis.org=
-> wrote:
->
-> On Thu, 28 Mar 2024 22:43:46 +0800
-> =E6=A2=A6=E9=BE=99=E8=91=A3 <dongmenglong.8@bytedance.com> wrote:
->
-> > I have done a simple benchmark on creating 1000
-> > trampolines. It is slow, quite slow, which consume up to
-> > 60s. We can't do it this way.
-> >
-> > Now, I have a bad idea. How about we introduce
-> > a "dynamic trampoline"? The basic logic of it can be:
-> >
-> > """
-> > save regs
-> > bpfs =3D trampoline_lookup_ip(ip)
-> > fentry =3D bpfs->fentries
-> > while fentry:
-> >   fentry(ctx)
-> >   fentry =3D fentry->next
-> >
-> > call origin
-> > save return value
-> >
-> > fexit =3D bpfs->fexits
-> > while fexit:
-> >   fexit(ctx)
-> >   fexit =3D fexit->next
-> >
-> > xxxxxx
-> > """
-> >
-> > And we lookup the "bpfs" by the function ip in a hash map
-> > in trampoline_lookup_ip. The type of "bpfs" is:
-> >
-> > struct bpf_array {
-> >   struct bpf_prog *fentries;
-> >  struct bpf_prog *fexits;
-> >   struct bpf_prog *modify_returns;
-> > }
-> >
-> > When we need to attach the bpf progA to function A/B/C,
-> > we only need to create the bpf_arrayA, bpf_arrayB, bpf_arrayC
-> > and add the progA to them, and insert them to the hash map
-> > "direct_call_bpfs", and attach the "dynamic trampoline" to
-> > A/B/C. If bpf_arrayA exist, just add progA to the tail of
-> > bpf_arrayA->fentries. When we need to attach progB to
-> > B/C, just add progB to bpf_arrayB->fentries and
-> > bpf_arrayB->fentries.
-> >
-> > Compared to the trampoline, extra overhead is introduced
-> > by the hash lookuping.
-> >
-> > I have not begun to code yet, and I am not sure the overhead is
-> > acceptable. Considering that we also need to do hash lookup
-> > by the function in kprobe_multi, maybe the overhead is
-> > acceptable?
->
-> Sounds like you are just recreating the function management that ftrace
-> has. It also can add thousands of trampolines very quickly, because it do=
-es
-> it in batches. It takes special synchronization steps to attach to fentry=
-.
-> ftrace (and I believe multi-kprobes) updates all the attachments for each
-> step, so the synchronization needed is only done once.
->
-> If you really want to have thousands of functions, why not just register =
-it
-> with ftrace itself. It will give you the arguments via the ftrace_regs
-> structure. Can't you just register a program as the callback?
->
-> It will probably make your accounting much easier, and just let ftrace
-> handle the fentry logic. That's what it was made to do.
->
-
-I thought I'll just ask instead of digging through code, sorry for
-being lazy :) Is there any way to pass pt_regs/ftrace_regs captured
-before function execution to a return probe (fexit/kretprobe)? I.e.,
-how hard is it to pass input function arguments to a kretprobe? That's
-the biggest advantage of fexit over kretprobe, and if we can make
-these original pt_regs/ftrace_regs available to kretprobe, then
-multi-kretprobe will effectively be this multi-fexit.
-
-> -- Steve
+diff --git a/tools/testing/selftests/bpf/bpf_testmod/bpf_testmod.c b/tools/testing/selftests/bpf/bpf_testmod/bpf_testmod.c
+index 39ad96a18123..4973d9de10af 100644
+--- a/tools/testing/selftests/bpf/bpf_testmod/bpf_testmod.c
++++ b/tools/testing/selftests/bpf/bpf_testmod/bpf_testmod.c
+@@ -41,6 +41,13 @@ struct bpf_testmod_struct_arg_4 {
+ 	int b;
+ };
+ 
++struct bpf_testmod_struct_arg_5 {
++	char a;
++	short b;
++	int c;
++	long d;
++};
++
+ __bpf_hook_start();
+ 
+ noinline int
+@@ -98,6 +105,15 @@ bpf_testmod_test_struct_arg_8(u64 a, void *b, short c, int d, void *e,
+ 	return bpf_testmod_test_struct_arg_result;
+ }
+ 
++noinline int
++bpf_testmod_test_struct_arg_9(u64 a, void *b, short c, int d, void *e, char f,
++			      short g, struct bpf_testmod_struct_arg_5 h, long i)
++{
++	bpf_testmod_test_struct_arg_result = a + (long)b + c + d + (long)e +
++		f + g + h.a + h.b + h.c + h.d + i;
++	return bpf_testmod_test_struct_arg_result;
++}
++
+ noinline int
+ bpf_testmod_test_arg_ptr_to_struct(struct bpf_testmod_struct_arg_1 *a) {
+ 	bpf_testmod_test_struct_arg_result = a->a;
+@@ -254,6 +270,7 @@ bpf_testmod_test_read(struct file *file, struct kobject *kobj,
+ 	struct bpf_testmod_struct_arg_2 struct_arg2 = {2, 3};
+ 	struct bpf_testmod_struct_arg_3 *struct_arg3;
+ 	struct bpf_testmod_struct_arg_4 struct_arg4 = {21, 22};
++	struct bpf_testmod_struct_arg_5 struct_arg5 = {23, 24, 25, 26};
+ 	int i = 1;
+ 
+ 	while (bpf_testmod_return_ptr(i))
+@@ -268,6 +285,8 @@ bpf_testmod_test_read(struct file *file, struct kobject *kobj,
+ 					    (void *)20, struct_arg4);
+ 	(void)bpf_testmod_test_struct_arg_8(16, (void *)17, 18, 19,
+ 					    (void *)20, struct_arg4, 23);
++	(void)bpf_testmod_test_struct_arg_9(16, (void *)17, 18, 19, (void *)20,
++					    21, 22, struct_arg5, 27);
+ 
+ 	(void)bpf_testmod_test_arg_ptr_to_struct(&struct_arg1_2);
+ 
+diff --git a/tools/testing/selftests/bpf/prog_tests/tracing_struct.c b/tools/testing/selftests/bpf/prog_tests/tracing_struct.c
+index fe0fb0c9849a..5a8eeb07a6ba 100644
+--- a/tools/testing/selftests/bpf/prog_tests/tracing_struct.c
++++ b/tools/testing/selftests/bpf/prog_tests/tracing_struct.c
+@@ -74,6 +74,19 @@ static void test_fentry(void)
+ 	ASSERT_EQ(skel->bss->t8_g, 23, "t8:g");
+ 	ASSERT_EQ(skel->bss->t8_ret, 156, "t8 ret");
+ 
++	ASSERT_EQ(skel->bss->t9_a, 16, "t9:a");
++	ASSERT_EQ(skel->bss->t9_b, 17, "t9:b");
++	ASSERT_EQ(skel->bss->t9_c, 18, "t9:c");
++	ASSERT_EQ(skel->bss->t9_d, 19, "t9:d");
++	ASSERT_EQ(skel->bss->t9_e, 20, "t9:e");
++	ASSERT_EQ(skel->bss->t9_f, 21, "t9:f");
++	ASSERT_EQ(skel->bss->t9_g, 22, "t9:f");
++	ASSERT_EQ(skel->bss->t9_h_a, 23, "t9:h.a");
++	ASSERT_EQ(skel->bss->t9_h_b, 24, "t9:h.b");
++	ASSERT_EQ(skel->bss->t9_h_c, 25, "t9:h.c");
++	ASSERT_EQ(skel->bss->t9_h_d, 26, "t9:h.d");
++	ASSERT_EQ(skel->bss->t9_i, 27, "t9:i");
++	ASSERT_EQ(skel->bss->t9_ret, 258, "t9 ret");
+ 	tracing_struct__detach(skel);
+ destroy_skel:
+ 	tracing_struct__destroy(skel);
+diff --git a/tools/testing/selftests/bpf/progs/tracing_struct.c b/tools/testing/selftests/bpf/progs/tracing_struct.c
+index 515daef3c84b..bfe96bab94c0 100644
+--- a/tools/testing/selftests/bpf/progs/tracing_struct.c
++++ b/tools/testing/selftests/bpf/progs/tracing_struct.c
+@@ -23,6 +23,13 @@ struct bpf_testmod_struct_arg_4 {
+ 	int b;
+ };
+ 
++struct bpf_testmod_struct_arg_5 {
++	char a;
++	short b;
++	int c;
++	long d;
++};
++
+ long t1_a_a, t1_a_b, t1_b, t1_c, t1_ret, t1_nregs;
+ __u64 t1_reg0, t1_reg1, t1_reg2, t1_reg3;
+ long t2_a, t2_b_a, t2_b_b, t2_c, t2_ret;
+@@ -32,6 +39,7 @@ long t5_ret;
+ int t6;
+ long t7_a, t7_b, t7_c, t7_d, t7_e, t7_f_a, t7_f_b, t7_ret;
+ long t8_a, t8_b, t8_c, t8_d, t8_e, t8_f_a, t8_f_b, t8_g, t8_ret;
++long t9_a, t9_b, t9_c, t9_d, t9_e, t9_f, t9_g, t9_h_a, t9_h_b, t9_h_c, t9_h_d, t9_i, t9_ret;
+ 
+ 
+ SEC("fentry/bpf_testmod_test_struct_arg_1")
+@@ -184,4 +192,31 @@ int BPF_PROG2(test_struct_arg_15, __u64, a, void *, b, short, c, int, d,
+ 	return 0;
+ }
+ 
++SEC("fentry/bpf_testmod_test_struct_arg_9")
++int BPF_PROG2(test_struct_arg_16, __u64, a, void *, b, short, c, int, d, void *, e,
++	      char, f, short, g, struct bpf_testmod_struct_arg_5, h, long, i)
++{
++	t9_a = a;
++	t9_b = (long)b;
++	t9_c = c;
++	t9_d = d;
++	t9_e = (long)e;
++	t9_f = f;
++	t9_g = g;
++	t9_h_a = h.a;
++	t9_h_b = h.b;
++	t9_h_c = h.c;
++	t9_h_d = h.d;
++	t9_i = i;
++	return 0;
++}
++
++SEC("fexit/bpf_testmod_test_struct_arg_9")
++int BPF_PROG2(test_struct_arg_17, __u64, a, void *, b, short, c, int, d, void *, e,
++	      char, f, short, g, struct bpf_testmod_struct_arg_5, h, long, i, int, ret)
++{
++	t9_ret = ret;
++	return 0;
++}
++
+ char _license[] SEC("license") = "GPL";
+-- 
+2.34.1
 
 
-
---===============2485599216571279844==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2485599216571279844==--
