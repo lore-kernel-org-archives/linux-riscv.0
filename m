@@ -4,77 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F75CD128A
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Apr 2024 08:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA1BCD1292
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Apr 2024 11:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MUHqhl7HYGNL+GYUb5qV0cQ96pWdzJen3c7Bwc6mANA=; b=qhl6rNIm8FUpi+
-	XfBcPZLZQ9/kkE02Bd7rQ9OPcpEYQGOn7EtKZ4kjz8zZ1nUranhQtU3OLGPjpg2Z7ybhl7o/zhYXY
-	moc+5S19gheCfk9w5NDZYMGrdLVD2IOiPPZPIVQ51Wii46IS7IJGAtSapCvY/CkIRms41gnlAtj4f
-	wZPVI47PpmZHb6ewdKpVl6CGt73rWBy9PbJ1A+Ke6ZYdCLDQs8zg1aF9s9Lnr1yJauemASZmrTzgs
-	OkY4Q0HszESJMbZ2WQUksqReqBVBc0dlTkqynHRGHGsvkL9JO61DbjKG1/UJ9eRyFzmS00OCyEMCy
-	CoHIpqBmgKZWQPoIYSGg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=y1EDtNempDgAl2dHBavl1d/Qj/41AN1NFtshhOmiJz0=; b=uXQHhCGXNIjnJx
+	MqevZFGi5QkD1dGrNF4Kvg7p5D11sj/y1yPygxhVh5T4F1z/14sYWRQpDMXBP9rIy5KqBx0QfUdx4
+	0lMYfmVnvVlwmGT/YgAn2jPib4FbVc1JijhYIouG45iNu3ViIhlciUxCQRnVKvNoQJfWKwqKTpZHJ
+	SpatjWo4aXVkIVbNhYRspv2ABXsZf9sRNbVGlDHjvMp4amx+HH6K6SApw39JM7vo1bAu1vPP7vcqQ
+	jtjixDQMXmhiwskb8GBnn+w1KQnP+hfJtA0VO4sOmeGlCkNdpAotLArDxtt8OwjE6jtyItCfcFzAt
+	xjfnlhv5OhGNkD7lDPgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrCgq-00000007Brd-1svC;
-	Mon, 01 Apr 2024 08:06:48 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1rrFQ8-00000007WJy-20JQ;
+	Mon, 01 Apr 2024 11:01:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrCgl-00000007BqC-2Pa1;
-	Mon, 01 Apr 2024 08:06:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1711958804; x=1743494804;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=HXl89clGCBmFMUQwsMNffueQqIafNclJQm4lGSgRHks=;
-  b=NuZOYH0X0xCOXt6oydHwolf+8XXMPAC8HgT2JaCkDju+ofza4db7KDgj
-   eWShJWStHD1546V1AxAzIyjZAREl/ce0D73sNAOOHn8a2X0jndcw1FI4J
-   D0zcLQXkcG3XSZ2ICXNYOvypJHhYMlPpRYHu9kxVZDck3y6ciaN+8irCu
-   wLSYL3H7lxsxfDW1csZ/pS3HDDzJ/NVO/+WkNsIT/ovcNjYRrBPej55+O
-   Hq1E9MkXZaC6jo6ySuSAQDohVB/xqWLFmZ+vMAqhhKBscFPou94MkJdWg
-   MJfo9UN6AfEdxa9n1U5hKj/E3zxlbZDRuFGxFqupHXUOaEad2aq2RxALW
-   Q==;
-X-CSE-ConnectionGUID: RmLsvi++TQyWWBYe0/nDZg==
-X-CSE-MsgGUID: /wkzCMwKSEGpzZUqbIQbLQ==
-X-IronPort-AV: E=McAfee;i="6600,9927,11030"; a="29553378"
-X-IronPort-AV: E=Sophos;i="6.07,171,1708416000"; 
-   d="scan'208";a="29553378"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Apr 2024 01:06:42 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.07,171,1708416000"; 
-   d="scan'208";a="22386789"
-Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
-  by orviesa004.jf.intel.com with ESMTP; 01 Apr 2024 01:06:37 -0700
-From: Haibo Xu <haibo1.xu@intel.com>
-To: ajones@ventanamicro.com
-Cc: xiaobo55x@gmail.com,
-	Haibo Xu <haibo1.xu@intel.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] KVM: riscv: selftests: Add SBI base extension test
-Date: Mon,  1 Apr 2024 16:20:18 +0800
-Message-Id: <20240401082019.2318193-1-haibo1.xu@intel.com>
-X-Mailer: git-send-email 2.34.1
+	id 1rrEH6-00000007Nmi-3Muo
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 01 Apr 2024 09:48:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Ztu2FvgPGsMIM9MGAhUC5Pglx6IH/1lc7B3TQ59R8vk=; b=jUV9F9sK7Mg0qTPW8n7EBziDza
+	bb3RCEwBPWvFKo+WyZ082S83gt99uS9ph6NT1NVedUhuvsDZwuMnIU/VmBMqljO2zBmjTs4rymbHz
+	AlAL5ZwGjGGXoKgA47z/VxSzWsnV3/8nlSl43e4JQxRcsT7gQgGx3yFRCA+PCnMQhLz9iBHUkmpDz
+	F47QdjyzelwYxDNyCRidXNFuOVqu+J5/XEjPFkNO+hsJxF8vWOfPZvOJ8z8PdbrZ6JeJ1jD+oVe7r
+	nria+77vdHvRSdWRb7SZSmpIJ5bgNC8g3HzxXxXfug6CU9QImDpoKSM+1SD/ga+SSuPSfq19z6hIe
+	5sbcMa3g==;
+Received: from madrid.collaboradmins.com ([2a00:1098:ed:100::25])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rrEGv-0000000307o-018y
+	for linux-riscv@lists.infradead.org;
+	Mon, 01 Apr 2024 09:48:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1711964885;
+	bh=06wOk/U0MualMJ4bunj44L58B9nb+s9Iaqf0BY9Iihk=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
+	b=IKkpukb884sj8Eg4Yw/1yM6F+jVI41WbIFR5wppl38DPIFzg7d+snPhJSh90a3YbB
+	 6UxRTezpSmT4wNQmWC70hAfP/JxH0Ch921mvOmRMG6ao7uQPIuZ7OsFD7KR2aH5N87
+	 tG0r+nrikfEXbQvrvlxX1XWEKAWH5gay7UPdFl6DDuIhYIr3WnRTZy/d4En7a/hkhB
+	 ryU3/OINHUKgVPtbeLhy24Ru35rCA0iPfjdVytimtX+uverHEJe3H4njiECn3UAPIe
+	 pNY86YqfqdyTKZh6NivIn+8POtsgH3Jxd+ULYNYtQQqgOUeGD7ZqZngxjW5K5IDaXk
+	 qoDfDq7BJ5Z5Q==
+Received: from [10.193.1.1] (broslavsky.collaboradmins.com [68.183.210.73])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: usama.anjum)
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 8BFC2378148F;
+	Mon,  1 Apr 2024 09:47:23 +0000 (UTC)
+Message-ID: <ef72ae20-6b68-496a-a819-8818ade0d433@collabora.com>
+Date: Mon, 1 Apr 2024 14:46:13 +0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: Muhammad Usama Anjum <usama.anjum@collabora.com>,
+ paul.walmsley@sifive.com, rick.p.edgecombe@intel.com, broonie@kernel.org,
+ Szabolcs.Nagy@arm.com, kito.cheng@sifive.com, keescook@chromium.org,
+ ajones@ventanamicro.com, conor.dooley@microchip.com, cleger@rivosinc.com,
+ atishp@atishpatra.org, alex@ghiti.fr, bjorn@rivosinc.com,
+ alexghiti@rivosinc.com, samuel.holland@sifive.com, palmer@sifive.com,
+ conor@kernel.org, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-mm@kvack.org, linux-arch@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, corbet@lwn.net,
+ tech-j-ext@lists.risc-v.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, oleg@redhat.com,
+ akpm@linux-foundation.org, arnd@arndb.de, ebiederm@xmission.com,
+ Liam.Howlett@oracle.com, vbabka@suse.cz, lstoakes@gmail.com,
+ shuah@kernel.org, brauner@kernel.org, andy.chiu@sifive.com,
+ jerry.shih@sifive.com, hankuan.chen@sifive.com, greentime.hu@sifive.com,
+ evan@rivosinc.com, xiao.w.wang@intel.com, charlie@rivosinc.com,
+ apatel@ventanamicro.com, mchitale@ventanamicro.com,
+ dbarboza@ventanamicro.com, sameo@rivosinc.com, shikemeng@huaweicloud.com,
+ willy@infradead.org, vincent.chen@sifive.com, guoren@kernel.org,
+ samitolvanen@google.com, songshuaishuai@tinylab.org, gerg@kernel.org,
+ heiko@sntech.de, bhe@redhat.com, jeeheng.sia@starfivetech.com,
+ cyy@cyyself.name, maskray@google.com, ancientmodern4@gmail.com,
+ mathis.salmen@matsal.de, cuiyunhui@bytedance.com, bgray@linux.ibm.com,
+ mpe@ellerman.id.au, baruch@tkos.co.il, alx@kernel.org, david@redhat.com,
+ catalin.marinas@arm.com, revest@chromium.org, josh@joshtriplett.org,
+ shr@devkernel.io, deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
+ jhubbard@nvidia.com
+Subject: Re: [PATCH v2 27/27] kselftest/riscv: kselftest for user mode cfi
+To: Deepak Gupta <debug@rivosinc.com>
+References: <20240329044459.3990638-1-debug@rivosinc.com>
+ <20240329044459.3990638-28-debug@rivosinc.com>
+ <4b38393a-f69d-4a77-a896-b6cd42c7edcf@collabora.com>
+ <CAKC1njQ_RU=uHhrna=MFVdjAMjjQNqZWnkjPoJvO7CxtPMeNuQ@mail.gmail.com>
+Content-Language: en-US
+From: Muhammad Usama Anjum <usama.anjum@collabora.com>
+In-Reply-To: <CAKC1njQ_RU=uHhrna=MFVdjAMjjQNqZWnkjPoJvO7CxtPMeNuQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240401_010643_957287_C1065499 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20240401_104809_594840_A9C061B7 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,160 +114,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is the first patch to enable the base extension selftest
-for the SBI implementation in KVM. Test for other extensions
-will be added later.
-
-Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
----
- tools/testing/selftests/kvm/Makefile          |  1 +
- .../selftests/kvm/include/riscv/processor.h   |  8 +-
- tools/testing/selftests/kvm/riscv/sbi_test.c  | 95 +++++++++++++++++++
- 3 files changed, 103 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/kvm/riscv/sbi_test.c
-
-diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-index 741c7dc16afc..a6acbbcad757 100644
---- a/tools/testing/selftests/kvm/Makefile
-+++ b/tools/testing/selftests/kvm/Makefile
-@@ -189,6 +189,7 @@ TEST_GEN_PROGS_s390x += rseq_test
- TEST_GEN_PROGS_s390x += set_memory_region_test
- TEST_GEN_PROGS_s390x += kvm_binary_stats_test
- 
-+TEST_GEN_PROGS_riscv += riscv/sbi_test
- TEST_GEN_PROGS_riscv += arch_timer
- TEST_GEN_PROGS_riscv += demand_paging_test
- TEST_GEN_PROGS_riscv += dirty_log_test
-diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-index ce473fe251dd..df530ac751c4 100644
---- a/tools/testing/selftests/kvm/include/riscv/processor.h
-+++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-@@ -178,7 +178,13 @@ enum sbi_ext_id {
- };
- 
- enum sbi_ext_base_fid {
--	SBI_EXT_BASE_PROBE_EXT = 3,
-+	SBI_EXT_BASE_GET_SPEC_VERSION = 0,
-+	SBI_EXT_BASE_GET_IMP_ID,
-+	SBI_EXT_BASE_GET_IMP_VERSION,
-+	SBI_EXT_BASE_PROBE_EXT,
-+	SBI_EXT_BASE_GET_MVENDORID,
-+	SBI_EXT_BASE_GET_MARCHID,
-+	SBI_EXT_BASE_GET_MIMPID,
- };
- 
- struct sbiret {
-diff --git a/tools/testing/selftests/kvm/riscv/sbi_test.c b/tools/testing/selftests/kvm/riscv/sbi_test.c
-new file mode 100644
-index 000000000000..b9378546e3b6
---- /dev/null
-+++ b/tools/testing/selftests/kvm/riscv/sbi_test.c
-@@ -0,0 +1,95 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * sbi_test - SBI API test for KVM's SBI implementation.
-+ *
-+ * Copyright (c) 2024 Intel Corporation
-+ *
-+ * Test cover the following SBI extentions:
-+ *  - Base: All functions in this extension should be supported
-+ */
-+
-+#include "kvm_util.h"
-+#include "processor.h"
-+#include "test_util.h"
-+
-+/*
-+ * Test that all functions in the base extension must be supported
-+ */
-+static void base_ext_guest_code(void)
-+{
-+	struct sbiret ret;
-+
-+	/*
-+	 * Since the base extension was introduced in SBI Spec v0.2,
-+	 * assert if the implemented SBI version is below 0.2.
-+	 */
-+	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_SPEC_VERSION, 0,
-+			0, 0, 0, 0, 0);
-+	__GUEST_ASSERT(!ret.error && ret.value >= 2, "Get Spec Version Error: ret.error=%ld, "
-+			"ret.value=%ld\n", ret.error, ret.value);
-+
-+	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_IMP_ID, 0,
-+			0, 0, 0, 0, 0);
-+	__GUEST_ASSERT(!ret.error && ret.value == 3, "Get Imp ID Error: ret.error=%ld, "
-+			"ret.value=%ld\n",
-+			ret.error, ret.value);
-+
-+	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_IMP_VERSION, 0,
-+			0, 0, 0, 0, 0);
-+	__GUEST_ASSERT(!ret.error, "Get Imp Version Error: ret.error=%ld\n", ret.error);
-+
-+	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_PROBE_EXT, SBI_EXT_BASE,
-+			0, 0, 0, 0, 0);
-+	__GUEST_ASSERT(!ret.error && ret.value == 1, "Probe ext Error: ret.error=%ld, "
-+			"ret.value=%ld\n",
-+			ret.error, ret.value);
-+
-+	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_MVENDORID, 0,
-+			0, 0, 0, 0, 0);
-+	__GUEST_ASSERT(!ret.error, "Get Machine Vendor ID Error: ret.error=%ld\n", ret.error);
-+
-+	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_MARCHID, 0,
-+			0, 0, 0, 0, 0);
-+	__GUEST_ASSERT(!ret.error, "Get Machine Arch ID Error: ret.error=%ld\n", ret.error);
-+
-+	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_MIMPID, 0,
-+			0, 0, 0, 0, 0);
-+	__GUEST_ASSERT(!ret.error, "Get Machine Imp ID Error: ret.error=%ld\n", ret.error);
-+
-+	GUEST_DONE();
-+}
-+
-+static void sbi_base_ext_test(void)
-+{
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	struct ucall uc;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, base_ext_guest_code);
-+	while (1) {
-+		vcpu_run(vcpu);
-+		TEST_ASSERT(vcpu->run->exit_reason == UCALL_EXIT_REASON,
-+			    "Unexpected exit reason: %u (%s),",
-+			    vcpu->run->exit_reason, exit_reason_str(vcpu->run->exit_reason));
-+
-+		switch (get_ucall(vcpu, &uc)) {
-+		case UCALL_DONE:
-+			goto done;
-+		case UCALL_ABORT:
-+			fprintf(stderr, "Guest assert failed!\n");
-+			REPORT_GUEST_ASSERT(uc);
-+		default:
-+			TEST_FAIL("Unexpected ucall %lu", uc.cmd);
-+		}
-+	}
-+
-+done:
-+	kvm_vm_free(vm);
-+}
-+
-+int main(void)
-+{
-+	sbi_base_ext_test();
-+
-+	return 0;
-+}
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMy8zMC8yNCAxOjAyIEFNLCBEZWVwYWsgR3VwdGEgd3JvdGU6Cj4gT24gRnJpLCBNYXIgMjks
+IDIwMjQgYXQgMTI6NTDigK9QTSBNdWhhbW1hZCBVc2FtYSBBbmp1bQo+IDx1c2FtYS5hbmp1bUBj
+b2xsYWJvcmEuY29tPiB3cm90ZToKPj4KPj4gT24gMy8yOS8yNCA5OjQ0IEFNLCBEZWVwYWsgR3Vw
+dGEgd3JvdGU6Cj4+PiBBZGRzIGtzZWxmdGVzdCBmb3IgUklTQy1WIGNvbnRyb2wgZmxvdyBpbnRl
+Z3JpdHkgaW1wbGVtZW50YXRpb24gZm9yIHVzZXIKPj4+IG1vZGUuIFRoZXJlIGlzIG5vdCBhIGxv
+dCBnb2luZyBvbiBpbiBrZXJuZWwgZm9yIGVuYWJsaW5nIGxhbmRpbmcgcGFkIGZvcgo+Pj4gdXNl
+ciBtb2RlLiBUaHVzIGtzZWxmdGVzdCBzaW1wbHkgZW5hYmxlcyBsYW5kaW5nIHBhZCBmb3IgdGhl
+IGJpbmFyeSBhbmQKPj4+IGEgc2lnbmFsIGhhbmRsZXIgaXMgcmVnaXN0ZXJlZCBmb3IgU0lHU0VH
+Vi4gQW55IGNvbnRyb2wgZmxvdyB2aW9sYXRpb24gYXJlCj4+PiByZXBvcnRlZCBhcyBTSUdTRUdW
+IHdpdGggc2lfY29kZSA9IFNFR1ZfQ1BFUlIuIFRlc3Qgd2lsbCBmYWlsIG9uIHJlY2lldmluZwo+
+Pj4gYW55IFNFR1ZfQ1BFUlIuIFNoYWRvdyBzdGFjayBwYXJ0IGhhcyBtb3JlIGNoYW5nZXMgaW4g
+a2VybmVsIGFuZCB0aHVzIHRoZXJlCj4+PiBhcmUgc2VwYXJhdGUgdGVzdHMgZm9yIHRoYXQKPj4+
+ICAgICAgIC0gZW5hYmxlIGFuZCBkaXNhYmxlCj4+PiAgICAgICAtIEV4ZXJjaXNlIGBtYXBfc2hh
+ZG93X3N0YWNrYCBzeXNjYWxsCj4+PiAgICAgICAtIGBmb3JrYCB0ZXN0IHRvIG1ha2Ugc3VyZSBD
+T1cgd29ya3MgZm9yIHNoYWRvdyBzdGFjayBwYWdlcwo+Pj4gICAgICAgLSBndXAgdGVzdHMKPj4+
+ICAgICAgICAgQXMgb2YgdG9kYXkga2VybmVsIHVzZXMgRk9MTF9GT1JDRSB3aGVuIGFjY2VzcyBo
+YXBwZW5zIHRvIG1lbW9yeSB2aWEKPj4+ICAgICAgICAgL3Byb2MvPHBpZD4vbWVtLiBOb3QgYnJl
+YWtpbmcgdGhhdCBmb3Igc2hhZG93IHN0YWNrCj4+PiAgICAgICAtIHNpZ25hbCB0ZXN0LiBNYWtl
+IHN1cmUgc2lnbmFsIGRlbGl2ZXJ5IHJlc3VsdHMgaW4gdG9rZW4gY3JlYXRpb24gb24KPj4+ICAg
+ICAgIHNoYWRvdyBzdGFjayBhbmQgY29uc3VtZXMgKGFuZCB2ZXJpZmllcykgdG9rZW4gb24gc2ln
+cmV0dXJuCj4+PiAgICAgLSBzaGFkb3cgc3RhY2sgcHJvdGVjdGlvbiB0ZXN0LiBhdHRlbXB0cyB0
+byB3cml0ZSB1c2luZyByZWd1bGFyIHN0b3JlCj4+PiAgICAgICAgIGluc3RydWN0aW9uIG9uIHNo
+YWRvdyBzdGFjayBtZW1vcnkgbXVzdCByZXN1bHQgaW4gYWNjZXNzIGZhdWx0cwo+Pj4KPj4+IFNp
+Z25lZC1vZmYtYnk6IERlZXBhayBHdXB0YSA8ZGVidWdAcml2b3NpbmMuY29tPgo+Pj4gLS0tCj4+
+PiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvcmlzY3YvTWFrZWZpbGUgICAgICAgIHwgICAyICst
+Cj4+PiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvcmlzY3YvY2ZpL01ha2VmaWxlICAgIHwgIDEw
+ICsKPj4+ICAuLi4vdGVzdGluZy9zZWxmdGVzdHMvcmlzY3YvY2ZpL2NmaV9ydl90ZXN0LmggfCAg
+ODUgKysrKwo+Pj4gIC4uLi9zZWxmdGVzdHMvcmlzY3YvY2ZpL3Jpc2N2X2NmaV90ZXN0LmMgICAg
+ICB8ICA5MSArKysrKwo+Pj4gIC4uLi90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi9jZmkvc2hhZG93
+c3RhY2suYyB8IDM3NiArKysrKysrKysrKysrKysrKysKPj4+ICAuLi4vdGVzdGluZy9zZWxmdGVz
+dHMvcmlzY3YvY2ZpL3NoYWRvd3N0YWNrLmggfCAgMzkgKysKPj4gUGxlYXNlIGFkZCBnZW5lcmF0
+ZWQgYmluYXJpZXMgaW4gdGhlIC5naXRpZ25vcmUgZmlsZXMuCj4gCj4gaG1tLi4uCj4gSSBkb24n
+dCBzZWUgYmluYXJ5IGFzIHBhcnQgb2YgdGhlIHBhdGNoLiBXaGljaCBmaWxlIGFyZSB5b3UgcmVm
+ZXJyaW5nCj4gdG8gaGVyZSBiZWluZyBiaW5hcnk/CnNoYWRvd3N0YWNrIHdvdWxkIGJlIGdlbmVy
+YXRlZCBieSB0aGUgYnVpbGQuIENyZWF0ZSBhIC5naXRpZ25vcmUgZmlsZSBhbmQKYWRkIGl0IHRo
+ZXJlLiBGb3IgZXhhbXBsZSwgbG9vayBhdAp0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92
+ZWN0b3IvLmdpdGlnbm9yZSB0byB1bmRlcnN0YW5kLgoKCj4gCj4+Cj4gCgotLSAKQlIsCk11aGFt
+bWFkIFVzYW1hIEFuanVtCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
