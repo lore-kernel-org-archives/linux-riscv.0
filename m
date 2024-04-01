@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA91CD128A
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Apr 2024 07:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC88CD128A
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Apr 2024 07:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yevA1Z9Sa5D7kTRsDze89ywVeESLWBPce+BXl2tSPkM=; b=uzQgEmyR+W/+UR
-	IiISvk/DCcBEerbYbBqL1yyPgiwiqUNeFNLGg71g4bVkjADNEu2aCaB2asV4FYPyjP8rgE/cBxywC
-	C19OqFrSK582IfGbHmke2p5m5yxTudNZp5m15cM/LCtYo362kyDQodJLIKP4Jba9gzUBhh+0qYTNu
-	C0LJ/RfYaUs0HVcftR2/F1pZwCfnkANSCSfC/dVb/A6VYCFXDL0Dsa68rAt67FWrdFsSVvDcxKBgi
-	wLMDlHzUIq8GG3++ABSmWq9Wxl5NAyWlBOj4hdRvZjHkZLRdqGQEbrsgtRXRvlkqMUrO599XWukvO
-	/zU39A/xx6gxUmDw+UaA==;
+	List-Owner; bh=sFmsH1R1i2uec4/Hg8c0nE5X3T/g2jAb9cWLPr7rFV8=; b=2tpRQTAZZA/D8I
+	7toQOmzCAMIt1aI4drs/qnTbf6sBbh8r9S84UVkAqQ3RPunCN9gSKch8owek9d3xdn1fX3WG/YkxX
+	NxfMxw0Z5KkM1nR3YI5YflR/GSIIf8t5uJyf0lUSpQ63fX5Jjp6IA0wrFlKsOXOUcim1wJEdnuBOx
+	3Pi0YtE1Z1yAtFI2rA4NExomDNprDtz6NMEXmpEK+xSH97ihtBixg8vtSmhe2jrQuAOPN0EPCCSRh
+	e6/zqFmoUho4VEwpdG+Zgi3gmrCH9slymvR9gOdFN2y3gjS3VOVP082Wz7h7726JYVlRHhY9ipSUf
+	TcuWM0w1rnN0NzGXkflQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrBfR-000000076MH-2T1L;
-	Mon, 01 Apr 2024 07:01:17 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1rrBkz-000000076rf-1FtZ;
+	Mon, 01 Apr 2024 07:07:01 +0000
+Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrBfO-000000076Lg-3kI7
+	id 1rrBkw-000000076qi-0Tuo
 	for linux-riscv@lists.infradead.org;
-	Mon, 01 Apr 2024 07:01:16 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3bbd6ea06f5so1582834b6e.1
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Apr 2024 00:01:14 -0700 (PDT)
+	Mon, 01 Apr 2024 07:06:59 +0000
+Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-22a639aedb6so2232216fac.3
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Apr 2024 00:06:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1711954873; x=1712559673; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1711955214; x=1712560014; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CR3iwkHe4Np8Vng7wVF9RKBPosLNIp8pBnmcewjQ5aU=;
-        b=h0Q88reSWfhYddglUTXCtEa6/h+W1KUwhbCnU4ISU2OuhCuSUG6/e7ltcS3xbFMyi/
-         3w4DXos+yJpq/AVX88PRru2s5knWV8atoaEQeOQ9Z6n8byE+P6+6NfN8hx99t9lHAe9G
-         VIhcdwGWI4BCWxn0Achrt/Lcf+SxGafq7s6mir9eKT1t0zHAKZoEWeMCV+PZiKZVWAVp
-         JUFDY0/5ff2bkixXh0SR0WwqbSmxeANv/ICBpPFahg4OvLWsquXe9RhizrxAEEEVysK0
-         kbhIApzILpyp7qIrNmCe5M0jG66sItzhfARj2ghiog6CGC4WSoMKd+jtDQ6n+yuM4u8N
-         I+kA==
+        bh=UumihHYH7mo9OAlxMLB8LxF+/pozb34SaM3CJxH+4Ts=;
+        b=lB1yaN+M+9r5/rmQX3hurJvu+qS2tjZit6uI45hdplRn2A5gez3JdGqAefnSSUeqte
+         t/3n8fzbUoaE7dAbewFEFh2416ZAg+E1j5TPhc9DPWpqDirrEfrYE/5wYQpDCJxoB0BJ
+         iYzRrGZ6DrksOO8pHc6kCqx56PISCqLR8i4LoKGdLWN0EFsuSb9zG0xSP1dVxdepCQkG
+         sAn0jp5ApnsjZcEizSLJPDV9/Volxsliy4eDII+JhpLZmsgY/fHeH0BRUP7tATz0PQ5X
+         cdhycnznoIirgKz8sIUgyWmSkyQn5krCXYkU4k2RR3a/Wz8w66wsf5wp/CfxullKLIfm
+         lppA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711954873; x=1712559673;
+        d=1e100.net; s=20230601; t=1711955214; x=1712560014;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CR3iwkHe4Np8Vng7wVF9RKBPosLNIp8pBnmcewjQ5aU=;
-        b=tpUgMJyd09BHImQhigpyykRDy9UpHIGbx2zTTqEKICsTTkKDZHTK+Kxvo0oGUY52Wb
-         Fhe0P0UE7saxqonTIjGho/T8E+7Y+MtX+fXALWsI4wFnWmvhHazcExHTQf2ayNdz73Cg
-         0IpHai/u1bOy8FqjfK1PCweVwPSa3XsRB3YmLwNgcO1a97yEPCtMx6RThvw9OwKLkL2n
-         xl1SkG6jF8TEFWe9MeV0Z3gkrAOlYhmJSD1zpAtie5/lAwgRI1oTTysiFDU51FD/SYCT
-         HM81K+llt//whHmqC03R39drCGXE5km3UoX5+PCAd/4EIkjqzlUoHpUadVV7U+pdjzQE
-         9WaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVJ5gxM/1z3p4w9iQsq0kDVyPBJaIgcrKuNrllEAG/cKfxujHDl0m6DWAa2A5TFLDpRpSxv7kVrC73BcaF1zcDHbKK4kji8UWQyzh/tslsk
-X-Gm-Message-State: AOJu0Yz/AiLUP2W5tbtJtLP3LbqC9kOClteW+9B/Ppe7gq4QFsgN4ncL
-	EUPdLRdVUE1NRJWLWAOM0HcQj1GWOTu4BMMUnz310D7/ehV+oF5hS6zpZkzMD+8=
-X-Google-Smtp-Source: AGHT+IHNVXbtf4nFi0CjQtWkGz+KO+8YX+Nli7rw8a7TjQYiIWVV4PVHNMdRC2/hIgsRYyvZbdhOXQ==
-X-Received: by 2002:a05:6808:309c:b0:3c3:c157:5dc7 with SMTP id bl28-20020a056808309c00b003c3c1575dc7mr3557976oib.13.1711954873346;
-        Mon, 01 Apr 2024 00:01:13 -0700 (PDT)
+        bh=UumihHYH7mo9OAlxMLB8LxF+/pozb34SaM3CJxH+4Ts=;
+        b=PwTHDJpkj34sU87UXyXd/e+uEyx25YQBUV17Z9fGIccU3eFVxf8iDO42fcN2lMDxpB
+         hOqUntofEu+4qbBbZYyag16/bhOSTZZGNE3axf/mZAb/wQ8JG+OBRkdv7/BfqrHkLQ2k
+         Fc4v6tD6BT+Up7DJUPcOnqHmKXoXv3BjBollBE7tW5anxoUSYM1/JIWGuN2Y+mjUqV9U
+         UchtD5C6KrZ67uTl+BSldijfKV+dOJ9gCgwtZJkfOdp/XTe4+8P/DppVGghk22OaMEDe
+         GNHTAs/LcQpO1mVZhITgeAxoJPYx9P7o2bvCxjw4bIyrOf4h6WsWenYW7Ak0fDc+GGd9
+         V6dA==
+X-Forwarded-Encrypted: i=1; AJvYcCWOKKVYzv8HxtggnlcNxx3h9edqqpsx3I3H62iy+ZwEKnkT8AHr2/Akywez5oHlwSJkWaWjMq2VsiCowtXvK+BVhQ5C6iU7J5f1DKea0Fkz
+X-Gm-Message-State: AOJu0YyBUHtVFV84tpXcZCvCnbpotIuzJTWMF5ISynRdiu7ndU4v8qqU
+	e/mZEgnbjqZn49fvU3D4UmjE4aI7KnwpTOZEMgupBFOfKndDEeEu6nsWh/Hvmis=
+X-Google-Smtp-Source: AGHT+IHSDWAtr5aFF+LByg5TvNzW0Q9+xfzuPLmJERC2IMVAmj5v4N1C4MO153dDi9n0oHUqErzpUQ==
+X-Received: by 2002:a05:6870:1596:b0:229:f73c:1db7 with SMTP id j22-20020a056870159600b00229f73c1db7mr10376802oab.31.1711955214261;
+        Mon, 01 Apr 2024 00:06:54 -0700 (PDT)
 Received: from sunil-laptop ([106.51.187.230])
-        by smtp.gmail.com with ESMTPSA id l7-20020a056808020700b003c4dac3b55dsm1018840oie.3.2024.04.01.00.01.02
+        by smtp.gmail.com with ESMTPSA id pd6-20020a0568701f0600b0022275702b8asm2689242oab.44.2024.04.01.00.06.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Apr 2024 00:01:12 -0700 (PDT)
-Date: Mon, 1 Apr 2024 12:30:56 +0530
+        Mon, 01 Apr 2024 00:06:53 -0700 (PDT)
+Date: Mon, 1 Apr 2024 12:36:38 +0530
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: Haibo Xu <haibo1.xu@intel.com>
 Cc: xiaobo55x@gmail.com, ajones@ventanamicro.com,
@@ -75,33 +75,35 @@ Cc: xiaobo55x@gmail.com, ajones@ventanamicro.com,
 	Guo Ren <guoren@kernel.org>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Greentime Hu <greentime.hu@sifive.com>,
-	Anup Patel <apatel@ventanamicro.com>, Zong Li <zong.li@sifive.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
 	Jisheng Zhang <jszhang@kernel.org>, Baoquan He <bhe@redhat.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Zong Li <zong.li@sifive.com>,
 	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Chen Jiahao <chenjiahao16@huawei.com>,
 	Arnd Bergmann <arnd@arndb.de>, James Morse <james.morse@arm.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
 	Evan Green <evan@rivosinc.com>,
 	Samuel Holland <samuel.holland@sifive.com>,
-	Tony Luck <tony.luck@intel.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Anup Patel <apatel@ventanamicro.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Tony Luck <tony.luck@intel.com>,
 	Yuntao Wang <ytcoode@gmail.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Alison Schofield <alison.schofield@intel.com>,
 	Dave Hansen <dave.hansen@linux.intel.com>,
+	Alison Schofield <alison.schofield@intel.com>,
+	Dan Williams <dan.j.williams@intel.com>,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev
-Subject: Re: [PATCH v2 4/6] ACPI: NUMA: Make some NUMA related parse
- functions common
-Message-ID: <ZgpbqAraGbQqZv5d@sunil-laptop>
+Subject: Re: [PATCH v2 2/6] ACPI: RISCV: Add NUMA support based on SRAT and
+ SLIT
+Message-ID: <Zgpc/qW/as+gbb+I@sunil-laptop>
 References: <cover.1709780590.git.haibo1.xu@intel.com>
- <c8b86184d9e6d078e9b9949d4837bc6e392c3f52.1709780590.git.haibo1.xu@intel.com>
+ <7ca110c59cbb2fb358304a9ba4f9c7cbeb191345.1709780590.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <c8b86184d9e6d078e9b9949d4837bc6e392c3f52.1709780590.git.haibo1.xu@intel.com>
+In-Reply-To: <7ca110c59cbb2fb358304a9ba4f9c7cbeb191345.1709780590.git.haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240401_000115_033689_A6BDDABA 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20240401_000658_192705_D8771E0B 
+X-CRM114-Status: GOOD (  36.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,46 +120,277 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 07, 2024 at 04:47:56PM +0800, Haibo Xu wrote:
-> The acpi_numa_slit_init(), acpi_numa_memory_affinity_init()
-> and acpi_parse_cfmws() functions are common enough to be used
-> on platforms that support ACPI_NUMA(x86/arm64/loongarch).
-> Remove the condition to avoid long defined(CONFIG_ARCH) check
-> when new platform(riscv) support was enabled.
+On Thu, Mar 07, 2024 at 04:47:54PM +0800, Haibo Xu wrote:
+> Add acpi_numa.c file to enable parse NUMA information from
+> ACPI SRAT and SLIT tables. SRAT table provide CPUs(Hart) and
+> memory nodes to proximity domain mapping, while SLIT table
+> provide the distance metrics between proximity domains.
 > 
-> Suggested-by: Sunil V L <sunilvl@ventanamicro.com>
 > Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 > ---
->  drivers/acpi/numa/srat.c | 8 --------
->  1 file changed, 8 deletions(-)
+>  arch/riscv/include/asm/acpi.h |  15 +++-
+>  arch/riscv/kernel/Makefile    |   1 +
+>  arch/riscv/kernel/acpi.c      |   5 --
+>  arch/riscv/kernel/acpi_numa.c | 131 ++++++++++++++++++++++++++++++++++
+>  arch/riscv/kernel/setup.c     |   4 +-
+>  arch/riscv/kernel/smpboot.c   |   2 -
+>  include/linux/acpi.h          |   6 ++
+>  7 files changed, 154 insertions(+), 10 deletions(-)
+>  create mode 100644 arch/riscv/kernel/acpi_numa.c
 > 
-> diff --git a/drivers/acpi/numa/srat.c b/drivers/acpi/numa/srat.c
-> index 1946431c0eef..938c4adb7ec4 100644
-> --- a/drivers/acpi/numa/srat.c
-> +++ b/drivers/acpi/numa/srat.c
-> @@ -219,7 +219,6 @@ int __init srat_disabled(void)
->  	return acpi_numa < 0;
+> diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+> index 7dad0cf9d701..e0a1f84404f3 100644
+> --- a/arch/riscv/include/asm/acpi.h
+> +++ b/arch/riscv/include/asm/acpi.h
+> @@ -61,11 +61,14 @@ static inline void arch_fix_phys_package_id(int num, u32 slot) { }
+>  
+>  void acpi_init_rintc_map(void);
+>  struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu);
+> -u32 get_acpi_id_for_cpu(int cpu);
+> +static inline u32 get_acpi_id_for_cpu(int cpu)
+> +{
+> +	return acpi_cpu_get_madt_rintc(cpu)->uid;
+> +}
+> +
+>  int acpi_get_riscv_isa(struct acpi_table_header *table,
+>  		       unsigned int cpu, const char **isa);
+>  
+> -static inline int acpi_numa_get_nid(unsigned int cpu) { return NUMA_NO_NODE; }
+>  void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
+>  			     u32 *cboz_size, u32 *cbop_size);
+>  #else
+> @@ -87,4 +90,12 @@ static inline void acpi_get_cbo_block_size(struct acpi_table_header *table,
+>  
+>  #endif /* CONFIG_ACPI */
+>  
+> +#ifdef CONFIG_ACPI_NUMA
+> +int acpi_numa_get_nid(unsigned int cpu);
+> +void acpi_map_cpus_to_nodes(void);
+> +#else
+> +static inline int acpi_numa_get_nid(unsigned int cpu) { return NUMA_NO_NODE; }
+> +static inline void acpi_map_cpus_to_nodes(void) { }
+> +#endif /* CONFIG_ACPI_NUMA */
+> +
+>  #endif /*_ASM_ACPI_H*/
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index f71910718053..5d3e9cf89b76 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -105,3 +105,4 @@ obj-$(CONFIG_COMPAT)		+= compat_vdso/
+>  
+>  obj-$(CONFIG_64BIT)		+= pi/
+>  obj-$(CONFIG_ACPI)		+= acpi.o
+> +obj-$(CONFIG_ACPI_NUMA)	+= acpi_numa.o
+> diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
+> index e619edc8b0cc..040bdbfea2b4 100644
+> --- a/arch/riscv/kernel/acpi.c
+> +++ b/arch/riscv/kernel/acpi.c
+> @@ -191,11 +191,6 @@ struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
+>  	return &cpu_madt_rintc[cpu];
 >  }
 >  
-> -#if defined(CONFIG_X86) || defined(CONFIG_ARM64) || defined(CONFIG_LOONGARCH)
->  /*
->   * Callback for SLIT parsing.  pxm_to_node() returns NUMA_NO_NODE for
->   * I/O localities since SRAT does not list them.  I/O localities are
-> @@ -351,13 +350,6 @@ static int __init acpi_parse_cfmws(union acpi_subtable_headers *header,
->  	(*fake_pxm)++;
->  	return 0;
->  }
-> -#else
-> -static int __init acpi_parse_cfmws(union acpi_subtable_headers *header,
-> -				   void *arg, const unsigned long table_end)
+> -u32 get_acpi_id_for_cpu(int cpu)
 > -{
-> -	return 0;
+> -	return acpi_cpu_get_madt_rintc(cpu)->uid;
 > -}
-> -#endif /* defined(CONFIG_X86) || defined (CONFIG_ARM64) */
+> -
+>  /*
+>   * __acpi_map_table() will be called before paging_init(), so early_ioremap()
+>   * or early_memremap() should be called here to for ACPI table mapping.
+> diff --git a/arch/riscv/kernel/acpi_numa.c b/arch/riscv/kernel/acpi_numa.c
+> new file mode 100644
+> index 000000000000..0231482d6946
+> --- /dev/null
+> +++ b/arch/riscv/kernel/acpi_numa.c
+> @@ -0,0 +1,131 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * ACPI 6.6 based NUMA setup for RISCV
+> + * Lots of code was borrowed from arch/arm64/kernel/acpi_numa.c
+> + *
+> + * Copyright 2004 Andi Kleen, SuSE Labs.
+> + * Copyright (C) 2013-2016, Linaro Ltd.
+> + *		Author: Hanjun Guo <hanjun.guo@linaro.org>
+> + * Copyright (C) 2024 Intel Corporation.
+> + *
+> + * Reads the ACPI SRAT table to figure out what memory belongs to which CPUs.
+> + *
+> + * Called from acpi_numa_init while reading the SRAT and SLIT tables.
+> + * Assumes all memory regions belonging to a single proximity domain
+> + * are in one chunk. Holes between them will be included in the node.
+> + */
+> +
+> +#define pr_fmt(fmt) "ACPI: NUMA: " fmt
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/bitmap.h>
+> +#include <linux/kernel.h>
+> +#include <linux/mm.h>
+> +#include <linux/memblock.h>
+> +#include <linux/mmzone.h>
+> +#include <linux/module.h>
+> +#include <linux/topology.h>
+> +
+> +#include <asm/numa.h>
+> +
+> +static int acpi_early_node_map[NR_CPUS] __initdata = { NUMA_NO_NODE };
+> +
+> +int __init acpi_numa_get_nid(unsigned int cpu)
+> +{
+> +	return acpi_early_node_map[cpu];
+> +}
+> +
+> +static inline int get_cpu_for_acpi_id(u32 uid)
+> +{
+> +	int cpu;
+> +
+> +	for (cpu = 0; cpu < nr_cpu_ids; cpu++)
+> +		if (uid == get_acpi_id_for_cpu(cpu))
+> +			return cpu;
+> +
+> +	return -EINVAL;
+> +}
+> +
+> +static int __init acpi_parse_rintc_pxm(union acpi_subtable_headers *header,
+> +				       const unsigned long end)
+> +{
+> +	struct acpi_srat_rintc_affinity *pa;
+> +	int cpu, pxm, node;
+> +
+> +	if (srat_disabled())
+> +		return -EINVAL;
+> +
+> +	pa = (struct acpi_srat_rintc_affinity *)header;
+> +	if (!pa)
+> +		return -EINVAL;
+> +
+> +	if (!(pa->flags & ACPI_SRAT_RINTC_ENABLED))
+> +		return 0;
+> +
+> +	pxm = pa->proximity_domain;
+> +	node = pxm_to_node(pxm);
+> +
+> +	/*
+> +	 * If we can't map the UID to a logical cpu this
+> +	 * means that the UID is not part of possible cpus
+> +	 * so we do not need a NUMA mapping for it, skip
+> +	 * the SRAT entry and keep parsing.
+> +	 */
+> +	cpu = get_cpu_for_acpi_id(pa->acpi_processor_uid);
+> +	if (cpu < 0)
+> +		return 0;
+> +
+> +	acpi_early_node_map[cpu] = node;
+> +	pr_info("SRAT: PXM %d -> HARTID 0x%lx -> Node %d\n", pxm,
+> +		cpuid_to_hartid_map(cpu), node);
+> +
+> +	return 0;
+> +}
+> +
+> +void __init acpi_map_cpus_to_nodes(void)
+> +{
+> +	int i;
+> +
+> +	/*
+> +	 * In ACPI, SMP and CPU NUMA information is provided in separate
+> +	 * static tables, namely the MADT and the SRAT.
+> +	 *
+> +	 * Thus, it is simpler to first create the cpu logical map through
+> +	 * an MADT walk and then map the logical cpus to their node ids
+> +	 * as separate steps.
+> +	 */
+> +	acpi_table_parse_entries(ACPI_SIG_SRAT, sizeof(struct acpi_table_srat),
+> +				 ACPI_SRAT_TYPE_RINTC_AFFINITY, acpi_parse_rintc_pxm, 0);
+> +
+> +	for (i = 0; i < nr_cpu_ids; i++)
+> +		early_map_cpu_to_node(i, acpi_numa_get_nid(i));
+> +}
+> +
+> +/* Callback for Proximity Domain -> logical node ID mapping */
+> +void __init acpi_numa_rintc_affinity_init(struct acpi_srat_rintc_affinity *pa)
+> +{
+> +	int pxm, node;
+> +
+> +	if (srat_disabled())
+> +		return;
+> +
+> +	if (pa->header.length < sizeof(struct acpi_srat_rintc_affinity)) {
+> +		pr_err("SRAT: Invalid SRAT header length: %d\n", pa->header.length);
+> +		bad_srat();
+> +		return;
+> +	}
+> +
+> +	if (!(pa->flags & ACPI_SRAT_RINTC_ENABLED))
+> +		return;
+> +
+> +	pxm = pa->proximity_domain;
+> +	node = acpi_map_pxm_to_node(pxm);
+> +
+> +	if (node == NUMA_NO_NODE) {
+> +		pr_err("SRAT: Too many proximity domains %d\n", pxm);
+> +		bad_srat();
+> +		return;
+> +	}
+> +
+> +	node_set(node, numa_nodes_parsed);
+> +}
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 4f73c0ae44b2..a2cde65b69e9 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -281,8 +281,10 @@ void __init setup_arch(char **cmdline_p)
+>  	setup_smp();
+>  #endif
 >  
->  static int __init acpi_parse_slit(struct acpi_table_header *table)
->  {
-LGTM.
+> -	if (!acpi_disabled)
+> +	if (!acpi_disabled) {
+>  		acpi_init_rintc_map();
+> +		acpi_map_cpus_to_nodes();
+> +	}
+>  
+>  	riscv_init_cbo_blocksizes();
+>  	riscv_fill_hwcap();
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index cfbe4b840d42..81a2aa77680c 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -100,7 +100,6 @@ static int __init acpi_parse_rintc(union acpi_subtable_headers *header, const un
+>  	if (hart == cpuid_to_hartid_map(0)) {
+>  		BUG_ON(found_boot_cpu);
+>  		found_boot_cpu = true;
+> -		early_map_cpu_to_node(0, acpi_numa_get_nid(cpu_count));
+>  		return 0;
+>  	}
+>  
+> @@ -110,7 +109,6 @@ static int __init acpi_parse_rintc(union acpi_subtable_headers *header, const un
+>  	}
+>  
+>  	cpuid_to_hartid_map(cpu_count) = hart;
+> -	early_map_cpu_to_node(cpu_count, acpi_numa_get_nid(cpu_count));
+>  	cpu_count++;
+>  
+>  	return 0;
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index b7165e52b3c6..f74c62956e07 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -269,6 +269,12 @@ acpi_numa_gicc_affinity_init(struct acpi_srat_gicc_affinity *pa) { }
+>  
+>  int acpi_numa_memory_affinity_init (struct acpi_srat_mem_affinity *ma);
+>  
+> +#ifdef CONFIG_RISCV
+> +void acpi_numa_rintc_affinity_init(struct acpi_srat_rintc_affinity *pa);
+> +#else
+> +static inline void acpi_numa_rintc_affinity_init(struct acpi_srat_rintc_affinity *pa) { }
+> +#endif
+> +
+>  #ifndef PHYS_CPUID_INVALID
+>  typedef u32 phys_cpuid_t;
+>  #define PHYS_CPUID_INVALID (phys_cpuid_t)(-1)
+> -- 
+This is a large patch spanning across multiple files. Can we split this
+into multiple smaller patches? Changes look fine to me though.
+
 Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
 
 _______________________________________________
