@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6299CD1284
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Apr 2024 03:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46F79CD1283
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Apr 2024 03:41:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cJZ9TkUll69EudcJR1xGxlJvtpwUwowpIm6mEXsB86A=; b=mT4Y9uyJU2D8gx
-	AdoVzsC3h5yj5AsgEoNcxm8r45noyFZjCuVqgWFuhRdyK3pWbYvK3SaXmnGOz/8HE83keHo7Isj9M
-	3VLSnJyDdqYH8bklXp/7uzVr4liMBpZZQdfiyBP0Qr1xgGSmxEjfDDt3nzuJxRvSUfl8zbT6BhRTC
-	A8nXLkV0dbiCTT53ZfNysjScAQWcKeQdF6qNhOKIVwghmHLR9ZhaEm/vzQO1vDTubJretTuX0aVJh
-	mY8/dx9YOmjHBKApK5KpbnB2u93AxV0E9MSVSao0kdrgZnXt6huCo/QamQyd+iTh6tsUf4fTTcUhH
-	qHWscQX/36gm2YYzJBrQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=8B5HbFtMvOq5f/j2NEI8CfSL2szfJ94PpfWD+G1byyk=; b=Bo7mVlUyPMgZ6+VgUQfw7oVkUP
+	IhwXC/ViI97akGs2ytix+xNH8L3Ep+wDTo7L+h3FXbH0qGgVVJNg/6mqNqd3jxqkd530h/pkrPBZs
+	lb01Jnph08EeXOpvw2M22zf3K5bIKSqpAskr6bXrPxG4k3wMJaJTuYhKuxkVqHIhvwjteOsCxkiOH
+	Q9cDtVDFSSPjB2t2DjHaL0N37XBBY/ubgtG+KkkM/VSB+WKUJFDrPNtWVdGSmRYJ/5swIyxTF6HZ8
+	DsvvdPJJ0RZk5C78A6cQgEpob1cBRWm8n2/Z08+lo43hSkVkP3qcyRornXuvxtL+FQilUrZ+ttK7V
+	3kk0GeVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rr8Fa-00000006m5t-46So;
-	Mon, 01 Apr 2024 03:22:22 +0000
-Received: from out-187.mta1.migadu.com ([2001:41d0:203:375::bb])
+	id 1rr8Y4-00000006oKn-3oQO;
+	Mon, 01 Apr 2024 03:41:28 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rr8FW-00000006m4W-0TQX;
-	Mon, 01 Apr 2024 03:22:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1711941730;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bFZG8fdwOXmY5gp/Ygvlq6Ww6X3u42PHaZcD+BB2dRk=;
-	b=Lq6Z0jMSLgfpkaXPiKGWrriY+Gir/Xdh6UbGT4GOVc3DljvxjojyAz/WMXSFeg72CkUJox
-	Ryhzo98vQSuKrUnjbCYI1z1BXBJSyb0ixueDHg/Sbn+FM9pMnRQJEeyycz/xoIV6NoULX4
-	xon7jCh0byFYcLVQ0RihpPUJD9jS87E=
-Mime-Version: 1.0
+	id 1rr8Xz-00000006oJO-3ncH;
+	Mon, 01 Apr 2024 03:41:26 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4V7Gvt1Wpsz1xtQy;
+	Mon,  1 Apr 2024 11:39:06 +0800 (CST)
+Received: from canpemm500002.china.huawei.com (unknown [7.192.104.244])
+	by mail.maildlp.com (Postfix) with ESMTPS id C7BCE1A016F;
+	Mon,  1 Apr 2024 11:41:11 +0800 (CST)
+Received: from [10.173.135.154] (10.173.135.154) by
+ canpemm500002.china.huawei.com (7.192.104.244) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.35; Mon, 1 Apr 2024 11:41:10 +0800
 Subject: Re: [PATCH 1/7] memory: Remove the now superfluous sentinel element
  from ctl_table array
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20240328-jag-sysctl_remset_misc-v1-1-47c1463b3af2@samsung.com>
-Date: Mon, 1 Apr 2024 11:21:25 +0800
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Miaohe Lin <linmiaohe@huawei.com>,
- Naoya Horiguchi <naoya.horiguchi@nec.com>,
- John Johansen <john.johansen@canonical.com>,
- Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>,
- "Serge E. Hallyn" <serge@hallyn.com>,
- David Howells <dhowells@redhat.com>,
- Jarkko Sakkinen <jarkko@kernel.org>,
- Kees Cook <keescook@chromium.org>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Jens Axboe <axboe@kernel.dk>,
- Pavel Begunkov <asml.silence@gmail.com>,
- Atish Patra <atishp@atishpatra.org>,
- Anup Patel <anup@brainfault.org>,
- Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Luis Chamberlain <mcgrof@kernel.org>,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org,
- apparmor@lists.ubuntu.com,
- linux-security-module@vger.kernel.org,
- keyrings@vger.kernel.org,
- linux-crypto@vger.kernel.org,
- io-uring@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <8E19B519-9035-42E0-92DC-7C21471543D8@linux.dev>
+To: <j.granados@samsung.com>
+CC: Luis Chamberlain <mcgrof@kernel.org>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<apparmor@lists.ubuntu.com>, <linux-security-module@vger.kernel.org>,
+	<keyrings@vger.kernel.org>, <linux-crypto@vger.kernel.org>,
+	<io-uring@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, Andrew Morton
+	<akpm@linux-foundation.org>, Muchun Song <muchun.song@linux.dev>, Naoya
+ Horiguchi <naoya.horiguchi@nec.com>, John Johansen
+	<john.johansen@canonical.com>, Paul Moore <paul@paul-moore.com>, James Morris
+	<jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, David Howells
+	<dhowells@redhat.com>, Jarkko Sakkinen <jarkko@kernel.org>, Kees Cook
+	<keescook@chromium.org>, Herbert Xu <herbert@gondor.apana.org.au>, "David S.
+ Miller" <davem@davemloft.net>, Jens Axboe <axboe@kernel.dk>, Pavel Begunkov
+	<asml.silence@gmail.com>, Atish Patra <atishp@atishpatra.org>, Anup Patel
+	<anup@brainfault.org>, Will Deacon <will@kernel.org>, Mark Rutland
+	<mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 References: <20240328-jag-sysctl_remset_misc-v1-0-47c1463b3af2@samsung.com>
  <20240328-jag-sysctl_remset_misc-v1-1-47c1463b3af2@samsung.com>
-To: j.granados@samsung.com
-X-Migadu-Flow: FLOW_OUT
+From: Miaohe Lin <linmiaohe@huawei.com>
+Message-ID: <0e35e88d-3ea1-4f62-77e4-eb12e9f51583@huawei.com>
+Date: Mon, 1 Apr 2024 11:41:09 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.0
+MIME-Version: 1.0
+In-Reply-To: <20240328-jag-sysctl_remset_misc-v1-1-47c1463b3af2@samsung.com>
+Content-Language: en-US
+X-Originating-IP: [10.173.135.154]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ canpemm500002.china.huawei.com (7.192.104.244)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240331_202218_297420_9BF2AF9F 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240331_204124_393046_86E5FF30 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,10 +89,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> On Mar 28, 2024, at 23:57, Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org> wrote:
-> 
+On 2024/3/28 23:57, Joel Granados via B4 Relay wrote:
 > From: Joel Granados <j.granados@samsung.com>
 > 
 > This commit comes at the tail end of a greater effort to remove the
@@ -116,9 +102,105 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 > 
 > Signed-off-by: Joel Granados <j.granados@samsung.com>
 
-Reviewed-by: Muchun Song <muchun.song@linux.dev>
+Reviewed-by: Miaohe Lin <linmiaohe@huawei.com>
 
-THanks.
+Thanks.
+
+> ---
+>  mm/compaction.c      | 1 -
+>  mm/hugetlb.c         | 1 -
+>  mm/hugetlb_vmemmap.c | 1 -
+>  mm/memory-failure.c  | 1 -
+>  mm/oom_kill.c        | 1 -
+>  mm/page-writeback.c  | 1 -
+>  mm/page_alloc.c      | 1 -
+>  7 files changed, 7 deletions(-)
+> 
+> diff --git a/mm/compaction.c b/mm/compaction.c
+> index 807b58e6eb68..e8a047afca22 100644
+> --- a/mm/compaction.c
+> +++ b/mm/compaction.c
+> @@ -3345,7 +3345,6 @@ static struct ctl_table vm_compaction[] = {
+>  		.extra1		= SYSCTL_ZERO,
+>  		.extra2		= SYSCTL_ONE,
+>  	},
+> -	{ }
+>  };
+>  
+>  static int __init kcompactd_init(void)
+> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+> index 23ef240ba48a..7ac5240a197d 100644
+> --- a/mm/hugetlb.c
+> +++ b/mm/hugetlb.c
+> @@ -5045,7 +5045,6 @@ static struct ctl_table hugetlb_table[] = {
+>  		.mode		= 0644,
+>  		.proc_handler	= hugetlb_overcommit_handler,
+>  	},
+> -	{ }
+>  };
+>  
+>  static void hugetlb_sysctl_init(void)
+> diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
+> index da177e49d956..b9a55322e52c 100644
+> --- a/mm/hugetlb_vmemmap.c
+> +++ b/mm/hugetlb_vmemmap.c
+> @@ -679,7 +679,6 @@ static struct ctl_table hugetlb_vmemmap_sysctls[] = {
+>  		.mode		= 0644,
+>  		.proc_handler	= proc_dobool,
+>  	},
+> -	{ }
+>  };
+>  
+>  static int __init hugetlb_vmemmap_init(void)
+> diff --git a/mm/memory-failure.c b/mm/memory-failure.c
+> index 9349948f1abf..6a112f9ecf91 100644
+> --- a/mm/memory-failure.c
+> +++ b/mm/memory-failure.c
+> @@ -141,7 +141,6 @@ static struct ctl_table memory_failure_table[] = {
+>  		.extra1		= SYSCTL_ZERO,
+>  		.extra2		= SYSCTL_ONE,
+>  	},
+> -	{ }
+>  };
+>  
+>  /*
+> diff --git a/mm/oom_kill.c b/mm/oom_kill.c
+> index 8d6a207c3c59..4d7a0004df2c 100644
+> --- a/mm/oom_kill.c
+> +++ b/mm/oom_kill.c
+> @@ -724,7 +724,6 @@ static struct ctl_table vm_oom_kill_table[] = {
+>  		.mode		= 0644,
+>  		.proc_handler	= proc_dointvec,
+>  	},
+> -	{}
+>  };
+>  #endif
+>  
+> diff --git a/mm/page-writeback.c b/mm/page-writeback.c
+> index 3e19b87049db..fba324e1a010 100644
+> --- a/mm/page-writeback.c
+> +++ b/mm/page-writeback.c
+> @@ -2291,7 +2291,6 @@ static struct ctl_table vm_page_writeback_sysctls[] = {
+>  		.mode		= 0644,
+>  		.proc_handler	= proc_dointvec_jiffies,
+>  	},
+> -	{}
+>  };
+>  #endif
+>  
+> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+> index 14d39f34d336..8b9820620fe3 100644
+> --- a/mm/page_alloc.c
+> +++ b/mm/page_alloc.c
+> @@ -6211,7 +6211,6 @@ static struct ctl_table page_alloc_sysctl_table[] = {
+>  		.extra2		= SYSCTL_ONE_HUNDRED,
+>  	},
+>  #endif
+> -	{}
+>  };
+>  
+>  void __init page_alloc_sysctl_init(void)
+> 
 
 
 _______________________________________________
