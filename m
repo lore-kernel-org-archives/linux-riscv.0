@@ -4,124 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28762C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 22:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0575CCD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 22:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RfS5TxK0lsboqiFpawXxX7tYMEV0pnT7d54SoT7+9vw=; b=ydC2OZCDbhsYUF
-	GwLYTp6zFcBRrh7LFJccynNuNoa3pB3uRKUIAMb/b96MUD6X7zwRV4dJB2hjXq+FX+Ya27l94xZ8R
-	E7LUK86aOjR48U59ZseAU1E0GzsvykSC6dVrAsmQrEfthBeg6GU7UnjL2rrkiCL+uy5D/dI8kXwvw
-	U2wKouJ9/xfsYUFl2UqxFJhF61c2XOPaV6Pj2RwKstHwGQB0d+FdPUGsr/XPM0mIAfa0wxOFAHzlx
-	PpIQUgKYP3yhdHj18L3+doYixeA3xtZ9+RnPbgNy2stLmP/4vcH7gnhF+3DKcRDvSnRklL1Uu7Uoi
-	1hLrwObrAbbaD8t80ytQ==;
+	List-Owner; bh=V3vAo6atkT9NyCtNaXOM5gjMqqZls3y79SVQBbO4fhI=; b=X+JtJj/eKLFKMI
+	A+qW8Zy3h5yvrp+D1Im5h32EMqeLYPxA+yxOsyD3rqgPAUDk0XfrQaQX2jFsVVZ3wEDDYfPdCKxaj
+	4X2Do1U9AFwEUDqxo31xrd/GhQ5DLaFJ9655OB2Ap/oWgGGxqDH7v62Eg3BOTkSSoF5kTAJflHAKG
+	wBPa1GXVFJindB+XXYqXoqSthyYHM1qWMHyY/D3CGPs2AeSz1VZhRIGK8tI/wun+eAdbaEhLZmHAW
+	1TdTKiUW0cuoIwpeQz2T0iz5nnCF/fhhR8LNX868JESkdYHX69dHsN5zaU21IJtbZf5VLkFZ7vfIv
+	CgB6+luRcNxzEw985Ntw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrmgz-0000000D1hZ-2JmE;
-	Tue, 02 Apr 2024 22:33:21 +0000
-Received: from mail-mw2nam10on20700.outbound.protection.outlook.com ([2a01:111:f403:2412::700] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1rrmrR-0000000D3Kx-17Oy;
+	Tue, 02 Apr 2024 22:44:09 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrmgu-0000000D1cB-2QHK;
-	Tue, 02 Apr 2024 22:33:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=h5ierhoCNz/qyOq5xDGuhZ6yPOjr3c6waFIYghQ2gqjRrdye4ZPsEt/tE9PpWP5QEm51Wc+Xtb6zM6P/akXWIOXtPFpm5bpxCGJpd0+B9BUUde46HGRcM8ZOXVuqUAw+67npIB4BEiAOij4VxvwI3v2ByRbJHmxRgHV3gexZfkgkCA9WWpMsbwe0gy5E9Az5grHlMGv1uq9UigzQFtwpJwaAuQclMngg0wB1hwjfaOEYQq5KixTztSdWKOuGeX67hEN0Ybs9PEG9v/qspNvZXbLQYgyIxoV6jlVUkTK2ip+eNRj5RSwRpWdtrmnhWYhptEiFQ0FHISnGvyvQvFI0NQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tB0wld9CioLPvgqwUdTTK5WxiWvsshqYgT+yDfVJlH8=;
- b=cvVrSTJd5e6Ow9wPCHKMNo17nrK04zqqUpnh9M38V1M1Rdd3jWt+GfKcBUkFBa6S4uqMMNHBrPzXt0zMfdq2YbbwuqAS/UFdmivGTjBwoYVj/elzKJ7x/qrDmh+mD0laKXxGN3duG5Z+a5/2iAZkLqr5Brm8rggXkprlPEAX9Nj2rf5aQZxya+yPbRcIvVkzN3sOnTZFNmyr8pTNlJv3gnD9HUBNi6jmtxMiK7Nia7xumhL1M5Ne6VTg7I/vTtXKsqxtcS6982tUEwBakENlnKt3yGf5CdCY3H9II6OZgi3SIRNzKOQC1bcOpihdsnF6nnPXWs2sbzZDTp3wUA99Fg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tB0wld9CioLPvgqwUdTTK5WxiWvsshqYgT+yDfVJlH8=;
- b=Co1h3BR11gXZuJOliOgfWeSbhiUvo8stZw37AmpemjU2oS+FfSPH8/DFs/0YTAqYLQIxFXmjx37mKmvN1c/l7v7YD7cVcP1yeiOK3sjEh15PQ75PTYLPx5s+YY8dgk76SoMVWbb4lGUsXjiSww/AZ8MiAHj2gjhRf+UE6cb0wh8sSjv4hPjXUjTBeCTkZ6RTMUsRW0V7M8JHl8Wg22HWulAWmj5yOy1NsYRVtP2M8ruUgnAlRuSJ8ol23B5lsmJ+ysvndWQ1swtTHeAz9p86OWdbSh6FDlJvPjqItl0U+dLZpobZybTP8znVrrey21BaXC5xIgeEUZoVEPwfMqUzbg==
-Received: from DM6PR12MB3849.namprd12.prod.outlook.com (2603:10b6:5:1c7::26)
- by DM4PR12MB5793.namprd12.prod.outlook.com (2603:10b6:8:60::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Tue, 2 Apr
- 2024 22:32:58 +0000
-Received: from DM6PR12MB3849.namprd12.prod.outlook.com
- ([fe80::6aec:dbca:a593:a222]) by DM6PR12MB3849.namprd12.prod.outlook.com
- ([fe80::6aec:dbca:a593:a222%5]) with mapi id 15.20.7409.042; Tue, 2 Apr 2024
- 22:32:58 +0000
-Date: Tue, 2 Apr 2024 19:32:56 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	id 1rrmrN-0000000D3I8-3dfE
+	for linux-riscv@lists.infradead.org;
+	Tue, 02 Apr 2024 22:44:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1712097843;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=msm30zqdysTm36DA/rZCqzTJxXxvA+rydv8lKPCKRNo=;
+	b=S9PxDmS7cMP4xVVO6g3JrkBP3FB1ohuU/ePpi1mO0OcndetwgzH2rn7dZrTBVwyg//HdL9
+	BqBBNxkQWVczr9dKhppoZH4dCphZ0+NFVi04ogbSa6UTEefj5OHhMrFWrm//sDLhwtJema
+	1PfDFmObfd+ZUbne8wLNEPYpoRTI3V8=
+Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com
+ [209.85.210.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-350-GXsw50GtNwizsQ0-zYJKgA-1; Tue, 02 Apr 2024 18:44:01 -0400
+X-MC-Unique: GXsw50GtNwizsQ0-zYJKgA-1
+Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-6e6b0efc193so2532562a34.0
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2024 15:44:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1712097840; x=1712702640;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=msm30zqdysTm36DA/rZCqzTJxXxvA+rydv8lKPCKRNo=;
+        b=BWqkQ/c+XrtzmgRYst1Xn9+WgmgMSHiR7ucCNK3XsO83LoycB/hmF+0Vy4bV30nK1k
+         wEPl9bYa0I/dUtfNdOVDzB5oGh0zhNrcip/qMmNF+LGKUUfkMgrOqr9+OXlh/2X7PK/a
+         fOl8H/hqn8J3EV4k7BVpxPA9sIFD2z77t0XKUv5bvom4+198DtMFtnwiTHIdCLNTWN4V
+         A5xfy2KXrlYC9GXa3ecTPECw7ZW38SJjXWhvxbldL+0S1XgQz64l0PzTFLMT6vNdX2zI
+         PP7za7LGFyoi7jfepnJu76GsaEVco1nnxtv0taVVrI2N5k9MosKzET9ch0G28u/DOU75
+         DILQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUgsIp6XY1cevhuM6IkLfYti+CdXgRB7K+ZeU0rQ8qD4zzFOZKMHCOEBJQlRvTaoPsUDMA6rLaAHX2vEop6sxg2JC9h2dkcusBYtlqsFfB2
+X-Gm-Message-State: AOJu0YxlpspyBaFDMhQnSdI+JCTAf6jHsUzAqOGMtGKy846QNm8MnKd4
+	bANylXhssWQyD7li1973WHbecvJFlL9zHHyNvrZGncJCUAeSx9C/8WTBE9QtjSKwpuCAESYNYRq
+	+nWPtEfhVPOwHcp6bJ5JQzqz7d+5LUydwHEIihBSW6TaZPvV8dT1d5Mi76/ueT3I2Mg==
+X-Received: by 2002:a05:6808:15a1:b0:3c4:f2b2:2c20 with SMTP id t33-20020a05680815a100b003c4f2b22c20mr4238907oiw.2.1712097840204;
+        Tue, 02 Apr 2024 15:44:00 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF6a1W8aoV0zchhQZ+4+B4MiM4kTW0SJ53OaThQIv9a42FW90adjoyx8moZXDxiuklchxwa7w==
+X-Received: by 2002:a05:6808:15a1:b0:3c4:f2b2:2c20 with SMTP id t33-20020a05680815a100b003c4f2b22c20mr4238865oiw.2.1712097839620;
+        Tue, 02 Apr 2024 15:43:59 -0700 (PDT)
+Received: from x1n ([99.254.121.117])
+        by smtp.gmail.com with ESMTPSA id u6-20020a05620a120600b00789e8860ef7sm4617106qkj.121.2024.04.02.15.43.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Apr 2024 15:43:59 -0700 (PDT)
+Date: Tue, 2 Apr 2024 18:43:56 -0400
+From: Peter Xu <peterx@redhat.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	Yang Shi <shy828301@gmail.com>,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
 	Andrew Morton <akpm@linux-foundation.org>,
-	Mike Rapoport <rppt@kernel.org>, John Hubbard <jhubbard@nvidia.com>,
-	Peter Xu <peterx@redhat.com>, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	x86@kernel.org
-Subject: Re: [PATCH v1 2/3] mm/treewide: rename CONFIG_HAVE_FAST_GUP to
- CONFIG_HAVE_GUP_FAST
-Message-ID: <20240402223256.GR946323@nvidia.com>
-References: <20240402125516.223131-1-david@redhat.com>
- <20240402125516.223131-3-david@redhat.com>
-Content-Disposition: inline
-In-Reply-To: <20240402125516.223131-3-david@redhat.com>
-X-ClientProxiedBy: SA1P222CA0044.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:2d0::9) To DM6PR12MB3849.namprd12.prod.outlook.com
- (2603:10b6:5:1c7::26)
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Rik van Riel <riel@surriel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	David Hildenbrand <david@redhat.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	James Houghton <jthoughton@google.com>,
+	Jason Gunthorpe <jgg@nvidia.com>, Mike Rapoport <rppt@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, loongarch@lists.linux.dev
+Subject: Re: [PATCH v4 05/13] mm/arch: Provide pud_pfn() fallback
+Message-ID: <ZgyKLLVZ4vN56uZE@x1n>
+References: <20240327152332.950956-1-peterx@redhat.com>
+ <20240327152332.950956-6-peterx@redhat.com>
+ <20240402190549.GA706730@dev-arch.thelio-3990X>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB3849:EE_|DM4PR12MB5793:EE_
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 5JB6BilPex/iw8fpF25dq3VpvhrukRTjVfLurXbkj0tJQLCjcBFLMAwhURfvyYn88Utq0P0/Y8LnQxXwzhAKBmlOYFjz2fgNQbPF2Zuqj8L/lxE7XjUr0ZaSIN9oU+yoeT9dwZNTLweIq/GSNd3PHaSqnuBv3WagaVJzQ9tiZwJwjdEAIbg5Ox47pEoi+brsiuyICNgEVqgjdJzGUwi7RWbBr1Jibdi188M28zsKSartIy6AGQBFe/hNc2M7lAg9ABKwgNpIdBSqihcYKoNJpSDeZjwqMmD5rH8dSZ422xCE4sSL5BMmiMvnFXB1Rm+i2foEeUmDI0zZz8I9l0brSifTbnlDLm3ZkQt1r0KuuSgwQm5MiCAndmg7B4Hb6EyDASlXoddpfCxXygy+J8jS1hzDWxVmA5CSiidIVjI6zcQstvI2h+t6liapqcTnSMh5L98nE1XPNq3j4MO3yBvqhL2wL5NdMINmi6OQoe5g9ldu+4CDqjRW+NqbuURZjxmonzN7CScM5DCQB8xOuUwHvXcktG7tWD93OVN9RZBEqS/eHHHavLSmmktl7NyenaCE9LUmlAhDCsL7Oeex5RHhX5UJycprbUEEJILsTO8w1fv+aP0jXqC9qmHnBDn6G8Mgwwc0cj5Y8Yg9ppmcUFFIsuSIDwKiof1Z1Rc1R2hBWNo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3849.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(366007)(376005)(1800799015)(7416005);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YIHVYcmfjfhuGhVvO9beY3696SSbYLBXCstNYAJnOmGpVx548BoVdyxzkL9Z?=
- =?us-ascii?Q?GIB2jRnfaIHcFBFSyslNaMXAChVVeZklhjcV8mPExutYhfmO9Y4DfmUjpm7j?=
- =?us-ascii?Q?O6J0dDYtr0ZPJAgFO8kgrNWJMBH8LxZMqNdVlBzh9UunChGcQeDgwkCJ3Nbn?=
- =?us-ascii?Q?Ttj7PB+cq9go68qRbWcIXL+Om3IwMV3n7OUxuRhUCPD+NC6gDQ3ZfCoQSYqi?=
- =?us-ascii?Q?+YT/tusLgryM92iZJIs2mNcX7TIPK/XmnEm3M1E0IcYrCoI401zpjN75T9Zx?=
- =?us-ascii?Q?d0Upg2uzUi8EdZS17S/tU/lo2wtZliNOCf/ztxi23/LAsLr4R8L4zkw+ZJva?=
- =?us-ascii?Q?u/ZdgPzWTLS2th28UNKE/6RmlsrdCyl2Sf7ufAGxvu8YOfJzJF9GDLFQ9pHI?=
- =?us-ascii?Q?vMaYAoySZqjCSmdr52/fXp6zapqIYI4gc4ZI/q6Y5Vz571yJf7b5ZE6tVBG9?=
- =?us-ascii?Q?nARRVtwSarHrZTC9bXicbePKphuc+n/T8MTOGxjkfLialci9ab9iwQm8GBOd?=
- =?us-ascii?Q?8zFvsWo15Rl3A0Ed5sWi20f+0qHwt7qW/806+grXC0+CzZWiVtMNYsN/eKja?=
- =?us-ascii?Q?DcfzeUF985OzqKlNjNhDx2Zlx/81dJTBzyn+6SKqkUrxGKa2GGbddFtc+Qqm?=
- =?us-ascii?Q?NDkARs48gMG+rvftEB12mRYuljl1Yh79iURU50KEHjSc5J95dw3DA2US/yhA?=
- =?us-ascii?Q?W8/r6IeDjx/gTdjlxFr012y9ejIkh3pBIN/xmW/4pJOkD31Dz4bdsPx8Kgnv?=
- =?us-ascii?Q?GUAzJkHHcyqaQuWAFY6KydB2AXSMbCRKOZCV07oFAcgMUumaZAs+CNGQ9+Km?=
- =?us-ascii?Q?Hojxt9y/g9B5C2NjXqAaYLKqhu2cQvMAMtj7DF0lgHjUlJ4aIhxyaR6U5SfL?=
- =?us-ascii?Q?vX8kww3lLqz7yVg40o/U+6az+yviFFIvSnnz6x7B5FU/eXDDl35NlV5/riXN?=
- =?us-ascii?Q?ngBW/uuNYHH8mAQeGDFOTcyxlUxZ76q662t4DaqwXX0EKE5k4vq6DhdR4WUF?=
- =?us-ascii?Q?NlyQYjfstLK9LnckCL/va6GuWsYWBH6XChHGFeHzixvpRu2TldGn8UNn9Vry?=
- =?us-ascii?Q?bdAo9adU3CwkWzIMBfMXlldlpvNbfq2fxzoL+xfp+CZFQIIO7GFtN7rf/c7c?=
- =?us-ascii?Q?NQki/Eog3U7jG/X0b2/aCBP+5n8KhpCVewJng3pv3XL7hnt7St1kwAKISh9r?=
- =?us-ascii?Q?VyuKNtJKW77USokJtCzqj3Rbs2HG5B+9qZYVKa5S2rxU3m3qzlojskiSF4mB?=
- =?us-ascii?Q?hk6LHp7gfdfGpi4MSQQ2reB16YLXLq0S4uOsm/QpLW3JJL9bB7pkI0alH6aL?=
- =?us-ascii?Q?UzDuog4tnuDhNe1JtfcLIuiLvvk2FJ+cIWt4VQuKysx4YmMEGseaoTatrGQV?=
- =?us-ascii?Q?ecJVZm2sVBmK7XGbYFCOTfasFW2aafrySEEKwUKH1oYs+HWs+PnBf3xmdYKv?=
- =?us-ascii?Q?j1WaAPb0PrATlMCzCKbSs1nDnJ8bo2zcYihPC7KAtqNk+iTQhUjPkv5vkwYq?=
- =?us-ascii?Q?pHLverouVx4bMCo8xIFLov4q5A8jotmZ9rC+sr4jtfxcrzDgoG7MCeYZNDeH?=
- =?us-ascii?Q?DqtLNRTQsdySV80kfT7DqGtOogTmFNDQVIkgsvY/?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 227402b1-27a9-43c2-b148-08dc5364d8ec
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB3849.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2024 22:32:58.2460
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8MPIwg9UToD/4t9j93r/ZEdRhKmo51nZ9NLMy+VDPn+jgiEPi8hdKyWVcs8WSiH1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5793
+In-Reply-To: <20240402190549.GA706730@dev-arch.thelio-3990X>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_153316_638551_E5B4588A 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20240402_154406_039867_968019D5 
+X-CRM114-Status: GOOD (  40.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,35 +125,190 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 02, 2024 at 02:55:15PM +0200, David Hildenbrand wrote:
-> Nowadays, we call it "GUP-fast", the external interface includes
-> functions like "get_user_pages_fast()", and we renamed all internal
-> functions to reflect that as well.
+On Tue, Apr 02, 2024 at 12:05:49PM -0700, Nathan Chancellor wrote:
+> Hi Peter (and LoongArch folks),
 > 
-> Let's make the config option reflect that.
+> On Wed, Mar 27, 2024 at 11:23:24AM -0400, peterx@redhat.com wrote:
+> > From: Peter Xu <peterx@redhat.com>
+> > 
+> > The comment in the code explains the reasons.  We took a different approach
+> > comparing to pmd_pfn() by providing a fallback function.
+> > 
+> > Another option is to provide some lower level config options (compare to
+> > HUGETLB_PAGE or THP) to identify which layer an arch can support for such
+> > huge mappings.  However that can be an overkill.
+> > 
+> > Cc: Mike Rapoport (IBM) <rppt@kernel.org>
+> > Cc: Matthew Wilcox <willy@infradead.org>
+> > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> > Signed-off-by: Peter Xu <peterx@redhat.com>
+> > ---
+> >  arch/riscv/include/asm/pgtable.h    |  1 +
+> >  arch/s390/include/asm/pgtable.h     |  1 +
+> >  arch/sparc/include/asm/pgtable_64.h |  1 +
+> >  arch/x86/include/asm/pgtable.h      |  1 +
+> >  include/linux/pgtable.h             | 10 ++++++++++
+> >  5 files changed, 14 insertions(+)
+> > 
+> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > index 20242402fc11..0ca28cc8e3fa 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -646,6 +646,7 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
+> >  
+> >  #define __pud_to_phys(pud)  (__page_val_to_pfn(pud_val(pud)) << PAGE_SHIFT)
+> >  
+> > +#define pud_pfn pud_pfn
+> >  static inline unsigned long pud_pfn(pud_t pud)
+> >  {
+> >  	return ((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT);
+> > diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
+> > index 1a71cb19c089..6cbbe473f680 100644
+> > --- a/arch/s390/include/asm/pgtable.h
+> > +++ b/arch/s390/include/asm/pgtable.h
+> > @@ -1414,6 +1414,7 @@ static inline unsigned long pud_deref(pud_t pud)
+> >  	return (unsigned long)__va(pud_val(pud) & origin_mask);
+> >  }
+> >  
+> > +#define pud_pfn pud_pfn
+> >  static inline unsigned long pud_pfn(pud_t pud)
+> >  {
+> >  	return __pa(pud_deref(pud)) >> PAGE_SHIFT;
+> > diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
+> > index 4d1bafaba942..26efc9bb644a 100644
+> > --- a/arch/sparc/include/asm/pgtable_64.h
+> > +++ b/arch/sparc/include/asm/pgtable_64.h
+> > @@ -875,6 +875,7 @@ static inline bool pud_leaf(pud_t pud)
+> >  	return pte_val(pte) & _PAGE_PMD_HUGE;
+> >  }
+> >  
+> > +#define pud_pfn pud_pfn
+> >  static inline unsigned long pud_pfn(pud_t pud)
+> >  {
+> >  	pte_t pte = __pte(pud_val(pud));
+> > diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+> > index cefc7a84f7a4..273f7557218c 100644
+> > --- a/arch/x86/include/asm/pgtable.h
+> > +++ b/arch/x86/include/asm/pgtable.h
+> > @@ -234,6 +234,7 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
+> >  	return (pfn & pmd_pfn_mask(pmd)) >> PAGE_SHIFT;
+> >  }
+> >  
+> > +#define pud_pfn pud_pfn
+> >  static inline unsigned long pud_pfn(pud_t pud)
+> >  {
+> >  	phys_addr_t pfn = pud_val(pud);
+> > diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> > index 600e17d03659..75fe309a4e10 100644
+> > --- a/include/linux/pgtable.h
+> > +++ b/include/linux/pgtable.h
+> > @@ -1817,6 +1817,16 @@ typedef unsigned int pgtbl_mod_mask;
+> >  #define pte_leaf_size(x) PAGE_SIZE
+> >  #endif
+> >  
+> > +/*
+> > + * We always define pmd_pfn for all archs as it's used in lots of generic
+> > + * code.  Now it happens too for pud_pfn (and can happen for larger
+> > + * mappings too in the future; we're not there yet).  Instead of defining
+> > + * it for all archs (like pmd_pfn), provide a fallback.
+> > + */
+> > +#ifndef pud_pfn
+> > +#define pud_pfn(x) ({ BUILD_BUG(); 0; })
+> > +#endif
+> > +
+> >  /*
+> >   * Some architectures have MMUs that are configurable or selectable at boot
+> >   * time. These lead to variable PTRS_PER_x. For statically allocated arrays it
+> > -- 
+> > 2.44.0
+> > 
 > 
-> Reviewed-by: Mike Rapoport (IBM) <rppt@kernel.org>
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  arch/arm/Kconfig       |  2 +-
->  arch/arm64/Kconfig     |  2 +-
->  arch/loongarch/Kconfig |  2 +-
->  arch/mips/Kconfig      |  2 +-
->  arch/powerpc/Kconfig   |  2 +-
->  arch/riscv/Kconfig     |  2 +-
->  arch/s390/Kconfig      |  2 +-
->  arch/sh/Kconfig        |  2 +-
->  arch/x86/Kconfig       |  2 +-
->  include/linux/rmap.h   |  8 ++++----
->  kernel/events/core.c   |  4 ++--
->  mm/Kconfig             |  2 +-
->  mm/gup.c               | 10 +++++-----
->  mm/internal.h          |  2 +-
->  14 files changed, 22 insertions(+), 22 deletions(-)
+> This BUILD_BUG() triggers for LoongArch with their defconfig, so it
+> seems like they need to provide an implementation of pud_pfn()?
+> 
+>   In function 'follow_huge_pud',
+>       inlined from 'follow_pud_mask' at mm/gup.c:1075:10,
+>       inlined from 'follow_p4d_mask' at mm/gup.c:1105:9,
+>       inlined from 'follow_page_mask' at mm/gup.c:1151:10:
+>   include/linux/compiler_types.h:460:45: error: call to '__compiletime_assert_382' declared with attribute error: BUILD_BUG failed
+>     460 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+>         |                                             ^
+>   include/linux/compiler_types.h:441:25: note: in definition of macro '__compiletime_assert'
+>     441 |                         prefix ## suffix();                             \
+>         |                         ^~~~~~
+>   include/linux/compiler_types.h:460:9: note: in expansion of macro '_compiletime_assert'
+>     460 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+>         |         ^~~~~~~~~~~~~~~~~~~
+>   include/linux/build_bug.h:39:37: note: in expansion of macro 'compiletime_assert'
+>      39 | #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
+>         |                                     ^~~~~~~~~~~~~~~~~~
+>   include/linux/build_bug.h:59:21: note: in expansion of macro 'BUILD_BUG_ON_MSG'
+>      59 | #define BUILD_BUG() BUILD_BUG_ON_MSG(1, "BUILD_BUG failed")
+>         |                     ^~~~~~~~~~~~~~~~
+>   include/linux/pgtable.h:1887:23: note: in expansion of macro 'BUILD_BUG'
+>    1887 | #define pud_pfn(x) ({ BUILD_BUG(); 0; })
+>         |                       ^~~~~~~~~
+>   mm/gup.c:679:29: note: in expansion of macro 'pud_pfn'
+>     679 |         unsigned long pfn = pud_pfn(pud);
+>         |                             ^~~~~~~
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+I actually tested this without hitting the issue (even though I didn't
+mention it in the cover letter..).  I re-kicked the build test, it turns
+out my "make alldefconfig" on loongarch will generate a config with both
+HUGETLB=n && THP=n, while arch/loongarch/configs/loongson3_defconfig has
+THP=y (which I assume was the one above build used).  I didn't further
+check how "make alldefconfig" generated the config; a bit surprising that
+it didn't fetch from there.
 
-Jason
+(and it also surprises me that this BUILD_BUG can trigger.. I used to try
+ triggering it elsewhere but failed..)
+
+For loongarch the best thing is not compile in follow_huge_pud(), as it
+doesn't support pud dax, neither does it support pud hugetlb.  However
+again that may require some more CONFIG_* options to declare the level one
+arch supports on HUGETLB_PAGE.  Here maybe the simplest (and it should also
+cover all the rest archs on similar issues if ever possible to happen) is
+we remove the BUILD_BUG() and explain why.  It should be safe for loongarch
+too here in this case to not defined it until properly supported.
+
+Thanks,
+
+===8<===
+From 585f34aa3d5b12cd2186367b0882d4293f792062 Mon Sep 17 00:00:00 2001
+From: Peter Xu <peterx@redhat.com>
+Date: Tue, 2 Apr 2024 18:31:07 -0400
+Subject: [PATCH] fixup! mm/arch: provide pud_pfn() fallback
+
+Signed-off-by: Peter Xu <peterx@redhat.com>
+---
+ include/linux/pgtable.h | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index fa8f92f6e2d7..0f4b2faa1d71 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -1882,9 +1882,13 @@ typedef unsigned int pgtbl_mod_mask;
+  * code.  Now it happens too for pud_pfn (and can happen for larger
+  * mappings too in the future; we're not there yet).  Instead of defining
+  * it for all archs (like pmd_pfn), provide a fallback.
++ *
++ * Note that returning 0 here means any arch that didn't define this can
++ * get severely wrong when it hits a real pud leaf.  It's arch's
++ * responsibility to properly define it when a huge pud is possible.
+  */
+ #ifndef pud_pfn
+-#define pud_pfn(x) ({ BUILD_BUG(); 0; })
++#define pud_pfn(x) 0
+ #endif
+ 
+ /*
+-- 
+2.44.0
+
+-- 
+Peter Xu
+
 
 _______________________________________________
 linux-riscv mailing list
