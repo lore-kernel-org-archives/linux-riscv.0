@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE240C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 14:27:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D68BCD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 14:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BAnH7uTX0RjXzLs3gsYhGFaBA2oohx8oN5wOZcZcNQo=; b=I6lrWIDL+HrF1A
-	vb9X86GOnEbgVmfATRTnQe9DpVetqJcsWmswro/+q1P/gCzLRyy+DFp9MjxqtzkaCC9XVnEtCPsqk
-	0AS82osVuHcM/FShzKqNzCGIjrysp0uDpVlwhc2CxA+9bCSSdyae+SlY25/05fkqGeqxswz+YDN7B
-	ab/ebo7IBtIoA0MGMAntBgDC74N/WD4kHx75btJrTfBdxfYWb+pEgThTHd3MHlHyAAZo1AZgyMkfw
-	iwEt09jB4kc77Mu8tdSkh9BhB7A97YQSz2Em7hJ8Hlr/WUGCyWkUsudQllUfC/4mo10/wOVAz/dMd
-	eQG2tTZn3RWWsqODUgFg==;
+	List-Owner; bh=M7IzAUI2w/V6AZKzwUN13JxgaQA35akvhOC9YsRXN8k=; b=ymnlAoX9s0krSy
+	MF4o1bfgNeWREcLwklFxnut3vSzmfxn4ixb/aj7hxt3kQuvc6s0jpWquGSvH4pD+4Mt2WQX3TuaQi
+	6ZTiC0Mqpw9EeAA4N0N2Ag/+0H3rWibR85acRJF+kLQvnqTKM06HPHRsv87Gx0Poc22nLGTqcjxsq
+	YzXUpjhaOU0Q00lKLsrzIPfkxar1RMXOA7es0c7BPGx3KEUvj5BpsfVQh3TbvVknaS9Mb5LVtO+yE
+	KnFkueuWGhlnwu58qk8rBz/+SMI9Z0yWO2Fa0D1Bja5VtvrmFEn4wDMIwIqQ77LvuAHinfuzvj00S
+	2x/n9RW+y/hZIrTRJygw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrf6r-0000000BZhA-3SOK;
-	Tue, 02 Apr 2024 14:27:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrf6o-0000000BZg5-41SW
-	for linux-riscv@lists.infradead.org;
-	Tue, 02 Apr 2024 14:27:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 454DA60EE6;
-	Tue,  2 Apr 2024 14:27:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FC12C433F1;
-	Tue,  2 Apr 2024 14:27:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712068049;
-	bh=IzdgC28MCw382UmcvE80JbhG7kFhsjaPi3qZble+/xc=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=YCFwJB0bPOnFodPVyWzYmgybAvddl2vQVOuciUH3pi/+hSrYYoNIOb05ZCfIA9B36
-	 rLgIbNX0aBjC2m78e9ccK+8WIspvxrLd41yAwLXT501ap4yHAnUmQWHxnwcAN7HPVc
-	 +YN8MyH0ay8Y6tedjiayxHUSiKv3tC4vTaRK9aae5/EQs9rt34aPFjL/DJmxjO7x0V
-	 zZMo58NzYH//7jm0o4kcv9wfaxAO3qnq1KViwPQkZAXMfp7eWQs1pQb8kwV/HqlALS
-	 N0bUDRfQldmpy0pPEzraCWp54To21/iNs0UNDfqDvK3sbHbWO06f2Qpkzm9z2JQDJO
-	 hh40dD82AO4iA==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
- Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu
- <song@kernel.org>, Yonghong Song <yhs@fb.com>, John Fastabend
- <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav
- Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa
- <jolsa@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Manu Bretelle
- <chantr4@gmail.com>, Pu Lehui <pulehui@huawei.com>, Pu Lehui
- <pulehui@huaweicloud.com>
-Subject: Re: [PATCH bpf-next 2/5] riscv, bpf: Relax restrictions on Zbb
- instructions
-In-Reply-To: <20240328124916.293173-3-pulehui@huaweicloud.com>
-References: <20240328124916.293173-1-pulehui@huaweicloud.com>
- <20240328124916.293173-3-pulehui@huaweicloud.com>
-Date: Tue, 02 Apr 2024 16:27:26 +0200
-Message-ID: <878r1vrga9.fsf@all.your.base.are.belong.to.us>
+	id 1rrfR4-0000000BgBE-2Be0;
+	Tue, 02 Apr 2024 14:48:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rrfR0-0000000Bg9G-22oD;
+	Tue, 02 Apr 2024 14:48:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00D961007;
+	Tue,  2 Apr 2024 07:48:52 -0700 (PDT)
+Received: from [10.1.38.163] (XHFQ2J9959.cambridge.arm.com [10.1.38.163])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C1E13F64C;
+	Tue,  2 Apr 2024 07:48:17 -0700 (PDT)
+Message-ID: <adfdd89b-ee56-4758-836e-c66a0be7de25@arm.com>
+Date: Tue, 2 Apr 2024 15:48:16 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 13/13] mm/gup: Handle hugetlb in the generic
+ follow_page_mask code
+Content-Language: en-GB
+To: peterx@redhat.com, linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Cc: Yang Shi <shy828301@gmail.com>, "Kirill A . Shutemov"
+ <kirill@shutemov.name>, Mike Kravetz <mike.kravetz@oracle.com>,
+ John Hubbard <jhubbard@nvidia.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Andrew Jones <andrew.jones@linux.dev>, Muchun Song <muchun.song@linux.dev>,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Christoph Hellwig <hch@infradead.org>, Lorenzo Stoakes <lstoakes@gmail.com>,
+ Matthew Wilcox <willy@infradead.org>, Rik van Riel <riel@surriel.com>,
+ linux-arm-kernel@lists.infradead.org, Andrea Arcangeli
+ <aarcange@redhat.com>, David Hildenbrand <david@redhat.com>,
+ "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Vlastimil Babka <vbabka@suse.cz>, James Houghton <jthoughton@google.com>,
+ Jason Gunthorpe <jgg@nvidia.com>, Mike Rapoport <rppt@kernel.org>,
+ Axel Rasmussen <axelrasmussen@google.com>
+References: <20240327152332.950956-1-peterx@redhat.com>
+ <20240327152332.950956-14-peterx@redhat.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20240327152332.950956-14-peterx@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_072731_124170_729D9C56 
-X-CRM114-Status: UNSURE (   5.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240402_074822_663649_54DC4245 
+X-CRM114-Status: GOOD (  36.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,18 +73,312 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IEZyb206IFB1IExl
-aHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4KPiBUaGlzIHBhdGNoIHJlbGF4ZXMgdGhlIHJlc3Ry
-aWN0aW9ucyBvbiB0aGUgWmJiIGluc3RydWN0aW9ucy4gVGhlIGhhcmR3YXJlCj4gaXMgY2FwYWJs
-ZSBvZiByZWNvZ25pemluZyB0aGUgWmJiIGluc3RydWN0aW9ucyBpbmRlcGVuZGVudGx5LCBlbGlt
-aW5hdGluZwo+IHRoZSBuZWVkIGZvciByZWxpYW5jZSBvbiBrZXJuZWwgY29tcGlsZSBjb25maWd1
-cmF0aW9ucy4KPgo+IFNpZ25lZC1vZmYtYnk6IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+
-CgpTaG91bGQgdGhpcyBwYXRjaCByZWFsbHkgYmUgcGFydCBvZiB0aGlzIHNlcmllcz8KCgpCasO2
-cm4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Peter,
+
+On 27/03/2024 15:23, peterx@redhat.com wrote:
+> From: Peter Xu <peterx@redhat.com>
+> 
+> Now follow_page() is ready to handle hugetlb pages in whatever form, and
+> over all architectures.  Switch to the generic code path.
+> 
+> Time to retire hugetlb_follow_page_mask(), following the previous
+> retirement of follow_hugetlb_page() in 4849807114b8.
+> 
+> There may be a slight difference of how the loops run when processing slow
+> GUP over a large hugetlb range on cont_pte/cont_pmd supported archs: each
+> loop of __get_user_pages() will resolve one pgtable entry with the patch
+> applied, rather than relying on the size of hugetlb hstate, the latter may
+> cover multiple entries in one loop.
+> 
+> A quick performance test on an aarch64 VM on M1 chip shows 15% degrade over
+> a tight loop of slow gup after the path switched.  That shouldn't be a
+> problem because slow-gup should not be a hot path for GUP in general: when
+> page is commonly present, fast-gup will already succeed, while when the
+> page is indeed missing and require a follow up page fault, the slow gup
+> degrade will probably buried in the fault paths anyway.  It also explains
+> why slow gup for THP used to be very slow before 57edfcfd3419 ("mm/gup:
+> accelerate thp gup even for "pages != NULL"") lands, the latter not part of
+> a performance analysis but a side benefit.  If the performance will be a
+> concern, we can consider handle CONT_PTE in follow_page().
+> 
+> Before that is justified to be necessary, keep everything clean and simple.
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Peter Xu <peterx@redhat.com>
+
+Afraid I'm seeing an oops when running gup_longterm test on arm64 with current mm-unstable. Git bisect blames this patch. The oops reproduces for me every time on 2 different machines:
+
+
+[    9.340416] kernel BUG at mm/gup.c:778!
+[    9.340746] Internal error: Oops - BUG: 00000000f2000800 [#1] PREEMPT SMP
+[    9.341199] Modules linked in:
+[    9.341481] CPU: 1 PID: 1159 Comm: gup_longterm Not tainted 6.9.0-rc2-00210-g910ff1a347e4 #11
+[    9.342232] Hardware name: linux,dummy-virt (DT)
+[    9.342647] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    9.343195] pc : follow_page_mask+0x4d4/0x880
+[    9.343580] lr : follow_page_mask+0x4d4/0x880
+[    9.344018] sp : ffff8000898b3aa0
+[    9.344345] x29: ffff8000898b3aa0 x28: fffffdffc53973e8 x27: 00003c0005d08000
+[    9.345028] x26: ffff00014e5cfd08 x25: ffffd3513a40c000 x24: fffffdffc5d08000
+[    9.345682] x23: ffffc1ffc0000000 x22: 0000000000080101 x21: ffff8000898b3ba8
+[    9.346337] x20: 0000fffff4200000 x19: ffff00014e52d508 x18: 0000000000000010
+[    9.347005] x17: 5f656e6f7a5f7369 x16: 2120262620296567 x15: 6170286461654865
+[    9.347713] x14: 6761502128454741 x13: 2929656761702865 x12: 6761705f65636976
+[    9.348371] x11: 65645f656e6f7a5f x10: ffffd3513b31d6e0 x9 : ffffd3513852f090
+[    9.349062] x8 : 00000000ffffefff x7 : ffffd3513b31d6e0 x6 : 0000000000000000
+[    9.349753] x5 : ffff00017ff98cc8 x4 : 0000000000000fff x3 : 0000000000000000
+[    9.350397] x2 : 0000000000000000 x1 : ffff000190e8b480 x0 : 0000000000000052
+[    9.351097] Call trace:
+[    9.351312]  follow_page_mask+0x4d4/0x880
+[    9.351700]  __get_user_pages+0xf4/0x3e8
+[    9.352089]  __gup_longterm_locked+0x204/0xa70
+[    9.352516]  pin_user_pages+0x88/0xc0
+[    9.352873]  gup_test_ioctl+0x860/0xc40
+[    9.353249]  __arm64_sys_ioctl+0xb0/0x100
+[    9.353648]  invoke_syscall+0x50/0x128
+[    9.354022]  el0_svc_common.constprop.0+0x48/0xf8
+[    9.354488]  do_el0_svc+0x28/0x40
+[    9.354822]  el0_svc+0x34/0xe0
+[    9.355128]  el0t_64_sync_handler+0x13c/0x158
+[    9.355489]  el0t_64_sync+0x190/0x198
+[    9.355793] Code: aa1803e0 d000d8e1 91220021 97fff560 (d4210000) 
+[    9.356280] ---[ end trace 0000000000000000 ]---
+[    9.356651] note: gup_longterm[1159] exited with irqs disabled
+[    9.357141] note: gup_longterm[1159] exited with preempt_count 2
+[    9.358033] ------------[ cut here ]------------
+[    9.358800] WARNING: CPU: 1 PID: 0 at kernel/context_tracking.c:128 ct_kernel_exit.constprop.0+0x108/0x120
+[    9.360157] Modules linked in:
+[    9.360541] CPU: 1 PID: 0 Comm: swapper/1 Tainted: G      D            6.9.0-rc2-00210-g910ff1a347e4 #11
+[    9.361626] Hardware name: linux,dummy-virt (DT)
+[    9.362087] pstate: 204003c5 (nzCv DAIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    9.362758] pc : ct_kernel_exit.constprop.0+0x108/0x120
+[    9.363306] lr : ct_idle_enter+0x10/0x20
+[    9.363845] sp : ffff8000801abdc0
+[    9.364222] x29: ffff8000801abdc0 x28: 0000000000000000 x27: 0000000000000000
+[    9.364961] x26: 0000000000000000 x25: ffff00014149d780 x24: 0000000000000000
+[    9.365557] x23: 0000000000000000 x22: ffffd3513b299d48 x21: ffffd3513a785730
+[    9.366239] x20: ffffd3513b299c28 x19: ffff00017ffa7da0 x18: 0000fffff5ffffff
+[    9.366869] x17: 0000000000000000 x16: 1fffe0002a21a8c1 x15: 0000000000000000
+[    9.367524] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000002
+[    9.368207] x11: 0000000000000001 x10: 0000000000000ad0 x9 : ffffd35138589230
+[    9.369123] x8 : ffff00014149e2b0 x7 : 0000000000000000 x6 : 000000000f8c0fb2
+[    9.370403] x5 : 4000000000000002 x4 : ffff2cb045825000 x3 : ffff8000801abdc0
+[    9.371170] x2 : ffffd3513a782da0 x1 : 4000000000000000 x0 : ffffd3513a782da0
+[    9.372279] Call trace:
+[    9.372519]  ct_kernel_exit.constprop.0+0x108/0x120
+[    9.373216]  ct_idle_enter+0x10/0x20
+[    9.373562]  default_idle_call+0x3c/0x160
+[    9.374055]  do_idle+0x21c/0x280
+[    9.374394]  cpu_startup_entry+0x3c/0x50
+[    9.374797]  secondary_start_kernel+0x140/0x168
+[    9.375220]  __secondary_switched+0xb8/0xc0
+[    9.375875] ---[ end trace 0000000000000000 ]---
+
+
+The oops trigger is at mm/gup.c:778:
+VM_BUG_ON_PAGE(!PageHead(page) && !is_zone_device_page(page), page);
+
+
+This is the output of gup_longterm (last output is just before oops):
+
+# [INFO] detected hugetlb page size: 2048 KiB
+# [INFO] detected hugetlb page size: 32768 KiB
+# [INFO] detected hugetlb page size: 64 KiB
+# [INFO] detected hugetlb page size: 1048576 KiB
+TAP version 13
+1..70
+# [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with memfd
+ok 1 Should have worked
+# [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with tmpfile
+ok 2 Should have failed
+# [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with local tmpfile
+ok 3 Should have failed
+# [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with memfd hugetlb (2048 kB)
+ok 4 Should have worked
+# [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with memfd hugetlb (32768 kB)
+
+
+So 2M passed ok, and its failing for 32M, which is cont-pmd. I'm guessing you're trying to iterate 2M into a cont-pmd folio and ending up with an unexpected tail page?
+
+
+I'm running with defconfig plus these:
+
+./scripts/config --enable CONFIG_SQUASHFS_LZ4
+./scripts/config --enable CONFIG_SQUASHFS_LZO
+./scripts/config --enable CONFIG_SQUASHFS_XZ
+./scripts/config --enable CONFIG_SQUASHFS_ZSTD
+./scripts/config --enable CONFIG_XFS_FS
+./scripts/config --enable CONFIG_FTRACE
+./scripts/config --enable CONFIG_FUNCTION_TRACER
+./scripts/config --enable CONFIG_KPROBES
+./scripts/config --enable CONFIG_HIST_TRIGGERS
+./scripts/config --enable CONFIG_FTRACE_SYSCALLS
+./scripts/config --enable CONFIG_DEBUG_VM
+./scripts/config --enable CONFIG_DEBUG_VM_MAPLE_TREE
+./scripts/config --enable CONFIG_DEBUG_VM_RB
+./scripts/config --enable CONFIG_DEBUG_VM_PGFLAGS
+./scripts/config --enable CONFIG_DEBUG_VM_PGTABLE
+./scripts/config --enable CONFIG_PAGE_TABLE_CHECK
+./scripts/config --enable CONFIG_USERFAULTFD
+./scripts/config --enable CONFIG_TEST_VMALLOC
+./scripts/config --enable CONFIG_GUP_TEST
+
+
+Thanks,
+Ryan
+
+
+
+
+> ---
+>  include/linux/hugetlb.h |  7 ----
+>  mm/gup.c                | 15 +++------
+>  mm/hugetlb.c            | 71 -----------------------------------------
+>  3 files changed, 5 insertions(+), 88 deletions(-)
+> 
+> diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
+> index 294c78b3549f..a546140f89cd 100644
+> --- a/include/linux/hugetlb.h
+> +++ b/include/linux/hugetlb.h
+> @@ -328,13 +328,6 @@ static inline void hugetlb_zap_end(
+>  {
+>  }
+>  
+> -static inline struct page *hugetlb_follow_page_mask(
+> -    struct vm_area_struct *vma, unsigned long address, unsigned int flags,
+> -    unsigned int *page_mask)
+> -{
+> -	BUILD_BUG(); /* should never be compiled in if !CONFIG_HUGETLB_PAGE*/
+> -}
+> -
+>  static inline int copy_hugetlb_page_range(struct mm_struct *dst,
+>  					  struct mm_struct *src,
+>  					  struct vm_area_struct *dst_vma,
+> diff --git a/mm/gup.c b/mm/gup.c
+> index a02463c9420e..c803d0b0f358 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -1135,18 +1135,11 @@ static struct page *follow_page_mask(struct vm_area_struct *vma,
+>  {
+>  	pgd_t *pgd;
+>  	struct mm_struct *mm = vma->vm_mm;
+> +	struct page *page;
+>  
+> -	ctx->page_mask = 0;
+> -
+> -	/*
+> -	 * Call hugetlb_follow_page_mask for hugetlb vmas as it will use
+> -	 * special hugetlb page table walking code.  This eliminates the
+> -	 * need to check for hugetlb entries in the general walking code.
+> -	 */
+> -	if (is_vm_hugetlb_page(vma))
+> -		return hugetlb_follow_page_mask(vma, address, flags,
+> -						&ctx->page_mask);
+> +	vma_pgtable_walk_begin(vma);
+>  
+> +	ctx->page_mask = 0;
+>  	pgd = pgd_offset(mm, address);
+>  
+>  	if (unlikely(is_hugepd(__hugepd(pgd_val(*pgd)))))
+> @@ -1157,6 +1150,8 @@ static struct page *follow_page_mask(struct vm_area_struct *vma,
+>  	else
+>  		page = follow_p4d_mask(vma, address, pgd, flags, ctx);
+>  
+> +	vma_pgtable_walk_end(vma);
+> +
+>  	return page;
+>  }
+>  
+> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+> index 65b9c9a48fd2..cc79891a3597 100644
+> --- a/mm/hugetlb.c
+> +++ b/mm/hugetlb.c
+> @@ -6870,77 +6870,6 @@ int hugetlb_mfill_atomic_pte(pte_t *dst_pte,
+>  }
+>  #endif /* CONFIG_USERFAULTFD */
+>  
+> -struct page *hugetlb_follow_page_mask(struct vm_area_struct *vma,
+> -				      unsigned long address, unsigned int flags,
+> -				      unsigned int *page_mask)
+> -{
+> -	struct hstate *h = hstate_vma(vma);
+> -	struct mm_struct *mm = vma->vm_mm;
+> -	unsigned long haddr = address & huge_page_mask(h);
+> -	struct page *page = NULL;
+> -	spinlock_t *ptl;
+> -	pte_t *pte, entry;
+> -	int ret;
+> -
+> -	hugetlb_vma_lock_read(vma);
+> -	pte = hugetlb_walk(vma, haddr, huge_page_size(h));
+> -	if (!pte)
+> -		goto out_unlock;
+> -
+> -	ptl = huge_pte_lock(h, mm, pte);
+> -	entry = huge_ptep_get(pte);
+> -	if (pte_present(entry)) {
+> -		page = pte_page(entry);
+> -
+> -		if (!huge_pte_write(entry)) {
+> -			if (flags & FOLL_WRITE) {
+> -				page = NULL;
+> -				goto out;
+> -			}
+> -
+> -			if (gup_must_unshare(vma, flags, page)) {
+> -				/* Tell the caller to do unsharing */
+> -				page = ERR_PTR(-EMLINK);
+> -				goto out;
+> -			}
+> -		}
+> -
+> -		page = nth_page(page, ((address & ~huge_page_mask(h)) >> PAGE_SHIFT));
+> -
+> -		/*
+> -		 * Note that page may be a sub-page, and with vmemmap
+> -		 * optimizations the page struct may be read only.
+> -		 * try_grab_page() will increase the ref count on the
+> -		 * head page, so this will be OK.
+> -		 *
+> -		 * try_grab_page() should always be able to get the page here,
+> -		 * because we hold the ptl lock and have verified pte_present().
+> -		 */
+> -		ret = try_grab_page(page, flags);
+> -
+> -		if (WARN_ON_ONCE(ret)) {
+> -			page = ERR_PTR(ret);
+> -			goto out;
+> -		}
+> -
+> -		*page_mask = (1U << huge_page_order(h)) - 1;
+> -	}
+> -out:
+> -	spin_unlock(ptl);
+> -out_unlock:
+> -	hugetlb_vma_unlock_read(vma);
+> -
+> -	/*
+> -	 * Fixup retval for dump requests: if pagecache doesn't exist,
+> -	 * don't try to allocate a new page but just skip it.
+> -	 */
+> -	if (!page && (flags & FOLL_DUMP) &&
+> -	    !hugetlbfs_pagecache_present(h, vma, address))
+> -		page = ERR_PTR(-EFAULT);
+> -
+> -	return page;
+> -}
+> -
+>  long hugetlb_change_protection(struct vm_area_struct *vma,
+>  		unsigned long address, unsigned long end,
+>  		pgprot_t newprot, unsigned long cp_flags)
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
