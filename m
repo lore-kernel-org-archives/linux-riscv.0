@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A531ACD1293
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 07:53:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5CBCD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 07:53:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6ckKQfRVQ/6XE6EXPtcHnRiK+ddUrZ9FGVIp0EAJ38U=; b=owITvwSjrlVP5M
-	eBsP+zY0yTvyrhl6AsJgVdZgl/buhz1zu2xhryZHpS/qgXpCuOsD4A9ec+kS9VNtvdyY7Q7bO55gd
-	rXYPEpgLVx9nJq4KQgRs1tEgz6t3zuLL7t58RM7YkLYC8xz9ZpaBDIpp+CiyKDO2iH+d1iy2QWEJL
-	SsNSqwr7ZYeNrr1TU9/4n5K6XE9POcALZRzNG3bSf3IpABntGeySmUuSEcoy4kBZ7YJCZt65olnxt
-	ZXTqJ6FHZD/LeKyC8wkku8GdxsR7cHTTlRNy/0j06lwSJoysgGu7ItdMDwVIDwQziISNP8jNOsAR0
-	DGtFOj2OGHHpF3iwgOwg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wJHB3xTyeYgSPxlUx8FVAwHzWuRBAcdsWU54sZRaALc=; b=zy4ovvcr3jqTCn
+	gz4hn7N82m2NKgoQVzFY/tnS85fHUk7AaA7jYFgdDmIc1RCIbDL66yW0x0qmma0xhaspP19Dm7PJx
+	PvWDNplU/zIs3Uh7gJSELMVYD7TBq1BA2DnmWlNprRSlSWgXpfGvUIH+ecR8oQZ77wee6hHs9L/OR
+	XNj0zGE5uiqApykO7746nC9PKBsNYC565TM4ZqEmO15Jef6lx2SRkA4WZ6wjAmEKNJr92zXANIOaP
+	hlJvygzVR37YDMSTA+Hteq5Kh3KcaGRDF3EdhqT2CIuSQoLfk3CfoEmGYRwFLvYz6JHGGN/OQgi1P
+	ytFji1/Yj8/IJgR7B7/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrYxZ-0000000A8Bq-3d7k;
-	Tue, 02 Apr 2024 07:53:33 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35])
+	id 1rrYxe-0000000A8Fe-1wvr;
+	Tue, 02 Apr 2024 07:53:38 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrYxN-0000000A81m-3HiH;
+	id 1rrYxO-0000000A81j-1Atz;
 	Tue, 02 Apr 2024 07:53:25 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4V80RY6qG4z1R9ZT;
-	Tue,  2 Apr 2024 15:50:33 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4V80RS5xc3zwRBB;
+	Tue,  2 Apr 2024 15:50:28 +0800 (CST)
 Received: from dggpemm100001.china.huawei.com (unknown [7.185.36.93])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0B769140133;
-	Tue,  2 Apr 2024 15:53:19 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 7B67C140415;
+	Tue,  2 Apr 2024 15:53:15 +0800 (CST)
 Received: from localhost.localdomain (10.175.112.125) by
  dggpemm100001.china.huawei.com (7.185.36.93) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.35; Tue, 2 Apr 2024 15:53:18 +0800
+ 15.1.2507.35; Tue, 2 Apr 2024 15:53:14 +0800
 From: Kefeng Wang <wangkefeng.wang@huawei.com>
 To: <akpm@linux-foundation.org>
 CC: Russell King <linux@armlinux.org.uk>, Catalin Marinas
@@ -50,19 +50,18 @@ CC: Russell King <linux@armlinux.org.uk>, Catalin Marinas
 	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
 	<linux-s390@vger.kernel.org>, <surenb@google.com>, Kefeng Wang
 	<wangkefeng.wang@huawei.com>
-Subject: [PATCH 4/7] powerpc: mm: accelerate pagefault when badaccess
-Date: Tue, 2 Apr 2024 15:51:39 +0800
-Message-ID: <20240402075142.196265-5-wangkefeng.wang@huawei.com>
+Subject: [PATCH 0/7] arch/mm/fault: accelerate pagefault when badaccess
+Date: Tue, 2 Apr 2024 15:51:35 +0800
+Message-ID: <20240402075142.196265-1-wangkefeng.wang@huawei.com>
 X-Mailer: git-send-email 2.27.0
-In-Reply-To: <20240402075142.196265-1-wangkefeng.wang@huawei.com>
-References: <20240402075142.196265-1-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.175.112.125]
 X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
  dggpemm100001.china.huawei.com (7.185.36.93)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_005322_239593_8DC11EE6 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20240402_005322_536947_D945F18B 
+X-CRM114-Status: UNSURE (   7.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,106 +78,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The vm_flags of vma already checked under per-VMA lock, if it is a
-bad access, directly handle error and return, there is no need to
-lock_mm_and_find_vma() and check vm_flags again.
+After VMA lock-based page fault handling enabled, if bad access met
+under per-vma lock, it will fallback to mmap_lock-based handling,
+so it leads to unnessary mmap lock and vma find again. A test from
+lmbench shows 34% improve after this changes on arm64,
 
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
+  lat_sig -P 1 prot lat_sig 0.29194 -> 0.19198
+
+Only build test on other archs except arm64.
+
+Kefeng Wang (7):
+  arm64: mm: cleanup __do_page_fault()
+  arm64: mm: accelerate pagefault when VM_FAULT_BADACCESS
+  arm: mm: accelerate pagefault when VM_FAULT_BADACCESS
+  powerpc: mm: accelerate pagefault when badaccess
+  riscv: mm: accelerate pagefault when badaccess
+  s390: mm: accelerate pagefault when badaccess
+  x86: mm: accelerate pagefault when badaccess
+
+ arch/arm/mm/fault.c     |  4 +++-
+ arch/arm64/mm/fault.c   | 31 ++++++++++---------------------
  arch/powerpc/mm/fault.c | 33 ++++++++++++++++++++-------------
- 1 file changed, 20 insertions(+), 13 deletions(-)
+ arch/riscv/mm/fault.c   |  5 ++++-
+ arch/s390/mm/fault.c    |  3 ++-
+ arch/x86/mm/fault.c     | 23 ++++++++++++++---------
+ 6 files changed, 53 insertions(+), 46 deletions(-)
 
-diff --git a/arch/powerpc/mm/fault.c b/arch/powerpc/mm/fault.c
-index 53335ae21a40..215690452495 100644
---- a/arch/powerpc/mm/fault.c
-+++ b/arch/powerpc/mm/fault.c
-@@ -71,23 +71,26 @@ static noinline int bad_area_nosemaphore(struct pt_regs *regs, unsigned long add
- 	return __bad_area_nosemaphore(regs, address, SEGV_MAPERR);
- }
- 
--static int __bad_area(struct pt_regs *regs, unsigned long address, int si_code)
-+static int __bad_area(struct pt_regs *regs, unsigned long address, int si_code,
-+		      struct mm_struct *mm, struct vm_area_struct *vma)
- {
--	struct mm_struct *mm = current->mm;
- 
- 	/*
- 	 * Something tried to access memory that isn't in our memory map..
- 	 * Fix it, but check if it's kernel or user first..
- 	 */
--	mmap_read_unlock(mm);
-+	if (mm)
-+		mmap_read_unlock(mm);
-+	else
-+		vma_end_read(vma);
- 
- 	return __bad_area_nosemaphore(regs, address, si_code);
- }
- 
- static noinline int bad_access_pkey(struct pt_regs *regs, unsigned long address,
-+				    struct mm_struct *mm,
- 				    struct vm_area_struct *vma)
- {
--	struct mm_struct *mm = current->mm;
- 	int pkey;
- 
- 	/*
-@@ -109,7 +112,10 @@ static noinline int bad_access_pkey(struct pt_regs *regs, unsigned long address,
- 	 */
- 	pkey = vma_pkey(vma);
- 
--	mmap_read_unlock(mm);
-+	if (mm)
-+		mmap_read_unlock(mm);
-+	else
-+		vma_end_read(vma);
- 
- 	/*
- 	 * If we are in kernel mode, bail out with a SEGV, this will
-@@ -124,9 +130,10 @@ static noinline int bad_access_pkey(struct pt_regs *regs, unsigned long address,
- 	return 0;
- }
- 
--static noinline int bad_access(struct pt_regs *regs, unsigned long address)
-+static noinline int bad_access(struct pt_regs *regs, unsigned long address,
-+			       struct mm_struct *mm, struct vm_area_struct *vma)
- {
--	return __bad_area(regs, address, SEGV_ACCERR);
-+	return __bad_area(regs, address, SEGV_ACCERR, mm, vma);
- }
- 
- static int do_sigbus(struct pt_regs *regs, unsigned long address,
-@@ -479,13 +486,13 @@ static int ___do_page_fault(struct pt_regs *regs, unsigned long address,
- 
- 	if (unlikely(access_pkey_error(is_write, is_exec,
- 				       (error_code & DSISR_KEYFAULT), vma))) {
--		vma_end_read(vma);
--		goto lock_mmap;
-+		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
-+		return bad_access_pkey(regs, address, NULL, vma);
- 	}
- 
- 	if (unlikely(access_error(is_write, is_exec, vma))) {
--		vma_end_read(vma);
--		goto lock_mmap;
-+		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
-+		return bad_access(regs, address, NULL, vma);
- 	}
- 
- 	fault = handle_mm_fault(vma, address, flags | FAULT_FLAG_VMA_LOCK, regs);
-@@ -521,10 +528,10 @@ static int ___do_page_fault(struct pt_regs *regs, unsigned long address,
- 
- 	if (unlikely(access_pkey_error(is_write, is_exec,
- 				       (error_code & DSISR_KEYFAULT), vma)))
--		return bad_access_pkey(regs, address, vma);
-+		return bad_access_pkey(regs, address, mm, vma);
- 
- 	if (unlikely(access_error(is_write, is_exec, vma)))
--		return bad_access(regs, address);
-+		return bad_access(regs, address, mm, vma);
- 
- 	/*
- 	 * If for any reason at all we couldn't handle the fault,
 -- 
 2.27.0
 
