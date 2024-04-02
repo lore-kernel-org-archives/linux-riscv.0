@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0506DCD128D
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 12:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E50BCD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 12:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w1HTOHu0IeaNSE9NcjwAsNTPBlC1K8UYxkyqEdOGHtI=; b=uukiOrDztT0ydQ
-	g5Gdx5FoGEyPYp6tMspNZWTAoyiicxtq4MPIyCK+EYlaGmyVISxNdCYM90i+n4kkpXIVugX6rZu4F
-	DExqZmXLv+igUbOixetrbydpXqpfm+tAO9NOIw6FsSbavGCPCL/wYPNyRYGI7kZgQAPmcsxFd7+Ap
-	To9352tsE8MjVYJbBccoYDk6EP/lpYOI+iXRGA++Az5KV+nIaxaUo8pe5RAC3cqoBm3JTCBRGOa1Z
-	oUJY7dyiTbfhgDibRYb6HKhhzGbwii8beNQvArpE7wwugyezBqbe3iSPg2k4yYXyXEEh4EzeUwT61
-	Oirb3Wtftj155hwfrJVg==;
+	List-Owner; bh=Y+qDaAuuakf28f1/Hvxp8xQpmwZ++fA4jdDblrE+6OE=; b=vcpcCbT4xf6X5H
+	Tz85bVVJBkWh9thQR18HSVegle8CWgE+qubsSL9UdtG1hZHt1YNtmbFaOnG5PfYs22Eo9DAU0bK/0
+	ReXWf2qD2pTbzmZDXVJUNC95w7WaGr2BvWz8Qd52nwa5H2KCAxsgjD1Aj8Zy2qjHH9zYvtBuV5ebU
+	6ZVjuNKDWU1WJLsIfbSP68p1Y8groa137cCqYJI7WwhmJ42tn+l0V9E8lQlC2sAy7d45D0lNdjr+l
+	WJe9h7xTFvIus+3gA9rFsZQZC2YYkfTqSqh20i/sXZynrxAixsX1r+9aA4o58muIrI05Y9c9N0A7/
+	OcLpZ5ZIrECPYp+806/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrdgX-0000000BBpb-45Sq;
-	Tue, 02 Apr 2024 12:56:18 +0000
+	id 1rrdgb-0000000BBt2-2WjA;
+	Tue, 02 Apr 2024 12:56:21 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrdgL-0000000BBfy-1ywL
+	id 1rrdgM-0000000BBgR-2DPx
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 02 Apr 2024 12:56:05 +0000
+	Tue, 02 Apr 2024 12:56:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=KmiZaiwFptHJMHSw9D0x+FrvfCn7jycw2VvcIKklrLE=; b=R6IqcqOOeCjdin1UoVkBBrjJ2t
-	FCdswexMk6dfZ5RQ4EpjO5VxhdDrBJ/1xFyLDHny4Q5RFbqejxSVvL86N/Jy3Ylu7c+AQceMTjzlC
-	X+CVeK+dOz3AtVciXZkgLv6SzbzR5Xm2o3vJWR7U9ImNXIaGHSX7da4xyCdCAYM23C7kHXZduVdU6
-	ej3u/DiWvT98XZsj9a6I6DB34DSrOuqHlC61DfRCjCH2do3te3gsJTLh8U5AUdrGzz1VTol6wtWBI
-	czXAQvToDd9BeMvN7nT4JL4+3nF5/HC7O9v8TXTPwB4Xrw/RJ5c+Taez2c5sJW+ILbQhTA/ka2oIz
-	oP9tzHpQ==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	bh=z7LWvvJr0ZLeVlbglQU3vOlFLqLTXjJjluvDd3mIpGc=; b=Yv5VSf24mXl9/Hdg3HlakBUiF4
+	IQrhjLCxTvgC0wxX6XVxwL0XPU6e7Lms8/Yl/OMBECIuAFaR1gZp4xPAFj8wS+9ngrMB1TmXCD2xz
+	eaDh9/BsvnRek6jNUORD0o/GVd5HumVRGRXJAsyof1d6ldodVYnaZC+JkCFgU3z7PdeEzl8k654QZ
+	UEtDaslwoPvs0xAXDdefL/TNXolPOI5gYKdb/ZfW2LwBJv6ZienlA42csv1w1QGuhEFC5pUD9h/MR
+	U/aXIj4sBsUVxaiGWR2R3L+LDC72Ixy9lu0dhKNGkNQP7LkjRZLY1+2YG8OXC5u1UR28rIFV0WQJ7
+	2renD7+w==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrdgH-00000003d6W-1nLF
+	id 1rrdgH-00000003d6T-1F6c
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Apr 2024 12:56:03 +0000
+	Tue, 02 Apr 2024 12:56:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1712062559;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z7LWvvJr0ZLeVlbglQU3vOlFLqLTXjJjluvDd3mIpGc=;
+	b=Qy8DJMsv1oj/169Nn7Z0Q1biW+RKbHp8OcovWMUYc2Of4XhhMDxMfQDpiZt5o6l55lXaiH
+	cXdcFwb8SBx/J1t82dB34TPzLMVknEzKDbSwR+qkbqjYRj6Iu2ytGUSY/PHUheY7knBUYk
+	RmoEefisEgI9PRLXc/AKdHKA8KkEz3A=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
 	s=mimecast20190719; t=1712062560;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=KmiZaiwFptHJMHSw9D0x+FrvfCn7jycw2VvcIKklrLE=;
-	b=Xb0gTpTjbh+ZyaWvqHWScsk41Bn7KRE23ba3RqqdkKwrmL6yj0sI0Yxsw4ubLo2K6cZiLx
-	mkLpudPaw/reQkskiD9/LKicDQzid5NwbYKQXNFU6qQKJTqd73XcoMPR6yqDtnzV52W7vv
-	RIBe69vPMbG3Uf0a3MChp1jnzu29Qmc=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1712062560;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KmiZaiwFptHJMHSw9D0x+FrvfCn7jycw2VvcIKklrLE=;
-	b=Xb0gTpTjbh+ZyaWvqHWScsk41Bn7KRE23ba3RqqdkKwrmL6yj0sI0Yxsw4ubLo2K6cZiLx
-	mkLpudPaw/reQkskiD9/LKicDQzid5NwbYKQXNFU6qQKJTqd73XcoMPR6yqDtnzV52W7vv
-	RIBe69vPMbG3Uf0a3MChp1jnzu29Qmc=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-611-rIpFy6zPP_6Tg6et4qWd4w-1; Tue, 02 Apr 2024 08:55:51 -0400
-X-MC-Unique: rIpFy6zPP_6Tg6et4qWd4w-1
+	bh=z7LWvvJr0ZLeVlbglQU3vOlFLqLTXjJjluvDd3mIpGc=;
+	b=fj0kHomCx+QBfVD12G/6ClWpGqWAlqODDDI775NUdm0sWGuf2Qfz69bqU/X36fWnHzWyCD
+	zKS8BZp9FztncWR6srfIteOZTGJxivcANcX9pSYTsO7tL0XMFbxSbZcaev4H3uVBGLvDFS
+	x7y/aV3282qDG2ZhKF4Nu+2lKMLMuvw=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-410-rp9IQ797NSqx0sgO2R02KQ-1; Tue,
+ 02 Apr 2024 08:55:55 -0400
+X-MC-Unique: rp9IQ797NSqx0sgO2R02KQ-1
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BBE5A805A65;
-	Tue,  2 Apr 2024 12:55:50 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3FBAA2823F33;
+	Tue,  2 Apr 2024 12:55:54 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.39.194.247])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id CD7A13C21;
-	Tue,  2 Apr 2024 12:55:46 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 02C913C22;
+	Tue,  2 Apr 2024 12:55:50 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-mm@kvack.org,
@@ -95,16 +95,16 @@ Cc: linux-mm@kvack.org,
 	linux-fsdevel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	x86@kernel.org
-Subject: [PATCH v1 2/3] mm/treewide: rename CONFIG_HAVE_FAST_GUP to CONFIG_HAVE_GUP_FAST
-Date: Tue,  2 Apr 2024 14:55:15 +0200
-Message-ID: <20240402125516.223131-3-david@redhat.com>
+Subject: [PATCH v1 3/3] mm: use "GUP-fast" instead "fast GUP" in remaining comments
+Date: Tue,  2 Apr 2024 14:55:16 +0200
+Message-ID: <20240402125516.223131-4-david@redhat.com>
 In-Reply-To: <20240402125516.223131-1-david@redhat.com>
 References: <20240402125516.223131-1-david@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_135601_841691_C1F51655 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20240402_135601_935851_412B4F52 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,285 +121,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Nowadays, we call it "GUP-fast", the external interface includes
-functions like "get_user_pages_fast()", and we renamed all internal
-functions to reflect that as well.
-
-Let's make the config option reflect that.
+Let's fixup the remaining comments to consistently call that thing
+"GUP-fast". With this change, we consistently call it "GUP-fast".
 
 Reviewed-by: Mike Rapoport (IBM) <rppt@kernel.org>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- arch/arm/Kconfig       |  2 +-
- arch/arm64/Kconfig     |  2 +-
- arch/loongarch/Kconfig |  2 +-
- arch/mips/Kconfig      |  2 +-
- arch/powerpc/Kconfig   |  2 +-
- arch/riscv/Kconfig     |  2 +-
- arch/s390/Kconfig      |  2 +-
- arch/sh/Kconfig        |  2 +-
- arch/x86/Kconfig       |  2 +-
- include/linux/rmap.h   |  8 ++++----
- kernel/events/core.c   |  4 ++--
- mm/Kconfig             |  2 +-
- mm/gup.c               | 10 +++++-----
- mm/internal.h          |  2 +-
- 14 files changed, 22 insertions(+), 22 deletions(-)
+ mm/filemap.c    | 2 +-
+ mm/khugepaged.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index b14aed3a17ab..817918f6635a 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -99,7 +99,7 @@ config ARM
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS if (CPU_V6 || CPU_V6K || CPU_V7) && MMU
- 	select HAVE_EXIT_THREAD
--	select HAVE_FAST_GUP if ARM_LPAE
-+	select HAVE_GUP_FAST if ARM_LPAE
- 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
- 	select HAVE_FUNCTION_ERROR_INJECTION
- 	select HAVE_FUNCTION_GRAPH_TRACER
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 7b11c98b3e84..de076a191e9f 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -205,7 +205,7 @@ config ARM64
- 	select HAVE_SAMPLE_FTRACE_DIRECT
- 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
--	select HAVE_FAST_GUP
-+	select HAVE_GUP_FAST
- 	select HAVE_FTRACE_MCOUNT_RECORD
- 	select HAVE_FUNCTION_TRACER
- 	select HAVE_FUNCTION_ERROR_INJECTION
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index a5f300ec6f28..cd642eefd9e5 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -119,7 +119,7 @@ config LOONGARCH
- 	select HAVE_EBPF_JIT
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS if !ARCH_STRICT_ALIGN
- 	select HAVE_EXIT_THREAD
--	select HAVE_FAST_GUP
-+	select HAVE_GUP_FAST
- 	select HAVE_FTRACE_MCOUNT_RECORD
- 	select HAVE_FUNCTION_ARG_ACCESS_API
- 	select HAVE_FUNCTION_ERROR_INJECTION
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index 516dc7022bd7..f1aa1bf11166 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -68,7 +68,7 @@ config MIPS
- 	select HAVE_DYNAMIC_FTRACE
- 	select HAVE_EBPF_JIT if !CPU_MICROMIPS
- 	select HAVE_EXIT_THREAD
--	select HAVE_FAST_GUP
-+	select HAVE_GUP_FAST
- 	select HAVE_FTRACE_MCOUNT_RECORD
- 	select HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_TRACER
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 1c4be3373686..e42cc8cd415f 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -236,7 +236,7 @@ config PPC
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS	if ARCH_USING_PATCHABLE_FUNCTION_ENTRY || MPROFILE_KERNEL || PPC32
- 	select HAVE_EBPF_JIT
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
--	select HAVE_FAST_GUP
-+	select HAVE_GUP_FAST
- 	select HAVE_FTRACE_MCOUNT_RECORD
- 	select HAVE_FUNCTION_ARG_ACCESS_API
- 	select HAVE_FUNCTION_DESCRIPTORS	if PPC64_ELF_ABI_V1
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index be09c8836d56..3ee60ddef93e 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -132,7 +132,7 @@ config RISCV
- 	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
- 	select HAVE_EBPF_JIT if MMU
--	select HAVE_FAST_GUP if MMU
-+	select HAVE_GUP_FAST if MMU
- 	select HAVE_FUNCTION_ARG_ACCESS_API
- 	select HAVE_FUNCTION_ERROR_INJECTION
- 	select HAVE_GCC_PLUGINS
-diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-index 8f01ada6845e..d9aed4c93ee6 100644
---- a/arch/s390/Kconfig
-+++ b/arch/s390/Kconfig
-@@ -174,7 +174,7 @@ config S390
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS
- 	select HAVE_EBPF_JIT if HAVE_MARCH_Z196_FEATURES
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
--	select HAVE_FAST_GUP
-+	select HAVE_GUP_FAST
- 	select HAVE_FENTRY
- 	select HAVE_FTRACE_MCOUNT_RECORD
- 	select HAVE_FUNCTION_ARG_ACCESS_API
-diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
-index 2ad3e29f0ebe..7292542f75e8 100644
---- a/arch/sh/Kconfig
-+++ b/arch/sh/Kconfig
-@@ -38,7 +38,7 @@ config SUPERH
- 	select HAVE_DEBUG_BUGVERBOSE
- 	select HAVE_DEBUG_KMEMLEAK
- 	select HAVE_DYNAMIC_FTRACE
--	select HAVE_FAST_GUP if MMU
-+	select HAVE_GUP_FAST if MMU
- 	select HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_TRACER
- 	select HAVE_FTRACE_MCOUNT_RECORD
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 4fff6ed46e90..222b42941cf3 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -221,7 +221,7 @@ config X86
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
- 	select HAVE_EISA
- 	select HAVE_EXIT_THREAD
--	select HAVE_FAST_GUP
-+	select HAVE_GUP_FAST
- 	select HAVE_FENTRY			if X86_64 || DYNAMIC_FTRACE
- 	select HAVE_FTRACE_MCOUNT_RECORD
- 	select HAVE_FUNCTION_GRAPH_RETVAL	if HAVE_FUNCTION_GRAPH_TRACER
-diff --git a/include/linux/rmap.h b/include/linux/rmap.h
-index b7944a833668..9bf9324214fc 100644
---- a/include/linux/rmap.h
-+++ b/include/linux/rmap.h
-@@ -284,7 +284,7 @@ static inline int hugetlb_try_share_anon_rmap(struct folio *folio)
- 	VM_WARN_ON_FOLIO(!PageAnonExclusive(&folio->page), folio);
- 
- 	/* Paired with the memory barrier in try_grab_folio(). */
--	if (IS_ENABLED(CONFIG_HAVE_FAST_GUP))
-+	if (IS_ENABLED(CONFIG_HAVE_GUP_FAST))
- 		smp_mb();
- 
- 	if (unlikely(folio_maybe_dma_pinned(folio)))
-@@ -295,7 +295,7 @@ static inline int hugetlb_try_share_anon_rmap(struct folio *folio)
- 	 * This is conceptually a smp_wmb() paired with the smp_rmb() in
- 	 * gup_must_unshare().
- 	 */
--	if (IS_ENABLED(CONFIG_HAVE_FAST_GUP))
-+	if (IS_ENABLED(CONFIG_HAVE_GUP_FAST))
- 		smp_mb__after_atomic();
- 	return 0;
- }
-@@ -541,7 +541,7 @@ static __always_inline int __folio_try_share_anon_rmap(struct folio *folio,
- 	 */
- 
- 	/* Paired with the memory barrier in try_grab_folio(). */
--	if (IS_ENABLED(CONFIG_HAVE_FAST_GUP))
-+	if (IS_ENABLED(CONFIG_HAVE_GUP_FAST))
- 		smp_mb();
- 
- 	if (unlikely(folio_maybe_dma_pinned(folio)))
-@@ -552,7 +552,7 @@ static __always_inline int __folio_try_share_anon_rmap(struct folio *folio,
- 	 * This is conceptually a smp_wmb() paired with the smp_rmb() in
- 	 * gup_must_unshare().
- 	 */
--	if (IS_ENABLED(CONFIG_HAVE_FAST_GUP))
-+	if (IS_ENABLED(CONFIG_HAVE_GUP_FAST))
- 		smp_mb__after_atomic();
- 	return 0;
- }
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 724e6d7e128f..c5a0dc1f135f 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -7539,7 +7539,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
- {
- 	u64 size = 0;
- 
--#ifdef CONFIG_HAVE_FAST_GUP
-+#ifdef CONFIG_HAVE_GUP_FAST
- 	pgd_t *pgdp, pgd;
- 	p4d_t *p4dp, p4d;
- 	pud_t *pudp, pud;
-@@ -7587,7 +7587,7 @@ static u64 perf_get_pgtable_size(struct mm_struct *mm, unsigned long addr)
- 	if (pte_present(pte))
- 		size = pte_leaf_size(pte);
- 	pte_unmap(ptep);
--#endif /* CONFIG_HAVE_FAST_GUP */
-+#endif /* CONFIG_HAVE_GUP_FAST */
- 
- 	return size;
- }
-diff --git a/mm/Kconfig b/mm/Kconfig
-index f0ed3168db00..50df323eaece 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -473,7 +473,7 @@ config ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP
- config HAVE_MEMBLOCK_PHYS_MAP
- 	bool
- 
--config HAVE_FAST_GUP
-+config HAVE_GUP_FAST
- 	depends on MMU
- 	bool
- 
-diff --git a/mm/gup.c b/mm/gup.c
-index f1ac2c5a7f6d..929eb89c2e04 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -501,7 +501,7 @@ static inline void mm_set_has_pinned_flag(unsigned long *mm_flags)
- 
- #ifdef CONFIG_MMU
- 
--#if defined(CONFIG_ARCH_HAS_HUGEPD) || defined(CONFIG_HAVE_FAST_GUP)
-+#if defined(CONFIG_ARCH_HAS_HUGEPD) || defined(CONFIG_HAVE_GUP_FAST)
- static int record_subpages(struct page *page, unsigned long sz,
- 			   unsigned long addr, unsigned long end,
- 			   struct page **pages)
-@@ -515,7 +515,7 @@ static int record_subpages(struct page *page, unsigned long sz,
- 
- 	return nr;
- }
--#endif	/* CONFIG_ARCH_HAS_HUGEPD || CONFIG_HAVE_FAST_GUP */
-+#endif	/* CONFIG_ARCH_HAS_HUGEPD || CONFIG_HAVE_GUP_FAST */
- 
- #ifdef CONFIG_ARCH_HAS_HUGEPD
- static unsigned long hugepte_addr_end(unsigned long addr, unsigned long end,
-@@ -2785,7 +2785,7 @@ EXPORT_SYMBOL(get_user_pages_unlocked);
+diff --git a/mm/filemap.c b/mm/filemap.c
+index 387b394754fa..c668e11cd6ef 100644
+--- a/mm/filemap.c
++++ b/mm/filemap.c
+@@ -1810,7 +1810,7 @@ EXPORT_SYMBOL(page_cache_prev_miss);
+  * C. Return the page to the page allocator
   *
-  * This code is based heavily on the PowerPC implementation by Nick Piggin.
-  */
--#ifdef CONFIG_HAVE_FAST_GUP
-+#ifdef CONFIG_HAVE_GUP_FAST
- 
- /*
-  * Used in the GUP-fast path to determine whether GUP is permitted to work on
-@@ -3364,7 +3364,7 @@ static inline void gup_fast_pgd_range(unsigned long addr, unsigned long end,
- 		unsigned int flags, struct page **pages, int *nr)
- {
- }
--#endif /* CONFIG_HAVE_FAST_GUP */
-+#endif /* CONFIG_HAVE_GUP_FAST */
- 
- #ifndef gup_fast_permitted
- /*
-@@ -3384,7 +3384,7 @@ static unsigned long gup_fast(unsigned long start, unsigned long end,
- 	int nr_pinned = 0;
- 	unsigned seq;
- 
--	if (!IS_ENABLED(CONFIG_HAVE_FAST_GUP) ||
-+	if (!IS_ENABLED(CONFIG_HAVE_GUP_FAST) ||
- 	    !gup_fast_permitted(start, end))
- 		return 0;
- 
-diff --git a/mm/internal.h b/mm/internal.h
-index 3df06a152ff0..be432314af3e 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -1249,7 +1249,7 @@ static inline bool gup_must_unshare(struct vm_area_struct *vma,
- 	}
- 
- 	/* Paired with a memory barrier in folio_try_share_anon_rmap_*(). */
--	if (IS_ENABLED(CONFIG_HAVE_FAST_GUP))
-+	if (IS_ENABLED(CONFIG_HAVE_GUP_FAST))
- 		smp_rmb();
- 
- 	/*
+  * This means that any page may have its reference count temporarily
+- * increased by a speculative page cache (or fast GUP) lookup as it can
++ * increased by a speculative page cache (or GUP-fast) lookup as it can
+  * be allocated by another user before the RCU grace period expires.
+  * Because the refcount temporarily acquired here may end up being the
+  * last refcount on the page, any page allocation must be freeable by
+diff --git a/mm/khugepaged.c b/mm/khugepaged.c
+index 38830174608f..6972fa05132e 100644
+--- a/mm/khugepaged.c
++++ b/mm/khugepaged.c
+@@ -1169,7 +1169,7 @@ static int collapse_huge_page(struct mm_struct *mm, unsigned long address,
+ 	 * huge and small TLB entries for the same virtual address to
+ 	 * avoid the risk of CPU bugs in that area.
+ 	 *
+-	 * Parallel fast GUP is fine since fast GUP will back off when
++	 * Parallel GUP-fast is fine since GUP-fast will back off when
+ 	 * it detects PMD is changed.
+ 	 */
+ 	_pmd = pmdp_collapse_flush(vma, address, pmd);
 -- 
 2.44.0
 
