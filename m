@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED196C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 14:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA724C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 14:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9WMgWoa9Zj52ud9TFnoyu56tiDafnrJl6fSgvBC7a4k=; b=tCoqiVmRw16LHJ
-	/WPHH1aDnuYRbSCOwhwFeePlL/0JtBtWH9RMl99qPX9BGTnwuFQdithIi5ofTab4AFwdq6eiXS/WB
-	NsacrqvS5CVWV7rreEzV9b3TRLKyJOVhbJZOwQJE0nZIppPiWc9peX+LzqY06M56gjEWQMDY4gCsa
-	YAYq4qeAxUXH501vJ3UcQ82V1p1JxOOq9lMD+2pFalm9c8wBD48HUfkQqojGaNbkfWoOckL9d1uLs
-	cVLUZoHKNVZJQwMinx+zhoU3IdPGJCv/f22Og8/OrPzai+uUMc7ZC3kkyNWno5FZl1k5PaeXYgWHg
-	TxFGIHV6ThBt0NG8Evlg==;
+	List-Owner; bh=TaVJTbzhY0245zgOBnj1GwQq3USfnhU8tPL/45xL/q4=; b=HS88Xjhw1nqrAP
+	TMZrmUgcrlEuEY3KWjJA8rTB58djNF07GZ748ClMXkscXFqlVliBdJpRkYBr3l2pBaRtqE8twBH5b
+	ha4w6otKIpbbw5balIsxM1mmBLyBsJ38DW5qzrrD/xTH2Jjfvl6JxS6Zy1CL4G/TTmiiT7fxTZZ28
+	ynrUVOArhRfwNWmXWBAGFXHyvV7QfswzfL0DRba34eQB2yjSnbKhUfQWHMhwjmkrUe3+E6NO6TMZo
+	H1ouRjqJRBylMfTkDYUx+HmqKo8rIu/3lItT3Bj3teVLOkDJECwsWRD2W9FWdSBb5XcnTZ3ki3R3R
+	jBD9j3htIRegR72yGDZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrejl-0000000BUeg-33bo;
-	Tue, 02 Apr 2024 14:03:41 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rres4-0000000BWmn-31e0;
+	Tue, 02 Apr 2024 14:12:16 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrdg8-0000000BBXv-2DpU
+	id 1rres2-0000000BWkt-0NMl
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Apr 2024 12:56:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1712062550;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RdYOkjfTZFMKy+tLKKZoC0LHiVahfxet7AumBM/aSVk=;
-	b=Ei/3zIUjy2MU3GUtGqkAEVpgfKRgX2T6bWnxNgfqCqoza6dCwPTK+YkMnrd1XwSACErqeQ
-	P+WSfV46QcVgGmnygR59RMD4pem2nJrqaPa0guG+GPJn8zZ80x2kAAdOncZNwzn92PfEGX
-	p9vIpg05VoxScR4Py2USQeJ94QLP65E=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-232-JNUqi7DONq2XGai5HjtGgg-1; Tue, 02 Apr 2024 08:55:47 -0400
-X-MC-Unique: JNUqi7DONq2XGai5HjtGgg-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8B1BD805A63;
-	Tue,  2 Apr 2024 12:55:46 +0000 (UTC)
-Received: from t14s.redhat.com (unknown [10.39.194.247])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id A55213C22;
-	Tue,  2 Apr 2024 12:55:42 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-mm@kvack.org,
-	David Hildenbrand <david@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>,
-	Peter Xu <peterx@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	x86@kernel.org
-Subject: [PATCH v1 1/3] mm/gup: consistently name GUP-fast functions
-Date: Tue,  2 Apr 2024 14:55:14 +0200
-Message-ID: <20240402125516.223131-2-david@redhat.com>
-In-Reply-To: <20240402125516.223131-1-david@redhat.com>
-References: <20240402125516.223131-1-david@redhat.com>
+	Tue, 02 Apr 2024 14:12:15 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2d23114b19dso72099681fa.3
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2024 07:12:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1712067131; x=1712671931; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/0cQjXn5RxGYF1hs4ZqgtS6/DW8noiaC0SrX/L7JoeE=;
+        b=Y/3oHy81vv0W/0+zS/Zvq5zjWvF8QFdu/nHT4ZCpXBNmT35PU7x7oR7ECBNVoBupRE
+         5EoCi4obCjTL8I1UDORg97q9K8Gbff/VE5Op1jcMhIIemBsNUQhbK5XpASDJ++BjOMP1
+         vr2Wst5Z1NujMon2opO5t5g6Pm5Uiqd66qJKLqjHV9kF8HFBiQbzYb3fthlEg0bwKc/h
+         m4slOyCvgc1xM6HXmMmNVVHvHf9e5ivGRl8ZwtV0eA7k26end6KEoXPUPRuTLL7ii7ix
+         tC6FWo/U8wika07RXijOmrItRt4mSLKvDqGtKb228A88SMUKaK3tyer9Xq65bk56gwcA
+         RYTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1712067131; x=1712671931;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/0cQjXn5RxGYF1hs4ZqgtS6/DW8noiaC0SrX/L7JoeE=;
+        b=LnRJkUKolqjUKwxdvyBvCu6QMsoPbBEgwT5mcICKF5UECDTELerg7t/U/CDl4ut5Fi
+         Zy9f00YX9grOlphdOm0eZezXoXbhh0hs43jWv6kcvPNtHHH/lSK0njke+NG41cRQncOT
+         a7MJic43v3c/TMPi/c8afCUw393APFpEnreUiM7+XIrcYhUOqK5z2Oq+xN7vyFkisDWR
+         zsgGorD1WjW3p5dsvqv7GkxYXfpB7TnlrLL7o2xtZ7U69diOjhSziYTNJXw3Axz0wnsP
+         Q34Sb3E3/ULP0LLZdhMb5k5aJ0TmVN9r6rMHwlGjpH9xx7F+JOsOLnXdWgXMv0rZoWbA
+         3XRw==
+X-Forwarded-Encrypted: i=1; AJvYcCWT5n6O4nhlWuYFaGLzjuNkFbynyWbxwKxqWRVDmt6lFWp3F+O8gyehjCyAQq3Gcc5qg0jo0zzquboml1OCG/QBTUTlkb7vBOmqjytNoQy9
+X-Gm-Message-State: AOJu0YzddwSYGo+2+17y/Qs/8RlxeqPzkN2BWT3km+bQRPCUMwUl66tN
+	Bdb8J7T8L/R2NbAtLdVApS8920Hs50p/MPJy3ZTF3B8p8s3i9SRa1JKuEe7gAJQ=
+X-Google-Smtp-Source: AGHT+IE6N5GbqAreIPZgVb2waHGGo5ub3tGfpFdJfv9DhQRFznhz1kQgSzFrTE9IPNvatlBuKLWx+w==
+X-Received: by 2002:a2e:9602:0:b0:2d4:2bc5:38dc with SMTP id v2-20020a2e9602000000b002d42bc538dcmr7404927ljh.30.1712067129349;
+        Tue, 02 Apr 2024 07:12:09 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id p14-20020a05600c1d8e00b004156ea0faa0sm3322302wms.4.2024.04.02.07.12.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Apr 2024 07:12:08 -0700 (PDT)
+Date: Tue, 2 Apr 2024 16:12:02 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Haibo Xu <haibo1.xu@intel.com>
+Cc: xiaobo55x@gmail.com, Paolo Bonzini <pbonzini@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] KVM: riscv: selftests: Add SBI base extension test
+Message-ID: <20240402-7bd2b9ed00094befa6927b60@orel>
+References: <20240401082019.2318193-1-haibo1.xu@intel.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
+Content-Disposition: inline
+In-Reply-To: <20240401082019.2318193-1-haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_055553_098510_FD7026D4 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20240402_071214_164932_933F782C 
+X-CRM114-Status: GOOD (  27.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,597 +96,169 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's consistently call the "fast-only" part of GUP "GUP-fast" and rename
-all relevant internal functions to start with "gup_fast", to make it
-clearer that this is not ordinary GUP. The current mixture of
-"lockless", "gup" and "gup_fast" is confusing.
+On Mon, Apr 01, 2024 at 04:20:18PM +0800, Haibo Xu wrote:
+> This is the first patch to enable the base extension selftest
+> for the SBI implementation in KVM. Test for other extensions
+> will be added later.
 
-Further, avoid the term "huge" when talking about a "leaf" -- for
-example, we nowadays check pmd_leaf() because pmd_huge() is gone. For the
-"hugepd"/"hugepte" stuff, it's part of the name ("is_hugepd"), so that
-stays.
+I'm not sure we want SBI tests in KVM selftests since we already
+plan to add them to kvm-unit-tests, where they can be used to
+test both KVM's SBI implementation and M-mode firmware implementations.
+If we also have them here, then we'll end up duplicating that effort.
 
-What remains is the "external" interface:
-* get_user_pages_fast_only()
-* get_user_pages_fast()
-* pin_user_pages_fast()
+I do like the approach of only checking for an error, rather than
+also for a value, for these ID getters. In kvm-unit-tests we're
+currently requiring that the expected value be passed in, otherwise
+the whole test is skipped. We could fallback to only checking for
+an error instead, as is done here.
 
-The high-level internal functions for GUP-fast (+slow fallback) are now:
-* internal_get_user_pages_fast() -> gup_fast_fallback()
-* lockless_pages_from_mm() -> gup_fast()
+Thanks,
+drew
 
-The basic GUP-fast walker functions:
-* gup_pgd_range() -> gup_fast_pgd_range()
-* gup_p4d_range() -> gup_fast_p4d_range()
-* gup_pud_range() -> gup_fast_pud_range()
-* gup_pmd_range() -> gup_fast_pmd_range()
-* gup_pte_range() -> gup_fast_pte_range()
-* gup_huge_pgd()  -> gup_fast_pgd_leaf()
-* gup_huge_pud()  -> gup_fast_pud_leaf()
-* gup_huge_pmd()  -> gup_fast_pmd_leaf()
-
-The weird hugepd stuff:
-* gup_huge_pd() -> gup_fast_hugepd()
-* gup_hugepte() -> gup_fast_hugepte()
-
-The weird devmap stuff:
-* __gup_device_huge_pud() -> gup_fast_devmap_pud_leaf()
-* __gup_device_huge_pmd   -> gup_fast_devmap_pmd_leaf()
-* __gup_device_huge()     -> gup_fast_devmap_leaf()
-* undo_dev_pagemap()      -> gup_fast_undo_dev_pagemap()
-
-Helper functions:
-* unpin_user_pages_lockless() -> gup_fast_unpin_user_pages()
-* gup_fast_folio_allowed() is already properly named
-* gup_fast_permitted() is already properly named
-
-With "gup_fast()", we now even have a function that is referred to in
-comment in mm/mmu_gather.c.
-
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Mike Rapoport (IBM) <rppt@kernel.org>
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- mm/gup.c | 205 ++++++++++++++++++++++++++++---------------------------
- 1 file changed, 103 insertions(+), 102 deletions(-)
-
-diff --git a/mm/gup.c b/mm/gup.c
-index 95bd9d4b7cfb..f1ac2c5a7f6d 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -440,7 +440,7 @@ void unpin_user_page_range_dirty_lock(struct page *page, unsigned long npages,
- }
- EXPORT_SYMBOL(unpin_user_page_range_dirty_lock);
- 
--static void unpin_user_pages_lockless(struct page **pages, unsigned long npages)
-+static void gup_fast_unpin_user_pages(struct page **pages, unsigned long npages)
- {
- 	unsigned long i;
- 	struct folio *folio;
-@@ -525,9 +525,9 @@ static unsigned long hugepte_addr_end(unsigned long addr, unsigned long end,
- 	return (__boundary - 1 < end - 1) ? __boundary : end;
- }
- 
--static int gup_hugepte(pte_t *ptep, unsigned long sz, unsigned long addr,
--		       unsigned long end, unsigned int flags,
--		       struct page **pages, int *nr)
-+static int gup_fast_hugepte(pte_t *ptep, unsigned long sz, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	unsigned long pte_end;
- 	struct page *page;
-@@ -577,7 +577,7 @@ static int gup_hugepte(pte_t *ptep, unsigned long sz, unsigned long addr,
-  * of the other folios. See writable_file_mapping_allowed() and
-  * gup_fast_folio_allowed() for more information.
-  */
--static int gup_huge_pd(hugepd_t hugepd, unsigned long addr,
-+static int gup_fast_hugepd(hugepd_t hugepd, unsigned long addr,
- 		unsigned int pdshift, unsigned long end, unsigned int flags,
- 		struct page **pages, int *nr)
- {
-@@ -588,7 +588,7 @@ static int gup_huge_pd(hugepd_t hugepd, unsigned long addr,
- 	ptep = hugepte_offset(hugepd, addr, pdshift);
- 	do {
- 		next = hugepte_addr_end(addr, end, sz);
--		if (!gup_hugepte(ptep, sz, addr, end, flags, pages, nr))
-+		if (!gup_fast_hugepte(ptep, sz, addr, end, flags, pages, nr))
- 			return 0;
- 	} while (ptep++, addr = next, addr != end);
- 
-@@ -613,8 +613,8 @@ static struct page *follow_hugepd(struct vm_area_struct *vma, hugepd_t hugepd,
- 	h = hstate_vma(vma);
- 	ptep = hugepte_offset(hugepd, addr, pdshift);
- 	ptl = huge_pte_lock(h, vma->vm_mm, ptep);
--	ret = gup_huge_pd(hugepd, addr, pdshift, addr + PAGE_SIZE,
--			  flags, &page, &nr);
-+	ret = gup_fast_hugepd(hugepd, addr, pdshift, addr + PAGE_SIZE,
-+			      flags, &page, &nr);
- 	spin_unlock(ptl);
- 
- 	if (ret) {
-@@ -626,7 +626,7 @@ static struct page *follow_hugepd(struct vm_area_struct *vma, hugepd_t hugepd,
- 	return NULL;
- }
- #else /* CONFIG_ARCH_HAS_HUGEPD */
--static inline int gup_huge_pd(hugepd_t hugepd, unsigned long addr,
-+static inline int gup_fast_hugepd(hugepd_t hugepd, unsigned long addr,
- 		unsigned int pdshift, unsigned long end, unsigned int flags,
- 		struct page **pages, int *nr)
- {
-@@ -2753,7 +2753,7 @@ long get_user_pages_unlocked(unsigned long start, unsigned long nr_pages,
- EXPORT_SYMBOL(get_user_pages_unlocked);
- 
- /*
-- * Fast GUP
-+ * GUP-fast
-  *
-  * get_user_pages_fast attempts to pin user pages by walking the page
-  * tables directly and avoids taking locks. Thus the walker needs to be
-@@ -2767,7 +2767,7 @@ EXPORT_SYMBOL(get_user_pages_unlocked);
-  *
-  * Another way to achieve this is to batch up page table containing pages
-  * belonging to more than one mm_user, then rcu_sched a callback to free those
-- * pages. Disabling interrupts will allow the fast_gup walker to both block
-+ * pages. Disabling interrupts will allow the gup_fast() walker to both block
-  * the rcu_sched callback, and an IPI that we broadcast for splitting THPs
-  * (which is a relatively rare event). The code below adopts this strategy.
-  *
-@@ -2876,9 +2876,8 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
- 	return !reject_file_backed || shmem_mapping(mapping);
- }
- 
--static void __maybe_unused undo_dev_pagemap(int *nr, int nr_start,
--					    unsigned int flags,
--					    struct page **pages)
-+static void __maybe_unused gup_fast_undo_dev_pagemap(int *nr, int nr_start,
-+		unsigned int flags, struct page **pages)
- {
- 	while ((*nr) - nr_start) {
- 		struct page *page = pages[--(*nr)];
-@@ -2893,27 +2892,27 @@ static void __maybe_unused undo_dev_pagemap(int *nr, int nr_start,
- 
- #ifdef CONFIG_ARCH_HAS_PTE_SPECIAL
- /*
-- * Fast-gup relies on pte change detection to avoid concurrent pgtable
-+ * GUP-fast relies on pte change detection to avoid concurrent pgtable
-  * operations.
-  *
-- * To pin the page, fast-gup needs to do below in order:
-+ * To pin the page, GUP-fast needs to do below in order:
-  * (1) pin the page (by prefetching pte), then (2) check pte not changed.
-  *
-  * For the rest of pgtable operations where pgtable updates can be racy
-- * with fast-gup, we need to do (1) clear pte, then (2) check whether page
-+ * with GUP-fast, we need to do (1) clear pte, then (2) check whether page
-  * is pinned.
-  *
-  * Above will work for all pte-level operations, including THP split.
-  *
-- * For THP collapse, it's a bit more complicated because fast-gup may be
-+ * For THP collapse, it's a bit more complicated because GUP-fast may be
-  * walking a pgtable page that is being freed (pte is still valid but pmd
-  * can be cleared already).  To avoid race in such condition, we need to
-  * also check pmd here to make sure pmd doesn't change (corresponds to
-  * pmdp_collapse_flush() in the THP collapse code path).
-  */
--static int gup_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
--			 unsigned long end, unsigned int flags,
--			 struct page **pages, int *nr)
-+static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	struct dev_pagemap *pgmap = NULL;
- 	int nr_start = *nr, ret = 0;
-@@ -2946,7 +2945,7 @@ static int gup_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
- 
- 			pgmap = get_dev_pagemap(pte_pfn(pte), pgmap);
- 			if (unlikely(!pgmap)) {
--				undo_dev_pagemap(nr, nr_start, flags, pages);
-+				gup_fast_undo_dev_pagemap(nr, nr_start, flags, pages);
- 				goto pte_unmap;
- 			}
- 		} else if (pte_special(pte))
-@@ -3010,20 +3009,19 @@ static int gup_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
-  *
-  * For a futex to be placed on a THP tail page, get_futex_key requires a
-  * get_user_pages_fast_only implementation that can pin pages. Thus it's still
-- * useful to have gup_huge_pmd even if we can't operate on ptes.
-+ * useful to have gup_fast_pmd_leaf even if we can't operate on ptes.
-  */
--static int gup_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
--			 unsigned long end, unsigned int flags,
--			 struct page **pages, int *nr)
-+static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	return 0;
- }
- #endif /* CONFIG_ARCH_HAS_PTE_SPECIAL */
- 
- #if defined(CONFIG_ARCH_HAS_PTE_DEVMAP) && defined(CONFIG_TRANSPARENT_HUGEPAGE)
--static int __gup_device_huge(unsigned long pfn, unsigned long addr,
--			     unsigned long end, unsigned int flags,
--			     struct page **pages, int *nr)
-+static int gup_fast_devmap_leaf(unsigned long pfn, unsigned long addr,
-+	unsigned long end, unsigned int flags, struct page **pages, int *nr)
- {
- 	int nr_start = *nr;
- 	struct dev_pagemap *pgmap = NULL;
-@@ -3033,19 +3031,19 @@ static int __gup_device_huge(unsigned long pfn, unsigned long addr,
- 
- 		pgmap = get_dev_pagemap(pfn, pgmap);
- 		if (unlikely(!pgmap)) {
--			undo_dev_pagemap(nr, nr_start, flags, pages);
-+			gup_fast_undo_dev_pagemap(nr, nr_start, flags, pages);
- 			break;
- 		}
- 
- 		if (!(flags & FOLL_PCI_P2PDMA) && is_pci_p2pdma_page(page)) {
--			undo_dev_pagemap(nr, nr_start, flags, pages);
-+			gup_fast_undo_dev_pagemap(nr, nr_start, flags, pages);
- 			break;
- 		}
- 
- 		SetPageReferenced(page);
- 		pages[*nr] = page;
- 		if (unlikely(try_grab_page(page, flags))) {
--			undo_dev_pagemap(nr, nr_start, flags, pages);
-+			gup_fast_undo_dev_pagemap(nr, nr_start, flags, pages);
- 			break;
- 		}
- 		(*nr)++;
-@@ -3056,62 +3054,62 @@ static int __gup_device_huge(unsigned long pfn, unsigned long addr,
- 	return addr == end;
- }
- 
--static int __gup_device_huge_pmd(pmd_t orig, pmd_t *pmdp, unsigned long addr,
--				 unsigned long end, unsigned int flags,
--				 struct page **pages, int *nr)
-+static int gup_fast_devmap_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	unsigned long fault_pfn;
- 	int nr_start = *nr;
- 
- 	fault_pfn = pmd_pfn(orig) + ((addr & ~PMD_MASK) >> PAGE_SHIFT);
--	if (!__gup_device_huge(fault_pfn, addr, end, flags, pages, nr))
-+	if (!gup_fast_devmap_leaf(fault_pfn, addr, end, flags, pages, nr))
- 		return 0;
- 
- 	if (unlikely(pmd_val(orig) != pmd_val(*pmdp))) {
--		undo_dev_pagemap(nr, nr_start, flags, pages);
-+		gup_fast_undo_dev_pagemap(nr, nr_start, flags, pages);
- 		return 0;
- 	}
- 	return 1;
- }
- 
--static int __gup_device_huge_pud(pud_t orig, pud_t *pudp, unsigned long addr,
--				 unsigned long end, unsigned int flags,
--				 struct page **pages, int *nr)
-+static int gup_fast_devmap_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	unsigned long fault_pfn;
- 	int nr_start = *nr;
- 
- 	fault_pfn = pud_pfn(orig) + ((addr & ~PUD_MASK) >> PAGE_SHIFT);
--	if (!__gup_device_huge(fault_pfn, addr, end, flags, pages, nr))
-+	if (!gup_fast_devmap_leaf(fault_pfn, addr, end, flags, pages, nr))
- 		return 0;
- 
- 	if (unlikely(pud_val(orig) != pud_val(*pudp))) {
--		undo_dev_pagemap(nr, nr_start, flags, pages);
-+		gup_fast_undo_dev_pagemap(nr, nr_start, flags, pages);
- 		return 0;
- 	}
- 	return 1;
- }
- #else
--static int __gup_device_huge_pmd(pmd_t orig, pmd_t *pmdp, unsigned long addr,
--				 unsigned long end, unsigned int flags,
--				 struct page **pages, int *nr)
-+static int gup_fast_devmap_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	BUILD_BUG();
- 	return 0;
- }
- 
--static int __gup_device_huge_pud(pud_t pud, pud_t *pudp, unsigned long addr,
--				 unsigned long end, unsigned int flags,
--				 struct page **pages, int *nr)
-+static int gup_fast_devmap_pud_leaf(pud_t pud, pud_t *pudp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	BUILD_BUG();
- 	return 0;
- }
- #endif
- 
--static int gup_huge_pmd(pmd_t orig, pmd_t *pmdp, unsigned long addr,
--			unsigned long end, unsigned int flags,
--			struct page **pages, int *nr)
-+static int gup_fast_pmd_leaf(pmd_t orig, pmd_t *pmdp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	struct page *page;
- 	struct folio *folio;
-@@ -3123,8 +3121,8 @@ static int gup_huge_pmd(pmd_t orig, pmd_t *pmdp, unsigned long addr,
- 	if (pmd_devmap(orig)) {
- 		if (unlikely(flags & FOLL_LONGTERM))
- 			return 0;
--		return __gup_device_huge_pmd(orig, pmdp, addr, end, flags,
--					     pages, nr);
-+		return gup_fast_devmap_pmd_leaf(orig, pmdp, addr, end, flags,
-+					        pages, nr);
- 	}
- 
- 	page = pmd_page(orig);
-@@ -3153,9 +3151,9 @@ static int gup_huge_pmd(pmd_t orig, pmd_t *pmdp, unsigned long addr,
- 	return 1;
- }
- 
--static int gup_huge_pud(pud_t orig, pud_t *pudp, unsigned long addr,
--			unsigned long end, unsigned int flags,
--			struct page **pages, int *nr)
-+static int gup_fast_pud_leaf(pud_t orig, pud_t *pudp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	struct page *page;
- 	struct folio *folio;
-@@ -3167,8 +3165,8 @@ static int gup_huge_pud(pud_t orig, pud_t *pudp, unsigned long addr,
- 	if (pud_devmap(orig)) {
- 		if (unlikely(flags & FOLL_LONGTERM))
- 			return 0;
--		return __gup_device_huge_pud(orig, pudp, addr, end, flags,
--					     pages, nr);
-+		return gup_fast_devmap_pud_leaf(orig, pudp, addr, end, flags,
-+					        pages, nr);
- 	}
- 
- 	page = pud_page(orig);
-@@ -3198,9 +3196,9 @@ static int gup_huge_pud(pud_t orig, pud_t *pudp, unsigned long addr,
- 	return 1;
- }
- 
--static int gup_huge_pgd(pgd_t orig, pgd_t *pgdp, unsigned long addr,
--			unsigned long end, unsigned int flags,
--			struct page **pages, int *nr)
-+static int gup_fast_pgd_leaf(pgd_t orig, pgd_t *pgdp, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	int refs;
- 	struct page *page;
-@@ -3238,8 +3236,9 @@ static int gup_huge_pgd(pgd_t orig, pgd_t *pgdp, unsigned long addr,
- 	return 1;
- }
- 
--static int gup_pmd_range(pud_t *pudp, pud_t pud, unsigned long addr, unsigned long end,
--		unsigned int flags, struct page **pages, int *nr)
-+static int gup_fast_pmd_range(pud_t *pudp, pud_t pud, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	unsigned long next;
- 	pmd_t *pmdp;
-@@ -3253,11 +3252,11 @@ static int gup_pmd_range(pud_t *pudp, pud_t pud, unsigned long addr, unsigned lo
- 			return 0;
- 
- 		if (unlikely(pmd_leaf(pmd))) {
--			/* See gup_pte_range() */
-+			/* See gup_fast_pte_range() */
- 			if (pmd_protnone(pmd))
- 				return 0;
- 
--			if (!gup_huge_pmd(pmd, pmdp, addr, next, flags,
-+			if (!gup_fast_pmd_leaf(pmd, pmdp, addr, next, flags,
- 				pages, nr))
- 				return 0;
- 
-@@ -3266,18 +3265,20 @@ static int gup_pmd_range(pud_t *pudp, pud_t pud, unsigned long addr, unsigned lo
- 			 * architecture have different format for hugetlbfs
- 			 * pmd format and THP pmd format
- 			 */
--			if (!gup_huge_pd(__hugepd(pmd_val(pmd)), addr,
--					 PMD_SHIFT, next, flags, pages, nr))
-+			if (!gup_fast_hugepd(__hugepd(pmd_val(pmd)), addr,
-+					     PMD_SHIFT, next, flags, pages, nr))
- 				return 0;
--		} else if (!gup_pte_range(pmd, pmdp, addr, next, flags, pages, nr))
-+		} else if (!gup_fast_pte_range(pmd, pmdp, addr, next, flags,
-+					       pages, nr))
- 			return 0;
- 	} while (pmdp++, addr = next, addr != end);
- 
- 	return 1;
- }
- 
--static int gup_pud_range(p4d_t *p4dp, p4d_t p4d, unsigned long addr, unsigned long end,
--			 unsigned int flags, struct page **pages, int *nr)
-+static int gup_fast_pud_range(p4d_t *p4dp, p4d_t p4d, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	unsigned long next;
- 	pud_t *pudp;
-@@ -3290,22 +3291,24 @@ static int gup_pud_range(p4d_t *p4dp, p4d_t p4d, unsigned long addr, unsigned lo
- 		if (unlikely(!pud_present(pud)))
- 			return 0;
- 		if (unlikely(pud_leaf(pud))) {
--			if (!gup_huge_pud(pud, pudp, addr, next, flags,
--					  pages, nr))
-+			if (!gup_fast_pud_leaf(pud, pudp, addr, next, flags,
-+					       pages, nr))
- 				return 0;
- 		} else if (unlikely(is_hugepd(__hugepd(pud_val(pud))))) {
--			if (!gup_huge_pd(__hugepd(pud_val(pud)), addr,
--					 PUD_SHIFT, next, flags, pages, nr))
-+			if (!gup_fast_hugepd(__hugepd(pud_val(pud)), addr,
-+					     PUD_SHIFT, next, flags, pages, nr))
- 				return 0;
--		} else if (!gup_pmd_range(pudp, pud, addr, next, flags, pages, nr))
-+		} else if (!gup_fast_pmd_range(pudp, pud, addr, next, flags,
-+					       pages, nr))
- 			return 0;
- 	} while (pudp++, addr = next, addr != end);
- 
- 	return 1;
- }
- 
--static int gup_p4d_range(pgd_t *pgdp, pgd_t pgd, unsigned long addr, unsigned long end,
--			 unsigned int flags, struct page **pages, int *nr)
-+static int gup_fast_p4d_range(pgd_t *pgdp, pgd_t pgd, unsigned long addr,
-+		unsigned long end, unsigned int flags, struct page **pages,
-+		int *nr)
- {
- 	unsigned long next;
- 	p4d_t *p4dp;
-@@ -3319,17 +3322,18 @@ static int gup_p4d_range(pgd_t *pgdp, pgd_t pgd, unsigned long addr, unsigned lo
- 			return 0;
- 		BUILD_BUG_ON(p4d_leaf(p4d));
- 		if (unlikely(is_hugepd(__hugepd(p4d_val(p4d))))) {
--			if (!gup_huge_pd(__hugepd(p4d_val(p4d)), addr,
--					 P4D_SHIFT, next, flags, pages, nr))
-+			if (!gup_fast_hugepd(__hugepd(p4d_val(p4d)), addr,
-+					     P4D_SHIFT, next, flags, pages, nr))
- 				return 0;
--		} else if (!gup_pud_range(p4dp, p4d, addr, next, flags, pages, nr))
-+		} else if (!gup_fast_pud_range(p4dp, p4d, addr, next, flags,
-+					       pages, nr))
- 			return 0;
- 	} while (p4dp++, addr = next, addr != end);
- 
- 	return 1;
- }
- 
--static void gup_pgd_range(unsigned long addr, unsigned long end,
-+static void gup_fast_pgd_range(unsigned long addr, unsigned long end,
- 		unsigned int flags, struct page **pages, int *nr)
- {
- 	unsigned long next;
-@@ -3343,19 +3347,20 @@ static void gup_pgd_range(unsigned long addr, unsigned long end,
- 		if (pgd_none(pgd))
- 			return;
- 		if (unlikely(pgd_leaf(pgd))) {
--			if (!gup_huge_pgd(pgd, pgdp, addr, next, flags,
--					  pages, nr))
-+			if (!gup_fast_pgd_leaf(pgd, pgdp, addr, next, flags,
-+					       pages, nr))
- 				return;
- 		} else if (unlikely(is_hugepd(__hugepd(pgd_val(pgd))))) {
--			if (!gup_huge_pd(__hugepd(pgd_val(pgd)), addr,
--					 PGDIR_SHIFT, next, flags, pages, nr))
-+			if (!gup_fast_hugepd(__hugepd(pgd_val(pgd)), addr,
-+					      PGDIR_SHIFT, next, flags, pages, nr))
- 				return;
--		} else if (!gup_p4d_range(pgdp, pgd, addr, next, flags, pages, nr))
-+		} else if (!gup_fast_p4d_range(pgdp, pgd, addr, next, flags,
-+					       pages, nr))
- 			return;
- 	} while (pgdp++, addr = next, addr != end);
- }
- #else
--static inline void gup_pgd_range(unsigned long addr, unsigned long end,
-+static inline void gup_fast_pgd_range(unsigned long addr, unsigned long end,
- 		unsigned int flags, struct page **pages, int *nr)
- {
- }
-@@ -3372,10 +3377,8 @@ static bool gup_fast_permitted(unsigned long start, unsigned long end)
- }
- #endif
- 
--static unsigned long lockless_pages_from_mm(unsigned long start,
--					    unsigned long end,
--					    unsigned int gup_flags,
--					    struct page **pages)
-+static unsigned long gup_fast(unsigned long start, unsigned long end,
-+		unsigned int gup_flags, struct page **pages)
- {
- 	unsigned long flags;
- 	int nr_pinned = 0;
-@@ -3403,16 +3406,16 @@ static unsigned long lockless_pages_from_mm(unsigned long start,
- 	 * that come from THPs splitting.
- 	 */
- 	local_irq_save(flags);
--	gup_pgd_range(start, end, gup_flags, pages, &nr_pinned);
-+	gup_fast_pgd_range(start, end, gup_flags, pages, &nr_pinned);
- 	local_irq_restore(flags);
- 
- 	/*
- 	 * When pinning pages for DMA there could be a concurrent write protect
--	 * from fork() via copy_page_range(), in this case always fail fast GUP.
-+	 * from fork() via copy_page_range(), in this case always fail GUP-fast.
- 	 */
- 	if (gup_flags & FOLL_PIN) {
- 		if (read_seqcount_retry(&current->mm->write_protect_seq, seq)) {
--			unpin_user_pages_lockless(pages, nr_pinned);
-+			gup_fast_unpin_user_pages(pages, nr_pinned);
- 			return 0;
- 		} else {
- 			sanity_check_pinned_pages(pages, nr_pinned);
-@@ -3421,10 +3424,8 @@ static unsigned long lockless_pages_from_mm(unsigned long start,
- 	return nr_pinned;
- }
- 
--static int internal_get_user_pages_fast(unsigned long start,
--					unsigned long nr_pages,
--					unsigned int gup_flags,
--					struct page **pages)
-+static int gup_fast_fallback(unsigned long start, unsigned long nr_pages,
-+		unsigned int gup_flags, struct page **pages)
- {
- 	unsigned long len, end;
- 	unsigned long nr_pinned;
-@@ -3452,7 +3453,7 @@ static int internal_get_user_pages_fast(unsigned long start,
- 	if (unlikely(!access_ok((void __user *)start, len)))
- 		return -EFAULT;
- 
--	nr_pinned = lockless_pages_from_mm(start, end, gup_flags, pages);
-+	nr_pinned = gup_fast(start, end, gup_flags, pages);
- 	if (nr_pinned == nr_pages || gup_flags & FOLL_FAST_ONLY)
- 		return nr_pinned;
- 
-@@ -3506,7 +3507,7 @@ int get_user_pages_fast_only(unsigned long start, int nr_pages,
- 			       FOLL_GET | FOLL_FAST_ONLY))
- 		return -EINVAL;
- 
--	return internal_get_user_pages_fast(start, nr_pages, gup_flags, pages);
-+	return gup_fast_fallback(start, nr_pages, gup_flags, pages);
- }
- EXPORT_SYMBOL_GPL(get_user_pages_fast_only);
- 
-@@ -3537,7 +3538,7 @@ int get_user_pages_fast(unsigned long start, int nr_pages,
- 	 */
- 	if (!is_valid_gup_args(pages, NULL, &gup_flags, FOLL_GET))
- 		return -EINVAL;
--	return internal_get_user_pages_fast(start, nr_pages, gup_flags, pages);
-+	return gup_fast_fallback(start, nr_pages, gup_flags, pages);
- }
- EXPORT_SYMBOL_GPL(get_user_pages_fast);
- 
-@@ -3565,7 +3566,7 @@ int pin_user_pages_fast(unsigned long start, int nr_pages,
- {
- 	if (!is_valid_gup_args(pages, NULL, &gup_flags, FOLL_PIN))
- 		return -EINVAL;
--	return internal_get_user_pages_fast(start, nr_pages, gup_flags, pages);
-+	return gup_fast_fallback(start, nr_pages, gup_flags, pages);
- }
- EXPORT_SYMBOL_GPL(pin_user_pages_fast);
- 
--- 
-2.44.0
-
+> 
+> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+> ---
+>  tools/testing/selftests/kvm/Makefile          |  1 +
+>  .../selftests/kvm/include/riscv/processor.h   |  8 +-
+>  tools/testing/selftests/kvm/riscv/sbi_test.c  | 95 +++++++++++++++++++
+>  3 files changed, 103 insertions(+), 1 deletion(-)
+>  create mode 100644 tools/testing/selftests/kvm/riscv/sbi_test.c
+> 
+> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+> index 741c7dc16afc..a6acbbcad757 100644
+> --- a/tools/testing/selftests/kvm/Makefile
+> +++ b/tools/testing/selftests/kvm/Makefile
+> @@ -189,6 +189,7 @@ TEST_GEN_PROGS_s390x += rseq_test
+>  TEST_GEN_PROGS_s390x += set_memory_region_test
+>  TEST_GEN_PROGS_s390x += kvm_binary_stats_test
+>  
+> +TEST_GEN_PROGS_riscv += riscv/sbi_test
+>  TEST_GEN_PROGS_riscv += arch_timer
+>  TEST_GEN_PROGS_riscv += demand_paging_test
+>  TEST_GEN_PROGS_riscv += dirty_log_test
+> diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
+> index ce473fe251dd..df530ac751c4 100644
+> --- a/tools/testing/selftests/kvm/include/riscv/processor.h
+> +++ b/tools/testing/selftests/kvm/include/riscv/processor.h
+> @@ -178,7 +178,13 @@ enum sbi_ext_id {
+>  };
+>  
+>  enum sbi_ext_base_fid {
+> -	SBI_EXT_BASE_PROBE_EXT = 3,
+> +	SBI_EXT_BASE_GET_SPEC_VERSION = 0,
+> +	SBI_EXT_BASE_GET_IMP_ID,
+> +	SBI_EXT_BASE_GET_IMP_VERSION,
+> +	SBI_EXT_BASE_PROBE_EXT,
+> +	SBI_EXT_BASE_GET_MVENDORID,
+> +	SBI_EXT_BASE_GET_MARCHID,
+> +	SBI_EXT_BASE_GET_MIMPID,
+>  };
+>  
+>  struct sbiret {
+> diff --git a/tools/testing/selftests/kvm/riscv/sbi_test.c b/tools/testing/selftests/kvm/riscv/sbi_test.c
+> new file mode 100644
+> index 000000000000..b9378546e3b6
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/riscv/sbi_test.c
+> @@ -0,0 +1,95 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * sbi_test - SBI API test for KVM's SBI implementation.
+> + *
+> + * Copyright (c) 2024 Intel Corporation
+> + *
+> + * Test cover the following SBI extentions:
+> + *  - Base: All functions in this extension should be supported
+> + */
+> +
+> +#include "kvm_util.h"
+> +#include "processor.h"
+> +#include "test_util.h"
+> +
+> +/*
+> + * Test that all functions in the base extension must be supported
+> + */
+> +static void base_ext_guest_code(void)
+> +{
+> +	struct sbiret ret;
+> +
+> +	/*
+> +	 * Since the base extension was introduced in SBI Spec v0.2,
+> +	 * assert if the implemented SBI version is below 0.2.
+> +	 */
+> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_SPEC_VERSION, 0,
+> +			0, 0, 0, 0, 0);
+> +	__GUEST_ASSERT(!ret.error && ret.value >= 2, "Get Spec Version Error: ret.error=%ld, "
+> +			"ret.value=%ld\n", ret.error, ret.value);
+> +
+> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_IMP_ID, 0,
+> +			0, 0, 0, 0, 0);
+> +	__GUEST_ASSERT(!ret.error && ret.value == 3, "Get Imp ID Error: ret.error=%ld, "
+> +			"ret.value=%ld\n",
+> +			ret.error, ret.value);
+> +
+> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_IMP_VERSION, 0,
+> +			0, 0, 0, 0, 0);
+> +	__GUEST_ASSERT(!ret.error, "Get Imp Version Error: ret.error=%ld\n", ret.error);
+> +
+> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_PROBE_EXT, SBI_EXT_BASE,
+> +			0, 0, 0, 0, 0);
+> +	__GUEST_ASSERT(!ret.error && ret.value == 1, "Probe ext Error: ret.error=%ld, "
+> +			"ret.value=%ld\n",
+> +			ret.error, ret.value);
+> +
+> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_MVENDORID, 0,
+> +			0, 0, 0, 0, 0);
+> +	__GUEST_ASSERT(!ret.error, "Get Machine Vendor ID Error: ret.error=%ld\n", ret.error);
+> +
+> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_MARCHID, 0,
+> +			0, 0, 0, 0, 0);
+> +	__GUEST_ASSERT(!ret.error, "Get Machine Arch ID Error: ret.error=%ld\n", ret.error);
+> +
+> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_MIMPID, 0,
+> +			0, 0, 0, 0, 0);
+> +	__GUEST_ASSERT(!ret.error, "Get Machine Imp ID Error: ret.error=%ld\n", ret.error);
+> +
+> +	GUEST_DONE();
+> +}
+> +
+> +static void sbi_base_ext_test(void)
+> +{
+> +	struct kvm_vm *vm;
+> +	struct kvm_vcpu *vcpu;
+> +	struct ucall uc;
+> +
+> +	vm = vm_create_with_one_vcpu(&vcpu, base_ext_guest_code);
+> +	while (1) {
+> +		vcpu_run(vcpu);
+> +		TEST_ASSERT(vcpu->run->exit_reason == UCALL_EXIT_REASON,
+> +			    "Unexpected exit reason: %u (%s),",
+> +			    vcpu->run->exit_reason, exit_reason_str(vcpu->run->exit_reason));
+> +
+> +		switch (get_ucall(vcpu, &uc)) {
+> +		case UCALL_DONE:
+> +			goto done;
+> +		case UCALL_ABORT:
+> +			fprintf(stderr, "Guest assert failed!\n");
+> +			REPORT_GUEST_ASSERT(uc);
+> +		default:
+> +			TEST_FAIL("Unexpected ucall %lu", uc.cmd);
+> +		}
+> +	}
+> +
+> +done:
+> +	kvm_vm_free(vm);
+> +}
+> +
+> +int main(void)
+> +{
+> +	sbi_base_ext_test();
+> +
+> +	return 0;
+> +}
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
