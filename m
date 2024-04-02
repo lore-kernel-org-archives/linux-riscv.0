@@ -4,82 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E148C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 08:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F279CD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 09:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:To:Subject:From:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lNgyWDbAtA5XUDyMB66CIAne3oyH0aEZSDb6TcFpYYg=; b=gwNEgL98igVSHO2dJwCQXPeWAM
-	fA/SpI9IlzqvLh6X3hDiY+Y5AyLZBP02rtGEzPxN/n8HpwXUoMan/6UqgBvb0WPFAxqi0DFAytGlp
-	X9pG5Sa2L3QZ+i4PRW1gLVuqyF1GHX6kih5O90ZsA0GdOCefKr+uWGt4ukQI66wdt80b41Nk1xBtc
-	vaMh5kXHBjhliPEuzQ6DVvQY6eX7fZ1JfsHVQTsRlv8XDZe1zRCdGv/zL5ZcJRCLk/HfNYtHxo+vC
-	9W3eTaIIhkcQg7ih65Dk5QgdsO6Q341x4etBui9ZZOusbR4NdM+qVGQvxgMT0a8rf3oycFHMehaio
-	0Ifh4eoA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EkasPMU9+JhILKwepewQsNGnEmo4AQRaTJzqLwg14I0=; b=JQfVGZ2WpxWYMR
+	dMTvtb6PO5BJ1587VfiEzKClT93POFdhjq3ltfYwG4QgH6gtVCcf6OzP3Cr+NyDtLI1LhEaHYBe5z
+	TAyYEfuoHekly1qb15geCfwfJUqioJT/7dm9QAstI3m5tMYrPfepKF6+AKxyCojiBF0eifgreLmpI
+	PN2agXQUEJKQedWCI8tcEx/CItgv2zh405b0vHRQoXHTxn9GcwP6Mw+7QXOWzw9/3F1ax7hpXsTK9
+	WzDZiudsMVbEsd/QLczqx74a6QcMl3B6EXpyxcwZiey25fTCxw3qqmAL/9c3tPvoUR1FMo9xvvU+u
+	cAgKgZrU+6jJpFs4hcsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrZkG-0000000AIOo-2EfE;
-	Tue, 02 Apr 2024 08:43:52 +0000
-Received: from mail-oo1-xc2c.google.com ([2607:f8b0:4864:20::c2c])
+	id 1rra9U-0000000ANVM-44ji;
+	Tue, 02 Apr 2024 09:09:57 +0000
+Received: from mail-bjschn02on20707.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::707] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrZkD-0000000AINZ-3M4F
+	id 1rra9R-0000000ANUT-1Xvr
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Apr 2024 08:43:51 +0000
-Received: by mail-oo1-xc2c.google.com with SMTP id 006d021491bc7-5a4a102145fso2618182eaf.3
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2024 01:43:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712047427; x=1712652227; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=1ao1EWfYPtfm1HGEz8PRLBvpnUq6uoeFW7iGA9WZBEg=;
-        b=Vomw1R79KYbPBsx719V2lnluPpsaPURW6pGLkDZg18wldmp0gJcNfr5zhiWwIWnGe/
-         pB1DfLHlB2sH3eQMvKdEbaHNUxf5vV2uuz03y5k2oKjnPnF4ijPazN/4svAIPLRdI1mU
-         l198uCUprPF6HZS6/K9rTJGTLpvA2UIgIsEhm4tFy7vEDbT+G9nEqAFCFOfxERqL3CeL
-         G1quDXitleempipP6Ql692bx9pWB+lOeBlmvmHCrSBX3FAQeKQsyPLq6d1aEPwbMcNL/
-         pgVIZ6ACxZLW6UvwIsncBQKdp/vufA4fKvXekv7QaI7Qr6+QzvRx6d0O+IN2baXOKImx
-         fPRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712047427; x=1712652227;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1ao1EWfYPtfm1HGEz8PRLBvpnUq6uoeFW7iGA9WZBEg=;
-        b=EdgOw/XV7EIpEdoQHKCKss4COz3F+B0Jn3Xv9bR8k5PGQ82YBcSrbBTSUFo2KX01h/
-         uFEZLsiqGOg3v9csU20ssAhAX/T8ac1+8EHXanZS1TwGYXEDSHLmhH+73XeMcAb+i4Z/
-         mcgof1qnT4k+iVHNdYGFwKSNNX2Ji+3y3K/sGZYmIc6WwEQl9IlM6saInsvzPMMtA2Cq
-         483fIGXWsXM06MnfmQohFfrAqrYTXe1nyGOsHRM6aPGG9gW6RAxB6pQNN2xt/SqBAgsC
-         IJNg25m/jE0rIhdzMznnhAEOcnSVAA9W61lImRnzSe85POFG2K0an8Opyp+5XROtgr5w
-         /Egw==
-X-Forwarded-Encrypted: i=1; AJvYcCW1fEQPznhhKeMVluZER6vN+owvOelLb9dVKE0vuMxIYc+Pkm9uA8E7ZrGDcDBo1xJ5toRpCXhHJ2tIXpqm76QhUwo78CcB6/C/c/88taqA
-X-Gm-Message-State: AOJu0YzIBXU6ypEvR7KezhS7c1MIYdwhI2a2SWmBSaxNVlKW54qrxOFE
-	zh9hjFlxvT0LUWA3CSlPiloOGsN4i6e5OFxOsLEc6R1sSotRzJoWvqxkaFAf7v0=
-X-Google-Smtp-Source: AGHT+IHeap9PtoP9dWxZ8Fxsi6MBW8mCRxu5nAbnRlzNqlVnyWHQm9bQqROV6m51/MeKVk/nOwVHCw==
-X-Received: by 2002:a05:6358:e484:b0:183:bd0c:d2c6 with SMTP id by4-20020a056358e48400b00183bd0cd2c6mr4187597rwb.11.1712047426879;
-        Tue, 02 Apr 2024 01:43:46 -0700 (PDT)
-Received: from [172.16.0.34] (c-67-188-2-18.hsd1.ca.comcast.net. [67.188.2.18])
-        by smtp.gmail.com with ESMTPSA id e19-20020a63f553000000b005e485fbd455sm9184675pgk.45.2024.04.02.01.43.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Apr 2024 01:43:46 -0700 (PDT)
-Message-ID: <d382c616-5212-4da2-be63-6ed0a85e13f7@rivosinc.com>
-Date: Tue, 2 Apr 2024 01:43:45 -0700
+	Tue, 02 Apr 2024 09:09:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=RQqasdNgBdIZpy61rr1Wnsc14xikEb6UyYnAIPJo00i4TdojX/AqqLlCJXfA8sT37iTfHPlzMZiXhk0eZFOpBOY9CDBfJw1qka3NwqKINfXSEfQUVu5U0gbmY3y4AuoFZvKpXH/GX89Sy1q2tGXDDGFIYmmPm2XAXM7o4O6w7vARenWudI2IMTE9zK9XdSnEPKJb/Qjh2JO5WCQLkLtH4WE/eaO0dFN8w+hsJTM0GO6sost5OW09VkQ6fVx+nN1aebi2d2dCzmFZakjQj2ZfgYu3xe6mQGleoOaTWYZvYFbpejE5qc46Jml15kpEdxZi6KngRePKLJcS+c0xL0KP7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Saiki2wT3CoksisJ5IXcjCDjgCzhBC/lclja/GFo7Bg=;
+ b=TNUb2fuXM+jylSBAtPZoNLbPI5N4aDjtDhidxleldk86wg+jm49vlQ99neBs0Ja8Y0cZePTAS5NShLadrBaf0dgXiBVub9Kc1gfyn+oxC70EOGKtNcriXZxeIFTycgSifkMdPnV/8LVA7cigVplYH8xzes74ym0heXg1lP4x7ggoXJVmg4UAl2G3G/ahG72D1gKjvfQ++s23k5UpaEpsCAxkx4PbHCe7hvidrY5QLTgkdk5SSIsbga5PwKA43Bx+k04oPR6lweaYpKHr2+6q/VKL6pzS0WATV1AKoPZLrQ8AEUcde2t8AjehRz1RinhszT9RJysA7irKMXNF1HWy/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:8::10) by NTZPR01MB1116.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:8::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.26; Tue, 2 Apr
+ 2024 09:09:37 +0000
+Received: from NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ ([fe80::9a50:2c82:c5d4:2b3d]) by
+ NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn ([fe80::9a50:2c82:c5d4:2b3d%4])
+ with mapi id 15.20.7409.028; Tue, 2 Apr 2024 09:09:37 +0000
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Xingyu Wu <xingyu.wu@starfivetech.com>,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v3] clk: starfive: pll: Fix lower rate of CPUfreq by setting PLL0 rate to 1.5GHz
+Date: Tue,  2 Apr 2024 17:09:20 +0800
+Message-Id: <20240402090920.11627-1-xingyu.wu@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+X-ClientProxiedBy: ZQ0PR01CA0006.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:5::16) To NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:8::10)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v4 12/15] KVM: riscv: selftests: Add SBI PMU extension
- definitions
-To: Andrew Jones <ajones@ventanamicro.com>
-References: <20240229010130.1380926-1-atishp@rivosinc.com>
- <20240229010130.1380926-13-atishp@rivosinc.com>
- <20240302-698f4322ab7ba74fc3dba416@orel>
-X-Mozilla-News-Host: news://nntp.lore.kernel.org
-Content-Language: en-US
-In-Reply-To: <20240302-698f4322ab7ba74fc3dba416@orel>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: NTZPR01MB0956:EE_|NTZPR01MB1116:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5610efe1-0bb8-4c0d-f05f-08dc52f49f27
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: m0dMNkeYTqN+/wAWoAwy1lPNkaGU7OH90K9XyO9Ks1kifI7lCe12xJStaTovd7kOFp1VpFHH6i5u9GWeN+GWmLPtbD2LC6u2dYXPIwI4XbYjqV5EgvRTHlqW0trERglKakwhK2ubmpHcCqwlst4v+C1ldVcIXIqHAxVkVqmUv/G/zDnhhaEipjM80bPQ8Vv/Ht5xNsNzaR82TDIQP1R8b8HMyGN3KfHJaFiFUAvPdmGv5WTxK9Yx9kwmEs1wmJLr8I4XKNKY+GcWW4G3cly/0N3APbiVp/85JFNx6BHHoXawd6MXs85aw3q5PH6jQDHlIzBF705+PMbNyZCZ27eQ6GqmvCSIoTVMSn4PXP1n2rJiezictpyOlCelFi8OIOmX+gj4PKJF1rl8t5e2wjI5trZfo4krWcUYKZd8exnGNzp/9tPSr9ikbHmpJVE8zYxspjU2JtWRl4bRNQdJMWCDPTdBPsqk3dY5ceWxXd76cgC0A8xJI30Km+DpD7ti6IqRfeLQQYoHwTv/8vuN06ykOO0/QP2b+oE9VrTR6cBwanUoYEufAQDldwbPNE6nmawwCJ153pBqQnpZuCJK0ONUUlmGjyeT4UEUw99WNxXHrKFPLjYwVfef0ONOygupIvE/
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(41320700004)(52116005)(1800799015)(7416005)(366007)(38350700005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7qnbm7D7mp0vBq0JEkutMQ/zld92jreMStPDbV7BvXmY+G4cVSkS2ZkNcD+a?=
+ =?us-ascii?Q?jpzKuWkN+K9Q31ffhKs1Uw8xJT/8dOtmaqW0rLDPx3HXb7MF2R/StBcBwYrU?=
+ =?us-ascii?Q?iq60sgbzCB+8fZvrS52fUxZtxvZLE4TS5gyZqirmjXUXPEjI9+UaDWvlYfIX?=
+ =?us-ascii?Q?2RLuw9BRcDz6e5CsK7+QI0DIO0OFBLQSI+cRC2+3n+aBd/IhOPM39+eN0PsT?=
+ =?us-ascii?Q?dnla3Wuprh8ZGzHMWjlZiPmFJd4uKOuwC4mrzPeAVgUaom3hQ/ZsFd3Qlndu?=
+ =?us-ascii?Q?CIzEK2IhYUOC5vn7GKeEJCb/cNuCjmZm3+oqItOyvtw1oNTV7Q61yU05d6Kf?=
+ =?us-ascii?Q?QJWQd35PQTXVa/jYqSzTPbyZLS0p+w5C/bjQ8X9Z/P4SWwfpQPZaeMwMEaGR?=
+ =?us-ascii?Q?CdKK7hsWhwOmKBO7YbKMmqMoONRbO0nPh25ALjSal7hHENMaX2MwOnbb59L5?=
+ =?us-ascii?Q?WlfJB5Y7RCYctFYapFTbeJ/eVh496BNSMAfmmt9dILn+4rhpG9UdNH7ai0fn?=
+ =?us-ascii?Q?DunljroWv6gjkceDYAwm3nitR3LFiC43dwqNmzH694d/SGLO1R9mBH2saPcE?=
+ =?us-ascii?Q?ZtW0FDLnD5hLopA/QE6UFg4E+ph+rFO2lxiC2q3ZM3uTmLYjbg3spCyyfZJt?=
+ =?us-ascii?Q?zfVMDFraAIY4biW/J+dOhZUQ6hIxzMNvpIxCaJxa3dYY/fhNODMi5QxXJj7F?=
+ =?us-ascii?Q?2jlD/ntkOEr2aMaFyo0wx6miYWpsfq9gtsHn7/N/1R3f6S/l9X09G7SSePQY?=
+ =?us-ascii?Q?C8Hg0e47grvCCLzc3k1lFy9qhLBy+yTq/3I69mX7R9fhilQs6Z7vSTj3Yl5e?=
+ =?us-ascii?Q?JH61Tsb8O9oZqxlqilsqAdYeAqbAXw7RZETAZEK9Y311CnCkXUb+dnipJkrV?=
+ =?us-ascii?Q?ZJc611YqaVsn4VRpkDeN1PvNqKxUX5L0PaJNw26n9RdwfTJE7xMRmD1gDOJq?=
+ =?us-ascii?Q?Cq9Dr1Gkm6xs0WYa/WVyOcCZdeBU32obKsurZc8c7lXkcfGQ5ZNnyVeKVN2x?=
+ =?us-ascii?Q?7hqv31TZoWWI8LcQzTjORmmwYTmh+q07FROUj0MUYuDbVFkCe8CaFH6ur6Fy?=
+ =?us-ascii?Q?FuVUSNTmIagxayV+HaFIwn6uz+B47VOX45cL/of1CLlhtokjp1HtvFzTWnIJ?=
+ =?us-ascii?Q?zA1U3nO/GzDAhFIjTIHuyHwxJK+RNOAHFR/tQnlHWyGmylIj5BIXRdH5c7fS?=
+ =?us-ascii?Q?3F4JXN6OqFNRxOjTk15RDdGl97UqGMxmJWiNw33F7yGxO7fjMceiR0r87nIT?=
+ =?us-ascii?Q?D2luMlnxjmVy1o0mKv5ydC5fMOVgumDJgMIXB8htbRuO/E4YlCHxre0/k2rm?=
+ =?us-ascii?Q?ySfONpqp1Lx/IF4/xgmDy9g8UVi1XWJRW64J60DtW/UmDuAKWZxsTRdlyQbW?=
+ =?us-ascii?Q?4P2DTxmdXtpACEH9Ssu2N+6cUv0zmqDiY78RDwmfbLYhjxqXpjWf4rVSBo3j?=
+ =?us-ascii?Q?FyTWGdcB1n0S3DPmVr/d4nWBOEGqQ3MEQ7Jm0ENorvm5ElfS1LcZ3wBTZFk3?=
+ =?us-ascii?Q?kKOTiELKIGkCH+1iFGDZTUp1NUV7GetZuBLSLh3U30HIdGWF87jTN+Sl4FXT?=
+ =?us-ascii?Q?NwNmVWv7hkcj425vYsg1B31fSV3SvWleHlIriKBH4hIqIon4RPHEzjMPtYYU?=
+ =?us-ascii?Q?QQ=3D=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5610efe1-0bb8-4c0d-f05f-08dc52f49f27
+X-MS-Exchange-CrossTenant-AuthSource: NTZPR01MB0956.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2024 09:09:37.6637
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: npPvWFcxCyKYcBdK0pXebCR7yunGJFdYLezx66weH6UoqsdribqXHISrktKfiwMmNeuZNgWvUWvUZmhNdUhKXSKE22A5tMiFgVEQRve81z4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NTZPR01MB1116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_014349_878839_0FDBFD4A 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20240402_020953_651391_D89003DB 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,144 +133,245 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, linux-kselftest@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, kvm@vger.kernel.org, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Paolo Bonzini <pbonzini@redhat.com>, Guo Ren <guoren@kernel.org>, kvm-riscv@lists.infradead.org, Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Shuah Khan <shuah@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/2/24 03:00, Andrew Jones wrote:
-> On Wed, Feb 28, 2024 at 05:01:27PM -0800, Atish Patra wrote:
->> The SBI PMU extension definition is required for upcoming SBI PMU
->> selftests.
->>
->> Signed-off-by: Atish Patra <atishp@rivosinc.com>
->> ---
->>   .../selftests/kvm/include/riscv/processor.h   | 67 +++++++++++++++++++
->>   1 file changed, 67 insertions(+)
->>
->> diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
->> index f75c381fa35a..a49a39c8e8d4 100644
->> --- a/tools/testing/selftests/kvm/include/riscv/processor.h
->> +++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-> 
-> We should probably create a new header (include/riscv/sbi.h) since
-> otherwise processor.h is very quickly going to look like an SBI
-> header with a few non-sbi things in it. Can we add a patch prior to
-> this one that moves the SBI stuff we currently have in processor.h
-> out to an sbi.h? Or, we could start synchronizing a copy of
-> arch/riscv/include/asm/sbi.h in tools/arch/riscv/include/asm like
-> we've done for csr.h
-> 
-A separate sbi.h makes sense. I have moved the definitions to sbi.h as 
-of now.
+CPUfreq supports 4 cpu frequency loads on 375/500/750/1500MHz.
+But now PLL0 rate is 1GHz and the cpu frequency loads become
+333/500/500/1000MHz in fact.
 
-There is still lot more changes in sbi.h which is not required for 
-selftests even after this patch. But I am okay with syncing with sbi.h
-But I am not sure what should be the synchronization policy for sbi.h.
+So PLL0 rate should be default set to 1.5GHz. But setting the
+PLL0 rate need certain steps:
 
-As needed or regular sync with after every release? The csr.h is already 
-out of date even though it was created last MW (one change is part of 
-this series).
+1. Change the parent of cpu_root clock to OSC clock.
+2. Change the divider of cpu_core if PLL0 rate is higher than
+   1.25GHz before CPUfreq boot.
+3. Change the parent of cpu_root clock back to PLL0 clock.
 
-Let me know if you have any thoughts about that. I can send another 
-version with that.
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+Fixes: e2c510d6d630 ("riscv: dts: starfive: Add cpu scaling for JH7110 SoC")
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+---
 
->> @@ -169,17 +169,84 @@ void vm_install_exception_handler(struct kvm_vm *vm, int vector, exception_handl
->>   enum sbi_ext_id {
->>   	SBI_EXT_BASE = 0x10,
->>   	SBI_EXT_STA = 0x535441,
->> +	SBI_EXT_PMU = 0x504D55,
->>   };
->>   
->>   enum sbi_ext_base_fid {
->>   	SBI_EXT_BASE_PROBE_EXT = 3,
->>   };
->>   
->> +enum sbi_ext_pmu_fid {
->> +	SBI_EXT_PMU_NUM_COUNTERS = 0,
->> +	SBI_EXT_PMU_COUNTER_GET_INFO,
->> +	SBI_EXT_PMU_COUNTER_CFG_MATCH,
->> +	SBI_EXT_PMU_COUNTER_START,
->> +	SBI_EXT_PMU_COUNTER_STOP,
->> +	SBI_EXT_PMU_COUNTER_FW_READ,
->> +	SBI_EXT_PMU_COUNTER_FW_READ_HI,
->> +	SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
->> +};
->> +
->> +union sbi_pmu_ctr_info {
->> +	unsigned long value;
->> +	struct {
->> +		unsigned long csr:12;
->> +		unsigned long width:6;
->> +#if __riscv_xlen == 32
->> +		unsigned long reserved:13;
->> +#else
->> +		unsigned long reserved:45;
->> +#endif
->> +		unsigned long type:1;
->> +	};
->> +};
->> +
->>   struct sbiret {
->>   	long error;
->>   	long value;
->>   };
->>   
->> +/** General pmu event codes specified in SBI PMU extension */
->> +enum sbi_pmu_hw_generic_events_t {
->> +	SBI_PMU_HW_NO_EVENT			= 0,
->> +	SBI_PMU_HW_CPU_CYCLES			= 1,
->> +	SBI_PMU_HW_INSTRUCTIONS			= 2,
->> +	SBI_PMU_HW_CACHE_REFERENCES		= 3,
->> +	SBI_PMU_HW_CACHE_MISSES			= 4,
->> +	SBI_PMU_HW_BRANCH_INSTRUCTIONS		= 5,
->> +	SBI_PMU_HW_BRANCH_MISSES		= 6,
->> +	SBI_PMU_HW_BUS_CYCLES			= 7,
->> +	SBI_PMU_HW_STALLED_CYCLES_FRONTEND	= 8,
->> +	SBI_PMU_HW_STALLED_CYCLES_BACKEND	= 9,
->> +	SBI_PMU_HW_REF_CPU_CYCLES		= 10,
->> +
->> +	SBI_PMU_HW_GENERAL_MAX,
->> +};
->> +
->> +/* SBI PMU counter types */
->> +enum sbi_pmu_ctr_type {
->> +	SBI_PMU_CTR_TYPE_HW = 0x0,
->> +	SBI_PMU_CTR_TYPE_FW,
->> +};
->> +
->> +/* Flags defined for config matching function */
->> +#define SBI_PMU_CFG_FLAG_SKIP_MATCH	(1 << 0)
->> +#define SBI_PMU_CFG_FLAG_CLEAR_VALUE	(1 << 1)
->> +#define SBI_PMU_CFG_FLAG_AUTO_START	(1 << 2)
->> +#define SBI_PMU_CFG_FLAG_SET_VUINH	(1 << 3)
->> +#define SBI_PMU_CFG_FLAG_SET_VSINH	(1 << 4)
->> +#define SBI_PMU_CFG_FLAG_SET_UINH	(1 << 5)
->> +#define SBI_PMU_CFG_FLAG_SET_SINH	(1 << 6)
->> +#define SBI_PMU_CFG_FLAG_SET_MINH	(1 << 7)
->> +
->> +/* Flags defined for counter start function */
->> +#define SBI_PMU_START_FLAG_SET_INIT_VALUE (1 << 0)
->> +#define SBI_PMU_START_FLAG_INIT_FROM_SNAPSHOT BIT(1)
->> +
->> +/* Flags defined for counter stop function */
->> +#define SBI_PMU_STOP_FLAG_RESET (1 << 0)
->> +#define SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT BIT(1)
-> 
-> When changing shifts to BIT()'s, don't forget these (easy not to forget
-> if we go with the synch sbi.h to tools approach)
-> 
->> +
->>   struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
->>   			unsigned long arg1, unsigned long arg2,
->>   			unsigned long arg3, unsigned long arg4,
->> -- 
->> 2.34.1
->>
-> 
-> Thanks,
-> drew
+Hi Stephen and Emil,
+
+This patch fixes the issue about lower rate of CPUfreq[1] by setting PLL0
+rate to 1.5GHz.
+
+In order not to affect the cpu operation, setting the PLL0 rate need
+certain steps. The cpu_root's parent clock should be changed first. And
+the divider of the cpu_core clock should be set to 2 so they won't crash
+when setting 1.5GHz without voltage regulation. Due to PLL driver boot
+earlier than SYSCRG driver, cpu_core and cpu_root clocks are using by
+ioremap(). 
+
+[1]: https://github.com/starfive-tech/VisionFive2/issues/55
+
+Previous patch link:
+v2: https://lore.kernel.org/all/20230821152915.208366-1-xingyu.wu@starfivetech.com/
+v1: https://lore.kernel.org/all/20230811033631.160912-1-xingyu.wu@starfivetech.com/
+
+Thanks,
+Xingyu Wu
+---
+ .../jh7110-starfive-visionfive-2.dtsi         |   5 +
+ .../clk/starfive/clk-starfive-jh7110-pll.c    | 102 ++++++++++++++++++
+ 2 files changed, 107 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index 45b58b6f3df8..0c57d833fb29 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -336,6 +336,11 @@ &pwmdac {
+ 	status = "okay";
+ };
+ 
++&pllclk {
++	assigned-clocks = <&pllclk JH7110_PLLCLK_PLL0_OUT>;
++	assigned-clock-rates = <1500000000>;
++};
++
+ &qspi {
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+diff --git a/drivers/clk/starfive/clk-starfive-jh7110-pll.c b/drivers/clk/starfive/clk-starfive-jh7110-pll.c
+index 3598390e8fd0..7a53ded8d526 100644
+--- a/drivers/clk/starfive/clk-starfive-jh7110-pll.c
++++ b/drivers/clk/starfive/clk-starfive-jh7110-pll.c
+@@ -24,11 +24,14 @@
+ #include <linux/device.h>
+ #include <linux/kernel.h>
+ #include <linux/mfd/syscon.h>
++#include <linux/of_address.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+ 
+ #include <dt-bindings/clock/starfive,jh7110-crg.h>
+ 
++#include "clk-starfive-jh7110.h"
++
+ /* this driver expects a 24MHz input frequency from the oscillator */
+ #define JH7110_PLL_OSC_RATE		24000000UL
+ 
+@@ -72,6 +75,9 @@
+ #define JH7110_PLL_PREDIV_SHIFT		0
+ #define JH7110_PLL_PREDIV_MASK		GENMASK(5, 0)
+ 
++#define JH7110_CPU_ROOT_MUX_OSC		0
++#define JH7110_CPU_ROOT_MUX_PLL0	1
++
+ enum jh7110_pll_mode {
+ 	JH7110_PLL_MODE_FRACTION,
+ 	JH7110_PLL_MODE_INTEGER,
+@@ -140,6 +146,8 @@ struct jh7110_pll_data {
+ struct jh7110_pll_priv {
+ 	struct device *dev;
+ 	struct regmap *regmap;
++	void __iomem *syscrg_base;
++	bool is_first_set;
+ 	struct jh7110_pll_data pll[JH7110_PLLCLK_END];
+ };
+ 
+@@ -275,6 +283,25 @@ static struct jh7110_pll_priv *jh7110_pll_priv_from(struct jh7110_pll_data *pll)
+ 	return container_of(pll, struct jh7110_pll_priv, pll[pll->idx]);
+ }
+ 
++static void jh7110_pll_syscrg_update_div(void __iomem *base,
++					 unsigned int id,
++					 unsigned int div)
++{
++	unsigned int reg = readl(base + id * 4);
++
++	writel((reg & ~JH71X0_CLK_DIV_MASK) | div, (base + id * 4));
++}
++
++static void jh7110_pll_syscrg_update_mux(void __iomem *base,
++					 unsigned int id,
++					 unsigned int mux)
++{
++	unsigned int reg = readl(base + id * 4);
++
++	writel((reg & ~JH71X0_CLK_MUX_MASK) | (mux << JH71X0_CLK_MUX_SHIFT),
++	       (base + id * 4));
++}
++
+ static void jh7110_pll_regvals_get(struct regmap *regmap,
+ 				   const struct jh7110_pll_info *info,
+ 				   struct jh7110_pll_regvals *ret)
+@@ -352,6 +379,47 @@ static int jh7110_pll_determine_rate(struct clk_hw *hw, struct clk_rate_request
+ 	return 0;
+ }
+ 
++static bool jh7110_pll0_is_assigned_clock(struct device_node *node)
++{
++	struct of_phandle_args clkspec;
++	int ret;
++
++	ret = of_parse_phandle_with_args(node, "assigned-clocks",
++					 "#clock-cells", 0, &clkspec);
++	if (ret < 0 || clkspec.np != node)
++		return false;
++
++	if (clkspec.args[0] == JH7110_PLLCLK_PLL0_OUT)
++		return true;
++
++	return false;
++}
++
++/*
++ * In order to not affect the cpu when the PLL0 rate is changing,
++ * we need to switch the parent of cpu_root clock to osc clock first,
++ * and then switch back after setting the PLL0 rate.
++ *
++ * If cpu rate rather than 1.25GHz, PMIC need to be set higher voltage.
++ * But the PMIC is controlled by CPUfreq and I2C, which boot later than
++ * PLL driver when using assigned_clock to set PLL0 rate. So set the
++ * CPU_CORE divider to 2(default 1) first and make sure the cpu rate is
++ * lower than 1.25G when pll0 rate will be set more than 1.25G.
++ */
++static void jh7110_pll0_rate_preset(struct jh7110_pll_priv *priv,
++				    unsigned long rate)
++{
++	if (rate > 1250000000 && priv->is_first_set &&
++	    jh7110_pll0_is_assigned_clock(priv->dev->of_node))
++		jh7110_pll_syscrg_update_div(priv->syscrg_base,
++					     JH7110_SYSCLK_CPU_CORE, 2);
++
++	jh7110_pll_syscrg_update_mux(priv->syscrg_base,
++				     JH7110_SYSCLK_CPU_ROOT,
++				     JH7110_CPU_ROOT_MUX_OSC);
++	priv->is_first_set = false;
++}
++
+ static int jh7110_pll_set_rate(struct clk_hw *hw, unsigned long rate,
+ 			       unsigned long parent_rate)
+ {
+@@ -372,6 +440,9 @@ static int jh7110_pll_set_rate(struct clk_hw *hw, unsigned long rate,
+ 	return -EINVAL;
+ 
+ found:
++	if (pll->idx == JH7110_PLLCLK_PLL0_OUT)
++		jh7110_pll0_rate_preset(priv, rate);
++
+ 	if (val->mode == JH7110_PLL_MODE_FRACTION)
+ 		regmap_update_bits(priv->regmap, info->offsets.frac, JH7110_PLL_FRAC_MASK,
+ 				   val->frac << JH7110_PLL_FRAC_SHIFT);
+@@ -387,6 +458,12 @@ static int jh7110_pll_set_rate(struct clk_hw *hw, unsigned long rate,
+ 	regmap_update_bits(priv->regmap, info->offsets.frac, JH7110_PLL_POSTDIV1_MASK,
+ 			   (u32)val->postdiv1 << JH7110_PLL_POSTDIV1_SHIFT);
+ 
++	/* Set parent of cpu_root back to PLL0 */
++	if (pll->idx == JH7110_PLLCLK_PLL0_OUT)
++		jh7110_pll_syscrg_update_mux(priv->syscrg_base,
++					     JH7110_SYSCLK_CPU_ROOT,
++					     JH7110_CPU_ROOT_MUX_PLL0);
++
+ 	return 0;
+ }
+ 
+@@ -458,6 +535,8 @@ static int jh7110_pll_probe(struct platform_device *pdev)
+ 	struct jh7110_pll_priv *priv;
+ 	unsigned int idx;
+ 	int ret;
++	struct device_node *np;
++	struct resource res;
+ 
+ 	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+ 	if (!priv)
+@@ -489,6 +568,29 @@ static int jh7110_pll_probe(struct platform_device *pdev)
+ 			return ret;
+ 	}
+ 
++	priv->is_first_set = true;
++	np = of_find_compatible_node(NULL, NULL, "starfive,jh7110-syscrg");
++	if (!np) {
++		ret = PTR_ERR(np);
++		dev_err(priv->dev, "failed to get syscrg node\n");
++		goto np_put;
++	}
++
++	ret = of_address_to_resource(np, 0, &res);
++	if (ret) {
++		dev_err(priv->dev, "failed to get syscrg resource\n");
++		goto np_put;
++	}
++
++	priv->syscrg_base = ioremap(res.start, resource_size(&res));
++	if (!priv->syscrg_base)
++		ret = -ENOMEM;
++
++np_put:
++	of_node_put(np);
++	if (ret)
++		return ret;
++
+ 	return devm_of_clk_add_hw_provider(&pdev->dev, jh7110_pll_get, priv);
+ }
+ 
+-- 
+2.25.1
 
 
 _______________________________________________
