@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA724C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 14:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B56C6FD1F
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 14:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TaVJTbzhY0245zgOBnj1GwQq3USfnhU8tPL/45xL/q4=; b=HS88Xjhw1nqrAP
-	TMZrmUgcrlEuEY3KWjJA8rTB58djNF07GZ748ClMXkscXFqlVliBdJpRkYBr3l2pBaRtqE8twBH5b
-	ha4w6otKIpbbw5balIsxM1mmBLyBsJ38DW5qzrrD/xTH2Jjfvl6JxS6Zy1CL4G/TTmiiT7fxTZZ28
-	ynrUVOArhRfwNWmXWBAGFXHyvV7QfswzfL0DRba34eQB2yjSnbKhUfQWHMhwjmkrUe3+E6NO6TMZo
-	H1ouRjqJRBylMfTkDYUx+HmqKo8rIu/3lItT3Bj3teVLOkDJECwsWRD2W9FWdSBb5XcnTZ3ki3R3R
-	jBD9j3htIRegR72yGDZw==;
+	List-Owner; bh=4Od1vL72eOe+yQiAxE/xIeELiiPJx3f7N+5YTCIuivg=; b=QeX3qhd7OPGdqu
+	gf7w0srpxqKaXq0+KvhCb/zHI3hE0GWI945SF6ynoukp7Lj6iBTFRN7wpkI3BSUx9blPj4Z83k7yS
+	g/S64UAii0nqwBIEoLy70Nk+vzTE2+7s3bjZlJbuNu/UzIysCUxMiViOxv6T1rdqN0gixnZo2+1yj
+	LuTcrFjJdVfgtR4d+5VCYVXUyaIKYxnXd8pKt7K8s4j8pLGlxXL+Q/oBZy2oYNluebpSIDAPKNEV4
+	3oHInV2Td4W6pUPP85TPUhbHr4li+Azc0Ztw2FPDJ8AlUx5/R6d1GDWJ7gZyk/6+TaxY2c+UuWMiq
+	+oShx0Zd5oKkZd5n8MbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rres4-0000000BWmn-31e0;
-	Tue, 02 Apr 2024 14:12:16 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1rrexl-0000000BY3P-38nz;
+	Tue, 02 Apr 2024 14:18:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rres2-0000000BWkt-0NMl
+	id 1rrexj-0000000BY2Z-1qFP
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Apr 2024 14:12:15 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2d23114b19dso72099681fa.3
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2024 07:12:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1712067131; x=1712671931; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/0cQjXn5RxGYF1hs4ZqgtS6/DW8noiaC0SrX/L7JoeE=;
-        b=Y/3oHy81vv0W/0+zS/Zvq5zjWvF8QFdu/nHT4ZCpXBNmT35PU7x7oR7ECBNVoBupRE
-         5EoCi4obCjTL8I1UDORg97q9K8Gbff/VE5Op1jcMhIIemBsNUQhbK5XpASDJ++BjOMP1
-         vr2Wst5Z1NujMon2opO5t5g6Pm5Uiqd66qJKLqjHV9kF8HFBiQbzYb3fthlEg0bwKc/h
-         m4slOyCvgc1xM6HXmMmNVVHvHf9e5ivGRl8ZwtV0eA7k26end6KEoXPUPRuTLL7ii7ix
-         tC6FWo/U8wika07RXijOmrItRt4mSLKvDqGtKb228A88SMUKaK3tyer9Xq65bk56gwcA
-         RYTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712067131; x=1712671931;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/0cQjXn5RxGYF1hs4ZqgtS6/DW8noiaC0SrX/L7JoeE=;
-        b=LnRJkUKolqjUKwxdvyBvCu6QMsoPbBEgwT5mcICKF5UECDTELerg7t/U/CDl4ut5Fi
-         Zy9f00YX9grOlphdOm0eZezXoXbhh0hs43jWv6kcvPNtHHH/lSK0njke+NG41cRQncOT
-         a7MJic43v3c/TMPi/c8afCUw393APFpEnreUiM7+XIrcYhUOqK5z2Oq+xN7vyFkisDWR
-         zsgGorD1WjW3p5dsvqv7GkxYXfpB7TnlrLL7o2xtZ7U69diOjhSziYTNJXw3Axz0wnsP
-         Q34Sb3E3/ULP0LLZdhMb5k5aJ0TmVN9r6rMHwlGjpH9xx7F+JOsOLnXdWgXMv0rZoWbA
-         3XRw==
-X-Forwarded-Encrypted: i=1; AJvYcCWT5n6O4nhlWuYFaGLzjuNkFbynyWbxwKxqWRVDmt6lFWp3F+O8gyehjCyAQq3Gcc5qg0jo0zzquboml1OCG/QBTUTlkb7vBOmqjytNoQy9
-X-Gm-Message-State: AOJu0YzddwSYGo+2+17y/Qs/8RlxeqPzkN2BWT3km+bQRPCUMwUl66tN
-	Bdb8J7T8L/R2NbAtLdVApS8920Hs50p/MPJy3ZTF3B8p8s3i9SRa1JKuEe7gAJQ=
-X-Google-Smtp-Source: AGHT+IE6N5GbqAreIPZgVb2waHGGo5ub3tGfpFdJfv9DhQRFznhz1kQgSzFrTE9IPNvatlBuKLWx+w==
-X-Received: by 2002:a2e:9602:0:b0:2d4:2bc5:38dc with SMTP id v2-20020a2e9602000000b002d42bc538dcmr7404927ljh.30.1712067129349;
-        Tue, 02 Apr 2024 07:12:09 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id p14-20020a05600c1d8e00b004156ea0faa0sm3322302wms.4.2024.04.02.07.12.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Apr 2024 07:12:08 -0700 (PDT)
-Date: Tue, 2 Apr 2024 16:12:02 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Haibo Xu <haibo1.xu@intel.com>
-Cc: xiaobo55x@gmail.com, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] KVM: riscv: selftests: Add SBI base extension test
-Message-ID: <20240402-7bd2b9ed00094befa6927b60@orel>
-References: <20240401082019.2318193-1-haibo1.xu@intel.com>
+	Tue, 02 Apr 2024 14:18:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 57C0D60F94;
+	Tue,  2 Apr 2024 14:18:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57FA2C433F1;
+	Tue,  2 Apr 2024 14:18:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1712067485;
+	bh=JXeMgDJf7NztdBYQwze7zpUZgNxk5FTdMBjGNHLcJyc=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=dfVAw2iRAvypeK/Zlw38Hf7kCcsuNwEhmQfBge96A/7PycL6UubyOuVvmKNRhslrZ
+	 oNMfs3i2an13hurYmIouOhXwU0P7YwaKep4CpvN9DQOtyYOXS6BZSwcsdI9SEJ6VzA
+	 J5WhBcosWO0m1/FPgwgQ4g5iwFvLaNkajPW7lBdqd+N+nu7hvFWMhPYBJZUM3RJ4KD
+	 9LXtsG9PhmP3zt1699OP/kxI+DGr59xUutBN6wJ6BNEDepT71pRFxMer7JyIZ/6vZh
+	 x0xWH8Nlw7f36+WcOiVt+7thgJjsCnDL3yrWnwaFMwUp/OxG3rfLNZe8aYzDY/t9pi
+	 LsntEkP/9ghMg==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>, Conor Dooley <conor@kernel.org>
+Cc: Stefan O'Rear <sorear@fastmail.com>, Pu Lehui <pulehui@huaweicloud.com>,
+ bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+ netdev@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, Daniel
+ Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Song Liu <song@kernel.org>, Yonghong Song
+ <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
+ <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
+ <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Mykola Lysenko
+ <mykolal@fb.com>, Manu Bretelle <chantr4@gmail.com>, Pu Lehui
+ <pulehui@huawei.com>
+Subject: Re: [PATCH bpf-next 2/5] riscv, bpf: Relax restrictions on Zbb
+ instructions
+In-Reply-To: <20240329-linguini-uncured-380cb4cff61c@wendy>
+References: <20240328124916.293173-1-pulehui@huaweicloud.com>
+ <20240328124916.293173-3-pulehui@huaweicloud.com>
+ <3ed9fe94-2610-41eb-8a00-a9f37fcf2b1a@app.fastmail.com>
+ <20240328-ferocity-repose-c554f75a676c@spud>
+ <20240329-linguini-uncured-380cb4cff61c@wendy>
+Date: Tue, 02 Apr 2024 16:18:02 +0200
+Message-ID: <87il0zrgpx.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240401082019.2318193-1-haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_071214_164932_933F782C 
-X-CRM114-Status: GOOD (  27.52  )
+X-CRM114-CacheID: sfid-20240402_071807_783338_3D4EEDB1 
+X-CRM114-Status: GOOD (  30.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,176 +80,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 01, 2024 at 04:20:18PM +0800, Haibo Xu wrote:
-> This is the first patch to enable the base extension selftest
-> for the SBI implementation in KVM. Test for other extensions
-> will be added later.
-
-I'm not sure we want SBI tests in KVM selftests since we already
-plan to add them to kvm-unit-tests, where they can be used to
-test both KVM's SBI implementation and M-mode firmware implementations.
-If we also have them here, then we'll end up duplicating that effort.
-
-I do like the approach of only checking for an error, rather than
-also for a value, for these ID getters. In kvm-unit-tests we're
-currently requiring that the expected value be passed in, otherwise
-the whole test is skipped. We could fallback to only checking for
-an error instead, as is done here.
-
-Thanks,
-drew
-
-> 
-> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
-> ---
->  tools/testing/selftests/kvm/Makefile          |  1 +
->  .../selftests/kvm/include/riscv/processor.h   |  8 +-
->  tools/testing/selftests/kvm/riscv/sbi_test.c  | 95 +++++++++++++++++++
->  3 files changed, 103 insertions(+), 1 deletion(-)
->  create mode 100644 tools/testing/selftests/kvm/riscv/sbi_test.c
-> 
-> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-> index 741c7dc16afc..a6acbbcad757 100644
-> --- a/tools/testing/selftests/kvm/Makefile
-> +++ b/tools/testing/selftests/kvm/Makefile
-> @@ -189,6 +189,7 @@ TEST_GEN_PROGS_s390x += rseq_test
->  TEST_GEN_PROGS_s390x += set_memory_region_test
->  TEST_GEN_PROGS_s390x += kvm_binary_stats_test
->  
-> +TEST_GEN_PROGS_riscv += riscv/sbi_test
->  TEST_GEN_PROGS_riscv += arch_timer
->  TEST_GEN_PROGS_riscv += demand_paging_test
->  TEST_GEN_PROGS_riscv += dirty_log_test
-> diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-> index ce473fe251dd..df530ac751c4 100644
-> --- a/tools/testing/selftests/kvm/include/riscv/processor.h
-> +++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-> @@ -178,7 +178,13 @@ enum sbi_ext_id {
->  };
->  
->  enum sbi_ext_base_fid {
-> -	SBI_EXT_BASE_PROBE_EXT = 3,
-> +	SBI_EXT_BASE_GET_SPEC_VERSION = 0,
-> +	SBI_EXT_BASE_GET_IMP_ID,
-> +	SBI_EXT_BASE_GET_IMP_VERSION,
-> +	SBI_EXT_BASE_PROBE_EXT,
-> +	SBI_EXT_BASE_GET_MVENDORID,
-> +	SBI_EXT_BASE_GET_MARCHID,
-> +	SBI_EXT_BASE_GET_MIMPID,
->  };
->  
->  struct sbiret {
-> diff --git a/tools/testing/selftests/kvm/riscv/sbi_test.c b/tools/testing/selftests/kvm/riscv/sbi_test.c
-> new file mode 100644
-> index 000000000000..b9378546e3b6
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/riscv/sbi_test.c
-> @@ -0,0 +1,95 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * sbi_test - SBI API test for KVM's SBI implementation.
-> + *
-> + * Copyright (c) 2024 Intel Corporation
-> + *
-> + * Test cover the following SBI extentions:
-> + *  - Base: All functions in this extension should be supported
-> + */
-> +
-> +#include "kvm_util.h"
-> +#include "processor.h"
-> +#include "test_util.h"
-> +
-> +/*
-> + * Test that all functions in the base extension must be supported
-> + */
-> +static void base_ext_guest_code(void)
-> +{
-> +	struct sbiret ret;
-> +
-> +	/*
-> +	 * Since the base extension was introduced in SBI Spec v0.2,
-> +	 * assert if the implemented SBI version is below 0.2.
-> +	 */
-> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_SPEC_VERSION, 0,
-> +			0, 0, 0, 0, 0);
-> +	__GUEST_ASSERT(!ret.error && ret.value >= 2, "Get Spec Version Error: ret.error=%ld, "
-> +			"ret.value=%ld\n", ret.error, ret.value);
-> +
-> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_IMP_ID, 0,
-> +			0, 0, 0, 0, 0);
-> +	__GUEST_ASSERT(!ret.error && ret.value == 3, "Get Imp ID Error: ret.error=%ld, "
-> +			"ret.value=%ld\n",
-> +			ret.error, ret.value);
-> +
-> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_IMP_VERSION, 0,
-> +			0, 0, 0, 0, 0);
-> +	__GUEST_ASSERT(!ret.error, "Get Imp Version Error: ret.error=%ld\n", ret.error);
-> +
-> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_PROBE_EXT, SBI_EXT_BASE,
-> +			0, 0, 0, 0, 0);
-> +	__GUEST_ASSERT(!ret.error && ret.value == 1, "Probe ext Error: ret.error=%ld, "
-> +			"ret.value=%ld\n",
-> +			ret.error, ret.value);
-> +
-> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_MVENDORID, 0,
-> +			0, 0, 0, 0, 0);
-> +	__GUEST_ASSERT(!ret.error, "Get Machine Vendor ID Error: ret.error=%ld\n", ret.error);
-> +
-> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_MARCHID, 0,
-> +			0, 0, 0, 0, 0);
-> +	__GUEST_ASSERT(!ret.error, "Get Machine Arch ID Error: ret.error=%ld\n", ret.error);
-> +
-> +	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_GET_MIMPID, 0,
-> +			0, 0, 0, 0, 0);
-> +	__GUEST_ASSERT(!ret.error, "Get Machine Imp ID Error: ret.error=%ld\n", ret.error);
-> +
-> +	GUEST_DONE();
-> +}
-> +
-> +static void sbi_base_ext_test(void)
-> +{
-> +	struct kvm_vm *vm;
-> +	struct kvm_vcpu *vcpu;
-> +	struct ucall uc;
-> +
-> +	vm = vm_create_with_one_vcpu(&vcpu, base_ext_guest_code);
-> +	while (1) {
-> +		vcpu_run(vcpu);
-> +		TEST_ASSERT(vcpu->run->exit_reason == UCALL_EXIT_REASON,
-> +			    "Unexpected exit reason: %u (%s),",
-> +			    vcpu->run->exit_reason, exit_reason_str(vcpu->run->exit_reason));
-> +
-> +		switch (get_ucall(vcpu, &uc)) {
-> +		case UCALL_DONE:
-> +			goto done;
-> +		case UCALL_ABORT:
-> +			fprintf(stderr, "Guest assert failed!\n");
-> +			REPORT_GUEST_ASSERT(uc);
-> +		default:
-> +			TEST_FAIL("Unexpected ucall %lu", uc.cmd);
-> +		}
-> +	}
-> +
-> +done:
-> +	kvm_vm_free(vm);
-> +}
-> +
-> +int main(void)
-> +{
-> +	sbi_base_ext_test();
-> +
-> +	return 0;
-> +}
-> -- 
-> 2.34.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4gd3JpdGVzOgoKPiBPbiBU
+aHUsIE1hciAyOCwgMjAyNCBhdCAxMDowNzoyM1BNICswMDAwLCBDb25vciBEb29sZXkgd3JvdGU6
+Cj4KPj4gQXMgSSBzYWlkIG9uIElSQyB0byB5b3UgZWFybGllciwgSSB0aGluayB0aGUgS2NvbmZp
+ZyBvcHRpb25zIGhlcmUgYXJlIGluCj4+IG5lZWQgb2YgYSBiaXQgb2YgYSBzcHJpbmcgY2xlYW5p
+bmcgLSB0aGV5IHNob3VsZCBiZSBtb2RpZmllZCB0byBleHBsYWluCj4+IHRoZWlyIGluZGl2aWR1
+YWwgcHVycG9zZXMsIGJlIHRoYXQgZW5hYmxpbmcgb3B0aW1pc2F0aW9ucyBpbiB0aGUga2VybmVs
+Cj4+IG9yIGJlaW5nIHJlcXVpcmVkIGZvciB1c2Vyc3BhY2UuIEknbGwgdHJ5IHRvIHNlbmQgYSBw
+YXRjaCBmb3IgdGhhdCBpZgo+PiBJIHJlbWVtYmVyIHRvbW9ycm93Lgo+Cj4gU29tZXRoaW5nIGxp
+a2UgdGhpczoKPgo+IC0tID44IC0tCj4gY29tbWl0IDUxMjU1MDRiZWFlZGQ2NjliMDgyYmY3NGIw
+MjAwM2E3NzM2MDY3MGYKPiBBdXRob3I6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3Jv
+Y2hpcC5jb20+Cj4gRGF0ZTogICBGcmkgTWFyIDI5IDExOjEzOjIyIDIwMjQgKzAwMDAKPgo+ICAg
+ICBSSVNDLVY6IGNsYXJpZnkgd2hhdCBzb21lIFJJU0NWX0lTQSogY29uZmlnIG9wdGlvbnMgZG8K
+PiAgICAgCj4gICAgIER1cmluZyBzb21lIGRpc2N1c3Npb24gb24gSVJDIHllc3RlcmRheSBhbmQg
+b24gUHUncyBicGYgcGF0Y2ggWzFdCj4gICAgIEkgbm90aWNlZCB0aGF0IHRoZXNlIFJJU0NWX0lT
+QSogS2NvbmZpZyBvcHRpb25zIGFyZSBub3QgcmVhbGx5IGNsZWFyCj4gICAgIGFib3V0IHRoZWly
+IGltcGxpY2F0aW9ucy4gTWFueSBvZiB0aGVzZSBvcHRpb25zIGhhdmUgbm8gaW1wYWN0IG9uIHdo
+YXQKPiAgICAgdXNlcnNwYWNlIGlzIGFsbG93ZWQgdG8gZG8sIGZvciBleGFtcGxlIGFuIGFwcGxp
+Y2F0aW9uIGNhbiB1c2UgWmJiCj4gICAgIHJlZ2FyZGxlc3Mgb2Ygd2hldGhlciBvciBub3QgdGhl
+IGtlcm5lbCBkb2VzLiBDaGFuZ2UgdGhlIGhlbHAgdGV4dCB0bwo+ICAgICB0cnkgYW5kIGNsYXJp
+Znkgd2hldGhlciBvciBub3QgYW4gb3B0aW9uIGFmZmVjdHMganVzdCB0aGUga2VybmVsLCBvcgo+
+ICAgICBhbHNvIHVzZXJzcGFjZS4gTm9uZSBvZiB0aGVzZSBvcHRpb25zIGFjdHVhbGx5IGNvbnRy
+b2wgd2hldGhlciBvciBub3QgYW4KPiAgICAgZXh0ZW5zaW9uIGlzIGRldGVjdGVkIGR5bmFtaWNh
+bGx5IGFzIHRoYXQncyBkb25lIHJlZ2FyZGxlc3Mgb2YgS2NvbmZpZwo+ICAgICBvcHRpb25zLCBz
+byBkcm9wIGFueSB0ZXh0IHRoYXQgaW1wbGllcyB0aGUgb3B0aW9uIGlzIHJlcXVpcmVkIGZvcgo+
+ICAgICBkeW5hbWljIGRldGVjdGlvbiwgcmV3b3JkaW5nIHRoZW0gYXMgImRvIHggd2hlbiB5IGlz
+IGRldGVjdGVkIi4KPiAgICAgCj4gICAgIExpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xp
+bnV4LXJpc2N2LzIwMjQwMzI4LWZlcm9jaXR5LXJlcG9zZS1jNTU0Zjc1YTY3NmNAc3B1ZC8gWzFd
+Cj4gICAgIFNpZ25lZC1vZmYtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hp
+cC5jb20+Cj4gICAgIC0tLQo+ICAgICBJIGRpZCB0aGlzIGJhc2VkIG9uIHRvcCBvZiBTYW11ZWwn
+cyBjaGFuZ2VzIGRyb3BwaW5nIHRoZSBNTVUKPiAgICAgcmVxdXVyZW1lbnRzIGp1c3QgaW4gY2Fz
+ZSwgYnV0IEkgZG9uJ3QgdGhpbmsgdGhlcmUncyBhIGNvbmZsaWN0Ogo+ICAgICBodHRwczovL2xv
+cmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI0MDIyNzAwMzYzMC4zNjM0NTMzLTQtc2FtdWVs
+LmhvbGxhbmRAc2lmaXZlLmNvbS8KPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcg
+Yi9hcmNoL3Jpc2N2L0tjb25maWcKPiBpbmRleCBkOGE3NzdmNTk0MDIuLmYzMjdhOGFjNjQ4ZiAx
+MDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiArKysgYi9hcmNoL3Jpc2N2L0tjb25m
+aWcKPiBAQCAtNTAxLDggKzUwMSw4IEBAIGNvbmZpZyBSSVNDVl9JU0FfU1ZOQVBPVAo+ICAJZGVw
+ZW5kcyBvbiBSSVNDVl9BTFRFUk5BVElWRQo+ICAJZGVmYXVsdCB5Cj4gIAloZWxwCj4gLQkgIEFs
+bG93IGtlcm5lbCB0byBkZXRlY3QgdGhlIFN2bmFwb3QgSVNBLWV4dGVuc2lvbiBkeW5hbWljYWxs
+eSBhdCBib290Cj4gLQkgIHRpbWUgYW5kIGVuYWJsZSBpdHMgdXNhZ2UuCj4gKwkgIEFkZCBzdXBw
+b3J0IGZvciB0aGUgU3ZuYXBvdCBJU0EtZXh0ZW5zaW9uIHdoZW4gaXQgaXMgZGV0ZWN0ZWQgYnkK
+PiArCSAgdGhlIGtlcm5lbCBhdCBib290Lgo+ICAKPiAgCSAgVGhlIFN2bmFwb3QgZXh0ZW5zaW9u
+IGlzIHVzZWQgdG8gbWFyayBjb250aWd1b3VzIFBURXMgYXMgYSByYW5nZQo+ICAJICBvZiBjb250
+aWd1b3VzIHZpcnR1YWwtdG8tcGh5c2ljYWwgdHJhbnNsYXRpb25zIGZvciBhIG5hdHVyYWxseQo+
+IEBAIC01MjAsOSArNTIwLDkgQEAgY29uZmlnIFJJU0NWX0lTQV9TVlBCTVQKPiAgCWRlcGVuZHMg
+b24gUklTQ1ZfQUxURVJOQVRJVkUKPiAgCWRlZmF1bHQgeQo+ICAJaGVscAo+IC0JICAgQWRkcyBz
+dXBwb3J0IHRvIGR5bmFtaWNhbGx5IGRldGVjdCB0aGUgcHJlc2VuY2Ugb2YgdGhlIFN2cGJtdAo+
+IC0JICAgSVNBLWV4dGVuc2lvbiAoU3VwZXJ2aXNvci1tb2RlOiBwYWdlLWJhc2VkIG1lbW9yeSB0
+eXBlcykgYW5kCj4gLQkgICBlbmFibGUgaXRzIHVzYWdlLgo+ICsJICAgQWRkIHN1cHBvcnQgZm9y
+IHRoZSBTdnBibXQgSVNBLWV4dGVuc2lvbiAoU3VwZXJ2aXNvci1tb2RlOgo+ICsJICAgcGFnZS1i
+YXNlZCBtZW1vcnkgdHlwZXMpIHdoZW4gaXQgaXMgZGV0ZWN0ZWQgYnkgdGhlIGtlcm5lbCBhdAo+
+ICsJICAgYm9vdC4KPiAgCj4gIAkgICBUaGUgbWVtb3J5IHR5cGUgZm9yIGEgcGFnZSBjb250YWlu
+cyBhIGNvbWJpbmF0aW9uIG9mIGF0dHJpYnV0ZXMKPiAgCSAgIHRoYXQgaW5kaWNhdGUgdGhlIGNh
+Y2hlYWJpbGl0eSwgaWRlbXBvdGVuY3ksIGFuZCBvcmRlcmluZwo+IEBAIC01NDEsMTQgKzU0MSwx
+NSBAQCBjb25maWcgVE9PTENIQUlOX0hBU19WCj4gIAlkZXBlbmRzIG9uIEFTX0hBU19PUFRJT05f
+QVJDSAo+ICAKPiAgY29uZmlnIFJJU0NWX0lTQV9WCj4gLQlib29sICJWRUNUT1IgZXh0ZW5zaW9u
+IHN1cHBvcnQiCj4gKwlib29sICJWZWN0b3IgZXh0ZW5zaW9uIHN1cHBvcnQiCj4gIAlkZXBlbmRz
+IG9uIFRPT0xDSEFJTl9IQVNfVgo+ICAJZGVwZW5kcyBvbiBGUFUKPiAgCXNlbGVjdCBEWU5BTUlD
+X1NJR0ZSQU1FCj4gIAlkZWZhdWx0IHkKPiAgCWhlbHAKPiAgCSAgU2F5IE4gaGVyZSBpZiB5b3Ug
+d2FudCB0byBkaXNhYmxlIGFsbCB2ZWN0b3IgcmVsYXRlZCBwcm9jZWR1cmUKPiAtCSAgaW4gdGhl
+IGtlcm5lbC4KPiArCSAgaW4gdGhlIGtlcm5lbC4gV2l0aG91dCB0aGlzIG9wdGlvbiBlbmFibGVk
+LCBuZWl0aGVyIHRoZSBrZXJuZWwgbm9yCj4gKwkgIHVzZXJzcGFjZSBtYXkgdXNlIHZlY3Rvci4K
+PiAgCj4gIAkgIElmIHlvdSBkb24ndCBrbm93IHdoYXQgdG8gZG8gaGVyZSwgc2F5IFkuCj4gIAo+
+IEBAIC02MDYsOCArNjA3LDggQEAgY29uZmlnIFJJU0NWX0lTQV9aQkIKPiAgCWRlcGVuZHMgb24g
+UklTQ1ZfQUxURVJOQVRJVkUKPiAgCWRlZmF1bHQgeQo+ICAJaGVscAo+IC0JICAgQWRkcyBzdXBw
+b3J0IHRvIGR5bmFtaWNhbGx5IGRldGVjdCB0aGUgcHJlc2VuY2Ugb2YgdGhlIFpCQgo+IC0JICAg
+ZXh0ZW5zaW9uIChiYXNpYyBiaXQgbWFuaXB1bGF0aW9uKSBhbmQgZW5hYmxlIGl0cyB1c2FnZS4K
+PiArCSAgIEFkZCBzdXBwb3J0IGZvciBlbmFibGluZyBvcHRpbWlzYXRpb25zIGluIHRoZSBrZXJu
+ZWwgd2hlbiB0aGUKCkkgZG9uJ3QgY2FyZSBtdWNoLCBidXQgIm9wdGltaXphdGlvbnMiIGhlcmUg
+LS0gZm9yIGNvbnNpc3RlbmN5IHJlYXNvbnMhClsxXSA7LSkKCk5pY2UgY2hhbmdlIQoKUmV2aWV3
+ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KClsxXSBodHRwczovL2x3
+bi5uZXQvQXJ0aWNsZXMvNjM2Mjg2LwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
