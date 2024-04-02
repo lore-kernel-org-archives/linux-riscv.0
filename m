@@ -4,132 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D10C6FD1F
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 12:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9054ACD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 12:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=JUnav24bR7oBvsgIAft5dVoBTApH4/euzlKFmbWu8R4=; b=lEcmlsNaqJ9XAdpJkaXm36SUyU
-	krQPAPpwYwYMemcmNpAz1rBHlcrDeoinN8+4aASOW+F5UlSEqwzIZGyo8ZAGAT5Dz3Od6SOMBSH0S
-	L+BWSijB368qH4BdKUQ7HzoXXcP/UXQ6SMtQsHWKPfTDw/bNhq9k48hvfnl2h+ok09fmLxvXp3U6x
-	29EJVmsKGCe6zmWEX4qDmBDEmz2Qjkyf8wE1kRTMuJLCcmbx7j+Lt//ZuQFONdtTSd+66fnk1Dexx
-	UcOvcQNFnc8pLeQ4fvpegqtiCdkq2oCUJwCrKLFtod4L2Dp1WWxryM5UPvPPB5nhKV8VoTVJ5Ynii
-	N972HFAA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yVA8IwzPXcHygBHD6DXDbV6jyyU1zJxjHNYRRbe7sKA=; b=NnH90yrLFNejnQ
+	npf3zebQVhWpXvQCiaXnPipvXNblfzkWLqCPPYFRBVBfpU3t1mwskqre+3tOyGuN/CBo9gl0rxECh
+	eZ9v0SAn1f4QxYnfqlWBI6cOVpRVzlaqm8c5LpfObta8yTu/EgMHPvUzOfbv/di+2mCPdEX3wHnW4
+	LtrGf6JMwaGGpsTGBbMQbwZtaEAU++N74YtlTe5c0x646Hh60J0CHLZCafeUKOyaxdZN9q3Gk5Fwl
+	fxtVFnPj2Xp+FFcQn0XQRdnxs2kSMuxQoOFgkUuOje7guE4Jb9nCIjiay5t8fX12LdtN05btnLxPm
+	lO4Z/8T2wAUfbgDzbl+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrdZ7-0000000BA1p-1NHN;
-	Tue, 02 Apr 2024 12:48:37 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1rrdgQ-0000000BBjV-40Iy;
+	Tue, 02 Apr 2024 12:56:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrdYz-0000000B9zV-07pH;
-	Tue, 02 Apr 2024 12:48:33 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 432CTJno003298;
-	Tue, 2 Apr 2024 12:48:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : date :
- subject : to : cc : references : from : in-reply-to : content-type :
- content-transfer-encoding : mime-version; s=pp1;
- bh=cqNk795UztyaS7ZOTqsgy3G6Bzl6LkH6VxOUkSRZDWE=;
- b=pe5Uc6ckRQGoPKRDNGIuCZjvW9CCS78ZFZ5tCAUFKWtooQXGOnFCZ2arOYqT0xeUfP9s
- i4nIUcoggh26pYRIFcstX8a6Q/BDARG/hcAEayONrnB5YNXSAm/JIoNr5SJfcycY16CA
- e9zGUDQN1y8Kyrq8qI+b4dRBsPxOkEEkqpZIwwWRhh8fTIRQZaCqfPV0r8cUA0cmrVx7
- rChB99m0wi/ueQInDYrziML0F+2pBTAHeMDVoXJTZu0mGDrkh2dmIPEKpmb8G6OlEe99
- AzzIa6xN8mX9IAf+/t7s2yww2L54PyTzeX3pEIxkFGiL2TMXRHzkwqUYgFPO+MipSvOa nQ== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3x8hvx82nc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 02 Apr 2024 12:48:22 +0000
-Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 432CmLxL001953;
-	Tue, 2 Apr 2024 12:48:21 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3x8hvx82n8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 02 Apr 2024 12:48:21 +0000
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 4329nZeD008463;
-	Tue, 2 Apr 2024 12:48:19 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 3x6w2txsc6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 02 Apr 2024 12:48:19 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 432CmG0h28967614
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 2 Apr 2024 12:48:18 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D8E5A2004D;
-	Tue,  2 Apr 2024 12:48:15 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5982520040;
-	Tue,  2 Apr 2024 12:48:14 +0000 (GMT)
-Received: from [9.152.224.141] (unknown [9.152.224.141])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue,  2 Apr 2024 12:48:14 +0000 (GMT)
-Message-ID: <ea4ac7a3-13ae-4d22-a3d9-fcb7d9e8d751@linux.ibm.com>
-Date: Tue, 2 Apr 2024 14:48:14 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/9] s390: Convert from tasklet to BH workqueue
-Content-Language: en-US
-To: Allen Pais <apais@linux.microsoft.com>, linux-kernel@vger.kernel.org
-Cc: tj@kernel.org, keescook@chromium.org, vkoul@kernel.org, marcan@marcan.st,
-        sven@svenpeter.dev, florian.fainelli@broadcom.com, rjui@broadcom.com,
-        sbranden@broadcom.com, paul@crapouillou.net,
-        Eugeniy.Paltsev@synopsys.com, manivannan.sadhasivam@linaro.org,
-        vireshk@kernel.org, Frank.Li@nxp.com, leoyang.li@nxp.com,
-        zw@zh-kernel.org, wangzhou1@hisilicon.com, haijie1@huawei.com,
-        shawnguo@kernel.org, s.hauer@pengutronix.de, sean.wang@mediatek.com,
-        matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-        afaerber@suse.de, logang@deltatee.com, daniel@zonque.org,
-        haojian.zhuang@gmail.com, robert.jarzmik@free.fr, andersson@kernel.org,
-        konrad.dybcio@linaro.org, orsonzhai@gmail.com,
-        baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com,
-        patrice.chotard@foss.st.com, linus.walleij@linaro.org, wens@csie.org,
-        jernej.skrabec@gmail.com, peter.ujfalusi@gmail.com, kys@microsoft.com,
-        haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
-        jassisinghbrar@gmail.com, mchehab@kernel.org,
-        maintainers@bluecherrydvr.com, aubin.constans@microchip.com,
-        ulf.hansson@linaro.org, manuel.lauss@gmail.com,
-        mirq-linux@rere.qmqm.pl, jh80.chung@samsung.com, oakad@yahoo.com,
-        hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
-        brucechang@via.com.tw, HaraldWelte@viatech.com, pierre@ossman.eu,
-        duncan.sands@free.fr, stern@rowland.harvard.edu, oneukum@suse.com,
-        openipmi-developer@lists.sourceforge.net, dmaengine@vger.kernel.org,
-        asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-        imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-        linux-mediatek@lists.infradead.org, linux-actions@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org,
-        linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
-        linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org,
-        linux-media@vger.kernel.org, linux-mmc@vger.kernel.org,
-        linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-        linux-s390@vger.kernel.org, netdev@vger.kernel.org,
-        linux-usb@vger.kernel.org
-References: <20240327160314.9982-1-apais@linux.microsoft.com>
- <20240327160314.9982-8-apais@linux.microsoft.com>
-From: Alexandra Winter <wintera@linux.ibm.com>
-In-Reply-To: <20240327160314.9982-8-apais@linux.microsoft.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: Ku4a1547K_GAebsL_C6x0-P2EehptrTF
-X-Proofpoint-GUID: nppBqWZFDQLnaADD-aCs4ILGDo6MGGqc
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+	id 1rrdgA-0000000BBYb-3G6E
+	for linux-riscv@lists.infradead.org;
+	Tue, 02 Apr 2024 12:56:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1712062552;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mcxjCOywRtLdiEcHC2fGLUZpoWNnKmQE4MNGQaUK4kg=;
+	b=LDi2SGiPULUk3q8PG8a/ZRqrRprGuaYXw5dBTE5i3jniwYGIobYfXIPjnPr1WqQC40j706
+	WuY1FMsZng9H/jJXMDryDXDLRzYEZwXJurD2zwIqcio4J+vDdiKCmdxxkqH8Qd+eTyZutR
+	ToRxZUNDU9Rpbd4a+VmsK6zUqAPmcOw=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-203-jrB5cRd5NSepbRcVx10PBw-1; Tue, 02 Apr 2024 08:55:43 -0400
+X-MC-Unique: jrB5cRd5NSepbRcVx10PBw-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 57030881F00;
+	Tue,  2 Apr 2024 12:55:42 +0000 (UTC)
+Received: from t14s.redhat.com (unknown [10.39.194.247])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 3917D3C21;
+	Tue,  2 Apr 2024 12:55:37 +0000 (UTC)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org,
+	David Hildenbrand <david@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Peter Xu <peterx@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	x86@kernel.org
+Subject: [PATCH v1 0/3] mm/gup: consistently call it GUP-fast
+Date: Tue,  2 Apr 2024 14:55:13 +0200
+Message-ID: <20240402125516.223131-1-david@redhat.com>
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
- definitions=2024-04-02_06,2024-04-01_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 bulkscore=0
- mlxscore=0 suspectscore=0 spamscore=0 mlxlogscore=999 adultscore=0
- clxscore=1011 lowpriorityscore=0 impostorscore=0 phishscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2403210000 definitions=main-2404020094
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_054829_381067_0111A651 
-X-CRM114-Status: GOOD (  24.28  )
+X-CRM114-CacheID: sfid-20240402_055555_016597_C7BE127B 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,68 +94,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Some cleanups around function names, comments and the config option of
+"GUP-fast" -- GUP without "lock" safety belts on.
 
+With this cleanup it's easy to judge which functions are GUP-fast specific.
+We now consistently call it "GUP-fast", avoiding mixing it with "fast GUP",
+"lockless", or simply "gup" (which I always considered confusing in the
+ode).
 
-On 27.03.24 17:03, Allen Pais wrote:
-> The only generic interface to execute asynchronously in the BH context is
-> tasklet; however, it's marked deprecated and has some design flaws. To
-> replace tasklets, BH workqueue support was recently added. A BH workqueue
-> behaves similarly to regular workqueues except that the queued work items
-> are executed in the BH context.
-> 
-> This patch converts drivers/infiniband/* from tasklet to BH workqueue.
-> 
-> Based on the work done by Tejun Heo <tj@kernel.org>
-> Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git for-6.10
-> 
-> Note: Not tested. Please test/review.
-> 
-> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
-> ---
->  drivers/s390/block/dasd.c              | 42 ++++++++++++------------
->  drivers/s390/block/dasd_int.h          | 10 +++---
->  drivers/s390/char/con3270.c            | 27 ++++++++--------
->  drivers/s390/crypto/ap_bus.c           | 24 +++++++-------
->  drivers/s390/crypto/ap_bus.h           |  2 +-
->  drivers/s390/crypto/zcrypt_msgtype50.c |  2 +-
->  drivers/s390/crypto/zcrypt_msgtype6.c  |  4 +--
->  drivers/s390/net/ctcm_fsms.c           |  4 +--
->  drivers/s390/net/ctcm_main.c           | 15 ++++-----
->  drivers/s390/net/ctcm_main.h           |  5 +--
->  drivers/s390/net/ctcm_mpc.c            | 12 +++----
->  drivers/s390/net/ctcm_mpc.h            |  7 ++--
->  drivers/s390/net/lcs.c                 | 26 +++++++--------
->  drivers/s390/net/lcs.h                 |  2 +-
->  drivers/s390/net/qeth_core_main.c      |  2 +-
->  drivers/s390/scsi/zfcp_qdio.c          | 45 +++++++++++++-------------
->  drivers/s390/scsi/zfcp_qdio.h          |  9 +++---
->  17 files changed, 117 insertions(+), 121 deletions(-)
-> 
+So the magic now happens in functions that contain "gup_fast", whereby
+gup_fast() is the entry point into that magic. Comments consistently
+reference either "GUP-fast" or "gup_fast()".
 
+Based on mm-unstable from today. I won't CC arch maintainers, but only
+arch mailing lists, to reduce noise.
 
-We're looking into the best way to test this. 
+Tested on x86_64, cross compiled on a bunch of archs.
 
-For drivers/s390/net/ctcm* and drivers/s390/net/lcs*:
-Acked-by: Alexandra Winter <wintera@linux.ibm.com>
+RFC -> v1:
+* Rebased on latest mm/mm-unstable
+* "mm/gup: consistently name GUP-fast functions"
+ -> "internal_get_user_pages_fast()" -> "gup_fast_fallback()"
+ -> "undo_dev_pagemap()" -> "gup_fast_undo_dev_pagemap()"
+ -> Fixup a bunch more comments
+* "mm/treewide: rename CONFIG_HAVE_FAST_GUP to CONFIG_HAVE_GUP_FAST"
+ -> Take care of RISCV
 
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Mike Rapoport (IBM) <rppt@kernel.org>
+Cc: Jason Gunthorpe <jgg@nvidia.com>
+Cc: John Hubbard <jhubbard@nvidia.com>
+Cc: Peter Xu <peterx@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: loongarch@lists.linux.dev
+Cc: linux-mips@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-sh@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-perf-users@vger.kernel.org
+Cc: linux-fsdevel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: x86@kernel.org
 
-[...]
-> diff --git a/drivers/s390/net/qeth_core_main.c b/drivers/s390/net/qeth_core_main.c
-> index a0cce6872075..10ea95abc753 100644
-> --- a/drivers/s390/net/qeth_core_main.c
-> +++ b/drivers/s390/net/qeth_core_main.c
-> @@ -2911,7 +2911,7 @@ static int qeth_init_input_buffer(struct qeth_card *card,
->  	}
->  
->  	/*
-> -	 * since the buffer is accessed only from the input_tasklet
-> +	 * since the buffer is accessed only from the input_work
->  	 * there shouldn't be a need to synchronize; also, since we use
->  	 * the QETH_IN_BUF_REQUEUE_THRESHOLD we should never run  out off
->  	 * buffers
+David Hildenbrand (3):
+  mm/gup: consistently name GUP-fast functions
+  mm/treewide: rename CONFIG_HAVE_FAST_GUP to CONFIG_HAVE_GUP_FAST
+  mm: use "GUP-fast" instead "fast GUP" in remaining comments
 
-I propose to delete the whole comment block. There have been many changes and 
-I don't think it is helpful for the current qeth driver.
+ arch/arm/Kconfig       |   2 +-
+ arch/arm64/Kconfig     |   2 +-
+ arch/loongarch/Kconfig |   2 +-
+ arch/mips/Kconfig      |   2 +-
+ arch/powerpc/Kconfig   |   2 +-
+ arch/riscv/Kconfig     |   2 +-
+ arch/s390/Kconfig      |   2 +-
+ arch/sh/Kconfig        |   2 +-
+ arch/x86/Kconfig       |   2 +-
+ include/linux/rmap.h   |   8 +-
+ kernel/events/core.c   |   4 +-
+ mm/Kconfig             |   2 +-
+ mm/filemap.c           |   2 +-
+ mm/gup.c               | 215 +++++++++++++++++++++--------------------
+ mm/internal.h          |   2 +-
+ mm/khugepaged.c        |   2 +-
+ 16 files changed, 127 insertions(+), 126 deletions(-)
+
+-- 
+2.44.0
 
 
 _______________________________________________
