@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26857CD1284
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 19:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 821F6CD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 19:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WQgeQKeNK58GaEmXkyrBgQ+Vi+B1Q3ehoGysRn/0v7Y=; b=PEVlcIiARufRGQ
-	SFfFjZUZQBBwxXT+cz8TiWIJ++/oehO1GWx3vhmruEbayHUnACqvtc+YKHh5cJ9I5G/1SY/xAuqPx
-	C85T/80rFZuU8FUTfhoFhg5P5QKfxHFYBamK8avEFxPRO5KrKc5bO3ygVk+pHLxaQr4QW+pVYD2ep
-	W+WXEWcCRDF4bzN1N6mhBQFK1mUg8sAehMwAblaIiyqDM/oTzBcOIFDvRrjZEjl4iPzPO089t0lTc
-	WvBD0gyEL3go4iHzL4Xn8Gj9iB9ng5lJZ2whOeLIZ+0518+vCCc8tWR4AUVfIDzAOL6ho+1HRyfIA
-	dpLiv3/ickwKQhfZh68w==;
+	List-Owner; bh=jE3ctTHwm9qDDZ+7Wo04amMbysRsAKyzNKKfWjdM5Ak=; b=QSQvyGZDD2/FhU
+	mFKp53nFGzp1KF6WNbaGb4eyVOtTBvDrcBhgrhFV0bkHmDcneNsrTtY+merhhJM5fJu0aG8+EQDfC
+	9tedIeCkP2Hl6WmaSdhpTRD9xNEawKXo3rT6Sk/VnaviYYyEQWSxT0KH5X9KJ5Mf5uUkkWJCHMMMm
+	5HeW3GxqryScsXKpt0zFxJXxz4wHqDd4PUDSWvZ/1ITjxKNfi9FlaEFkip7rH08/NwMionTaXfoft
+	md9n8iVRpoY7B+rzNv1aImR4JlZYxysisqUwLnjuH42RpVmjnjCYjxAeDg8Cu9r0eGApRdKvdKySN
+	RcsX93NyE+GK53CXhg4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrjNM-0000000CRL4-1xy8;
-	Tue, 02 Apr 2024 19:00:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rrjSI-0000000CRzz-1db0;
+	Tue, 02 Apr 2024 19:05:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrjNK-0000000CRK2-07sr
-	for linux-riscv@lists.infradead.org;
-	Tue, 02 Apr 2024 19:00:51 +0000
+	id 1rrjSE-0000000CRxx-3JLv;
+	Tue, 02 Apr 2024 19:05:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 79B9B60FF0;
-	Tue,  2 Apr 2024 19:00:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B21C3C433C7;
-	Tue,  2 Apr 2024 19:00:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DCD8861069;
+	Tue,  2 Apr 2024 19:05:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 174E5C433C7;
+	Tue,  2 Apr 2024 19:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712084449;
-	bh=LAtbIzYyxLFCGtNL9bIPT1JIqLRx2Xsuxm7vJ6doThY=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=DZ4bwmeyU0UKQkMQsDplzrpVduUBrEcwHrOmJLCrxxwVSSz7gljEEa+sexxuDhkek
-	 Q0GOstLz6J79g/c0cVcSX17twHaTIKdjTixPFXRS8JbIvVrzjKSzQBNsMOUi8Orv+0
-	 eTOFSIzOFqF54mss/lkSeoVUjD3eE7sj6Qbo4R/C+DsOhInYQujzr9TRTIyvF42SYs
-	 2DcamE9zwT9rnfb/YDlyGyJL43Nv7KXKmrPPOR0it/KuuLjKQKuQeuXFrLszqT2l7r
-	 UqR7rgnQaJFyPmmM9Hba7oykBUvPCPbFT7r/p+Kd+6Vy38Y16qbQUGNcbEbcfly4gU
-	 y88HfgZbdXtTw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Pu Lehui <pulehui@huaweicloud.com>, Stefan O'Rear <sorear@fastmail.com>,
- bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, Daniel
- Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Song Liu <song@kernel.org>, Yonghong Song
- <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
- <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
- <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Mykola Lysenko
- <mykolal@fb.com>, Manu Bretelle <chantr4@gmail.com>, Pu Lehui
- <pulehui@huawei.com>
-Subject: Re: [PATCH bpf-next 2/5] riscv, bpf: Relax restrictions on Zbb
- instructions
-In-Reply-To: <20240402-ample-preview-c84edb69db1b@spud>
-References: <20240328124916.293173-1-pulehui@huaweicloud.com>
- <20240328124916.293173-3-pulehui@huaweicloud.com>
- <3ed9fe94-2610-41eb-8a00-a9f37fcf2b1a@app.fastmail.com>
- <20240328-ferocity-repose-c554f75a676c@spud>
- <ed3debc9-f2a9-41fb-9cf9-dc6419de5c01@huaweicloud.com>
- <87cyr7rgdn.fsf@all.your.base.are.belong.to.us>
- <20240402-ample-preview-c84edb69db1b@spud>
-Date: Tue, 02 Apr 2024 21:00:45 +0200
-Message-ID: <871q7nr3mq.fsf@all.your.base.are.belong.to.us>
+	s=k20201202; t=1712084752;
+	bh=ivObVSKpIkBqCwHlwbBnTW/chcdv4hxzzU2Dqfw4oFY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hwwp3R1q+T6P3wBULlM9JHA7unNDdzQ7FyQAUtX0BWJYLvoTcSvvCHVjCZCIVdCpp
+	 P3hH9eiYczkxNqEPQVprmxEGBBjdTDkm2i0W/ywueVCqBxiyfNB/jd8/8ayTftnI02
+	 M4H/eOWh4bn/Ygw7g56bJeYODFwZcPWGYCkn3uSNTytEJ/MI/De15gQoC2yuWB5IGj
+	 wAuTXHpQOJnJxkjgdHehxG1bRSCJBtOySRaGeOy42ZdtKoUpS5CRRoEU1D0PnH0iBU
+	 8Uk+I9y88XUSxVMrMygH39vnWX8Uwf8mWiw+V7NK/hpKeE+IqP03OkudSXAlGSwaK8
+	 pTIHCarE2rCRw==
+Date: Tue, 2 Apr 2024 12:05:49 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: peterx@redhat.com
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	Yang Shi <shy828301@gmail.com>,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Rik van Riel <riel@surriel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	David Hildenbrand <david@redhat.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	James Houghton <jthoughton@google.com>,
+	Jason Gunthorpe <jgg@nvidia.com>, Mike Rapoport <rppt@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, loongarch@lists.linux.dev
+Subject: Re: [PATCH v4 05/13] mm/arch: Provide pud_pfn() fallback
+Message-ID: <20240402190549.GA706730@dev-arch.thelio-3990X>
+References: <20240327152332.950956-1-peterx@redhat.com>
+ <20240327152332.950956-6-peterx@redhat.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240327152332.950956-6-peterx@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_120050_181804_B7930EB6 
-X-CRM114-Status: GOOD (  28.39  )
+X-CRM114-CacheID: sfid-20240402_120555_104269_2094613C 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,77 +90,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGV5IENvbm9yIQoKQ29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cml0ZXM6Cgo+IE9u
-IFR1ZSwgQXByIDAyLCAyMDI0IGF0IDA0OjI1OjI0UE0gKzAyMDAsIEJqw7ZybiBUw7ZwZWwgd3Jv
-dGU6Cj4+IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4gd3JpdGVzOgo+PiAKPj4g
-PiBPbiAyMDI0LzMvMjkgNjowNywgQ29ub3IgRG9vbGV5IHdyb3RlOgo+PiA+PiBPbiBUaHUsIE1h
-ciAyOCwgMjAyNCBhdCAwMzozNDozMVBNIC0wNDAwLCBTdGVmYW4gTydSZWFyIHdyb3RlOgo+PiA+
-Pj4gT24gVGh1LCBNYXIgMjgsIDIwMjQsIGF0IDg6NDkgQU0sIFB1IExlaHVpIHdyb3RlOgo+PiA+
-Pj4+IEZyb206IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4+ID4+Pj4KPj4gPj4+PiBU
-aGlzIHBhdGNoIHJlbGF4ZXMgdGhlIHJlc3RyaWN0aW9ucyBvbiB0aGUgWmJiIGluc3RydWN0aW9u
-cy4gVGhlIGhhcmR3YXJlCj4+ID4+Pj4gaXMgY2FwYWJsZSBvZiByZWNvZ25pemluZyB0aGUgWmJi
-IGluc3RydWN0aW9ucyBpbmRlcGVuZGVudGx5LCBlbGltaW5hdGluZwo+PiA+Pj4+IHRoZSBuZWVk
-IGZvciByZWxpYW5jZSBvbiBrZXJuZWwgY29tcGlsZSBjb25maWd1cmF0aW9ucy4KPj4gPj4+Cj4+
-ID4+PiBUaGlzIGRvZXNuJ3QgbWFrZSBzZW5zZSB0byBtZS4KPj4gPj4gCj4+ID4+IEl0IGRvZXNu
-J3QgbWFrZSBzZW5zZSB0byBtZSBlaXRoZXIuIE9mIGNvdXJzZSB0aGUgaGFyZHdhcmUncyBjYXBh
-YmlsaXR5Cj4+ID4+IHRvIHVuZGVyc3RhbmQgYW4gaW5zdHJ1Y3Rpb24gaXMgaW5kZXBlbmRlbnQg
-b2Ygd2hldGhlciBvciBub3QgYQo+PiA+PiB0b29sY2hhaW4gaXMgY2FwYWJsZSBvZiBhY3R1YWxs
-eSBlbWl0dGluZyB0aGUgaW5zdHJ1Y3Rpb24uCj4+ID4+IAo+PiA+Pj4gUklTQ1ZfSVNBX1pCQiBp
-cyBkZWZpbmVkIGFzOgo+PiA+Pj4KPj4gPj4+ICAgICAgICAgICAgIEFkZHMgc3VwcG9ydCB0byBk
-eW5hbWljYWxseSBkZXRlY3QgdGhlIHByZXNlbmNlIG9mIHRoZSBaQkIKPj4gPj4+ICAgICAgICAg
-ICAgIGV4dGVuc2lvbiAoYmFzaWMgYml0IG1hbmlwdWxhdGlvbikgYW5kIGVuYWJsZSBpdHMgdXNh
-Z2UuCj4+ID4+Pgo+PiA+Pj4gSW4gb3RoZXIgd29yZHMsIFJJU0NWX0lTQV9aQkI9biBzaG91bGQg
-ZGlzYWJsZSBldmVyeXRoaW5nIHRoYXQgYXR0ZW1wdHMKPj4gPj4+IHRvIGRldGVjdCBaYmIgYXQg
-cnVudGltZS4gSXQgaXMgbW9zdGx5IHJlbGV2YW50IGZvciBjb2RlIHNpemUgcmVkdWN0aW9uLAo+
-PiA+Pj4gd2hpY2ggaXMgcmVsZXZhbnQgZm9yIEJQRiBzaW5jZSBpZiBSSVNDVl9JU0FfWkJCPW4g
-YWxsIHJ2emJiX2VuYWJsZWQoKQo+PiA+Pj4gY2hlY2tzIGNhbiBiZSBjb25zdGFudC1mb2xkZWQu
-Cj4+ID4KPj4gPiBUaGFua3MgZm9yIHJldmlldy4gTXkgaW5pdGlhbCB0aG91Z2h0IHdhcyB0aGUg
-c2FtZSBhcyB5b3VycywgYnV0IGFmdGVyIAo+PiA+IGRpc2N1c3Npb25zIFswXSBhbmQgdGVzdCB2
-ZXJpZmljYXRpb25zLCB0aGUgaGFyZHdhcmUgY2FuIGluZGVlZCAKPj4gPiByZWNvZ25pemUgdGhl
-IHpiYiBpbnN0cnVjdGlvbiBldmVuIGlmIHRoZSBrZXJuZWwgaGFzIG5vdCBlbmFibGVkIAo+PiA+
-IENPTkZJR19SSVNDVl9JU0FfWkJCLiBBcyBDb25vciBtZW50aW9uZWQsIHdlIGFyZSBqdXN0IGFj
-dGluZyBhcyBhIEpJVCB0byAKPj4gPiBlbWl0IHpiYiBpbnN0cnVjdGlvbiBoZXJlLiBNYXliZSBp
-c19od196YmJfY2FwYWJsZSgpIHdpbGwgYmUgYmV0dGVyPwo+PiAKPj4gSSBzdGlsbCB0aGluayBM
-ZWh1aSdzIHBhdGNoIGlzIGNvcnJlY3Q7IEJ1aWxkaW5nIGEga2VybmVsIHRoYXQgY2FuIGJvb3QK
-Pj4gb24gbXVsdGlwbGUgcGxhdGZvcm1zICh3LyBvciB3L28gWmJiIHN1cHBvcnQpIGFuZCBub3Qg
-aGF2aW5nIFpiYiBpbnNuIGluCj4+IHRoZSBrZXJuZWwgcHJvcGVyLCBhbmQgaWZmIFpiYiBpcyBh
-dmFpbGFibGUgYXQgcnVuLXRpbWUgdGhlIEJQRiBKSVQgd2lsbAo+PiBlbWl0IFpiYi4KPgo+IFRo
-aXMgc2VudGVuY2UgaXMgLUVOT1BBUlNFIHRvIG1lLCBkaWQgeW91IGFjY2lkZW50YWxseSBvbWl0
-IHNvbWUgd29yZHM/Cj4gQWRkaXRpb25hbGx5IGhlIGNvbmZpZyBvcHRpb24gaGFzIG5vdGhpbmcg
-dG8gZG8gd2l0aCBidWlsZGluZyBrZXJuZWxzIHRoYXQKPiBib290IG9uIG11bHRpcGxlIHBsYXRm
-b3JtcywgaXQgb25seSBjb250cm9scyB3aGV0aGVyIG9wdGltaXNhdGlvbnMgZm9yIFpiYgo+IGFy
-ZSBidWlsdCBzbyB0aGF0IGlmIFpiYiBpcyBkZXRlY3RlZCB0aGV5IGNhbiBiZSB1c2VkLgoKVWdo
-LCBzb3JyeSBhYm91dCB0aGF0ISBJJ20gcHJvYmFibHkgY29uZnVzZWQgbXlzZWxmLgoKPj4gRm9y
-IHRoZXNlIGtpbmQgb2Ygb3B0aW1pemF0aW9ucywgKElNTykgaXQncyBiZXR0ZXIgdG8gbGV0IHRo
-ZSBCUEYgSklUCj4+IGRlY2lkZSBhdCBydW4tdGltZS4KPgo+IFdoeSBpcyBicGYgYSBkaWZmZXJl
-bnQgY2FzZSB0byBhbnkgb3RoZXIgdXNlciBpbiB0aGlzIHJlZ2FyZD8KPiBJIHRoaW5rIHRoYXQg
-dGhlIGNvbW1pdCBtZXNzYWdlIGlzIG1pc2xlYWRpbmcgYW5kIG5lZWRzIHRvIGJlIGNoYW5nZWQs
-Cj4gYmVjYXVzZSB0aGUgcG9pbnQgInRoZSBoYXJkd2FyZSBpcyBjYXBhYmxlIG9mIHJlY29nbmlz
-aW5nIHRoZSBaYmIKPiBpbnN0cnVjdGlvbnMgaW5kZXBlbmRlbnRseS4uLiIgaXMgY29tcGxldGVs
-eSB1bnJlbGF0ZWQgdG8gdGhlIHB1cnBvc2UKPiBvZiB0aGUgY29uZmlnIG9wdGlvbi4gT2YgY291
-cnNlIHRoZSBoYXJkd2FyZSB1bmRlcnN0YW5kaW5nIHRoZSBvcHRpb24KPiBoYXMgbm90aGluZyB0
-byBkbyB3aXRoIGtlcm5lbCBjb25maWd1cmF0aW9uLiBUaGUgY29tbWl0IG1lc3NhZ2UgbmVlZHMg
-dG8KPiBleHBsYWluIHdoeSBicGYgaXMgYSBzcGVjaWFsIGNhc2UgYW5kIGlzIGV4ZW1wdCBmcm9t
-IGFuIAo+Cj4gSSB0b3RhbGx5IHVuZGVyc3RhbmQgYW55IHBvaW50IGFib3V0IGJwZiBiZWluZyBk
-aWZmZXJlbnQgaW4gdGVybXMgb2YKPiBuZWVkaW5nIHRvb2xjaGFpbiBzdXBwb3J0LCBidXQgSUlS
-QyBpdCB3YXMgSSB3aG8gcG9pbnRlZCBvdXQgdXAtdGhyZWFkLgo+IFRoZSBwYXJ0IG9mIHRoZSBj
-b252ZXJzYXRpb24gdGhhdCB5b3UncmUgcmVwbHlpbmcgdG8gaGVyZSBpcyBhYm91dCB0aGUKPiBz
-ZW1hbnRpY3Mgb2YgdGhlIEtjb25maWcgb3B0aW9uIGFuZCB0aGUgb3JpZ2luYWwgcGF0Y2ggbmV2
-ZXIgbWVudGlvbmVkCj4gdHJ5aW5nIHRvIGF2b2lkIGEgZGVwZW5kZW5jeSBvbiB0b29sY2hhaW5z
-IGF0IGFsbCwganVzdCBrZXJuZWwKPiBjb25maWd1cmF0aW9ucy4gVGhlIHRvb2xjaGFpbiByZXF1
-aXJlbWVudHMgSSBkb24ndCB0aGluayBhcmUgZXZlbiBzdXBlcgo+IGhhcmQgdG8gZnVsZmlsbCBl
-aXRoZXIgLSB0aGUgbGFzdCAzIHZlcnNpb25zIG9mIGxkIGFuZCBsbGQgYWxsIG1lZXQgdGhlCj4g
-Y3JpdGVyaWEuCgpUaGFua3MgZm9yIG1ha2luZyBpdCBtb3JlIGNsZWFyLCBhbmQgSSBhZ3JlZSB0
-aGF0IHRoZSB0b29sY2hhaW4KcmVxdWlyZW1lbnRzIGFyZSBub3QgaGFyZCB0byBmdWxmdWxsLgoK
-TXkgdmlldyBoYXMgYmVlbiB0aGF0ICJCUEYgaXMgbGlrZSB1c2VybGFuZCIsIGJ1dCBJIHJlYWxp
-emUgbm93IHRoYXQncwpvZGQuIExldCdzIG1ha2UgQlBGIHNpbWlsYXIgdG8gdGhlIHJlc3Qgb2Yg
-dGhlIFJWIGtlcm5lbC4gSWYgWkJCPW4sIHRoZW4KdGhlIEJQRiBKSVQgZG9lc24ndCBrbm93IGFi
-b3V0IGVtaXR0aW5nIFpiYi4KCgpCasO2cm4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+Hi Peter (and LoongArch folks),
+
+On Wed, Mar 27, 2024 at 11:23:24AM -0400, peterx@redhat.com wrote:
+> From: Peter Xu <peterx@redhat.com>
+> 
+> The comment in the code explains the reasons.  We took a different approach
+> comparing to pmd_pfn() by providing a fallback function.
+> 
+> Another option is to provide some lower level config options (compare to
+> HUGETLB_PAGE or THP) to identify which layer an arch can support for such
+> huge mappings.  However that can be an overkill.
+> 
+> Cc: Mike Rapoport (IBM) <rppt@kernel.org>
+> Cc: Matthew Wilcox <willy@infradead.org>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Peter Xu <peterx@redhat.com>
+> ---
+>  arch/riscv/include/asm/pgtable.h    |  1 +
+>  arch/s390/include/asm/pgtable.h     |  1 +
+>  arch/sparc/include/asm/pgtable_64.h |  1 +
+>  arch/x86/include/asm/pgtable.h      |  1 +
+>  include/linux/pgtable.h             | 10 ++++++++++
+>  5 files changed, 14 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 20242402fc11..0ca28cc8e3fa 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -646,6 +646,7 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
+>  
+>  #define __pud_to_phys(pud)  (__page_val_to_pfn(pud_val(pud)) << PAGE_SHIFT)
+>  
+> +#define pud_pfn pud_pfn
+>  static inline unsigned long pud_pfn(pud_t pud)
+>  {
+>  	return ((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT);
+> diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
+> index 1a71cb19c089..6cbbe473f680 100644
+> --- a/arch/s390/include/asm/pgtable.h
+> +++ b/arch/s390/include/asm/pgtable.h
+> @@ -1414,6 +1414,7 @@ static inline unsigned long pud_deref(pud_t pud)
+>  	return (unsigned long)__va(pud_val(pud) & origin_mask);
+>  }
+>  
+> +#define pud_pfn pud_pfn
+>  static inline unsigned long pud_pfn(pud_t pud)
+>  {
+>  	return __pa(pud_deref(pud)) >> PAGE_SHIFT;
+> diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
+> index 4d1bafaba942..26efc9bb644a 100644
+> --- a/arch/sparc/include/asm/pgtable_64.h
+> +++ b/arch/sparc/include/asm/pgtable_64.h
+> @@ -875,6 +875,7 @@ static inline bool pud_leaf(pud_t pud)
+>  	return pte_val(pte) & _PAGE_PMD_HUGE;
+>  }
+>  
+> +#define pud_pfn pud_pfn
+>  static inline unsigned long pud_pfn(pud_t pud)
+>  {
+>  	pte_t pte = __pte(pud_val(pud));
+> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+> index cefc7a84f7a4..273f7557218c 100644
+> --- a/arch/x86/include/asm/pgtable.h
+> +++ b/arch/x86/include/asm/pgtable.h
+> @@ -234,6 +234,7 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
+>  	return (pfn & pmd_pfn_mask(pmd)) >> PAGE_SHIFT;
+>  }
+>  
+> +#define pud_pfn pud_pfn
+>  static inline unsigned long pud_pfn(pud_t pud)
+>  {
+>  	phys_addr_t pfn = pud_val(pud);
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 600e17d03659..75fe309a4e10 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -1817,6 +1817,16 @@ typedef unsigned int pgtbl_mod_mask;
+>  #define pte_leaf_size(x) PAGE_SIZE
+>  #endif
+>  
+> +/*
+> + * We always define pmd_pfn for all archs as it's used in lots of generic
+> + * code.  Now it happens too for pud_pfn (and can happen for larger
+> + * mappings too in the future; we're not there yet).  Instead of defining
+> + * it for all archs (like pmd_pfn), provide a fallback.
+> + */
+> +#ifndef pud_pfn
+> +#define pud_pfn(x) ({ BUILD_BUG(); 0; })
+> +#endif
+> +
+>  /*
+>   * Some architectures have MMUs that are configurable or selectable at boot
+>   * time. These lead to variable PTRS_PER_x. For statically allocated arrays it
+> -- 
+> 2.44.0
+> 
+
+This BUILD_BUG() triggers for LoongArch with their defconfig, so it
+seems like they need to provide an implementation of pud_pfn()?
+
+  In function 'follow_huge_pud',
+      inlined from 'follow_pud_mask' at mm/gup.c:1075:10,
+      inlined from 'follow_p4d_mask' at mm/gup.c:1105:9,
+      inlined from 'follow_page_mask' at mm/gup.c:1151:10:
+  include/linux/compiler_types.h:460:45: error: call to '__compiletime_assert_382' declared with attribute error: BUILD_BUG failed
+    460 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+        |                                             ^
+  include/linux/compiler_types.h:441:25: note: in definition of macro '__compiletime_assert'
+    441 |                         prefix ## suffix();                             \
+        |                         ^~~~~~
+  include/linux/compiler_types.h:460:9: note: in expansion of macro '_compiletime_assert'
+    460 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+        |         ^~~~~~~~~~~~~~~~~~~
+  include/linux/build_bug.h:39:37: note: in expansion of macro 'compiletime_assert'
+     39 | #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
+        |                                     ^~~~~~~~~~~~~~~~~~
+  include/linux/build_bug.h:59:21: note: in expansion of macro 'BUILD_BUG_ON_MSG'
+     59 | #define BUILD_BUG() BUILD_BUG_ON_MSG(1, "BUILD_BUG failed")
+        |                     ^~~~~~~~~~~~~~~~
+  include/linux/pgtable.h:1887:23: note: in expansion of macro 'BUILD_BUG'
+   1887 | #define pud_pfn(x) ({ BUILD_BUG(); 0; })
+        |                       ^~~~~~~~~
+  mm/gup.c:679:29: note: in expansion of macro 'pud_pfn'
+    679 |         unsigned long pfn = pud_pfn(pud);
+        |                             ^~~~~~~
+
+Cheers,
+Nathan
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
