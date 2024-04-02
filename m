@@ -4,55 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87336CD1284
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 22:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB0CBC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 23:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zHTh577yxelWp5rq/2bOX23X12hJv9Dotx7y49TS8Zs=; b=kZ2ENIkUWp+EMZ
-	X+ks0Pkyop+BXromU+Pr/Fgep8Dls90vq3/CqRtPU+BiA68gVF7o29hgYOnrV2AZWQS5AcHrDmMGm
-	qthVnlUsacvwZXpEO5p/1JKgLNb76iPZRxLaXx9Po/T8M3jY24QpIkWg50GS9LcMhfCoRbnJZu86S
-	Ogjc2MEf5pw8kdIinznB1+tnswnpOSuXuRla+ByqrSl/yApHT47ot7tWeQxO6bptw5a7aQ59LLfM+
-	TnBvABTy01a7FezXOCIRm9KUa3o2Eoj+lpQs5Xh4fdIh7G393N1xqLo+wNC/UMW7VfSL/9HcuxkHk
-	hUHahUBtiBoJR5/FPkhg==;
+	List-Owner; bh=D0jZsYeSNAH3+HEBToMazkf3nhDPH5GLaRmmQWK/wBI=; b=HQ4h+3B7gX9Nex
+	oDgb78q24dRJVY9sgLl6kiDFQSEyyduX1j5OE6CWa2AftsCRi3OBHJJRtqu9+g5JNdk6CViMlUobK
+	mxxo1v/8cc2zhmRFizgWApJOiefYJzCQGUQXrm37HgqJUpQmR3Q6Tulh1TNJ72AzL4g3Hh5j3hZr+
+	TLodlCkfsokD0nxiSKElHea8uYTO8RnEjJ9CZZ+Fq49AWmWK37epG8aE2TPag323R968qiXULi9Ir
+	d8hxCmMGu2ahfYD2DonqBbp1MRNC04A+f14Re1KP7bE0ihz+QouAVup2weRXB5Bx5uoLACyuwbEXj
+	BcdWW7IWmIbFrhQiJehQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrn0Z-0000000D4eW-2RiW;
-	Tue, 02 Apr 2024 22:53:35 +0000
-Received: from mail-dm6nam10on2071d.outbound.protection.outlook.com ([2a01:111:f400:7e88::71d] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1rrnfZ-0000000DCWk-1arl;
+	Tue, 02 Apr 2024 23:35:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrn0V-0000000D4cb-0jxz;
-	Tue, 02 Apr 2024 22:53:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=j5whBe2TPQ5eXK65hZsgCjupJfreBbCduLlbaNWOz4qLJA1Lm5ARHUR+f80j2ozuiR7VPB+NHEGcfCrahsNxU4rpGy8FeNLrEIIS1jaZkLqVeC7Blu/2MqygMfk2GGjs1NoSVvshwItI9kXsHlMOJgWFF7704mk7vHYBJdHQP8Jths9L4wbV6hajnn1RPpUQWXT/fkNAjeybKV9eMxjo+Vll8EXYSgvAclzXQoYIjKj3CC4L8nQtuRjfRWjMGdVLNbdGdv7trv9hJ73JkwS5719yMHFb0EKhLnpHnqqARayrv2QhUAwl5oed9eYIT5hokBMQxRIVWU+GVI9axOWm5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BhJ1UQURdwDUzvXSG96GikuJ0SUIiMxdS6K1gLCHIQ0=;
- b=NY0DjMEqgNnnEBPQii5H8c2t4gPkaFQxJOrsqVXzBwrOYsvFSW78sDMkR7oIvg2E5PmIwUyhPDNNBQeDfoyndJG4l123ZYjXyqVVrF4yrE7TOtP4zXdNenU3ObhCBmSsmFvxyv5IcKV185pzs2Hx+aFcxwTRoMwMjRp1gV+vKVMDMSFfx69pqS9xIbvyGD1G9/zxa72bBxdnEsL8zfNvbaIVM1eKzov0hGP2wBq2UaadIrT6tlZOf9cnvrk0FKU1m3IRpNYjCTKa1oSrF+j3ZPPz8BQwbEHuiI73Yc/ocJUSujz30aubTVxDnaNvXNufdLBagrmKsMdvfn+y6VUMjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BhJ1UQURdwDUzvXSG96GikuJ0SUIiMxdS6K1gLCHIQ0=;
- b=QIHeKsrv9dQSlg4VYOTZBEc8XMbAJDA+sibJoDGSBm8ECNJ5skYQ9tKa9Ccmo33G2yIw6XUSAVFDB19NU1YqoxFZtJttnwtnzN8GnqirKY6BUBOaspL5fyZ0Q5Fk3LU0YppxjazsoQ/2uKwEftMnWYnDVAm2FLPsq6jbkFRkw4l2qQlOH6nmwUYeKOhJSdE1iusxOnl9L9dnYOOkRe2u7MmNjMlUy6Df3yEbnCCpaMikq96DXbF6Lc4pdf4bcTyoRDHckgf7W+VnEqT+dZTxXjEKqkpiSM8UNdM7pqd/p7Eb7Yq3D0uDvvdRN+z3d36BxNyMi0Ma95gdNCAc2V9HmA==
-Received: from DM6PR12MB3849.namprd12.prod.outlook.com (2603:10b6:5:1c7::26)
- by LV8PR12MB9262.namprd12.prod.outlook.com (2603:10b6:408:1e7::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Tue, 2 Apr
- 2024 22:53:22 +0000
-Received: from DM6PR12MB3849.namprd12.prod.outlook.com
- ([fe80::6aec:dbca:a593:a222]) by DM6PR12MB3849.namprd12.prod.outlook.com
- ([fe80::6aec:dbca:a593:a222%5]) with mapi id 15.20.7409.042; Tue, 2 Apr 2024
- 22:53:22 +0000
-Date: Tue, 2 Apr 2024 19:53:20 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Peter Xu <peterx@redhat.com>
+	id 1rrnfW-0000000DCV8-3BsS
+	for linux-riscv@lists.infradead.org;
+	Tue, 02 Apr 2024 23:35:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1712100953;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HP6iCpNSGY021srGiNxOfFS1yawEzwYl7dLs1n/YW+Y=;
+	b=Ztr6bB2UK05WGxDokJzMkzdRqAjGbzJPLJqartAOn+Yont0sbnE9C2AooBepyvCFRMqpXC
+	kznpRQ/I+ySsoe917KUB6yKB9ccQL3TIu1VPQArdlOjlNFZGEw85M968HppYLg6w9YzhUo
+	rgjCyj6FayLKD2/4MO9SLO5mxXEXTzc=
+Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com
+ [209.85.210.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-80-fNWoR5UMPYWizE3MFePiMQ-1; Tue, 02 Apr 2024 19:35:50 -0400
+X-MC-Unique: fNWoR5UMPYWizE3MFePiMQ-1
+Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-6e6b0efc193so2551202a34.0
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2024 16:35:49 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1712100949; x=1712705749;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HP6iCpNSGY021srGiNxOfFS1yawEzwYl7dLs1n/YW+Y=;
+        b=MDehO9NqCulUihkRL8O6Jp0VDVgqQJd3BUKaHbzgelg0Y6oRDOW/7I5AzR7w78T4ze
+         L+sGiToWWKzuOXJGkeF8krryQpftHG9oAqI7i6jti6yA2lasr4/cf2U/z/aORL+cRab7
+         wkyKDBwY2MIgWiNHRpEgsP82oYRRDXap5QXGCPEe2BLFTpmUL1t84Pf5/Yv/aVcljJlz
+         uKwYdHxXM0UF1ZHpbpSss8VGnSUKEzb3puAC/5qiI+KTkvasK/w4DNQNyKf4WhAFOJ8h
+         gqJjEIuCL+EGe2uE/z2v2ATbdRB1LHUXtrtE0/xZwFteq1wSNJT1eiGAv/7I3roZ/jfA
+         SCtg==
+X-Forwarded-Encrypted: i=1; AJvYcCUET++w25Pmc5bvkNI0NS+fdmHxGGkdxUNn4mOd5p8uBtN3KnMnxD33PFQdZ43fUJ/wmR71/2efFmpoPRe9iZj9KDoZjRRi6ujRn5Aa2ioo
+X-Gm-Message-State: AOJu0YzTBDV/l5SaliUfXWMiBdLL9o6XYGdBzQbe4yxxddAP/HgzRK74
+	tJVq73E+fdz/8DwvOFTaLRUr0gnGLfP+cQIfYuCRf2upq+5+XlEl+GFg2IBpe7tdKQWWNzJPofk
+	Fg8ggPJRvnExCVeSkImaOdUVcz4sjTGKs8mKKb0X4OOCLQt03Ug+il5UBf5qy7v8jDg==
+X-Received: by 2002:a9d:4c86:0:b0:6e7:7ef6:10da with SMTP id m6-20020a9d4c86000000b006e77ef610damr13684093otf.1.1712100949125;
+        Tue, 02 Apr 2024 16:35:49 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEvGEFvbrAiLdQh8lUIUnqC+uQoSnGXUScHs/S+SFU0VVogBN2f5CbF/OzNKGljOo4S/t2faA==
+X-Received: by 2002:a9d:4c86:0:b0:6e7:7ef6:10da with SMTP id m6-20020a9d4c86000000b006e77ef610damr13684059otf.1.1712100948622;
+        Tue, 02 Apr 2024 16:35:48 -0700 (PDT)
+Received: from xz-m1.local ([99.254.121.117])
+        by smtp.gmail.com with ESMTPSA id ob12-20020a0562142f8c00b0069046d929a3sm5893803qvb.145.2024.04.02.16.35.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Apr 2024 16:35:48 -0700 (PDT)
+Date: Tue, 2 Apr 2024 19:35:45 -0400
+From: Peter Xu <peterx@redhat.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: Nathan Chancellor <nathan@kernel.org>, linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org, Yang Shi <shy828301@gmail.com>,
 	"Kirill A . Shutemov" <kirill@shutemov.name>,
@@ -79,66 +97,20 @@ Cc: Nathan Chancellor <nathan@kernel.org>, linux-mm@kvack.org,
 	Huacai Chen <chenhuacai@kernel.org>,
 	WANG Xuerui <kernel@xen0n.name>, loongarch@lists.linux.dev
 Subject: Re: [PATCH v4 05/13] mm/arch: Provide pud_pfn() fallback
-Message-ID: <20240402225320.GU946323@nvidia.com>
+Message-ID: <ZgyWUYVdUsAiXCC4@xz-m1.local>
 References: <20240327152332.950956-1-peterx@redhat.com>
  <20240327152332.950956-6-peterx@redhat.com>
  <20240402190549.GA706730@dev-arch.thelio-3990X>
  <ZgyKLLVZ4vN56uZE@x1n>
-Content-Disposition: inline
-In-Reply-To: <ZgyKLLVZ4vN56uZE@x1n>
-X-ClientProxiedBy: SA0PR12CA0015.namprd12.prod.outlook.com
- (2603:10b6:806:6f::20) To DM6PR12MB3849.namprd12.prod.outlook.com
- (2603:10b6:5:1c7::26)
+ <20240402225320.GU946323@nvidia.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB3849:EE_|LV8PR12MB9262:EE_
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: aAb6xuu5/XJAHyVBhXWlYPiGm0Ij7iFUtCdheAh55xZnEif6U9osw6r5qd8saHTa1z5j4eeJDy6G4+SBbKSC0FJbUyP+1enSkKXgTM8rdlqU1jgs3+E3+Kr1q1Oaf8HIJXoIadx3s+1IVRrRkuDCYz2Fc/0dOptrmHOLAbHwJbno/bBFpBOa8T++2PW0mff9p74UoYUZr9iQnFIChQEWEDbqsGZWudF7Sbb4aZQRjJqFBMEEmZvCPeuuWMfZcrXLAiugvnweT7SviprX/7dJjY4eEjCLQ2ibDx5aGMY9QgJf6gskWHKS8r10zh2U2f8oJgkzGGu1B2sgYXFTO5FAEAK5RXXQcXuCDRDFrswxQ4GhG9PB80iiIdC++DMfMHK8TXHp/t2IzSH0sAnxXDwrOs/NcIAyxhy1OksPA9lHIigJQVRqgY6njgnmhNg4ZGCW8ZSWU0w6IWBfsrGQ9dJGjqc6iHZFm2t/o1rhpymWFgFC6vx0necF5dXk6FAAHecKgRXEEbktMUOaIltDxelWmGzx4Y3BWCcQsnTOlqhIUebVEE1p1KaPfupWkrXL8K7iwePPRX4L2OGFr2IFJ9zTwedEEb19Zm6WTmr45qNKYlhS+3aS3AAj0578joMp7NUpD2feH8PAxb+0M0enNbaY+mcQkNhtVifJV0x3GtqlIOc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3849.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(7416005)(376005)(1800799015)(366007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?C+DuDQS5m0FwmZVT3XgazypinSRUXPD2n2z0WCs0Dzk7kGekw1vKengH/5gu?=
- =?us-ascii?Q?N3NhemlAVzWH5lnVd7qIapurAK4wFG4B1fcGhyKycUJKxC0W9Cosl0yXdEUU?=
- =?us-ascii?Q?UkmyqOJ7j4u2RcWaYIAkYyLL9A3keTWNOCTVa7Bi9DDuH7vKnLJeyG9tqhQE?=
- =?us-ascii?Q?qlkcT0GnWRV66f+OfKP7rISSP77j6jhb6X7PilGCdErF3fTgYQuMOQfY724R?=
- =?us-ascii?Q?Ji8FG3VAjV2Uw2odkhoVSKR/jGaDFqjZVn/vRSymCzMHZs28bFIQr0TDGJFg?=
- =?us-ascii?Q?OWPnqEYbz7WxCtNQjEjKrUtbxRSsIFzHufyqJQ6YTkBAhjBD9Ef7hI6Rxt80?=
- =?us-ascii?Q?XpM9XAml8m1L6neKtaYC9D9Ym2YuYqgkdcYwLC+krGncN/1HjTRnaKX0QTUI?=
- =?us-ascii?Q?L5HrE6OwM1SGujcNueObqp6YLsDIbp9U839X8SvsOk/VI8d/CFC77HW3mNl+?=
- =?us-ascii?Q?8S3+oypDT+GEWcH+dV/A01Y9xvBWzzKNO1aDF8dRqR7M3Lj2wjqP8zZqt6N5?=
- =?us-ascii?Q?IQ1cdqZAFkT2ZG6H1ejUK5soZCGoGiBMgU4T+/Bp4wpSptIkW1T4IvIR0kl0?=
- =?us-ascii?Q?2/gZMt1pK0NaMwahilBD68c5OxJ6HEQ9yQNAnjpsPkHNA932PX0dDMHkk4cd?=
- =?us-ascii?Q?4L2ft6iBFZdj7tsB5dWKdxMuNQsAk+cpumIXoodBzgyiYNhkFpEJkXBqBRJ9?=
- =?us-ascii?Q?nCA69Q2Jh5W+IfY43r6kc3Gtfk6bGQwOUqpYFWJaWl0qI+bmV+HscFFyDdFK?=
- =?us-ascii?Q?Ik0KP/oS+gp3UOwJ6fZGUOH0XfL0EX2GPAuhH4bccRG8V04Gf3Ub8+sKzBl9?=
- =?us-ascii?Q?HqQ7bY+OG27YOhr1QL1uc6Jb3YVrvU7quk/Ezy5qV2isAjDP3spAcdqW50UB?=
- =?us-ascii?Q?2XE9Wy2EO98RAArmbe73AoSLyqWPX8IVqMjyvA3vAOV9IClfM/f1P5rY86DZ?=
- =?us-ascii?Q?OirmvlLt/cnb6ZhtDSiC7votu01aq73Cxmx9hXojUzh3xcfHC6BX0SL8xGte?=
- =?us-ascii?Q?WEDq1da1/dLosHYr9SE0ZVEXRdCCwH8H6fVm9Dx3Sz8RhN+6WOKS2nnbKNPZ?=
- =?us-ascii?Q?B7VHafBOt7rZ1ZdBOkihFg/dUgE/JakzeFH3WSHgRq0qOuixt/ZqbJDC9EeP?=
- =?us-ascii?Q?RSnE9w3w1ArGAW1QdMn9mf3NvpiMJLYw9C2XbmmZI5mw5ZS5y2ME9IRk1nDj?=
- =?us-ascii?Q?WihLuCIm9Ro9MR10qsgojN2/XP8oABd22kpeHkGwT0JmLCsBhhDdDi5ZPhbU?=
- =?us-ascii?Q?zXwvfkqop5dIqGIxvDNc70B+aiUQkIml5mYBNqBEzwQcairyrvVJr71MHZCy?=
- =?us-ascii?Q?ZDVGIjHpf6NeM/OHYAnWDeOwBj3BjNld+VcmexNkYDkWhxrJYI82EsDeZ8Wc?=
- =?us-ascii?Q?cH8gZSh7tm/toaFI4JiqN52PDCyYaJfi5Spd3BNueDc7pH82xH4HBckOgCeA?=
- =?us-ascii?Q?MUT7enF8IqTek9TWtKb8Uwma5ZEgKM0acUcbXD3HI7N4vla+r3T8vmKRU381?=
- =?us-ascii?Q?eDwAv9MMYzuuU5hsvT+shLXIrXKTP6jojR2BT6uAX/MUCaKtCNW58xd9FwOD?=
- =?us-ascii?Q?VH7yZfQX6ABB+053NKSPO2ioBTE370pze8xiVzCw?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1d611d46-9fb3-4e5d-6979-08dc5367b2a2
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB3849.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2024 22:53:22.4580
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oa2HsOvvP6XJ1dsEuaN3GXjvhCh14tspZkBbQzjRMrzHJ0pnk2KzDpv4P9BaFwFM
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9262
+In-Reply-To: <20240402225320.GU946323@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_155331_517136_3841B7DB 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20240402_163554_893826_B461B0D1 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,28 +127,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 02, 2024 at 06:43:56PM -0400, Peter Xu wrote:
+On Tue, Apr 02, 2024 at 07:53:20PM -0300, Jason Gunthorpe wrote:
+> On Tue, Apr 02, 2024 at 06:43:56PM -0400, Peter Xu wrote:
+> 
+> > I actually tested this without hitting the issue (even though I didn't
+> > mention it in the cover letter..).  I re-kicked the build test, it turns
+> > out my "make alldefconfig" on loongarch will generate a config with both
+> > HUGETLB=n && THP=n, while arch/loongarch/configs/loongson3_defconfig has
+> > THP=y (which I assume was the one above build used).  I didn't further
+> > check how "make alldefconfig" generated the config; a bit surprising that
+> > it didn't fetch from there.
+> 
+> I suspect it is weird compiler variations.. Maybe something is not
+> being inlined.
+> 
+> > (and it also surprises me that this BUILD_BUG can trigger.. I used to try
+> >  triggering it elsewhere but failed..)
+> 
+> As the pud_leaf() == FALSE should result in the BUILD_BUG never being
+> called and the optimizer removing it.
 
-> I actually tested this without hitting the issue (even though I didn't
-> mention it in the cover letter..).  I re-kicked the build test, it turns
-> out my "make alldefconfig" on loongarch will generate a config with both
-> HUGETLB=n && THP=n, while arch/loongarch/configs/loongson3_defconfig has
-> THP=y (which I assume was the one above build used).  I didn't further
-> check how "make alldefconfig" generated the config; a bit surprising that
-> it didn't fetch from there.
+Good point, for some reason loongarch defined pud_leaf() without defining
+pud_pfn(), which does look strange.
 
-I suspect it is weird compiler variations.. Maybe something is not
-being inlined.
+#define pud_leaf(pud)		((pud_val(pud) & _PAGE_HUGE) != 0)
 
-> (and it also surprises me that this BUILD_BUG can trigger.. I used to try
->  triggering it elsewhere but failed..)
+But I noticed at least MIPS also does it..  Logically I think one arch
+should define either none of both.
 
-As the pud_leaf() == FALSE should result in the BUILD_BUG never being
-called and the optimizer removing it.
+> 
+> Perhaps the issue is that the pud_leaf() is too far from the pud_pfn?
 
-Perhaps the issue is that the pud_leaf() is too far from the pud_pfn?
+My understanding is follow_pud_mask() should completely get optimized and
+follow_huge_pud() will be dropped in the compiler output if pud_leaf()==false.
 
-Jason
+Thanks,
+
+-- 
+Peter Xu
+
 
 _______________________________________________
 linux-riscv mailing list
