@@ -4,150 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5810CC6FD1F
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 15:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8E7CD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 15:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NkBDbvVygF7dWw5CyWHOvM1DI3kFcH3CHk2wwYau8Ks=; b=yJHFcGHtzcjawE
-	WZ3Q9zOLf9xq1NNTmHyS0vk2mfKnvZz5wPf+td2ednSmN2eYUGsU5STpsRwBhuIWz7kpVRsWx02gd
-	jKLUhLLX8VueCVsAMJZVcI0NBok45jwjIfvvM2f3F6xt3Bjc3I5mlPrJBbHP1lkAgz5igBsvzCaaq
-	Ox6Z8oXkVSrcxAGWJybUBuP93E2Le3IMOYbPPq500Jlp3CDDtM6cnVtYddwiv/2Gxr+KNGm9TwmTp
-	SMlgZDacQdAVXf7170NCGuTE3Eh8Q0CwZ5RiOzZuIEQueVjl89lalmIp9vpG0RzKRqcG77UncJhXK
-	7z9StGSf5QRrSrQtiROQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FuIzXu9nK8/Lvy1xXjR3/sp6oOUiYBYprpEF582P3dc=; b=X1lMwSs2YviFKK
+	RJDeizW+7A0uwnYxvE3674iI2xF/VsOeJnP8nluUpk9LrFjkl/oqqdP123a/YcSPk9b7QB0XYpt2v
+	wpAlbzlgzgcD9h2d0u4OUtnABoQJOvTCy67wRQ6izn4D5PtUfH1WZJ7KZG9nGhjqcAYh7rE+qt8qV
+	zCZ65I8DYWdMVJz2Gum3o3h7Ckvh6bdT9SaJcA44JTR7IVGNwAiJq0YZMOz4wRLTx1TZGkyuCsg7D
+	EjDrthithBe/bC7caiclMcdZdmmAcaRYnCmJR5g0yd8zODgXszDyHFAms/uh3UNZ1vzXkJwAbaokV
+	HaOwmc7Al9TbSbhaHlog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrg27-0000000Bo1Q-30iN;
-	Tue, 02 Apr 2024 15:26:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rrgN2-0000000Bs9L-2SSK;
+	Tue, 02 Apr 2024 15:48:20 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrg24-0000000Bnzd-4AYW
+	id 1rrgMx-0000000Bs6E-2vmy
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Apr 2024 15:26:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1712071593;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=7z79/IwwmLCGU8YotNChJ6Ql1s/A3SEmP5H2/HA6uBA=;
-	b=Z/ScsFEO7FE7U4FLChW3Su+zGfnEUC+MsVMcjY3erOJhHcw9p4pnscEZ9OGjvwm/Dh292s
-	WecAxt5cik1qbB3QYnJRZhXjjFetUsF/GLp3xNxbOSEFuHPwNrvFi8dH5N5nqanblqa/eg
-	IY2S8dhSn9ShcIOlHeIJu7h4EtNVHN8=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-488-6ADpVhpDNTaPIySEUKwa7Q-1; Tue, 02 Apr 2024 11:26:32 -0400
-X-MC-Unique: 6ADpVhpDNTaPIySEUKwa7Q-1
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-34356b6e988so652532f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2024 08:26:32 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712071591; x=1712676391;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+	Tue, 02 Apr 2024 15:48:18 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-369eafe262fso575505ab.1
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2024 08:48:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1712072894; x=1712677694; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=7z79/IwwmLCGU8YotNChJ6Ql1s/A3SEmP5H2/HA6uBA=;
-        b=HNVZ1bbxwjJpU8b/DmDmGdN3bYTkwC9kTLqmeNLyMPCFNjFJpWF7Wl71Ko8JakQgUk
-         TFGYdxch95AI2TcFYP1Zqfl6I7KQX0HivbJzfXEebj+KaXuiX/D6BQlHPvPR4wNjTmdu
-         K6QB9kAFuXE+uxbligOyopCPXVUxu0S00jdsA4gc+rdxYnKd14OiV/RmVaBmEuLp5bys
-         JOBrcemS/ndVw67bHCORpVMVkTVIo8ZWbrul1BV1T5kbLIaZUyhB3s0qNjloFa+eBb36
-         1+F65DBWXG6FEz5vUIXp0nrDS5fh3Lc4gGRJtHHKYFhVX76kD2ohNkHUiCC0PwhYTq2R
-         mKAA==
-X-Forwarded-Encrypted: i=1; AJvYcCVKfQ6mY4PochYSHMW0V5TrPEXksA0dLsviBSvQntcDJOvrZa01jliRoNHSqreM/PcXrObRCny2J+KEdEoknq0p9JOPlPmoLX1tf+KGHKo7
-X-Gm-Message-State: AOJu0YzK/sZO3ZJ2zImRrb4Bml5JPsTsVKDUraaoRFNOKN7RwVwyju9b
-	dVCxOXQUcWsFnOVl4vwaOzGmQDnx9iyYl6RQKmlAfOThzIyfGWHNGJTUqc9RLYh/5Zlj9a6SovK
-	9ZV/fzDr2IVnAhhU7s97tHc/GvENqVc/PvknyWeLEMat2yF1IO4BDzj6CKpXTF1mhUQ==
-X-Received: by 2002:a5d:474b:0:b0:343:6b09:653c with SMTP id o11-20020a5d474b000000b003436b09653cmr1611339wrs.43.1712071591411;
-        Tue, 02 Apr 2024 08:26:31 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF8SQOIZIZWhyBPTQm8MQ4jJTitAgfdzsVz9+NbSlk8sRvUDLsA7jSkSjvpJpo4JPfjy/OfOQ==
-X-Received: by 2002:a5d:474b:0:b0:343:6b09:653c with SMTP id o11-20020a5d474b000000b003436b09653cmr1611299wrs.43.1712071590903;
-        Tue, 02 Apr 2024 08:26:30 -0700 (PDT)
-Received: from ?IPV6:2003:cb:c732:e600:4982:2903:710f:f20a? (p200300cbc732e60049822903710ff20a.dip0.t-ipconnect.de. [2003:cb:c732:e600:4982:2903:710f:f20a])
-        by smtp.gmail.com with ESMTPSA id m19-20020a056000025300b0033e7de97214sm14353604wrz.40.2024.04.02.08.26.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Apr 2024 08:26:30 -0700 (PDT)
-Message-ID: <5d9dd9a7-e544-4741-944c-469b79c2c649@redhat.com>
-Date: Tue, 2 Apr 2024 17:26:28 +0200
+        bh=fB9wvfeaRu0tbAm21VpziSooOQ2M5ya0jZi8/+/ocMk=;
+        b=HHUHwHhoTNf9jAiCS4SD7xdU2wu7mHJGBZFANpkv/xGZSzfCk/+TOXzfTgqQ2B34jd
+         qjcEvkH0kAAEhz0jc2wa/PaxkoTf+V/VeruHh4dS+I3qUJgNFDxCzkZoQy63UTMnqej8
+         gmSY75/7TLUsg5iVN8x4Wwb1H+laqjlPwCmKneHJ5Z7tYR5khjesZkMnOp+hcG13Mt68
+         nvFQzQRkAfAgtCX1Yw2h4aK2coXGXXkZsJdVjcjdTObSpqNn5u5PzKMPUgwz99BGrqHu
+         fV69lx9L20TmNbWMkY9DcJqmHGB3easGwaPL5B0Xlea2izs6ojbLUZiU3FAHLAMCViZp
+         Z8Mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1712072894; x=1712677694;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fB9wvfeaRu0tbAm21VpziSooOQ2M5ya0jZi8/+/ocMk=;
+        b=aWCYMDA3AnyvHn3KWEqewcncBgrzMSIbteYBlX8nStM8YOH5jWg6fYD+GfUx+vJg26
+         8uzt9Z66hbgJr5YFKrFdbh/+Vjm+RFSBjdl+njzPV08IzUvb5iiNDOUW0Cko7R8WBQ2Z
+         YTiUCust6SgBQGxG7heJpIxJDsONToQ120rXuF2iHSjWyAJBCBppMD//fTDBv3CQD0pq
+         0nRW9otJ/vhMT2q/wjcg8sIeel69nTdb1YuHmuHlAl+7ybtaAOs1Pgjy6cCyiNEJ0Cfh
+         Oxn4eBaX1/p6LXYK7GGvKT/zQg99TBbAFIx+nTWdMMd8/M9Kuwq3hRz5MARtKawUAXm5
+         t7rg==
+X-Forwarded-Encrypted: i=1; AJvYcCXTpdMP7mAnvx1BLW+ST4rCjvrsicJxJcHArdvbh27CGgsOcd9A42KBtxG1HGUyheit8aDJZlYS3GsSUmjbRY57joSKbXMyx5nqtQhCO/x7
+X-Gm-Message-State: AOJu0YzZChqc42IKOesPsyHTUjoGEwyRl50HIoQKVNngYaPHGmiZLfra
+	ncXbGhjgMvJk7AGWfTDBIgqIeEKALBw1umVjsdM2WIZSCNcJeLCMDBxBQTZIsXcHjWIoJszkIwl
+	1lZgKaPdlVo5hAR/fSAJq4ekz3GdR56xe2lBgLg==
+X-Google-Smtp-Source: AGHT+IF/KIeqABbokzZljH+LAgY8kIZSFE7qipbYmjVKY2fkpR4302o3Qfd9r378gssUXTZN81OKQEw3/egpsssqY+I=
+X-Received: by 2002:a05:6e02:1a4d:b0:369:95dc:e4da with SMTP id
+ u13-20020a056e021a4d00b0036995dce4damr855201ilv.17.1712072894488; Tue, 02 Apr
+ 2024 08:48:14 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 13/13] mm/gup: Handle hugetlb in the generic
- follow_page_mask code
-To: Ryan Roberts <ryan.roberts@arm.com>, peterx@redhat.com,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Cc: Yang Shi <shy828301@gmail.com>, "Kirill A . Shutemov"
- <kirill@shutemov.name>, Mike Kravetz <mike.kravetz@oracle.com>,
- John Hubbard <jhubbard@nvidia.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Andrew Jones <andrew.jones@linux.dev>, Muchun Song <muchun.song@linux.dev>,
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Andrew Morton <akpm@linux-foundation.org>,
- Christoph Hellwig <hch@infradead.org>, Lorenzo Stoakes <lstoakes@gmail.com>,
- Matthew Wilcox <willy@infradead.org>, Rik van Riel <riel@surriel.com>,
- linux-arm-kernel@lists.infradead.org, Andrea Arcangeli
- <aarcange@redhat.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Vlastimil Babka <vbabka@suse.cz>, James Houghton <jthoughton@google.com>,
- Jason Gunthorpe <jgg@nvidia.com>, Mike Rapoport <rppt@kernel.org>,
- Axel Rasmussen <axelrasmussen@google.com>
-References: <20240327152332.950956-1-peterx@redhat.com>
- <20240327152332.950956-14-peterx@redhat.com>
- <adfdd89b-ee56-4758-836e-c66a0be7de25@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <adfdd89b-ee56-4758-836e-c66a0be7de25@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 2 Apr 2024 21:18:03 +0530
+Message-ID: <CAAhSdy2e237A_vA022kh3cmy-YJ_t=0iXyRkbQS3NSR=_Z+6HA@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv fixes for 6.9, take #1
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_082641_240552_7A996BEE 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20240402_084815_980746_B4479150 
+X-CRM114-Status: UNSURE (   6.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,159 +85,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02.04.24 16:48, Ryan Roberts wrote:
-> Hi Peter,
-> 
-> On 27/03/2024 15:23, peterx@redhat.com wrote:
->> From: Peter Xu <peterx@redhat.com>
->>
->> Now follow_page() is ready to handle hugetlb pages in whatever form, and
->> over all architectures.  Switch to the generic code path.
->>
->> Time to retire hugetlb_follow_page_mask(), following the previous
->> retirement of follow_hugetlb_page() in 4849807114b8.
->>
->> There may be a slight difference of how the loops run when processing slow
->> GUP over a large hugetlb range on cont_pte/cont_pmd supported archs: each
->> loop of __get_user_pages() will resolve one pgtable entry with the patch
->> applied, rather than relying on the size of hugetlb hstate, the latter may
->> cover multiple entries in one loop.
->>
->> A quick performance test on an aarch64 VM on M1 chip shows 15% degrade over
->> a tight loop of slow gup after the path switched.  That shouldn't be a
->> problem because slow-gup should not be a hot path for GUP in general: when
->> page is commonly present, fast-gup will already succeed, while when the
->> page is indeed missing and require a follow up page fault, the slow gup
->> degrade will probably buried in the fault paths anyway.  It also explains
->> why slow gup for THP used to be very slow before 57edfcfd3419 ("mm/gup:
->> accelerate thp gup even for "pages != NULL"") lands, the latter not part of
->> a performance analysis but a side benefit.  If the performance will be a
->> concern, we can consider handle CONT_PTE in follow_page().
->>
->> Before that is justified to be necessary, keep everything clean and simple.
->>
->> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
->> Signed-off-by: Peter Xu <peterx@redhat.com>
-> 
-> Afraid I'm seeing an oops when running gup_longterm test on arm64 with current mm-unstable. Git bisect blames this patch. The oops reproduces for me every time on 2 different machines:
-> 
-> 
-> [    9.340416] kernel BUG at mm/gup.c:778!
-> [    9.340746] Internal error: Oops - BUG: 00000000f2000800 [#1] PREEMPT SMP
-> [    9.341199] Modules linked in:
-> [    9.341481] CPU: 1 PID: 1159 Comm: gup_longterm Not tainted 6.9.0-rc2-00210-g910ff1a347e4 #11
-> [    9.342232] Hardware name: linux,dummy-virt (DT)
-> [    9.342647] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [    9.343195] pc : follow_page_mask+0x4d4/0x880
-> [    9.343580] lr : follow_page_mask+0x4d4/0x880
-> [    9.344018] sp : ffff8000898b3aa0
-> [    9.344345] x29: ffff8000898b3aa0 x28: fffffdffc53973e8 x27: 00003c0005d08000
-> [    9.345028] x26: ffff00014e5cfd08 x25: ffffd3513a40c000 x24: fffffdffc5d08000
-> [    9.345682] x23: ffffc1ffc0000000 x22: 0000000000080101 x21: ffff8000898b3ba8
-> [    9.346337] x20: 0000fffff4200000 x19: ffff00014e52d508 x18: 0000000000000010
-> [    9.347005] x17: 5f656e6f7a5f7369 x16: 2120262620296567 x15: 6170286461654865
-> [    9.347713] x14: 6761502128454741 x13: 2929656761702865 x12: 6761705f65636976
-> [    9.348371] x11: 65645f656e6f7a5f x10: ffffd3513b31d6e0 x9 : ffffd3513852f090
-> [    9.349062] x8 : 00000000ffffefff x7 : ffffd3513b31d6e0 x6 : 0000000000000000
-> [    9.349753] x5 : ffff00017ff98cc8 x4 : 0000000000000fff x3 : 0000000000000000
-> [    9.350397] x2 : 0000000000000000 x1 : ffff000190e8b480 x0 : 0000000000000052
-> [    9.351097] Call trace:
-> [    9.351312]  follow_page_mask+0x4d4/0x880
-> [    9.351700]  __get_user_pages+0xf4/0x3e8
-> [    9.352089]  __gup_longterm_locked+0x204/0xa70
-> [    9.352516]  pin_user_pages+0x88/0xc0
-> [    9.352873]  gup_test_ioctl+0x860/0xc40
-> [    9.353249]  __arm64_sys_ioctl+0xb0/0x100
-> [    9.353648]  invoke_syscall+0x50/0x128
-> [    9.354022]  el0_svc_common.constprop.0+0x48/0xf8
-> [    9.354488]  do_el0_svc+0x28/0x40
-> [    9.354822]  el0_svc+0x34/0xe0
-> [    9.355128]  el0t_64_sync_handler+0x13c/0x158
-> [    9.355489]  el0t_64_sync+0x190/0x198
-> [    9.355793] Code: aa1803e0 d000d8e1 91220021 97fff560 (d4210000)
-> [    9.356280] ---[ end trace 0000000000000000 ]---
-> [    9.356651] note: gup_longterm[1159] exited with irqs disabled
-> [    9.357141] note: gup_longterm[1159] exited with preempt_count 2
-> [    9.358033] ------------[ cut here ]------------
-> [    9.358800] WARNING: CPU: 1 PID: 0 at kernel/context_tracking.c:128 ct_kernel_exit.constprop.0+0x108/0x120
-> [    9.360157] Modules linked in:
-> [    9.360541] CPU: 1 PID: 0 Comm: swapper/1 Tainted: G      D            6.9.0-rc2-00210-g910ff1a347e4 #11
-> [    9.361626] Hardware name: linux,dummy-virt (DT)
-> [    9.362087] pstate: 204003c5 (nzCv DAIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [    9.362758] pc : ct_kernel_exit.constprop.0+0x108/0x120
-> [    9.363306] lr : ct_idle_enter+0x10/0x20
-> [    9.363845] sp : ffff8000801abdc0
-> [    9.364222] x29: ffff8000801abdc0 x28: 0000000000000000 x27: 0000000000000000
-> [    9.364961] x26: 0000000000000000 x25: ffff00014149d780 x24: 0000000000000000
-> [    9.365557] x23: 0000000000000000 x22: ffffd3513b299d48 x21: ffffd3513a785730
-> [    9.366239] x20: ffffd3513b299c28 x19: ffff00017ffa7da0 x18: 0000fffff5ffffff
-> [    9.366869] x17: 0000000000000000 x16: 1fffe0002a21a8c1 x15: 0000000000000000
-> [    9.367524] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000002
-> [    9.368207] x11: 0000000000000001 x10: 0000000000000ad0 x9 : ffffd35138589230
-> [    9.369123] x8 : ffff00014149e2b0 x7 : 0000000000000000 x6 : 000000000f8c0fb2
-> [    9.370403] x5 : 4000000000000002 x4 : ffff2cb045825000 x3 : ffff8000801abdc0
-> [    9.371170] x2 : ffffd3513a782da0 x1 : 4000000000000000 x0 : ffffd3513a782da0
-> [    9.372279] Call trace:
-> [    9.372519]  ct_kernel_exit.constprop.0+0x108/0x120
-> [    9.373216]  ct_idle_enter+0x10/0x20
-> [    9.373562]  default_idle_call+0x3c/0x160
-> [    9.374055]  do_idle+0x21c/0x280
-> [    9.374394]  cpu_startup_entry+0x3c/0x50
-> [    9.374797]  secondary_start_kernel+0x140/0x168
-> [    9.375220]  __secondary_switched+0xb8/0xc0
-> [    9.375875] ---[ end trace 0000000000000000 ]---
-> 
-> 
-> The oops trigger is at mm/gup.c:778:
-> VM_BUG_ON_PAGE(!PageHead(page) && !is_zone_device_page(page), page);
-> 
-> 
-> This is the output of gup_longterm (last output is just before oops):
-> 
-> # [INFO] detected hugetlb page size: 2048 KiB
-> # [INFO] detected hugetlb page size: 32768 KiB
-> # [INFO] detected hugetlb page size: 64 KiB
-> # [INFO] detected hugetlb page size: 1048576 KiB
-> TAP version 13
-> 1..70
-> # [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with memfd
-> ok 1 Should have worked
-> # [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with tmpfile
-> ok 2 Should have failed
-> # [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with local tmpfile
-> ok 3 Should have failed
-> # [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with memfd hugetlb (2048 kB)
-> ok 4 Should have worked
-> # [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with memfd hugetlb (32768 kB)
-> 
-> 
-> So 2M passed ok, and its failing for 32M, which is cont-pmd. I'm guessing you're trying to iterate 2M into a cont-pmd folio and ending up with an unexpected tail page?
+Hi Paolo,
 
-I assume we find the expected tail page, it's just that the check
+We have four fixes for 6.9. Out of these, two fixes are
+related to in-kernel APLIC emulation and remaining
+are cosmetic fixes.
 
-VM_BUG_ON_PAGE(!PageHead(page) && !is_zone_device_page(page), page);
+Please pull.
 
-Doesn't make sense with hugetlb folios. We might have a tail page mapped 
-in a cont-pmd entry. As soon as we call follow_huge_pmd() on "not the 
-first cont-pmd entry", we trigger this check.
+Regards,
+Anup
 
-Likely this sanity check must also allow for hugetlb folios. Or we 
-should just remove it completely.
+The following changes since commit 4cece764965020c22cff7665b18a012006359095:
 
-In the past, we wanted to make sure that we never get tail pages of THP 
-from PMD entries, because something would currently be broken (we don't 
-support THP > PMD).
+  Linux 6.9-rc1 (2024-03-24 14:10:05 -0700)
 
--- 
-Cheers,
+are available in the Git repository at:
 
-David / dhildenb
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-fixes-6.9-1
 
+for you to fetch changes up to 8e936e98718f005c986be0bfa1ee6b355acf96be:
+
+  RISC-V: KVM: Fix APLIC in_clrip[x] read emulation (2024-03-26 09:40:55 +0530)
+
+----------------------------------------------------------------
+KVM/riscv fixes for 6.9, take #1
+
+- Fix spelling mistake in arch_timer selftest
+- Remove redundant semicolon in num_isa_ext_regs()
+- Fix APLIC setipnum_le/be write emulation
+- Fix APLIC in_clrip[x] read emulation
+
+----------------------------------------------------------------
+Anup Patel (2):
+      RISC-V: KVM: Fix APLIC setipnum_le/be write emulation
+      RISC-V: KVM: Fix APLIC in_clrip[x] read emulation
+
+Colin Ian King (2):
+      KVM: selftests: Fix spelling mistake "trigged" -> "triggered"
+      RISC-V: KVM: Remove second semicolon
+
+ arch/riscv/kvm/aia_aplic.c                       | 37 ++++++++++++++++++++----
+ arch/riscv/kvm/vcpu_onereg.c                     |  2 +-
+ tools/testing/selftests/kvm/aarch64/arch_timer.c |  2 +-
+ tools/testing/selftests/kvm/riscv/arch_timer.c   |  2 +-
+ 4 files changed, 34 insertions(+), 9 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
