@@ -4,81 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6EFCD1284
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 16:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD38CD1284
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2024 16:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=babZcoZO7tyZusYt957VoR4+Ik1DTEZbckWSrjs0xMQ=; b=kO6jGAINoFKflH
-	5POS5Au0cxtQ7nhmVNRhEhGXf9RST9+EaFnlydwws1Hl+hMEB2nVmN/EPp5aXk3m4/T9AclqKUJAB
-	DbDeMYaFoIvFDjs/CIgBl47o3eCQshncGUxCcxHaiwe+YUtsDnMKebfiD8o9GO/5+1LlHKGw7HuQ7
-	dxNb6OEJkm4P0oh5VzReW3yMewCni25SzP5dee5IxwVcpFHCndwjhESUfOSnUR1JxeYD+buNzvybZ
-	1KlQ4w/cH13G/sAx9MTCGAglSZUx/1jtS5zL67rw+MwKMqylXWOseKKJ7WOELpPaNZ94KdgGYk2er
-	GSm2igITm7cBsZX/iTKw==;
+	List-Owner; bh=2MtUVr/w79uZfA+uUbW1ZGXPiJMugH2yPGGysicjoow=; b=Wseqph8dk9VJ2h
+	F4pW4CyrCjv4Q1XapJWFHj0GRP3aAMLYWHZtqYAZXLup2LUimi/8i3Wl30wyH75RC/tNxTSHO1+Ak
+	eM1z7R0zim8BtYVMxoW4yk/Fzk1xFKZsVE9cFq3MDiCg5zTOwy5sU9lj7fp89y9kms+4hgH12Wjza
+	8k80Ka2kkA8ETRepUH+LJvy+3NzU8aY1aYj3D/du4fVshoMio9n1wyRLBJtUE8VVphXHVb92cQb6g
+	vdhlFotIbNNqCbFYQlDWUnJKETw8DR7T2cRea016vog1ZxbYCy+TLMsG0fS7YjpaVVMv+0Bs5V/Rg
+	+XnLhjeZeUB92oxak2SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrhBE-0000000C4YC-2djJ;
-	Tue, 02 Apr 2024 16:40:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrhBC-0000000C4X1-1ICT
-	for linux-riscv@lists.infradead.org;
-	Tue, 02 Apr 2024 16:40:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1712076009;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=iEb1HUNjpnqEgLGmlXxstqgOUp3S0IqEbnWahtuTkPk=;
-	b=hpmd0MXjgJHQCXMsNPgRbG+wPn+eoMVy/l4jpXkTlTjbsFYX+K490jU4eHjFuYWlcEYZlh
-	Oc1zg/jW/2j9wTcoqIvo+Aaneu6oEtcVXGbxnuP2Mg6JypOCIhHOq2JHaAS6WKicjENK6n
-	Xt0uzKWk6GuEcA4hv3VociXqZcXO0M8=
-Received: from mail-lj1-f197.google.com (mail-lj1-f197.google.com
- [209.85.208.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-588-VORysunsMqa81BL9uFbPKQ-1; Tue, 02 Apr 2024 12:40:08 -0400
-X-MC-Unique: VORysunsMqa81BL9uFbPKQ-1
-Received: by mail-lj1-f197.google.com with SMTP id 38308e7fff4ca-2d48d13b3c9so41334681fa.1
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2024 09:40:08 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712076006; x=1712680806;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=iEb1HUNjpnqEgLGmlXxstqgOUp3S0IqEbnWahtuTkPk=;
-        b=B6oTmbdkXUGZaTh+2bmfigj72TCHDl4eK6wfKXnRfmyfBntqx3rLaPp9KiXR4vENt3
-         8mCrySy2bkw36PnI9MrRp99MmJW3Ly8wusKwEgvaY0NJLHy8HpPjergzwVCcR57V92PM
-         y6lI27K2F+q0U3/aSdlMOJRrv5/PSFJNvMXQDzBLE4Xa9RwdcwjDUVOssOEbYxU3d3Tf
-         ZFnooZAtZqznaBekCf5smcauNT0Z25bhD7lJ8JagyPiinqMs7cAafcOATdyHRzIjPvY5
-         6OjRNgOOH49OnEEX/hh5IEnjl6XR4PUpDg7VFvPU3LSBx61BttS+T1RbWUKByDLxoSYl
-         zM3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXz5QY1wBBYwOswpo/T8TPdRXkTnlyVIs03YXOY4nrDfiy8O5L0I444Q0WtED2vK25hiF8tOFmgUcude79zlsLL1rHNB6Kpz3b0nSD/2W3B
-X-Gm-Message-State: AOJu0Ywevp8/kg59Y3wQNqV+Ph8pghrVg4UrPhsISMbsk8RL4afXKut7
-	OytMbVbW5xuf7fSJtxB7M7Dsxr25b8QaBLgGAOUFWKZnoGTEowSuoGsIEyDrrkMJ/3msGJ/fWK2
-	zLuWir9zslJxt0qDhJIKylxI0k0ZQwCWcI5q5jw1WZEVcvyTXp4IcavsYgSwZZ9Q62A==
-X-Received: by 2002:a2e:a1c6:0:b0:2d6:f56a:2c93 with SMTP id c6-20020a2ea1c6000000b002d6f56a2c93mr100951ljm.49.1712076006580;
-        Tue, 02 Apr 2024 09:40:06 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEuQTtY35SlGNEgobFjthAxTwDvUNM6x0Hlf/gyIfohvOtboRJqBmL5hKdTw7+tWAipqSJUXw==
-X-Received: by 2002:a2e:a1c6:0:b0:2d6:f56a:2c93 with SMTP id c6-20020a2ea1c6000000b002d6f56a2c93mr100927ljm.49.1712076006141;
-        Tue, 02 Apr 2024 09:40:06 -0700 (PDT)
-Received: from ?IPV6:2003:cb:c732:e600:4982:2903:710f:f20a? (p200300cbc732e60049822903710ff20a.dip0.t-ipconnect.de. [2003:cb:c732:e600:4982:2903:710f:f20a])
-        by smtp.gmail.com with ESMTPSA id t10-20020a05600c450a00b004161b59e230sm2538868wmo.41.2024.04.02.09.40.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Apr 2024 09:40:05 -0700 (PDT)
-Message-ID: <98d4ef76-93e4-4e76-be60-9f0076389dc5@redhat.com>
-Date: Tue, 2 Apr 2024 18:40:03 +0200
+	id 1rrhHt-0000000C5x7-3RVR;
+	Tue, 02 Apr 2024 16:47:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rrhHq-0000000C5vc-2Iwj;
+	Tue, 02 Apr 2024 16:47:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E35AB1007;
+	Tue,  2 Apr 2024 09:47:32 -0700 (PDT)
+Received: from [10.1.38.163] (XHFQ2J9959.cambridge.arm.com [10.1.38.163])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6908D3F7B4;
+	Tue,  2 Apr 2024 09:46:58 -0700 (PDT)
+Message-ID: <f4aff3e9-1d78-4bb8-a6f3-2887b9928b54@arm.com>
+Date: Tue, 2 Apr 2024 17:46:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 13/13] mm/gup: Handle hugetlb in the generic
  follow_page_mask code
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, peterx@redhat.com,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+Content-Language: en-GB
+To: Peter Xu <peterx@redhat.com>, David Hildenbrand <david@redhat.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  Yang Shi <shy828301@gmail.com>, "Kirill A . Shutemov"
  <kirill@shutemov.name>, Mike Kravetz <mike.kravetz@oracle.com>,
  John Hubbard <jhubbard@nvidia.com>, Michael Ellerman <mpe@ellerman.id.au>,
@@ -87,70 +49,21 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>, peterx@redhat.com,
  Christophe Leroy <christophe.leroy@csgroup.eu>,
  Andrew Morton <akpm@linux-foundation.org>,
  Christoph Hellwig <hch@infradead.org>, Lorenzo Stoakes <lstoakes@gmail.com>,
- Rik van Riel <riel@surriel.com>, linux-arm-kernel@lists.infradead.org,
- Andrea Arcangeli <aarcange@redhat.com>,
- "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Rik van Riel <riel@surriel.com>,
+ linux-arm-kernel@lists.infradead.org, Andrea Arcangeli
+ <aarcange@redhat.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
  Vlastimil Babka <vbabka@suse.cz>, James Houghton <jthoughton@google.com>,
  Jason Gunthorpe <jgg@nvidia.com>, Mike Rapoport <rppt@kernel.org>,
  Axel Rasmussen <axelrasmussen@google.com>
 References: <20240327152332.950956-1-peterx@redhat.com>
  <20240327152332.950956-14-peterx@redhat.com>
  <adfdd89b-ee56-4758-836e-c66a0be7de25@arm.com>
- <5d9dd9a7-e544-4741-944c-469b79c2c649@redhat.com>
- <ZgwrhKuypBtSpKdI@casper.infradead.org>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <ZgwrhKuypBtSpKdI@casper.infradead.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+ <5d9dd9a7-e544-4741-944c-469b79c2c649@redhat.com> <ZgwwOq3XXKlS_7LQ@x1n>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <ZgwwOq3XXKlS_7LQ@x1n>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_094010_444758_CD558F9F 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20240402_094702_724884_9B80E0BD 
+X-CRM114-Status: GOOD (  51.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,15 +75,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02.04.24 18:00, Matthew Wilcox wrote:
+On 02/04/2024 17:20, Peter Xu wrote:
 > On Tue, Apr 02, 2024 at 05:26:28PM +0200, David Hildenbrand wrote:
+>> On 02.04.24 16:48, Ryan Roberts wrote:
+>>> Hi Peter,
+> 
+> Hey, Ryan,
+> 
+> Thanks for the report!
+> 
+>>>
+>>> On 27/03/2024 15:23, peterx@redhat.com wrote:
+>>>> From: Peter Xu <peterx@redhat.com>
+>>>>
+>>>> Now follow_page() is ready to handle hugetlb pages in whatever form, and
+>>>> over all architectures.  Switch to the generic code path.
+>>>>
+>>>> Time to retire hugetlb_follow_page_mask(), following the previous
+>>>> retirement of follow_hugetlb_page() in 4849807114b8.
+>>>>
+>>>> There may be a slight difference of how the loops run when processing slow
+>>>> GUP over a large hugetlb range on cont_pte/cont_pmd supported archs: each
+>>>> loop of __get_user_pages() will resolve one pgtable entry with the patch
+>>>> applied, rather than relying on the size of hugetlb hstate, the latter may
+>>>> cover multiple entries in one loop.
+>>>>
+>>>> A quick performance test on an aarch64 VM on M1 chip shows 15% degrade over
+>>>> a tight loop of slow gup after the path switched.  That shouldn't be a
+>>>> problem because slow-gup should not be a hot path for GUP in general: when
+>>>> page is commonly present, fast-gup will already succeed, while when the
+>>>> page is indeed missing and require a follow up page fault, the slow gup
+>>>> degrade will probably buried in the fault paths anyway.  It also explains
+>>>> why slow gup for THP used to be very slow before 57edfcfd3419 ("mm/gup:
+>>>> accelerate thp gup even for "pages != NULL"") lands, the latter not part of
+>>>> a performance analysis but a side benefit.  If the performance will be a
+>>>> concern, we can consider handle CONT_PTE in follow_page().
+>>>>
+>>>> Before that is justified to be necessary, keep everything clean and simple.
+>>>>
+>>>> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+>>>> Signed-off-by: Peter Xu <peterx@redhat.com>
+>>>
+>>> Afraid I'm seeing an oops when running gup_longterm test on arm64 with current mm-unstable. Git bisect blames this patch. The oops reproduces for me every time on 2 different machines:
+>>>
+>>>
+>>> [    9.340416] kernel BUG at mm/gup.c:778!
+>>> [    9.340746] Internal error: Oops - BUG: 00000000f2000800 [#1] PREEMPT SMP
+>>> [    9.341199] Modules linked in:
+>>> [    9.341481] CPU: 1 PID: 1159 Comm: gup_longterm Not tainted 6.9.0-rc2-00210-g910ff1a347e4 #11
+>>> [    9.342232] Hardware name: linux,dummy-virt (DT)
+>>> [    9.342647] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>>> [    9.343195] pc : follow_page_mask+0x4d4/0x880
+>>> [    9.343580] lr : follow_page_mask+0x4d4/0x880
+>>> [    9.344018] sp : ffff8000898b3aa0
+>>> [    9.344345] x29: ffff8000898b3aa0 x28: fffffdffc53973e8 x27: 00003c0005d08000
+>>> [    9.345028] x26: ffff00014e5cfd08 x25: ffffd3513a40c000 x24: fffffdffc5d08000
+>>> [    9.345682] x23: ffffc1ffc0000000 x22: 0000000000080101 x21: ffff8000898b3ba8
+>>> [    9.346337] x20: 0000fffff4200000 x19: ffff00014e52d508 x18: 0000000000000010
+>>> [    9.347005] x17: 5f656e6f7a5f7369 x16: 2120262620296567 x15: 6170286461654865
+>>> [    9.347713] x14: 6761502128454741 x13: 2929656761702865 x12: 6761705f65636976
+>>> [    9.348371] x11: 65645f656e6f7a5f x10: ffffd3513b31d6e0 x9 : ffffd3513852f090
+>>> [    9.349062] x8 : 00000000ffffefff x7 : ffffd3513b31d6e0 x6 : 0000000000000000
+>>> [    9.349753] x5 : ffff00017ff98cc8 x4 : 0000000000000fff x3 : 0000000000000000
+>>> [    9.350397] x2 : 0000000000000000 x1 : ffff000190e8b480 x0 : 0000000000000052
+>>> [    9.351097] Call trace:
+>>> [    9.351312]  follow_page_mask+0x4d4/0x880
+>>> [    9.351700]  __get_user_pages+0xf4/0x3e8
+>>> [    9.352089]  __gup_longterm_locked+0x204/0xa70
+>>> [    9.352516]  pin_user_pages+0x88/0xc0
+>>> [    9.352873]  gup_test_ioctl+0x860/0xc40
+>>> [    9.353249]  __arm64_sys_ioctl+0xb0/0x100
+>>> [    9.353648]  invoke_syscall+0x50/0x128
+>>> [    9.354022]  el0_svc_common.constprop.0+0x48/0xf8
+>>> [    9.354488]  do_el0_svc+0x28/0x40
+>>> [    9.354822]  el0_svc+0x34/0xe0
+>>> [    9.355128]  el0t_64_sync_handler+0x13c/0x158
+>>> [    9.355489]  el0t_64_sync+0x190/0x198
+>>> [    9.355793] Code: aa1803e0 d000d8e1 91220021 97fff560 (d4210000)
+>>> [    9.356280] ---[ end trace 0000000000000000 ]---
+>>> [    9.356651] note: gup_longterm[1159] exited with irqs disabled
+>>> [    9.357141] note: gup_longterm[1159] exited with preempt_count 2
+>>> [    9.358033] ------------[ cut here ]------------
+>>> [    9.358800] WARNING: CPU: 1 PID: 0 at kernel/context_tracking.c:128 ct_kernel_exit.constprop.0+0x108/0x120
+>>> [    9.360157] Modules linked in:
+>>> [    9.360541] CPU: 1 PID: 0 Comm: swapper/1 Tainted: G      D            6.9.0-rc2-00210-g910ff1a347e4 #11
+>>> [    9.361626] Hardware name: linux,dummy-virt (DT)
+>>> [    9.362087] pstate: 204003c5 (nzCv DAIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>>> [    9.362758] pc : ct_kernel_exit.constprop.0+0x108/0x120
+>>> [    9.363306] lr : ct_idle_enter+0x10/0x20
+>>> [    9.363845] sp : ffff8000801abdc0
+>>> [    9.364222] x29: ffff8000801abdc0 x28: 0000000000000000 x27: 0000000000000000
+>>> [    9.364961] x26: 0000000000000000 x25: ffff00014149d780 x24: 0000000000000000
+>>> [    9.365557] x23: 0000000000000000 x22: ffffd3513b299d48 x21: ffffd3513a785730
+>>> [    9.366239] x20: ffffd3513b299c28 x19: ffff00017ffa7da0 x18: 0000fffff5ffffff
+>>> [    9.366869] x17: 0000000000000000 x16: 1fffe0002a21a8c1 x15: 0000000000000000
+>>> [    9.367524] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000002
+>>> [    9.368207] x11: 0000000000000001 x10: 0000000000000ad0 x9 : ffffd35138589230
+>>> [    9.369123] x8 : ffff00014149e2b0 x7 : 0000000000000000 x6 : 000000000f8c0fb2
+>>> [    9.370403] x5 : 4000000000000002 x4 : ffff2cb045825000 x3 : ffff8000801abdc0
+>>> [    9.371170] x2 : ffffd3513a782da0 x1 : 4000000000000000 x0 : ffffd3513a782da0
+>>> [    9.372279] Call trace:
+>>> [    9.372519]  ct_kernel_exit.constprop.0+0x108/0x120
+>>> [    9.373216]  ct_idle_enter+0x10/0x20
+>>> [    9.373562]  default_idle_call+0x3c/0x160
+>>> [    9.374055]  do_idle+0x21c/0x280
+>>> [    9.374394]  cpu_startup_entry+0x3c/0x50
+>>> [    9.374797]  secondary_start_kernel+0x140/0x168
+>>> [    9.375220]  __secondary_switched+0xb8/0xc0
+>>> [    9.375875] ---[ end trace 0000000000000000 ]---
+>>>
+>>>
 >>> The oops trigger is at mm/gup.c:778:
 >>> VM_BUG_ON_PAGE(!PageHead(page) && !is_zone_device_page(page), page);
+>>>
+>>>
+>>> This is the output of gup_longterm (last output is just before oops):
+>>>
+>>> # [INFO] detected hugetlb page size: 2048 KiB
+>>> # [INFO] detected hugetlb page size: 32768 KiB
+>>> # [INFO] detected hugetlb page size: 64 KiB
+>>> # [INFO] detected hugetlb page size: 1048576 KiB
+>>> TAP version 13
+>>> 1..70
+>>> # [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with memfd
+>>> ok 1 Should have worked
+>>> # [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with tmpfile
+>>> ok 2 Should have failed
+>>> # [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with local tmpfile
+>>> ok 3 Should have failed
+>>> # [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with memfd hugetlb (2048 kB)
+>>> ok 4 Should have worked
+>>> # [RUN] R/W longterm GUP pin in MAP_SHARED file mapping ... with memfd hugetlb (32768 kB)
+>>>
 >>>
 >>> So 2M passed ok, and its failing for 32M, which is cont-pmd. I'm guessing you're trying to iterate 2M into a cont-pmd folio and ending up with an unexpected tail page?
 >>
@@ -184,41 +225,113 @@ On 02.04.24 18:00, Matthew Wilcox wrote:
 >>
 >> Likely this sanity check must also allow for hugetlb folios. Or we should
 >> just remove it completely.
+> 
+> Right, IMHO it'll be easier we remove it, actually I see there's one more
+> at the end, so I think we need to remove both.
+> 
 >>
 >> In the past, we wanted to make sure that we never get tail pages of THP from
 >> PMD entries, because something would currently be broken (we don't support
 >> THP > PMD).
 > 
-> That was a practical limitation on my part.  We have various parts of
-> the MM which assume that pmd_page() returns a head page and until we
-> get all of those fixed, adding support for folios larger than PMD_SIZE
-> was only going to cause trouble for no significant wins.
+> There's probably one more thing we need to do, on allowing
+> PageAnonExclusive() to work with hugetlb tails. Even if we remove the
+> warnings and if I read the code right, we can BUG_ON again on checking tail
+> pages over anon-exclusive for PageHuge.
 > 
-> I agree with you we should get rid of this assertion entirely.  We should
-> fix all the places which assume that pmd_page() returns a head page,
-> but that may take some time.
-> 
-> As an example, filemap_map_pmd() has:
-> 
->         if (pmd_none(*vmf->pmd) && folio_test_pmd_mappable(folio)) {
->                  struct page *page = folio_file_page(folio, start);
->                  vm_fault_t ret = do_set_pmd(vmf, page);
-> 
-> and then do_set_pmd() has:
-> 
->          if (page != &folio->page || folio_order(folio) != HPAGE_PMD_ORDER)
->                  return ret;
-> 
-> so we'd simply refuse to use a PMD to map a folio larger than PMD_SIZE.
-> There's a lot of work to be done to make this work generally (not to
-> mention figuring out how to handle mapcount for such folios ;-).
+> So I assume to fix it completely, we may need two changes: Patch 1 to
+> prepare PageAnonExclusive() to work on hugetlb tails, then patch 2 to be
+> squashed into the patch "mm/gup: handle huge pmd for follow_pmd_mask()".
+> Note: not this patch to fixup, as this patch only does the "switchover" to
+> the new path, the culprit should be the other patch..
 
-Yes :)
+I'll leave you to do the testing on this, if that's ok.
 
--- 
-Cheers,
+Just to make my config explicit, I have this kernel command line, which reserves
+hugetlbs of all sizes for the tests:
 
-David / dhildenb
+"transparent_hugepage=madvise earlycon root=/dev/vda2 secretmem.enable
+hugepagesz=1G hugepages=0:2,1:2 hugepagesz=32M hugepages=0:2,1:2
+default_hugepagesz=2M hugepages=0:64,1:64 hugepagesz=64K hugepages=0:2,1:2"
+
+Thanks,
+Ryan
+
+> 
+> I have them attached below first, before I'll also go and see whether I can
+> run some arm tests later today or tomorrow.  David, any comments from
+> anon-exclusive side?
+> 
+> Thanks,
+> 
+> ===8<===
+> 
+> From 26f0670acea948945222c97a9cab58428782ca69 Mon Sep 17 00:00:00 2001
+> From: Peter Xu <peterx@redhat.com>
+> Date: Tue, 2 Apr 2024 11:52:28 -0400
+> Subject: [PATCH 1/2] mm: Allow anon exclusive check over hugetlb tail pages
+> 
+> PageAnonExclusive() used to forbid tail pages for hugetlbfs, as that used
+> to be called mostly in hugetlb specific paths and the head page was
+> guaranteed.
+> 
+> As we move forward towards merging hugetlb paths into generic mm, we may
+> start to pass in tail hugetlb pages (when with cont-pte/cont-pmd huge
+> pages) for such check.  Allow it to properly fetch the head, in which case
+> the anon-exclusiveness of the head will always represents the tail page.
+> 
+> There's already a sign of it when we look at the fast-gup which already
+> contain the hugetlb processing altogether: we used to have a specific
+> commit 5805192c7b72 ("mm/gup: handle cont-PTE hugetlb pages correctly in
+> gup_must_unshare() via GUP-fast") covering that area.  Now with this more
+> generic change, that can also go away.
+> 
+> Signed-off-by: Peter Xu <peterx@redhat.com>
+> ---
+>  include/linux/page-flags.h |  8 +++++++-
+>  mm/internal.h              | 10 ----------
+>  2 files changed, 7 insertions(+), 11 deletions(-)
+> 
+> diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+> index 888353c209c0..225357f48a79 100644
+> --- a/include/linux/page-flags.h
+> +++ b/include/linux/page-flags.h
+> @@ -1095,7 +1095,13 @@ PAGEFLAG(Isolated, isolated, PF_ANY);
+>  static __always_inline int PageAnonExclusive(const struct page *page)
+>  {
+>  	VM_BUG_ON_PGFLAGS(!PageAnon(page), page);
+> -	VM_BUG_ON_PGFLAGS(PageHuge(page) && !PageHead(page), page);
+> +	/*
+> +	 * Allow the anon-exclusive check to work on hugetlb tail pages.
+> +	 * Here hugetlb pages will always guarantee the anon-exclusiveness
+> +	 * of the head page represents the tail pages.
+> +	 */
+> +	if (PageHuge(page) && !PageHead(page))
+> +		page = compound_head(page);
+>  	return test_bit(PG_anon_exclusive, &PF_ANY(page, 1)->flags);
+>  }
+>  
+> diff --git a/mm/internal.h b/mm/internal.h
+> index 9512de7398d5..87f6e4fd56a5 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -1259,16 +1259,6 @@ static inline bool gup_must_unshare(struct vm_area_struct *vma,
+>  	if (IS_ENABLED(CONFIG_HAVE_FAST_GUP))
+>  		smp_rmb();
+>  
+> -	/*
+> -	 * During GUP-fast we might not get called on the head page for a
+> -	 * hugetlb page that is mapped using cont-PTE, because GUP-fast does
+> -	 * not work with the abstracted hugetlb PTEs that always point at the
+> -	 * head page. For hugetlb, PageAnonExclusive only applies on the head
+> -	 * page (as it cannot be partially COW-shared), so lookup the head page.
+> -	 */
+> -	if (unlikely(!PageHead(page) && PageHuge(page)))
+> -		page = compound_head(page);
+> -
+>  	/*
+>  	 * Note that PageKsm() pages cannot be exclusive, and consequently,
+>  	 * cannot get pinned.
 
 
 _______________________________________________
