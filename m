@@ -4,98 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CECCD1294
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 09:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FAECD128A
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 09:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oa9cDIpDax/yKTzMQfgKN3xjx86nTZZ1X0SE4uCUPZ4=; b=uZQ1d2g6s/aEVH
-	4bPijnKhZRAoR5JtnomKAcwtEOafxtFZnl2AW4vJNlIbXI5QRle6Qo91F27ayUsqIA964yAUtOTtW
-	97M3itZPsV39mnAVD8+4pBampyhpPoUbgCUI040CJNu1boJInRHM+M0F3DDyQDI73lM/P/gxtApZQ
-	wprLLQMpEt65771fW1NwwPEIu0VHrAyAJI5GGtVRxzEdZhoCwjn9dRZTNfBwhjARAENBuJ6em7JVE
-	jfFrB3tRxYo8brb2r1yyZqOOeFQ6Ct0MA7RsHEyLQ031615Fv0thjBFx0sDL8rJ0E6rGvELkkG82t
-	RqnI4MrnN6ooINmz3bBw==;
+	List-Owner; bh=xLR8R4M2OeACIL8xIUUHd++XhFU+XWNY94dS6ZvAUDw=; b=iwGaPraNjj5/Qk
+	7CDnnYa+E1LLtJhuUcBSL6/OIsG9k/g31gRdk1aBxGHV8F6PAP0OJZ2mTwTYwmJGALO9HxR05NZsH
+	oGB7DCYYPDSYmnHJDvxqgS1rYuG9YvMdHqcWU5MtyzXe5WrytRFe7XVP6d2+EWSTgu/Gs9jsNmsfO
+	gaD//uH6NRZkavnIMOVnfnaREc+zSQ0Y4xwPK5aCknbwhWMkrthQtfzxNG/bZzqjd2vb1hXGY8n44
+	lHSvJab8/NNlhM4bqddTQFYyzS10o6qyJeBLTRVKnGkZRNFjFi5oUh12Msw7dpIxVBLJ3RjFzXtx/
+	wEncfboblhnDpgrPw1vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrwmL-0000000FAY5-0gBQ;
-	Wed, 03 Apr 2024 09:19:33 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1rrxMf-0000000FKjC-3Fbh;
+	Wed, 03 Apr 2024 09:57:05 +0000
+Received: from mail-bjschn02on20715.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::715] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrvdE-0000000Ej5f-2TtU
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Apr 2024 08:06:11 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1e0411c0a52so51652095ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Apr 2024 01:06:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712131562; x=1712736362; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=08Ow0qzJAlLAfVOdK6hW39Nfp7LW+caK9DtQyZhdmmU=;
-        b=E0rmXj/QuULAtN9xBEWRUMXfy2U3vjkqn5buK1rMeJNoWEgSLTWyd7uY7BxEBANkdW
-         lC2n5vZoru5d0fZV6fiRu/i+ZxJ46eR5dMVN84E7sswj4qsMxv8G9UPyg9gzBO9Uvhvy
-         FWsZLBHwl8/67NjWJmKBeWiHr/5e2h+E4OeRYclmL4zJ3wQrAfwU211HGLOpFQ3T71H3
-         dbEW13shJQMn5jIKS3Y9OE0NBnBel6W8RpBhWi1jQ0OAA1/Tnl0Eul9LRa565/SURV63
-         /ZmetZkK+qIKv5UBkB6oEZETm1g5AxlRDS0sVcL0o76q3UnwX9LKcP+l19G7OOAT3ikO
-         SIRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712131562; x=1712736362;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=08Ow0qzJAlLAfVOdK6hW39Nfp7LW+caK9DtQyZhdmmU=;
-        b=mr9xnxLXJYFtTAcxrYVsPbLqnKXtVYeECPK2D2XkQCUub7zKlERU3AKERoSzupgpmr
-         vb1gFBRa0uQb0AvhYrIIioH+Hr4YxN8zUZYEoihofJ6yaqNxpzKrxQHU97V62PkaI8SI
-         bRiuhWxc52yXGSrnNo+op1dbv77UQ2j8yuUH697slanDM5/kZ8/gOyNNxwRGCn0Pm11D
-         V4W5oK5OpuIWuh474y4+pKRqmt5xmsQtjqPqX65R6DiioiKji1i/QyGzJRItwv0TD1PS
-         8W/IKpuIS8H5KuUK+Twqve1UGE+KDutfoFhuRa5veWK768p7y/Z1ea+Vlv/cZDlIuKkz
-         yQ/w==
-X-Forwarded-Encrypted: i=1; AJvYcCUByefNmiVLfeBaDFlnMmTKVOpIGJpiwpVe2ceDtQozHt7s2hTgBfVrJ3/GOPE8QjZX45jgmTk4wYisZbELahSgsfNXpVCqOSK6eMDxbqIh
-X-Gm-Message-State: AOJu0YzO+Jzov9W1D87OuT/KZeETSIiQfhMf+PTH/EYKJHB7ZZYSmfV6
-	3iTTFWsK11qe0X20S4MHrYj9bHXueI7Y8vIyOFiwrZccXxz0xNxDrDDZlZYoCTk=
-X-Google-Smtp-Source: AGHT+IE72ENkNXFbTzbhg6SzqOY0byxQCRn9OXM0YoFZNh+Y8OZZcNtpF6ZIM4eDWD3GUsrp+79BKw==
-X-Received: by 2002:a17:902:ea10:b0:1e0:e6b0:2364 with SMTP id s16-20020a170902ea1000b001e0e6b02364mr14335253plg.64.1712131562243;
-        Wed, 03 Apr 2024 01:06:02 -0700 (PDT)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id c12-20020a170902d48c00b001e0b5d49fc7sm12557229plg.161.2024.04.03.01.05.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Apr 2024 01:06:00 -0700 (PDT)
-From: Atish Patra <atishp@rivosinc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>,
-	Ajay Kaher <akaher@vmware.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Alexey Makhalov <amakhalov@vmware.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Juergen Gross <jgross@suse.com>,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Shuah Khan <shuah@kernel.org>,
-	virtualization@lists.linux.dev,
-	VMware PV-Drivers Reviewers <pv-drivers@vmware.com>,
-	Will Deacon <will@kernel.org>,
-	x86@kernel.org
-Subject: [PATCH v5 22/22] KVM: riscv: selftests: Add a test for counter overflow
-Date: Wed,  3 Apr 2024 01:04:51 -0700
-Message-Id: <20240403080452.1007601-23-atishp@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240403080452.1007601-1-atishp@rivosinc.com>
-References: <20240403080452.1007601-1-atishp@rivosinc.com>
+	id 1rrxMa-0000000FKhz-3FAa;
+	Wed, 03 Apr 2024 09:57:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=FWC2poT4m8NXmY2vCa85/aYdXZ9XSKZJY00odYa6eHa8JV+hsTofYoZEUZWPKyE9mcNUxhv/D8STwUveWzDqo7oKKqajXhj8YIdLz9k/q+9mpgBjNA5eT4tzHmIXQPpk9jds3+mz2x0ZcVj4pqGJyDZKfw4siNR7M1eO7CF3g5vfzonxfBQWDEgkiGxbSNKwEoIZxzeQLhKzyEzXviXdjqs5Ytf1Ic/iqvVKULkb4fIsHwdSsNLDqAoEpNJYYVb0o+RjfQCa3FJn6ff7kDrTr2i2uNNEmwKyROAdFkF7tWZ7hhWb3xCkuUCXJPim6+raZn2+2vfZf9KEvipytIKUXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ifgLHMBZOIsOrud7Jvo67XumXX5yby5YhTh8ciM/sLo=;
+ b=F3sd41xR54rSfkebB6IIrT9HMmjwSQZD3n/xa25WcpQgS5TTbkHDomMTR1pH0GqWugvYRHC2C2CvTGW5rbspI41UWcPUJYyjA8IkKW/G1RR1reON0kUsqBco1eSG7a/KHvn23hAmiTdbUYPN/pHjavdYX00SLGln/xsyyjKyxwu9rcxSmmxtAJA4gqniEQJU+EcJAcP4wo7j3q5j2HidVeZIrm71HpnORzQmc7Ndyx+e/co+i9ew6byNX1kZOhXJ1x64WSM8dUOzlA7gXEU/zPKpjiNfZRgVgXbqrvyhTGTuUa8mcUb4bkh7djg44C4N8iadBoaYEZvw2WUBIug+jA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:e::20) by BJSPR01MB0739.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:1e::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Wed, 3 Apr
+ 2024 09:56:39 +0000
+Received: from BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
+ ([fe80::d0cf:5e2e:fd40:4aef]) by
+ BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn ([fe80::d0cf:5e2e:fd40:4aef%4])
+ with mapi id 15.20.7409.042; Wed, 3 Apr 2024 09:56:39 +0000
+From: ChunHau Tan <chunhau.tan@starfivetech.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Emil Renner Berthing <kernel@esmil.dk>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, Simon Horman <horms@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Andrew Halaney
+	<ahalaney@redhat.com>, Jisheng Zhang <jszhang@kernel.org>,
+	=?iso-8859-1?Q?Uwe_Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>, Russell
+ King <rmk+kernel@armlinux.org.uk>, Leyfoon Tan
+	<leyfoon.tan@starfivetech.com>, JeeHeng Sia <jeeheng.sia@starfivetech.com>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-stm32@st-md-mailman.stormreply.com"
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH v5 1/1] dt-bindings: net: starfive,jh7110-dwmac: Add
+ StarFive JH8100 support
+Thread-Topic: [PATCH v5 1/1] dt-bindings: net: starfive,jh7110-dwmac: Add
+ StarFive JH8100 support
+Thread-Index: AQHaf+o3L6L178d32UuN78fdZx4qAbFLOCoAgAJoxwCACLlvoA==
+Date: Wed, 3 Apr 2024 09:56:39 +0000
+Message-ID: <BJSPR01MB059512332AE8549A340BDC5E9E3DA@BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn>
+References: <20240327015750.226349-1-chunhau.tan@starfivetech.com>
+ <20240327015750.226349-2-chunhau.tan@starfivetech.com>
+ <31ac366d-bfa6-4c99-a04d-ab9fb029da7e@linaro.org>
+ <20240328204202.GA308290-robh@kernel.org>
+In-Reply-To: <20240328204202.GA308290-robh@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BJSPR01MB0595:EE_|BJSPR01MB0739:EE_
+x-ms-office365-filtering-correlation-id: 43068e5c-8ad8-4113-5403-08dc53c45b7e
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 1PY91uaClo1IO0Wolz3C3AJxG2pcnQEdzI2F9RsIg3KzMVUQ4s8sx2XuOA7dNTe8MDKsZiglRneOzYUz8/QC9orGNaokYGTa6nOMe02/MBqTSO0JGZzCpv5UPkzGkBUr8Rc0N1vcZXCWpM37XxuyHssQcB37tZ0dYEaT4LoFP4w4qk686p9WJCJ6YA0oyMzUU9RQlfvXy26sEu8JTcaPPgC1uKrELsu3W/YKMp39P84c+/bOdz46b8lr/XlEN3MylIwRw8mzENnN6hGPmpC8b1gVygft+urwEnXaPqlnflD9xFDssZOr/U1VZa/SbHE2qBXDfwL/IdmdNuwE/eD32k6Pr87ECiG2vnWCiExYmcFXL+MkXJ5Q8G014Vk8BSahQ2TwfVJzRKcPHaWJTQ2eIv3wWZ+FhiW0/Eg5och2eWaLbe0lrss1roxU74c33sN3VeNNADuRpo4bDGNrnO5j23NTW2SNpPIMHrFJzSorv4DFyFjrzx68oXM3DShyH/jq+ity/Xil1qYTBiK7vIgNZFEq3/peOR0UFhuITd/3S+HIITjasDJd7QlDXHoDvbEKWkRHkDAAiFN0yaRAfwfaKP2dWoHq6QBWpIJd8dN7NMhptRixBPDRZdAUcVdUezVQ
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(366007)(41320700004)(1800799015)(7416005)(38070700009);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?o7HvMFLISCjX0cqwUy57qhVTQbY6hRo8MoTc+ki9hWdW/9gQMwUcD3m2bu?=
+ =?iso-8859-1?Q?rpdzmOoHwp7yLcbjzLFPs5OXAGG1lCEuOO3jTqwiw1N/HBO3QpIEkbCz7l?=
+ =?iso-8859-1?Q?SpMUDqCUV0ZCmmzXGeAOFob/CHxpXfO6MaQHFlLpirRpaQ1P6l50gRlNKc?=
+ =?iso-8859-1?Q?4Wuvq+cq7wnCh7Qlr5vncDo879dQxhKc78R7nTiCgW4BpeMMyBcJQGTZfH?=
+ =?iso-8859-1?Q?/jpbuGFJT/I+g9ROSvpa1loQN4KHAOvdI7p58xtPG94s8qxO2pQsfdhFuD?=
+ =?iso-8859-1?Q?o9i815+xzgWvfnR7XLDEJflCnosPjG7vrCt+OzpP1eJcxR4SVQX++5D7V3?=
+ =?iso-8859-1?Q?6WfdPhxyYw9pYCpvVYOGymDKjSqOepeogl2EqgWlPPVv9D15WkMoBRvjc/?=
+ =?iso-8859-1?Q?MajUDXob/IUKE+WJ0mrYtC1HNNQj4RFeMEOZYuU62VThUaZaX2ausamDy2?=
+ =?iso-8859-1?Q?D3iT6owKz670tWZ5bnQL8GVWZ45Od3QOaLITxwacS8c+9qD5vUjWUYGtI4?=
+ =?iso-8859-1?Q?eKk5x/7ZnQjQzAOLtCeWYAWgFnxAVtVulSp4BDrY+autH6SqNZqirG28xt?=
+ =?iso-8859-1?Q?M1i8w70xYLYlq+OxfKqNv/IxOV+XRhFeGCRo9WthOD5BqcOtExtmQqA9ev?=
+ =?iso-8859-1?Q?Ei1PVoyCk/d7FyO/2HfsopQzOqheQ8J3Gthx57hbLh9z5JzjpFeXOuPTbY?=
+ =?iso-8859-1?Q?gh+u/ed/X0yJDLxs+HbB4/io4t0crMtJprj3ZD4ZC8WgVIYMTqmUS7u4R2?=
+ =?iso-8859-1?Q?9C7pnnmmbOA2O1BqUEeGQChd85Q9So03znWB7fa7dHb6ZXE2kRiEt8/Tby?=
+ =?iso-8859-1?Q?zYJ9948MFTtzffmc3vrGA+JzhtosWfN/DGTYURG6b+xV0FFgBStd8HdRT9?=
+ =?iso-8859-1?Q?AQuf0dRTrHICpTIFkHS7IsuuiIGZmgrz4swyiTBm/W92ijLSEB+kcxDnIF?=
+ =?iso-8859-1?Q?frA0I2bhCb3VUt2eJqSnRvlT/SX9ro4eG1s0VNxlLi7+HoOGy16B1/mJDz?=
+ =?iso-8859-1?Q?MRA2DACxKo5dOk85HOX5/3kJCz6jPfXudmUa5HwoHOuXoJeUfpjvs52g4G?=
+ =?iso-8859-1?Q?nmY55WoLLsWXWu69iM55w2yW9WDCaNy0b1oBTeaRoj57rNFlNUF7QZ5vFZ?=
+ =?iso-8859-1?Q?u+822XrRic6hhI2rs8cAQ61fP/HukHEq3nuVCKcp5IVgoqlQ/Jj2VVq3JV?=
+ =?iso-8859-1?Q?g+fbd70k5/txRp+AuiR3GXuU88/L1i9RUaCCuYxTnGOAIYE0VJWnPFLhXg?=
+ =?iso-8859-1?Q?E/e5gYuKrSu4qwQ10hGaZ6VogyWwEFgElkIW5IfWC+6sM/NEzhdm46HJYN?=
+ =?iso-8859-1?Q?GUwzLJtptJ/m6q1s8fbW349LwNe1KpsR6tRZJQGrfGGWh1d1GXPSNaXAiJ?=
+ =?iso-8859-1?Q?PSxvYPwJYUP+drn5qtFyrY6T9gCgBaHc+6Tk0JI10RAnX5MldRbFhaZinQ?=
+ =?iso-8859-1?Q?VInae9mExQU1e1ha6XbWVo/r4iDfbmwg0QznYHzGXtwvIEnL5rzKZ098EJ?=
+ =?iso-8859-1?Q?VYf9P6t+64c1b+tNtSbbKjny+cKjL2wEaSkOTCPqfMK7ZoCcL0pBSXTJxk?=
+ =?iso-8859-1?Q?XAUrsO5xp8PgGAZwiXFA5XbaxbpaSWQ748FdXUT3LG5U2OAd0qFgvm5Avh?=
+ =?iso-8859-1?Q?4zQ0xGBZXFNtSjue2aBhxXEISv/vz5JRx+0nFSf39wQHwuMaZiZ0YStg?=
+ =?iso-8859-1?Q?=3D=3D?=
 MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BJSPR01MB0595.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 43068e5c-8ad8-4113-5403-08dc53c45b7e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Apr 2024 09:56:39.2977
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: grOUmTuN0O0TXQ5jyd81BcUd/YfuxqNR4uq8dQztyvzzYRHw21v65FwsRt3wwbkKqJBNXq4zRyozG1ayTUIxLhthqh+i7sgU2jCDDUoUQYM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJSPR01MB0739
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240403_010605_301052_AA17147D 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20240403_025702_041890_64D56AF6 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,193 +148,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a test for verifying overflow interrupt. Currently, it relies on
-overflow support on cycle/instret events. This test works for cycle/
-instret events which support sampling via hpmcounters on the platform.
-There are no ISA extensions to detect if a platform supports that. Thus,
-this test will fail on platform with virtualization but doesn't
-support overflow on these two events.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- .../selftests/kvm/riscv/sbi_pmu_test.c        | 114 ++++++++++++++++++
- 1 file changed, 114 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-index 7d195be5c3d9..451db956b885 100644
---- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-+++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-@@ -14,6 +14,7 @@
- #include "test_util.h"
- #include "processor.h"
- #include "sbi.h"
-+#include "arch_timer.h"
- 
- /* Maximum counters(firmware + hardware) */
- #define RISCV_MAX_PMU_COUNTERS 64
-@@ -24,6 +25,9 @@ union sbi_pmu_ctr_info ctrinfo_arr[RISCV_MAX_PMU_COUNTERS];
- static void *snapshot_gva;
- static vm_paddr_t snapshot_gpa;
- 
-+static int vcpu_shared_irq_count;
-+static int counter_in_use;
-+
- /* Cache the available counters in a bitmask */
- static unsigned long counter_mask_available;
- 
-@@ -117,6 +121,31 @@ static void guest_illegal_exception_handler(struct ex_regs *regs)
- 	regs->epc += 4;
- }
- 
-+static void guest_irq_handler(struct ex_regs *regs)
-+{
-+	unsigned int irq_num = regs->cause & ~CAUSE_IRQ_FLAG;
-+	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
-+	unsigned long overflown_mask;
-+	unsigned long counter_val = 0;
-+
-+	/* Validate that we are in the correct irq handler */
-+	GUEST_ASSERT_EQ(irq_num, IRQ_PMU_OVF);
-+
-+	/* Stop all counters first to avoid further interrupts */
-+	stop_counter(counter_in_use, SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT);
-+
-+	csr_clear(CSR_SIP, BIT(IRQ_PMU_OVF));
-+
-+	overflown_mask = READ_ONCE(snapshot_data->ctr_overflow_mask);
-+	GUEST_ASSERT(overflown_mask & 0x01);
-+
-+	WRITE_ONCE(vcpu_shared_irq_count, vcpu_shared_irq_count+1);
-+
-+	counter_val = READ_ONCE(snapshot_data->ctr_values[0]);
-+	/* Now start the counter to mimick the real driver behavior */
-+	start_counter(counter_in_use, SBI_PMU_START_FLAG_SET_INIT_VALUE, counter_val);
-+}
-+
- static unsigned long get_counter_index(unsigned long cbase, unsigned long cmask,
- 				       unsigned long cflags,
- 				       unsigned long event)
-@@ -276,6 +305,33 @@ static void test_pmu_event_snapshot(unsigned long event)
- 	stop_reset_counter(counter, 0);
- }
- 
-+static void test_pmu_event_overflow(unsigned long event)
-+{
-+	unsigned long counter;
-+	unsigned long counter_value_post;
-+	unsigned long counter_init_value = ULONG_MAX - 10000;
-+	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
-+
-+	counter = get_counter_index(0, counter_mask_available, 0, event);
-+	counter_in_use = counter;
-+
-+	/* The counter value is updated w.r.t relative index of cbase passed to start/stop */
-+	WRITE_ONCE(snapshot_data->ctr_values[0], counter_init_value);
-+	start_counter(counter, SBI_PMU_START_FLAG_INIT_SNAPSHOT, 0);
-+	dummy_func_loop(10000);
-+	udelay(msecs_to_usecs(2000));
-+	/* irq handler should have stopped the counter */
-+	stop_counter(counter, SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT);
-+
-+	counter_value_post = READ_ONCE(snapshot_data->ctr_values[0]);
-+	/* The counter value after stopping should be less the init value due to overflow */
-+	__GUEST_ASSERT(counter_value_post < counter_init_value,
-+		       "counter_value_post %lx counter_init_value %lx for counter\n",
-+		       counter_value_post, counter_init_value);
-+
-+	stop_reset_counter(counter, 0);
-+}
-+
- static void test_invalid_event(void)
- {
- 	struct sbiret ret;
-@@ -366,6 +422,34 @@ static void test_pmu_events_snaphost(void)
- 	GUEST_DONE();
- }
- 
-+static void test_pmu_events_overflow(void)
-+{
-+	int num_counters = 0;
-+
-+	/* Verify presence of SBI PMU and minimum requrired SBI version */
-+	verify_sbi_requirement_assert();
-+
-+	snapshot_set_shmem(snapshot_gpa, 0);
-+	csr_set(CSR_IE, BIT(IRQ_PMU_OVF));
-+	local_irq_enable();
-+
-+	/* Get the counter details */
-+	num_counters = get_num_counters();
-+	update_counter_info(num_counters);
-+
-+	/*
-+	 * Qemu supports overflow for cycle/instruction.
-+	 * This test may fail on any platform that do not support overflow for these two events.
-+	 */
-+	test_pmu_event_overflow(SBI_PMU_HW_CPU_CYCLES);
-+	GUEST_ASSERT_EQ(vcpu_shared_irq_count, 1);
-+
-+	test_pmu_event_overflow(SBI_PMU_HW_INSTRUCTIONS);
-+	GUEST_ASSERT_EQ(vcpu_shared_irq_count, 2);
-+
-+	GUEST_DONE();
-+}
-+
- static void run_vcpu(struct kvm_vcpu *vcpu)
- {
- 	struct ucall uc;
-@@ -451,6 +535,33 @@ static void test_vm_events_snapshot_test(void *guest_code)
- 	test_vm_destroy(vm);
- }
- 
-+static void test_vm_events_overflow(void *guest_code)
-+{
-+	struct kvm_vm *vm = NULL;
-+	struct kvm_vcpu *vcpu;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-+	__TEST_REQUIRE(__vcpu_has_sbi_ext(vcpu, KVM_RISCV_SBI_EXT_PMU),
-+				   "SBI PMU not available, skipping test");
-+
-+	__TEST_REQUIRE(__vcpu_has_isa_ext(vcpu, KVM_RISCV_ISA_EXT_SSCOFPMF),
-+				   "Sscofpmf is not available, skipping overflow test");
-+
-+
-+	test_vm_setup_snapshot_mem(vm, vcpu);
-+	vm_init_vector_tables(vm);
-+	vm_install_interrupt_handler(vm, guest_irq_handler);
-+
-+	vcpu_init_vector_tables(vcpu);
-+	/* Initialize guest timer frequency. */
-+	vcpu_get_reg(vcpu, RISCV_TIMER_REG(frequency), &timer_freq);
-+	sync_global_to_guest(vm, timer_freq);
-+
-+	run_vcpu(vcpu);
-+
-+	test_vm_destroy(vm);
-+}
-+
- int main(void)
- {
- 	pr_info("SBI PMU basic test : starting\n");
-@@ -463,5 +574,8 @@ int main(void)
- 	test_vm_events_snapshot_test(test_pmu_events_snaphost);
- 	pr_info("SBI PMU event verification with snapshot test : PASS\n");
- 
-+	test_vm_events_overflow(test_pmu_events_overflow);
-+	pr_info("SBI PMU event verification with overflow test : PASS\n");
-+
- 	return 0;
- }
--- 
-2.34.1
+> -----Original Message-----
+> From: Rob Herring <robh@kernel.org>
+> Sent: Friday, 29 March, 2024 4:42 AM
+> To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Cc: ChunHau Tan <chunhau.tan@starfivetech.com>; David S . Miller
+> <davem@davemloft.net>; Eric Dumazet <edumazet@google.com>; Jakub
+> Kicinski <kuba@kernel.org>; Paolo Abeni <pabeni@redhat.com>; Emil Renner
+> Berthing <kernel@esmil.dk>; Krzysztof Kozlowski
+> <krzysztof.kozlowski+dt@linaro.org>; Conor Dooley <conor+dt@kernel.org>;
+> Maxime Coquelin <mcoquelin.stm32@gmail.com>; Alexandre Torgue
+> <alexandre.torgue@foss.st.com>; Simon Horman <horms@kernel.org>; Bartosz
+> Golaszewski <bartosz.golaszewski@linaro.org>; Andrew Halaney
+> <ahalaney@redhat.com>; Jisheng Zhang <jszhang@kernel.org>; Uwe
+> Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>; Russell King
+> <rmk+kernel@armlinux.org.uk>; Leyfoon Tan <leyfoon.tan@starfivetech.com>;
+> JeeHeng Sia <jeeheng.sia@starfivetech.com>; netdev@vger.kernel.org;
+> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org;
+> linux-stm32@st-md-mailman.stormreply.com;
+> linux-arm-kernel@lists.infradead.org; linux-riscv@lists.infradead.org
+> Subject: Re: [PATCH v5 1/1] dt-bindings: net: starfive,jh7110-dwmac: Add
+> StarFive JH8100 support
+> =
 
+> On Wed, Mar 27, 2024 at 08:54:30AM +0100, Krzysztof Kozlowski wrote:
+> > On 27/03/2024 02:57, Tan Chun Hau wrote:
+> > > Add StarFive JH8100 dwmac support.
+> > > The JH8100 dwmac shares the same driver code as the JH7110 dwmac and
+> > > has only one reset signal.
+> > >
+> > > Please refer to below:
+> > >
+> > >   JH8100: reset-names =3D "stmmaceth";
+> > >   JH7110: reset-names =3D "stmmaceth", "ahb";
+> > >   JH7100: reset-names =3D "ahb";
+> > >
+> > > Example usage of JH8100 in the device tree:
+> > >
+> > > gmac0: ethernet@16030000 {
+> > >         compatible =3D "starfive,jh8100-dwmac",
+> > >                      "starfive,jh7110-dwmac",
+> > >                      "snps,dwmac-5.20";
+> > >         ...
+> > > };
+> > >
+> > > Signed-off-by: Tan Chun Hau <chunhau.tan@starfivetech.com>
+> > > ---
+> > >  .../devicetree/bindings/net/snps,dwmac.yaml   |  1 +
+> > >  .../bindings/net/starfive,jh7110-dwmac.yaml   | 29 +++++++++++++++--=
+--
+> > >  2 files changed, 25 insertions(+), 5 deletions(-)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > index 6b0341a8e0ea..a6d596b7dcf4 100644
+> > > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > @@ -97,6 +97,7 @@ properties:
+> > >          - snps,dwxgmac-2.10
+> > >          - starfive,jh7100-dwmac
+> > >          - starfive,jh7110-dwmac
+> > > +        - starfive,jh8100-dwmac
+> >
+> > I think that's not needed. You have there already your fallback.
+
+Okay, I will remove it.
+
+> >
+> > >
+> > >    reg:
+> > >      minItems: 1
+> > > diff --git
+> > > a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+> > > b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+> > > index 0d1962980f57..5805a58c55d1 100644
+> > > ---
+> > > a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+> > > +++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.ya
+> > > +++ ml
+> > > @@ -18,6 +18,7 @@ select:
+> > >          enum:
+> > >            - starfive,jh7100-dwmac
+> > >            - starfive,jh7110-dwmac
+> > > +          - starfive,jh8100-dwmac
+> >
+> > Same here, even more obvious.
+> =
+
+> Agreed.
+
+Okay, I will remove it.
+> =
+
+> >
+> > >    required:
+> > >      - compatible
+> > >
+> > > @@ -30,6 +31,10 @@ properties:
+> > >        - items:
+> > >            - const: starfive,jh7110-dwmac
+> > >            - const: snps,dwmac-5.20
+> > > +      - items:
+> > > +          - const: starfive,jh8100-dwmac
+> > > +          - const: starfive,jh7110-dwmac
+> > > +          - const: snps,dwmac-5.20
+> > >
+> > >    reg:
+> > >      maxItems: 1
+> > > @@ -116,11 +121,25 @@ allOf:
+> > >            minItems: 3
+> > >            maxItems: 3
+> > >
+> > > -        resets:
+> > > -          minItems: 2
+> > > -
+> > > -        reset-names:
+> > > -          minItems: 2
+> > > +      if:
+> >
+> > I would personally avoid nesting if within if. It gets unreadable.
+> > Although Rob did not comment on this one, so I guess it is fine.
+> =
+
+> I normally agree, but here I suggested it as it looked to be the simplest=
+ option.
+> =
+
+> With the 2 other comments addressed,
+> =
+
+> Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
