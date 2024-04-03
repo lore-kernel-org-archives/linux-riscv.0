@@ -4,90 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C60CD1288
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 23:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0584DCD128A
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 23:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gb+OB5bbRwddQfCw9t6khYuMjwyK+oCxJEWeJoOR/I8=; b=VQvm01XOw/jmIt
-	rGqQQlRd/2ZZl/VCzWcGpfGZ2SFydHhhmTRrvF6ZaN7eQ98YTEHIe1u+K2WysQ2RPZ3mOkgk12KPS
-	CFFWW90s+26ABtonFGw6TZnjC6X3rLScBjXqTLvepZ58R+rfNv3wUGaq2LOf2zeumT9JDoEQUI2Oc
-	tTGlNWDdpzQnFlSKCr/+fxkaaNoWJq8f83gN/c/7Pv8PLvCGR7mcjOrEAwWUA0fWh5AQQyW27xcl/
-	rntaim71MeSjST0IXwwJFUJIIBldOi2FZ0Ff87gRngZwHGP7nEAHrC1Csnaqcmvkj8+0B93D+pgGU
-	yQ/AJWnRMW5byTaXh6YA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3XCX2L9RfoYmuRCOTdWTomL215X2whejkOcOLpWwVBA=; b=LBqIOmZ6pY8ypm
+	CPexK0UfoZsXmNEzcMc72Ebz0Wn9DzPL1YIVJkuViFOOnxaqvlmVTKdh5v8S+yGTHwq1hsvvI2nHy
+	dx87S7kF9hgfmxyPM5eH43I0XhAtRfi8uwCdCSsqtBblXmEbGs99K9NjIMFvpdYVbdHuP7mtvd92t
+	4AxJQxsIKfx/DJbybrUsmdkAh9HS5ET04arY9F18ZoVqK3E2uSAWR8iRFye9inu9U+aE2IIAxXmwN
+	obZn3v5afDh87BUQTcdW+3DGrHGWHdoRd5jYFtqSKCIIxqN8utlFUrJlaHTHhFZJl+r/wf/2JnWYh
+	xAQSgLd+fIFr2wn7Vh8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsANX-00000000ew9-0xDo;
-	Wed, 03 Apr 2024 23:50:51 +0000
-Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
+	id 1rsASx-00000000fvu-2slG;
+	Wed, 03 Apr 2024 23:56:27 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsANT-00000000esu-19et
+	id 1rsASu-00000000fuo-1wKu
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Apr 2024 23:50:50 +0000
-Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-229b7ada9e8so236243fac.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Apr 2024 16:50:45 -0700 (PDT)
+	Wed, 03 Apr 2024 23:56:26 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-430dcd64e58so2533981cf.0
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Apr 2024 16:56:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712188245; x=1712793045; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BjQ9DxTSZlVH9DP6dgs1HodUGsGtzbmnUpujjVOtQj8=;
-        b=jSoDbGdhvnfRh2avdsVZqYuvguN+SsYhpTPFRr0gFW+XcEWp+Y2hPreIfm9IFIZFZn
-         ubgWL6r91Bm0/vY25Saxd3ljdBdPLoaBa34fw/9ATx47kgOBSmrkjUmVVXxVjWUqbCOG
-         0AKY6R/pG4BeAysYhdYI0HTc18/PYrtXfubc4CfARDrLqXXlYDbmpKNFBPI0ehMJ08XI
-         F2ZbTW1ihcQ5o7868SvkGnrzlB/Ww4kYxyt+aZygksUH38cVyXaAZ8Z/jxXMHgBc/u8X
-         UCxYPTCeqUoVO7AdZ+l9StSQC1C7vZrn3ogqVL08OECpPwRDB3m4BcCxgilSzKvbhqmv
-         KG9g==
+        d=soleen-com.20230601.gappssmtp.com; s=20230601; t=1712188583; x=1712793383; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gtx6JsGuIZN4xE5atG77jiNDItUL3W3itZ8d1wNeS+8=;
+        b=i1yisq5um5HD5yvNvTVL4rEviPLFpyWahkOgIRyeRKR7lV8Mma9Df5NqmwQe70Vwt9
+         aG2AF8TfjHZ3EJnNJnaBdV3GsYP9rPvJbK+WX5d7AB+iVuOrmZKqBwOK0+GvA5AYrAfV
+         fdC2F5KJx1lgyrHoOquJ3PD1+98tNTrul43xhP+ofUGJ/SCNOaFfRTBvJkPkwcGMUneV
+         3eBIYa9CDq+mS32e8RmYF6XYL4KjHBuMPIkbAvx1gB3k2pv20NnDA4MbEBPZOW/cQfVs
+         yw8zQ7kxLV8Qw650dVPIRflECZbbC4z+9cKidhLaTHbVP2qCeKl9W/7nayigmvb3Inck
+         JeLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712188245; x=1712793045;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BjQ9DxTSZlVH9DP6dgs1HodUGsGtzbmnUpujjVOtQj8=;
-        b=e0KlSFgqC9TNRNnB6J4BKADU/EADo5qXSpCjeMCMLHufX8p/Rm4rgbII0809MvsmZb
-         2i5JeXcxssL3Vwr55tj//unQlOA2DTeb3egoWe0EjzzK7zJUHaT0RJbdqxzVgRaJh0Yb
-         LjjIDEa5tzDCwEhXno5htkl4IQTtMNQ6zdNw+bYMEc/WgOdMaP/LC7poPGzCa0NgN63J
-         AllO0qJfNezKfaXwOgsqmDvMacyt4A36jElOBBWQWdOyJ2er+S2saCdrrN2sB+7eBHFw
-         Ldw9ESw7Mqf5i4DJjTWIaqlm2rmyWHGOlXxhpt7ldNPagv38zdjiSXeipg8SIU8YT+eO
-         0tZw==
-X-Forwarded-Encrypted: i=1; AJvYcCVMYNkqyqN87z14qBx0RoHaCbGDfFXHRcr2Vo1WTJOMhhYRUMDaNHP3D1onNgeG4w2ZV8Y4QhysIyhURWmY5vBA3v+3a34RMw6LqdHQwKZ4
-X-Gm-Message-State: AOJu0YzNZS14ir8Uffj91GU3LzIf363qjvXPfDJ0nsYlSuLzNW/ka/V/
-	8sKyBWZKAA6c+io71XBh9OKaBUZyduU6mXfcBi7XrZXJF8aeI5s4He6zgJpiqRo=
-X-Google-Smtp-Source: AGHT+IHjAXx1a8Huhn/8CyAzHYhBZMJfUNiw7lEDFVuWqXwpbQSe+8i7659rtws4stx/ns6wvAQ1rQ==
-X-Received: by 2002:a05:6870:f113:b0:22e:8954:79e0 with SMTP id k19-20020a056870f11300b0022e895479e0mr910730oac.27.1712188244889;
-        Wed, 03 Apr 2024 16:50:44 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id fk23-20020a056a003a9700b006eac2c1187esm12396470pfb.69.2024.04.03.16.50.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Apr 2024 16:50:44 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 03 Apr 2024 16:50:29 -0700
-Subject: [PATCH] riscv: selftests: Add signal handling vector tests
+        d=1e100.net; s=20230601; t=1712188583; x=1712793383;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gtx6JsGuIZN4xE5atG77jiNDItUL3W3itZ8d1wNeS+8=;
+        b=cJdm4rQ6QtiHP5ASucNHQHvKasVshqv/T5UMH1oo3MZm5zXOe5c8GtedCctRW/MNQR
+         WUIR9JjnBqpb5ZrV3ukSivTbe6+BKBUTOZVrCQHX1HI+2LBwFpKLDnK1AJSve2C0xJtZ
+         y186Zm38b0584j4yCdvJCLoKPxoJ9ph8NsTzR4QPU9E7Lr5TE/b0kxjBOXqI4eCHhJUy
+         s09zvHhKfv2ZCmq6q1Nt1QnuMNR3TNd28sji6j8MNStQ8L3SiVYpftoAVS0q2vsDYy1i
+         gSOcCeCFLSCk0pyBRoBE48KWNqvzK/msIrQytxeWGdMoEhDY0J2tOrX2vTcD5Qa7NSoa
+         gG1w==
+X-Forwarded-Encrypted: i=1; AJvYcCUuK0JE1nIE3lgQaml8oqGHjXbCn2/nS0NwMQTg4rW1OUWKAYNnaUX8AzPSeUPiSiuL85uQcWbuouKm6O7XhcPe7bj4XbS1ZAck6/4heDrV
+X-Gm-Message-State: AOJu0Yydp5e1Ph464Ppc5HvTToooEaLcqPIdQEvc6QRnkW94YAZQjPog
+	6IMJpVZ56+uh2fF6OsfrVJ0FxC0xgGGstvwwHMqB0DKuLlljTQlwRQnd/Hx3EsCjAq7EB/MgpFy
+	nNUnE56z0gYd48knl+/o6q8h0SDSDvXJRr9dwdw==
+X-Google-Smtp-Source: AGHT+IFslM4TSQsZdneQcISvGVahDbSVOm65t2d3Bvync+fdqoeoqMKc9B2c1QZr1TF8qlqSyaKDNh1QY8WU0aCtyXE=
+X-Received: by 2002:ac8:5786:0:b0:431:82d5:13d5 with SMTP id
+ v6-20020ac85786000000b0043182d513d5mr836197qta.9.1712188582732; Wed, 03 Apr
+ 2024 16:56:22 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20240403-vector_sigreturn_tests-v1-1-2e68b7a3b8d7@rivosinc.com>
-X-B4-Tracking: v=1; b=H4sIAETrDWYC/x3MQQqAIBBA0avErBO0DKSrRITYaLOxmLEIorsnL
- d/i/wcEmVBgbB5gvEhozxWmbSBsPidUtFZDpzurre7VhaHsvAglxnJyXgpKEeWMcVH7MNjoocY
- HY6T7H0/z+358AMhUaAAAAA==
-To: Shuah Khan <shuah@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Andy Chiu <andy.chiu@sifive.com>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
- Vineet Gupta <vineetg@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- linux-riscv@lists.infradead.org, Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1712188243; l=4622;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=sjml5nKV165rpXbyrONuqdwpWxVpnj1/2NP5/i0pID8=;
- b=4iFK/GfVcZesnDl+zdr6iD0IGvm4qzOpnkoVTbipLNsG58jc957MZltjGAdMn1mOnR5S7NYNa
- vRE76Q28UMqADC3o7OVdl/8bmddTFGw77o8lQqW12vEowRDKKO0WIxs
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
+References: <20240402051154.476244-1-rmclure@linux.ibm.com> <20240402051154.476244-9-rmclure@linux.ibm.com>
+In-Reply-To: <20240402051154.476244-9-rmclure@linux.ibm.com>
+From: Pasha Tatashin <pasha.tatashin@soleen.com>
+Date: Wed, 3 Apr 2024 19:55:45 -0400
+Message-ID: <CA+CK2bCgLrre3JYYz4MyMu+g9Zzvqnwaxd_xm0X=ORG5wkeD6w@mail.gmail.com>
+Subject: Re: [PATCH v12 08/11] powerpc: mm: Add pud_pfn() stub
+To: Rohan McLure <rmclure@linux.ibm.com>
+Cc: linuxppc-dev@lists.ozlabs.org, mpe@ellerman.id.au, 
+	christophe.leroy@csgroup.eu, linux-mm@kvack.org, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240403_165047_473405_9F5FC8D0 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20240403_165624_524936_847A8B1B 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,164 +88,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add two tests to check vector save/restore when a signal is received
-during a vector routine. One test ensures that a value is not clobbered
-during signal handling. The other verifies that vector registers
-modified in the signal handler are properly reflected when the signal
-handling is complete.
-
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
-These tests came about to highlight the bug fixed in
-https://lore.kernel.org/lkml/20240403072638.567446-1-bjorn@kernel.org/
-and will only pass with that fix applied.
----
- tools/testing/selftests/riscv/Makefile             |  2 +-
- tools/testing/selftests/riscv/sigreturn/.gitignore |  1 +
- tools/testing/selftests/riscv/sigreturn/Makefile   | 12 ++++
- .../testing/selftests/riscv/sigreturn/sigreturn.c  | 82 ++++++++++++++++++++++
- 4 files changed, 96 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
-index 4a9ff515a3a0..7ce03d832b64 100644
---- a/tools/testing/selftests/riscv/Makefile
-+++ b/tools/testing/selftests/riscv/Makefile
-@@ -5,7 +5,7 @@
- ARCH ?= $(shell uname -m 2>/dev/null || echo not)
- 
- ifneq (,$(filter $(ARCH),riscv))
--RISCV_SUBTARGETS ?= hwprobe vector mm
-+RISCV_SUBTARGETS ?= hwprobe vector mm sigreturn
- else
- RISCV_SUBTARGETS :=
- endif
-diff --git a/tools/testing/selftests/riscv/sigreturn/.gitignore b/tools/testing/selftests/riscv/sigreturn/.gitignore
-new file mode 100644
-index 000000000000..35002b8ae780
---- /dev/null
-+++ b/tools/testing/selftests/riscv/sigreturn/.gitignore
-@@ -0,0 +1 @@
-+sigreturn
-diff --git a/tools/testing/selftests/riscv/sigreturn/Makefile b/tools/testing/selftests/riscv/sigreturn/Makefile
-new file mode 100644
-index 000000000000..eb8bac9279a8
---- /dev/null
-+++ b/tools/testing/selftests/riscv/sigreturn/Makefile
-@@ -0,0 +1,12 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# Copyright (C) 2021 ARM Limited
-+# Originally tools/testing/arm64/abi/Makefile
-+
-+CFLAGS += -I$(top_srcdir)/tools/include
-+
-+TEST_GEN_PROGS := sigreturn
-+
-+include ../../lib.mk
-+
-+$(OUTPUT)/sigreturn: sigreturn.c
-+	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
-diff --git a/tools/testing/selftests/riscv/sigreturn/sigreturn.c b/tools/testing/selftests/riscv/sigreturn/sigreturn.c
-new file mode 100644
-index 000000000000..62397d5934f1
---- /dev/null
-+++ b/tools/testing/selftests/riscv/sigreturn/sigreturn.c
-@@ -0,0 +1,82 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <signal.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <ucontext.h>
-+#include <linux/ptrace.h>
-+#include "../../kselftest_harness.h"
-+
-+#define RISCV_V_MAGIC		0x53465457
-+#define DEFAULT_VALUE		2
-+#define SIGNAL_HANDLER_OVERRIDE	3
-+
-+static void simple_handle(int sig_no, siginfo_t *info, void *vcontext)
-+{
-+	ucontext_t *context = vcontext;
-+
-+	context->uc_mcontext.__gregs[REG_PC] = context->uc_mcontext.__gregs[REG_PC] + 4;
-+}
-+
-+static void vector_override(int sig_no, siginfo_t *info, void *vcontext)
-+{
-+	ucontext_t *context = vcontext;
-+
-+	// vector state
-+	struct __riscv_extra_ext_header *ext;
-+	struct __riscv_v_ext_state *v_ext_state;
-+
-+	/* Find the vector context. */
-+	ext = (void *)(&context->uc_mcontext.__fpregs);
-+	if (ext->hdr.magic != RISCV_V_MAGIC) {
-+		fprintf(stderr, "bad vector magic: %x\n", ext->hdr.magic);
-+		abort();
-+	}
-+
-+	v_ext_state = (void *)((char *)(ext) + sizeof(*ext));
-+
-+	*(int *)v_ext_state->datap = SIGNAL_HANDLER_OVERRIDE;
-+
-+	context->uc_mcontext.__gregs[REG_PC] = context->uc_mcontext.__gregs[REG_PC] + 4;
-+}
-+
-+static int vector_sigreturn(int data, void (*handler)(int, siginfo_t *, void *))
-+{
-+	int after_sigreturn;
-+	struct sigaction sig_action = {
-+		.sa_sigaction = handler,
-+		.sa_flags = SA_SIGINFO
-+	};
-+
-+	sigaction(SIGSEGV, &sig_action, 0);
-+
-+	asm(".option push				\n\
-+		.option		arch, +v		\n\
-+		vsetivli	x0, 1, e32, ta, ma	\n\
-+		vmv.s.x		v0, %1			\n\
-+		# Generate SIGSEGV			\n\
-+		lw		a0, 0(x0)		\n\
-+		vmv.x.s		%0, v0			\n\
-+		.option pop" : "=r" (after_sigreturn) : "r" (data));
-+
-+	return after_sigreturn;
-+}
-+
-+TEST(vector_restore)
-+{
-+	int result;
-+
-+	result = vector_sigreturn(DEFAULT_VALUE, &simple_handle);
-+
-+	EXPECT_EQ(DEFAULT_VALUE, result);
-+}
-+
-+TEST(vector_restore_signal_handler_override)
-+{
-+	int result;
-+
-+	result = vector_sigreturn(DEFAULT_VALUE, &vector_override);
-+
-+	EXPECT_EQ(SIGNAL_HANDLER_OVERRIDE, result);
-+}
-+
-+TEST_HARNESS_MAIN
-
----
-base-commit: 4cece764965020c22cff7665b18a012006359095
-change-id: 20240403-vector_sigreturn_tests-8118f0ac54fa
--- 
-- Charlie
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBBcHIgMiwgMjAyNCBhdCAxOjEx4oCvQU0gUm9oYW4gTWNMdXJlIDxybWNsdXJlQGxp
+bnV4LmlibS5jb20+IHdyb3RlOgo+Cj4gVGhlIHBhZ2UgdGFibGUgY2hlY2sgZmVhdHVyZSByZXF1
+aXJlcyB0aGF0IHB1ZF9wZm4oKSBiZSBkZWZpbmVkCj4gb24gZWFjaCBjb25zdW1pbmcgYXJjaGl0
+ZWN0dXJlLiBTaW5jZSBvbmx5IDY0LWJpdCwgQm9vazNTIHBsYXRmb3Jtcwo+IGFsbG93IGZvciBo
+dWdlcGFnZXMgYXQgdGhpcyB1cHBlciBsZXZlbCwgYW5kIHNpbmNlIHRoZSBjYWxsaW5nIGNvZGUg
+aXMKPiBnYXRlZCBieSBhIGNhbGwgdG8gcHVkX3VzZXJfYWNjZXNzaWJsZV9wYWdlKCksIHdoaWNo
+IHdpbGwgcmV0dXJuIHplcm8sCj4gaW5jbHVkZSB0aGlzIHN0dWIgYXMgYSBCVUlMRF9CVUcoKS4K
+Pgo+IFNpZ25lZC1vZmYtYnk6IFJvaGFuIE1jTHVyZSA8cm1jbHVyZUBsaW51eC5pYm0uY29tPgoK
+UmV2aWV3ZWQtYnk6IFBhc2hhIFRhdGFzaGluIDxwYXNoYS50YXRhc2hpbkBzb2xlZW4uY29tPgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
