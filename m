@@ -4,104 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 135A1CD1288
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 16:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C2A3CD1288
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 17:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MbO32vUiRr7DdI+RWQUvcvxNwo5eIMP6YLycRRtQchk=; b=3xS4wYtKNtpZF3
-	hWUjrBqF4LP1T4YIFd11ul4/R5Lu/wEgt7hVOIwNYtiQz0nnao7HvOMq5M3qMeVkK28Evdn2/BX6h
-	EkZeNisjVuJt/luJCEt2Nw9HbNu2tvYhgGD0YK3LTRkU1lpRAgqiXyC/rDiivbgoCqqLV4p6/tHaF
-	nkSmht1JSU3rYqJHh96drQE44tR1GqToLRyejBwq1F4ZD7AXZbx74wIIuRLbOmMhMQeBvSP4sQSqe
-	uvLVGca7pKLQJNfeNwOm+/ZfZfz1RfiXfyIxjDvSYKFKzXZecGyzGGT411ezmqNeisatdrYGwMBvH
-	PH+9YmprQnlcf8zEkqLw==;
+	List-Owner; bh=jRPMdE2n5RIBNkgBsAi1rg/DylebSnyN2wHPqoDm108=; b=cbM9f87kFxutow
+	FIQlDV/gU1vzMQNCQ/5xA+TIOcPvTeGQSZIwJDdD/Fzz5ZJXd1geAmb6GEIdHOIVz0Wai+dV1lFRQ
+	Y3EY5tZcjXCza0vbd8V9G1nVeUI24ftdWf2/2sWXvlAs5faUybeEjGwIe9iVmDzEF6dgrzYTlwwHK
+	oFkm+dq9igmsaizuS1qo9+zDwIhhXFydQnAuYjI8enPKRIFH+ODmy/jsumQx3CR/XljH/8+ipKu9u
+	2MRq0D/8mXgzW+M7QgDlZmx+vqdvrjfOx2EqnXI+VpNKJOJXfbqfDp56zWR77Xnj4c+ZPUzWNdlqW
+	IlW4E7hlbH2fc7Zwz2zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rs3in-0000000H1WU-31aV;
-	Wed, 03 Apr 2024 16:44:21 +0000
-Received: from mail-vk1-xa29.google.com ([2607:f8b0:4864:20::a29])
+	id 1rs4Cx-0000000H7sE-2Q4R;
+	Wed, 03 Apr 2024 17:15:31 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rs3if-0000000H1Sn-1Yms;
-	Wed, 03 Apr 2024 16:44:14 +0000
-Received: by mail-vk1-xa29.google.com with SMTP id 71dfb90a1353d-4da6995e58bso3886e0c.1;
-        Wed, 03 Apr 2024 09:44:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1712162651; x=1712767451; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Aej6QFoETxeFvbQm8/sOYYAdEcWAnghw/7Ynm8n0ucQ=;
-        b=bXDZ3+tbyg8Zy85CBNgpAT5K3OIvxtq4VpetZ4ZANBLtO9n3wEvP8Xx/Jl3ywzIsrY
-         MVrr4qZHfS2F6NCSNEMscJX7E0hv01N6GUPy2nQtsLXITIuPAnXlxCa28q4Bk6Gfbaj6
-         yM+VphIV338ht4L4nRmxNKRVvya8TgG8hFokSkz0HVNl4ttCMaZylBAzcdotziOvSPOt
-         auNJRZjhz8xtt4WkBa+KR9wGQfrvfewrZFpPKoVXUSfhJAk0Eaqv5qEBAiYbgfAjP7++
-         FFKSX2jFGG4qVwDYB/WWyx52wrg0uH++W1WO0HyyrwGEF32fqG2L6xeScOsPdfkS++tj
-         v53w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712162651; x=1712767451;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Aej6QFoETxeFvbQm8/sOYYAdEcWAnghw/7Ynm8n0ucQ=;
-        b=O/ITfc/lLuWIriP4UttUQoOEHUKtbYKq1fmR17iELQYkvcbrT8hEZXpyRgPkK3aR40
-         zg9UbrW4ucm7GNdEB8ynda+hVUxIC1vKisZUjzi/mxvIcoZ9j8kf0gg/slZeeUqblMPg
-         xaDLKy52jHQsb7/pApVgiHgi2bkyQXMyvAwtjANZ2feBA8Y2ZWaAtvF4tpOSDKHlIGlV
-         VBleFZOuEh8kh10YOjFnqKDNITqQs97HxMMUMvXwsUqGQ4x9T82X/M6HjJRL5udJbi93
-         6pVc4MBQgwpd9hH+RnkfVbFSIzbVNTVe2xHvoBKJ9BYroKR3rC4QoDPNdnHNSmBN5Gop
-         AdhA==
-X-Forwarded-Encrypted: i=1; AJvYcCWYyV3bxuwaLYVxSV7HVGNkd21+rukq1kJiRI5b3wCQwMo0t6LlF13CDFsv2d4jAcyS2v1WAA0t9bZ8RXBJYcWP/Uij74dywcGvzbSqf+uO6KyQgWqlXyzj2eBwHpis70W7vICSJisoN5RClR930t8sd5frWyZ2qkxXGVIoAtm3zcEk2h3YaGRQg2Owt3Y572CEeroO8WM23Unp3EU+iQ1RcK0kWrTsZ7Q2gbD3vDrxA9JSvo05kD1U3K/758FRlY+m1w7mMxJf+MzPLNQohiHI3/xRAeqosiZhjfzn2JFtZzVy
-X-Gm-Message-State: AOJu0Yy/q3jIQ0IG41RZanZ3/StSQOH6t8k8MICPtpsb6Ht39KLnvzss
-	SNUw/hMVm2JsMSY/I9foTUkqo5ZFgiJY2I6hOo+29AwzNI/Zz+fq9k6pFGjVq3e4IHlxEeBmqMc
-	/Q51UO/DpU/vR6g9kZ2Qrolhe0XQ=
-X-Google-Smtp-Source: AGHT+IFEFFEcpcdQfCxRWJYlDuuUETZ0sWBciDlGUMCvLnJmEBIY1oP87nAaJSL5QQDatxb4oTnFcly4MrzzQ8OrF5o=
-X-Received: by 2002:a05:6122:499a:b0:4d3:b326:5ae8 with SMTP id
- ex26-20020a056122499a00b004d3b3265ae8mr10815788vkb.14.1712162651582; Wed, 03
- Apr 2024 09:44:11 -0700 (PDT)
+	id 1rs4Ct-0000000H7qG-3l57;
+	Wed, 03 Apr 2024 17:15:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 0E412CE2B08;
+	Wed,  3 Apr 2024 17:15:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E04CC43399;
+	Wed,  3 Apr 2024 17:15:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1712164525;
+	bh=LU4Fr44tzUgk3hAyzANG0d2RG8nR6qdxsxdjqxB5zO4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Crn2Bypvo3Kv0F/G3kczzQFESKl58l7QIP+KlF5HW2ukxnJddUqfeWcVj2sibhi6r
+	 Wd4pAC48+U3CzabQU/ScGSwvstLaVOAenqS+JANq9rVVusFqiX8CZsZz9Yu7IQE06P
+	 dN61bJcHFau91VNy3QNbrlcU5t2RpnRl22f2UaWjMoMqKUuTPMNOxL8vgYtFaj4Qah
+	 mD+UlGcjt9JtvGnhOe6FDnxJK10I1bP/zZQOPKLhLrIaWjD8/L1yWpxm7e33T26IV5
+	 /FPvSBI+GIFCJPeP6n2EDA5WlPj8vgjmsy0twk/tcWyBo6Vr6TY9o1opeuGt+O40yd
+	 SRup2Djue5aSg==
+Date: Wed, 3 Apr 2024 12:15:23 -0500
+From: Rob Herring <robh@kernel.org>
+To: Tan Chun Hau <chunhau.tan@starfivetech.com>
+Cc: Andrew Halaney <ahalaney@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Jee Heng Sia <jeeheng.sia@starfivetech.com>,
+	Paolo Abeni <pabeni@redhat.com>, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Eric Dumazet <edumazet@google.com>, devicetree@vger.kernel.org,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Subject: Re: [PATCH v6 1/1] dt-bindings: net: starfive,jh7110-dwmac: Add
+ StarFive JH8100 support
+Message-ID: <171216452060.4016592.7318363130745016894.robh@kernel.org>
+References: <20240403100549.78719-1-chunhau.tan@starfivetech.com>
+ <20240403100549.78719-2-chunhau.tan@starfivetech.com>
 MIME-Version: 1.0
-References: <20240327160314.9982-1-apais@linux.microsoft.com> <20240327160314.9982-2-apais@linux.microsoft.com>
-In-Reply-To: <20240327160314.9982-2-apais@linux.microsoft.com>
-From: Allen <allen.lkml@gmail.com>
-Date: Wed, 3 Apr 2024 09:43:57 -0700
-Message-ID: <CAOMdWSLavg27YZgnfE2QHjO=4RNmFx_7veAURaPG_=qWX=KMVA@mail.gmail.com>
-Subject: Re: [PATCH 1/9] hyperv: Convert from tasklet to BH workqueue
-To: Allen Pais <apais@linux.microsoft.com>
-Cc: linux-kernel@vger.kernel.org, tj@kernel.org, keescook@chromium.org, 
-	vkoul@kernel.org, marcan@marcan.st, sven@svenpeter.dev, 
-	florian.fainelli@broadcom.com, rjui@broadcom.com, sbranden@broadcom.com, 
-	paul@crapouillou.net, Eugeniy.Paltsev@synopsys.com, 
-	manivannan.sadhasivam@linaro.org, vireshk@kernel.org, Frank.Li@nxp.com, 
-	leoyang.li@nxp.com, zw@zh-kernel.org, wangzhou1@hisilicon.com, 
-	haijie1@huawei.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	sean.wang@mediatek.com, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, afaerber@suse.de, 
-	logang@deltatee.com, daniel@zonque.org, haojian.zhuang@gmail.com, 
-	robert.jarzmik@free.fr, andersson@kernel.org, konrad.dybcio@linaro.org, 
-	orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com, 
-	patrice.chotard@foss.st.com, linus.walleij@linaro.org, wens@csie.org, 
-	jernej.skrabec@gmail.com, peter.ujfalusi@gmail.com, kys@microsoft.com, 
-	haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com, 
-	jassisinghbrar@gmail.com, mchehab@kernel.org, maintainers@bluecherrydvr.com, 
-	aubin.constans@microchip.com, ulf.hansson@linaro.org, manuel.lauss@gmail.com, 
-	mirq-linux@rere.qmqm.pl, jh80.chung@samsung.com, oakad@yahoo.com, 
-	hayashi.kunihiko@socionext.com, mhiramat@kernel.org, brucechang@via.com.tw, 
-	HaraldWelte@viatech.com, pierre@ossman.eu, duncan.sands@free.fr, 
-	stern@rowland.harvard.edu, oneukum@suse.com, 
-	openipmi-developer@lists.sourceforge.net, dmaengine@vger.kernel.org, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-mediatek@lists.infradead.org, linux-actions@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
-	linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-mmc@vger.kernel.org, 
-	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-s390@vger.kernel.org, netdev@vger.kernel.org, linux-usb@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20240403100549.78719-2-chunhau.tan@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240403_094413_443079_77EA7F8C 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20240403_101528_130118_A429FB5B 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,38 +91,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> The only generic interface to execute asynchronously in the BH context is
-> tasklet; however, it's marked deprecated and has some design flaws. To
-> replace tasklets, BH workqueue support was recently added. A BH workqueue
-> behaves similarly to regular workqueues except that the queued work items
-> are executed in the BH context.
->
-> This patch converts drivers/hv/* from tasklet to BH workqueue.
->
-> Based on the work done by Tejun Heo <tj@kernel.org>
-> Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git for-6.10
->
-> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
+
+On Wed, 03 Apr 2024 03:05:49 -0700, Tan Chun Hau wrote:
+> Add StarFive JH8100 dwmac support.
+> The JH8100 dwmac shares the same driver code as the JH7110 dwmac
+> and has only one reset signal.
+> 
+> Please refer to below:
+> 
+>   JH8100: reset-names = "stmmaceth";
+>   JH7110: reset-names = "stmmaceth", "ahb";
+>   JH7100: reset-names = "ahb";
+> 
+> Example usage of JH8100 in the device tree:
+> 
+> gmac0: ethernet@16030000 {
+>         compatible = "starfive,jh8100-dwmac",
+>                      "starfive,jh7110-dwmac",
+>                      "snps,dwmac-5.20";
+>         ...
+> };
+> 
+> Signed-off-by: Tan Chun Hau <chunhau.tan@starfivetech.com>
 > ---
->  drivers/hv/channel.c      |  8 ++++----
->  drivers/hv/channel_mgmt.c |  5 ++---
->  drivers/hv/connection.c   |  9 +++++----
->  drivers/hv/hv.c           |  3 +--
->  drivers/hv/hv_balloon.c   |  4 ++--
->  drivers/hv/hv_fcopy.c     |  8 ++++----
->  drivers/hv/hv_kvp.c       |  8 ++++----
->  drivers/hv/hv_snapshot.c  |  8 ++++----
->  drivers/hv/hyperv_vmbus.h |  9 +++++----
->  drivers/hv/vmbus_drv.c    | 19 ++++++++++---------
->  include/linux/hyperv.h    |  2 +-
->  11 files changed, 42 insertions(+), 41 deletions(-)
+>  .../bindings/net/starfive,jh7110-dwmac.yaml   | 28 +++++++++++++++----
+>  1 file changed, 23 insertions(+), 5 deletions(-)
+> 
 
-Wei,
+Reviewed-by: Rob Herring <robh@kernel.org>
 
- I need to send out a v2 as I did not include the second patch that
-updates drivers/pci/controller/pci-hyperv.c
-
-Thanks.
 
 _______________________________________________
 linux-riscv mailing list
