@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 265FACD1288
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 09:19:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95CBCCD1294
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 09:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UMOyXlQdfo4kNo5W6gjoJ8FxXZ1boH+L+DghlcLkgJM=; b=TeLcOtZL+wzuY7
-	cW2I8NMbqqm5+e934iOSUCst42Qk8vguxg+8Ecym/2I7S6VeUycnwWH4eHb67qFCySsxQnCRMpLDD
-	/OinNlnhcJMudEf3pO6wvyhvAaKVLsWaJL7FLqZWv/J1fKxYZ1FZ4cVMu2syo++utYdSLmPpMFjhg
-	2MWcxgRaQnms08VYvZWeM7M9D7aLqdGf9FlM80Rvjpa/cYs6y/4KZnyABklVXQnm1VynN6hJUrJen
-	no6pgxCwGWK9pz9H2jLfNg2Zp3l8/e1rSQx30Ze7yDx8Ymg6G7gfitvaxqTMOm9gfp98t8LaPL2nd
-	wP9SD7U3cm8xQS4op0PA==;
+	List-Owner; bh=BFT7JLsQmOpa4gTVV77RKkotkTl91TQyL0Rtuw12fEw=; b=XzW+XeX9U/NJpE
+	AHbw3rtXSgVtArkFznJuT00QcJt9NiiJzHJELa1jZOoPBDaIhn8ZKOhxKBRvM479flME6GQC3hgbo
+	x9QrKNxyPbyx51OvnVPtEMB/spYFCm2pm8iAmkV0Z2tBx8I5oJhCG82owUMmO8tgomIyjRKXjwZ3x
+	j97BV5yd+Ur2CQ/3Y2zXWH7u310WeN5bPVPOUHny2UGoZD0CMd4OL2EIQSaHP8z+0kCqFUEjykmAn
+	Mzq6j4yQlXz3l8OetpwbcdG9dL8T6Y4Tju4b1cS6L99CKF3GbmDMf/VhXvhi3N8ytIJO2gp8s8sDZ
+	hiPBq1X/sp+SnMUWSXVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrwlx-0000000FAEA-1Pz2;
-	Wed, 03 Apr 2024 09:19:09 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1rrwm2-0000000FAHr-39fu;
+	Wed, 03 Apr 2024 09:19:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrvci-0000000Eief-3aqx
+	id 1rrvcp-0000000Eikf-0EV7
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 03 Apr 2024 08:05:32 +0000
+	Wed, 03 Apr 2024 08:05:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=Ixjc/2duOe8tMNsDFapztE6WZpMRR0IqMx2Riyo3ljE=; b=M7K05KuRjuFwVS2jErIyv7IfaV
-	l9hET2zsPs/BYeb9R90b7e5fRLv8pXKBK/J9HIqJyT25kVsNp9DDZIwBxIkH+FmGdrb3Kpa7eFU8O
-	J0VMMgXhQ7NrzWTGO/Q9433XKjzN8IqXxCuXipFvfqIg8ECxHnB8enEjk+bWiqaC2OPmIkZP0wkCs
-	XFATFcVMJYVKeHtg72NyklUTRbD7c1FefdhpG9QG21sGyhjeUaE5KsmuIAxN77PzTNsQ2PyEjYBjq
-	ZUsVecL7c+qSECD664xhxhshoE3G6SKZYx3EY+e70bDPZKY8/FY2mGQpfO+rO+ZD9Rz/pHTrY5JQW
-	GMG1WWSw==;
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
-	by casper.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrvcc-000000055aU-1vJ1
+	bh=4rw21DNPDWpaXnd5Gs3cWE2qTmUGGOZ0JnLHhYLDMiI=; b=aeDn/GHj/KD6GzzoqqFBDjM7NU
+	BDvsrNW668L4b7YivpxEl4TF6ibzjuaGYAKWKFl7yL6o4erR/eV2nNfQiIU6QLeoSvNNS7qQyPkyP
+	8Tv34ACStvHO1/xHRJTeCA+TuxfUSKDxOQwTKZt4dYycvtyNB+VAgpNHbq4xMQUsot4RW7Zjz6T/0
+	Azxao+nBQR4/KJoU29LR+9v2+M4Ijm+lzECc1wLFVrxvcJBFbU7+cHyOMGzG8RbVL/UW0nw1BQG51
+	q3OZd4a7FqOlvI3920/IHFk7MS+eXqumwOEXqO+H+265e8N3Av5G9iLKi4HF/ay4mnWJTDzBG2/sL
+	PXM1ARDA==;
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	by desiato.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rrvch-000000044ky-1LRg
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Apr 2024 08:05:31 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1e0bfc42783so51159635ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Apr 2024 01:05:24 -0700 (PDT)
+	Wed, 03 Apr 2024 08:05:37 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-517ab9a4a13so4589844a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Apr 2024 01:05:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712131520; x=1712736320; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1712131527; x=1712736327; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Ixjc/2duOe8tMNsDFapztE6WZpMRR0IqMx2Riyo3ljE=;
-        b=G0ohviLEEgf8tDNO3f33IBySIf0w76rtSPWvnlkaIKHUn3CGMSFjPS8cdkkpBp4guZ
-         qFeGXxnZlamNA5r9nHpviI0WWSRRpEBBdA9Z50iH8YHENNfbFGDRNoydV8f9Fm1pNUoh
-         INJfR4kpHcHF24yfG9xU/T03TzycQFb+uCfqu7hkUgdQ65U5WXy5iFYucvG9LjvPoQKc
-         T7wvwVwYc4tu7GyNI2uxIOHCNk+tpEneEa6+IFHhz2U63fHQKqwpZNfnhXhZll9iHCF7
-         4q9lP0FVtZyE5Wn9fsaBsVlkHZCqbb+cLd5HmCp0IyIXyHAyMkkRiSWAd9coedKVPAJq
-         W+tQ==
+        bh=4rw21DNPDWpaXnd5Gs3cWE2qTmUGGOZ0JnLHhYLDMiI=;
+        b=Kw37MUE7HEv/oJAV9q1Jhakkv0IZnbSiYDkqUunyxXd7961bWzWxdEZEqH1AT3kOVv
+         W2RZIz4O7FjPbXAi31ggfW8h6muF6uDOqbGoYVzlEZAPkac5woA6fYfD/h4KYyxPMemF
+         wEvv7BAeOCs+/NbHfxoWYXmzJGfp6j39hlB1hvynUT/sIVRc9ZJSHuYxTOWv8aj5Jkoc
+         9i8cjUW8zh0AcHCramSkFvHtt6fN2FD0SMIQgOZCBwOILzhzfDd7ejpVLKbldQvEPrHI
+         PzrogL+LY64RBYCRnH0U6uSwAxgg/P+iWbgPPgtXlBAoDGEdOgSLOx0TSlzhsoIY2qzJ
+         HjqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712131520; x=1712736320;
+        d=1e100.net; s=20230601; t=1712131527; x=1712736327;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Ixjc/2duOe8tMNsDFapztE6WZpMRR0IqMx2Riyo3ljE=;
-        b=kdJAeFDhYZ1nFe3oiy/6n+4HJpH+DfDnXqgr34cK8HpPAZ+aZdMJU0aurelSO85mHr
-         WgEmLpbwRd4X4VxsaJitNSLH4teiW+dLXigNhzbgucS4no6OmwT/PfyN7CyacVbFYAhV
-         V4p1hWe9pNgOO3K/Au5bA1EGYVoRzlKaa1WAtpwc/g2sWHiRdS8kXFQbVukfOr65X2zc
-         xE3T8FYlfWDu5Im6FoV0kI2b+n1yK74Ebs+oMz6OLE4GrtkZAaWtsw7ApC1fW/tCbQOC
-         YQVSx+XWiH1cz5Tg5oBNH7BmZo16V7E5Hkroh5m+yj5H2799iBFj+1CBIWtld+HtY7Gt
-         KmGA==
-X-Forwarded-Encrypted: i=1; AJvYcCVaz35TAcbJsTUFJJgfcfCgxBbEq7od+SbGuhjrBAFYnm88jM2L0JSO3PwUCgD1Z3V3RoMM6GF3hFixKZYvxRIBeKxTufCOo8N578iyZTfw
-X-Gm-Message-State: AOJu0YysweAxAI2iLJUW4wuRQOVaeAfKUj8IRLa8VBk3pw06Wwkg4Zq8
-	aBBkDuq24apKvvNoiLM3SihVvqj7Vz6tSDID7WnYq9sPatYsKnXx6t+dBg461n4=
-X-Google-Smtp-Source: AGHT+IFNP2TORKh7//FzhNMEZN9MBNitQSqhLOnah919WVqeHY+e2MYv0jsRIRUc8mtVSGHiLEDhcg==
-X-Received: by 2002:a17:902:b701:b0:1e0:a1c7:56fd with SMTP id d1-20020a170902b70100b001e0a1c756fdmr13300312pls.61.1712131520248;
-        Wed, 03 Apr 2024 01:05:20 -0700 (PDT)
+        bh=4rw21DNPDWpaXnd5Gs3cWE2qTmUGGOZ0JnLHhYLDMiI=;
+        b=cZRJBccinIeWjNJzrJUyM+4noaqXfpqNLC1d5ea07T4lq//YeP6fECu0n0bpR3OF2c
+         xY1cA84RQttOVndgW/gbI3/agcJUtmdGQAlLqhxIZGc6y48/mNavNvXmPQIyvG/JG3hn
+         XKS7hx8x/Od+Q3pTZFjv4zO/92Nw2AJBl6ORfp8l1uYScJttEdzs8Xp/MsaxsogSywHT
+         WrVPqkBegRX3DUAjqTs1Yaw7yPpgvRfLnnuxeeCcX9EaqMHLVZi+mnuwlwFzSs8oQ2EG
+         9Ahm6zBrAOPOizUSQhPSOMEUrS+/gbIZww7vvL9YqvTE7BkJwaZd5RsaRYQpONcUkaby
+         qMCw==
+X-Forwarded-Encrypted: i=1; AJvYcCW5z+4Dx6RtlJp9bbSvai/qkq569XJMgzn0PCh7zFYMQClgYSjx50FfwkmnUGrcDbkEPCvhhRA8ef9NdMGJtqFuUOTZNPwKA7jsO5xmqcd9
+X-Gm-Message-State: AOJu0Yxw/ix6vpCked/1x9hagDGzgNUx4CD5Vg1MGr7RoUbiWjJAc7xH
+	koyQFIfUPfOFy20PAUBQV+pbKJ2tctMZNfVxmtgx+SR5iDpBmYb6hsiSWgMPxE4=
+X-Google-Smtp-Source: AGHT+IHZeguUWEErPiWxvNkeVU9lmGoRHX/48aTBnxr2DMrqRPKV9Qdy9c2zpt6UamZ4tC6ZYgwGwA==
+X-Received: by 2002:a05:6a20:17a7:b0:1a3:34c4:b184 with SMTP id bl39-20020a056a2017a700b001a334c4b184mr13823636pzb.19.1712131527654;
+        Wed, 03 Apr 2024 01:05:27 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id c12-20020a170902d48c00b001e0b5d49fc7sm12557229plg.161.2024.04.03.01.05.18
+        by smtp.gmail.com with ESMTPSA id c12-20020a170902d48c00b001e0b5d49fc7sm12557229plg.161.2024.04.03.01.05.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Apr 2024 01:05:19 -0700 (PDT)
+        Wed, 03 Apr 2024 01:05:26 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -101,17 +101,16 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	VMware PV-Drivers Reviewers <pv-drivers@vmware.com>,
 	Will Deacon <will@kernel.org>,
 	x86@kernel.org
-Subject: [PATCH v5 04/22] drivers/perf: riscv: Use BIT macro for shifting operations
-Date: Wed,  3 Apr 2024 01:04:33 -0700
-Message-Id: <20240403080452.1007601-5-atishp@rivosinc.com>
+Subject: [PATCH v5 07/22] drivers/perf: riscv: Fix counter mask iteration for RV32
+Date: Wed,  3 Apr 2024 01:04:36 -0700
+Message-Id: <20240403080452.1007601-8-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240403080452.1007601-1-atishp@rivosinc.com>
 References: <20240403080452.1007601-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240403_090526_550237_8B0D3CD6 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240403_090531_629377_FF10ED8E 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,63 +127,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It is a good practice to use BIT() instead of (1UL << x).
-Replace the current usages with BIT().
+For RV32, used_hw_ctrs can have more than 1 word if the firmware chooses
+to interleave firmware/hardware counters indicies. Even though it's a
+unlikely scenario, handle that case by iterating over all the words
+instead of just using the first word.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/sbi.h | 20 ++++++++++----------
- drivers/perf/riscv_pmu_sbi.c |  2 +-
- 2 files changed, 11 insertions(+), 11 deletions(-)
+ drivers/perf/riscv_pmu_sbi.c | 21 ++++++++++++---------
+ 1 file changed, 12 insertions(+), 9 deletions(-)
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index ef8311dafb91..4afa2cd01bae 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -233,20 +233,20 @@ enum sbi_pmu_ctr_type {
- #define SBI_PMU_EVENT_IDX_INVALID 0xFFFFFFFF
- 
- /* Flags defined for config matching function */
--#define SBI_PMU_CFG_FLAG_SKIP_MATCH	(1 << 0)
--#define SBI_PMU_CFG_FLAG_CLEAR_VALUE	(1 << 1)
--#define SBI_PMU_CFG_FLAG_AUTO_START	(1 << 2)
--#define SBI_PMU_CFG_FLAG_SET_VUINH	(1 << 3)
--#define SBI_PMU_CFG_FLAG_SET_VSINH	(1 << 4)
--#define SBI_PMU_CFG_FLAG_SET_UINH	(1 << 5)
--#define SBI_PMU_CFG_FLAG_SET_SINH	(1 << 6)
--#define SBI_PMU_CFG_FLAG_SET_MINH	(1 << 7)
-+#define SBI_PMU_CFG_FLAG_SKIP_MATCH	BIT(0)
-+#define SBI_PMU_CFG_FLAG_CLEAR_VALUE	BIT(1)
-+#define SBI_PMU_CFG_FLAG_AUTO_START	BIT(2)
-+#define SBI_PMU_CFG_FLAG_SET_VUINH	BIT(3)
-+#define SBI_PMU_CFG_FLAG_SET_VSINH	BIT(4)
-+#define SBI_PMU_CFG_FLAG_SET_UINH	BIT(5)
-+#define SBI_PMU_CFG_FLAG_SET_SINH	BIT(6)
-+#define SBI_PMU_CFG_FLAG_SET_MINH	BIT(7)
- 
- /* Flags defined for counter start function */
--#define SBI_PMU_START_FLAG_SET_INIT_VALUE (1 << 0)
-+#define SBI_PMU_START_FLAG_SET_INIT_VALUE BIT(0)
- 
- /* Flags defined for counter stop function */
--#define SBI_PMU_STOP_FLAG_RESET (1 << 0)
-+#define SBI_PMU_STOP_FLAG_RESET BIT(0)
- 
- enum sbi_ext_dbcn_fid {
- 	SBI_EXT_DBCN_CONSOLE_WRITE = 0,
 diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index babf1b9a4dbe..a83ae82301e3 100644
+index 8c3475d55433..82336fec82b8 100644
 --- a/drivers/perf/riscv_pmu_sbi.c
 +++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -386,7 +386,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
- 			cmask = 1;
- 		} else if (event->attr.config == PERF_COUNT_HW_INSTRUCTIONS) {
- 			cflags |= SBI_PMU_CFG_FLAG_SKIP_MATCH;
--			cmask = 1UL << (CSR_INSTRET - CSR_CYCLE);
-+			cmask = BIT(CSR_INSTRET - CSR_CYCLE);
- 		}
- 	}
+@@ -771,13 +771,15 @@ static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
+ {
+ 	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
+ 	unsigned long flag = 0;
++	int i;
  
+ 	if (sbi_pmu_snapshot_available())
+ 		flag = SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT;
+ 
+-	/* No need to check the error here as we can't do anything about the error */
+-	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, 0,
+-		  cpu_hw_evt->used_hw_ctrs[0], flag, 0, 0, 0);
++	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++)
++		/* No need to check the error here as we can't do anything about the error */
++		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, i * BITS_PER_LONG,
++			  cpu_hw_evt->used_hw_ctrs[i], flag, 0, 0, 0);
+ }
+ 
+ /*
+@@ -789,7 +791,7 @@ static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
+ static noinline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt,
+ 						unsigned long ctr_ovf_mask)
+ {
+-	int idx = 0;
++	int idx = 0, i;
+ 	struct perf_event *event;
+ 	unsigned long flag = SBI_PMU_START_FLAG_SET_INIT_VALUE;
+ 	unsigned long ctr_start_mask = 0;
+@@ -797,11 +799,12 @@ static noinline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt
+ 	struct hw_perf_event *hwc;
+ 	u64 init_val = 0;
+ 
+-	ctr_start_mask = cpu_hw_evt->used_hw_ctrs[0] & ~ctr_ovf_mask;
+-
+-	/* Start all the counters that did not overflow in a single shot */
+-	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, 0, ctr_start_mask,
+-		  0, 0, 0, 0);
++	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
++		ctr_start_mask = cpu_hw_evt->used_hw_ctrs[i] & ~ctr_ovf_mask;
++		/* Start all the counters that did not overflow in a single shot */
++		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG, ctr_start_mask,
++			0, 0, 0, 0);
++	}
+ 
+ 	/* Reinitialize and start all the counter that overflowed */
+ 	while (ctr_ovf_mask) {
 -- 
 2.34.1
 
