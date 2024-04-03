@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50749CD129C
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 20:36:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E87CD1297
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 20:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c2ApldK3eZgeHMlPbJw1iaHde3QZtDeONihGA5IaOds=; b=zMbZa4t/pzsGlf
-	w0qkyhoqdCJweMduIHJtdle/8Hpm3fH0fylYRciNs3uXh9ou7lJsz9bnky72+1Na6txjtglSGIyKZ
-	fesc2pznD8PT4vXYg8IG5uQuLh1WqieBgkFsLLfCqHqI7a9INMVOLGrdr8PpDe+wswxVLmCsdSbkU
-	qZ8V+Yrg2iqOCPE0nypfrsq+6nxoy6BpbIMe5WfnEKk2aUz9rBLfHjkWEqqOctn7zZMl9S6v6OVyz
-	y7A0wycV0OUz3+y8Ctvf6vmyTzVsQrSEBWM5UtReBn2JA8NiTGBPJozb7PJjO1UrUPHUxh2MHXMtG
-	9xJnMt/dWAhEDrE9O6xQ==;
+	List-Owner; bh=4u3XXKIKwOWWnIBvzvm+JeURJ3IwJFvRD1FjErUmWhM=; b=LFg1CtHhId7/e+
+	OvEQst7pwu5wxUCHrgfiNI/DMlp/Rku/2OXS9KojcBOwpkOUsNuWdiLfsc1HCaSfjRVp7v/RnBen/
+	kj8AxjHRWwV33roetePOXOIX16BB5KaL+d6zFWTNqTxOcBh7h2o0dLbEmNHvqasRBlafbD1B6Kvs9
+	HgWyZ6X84w1CLmOCbfAFpEHazMDVVuHdSMpCS+djpJ/KTNgVswiCYR2a9RqNfNmoCrAwU0ZuXaFRh
+	fgmLDwEYvtLT4SRH8ZHOMUsBzayc9rIxflPd5Znxr2qynqTkZNvfninXHEkhpQJIO2L6SJ5VsygO2
+	aHXjEuwwPyX3RKFHG3hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rs7Lh-000000006uT-0w7V;
-	Wed, 03 Apr 2024 20:36:45 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
-	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rs7Ld-000000006re-1wm3
-	for linux-riscv@lists.infradead.org;
+	id 1rs7Lf-000000006t9-1hht;
 	Wed, 03 Apr 2024 20:36:43 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-33ddd1624beso129683f8f.1
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Apr 2024 13:36:40 -0700 (PDT)
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
+	id 1rs7Lb-000000006qs-0SAP
+	for linux-riscv@lists.infradead.org;
+	Wed, 03 Apr 2024 20:36:40 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4155baa696eso1700655e9.2
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Apr 2024 13:36:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1712176599; x=1712781399; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1712176597; x=1712781397; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jSGypoDfqpqf30JRW1cSjKb3kn4Y8om8katFtm1k9j8=;
-        b=UhIe0rx7Dp42bMha+85u5fT+pR7Ar/Czmt+c9xoMJ4C43UC2HCsAGG2jd4IAqdgwQT
-         XGEMAgjDRK4jzJkbkq/ybrTGv8yADVno+FoVMCWth8WBjwPg3LR91Gw1pKZQIzSZQ2Ku
-         u8di1o3I0keWJhiaJ9LPF+cKykRXuwqLo4oLqgOKbsWg+VHlYoYwz1ZNO4muu17mqVlz
-         H8q7i8+HHNhdQYdTwzy3JnEMsjx4EmSWXBzHI3rYCSwsUUsdpYMXM5GbLntdxrXNYg9O
-         RMiTTSOsskY2sWnc2FcnKloFuWVI0aaiAkZkNWthD/Dzz9l9KalX1zSqpOhTTpYb8gO3
-         KSjA==
+        bh=WIhSDuKRxtReMhoBOeQdaM5SSml7tb0U0bOehxLDLJ0=;
+        b=E8+ZBijY/sW0SOIwmg9MBiycM2mpiKN6A2HqBB/JQaQjGcOahlW/UtJV4SGtGJsPPo
+         +4UdmVAT1JOdcYZb7gqifDtOn7MNtQGyVn2NVu/lT2VgDdEfG1T/iYphxXcxVue02yiW
+         vip1dahdh3T2Q/0xFd5QwfTAQYd9NylCRtDgFKJixAW3MNJkDj01pxf7LKTakl1VbbrS
+         ALTcAAxZZJy9TIGgkzT3L5IKugAN1PNmpUdLl/uSYQq5GmtV0NXeGv/NgO3ic1Q/kqAV
+         jwW3IoL+EjRonvEp/VXbAf94ZmNCb0riZ0oPRc2/GWArcoAs7qeOP0WLLlyEOaMyg14e
+         0AWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712176599; x=1712781399;
+        d=1e100.net; s=20230601; t=1712176597; x=1712781397;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=jSGypoDfqpqf30JRW1cSjKb3kn4Y8om8katFtm1k9j8=;
-        b=tynxTDBdFjwN0nonfuiVjH1TKrbhpW0ecKfRd9T+fIfBIRbb79h8eGZUKefkPDlbqb
-         cwtFwn6ilj7r6tn3XQVsvf5TIJsMftAExrFxRgquCcmC8O6lxrKAT57NHS9vznMiQx2W
-         5Gwi+nzNHm/NfYTpUJq2gk+4jrgA3T4efvp08Gjvqni3K1jQ5YNiwJMCUpDaGLHwFURe
-         MD+HwDisx6coPkmFocBNAk9BRQHiaEtoNcFrAq22v8UUjvvozcPZhyaZOLqQ9j29Q2Ij
-         dN3c4pqt7av5Ekcdw0qu0XmIrV/CgmXPRs6nrFoCesGWeL7ichjIaDzWb9dw45jDoh5G
-         ly4w==
-X-Forwarded-Encrypted: i=1; AJvYcCV7OGrLQJQ6vEJx37Z8JuCzzL+/Yuq4VFTa2Hi1rn7P6yG7HIY2D0VWIj8k3bCzJSPU9bBcrgNpv5iDpD1IJz0jwiMFSSN5VlT9lLKj+9PK
-X-Gm-Message-State: AOJu0YzSf6fOzDNZ6Td1cgiyCZMK254ncFHrbfCokKqKZm+CBnyQbsXG
-	PXAFlpd3X6v6is5wTkBoY1JVTbWSA0ol03slHrADuHVmKCp4l4iG
-X-Google-Smtp-Source: AGHT+IFyZ/P7OD6dXKo56fesVxWbcmlAoQodU4rrW7wCYbFjzNMLINpZAc8FOrmJHkASHxkvyr9Gjg==
-X-Received: by 2002:a5d:5447:0:b0:343:7f4b:6da5 with SMTP id w7-20020a5d5447000000b003437f4b6da5mr2931617wrv.17.1712176599471;
-        Wed, 03 Apr 2024 13:36:39 -0700 (PDT)
+        bh=WIhSDuKRxtReMhoBOeQdaM5SSml7tb0U0bOehxLDLJ0=;
+        b=btZJZbRHD7zrc3g2eIXkJxxecuhQScR80rMfPjp5VbiUEY37R8Eo3M15/Bx0kIst3F
+         azVYKOurjXftu9r4UwIiMgPwmupRf1jBwRPNKG7WLefuDNQLHTaqKsv1bXKFJyYK8uv7
+         b3bcT/vqs6bFMrcaxThkWGBTWLgwywmB616nQblzmqCrT84PeQPyJrK/bO02qNySpoTD
+         hSbSwlo22I11XDTdK5W2PEXTUP0fkPZFUd5onHjmZGpGG+RlURCejjM4X0PX9+emOOBC
+         KZ7F/iTORBNULPHTTt2jhVW5r4ipzuf5K0ZcgwohhiLq6eYFPJOVOiTNiAHiNXDvFxsz
+         OVtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWZ7PcAx7qUImiiHSNx0ISPMcAFmcmRgEd9q00lOX7HtIOd8sRtlGUck6jKXuwbYtquofnHDwRkEj56DRLEaQiIpnMr/4Yakgn11FesmPYz
+X-Gm-Message-State: AOJu0YwaSVc5NRPOBpWHWZcQtD+pCKqeSq7OW49lNwWgleJx8fOP3gnk
+	ZRXqx/VI5rW0OxdT4llN1d1PaKFmW+S1Baccx2g0PZKr+3Dm9sSK
+X-Google-Smtp-Source: AGHT+IEBf4EI90GwLyWaZhn9tNMQRNMUHp0wiyU3VQSutIIF0BpUCmJKhP6GflB/sJ4C1FaR3PGQ1Q==
+X-Received: by 2002:a05:600c:1d27:b0:415:4824:3686 with SMTP id l39-20020a05600c1d2700b0041548243686mr471596wms.25.1712176596939;
+        Wed, 03 Apr 2024 13:36:36 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2500:a01:5eb:3d93:f2b6:25e8])
-        by smtp.gmail.com with ESMTPSA id p4-20020a05600c468400b00415f496b9b7sm244910wmo.39.2024.04.03.13.36.38
+        by smtp.gmail.com with ESMTPSA id p4-20020a05600c468400b00415f496b9b7sm244910wmo.39.2024.04.03.13.36.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Apr 2024 13:36:38 -0700 (PDT)
+        Wed, 03 Apr 2024 13:36:36 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -80,16 +80,16 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v2 5/5] riscv: dts: renesas: rzfive-smarc-som: Drop deleting interrupt properties from ETH0/1 nodes
-Date: Wed,  3 Apr 2024 21:35:03 +0100
-Message-Id: <20240403203503.634465-6-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v2 3/5] riscv: dts: renesas: r9a07g043f: Add IRQC node to RZ/Five SoC DTSI
+Date: Wed,  3 Apr 2024 21:35:01 +0100
+Message-Id: <20240403203503.634465-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240403203503.634465-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20240403203503.634465-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240403_133641_541938_84D7F6A8 
-X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-CacheID: sfid-20240403_133639_193935_8853A292 
+X-CRM114-Status: UNSURE (   9.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,45 +109,102 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Now that we have enabled IRQC support for RZ/Five SoC switch to interrupt
-mode for ethernet0/1 PHYs instead of polling mode.
+Add the IRQC node to RZ/Five (R9A07G043F) SoC DTSI.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
 v1->v2
-- Included RB tag from Geert
+- Dropped using SOC_PERIPHERAL_IRQ() macro
 ---
- .../riscv/boot/dts/renesas/rzfive-smarc-som.dtsi | 16 ----------------
- 1 file changed, 16 deletions(-)
+ arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 75 +++++++++++++++++++++
+ 1 file changed, 75 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-index 72d9b6fba526..86b2f15375ec 100644
---- a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-+++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-@@ -7,22 +7,6 @@
+diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+index f35324b9173c..e0ddf8f602c7 100644
+--- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
++++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+@@ -54,6 +54,81 @@ &soc {
+ 	dma-noncoherent;
+ 	interrupt-parent = <&plic>;
  
- #include <arm64/renesas/rzg2ul-smarc-som.dtsi>
- 
--#if (!SW_ET0_EN_N)
--&eth0 {
--	phy0: ethernet-phy@7 {
--		/delete-property/ interrupt-parent;
--		/delete-property/ interrupts;
--	};
--};
--#endif
--
--&eth1 {
--	phy1: ethernet-phy@7 {
--		/delete-property/ interrupt-parent;
--		/delete-property/ interrupts;
--	};
--};
--
- &sbc {
- 	status = "disabled";
- };
++	irqc: interrupt-controller@110a0000 {
++		compatible = "renesas,r9a07g043f-irqc";
++		reg = <0 0x110a0000 0 0x20000>;
++		#interrupt-cells = <2>;
++		#address-cells = <0>;
++		interrupt-controller;
++		interrupts = <32 IRQ_TYPE_LEVEL_HIGH>,
++			     <33 IRQ_TYPE_LEVEL_HIGH>,
++			     <34 IRQ_TYPE_LEVEL_HIGH>,
++			     <35 IRQ_TYPE_LEVEL_HIGH>,
++			     <36 IRQ_TYPE_LEVEL_HIGH>,
++			     <37 IRQ_TYPE_LEVEL_HIGH>,
++			     <38 IRQ_TYPE_LEVEL_HIGH>,
++			     <39 IRQ_TYPE_LEVEL_HIGH>,
++			     <40 IRQ_TYPE_LEVEL_HIGH>,
++			     <476 IRQ_TYPE_LEVEL_HIGH>,
++			     <477 IRQ_TYPE_LEVEL_HIGH>,
++			     <478 IRQ_TYPE_LEVEL_HIGH>,
++			     <479 IRQ_TYPE_LEVEL_HIGH>,
++			     <480 IRQ_TYPE_LEVEL_HIGH>,
++			     <481 IRQ_TYPE_LEVEL_HIGH>,
++			     <482 IRQ_TYPE_LEVEL_HIGH>,
++			     <483 IRQ_TYPE_LEVEL_HIGH>,
++			     <484 IRQ_TYPE_LEVEL_HIGH>,
++			     <485 IRQ_TYPE_LEVEL_HIGH>,
++			     <486 IRQ_TYPE_LEVEL_HIGH>,
++			     <487 IRQ_TYPE_LEVEL_HIGH>,
++			     <488 IRQ_TYPE_LEVEL_HIGH>,
++			     <489 IRQ_TYPE_LEVEL_HIGH>,
++			     <490 IRQ_TYPE_LEVEL_HIGH>,
++			     <491 IRQ_TYPE_LEVEL_HIGH>,
++			     <492 IRQ_TYPE_LEVEL_HIGH>,
++			     <493 IRQ_TYPE_LEVEL_HIGH>,
++			     <494 IRQ_TYPE_LEVEL_HIGH>,
++			     <495 IRQ_TYPE_LEVEL_HIGH>,
++			     <496 IRQ_TYPE_LEVEL_HIGH>,
++			     <497 IRQ_TYPE_LEVEL_HIGH>,
++			     <498 IRQ_TYPE_LEVEL_HIGH>,
++			     <499 IRQ_TYPE_LEVEL_HIGH>,
++			     <500 IRQ_TYPE_LEVEL_HIGH>,
++			     <501 IRQ_TYPE_LEVEL_HIGH>,
++			     <502 IRQ_TYPE_LEVEL_HIGH>,
++			     <503 IRQ_TYPE_LEVEL_HIGH>,
++			     <504 IRQ_TYPE_LEVEL_HIGH>,
++			     <505 IRQ_TYPE_LEVEL_HIGH>,
++			     <506 IRQ_TYPE_LEVEL_HIGH>,
++			     <507 IRQ_TYPE_LEVEL_HIGH>,
++			     <57 IRQ_TYPE_LEVEL_HIGH>,
++			     <66 IRQ_TYPE_EDGE_RISING>,
++			     <67 IRQ_TYPE_EDGE_RISING>,
++			     <68 IRQ_TYPE_EDGE_RISING>,
++			     <69 IRQ_TYPE_EDGE_RISING>,
++			     <70 IRQ_TYPE_EDGE_RISING>,
++			     <71 IRQ_TYPE_EDGE_RISING>;
++		interrupt-names = "nmi",
++				  "irq0", "irq1", "irq2", "irq3",
++				  "irq4", "irq5", "irq6", "irq7",
++				  "tint0", "tint1", "tint2", "tint3",
++				  "tint4", "tint5", "tint6", "tint7",
++				  "tint8", "tint9", "tint10", "tint11",
++				  "tint12", "tint13", "tint14", "tint15",
++				  "tint16", "tint17", "tint18", "tint19",
++				  "tint20", "tint21", "tint22", "tint23",
++				  "tint24", "tint25", "tint26", "tint27",
++				  "tint28", "tint29", "tint30", "tint31",
++				  "bus-err", "ec7tie1-0", "ec7tie2-0",
++				  "ec7tiovf-0", "ec7tie1-1", "ec7tie2-1",
++				  "ec7tiovf-1";
++		clocks = <&cpg CPG_MOD R9A07G043_IAX45_CLK>,
++			 <&cpg CPG_MOD R9A07G043_IAX45_PCLK>;
++		clock-names = "clk", "pclk";
++		power-domains = <&cpg>;
++		resets = <&cpg R9A07G043_IAX45_RESETN>;
++	};
++
+ 	plic: interrupt-controller@12c00000 {
+ 		compatible = "renesas,r9a07g043-plic", "andestech,nceplic100";
+ 		#interrupt-cells = <2>;
 -- 
 2.34.1
 
