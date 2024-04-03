@@ -4,111 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A2CCD128A
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 13:26:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73711CD128A
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 13:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eTw+OcUDx0KVULds1zCQFyxcDrPr7ysrBrdNTJWNC+M=; b=YSO2oKEUgK4yvO
-	UtlCwAfHS9TDJe1+DtD8f98Fxv/0yynglO57UeH4sBdlpGKbIJnoHy5XGtkFo3P+mkUAX2Ideokdj
-	ieQy+q1FPUybZREyKkaB/71Xum5ErfEh4D/T2+0O5QawkrxLwL4MAT8VaGza0Hmiwp5ICKCmYVpY2
-	2ax8NBt/I8wjBPvs/8LAkUqHglPUUnG6axylCoQCKR0oHskVIusb103uZAQ3+b1JLR5BJgjjxP9B2
-	ZzT0AGTSgYVGmHIAz7AGwwNBOciRoBE5qTlG5XuG/TQxnWIHPMDxPx0M5JBreb5aa2ljuc8SgrRIQ
-	bxPRmVN25g0eJ/xBqxlQ==;
+	List-Owner; bh=ltPXd6K3SfAp8bPQU5lnIaEDNi4q7ke8ghH5+GdfSjg=; b=nmJPvyWCgVlpDg
+	n4EOCkivmFg+iFU175/OjQXyRvobYhYHUamu3jjdyRSauT2UXqdLLT/Q+io7cXvMEnyJUahCwUEyu
+	Yp4jxGzoV1yO3+DN0Nn3rL6APoxHZuVWal6L71/TB1mpD7Xs2vWrT57vR4o1pV73UkI4OuyCH334n
+	j+ABwQlB3BgZOoVOGqQypUXTflYmdNWqT2CqsAadnPBbxl92jkajM1rcp9Mle5mPOu0xHtDcx8tqC
+	N7sz4CCYCKEV2L+VuEonBzhlrB1LrcWtZPFZbEDKN00AYbpP4Q/zxOzTmSr+dshBa2t2LlvU2+yBK
+	VYz/V09MLKfuQRc51AoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rs0d3-0000000GBx4-0cZE;
-	Wed, 03 Apr 2024 13:26:13 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1rs0dG-0000000GC5h-0Cla;
+	Wed, 03 Apr 2024 13:26:26 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rs0cz-0000000GBva-3pyP;
-	Wed, 03 Apr 2024 13:26:11 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-6eae2b57ff2so5160041b3a.2;
-        Wed, 03 Apr 2024 06:26:09 -0700 (PDT)
+	id 1rs0dB-0000000GBzw-1SaV
+	for linux-riscv@lists.infradead.org;
+	Wed, 03 Apr 2024 13:26:23 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2a271c6d3f1so1091655a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Apr 2024 06:26:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1712150769; x=1712755569; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ODnUVSnKJhDEm1BurB+AUz+TF6tuatLZNT+jGpCl49o=;
-        b=YXu5Y9be4GvcrBSmmW7G4iXHop14vH1phhi83Dt14YABHJr+ZD1Vs8NQJNfEsAGO2d
-         8z1MWJrhxh8JV5IIBqUUkSwwUX82ehBSt3ENwkRZwvK1fdPWZbtBbE07KM3wPWdcATkd
-         SYdlQBVZwyMo2ayYis5ITYlb0S2+S4oyO4hF6p97TpFP7qb03ksQ5Cyg7wsUQ/OWQkWV
-         Kf6btE20fMKI2GI/LxGU9jeX7gJgvgMPMD06nOqLmgso2ojyIVkPSklfLRSDIu7RZP2T
-         sPAOBs6Sg8l9Jkyewtw9ewWbSfN1jLLZ7ofV9bCBiOnISN2O6+2VzpxCEtf09fwglJmP
-         UsCQ==
+        d=linaro.org; s=google; t=1712150776; x=1712755576; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=kr5yQL8fx0u0tyLMbu3sLuMSllEG5G+mAeHccxYfdVY=;
+        b=QgRJrPYfdO9Ou4FO3R9mSMMLTE5SE9CYhbVY5l1fKuZyCV8WfwmeGA+N4u90yr5HD4
+         KoBGXbezJDMIqObmJ4RhrKQ1JVu363ppUdFufIQfhpL0PW+75d+F/5qEWRbZMjmuShO8
+         4DBE1OtOGuLMscG/UOLCiNwWLaZPUCjYdSCCcbMFP3M/NQQoVaTEMWct123xqLXRZ0UN
+         Q5prjnDE199iOmaqHIoXndAX2613xxFVrdxc02C9kgs68xsk7BRddF0J6SkWZLIaj6Ot
+         uONHHzWSIEmIiHjryYvE28lmDjJAgppR9+cvh2UrfYTJT2R5w34RerYjtqNQIuzjUiLT
+         ieNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712150769; x=1712755569;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ODnUVSnKJhDEm1BurB+AUz+TF6tuatLZNT+jGpCl49o=;
-        b=edvSamErpwdEq2Ze7YBh6D2bYQVBzJsJA4tRAJz/MrWnPxxdG/tMEn+1er8yiEidGk
-         cnwkZr8JkeoNZ6ze3kWOAF3mViVNocGYZXmFU0gqBCagT7JPdy2jxuJp848FzfWTkiVG
-         2+exGP77vzOaQzhhLro9Y38mh6JDf7x9FQW46P19xxa3XO3P4VPPBnI7zd4Ps/MUpvQt
-         gQ85sOPrl0Npo2BEHNNVSEqVO7MwDrFpRJ9+36u7pYH5ZjAvF4UaT+pNJPpBCJf9POVY
-         T6qvheH3J7owZ45WML6MRD6Jif5JVXS+1WMg6XiZKUOjBnDK0UTbGSA0yM7PoX0h6HXM
-         5FDw==
-X-Forwarded-Encrypted: i=1; AJvYcCW8qidbKFSXV/J84bbL0qFcWusr6Iu7+69K8iyjNiFAc8/X7HGLTd4Mo33hFHzB7OQmkLzAzwdWwgC/j5nnbdWf7VvGHVmWdk00upG6aAxDDxHy6W3FC0Gkr/h9PbMjBuqw9qUOlELqv66yr6CQERdaPu1HnwE=
-X-Gm-Message-State: AOJu0YxgAKPavYJvRZc/klOopHc9bfdLZMCII/a9UdQnX0LREApuXhqa
-	T76ZiKGN5ZkN5s+u9/6efR8FZgUaq2af9fgxCzdfC64DZmJO3LmEERqpz1y6
-X-Google-Smtp-Source: AGHT+IFJ9xVFhcxKPjkQ9awCqlJIsW3wvRmyEJkLnkWMs/f98CPvZeN33nEjiQcGmSbiBbYrqVdc1g==
-X-Received: by 2002:a17:902:ccc1:b0:1e2:3d61:e266 with SMTP id z1-20020a170902ccc100b001e23d61e266mr18724864ple.49.1712150405920;
-        Wed, 03 Apr 2024 06:20:05 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id b1-20020a170903228100b001db717d2dbbsm13207508plh.210.2024.04.03.06.20.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Apr 2024 06:20:05 -0700 (PDT)
-From: Guenter Roeck <linux@roeck-us.net>
-To: linux-kselftest@vger.kernel.org
-Cc: David Airlie <airlied@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Kees Cook <keescook@chromium.org>,
-	Daniel Diaz <daniel.diaz@linaro.org>,
-	David Gow <davidgow@google.com>,
-	Arthur Grillo <arthurgrillo@riseup.net>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	=?UTF-8?q?Ville=20Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	dri-devel@lists.freedesktop.org,
-	kunit-dev@googlegroups.com,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	netdev@vger.kernel.org,
-	x86@kernel.org,
-	Guenter Roeck <linux@roeck-us.net>,
-	Linux Kernel Functional Testing <lkft@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v3 14/15] riscv: Add support for suppressing warning backtraces
-Date: Wed,  3 Apr 2024 06:19:35 -0700
-Message-Id: <20240403131936.787234-15-linux@roeck-us.net>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20240403131936.787234-1-linux@roeck-us.net>
-References: <20240403131936.787234-1-linux@roeck-us.net>
+        d=1e100.net; s=20230601; t=1712150776; x=1712755576;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kr5yQL8fx0u0tyLMbu3sLuMSllEG5G+mAeHccxYfdVY=;
+        b=R86WKZhLwpFuZrR/wyTHTHZ1406CyGweAxrnbULMW5AHr3F0DjjKcx6OLLwF+/0syR
+         WTtwVYq25iGZp18wHP7oySh62XJfazQeuYF1m5xMHXW9tll4c6zr+9ykIgnzr7Aud+Gk
+         NQGGYvruoezkfJsnRLFC6xBynDIcJqK+QJI0tLu11DioOPgrMmLATqAjN603TomnTJJ9
+         pX7tBCdp6wOYbGUCF4cSqO+p/k8Xd26l8gIT3VsAM3D8vRksLUUQEMzQWrS3U2LQyxOh
+         Vi+GWqTLkRcA5idRB0FG4YLz0SF7X46HRDQsX+OlKUD7D8f66Z4urKSQKIMpqkydm9x+
+         Xb3w==
+X-Forwarded-Encrypted: i=1; AJvYcCVPYF+ah3+F+7ke9wSygDftlb7io7HWUQG5mSRrcN2KHfT8P+4tyhgXjTEXIANFSIxMclonm4OJc8B/uVLLssAZMxl1Ec1gOysWrXNvm+iI
+X-Gm-Message-State: AOJu0YybxsCmIDQanYDLwl/KL/QuVC5QGKNTvAtxG9eYGdbf1gGbMkn0
+	+x+bbG6vDxIMQVdiXs1YMVwEEARvf/oD8+svs9fPHn7Os/q9C2lETyqNtKudW5D/PIMcpYoqzhF
+	61TnO+7SnvIcvTG87PcLVdF9lisjQ/CujDHlbHQ==
+X-Google-Smtp-Source: AGHT+IEak/WLSgffbuVSjwab06JTulWpxWfMzkQ8I6F5L8nOzPRvaiqB048L3gfCz5mrvMfqk7JY/JqIUVyg8IDxNG0=
+X-Received: by 2002:a17:90b:19c3:b0:2a2:a7be:3b5c with SMTP id
+ nm3-20020a17090b19c300b002a2a7be3b5cmr1005626pjb.6.1712150776261; Wed, 03 Apr
+ 2024 06:26:16 -0700 (PDT)
 MIME-Version: 1.0
+References: <CA+G9fYtj3aBdRreBmKZDQApEe2x8mugycPgN+_J5ebJzXDEq4g@mail.gmail.com>
+In-Reply-To: <CA+G9fYtj3aBdRreBmKZDQApEe2x8mugycPgN+_J5ebJzXDEq4g@mail.gmail.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 3 Apr 2024 15:26:05 +0200
+Message-ID: <CAKfTPtC9YgbZgGNK82MhhzzsD3P6j64+w6oieJMDKQNOmrC4FQ@mail.gmail.com>
+Subject: Re: kernel/sched/core.c:961:15: error: incompatible pointer to
+ integer conversion passing 'typeof
+To: Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: open list <linux-kernel@vger.kernel.org>, 
+	Linux Regressions <regressions@lists.linux.dev>, lkft-triage@lists.linaro.org, 
+	clang-built-linux <llvm@lists.linux.dev>, Linux PM <linux-pm@vger.kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, linux-riscv@lists.infradead.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240403_062609_960299_44E83BF8 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20240403_062621_455513_7655B5F2 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,108 +97,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add name of functions triggering warning backtraces to the __bug_table
-object section to enable support for suppressing WARNING backtraces.
+Hi Naresh,
 
-To limit image size impact, the pointer to the function name is only added
-to the __bug_table section if both CONFIG_KUNIT_SUPPRESS_BACKTRACE and
-CONFIG_DEBUG_BUGVERBOSE are enabled. Otherwise, the __func__ assembly
-parameter is replaced with a (dummy) NULL parameter to avoid an image size
-increase due to unused __func__ entries (this is necessary because __func__
-is not a define but a virtual variable).
+Adding riscv people
 
-To simplify the implementation, unify the __BUG_ENTRY_ADDR and
-__BUG_ENTRY_FILE macros into a single macro named __BUG_REL() which takes
-the address, file, or function reference as parameter.
+On Wed, 3 Apr 2024 at 09:38, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
+>
+> The riscv clang-17 defconfig build failed due to following warnings / errors
+> on the Linux next-20240402.
 
-Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Signed-off-by: Guenter Roeck <linux@roeck-us.net>
----
-v2:
-- Rebased to v6.9-rc1
-- Added Tested-by:, Acked-by:, and Reviewed-by: tags
-- Introduced KUNIT_SUPPRESS_BACKTRACE configuration option
-v3:
-- Rebased to v6.9-rc2
+Could you confirm that there is no problem with other arch and/or
+other toolchain ?
 
- arch/riscv/include/asm/bug.h | 38 ++++++++++++++++++++++++------------
- 1 file changed, 26 insertions(+), 12 deletions(-)
+>
+> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+>
+> riscv:
+>   build:
+>     * clang-17-lkftconfig - Failed
+>     * rv32-clang-17-defconfig - Failed
+>     * clang-17-tinyconfig - Failed
+>     * rv32-clang-17-tinyconfig - Failed
+>     * clang-17-defconfig - Failed
+>     * clang-17-allnoconfig - Failed
+>     * rv32-clang-17-allnoconfig - Failed
+>
+> Build log:
+> -------
+> kernel/sched/core.c:961:15: error: incompatible pointer to integer
+> conversion passing 'typeof (*((__ai_ptr)))' (aka 'struct wake_q_node
+> *') to parameter of type 'uintptr_t' (aka 'unsigned long')
+> [-Wint-conversion]
+>   961 |         if (unlikely(cmpxchg_relaxed(&node->next, NULL, WAKE_Q_TAIL)))
+>       |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
-index 1aaea81fb141..79f360af4ad8 100644
---- a/arch/riscv/include/asm/bug.h
-+++ b/arch/riscv/include/asm/bug.h
-@@ -30,26 +30,39 @@
- typedef u32 bug_insn_t;
- 
- #ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
--#define __BUG_ENTRY_ADDR	RISCV_INT " 1b - ."
--#define __BUG_ENTRY_FILE	RISCV_INT " %0 - ."
-+#define __BUG_REL(val)	RISCV_INT " " __stringify(val) " - ."
- #else
--#define __BUG_ENTRY_ADDR	RISCV_PTR " 1b"
--#define __BUG_ENTRY_FILE	RISCV_PTR " %0"
-+#define __BUG_REL(val)	RISCV_PTR " " __stringify(val)
- #endif
- 
- #ifdef CONFIG_DEBUG_BUGVERBOSE
-+
-+#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
-+# define HAVE_BUG_FUNCTION
-+# define __BUG_FUNC_PTR	__BUG_REL(%1)
-+#else
-+# define __BUG_FUNC_PTR
-+#endif /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
-+
- #define __BUG_ENTRY			\
--	__BUG_ENTRY_ADDR "\n\t"		\
--	__BUG_ENTRY_FILE "\n\t"		\
--	RISCV_SHORT " %1\n\t"		\
--	RISCV_SHORT " %2"
-+	__BUG_REL(1b) "\n\t"		\
-+	__BUG_REL(%0) "\n\t"		\
-+	__BUG_FUNC_PTR "\n\t"		\
-+	RISCV_SHORT " %2\n\t"		\
-+	RISCV_SHORT " %3"
- #else
- #define __BUG_ENTRY			\
--	__BUG_ENTRY_ADDR "\n\t"		\
--	RISCV_SHORT " %2"
-+	__BUG_REL(1b) "\n\t"		\
-+	RISCV_SHORT " %3"
- #endif
- 
- #ifdef CONFIG_GENERIC_BUG
-+#ifdef HAVE_BUG_FUNCTION
-+# define __BUG_FUNC	__func__
-+#else
-+# define __BUG_FUNC	NULL
-+#endif
-+
- #define __BUG_FLAGS(flags)					\
- do {								\
- 	__asm__ __volatile__ (					\
-@@ -58,10 +71,11 @@ do {								\
- 			".pushsection __bug_table,\"aw\"\n\t"	\
- 		"2:\n\t"					\
- 			__BUG_ENTRY "\n\t"			\
--			".org 2b + %3\n\t"                      \
-+			".org 2b + %4\n\t"                      \
- 			".popsection"				\
- 		:						\
--		: "i" (__FILE__), "i" (__LINE__),		\
-+		: "i" (__FILE__), "i" (__BUG_FUNC),		\
-+		  "i" (__LINE__),				\
- 		  "i" (flags),					\
- 		  "i" (sizeof(struct bug_entry)));              \
- } while (0)
--- 
-2.39.2
+There is no recent change on this code. Could it be a change in
+cmpxchg_relaxed ?
 
+>
+> Steps to reproduce:
+> ---------
+> # tuxmake --runtime podman --target-arch riscv --toolchain clang-17
+> --kconfig defconfig LLVM=1 LLVM_IAS=1
+>
+> Links:
+>  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20240402/testrun/23264917/suite/build/test/clang-17-defconfig/details/
+>  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20240402/testrun/23264917/suite/build/test/clang-17-defconfig/log
+>
+> --
+> Linaro LKFT
+> https://lkft.linaro.org
 
 _______________________________________________
 linux-riscv mailing list
