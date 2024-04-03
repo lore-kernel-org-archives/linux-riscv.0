@@ -4,83 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F11CD128A
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 11:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6892BCD128A
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 12:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+BV5fzIrARGMFVU0KlkROivTzQTLjHhlQy68r0GPjow=; b=lFj8IkuA2ZFZgl
-	1tHDoOZHH6PX1WqRw1aHi1vetV0QYCiwWyt+NzOiyp/1w4ib1PnZBn36nTSF2Wy3eAKUDpGqPpuNL
-	zBX8Iwdxl3xUaVy04R7Ue6nCFYRukJBnvvgP0emKoDut6Kr89LTNhiCjykx5TdVISa41Ij+WrKlZm
-	sG/Tr8wszi7Nh1yurzo1yX+YXAPKpmaWRr3o4yAy75X/T+QnCFiJ6pFxlI9YJ8YgIdmeNmoJcYkQ1
-	azkuzMX8wW9cY6Y8O4sLWGoCgFiN6OysPzRgdNY1dTpmeJrIFWfXK8TF+LfjnmTQoxU+OH7qS6FEV
-	t64YvvsMmTvBkj7YFIAQ==;
+	List-Owner; bh=7CBXFo+YU8Z/jakfRRrAfQBaq1Apmjkv5DIAF2vNIu4=; b=jy9+p0l0SALs+U
+	tTgotCX87TrGNJUnM86hM3tD9OgnWE3i9K+ODSYfBNB3mKX4LelWf3IsbZkv7LBbUmdeXdUVP3mtu
+	P6ERBuPGTllmZtDbOEEZychtQElizLUljAlekUCamskw3TA+JgxSKdu9Nero0eqXEDkDVzM5yP77X
+	KSz3G1gJj9dUSJFhjlTnLUwkuGLvOfWDdvYLH8nuaUbqKm9s5GXlVxXul+iB/vy3jiMKrHQy0NE2r
+	uPiN5INc/MTa+ZhuI94aipvrCZDMlyg0pqeV7xNMRqgA8wBPHIA7fIDrSoydsItoO7qEiqxmPXmor
+	MSjGFhXnNFTFOXe3JQmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrysq-0000000FnJh-3ljC;
-	Wed, 03 Apr 2024 11:34:24 +0000
-Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
+	id 1rrzQD-0000000FtX0-1vaj;
+	Wed, 03 Apr 2024 12:08:53 +0000
+Received: from mail-dm6nam12on20701.outbound.protection.outlook.com ([2a01:111:f403:2417::701] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rrxud-0000000FXAm-15Uf
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Apr 2024 10:32:20 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4V8gzG0y5vz4f3p1Z
-	for <linux-riscv@lists.infradead.org>; Wed,  3 Apr 2024 18:31:54 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id 805EF1A0568
-	for <linux-riscv@lists.infradead.org>; Wed,  3 Apr 2024 18:32:02 +0800 (CST)
-Received: from [10.67.109.184] (unknown [10.67.109.184])
-	by APP2 (Coremail) with SMTP id Syh0CgAXOg0fMA1m63l0JA--.50696S2;
-	Wed, 03 Apr 2024 18:32:00 +0800 (CST)
-Message-ID: <6feb3403-4214-4143-b0bc-c95daf8eea2b@huaweicloud.com>
-Date: Wed, 3 Apr 2024 18:31:59 +0800
+	id 1rrzQA-0000000FtV4-0KZR;
+	Wed, 03 Apr 2024 12:08:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Mj6dg4NgXo2koQtkxJccWHqoD9exTFAZ7XqmMBHt2j6bzxzC9Fz+7Rv5redlgK8/FObJm573nkAHJzqj2moDyw90r0Gh6xYzND8Ny1fLsHtjJK88tN3CmRlxzdlhqswuK5DNc5PLmXQ66STFixqkFdqVgENTAaRYCyTWaU+m6bMvBOxo4Ze5/aif7N74JuJTT158/VJR9yLHE67SpilOVEkza2emlx+xz7lJzwcBUqlE85fpF+312HDjoYKwqHvxi0Q7Atg6ERfkyjPmDGo1IoQ/U173p38oJzmRmmZmOmjhXtz5qY15MWrjbtOdFoNWToe/zmOJnIpu8XIBn4/RRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y36j+coR/veq+AhDz/Y+4pEbXQYKqpMkg02kmZ1Xx7w=;
+ b=MuUizv83Rhxn4VS4aGFUcHnpuSZ5s8NNyf27SZnbUoIPUK6a1uPchW0fNkLvc1rTBvbnpPLjWBBEqn4lGyN8Y3dfR+j+1RiSwncXEzeAkJf05NqdKRIC514YnmjxYfcklVoWr8o2GxrCEdrw9V0l+pJRnLslDRIMQe1FapX7ojNIU0sjpl8GOVth+o43U/B1TIRKKmyWbKGauZtcQW1spBQNs4Q/4pdIPOepBKiTgsx87P3j5FzC15JmYiL7yFMGop6z01U6G9TPBn83jY3s/bRav4NrrM7NeUOu+gJagu4ZKPtoZQkt2Uro3BP6g7BrXrh5lROCskvP7bvtpiROug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y36j+coR/veq+AhDz/Y+4pEbXQYKqpMkg02kmZ1Xx7w=;
+ b=nNh21PyAgJxzCDOH2FGKmvSP/mLF96W2rtbne/m0oCpmtP94e9woHSJpUsOH+aemqUVMMuKDdIHs46WFpndxeR319vgq0bnSPY+S+2m1pGhI/ZTPlRwMha3SU0iUnw9SHTdzAYdAyvx0WCNQHkLaP+NSLwhwhM9kNnyazQnS5x1Tuca5sgdbM9qlKNG62RKORIx9Fa6g0lrkin+UPuHKbRZnMiVaCAnjj70H6QsINU7bnAp9KndAHHfnrzGgJOf4QETiaTfvXLdrP2owYTwc2A5OnXn3FpOFPIsa5LiQyWJWxiQMKg1RNNCaXf9juzVUBTxFraZCv3qcpVqzY/+/Bw==
+Received: from DM6PR12MB3849.namprd12.prod.outlook.com (2603:10b6:5:1c7::26)
+ by DS7PR12MB8290.namprd12.prod.outlook.com (2603:10b6:8:d8::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Wed, 3 Apr
+ 2024 12:08:43 +0000
+Received: from DM6PR12MB3849.namprd12.prod.outlook.com
+ ([fe80::6aec:dbca:a593:a222]) by DM6PR12MB3849.namprd12.prod.outlook.com
+ ([fe80::6aec:dbca:a593:a222%5]) with mapi id 15.20.7409.042; Wed, 3 Apr 2024
+ 12:08:42 +0000
+Date: Wed, 3 Apr 2024 09:08:41 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Peter Xu <peterx@redhat.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, Yang Shi <shy828301@gmail.com>,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Rik van Riel <riel@surriel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	David Hildenbrand <david@redhat.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	James Houghton <jthoughton@google.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, loongarch@lists.linux.dev
+Subject: Re: [PATCH v4 05/13] mm/arch: Provide pud_pfn() fallback
+Message-ID: <20240403120841.GB1723999@nvidia.com>
+References: <20240327152332.950956-1-peterx@redhat.com>
+ <20240327152332.950956-6-peterx@redhat.com>
+ <20240402190549.GA706730@dev-arch.thelio-3990X>
+ <ZgyKLLVZ4vN56uZE@x1n>
+ <20240402225320.GU946323@nvidia.com>
+ <ZgyWUYVdUsAiXCC4@xz-m1.local>
+Content-Disposition: inline
+In-Reply-To: <ZgyWUYVdUsAiXCC4@xz-m1.local>
+X-ClientProxiedBy: SN7PR18CA0020.namprd18.prod.outlook.com
+ (2603:10b6:806:f3::14) To DM6PR12MB3849.namprd12.prod.outlook.com
+ (2603:10b6:5:1c7::26)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next 0/5] Support local vmtest for riscv64
-Content-Language: en-US
-To: Eduard Zingerman <eddyz87@gmail.com>,
- Daniel Borkmann <daniel@iogearbox.net>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org
-Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
- Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
- Mykola Lysenko <mykolal@fb.com>, Manu Bretelle <chantr4@gmail.com>,
- Pu Lehui <pulehui@huawei.com>
-References: <20240328124916.293173-1-pulehui@huaweicloud.com>
- <32b3358903bf8ba408812a2636f39a275493eb91.camel@gmail.com>
- <e995a1f1-0b48-4ce3-a061-5cbe68beb6dd@huaweicloud.com>
- <f91237f311f183d57c4620bc2e6099df8aefccb0.camel@gmail.com>
- <52117f9c-b691-409f-ad2a-a25f53a9433d@huaweicloud.com>
- <f20d1e2a2f5fa10f29bf1fddbaf99c3f185e8530.camel@gmail.com>
-From: Pu Lehui <pulehui@huaweicloud.com>
-In-Reply-To: <f20d1e2a2f5fa10f29bf1fddbaf99c3f185e8530.camel@gmail.com>
-X-CM-TRANSID: Syh0CgAXOg0fMA1m63l0JA--.50696S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxurW5Zw1xXF48tFW3Xw4rGrg_yoW5Ar1kpF
-	47CF1Ivr1DJrn8twsFya4YyFWFvrZ5GF13Z3ykJ340yF909rWIgFsakFW5ZFZruryqq3yY
-	v3y2vrWYy3ZrtaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkYb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l42xK82IYc2Ij
-	64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x
-	8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE
-	2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42
-	xK8VAvwI8IcIk0rVWrJr0_WFyUJwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv
-	6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7IUbG2NtUUUUU==
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB3849:EE_|DS7PR12MB8290:EE_
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 7d5Drxicj9Ag1dwLcDuEFcEjNK03/mtTdDuPv/+0E+qGLHKkCQJoVH/u/CbZuPLrYXgRmrapnirIFA8LOIf+KAfaAtuQOakqev5oc5paMcTrbB/rWzX3wTWeHLi21/NKaXJG56APRAl510740g0mTHTr8lLMD85wWg+80d5g9NphVzfb1lRhqUjSx0yGfper/3RV/PE9Yli757VwRSQOiRFhsmuSxeBOhc5rL2FbEXL6yPixi4l4pBHb9Td0rJ4i4+z5UuoErAraZgnUcmcSY/x+oE6T0DpI3R63biiThXd+OzETp+/QitfdEg7LPguZHqORJ4D/xSxj95U9DW/yKRP8tTG08s0Qc5fxiRndmgbumhCzY6hiB+cuuxCWWFRI38RMXo1h+Ox+E2quJoahUCdFKzQ+7KJKetSkAySmrnEl4SkHeWQmEXpPR7YE+QyumqVEODAP75hTSuPRdIP72xftv+wcahF27t2thJOk/GC3oQxqD6YvOzDGHQFHLaJ375C+wLidEWxjwdBzadQxyGdkqLgMWfuW1OlavfEVWoq4CVLpmb5U6fKT6eBf93R/Md9TZJESBJVclwGwhJs5c7tIp6OSjrqjbIrLWk9ZOvKHN8rLN3eb98PH3xJVzCnUFQHsX1m/QLHklfgCyxpbhTFMNWbe57Ujtcu4rQ+99lc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3849.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(7416005)(366007)(1800799015)(376005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7dPeEXo85Anym/htRXm3/v05s5CWDH+IEgsNsIZxrBbSa8kn5SRwnvHx0zO3?=
+ =?us-ascii?Q?BiHLYAXHNVH4310Zc0aQpo/IA53d5xwMcckgup+QMmBYdDiYTJI39SvTszdT?=
+ =?us-ascii?Q?w4+SMkfeJ423XVaj8aWv4KY9fzYFLvV2BguAsBelaGL5yDUtPEsMewddwTpd?=
+ =?us-ascii?Q?bAE39gwVqcHAcz5L4hi2ap8lmvPD0zfXBO3HY9lxTcey7RbJO9SPZ8BARaif?=
+ =?us-ascii?Q?AaLTTChfm33lXZvRVq0aVLSpaizO5q8ONd1uLKApKp5cE+MktygcWLxJoP9U?=
+ =?us-ascii?Q?48G1Cr71fX+pJ0dr9EskqPz34ZuogK6Ta3P1ZXlEccpDminsRkRi+OhYpkbz?=
+ =?us-ascii?Q?enzlx6pmOLhXT94+xBfFiEjZg6TEVvMolza9Yx6fbdpki70z7CJL3OhWz3e/?=
+ =?us-ascii?Q?qAugtbHR/UIQmCOY1Nv/TRB053aqNDQjefiu9Yuvlz18iLNXmXrk2Gtd4ZSi?=
+ =?us-ascii?Q?aitrnwlZvae9Nv1wNyXYzZRNun7FsnPQz2OKFEt7F82FgWBSi4rz7yusGS0Y?=
+ =?us-ascii?Q?dKEfLYuBpz4Rz1ZfeRNYBg4U0M3nLn2cjMN+k7u5TmgSK6lBbO/5spPPUqDA?=
+ =?us-ascii?Q?ujD8wNlsxADVY1Tr+VCYGJa8v4kiMb9hq7VBbqfKUjgoHLgGydvvhi7ZVbHU?=
+ =?us-ascii?Q?iLoE3PuBsWei1yEomJKltHn/eNYZxluK3IdA+8CBuAc9OGHPP45pig/hl9pn?=
+ =?us-ascii?Q?AZoa0hOb5XMBhXJNrWL0CvRxTSLx5Q7tBtW04uznB1nn1jDphmqcWrjSkATz?=
+ =?us-ascii?Q?acZZST9v14dXv4V/2OzPvIf2ijICE6Tvv8FomZXAIRPBT/64w07xtBLQkpsg?=
+ =?us-ascii?Q?vL0BBbs675siQBIjCdJLm1m7hyraR+ObpFXPNmOgjRxaPC8liSnl9UQx72sM?=
+ =?us-ascii?Q?OQtVEiKj+F9gBoyVHX/LlZqTdp67drsWz7yZaKrOJEa3AVZwpOKC9Jm95v9c?=
+ =?us-ascii?Q?zCFqGnGIuZRVu/NYWCRk9v9dUflkdRz/dUCafujw0pqqWOdZZ87eGZ+vTsOT?=
+ =?us-ascii?Q?aJiE2PDliDXjGbjKNbqMOIGgl+AQJbzPASFsccVZjVKIfeifRcwaq2qFwWkm?=
+ =?us-ascii?Q?UCLQqw4ezq3R5C4awJ4PgiHUn13ZGJDFX+s4VEez9nX5VbfAVhnks6PnuEcA?=
+ =?us-ascii?Q?FaWkkh0hqECLGPcwbnsowCKTAu5C4Jha2qyKoWWBhAQn0mBMgB46bqvGpgS/?=
+ =?us-ascii?Q?ZTZKHixSfhL/U8OlgwTFeyrCe5xXkiV/tv1wPwmWo4HH8Q61yHeChKJ6R6pK?=
+ =?us-ascii?Q?skCGyu+XeoNzd+mvvlts5zud8to0B2FKqMeoS5jeiEgi7Pi/JjGPTIFokTGt?=
+ =?us-ascii?Q?0mhuOr0uOL0PRkESYaFn8u+ma29q0X+y8j9f90caka86CJLwhVXoj4oltS/i?=
+ =?us-ascii?Q?7hajPSpTT/8wgTYcSmYioLVmgs1WGhBFFz0LPUMsn/7yOVHCshnJcg1tXmng?=
+ =?us-ascii?Q?2SBXwnriXVc03Ow+KkTUNzeljeGL7W6zd25KiuC1XHWLuLdjCmaxTo9trLDs?=
+ =?us-ascii?Q?SenWy/wo3Yx1Le+tIv4gae89tC501DynX8L60nzeZTKTDQ7KLXrqfrab1e2X?=
+ =?us-ascii?Q?O3AG/VstJQkpQqp49tiE8dvlG1ySaio++uCogt3O?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1ce796d5-6291-4946-c6c0-08dc53d6ce35
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB3849.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2024 12:08:42.8975
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vcqeO8smnJ2yHXJiT4G/jEqlS6nSh+02kCcBY902wQMF8jp2DjJMB4trd+v+y+SW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8290
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240403_033212_136459_9D72F7D5 
-X-CRM114-Status: GOOD (  27.28  )
+X-CRM114-CacheID: sfid-20240403_050850_150881_D6B76A92 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,96 +152,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 02, 2024 at 07:35:45PM -0400, Peter Xu wrote:
+> On Tue, Apr 02, 2024 at 07:53:20PM -0300, Jason Gunthorpe wrote:
+> > On Tue, Apr 02, 2024 at 06:43:56PM -0400, Peter Xu wrote:
+> > 
+> > > I actually tested this without hitting the issue (even though I didn't
+> > > mention it in the cover letter..).  I re-kicked the build test, it turns
+> > > out my "make alldefconfig" on loongarch will generate a config with both
+> > > HUGETLB=n && THP=n, while arch/loongarch/configs/loongson3_defconfig has
+> > > THP=y (which I assume was the one above build used).  I didn't further
+> > > check how "make alldefconfig" generated the config; a bit surprising that
+> > > it didn't fetch from there.
+> > 
+> > I suspect it is weird compiler variations.. Maybe something is not
+> > being inlined.
+> > 
+> > > (and it also surprises me that this BUILD_BUG can trigger.. I used to try
+> > >  triggering it elsewhere but failed..)
+> > 
+> > As the pud_leaf() == FALSE should result in the BUILD_BUG never being
+> > called and the optimizer removing it.
+> 
+> Good point, for some reason loongarch defined pud_leaf() without defining
+> pud_pfn(), which does look strange.
+> 
+> #define pud_leaf(pud)		((pud_val(pud) & _PAGE_HUGE) != 0)
+> 
+> But I noticed at least MIPS also does it..  Logically I think one arch
+> should define either none of both.
 
+Wow, this is definately an arch issue. You can't define pud_leaf() and
+not have a pud_pfn(). It makes no sense at all..
 
-On 2024/4/3 7:40, Eduard Zingerman wrote:
-> On Sat, 2024-03-30 at 18:12 +0800, Pu Lehui wrote:
-> [...]
-> 
->>> Looks like I won't be able to test this patch-set, unless you have
->>> some writeup on how to create a riscv64 dev environment at hand.
->>> Sorry for the noise
->>
->> Yeah, environmental issues are indeed a developer's nightmare. I will
->> try to do something for the newcomers of riscv64 bpf. At present, I have
->> simply built a docker local vmtest environment [0] based on Bjorn's
->> riscv-cross-builder. We can directly run vmtest within this environment.
->> Hopefully it will help.
->>
->> Link: https://github.com/pulehui/riscv-cross-builder/tree/vmtest [0]
-> 
-> Hi Pu,
-> 
-> Thank you for sharing the docker file, I've managed to run the tests
-> using it. In order to avoid creating files with root permissions I had
-> to add the following lines at the end of the Dockerfile:
-> 
-> + RUN useradd --no-create-home --uid 1000 eddy
-> + RUN passwd -d eddy
-> + RUN echo 'eddy ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-> + # vmtest.sh does 'mount -o loop',
-> + # ensure there is a loop device in the container
-> + RUN mknod /dev/loop0 b 7 20
-> 
-> Where 'eddy' is my local user with UID 1000.
-> Probably this should be made more generic.
-> I used the following command to start the container:
-> 
-> docker run -ti -u 1000:1000 \
->      --rm -v <path-to-kernel-dir>:/workspace \
->      -v <path-to-rootfs-image-dir>:/rootfs \
->      --privileged ubuntu-vmtest:latest /bin/bash
-> 
-> Also, I had to add '-d /rootfs/bpf_selftests' option for vmtest.sh in
-> order to avoid polluting user directory inside the container.
-> Maybe OUTPUT_DIR for vmtest.sh should be mounted as a separate volume.
-> 
-> I agree with Daniel, it would be great to document all of this
+I'd say the BUILD_BUG has done it's job and found an issue, fix it by
+not defining pud_leaf? I don't see any calls to pud_leaf in loongarch
+at least
 
-Forgot to reply to this in my last email. It my pleasure to do this.
-
-> somewhere in the repo (or even scripted somehow).
-> 
-> Using the specified DENYLIST I get the following stats for test_progs:
-> 
->    #3/2     arena_htab/arena_htab_asm:FAIL
->    #3       arena_htab:FAIL
-
-Puranjay has submitted to riscv bpf arena and will be merged soon. So I 
-didn't add it to DENYLIST.riscv64.
-
-https://lore.kernel.org/bpf/20240326224943.86912-1-puranjay12@gmail.com/
-
->    #95      get_branch_snapshot:FAIL
->    #172/1   perf_branches/perf_branches_hw:FAIL
->    #172     perf_branches:FAIL
-
-riscv sbi pmu driver not support branch sampling yet.  The following 
-patch should be used for better regression.
-
-https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git/commit/?id=ea6873118493
-
->    #434/3   verifier_arena/basic_alloc3:FAIL
->    #434     verifier_arena:FAIL
->    Summary: 531/3581 PASSED, 64 SKIPPED, 4 FAILED
-> 
-> Tested-by: Eduard Zingerman <eddyz87@gmail.com>
-> 
->> PS: Since the current rootfs of riscv64 is not in the INDEX, I simply
->> modified vmtest.sh to support local rootfs.
-> 
-> Could you please add this change to the patch-set?
-
-yep, will try to make it more convenient.
-
-> 
-> [...]
-
+Jason
 
 _______________________________________________
 linux-riscv mailing list
