@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B09BFCD128A
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 13:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 891FBCD1299
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 13:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zodcg/VMBwejW8Cz3NQ6/6bshztxMirBZB+/O0RZiAs=; b=HNpNR1AjitYHcj
-	xWIKdUWSm/4AWLPbSC+Fh+0TD/LZ/iSk+GPKjMdaUzwI4utCS3ObZR73h+dZraF+nAzK1+4ROwpsL
-	I0b70p8re3/F7oe9U2xHO5djVPY+hPG5w05qrwAM2xJHnd7T5RUgRniHiYBfcFg5FkyNknSdwAvFT
-	LxE6Bk1fGpR2myw9/+QYrRMLQp362QziY2th+LYmMg9OKAK7bPLySQYFAgaF3a5sWG6pR7ch+5xd2
-	qR+nBhA/puGBuODOKZZllAF4TTal00n2ajU05fegl2LligGfSO3A3gJIbfr2nattTmInQzCn+xGRV
-	ap1C7JfmnWGgBuAuov0w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qP3fkJWsPQJZ0m/w8kUSDYmZLSS9yF2nfQg+aSpNndk=; b=4MWnnmD55JycmM
+	6/11FnY+QFg8oWycNmT51SHBx3mLUmiQU8InCJpar5ngdvUeRmZ9KKTceRJ3d2JxFE103Cr6UlkYI
+	WsPgh/rLhB2I57MfsbFMz29MKbEBZ3eB0blqilcGCHgwtdHajwFzwD4wMcpv8oKjDysrCc+/N4gg+
+	OvffpZOMUJQ1ZURWhQDwKMGA9/8Cx9Hbgxx191v474r88VDJGhCxrILpb4T9UsTlfogtLiShtaBTg
+	wiz/RIRmwW7oPsgovuAjr/Qz0DVzv3KhOOnblnh1pnaQG4UpDGu5cIqOFaTHe9KCLNOt0lMRLgh3N
+	CC7ae++259uKDjeHqIjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rs0Wq-0000000G8T2-1MPX;
-	Wed, 03 Apr 2024 13:19:48 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1rs0Wt-0000000G8WI-3iBA;
+	Wed, 03 Apr 2024 13:19:52 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rs0Wm-0000000G8Qy-0Woy;
-	Wed, 03 Apr 2024 13:19:45 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-5dbf7b74402so3544713a12.0;
-        Wed, 03 Apr 2024 06:19:42 -0700 (PDT)
+	id 1rs0Wn-0000000G8RH-2u1F;
+	Wed, 03 Apr 2024 13:19:48 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-5ce2aada130so4236400a12.1;
+        Wed, 03 Apr 2024 06:19:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1712150381; x=1712755181; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=5jeOyVY2AHqhv0KvV6kieVXey6Da3SBwUwdCTK976WY=;
-        b=gStypI49dWWj4ApvHboc8ned+mafRtvkwao8BFcR1uq65+engdQFZXYZbaA7eVPNJG
-         kCDKxeahEp7uLrILHX9uJIefC5tWry+nfS7gqnvx8hE29hnD7fenAdWyDFpvGWQWOa4Y
-         Ax8zuwLjB5kG9vB8OaOp4RHmshpOafO78q+30FW0vX9RGI2qttyJBpWLoAZVYmvBhzuS
-         LX+ePjbcFuPT5dv3323iP3lucRwxZX5UE5474jtT05SCofYkfCzd2m5ioAF+1OIBUfcO
-         5xiJtA+VOVnE/FZB62g/iGXrwuZmHzY3vTOqY8aVukdQdY0W8En+NTByul7pSmv6D9gW
-         8YLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712150381; x=1712755181;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1712150384; x=1712755184; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5jeOyVY2AHqhv0KvV6kieVXey6Da3SBwUwdCTK976WY=;
-        b=sOnlYPd7gv/c1Jrd5N2Z3+8aEVoOOdTkwSoNOiUcpPmL7Odc58C8Zv+8e8803lCB7T
-         FvF2fus59/hrvBCaq9jmQipXxaVXrUN0La8iVDIN4a5ZrLiMiBfpNJs1etxnajhZA7QK
-         zab09j+tDOP6eNDvamOBvb4foLOovhBFW73u0DKg9MrArI359px5412eD8YOmLVvxmTf
-         eq4kOOMnVO6yrcoB9zLndTsr3upEAs+ihPvs5LHf7p1NUGtemvtH+osclF0fq7srgdO2
-         ydVO64dj7nKpJREYqVTvg04U+cYSRIUWgAaATtXsd6+lZf67qeLxpBp+oZM84f8zsqnz
-         qeUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX4Cj/vYS7KeV+voSh3abkN7ZAo6SMKXgnK/w3a36+WvgPvJ4ZbNpdvhU+opaoZGx9Nflb/fX8hXwB19dHZMpznWI85ZFQkPTvLJNcdp0nIGu9RB3GBUenqlgwvdPySm+0OWHovVMXKmU8881ragyZjsVF0qqo=
-X-Gm-Message-State: AOJu0Ywweuo128PTeHIDkuw2g/y3CYeuhBfIN8yXhVhuchC2ARyrZiLD
-	SZxYS95+4a5MviLV/A0rXkNdlfJxzQGPtTo9zbu272P2C6nlNkgf
-X-Google-Smtp-Source: AGHT+IGUUHIUOOsCxCF/TsSf8IWxMRQa7fBTBtgLaZOyDBRCO0Z9+JW6g9cTcLQ9TLR427e8GbHcQA==
-X-Received: by 2002:a17:902:f68b:b0:1e2:8ec0:90c4 with SMTP id l11-20020a170902f68b00b001e28ec090c4mr2621403plg.2.1712150381396;
-        Wed, 03 Apr 2024 06:19:41 -0700 (PDT)
+        bh=QLppDGinW0QyvnpiYq8klDjFNvdzQ2Nr+inin7jIp4I=;
+        b=N7cbcoJT2P+6DA3nUlOyFsSOkIHAUkHxFy2be+GqxiWVVVZGUxQO+mtPVK5rNmh/8j
+         KXJA5/BEm09sBhWspm8rKPUxV50BDKPOr44RLoR6r7cEzTo1TMzol0ppUYqciZBxJaKS
+         O+z5tK3tlTRkbUn7mKCiqAHDJX1w4G+e2yBU1F5OdlTCUyfDReKukjM2xUBadnHqF80E
+         D7B1KRqkHJgR+XVMZG9yeCudVagXqtbEsRGmUjKnF+JaNXE+OtR2PUKjr0NvTOAAGg66
+         SxkJaGPxHvQvLv+YnTg4Rz5ba7fKuP2K5ey/yxfKV04nJ/QM4hRtFF+3KUq9xw2G/vR+
+         7Vrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1712150384; x=1712755184;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=QLppDGinW0QyvnpiYq8klDjFNvdzQ2Nr+inin7jIp4I=;
+        b=MZYTCY3PFhUeeYBTUWkOFxdSd5MTHhkBNMFYVIIFqYqYqG9e602NXHNtm8awMoWGmQ
+         OQZtoObmmKYy6DgtmwKU3nfTvdv+lYwdB7+MDE95r9drG88u/NChIK5q0RZXH7p6qWO+
+         +u/9dSM57cXvTAGxdO9P2vYnnNG9XAPIip5GlJURyaYbsQn5h4pq0I1c7cpWRkJzI8V/
+         YGRJxOl5H8egZ8CR8ELyKajJt6fh5PmWuF16iyAM6Vfn6XU/MhzY5iL76v71SfFjhYtu
+         9HdZdUbmdVDwyZSnAidWzC2eZsr2Iycww0QFYNZRNfjE0TxqCVHJyx5claOOIu+AwmUj
+         5Fuw==
+X-Forwarded-Encrypted: i=1; AJvYcCVyHVcz0RBcmf9dE07MJovwVqbMWMjmH3JLQ4yhaFSdmDo1M5Af4W7y99bR6OXF1ICNK9KNwnzhB6fGg5cJbzX1xGLz+rQPHQSSIHcWXn/gT52lggKQrwZN1g6AsQGwjivOBG7UEgm8WBfD6aIe0o1tuvryk/Y=
+X-Gm-Message-State: AOJu0YxeIw/gvNiMQBbOsQhiuOudVn7TNMLoql3IkfdwlKNiRFSPgsAF
+	iEoU8UkvkcLx2y75zOHhaK8IjgGgeYbuXWbgcpkmXXo4yTP7wI0h
+X-Google-Smtp-Source: AGHT+IHLZzwj8QjdIOumZZwMTdNJboOCUuRmYTlmuXcu4rWvyLRFqzzHLCDPQsEEK1PiSQ2OkIhUJQ==
+X-Received: by 2002:a17:90a:e691:b0:29c:7544:54df with SMTP id s17-20020a17090ae69100b0029c754454dfmr13682150pjy.23.1712150383662;
+        Wed, 03 Apr 2024 06:19:43 -0700 (PDT)
 Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id p2-20020a170902780200b001e00e17c6e2sm13430178pll.138.2024.04.03.06.19.39
+        by smtp.gmail.com with ESMTPSA id k6-20020a17090a658600b0029bc1c931d9sm13588667pjj.51.2024.04.03.06.19.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Apr 2024 06:19:40 -0700 (PDT)
+        Wed, 03 Apr 2024 06:19:42 -0700 (PDT)
 From: Guenter Roeck <linux@roeck-us.net>
 To: linux-kselftest@vger.kernel.org
 Cc: David Airlie <airlied@gmail.com>,
@@ -93,15 +94,18 @@ Cc: David Airlie <airlied@gmail.com>,
 	loongarch@lists.linux.dev,
 	netdev@vger.kernel.org,
 	x86@kernel.org,
-	Guenter Roeck <linux@roeck-us.net>
-Subject: [PATCH v3 00/15] Add support for suppressing warning backtraces
-Date: Wed,  3 Apr 2024 06:19:21 -0700
-Message-Id: <20240403131936.787234-1-linux@roeck-us.net>
+	Guenter Roeck <linux@roeck-us.net>,
+	Linux Kernel Functional Testing <lkft@linaro.org>
+Subject: [PATCH v3 01/15] bug/kunit: Core support for suppressing warning backtraces
+Date: Wed,  3 Apr 2024 06:19:22 -0700
+Message-Id: <20240403131936.787234-2-linux@roeck-us.net>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20240403131936.787234-1-linux@roeck-us.net>
+References: <20240403131936.787234-1-linux@roeck-us.net>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240403_061944_204092_D9748500 
-X-CRM114-Status: GOOD (  25.38  )
+X-CRM114-CacheID: sfid-20240403_061945_821265_197BF2B6 
+X-CRM114-Status: GOOD (  36.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,9 +122,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some unit tests intentionally trigger warning backtraces by passing bad
-parameters to kernel API functions. Such unit tests typically check the
-return value from such calls, not the existence of the warning backtrace.
+Some unit tests intentionally trigger warning backtraces by passing
+bad parameters to API functions. Such unit tests typically check the
+return value from those calls, not the existence of the warning backtrace.
 
 Such intentionally generated warning backtraces are neither desirable
 nor useful for a number of reasons.
@@ -138,111 +142,378 @@ problematic warning backtraces triggered while the test is running, and
 the irrelevant backtrace(s) would still clog the kernel log.
 
 Solve the problem by providing a means to identify and suppress specific
-warning backtraces while executing test code. Support suppressing multiple
-backtraces while at the same time limiting changes to generic code to the
-absolute minimum. Architecture specific changes are kept at minimum by
-retaining function names only if both CONFIG_DEBUG_BUGVERBOSE and
-CONFIG_KUNIT are enabled.
+warning backtraces while executing test code. Since the new functionality
+results in an image size increase of about 1% if CONFIG_KUNIT is enabled,
+provide configuration option KUNIT_SUPPRESS_BACKTRACE to be able to disable
+the new functionality. This option is by default enabled since almost all
+systems with CONFIG_KUNIT enabled will want to benefit from it.
 
-The first patch of the series introduces the necessary infrastructure.
-The second patch introduces support for counting suppressed backtraces.
-This capability is used in patch three to implement unit tests.
-Patch four documents the new API.
-The next two patches add support for suppressing backtraces in drm_rect
-and dev_addr_lists unit tests. These patches are intended to serve as
-examples for the use of the functionality introduced with this series.
-The remaining patches implement the necessary changes for all
-architectures with GENERIC_BUG support.
-
-With CONFIG_KUNIT enabled, image size increase with this series applied is
-approximately 1%. The image size increase (and with it the functionality
-introduced by this series) can be avoided by disabling
-CONFIG_KUNIT_SUPPRESS_BACKTRACE.
-
-This series is based on the RFC patch and subsequent discussion at
-https://patchwork.kernel.org/project/linux-kselftest/patch/02546e59-1afe-4b08-ba81-d94f3b691c9a@moroto.mountain/
-and offers a more comprehensive solution of the problem discussed there.
-
-Design note:
-  Function pointers are only added to the __bug_table section if both
-  CONFIG_KUNIT_SUPPRESS_BACKTRACE and CONFIG_DEBUG_BUGVERBOSE are enabled
-  to avoid image size increases if CONFIG_KUNIT is disabled. There would be
-  some benefits to adding those pointers all the time (reduced complexity,
-  ability to display function names in BUG/WARNING messages). That change,
-  if desired, can be made later.
-
-Checkpatch note:
-  Remaining checkpatch errors and warnings were deliberately ignored.
-  Some are triggered by matching coding style or by comments interpreted
-  as code, others by assembler macros which are disliked by checkpatch.
-  Suggestions for improvements are welcome.
-
-Changes since RFC:
-- Introduced CONFIG_KUNIT_SUPPRESS_BACKTRACE
-- Minor cleanups and bug fixes
-- Added support for all affected architectures
-- Added support for counting suppressed warnings
-- Added unit tests using those counters
-- Added patch to suppress warning backtraces in dev_addr_lists tests
-
-Changes since v1:
+Cc: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Daniel Diaz <daniel.diaz@linaro.org>
+Cc: Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: Kees Cook <keescook@chromium.org>
+Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
+Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
+Reviewed-by: Kees Cook <keescook@chromium.org>
+Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+---
+v2:
 - Rebased to v6.9-rc1
 - Added Tested-by:, Acked-by:, and Reviewed-by: tags
-  [I retained those tags since there have been no functional changes]
-- Introduced KUNIT_SUPPRESS_BACKTRACE configuration option, enabled by
-  default.
-
-Changes since v2:
+- Added CONFIG_KUNIT_SUPPRESS_BACKTRACE configuration option,
+  enabled by default
+v3:
 - Rebased to v6.9-rc2
-- Added comments to drm warning suppression explaining why it is needed.
-- Added patch to move conditional code in arch/sh/include/asm/bug.h
-  to avoid kerneldoc warning
-- Added architecture maintainers to Cc: for architecture specific patches
-- No functional changes
 
-----------------------------------------------------------------
-Guenter Roeck (15):
-      bug/kunit: Core support for suppressing warning backtraces
-      kunit: bug: Count suppressed warning backtraces
-      kunit: Add test cases for backtrace warning suppression
-      kunit: Add documentation for warning backtrace suppression API
-      drm: Suppress intentional warning backtraces in scaling unit tests
-      net: kunit: Suppress lock warning noise at end of dev_addr_lists tests
-      x86: Add support for suppressing warning backtraces
-      arm64: Add support for suppressing warning backtraces
-      loongarch: Add support for suppressing warning backtraces
-      parisc: Add support for suppressing warning backtraces
-      s390: Add support for suppressing warning backtraces
-      sh: Add support for suppressing warning backtraces
-      sh: Move defines needed for suppressing warning backtraces
-      riscv: Add support for suppressing warning backtraces
-      powerpc: Add support for suppressing warning backtraces
-
- Documentation/dev-tools/kunit/usage.rst |  30 ++++++++-
- arch/arm64/include/asm/asm-bug.h        |  29 ++++++---
- arch/arm64/include/asm/bug.h            |   8 ++-
- arch/loongarch/include/asm/bug.h        |  38 ++++++++----
- arch/parisc/include/asm/bug.h           |  29 ++++++---
- arch/powerpc/include/asm/bug.h          |  37 +++++++++---
- arch/riscv/include/asm/bug.h            |  38 ++++++++----
- arch/s390/include/asm/bug.h             |  17 +++++-
- arch/sh/include/asm/bug.h               |  28 +++++++--
- arch/x86/include/asm/bug.h              |  21 +++++--
- drivers/gpu/drm/tests/drm_rect_test.c   |  16 +++++
- include/asm-generic/bug.h               |  16 ++++-
- include/kunit/bug.h                     |  56 +++++++++++++++++
- include/kunit/test.h                    |   1 +
- include/linux/bug.h                     |  13 ++++
- lib/bug.c                               |  51 ++++++++++++++--
- lib/kunit/Kconfig                       |   9 +++
- lib/kunit/Makefile                      |   7 ++-
- lib/kunit/backtrace-suppression-test.c  | 104 ++++++++++++++++++++++++++++++++
- lib/kunit/bug.c                         |  42 +++++++++++++
- net/core/dev_addr_lists_test.c          |   6 ++
- 21 files changed, 524 insertions(+), 72 deletions(-)
+ include/asm-generic/bug.h | 16 +++++++++---
+ include/kunit/bug.h       | 51 +++++++++++++++++++++++++++++++++++++++
+ include/kunit/test.h      |  1 +
+ include/linux/bug.h       | 13 ++++++++++
+ lib/bug.c                 | 51 ++++++++++++++++++++++++++++++++++++---
+ lib/kunit/Kconfig         |  9 +++++++
+ lib/kunit/Makefile        |  6 +++--
+ lib/kunit/bug.c           | 40 ++++++++++++++++++++++++++++++
+ 8 files changed, 178 insertions(+), 9 deletions(-)
  create mode 100644 include/kunit/bug.h
- create mode 100644 lib/kunit/backtrace-suppression-test.c
  create mode 100644 lib/kunit/bug.c
+
+diff --git a/include/asm-generic/bug.h b/include/asm-generic/bug.h
+index 6e794420bd39..c170b6477689 100644
+--- a/include/asm-generic/bug.h
++++ b/include/asm-generic/bug.h
+@@ -18,6 +18,7 @@
+ #endif
+ 
+ #ifndef __ASSEMBLY__
++#include <kunit/bug.h>
+ #include <linux/panic.h>
+ #include <linux/printk.h>
+ 
+@@ -39,8 +40,14 @@ struct bug_entry {
+ #ifdef CONFIG_DEBUG_BUGVERBOSE
+ #ifndef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
+ 	const char	*file;
++#ifdef HAVE_BUG_FUNCTION
++	const char      *function;
++#endif
+ #else
+ 	signed int	file_disp;
++#ifdef HAVE_BUG_FUNCTION
++	signed int	function_disp;
++#endif
+ #endif
+ 	unsigned short	line;
+ #endif
+@@ -96,15 +103,18 @@ extern __printf(1, 2) void __warn_printk(const char *fmt, ...);
+ #define __WARN()		__WARN_printf(TAINT_WARN, NULL)
+ #define __WARN_printf(taint, arg...) do {				\
+ 		instrumentation_begin();				\
+-		warn_slowpath_fmt(__FILE__, __LINE__, taint, arg);	\
++		if (!IS_SUPPRESSED_WARNING(__func__))			\
++			warn_slowpath_fmt(__FILE__, __LINE__, taint, arg);\
+ 		instrumentation_end();					\
+ 	} while (0)
+ #else
+ #define __WARN()		__WARN_FLAGS(BUGFLAG_TAINT(TAINT_WARN))
+ #define __WARN_printf(taint, arg...) do {				\
+ 		instrumentation_begin();				\
+-		__warn_printk(arg);					\
+-		__WARN_FLAGS(BUGFLAG_NO_CUT_HERE | BUGFLAG_TAINT(taint));\
++		if (!IS_SUPPRESSED_WARNING(__func__)) {			\
++			__warn_printk(arg);				\
++			__WARN_FLAGS(BUGFLAG_NO_CUT_HERE | BUGFLAG_TAINT(taint));\
++		}							\
+ 		instrumentation_end();					\
+ 	} while (0)
+ #define WARN_ON_ONCE(condition) ({				\
+diff --git a/include/kunit/bug.h b/include/kunit/bug.h
+new file mode 100644
+index 000000000000..bd0fe047572b
+--- /dev/null
++++ b/include/kunit/bug.h
+@@ -0,0 +1,51 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * KUnit helpers for backtrace suppression
++ *
++ * Copyright (c) 2024 Guenter Roeck <linux@roeck-us.net>
++ */
++
++#ifndef _KUNIT_BUG_H
++#define _KUNIT_BUG_H
++
++#ifndef __ASSEMBLY__
++
++#include <linux/kconfig.h>
++
++#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
++
++#include <linux/stringify.h>
++#include <linux/types.h>
++
++struct __suppressed_warning {
++	struct list_head node;
++	const char *function;
++};
++
++void __start_suppress_warning(struct __suppressed_warning *warning);
++void __end_suppress_warning(struct __suppressed_warning *warning);
++bool __is_suppressed_warning(const char *function);
++
++#define DEFINE_SUPPRESSED_WARNING(func)	\
++	struct __suppressed_warning __kunit_suppress_##func = \
++		{ .function = __stringify(func) }
++
++#define START_SUPPRESSED_WARNING(func) \
++	__start_suppress_warning(&__kunit_suppress_##func)
++
++#define END_SUPPRESSED_WARNING(func) \
++	__end_suppress_warning(&__kunit_suppress_##func)
++
++#define IS_SUPPRESSED_WARNING(func) \
++	__is_suppressed_warning(func)
++
++#else /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
++
++#define DEFINE_SUPPRESSED_WARNING(func)
++#define START_SUPPRESSED_WARNING(func)
++#define END_SUPPRESSED_WARNING(func)
++#define IS_SUPPRESSED_WARNING(func) (false)
++
++#endif /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
++#endif /* __ASSEMBLY__ */
++#endif /* _KUNIT_BUG_H */
+diff --git a/include/kunit/test.h b/include/kunit/test.h
+index 61637ef32302..d0c44594d34c 100644
+--- a/include/kunit/test.h
++++ b/include/kunit/test.h
+@@ -10,6 +10,7 @@
+ #define _KUNIT_TEST_H
+ 
+ #include <kunit/assert.h>
++#include <kunit/bug.h>
+ #include <kunit/try-catch.h>
+ 
+ #include <linux/args.h>
+diff --git a/include/linux/bug.h b/include/linux/bug.h
+index 348acf2558f3..c668762dc76a 100644
+--- a/include/linux/bug.h
++++ b/include/linux/bug.h
+@@ -36,6 +36,9 @@ static inline int is_warning_bug(const struct bug_entry *bug)
+ 	return bug->flags & BUGFLAG_WARNING;
+ }
+ 
++void bug_get_file_function_line(struct bug_entry *bug, const char **file,
++				const char **function, unsigned int *line);
++
+ void bug_get_file_line(struct bug_entry *bug, const char **file,
+ 		       unsigned int *line);
+ 
+@@ -62,6 +65,16 @@ static inline enum bug_trap_type report_bug(unsigned long bug_addr,
+ }
+ 
+ struct bug_entry;
++static inline void bug_get_file_function_line(struct bug_entry *bug,
++					      const char **file,
++					      const char **function,
++					      unsigned int *line)
++{
++	*file = NULL;
++	*function = NULL;
++	*line = 0;
++}
++
+ static inline void bug_get_file_line(struct bug_entry *bug, const char **file,
+ 				     unsigned int *line)
+ {
+diff --git a/lib/bug.c b/lib/bug.c
+index e0ff21989990..aa8bb12b9809 100644
+--- a/lib/bug.c
++++ b/lib/bug.c
+@@ -26,6 +26,14 @@
+        when CONFIG_DEBUG_BUGVERBOSE is not enabled, so you must generate
+        the values accordingly.
+ 
++  2a.Optionally implement support for the "function" entry in struct
++     bug_entry. This entry must point to the name of the function triggering
++     the warning or bug trap (normally __func__). This is only needed if
++     both CONFIG_DEBUG_BUGVERBOSE and CONFIG_KUNIT_SUPPRESS_BACKTRACE are
++     enabled and if the architecture wants to implement support for suppressing
++     warning backtraces. The architecture must define HAVE_BUG_FUNCTION if it
++     adds pointers to function names to struct bug_entry.
++
+   3. Implement the trap
+      - In the illegal instruction trap handler (typically), verify
+        that the fault was in kernel mode, and call report_bug()
+@@ -127,14 +135,21 @@ static inline struct bug_entry *module_find_bug(unsigned long bugaddr)
+ }
+ #endif
+ 
+-void bug_get_file_line(struct bug_entry *bug, const char **file,
+-		       unsigned int *line)
++void bug_get_file_function_line(struct bug_entry *bug, const char **file,
++				const char **function, unsigned int *line)
+ {
++	*function = NULL;
+ #ifdef CONFIG_DEBUG_BUGVERBOSE
+ #ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
+ 	*file = (const char *)&bug->file_disp + bug->file_disp;
++#ifdef HAVE_BUG_FUNCTION
++	*function = (const char *)&bug->function_disp + bug->function_disp;
++#endif
+ #else
+ 	*file = bug->file;
++#ifdef HAVE_BUG_FUNCTION
++	*function = bug->function;
++#endif
+ #endif
+ 	*line = bug->line;
+ #else
+@@ -143,6 +158,13 @@ void bug_get_file_line(struct bug_entry *bug, const char **file,
+ #endif
+ }
+ 
++void bug_get_file_line(struct bug_entry *bug, const char **file, unsigned int *line)
++{
++	const char *function;
++
++	bug_get_file_function_line(bug, file, &function, line);
++}
++
+ struct bug_entry *find_bug(unsigned long bugaddr)
+ {
+ 	struct bug_entry *bug;
+@@ -157,8 +179,9 @@ struct bug_entry *find_bug(unsigned long bugaddr)
+ static enum bug_trap_type __report_bug(unsigned long bugaddr, struct pt_regs *regs)
+ {
+ 	struct bug_entry *bug;
+-	const char *file;
++	const char *file, *function;
+ 	unsigned line, warning, once, done;
++	char __maybe_unused sym[KSYM_SYMBOL_LEN];
+ 
+ 	if (!is_valid_bugaddr(bugaddr))
+ 		return BUG_TRAP_TYPE_NONE;
+@@ -169,12 +192,32 @@ static enum bug_trap_type __report_bug(unsigned long bugaddr, struct pt_regs *re
+ 
+ 	disable_trace_on_warning();
+ 
+-	bug_get_file_line(bug, &file, &line);
++	bug_get_file_function_line(bug, &file, &function, &line);
++#if defined(CONFIG_KUNIT_SUPPRESS_BACKTRACE) && defined(CONFIG_KALLSYMS)
++	if (!function) {
++		/*
++		 * This will be seen if report_bug is called on an architecture
++		 * with no architecture-specific support for suppressing warning
++		 * backtraces, if CONFIG_DEBUG_BUGVERBOSE is not enabled, or if
++		 * the calling code is from assembler which does not record a
++		 * function name. Extracting the function name from the bug
++		 * address is less than perfect since compiler optimization may
++		 * result in 'bugaddr' pointing to a function which does not
++		 * actually trigger the warning, but it is better than no
++		 * suppression at all.
++		 */
++		sprint_symbol_no_offset(sym, bugaddr);
++		function = sym;
++	}
++#endif /* defined(CONFIG_KUNIT_SUPPRESS_BACKTRACE) && defined(CONFIG_KALLSYMS) */
+ 
+ 	warning = (bug->flags & BUGFLAG_WARNING) != 0;
+ 	once = (bug->flags & BUGFLAG_ONCE) != 0;
+ 	done = (bug->flags & BUGFLAG_DONE) != 0;
+ 
++	if (warning && IS_SUPPRESSED_WARNING(function))
++		return BUG_TRAP_TYPE_WARN;
++
+ 	if (warning && once) {
+ 		if (done)
+ 			return BUG_TRAP_TYPE_WARN;
+diff --git a/lib/kunit/Kconfig b/lib/kunit/Kconfig
+index 68a6daec0aef..b1b899265acc 100644
+--- a/lib/kunit/Kconfig
++++ b/lib/kunit/Kconfig
+@@ -15,6 +15,15 @@ menuconfig KUNIT
+ 
+ if KUNIT
+ 
++config KUNIT_SUPPRESS_BACKTRACE
++	bool "KUnit - Enable backtrace suppression"
++	default y
++	help
++	  Enable backtrace suppression for KUnit. If enabled, backtraces
++	  generated intentionally by KUnit tests are suppressed. Disable
++	  to reduce kernel image size if image size is more important than
++	  suppression of backtraces generated by KUnit tests.
++
+ config KUNIT_DEBUGFS
+ 	bool "KUnit - Enable /sys/kernel/debug/kunit debugfs representation" if !KUNIT_ALL_TESTS
+ 	default KUNIT_ALL_TESTS
+diff --git a/lib/kunit/Makefile b/lib/kunit/Makefile
+index 309659a32a78..545b57c3be48 100644
+--- a/lib/kunit/Makefile
++++ b/lib/kunit/Makefile
+@@ -14,8 +14,10 @@ ifeq ($(CONFIG_KUNIT_DEBUGFS),y)
+ kunit-objs +=				debugfs.o
+ endif
+ 
+-# KUnit 'hooks' are built-in even when KUnit is built as a module.
+-obj-y +=				hooks.o
++# KUnit 'hooks' and bug handling are built-in even when KUnit is built
++# as a module.
++obj-y +=				hooks.o \
++					bug.o
+ 
+ obj-$(CONFIG_KUNIT_TEST) +=		kunit-test.o
+ 
+diff --git a/lib/kunit/bug.c b/lib/kunit/bug.c
+new file mode 100644
+index 000000000000..f93544d7a9d1
+--- /dev/null
++++ b/lib/kunit/bug.c
+@@ -0,0 +1,40 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * KUnit helpers for backtrace suppression
++ *
++ * Copyright (c) 2024 Guenter Roeck <linux@roeck-us.net>
++ */
++
++#include <kunit/bug.h>
++#include <linux/export.h>
++#include <linux/list.h>
++#include <linux/string.h>
++
++static LIST_HEAD(suppressed_warnings);
++
++void __start_suppress_warning(struct __suppressed_warning *warning)
++{
++	list_add(&warning->node, &suppressed_warnings);
++}
++EXPORT_SYMBOL_GPL(__start_suppress_warning);
++
++void __end_suppress_warning(struct __suppressed_warning *warning)
++{
++	list_del(&warning->node);
++}
++EXPORT_SYMBOL_GPL(__end_suppress_warning);
++
++bool __is_suppressed_warning(const char *function)
++{
++	struct __suppressed_warning *warning;
++
++	if (!function)
++		return false;
++
++	list_for_each_entry(warning, &suppressed_warnings, node) {
++		if (!strcmp(function, warning->function))
++			return true;
++	}
++	return false;
++}
++EXPORT_SYMBOL_GPL(__is_suppressed_warning);
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
