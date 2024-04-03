@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F332CD11C2
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 00:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DFABC6FD1F
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2024 01:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5rngrYbhk4ZuXzuwcNztgEfYgTMch7twFUgZ0QfuUIA=; b=JaOKXMZry0sVzYV0U8JuS4/2Z5
-	iV5wlHQaGQHDvQNxcjM/Z6WC0ETOOFbnyZIl2UE8DuQBh3IqPyW8CTq61m2IWQDeeATh/X8DajqoF
-	7T4el3BsMu1XzMXohgENc9oi/VEReCVnO4Cm5GT/8MoGGWBpzc2VSoW7dmrW+xr1wY3roPe68m4Sk
-	t6yLhVz3W3yQieG+Xdz2jT2YkE1Qdz9tQ098/DxStEywgGcgEhvpzRYAKe5QNmgB8uB0+Dysd3pJw
-	Ir8JFQ6rAhNGbTpu5cAAgG0WyVKwIIYmd08ZhrdahIhMYUDuSi+njNqWIZQg/IbCy0a4ybMSxoRGR
-	leFKz+rg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P0WgLdu/Q666sCRPv7BCQoOaGDXTWi830iENm5HevFU=; b=1zFQlLPy4ShIkWwMtGxtW4YaLS
+	wY1ZWYyW7Objswd+LqZU1GcYVSnCcpI+BB+G7RPA+7lFRI64e1wClT+lnxh2vUuNaoLMbf3PKYRf5
+	svc2HptQEPvQVFwclek5UHffao2RZtTtGEChjbtgjre5BO+LFxyG2LjMouLRGOirBEQSiX8Qaqys1
+	tsFaJyE4jEFMCwqrXkTqHT1XFkfOcIlCXJ9INNYzaE17QaVxKD/MKK0Re7xoUMQ980aeH+0oIpPW6
+	3RoMjGRNcXjPOZP94n2jTvytoSY78MBR7GkMds6Qdvt0ZMIaLoB3JpXMVVm3Tr7DUD/1uN6qGPqb9
+	7tRicomQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rroT0-0000000DLrU-2eBU;
-	Wed, 03 Apr 2024 00:27:02 +0000
-Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
+	id 1rrpIY-0000000DUu9-2VtT;
+	Wed, 03 Apr 2024 01:20:18 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rroSx-0000000DLp0-0Mn6
+	id 1rrpIV-0000000DUtH-40f7
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Apr 2024 00:27:00 +0000
-Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-5a56a22004cso3180944eaf.3
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2024 17:26:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1712104017; x=1712708817; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FJynIROMAU+9B7UDiFFRoCdDhIpw65xNX+rGxpgSGeo=;
-        b=G1wZn0qrDWPjIPWs7VDMTk2WCCg39XdVThXPKSjMZZjfjQ/gewwHjGOZRaDGoBcCDD
-         E9kQp/x1m+fJB4IE8fW18b1j2ByhdCqoFaU0RQ1KEbDmUjnzZcPxn+pK+Agc10aThKb8
-         q96wljmItG5uglBDke+x88FoWulg2HKk52kZTzspm5wLWQdS+CbH6aTyhZh+v1TOEiZU
-         VAXdPzo2nZsnFOfIH2z3XHb0hu+bpEhHe5U0O5znq0FpjYWUo3sY/e1IsIMpL8/ysqUA
-         a2gPn6dNLhCG1Ml3135c4Cai1N9gejnA9dGkZKKhHZOHyViwh9yuoJJDa0BbF4YXLxhC
-         k9mA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712104017; x=1712708817;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FJynIROMAU+9B7UDiFFRoCdDhIpw65xNX+rGxpgSGeo=;
-        b=u7uopP0Nvq2tGSBjsHWMMgUKTEnfzrlCJA6uBwaWvfYFrDVoPPvw97aOPj9/YgIGw7
-         j/WZ+vHDdFrvH7wq4soRWEoFfvCo6DNDcldaz5oDWsDE07qmpEkbzAsOJTV37meoqJWN
-         rzuaAkT0k3zI+icoMxqnpct2tDrIeiGsO2PuwAOBTo+Ziqs6l7Z3iMos7mnnu0GykLkz
-         IcUgln3GpuOW0pOzv6nWoMx0xcQu/Cv8grI+ZOboTBM8zVMdHBYPM88MpaDRxW1cdssV
-         SC1SHxG65YGTCc4FqweE1AKjdAnZyF+b5c/Qz407QzH92UdSSskvPnNijF7gRIQzu4pv
-         /RLA==
-X-Forwarded-Encrypted: i=1; AJvYcCXDzSe85yx8YRWaLTOMrInpTwbR3m7Qkx0B5r+Ox0j/9Hi/UVH2BAH/upq7KmutVA1fjwQC4Qg3ZZYeSatZqtDNK2gPTAhm2fUfASlEC7wG
-X-Gm-Message-State: AOJu0YwYuz0M72wYbiBJAwEKWK9uY6PabXccRQO97Kw8n4DJhfv06ZT1
-	/Nvg35trYGAryVOuBLMdy7v0C26IHiGoPKQ41U/LRS0N4SoY765n
-X-Google-Smtp-Source: AGHT+IHhljBegJ+lKt5ZBT0wk8a5MZ4tYNQVcpSUH/dt+V7eojih7U8r9PBN6Az5f3nk+1efsx40eg==
-X-Received: by 2002:a05:6358:49f:b0:183:630a:a88d with SMTP id x31-20020a056358049f00b00183630aa88dmr1197722rwi.9.1712104016926;
-        Tue, 02 Apr 2024 17:26:56 -0700 (PDT)
-Received: from [192.168.0.13] ([172.92.174.232])
-        by smtp.gmail.com with ESMTPSA id a10-20020a63e84a000000b005dc491ccdcesm10213080pgk.14.2024.04.02.17.26.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Apr 2024 17:26:56 -0700 (PDT)
-Subject: Re: [PATCH v3] clk: starfive: pll: Fix lower rate of CPUfreq by
- setting PLL0 rate to 1.5GHz
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Xingyu Wu <xingyu.wu@starfivetech.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Conor Dooley <conor@kernel.org>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org
-References: <20240402090920.11627-1-xingyu.wu@starfivetech.com>
- <8d21b1bc-9402-41d4-bd81-c521c8a33d2d@kernel.org>
-From: Bo Gan <ganboing@gmail.com>
-Message-ID: <7e363fb9-5dff-b8de-fd4f-54b3596ad179@gmail.com>
-Date: Tue, 2 Apr 2024 17:26:54 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
+	Wed, 03 Apr 2024 01:20:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 8762BCE1ECA;
+	Wed,  3 Apr 2024 01:20:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 051D8C433F1;
+	Wed,  3 Apr 2024 01:20:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1712107212;
+	bh=WBasPOB8gQWqxUEirkIG9EvIRFQQW/a9zobZIgfrljU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EzPP77gAmq7VJZPzNdTJJm/WVZlJgwJfU8CjnbRSjE397SzRw5L+30o4KWMOW71Bs
+	 U8ZPJuZt7Wnl+v+TvjOSx0d+Fiw7QQTYvN/rYm3Y+is9aMUaBU2Kfj8we4qt+UCMGj
+	 HglIcdpP7fV2/sl0+x18HUhlAMzJyo28GSMaPLGubRvHKN3lDkkS5XtqZIs6920xxF
+	 imDO5nX9ttgWLaXn1mGifpI1OzzKNCnAQvQaury3ToCIgO7Jm8g097t5nI2LLxzWnW
+	 iDU6CcMcGQd5ctdEwNa7zgZV1mdef3NEktk6DF2lsVOdFudbjF3J66sylX3Mfet1jT
+	 Hj1kGIJ7h9XGg==
+Date: Wed, 3 Apr 2024 02:20:05 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Cc: Pu Lehui <pulehui@huaweicloud.com>, Stefan O'Rear <sorear@fastmail.com>,
+	bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Mykola Lysenko <mykolal@fb.com>, Manu Bretelle <chantr4@gmail.com>,
+	Pu Lehui <pulehui@huawei.com>
+Subject: Re: [PATCH bpf-next 2/5] riscv, bpf: Relax restrictions on Zbb
+ instructions
+Message-ID: <20240403-gander-parting-a47c56401716@spud>
+References: <20240328124916.293173-1-pulehui@huaweicloud.com>
+ <20240328124916.293173-3-pulehui@huaweicloud.com>
+ <3ed9fe94-2610-41eb-8a00-a9f37fcf2b1a@app.fastmail.com>
+ <20240328-ferocity-repose-c554f75a676c@spud>
+ <ed3debc9-f2a9-41fb-9cf9-dc6419de5c01@huaweicloud.com>
+ <87cyr7rgdn.fsf@all.your.base.are.belong.to.us>
+ <20240402-ample-preview-c84edb69db1b@spud>
+ <871q7nr3mq.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-In-Reply-To: <8d21b1bc-9402-41d4-bd81-c521c8a33d2d@kernel.org>
-Content-Language: en-US
+In-Reply-To: <871q7nr3mq.fsf@all.your.base.are.belong.to.us>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240402_172659_437123_DE137FCE 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20240402_182016_468671_3948BE15 
+X-CRM114-Status: GOOD (  30.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,120 +85,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============2199967495764863305=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/2/24 9:18 AM, Krzysztof Kozlowski wrote:
-> On 02/04/2024 11:09, Xingyu Wu wrote:
->> CPUfreq supports 4 cpu frequency loads on 375/500/750/1500MHz.
->> But now PLL0 rate is 1GHz and the cpu frequency loads become
->> 333/500/500/1000MHz in fact.
->>
->> So PLL0 rate should be default set to 1.5GHz. But setting the
->> PLL0 rate need certain steps:
->>
->> 1. Change the parent of cpu_root clock to OSC clock.
->> 2. Change the divider of cpu_core if PLL0 rate is higher than
->>     1.25GHz before CPUfreq boot.
->> 3. Change the parent of cpu_root clock back to PLL0 clock.
->>
->> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
->> Fixes: e2c510d6d630 ("riscv: dts: starfive: Add cpu scaling for JH7110 SoC")
->> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
->> ---
->>
->> Hi Stephen and Emil,
->>
->> This patch fixes the issue about lower rate of CPUfreq[1] by setting PLL0
->> rate to 1.5GHz.
->>
->> In order not to affect the cpu operation, setting the PLL0 rate need
->> certain steps. The cpu_root's parent clock should be changed first. And
->> the divider of the cpu_core clock should be set to 2 so they won't crash
->> when setting 1.5GHz without voltage regulation. Due to PLL driver boot
->> earlier than SYSCRG driver, cpu_core and cpu_root clocks are using by
->> ioremap().
->>
->> [1]: https://github.com/starfive-tech/VisionFive2/issues/55
->>
->> Previous patch link:
->> v2: https://lore.kernel.org/all/20230821152915.208366-1-xingyu.wu@starfivetech.com/
->> v1: https://lore.kernel.org/all/20230811033631.160912-1-xingyu.wu@starfivetech.com/
->>
->> Thanks,
->> Xingyu Wu
->> ---
->>   .../jh7110-starfive-visionfive-2.dtsi         |   5 +
->>   .../clk/starfive/clk-starfive-jh7110-pll.c    | 102 ++++++++++++++++++
-> 
-> Please do not mix DTS and driver code. That's not really portable. DTS
-> is being exported and used in other projects.
-> 
-> ...
-> 
->>   
->> @@ -458,6 +535,8 @@ static int jh7110_pll_probe(struct platform_device *pdev)
->>   	struct jh7110_pll_priv *priv;
->>   	unsigned int idx;
->>   	int ret;
->> +	struct device_node *np;
->> +	struct resource res;
->>   
->>   	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
->>   	if (!priv)
->> @@ -489,6 +568,29 @@ static int jh7110_pll_probe(struct platform_device *pdev)
->>   			return ret;
->>   	}
->>   
->> +	priv->is_first_set = true;
->> +	np = of_find_compatible_node(NULL, NULL, "starfive,jh7110-syscrg");
-> 
-> Your drivers should not do it. It's fragile, hides true link/dependency.
-> Please use phandles.
-> 
-> 
->> +	if (!np) {
->> +		ret = PTR_ERR(np);
->> +		dev_err(priv->dev, "failed to get syscrg node\n");
->> +		goto np_put;
->> +	}
->> +
->> +	ret = of_address_to_resource(np, 0, &res);
->> +	if (ret) {
->> +		dev_err(priv->dev, "failed to get syscrg resource\n");
->> +		goto np_put;
->> +	}
->> +
->> +	priv->syscrg_base = ioremap(res.start, resource_size(&res));
->> +	if (!priv->syscrg_base)
->> +		ret = -ENOMEM;
-> 
-> Why are you mapping other device's IO? How are you going to ensure
-> synced access to registers?
-> 
-> 
-> 
-> Best regards,
-> Krzysztof
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
 
-Hi Xingyu,
+--===============2199967495764863305==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="qv+BdwRgr1RU9Whw"
+Content-Disposition: inline
 
-Echoing Krzysztof's point. This piece code seems wrong to me. This logic belongs
-to syscrg, rather than pll. Why don't you do the pll0->osc->pll0 switching from
-syscrg side during probing?
 
-Bo
+--qv+BdwRgr1RU9Whw
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Apr 02, 2024 at 09:00:45PM +0200, Bj=F6rn T=F6pel wrote:
+
+> >> I still think Lehui's patch is correct; Building a kernel that can boot
+> >> on multiple platforms (w/ or w/o Zbb support) and not having Zbb insn =
+in
+> >> the kernel proper, and iff Zbb is available at run-time the BPF JIT wi=
+ll
+> >> emit Zbb.
+> >
+> > This sentence is -ENOPARSE to me, did you accidentally omit some words?
+> > Additionally he config option has nothing to do with building kernels t=
+hat
+> > boot on multiple platforms, it only controls whether optimisations for =
+Zbb
+> > are built so that if Zbb is detected they can be used.
+>=20
+> Ugh, sorry about that! I'm probably confused myself.
+
+Reading this back, I a bunch of words too, so no worries...
+
+> >> For these kind of optimizations, (IMO) it's better to let the BPF JIT
+> >> decide at run-time.
+> >
+> > Why is bpf a different case to any other user in this regard?
+> > I think that the commit message is misleading and needs to be changed,
+> > because the point "the hardware is capable of recognising the Zbb
+> > instructions independently..." is completely unrelated to the purpose
+> > of the config option. Of course the hardware understanding the option
+
+This should have been "understanding the instructions"...
+
+> > has nothing to do with kernel configuration. The commit message needs to
+> > explain why bpf is a special case and is exempt from an
+
+And this s/from an//...
+
+> > I totally understand any point about bpf being different in terms of
+> > needing toolchain support, but IIRC it was I who pointed out up-thread.
+
+And "pointed that out".
+
+I always make a mess of these emails that I re-write several times :)
+
+> > The part of the conversation that you're replying to here is about the
+> > semantics of the Kconfig option and the original patch never mentioned
+> > trying to avoid a dependency on toolchains at all, just kernel
+> > configurations. The toolchain requirements I don't think are even super
+> > hard to fulfill either - the last 3 versions of ld and lld all meet the
+> > criteria.
+>=20
+> Thanks for making it more clear, and I agree that the toolchain
+> requirements are not hard to fulfull.
+>=20
+> My view has been that "BPF is like userland", but I realize now that's
+> odd.
+
+Yeah, I can understand that perspective, but it does seem rather odd to
+someone that isn't a bpf-ist.
+
+> Let's make BPF similar to the rest of the RV kernel. If ZBB=3Dn, then
+> the BPF JIT doesn't know about emitting Zbb.
+
+
+--qv+BdwRgr1RU9Whw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZgyuxQAKCRB4tDGHoIJi
+0n8AAQD1sU7Eea95pI9/h7ezuLYET85gYREpzO1Sd6hhzTQzQAEAsiT43tCTGqZa
+3CuW+sMeb3FNF2lIMoNx7Bmqui7M9wY=
+=JpAU
+-----END PGP SIGNATURE-----
+
+--qv+BdwRgr1RU9Whw--
+
+
+--===============2199967495764863305==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2199967495764863305==--
+
