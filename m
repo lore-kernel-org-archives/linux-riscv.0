@@ -4,87 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596FCCD1292
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 11:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02FE9CD1296
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 12:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5r50rJp2y6ZUQTyOZFl0GH48i9ziEPenU54A5YVHGX8=; b=RWjOq6SiuOGjpR
-	z8T6roVlK7u4FjAn0u/H18j28RzEW9U9AE6s38cQDE04uT/Pr2fXYDx7sUWSr2WPDZl3fiEtp4DAc
-	d8VA8EI7AEAQJSWOz39hADc6L5bXSVLI5dg7YLOEMIDcG6AMBspmAigp62YqA52bdIy8lnHHEWdq8
-	J+vbSMvpJGVWEHrij9je5OZPPa14eN4zcueNpWWb2PLbSd02mpp0OTOM0I3VbEh7Bt48aXHOcuPM5
-	KgB4NjLQXxG6EDHiZMb2bd/DzaWaiphbnBBuRmqKTIOfA42Sh9R+QN5x75m9BxQA4bQB5qbMvfXjc
-	mEeMPC/rk8B3eh8RLVVQ==;
+	List-Owner; bh=//A0ELfShQ9ivR0EdZ+Et9zjAEeN8oYb/8JUlJYLMRI=; b=T5UfO5oUuSMcCE
+	LHOJZsFpBvfiLDyaM8fXgILHfBQcxaAAmY+8SzW4iGKuLjYaOhVJ/UNKWkTqQqT7idOhqM3ENwS/9
+	21xv3xEduk35F8xMYAGNAuvRcKaRveNhWQ6a1gbYwjuzSWHkM1yhyv17ISt30sLKSsHaCollveV+/
+	9XSiBviBz8TtsOZ8RAsyKAeOYrIhvDpz0zwx6n+G7bOiK9mVb02ZBbZ5ng5o3koqhqnGZSfZLGaDF
+	4b3aUdmJlXMCq/3XLhNgBjf/vXLrVOGc05+IvMq0A/Afxr61Js/KCEfwGWKCGqkRhmgOXvO4Qm3Rf
+	bCHDLZIm7mILxDIMuzAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsLkm-00000002U45-2JJv;
-	Thu, 04 Apr 2024 11:59:36 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1rsLm6-00000002UiD-1us9;
+	Thu, 04 Apr 2024 12:00:58 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsLkj-00000002U1l-1GUs
+	id 1rsLm2-00000002Uen-2SSb
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Apr 2024 11:59:34 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-516cdb21b34so701583e87.1
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 04:59:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1712231969; x=1712836769; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ild2SXG8B1Be23SyJ9WWYL0M6Mm74nvXGbMkUe/DfRU=;
-        b=itbG1hArYFvKLg2HMskF1e15FpO2SxQjQOB/t4fS0wnsoFP+sW9lfZF8NTSKQ+og5H
-         MBKcbgOc2Y5TyB6JH1lSzfDkKnNFz2/rnRNAg7N6cRDXwqvPFFIbwM2niJX/h3SVs+Rv
-         extkFwrKUnJri4R4YoEEVXc5t1BSfQibzxZRhQGduOWS6+2wmc/01piaISUR5A7BmzDN
-         kPVhyWljcRTxb2Pwg2SeKgjFicbky3KJc+Z0RGPmIEYiDsToiXKDGC8gXVGgdumC+HFf
-         XBFuEkFqQP+We8tLJjnZcX1gI3X5+lw+gFhgCp0Llxo093+b5aLX8GDxsO4dSNK2vIjM
-         IzUQ==
+	Thu, 04 Apr 2024 12:00:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1712232053;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qfuooD1IfgatoIS7OAIU70Y79yHtd6slmR6Wd2lGo90=;
+	b=ZJQO1LKQ4/YdGI4ahHtm0KHDzGiPpcFyi0D+eNTsS8jSj7xNYjiSNbeXK+IrEphm3v9lbN
+	fwLRrKlox7Xa/HcduDl+D0NX1FxoGzfU4qYy2Hf5sd12bU+m543M7zAnw9W9k8zMs18K0d
+	xgXaxFZjgJc/Gj5uUT2nryrwDpbzG/k=
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-615-KGjhnxCEMtW9rlEmuRp-8g-1; Thu, 04 Apr 2024 08:00:51 -0400
+X-MC-Unique: KGjhnxCEMtW9rlEmuRp-8g-1
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6992d40ea4aso1903716d6.1
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 05:00:51 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712231969; x=1712836769;
+        d=1e100.net; s=20230601; t=1712232051; x=1712836851;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Ild2SXG8B1Be23SyJ9WWYL0M6Mm74nvXGbMkUe/DfRU=;
-        b=Nw0xdIuIFNifAki3eOTqEYfqAxElEEnJqI/D4nin7FWl1RSpOxIUjnDNAg2W2pV0J4
-         /nodLMdAyK8s1jyDCFisOKMo26UD2DN/tMkVU0u/vT5l+WG4Y1B+XPtpkv7y61m54+T/
-         QrclwEcHADvNoh0vj3g6xLj2Chmv3/6H4AP4SDQgzW8PNTbKqaydJvjzh/v/k1KkG1Mt
-         /GNal+gnsATsj7yRaa4dwGbttF5igQU3w0GgKtHy0583Zsh41Ifo22W+xlr8jDCv5ZwJ
-         fh+0RgoY5vs7D8dl/D4sO2z5893YhJ4pLd+ixqWjG26nXQr2ifuOlzLgWHYr1BYIsNJ7
-         TVGw==
-X-Forwarded-Encrypted: i=1; AJvYcCVtd78mfiwK5zGjaWrTVZRdFooiq4JYI+PG8Z+kIoixp0KogUH7vE52MezivegwsZM6WkFws5kpDdKPqi2eNBEfMgQTn55igVj+sEdUtrG8
-X-Gm-Message-State: AOJu0YyruhE8e5a0vsVb6z7uwmvz6hVCJcq2tnIje8mRptV+Bug08uIs
-	RFFRiavfjMVe0pM7dv70yMkG6enl2rGdTyDnyqp/i5tKY+yMCqfAGM8J9Vd71sw=
-X-Google-Smtp-Source: AGHT+IFAGisyWQneq8iAvWepxbsWTi3AIzFjCJKFoh+xvPmwn6+pBzt61Jt4NVViUJX93Fiad7cCWw==
-X-Received: by 2002:a19:2d07:0:b0:515:b039:373e with SMTP id k7-20020a192d07000000b00515b039373emr1610209lfj.10.1712231968762;
-        Thu, 04 Apr 2024 04:59:28 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id d23-20020a056402401700b0056c3964d078sm829519eda.68.2024.04.04.04.59.28
+        bh=qfuooD1IfgatoIS7OAIU70Y79yHtd6slmR6Wd2lGo90=;
+        b=HNQ3B8yxZ4XyX5o+vXpnJGKYyanTN9ccY8pjC3cZpDOf0kq355gTIMnlCRT2C8Drzw
+         YtHmPVOy9Tjq96DUMqlp4fDJhtfJ3eWNvmtBqXsaol+pggjs+WDdlkO7cqRG08hUocE3
+         sqRtrFhoHEijrlqClzNfIMh/VTHgyEnN208aXGhtyiHyIIdOkTPTON+PYiWQ9+LGk50s
+         Ax9kIb2lUi30TcqeuEpqhsLVbHyrXwNeZfzOAN/HhJewY+4FeMRqoSNVMu1cQBjEB5zF
+         AhBkzQIVDHzo2GSjRKoVkoLOo5/yslNe50TQM6g0nuG8HsMhvrfrr4CMfqsPn6XWnQD0
+         3g2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVFBebCYDBpZdk0jSNOeOBRdZ8/zcnUZpSaGuqkLayivkuATggdin1OL5F1iC+R1lOJWMFzF8svz8ETVfLlAcx7AsD5dbJM/ar/tPGfvQoF
+X-Gm-Message-State: AOJu0YxnicHsApW8cFt9yO9d2LrhPd/WqlEC9VuI3ukz3WXqDB7pbLDu
+	6sFaLMSu7D6og8fcORbhC6pHo2JEoa9xvR49XC6Uucn49oOxs4JLaFSpBzDhPZhDJccNVsop8+F
+	nSdKTM6tFOyaLJsNwCbclvJyOlkNmDrMrxKua8I0DWOHB8RpxvtUkB1xt7wshtVr/mw==
+X-Received: by 2002:a05:6214:5007:b0:699:4d3:98dc with SMTP id jo7-20020a056214500700b0069904d398dcmr2122674qvb.0.1712232050895;
+        Thu, 04 Apr 2024 05:00:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGMCWtQWiLpesBQTQo5kp7GWlhuKWfgLgdLeENDjrnl6Gj4+sgwXTUEXT7yElLHvch56DwpwQ==
+X-Received: by 2002:a05:6214:5007:b0:699:4d3:98dc with SMTP id jo7-20020a056214500700b0069904d398dcmr2122629qvb.0.1712232050343;
+        Thu, 04 Apr 2024 05:00:50 -0700 (PDT)
+Received: from x1n ([99.254.121.117])
+        by smtp.gmail.com with ESMTPSA id jf14-20020a0562142a4e00b006987021a724sm7171209qvb.118.2024.04.04.05.00.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Apr 2024 04:59:28 -0700 (PDT)
-Date: Thu, 4 Apr 2024 13:59:27 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Ajay Kaher <akaher@vmware.com>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Alexey Makhalov <amakhalov@vmware.com>, 
-	Anup Patel <anup@brainfault.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Juergen Gross <jgross@suse.com>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, 
-	VMware PV-Drivers Reviewers <pv-drivers@vmware.com>, Will Deacon <will@kernel.org>, x86@kernel.org
-Subject: Re: [PATCH v5 09/22] RISC-V: KVM: Rename the SBI_STA_SHMEM_DISABLE
- to a generic name
-Message-ID: <20240404-8c20e3269c4648b6ef4c5e2f@orel>
-References: <20240403080452.1007601-1-atishp@rivosinc.com>
- <20240403080452.1007601-10-atishp@rivosinc.com>
+        Thu, 04 Apr 2024 05:00:50 -0700 (PDT)
+Date: Thu, 4 Apr 2024 08:00:47 -0400
+From: Peter Xu <peterx@redhat.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, Yang Shi <shy828301@gmail.com>,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Rik van Riel <riel@surriel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	David Hildenbrand <david@redhat.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	James Houghton <jthoughton@google.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, loongarch@lists.linux.dev
+Subject: Re: [PATCH v4 05/13] mm/arch: Provide pud_pfn() fallback
+Message-ID: <Zg6WbzWkoLtbY2LZ@x1n>
+References: <20240327152332.950956-1-peterx@redhat.com>
+ <20240327152332.950956-6-peterx@redhat.com>
+ <20240402190549.GA706730@dev-arch.thelio-3990X>
+ <ZgyKLLVZ4vN56uZE@x1n>
+ <20240402225320.GU946323@nvidia.com>
+ <ZgyWUYVdUsAiXCC4@xz-m1.local>
+ <20240403120841.GB1723999@nvidia.com>
+ <Zg2fEP4eEeLhgDwE@x1n>
+ <20240404112404.GG1723999@nvidia.com>
 MIME-Version: 1.0
+In-Reply-To: <20240404112404.GG1723999@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
-In-Reply-To: <20240403080452.1007601-10-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240404_045933_401687_801244D0 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20240404_050054_740643_047B220E 
+X-CRM114-Status: GOOD (  21.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,75 +131,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 03, 2024 at 01:04:38AM -0700, Atish Patra wrote:
-> SBI_STA_SHMEM_DISABLE is a macro to invoke disable shared memory
-> commands. As this can be invoked from other SBI extension context
-> as well, rename it to more generic name as SBI_SHMEM_DISABLE.
+On Thu, Apr 04, 2024 at 08:24:04AM -0300, Jason Gunthorpe wrote:
+> On Wed, Apr 03, 2024 at 02:25:20PM -0400, Peter Xu wrote:
 > 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  arch/riscv/include/asm/sbi.h  | 2 +-
->  arch/riscv/kernel/paravirt.c  | 6 +++---
->  arch/riscv/kvm/vcpu_sbi_sta.c | 4 ++--
->  3 files changed, 6 insertions(+), 6 deletions(-)
+> > > I'd say the BUILD_BUG has done it's job and found an issue, fix it by
+> > > not defining pud_leaf? I don't see any calls to pud_leaf in loongarch
+> > > at least
+> > 
+> > Yes, that sounds better too to me, however it means we may also risk other
+> > archs that can fail another defconfig build.. and I worry I bring trouble
+> > to multiple such cases.  Fundamentally it's indeed my patch that broke
+> > those builds, so I still sent the change and leave that for arch developers
+> > to decide the best for the archs.
 > 
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index 9aada4b9f7b5..f31650b10899 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -277,7 +277,7 @@ struct sbi_sta_struct {
->  	u8 pad[47];
->  } __packed;
->  
-> -#define SBI_STA_SHMEM_DISABLE		-1
-> +#define SBI_SHMEM_DISABLE		-1
->  
->  /* SBI spec version fields */
->  #define SBI_SPEC_VERSION_DEFAULT	0x1
-> diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
-> index 0d6225fd3194..fa6b0339a65d 100644
-> --- a/arch/riscv/kernel/paravirt.c
-> +++ b/arch/riscv/kernel/paravirt.c
-> @@ -62,7 +62,7 @@ static int sbi_sta_steal_time_set_shmem(unsigned long lo, unsigned long hi,
->  	ret = sbi_ecall(SBI_EXT_STA, SBI_EXT_STA_STEAL_TIME_SET_SHMEM,
->  			lo, hi, flags, 0, 0, 0);
->  	if (ret.error) {
-> -		if (lo == SBI_STA_SHMEM_DISABLE && hi == SBI_STA_SHMEM_DISABLE)
-> +		if (lo == SBI_SHMEM_DISABLE && hi == SBI_SHMEM_DISABLE)
->  			pr_warn("Failed to disable steal-time shmem");
->  		else
->  			pr_warn("Failed to set steal-time shmem");
-> @@ -84,8 +84,8 @@ static int pv_time_cpu_online(unsigned int cpu)
->  
->  static int pv_time_cpu_down_prepare(unsigned int cpu)
->  {
-> -	return sbi_sta_steal_time_set_shmem(SBI_STA_SHMEM_DISABLE,
-> -					    SBI_STA_SHMEM_DISABLE, 0);
-> +	return sbi_sta_steal_time_set_shmem(SBI_SHMEM_DISABLE,
-> +					    SBI_SHMEM_DISABLE, 0);
->  }
->  
->  static u64 pv_time_steal_clock(int cpu)
-> diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
-> index d8cf9ca28c61..5f35427114c1 100644
-> --- a/arch/riscv/kvm/vcpu_sbi_sta.c
-> +++ b/arch/riscv/kvm/vcpu_sbi_sta.c
-> @@ -93,8 +93,8 @@ static int kvm_sbi_sta_steal_time_set_shmem(struct kvm_vcpu *vcpu)
->  	if (flags != 0)
->  		return SBI_ERR_INVALID_PARAM;
->  
-> -	if (shmem_phys_lo == SBI_STA_SHMEM_DISABLE &&
-> -	    shmem_phys_hi == SBI_STA_SHMEM_DISABLE) {
-> +	if (shmem_phys_lo == SBI_SHMEM_DISABLE &&
-> +	    shmem_phys_hi == SBI_SHMEM_DISABLE) {
->  		vcpu->arch.sta.shmem = INVALID_GPA;
->  		return 0;
->  	}
-> -- 
-> 2.34.1
->
+> But your change causes silent data corruption if the code path is
+> run.. I think we are overall better to wade through the compile time
+> bugs from linux-next. Honestly if there were alot then I'd think there
+> would be more complaints already.
+> 
+> Maybe it should just be a seperate step from this series.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Right, that'll be imho better to be done separate, as I think we'd better
+consolidate the code.
+
+One thing I don't worry is the warning would cause anything real to fail; I
+don't yet expect any arch that will not define pud_pfn when it needs
+it.. so it can mean all of the build errors may not cause real benefits as
+of now.  But I agree with you we'd better have it.  I'll take a todo and
+I'll try to add it back after all these fallouts.  With my cross build
+chains now it shouldn't be hard, just take some time to revisit each arch.
+
+Thanks,
+
+-- 
+Peter Xu
+
 
 _______________________________________________
 linux-riscv mailing list
