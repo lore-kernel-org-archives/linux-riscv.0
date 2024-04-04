@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FDF1CD1284
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 15:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DF2CD1284
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 15:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nc8atOK3Prg6mbF7KxRt/lpIM5wZinSWv+ypRIwKdb0=; b=oYFDB6b7XFMn5U
-	kjQ9wlKTLYGg+EyjQrxrbzq+twbJgXXRWKpDw4S0DHNaVh1VxZ2XxOaV/qCtwoPeV/gCBJRp1XYUh
-	34zh+DyiYAV/F+Myiae64EpslO4iXjOZTw1j3MY0leN2SXwtigiNnpB3OjDpoyOcb+CIKaOx47Kj5
-	1UMlEG31/T4Vz8W5++qlsx1vU1VSJ2oGpFJ5aDrYxgFOTwnMHGQ6YaUkWQlHa/rE3HrDgtntXOjj5
-	Yg4rjhBzXFQMgf+OM2pHMoJ/FVeWQk0FyybfF3ofnIiKBL0dj/qZ7C+JrldDoMRPt0cO7ae79C4NP
-	DZHUr4dvKI/53bD2Frhw==;
+	List-Owner; bh=UL++nkqzhjxlrXvA8YsIrn6Ng8lHX9vM6IAgj6ypuL8=; b=EOPlkw4IJmfO2W
+	ObQtAHmAxX4pZbYRgEazj/sOhtGbf1g0rLq6i4+c0d5hePS4abl9jitUVbnbocyGNIqLaNhXrIBky
+	bEutxPXNXJj90eshQ7WO8Z8XU8jPADrEN4NkjpBpFSGXWWFyEiV3oLNNAL8hZnOoBmm3Y0t8CH1e3
+	uAwX/TYMfeQ+yMlUccLGmeUstlA5uorTCTILb6BdkGN6fCP51t7+p1xf9etBm3oYAzyPdrRl/VlA7
+	1gzw3y6F5iJ6WtvTUacCAkjXsKhaQJ37pu4XPuE3p0qEcY6DuB+i1YjzTjp08W9UDNUHJR7x6hn0T
+	//h4diQaA6wBx9CXOk+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsOy3-00000003ETF-33ed;
-	Thu, 04 Apr 2024 15:25:31 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1rsP5Q-00000003FlI-0YUN;
+	Thu, 04 Apr 2024 15:33:08 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsOy0-00000003ESf-3fpm
+	id 1rsP5M-00000003Fk5-3C7c
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Apr 2024 15:25:30 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-56e0430f714so12812a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 08:25:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1712244324; x=1712849124; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ByPtciC+URhiVQn652U1XVXGfMYChxV1rxw8MNlXaIw=;
-        b=0WdwUDvzCEkj+hzp1GlLgAyQNq3j+v2mcm+K3k4tV0gW5LpC1MZk+/KAvov2sllC/L
-         deGyzmgOt0C+OTiBguzLyImFG2me4u2KzdPD19/lAU4U2uRQnVh/0i19lwiZNztha23S
-         sYxaHKu+wJzAcaZYhpO7mI6EGpP4em7aOJNv8KDfvKwsEzhnEPrfF1ibmOBKJAD9aX+4
-         HQfSzAc3xXRBbCcyB6kGC/3bO8ZlGMRNW7huXFR31XorgU7q1/NHHagHBr6QYAfCl8kQ
-         KN2CpNrkcVRKbfi+OWny8SUlnH+LCo9LwjEFW/2Uud5Sw+wEwCbo+oC1FKCr4DGIFZpB
-         kuAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712244324; x=1712849124;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ByPtciC+URhiVQn652U1XVXGfMYChxV1rxw8MNlXaIw=;
-        b=YU9v/x9COvryt6YsMM2+G0XRCp0E95uIs7zh+XK0rm+gYiI6J7tcZaoaXsRjfk0BtN
-         tM43hyjr2SDeprPS0Q4D+6nfWUTCG7yjy7D+v5j1uEdM1hl+E884XF40bBepZ2Fwvd18
-         OaN0cSHoly1dCOhzkv10R3imf0WG1stHzkxBts7GfwMy4a+Kq8ytuLE4IsSkz7F0XyXH
-         DrINlr7cG4sCbi8sRUD3OSxck1zaeWK43cDEh7ljxttoXcU5hWw46h2RN+0JJfOcbQTz
-         bG9ld2RDaQirsycJbuBBaRwaFrfA7xDfc6+Es2uai6mMTAuzsqMqHGCmzw9SsiPXsgFt
-         Dk6g==
-X-Forwarded-Encrypted: i=1; AJvYcCVfCY4mqMuIfdf/PR9FpihDBdWlB+ggiRLQRNY996vmdFSnc9owSPEev6I5cdnSpAnn9ZqFJQ8D5ULoK1O45Lq2dvtcNUdt7cD8TtiSK/2e
-X-Gm-Message-State: AOJu0YyAMEDpV23eIzY7uW4CNx+/imyo/khgiK4cJtuIgIspRf8XhAxA
-	xBazH6W/0yqzKTvwqeey4isE7KvniqwdkQbP+xdV3r0AKJDkFqNFKTz7DpBCfo6dJpJapjhYi8a
-	tpT6mwkd7M9gen6e9YJwMbPSFOpXGFJvmebG8
-X-Google-Smtp-Source: AGHT+IGu/Cr/TzqDAagcQzAh2crALYKXnU9saXFMj2Uan9qVNOsYqiQC9yQvytlJZqCQ8hhUrVOQhul4utm/mgjk4xU=
-X-Received: by 2002:aa7:c38a:0:b0:56e:234f:b44 with SMTP id
- k10-20020aa7c38a000000b0056e234f0b44mr71333edq.5.1712244324404; Thu, 04 Apr
- 2024 08:25:24 -0700 (PDT)
-MIME-Version: 1.0
-References: <20240404-providing-emporium-e652e359c711@spud> <CANiq72m9YAu=dr1=WMSHOqfpszj4S6OkMEQ05vqbv_zKO5pOsg@mail.gmail.com>
-In-Reply-To: <CANiq72m9YAu=dr1=WMSHOqfpszj4S6OkMEQ05vqbv_zKO5pOsg@mail.gmail.com>
-From: Matthew Maurer <mmaurer@google.com>
-Date: Thu, 4 Apr 2024 08:25:11 -0700
-Message-ID: <CAGSQo024u1gHJgzsO38Xg3c4or+JupoPABQx_+0BLEpPg0cOEA@mail.gmail.com>
+	Thu, 04 Apr 2024 15:33:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 10975CE32D6;
+	Thu,  4 Apr 2024 15:33:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96471C433F1;
+	Thu,  4 Apr 2024 15:33:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1712244781;
+	bh=+ihKIoYDSDX/L3rUTACaGuGGhf6TLUZ/+4aywDsnmIM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PQLRQoQ8m3JLC2Td7LqTr9Gyx8iw2LqCI4y/rdO3jtZZbS+Jx+i1K/p9KSnZBmeME
+	 +c29ns5saD6bgCr/l+2SX/f4nFyiiSIxm/5E9rcRe8PW0ZE7NZpGIwjxhx5E89VL15
+	 82t9Vd7JFQgbffAMgIwa0aZMPBP883Z6LDkVPEtCDYG8PJHV9dhQXrPGeZxtYv/B+S
+	 TdPsbPup6lVeq9b/AlKD3BSDhXEVHVqOEnkLN8LdjH60jD/0MagUPdIpfuABSjbPKn
+	 Ca++IKiyI5MdVDhXG+zD+xnTEBgDZk67+RLYMxMdw2G32RjOdiVttZUzTgVOGqjsQP
+	 tS4iFvBCBEjKg==
+Date: Thu, 4 Apr 2024 08:32:58 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>, stable@vger.kernel.org,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Wedson Almeida Filho <wedsonaf@gmail.com>,
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <keescook@chromium.org>, llvm@lists.linux.dev
 Subject: Re: [PATCH v3] rust: make mutually exclusive with CFI_CLANG
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
-	Conor Dooley <conor.dooley@microchip.com>, stable@vger.kernel.org, 
-	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Wedson Almeida Filho <wedsonaf@gmail.com>, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>, 
-	Kees Cook <keescook@chromium.org>, Nathan Chancellor <nathan@kernel.org>, llvm@lists.linux.dev, 
-	Ramon de C Valle <rcvalle@google.com>
+Message-ID: <20240404153258.GA852748@dev-arch.thelio-3990X>
+References: <20240404-providing-emporium-e652e359c711@spud>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20240404-providing-emporium-e652e359c711@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240404_082529_014238_42443E6C 
-X-CRM114-Status: UNSURE (   8.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240404_083305_286296_8CA5ECCB 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,26 +78,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->
-> Cc'ing Matthew & Ramon as well so that they are aware and in case they
-> want to comment.
->
-> Cheers,
-> Miguel
+On Thu, Apr 04, 2024 at 03:17:02PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> On RISC-V and arm64, and presumably x86, if CFI_CLANG is enabled,
+> loading a rust module will trigger a kernel panic. Support for
+> sanitisers, including kcfi (CFI_CLANG), is in the works, but for now
+> they're nightly-only options in rustc. Make RUST depend on !CFI_CLANG
+> to prevent configuring a kernel without symmetrical support for kfi.
+> 
+> Fixes: 2f7ab1267dc9 ("Kbuild: add Rust support")
+> cc: stable@vger.kernel.org
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-This patch is fine by me - the last patch needed for KCFI to be
-functional in Rust just landed upstream last night, so we should
-revisit this (in the form of enabling it) once we move to
-`rustc-1.79.0` or later. In case anyone wants it for local
-experimentation, I have a backport branch [1] which applies these to
-the 1.73.0 compiler and enables it in the kernel [2] (not upstreamed
-because the feature isn't yet in kernel's `rustc`), which Android will
-be using for the Rust binder driver. This patch will require a recent
-(last year or so) clang, as it relies on
-`-fsanitize-cfi-icall-experimental-normalize-integers`.
+Acked-by: Nathan Chancellor <nathan@kernel.org>
 
-[1]: https://github.com/maurer/rust/tree/1.73.0%2Bcfi
-[2]: https://android-review.git.corp.google.com/c/kernel/common/+/2930616
+It seems like this won't be forgotten about but if there is not already
+an issue open for this somewhere, it would be good to have one, since we
+obviously want this for both C and Rust code.
+
+As a general meta comment not directed at anyone in particualr, I think
+these 'depends on !' should all have some sort of comment or description
+as to why they are disabled. I can infer from most of them but it would
+still be good to be explicit, especially since someone might want to
+work on fixing the ones that are due to missing support and such.
+
+> ---
+> Sending this one on its own, there's no explicit dep on this for the
+> riscv enabling patch, v3 to continue the numbering from there. Nothing
+> has changed since v2.
+> 
+> CC: Miguel Ojeda <ojeda@kernel.org>
+> CC: Alex Gaynor <alex.gaynor@gmail.com>
+> CC: Wedson Almeida Filho <wedsonaf@gmail.com>
+> CC: linux-kernel@vger.kernel.org (open list)
+> CC: rust-for-linux@vger.kernel.org
+> CC: Sami Tolvanen <samitolvanen@google.com>
+> CC: Kees Cook <keescook@chromium.org>
+> CC: Nathan Chancellor <nathan@kernel.org>
+> CC: llvm@lists.linux.dev
+> ---
+>  init/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/init/Kconfig b/init/Kconfig
+> index aa02aec6aa7d..ad9a2da27dc9 100644
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -1899,6 +1899,7 @@ config RUST
+>  	bool "Rust support"
+>  	depends on HAVE_RUST
+>  	depends on RUST_IS_AVAILABLE
+> +	depends on !CFI_CLANG
+>  	depends on !MODVERSIONS
+>  	depends on !GCC_PLUGINS
+>  	depends on !RANDSTRUCT
+> -- 
+> 2.43.0
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
