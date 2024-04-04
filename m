@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7CA1CD1292
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 22:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F68DCD1284
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 22:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ykNvEzNphin12+PRQf14oGl7v+QprBBDUgMtHWp9e10=; b=NP+hebvzlpKJiT
-	vhnlFrVA4xjZvxi2eWxRGXoY+zdQigx9LKKjbl01nvXZT3dhKiWNiBmuGj350eueJsJEkbC+GaaS1
-	OiuaBrxYpxpCMuKKIC0FUuLDFI4gROHcCU/HOBLS8wigyG1SHYzv78NZTvVXP4gfoRAj8tsgJx2FT
-	7dhKGxECj3obGGSN+6Sqg5vT3P/5VOpu3Zl0LStyidLNsnoIdxhTgJUZWip5r5uzN9+BETUebZI+0
-	2jr80MfBpDG+l1BOdgqGNy73bx8f76Nacf2lHFAkswzziC40jDnfAoftZPalRCzJ539NisEFDgBnI
-	p6ZJ9QAo+zfCtd8ZErfQ==;
+	List-Owner; bh=dw+Q1DzaNSJiOqFkhZEvNx0+c6Oos6Mk4PhzeCKMwpw=; b=U2bvxw8O02LVKy
+	ZdNO+Ezrugxrie8V+5xsaqCH1Gxhg+ykXmQFqoHd1Jp0f1MPGnCk0l4+zOGJsElpPAEN/LbzjNw2r
+	uakHTHRs0xABtlL/P2OnH0n4jhW6Y0u3RcuPVDNr7iaTaTd67KQR0zUXcBnGZbCj+hyKmHZdszKgy
+	ZkLW6L9FBOQSA0scnp+QWqgCLws0gIsbfdmbOU7SwmBJ7VLu1JViKUBdTvZmiJ1StGFEhxka7kXQB
+	8UX1PY1MydWqX2FExNEdxmq1ND6de233EE1sJnFA1fe0lZznJdiIBSp3uM9Y3tT2B0OlcMbJKhvXz
+	EMEedpQlWEir3fpiqnfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsVRq-00000004Qky-0ml3;
-	Thu, 04 Apr 2024 22:20:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rsVlm-00000004TJQ-1LaK;
+	Thu, 04 Apr 2024 22:41:18 +0000
+Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsVRh-00000004QjP-3dgt
+	id 1rsVli-00000004TIY-3vvu
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Apr 2024 22:20:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7F35261234;
-	Thu,  4 Apr 2024 22:20:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 235D9C43390;
-	Thu,  4 Apr 2024 22:20:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1712269232;
-	bh=qrAEyFoT6o3bchi+2ioxOMyxKattiEg45Vsi0QCjJUw=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=IvRPV+kJp5+WzRN1BoW25HQWFycjRxPonO+uN1qNV6YQxSDgYlHWv7m+xB9+cqiFL
-	 ns86QvTfrou2+/M5+iQcTvPSeNCjOGRY3qM99rvLCJaro4U/2egvi0W7lbe6hc96RX
-	 S4Dkcw9TFcEPMaTjwIpw9vKTTXyul7xs+HvwzbrnPJm5UvGAWQrVoqMFF+7lZhX8U7
-	 hv5prmDn317MfuEO4FZ43lD5ggXgowQpK4WL7SkEq/RqT195Ixjn+ojlWEXTzbI7ri
-	 ihcxFmhmEqxWm9cEJ5OBrUmhocKSI8eBUO3KxTXCp4IUIAQ7Otk4FGXLDIoJAuVeA+
-	 0QqkIRKpTBlvQ==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 0FFA8D9A153;
-	Thu,  4 Apr 2024 22:20:32 +0000 (UTC)
+	Thu, 04 Apr 2024 22:41:16 +0000
+Received: by mail-vk1-xa2e.google.com with SMTP id 71dfb90a1353d-4da99a22b18so555861e0c.3
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 15:41:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1712270473; x=1712875273; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=8A5tKiFBa0lbUbCLGluriwofV6tCs9WRKtzaqV10d5w=;
+        b=WJcxuGNhHXVET0IPWJcw/Car4uZawdLPkusp8fSZ2BtrQ7Q7LEpH/ml7I6QoKh/RL2
+         ukU02kYdmUz5ped1t0r67c6w4kPHmIRL/5oATnDD8cI7kRDNW55lL+wdFYYUtxeBuhu2
+         1RzVzZGVj6B7B6GI+eEl3yM7sLLxL3tNGe+ttGpKLM2YvC9CJ9tsldPltnG9ZD0ld7Wy
+         j3wTjePweibwDDuNr6yvu8sKlyMkAf2py+EdQfESbJdE0Mmf1yIBJ7ihwsbLnI9OdST+
+         TxJk+S47JWKPuOJFz82t8zgiHFNb6+6Gaup6RDam5SUa9nLrrNRXnbQv/29YQat2jO0G
+         CBMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1712270473; x=1712875273;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8A5tKiFBa0lbUbCLGluriwofV6tCs9WRKtzaqV10d5w=;
+        b=nr0mWiDCPCrJxGHMoTEvFH3gC41SwrWUE1/ViqVSc0NvDUQ8jAye5/wiqHCUVtxSkg
+         ZrP/Stz+pZlZEy8aNQNunxQ+vKMtxP7Hxzjr8jVM9Pwm8/VB1Sf6TCkidRYShq10KdJK
+         jHFQfDBEJhL5cg3fckDjoTWwgu5As1VwNPyZAHpwEaNM4c4RIZi4hWU8hWv/AgmDPthu
+         PFlCTr5ZDqZG3Jhc8IvQc5ntd3LYIwEYlIhcUj14jS8FKNzxCn8507ssWC4QYQ7SolJf
+         O4EEJb+8r2WUOG1o3o78Mbi9nEmD0vSopGOrKNrfdKod46mptMAuy7+qaEURLAoJNnlw
+         3AZw==
+X-Forwarded-Encrypted: i=1; AJvYcCUzkk9Mc4VONE3c/dNX7ndCoqPA+Erb8QzdJMpcfDQpjKeSEqRvCkep54dwd98SPEKa/hWOBP/ZTgXWlZTTr69F88S/ShdZmwWnchc445aP
+X-Gm-Message-State: AOJu0Yw294PQv1dfAUqrI5d4viZwONRjYYu9vjLJaFUrOMnhF+8jVCKT
+	FT+SF43MprudNTzynnXFO+B6CuQH5+NHomP0in4BH6GzXbbabXfD1g+xGn1LnHhHNn+E/+kNzS0
+	T734ndd26Bk1kWMEJr0KabcGMzvhCKfq79oraP9uVO45+V1jJObM08rUpIQ==
+X-Google-Smtp-Source: AGHT+IFZOijUz7nc+slBJ8zOHyZ8cj9MgnjzviT3lXApOXO2vYVNI4DlpN571/pk/cWTagxBQ7uu8R14TkT0NKKSOs4=
+X-Received: by 2002:ac5:cdf3:0:b0:4d3:3a0f:77ce with SMTP id
+ v19-20020ac5cdf3000000b004d33a0f77cemr3746386vkn.13.1712270473349; Thu, 04
+ Apr 2024 15:41:13 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: process: Fix kernel gp leakage
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <171226923206.6067.4805872086419688742.git-patchwork-notify@kernel.org>
-Date: Thu, 04 Apr 2024 22:20:32 +0000
-References: <20240327061258.2370291-1-sorear@fastmail.com>
-In-Reply-To: <20240327061258.2370291-1-sorear@fastmail.com>
-To: Stefan O'Rear <sorear@fastmail.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+References: <20240404-providing-emporium-e652e359c711@spud>
+ <20240404153258.GA852748@dev-arch.thelio-3990X> <CANiq72kSfC2j07mAaV591i4kDwejWRYcFTvASgQmNnHVe5ZwCw@mail.gmail.com>
+In-Reply-To: <CANiq72kSfC2j07mAaV591i4kDwejWRYcFTvASgQmNnHVe5ZwCw@mail.gmail.com>
+From: Ramon de C Valle <rcvalle@google.com>
+Date: Fri, 5 Apr 2024 00:41:02 +0200
+Message-ID: <CAOcBZOS2kPyH0Dm7Fuh4GC3=v7nZhyzBj_-dKu3PfAnrHZvaxg@mail.gmail.com>
+Subject: Re: [PATCH v3] rust: make mutually exclusive with CFI_CLANG
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
+	Conor Dooley <conor.dooley@microchip.com>, stable@vger.kernel.org, 
+	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+	Wedson Almeida Filho <wedsonaf@gmail.com>, linux-kernel@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>, 
+	Kees Cook <keescook@chromium.org>, llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240404_152033_994097_92DBB00E 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20240404_154115_101511_727F51A3 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,33 +94,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+>
+> We track the unstable feature(s) at
+> https://github.com/Rust-for-Linux/linux/issues/2 (I just moved this
+> one there since it is close to ready, but it was in #355 previously,
+> and cleaned things up a bit).
 
-This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+Sorry about that, I should've done this already. In addition to the
+link you added above, here's a tracking issue for KCFI support for
+Rust:
+https://github.com/rust-lang/rust/issues/123479
 
-On Wed, 27 Mar 2024 02:12:58 -0400 you wrote:
-> childregs represents the registers which are active for the new thread
-> in user context. For a kernel thread, childregs->gp is never used since
-> the kernel gp is not touched by switch_to. For a user mode helper, the
-> gp value can be observed in user space after execve or possibly by other
-> means.
-> 
-> Fixes: 7db91e57a0ac ("RISC-V: Task implementation")
-> Signed-off-by: Stefan O'Rear <sorear@fastmail.com>
-> 
-> [...]
+There are still a few unresolved questions that I'd like to hear from
+you as you experiment with it, which the tl,dr. is: KCFI support for
+Rust shares most of its implementation with the CFI support, with some
+key differences:
 
-Here is the summary with links:
-  - riscv: process: Fix kernel gp leakage
-    https://git.kernel.org/riscv/c/d14fa1fcf69d
+KCFI performs type tests differently and are implemented as different
+LLVM passes than CFI to not require LTO.
+KCFI has the limitation that a function or method may have one type id
+assigned only.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Because of limitation listed above (2), the current KCFI
+implementation (not CFI) does reifying of types (i.e., adds
+shims/trampolines for indirect calls in these cases) for:
 
+Supporting casting between function items, closures, and Fn trait objects.
+Supporting methods being cast as function pointers.
 
+There may be possible costs of these added levels of indirections for
+KCFI for cache coherence/locality and performance, possible
+introduction of gadgets or KCFI bypasses, and increased
+artifact/binary sizes, which haven't been looked at yet, and I'm
+honestly not super happy about it (but it's better than the original
+proposal of adding shims/trampolines to every virtual call in the Rust
+compiler), so I'd be interested in any performance results or
+regressions you may have while experimenting with it, more
+specifically:
+
+Linux Kernel without KCFI vs Linux Kernel with KCFI vs Linux Kernel
+with Rust and KCFI, possibly isolated to the code of a driver that has
+an implementation in C vs an alternative implementation in Rust.
 
 _______________________________________________
 linux-riscv mailing list
