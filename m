@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38A4CD1284
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 18:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F354ACD1292
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 19:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MAqBA74WWuouEqFDejCXMxfFvVAxxk++FvsbGSF4NCE=; b=mB2UDkqp+yfT4S
-	2/QkjK9qYyiO/RLjsQ98W5hfoE9vIvQcamPJFjkmE1C3PcqwwkmeC+fri9izzKWh2E0vKAywbM7ec
-	XGGhaax70G8S6qRuRKmvCIzJxaNkVZNvNoDlVjIvQh1lnsPmuonp2HkHyDpO3UaU4ftMboqqyHXHE
-	E2FcKVBxvjQTTW6syYwRoVZsjFLqMy0/AORZz18JYst1KPgXNQL6Hps2nEKX17ahoDODWAwacwz+E
-	RlVt8PTcuhJSBcdptXX3SMw0erbFtms8TqML/IOQPq85lNOVOSXuOk1s7LiHMLsjlDsZmZr8JfRR6
-	BzwDXcqHqTpwGKP7XzhA==;
+	List-Owner; bh=l6QgZ+JdZwVoIY9889jv6N9QuLRm1TFORTnZp+V9YFM=; b=moY0eJrhrl4c4a
+	aBGMdmL/CD3H6d0YQ1GNJGOU3HNKfm7o2OvpAaQYbqnM0DlGhlBZFSzd3j3cb7tyczq5MJ5vSLMc4
+	EaPujOaxXsVMDFT990VKccMScvQ/HzrSkAhBg7Ef4KCV04SyAKsIakHNaYK7zMG2OdM2b/nA8/rDa
+	hGLzaOrJadLfGCzaQC+Uc5JxZr71HWKlnnuYt9R4Mf/2xIIMbdewi9hvwvWbaeimWoZr750fEiCsx
+	kEfAFiEBfvu5Li/och6AZcWiwMjYnPKMpPT2gRIGb1aBKo4OILImFgbRh6OFjdeI98Qionn8R02ff
+	U3yxa+lO9pgiD9srNrUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsSHz-00000003wPG-0gei;
-	Thu, 04 Apr 2024 18:58:19 +0000
+	id 1rsSM2-00000003xGT-0UhA;
+	Thu, 04 Apr 2024 19:02:30 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsSHv-00000003wOV-2iOT
+	id 1rsSLx-00000003xEy-3f0P
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Apr 2024 18:58:18 +0000
+	Thu, 04 Apr 2024 19:02:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1712257093;
+	s=mimecast20190719; t=1712257344;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=iUpAfMHg+laFfCU8zqN8B3PSMZVWl02POndufzeitW0=;
-	b=Oil0Tc1HvnWGuD8vpAxluoDjs1d49z5KiAOvm8Hml0fDVdk6b7QPGp7ImQVk2DTQ9B9f1R
-	hC3nzFPSdm/8gUWk7slih3L6GqmXmR9jJiZ22oiZZdRksF1TAGjWeT3VeU/iduWRgSnGP0
-	KR1X5kueqtFNpU0rk6GLS7IPZzx4IIE=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=IDcxlS8RojgeD/IGab9+Y1i9FcxVlQ2WZxdgyok4TGM=;
+	b=STHBcDKuxN/CTdkwMroH4x0pNCFqov4XPNhzuiYsZPX17aF+v72XdcfuxMoSCi1jUILgLd
+	VO5ymBfGyVE8rmsPa7mSNlYaWQa+ghwAV8RsPxrd7I8nohalLZ6uWKC4Y5XZBOw4YJH/9/
+	wAcTitO1AsYhMJ879olXW57wSJKlDYk=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-387-5H3HRftIMH6uzXiwR8CHiQ-1; Thu, 04 Apr 2024 14:58:11 -0400
-X-MC-Unique: 5H3HRftIMH6uzXiwR8CHiQ-1
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-34364bba472so652306f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 11:58:11 -0700 (PDT)
+ us-mta-639-Pi3wX5uGNw2EXXFqADLI7g-1; Thu, 04 Apr 2024 15:02:23 -0400
+X-MC-Unique: Pi3wX5uGNw2EXXFqADLI7g-1
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-343da0a889dso110871f8f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 12:02:22 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712257090; x=1712861890;
+        d=1e100.net; s=20230601; t=1712257342; x=1712862142;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=iUpAfMHg+laFfCU8zqN8B3PSMZVWl02POndufzeitW0=;
-        b=ZiDVpn+a2ezHXYLPKq7RmATiuOkgAKM3eXbIHbbAHxZKNZzGfJc8ETmpB9YMcS60g5
-         YVP+6/Ve6JTF2rLXILdPw35d54HzMqXebdvXDnx2Gc9BdHJjeFO69Aeyn9xIZXktNF9Q
-         ksym6i4nMwtw7ouA3nm/QIutNiFc+syjoKF/Hry1gpEuq2ghVNOHNUGWrukLYbehkbua
-         xSsnPDvoAgKhg9E8bPM5z/BWfAM/slnIriR81eIkpAIOIOPB4QPdVBK/DXlHNQncsWiq
-         A9ukchYHA5/moPpdWmok6a6yyIDbddRVojsGOOWtsX1CDielPn3cWHwCJLX9wqtFp+E4
-         R9yg==
-X-Forwarded-Encrypted: i=1; AJvYcCV+EDH6JrVUzbXDMqxtgTkUbFvk1YWT6OXKF1hUd35EbKNTAKnbtPrx0XS/Wdu3ozRFx54t2CO23w1YL4w0ysHfcX8MhIgJ6K9KRU3VNA1z
-X-Gm-Message-State: AOJu0YyhWje6W6JtNcC9w58NGxclEK69dtF7lEqvjCfVJ9M+0zfYki0U
-	kQw5PeZsclus+mRbSdCnfsUm2JSXklWyp8ExnJGZIRU+dmMSnY+x+RcKMQbOpU1vgvKOeHTk2QP
-	KD05vZVpVsvMwR5usIREJvql7ttQcVM9nZ9gxd6XLlj+AzLFyEkG0W55KxdtZDL0zGA==
-X-Received: by 2002:adf:fa08:0:b0:343:3e49:d6d9 with SMTP id m8-20020adffa08000000b003433e49d6d9mr2425582wrr.47.1712257090529;
-        Thu, 04 Apr 2024 11:58:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHIR5jv3Y+pA9R56BJ+nFHyzZuCjuoYvHQwb+bhK5m09rZk21mZB5x6rbzPgcQOkLvLeAqwTQ==
-X-Received: by 2002:adf:fa08:0:b0:343:3e49:d6d9 with SMTP id m8-20020adffa08000000b003433e49d6d9mr2425540wrr.47.1712257089897;
-        Thu, 04 Apr 2024 11:58:09 -0700 (PDT)
+        bh=IDcxlS8RojgeD/IGab9+Y1i9FcxVlQ2WZxdgyok4TGM=;
+        b=AwH4N2U6SXjw5ujSMLn5HadgPjAyaDdYfPuC06OfUYAVAlrG1A5sN7KV+znvuEMvx/
+         +DKy07qxdMnHN8E/3/TPUocvfh24u28nj0tS+lltQIF9RvzuOBz4UReWHg5xZKEalPzt
+         5H3v+Cm/NltEk7B496IstMFsTmltjkk0p6BwNws34q6L5IMKlP+qCKU0UilrpZX7VNkf
+         3/zLlgV0GL2zjmVAtA/FJ8rHe+yTJHdb7Zb48KzL1Gm0tSxWNpuiHFq1e8c9Bq+61byz
+         /GhohBt8hpXuHerRDSD+ZF+ZNu+inQkwCk1RohWvenNqDQsgrunlrUy8HN4a2h0HImPV
+         EzEw==
+X-Forwarded-Encrypted: i=1; AJvYcCWCoXrV5WFsQXu1DWHxeZgweqOMif3zz65WiTteDaBdkTS4WfUtBveb5kqxm1PSih2UKwQ0Kj92c8XVmQu0TboYRonxbISRDx8bBfPbKP/l
+X-Gm-Message-State: AOJu0Yzw1TuOwkcblXEy/D72wgczy8gxhnMXXrnD0BxxPG4T6PYbXaAK
+	YVI25f6nY9IporIqwZAtVTq6tvvBzwt+x/GbFcBEB7enwK0Ah1WOmRJ5mETp1xjNlY3rE/5Ghsx
+	SMM79lP6ZywxdwcIf8MexH6jE2QX59lDPtIzrcyDes88/yESdwh8q2vzKiZNybEzu/A==
+X-Received: by 2002:adf:ec44:0:b0:343:9d4b:19b3 with SMTP id w4-20020adfec44000000b003439d4b19b3mr376491wrn.21.1712257341857;
+        Thu, 04 Apr 2024 12:02:21 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGc3F8jSmzcueZ4ylAzvl2l7H+r7gGFUado11QSdwSJjhCvanm86xwbQhGmWG7xABmEZT5p6A==
+X-Received: by 2002:adf:ec44:0:b0:343:9d4b:19b3 with SMTP id w4-20020adfec44000000b003439d4b19b3mr376421wrn.21.1712257341428;
+        Thu, 04 Apr 2024 12:02:21 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c743:de00:7030:120f:d1c9:4c3c? (p200300cbc743de007030120fd1c94c3c.dip0.t-ipconnect.de. [2003:cb:c743:de00:7030:120f:d1c9:4c3c])
-        by smtp.gmail.com with ESMTPSA id k2-20020a5d5242000000b00343c0c24a65sm63462wrc.89.2024.04.04.11.58.06
+        by smtp.gmail.com with ESMTPSA id m28-20020adfa3dc000000b003435e1c0b78sm84999wrb.28.2024.04.04.12.02.18
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Apr 2024 11:58:09 -0700 (PDT)
-Message-ID: <8fb37319-288c-4f77-9cd7-92f17bb567ee@redhat.com>
-Date: Thu, 4 Apr 2024 20:58:06 +0200
+        Thu, 04 Apr 2024 12:02:20 -0700 (PDT)
+Message-ID: <c438ea3a-24bc-470b-a2eb-6e7517bd4362@redhat.com>
+Date: Thu, 4 Apr 2024 21:02:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 08/29] mm: Define VM_SHADOW_STACK for RISC-V
+Subject: Re: [PATCH v3 09/29] mm: abstract shadow stack vma behind
+ `vma_is_shadow_stack`
 To: Deepak Gupta <debug@rivosinc.com>, paul.walmsley@sifive.com,
  rick.p.edgecombe@intel.com, broonie@kernel.org, Szabolcs.Nagy@arm.com,
  kito.cheng@sifive.com, keescook@chromium.org, ajones@ventanamicro.com,
@@ -102,9 +103,9 @@ Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
  mpe@ellerman.id.au, baruch@tkos.co.il, alx@kernel.org,
  catalin.marinas@arm.com, revest@chromium.org, josh@joshtriplett.org,
  shr@devkernel.io, deller@gmx.de, omosnace@redhat.com, ojeda@kernel.org,
- jhubbard@nvidia.com
+ jhubbard@nvidia.com, Mike Rapoport <rppt@kernel.org>
 References: <20240403234054.2020347-1-debug@rivosinc.com>
- <20240403234054.2020347-9-debug@rivosinc.com>
+ <20240403234054.2020347-10-debug@rivosinc.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -151,13 +152,13 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20240403234054.2020347-9-debug@rivosinc.com>
+In-Reply-To: <20240403234054.2020347-10-debug@rivosinc.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240404_115817_243379_3B397D6E 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20240404_120226_035496_8C6ACA45 
+X-CRM114-Status: GOOD (  22.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,66 +176,97 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 04.04.24 01:34, Deepak Gupta wrote:
-> VM_SHADOW_STACK is defined by x86 as vm flag to mark a shadow stack vma.
+> VM_SHADOW_STACK (alias to VM_HIGH_ARCH_5) to encode shadow stack VMA.
 > 
-> x86 uses VM_HIGH_ARCH_5 bit but that limits shadow stack vma to 64bit only.
-> arm64 follows same path (see links)
-> 
-> To keep things simple, RISC-V follows the same.
-> This patch adds `ss` for shadow stack in process maps.
-> 
-> Links:
-> https://lore.kernel.org/lkml/20231009-arm64-gcs-v6-12-78e55deaa4dd@kernel.org/#r
+> This patch changes checks of VM_SHADOW_STACK flag in generic code to call
+> to a function `vma_is_shadow_stack` which will return true if its a
+> shadow stack vma and default stub (when support doesnt exist) returns false.
 > 
 > Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> Suggested-by: Mike Rapoport <rppt@kernel.org>
 > ---
->   fs/proc/task_mmu.c |  3 +++
->   include/linux/mm.h | 11 ++++++++++-
->   2 files changed, 13 insertions(+), 1 deletion(-)
+>   include/linux/mm.h | 13 ++++++++++++-
+>   mm/gup.c           |  5 +++--
+>   mm/internal.h      |  2 +-
+>   3 files changed, 16 insertions(+), 4 deletions(-)
 > 
-> diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
-> index 3f78ebbb795f..d9d63eb74f0d 100644
-> --- a/fs/proc/task_mmu.c
-> +++ b/fs/proc/task_mmu.c
-> @@ -702,6 +702,9 @@ static void show_smap_vma_flags(struct seq_file *m, struct vm_area_struct *vma)
->   #endif /* CONFIG_HAVE_ARCH_USERFAULTFD_MINOR */
->   #ifdef CONFIG_X86_USER_SHADOW_STACK
->   		[ilog2(VM_SHADOW_STACK)] = "ss",
-> +#endif
-> +#ifdef CONFIG_RISCV_USER_CFI
-> +		[ilog2(VM_SHADOW_STACK)] = "ss",
->   #endif
->   	};
->   	size_t i;
 > diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index f5a97dec5169..64109f6c70f5 100644
+> index 64109f6c70f5..9952937be659 100644
 > --- a/include/linux/mm.h
 > +++ b/include/linux/mm.h
-> @@ -352,7 +352,16 @@ extern unsigned int kobjsize(const void *objp);
->    * for more details on the guard size.
->    */
->   # define VM_SHADOW_STACK	VM_HIGH_ARCH_5
-> -#else
-> +#endif
+> @@ -363,8 +363,19 @@ extern unsigned int kobjsize(const void *objp);
+>   
+>   #ifndef VM_SHADOW_STACK
+>   # define VM_SHADOW_STACK	VM_NONE
 > +
-> +#ifdef CONFIG_RISCV_USER_CFI
-> +/*
-> + * RISC-V is going along with using VM_HIGH_ARCH_5 bit position for shadow stack
-> + */
+> +static inline bool vma_is_shadow_stack(vm_flags_t vm_flags)
+> +{
+> +	return false;
+> +}
+> +#else
+> +static inline bool vma_is_shadow_stack(vm_flags_t vm_flags)
+> +{
+> +	return (vm_flags & VM_SHADOW_STACK);
+> +}
+>   #endif
 
-Wow, really?! I could never have guesses that from the code :P
+You can simply do outside the ifdef
 
-Just drop that comment. Are them semantics the same as for the x86 variant documented?
-("VM_SHADOW_STACK should not be set with VM_SHARED because of lack of")
+static inline bool vma_is_shadow_stack(vm_flags_t vm_flags)
+{
+	return !!(vm_flags & VM_SHADOW_STACK);
+}
 
+This will work even when VM_SHADOW_STACK is defined to be VM_NONE.
 
-I assume so. So it might now make sense to merge both paths
+>   
+> +
 
-#if defined(CONFIG_X86_USER_SHADOW_STACK) || defined(CONFIG_RISCV_USER_CFI)
+unrelated code change
 
+>   #if defined(CONFIG_X86)
+>   # define VM_PAT		VM_ARCH_1	/* PAT reserves whole VMA at once (x86) */
+>   #elif defined(CONFIG_PPC)
+> @@ -3473,7 +3484,7 @@ static inline unsigned long stack_guard_start_gap(struct vm_area_struct *vma)
+>   		return stack_guard_gap;
+>   
+>   	/* See reasoning around the VM_SHADOW_STACK definition */
+> -	if (vma->vm_flags & VM_SHADOW_STACK)
+> +	if (vma->vm_flags && vma_is_shadow_stack(vma->vm_flags))
 
-or even introduce some ARCH_HAS_SHADOW_STACK so we can remove these
-arch-specific thingies here.
+Pretty sure:
+
+if (vma_is_shadow_stack(vma->vm_flags))
+
+>   		return PAGE_SIZE;
+>   
+>   	return 0;
+> diff --git a/mm/gup.c b/mm/gup.c
+> index df83182ec72d..a7a02eb0a6b3 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -1053,7 +1053,7 @@ static int check_vma_flags(struct vm_area_struct *vma, unsigned long gup_flags)
+>   		    !writable_file_mapping_allowed(vma, gup_flags))
+>   			return -EFAULT;
+>   
+> -		if (!(vm_flags & VM_WRITE) || (vm_flags & VM_SHADOW_STACK)) {
+> +		if (!(vm_flags & VM_WRITE) || vma_is_shadow_stack(vm_flags)) {
+>   			if (!(gup_flags & FOLL_FORCE))
+>   				return -EFAULT;
+>   			/* hugetlb does not support FOLL_FORCE|FOLL_WRITE. */
+> @@ -1071,7 +1071,8 @@ static int check_vma_flags(struct vm_area_struct *vma, unsigned long gup_flags)
+>   			if (!is_cow_mapping(vm_flags))
+>   				return -EFAULT;
+>   		}
+> -	} else if (!(vm_flags & VM_READ)) {
+> +	} else if (!(vm_flags & VM_READ) && !vma_is_shadow_stack(vm_flags)) {
+> +	/* reads allowed if its shadow stack vma */
+>   		if (!(gup_flags & FOLL_FORCE))
+>   			return -EFAULT;
+>   		/*
+
+Unless I am missing something, this is not a simple cleanup. It should 
+go into a separate patch with a clearly documented reason for that change.
 
 -- 
 Cheers,
