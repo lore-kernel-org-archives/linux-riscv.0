@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92BA1CD128A
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 02:14:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0195CCD1288
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 05:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cngwIgJTtlnu6NRP0jd40/jKNUBOtz3dm6vQ0yjB2Go=; b=RPAACjgmcnoQdV
-	asih4nsDYJZl4abypano3aGlXbWWb9xsDa19uRfY0SMQJAjfxQchOloefYQJZWHPONN1R9lK3pQjR
-	/jQIT2I2jbhVce22Af4UP038ck1hxjXPZP/VjydG2O8CHqEfhfoA0t7R8FWblFvyvLmHK1sQgLBNE
-	peKdCx+XBzEepoj+bcnyXbeMU1ozDidEgcGtMGN+BEGOSdnfudAF5n6CD6E5PiphnIorCqRSnloaM
-	FycM86oolyhQiB7VPsekhQ7OBO+zhxvfarVY2n+iWNOGglt2eHyQhAAgR3gr1OczCIrEze8X5TeVB
-	uEJbASTtS7aZMguL57zQ==;
+	List-Owner; bh=xnChf4SWXhuOxjBV0lyA5ZW174QTQVrkCZmaUPsE1NQ=; b=22T7nnod+72EMW
+	u6TinJ99f+haZ0/t4Y33GV9Q+kjO05CF+1KXcQHi5obnKg39s8D7oXMFYlqBrKeuX3Z80MAXEZsmZ
+	DiEAB+MlML+Ip2CA8xPZRuos1Q700DX66HfTTyNCmCh+elNZAAl6d8g3p6Rpnu5NOoFHBJ9SEMagR
+	0Rv3rXj8hZqwGvAqjDNKoPYZEABJz0l9e8ixDpZkey6OcMEOdjd3Gu4ZfbD79g37EGIC2+hXQ6yji
+	793pkyeAldcieWPPcYh6wa/qkG6tG06RXqTpGhcQYYcaKRP7vm7f4GikvgmN9zU57dNkyBME6/vbL
+	oUJ43lFuYZBtgQpQksJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsCcf-00000000xmF-3zr4;
-	Thu, 04 Apr 2024 02:14:37 +0000
-Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3] helo=gandalf.ozlabs.org)
+	id 1rsFwF-00000001Mwl-1EbC;
+	Thu, 04 Apr 2024 05:47:03 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsCca-00000000xho-42FX;
-	Thu, 04 Apr 2024 02:14:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
-	s=201909; t=1712196863;
-	bh=0PcvpW5SQPrf4QnOqaQeX/XXu99U3a1qNIXPB0jb71k=;
+	id 1rsFwD-00000001Mvz-0zdv
+	for linux-riscv@lists.infradead.org;
+	Thu, 04 Apr 2024 05:47:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id D21E5CE2A6D;
+	Thu,  4 Apr 2024 05:46:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84050C433F1;
+	Thu,  4 Apr 2024 05:46:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1712209618;
+	bh=K/tqV2VTM/YXZvK5fR129QweW8rDAKq13mxK08CxCVI=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=VyMVQ3ztogSJTiIgLxBnLkNGFUgd68Qe2KDkfvwgzAo6UXogiTKbR69fLdEZZdu7n
-	 j3iNV2JgacCj30EfVfA0nufM6LLB0HhkUu4/gC0cH9GF15bjP6K55yY/SHfDcHG5LZ
-	 C6A3Ro/1onK6pyPh3jlVC2U8y95oPYSyx7VeOvKtcmV57g7fuqL83rvaMyFKYOVpxw
-	 oxm58pQDGWVdn2ucF5HZ6tep2QVSw9tARy9V9golouCtHYA3Tik7KGkuZEvWcLHYKF
-	 3HCUbzR0cNgClz2PklZaCGNb+9TQaIfvB8jeqaIi2XVH6tgkaEYydsWFGiIh6MP6A8
-	 HT6H386UWr5YA==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4V94th0jq3z4wcQ;
-	Thu,  4 Apr 2024 13:14:19 +1100 (AEDT)
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Guenter Roeck <linux@roeck-us.net>, linux-kselftest@vger.kernel.org
-Cc: David Airlie <airlied@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- =?utf-8?Q?Ma=C3=ADra?=
- Canal <mcanal@igalia.com>, Dan Carpenter <dan.carpenter@linaro.org>, Kees
- Cook <keescook@chromium.org>, Daniel Diaz <daniel.diaz@linaro.org>, David
- Gow <davidgow@google.com>, Arthur Grillo <arthurgrillo@riseup.net>,
- Brendan Higgins <brendan.higgins@linux.dev>, Naresh Kamboju
- <naresh.kamboju@linaro.org>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Andrew Morton
- <akpm@linux-foundation.org>, Maxime Ripard <mripard@kernel.org>, Ville
- =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, Daniel Vetter
- <daniel@ffwll.ch>,
- Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org,
- kunit-dev@googlegroups.com, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- loongarch@lists.linux.dev, netdev@vger.kernel.org, x86@kernel.org, Guenter
- Roeck <linux@roeck-us.net>, Linux Kernel Functional Testing
- <lkft@linaro.org>
-Subject: Re: [PATCH v3 15/15] powerpc: Add support for suppressing warning
- backtraces
-In-Reply-To: <20240403131936.787234-16-linux@roeck-us.net>
-References: <20240403131936.787234-1-linux@roeck-us.net>
- <20240403131936.787234-16-linux@roeck-us.net>
-Date: Thu, 04 Apr 2024 13:14:16 +1100
-Message-ID: <874jch98nb.fsf@mail.lhotse>
+	b=geWjl5tSMnz9aUJQK+7TpVLQiUSN7iC1cxdw0ZaQC9YA3j/G03sy9qjvINPEmn75T
+	 wZPApLMjyiOKCSTpDoPw0JMU79iA9mdS8OYzmR9zniOvtb+VBHHtBXGXBXYqZghJTM
+	 55xRhLRMfL3tL6cKIgifP/snSoEGo1e58qs4lrmJk9u3FHNujiwVPjS05LRTzOp96Q
+	 LPnRWufVEza0Nvje73D5LnffVx3DpO8cPSjc6sFsYfgCFq0niTiv4Fltsjn+9loiLk
+	 0BH5HEUOE4pdzTuF9CtR8UKaW29YnnU/fOvjatcmJzyxnFEvHyoaGLO0gUU/qoG2Qh
+	 k8IB5X2MZM8iQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>, Shuah Khan <shuah@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu
+ <andy.chiu@sifive.com>, Vineet Gupta <vineetg@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH] riscv: selftests: Add signal handling vector tests
+In-Reply-To: <20240403-vector_sigreturn_tests-v1-1-2e68b7a3b8d7@rivosinc.com>
+References: <20240403-vector_sigreturn_tests-v1-1-2e68b7a3b8d7@rivosinc.com>
+Date: Thu, 04 Apr 2024 07:46:54 +0200
+Message-ID: <87bk6pof1t.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240403_191433_211192_3E518E74 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20240403_224701_486892_DC0BBF32 
+X-CRM114-Status: UNSURE (   5.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,44 +70,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Guenter Roeck <linux@roeck-us.net> writes:
-> Add name of functions triggering warning backtraces to the __bug_table
-> object section to enable support for suppressing WARNING backtraces.
->
-> To limit image size impact, the pointer to the function name is only added
-> to the __bug_table section if both CONFIG_KUNIT_SUPPRESS_BACKTRACE and
-> CONFIG_DEBUG_BUGVERBOSE are enabled. Otherwise, the __func__ assembly
-> parameter is replaced with a (dummy) NULL parameter to avoid an image size
-> increase due to unused __func__ entries (this is necessary because __func__
-> is not a define but a virtual variable).
->
-> Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-> ---
-> v2:
-> - Rebased to v6.9-rc1
-> - Added Tested-by:, Acked-by:, and Reviewed-by: tags
-> - Introduced KUNIT_SUPPRESS_BACKTRACE configuration option
-> v3:
-> - Rebased to v6.9-rc2
->
->  arch/powerpc/include/asm/bug.h | 37 +++++++++++++++++++++++++---------
->  1 file changed, 28 insertions(+), 9 deletions(-)
-
-I ran it through some build and boot tests, LGTM.
-
-Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
-
-cheers
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q2hhcmxpZSBKZW5raW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4gd3JpdGVzOgoKPiBBZGQgdHdv
+IHRlc3RzIHRvIGNoZWNrIHZlY3RvciBzYXZlL3Jlc3RvcmUgd2hlbiBhIHNpZ25hbCBpcyByZWNl
+aXZlZAo+IGR1cmluZyBhIHZlY3RvciByb3V0aW5lLiBPbmUgdGVzdCBlbnN1cmVzIHRoYXQgYSB2
+YWx1ZSBpcyBub3QgY2xvYmJlcmVkCj4gZHVyaW5nIHNpZ25hbCBoYW5kbGluZy4gVGhlIG90aGVy
+IHZlcmlmaWVzIHRoYXQgdmVjdG9yIHJlZ2lzdGVycwo+IG1vZGlmaWVkIGluIHRoZSBzaWduYWwg
+aGFuZGxlciBhcmUgcHJvcGVybHkgcmVmbGVjdGVkIHdoZW4gdGhlIHNpZ25hbAo+IGhhbmRsaW5n
+IGlzIGNvbXBsZXRlLgo+Cj4gU2lnbmVkLW9mZi1ieTogQ2hhcmxpZSBKZW5raW5zIDxjaGFybGll
+QHJpdm9zaW5jLmNvbT4KCk5pY2UhCgpSZXZpZXdlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5A
+cml2b3NpbmMuY29tPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
