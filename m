@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2679CD1292
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 11:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC294CD1292
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 11:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wGdV+VcbhpmnRlO5TvhWjE2R5C0kilNvcrpWqiE2nGY=; b=o0+YZOFVAzV7U4
-	bJcqRZf3jYGqrhRk6YMc+Vx8sk2I9+lqmM/aqyQtXUiRfLJVnwhRT2vDLWvhI/j9k8lgO7IgSP3rz
-	7r6ZyLdV5AYFOaI+rCtYUOjBwpZmmrpHWJefj0atBLBjfnhZxwezi5w8y6R2UCLfiwv0o0lUck7hA
-	buTGOE5K2PsbX272gaixMX0A3bS19rr4g3YTCXSHxW8+bJHUXGD6bxSMrSipQYW3FqelZnqQmRAn+
-	cjLYcaJTtYiShY8Ym7UDDiR9laTRGsF4Z3k9yRWOGfVXSZmKzH5zpGRaRclXAL7VOlxtLSsIybNUd
-	3gPoQ5T2zwcUNHH5ZCMQ==;
+	List-Owner; bh=hxqHvTeOgkDDN26zcV6mBku3M6tVavgWlb/Epo+z+yg=; b=m9cbH48aGUm7eq
+	QgonVL5BevBAV4jCh2/eGXB/djfoiBR6QlC8Y0WUMQv/qCdH4XKPMyXi9encyALgKClXTx74AdqSi
+	d9Ngk1JXLdDNKLgC4vWTTz4BHnH20pGG0aJubbEJ3D7Gg7bYaDvRH/ZlkMJ8QMcwvgURXGZYH+b7W
+	jyncvgD52EGIqrqt9Z3DHp6VM5cwuh/HgA8rU1LlLZdsAyVJexyb0a5z4rwEaooj9eeeuVBTsIF+K
+	XlT5hrGs2pa3t5PjWrV/I/tbWveOurvWGYWmLzphoKY61vyi3B2PGzm1dcoXkCmWVBKJZwc92xzKp
+	VhM4fk8uij4OO+a1njGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsLh2-00000002T9g-4A2Z;
-	Thu, 04 Apr 2024 11:55:44 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1rsLix-00000002TV5-01GI;
+	Thu, 04 Apr 2024 11:57:43 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsLh0-00000002T8e-3Rmx
+	id 1rsLiu-00000002TUC-1Vh2
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Apr 2024 11:55:44 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-56e1baf0380so856965a12.3
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 04:55:41 -0700 (PDT)
+	Thu, 04 Apr 2024 11:57:41 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-a5193f56986so33990266b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 04:57:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1712231740; x=1712836540; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1712231857; x=1712836657; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MggdLhtScC0WHbexLHVciQeNa0pa9gvC6PekQ9uXyqA=;
-        b=NfIKd/iwEOMqqTtT0QDUw7lZs/J/FZ7U+zw9ocBi6oYHozsRNsN6tJTrbxWbPw0TvO
-         cGK6F6tPDXvJPYRkbcT11oEDym3+J74xslQh5SoKF1K9LL7DeiBIyKGb9VOpl6cuDiZI
-         mIb4wUinU3HU7S9QxqWKV2BF8dgSYa3M5TS2PjyRDt1I77lTImS6sFIOjE0dZZLpTlRg
-         eEnowWrHh5xlqWut/pxRmAScA3U1U2kewbJC1xr172WX1tlU2XG0sC6xrcs0utMFAlSU
-         14M/eo6il+yqdZi96IK6R0gNWPN9TdkZA94hrZenjJbWywCvE45H0aGQC6vTmh63/Sqg
-         KxKQ==
+        bh=wWw71C7jU1cEwI+5ODGcknLMAR0yYHVr8hihh6Lqglg=;
+        b=EtfU4c9xkisAmJ5HfsdrebX+RUV4o5rbxrnJ7zDAuh4v6kNX5F5eZ/v9cauxM8lpmv
+         6H0D58fSnKsY9F7ryNzDGc/kbkfM25eo7xtSpvvJHbCU6emjqK7yIGDhNQvtE3QvAmOn
+         srH3CiR7m44SD2XhOCM3oiT/PmGilz58x9u4EdR/U3Cnr7LHIoiJsRoP3HhO6WT461pt
+         yWjdWBN8foZ8NPEvvgTW6faCA8LNeGIWcXvE7D66RBQq0Q8Ad3NfppKvlfBFXyckgJBy
+         GdWlpgcvE4MhhUeE5Z/DLmD0reX2lGvbdNp/uoy7YVy8gQ1zuau0hCc0ZN2u5vbPMdgn
+         GHLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712231740; x=1712836540;
+        d=1e100.net; s=20230601; t=1712231857; x=1712836657;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MggdLhtScC0WHbexLHVciQeNa0pa9gvC6PekQ9uXyqA=;
-        b=nZ8x79Q0NRWQQwX2zXqqAXNLiy0ICiTZzTNv1MDFfuPj4hAU5lXs0C5/pf1xzSVAcw
-         3/1CWiQ+1alhdTRjn2f6qFpmkl3QTOFqDkrq2eCyFkTp6R28+Pujx3DxHM/TsL0u4Bv+
-         C8O0a1VvJzSrVa6eaugZFLWoMyIVENe+g982zvPXLQ+rSPRdiVcuQmNkqEXiMYzXyEIq
-         RNv4nF/zMrdQcMxa4byY0u3iOG32CVkIOnReQ57O6IJqyS9vMlBbo8+clr7iTafSOaMu
-         C3lHROEQ9tK3uzL7ulIJTqO0fpgMgApHjWc8C7JQgssygTXNCCaBCtKegWRUoCaO45ik
-         mbQA==
-X-Forwarded-Encrypted: i=1; AJvYcCW8b70oSSg8TsUZ0FwsUlVEUGelZ1rI2S+ywb3YesWEyzYV4S4lfrxFCJQMsmPToQoiW0V2xuyeLr8hRZOSd3qE7qGN1Hovg/Yw2lBlplP4
-X-Gm-Message-State: AOJu0YxFEcdZ9n9MmwIb7+Hg2x06dgoBd5qoOdwFGT7+JTmesRlmMLXw
-	iyh8YwW0NVmCa6E5EFC2bnFczAgNYDFFY5jkjNHtUMDxe91PVgpKC/6+jlpdSeA=
-X-Google-Smtp-Source: AGHT+IHbQVR5kRtT5eSzAIoLj4j7ezmt7zb8/dHcxiB8NsIJPag3OPp4cCgWeUncPmPWCdmuF6F7iw==
-X-Received: by 2002:a50:d71e:0:b0:56e:2393:cee4 with SMTP id t30-20020a50d71e000000b0056e2393cee4mr346003edi.9.1712231739832;
-        Thu, 04 Apr 2024 04:55:39 -0700 (PDT)
+        bh=wWw71C7jU1cEwI+5ODGcknLMAR0yYHVr8hihh6Lqglg=;
+        b=r9IiT0MlgOwiD0tab5OfHfeMO3T6atF5UJW7gHZzVzdY4IR9/d+R2xseD7I1hohqRM
+         nHXHEM/K3z8rN/cN+quUMV+GTXAdf96f2xJwLq1ISarf0F4xISGdGE3gZpp8Ph+d4Gxk
+         k7JZ52y5xv98FWMytpra4liTZB10gnBfo5Oba66FX7F4MV1uMAz9qTA8QwtiuqoEzFUk
+         Sj+te4xuobljGRuom+8B3fqXsErIRnsZN7J1tA/Ps0FCJrjvjxdwHO6fdSGs6u7KVaL0
+         Z2oVsqulBmPqoeX9PhQ6AC97dNpaMG1yLEh7nAID4wXb6cKErNU3pLRwZQEE8J71LX5t
+         O5JA==
+X-Forwarded-Encrypted: i=1; AJvYcCVTqc8++e8E8Lxybvpe1PXYwywpEOe/oqWyjz8hKd+XstPjuI9jE4FAp+XPawU6txtHEr8W/NPeVmUjDtApAMkbHPjs4rFHKDjvoTV9U9iY
+X-Gm-Message-State: AOJu0YxnNf0BAig3DEFWlvTgi+bWaormqwPWdLErLtAg23xzWYdbx6VF
+	7rrDFEHa9Y97BfG2ymTaWfuAk2ZpVxEqKEHNY0jvMXQ1ttFEKjdjHwVCDLjQufM=
+X-Google-Smtp-Source: AGHT+IF8SdqZ3HyZZ91FGKimTKayOc7UTusAbOGT6GeUZ2TkAX0/2dzA77WUR8ICDxbEhjc/oE44yQ==
+X-Received: by 2002:a17:907:c0d:b0:a50:f172:6994 with SMTP id ga13-20020a1709070c0d00b00a50f1726994mr1816047ejc.73.1712231857594;
+        Thu, 04 Apr 2024 04:57:37 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id a88-20020a509ee1000000b0056dc0e21a7dsm6860407edf.4.2024.04.04.04.55.39
+        by smtp.gmail.com with ESMTPSA id g15-20020a170906538f00b00a4e98679e7dsm2355698ejo.87.2024.04.04.04.57.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Apr 2024 04:55:39 -0700 (PDT)
-Date: Thu, 4 Apr 2024 13:55:38 +0200
+        Thu, 04 Apr 2024 04:57:37 -0700 (PDT)
+Date: Thu, 4 Apr 2024 13:57:36 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Atish Patra <atishp@rivosinc.com>
 Cc: linux-kernel@vger.kernel.org, Ajay Kaher <akaher@vmware.com>, 
@@ -74,17 +74,16 @@ Cc: linux-kernel@vger.kernel.org, Ajay Kaher <akaher@vmware.com>,
 	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, 
 	VMware PV-Drivers Reviewers <pv-drivers@vmware.com>, Will Deacon <will@kernel.org>, x86@kernel.org
-Subject: Re: [PATCH v5 07/22] drivers/perf: riscv: Fix counter mask iteration
- for RV32
-Message-ID: <20240404-f10f72395cc0b25971541ece@orel>
+Subject: Re: [PATCH v5 08/22] RISC-V: KVM: Fix the initial sample period value
+Message-ID: <20240404-1c3dc9b63f80fc451d3a732a@orel>
 References: <20240403080452.1007601-1-atishp@rivosinc.com>
- <20240403080452.1007601-8-atishp@rivosinc.com>
+ <20240403080452.1007601-9-atishp@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240403080452.1007601-8-atishp@rivosinc.com>
+In-Reply-To: <20240403080452.1007601-9-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240404_045542_872424_D23EF34B 
-X-CRM114-Status: GOOD (  22.34  )
+X-CRM114-CacheID: sfid-20240404_045740_430765_5766E1EE 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,67 +100,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 03, 2024 at 01:04:36AM -0700, Atish Patra wrote:
-> For RV32, used_hw_ctrs can have more than 1 word if the firmware chooses
-> to interleave firmware/hardware counters indicies. Even though it's a
-> unlikely scenario, handle that case by iterating over all the words
-> instead of just using the first word.
+On Wed, Apr 03, 2024 at 01:04:37AM -0700, Atish Patra wrote:
+> The initial sample period value when counter value is not assigned
+> should be set to maximum value supported by the counter width.
+> Otherwise, it may result in spurious interrupts.
 > 
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 > ---
->  drivers/perf/riscv_pmu_sbi.c | 21 ++++++++++++---------
->  1 file changed, 12 insertions(+), 9 deletions(-)
+>  arch/riscv/kvm/vcpu_pmu.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 8c3475d55433..82336fec82b8 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -771,13 +771,15 @@ static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
->  {
->  	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
->  	unsigned long flag = 0;
-> +	int i;
+> diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+> index 86391a5061dd..cee1b9ca4ec4 100644
+> --- a/arch/riscv/kvm/vcpu_pmu.c
+> +++ b/arch/riscv/kvm/vcpu_pmu.c
+> @@ -39,7 +39,7 @@ static u64 kvm_pmu_get_sample_period(struct kvm_pmc *pmc)
+>  	u64 sample_period;
 >  
->  	if (sbi_pmu_snapshot_available())
->  		flag = SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT;
+>  	if (!pmc->counter_val)
+> -		sample_period = counter_val_mask + 1;
+> +		sample_period = counter_val_mask;
+>  	else
+>  		sample_period = (-pmc->counter_val) & counter_val_mask;
 >  
-> -	/* No need to check the error here as we can't do anything about the error */
-> -	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, 0,
-> -		  cpu_hw_evt->used_hw_ctrs[0], flag, 0, 0, 0);
-> +	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++)
-> +		/* No need to check the error here as we can't do anything about the error */
-> +		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, i * BITS_PER_LONG,
-> +			  cpu_hw_evt->used_hw_ctrs[i], flag, 0, 0, 0);
->  }
->  
->  /*
-> @@ -789,7 +791,7 @@ static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
->  static noinline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt,
->  						unsigned long ctr_ovf_mask)
->  {
-> -	int idx = 0;
-> +	int idx = 0, i;
->  	struct perf_event *event;
->  	unsigned long flag = SBI_PMU_START_FLAG_SET_INIT_VALUE;
->  	unsigned long ctr_start_mask = 0;
-> @@ -797,11 +799,12 @@ static noinline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt
->  	struct hw_perf_event *hwc;
->  	u64 init_val = 0;
->  
-> -	ctr_start_mask = cpu_hw_evt->used_hw_ctrs[0] & ~ctr_ovf_mask;
-> -
-> -	/* Start all the counters that did not overflow in a single shot */
-> -	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, 0, ctr_start_mask,
-> -		  0, 0, 0, 0);
-> +	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
-> +		ctr_start_mask = cpu_hw_evt->used_hw_ctrs[i] & ~ctr_ovf_mask;
-> +		/* Start all the counters that did not overflow in a single shot */
-> +		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG, ctr_start_mask,
-> +			0, 0, 0, 0);
-> +	}
->  
->  	/* Reinitialize and start all the counter that overflowed */
->  	while (ctr_ovf_mask) {
 > -- 
 > 2.34.1
 >
