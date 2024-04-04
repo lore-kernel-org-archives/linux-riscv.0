@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B66CD1284
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 14:15:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57858CD1299
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 14:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=vi8leI1UFD2HhVV+1mrQCYXm9hInOLs/786Uiyguss8=; b=vnN+EpvINOVYds43C2PqtOVYTS
-	v2SbSCUs+CCDEY5nwdrEiTcAhmLCd3uE1IDTIYx8jbL8o3l5Rmo+Km8/osI4Vce1DUw38QsW9bRZu
-	ZBwafr83xtmD3OL9Bx1kLXfdaTh7m+3S4YoP6Zvc77PcmbNAVL5aLnMxnvMqb7pcuUTy0cG8kKBBA
-	eAP1IvvqiVwMAhwy2IiR+rDtCat3q9GNSQVFYETmwcE49zkGDx6ZYEjvxJhPKEp+C1DT5htxywbLG
-	M3G5a7jztzL6e0HOuFwohmBFSLpyhh2beFHqksEP0qMJGwGcR/is3EyJeetAAxfGWlmsfYe4QxOgY
-	gdoEs9kg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PIIrUx/CNO5TtChZk7ODq/cQx3N4ZxbgmWl7cum3Quo=; b=2f3KCfO+/1F6A8
+	YXnwkDdyc+37iBhgkKu+4PieuRBKCNWHAsDpUW/T5pori8Q7dyaZymrPkCXALIyfMShBMueMkQ7pc
+	k2AsfP/wAGASK5Q9Ycz4ZljEl1+Kt99Cy7FVbczysuLogssxoW9OJpO6ZWpCsyP5BNJ6NJS56yBL2
+	eRP0nsg782vYadHWfb1EnHgi5x+N3KuWBWltlwr70OcjIxtOZHjCv0K1xdNbxJYCD7LAnTinoqZ+v
+	37PVLoLcXhKVWQFBucWsVUJoDP/uFWVMgWaeg7YyE5PnsG64RFHko6itRCLgfgzLPk9Cx5INwEBSX
+	TJ0zWcWdTsSnTgZCsfMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsNsY-00000002ytH-22FP;
-	Thu, 04 Apr 2024 14:15:46 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1rsNu9-00000002zP9-0fHM;
+	Thu, 04 Apr 2024 14:17:25 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsNsV-00000002yrf-1Hjd
+	id 1rsNu6-00000002zOC-1mb8
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Apr 2024 14:15:44 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1dff837d674so8875795ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 07:15:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1712240142; x=1712844942; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3dQTK01Mc93Hqq7XN7ozDnupNum3f6cBI1vXeUhrQTs=;
-        b=HNuDoAZQnz4y3OB1iJ8pT/Tx1OkGkqCpwJRI+yYY/zmSykvCP2bhUaiI8f+vcBdrCq
-         Eq6hiB4FuWLFobLXNYzSE8HKGGXxeUqhfGFtupSSHtILP22efWgThzbOBOhilOrXJo2o
-         OzU+rnkxqEK1HHcKduI8jcgKJg6zN3wPGFMgDP4Hv13v/3P2YTyswedFuYzgt9Egvev8
-         F8p6nd0J8Y1zUvJaCLnvgh+6pyl44/94IzyFd6EjR/EXoJ7CXx0gx3GiuqYy/R4c/nn5
-         sHmPzNxcLySFRyliMfc5KBrBDgTlt/vGjd5DmH+kDNWS8A+clCupnTejcw1YfBtkg/V7
-         JdRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712240142; x=1712844942;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3dQTK01Mc93Hqq7XN7ozDnupNum3f6cBI1vXeUhrQTs=;
-        b=kmHG9SDJjkuB0Pt5M4i7tLM49hmCHh1sFumke30qtBkmWJMZHPXiElzzm2xInhgjSb
-         42z9vKCWQ/NVanD8uDOuVw/ewhp5OfwiqQ/BKj4EtjvSzuaQNcaMLSBHF8kdtSFks+Yi
-         RjlyHudVC2ybeTfUx1LfnFq6ycgMu49X5snXCrtIbP3JyiU2KIPNhipqHe7mxp3a+JlT
-         5yRKIVtPl64pNC21ZHUhsrm+g90J5ogrEXH7vO/BTf8ypeaLF0TD2M3g/gskeybh++NN
-         JkF1+jk0cViPt5uSbWfL/VP2YHSN145qHYBKpyMccqNnIRRh/xpfLZahk33FqFSk3bXa
-         rP7g==
-X-Forwarded-Encrypted: i=1; AJvYcCWfgTcskMCr9aJkkWcIF2S9J9Gt0HqhlgVqzHgkw4KaEUJx4AbeLtNGjLiO0pomNw3i0bog06MIudPczA2CtzqsfbU36voYTWeT2r0BXvZW
-X-Gm-Message-State: AOJu0YzH8beM70SZyTuz2s5CLXiy8Nlv7m8eLBMtGJPEz1EMwWSx0tR9
-	ud1ZPiSWgG4VKAGyzMkyO7CD8EICzCr6+Rr+tVMLuQuMWyzqImgsilMo0RS+Tek=
-X-Google-Smtp-Source: AGHT+IFe8EfuHyfR6/MI5fUajRdSh/iNX7dmkKRiYA/xzF9WgxpkGHT5zehtXJ97sF4LICcgy/mGgg==
-X-Received: by 2002:a17:902:e542:b0:1dd:5f85:118c with SMTP id n2-20020a170902e54200b001dd5f85118cmr2773574plf.62.1712240141481;
-        Thu, 04 Apr 2024 07:15:41 -0700 (PDT)
-Received: from localhost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id k5-20020a170902c40500b001e252f2bdd2sm9133829plk.289.2024.04.04.07.15.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Apr 2024 07:15:40 -0700 (PDT)
-Date: Thu, 04 Apr 2024 07:15:40 -0700 (PDT)
-X-Google-Original-Date: Thu, 04 Apr 2024 07:15:36 PDT (-0700)
-Subject: Re: [PATCH RFC cmpxchg 8/8] riscv: Emulate one-byte and two-byte cmpxchg
-In-Reply-To: <20240401213950.3910531-8-paulmck@kernel.org>
-CC: linux-kernel@vger.kernel.org, kernel-team@meta.com, paulmck@kernel.org,
-  andi.shyti@linux.intel.com, andrzej.hajda@intel.com, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: paulmck@kernel.org
-Message-ID: <mhng-d6a8a972-5054-4c48-a903-5a53a31da9ad@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	Thu, 04 Apr 2024 14:17:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 31600CE0EEA;
+	Thu,  4 Apr 2024 14:17:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA1B4C43390;
+	Thu,  4 Apr 2024 14:17:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1712240237;
+	bh=fCiV5G+P7hLxL4/i+fatn5exEfxvCbsdD/tZJnnspDM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Tctwqk93E2w4iLsFrEADOfQFuky5b4wNMuH6FA88PWnTMge2gd9Hb9e396USZ965X
+	 X/JhrcRRgI/hyNaxrYA09P4GxYq9t47w868GKYGKvaniHLwu1zKEAxTpKaDGH7nxSf
+	 4W8KuZfZkJkqDOJFMU1VdzBKY4pn4H7sVRNSvr12C+/Fa0YIIikqPxf1h2qBXYD4Y5
+	 WdLs9hr5Oq3lVO8TRXPTLgSXdunvgNpBkHQ3I7iL4lmRbVcSNcSkonFwkNyhmYFnGT
+	 YV8WYH87o7DqMAdJVbzimEHAEU/Ma+NaEH5xRmk8N7gl5Sa4vjwGmdii7BFYbAjZt0
+	 7yFjs9n5jPC4g==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	stable@vger.kernel.org,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Wedson Almeida Filho <wedsonaf@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	rust-for-linux@vger.kernel.org,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	llvm@lists.linux.dev
+Subject: [PATCH v3] rust: make mutually exclusive with CFI_CLANG
+Date: Thu,  4 Apr 2024 15:17:02 +0100
+Message-ID: <20240404-providing-emporium-e652e359c711@spud>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1428; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=3u+yX39PQ8dR4zv/dMqW8YPDJelB+vvZV3YqW2204hQ=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDGl822LTjwUwHJoqN+fKFFm3BycEP1hoNrKwX41vS5S+1 bXxXr5bRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACZiwMHwP7PP/eEiv1sfLKq0 V2q68F9UjXt3suRX0LdHRVEsSySmaDAynC5ZcfReOgfPsxPyDuYKEUVMiYz8wtM8kp7O8fjXWGT FBAA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240404_071543_471939_8EC4A5CB 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20240404_071722_741541_8AC069FD 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,129 +78,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Apr 2024 14:39:50 PDT (-0700), paulmck@kernel.org wrote:
-> Use the new cmpxchg_emu_u8() and cmpxchg_emu_u16() to emulate one-byte
-> and two-byte cmpxchg() on riscv.
->
-> [ paulmck: Apply kernel test robot feedback. ]
+From: Conor Dooley <conor.dooley@microchip.com>
 
-I'm not entirely following the thread, but sounds like there's going to 
-be generic kernel users of this now?  Before we'd said "no" to the 
-byte/half atomic emulation routines beacuse they weren't used, but if 
-it's a generic thing then I'm find adding them.
+On RISC-V and arm64, and presumably x86, if CFI_CLANG is enabled,
+loading a rust module will trigger a kernel panic. Support for
+sanitisers, including kcfi (CFI_CLANG), is in the works, but for now
+they're nightly-only options in rustc. Make RUST depend on !CFI_CLANG
+to prevent configuring a kernel without symmetrical support for kfi.
 
-There's a patch set over here 
-<https://lore.kernel.org/all/20240103163203.72768-2-leobras@redhat.com/> 
-that implements these more directly using LR/SC.  I was sort of on the 
-fence about just taking it even with no direct users right now, as the 
-byte/half atomic extension is working its way through the spec process 
-so we'll have them for real soon.  I stopped right there for the last 
-merge window, though, as I figured it was too late to be messing with 
-the atomics...
+Fixes: 2f7ab1267dc9 ("Kbuild: add Rust support")
+cc: stable@vger.kernel.org
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Sending this one on its own, there's no explicit dep on this for the
+riscv enabling patch, v3 to continue the numbering from there. Nothing
+has changed since v2.
 
-So
+CC: Miguel Ojeda <ojeda@kernel.org>
+CC: Alex Gaynor <alex.gaynor@gmail.com>
+CC: Wedson Almeida Filho <wedsonaf@gmail.com>
+CC: linux-kernel@vger.kernel.org (open list)
+CC: rust-for-linux@vger.kernel.org
+CC: Sami Tolvanen <samitolvanen@google.com>
+CC: Kees Cook <keescook@chromium.org>
+CC: Nathan Chancellor <nathan@kernel.org>
+CC: llvm@lists.linux.dev
+---
+ init/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+diff --git a/init/Kconfig b/init/Kconfig
+index aa02aec6aa7d..ad9a2da27dc9 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -1899,6 +1899,7 @@ config RUST
+ 	bool "Rust support"
+ 	depends on HAVE_RUST
+ 	depends on RUST_IS_AVAILABLE
++	depends on !CFI_CLANG
+ 	depends on !MODVERSIONS
+ 	depends on !GCC_PLUGINS
+ 	depends on !RANDSTRUCT
+-- 
+2.43.0
 
-if you guys want to take some sort of tree-wide change to make the 
-byte/half stuff be required everywhere.  We'll eventually end up with 
-arch routines for the extension, so at that point we might as well also 
-have the more direct LR/SC flavors.
-
-If you want I can go review/merge that RISC-V patch set and then it'll 
-have time to bake for a shared tag you can pick up for all this stuff?  
-No rush on my end, just LMK.
-
-> Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
-> Cc: Andi Shyti <andi.shyti@linux.intel.com>
-> Cc: Andrzej Hajda <andrzej.hajda@intel.com>
-> Cc: <linux-riscv@lists.infradead.org>
-> ---
->  arch/riscv/Kconfig               |  1 +
->  arch/riscv/include/asm/cmpxchg.h | 25 +++++++++++++++++++++++++
->  2 files changed, 26 insertions(+)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index be09c8836d56b..4eaf40d0a52ec 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -44,6 +44,7 @@ config RISCV
->  	select ARCH_HAS_UBSAN
->  	select ARCH_HAS_VDSO_DATA
->  	select ARCH_KEEP_MEMBLOCK if ACPI
-> +	select ARCH_NEED_CMPXCHG_1_2_EMU
->  	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
->  	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
->  	select ARCH_STACKWALK
-> diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-> index 2fee65cc84432..a5b377481785c 100644
-> --- a/arch/riscv/include/asm/cmpxchg.h
-> +++ b/arch/riscv/include/asm/cmpxchg.h
-> @@ -9,6 +9,7 @@
->  #include <linux/bug.h>
->
->  #include <asm/fence.h>
-> +#include <linux/cmpxchg-emu.h>
->
->  #define __xchg_relaxed(ptr, new, size)					\
->  ({									\
-> @@ -170,6 +171,12 @@
->  	__typeof__(*(ptr)) __ret;					\
->  	register unsigned int __rc;					\
->  	switch (size) {							\
-> +	case 1:								\
-> +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
-> +		break;							\
-> +	case 2:								\
-> +		break;							\
-> +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
->  	case 4:								\
->  		__asm__ __volatile__ (					\
->  			"0:	lr.w %0, %2\n"				\
-> @@ -214,6 +221,12 @@
->  	__typeof__(*(ptr)) __ret;					\
->  	register unsigned int __rc;					\
->  	switch (size) {							\
-> +	case 1:								\
-> +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
-> +		break;							\
-> +	case 2:								\
-> +		break;							\
-> +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
->  	case 4:								\
->  		__asm__ __volatile__ (					\
->  			"0:	lr.w %0, %2\n"				\
-> @@ -260,6 +273,12 @@
->  	__typeof__(*(ptr)) __ret;					\
->  	register unsigned int __rc;					\
->  	switch (size) {							\
-> +	case 1:								\
-> +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
-> +		break;							\
-> +	case 2:								\
-> +		break;							\
-> +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
->  	case 4:								\
->  		__asm__ __volatile__ (					\
->  			RISCV_RELEASE_BARRIER				\
-> @@ -306,6 +325,12 @@
->  	__typeof__(*(ptr)) __ret;					\
->  	register unsigned int __rc;					\
->  	switch (size) {							\
-> +	case 1:								\
-> +		__ret = cmpxchg_emu_u8((volatile u8 *)__ptr, __old, __new); \
-> +		break;							\
-> +	case 2:								\
-> +		break;							\
-> +		__ret = cmpxchg_emu_u16((volatile u16 *)__ptr, __old, __new); \
->  	case 4:								\
->  		__asm__ __volatile__ (					\
->  			"0:	lr.w %0, %2\n"				\
 
 _______________________________________________
 linux-riscv mailing list
