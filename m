@@ -4,86 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596A0CD1292
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 11:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E41CD1284
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2024 11:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h9r3WW0xohxqYPaxkA/7PXu3lD4O0a+sKLPGJik/fu8=; b=hypOXgTkRQ+XqD
-	+XiE4hee0R20Bmlx2081z1XYhADaotwDJmP17eKEGe6a+3hr/tajQ3ptW1fiVOZw2w2Q6FNcXtXlU
-	zK0EXNiku41O3tUQQWNvr1suPxA1enMBBM/v8aXoLvzqThe5/2UNV6iRbyB9wbXV1asyNLLaMgww9
-	1SDSTHtlTnmG326OfxlhU9ZrGJKl1JbedJEsibl1l7n7ev11Z8oVW+6trS9xEitsXqJA3NiBVbPVy
-	RlyYexd4dJYq6UJVsUcqBBgmRzPOF4fbIzeE22cVB5ZsQsqgIJS9Cx8Rw8ZnFNc1FFCoY8MUX2utk
-	GJOTN6lr1z4XNgdIFKUQ==;
+	List-Owner; bh=cEifeW/0uLvuRVMTRq0TUe29PMKgy/rP9udAH4fwryE=; b=vNDWedHVNB0HjP
+	hpXIndmSeAiYEjtogUGQjAKlRMxXT1NsvHPKnI6G/ydTG6Tp3ghd7tRpz4kx963wEF2zPG4eC6Fwz
+	rw+qTH7GPz8UhbeslZnpLHkNIF1qRXhhpPqZNQhRlpsXJ7bcwoA0HfVVkpSU4nwJGYrBnHpLVwz+H
+	WGm5QejPgwkY3e8GpbQrrrxTQPjDuodxQjMspPz777JtMpzg5nLc0zEayH3gmv4DEekwHKqvM0NOC
+	sHVmZksgapxJahiRlbWBuz0k0IUZF7gB0tEtMeJZa1cTLrC1KMQCnsupu1zQaqd9tUnQwLHz+IAhX
+	HAjvN44L3epKoSx5GUWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsL3j-00000002LA6-12eN;
-	Thu, 04 Apr 2024 11:15:07 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1rsLCe-00000002Mdf-2v8V;
+	Thu, 04 Apr 2024 11:24:20 +0000
+Received: from mail-bn8nam12on20700.outbound.protection.outlook.com ([2a01:111:f403:2418::700] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.97.1 #2 (Red Hat Linux))
-	id 1rsL3g-00000002L8h-063K
-	for linux-riscv@lists.infradead.org;
-	Thu, 04 Apr 2024 11:15:05 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-56e1bbdb362so852438a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Apr 2024 04:15:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1712229301; x=1712834101; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=25ODCdRY+Jn4wzM+mEjHDke5+vqaysXX4gL6DfhOAvg=;
-        b=KBCZ6abBjUgrOq+98lBcw7lQ2wrFqZ78cThJSQc7Wsh6Nl0inPAVqbk0BYp+mejZVn
-         9UWQByvOWOQXC5u/3xFeVTgiTOws1bm8/Be9XOsbWiyfiS9x20h9ON+GsfySjAxoNniT
-         bi68zbgtDnVk28l7qTQUYUaXEgw89uSGvjK8lHU9ArGjwZKrpRx8/T0H3vZntQ364XB8
-         MxEM7lQE1ebFL2PzEbWtQOwpBhZo9ZAXxD0SoxaWMj/HXoNrvrAe/EI2gJGJl1IAPPUk
-         MjjXVuNLku2jyCVqS9wb4L+RZ83HgKG/qAdWtnsd7tCqhGdNpqL7MrsiHhiSkJovfMb/
-         djPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1712229301; x=1712834101;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=25ODCdRY+Jn4wzM+mEjHDke5+vqaysXX4gL6DfhOAvg=;
-        b=JWUaNM5s7RN8iHdtOAblFJsp8rYR7q/qJx2rnt5VeO76CkMqgYqiHxO3TjTy0vCn/I
-         t3m5/qNjimTMoKTufBgdggGCLz1rWdW7NrWmy7xOCUcP65+j99xy473s4xMOyr908lOA
-         OY3HvVe3/6Pqi60xtWcFnm64Pko4DPGc71KBwPmRrXfV75SLHBliXVvtmPqKFShQPIKh
-         IsTgEQf9HGUqVLQvQi3Do9P2WTJeQOcxZ87meZDf1Fx0pRuPEtvu1KW7SHv4rmJdO/RJ
-         gas+nUHj59zdk20auqmMP28HFazz71p4VkL/Gm/RT+XfNlqjgeYXIdwbBsmPT2OlZLO8
-         hl/A==
-X-Forwarded-Encrypted: i=1; AJvYcCWX24LwB2zxSTqX7gwqG2dVuAWkGM26bps1lp6AjcYvm3Qwlzt2i+WIwfZX9wtXLfCQp+v98lPX97pZF+aEbeBsmjG/AK5SDmUPtRzAmd9F
-X-Gm-Message-State: AOJu0YxfEsbsg1u7GUGD3H4XdMsVrSab4kKgmC213qsrZDzl30WY0gPJ
-	1stmfUVSyq9rjWLANgvLg0IgwqURCAcPKgrv4ywoOGlWGowTUz8tt+LeS99wTqM=
-X-Google-Smtp-Source: AGHT+IHVQCEpGYXXQyLBKL2NnoOYXTEECAPh40NJ3Rd5iw4YTlh7y+zWHd66X26Mz6VjXnim0PWvpg==
-X-Received: by 2002:a50:8e4f:0:b0:567:824:e36c with SMTP id 15-20020a508e4f000000b005670824e36cmr1856431edx.14.1712229301530;
-        Thu, 04 Apr 2024 04:15:01 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id fj22-20020a0564022b9600b0056a2cc5c868sm9061098edb.72.2024.04.04.04.14.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Apr 2024 04:14:59 -0700 (PDT)
-Date: Thu, 4 Apr 2024 13:14:58 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, Ajay Kaher <akaher@vmware.com>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Alexey Makhalov <amakhalov@vmware.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Juergen Gross <jgross@suse.com>, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Mark Rutland <mark.rutland@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Shuah Khan <shuah@kernel.org>, virtualization@lists.linux.dev, 
-	VMware PV-Drivers Reviewers <pv-drivers@vmware.com>, Will Deacon <will@kernel.org>, x86@kernel.org
-Subject: Re: [PATCH v5 05/22] RISC-V: Add SBI PMU snapshot definitions
-Message-ID: <20240404-ecddd056e774ccec7cea3be8@orel>
-References: <20240403080452.1007601-1-atishp@rivosinc.com>
- <20240403080452.1007601-6-atishp@rivosinc.com>
-MIME-Version: 1.0
+	id 1rsLCa-00000002MZK-3RpE;
+	Thu, 04 Apr 2024 11:24:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=lrsSDNOqSyl7MNt5N2u5t+fg3Q0H6Rto8DApDQOr/Eq3Kh7GZVTa24aS+arm4WWBsXdcbDhJByAWIlfnlF+YZ6vzP2i5DGIxjVNg+SMMklz5PMBE8w3sEvwJV62+LnNaKPJi0Pr6p+5OVFu6wt9hUETOzanAHLpDJMGFZp1SyyApGNQjL8b2WnmqgUxw3sRzw/sBw/Q2Vlfp5WcN3HQLaRX9aaGAmxUV4CvIGaYIXmkDt7+qnOpUkIcAe7YaZPQmjPruWq6lzmFqnnycbaC100xzbyyOkCvbO+H3bwD2+ZrgyhVJSGbg2ICJuUhFB+PvPMYhnH7KyQEjJO1Evy9ntw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2kDkQ9/zv5NwfQuVZpmIVUSfPhkVZ48d4u/yZoLWCcM=;
+ b=XfVSmChfBHTxZCnWu4ytknFPwhgqaGaShsUPhVGjRDru14mPB0e3+jFSteifIiSelIAfx9fb+FTTtDLK7uAM1MZgHSMCvER5KCa8tsNA0vg6lekpvqvLMwFqGkHUo3LMdcTDxdrTr41AJVwHzU1ubtqSe+HYTHymiSWlLSoqzQdKAlfvBXl5hEJeSbdtc9V6X+nTJhJPdj3V6GoECt2J7rlh7Fr2wLwX8QNaPMVUmmNtZzusWiudtAH+l/yrZF3yMhRuLevUTqrpUGp7vYvksveNjlmBB0pYDZGqGquWkerxAKgAxyN0QRUEvrrjw+5jFFFqiFnGtt0T3eDIf0FxMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2kDkQ9/zv5NwfQuVZpmIVUSfPhkVZ48d4u/yZoLWCcM=;
+ b=LMKNjkNJNgspTQQeL9lBAdhoEJHpmrrbi3qlLaLKLMIn2D2PahxPUgWYg5m5fY5E4UxZrd34GcYHtGKfvG7iRofrFdIiSYSMbEFjnq9zB78dhiY3DU43sHMkGRBmy9VcDGxwqk3+Tq0D1DGgU0a43Ve9W0RvjPhq7dSpSreeSgFzkjwc/32n0cCrmkDLh/uOzVTFcvQDCSX27Cqfn71oHr4j8iJWkjyN7BWoSUDRps5rD4jcVgKGtWcnyPVTjm5ANr7BIH8gpc/zhJ9BtxT7NQ0hdePcGIeDMTgTswui/4JDpumKFSPio8MUWy9EkYdtnOD9HF32eIGqixBC7MiRIQ==
+Received: from DM6PR12MB3849.namprd12.prod.outlook.com (2603:10b6:5:1c7::26)
+ by PH7PR12MB5974.namprd12.prod.outlook.com (2603:10b6:510:1d9::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.46; Thu, 4 Apr
+ 2024 11:24:06 +0000
+Received: from DM6PR12MB3849.namprd12.prod.outlook.com
+ ([fe80::6aec:dbca:a593:a222]) by DM6PR12MB3849.namprd12.prod.outlook.com
+ ([fe80::6aec:dbca:a593:a222%5]) with mapi id 15.20.7409.042; Thu, 4 Apr 2024
+ 11:24:06 +0000
+Date: Thu, 4 Apr 2024 08:24:04 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Peter Xu <peterx@redhat.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, Yang Shi <shy828301@gmail.com>,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Rik van Riel <riel@surriel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	David Hildenbrand <david@redhat.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	James Houghton <jthoughton@google.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, loongarch@lists.linux.dev
+Subject: Re: [PATCH v4 05/13] mm/arch: Provide pud_pfn() fallback
+Message-ID: <20240404112404.GG1723999@nvidia.com>
+References: <20240327152332.950956-1-peterx@redhat.com>
+ <20240327152332.950956-6-peterx@redhat.com>
+ <20240402190549.GA706730@dev-arch.thelio-3990X>
+ <ZgyKLLVZ4vN56uZE@x1n>
+ <20240402225320.GU946323@nvidia.com>
+ <ZgyWUYVdUsAiXCC4@xz-m1.local>
+ <20240403120841.GB1723999@nvidia.com>
+ <Zg2fEP4eEeLhgDwE@x1n>
 Content-Disposition: inline
-In-Reply-To: <20240403080452.1007601-6-atishp@rivosinc.com>
+In-Reply-To: <Zg2fEP4eEeLhgDwE@x1n>
+X-ClientProxiedBy: SN7PR04CA0025.namprd04.prod.outlook.com
+ (2603:10b6:806:f2::30) To DM6PR12MB3849.namprd12.prod.outlook.com
+ (2603:10b6:5:1c7::26)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB3849:EE_|PH7PR12MB5974:EE_
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: EhRUPTL0BFK+d07LVk9SoN/QpGp/aRHWcpkKHH75c+OpLEdeLbeLP4LipmcSfQW01jef+dp/vUsUvuiRjoaYUj1fEc2JfQ9BVpgUknslVXGsZww696g+WitO72VJ83lVLYQKeGYwJ/pXvgagNIRz8IQ2UmVEXFf7bTiiu2+QF/hQP1BK/dsNY3hoO796qQ8U7EfYwPjynbJXwSvDFI0H4/MCGbXI4/E2CQys0NPmVnMlfG6KFebLYfTIh+UPBNW2EfwD6aepXY1FSMuxrt/FMXWOEfI3YFbASKQ1e8MnbOlxj3EjLdL0aJOqjkeose2uEz2g+mCl8PoMUl26xHFmGVX7TAKPmDA/TH1dqDHz6hU8EJUyfcTYp41JAIrQiDxSUwwWfzpFc3H7yU+o9wvUgd1Q6xFaK39J3arscVvY07FsaHqtaCiG/nm2vV7xfAMj+CJ671pBRUuP1XIefnB9aYMtaJXg9GOVBf48d8kJGZmHticgHUpibHCzbzt1l+A0FFXU1sD0WrGKNgGzq2Q6NZl6xxl7ID99D2BCP+2nR7QiASNmN+5a0KlWTTPBcP2U6ZKfUHmCUefRmMpqPMhRvf4IZzc+3t2fgYZv63TP+5n4Bh2VgZ5LZwtQXpVSsKSOK0hVswNc9a6vD5Kw1W3wYliIc/+EQdtt6H5DQU2p97M=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3849.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(366007)(1800799015)(376005)(7416005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?C854FYBwplDK2b2mVfpBsUhj7KjqPPDZPvQX/Sv7AeTTBoKA7jwQRfdtVaiH?=
+ =?us-ascii?Q?s4kCGdb54LXgKv33xrh1BYMThIzDZCevShJm09H5t6HxKLYSnfdhFCkIrzoc?=
+ =?us-ascii?Q?tQK7PJWEFGKuTJCOGPIwJVOm5Pav7Zag1S1EbSFwaR0x82eHo1YAQFCuwbvA?=
+ =?us-ascii?Q?dtzuERFsFTilIUJ0Br1xorWmduXeAzdqHl2imqpmWMeftBHHxSdWIXhM3BZE?=
+ =?us-ascii?Q?HA2ma9V+4MFUCFV4iFeJz+twk3iFOqT86DhwcnTZ2mL4yxSef60xzYjrjNXq?=
+ =?us-ascii?Q?ibshr49kRiLmCKfArUEE7LhJcGYbyRecG5+M4QYHEgPDuKnByvp27CGxnTLt?=
+ =?us-ascii?Q?IFDvqsrgMZ5Htrjjm4Ua16yxD2YEzv9dNCd+NkSBnEfwTjQARj/XCfqsd8vV?=
+ =?us-ascii?Q?OYDqbY9g94G3Jkblw8X8Vr/GBaFLSl8srAAT8hv7eWHgcX4CcahQLpSkYyRi?=
+ =?us-ascii?Q?l3AOuJEOO0qcS5c0yH/qTsPvEmyQf2m0C5rj7OsZFu0k/EmDj0Q0bD1E5+7Y?=
+ =?us-ascii?Q?HXZhYOs1cjl1bRxkmDFFKL+phQZ3nrbLympGWFsT8efJy1NfQhB5mVx5ZAnn?=
+ =?us-ascii?Q?vTuVymdxYee2EKJ5Qv+B95vijMw1fVuEF+ylmyFBOhl1TUqC7hMSsyW6iK+/?=
+ =?us-ascii?Q?94fiH11XtEb07MYCH1IOp5GeFsbUZ94DCyc5Kl2O8tP7gFeqWM05zzfXKQhQ?=
+ =?us-ascii?Q?0k2cK6ZtLk33tpEfwB5La2UBaYiWNylFpn6RFDqzb1IDv84iA27zSWV7Bpsr?=
+ =?us-ascii?Q?S8XPe/4smKU04AeVuYI+C9rgCEpm8pORKyZ54gNXk0OVeo7fuMZONnYxjlic?=
+ =?us-ascii?Q?RsVreaDPZ2+q2V2uq8SP56LYOsFty2uPVTBExUYnuZm7gpIfIDYg+aestGm1?=
+ =?us-ascii?Q?2lqSZn79waVji4HSfr1sLBjQWMZRVuHoImozY1XXlViGhkbiUGYrL32ThnzG?=
+ =?us-ascii?Q?El/lS/XOEROMwaLltHwo001l1s1hnFCNVbOufpHVcyLPPYQz1EZW6GeGwtEE?=
+ =?us-ascii?Q?PlRteep2rKKrthhjjurgji5IXwHQmbUGrm4kCqDrzgFD92kLoqlNq1OGD5RD?=
+ =?us-ascii?Q?KZ7C/x+G+4kZqd/o4S7G7Q2DdIQaYSvLyRyDEJhiF91ZJtMcDtEmkr1xMYSf?=
+ =?us-ascii?Q?R30vU2/GUYVcVfQShrz4lHHjEVECTIvlqNrM0DS1JL8NOCWiwoVubmp13sOW?=
+ =?us-ascii?Q?Y0zwUx4ZWeDu1Za2WwM/uNOgTz3wPkhiH0R5YMQbmYOF5WuTje7Yi+lZ0MAB?=
+ =?us-ascii?Q?V6UVKVq++2a3eLYhffjA2/+WCvPg9Glp9i7BEbm2iiXBrOzKFT6rN10b/MH1?=
+ =?us-ascii?Q?Zs/9nKaojeoy8fsE48hP/4XikCvwTtQ7M/bGDFGpg0q06oo0TBCX5prXoGwW?=
+ =?us-ascii?Q?TyNxpYtkjqK2djj9EYpY692AIjIRMRlhjeIWDDf0VhRYyTuxHDYPOmbsgeVZ?=
+ =?us-ascii?Q?NcXUFJYq+GNn124idWKscbVWwLLOWJl8E1Mkmot6LNJwKTZU1mhWCM+JjC7s?=
+ =?us-ascii?Q?VqxaSv/SkfooBIUfVXe8EmVqcfQDknznDg8QWnolQTDlvhr/jI2P2/9vPJuH?=
+ =?us-ascii?Q?2cJgd5jXQyqSZ8ix9G0Y+KNjjdocQd2AJCFRs3/5?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: edfc7635-92d2-44b6-3143-08dc5499bd29
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB3849.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Apr 2024 11:24:06.3306
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IPAtOWolyisb3/wTTV8/MSg4tfw/iHU/cjfNRqEbNOnjvS+MN6kZEmxhEPCEbeIq
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5974
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240404_041504_096631_9A984394 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20240404_042416_895522_B7B272F1 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,70 +159,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 03, 2024 at 01:04:34AM -0700, Atish Patra wrote:
-> SBI PMU Snapshot function optimizes the number of traps to
-> higher privilege mode by leveraging a shared memory between the S/VS-mode
-> and the M/HS mode. Add the definitions for that extension and new error
-> codes.
-> 
-> Reviewed-by: Anup Patel <anup@brainfault.org>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  arch/riscv/include/asm/sbi.h | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index 4afa2cd01bae..9aada4b9f7b5 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -132,6 +132,7 @@ enum sbi_ext_pmu_fid {
->  	SBI_EXT_PMU_COUNTER_STOP,
->  	SBI_EXT_PMU_COUNTER_FW_READ,
->  	SBI_EXT_PMU_COUNTER_FW_READ_HI,
-> +	SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
->  };
->  
->  union sbi_pmu_ctr_info {
-> @@ -148,6 +149,13 @@ union sbi_pmu_ctr_info {
->  	};
->  };
->  
-> +/* Data structure to contain the pmu snapshot data */
-> +struct riscv_pmu_snapshot_data {
-> +	u64 ctr_overflow_mask;
-> +	u64 ctr_values[64];
-> +	u64 reserved[447];
-> +};
-> +
->  #define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(47, 0)
->  #define RISCV_PMU_RAW_EVENT_IDX 0x20000
->  
-> @@ -244,9 +252,11 @@ enum sbi_pmu_ctr_type {
->  
->  /* Flags defined for counter start function */
->  #define SBI_PMU_START_FLAG_SET_INIT_VALUE BIT(0)
-> +#define SBI_PMU_START_FLAG_INIT_SNAPSHOT BIT(1)
->  
->  /* Flags defined for counter stop function */
->  #define SBI_PMU_STOP_FLAG_RESET BIT(0)
-> +#define SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT BIT(1)
->  
->  enum sbi_ext_dbcn_fid {
->  	SBI_EXT_DBCN_CONSOLE_WRITE = 0,
-> @@ -285,6 +295,7 @@ struct sbi_sta_struct {
->  #define SBI_ERR_ALREADY_AVAILABLE -6
->  #define SBI_ERR_ALREADY_STARTED -7
->  #define SBI_ERR_ALREADY_STOPPED -8
-> +#define SBI_ERR_NO_SHMEM	-9
->  
->  extern unsigned long sbi_spec_version;
->  struct sbiret {
-> -- 
-> 2.34.1
->
+On Wed, Apr 03, 2024 at 02:25:20PM -0400, Peter Xu wrote:
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> > I'd say the BUILD_BUG has done it's job and found an issue, fix it by
+> > not defining pud_leaf? I don't see any calls to pud_leaf in loongarch
+> > at least
+> 
+> Yes, that sounds better too to me, however it means we may also risk other
+> archs that can fail another defconfig build.. and I worry I bring trouble
+> to multiple such cases.  Fundamentally it's indeed my patch that broke
+> those builds, so I still sent the change and leave that for arch developers
+> to decide the best for the archs.
+
+But your change causes silent data corruption if the code path is
+run.. I think we are overall better to wade through the compile time
+bugs from linux-next. Honestly if there were alot then I'd think there
+would be more complaints already.
+
+Maybe it should just be a seperate step from this series.
+
+Jason
 
 _______________________________________________
 linux-riscv mailing list
